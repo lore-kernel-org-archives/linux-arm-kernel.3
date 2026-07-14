@@ -4,114 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89A75C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 17:18:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8EF5C4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 17:18:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6ja824+WEhomskfYCkM3rLk2MZr0em1PMkZk1CkEWLQ=; b=qaVA2er9/ALHQrbK9mLSQ0iU5b
-	b6iteRxjlyrdigGUoNAmfV4xPW2QVGNicJ4gOoPqgGtQFh0X3PCpd7rnQoYGEzbOOuD6yx8AtVVDm
-	K5AeoXL33O1iVrJBswLPRTjir0mhTrKZ1RS9QL2eZ4fOJdRpTH0nJcp1VkD1qEebATeBcbHJjh+in
-	4qw6Q4ukvoIYRKprl2E+989U9PgCM3isz9S7pYXwlSGdvYHsteMnMG7IDZTEG5eanUCsa4CQh608p
-	MDbDoMuebC4ZZ1XHwN8FyR0b0bXD7E7qRFpcEbZnETn1dPiwzC4QQUahh6fh6I3VoNYTN8DVvNoaI
-	sbsGUylw==;
+	bh=8s7l/m7UGxkZIIDkB6Sh24bMViJas+fhJLKeQf2TBPU=; b=Sri7hCSyGJkmU6A+1bDT2WcYo2
+	CiYJbeSZTgWDUNOkHub/Cd+HtcinkCD+2WWk2RpToGlldr/q0B8lc8/H8De6opCevmw9g4h7T/sNA
+	hcDG7TPoL8vMrZWaf4O0zfsKMoQrhlOe7p84eGnAMtkUa2mblkd/oDTHm8/kWs96Cs3dUtvt8hFSt
+	0R99OQroBb87l4c7ETtzWn7cjH7M5U50lwc8q6Yz7l1ULSXsu8wyrtZhyu5ZkMD8DHlk+kFzcxVt7
+	kDdTKvYdGFnhC1KLSL5YDfdCYelO6WdvzWmzkegmQ3fx519HYw8MKnuebfI2DijBe98AgyqGiszeI
+	LgDQXG2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjglf-0000000Cjzr-3yQJ;
-	Tue, 14 Jul 2026 17:18:03 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjgle-0000000CjyQ-1qww
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 14 Jul 2026 17:18:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=6ja824+WEhomskfYCkM3rLk2MZr0em1PMkZk1CkEWLQ=; b=PgeXwbVP6ML6YB7xlsknkEvwwN
-	yfsxbbpyqzVH8UHNGSw0TjA/JqCuWX8gqGG8S9A4C5n9aUlF509axDLfBqC9NBRlW+LAr184nocHi
-	0f4EMimWhrHoDmlL+Q3hjOGE+w0YZ9De0Qj/MwXkiAYi6TAGKcOeXhp4SPqK/hMg8HBazlMVR8Dy8
-	x9XYJsaoR/WYVcf2+1Lbm+MNkyD+fodPB0Zy/gcvsvffp1Oe4uzpQofYh43z2JymiALCsRZ/2Ymgb
-	3WW/3WWImnY91iRxJRKZCo4vU4hXYSbam4L71Oy950nV09Oi5q/IsslIu5J2CwYKVcTafjHpFXCfv
-	xGCSukyw==;
+	id 1wjglp-0000000Ck3y-0gMw;
+	Tue, 14 Jul 2026 17:18:13 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wjglb-0000000CioY-1w0a
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjgll-0000000Ck2K-1nfh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 17:18:01 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66EHAebX1177001
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 17:17:57 GMT
+	Tue, 14 Jul 2026 17:18:12 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66EG7A8B1091430
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 17:18:07 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	6ja824+WEhomskfYCkM3rLk2MZr0em1PMkZk1CkEWLQ=; b=olQ+i3p51ODhRg2X
-	0dXQ8vmRFQzbniW44oE8+jTuBdtnwuoauiYcPYGzI3xg2eohPZxsPYbPBHeiaZVR
-	4vk/kp2oX9xy1uimqdzfN4z0ixDc1Hb8M/PbayfvX5vU4C3pv4HUsOREEuoUCh8V
-	kw4EU2iwgqemCvbUl3blD0EUqSjed2l9iWces0GFO4GKI9ZHpP68e4pJwFpeM4u8
-	+tQQ3S7F2y9lyNR+x++fOL2o2y8XwzemH4MCGqtiG3A60VkVkoxWo7XrrqDf7Tbu
-	yxfZhRjWmQrMzSl93n9Tm8VISd5AwrAfKv4g0a2RjJyFSR0TQwjwMT7qkPNa43uY
-	vWR9Pw==
-Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com [209.85.210.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fds9kr0xs-1
+	8s7l/m7UGxkZIIDkB6Sh24bMViJas+fhJLKeQf2TBPU=; b=MwdR8/XzC7jmZcmC
+	T62ytHmTWUJFu8YBB7JXFSNibli9m1pMFh0YKAV/hkv/PrBhi9ZP9PaGmJe5Oogv
+	bqBQuAG0tx5XqSW30+Pjmk+oHl41zBOhxoL5EPH8QF2mhMlM6+qqLT48Ei17fCX+
+	I3hmssAVq/R3aqwNx6/Yd5jMCC6tU5ZxHxe3cIcoriAXqtROLSDDS87F2/xZO1GV
+	ZaUzc1HWd6blOoEFpCn3M/Jyhe2nrJ8xjYMJaZKPaBd4wf/lgvknGLqLi5yHJDhQ
+	gNrwYALaUa6KJVEsvUogQi9DFwMq+PcJq56xIoKwFSLrcBsg00P6yp/crTTfnF9T
+	PO+BUA==
+Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fdgudjauh-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 17:17:57 +0000 (GMT)
-Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-84857446424so9169282b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 10:17:57 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 17:18:07 +0000 (GMT)
+Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-848551b54f5so8790278b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 10:18:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1784049476; x=1784654276; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1784049486; x=1784654286; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=6ja824+WEhomskfYCkM3rLk2MZr0em1PMkZk1CkEWLQ=;
-        b=AdWuq2+6ke/dZ1Oa6av9r4rzBKilgf3IlCzObTAriD8E9aQGpfiYk93Nf34l5164fv
-         ByaHTgJeJFujRHzBtKJGybFFNrSgcgzNlJ/rj6og0s0KnW2qb4go6YDJMe06TZlx+Vq+
-         CC0xc8mUY1nAugYfeREprwarQVKiaH9iHrgSDOyN5t5wZ5ZJPVv3Pz9tiB5n1zIGIXmR
-         i6FVYHNUQemgJtdIAzQ07HLZm/Oxc//RCGcoMbidYWw42LIyyaUyVdDrEeaJzpGZlUZR
-         67hqw+nsXIfE87xJlUZ7T7hcq+cR6tL0JqxA3mWYJRDqsfuFTOqkJKo5j/ehp0pZQUag
-         4rLg==
+        bh=8s7l/m7UGxkZIIDkB6Sh24bMViJas+fhJLKeQf2TBPU=;
+        b=KVIsW7kiCP65K/ISBa4fLbRudt3MbP4bihVj3ndMzVdHECklzSFKoUjCPvmW9ZXubV
+         sSnNl/VCsRwvrXtFxiWuLo3AoOYHKk5MGdlwvvczxPAcMDbh0xC1xOn8uwyVjRLYXT7k
+         hJ5TPkU95zC3qjtMgpn8IGsURzCClt0JBllfGeLfR+FO+ibwl6JCCcyU5wQ1Gj2GbcZX
+         IHM9Ql68swdfaLVjmbMPsrsfl9HXPZLdKLBr/TkHAsuos8SlHqpSuU2QWNu0ULctj61E
+         3YPlibkcztsIRSVqPWZPSVmcbwp2vQcpKqj1CkEoEaqkthGeHhVSJx1IPcknn3gM+Y7I
+         ipFQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784049476; x=1784654276;
+        d=1e100.net; s=20251104; t=1784049486; x=1784654286;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=6ja824+WEhomskfYCkM3rLk2MZr0em1PMkZk1CkEWLQ=;
-        b=iQM3xe0Tqu7mNV0YgETYsS6w0X5GnXE+17ZatVLt0pRS+LvOEJXCgt4PaTXurgNS27
-         T0R48z5omoDpVDRQla2OoxHgSpNaxKjfhuaUOYlBKbt13wABFqtqh0qCLr01GLrNAT0F
-         brKH8sBDQpo9ca4NLxeiXZZbg3aw5vrP0AzWOI978NrefZmLzjNcmpNdlIar7z6W5oL7
-         cxaR7Rb8B0rNJZw09M5DyazuzICuhIulRsPaKdveU3pFNOsSjX98FuwjsdEJRXSA6hSX
-         +DeLXpqm+08LZYYjF+EN4dQWpSBslmQdBiLvV2XBW5KwXSev7CK937YqEMsUhc6FPiHh
-         jWXg==
-X-Forwarded-Encrypted: i=1; AHgh+Rr5yriQRzKLGKCwyC2ULri8qcSNe3WrdudjnsjbYCtKju4qLzXR0qPMrSkwCFRR5RqgmZZbu7Ha2iY48qSQzW0A@lists.infradead.org
-X-Gm-Message-State: AOJu0YyBLHBQadl+fsm/r0ZK3t1PiAhdCSzvDWoQXnd32/1bYs5wFU0R
-	ryYkHoMGOcOlLFmcVpwIaQXXb832vrWJu8pgrVUaHKRtZz/K7Rzq75IbyKXyfCQYrTER1PEWsKM
-	0HRE8wEoPTyo87DQc55912BO5GORYM7bUATasH05wRch7Cz5z5Y6iq4croV88L1ZPGuaY6t8ZqN
-	9gPA==
-X-Gm-Gg: AfdE7cmSFhXb69CPJcBmr8rbXFP6iGHs18/ia+BRBU8lqbQqnR8bOOvC974jls8hCTd
-	apxjYZ3IJjNrBHuoPRmTEP04hoCSjNUIZuNs0D3IUQMcg2PTFeJK/EAGPRtoExhEP/Y2+4NwwvU
-	1vn7yFpwhHspXZjVRXVYLZN7O82Imh1D65OSiZgi5WBiPZQG6rkiEf3HieuJkl1W6jUOdnSaNUu
-	R92o3D3MDLDMKC/ZxZPh/49nb7soqXEw5Rav2XWz6lrUCF8NYExLMXFQ41Ah+ZLLu0h7KGzGg3n
-	27OUIBtFSFi9ndFG6Op5QamEhxIS6uH2Sjw7qOlLmG5zBggDbIM+n6BUbO9FOgj0TxM13clRq+8
-	qh/xT2e046vEC2C99kUk/u4DpfmS8+bbFlB4/H4uAi6HXK8I=
-X-Received: by 2002:a05:6a00:18a0:b0:847:8387:e32a with SMTP id d2e1a72fcca58-848896ddd25mr12586625b3a.46.1784049476117;
-        Tue, 14 Jul 2026 10:17:56 -0700 (PDT)
-X-Received: by 2002:a05:6a00:18a0:b0:847:8387:e32a with SMTP id d2e1a72fcca58-848896ddd25mr12586579b3a.46.1784049475558;
-        Tue, 14 Jul 2026 10:17:55 -0700 (PDT)
+        bh=8s7l/m7UGxkZIIDkB6Sh24bMViJas+fhJLKeQf2TBPU=;
+        b=iM2X2YKM65yL/pBfttm3c387UUThkYrtBbKUHO8HKbnMf40gpgkxRUecxHRlYc+F2N
+         v4PsOJ7OiFAQwpg1leKeDnj0QcNH9OQ+MUS4+5ouFVkyw+oXMAp6FS/nw9VjjDu0LkSi
+         tQ1PLCDpDjpOqzK/zEZO35T0A1tk4EQAdEGj+eUP6K5wLCv4acC3Hmo15TSR5hBC1Qi1
+         iZojyl7hWIFRObVtihm/+9Sbfq18EmWmDMs4sMfh0NPf9ZWqHe4LOxooVS44i/t5/dqg
+         4H+vmLgjwd9I+tLsN+YWewJ7E+EQNL3lQZiGKchoVe7VmONnzOGQl/gs+U7Z4kpH+q8l
+         OXsA==
+X-Forwarded-Encrypted: i=1; AHgh+Rr7oc7ilCZ1CFzvdu6kWqreKXmkvfJaARXtLftkBH0zXbisTcirtS1+VXhvAczH/nXnhXaHzAaX4zgMFaPmDp0H@lists.infradead.org
+X-Gm-Message-State: AOJu0YyNuMyxnQB+W1/eicuvgsMQou6LQ2gMRk1UjyNvr3iUviw66ORY
+	CwSvDFUIIUx55FKNzLCoVEWq1aczYPknLwKzmBrY2thJYW9aLNN2GeQmPqVVtuf2o/ciMcWo0lO
+	R2wtkb3OmC9QoWVoxYxM0sU3RTD3+Z1O9w4xeZMixUK+IVWmPH6e8ZyW9+dx7y/8GtvDg1D1gnO
+	Tx7g==
+X-Gm-Gg: AfdE7cmUBWko1r2lfbK1bzoUVmj0TYRQzgTnUAFnvYZLMlJPE132HJQBIZ5VJn6DIFm
+	YHAfmTFoKFlzlCxIRtE+60z4gHc7ldJTTDoiOx+dl/jmntWDOljxuBnKvlIMC7hwL3KJms+vaRy
+	GQ0zmS+Cw5m3acK4QzUB8RH82U9WQXjuVODHOVu5p6cLFSywDk1XPbDB/swg5H1tpTVFSQOmbT0
+	PnxbpG8KuznV+tVV6Cq3iicz83KRTz6jVuYLZHNyS2d6XxiEMAZTNOrxuadfGrU1Anzj6+lLH9t
+	WBPPgoE1CjUvt2lcdmu1PS13Dz7RF6pvioZnI0Ae1g+pL5avgva477Audhlf+k3Hx+M6xSgVj8F
+	SiTbajaoe1FktwEFAX+xQ7cWuq/+/od/Wm/sMr5Vsxng/Nns=
+X-Received: by 2002:a05:6a00:8d1:b0:847:8704:1c48 with SMTP id d2e1a72fcca58-8488961992emr13510240b3a.20.1784049486323;
+        Tue, 14 Jul 2026 10:18:06 -0700 (PDT)
+X-Received: by 2002:a05:6a00:8d1:b0:847:8704:1c48 with SMTP id d2e1a72fcca58-8488961992emr13510216b3a.20.1784049485746;
+        Tue, 14 Jul 2026 10:18:05 -0700 (PDT)
 Received: from hu-spratap-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84a5bfcc2e5sm731773b3a.56.2026.07.14.10.17.46
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84a5bfcc2e5sm731773b3a.56.2026.07.14.10.17.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jul 2026 10:17:55 -0700 (PDT)
+        Tue, 14 Jul 2026 10:18:05 -0700 (PDT)
 From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-Date: Tue, 14 Jul 2026 22:46:35 +0530
-Subject: [PATCH v23 07/13] power: reset: Add psci-reboot-mode driver
+Date: Tue, 14 Jul 2026 22:46:36 +0530
+Subject: [PATCH v23 08/13] mfd: core: Add firmware-node support to MFD
+ cells
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260714-arm-psci-system_reset2-vendor-reboots-v23-7-e7453c548c21@oss.qualcomm.com>
+Message-Id: <20260714-arm-psci-system_reset2-vendor-reboots-v23-8-e7453c548c21@oss.qualcomm.com>
 References: <20260714-arm-psci-system_reset2-vendor-reboots-v23-0-e7453c548c21@oss.qualcomm.com>
 In-Reply-To: <20260714-arm-psci-system_reset2-vendor-reboots-v23-0-e7453c548c21@oss.qualcomm.com>
 To: Sebastian Reichel <sre@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
@@ -143,45 +129,46 @@ Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
         Andre Draszik <andre.draszik@linaro.org>,
         Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
         Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-        mfd@lists.linux.dev, Srinivas Kandagatla <srini@kernel.org>
+        mfd@lists.linux.dev, Srinivas Kandagatla <srini@kernel.org>,
+        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784049398; l=5437;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784049398; l=8008;
  i=shivendra.pratap@oss.qualcomm.com; s=20250710; h=from:subject:message-id;
- bh=2g/1r+tUGIrYD+Rpn7qaYdeF3w/p959uoI3764ZH9S4=;
- b=RmGqrG14uHOhF9BDsVH78VIuj42ggnKscphUOnOD+Gsmj+ocFk015pzZWMOf1ClDpSeh6qKxr
- o9Kk+eX4kGJC5I1S6kHDTRVsTWq5oA0b2e42D470B9lnOFzbRc1I0zn
+ bh=xpBz08jTmXyusCjePfq1hVafxvJ109djGJUNB0orD+8=;
+ b=KXZZ51uhN5KQpmxnw/BcJEipsOj+v1rq8O/+vuB7MR4ZBpdH4zXSPh1vcBBbaGBLatOIJ7tI3
+ XDEbJayfgkMDK54Wj3oA6XDxJxXNlYM5G3JYYHiV9uKvkyjsv5yH5Ci
 X-Developer-Key: i=shivendra.pratap@oss.qualcomm.com; a=ed25519;
  pk=CpsuL7yZ8NReDPhGgq6Xn/SRoa59mAvzWOW0QZoo4gw=
-X-Authority-Analysis: v=2.4 cv=Q63iJY2a c=1 sm=1 tr=0 ts=6a566f45 cx=c_pps
- a=WW5sKcV1LcKqjgzy2JUPuA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+X-Proofpoint-GUID: K-HMq_EVohagkf7SpIA-F0wQyqmgwbGb
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzE0MDE3OCBTYWx0ZWRfX8aw7VhX+APtR
+ BGY2r5vuaMclCpdvwO0UUXw311MXWFZ3bzQ7/EI1X/nTCftyox9FT6TcVaFvT+A0LJjxhH8Rj0f
+ OrKgUFLs/bX9ciYe26Fg+hwsWPgJHJzx6TYQSwenc16isVla/yatzLDRKXk292cAp4hj00vLSLw
+ jFBfKvmoNtFoNi/b2usgBIg/Ww6m8VWneqlPP2RcTlk+HY6yQZsH0yYIy8H/aF1/rIIG5x4DJb4
+ AWA+so5CmHK2AYt7L36dL1cpXM7ZUvSxfJTz+8pLXYRFtutGHWjLyuyA6tQUiAUEeQyNxaLgE21
+ dZvxZFdpUKtorx8r2FcWjawFHn9mOtjThU5scoN6KuyduZtSJyckK6ygvwjndxbbLdU+rPRXa7p
+ qC8i7U9CzTp70WzblrTZ8Xna7B+JXLLOF64LEqdmqcPfSXnkK+tITCiX5+7SYzlZomz0GEMIJrO
+ xyJZ4Ui8kDzbYN39GAQ==
+X-Authority-Analysis: v=2.4 cv=T/O8ifKQ c=1 sm=1 tr=0 ts=6a566f4f cx=c_pps
+ a=m5Vt/hrsBiPMCU0y4gIsQw==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
  a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=EUspDBNiAAAA:8 a=5CqnhzuZLWPXzHx0y-cA:9 a=QEXdDO2ut3YA:10
- a=OpyuDcXvxspvyRM73sMx:22
-X-Proofpoint-ORIG-GUID: Ge4TOjp0xwY8tCYCYWghifYW6qmEg5Fd
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzE0MDE3NyBTYWx0ZWRfX6jOhTtEtEeaJ
- MV7Rx2/ZEa/rKMbao8rtURrEij8GdfOBuIPJvSvH0v8p961CwyH/f0xl7lPS/7xgBnH5Lb0jLGu
- zEqslUBIoGIc2LtVSF7o7Qv4woYvuqk=
-X-Proofpoint-GUID: Ge4TOjp0xwY8tCYCYWghifYW6qmEg5Fd
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzE0MDE3NyBTYWx0ZWRfX2sTdnfU0jn5y
- bHHtKqdIepuXIExsinjmwvGij+2lNjnWIhu7N/UWk2PE34tka6zYeRuO3PYxRJXGJkucv39lpkD
- KsKRL/R+4q+UT5HeBP3FY3lauXTWXz0XN9dyy7q2s4/RbupTj+04pbH5yT/+62nvDEFwKKVom9p
- uXQxHDo9EvFIwmquniq0nZy+g+q8JgPXZ6/oeMpe5i14u3TMLiPtOFeShLojbYy3pT9nTvRJnl6
- RR8DylfoaHXT+vBERezMGytuuqaYMQbTrzaFCXauhHo8Auwnw44Or4PRGFC65Z8xELvZ4ouLFNg
- 7mP9P/r2KSYu9+fqSTd9zcvIyeOS8k2ncYzTOnCgWAjnKHKpMqnG6JEQWgLfCnJuFP++FO1u384
- sguJemEH6YmXx37qA6SoJk1e/gbCtJ5Q0SWPbU2C6OZUVfe9RJ82XCgwOWo3gQQHtGGozgs8Z7z
- jtrK0R3So7VNLtjpSwQ==
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
+ a=EUspDBNiAAAA:8 a=2Layw8R8_bQqnRkAqW4A:9 a=QEXdDO2ut3YA:10
+ a=IoOABgeZipijB_acs4fv:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzE0MDE3OCBTYWx0ZWRfX8sxsNVizMH8z
+ WtAQPPE9WK6pkHyiPCh30tg8H7qYWv4ai01kJg8/b9jVL6BneNL8Of5O6ssIglnEN81ZxSuMfSD
+ Nt9+pJmq0D/wzDxeRM7oq893QBtDpig=
+X-Proofpoint-ORIG-GUID: K-HMq_EVohagkf7SpIA-F0wQyqmgwbGb
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-07-14_04,2026-07-14_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 lowpriorityscore=0 adultscore=0 suspectscore=0 bulkscore=0
- phishscore=0 impostorscore=0 malwarescore=0 priorityscore=1501 clxscore=1015
+ lowpriorityscore=0 malwarescore=0 adultscore=0 spamscore=0 phishscore=0
+ clxscore=1015 bulkscore=0 suspectscore=0 impostorscore=0 priorityscore=1501
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607140177
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607140178
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_181759_880272_B3130C8E 
-X-CRM114-Status: GOOD (  28.60  )
+X-CRM114-CacheID: sfid-20260714_101809_640398_592D2275 
+X-CRM114-Status: GOOD (  28.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -196,161 +183,263 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PSCI supports different types of resets like SYSTEM_RESET, SYSTEM_RESET2
-ARCH WARM reset and SYSTEM_RESET2 vendor-specific resets. Currently
-there is no common driver that handles all supported psci resets at one
-place. Additionally, there is no common mechanism to issue the supported
-psci resets from userspace.
+MFD core has no way to register a child device using an explicit firmware
+node. This prevents drivers from registering child nodes when those nodes
+do not define a compatible string. One such example is the PSCI
+"reboot-mode" node, which omits a compatible string as it describes
+boot-states provided by the underlying firmware.
 
-Add a psci-reboot-mode driver, and define two types of PSCI resets,
-predefined-resets and vendor-specific resets. Predefined-resets are
-defined by psci driver and vendor-specific resets are defined by SoC
-vendors, under the psci:reboot-mode node of SoC device tree.
+Extend struct mfd_cell with a named firmware-node field to identify a
+child node under the MFD parent. The node is added to the MFD child
+device during registration when none is assigned by device tree, ACPI,
+or software matching.
 
-Register the driver with the reboot-mode framework to interface these
-resets to userspace. When userspace initiates a supported command, pass
-the reset arguments to the PSCI driver to enable command-based reset.
-
-This change allows userspace to issue supported PSCI reset commands
-using the standard reboot system calls while enabling SoC vendors to
-define their specific resets for PSCI.
-
+Suggested-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
 ---
- MAINTAINERS                            |  1 +
- drivers/power/reset/Kconfig            | 10 +++++
- drivers/power/reset/Makefile           |  1 +
- drivers/power/reset/psci-reboot-mode.c | 78 ++++++++++++++++++++++++++++++++++
- 4 files changed, 90 insertions(+)
+ drivers/mfd/mfd-core.c   | 142 ++++++++++++++++++++++++++++++++++++++++-------
+ include/linux/mfd/core.h |  10 ++++
+ 2 files changed, 131 insertions(+), 21 deletions(-)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index e1ed6abef62a..4910abafa170 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -21576,6 +21576,7 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/arm/psci.yaml
- F:	drivers/firmware/psci/
- F:	drivers/mfd/psci-mfd.c
-+F:	drivers/power/reset/psci-reboot-mode.c
- F:	include/linux/psci.h
- F:	include/uapi/linux/psci.h
+diff --git a/drivers/mfd/mfd-core.c b/drivers/mfd/mfd-core.c
+index 7aa32b90cf1e..ba9682ead2ca 100644
+--- a/drivers/mfd/mfd-core.c
++++ b/drivers/mfd/mfd-core.c
+@@ -10,6 +10,7 @@
+ #include <linux/kernel.h>
+ #include <linux/platform_device.h>
+ #include <linux/acpi.h>
++#include <linux/fwnode.h>
+ #include <linux/list.h>
+ #include <linux/property.h>
+ #include <linux/mfd/core.h>
+@@ -22,6 +23,7 @@
+ #include <linux/regulator/consumer.h>
  
-diff --git a/drivers/power/reset/Kconfig b/drivers/power/reset/Kconfig
-index 124afb99febe..93e4029d9506 100644
---- a/drivers/power/reset/Kconfig
-+++ b/drivers/power/reset/Kconfig
-@@ -348,6 +348,16 @@ config NVMEM_REBOOT_MODE
- 	  then the bootloader can read it and take different
- 	  action according to the mode.
+ static LIST_HEAD(mfd_of_node_list);
++static LIST_HEAD(mfd_named_fwnode_list);
+ static DEFINE_MUTEX(mfd_of_node_mutex);
  
-+config PSCI_REBOOT_MODE
-+	bool "PSCI reboot mode driver"
-+	depends on OF && (ARM_PSCI_FW || COMPILE_TEST)
-+	select REBOOT_MODE
-+	help
-+	  Say y here will enable PSCI reboot mode driver. This gets
-+	  the PSCI reboot mode arguments and passes them to psci
-+	  driver. psci driver uses these arguments for issuing
-+	  device reset into different boot states.
-+
- config POWER_MLXBF
- 	tristate "Mellanox BlueField power handling driver"
- 	depends on (GPIO_MLXBF2 || GPIO_MLXBF3) && ACPI
-diff --git a/drivers/power/reset/Makefile b/drivers/power/reset/Makefile
-index d7ae97241a83..02948622fe3d 100644
---- a/drivers/power/reset/Makefile
-+++ b/drivers/power/reset/Makefile
-@@ -40,5 +40,6 @@ obj-$(CONFIG_REBOOT_MODE) += reboot-mode.o
- obj-$(CONFIG_SYSCON_REBOOT_MODE) += syscon-reboot-mode.o
- obj-$(CONFIG_POWER_RESET_SC27XX) += sc27xx-poweroff.o
- obj-$(CONFIG_NVMEM_REBOOT_MODE) += nvmem-reboot-mode.o
-+obj-$(CONFIG_PSCI_REBOOT_MODE) += psci-reboot-mode.o
- obj-$(CONFIG_POWER_MLXBF) += pwr-mlxbf.o
- obj-$(CONFIG_POWER_RESET_QEMU_VIRT_CTRL) += qemu-virt-ctrl.o
-diff --git a/drivers/power/reset/psci-reboot-mode.c b/drivers/power/reset/psci-reboot-mode.c
-new file mode 100644
-index 000000000000..955ed68f1402
---- /dev/null
-+++ b/drivers/power/reset/psci-reboot-mode.c
-@@ -0,0 +1,78 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-+ */
-+
-+#include <linux/array_size.h>
-+#include <linux/device.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/psci.h>
-+#include <linux/reboot-mode.h>
-+#include <linux/types.h>
-+
-+static const struct reboot_mode_entry psci_resets[] = {
-+	{
-+		.name  = "psci-system-reset",
-+		.magic = { 0, PSCI_SYSTEM_RESET_COLD_RESET },
-+		.count = 2,
-+	},
-+	{
-+		.name  = "psci-system-reset2-arch-warm-reset",
-+		.magic = { 0, PSCI_SYSTEM_RESET2_ARCH_WARM_RESET },
-+		.count = 2,
-+	},
+ struct mfd_of_node_entry {
+@@ -30,10 +32,91 @@ struct mfd_of_node_entry {
+ 	struct device_node *np;
+ };
+ 
++struct mfd_named_fwnode_entry {
++	struct list_head list;
++	struct device *dev;
++	struct fwnode_handle *fwnode;
 +};
 +
-+static u64 psci_reboot_mode_get_cookie(const u32 *magic, int count)
+ static const struct device_type mfd_dev_type = {
+ 	.name	= "mfd_device",
+ };
+ 
++static int mfd_claim_named_fwnode(struct platform_device *pdev,
++				  struct fwnode_handle *fwnode)
 +{
-+	u64 cookie = 0;
-+	int i;
++	struct mfd_named_fwnode_entry *entry, *iter;
 +
-+	/* Build cookie from arg2/arg3 cells in order: cookie_hi then cookie_lo. */
-+	for (i = 1; i < count; i++)
-+		cookie = (cookie << 32) | magic[i];
-+
-+	return cookie;
-+}
-+
-+static int psci_reboot_mode_write(struct reboot_mode_driver *reboot,
-+				  u32 *magic, int count)
-+{
-+	if (count < 1 || count > 3)
-+		return -EINVAL;
-+
-+	return psci_set_reset_cmd(magic[0], psci_reboot_mode_get_cookie(magic, count));
-+}
-+
-+static int psci_reboot_mode_probe(struct platform_device *pdev)
-+{
-+	struct reboot_mode_driver *reboot;
-+	size_t count;
-+	int ret;
-+
-+	reboot = devm_kzalloc(&pdev->dev, sizeof(*reboot), GFP_KERNEL);
-+	if (!reboot)
++	entry = kzalloc_obj(*entry, GFP_KERNEL);
++	if (!entry)
 +		return -ENOMEM;
 +
-+	reboot_mode_driver_init(reboot, &pdev->dev, psci_reboot_mode_write);
++	entry->dev = &pdev->dev;
++	entry->fwnode = fwnode_handle_get(fwnode);
 +
-+	/* Skip PSCI SYSTEM_RESET2 modes if unsupported */
-+	count = psci_has_system_reset2_support() ? ARRAY_SIZE(psci_resets) : 1;
-+	ret = reboot_mode_add_predefined_modes(reboot, psci_resets, count);
-+	if (ret)
-+		return ret;
++	scoped_guard(mutex, &mfd_of_node_mutex) {
++		list_for_each_entry(iter, &mfd_named_fwnode_list, list)
++			if (iter->fwnode == fwnode) {
++				fwnode_handle_put(entry->fwnode);
++				kfree(entry);
++				return -EAGAIN;
++			}
 +
-+	return devm_reboot_mode_register(&pdev->dev, reboot);
++		list_add_tail(&entry->list, &mfd_named_fwnode_list);
++	}
++
++	return 0;
 +}
 +
-+static struct platform_driver psci_reboot_mode_driver = {
-+	.probe  = psci_reboot_mode_probe,
-+	.driver = {
-+		.name	= "psci-reboot-mode",
-+	},
-+};
-+module_platform_driver(psci_reboot_mode_driver);
++/*
++ * Temporary MFD-local cleanup for named non-OF child fwnodes.
++ * Remove/rework this when platform core starts owning and dropping
++ * dev->fwnode references for these devices.
++ */
++static void mfd_release_named_fwnode(struct platform_device *pdev)
++{
++	struct mfd_named_fwnode_entry *entry, *tmp;
 +
-+MODULE_DESCRIPTION("PSCI reboot mode driver");
-+MODULE_LICENSE("GPL");
++	scoped_guard(mutex, &mfd_of_node_mutex) {
++		list_for_each_entry_safe(entry, tmp, &mfd_named_fwnode_list, list)
++			if (entry->dev == &pdev->dev) {
++				if (dev_fwnode(&pdev->dev) == entry->fwnode)
++					device_set_node(&pdev->dev, NULL);
++				fwnode_handle_put(entry->fwnode);
++				list_del(&entry->list);
++				kfree(entry);
++			}
++	}
++}
++
++static int mfd_claim_of_node_to_dev(struct platform_device *pdev,
++				    struct device_node *np)
++{
++	struct mfd_of_node_entry *of_entry, *iter;
++
++	of_entry = kzalloc_obj(*of_entry, GFP_KERNEL);
++	if (!of_entry)
++		return -ENOMEM;
++
++	of_entry->dev = &pdev->dev;
++	of_entry->np = of_node_get(np);
++
++	/* Skip if OF node has previously been allocated to a device */
++	scoped_guard(mutex, &mfd_of_node_mutex) {
++		list_for_each_entry(iter, &mfd_of_node_list, list)
++			if (iter->np == np) {
++				of_node_put(of_entry->np);
++				kfree(of_entry);
++				return -EAGAIN;
++			}
++
++		list_add_tail(&of_entry->list, &mfd_of_node_list);
++	}
++
++	device_set_node(&pdev->dev, of_fwnode_handle(np));
++	return 0;
++}
++
+ #if IS_ENABLED(CONFIG_ACPI)
+ struct match_ids_walk_data {
+ 	struct acpi_device_id *ids;
+@@ -111,19 +194,11 @@ static int mfd_match_of_node_to_dev(struct platform_device *pdev,
+ 				    struct device_node *np,
+ 				    const struct mfd_cell *cell)
+ {
+-	struct mfd_of_node_entry *of_entry;
+ 	u64 of_node_addr;
+ 
+-	/* Skip if OF node has previously been allocated to a device */
+-	scoped_guard(mutex, &mfd_of_node_mutex) {
+-		list_for_each_entry(of_entry, &mfd_of_node_list, list)
+-			if (of_entry->np == np)
+-				return -EAGAIN;
+-	}
+-
+ 	if (!cell->use_of_reg)
+ 		/* No of_reg defined - allocate first free compatible match */
+-		goto allocate_of_node;
++		return mfd_claim_of_node_to_dev(pdev, np);
+ 
+ 	/* We only care about each node's first defined address */
+ 	if (of_property_read_reg(np, 0, &of_node_addr, NULL))
+@@ -134,18 +209,7 @@ static int mfd_match_of_node_to_dev(struct platform_device *pdev,
+ 		/* No match */
+ 		return -EAGAIN;
+ 
+-allocate_of_node:
+-	of_entry = kzalloc(sizeof(*of_entry), GFP_KERNEL);
+-	if (!of_entry)
+-		return -ENOMEM;
+-
+-	of_entry->dev = &pdev->dev;
+-	of_entry->np = of_node_get(np);
+-	scoped_guard(mutex, &mfd_of_node_mutex)
+-		list_add_tail(&of_entry->list, &mfd_of_node_list);
+-
+-	device_set_node(&pdev->dev, of_fwnode_handle(np));
+-	return 0;
++	return mfd_claim_of_node_to_dev(pdev, np);
+ }
+ 
+ static int mfd_add_device(struct device *parent, int id,
+@@ -156,6 +220,7 @@ static int mfd_add_device(struct device *parent, int id,
+ 	struct resource *res;
+ 	struct platform_device *pdev;
+ 	struct mfd_of_node_entry *of_entry, *tmp;
++	struct fwnode_handle *fwnode;
+ 	bool disabled = false;
+ 	int ret = -ENOMEM;
+ 	int platform_id;
+@@ -224,6 +289,37 @@ static int mfd_add_device(struct device *parent, int id,
+ 
+ 	mfd_acpi_add_device(cell, pdev);
+ 
++	/* named_fwnode is a fallback only when no OF/ACPI match and no swnode */
++	if (!pdev->dev.fwnode && !cell->swnode && cell->named_fwnode) {
++		struct device_node *named_np;
++
++		fwnode = device_get_named_child_node(parent, cell->named_fwnode);
++		if (!fwnode) {
++			ret = -ENODEV;
++			goto fail_alias;
++		}
++
++		named_np = to_of_node(fwnode);
++		if (named_np) {
++			ret = mfd_claim_of_node_to_dev(pdev, named_np);
++			fwnode_handle_put(fwnode);
++			if (ret == -EAGAIN)
++				ret = -EBUSY;
++			if (ret)
++				goto fail_alias;
++		} else {
++			ret = mfd_claim_named_fwnode(pdev, fwnode);
++			if (ret) {
++				fwnode_handle_put(fwnode);
++				if (ret == -EAGAIN)
++					ret = -EBUSY;
++				goto fail_alias;
++			}
++			device_set_node(&pdev->dev, fwnode);
++			fwnode_handle_put(fwnode);
++		}
++	}
++
+ 	if (cell->pdata_size) {
+ 		ret = platform_device_add_data(pdev,
+ 					cell->platform_data, cell->pdata_size);
+@@ -295,6 +391,7 @@ static int mfd_add_device(struct device *parent, int id,
+ 	if (cell->swnode)
+ 		device_remove_software_node(&pdev->dev);
+ fail_of_entry:
++	mfd_release_named_fwnode(pdev);
+ 	scoped_guard(mutex, &mfd_of_node_mutex) {
+ 		list_for_each_entry_safe(of_entry, tmp, &mfd_of_node_list, list)
+ 			if (of_entry->dev == &pdev->dev) {
+@@ -382,7 +479,10 @@ static int mfd_remove_devices_fn(struct device *dev, void *data)
+ 	regulator_bulk_unregister_supply_alias(dev, cell->parent_supplies,
+ 					       cell->num_parent_supplies);
+ 
++	get_device(&pdev->dev);
+ 	platform_device_unregister(pdev);
++	mfd_release_named_fwnode(pdev);
++	put_device(&pdev->dev);
+ 	return 0;
+ }
+ 
+diff --git a/include/linux/mfd/core.h b/include/linux/mfd/core.h
+index faeea7abd688..8daa83dd31ea 100644
+--- a/include/linux/mfd/core.h
++++ b/include/linux/mfd/core.h
+@@ -80,6 +80,16 @@ struct mfd_cell {
+ 
+ 	/* Software node for the device. */
+ 	const struct software_node *swnode;
++	/*
++	 * Name of a child firmware node under the MFD parent device.
++	 *
++	 * Used only as a fallback when no firmware node is assigned to MFD
++	 * child and no software node is provided.
++	 *
++	 * For Device Tree parents, lookup is by base node name only
++	 * (the part before '@'). Unit-addresses are not matched.
++	 */
++	const char *named_fwnode;
+ 
+ 	/*
+ 	 * Device Tree compatible string
 
 -- 
 2.34.1
