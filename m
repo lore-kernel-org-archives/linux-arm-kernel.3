@@ -4,107 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7C86C4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 19:28:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38176C44507
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 19:28:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6QXKS5MwQf6T0/WAFW5LMbVz+HKZ3oe7QplhumziNWM=; b=mYx8e8LAYaa2Yyrq9C9pcSWY6/
-	BCA9UQS72Fz/6jNN95qXZAfCqMsc6wuS2ZzemGN3eTvvMaATmf9K+f0fEL0d7ElMFlZDGJJtxHL4w
-	zRPNrq0iFMXZ8YljZGEeeDNsSkLuV+Jq1x4EnbteSY4G0mHA5cUwD2IDVAeZIOAQnchVZHG2UnXZu
-	whk8IejIkpEX3nXhNNCkhCoytwUtnuBNFrw+aiOM1XF9uqjSmYF9ldhB/BGNfD7NOojSW418h9eNW
-	ZTIAQsdBPtMfNgm5hATB02VZf2uVP0NZhfOKJkoV5Q8oUvHsFYc/hWENW+cUtTcZBhaIFcEkd3Je0
-	/CL577+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EBGhEX4vBKM8MPYzbmWcF5BLvWSJh5ejL+Gu8q+yPyk=; b=L2TosDjvuQBh1sxCY6cOXkmKRd
+	wq1bIktn030PhXddxgdKYK6CLNyWgzo7kjOpVQwnB8ZJTT7QGaruRkZzG3uF5wx++FkTqEi+XzheY
+	y/GN9R4qPc0LQqWSsk6RWMXwe9eUWcfFQ4u+k9XTltx+j4qTgjHAQppYjkU+jpngOn0/buAmblVH2
+	7HQuw4WndkomDVI7ZVzA0zFnjUxD5fnZu0oq/tNKG04QumTUzTXFOucfe4DMyppxQ4Pd5xad6M/sC
+	u5UoVT+8a/+JZpTglMoz3MpZ0HQx9Mb8rZaKQ4e0YE4I+r9gwMEAxfEouufqDeJf4U0B8XiKzIa3e
+	/9Rba9jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjioF-0000000D6PE-2C7m;
+	id 1wjioF-0000000D6Q3-3ZT3;
 	Tue, 14 Jul 2026 19:28:51 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjimH-0000000D3Xw-1HnL;
-	Tue, 14 Jul 2026 19:26:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=6QXKS5MwQf6T0/WAFW5LMbVz+HKZ3oe7QplhumziNWM=; b=D6qSb0voNAiJb6HRyKwSQTA+pw
-	gq/NvfMkH2jja35k/83BrMafmIurslznLcFmSTrMC0gVxAHisTjOYkzwa7ilTkz3lABWPinEUkbUY
-	zTNucqS/2mytbcSyWUgOzsqh9tT8YUVFhhQ49yM6jHBJaKaaN/NxEoTBAGnBIKXNyHpXrpZdo1o1Y
-	+yXUW1BwiGUHGQhG1HrVfQjaxa8mnLYVwpx0HaD6qMOxtqUI9R7OScVjqbvmSBD+U2CqQK0VV4v4R
-	RH5Z2dd6/DGkcKn1T/8B9OzqnA2yfb5kNq+DTXwONqBFVuvPrn3hH4FXFftilVOKdGhQwlcj+govR
-	vIdkjUyw==;
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wjim2-0000000Co6t-37gP;
-	Tue, 14 Jul 2026 19:26:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1784057169;
-	bh=ZO8NKtlAO4WsL56HMiuwG9DvpJtk+41a1hMlNOx8muc=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Z29tfM2xg+kQMlc2zQWxeuLVrFtENE2g30YALZlVC0jyHScYn3wf+Ij+YghR8sWtu
-	 D7qvTwSsR78etQYldGHFITuFZbOj2/4rpzYQmzIAPgZ09iL5kjE9YqG+p9VDDbHjA6
-	 tOXtVqnjeVSzNGIZ1n+gqtllcLZiA4U1G9h9cNIVT9GtgmMV19Q1IbSYXUy+/wXTqB
-	 lkXVye3/ZMrSZYCw6y365dk3fu7dRik3rSpZSseGJxtG8SluE1myeUdmrIfaiRMQnT
-	 +2DPW6B80V4Mru7GS4R2q5MuPHH1kdP7kACB7Z3TF3+gPifds8HGgndYRlvcgzHqDI
-	 WaOjnknBMT1FA==
-Received: from jupiter.universe (unknown [100.64.1.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519)
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 73B5017E0E6C;
-	Tue, 14 Jul 2026 21:26:09 +0200 (CEST)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id D5082480035; Tue, 14 Jul 2026 21:26:08 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Tue, 14 Jul 2026 21:26:07 +0200
-Subject: [PATCH v13 06/35] phy: rockchip: usbdp: Drop seamless DP takeover
-MIME-Version: 1.0
+	id 1wjio4-0000000D616-35Be
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 14 Jul 2026 19:28:42 +0000
+Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-848568a6f62so8260755b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 12:28:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1784057319; x=1784662119; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=EBGhEX4vBKM8MPYzbmWcF5BLvWSJh5ejL+Gu8q+yPyk=;
+        b=LvdzsZh7lcs15RG7kE/EDJktdttj0UdstEOu+K1DKGdFB27KRmxSu2zUszanmkuINx
+         bplaajP/43xWtKXoVpf61xcUAEIu5jgylJSwQuc69HMZHZDWeo3rpl0ZKnVIq5H1Yeq2
+         2KoMSui+WC2zc5mj5+8zaKL+OUk863CfQdWzSkDVUH3K8awMolbfOD/aX2iMDmzZr38L
+         nl1Q3ZzUBEr95y8KJblUZt3V6VQAV70YrfwMyVZW4gVp43DydSREAYYjyzSsfq7QdR8B
+         arXAhkC7aVFRcQZjH+tr4FoEdKNya9DObcPc05LA01lMuvdln3Thhc8lC+wx7ozGj8Ku
+         SJ5g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784057319; x=1784662119;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=EBGhEX4vBKM8MPYzbmWcF5BLvWSJh5ejL+Gu8q+yPyk=;
+        b=I6RwedwwhT+J7P1TJC/19mfO8P4Hn7IxohrUYfDpn71E5tkwdIDjzH6hDSVqQw056j
+         LTbGPRzA/KAoEf6pSjmCbxkao04hYeiRn8hUOAA8Q7vCPbbFi3srSK/VYz+YCT/vZ8ZR
+         YZ+QiiemLnholIlmyNwc9c7FVLBhBuGnCkqRTYDw9+vfPA49rGWNgWZWrl+/veyFcr2e
+         yBo6fBWW96jK/5GZkjR5dJf1RfY60qt/Q10sx23hujoJYi8SquxLEZClCB+V5WBGToXe
+         yrD9ueExGRoPt/jvorB77gcHgIO8r972pzDrPRfVggbdW3m5KycRr+7AR17mvQtmxUY4
+         ufMw==
+X-Forwarded-Encrypted: i=1; AHgh+RoGxtNv1wB6KhmgIdotYWLr2wY24SsnU8YFNxgBJOI8f1UeIPBP38n0HvuZSSFv/4g8yxr7iqk2gqz8QeWrBwW6@lists.infradead.org
+X-Gm-Message-State: AOJu0YzjVldX/ZvSHBppfqeyM+MBUZVff8xn45GuFGPH4rW4y0KvVjyQ
+	fCGchAzC2nrPAxl9wSve3gobFnw6gVHesHy3rXROS1ML1mLnlC81pVTXQZL/rmZTtGrunTFxCpW
+	eisUWzw==
+X-Received: from pfbfo5.prod.google.com ([2002:a05:6a00:6005:b0:848:40f5:a538])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:c95:b0:848:3fe2:c88b
+ with SMTP id d2e1a72fcca58-84a554fa556mr3829342b3a.6.1784057318776; Tue, 14
+ Jul 2026 12:28:38 -0700 (PDT)
+Date: Tue, 14 Jul 2026 11:41:17 -0700
+In-Reply-To: <20260626213534.3866178-1-seanjc@google.com>
+Mime-Version: 1.0
+References: <20260626213534.3866178-1-seanjc@google.com>
+X-Mailer: git-send-email 2.55.0.141.g00534a21ce-goog
+Message-ID: <178405411600.3133617.3225227983277758474.b4-ty@google.com>
+Subject: Re: [PATCH v8 00/20] KVM: selftests: Add eventfd+VFIO IRQ test
+From: Sean Christopherson <seanjc@google.com>
+To: Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, David Matlack <dmatlack@google.com>, 
+	Josh Hilke <jrhilke@google.com>
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260714-rockchip-usbdp-cleanup-v13-6-6cb3e769d4c5@collabora.com>
-References: <20260714-rockchip-usbdp-cleanup-v13-0-6cb3e769d4c5@collabora.com>
-In-Reply-To: <20260714-rockchip-usbdp-cleanup-v13-0-6cb3e769d4c5@collabora.com>
-To: Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Heiko Stuebner <heiko@sntech.de>, Frank Wang <frank.wang@rock-chips.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Andy Yan <andy.yan@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
- Yubing Zhang <yubing.zhang@rock-chips.com>, 
- Alexey Charkov <alchark@flipper.net>, linux-phy@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, kernel@collabora.com, 
- devicetree@vger.kernel.org, linux-usb@vger.kernel.org, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Sashiko <sashiko-bot@kernel.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2883;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=ZO8NKtlAO4WsL56HMiuwG9DvpJtk+41a1hMlNOx8muc=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpWjU/uwfL4STqXRuC3W8sLqwaDCIZzbW+AM
- /KRNr6UZC2tmYkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqVo1PAAoJENju1/PI
- O/qarFkP/i+RCxZzpzX6kQbSI4j+bC2QyAtqoNDadfV3xUoPjXTUVhIOg8qN0NaYnqyC/DS1VxL
- riVIevwwuCmETDrPZyR13YSjWZVKC+pog4BcSm/3NyajddwRskYjDlBTda6jTxKKKufRTYRrILj
- hi/vdDNxrgvWfN/L3iqx9OrZ6yNp2jPdSS4uY6VMJOILDUJCaO3QbGlCNpXatwT7Of00nVVZgO/
- UhXw1gHJRmN4rzq+U7liQzaU65B2vbyvsSwNWWq/BEQ+v4QGxeG9pWx99cvDlhd9Esz08GR0KTJ
- QPhy9ZIsNv4VZ4VBrDm+olfLWHV4QR4fXKFYpQShIQlaFP3tZDQTE62CgkAN1cHeIME4+2Unk1t
- WDeIhy3rfADdQTark5pxHHoDlU11oPqi6DUUqB6k/PppwoUPMTepiVoF3tcdvop3pACwGkcioto
- HLb6wsOd2jhB2COwePJAY+EI9frwLGlg5ERoOl7/ZyD4QzsEU0L7UPBp0ZiYKudDXXtdBHVcdAf
- k82D8xGFTtNspBs2twYOtY1OFTjkB5EjPxmmPBZniVXg/1s1fPLl7XaRbTTLXpshuuEAD7mbkhU
- wxgyWnPIomuiO5ijFQIrNfYCZ0c+UgE4MMA/01U9VjV+xAAXDUsJOFteKE94bH2LjRSnrfaO9Ps
- KhZqOLROINiphCWxQDh4i3w==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_202644_244487_37ACDB32 
-X-CRM114-Status: GOOD (  12.53  )
+X-CRM114-CacheID: sfid-20260714_122840_897267_B6BA9268 
+X-CRM114-Status: GOOD (  11.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,87 +94,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Right now the DRM drivers do not support seamless DP takeover and I'm
-I'm not aware of any bootloader implementing this feature either.
+On Fri, 26 Jun 2026 14:35:13 -0700, Sean Christopherson wrote:
+> David and Josh's series to add a selftest for verifying interrupt delivery
+> via eventfd (via KVM_IRQFD), and also from a real device, wired up via VFIO.
+> 
+> Gory details in the patches, and in the v5 cover letter.
+> 
+> v8:
+>  - Explicitly include <time.h>. [Sashiko]
+>  - Use iova_allocator instea of hardcoding the IOVA. [Sashiko, David]
+>  - Add a comment explaining why DMA needs to be allocated. [David]
+>  - Probe /dev/vfio/vfio, not /dev/vfio. [Sashiko, David]
+> 
+> [...]
 
-In any case this feature would be limited to boards using the USBDP PHY
-for a DP or eDP connection instead of the more commonly USB-C connector.
-With USB-C's DP AltMode a seamless DP takeover requires handing over the
-state of the TCPM state machine from the bootloader to the kernel. This
-in turn requires a huge amount of work to keep the state machine
-implementations synchronized. It's very unlikely we will see somebody
-implementing that in the foreseeable future.
+Applied to kvm-x86 irq_test, thanks!
 
-As the current code is obviously buggy and untested, let's simply drop
-support for seamless DP takeover. It can be re-implemented cleanly once
-somebody adds all missing bits.
+[01/20] KVM: selftests: Build and link selftests/vfio/lib into KVM selftests
+        https://github.com/kvm-x86/linux/commit/a262fc49e0aa
+[02/20] KVM: selftests: Add macros to read/write+sync to/from guest memory
+        https://github.com/kvm-x86/linux/commit/ac050f2adcdf
+[03/20] KVM: selftests: Rename guest_rng to kvm_rng
+        https://github.com/kvm-x86/linux/commit/e0bd29eddf7e
+[04/20] KVM: selftests: Initialize the default/global pRNG during kvm_selftest_init()
+        https://github.com/kvm-x86/linux/commit/bae85cd758fe
+[05/20] KVM: selftests: Seed libc's RNG before using it to generate a seed for KVM's pRNG
+        https://github.com/kvm-x86/linux/commit/5506feb24282
+[06/20] KVM: selftests: Add helper to generate random u64 in range [min,max]
+        https://github.com/kvm-x86/linux/commit/c772591d279e
+[07/20] KVM: selftests: Add an irqfd send+receive (and later IRQ bypass) test
+        https://github.com/kvm-x86/linux/commit/3ceab37ac973
+[08/20] KVM: selftests: Add helper to get host IRQ from device MSI-X for IRQ bypass test
+        https://github.com/kvm-x86/linux/commit/362cc0016249
+[09/20] KVM: selftests: Add VFIO device support to eventfd IRQ test
+        https://github.com/kvm-x86/linux/commit/3902e8b02dce
+[10/20] KVM: selftests: Add a helper to set proc IRQ affinity for IRQ test
+        https://github.com/kvm-x86/linux/commit/380b0e5e0e30
+[11/20] KVM: selftests: Verify interrupts are received when IRQ affinity changes in IRQ test
+        https://github.com/kvm-x86/linux/commit/197b0cd9ac66
+[12/20] KVM: selftests: Add option to set empty routing between IRQs in eventfd IRQ test
+        https://github.com/kvm-x86/linux/commit/ec333e3ace25
+[13/20] KVM: selftests: Make number of IRQs configurable in IRQ test
+        https://github.com/kvm-x86/linux/commit/38950af64a1c
+[14/20] KVM: selftests: Verify non-postable IRQ remapping in IRQ test
+        https://github.com/kvm-x86/linux/commit/25e268b76e77
+[15/20] KVM: selftests: Add kvm_gettid() wrapper and convert users
+        https://github.com/kvm-x86/linux/commit/4512b2776631
+[16/20] KVM: selftests: Add kvm_sched_getaffinity() wrapper and convert users
+        https://github.com/kvm-x86/linux/commit/76703ca0cbab
+[17/20] KVM: selftests: Add a utility to pin a task to a random CPU, given a CPU set
+        https://github.com/kvm-x86/linux/commit/26fd1fb4737a
+[18/20] KVM: selftests: Verify vCPU migration during IRQ delivery in IRQ test
+        https://github.com/kvm-x86/linux/commit/6b9470baea6c
+[19/20] KVM: selftests: Make number of vCPUs configurable in IRQ test
+        https://github.com/kvm-x86/linux/commit/0315713a1938
+[20/20] KVM: selftests: Add xAPIC support in eventfd IRQ test
+        https://github.com/kvm-x86/linux/commit/2708ecca4dbd
 
-Fixes: 2f70bbddeb45 ("phy: rockchip: add usbdp combo phy driver")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/linux-phy/20260612164107.C7DB21F000E9@smtp.kernel.org/
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
- drivers/phy/rockchip/phy-rockchip-usbdp.c | 31 -------------------------------
- 1 file changed, 31 deletions(-)
-
-diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 3fc8222fcaec..6cb9f6b4dbf6 100644
---- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
-+++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-@@ -452,11 +452,6 @@ static int rk_udphy_reset_assert_all(struct rk_udphy *udphy)
- 	return reset_control_bulk_assert(udphy->num_rsts, udphy->rsts);
- }
- 
--static int rk_udphy_reset_deassert_all(struct rk_udphy *udphy)
--{
--	return reset_control_bulk_deassert(udphy->num_rsts, udphy->rsts);
--}
--
- static int rk_udphy_reset_deassert(struct rk_udphy *udphy, char *name)
- {
- 	struct reset_control_bulk_data *list = udphy->rsts;
-@@ -924,28 +919,6 @@ static int rk_udphy_parse_lane_mux_data(struct rk_udphy *udphy)
- 	return 0;
- }
- 
--static int rk_udphy_get_initial_status(struct rk_udphy *udphy)
--{
--	int ret;
--	u32 value;
--
--	ret = clk_bulk_prepare_enable(udphy->num_clks, udphy->clks);
--	if (ret) {
--		dev_err(udphy->dev, "failed to enable clk\n");
--		return ret;
--	}
--
--	rk_udphy_reset_deassert_all(udphy);
--
--	regmap_read(udphy->pma_regmap, CMN_LANE_MUX_AND_EN_OFFSET, &value);
--	if (FIELD_GET(CMN_DP_LANE_MUX_ALL, value) && FIELD_GET(CMN_DP_LANE_EN_ALL, value))
--		udphy->status = UDPHY_MODE_DP;
--	else
--		rk_udphy_disable(udphy);
--
--	return 0;
--}
--
- static int rk_udphy_parse_dt(struct rk_udphy *udphy)
- {
- 	struct device *dev = udphy->dev;
-@@ -1495,10 +1468,6 @@ static int rk_udphy_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
--	ret = rk_udphy_get_initial_status(udphy);
--	if (ret)
--		return ret;
--
- 	mutex_init(&udphy->mutex);
- 	platform_set_drvdata(pdev, udphy);
- 
-
--- 
-2.53.0
-
+--
+https://github.com/kvm-x86/linux/tree/next
 
