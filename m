@@ -4,61 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AA67C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 15:18:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0820C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 15:19:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8tB5a8FtyJj5HJIDAKydoHG7QYuYFAziBXwegGN1DKI=; b=JbDPmaVcGQWo/63rpL4nHzkajw
-	n+tzkvvo3mB+kgZCW3KM0zZEMxKkfSWbmCwlZAe4GNnGKbxilUYtujwOkRCDjsA3BdgrGgGMYkMPM
-	eaEavGoDQIYnH/758tBiCr9qNI5Nxk/p4OJphomUeizxMvZ7LAm7S6THA4/pjVOAbyZnhxbCNZFgY
-	XJ0euO9B5kO1ABWuUUuvrS4BXYHrgJ1sbTVjIYMvthW5A3U+j/7lyPgr2fdi/RwtmVvXwFyfVoI/i
-	AL7a3r8qgeoGifSq/cLXmP/DgkbT9frJ3tY1N5J5gRsIIrgNexOzSrZmrH80tT7/uWDo+Vt90pnl6
-	F8iJsdfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dP5wEz+gjjaVTeNu7xmuOJx/rFtPF+YvkovZzS2m8s4=; b=W0XfiZvOhXtTrMvZE3FoiOXOHO
+	9W2VyN12PxIO9OJEuHYQxyR8wMUEJ96//8KOoaUWmX+H8ewg0z9UWmVPB+i9A6R0bGKkGjRE63AAi
+	rrUgRSw5M5SmEflH+bNDC6ZHjSfC4YLT3CqYByr31AqF0rvypqYSB89x5ZQa66Y6WAeztpMI9M1ZB
+	5s9UbQJn4U3c1ZFgTiqQJj6uOXExf4nvpmYqBAAzIChYhX3WUCGyEZzxiC1XDKKVNK2PIUG5PU4J7
+	t0Ym04QHr6uVHYODDZ42wSc9gZd5INrTDVqNKb6xE9Qs017SsVvn7WDoVCelyC+RPYxJJgFUZK7mq
+	pv6jVJBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjetk-0000000CVTO-3KNJ;
-	Tue, 14 Jul 2026 15:18:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjeth-0000000CVSk-1jkR
+	id 1wjev1-0000000CVlW-45Rw;
+	Tue, 14 Jul 2026 15:19:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjev0-0000000CVky-1va9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 15:18:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4996A2F;
-	Tue, 14 Jul 2026 08:18:07 -0700 (PDT)
-Received: from [10.1.34.162] (e121487-lin.cambridge.arm.com [10.1.34.162])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 957A53F915;
-	Tue, 14 Jul 2026 08:18:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784042291; bh=zB7jMLeR7v5xieyyCOBRixKDYFJVFK/R+3mYJg2Ffms=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=b8gJZUyg2Ilxyw6TxcxewYIGZQvMW6wiYwH7U1dSyxvXATEFCTC3kCuLdB83kUWGw
-	 82P78b/OWlHKr59NlPgcTM0EiPBL4Qp5l+Ukc1owicBsSrOA/URBXvkYJ93XPbp3HW
-	 bTD/573o4seRmcGnr4SPGs0/h3kfXOMsmS2XdrJE=
-Message-ID: <d4d83179-e88e-47ff-a320-47fdba8de7de@arm.com>
-Date: Tue, 14 Jul 2026 16:18:09 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 00/36] arm64: Add support for FEAT_NMI
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
-Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org,
- catalin.marinas@arm.com
-References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <375ee9ac-f715-47bf-8f0d-7ec8dc35c7f2@huawei.com>
- <bb6e80db-dd5e-405f-9aa9-2a59fae3a1dc@huawei.com>
- <b70b65b7-8ea4-4dc9-bf0b-f184e14d4850@arm.com>
-Content-Language: en-GB
-In-Reply-To: <b70b65b7-8ea4-4dc9-bf0b-f184e14d4850@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_081814_554632_D5973348 
-X-CRM114-Status: GOOD (  19.87  )
+	Tue, 14 Jul 2026 15:19:34 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 89B436136B;
+	Tue, 14 Jul 2026 15:19:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D7BF1F000E9;
+	Tue, 14 Jul 2026 15:19:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784042373;
+	bh=dP5wEz+gjjaVTeNu7xmuOJx/rFtPF+YvkovZzS2m8s4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=mNz1L1N9+nemdRXcV5RekTd9wA6qUQG43cMasGrwLuT4DFXxckZQIzcl+zo8HTyEZ
+	 XxhiJsaG8lSFEfNiCCDtFsJJBEaNYLkGubt1/sJuY+HWZMEAexGrBRkx7ZCceGDjpS
+	 FNRXl8LLPrLkCxZAmuZHas55XbhLsFFet9BHEfWTXleRD4Rfa4f8O19KjWS0kdLN71
+	 Pe5ipnPFeBGfzH72b680CoYev53PpTHt12gzSgjOAXwAy2ZaTRkFvgbSaux4Ou97uK
+	 7WKXe582yVanlahPOn1u5Uc09fV9E1ccml9R1W7SH9H+JJbbwdpwclwdvaWS1jJy9z
+	 Mk5NBkr8K0EVg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wjeux-00000004xgl-1XON;
+	Tue, 14 Jul 2026 15:19:31 +0000
+Date: Tue, 14 Jul 2026 16:19:30 +0100
+Message-ID: <86ik6hoayl.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Oliver Upton <oupton@kernel.org>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Quentin Perret <qperret@google.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	Hyunwoo Kim <imv4bel@gmail.com>,
+	Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH v5 2/8] KVM: arm64: Make vcpu_{read,write}_sys_reg available to HYP code
+In-Reply-To: <20260714101601.4142645-3-fuad.tabba@linux.dev>
+References: <20260714101601.4142645-1-fuad.tabba@linux.dev>
+	<20260714101601.4142645-3-fuad.tabba@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, vdonnefort@google.com, qperret@google.com, sebastianene@google.com, imv4bel@gmail.com, tabba@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,86 +94,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/14/26 11:32, Vladimir Murzin wrote:
->> Hi Vladimir,
->>
->> Even if PE supports FEAT_NMI, the GIC may not be able to generate a
->> super-priority interrupt.
->>
->> The following patch can fix it, we should use
->> gic_supports_v3_3_nmi() instead of system_uses_nmi() in
->> ipi_should_be_nmi() because the GIC.
->>
-> Thanks for the report!
+On Tue, 14 Jul 2026 11:15:55 +0100,
+Fuad Tabba <fuad.tabba@linux.dev> wrote:
 > 
-> I think it would be better for me to spend some time making the arch
-> IPI code tolerate both the presence and absence of NMI support,
-> perhaps similar to how perf handles this, rather than creating a
-> strong dependency between the architecture code and the interrupt
-> controller. At least, I’ll give that a try!
+> The vcpu_{read,write}_sys_reg() accessors are only valid on a VHE host,
+> so helpers built on them such as kvm_vcpu_set_be()/kvm_vcpu_is_be()
+> cannot be shared with hyp code. exception.c already wraps them in local
+> helpers that pick the host- or hyp-side accessor via has_vhe().
+> 
+> Rename the host-only implementations to __vcpu_{read,write}_sysreg_vhe()
 
-The diff below appears to work and doesn't require any knowledge
-of GIC internals
+I'm a bit puzzled by this. There is nothing that makes these functions
+VHE-specific. Look at where they are called from: plenty of non-VHE
+uses. These helpers are the canonical accessors for any system
+register, and they don't cater for any particular mode.
 
-diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index 80e35a8e5c8f..a7f894e82491 100644
---- a/arch/arm64/kernel/smp.c
-+++ b/arch/arm64/kernel/smp.c
-@@ -67,6 +67,8 @@ static int cpus_stuck_in_kernel;
- static int ipi_irq_base __ro_after_init;
- static int nr_ipi __ro_after_init = NR_IPI;
- 
-+static DECLARE_BITMAP(ipi_nmi_bitmap, MAX_IPI) __ro_after_init;
-+
- struct ipi_descs {
- 	struct irq_desc *descs[MAX_IPI];
- };
-@@ -1057,7 +1059,7 @@ static void ipi_setup(int cpu)
- 
- 	for (i = 0; i < nr_ipi; i++) {
- 		if (!percpu_ipi_descs) {
--			if (ipi_should_be_nmi(i)) {
-+			if (test_bit(i, ipi_nmi_bitmap)) {
- 				prepare_percpu_nmi(ipi_irq_base + i);
- 				enable_percpu_nmi(ipi_irq_base + i, 0);
- 			} else {
-@@ -1079,7 +1081,7 @@ static void ipi_teardown(int cpu)
- 
- 	for (i = 0; i < nr_ipi; i++) {
- 		if (!percpu_ipi_descs) {
--			if (ipi_should_be_nmi(i)) {
-+			if (test_bit(i, ipi_nmi_bitmap)) {
- 				disable_percpu_nmi(ipi_irq_base + i);
- 				teardown_percpu_nmi(ipi_irq_base + i);
- 			} else {
-@@ -1098,10 +1100,24 @@ static void ipi_setup_sgi(int ipi)
- 
- 	irq = ipi_irq_base + ipi;
- 
--	if (ipi_should_be_nmi(ipi)) {
--		err = request_percpu_nmi(irq, ipi_handler, "IPI", NULL, &irq_stat);
--		WARN(err, "Could not request IRQ %d as NMI, err=%d\n", irq, err);
--	} else {
-+	if (ipi_should_be_nmi(ipi))
-+		set_bit(ipi, ipi_nmi_bitmap);
-+
-+	/*
-+	 * Try to request NMI if it should be
-+	 */
-+	if (test_bit(ipi, ipi_nmi_bitmap) &&
-+	    request_percpu_nmi(irq, ipi_handler, "IPI", NULL, &irq_stat)) {
-+		/*
-+		 * Fallback to regular IRQ
-+		 */
-+		clear_bit(ipi, ipi_nmi_bitmap);
-+	}
-+
-+	/*
-+	 * Otherwise regular IRQ
-+	 */
-+	if (!test_bit(ipi, ipi_nmi_bitmap)) {
- 		err = request_percpu_irq(irq, ipi_handler, "IPI", &irq_stat);
- 		WARN(err, "Could not request IRQ %d as IRQ, err=%d\n", irq, err);
- 	}
+	m.
 
+-- 
+Without deviation from the norm, progress is not possible.
 
