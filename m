@@ -4,70 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C9CDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 21:25:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8878C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 21:30:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EK5o/511Bfcsxnar1fnZzffAtXzmW6biOYC0uNIDMlk=; b=EZxHmKolT+0x3Oo8d+VcnZuUwA
-	a8ms8mTwybbwxirJdLebDqtYBvV4SF9BaYuCLKn0Jb52CGbjuWK5cscr3etGtTL1siliSkITaJAls
-	9jbY61Q4/I8r7UBbFzh+xVEZsz/Xqid9+GY9XLR7wLu/LPHp+xdsCqIK41ZwWIv9H7NUP58F/NWb0
-	ekxX2bQWwfG+8LMNcDKHwB5cMhxgvrnNZzurHXiwVHIHz3u6r/OIT2W/hGuguXWSnvXlzToMJb5n2
-	JCploLTMCXRUikp46amnKuLIAcuL+au/flpPDkq7dNKDQ1ZZkG9ZoWGADgOG1c4QK+TGH50kZmYJw
-	wVQ4ntCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WQGKnQDpoUAnNeJZPeWSS/L1wzkDiofjjnlAHJDIz2s=; b=e64WEW35YLqVtU953MrqdpdvXP
+	3bxXzQTqvdvf92QEg92YDkY6ww9RyqkiLm1liCoir4ieUX4ma2vQYcxv6/9lMoKlRN1+SQTZwxjrp
+	xyWQflx1IjcHt6GOfw+Oj++bBnFphzaj40YVnbzs7OJiuZVL/fwvmfpgOMSOnDPLdD3pZiPqCmxNG
+	UayAs647B8k58YXeah3fyPlItMMW+6GQ36KwSYhf+y6TGyed/yvJsexLHhJUSYkm4ym3sbwhTiSF7
+	VbGTBI8C7Ad/CxfPHeEarKReGV5H3P+Y0GAlCcuYI1aiucc0azZj7s3MM05Q3zMmuvkg9LU9KKnOn
+	lErdsWYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjkcY-0000000DLAz-0kwt;
-	Tue, 14 Jul 2026 21:24:54 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wjkhY-0000000DLrl-3aOA;
+	Tue, 14 Jul 2026 21:30:04 +0000
+Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjkcU-0000000DLAO-2rMs
+	id 1wjkhW-0000000DLql-1bwQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 21:24:52 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 63CEF40E0F;
-	Tue, 14 Jul 2026 21:24:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED3711F000E9;
-	Tue, 14 Jul 2026 21:24:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784064290;
-	bh=EK5o/511Bfcsxnar1fnZzffAtXzmW6biOYC0uNIDMlk=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=abQt8dzN6ZV4uQXLg0CR4SPjxrufm3lQ95gsI4fyCJ2TYljL341LTXHMF01DqVt0V
-	 VlIq4z5YoJz/YQJKKFsEFJIJwv4qrAsWUdKFsrfg7QkZ2vkZ0+NDusREANuOwHx8I/
-	 H95nrwzALiFmi6GNHaQuyyGyRU6poh+kmXdw1oi+b1KZBgELvdaTSUvZn0EA3PkMdd
-	 zfXsYpGKebvBrbNBPD1a7Oy5Np4UwPzqaRP85fahPI86DEG0Ar9gvS1uM5oNbTOQ16
-	 wD1B6ybkeciy7ZOMP2cmfYUhzi2grfU8SVxxSM+RVPlnFVZnwqAh+51qMQzroqOEoh
-	 nOeFQ/qsyvfPg==
-From: Mark Brown <broonie@kernel.org>
-To: Jernej Skrabec <jernej@kernel.org>, 
- Samuel Holland <samuel@sholland.org>, Chen-Yu Tsai <wens@kernel.org>
-Cc: linux-sound@vger.kernel.org, linux-sunxi@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20260714113304.270224-1-wens@kernel.org>
-References: <20260714113304.270224-1-wens@kernel.org>
-Subject: Re: [PATCH] ASoC: sun4i-codec: Set quirks.playback_only for H616
- codec
-Message-Id: <178403959229.7661.10222342202160410934.b4-ty@b4>
-Date: Tue, 14 Jul 2026 15:33:12 +0100
+	Tue, 14 Jul 2026 21:30:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Ifc+yFK95gzRpFryrtWuNQMd3xuwvA3j76EvC9EiCXWDj1Cw9Xe0X5Ok3o9Wfb63H+817VdA3aHG3Ip/V0QZKZfhFqOCYjCDo1ipQJKzrph4lCNAaL3stFL8sbN/XFGfa11hnDEoYRPipjrVmcwc4OnJG+l4Eed4Zhn+q98WRKNr2Kt0ZLeL1k4ufG93UYXRG7K8fZAlXKIZXx8v8FLLzcmFebJQshA8oXV1KYkAmt5juFeA9kvOgaioqprHmwj0pdaudkya/LOFtHRqAnM21ElnYJ4haTEMAJA0R8fHPTnqGyRbSHSs8kiPNwGIxdWlKlih6UTiW1dgzvmeFU60TQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WQGKnQDpoUAnNeJZPeWSS/L1wzkDiofjjnlAHJDIz2s=;
+ b=VPTzRkJR9pOKZ1Wx12BJQvTZILlgWEeiZtyvgIjNN8/mUraU7TtuHYcm3X+5W+Riy+q+imqt9JjvDw7Fuc7YC6ne6zx9/YUUqa9FCA9+4JFpK/cN6xz8pTNpjcEQHP/rZnXj/vsca/mMRM9h6N7OorfgtEfRkQs2lOgPjIKTzNY6DgBqIyCyIWsvhzUuiiwpO2yfpZuOBsBMJSI8SdpIDvt8kpi/i7C2BQCAa/UROEaJE7d5rCvbWNHIIBX8S6oKT13OiA4zax4CXR1jbRrq2Ji4QmgLExr8ab6HAUQkDXw5jMVVvi1/kaWGsnTtw84PyOU1Alop2zTyjkjPlJ8OBw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WQGKnQDpoUAnNeJZPeWSS/L1wzkDiofjjnlAHJDIz2s=;
+ b=hIEKwHpjYrwiJOcJJwKQQwbsQimkGtT90S7nM6/JwaVBj/G2PbrVRBg2q2s2H7ongz35mDAzQPAR7yFYovuJtrairRjS1whRYWtFn26eQ8b27L10CZbdRybWS9C/Xsz6cY+FcKRBxTpo0ryhxAY4vefniBuXmZtkMgQ8mfUOawn7zkbTfteA6W9J3WWFSj6oxaEqrTgL9nEBTLf3wD6QXaIcerrxYXs5at5aoOK9eUPM78t7ZBNeqs0XKKEaeKSenN4SyIxksqG0LsKl6n4O23M1auQxKSAZG/AnafaHGnF9bMFrGJP5/c5/ZhWstqLtBj/aATqa+RzVJwImOEN+lA==
+Received: from MN2PR03CA0020.namprd03.prod.outlook.com (2603:10b6:208:23a::25)
+ by CY8PR12MB7242.namprd12.prod.outlook.com (2603:10b6:930:59::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.19; Tue, 14 Jul
+ 2026 21:29:52 +0000
+Received: from BL02EPF00021F6B.namprd02.prod.outlook.com
+ (2603:10b6:208:23a:cafe::3b) by MN2PR03CA0020.outlook.office365.com
+ (2603:10b6:208:23a::25) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.223.10 via Frontend Transport; Tue,
+ 14 Jul 2026 21:29:51 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ BL02EPF00021F6B.mail.protection.outlook.com (10.167.249.7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.223.9 via Frontend Transport; Tue, 14 Jul 2026 21:29:51 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 14 Jul
+ 2026 14:29:24 -0700
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 14 Jul
+ 2026 14:29:23 -0700
+Received: from nvidia.com (10.127.8.10) by mail.nvidia.com (10.129.68.7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Tue, 14 Jul 2026 14:29:21 -0700
+Date: Tue, 14 Jul 2026 14:29:20 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <iommu@lists.linux.dev>, "Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, Robin Murphy <robin.murphy@arm.com>,
+	Will Deacon <will@kernel.org>, David Matlack <dmatlack@google.com>, "Pasha
+ Tatashin" <pasha.tatashin@soleen.com>, <patches@lists.linux.dev>, "Pranjal
+ Shrivastava" <praan@google.com>, Samiullah Khawaja <skhawaja@google.com>,
+	Mostafa Saleh <smostafa@google.com>
+Subject: Re: [PATCH v3 6/8] iommu/arm-smmu-v3: Populate the tlbi at the top
+ of the call chain
+Message-ID: <alaqMJnkplAuT9kT@nvidia.com>
+References: <0-v3-4e7f64f4e094+85e-smmu_tlbi_jgg@nvidia.com>
+ <6-v3-4e7f64f4e094+85e-smmu_tlbi_jgg@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1134; i=broonie@kernel.org;
- h=from:subject:message-id; bh=12s8fzNjslyFuFEky8pEZ/IzdrzMoQB35exv4PxhEIY=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqVqkfLA3mqg0aAtZ38HIGHw1JSBhsmPDyke+y5
- wqOwmhXH42JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCalapHwAKCRAk1otyXVSH
- 0HrTB/0ZLDG80c56Uxwv1qhhIYC5/PO+el/BNEiqcg0EFn6lDsmIt3VIHCJx6vlKfHZac2Fqycb
- cR7bY8krEoy0kwop6URIp+Z/K8MHfz2KS693xJoqrtBXi3yzRMMzYHVeFTwRCj7R1WcQYD8rC+7
- uA4bJJe87mv8drb2D3z7+SyxtyI99NeqyKKryHMzewOdgST8hrlWduOGQdLeveUURLEEV0glkK4
- DpOtmfMuX983fJiRyg7Q9HLRljsRBfxwDevMeoGqZQpBQ8I6bmrzJi7bDwXmwiaO/8zm+UweIa2
- E56OppcNNBhFVRzBKCrH4Wpz3GQfC6qnWXnkmqKmSIF0qvC5
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <6-v3-4e7f64f4e094+85e-smmu_tlbi_jgg@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL02EPF00021F6B:EE_|CY8PR12MB7242:EE_
+X-MS-Office365-Filtering-Correlation-Id: 71fc43de-4402-4e59-756c-08dee1ef09df
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|36860700016|82310400026|23010399003|22082099003|18002099003|4143699003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: DJWTa4EauHzuO5aFtd+ZUtQG8Aq8RlK9P2MFvD4JxOTVXqZyoARLBn7JqCaU84A4DN4cr9EJv+F2aDzpdTguXlBF76LVPs8v6lTmSeuronyCT/EqJmLIUJv5tzLmJ7U/x8g224JD16d143hIqcGIi6tMJH/8DKNgQKLqWBhX7VGwR5lUjx5xk9xDoEYYRBV4ltQ7bDkFTT+ZEU1yfZdWUnuW4eES9LbT2OPrFcYId1gnAr/KCbwvVo38xEdQKKJgdZgoec5C5XUYR4569+z0JX7vapE5MGKiZCJP0nU6oSnZvn+M2OnqoL0jdGcg39SEEKBJi6P+lt3ARjeSIK7/0rjlRyOyPkTVvQtbV9uRuspWqbJL4GpcPb/jtsYAM1vt+EN5Z0jCiFtzp7W4w4QEOOTxmdb9biGILGqRfiKIUl+RCqmkcEXtIYZAw5gEqQTlbJvNmgakGq3MxEuB1NhhtcYcVg0sBeByHn5dXKalUuJKTZU5JCVzY32ex+K+SekXU2o+SDUVZm+wdtP0tsJPFkUSX+oEcKFYG4yRknqnNbiJkZDLXAl92xiDgaJyjEKMyBjgkW/hnUGi2MbqPwKaHzXn0fqQ85dVImw67jvG1fHRjzmLRQj7BVoTDdAYLVwBolrN5GMsMuWzyRO3Koru8cbhdV3QQUyQrfoCSkFOeUlpBhSsKqm8xItFk4YUqWEjKLs0oYiNJ+4vx+oSEreDxA==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(36860700016)(82310400026)(23010399003)(22082099003)(18002099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: t6Oh+Oxu68nR626H7zkvIZOn4zwGE3jVRKlA7VZW61l1ypO66ASu8k25xOe+MPY/shJQY7q+3S1XbMtuGG5GIPY5NmtJ3PWC2HT0xD395XZMS0/lXMUYbAXh56FJ9qIM1/N+QGF6hXFxDbNUfjlUhbQza00tw/r+hQGPOD44ZHr/OxR2PO76ZU7Vht+7PWvfT6+vZLkZfMX1Hddz2w1Uq0sEgWPfImqoL6Op4Jgl7BB+hGdI7R18wRR+LiwCNX7taUT276CAEzFusHlXCTtPW/s6s447Gv7XkgtB8Df1JWS9sQyQzhzMm3VVAylFDHeb4eyPG/ffs+ny6tMJ123yXTAcw9Q6j2M4jHWqLWWiNGcmm1l/o7VlWBLOSXfVn5Aak6k+lmwlmoUIs4FELomCK1m6UJRHMKzjvfEIheqRiNdw/4hRIjKsAmgvsX6VNYWt
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jul 2026 21:29:51.0403
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 71fc43de-4402-4e59-756c-08dee1ef09df
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL02EPF00021F6B.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7242
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260714_143002_462361_7F3BFDB0 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,35 +133,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 14 Jul 2026 19:33:03 +0800, Chen-Yu Tsai wrote:
-> ASoC: sun4i-codec: Set quirks.playback_only for H616 codec
+On Tue, Jul 14, 2026 at 03:46:06PM -0300, Jason Gunthorpe wrote:
+> +/*
+> + * Called by io-pgtable-arm.c for each single table level it wants to remove.
+> + * size is the size of the table level and granule is the tg in bytes. This must
+> + * clear the walk cache and any leaves within the range.
+> + */
+>  static void arm_smmu_tlb_inv_walk(unsigned long iova, size_t size,
+>  				  size_t granule, void *cookie)
+>  {
+>  	struct arm_smmu_domain *smmu_domain = cookie;
+> +	struct arm_smmu_tlbi tlbi = {
+> +		.tgsz_lg2 = smmu_domain->tgsz_lg2,
+> +		.iova = iova,
+> +		.size = size,
+> +		.iopte_size = smmu_domain->tgsz_lg2,
 
-Applied to
+Sashiko reported a typo here, though this gets fixed in patch-7.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.2
-
-Thanks!
-
-[1/1] ASoC: sun4i-codec: Set quirks.playback_only for H616 codec
-      https://git.kernel.org/broonie/sound/c/d9e96f859de3
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+Nicolin
 
