@@ -4,74 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A942C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 13:29:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00A24C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 13:31:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Date:Subject:Cc:To:From:Message-ID:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1XwaxRE6i5UHv+Uo2xyeqTzoMRrmOa9ARrEwqH7fxbw=; b=w/Y3gxXwuGZDd0P1mKvjuadtf1
-	7dseZB1U8rT7Jgk+53Mj+0RAbWb8/QhJZI8vniu0u1HFPOtiPKJU77qLRi02USITAc9rP5+lPSMt9
-	+QPv755GgNWycDpay0KvB1QUSLD8rcM1baR2xJ1Yl4eaXxcbxB2hqMtKR5w1/qxU7YuSi8w64+CB+
-	9P4/Xpw0yXDQc46YRK0yJXMBKkCpiQCH8qmv6Pshq3W9aQPicN1ELHcgY2FPfU81s3VQ+Dpzmk6EZ
-	Bf8NcVkkN+yUYGysi0ZrzV1jsMYpgv0pDYWes58qiAw/ov51gp1/443usFJPPjnDnPzt2KTFybCED
-	jTwnR2jQ==;
+	bh=ZJz5OoG83+btFSxggAH+9IZdnaFOVGIz/YLR4GE9uSY=; b=qHo+pb5/qBlq+ZPK+41FVIM+bn
+	04dOkDLilc0AI+Kn6fuLbsR+QyyOnpsY/UFCK65x2bQHCbTR3cTuZgvMC7JeFuUH+jJyNmE8QfqRs
+	2PPuz+u9nYYB4eTypDoWzIw5gTxQu7gVcil1PpEoq/qzt5tPb/lgviNUeG4dgLJkDCyIDl3hA1ffl
+	/2UwSRMQUoLDMfeVbka64m/IvvqqXpe4+8P4K0x7Np81l1evbXrSkEcfdGpeMDdynJdYnZmigDoCi
+	hCGLM4xtldkcAIQPObDJk+mgDiH8hDWSpijTe0n9Jzu66Ad6MC2ox0PMJKZ+vhYAvIh0nKZG2UztW
+	BoV/NQ6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjdCd-0000000CBAO-39Lz;
-	Tue, 14 Jul 2026 13:29:39 +0000
-Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
+	id 1wjdES-0000000CBOG-13SC;
+	Tue, 14 Jul 2026 13:31:32 +0000
+Received: from out203-205-221-221.mail.qq.com ([203.205.221.221])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjdCb-0000000CB9l-0D8C
+	id 1wjdEN-0000000CBMx-1sCu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 13:29:39 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=1XwaxRE6i5UHv+Uo2xyeqTzoMRrmOa9ARrEwqH7fxbw=;
-	b=uU7eVt086myQGBDYCBx0fid0wmFCe/dw9RdG46NPZit/FA5y2lNjzpLsz5Zr5kvCz9J06lpFU
-	kI2wZBoeLWhjcycZeSqolUSJTXnFcQtvdaO+gLMZ1pvX2IFqEVdobeMLG8jCzp+eXNae9a2Bzpi
-	xXNwjnbN/7jXP9OYDKf0n1g=
-Received: from mail.maildlp.com (unknown [172.19.163.15])
-	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4h00KR1rTrz1K96m;
-	Tue, 14 Jul 2026 21:20:11 +0800 (CST)
-Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
-	by mail.maildlp.com (Postfix) with ESMTPS id D3FB440578;
-	Tue, 14 Jul 2026 21:29:27 +0800 (CST)
-Received: from [10.67.120.103] (10.67.120.103) by
- kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Tue, 14 Jul 2026 21:29:27 +0800
-Message-ID: <e05f176f-f14a-4733-852e-0df163a9d519@huawei.com>
-Date: Tue, 14 Jul 2026 21:29:27 +0800
+	Tue, 14 Jul 2026 13:31:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1784035883; bh=ZJz5OoG83+btFSxggAH+9IZdnaFOVGIz/YLR4GE9uSY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=Hri6nKMQIKZXzV0vE7wzkwahSjgm3RGVVSHBalFCGkoMmYzHlFBSgtcZCECLTtIHp
+	 ZtybHPmyuzk2WE1iBr5bf7N9RS4hZlNxxW9D3zOgG6bG7W0NTxXjSniMjYeYZryeWc
+	 sJ6V5HoYp+NnaHwHsX52+AQLXITYgOUXkFP1qCS0=
+Received: from localhost.localdomain ([116.128.244.169])
+	by newxmesmtplogicsvrszc43-0.qq.com (NewEsmtp) with SMTP
+	id 7D5A9C39; Tue, 14 Jul 2026 21:31:21 +0800
+X-QQ-mid: xmsmtpt1784035881t2yeerbw6
+Message-ID: <tencent_92BBEC9E50E005DB0B52D2C055EF9EEC5506@qq.com>
+X-QQ-XMAILINFO: MRb64KOzELYunlWsEiqV2DePYMEDDGwn8Cfume/60+wU2L9kl049x4mWYOx/8u
+	 ppUlJzGBgiGW82irgrB94O+O4L/urhXdD/bLIufzImrnT6cS4AbN4c5Rzw2wAF8MUb2xl7Rd1yoe
+	 weJ2MYjzqOjtzKqLKWxiTt9HU8kkxDqS0+yk+3Oo24Xsif7d7ZnGf7b5aLn5FXFIdwTAMzSOwYZo
+	 HwmrhDYWoYfo0b9s3BpnBozlpxv7PitQYych/H25ayaX9VcbfSsz5fU2OHbStXXmM7+uKLDbYiiH
+	 7RE0mPd0xjEvSZ28gQGWUHLGSyMIWUhAtiYZ8OXvS/Yc88sHKrqFHmKPtVaqZssxvTOhFLOrECfB
+	 MC3EWfEJxKpB9K4Qg6nNSjhB1bbrvNdI9Rh325rM3FcQWmu0s3gEUrXi398CvgkRH2SigT2bP9Gl
+	 qEK8p8/bXbeecCle8v0TtStuGDUKqt/maOlo4l3k3AsdyI4Rq5y4DWAHAtSpcS1nd3VkMY1AtC8D
+	 InVgCK1HxNyNnLFMhQQvyWFuvv9EvS3ZP6NJvSFMrk0tU59MiPPhlKGjq2F56k/M8aFFAEixuPYH
+	 q4kzlNuOd6Zuvtlm0dEtI9VNn9HtACUYa6uRIh6D/An7mZSVEyltJ08rSQcjKcMp1QO9hIfTQhNL
+	 OSh02tx0GUvU2iq8to8OtdWyIYcIhm3z7L+tyzfMdgJH6T0Yozp3z4q7koFn2gS1kCcMuBwMqeAY
+	 l0B8A1p/GZG/JPNs59qxRTcM6gnkitzPh4kdKaGQ/DoHm8vrKdQBs7vs+PvTK4g9bOjhfba4aqn/
+	 oKjNmfliYjKYJsmSZ55wLxBRZ3vFoNs7gjpCyrcITZFhJ/xh9bvQcqIH3IzGIHYSSKwRpQu1EXzw
+	 om43gyDPflxYD8pGRWoZP5YIWKw1gCrCnsyyOwRLIw3wgxDuE79TeLhOCeLPJqzEnyzkH7KLJLUC
+	 oDGE+NUBR3ssJff+HG2uUT9J7WbQ77nbHOpqSQGzimciD+YWMI4Kwfb71BzSgp4PNR43SGPaVXQR
+	 3kGQoDZygy8ME9cFU84lpDoSVlzVwUpcN3dCQA4cggbUsxVGYG3iJwhjc6/5YveF2zCwTKSw==
+X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
+From: Haofeng Li <920484857@qq.com>
+To: tglx@kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	Haofeng Li <13266079573@163.com>,
+	Haofeng Li <lihaofeng@kylinos.cn>,
+	Marc Zyngier <maz@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Vikram Sethi <vsethi@nvidia.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH 15/16] irqchip/gic-v3: fail T241 quirk if alias ioremap fails
+Date: Tue, 14 Jul 2026 21:24:51 +0800
+X-OQ-MSGID: <20260714132453.3302672-13-920484857@qq.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20260714132453.3302672-1-920484857@qq.com>
+References: <20260714122351.3274006-1-lihaofeng@kylinos.cn>
+ <20260714132453.3302672-1-920484857@qq.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/6] Support the FEAT_HDBSS introduced in Armv9.5
-To: Leonardo Bras <leo.bras@arm.com>
-CC: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>,
-	<yangjinqian1@huawei.com>, <caijian11@h-partners.com>,
-	<liuyonglong@huawei.com>, <yezhenyu2@huawei.com>, <yubihong@huawei.com>,
-	<linuxarm@huawei.com>, <joey.gouly@arm.com>, <kvmarm@lists.linux.dev>,
-	<kvm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <seiden@linux.ibm.com>,
-	<suzuki.poulose@arm.com>
-References: <20260709104026.2612599-1-zhengtian10@huawei.com>
- <alS-kcwvlASwPIzL@LeoBrasDK> <alUR3ez1EKeWb_pM@LeoBrasDK>
- <fcc9e842-a6fd-418e-93ff-0475a542f3df@huawei.com>
- <alYbaD2sxvkf_0jj@LeoBrasDK>
-From: Tian Zheng <zhengtian10@huawei.com>
-In-Reply-To: <alYbaD2sxvkf_0jj@LeoBrasDK>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.120.103]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemr100010.china.huawei.com (7.202.195.125)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_062937_642971_F888FA7B 
-X-CRM114-Status: GOOD (  25.99  )
+X-CRM114-CacheID: sfid-20260714_063127_797891_71A49597 
+X-CRM114-Status: GOOD (  10.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,149 +90,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Haofeng Li <lihaofeng@kylinos.cn>
 
-On 7/14/2026 7:20 PM, Leonardo Bras wrote:
-> On Tue, Jul 14, 2026 at 06:39:48PM +0800, Tian Zheng wrote:
->> On 7/14/2026 12:27 AM, Leonardo Bras wrote:
->>> On Mon, Jul 13, 2026 at 11:31:46AM +0100, Leonardo Bras wrote:
->>>> On Thu, Jul 09, 2026 at 06:40:20PM +0800, Tian Zheng wrote:
->>>>> This series of patches add support to the Hardware Dirty state tracking
->>>>> Structure (HDBSS) feature, which is introduced by the ARM architecture
->>>>> in the DDI0601 (ID121123) version.
->>>>>
->>>>> The HDBSS feature is an extension to the architecture that enhances
->>>>> tracking translation table descriptors' dirty state, identified as
->>>>> FEAT_HDBSS. This feature utilizes hardware assistance to achieve dirty
->>>>> page tracking, aiming to significantly reduce the overhead of scanning
->>>>> for dirty pages.
->>>>>
->>>>> The purpose of this feature is to make the execution overhead of live
->>>>> migration lower to both the guest and the host, compared to existing
->>>>> approaches (write-protect or search stage-2 tables).
->>>>>
->>>>> The required sysreg definitions for FEAT_HDBSS have been merged into
->>>>> arm64 /sysregs:
->>>>>     [1/5] arm64/sysreg: Add HDBSS related register information
->>>>>           https://git.kernel.org/arm64/c/72f7be0c2e30
->>>>>
->>>>>
->>>>> After these patches, the kernel automatically enables HDBSS when dirty
->>>>> logging is enabled on any memslot, and disables HDBSS when dirty logging
->>>>> is disabled on all memslots. This series does not support dirty ring
->>>>> mode.
->>>>>
->>>>> Depends-on: "KVM: arm64: Enable eager hugepage splitting if HDBSS is available"
->>>>> 	https://lore.kernel.org/linux-arm-kernel/20260629111820.1873540-3-leo.bras@arm.com/
->>>> On this, FYI, there have been some discussion on this:
->>>> https://lore.kernel.org/all/alETGFD2Ogx6N0HB@LeoBrasDK/
->>>>
->>>> Oliver's suggestion is that we don't automatically enable eager splitting,
->>>> but instead we have different behaviours if the user enables it.
->>>>
->>>> This is still under discussion there, but I think it can be useful reading.
->>>>
->>>>> This dependency is mandatory. Unlike v3, where DBM was added lazily on
->>>>> the first dirty access via a page fault, v4 injects DBM into pgt->flags
->>>>> at stage-2 MMU initialization time. Combined with HDBSS being auto-enabled
->>>>> during migration setup, the first dirty access no longer triggers a page
->>>>> fault. Consequently, if lazy hugepage splitting were relied upon (which
->>>>> requires a page fault to trigger splitting), hugepages would never be
->>>>> split, leading to guest hang after migration. Leonardo's patch above
->>>>> ensures eager hugepage splitting is enabled (chunk_size != 0) when HDBSS
->>>>> is available, guaranteeing that hugepages are properly split before
->>>>> migration starts.
->>>>>
->>>>> v3: https://lore.kernel.org/linux-arm-kernel/20260225040421.2683931-1-zhengtian10@huawei.com/
->>>>>
->>>>> v3->v4 changes:
->>>>> - Merge sysreg definitions into the FEAT_HDBSS detection patch (was a
->>>>>     separate patch in v3).
->>>>> - Add auto DBM (Dirty Bit Modifier) support as a new patch, suggested
->>>>>     by Leonardo Bras. DBM is now controlled as a page-table level flag
->>>>>     (KVM_PGTABLE_S2_DBM) rather than per-PTE. Note that DBM is injected
->>>>>     at stage-2 MMU creation time, not lazily on first dirty access. This
->>>>>     means the first write to a dirty-logged page does not generate a
->>>>>     page fault, which is a key reason for the mandatory dependency on
->>>>>     Leonardo's eager hugepage splitting patch (see Depends-on above).
->>>>> - Split the v3 "Enable HDBSS support and handle HDBSSF events" patch
->>>>>     into three patches: per-vCPU buffer management, fault handling and
->>>>>     buffer flush, and auto enable/disable on dirty logging change. This
->>>>>     implements kernel-managed automatic HDBSS enable/disable.
->>>>> - Remove the KVM_CAP_ARM_HW_DIRTY_STATE_TRACK ioctl for manual HDBSS
->>>>>     on/off. HDBSS is now automatically enabled/disabled based on dirty
->>>>>     logging state via kvm_arch_commit_memory_region().
->>>>> - Change HDBSS buffer flush triggers to vcpu_put, check_vcpu_requests,
->>>>>     and kvm_handle_guest_abort.
->>>>> - Store hdbss_order at VM level (kvm->arch.hdbss_order) instead of
->>>>>     per-vCPU, since all vCPUs share the same order.
->>>>> - Document patch is not included in this version; will be sent in a
->>>>>     follow-up series.
->>>>>
->>>>> Leonardo Bras (1):
->>>>>     KVM: arm64: Enable eager hugepage splitting if HDBSS is available
->>>>>
->>>>> Tian Zheng (2):
->>>>>     KVM: arm64: Add support for FEAT_HDBSS
->>>>>     KVM: arm64: Add auto DBM support for hardware dirty tracking
->>>>>
->>>>> eillon (3):
->>>>>     KVM: arm64: Add HDBSS per-vCPU buffer management
->>>>>     KVM: arm64: Add HDBSS fault handling and buffer flush
->>>>>     KVM: arm64: Add auto HDBSS enable/disable on dirty logging change
->>>>>
->>>>>    arch/arm64/include/asm/cpufeature.h    |   5 +
->>>>>    arch/arm64/include/asm/esr.h           |   5 +
->>>>>    arch/arm64/include/asm/kvm_dirty_bit.h |  29 ++++
->>>>>    arch/arm64/include/asm/kvm_host.h      |  14 ++
->>>>>    arch/arm64/include/asm/kvm_pgtable.h   |   4 +
->>>>>    arch/arm64/include/asm/sysreg.h        |  11 ++
->>>>>    arch/arm64/kernel/cpufeature.c         |  12 ++
->>>>>    arch/arm64/kvm/Makefile                |   1 +
->>>>>    arch/arm64/kvm/arm.c                   |  29 ++++
->>>>>    arch/arm64/kvm/dirty_bit.c             | 219 +++++++++++++++++++++++++
->>>>>    arch/arm64/kvm/hyp/pgtable.c           |  35 +++-
->>>>>    arch/arm64/kvm/hyp/vhe/switch.c        |  15 ++
->>>>>    arch/arm64/kvm/mmu.c                   |  19 ++-
->>>>>    arch/arm64/kvm/reset.c                 |   4 +
->>>>>    arch/arm64/tools/cpucaps               |   1 +
->>>>>    15 files changed, 399 insertions(+), 4 deletions(-)
->>>>>    create mode 100644 arch/arm64/include/asm/kvm_dirty_bit.h
->>>>>    create mode 100644 arch/arm64/kvm/dirty_bit.c
->>>>>
->>>>> --
->>>>> 2.33.0
->>>>>
->>> Also, please remember to include the base commit, so it can be applied for
->>> testing/reviewing.
->>
->> Thank you for the reminder.
->>
->> This patch series is based on:
->> - Commit: 0e35b9b6ec0f
->> - Description: Merge tag 'mm-hotfixes-stable-2026-07-06-17-49' of
->> git://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm
->>
->> Welcome to test and review — please let me know if you encounter any issues
->> or have suggestions for improvement.
->>
->>
->
-> Thanks for sharing :)
->
-> Tip: for next version, you can automate that by adding
-> '--base=<base-commit>' to your git-format-patch command, and it will
-> automatically generate a base message at the end of your cover letter, such
-> as:
->
-> ```
-> base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
-> ```
->
-> Thanks!
-> Leo
+NVIDIA T241 GICD alias setup only warns about a failed ioremap, then
+enables gic_nvidia_t241_erratum. Later accesses through the missing
+alias can dereference NULL.
 
+If any alias cannot be mapped, report which chip failed, unmap all
+aliases created so far, and return without enabling the erratum static
+key.
 
-Got it! thx!
+Fixes: 35727af2b15d ("irqchip/gicv3: Workaround for NVIDIA erratum T241-FABRIC-4")
 
->
+Signed-off-by: Haofeng Li <lihaofeng@kylinos.cn>
+---
+ drivers/irqchip/irq-gic-v3.c | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+index 99444a1b2ffa..a8a395a98c09 100644
+--- a/drivers/irqchip/irq-gic-v3.c
++++ b/drivers/irqchip/irq-gic-v3.c
+@@ -1840,7 +1840,16 @@ static bool gic_enable_quirk_nvidia_t241(void *data)
+ 			phys = gic_data.dist_phys_base + T241_CHIP_GICDA_OFFSET;
+ 			phys |= FIELD_PREP(T241_CHIPN_MASK, i);
+ 			t241_dist_base_alias[i] = ioremap(phys, SZ_64K);
+-			WARN_ON_ONCE(!t241_dist_base_alias[i]);
++			if (!t241_dist_base_alias[i]) {
++				pr_err("Failed to map NVIDIA T241 GICD alias for chip %u\n", i);
++				while (i--) {
++					if (t241_dist_base_alias[i]) {
++						iounmap(t241_dist_base_alias[i]);
++						t241_dist_base_alias[i] = NULL;
++					}
++				}
++				return false;
++			}
+ 		}
+ 	}
+ 	static_branch_enable(&gic_nvidia_t241_erratum);
+-- 
+2.25.1
+
 
