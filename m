@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B2AAC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 09:44:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6FF8C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 09:46:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oPLibf5QTIENtK/a1w6mHsH90E+s7HphtCSAcJvN1Ug=; b=jVs9IbsuUjsxUrUWeK23b/U+tq
-	rFXha86tZVFieNLTvoZLwo8um4pJt97JtSSqQOjOXrExMNHlCQMtlEK4Tju8kHt2cUm0lCDzINM/d
-	LmjdBr+eKnDrwXn6cRICdITotOprgHoJq9/DQ033XbDXl+pWhPNlpoMTSCMIw7xzFxTYqGM8Z0n0Z
-	pt2Crwc9RAO64h7ypt9bP+ocp60kieodlLQJZLxe3Jlv6tGGGqAjIJkuepG8gooUo78ByFdp1OPw3
-	GP0A9F/RqCQbn5Gkt/M67bc+2eII7ldzrSY0grkEWezL1LTDlKsabEvC1pqxqqa5dqE9d94x/DT5p
-	s0b00OUQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=lOlmSYJ3Bodigk0NBMpwVog9MXgccJpLT4T6HuafC3M=; b=zkD/Glx+ZTBehs
+	NQw6L+fel9VSOOL/c6Bu2ceVUWeG8vdXojC/WjGs4VY8KyaAdMZ/HDCuaGFM9xuT/ktgKYjbO1prH
+	Or7e4yn67SzyUyvB7Zg9UaLpVk/Fu/SQf0+g9xGpMl2LqlTwoEpcuy8xlyYe60MLrzMGJGZT7HbsA
+	sEVpN2lwZ2lPL0VnbnaptwUANtGhfosaEaYkCO6wxGyve8AicIEZJtGpSuUORUFKmJmLh0gAWZ2/N
+	E9F6SV2wyHBKzt9q+6B+DVFQYEv2pKMwlMHI+fwq6B3xGod7MaIu5la7HeZjg8V3A5rohDVDy74b5
+	yi/V1gSlGPeu2GhjNxcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjZgr-0000000BUAh-0ksM;
-	Tue, 14 Jul 2026 09:44:37 +0000
+	id 1wjZiK-0000000BUJv-1rCT;
+	Tue, 14 Jul 2026 09:46:08 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjZgo-0000000BU9q-2bmM
+	id 1wjZiI-0000000BUJR-1mQD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 09:44:35 +0000
+	Tue, 14 Jul 2026 09:46:07 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E0456339;
-	Tue, 14 Jul 2026 02:44:28 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 84133497;
+	Tue, 14 Jul 2026 02:45:59 -0700 (PDT)
 Received: from [10.1.34.162] (e121487-lin.cambridge.arm.com [10.1.34.162])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 937F43F93E;
-	Tue, 14 Jul 2026 02:44:31 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 551EF3F93E;
+	Tue, 14 Jul 2026 02:46:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784022273; bh=EIiGWFGBwbQOY9pU7snzN1nO5uflgqlCSuQ1vkL+rHc=;
+	t=1784022363; bh=AgAKhlhHGuretJsVXafbh6VgjP93LaJWk0WDL63crtA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=WZenSKyNv5kzXTkQ9Nwa1kCAIMyPVAVp6WaBgLQ8+nDHkxlAX/25XajfbPVfS9w2k
-	 3b3yW1MP9qyD8dXask4aD6h/scH5303v9p0yFgZHxQIe/lFquKcBRyEj6G1ctmfzJC
-	 Gj/DLpvU7pkdKF4Jw3DVuUdrwqqmxHPs0JvOVeNk=
-Message-ID: <253e0c6b-7b50-46e6-bd13-69c0459ddae0@arm.com>
-Date: Tue, 14 Jul 2026 10:44:29 +0100
+	b=hTBLkju5IIZNSBZTdII7g2apKM4JZ8aXGioFmvYtQ/OxVLV9QiFQKBGqZEheNHAim
+	 FcRV7fzhyGVmAvb28c5CrsmXKuEMkk9SQtcAlyGiWEk8B6yf2p+qyKg4tTMLyIuzOD
+	 THqlc7QVY89LDKCaNpA8oGk9nkNIn44I/A1xmRbU=
+Message-ID: <8f365d6e-ec4f-499a-8fa7-9b4717d786fc@arm.com>
+Date: Tue, 14 Jul 2026 10:46:00 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 10/36] arm64: irqflags: save and use both DAIF and PMR
-To: Jinjie Ruan <ruanjinjie@huawei.com>, "Liao, Chang"
- <liaochang1@huawei.com>, linux-arm-kernel@lists.infradead.org
-Cc: mark.rutland@arm.com, maz@kernel.org, catalin.marinas@arm.com,
- will@kernel.org
+Subject: Re: [RFC PATCH 06/36] arm64: irq: introduce a helper for GIC priority
+ initialization
+To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
 References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-11-vladimir.murzin@arm.com>
- <73bfbebb-e8fd-4b6c-b0e4-8f7d5b09b6af@huawei.com>
- <7a4e09a4-18e9-49a6-9a17-cad552e39076@huawei.com>
+ <20260709121333.23507-7-vladimir.murzin@arm.com>
+ <62c8be8d-224f-4db9-a91d-09f45ebe048e@huawei.com>
 Content-Language: en-GB
 From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <7a4e09a4-18e9-49a6-9a17-cad552e39076@huawei.com>
+In-Reply-To: <62c8be8d-224f-4db9-a91d-09f45ebe048e@huawei.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_024434_712538_95A8E0C4 
-X-CRM114-Status: UNSURE (   8.42  )
+X-CRM114-CacheID: sfid-20260714_024606_575719_BFD5DA1C 
+X-CRM114-Status: UNSURE (   7.29  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,33 +69,25 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org, catalin.marinas@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/10/26 09:11, Jinjie Ruan wrote:
->>> diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
->>> index f7dc5fb9427d..192eb97cd50b 100644
->>> --- a/arch/arm64/include/asm/ptrace.h
->>> +++ b/arch/arm64/include/asm/ptrace.h
->>> @@ -205,7 +205,7 @@ static inline void forget_syscall(struct pt_regs *regs)
->>>  
->>>  #define irqs_priority_unmasked(regs)					\
->>>  	(system_uses_irq_prio_masking() ?				\
->>> -		(regs)->pmr == GIC_PRIO_IRQON :				\
->>> +		(regs)->pmr >= GIC_PRIO_IRQON :				\
->>>  		true)
->>>  
->>>  static __always_inline bool regs_irqs_disabled(const struct pt_regs *regs)
->> Is there any reason to keep interrupt_enabled()? It appears to be rarely used
->> across interrupt and exception code. So far, i've only found a single use in
->> gic_handle_irq(), corret me if i'm wrong. So using regs_irqs_disable() directly
->> might reduce the number of small helper that people need to remember.
-> For arm32.
+On 7/10/26 05:16, Jinjie Ruan wrote:
+> On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
+>> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>>
+>> Arm64's `init_IRQ()` calls `local_daif_restore()` to synchronize
+>> interrupt masking via DAIF and switch to masking via PMR.  This
+>> depends on a very specific behaviour of `local_daif_restore()` which
+>> will clear DAIF if masking interrupts via PMR, which will get removed
+>> in the future.
+>>
+>> As `setup_arch()` cleared DA only earlier, introduce a dedicated
+> Did you mean local_daif_restore(DAIF_PROCCTX_NOIRQ) in setup_arch()?
 
-Indeed, gic_handle_irq() is shared between arm64 and arm32, and latter
-doesn't provide regs_irqs_disabled(), thus we have to keep
-interrupt_enabled() for now.
+Yes, I can update commit message if it makes it clear.
 
-Thanks
+Cheers
 Vladimir
 
