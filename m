@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F521C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 12:23:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3E28C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 12:25:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XrBPfnLDD8eQ7eCQ6RhRSXn0CPQXVWcRtTZW3fZ/anA=; b=ZBlXSnpgyB4tHkZVU2U1mb5Cvq
-	ZHClFT6Aq85fOjRFU9mEt02MJltT0yA2D102OCcNJz3OSZfQs9E3cpG1/9LnmRdjxIXH0rDjzgXRO
-	/HCsMMwlYCq2gYIA+hUsdDj0b08qZZ2IHquYFIuyj0MRHM0pWk25V3ALDDEMpAFyBU9VCo3koHp0T
-	h/Mrwm81i9A2TBUXCuXYEjxPfdPQwRjcnOREXC75Fuq812RE5RDKv5j1AcHjpGYw4z4fz1rlcLekm
-	Z+KVyMhRYu8tOMQ6xQ5wtkeAeAzi2uQXhwJbOkTNJFW/Mf9viUvKtRzUXh5oshhvEEIHxi4GB2phP
-	CG93DgbQ==;
+	bh=NW2Ta6E1fh/Eyc2M2Ag3HwLKZzUCdETSNuP1MsMtNOc=; b=FzZ3Dzm0P9d6VAjCPvD285Tpoc
+	0+B6NOFWNw2DRP3+8E8eDcA9kbD6Ff0VrWYWnjTaZ5UqYToMvL6uhXqzXrS0VLz1OkDTufc6nwp04
+	Oav2OLHYQ+Cr1zYsIvxbyAsbB2DNGEeBVy7qZ6yCg/zM6oTju1sQhQuebVye8Kd8uzl422hDIfoZl
+	KH2gLRr3JwgceCZFCST2VRbcZUmVOsbpK5SRbo6nfUhL/UOGgtgnb+t74U00pGgPNSJYn33eL32t2
+	tnGehAZyMc/U42fJKQQjSVIaa0t0V/85Qkt8IphFAxK9/wg7Fn5AuvijMJ6OWs07cKw3uiqLg5gxI
+	Y+m5dohQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjcAl-0000000BuTf-31NZ;
-	Tue, 14 Jul 2026 12:23:39 +0000
-Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
+	id 1wjcCD-0000000BuuE-1a9R;
+	Tue, 14 Jul 2026 12:25:09 +0000
+Received: from mail-qk1-x730.google.com ([2607:f8b0:4864:20::730])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjcAj-0000000BuSv-1kSC
+	id 1wjcCB-0000000Busw-2Bl6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 12:23:38 +0000
-Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-51c167c58f2so28277281cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 05:23:37 -0700 (PDT)
+	Tue, 14 Jul 2026 12:25:08 +0000
+Received: by mail-qk1-x730.google.com with SMTP id af79cd13be357-9217d13c276so269195485a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 05:25:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1784031816; x=1784636616; darn=lists.infradead.org;
+        d=ziepe.ca; s=google; t=1784031906; x=1784636706; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=XrBPfnLDD8eQ7eCQ6RhRSXn0CPQXVWcRtTZW3fZ/anA=;
-        b=Abjl8gL4fead3X5dVaOr0zSV4lyDy/0oQ1N76wvYHqbPQW8GNXD4pe5F7BKrmyaRqV
-         Gmhr6m38B7LcPGBxrJP6geZ3p7IIxpzA54Emnah/AZgdbp1hvDCxLR183W4lybekne3I
-         nFwgxaoB+mIbhEfo0id6GQrhJebVDVYNuM19lwuUHRyeqIVdgZRT/a3Inlq3HmL1+3KA
-         n5sC1jOPVXW1h0Hcufx6SG9myqJ9GqKpGZJRt6ENzfEoLXuKwYvXIVJWBIODta1xmqAx
-         +yB0tL43yyzlwYPzJv77MLiqpzr4xJm3LCn5yrocaIrh327bK0/1yb369P6Ql16ty01P
-         r7YQ==
+        bh=NW2Ta6E1fh/Eyc2M2Ag3HwLKZzUCdETSNuP1MsMtNOc=;
+        b=nZ5gt/hKAli74y8WKhl2cXcDUYOnimxfwcJKXzpKFmanH19GZ+d75PbhcvGZlR5bA8
+         klOqK0jglUrERjiQXC76gNYZE5N+Gaz7Uqob9FQp/G4N+5hcSBUSrWwUUmJOp5YJ30R7
+         kv+yFT2Hx/ltOTb1gJyGVNhaMl5RDVNi1ERjm1UqK2ZaEj+8F3Q93gwEA8bpIetPFpri
+         sP5rBPMnyYPRYDDz1D02LarZ1hdhDc7goP5gL6ZJAldixtncck5/ymtnsvPpGGGuSjcP
+         09WLRdxxTpQGctxepDaSekQTvOZhfhgamYzC+UXOSILhFsfvzRYWkNggQ9rFPBDLlcjW
+         XvEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784031816; x=1784636616;
+        d=1e100.net; s=20251104; t=1784031906; x=1784636706;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=XrBPfnLDD8eQ7eCQ6RhRSXn0CPQXVWcRtTZW3fZ/anA=;
-        b=NOQZUlmDrXiYAVzdyT2rzafuVNF4MI9swS/uAVyQ0QRl2rWvRyo9DUiOyw7wPjrDk7
-         /1XiWJjZr4soSJtmVX9Sf/46gqjhWGOjGG8xasg49s9ybz+WLCCHdk4WoulN7xYmbAHR
-         0+7IiGRZ2M6vIRsSAhmgN9IlvrHJNJBKVO7MrZkZrarRXKfsQvFbrJLFv3QoyQH9jHEF
-         HvkzjONKRlw6IWjLRf2c0KfWp6gr5rHCBGoH8lz/P7yxER1BGWa08Zp0Zsi/BXZEnIiY
-         Seo1viwDepzcUFySb51uKrVYGunq2PptBt81qOzaNLZL+KWjKjFlxHxf7A/AYqlvDxy0
-         QNlw==
-X-Forwarded-Encrypted: i=1; AHgh+RoB8yRY+BwriGi6zFT5j13fQd9fT4ACX5wnHQaypi5piQFUOuK79dGxGREn+dm1c6H16dMa2r3Pczr1N4Q+Lziw@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz6zXbnJlh66DsjGPXNzy8hblxMLbt4DC7+NnD19W/YSuVYq/Ne
-	umgFcK/2P58isF0ekk4pZBT5CkBR7CXU/cGslbw4oYBTGGX7c/X8t9P1AJc614VNh7A=
-X-Gm-Gg: AfdE7cnyj4BMO7R6ymvg1CgMgUwGCd1KmT9f6KLtAiez0gY8e9UHNYlx4rNP3UmouZ/
-	iSFis5F7UlASAM+2nUjuRs1rrEFe/nxU1OJ8DvhVog4RDTYG6nHwVdB+C8FsgDP34lAb57t0Bo4
-	xuWbXNcEZ5hzIQ2n8kmPGwABHSLQ/isfEihlcbafLOIGTut4UG+v2JznluVkzff8oCWfaFZNS7g
-	QMPb2lsAG/33CvQaR2iY7aMCM6VRq9+wlJWnLeXjrzpugZMzmgYMU7mP3nR4LnNqJLhPRYf9IK/
-	bBdEELPoAbsINMJ+dBP0/gZ6hUV8ubpNvXhlLPe4EkpCWwA4v2Xa3ICfS5CeHPDReuWf/cpQw6D
-	er9aZJiTQDqmfB7nCMAG9W9ScSBGLD6wFGuzPApKtZnEZvsJ29yIGhHwqFXdv
-X-Received: by 2002:ac8:578b:0:b0:51a:8c97:9375 with SMTP id d75a77b69052e-51e42494cb4mr15995711cf.61.1784031816150;
-        Tue, 14 Jul 2026 05:23:36 -0700 (PDT)
+        bh=NW2Ta6E1fh/Eyc2M2Ag3HwLKZzUCdETSNuP1MsMtNOc=;
+        b=QYOVcie6H06GMnLpuznOtEQ9sI/LxlA393NlSuobhjAoO8Fp11hcwUwYeqPE4YJ0/B
+         3BXWyaskDCmqHN/IS1iz3HcaX889ziE/oIXfsXyogvth/UvSihQjzzobGw4y4WDXwxsj
+         1HFpuo4qRZfzb6cV0Z27ud1eVAiGWUoty5O4NSh3jeeM2s0PF/ydX53MpEvatYWdGF/e
+         r9WprsziSn/OeR9fGBWkcufvcs9V0tRyTltdSasNC4pf+UNNVrS9ZJtxf0luaHk0+mkc
+         Ofp3s5YDwE6cHIm8mIrEDnfwIMiMmB1H3RRfmkB9XxcQiUD+P+aPvrOsUUfZEr+w+gOm
+         zQ4A==
+X-Forwarded-Encrypted: i=1; AHgh+RrBOMR4gFcUfCcMOf0aAEjXroPmFJSAT67vMbd1GTw4YUOWNLcT8bYbOmL3UHAyfKYjbOst3iYdLd4a1VwDdVbS@lists.infradead.org
+X-Gm-Message-State: AOJu0YyjRIqraUSC2/8S5JrUg2fdemsLYrpvdt4vk4BU1fnOjM00AOOU
+	SG/6iMutFeXvIJ4WdfgAR7Cf+5gVq6kan3ex2hqApfMy35Gh91HYQyWmzEjvKbh1bfg=
+X-Gm-Gg: AfdE7ckhh+1AG2dpsvpkxkClRAQE11R7UyQElkVaR5hDZN2sI0lxAhV5vbjfjrj9GAp
+	IUjZDOz/g+snoowp13beaj1eD1AJfoSgrQHgCBdhEfhfNZj8SHLEmy7cRQdbSnggy0LTOLeTBjO
+	GMKHa0HToDRWP/hsVdvTshv1amfZpXT/36kIcukmLs0wJSctB1V5lT5IAEfbglkF1WbEZyEe0Sa
+	iNfvtMn8QSvqyzUMaDgdsjj8ejz+pA+afuRV82dZ9LqBApVqcD0Mdd2Pa66ikDpEuU4z0MD+tQq
+	D96U2hkLLuo4PKtmMpmIjttSJmzNEhrcPj5GrZnyVYafU/FakCbaTcghnPAMpYGBgwokq8H4O6+
+	HM4Vqd8aaNKaQaOJ1l5gfsaPWGtS6kkTxFjjRsGIbKayGeGTXmdwV8IxIe4ShKa0wgwIvSUg=
+X-Received: by 2002:a05:620a:261b:b0:92e:c118:18d9 with SMTP id af79cd13be357-93083dc8f4fmr281429185a.80.1784031906057;
+        Tue, 14 Jul 2026 05:25:06 -0700 (PDT)
 Received: from ziepe.ca ([159.2.72.92])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-51caacad30asm109896611cf.9.2026.07.14.05.23.35
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-92ee5b4a0a6sm1474337885a.8.2026.07.14.05.25.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jul 2026 05:23:35 -0700 (PDT)
+        Tue, 14 Jul 2026 05:25:05 -0700 (PDT)
 Received: from jgg by wakko with local (Exim 4.97)
 	(envelope-from <jgg@ziepe.ca>)
-	id 1wjcAg-0000000FRbN-3RTk;
-	Tue, 14 Jul 2026 09:23:34 -0300
-Date: Tue, 14 Jul 2026 09:23:34 -0300
+	id 1wjcC8-0000000FRl8-3aT6;
+	Tue, 14 Jul 2026 09:25:04 -0300
+Date: Tue, 14 Jul 2026 09:25:04 -0300
 From: Jason Gunthorpe <jgg@ziepe.ca>
 To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
 Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
@@ -100,20 +100,21 @@ Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	Vasily Gorbik <gor@linux.ibm.com>,
 	Christian Borntraeger <borntraeger@linux.ibm.com>,
 	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
-	Michael Kelley <mhklinux@outlook.com>
-Subject: Re: [PATCH v7 04/22] dma: free atomic pool pages by physical address
-Message-ID: <20260714122334.GF3133966@ziepe.ca>
+	Jiri Pirko <jiri@nvidia.com>, Michael Kelley <mhklinux@outlook.com>
+Subject: Re: [PATCH v7 11/22] dma-pool: track decrypted atomic pools and
+ select them via attrs
+Message-ID: <20260714122504.GG3133966@ziepe.ca>
 References: <20260701054926.825925-1-aneesh.kumar@kernel.org>
- <20260701054926.825925-5-aneesh.kumar@kernel.org>
- <20260713181059.GL3133966@ziepe.ca>
- <yq5awluymdf6.fsf@kernel.org>
+ <20260701054926.825925-12-aneesh.kumar@kernel.org>
+ <20260713175616.GJ3133966@ziepe.ca>
+ <yq5atsq2md64.fsf@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <yq5awluymdf6.fsf@kernel.org>
+In-Reply-To: <yq5atsq2md64.fsf@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_052337_472729_5BDF2890 
-X-CRM114-Status: GOOD (  31.15  )
+X-CRM114-CacheID: sfid-20260714_052507_572076_D36DC734 
+X-CRM114-Status: GOOD (  10.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,61 +129,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2026 at 09:27:01AM +0530, Aneesh Kumar K.V wrote:
-> Jason Gunthorpe <jgg@ziepe.ca> writes:
-> 
-> > On Wed, Jul 01, 2026 at 11:19:08AM +0530, Aneesh Kumar K.V (Arm) wrote:
-> >> dma_direct_alloc_pages() may satisfy atomic allocations from the coherent
-> >> atomic pools. The pool allocation is keyed by the virtual address stored in
-> >> the gen_pool, but the pages API returns only the backing struct page.
-> >> 
-> >> On architectures with CONFIG_DMA_DIRECT_REMAP, atomic pool chunks are added
-> >> to the gen_pool using their remapped virtual address.
-> >> dma_direct_free_pages() reconstructs a linear-map address with
-> >> page_address(page) and passes that to dma_free_from_pool(). That address
-> >> does not match the gen_pool virtual range, so the pool lookup can fail and
-> >> the code can fall through to freeing a pool-owned page through the normal
-> >> page allocator path.
-> >> 
-> >> Add a page-based pool free helper that looks up the owning pool chunk by
-> >> physical address, translates it back to the gen_pool virtual address, and
-> >> frees that address to the pool. Use it from dma_direct_free_pages() while
-> >> keeping the existing virtual-address helper for coherent allocation frees.
-> >> 
-> >> Tested-by: Michael Kelley <mhklinux@outlook.com>
-> >> Tested-by: Mostafa Saleh <smostafa@google.com>
-> >> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
-> >> ---
-> >>  include/linux/dma-map-ops.h |  1 +
-> >>  kernel/dma/direct.c         |  4 +--
-> >>  kernel/dma/pool.c           | 54 +++++++++++++++++++++++++++++++++++++
-> >>  3 files changed, 57 insertions(+), 2 deletions(-)
-> >
-> > This seems pretty suboptimal?
-> >
-> > If !CONFIG_DMA_DIRECT_REMAP then page_to_virt() was used to compute
-> > the genpool's addr so dma_free_from_pool_page() can use the same
-> > logic, which is how things must be working at all today
-> >
-> > The CONFIG_DMA_DIRECT_REMAP scenario does look broken, so I'm
-> > surprised there isn't a Fixes line on this commit? I don't have an
-> > opinion on the search, but since alloc_pages() is used there is 8
-> > bytes in the struct page that could be used to store the remapped
-> > vaddr to avoid the search if someday someone wants to improve
-> > this. Maybe a small comment hinting that direction would be a nice
-> > addition.
-> 
-> Something like
-> 
-> +/*
-> + * FIXME!! We could avoid this by storing the remapped virtual address in
-> + * struct page and using that for lookup.
-> + */
->  bool dma_free_from_pool_page(struct device *dev, struct page *page, size_t size)
+On Tue, Jul 14, 2026 at 09:32:27AM +0530, Aneesh Kumar K.V wrote:
 
-Plus some if (!IS_ENABLED()) that does the direct lookup
+> If we want to warn about such failures, we should add the warning
+> consistently across the code. We may also want to handle decrypt
+> failures by encrypting the page again to avoid leaking it.
+> 
+> I will work on that as a tree-wide change in a separate patch.
 
-I would just use : not !! :)
+IMHO the WARN should be inside set_memory_encrypted(), and maybe it
+should be a BUG_ON...
+
+"free" functions shouldn't fail, and returning the memory back to
+normal is a "free" operation.
 
 Jason
 
