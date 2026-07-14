@@ -4,94 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB3DCC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 13:33:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF26AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 13:34:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZffwBF6hhGkwheo3CTBU68dVv5rF3zKRAqSeKFNznAQ=; b=ET1YBZD8N+kiSXNPaUNZWVYApY
-	CsxaJH/eVisT4XipMZHCI9WdroxeTpPEU7+niLkmJnB1BWEUODIUWG/KQFGF5Rn790BzT4+hieVmZ
-	p+VWCeDxbI6WF+FEBA1SFcyM4Zz7dPeJwrxzX6yOmjD4W1k2w3TV+uIixWfbfUk2kskMKEXbGznW7
-	JKJlATGij+p9ZX1dmcidxn9EwjZuf557Oq/YXTeq4sRU+el318c9Hy77JwcxvAELI7iUv57wJ+Qfs
-	ABjkDeDuI5VNNYYDp/jsM4Go3h0GxZPkBxY6FlMz5GRo5vz6unxSDO5E/6aC4JVbXiD4YAl7LTmDu
-	S+rsO8GQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YlPxD8B6RcoJORtYKUz5oe4Ys8TzD6N/C+ChKBexSxY=; b=LXD4/T1K0LbDFfHNPDhKLj7qTt
+	LMfVmTLjiPYOGdqF2vQZ8+40PPp+mmq7X8IPwhmxt1KISZQbn49BbAzNDd/xrFu7WsSaITqMhWMpN
+	eJwNuMQ9BDzXfeRzco6JCAZYvA5oekgC8m4b3egsCQDHdzejMEK4QPZg6P/vohAiCFsvpjwlaM+nH
+	anbzGexWK3V8MjUAvQBpgNKh+eCFcJrH660EPjXx7q3lN81ROza871UeG545dvSCuawhJW831UPYV
+	PPUgmxB4SIzjVdKd1i2W2zcVkEdW0SMkPqWpYbsuIhsu/wHGNAsOI1iRQqEB6Z6We1haNxr3v4wEj
+	gpZ47+GQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjdGP-0000000CBhe-2pmt;
-	Tue, 14 Jul 2026 13:33:33 +0000
-Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
+	id 1wjdHV-0000000CBwF-1PV9;
+	Tue, 14 Jul 2026 13:34:41 +0000
+Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjdGM-0000000CBgc-1t9m
+	id 1wjdHS-0000000CBvH-22wi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 13:33:31 +0000
-Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-51c01c79467so295451cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 06:33:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784036009; x=1784640809; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=ZffwBF6hhGkwheo3CTBU68dVv5rF3zKRAqSeKFNznAQ=;
-        b=iZ1ZrCqh/0oI4OBqzH+TdSO5hMVhhiNma7OYtg8GMib6CKM1QQmcydvEG9/ygN3431
-         YyEU1xiiAPyabKUWGf+7KsEA8yUvZ7ixjJNXE0HfmMlx5bzP/He96Sn5MUrve55HLU6G
-         q170HReisHSlJggOpEPsVQr+iqw6/Nxcrcxp9GQeVoZ4bplPFkJwRPBVcg0UaKifU2bo
-         Em6W6m3MX4nRaBnt+2j8SGYZ1OXepbt7r0C4o1cGtFimuO/0nAtZ1UEgqWirxykQ6Jfd
-         s8sbk7GJpLB4ab/soDGbFFErK1eKTruPn/dMh/sKR1+kI5KQmeMnH4nhhQcGKhrCAn3Y
-         Z6sQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784036009; x=1784640809;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ZffwBF6hhGkwheo3CTBU68dVv5rF3zKRAqSeKFNznAQ=;
-        b=kv2Ck5nk1lVKRAnUEmg1kS+RfQwp7D1zVr9hiOgGw6Fudlnx2O3uG6biY+b9Xxgea+
-         d0wjjV4qILzGoNHseBHqLaAxlmMhJh/0MixFjLNvhdO9svRmyNX00Pp8XG+25+iwRLp8
-         rgPjPKHYa+HDw7HmAsJy+xy2BEJbLja3iNioFOBdwWvYlShD/LYdCSOFPVr/Wi0pNG2D
-         /9twEXVSYYp8d6Ojrq7xzSFTzqUMm5yxYj1mi9BwI9nPYyA7o5vcoRk1UgLpBzwe5QfM
-         Twj+YFUZw7ngrc3jY6Vk2morANR2ynvz0lUJFaeZ/3dnpntcOrRv5OoDsLc7BR3F8tTe
-         hLDQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpxRVkilOgdXb3UUp8LHTaQpxnRFKJj3wikZ05DqDUFD4CEoa3Dxd6vKbQkad9fe5I4ZhR52Np6NC7mbGJqS9Ei@lists.infradead.org
-X-Gm-Message-State: AOJu0YztcmNj1Use0sJAZEHaPRy1RciNmIpRo6elAFp6P5CTTnVVC4uE
-	FX3ZdbP1NQieARrF+nZXUq8Z1kGKmkbQDDxXU8zCTWmGCbQuxkci+K9cauLGLclKlg==
-X-Gm-Gg: AfdE7cl34auQG8day02sxA8mSdr6MeZL6H5IMNgcthKNkwg+ejv9LsAoCCUiSHKsSzu
-	0rhjYwIsj0TVzyktUDHXrJbgBdfcOvw5farr1QmVESP5u8Tv1U81ka/6lANmPo1RkD2fi9Hx0Yj
-	z6vhdOvpVecjs4/hoECQUEg4qxkNKBSbv3XJ6MHUMf0DuSIKt7Gmc3GmsHlGYWPoT2ggtcc6cE/
-	SulidgFKQK+/E2ArtXUJWtpWfgGMOFZ2lyWRaaArb69WP3/P4QZ9xTruPXcmA+8lzjnbkrSC2Xs
-	6+NqdduTW/Z7qyBgYUu/rx8kLt+954L8njelQhKhkwELA0Lxcu4H2BqowpthuPWPv0FggY6QMWJ
-	fDCWrp5XF5wTLK4JyEvYXUghoBPf8SIeT7Vm4aShBndKbG5nPe52ICDc7dFiCDd+DvLFT3Zhqo/
-	SsdaPhM0RaA8ISc3+VcyqHcoDKw6j2nbLRnL1Sxls3jes0K2M=
-X-Received: by 2002:a05:622a:4d:b0:51c:ba4f:9d19 with SMTP id d75a77b69052e-51d7bd752e0mr14354651cf.19.1784036008463;
-        Tue, 14 Jul 2026 06:33:28 -0700 (PDT)
-Received: from google.com (10.129.124.34.bc.googleusercontent.com. [34.124.129.10])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-973a671434bsm3864983241.3.2026.07.14.06.33.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jul 2026 06:33:27 -0700 (PDT)
-Date: Tue, 14 Jul 2026 13:33:21 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Will Deacon <will@kernel.org>, Jason Gunthorpe <jgg@nvidia.com>,
-	Kevin Tian <kevin.tian@intel.com>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	Robin Murphy <robin.murphy@arm.com>, joro@8bytes.org,
-	David Woodhouse <dwmw2@infradead.org>,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 4/5] iommu/arm-smmu-v3-iommufd: Convert cache
- invalidation to the core array loop
-Message-ID: <alY6oVdehDZeeriF@google.com>
-References: <cover.1783539724.git.nicolinc@nvidia.com>
- <e21c0adeb86fcb82238b1f9d29f7ba7ae423ea47.1783539724.git.nicolinc@nvidia.com>
+	Tue, 14 Jul 2026 13:34:40 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=YlPxD8B6RcoJORtYKUz5oe4Ys8TzD6N/C+ChKBexSxY=;
+	b=xrX/jExi/qjNVH7HItZ6fEEIMILI0e60EBeCWj+t6sd94r9ND0nS3zsQ3JEFjA7/D2rd1N18u
+	samw0OV3YFdczzAw4sLdGcuNFplHsl60JdTn3e6uQhJX8Zafi7kjIpfyDgnk0p42+RpV2AYXZKX
+	4IMjLfNdy6Ax4f6JE1b4L7E=
+Received: from mail.maildlp.com (unknown [172.19.163.163])
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4h00RH5mYyz1cyQ8;
+	Tue, 14 Jul 2026 21:25:15 +0800 (CST)
+Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
+	by mail.maildlp.com (Postfix) with ESMTPS id 36DA54057A;
+	Tue, 14 Jul 2026 21:34:32 +0800 (CST)
+Received: from [10.67.120.103] (10.67.120.103) by
+ kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.36; Tue, 14 Jul 2026 21:34:31 +0800
+Message-ID: <5910a3ef-cac0-4a19-99f6-cf7e695c017a@huawei.com>
+Date: Tue, 14 Jul 2026 21:34:31 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <e21c0adeb86fcb82238b1f9d29f7ba7ae423ea47.1783539724.git.nicolinc@nvidia.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/6] Support the FEAT_HDBSS introduced in Armv9.5
+To: Leonardo Bras <leo.bras@arm.com>
+CC: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>,
+	<yangjinqian1@huawei.com>, <caijian11@h-partners.com>,
+	<liuyonglong@huawei.com>, <yezhenyu2@huawei.com>, <yubihong@huawei.com>,
+	<linuxarm@huawei.com>, <joey.gouly@arm.com>, <kvmarm@lists.linux.dev>,
+	<kvm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <seiden@linux.ibm.com>,
+	<suzuki.poulose@arm.com>
+References: <20260709104026.2612599-1-zhengtian10@huawei.com>
+ <alS-kcwvlASwPIzL@LeoBrasDK>
+ <8757dfcf-aae4-4716-9ff1-c3140d4cc63e@huawei.com>
+ <alYNOg7lREtdVE29@LeoBrasDK>
+From: Tian Zheng <zhengtian10@huawei.com>
+In-Reply-To: <alYNOg7lREtdVE29@LeoBrasDK>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.120.103]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemr100010.china.huawei.com (7.202.195.125)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_063330_531832_D3A5D68A 
-X-CRM114-Status: GOOD (  20.03  )
+X-CRM114-CacheID: sfid-20260714_063438_883890_2AB09223 
+X-CRM114-Status: GOOD (  21.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,44 +86,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 08, 2026 at 12:44:19PM -0700, Nicolin Chen wrote:
-> arm_vsmmu_cache_invalidate() allocated a buffer for the entire user request
-> array, walked the array converting each of the commands, and issued those
-> converted commands to the cmdq in CMDQ_BATCH_ENTRIES sized chunks, carrying
-> the sub-array bookkeeping all on its own.
-> 
-> The iommufd core now iterates the invalidation array and re-invokes the op
-> with the not-yet-handled sub-array, so the driver only has to proceed with
-> a single chunk per call.
-> 
-> Instead of a per-array allocation, use a fixed on-stack batch to copy from
-> the userspace array. If the copy fails due to nonzero padding (VMM violates
-> the ABI), fail the entire batch.
-> 
-> Convert the whole batch before issuing any of it: a malformed command is a
-> userspace bug, so the first illegal command fails the batch as a unit,
-> issuing nothing and leaving array->entry_num at zero, the same way the copy
-> above bails on nonzero padding. A batch that converts cleanly is issued in
-> full, so the op returns either a handled count with no error or zero with
-> an error.
-> 
-> A zero-length array now returns success once the data type gets validated,
-> matching the documented probe behavior, rather than the -EINVAL that the
-> full-array copy helper would previously return.
-> 
-> This also fixes two long-standing bugs:
->  1) On a conversion failure the old code reported commands that it had
->     converted but not yet issued, so user space advanced its consumer
->     index past invalidations that never reached the cmdq.
->  2) A zero-length array was rejected with -EINVAL, although the uAPI
->     documents it as a valid request that only probes the data type.
-> 
-> Reviewed-by: Kevin Tian <kevin.tian@intel.com>
-> Assisted-by: Claude:claude-opus-4-8
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 
-Reviewed-by: Pranjal Shrivastava <praan@google.com>
+On 7/14/2026 6:19 PM, Leonardo Bras wrote:
+> On Tue, Jul 14, 2026 at 05:37:58PM +0800, Tian Zheng wrote:
+>> On 7/13/2026 6:31 PM, Leonardo Bras wrote:
+>>> On Thu, Jul 09, 2026 at 06:40:20PM +0800, Tian Zheng wrote:
+>>>> This series of patches add support to the Hardware Dirty state tracking
+>>>> Structure (HDBSS) feature, which is introduced by the ARM architecture
+>>>> in the DDI0601 (ID121123) version.
+>>>>
+>>>> The HDBSS feature is an extension to the architecture that enhances
+>>>> tracking translation table descriptors' dirty state, identified as
+>>>> FEAT_HDBSS. This feature utilizes hardware assistance to achieve dirty
+>>>> page tracking, aiming to significantly reduce the overhead of scanning
+>>>> for dirty pages.
+>>>>
+>>>> The purpose of this feature is to make the execution overhead of live
+>>>> migration lower to both the guest and the host, compared to existing
+>>>> approaches (write-protect or search stage-2 tables).
+>>>>
+>>>> The required sysreg definitions for FEAT_HDBSS have been merged into
+>>>> arm64 /sysregs:
+>>>>     [1/5] arm64/sysreg: Add HDBSS related register information
+>>>>           https://git.kernel.org/arm64/c/72f7be0c2e30
+>>>>
+>>>>
+>>>> After these patches, the kernel automatically enables HDBSS when dirty
+>>>> logging is enabled on any memslot, and disables HDBSS when dirty logging
+>>>> is disabled on all memslots. This series does not support dirty ring
+>>>> mode.
+>>>>
+>>>> Depends-on: "KVM: arm64: Enable eager hugepage splitting if HDBSS is available"
+>>>> 	https://lore.kernel.org/linux-arm-kernel/20260629111820.1873540-3-leo.bras@arm.com/
+>>> On this, FYI, there have been some discussion on this:
+>>> https://lore.kernel.org/all/alETGFD2Ogx6N0HB@LeoBrasDK/
+>>>
+>>> Oliver's suggestion is that we don't automatically enable eager splitting,
+>>> but instead we have different behaviours if the user enables it.
+>>>
+>>> This is still under discussion there, but I think it can be useful reading.
+>>
+>> Thanks for the pointer — I've read through the discussion between you and
+>> Oliver, and it's very helpful.
+>>
+>>
+>> If I understand correctly, the proposed approach is to support both modes,
+>> with DBM behavior depending
+>>
+>> on the user's eager split setting:
+> I am still waiting for his feedback on that, but I suppose that's what he
+> meant.
+>
+>
+>> - If users enable eager splitting (chunk_size != 0): use the v4 approach —
+>> DBM is set globally.
+>>
+>> - If users do NOT enable eager splitting (chunk_size == 0, i.e., lazy split
+>> mode): use the v3 approach — DBM
+>>
+>> is set lazily in user_mem_abort on the first write fault.
+>>
+>>
+>> This makes sense to me. It gives users the flexibility to choose.
+>>
+> Yes, agree
+>
+>> As I mentioned in my patch 6/6 reply (https://lore.kernel.org/all/6e8b23bc-d420-4f5a-a921-5a5d64d84200@huawei.com/),
+>>
+>> I do think the lazy DBM approach is safer overall if the first-fault
+>> overhead is acceptable — it avoids accidentally marking
+>>
+>> special mappings and naturally handles lazy split.
+>>
+> I remember a previous discussion in which was concluded that lazy marking
+> DBM carried some issues. I have to go back on that and check if we can take
+> care of that now.
+>
+>> I'll keep an eye on the discussion and follow up once a conclusion is
+>> reached.
+>>
+> Thanks!
+> Leo
+All right, I'll support both split modes with different DBM methods in 
+the next version.
 
-Thanks,
-Praan
+Please let me know once you've had a chance to revisit the previous lazy 
+DBM issues — happy to adjust if needed.
+
+Thanks!
+
+Tian
+
 
