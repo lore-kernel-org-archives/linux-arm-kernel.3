@@ -4,93 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97E3CC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 16:09:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1ED1C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 16:20:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GXVI837g1ct10qWkXRLUJqSubRz9yvmaXF5e78qaF3k=; b=VHIjxSVSyVhUQBvqKjNku96rIY
-	OdOnTeC/0NNFEnYTFjhkgFXEwHw/ScYj5zV/uk019K4/AEKTduJZLsfC3MfmOfrlB4gj7jm7Y6lci
-	mZlMfEII9nkov0J2CD3PpFnZo32V+4Km6SHCy5nnnQPk50/bNOD5hRW9nqS624OVWCoqwDWErCvzO
-	6AI63J89hT8JEvGL3s8Ve7Ifq4nPtpRCof99ZZYQxcySINR17Zb7Q6CQ+zlty0zCcraBx8SJ2u4Ti
-	3llJvh3eFdiOiL6UnYMWC6fcY2RBW3QQc4E9NkMBjSWy30HZ+TR9M4Sem/T+7lp6QwuXt3Y7A33mw
-	ahQx0yTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
+	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3bS/S6koA4Jxx17fNiWxR1Ope7iKRUf0fhgm/1SQfJs=; b=sGQ32Hnyi10pgdZBln6r1V3rtt
+	nhEaJ5Hnb0WVOLitPrwF537guXTxQYbDlRkQY/bZeBMIJBzdq38r+h2uendySWJpXO1O3ufD+PNHF
+	xVNtM8bAMvjlbbrXMTnF/0G6xda147i2DWerO6iNbpMgbxdrIfak6u55vRXwkIlpPYpMncyzSfITi
+	VU0CYheooi3Y8Pu5tDYfjt5VLpztnmA2b95FKftjPlshk3UXikNt/YOG/TB6RraRy7CG2eiiPWYaF
+	NCjv3MiK2vLuz4fUHdUxgSKqNdCmCcJywAVMG3e1JrLFxVh9HhPKZPsz7o3IMWvJJdLXjpoDM2meQ
+	YEZxaNig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjfhG-0000000CdJd-3yqJ;
-	Tue, 14 Jul 2026 16:09:26 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1wjfsL-0000000Ce88-0riM;
+	Tue, 14 Jul 2026 16:20:53 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjfhE-0000000CdIV-1A53
+	id 1wjfsK-0000000Ce7z-0pwc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 16:09:25 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-493ba701891so8962595e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 09:09:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784045362; x=1784650162; darn=lists.infradead.org;
-        h=content-type:content-transfer-encoding:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=GXVI837g1ct10qWkXRLUJqSubRz9yvmaXF5e78qaF3k=;
-        b=RQ2yNyEMSDiJw0KwHmVvwhFCKZ3WdQYTP/83Laztk6miH2I82ySdyQJT1c+1blWhxd
-         CJABDr7zOQ9YVlc7ssdrzFOrMLo3N4ps65pxuL+K1eZ8u2yqDVF3ldHV93UkV2dR79MB
-         2oBQK1qOdXYsF7cB7vIFI6gqsGFyECLE0ZWxSpYV4TnsqWydZ9clbBOz21pIC35QpA6K
-         aqdUJJ1VoVG8gRB8TkNj7puGvmsIrbCOKNnIJ0jLvABCkc7wy/mV29moOTEbxsqERgU5
-         ooBKKsQRFlq8xJPl2kfB01Qb+KeOzCYMKvqygfueaBBdHPF08L2n4hmY1w7cbVQaCMGi
-         WOFQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784045362; x=1784650162;
-        h=content-type:content-transfer-encoding:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=GXVI837g1ct10qWkXRLUJqSubRz9yvmaXF5e78qaF3k=;
-        b=M7K7kWMdD43g9Y0zRMbAOvc78Gqf/ea1DIPzdsnB8CQ8zu6cR1XbR66OFg3w0KlJs1
-         t2c1Tcu6oo5JPaonRE3y2nAOisGJYCqaOqVjqz4zZdg2n0XNhwDdkIcqRMNajA+0kvw3
-         EEs7dfxbQzHm05oLkoNNpOSgMCDkWDWYda7bRyudcOBsOnczHTV8/P5ZP6CPBWJMxioc
-         g/eIb6aYr3h+b6KuzuFC3k444J0fUcJGFt4L36HRJrGSITQ28xJrTQdSbhazDHt+jcoS
-         H8y2MRb+uvUzdx9VL1gKDKjhrgNXOvdq/3OemhvWgKcU8KpdK9LleKDx3943WEyQTZu/
-         bvHw==
-X-Forwarded-Encrypted: i=1; AHgh+RqWorIHNaFlQb5qGoT/gDM8Hrk35arBe5FWwOvyabntzdM5npTR0gBnrS9QzRdx+ui96/wMwOrYHssNsF08uomI@lists.infradead.org
-X-Gm-Message-State: AOJu0YxyCN8Rz26AG1fA7nJ2O+7qG9heId9rkve1eON0yRKjL2jlHOCf
-	vXOM2ARwfHsJ+4er3t8oBVhkJ12Wom1BrUMRZuoM79hz/5JG1pScKMCH
-X-Gm-Gg: AfdE7ckYPBU+ePhVyAouRWbCo4r5+ZdDjdHMRppS+Cvyf5D9cPDax02jM4v1A2FjwdA
-	Aw/OpUm8oe5KX0BXIJp1EEWEo8cmO9lqmZQ+l5paWt7OE+bUckkgBaQaEWH9gEWS4m4hu30L+yV
-	cKxeSt4/915eUSvp8gGffFsD3ltf9rP42/dD8D3DHqASYmRR88xCUmxXv7SR7SeP+KU2RJ92C3f
-	hqCO5l2YdGasr2sFRyla5y6VtfSdj1DO0pXjDgmxQ3NrR7OrtlwKejG6cXhrJjyj/RxPFQ/t85+
-	cmaSn/xr+OYpZ/czxX+Jzg3HnXB/VWIYj3DKWZN7nEE9/+pH0tFe3hqCzEzi1NTzvxsxr76PV3t
-	KNve9r++ze+3yd4/l5CMZNJnjsNTxxOOX4657oA4G3zboPKxD/2NWphighIKc/Hc+lKOQtgDuNn
-	i/27KxJ/QSPg5gGmy+d+4hzA5xScBLHhL3FrhA7cg6SZ9NrQPWEfp85CyAIMyQuS2LYwnqrzZPW
-	Tf2kOYN7G6GVnpj0HctlCnG0eJzJVKnwL0bt+ANEJdtRd9bg6TmXKckGjYW5R8XMVYw6EovIhRW
-	lpb5GZsv1ThzYQuP8D9cbFez16Fmnq70Tz9lNXKGuZTUdONcDx8G6QbbH6LtYYj23F6ld4FKt4Q
-	WhT2h3JkX8cHNL+1wmsXfi/o7QbX0mxL8BiTmoxM6dNE=
-X-Received: by 2002:a05:600c:3e19:b0:493:f28e:462a with SMTP id 5b1f17b1804b1-493f87e6ba2mr149120795e9.12.1784045361917;
-        Tue, 14 Jul 2026 09:09:21 -0700 (PDT)
-Received: from jernej-laptop.localnet (213-161-4-244.dynamic.telemach.net. [213.161.4.244])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493f2dd8376sm228065035e9.2.2026.07.14.09.09.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jul 2026 09:09:21 -0700 (PDT)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Mark Brown <broonie@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
- Jernej Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>,
- Chen-Yu Tsai <wens@kernel.org>
-Cc: linux-sound@vger.kernel.org, linux-sunxi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ASoC: sun4i-codec: Sort sound related #include statements
-Date: Tue, 14 Jul 2026 18:09:20 +0200
-Message-ID: <ptJh_8TPQY2jXW7OWRlEFA@gmail.com>
-In-Reply-To: <20260714151950.316035-1-wens@kernel.org>
-References: <20260714151950.316035-1-wens@kernel.org>
+	Tue, 14 Jul 2026 16:20:52 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 49C1E60254;
+	Tue, 14 Jul 2026 16:20:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2568A1F000E9;
+	Tue, 14 Jul 2026 16:20:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784046051;
+	bh=3bS/S6koA4Jxx17fNiWxR1Ope7iKRUf0fhgm/1SQfJs=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=kuHZfKisQYi6/6IIe03EHfuYkzdWZ9lBBSqYr+XNliC0MCr3Z/SWkFbj0E4KSs0wi
+	 lXn4uHkQMT+ygO//Qn5855VedTDtQk1Mr7f09vHeKfF6ibnOxhlg2mJ62peFap3Tme
+	 5uc0BjOF/wJMI4A/1LyhtgxipaJGcf7HEU2XRzF3IAhQPGudLQC/Lk+YB8qkhOusRA
+	 PUCAOLq68H7TwyJqtxUPl2OARAXiA85uta2tWvZOe63a5I02/lDkqFFPKliCZzG77o
+	 4sXyMHNP4Tl0F7Wxa6a4X9kncQbPZgvmv678KAfJwjC0HE3VU1P+UxRujIJRSjt50R
+	 cqchA+BNxzskw==
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_090924_321605_8A7CF1AD 
-X-CRM114-Status: UNSURE (   7.45  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH mm-hotfixes v2 0/4] mm: fix UAF caused by race between
+ ptdump and vmap pgtable freeing
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Kiryl Shutsemau <kas@kernel.org>
+Cc: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ Suren Baghdasaryan <surenb@google.com>, 
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+ Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, 
+ Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
+ Uladzislau Rezki <urezki@gmail.com>, Toshi Kani <toshi.kani@hpe.com>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, 
+ Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, x86@kernel.org, 
+ "H. Peter Anvin" <hpa@zytor.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Dev Jain <dev.jain@arm.com>, 
+ Ryan Roberts <ryan.roberts@arm.com>, David Carlier <devnexen@gmail.com>, 
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org, bpf@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org, 
+ syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com
+In-Reply-To: <alUNiWcygLd4rqBo@thinkstation>
+References: <20260712-series-vmap-race-fix-v2-0-ad134cc3a12a@kernel.org>
+ <alTn7NguEW_4bodu@thinkstation> <alTq4V50767L-s5H@lucifer>
+ <alUNiWcygLd4rqBo@thinkstation>
+Date: Tue, 14 Jul 2026 17:20:29 +0100
+Message-Id: <178404602957.85099.8935151447302412515.b4-reply@b4>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=9287; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=SUyUQrgy2yWNm9tM/EcU7HxX1xhhYMI4KEsnz3S2+8k=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLLCEs8bbplyYPOEPyuivvDqeljNOh6xKGPvhdjyI8UTw
+ yJ/lenO7ChlYRDjYpAVU2R5/kV8f5BI2LzOC/5uMHNYmUCGMHBxCsBErG4wMjzfdl1jirdrws6j
+ bPFbbik1SiufPOLLwqFnwDv/YletbB0jQ9MC6+/ds5N2KLCmhNbqzBGZJ9u4wCFGLGX9I2t95l1
+ 7OQE=
+X-Developer-Key: i=ljs@kernel.org; a=openpgp;
+ fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,19 +95,257 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne torek, 14. julij 2026 ob 17:19:49 Srednjeevropski poletni =C4=8Das je C=
-hen-Yu Tsai napisal(a):
-> Some of the sound related #include statements are not ordered in
-> alphabetic order.
->=20
-> Sort them. This results in no functional change.
->=20
-> Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
+On 2026-07-13 17:32 +0100, Kiryl Shutsemau wrote:
+> On Mon, Jul 13, 2026 at 04:54:27PM +0100, Lorenzo Stoakes (ARM) wrote:
+> > On Mon, Jul 13, 2026 at 02:32:09PM +0100, Kiryl Shutsemau wrote:
+> > > On Sun, Jul 12, 2026 at 11:42:23AM +0100, Lorenzo Stoakes wrote:
+> > > > This series addresses the issue by having the vmap huge promotion
+> > > > logic acquire the mmap read lock while both setting the huge page
+> > > > table entry and freeing the prior leaf page table.
+> > >
+> > > Hi Lorenzo,
+> > >
+> > > Before we settle on the mmap lock scheme, have you considered handling
+> > > this the way GUP-fast handles page table freeing -- RCU-defer the free
+> > > and make ptdump a lockless walker?
+> >
+> > Overall I like the idea of eventually moving this to _all_ being
+> > RCU-free-able :)
+> >
+> > BUT... I don't like it as a fix for this bug that has to be backported.
+> >
+> > I think there's a lot of subtleties to worry about and I don't want to
+> > worry about having to maintain tht as a backport.
+> >
+> > But also, we have an unfortunate situation with ptdump where it also walks
+> > userland ranges on x86 (and ranges for efi_mm on both x86 and arm64).
+> >
+> > And for userland ranges you have to have the mmap write lock to exclude a
+> > downgraded mmap read lock munmap() operation (which gives rise to the weird
+> > inversion you mention).
+> >
+> > So the walker still has to take the write lock in this case.
+>
+> I think the userland side is fixable too.
+>
+> My first thought was to walk only VMA-backed ranges, which would make
+> the mmap read lock sufficient: munmap() detaches VMAs under the write
+> lock before downgrading, and free_pgtables() only frees tables
+> exclusively covering the detached range.
 
-Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Right, but some architectures have non-VMA ranges in userland (yuck), and
+ptdump is the only case where we really do this. It sucks really.
 
-Best regards,
-Jernej
+I'm not sure if it's ok to just stop outputting this information.
 
+But as you say, we don't actually have to worry about this if we're RCU
+freeing.
+
+>
+> But that is an unnecessary limitation on MMU_GATHER_RCU_TABLE_FREE
+> architectures -- which is every architecture with generic ptdump
+> support. There, user page table freeing is already RCU-deferred; it is
+
+The arches are powerpc, s390, arm64, x86 and riscv and indeed all set
+MMU_GATHER_RCU_TABLE_FREE.
+
+But it's more complicated than that unfortunately. As per mmu_gather.c -
+'Semi RCU freeing of the page directories'.
+
+And MMU_GATHER_RCU_TABLE_FREE != RCU page table freeing.
+
+You can see the complexity in Qi's commit 718b13861d22 ("x86: mm: free page
+table pages by RCU instead of semi RCU").
+
+Basically you need the IRQs disabled to get the semi-RCU behaviour and to
+be able to safely traverse page tables that way.
+
+So with CONFIG_PT_RECLAIM you're safe to RCU traverse PTEs only.
+
+Looking at the Kconfig entry:
+
+config PT_RECLAIM
+	def_bool y
+	depends on MMU_GATHER_RCU_TABLE_FREE && !HAVE_ARCH_TLB_REMOVE_TABLE
+
+And indeed, we fall back to just freeing PTE page tables immediately
+(relying on IPI sync) if it's not set:
+
+#ifdef CONFIG_PT_RECLAIM
+static inline void __tlb_remove_table_one_rcu(struct rcu_head *head)
+{
+	struct ptdesc *ptdesc;
+
+	ptdesc = container_of(head, struct ptdesc, pt_rcu_head);
+	__tlb_remove_table(ptdesc);
+}
+
+static inline void __tlb_remove_table_one(void *table)
+{
+	struct ptdesc *ptdesc;
+
+	ptdesc = table;
+	call_rcu(&ptdesc->pt_rcu_head, __tlb_remove_table_one_rcu);
+}
+#else
+static inline void __tlb_remove_table_one(void *table)
+{
+	tlb_remove_table_sync_rcu();
+	__tlb_remove_table(table);
+}
+#endif /* CONFIG_PT_RECLAIM */
+
+HAVE_ARCH_TLB_REMOVE_TABLE is set for powerpc, which also enables PTDUMP :)
+and that's because it actually tracks multiple PTE page tables together as
+a fragment.
+
+So in general - it's unfortunately not so easy, and we can't just rely on
+RCU.
+
+Obviously the above is moreso about userland mappings, but it suggests that
+_just_ removing page tables under RCU isn't sufficient here.
+
+You'd also need a lockless ptdump walker to carefully handle the weird edge
+cases as per pmdp_get_lockless() and ptep_get_lockless(), which the kernel
+page table wlakers not currently using.
+
+In the case of kernel page tables we can just always RCU defer page table
+freeing (having audited all callers to make sure nobody's freeing them in a
+broken way).
+
+But I wonder how the PPC fragment page tables stuff would interact with
+that, it's something that'd need to be audited.
+
+
+> what GUP-fast relies on to walk user page tables blindly with no mmap
+> lock. khugepaged retracting PTE tables under the pmd lock is likewise
+> covered by pte_free_defer().
+
+See above.
+
+>
+> So the downgraded munmap() teardown you mention is already safe to race
+> with -- for a walker inside an RCU read-side section. The write lock is
+> only needed today because ptdump walks outside of one, so the deferred
+> freeing does nothing for it.
+
+Yup.
+
+>
+> That would make the end state: the whole of ptdump -- userland, efi_mm
+> and kernel ranges -- walks under RCU with no mmap lock taken at all,
+> and the kernel-side freeing conversion we discussed is the only
+> missing piece.
+
+Yes the ideal situation is that we don't have to worry about an mmap or VMA
+lock at all and can stabilise on RCU only.
+
+Well only for ptdump.
+
+
+
+>
+> > I spoke a bit about it overall at [0].
+>
+> I think you forgot to paste [0] :)
+
+Yeah sorry! It's kinda immaterial now anyway :P as we're discussing in
+detail here.
+
+
+>
+> > We already have this mmap lock convention as a requirement for kernel
+> > ranges, and it was being violated by CPA and vmalloc.
+> >
+> > So I'd prefer we keep this as the proximate fix to solve the bug here, and
+> > then revisit this later (alongside moving to RCU page table freeing
+> > _overall_, though one doesn't have to block the other).
+>
+> No argument, let's do it as a follow-up.
+>
+> I will give the current patchset a proper review.
+
+Thanks!
+
+>
+> > > The free side looks cheap: kernel page table freeing already funnels
+> > > through pagetable_free_kernel(), which already has a deferred path
+> > > (used for IOMMU SVA). Adding a grace period there -- synchronize_rcu()
+> > > in the worker, amortized over the batch -- covers every freeing site
+> > > by construction.
+> >
+> > Well I did want to say btw that CPA doesn't actually mark the page tables
+> > as kernel, was going to chase up with something on that when I got a chance
+> > :)
+>
+> You are right. CPA allocates the split tables with bare
+> pagetable_alloc(), so ptdesc_test_kernel() is false and collapse frees
+> them via __pagetable_free() directly. Note this also means they skip
+> the IOMMU SVA KVA invalidation that ASYNC_KERNEL_PGTABLE_FREE is there
+> for -- that looks like a bug today, independent of ptdump.
+
+Yeah it is, I'll send a patch.
+
+>
+> >
+> > synchronize_rcu() is a very bug hammer, you can just use call_rcu() (and
+> > the ptdesc already has an rcu_head I think).
+>
+> Sure, call_rcu().
+>
+> > Keeping in mind that vmap can (in theory) span PUDs and even P4Ds it
+> > becomes a bit tricky.
+>
+> Since the walker only reads, I think it is enough to re-descend from
+> the pgd with fresh READ_ONCE() at each level after dropping RCU --
+> whatever level got promoted in the meantime, we see either the new leaf
+> or the old table. But agreed this is the part that needs the most care.
+
+There could be torn writes observed that would need careful revalidation
+checks though couldn't there potentially?
+
+See e.g. contpte_ptep_get_lockless() and pmdp_get_lockless() if
+CONFIG_GUP_GET_PXX_LOW_HIGH.
+
+And things are complicated in kernel code obviously by the fact you have no
+PTL guarantees anymore.
+
+And OK maybe we can prove the huge promotion case is OK, this assumes that
+we won't in future free kernel page tables under some other
+circumstances... :)
+
+I'm not saying it's not doable though, just that we have to be _very
+careful_ how we do it if we're going to try to do this under RCU!
+
+>
+> >
+> > But also I worry about whether the entries in the page table will actually
+> > be valid at the point the walker reads them.
+> >
+> > For vmap/CPA pretty much yes they are, but if something was to actually
+> > unmap them in future then that might no longer be the case. RCU will only
+> > guarantee that the page tables stick around, not that they contain anything
+> > valid.
+>
+> For a walker that only reads, I don't think staleness is a problem as
+> long as frees are RCU-deferred: the walker can only reach a table via
+> an entry it read within its RCU section, and freeing requires unlinking
+> that entry first, so the grace period covers any walker that saw the
+> old pointer. Stale leaf contents are harmless for a dumper. It does
+> become a problem for anything that dereferences through leaf entries --
+> agreed that the general case needs more care than ptdump does.
+
+Well I wonder about torn writes actually, you'd need to be careful about
+revalidating in the walk.
+
+>
+> --
+>   Kiryl Shutsemau / Kirill A. Shutemov
+>
+
+In general Ithink all the problems are ultimately solveable, they're just
+fiddly :)
+
+Cheers, Lorenzo
 
 
