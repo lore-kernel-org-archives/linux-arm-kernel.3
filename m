@@ -4,89 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60DCCC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 21:36:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A559C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 21:43:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tG5xu9XUyqIVx9AETRBq9Z5/aY+YTJq5pdj8yqHRqpU=; b=td56AF0sM/nnZpu7elxholaQwc
-	npQ37bfs72gmZBynoElQ4Sn0RmsAgXo0dBtlYIOkT1+zDCjJpJuLOqSvppspOFVcMwjMTVm0k0lzY
-	Z+8opThR7BTQCQkibBNKJq0L5Vgcc86mDL/4SDMWc1iX7LbwuIlbSxLEN0Ixr1+wAgVUlC9fKX62N
-	9h6vCCbt/DMmM/LvMhZhi0LVfJjs89w7ty5k23dUIP6MaRfwfrc0lSdhQ4VNelqkaNJCuhtDbFcSL
-	4Yh9eTug3mxP6DR7M1+tOLutV5YVgdcHMmNedJ/whrGkTAAB7hvmszoI6LVUwT2+z4l1J5yYsQEkz
-	eAS5NWZw==;
+	bh=Jp25cGdFWPegj+l2hwK2cryM5V2pVbptsdKYRXNVGRM=; b=HOj0aUT6GT5mPW7F6ued/mYsNN
+	H2A/p8E5UNju2eXxr7GDjQZtYTRHdkNtqPRH88WIOQVqBsB0Ve31Fxfs+4byT1OZyhPOqxqab91Xk
+	zdVh+2COhQfNprFEP3dGqm7FNQrwBgX70mkXhXymUppuVw4xg3JOUd0rfPlmUg89tuF+wR8CXLmAb
+	rCgi+H376eZwirypsL+hF7ZZS9QekQQhNAVJSvkdoRecosHOQYsuiUSTyubzZ4VW6uDw7ZzMXyCtL
+	F+G9G2xMFwTYlvZgneCZw9WGS06L7pTSLhBC6DMP5l/iltiis7kS9ST+8Z4LZ/fSs9YjE1Yh5k+Bb
+	9vGqAPOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjkhU-0000000DLqO-32Ue;
-	Tue, 14 Jul 2026 21:30:00 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1wjkuc-0000000DMm8-0TRT;
+	Tue, 14 Jul 2026 21:43:34 +0000
+Received: from mail-westus3azon11012031.outbound.protection.outlook.com ([40.107.209.31] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjkhQ-0000000DLpj-21Kp
+	id 1wjkuZ-0000000DMlg-2UCG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 21:29:59 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-47c6e9a694bso2621311f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 14:29:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1784064594; x=1784669394; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=tG5xu9XUyqIVx9AETRBq9Z5/aY+YTJq5pdj8yqHRqpU=;
-        b=cod3T6r8/QQDySYWK+IfktexfK6jnyycHVAYiMFWoqkHTXECQlasrT+3ad6NbBiAmx
-         OFiETzLAaUNA5vRc07DixwPTyrp03qRfVXPGciAPfy3SJ9lfF7ZAm1UUKwU9HG6cdnPE
-         zHqb5z0DEjotPK/Y0UWOVYt+aegeKOBhp1oU14gJ7R3RhqzbxYuZ9VQngHg/aaTrhQAR
-         RcFU4wAcF6cqLENKYz81soy4T4PC8AwMULp5mEgV+foktDysG6wuzIGaVvruWqYZP/8Q
-         /6hdCD5boZ1FURIkByWxjQSFZD/DZozg4b8RU+vJ2eERTtC9OYQ0koFk9CsTfQYNVKvW
-         OYBQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784064594; x=1784669394;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=tG5xu9XUyqIVx9AETRBq9Z5/aY+YTJq5pdj8yqHRqpU=;
-        b=riV/PTy3BbV6/6x3AgXp6SWNkHXwbLQ+i0qnz0CWxyDx5fho3xQrKNDYlW3TC3ZTJl
-         5moZO17DIAvflLEiiGWDqG2ZMb0c3XHt1ouxXi12SOluk110X0+cKfmnDne9bui/JxAS
-         nN9ONjTD4wOd1ao+ezRStFYxsxbsU7AwUpHD/CQwmfHYEtPJDHM6UHFnPBXoE93ZlnOc
-         o5syRUP+giChsIjSSYZZoVBWK10PEnZtL06bfVqsfCfzDkiOgIlyS8k5xwOIo3vkwMN6
-         iviWGCUHMvJnWJol7R319pujZmUgsxdFLNofvIBIF12/iUwMG5i2QRBEc6fSR26raPvq
-         03oA==
-X-Forwarded-Encrypted: i=1; AHgh+RqpOqlwdZbPnYg57X66AeCyBsUX/jvBSgLVvS9RKiW7lRyPjWyP1T5b2liSywKv9LfM/VGU1grwMdvzTRwtn5cF@lists.infradead.org
-X-Gm-Message-State: AOJu0YzagHbR9RVfPtqmeTUHAX2nTAu535GmN7RqRPN1PFOdFheIURb6
-	XKwt/6mvtnwAGHYNRjVct4It/2uEYO7SXfwe5/o0UBU1x7xjhqkNvV1jFC/CWGyKqE8=
-X-Gm-Gg: AfdE7cnwILB9DjlhL7BMO4pD9KaZPRwLV6acrqLrE3kfa85muqGSvuS3/GdhAov5ojf
-	yc3nm7gK/SAGptwe587LXDFUr98b0FW/e5PeRx+QDWh41Q8HhDNCtGT0/JxjNLzs/Uv+mLTVB9B
-	67zwRwLsZXUAXsZF83yldIafmHgRPdMImQajQOQaEBnKVAJGFtxIDxudTfMUTi1bvrKWGDJ4B03
-	SnNkR8YJYKH7K/VWM3OamWZgPGO+gv9HI3tF9LstsbQnUECRQfpnvpIEXww6iuPLFWsNZVbSK2i
-	49QJ46sErjFXtXJ/D7dnmfv9A1y3AsUIB6IOtcxyrTW2R5R0gEXHTZQYo8//G4VQLFUBShgbt1x
-	w3rAzX501Tk+OpMmOt7a29dv5gkoLR0ook3uUQT0oyVkrmI9gKgDeh7VxJJLNG9Ggz/v6cRQHh+
-	WTuIvybsta0xl9EQekCA==
-X-Received: by 2002:a05:6000:2c04:b0:475:f100:3603 with SMTP id ffacd0b85a97d-47f4fcf193emr108406f8f.50.1784064594560;
-        Tue, 14 Jul 2026 14:29:54 -0700 (PDT)
-Received: from localhost ([2a02:8071:56d1:2de0:1d24:d58d:2b65:c291])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-47f464a974csm13070062f8f.18.2026.07.14.14.29.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jul 2026 14:29:53 -0700 (PDT)
-Date: Tue, 14 Jul 2026 23:29:52 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: MANNURU VENKATESWARLU <v-mannuru@ti.com>
-Cc: krzk@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, n-francis@ti.com, s-k6@ti.com, bb@ti.com
-Subject: Re: [RFC PATCH 06/22] memory: ti-ddrss: Add MR4 temperature-driven
- refresh rate driver
-Message-ID: <alaojVmBNqua82_t@monoceros>
-References: <20260714125557.3304305-1-v-mannuru@ti.com>
+	Tue, 14 Jul 2026 21:43:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VqqktgXSBSx2xmp+DHyKEjIa4MfKv7oH6GJskMMBtoMxYWsOPLD/RgZQqMkexCwYzRGuW3vWtMPsLeIelPXIZ2jxKay/Y7aP7TlWXTNGyXZcpzdkGRdaX5LooL80ptQAZ/TJgksiKUoCH7Z6C05W8sJLNaSBK4fwVWQw5hUYRmtwIpxhKgtHL2YEDgZNYmAlncZSiFUGSBZOyjf4cG2QHm/ABJDtWnzjtIxnZU73K/t01jvipnsv9N6z9157j+CQ70sRoGFTc+Gi0cYkkxUVSKQMqHdf2KEzy3Yxaka1d3HksWVLCDJ6bJmpuyf0BCuu0cKpi7soatioNx9B9aig6A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Jp25cGdFWPegj+l2hwK2cryM5V2pVbptsdKYRXNVGRM=;
+ b=XdlGM4TlTPWMxSQ1JKGzhK8VNzNNMgE1YDtx4PjgrxGWLYzdwjE4mIZ6nZuj7nOA53u/NQt8iQCRNWe1V9dGNf/7HCucAjmEbkxjx8nswr+ik/sI096lv1mJXLr2EXXuzlv4XSVg/uo/uO/OHlDOYnWqXOjplAkxybvt26aV0RtIEk2t8PAq/rB3SGRwmaSK1CAI1DWKsyRqoajv0W2QqZHwS65yXTKrCpokxbAgqR383axyAsZb+RwglQ+js8sFpde1EsUdkYqAcQc+nUEbRXCUb9HNLWwovJvPFzR1PzVyQnfs8UXaUvoqLARYZPAuDJfx2xJWAFyFSIA5eNQyJA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Jp25cGdFWPegj+l2hwK2cryM5V2pVbptsdKYRXNVGRM=;
+ b=NZGuKeEDWFGumHa1oaena+U9U4xgTEyHcl4WRQP0Zv9oBShyaevEV9o+Jw+C8pInGM6Hp+gZL6apaCMGy33sB463ucIJeMcPnzsIfhl4eVedI/cneDuxqd7nqsNnlr0aP+fyMcE7KloPqUTe2H9HYjxnnnwMhqIJD9wrrZSdXOSVb40asxSPDJQF8XpijXdEIvO2RZ1vdiRb5AHHhsHG04aNhxi3G1wlZk+vKiZwokTjNDdmA8eU1KJ6zbJXzM4qk3njTbqtIDlStYwzGyisOdfR7f9ELDw7Uw6VJtlng1aQ8Y7chbkuWBGGD2XF98vhy6pHrag6qywztuvgdpzUBQ==
+Received: from BN9PR03CA0589.namprd03.prod.outlook.com (2603:10b6:408:10d::24)
+ by IA0PR12MB8422.namprd12.prod.outlook.com (2603:10b6:208:3de::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.18; Tue, 14 Jul
+ 2026 21:43:11 +0000
+Received: from BL6PEPF0001AB50.namprd04.prod.outlook.com
+ (2603:10b6:408:10d:cafe::3f) by BN9PR03CA0589.outlook.office365.com
+ (2603:10b6:408:10d::24) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.19 via Frontend Transport; Tue,
+ 14 Jul 2026 21:43:10 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ BL6PEPF0001AB50.mail.protection.outlook.com (10.167.242.74) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.223.9 via Frontend Transport; Tue, 14 Jul 2026 21:43:09 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 14 Jul
+ 2026 14:42:45 -0700
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 14 Jul
+ 2026 14:42:45 -0700
+Received: from nvidia.com (10.127.8.10) by mail.nvidia.com (10.129.68.10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Tue, 14 Jul 2026 14:42:43 -0700
+Date: Tue, 14 Jul 2026 14:42:41 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <iommu@lists.linux.dev>, "Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, Robin Murphy <robin.murphy@arm.com>,
+	Will Deacon <will@kernel.org>, David Matlack <dmatlack@google.com>, "Pasha
+ Tatashin" <pasha.tatashin@soleen.com>, <patches@lists.linux.dev>, "Pranjal
+ Shrivastava" <praan@google.com>, Samiullah Khawaja <skhawaja@google.com>,
+	Mostafa Saleh <smostafa@google.com>
+Subject: Re: [PATCH v3 5/8] iommu/arm-smmu-v3: Precompute the invalidation
+ commands
+Message-ID: <alatUaE6LmsETvnz@nvidia.com>
+References: <0-v3-4e7f64f4e094+85e-smmu_tlbi_jgg@nvidia.com>
+ <5-v3-4e7f64f4e094+85e-smmu_tlbi_jgg@nvidia.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="2mkn4dfbhj25cdbs"
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20260714125557.3304305-1-v-mannuru@ti.com>
+In-Reply-To: <5-v3-4e7f64f4e094+85e-smmu_tlbi_jgg@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB50:EE_|IA0PR12MB8422:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4459db2a-1a59-49af-268e-08dee1f0e5e1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|23010399003|376014|7416014|36860700016|1800799024|56012099006|18002099003|22082099003|11063799006|4143699003;
+X-Microsoft-Antispam-Message-Info: 3KBavc24e5WVvMNBrl4FXobLZXiYqG0jB/gTafJ4l3hZYe3dv+GLl756VSlihW6MNNb0hobHTAoxkqtD8BQx9p/WGL+LhApdDSZC0WlTQFb8St8uFoV86hxyl6uCCAgLYecTOt7ymcmBkp+N7qBnERh80pUFfR5dFlhD/1zagYLQIBAsbaxeURR4Kc0n4z2UFN+mhvovI0PxM+/6B0Zl4JDKyg9vfcOP2KNblZTiQpjDdJSXjXHSTRIbdpel7puaJpTR2ZEXld3ld5b6FhLQUEPCQ2p7J4/vCdrhOv3htj0PPP/OLz5zm2R0GrcEfX3EccZIE8cUmjaWCQ6iqWZ8CKggHn7QpoUwA3Y0IntAe/aQszK3LxFxjbmEtJEh/n9OBcVuPRgjZJ8xMpEKd6DR79Mtnr867qVuH7z3mDB3GJbTq2Yy9AzhS8/jzArsjra0HcK91J29+dKxyX7rLhnOWsgeCszlFjJmxF+ijMTL9YIWuS0KsZqTa7765jGqjipgF45BYBAM8gUjhZNiXUxw3uWdUJSASd8sCVL8klSSqJX8y2QPsTBvtPMTNdylkmfqY0I4R6YU2SQ8W5tRFoAo44eLMmJjMSaXGamG5hB6u4/KGV8/ZFyW1FTV2HNMM1RjYeF9D3N7any5W0/7MqVY7zLNn9EzPBFJAD+20OdFeEhC8wxuUK/C9lNfbsFtLo/77r82zjJNx234ZRkuEaKUeA==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(376014)(7416014)(36860700016)(1800799024)(56012099006)(18002099003)(22082099003)(11063799006)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 1sNaTU6YHgFvbAhT8wHMVxehgVo9y3PPPCxx+3HR3gpSbafKEZMEbZ4wsd1U+vvITLv3HZPEcP5hogrxiGg/4rTY8f+xlmq2gl2KJeLBhgo1zsoJyVJZx7PYZa/T+itJol50MUY41/jXLQjzpIQrWoto8Q+3D/DW1n9GN2+RfCQ0zlT5anweQwEbYp4+DL4d4yS0jQwTyZcExV8lsbHIWq0tO9MQjEgAN59iJuPdQh8vx8kzV/25TxHKFR6ermbVvjhc0/OYYaIUxXcd1JDUMB1U4tH8VDmOXF1enHmCiFT4KcjNzjo7/RTN4Rd609Gd8IvrnIwFebvj4/601nnOqt4hD6qo8Ri7cK6g1l1EmuNmuKAhtCCcWLqRI7cSfqRMYmil9upaD8QXCSQwBEfZ+inqKb66QcJ2+SjRbO3/rk6F9jJf+NRFzd9LJH/1Vbs7
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jul 2026 21:43:09.6499
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4459db2a-1a59-49af-268e-08dee1f0e5e1
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB50.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB8422
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_142957_663367_FEF162D5 
-X-CRM114-Status: GOOD (  15.06  )
+X-CRM114-CacheID: sfid-20260714_144331_638153_8F312851 
+X-CRM114-Status: UNSURE (   8.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,71 +134,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Jul 14, 2026 at 03:46:05PM -0300, Jason Gunthorpe wrote:
+> Store the required cmd data in the tlbi and just copy it out when
+> processing each item in the invs list. The cmd form only depends on
+> if the instance supports RIL or not, otherwise it is always the same.
+> 
+> This avoids redundant calculations for each invs entry.
+> 
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 
---2mkn4dfbhj25cdbs
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Subject: Re: [RFC PATCH 06/22] memory: ti-ddrss: Add MR4 temperature-driven
- refresh rate driver
-MIME-Version: 1.0
-
-Hello,
-
-On Tue, Jul 14, 2026 at 06:25:57PM +0530, MANNURU VENKATESWARLU wrote:
-> +#include <linux/mfd/ti-ddrss.h>
-> +#include <linux/mod_devicetable.h>
-
-Please drop this header. platform_device_id is provided by
-<linux/platform_device.h>, so the explicit include isn't needed.
-
-The mod_devicetable.h header will go away soon.
-
-> +#include <linux/module.h>
-> +#include <linux/platform_device.h>
-> [...]
-> +static const struct platform_device_id k3_ddr_mr4_id[] = {
-> +	{ "ti-ddrss-mr4", 0 },
-> +	{}
-> +};
-
-Please make this:
-
-static const struct platform_device_id k3_ddr_mr4_id[] = {
-	{ .name = "ti-ddrss-mr4" },
-	{ }
-};
-
-> +MODULE_DEVICE_TABLE(platform, k3_ddr_mr4_id);
-> +
-> +static struct platform_driver k3_ddr_mr4_driver = {
-> +	.driver = {
-> +		.name		= "ti-ddrss-mr4",
-> +		.dev_groups	= k3_ddr_mr4_groups,
-> +	},
-> +	.probe		= k3_ddr_mr4_probe,
-> +	.id_table	= k3_ddr_mr4_id,
-
-I'm not a fan of aligned `=`. These tend to diverge over time. And
-sometimes they are not even aligned from the start ...
-If you ask me, just use a single space before the `=`.
-
-Best regards
-Uwe
-
---2mkn4dfbhj25cdbs
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmpWqkwACgkQj4D7WH0S
-/k6Ahwf/b81Vv5hkw4FybxhsgdUe5wRo3ENmjomE25XcR89z6XUIZtiVMfJFPkpo
-ob3KI0c4+bTcA4ClDIDTS/g1H9V6RTolyo1OF6lQKz6ZZ+IP2oKBdIGXIKCqk/x5
-okV1ajvlpDT+DN9RXTy1ObvjXfLCbkPL4a+CSqONktVR69fJWkRsG9kCT2tug09p
-9PBYVy0Vy10Ti1ZnNvZw/+9+LdlXFAxauM2/Mcq/1IvRkWP/YJJrLlttziAbYGg0
-BqKW9p2CZzWVYkv3c/erWIe9ZOdgI2C7zlP+Nn9pBxXtHlpTaNFqK8AEKlfB4yJH
-gG5rmrbz6NksjCfJ12/W3ew91DesPw==
-=CCWW
------END PGP SIGNATURE-----
-
---2mkn4dfbhj25cdbs--
+Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
 
