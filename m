@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6D5CC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 15:00:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AA67C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 15:18:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jvisue5QPH6gBWf5Ajo7QVKxcBk4AHOQBMnbNhZWhMA=; b=U6SNtkYzrVsW56afPoORpBoqa8
-	bmC81w1nokP4ri6UgMd2XlcErQejpqJCCV/06x+t6u6i9D7a9k19Qr/9AoHgPHutnZnmJtJmx7pVK
-	xjaq4FJGYQR8H1xW9zdd/iQk/OSVnlhnbLbCfB2RCeN4WaTixiOR+bQRAVDIdAR9nMOWrf8IOc9Jj
-	CbbKOZCTvOSLwRQItvPyQmaRZJ9Z5oNWN2u2R4MwpzuZYlQPCSeZftNpRUR/6Si82FrAJf7jvDGx2
-	0KjEYVbQ7Am8G6jJQcBrP9TZXLpImz+aq8DlxSos7rP1Y3nzaNXGJoxnfKej9WsXjePiOkO1nr3s3
-	WeHMgLUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8tB5a8FtyJj5HJIDAKydoHG7QYuYFAziBXwegGN1DKI=; b=JbDPmaVcGQWo/63rpL4nHzkajw
+	n+tzkvvo3mB+kgZCW3KM0zZEMxKkfSWbmCwlZAe4GNnGKbxilUYtujwOkRCDjsA3BdgrGgGMYkMPM
+	eaEavGoDQIYnH/758tBiCr9qNI5Nxk/p4OJphomUeizxMvZ7LAm7S6THA4/pjVOAbyZnhxbCNZFgY
+	XJ0euO9B5kO1ABWuUUuvrS4BXYHrgJ1sbTVjIYMvthW5A3U+j/7lyPgr2fdi/RwtmVvXwFyfVoI/i
+	AL7a3r8qgeoGifSq/cLXmP/DgkbT9frJ3tY1N5J5gRsIIrgNexOzSrZmrH80tT7/uWDo+Vt90pnl6
+	F8iJsdfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjecm-0000000CSTt-2JG7;
-	Tue, 14 Jul 2026 15:00:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjeck-0000000CSTO-1m2h
+	id 1wjetk-0000000CVTO-3KNJ;
+	Tue, 14 Jul 2026 15:18:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjeth-0000000CVSk-1jkR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 15:00:42 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D750D41B03;
-	Tue, 14 Jul 2026 15:00:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0EFFA1F00A3A;
-	Tue, 14 Jul 2026 15:00:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784041241;
-	bh=jvisue5QPH6gBWf5Ajo7QVKxcBk4AHOQBMnbNhZWhMA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=JBxoa8DSQH3dpepqMHLAFDRVZiLzaaF39XmBG1J8hvUs12cUW011ITxT4xIw9xFlF
-	 bGRjv7XLDolkfJDY79GoMM9bz24P4Kwi2dMjraXCYb2xAwqZKYYByq13HDq2VONymU
-	 T55vX9YJ3N/1XeidPaZat9jp3w3WQoYikNLQxAk9i7c0wpzzZD/dzgb+OQoKaSU4HD
-	 77Srfg+kpG7BOf0QxyxvOxhpOQBTVCXX6DAL46w8pbDne9PbUhL6hG6VQeWvkK+bmX
-	 PAVm6a9aCXMAuBanxihaD+fv7XpgO1Y0wBrEStVuWurga+GYp9fj4spJ1E0YEa/kOm
-	 KZ4eghKGkz2Kg==
-Date: Tue, 14 Jul 2026 17:00:37 +0200
-From: Andi Shyti <andi.shyti@kernel.org>
-To: Vincent Jardin <vjardin@free.fr>
-Cc: Oleksij Rempel <o.rempel@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Wolfram Sang <wsa@kernel.org>, Kaushal Butala <kaushalkernelmailinglist@gmail.com>, 
-	Shawn Guo <shawn.guo@freescale.com>, Stefan Eichenberger <stefan.eichenberger@toradex.com>, 
-	linux-i2c@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org, Carlos Song <carlos.song@nxp.com>, 
-	Stefan Eichenberger <eichest@gmail.com>
-Subject: Re: [PATCH v3 0/2] i2c: imx: fix SMBus block-read of 0 locking the
- bus
-Message-ID: <alZO9GNx51oPBQuP@zenone.zhora.eu>
-References: <20260713-for-upstream-i2c-lx2160-fix-v1-v3-0-073ac9e103a5@free.fr>
+	Tue, 14 Jul 2026 15:18:16 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4996A2F;
+	Tue, 14 Jul 2026 08:18:07 -0700 (PDT)
+Received: from [10.1.34.162] (e121487-lin.cambridge.arm.com [10.1.34.162])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 957A53F915;
+	Tue, 14 Jul 2026 08:18:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784042291; bh=zB7jMLeR7v5xieyyCOBRixKDYFJVFK/R+3mYJg2Ffms=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=b8gJZUyg2Ilxyw6TxcxewYIGZQvMW6wiYwH7U1dSyxvXATEFCTC3kCuLdB83kUWGw
+	 82P78b/OWlHKr59NlPgcTM0EiPBL4Qp5l+Ukc1owicBsSrOA/URBXvkYJ93XPbp3HW
+	 bTD/573o4seRmcGnr4SPGs0/h3kfXOMsmS2XdrJE=
+Message-ID: <d4d83179-e88e-47ff-a320-47fdba8de7de@arm.com>
+Date: Tue, 14 Jul 2026 16:18:09 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260713-for-upstream-i2c-lx2160-fix-v1-v3-0-073ac9e103a5@free.fr>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 00/36] arm64: Add support for FEAT_NMI
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
+Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org,
+ catalin.marinas@arm.com
+References: <20260709121333.23507-1-vladimir.murzin@arm.com>
+ <375ee9ac-f715-47bf-8f0d-7ec8dc35c7f2@huawei.com>
+ <bb6e80db-dd5e-405f-9aa9-2a59fae3a1dc@huawei.com>
+ <b70b65b7-8ea4-4dc9-bf0b-f184e14d4850@arm.com>
+Content-Language: en-GB
+In-Reply-To: <b70b65b7-8ea4-4dc9-bf0b-f184e14d4850@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260714_081814_554632_D5973348 
+X-CRM114-Status: GOOD (  19.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,14 +73,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vincent,
+On 7/14/26 11:32, Vladimir Murzin wrote:
+>> Hi Vladimir,
+>>
+>> Even if PE supports FEAT_NMI, the GIC may not be able to generate a
+>> super-priority interrupt.
+>>
+>> The following patch can fix it, we should use
+>> gic_supports_v3_3_nmi() instead of system_uses_nmi() in
+>> ipi_should_be_nmi() because the GIC.
+>>
+> Thanks for the report!
+> 
+> I think it would be better for me to spend some time making the arch
+> IPI code tolerate both the presence and absence of NMI support,
+> perhaps similar to how perf handles this, rather than creating a
+> strong dependency between the architecture code and the interrupt
+> controller. At least, I’ll give that a try!
 
-> Vincent Jardin (2):
->       i2c: imx: fix locked bus on SMBus block-read of 0 (atomic)
->       i2c: imx: fix locked bus on SMBus block-read of 0 (IRQ)
+The diff below appears to work and doesn't require any knowledge
+of GIC internals
 
-merged to i2c/i2c-fixes.
+diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+index 80e35a8e5c8f..a7f894e82491 100644
+--- a/arch/arm64/kernel/smp.c
++++ b/arch/arm64/kernel/smp.c
+@@ -67,6 +67,8 @@ static int cpus_stuck_in_kernel;
+ static int ipi_irq_base __ro_after_init;
+ static int nr_ipi __ro_after_init = NR_IPI;
+ 
++static DECLARE_BITMAP(ipi_nmi_bitmap, MAX_IPI) __ro_after_init;
++
+ struct ipi_descs {
+ 	struct irq_desc *descs[MAX_IPI];
+ };
+@@ -1057,7 +1059,7 @@ static void ipi_setup(int cpu)
+ 
+ 	for (i = 0; i < nr_ipi; i++) {
+ 		if (!percpu_ipi_descs) {
+-			if (ipi_should_be_nmi(i)) {
++			if (test_bit(i, ipi_nmi_bitmap)) {
+ 				prepare_percpu_nmi(ipi_irq_base + i);
+ 				enable_percpu_nmi(ipi_irq_base + i, 0);
+ 			} else {
+@@ -1079,7 +1081,7 @@ static void ipi_teardown(int cpu)
+ 
+ 	for (i = 0; i < nr_ipi; i++) {
+ 		if (!percpu_ipi_descs) {
+-			if (ipi_should_be_nmi(i)) {
++			if (test_bit(i, ipi_nmi_bitmap)) {
+ 				disable_percpu_nmi(ipi_irq_base + i);
+ 				teardown_percpu_nmi(ipi_irq_base + i);
+ 			} else {
+@@ -1098,10 +1100,24 @@ static void ipi_setup_sgi(int ipi)
+ 
+ 	irq = ipi_irq_base + ipi;
+ 
+-	if (ipi_should_be_nmi(ipi)) {
+-		err = request_percpu_nmi(irq, ipi_handler, "IPI", NULL, &irq_stat);
+-		WARN(err, "Could not request IRQ %d as NMI, err=%d\n", irq, err);
+-	} else {
++	if (ipi_should_be_nmi(ipi))
++		set_bit(ipi, ipi_nmi_bitmap);
++
++	/*
++	 * Try to request NMI if it should be
++	 */
++	if (test_bit(ipi, ipi_nmi_bitmap) &&
++	    request_percpu_nmi(irq, ipi_handler, "IPI", NULL, &irq_stat)) {
++		/*
++		 * Fallback to regular IRQ
++		 */
++		clear_bit(ipi, ipi_nmi_bitmap);
++	}
++
++	/*
++	 * Otherwise regular IRQ
++	 */
++	if (!test_bit(ipi, ipi_nmi_bitmap)) {
+ 		err = request_percpu_irq(irq, ipi_handler, "IPI", &irq_stat);
+ 		WARN(err, "Could not request IRQ %d as IRQ, err=%d\n", irq, err);
+ 	}
 
-Thanks,
-Andi
 
