@@ -4,72 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77C0DC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 13:13:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1666C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 13:15:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OAy+CAyDH03ojq2AImlJaG9BcbYyqkfCIE5LlzZmWcI=; b=o5x0Ou6p7bsFv//i0anAxvTOVs
-	gQNv7JpmezY7AXFwuHDY04xPSqwBIujsgxtvK3e8qu/9IY7HQcyeDxNq6VgM5wVtOm7FSFP054inI
-	TK6OqTSYG7EX+bO3aatfKlCIPnKFjPgBNvKou+iT+sZp2YOoDFttMKGLBXPJe0fFVghEYIQa5krI9
-	XfoC373wbLaL/e/jaXVfD5TU9XPXVR3GPQwwx7JmytlJgXgUt69naua7ARy/I3q+0fy4x36foiUKw
-	YhABcsZxQc8yZ/QJ0u2C4JStcxk1sTv5KAHGO1+YlZDqRezI1SYjx3NQyl0HjQFMCD2gcHTPCszFd
-	7vX8BjAQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qN3UtjiHub9hKVr5go+F7XIV4S06tDyaoFiXy8s5Z6Q=; b=miNVqD1yX3TvADZ1WUXwQPGAc+
+	2JOf41uIUzJI1nkUz+BANgGPEFKKdohEtW7E2UkPByadUjHUKjDYB70gCHbq26K6slWDtTyjuMCva
+	mBcUyWXcpzDQLjKyvSo2OH/B4L8Z3XCMyh8Zz5iUa1rfhfrJb5xaeaMzyajhDUvVnRnpZ4q3BAqfs
+	H06jE9iIsLE07rIZFN7X7QPngpaQ03a5sY4Rj8G16kdAn9W3QXmD+or/EKTl6l0sd4H77XqnOHPt1
+	RYvqPZGynyz0B6tilbwgBf82Gn1Sbb+8KfBvoHtgFTnJCk7AvwU4gpyenMFo+JH0+LOnWgEklr6iO
+	tIdw1ljQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjcwv-0000000C7hF-1h02;
-	Tue, 14 Jul 2026 13:13:25 +0000
-Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
+	id 1wjcz2-0000000C8BL-3P4m;
+	Tue, 14 Jul 2026 13:15:36 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjcws-0000000C7es-06Sn
+	id 1wjcyz-0000000C89F-3Bv8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 13:13:24 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=OAy+CAyDH03ojq2AImlJaG9BcbYyqkfCIE5LlzZmWcI=;
-	b=WoNc8eB3V2vzjtIrgAVe6D1u2sU7Hh3arwRJFQ9J9UrIArDwXppcb65REvCkbOeDBlv5oPMe8
-	WlPOBOLhj7qlRik87DRR4aMvZvV1fRnmDhpozSsh6SOQIFHD2m+5pPQTAQdHcOjd3Y2Gnd4lmm+
-	TBqnRf2sELQwgHEQQB4G9UM=
-Received: from mail.maildlp.com (unknown [172.19.163.127])
-	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4gzzyZ6pgVzLlTK;
-	Tue, 14 Jul 2026 21:03:50 +0800 (CST)
-Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id C57BE402AB;
-	Tue, 14 Jul 2026 21:13:08 +0800 (CST)
-Received: from kwepemq200011.china.huawei.com (7.202.195.155) by
- dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 14 Jul 2026 21:13:08 +0800
-Received: from [10.67.110.108] (10.67.110.108) by
- kwepemq200011.china.huawei.com (7.202.195.155) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 14 Jul 2026 21:13:07 +0800
-Message-ID: <76366aad-dde5-4054-83bf-08c88d939134@huawei.com>
-Date: Tue, 14 Jul 2026 21:13:07 +0800
+	Tue, 14 Jul 2026 13:15:35 +0000
+X-UUID: 1132e2a47f8611f1aa26b74ffac11d73-20260714
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:42fa116b-70af-4adb-91a2-7b7314f9627d,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-5
+X-CID-META: VersionHash:e7bac3a,CLOUDID:6eb1200554fbf767736d64c5c340f4fc,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:102|865|898,TC:nil,Content:0|15|50,EDM:-
+	3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,A
+	V:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 1132e2a47f8611f1aa26b74ffac11d73-20260714
+X-User: pengcan@kylinos.cn
+Received: from lenovo [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <pengcan@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 439562558; Tue, 14 Jul 2026 21:15:21 +0800
+From: Can Peng <pengcan@kylinos.cn>
+To: suzuki.poulose@arm.com,
+	mike.leach@arm.com,
+	james.clark@linaro.org,
+	leo.yan@arm.com,
+	alexander.shishkin@linux.intel.com
+Cc: quic_jiegan@quicinc.com,
+	coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Can Peng <pengcan@kylinos.cn>
+Subject: [PATCH] coresight: ctcu: publish OF module alias
+Date: Tue, 14 Jul 2026 21:15:10 +0800
+Message-ID: <20260714131510.153784-1-pengcan@kylinos.cn>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 14/36] arm64: interrupts: introduce generic interrupt
- masking helpers
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <mark.rutland@arm.com>, <maz@kernel.org>, <ruanjinjie@huawei.com>,
-	<catalin.marinas@arm.com>, <will@kernel.org>
-References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-15-vladimir.murzin@arm.com>
-From: "Liao, Chang" <liaochang1@huawei.com>
-In-Reply-To: <20260709121333.23507-15-vladimir.murzin@arm.com>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.110.108]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemq200011.china.huawei.com (7.202.195.155)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_061322_674329_E6F6336D 
-X-CRM114-Status: GOOD (  26.07  )
+X-CRM114-CacheID: sfid-20260714_061534_120354_5A46794D 
+X-CRM114-Status: UNSURE (   8.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,156 +81,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-在 2026/7/9 20:13, Vladimir Murzin 写道:
-> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> 
-> As for the entry code, we want to replace `local_daif_...` helpers
-> so that they can properly handle both DAIF and PMR, as well controlling
-> their use more strongly.
-> 
-> Introduce new `local_all_irqs_...` helpers to replace them, which should
-> only be called in save/restore pairs.
-> 
-> Save the requested interrupt state as well, so we can check for
-> inconsistent interrupt masking in between save and restore.
-> 
-> There are two exceptions where it does not make sense to force
-> save/restore pairs for modifying the interrupt masks:
->  - when initializing a CPU or
->  - preparing to turn it off.
-> 
-> As we otherwise want to force save/restore pairs, those cases are
-> handled with specific helpers, making clear that they should not be
-> used outside of those cases, enforced with `CONFIG_DEBUG_IRQFLAGS`
-> enabled.
-> 
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-> ---
->  arch/arm64/include/asm/interrupts/masking.h | 101 ++++++++++++++++++++
->  1 file changed, 101 insertions(+)
->  create mode 100644 arch/arm64/include/asm/interrupts/masking.h
-> 
-> diff --git a/arch/arm64/include/asm/interrupts/masking.h b/arch/arm64/include/asm/interrupts/masking.h
-> new file mode 100644
-> index 000000000000..66ee03f7ab68
-> --- /dev/null
-> +++ b/arch/arm64/include/asm/interrupts/masking.h
-> @@ -0,0 +1,101 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (C) 2025 Arm Ltd.
-> + */
-> +#ifndef __ASM_INTERRUPTS_MASKING_H
-> +#define __ASM_INTERRUPTS_MASKING_H
-> +
-> +#include <asm/arch_gicv3.h>
-> +#include <asm/bug.h>
-> +#include <asm/cpufeature.h>
-> +#include <asm/interrupts/common_flags.h>
-> +#include <asm/ptrace.h>
-> +
-> +typedef struct arm64_exc_hwstates {
-> +	arm64_exc_hwstate_t saved;
-> +	arm64_exc_hwstate_t expected;
-> +} arm64_exc_hwstates_t;
-> +
-> +#ifdef CONFIG_DEBUG_IRQFLAGS
-> +/* Make sure the CPU init/tear down masking functions are only used once. */
-> +static DEFINE_PER_CPU(bool, irqs_masks_cpu_init_done);
-> +static DEFINE_PER_CPU(bool, irqs_masks_cpu_final_done);
+The Coresight TMC Control Unit driver has an OF match table wired to
+.of_match_table, but the table is not exported for module alias generation.
 
-It is generally not a good idea to define static DEFINE_PER_CPU variables directly in
-a header file, as this creates a separate copy of the variable in every translation unit
-that includes it. Unless this header is strictly limited to a single source file. Please
-correct me if this was designed for some special purpose.
+Add the MODULE_DEVICE_TABLE(of, ...) entry so modpost can generate OF
+module alias information for OF based module autoloading when
+CORESIGHT_CTCU is built as a module.
 
-> +#endif
-> +
-> +static inline
-> +arm64_exc_hwstates_t local_all_irqs_save_mask(arm64_exc_context_t new)
-> +{
-> +	arm64_exc_hwstate_t state = arm64_exc_hwstate_of_context(new);
-> +	arm64_exc_hwstate_t actual = {.flags = arch_local_save_flags()};
-> +
-> +	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
-> +		bool pnmi = system_uses_irq_prio_masking();
-> +
-> +		WARN_ON_ONCE(new < CRITICAL_CONTEXT &&
-> +			     actual.daif == DAIF_MASK);
-> +
-> +		WARN_ON_ONCE(new < ERROR_CONTEXT &&
-> +			     actual.daif == DAIF_ERRCTX);
-> +
-> +		WARN_ON_ONCE(new < NONMI_CONTEXT &&
-> +			     pnmi && actual.daif == DAIF_PROCCTX_NOIRQ);
-> +
-> +		WARN_ON_ONCE(new < NOIRQ_CONTEXT &&
-> +			     ((pnmi && actual.pmr == GIC_PRIO_IRQOFF) ||
-> +			      (!pnmi && actual.daif == DAIF_PROCCTX_NOIRQ)));
-> +	}
+Fixes: f78d206f3d73 ("Coresight: Add Coresight TMC Control Unit driver")
+Signed-off-by: Can Peng <pengcan@kylinos.cn>
+---
+ drivers/hwtracing/coresight/coresight-ctcu-core.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-This verification logic is almost same with the counterpart in arm64_lift_exc_context().
-Would it make sense to factor this out into a shared helper function to avoid duplication?
-
-> +
-> +	arm64_update_exc_hwstate(state, actual.pmr != state.pmr);
-> +
-> +	if (!arch_irqs_disabled_flags(actual.flags))
-> +		trace_hardirqs_off();
-> +
-> +	return (arm64_exc_hwstates_t){.saved = actual, .expected = state};
-> +}
-> +
-> +static inline void local_all_irqs_restore(arm64_exc_hwstates_t states)
-> +{
-> +	arm64_debug_exc_hwstate(states.expected);
-> +
-> +	if (!arch_irqs_disabled_flags(states.saved.flags))
-> +		trace_hardirqs_on();
-> +
-> +	arm64_update_exc_hwstate(states.saved, true);
-> +}
-> +
-> +#ifdef CONFIG_DEBUG_IRQFLAGS
-> +static inline
-> +void local_all_irqs_cpu_init_mask(arm64_exc_context_t context)
-> +{
-> +	WARN_ON(__this_cpu_read(irqs_masks_cpu_init_done));
-> +	if (context == PROCESS_CONTEXT)
-> +		trace_hardirqs_on();
-> +	arm64_update_exc_context(context, true);
-> +	__this_cpu_write(irqs_masks_cpu_init_done, true);
-> +	__this_cpu_write(irqs_masks_cpu_final_done, false);
-> +}
-> +
-> +static inline void local_all_irqs_final_mask(void)
-> +{
-> +	WARN_ON(__this_cpu_read(irqs_masks_cpu_final_done));
-> +	arm64_update_exc_context(CRITICAL_CONTEXT, true);
-> +	trace_hardirqs_off();
-> +	__this_cpu_write(irqs_masks_cpu_final_done, true);
-> +	__this_cpu_write(irqs_masks_cpu_init_done, false);
-> +}
-> +#else /* CONFIG_DEBUG_IRQFLAGS */
-> +static inline
-> +void local_all_irqs_cpu_init_mask(arm64_exc_context_t context)
-> +{
-> +	if (context == PROCESS_CONTEXT)
-> +		trace_hardirqs_on();
-> +	arm64_update_exc_context(context, true);
-> +}
-> +
-> +static inline void local_all_irqs_final_mask(void)
-> +{
-> +	arm64_update_exc_context(CRITICAL_CONTEXT, true);
-> +	trace_hardirqs_off();
-> +}
-> +#endif /* CONFIG_DEBUG_IRQFLAGS */
-> +#endif /* __ASM_INTERRUPTS_MASKING_H */
-
-
+diff --git a/drivers/hwtracing/coresight/coresight-ctcu-core.c b/drivers/hwtracing/coresight/coresight-ctcu-core.c
+index 9043cad42f01..a7caa5b00b6d 100644
+--- a/drivers/hwtracing/coresight/coresight-ctcu-core.c
++++ b/drivers/hwtracing/coresight/coresight-ctcu-core.c
+@@ -295,6 +295,7 @@ static const struct of_device_id ctcu_match[] = {
+ 	{.compatible = "qcom,sa8775p-ctcu", .data = &sa8775p_cfgs},
+ 	{}
+ };
++MODULE_DEVICE_TABLE(of, ctcu_match);
+ 
+ static struct platform_driver ctcu_driver = {
+ 	.probe          = ctcu_platform_probe,
 -- 
-BR
-Liao, Chang
+2.53.0
+
 
