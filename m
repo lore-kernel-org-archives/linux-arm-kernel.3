@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91174C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 09:46:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11314C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 09:47:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
 	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E1UQ1who+MzGJnhRAGQnZjnEvcZY391rlmuNIJbBr8I=; b=uKB/G2WDDEo8uZ9EiOzQLvQ8ih
-	JrrSgg9EWHwhYVyN9oC+ExhKNqrcrdOy2dXJaaUy5fMkuNU1WUDq9G6pov+eu9j+McodUlkUk+N/n
-	AXXRo+A4G7ZDdarS/8dm4I90lr+59EzLkc/4D9oFjBtMI/TibqVPPpqP/QHVOYCNoOax2RmVXIZzp
-	uuIpZIQebl/O4U1f+l8zBpVoc0Phvd3AjQgpCXvNoPbri6EygczOdNRCbQ2PgW+soJfvwl3qJto0y
-	6ZLtyYXwgm/4hZUiS9VxKwPhycVzAMjvXTJ4gaSov5a4YqpoWJMlTwT8hm37xsqYvpWGr3hD54PAW
-	QuUA39KA==;
+	bh=3cRD5tp61vGr5S2DsLizm6q3lmn7Tl+FjuVbnFjpaWY=; b=OO/nYyC+3KVLAkq0eK8nDNkDBm
+	tgZPVZl+E18q7AmyCTkyige6ZH9dC9M0tZTyGJCL6+h1H1SKVnR9Hop9p0fd0J+P1Rvb9Mu0eWmL3
+	v2O7zOfMELjnDl5YollFOkUQzHmMSQjZo/DhqbVEPTrCMfzFfw/5OuUsD0rruX/KnLmANPsWUg/0o
+	nkIB+yvFdsvLRaUM4lPOuc2BjskgJ7cDVL45hsKCG8YT4xBXyoTYsqdVlUIK2oCmuun1sgaPOL+op
+	Hb+EU8eYJ5h2Mu+1x5oTlKJSz9b/VBW8AT8hOfKZarIU9LhdW6BPFPP0JZvGX5IjXHCz9xtDD+0No
+	Bo2b0ACA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjZiy-0000000BUSt-2n9W;
-	Tue, 14 Jul 2026 09:46:48 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wjZjm-0000000BUd9-3OSN;
+	Tue, 14 Jul 2026 09:47:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjZix-0000000BUSe-1Ols
+	id 1wjZjl-0000000BUcl-09tu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 09:46:47 +0000
+	Tue, 14 Jul 2026 09:47:37 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5EE36601EC;
-	Tue, 14 Jul 2026 09:46:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C4AE1F000E9;
-	Tue, 14 Jul 2026 09:46:39 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5EC3543896;
+	Tue, 14 Jul 2026 09:47:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D44AC1F000E9;
+	Tue, 14 Jul 2026 09:47:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784022406;
-	bh=E1UQ1who+MzGJnhRAGQnZjnEvcZY391rlmuNIJbBr8I=;
+	s=k20260515; t=1784022456;
+	bh=3cRD5tp61vGr5S2DsLizm6q3lmn7Tl+FjuVbnFjpaWY=;
 	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=Wx5oJE4RDEO4dpFV0phT403AjtH8RYoSYzbGWynEUfagmkrDOBkIbSFsS+x53Ry+Z
-	 5EyDiYSdAlSv9M9WXQCsigWqSLQqxT60I3cGYCq+cTtojdHF9mL5k6OUmcHi9JboFn
-	 GEb5fgFiZIjw/cz5FWDvHJte2fMyl2uab32nxlFj2pXeb84lc9s0I0zXS6z3d6SXXl
-	 VP1FX7yrz+0z7UUMLnhbYRTPjdYSiE/+1upFXAxeEEBWrK+9mI+jbnZLn34Nu0FyLx
-	 lh9kNwEY/9P0B8kcjQOWOs0RkuOPBOwgdAthkIV9aVwNzhJUf3oauqhZB02agLe1es
-	 olERYlqWI2iYw==
+	b=V0sXocaSYQi1xJqIt1MJBdQzPhZD56BHBzx2m7Yw0YvJlKm/n/fHnWNSauFyKWV5z
+	 zNzTWGK/iFFwE+3x1Ak1tagoeCjsnadtm9wSEkHbw90gj+TOltpVAtj9SXn43yKJmf
+	 0n/67q79i+1sQA53I2SYp+edL/sjVAnbH56U6DPa4G9rAY6EusqDThdfaNYdZroMDE
+	 lzwZ6EroTsbWJw6S+IjzuD0irNPcqh8slpr3mzTzFQ5oR47KkQ0VmF7KH9jsma9UOV
+	 4A4d/TMUv9TB6ORGVL/BtfLzbJPS2jeOLBLIQFffPB2cUzJfzQFXluodTlVZNLTyu8
+	 hVfMkzX/tHOLw==
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH mm-hotfixes v2 1/4] mm/vmalloc: acquire init_mm lock on
- huge vmap to avoid ptdump UAF
+Subject: Re: [PATCH mm-hotfixes v2 2/4] x86/mm/pat: acquire mmap lock on
+ page table free to avoid ptdump UAF
 From: Lorenzo Stoakes <ljs@kernel.org>
-To: Kiryl Shutsemau <kas@kernel.org>
+To: Borislav Petkov <bp@alien8.de>
 Cc: Lorenzo Stoakes <ljs@kernel.org>, 
  Andrew Morton <akpm@linux-foundation.org>, 
  Suren Baghdasaryan <surenb@google.com>, 
@@ -59,26 +59,25 @@ Cc: Lorenzo Stoakes <ljs@kernel.org>,
  Dave Hansen <dave.hansen@linux.intel.com>, 
  Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
  Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
- Borislav Petkov <bp@alien8.de>, x86@kernel.org, 
- "H. Peter Anvin" <hpa@zytor.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+ Kiryl Shutsemau <kas@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
  Will Deacon <will@kernel.org>, Dev Jain <dev.jain@arm.com>, 
  Ryan Roberts <ryan.roberts@arm.com>, David Carlier <devnexen@gmail.com>, 
  linux-mm@kvack.org, linux-kernel@vger.kernel.org, bpf@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org, 
- syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com
-In-Reply-To: <alUUfGnM_vbhOTVK@thinkstation>
+ linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
+In-Reply-To: <20260712165341.GAalPGldsKpBs5treJ@fat_crate.local>
 References: <20260712-series-vmap-race-fix-v2-0-ad134cc3a12a@kernel.org>
- <20260712-series-vmap-race-fix-v2-1-ad134cc3a12a@kernel.org>
- <alUUfGnM_vbhOTVK@thinkstation>
-Date: Tue, 14 Jul 2026 10:46:30 +0100
-Message-Id: <178402239024.69739.1681992582238824793.b4-reply@b4>
+ <20260712-series-vmap-race-fix-v2-2-ad134cc3a12a@kernel.org>
+ <20260712165341.GAalPGldsKpBs5treJ@fat_crate.local>
+Date: Tue, 14 Jul 2026 10:47:20 +0100
+Message-Id: <178402244099.69739.5281491459981359633.b4-reply@b4>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1415; i=ljs@kernel.org;
- h=from:subject:message-id; bh=a7VMRw+J+v8nzO2qena+1Qa+1xYq9bL9avRWJ8DcXDM=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLLCWMtnZOXOu+4kNGHDhr83f+jpc3x//2kdX9irTVzJ1
- lqvT5qXd5SyMIhxMciKKbI8/yK+P0gkbF7nBX83mDmsTCBDGLg4BWAi7TMZ/heEXvVdbXTATHn5
- Vw8+tT+vdm+4V+LvWbF054M3B9t/T21gZPjK4SQ4J9OKY9Nhx39/5+0WvP0neuI64/CWJqVTqp8
- mmzEBAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=642; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=t4XiP/IHs/MAWTmAJpg8U8XhqPVl/Di3JCGllCa8vzE=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLLCWFcta9IJr9ALSwlJ11PfNz119ZLQC4ssPNa9fy9c8
+ 53xZt7HjlIWBjEuBlkxRZbnX8T3B4mEzeu84O8GM4eVCWQIAxenAEwkkoeRoeedzY2VCb/y5dql
+ I87/W3A80feA/QmBunpebqWfO4IZyxj+J/eLv1gpe2b6b+2PijPuX0mbW1f4l+297Me6f7PDA9j
+ CGAE=
 X-Developer-Key: i=ljs@kernel.org; a=openpgp;
  fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -95,40 +94,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-07-13 17:42 +0100, Kiryl Shutsemau wrote:
-> On Sun, Jul 12, 2026 at 11:42:24AM +0100, Lorenzo Stoakes wrote:
-> > Currently there is a nasty race between ptdump and vmap when attempting to
-> > map a huge P4D, PMD or PUD entry.
+On 2026-07-12 09:53 -0700, Borislav Petkov wrote:
+> On Sun, Jul 12, 2026 at 11:42:25AM +0100, Lorenzo Stoakes wrote:
+> > This patch resolves the issue by acquiring the mmap read lock on init_mm to
 >
-> <... skip 145 lines of commit message :P >
+> s/This patch resolves/Resolve/
 >
-> The code looks good to me, but I think the commit message needs some
-> love. It is long, and the pieces of the story are scattered: the race
-> itself only shows up around the middle, after several paragraphs of
-> ptdump background (including the arm32 and EFI notes that the text
-> itself says are not relevant to the bug), and the one genuinely subtle
-> part -- why the read lock is sufficient -- is not spelled out at all.
+> > provide mutual exclusion against ptdump, which acquires the init_mm write
+> > lock.
 >
-> Something along these lines would be much easier to follow:
+> ...
 >
-> 1. The race, up front. Diagram, if we you feel like it;
-> 2. The fix, and why the read lock is enough;
-> 3. Why a trylock;
-> 4. The arm64 wrinkle and the temporary ifdeffery patch 4 removes;
-> 5. Secondary changes (guard class, walk_page_range_debug() assert);
-> 6. History, if you feel like it.
+> > We also include cleanup.h in order to use a scoped_guard() to implement
+> > this cleanly.
 >
-> Point 2 is the one I care about most -- the same reasoning would also
-> help in the comment in vmap_try_huge_pmd(), where "Therefore, acquire
-> the mmap read lock" is doing a lot of unexplained work.
+> You don't need to explain that.
+>
+> Thx.
+
+OK will reword on respin.
+
 >
 > --
->   Kiryl Shutsemau / Kirill A. Shutemov
+> Regards/Gruss,
+>     Boris.
+>
+> https://people.kernel.org/tglx/notes-about-netiquette
 >
 
-
-Yeah that's fair, I will reword!
-
-Cheers, Lorenzo
+Thanks, Lorenzo
 
 
