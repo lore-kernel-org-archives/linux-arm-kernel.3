@@ -4,143 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4769BC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 14:42:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7408EC44508
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 14:53:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yXeZfp4XtWaQskabUHyJ7hWvNVDB7M0p8xHUIafvGjY=; b=2Xa0WfZFHEf3ib8OMjEMX0zw6h
-	0APSUnPHd1ufE1uFzR6X+Nqn8phyScaHYzEYpJeh2fuxaqEPANp3HnkC8TjzZjcxJ/lj3ftn/qwip
-	wkj7BgFWh6Tli7et8g65ALtSKSNLZtlyQLFOq0qvF25EgZvBDqC+b+W3a1ugPjmQCRsHZRH83Q7DL
-	Mnd7yLYXn6izEiil0m/dQoQlCMkIAh/M9FJy7nGUWIPXRKSwuYkW0TzBJdLWdUHZf5XlMrthu6C8C
-	dUlAYs+1fxXopgA981hzZZilv8nwk+UfdpwfDldgbjIu4d3uangsX7sA2jonoEAbGUDcibtCqoPyq
-	XsEIA88Q==;
+	bh=W/km1l4qos/3vnh74LC9dqwRWW+IxrErU5GLSExeZpk=; b=tYFU2Vz3ij8drQK2y6xNAB4dDg
+	uVUwg9MKQDVS6+C22ogrf+zc4Ob7P7qGzKfpK7/LbiO/1xf6o6rvEr7nMIuwYZkJJ4RXE9IoDLOCf
+	PTM8cxoNM1FMkbvmj0z08AokzwsC2xEvQ9CQ99mpmt4S65iXXl5zSU4YRl5bHPnMgz5rFHS4K+7Mc
+	u5lNrJVhm2aaEAijjLFBrw4a1Q9z/SDmLWyHjtRUpeGX/gyKdZzfO7XryuBRZ6zQHebVUR2ejNikJ
+	wJIb7yrVyqhMPbGf4dB8xUGUwcVLzc9nKadvhxTSjmLWC9yey8ioKiXkmmvBIbhiT/S4NGZ2UB/q6
+	8zsKEk2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjeKx-0000000CQ0e-2nwF;
-	Tue, 14 Jul 2026 14:42:21 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wjeVH-0000000CRJo-1Aq8;
+	Tue, 14 Jul 2026 14:52:59 +0000
+Received: from mail-vs1-f42.google.com ([209.85.217.42])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjeKv-0000000CQ0B-2Vtr
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 14 Jul 2026 14:42:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=yXeZfp4XtWaQskabUHyJ7hWvNVDB7M0p8xHUIafvGjY=; b=QRvONzWDUSsa9mqcVg5kZLiabO
-	eMWSY4efN8ALzDKMka8Lm2MQC257btKDQPma3M1tFekrRLDCm9bZ9Ni1I4ogf81P8ntfBEldLRdk9
-	uMiJp+wa0TfS5PzPyXW8OxkCJOFYsuuAEWRIw6eJiTPTROWR9fV9KFn+ywUUuz0OiHWMMrUdSL/dl
-	6efqjBBlwDpnVICpdUuim/4HOZyjMbx6wswhxTqWs+EpChQIF5NJLhyulKNJTVPbVuQqADdz/31o1
-	JoG4/TzEt9qx2bIEhlFruOKk5EO9CESVub7fB5hJvJwjpMNpN71hLeNbuexCt+vkDqoxDXmUowmnV
-	zNmm8xPA==;
-Received: from mail-francesouthazon11011047.outbound.protection.outlook.com ([40.107.130.47] helo=MRWPR03CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wjeKr-0000000CbgX-3hW5
+	id 1wjeVE-0000000CRJF-0rAG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 14:42:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ksmECUrReXRB21m8qmjWj1kGgD+5OPpFGiN8PHXB6BYUtSs6sR1RAV3Mlb+rHtBUMxhqHTtS+/RmXnqkwImeScnOKVL0+GuNpNaGXgncWopBh3G8aeubbfNQsf6nIZzcjGmoIhPE4srIVb5m2gwb+knn+BBhl8bRsGhGXbQBgXkgYrVaTPQPExiMIqNzjTeZrXDF/2ShBnWdb0LqZH7YJLcq0UdBLhke6XGfh4CCBwb3dL1tUAoD6yrUX4Fom3bKOdrp8FLDk6WdAlF8MXN8J52cAFwNU+dtJFwBl1wkkdHwZVE5b0YwHkdk34XTVhn6tvUJJ6UraCeI0K0tmCIseA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yXeZfp4XtWaQskabUHyJ7hWvNVDB7M0p8xHUIafvGjY=;
- b=rNQpKbhrXQsJ1CckSOIp4hRvQ0d0DYeNX9b6GB3mlaUnXcXoFavbmMASF0nnqBq7dthygbrdql6CgMi8+vlnT23m983RPcQbzOpd9rBi+ibyv7RVc+Af7fve+r5WWQ3UrpYnHmkQzFWHRAZ8/euZB1QAdQgwlLsUGO/EYd7TpnPkx/KoV3DPUsyHxARz2b9iqfMKEBZLOFj3YD3fIlAmZpOmy/mYISNSlQrMhp9XUGjnaF3OR9YkD1v4ERpShIwtSPi/7F97GxIpXWDpLfAUQqLX8qXtOFPPF8tlV+0Ikb5exPEWeJLSitF6oiltP63u/fzpuUJ+Gr73OZfgfG/RNA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yXeZfp4XtWaQskabUHyJ7hWvNVDB7M0p8xHUIafvGjY=;
- b=KoUdenj1ZNjyu7tEuBb/5DU3zaI+ZOFVn6ras6pxOLCwFWi2L0PvSBtpNd1s+549xDsjw9vLDIAM7S36zDAhsuA5gtmh9d3QCbeh2USWzS18sEBXEjwZS7m44EN0CU0ACrB3zD5h+w2uuN+BcCiTiJvXEEPZTRMKVHLUPbycgP/BfnQohMqafajltnbFqwz2RjQoYBrhpYkxmEnAdpsNtsSX8oZ93XSmwD48JWbQh5Sobp7THFBat0ndYndazaXH+Eu9Pw/c4oIGJxutgJz9WSDj9eiXndC1UGRpXSXYkG4ItEKZwZHpkTE4epPAH0RgkHlBp9hxV54p4bn4Rttd9A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AMVPR04MB12675.eurprd04.prod.outlook.com (2603:10a6:20b:774::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.10; Tue, 14 Jul
- 2026 14:42:08 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0202.018; Tue, 14 Jul 2026
- 14:42:07 +0000
-Date: Tue, 14 Jul 2026 09:41:55 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: hongxing.zhu@oss.nxp.com
-Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org,
-	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org,
-	bhelgaas@google.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Richard Zhu <hongxing.zhu@nxp.com>
-Subject: Re: [PATCH v3] PCI: imx6: Update MPLLB bandwidth to improve i.MX95
- Gen3 PCIe stability
-Message-ID: <alZKs-jRJhXYHZm4@SMW015318>
-References: <20260714024107.4113926-1-hongxing.zhu@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260714024107.4113926-1-hongxing.zhu@oss.nxp.com>
-X-ClientProxiedBy: SN7PR04CA0240.namprd04.prod.outlook.com
- (2603:10b6:806:127::35) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Tue, 14 Jul 2026 14:52:57 +0000
+Received: by mail-vs1-f42.google.com with SMTP id ada2fe7eead31-726840fb461so899998137.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 07:52:55 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784040774; x=1784645574;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=W/km1l4qos/3vnh74LC9dqwRWW+IxrErU5GLSExeZpk=;
+        b=cI6WlOhoxc8N5A5u90kE2vQW9cmsT+90roWji30GM/gDQ7bztXHn0GStfKouKXLJv6
+         OBnLuuhG3e0ssbHTyYV+VZD8aUINFomwQNUCq+xLyVUueMV8bdREoZvzlwDdVKKK2GZS
+         Z65IwjPrCKtK43OUz99KHptWyprM502NRe0A5AcpXjGMdGaj0Ht9St+FvwGGajZUQMH2
+         tYS4InENAFbcfPCmodSUe6ef3ZrcA+ujQQimZ+A97IBjUdyBGTPtlhtW5lWAlYBKURyB
+         4ZWdPhtotUJ90dMHSqbaIEgVgKJlewbqnwk9q9iFvlh6j1/ChilYga14bv2j9K/q6cr+
+         Nd7w==
+X-Gm-Message-State: AOJu0Yw1r/0dEtcOgVDBwF/N3wmAyUzWkSw5wkZ1wSn7iNOZvBnnucYP
+	Ff2ald/k1Yy+NdVxYhW41Wt0BJRLj7AtDRsjUibp/f6QZzW2UPxJVXvzCeoU8AdJ5Bg=
+X-Gm-Gg: AfdE7cn9A4AqTJDXhMl7a+bSvMThXK8BJyU2miUErKJFLyzJInH9six/Pobtkc019D3
+	srVhwrjNBkk3vYjMW5osfW8tX91QmJBiRwcRMFD1tl6VZu5ZVGnsYLKN9nX1/zUj51M0oSnhcdw
+	RTxAzE+ynR+l/E7+ZLPLH9j+m57Bn6JmwWLxf7jA3JUTaTENFKBswxDW+4MoAxUbjYfqojcLmXs
+	L2JHf6B+OUyi+AJ+kNMVun+9fTB0GyEqx0nn0+qZov4EQdrZCcUp4zYgqsJnzPr40a+DPaDBDQq
+	MxtxmPhk2sxZ3N5KxnlHQ9X5qvbaJxf1d34qo9jc9npGge1pE9XWFY3ndrHujuxaHwZxFWAeL03
+	zQ+zgEOI8rVflmtL2eVa6dNhi4feEQ29X+wvCgbgpFXpp754EeqztRbCgZpjO9rCnZNE+N7/pku
+	lbYZCjp6DOttQ+0dC7T4zAWYNuwdm4WxTnXVhcgQBT05RK9yrYiA==
+X-Received: by 2002:a05:6102:946:b0:738:be7b:add3 with SMTP id ada2fe7eead31-7457e687dc1mr2289753137.6.1784040774432;
+        Tue, 14 Jul 2026 07:52:54 -0700 (PDT)
+Received: from mail-ua1-f42.google.com (mail-ua1-f42.google.com. [209.85.222.42])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-96ed6737807sm8749549241.13.2026.07.14.07.52.53
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 14 Jul 2026 07:52:53 -0700 (PDT)
+Received: by mail-ua1-f42.google.com with SMTP id a1e0cc1a2514c-9696369925aso1471957241.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 07:52:53 -0700 (PDT)
+X-Received: by 2002:a05:6102:50a3:b0:722:a46b:2f2c with SMTP id
+ ada2fe7eead31-7457e8e365emr2275003137.15.1784040773753; Tue, 14 Jul 2026
+ 07:52:53 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AMVPR04MB12675:EE_
-X-MS-Office365-Filtering-Correlation-Id: d54620c2-82f8-469c-988b-08dee1b61459
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|1800799024|19092799006|366016|11063799006|3023799007|22082099003|18002099003|56012099006;
-X-Microsoft-Antispam-Message-Info: fI9e3KHUORTI6h01It4O0lzyvabTwCysv3vfQ9fQNwEl0WaqnEybLJKz/80eCVEcecjyDcLpcT9YXRNbLz80aV9n0OOoeTKjVWuR3xH47C27dIDjnedPtxGGwDLdy+gljG3yLX62Hc48dprzcYqXSS5zllbn02KKMxFMQ7EyAqMdEGSxtpq89nSIn+yqfDZ3bjOX4l9Dp24fZq4MIqnsyKKUWTYsl69G2f0Kn7o/rWy0aqIhLEEXrQICt5BPzkk9CO7VWxlPKCLA+oXP56CDm0jBJjgPHljg4NdSbd0FUEO7eS5cSgvHpqugs5Kw2eanGP9VgS6UdBPabupvGoy8kOeQjPks2mGDLIhHaAEpY8+dRJLtZhtWziWS/DLnbpwIBsz1+7kjaUhKrJrofTIMLlmpLFIgtyjA+MrC8VoCl+3CK59d6zUZAmlrpDbRPdYL7RugT1fb+CempcVr5YkxOTpfZII6LbReHjkIdd0lRvYCeoi/8fyoJ/UNFipZNxfhVyO3wL1Qwky124WJ0uF8SD9pKjq750lL0h8aGZP7RGKvIU/W0hPrvXUyMn7a1o1KEJgXgQKxHeWYWZvz+8iGV/lbZ1U+jyQqftSTOopNAp8X9lBIEB8+S0ekkcTCXsQajGmDB0ARmw5vXhWGNReWcDXHrpm9oz7RheZu76zVnvI=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(1800799024)(19092799006)(366016)(11063799006)(3023799007)(22082099003)(18002099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?BOUQH/OUrhrD1xwFy/cIK2dK+scESD/lVc2XImgnVg64OXgmCxW+Uap0hrfE?=
- =?us-ascii?Q?wnoxbRQxr5oKoahwbm0G06lL8DbsL4L04uQ7VPN25KYCG2S8gsaEt42SG8+9?=
- =?us-ascii?Q?6t/FSihLCgVXPBrFs/8xdX1sl+62seBjVX4wPh7Q10mGEnb7e4Iap+qrMpIS?=
- =?us-ascii?Q?tv8j3Rw92jnGs56Ecce8ZlUpGRzZilY/32HgO1qeRb5JonOxtxVA+V6cXX4f?=
- =?us-ascii?Q?JU+jJTMNfXa/VSqqA8aYkk97cbaxBCse6fSteKONjxbdiBwKqD5azD0PAfaq?=
- =?us-ascii?Q?QAf2UpMH9LVOUS5L3t6a5Ufak7Z9rJ+kcXGQv+rMWEL1Lx/2WunQoAc2sHkq?=
- =?us-ascii?Q?DfrNSy/dZPNQm6pTSL4ncXGHCu9Wzwo3o8ZZl6ocBSFcV4kllPrM7dl62m0+?=
- =?us-ascii?Q?gstCec2CLRvQNlZXM1xMoAhuM+T+iRA0kuhxja+dOIdAWScxAPTY8ZsRN2Pp?=
- =?us-ascii?Q?9Sp//PqVWrzVf0j0NcItaePYlz9VBBuHdjQrtIj0CN/cRdEsyYn1gsmzHmxh?=
- =?us-ascii?Q?wH/1Zh3JXW9Lw6Js53OC28TMjvTOGrC1ZabZ9gx/kq1V8/IQBoHsmuKVQUX6?=
- =?us-ascii?Q?PuKv8Kx021uY6bkGIshN7+ohjWwWYWYUmrcbB5/QGQ1ecwJ7+SBgVN7Q88v7?=
- =?us-ascii?Q?lWxGwPqlhcyBH88noVxNJLAtuDd+iDwvvE9Gh802aVWXdKfuC3fEcDDFMJXP?=
- =?us-ascii?Q?xxLoqOYc68DRim0KqriCxCMiCAGoJRL1wZg6/W/X4/kc9f1uEGEYpdqfdk5y?=
- =?us-ascii?Q?Dgm2v2MbBYc7zALt9PMJiRlnI3oW+YEpEclILv/yFw1fg2Es2ZIuL6pUu3xJ?=
- =?us-ascii?Q?A2yJVDYr/neKXd21ViMt3vRIkLfw1sBIk9wg40XRHB7tHDeeEcYwxyF327sz?=
- =?us-ascii?Q?Sh3yI8NdX5OcvWdU8+bMdKwlDX5ed1kT7qRfrRrRf/9NCFUFSlXe7lHqjf2D?=
- =?us-ascii?Q?V+5oNn7bm0xKml1Ao6G1Rws418T1g/17ojrA3iXwbSsaECysqWEooqbVt8Ds?=
- =?us-ascii?Q?t5Fiq/wFZJeygbEaFhQQ7pRv60G8AZYjW2VcjXnoSR82DeiofjDAGMt0au6+?=
- =?us-ascii?Q?8YkCxMnly7wMTAacx4KpVBVG5gn4LhGsIunAGpP4pXZGls6SBVUA9bhbKVHk?=
- =?us-ascii?Q?8+ns/yi50LvMwjpagcWQ3j85s8u8lGpPjSfbZUSZd9Jk/3mOZcq/gOP9Q2pD?=
- =?us-ascii?Q?3EsQM7NlBXxuG2bFYsZh9DwINybzhI7hP9fz60bjMtmkPc7Bsz8WtrQhq3EB?=
- =?us-ascii?Q?Bf25hPzOsfJNXaFIEV3gaChr3HXjPgIkGiEQcgyUA4owTU4ShOGW144Tb5iS?=
- =?us-ascii?Q?CXMZvxGOJ2WdqykfsD60/tYoK+rR/n9CZBdjJKoCSrO+fYqSlxMNLz1u+EWN?=
- =?us-ascii?Q?T7Ozqp3KnlrMNZYGdyldTQVD62vKjiH0AYtFQRZxJDrpp5giaCvKH+JWDDy0?=
- =?us-ascii?Q?hTfWfrJ6XELHi6ynRqVfOqpsY4GFL6djqAbU1I7nOlZRfLXsjHoHtabhDHgc?=
- =?us-ascii?Q?EneNaOGnyu9+2gAyH4nGz1mo25HXa+HJVKzl/iKfvSVg9AWPoTSV+o2Jcw74?=
- =?us-ascii?Q?Q9DYll8w9mtLXDtzR1jjHQDVz/oJi47eiO4apXtYQBLN/QQ+onNLN78pyhCf?=
- =?us-ascii?Q?tQ6QXMI8/nexfYOOVqXUmzHob2BpEfzaR1k+gaN87YFN1A7rbKw3+o6mxu7t?=
- =?us-ascii?Q?zWY6bWxUSDl5vsjenOciz6w9B/qgf3azxZl2JKTVnurOQ9ocW4Cnxq8jmJfA?=
- =?us-ascii?Q?LZ0yDlLWFrqKgHvVPVaI7PZ5q7kU3xlkB+OOSlb7E9MJGX40ATgN?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d54620c2-82f8-469c-988b-08dee1b61459
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jul 2026 14:42:07.7931
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ldd9UzzgoKQqFa73brN0Wr+OLukNJuBFlCTO8Z5+693cwxYvpERh1nuB/djByuc6GU5ZEp1DO2MyK0Un13x3zdzYZh6Uyq/Bpxym2q+1jbGQphkRqfnzf/rOrfgxB5tE
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMVPR04MB12675
+References: <20260701212353.2196041-1-arnd@kernel.org> <20260701212353.2196041-6-arnd@kernel.org>
+In-Reply-To: <20260701212353.2196041-6-arnd@kernel.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 14 Jul 2026 16:52:42 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdVKcyA6YVR8MRAF=uQFiF73Mbnhh0f8jei82_Ev41BVog@mail.gmail.com>
+X-Gm-Features: AUfX_mzWdd5ndgb4V5c32_Too4L9v4meC5g5UkXGWDIweQBOL5XU43xcgrFTB8s
+Message-ID: <CAMuHMdVKcyA6YVR8MRAF=uQFiF73Mbnhh0f8jei82_Ev41BVog@mail.gmail.com>
+Subject: Re: [PATCH v2 05/19] ARM: turn CONFIG_ATAGS off by default
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, 
+	Aaro Koskinen <aaro.koskinen@iki.fi>, Alexander Sverdlin <alexander.sverdlin@siemens.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn <andrew@lunn.ch>, 
+	Ard Biesheuvel <ardb@kernel.org>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Daniel Mack <daniel@zonque.org>, Ethan Nelson-Moore <enelsonmoore@gmail.com>, Frank Li <Frank.Li@nxp.com>, 
+	Gregory Clement <gregory.clement@bootlin.com>, Haojian Zhuang <haojian.zhuang@gmail.com>, 
+	"Jeremy J. Peper" <jeremy@jeremypeper.com>, Kristoffer Ericson <kristoffer.ericson@gmail.com>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Linus Walleij <linusw@kernel.org>, Mark Brown <broonie@kernel.org>, 
+	Marc Zyngier <maz@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, Patrice Chotard <patrice.chotard@foss.st.com>, 
+	Ralph Siemsen <ralph.siemsen@linaro.org>, Robert Jarzmik <robert.jarzmik@free.fr>, 
+	Russell King <linux@armlinux.org.uk>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Stefan Agner <stefan@agner.ch>, 
+	Stefan Wiehler <stefan.wiehler@nokia.com>, Tony Lindgren <tony@atomide.com>, 
+	Vladimir Zapolskiy <vz@mleia.com>, Will Deacon <will@kernel.org>, Linus Walleij <linus.walleij@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_154214_770044_63CF6436 
-X-CRM114-Status: GOOD (  19.09  )
+X-CRM114-CacheID: sfid-20260714_075256_500190_2126C5B3 
+X-CRM114-Status: GOOD (  42.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,96 +107,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2026 at 10:41:07AM +0800, hongxing.zhu@oss.nxp.com wrote:
-> From: Richard Zhu <hongxing.zhu@nxp.com>
->
-> Bandwidth marginality was observed during i.MX95 Gen3 PCIe tests with
-> the default MPLLB_BANDWIDTH value. This margin degradation worsens
-> across voltage and temperature (VT) variations and different test
-> matrices, potentially causing link stability issues.
->
-> Testing with MPLLB_BANDWIDTH value of 140 (0x8c) shows significant
-> improvement in bandwidth margins across all VT conditions and test
-> scenarios.
->
-> Implement PHY register write helper function and configure:
-> - MPLLB_BW_OVRD_IN = 140 (0x8c) for improved bandwidth margin
-> - MPLLB_BW_OVRD_EN to enable the override
->
-> This ensures robust PCIe Gen3 performance across all operating
-> conditions.
->
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> ---
-> Changes in v3:
-> Regarding Frank's comments, refine naming consistency and clarity.
->
-> Changes in v2:
-> Update the register name and bit definitions.
-> Don't move IMX95_PCIE_PHY_CR_PARA_SEL settings.
-> ---
->  drivers/pci/controller/dwc/pci-imx6.c | 26 ++++++++++++++++++++++++++
->  1 file changed, 26 insertions(+)
->
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index 53f3da6ab30d5..fadf14de10f7c 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -80,6 +80,17 @@
->  #define IMX95_SID_MASK				GENMASK(5, 0)
->  #define IMX95_MAX_LUT				32
->
-> +#define IMX95_PCIE_PHY_REG_ADDR			0x3008
-> +#define IMX95_PCIE_PHY_REG_EN			BIT(31)
-> +#define IMX95_PCIE_PHY_REG_ADDR_MASK		GENMASK(15, 0)
-> +#define IMX95_PCIE_PHY_REG_DATA			0x300c
-> +#define IMX95_PCIE_PHY_MPLLB_OVRD_IN		0x2004
-> +/* BIT(10): Override enable for mpllb_bandwidth[15:0] */
-> +#define IMX95_PCIE_PHY_MPLLB_OVRD_BW_EN		0x400
-> +/* Register offset: Override value for mpllb_bandwidth[15:0] */
-> +#define IMX95_PCIE_PHY_MPLLB_BW_IN		0x2005
-> +#define IMX95_PCIE_PHY_MPLLB_BW_VAL		0x8c
-> +
+Hi Arnd,
 
-not sure why hex value have not align to previous line, maybe patch
-show problem. Please make sure it is algin in code.
+On Wed, 1 Jul 2026 at 23:29, Arnd Bergmann <arnd@kernel.org> wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+>
+> Only a very small number of machines remain that rely on
+> traditional board files with the ATAGS boot data instead
+> of devicetree, and we have not accepted new ones for
+> a decade.
+>
+> Most of the remaining ones are on their way out of the
+> kernel, but the Kconfig option that controls ATAGS
+> is still enabled by default.
+>
+> To reflect the actual status of ATAGS support and alert
+> the remaining users of upstream and out-of-tree platforms
+> with this, chanyge it to being default-disabled and
+> add a dependency on CONFIG_EXPERT.
+>
+> The board specific defconfig files that rely on ATAGS
+> are changed to turn on both EXPERT and ATAGS if they
+> were not doing thath already, and the ones that explicitly
+> turned it off before no longer need to.
+>
+> Acked-by: Linus Walleij <linus.walleij@linaro.org>
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Thanks for your patch, which is now commit 4d9226b820c165b7 ("ARM:
+turn CONFIG_ATAGS off by default") in soc/for-next.
 
->  #define IMX95_PCIE_RST_CTRL			0x3010
->  #define IMX95_PCIE_COLD_RST			BIT(0)
+> --- a/arch/arm/Kconfig
+> +++ b/arch/arm/Kconfig
+> @@ -1390,12 +1390,15 @@ config ARCH_WANT_FLAT_DTB_INSTALL
 >
-> @@ -269,6 +280,16 @@ static int imx95_pcie_select_ref_clk_src(struct imx_pcie *imx_pcie)
->  	return 0;
->  }
->
-> +static void imx95_pcie_phy_write(struct imx_pcie *imx_pcie, int addr, u16 data)
-> +{
-> +	udelay(200);
-> +	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_PHY_REG_ADDR,
-> +			   IMX95_PCIE_PHY_REG_EN, IMX95_PCIE_PHY_REG_EN);
-> +	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_PHY_REG_ADDR,
-> +			   IMX95_PCIE_PHY_REG_ADDR_MASK, addr);
-> +	regmap_write(imx_pcie->iomuxc_gpr, IMX95_PCIE_PHY_REG_DATA, data);
-> +}
+>  config ATAGS
+>         bool "Support for the traditional ATAGS boot data passing"
+> -       default y
+> +       depends on EXPERT
+>         help
+> -         This is the traditional way of passing data to the kernel at boot
+> -         time. If you are solely relying on the flattened device tree (or
+> -         the ARM_ATAG_DTB_COMPAT option) then you may unselect this option
+> -         to remove ATAGS support from your kernel binary.
+> +         This is the traditional way of passing data to the kernel at
+> +         boot but is now only used by a few of the oldest ARMv4 and
+> +         ARMv5 machines.  Users that still rely on ATAGS should plan
+> +         on migrating to devicetree based booting.
 > +
->  static int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)
->  {
->  	/*
-> @@ -289,6 +310,11 @@ static int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)
->  			IMX95_PCIE_PHY_CR_PARA_SEL,
->  			IMX95_PCIE_PHY_CR_PARA_SEL);
+> +         Support for ATAGS will be removed when the last machine using
+> +         it is either converted to DT or removed.
 >
-> +	imx95_pcie_phy_write(imx_pcie, IMX95_PCIE_PHY_MPLLB_BW_IN,
-> +			     IMX95_PCIE_PHY_MPLLB_BW_VAL);
-> +	imx95_pcie_phy_write(imx_pcie, IMX95_PCIE_PHY_MPLLB_OVRD_IN,
-> +			     IMX95_PCIE_PHY_MPLLB_OVRD_BW_EN);
-> +
->  	return 0;
->  }
->
-> --
-> 2.34.1
->
->
+>  config DEPRECATED_PARAM_STRUCT
+>         bool "Provide old way to pass kernel parameters"
+
+I don't know how much of this is used by systems with old boot loaders
+that use a combination of (appended) DT and ATAGS.
+
+E.g. the old U-Boots on Marzen (R-Car H1) and KZM-A9-GT (SH-Mobile AG5)
+rely on CONFIG_ARM_ATAG_DTB_COMPAT=y to pass the kernel command line,
+and that still seems to work fine without ATAGS.
+
+Note that to boot a proper multi-platform kernel on KZM-A9-GT, I still
+need "[PATCH v2 1/2] ARM: decompressor: support memory start validation
+for appended DTB"[1], which RMK doesn't like. That patch is so old
+that I forgot how to make upstream boot on KZM-A9-GT without it...
+
+Anyway, it looks like all my boards boot without CONFIG_ATAGS.
+Thanks!
+
+[1] https://lore.kernel.org/20240121203009.9257-2-ansuelsmth@gmail.com/
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
