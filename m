@@ -4,91 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 960DAC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 00:23:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A7C9C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 00:28:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PC2x/z/M+JODwXQ4QIBsSqX18lp/m00iHD8pFlNxcrg=; b=Fv49TE8TbHoHwghLkspGC5fv+q
-	+Q0qv1DwkD0XiOkL27HiiObofgrwxFshDntqcQhNMmsz4g8dP9AxHvIgIkRURh3IKtYQYY8yxOCcG
-	xO+waSFXo0QH9iVPdL4KSsbWCo7Ix/zIjMZoMMLqEVUyC2tgL134lOp3aaAekpOIJ4rKzuKf7gLa5
-	At3o6oMiiXIHpplY1QKJEVQ8Wn2HazI1Et2x/59h9epGMsndj+wACED9lbMAZIgqqofhJ9LD+NQdw
-	eV2uaL45ADTXlb1nDvn8MMARn4IyGPrGN2nSdSRJ1VzA+WyODgMjXApDfjS7ay1+VrMIo+WqkQIYa
-	+MsljqmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/KLAlmdqk7zVgY56HlRPXq3QqECg7aFAIKoSOWepQBw=; b=LccTjyWY4hTMJJNzVXi6Xiv1Jp
+	K/54d1nYH4QJZxhB5inBClaI4iUy1ZAz9HMKwWJ1bNxAwoxrn2xaA0hs3r/62qFeAf0ZBJkNaDVjx
+	mZkZ1q5Fh0CNh/6pARIzw1Qdj+42L0JjGwj3JogKjTXS4KO16EC2TsIoN14Py2XPA/pUNL3ltr/gg
+	z3AkKOzGPN+VP87EdFlcUP5/vaZ3LZKTXo0SoxNGDe8ioBc6UILPOJkuTBt+Zm+KcTexTkZ91Gt78
+	xhCbxyb71tuF4hleMZAb30lKAFxKeMYTF5JY+RXaGRQWiUA1cYaRVHAZIX3ThZ2K2r33k1kj4c3ut
+	25QUl7vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjQvR-0000000Aak5-3dy0;
-	Tue, 14 Jul 2026 00:23:05 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1wjR0y-0000000AbNk-3ja5;
+	Tue, 14 Jul 2026 00:28:48 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjQvP-0000000AajN-15J0
+	id 1wjR0w-0000000AbNO-0Lrd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 00:23:04 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-8486672f03cso3313221b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 17:23:02 -0700 (PDT)
+	Tue, 14 Jul 2026 00:28:47 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-848882fdb18so147385b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 17:28:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783988582; x=1784593382; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=PC2x/z/M+JODwXQ4QIBsSqX18lp/m00iHD8pFlNxcrg=;
-        b=T8Q6qiAIpk1up3kfZJbJKG7ClTakdy6q1MerLdEj0T8U9FmOM4yaPaDY9aj4DtAMTx
-         W5kq6QhCfFGahcjeuEWpl0kOQD5E3epD5qf1BQmCOKWu0dbrqu42+YdbtWSECQT35jwt
-         NCJJIz2kNB9RRS8VZyj/IMMbYAJivrm8D5bQlj4WoAOFnDyn+MoR9nyGsH1mxrf6wWAF
-         I/32p0mXh+99OgiZ3OmN718rZ7+JZOWaB1GrfHhhXhJWnJ3TZEFORWMBn6L/Q4iU9f7A
-         hDtzhSEo++DL3WE2aRTn5gTIp52yVmyHmULKfrYxGaf6zC1RAKgG/KurV0zDgwhc+Kxt
-         K1mA==
+        d=chromium.org; s=google; t=1783988925; x=1784593725; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=/KLAlmdqk7zVgY56HlRPXq3QqECg7aFAIKoSOWepQBw=;
+        b=kF2M8VrQQ9vAdbiyPywrSM2S1BN4YIVv4H1mAUqTbstb5i1pDSJndZJz8zAeUauGhS
+         dJ8NL1Y9nAAfIbYBX3vWaEPrS4SNKTecR5ywXwPVkbi9uyOOt6MVAIY0E/4LvIk5TgIG
+         KatDIitay2CCugQszSjCYrjCKyxPhQ1tGA32Y=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783988582; x=1784593382;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=PC2x/z/M+JODwXQ4QIBsSqX18lp/m00iHD8pFlNxcrg=;
-        b=qeKDJF6GcxgoHe3Vtx2D4YHYcdPzSd0M15hpH6X4WWsjpe5BNYHwShyZj3I7szWgWh
-         yyzY3tQ0ZAZSZIVVr95iNK6N99JbGDGY94JCC6/SqHz7N0CVGaq32ESJcHQc4H01wRlr
-         pqVKoi/i+j0ERULD58GvVYGzci9UVzXcjRLCd6bKf2t2y98E1TuLYMQMvaqnspD9oPiC
-         cxd5bpTKPV47VFt33BNnK4Yfv/c1zF+fd6uiucEvKcHk/8aofnIqsBzVfySpcPXvAr94
-         Cko+Jd9ghc3ncwfiy30Ql7ZX3J+diAvA6bxyPpcRxVYKcJJdI66el2KgTgqBYats0CPx
-         Y68A==
-X-Forwarded-Encrypted: i=1; AHgh+RrE9yVjijGIFk6Gu+Fo3t+ML1aJ/LqM4DGatkMGAvWOxUVVDOfFxR3YRv6pmbsb9FAl/hhjXoGYYcctvTrHVcGO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzc0xsGZYMAfPY1agiEcJOKji4bhVgAFrvMrrZqe3yiVX28nh2b
-	AbUdINoHZ7eRZ8tisaLTKJZOTAfBELd248PQPDU7YXp0cpXk3NdL6R+Z
-X-Gm-Gg: AfdE7ck7HxS79nTc43Y96GKb5WvZFfyOw/xblMA0BH8nSns2AwxC5a2/gCazKMXmYuy
-	T6YbMn3+9U1qUEzF/EZtcnFC+xcoeB1I+gYe9oVqgP++Xm6HNX+JjujV0JfoffC94Sq2mld/SZ9
-	WzuCC2CKx+qOxqh3p8/lrG/a1wcqRaXjxOCe3VFfiuT0WCdv7IO1vjw4Ii8MWAWZJpbSdS6nhUl
-	DfSQrtcY5u1mWv1TZrA64tl7OD8sP6GyOoJ6QMrN6mVVNtW06Q8+Jypzzgj8rXqrtA1lUmVMBtd
-	UC5xM5uB3F5Txf7K2NsgaTntwzWDFL19U9loqcLEsxKVhOaVu+Inc4olAKo1rrTngGZaixz/BXm
-	CX9170uBtSpdcZBWjDX0+oN4fComB/119qZupsO6S5XVaHH3h6GaBfRAf7OcyrkzeCBtlbvIK4g
-	6kprZlH5s2po0ubJbV8WLmzcpgvHSPWoE9lWd+/zSb2vAKjlBaWFSt49e8qp3rzKWcKNHnbBBEG
-	ZN0hB6nWrEcuX5VRGdI5S86Gu9pfm+i1v3a9/QgJ0uQnhxh+OTsHe2cZ1T/ZK3PEw==
-X-Received: by 2002:a05:6a00:3395:b0:842:83d1:ee6d with SMTP id d2e1a72fcca58-848896dd7fbmr10534315b3a.45.1783988582236;
-        Mon, 13 Jul 2026 17:23:02 -0700 (PDT)
-Received: from ryzen.lan ([2601:644:8000:7a86::e35])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84a4ff2ea4csm473962b3a.23.2026.07.13.17.23.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Jul 2026 17:23:01 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: linux-rtc@vger.kernel.org
-Cc: Patrice Chotard <patrice.chotard@foss.st.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/STI ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list),
-	llvm@lists.linux.dev (open list:CLANG/LLVM BUILD SUPPORT:Keyword:\b(?i:clang|llvm)\b)
-Subject: [PATCH] rtc: st-lpc: get IRQ via platform_get_irq()
-Date: Mon, 13 Jul 2026 17:22:59 -0700
-Message-ID: <20260714002259.1392655-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.55.0
+        d=1e100.net; s=20251104; t=1783988925; x=1784593725;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=/KLAlmdqk7zVgY56HlRPXq3QqECg7aFAIKoSOWepQBw=;
+        b=BgExNxiAZrGF9EYPFAfcoWQO6DEARtLnuEiA3m3RjHYuC5k1vrJH09T7+0mN5SLECl
+         r52GX+ia40YG6DrfQgrin0DXCeExK/0D5du/hRorbWXXBVzKzkZaVMsxIlEV9zm+7kfl
+         ykHTRnGlBhuBtdenVimDNToXCu2AuFISrv3JlqhVK+AgBds9xHF2FeE2g6TWjg65y/wz
+         fGIwEzZmTmQaQ99ZJh/Y96TZdwAJZcFLEeYfhNg/o8dUgxAtdUvIQk0WaTGdkv5F99sw
+         77Y7P8MJufHKXw5uCOPf4RxzDElhWeuClAvXvtf62K6Nz3a5Tb9Bh+R0a8CqHUCi8BOW
+         DiHg==
+X-Forwarded-Encrypted: i=1; AHgh+RqslKH0IwQxedX1F1rwXOWiEMq+uVWlSYNR1kQTtVKzgHfIZEWs/XCU8Oy0VVBivdcRxaMryNVZaE4DXFumJFbn@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4NKOBUZ6zOvxSJkRwSv8bQ4iGlmJApgLVoRQEHnW6/f1ZpwJY
+	bJGwKisVFvAhjLSAQP9Q9i0BbYZd0o/kROLKEkjU16wA9mzfGNaD88omjPkdA+3sjA==
+X-Gm-Gg: AfdE7ckSwJvEnm9iVTiywCzlZJ0741PxK0SSEPfvpxXMm1/xSmbfGHG+sEJSqwRA52X
+	UYQwTC2rnH/wGsPciuWLjz4FA2ZNZ6wRwliKsTO8Uk/g7eRA6qj/FRNluh/pJO3zVOPDNnYAn2Y
+	0rkBTqh10EoReW5LdtpNIuYdRXeMzMtNB92dCKRJ9ffBx3FRLWoJt/UOwhJwFVIbZvfsdse1rFw
+	TxbHBmZGNdwAd60q0xB8HR1bX8odPxhy8lF1yEZB/vyR6tf+cDaT01LOaXd8iAYUBOXfLGnPSub
+	IMdfKchiHL5/Q/EbqfwYxC0Mfp8C1wuQI68m82Z+jtK89tpYMLzVJ/lLYKVEGqTY2pBilVrs7c+
+	Z1NHJMBPT1HECDfe0SEsBWpUyKDyKMm9qJB2iFZYhKaPLCMch3+Cmuurivf+k3Fd2YyFxFCwTsJ
+	Sy3BTGZqIKSJ/UWDHIlsR6syypVk4ER7UAw/oKvGBKzgu7HgfNsEk=
+X-Received: by 2002:a05:6a21:d82:b0:3bf:6c08:fb98 with SMTP id adf61e73a8af0-3c110a1b5d2mr12532962637.58.1783988924631;
+        Mon, 13 Jul 2026 17:28:44 -0700 (PDT)
+Received: from localhost ([2a00:79e0:2e7c:8:5106:b6e9:abed:6332])
+        by smtp.gmail.com with UTF8SMTPSA id a92af1059eb24-13b659c865asm80749507c88.11.2026.07.13.17.28.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 13 Jul 2026 17:28:43 -0700 (PDT)
+Date: Mon, 13 Jul 2026 17:28:40 -0700
+From: Brian Norris <briannorris@chromium.org>
+To: Jens Remus <jremus@linux.ibm.com>
+Cc: Dylan Hatch <dylanbhatch@google.com>,
+	Mostafa Saleh <smostafa@google.com>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Weinan Liu <wnliu@google.com>, Will Deacon <will@kernel.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Indu Bhagat <ibhagatgnu@gmail.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Kosina <jikos@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
+	Puranjay Mohan <puranjay@kernel.org>, Song Liu <song@kernel.org>,
+	joe.lawrence@redhat.com, linux-toolchains@vger.kernel.org,
+	linux-kernel@vger.kernel.org, live-patching@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Randy Dunlap <rdunlap@infradead.org>
+Subject: Re: [PATCH v5 0/8] unwind, arm64: add sframe unwinder for kernel
+Message-ID: <alWCuAA7r1otvROg@google.com>
+References: <20260428183643.3796063-1-dylanbhatch@google.com>
+ <agcEMEl-QR0g6DgF@google.com>
+ <CADBMgpx38SUUuYYCm612STqh01jqv817WnJeeXYTD7Uc1r-fug@mail.gmail.com>
+ <4f429a50-df5d-411f-b40e-048d3cad5133@linux.ibm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <4f429a50-df5d-411f-b40e-048d3cad5133@linux.ibm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_172303_321841_A9659623 
-X-CRM114-Status: GOOD (  14.46  )
+X-CRM114-CacheID: sfid-20260713_172846_173988_0128F312 
+X-CRM114-Status: GOOD (  27.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,53 +114,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace irq_of_parse_and_map() with platform_get_irq(), which resolves
-the interrupt from pdev->dev.of_node directly and returns a positive IRQ
-or a negative errno (it never returns 0). Propagate the error on failure
-instead of the previous open-coded "IRQ missing or invalid" / -EINVAL
-message, so -EPROBE_DEFER is handled correctly. The rtc->irq field is a
-signed short, so the negative error code is preserved.
+Hi Jens,
 
-np is still used by of_property_read_u32() for "st,lpc-mode", so it is
-not removed.
+On Tue, May 19, 2026 at 01:05:23PM +0200, Jens Remus wrote:
+> Hi Dylan and Mostafa!
 
-Built for ARM (multi_v7_defconfig + CONFIG_RTC_DRV_ST_LPC) with LLVM=1;
-drivers/rtc/rtc-st-lpc.o compiles cleanly.
+I also work at the same company as Dylan and Mostafa, and am therefore
+probably using the same company-maintained Linux distribution.
 
-Assisted-by: opencode:hy3-free
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
----
- drivers/rtc/rtc-st-lpc.c | 9 +++------
- 1 file changed, 3 insertions(+), 6 deletions(-)
+> On 5/18/2026 7:55 PM, Dylan Hatch wrote:
+> > On Fri, May 15, 2026 at 4:32=E2=80=AFAM Mostafa Saleh <smostafa@google.=
+com> wrote:
+> >> Not sure if related, but after updating my toolchain
+> >> (aarch64-linux-gnu-gcc (Debian 15.2.0-4) 15.2.0), I hit link errors:
+> >> ld.lld: error: arch/arm64/kernel/vdso/vgettimeofday.o:(.sframe) is bei=
+ng placed in '.sframe'
+> >> ld.lld: error: arch/arm64/kernel/vdso/vgetrandom.o:(.sframe) is being =
+placed in '.sframe`
 
-diff --git a/drivers/rtc/rtc-st-lpc.c b/drivers/rtc/rtc-st-lpc.c
-index c6d4522411b3..ae79ddf24f37 100644
---- a/drivers/rtc/rtc-st-lpc.c
-+++ b/drivers/rtc/rtc-st-lpc.c
-@@ -18,7 +18,6 @@
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/of.h>
--#include <linux/of_irq.h>
- #include <linux/platform_device.h>
- #include <linux/rtc.h>
- 
-@@ -212,11 +211,9 @@ static int st_rtc_probe(struct platform_device *pdev)
- 	if (IS_ERR(rtc->ioaddr))
- 		return PTR_ERR(rtc->ioaddr);
- 
--	rtc->irq = irq_of_parse_and_map(np, 0);
--	if (!rtc->irq) {
--		dev_err(&pdev->dev, "IRQ missing or invalid\n");
--		return -EINVAL;
--	}
-+	rtc->irq = platform_get_irq(pdev, 0);
-+	if (rtc->irq < 0)
-+		return rtc->irq;
- 
- 	ret = devm_request_irq(&pdev->dev, rtc->irq, st_rtc_handler,
- 			       IRQF_NO_AUTOEN, pdev->name, rtc);
--- 
-2.55.0
+I've also been hitting this for some time, and I'd like to see if I can
+figure out what's going wrong. My current workaround is:
 
+--- a/Makefile
++++ b/Makefile
+@@ -946,6 +946,8 @@ ifdef CONFIG_CC_IS_GCC
+ KBUILD_CFLAGS	+=3D $(call cc-option,--param=3Dallow-store-data-races=3D0)
+ KBUILD_CFLAGS	+=3D $(call cc-option,-fno-allow-store-data-races)
+ endif
++# No sframe generation for kernel if enabled by default
++KBUILD_CFLAGS	+=3D $(call cc-option,-Xassembler --gsframe=3Dno)
+=20
+ ifdef CONFIG_READABLE_ASM
+ # Disable optimizations that make assembler listings hard to read.
+
+> > Previously when developing against the SFrame V2 format, I had fixed
+> > these warnings with the VDSO Makefile change currently in this series:
+> >=20
+> > diff --git a/arch/arm64/kernel/vdso/Makefile b/arch/arm64/kernel/vdso/M=
+akefile
+> > index 7dec05dd33b7..c60ef921956f 100644
+> > --- a/arch/arm64/kernel/vdso/Makefile
+> > +++ b/arch/arm64/kernel/vdso/Makefile
+> > @@ -38,7 +38,7 @@ ccflags-y +=3D -DDISABLE_BRANCH_PROFILING -DBUILD_VDSO
+> >  CC_FLAGS_REMOVE_VDSO :=3D $(CC_FLAGS_FTRACE) -Os $(CC_FLAGS_SCS) \
+> >                         $(RANDSTRUCT_CFLAGS) $(KSTACK_ERASE_CFLAGS) \
+> >                         $(GCC_PLUGINS_CFLAGS) \
+> > -                       $(CC_FLAGS_LTO) $(CC_FLAGS_CFI) \
+> > +                       $(CC_FLAGS_LTO) $(CC_FLAGS_CFI) $(CC_FLAGS_SFRA=
+ME) \
+> >                         -Wmissing-prototypes -Wmissing-declarations
+> >=20
+> >  CC_FLAGS_ADD_VDSO :=3D -O2 -mcmodel=3Dtiny -fasynchronous-unwind-tables
+> >=20
+> > But the warnings seem to have returned after upgrading my toolchain,
+> > possibly due to SFrame V3 or some confounding change in GCC. The
+> > --gsframe in the assembler should be set to 'no' by default, so
+> > perhaps GCC is providing an override --gsframe internally?
+>=20
+> Could it be that your build of binutils was configured with
+> --enable-default-sframe, so that the GNU assembler defaults to generate
+> .sframe?  AFAIK this configure option was meant for distributors and
+> package maintainers.
+>=20
+> You can check as follows whether --gsframe defaults to "no" or "yes":
+>=20
+> $ as --help | grep -A1 gsframe
+>   --gsframe[=3D{no|yes}]    whether to generate SFrame stack trace inform=
+ation
+>                           (default: no)
+> ...
+
+$ aarch64-linux-gnu-as --help | grep -A1 gsframe
+  --gsframe[=3D{no|yes}]    whether to generate SFrame stack trace informat=
+ion
+                          (default: no)
+--
+  --gsframe-<N>           generate SFrame version <N> information. 3 =3D=3D=
+ <N>
+  --scfi=3Dexperimental     Synthesize DWARF CFI for hand-written asm
+
+> Maybe build the VDSO separately with V=3D1 to see what assembler/compiler
+> options are effectively used (e.g. for vgettimeofday.o and vgetrandom.o
+> mentioned in the linker error message above)?
+
+A slightly tweaked version of my vgetrandom.o build line:
+
+# CC      arch/arm64/kernel/vdso/vgetrandom.o
+  aarch64-linux-gnu-gcc -Wp,-MMD,arch/arm64/kernel/vdso/.vgetrandom.o.d -no=
+stdinc -I./arch/arm64/include -I./arch/arm64/include/generated -I./include =
+-I./include -I./arch/arm64/include/uapi -I./arch/arm64/include/generated/ua=
+pi -I./include/uapi -I./include/generated/uapi -include ./include/linux/com=
+piler-version.h -include ./include/linux/kconfig.h -include ./include/linux=
+/compiler_types.h -D__KERNEL__ -mlittle-endian -DCC_USING_PATCHABLE_FUNCTIO=
+N_ENTRY -DKASAN_SHADOW_SCALE_SHIFT=3D -Werror -fshort-wchar -funsigned-char=
+ -fno-common -fno-PIE -fno-strict-aliasing -std=3Dgnu11 -fms-extensions -mg=
+eneral-regs-only -DCONFIG_CC_HAS_K_CONSTRAINT=3D1 -Wno-psabi -mabi=3Dlp64 -=
+fno-asynchronous-unwind-tables -fno-unwind-tables -mbranch-protection=3Dpac=
+-ret -Wa,-march=3Darmv8.5-a -DARM64_ASM_ARCH=3D'"armv8.5-a"' -DKASAN_SHADOW=
+_SCALE_SHIFT=3D -fno-delete-null-pointer-checks -O2 -fno-allow-store-data-r=
+aces -fstack-protector-strong -fno-omit-frame-pointer -fno-optimize-sibling=
+-calls -ftrivial-auto-var-init=3Dzero -fzero-init-padding-bits=3Dall -fno-s=
+tack-clash-protection -fno-inline-functions-called-once -fmin-function-alig=
+nment=3D8 -fstrict-flex-arrays=3D3 -fno-strict-overflow -fno-stack-check -f=
+conserve-stack -fno-builtin-wcslen -Wall -Wextra -Wundef -Werror=3Dimplicit=
+-function-declaration -Werror=3Dimplicit-int -Werror=3Dreturn-type -Werror=
+=3Dstrict-prototypes -Wno-format-security -Wno-trigraphs -Wno-frame-address=
+ -Wno-address-of-packed-member -Wframe-larger-than=3D2048 -Wno-main -Wno-ty=
+pe-limits -Wno-dangling-pointer -Wvla-larger-than=3D1 -Wno-pointer-sign -Wc=
+ast-function-type -Wno-unterminated-string-initialization -Wno-array-bounds=
+ -Wno-stringop-overflow -Wno-alloc-size-larger-than -Wimplicit-fallthrough=
+=3D5 -Werror=3Ddate-time -Werror=3Dincompatible-pointer-types -Werror=3Ddes=
+ignated-init -Wenum-conversion -Wunused -Wno-unused-but-set-variable -Wno-u=
+nused-const-variable -Wno-packed-not-aligned -Wno-format-overflow -Wno-form=
+at-truncation -Wno-stringop-truncation -Wno-override-init -Wno-missing-fiel=
+d-initializers -Wno-shift-negative-value -Wno-maybe-uninitialized -Wno-sign=
+-compare -Wno-unused-parameter -g -mstack-protector-guard=3Dsysreg -mstack-=
+protector-guard-reg=3Dsp_el0 -mstack-protector-guard-offset=3D1344 -fno-com=
+mon -fno-builtin -fno-stack-protector -ffixed-x18 -DDISABLE_BRANCH_PROFILIN=
+G -DBUILD_VDSO -O2 -mcmodel=3Dtiny -fasynchronous-unwind-tables -include ./=
+lib/vdso/getrandom.c   -I./arch/arm64/kernel/vdso -Iarch/arm64/kernel/vdso =
+   -DKBUILD_MODFILE=3D'"arch/arm64/kernel/vdso/vgetrandom"' -DKBUILD_BASENA=
+ME=3D'"vgetrandom"' -DKBUILD_MODNAME=3D'"vgetrandom"' -D__KBUILD_MODNAME=3D=
+vgetrandom -c -o arch/arm64/kernel/vdso/vgetrandom.o ./arch/arm64/kernel/vd=
+so/vgetrandom.c
+
+I mostly don't know what I'm looking for w.r.t. gsframe features, but
+I'm willing to poke at my compiler/assembler/build-process.
+
+Brian
 
