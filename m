@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00744C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 10:16:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0AF1C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 10:16:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f2N8bgJhRkFOlZMhlmwhskxYCoKvemQPzz8C1725aUI=; b=fvwwFaQmUIA5V9HjtxuE3JEjvO
-	ahG0nlBqegJhfV8pX25mczkQNV8gbLjgmw6tmLbe2WLWvVIc1M+XUYgBRqc08yC3JxY9Jzg8mjnfV
-	7dEzFnv1ND4JZYkEeBxJNUYQHD3JxnqR4cbx2lZSh4lVZTv0n80I1+2QWsAW/Q2tv6UwTbamJIggB
-	EjXxUIolQ7BS/wXaHekWyn+tRs4zOHDYcT4IhiUrVW6pBlQxXeE/WIUtIxE5DgP5ne0FuhgXZ4eo1
-	E1zXtkV87SPEHi+uU8UgdiHhMTKmBW84ymXhV2QB8gPKRZIKFmye8mVsLciuqfLv/9Foc72d0WFGs
-	c0GbyKUQ==;
+	bh=LV5gap+CzXG51tXDcxBhEo+5k8g/SFFulCMXWXH9VaE=; b=bxA/lL6t7CHxUSCJGP8kxRu+l5
+	oaZEepKZGHQo2bqrw/3pdkiZ8/jpY2vf6Tv2aes8yv/EP3X96tjHfZTaKHt9CRj0RoYAV55oq2u6+
+	Eh9mI43A2MEasIpM97j0Zn0utV8WqDEogD23KuA78XUcUvaizQLcBPG4W5q5WLSmMG8P2Dyhf+s+B
+	eoRLYtnMp8oQ6MRog0WQxulXW5IcXH9oF8p/AZfX6MTwzm3aiDP2sTmzobC8MthWnIEbbsmqchxyp
+	M4nbS+fiEMMstSVKn2hcJd5fbGhyHEy5B5yvsK9LNN9b7wnY+SRbYd3gKUfFJEHpvz1U6pEh/yZmW
+	16lglREw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjaC1-0000000BXKk-1j2X;
+	id 1wjaC1-0000000BXKb-1A20;
 	Tue, 14 Jul 2026 10:16:49 +0000
-Received: from out-180.mta0.migadu.com ([91.218.175.180])
+Received: from out-189.mta0.migadu.com ([91.218.175.189])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjaBy-0000000BXIa-0FNt
+	id 1wjaBv-0000000BXHs-488d
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 10:16:47 +0000
+	Tue, 14 Jul 2026 10:16:45 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1784024203;
+	t=1784024201;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=f2N8bgJhRkFOlZMhlmwhskxYCoKvemQPzz8C1725aUI=;
-	b=pFj7IaTrkF2Q/GH1xVlioHsK84v/GYgtiMP5vno8T/sZL4I5YPxTo2jIm0nAMV8HxlORlg
-	Dt5V4axFaLm758AeCZPsPf0ZyZ7YEtfHgruWX9EvZRzq3LLEspDQYsmAVkmMJnLNnGDPvs
-	FZXXFhlEBdKmzFKtiwUrPzeLZJMPBVg=
+	bh=LV5gap+CzXG51tXDcxBhEo+5k8g/SFFulCMXWXH9VaE=;
+	b=siO+AR7at9a9PQDirwsaaSNwAwkQ2njbiS2cPxBYp5uutGPJLNLjp/3rw/wHaWKgG3if2M
+	daAd6WsZJnCvjuUynbc4rFWrN4hxa4EvoAC9+qJaF9gdSwdkCP99uTm8f2pMxinbJa625V
+	Y8Hv4aPnkiSWOO+MiGLAP3SIlmc0sZY=
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
 	Oliver Upton <oupton@kernel.org>,
@@ -55,17 +55,17 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Sebastian Ene <sebastianene@google.com>,
 	Hyunwoo Kim <imv4bel@gmail.com>,
 	Fuad Tabba <tabba@google.com>
-Subject: [PATCH v5 3/8] KVM: arm64: Factor out reusable vCPU reset helpers
-Date: Tue, 14 Jul 2026 11:15:56 +0100
-Message-Id: <20260714101601.4142645-4-fuad.tabba@linux.dev>
+Subject: [PATCH v5 2/8] KVM: arm64: Make vcpu_{read,write}_sys_reg available to HYP code
+Date: Tue, 14 Jul 2026 11:15:55 +0100
+Message-Id: <20260714101601.4142645-3-fuad.tabba@linux.dev>
 In-Reply-To: <20260714101601.4142645-1-fuad.tabba@linux.dev>
 References: <20260714101601.4142645-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_031646_275593_B7890938 
-X-CRM114-Status: GOOD (  17.12  )
+X-CRM114-CacheID: sfid-20260714_031644_169014_F3585AD1 
+X-CRM114-Status: GOOD (  13.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,201 +80,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Pull the reusable pieces out of kvm_reset_vcpu(): expose the reset
-PSTATE values in kvm_arm.h, and split the core register reset and the
-PSCI-driven reset into kvm_reset_vcpu_core() and kvm_reset_vcpu_psci().
-A follow-up series reuses these to reset protected vCPUs at EL2.
+The vcpu_{read,write}_sys_reg() accessors are only valid on a VHE host,
+so helpers built on them such as kvm_vcpu_set_be()/kvm_vcpu_is_be()
+cannot be shared with hyp code. exception.c already wraps them in local
+helpers that pick the host- or hyp-side accessor via has_vhe().
+
+Rename the host-only implementations to __vcpu_{read,write}_sysreg_vhe()
+and turn vcpu_{read,write}_sys_reg() into the context-dispatching
+wrappers, so every caller gets the version valid in any context and a
+follow-up series can share that emulation code at EL2.
 
 No functional change intended.
 
-Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- arch/arm64/include/asm/kvm_arm.h     | 12 ++++++
- arch/arm64/include/asm/kvm_emulate.h | 57 ++++++++++++++++++++++++++
- arch/arm64/kvm/reset.c               | 60 ++--------------------------
- 3 files changed, 72 insertions(+), 57 deletions(-)
+v5:
+  - Named the wrappers vcpu_{read,write}_sys_reg() and renamed the
+    host-only implementations to __vcpu_{read,write}_sysreg_vhe(), rather
+    than introducing a kvm_vcpu_ prefix. (Oliver)
+  - Dropped Vincent's Reviewed-by since the patch changed materially.
 
-diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
-index 3f9233b5a1308..aba4ec09acd23 100644
---- a/arch/arm64/include/asm/kvm_arm.h
-+++ b/arch/arm64/include/asm/kvm_arm.h
-@@ -348,4 +348,16 @@
- 	{ PSR_AA32_MODE_UND,	"32-bit UND" },	\
- 	{ PSR_AA32_MODE_SYS,	"32-bit SYS" }
- 
-+/*
-+ * ARMv8 Reset Values
-+ */
-+#define VCPU_RESET_PSTATE_EL1	(PSR_MODE_EL1h | PSR_A_BIT | PSR_I_BIT | \
-+				 PSR_F_BIT | PSR_D_BIT)
-+
-+#define VCPU_RESET_PSTATE_EL2	(PSR_MODE_EL2h | PSR_A_BIT | PSR_I_BIT | \
-+				 PSR_F_BIT | PSR_D_BIT)
-+
-+#define VCPU_RESET_PSTATE_SVC	(PSR_AA32_MODE_SVC | PSR_AA32_A_BIT | \
-+				 PSR_AA32_I_BIT | PSR_AA32_F_BIT)
-+
- #endif /* __ARM64_KVM_ARM_H__ */
+ arch/arm64/include/asm/kvm_emulate.h | 20 ++++++++++++++++
+ arch/arm64/include/asm/kvm_host.h    |  4 ++--
+ arch/arm64/kvm/hyp/exception.c       | 34 ++++++++--------------------
+ arch/arm64/kvm/sys_regs.c            |  4 ++--
+ 4 files changed, 33 insertions(+), 29 deletions(-)
+
 diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index 429bda6f48d94..57e3482ad9a55 100644
+index 5bf3d7e1d92c7..429bda6f48d94 100644
 --- a/arch/arm64/include/asm/kvm_emulate.h
 +++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -708,4 +708,61 @@ static inline void vcpu_set_hcrx(struct kvm_vcpu *vcpu)
- 			vcpu->arch.hcrx_el2 |= HCRX_EL2_EnASR;
+@@ -506,6 +506,26 @@ static inline unsigned long kvm_vcpu_get_mpidr_aff(struct kvm_vcpu *vcpu)
+ 	return __vcpu_sys_reg(vcpu, MPIDR_EL1) & MPIDR_HWID_BITMASK;
+ }
+ 
++/*
++ * __vcpu_*_sysreg_vhe() are only valid on a VHE host; wrap them so the same
++ * call site also works at EL2 under nVHE.
++ */
++static inline u64 vcpu_read_sys_reg(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg)
++{
++	if (has_vhe())
++		return __vcpu_read_sysreg_vhe(vcpu, reg);
++
++	return __vcpu_sys_reg(vcpu, reg);
++}
++
++static inline void vcpu_write_sys_reg(struct kvm_vcpu *vcpu, u64 val, enum vcpu_sysreg reg)
++{
++	if (has_vhe())
++		__vcpu_write_sysreg_vhe(vcpu, val, reg);
++	else
++		__vcpu_assign_sys_reg(vcpu, reg, val);
++}
++
+ static inline void kvm_vcpu_set_be(struct kvm_vcpu *vcpu)
+ {
+ 	if (vcpu_mode_is_32bit(vcpu)) {
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index bae2c4f92ef5c..f3c3c86b3d7fb 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -1215,8 +1215,8 @@ u64 kvm_vcpu_apply_reg_masks(const struct kvm_vcpu *, enum vcpu_sysreg, u64);
+ 		__v;							\
+ 	})
+ 
+-u64 vcpu_read_sys_reg(const struct kvm_vcpu *, enum vcpu_sysreg);
+-void vcpu_write_sys_reg(struct kvm_vcpu *, u64, enum vcpu_sysreg);
++u64 __vcpu_read_sysreg_vhe(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg);
++void __vcpu_write_sysreg_vhe(struct kvm_vcpu *vcpu, u64 val, enum vcpu_sysreg reg);
+ 
+ struct kvm_vm_stat {
+ 	struct kvm_vm_stat_generic generic;
+diff --git a/arch/arm64/kvm/hyp/exception.c b/arch/arm64/kvm/hyp/exception.c
+index bef40ddb16dbc..754e2dc1df54a 100644
+--- a/arch/arm64/kvm/hyp/exception.c
++++ b/arch/arm64/kvm/hyp/exception.c
+@@ -20,22 +20,6 @@
+ #error Hypervisor code only!
+ #endif
+ 
+-static inline u64 __vcpu_read_sys_reg(const struct kvm_vcpu *vcpu, int reg)
+-{
+-	if (has_vhe())
+-		return vcpu_read_sys_reg(vcpu, reg);
+-
+-	return __vcpu_sys_reg(vcpu, reg);
+-}
+-
+-static inline void __vcpu_write_sys_reg(struct kvm_vcpu *vcpu, u64 val, int reg)
+-{
+-	if (has_vhe())
+-		vcpu_write_sys_reg(vcpu, val, reg);
+-	else
+-		__vcpu_assign_sys_reg(vcpu, reg, val);
+-}
+-
+ static void __vcpu_write_spsr(struct kvm_vcpu *vcpu, unsigned long target_mode,
+ 			      u64 val)
+ {
+@@ -101,14 +85,14 @@ static void enter_exception64(struct kvm_vcpu *vcpu, unsigned long target_mode,
+ 
+ 	switch (target_mode) {
+ 	case PSR_MODE_EL1h:
+-		vbar = __vcpu_read_sys_reg(vcpu, VBAR_EL1);
+-		sctlr = __vcpu_read_sys_reg(vcpu, SCTLR_EL1);
+-		__vcpu_write_sys_reg(vcpu, *vcpu_pc(vcpu), ELR_EL1);
++		vbar = vcpu_read_sys_reg(vcpu, VBAR_EL1);
++		sctlr = vcpu_read_sys_reg(vcpu, SCTLR_EL1);
++		vcpu_write_sys_reg(vcpu, *vcpu_pc(vcpu), ELR_EL1);
+ 		break;
+ 	case PSR_MODE_EL2h:
+-		vbar = __vcpu_read_sys_reg(vcpu, VBAR_EL2);
+-		sctlr = __vcpu_read_sys_reg(vcpu, SCTLR_EL2);
+-		__vcpu_write_sys_reg(vcpu, *vcpu_pc(vcpu), ELR_EL2);
++		vbar = vcpu_read_sys_reg(vcpu, VBAR_EL2);
++		sctlr = vcpu_read_sys_reg(vcpu, SCTLR_EL2);
++		vcpu_write_sys_reg(vcpu, *vcpu_pc(vcpu), ELR_EL2);
+ 		break;
+ 	default:
+ 		/* Don't do that */
+@@ -185,7 +169,7 @@ static void enter_exception64(struct kvm_vcpu *vcpu, unsigned long target_mode,
+  */
+ static unsigned long get_except32_cpsr(struct kvm_vcpu *vcpu, u32 mode)
+ {
+-	u32 sctlr = __vcpu_read_sys_reg(vcpu, SCTLR_EL1);
++	u32 sctlr = vcpu_read_sys_reg(vcpu, SCTLR_EL1);
+ 	unsigned long old, new;
+ 
+ 	old = *vcpu_cpsr(vcpu);
+@@ -281,7 +265,7 @@ static void enter_exception32(struct kvm_vcpu *vcpu, u32 mode, u32 vect_offset)
+ {
+ 	unsigned long spsr = *vcpu_cpsr(vcpu);
+ 	bool is_thumb = (spsr & PSR_AA32_T_BIT);
+-	u32 sctlr = __vcpu_read_sys_reg(vcpu, SCTLR_EL1);
++	u32 sctlr = vcpu_read_sys_reg(vcpu, SCTLR_EL1);
+ 	u32 return_address;
+ 
+ 	*vcpu_cpsr(vcpu) = get_except32_cpsr(vcpu, mode);
+@@ -305,7 +289,7 @@ static void enter_exception32(struct kvm_vcpu *vcpu, u32 mode, u32 vect_offset)
+ 	if (sctlr & (1 << 13))
+ 		vect_offset += 0xffff0000;
+ 	else /* always have security exceptions */
+-		vect_offset += __vcpu_read_sys_reg(vcpu, VBAR_EL1);
++		vect_offset += vcpu_read_sys_reg(vcpu, VBAR_EL1);
+ 
+ 	*vcpu_pc(vcpu) = vect_offset;
+ }
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 08ba882799d48..c6a416974a61f 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -291,7 +291,7 @@ static void write_sr_to_cpu(enum vcpu_sysreg reg, u64 val)
  	}
  }
-+
-+/* Reset a vcpu's core registers. */
-+static inline void kvm_reset_vcpu_core(struct kvm_vcpu *vcpu)
-+{
-+	u32 pstate;
-+
-+	if (vcpu_el1_is_32bit(vcpu))
-+		pstate = VCPU_RESET_PSTATE_SVC;
-+	else if (vcpu_has_nv(vcpu))
-+		pstate = VCPU_RESET_PSTATE_EL2;
-+	else
-+		pstate = VCPU_RESET_PSTATE_EL1;
-+
-+	/* Reset core registers */
-+	memset(vcpu_gp_regs(vcpu), 0, sizeof(*vcpu_gp_regs(vcpu)));
-+	memset(&vcpu->arch.ctxt.fp_regs, 0, sizeof(vcpu->arch.ctxt.fp_regs));
-+	vcpu->arch.ctxt.spsr_abt = 0;
-+	vcpu->arch.ctxt.spsr_und = 0;
-+	vcpu->arch.ctxt.spsr_irq = 0;
-+	vcpu->arch.ctxt.spsr_fiq = 0;
-+	vcpu_gp_regs(vcpu)->pstate = pstate;
-+}
-+
-+/* PSCI reset handling for a vcpu. */
-+static inline void kvm_reset_vcpu_psci(struct kvm_vcpu *vcpu,
-+				       struct vcpu_reset_state *reset_state)
-+{
-+	unsigned long target_pc = reset_state->pc;
-+
-+	/* Gracefully handle Thumb2 entry point */
-+	if (vcpu_mode_is_32bit(vcpu) && (target_pc & 1)) {
-+		target_pc &= ~1UL;
-+		vcpu_set_thumb(vcpu);
-+	}
-+
-+	/* Propagate caller endianness */
-+	if (reset_state->be)
-+		kvm_vcpu_set_be(vcpu);
-+
-+	*vcpu_pc(vcpu) = target_pc;
-+
-+	/*
-+	 * We may come from a state where either a PC update was
-+	 * pending (SMC call resulting in PC being increpented to
-+	 * skip the SMC) or a pending exception. Make sure we get
-+	 * rid of all that, as this cannot be valid out of reset.
-+	 *
-+	 * Note that clearing the exception mask also clears PC
-+	 * updates, but that's an implementation detail, and we
-+	 * really want to make it explicit.
-+	 */
-+	vcpu_clear_flag(vcpu, PENDING_EXCEPTION);
-+	vcpu_clear_flag(vcpu, EXCEPT_MASK);
-+	vcpu_clear_flag(vcpu, INCREMENT_PC);
-+	vcpu_set_reg(vcpu, 0, reset_state->r0);
-+}
-+
- #endif /* __ARM64_KVM_EMULATE_H__ */
-diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
-index b963fd975aaca..10eb7249aa9e8 100644
---- a/arch/arm64/kvm/reset.c
-+++ b/arch/arm64/kvm/reset.c
-@@ -34,18 +34,6 @@
- static u32 __ro_after_init kvm_ipa_limit;
- unsigned int __ro_after_init kvm_host_sve_max_vl;
  
--/*
-- * ARMv8 Reset Values
-- */
--#define VCPU_RESET_PSTATE_EL1	(PSR_MODE_EL1h | PSR_A_BIT | PSR_I_BIT | \
--				 PSR_F_BIT | PSR_D_BIT)
--
--#define VCPU_RESET_PSTATE_EL2	(PSR_MODE_EL2h | PSR_A_BIT | PSR_I_BIT | \
--				 PSR_F_BIT | PSR_D_BIT)
--
--#define VCPU_RESET_PSTATE_SVC	(PSR_AA32_MODE_SVC | PSR_AA32_A_BIT | \
--				 PSR_AA32_I_BIT | PSR_AA32_F_BIT)
--
- unsigned int __ro_after_init kvm_sve_max_vl;
- 
- int __init kvm_arm_init_sve(void)
-@@ -191,7 +179,6 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
+-u64 vcpu_read_sys_reg(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg)
++u64 __vcpu_read_sysreg_vhe(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg)
  {
- 	struct vcpu_reset_state reset_state;
- 	bool loaded;
--	u32 pstate;
+ 	struct sr_loc loc = {};
  
- 	spin_lock(&vcpu->arch.mp_state_lock);
- 	reset_state = vcpu->arch.reset_state;
-@@ -210,21 +197,8 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
- 		kvm_vcpu_reset_sve(vcpu);
- 	}
+@@ -338,7 +338,7 @@ u64 vcpu_read_sys_reg(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg)
+ 	return __vcpu_sys_reg(vcpu, reg);
+ }
  
--	if (vcpu_el1_is_32bit(vcpu))
--		pstate = VCPU_RESET_PSTATE_SVC;
--	else if (vcpu_has_nv(vcpu))
--		pstate = VCPU_RESET_PSTATE_EL2;
--	else
--		pstate = VCPU_RESET_PSTATE_EL1;
--
- 	/* Reset core registers */
--	memset(vcpu_gp_regs(vcpu), 0, sizeof(*vcpu_gp_regs(vcpu)));
--	memset(&vcpu->arch.ctxt.fp_regs, 0, sizeof(vcpu->arch.ctxt.fp_regs));
--	vcpu->arch.ctxt.spsr_abt = 0;
--	vcpu->arch.ctxt.spsr_und = 0;
--	vcpu->arch.ctxt.spsr_irq = 0;
--	vcpu->arch.ctxt.spsr_fiq = 0;
--	vcpu_gp_regs(vcpu)->pstate = pstate;
-+	kvm_reset_vcpu_core(vcpu);
+-void vcpu_write_sys_reg(struct kvm_vcpu *vcpu, u64 val, enum vcpu_sysreg reg)
++void __vcpu_write_sysreg_vhe(struct kvm_vcpu *vcpu, u64 val, enum vcpu_sysreg reg)
+ {
+ 	struct sr_loc loc = {};
  
- 	/* Reset system registers */
- 	kvm_reset_sys_regs(vcpu);
-@@ -233,36 +207,8 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
- 	 * Additional reset state handling that PSCI may have imposed on us.
- 	 * Must be done after all the sys_reg reset.
- 	 */
--	if (reset_state.reset) {
--		unsigned long target_pc = reset_state.pc;
--
--		/* Gracefully handle Thumb2 entry point */
--		if (vcpu_mode_is_32bit(vcpu) && (target_pc & 1)) {
--			target_pc &= ~1UL;
--			vcpu_set_thumb(vcpu);
--		}
--
--		/* Propagate caller endianness */
--		if (reset_state.be)
--			kvm_vcpu_set_be(vcpu);
--
--		*vcpu_pc(vcpu) = target_pc;
--
--		/*
--		 * We may come from a state where either a PC update was
--		 * pending (SMC call resulting in PC being increpented to
--		 * skip the SMC) or a pending exception. Make sure we get
--		 * rid of all that, as this cannot be valid out of reset.
--		 *
--		 * Note that clearing the exception mask also clears PC
--		 * updates, but that's an implementation detail, and we
--		 * really want to make it explicit.
--		 */
--		vcpu_clear_flag(vcpu, PENDING_EXCEPTION);
--		vcpu_clear_flag(vcpu, EXCEPT_MASK);
--		vcpu_clear_flag(vcpu, INCREMENT_PC);
--		vcpu_set_reg(vcpu, 0, reset_state.r0);
--	}
-+	if (reset_state.reset)
-+		kvm_reset_vcpu_psci(vcpu, &reset_state);
- 
- 	/* Reset timer */
- 	kvm_timer_vcpu_reset(vcpu);
 -- 
 2.39.5
 
