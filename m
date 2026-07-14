@@ -4,69 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 722FFC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 08:06:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F21D7C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 08:09:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0Tr5FyN1yFpthV3VK225kkpXsZ1+Q0ewXRFUsrX48A0=; b=1kklGol/sDrhK28BwpF/fvtftU
-	he5nsqzc+ny0e7WbN4l3MxtSASUlZOB/+2ORCMyTBQNd+6WU2jRJQNVWOQrSuSR4zrI0CNrhcNZxX
-	230jWA1N3K5I/G+5psI2eEOtzmYHT4WS60ZAqxQ6lcXtp374jgQhYmGjeyeNdjuGFhF5BDDH3/bj2
-	VivOwPrqW70n2gkL76T2qfgsP+76Vn0LV/3c0/L8Q0wDST7YfM2KTXkGoomTGlSQYnUoTglxgf+//
-	WkzLLY36exvtGAKre6kghJQRtMvS3QVtxbsofYaIF2FFNJif3ggthaXcuN9+fa7zh5sIXgnIjWFiN
-	8FWSPCXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hSZSEoq0U+Z9WhVgdOm+kjK1UkgCCKy4mqX4dJKGnHY=; b=hQiZ+O7azeog/7BfYKvanWw3a9
+	heDr+m4In6+4EcZgKBE0RV5+BF7bIU+9SOwjFYOx9vGhySeJFseJyJpAfoENFwT5rVmTn4CYPegZs
+	IlYS5NSF+nDZ1M3ExLmdpvZbBwt6LcGK3fSrgyZj2ah0OBoHgrvBC3jYc9GtZhBvOKUsn42b90wVT
+	1xhGlPh/2OFj91AqTRRrQSHsTuZSItpKXlpgxaFWtETRnKcf4KG2KnjDlDEPCKk1SIsmDG0iPAzTt
+	8gpkAhNQW4gizHIJYHRJ0DKVkkGjI4aoEkf0AhRmWyiaH1a/JGVTXicBoI1TRdOPYWIMTqZzWNOju
+	LdKhaLDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjY9c-0000000BFmi-0Olx;
-	Tue, 14 Jul 2026 08:06:12 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wjYCh-0000000BG6N-3tO1;
+	Tue, 14 Jul 2026 08:09:23 +0000
+Received: from mail-northeuropeazon11022128.outbound.protection.outlook.com ([52.101.66.128] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjY9Y-0000000BFle-3Mev
+	id 1wjYCf-0000000BG5L-1F3V
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 08:06:11 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 357D44E40DA4;
-	Tue, 14 Jul 2026 08:06:03 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id E510B60346;
-	Tue, 14 Jul 2026 08:06:02 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B570111BD3B23;
-	Tue, 14 Jul 2026 10:05:53 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1784016361; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=0Tr5FyN1yFpthV3VK225kkpXsZ1+Q0ewXRFUsrX48A0=;
-	b=UUhvAR3DyUsKeZ48khLzz/RdRv84xOY22/Qhm3XoX9CbNw1gs0svpqNBm/qEokdnu5EIv6
-	v2O/ILj+ugqfNoSd/d+H1e62p6axvHGjlaSXuvAcTKF4VTXhJzWNhGSnE/SVr6yPSn+k0r
-	ZPD5zjXlnrjRtF45RE5zTLOb7ltACN5ehJNzBp5GKmphkdqLx9VWvnWm9gmaIAI3Dgvox4
-	D50HMojooGQIcwQyNqnlsi3y9KknvFb5Np3S4K71bQH0De5Hva7q0n9O8bT7W7gE16xm5E
-	49uaXhN7Pj7/ukVgFASP2sPi635Tf+Cv0ce3x0zd9vLu2iscHZYFFubD1syBGw==
-Message-ID: <edc373ca-fef8-46e4-8b4f-8afc257c2349@bootlin.com>
-Date: Tue, 14 Jul 2026 10:05:51 +0200
-MIME-Version: 1.0
+	Tue, 14 Jul 2026 08:09:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OEZ+hy3exLfYZH0SlIjTAYkZPci796I5Cy+wJ4RQZRxpBRDRoehmVtfRr0WlgcdygJcJtaYVngrmXFM59rUhMvSXOm3HNVZbww0s682OTgKMTXBoGWHjddrbP+9kuOxpNQn52n8i7I26kV9xv5pGOPsNS7SLWbDou3p2NApwNy+wddaPkNn9zYj3UyLPmW/zC22XALMSqafFbUA4iiZBYdRoqiLu+08FLp1utksSE5oXRahBVNaR1MO40SmfHk9LVroA4EOXywaFM9HFDDtzlWS0KbZkIHJ40QXMgD5eX1ln0FhcjQaOxpo9fFit7VP8lTOC3uM/VYzSWkdiN2K3/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hSZSEoq0U+Z9WhVgdOm+kjK1UkgCCKy4mqX4dJKGnHY=;
+ b=LqzU5t28uU+NPy4UTuOJf/jhPAM21iL90ftTNc1zuwWb6IMGUnxkfo6AqMMXOkDcdEXMixPGO7Y09hyqfpFtMLv6NWN9sdxNKT/nQ5b4V9a20KlPDCtcJea3OYUISpkLPXztqOuia4POfYEhHyPCTzqdHf+GVldC5HAfuXQS6/sGrXXRRPmreAVAMuIfJYhxIsIkXAnMRx+4bbC1x025VaZ2XetUpow6MkdzOA1v60YBNSd9prAUYqIqveK9zazQY/eV7BAlPbvXJJKLpNMjaH4hXF24BybAyI8lDUFhdswfTKgKZzxnVQa0cE+sFjvZIbs5/SxQtQs1f2zfUHySdQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=kontron.de; dmarc=pass action=none header.from=kontron.de;
+ dkim=pass header.d=kontron.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kontron.de;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hSZSEoq0U+Z9WhVgdOm+kjK1UkgCCKy4mqX4dJKGnHY=;
+ b=O5jZnE7j2jcHtDS2vwwGQsGI3YnjN+J0gtz30gFmUiDOw4ea/bDMssJpA5s9g/HHFrdlN1p9vPS3XgAeIJWc6YXi80tcQ2APg4ctdfVad9mmg3Qocldw+C3d55jQEcMqJG6jvzyaBHdjzWh+cXoXCyHCyv5P20ZqiPuwfnVFKwzb2WyUxXCBq+TLCuV7X6uYU64YwnA1UvX9W6DbsfEYSICemqfyVOeZWr1Twh1ZnHXJZ3VFb4p1VooogImST3+v+tWq4xagI5NNUl5aWhdSzonhImdWwdCd5eZS744fRa3QaW5afTdr1nt8LW9hRk6KA3gQRbS9jV6IwIMB4GQSsg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=kontron.de;
+Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:1fb::23)
+ by PAWPR10MB7389.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:2e6::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.18; Tue, 14 Jul
+ 2026 08:09:13 +0000
+Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::a276:4ad7:962:da22]) by AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::a276:4ad7:962:da22%6]) with mapi id 15.21.0223.008; Tue, 14 Jul 2026
+ 08:09:13 +0000
+Message-ID: <e515a6c5-b32c-47b7-968b-0f6a66e4f24a@kontron.de>
+Date: Tue, 14 Jul 2026 10:09:11 +0200
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v3] net: stmmac: intel: skip SerDes reconfig when rate
- is unchanged
-To: Markus Breitenberger <bre@breiti.cc>, netdev@vger.kernel.org
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
- yong.liang.choong@linux.intel.com, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org,
- Markus Breitenberger <bre@keba.com>
-References: <20260713171619.192452-1-bre@breiti.cc>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20260713171619.192452-1-bre@breiti.cc>
+Subject: Re: [PATCH v2 10/10] arm64: dts: imx93-kontron: Enable ELE firmware
+ driver
+To: Francesco Dolcini <francesco@dolcini.it>,
+ Frieder Schrempf <frieder@fris.de>
+Cc: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+ Pankaj Gupta <pankaj.gupta@nxp.com>, "Peng Fan (OSS)"
+ <peng.fan@oss.nxp.com>, devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260713-upstreaming-next-20260609-imx-ocotp-ele-v2-0-b8266d93514b@kontron.de>
+ <20260713-upstreaming-next-20260609-imx-ocotp-ele-v2-10-b8266d93514b@kontron.de>
+ <20260714065947.GA22086@francesco-nb>
+Content-Language: en-US, de-DE
+From: Frieder Schrempf <frieder.schrempf@kontron.de>
+In-Reply-To: <20260714065947.GA22086@francesco-nb>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-ClientProxiedBy: FR2P281CA0056.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:93::7) To AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:20b:1fb::23)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR10MB4277:EE_|PAWPR10MB7389:EE_
+X-MS-Office365-Filtering-Correlation-Id: 37aa9b44-85e2-4688-5a42-08dee17f3108
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024|7416014|23010399003|22082099003|18002099003|3023799007|4143699003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: XMRoYyijFBBhnIaomNrLWBroN/OUqNydfOQ55Eg1xX9FVU5UL+CoFWPVzdehVqwk3a+e1bMgyfjUsJUwKlXfM2v5ZKATt6zcqGHmg0BtiABzYatAQjgRjImrGO0gR00fA7KNr+wJwvy6nhxdKo/5y5aBn1qqdBFWSXOKRle2IKcJSelpH7PAKCf+UrmjUk1jhYcSD7G2jV2Fs2WRUA9X0mS89Snrqq6ajVeqmwB+aNaBPNw3tOSB79O1HOonq8LM2NRZRPJkQ+V00cwpSKNoxu3z/yq0yUjEbKOnHHUsaPlqJtMKyGwsD1wh7+QFvFwAeo5DigJUQmSnH21KTuIW4nSYMX/dw7jCU7RpwrnlyuYr3Wv3JajYiMecTJTUZhLT+vzHJraeeaZkt7IQBFibb8h6yRUC4/H6agadTapnaM+YC86YEG86+QuXLHR/j4Gdp0QSQ0xsKcBMwMyQtQgrm2a2ISIDFhGAeR1tqRCaejK6SswJAdTtxiUWyXe5PDUkhl4arddr+EUTaWnUyQsDzA+QAYPz7bYbi+PnYoBMBMSFbLQYkk9aopahUAPbDv/caGt/jQ9VCI1wqz6tXfby30TVmxGQlGQOSNxb3BidwoO7R+p8p+KBttzkfG5Sgrp90D0Qj3PI75lyCrWSlndAgUzr/WJy6JKnfKLSRgcpZ5Y=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(7416014)(23010399003)(22082099003)(18002099003)(3023799007)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SVJzUzhFOWhjR1o1SGlNV25sN1RDelRBdVhhYzkrVzhIdXlsZUNocHJueEc2?=
+ =?utf-8?B?ays5am92ZkZ0MGpwRzU5NmN3a0dWa1FGOTFVMG9Ca2lTWDErcTFZTHFYaDBk?=
+ =?utf-8?B?eWMrNXRKc1JMaFd3SEswemhnODFwTERxbVFDOHdLcTJzR0h0RHpFSTJJdVhs?=
+ =?utf-8?B?RFoxVEpnL0JqcVpRWFZXTjg3L1JDTm40YkgvOE4xUHQzQ1Y4VkIrM0IzWmVq?=
+ =?utf-8?B?RWQweTVGckxFTTFMaklscnMxLzFBY1crYkZlSzFOU0NzeHlGaGJPblU3eXhp?=
+ =?utf-8?B?Mk03cGV4UFFhaUljQ1dOY2YwdEU3OXcvN2NGRmNrNjBvTUtSMzJ1TzR1MkUx?=
+ =?utf-8?B?Y3BnRzBhSkRCSFI5T2VxYTVvdE54OWsvUFNyeXBKWEthN3NrbHRnWkt0SS9l?=
+ =?utf-8?B?UEF3d0FFNjNyU20zRitWZzF2YUhCU0t1aGQyejRJMzEvVDYxT0ZUd3hjeFNw?=
+ =?utf-8?B?M0oxUXFSaTZQL2UvL1RjZnBZY1pxS0NpRzF1UDkxZzR2WmRHcW5EYWJleWRr?=
+ =?utf-8?B?QkhUczRBTncvSDhJWXRCT2hyRU52UUFXanU3QlFFdTFySmpTa3ZueElQQzFs?=
+ =?utf-8?B?N1ZpVjh2ZThaVHJhOW00NW1HOHFCU2NXVjAzQWJlY3NWNEo2aHlSTUgvSUZa?=
+ =?utf-8?B?czRza3RYcG0vWWVKa0tENmFpLzJvc0wxbkVjcnlaeXloTU1uVUU3aXpUaDM4?=
+ =?utf-8?B?ZCtXYTByNmRKVzdydy9RdUZxWm5mT21lbkZOSmJybGNPTmlxRUgwOHlRaFUx?=
+ =?utf-8?B?MUNMbzYzYVV6dHFjVjNzcmJlVWtPclJhNTluOHQ0U0dwY3VZMzVhTUNlZS9E?=
+ =?utf-8?B?cTF0N2Q1M2IvSUJraDFJS0VQNmtFdmJBaW9VSm4zaDdEM2xDYkhudVk4bnhY?=
+ =?utf-8?B?Z0ZWcGFnbUwxeUJQWkNWKzRJd01XakZiNWZFUmtXb1gxYnlSYUlhNXlMUEdX?=
+ =?utf-8?B?UCtBa1VPTXBIRDBXVkZIc3dPOTZYaTZkcnZpSkt2RTZKWmhnbnlNenlpdHND?=
+ =?utf-8?B?S0s3ZXBRV3l1S0RqMm5RaGozdGhraG1IS2kySEh0UWM2cDRicWRsWmtKMVFj?=
+ =?utf-8?B?QnFtWnhSclFCd3JySjE2TWJYd2hHK1VldERZdENWUEs2WWlreCtPaEtCZVJx?=
+ =?utf-8?B?WmdFM3NHLzUwWUpFekU2ZVZpbzA5OGVBbmk2T2JtQjd3QUFVMmoxVFNqNzRh?=
+ =?utf-8?B?NVpLcWxpYlhhN3ZJeHBqbzBndEFMeTdCMTJvcFREV1BOcTBBN0hBSVh0Nk5E?=
+ =?utf-8?B?dWFVb21YZ2t2UmRtQnhDeTJtWWRZZ0d4amVxaFpUUktBVi9RVE1kTGVGcmJN?=
+ =?utf-8?B?MFI0YXE2bkMxUjBibnhsYzR3bmxjZG9sVDUwR3Q5SGhJWEZ4VWNEVEVQaEE2?=
+ =?utf-8?B?aGRYU3VVNlNOVzF5MXQ5V3JnNHpEeUxTbFloaTVkZk8rVXBMTVV0NXNmS1R1?=
+ =?utf-8?B?L3lNTXRnZkFaL2dKem15a3lRZkJHelVVNXoveURLV3dzNGlXR0Q2WnZ2Vjdq?=
+ =?utf-8?B?RmxHT3V5bk9SSjhxUEJCR2w5S0tPT3ZndjBSbXJQYXBLell0cDJSUW5ETmli?=
+ =?utf-8?B?K0JEdkZNdFpuazUxbEtrbWt3cXV2cGZpVERkRnB6U2ZVaVZFcmdqejJsVUZ4?=
+ =?utf-8?B?Q21sR0JodGVDRGJiUURJblI4aWU5THg3bkFaeUJSbytiTmlwK2VjY1h1TG9I?=
+ =?utf-8?B?dFdESHZSRzh5T1duZm12bG1yZ2JyNlZhZlZsOVUweStHUEpaWFk3STZUYlVT?=
+ =?utf-8?B?ZTREelRJeUJleEVXZHBwMXRqS1VobmlxOGhiRGhPZUR5N2pGWjh3eE1wK0M3?=
+ =?utf-8?B?Y1ZqMHpMZG5JVTROQXBhUUVQdUhvMHdsUkg1QUhieUlUYjVMaUtFOFpZbkNH?=
+ =?utf-8?B?Z0cyK2l1UGU4cjdXbkVtSVBJM0xhMStrRkxTamtvSTdpMFJnMjJBQ0dTWVhi?=
+ =?utf-8?B?NGFlclU2c2cwR3NpaUZNcHVkN2xDQmxpaEYraHpIaVN3RnBmcU4wMlNYaU9J?=
+ =?utf-8?B?a3FMS0NYTW5FWkJRbk9meUN2ZEFhd1Frd0NXRUJ1YWZ1c1JyOWgwSS9oeCto?=
+ =?utf-8?B?MHg1WGpGalN4bVhRV29HZEpyZVBJTWF6OW9XMFFRMDFGV2pwbEJYbFF3SG96?=
+ =?utf-8?B?clRyV2o0NXdwN1J5c3Y0TzBPdjlqVzcwbGNZQmFVMENGWDZWQ25NanJubHBE?=
+ =?utf-8?B?dUlNaVkvU2ZabER6MkZiTXNxZjlTWFJZTDFVdTF3eTJhTWFnUFZzNWhVTTN2?=
+ =?utf-8?B?OG1JZnhxMXNmdXhUQkRhZHBHeWxwRG9lMXQ5aWhTM2Z3ZUg2TGxtUFBWdGw4?=
+ =?utf-8?B?RWtOSTh0VU1HWm1pR0cxSFVQdUpobFNaYXlWTXI5S0lKMzFzRWtaVmk1OEdS?=
+ =?utf-8?Q?+PVhtJitFPAW2vCo=3D?=
+X-OriginatorOrg: kontron.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: 37aa9b44-85e2-4688-5a42-08dee17f3108
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jul 2026 08:09:13.4075
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8c9d3c97-3fd9-41c8-a2b1-646f3942daf1
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: W8LU6C4cgIAJ/uvzl4SEJDUDgCjNmavygQYLFsNlBM+9jq5iJl2pzuo3ybVw6rbpisZFjQJChQSkPeVTwsCid6eikZIK6nt5YH0zwp9BuDg=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR10MB7389
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_010609_003707_C44C3788 
-X-CRM114-Status: GOOD (  13.56  )
+X-CRM114-CacheID: sfid-20260714_010921_363825_03BBC447 
+X-CRM114-Status: GOOD (  12.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,49 +158,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Markus,
+Hi Francesco,
 
-On 7/13/26 19:16, Markus Breitenberger wrote:
-> From: Markus Breitenberger <bre@keba.com>
+On 14.07.26 08:59, Francesco Dolcini wrote:
+> Hello Frieder,
 > 
-> intel_mac_finish() is registered as the phylink mac_finish()
-> callback for the Elkhart Lake SGMII ports. phylink calls it at
-> the end of every major link reconfiguration, including the
-> initial one during probe.
+> On Mon, Jul 13, 2026 at 04:53:46PM +0200, Frieder Schrempf wrote:
+>> From: Frieder Schrempf <frieder.schrempf@kontron.de>
+>>
+>> Add the ELE firmware API node and pass its handle to the OCOTP
+>> driver. This allows us to gain read/write access to the OTP fuses.
 > 
-> The callback selects the PMC ModPHY LCPLL programming for the
-> requested MAC-side interface and then power-cycles the SerDes.
-> On Elkhart Lake that ModPHY is also used by the on-die AHCI
-> SATA PHY. Reapplying the programming during the initial
-> boot-time link-up disturbs the shared analog block while it is
-> still driving SATA, so the SATA link fails to train:
-> 
->   ata1: SATA link down (SStatus 1 SControl 300)
-> 
-> The disk carrying the root filesystem is never detected and the
-> system hangs at rootwait. Ethernet itself comes up normally,
-> which makes the failure look unrelated to the network driver.
-> 
-> Before mac_finish() runs, the legacy SerDes power-up path has
-> already programmed SERDES_GCR0 for the current interface. The
-> 1G and 2.5G ModPHY tables selected by mac_finish() correspond
-> to the SerDes lane rate, so read that rate back from SERDES_GCR0
-> and skip the PMC reprogramming and SerDes power-cycle when it
-> already matches the selected interface.
-> 
-> This keeps the disruptive reprogramming out of the boot path
-> when the SerDes is configured correctly, while preserving the
-> previous behavior when a real SGMII/1000BASE-X to 2500BASE-X
-> rate change is needed. If the register read fails, reconfigure
-> as before.
-> 
-> Fixes: a42f6b3f1cc1 ("net: stmmac: configure SerDes according to the interface mode")
-> Cc: stable@vger.kernel.org
-> Assisted-by: GitHub-Copilot:claude-opus-4.8
-> Signed-off-by: Markus Breitenberger <bre@keba.com>
+> This seems something we should have in the soc dtsi (imx93/imx91), it
+> does not seems board specific.
 
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+My original intention was to move as much as possible into the SoC dtsi.
+The problem is that the memory node is somewhat board specific due to
+the DDR. And I can't move the firmware node into the SoC dtsi and assign
+the memory node in the board dts as the checks for all boards not
+specifying a memory node would fail then.
 
-Maxime
+But I'm open to any suggestions how to improve this.
 
+Thanks
+Frieder
 
