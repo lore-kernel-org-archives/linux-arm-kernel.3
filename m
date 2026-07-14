@@ -4,65 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12306C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 13:56:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B41D8C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 13:59:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XvENzWPT8BIDQ2LQGKoQLGSHRTQAQieNQdFR+KeOugA=; b=ODLLmq+sgq76PwHVhRywcVPXM2
-	3lfvWo3q6186O3gghIuqXLKnBHC/3w50XKpT/MzBfOeUJS6jdFRmQAaYc8Jcw3eLDujNy2jvs91Sp
-	UkU4CgliW4azdZKf5QQ+KSYzs/0Goczh5TwxkLhTiry0l/WbZWvnwPe2AmXYiqTSx+VYjNTvwQljn
-	BSJ4AhJKO7HHHxpdWi7OEPyuVeWPlJAaolxMvJCirR+SP9S/WuQk2WHvTWlj1K1/dpj7P5TKCtQA/
-	T0/nY/xd3asLxOPKnIbFS7vU/NufCk8ALqYjVH9fF4vY2ksLYHREZ5Er65rkPCIgLINmwQWEHraEA
-	jRL2eCLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5aYMgx8PBsoCBESXYNUbJr6BHbqJS9oiEFR3VUA17Jc=; b=qJ6dCkw7s3FKmKWMyXtifpAzkF
+	hKKvI6P9tpTayB/OMgrxm8uUXyNjgEhAzLzfB30pW/xDdfiX5VzoHnKpZdx8zCrOj+PSV87v3hYOp
+	aZbP8WMvYcC3Ni9oN/rY63/JfjzOsEYEte62cYc6sdf+rJQQRVlpggXFVrWPTB1ZKcMRJPwz8thmy
+	aA1OULMbgWepLibL92em0grKbmAI5FC+PkFkd6d3HkMnajuWtfGmBNrdGWe6kaHRUmjoqnXOa8iEF
+	YB1I+2CE98IO3ph8AQXtGUS9gZ2QcotLh552fsRapqaId6/0cDOXmHXOIukNM/w2pjhiNuv9HE9r/
+	7azzsmYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjdcr-0000000CFud-03UN;
-	Tue, 14 Jul 2026 13:56:45 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wjdf0-0000000CG9g-1OgS;
+	Tue, 14 Jul 2026 13:58:58 +0000
+Received: from mail-francecentralazon11013028.outbound.protection.outlook.com ([40.107.162.28] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjdcq-0000000CFuJ-08Tq
+	id 1wjdey-0000000CG93-18ES
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 13:56:44 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7907B601ED;
-	Tue, 14 Jul 2026 13:56:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 944121F000E9;
-	Tue, 14 Jul 2026 13:56:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784037403;
-	bh=XvENzWPT8BIDQ2LQGKoQLGSHRTQAQieNQdFR+KeOugA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ZAx4bJzNzAjHRolKxVz6IF1lmI9TASLuutiBBNHkPe5sZ9McOlDR4Qj/gFVCngBZR
-	 lRwCP5p3vlfy7xy1BLW2kHfzOtclnZqUzKWma9XgCqhHuLccl8is2VUwfTxfqjnX5j
-	 5RS6YEtJ24ya06dY0hovHhA/8FSNzN2xPYjZ4gY7o3Gksnr4Abn8nutlfvf0MujD3M
-	 byRvi0qhNTqUg87wjdKdGsNRz8RI4058ZbsXI+yhhHPYG3FoQh6F9oYwMPw1YYFEh0
-	 AKgJsOMO8byI6WY3WN06hRsmGj9jqGNJ7FzRgBU4ljUn0msiUS5U4sI9CdYxRPAvpD
-	 3LBeONprKuCRg==
-Date: Tue, 14 Jul 2026 14:56:37 +0100
-From: Will Deacon <will@kernel.org>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Yiqi Sun <sunyiqixm@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	rmk+kernel@armlinux.org.uk, kees@kernel.org, mark.rutland@arm.com
-Subject: Re: [PATCH v2] arm64: ptrace: use live x0 for seccomp and audit
- after ptrace
-Message-ID: <alZAFWIe8MFuOTfB@willie-the-truck>
-References: <20260529065444.1336608-1-sunyiqixm@gmail.com>
- <2f435bab0d61d0bf8fbaa54203525aae8e8f5371.1782384161.git.sunyiqixm@gmail.com>
- <akJuljttiQoki3sq@willie-the-truck>
- <akP8-ddTn9bhIDEW@arm.com>
- <1610f167-1af0-4d20-877c-b362b9b49d94@huawei.com>
- <alTxBVLJmQ7-ZnSS@willie-the-truck>
- <1d55c62e-7c08-4b2b-a009-b770c5ac13bc@huawei.com>
+	Tue, 14 Jul 2026 13:58:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uXGLwV5euJcTZx5D4ind3O6nMfJ96FigNhxO7CT+aw2TG4khc8GP6MZg0PbVLjEAfL6/wdfbFfwtfwYxuff0wPOMqC48j5KM6AN9lcZeT3p2ipeVmpPihxaCofHGSEtYDbXQFukuGNGq1JrJN2lUWss804f5hoR4GVOxZw9eC010vCan045xcGhxDQYgpwaZj2ywGmtdg8KiJhnJWTlNnHiNEwLGFle+WrvlzCLfMYBbbJNUE3F+TbxFvQ8qDdDjBJVelzBknBAj0cNO84I6KAzuQzrIJjX8whhbLNKGssxm7cyai5x6Dtj9O9cdfSkGZwupHvPFHjDkqD91KKy8nA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5aYMgx8PBsoCBESXYNUbJr6BHbqJS9oiEFR3VUA17Jc=;
+ b=EM+DyD1IUXaWR8f6QQCXfDYiJmdXO9b6kUosnpEYDeR/J1Uoud6bTuXiX9ur2NYYx51mvHp2Eo4z1fvCvIMl5rmDQUioI1O2sOEJeJqkXrH+Qppg0qFCgwpYIoSwGOowkMy/hFAEN4yOCpNPs7//szTpVtU/J23Mer+WI0qCT2ptg2zZGaL88SOqnFo5ioAv8/6W3AqVNUK/8BPZ0me6HzQgSHv7jS39JtRkQqvae5YxHv3eRlY3yZwIo3cVC2JaNsgC+wBHnmfWS3R62kj35MM3i42PMARvdzA1WNhyzwDgMfL/1UfGlYbeUZdP8BN0iNbZ3LX3tKIkzAnx+SLhAw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5aYMgx8PBsoCBESXYNUbJr6BHbqJS9oiEFR3VUA17Jc=;
+ b=Vtjgs2KuxAnUhTUpN4m/UoXgjrPDfu3DhWwFyeE4loNLUwHPnDGImmNrg0/df4iCo3CS6HZRE7OMoxnuFBa6aVwW3aWB68uiFQ+vRZcR/7Q+69lSv46zjzgOzCN2tqDo7PtHTofumC13zyZX7QQ/0mxZXW1ERDFAmpytELq5eh411guzLWeGkSjXePeSKtH2LLqJ0DHXPwUM6YTem1KDSRZXBbvnpUdyHRrm+sPyGv+fdXqXMsvHFEylt0yHtGieuj7pYJ7VWt15PaMbB5cDkOBAgjBCo/Wq2+jA1VI4GSQ2TFVPs2lq68cIoREdOb7zh6KaUNvX1zca7d1kmcy7nw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by PA1PR04MB10842.eurprd04.prod.outlook.com (2603:10a6:102:483::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.10; Tue, 14 Jul
+ 2026 13:58:51 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0202.018; Tue, 14 Jul 2026
+ 13:58:51 +0000
+From: Frank.Li@oss.nxp.com
+Subject: [PATCH 0/6] display: lcdif: imx: add display support for imx8dxl
+ and imx8qxp
+Date: Tue, 14 Jul 2026 09:58:42 -0400
+Message-Id: <20260714-dxl_lcdif-v1-0-6761a8a6592b@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAJJAVmoC/yXM0QpAQBBA0V/RPNta+0D8iiQ7M8tIaBcp+XeLx
+ 1O3e0FgLxygSi7wfEiQZY7I0gRw6OaelVA0GG1yXehS0Tm1E5I4RTlash2WxlmI/erZyfm96uZ
+ 32O3IuL0DuO8HewVv120AAAA=
+X-Change-ID: 20260709-dxl_lcdif-d6cbdbac92fb
+To: Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Jessica Zhang <jesszhan0024@gmail.com>, 
+ Thierry Reding <thierry.reding@gmail.com>, Sam Ravnborg <sam@ravnborg.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, Robert Chiras <robert.chiras@nxp.com>, 
+ Liu Ying <victor.liu@nxp.com>, Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784037527; l=1681;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=v9sAuGJs+AsrhAzyqEtNkOIXJX9sZtdtSfjr35Mw5pQ=;
+ b=DtnDr1Yyu01qL4D8WGpA+wB8vccxRTOMqkCL49CX9mlR0KMktrtaBdiwtGDnXJrvxWoOVXDbM
+ j6IyoeLwsPoAZ/B7OI5arLs98tL2vHog6Qlvm6w3rmuKiWB+ME84OxL
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: SA9PR03CA0001.namprd03.prod.outlook.com
+ (2603:10b6:806:20::6) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <1d55c62e-7c08-4b2b-a009-b770c5ac13bc@huawei.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PA1PR04MB10842:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4d60bc92-ae50-46ec-d0b1-08dee1b008fa
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|376014|19092799006|23010399003|1800799024|18002099003|56012099006|11063799006|921020;
+X-Microsoft-Antispam-Message-Info: 453QlmpOlgkQZLbwy6sKzPpdpq45BznCI/WALqodvL400rQ6Xn4X/nY0swHtxr3ihpZiAT9SLHqNloEBqTdzC5GlBkvb6SSW9Vo9MWC3Ra1N6Z1IHWaRr/wJqSz1MJCO+NjXJrYMrsVkaNrEFBQOkZ1W5pZqYhcoj1bX1ncTHqZ30zDxqX0C62tTRLoQ2v+BdDhEMrRznvSgbSp2TqCmIjM9QwW/Dhen9Boo5cx/QRB19r7Wu1yfBUfu2HG8mds4tQIMkIJn99WN79s8Yd6kPcc8XhUNOik8IfdnPmmmSZpuqxE+i/MvGYzJno80rJNLjD7PtLzeBEAlcJzy7h1R76BwykK6JTU9d1Y6Pbs8AeezhvTAsMOIr8g1N9zLuTdB53t4Th7i6MyJifuOptEF9zst4/MgGX3iu8G1lxuexOfQ45kpRML1qI4XAio4R1BBo7Qt2/rwJlYQdos40LVOKi+DWQjCMjUyLkTNVvTcfQ+L4rbYVSNaccrY/K59BcLPGdgxFYoaaBmaoYIOkL6hmY5WzWOO/TWLVMXins0mnl9NCLzcwyaLUc4gPveEyxRQSF6007CpRKYnW4s4M677XVjimAVYz9YB/WSjqAEgxsg9Zn5qf8WkXNtsZvfV/YB2D1YSafMcyhV1h4SvXeGmMRWlqgnvI/v94r8O0GlqJzU5+Zmsz4tExAz7p2CrDpOt7chuZVqqcvs5nmA+WSgBcQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(376014)(19092799006)(23010399003)(1800799024)(18002099003)(56012099006)(11063799006)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TGpMNjdFS3E1aXdoejlyM1g0MFlVSjBEK0x5RGVONmQ3bEJwb1JiMlN5VGNU?=
+ =?utf-8?B?cCtJbDArb042UVdkU0FtcU5RUDA1MWJCdDViU0JmSGgxYUVKT1o1U0hsZ3VV?=
+ =?utf-8?B?UFVGMEJwQXAyelFWWEs3MHJjN3VPMzBHTFIvWVkzU2NLTUN1bFpDV3JZZzIw?=
+ =?utf-8?B?KzJ5WmJuOXVFa0dlK0NoMkpPKys0NTFudWFaYm43bkVVOU9yd1VqckxCWDV6?=
+ =?utf-8?B?WE1UN0s2Y3Q0ZFRWUUVYMkNZaHdhK1NRdnRZcEh0WWZLWEhoZHVvTENpQXdw?=
+ =?utf-8?B?TkFmVHZJTVE0Tkt5K3lVdzZGbFJlaW5lS3ZkUWY4UHRmSnVXMmZkZG1tNDJU?=
+ =?utf-8?B?b2I5UjhORlkwWVEvcEF6RVVVTGRZL2NZNWl6dkNYbXJvdVY1MFpmNGNGVVJB?=
+ =?utf-8?B?ZVVLOFdadStIOGxFKzFtMmk4RjRwOWpUVFNQTEpMcUVPa01XQXFFZi9rMjZN?=
+ =?utf-8?B?aWh2NkZZWGZ1clhTemZMcG94R0kwZ3MzUExSOHE4RlZXaWNnWElLNjRLbnN2?=
+ =?utf-8?B?eVp3UEc1MkxJdGtCQWJ6OTFZWkhVL052QjJMOVVnMWFSY1NWQURZMFF4Vkxs?=
+ =?utf-8?B?OTZTTGNPVVlVMWRoekI3SFRZbXVqVG9qYmVTQ3poZG4vWktybjBBcUxjaXRG?=
+ =?utf-8?B?OGsyekE5M2owWGUrcTJjWjV4UmYyRUkyeURpOXk2UDBrK1FKZk1sY2hmaHNn?=
+ =?utf-8?B?d2VOeEJ3b2o0N2xydXdKczNJdmtOY0tUQWxoR3NNNm9UQVRNL3hIRHVLVDZ4?=
+ =?utf-8?B?cEZhZWxscUJMWHhSMElDam12UThFcWRJcVB3dG5vcHJMYktVUEd1aEk2Tmlm?=
+ =?utf-8?B?cXVIQTV6QjFIVkpDODF0TFBmd0ZyZnA1NEhJZ2pKTnplUjBoL2l4TXlJOTVI?=
+ =?utf-8?B?aWJ3eU94K3g4NGN1QmRFRmRPSDZ0MTRGVDFEMEQ5TWgveXJOQnlaWTdGaHpX?=
+ =?utf-8?B?ZjdCUkZVL0IrcXFMVFFPTkVBUzVTQTQ4QWlVM28vTHZvT0JxakxvemZMbitU?=
+ =?utf-8?B?eTZ3SXN3bVRhSHRpOE01V29ZNjZlVW41VkgvM2lwSEtaMmpWeVZWM2Fkb2NN?=
+ =?utf-8?B?UFduSWNwbmJFbDZDRUI1QnA4UzJvQTMydVZuY0s4RVprYkxEM21kMjEwdEIw?=
+ =?utf-8?B?TDNSS1dFTlVjZUhjdFN1Snd3SXdjSVB1YUs4ZGRPT2M3V09ENGxtUUQ3SUJt?=
+ =?utf-8?B?ODQxWG5kMXl6T0lzZ0xVUW14dlBPVFNOSlpmd3c5SG93eXpaSWVNb1U0aXVh?=
+ =?utf-8?B?TVhmQnl1ZmhYbitwNVVSUDhPYVBUekMrVW5vbnltNk5MNGZVdVYrdlcyUFYx?=
+ =?utf-8?B?SWxPWlhmY2pGY1dCaFY2Z1BoemFJQlVZUlZVUXJEU1EzWHE3YnpVK2VRWjYx?=
+ =?utf-8?B?RFgzRGgvRFQ2bzF1SlhHbmdEYkNjYzZicGJhcUFSVFY4WHo0L2czWDdDbzZE?=
+ =?utf-8?B?MFZwaDhlaDRQOThpSG1zSnRxai9zYlo1MS8xblRnT24xbUJJaHFIa0FucUI2?=
+ =?utf-8?B?N1hZdGx4L1BqcjArKys3NWRDY25NKy9OVHFlNnNIbjYwSkhpOHpVRDY5d0FX?=
+ =?utf-8?B?bWJzdkcvTURhYkJ3Q1E4MHVIbERZeGNTT3N4RTY4RVBjNWJ2TFhScmtDdElQ?=
+ =?utf-8?B?b3FCTzNuTEt0Q3M0dnFsaDBXZ2V4SklmVXN4RHRCM09FajNERWpDNklWMmlq?=
+ =?utf-8?B?MENWT2Vlb0g5bUxjN0hYdUducVlMY2hHemUzZ1FUTzJQVllaOW1IUnlJYjIy?=
+ =?utf-8?B?czdscXlZdVYzL2pqekMwazFHeWVhbTR4TERua2NWdU9HR0VDUlFZQU4wYkJa?=
+ =?utf-8?B?Y1dyRWM1a1BNT1JkcGQ4UGR6WUFtdnhCQ29sK01LTnptWTFFalZualBjdlN4?=
+ =?utf-8?B?aVFqQ2JTUDI3M2xRczYxaTNBcXZySkVSYmVhQllHbS9rdXRQN2J2VDgxTU9T?=
+ =?utf-8?B?RmtBV2RldjJTVGxCdlcrc1hOZ042VWloVExIR2NFUlM1QWcxOGJVZUplZHJK?=
+ =?utf-8?B?aTFqMDArVFNTVWVKK3dsdFZSenVpUC9pSXhDZDZkNGtjc2VlcGlTamlYemhq?=
+ =?utf-8?B?K1pjNTJJZ3QwUkYwYk8vVmZ6b1ZxdXZGSWlwNmtsNWQ4bFE0WVRlUFg2K0tT?=
+ =?utf-8?B?bzE2eWNjNUpoTnpaRGo2dHU4Nk4xbTdJOHI2U0FDRCtnMXRNMjNlalVFbGJZ?=
+ =?utf-8?B?RTlzUUk3M3pPYkM1YUFFYzZIQTV0YUVoREdaT1JZRTdNODQ3M0N3U0dPVXJY?=
+ =?utf-8?B?cnl5Qnh6cnFJYVdtRlc2OHlFODF0L0Vra0QxRGQwdTdvNVZ5TjhmNlZWc0dp?=
+ =?utf-8?B?bDM3Q0FlVk1wRWVmUGJ5NXpZaFNDWkJ0QVhFeVVQSzJPSzVFaDR0MXpMMlcx?=
+ =?utf-8?Q?qEAn/X5xlF7w0Fm1PbrmES6VhYLwvx/m8U0JF?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4d60bc92-ae50-46ec-d0b1-08dee1b008fa
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jul 2026 13:58:51.5855
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: liQ9M5rdbR6HVOwWEZA6XtHxsRqpvmt3/IwCwvglsz1twg6AV4XkeFZfjB9kUpPAfIFZZ0ORwdHqelLGB4/JOzigCSczZ8e47T1wLVVjGWev0EUGLMSwyZ8IODZrsCyx
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10842
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260714_065856_320119_199BAB14 
+X-CRM114-Status: UNSURE (   9.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,62 +170,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2026 at 11:20:20AM +0800, Jinjie Ruan wrote:
-> 
-> 
-> On 7/13/2026 10:07 PM, Will Deacon wrote:
-> > On Mon, Jul 13, 2026 at 03:49:18PM +0800, Jinjie Ruan wrote:
-> >> On 7/1/2026 1:29 AM, Catalin Marinas wrote:
-> >>> I think we need to keep orig_x0 as our original arg0 throughout the
-> >>> kernel and just fix the tracer path to sync it on the syscall entry. It
-> >>> doesn't unclutter the code but it shouldn't break the ABI either (unless
-> >>> someone relied on the ptrace change x0 and not being noticed by
-> >>> seccomp). Something like below:
-> >>>
-> >>> ----------------8<-----------------------------
-> >>> diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
-> >>> index 4d08598e2891..cd21b301e154 100644
-> >>> --- a/arch/arm64/kernel/ptrace.c
-> >>> +++ b/arch/arm64/kernel/ptrace.c
-> >>> @@ -2417,6 +2417,18 @@ int syscall_trace_enter(struct pt_regs *regs)
-> >>>  		ret = report_syscall_entry(regs);
-> >>>  		if (ret || (flags & _TIF_SYSCALL_EMU))
-> >>>  			return NO_SYSCALL;
-> >>> +		/*
-> >>> +		 * Keep orig_x0 authoritative so that seccomp (via
-> >>> +		 * syscall_get_arguments()), audit and the restart path all
-> >>> +		 * see the same first argument the syscall is dispatched with,
-> >>> +		 * even if it has been updated by a tracer. Skip this for
-> >>> +		 * NO_SYSCALL (set either by the user or the tracer) as
-> >>> +		 * regs[0] holds the return value (see the comment in
-> >>> +		 * el0_svc_common()). For compat, orig_r0 is provided directly
-> >>> +		 * through GPR index 17.
-> >>> +		 */
-> >>> +		if (!is_compat_task() && regs->syscallno != NO_SYSCALL)
-> >>> +			regs->orig_x0 = regs->regs[0];
-> >>
-> >> Can we place this fix in report_syscall_entry()? The generic entry
-> >> framework has already reserved the function
-> >> arch_ptrace_report_syscall_permit_entry() for architecture-specific
-> >> customization, so switching to it might be more convenient.
-> > 
-> > Hmm, your comment prompted me to look at this some more and now I'm
-> > unsure that the seccomp handling is correct, even with the fix above.
-> 
-> Hi Will,
-> 
-> It seems that this issue can be reproduced itself and Catalin's patch
-> can fix the original question.
+i.MX8DXL and i.MX8QX support LCDIF, which is compatible with i.MX6SX.
 
-I'm not disputing that it fixes the reported issue, but I don't think
-it's complete.
+- Update lcdif binding doc to support front compatible string:
+fsl,imxqxp-lcdif and fsl,imx8dxl-lcdif
+- Update simple pannel binding doc and driver to support waiken,101wx001
+- update chip dts to support lcdif ip
+- add overlay file to enable lcd panel waiken,101wx001 and lcdif
+- use onboard pinmux "pinctrl-multiplexer" for on board signal switch
 
-> I used DeepSeek to help write the following test method and script,
-> which can successfully reproduce the issue.
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+Frank Li (6):
+      dt-bindings: lcdif: add compatible string for i.MX8QXP and i.MX8DXL
+      dt-bindings: display: simple: Add waiken,101wx001
+      drm/panel: simple: Add waiken WKS101WX001-WCT support
+      arm64: dts: imx8-ss-dma: Add lcdif support for i.MX8QXP and i.MX8DXL
+      arm64: dts: imx8dxl-evk: Add onboard GPIO mux controller
+      arm64: dts: imx8dxl-evk: add lcdif overlay
 
-I also have similar testcases for this, thanks.
+ .../devicetree/bindings/display/fsl,lcdif.yaml     |   2 +
+ .../bindings/display/panel/panel-simple.yaml       |   2 +
+ .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
+ arch/arm64/boot/dts/freescale/Makefile             |   3 +
+ arch/arm64/boot/dts/freescale/imx8-ss-dma.dtsi     |  29 ++++++
+ .../boot/dts/freescale/imx8dxl-evk-lcdif.dtso      | 114 +++++++++++++++++++++
+ arch/arm64/boot/dts/freescale/imx8dxl-evk.dts      |  76 ++++++++++++--
+ arch/arm64/boot/dts/freescale/imx8dxl-ss-adma.dtsi |  11 ++
+ drivers/gpu/drm/panel/panel-simple.c               |  31 ++++++
+ 9 files changed, 259 insertions(+), 11 deletions(-)
+---
+base-commit: 31bd73273b9bf03a3fe32227b417f00d4a94c6ac
+change-id: 20260709-dxl_lcdif-d6cbdbac92fb
 
-I'll send a patch shortly.
+Best regards,
+--  
+Frank Li <Frank.Li@nxp.com>
 
-Will
 
