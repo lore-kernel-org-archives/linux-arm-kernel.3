@@ -4,81 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60C3BC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 12:07:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78994C44507
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 12:08:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZmvS0+8GuBtd9iAyjF4Cr9VcLF3E0Yy+Gdartxxdr3w=; b=ykf+GAqBwuOFHCZ91EHhD02pUN
-	zQLAkBvQJ76fFH8YhwxK2Qly3wWUKdOo+6ZUAxULe9dsQJkcv4/ADHMjQYcHY7zM3AovJ+e6Rd7GR
-	0k4x3BtLUiXinxRpZCsZv1E7p6HgWQmUUNBwdeAaPIuhxmRclUOXZ9r3a5y1OPFa8uKgC3OTll0I+
-	3Yp+asCkmDpYUtJ1KJs1ZMmrpAcCX6bl2h/0jHS5o/ki7U14BPfnuPZSTH1MA8IvJ2f9Be8ArFtWb
-	hdvRQRmLi/96NDAXGxF9WJBNd40qW0EsCpxi/LMApiYFPqcXBB6fFm2rFUuGILODu+7o9CzdwiYT7
-	Z/p8ufsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6Oe9aWVjKhDNM43muNwN/DRmahJ3UH9WTei9WupS48E=; b=uTchFF1g6znvRh5FvL51KCSdX0
+	uUeZ6KruX9xr3QGc5XyPKX0rw4/ysk6WwrvAVWnIV14l0+Tz9eYNuGiyRZrE41Ghpv+go2erZrj/S
+	HAuQy1bS+6yNd+lhTSvcsY8JoV3dR0dWQs2CmDTpz93xtd4etRproUxDibrrYYhyfT3MawRilXPGJ
+	034I1RuCShA6jVbnnqG0FDAETaK/p/LbyRgwGAgIai0gu/yzagNFLCEiTGF5qRTZ2DhADeyq/pRhz
+	fKBDH605448ahT5i52e7lqnuSXilnn3x3FbcpWoViSYPkaD7ffH34mCrpjik9YuNZp0UhRUEcAWi+
+	bkGwnYlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjbug-0000000BrHc-2aLT;
-	Tue, 14 Jul 2026 12:07:02 +0000
-Received: from www537.your-server.de ([188.40.3.216])
+	id 1wjbw1-0000000BrX1-45SE;
+	Tue, 14 Jul 2026 12:08:25 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjbud-0000000BrFW-2xYJ
+	id 1wjbvz-0000000BrWH-2iph
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 12:07:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=ew.tq-group.com; s=default2602; h=Content-Type:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=ZmvS0+8GuBtd9iAyjF4Cr9VcLF3E0Yy+Gdartxxdr3w=; b=NmLFuFUgt84zB+sJBpji4IR+V9
-	20r7IQxycTJ5nZIvLCCCcE8txKiuKDzb8A8VOEDwnGUDxe9nMnCJCo1bakM3xwTMFu6LkMzQo6oFX
-	PymRum5aj4xs2ui+ySp3ilSH9rQChvq5Wrvv3wzR0MDOwW+yaMRx0WGbDojvVfRlZZF5/AgHpjeCl
-	0lECrvC9RvDqB3Y3Bqb0aCL/y2WJH3JPlztY2A3CsOofSE8XyvcWmFyrw99eNTh5ZEsDlKtD/36q8
-	M7shaEpFu5S0FP4g2A3y3hvK/Ac9e1AjCTvBlPCzuIhzR1pWH/FEOL4NLz6jiw4bf9fAE7/x/YFmh
-	zohUrpQg==;
-Received: from sslproxy06.your-server.de ([78.46.172.3])
-	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wjbuK-000K0H-1G;
-	Tue, 14 Jul 2026 14:06:40 +0200
-Received: from localhost ([127.0.0.1])
-	by sslproxy06.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wjbuJ-0008J7-12;
-	Tue, 14 Jul 2026 14:06:39 +0200
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Frieder Schrempf <frieder.schrempf@kontron.de>,
- linux-arm-kernel@lists.infradead.org
-Cc: Francesco Dolcini <francesco@dolcini.it>,
- Frieder Schrempf <frieder@fris.de>, Srinivas Kandagatla <srini@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
- Pankaj Gupta <pankaj.gupta@nxp.com>, "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Francesco Dolcini <francesco@dolcini.it>
-Subject: Re: [PATCH v2 10/10] arm64: dts: imx93-kontron: Enable ELE firmware driver
-Date: Tue, 14 Jul 2026 14:06:38 +0200
-Message-ID: <2420855.ElGaqSPkdT@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <20260714093354.GC22086@francesco-nb>
-References: <20260713-upstreaming-next-20260609-imx-ocotp-ele-v2-0-b8266d93514b@kontron.de>
- <4b7b7823-00c5-4801-8ba4-19e5670f339d@kontron.de>
- <20260714093354.GC22086@francesco-nb>
+	Tue, 14 Jul 2026 12:08:24 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-38101f85591so652566a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 05:08:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784030902; x=1784635702; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=6Oe9aWVjKhDNM43muNwN/DRmahJ3UH9WTei9WupS48E=;
+        b=YdbrSw1M4K39MLYuojXL9yuBZ5sEg2Iw4Lpc0nG+U7pDUekrEI19et7u4qXI/obgAs
+         H30pZmF0xnNsdh0H7lvqxB5nZb+s70AiU2h5UmEUFJwC/1UCVZuuHqAiDKb/BxTr5jjE
+         iahfFEE1t3mwJepAF1MY1AMXuvdRTfjqM3/sROvWqg3KvKvXh4k8I3un4mT70JDKmRYH
+         RnGuDrY2J7CcQ51KeqkMm6+B27mRczB228KYuvD6LZAr1lGpOtvaiDWXgBNpUXJABxXl
+         hTV8KD5//70gLjAaJIbJqHdAWl9LlTiLfTk0xbOYYQd1Z+I6pe8C5xeN74rgTp/lFLrZ
+         kf/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784030902; x=1784635702;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=6Oe9aWVjKhDNM43muNwN/DRmahJ3UH9WTei9WupS48E=;
+        b=HnApi6kzaiMEP4wi76IG1ACoGw4NA8PxgussWZItrHJUfwyqLt203zyr1mCGMhf2QE
+         2Z5ZlZNAHXHW2gkCMcAGk97kRRSChnNcW4UIEt9qzMM4qiWZb2DbD7fh1GX8xtH1Oc+G
+         uh5wfRidEaihZFqX+hh/XpjsAcwXJOIZhuCMpAcJKgLdiCLPp9BMF8y4KPkH0ryLxZ9z
+         YUsszpq1WNVy7TCY/ytXACYdMTI9oq1xKKTUQok73BojefZDA8Hk51T6hXqcuwTpv7jM
+         2sBlk3lvlNDgpLr64iczHc6YGnF9qdWLlTt330LxVxLruerqHAnoQ6w0Bz6rVD8yyRdD
+         D+xA==
+X-Forwarded-Encrypted: i=1; AHgh+RrCddy/tiUX+JC3eyJnSTouXNQDyJVJhSFSjM38QpzT9H2Uf1NvaMwUScACNCe4zBFs2BqSHhvdjmBXCkRzIbqv@lists.infradead.org
+X-Gm-Message-State: AOJu0YwAKFHR3ZmKHrk8U4qnop/cXZ7/f+ha1UOkteDhwR4iVFQhTBEY
+	P3dSmALI7N+UxpnMY9BXT7OWXUvi9YfgZfDzC032AnpiaaN534VWRcBn
+X-Gm-Gg: AfdE7ck+f6awo9OrpxXJCUtg+mXVyShdQL7Iv48ZdZja/aHhV2mzWeKYBtqJKOc8JXU
+	4Figa0vRhD6HAwmvHhowyTvuSn4L4/eD5N+Yx78GakWlEdELIPnB60Xj9lDbI3117nNIsOAdSaK
+	0ioMggn7LCNKqd4+W2MECHtvKJ+BWVlmO8YKPcAvS6Y2VWRKLk4hP/Jjl7MyVsuebtL9jiU60if
+	kJ57bGPdQJrbk2rDLLLBD3cXAksK+Gvz6JI+FvMOjZMGJVEBjFD3h8BlEbu8x9ZkTp1xoomd/kV
+	lpg09FNlosdxSl2PEuVe0t5G6YXzqKBlr+1/AsNAOZzvP9tUkbU4IniOqGfFG08m2h2cY1hEwZy
+	x08xa+ML8003mv1kg5xNhzCmc7FcWMtukzK8wC3hRRfRuC2phNpMH14QjEY4Y7k7nwKeLYv/DNs
+	3yxTu7sAJdWuphSQkHJXce+FH9HXsOVdRBRKpIuNCsQsj/G1uy0fkA1LRLsSM=
+X-Received: by 2002:a17:90b:2248:b0:37f:fd70:6790 with SMTP id 98e67ed59e1d1-38dc81c1b09mr9238776a91.9.1784030902088;
+        Tue, 14 Jul 2026 05:08:22 -0700 (PDT)
+Received: from cosmo-ubuntu-2404.. (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38e172dc530sm1384425a91.8.2026.07.14.05.08.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Jul 2026 05:08:21 -0700 (PDT)
+From: Cosmo Chou <chou.cosmo@gmail.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	joel@jms.id.au,
+	andrew@codeconstruct.com.au
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org,
+	cosmo.chou@quantatw.com,
+	Cosmo Chou <chou.cosmo@gmail.com>
+Subject: [PATCH 0/2] ARM: dts: aspeed: bletchley: Add second source devices
+Date: Tue, 14 Jul 2026 20:08:14 +0800
+Message-ID: <20260714120816.1504058-1-chou.cosmo@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Virus-Scanned: Clear (ClamAV 1.4.3/28060/Tue Jul 14 08:25:07 2026)
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_050659_861312_948E56EB 
-X-CRM114-Status: GOOD (  34.24  )
+X-CRM114-CacheID: sfid-20260714_050823_693459_4C16DC2B 
+X-CRM114-Status: UNSURE (   6.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,77 +104,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Dienstag, 14. Juli 2026, 11:33:54 CEST schrieb Francesco Dolcini:
-> On Tue, Jul 14, 2026 at 10:43:56AM +0200, Frieder Schrempf wrote:
-> > On 14.07.26 10:32, Francesco Dolcini wrote:
-> > > On Tue, Jul 14, 2026 at 10:09:11AM +0200, Frieder Schrempf wrote:
-> > >> Hi Francesco,
-> > >>
-> > >> On 14.07.26 08:59, Francesco Dolcini wrote:
-> > >>> Hello Frieder,
-> > >>>
-> > >>> On Mon, Jul 13, 2026 at 04:53:46PM +0200, Frieder Schrempf wrote:
-> > >>>> From: Frieder Schrempf <frieder.schrempf@kontron.de>
-> > >>>>
-> > >>>> Add the ELE firmware API node and pass its handle to the OCOTP
-> > >>>> driver. This allows us to gain read/write access to the OTP fuses.
-> > >>>
-> > >>> This seems something we should have in the soc dtsi (imx93/imx91), =
-it
-> > >>> does not seems board specific.
-> > >>
-> > >> My original intention was to move as much as possible into the SoC d=
-tsi.
-> > >> The problem is that the memory node is somewhat board specific due to
-> > >> the DDR. And I can't move the firmware node into the SoC dtsi and as=
-sign
-> > >> the memory node in the board dts as the checks for all boards not
-> > >> specifying a memory node would fail then.
-> > >=20
-> > > What is the reason to have this memory address different on various
-> > > boards? Can we have a default in the soc dtsi, and allow the board to
-> > > override the address if needed?
-> >=20
-> > There is no real point in having different addresses on different
-> > boards. But the node describes memory that is physically on the board
-> > and not on the SoC. And I think that is why DT maintainers want to have
-> > it in the board DT. It's the same with the memory nodes for the
-> > remoteproc drivers to communicate with the Cortex M-Cores in the i.MX.
-> > But maybe I'm wrong and if there is a possibility to move this to the
-> > SoC DT I will definitely take it.
+Add second source RTC (ISL1208) and LED controllers (PCA9532) for the
+Bletchley platform.
 
-We are talking about reserved memory, so this is highly board-specific.
-So for different hardware variants with different amount of RAM you have to
-go for the minimum anyway.
+Cosmo Chou (2):
+  ARM: dts: aspeed: bletchley: Add second source ISL1208 RTC
+  ARM: dts: aspeed: bletchley: Add second source PCA9532 LED controllers
 
-> > >=20
-> > > Or can't you add the address in all the boards, and keep everything e=
-lse
-> > > in the soc dtsi?
-> > This could be a possible way, yes. In that case maybe we could even
-> > create a generic dtsi to contain such defaults for all boards.
->=20
-> I would go for this solution, we could have something like
-> `k3-am62-ti-ipc-firmware.dtsi`, include it from all the boards, have a
-> sane default memory address, and have an easy way to override the memory
-> address from the board dts, if needed.
+ .../aspeed/aspeed-bmc-facebook-bletchley.dts  | 294 ++++++++++++++++++
+ 1 file changed, 294 insertions(+)
 
-So what is a sane default? At the end of the minimal possible RAM?
-I'm not really fond of something you have to make sure matches to your
-hardware, but won't raise an error if you forgot.
-
-How about providing defaults for the SoC part and users have to provide the=
-ir
-memory on board-level? Similar to the VPU nodes on imx8qm/imx8qxp. There you
-have to specify memory-region in your board.
-
-Best regards,
-Alexander
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
-
+-- 
+2.53.0
 
 
