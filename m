@@ -4,69 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA671C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 21:24:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C9CDC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 21:25:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kc8QH6BxvyW9ef8PAyxaqiwonZpdVzbJV0CMm+y4Vs8=; b=UqU0/xdgfJWRhecIvlJi0YDfMS
-	9DzGHuiYO8DtUQFvvYkcpRetJkCVElaf8/7iR7tIRfdFxde1u4DeRd+QG/w1P24SdsbuZN5U8gbmh
-	Z28ZT+NIURV2CM+5cyVNM7Mpi9EsmRF0aPbR5SwHk0wVat0HZg62AkGidwwpBFRatC+wUn1Ycmvs4
-	G8Cxw+a004yMSWgNPW1dfDE8PeU6T4b7IuGOp526iWw66qXqtGD6ThJDJ7i8sOMo6ueNGBcHGJ/oC
-	5VABoBtxy8iHZbyPmZAljW8+nGfEQQI1AC9/76MetG0PTlFDGixOS0I8nZz69FZ50GKXYz8R4jsis
-	wDzIs03g==;
+	bh=EK5o/511Bfcsxnar1fnZzffAtXzmW6biOYC0uNIDMlk=; b=EZxHmKolT+0x3Oo8d+VcnZuUwA
+	a8ms8mTwybbwxirJdLebDqtYBvV4SF9BaYuCLKn0Jb52CGbjuWK5cscr3etGtTL1siliSkITaJAls
+	9jbY61Q4/I8r7UBbFzh+xVEZsz/Xqid9+GY9XLR7wLu/LPHp+xdsCqIK41ZwWIv9H7NUP58F/NWb0
+	ekxX2bQWwfG+8LMNcDKHwB5cMhxgvrnNZzurHXiwVHIHz3u6r/OIT2W/hGuguXWSnvXlzToMJb5n2
+	JCploLTMCXRUikp46amnKuLIAcuL+au/flpPDkq7dNKDQ1ZZkG9ZoWGADgOG1c4QK+TGH50kZmYJw
+	wVQ4ntCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjkc7-0000000DL20-0FBh;
-	Tue, 14 Jul 2026 21:24:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wjkcY-0000000DLAz-0kwt;
+	Tue, 14 Jul 2026 21:24:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjkc6-0000000DL1a-1NIa
+	id 1wjkcU-0000000DLAO-2rMs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 21:24:26 +0000
+	Tue, 14 Jul 2026 21:24:52 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D02BF438F7;
-	Tue, 14 Jul 2026 21:24:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63B481F00A3A;
-	Tue, 14 Jul 2026 21:24:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 63CEF40E0F;
+	Tue, 14 Jul 2026 21:24:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED3711F000E9;
+	Tue, 14 Jul 2026 21:24:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784064265;
-	bh=Kc8QH6BxvyW9ef8PAyxaqiwonZpdVzbJV0CMm+y4Vs8=;
-	h=From:To:In-Reply-To:References:Subject:Date;
-	b=CXQVcews4hmtRA84seJ3Qk/SD4B4/jZVLiyBOzKwH9O0BvAstEESVXu3S6ADb1VjQ
-	 XT6Q2pBpI0wkBiL3oVo7QXj969wq+MKdbD2Uwc6wpBOlzAGXwP6vkAkCTYzg0ayRis
-	 4Q/Nu2MkM0ns6zADbWoCjfQXJJe1r02xiI/pgttwBsuxSjWdV0hSz0pyoD+KulvTpg
-	 SY/m2kCWutzvh2OGhVgBzlA0qA6cEilK0vSMWLlviXwc28BzpISFguHC3BWRRIuXMx
-	 IV0p2BHDg6DeBQgzxdqxIN6fk8Et77RQo85OgCMclfLX2d45g1Lqiv5R2gjF3hy8yL
-	 bMN6273gJhwCg==
+	s=k20260515; t=1784064290;
+	bh=EK5o/511Bfcsxnar1fnZzffAtXzmW6biOYC0uNIDMlk=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=abQt8dzN6ZV4uQXLg0CR4SPjxrufm3lQ95gsI4fyCJ2TYljL341LTXHMF01DqVt0V
+	 VlIq4z5YoJz/YQJKKFsEFJIJwv4qrAsWUdKFsrfg7QkZ2vkZ0+NDusREANuOwHx8I/
+	 H95nrwzALiFmi6GNHaQuyyGyRU6poh+kmXdw1oi+b1KZBgELvdaTSUvZn0EA3PkMdd
+	 zfXsYpGKebvBrbNBPD1a7Oy5Np4UwPzqaRP85fahPI86DEG0Ar9gvS1uM5oNbTOQ16
+	 wD1B6ybkeciy7ZOMP2cmfYUhzi2grfU8SVxxSM+RVPlnFVZnwqAh+51qMQzroqOEoh
+	 nOeFQ/qsyvfPg==
 From: Mark Brown <broonie@kernel.org>
-To: Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, linux-spi@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-In-Reply-To: <20260705172737.120095-4-krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260705172737.120095-4-krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH 1/3] spi: atmel-quadspi: Simplify probe() with local
- 'dev' variable
-Message-Id: <178402987400.7661.258618486934275116.b4-ty@b4>
-Date: Tue, 14 Jul 2026 12:51:14 +0100
+To: Jernej Skrabec <jernej@kernel.org>, 
+ Samuel Holland <samuel@sholland.org>, Chen-Yu Tsai <wens@kernel.org>
+Cc: linux-sound@vger.kernel.org, linux-sunxi@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20260714113304.270224-1-wens@kernel.org>
+References: <20260714113304.270224-1-wens@kernel.org>
+Subject: Re: [PATCH] ASoC: sun4i-codec: Set quirks.playback_only for H616
+ codec
+Message-Id: <178403959229.7661.10222342202160410934.b4-ty@b4>
+Date: Tue, 14 Jul 2026 15:33:12 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1372; i=broonie@kernel.org;
- h=from:subject:message-id; bh=vNOBqqC9yFiEhyoXR9LChSsTeYbMgNrUtgO54Ckjo6M=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqVqkHO380qiDwrpeEr1UzHf3y/xbG7gwxxNKhH
- DsjxxILTsKJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCalapBwAKCRAk1otyXVSH
- 0Do/B/4lvOm0J5liKBkExSMKLVgDP3KhutGv/fNZDFbKqOfDsSdpSV6CslAPwGMRF8BODazMI16
- m/rOctg7uo4IHGw8XXiY09nclcvKuqfdnH6jkJHvJiN97eRVCjkDOY0j8klepjf7lsx+qhtg+mK
- /HrQomPJJ2SoTuWuqwNFBxAJ2HavzKt+p0hzDpzjt2NJclx4LTVBl2YYSOJqtVQYgv97ZvheFqD
- /NUoyVc31JzbDB9LImNQWS4WxL84duPd9OqFok51YRH7mIqlQ4533TKG5X9QTPvBVUNu3W1NRX1
- zz4V5z14WA2OnG4j6corLhS8qGE3+8syCl4DSQeofckgzKs0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1134; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=12s8fzNjslyFuFEky8pEZ/IzdrzMoQB35exv4PxhEIY=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqVqkfLA3mqg0aAtZ38HIGHw1JSBhsmPDyke+y5
+ wqOwmhXH42JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCalapHwAKCRAk1otyXVSH
+ 0HrTB/0ZLDG80c56Uxwv1qhhIYC5/PO+el/BNEiqcg0EFn6lDsmIt3VIHCJx6vlKfHZac2Fqycb
+ cR7bY8krEoy0kwop6URIp+Z/K8MHfz2KS693xJoqrtBXi3yzRMMzYHVeFTwRCj7R1WcQYD8rC+7
+ uA4bJJe87mv8drb2D3z7+SyxtyI99NeqyKKryHMzewOdgST8hrlWduOGQdLeveUURLEEV0glkK4
+ DpOtmfMuX983fJiRyg7Q9HLRljsRBfxwDevMeoGqZQpBQ8I6bmrzJi7bDwXmwiaO/8zm+UweIa2
+ E56OppcNNBhFVRzBKCrH4Wpz3GQfC6qnWXnkmqKmSIF0qvC5
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -83,21 +82,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 05 Jul 2026 19:27:38 +0200, Krzysztof Kozlowski wrote:
-> spi: atmel-quadspi: Simplify probe() with local 'dev' variable
+On Tue, 14 Jul 2026 19:33:03 +0800, Chen-Yu Tsai wrote:
+> ASoC: sun4i-codec: Set quirks.playback_only for H616 codec
 
 Applied to
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.3
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.2
 
 Thanks!
 
-[1/3] spi: atmel-quadspi: Simplify probe() with local 'dev' variable
-      https://git.kernel.org/broonie/sound/c/51f761e4071f
-[2/3] spi: atmel-quadspi: Simplify with dev_err_probe()
-      https://git.kernel.org/broonie/sound/c/3ae07d8f3075
-[3/3] spi: altera: Simplify with dev_err_probe()
-      https://git.kernel.org/broonie/sound/c/3e106385e3e6
+[1/1] ASoC: sun4i-codec: Set quirks.playback_only for H616 codec
+      https://git.kernel.org/broonie/sound/c/d9e96f859de3
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
