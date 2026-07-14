@@ -4,78 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 376E2C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 12:59:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C309C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 13:00:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L3sEMy8yFlY8B+WEmrvrcO/9oAQa8bxHy0pyMju3k6k=; b=443lnxReHwUQaCON3LJL5gHBVV
-	lFBHNm+beKo/Bx1brwST5pO2plXyf9AxJpB0Nj5cZKCH+PWV1GAxCAwJ1W28P5UmHfzSIlOlP1Bqt
-	dlxKD1qx9mJMQcc0qqH8wzxvSYRy07RIFQpg6qr/xNCU/CAMriOFA9XtsVCHqJ4ik0aFnmg2DJkxG
-	rObn49BqI1D3eZemUthH49qCzh22Mf1k/PNFBudxiItLqm4dn5TbV+2pOqAmy/Ikf2zlLTNYOHe/8
-	3agy4onmEXTe0UpwniDrIUQms79DkJIKdZ1mZ5uWRRuUmqAaLsAxDeBOnxziasjAkQVPbroJ9gd9t
-	MatmQFvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uIGZ/z4hY5ZNRt8p1qIWG745rMH9lv/GU7QvdqB/JiE=; b=B9sstdj+EhrDY1FEG6UXwpCLmx
+	UhcFKvPshMoWzB6lEdN+YyXPlRZK1jbcwnSsoKcxYsLLEy+VpkocbLNAzoDoEFQsAh51WMn0yfdRZ
+	a/z40FQoMEFRm1BubskcaXZxNtUBK38LfQzM30lcGuIlrTYcNDpTt1eBHTzqWfxLar4XVodVW3Fej
+	gP04bO6ZkVi3UTqTmbTNmf+5adN6JTI/ZZqymGfsse9vdSOwCtMNJKJlUJHFlZnh7VZ3czywM/s4t
+	wyUA9R5BRWuW0uw7DJCZdUd1w7HoVJG4euALHUE03q5MYh0g3ZUbu6vMRsY+txDSkqXCjN2rFWas5
+	d74f6Osw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjbZ5-0000000BiKY-1sjr;
-	Tue, 14 Jul 2026 11:44:43 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wjckk-0000000C41I-2MwZ;
+	Tue, 14 Jul 2026 13:00:50 +0000
+Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjbYz-0000000BiCj-2bLT;
-	Tue, 14 Jul 2026 11:44:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1784029475;
-	bh=jmaYUP/r44wCR72Nc3+9Fb6W8Pm4khTfRCLiVTVhzcA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=E/4uA4pX4Pd1vdKPSwy4CtrXiEBl9OuzlvrP0tf+Sab14gHIg5Z5k2Z4cAcsRP1eS
-	 SURPXcqvNx/o0ywZlBkRMeJ+gGj4rGQSOr1fZah5YylX6gg/MTfhlFWAifife70Uz1
-	 M4ChdBQttEtm5aYE6UpfWSFtQgSDBFU5ZOTZiA8OD8uE55qbBMMkwKKT4+lAgYEiFo
-	 8xatjtfwfYcT/5XyDlKAJX9X55sehN/k5HdVLe+Ttn/2Av/4KwY8l6FU4qMGToBfWC
-	 asXM+yrTAWwKNbzZis0UFjswJLomPnLMsZvLxQhJUTgh5LAtwgUmJFDC88Fytnc/Fy
-	 8DPbvcN56xs4g==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id CD1A017E0E1C;
-	Tue, 14 Jul 2026 13:44:34 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: chunkuang.hu@kernel.org
-Cc: p.zabel@pengutronix.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	justin.yeh@mediatek.com,
-	jason-jh.lin@mediatek.com,
-	kernel@collabora.com
-Subject: [PATCH v2 05/46] drm/mediatek: Add missing component types in mtk_ddp_comp_type
-Date: Tue, 14 Jul 2026 13:43:33 +0200
-Message-ID: <20260714114414.184512-6-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260714114414.184512-1-angelogioacchino.delregno@collabora.com>
-References: <20260714114414.184512-1-angelogioacchino.delregno@collabora.com>
+	id 1wjcki-0000000C40r-0ich
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 14 Jul 2026 13:00:49 +0000
+Received: by mail-qt1-x836.google.com with SMTP id d75a77b69052e-51c01c79467so284141cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 06:00:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1784034047; x=1784638847; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=uIGZ/z4hY5ZNRt8p1qIWG745rMH9lv/GU7QvdqB/JiE=;
+        b=OZWYWTV7xAiw0jiALUqENpQIxF8blY98oRIlKZcpI2wBqY7bH2mS142QjZm6zMQZsX
+         CvBptBnvU8F0HGyivTPKyj5obkDKhBh8cZY8Ebh/WiXEq99JKKA99nJavH6vrRgF/ScH
+         vq7RXNcAa9LTMqn02+wuuCrbuYTvhGquqjkt2UIThwXgZxC6EIbYfsqR5jd9UkoI5PFJ
+         bxQM+FheN9HThxZZ1T6N2E2fe+/XZK/uTvDIbV/xalVKXrKLvH8dtjOq5r6Ho95izKz3
+         SZ7r3i0fpU0UFYMBBJuYP6KyehPqn8QKNgSVPzPblLi8c/ak1QZVN3VTqgKM1RzjjUvH
+         d26g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784034047; x=1784638847;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=uIGZ/z4hY5ZNRt8p1qIWG745rMH9lv/GU7QvdqB/JiE=;
+        b=daP5nlTojHElDnNI1m/4d4gfseTAC7LatoTkY9exEEyiA2wtVxnbIU8NTcUpT/7za2
+         9H0F+EFGGmCMoSb+I2JWlQLN6C/AxUncNfIqryXdZ91HOezv4wpM8PPhcKeTPktdwq9i
+         SOnTaAUuVM9+E8b4TdfUz5U+3ovK8sTdervMu0MuWRaR1Vnr74sdrJBzQpjj7LjyI44R
+         n68yvGZB+CyDDazzFJX3Rn2+aV3Z1FrSgMzGAyImv1FQtJtYMK+teb31lkNbyzMLmg8e
+         v14ehsYbglImf/IG/MUGP30782k1Kmu3ec97NlSrnLGgrk7T0Nn/4qfPVSYltkYJ4tjv
+         Fhpg==
+X-Forwarded-Encrypted: i=1; AHgh+RpEakVyQiXJFZskHwZwGR12Uo6XWNTNUGtmsrt5IqNFz16wlNIxvyfP+j3VLxUP61EiRSUnq4eZGByrWUyoAVud@lists.infradead.org
+X-Gm-Message-State: AOJu0YyP8NeYj4D2qMqTe4iYXJwaxhlfhKrNo5ZViuY+2Od5/d4SA6t+
+	Y+PD+RQF1goHKShcfab8mmHa6ulR2Uzcq4HH/4OqcOXg4r84anqtH2GcnOffq4f1DA==
+X-Gm-Gg: AfdE7clpIxh9u7ThrDYrF39s0iSHaCbshSu6qnkAqI+s82mvNXeDL81xaEyTL/+2QSD
+	oHvjbulx/J7Nq5JBjPyhm7pTUxuXkvetb5SxiX7TDBEUouH3o0lSk22BkHZbWv6Jki9Cj9w6M5Z
+	ncggcquTxDIqf9MWIjAkMgvmUTLUcdxLgjDYBNUaaGiCeNSOboocE+uHsKQbhx05HClCT3FQCJF
+	4o0B4MB/1AzPE7z1QGc5k4FBJHu86YFf26bFwFncqfMCMNwzdUAvtC+NnJyycyML3+eiyklXpje
+	skMtjkvQh8MNpHp1z6RtixaBHrzZOxTczPu17YYbP0hlZqPmfDWsqVhZjijLnCpQBG1bSoQvf7e
+	MhdAhCUsZ2GGhac15MKXQVG4moXW+5dIorJnbNCqCa29iofkXFJ3jR215NAj60k5xBRjbcJB0PF
+	R1Q8QhT/McrRVMZfDcZaE7bpOpQurcLggnIm8tRKl4q8yLTFs=
+X-Received: by 2002:ac8:5d56:0:b0:517:5c70:46bd with SMTP id d75a77b69052e-51d7bc73cecmr14531951cf.11.1784034043910;
+        Tue, 14 Jul 2026 06:00:43 -0700 (PDT)
+Received: from google.com (10.129.124.34.bc.googleusercontent.com. [34.124.129.10])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5bface91766sm6434972e0c.10.2026.07.14.06.00.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Jul 2026 06:00:43 -0700 (PDT)
+Date: Tue, 14 Jul 2026 13:00:36 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Nicolin Chen <nicolinc@nvidia.com>, Will Deacon <will@kernel.org>,
+	Kevin Tian <kevin.tian@intel.com>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	Robin Murphy <robin.murphy@arm.com>, joro@8bytes.org,
+	David Woodhouse <dwmw2@infradead.org>,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/5] iommu/arm-smmu-v3-iommufd: Reject unsupported
+ bits in invalidation commands
+Message-ID: <alYy9GMeIPMWeD-9@google.com>
+References: <cover.1783539724.git.nicolinc@nvidia.com>
+ <194fec44b30b7b4233d218686cd76d63208932ff.1783539724.git.nicolinc@nvidia.com>
+ <alYC3bNbXY9l0eVn@google.com>
+ <20260714121451.GJ674038@nvidia.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260714121451.GJ674038@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_044437_814178_801DB537 
-X-CRM114-Status: UNSURE (   8.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260714_060048_238159_40CEA95F 
+X-CRM114-Status: GOOD (  18.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,45 +108,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation to remove the mtk_ddp_comp_id enumeration, add the
-missing component types ETHDR_MIXER, PADDING and MDP_RDMA in the
-mtk_ddp_comp_type enumeration.
+On Tue, Jul 14, 2026 at 09:14:51AM -0300, Jason Gunthorpe wrote:
+> On Tue, Jul 14, 2026 at 09:35:25AM +0000, Pranjal Shrivastava wrote:
+> > > +	u8 ttl = FIELD_GET(CMDQ_TLBI_1_TTL, cmd->cmd.data[1]);
+> > > +	u8 tg = FIELD_GET(CMDQ_TLBI_1_TG, cmd->cmd.data[1]);
+> > > +
+> > > +	/* NUM, SCALE and TTL are RES0 when TG == 0 */
+> > > +	if (!tg)
+> > > +		return (range || ttl) ? -EIO : 0;
+> > > +	/* TTL == 0b01 with a 16KB TG requires SMMU_IDR5.DS */
+> > > +	if (tg == 2 && ttl == 1 && !(smmu->features & ARM_SMMU_FEAT_DS))
+> > 
+> > I agree we must check this but I'm a little confused, How is a user /
+> > VMM depending on the IDR5.DS bit today? The IDR5 is exposed to the user
+> > via hw_info AND in the uAPI documentation block we explicitly mention 
+> > for struct iommu_hw_info_arm_smmuv3 the following valid fields for IDR5:
+> >
+> > idr[5]: VAX, GRAN64K, GRAN16K, GRAN4K
+> 
+> Probably soon we will add DS to that comment and it will be fully
+> backwards compatible so a new VMM following the new guidance can just
+> read DS.
+> 
+> Thus we can't have any kernel release that doesn't work with a VMM
+> following DS...
+> 
 
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- include/linux/soc/mediatek/mtk-mmsys.h | 5 +++++
- 1 file changed, 5 insertions(+)
+Ack. Understood.
 
-diff --git a/include/linux/soc/mediatek/mtk-mmsys.h b/include/linux/soc/mediatek/mtk-mmsys.h
-index fb88202d100a..3ddfdeac658d 100644
---- a/include/linux/soc/mediatek/mtk-mmsys.h
-+++ b/include/linux/soc/mediatek/mtk-mmsys.h
-@@ -92,6 +92,7 @@ enum mtk_ddp_comp_type {
- 	MTK_DISP_COLOR,
- 	MTK_DISP_DITHER,
- 	MTK_DISP_DSC,
-+	MTK_DISP_ETHDR_MIXER,
- 	MTK_DISP_GAMMA,
- 	MTK_DISP_MERGE,
- 	MTK_DISP_MUTEX,
-@@ -99,12 +100,16 @@ enum mtk_ddp_comp_type {
- 	MTK_DISP_OVL,
- 	MTK_DISP_OVL_2L,
- 	MTK_DISP_OVL_ADAPTOR,
-+	MTK_DISP_PADDING,
- 	MTK_DISP_POSTMASK,
- 	MTK_DISP_PWM,
- 	MTK_DISP_RDMA,
- 	MTK_DISP_UFOE,
- 	MTK_DISP_WDMA,
- 
-+	/* MDP Components */
-+	MTK_DISP_MDP_RDMA,
-+
- 	/* Keep Display outputs at the end for readability */
- 	MTK_DPI,
- 	MTK_DP_INTF,
--- 
-2.54.0
-
+Praan
 
