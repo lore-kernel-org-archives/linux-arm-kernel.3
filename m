@@ -4,76 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E9FAC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 11:20:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7744FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 11:29:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=whTvoIQzFLxg9nWsia/8ifGYSwTXwSJ9Egk0loJM9jI=; b=PPrdG2Ir1ePkBsmKN/sXs1mBIW
-	lEDbxqORPyFXruhAHss/AKRYC8Oo773kb+3vF2qjaGl1+k2rHhMlj72E81gwVOBmK3X/7sjfWJkZ7
-	8UG4l8GaUFFeJNfLdVbvDhNAK631Vr6hgPNPcuo9KAOa0jyf6vXRSdCbrpqF4YJe9ngMFh1wQgjQo
-	Fsk1pWWYXBUbO+59buxP+G5KxcCzpdBrnhR0MAp6gGrBQLcIfjEsFvFIEVFe8rybC0EZNxJVJU76w
-	3kgJ6R9LX9pZZcauA0tNlslzuC0s+d+p20+/eRa8cZhIAb1qUXfMGWeLhU+QIa3765WYsacpwKLB3
-	LvlSkiSg==;
+	bh=0dFHKsQ7kVh6jZILIwKtMbuxfiLrE+HKuO2Ky6dB4tU=; b=2ClsGJMsIaheiCx74F8hnqwol6
+	WhqYjt+KZDec9mxjaQZ2XcLI3AX+APOZHBF+q0018Bsmi8Nt1PS2N5tiuwAahKacPkOoED9SR77f+
+	2ZI+tVxKXUpV4hcySJfwuPuiBUdyoGTTO/Y1Vnca5cs/groOty9zd2mW24Xd2IcAbPf9i58ui4WyP
+	f/W4Q33I1z/vfOE8Pttj8Vz4rbdJ9oqx3S3sLfgBM7x0bRMtHw82hNAliT/Wj3ghuuQqVMFBvrpMF
+	tdpM2pf+YyAevB+5O4Z0PCRmVFWZY4VGZpROujqD8v0Ngj3QW33WLgUq1vT2K9xn134ifZ1Jk9BfJ
+	R+SpNTdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjbBR-0000000Bf8U-3NGi;
-	Tue, 14 Jul 2026 11:20:17 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjbBP-0000000Bf7V-1Ceg
+	id 1wjbKI-0000000BgJ3-2NhZ;
+	Tue, 14 Jul 2026 11:29:26 +0000
+Received: from mail.lysator.liu.se ([130.236.254.3])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjbKD-0000000BgHT-1HFy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 11:20:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 882DA497;
-	Tue, 14 Jul 2026 04:20:09 -0700 (PDT)
-Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6B8413F93E;
-	Tue, 14 Jul 2026 04:20:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784028013; bh=mks3puL1y53IZeO82cWCJbGRSmY7s3qDamibiDiISkg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=VWwtbq5lmHVY8rYBg+ntmva4+BGhHhjwM7qGuYcHrB2qwvPBHbbc01OSgcOqfpDdb
-	 RDBVy7P0dZd5yhT9CM8E1r7iJt9WcAqE4TnqDaqmGbU5ijmytnxURPU2ozf98RadN2
-	 A4r1U75/RUOqt0oZ+zUsx/y4L7RemKsD1nmOLiHk=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Tian Zheng <zhengtian10@huawei.com>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	maz@kernel.org,
-	oupton@kernel.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	yuzenghui@huawei.com,
-	wangzhou1@hisilicon.com,
-	yangjinqian1@huawei.com,
-	caijian11@h-partners.com,
-	liuyonglong@huawei.com,
-	yezhenyu2@huawei.com,
-	yubihong@huawei.com,
-	linuxarm@huawei.com,
-	joey.gouly@arm.com,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com
-Subject: Re: [PATCH v4 0/6] Support the FEAT_HDBSS introduced in Armv9.5
-Date: Tue, 14 Jul 2026 12:20:08 +0100
-Message-ID: <alYbaD2sxvkf_0jj@LeoBrasDK>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <fcc9e842-a6fd-418e-93ff-0475a542f3df@huawei.com>
-References: <20260709104026.2612599-1-zhengtian10@huawei.com> <alS-kcwvlASwPIzL@LeoBrasDK> <alUR3ez1EKeWb_pM@LeoBrasDK> <fcc9e842-a6fd-418e-93ff-0475a542f3df@huawei.com>
+	Tue, 14 Jul 2026 11:29:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=lysator.liu.se;
+	s=2026; t=1784028550;
+	bh=KIbChOqpx58g6s8B0KHjVr0c4T00SmiBQI8b9zTDkp0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=CbnG+nXot1KVhI9mG09KAxVeQj/w+BnwSmVpP0QYgKugaxSGX0tED1KyrZaboDSDQ
+	 CqKYqbv1kR3onI8bzCy+qk0wlFUYUEqIjOrgdwxLu7qnelohiOkHjyXuowE+TwAyqb
+	 uBmE5l+Q6LRtVuGUHo6NuCNSqs4o0U7LQ7/Nvd4xaTOI3zSMAFFTb4UKTOeaLVwgKW
+	 /row9FhCU/6drRqGXKm6UWck6WfHk4uRkMHcDIr1mDjlYLIoMCwwqOYGqSHlA/l6GT
+	 liAgWhVwTyFK+lXTy5W4OJfWemdl0/7eOh6gZtKhazJUzfkWTcWrllSrCOih6l+07b
+	 tWW74dbLYn2cA==
+Received: from mail.lysator.liu.se (localhost [127.0.0.1])
+	by mail.lysator.liu.se (Postfix) with ESMTP id 369CF8729
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 13:29:10 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=lysator.liu.se;
+	s=2026; t=1784028550;
+	bh=KIbChOqpx58g6s8B0KHjVr0c4T00SmiBQI8b9zTDkp0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=CbnG+nXot1KVhI9mG09KAxVeQj/w+BnwSmVpP0QYgKugaxSGX0tED1KyrZaboDSDQ
+	 CqKYqbv1kR3onI8bzCy+qk0wlFUYUEqIjOrgdwxLu7qnelohiOkHjyXuowE+TwAyqb
+	 uBmE5l+Q6LRtVuGUHo6NuCNSqs4o0U7LQ7/Nvd4xaTOI3zSMAFFTb4UKTOeaLVwgKW
+	 /row9FhCU/6drRqGXKm6UWck6WfHk4uRkMHcDIr1mDjlYLIoMCwwqOYGqSHlA/l6GT
+	 liAgWhVwTyFK+lXTy5W4OJfWemdl0/7eOh6gZtKhazJUzfkWTcWrllSrCOih6l+07b
+	 tWW74dbLYn2cA==
+Received: by mail.lysator.liu.se (Postfix, from userid 1004)
+	id 185F386C5; Tue, 14 Jul 2026 13:29:10 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=lysator.liu.se;
+	s=2026; t=1784028545;
+	bh=KIbChOqpx58g6s8B0KHjVr0c4T00SmiBQI8b9zTDkp0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=gnoUaLAdgBEvaDjfLSajvn/XVJzTNVE28DDBz1hWHX/aP9aAAlNC7EtIuT4lDDap5
+	 p9NLpVe3YH/tACOkFNyl0ukcXjMPQ4qkV7kMdZKNfcITmiXQv3ppcQHAkQ7Pvcwf6e
+	 2+2jTsNnbmS+kp0LAcjmREK+ZgksHO+CC0nCEevsK+AzPvU3tHsYb0gwz+qH4XaKPO
+	 p1bMujtBwEm4Bwt+J9v6maO+y7/8zA/zIbeL3DaK2oiYHGjqEZ4X9EfSJzTUH8yUUG
+	 Lo86ZuhYkkrS1Xqb80k+YQgDdk/UC5wdkUS/hRqWgzfIdd3x297MFfF7Ipg8cdWuNQ
+	 Mfq3Ki57ZyVoA==
+Received: from [192.168.2.172] (81-225-28-11-no2391.tbcn.telia.com [81.225.28.11])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by mail.lysator.liu.se (Postfix) with ESMTPSA id A475686BE;
+	Tue, 14 Jul 2026 13:29:03 +0200 (CEST)
+Message-ID: <e2d4fdf8-4dae-43dc-95ae-b9aa1884fdf5@lysator.liu.se>
+Date: Tue, 14 Jul 2026 13:29:01 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v11 2/7] i2c: mux: add idle_state property to i2c_mux_core
+To: Marcus Folkesson <marcus.folkesson@gmail.com>,
+ Wolfram Sang <wsa+renesas@sang-engineering.com>,
+ Michael Hennerich <michael.hennerich@analog.com>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Andi Shyti <andi.shyti@kernel.org>,
+ Andy Shevchenko <andriy.shevchenko@intel.com>,
+ Bartosz Golaszewski <brgl@kernel.org>
+Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260713-i2c-mux-v11-0-72bb8af8ee8c@gmail.com>
+ <20260713-i2c-mux-v11-2-72bb8af8ee8c@gmail.com>
+Content-Language: en-US, sv-SE
+From: Peter Rosin <peda@lysator.liu.se>
+In-Reply-To: <20260713-i2c-mux-v11-2-72bb8af8ee8c@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Virus-Scanned: ClamAV using ClamSMTP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_042015_426342_E5BCF3E7 
-X-CRM114-Status: GOOD (  43.73  )
+X-CRM114-CacheID: sfid-20260714_042923_342498_165F51DB 
+X-CRM114-Status: GOOD (  29.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,145 +106,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2026 at 06:39:48PM +0800, Tian Zheng wrote:
+Hi Marcus,
+
+Sorry for the very late feedback.
+
+On 2026-07-13 09:19, Marcus Folkesson wrote:
+> Muxes treat their channels differently when idle.
+> Let the mux core have this information to make it available for
+> internal use.
+> Reuse the same state values used by CONFIG_MULTIPLEXER.
 > 
-> On 7/14/2026 12:27 AM, Leonardo Bras wrote:
-> > On Mon, Jul 13, 2026 at 11:31:46AM +0100, Leonardo Bras wrote:
-> > > On Thu, Jul 09, 2026 at 06:40:20PM +0800, Tian Zheng wrote:
-> > > > This series of patches add support to the Hardware Dirty state tracking
-> > > > Structure (HDBSS) feature, which is introduced by the ARM architecture
-> > > > in the DDI0601 (ID121123) version.
-> > > > 
-> > > > The HDBSS feature is an extension to the architecture that enhances
-> > > > tracking translation table descriptors' dirty state, identified as
-> > > > FEAT_HDBSS. This feature utilizes hardware assistance to achieve dirty
-> > > > page tracking, aiming to significantly reduce the overhead of scanning
-> > > > for dirty pages.
-> > > > 
-> > > > The purpose of this feature is to make the execution overhead of live
-> > > > migration lower to both the guest and the host, compared to existing
-> > > > approaches (write-protect or search stage-2 tables).
-> > > > 
-> > > > The required sysreg definitions for FEAT_HDBSS have been merged into
-> > > > arm64 /sysregs:
-> > > >    [1/5] arm64/sysreg: Add HDBSS related register information
-> > > >          https://git.kernel.org/arm64/c/72f7be0c2e30
-> > > > 
-> > > > 
-> > > > After these patches, the kernel automatically enables HDBSS when dirty
-> > > > logging is enabled on any memslot, and disables HDBSS when dirty logging
-> > > > is disabled on all memslots. This series does not support dirty ring
-> > > > mode.
-> > > > 
-> > > > Depends-on: "KVM: arm64: Enable eager hugepage splitting if HDBSS is available"
-> > > > 	https://lore.kernel.org/linux-arm-kernel/20260629111820.1873540-3-leo.bras@arm.com/
-> > > On this, FYI, there have been some discussion on this:
-> > > https://lore.kernel.org/all/alETGFD2Ogx6N0HB@LeoBrasDK/
-> > > 
-> > > Oliver's suggestion is that we don't automatically enable eager splitting,
-> > > but instead we have different behaviours if the user enables it.
-> > > 
-> > > This is still under discussion there, but I think it can be useful reading.
-> > > 
-> > > > This dependency is mandatory. Unlike v3, where DBM was added lazily on
-> > > > the first dirty access via a page fault, v4 injects DBM into pgt->flags
-> > > > at stage-2 MMU initialization time. Combined with HDBSS being auto-enabled
-> > > > during migration setup, the first dirty access no longer triggers a page
-> > > > fault. Consequently, if lazy hugepage splitting were relied upon (which
-> > > > requires a page fault to trigger splitting), hugepages would never be
-> > > > split, leading to guest hang after migration. Leonardo's patch above
-> > > > ensures eager hugepage splitting is enabled (chunk_size != 0) when HDBSS
-> > > > is available, guaranteeing that hugepages are properly split before
-> > > > migration starts.
-> > > > 
-> > > > v3: https://lore.kernel.org/linux-arm-kernel/20260225040421.2683931-1-zhengtian10@huawei.com/
-> > > > 
-> > > > v3->v4 changes:
-> > > > - Merge sysreg definitions into the FEAT_HDBSS detection patch (was a
-> > > >    separate patch in v3).
-> > > > - Add auto DBM (Dirty Bit Modifier) support as a new patch, suggested
-> > > >    by Leonardo Bras. DBM is now controlled as a page-table level flag
-> > > >    (KVM_PGTABLE_S2_DBM) rather than per-PTE. Note that DBM is injected
-> > > >    at stage-2 MMU creation time, not lazily on first dirty access. This
-> > > >    means the first write to a dirty-logged page does not generate a
-> > > >    page fault, which is a key reason for the mandatory dependency on
-> > > >    Leonardo's eager hugepage splitting patch (see Depends-on above).
-> > > > - Split the v3 "Enable HDBSS support and handle HDBSSF events" patch
-> > > >    into three patches: per-vCPU buffer management, fault handling and
-> > > >    buffer flush, and auto enable/disable on dirty logging change. This
-> > > >    implements kernel-managed automatic HDBSS enable/disable.
-> > > > - Remove the KVM_CAP_ARM_HW_DIRTY_STATE_TRACK ioctl for manual HDBSS
-> > > >    on/off. HDBSS is now automatically enabled/disabled based on dirty
-> > > >    logging state via kvm_arch_commit_memory_region().
-> > > > - Change HDBSS buffer flush triggers to vcpu_put, check_vcpu_requests,
-> > > >    and kvm_handle_guest_abort.
-> > > > - Store hdbss_order at VM level (kvm->arch.hdbss_order) instead of
-> > > >    per-vCPU, since all vCPUs share the same order.
-> > > > - Document patch is not included in this version; will be sent in a
-> > > >    follow-up series.
-> > > > 
-> > > > Leonardo Bras (1):
-> > > >    KVM: arm64: Enable eager hugepage splitting if HDBSS is available
-> > > > 
-> > > > Tian Zheng (2):
-> > > >    KVM: arm64: Add support for FEAT_HDBSS
-> > > >    KVM: arm64: Add auto DBM support for hardware dirty tracking
-> > > > 
-> > > > eillon (3):
-> > > >    KVM: arm64: Add HDBSS per-vCPU buffer management
-> > > >    KVM: arm64: Add HDBSS fault handling and buffer flush
-> > > >    KVM: arm64: Add auto HDBSS enable/disable on dirty logging change
-> > > > 
-> > > >   arch/arm64/include/asm/cpufeature.h    |   5 +
-> > > >   arch/arm64/include/asm/esr.h           |   5 +
-> > > >   arch/arm64/include/asm/kvm_dirty_bit.h |  29 ++++
-> > > >   arch/arm64/include/asm/kvm_host.h      |  14 ++
-> > > >   arch/arm64/include/asm/kvm_pgtable.h   |   4 +
-> > > >   arch/arm64/include/asm/sysreg.h        |  11 ++
-> > > >   arch/arm64/kernel/cpufeature.c         |  12 ++
-> > > >   arch/arm64/kvm/Makefile                |   1 +
-> > > >   arch/arm64/kvm/arm.c                   |  29 ++++
-> > > >   arch/arm64/kvm/dirty_bit.c             | 219 +++++++++++++++++++++++++
-> > > >   arch/arm64/kvm/hyp/pgtable.c           |  35 +++-
-> > > >   arch/arm64/kvm/hyp/vhe/switch.c        |  15 ++
-> > > >   arch/arm64/kvm/mmu.c                   |  19 ++-
-> > > >   arch/arm64/kvm/reset.c                 |   4 +
-> > > >   arch/arm64/tools/cpucaps               |   1 +
-> > > >   15 files changed, 399 insertions(+), 4 deletions(-)
-> > > >   create mode 100644 arch/arm64/include/asm/kvm_dirty_bit.h
-> > > >   create mode 100644 arch/arm64/kvm/dirty_bit.c
-> > > > 
-> > > > --
-> > > > 2.33.0
-> > > > 
-> > Also, please remember to include the base commit, so it can be applied for
-> > testing/reviewing.
+> Possible idle states are:
+> - MUX_IDLE_AS_IS: Leave channels as is when idle
+> - MUX_IDLE_DISCONNECT: Disconnect channel (set HiZ when idle)
+> - <n>: Enable channel n when idle
 > 
+> Default value is set to MUX_IDLE_AS_IS.
 > 
-> Thank you for the reminder.
+> Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
+> ---
+>   drivers/i2c/i2c-mux.c   |  1 +
+>   include/linux/i2c-mux.h | 26 ++++++++++++++++++++++++++
+>   2 files changed, 27 insertions(+)
 > 
-> This patch series is based on:
-> - Commit: 0e35b9b6ec0f
-> - Description: Merge tag 'mm-hotfixes-stable-2026-07-06-17-49' of
-> git://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm
-> 
-> Welcome to test and review — please let me know if you encounter any issues
-> or have suggestions for improvement.
-> 
+> diff --git a/drivers/i2c/i2c-mux.c b/drivers/i2c/i2c-mux.c
+> index 681a201c239b..edf16683dc83 100644
+> --- a/drivers/i2c/i2c-mux.c
+> +++ b/drivers/i2c/i2c-mux.c
+> @@ -247,6 +247,7 @@ struct i2c_mux_core *i2c_mux_alloc(struct i2c_adapter *parent,
+>   	muxc->select = select;
+>   	muxc->deselect = deselect;
+>   	muxc->max_adapters = max_adapters;
+> +	muxc->idle_state = MUX_IDLE_AS_IS;
+
+This is insufficient. AS_IS is simply not an adequate default.
+
+For i2c-mux-gpmux, there is currently no way to dig out what
+the idle state is, as it is not exposed by the mux subsystem. For
+i2c-mux-gpio, the idle state depends on both the idle-state /and/
+the i2c-mux-idle-disconnect props. For i2c-mux-pca954x the idle
+state can be adjusted at runtime. Etc.
+
+In short, idle state handling is a bit diverse, and I think this
+adds to that mess.
+
+I think it will be a bit of work to come up with a scheme for the
+I2C mux core to accurately keep track of what the idle state is.
+One way to deal with that is to introduce a new "unknown" value
+that can be the default for all drivers that has not yet figured
+out how to feed the correct idle state to the core.
+
+And that hints at why I think reusing the mux.h bindings #include
+is bad. The mux subsystem simply has no need for an unknown state,
+and adding that to mux.h is therefore out of place.
+
+>   
+>   	return muxc;
+>   }
+> diff --git a/include/linux/i2c-mux.h b/include/linux/i2c-mux.h
+> index 1784ac7afb11..624fadbaa703 100644
+> --- a/include/linux/i2c-mux.h
+> +++ b/include/linux/i2c-mux.h
+> @@ -13,6 +13,7 @@
+>   
+>   #ifdef __KERNEL__
+>   
+> +#include <dt-bindings/mux/mux.h>
+
+I think it is bad to bring in this include here. That include
+belongs to the mux subsystem. Yes, it is included by others as
+well, but please don't expand on that.
+
+>   #include <linux/bitops.h>
+>   
+>   struct i2c_mux_core {
+> @@ -22,6 +23,17 @@ struct i2c_mux_core {
+>   	unsigned int arbitrator:1;
+>   	unsigned int gate:1;
+>   
+> +	/*
+> +	 * The mux controller state to use when inactive.
+
+A "mux controller" is a concept in the mux subsystem, and there
+is no equivalent for I2C muxes.
+
+Cheers,
+Peter
+
+> +	 * Possible idle states are:
+> +	 *  - MUX_IDLE_AS_IS: Leave channels as is when idle
+> +	 *  - MUX_IDLE_DISCONNECT: Disconnect channel (set HiZ when idle)
+> +	 *  - <n>: Enable channel n when idle
+> +	 *
+> +	 * Default value is set to MUX_IDLE_AS_IS.
+> +	 */
+> +	int idle_state;
+> +
+>   	void *priv;
+>   
+>   	int (*select)(struct i2c_mux_core *, u32 chan_id);
+> @@ -38,6 +50,20 @@ struct i2c_mux_core *i2c_mux_alloc(struct i2c_adapter *parent,
+>   				   int (*select)(struct i2c_mux_core *, u32),
+>   				   int (*deselect)(struct i2c_mux_core *, u32));
+>   
+> +/*
+> + * Mux drivers may only change idle_state, and may only do so
+> + * between allocation and registration of the mux controller.
+> + */
+> +static inline void i2c_mux_set_idle_state(struct i2c_mux_core *muxc, int state)
+> +{
+> +	muxc->idle_state = state;
+> +}
+> +
+> +static inline int i2c_mux_idle_state(struct i2c_mux_core *muxc)
+> +{
+> +	return muxc->idle_state;
+> +}
+> +
+>   /* flags for i2c_mux_alloc */
+>   #define I2C_MUX_LOCKED     BIT(0)
+>   #define I2C_MUX_ARBITRATOR BIT(1)
 > 
 
-
-Thanks for sharing :)
-
-Tip: for next version, you can automate that by adding 
-'--base=<base-commit>' to your git-format-patch command, and it will 
-automatically generate a base message at the end of your cover letter, such 
-as:
-
-```
-base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
-```
-
-Thanks!
-Leo
 
