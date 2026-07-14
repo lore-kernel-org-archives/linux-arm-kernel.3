@@ -4,160 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4B85C4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 14:35:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54BB2C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 14:36:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tu8kjFHQD9n/W4C5mR3tlx/XfAAFJbYOzUzb0Wg1bRc=; b=D6C4yjCUmRwSlR0r/gXTTjuZPg
-	Buq88RVfUYs3YqVV90dj2GL0aJOTfclyPeLzSHi3a0nPnFpCuAKiwGwkt91AROajc6UewHFmFhClp
-	bz1ZIahYr0bRscNQbdHat1KRXPXq1V5lfq1K8QJqBwHIcTtI0YZkA5m2nZWyKpFmNYS3gyxP3XhcJ
-	nb9J802lzqHJVllIC+Cr0triS7/QSDNhUcCQGXN8YDF0T5nRdotE8WHgHJnkr8BvAlLWH3R2Mqy15
-	BTQXD8qpJZon65/fUrvIsTZTD19Hix0fAL6+E5ZukZ83ZAAqM06w3xYJyifQkVMRbT6u9/6ZBfX9m
-	YlQPUeaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=r3m9bd++GuehsDFQr6bi34pGX6f/C5rgFU/KHjSwzXE=; b=I/cOD4BivtJzA0oyyq0Wt9Mke7
+	NP74mJAqaKL8ICAA5ZGqPSdkushonAA8YlTaxxHSmGTYb7V7/vBhPc7XKWirlJuu3WxyTOMoQ4W/Y
+	XDCWemaDs35QKKmE3/jMt9vwkbNZFpkEXGEp63OguiGQMP+EFKP2vuNQAvqibl9WEbStcGViOAybw
+	8QRdujLgsGR4WcqTY7vFd2C4T5KzbXbqUwYz96tSkAmB53XzbALQiAP07TqQukp+MG9SCje7UVEeZ
+	8zyK271z5O1lpz7JtkXESdhSPrQtN//TVlhb28caZGfi6MP0Yp1hwo0KYOt/v8SBQP2Ybj4IWUc4B
+	SWF9VOOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjeEM-0000000COob-03kJ;
-	Tue, 14 Jul 2026 14:35:30 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wjeEz-0000000COx0-0mCg;
+	Tue, 14 Jul 2026 14:36:09 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjeEK-0000000COnF-1Kgk
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 14 Jul 2026 14:35:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Sender:Reply-To:Content-ID:Content-Description;
-	bh=tu8kjFHQD9n/W4C5mR3tlx/XfAAFJbYOzUzb0Wg1bRc=; b=LcoyVRY5XJrxzgpsDg5EPjRbTf
-	vo/yFmSJt5KZCWGPFPXHBfSbbEffa2IAG2pyCQ06UVun0ga45yjp0lKXh7AnKqtytQlQoO9FUK0b/
-	Yh6c9bMgpaBJKTdtNdbSM2J42nuR1YTYALe3PILGpYdLxriVQGe8Mq2GvZo0JrSRbrbCmpAjIY3OB
-	qaaKUhBzbeoY++8geNqVQ9xkL941JCPnl7+y950yKabZ6RC3E34y3xyX3RBZ0NPCso9Y46TYEK1Qd
-	/UrMBJxNhkgG+eqXT0VWSf0tqvUsxGAg9CBABD3w2XK3kq6C7OCklRVpdTQzzWevHO5G2Z5q+9DaF
-	wnBFlmGQ==;
-Received: from mail-swedencentralazon11013051.outbound.protection.outlook.com ([52.101.83.51] helo=GVXPR05CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wjeEG-0000000CbHj-3uOE
+	id 1wjeEx-0000000COwO-3TeC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 14:35:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xrdh0wKubAlvVAmJFr/vqpFqceMZWdMOcph3eY4K7c01SN4wkgRLoOtaCwDahZCNS0WnbH+GtEHmDhgYb3dQlo5KqCNsnlK6kbl1C7dMfOHSRfYTKi7WpcCyJJrtYg0/iJbqhDkzlCkr8oKIf5TEcjv9NMorrNg4fpJF6AnEy7qTCc+u12kj81x48hgBebbxTgygXloxcskzZZ7CaMerW2iLTSu3sSDvBAMAExg9NCY+TopUJvl8jdtRtUHrd6NZ196LB+5rQS258UCkvH1HLLg9hXGcrnSyu1pXxW4dqjkz7zOCRPPkp8riU7nw4P+Re6BIMCa2XLtUiiVYsl2orA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tu8kjFHQD9n/W4C5mR3tlx/XfAAFJbYOzUzb0Wg1bRc=;
- b=NQvA5xgjKo7CCEbDebTPhSVEnSJcUhqxgpFXRN5PB1qC/3NmwVP0Zm/328hrNx/9O4/lDhQZNXCiC5JkCOhHj6AEQEINOt+/EXzC2yCH4i4qsHwshaoIPexiZLXk8ZJAvhIZA78KSlpkgq6qbMggKUDvSUsMRLst+ZaZurB4ZbFycTGRTFOIfwqKCaFNlpa8CcLtdbmU1XFRkYWJAI2oOg8hXQeyE2W2rHUbyvGCdY43q4Jv+rG6e1WPuA/TR5PPz0dKVT9QarTTvvHqsDTSCW+73g57FfwtYVIjTHvWhjpHf0vn/MU7xyZ9LIbYYVm4eW+t8+Ab6MOLBGAkD1pDOw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tu8kjFHQD9n/W4C5mR3tlx/XfAAFJbYOzUzb0Wg1bRc=;
- b=Tf1j3CF/9/VREQQ3bpw/yyyOLbFrXfUpU+/ogckXffhXNA1QwkCa4Oe7aeCrKDAo3+M1celLsXec6Dxdme+oAeBWG3EmZuA2Z0Afg6Ajtffyqd4aY2yy+d9RV0EJbQ1IuVCrQ/Aqb7l9SQlxXopSQRXn3+l7AnvHykjZngTztkB9eGlSW6JCerkICKpG5Rwafge3n79d4jaoBFTnZVI5WTv7LIErt05blPogJg6h31rF06bb74UDGUMQJXFHZ6l2bRn6OjLuEZCWCPyTb8qUjNa9FV58UZ8imA48bp8fjkx1s+a0HPN9GRaJyn+Xf3jO/JM9x44YyXOfIhOpxwpe+g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AM8PR04MB7474.eurprd04.prod.outlook.com (2603:10a6:20b:1d9::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.20; Tue, 14 Jul
- 2026 14:35:16 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0202.018; Tue, 14 Jul 2026
- 14:35:16 +0000
-Date: Tue, 14 Jul 2026 09:35:04 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Haoning.CHENG@cn.bosch.com
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v8 3/3] thermal/drivers/imx: Add calibration offset
- support
-Message-ID: <alZJGAmh9WrEAAZ1@SMW015318>
-References: <20260714-b4-symana21-11221-imx-thermal-support-upstream-6-18-v8-0-d54d8690e16e@cn.bosch.com>
- <20260714-b4-symana21-11221-imx-thermal-support-upstream-6-18-v8-3-d54d8690e16e@cn.bosch.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260714-b4-symana21-11221-imx-thermal-support-upstream-6-18-v8-3-d54d8690e16e@cn.bosch.com>
-X-ClientProxiedBy: SA0PR11CA0050.namprd11.prod.outlook.com
- (2603:10b6:806:d0::25) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Tue, 14 Jul 2026 14:36:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 48E3161375;
+	Tue, 14 Jul 2026 14:36:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55CD11F00A3A;
+	Tue, 14 Jul 2026 14:36:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784039767;
+	bh=r3m9bd++GuehsDFQr6bi34pGX6f/C5rgFU/KHjSwzXE=;
+	h=From:To:Cc:Subject:Date;
+	b=BwmSlkydHyozJIlKRAawWeccSh5JHOFT5PjfDRt+Y0npL2kYWTAdhN3/yQ9HpjM6Z
+	 U1z0mlYjU/2YlUSofBUo6JotdYxDBQCuPrq+c0M6paevZHlOPcRSwlSz7GsBmmx24r
+	 OzCmadSjt1KE3ARmpueEfgUZn/sjKuswl2Al9r5fLU1RNlOLbe1+r+SBR64Yk/polj
+	 YvHoy1qvstakTFiZfcZufdmi2DIzaWXroXKKUE1ImLdHsus4oqI5a6RgMFMiu4SICw
+	 NNu5IoCjBo8Bs0KuVVMBiCGM61ElO911liDCwweRz/P9BEnTsusRI/xtmMNrkOLUFx
+	 fGMFGRP+yIftg==
+From: Will Deacon <will@kernel.org>
+To: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org,
+	Will Deacon <will@kernel.org>,
+	Kees Cook <kees@kernel.org>,
+	Jinjie Ruan <ruanjinjie@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Yiqi Sun <sunyiqixm@gmail.com>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: [PATCH] arm64: syscall: Ensure saved x0 is kept in-sync with tracer updates
+Date: Tue, 14 Jul 2026 15:35:59 +0100
+Message-ID: <20260714143600.23853-1-will@kernel.org>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM8PR04MB7474:EE_
-X-MS-Office365-Filtering-Correlation-Id: be01b524-34ad-4e62-8ea1-08dee1b51ee1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|366016|1800799024|23010399003|18002099003|22082099003|4143699003|11063799006|56012099006|6133799003;
-X-Microsoft-Antispam-Message-Info: LODztohhwrBMPQop4DowOnVCIbTLspqJ25YJdJsc/EXmxjVdUW1X2/szBFRsNsP5qnnQ/ybYTrZjXc4bB10JvTSF8AYt/7pYx+Ou4p39Dc6ATRyADZ6WmepU9d2OVLcoQXLqPr1lO2KRzWrvEASE4ThKLzMONezSbnw3yUo7rhhyPhHlbsgx127KNoKqig5ovYirb0OwThAm3eAe0rV1dHOd1xaVUVwl65BIR04KVvLpq2ZeDKDE2frx28ckFCfs3PaJlH5LROLqsDBk8wYar8fphMZOp1ZhnKHUv0cUm96YmvmnvD203JtKsCamJ5/Fejc/5T42IfyGooeoU+Ar2LQx57EdlUSTh92f8FO5c2uqFhU6jNw5c0Kz3++53m25yjMKPGFg6RuvKtWDA2+glAfAAFnURNysVXmUcmLrhy3ROSonONNcsBHjc7yhttUYf94vE84SNynrI0vY/O5cV3xJpmR36hjM3y1xbK2dgAPunPIPy1CkvBY6Bk1DcnVZAgAHpTZ33q6w3Yu/1F4BzXJ3rbDU+wcTUlsqVJh2CCciSBGL7JlPCgBg4r2MvRdQBAROQWKtKgVzOjlC44JYP93goHsXnZM/iZbLLYfuSHgLpHa3N7/JmQOxgauey8v4EkxeM4WnzDyPEpCuL+i0X7Gb4Kl3In81zCuYYV9T860=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(366016)(1800799024)(23010399003)(18002099003)(22082099003)(4143699003)(11063799006)(56012099006)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QlhlY3FjVGVpQVMrWStoZVk2WjZYUmZoYW00aXlaaXlGSGFiMjVLdkc2YTE4?=
- =?utf-8?B?TklDUTFVY29ZMFArMHo5Z0dIUFhOU0VOdEx1VDN3eFhkL3dNMDZ1YnJyS2NP?=
- =?utf-8?B?cWRpMUYwYk4rYlBsY3oxTE9ZYjUyYWtleDA0RFYrbzFLV2VGQ1A3elFYYzBE?=
- =?utf-8?B?d1lTQmZiNnkxdXRlczNIcHBKQVFxQ2daUnM4MDdPRWIvclJNU3JITldQQkxu?=
- =?utf-8?B?UStvUXZDY0QvNjBidURrdk5OWEpHOXQ2TEZpNzF0cTI1T1Jrc2I5ZzRwOGZL?=
- =?utf-8?B?NTkzWUNYMTBPeUVqTFZaK3VZZGdJRGpvU0gzbFBwOFNQOWIzeUM0bjdiZWd5?=
- =?utf-8?B?dEdiR1BuWlpudjBNQ2ROSytzTGxpbEI3dnhXZzVNRjFZMlV0MXoyd3ArbUxG?=
- =?utf-8?B?ZW5YRnptOUdrODROUGl6akU2Tnd5Z3J3VW95YitleldiTkJoc3V4WVRiN1d6?=
- =?utf-8?B?SE94OFQybkJOczJHOXFYbDRtQU8wbm5FUmo4OFV5b2NMQkNPbno2MWFWUlNS?=
- =?utf-8?B?b1k5NUFhK2lCcmxidGZ2cUhGTlJoZDdMeGZhQnljL05vKzZDSXVuZGlhOGQv?=
- =?utf-8?B?SEdUNHNVbmdIRDVyRkhPZDkzckhFS2JCOUJiWHZMUXVwM1YzYjBoQ3pSUVVP?=
- =?utf-8?B?Z3I4cm5NcEtWdVhNQmh6Vm9PRnYvKzlQM1NYM1Q2VUs5RW5PUFdwN0NIRFFp?=
- =?utf-8?B?M2I2R01hbDB3UFB2NnAzOWZzaG16RndscEkxVFRQaFVVWUFKYkxPU2FGQ1Y1?=
- =?utf-8?B?WXllQjRUYUcyZDRIWkFLVkgwSFhFeDFNK1NDbElacUp6RlU1VHl5ZGUxQUp4?=
- =?utf-8?B?Q1Q2c3RZV0FkTG8wZy9jaksydVJxZzhablJRb1JrRkRxVzdnNUZCTFp6b284?=
- =?utf-8?B?Vmt2N01UdVBTTTZ3dmQ3QmpTSU43eHJVNkRxanp4MVl2OXVsZzhLczB0NDh0?=
- =?utf-8?B?VUw5N1ZIQXNJbTBWNDB6TTZkYTZlWmUyaDlwMHhiS3p1WWhkcEQwK3Axa0wz?=
- =?utf-8?B?aHZEc1krZm9kU0lUbkpZbXJjK050RVkxWk9RQVBGS1ZuK0x1RXVMZWVXakk1?=
- =?utf-8?B?Um9vNEhaVENqckJSeGR2eUlzQjJ6U3dxZHVOYzJTd2dKUUFCemxHR3J5Znp5?=
- =?utf-8?B?M3hFRWNrVDlES1lYWjVMaHFyQ0Q0bmVveHNSTFJrMVF4Mk5oMUE4Rnc0Y2Zt?=
- =?utf-8?B?OGsvelhmcGpGQnM1Wk1RdG5vZ3pQMHBGODJEUjB4emRiOFhxenB1UWdmSmVY?=
- =?utf-8?B?UE8vZUQvSUhDTVNsNnVEWHdzVHdzeDRNdWROS1R5UGhZVzNXN1F0UXdYMVhk?=
- =?utf-8?B?UnZLS0tlQ25QY2I1RFM0MkRVL3FXUzBsQ294SkRySjQ1WUJsQUVRNE9rcWZj?=
- =?utf-8?B?eGgxRjlQYmlOeFNFQmVYeEF2bDBQbEJkSkpudEJQbkZnbzNYeTRpZkxDNVhU?=
- =?utf-8?B?L3F2aXJsRjdoM0NjbWVaT2lyVHBSRWpnamh1b3VFbmVRcXY2NnlGQlRyNkVB?=
- =?utf-8?B?d1ZLdlVPWTBBdC8vRk5sd084NUVnSGJIR0FBMDlzYVU0TDZnV2ROcUpzNmJ2?=
- =?utf-8?B?bFVIcTNCVk5GbTZkTkJiY2NvbkhQS1FoVjduU2hzV3VrdmtWYlp4eDBUQklB?=
- =?utf-8?B?MGRaK3Q0VzZmSHJQUHRDQWpmRFFXVVBTV252bVRsQldJbGxWWEE3TXg5Y0pa?=
- =?utf-8?B?amdzanNuV3I4TmRETzZZZHFwSStYUUsyaWplQ3NBd0ZuNzdlTEFXNVFSWGIy?=
- =?utf-8?B?ZWVCQ2FjckhUN0lEWTBGM2pvLzE1MVcxTW9SSndmZ2ZJbkN0anN6bE54ZDR0?=
- =?utf-8?B?ZW02b0NoQjRqWWMrSzFkREpXdEVnQTZ5MGFNdDZ4SWcyUGovZ3FHajJJb3U2?=
- =?utf-8?B?UGkxUlR5SnNmam1JRjI1MVJHQXNwcml6ejFxTjFhd0xiUWpRL2YvRTdVa3VF?=
- =?utf-8?B?MWNKOGNkS1dwajY2L0R4YUhVdzRSUE5mYnpLYXJXdUpvQVpUMFF6Q01PVzFF?=
- =?utf-8?B?WEpnL2xzc0YwWXh0WTM2REFRZUhYTTk3aml0aUNyK2FtZ1JrVHkvWk1GRmRk?=
- =?utf-8?B?WEVLeTVmWURFeWVRSll0dy9sSE9oZjhLZUVjQTBPSnkxYnhMZU1hRnJIcDky?=
- =?utf-8?B?UDIyZ2dEbmJheUNKUFo1aHdtcE5uWGZOWGUyUEtVeWFCT0crbTVEZERib20y?=
- =?utf-8?B?dVg0SHY0S3djYjJhY0J3aHBOdkF5N2JZQkhQNUtIQTdibFlyd0RHa2VpRUNG?=
- =?utf-8?B?eUcycWdNR2VMaHQ1VWdWK2dBRWszQ2RCa0tuUnBxc1JMM001c3E3L1RTOGFI?=
- =?utf-8?B?OHloMzFBOGpKdjZxc3Z0Vmd2ZXptRmpJOUNjUEJteU1IQmQ5WkJML1hLSVox?=
- =?utf-8?Q?4vCp25DMnfXP0jexG6vtEVGCGq/cDIGxHR6a3?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: be01b524-34ad-4e62-8ea1-08dee1b51ee1
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jul 2026 14:35:15.9249
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: tiENWOBSLw/2wFgk34C+hAZknjQ7v03RSXG6n6lcGouMFMlLRJSQ5aoUcS8PjshtGgetDRjtMHS7eYNGZPLBjUAey34Pxi3cQrJAICF++izchq+RlNheisDoMDOikBFS
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7474
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_153525_046152_66EB28A9 
-X-CRM114-Status: GOOD (  29.38  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,129 +71,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2026 at 06:28:43PM +0800, Haoning CHENG via B4 Relay wrote:
-> From: Haoning CHENG <Haoning.CHENG@cn.bosch.com>
->
-> Some boards need a small per-design correction to align the reported CPU
-> temperature with board-level measurements. Read the optional
-> fsl,temp-calibration-offset-millicelsius property from DT and apply it
-> uniformly to the i.MX6/6SX/7D calibration formulas.
->
-> The offset is applied symmetrically at two points to ensure the thermal
-> framework sees calibrated temperatures while hardware thresholds remain
-> correctly positioned:
->
-> 1. In imx_set_alarm_temp() and imx_set_panic_temp(): the temperature
->    threshold is *subtracted* by the offset before being converted to a
->    hardware register value. This shifts the hardware IRQ trigger to the
->    physical temperature that corresponds to the intended threshold.
->
-> 2. In imx_get_temp(): after computing physical temperature from the
->    hardware register, the offset is *added* back. The thermal framework
->    always sees the calibrated temperature.
->
-> For example, if DT sets offset = +3000 m°C (board reads 3°C too low)
-> and the passive trip is 95°C:
->
->   imx_set_alarm_temp(95000):
->     alarm_temp = 95000 - 3000 = 92000
->     → hardware register programmed for 92°C physical
->
->   Hardware IRQ fires at 92°C physical
->
->   imx_get_temp():
->     reads hardware, computes 92°C physical
->     *temp = 92000 + 3000 = 95000
->     → thermal framework sees 95°C → correct trip
->
-> When the property is not present, the offset defaults to 0, preserving
-> the current behavior.
->
-> Signed-off-by: Haoning CHENG <Haoning.CHENG@cn.bosch.com>
-> ---
+When seccomp support was originally added to arm64 in a1ae65b21941
+("arm64: add seccomp support"), seccomp was erroneously called _before_
+the ptrace syscall-enter-stop and therefore the tracer could trivially
+manipulate the syscall register state after the seccomp check had
+passed. This was subsequently fixed in a5cd110cb836 ("arm64/ptrace: run
+seccomp after ptrace") by moving the seccomp check after the tracer has
+run. Unfortunately, a decade later, that fix has been reported to be
+incomplete.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+On arm64, both the first argument to a syscall and its eventual return
+value are allocated to register x0. In order to facilitate syscall
+restarting and querying of syscall arguments on the syscall exit path,
+the original value of x0 is stashed in 'struct pt_regs::orig_x0' early
+during the syscall entry path and is returned for the first argument by
+syscall_get_arguments(). Unlike 32-bit Arm, this stashed value is not
+directly exposed via ptrace() and so changes to register x0 made by the
+tracer on a syscall-enter-stop are not reflected in 'orig_x0'. This
+means that seccomp and audit can observe a stale value for the register
+compared to the argument that will be observed by the actual syscall.
 
->  drivers/thermal/imx_thermal.c | 27 +++++++++++++++++++++++++++
->  1 file changed, 27 insertions(+)
->
-> diff --git a/drivers/thermal/imx_thermal.c b/drivers/thermal/imx_thermal.c
-> index 7f7d1116b9d6..d471acc16bce 100644
-> --- a/drivers/thermal/imx_thermal.c
-> +++ b/drivers/thermal/imx_thermal.c
-> @@ -85,6 +85,10 @@ enum imx_thermal_trip {
->  #define TEMPMON_IMX6SX			2
->  #define TEMPMON_IMX7D			3
->
-> +/* Calibration offset limits (±20 °C in millicelsius) */
-> +#define IMX_TEMP_CALIB_OFFSET_MIN	(-20000)
-> +#define IMX_TEMP_CALIB_OFFSET_MAX	20000
-> +
->  struct thermal_soc_data {
->  	u32 version;
->
-> @@ -207,6 +211,7 @@ struct imx_thermal_data {
->  	struct regmap *tempmon;
->  	u32 c1, c2; /* See formula in imx_init_calib() */
->  	int temp_max;
-> +	s32 calibration_offset;
->  	int alarm_temp;
->  	int last_temp;
->  	bool irq_enabled;
-> @@ -223,6 +228,7 @@ static void imx_set_panic_temp(struct imx_thermal_data *data,
->  	struct regmap *map = data->tempmon;
->  	int critical_value;
->
-> +	panic_temp -= data->calibration_offset;
->  	critical_value = (data->c2 - panic_temp) / data->c1;
->
->  	regmap_write(map, soc_data->panic_alarm_ctrl + REG_CLR,
-> @@ -239,6 +245,7 @@ static void imx_set_alarm_temp(struct imx_thermal_data *data,
->  	int alarm_value;
->
->  	data->alarm_temp = alarm_temp;
-> +	alarm_temp -= data->calibration_offset;
->
->  	if (data->socdata->version == TEMPMON_IMX7D) {
->  		if (alarm_temp >= 0)
-> @@ -283,6 +290,7 @@ static int imx_get_temp(struct thermal_zone_device *tz, int *temp)
->  		*temp = (n_meas - data->c1 + 25) * 1000;
->  	else
->  		*temp = data->c2 - n_meas * data->c1;
-> +	*temp += data->calibration_offset;
->
->  	/* Update alarm value to next higher trip point for TEMPMON_IMX6Q */
->  	if (data->socdata->version == TEMPMON_IMX6Q) {
-> @@ -635,6 +643,25 @@ static int imx_thermal_probe(struct platform_device *pdev)
->
->  	platform_set_drvdata(pdev, data);
->
-> +	if (of_property_present(dev->of_node,
-> +				"fsl,temp-calibration-offset-millicelsius")) {
-> +		ret = of_property_read_s32(dev->of_node,
-> +					   "fsl,temp-calibration-offset-millicelsius",
-> +					   &data->calibration_offset);
-> +		if (ret)
-> +			return dev_err_probe(dev, ret,
-> +					     "failed to read calibration offset\n");
-> +
-> +		if (data->calibration_offset < IMX_TEMP_CALIB_OFFSET_MIN ||
-> +		    data->calibration_offset > IMX_TEMP_CALIB_OFFSET_MAX)
-> +			return dev_err_probe(dev, -EINVAL,
-> +					     "calibration offset %d millicelsius out of range\n",
-> +					     data->calibration_offset);
-> +
-> +		dev_dbg(dev, "calibration offset: %d millicelsius\n",
-> +			data->calibration_offset);
-> +	}
-> +
->  	if (of_property_present(dev->of_node, "nvmem-cells")) {
->  		ret = imx_init_from_nvmem_cells(pdev);
->  		if (ret)
->
-> --
-> 2.43.0
->
->
->
+Re-sync 'orig_x0' from x0 on the syscall entry path following a
+potential ptrace stop (i.e. PTRACE_EVENTMSG_SYSCALL_ENTRY or
+SECCOMP_RET_TRACE). This behaviour is limited to native tasks (because
+compat tasks expose 'orig_r0' to ptrace) where the syscall is not being
+skipped (because x0 is updated to hold the return value of -ENOSYS in
+that case).
+
+Cc: Kees Cook <kees@kernel.org>
+Cc: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Reported-by: Yiqi Sun <sunyiqixm@gmail.com>
+Link: https://lore.kernel.org/all/20260529065444.1336608-1-sunyiqixm@gmail.com/
+Suggested-by: Catalin Marinas <catalin.marinas@arm.com>
+Fixes: a5cd110cb836 ("arm64/ptrace: run seccomp after ptrace")
+Signed-off-by: Will Deacon <will@kernel.org>
+---
+ arch/arm64/kernel/ptrace.c | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
+
+diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
+index 4d08598e2891..57e8c6714d44 100644
+--- a/arch/arm64/kernel/ptrace.c
++++ b/arch/arm64/kernel/ptrace.c
+@@ -2408,6 +2408,21 @@ static void report_syscall_exit(struct pt_regs *regs)
+ 	}
+ }
+ 
++static void update_syscall_orig_x0_after_ptrace(struct pt_regs *regs)
++{
++	/*
++	 * Keep orig_x0 authoritative so that seccomp (via
++	 * syscall_get_arguments()), audit and the restart path all see the same
++	 * first argument the syscall is dispatched with, even if it has been
++	 * updated by a tracer. Skip this for NO_SYSCALL (set either by the user
++	 * or the tracer), as regs[0] holds the return value (see the comment in
++	 * el0_svc_common()) and can be unwound using syscall_rollback().
++	 * For compat tasks, orig_r0 is provided directly through GPR index 17.
++	 */
++	if (!is_compat_task() && regs->syscallno != NO_SYSCALL)
++		regs->orig_x0 = regs->regs[0];
++}
++
+ int syscall_trace_enter(struct pt_regs *regs)
+ {
+ 	unsigned long flags = read_thread_flags();
+@@ -2417,12 +2432,21 @@ int syscall_trace_enter(struct pt_regs *regs)
+ 		ret = report_syscall_entry(regs);
+ 		if (ret || (flags & _TIF_SYSCALL_EMU))
+ 			return NO_SYSCALL;
++
++		/*
++		 * Ensure ptrace changes to x0 are visible to seccomp
++		 * ptrace exits (SECCOMP_RET_TRACE).
++		 */
++		update_syscall_orig_x0_after_ptrace(regs);
+ 	}
+ 
+ 	/* Do the secure computing after ptrace; failures should be fast. */
+ 	if (secure_computing() == -1)
+ 		return NO_SYSCALL;
+ 
++	/* Ensure seccomp updates to x0 are visible to audit. */
++	update_syscall_orig_x0_after_ptrace(regs);
++
+ 	if (test_thread_flag(TIF_SYSCALL_TRACEPOINT))
+ 		trace_sys_enter(regs, regs->syscallno);
+ 
+-- 
+2.55.0.795.g602f6c329a-goog
+
 
