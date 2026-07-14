@@ -4,84 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9005C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 04:28:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38B73C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 04:29:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NgdeQo2TB81zknr7ANK1aIrRxeu3MOxic6XnLAtyCXs=; b=Vdvd58HUC10mI62NsnfHN5Lisb
-	9urIgAy3mC4q475t3TBVRpUgKT9l6oEf8tHGhV9ft0uwORqyaW/USsXskAVIC7ti5sB1agAsKe08Q
-	sUaBJWiD2NS95nxbO/bQ7w1kxLxmdnaGgBK3pc6TAHkMGHszJ+UPC+jqxTZzHDx0aITQcLwQrTl8q
-	+JikiwFPvpOTZz381pk+Kl4lYa5xZLV+BOofK8WyUvFuP/qD58apwAKSgDErD7A6ForuaEHtrjUoo
-	bJSK69OEyIqnpLLX2aXvMavsTFBGw37VFcAlcFwVSuHLK0+1YDsJyaqJ2bUY8xGuzz/l/4MasCUaa
-	8JzuH0ug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8taiq1gh/0OoOQDBR9j9Bhwzd7P+6aji1UgJtYLJxrs=; b=y7zxCgFaIGJnnUlWNOVyVVtlB2
+	Ny7vrKZT0SBeu7/IspvGabX7ruumWbm/wppSHK95Nj5NiJpv5adosHEp5s2vnkmtPq5VUVKRs5og2
+	es+uva8CQT6dPjsPIWmAdL1E3cFBYweXDq2ecUF4DoBfPCfSrfIF90E+x36UiRgs2KRy3XgvhflPZ
+	wB1lOQ5K3u0yIljYdcgqsPiyPhl0tH4Pz+/wHNNPbv8bag3Qi7YXVRbybyXer6wy0W+kZqBZ4wVzT
+	N9HEfPdYxCO4oDa7ya6hbExjqoPzG2NPKHNuPx8ZmsXfWwszhylarZOMPWzilcWGIzjb+h1e65rwI
+	OX9qxDXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjUkR-0000000AsF7-1FMF;
-	Tue, 14 Jul 2026 04:27:59 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wjUlf-0000000AsPk-2MeW;
+	Tue, 14 Jul 2026 04:29:15 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjUkQ-0000000AsF1-3C8w
+	id 1wjUlc-0000000AsOr-4B6z
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 04:27:58 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2C26443BEC;
-	Tue, 14 Jul 2026 04:27:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B25181F000E9;
-	Tue, 14 Jul 2026 04:27:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784003277;
-	bh=NgdeQo2TB81zknr7ANK1aIrRxeu3MOxic6XnLAtyCXs=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=NJHJ1nkTI1FRoIrGQfUrmz/9sKaOTlPMfecxhsBJjkAryeyRg38SqXMsX+CgDLuGR
-	 4Q+jx3b6NEJbgs8uemLCGN7Zkoj5723IXe4JdKf63X4D+ZVXsg0HpD4CBSG/Igtr2m
-	 iN5AaVHORWnFjRo7d87PKE0EuKEC5tvMH/+rVtulslDEm0/njvC512nUuoYQj8gPg2
-	 cWL5XiAM1KnkjzfrdR/N+hPFm8qQM/wctqv6dolHYgKwbun/QgJKr7pwtkQ+6ma+04
-	 OBdUqTBT1d9bGsHovryg0z+BKJjY3K/q0L0r2iALawfRiRXGezWmC0KKAIImrBlaDY
-	 5Ls8gREIG7Nzg==
-X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
-	Jiri Pirko <jiri@nvidia.com>,
-	Michael Kelley <mhklinux@outlook.com>
-Subject: Re: [PATCH v7 11/22] dma-pool: track decrypted atomic pools and
- select them via attrs
-In-Reply-To: <20260713184810.GM3133966@ziepe.ca>
-References: <20260701054926.825925-1-aneesh.kumar@kernel.org>
- <20260701054926.825925-12-aneesh.kumar@kernel.org>
- <20260713184810.GM3133966@ziepe.ca>
-Date: Tue, 14 Jul 2026 09:57:43 +0530
-Message-ID: <yq5aqzl6mc00.fsf@kernel.org>
+	Tue, 14 Jul 2026 04:29:14 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-38e08baf860so1295306a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Jul 2026 21:29:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784003352; x=1784608152; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=8taiq1gh/0OoOQDBR9j9Bhwzd7P+6aji1UgJtYLJxrs=;
+        b=G1j4qTPlmSF3YvCWzJKXMkdXU9ExHtuRMAPFDkmg2lThcfvHCzmcEBIy/KnMEaqPq1
+         xBqBZSuqAhIQm1BNnsp4XbiZSM0EIDYR9LfBZvGfiQ0Os/UiV5P7+b47/om8rAo5fo7Y
+         XNuu4/e+m3flVwmcw7Qucs2gWAZw1zGpYx0yfOCRkNlHaK2xHoxAAoHOWhEvvIfgMkCh
+         4Wb3s/u35XkbO0hah7X6TfXjURuLYQW10SxX1PiVRAsGejI5uj+UI4NhVoviJHFh3cht
+         rjfqSkWZm1qZReeEBajkn+bpJQV8fP5IkS6LWYebu6qaZgTZ9o7hu6XhFd21+c43OTuk
+         exBQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784003352; x=1784608152;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=8taiq1gh/0OoOQDBR9j9Bhwzd7P+6aji1UgJtYLJxrs=;
+        b=Ym2OXHjJuq4WMPVcDeO+3vv2/vlJj7v0KlLP5DxgTfLpbJOM9GlWaUxqGfCuvSEu/i
+         29QBWyk1472EFa2fMnMv5IXAek1icwB+8xZGNzwXi1D1rjxqtjPDLs/fe9TVq8Ud0ift
+         3lX+gaAQhOaUFCorUSnzNAqhbDdZi/7saUV4oi0pdcq1FMs4HLJPq5y063HN5MwJOgLT
+         tm57JQDFMYsTXU/iXmsODp3HIHZIw3PfIfF1amCy37f0R3dagsU/T8j7XnT833ns6J6H
+         +XTIgX6IUzJdAJqP5hAAEUSd8EeGDl8U2PPyzFpNbGOQkWFOVf7CjH8qt1Fb4eaTo4Ex
+         O9SA==
+X-Forwarded-Encrypted: i=1; AHgh+RoPIVtC2k/M1C0fj1naNwTGByfpauDWveAIfPFP+vj8N+SI56Jb+fmr+y2w1hFREGHW9qG62pnHXVc4AV4/cUy/@lists.infradead.org
+X-Gm-Message-State: AOJu0YwX/S/inwqPKsXA33khR4vcT2RZ6L6eqX3461QcEMU/RMHtsq5P
+	UgzpPOkSbNSAOZbC9CrLHJ4IprQPRcjd1q0zIdXFJKVinznM2giNrS72LLiHQvdTj9U=
+X-Gm-Gg: AfdE7cmVZlYqT6ogg1dxiNqNlmVCBK6SpgP1eQz6AAUu2tu8g7JJHewJv1yvkJxt2ef
+	oysnnq0ltZvKWN5EqF+YeJJrHzuyFk2QLslYNkgM761dhukICxVaihQ4Qx3aIF4BQNLeZTlUI0i
+	FFfbtxk9KHbQqP0u4hRpNrYos/ck8ZP62s/feV3Qgt7gDNfa29Fs8J5MJIK5+UgxDfM4Jt6Q6oY
+	UomczUXOcWFgacYYSRJaq0OclOwMvvNK6CiRg6N10wR2t1j1MGGlPy80j9m8SGEvpYh+ZEFjsny
+	MtvJNZ14XX6h+oQcceCcM2uza3H/m8i0UIwEHBvq5dZYxbtnwx0ikKraHefdCJ8DqZnl/19HF4C
+	hS8J5MmGJCWWDuRzBz66W2VhbAd+7cBwRSu0poE9fZB2KOo+6px3QzULUbv4ykmvNv4YC2fFf61
+	nga/AnXGYsOXt4
+X-Received: by 2002:a17:90b:54c4:b0:37f:db06:2299 with SMTP id 98e67ed59e1d1-38dc777b804mr11414344a91.21.1784003352088;
+        Mon, 13 Jul 2026 21:29:12 -0700 (PDT)
+Received: from kdev.. ([108.180.130.139])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38e172cba1fsm766340a91.5.2026.07.13.21.29.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Jul 2026 21:29:11 -0700 (PDT)
+From: Babanpreet Singh <bbnpreetsingh@gmail.com>
+To: William Breathitt Gray <wbg@kernel.org>
+Cc: Kamel Bouhara <kamel.bouhara@bootlin.com>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	linux-iio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Babanpreet Singh <bbnpreetsingh@gmail.com>
+Subject: [PATCH] counter: microchip-tcb-capture: Fix DT channel validation
+Date: Tue, 14 Jul 2026 04:29:10 +0000
+Message-ID: <20260714042910.7-1-bbnpreetsingh@gmail.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260713_212913_067407_6A447288 
+X-CRM114-Status: GOOD (  13.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,100 +101,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Jason Gunthorpe <jgg@ziepe.ca> writes:
+mchp_tc_probe() reads the devicetree "reg" cell - a u32, per the API
+contract of of_property_read_u32_index() - into a signed int, so the
+bounds check "channel > 2" fails to reject cell values at or above
+0x80000000: reinterpreted as a negative int, they compare below 2 and
+pass validation.
 
-> On Wed, Jul 01, 2026 at 11:19:15AM +0530, Aneesh Kumar K.V (Arm) wrote:
->> @@ -114,14 +120,17 @@ static int atomic_pool_expand(struct gen_pool *pool, size_t pool_size,
->>  	 * Memory in the atomic DMA pools must be unencrypted, the pools do not
->>  	 * shrink so no re-encryption occurs in dma_direct_free().
->>  	 */
->> -	ret = set_memory_decrypted((unsigned long)page_to_virt(page),
->> -				   1 << order);
->> -	if (ret) {
->> -		leak_pages = true;
->> -		goto remove_mapping;
->> +	if (dma_pool->cc_shared) {
->> +		ret = set_memory_decrypted((unsigned long)page_to_virt(page),
->> +					   1 << order);
->> +		if (ret) {
->> +			leak_pages = true;
->> +			goto remove_mapping;
->> +		}
->>  	}
->
-> This makes the memory_decrypted conditional, but it doesn't change
-> the lines a few above:
->
-> 	addr = dma_common_contiguous_remap(page, pool_size,
-> 			pgprot_decrypted(pgprot_dmacoherent(PAGE_KERNEL)),
->                             ^^^^^^^^^^^^
-> 			__builtin_return_address(0));
-> 	if (!addr)
-> 		goto free_page;
->
-> It is wrong to pass pgprot_decrypted() to the arch code if
-> set_memory_decrypted() was not called.
->
-> Also it looks at some point the nature of the atomic pool has become
-> confused. Originally it was just to allocate atomic memory that had
-> been vmap'd outside the atomic context (to set the non-coherent
-> pgprot), so every caller was expecting non-cached memory.
->
-> Then it was reused to also allocate CC shared memory outside the
-> atomic context. That was fine for x86 that doesn't use DMA_REMAP but
-> on ARM64 it now means all atomic pool CC memory is uncached? That
-> doesn't seem to make any sense...
->
-> I suppose along the lines of this patch the solution is to add a
-> noncoherent property to the pool so we can select the correct
-> combination:
->
->  noncoherent !SHARED = vmap pgprot_noncached
-> !noncoherent  SHARED= vmap pgprot_decrypted + set_memory_decrypted
->  noncoherent  SHARED = (probably unrealistic in real systems)
-> !noncoherent !SHARED = normal __dma_direct_alloc_pages()
->
-> But I don't view this as that important, the CC hypervisor is probably
-> going to use the S2 page table to force cachable on all system memory
-> so the non-cached pgprot is a NOP, but the extra vmap is wasteful and
-> it is confusing.. So maybe a little fixme is all that is needed here.
->
+A malformed devicetree can therefore drive a negative channel into the
+ATMEL_TC_REG() offset arithmetic, making the driver access syscon
+regmap offsets outside the TC block's register window, and into the
+"t%d_clk" clock-name formatting, where it truncates clk_name (sized
+for "t0_clk".."t2_clk").
 
-Something like?
+Declare channel as u32, matching the API contract; the unsigned
+comparison then rejects everything except channels 0..2. Adjust the
+format specifier to %u accordingly, which also resolves the W=1
+warning that exposed the gap:
 
-modified   kernel/dma/direct.c
-@@ -260,6 +260,9 @@ void *dma_direct_alloc(struct device *dev, size_t size,
- 	/*
- 	 * Remapping or decrypting memory may block, allocate the memory from
- 	 * the atomic pools instead if we aren't allowed block.
-+	 * FIXME!! With CONFIG_DMA_DIRECT_REMAP, the pool is also mapped as
-+	 * DMA-coherent (non-cacheable). We may want to create a separate pool
-+	 * dedicated to CC_SHARED atomic allocations.
- 	 */
- 	if ((remap || (attrs & __DMA_ATTR_ALLOC_CC_SHARED)) &&
- 	    dma_direct_use_pool(dev, gfp)) {
-modified   kernel/dma/pool.c
-@@ -88,6 +88,7 @@ static int atomic_pool_expand(struct dma_gen_pool *dma_pool, size_t pool_size,
- 	unsigned int order;
- 	struct page *page = NULL;
- 	bool leak_pages = false;
-+	pgprot_t prot;
- 	void *addr;
- 	int ret = -ENOMEM;
- 	unsigned int min_encrypt_order = get_order(mem_cc_shared_granule_size());
-@@ -110,8 +111,12 @@ static int atomic_pool_expand(struct dma_gen_pool *dma_pool, size_t pool_size,
- 	arch_dma_prep_coherent(page, pool_size);
+  microchip-tcb-capture.c:520:56: warning: '%d' directive output may
+    be truncated writing between 1 and 11 bytes into a region of size
+    6 [-Wformat-truncation=]
+  note: directive argument in the range [-2147483648, 2]
+
+No behavior change for well-formed devicetrees: channels 0..2 take
+identical paths before and after.
+
+Fixes: 106b104137fd ("counter: Add microchip TCB capture counter")
+Assisted-by: Claude:claude-fable-5 [gcc W=1]
+Signed-off-by: Babanpreet Singh <bbnpreetsingh@gmail.com>
+---
+Note: struct mchp_tc_data's channel[2] member stays int — after this
+fix it can only ever hold 0..2, so converting it (and the QDEC-mode
+comparisons reading it) would be churn beyond the minimal fix. Happy
+to do that conversion as a follow-up if preferred.
+
+ drivers/counter/microchip-tcb-capture.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/counter/microchip-tcb-capture.c b/drivers/counter/microchip-tcb-capture.c
+index 19d457ae4c3b..e53a8390756b 100644
+--- a/drivers/counter/microchip-tcb-capture.c
++++ b/drivers/counter/microchip-tcb-capture.c
+@@ -483,7 +483,7 @@ static int mchp_tc_probe(struct platform_device *pdev)
+ 	char clk_name[7];
+ 	struct regmap *regmap;
+ 	struct clk *clk[3];
+-	int channel;
++	u32 channel;
+ 	int ret, i;
  
- #ifdef CONFIG_DMA_DIRECT_REMAP
--	addr = dma_common_contiguous_remap(page, pool_size,
--			pgprot_decrypted(pgprot_dmacoherent(PAGE_KERNEL)),
-+	if (dma_pool->cc_shared)
-+		prot = pgprot_decrypted(pgprot_dmacoherent(PAGE_KERNEL));
-+	else
-+		prot = pgprot_dmacoherent(PAGE_KERNEL);
-+
-+	addr = dma_common_contiguous_remap(page, pool_size, prot,
- 			__builtin_return_address(0));
- 	if (!addr)
- 		goto free_page;
+ 	counter = devm_counter_alloc(&pdev->dev, sizeof(*priv));
+@@ -517,7 +517,7 @@ static int mchp_tc_probe(struct platform_device *pdev)
+ 
+ 		priv->channel[i] = channel;
+ 
+-		snprintf(clk_name, sizeof(clk_name), "t%d_clk", channel);
++		snprintf(clk_name, sizeof(clk_name), "t%u_clk", channel);
+ 
+ 		clk[i] = of_clk_get_by_name(np->parent, clk_name);
+ 		if (IS_ERR(clk[i])) {
+
+base-commit: 3b029c035b34bbc693405ddf759f0e9b920c27f1
+-- 
+2.43.0
+
 
