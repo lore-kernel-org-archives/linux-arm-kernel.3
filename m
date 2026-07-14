@@ -4,106 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1DACC4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 17:27:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68449C4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 17:29:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PLWXlp5fp1shTIcjuREf1LDdbeNLz9T5kczHBwu0iIg=; b=qNP5e+limUOEu/ehTJCQDW/1L7
-	IKeN8Zcrj9G0zQwg5EOIuZmgkJ6Fjjf2WlPBiMyQhKuGhx/M964vXBB11veT0G4YrmMi1Ofa13CQn
-	bOzHNWWeY7yqSe+lsV2uLfmOo1Q8pQCLKfv+D2QRHIfwkjXbdJzEEgXdjltLaWHwvPNmFNM38lZ1M
-	rMMM70y3boyo9Iq1VHRznxE0mA9LF68xZ2pU+PhLA6p4ofLAbsZsdgDbXKhN9ww3E/uGDP6Y99lZK
-	OXvMotaLmpQXZhqLBTVhYKlbcaMbqaARZHMjXD8e7XscT9VDLp0OxqFLkqCGf3LwkjJJRgjQRDgui
-	y58vCbOQ==;
+	bh=T9nDWMGUUMYK4zdgmduf9ZJ/16QHCvDwhtGJVdrnzuY=; b=xID2xHxzYlXfnyXc374N6d8HqU
+	nVh286C8DVzt+vIlPCIjqqv7c9+sbmez0/DJCVZsQvXu089YyYhXhlu2Wkhh7Nl3Fmq5u3j0CGufT
+	iJb6+e2E94itaOWbNYoKvn5XaGklbZNM9uR1S7lDAOZmdAkw8NL4AkmT0KiDK6DKVnAtBZ7V/095Y
+	hJrpfngp62I9eVL4ypKPIhv3m4kevg3GIOddslo9J2092L57XhKHVbKIAAdEepnUNXxzkdiTZgHtn
+	k08Bu1/2SgIA4JMHIzSqoEzEEMxFw4N3gOVKzgnavNONwjie+EVHtEDyuVoU/mdb7NDeSpPrIrgK3
+	LERsMpmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjguK-0000000ClYg-0Ikh;
-	Tue, 14 Jul 2026 17:27:00 +0000
-Received: from mail-ej1-f54.google.com ([209.85.218.54])
+	id 1wjgx6-0000000Clx8-2Lot;
+	Tue, 14 Jul 2026 17:29:52 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjguG-0000000ClXN-30J8
+	id 1wjgx4-0000000Clwo-16wB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 17:26:58 +0000
-Received: by mail-ej1-f54.google.com with SMTP id a640c23a62f3a-c15bf399d3bso163355966b.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 10:26:55 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1784050013; cv=none;
-        d=google.com; s=arc-20260327;
-        b=gckWZO5M74lXjqVWRNWvOxMhn+vCmBqWnb05o6qNntAnRABgtGqcIvsAngxoD4Es6M
-         o+H7y8aXg8nhB8j2Qb5kSq7FSSwcXPWQioYH6CPIgBnGQZhxMx3dw64ZBAd2Yai62784
-         acrMlekMteMaZEK3hjIx25Zo1y1bPBNiLunZw9sa7TQnc7qr+pXtXMEV/LTtYf4rwLuz
-         NnMpSLMWR21HwVIA5MNJpDG6e4s4kcO/Vv3yWcklsHbz1Ds/1vsGHsS1Z/C34ORLdl9V
-         G9Y4FDrlaoeLDz0C//V20oyVKwWNloNNNDyIfSzDO2IiGKbhGGQHnDFSREHIeMPTxZT9
-         KoAQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=PLWXlp5fp1shTIcjuREf1LDdbeNLz9T5kczHBwu0iIg=;
-        fh=brVK4umiJqXE+Dpm5hWl4LFKIlAQ90FmOpHfe8CjCbs=;
-        b=UxAx/U/83pZmpkS1M5o1WLFkcMCOnbeLn6SjwbL+sx2PfaklQyHzdhRvxULxbCUh1C
-         Kaop+/ako6Amhj/hQZrcP7u/J2hKSK3E1RgGDHbymDrvck7MXiAW3HZADiSV3lXUy8qF
-         DB45swvGIC86Qc60msLekuOiOqhwI7e4miHVsY3aeBTVr7ZJxi6IvjPVdlhZ0nwUQcPn
-         l12ZOk/hHEU4z2l5t4p2kaE7o3t+8loYlfHVKJjtR68XuAONlTBXIebMiAXfefYrdQDI
-         tQ+SvVg+ZFphKedNDNn8qUdOQnEFTXcRYe8ScOt/OsBndnxzGkHQ95rPG5j3lK9fsl+a
-         s9Dw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=flipper.net; s=google; t=1784050013; x=1784654813; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=PLWXlp5fp1shTIcjuREf1LDdbeNLz9T5kczHBwu0iIg=;
-        b=cqTmbD6oPel7i4dkJC2nEa4cGDFuWhiWl6UORsvlaHrLq5X+9IiJirHVFL3wWMuNLz
-         h2JII7Q9UoQx6GPwDAnP+0oB0kdnJxouy1pCR9iwX+SMRHFkvT2WTrvzhAV0qWlGZAp4
-         8Oswk/A84I05Tf431+EmPAG3SmKQ2BnUMIaXMPCPNv7NTfg62XvugxymKZahqYzMeXmV
-         RP50TxmNuSirP8bfACeYoJmmSHkkIaBUy9YaGCgQTCpGmt/7xwtPk7OA4p4jxZnXA7h3
-         Vnmeokfi1ZHVa4TdMZD2bzc5MVCgWfPYupM2RtJFbAyCBekY7MY3kJThMMuhPDsJLyua
-         DbjA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784050013; x=1784654813;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=PLWXlp5fp1shTIcjuREf1LDdbeNLz9T5kczHBwu0iIg=;
-        b=qlOBaq4ezYs5sfZaaqaTsfVXDyf1lAbDJTLgq4IIX16oU4GM25dNXFupbcy3gT8ZFC
-         4YPSnM2JNjPNRFCTootLIPJrftG7xz7kORJbhiY9l8GwX2GYkxvhwgWB3n06VsmKKx+V
-         TcycF/AbVNbNasvAYFyRD9k9GgvlHZiiVOTqxBsdDOU9HwXQpfVbo0tCabnMhQr47PyD
-         2PaiGx0fOaekyYc40fsxY+LrzDd0++7wdCmISA4BdLBv8a10a6OxbQx01m+HUO9SSPqX
-         PoVFg4xT4w+qdPxtXfsQ5+Zc97fR4SmrE4f704NunHWrXzlc9J0b4JJ6dIZD0Bnnt3Ld
-         YJ3g==
-X-Forwarded-Encrypted: i=1; AHgh+Rrxv97TobBs2p+p3reqqNudIxnZXoGaUzqJ+PTDLnDkZ79d27G8eXN1WJ5R2fw1YsNouFgB+1AM5arcA89iV8pO@lists.infradead.org
-X-Gm-Message-State: AOJu0YxGKlGQsKMFDDyUG06DIMh8uh/KIVn6/GPREI2pR/8iRP7ekYlx
-	mg7PlERb4P3UB4JTVSbRp3lx03jCwIihJwzKTKR8O03A/ks/r4EuguMGCYiyw1hkmqQGtqJRzt8
-	XkUnBHFjvjMg+oBgbAGxuC+nxiy4WK07y9EZ/v4GyGg==
-X-Gm-Gg: AfdE7ckfgnDRo/vLGEBqkG6h0ZlpERkU+ZaNrm3leK8PCeDdHZg+0lFKs0L3hJZzC6A
-	opmW/z2tP7Hg0GyTzXdDBs9N9mKxSMjRmPkLNRAtWA8GomGAeLcwpBp4alByGbfiX/Kyx9M5GOh
-	z24Y2+yHbsHJ9TkN6XENeVYNtH1io8lz9w0BnNtAZiA+QNAO/iOeTWZkdmb0Qa4nWZ4YVDnouBM
-	9LOGf+s8mzex3JP54zac9n/aeqxa/KGatindtxNKEC6LsJBNDabgwwX/0pgaDkr/pt4jflpwaHY
-	KPk7MTViKVEiqZ38K9khv8NVH+o=
-X-Received: by 2002:a17:907:7210:b0:c12:61c5:c141 with SMTP id
- a640c23a62f3a-c161ea21391mr577764066b.53.1784050013253; Tue, 14 Jul 2026
- 10:26:53 -0700 (PDT)
+	Tue, 14 Jul 2026 17:29:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1784050190; x=1815586190;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=T9nDWMGUUMYK4zdgmduf9ZJ/16QHCvDwhtGJVdrnzuY=;
+  b=OQVTwuBiH8pGI+8zsuOfzvbJMEaT2vHBdiHrf6izxTsdCilwAZjFuxTp
+   wKuz5+eVvYM9jrsLHd8xz7FmZi1BL7uIo8vyWIzXV/HVt2dbePaRifrWZ
+   2ASwgNxDxqHF+Oo+4rAMeTzt8SwUpxdb8AV/qm6Fk7cJ1gNauRAArQpzH
+   QAE+DAEbh/3iyZdLGAHRs+ITqXqMhtmM2V1OdcwNV7bpgejrcqQD2kBkQ
+   tbbktxCxF3+3PSYHuIUA6u6abba/tYNRTo+XRWpQin8YuoPGuyAbUs6OH
+   LeETekGfTxwYWufTM8cMI+LGNxwXAqVb8/2BqcTD1HDfQBrWvZG87dh6I
+   Q==;
+X-CSE-ConnectionGUID: 9/GaaqO3QPSThliE8xZHUg==
+X-CSE-MsgGUID: UHtAc3QSRGOUbOXhihlLgg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11846"; a="84463064"
+X-IronPort-AV: E=Sophos;i="6.25,164,1779174000"; 
+   d="scan'208";a="84463064"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jul 2026 10:29:49 -0700
+X-CSE-ConnectionGUID: JVAk0EKWSyOAbtmWxbWciQ==
+X-CSE-MsgGUID: gb3gmc2+RamLrgmELZSMvA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,164,1779174000"; 
+   d="scan'208";a="259497092"
+Received: from aschende-mobl.amr.corp.intel.com (HELO [10.125.108.120]) ([10.125.108.120])
+  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jul 2026 10:29:48 -0700
+Message-ID: <13fcd4d7-0efc-4aa5-9425-8f4fa05c8eee@intel.com>
+Date: Tue, 14 Jul 2026 10:29:51 -0700
 MIME-Version: 1.0
-References: <MN0PR19MB609171877109E10553B5DB5EACF92@MN0PR19MB6091.namprd19.prod.outlook.com>
-In-Reply-To: <MN0PR19MB609171877109E10553B5DB5EACF92@MN0PR19MB6091.namprd19.prod.outlook.com>
-From: Alexey Charkov <alchark@flipper.net>
-Date: Tue, 14 Jul 2026 21:26:42 +0400
-X-Gm-Features: AUfX_my4WyuEyYSRptLwrCR_TmeHbnjRc7E_6wyzD01sMWP4nnwK47T7aZfKKfg
-Message-ID: <CAKTNdwFxW9aGk3Ux_DhCvhYcwUBEz=oEei+w=9Zo-78jgGtGWQ@mail.gmail.com>
-Subject: Re: [PATCH] phy: rockchip: naneng-combphy: Set RK3576 USB3 SSC downward
-To: Liu Changjie <liucj1228@outlook.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Heiko Stuebner <heiko@sntech.de>, linux-phy@lists.infradead.org, 
-	Neil Armstrong <neil.armstrong@linaro.org>, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH mm-hotfixes v3 2/4] x86/mm/pat: acquire mmap lock on page
+ table free to avoid ptdump UAF
+To: Lorenzo Stoakes <ljs@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Suren Baghdasaryan <surenb@google.com>, "Liam R. Howlett"
+ <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
+ Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>,
+ Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>,
+ Uladzislau Rezki <urezki@gmail.com>, Toshi Kani <toshi.kani@hpe.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, Andy Lutomirski
+ <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, Kiryl Shutsemau <kas@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Dev Jain <dev.jain@arm.com>, Ryan Roberts <ryan.roberts@arm.com>
+Cc: David Carlier <devnexen@gmail.com>, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
+References: <20260714-series-vmap-race-fix-v3-0-b812eccfa0f9@kernel.org>
+ <20260714-series-vmap-race-fix-v3-2-b812eccfa0f9@kernel.org>
+From: Dave Hansen <dave.hansen@intel.com>
+Content-Language: en-US
+Autocrypt: addr=dave.hansen@intel.com; keydata=
+ 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
+In-Reply-To: <20260714-series-vmap-race-fix-v3-2-b812eccfa0f9@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_102656_763800_14DFE10E 
-X-CRM114-Status: GOOD (  16.45  )
+X-CRM114-CacheID: sfid-20260714_102950_390996_7C8948B5 
+X-CRM114-Status: UNSURE (   7.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,53 +145,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2026 at 10:46=E2=80=AFAM Liu Changjie <liucj1228@outlook.co=
-m> wrote:
->
-> Program the RK3576 USB3 spread-spectrum direction to downward before
-> applying the remaining PHY tuning. This matches the vendor BSP SSC
-> direction and follows the existing RK3568 handling in this driver.
->
-> Without this setting, a HIKSEMI MD202 (0bda:9210) repeatedly failed
-> to accept a USB address on an RK3576 Taishan Pi 3M. With it, the same
-> device enumerates at 5 Gbit/s and completes a 64 MiB read/write test.
->
-> A separate 1 GiB stress test with this RTL9210-based enclosure still
-> produced SuperSpeed resets and I/O timeouts. This change only addresses
-> the initial link behavior and does not claim to fix sustained-I/O
-> stability.
->
-> Signed-off-by: Liu Changjie <liucj1228@outlook.com>
-> ---
->  drivers/phy/rockchip/phy-rockchip-naneng-combphy.c | 5 +++++
->  1 file changed, 5 insertions(+)
->
-> diff --git a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c b/drivers=
-/phy/rockchip/phy-rockchip-naneng-combphy.c
-> index 2b0f152f5..324a0861e 100644
-> --- a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-> +++ b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-> @@ -1015,6 +1015,11 @@ static int rk3576_combphy_cfg(struct rockchip_comb=
-phy_priv *priv)
->                 break;
->
->         case PHY_TYPE_USB3:
-> +               /* Set SSC downward spread spectrum */
-> +               val =3D FIELD_PREP(RK3568_PHYREG32_SSC_MASK, RK3568_PHYRE=
-G32_SSC_DOWNWARD);
-> +               rockchip_combphy_updatel(priv, RK3568_PHYREG32_SSC_MASK, =
-val,
-> +                                        RK3568_PHYREG32);
-> +
+On 7/14/26 10:24, Lorenzo Stoakes wrote:
+...
+> Resolve the issue by acquiring the mmap read lock on init_mm which prevents
+> a concurrent ptdump as it acquires the write lock.
 
-This duplicates code which already exists in the
-rk_combphy_common_cfg_ssc() helper function.
+The move over to locking on init_mm instead of current->mm fixes the
+earlier issues I saw with this. Thanks for doing that!
 
-Could you please try if [1] fixes your use case?
+Reviewed-by: Dave Hansen <dave.hansen@linux.intel.com>
 
-[1] https://lore.kernel.org/linux-rockchip/20260714-naneng-ssc-fix-v1-1-1c4=
-0a58061ae@flipper.net/
-
-Best regards,
-Alexey
 
