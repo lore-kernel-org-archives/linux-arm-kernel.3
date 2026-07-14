@@ -4,96 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0BA6C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 10:26:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9A8FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 10:28:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cBDMwG9/ky6ssL+TbdSqxt4N2oK3lmPKFilDE6MIEWE=; b=h/zBiMgYwxjpR49vU0Eio54v8h
-	xvrf1smsmnTe6WlmwTF6fzcICbNN7rU170qDykYUYalxds3qGmCZJSNHuwhvDGTop/4kBIo6rf9ls
-	ZlszSAqf15thzlsv1FRhvbEOPdyeBG1OHi0nnEOl9aFp5UQcJRWNQzSgxpE9RoYhKfVI5io2j6D81
-	tkNFo8SdN43i5GhymlYk/97kCqmstCBZdw4mIp3om9ygCS0vvSAqb2QHmv2SFFtKiPKFB4TJjb8K/
-	UJvRY9DlG3zmDa9bG31KYPyaFQ1qJxU+3hLstNCnGauRb/+CWi2XeFA/I89Q9N6AN+RDWKidYrbPL
-	d8395Y3Q==;
+	bh=5CGfVaVqv7ath4sAUX0+zKQ6LoYI+3Y/YfU/teoRw+g=; b=m5CVMSC4ZtP9CWwEIr/A6ISlPz
+	RLMgytiuTRu/s+SV0SzXBgrLsGEaZX1lQS4aiymZK4ACHomTX+6uGm9hYkygwDL+ewT7w/a61FZY+
+	0nsiJPMhnuD30zZo7Wdxhielr2x4ab3L1wxqkK7PwBPxxGlLrsmV9HtMnmf9XstMgomDVlS+HXL8u
+	7J3TgYMwjpvLO6EsAN91ecMIo+SsdKM918gTIuzKoxQZCerDZh6s7X8XscuQ7tWrn7sM2I/UB89Vb
+	PtFBUfvLtthfMdB53esgTei11ColP09FBbuKO27Yj5DBH6cLvodQRd/5eJMwa9oFib1VbeIAXRHEA
+	jaTf+dJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjaLO-0000000BYyr-2bK8;
-	Tue, 14 Jul 2026 10:26:30 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1wjaNg-0000000BZXP-29mt;
+	Tue, 14 Jul 2026 10:28:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjaLH-0000000BYsj-0iva
+	id 1wjaNb-0000000BZVr-1T2v
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 10:26:24 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-471eeac43bfso4052331f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 03:26:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784024781; x=1784629581; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=cBDMwG9/ky6ssL+TbdSqxt4N2oK3lmPKFilDE6MIEWE=;
-        b=XZdV4G7PX8dfaWWnLaBZJmOgddqP8n8XhV+lNR7sDqXcv1OkIW+Ot9qwSy13YQx8mw
-         fZduMgRdFuuRQkMfF7jkEPDm8MPGGzjUf5zYAKALwJNI+ducL2TVtj7BA7vIyOWA26va
-         18rFvR074OlkE0aqpy8RaTAHE8u/Uw5j3wiP2WgK2S+VLQ6bp19M6ZUqA6NXpHTqEnYx
-         cPNkVwWEUZ1wYCepH6d9xpMy9eQ/xSCv2KpkTkSJxvQWZDEGdRmvKR06J3Cpasn6Kgya
-         rcA/X/xsFAlI2mwxRe4qtk7hZI1Qg0/UwERsX04dF5cKKpWS3v7tnmxEyl+WKZs5yuix
-         WIrQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784024781; x=1784629581;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=cBDMwG9/ky6ssL+TbdSqxt4N2oK3lmPKFilDE6MIEWE=;
-        b=Ajq5RdFgMAVCAnOv1PZQAYrli8SDPuQbPw07XUnN8R4OA2ZSsfzqY0UfkKw4ulhG75
-         Lfxs0nnxXuTlTs5yKxXJOxOMFvARRHgFMXm+Z38xalmgfuIZAPIa9MWsZGFWQhXYl/7N
-         +B2CykwRCV8Ts9JedEP9GhV1c4wWr+cvZLJBL4SEAJCHBazTbX0APCz2OOJRVtkKSxtX
-         lQHdNaa10wdWFe6S+PD7igLXWuQMT4fZlAcOSLTdKCGCnlfE/U1ySLk5z2TESYwGGwv8
-         LuvNnYlaxdT04sj8YEhp6PE+aMPKKH0iXykE6jNRxtzIGRJvPTCliFq9a4SuDk9lXkYy
-         iOqg==
-X-Forwarded-Encrypted: i=1; AHgh+Rqqjq3nr+MhGMfvdRZiST4Zfwf7H6NA8GnY2F6YMXANgqaeBr9gVygzx1qM04YtXMOjHt3OYr9f+GtZfBUnIkW2@lists.infradead.org
-X-Gm-Message-State: AOJu0YxQ5soyaBSBurP1cdaTcNuKUENbjSSgFmZHUo/XAlv7AMWNzJoj
-	eNr6Hi+CDbkc5lEP2DlXyXUQAcH7j3/Zxb1ufWb0cmMGyHtmS9qhm6xE
-X-Gm-Gg: AfdE7ckgsmFDKuGbI8gbVQOfFPC7vCMNBR9Phdoo2ZVvxNmoPd9SAFDAx8XZxzePKet
-	R37/N+2XHtuDPCsJWx/jq6SpiM27CN80d8ERRZwCDTnOPZyNQv7IqKAUB1UFGK6Ci9b68WeZi4S
-	vOf8ULrENejOV7cp9/ucOXBRx/XomXz/Z0FT8iOoJOht4Jtdv8YvijaEbfvo8EfCjFILZj2qZFn
-	3hoUOeKctYJ0s7Hzrpik9l6pwR/bBFmwPHOhxVm0D75tvauH6pqR5Gtb4WhQ+EtD2wZeHpbGHMT
-	kjaZEZqne4nxJhMAMfsCZI+5j3BiDxGYmUf2JG7gENRpiiR0t/oDkzelCIHEyRU8/k7T6MPcBML
-	bHOTLwj/3jyLvh2i8Ebpf0kCckkGMksAU6udWdidUzYzUtEeddM2RN9BewA+cBYk4+qpHadmgdO
-	uWgapCVtbjjFvkWwblKcWAYRzABFRxatriRPVs7FvxqcqgIuHGrSztI96t94r3thd933vJd6fLE
-	ucevVM=
-X-Received: by 2002:a5d:5d0c:0:b0:473:987f:c0ec with SMTP id ffacd0b85a97d-47f2dce7e1amr13941311f8f.36.1784024781255;
-        Tue, 14 Jul 2026 03:26:21 -0700 (PDT)
-Received: from localhost.localdomain (ip-89-176-136-191.bb.vodafone.cz. [89.176.136.191])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f464c1f84sm7251991f8f.29.2026.07.14.03.26.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jul 2026 03:26:20 -0700 (PDT)
-From: Petr Wozniak <petr.wozniak@gmail.com>
-To: nbd@nbd.name,
-	lorenzo@kernel.org,
-	ryder.lee@mediatek.com
-Cc: shayne.chen@mediatek.com,
-	sean.wang@mediatek.com,
-	linux-wireless@vger.kernel.org,
-	matthias.bgg@gmail.com,
-	rex.lu@mediatek.com,
-	linux-mediatek@lists.infradead.org,
-	angelogioacchino.delregno@collabora.com,
-	linux-arm-kernel@lists.infradead.org,
-	Petr Wozniak <petr.wozniak@gmail.com>
-Subject: [PATCH wireless-next v2 2/2] wifi: mt76: mt7996: register a LED classdev for every band
-Date: Tue, 14 Jul 2026 12:26:15 +0200
-Message-ID: <20260714102615.2943-3-petr.wozniak@gmail.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260714102615.2943-1-petr.wozniak@gmail.com>
-References: <20260714102615.2943-1-petr.wozniak@gmail.com>
+	Tue, 14 Jul 2026 10:28:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E94C043D8D;
+	Tue, 14 Jul 2026 10:28:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id BA166C2BCF6;
+	Tue, 14 Jul 2026 10:28:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1784024926;
+	bh=LTBMkiOmw98UTxWEbpAQ9H5QlhAKTpgEXEjclnTOmAE=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=gHr3YTi8pKSiWEpP/wdKvUSQTH0i2dzJvyxIFBCvT58XPSFYabymZ0G07KdkDbDa4
+	 qSupei/lgH8Dcz2caJOalvi3ITWOl/0U/EwN/A1lD1W/lgFVUeqqW7QxlnanzX9O1q
+	 9oULsevwSyVNgOMncHN+rfCJJlQMmExjPVLqVN435ML9YH+W4DjISzep3SF4qXm7sA
+	 i8qpIfMtFxSqnwFvgtVIKDiaJPivCRAXdHXIqvJpKMNldTMzoMilunvcLNq1dXIrB8
+	 WT6b3+0VpQJkwWL24vyjqsFvPlN8PmSmm3eyF7qo8KqDEKqyLAtsUxUWW4WB2aX7EA
+	 1LXXLFfis6qtg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A7E89C44508;
+	Tue, 14 Jul 2026 10:28:46 +0000 (UTC)
+From: Haoning CHENG via B4 Relay <devnull+Haoning.CHENG.cn.bosch.com@kernel.org>
+Date: Tue, 14 Jul 2026 18:28:42 +0800
+Subject: [PATCH v8 2/3] thermal/drivers/imx: Fix rounding and clamp for
+ i.MX7D alarm
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_032623_221642_45A1BCBB 
-X-CRM114-Status: GOOD (  13.66  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260714-b4-symana21-11221-imx-thermal-support-upstream-6-18-v8-2-d54d8690e16e@cn.bosch.com>
+References: <20260714-b4-symana21-11221-imx-thermal-support-upstream-6-18-v8-0-d54d8690e16e@cn.bosch.com>
+In-Reply-To: <20260714-b4-symana21-11221-imx-thermal-support-upstream-6-18-v8-0-d54d8690e16e@cn.bosch.com>
+To: "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Haoning CHENG <Haoning.CHENG@cn.bosch.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784024921; l=1614;
+ i=Haoning.CHENG@cn.bosch.com; s=20260709; h=from:subject:message-id;
+ bh=1JBV0u3QEY1X06yF+bBAxZo8ixtbx4eg4tQIOMJHWHs=;
+ b=LslAkJd+wyxZebCbOnxK6QkqPn42J1gBAC0+EEqd81HxjetCdZIuFcuu9dcZflFdJgFrONEix
+ D0jBwdItWe3AExsdqpDQrGB5K5kdWq6HGSMGBbC1D+V0wco9qbQ3O3z
+X-Developer-Key: i=Haoning.CHENG@cn.bosch.com; a=ed25519;
+ pk=glQGwad/fosRS5gZUJYbLDPPLGe7rFTrTV2VxY/ySdc=
+X-Endpoint-Received: by B4 Relay for Haoning.CHENG@cn.bosch.com/20260709
+ with auth_id=860
+X-Original-From: Haoning CHENG <Haoning.CHENG@cn.bosch.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,65 +88,55 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Haoning.CHENG@cn.bosch.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The per-band LED callbacks (brightness_set/blink_set) were only assigned
-to the primary PHY (dev->mphy) in mt7996_init_wiphy(). The 5/6 GHz bands
-are brought up later through mt7996_register_phy() ->
-mt7996_init_wiphy_band(), which never set those callbacks, so
-mt76_led_init() bailed out early for them and only the 2.4 GHz LED was
-ever registered.
+From: Haoning CHENG <Haoning.CHENG@cn.bosch.com>
 
-The hardware path is already per band: mt7996_led_set_config() indexes
-MT_LED_EN()/MT_LED_CTRL()/MT_LED_TX_BLINK() by mphy->band_idx, so per-band
-hardware TX-blink works as soon as the classdev exists.
+Convert the alarm temperature from millicelsius to degrees for i.MX7D
+using ceiling division instead of integer division, ensuring rounding
+errors do not cause the alarm to trigger below the intended threshold.
+Use DIV_ROUND_UP() for non-negative values and plain integer division
+for negative values, since C rounds toward zero which is equivalent to
+ceiling when the divisor is positive.
 
-Move the callback assignment into mt7996_init_wiphy_band(), which runs for
-every band, so a LED classdev is registered for each band.
+Add clamp() to ensure the hardware register value stays within the 9-bit
+range (0..0x1ff) of the i.MX7D alarm field, preventing silent truncation
+if an out-of-range value is written.
 
-Signed-off-by: Petr Wozniak <petr.wozniak@gmail.com>
+Signed-off-by: Haoning CHENG <Haoning.CHENG@cn.bosch.com>
 ---
- .../net/wireless/mediatek/mt76/mt7996/init.c   | 18 ++++++++++++------
- 1 file changed, 12 insertions(+), 6 deletions(-)
+ drivers/thermal/imx_thermal.c | 12 +++++++++---
+ 1 file changed, 9 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/init.c b/drivers/net/wireless/mediatek/mt76/mt7996/init.c
-index d6f9aa1ab..b77b85654 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/init.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/init.c
-@@ -472,6 +472,18 @@ mt7996_init_wiphy_band(struct ieee80211_hw *hw, struct mt7996_phy *phy)
- 	mt7996_set_stream_vht_txbf_caps(phy);
- 	mt7996_set_stream_he_eht_caps(phy);
- 	mt7996_init_txpower(phy);
-+
-+	/* Register a LED classdev for every band, not just the primary one.
-+	 * Under single-wiphy MLO the 5/6 GHz bands are brought up through
-+	 * mt7996_register_phy(); without these callbacks mt76_led_init() skips
-+	 * them and only the 2.4 GHz LED is exposed. The hardware TX-blink path
-+	 * is already indexed by band_idx, so per-band blink works once the
-+	 * classdev exists.
-+	 */
-+	if (IS_ENABLED(CONFIG_MT76_LEDS)) {
-+		phy->mt76->leds.cdev.brightness_set = mt7996_led_set_brightness;
-+		phy->mt76->leds.cdev.blink_set = mt7996_led_set_blink;
+diff --git a/drivers/thermal/imx_thermal.c b/drivers/thermal/imx_thermal.c
+index 38c993d1bcb3..7f7d1116b9d6 100644
+--- a/drivers/thermal/imx_thermal.c
++++ b/drivers/thermal/imx_thermal.c
+@@ -240,10 +240,16 @@ static void imx_set_alarm_temp(struct imx_thermal_data *data,
+ 
+ 	data->alarm_temp = alarm_temp;
+ 
+-	if (data->socdata->version == TEMPMON_IMX7D)
+-		alarm_value = alarm_temp / 1000 + data->c1 - 25;
+-	else
++	if (data->socdata->version == TEMPMON_IMX7D) {
++		if (alarm_temp >= 0)
++			alarm_temp = DIV_ROUND_UP(alarm_temp, 1000);
++		else
++			alarm_temp /= 1000;
++		alarm_value = alarm_temp + data->c1 - 25;
++		alarm_value = clamp(alarm_value, 0, 0x1ff);
++	} else {
+ 		alarm_value = (data->c2 - alarm_temp) / data->c1;
 +	}
- }
  
- static void
-@@ -542,12 +554,6 @@ mt7996_init_wiphy(struct ieee80211_hw *hw, struct mtk_wed_device *wed)
- 	hw->max_tx_fragments = 4;
- 	wiphy->txq_memory_limit = 32 << 20; /* 32 MiB */
- 
--	/* init led callbacks */
--	if (IS_ENABLED(CONFIG_MT76_LEDS)) {
--		dev->mphy.leds.cdev.brightness_set = mt7996_led_set_brightness;
--		dev->mphy.leds.cdev.blink_set = mt7996_led_set_blink;
--	}
--
- 	wiphy->max_scan_ssids = 4;
- 	wiphy->max_scan_ie_len = IEEE80211_MAX_DATA_LEN;
- 
+ 	regmap_write(map, soc_data->high_alarm_ctrl + REG_CLR,
+ 		     soc_data->high_alarm_mask);
+
 -- 
-2.51.0
+2.43.0
+
 
 
