@@ -4,68 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF754C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 21:51:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E897C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 22:14:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zN7E98zM8jVAhgF74XVOV7g2x2zGcHzUWYai2sRHvlE=; b=DM8srvpdYcJs4palM+iChdKWOe
-	9TEdxCdEyBrMh7x9R/MA/IjsNDiNHOUxNf2jDSn0ef9Ewn1OxJqgtbT9zNmuPunJO6Gss6ElhfVLR
-	1rCthgvhWxW5M02QnTGlrxsAYHID1pHmRPWrYyyjXV7zSRKG5pFHxP5A2DpKKWJfWtz7ESfNscvWT
-	8Bcz1Hd3Rs9yoURnMLOohEacNi+CW/2MaCukppOQaDPOe60Me4nZqapcVBSQXe+1qzk06CtqOV4Yx
-	Vnu5+2FcM5GDIQuju/miQy3zUWur9kag00Pm+8WtztY4uU6TBSkUN8tB3EqWaPkItk/def0rW/yx+
-	Vts0dejQ==;
+	bh=BLIsbd3rIu0q440Nh2W6RF4EH0NXixw4UPs/AFN2KRU=; b=DDdBwtWvXizQ7y/vz0pLNaDn6U
+	Wp38m7fX73+KwPalBW7YiIvhE7Dth2sklzdio0/Q2O68vhO87dfq+2VhR+3CJdWRkbPm5MIkr9NSd
+	8gHvqe8ktANJWHl7IznZjBVacE7pwjHCQYV7PTZB3nb1aE8pxcmbGabNcETjFWe6vtRHyW5ii79kA
+	RggRTn6uHdBZM4JuvUM6RIzP7tcodxHUuS73tzf+hNUu8V06YwJiB8BlzIx6DEn1GPTMm7yEGKGfS
+	nnzHpaov4cwiQadAT/PZt9Bv5mn3ulUMS/t5dcaDsqpAuHn2pOpox4uR1pf5Txlmkg0ngFEyncdsa
+	vNZVXheg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjl2S-0000000DNJI-1OJ4;
-	Tue, 14 Jul 2026 21:51:40 +0000
-Received: from smtprelay0017.hostedemail.com ([216.40.44.17] helo=relay.hostedemail.com)
+	id 1wjlOH-0000000DOAd-2igc;
+	Tue, 14 Jul 2026 22:14:13 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjl2P-0000000DNIj-0jfi;
-	Tue, 14 Jul 2026 21:51:38 +0000
-Received: from omf01.hostedemail.com (lb01a-stub [10.200.18.249])
-	by unirelay09.hostedemail.com (Postfix) with ESMTP id 892F3804B0;
-	Tue, 14 Jul 2026 21:51:31 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf01.hostedemail.com (Postfix) with ESMTPA id A1A506000C;
-	Tue, 14 Jul 2026 21:51:27 +0000 (UTC)
-Date: Tue, 14 Jul 2026 17:51:31 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Andrew Murray <amurray@thegoodpenguin.co.uk>
-Cc: Petr Mladek <pmladek@suse.com>, John Ogness <john.ogness@linutronix.de>,
- Sergey Senozhatsky <senozhatsky@chromium.org>, Jonathan Corbet
- <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, Russell King
- <linux@armlinux.org.uk>, Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, Scott
- Branden <sbranden@broadcom.com>, Andrew Morton <akpm@linux-foundation.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Sebastian Andrzej Siewior
- <bigeasy@linutronix.de>, Clark Williams <clrkwllms@kernel.org>,
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rpi-kernel@lists.infradead.org,
- linux-rt-devel@lists.linux.dev
-Subject: Re: [PATCH v3 6/6] Documentation/kernel-parameters: add/update
- printk_delay/boot_delay
-Message-ID: <20260714175131.1edfc880@gandalf.local.home>
-In-Reply-To: <20260712-printkcleanup-v3-6-574547b8f71b@thegoodpenguin.co.uk>
-References: <20260712-printkcleanup-v3-0-574547b8f71b@thegoodpenguin.co.uk>
-	<20260712-printkcleanup-v3-6-574547b8f71b@thegoodpenguin.co.uk>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	id 1wjlOG-0000000DOAA-0Z21
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 14 Jul 2026 22:14:12 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 74C4A43C89
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 22:14:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C1621F0155B
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 22:14:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784067251;
+	bh=BLIsbd3rIu0q440Nh2W6RF4EH0NXixw4UPs/AFN2KRU=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=FaKgu+vB2YYShsFe2M1JXkalONH4g3PsMIU7elO6lSWiO9dMoJwlqx4j8W/8cPjYg
+	 x+t2lVWhdjNNhMEYK4ngb8iqlT1Kj+JEQ/eCDilp9c4RWCuPiwkFuxCiatLqDGF5SL
+	 2MOtduM7IRUQnPl2+LwD636S9a16tBhEDpCJaBLWK3zViZ4djKjamY+ToFzDEE/FFy
+	 VAGAvB9TamK+/1fem6UcIodLpkiMqFiO/QyajNcoQu6P2ak6ssvHffzC3O7E81K1WG
+	 GApTL//Y4RCUu/ta84KBQWM8VeimHtoQaOyZ/XPxfPQxb/EJi3FtHkRTc8dzmjVhZ3
+	 7HsXS5GEem7zw==
+Received: by mail-ej1-f48.google.com with SMTP id a640c23a62f3a-c166f1bbeaeso132792766b.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 15:14:11 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RpN8upWUfX4vZALyAgd8UfaZpryNVoLcQmqS0/CfqHHX6WR15NM4fu6aYFC5ROIhBXlRTsf2sC/BAFvnC0gbN7o@lists.infradead.org
+X-Gm-Message-State: AOJu0YzZU8HL2DdbakuaJeIuZ7+oQlOYnpqhHvMoHBpPIE6L/Y2DP7cf
+	UfQVl5f0522GcAB10GzpdCWGealyrR3d0SUIrE+6QX20LZ9VmaRYdCsXAJuHlP7YvuYN+BaQKga
+	jc0JLlSFpsYt/coQXbHBoLXH8Z/hAgw==
+X-Received: by 2002:a17:907:97ca:b0:c12:73fd:a6cd with SMTP id
+ a640c23a62f3a-c1661928df9mr370952366b.52.1784067249841; Tue, 14 Jul 2026
+ 15:14:09 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Stat-Signature: 7zy31kt8rbwtcxpe5riua91mpmyq316o
-X-Rspamd-Server: rspamout02
-X-Rspamd-Queue-Id: A1A506000C
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX18CNmWd2YhLXQvEn1XaHEtwP0wzcKYWfXE=
-X-HE-Tag: 1784065887-653010
-X-HE-Meta: U2FsdGVkX18t0ruRrD4DDDo0OZ1UA5N76Mf6Lk9oRwOylkSPIbsZWq73qoTz/bkApRB0oxXicLVMDXuK/ZC8dSH77knGTVCpJAZxUxtyvEH/UImu4r3aD8mxRcA5JsRDxTK2N0nO/Q3xgVVpTuV+t1StncIDm3pwv3kYfoeMs8Jg0EJem2UEWPdzi9oJndMRunIH/kS0lPHLDnjK39PoWXSlEiQYG7RJMAz69lnU0kl6Sb7Keuvboe2QUYC4iTAc0pSUneUfPyg9zXOkZ7TN5xPibPrdNOnPExVT/RiRYqicpYieJo2Af3W1FtfKy6YFNnYkT1kxOd8XliV8F5iK8P87+FxnmpA29LqdXki/3Q9gI9m/b6mxPiufh8MKnRsU
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_145137_280696_6325A386 
-X-CRM114-Status: GOOD (  15.82  )
+References: <20260714-add-coresight-nodes-for-shikra-v1-0-b1cf85962455@oss.qualcomm.com>
+ <20260714-add-coresight-nodes-for-shikra-v1-2-b1cf85962455@oss.qualcomm.com>
+In-Reply-To: <20260714-add-coresight-nodes-for-shikra-v1-2-b1cf85962455@oss.qualcomm.com>
+From: Rob Herring <robh@kernel.org>
+Date: Tue, 14 Jul 2026 17:13:58 -0500
+X-Gmail-Original-Message-ID: <CAL_JsqLqbSrQKnnj2=57d-hFFeQ4xsDigLzmD-LHfufm=Mpp-Q@mail.gmail.com>
+X-Gm-Features: AUfX_myV2MEj_WnNpL4PNdWyXrVcH3TfBaO-6JJmtqnBFQREW3AFA5aOuTd8Dkw
+Message-ID: <CAL_JsqLqbSrQKnnj2=57d-hFFeQ4xsDigLzmD-LHfufm=Mpp-Q@mail.gmail.com>
+Subject: Re: [PATCH 2/2] arm64: dts: qcom: shikra: Add coresight nodes
+To: Jie Gan <jie.gan@oss.qualcomm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>, 
+	James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>, Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, coresight@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,58 +86,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 12 Jul 2026 11:20:37 +0100
-Andrew Murray <amurray@thegoodpenguin.co.uk> wrote:
+On Mon, Jul 13, 2026 at 8:58=E2=80=AFPM Jie Gan <jie.gan@oss.qualcomm.com> =
+wrote:
+>
+> Add DT nodes for the CoreSight debug and trace subsystem on Qualcomm
+> Shikra SoC.
+>
+> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+> ---
+>  arch/arm64/boot/dts/qcom/shikra.dtsi | 1298 ++++++++++++++++++++++++++++=
+++++++
+>  1 file changed, 1298 insertions(+)
 
-> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-> index 2884103b93bca7b76cd3a93946276074cf62d0a1..1118feda87b1b04543b1da0bd52c090b1fddaeac 100644
-> --- a/Documentation/admin-guide/kernel-parameters.txt
-> +++ b/Documentation/admin-guide/kernel-parameters.txt
-> @@ -650,11 +650,19 @@ Kernel parameters
->  			See Documentation/block/cmdline-partition.rst
->  
->  	boot_delay=	[KNL,EARLY]
-> -			Milliseconds to delay each printk during boot.
-> -			Only works if GENERIC_CALIBRATE_DELAY is enabled,
-> -			and you may also have to specify "lpj=".  Boot_delay
-> -			values larger than 10 seconds (10000) are assumed
-> -			erroneous and ignored.
-> +			Milliseconds to delay each printk during and post boot.
-> +			Boot time delays only work if GENERIC_CALIBRATE_DELAY
-> +			is enabled.
-> +
-> +			Once booted the delay can be removed or adjusted via
-> +			the printk_delay sysctl.
-> +
-> +			Please note that you may also have to specify "lpj=".
-> +			Boot_delay values larger than 10 seconds (10000) are
-> +			assumed erroneous and ignored.
-> +
-> +			This will soon be deprecated, please use printk_delay
-> +			instead.
->  			Format: integer
->  
->  	bootconfig	[KNL,EARLY]
-> @@ -5468,6 +5476,19 @@ Kernel parameters
->  	printk.time=	Show timing data prefixed to each printk message line
->  			Format: <bool>  (1/Y/y=enable, 0/N/n=disable)
->  
-> +	printk_delay=	[KNL,EARLY]
-> +			Milliseconds to delay each printk during and post boot.
-> +			Boot time delays only work if GENERIC_CALIBRATE_DELAY
-> +			is enabled.
-> +
-> +			Once booted the delay can be removed or adjusted via
-> +			the printk_delay sysctl.
-> +
-> +			Please note that you may also have to specify "lpj=".
-> +			printk_delay values larger than 10 seconds (10000) are
-> +			assumed erroneous and ignored.
-> +			Format: integer
-> +
+NAK
 
-The two parameters descriptions are identical. They should show something
-different. Is it just that the "boot_delay" name is getting deprecated?
+Fix the sashiko issue.
 
--- Steve
+Rob
 
