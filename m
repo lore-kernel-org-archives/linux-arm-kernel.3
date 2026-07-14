@@ -4,150 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A888C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 21:10:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C16CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 21:10:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=51hqpufEsGFCNBACr1uUKiNF0Xfv39s6lzkZW/FMhR8=; b=v7/+lhvOUzkUXkxMBWgOvar3ZJ
-	VSmTZ7a9XvtsSfo+MJJW2zj6hHHETsQyIoOxCHDFESLWj+QURLLgd3Uj3LbHNnmvldNJwcm5m1r1X
-	3Tpx1ORD2EN72o94nCkoU/nLefxJrOw+fdCHPIL+eFSStZqAaKRqNVcnjKVefRJwzfZLtIzsKhlRJ
-	2oEgX1B00pBr9/W0yb5J7BIyN4tdy2b/ZL65EvN/dirSkcS6mNY4Yr7x/XlWQis/dLxJJijfYcrGL
-	0yM02V2cFm789o6P2yJaDghPbZ+p1zv/+ND3/m2Y/RnEn1R3WZS1EnoFkkHUYgCWGsBy6BZTJYZ9n
-	t6F6wu6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=FYLD+NQ3yFPrFtbxnnlrRNCjugvsXj89g6HloVaglxs=; b=Z2WkfanWfy2uGfM+apmc1NYXX1
+	IjNqNzBfWA9okj+yCEyNkEQhrQrke49ZEvwp5nfF8FCfOxq8xt6hik1bHI5xrOYBT9p8CiDFx9ul0
+	3wAst/vwMDRML6aeHQURE+5g4eBKQF6aopJ2HCdBUAcojhB3XQeXoeMrf5ToAyMAz/geYkX+IjtKR
+	hPaCmO6CcBbvsY93tbxxJ9H+ccWMES8dfew3u0JvNC7vBXOa3+83ghtXvp/Rb0Oo9fwlkw4yxLdGd
+	sBV5/Bopi3EWIFCuEy4+uSgzzkeBsro7BzsWUIVhyqjeKqzR+5+kHaSYTxZmGUHzpgIkQqmAcYMcF
+	7TDoZRlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjkOJ-0000000DJ00-0p4U;
-	Tue, 14 Jul 2026 21:10:11 +0000
-Received: from mail-northeuropeazon11010029.outbound.protection.outlook.com ([52.101.84.29] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wjkOg-0000000DJ3N-1R2U;
+	Tue, 14 Jul 2026 21:10:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjkOG-0000000DIye-1on7
+	id 1wjkOf-0000000DJ2r-08Ew
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 21:10:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kykat1yjmTyqO2qR8dM3UZiNM0FJ6DNea0vI/7DOcfHWDB9vyzaQVPsoIkp7n9WQPdnSt4+SQCRyacRvC06ESIaBQGZZ/m49Ss3AR5pLLhpyxWakE1g8UnrCSwPtKDviewVn+R6nCmvhiKWA69p6N3/uykqtEePltdRnLKNVt1y69pCZEE2F/ZYPSEA5MaKowUhzZHeW3VRNZoYAW9CAh9wXC3c8F3YphCjOeIUbg2dPUeD/ynX89lW9omMVqmo2pZuaq1ccFdLgNeIluELR3A6KUWvl9wn8MqnJEAfKOYuJ5wgkE86+FCkozhJpxrOqvgdB1Sox8n8kcT2K0tRRVQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=51hqpufEsGFCNBACr1uUKiNF0Xfv39s6lzkZW/FMhR8=;
- b=tYKD0bP7pXPfdaQWmulWueUwpor8OZd3+P+puVYZOwrV7r92Z76Zd4zjDtWa/mKfWKgYsJ30Wid746DMteVTvCoih7pCKLF8E+DOvhCcA8PLnqnamyn4cFSuFE3dr1eKJ1x0clPMJGKT1Jy8bVSaHZOlH0OWAQiXVG2oDWYub+A5ztZ1lDJ+sdDoFSGxSkAKyUHV+10w5+Tdm3PWGRj+FUtoO5+Yz4dGubqgbBcc1y8ueUXrKTYOr6kO6AKhmu2kCOrtV0HjFMs0b1z5+BCBEaaZl6T+8vhnVPGMyYN/rbafDgtOv2IpThLFa8HiW75kjDVEM5AwlPuMlyT6nLEATg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=51hqpufEsGFCNBACr1uUKiNF0Xfv39s6lzkZW/FMhR8=;
- b=dXUbsnTUlnDDCiYeBIj0M6IWdFbYVo4CEsorufj03DV7CDLnBMvqm6xTPOxMWhbcuYKJDp7O663s8UEV68PamG2QZ2ic+uxAR70HqTBWzvgmM8qdfxMqcnqZUBhlb9O/OMIst6htvhqftyXSvVY1NQexLbTxzsMWHO6AnpktAQYgjffOsj8UMWyzhnhM5TRjx6u1gfcU6YCaCJqnOtXw4KGc3qr3E2496guO4fmG5ZTs7e5Mf5etP/Cznk2Dliusg75HhoEnk+vTxACfnqTwWnRfPM1wots0KBTuRECTaGlpjovbeA3J5M2sXiBAXS5wkZmMltJEuvIxd8Lbsfjg5w==
-Received: from PAXPR04MB9185.eurprd04.prod.outlook.com (2603:10a6:102:231::11)
- by GV4PR04MB11852.eurprd04.prod.outlook.com (2603:10a6:150:2dc::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.18; Tue, 14 Jul
- 2026 21:10:01 +0000
-Received: from PAXPR04MB9185.eurprd04.prod.outlook.com
- ([fe80::b4c0:6119:2228:2ceb]) by PAXPR04MB9185.eurprd04.prod.outlook.com
- ([fe80::b4c0:6119:2228:2ceb%5]) with mapi id 15.21.0181.016; Tue, 14 Jul 2026
- 21:10:01 +0000
-From: "Shenwei Wang (OSS)" <shenwei.wang@oss.nxp.com>
-To: Andrew Lunn <andrew@lunn.ch>, "Shenwei Wang (OSS)"
-	<shenwei.wang@oss.nxp.com>
-CC: Mathieu Poirier <mathieu.poirier@linaro.org>, Linus Walleij
-	<linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, Jonathan Corbet
-	<corbet@lwn.net>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson
-	<andersson@kernel.org>, Frank Li <frank.li@nxp.com>, Sascha Hauer
-	<s.hauer@pengutronix.de>, Shuah Khan <skhan@linuxfoundation.org>,
-	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
-	Shenwei Wang <shenwei.wang@nxp.com>, Peng Fan <peng.fan@nxp.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, dl-linux-imx <linux-imx@nxp.com>,
-	Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>, "b-padhi@ti.com"
-	<b-padhi@ti.com>
-Subject: RE: [PATCH v14 1/5] docs: driver-api: gpio: rpmsg gpio driver over
- rpmsg bus
-Thread-Topic: [PATCH v14 1/5] docs: driver-api: gpio: rpmsg gpio driver over
- rpmsg bus
-Thread-Index: AQHdE9UiiwYvBWdefECeX5whBWF86A==
-Date: Tue, 14 Jul 2026 21:10:01 +0000
-Message-ID: <PAXPR04MB91858B3C5D5E1B74B9291BE289F92@PAXPR04MB9185.eurprd04.prod.outlook.com>
-References: <20260625155432.815185-1-shenwei.wang@oss.nxp.com>
- <20260625155432.815185-2-shenwei.wang@oss.nxp.com> <alUdg9iTysXCFUa5@p14s>
- <PAXPR04MB918568AE7B2364EC9D16427689F92@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <68a9dd77-a07b-4ea5-ad66-9e2bda490d20@lunn.ch>
-In-Reply-To: <68a9dd77-a07b-4ea5-ad66-9e2bda490d20@lunn.ch>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-x-ms-exchange-messagesentrepresentingtype: 1
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB9185:EE_|GV4PR04MB11852:EE_
-x-ms-office365-filtering-correlation-id: 5625f509-5b81-47bf-a0b1-08dee1ec44ac
-x-ms-exchange-sharedmailbox-routingagent-processed: True
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|366016|1800799024|7416014|19092799006|23010399003|38070700021|22082099003|18002099003|6133799003|4143699003|11063799006|56012099006;
-x-microsoft-antispam-message-info: HyEyYJT2HCUGLG9oJad44CdWnwv/ovj3rJYWzrRwHnOpyLP21JKAgPtJUKXQMTobA+FF6Nxxij0Q5s+SHV0rH+rwmhWDlY8BuNtA4fG4a7tS9Od4LGjwOPVQrfdY+mvCcJz2kUTN59Kjudb++RmX/TgrZB34fePAEVMWbiIkgDiHIqUTW4f6KsMLBsNxsjmxBbQ1jQqOW5WV1bbaTeWFPwjZoSWWBD6LNyDWlhvq2flUeRXp9+ShgDI4WsWa4hMq323uU8bHggMvQrv0KDL9pgnMY2j+al/DBm7SKADkUp0fUoKxT4mCanYw5L+4RX4vUhl4sOh6l3HvvRmSfAXRIS72eBB+cJ6odrPxfJiWIZRTCUdeq1h+wL1dtJIjT1wrAwSLrULfG7/1EUrrz8yIHBnppKnLZJAP0+HtBxQ3f2ZJ2UIRyAHkV7JIfJF6JOe8cf7LQ3mGmlrJn9DwqZOzt0fTY6j1F0s3cGkhzzjYLBBd58sMCm3YW6bL1+W4QGlmaxUjIxu8un1JvLyqTzNoi5ib940hndNy16oCw3AeFYN3lLfMhSLEYImMZ32I3519hcDIS2tteJVITqWSt7w6T9tJ86bkxPQF3uwHMslkGt1i7RQoHUEoLFNOEucRNwc8gWSurySJIOxMBzVjpHpGfU+NTvytHmkeIPrXz04T+l9Flpxq3nuzhqBgpNlIBt4nJv+kFwZhnOP/OLf5Kw2LnE3MjznHigDyrFyk5IegQks=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9185.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(7416014)(19092799006)(23010399003)(38070700021)(22082099003)(18002099003)(6133799003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?O2OWYonb75sYzkswomCi/qX6vS9635/NvM/mlrGf5pYTHnYkmT331k4K+2zn?=
- =?us-ascii?Q?AdyV+SfQHK8eJfT7sbfYt5fh76oO1tXkoLGCYf/cPKot5Pe9snr88lzOqmu6?=
- =?us-ascii?Q?25Gm8cS6IUoiSZYyV00v7IRMRt5GGMPmOmRf2Cl7bRuNuR6WL9WKZzrP9OQP?=
- =?us-ascii?Q?6pU+S+4rNe2Cl9rHe8aJirrdkR9cU8y+dVpq3R1hqrG98ysa6Ru5vMblYh3+?=
- =?us-ascii?Q?KndB+X7mO7spN9OgWlu2dbJWSpPVKGyWSICbtsZh+KXc9PhFCzkyULXJk4Y6?=
- =?us-ascii?Q?olGAuXpkr6FFWZu2rrqdNkQzarotkrUOCyNBbxwd124wPdPfIhx4zsQxxe6v?=
- =?us-ascii?Q?wEbhfm2N5N3bKQYX3yR7vo4k9pnbSX2fvN7nBNdq65joEdVRu6y/cA+aQ3dM?=
- =?us-ascii?Q?QtatY+pbYZCk70j2VUklcYejfAtPigvbR2KVGNwRH5TKnk4YXZAsfkkTytp3?=
- =?us-ascii?Q?kODLlsWVT2W+T97a96zYkvJVQRS9iFkw8UMHGuW3m7+Bnv88yufT2serG+yh?=
- =?us-ascii?Q?tAbom059Mpxg43+wsd88hT2lM7UCK93vQDL+2YNiA8bCKy7rLwoi0/IncOOl?=
- =?us-ascii?Q?lfqwnLq1KycU9eS3ZkCf1QUVR5S76b+3+/eULA2VWnfjEX+/lyJEdKV+XPKv?=
- =?us-ascii?Q?36iBIloUWZukYIIZemduUnYTQ6xzFOEsKmxFWBK/pnHmziJTaZihvtBJVwWl?=
- =?us-ascii?Q?fHzBa4NIUmx1ktBvFeeEijhXJEyfQkM5NDxnZsI754DyYMxfJJvNh/2FSwAz?=
- =?us-ascii?Q?KtGapeoAA4FN5faFy4A2b4UmEvouJ2BZ3KefeTYi/gRRXsZxC+MCLtJ54rL6?=
- =?us-ascii?Q?KA1v8NETtS8On4d4jwVUwmiTuPVNm6FYqbhu3WeeSR2O6R2doiJDtzUbRQrF?=
- =?us-ascii?Q?1YQMyiAlK59Q4yuVxi47Hs8/811KE9Uh7ZYNBRMyctcrBqFiEFRvfRaWnb6u?=
- =?us-ascii?Q?0T2EFTlWOrILivxXBrOqpi1nSq/grNS1HD42LMcp/5NjydglupILWjMbFsnZ?=
- =?us-ascii?Q?JvYt41hWvx05sy5mmM761V03cGwa93StZGYI3sci+BQ5rfTU32ZT+deloQSn?=
- =?us-ascii?Q?6e2+NEORjAiZla8YFB4sxgQH/ODK7IyxpzJru6mTbLEb6YWFpWrMx8qiV152?=
- =?us-ascii?Q?EalMrr7e5SN8gp8rtIlNUhfwFwJPGl/3vBor4DzfqwwDeWGl9bTW+xGtqH2o?=
- =?us-ascii?Q?Oa6Cfe7GAt4KpQX4oVu8shjCXmcLFORyLa5uo9r4yHGd3UOmZX1iEwYOQLDj?=
- =?us-ascii?Q?NuauJaEfZQoVS+othFje9E98jbGX62vxNRCuWnm+G34YzKZlDS0dvuVjAjz0?=
- =?us-ascii?Q?cHkcLkpV6e0bjgLso6XhG/6barCf6tw4DVL2HVzoEoPJjgY6ehB+6LCwhRj0?=
- =?us-ascii?Q?eoj0AbzCssCdk90dBnTHHvOkeMgRNVC2uCKc7l98fjPEP/GELWKGy9AEuhDb?=
- =?us-ascii?Q?RI7gXbDcoHJ0kmN2hMVw/2X5bHjF52gL2BIoVEI24SPjGAnaczgQyGmRBCya?=
- =?us-ascii?Q?CYYexjL8gqrZ6jCXdOfYnlNOvo2EKQGIYhEfI2gueqFN9QyVlINZsP7d/Ekd?=
- =?us-ascii?Q?8pp28cwbGzHepdv8Vnvk4zBCdjwZqavVUubLegek9ecCK/m/bmW23jLWk55p?=
- =?us-ascii?Q?Cq5HFkmxA6AGNlLfX65D0CA8zavyC+E9x+3SJdHCo/xg7zsTD3pMs1zYQTmm?=
- =?us-ascii?Q?7hKrgK0L+aP12FYzFvkwq7+ilr74q7dkjW8J8kXmq2WxwnazTpNfrhRj5PBY?=
- =?us-ascii?Q?VwHGdAfNbg=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 14 Jul 2026 21:10:33 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 062B1601D9;
+	Tue, 14 Jul 2026 21:10:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 847131F00A3D;
+	Tue, 14 Jul 2026 21:10:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784063431;
+	bh=FYLD+NQ3yFPrFtbxnnlrRNCjugvsXj89g6HloVaglxs=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=B/T2AbrfLUNgebIFoIO2AxPaQSi4huO5+GJE3Q2Y57ZrNwR6HS5N9Ki45t/1UAC3/
+	 rV9DLAcJHzYu/VGNAl6PQrOV+ThGzBEgkp3M/C6pbpA9JHGkuItAMZCCmz/r7T5Zqp
+	 olo9UA0Q24xvVJGF5bfKipii+3YDgfQnYAAvHRRSPJQjwYtxk1JMeBAWqi+0ssa0ev
+	 GmbXseZzB25y9ke//Gy6ri1XbJtoo2wpRL0twmxk9yfe+EkZpiZzhq+XJxC1byaBgx
+	 w/HGLdj7IlQCAIC9uzTQ44N3BIK+hoWHKdLBUnqIXG//hqa6bRsWePVCP54hkrL89x
+	 e1EWRrFgEuSfQ==
+Date: Tue, 14 Jul 2026 16:10:30 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Manivannan Sadhasivam <mani@kernel.org>
+Cc: linux-pci@vger.kernel.org, kernel test robot <lkp@intel.com>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Marc Zyngier <maz@kernel.org>, Rob Herring <robh@kernel.org>,
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH v2] PCI: rcar-gen4: Isolate driver to ARM64
+Message-ID: <20260714211030.GA1412991@bhelgaas>
 MIME-Version: 1.0
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9185.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5625f509-5b81-47bf-a0b1-08dee1ec44ac
-X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Jul 2026 21:10:01.3653
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: YUz5o5kT7JgCzZ+bjv8tSxWix1vDierJbo6ChIG2i8gcD/xTWsBHm1sRBCBJaqOPlpdP+JTxlY3e83LsQDL+Sw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR04MB11852
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_141008_483752_114F2433 
-X-CRM114-Status: GOOD (  16.84  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260714131957.38067-1-marek.vasut+renesas@mailbox.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,75 +81,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Jul 14, 2026 at 03:19:27PM +0200, Marek Vasut wrote:
+> The driver includes linux/irqchip/arm-gic-v3.h which pulls in headers
+> which are available only on ARM and ARM64, on other architectures the
+> headers are not present and the driver fails to build. This driver is
+> used only on ARM64 hardware, isolate its build only to ARM64 to avoid
+> build failures on other architectures.
+> 
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202607100310.iQw5m9Uo-lkp@intel.com/
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
+Mani, I assume you'll squash this into 89bded511a66 ("PCI: rcar-gen4:
+Configure AXIINTC if iMSI-RX is not used") so it's connected to the
+addition of the linux/irqchip/arm-gic-v3.h include and there's no
+bisection hole?
 
-> -----Original Message-----
-> From: Andrew Lunn <andrew@lunn.ch>
-> Sent: Tuesday, July 14, 2026 3:23 PM
-> To: Shenwei Wang (OSS) <shenwei.wang@oss.nxp.com>
-> Cc: Mathieu Poirier <mathieu.poirier@linaro.org>; Linus Walleij
-> <linusw@kernel.org>; Bartosz Golaszewski <brgl@kernel.org>; Jonathan Corb=
-et
-> <corbet@lwn.net>; Rob Herring <robh@kernel.org>; Krzysztof Kozlowski
-> <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>; Bjorn Andersson
-> <andersson@kernel.org>; Frank Li <frank.li@nxp.com>; Sascha Hauer
-> <s.hauer@pengutronix.de>; Shuah Khan <skhan@linuxfoundation.org>; linux-
-> gpio@vger.kernel.org; linux-doc@vger.kernel.org; linux-kernel@vger.kernel=
-.org;
-> Pengutronix Kernel Team <kernel@pengutronix.de>; Fabio Estevam
-> <festevam@gmail.com>; Shenwei Wang <shenwei.wang@nxp.com>; Peng Fan
-> <peng.fan@nxp.com>; devicetree@vger.kernel.org; linux-
-> remoteproc@vger.kernel.org; imx@lists.linux.dev; linux-arm-
-> kernel@lists.infradead.org; dl-linux-imx <linux-imx@nxp.com>; Arnaud
-> POULIQUEN <arnaud.pouliquen@foss.st.com>; b-padhi@ti.com
-> Subject: Re: [PATCH v14 1/5] docs: driver-api: gpio: rpmsg gpio driver ov=
-er rpmsg
-> bus
->=20
-> > The two fields above are required for rpmsg-gpio, but not for virtio-gp=
-io.
-> >
-> > In the rpmsg-gpio case, interrupt detection and handling occur on the
-> > remote processor. The interrupt information (such as the GPIO line and
-> > trigger type) must therefore be sent to Linux through this notification=
- message.
-> >
-> > In contrast, for virtio-gpio, interrupt handling is performed on the
-> > local processor. Since Linux already has all the necessary interrupt co=
-ntext, the
-> information is not needed.
->=20
-> Are you sure about that?
->=20
-> virtio_gpio_irq_set_type() sets:
->=20
-
-Why are you bringing up virtio_gpio_irq_set_type() here? The command path i=
-s already=20
-fully aligned with the existing virtio-gpio implementation.
-
-The gap we are discussing is the interrupt notification message coming from=
- the remote side.=20
-That is the topic under discussion.
-
-Shenwei
-
->         irq_line->type =3D type;
->         irq_line->update_pending =3D true;
->=20
-> virtio_gpio_irq_bus_sync_unlock() looks at update_pending and does
-> virtio_gpio_req(), passing irq_line->type as type.
->=20
-> This then gets filled into:
->=20
-> /* Virtio GPIO Request / Response */
-> struct virtio_gpio_request {
-> 	__le16 type;
-> 	__le16 gpio;
-> 	__le32 value;
-> };
->=20
-> which gets scatter/gathered over the virtqueue to the peer.
->=20
->       Andrew
+> ---
+> Cc: "Krzysztof Wilczyński" <kwilczynski@kernel.org>
+> Cc: Bjorn Helgaas <bhelgaas@google.com>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> Cc: Manivannan Sadhasivam <mani@kernel.org>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+> Cc: devicetree@vger.kernel.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-doc@vger.kernel.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-pci@vger.kernel.org
+> Cc: linux-renesas-soc@vger.kernel.org
+> ---
+> V2: This is a rework of PCI: rcar-gen4: Inline GIC_TRANSLATER offset macro
+>     which isolates the driver build to ARM64 via Kconfig instead:
+>     https://lore.kernel.org/linux-pci/CAMuHMdVvWE7YZgKvreSn_vJLOVD4eMmn3TCGOyqSXksqjBCwvg@mail.gmail.com/
+>     https://lore.kernel.org/linux-pci/20260714110041.GA1349622@bhelgaas/
+> ---
+>  drivers/pci/controller/dwc/Kconfig | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
+> index 49a7a2c50ca15..3260d916110b2 100644
+> --- a/drivers/pci/controller/dwc/Kconfig
+> +++ b/drivers/pci/controller/dwc/Kconfig
+> @@ -346,7 +346,7 @@ config PCIE_RCAR_GEN4
+>  
+>  config PCIE_RCAR_GEN4_HOST
+>  	tristate "Renesas R-Car Gen4 PCIe controller (host mode)"
+> -	depends on ARCH_RENESAS || COMPILE_TEST
+> +	depends on ARM64 && (ARCH_RENESAS || COMPILE_TEST)
+>  	depends on PCI_MSI
+>  	select PCIE_DW_HOST
+>  	select PCIE_RCAR_GEN4
+> @@ -357,7 +357,7 @@ config PCIE_RCAR_GEN4_HOST
+>  
+>  config PCIE_RCAR_GEN4_EP
+>  	tristate "Renesas R-Car Gen4 PCIe controller (endpoint mode)"
+> -	depends on ARCH_RENESAS || COMPILE_TEST
+> +	depends on ARM64 && (ARCH_RENESAS || COMPILE_TEST)
+>  	depends on PCI_ENDPOINT
+>  	select PCIE_DW_EP
+>  	select PCIE_RCAR_GEN4
+> -- 
+> 2.53.0
+> 
 
