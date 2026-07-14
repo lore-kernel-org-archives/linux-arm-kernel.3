@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5C9AC4450C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 09:17:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 067C8C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 09:17:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=whHpJ36OI1bAClZaUTHR3b4xJe/NWRnqvq/wOSxIZAM=; b=w/O8oQUZhCyvGskb0Z/NdQZ5f4
-	kCZupzAtOHFbEZrb+eEVTxEh3rQIRjgSbFvwEVRbduTQxJiMgAw6IN/t9CKgFazjnMGBfLa/GvHfP
-	AFsJxOZsIxWesq46kU2gyMwO52Q9Hy6LFu2p7q8yM8Xx2dGfFSEldEYCyy7zhE1VuEYYrtdKT4fYr
-	TEeh4j1YrX20gtrWzSh/Op4r7s5N2GZBRSPSGPxtvovCQJSOfRvxAQCqv0hx4cTV0wlFU/PtOnrfs
-	XNhbKOjAeBhW8a1Z/Dt3txqSEvkWLnxoYKH6S5SqTC7k+AHo/f4lfIX/Wkt0CaB8+rInRnn75yloq
-	VQ8LVJcQ==;
+	bh=xoiK/RNeZLIkLzyKO8ly8OA0RZ+EXunPBVOADEEok6o=; b=4C0cT0SVVZkpW84T3Yfz7jWZ7o
+	l5HjbXYKExGvmLhRqBrjjL+vuFM3y/r7dul/ykBBcj0OlQh2AQB8+RoEBq0IN7pUHgJg2TU+m5oF8
+	WIbsmBpL6y+16wIKcPlkSWSTEDo+W1u4+Mqz+bsrjmxHvwIlE2rE0CBQnV8BhDCz0kULqihpyCjx+
+	Qr2KECNu/Iz8wsy1rZ7YC146lv5xRnqmZSvGQCpOQ+VX54OWSOZAa+Jy9VEmHb4lzzvS6yoEwnyY5
+	N56Lu3EC3cRm/qwDfIKU/UCrR3WpDfgqmctL4LLmk3pj3nyFh6bmEQH78WgoKVb9SKwK05OgAAeKD
+	KoDZ77Yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjZGG-0000000BPTM-290K;
-	Tue, 14 Jul 2026 09:17:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wjZGC-0000000BPF0-05tH;
+	Tue, 14 Jul 2026 09:17:04 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjZG2-0000000BP5p-2T9f
+	id 1wjZG0-0000000BP3W-0vlc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 09:16:54 +0000
+	Tue, 14 Jul 2026 09:16:52 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4CA6743D70;
-	Tue, 14 Jul 2026 09:16:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 339F91F00A3D;
-	Tue, 14 Jul 2026 09:16:54 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F3CCD43D82;
+	Tue, 14 Jul 2026 09:16:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D469F1F0155C;
+	Tue, 14 Jul 2026 09:16:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784020614;
-	bh=whHpJ36OI1bAClZaUTHR3b4xJe/NWRnqvq/wOSxIZAM=;
+	s=k20260515; t=1784020611;
+	bh=xoiK/RNeZLIkLzyKO8ly8OA0RZ+EXunPBVOADEEok6o=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Gxh0Iljc1oJhFiio18Ouh41Y36fLRg9DZqzzvhcrgXH+RIwA4OWzNCkV2e6iFwf58
-	 m1cHD/AnL4GqNG8gUB9c3pREAKc4cxpENSKgGyytMvvurBUay/QZ57VSDPwjMGTuVK
-	 B8Iuqx4cRmSUcEAsX1IgM/G2X/oAQ/4zodEO/tQTpjV1D0N0yi5CE0FOVll0pyLykJ
-	 PJDXWyri3s5vgp203KBnkckJhOm936J9/tbzKL6ZpZc6KYYisSVWaQ0+d3/dp8r9BN
-	 3TG5XmXwRuQCN+ghc0c9Eq70WHFEvlrJDajxsFGk6GWblxMmT+NKaC9WILKI7ZMq2Q
-	 aj8uHnnpNYgXw==
+	b=B5X5Gyy7WQJOWp4rCnsnnDsBP6sG/qRDb5qbJJsSPoK1fruyi2PX6dOWfe8XnIDcX
+	 rQry0/sfsebagdicEuuvML/Aliwa+rvm6MsvpSAuV7+PKFpGSarzxCXF7NwyRxabdk
+	 zsDo/0QOHhkU6X+tNzvI75bc3KVKEg4ZSs2R6MEJCo6QvGC+8EKH5bUefd77LR3CSX
+	 jTJEIksaCWKpW88SWWTSuu2KhUI7q/mmgembmvZ8WAuI36r0TkzNXx68ncx11jIjJG
+	 nYHtlT6u7jJP6pBAyqZowC9v2rhD1X5iTp3gZYC8tvTSnU/B+qnN5TkXqtl8Vznln9
+	 6tCKQ2Yh/+MVQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wjZG0-00000004ny1-26iz;
-	Tue, 14 Jul 2026 09:16:52 +0000
+	id 1wjZFy-00000004ny1-0dcu;
+	Tue, 14 Jul 2026 09:16:50 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -57,9 +57,9 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Oliver Upton <oupton@kernel.org>,
 	Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v2 26/28] KVM: arm64: Add FEAT_NV3 detection
-Date: Tue, 14 Jul 2026 10:16:39 +0100
-Message-ID: <20260714091641.1970822-27-maz@kernel.org>
+Subject: [PATCH v2 15/28] arm64: Add ARM64_HAS_NV3 capability
+Date: Tue, 14 Jul 2026 10:16:28 +0100
+Message-ID: <20260714091641.1970822-16-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260714091641.1970822-1-maz@kernel.org>
 References: <20260714091641.1970822-1-maz@kernel.org>
@@ -83,32 +83,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that everything is in place to engage the FEAT_NV3 fast-path,
-add the detection code to cpufeature.c.
+As a bunch of KVM code is going to depend on FEAT_NV3 being detected
+on the host, add a new capability that will describe it.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kernel/cpufeature.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+ arch/arm64/tools/cpucaps | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index c9c124b0ccc8e..6ae1c816e2010 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -2627,6 +2627,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
- 		.matches = has_cpuid_feature,
- 		ARM64_CPUID_FIELDS(ID_AA64MMFR4_EL1, NV_frac, NV2P1)
- 	},
-+	{
-+		.desc = "FEAT_NV3",
-+		.capability = ARM64_HAS_NV3,
-+		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
-+		.matches = has_cpuid_feature,
-+		ARM64_CPUID_FIELDS(ID_AA64MMFR4_EL1, NV_frac, NV3)
-+	},
- 	{
- 		.capability = ARM64_HAS_32BIT_EL0_DO_NOT_USE,
- 		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
+diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+index 242dc211d8efa..7e0414509e89a 100644
+--- a/arch/arm64/tools/cpucaps
++++ b/arch/arm64/tools/cpucaps
+@@ -52,6 +52,7 @@ HAS_LSUI
+ HAS_MOPS
+ HAS_NESTED_VIRT
+ HAS_NV2P1
++HAS_NV3
+ HAS_BBML2_NOABORT
+ HAS_PAN
+ HAS_PMUV3
 -- 
 2.47.3
 
