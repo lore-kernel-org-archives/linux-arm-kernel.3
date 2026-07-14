@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71FABC44508
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 13:05:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3D6FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 13:05:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XIYsLkAjUeyDKKQKrmnCLsByOqWE42bsxW6TVXBXKao=; b=DHYNB6xpTMhVdCVb9A21oAjvsp
-	pKznCJe36gAsuzmRKaeQoMq0AyufOXpYoCiuYfMW8SZQ+hQXicscos+lEohyxs4GxdiyZoWs88c6p
-	Ta8qPluBZ4zax+hqOqJNhEauAm8OHjN7pi8GqYJcptmu6ZJ3Rg0YYypHVdmJ7+9hIrCPOFFzZetP4
-	dlllKch0JI1JltkBIrRFBVDalr4JzmcmwGGHRJqqgHxcOxpV/kJtqQpnlagYrBjHf8577yINOENzd
-	LAIzDiTqCKaEMlCFwGgYVhFPnqblsjGcSrVxu/SdmlGks5uKIciJMr8KpVG2PBYoNzelIRITmXFjV
-	qIOazuHg==;
+	bh=r2wfK8JSekgLRRiuf/K6EQ8zzuugkmdh+qH0iDGf9K0=; b=gFZWKAnZUbTcLBW8NfqpRAb1Xo
+	6X93xRokEGqyKfanmPrKOOZzC/W3dz5KKmh3qvrs6A7+cx5/iqV4TRpTbD2TgSPvMBsGVLq7oLIoQ
+	HFIQBSLfL2rPZWuTg/G/etOnKGpHiB8MPoEx5cMZ3WTzdQkZUgk+tkkMkfQjFFAD9mNDGZswPvA9p
+	AaVlEhpr0a02mTybkHWkUvCBqAPeHJh/YPBDCt4e74VkezhtMoDwsXLS0OEeo1Y7meWrxvWHGgr1s
+	dvGxdFOrrwS9JmgOYQeVwiCY5xiuvSYh+nyt4zMWBi1MhpEUBkxUS92zcOO6SoKX7o5zYz+nk8ut0
+	4E3BwK2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjcol-0000000C57e-3z2d;
-	Tue, 14 Jul 2026 13:04:59 +0000
-Received: from mout-p-202.mailbox.org ([2001:67c:2050:0:465::202])
+	id 1wjcp2-0000000C5Mc-1VLa;
+	Tue, 14 Jul 2026 13:05:16 +0000
+Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjcoi-0000000C53j-37Y8
+	id 1wjcok-0000000C54S-2Vco
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 13:04:58 +0000
+	Tue, 14 Jul 2026 13:05:00 +0000
 Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA512)
 	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4gzzzq0bffzMlDF;
-	Tue, 14 Jul 2026 15:04:55 +0200 (CEST)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4gzzzr3fwgzKmyK;
+	Tue, 14 Jul 2026 15:04:56 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1784034295;
+	t=1784034296;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=XIYsLkAjUeyDKKQKrmnCLsByOqWE42bsxW6TVXBXKao=;
-	b=ndQOwXuXEEczfanTo49npLbHWf8Z8V/O/MY8Za+ZvouLgB9SDa/Oo4+Dzyg+CTPU0BOXgy
-	1cntIqMgv5mCscTZlCI7OdtMeKWqE/jnKyVeXzSqqp1JSTO4vgES/dZ4RH66jmusyFWyYJ
-	CYKUNFkR/24GDNAX4IP5rYXy1J3sxY6AQFWcs3VrTlA2rrvAatehXzgY7F25scVJcypsVo
-	/HfD0MeHyW9RZTkx2LEXKMNYUgV+KELTDSfMR0LwddL46jTjxe2ITlv+pJ3xY9KipHUyG5
-	NzFP3c5NAJeBKHbJ7jOt5pI+unAFIo/C75RZjbGOLJXVKOlih9IL9+u5VThklQ==
+	bh=r2wfK8JSekgLRRiuf/K6EQ8zzuugkmdh+qH0iDGf9K0=;
+	b=QKVPOvc7XATX0TgWPP7fg+a/GRwt5ke/O2RAWHOYxX+202HFXu4TVCrQlXnoHjVm+e30bX
+	s4PpBYbF/ThQLseE15m6CUPhpWRnIL6pcaw0aKmCcQXwnyVliZ3JWlmWxdvYU+oVqeFcSN
+	Nrk0DrXRxJNENVbJbQQUxiIsTy3jp4KvIsPIA1UX+itHkoYcqLXjMqg41LKNBpiMNjqdOC
+	necacqxRbQKpdJG0nQ5JKqzstJnI4qcr+1f9SM0cb6iG0iRR95VQB9ISnUIria7YLGV4p2
+	Hkma9wOBAbyvb2vqJKZMlwDxXCnRzEeEWko8+IR94b50FGveHmOuyoKYK4S9lQ==
 Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=ayzvAUb3;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=O573BQ2e;
 	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::1 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
 From: Marek Vasut <marek.vasut+renesas@mailbox.org>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1784034292;
+	t=1784034294;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=XIYsLkAjUeyDKKQKrmnCLsByOqWE42bsxW6TVXBXKao=;
-	b=ayzvAUb31pnEGosErW9vURvJpfJiAc8OgINnQFjBJaLLc/PBS2sRzKFk/xmbrnT8u7qktL
-	ggy2cv/9vmPcOZAUnkPLfw3SnMaxq+dqHvTDlQh+Pwr7R3ISHl+S+KBEDzNabC+0nD64QC
-	91olWvD+bjs3aRHpv1Zt9qwKnd6Xxa430P/0JQFvF7D48nA50F/o/gdzab+aF1BXmiQ8Pt
-	HGcrJqe2CdA9TUUGWG1iNZ7ns3QMgryVP+FYxftwF4jx3pxJzQYhhqXejvD7dYt9p0qrTp
-	xfj5QasdjuGRloY9TLloKHGSy4CHvFTZ7m4FCQyLSRTPG9UhyvqRO+rdwLgITg==
+	bh=r2wfK8JSekgLRRiuf/K6EQ8zzuugkmdh+qH0iDGf9K0=;
+	b=O573BQ2eU7zfrj+sqb3IKUmdl16xJ2OHFc+P7Eawajxtu7tVsprQoBOlkv/T+CHTYVecGo
+	hWkozd2ilBQT2PtFoEGZ5opi394w3g4THN3iOMX7c8Cr83kPiZx4ZP+o0FF25wi9yJKhaj
+	LRi9YU4Jdu6pjYytwdYGptgNcx+Hdt9zTpAKp8dgQjJDOB4jbDgAgAK1nEsDDUEYNtAdWS
+	VLe9oVXUe0/z6rmmj1QZ74xk7O+L9UNv93Sbp6rOLbed0ZsSpTvu+Fgazw1tqdQ1EuRhs4
+	jA/0R2PTkBbc7pzloOxP5bAtL7ELPoaO/c2O9im99kZfELtQEyv90Q7YmFIGaw==
 To: linux-arm-kernel@lists.infradead.org
 Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	Conor Dooley <conor+dt@kernel.org>,
@@ -70,19 +70,19 @@ Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH 8/9] arm: dts: renesas: sk-rzg1m: Specify ethernet PHY reset timings
-Date: Tue, 14 Jul 2026 15:04:01 +0200
-Message-ID: <20260714130429.11214-8-marek.vasut+renesas@mailbox.org>
+Subject: [PATCH 9/9] arm: dts: renesas: sk-rzg1e: Specify ethernet PHY reset timings
+Date: Tue, 14 Jul 2026 15:04:02 +0200
+Message-ID: <20260714130429.11214-9-marek.vasut+renesas@mailbox.org>
 In-Reply-To: <20260714130429.11214-1-marek.vasut+renesas@mailbox.org>
 References: <20260714130429.11214-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: 443339035ef379a2ec4
-X-MBO-RS-META: uhewo1entse39fnbw516k77yt4a41km6
-X-Rspamd-Queue-Id: 4gzzzq0bffzMlDF
+X-MBO-RS-ID: 6b610f2587ac1bd8da2
+X-MBO-RS-META: mi95c6jdhh1x9qahzzdr8rzj94gbd7r4
+X-Rspamd-Queue-Id: 4gzzzr3fwgzKmyK
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_060456_926835_A709B579 
-X-CRM114-Status: GOOD (  10.60  )
+X-CRM114-CacheID: sfid-20260714_060458_790702_C73973A8 
+X-CRM114-Status: GOOD (  10.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,20 +122,20 @@ Cc: devicetree@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org
 Cc: linux-renesas-soc@vger.kernel.org
 ---
- arch/arm/boot/dts/renesas/r8a7743-sk-rzg1m.dts | 2 ++
+ arch/arm/boot/dts/renesas/r8a7745-sk-rzg1e.dts | 2 ++
  1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm/boot/dts/renesas/r8a7743-sk-rzg1m.dts b/arch/arm/boot/dts/renesas/r8a7743-sk-rzg1m.dts
-index 60217797e5345..dc1b4ca944622 100644
---- a/arch/arm/boot/dts/renesas/r8a7743-sk-rzg1m.dts
-+++ b/arch/arm/boot/dts/renesas/r8a7743-sk-rzg1m.dts
-@@ -72,8 +72,10 @@ &ether {
+diff --git a/arch/arm/boot/dts/renesas/r8a7745-sk-rzg1e.dts b/arch/arm/boot/dts/renesas/r8a7745-sk-rzg1e.dts
+index 42e82f0697553..26ee1eec521be 100644
+--- a/arch/arm/boot/dts/renesas/r8a7745-sk-rzg1e.dts
++++ b/arch/arm/boot/dts/renesas/r8a7745-sk-rzg1e.dts
+@@ -67,8 +67,10 @@ &ether {
  	phy1: ethernet-phy@1 {
  		compatible = "ethernet-phy-id0022.1537";
  		reg = <1>;
- 		interrupts-extended = <&irqc 0 IRQ_TYPE_LEVEL_LOW>;
+ 		interrupts-extended = <&irqc 8 IRQ_TYPE_LEVEL_LOW>;
  		micrel,led-mode = <1>;
- 		reset-gpios = <&gpio5 22 GPIO_ACTIVE_LOW>;
+ 		reset-gpios = <&gpio1 24 GPIO_ACTIVE_LOW>;
 +		reset-assert-us = <10000>;
 +		reset-deassert-us = <300>;
  	};
