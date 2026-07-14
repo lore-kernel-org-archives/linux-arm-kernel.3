@@ -4,76 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 040A3C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 10:50:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C33AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 10:52:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yPGF1UDBgCf5RbKU5dxgnkqAQg95KKdRgb7F235/FIk=; b=SxVaBFuM0Je+SDxSTCjXs8XHD1
-	fNU4Zvr6VmHy7bJjrwIycW9Aasd3QjLpMoBo6knhNILkgZLUbNxY9lI1OD2Dc7OwC+JzqohVBl1nC
-	wItharec/4N4WLytYzghdsjN3MspL1dVKHIGYOBKKMpM0umgh6OjMOMcEmFv5Mgdq1L5xm5T0eE5l
-	HtFyevvARtXzyyUKtqHJ+FxGQ6h/ZqZYBVUGYmBteT+Y/eyFX14N71NAf57RqKLpN15/sv73FUss7
-	LRTqmBhDe1qYas+0BdnIvxK+m0bT0XWwSJoHZ01uhvgQzTqrcbfo8ro2MTt0ER70gz7Vat/nicRt3
-	TgB92uqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xDprwvx784Xc9BQVIPmW148jZZm4pST3tRcwvdQJB8o=; b=yTsKdPZPYVgCjNbf3d45jHYoLc
+	WeouzWajhJCm/hPoYOr/sJvuLYcga0kUTTx4fCEXmR0OH8M7CthH9YGqAhDpvByY+qSwaYXjeTNx4
+	CFtr3kOdppdklrfIWXhg0T1zG1YLzBDRR/0ZVh/LbB2VIMiGX79PfuUgemDQSxMUn93bUIxPRD1Ni
+	IdEmPvp3SIDwIrYyjaNeNpOO7O6up3CFHYmgSVrASzsGdNzaBC4uqcju9EBUnSNUAZ1CAUhsBLgbO
+	icFC7rFdwp4DunkhXc38oRvH/bjo3cOyOG8xMwqwM7eGgmDrjsQjp3DGEGN8WZS7i33G5nl4iFStk
+	q9udJvIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjaiN-0000000BbrR-0IWp;
-	Tue, 14 Jul 2026 10:50:15 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjaiK-0000000Bbqy-21mN
+	id 1wjakg-0000000BcKE-2dMm;
+	Tue, 14 Jul 2026 10:52:38 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjake-0000000BcIy-1AiP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 10:50:13 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 07D21497;
-	Tue, 14 Jul 2026 03:50:07 -0700 (PDT)
-Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9B1533F7B4;
-	Tue, 14 Jul 2026 03:50:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784026211; bh=ugEdljPCSekPsPwW4PCihd4OdtdjS/5MSBMg8Yqhmg4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=vbjePEBFPpMvvBpsHM8hDtTeucxTSPhBc4LjeBVrgAbArgKoV3MKqJ+1WC3Ack4X1
-	 z9AvJW4VM6bSpMofTd5GaL86/WnGjvKL9zDcdMTwkIxQBzy+gTqn7hbz6lmrMN6W2l
-	 vKpaUXdJrp5/Go26UjTTbNUKDuuZjScnO9DwJdP4=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Tian Zheng <zhengtian10@huawei.com>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	maz@kernel.org,
-	oupton@kernel.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	yuzenghui@huawei.com,
-	wangzhou1@hisilicon.com,
-	yangjinqian1@huawei.com,
-	caijian11@h-partners.com,
-	liuyonglong@huawei.com,
-	yezhenyu2@huawei.com,
-	yubihong@huawei.com,
-	linuxarm@huawei.com,
-	joey.gouly@arm.com,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
+	Tue, 14 Jul 2026 10:52:37 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-475417f010dso1925948f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 03:52:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1784026354; x=1784631154; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=xDprwvx784Xc9BQVIPmW148jZZm4pST3tRcwvdQJB8o=;
+        b=ipltmYAcBx/aZmieHLnB1OkGPz+Zjd2cVVF5PVpgKgFEjN6thujjBKXKYv+df04mUG
+         dK4zx/qnU3/eYd9A/63oz7sgqx/zKJ9ue/aJ2mm4wIAXln+nscjJRfmyzP5/eWXr8/Ql
+         BklNd0IJPyNVKUTW1yZIS/nKZUabje858eyAsxpY0rnvezpcaYhEx+BUWtxazjTSiYGB
+         sLgSKT8dR0Ny7ixkyrlq+03+cuNLt92ySDVpVbEgiq3yAO/43L+/3U8C9W5iWT/dDpt1
+         WovC6T/p5gmgNk8UOz7zJlvk9rTw+gn0cPCSmzoM6/85q+ADERaKMGY44BFQlY/jXetN
+         6p/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784026354; x=1784631154;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=xDprwvx784Xc9BQVIPmW148jZZm4pST3tRcwvdQJB8o=;
+        b=ls3v/P0r3D3GmTFXkW4E8H5uIAXLN6nnQzGQ05oJaJWvkHtni1tGtaS08uKv72Rhg0
+         4nHypMtEB2E4C0MSJ2Eb6+gT/TDvbhJAOXT6eSzl1kLFpcIoXPoqHr+zL5CskVvvoweA
+         rsz4pgvnC+UBbEkeUWmOaPOk6SJInwUInU00KPoe7i8sjfSlSKcjm/Eu9p6RnSfvsIHx
+         xWcXsEmX6nUw4BAS9kNAhJLaVgcUBMiG3ngPD2vAfUZv/FUKT7ziJM8WPt2S+UoWM1gp
+         ETAFvEDMYChvxplH6Qx16PHlF+dUuXBVP0wq8ZIV4CvDzt6UzGdqzEzWwMWrtfW1s5fm
+         uCqw==
+X-Forwarded-Encrypted: i=1; AHgh+Rrqb/m6CBOs/n4aoGhVRYS0F6tabgKcSYhsTuJmZvZ7NrfFnwxqUAIVqoJo1ZbZoIeBlvJc2sPUF5wjvTtKbH7O@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzic4f5H2cUHroIBz/nuO6ixFmtsJCZTq635+T8FT8Miada2Iir
+	pBP6S21EgrfcFSEt/7A2IhRpKZZmwKM+L5brb8l14DwM/lIp6pzYCAR1TTy1yW6VLxFJtynoG8j
+	hlI6zSw==
+X-Gm-Gg: AfdE7cmyqDVtbeNgxk3IRsrOrLlAXiVqFrWKlOgNtrk3W78wiqD2xFPOQWQ56QHhGka
+	XT0dH1A8MsLlSAfElrZCIosB0TKBy0bA84LrvY/F8Vnh5Irho2kDt9xaXeQFSgd+U2/c0W5ZSqU
+	X4SIqeDcwp1be8phIOSeMh2ykMXoYKtENxIh8OmQ3r81iUDdsyOPfUki49Q2OKUJUL8esi4TITW
+	NHq+SBYiZ4LeJFULVrp9MB0UluCCwSbHebR1ayEuJC+fbw89jNQWc5SfWHJ+KYMRQiAj5e0vvkY
+	MQjHEMT0PZ/nmR3i1/T4elpQiAj0paYYrmYQtlqObhY3uYIRtM0+q+PGWgmrbQFuZrnKPE+Vx7b
+	n14WIlXrEiz2ZVaOX4ypXR12TzBhyFHiYh4HxjCKxGt6TyckZHp1RCK+acAoA9v9AE/qx+qg00H
+	NU/T9SmqM0yE1g2MyQNeC7qbZDpcbHDKTYVY+lJkubyP9LfHHGlnzKJHBXWbkzmg==
+X-Received: by 2002:a05:6000:2388:b0:47d:ec60:657e with SMTP id ffacd0b85a97d-47f2dcecd20mr15005977f8f.39.1784026353902;
+        Tue, 14 Jul 2026 03:52:33 -0700 (PDT)
+Received: from google.com (137.69.77.34.bc.googleusercontent.com. [34.77.69.137])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f464b7e22sm7262049f8f.25.2026.07.14.03.52.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Jul 2026 03:52:33 -0700 (PDT)
+Date: Tue, 14 Jul 2026 11:52:29 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com
-Subject: Re: [PATCH v4 5/6] KVM: arm64: Add HDBSS fault handling and buffer flush
-Date: Tue, 14 Jul 2026 11:50:06 +0100
-Message-ID: <alYUXkub43YxkeH1@LeoBrasDK>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <9340fa94-6f26-4053-a4ca-0803af725936@huawei.com>
-References: <20260709104026.2612599-1-zhengtian10@huawei.com> <20260709104026.2612599-6-zhengtian10@huawei.com> <alTw0nwiBDWoFrjB@LeoBrasDK> <9340fa94-6f26-4053-a4ca-0803af725936@huawei.com>
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Quentin Perret <qperret@google.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	Hyunwoo Kim <imv4bel@gmail.com>, Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH v5 2/8] KVM: arm64: Make vcpu_{read,write}_sys_reg
+ available to HYP code
+Message-ID: <alYU7ScC3AI1_bi7@google.com>
+References: <20260714101601.4142645-1-fuad.tabba@linux.dev>
+ <20260714101601.4142645-3-fuad.tabba@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260714101601.4142645-3-fuad.tabba@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_035012_609437_0C17B0AF 
-X-CRM114-Status: GOOD (  35.43  )
+X-CRM114-CacheID: sfid-20260714_035236_392057_6E6A9A76 
+X-CRM114-Status: GOOD (  27.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,212 +111,180 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2026 at 03:38:39PM +0800, Tian Zheng wrote:
+On Tue, Jul 14, 2026 at 11:15:55AM +0100, Fuad Tabba wrote:
+> The vcpu_{read,write}_sys_reg() accessors are only valid on a VHE host,
+> so helpers built on them such as kvm_vcpu_set_be()/kvm_vcpu_is_be()
+> cannot be shared with hyp code. exception.c already wraps them in local
+> helpers that pick the host- or hyp-side accessor via has_vhe().
 > 
-> On 7/13/2026 10:06 PM, Leonardo Bras wrote:
-> > On Thu, Jul 09, 2026 at 06:40:25PM +0800, Tian Zheng wrote:
-> > > From: eillon <yezhenyu2@huawei.com>
-> > > 
-> > > Add HDBSS fault handling for buffer full, external abort, and general
-> > > protection fault (GPF) events. When the HDBSS buffer becomes full,
-> > > the hardware traps to EL2 with an HDBSSF event, which is handled by
-> > > setting a flush request.
-> > > 
-> > > Add kvm_flush_hdbss_buffer() to consume HDBSS buffer entries and
-> > > propagate dirty information into the userspace-visible dirty bitmap.
-> > > Flush is triggered on vcpu_put, check_vcpu_requests, and
-> > > sync_dirty_log.
-> > > 
-> > > Add esr_iss2_is_hdbssf() helper for HDBSS fault detection in guest
-> > > abort handling.
-> > > 
-> > > Signed-off-by: Eillon <yezhenyu2@huawei.com>
-> > > Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
-> > > ---
-> > >   arch/arm64/include/asm/esr.h           |  5 +++
-> > >   arch/arm64/include/asm/kvm_dirty_bit.h | 11 +++++
-> > >   arch/arm64/include/asm/kvm_host.h      |  1 +
-> > >   arch/arm64/kvm/arm.c                   | 14 ++++++
-> > >   arch/arm64/kvm/dirty_bit.c             | 62 ++++++++++++++++++++++++++
-> > >   arch/arm64/kvm/mmu.c                   |  4 ++
-> > >   6 files changed, 97 insertions(+)
-> > > 
-> > > diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
-> > > index 81c17320a588..2e6b679b5908 100644
-> > > --- a/arch/arm64/include/asm/esr.h
-> > > +++ b/arch/arm64/include/asm/esr.h
-> > > @@ -437,6 +437,11 @@
-> > >   #ifndef __ASSEMBLER__
-> > >   #include <asm/types.h>
-> > > 
-> > > +static inline bool esr_iss2_is_hdbssf(unsigned long esr)
-> > > +{
-> > > +	return ESR_ELx_ISS2(esr) & ESR_ELx_HDBSSF;
-> > This will return a long, which will be casted as bool.
-> > In general, what I see in the kernel is something like:
-> > 
-> > 	return !!(ESR_ELx_ISS2(esr) & ESR_ELx_HDBSSF)
+> Rename the host-only implementations to __vcpu_{read,write}_sysreg_vhe()
+> and turn vcpu_{read,write}_sys_reg() into the context-dispatching
+> wrappers, so every caller gets the version valid in any context and a
+> follow-up series can share that emulation code at EL2.
 > 
+> No functional change intended.
 > 
-> ok!
-> 
-> 
-> > > +}
-> > > +
-> > >   static inline unsigned long esr_brk_comment(unsigned long esr)
-> > >   {
-> > >   	return esr & ESR_ELx_BRK64_ISS_COMMENT_MASK;
-> > > diff --git a/arch/arm64/include/asm/kvm_dirty_bit.h b/arch/arm64/include/asm/kvm_dirty_bit.h
-> > > index 84b12f0a10af..4b28000e972f 100644
-> > > --- a/arch/arm64/include/asm/kvm_dirty_bit.h
-> > > +++ b/arch/arm64/include/asm/kvm_dirty_bit.h
-> > > @@ -10,7 +10,18 @@
-> > >   #include <asm/kvm_pgtable.h>
-> > >   #include <asm/sysreg.h>
-> > > 
-> > > +/* HDBSS entry field definitions */
-> > > +#define HDBSS_ENTRY_VALID	BIT(0)
-> > > +#define HDBSS_ENTRY_TTWL_SHIFT (1)
-> > > +#define HDBSS_ENTRY_TTWL_MASK (GENMASK(3, 1))
-> > > +#define HDBSS_ENTRY_TTWL(x) \
-> > > +	(((x) << HDBSS_ENTRY_TTWL_SHIFT) & HDBSS_ENTRY_TTWL_MASK)
-> > > +#define HDBSS_ENTRY_TTWL_RESV HDBSS_ENTRY_TTWL(-4)
-> > > +#define HDBSS_ENTRY_IPA	GENMASK_ULL(55, 12)
-> > > +
-> > >   int kvm_arm_vcpu_alloc_hdbss(struct kvm_vcpu *vcpu, unsigned int order);
-> > >   void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu);
-> > > +void kvm_flush_hdbss_buffer(struct kvm_vcpu *vcpu);
-> > > +int kvm_handle_hdbss_fault(struct kvm_vcpu *vcpu);
-> > > 
-> > >   #endif /* __ARM64_KVM_DIRTY_BIT_H__ */
-> > > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> > > index c41ec6d9c45a..cecfb884a64f 100644
-> > > --- a/arch/arm64/include/asm/kvm_host.h
-> > > +++ b/arch/arm64/include/asm/kvm_host.h
-> > > @@ -55,6 +55,7 @@
-> > >   #define KVM_REQ_GUEST_HYP_IRQ_PENDING	KVM_ARCH_REQ(9)
-> > >   #define KVM_REQ_MAP_L1_VNCR_EL2		KVM_ARCH_REQ(10)
-> > >   #define KVM_REQ_VGIC_PROCESS_UPDATE	KVM_ARCH_REQ(11)
-> > > +#define KVM_REQ_FLUSH_HDBSS			KVM_ARCH_REQ(12)
-> > > 
-> > >   #define KVM_DIRTY_LOG_MANUAL_CAPS   (KVM_DIRTY_LOG_MANUAL_PROTECT_ENABLE | \
-> > >   				     KVM_DIRTY_LOG_INITIALLY_SET)
-> > > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> > > index bf6688245d83..566953a4e23a 100644
-> > > --- a/arch/arm64/kvm/arm.c
-> > > +++ b/arch/arm64/kvm/arm.c
-> > > @@ -755,6 +755,9 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
-> > >   		kvm_vcpu_put_hw_mmu(vcpu);
-> > >   	kvm_arm_vmid_clear_active();
-> > > 
-> > > +	if (vcpu->kvm->arch.enable_hdbss)
-> > > +		kvm_flush_hdbss_buffer(vcpu);
-> > > +
-> > >   	vcpu_clear_on_unsupported_cpu(vcpu);
-> > >   	vcpu->cpu = -1;
-> > >   }
-> > > @@ -1157,6 +1160,9 @@ static int check_vcpu_requests(struct kvm_vcpu *vcpu)
-> > >   		if (kvm_dirty_ring_check_request(vcpu))
-> > >   			return 0;
-> > > 
-> > > +		if (kvm_check_request(KVM_REQ_FLUSH_HDBSS, vcpu))
-> > > +			kvm_flush_hdbss_buffer(vcpu);
-> > > +
-> > >   		check_nested_vcpu_requests(vcpu);
-> > >   	}
-> > > 
-> > > @@ -1971,7 +1977,15 @@ long kvm_arch_vcpu_unlocked_ioctl(struct file *filp, unsigned int ioctl,
-> > > 
-> > >   void kvm_arch_sync_dirty_log(struct kvm *kvm, struct kvm_memory_slot *memslot)
-> > >   {
-> > > +	/*
-> > > +	 * Flush all CPUs' dirty log buffers to the dirty_bitmap.  Called
-> > > +	 * before reporting dirty_bitmap to userspace. Send a request with
-> > > +	 * KVM_REQUEST_WAIT to flush buffer synchronously.
-> > > +	 */
-> > > +	if (!kvm->arch.enable_hdbss)
-> > > +		return;
-> > > 
-> > > +	kvm_make_all_cpus_request(kvm, KVM_REQ_FLUSH_HDBSS | KVM_REQUEST_WAIT);
-> > >   }
-> > > 
-> > >   static int kvm_vm_ioctl_set_device_addr(struct kvm *kvm,
-> > > diff --git a/arch/arm64/kvm/dirty_bit.c b/arch/arm64/kvm/dirty_bit.c
-> > > index 6c7a6ef66b5a..002366337637 100644
-> > > --- a/arch/arm64/kvm/dirty_bit.c
-> > > +++ b/arch/arm64/kvm/dirty_bit.c
-> > > @@ -50,3 +50,65 @@ void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu)
-> > > 
-> > >   	vcpu->arch.hdbss.hdbssbr_el2 = 0;
-> > >   }
-> > > +
-> > > +void kvm_flush_hdbss_buffer(struct kvm_vcpu *vcpu)
-> > > +{
-> > > +	int idx, curr_idx;
-> > > +	u64 *hdbss_buf;
-> > > +	struct kvm *kvm = vcpu->kvm;
-> > > +
-> > > +	if (!kvm->arch.enable_hdbss)
-> > > +		return;
-> > > +
-> > > +	curr_idx = HDBSSPROD_IDX(read_sysreg_s(SYS_HDBSSPROD_EL2));
-> > > +
-> > > +	/* Do nothing if HDBSS buffer is empty or br_el2 is NULL */
-> > > +	if (curr_idx == 0 || vcpu->arch.hdbss.hdbssbr_el2 == 0)
-> > > +		return;
-> > > +
-> > > +	hdbss_buf = page_address(phys_to_page(vcpu->arch.hdbss.base_phys));
-> > > +	if (!hdbss_buf)
-> > > +		return;
-> > > +
-> > > +	guard(write_lock_irqsave)(&vcpu->kvm->mmu_lock);
-> > > +	for (idx = 0; idx < curr_idx; idx++) {
-> > > +		u64 gpa;
-> > > +
-> > > +		gpa = hdbss_buf[idx];
-> > > +		if (!(gpa & HDBSS_ENTRY_VALID))
-> > > +			continue;
-> > > +
-> > > +		gpa &= HDBSS_ENTRY_IPA;
-> > > +		kvm_vcpu_mark_page_dirty(vcpu, gpa >> PAGE_SHIFT);
-> > You mention that it does not support dirty-ring, but above function will
-> > mark the page as dirty in the dirty-ring :/
-> > 
-> 
-> In kvm_arm_enable_hdbss_global(), we explicitly check and reject HDBSS
-> enablement if dirty-ring is active:
-> 
-> ```
-> if (kvm->dirty_ring_size)
->     return 0;
-> ```
-> 
-> So when kvm_flush_hdbss_buffer() runs (which requires enable_hdbss = true),
-> we know for certain that
-> 
-> kvm->dirty_ring_size == 0. Therefore, kvm_vcpu_mark_page_dirty() will always
-> take the dirty_bitmap path,
-> 
-> never the dirty-ring path.
-> 
-> That said, I'll add a comment in kvm_flush_hdbss_buffer() before dirty ring
-> mode is supported, to make this explicit:
-> 
-> ```
-> /*
->  * HDBSS is mutually exclusive with dirty-ring mode (see
->  * kvm_arm_enable_hdbss_global()), so kvm_vcpu_mark_page_dirty()
->  * will update the dirty_bitmap, not the dirty-ring.
->  */
-> ```
->
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 
-Got it :)
+Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
 
-Out of curiosity: which issues have you found on supporting dirty-ring at  
-this point?
-
-Thanks!
-Leo
- 
+> ---
+> v5:
+>   - Named the wrappers vcpu_{read,write}_sys_reg() and renamed the
+>     host-only implementations to __vcpu_{read,write}_sysreg_vhe(), rather
+>     than introducing a kvm_vcpu_ prefix. (Oliver)
+>   - Dropped Vincent's Reviewed-by since the patch changed materially.
+> 
+>  arch/arm64/include/asm/kvm_emulate.h | 20 ++++++++++++++++
+>  arch/arm64/include/asm/kvm_host.h    |  4 ++--
+>  arch/arm64/kvm/hyp/exception.c       | 34 ++++++++--------------------
+>  arch/arm64/kvm/sys_regs.c            |  4 ++--
+>  4 files changed, 33 insertions(+), 29 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+> index 5bf3d7e1d92c7..429bda6f48d94 100644
+> --- a/arch/arm64/include/asm/kvm_emulate.h
+> +++ b/arch/arm64/include/asm/kvm_emulate.h
+> @@ -506,6 +506,26 @@ static inline unsigned long kvm_vcpu_get_mpidr_aff(struct kvm_vcpu *vcpu)
+>  	return __vcpu_sys_reg(vcpu, MPIDR_EL1) & MPIDR_HWID_BITMASK;
+>  }
+>  
+> +/*
+> + * __vcpu_*_sysreg_vhe() are only valid on a VHE host; wrap them so the same
+> + * call site also works at EL2 under nVHE.
+> + */
+> +static inline u64 vcpu_read_sys_reg(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg)
+> +{
+> +	if (has_vhe())
+> +		return __vcpu_read_sysreg_vhe(vcpu, reg);
+> +
+> +	return __vcpu_sys_reg(vcpu, reg);
+> +}
+> +
+> +static inline void vcpu_write_sys_reg(struct kvm_vcpu *vcpu, u64 val, enum vcpu_sysreg reg)
+> +{
+> +	if (has_vhe())
+> +		__vcpu_write_sysreg_vhe(vcpu, val, reg);
+> +	else
+> +		__vcpu_assign_sys_reg(vcpu, reg, val);
+> +}
+> +
+>  static inline void kvm_vcpu_set_be(struct kvm_vcpu *vcpu)
+>  {
+>  	if (vcpu_mode_is_32bit(vcpu)) {
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index bae2c4f92ef5c..f3c3c86b3d7fb 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -1215,8 +1215,8 @@ u64 kvm_vcpu_apply_reg_masks(const struct kvm_vcpu *, enum vcpu_sysreg, u64);
+>  		__v;							\
+>  	})
+>  
+> -u64 vcpu_read_sys_reg(const struct kvm_vcpu *, enum vcpu_sysreg);
+> -void vcpu_write_sys_reg(struct kvm_vcpu *, u64, enum vcpu_sysreg);
+> +u64 __vcpu_read_sysreg_vhe(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg);
+> +void __vcpu_write_sysreg_vhe(struct kvm_vcpu *vcpu, u64 val, enum vcpu_sysreg reg);
+>  
+>  struct kvm_vm_stat {
+>  	struct kvm_vm_stat_generic generic;
+> diff --git a/arch/arm64/kvm/hyp/exception.c b/arch/arm64/kvm/hyp/exception.c
+> index bef40ddb16dbc..754e2dc1df54a 100644
+> --- a/arch/arm64/kvm/hyp/exception.c
+> +++ b/arch/arm64/kvm/hyp/exception.c
+> @@ -20,22 +20,6 @@
+>  #error Hypervisor code only!
+>  #endif
+>  
+> -static inline u64 __vcpu_read_sys_reg(const struct kvm_vcpu *vcpu, int reg)
+> -{
+> -	if (has_vhe())
+> -		return vcpu_read_sys_reg(vcpu, reg);
+> -
+> -	return __vcpu_sys_reg(vcpu, reg);
+> -}
+> -
+> -static inline void __vcpu_write_sys_reg(struct kvm_vcpu *vcpu, u64 val, int reg)
+> -{
+> -	if (has_vhe())
+> -		vcpu_write_sys_reg(vcpu, val, reg);
+> -	else
+> -		__vcpu_assign_sys_reg(vcpu, reg, val);
+> -}
+> -
+>  static void __vcpu_write_spsr(struct kvm_vcpu *vcpu, unsigned long target_mode,
+>  			      u64 val)
+>  {
+> @@ -101,14 +85,14 @@ static void enter_exception64(struct kvm_vcpu *vcpu, unsigned long target_mode,
+>  
+>  	switch (target_mode) {
+>  	case PSR_MODE_EL1h:
+> -		vbar = __vcpu_read_sys_reg(vcpu, VBAR_EL1);
+> -		sctlr = __vcpu_read_sys_reg(vcpu, SCTLR_EL1);
+> -		__vcpu_write_sys_reg(vcpu, *vcpu_pc(vcpu), ELR_EL1);
+> +		vbar = vcpu_read_sys_reg(vcpu, VBAR_EL1);
+> +		sctlr = vcpu_read_sys_reg(vcpu, SCTLR_EL1);
+> +		vcpu_write_sys_reg(vcpu, *vcpu_pc(vcpu), ELR_EL1);
+>  		break;
+>  	case PSR_MODE_EL2h:
+> -		vbar = __vcpu_read_sys_reg(vcpu, VBAR_EL2);
+> -		sctlr = __vcpu_read_sys_reg(vcpu, SCTLR_EL2);
+> -		__vcpu_write_sys_reg(vcpu, *vcpu_pc(vcpu), ELR_EL2);
+> +		vbar = vcpu_read_sys_reg(vcpu, VBAR_EL2);
+> +		sctlr = vcpu_read_sys_reg(vcpu, SCTLR_EL2);
+> +		vcpu_write_sys_reg(vcpu, *vcpu_pc(vcpu), ELR_EL2);
+>  		break;
+>  	default:
+>  		/* Don't do that */
+> @@ -185,7 +169,7 @@ static void enter_exception64(struct kvm_vcpu *vcpu, unsigned long target_mode,
+>   */
+>  static unsigned long get_except32_cpsr(struct kvm_vcpu *vcpu, u32 mode)
+>  {
+> -	u32 sctlr = __vcpu_read_sys_reg(vcpu, SCTLR_EL1);
+> +	u32 sctlr = vcpu_read_sys_reg(vcpu, SCTLR_EL1);
+>  	unsigned long old, new;
+>  
+>  	old = *vcpu_cpsr(vcpu);
+> @@ -281,7 +265,7 @@ static void enter_exception32(struct kvm_vcpu *vcpu, u32 mode, u32 vect_offset)
+>  {
+>  	unsigned long spsr = *vcpu_cpsr(vcpu);
+>  	bool is_thumb = (spsr & PSR_AA32_T_BIT);
+> -	u32 sctlr = __vcpu_read_sys_reg(vcpu, SCTLR_EL1);
+> +	u32 sctlr = vcpu_read_sys_reg(vcpu, SCTLR_EL1);
+>  	u32 return_address;
+>  
+>  	*vcpu_cpsr(vcpu) = get_except32_cpsr(vcpu, mode);
+> @@ -305,7 +289,7 @@ static void enter_exception32(struct kvm_vcpu *vcpu, u32 mode, u32 vect_offset)
+>  	if (sctlr & (1 << 13))
+>  		vect_offset += 0xffff0000;
+>  	else /* always have security exceptions */
+> -		vect_offset += __vcpu_read_sys_reg(vcpu, VBAR_EL1);
+> +		vect_offset += vcpu_read_sys_reg(vcpu, VBAR_EL1);
+>  
+>  	*vcpu_pc(vcpu) = vect_offset;
+>  }
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index 08ba882799d48..c6a416974a61f 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -291,7 +291,7 @@ static void write_sr_to_cpu(enum vcpu_sysreg reg, u64 val)
+>  	}
+>  }
+>  
+> -u64 vcpu_read_sys_reg(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg)
+> +u64 __vcpu_read_sysreg_vhe(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg)
+>  {
+>  	struct sr_loc loc = {};
+>  
+> @@ -338,7 +338,7 @@ u64 vcpu_read_sys_reg(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg)
+>  	return __vcpu_sys_reg(vcpu, reg);
+>  }
+>  
+> -void vcpu_write_sys_reg(struct kvm_vcpu *vcpu, u64 val, enum vcpu_sysreg reg)
+> +void __vcpu_write_sysreg_vhe(struct kvm_vcpu *vcpu, u64 val, enum vcpu_sysreg reg)
+>  {
+>  	struct sr_loc loc = {};
+>  
+> -- 
+> 2.39.5
+> 
 
