@@ -4,94 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70206C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 08:44:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C47FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 08:44:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+HCqftvyh10fMpY6IqpqVPtQHg/FJB6+bDbXuzWB9b8=; b=QA7oS/DRr9M1bI9KjGPNFVJPnB
-	ClS1xEM/Zr3UfxlZw93/1uqfetN8Fp0KXlNw37mzTWnYv6SruPf6lEA3DqzdLMpCKFiEEacPnXjPY
-	ljQKTeKi21ip1pxvBn9Ab91Svh6008dka3QeT50UVKGwtj58AL7tklyRlG2p4QWoW+kJQrJF9gWCC
-	bovKZeEt9noCtXTV/wJk6WWFXdGa5UXru9/hJga3r4w4qx1qh+Je2dJEPmv+CAOWChq7udDWjAjva
-	Cr6vOA7rXdIbZABsFR/SPEdq6ummNqlyntjxM+woiBvDwCkYGnQ3WK/yUUQsfwWleS5UH0HiZ4I5H
-	mxEbiPAg==;
+	bh=c477LoGm9CazJWHmikLpm2ONm0tp2sZ6m1MVfNq7Q5s=; b=YTdCeunZkMMWT/WfLIcaEPArBa
+	f14GCyo8e5LueCzjWLBVWWd9Lyl3BOX61ZglwFO7qSScLRbKNUUreTbiSB+VIXG814cdWM0i6klXX
+	ctL/AOJGMrMgiGlnQediPSEyv5WEnWHJrynYtL1LHLOK+/Jt7gWl0fDziZ214msy/geAs2GTvkBD7
+	AGoniSl+3Np3GSYQARwaXLMxvC6S0FT/WkgZ/AJGA0gth2SliKdJVwv7dfU1rKfJPQOfDZeYIwlgv
+	P82SFZ6icqNgZaacQlEkch2ymVtJlOU/a1vFBI3B1EbWy9MfhZBLiHaQNlSYAcGJBp36nJ4+hkdsZ
+	JeHO8JJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjYk7-0000000BLHK-0Dsx;
-	Tue, 14 Jul 2026 08:43:55 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1wjYkQ-0000000BLMF-1G1X;
+	Tue, 14 Jul 2026 08:44:14 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjYk4-0000000BLGL-1IOG
+	id 1wjYkN-0000000BLKt-2KQN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 08:43:53 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-47df440fcd5so2214041f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 01:43:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784018630; x=1784623430; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=+HCqftvyh10fMpY6IqpqVPtQHg/FJB6+bDbXuzWB9b8=;
-        b=Qan/OR/JWrwSpyPOhFfSO38J6v8o2wOXjNKrr5uaWcrS7yvv0LYJAhKjaROyfepjhy
-         cPzGkTTwqAd3eNWgcRGeQm5IsKyLpDwnaKzeFb4TXoQljPOzXP2WdgiWT71VB9WesWDN
-         EeN1dMZJvQ5Awiv27fXHwdBYSCrg6VwUHLMsHQaPJ1Zd0MK8GLjtooGKery005rs8cu8
-         KgpQdp3SKOkrkMaSc7jALFlvpJCy/YemzvaMDSzWnh1IJuQHaEhCqcjsmw3LahsIyom9
-         r9m/MIvI/Evhhlg5zUtpcBg37tEyPrRvc6o2bxadx6JnGN94b61mFzMNqissw9/L7hwl
-         Zaog==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784018630; x=1784623430;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=+HCqftvyh10fMpY6IqpqVPtQHg/FJB6+bDbXuzWB9b8=;
-        b=FqS9NldUtL9uJRyGaedAaJFl+Trne2gbkJOpTl8lELjQzXQ7I1BnaEusrF62WuSExV
-         5HHRVmPxFBLVM0CieGqm+ReEOifYBwqbKr9XBba5dZMjKb6XpHsnbrQWBesdwWgxEaaP
-         rcOEQXqRYieZF1zrS2zl4xBQiDL80Bj3++/0IHm/dZ01iN5rdKs+8+i0ewqsQ2LPPoXu
-         dXMr/QEOiXnnDeeP34Xp6R98gv5GiEMr49ihoujJQBDINSNPGTo1Ph044QT9yT35tByi
-         SbFZoHsSLAd7wiDRXxMslF8AlSFIPRh+qsa7PX9nruCBBX5BsUcO9PAuBP+k+qJs1tnJ
-         QBvA==
-X-Gm-Message-State: AOJu0YzALGzBYr3djBLc94kqDdWkFuIKB0vT/f8TqIy2pt3JvCAwFYb+
-	pAIJCzHSpn81U3W26zsIghXgoLHc+Cx7u70Y34TJYeG2Wa7CGzr2JoGP14MFMJeglQ==
-X-Gm-Gg: AfdE7ckXQHSpSz3jDZbA7xfXcWyKt6q0T8IU9DUBxHFYEa761Tp3mKCf+j4+qYxs0IZ
-	T3CclsG0XL4PGLyFB/+rSyYs8zO3Ey3NheQHH39Kysy6qc4k+AMhLvxivtvKWj1OyIDy7XYDHyk
-	6hp4g+vUNde9Mzevt035EAuelRjhevLFJ48Gq6Ts5z1lbnJJx+tf49A37SWx9VBIw+IzCwsQdzZ
-	GDvhE+Qg8E4G4zQ6EXGcJxlQBTgOBzjDPJ1KGwgkYEq6I3y1G6tqyNCgZ29n29GsfIyA4BMRAo+
-	jQPWNA2JrBZSl4JI3cINfs4hdOG2+tQg8VykLucgpkKglCvoK+1VOwCQIgWRlvKUM0fkKarws0q
-	XdjTSGyrXVlB2X01Z2d2RFLESDsZ3CSJ0NzN65UvU+69aSQcNFVwO+SyFBy2hPe+JAxLwMlDfy5
-	1ZzmpfDxhFbcWLwIUrkypeJGz0Ly9VWrBEl1t5MMSua89TOXvf0tg=
-X-Received: by 2002:a05:6000:2006:b0:47d:edab:a721 with SMTP id ffacd0b85a97d-47f2dce9698mr13848050f8f.31.1784018629391;
-        Tue, 14 Jul 2026 01:43:49 -0700 (PDT)
-Received: from google.com (137.69.77.34.bc.googleusercontent.com. [34.77.69.137])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f464c7c96sm6294914f8f.33.2026.07.14.01.43.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jul 2026 01:43:48 -0700 (PDT)
-Date: Tue, 14 Jul 2026 09:43:44 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
-	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, joro@8bytes.org, jean-philippe@linaro.org,
-	jgg@ziepe.ca, mark.rutland@arm.com, qperret@google.com,
-	tabba@google.com, sebastianene@google.com, keirf@google.com
-Subject: Re: [PATCH v6 09/25] KVM: arm64: iommu: Add memory pool
-Message-ID: <alX2wISNtLcx7xPb@google.com>
-References: <20260501111928.259252-1-smostafa@google.com>
- <20260501111928.259252-10-smostafa@google.com>
- <alEeyoXnMC0J4zFQ@google.com>
- <alS_gB5uSEbFV-jH@google.com>
+	Tue, 14 Jul 2026 08:44:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=D73sWv2TgP7dRYKniWbflGUB11C6cOKZ86PaIwxtkJkmq38auyVulydZqUYv01bmUZlWFdH421Y2gL+SaEiEV0CN42ZuSIdSvdt0dEmJLhCeSncS6tYxVOeiVvfCVNr10AFF/7cbYo9Pm5m989iTeULi5bKGj4WE3qi8I/vwk/HBxDx5GztwtU9CCzmop38ykeKNAQLyqO3nTj5qy0YBpiKe9irXHs7DMBbwr36Tvo3Z+qF9OUqB1tmPLhmIQa0kDnQSVkqsEKOqs+MGmm/uj3k0fr3nFnpL8RgHRvJFuNVUKvZX4ETVV0hwSj1m2nCGB+31f4iTrX45iF63KNbAag==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=c477LoGm9CazJWHmikLpm2ONm0tp2sZ6m1MVfNq7Q5s=;
+ b=bDbhdGSH9V46NsyVjW9jfwR/Dwj1sWtR+Jg2oR+HgW1zPL2rhbJHNpF+Hjbk0ifb+dPiAos4P+0fkkO27c7p/iAhuflQczlG/rw/0z/Ny/scJvvQUN81fZUHda5+ilqXLohF+vACbozRiDKXQx0QMmCdCBZPAckxMeaREX+HEs30BO8tEHzlyhx1xZMpC6+GkP32h6G1vKlFk0RO1G5POs3t605Q939qxcSniS+r7R5VUFkimJFnbuKlDFeIcyaYX095IEmsUSQNDn5O2hTdsNW7fpgMN/9hIfNA/3hYEk76aD2X1luo33VF8ojdFtS/wtp+BF+XkOzHepeG497vwg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=kontron.de; dmarc=pass action=none header.from=kontron.de;
+ dkim=pass header.d=kontron.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kontron.de;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=c477LoGm9CazJWHmikLpm2ONm0tp2sZ6m1MVfNq7Q5s=;
+ b=RnZ1c3LrcDB+Ua9XuX+OvKokq/9QZTv+nHmntZGFBkO6JMH812MTBC0/BEFSywCyg2QzFy5Bm0KSb6tpcwbE8PB1sv7SOk0zmDven7wdgXIuJZW9KszObBtEkCbpgYdvsWjKkIANnFhj6hQfsubscD3MHr34v9oVDJWalKBZgH6Q1GVn+ledUl9R28eFmL4oq+JXUbtS1eo8Ix9+jTKhZPJ6pcJ8xm/jBSbAIb5NNvN5FIw9Sw/6t5L0aTOxqLdJeUvEdOfo5eMavctGYuTDASMgWqWvIoLnecMiZa1KKn5rZV0dYjOB2SnsIOFKd4UWyN0Ev+aEK6W9V3+FP7CUjQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=kontron.de;
+Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:1fb::23)
+ by GVXPR10MB9482.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:150:326::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.20; Tue, 14 Jul
+ 2026 08:43:58 +0000
+Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::a276:4ad7:962:da22]) by AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::a276:4ad7:962:da22%6]) with mapi id 15.21.0223.008; Tue, 14 Jul 2026
+ 08:43:58 +0000
+Message-ID: <4b7b7823-00c5-4801-8ba4-19e5670f339d@kontron.de>
+Date: Tue, 14 Jul 2026 10:43:56 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 10/10] arm64: dts: imx93-kontron: Enable ELE firmware
+ driver
+To: Francesco Dolcini <francesco@dolcini.it>
+Cc: Frieder Schrempf <frieder@fris.de>, Srinivas Kandagatla
+ <srini@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+ Pankaj Gupta <pankaj.gupta@nxp.com>, "Peng Fan (OSS)"
+ <peng.fan@oss.nxp.com>, devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260713-upstreaming-next-20260609-imx-ocotp-ele-v2-0-b8266d93514b@kontron.de>
+ <20260713-upstreaming-next-20260609-imx-ocotp-ele-v2-10-b8266d93514b@kontron.de>
+ <20260714065947.GA22086@francesco-nb>
+ <e515a6c5-b32c-47b7-968b-0f6a66e4f24a@kontron.de>
+ <20260714083259.GB22086@francesco-nb>
+Content-Language: en-US, de-DE
+From: Frieder Schrempf <frieder.schrempf@kontron.de>
+In-Reply-To: <20260714083259.GB22086@francesco-nb>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: FR4P281CA0215.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:e4::16) To AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:20b:1fb::23)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <alS_gB5uSEbFV-jH@google.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR10MB4277:EE_|GVXPR10MB9482:EE_
+X-MS-Office365-Filtering-Correlation-Id: 45d49fef-67d3-49d2-e25f-08dee1840b8a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|7416014|376014|1800799024|3023799007|4143699003|22082099003|18002099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: IM4HaAFBc9Mrfs/iYe4ky9q3alc/BNpL3u9rmDvjmFE6Wfb66g1Y4rbBcVquw85B1YqSK876zlbqxgiBJaH871OrJZu/ppkQ9uL4yS2AgrvDh3rwnN2zsp039JZiBZ0i9lob6kIzF+aWAeqlKsmSezBQXwn174OZ2zS1kSxtxqpD9UXcGVujUvPwbctgUBhv6OoQ3dxipyUkSHrBYWjMjhVtvwAO4ew3Nh8jYe9AOTBy4Qn+ZMMwKxrfLkPLAQPGwyr8eewgB9Tq/tbp7PGREs0Iv2ec7KqYsQvTLYyy7BlLa+BbY7WEQSsKfCjIEqzxIja2HQFJbbctyW8o5IVt1sAkmD5lL/+kljamaMdFZCkGDjLN3L8ONKt7R+KNugshhgEgQ1PoZoG4qrxmLerPG5uA1Cg6U14FdVmz9K0Pj968sVNpW2Zqkph8pqTnLWd03BRhNaDUnM6aT7vP9nfT1HIsJSy55rFW0v3ST0T0puP/U9rxIFq4AlRFjeMl0SG6kWouM2NbBAvJSuhuwYFd+RrVKmhTR6O5efvIgGqUC9k9Vb3ycqnUy8oH6s/kJH2MnP5k+oOuo4gD+BSXoqrpBjmZ+TsW1G+QJEHmPuXCI8eEA1TeOZzBt7+cEnuUlRbKvE3PrdkWJ6gAD1A9KwYAUBpDEvNWl9VzH+3EVXvkhGA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(7416014)(376014)(1800799024)(3023799007)(4143699003)(22082099003)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?a0laYm95dXh6Q2ZwS21EcVBnUDlLS0c2MDlzeXN6UTFJam9sRGxBcUlnbEN3?=
+ =?utf-8?B?U2c0eHJLbzZ2cFFGdVdQK2xtUHBwQkVJWGV0d1U4U1VPTGptS0Urekgzb3pD?=
+ =?utf-8?B?Y3lsaTJ6MlRFTkdMYlkyclV6MXZvREVpU2ozY1Fjd0xmaEhMTE1uUjVvQnNt?=
+ =?utf-8?B?WVFUOVY0N08rM0ZBTndjakFIcHVpQUtKZGVwdE96N1NoSGR2NklwakFETUFZ?=
+ =?utf-8?B?NDY2YjcwMEd6VmdCdGRiaU94R216RVp2MkxwZmN6c1BodXY5cktSclppSUZi?=
+ =?utf-8?B?U1QyMFk5cXB2Wm1ac0xKWHZGVHJOS3VkV25wT21wRUJleTNsZkpSRFU5cGFl?=
+ =?utf-8?B?VTRHWlltQlBIbDVrYlFlcm1tR3J2NlQ0Qmc2TW5pbk9kVk5zVnpQNVcxb2ZF?=
+ =?utf-8?B?cjJLQkZUTFhpK0Z6bHQvMmpUMzFyYklVKzBkYVQzZEpBK3NtemtFc1RzaG1v?=
+ =?utf-8?B?ajFFZ0FINlBiMDNRTTlwSUdyR1lXNnc2akxxQUcwOHF6SERqWDdWT0xDK2l2?=
+ =?utf-8?B?aW1DaEYrbXBIK2E0YzZEaklpOTNJTEdBK0RCcGJBQW1TRXJRZXlhT3pqdTZi?=
+ =?utf-8?B?elFvMjJZVE9HYWJmd0FiUXpYakZPb21EKzAzNXJOdDZRZ0Y3VG5hUWN6WmJC?=
+ =?utf-8?B?MlVSN0luVTkwNWxOUEkxeGxUa1Vsa2d0eWxKTWFiWFRPZ2ZyRWg5aXpxSmdm?=
+ =?utf-8?B?N1lKVmczMUV2eVRKcGxXai9NeXZtTEpXU25QQ3NMTW5yTkY3VWo5NENBWnM0?=
+ =?utf-8?B?YmdSdm5Ra015d2RvMTV3V0ovRmpCZTN0eVRlVVE4SXNPVmJYT2tKaHdheWY4?=
+ =?utf-8?B?UkQzcUFEL2Uwdko5cWVKa0E1SzNka1VNTGxabFIxMVp0TmlpSmJGQ2xYdnF4?=
+ =?utf-8?B?UDUxQkQ4RFBoN3ZkVnFJTmFSTjZERmp1SWN4UXNaWWt4eWpHaXNMcmtqeFJP?=
+ =?utf-8?B?eEpjSG5xckhXVSsyQXI1WWZsc3ZaSHdib2doWHVHQ1hSV1RTTkhoMGVxT2sr?=
+ =?utf-8?B?YUpNMFJnUGNKK3NXajdjTE5IcmVPMjRjZ05tZ2JENmU5ZmJUOGRSTzlJeWJm?=
+ =?utf-8?B?ZFZWaHhVQjdSNmdxT1VwV29VNjE0aW9rYVNxeDdYTFo1cjNlRDN1V0hYYXJ5?=
+ =?utf-8?B?a0d6SlYwaUgzZkhTay9zM0Q1em9IRlhWNTRGWCthd2pqQXdvRWp1ZkhjWlky?=
+ =?utf-8?B?aG5nRTA0b1BBQTlPajREQTdZaUhWMWZOZ21YQ0lpVllrUlFGNlBxcjNEMERn?=
+ =?utf-8?B?ZHp5V2swMEdibEwrZHBab0JmRFZrVjJkR3ZNZnJ0UlBIV2Q0NDJFUXZsWk9o?=
+ =?utf-8?B?djlyalBFM2xWOVpFbCtGdU1GMC9HdDFJRkVDZko2Z1VndXhwcFAxa2M5Q1JF?=
+ =?utf-8?B?ck5oMXRpSDQ0ZzU5UStsUVhSVjhKbmlTbTBYSE85d2F1SHBGY3RCNmlaektr?=
+ =?utf-8?B?Y2JQUFhZQi9jZ09oR0tkWUhlM1piZUFnU0hKcmlVRVluK05YZVBEemFaRVh4?=
+ =?utf-8?B?eFV5dkhjaW0xOENZdUdHVEFKd0JyTkVldHdWbnc2bUlJQUxRR1VNc0RodXZS?=
+ =?utf-8?B?SExkV2c0eGw5MEp1dGNscW5ZeWNyaTU2cm1ON21LZ1J2dWlxY3BiQU9KL1JM?=
+ =?utf-8?B?NFoyQjhoUllkNWwyZXpreHQxWmhZTDJEaDhIS1diMzJtaUQ0NXVxQnViR1pt?=
+ =?utf-8?B?Q2FuUGYyNHdUSEg5S3RPTzZadjYzZFZMc0ZIT01MelV6bWNKTlFFcG9RaFR2?=
+ =?utf-8?B?cUw3alRNeHJtbTU2WnN4MThoanZreGs2Z3hoZGp6ZWNyRVY0SjRvckVaR0RT?=
+ =?utf-8?B?Z2xDZVY5a2VFRTlIeXEzL0VpWWtVRDJCbmFQVElISCs5VlhtbFZLWVZPZTk5?=
+ =?utf-8?B?SitiaXZuemR5aUFNMmM3UnJvdWp6WEswaC93N3Z0Vk4wMXQzSHJVWnYwTFE2?=
+ =?utf-8?B?RjNtYXRmTTdLYjE1WSs3Mm1VK0duS25tR1Z2N0VMU1VWUHJUb0pHb0E1RC9j?=
+ =?utf-8?B?aEJjU0QyajJVc3hWVnJZRXl1N09SSHdBZjlrdFM4aGhScis3TkgyTnZvMGRV?=
+ =?utf-8?B?MHFkWCtKaGFFQnFXM0dSUE9pKzNFTUF2bEVGamx5b2VSenJFSVhnSUMrL0w5?=
+ =?utf-8?B?djA2NFhFREZPSXpGS3Y0Vm1ZU1dhRjg0NW9sMnQ2d2N5L3FxV2t3NUpRKzR5?=
+ =?utf-8?B?cWE4WUV5dUZEU2ZJTkZNZ3Q0OHlPME1LcWZMRzFpRDIyd0tjc1ZaM0paL2to?=
+ =?utf-8?B?MTZoS0N2YXR5UXJWeW4rQi9FUDhqZXVERXRZM2lsbkJLMXVXRmdWdXVvYlN4?=
+ =?utf-8?B?OGx2Q2ltQTFWNDBVbzFEMXNIUjZGR2Q3bTJkVVVqc0NQUHZkZVp3ZERWVmVz?=
+ =?utf-8?Q?XUyifoWevyRz8kBg=3D?=
+X-OriginatorOrg: kontron.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: 45d49fef-67d3-49d2-e25f-08dee1840b8a
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jul 2026 08:43:58.0106
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8c9d3c97-3fd9-41c8-a2b1-646f3942daf1
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: XKIczVEKqxlJFaPGYDwQ5N4GyLk8p9AIGn5X0UL0fumX9qmkg/sOQaRKdNFA2Q2uUZVpP0pFN3WUTZiYxFU+LD5/XF4ranvi/e8b3hmN2QU=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR10MB9482
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_014352_394554_C033176C 
-X-CRM114-Status: GOOD (  33.00  )
+X-CRM114-CacheID: sfid-20260714_014411_905254_1AE92D9D 
+X-CRM114-Status: GOOD (  27.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,78 +160,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[...]
-
-> > nit: kvm_iommu_init uses nr_pages. 
-> > 
-> > >  {
-> > >  	guard(mutex)(&kvm_iommu_reg_lock);
-> > >  
-> > > @@ -21,6 +22,36 @@ int kvm_iommu_register_driver(struct kvm_iommu_ops *hyp_ops)
-> > >  	if (kvm_nvhe_sym(kvm_iommu_ops))
-> > >  		return -EBUSY;
-> > >  
-> > > +	/* See kvm_iommu_pages() */
-> > > +	if (pool_pages > kvm_nvhe_sym(hyp_kvm_iommu_pages)) {
-> > > +		kvm_err("Not enough memory for the IOMMU pool, need 0x%x pages, check kvm-arm.hyp_iommu_pages",
-> > > +			pool_pages);
-> > > +		return -ENOMEM;
-> > > +	}
-> > > +
-> > >  	kvm_nvhe_sym(kvm_iommu_ops) = hyp_ops;
-> > >  	return 0;
-> > >  }
-> > > +
-> > > +unsigned int kvm_iommu_pages(void)
-> > > +{
-> > > +	/*
-> > > +	 * This is used very early during setup_arch() before any initcalls
-> > > +	 * or any drivers are registered.
-> > > +	 * This value is set by a command line option.
-> > > +	 * Later, when the driver is registered, it will pass the number
-> > > +	 * pages needed for it's page tables, if it was less that what
-> > > +	 * the system has already allocated, the registration will fail.
-> > > +	 */
-> > > +	return kvm_nvhe_sym(hyp_kvm_iommu_pages);
-> > > +}
-> > 
-> > Could we actually estimate the memory needed, based on the allocation for the
-> > host stage-2 and an estimation of MMIO coverage? This would allow the whole
-> > thing to run without setting this value as a best effort and to make it
-> > optional, which is surely more user-friendly?
+On 14.07.26 10:32, Francesco Dolcini wrote:
+> On Tue, Jul 14, 2026 at 10:09:11AM +0200, Frieder Schrempf wrote:
+>> Hi Francesco,
+>>
+>> On 14.07.26 08:59, Francesco Dolcini wrote:
+>>> Hello Frieder,
+>>>
+>>> On Mon, Jul 13, 2026 at 04:53:46PM +0200, Frieder Schrempf wrote:
+>>>> From: Frieder Schrempf <frieder.schrempf@kontron.de>
+>>>>
+>>>> Add the ELE firmware API node and pass its handle to the OCOTP
+>>>> driver. This allows us to gain read/write access to the OTP fuses.
+>>>
+>>> This seems something we should have in the soc dtsi (imx93/imx91), it
+>>> does not seems board specific.
+>>
+>> My original intention was to move as much as possible into the SoC dtsi.
+>> The problem is that the memory node is somewhat board specific due to
+>> the DDR. And I can't move the firmware node into the SoC dtsi and assign
+>> the memory node in the board dts as the checks for all boards not
+>> specifying a memory node would fail then.
 > 
-> Not really, this abstracts the IOMMU, so it does not have to match the
-> host stage-2, in addition that the SMMUv3 driver requires extra pages
-> for other in-memory data-structure.
+> The ELEFW is required to boot, is not an optional component for this
+> SoC, so I would try to find a way to have this duplicated in all the
+> board files.
 
-What I thought would be to take __hyp_pgtable_total_pages() and then add on top
-of that memory to cover the MMIO region. As of "here's memory we think your
-driver will need" and of course that can't take into account any
-"driver"-specific struct.
-
-To be fair, that is a bit weird to have memory reservation so early for a
-"driver" but perhaps that is okay because the pKVM protection is only complete
-if we have that "driver"?
+I don't think that this is correct. The ELE firmware is currently
+mandatory in U-Boot, but this could theoretically change in the future.
+As far as I know there is no hard requirement for the ELE firmware to be
+available in order for the SoC to boot. If someone wants to build
+software without optional blobs, they might choose to not have the ELE
+firmware in place.
 
 > 
-> At the moment, this is set from the command line which is not really
-> best effort as the driver later confirms how much memory it needs.
+> What is the reason to have this memory address different on various
+> boards? Can we have a default in the soc dtsi, and allow the board to
+> override the address if needed?
+
+There is no real point in having different addresses on different
+boards. But the node describes memory that is physically on the board
+and not on the SoC. And I think that is why DT maintainers want to have
+it in the board DT. It's the same with the memory nodes for the
+remoteproc drivers to communicate with the Cortex M-Cores in the i.MX.
+But maybe I'm wrong and if there is a possibility to move this to the
+SoC DT I will definitely take it.
+
 > 
-> > 
-> > > +
-> > > +/* Number of pages to reserve for iommu pool*/
-> > > +static int __init early_hyp_iommu_pages(char *arg)
-> > > +{
-> > > +	if (!arg)
-> > > +		return -EINVAL;
-> > > +
-> > > +	return kstrtouint(arg, 0, &kvm_nvhe_sym(hyp_kvm_iommu_pages));
-> > 
-> > How about using a memory size here with memparse()? This would be more
-> > transparent for the commandline which can work on different page-size systems.
-> 
-> Makes sense, will do.
-> 
-> Thanks,
-> Mostafa
+> Or can't you add the address in all the boards, and keep everything else
+> in the soc dtsi?
+This could be a possible way, yes. In that case maybe we could even
+create a generic dtsi to contain such defaults for all boards.
 
