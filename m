@@ -4,74 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B62C8C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 12:45:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E691FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 12:45:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8fFYNB9rc1RmQTyJ7Z39u9kdzVWMmH8HYMbiH5EvoSs=; b=EwStk9dSdZMHvpdkG07qBTRs/K
-	wnj1sXpi/3gYfnPs9Go5Wzjz7IpVwnT4AlU354HHcbC1zV36Ts1LGSx9+7pEWsvJfvONkqxXWcUwa
-	jPhwLawTWHoxoHERiYc+6Jm4SPp6bP2hkc2ET/dP28evsOTopPPES0PFU0CgLijA6xrf7qVZ/P6qc
-	Gg9FqjHRP980bJ3ui8oDOub8upYjZCEyfxcKhxjsm4i849En3+ogfB+CqTdfVhID2lWZgww8hxXIq
-	KJJdFY10PvAQ27lgZQmPI8UNVjaXuQldd+WKtV8cBtHVUtfh6qyuQr5bQNLOzewwwqbPLuwgr3Mk3
-	Rxvww79Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=aIP10fyd2D/xAzpPZeIVyuhe59pFeQFsjHxSSXuY9X4=; b=Km+JHGAlHCHAq3
+	C0rg5tjuwXe2/zwjahZ08BQhAbacWTOqXJWNBIkQ7/fG70TYLW7WA/4bjigAQVssKwnJX4uxuCIjw
+	RgoqzqXASi0ld/pYhfLo6ky74+OIGYSqsHEwTYC727MBSAigG/qBJMwt6TwlnRLbHVy6CP9TSVY0T
+	Aq+hsNJnBeE6Mu7o7fstgM/N9qimbLnG9QCKW+gLK3cQJIfsoCde41l65v0pPMgV16oCXQ0N6BnHl
+	JqSYJafzem5A4TkayxvvvgN2Up70RmBACCmewfuK8gNJwNvTwuPE4hdfUQgPX9vZmM/fEobEI7a2O
+	ln2q+qjB6lb9dbZ38FtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjcVa-0000000Bz1c-1KgZ;
-	Tue, 14 Jul 2026 12:45:10 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wjcVy-0000000BzDN-3eKs;
+	Tue, 14 Jul 2026 12:45:34 +0000
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjcVS-0000000ByxP-0mYd;
-	Tue, 14 Jul 2026 12:45:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2682F418AD;
-	Tue, 14 Jul 2026 12:45:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D45CAC2BCF5;
-	Tue, 14 Jul 2026 12:44:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1784033099;
-	bh=yrxMhmCYOUKee/WHlWAg1e5dG7auoKfuHFKPci2Li+c=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=sNvPHRLxhxDr/Tbzq2T1zG+NviZ4GJlCvmhPF9olSMCOiFkSGXCtyiFE3hFbWYI/w
-	 +cGhStojrujikZaXxHraP+GrXrxPPbdqCoCg9EhK0PFv69SGsXDe4odEe12zjTkH8e
-	 7Is3mGLGNT6SxwIeuxuJ8ao4mR+GxTj7bc3ImKnBggfh/0TckJxqRWU628T25UdmoP
-	 ruMtqgBQCszpWGcBS00HhkIS6zmr4j7jMBhWlT0zzWRdJr8x35/tnCBvkocQGEJmt7
-	 O5ps6ep3QTJp71UCSnsLXcG12vnkYGEkOqLOZcONK9JTk6UJdVq0nlwGkHluvqfaKz
-	 /d3jcVY0kFYoA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B565FC4450B;
-	Tue, 14 Jul 2026 12:44:59 +0000 (UTC)
-From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
-Date: Tue, 14 Jul 2026 15:42:05 +0300
-Subject: [PATCH 3/3] soc: mediatek: pwrap: add mt6572 support
+	id 1wjcVv-0000000BzAs-0qEE
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 14 Jul 2026 12:45:33 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=aIP10fyd2D/xAzpPZeIVyuhe59pFeQFsjHxSSXuY9X4=;
+	b=4ZCjTIEQI/MYUt5fW6kxjSXJGUtNePxReKqni0NkryipDV49/KqaVxjDgvUj13QRi7eMajPvi
+	I/AD21cc268ffW+ya6ET7lwurpIeXyUlchujFmKCn4UJeQovKYbNwNJcolP7c3TnIC+HWD8uHrs
+	X6yyu0u5eVuDIkNyizQARPc=
+Received: from mail.maildlp.com (unknown [172.19.162.223])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4gzzL40Xkzz12LCc;
+	Tue, 14 Jul 2026 20:35:40 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 58A8240561;
+	Tue, 14 Jul 2026 20:45:18 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 14 Jul 2026 20:45:17 +0800
+Message-ID: <4a035503-bda3-4a7a-a7e2-24c37702170c@huawei.com>
+Date: Tue, 14 Jul 2026 20:45:16 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 14/36] arm64: interrupts: introduce generic interrupt
+ masking helpers
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+References: <20260709121333.23507-1-vladimir.murzin@arm.com>
+ <20260709121333.23507-15-vladimir.murzin@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260709121333.23507-15-vladimir.murzin@arm.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260714-6572-pwrap-v1-3-d8e5a39cf7ef@protonmail.com>
-References: <20260714-6572-pwrap-v1-0-d8e5a39cf7ef@protonmail.com>
-In-Reply-To: <20260714-6572-pwrap-v1-0-d8e5a39cf7ef@protonmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Flora Fu <flora.fu@mediatek.com>, Alexandre Mergnat <amergnat@baylibre.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Roman Vivchar <rva333@protonmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784033096; l=5555;
- i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
- bh=MPPYOgzDqoNCcN6F5iF2Dxp5T0TD89ZEJks3TwVCRQY=;
- b=JF16gx8q+zpMiZXOKBwHA9fCCmx8KQ+k5V9GLIDoEui8/ctpGb81KmpUv+9n/RaAHUe/WHlfA
- DFv2NlPy7FlDEzIeLKfKg/GWwJgWy46OfbSmDfWLY+pK6HsLwpeK0Ez
-X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
- pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
-X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
- auth_id=777
-X-Original-From: Roman Vivchar <rva333@protonmail.com>
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260714_054531_941770_AFE23D12 
+X-CRM114-Status: GOOD (  24.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,181 +75,156 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: rva333@protonmail.com
+Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org, catalin.marinas@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Roman Vivchar <rva333@protonmail.com>
 
-Add mt6572 registers and platform data for the pmic wrapper.
-The mt2701 SoC-specific initialization function is used because they
-share the same GPS_INTF settings.
 
-Signed-off-by: Roman Vivchar <rva333@protonmail.com>
----
- drivers/soc/mediatek/mtk-pmic-wrap.c | 111 +++++++++++++++++++++++++++++++++++
- 1 file changed, 111 insertions(+)
+On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
+> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> 
+> As for the entry code, we want to replace `local_daif_...` helpers
+> so that they can properly handle both DAIF and PMR, as well controlling
+> their use more strongly.
+> 
+> Introduce new `local_all_irqs_...` helpers to replace them, which should
+> only be called in save/restore pairs.
+> 
+> Save the requested interrupt state as well, so we can check for
+> inconsistent interrupt masking in between save and restore.
+> 
+> There are two exceptions where it does not make sense to force
+> save/restore pairs for modifying the interrupt masks:
+>  - when initializing a CPU or
+>  - preparing to turn it off.
+> 
+> As we otherwise want to force save/restore pairs, those cases are
+> handled with specific helpers, making clear that they should not be
+> used outside of those cases, enforced with `CONFIG_DEBUG_IRQFLAGS`
+> enabled.
+> 
+> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> ---
+>  arch/arm64/include/asm/interrupts/masking.h | 101 ++++++++++++++++++++
+>  1 file changed, 101 insertions(+)
+>  create mode 100644 arch/arm64/include/asm/interrupts/masking.h
+> 
+> diff --git a/arch/arm64/include/asm/interrupts/masking.h b/arch/arm64/include/asm/interrupts/masking.h
+> new file mode 100644
+> index 000000000000..66ee03f7ab68
+> --- /dev/null
+> +++ b/arch/arm64/include/asm/interrupts/masking.h
+> @@ -0,0 +1,101 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (C) 2025 Arm Ltd.
+> + */
+> +#ifndef __ASM_INTERRUPTS_MASKING_H
+> +#define __ASM_INTERRUPTS_MASKING_H
+> +
+> +#include <asm/arch_gicv3.h>
+> +#include <asm/bug.h>
+> +#include <asm/cpufeature.h>
+> +#include <asm/interrupts/common_flags.h>
+> +#include <asm/ptrace.h>
+> +
+> +typedef struct arm64_exc_hwstates {
+> +	arm64_exc_hwstate_t saved;
+> +	arm64_exc_hwstate_t expected;
+> +} arm64_exc_hwstates_t;
+> +
+> +#ifdef CONFIG_DEBUG_IRQFLAGS
+> +/* Make sure the CPU init/tear down masking functions are only used once. */
+> +static DEFINE_PER_CPU(bool, irqs_masks_cpu_init_done);
+> +static DEFINE_PER_CPU(bool, irqs_masks_cpu_final_done);
+> +#endif
+> +
+> +static inline
+> +arm64_exc_hwstates_t local_all_irqs_save_mask(arm64_exc_context_t new)
+> +{
+> +	arm64_exc_hwstate_t state = arm64_exc_hwstate_of_context(new);
+> +	arm64_exc_hwstate_t actual = {.flags = arch_local_save_flags()};
+> +
+> +	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
+> +		bool pnmi = system_uses_irq_prio_masking();
+> +
+> +		WARN_ON_ONCE(new < CRITICAL_CONTEXT &&
+> +			     actual.daif == DAIF_MASK);
+> +
+> +		WARN_ON_ONCE(new < ERROR_CONTEXT &&
+> +			     actual.daif == DAIF_ERRCTX);
+> +
+> +		WARN_ON_ONCE(new < NONMI_CONTEXT &&
+> +			     pnmi && actual.daif == DAIF_PROCCTX_NOIRQ);
+> +
+> +		WARN_ON_ONCE(new < NOIRQ_CONTEXT &&
+> +			     ((pnmi && actual.pmr == GIC_PRIO_IRQOFF) ||
+> +			      (!pnmi && actual.daif == DAIF_PROCCTX_NOIRQ)));
+> +	}
+> +
+> +	arm64_update_exc_hwstate(state, actual.pmr != state.pmr);
+> +
+> +	if (!arch_irqs_disabled_flags(actual.flags))
+> +		trace_hardirqs_off();
+> +
+> +	return (arm64_exc_hwstates_t){.saved = actual, .expected = state};
+> +}
+> +
+> +static inline void local_all_irqs_restore(arm64_exc_hwstates_t states)
+> +{
+> +	arm64_debug_exc_hwstate(states.expected);
+> +
+> +	if (!arch_irqs_disabled_flags(states.saved.flags))
+> +		trace_hardirqs_on();
+> +
+> +	arm64_update_exc_hwstate(states.saved, true);
+> +}
+> +
+> +#ifdef CONFIG_DEBUG_IRQFLAGS
+> +static inline
+> +void local_all_irqs_cpu_init_mask(arm64_exc_context_t context)
+> +{
+> +	WARN_ON(__this_cpu_read(irqs_masks_cpu_init_done));
+> +	if (context == PROCESS_CONTEXT)
+> +		trace_hardirqs_on();
+> +	arm64_update_exc_context(context, true);
+> +	__this_cpu_write(irqs_masks_cpu_init_done, true);
+> +	__this_cpu_write(irqs_masks_cpu_final_done, false);
+> +}
+> +
+> +static inline void local_all_irqs_final_mask(void)
+> +{
+> +	WARN_ON(__this_cpu_read(irqs_masks_cpu_final_done));
+> +	arm64_update_exc_context(CRITICAL_CONTEXT, true);
+> +	trace_hardirqs_off();
+> +	__this_cpu_write(irqs_masks_cpu_final_done, true);
+> +	__this_cpu_write(irqs_masks_cpu_init_done, false);
+> +}
+> +#else /* CONFIG_DEBUG_IRQFLAGS */
+> +static inline
+> +void local_all_irqs_cpu_init_mask(arm64_exc_context_t context)
+> +{
+> +	if (context == PROCESS_CONTEXT)
+> +		trace_hardirqs_on();
+> +	arm64_update_exc_context(context, true);
+> +}
+> +
+> +static inline void local_all_irqs_final_mask(void)
+> +{
+> +	arm64_update_exc_context(CRITICAL_CONTEXT, true);
+> +	trace_hardirqs_off();
+> +}
+> +#endif /* CONFIG_DEBUG_IRQFLAGS */
 
-diff --git a/drivers/soc/mediatek/mtk-pmic-wrap.c b/drivers/soc/mediatek/mtk-pmic-wrap.c
-index a4b10b0a97cb..4b8a5dc80a36 100644
---- a/drivers/soc/mediatek/mtk-pmic-wrap.c
-+++ b/drivers/soc/mediatek/mtk-pmic-wrap.c
-@@ -569,6 +569,96 @@ static const int mt2701_regs[] = {
- 	[PWRAP_ADC_RDATA_ADDR2] =	0x154,
- };
- 
-+static const int mt6572_regs[] = {
-+	[PWRAP_MUX_SEL] =		0x0,
-+	[PWRAP_WRAP_EN] =		0x4,
-+	[PWRAP_DIO_EN] =		0x8,
-+	[PWRAP_SIDLY] =			0xc,
-+	[PWRAP_OP_TYPE] =		0x10,
-+	[PWRAP_MSB_FIRST] =		0x14,
-+	[PWRAP_RDDMY] =			0x18,
-+	[PWRAP_SI_CK_CON] =		0x1c,
-+	[PWRAP_CSHEXT_WRITE] =		0x20,
-+	[PWRAP_CSHEXT_READ] =		0x24,
-+	[PWRAP_CSLEXT_START] =		0x28,
-+	[PWRAP_CSLEXT_END] =		0x2c,
-+	[PWRAP_STAUPD_PRD] =		0x30,
-+	[PWRAP_STAUPD_GRPEN] =		0x34,
-+	[PWRAP_STAUPD_MAN_TRIG] =	0x38,
-+	[PWRAP_STAUPD_STA] =		0x3c,
-+	[PWRAP_GPS_STA] =		0x40,
-+	[PWRAP_WRAP_STA] =		0x44,
-+	[PWRAP_HARB_INIT] =		0x48,
-+	[PWRAP_HARB_HPRIO] =		0x4c,
-+	[PWRAP_HIPRIO_ARB_EN] =		0x50,
-+	[PWRAP_HARB_STA0] =		0x54,
-+	[PWRAP_HARB_STA1] =		0x58,
-+	[PWRAP_MAN_EN] =		0x5c,
-+	[PWRAP_MAN_CMD] =		0x60,
-+	[PWRAP_MAN_RDATA] =		0x64,
-+	[PWRAP_MAN_VLDCLR] =		0x68,
-+	[PWRAP_WACS0_EN] =		0x6c,
-+	[PWRAP_INIT_DONE0] =		0x70,
-+	[PWRAP_WACS0_CMD] =		0x74,
-+	[PWRAP_WACS0_RDATA] =		0x78,
-+	[PWRAP_WACS0_VLDCLR] =		0x7c,
-+	[PWRAP_WACS1_EN] =		0x80,
-+	[PWRAP_INIT_DONE1] =		0x84,
-+	[PWRAP_WACS1_CMD] =		0x88,
-+	[PWRAP_WACS1_RDATA] =		0x8c,
-+	[PWRAP_WACS1_VLDCLR] =		0x90,
-+	[PWRAP_WACS2_EN] =		0x94,
-+	[PWRAP_INIT_DONE2] =		0x98,
-+	[PWRAP_WACS2_CMD] =		0x9c,
-+	[PWRAP_WACS2_RDATA] =		0xa0,
-+	[PWRAP_WACS2_VLDCLR] =		0xa4,
-+	[PWRAP_INT_EN] =		0xa8,
-+	[PWRAP_INT_FLG_RAW] =		0xac,
-+	[PWRAP_INT_FLG] =		0xb0,
-+	[PWRAP_INT_CLR] =		0xb4,
-+	[PWRAP_SIG_ADR] =		0xb8,
-+	[PWRAP_SIG_MODE] =		0xbc,
-+	[PWRAP_SIG_VALUE] =		0xc0,
-+	[PWRAP_SIG_ERRVAL] =		0xc4,
-+	[PWRAP_CRC_EN] =		0xc8,
-+	[PWRAP_TIMER_EN] =		0xcc,
-+	[PWRAP_TIMER_STA] =		0xd0,
-+	[PWRAP_WDT_UNIT] =		0xd4,
-+	[PWRAP_WDT_SRC_EN] =		0xd8,
-+	[PWRAP_WDT_FLG] =		0xdc,
-+	[PWRAP_DEBUG_INT_SEL] =		0xe0,
-+	[PWRAP_DVFS_ADR0] =		0xe4,
-+	[PWRAP_DVFS_WDATA0] =		0xe8,
-+	[PWRAP_DVFS_ADR1] =		0xec,
-+	[PWRAP_DVFS_WDATA1] =		0xf0,
-+	[PWRAP_DVFS_ADR2] =		0xf4,
-+	[PWRAP_DVFS_WDATA2] =		0xf8,
-+	[PWRAP_DVFS_ADR3] =		0xfc,
-+	[PWRAP_DVFS_WDATA3] =		0x100,
-+	[PWRAP_DVFS_ADR4] =		0x104,
-+	[PWRAP_DVFS_WDATA4] =		0x108,
-+	[PWRAP_DVFS_ADR5] =		0x10c,
-+	[PWRAP_DVFS_WDATA5] =		0x110,
-+	[PWRAP_DVFS_ADR6] =		0x114,
-+	[PWRAP_DVFS_WDATA6] =		0x118,
-+	[PWRAP_DVFS_ADR7] =		0x11c,
-+	[PWRAP_DVFS_WDATA7] =		0x120,
-+	[PWRAP_CIPHER_KEY_SEL] =	0x124,
-+	[PWRAP_CIPHER_IV_SEL] =		0x128,
-+	[PWRAP_CIPHER_EN] =		0x12c,
-+	[PWRAP_CIPHER_RDY] =		0x130,
-+	[PWRAP_CIPHER_MODE] =		0x134,
-+	[PWRAP_CIPHER_SWRST] =		0x138,
-+	[PWRAP_DCM_EN] =		0x13c,
-+	[PWRAP_DCM_DBC_PRD] =		0x140,
-+	[PWRAP_ADC_CMD_ADDR] =		0x144,
-+	[PWRAP_PWRAP_ADC_CMD] =		0x148,
-+	[PWRAP_ADC_RDY_ADDR] =		0x14c,
-+	[PWRAP_ADC_RDATA_ADDR1] =	0x150,
-+	[PWRAP_ADC_RDATA_ADDR2] =	0x154,
-+	[PWRAP_SW_RST] =		0x180,
-+};
-+
- static const int mt6765_regs[] = {
- 	[PWRAP_MUX_SEL] =		0x0,
- 	[PWRAP_WRAP_EN] =		0x4,
-@@ -1314,6 +1404,7 @@ enum pmic_type {
- 
- enum pwrap_type {
- 	PWRAP_MT2701,
-+	PWRAP_MT6572,
- 	PWRAP_MT6765,
- 	PWRAP_MT6779,
- 	PWRAP_MT6795,
-@@ -1733,6 +1824,11 @@ static void pwrap_init_chip_select_ext(struct pmic_wrapper *wrp, u8 hext_write,
- static int pwrap_common_init_reg_clock(struct pmic_wrapper *wrp)
- {
- 	switch (wrp->master->type) {
-+	case PWRAP_MT6572:
-+		pwrap_writel(wrp, 0x8, PWRAP_RDDMY);
-+		pwrap_write(wrp, wrp->slave->dew_regs[PWRAP_DEW_RDDMY_NO], 0x8);
-+		pwrap_init_chip_select_ext(wrp, 5, 0, 0, 0);
-+		break;
- 	case PWRAP_MT6795:
- 		if (wrp->slave->type == PMIC_MT6331) {
- 			const u32 *dew_regs = wrp->slave->dew_regs;
-@@ -1839,6 +1935,7 @@ static int pwrap_init_cipher(struct pmic_wrapper *wrp)
- 		pwrap_writel(wrp, 1, PWRAP_CIPHER_START);
- 		break;
- 	case PWRAP_MT2701:
-+	case PWRAP_MT6572:
- 	case PWRAP_MT6765:
- 	case PWRAP_MT6779:
- 	case PWRAP_MT6795:
-@@ -2277,6 +2374,19 @@ static const struct pmic_wrapper_type pwrap_mt2701 = {
- 	.init_soc_specific = pwrap_mt2701_init_soc_specific,
- };
- 
-+static const struct pmic_wrapper_type pwrap_mt6572 = {
-+	.regs = mt6572_regs,
-+	.type = PWRAP_MT6572,
-+	.arb_en_all = 0x1ff,
-+	.int_en_all = 0x7ffffffd,
-+	.int1_en_all = 0,
-+	.spi_w = PWRAP_MAN_CMD_SPI_WRITE,
-+	.wdt_src = PWRAP_WDT_SRC_MASK_ALL,
-+	.caps = PWRAP_CAP_RESET | PWRAP_CAP_DCM,
-+	.init_reg_clock = pwrap_common_init_reg_clock,
-+	.init_soc_specific = pwrap_mt2701_init_soc_specific,
-+};
-+
- static const struct pmic_wrapper_type pwrap_mt6765 = {
- 	.regs = mt6765_regs,
- 	.type = PWRAP_MT6765,
-@@ -2446,6 +2556,7 @@ static const struct pmic_wrapper_type pwrap_mt8186 = {
- 
- static const struct of_device_id of_pwrap_match_tbl[] = {
- 	{ .compatible = "mediatek,mt2701-pwrap", .data = &pwrap_mt2701 },
-+	{ .compatible = "mediatek,mt6572-pwrap", .data = &pwrap_mt6572 },
- 	{ .compatible = "mediatek,mt6765-pwrap", .data = &pwrap_mt6765 },
- 	{ .compatible = "mediatek,mt6779-pwrap", .data = &pwrap_mt6779 },
- 	{ .compatible = "mediatek,mt6795-pwrap", .data = &pwrap_mt6795 },
+The implementations of local_all_irqs_cpu_init_mask() and
+local_all_irqs_final_mask() are partially the same when the
+CONFIG_DEBUG_IRQFLAGS switch is enabled or not.
 
--- 
-2.54.0
+Should we provide only one version of the implementation and use
+CONFIG_DEBUG_IRQFLAGS to isolate the debug-related code?
 
+> +#endif /* __ASM_INTERRUPTS_MASKING_H */
 
 
