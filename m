@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B726C44507
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F952C44501
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 06:10:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bn7zqv7BhhO4u2hyqtDUkagNf7vxIqH4Kedjj5Ao8gg=; b=2HarkkfwJQGos4y0etXP9AMTpi
-	tLdxjElogpLuB7SRBglVaLOnctbL7O6ysmHe7TuqRTpl2sDCvrOtyEmfaqUbd15a4qJxy72DuVOG3
-	e1Eyl4yuMlQfzYmrGtrebFwzLoFPmcTehdB6GtraLGqD5o/IDRLFU0dXmnKs8/hhmqfGSqVSsK1sY
-	pD4sSzixR2+IySn99OT3Gm8EmlxGvuWVTthfnfRuOaLMVb1beJU6E1OPP0RT3HViFmKlptV2OeaIH
-	l2iEQzWr9lllEOY5OpfkeZwIqpagj4iJbbbDG3TgYgLmuoF3IrPGs7A0kvsixTABZeRUfEqb+Kpz0
-	hnGhjkdA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fOrVLDpGjRjUa+f8VzrtP6B9hFELin8qYtwTJlLmQHk=; b=U/xuMssz6nLIkuxWiygvUjc9i6
+	uWx9jAW8lxCbzP+mN1HQvIlJec5pWBz7N5Fzmvbka2tchgQhzEXHE+DgLDbT19H3B9IK1xeBowmtf
+	0p2u33xLvLK2b1HkkYK/hMTztjyv0q+F25Q4ILakrqO+sRrSbC+H7xZM4DFumBULPWq5hFIz4t0KQ
+	5reSk/Uzud4tSs+25dCBSISq+hoGAQ/cQjk8l/Iza6CB+F6VSIEDmPn/2PuaD8O3sgxe5m/iyYDzD
+	feHljNG1MI047/oWLgRX6ZtpUwa+mRpbRnZ3TYJCOhVctx0NPTWLCZEzf1Plw1kHhCag2YWuPNCK2
+	kOH6xWBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjWLX-0000000B0TV-3Dk3;
+	id 1wjWLX-0000000B0TD-2o3T;
 	Tue, 14 Jul 2026 06:10:23 +0000
-Received: from m16.mail.163.com ([117.135.210.5])
+Received: from m16.mail.163.com ([220.197.31.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjWLQ-0000000B0Qa-3tgi
+	id 1wjWLQ-0000000B0QR-2Vk1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 06:10:20 +0000
+	Tue, 14 Jul 2026 06:10:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=bn
-	7zqv7BhhO4u2hyqtDUkagNf7vxIqH4Kedjj5Ao8gg=; b=OwtK6mD4hKcXDiM1hO
-	qPwRv5qhI/mzDULJimzH9Y9IxR/J8+QkKfrm5IWPi6H8Yy+INj2zjIAD1hDcdNPT
-	0CUv6LutuOvjYBSSUq0bsOiXWHGMpH61vh4m5CUSXe7TpFdXwXQsKVr+/fP0zDbW
-	M8LHhjuo2Nw4aSpm+Gt/o4u8w=
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=fO
+	rVLDpGjRjUa+f8VzrtP6B9hFELin8qYtwTJlLmQHk=; b=iqI/ShWLN0QGPUqjSJ
+	HV4sJ1rtMWL3tWOLVElIvwBK6ZSAS4vfu0sssBfLo/bYGEpI3L73sIP+ni1SSqUT
+	CmAr7QEESbFj+puJ3v3C2uYKuvXUwn8posOU/mE9sIfmLZjymxF95WZIUJm21bsD
+	UnPKkFa6CVRl/0wW+XDTRAaMM=
 Received: from xwm-TianYi510Pro-14IMB.. (unknown [])
-	by gzsmtp4 (Coremail) with SMTP id PygvCgAnwyab0lVqrG_HHA--.5129S2;
-	Tue, 14 Jul 2026 14:09:47 +0800 (CST)
+	by gzsmtp4 (Coremail) with SMTP id PygvCgAnwyab0lVqrG_HHA--.5129S5;
+	Tue, 14 Jul 2026 14:09:48 +0800 (CST)
 From: weimin xiong <xiongwm2026@163.com>
 To: Will Deacon <will@kernel.org>,
 	Robin Murphy <robin.murphy@arm.com>,
@@ -47,23 +47,24 @@ Cc: Benjamin Gaignard <benjamin.gaignard@collabora.com>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-msm@vger.kernel.org,
 	weimin xiong <xiongwm2026@163.com>
-Subject: [PATCH v1 0/4] iommu: Fix device lookup lifetime and probe cleanup
-Date: Tue, 14 Jul 2026 14:09:26 +0800
-Message-ID: <20260714060930.220277-1-xiongwm2026@163.com>
+Subject: [PATCH v1 3/4] iommu/vsi: Fix fwnode lookup lifetime handling
+Date: Tue, 14 Jul 2026 14:09:29 +0800
+Message-ID: <20260714060930.220277-4-xiongwm2026@163.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260714060930.220277-1-xiongwm2026@163.com>
+References: <20260714060930.220277-1-xiongwm2026@163.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: PygvCgAnwyab0lVqrG_HHA--.5129S2
-X-Coremail-Antispam: 1Uf129KBjvdXoW7Xr4kGryxKF15JFW8Kr4DJwb_yoWDGFX_ur
-	yrZ3srXw1rZFWxZa42qF47ZrZYkr4IvF97GrWjg3s3Jr17XrWkGa1qvFn5Ja1xWw1jyFn7
-	tw4Ykr1xG342gjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUUuHq3UUUUU==
+X-CM-TRANSID: PygvCgAnwyab0lVqrG_HHA--.5129S5
+X-Coremail-Antispam: 1Uf129KBjvJXoW7KFyrGF1DJw1fCw47uF45Jrb_yoW8Ww45pF
+	WUGayYkrWUXF10gF47C3W5CFyYvws2va4I9rW5tw4v9w1rtrW8ta4UJryjqryrCFZ5J3W7
+	Kw13ta97CFy5A3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jeg4fUUUUU=
 X-Originating-IP: [116.128.244.169]
-X-CM-SenderInfo: x0lr0wdzpsijqw6rljoofrz/xtbCzgvOXmpV0qudxAAA3K
+X-CM-SenderInfo: x0lr0wdzpsijqw6rljoofrz/xtbCzgzPX2pV0qyd0gAA3c
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260713_231017_812148_8DA5E6F2 
-X-CRM114-Status: UNSURE (   8.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260713_231017_008083_59B2F373 
+X-CRM114-Status: GOOD (  12.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,29 +79,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix a few IOMMU driver lifetime and error-path issues found while
-auditing fwnode-based device lookup and probe cleanup paths.
+bus_find_device_by_fwnode() returns a device with its reference count
+incremented. vsi_iommu_get_from_dev() drops that reference before
+reading the driver data, which leaves the returned pointer derived from
+a device after its reference has been released.
 
-The first three patches avoid deriving driver private data after
-dropping the device reference returned by bus_find_device_by_fwnode().
-They also make the ARM SMMU v2 and VSI probe paths fail cleanly when the
-IOMMU lookup fails.
+Read the driver data before put_device(). Also make
+vsi_iommu_probe_device() fail with -ENODEV when the IOMMU cannot be
+found instead of dereferencing a NULL pointer.
 
-The last patch unwinds msm_iommu_probe() state if sysfs setup or
-iommu_device_register() fails.
+Signed-off-by: weimin xiong <xiongwm2026@163.com>
+---
+ drivers/iommu/vsi-iommu.c | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
 
-weimin xiong (4):
-  iommu/arm-smmu: Fix fwnode lookup lifetime handling
-  iommu/arm-smmu-v3: Fix fwnode lookup lifetime handling
-  iommu/vsi: Fix fwnode lookup lifetime handling
-  iommu/msm: Clean up probe state on registration failure
-
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c |  8 +++++++-
- drivers/iommu/arm/arm-smmu/arm-smmu.c       | 12 +++++++++++-
- drivers/iommu/msm_iommu.c                   | 10 ++++++++--
- drivers/iommu/vsi-iommu.c                   | 10 +++++++++-
- 4 files changed, 35 insertions(+), 5 deletions(-)
-
+diff --git a/drivers/iommu/vsi-iommu.c b/drivers/iommu/vsi-iommu.c
+index 42c424496..d19db561e 100644
+--- a/drivers/iommu/vsi-iommu.c
++++ b/drivers/iommu/vsi-iommu.c
+@@ -220,10 +220,15 @@ static struct vsi_iommu *vsi_iommu_get_from_dev(struct device *dev)
+ 	struct iommu_fwspec *fwspec = dev_iommu_fwspec_get(dev);
+ 	struct device *iommu_dev = bus_find_device_by_fwnode(&platform_bus_type,
+ 							     fwspec->iommu_fwnode);
++	struct vsi_iommu *iommu;
++
++	if (!iommu_dev)
++		return NULL;
+ 
++	iommu = dev_get_drvdata(iommu_dev);
+ 	put_device(iommu_dev);
+ 
+-	return iommu_dev ? dev_get_drvdata(iommu_dev) : NULL;
++	return iommu;
+ }
+ 
+ static struct iommu_domain *vsi_iommu_domain_alloc_paging(struct device *dev)
+@@ -619,6 +624,9 @@ static struct iommu_device *vsi_iommu_probe_device(struct device *dev)
+ 	struct vsi_iommu *iommu = vsi_iommu_get_from_dev(dev);
+ 	struct device_link *link;
+ 
++	if (!iommu)
++		return ERR_PTR(-ENODEV);
++
+ 	link = device_link_add(dev, iommu->dev,
+ 			       DL_FLAG_STATELESS | DL_FLAG_PM_RUNTIME);
+ 	if (!link)
 -- 
 2.43.0
 
