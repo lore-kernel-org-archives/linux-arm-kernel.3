@@ -4,67 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A673C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 20:10:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F4203C44507
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 20:13:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cqlSeCpwocQEmK8jPueF1yCbKiDV3dojuJhXPMIV//w=; b=oRScrQxX/Fhm0C95OKysk6zUeq
-	+uvAV3HG1daozqSiUKzZmN7BGGXcosgSByZpcendEJTc/TTg+EaUG92Bp1r2RzJgwTEwDJvwXvnIF
-	xn9rPEDh5f+fA7wWXSFVXjx3O84+ewP4/8/H+V38M0qJDRfLJQoSknZwmfrcNh4LkynSLe21BkYN6
-	qzr6lVcM+IgyHb1hMdvvnXGvz15TUhaTwaVK2AM9In3FOL9arPJ2a1uHKK/dZ1+Zep46ZaC5QS7dd
-	S+7F069XDN6ADk8zboAuXoP9whkH51+DYxlzDtoYWkXyisYPzxnyWtGqGJ35x59QKn+kvneNwXS1A
-	Me9Ad6Jg==;
+	bh=GZnKgW+PTI85uwSvBTZx6tE/LVkjSY/LHRD2fDPNzO0=; b=m4OhxHJpn+yPKI5QNGG8OEZt9i
+	RhVw/6RzUIs+4W0YPBAVG5sjGQHqO/H0XQEyQ7Ggly02+w1Vi/420yj+qFL4mfTJA+5qZFZT6RLOd
+	Jc1cwTHPq+kIE2Ikmgo2qQSEbapNb3Ueyw953brAhMclhOBZFhFYWpC2eFbv8x0wN1Uvy+TAChMHS
+	uqvWF0/1UHwpFRvhywHr7Y3MeTLtdCDmwDZ6t+As59pnuhUWQRv1eHs9ZAbGJf9VuUR7MDFmH384E
+	w/u59n1VBrG70Y5IdXT7wN2wxoUceEN/YjodqVJY5RJYIe/76lqy6X/JDZZeCndjPW9S2//8JZ2rg
+	6L4vr66Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjjSl-0000000DCAg-21NQ;
-	Tue, 14 Jul 2026 20:10:43 +0000
-Received: from out-173.mta1.migadu.com ([95.215.58.173])
+	id 1wjjVc-0000000DCYI-0G70;
+	Tue, 14 Jul 2026 20:13:40 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjjSi-0000000DCA9-1OXp
+	id 1wjjVY-0000000DCXG-2oJc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 20:10:42 +0000
-X-Forwarded-Encrypted: i=1; AHgh+RpU5V+Q8vE7AB+/etON9t1kwXORa/s385S7Fbntdp6jttWDDJrArq2xSzmRXtOooktCxC5hb5sjBRjVvXJEnclN@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1784059837;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=cqlSeCpwocQEmK8jPueF1yCbKiDV3dojuJhXPMIV//w=;
-	b=pomT0SPPzLKTdMIZItolEgi1i1OA8ryK15pwmZQvvyhS9h3+seCA79gt7HpDDtRGSQArAU
-	Nt62/fwm4+WQy7qmobQ30ju4ESrIpDyrKWurvngl6h1ha7TbxGRidY5NmSsHvzYEfkjXEK
-	RSuILr2tlgO42ZEBhzUuThukq/Rf81o=
-X-Gm-Message-State: AOJu0YxUH043JEdhAOLQQrhpNHBgYFUYF8AYIJmPzKgg3pwJYuNxkJri
-	/RxLAcxns/TvVjJM/jA4R5WkJEhqd097vTwCuM1Yu0YyRc5FfASLJnak4Vt5B0NXICC39WfQgtI
-	rZfbxHsEpANNzhEf90R+7CR01EKmxVL/2YgfZkJDc
-X-Received: by 2002:a05:622a:289:b0:519:b82d:fe62 with SMTP id
- d75a77b69052e-51d7bcc96ffmr17653231cf.7.1784059812809; Tue, 14 Jul 2026
- 13:10:12 -0700 (PDT)
+	Tue, 14 Jul 2026 20:13:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=GZnKgW+PTI85uwSvBTZx6tE/LVkjSY/LHRD2fDPNzO0=; b=pDJ4GOG290nNbD7p9pehUqbd6J
+	liRP7KZdmFIUYrnPXVRorJ+btZrptsNhTyOE6IcMio8Z7W0/PkmCvK/jiRDtGbzxLi5Rm1ihsYGcP
+	D6XqGXjWUEYD1ptZjY+ed8cKUhRvmUeZyVFvFrqTJk3NuFUrKT/o+vUrikzcxituPc94=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1wjjVG-00CFLL-Bi; Tue, 14 Jul 2026 22:13:18 +0200
+Date: Tue, 14 Jul 2026 22:13:18 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: "Shenwei Wang (OSS)" <shenwei.wang@oss.nxp.com>
+Cc: Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>, Frank Li <frank.li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shenwei Wang <shenwei.wang@nxp.com>, Peng Fan <peng.fan@nxp.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	dl-linux-imx <linux-imx@nxp.com>,
+	Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>,
+	"b-padhi@ti.com" <b-padhi@ti.com>
+Subject: Re: [PATCH v14 1/5] docs: driver-api: gpio: rpmsg gpio driver over
+ rpmsg bus
+Message-ID: <680d0633-cdec-4545-9114-79bfd6eaac41@lunn.ch>
+References: <20260625155432.815185-1-shenwei.wang@oss.nxp.com>
+ <20260625155432.815185-2-shenwei.wang@oss.nxp.com>
+ <alUdg9iTysXCFUa5@p14s>
+ <PAXPR04MB91852808D2C7491AEF98CF1589F92@PAXPR04MB9185.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
-References: <20260706175415.2604046-1-vdonnefort@google.com> <20260706175415.2604046-10-vdonnefort@google.com>
-In-Reply-To: <20260706175415.2604046-10-vdonnefort@google.com>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Tue, 14 Jul 2026 21:10:00 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTzm-Nv_FaTGT1-f0tx1v4kYVaa9LcfNgvEiQJOo_nyF3Q@mail.gmail.com>
-X-Gm-Features: AUfX_mzBFXy0D-wOkq0LD_Ri-IqJu87749Yb0iJ6-50K_-aUHBIcRFe2rotbFjY
-Message-ID: <CA+EHjTzm-Nv_FaTGT1-f0tx1v4kYVaa9LcfNgvEiQJOo_nyF3Q@mail.gmail.com>
-Subject: Re: [PATCH v2 09/18] KVM: arm64: Add reclaim interface for the pKVM
- heap alloc
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
-	will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kernel-team@android.com, qperret@google.com
-Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <PAXPR04MB91852808D2C7491AEF98CF1589F92@PAXPR04MB9185.eurprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_131040_538047_AC248F0A 
-X-CRM114-Status: UNSURE (   7.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260714_131336_710530_8C2A4C31 
+X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,29 +91,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 6 Jul 2026 at 18:54, Vincent Donnefort <vdonnefort@google.com> wrote:
+> > 1) You did not include messages that mask and unmask interrupts at the driver
+> > side.
+> 
+> Interrupt masking and unmasking are handled entirely on the local processor.
+> 
+> When an interrupt occurs, the remote system masks the interrupt and then sends a notification 
+> to Linux. After Linux processes the notification, it sends a SET_IRQ_TYPE message back to the 
+> remote system, which then unmasks the interrupt.
 
-...
+Masking and unmasking an interrupt are orthogonal to the interrupt
+type.
 
-> +
-> +unsigned long pkvm_hyp_reclaimable(enum pkvm_topup_id id)
-> +{
-> +       return kvm_call_hyp_nvhe(__pkvm_hyp_reclaimable, id);
-> +}
+When the interrupt fires, the interrupt core calls the irq_mask()
+operation on the interrupt. That should mask the interrupt. Once the
+handler has finished, the interrupt core, will call irq_unmask() to
+unmask the interrupt.
 
-Missing new line.
+Edge, level, high, low, raising, falling has nothing to do with
+masking. Please don't mix concepts which Linux keeps separate.
 
-With that fixed:
-
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
-
-Cheers,
-/fuad
-
->  static void __pkvm_destroy_hyp_vm(struct kvm *kvm)
->  {
->         if (pkvm_hyp_vm_is_created(kvm)) {
-> --
-> 2.55.0.rc2.803.g1fd1e6609c-goog
->
+	 Andrew
 
