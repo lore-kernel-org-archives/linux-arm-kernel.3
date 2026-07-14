@@ -4,90 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C4D3C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 20:29:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44B3EC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 20:33:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=S9VYavqel088B9xNr5QJlq+pbjgeAsubCPGEUg3TC48=; b=TGsbm2MkpjY/mhFKgVqNWL66/v
-	wAzBal0uZJ1KswV8AuAJLXUog7IP0ZBzH7tjwMxmhHIZohH1Oh7/T6XqRt1s44nPslhw408Iqi7h5
-	RAlL3fS328Y0f64CjVtQxwT51WZFSg4FFTCVs83a5DzEuM+79SKFsNhAcxBct+X4laxlI5JCFz+4k
-	fSUjOBcrfMpK9bduUB3o5ov72QweThJxOysZgGt/DpC4RDEi772tC21kb7twqeEcMZpB2h7ZLIfkJ
-	sL6cBDY84midmU7vrU9/3LY3kW1Rcv0yDPy3+I2eiowtlNrD0CHHEhnae3KwCvx+jedJ7e1VqSulM
-	TUZbJGfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SWvYsvqfOjBM3XTs52reve5cF6WpKK98y+DFSa9rO8E=; b=zuyJ8HVcGGSxYRzrJl9ZmXncN/
+	zI+TR8vEwwrNOAh0OJxc0kO2ANMa4jXziBgWAg3r6UI6sMbiazNwVdikwMpzOI9HjlckomBHmm4KF
+	6sl5AiBT26ulVmREW+XXnzLropjRVJ3NNsONYqWCdscKDn7bfuo9MItQkE9zCroMK1nQb9ktQNk/o
+	xrVrmbykmwjlgiNIMpjFNhfKLM9cHtV7s6aLgrb4Y3P8YBm0EQVfJqb6MQfQrKb+GrewK3RGybyfs
+	HkE9QsXtqMjezt2WXVYzUjE+OFVOf19fBXsoXtQkK8jZo/Iya9CVOu2UDplQ+YfCLmX1OU+960eaN
+	aaNY6f9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjjkq-0000000DESx-1y64;
-	Tue, 14 Jul 2026 20:29:24 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1wjjp7-0000000DEvj-0NpU;
+	Tue, 14 Jul 2026 20:33:49 +0000
+Received: from mail-westeuropeazon11011008.outbound.protection.outlook.com ([52.101.70.8] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjjkn-0000000DES4-3raz
+	id 1wjjp4-0000000DEv1-1Xb9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 20:29:23 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-493c564ed4dso3245195e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 13:29:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784060960; x=1784665760; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=S9VYavqel088B9xNr5QJlq+pbjgeAsubCPGEUg3TC48=;
-        b=ojWUetyczoocLoQPC8HoERlFbYRC/7xcGNmkia5c5EWNVhRMR4K7MeEi7YBx8fULJF
-         0j6UyOLD7lt/WoL+ZpdJfFQkTBq1V8ygpJZdoDVxvrLrWz/A8TYQqOd81h7GVQC0mjVS
-         FfVESb70HyR7IgQQSR2ypPlPuvvx4/nI/g7tKDa+973G6hg8L9mENiHw+IKO2QFLAp37
-         uxythrWhNgIsLZ2DE+eTpC9g0VX/nWx7D5jYZqUUOVR2goAU4ivIhtCYlAO8HBpIBJ92
-         qHX6v1gfGV2Jvq19Gc8yJ6E7LUNO9/WJO5WTPV/xQVzm+K5SvYfYCT2p5sVNnSGyFy03
-         CjYA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784060960; x=1784665760;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=S9VYavqel088B9xNr5QJlq+pbjgeAsubCPGEUg3TC48=;
-        b=cqK4y5TLPjuwjrM0zhkyCxyuGW+3zoSQlX+B8hr2Z49qzQ088i44sKAUcygJHYOzzQ
-         glAzCXPMvsMDed6eAIVKDF1ZJpbejTx2O+87aeWQgQeuiZzZ+AoIyViy9MFS3bcD9b6T
-         G43NFMAOoRVB/hM88h6yh62xwNF4vYwzaNjxefkXX4TSuimJeUtLRbP1csa9nJC+qQ2M
-         7jK/kOUO1nqXOmhrOet5N02+F8HnAggXdN+Fdr9RSYxXWVXvP8pDTHFsm/0f5s+xtq3I
-         fhKgC4XeTEH6WRPTBrdzifWHTQfpP4sVy8GGRbgtckpUtB5STsnh7zFnkmOSjK37JSZk
-         /vMg==
-X-Forwarded-Encrypted: i=1; AHgh+RqSRpOCXnwB0iVXD+cEqgXl5Wt7La9o0a13LB7iwhlPTRsg3NgGfY4vtVLQf+8Yx9sGDmKPcBqg9XQuHmRJmvCb@lists.infradead.org
-X-Gm-Message-State: AOJu0YyM7reoU1Sa4bB0pRfkcGDClylz35gOot8mY8YgzVDEfb5WGso6
-	OpIV2llnwc9I7MiDhkqFBsUxZqGIAaOMgay1H3DKvq2P/u7yBslfezLd
-X-Gm-Gg: AfdE7cln2VZiSrVa/w9DwmbdG4FMbD+t9bDy1IJwZE1QGBcOWxY/5t4dH+s9AK8gMHi
-	vGHCQWbD8A5E7NKCZ74tc8uS6h+g7/hxgzQlV1YzYcz8tBEOCV3TuKpHwacA4PUEa5KQtP6zmEJ
-	3Ir90t3X+w7Ffbxrk74fRXEMLeIQZKB0MayBfcGUdHfWvvxCj8IR9YAdhRvxqqN7Z6M/yIxumSw
-	9//xWpl0hww7OQNUt3Wvx22MgePXfKtk8RZHmp8L+iYYAATBAcSoH1ef/shJp+9WKUpEPdav/gM
-	JxpnWCua08LtwCzXG2DyA22EAZ0gsek4pxIBtfIgPrNhtuiwRipP5ce/y1C16AnFCJ6ALJ1PJU5
-	98PFUXuh0BrtDw8v4tYItamZ7dSZPz03ShWNyXdDfnMjloRR6Ei5qiLedl/txn+V+wjqnbmIxpD
-	HGtqWY1W9XZ7VQ2Aldc+5vzNjbSfQ5A55GGFfNFQ1CiZ/GSTFeeXxA0wARmKD7BgztUVal9zIqN
-	VpA2/Jbw0vBUnoeGckNlvNrp597C0TU
-X-Received: by 2002:a05:600c:c055:b0:490:b2f9:d9a4 with SMTP id 5b1f17b1804b1-493f87dbb37mr64625065e9.1.1784060959738;
-        Tue, 14 Jul 2026 13:29:19 -0700 (PDT)
-Received: from OrangePi5-Plus.BB-HOME (20014C4E1B9381005FD9FCFE1353AFE2.dsl.pool.telekom.hu. [2001:4c4e:1b93:8100:5fd9:fcfe:1353:afe2])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4950a32c65asm98332125e9.14.2026.07.14.13.29.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jul 2026 13:29:19 -0700 (PDT)
-From: Igor Paunovic <royalnet026@gmail.com>
-To: Sandy Huang <hjc@rock-chips.com>,
-	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>
-Cc: dri-devel@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
+	Tue, 14 Jul 2026 20:33:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bYnTI3IRB8AeiTgiAShfpSgop65q5/Ihb3GVmYNdeHFS7OoxoVK1k2KmY5Rz63svfRiHvdD8LnK21ixcaGns8IyDKSrat90Vtbqd+5h2P6n+MFzJr9m76dgfSkLGgt3jIrvRiA/rKcn1+MNqmY5gv3+LAhOGq5klDtii/A2irCcpbQweFnUnAZBHe3Fn4YNbNJ6mY03o6/QW+ilhEIyvQzD6je25mpk675Idi/lBFlCEG5d8MlLGFDeiJgcI7azcPrilJpeIYgcsvseizOWnaNGM+Nyzf8A0u/sj0iJ02/ZEsFbWN2PYCsfh4DDIQNEhgJhre1uArGktN2LEwVOM4g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=SWvYsvqfOjBM3XTs52reve5cF6WpKK98y+DFSa9rO8E=;
+ b=xNHF9LQLwobwxG6H8NUmSMDAcX7JpzwSf5rBCpkUUHyf5iAC7YogA9BLXVJKFjwBbcujRzHspLxqvAIMNKYUObLf7ZY4vGwpzqnFiAbu3oENCnEZbOtGLhWvGK48BftBcierVFdQEEB9oOsB8daIxiwAo6anKqaCbWgiA5ppK2zS3RaDusHOkfiFPUddSIS5W1k2GEnwKgUsFLwCiERLT4kdl1SC9n5mwVA3ZeVXvd2C0kliX/HB26wzQLeD++K9b23eywWdWNXltsuCFYR1O9Z741Zt1jFSWvJNM3cIXEXhgm7UZNh4rRhF8AnwzuHfM6Yn75yEropf0tvYT7E66g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=SWvYsvqfOjBM3XTs52reve5cF6WpKK98y+DFSa9rO8E=;
+ b=rhLog645LkBZsZwjBzFRQnuf1QCaL1h2ffWXiYEdkL0GV+Qh93qMuJ4DkR4jlW6t6Ui4DuSuv/ZWW7f3/oVGdC0X7MR7B6e/rZJEyT1peOrGflEn8MuPib38LpldEHgkxIy3WcXOf+FycHsmDvS2Ds/kod+2dfmzBxd6bsaIUqKLwiQ6mxCLVyEWANjHIbfncwf7dquIJ6Il9cvoTeuVGumjO1G8+buZrDKrttzXIxU6OCH+AYrl6LK1685d9oPXhWOf+rIGEuRTVbFn897C/Nwe/42mApQNlkVVuwQpy+UXnL7SGnHER2JEX4/69H9XB/ILFuRhSbDmLucHf7VUpA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AM8PR04MB7793.eurprd04.prod.outlook.com (2603:10a6:20b:240::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.18; Tue, 14 Jul
+ 2026 20:33:42 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0202.018; Tue, 14 Jul 2026
+ 20:33:42 +0000
+From: Frank.Li@oss.nxp.com
+To: linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Igor Paunovic <royalnet026@gmail.com>
-Subject: [PATCH] drm/rockchip: dw_hdmi_qp: attach the HDMI Colorspace connector property
-Date: Tue, 14 Jul 2026 22:28:50 +0200
-Message-ID: <20260714202850.40999-1-royalnet026@gmail.com>
-X-Mailer: git-send-email 2.53.0
-MIME-Version: 1.0
+	Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: Frank Li <Frank.Li@nxp.com>,
+	pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Josua Mayer <josua@solid-run.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
+	Maud Spierings <maudspierings@gocontroll.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>
+Subject: Re: [PATCH v3 0/3] Add support for Variscite DART-MX8M-MINI and Sonata board
+Date: Tue, 14 Jul 2026 16:33:34 -0400
+Message-ID: <178406120321.1837865.3331872270821661159.b4-ty@b4>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1784046629.git.stefano.r@variscite.com>
+References: <cover.1784046629.git.stefano.r@variscite.com>
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: PH7P221CA0056.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:33c::30) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM8PR04MB7793:EE_
+X-MS-Office365-Filtering-Correlation-Id: 24e18de1-91cb-4e4d-4e5a-08dee1e731ca
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|23010399003|19092799006|56012099006|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: OxI8QA0BaZcVQZ8FiAyVR2gLW5b6UjjNwRI1H7J22Yg5h/9sGwbYEuAYdl1yBbUjp+zDR2ORU9vRBykVsvXx2vCIxH+FrqdyVXeckToetMH1qRyJU1+wzlyAAmq9mKJjmkFhPWgDfw65mta46M5ZKa7urf2S5cUtzm1lI9Tpz1ujySZW9noS03LI00HR09KRAaULoYcSP0PACu7WbQQR0mhOJUNtNETBpf/foVIAyQV+gTKjYySI0MOJFxxm12JNIvlq2t8SqMjdGTUqIm1tePsyneZr0cgqQd8nhpkQz7nBnV3dqqhtVEXWcx3T6siMMDP4v6TyqihCewIwEb6LBcutebZSJwqzXER+S30qN4JpOKonSYec/mnlGEReLKAqcax8Y0B275Qbb2yiok+1yeKa/mvwh5srHsuugIkT2RG7Pdq6DQE8fvyUPHSCsbRd1kCkutB6IytKCUXN59lLK5NGNTlRYyDJlnOSLCe91xSMxy81XO1xFPvWHWPRAwJ7ZZKZT1KzSLpmh33X2amniqn47uDK2epsiXfv82/E1f+5By7Pwcossc7aHlx91CQMzgLnMVB5RYHlwOvQU1nljHiym6Ifx7HhCx2Ub5aTRdbGiGuCHAcCqgyDA0o0IZz1Wghljga6I7/BJWplVyFfKng+RPATxHskM38EvN5+Su0=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(23010399003)(19092799006)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RWNhbFVmTE1zUXJuSGdCT05LYUtzYkgvNVJKSTl3dE1xbWhmQnBUc3RjM08z?=
+ =?utf-8?B?SHJ1MGJ5UEs2U2QySkFKQ3N4QmhWa0t0N1NiMGpiYXZ4Z0hjS0JYaVJCcGN3?=
+ =?utf-8?B?eTZpbVBwcGQrbjNMcXBZaEJCMTI2Kzh2RkJOVUI2MGdNWnl2bkw5ZzZzL3hE?=
+ =?utf-8?B?WjlGZ0ZrZGRodHU4VmY3TDZrdmpnbzBxeHU4NkFZelNENEVHeFE3RVBBc2Vt?=
+ =?utf-8?B?ZDk1TXRNTE1uUTNhc0FlVWt1TFNQV0prcnFXWGNnRWVGSlBtMGszVU1oTmtJ?=
+ =?utf-8?B?SW5VR2t3enY2QUtlcEhOSjU2dXZyUXExNzdSc05iNlRRM2ZvTXdBM0QxcEc5?=
+ =?utf-8?B?OVVzQ1NwaFhOd3pRS1UxenhNcHhZM0I3MTJJS21GSW5NdmJHZyt5LzJsWm5P?=
+ =?utf-8?B?UjFWcXNnS08rWGtmRlRBeVhseS9tMVdsdG1qM2swZnNaVjZaT1NhcXBmOGZU?=
+ =?utf-8?B?bjYra0JCV3Fxc09WUHRNNjNHbzdINEZRSG4raXBUaUQrTDM2dlYxZ0ZwS2po?=
+ =?utf-8?B?Mk1IUFVCcndGZ3pkZ3RHaG1GcGpLUk5QZzIrM1N6MjF2OVIyTTNLcnBRTkJW?=
+ =?utf-8?B?bnpYdE1kK3RFTGI0bUxhZUN6UkdTd3ZTazU0L3QwVEpyVUpzMnJCWEsxRFBG?=
+ =?utf-8?B?M1l2czBiVGwzNmZTbStxcVlYcExuckRDOHEzemUzTTRQTjhDeEg3eUJ2Ykg0?=
+ =?utf-8?B?UWtrV2FWMUZhK3BWdEY5blRnUU1SeldZSTBLQURjUFVRVi9sRlJ1ZHZPWWFK?=
+ =?utf-8?B?RWt4L05FTVRpSE1wYk1wc0h5WlllRkFCSm9SMjlIODJGWk5EeG8rcVA5YU0r?=
+ =?utf-8?B?TGVHL09ub25kZVhhZ1B5bGFZVzcwS2JXUCtqRldCaFhSM0lXeE5OR3BndFhs?=
+ =?utf-8?B?UWcvWm9rMnUxWW9EV2JWTDhkSGdWR0NQT0duTVdQZjNpMEU5TTZGcmU1S2xj?=
+ =?utf-8?B?OFNjdzBqUVVTdk8yVXBWTW1vZWNiQ2x4UVpNMmxIRktqVVJ2Tjk2VGFZY1Fi?=
+ =?utf-8?B?ZGVvUEtEZlloOFI3TnhJV3dZRGRCM25ONWIwdnRzRXJ1R2tWY1FyUnJ0bTBP?=
+ =?utf-8?B?UjloL25SNW1MTU9PcDRFUmY5QTNkRVQ1M2xiL2NWRDNINmlLRDE4VGhMcDFB?=
+ =?utf-8?B?aW1xZWRUOFpLOTlDUWNHdDZ3alpQbnh1M0dubDR2Z2xuM0Vxa3h4T29CNmQw?=
+ =?utf-8?B?aG9vS3l0THFoYmhWSHdQZFU2azBiVllLc3A2RVBSTTQxNXpXVFd2YkhtMmV6?=
+ =?utf-8?B?K3FsUm1QWDBOdXEveDFGL3Z3K1REQWsySkZ1Y0FwN0pzRXQ1TDVJdDVKL25O?=
+ =?utf-8?B?Mlo0T0E0dXdtblBoVzN6L0RxVERlRmRlYmJIWTI2WGo5c2xMV3FTRnYvSGNK?=
+ =?utf-8?B?UVN0NG9PeWllQmU3WlN6SEZTVnJhL01jVGFZQ3ZyajkrNTBmTzVhVXhlYTNE?=
+ =?utf-8?B?M05jYldpUkxXVjJnMG1XS2tEMlRlZEV0YnFZalRybyszbm1iWWxIaDVpM2NF?=
+ =?utf-8?B?a1ZtaXF3R21wZ3FIRUlGQkNkamxRV2Z4ZXkzODEzZXdwQWdhSnIrUDBrdG1y?=
+ =?utf-8?B?d1Axd1RYNnFaRXpzelB5cVdrV2RObXNQU2k2QXZqNVlrV2RKdUpsVjVPNity?=
+ =?utf-8?B?ZCtUREU1RkhBYmtWZUd6Qlp6Zzd1Q1RuWnh3RGpjMUdnQjBRTzluSEFwc2k2?=
+ =?utf-8?B?ZzVvcGhPdFZWZ3FzclBEMHBvSEdZMExoT25HL1FJZUQrL3hCZ0JYZy9kc2Ir?=
+ =?utf-8?B?Y1pNU0ZEdG1OZlVSaHFMbWQzbTYyMHRjWDJzNHJYYTZZNDdXUVk1dlZlREk3?=
+ =?utf-8?B?MWFmSHVPUVJqeGtYTlNyZkhaR0Q3Y0dhSXNJWkdYOVQvYTRKNThkYzBPbzYy?=
+ =?utf-8?B?N0twY29sQU5td0MyVnF6VUVqbXhhalNENnlXRDNQRWRTTjVsMDdNYWdmSXVa?=
+ =?utf-8?B?TXRsMEpMM1VtZkZOV1ZUbzNPOHFHN3VaTzdIWXFqb21ZM0tWOVBuYWlPWG5S?=
+ =?utf-8?B?SHg2c3c2TEtvcG5zaWRNNkdxcFBSb01mbnFwdStQUFR1ekNDYWtRQ0swVWQy?=
+ =?utf-8?B?TUdIMytwTHNJNmx6aFZrRXJNajZ5RlVCOVQ4eFV4dGh0NXNLazQzQ0VGZllh?=
+ =?utf-8?B?ejMrZHR1aVNLOVJiOWluVDlHaUhCdHpLczgya1BjQTVYZHNZeGpFUXVVNUU3?=
+ =?utf-8?B?RE5QdE1wMWYyMmRuRW1KaXdBRkpKdzRIVnNYR2d6Ym1KNWVoNlBuTk45L2Fr?=
+ =?utf-8?B?V1piSlphcktDU04rc2xicDJoTzQzVVpCWERqRG9oK0o1UG8rbHp4R0V6eGZm?=
+ =?utf-8?B?N2FFMTZ4Z29DTGJtaGdCRm9zWmhkcVlnUEhCL040USs3TXl4QVIyL1Z4TGo4?=
+ =?utf-8?Q?T6i0pGUR5MBUZ57PdC7RRU94L/MMhqBUJ2L6J?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 24e18de1-91cb-4e4d-4e5a-08dee1e731ca
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jul 2026 20:33:42.4067
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 7qkU/XXWv1mr5kOn208agIBhoTvc6eO7fuzjUl4nkD9ZUZtvmDZqo+GXSvuoIkTRxEznG0I6dOYFM5ceICARbdaUGfJECrEEuJ2buSQDVt+LDY/IvCFUAau6sYiWi8+X
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7793
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_132921_978121_E5BEFBC4 
-X-CRM114-Status: GOOD (  10.53  )
+X-CRM114-CacheID: sfid-20260714_133346_412236_7FEAB84E 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,53 +166,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The HDMI connector framework already consumes conn_state->colorspace
-when generating the AVI infoframe (drm_hdmi_avi_infoframe_colorimetry()
-in drm_hdmi_state_helper.c), and drmm_connector_hdmi_init() attaches
-HDR_OUTPUT_METADATA and max bpc for this connector. The Colorspace
-property itself, however, is never created, so userspace has no way to
-request BT.2020 colorimetry and wide-gamut/HDR output stays effectively
-unavailable on RK3588 even though the rest of the plumbing is in place.
+From: Frank Li <Frank.Li@nxp.com>
 
-Compositors gate HDR on this: KWin (Plasma 6.x) requires the Colorspace
-property alongside HDR_OUTPUT_METADATA and max bpc before it reports an
-output as HDR/wide-gamut capable, so the HDR toggle never appears.
 
-Create and attach the standard HDMI colorspace property right after the
-bridge connector is initialised. Passing 0 selects the full HDMI
-colorspace set defined by the DRM core.
+On Tue, 14 Jul 2026 18:33:50 +0200, Stefano Radaelli wrote:
+> This patch series adds support for the Variscite DART-MX8M-MINI
+> system on module and the Sonata carrier board.
+> 
+> The series includes:
+> - SOM device tree with on-module peripherals
+> - Sonata carrier board device tree with board-specific features
+> 
+> [...]
 
-Tested on an Orange Pi 5 Plus (RK3588) with Plasma 6.6 on the Collabora
-rockchip-v7.0 tree, which carries the same gap: with the property
-attached, kscreen-doctor reports both HDMI outputs as HDR and
-wide-color-gamut capable, KWin exposes the HDR toggle, the property
-switches to BT2020_RGB at 10 bpc when enabled (verified with modetest),
-and browsers report an HDR display so streaming services serve native
-smpte2084/bt2020 content.
+Applied, thanks!
 
-Signed-off-by: Igor Paunovic <royalnet026@gmail.com>
----
---- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-@@ -603,6 +603,20 @@
- 		return dev_err_probe(hdmi->dev, PTR_ERR(connector),
- 				     "Failed to init bridge connector\n");
- 
-+	/*
-+	 * Attach the HDMI Colorspace property. The HDMI connector framework
-+	 * already consumes conn_state->colorspace for the AVI infoframe
-+	 * (drm_hdmi_avi_infoframe_colorimetry()), and HDR_OUTPUT_METADATA and
-+	 * max bpc are attached by drmm_connector_hdmi_init(), but without the
-+	 * Colorspace property userspace cannot request BT.2020 signalling,
-+	 * which keeps wide-gamut/HDR output unavailable. Passing 0 selects
-+	 * the full HDMI colorspace set defined by the core.
-+	 */
-+	ret = drm_mode_create_hdmi_colorspace_property(connector, 0);
-+	if (ret)
-+		return ret;
-+	drm_connector_attach_colorspace_property(connector);
-+
- 	return 0;
- }
- 
+[1/3] dt-bindings: arm: fsl: add Variscite DART-MX8M-MINI Boards
+      commit: 949e5a6a8f349ff3098f4dc2aa3483723e4209c1
+[2/3] arm64: dts: freescale: Add support for Variscite DART-MX8M-MINI
+      commit: 5297deef08bc3ddc1a27b3518b770dbc3a14da81
+[3/3] arm64: dts: imx8mm-var-dart: Add support for Variscite Sonata board
+      commit: 770aba46ea0fad62631848d4cf2c0c8a5fac7ba5
+
+Best regards,
+-- 
+Frank Li <Frank.Li@nxp.com>
 
