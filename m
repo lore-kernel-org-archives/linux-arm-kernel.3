@@ -4,82 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11314C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 09:47:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE9FDC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 09:49:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3cRD5tp61vGr5S2DsLizm6q3lmn7Tl+FjuVbnFjpaWY=; b=OO/nYyC+3KVLAkq0eK8nDNkDBm
-	tgZPVZl+E18q7AmyCTkyige6ZH9dC9M0tZTyGJCL6+h1H1SKVnR9Hop9p0fd0J+P1Rvb9Mu0eWmL3
-	v2O7zOfMELjnDl5YollFOkUQzHmMSQjZo/DhqbVEPTrCMfzFfw/5OuUsD0rruX/KnLmANPsWUg/0o
-	nkIB+yvFdsvLRaUM4lPOuc2BjskgJ7cDVL45hsKCG8YT4xBXyoTYsqdVlUIK2oCmuun1sgaPOL+op
-	Hb+EU8eYJ5h2Mu+1x5oTlKJSz9b/VBW8AT8hOfKZarIU9LhdW6BPFPP0JZvGX5IjXHCz9xtDD+0No
-	Bo2b0ACA==;
+	bh=wyTWW8HBVSp85RJKDsevItXkUCxyxu6rEHPnqkvSln8=; b=1CNGoJ7VxuJhmKKXQpeHIkxd8N
+	hLXmrB9rsMPCXU3OVwzJVt6BAtP2H/Tu5SFQUOMZ37azarDT6zbkxEMIyQPie0HoCFCes2VsFIiCH
+	J/GwIQeiGVUYCHF6Xcahy9/k9E8pxEOH45Ud2W6ioZeDv0XH6Inc//G3UDAoj7SNfKeRZTSn+uSEz
+	ArFLQPd5sVzepoCq3EC4DXEmLjvJXijCcqvnH1jVwy7lTUUK41w9hB/77mM5WulkRZt7FUTcymH9R
+	etVy9qtSE63TLYNogejw4f66mWJwcjos81aRqPwRshgoEoav+sPoThkX5ppKzNX4w3Lx/lwfgR/Rt
+	Yihss55g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjZjm-0000000BUd9-3OSN;
-	Tue, 14 Jul 2026 09:47:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wjZG9-0000000BP9s-3UO0;
+	Tue, 14 Jul 2026 09:17:02 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjZjl-0000000BUcl-09tu
+	id 1wjZFy-0000000BP16-0Zfv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 09:47:37 +0000
+	Tue, 14 Jul 2026 09:16:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5EC3543896;
-	Tue, 14 Jul 2026 09:47:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D44AC1F000E9;
-	Tue, 14 Jul 2026 09:47:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 12D7443C9F;
+	Tue, 14 Jul 2026 09:16:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED10A1F00A3F;
+	Tue, 14 Jul 2026 09:16:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784022456;
-	bh=3cRD5tp61vGr5S2DsLizm6q3lmn7Tl+FjuVbnFjpaWY=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=V0sXocaSYQi1xJqIt1MJBdQzPhZD56BHBzx2m7Yw0YvJlKm/n/fHnWNSauFyKWV5z
-	 zNzTWGK/iFFwE+3x1Ak1tagoeCjsnadtm9wSEkHbw90gj+TOltpVAtj9SXn43yKJmf
-	 0n/67q79i+1sQA53I2SYp+edL/sjVAnbH56U6DPa4G9rAY6EusqDThdfaNYdZroMDE
-	 lzwZ6EroTsbWJw6S+IjzuD0irNPcqh8slpr3mzTzFQ5oR47KkQ0VmF7KH9jsma9UOV
-	 4A4d/TMUv9TB6ORGVL/BtfLzbJPS2jeOLBLIQFffPB2cUzJfzQFXluodTlVZNLTyu8
-	 hVfMkzX/tHOLw==
+	s=k20260515; t=1784020610;
+	bh=wyTWW8HBVSp85RJKDsevItXkUCxyxu6rEHPnqkvSln8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=mnuVfWpPj0qR/VUUBkgDsMyUY+PL1TYyhkweSS60wPZ5PPZjDaA8tPFYnnXdVW+0A
+	 8Uglb69ZymW7B6MBfx5cP69e85GxHA0narX7/e1kPHvVbzDSZkVzvhE2O7bgzP0m+x
+	 wkHnxMKACrFT/8Im134RfT13Bj1I5/fKo8XEi66LxDmzUb6u42iPwkV0CvErTHr5Ng
+	 +vuY2OryEIu6GqDVrJ6HUCaJh2ZnRfLJLFpJdnzFjP3iJwpiWWTSl0tAskGzvIMMRX
+	 p5zN0Jz8iUEPwiSUbZ/DY7BRlMraRzgnWPiFL3LnBUgwBksZGUywK2pnzuS0klyHtA
+	 WRXX1UBpK/9nQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wjZFw-00000004ny1-10b7;
+	Tue, 14 Jul 2026 09:16:48 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: Steffen Eiden <seiden@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH v2 06/28] KVM: arm64: Classify CPTR_EL2 as a SR_LOC_SPECIAL register
+Date: Tue, 14 Jul 2026 10:16:19 +0100
+Message-ID: <20260714091641.1970822-7-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260714091641.1970822-1-maz@kernel.org>
+References: <20260714091641.1970822-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH mm-hotfixes v2 2/4] x86/mm/pat: acquire mmap lock on
- page table free to avoid ptdump UAF
-From: Lorenzo Stoakes <ljs@kernel.org>
-To: Borislav Petkov <bp@alien8.de>
-Cc: Lorenzo Stoakes <ljs@kernel.org>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Suren Baghdasaryan <surenb@google.com>, 
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
- Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, 
- Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
- Uladzislau Rezki <urezki@gmail.com>, Toshi Kani <toshi.kani@hpe.com>, 
- Dave Hansen <dave.hansen@linux.intel.com>, 
- Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
- Kiryl Shutsemau <kas@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Dev Jain <dev.jain@arm.com>, 
- Ryan Roberts <ryan.roberts@arm.com>, David Carlier <devnexen@gmail.com>, 
- linux-mm@kvack.org, linux-kernel@vger.kernel.org, bpf@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
-In-Reply-To: <20260712165341.GAalPGldsKpBs5treJ@fat_crate.local>
-References: <20260712-series-vmap-race-fix-v2-0-ad134cc3a12a@kernel.org>
- <20260712-series-vmap-race-fix-v2-2-ad134cc3a12a@kernel.org>
- <20260712165341.GAalPGldsKpBs5treJ@fat_crate.local>
-Date: Tue, 14 Jul 2026 10:47:20 +0100
-Message-Id: <178402244099.69739.5281491459981359633.b4-reply@b4>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=642; i=ljs@kernel.org;
- h=from:subject:message-id; bh=t4XiP/IHs/MAWTmAJpg8U8XhqPVl/Di3JCGllCa8vzE=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLLCWFcta9IJr9ALSwlJ11PfNz119ZLQC4ssPNa9fy9c8
- 53xZt7HjlIWBjEuBlkxRZbnX8T3B4mEzeu84O8GM4eVCWQIAxenAEwkkoeRoeedzY2VCb/y5dql
- I87/W3A80feA/QmBunpebqWfO4IZyxj+J/eLv1gpe2b6b+2PijPuX0mbW1f4l+297Me6f7PDA9j
- CGAE=
-X-Developer-Key: i=ljs@kernel.org; a=openpgp;
- fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,34 +83,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-07-12 09:53 -0700, Borislav Petkov wrote:
-> On Sun, Jul 12, 2026 at 11:42:25AM +0100, Lorenzo Stoakes wrote:
-> > This patch resolves the issue by acquiring the mmap read lock on init_mm to
->
-> s/This patch resolves/Resolve/
->
-> > provide mutual exclusion against ptdump, which acquires the init_mm write
-> > lock.
->
-> ...
->
-> > We also include cleanup.h in order to use a scoped_guard() to implement
-> > this cleanly.
->
-> You don't need to explain that.
->
-> Thx.
+It may not be obvious unless you look at it closely, but CPTR_EL2
+is treated very differently from other registers. It is one the
+registers that, despite looking very similar between EL1 and EL2
+when E2H==1, have RES0 bits that get in the way.
 
-OK will reword on respin.
+Make it clear that CPTR_EL2 is odd by classifying it as SR_LOC_SPECIAL,
+just like CNTHCTL_EL2 (and for the same reasons). This makes it
+possible to use vcpu_read_sys_reg() with it, and will be necessary
+once we support FEAT_NV2P1.
 
->
-> --
-> Regards/Gruss,
->     Boris.
->
-> https://people.kernel.org/tglx/notes-about-netiquette
->
+Reviewed-by: Joey Gouly <joey.gouly@arm.com>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/include/asm/kvm_emulate.h |  2 +-
+ arch/arm64/kvm/sys_regs.c            | 20 ++++++++++++++++++--
+ 2 files changed, 19 insertions(+), 3 deletions(-)
 
-Thanks, Lorenzo
+diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+index 5bf3d7e1d92c7..9831166695186 100644
+--- a/arch/arm64/include/asm/kvm_emulate.h
++++ b/arch/arm64/include/asm/kvm_emulate.h
+@@ -617,7 +617,7 @@ static __always_inline void kvm_incr_pc(struct kvm_vcpu *vcpu)
+  */
+ static inline u64 vcpu_sanitised_cptr_el2(const struct kvm_vcpu *vcpu)
+ {
+-	u64 cptr = __vcpu_sys_reg(vcpu, CPTR_EL2);
++	u64 cptr = vcpu_read_sys_reg(vcpu, CPTR_EL2);
+ 
+ 	if (!vcpu_el2_e2h_is_set(vcpu))
+ 		cptr = translate_cptr_el2_to_cpacr_el1(cptr);
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 5d5c579d45790..6b47d936efb32 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -183,8 +183,6 @@ static void locate_register(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg,
+ 	switch (reg) {
+ 		MAPPED_EL2_SYSREG(SCTLR_EL2,   SCTLR_EL1,
+ 				  translate_sctlr_el2_to_sctlr_el1	     );
+-		MAPPED_EL2_SYSREG(CPTR_EL2,    CPACR_EL1,
+-				  translate_cptr_el2_to_cpacr_el1	     );
+ 		MAPPED_EL2_SYSREG(TTBR0_EL2,   TTBR0_EL1,
+ 				  translate_ttbr0_el2_to_ttbr0_el1	     );
+ 		MAPPED_EL2_SYSREG(TTBR1_EL2,   TTBR1_EL1,   NULL	     );
+@@ -210,6 +208,19 @@ static void locate_register(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg,
+ 		loc->loc = ((is_hyp_ctxt(vcpu) && vcpu_el2_e2h_is_set(vcpu)) ?
+ 			    SR_LOC_SPECIAL : SR_LOC_MEMORY);
+ 		break;
++	case CPTR_EL2:
++		/*
++		 * CPTR_EL2 is just as special, and needs a certain amount
++		 * of handholding. It always lives in memory, due to being
++		 * heavily trapped thanks to CPACR_EL1.TCPAC being RES0.
++		 * FEAT_NV2p1 fixes this.
++		 */
++		locate_mapped_el2_register(vcpu, CPTR_EL2, CPACR_EL1,
++					   translate_cptr_el2_to_cpacr_el1,
++					   loc);
++		if (is_hyp_ctxt(vcpu) && vcpu_el2_e2h_is_set(vcpu))
++			loc->loc = SR_LOC_SPECIAL;
++		break;
+ 	default:
+ 		loc->loc = locate_direct_register(vcpu, reg);
+ 	}
+@@ -314,6 +325,8 @@ u64 vcpu_read_sys_reg(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg)
+ 			val &= CNTKCTL_VALID_BITS;
+ 			val |= __vcpu_sys_reg(vcpu, reg) & ~CNTKCTL_VALID_BITS;
+ 			return val;
++		case CPTR_EL2:
++			return __vcpu_sys_reg(vcpu, reg);
+ 		default:
+ 			WARN_ON_ONCE(1);
+ 		}
+@@ -359,6 +372,9 @@ void vcpu_write_sys_reg(struct kvm_vcpu *vcpu, u64 val, enum vcpu_sysreg reg)
+ 			 */
+ 			write_sysreg_el1(val, SYS_CNTKCTL);
+ 			break;
++		case CPTR_EL2:
++			write_sysreg_el1(val, SYS_CPACR);
++			break;
+ 		default:
+ 			WARN_ON_ONCE(1);
+ 		}
+-- 
+2.47.3
 
 
