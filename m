@@ -4,85 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 951D8C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 12:56:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91B89C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 12:56:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Y0xUOiqLta9wYklQNmL7sMJ3R6Kw3BQtKh6PSv0SUmA=; b=ZPgaV+7RnoP1l6n+Y+3Juj47Bq
-	iM6YP9T1043aBmg3NQQ+BKBhu07yjKTgEEJi4RyQ3O7Kxh0nsx/40I5KrHV5aMG4bWXANBHi9HzFy
-	pagPbrkjylMU7uT8nB6/Z41zkK+VZm3nmvOFfJCGNfr9DgErWIdDPOb1n4ukNAttTKg3FHGoScrJ/
-	6WXevUyHDFp0KnBTsKLvu9aOu7IQtB2FXH2KecblY2YfNtKaRBMDHAbUd4wXUM8WXN/k4ReiPe9au
-	7bWTaDaWZ/ZVOPAH5zW0RyZCCb869SXgcOkDDGTzEYo6qP2DvPnh202tGejXgezy3a+Mm2DQHqHVM
-	WItMIrbQ==;
+	bh=Oio8Rk21t2sr547w6CaYUMtntBZZAvw+9viOORSTLco=; b=vrOVL8jMxXENICJYuW9Cyo4Val
+	KEEqEnqA6Qf3RIV0AUb7bRHITbZyL/K6ZYVnjsuSaiB4uzqGnmVbQVNYPxMMRb3Z5ILmEFX8C7Azp
+	KdNC1o5sjO4E0IZpFMHJE0v1sUOsvCDobCHREmZrClvCgIboK0ol2bysuQpVkQnlnDtzpK5eGmlD3
+	jFGnlW1K1hBLTvSuzRKi3onUG5Pdpdt/lR551boWJzvwYWYa3gph+UYI8HrLuplw1PmydqAjEWS07
+	2htUTWkwxykbJCBQFeYB5XP15cDo5DNKKxCCCfuCeBzm6oW+lvpXJgI05ar0eV4K1EhJaZtFeDz3r
+	/6r7ZQEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjcgf-0000000C13D-2fV6;
-	Tue, 14 Jul 2026 12:56:37 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wjcgn-0000000C1AU-04uQ;
+	Tue, 14 Jul 2026 12:56:45 +0000
+Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjcgd-0000000C11N-3Oir
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 14 Jul 2026 12:56:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=Y0xUOiqLta9wYklQNmL7sMJ3R6Kw3BQtKh6PSv0SUmA=; b=I1GBB6r91bYuns1i1IATkgC6ug
-	hWDtejVtMIixZT3T+ChrhdIizTebpXSOnZaBuSG18c99338ubxhL9xde+wWgO1L3mfxyLkHeZvRUn
-	Te0a3Sq8voIJeR78/utqPJxT3Kt8Hb+QIjBte3K/ZYhd+UMS6bcduVMoFnwBy7YBTmw5p9+ZniFoI
-	YkDd6PSf6FDpkY/UeDCOdtGHt11H3zUl2uUzvYSO3SEwCMTgt6CRXJ+JfTwby1fdf7HDqketrwP4X
-	ehYECxx6bhz2H/oN51dU1ph+UzgnItHNII0naUVuv35AsT2nF3SoaYHXXykuKLabVcYinXg8eL7GJ
-	DgP/c9ew==;
-Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wjcga-0000000CV9e-252l
+	id 1wjcgc-0000000C111-48lD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 12:56:34 +0000
-Received: from pps.filterd (m0374956.ppops.net [127.0.0.1])
-	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66EBQDtb2106470;
-	Tue, 14 Jul 2026 07:56:27 -0500
+	Tue, 14 Jul 2026 12:56:37 +0000
+Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
+	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 66EBPqFl695525;
+	Tue, 14 Jul 2026 07:56:33 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
 	:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=proofpoint-05-2026; bh=Y0xUOiqLta9wY
-	klQNmL7sMJ3R6Kw3BQtKh6PSv0SUmA=; b=Ek+XIGehTmcrntAqgOHRhVFrSyFtQ
-	vCAlfqqp85ik3JRYkCIbNjxfgivPw+abP0kJxvVZUz4xP9aZC2R9T7HKwsht7qQ8
-	VXEAzMo7nMPfXYL0fSKqtYcbci8ze9zCCD2MIvJmA8aZywQxJIK6cdqzywtD0FEF
-	Q8LsmguoaERgmvzaWQw8c/zp/bT1mKrrKWnjzsPyZRB4Ci2LdJfNkJ9JW7eiKqBX
-	0wwGKqQ6jMBbpl+q5b4fBIwYMkEuFnc2Pul6PD7JogNOS+nVxHaTzhsvnFRvPIzp
-	A5ixobMZntigM4Y4dP+Uk+8fATz+8LxApiYp4Wamix2nYuxruZ9kLF3cg==
-Received: from bn1pr04cu002.outbound.protection.outlook.com (mail-eastus2azon11010031.outbound.protection.outlook.com [52.101.56.31])
-	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4fdm2tge1a-1
+	:mime-version:subject:to; s=proofpoint-05-2026; bh=Oio8Rk21t2sr5
+	47w6CaYUMtntBZZAvw+9viOORSTLco=; b=S4gb4r77FnfAAPGGwWR6Nt3PS0xhP
+	94yZu3FSJsaRIcwAr9t5fODbKy8pa8NvTTBXQs5ANmUUf5bM7VOkgghvrR4KjPfG
+	oHKTZdwFaqOYGgQXbn7pn+ZwNnUl24Whx1S7MkYKjUBzVWPvFBQeyW11BI2GNqK0
+	unafarismMzEyHR4jmOMgl9fnAKeZ8rtm5xbhjiRpCDNN7SDOPmIiXjVHTufDfOe
+	AEqiqVVmlF2MWkSKFC41E4pM2Z2+iJOJfro47nY7EY/bSlkIQ94RfuVYg0UB10Bn
+	qcNIQ5Hb3lNN9DHDluRfkkHodRv3HTPycnxyGyRo+tDzOl11so1YTTTsA==
+Received: from mw6pr02cu001.outbound.protection.outlook.com (mail-westus2azon11012024.outbound.protection.outlook.com [52.101.48.24])
+	by m0384305.ppops.net (PPS) with ESMTPS id 4fdm2dge01-1
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 14 Jul 2026 07:56:27 -0500 (CDT)
+	Tue, 14 Jul 2026 07:56:33 -0500 (CDT)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YrSDwhvmCrCgL4El7CRPP0kB6HzuUixS/2dDdWBBqOqq8woo75fFYg9Bvbh+gpvHlJ/VtHm2NmEQHReePt3QWO+ddYlosni9k3sOQHPqXkfXtZCRWBc+dxj1Zm/uMA4+G7QxdxomRcapu386bv7hjg4ms5h/M4sTLXWI+7Nh3yK90MoweI/zZdaoxj4IJXfoPSNbgS1OgR5EBK/DXv7XU0ka6ubzNODEz9Rk9KaItxOPDWz4Ztgttz3dYDSkTZIBuH4ktZcfIBQoIw69evdvD12A9YUbYPzWI+ooI1Tn/FHcGB4iiN7O5nPP4SUAo2OQM3PJB0ENMFUZl2rXRUgK0w==
+ b=K9xFQV0WJbmsywpqdfDMOD6AHWv5P3xJ3P/u22gm/UUYPNDXJtK15rTNlhkaE319tLt2ox8y5HQIdQcWLCW39FKlsK4dCzAp9pOKNn5tH0O38dvOHmgBHbRX01ZMZa3g6KUw0EGFSf/c5C87zLirgHU3zCTc3Jqt15HhK5oP7KlWQH/C7TQrWE597rVFkI9Ur4dY90xxmFM6zaEX78rSStSr5NFUKJPbw5VrSiYQze1d0e5oC4tFpRFjWRzlGmCE0NUE9jxb92W2JdaL93a/l3tw2ZVN5XUEY/gyQuF1phi3aUCZl48PVRYvriK2EYvjIQyU+VXclGAYMoAI3uwWzA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Y0xUOiqLta9wYklQNmL7sMJ3R6Kw3BQtKh6PSv0SUmA=;
- b=RWG4OYcP+EmLl/ae7tDRxze8376YqGKq7eni2W0KWyMXXsBPnKkmzxn/cVXqsVBtGWgEhhY5FU0k5fpbaesjkmlo5m41HC2wgn80YRczh08FfbVHeXZms8w7uByDFT+y5UZg1TqkAvVAbxoNw7cBrhYg91Rg1YDZBZ6hzlc+L8hrt9p79AaOzGtmcnDrp/uIJRmhNPEqPF9J5S4lEezhsbLkul49HJFSL/RmvKrrFDJBoz4xrESyUXzg5bKryRS9DrQH/2L1lhJUfdT4yrLlFbMWHP5zfZIzJ1yZtjViSlBvMW9sZlSdrTFcONg+zVAmLGlwfKmhXRwaUIxk/z/Cng==
+ bh=Oio8Rk21t2sr547w6CaYUMtntBZZAvw+9viOORSTLco=;
+ b=b8Txgzg5CTDP6/vCVvRVO/7BTc669DGsL8Z+QukgLE7JlbRqPtzmwGc1RWirHBVgtc6u2+pf5MDVsY2FS/YD3gcGhAapCfkorf3pb/2N4YThfx5LJqPo0FqDZ+b9xZuRluZEQZYCXhALB8inY8Vv7PIPuSW6TBUud+StGWgCgfMLqwLbj2chpQPrt9ndJcbXY1aZ9/esEZSq2YA5EnM0MRa0RVUO7rNE6Lynos5gs74/zXzJFaZe59pzZRv7e8toN3Z1DeEfkXdK64Yu+qYh8VIzR2W561xboJiQFQz1WcgBZ+ElnyQ8RDkcQ2+uuEa31oIr0N6EmC02Kg4NydB/QQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
  dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Y0xUOiqLta9wYklQNmL7sMJ3R6Kw3BQtKh6PSv0SUmA=;
- b=JQRR4fhIZm0NyZG7XVdtSi0tRKjEpBRvimlLZWcZoJ/rulz5WeyyhE4fp2Rysp1IIVbJ+1eQFcsxtOUqvVCpFlmxflh2UaThM40YOP92vFnyge799JYDXIqlnlgCIZNPO0zjadqsFMBQVOcAEZgcZfgOlldYggcOhDmKkyp1/Z4=
-Received: from PH8PR05CA0009.namprd05.prod.outlook.com (2603:10b6:510:2cc::26)
- by DS7PR10MB5200.namprd10.prod.outlook.com (2603:10b6:5:3a6::18) with
+ bh=Oio8Rk21t2sr547w6CaYUMtntBZZAvw+9viOORSTLco=;
+ b=rWcPTewD7J7tN5z38Wd1a8b6lo9+Az+8HXDSd7Cusw1eWs/J85suANBmhYsFwHRAx5ZZls3JDmz1ZxCGH4LT1ESfo2oCMqHLdpbRFM76CqKb/czZQ7+mA/ON8YXmOCeXtSU/auadElPddAF2+KGn7gEi44tnH98+0HIYLd4PUi0=
+Received: from PH8PR05CA0005.namprd05.prod.outlook.com (2603:10b6:510:2cc::14)
+ by CY8PR10MB6635.namprd10.prod.outlook.com (2603:10b6:930:55::12) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.10; Tue, 14 Jul
- 2026 12:56:21 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.18; Tue, 14 Jul
+ 2026 12:56:29 +0000
 Received: from CY4PEPF0000EE39.namprd03.prod.outlook.com
- (2603:10b6:510:2cc:cafe::54) by PH8PR05CA0009.outlook.office365.com
- (2603:10b6:510:2cc::26) with Microsoft SMTP Server (version=TLS1_3,
+ (2603:10b6:510:2cc:cafe::50) by PH8PR05CA0005.outlook.office365.com
+ (2603:10b6:510:2cc::14) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.223.10 via Frontend Transport; Tue,
- 14 Jul 2026 12:56:21 +0000
+ 14 Jul 2026 12:56:29 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
  smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
  action=none header.from=ti.com;
@@ -92,30 +77,30 @@ Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
 Received: from flwvzet200.ext.ti.com (198.47.21.194) by
  CY4PEPF0000EE39.mail.protection.outlook.com (10.167.242.11) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.223.9 via Frontend Transport; Tue, 14 Jul 2026 12:56:18 +0000
-Received: from DFLE214.ent.ti.com (10.64.6.72) by flwvzet200.ext.ti.com
+ 15.21.223.9 via Frontend Transport; Tue, 14 Jul 2026 12:56:27 +0000
+Received: from DFLE203.ent.ti.com (10.64.6.61) by flwvzet200.ext.ti.com
  (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 14 Jul
- 2026 07:56:06 -0500
-Received: from DFLE205.ent.ti.com (10.64.6.63) by DFLE214.ent.ti.com
- (10.64.6.72) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 07:56:11 -0500
+Received: from DFLE214.ent.ti.com (10.64.6.72) by DFLE203.ent.ti.com
+ (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 14 Jul
- 2026 07:56:04 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE205.ent.ti.com
- (10.64.6.63) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 07:56:11 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE214.ent.ti.com
+ (10.64.6.72) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Tue, 14 Jul 2026 07:56:04 -0500
+ Transport; Tue, 14 Jul 2026 07:56:11 -0500
 Received: from venkey.dhcp.ti.com (venkey.dhcp.ti.com [10.24.53.161])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 66ECu10t4164761;
-	Tue, 14 Jul 2026 07:56:01 -0500
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 66ECu8fU546300;
+	Tue, 14 Jul 2026 07:56:08 -0500
 From: MANNURU VENKATESWARLU <v-mannuru@ti.com>
-To: <will@kernel.org>, <mark.rutland@arm.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <n-francis@ti.com>, <s-k6@ti.com>,
-        <bb@ti.com>, <v-mannuru@ti.com>
-Subject: [RFC PATCH 07/22] perf: ti_k3_ddr: Add TI K3 DDR performance monitor driver
-Date: Tue, 14 Jul 2026 18:25:59 +0530
-Message-ID: <20260714125600.3304330-1-v-mannuru@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <n-francis@ti.com>, <s-k6@ti.com>, <bb@ti.com>, <v-mannuru@ti.com>
+Subject: [RFC PATCH 09/22] arm64: dts: ti: k3-j7200: Add DDR node for j7200
+Date: Tue, 14 Jul 2026 18:26:00 +0530
+Message-ID: <20260714125607.3304375-1-v-mannuru@ti.com>
 X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
@@ -123,55 +108,55 @@ Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE39:EE_|DS7PR10MB5200:EE_
-X-MS-Office365-Filtering-Correlation-Id: 20f6ef8e-fd5c-4736-1d71-08dee1a74c51
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE39:EE_|CY8PR10MB6635:EE_
+X-MS-Office365-Filtering-Correlation-Id: fffd53a8-02d9-469b-9893-08dee1a751ad
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|23010399003|82310400026|376014|13003099007|56012099006|6133799003|3023799007|18002099003;
-X-Microsoft-Antispam-Message-Info: Io6m24kRe4qBev2OzI/MZi+TvBTjuR7gv7qDi6u8Ox3CvevUA3ZjILG5UwwlTECWNZ1Z8pmmQ6nm937Q7QA1kBYKpR6ZPR5CqITgOpxg0AFdGWRC7U9vE70qS3BjxNaUcApx4v2zkxRrRhkx+knJblBKps6hMgIpkt2orrc309AoMTCQ29WqH0i4vRFzqldFgQNFNiFq7Ou3MBopk/gKVl3MPC9rW7eZ0YHOF6eqmgwJW7yxuZ9aouF73zITLstmg8yJBEV6YwcrykT2Fl9l7t/TZOxzk0mgIyjSalbvGFl07ApS0JSbeTmIRHxdTtGv+Bu34OQbR9YC6L3C9gSzpVN5MX/spPaObKOFV34h/TuOw1DdTpaZI8wA+eaitSulEaXxe9MsIK/cadSli+x9d9vltEfElX8SyHS2M5+Ea/7mhO/1if7wS1BQcBN9+JjSzOSv8BXbOzxqljbjtk/l5F4dC+KfVjwyn3GA9syh/AZ4CfqLveCafMOW7cXhgYCRRknsLEAqKrrpcX+9KTphlMM6H4Gznla6GWRaL1SSNl946wWny/yREDKWy4YGVPKPx0xmvS4anjmLRfNmuhUe339g9Mi2Fi+IuCwc3wFEaC/KnbjtW5BaTaAZos/ehdoCZluZ7z81B+hKQfb42EMO1A==
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(23010399003)(82310400026)(376014)(13003099007)(56012099006)(6133799003)(3023799007)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|36860700016|82310400026|23010399003|18002099003|56012099006;
+X-Microsoft-Antispam-Message-Info: kSmApeSvYw0/YoKvDOPnl1TlJLVpbuMxvWq4pfg6sxEg1lZ8Yq20Tdn5uHjv0pDzYHZvHq+OgkiUCEztRLafyvwrkTthUN+o3hC+CXHlbV3MNnyx1g9QeTlILbfBlTNGNtwICmU90zzG27w8vR+lNj4V9V21vLByAEedqJQ+Y3PqLV7fDEmtduYjJPTPxAYgXiuR1GpgUDfUFLv/qO5d4+oowSymk/QOkrn7wnn7Q4RU2Huf6gQCdLC+mR98HQhW74+LgrXs4n9V8ugYUZyjcos8F2kaZpnLhE2dY+55m1lfbJD44GEXV0PUIMsKYNs9GZVXMv+4JlI4X21sb6+yqHRJL/sFZUmmni5dIlY+aw6lLckj1fnanOzhMtPLsEMFfSQxbZRKIMd8e7QOWUU8ncgY8/OshVeZBDLPPhnU4LT3lZ0M07Ge8+ZNh3cfAEPqfyoTpooF1doYHvePPBro4AEiqzKW2ifbOIYbX04eiPDC1UarxXZQveLbr5J7pQxNc9B83Q8iiCamIZB/+Go4UOiSPyGZcvD10F3sMphYqLfni26a6kXYl4JGoadMtIYaqgIiGMnkRi7Ip/+Wlf05Hl3Gyqi8S92KTXue4HlKZ6L2c67xl35Km/44YxasKMDzErb6Tbxf6GVDHjC8jyKfWgfM/w6hMrTzRWMnAial2illkLNhOrLoG/KCe2wqoqvi9c8gJge+/TWm56kFYULLSA==
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(1800799024)(36860700016)(82310400026)(23010399003)(18002099003)(56012099006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: mrsOnXC4YVLov02WO+KsDlV/pYzGt2Dnx6o9HTXt9BqvpCB9sLumuDc0LeyUCxznDPxUPU1ZIDKLN0gMdusVjpm0zHbDrFXvYSbRhb+kcBE9whE+mAHXDdLYT5LAF6couUTelCl6E+UBOy9FiuVbApjTcqAT0a0ZL1+ou4+b6TzSb8SHF/Ppv5VPZsdrirslY/iKheSb+/WO63JfmDzaPqxB3Bz9q1W6++ZCMvrTr6fQQVJTFswA25s24QO1KQruOQv2tDMVb/i7v8YWW1zS+Om3FQSgJgjUQqDa0MwgMT/bKhcBaD+Jt2Te2XM29z1yoOrMGOPCMDneCKRG8OU47FOq5dakeK5WaokMF28K95C6hApxGKE7ugYBFr4c7tKb9ZveF9w0/vQswFSHCGlVpJE4XKI61QuIIIsAfy3WZPE3R49fpDDI4s2WyWZAQAvn
-X-Exchange-RoutingPolicyChecked: U5RMwRa7Vl0RJKG9C7mZcAUbmBiZYnIWLVickrEnV3mCOraeBuNrHoe3XLDQRVc0R82n3OW2yeaFVMNrmxb1Ge4gDBt53qsaT3nDRTWo+/5WgaMcAFwDiQ6TvtxKYTbmFHfW8Mi1vXgDNhA1jofXJgYmctfVXQRYM+pTs1DJ1kOh+hzToWZZStpltnzaqSE0bmv93CTJHFMHW19UbsRk4VGXGupQ/I1RyoI5A5jI7U3JVPN585EeWiBX4cGa07vY5Uw89sXTsDog6+urNx6tKoKPw1tnjermAJVqX1CoL6J/I0/0N9c3Fym2oT064DgbEg+hPQLcifCDO8uCW2tLbw==
+X-MS-Exchange-AntiSpam-MessageData-0: tCnNVQ/mrc34QzcDgO3q7UDd6CpQ5xxZP0kbduzxAR7/uBREviuUJCKrCeruz0iPwuQOQY1hYA/RlAqv4FoBsXLlRuVcTHGqSg9dRasfT5boL/+x2ItSITJu8Ix67GwbC9W4sDgOVU8gC/72eXHHjRrGWLxObdz6rsPDCsTWSS+aIdGXzYsh5LVp4E+Hb4JQxGsBjBFBGjxI0btzH9p2BBEVgxBaIIIKsiih09Ce0sgK3m/NK9EOz2VRijTpj/GWKL0u3KRobYPBWjKq9Yr2o6Uk2tPUJEBHPXtuKFxzr/5HO+DGbw2ZXonBiLSLK7rtmBxv2HkCgpjm+8dBgANkcgfMW5SZLRswlnO4bkK1GJ8fCjb/DzRSMfOOfBt/2+rRnvSOxLf+1gvOArfxPHycleRv1t+XioW9sIYHi+lM6nCcFLnMRiOsrCS4VwSsHCig
+X-Exchange-RoutingPolicyChecked: oM/zPRX1rwJnxycE29Yzz5cURfDjaTPIiNtudyitpZGo3Qvz6q1q5bhMkB+IuLBYVOQXJrhM2R+TgbYIlSff+pZ2poQ7365r7xNlgIMtRnNxdExGQa00qvDChbxr9T8M3xo//kboNJ/z0l33IlZhsg+zUgNjwKu6X6tb0a0hPlTd2CMOdD15pHZYcJXN2FvCr78bTxek1MIW+YfkXuMnqq9oJQxtkaZlD0T4wgdm5ZwKF11bl5gbBk3jcA67KtXZ2zsWdOTHf+GomGMlHk3FlPFr3eLAWep4k03teXhxOCTfFXHYEbOVPxgeYTCujX6pslWJWjTTimxqlISH755YeA==
 X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jul 2026 12:56:18.8541
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Jul 2026 12:56:27.8483
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 20f6ef8e-fd5c-4736-1d71-08dee1a74c51
+X-MS-Exchange-CrossTenant-Network-Message-Id: fffd53a8-02d9-469b-9893-08dee1a751ad
 X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
 X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE39.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR10MB5200
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzE0MDEzNSBTYWx0ZWRfXzmbP+zbIeQC3
- /QEL/XpX5b9qEnN/Ub5psh9/Z5pV6QIpz1XxVzaSZzVyyqIOtS9I9afI22+BigLkCeaNC0oEvJN
- 79yKFYEhYlyCmds8Rw2v2/KgWYaxF0g=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzE0MDEzNSBTYWx0ZWRfX98LHNt6AuoKt
- XoYPNTjVL5z4KpWWV2vnaU06ykPwTjK3xzm2u8Z4fF1Rrj4jUBq4JVR+UalxWtc+CXoAsyozFOE
- i3rfKIvat7MA58NvQXCIZTr/0pvAcxGqQQJg1EqrgTBGsHaoB91ePntrkA4zKrZTPZctnuzErwq
- GhHi5ZmpzWcsgNTkLUK3/Bv0psNZJ6FikGSTXo/WmmYyD2LkHvwRnEg73yvBVHnLPL10NJvNBAL
- AlmfhPapTscte7dMXpO81HtCseJdDpPnPf57B2tQ/qxj+QJJcInjH2PcKOccCegrRA2xLm8ZiJc
- c0GdNrTrRqTbTBmav/BKt4IOeUklavj27EbZrTd7nclCsO2AurNo6BTZkUfkxH2mQenSUSlPTKi
- 2YT7snLW96asCJqUAZw79KpfkcGIxvNj4gxXE1KYh/oFFbAUYT221UNmnVmWqGynZX1fGttlmjG
- F02vEySQe8b0DdG5Ojg==
-X-Authority-Analysis: v=2.4 cv=FbcHAp+6 c=1 sm=1 tr=0 ts=6a5631fb cx=c_pps
- a=QQ0Rro+ZityDt3mHPSrFtQ==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR10MB6635
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzE0MDEzNSBTYWx0ZWRfX8CZvsnN/Dt4c
+ NO+kFN8EOojbGYZVtEGLCF7NL84N3NSbDNkXTfEHhR6XaUho+TL4mwzawyqrez1Suw3KT0Fz4PS
+ sYkXfa2v97ZP4CIlAlhvX0d9/5G/Yr0=
+X-Proofpoint-ORIG-GUID: j-f86YakdptIz2oJbIYPKwPYS3Nh4Hi0
+X-Authority-Analysis: v=2.4 cv=f+N4wuyM c=1 sm=1 tr=0 ts=6a563201 cx=c_pps
+ a=0dUMnQhOFwHl/g2jU5Tm3A==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
  a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=RAioF0-LDSMA:10 a=V5UXEbMT0ywA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=jwouBfj2j3NM8CExmVVE:22
- a=sozttTNsAAAA:8 a=oC2elNMeS7aHqF0AyykA:9
-X-Proofpoint-ORIG-GUID: DQzwq3-lSRbxtpop2kT_1riwrsKU8AbA
-X-Proofpoint-GUID: DQzwq3-lSRbxtpop2kT_1riwrsKU8AbA
+ a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=taLDd7a_hP9WKsMzeGRc:22
+ a=sozttTNsAAAA:8 a=rrn-1AkOBrcl2fV5P3sA:9
+X-Proofpoint-GUID: j-f86YakdptIz2oJbIYPKwPYS3Nh4Hi0
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzE0MDEzNSBTYWx0ZWRfX8+0pbKlWZNei
+ YNlF2HRK2FJ7+xK8vagnez6AD/oFJGytKXmWdcXZ/k0PCSDPlD0frOZyC1EekHVrytmmGWKrmW7
+ bokuS7AcmRTyitFhJROWs5RI89ugh8uWm5Ab3CIvB5mjdwkYvaqISdypbgyCaziy00DWgGaOzHJ
+ xA0CfzMfCqL1BzaLVtgi3zSD3oKFF1S5qYlCxjkVdCveUpdd5BFV4A4KJ+dxuyszjU7mcYDe/NC
+ miDCBi+YS+4rRqHgpQJoHJ0gOIFZcjuYtFi2z4lA56L1q9mt+eCEh90viOIZGvDXiLgSwVQJZAS
+ uFK3u08IZUGqXSOnkIAD7hPH2CEuO8XdTeMRp1P+FngG6UHB5aIb4R/1K4j5tKKoo9537ihp1qi
+ fVj6FMDPjsNKQiGGpd+m0RsDhsUFQKlNIIT9fVUP9SDsFA9XyNJLy4tq2MoxqJLGSBMC9KeeNdJ
+ n4qzVeg+TygjAnIqcjg==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-07-14_03,2026-07-10_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 spamscore=0 bulkscore=0 impostorscore=0 clxscore=1011
- lowpriorityscore=0 phishscore=0 suspectscore=0 malwarescore=0 adultscore=0
+ clxscore=1011 lowpriorityscore=0 malwarescore=0 adultscore=0 spamscore=0
+ suspectscore=0 priorityscore=1501 impostorscore=0 bulkscore=0 phishscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607140135
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_135632_868221_4028D21A 
-X-CRM114-Status: GOOD (  23.37  )
+X-CRM114-CacheID: sfid-20260714_055635_031624_1D0695EB 
+X-CRM114-Status: GOOD (  10.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,601 +171,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Aarya Chaumal <a-chaumal@ti.com>
+From: Gandhar Deshpande <g-deshpande@ti.com>
 
-Add a PMU driver for the DDR subsystem performance counters on TI K3
-SoCs (J721E, J721S2, J7200, J784S4, AM62, AM62A, AM62P, AM64).
+Add device tree node for the DDR controller on the j7200 device.
+This defines the memory controller with its register regions, interrupts,
+power domains, and clock requirements.
 
-The Cadence DDR controller provides 4 hardware counters, each
-programmable to count one of 36 events: read/write commands, activates,
-refreshes, precharges, power-down/self-refresh cycles, bus turnarounds,
-address collisions, and FIFO utilization cycles.
+This enables proper DDR controller temperature monitoring.
 
-Each DDR controller registers as a separate PMU named k3_ddr<N> and
-exposes an identifier sysfs attribute that jevents uses to select the
-correct JSON event table for the SoC.
-
-Signed-off-by: Aarya Chaumal <a-chaumal@ti.com>
+Signed-off-by: Gandhar Deshpande <g-deshpande@ti.com>
+Signed-off-by: Neha Malcom Francis <n-francis@ti.com>
 Signed-off-by: MANNURU VENKATESWARLU <v-mannuru@ti.com>
 ---
- drivers/perf/Kconfig          |  11 +
- drivers/perf/Makefile         |   1 +
- drivers/perf/ti_k3_ddr_perf.c | 532 ++++++++++++++++++++++++++++++++++
- 3 files changed, 544 insertions(+)
- create mode 100644 drivers/perf/ti_k3_ddr_perf.c
+ arch/arm64/boot/dts/ti/k3-j7200-main.dtsi | 32 +++++++++++++++++++++++
+ 1 file changed, 32 insertions(+)
 
-diff --git a/drivers/perf/Kconfig b/drivers/perf/Kconfig
-index 245e7bb763b99..821fc6f81bef0 100644
---- a/drivers/perf/Kconfig
-+++ b/drivers/perf/Kconfig
-@@ -273,6 +273,17 @@ config ALIBABA_UNCORE_DRW_PMU
- 
- source "drivers/perf/hisilicon/Kconfig"
- 
-+config TI_K3_DDR_PMU
-+	tristate "Texas Instruments K3 DDR perf monitor"
-+	depends on MFD_TI_DDRSS
-+	help
-+	  Say Y here to enable the DDR performance monitor on TI K3 SoCs.
-+	  Exposes DDR read/write and other memory throughput events via perf.
-+	  Supports J721E, J721S2, J7200, J784S4, AM62, AM62A, AM62P, AM64.
-+
-+	  To compile this driver as a module, choose M here: the module
-+	  will be called ti_k3_ddr_perf.
-+
- config MARVELL_CN10K_DDR_PMU
- 	tristate "Enable MARVELL CN10K DRAM Subsystem(DSS) PMU Support"
- 	depends on ARCH_THUNDER || (COMPILE_TEST && 64BIT)
-diff --git a/drivers/perf/Makefile b/drivers/perf/Makefile
-index eb8a022dad9a7..c11c0013cbfd9 100644
---- a/drivers/perf/Makefile
-+++ b/drivers/perf/Makefile
-@@ -29,6 +29,7 @@ obj-$(CONFIG_ARM_DMC620_PMU) += arm_dmc620_pmu.o
- obj-$(CONFIG_MARVELL_CN10K_TAD_PMU) += marvell_cn10k_tad_pmu.o
- obj-$(CONFIG_MARVELL_CN10K_DDR_PMU) += marvell_cn10k_ddr_pmu.o
- obj-$(CONFIG_MARVELL_PEM_PMU) += marvell_pem_pmu.o
-+obj-$(CONFIG_TI_K3_DDR_PMU) += ti_k3_ddr_perf.o
- obj-$(CONFIG_APPLE_M1_CPU_PMU) += apple_m1_cpu_pmu.o
- obj-$(CONFIG_ALIBABA_UNCORE_DRW_PMU) += alibaba_uncore_drw_pmu.o
- obj-$(CONFIG_DWC_PCIE_PMU) += dwc_pcie_pmu.o
-diff --git a/drivers/perf/ti_k3_ddr_perf.c b/drivers/perf/ti_k3_ddr_perf.c
-new file mode 100644
-index 0000000000000..3be4e40adf46f
---- /dev/null
-+++ b/drivers/perf/ti_k3_ddr_perf.c
-@@ -0,0 +1,532 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * TI DDR pmu driver
-+ *
-+ * Copyright (C) 2026 Texas Instruments Incorporated - https://www.ti.com/
-+ */
-+
-+#include <linux/cpuhotplug.h>
-+#include <linux/device.h>
-+#include <linux/hrtimer.h>
-+#include <linux/io.h>
-+#include <linux/mfd/ti-ddrss.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/perf_event.h>
-+#include <linux/platform_device.h>
-+#include <linux/smp.h>
-+
-+#define NUM_COUNTERS		4
-+#define TIMER_PERIOD		1000000000u
-+#define to_k3_ddr_pmu(p)	container_of(p, struct k3_ddr_pmu, pmu)
-+
-+/* Maximum event config value from the hardware event table */
-+#define K3_DDR_PMU_MAX_EVENT	0x23
-+
-+#define DDR_PERF_DEV_NAME	"k3_ddr"
-+#define DDR_CPUHP_CB_NAME	DDR_PERF_DEV_NAME "_perf_pmu"
-+
-+static DEFINE_IDA(k3_ddr_ida);
-+
-+/**
-+ * struct k3_ddr_pmu - a struct containing all information needed by pmu driver
-+ * @pmu: pmu instance
-+ * @cntrl_base: base address of the control register for the counters
-+ * @counter_base: base address of the first counter
-+ * @cpu: cpu to which pmu is attached to
-+ * @dev: reference to the struct device
-+ * @events: array of perf events registered by the driver
-+ * @active_events: number of active perf events
-+ * @cpuhp_state: cpu hotplug state
-+ * @node: node for the cpu hotplug state
-+ * @identifier: SoC identifier string for /sys/.../identifier
-+ * @hrtimer: hrtimer for sampling events accurately
-+ * @id: driver id
-+ *
-+ * PMU driver related information
-+ */
-+struct k3_ddr_pmu {
-+	struct pmu pmu;
-+	void __iomem *cntrl_base;
-+	void __iomem *counter_base;
-+	unsigned int cpu;
-+	struct device *dev;
-+	struct perf_event *events[NUM_COUNTERS];
-+	unsigned int active_events;
-+	enum cpuhp_state cpuhp_state;
-+	struct hlist_node node;
-+	const char *identifier;
-+	struct hrtimer hrtimer;
-+	int id;
-+};
-+
-+static ssize_t k3_ddr_perf_identifier_show(struct device *dev,
-+					   struct device_attribute *attr,
-+					    char *page)
-+{
-+	struct k3_ddr_pmu *pmu = dev_get_drvdata(dev);
-+
-+	if (!pmu || !pmu->identifier)
-+		return 0;
-+
-+	return sysfs_emit(page, "%s\n", pmu->identifier);
-+}
-+
-+static umode_t k3_ddr_perf_identifier_attr_visible(struct kobject *kobj,
-+						   struct attribute *attr,
-+						    int n)
-+{
-+	struct device *dev = kobj_to_dev(kobj);
-+	struct k3_ddr_pmu *pmu = dev_get_drvdata(dev);
-+
-+	if (!pmu->identifier)
-+		return 0;
-+
-+	return attr->mode;
-+}
-+
-+static struct device_attribute k3_ddr_perf_identifier_attr =
-+	__ATTR(identifier, 0444, k3_ddr_perf_identifier_show, NULL);
-+
-+static struct attribute *k3_ddr_perf_identifier_attrs[] = {
-+	&k3_ddr_perf_identifier_attr.attr,
-+	NULL,
-+};
-+
-+static const struct attribute_group k3_ddr_perf_identifier_attr_group = {
-+	.attrs = k3_ddr_perf_identifier_attrs,
-+	.is_visible = k3_ddr_perf_identifier_attr_visible,
-+};
-+
-+static ssize_t k3_ddr_perf_cpumask_show(struct device *dev,
-+					struct device_attribute *attr,
-+					 char *buf)
-+{
-+	struct k3_ddr_pmu *pmu = dev_get_drvdata(dev);
-+
-+	return sysfs_emit(buf, "%*pbl\n", cpumask_pr_args(cpumask_of(pmu->cpu)));
-+}
-+
-+static struct device_attribute k3_ddr_perf_cpumask_attr =
-+	__ATTR(cpumask, 0444, k3_ddr_perf_cpumask_show, NULL);
-+
-+static struct attribute *k3_ddr_perf_cpumask_attrs[] = {
-+	&k3_ddr_perf_cpumask_attr.attr,
-+	NULL,
-+};
-+
-+static const struct attribute_group k3_ddr_perf_cpumask_attr_group = {
-+	.attrs = k3_ddr_perf_cpumask_attrs,
-+};
-+
-+static ssize_t
-+k3_ddr_pmu_event_show(struct device *dev, struct device_attribute *attr,
-+		      char *page)
-+{
-+	struct perf_pmu_events_attr *pmu_attr;
-+
-+	pmu_attr = container_of(attr, struct perf_pmu_events_attr, attr);
-+
-+	return sysfs_emit(page, "event=0x%02llx\n", pmu_attr->id);
-+}
-+
-+#define K3_DDR_PMU_EVENT_ATTR(_name, _id)		\
-+	PMU_EVENT_ATTR_ID(_name, k3_ddr_pmu_event_show, _id)
-+
-+static struct attribute *k3_ddr_perf_events_attrs[] = {
-+	K3_DDR_PMU_EVENT_ATTR(write, 0x00),
-+	K3_DDR_PMU_EVENT_ATTR(read, 0x01),
-+	K3_DDR_PMU_EVENT_ATTR(read_rmw, 0x02),
-+	K3_DDR_PMU_EVENT_ATTR(activate, 0x03),
-+	K3_DDR_PMU_EVENT_ATTR(precharge, 0x04),
-+	K3_DDR_PMU_EVENT_ATTR(precharge_all, 0x05),
-+	K3_DDR_PMU_EVENT_ATTR(mode_reg_read, 0x06),
-+	K3_DDR_PMU_EVENT_ATTR(mode_reg_write, 0x07),
-+	K3_DDR_PMU_EVENT_ATTR(per_bank_refresh, 0x08),
-+	K3_DDR_PMU_EVENT_ATTR(auto_refresh, 0x09),
-+	K3_DDR_PMU_EVENT_ATTR(zq_calib_long, 0x0a),
-+	K3_DDR_PMU_EVENT_ATTR(zq_calib_short, 0x0b),
-+	K3_DDR_PMU_EVENT_ATTR(bus_turn_around, 0x0c),
-+	K3_DDR_PMU_EVENT_ATTR(write_write_collision, 0x0d),
-+	K3_DDR_PMU_EVENT_ATTR(write_read_collision, 0x0e),
-+	K3_DDR_PMU_EVENT_ATTR(read_write_collision, 0x0f),
-+	K3_DDR_PMU_EVENT_ATTR(read_read_collision, 0x10),
-+	K3_DDR_PMU_EVENT_ATTR(exit_power_down_self_refresh, 0x11),
-+	K3_DDR_PMU_EVENT_ATTR(entry_power_down_self_refresh, 0x12),
-+	K3_DDR_PMU_EVENT_ATTR(power_down_self_refresh_cycles, 0x13),
-+	K3_DDR_PMU_EVENT_ATTR(exit_power_down, 0x14),
-+	K3_DDR_PMU_EVENT_ATTR(entry_power_down, 0x15),
-+	K3_DDR_PMU_EVENT_ATTR(power_down_cycles, 0x16),
-+	K3_DDR_PMU_EVENT_ATTR(exit_self_refresh, 0x17),
-+	K3_DDR_PMU_EVENT_ATTR(entry_self_refresh, 0x18),
-+	K3_DDR_PMU_EVENT_ATTR(self_refresh_cycles, 0x19),
-+	/* 0x1a and 0x1b are reserved in the hardware event table */
-+	K3_DDR_PMU_EVENT_ATTR(command_queue_full_cycles, 0x1c),
-+	K3_DDR_PMU_EVENT_ATTR(info_fifo_full_cycles, 0x1d),
-+	K3_DDR_PMU_EVENT_ATTR(write_latency_fifo_full_cycles, 0x1e),
-+	K3_DDR_PMU_EVENT_ATTR(port_command_fifo_full_cycles, 0x1f),
-+	K3_DDR_PMU_EVENT_ATTR(write_response_fifo_full_cycles, 0x20),
-+	K3_DDR_PMU_EVENT_ATTR(port_write_fifo_full_cycles, 0x21),
-+	K3_DDR_PMU_EVENT_ATTR(core_read_fifo_full_cycles, 0x22),
-+	K3_DDR_PMU_EVENT_ATTR(port_read_fifo_full_cycles, 0x23),
-+	NULL,
-+};
-+
-+static const struct attribute_group k3_ddr_perf_events_attr_group = {
-+	.name = "events",
-+	.attrs = k3_ddr_perf_events_attrs,
-+};
-+
-+PMU_FORMAT_ATTR(event, "config:0-5");
-+
-+static struct attribute *k3_ddr_perf_format_attrs[] = {
-+	&format_attr_event.attr,
-+	NULL,
-+};
-+
-+static const struct attribute_group k3_ddr_perf_format_attr_group = {
-+	.name = "format",
-+	.attrs = k3_ddr_perf_format_attrs,
-+};
-+
-+static const struct attribute_group *attr_groups[] = {
-+	&k3_ddr_perf_events_attr_group,
-+	&k3_ddr_perf_format_attr_group,
-+	&k3_ddr_perf_cpumask_attr_group,
-+	&k3_ddr_perf_identifier_attr_group,
-+	NULL,
-+};
-+
-+static int k3_ddr_perf_alloc_counter(struct k3_ddr_pmu *pmu)
-+{
-+	for (int i = 0; i < NUM_COUNTERS; i++) {
-+		if (!pmu->events[i]) {
-+			pmu->active_events++;
-+			return i;
-+		}
-+	}
-+
-+	return -ENOENT;
-+}
-+
-+static void k3_ddr_perf_free_counter(struct k3_ddr_pmu *pmu, int counter)
-+{
-+	pmu->active_events--;
-+	pmu->events[counter] = NULL;
-+}
-+
-+static u32 k3_ddr_perf_read_counter(struct k3_ddr_pmu *pmu, int counter)
-+{
-+	void __iomem *base = pmu->counter_base;
-+
-+	return readl_relaxed(base + counter * 4);
-+}
-+
-+static int k3_ddr_perf_event_init(struct perf_event *event)
-+{
-+	struct k3_ddr_pmu *pmu = to_k3_ddr_pmu(event->pmu);
-+	struct hw_perf_event *hwc = &event->hw;
-+
-+	if (event->attr.type != event->pmu->type)
-+		return -ENOENT;
-+
-+	if (event->attr.config > K3_DDR_PMU_MAX_EVENT)
-+		return -EINVAL;
-+
-+	if (is_sampling_event(event) || event->attach_state & PERF_ATTACH_TASK)
-+		return -EOPNOTSUPP;
-+
-+	if (event->cpu < 0)
-+		return -EOPNOTSUPP;
-+
-+	if (event->group_leader->pmu != event->pmu &&
-+	    !is_software_event(event->group_leader))
-+		return -EINVAL;
-+
-+	event->cpu = pmu->cpu;
-+	hwc->idx = -1;
-+
-+	return 0;
-+}
-+
-+static void k3_ddr_perf_counter_enable(struct k3_ddr_pmu *pmu, int config,
-+				       int counter, bool enable)
-+{
-+	u32 val;
-+	u8 pos = counter * 8;
-+
-+	/*
-+	 * Each CNT_SEL field is 6 bits wide with 2 reserved bits above it.
-+	 * Bit layout: CNT1[5:0], rsvd[7:6], CNT2[13:8], rsvd[15:14], ...
-+	 * There is no hardware enable/disable - writing config=0 counts writes.
-+	 */
-+	val = readl_relaxed(pmu->cntrl_base);
-+	val &= ~(0x3FU << pos);
-+	if (enable)
-+		val |= ((u32)(config & 0x3F)) << pos;
-+	writel_relaxed(val, pmu->cntrl_base);
-+}
-+
-+static void k3_ddr_perf_event_update(struct perf_event *event)
-+{
-+	struct k3_ddr_pmu *pmu = to_k3_ddr_pmu(event->pmu);
-+	struct hw_perf_event *hwc = &event->hw;
-+	u64 new_raw_count, old_raw_count, actual_count;
-+	int counter = hwc->idx;
-+
-+	do {
-+		old_raw_count = local64_read(&hwc->prev_count);
-+		new_raw_count = k3_ddr_perf_read_counter(pmu, counter);
-+	} while (local64_cmpxchg(&hwc->prev_count, old_raw_count,
-+				 new_raw_count) != old_raw_count);
-+
-+	actual_count = (new_raw_count - old_raw_count) & 0xffffffff;
-+
-+	local64_add(actual_count, &event->count);
-+}
-+
-+static void k3_ddr_perf_event_start(struct perf_event *event, int flags)
-+{
-+	struct k3_ddr_pmu *pmu = to_k3_ddr_pmu(event->pmu);
-+	struct hw_perf_event *hwc = &event->hw;
-+	int counter = hwc->idx;
-+	u64 initial_raw_count;
-+
-+	k3_ddr_perf_counter_enable(pmu, event->attr.config, counter, true);
-+	initial_raw_count = k3_ddr_perf_read_counter(pmu, counter);
-+	local64_set(&hwc->prev_count, initial_raw_count);
-+
-+	/* Only arm the timer when the first event becomes active */
-+	if (pmu->active_events == 1)
-+		hrtimer_start(&pmu->hrtimer, ns_to_ktime(TIMER_PERIOD),
-+			      HRTIMER_MODE_REL_PINNED);
-+
-+	hwc->state = 0;
-+}
-+
-+static int k3_ddr_perf_event_add(struct perf_event *event, int flags)
-+{
-+	struct k3_ddr_pmu *pmu = to_k3_ddr_pmu(event->pmu);
-+	struct hw_perf_event *hwc = &event->hw;
-+	int counter;
-+
-+	counter = k3_ddr_perf_alloc_counter(pmu);
-+	if (counter < 0) {
-+		dev_dbg(pmu->dev, "There are not enough counters\n");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	pmu->events[counter] = event;
-+
-+	hwc->idx = counter;
-+	local64_set(&hwc->prev_count, k3_ddr_perf_read_counter(pmu, counter));
-+	hwc->state |= PERF_HES_STOPPED;
-+
-+	if (flags & PERF_EF_START)
-+		k3_ddr_perf_event_start(event, flags);
-+
-+	return 0;
-+}
-+
-+static void k3_ddr_perf_event_stop(struct perf_event *event, int flags)
-+{
-+	struct k3_ddr_pmu *pmu = to_k3_ddr_pmu(event->pmu);
-+	struct hw_perf_event *hwc = &event->hw;
-+	int counter = hwc->idx;
-+
-+	k3_ddr_perf_counter_enable(pmu, event->attr.config, counter, false);
-+	k3_ddr_perf_event_update(event);
-+
-+	hwc->state |= PERF_HES_STOPPED;
-+}
-+
-+static void k3_ddr_perf_event_del(struct perf_event *event, int flags)
-+{
-+	struct k3_ddr_pmu *pmu = to_k3_ddr_pmu(event->pmu);
-+	struct hw_perf_event *hwc = &event->hw;
-+	int counter = hwc->idx;
-+
-+	k3_ddr_perf_event_stop(event, PERF_EF_UPDATE);
-+
-+	k3_ddr_perf_free_counter(pmu, counter);
-+
-+	if (!pmu->active_events)
-+		hrtimer_cancel(&pmu->hrtimer);
-+
-+	hwc->idx = -1;
-+}
-+
-+static void k3_ddr_perf_overflow_handler(struct k3_ddr_pmu *pmu)
-+{
-+	for (int i = 0; i < NUM_COUNTERS; i++) {
-+		struct perf_event *event = pmu->events[i];
-+
-+		if (event)
-+			k3_ddr_perf_event_update(event);
-+	}
-+}
-+
-+static enum hrtimer_restart k3_ddr_perf_timer_handler(struct hrtimer *hrtimer)
-+{
-+	struct k3_ddr_pmu *pmu = container_of(hrtimer, struct k3_ddr_pmu, hrtimer);
-+
-+	k3_ddr_perf_overflow_handler(pmu);
-+	hrtimer_forward_now(hrtimer, ns_to_ktime(TIMER_PERIOD));
-+
-+	return HRTIMER_RESTART;
-+}
-+
-+static int k3_ddr_perf_init(struct k3_ddr_pmu *pmu, void __iomem *base,
-+			    struct device *dev)
-+{
-+	*pmu = (struct k3_ddr_pmu) {
-+		.pmu = (struct pmu) {
-+			.module		 = THIS_MODULE,
-+			.capabilities	 = PERF_PMU_CAP_NO_EXCLUDE,
-+			.task_ctx_nr	 = perf_invalid_context,
-+			.attr_groups	 = attr_groups,
-+			.event_init	 = k3_ddr_perf_event_init,
-+			.add		 = k3_ddr_perf_event_add,
-+			.del		 = k3_ddr_perf_event_del,
-+			.start		 = k3_ddr_perf_event_start,
-+			.stop		 = k3_ddr_perf_event_stop,
-+			.read		 = k3_ddr_perf_event_update,
-+		},
-+		.cntrl_base = base,
-+		.counter_base = base + 4,
-+		.dev = dev,
+diff --git a/arch/arm64/boot/dts/ti/k3-j7200-main.dtsi b/arch/arm64/boot/dts/ti/k3-j7200-main.dtsi
+index 67fde5667b8d9..db519239129a0 100644
+--- a/arch/arm64/boot/dts/ti/k3-j7200-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j7200-main.dtsi
+@@ -1556,4 +1556,36 @@ main_esm: esm@700000 {
+ 		bootph-pre-ram;
+ 		ti,esm-pins = <656>, <657>;
+ 	};
++
++	memorycontroller: memorycontroller@2980000 {
++		compatible = "ti,j721e-ddrss";
++		reg = <0x0 0x02990000 0x0 0x4000>,
++		      <0x0 0x0114000 0x0 0x100>;
++		reg-names = "cfg", "ctrl_mmr_lp4";
++		power-domains = <&k3_pds 47 TI_SCI_PD_SHARED>,
++				<&k3_pds 90 TI_SCI_PD_SHARED>;
++		interrupts = <GIC_SPI 216 IRQ_TYPE_LEVEL_HIGH>;
++		#address-cells = <2>;
++		#size-cells = <2>;
++		ranges = <0x00 0x0000 0x00 0x02990000 0x00 0x4000>;
++		ti,ddr-freq1   = <0>;
++		ti,ddr-freq2   = <0>;
++		ti,ddr-fhs-cnt = <0>;
++		clocks = <&k3_clks 47 2>, <&k3_clks 30 9>;
++		bootph-pre-ram;
++
++		ddr: ddr@0 {
++			compatible = "cdns,k3-ddr";
++			reg = <0x00 0x0000 0x00 0x72c>,
++			      <0x00 0x2000 0x00 0x4b0>,
++			      <0x00 0x4000 0x00 0x163c>;
++			reg-names = "ctl_cfg", "ctl_cfg_pi", "ctl_cfg_phy";
++			bootph-pre-ram;
++		};
++
++		ddr_pmu0: ddr-pmu@100 {
++			compatible = "ti,k3-ddr-pmu";
++			reg = <0x00 0x100 0x00 0x14>;
++		};
 +	};
-+
-+	pmu->id = ida_alloc(&k3_ddr_ida, GFP_KERNEL);
-+	return pmu->id;
-+}
-+
-+static int k3_ddr_perf_offline_cpu(unsigned int cpu, struct hlist_node *node)
-+{
-+	struct k3_ddr_pmu *pmu = hlist_entry_safe(node, struct k3_ddr_pmu, node);
-+	int target;
-+
-+	if (cpu != pmu->cpu)
-+		return 0;
-+
-+	target = cpumask_any_but(cpu_online_mask, cpu);
-+	if (target >= nr_cpu_ids)
-+		return 0;
-+
-+	perf_pmu_migrate_context(&pmu->pmu, cpu, target);
-+	pmu->cpu = target;
-+
-+	return 0;
-+}
-+
-+static int k3_ddr_perf_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct ti_ddrss_dev *parent_dev = dev_get_drvdata(dev->parent);
-+	u32 pmu_offset = 0x100;
-+	struct k3_ddr_pmu *pmu;
-+	void __iomem *base;
-+	char *name;
-+	int num;
-+	int ret;
-+
-+	if (!parent_dev)
-+		return dev_err_probe(dev, -ENODEV, "Parent DDR subsystem not found\n");
-+
-+	if (!parent_dev->sscfg)
-+		return dev_err_probe(dev, -EINVAL, "Parent SSCFG not mapped\n");
-+
-+	/*
-+	 * PMU registers are in SSCFG space. The pmu DT node uses 2-cell
-+	 * addressing (#address-cells = 2), so cell index 1 is the low word
-+	 * of the 64-bit address, which is the byte offset within SSCFG.
-+	 */
-+	of_property_read_u32_index(dev->of_node, "reg", 1, &pmu_offset);
-+	base = parent_dev->sscfg + pmu_offset;
-+
-+	pmu = devm_kzalloc(dev, sizeof(*pmu), GFP_KERNEL);
-+	if (!pmu)
-+		return -ENOMEM;
-+
-+	num = k3_ddr_perf_init(pmu, base, dev);
-+	if (num < 0)
-+		return dev_err_probe(dev, num, "Failed to allocate PMU id\n");
-+
-+	name = devm_kasprintf(dev, GFP_KERNEL, DDR_PERF_DEV_NAME "%d", num);
-+	if (!name) {
-+		ret = -ENOMEM;
-+		goto cpuhp_state_err;
-+	}
-+
-+	pmu->identifier = parent_dev->cfg->identifier;
-+	platform_set_drvdata(pdev, pmu);
-+
-+	hrtimer_setup(&pmu->hrtimer, k3_ddr_perf_timer_handler, CLOCK_MONOTONIC,
-+		      HRTIMER_MODE_REL);
-+
-+	pmu->cpu = raw_smp_processor_id();
-+	ret = cpuhp_setup_state_multi(CPUHP_AP_ONLINE_DYN,
-+				      DDR_CPUHP_CB_NAME,
-+				      NULL,
-+				      k3_ddr_perf_offline_cpu);
-+	if (ret < 0) {
-+		dev_err(dev, "cpuhp_setup_state_multi failed: %d\n", ret);
-+		goto cpuhp_state_err;
-+	}
-+
-+	pmu->cpuhp_state = ret;
-+
-+	ret = cpuhp_state_add_instance_nocalls(pmu->cpuhp_state, &pmu->node);
-+	if (ret)
-+		goto cpuhp_instance_err;
-+
-+	ret = perf_pmu_register(&pmu->pmu, name, -1);
-+	if (ret)
-+		goto k3_ddr_perf_err;
-+
-+	return 0;
-+
-+k3_ddr_perf_err:
-+	cpuhp_state_remove_instance_nocalls(pmu->cpuhp_state, &pmu->node);
-+cpuhp_instance_err:
-+	cpuhp_remove_multi_state(pmu->cpuhp_state);
-+cpuhp_state_err:
-+	ida_free(&k3_ddr_ida, pmu->id);
-+
-+	return ret;
-+}
-+
-+static void k3_ddr_perf_remove(struct platform_device *pdev)
-+{
-+	struct k3_ddr_pmu *pmu = platform_get_drvdata(pdev);
-+
-+	perf_pmu_unregister(&pmu->pmu);
-+
-+	cpuhp_state_remove_instance_nocalls(pmu->cpuhp_state, &pmu->node);
-+	cpuhp_remove_multi_state(pmu->cpuhp_state);
-+
-+	hrtimer_cancel(&pmu->hrtimer);
-+
-+	ida_free(&k3_ddr_ida, pmu->id);
-+}
-+
-+static const struct of_device_id ti_k3_ddr_pmu_of_match[] = {
-+	{ .compatible = "ti,k3-ddr-pmu" },
-+	{}
-+};
-+MODULE_DEVICE_TABLE(of, ti_k3_ddr_pmu_of_match);
-+
-+static struct platform_driver ti_k3_ddr_pmu_driver = {
-+	.driver = {
-+		.name = "ti-k3-ddr-pmu",
-+		.of_match_table = ti_k3_ddr_pmu_of_match,
-+		.suppress_bind_attrs = true,
-+	},
-+	.probe = k3_ddr_perf_probe,
-+	.remove = k3_ddr_perf_remove,
-+};
-+module_platform_driver(ti_k3_ddr_pmu_driver);
-+
-+MODULE_DESCRIPTION("PMU driver for TI K3 DDR Controller");
-+MODULE_AUTHOR("Texas Instruments Inc");
-+MODULE_LICENSE("GPL");
+ };
 -- 
 2.34.1
 
