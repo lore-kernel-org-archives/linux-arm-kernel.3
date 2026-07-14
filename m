@@ -4,66 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92FB1C4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 19:29:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B69CC4450C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Jul 2026 19:35:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bpo1KyKMKhYFTRlb2RJOsA+e3kYhuJvTU2iJ2xMLWY4=; b=0iwFozB/M5r083dmOa+a4g9a8+
-	CBpLthIp1CKlxYQEm+ar/iAPg2J0WyXP58tROKNSNu4SMKXpp8OcDyirzQB7DtgnlMlDAzbkqzhvM
-	PRiYM+cXBEfLr6su5PCh6+nZ/Sdc/fLHG3jfb/wSarf0pQaRumOx8l0+xQ2ZXOtu/wuv5KDJdp9tP
-	Ks1Qlsucpq/2rFk51k5KUr14+4K7hqUMDoUXyxdbPykfTgsAZnl4tsbOVF913cEJCocZ7gt1YXlAq
-	3IvzmlOvoYPSPDw5FEqesiA4mtAd/k/bV93dMc55d4XVATx01RZ1y08neizyVT2cALXYOX08UXle6
-	RlIHt1Pw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SUr73LZY6+2QdfjE2MOlrcvd4yMtGCLi1U7P6fK2y3E=; b=jBvQoyrNfVvi4JANxzDIHTj130
+	7w2nIc8ICO0iVHGcXIcsdurxx+TRwC5rqjgMcE9o6pzG33EAEMaQOzCvRrVibSllRsR5pO9sY5RyB
+	FQ9PpyfkHu/Hx49BxrcJi4ggXVg7Q1+BInKJv5YXhdPatVkl4RXYrDA3WueIiMzfHBKk39+QK5pMv
+	mIitHHp+G/VRpz7lpTD33mrXtUtgzi19Ud38hDVNWsZqYkTG4zQonVJ03yGW8sj8czzEaCs8QS6pN
+	v+9lJ7X3DwThQMpi7DuGjSBQxvSZaYwQLx2v7KMuP2cshRSQau8zQDu3siCtYt3/9zCKVpY4Kw7sz
+	Bo1Mh6lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjip2-0000000D6wo-2XNQ;
-	Tue, 14 Jul 2026 19:29:40 +0000
-Received: from out-186.mta1.migadu.com ([95.215.58.186])
+	id 1wjiuh-0000000D7Hm-3FfD;
+	Tue, 14 Jul 2026 19:35:31 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjiot-0000000D6ve-3nxs
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Jul 2026 19:29:34 +0000
-X-Forwarded-Encrypted: i=1; AHgh+RohPzMO5s8w5Lw5OMAIIRcUQfc3EIg7Cjmek4D5Gc2FZ/vkvs8+ZtE0cywCILIyFUk6PAPPi7oDs/07pbF1vh8P@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1784057368;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=bpo1KyKMKhYFTRlb2RJOsA+e3kYhuJvTU2iJ2xMLWY4=;
-	b=rwKjmpaQTsDhpaiJ/yYZ6lgDpabtN+SYuLxzlIoqNSWM+xcxUyzY0fY2cIJt/WtBSzbhCc
-	m2zIwqfs2JKjp0pjf/rZjDQ5TmluLe87q/7aqyhdY9MMelkFP3WihcMpT5wX01qm4GmlIP
-	5GQlrvc6MGKiy40cOBmSruaEDqBmbEU=
-X-Gm-Message-State: AOJu0YwGsoi+xfeevu29/FzWn0CpRnaG+QUyvWik+OR5+qcyLzMwhT5/
-	o2jgmehkWo5KXiElJh8sW6j1ZKz0FAcmwY/UQ9w/qyFk2933frrDKTQvNZQn5RdPEE3bsZKtsl9
-	qLA0xIGfJQHG3R5nJkXbtK0C7sw3+U+5KEzoa+O5L
-X-Received: by 2002:a05:622a:aa05:20b0:51c:ca9:3d15 with SMTP id
- d75a77b69052e-51d7bd1f5b6mr14380171cf.12.1784057359790; Tue, 14 Jul 2026
- 12:29:19 -0700 (PDT)
+	id 1wjiue-0000000D7Ft-1UBm;
+	Tue, 14 Jul 2026 19:35:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1784057726;
+	bh=KrO1QK4//StkgMJIK/o6MlDMIM5lHO4umCxT2+qIO8c=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=AHA94tSiPWgwsq2DyPIeSJE0wVgOBVGzHHhcnAfz3n7/JyeZtWqeJPGrfpfU1bKwX
+	 EN9g3w9e8hmekSk+QgTF+wbl+mRnbdJ1H075hxrRkwUnbiUTBo73mzw/UKCc9gBbD6
+	 hGJteq8DxKuHY5cEVF+/gFNdd93SYnZVZLQEfNwayFY8w2xTSb2ZwIrlfiJdyQSoqe
+	 6nqtJn5wxrXWbYz25LHRpKZ6xS3pXsrpLFUAdFFmS8GT0r8mrz8YTbge+vJhdKyqeN
+	 2hd7knhBKDIm3HgTy/wYPzso05+vvutJ3yuSXCsLdEX131v6KLgPIH/FP+2trDKgNG
+	 ZH26tU1Jc6nNQ==
+Received: from jupiter.universe (unknown [100.64.1.62])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519)
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id D078517E0956;
+	Tue, 14 Jul 2026 21:35:25 +0200 (CEST)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id 0E15F480079; Tue, 14 Jul 2026 21:26:09 +0200 (CEST)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Tue, 14 Jul 2026 21:26:35 +0200
+Subject: [PATCH v13 34/35] phy: rockchip: usbdp: Re-init PHY on mux change
 MIME-Version: 1.0
-References: <20260706175415.2604046-1-vdonnefort@google.com> <20260706175415.2604046-7-vdonnefort@google.com>
-In-Reply-To: <20260706175415.2604046-7-vdonnefort@google.com>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Tue, 14 Jul 2026 20:28:00 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTx8V-O0Wtx6dG-CD_-HwNeECPCm23oYVPYoUqEUsTZbhw@mail.gmail.com>
-X-Gm-Features: AUfX_myZ-YiTTw-qVayx9SV-DJZQwLurb-jwih9cVUkLEzNDshARHSP1AE-9t7E
-Message-ID: <CA+EHjTx8V-O0Wtx6dG-CD_-HwNeECPCm23oYVPYoUqEUsTZbhw@mail.gmail.com>
-Subject: Re: [PATCH v2 06/18] KVM: arm64: Add topup interface for the pKVM
- heap allocator
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
-	will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kernel-team@android.com, qperret@google.com
-Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260714-rockchip-usbdp-cleanup-v13-34-6cb3e769d4c5@collabora.com>
+References: <20260714-rockchip-usbdp-cleanup-v13-0-6cb3e769d4c5@collabora.com>
+In-Reply-To: <20260714-rockchip-usbdp-cleanup-v13-0-6cb3e769d4c5@collabora.com>
+To: Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Frank Wang <frank.wang@rock-chips.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Andy Yan <andy.yan@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
+ Yubing Zhang <yubing.zhang@rock-chips.com>, 
+ Alexey Charkov <alchark@flipper.net>, linux-phy@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, kernel@collabora.com, 
+ devicetree@vger.kernel.org, linux-usb@vger.kernel.org, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1050;
+ i=sebastian.reichel@collabora.com; h=from:subject:message-id;
+ bh=KrO1QK4//StkgMJIK/o6MlDMIM5lHO4umCxT2+qIO8c=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpWjVCzntzUEtABrBhDotBxk9zsFW1+aiIw8
+ iuPzkVZ99/Vt4kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqVo1QAAoJENju1/PI
+ O/qaLEgP/0WLQHet8RD1OOsumbMiLtY5l5BRWnUbvRBv0O1I0Fiiz02GGXISEVTWhdl79xWnQbY
+ jWkXFdORJro2nZc1vasEJ+/GyhtD03RE8TywespOQpNTIzgfZKaSfRmv20nN2atD3fdQXtOA3ci
+ g7Ul/5UTxhTY9QLVXQm2r1DDoviKgFNcVfoKaELm+1GPlh4SSlXmYanRp91gYIhb723rkEzccIu
+ uCNSk+3EuMttRtd8ZqNGXOUEnrDie8LBaiW214xJ1sD60rvP+MIJe7jNU5+F04tzF2eEmaw5fuG
+ RR/8NPtYOiSDo29dDzQcZ6sseZIoSZsXnhip9q1xsy3AE4Ybo4vCpPD4UxopZeCC4q4AmWctyP9
+ BI1ggAOrzIgnM2MULRO9rl9V00p3fz0duJiTBkBiB/AUR2MqyINEcSTl1ljOkZAZQTqYYoZUPLU
+ ZT+qV2REHR2ixJJlUVDMZOqrNFFSIQ0h1ez27UChKavzJEATVU3IJVYXfgHWFkaSO1Geu3TQAkJ
+ u2GJWAD+i4Btn7q8aUtTfRRlmbGAchbbS2zthv+iP46NV04Xnl7juXqghRaLOh6eQsyVThkpbvy
+ 4HTybhqpKYSwACHyfQUYw/aGUGU05Coz8Geqj38tnIIhNHUMiVHVOpsL68COc3dHn03Mg6Tai6V
+ kTAMGFATIpOL2kjCCdKQgNA==
+X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_122932_371041_E6118B8F 
-X-CRM114-Status: GOOD (  17.08  )
+X-CRM114-CacheID: sfid-20260714_123528_556678_62FE2EE3 
+X-CRM114-Status: GOOD (  12.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,137 +104,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 6 Jul 2026 at 18:54, Vincent Donnefort <vdonnefort@google.com> wrote:
->
-> Introduce a host HVC interface and a host side helper to allow refilling
-> the pKVM heap allocator.
->
-> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
->
-> diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-> index 043495f7fc78..681b7bf8ac08 100644
-> --- a/arch/arm64/include/asm/kvm_asm.h
-> +++ b/arch/arm64/include/asm/kvm_asm.h
-> @@ -114,6 +114,7 @@ enum __kvm_host_smccc_func {
->         __KVM_HOST_SMCCC_FUNC___pkvm_vcpu_load,
->         __KVM_HOST_SMCCC_FUNC___pkvm_vcpu_put,
->         __KVM_HOST_SMCCC_FUNC___pkvm_tlb_flush_vmid,
-> +       __KVM_HOST_SMCCC_FUNC___pkvm_hyp_topup,
->
->         MARKER(__KVM_HOST_SMCCC_FUNC_MAX)
->  };
-> diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
-> index 74fedd9c5ff0..870f7870bb62 100644
-> --- a/arch/arm64/include/asm/kvm_pkvm.h
-> +++ b/arch/arm64/include/asm/kvm_pkvm.h
-> @@ -17,6 +17,10 @@
->
->  #define HYP_MEMBLOCK_REGIONS 128
->
-> +enum pkvm_topup_id {
-> +       PKVM_TOPUP_HYP_ALLOC,
-> +};
-> +
->  int pkvm_init_host_vm(struct kvm *kvm, unsigned long type);
->  int pkvm_create_hyp_vm(struct kvm *kvm);
->  bool pkvm_hyp_vm_is_created(struct kvm *kvm);
-> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> index d3c69de698f4..e270a974fa37 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> @@ -15,6 +15,7 @@
->  #include <asm/kvm_hypevents.h>
->  #include <asm/kvm_mmu.h>
->
-> +#include <nvhe/alloc.h>
->  #include <nvhe/ffa.h>
->  #include <nvhe/mem_protect.h>
->  #include <nvhe/mm.h>
-> @@ -632,6 +633,30 @@ static void handle___pkvm_finalize_teardown_vm(struct kvm_cpu_context *host_ctxt
->         cpu_reg(host_ctxt, 1) = __pkvm_finalize_teardown_vm(handle);
->  }
->
-> +static void handle___pkvm_hyp_topup(struct kvm_cpu_context *host_ctxt)
+Ensure that the right part of the PHY are powered up when the
+mode changes. This ensures the PHY is re-initialized in the
+following two scenarios, which are currently broken:
 
-Sashiko caught this. Suggest moving just this helper to patch 8
-alongside its caller.
+ - cable orientation changes without DP being involved
+ - switching from DP-only into a mode with USB support
 
-Cheers,
-/fuad
+Fixes: 2f70bbddeb45 ("phy: rockchip: add usbdp combo phy driver")
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ drivers/phy/rockchip/phy-rockchip-usbdp.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> +{
-> +       DECLARE_REG(enum pkvm_topup_id, id, host_ctxt, 1);
-> +       DECLARE_REG(phys_addr_t, head, host_ctxt, 2);
-> +       DECLARE_REG(unsigned long, nr_pages, host_ctxt, 3);
-> +       struct kvm_hyp_memcache host_mc = {
-> +               .head = head,
-> +               .nr_pages = nr_pages,
-> +       };
-> +       int ret;
-> +
-> +       switch (id) {
-> +       case PKVM_TOPUP_HYP_ALLOC:
-> +               ret = hyp_alloc_topup(&host_mc);
-> +               break;
-> +       default:
-> +               ret = -EINVAL;
-> +       }
-> +
-> +       cpu_reg(host_ctxt, 1) = ret;
-> +       cpu_reg(host_ctxt, 2) = host_mc.head;
-> +       cpu_reg(host_ctxt, 3) = host_mc.nr_pages;
-> +}
-> +
->  static void handle___tracing_load(struct kvm_cpu_context *host_ctxt)
->  {
->         DECLARE_REG(unsigned long, desc_hva, host_ctxt, 1);
-> @@ -762,6 +787,7 @@ static const hcall_t host_hcall[] = {
->         HANDLE_FUNC(__pkvm_vcpu_load),
->         HANDLE_FUNC(__pkvm_vcpu_put),
->         HANDLE_FUNC(__pkvm_tlb_flush_vmid),
-> +       HANDLE_FUNC(__pkvm_hyp_topup),
->  };
->
->  static void handle_host_hcall(struct kvm_cpu_context *host_ctxt)
-> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-> index 8324a6a1bc48..e2c8714e8ccc 100644
-> --- a/arch/arm64/kvm/pkvm.c
-> +++ b/arch/arm64/kvm/pkvm.c
-> @@ -85,6 +85,33 @@ void __init kvm_hyp_reserve(void)
->                  hyp_mem_base);
->  }
->
-> +static int pkvm_hyp_topup(enum pkvm_topup_id id, unsigned long nr_pages)
-> +{
-> +       struct kvm_hyp_memcache mc;
-> +       struct arm_smccc_res res;
-> +       int ret;
-> +
-> +       init_hyp_memcache(&mc);
-> +       ret = topup_hyp_memcache(&mc, nr_pages);
-> +       if (ret)
-> +               goto err;
-> +
-> +       arm_smccc_1_1_hvc(KVM_HOST_SMCCC_FUNC(__pkvm_hyp_topup), id, mc.head,
-> +                         mc.nr_pages, &res);
-> +       if (WARN_ON_ONCE(res.a0 != SMCCC_RET_SUCCESS)) {
-> +               ret = -EINVAL;
-> +               goto err;
-> +       }
-> +
-> +       ret = res.a1;
-> +       mc.head = res.a2;
-> +       mc.nr_pages = res.a3;
-> +
-> +err:
-> +       free_hyp_memcache(&mc);
-> +       return ret;
-> +}
-> +
->  static void __pkvm_destroy_hyp_vm(struct kvm *kvm)
->  {
->         if (pkvm_hyp_vm_is_created(kvm)) {
-> --
-> 2.55.0.rc2.803.g1fd1e6609c-goog
->
+diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+index e597cdfe8d79..87d6df682176 100644
+--- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
++++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+@@ -1392,7 +1392,7 @@ static int rk_udphy_typec_mux_set(struct typec_mux_dev *mux,
+ 
+ 	rk_udphy_set_typec_state(udphy, state->mode);
+ 
+-	return 0;
++	return rk_udphy_update_power_state(udphy);
+ }
+ 
+ static void rk_udphy_typec_mux_unregister(void *data)
+
+-- 
+2.53.0
+
 
