@@ -4,91 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E739EC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 09:20:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A964C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 09:26:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+AEWs80x8QhCvqs69tA//G/NjwkGCn+l1v3SgTSIaCM=; b=Ik9DiFSQqFJA3+qSbHH++FpwrS
-	XocL/+8vjh+rS8xXZ9cuaLfpNCBWgBtaHehCBnoC9ICqw9JrLGb6Zv66A9ADLXjNmocMiF4+/yZWW
-	8Yz+vjjx39JYCHfIr+SxYIklUJlQYUrrB/I/kPHlI4dYBr7MFVe0syScX35WR8WvmABaupbFK5l8b
-	lYhFwB/f9M2dHHvjsRWDbft1xO7W1+iAiUnTykqDnlWJthWhsK30lbVp3XclqPpcJ6aRKfhq6hh7n
-	gT24D5I/h80UvdmoOFmofyv+RBa6eyrT7x5OrXPkvKSiycUUEKirmwfNskw4KCMCVaK7XXArIuMnK
-	D68KUTxw==;
+	bh=D8L3uGHgLcf/igUtWS55TK+4P/oGWvA3mv3iBU6z/Aw=; b=u4TdZGxD98QKfI6iC/2VF9SteZ
+	1H9puTTMZ0bVkPvP6927D4ENpzDA+oZx/LnckJ8AL0vYN8dQqFXzY777G4887yHf9H8AEOFUCPnGM
+	5KO+tas9vSVvRC8CTrg5zgSVey8LXkFNxi5wII12PbJ4b439QGPsfd6ktV9lSb4mf8xnVuG9hmwfV
+	eQd4sJnGTlLDFILFUJG9Fpz8WzqfNtJdBT/IYK6Axd5rU2SRsevbJnJeAf1o4NTl0/j2ZM36T6Pqn
+	i9KGn2JK1tyFycac2yDUqQ3DC2RAOklpHcj+EuWHbkIARFSyLmz4DNrLQ/fZbDSAfx734ILcrD+eO
+	Q+hYumdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjvnN-0000000EJ6T-1Dvm;
-	Wed, 15 Jul 2026 09:20:49 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1wjvsF-0000000EJfq-3Se8;
+	Wed, 15 Jul 2026 09:25:51 +0000
+Received: from out-176.mta1.migadu.com ([95.215.58.176])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjvnK-0000000EJ5v-1oeG;
-	Wed, 15 Jul 2026 09:20:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1784107246; x=1815643246;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=GNwWwlwKmSHKcifYCWTeyGH5lZcsn6dd0tzvoKNoxb4=;
-  b=E8TyQTIYYYg4cyJUmvc3yuZvV/tST6cuhnR969CBzTbePw/gk78+ioHU
-   6t2S45LucpjHSUf5n508TxKDlQ4wvx6G4DKQE/9/ACdDptJ8/9WGw7xL3
-   ZOcuA/n8nAppf/wdSYfgEvVI5R449xb20KWwfi+VSM1iXf84SVQBe2c0V
-   SyWdVjtDnTGmxSA+GP0rOl08+Pr2BwsG6IFqtBejyF5ApmX/iXqs3BjDq
-   CspMyxonqJS02cfPtHxBNh/XHXDMjGpyhyBdUy/SFu2KiEWCcoTAKhh6T
-   VGyRR3ofry3nb1kDp907joAnTB8UcyXI+hlalu9GdnlCpdi5uB3hjOMiX
-   w==;
-X-CSE-ConnectionGUID: DVyZYLoeRtKJmXYBbO2DXA==
-X-CSE-MsgGUID: eQNdrcdKQ++zLDU6WdDoBg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11847"; a="84781015"
-X-IronPort-AV: E=Sophos;i="6.25,165,1779174000"; 
-   d="scan'208";a="84781015"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jul 2026 02:20:45 -0700
-X-CSE-ConnectionGUID: rohPZ6YPTZinj6UTJQYdjw==
-X-CSE-MsgGUID: Nj0Y0ejIQuSWjXGPb/1fOg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,165,1779174000"; 
-   d="scan'208";a="254379157"
-Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.129])
-  by orviesa006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jul 2026 02:20:40 -0700
-Date: Wed, 15 Jul 2026 12:20:38 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Bartosz Golaszewski <brgl@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Wei Deng <wei.deng@oss.qualcomm.com>, linux-acpi@vger.kernel.org,
-	driver-core@lists.linux.dev, linux-pm@vger.kernel.org,
-	linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Alan Stern <stern@rowland.harvard.edu>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Subject: Re: [PATCH v5 06/16] usb: hub: Associate port@ fwnode with USB port
- device
-Message-ID: <aldQ5odptfmK5aCw@ashevche-desk.local>
-References: <20260715085348.3457359-1-wenst@chromium.org>
- <20260715085348.3457359-7-wenst@chromium.org>
+	id 1wjvsD-0000000EJf4-0icc
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Jul 2026 09:25:50 +0000
+X-Forwarded-Encrypted: i=1; AHgh+RqIjCzHABOjPM2ouePk1tGgQl96p9DFhmjHkvNQfJU2UQYrPMuUZri1C76b5SbE+Gr5VuvffzvMtAdbGNNokpQh@lists.infradead.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1784107545;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=D8L3uGHgLcf/igUtWS55TK+4P/oGWvA3mv3iBU6z/Aw=;
+	b=gHJVcQLjSVyz3IgK18YHSUGjzdffeo0OX5OFdrefAx/KZFLpche3bzqkhUy/tkH9FxStRi
+	3toBelyXbHZlJlcdX/wONyVrkNTJTjRjtARxsqEQMNxcn9wIKOnsMWHAdIu7ZyRhu0YP3C
+	Q1YP7r0J4Y2d6HZk60d89DmrAsWTHfE=
+X-Gm-Message-State: AOJu0YwH3+/+IQma1ezTo1mf1HvEuG+iDFzjsufY8ZP2KeIXo6w60Xxe
+	/VxO3SwYhCxohKuEkvebjnb0pU2rRWymuTk0IQ/TTdgE+A+hy90wxcjhbQ92jCoFza2UkGLx3pl
+	1nPv06g7/kJ/IEXUTGL/OvRA7xkKfmG7/KVHn1Y8j
+X-Received: by 2002:a05:622a:1b1e:b0:51c:e80:9e88 with SMTP id
+ d75a77b69052e-51d7bdcb646mr22804061cf.16.1784107508780; Wed, 15 Jul 2026
+ 02:25:08 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260715085348.3457359-7-wenst@chromium.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+References: <20260706175415.2604046-1-vdonnefort@google.com>
+ <20260706175415.2604046-4-vdonnefort@google.com> <CA+EHjTwMz+Ojq18Fq9USJqz_pZmemryNhy99Sw36sOejtpaf4w@mail.gmail.com>
+ <aldLr8Q8ovbwJn65@google.com>
+In-Reply-To: <aldLr8Q8ovbwJn65@google.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Wed, 15 Jul 2026 10:24:31 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTyGvdtdRxg26vn=Q+WmvD_SbtGv8k16n4cmjj5F=iA16A@mail.gmail.com>
+X-Gm-Features: AUfX_mzCdU7u3cBE7CE0uYYU76Eti9noWqGhANeOIbGRQdNqLbyidXbeHXiJ9DA
+Message-ID: <CA+EHjTyGvdtdRxg26vn=Q+WmvD_SbtGv8k16n4cmjj5F=iA16A@mail.gmail.com>
+Subject: Re: [PATCH v2 03/18] KVM: arm64: Add __hyp_allocator_map for the pKVM hyp
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
+	will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kernel-team@android.com, qperret@google.com
+Content-Type: text/plain; charset="UTF-8"
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_022046_494139_B8D82B6C 
-X-CRM114-Status: GOOD (  16.12  )
+X-CRM114-CacheID: sfid-20260715_022549_373818_FF8B6DE6 
+X-CRM114-Status: GOOD (  23.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,56 +79,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 15, 2026 at 04:53:36PM +0800, Chen-Yu Tsai wrote:
-> When a USB hub port is connected to a connector in a firmware node
-> graph, the port itself has a node in the graph.
-> 
-> Associate the port's firmware node with the USB port's device,
-> usb_port::dev. This is used in later changes for the M.2 slot power
-> sequencing provider to match against the requesting port.
-> 
-> To avoid potential conflicts with ACPI firmware nodes and then causing
-> power management issues, only assign the firmware node if the hub's
-> firmware node is not an ACPI firmware node.
+On Wed, 15 Jul 2026 at 09:58, Vincent Donnefort <vdonnefort@google.com> wrote:
+>
+> On Tue, Jul 14, 2026 at 06:53:55PM +0100, Fuad Tabba wrote:
+> > On Mon, 6 Jul 2026 at 18:54, Vincent Donnefort <vdonnefort@google.com> wrote:
+> > >
+> > > In preparation for the pKVM heap allocator, introduce __hyp_allocator_map()
+> > > to map a single physical page to a given virtual address in the hypervisor
+> > > stage-1 page-table.
+> > >
+> > > Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+> > >
+> > > diff --git a/arch/arm64/kvm/hyp/include/nvhe/mm.h b/arch/arm64/kvm/hyp/include/nvhe/mm.h
+> > > index 725bb0fb941d..98a7774b541c 100644
+> > > --- a/arch/arm64/kvm/hyp/include/nvhe/mm.h
+> > > +++ b/arch/arm64/kvm/hyp/include/nvhe/mm.h
+> > > @@ -32,5 +32,6 @@ int __pkvm_create_private_mapping(phys_addr_t phys, size_t size,
+> > >  int pkvm_create_stack(phys_addr_t phys, unsigned long *haddr);
+> > >  int pkvm_alloc_private_va_range(size_t size, unsigned long *haddr);
+> > >  phys_addr_t __pkvm_private_range_pa(void *va);
+> > > +int __hyp_allocator_map(void *va, phys_addr_t phys);
+> > >
+> > >  #endif /* __KVM_HYP_MM_H */
+> > > diff --git a/arch/arm64/kvm/hyp/nvhe/mm.c b/arch/arm64/kvm/hyp/nvhe/mm.c
+> > > index ec59da1322a7..c1c01f81ac5f 100644
+> > > --- a/arch/arm64/kvm/hyp/nvhe/mm.c
+> > > +++ b/arch/arm64/kvm/hyp/nvhe/mm.c
+> > > @@ -160,6 +160,11 @@ void pkvm_remove_mappings(void *from, void *to)
+> > >         hyp_spin_unlock(&pkvm_pgd_lock);
+> > >  }
+> > >
+> > > +int __hyp_allocator_map(void *va, phys_addr_t phys)
+> > > +{
+> > > +       return __pkvm_create_mappings((unsigned long)va, PAGE_SIZE, phys, PAGE_HYP);
+> > > +}
+> > > +
+> >
+> > nit: __hyp_allocator_map() is named for its caller rather than what it does
+> > (map a single hyp page). Its siblings here (pkvm_create_mappings,
+> > pkvm_remove_mappings) are named for the operation. Consider a name like
+> > pkvm_map_page() so it reads as a generic primitive.
+>
+> IIRC (it was a few years ago) this was a suggestion from Quentin who didn't want
+> to expose too much of mm and suggested to make it clear that was a function
+> private to the allocator.
+>
+> But looking at what we have now. perhaps
+>
+> int __pkvm_map_private_pages(phys_addr_t phys, void *addr, size_t size);
+>
+> And this could verify that addr is actually aprt of the private range
+>
+> WDYS?
 
-...
+I think this sounds better. That was a nit, so up to you.
 
-> int usb_hub_create_port_device(struct usb_hub *hub, int port1)
+Thanks,
+/fuad
 
-What about adding
-
-	struct fwnode_handle *fwnode = dev_fwnode(&hdev->dev);
-
-to the top of the function, and...
-
->  	port_dev->dev.driver = &usb_port_driver;
->  	dev_set_name(&port_dev->dev, "%s-port%d", dev_name(&hub->hdev->dev),
->  			port1);
-> +	/*
-> +	 * ACPI FW nodes are associated later when device_register() happens.
-> +	 * Skip assigning one here to avoid potential conflicts.
-> +	 */
-> +	if (!is_acpi_node(dev_fwnode(&hdev->dev)))
-> +		device_set_node(&port_dev->dev,
-> +				fwnode_graph_get_port_by_id(dev_fwnode(&hdev->dev), port1,
-> +							    FWNODE_GRAPH_DEVICE_DISABLED));
-
-...shorten this a bit to
-
-	if (!is_acpi_node(fwnode)) {
-		struct fwnode_handle *ep;
-
-		ep = fwnode_graph_get_port_by_id(fwnode, port1, FWNODE_GRAPH_DEVICE_DISABLED);
-
-// Is NULL or error pointer is fine here to be set as fwnode in port device?
-// Perhaps add a comment?
-
-		device_set_node(&port_dev->dev, ep);
-	}
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+>
+> >
+> > That said, naming is hard:
+> >
+> > Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+> >
+> > Cheers,
+> > /fuad
+> >
+> > >  int hyp_back_vmemmap(phys_addr_t back)
+> > >  {
+> > >         unsigned long i, start, size, end = 0;
+> > > --
+> > > 2.55.0.rc2.803.g1fd1e6609c-goog
+> > >
 
