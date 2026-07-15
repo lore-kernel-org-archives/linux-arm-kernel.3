@@ -4,65 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDB89C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 12:34:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5028CC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 12:36:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9+guEC8Ex4qrqSkEdXMiwdsEhdbbOIt/n8ixzbFFm7I=; b=TwAaRHslzyo7sbNsPua6GHxaJ+
-	PVnqmdn0QV4ja6TrQhFVzaTTHL3nszb1J6Ua0qO3V0E6/2RtlCGIy5mmdaKakArKo/KVqtf3pQeJJ
-	krM1ChhgV3kR4epFtUdgRPKRY9XgqFMdPsdOsutLU1+Ejm8LzBRFHPuh6MKHorx7NtKiz1bxxDJEK
-	j8dsDayK/vjzwq4kNFApyQbY/rdWY0VQpyGLo/BbKGQrFNDSMPkJzXPo1JKnfZEor5T3s3dKyCDlv
-	JNwrbElSGcUw9AI1i17SycULVPN4MMzK77NI2H/8Fw/EKXlolty9onMo2oaMED1YqiUCVhgrgdYAx
-	1V/aUR2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=SDVJJ1xLr7xWky9ho2VxmausoMg83j1se4IAydWbvyk=; b=uVQBuXknpT/ZmWnwElNcC41ytT
+	v4JW1FLwp6fFOcizwwuIKWkRS4x+OLnTy/8BbzblSTDHqO6e/CRXthnNd1DmKYRiQ6EvBvUbgtZKd
+	UVsQ6q9WKAFxNMwG5hoErk/BZ6i1h+cjn6INnLhnSF8SPbA7vP6rbUCzl/JiIjosglicouRt4wMFY
+	kGnBf67fQQIr0Pu8IpKn7ZFacogqYrWr/sZSfqzbJdA7qNSLg6d2CX6vrG+mzpQigBATijWoopdde
+	23ZaTfx41vYeWowgACf6TPl6362ZWNHBkdXjKNoJUYq1Mq7uPNy+h8+70LjuSa0HChsyYjf2D48Ej
+	6mbeA0HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjyoI-0000000EoSg-3QSA;
-	Wed, 15 Jul 2026 12:33:58 +0000
-Received: from out-183.mta1.migadu.com ([95.215.58.183])
+	id 1wjyqh-0000000EosY-1TdH;
+	Wed, 15 Jul 2026 12:36:27 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjyoD-0000000EoRF-1nbL
+	id 1wjyqZ-0000000Eonw-0lUw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 12:33:58 +0000
-X-Forwarded-Encrypted: i=1; AHgh+Rrj0L29+EiY1vq3ecFnFatvOvLbEvbUhD9ruyzfYieHSJu1xPGXcy0HmM9ECXDSKhplfMLLwKee57pbYrjxKlfD@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1784118830;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9+guEC8Ex4qrqSkEdXMiwdsEhdbbOIt/n8ixzbFFm7I=;
-	b=bETB2t8t6tiiZ2bpFNdHzLwp1XXPCpy/VeJLW1mVSUOjx9NohZQIw5Lp2R8XEJ2hAVtqWO
-	rz00nGBaID1ZUu+4gnuiheWxtTUxk0cLjQDW9CgykrH7hfgOl/vRoJv9VCFSLDgfu96fyR
-	rVP28AwxLYPveyo8J5X5eRq+/KZMBdg=
-X-Gm-Message-State: AOJu0YzlW+br+wpmizkOx5Z+dc8clWdu7kcZN9Sj9SLmUDDg3xKgX1xP
-	Qn1M1oorS25HAFf30wQBzGRM1RTky9iQ+oOMiNxouv24Pw4ghVszxA7vkWl8ZHHf5V7yhxU6PvM
-	OvdU1mP0B5mLTrLcA7cEQjn/VLlJ/oqlw7yiU8bnH
-X-Received: by 2002:ac8:6992:0:b0:51b:fe30:b8c5 with SMTP id
- d75a77b69052e-51d7bcc96e9mr20164071cf.6.1784118817577; Wed, 15 Jul 2026
- 05:33:37 -0700 (PDT)
+	Wed, 15 Jul 2026 12:36:22 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260715123610euoutp01b0066d21c6b707d465f2d27651f58143~CdsAv53Q41583215832euoutp01X
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 12:36:10 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260715123610euoutp01b0066d21c6b707d465f2d27651f58143~CdsAv53Q41583215832euoutp01X
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1784118970;
+	bh=SDVJJ1xLr7xWky9ho2VxmausoMg83j1se4IAydWbvyk=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=uemelT76i6UY2X5tg7rTHBUs6lCA4V/nH0Rn6HMYiwuJOeOZwt8NkhTlejbY9RmMg
+	 rT21VlTUCk5fwPyFFH2vrdP7JTLzH9XOILYjpKRvnWA36DsY0tXNFyUZfhEfm88kGo
+	 k+nzcY9ku5kR88E6iC+hzTjm5XsLwxE8rKtl59+Q=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20260715123609eucas1p276498c4701060ffbb6789cb096696a31~CdsAMHlXz0124001240eucas1p23;
+	Wed, 15 Jul 2026 12:36:09 +0000 (GMT)
+Received: from AMDC4843.eu.corp.samsungelectronics.net (unknown
+	[106.120.77.61]) by eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20260715123609eusmtip2e748e18c41f35c2b9b6c1ce83debc305~Cdr-s-uy20360603606eusmtip2D;
+	Wed, 15 Jul 2026 12:36:09 +0000 (GMT)
+From: Jakub Raczynski <j.raczynski@samsung.com>
+To: netdev@vger.kernel.org
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Jakub
+	Raczynski <j.raczynski@samsung.com>
+Subject: [PATCH net v3 0/2] net/stmmac: Secure against failures of DMA
+ memory allocation
+Date: Wed, 15 Jul 2026 14:36:00 +0200
+Message-Id: <20260715123602.51950-1-j.raczynski@samsung.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20260706175415.2604046-1-vdonnefort@google.com> <20260706175415.2604046-16-vdonnefort@google.com>
-In-Reply-To: <20260706175415.2604046-16-vdonnefort@google.com>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Wed, 15 Jul 2026 13:33:00 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTzNMCMAt=VDnCuR2+Pfz9Qh5HmbEm6tdjpdcPBO+UchEg@mail.gmail.com>
-X-Gm-Features: AUfX_mymo_D2O5n0ZAffEBP1RuvXf6XLBjc5Twl5xXcW05_4Gb4iBPyu-EXgdh8
-Message-ID: <CA+EHjTzNMCMAt=VDnCuR2+Pfz9Qh5HmbEm6tdjpdcPBO+UchEg@mail.gmail.com>
-Subject: Re: [PATCH v2 15/18] KVM: arm64: Alloc pkvm_hyp_vm using pKVM heap allocator
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
-	will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kernel-team@android.com, qperret@google.com
-Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20260715123609eucas1p276498c4701060ffbb6789cb096696a31
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20260715123609eucas1p276498c4701060ffbb6789cb096696a31
+X-EPHeader: CA
+X-CMS-RootMailID: 20260715123609eucas1p276498c4701060ffbb6789cb096696a31
+References: <CGME20260715123609eucas1p276498c4701060ffbb6789cb096696a31@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_053353_986299_6AEB33EE 
-X-CRM114-Status: GOOD (  12.60  )
+X-CRM114-CacheID: sfid-20260715_053619_684925_A392EFBA 
+X-CRM114-Status: GOOD (  10.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,49 +83,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 6 Jul 2026 at 18:54, 'Vincent Donnefort' via kernel-team
-<kernel-team@android.com> wrote:
+This series fixing two issues related to fails of
+__alloc_dma_rx_desc_resources(). Original issue from 1st patch is related to
+page_pool that has happened in testing env, while second was requested by
+Sashiko to have similar change for DMA allocation. 
+To have complete fix for all failures of __alloc_dma_rx_desc_resources(),
+merge two fixes into series.
 
-...
+---
+Changes in v3:
+- Added null assignment to page pointers (suggested by sashiko)
+- Convert IS_ERR_OR_NULL check to just NULL check
 
-> --- a/arch/arm64/kvm/pkvm.c
-> +++ b/arch/arm64/kvm/pkvm.c
-> @@ -191,8 +191,8 @@ static int __pkvm_create_hyp_vcpu(struct kvm_vcpu *vcpu)
->   */
->  static int __pkvm_create_hyp_vm(struct kvm *kvm)
->  {
-> -       size_t pgd_sz, hyp_vm_sz;
-> -       void *pgd, *hyp_vm;
-> +       size_t pgd_sz;
-> +       void *pgd;
->         int ret;
->
->         if (kvm->created_vcpus < 1)
-> @@ -209,28 +209,15 @@ static int __pkvm_create_hyp_vm(struct kvm *kvm)
->         if (!pgd)
->                 return -ENOMEM;
->
-> -       /* Allocate memory to donate to hyp for vm and vcpu pointers. */
-> -       hyp_vm_sz = PAGE_ALIGN(size_add(PKVM_HYP_VM_SIZE,
-> -                                       size_mul(sizeof(void *),
-> -                                                kvm->created_vcpus)));
-> -       hyp_vm = alloc_pages_exact(hyp_vm_sz, GFP_KERNEL_ACCOUNT);
-> -       if (!hyp_vm) {
-> -               ret = -ENOMEM;
-> -               goto free_pgd;
-> -       }
-> -
-> -       /* Donate the VM memory to hyp and let hyp initialize it. */
-> -       ret = kvm_call_hyp_nvhe(__pkvm_init_vm, kvm, hyp_vm, pgd);
-> +       ret = pkvm_call_hyp_req(__pkvm_init_vm, kvm, pgd);
+Changes in v2:
+- Added reviewed by Maxime to first patch
+- Dropped null check as page_pool_destroy() does provide that
+- Modified comment to reflect that
 
-Sashiko might be right on the memcg point: hyp_vm used to be
-GFP_KERNEL_ACCOUNT and now comes from the heap unaccounted, while pgd
-next to it is still accounted, so it's inconsistent.
+Link to v2:
+https://lore.kernel.org/all/20260707174115.1264466-1-j.raczynski@samsung.com/
 
-If we do want to fix it, would it go in pkvm_hyp_topup() to cover all
-consumers rather than here?
+Link to v1:
+https://lore.kernel.org/netdev/20260630100953.747868-1-j.raczynski@samsung.com/
 
-Cheers,
-/fuad
+Jakub Raczynski (2):
+  net/stmmac: Set Rx queue page_pool to NULL when freeing DMA resources
+  net/stmmac: Prevent dma queue NULL free on allocation failure
+
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 32 ++++++++++++-------
+ 1 file changed, 21 insertions(+), 11 deletions(-)
+
+-- 
+2.34.1
+
 
