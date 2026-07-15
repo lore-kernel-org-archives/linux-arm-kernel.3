@@ -4,78 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63B94C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 14:30:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F5C8C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 14:30:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Umkeji7pwan6KC0JI/rzT89TtwEX0mvoawjID9lgcVg=; b=qoNjKdK6sTDyMt4n/bnpjFIZLX
-	LcHOpPmSf7wTx9wBfqKO0jn9PICaABC20M4EXlDR8SWuZQO8gMe/SWrzUHovXc86ElCKOE3GOdWwm
-	e41M46iCcLph1eYRAiIPX9+quKN8dJhEd7GNy17+dNh1ixdt3ViyhTdYOLjjga1vRPUPmEUVVbdrt
-	KhDB5ExfJxwIccfaTpoU8JlvXccg+BvX/cq6vGwkCi/JcTd4hpKxINuswuc4bQwzC1rq13ssmNobf
-	lwHXXfmQ2Jd3WQ+OP4tkTdhSH6QbrGVmm4cps4HGWuhGrdyjfb42dMr8KpBiG+qBoHtmPSRHz06vN
-	ayJDv8aw==;
+	bh=86GJtudCvRNUxGlb0RFwHz3rj/kDqKZ1dFypC+o7T0k=; b=qGbnRANbaBAPuIXQg7So/x4cq9
+	NHnILVKdg5KsmbSY12ljR1fryAIw09Stlq/wQ8A4CMwY3QbDm0qtDYFvcDzKKU7Km4iS95MZs4pQN
+	A5qgdCNzficCn1MC8B6zqnubJLDSUih2zUciJqS4RrwgDRgk1HTIkLhK1q2TD4YMmAe9dgeIbNu1l
+	FUA59FjXhrOQXM8HK9lh63NMR+cCZrxJvAF6LMokJsVJZZAKei7BUNEUh9ktibUl0PEmnwgsU2ekr
+	sdcBhE2+UuvyWp3vZTdH17MIkDa0eT2b58nrLsTPdHmzeU+DGzdptAibfjhqpjxkZm/cC7krqcJ60
+	zRe8ysuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk071-0000000F1b0-0mlC;
-	Wed, 15 Jul 2026 13:57:23 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk06v-0000000F1Mq-47SJ;
-	Wed, 15 Jul 2026 13:57:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1784123835;
-	bh=iz0KnuVGcck2z6u+H3eYklRaAOtKKQAC++LigpNKgoM=;
+	id 1wk0cc-0000000F8e4-2gcj;
+	Wed, 15 Jul 2026 14:30:02 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wk0cU-0000000F8UB-0Lkb
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Jul 2026 14:29:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5DD191576;
+	Wed, 15 Jul 2026 07:29:48 -0700 (PDT)
+Received: from e122027.cambridge.arm.com (e122027.cambridge.arm.com [10.1.25.27])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6574E3F7B4;
+	Wed, 15 Jul 2026 07:29:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784125792; bh=ygMs2UwnCR4SgJLKpQ2BcHIDquX9SduxRcKHFIS1oyk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=VYHDFgnDiTDGuNhqHOrjzVfDmHpQed5jFqI7r7BVNWaQ8BCihN3pJ5v6pg68DoAJu
-	 gw5tdwKBvfnG4bWx0pbhjleZ2Bd2iPTueJNFdgA2cBHwcxgtopakdv62uQi5AZKGnS
-	 kV1uLbRJhnffkcLwn8Kj0J/H4OEABvX+3XUOW+V401mtQjXPUJVDVpU8HjVKtcyqRj
-	 e5NT0ExYxPVJ3Z5GIYv+yZ9x0r8GrSZOoI90pnA9nMEg7LwWAJLsnBfHUK63Ps3mcg
-	 tUdrmmWqIfhYW7mjv12EjmIRWI2Y95q8t7RIyhWyMkQvmSt4QTbz7nzQzB+9ddWf4O
-	 TLIcUNuj6c61g==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 904BA17E0720;
-	Wed, 15 Jul 2026 15:57:14 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: chunkuang.hu@kernel.org
-Cc: p.zabel@pengutronix.de,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	jitao.shi@mediatek.com,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	b=Y/3zT/7v4qbEoSJIbi/eVKPjfPPR4z7sKIU7Ahio+y00OtP3LdHq2R+arHmeLmcMv
+	 SrCtP687OSthHyKZAxQRUapHXreE86YBeNxgE2XyiSeKnn6y4fZPHsMer1F970V6aZ
+	 UdsJ7XNEcM6rSCCEDsWBVLfvMeuYEzGrcADRAoEc=
+From: Steven Price <steven.price@arm.com>
+To: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Cc: Steven Price <steven.price@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
 	linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com,
-	justin.yeh@mediatek.com,
-	jason-jh.lin@mediatek.com
-Subject: [PATCH v6 07/11] drm/mediatek: mtk_dsi: Add support for MT8189
-Date: Wed, 15 Jul 2026 15:56:59 +0200
-Message-ID: <20260715135703.46540-8-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260715135703.46540-1-angelogioacchino.delregno@collabora.com>
-References: <20260715135703.46540-1-angelogioacchino.delregno@collabora.com>
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>,
+	WeiLin.Chang@arm.com,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: [PATCH v15 12/37] KVM: arm64: CCA: Support the VGIC in realms
+Date: Wed, 15 Jul 2026 15:28:14 +0100
+Message-ID: <20260715142841.80544-13-steven.price@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260715142841.80544-1-steven.price@arm.com>
+References: <20260715142841.80544-1-steven.price@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_065718_201421_FA83CD0C 
-X-CRM114-Status: GOOD (  18.37  )
+X-CRM114-CacheID: sfid-20260715_072954_237593_DFBE56BC 
+X-CRM114-Status: GOOD (  14.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,141 +91,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the DSI IP found in the MT8189 SoC: this one is
-similar to the IPs found in the most recent already supported SoCs
-with the only difference being that it supports a higher link rate
-of 2.5Gbps instead of 1.5Gbps.
+The RMM provides emulation of a VGIC to the realm guest. With RMM v2.0
+the registers are passed in the system registers so this works similar
+to a normal guest, but kvm_arch_vcpu_put() need reordering to early out,
+and realm guests don't support GICv2 even if the host does.
 
-To support the higher rate, add a new "max_link_rate_mbps" member
-to the mtk_dsi_driver_data, assign the correct one to all of the
-supported SoCs, other than to the newly introduced MT8189, and
-use it in the .mode_valid() callback in place of the hardcoded
-1.5Gbps value.
-
-Since .mode_valid() is supposed to run just for resolution changes
-the link rate was expressed in Mbps and gets multiplied on the fly
-to save some bits.
-
-As a note, starting with MT8189, higher maximum pixel clock rates
-are achievable: while at it, also make sure that calculations are
-not overflowing by casting to u64 where needed.
-
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Steven Price <steven.price@arm.com>
 ---
- drivers/gpu/drm/mediatek/mtk_drm_drv.c |  2 ++
- drivers/gpu/drm/mediatek/mtk_dsi.c     | 29 ++++++++++++++++++++++++--
- 2 files changed, 29 insertions(+), 2 deletions(-)
+Changes from v12:
+ * GIC registers are now passed in the system registers rather than via
+   rec_entry/rec_exit which removes most of the changes.
+Changes from v11:
+ * Minor changes to align with the previous patches. Note that the VGIC
+   handling will change with RMM v2.0.
+Changes from v10:
+ * Make sure we sync the VGIC v4 state, and only populate valid lrs from
+   the list.
+Changes from v9:
+ * Copy gicv3_vmcr from the RMM at the same time as gicv3_hcr rather
+   than having to handle that as a special case.
+Changes from v8:
+ * Propagate gicv3_hcr to from the RMM.
+Changes from v5:
+ * Handle RMM providing fewer GIC LRs than the hardware supports.
+---
+ arch/arm64/kvm/arm.c            | 11 ++++++++---
+ arch/arm64/kvm/vgic/vgic-init.c |  2 +-
+ 2 files changed, 9 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-index bd2d17017bd2..08f6be311dd1 100644
---- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-+++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-@@ -826,6 +826,8 @@ static const struct of_device_id mtk_ddp_comp_dt_ids[] = {
- 	  .data = (void *)MTK_DSI },
- 	{ .compatible = "mediatek,mt8188-dsi",
- 	  .data = (void *)MTK_DSI },
-+	{ .compatible = "mediatek,mt8189-dsi",
-+	  .data = (void *)MTK_DSI },
- 	{ }
- };
- 
-diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
-index c5db63b93ff9..3f58683be70f 100644
---- a/drivers/gpu/drm/mediatek/mtk_dsi.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
-@@ -235,6 +235,8 @@ struct mtk_dsi_driver_data {
- 	const u16 *reg_main;
- 	const u16 *reg_adv;
- 
-+	const u16 max_link_rate_mbps;
-+
- 	bool has_size_ctl;
- 	bool cmdq_long_packet_ctl;
- 	bool support_per_frame_lp;
-@@ -926,7 +928,7 @@ static int mtk_dsi_poweron(struct mtk_dsi *dsi)
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 38fac98cd6a4..2959a1451232 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -791,19 +791,24 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
+ 		kvm_call_hyp_nvhe(__pkvm_vcpu_put);
  	}
- 	bit_per_pixel = ret;
  
--	dsi->data_rate = DIV_ROUND_UP_ULL(dsi->vm.pixelclock * bit_per_pixel,
-+	dsi->data_rate = DIV_ROUND_UP_ULL((u64)dsi->vm.pixelclock * bit_per_pixel,
- 					  dsi->lanes);
- 
- 	ret = clk_set_rate(dsi->hs_clk, dsi->data_rate);
-@@ -1101,13 +1103,21 @@ mtk_dsi_bridge_mode_valid(struct drm_bridge *bridge,
- 			  const struct drm_display_mode *mode)
- {
- 	struct mtk_dsi *dsi = bridge_to_dsi(bridge);
-+	const struct mtk_dsi_driver_data *data = dsi->driver_data;
-+	u64 wanted_link_rate, max_link_rate;
- 	int bpp;
- 
- 	bpp = mipi_dsi_pixel_format_to_bpp(dsi->format);
- 	if (bpp < 0)
- 		return MODE_ERROR;
- 
--	if (mode->clock * bpp / dsi->lanes > 1500000)
-+	wanted_link_rate = mode->clock;
-+	wanted_link_rate *= bpp;
-+	max_link_rate = data->max_link_rate_mbps;
-+	max_link_rate *= dsi->lanes;
-+	max_link_rate *= KILO;
++	kvm_timer_vcpu_put(vcpu);
++	kvm_vgic_put(vcpu);
+ 	kvm_vcpu_put_debug(vcpu);
 +
-+	if (wanted_link_rate > max_link_rate)
- 		return MODE_CLOCK_HIGH;
- 
- 	if (dsi->dsc) {
-@@ -1547,28 +1557,42 @@ static void mtk_dsi_remove(struct platform_device *pdev)
- static const struct mtk_dsi_driver_data mt8173_dsi_driver_data = {
- 	.reg_main = mtk_dsi_regs_main_v1,
- 	.reg_adv = mtk_dsi_regs_mt8173,
-+	.max_link_rate_mbps = 1500,
- };
- 
- static const struct mtk_dsi_driver_data mt2701_dsi_driver_data = {
- 	.reg_main = mtk_dsi_regs_main_v1,
- 	.reg_adv = mtk_dsi_regs_mt2701,
-+	.max_link_rate_mbps = 1500,
- };
- 
- static const struct mtk_dsi_driver_data mt8183_dsi_driver_data = {
- 	.reg_main = mtk_dsi_regs_main_v1,
- 	.reg_adv = mtk_dsi_regs_mt8183,
-+	.max_link_rate_mbps = 1500,
- 	.has_size_ctl = true,
- };
- 
- static const struct mtk_dsi_driver_data mt8186_dsi_driver_data = {
- 	.reg_main = mtk_dsi_regs_main_v1,
- 	.reg_adv = mtk_dsi_regs_mt8186,
-+	.max_link_rate_mbps = 1500,
- 	.has_size_ctl = true,
- };
- 
- static const struct mtk_dsi_driver_data mt8188_dsi_driver_data = {
- 	.reg_main = mtk_dsi_regs_main_v1,
- 	.reg_adv = mtk_dsi_regs_mt8186,
-+	.max_link_rate_mbps = 1500,
-+	.has_size_ctl = true,
-+	.cmdq_long_packet_ctl = true,
-+	.support_per_frame_lp = true,
-+};
++	vcpu->cpu = -1;
 +
-+static const struct mtk_dsi_driver_data mt8189_dsi_driver_data = {
-+	.reg_main = mtk_dsi_regs_main_v1,
-+	.reg_adv = mtk_dsi_regs_mt8186,
-+	.max_link_rate_mbps = 2500,
- 	.has_size_ctl = true,
- 	.cmdq_long_packet_ctl = true,
- 	.support_per_frame_lp = true,
-@@ -1581,6 +1605,7 @@ static const struct of_device_id mtk_dsi_of_match[] = {
- 	{ .compatible = "mediatek,mt8183-dsi", .data = &mt8183_dsi_driver_data },
- 	{ .compatible = "mediatek,mt8186-dsi", .data = &mt8186_dsi_driver_data },
- 	{ .compatible = "mediatek,mt8188-dsi", .data = &mt8188_dsi_driver_data },
-+	{ .compatible = "mediatek,mt8189-dsi", .data = &mt8189_dsi_driver_data },
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, mtk_dsi_of_match);
++	if (vcpu_is_rec(vcpu))
++		return;
++
+ 	kvm_arch_vcpu_put_fp(vcpu);
+ 	if (has_vhe())
+ 		kvm_vcpu_put_vhe(vcpu);
+-	kvm_timer_vcpu_put(vcpu);
+-	kvm_vgic_put(vcpu);
+ 	kvm_vcpu_pmu_restore_host(vcpu);
+ 	if (vcpu_has_nv(vcpu))
+ 		kvm_vcpu_put_hw_mmu(vcpu);
+ 	kvm_arm_vmid_clear_active();
+ 
+ 	vcpu_clear_on_unsupported_cpu(vcpu);
+-	vcpu->cpu = -1;
+ }
+ 
+ static void __kvm_arm_vcpu_power_off(struct kvm_vcpu *vcpu)
+diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
+index 907057881b26..fd77db35ef02 100644
+--- a/arch/arm64/kvm/vgic/vgic-init.c
++++ b/arch/arm64/kvm/vgic/vgic-init.c
+@@ -81,7 +81,7 @@ int kvm_vgic_create(struct kvm *kvm, u32 type)
+ 	 * the proper checks already.
+ 	 */
+ 	if (type == KVM_DEV_TYPE_ARM_VGIC_V2 &&
+-		!kvm_vgic_global_state.can_emulate_gicv2)
++	    (!kvm_vgic_global_state.can_emulate_gicv2 || kvm_is_realm(kvm)))
+ 		return -ENODEV;
+ 
+ 	/*
 -- 
-2.54.0
+2.43.0
 
 
