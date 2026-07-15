@@ -4,117 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87362C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 17:45:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEB6DC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 17:52:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ievLJX0egM0rwUjdUqPD4IZqXimWIm50aK++y/2rIiE=; b=Nbpz+v6yB2Mhs+pmFtgAzEHfbY
-	M6wzzdBgfaDG1mVe16bvAtlbdzUAufJWlEXIzmNC1JzHJp7GIlW7y1y28UkUOO2HHr2zYKsyQPjjW
-	8UpVIo8f+8cnmKBhbB6p/sPBo1OZ+FNbJ7wjg/H69MWmjrVCh/L62+g/BpAUbOWtgsQD4p0bXxGn8
-	pkYs95hbUGgqiQt3S70RU82c5ggm4pIC7NkjaMF4SxKcQM4gLTDfc3WH8IS6cA5PYtKZSiBaBSq7g
-	5lNzBh7/pbsNoq4NK3ME1tkb1N+sTBKeEjdLYsRwn72ytF7VcNVazCNbZsauqnWJJkS4JNWo0qVdS
-	ubdEuF6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=c4f1ZmkmR1O0A/LfhQpAbZrixZvj3u3dIvoVYNBSYh4=; b=3M5qKn0QcO9meduOK9G9F2A8bG
+	PYUC2ONnPUS+evMKTKVSfAMyyQ+gWF2PcwYciaR4JGi4PzFw/D0oFzWttcXFl+d0onADTCzdzwHit
+	QcvTDOYf8yD7ZNTBYpcYxfmyRPTsuZV1JFCfpbmKK88lTpm0LhY/M8towVm2mAD+71AXEYB00fEDJ
+	hiZVFwCL3kwHx0zhXZOIwtHI5hJ6/8+3Euon7HqlSd3MwVgmv28yEUc0fckFqYftVptUI2aOVGP5j
+	PAYcrqtWeKg+grK6zKGHiBdIb0Q0og6eQe6IyHAi4aZu94wV3XZLSBPylmmb1DF+7Ur5dLhs4pJHE
+	eQ3oOY2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk3fo-0000000FaOH-1gAL;
-	Wed, 15 Jul 2026 17:45:32 +0000
-Received: from mail-eastus2azon11011032.outbound.protection.outlook.com ([52.101.57.32] helo=BN8PR05CU002.outbound.protection.outlook.com)
+	id 1wk3mf-0000000FapF-0cxY;
+	Wed, 15 Jul 2026 17:52:37 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk3fa-0000000FaM2-1R2X
+	id 1wk3md-0000000Fap0-2VJs
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 17:45:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PsWgKbQ7Aj7aFUg8Jp3vTKPEbGTJ0i4Oj3OaQ8huzK14JtDCA9+jRR1UcOeSG9flW/jRWG4YplpG+eeDMzuxCNOQ3f8wrujnDStkZwZTx+p5sjieSVtzK5Apdr7IKyPVMCxE71QOmXWcIRLPuSi/IooPW0jHljIfJQQNrLap7gvBFhJHiA9xU+MQVJtAvrQ++kDQqwGdo2Kudvr8h1irKhtdiWNTUYobxzRqWLIv+VsQi/DMLKu4b3vBBn8wCKnNdydyQao/aMiKN4xaQ3NR7FW2zU2JubkcMmDktk/RB39EMbKVAEznaj0vXSMIZEZgsf9sDgkPXjSg5c3vXM82YA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ievLJX0egM0rwUjdUqPD4IZqXimWIm50aK++y/2rIiE=;
- b=JOcPcjYnzqiEeljrUUEaPb/UPBTUoZn/heaUHATfjYyfDxF/J0604d85raDM2tgBhZGd1lzFTTbyRWenZYnWYRqS4as/BtFVFv+fy3ooYSNvYoJU2AS0yiNIZPtgA0QM4J7+qbIgHPB3d1HyxlBVAXnZKBxAKT2U7hrgnq6MGO8vkNUNsH9Bf44U3mGC15Q6XXDSKXD8M9/ef06phdY/YrSrlDS4ninLEWhUdqjbM6FX6WAH6a4dP+za4skWF4h7FmQhsI66sbHgEJiT1SiOxCRki9VWmfvm59zO1o6sdHLMIwftQ1zlY/NJtY8uZUK7s7GYyZ2NO/Vb6TLgS085dg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ievLJX0egM0rwUjdUqPD4IZqXimWIm50aK++y/2rIiE=;
- b=S4kUnlAxcLLWHv43tcRLBinEGDn0ZESxdT1sPdWn14o+DzT0aw6tZrCQL5mkAJjFJI//uRALLOwO7FZ1US4cUQ0s8cGydg8CFaKm8VleVRC801HWYouUavfRYxENdlJ4MHcVE4ALeSdJCVBwn1a0Fhd6ypD9pYDJOV3uZ/uItibg4qIj4E6XzWFSUcZukYhhItJDD8OhireSVbT7ce9oWQIqwgmhyDPh2lI0zNygs5U3ZsXfvEyq2+UxJJv2CRNgNDsFTBiToDGiRlEKrzHDq6ptaVvb9UB2XvXaaDbE4qhrHGOryDf9DOP3pQnI7eW69Va5VNMKr+8o6tJH6pGy/g==
-Received: from CH2PR04CA0007.namprd04.prod.outlook.com (2603:10b6:610:52::17)
- by MN2PR12MB4272.namprd12.prod.outlook.com (2603:10b6:208:1de::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.12; Wed, 15 Jul
- 2026 17:45:11 +0000
-Received: from CH3PEPF0000000A.namprd04.prod.outlook.com
- (2603:10b6:610:52:cafe::5) by CH2PR04CA0007.outlook.office365.com
- (2603:10b6:610:52::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.223.12 via Frontend Transport; Wed,
- 15 Jul 2026 17:45:11 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- CH3PEPF0000000A.mail.protection.outlook.com (10.167.244.37) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.223.9 via Frontend Transport; Wed, 15 Jul 2026 17:45:11 +0000
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 15 Jul
- 2026 10:44:53 -0700
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail203.nvidia.com
- (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 15 Jul
- 2026 10:44:52 -0700
-Received: from nvidia.com (10.127.8.11) by mail.nvidia.com (10.129.68.8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 15 Jul 2026 10:44:50 -0700
-Date: Wed, 15 Jul 2026 10:44:48 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Will Deacon <will@kernel.org>
-CC: Robin Murphy <robin.murphy@arm.com>, "Joerg Roedel (AMD)"
-	<joro@8bytes.org>, Jason Gunthorpe <jgg@nvidia.com>,
-	<linux-tegra@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 00/11] iommu/tegra241-cmdqv: Fix error-interrupt races
- and VINTF lifecycle bugs
-Message-ID: <alfHEC8YPQPPzb1W@nvidia.com>
-References: <cover.1784059577.git.nicolinc@nvidia.com>
+	Wed, 15 Jul 2026 17:52:35 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9E23B61836;
+	Wed, 15 Jul 2026 17:52:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F7FE1F000E9;
+	Wed, 15 Jul 2026 17:52:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784137954;
+	bh=c4f1ZmkmR1O0A/LfhQpAbZrixZvj3u3dIvoVYNBSYh4=;
+	h=From:To:Cc:Subject:Date;
+	b=XWsYGyR489TIbiO60xP95miqy5Mz+ODVYQx6qB4rJ3C6GdOax3bmvzr/FKRhG+Iag
+	 /CjsEaXrA6thWIGEy3tCpCsQr5sagu31+W1Pw3lyI5hfIiRpgRyh+N5n6f4iElRjb1
+	 sU3wQ8iIll5AvaZ+LXHEXJ9uoJndNuk6iiy9hB9eQySpU3GeHy9J657OTD33BMkBRP
+	 2xGkmXhd0jieoe1zOnt9LQxa7cDEg3FNsWG2LFDdaNLM1VaObItGo9Af1O+10y+Y/Z
+	 H8WyoMVWWDC4r06kP0cUVZfmGEqu0Q+NdwPjUuGPi0cWwHdq0U8rM3yniPNHhKAUbm
+	 +15G9QFnnmjKQ==
+From: Kees Cook <kees@kernel.org>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: Kees Cook <kees@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Zhen Lei <thunder.leizhen@huawei.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	=?UTF-8?q?Micha=C5=82=20Pecio?= <michal.pecio@gmail.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	linux-arm-kernel@lists.infradead.org,
+	Russell King <linux@armlinux.org.uk>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev,
+	linux-hardening@vger.kernel.org
+Subject: [PATCH v3] ARM: traps: Implement KCFI trap handler for ARM32
+Date: Wed, 15 Jul 2026 10:52:27 -0700
+Message-Id: <20260715175223.make.153-kees@kernel.org>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <cover.1784059577.git.nicolinc@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PEPF0000000A:EE_|MN2PR12MB4272:EE_
-X-MS-Office365-Filtering-Correlation-Id: 623c711b-4e2e-40ac-7ff8-08dee298d1d4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|23010399003|1800799024|376014|6133799003|10067099003|5023799004|11063799006|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: q0aJ5jf0pB1DDYd9iXue07RzUBXdVC/txOVQcgvwAt2rZI44lysK2RaB2xfnctZDd1TmLR0HPNBf2P6OE4Sm19u6l14pkW9w24fJtRLbGblAZ3C+ZeKj2iu2DMwt5NkM29WjP3r/uC5PWRvnqYDBA8uWeK+mHBDAbI3/EPcC689rXMisjTd1y44UjlUYYySDC0F6WBBc4Hz4x7bRBQOtXS/Hwtnr/RloMimisMeBSvzE9F1ZONKfQY6d3YlPBbkmzpNoPlsyKjYTeJoxjyp7nATUYUNJbIbl4yGGEU122NiGdDHClnwnFxkHbedvoHELrfMMJumDt79ZkglwvR5Qj7RkRPW9e1S/5umSwaMdnrbUyQeq2W/EB3TXkLV6NCEeFmBrRIHfDN6A55V+YnP/vrQVNB2M5KGZ3tWlPfNuPMw3PUfZN8W1jbBUd80YLph5K/j1ibTWqICCFLD9nofOXoYTgwjx0KsyTfAwR/g5KJURmNbBXmIwogKpvZ+bMBK3QXIRJVVoZoHyPZ55YNucEfqy93XsWmMMVv+v5pqIrR8OkQ0Kap3qh08/e4SiiJgg/k9rPIHuFyqfT7dHN+YvgrgqCQ/i9DQE8COce7c0Zo8FIgsyaLNuLw2ZDkv90HyVnH/FoPtl7rmW/S1lGnBgpHdl3SguMWAq5RZ+JBtDfPelylv5zZj0ivSjHnN0LWhT/tAQHnJgAOHpzRYd/+KfPA==
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(23010399003)(1800799024)(376014)(6133799003)(10067099003)(5023799004)(11063799006)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: jNIXZguha9Budy+DBFwpg21o0swm3BNETVzFJ8ceDq9bcRy5vscmBcVR266jjfvwpQIj/CiCug2fMX2L5V/mhXEWVmMwanD4znlXjJcEx4ez84vFxtW0G8/sb5yIXGnA2TNxuwkiwXXxP8OP001HX4qKCxEOuSY13231ceUPaIvrHXleKdtg5f6giY5XoJD2z5ioyTKYaYXkDsY6VqtmpIx2Qk1PifMIzp5peWDc0Ue1RiTpNB3OakU1UaJITvxF0W1+WbIfZB8Rq6N1ELURrCOOpjFoIly71sOxCUDO/PHMOUh9146M6i310josVSHbx1YpoLR9/gzSlkEfXnDmUvX/PByQeP9tzMY1VbDgl91OWYWUNdJGqF8/E3NMxx72UisGwCdhNPAKfkYAKYHFLYI7RFv8QN8sB0ihX8f7fRcVhbAD+2I3TOZGOVcDhZQu
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2026 17:45:11.4772
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 623c711b-4e2e-40ac-7ff8-08dee298d1d4
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF0000000A.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4272
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_104518_407617_22F7C165 
-X-CRM114-Status: GOOD (  11.45  )
+Content-Type: text/plain; charset=UTF-8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=12094; i=kees@kernel.org; h=from:subject:message-id; bh=+1G8QPlUFuILDnO393TH65EL6dK2Ay6tH2J4v/o3ZwI=; b=owGbwMvMwCVmps19z/KJym7G02pJDFnhJ26xlGVcs5hru5Bxs2Gp6tlFfHIPHD5f+yZY5//nx nau5cXrOkpZGMS4GGTFFFmC7NzjXDzetoe7z1WEmcPKBDKEgYtTACZyqZWRYW3cxOy4/dLX2gXz snjcDy35XzfNlV3s/q6jt/UYss3T/BgZNq2/GMZ3u7GnunvRRrVFUTNNJggb7b+56FmamCXj6x+ rGQE=
+X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,29 +85,329 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2026 at 01:54:57PM -0700, Nicolin Chen wrote:
-> False positives raised by Sashiko:
->   - a viommu outliving an SMMU unbind and touching freed memory on close: a
->     physical IOMMU is not a pluggable device, so iommufd holds no reference
->     on the one behind a viommu, and this teardown cannot arise.
->   - the ISR running after cmdqv is freed on probe failure: free_irq() runs
->     first from tegra241_cmdqv_remove(), the devm device_remove action,
->     which devres invokes before the cmdqv allocation is released.
->   - a guest never acking its VCMDQ error wedging the shared interrupt: the
->     interrupt is edge-signaled per event, and the host ISR only snapshots
->     the error map into the guest's bounded vEVENTQ, never depending on a
->     guest-side GERRORN ack.
->   - the ISR accessing a de-assigned LVCMDQ page after a VINTF hw_init()
->     failure: the page remains a mapped MMIO region backed by empty
->     registers, so reads are benign and writes are dropped.
+ARM32 GCC KCFI[1] violations currently show as generic "Oops - undefined
+instruction" errors, making debugging CFI failures difficult. Add a proper
+KCFI trap handler similar to the aarch64 implementation to provide clear
+CFI error messages, including the call target and the expected type.
 
-Adding one more false positive:
+Clang and GCC trap CFI failures differently on ARM32. Clang lowers
+its checks to a BKPT, handled via the breakpoint/prefetch-abort path
+in hw_breakpoint.c, which cannot recover the target or expected type
+and so must report via report_cfi_failure_noaddr(). GCC instead lowers
+KCFI checks to a UDF (undefined instruction) whose immediate encodes
+the registers involved, so the handler can decode it and call the full
+report_cfi_failure() with the target and expected type.
 
-Sashiko reported against this v2 a critical issue stating that
-CMDQV is level-triggered and could cause trouble in kdump case.
+The GCC ARM32 KCFI implementation uses UDF instructions with a specific
+encoding pattern:
+- UDF instruction format: cccc 0111 1111 imm12 1111 imm4
+- 16-bit immediate reconstructed from bits 19-8 and 3-0
+- KCFI encoding: 0x8000 | (type_reg_num << 5) | (target_reg_num & 31)
+- Bit 15: KCFI trap identifier (0x8000)
+- Bits 9-5: Type ID register field (0x1F when unavailable)
+- Bits 4-0: Target address register number
 
-But CMDQV is edge-triggered; one of the ISR patches noted very
-clearly.
+When the type register field is 0x1F (the type was spilled rather than
+kept in a register), the handler walks back up to 6 preceding
+instructions to recover the 32-bit type ID from the four EOR-immediate
+instructions the compiler emits, similar to x86 CFI trap reconstruction.
 
-Nicolin
+The handler is dispatched directly from do_undefinstr() rather than
+through register_undef_hook(). A registered hook is only installed once
+initcalls run, so any KCFI violation that fires earlier in boot would be
+reported as a generic "undefined instruction"; calling the decoder from
+the exception handler itself catches failures from the very first
+instruction. Dispatching directly also lets the handler ignore
+non-kernel-mode UDFs, preventing a user process from spoofing the KCFI
+encoding.
+
+Both the UDF handler and the Clang breakpoint handler in hw_breakpoint.c
+act on the report_cfi_failure*() result identically (oops on a fatal
+violation, or skip the trapping instruction under CFI permissive mode)
+so factor that shared tail into arm_cfi_handle_failure(), declared in
+asm/traps.h.
+
+Link: https://inbox.sourceware.org/gcc-patches/20260618204539.824446-6-kees@kernel.org/ [1]
+Signed-off-by: Kees Cook <kees@kernel.org>
+---
+ v3:
+  - rebased on https://lore.kernel.org/lkml/20260701-arm32-cfi-bug-v3-1-e3c37e2b80a4@kernel.org/
+  - drop initcall registration: potentially too late
+  - share logic with hw_breakpoint.c
+ v2: https://lore.kernel.org/lkml/20250904034656.3670313-9-kees@kernel.org/#r
+Cc: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: Linus Walleij <linusw@kernel.org>
+Cc: Nathan Chancellor <nathan@kernel.org>
+Cc: Sami Tolvanen <samitolvanen@google.com>
+Cc: Zhen Lei <thunder.leizhen@huawei.com>
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: "Michał Pecio" <michal.pecio@gmail.com>
+Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: <linux-arm-kernel@lists.infradead.org>
+---
+ arch/arm/include/asm/traps.h    |   3 +
+ arch/arm/kernel/hw_breakpoint.c |  40 +++------
+ arch/arm/kernel/traps.c         | 144 ++++++++++++++++++++++++++++++++
+ 3 files changed, 158 insertions(+), 29 deletions(-)
+
+diff --git a/arch/arm/include/asm/traps.h b/arch/arm/include/asm/traps.h
+index 2621b9fb9b19..5f10af964774 100644
+--- a/arch/arm/include/asm/traps.h
++++ b/arch/arm/include/asm/traps.h
+@@ -2,6 +2,7 @@
+ #ifndef _ASMARM_TRAP_H
+ #define _ASMARM_TRAP_H
+ 
++#include <linux/bug.h>
+ #include <linux/linkage.h>
+ #include <linux/list.h>
+ 
+@@ -20,6 +21,8 @@ struct undef_hook {
+ void register_undef_hook(struct undef_hook *hook);
+ void unregister_undef_hook(struct undef_hook *hook);
+ 
++bool arm_cfi_handle_failure(struct pt_regs *regs, enum bug_trap_type type);
++
+ static inline int __in_irqentry_text(unsigned long ptr)
+ {
+ 	extern char __irqentry_text_start[];
+diff --git a/arch/arm/kernel/hw_breakpoint.c b/arch/arm/kernel/hw_breakpoint.c
+index 38feb30dfb5f..04755b4373f2 100644
+--- a/arch/arm/kernel/hw_breakpoint.c
++++ b/arch/arm/kernel/hw_breakpoint.c
+@@ -904,33 +904,6 @@ static void breakpoint_handler(unsigned long unknown, struct pt_regs *regs)
+ 	watchpoint_single_step_handler(addr);
+ }
+ 
+-#ifdef CONFIG_CFI
+-static void hw_breakpoint_cfi_handler(struct pt_regs *regs)
+-{
+-	/*
+-	 * TODO: implementing target and type to pass to CFI using the more
+-	 * elaborate report_cfi_failure() requires compiler work. To be able
+-	 * to properly extract target information the compiler needs to
+-	 * emit a stable instructions sequence for the CFI checks so we can
+-	 * decode the instructions preceding the trap and figure out which
+-	 * registers were used.
+-	 */
+-
+-	switch (report_cfi_failure_noaddr(regs, instruction_pointer(regs))) {
+-	case BUG_TRAP_TYPE_BUG:
+-		die("Oops - CFI", regs, 0);
+-		break;
+-	case BUG_TRAP_TYPE_WARN:
+-		/* Skip the breaking instruction */
+-		instruction_pointer(regs) += 4;
+-		break;
+-	default:
+-		die("Unknown CFI error", regs, 0);
+-		break;
+-	}
+-}
+-#endif
+-
+ /*
+  * Called from either the Data Abort Handler [watchpoint] or the
+  * Prefetch Abort Handler [breakpoint] with interrupts disabled.
+@@ -962,10 +935,19 @@ static int hw_breakpoint_pending(unsigned long addr, unsigned int fsr,
+ 		break;
+ #ifdef CONFIG_CFI
+ 	case ARM_ENTRY_CFI_BREAKPOINT:
++		/*
++		 * Clang lowers its CFI checks to a plain breakpoint that does not
++		 * encode the call target or expected type, so (unlike the GCC UDF
++		 * handler in traps.c) this can only report via
++		 * report_cfi_failure_noaddr(). Recovering the target would require
++		 * the compiler to emit a stable instruction sequence around the
++		 * check to decode the registers used.
++		 */
+ 		if (user_mode(regs))
+ 			ret = 1; /* Don't handle userspace BKPT */
+-		else
+-			hw_breakpoint_cfi_handler(regs);
++		else if (!arm_cfi_handle_failure(regs,
++				report_cfi_failure_noaddr(regs, instruction_pointer(regs))))
++			die("Unknown CFI error", regs, 0);
+ 		break;
+ #endif
+ 	default:
+diff --git a/arch/arm/kernel/traps.c b/arch/arm/kernel/traps.c
+index afbd2ebe5c39..adaa6170963b 100644
+--- a/arch/arm/kernel/traps.c
++++ b/arch/arm/kernel/traps.c
+@@ -27,6 +27,7 @@
+ #include <linux/sched/task_stack.h>
+ #include <linux/irq.h>
+ #include <linux/vmalloc.h>
++#include <linux/cfi.h>
+ 
+ #include <linux/atomic.h>
+ #include <asm/cacheflush.h>
+@@ -40,6 +41,7 @@
+ #include <asm/stacktrace.h>
+ #include <asm/system_misc.h>
+ #include <asm/opcodes.h>
++#include <linux/bitfield.h>
+ 
+ 
+ static const char *handler[]= {
+@@ -442,6 +444,141 @@ int call_undef_hook(struct pt_regs *regs, unsigned int instr)
+ 	return fn ? fn(regs, instr) : 1;
+ }
+ 
++#ifdef CONFIG_CFI
++/**
++ * arm_cfi_handle_failure() - Act on a report_cfi_failure() result
++ * @regs: registers at the trapping instruction
++ * @type: the bug_trap_type returned by report_cfi_failure*()
++ *
++ * Shared by the GCC UDF handler in this file and the Clang breakpoint handler
++ * in hw_breakpoint.c: oops on a fatal violation, or under CFI permissive mode
++ * skip the (4-byte, ARM state) trapping instruction and continue.
++ *
++ * Return: true if @type was a recognized CFI failure and has been handled;
++ * false otherwise, so the caller can escalate.
++ */
++bool arm_cfi_handle_failure(struct pt_regs *regs, enum bug_trap_type type)
++{
++	switch (type) {
++	case BUG_TRAP_TYPE_BUG:
++		die("Oops - CFI", regs, 0);
++		break;
++	case BUG_TRAP_TYPE_WARN:
++		/* Permissive mode: skip the trapping instruction and continue. */
++		instruction_pointer(regs) += 4;
++		break;
++	default:
++		return false;
++	}
++
++	return true;
++}
++
++/*
++ * ARM32 KCFI trap handler.
++ * UDF instruction format: cccc 0111 1111 imm12 1111 imm4
++ * Immediate is reconstructed from bits 19-8 (12 bits) and bits 3-0 (4 bits)
++ * KCFI immediate encoding: 0x8000 | (0x1F << 5) | (target_reg_num & 31)
++ * - Bit 15: KCFI trap identifier (0x8000)
++ * - Bits 9-5: Type ID register field (0x1F when invalid due to stack spilling)
++ * - Bits 4-0: Target address register number
++ */
++#define CFI_UDF_KCFI_BIT    BIT(15)	  /* KCFI identifier bit (0x8000) */
++#define CFI_UDF_IMM_TARGET  GENMASK(4, 0) /* Target register (bits 4:0) */
++#define CFI_UDF_IMM_TYPE    GENMASK(9, 5) /* Type register (bits 9:5) */
++
++/* UDF base pattern with KCFI bit: cond=0xe, 0x7f, xxxx, 1xxx, 0xf, xxxx */
++#define CFI_UDF_IMM_BASE    0xe7f008f0
++#define CFI_UDF_IMM_MASK    0xfff008f0	/* Mask for UDF + KCFI bit matching */
++
++/**
++ * cfi_udf_handler() - Decode and report a GCC KCFI UDF trap
++ * @regs: registers at the trapping instruction
++ * @instr: the trapping instruction word
++ *
++ * Called for every kernel-mode undefined instruction. If @instr is a GCC
++ * KCFI UDF, decode its target and expected type and hand them to
++ * report_cfi_failure(), which oopses (fatal) or, under CFI permissive mode,
++ * warns and skips the instruction.
++ *
++ * Return: 0 if this was a KCFI failure and has been handled (the caller
++ * should return to the interrupted context); 1 otherwise when the UDF was not
++ * a KCFI trap (user mode, non-KCFI encoding, malformed operands, or an
++ * unrecognized report), so the caller should keep looking for a handler.
++ */
++static int cfi_udf_handler(struct pt_regs *regs, unsigned int instr)
++{
++	unsigned long target;
++	u32 target_reg, type_reg, type, imm16;
++
++	/*
++	 * KCFI checks are only emitted in kernel code, so ignore user-mode UDFs
++	 * (this also stops a user process spoofing the KCFI encoding), and only
++	 * handle UDFs carrying the KCFI pattern.
++	 */
++	if (processor_mode(regs) != SVC_MODE)
++		return 1;
++	if ((instr & CFI_UDF_IMM_MASK) != CFI_UDF_IMM_BASE)
++		return 1;
++
++	/* Reconstruct 16-bit immediate from bits 19-8 and 3-0 */
++	imm16 = ((instr >> 4) & 0xfff0) | (instr & 0x0f);
++
++	target_reg = FIELD_GET(CFI_UDF_IMM_TARGET, imm16);
++	type_reg = FIELD_GET(CFI_UDF_IMM_TYPE, imm16);
++
++	if (target_reg >= 16) {
++		pr_err("CFI UDF handler: invalid target register %u\n", target_reg);
++		return 1;
++	}
++
++	target = regs->uregs[target_reg];
++
++	/* Type register field is set to all 1s (0x1F) when spilled; extract from EOR sequence */
++	if (type_reg == 0x1F) {
++		u32 *pc = (u32 *)regs->ARM_pc;
++		int eor_count = 0;
++		int i;
++
++		type = 0;
++		/* Walk back up to 6 instructions to find EOR sequence for type ID */
++		for (i = 1; i <= 6 && eor_count < 4; i++) {
++			u32 instr_prev = __mem_to_opcode_arm(pc[-i]);
++
++			/* Check for EOR/EORS immediate: cccc 0010 0x1n Rn Rd immediate */
++			if ((instr_prev & 0x0fe00000) == 0x02200000) {
++				/* Extract EOR immediate value and XOR to reconstruct type */
++				u32 rotate = (instr_prev >> 8) & 0xf;
++				u32 imm8 = instr_prev & 0xff;
++				u32 imm32 = (imm8 >> (rotate * 2)) | (imm8 << (32 - rotate * 2));
++				type ^= imm32;
++				eor_count++;
++			}
++		}
++		if (eor_count != 4)
++			pr_err("CFI UDF handler: found %d EOR instructions, expected 4\n", eor_count);
++	} else {
++		if (type_reg >= 16) {
++			pr_err("CFI UDF handler: invalid type register %u\n", type_reg);
++			return 1;
++		}
++
++		type = regs->uregs[type_reg];
++	}
++
++	if (!arm_cfi_handle_failure(regs,
++			report_cfi_failure(regs, regs->ARM_pc, &target, type)))
++		return 1;
++
++	return 0;
++}
++#else
++static inline int cfi_udf_handler(struct pt_regs *regs, unsigned int instr)
++{
++	return 1;
++}
++#endif /* CONFIG_CFI */
++
+ asmlinkage void do_undefinstr(struct pt_regs *regs)
+ {
+ 	unsigned int instr;
+@@ -478,6 +615,13 @@ asmlinkage void do_undefinstr(struct pt_regs *regs)
+ 		instr = __mem_to_opcode_arm(instr);
+ 	}
+ 
++	/*
++	 * Decode KCFI failures directly (not via register_undef_hook) so they
++	 * are diagnosed even when they fire before initcalls have run.
++	 */
++	if (cfi_udf_handler(regs, instr) == 0)
++		return;
++
+ 	if (call_undef_hook(regs, instr) == 0)
+ 		return;
+ 
+-- 
+2.34.1
+
 
