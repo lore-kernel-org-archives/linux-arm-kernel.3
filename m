@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36449C4450F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 18:06:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28071C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 18:06:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P5u3Ui48riKUdMAO/FmOhP2DfS5AnkZBgM9oG/Y3LyM=; b=BWuTMSIzknASWsFl2iKmNcm2bm
-	UZg0uNIcp8DvLXeFNni5s/S9j7vTOYZ/wvAgSKgqHF0MwOAlsWgd8v/Gba0QjKDS8Xs7RlKyzjhaQ
-	em1lgR013Y9DaozFZSv0nAM8wgI99EoXIyZXXSp6Odt4fvsBm9vwOtfa08dzdgLSEUTkNiWy3Gnpp
-	mnGfOSSZZDZbHw1NznjNWKkXBUklIABENMle+1gAaKN3SLCY3S8N3XDMwwS0iHi5IO167Stv57pOz
-	ABp+vIoUidKTQMXOFbhiFyGEYvyqhSdTg+eeBGHul8AaVeT+dAQMyraEz6Ua/LNQrPz1X90t4A7sU
-	+wC3WPvQ==;
+	bh=O0cNl+F+N/MuIxcquS5c8uEGtyAEfWEhi4ngJqfJiDk=; b=Ta/R6cKPtKa12vuVDfQm5VazXL
+	7KTPmdojNjEVKylNgZgXDYoT6x+M9+rUc9hpFrbAVrzjUSo8/GO5n2nvFiCtGMHsDEeZri/Wl9xNS
+	RP5tLsflcbmf+o4JTLbgQtTTJ6FKduGFHmbcKwqc1iA+pEUwhQ/gC0P8SCMOmvqEctf2wAxzBnESD
+	so0XrU54IJRiYgO0Dvz6Wd9u3aUyi3EhnQBR7Z+yXi8FzdwF2qGiodBo0UiJF56nPqBM+QMSDGPMw
+	k+0zD6AbFFuUy2+Mu1fh12hcygjQWa/PAyve26J7mtqgoT0tfEFSlvlQyATI6Px9/QGSNERyYHHYm
+	/GlUT1iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk3zq-0000000FcfW-198y;
-	Wed, 15 Jul 2026 18:06:14 +0000
+	id 1wk3zr-0000000Fcj5-1wSi;
+	Wed, 15 Jul 2026 18:06:15 +0000
 Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk3zU-0000000FcJK-0W5x
+	id 1wk3ze-0000000FcJK-2TeF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 18:05:53 +0000
+	Wed, 15 Jul 2026 18:06:03 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rx65cVkxA7MptQmmJhZAV5bex9athqgAdRRG5ZIVIf2esZJjnZmsRVXoo8zV/ObmarlwYm5iSVFOXj3Eds2krLiQob/BFEUokK03hCAFufs1SBCV+FmtCNvePAoE9ZgTbVzYQ4VGxvN9UDAZjVFUGmbXZNvh/RHFDjgvQcNvajCMK0HUXvTnWyzfoywP1rvONpfVXjuz7NU85ErSE//yhyQKt1U+weaxNJbtQFWAXOB2mXcM2+V5Of6Rm1N1wMwq8Ipd9hSNO+sC8SqP9PUP3riiTb7/kIi859YwTIFZfEX9SM0Q91EveCc3OuuzzRhO9/652yvViGsqYx3b9P7tpA==
+ b=slt6WGMfpg5v+hO67u7WwX9IZ04+JvfDETkxeW7FA44E6sqHBuWAAYXUvirxjdXYHC8lIwYDFZy19IbuyHMaoUkr5DmVN89XNx2sujroJy6xm6wRiQTZEkp4GRh8zOJNn8wsWtKcPUgYPCWcB1pMggEZK3pAelnjFktiiC/pNB4EqAu0JXIwHb6p2TNaTLL3o0kE8t1FHqeH68EPdCiPcwSGwr4F68oIulLn/5PJ/fIEF/49E4JI+b3wKb7g8OyQNBKmLWkya1fILU0mxn2gAiyF+fxYWH4SLof/wuzwPfF3daU2DPx7MslMll775/b18FrJkF/sj7U7yIj2OANumA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=P5u3Ui48riKUdMAO/FmOhP2DfS5AnkZBgM9oG/Y3LyM=;
- b=vgJkfanLXWh/+pAroU7Jw3T2mG7UN24m8K9sIEJNKSppLzN/HXq3lru8/lgTpp4UYZoWim4l0vXY7I2u0GacgBy1ASfOWFv4+QEnLBzPD+lJicfCFmfPs5uBc0el8kihDSmVFtpKC1ohh7aQUk1NNkmT2t4joio27d2RwgLA7ZQd10KxKAq8yQ6CYoQHA/CDvPtz75AepyznZfylFASawgOlFpw4zWbE37NN1bTQV8PrvM4mXJIJ8dci2nu/46yK85q2w6aAcKpGRhTZ6xMKxS/gPCEMN9JMbkv7AbY5HgX01DM+Lp4f9wLNInzdK6mC1cl/iTf6oa4MCD9tzVGRRw==
+ bh=O0cNl+F+N/MuIxcquS5c8uEGtyAEfWEhi4ngJqfJiDk=;
+ b=qLFk/kaKbT4zI9oBMRMBJ+hs6SZPLPJrmlhV9qvoSj0xd1/diJwKrd4AXBKIZItIpvlWAxAHJmlgLj05d0re1WyNaps/uRdoTECFCArbtjujvOxdzX2zgEYoY3csXD56OcuZb1qwXSm5Twgb8+M+xBuH0JG2tkuiyDKCvwPGblcdL8HZgJ034aDmOckuLYScW9tFLLpp2KJynRVIgGLLbKfPVEwufzm61cV+S+FDFB6bjrzi5avUgbCstVpUb14ku2JIcM5JmWvx1nZNYIR8Sx0xHZSxlRGrXXXa8cujcAca3CqQlTBvKqYWNVrsErOSS5GFA2ThJTzIXfanY0e6gw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
  header.from=os.amperecomputing.com; dkim=pass
@@ -41,18 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=os.amperecomputing.com; s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=P5u3Ui48riKUdMAO/FmOhP2DfS5AnkZBgM9oG/Y3LyM=;
- b=ErYp7ioYxq+epTH8IZCyneSZopH58b2oo3+Eni3/XAIqnxid1AFZwnGbFtNkMuf0PhKjB0ZgJ7uHZo8ezVvYSIIw0JiWziyGMG2CihM/uV1UzrvA64uB5gRfPDh7wUaorAb/2VdPONlRp3oxMkxldJlyN2N1ogbsPNIdojJ1Fyo=
+ bh=O0cNl+F+N/MuIxcquS5c8uEGtyAEfWEhi4ngJqfJiDk=;
+ b=MceQqPeZ6xudZmh+n/2knrcG0PpsP3OYBNAjdP+YYO4GNUTDmvdkcbKN4Uks6HgOg29DtpsqzZJFg84e/eZCToUfOj8Tu1Hq8hXfOJhtAueoyjxg8h7IX/6ugvL9pFmgh6GMyWtnsE/N6g7/Sey19n8yfhf75NoLrjHZSRooczw=
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
 Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
  LV2PR01MB7767.prod.exchangelabs.com (2603:10b6:408:170::6) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.223.10; Wed, 15 Jul 2026 18:05:42 +0000
+ 15.21.223.10; Wed, 15 Jul 2026 18:05:50 +0000
 Received: from CH0PR01MB6873.prod.exchangelabs.com
  ([fe80::46eb:64a3:667c:c1a0]) by CH0PR01MB6873.prod.exchangelabs.com
  ([fe80::46eb:64a3:667c:c1a0%3]) with mapi id 15.21.0223.008; Wed, 15 Jul 2026
- 18:05:42 +0000
+ 18:05:50 +0000
 From: Yang Shi <yang@os.amperecomputing.com>
 To: cl@gentwo.org,
 	dennis@kernel.org,
@@ -70,9 +70,9 @@ Cc: yang@os.amperecomputing.com,
 	linux-mm@kvack.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 07/16] arm64: mm: sync percpu page table for memory hotplug/unplug
-Date: Wed, 15 Jul 2026 11:04:09 -0700
-Message-ID: <20260715180455.515692-8-yang@os.amperecomputing.com>
+Subject: [PATCH 14/16] mm: percpu: allocate and free local percpu vm area
+Date: Wed, 15 Jul 2026 11:04:16 -0700
+Message-ID: <20260715180455.515692-15-yang@os.amperecomputing.com>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260715180455.515692-1-yang@os.amperecomputing.com>
 References: <20260715180455.515692-1-yang@os.amperecomputing.com>
@@ -84,58 +84,58 @@ X-ClientProxiedBy: CYZPR05CA0010.namprd05.prod.outlook.com
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|LV2PR01MB7767:EE_
-X-MS-Office365-Filtering-Correlation-Id: a7f1a099-35e8-4495-fc6d-08dee29bae80
+X-MS-Office365-Filtering-Correlation-Id: de4ff39c-60c5-4af2-94eb-08dee29bb3fc
 X-MS-Exchange-AtpMessageProperties: SA
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|7416014|11063799006|56012099006|10067099003|22082099003|55112099003|18002099003|921020;
-X-Microsoft-Antispam-Message-Info: Byry+Fa+vQBaAwLGgOjBW5Bp7bkPRZWRpQ/+jjbuwktMlW7x9yyKLz7xkFGctt89SlvfGi4FZRoYCnscyCRh6/5EYaOSWKA+zCUrEGD0CZ9LKaQ0IbHQPhQhbIrY09Wy+E3/0QZTcA2GWz24PzXeaQeNsat8ATFiarx+u21dPbSU6I/yz/mLTKlnCH3v/Omuub3LtwVyYohecZEgLlnpCnsWhxHwvn5ffpvSd7qAFovSgsVoifWP16X28yeXdJgneE8sKGIOxqUuih9snPB4LpmkfakGXX5JqXNXhyDZipAqrdeN1/OQw0xWNqqAoRzrNyGn95sHd544uhyIQTF2XY2ffqtVy3/S6YomX4KEerbzfrBvAOTBchp7rR9Fw2cUzQtao/xqq07G+4fh3DfiGjgmvwpJFBhic9Pq3fADQc3I5z91mY2kYkrqUeHQRQJrobgaAa18jJPMuStH4o836BkQxGiDF81rouPHqnrC3La6Lq95hP/r499dTiI+hRLFly4vR9P3i5pna2+oBKgcu8yzmGgxrciPADZPhPeKMNGNnrDhTBR+vOMIjld0NrOfy4qQjAkLOgK+yxMpibeYLDCsPAkfqYK6AdgnlC4tESd3CAs6YvLTc0N6dt4T423+LPdORaYgBilCXEUMs47cRTpOGbIfuksZjXer7ukcDLMUMb6Eaqy2sE5W6l3Sk222GUG1oNyaLK8GiKUTsMSN3g==
+X-Microsoft-Antispam-Message-Info: aeYk+Ocf0i2ubpnXZYXyre0SXJ/oYioPwKXnGJuXVoutVTUWnq5XMJ4898xyNy2S9smymVWPco/dYmeWNiocrNlaKEx8WIY9QkNVU4TpvrW2+bbv9sXB1KzReHZc5mEZVD7HfEsY9xKioK0Q8gEgN76OPBMiaFQ1E+RytHmT4SKFsN3tfMnT7emPJ0XTx/VhEnU+mfO0FGuWlIOwjYfJl8CnJpfkqgXkTCNuSkK8yTDyx/+LRrzaCQUz41v52NK4NK8indZHuQkDWnOr/0prM1tASseJMMm+4j46EBjEn5Sk+5sB99l1ebU0mX5XCitf3IxiOQd9zBu5494iXmtbvakTz3w00os8zf81S/2vh5my4zPIY7wlpT4fCn9TyBZXAfL0O1EWiiOeTTDAZ8BpzQO+F4zFNpHyWWnAuXF07ANFhKcw4x6WQAg7C3RtNaRIdErLIb9Y66GZgtBNXcGdprGjAxCw2rTX0yRlTlrQocRAoyI5g2I/uN4I7Xp6ymqQSR4nt4FEb5pI/R+jWQeOJufd7bAeYbQ6fuDXUyodlCi8vRwTDYZ+nUMNZ3Losq4+qUgfJj9isT8h5c/DmRvDXY23phdgehP7Yr63G2EEjH82Aqjn/A0uGv9Q9ZRrkJ0/bo7BTPZ9HCzap1Nr+0n5AHFemjC7rPoYIx3hjDdmvu9lN8NPndY4seIaOMe6JIGIKTWQ9C97hHU4C4xBEI3jpw==
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(7416014)(11063799006)(56012099006)(10067099003)(22082099003)(55112099003)(18002099003)(921020);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fus4iSpsDqTMRF3snIBqfKxcvFC9irtMpadVcOGRKYCfqXxSnkWFzJba9j43?=
- =?us-ascii?Q?j5Bf2q1zCROn/XiWDB4KttS3UDL4ezRkDHpQFBKhwcwNCxrbE7clOe38+Fru?=
- =?us-ascii?Q?ujqsETPiFKpZ52gfZfxUvcoYfucM0QiXxLrwQsCXsoWT+ywMG3fitKln7ew9?=
- =?us-ascii?Q?1pjU3rlp7MRxYTL/rRB5ppCeSjRqxvYYvkBTx//vXGx/DFLcMn+Jyf9yU9Tl?=
- =?us-ascii?Q?i0HoiOgvM9Nu4NiKZ2ZIZF6QIGpkjC/7RKgKAxEszZY9ribhHexrOnUk8jfX?=
- =?us-ascii?Q?y/PYizAjag0jmlK19SjlAxuD7y4WU0oZ2wZL7xhHFk/60GzrNgbRydnng+Yt?=
- =?us-ascii?Q?AQHPjJzIbz2FmnCBBPbUQMhJhooaJHJmt+pghO2p8Pjrgk0euJCGh650WKOQ?=
- =?us-ascii?Q?nIXYnq8y1X0XyOq/kbXH+F0xkdQ/uBnuz8ub5r3WEaRFs2TzKdcKV0oRdiZP?=
- =?us-ascii?Q?BpfM+/plhIOXtQRJrsOJa/JAJD0CJJJ7Vfilc3g6JlL+EK3/8rcwzz+nLtmC?=
- =?us-ascii?Q?CxbPk2DC+8y6idG8B5CUeNHoDaevggYymWvz3TU5HeuAzbCy7ZB6MFBSKfSW?=
- =?us-ascii?Q?AnWToDtHp5P2QPpRKFT8fbd7Wq0mMk3Zy+ACGwacwwUwITixhxfkUOfU+nGA?=
- =?us-ascii?Q?dnxRt8PWhLS6Xc9Dl+UoKUDedOXV6lSnQCQLpm2VseKc3JTIMO4bO2ceEjk7?=
- =?us-ascii?Q?LaSEonZcbc+M2W3Eo/FEB3oZJgETl29Ustzv+eGP/PsGRbRduHmTutfswH/G?=
- =?us-ascii?Q?yboG0PtMHBQD0rf83gm0bCX15jNeGPCuagOadYclQrlgg1CzBhhY3R+5nDb6?=
- =?us-ascii?Q?3f7To+MSSPNftu5i9h/9t4Z6URyLddNXGLU39HnZ0QnyDLus1hLGS4RkDKni?=
- =?us-ascii?Q?tV8mCUUCoxwrmnl9wRHHwamtyGc6I9ChYLYPrBJB2FaI/2S3XJYjpaDeatGU?=
- =?us-ascii?Q?T2CvQVZINQmlYtUC0FfmGpkmSeG71ECjKjAbK46BTd0SEFXBOiIAHdDfknpD?=
- =?us-ascii?Q?GGt23+RUv3jCnlTq2qeRL3+7nSNsS1ZvDLeJNZeIThliIVKfxxVZPJWrKie9?=
- =?us-ascii?Q?2B/CHXip5z8wq3RsBZ+jY1bQGdJh9SAYuuD+0LK9ii/oSxG74/jAaheGN/lx?=
- =?us-ascii?Q?5PZpglE6Lc7IDHXPX3duvkKKVwcRk06qxT3rtI7YOMCz0QKbd+Mitw3zXWlC?=
- =?us-ascii?Q?tKghYLQLALX8HQPdIGjiLsy/vEZ80Kj6zFBqtBfrKcSSmF5AMWOLb/WOip9V?=
- =?us-ascii?Q?tDFisa6mv0TGcJNki9MkOCFiXsLLX/Q5cfTEo3R+ZKnDvo7VBnR4nZ+Hd4aX?=
- =?us-ascii?Q?l3TR5aoBqBxAYaTHNLXfN12naqRDUD5O0FCGntSvIEggr6JHr6DPygKH1oBs?=
- =?us-ascii?Q?8esoDs3MUb76g9KZNl3AV7JnN5KvFb1IZA2ndFz97Jvn7M/yyk7mfGhT4rvu?=
- =?us-ascii?Q?jap8BwMURxC2uPeGbQgip14r+FZY2OyEtgDinh1ho/wQEh0r5G+eqgzIykfX?=
- =?us-ascii?Q?B+V4eWRwnz1189wcDCh0cyECs5HEe5xMZZr2RIMng+YiJqQGST3dZYS42f9f?=
- =?us-ascii?Q?tp2PZkqKsWhDIxJ1zqxXJ3PJzY85F+LHAccMnl18UoH5IYsUNIjTm/15F9Vm?=
- =?us-ascii?Q?ssXJtqrYxnEzUSX64x8ZcVwha8GKQ+eCunlDXM6M4gIC4ltPjK6EDwIErp7f?=
- =?us-ascii?Q?6HCEYAC+Nu0C95VpggfYfDGdVBdiCVI3WgCGfBkPLI9jU2smqbX3XcRdvvR9?=
- =?us-ascii?Q?x47eQ7kFwBuZ71FfNXxi+1Rq7fMOHGw=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?k3Z2msaU/uaNwTlauFJjp/J0xUWWs3b14Y3kcA5yCKa8+B3Qv/mvo2545I76?=
+ =?us-ascii?Q?i/90C0YQ5SbzYnxA5YoewigG6EgjcHlKkLfmBpF95Ri9mcVUojLqMd7mRwcq?=
+ =?us-ascii?Q?DwBoYSNaXgp6f4qv6t1JBPqlJSQl0s7gZ+LWbShL7iOcR4MXznbsJt10MQS5?=
+ =?us-ascii?Q?2Ul7hN1/mnW5lZlALqJDEL3IFWBA2Zy6FjAPCCuyHLovbATyZxAJyLUas+JY?=
+ =?us-ascii?Q?PJuI6djNkK4Xpl4lgnQ0UcAyphxhDPYAVrPpNl6WNtZ8/bIXbvpoQaqy217t?=
+ =?us-ascii?Q?iXtHEyaAGQb9DVRP5ok3Qlgl3MxstsTISu/HHDhoKgq+FW6QI7T7wpUHCV8c?=
+ =?us-ascii?Q?kQUgBNf8btr3sDHmdznQm1KCO6Qv/yk4swp8rYl+vIJ8oE54gXk3ySCLAnM4?=
+ =?us-ascii?Q?m7a1ONg/NOwXXEb0gsRZfjtUCY2SvE43l6Lx89GtL96IMmIOjBvOpFNaR+Mw?=
+ =?us-ascii?Q?T2nQ2eOv9wGK/ZOG0k0TPvYC9Ox8XD1CsNSQ8M959KDGKVVVEVWPRCOZpsMW?=
+ =?us-ascii?Q?/2XSai/f1U4xopFgYlaibRe/oHFKe+nT3eX6ET/0bf9p+Xs+6WTKvEBp6Duo?=
+ =?us-ascii?Q?ZXrD6M+8SOeBV1V5g+3MF+jkU9UXIVvKpOstx//zQwiQdA6RYSaBJ9BjmiUD?=
+ =?us-ascii?Q?3R/NasebqmGfHkDb4cpD7Zgm2jbAJJUtGcdXJB60+4TjN9h8bbuALbcJmE+k?=
+ =?us-ascii?Q?BvpD75svuycgNEiiD5loUDParOh34ePXKInK2KvYxJK/qh4KQw6kv6l3SBbM?=
+ =?us-ascii?Q?XyqjdYwuriXxIf0oq/T+vBv2HXM5mSlL2f7wB1yODvXOUATq63MlXl0JE+4R?=
+ =?us-ascii?Q?FzYySBQWeS2gyB5OIj3Aa6kkI1GYK0P/XgvS2TrvshO1IIs5aloLfABckjf0?=
+ =?us-ascii?Q?3o9TUxOTo0HKCaUAWjEXAVWQYOVyivnazCNAtCzNfpkb9hsdUUjFE1hiSXKt?=
+ =?us-ascii?Q?ao5srFY95xIuc11MOzOaUhG62uN7G/9/PRUQ2dTKrEO14LXbnZ5zkH0qi4tY?=
+ =?us-ascii?Q?kXa2oCKtc3+zj6KcqLg6ZEJHprbsrys9bpC7JnQk1YxnKlsUrvATVyTew8Lq?=
+ =?us-ascii?Q?p6RoRm9eyWZQGbi9I53bDfGizW6A5GywCl8Hw7OUvvGKveBE+rIAkLovwMVI?=
+ =?us-ascii?Q?1VrbFhKmF4ElNPeOyIVQwz35LnsEShJT9KL4lBn2L0kTdEXY559Lxc5izJtm?=
+ =?us-ascii?Q?2A2p+tN1NdzDFjUSSljGnuHCIeNG2zAIRY1lgTWUoOSPw2Cw39eTl2o/dJzQ?=
+ =?us-ascii?Q?nEqT+/j8JPeRWBvNsrOqagveyG3KzoJ5fRgNpgvRQkdC9w7Zp69hk5f93d92?=
+ =?us-ascii?Q?8u6fVf+xHDPiaC4X3Khdw8FwN6FFsvlkqU9IZkgihc+9myknS9dRRDlgneNY?=
+ =?us-ascii?Q?xsviGonZ0yuCCUgvrkWAPcIH3S2vgdGWquS13mtge6ZHcRO4exB8L7UCKvnT?=
+ =?us-ascii?Q?Wcbs40z0fz5TAVfA1NFNTfKwZVRqyp/GEvdxQeXajGbn4QVeyBrPx1vBy0T0?=
+ =?us-ascii?Q?FcTtMqCCWjLZY7T69dcSDfEZzh6IGg23LMT7+xAPlZJtooRo7hmDaxPh7Iyk?=
+ =?us-ascii?Q?NoU2e2UvACJE3bSC7KCFmNmSt4oO55HIGDWiItVEfDpOeuA1ca/UXsRfEHqe?=
+ =?us-ascii?Q?Rj7BGIbrD7BvdwoqDE1MSePmOQW+wmbus7p+7U06jc3SIL3c4pxLSoxnY0t9?=
+ =?us-ascii?Q?SkE7MoGfdEPGtw97AM+RLHFWLbYL+dxcb9LCqgr8SHEv+rMinUKJcBHT729q?=
+ =?us-ascii?Q?oW2vj8KhcYGWucvD436mSD5YwTViYl8=3D?=
 X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a7f1a099-35e8-4495-fc6d-08dee29bae80
+X-MS-Exchange-CrossTenant-Network-Message-Id: de4ff39c-60c5-4af2-94eb-08dee29bb3fc
 X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2026 18:05:41.0561
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2026 18:05:50.1822
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: d3TsiLXqp5z/1LGO/i0O/8fghtlkkn24kEHm4T71gO6uA7QEzCCvUNRqv2PUiRpSQh/udoYhRTsYIT9rpeN3ki/j9VKJ9003rDFnkAT50cw=
+X-MS-Exchange-CrossTenant-UserPrincipalName: qcBg44gWhAxN3xigMQvYSm79TO+Ixq4KR9/dNG3leuBGu/wtAfqYx8I+saTHkzrdzOJrKqj1Nu7G0BiLE0AvnXHP32mMsPGfKyxsP774jXQ=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR01MB7767
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_110552_174077_03C6BABC 
-X-CRM114-Status: GOOD (  12.83  )
+X-CRM114-CacheID: sfid-20260715_110602_645545_A5A7436F 
+X-CRM114-Status: GOOD (  18.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,391 +150,363 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Need to sync kernel percpu page table for memory hotplug/unplug,
-including both linear mapping and vmemmap.
+Allocate local percpu vm area.  The delta between the allocated addr
+(chunk local base) and pcpu_local_base must be same with the delta
+between chunk base and pcpu_base_addr.  Each CPU's local percpu area
+will be mapped to its own page table.  This section of page table is not
+shared between CPUs.
+
+And free local percpu vm area.  Also unmap from percpu page table.
 
 Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
 ---
- arch/arm64/mm/mmu.c | 85 ++++++++++++++++++++++++++++++---------------
- 1 file changed, 57 insertions(+), 28 deletions(-)
+ include/linux/vmalloc.h |  3 ++
+ mm/percpu-internal.h    |  1 +
+ mm/percpu-vm.c          | 94 +++++++++++++++++++++++++++++++++++++++++
+ mm/vmalloc.c            | 92 +++++++++++++++++++++++++++++++++++++---
+ 4 files changed, 185 insertions(+), 5 deletions(-)
 
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 5a235491f268..e1290ccaa5be 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -214,7 +214,7 @@ static void init_clear_pgtable(void *table)
- }
+diff --git a/include/linux/vmalloc.h b/include/linux/vmalloc.h
+index d87dc7f77f4e..daf9965a111d 100644
+--- a/include/linux/vmalloc.h
++++ b/include/linux/vmalloc.h
+@@ -313,6 +313,9 @@ struct vm_struct **pcpu_get_vm_areas(const unsigned long *offsets,
+ 				     size_t align);
  
- static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
--		     phys_addr_t phys, pgprot_t prot)
-+		     phys_addr_t phys, pgprot_t prot, pgtbl_mod_mask *mask)
- {
- 	do {
- 		pte_t old_pte = __ptep_get(ptep);
-@@ -224,6 +224,7 @@ static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
- 		 * are deferred to the end of alloc_init_cont_pte().
- 		 */
- 		__set_pte_nosync(ptep, pfn_pte(__phys_to_pfn(phys), prot));
-+		*mask |= PGTBL_PTE_MODIFIED;
- 
- 		/*
- 		 * After the PTE entry has been populated once, we
-@@ -251,7 +252,7 @@ static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
- 			       unsigned long end, phys_addr_t phys,
- 			       pgprot_t prot,
- 			       phys_addr_t (*pgtable_alloc)(enum pgtable_level),
--			       int flags)
-+			       int flags, pgtbl_mod_mask *mask)
- {
- 	unsigned long next;
- 	pmd_t pmd = READ_ONCE(*pmdp);
-@@ -272,6 +273,7 @@ static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
- 		init_clear_pgtable(ptep);
- 		ptep += pte_index(addr);
- 		__pmd_populate(pmdp, pte_phys, pmdval);
-+		*mask |= PGTBL_PMD_MODIFIED;
- 	} else {
- 		BUG_ON(pmd_bad(pmd));
- 		ptep = pte_set_fixmap_offset(pmdp, addr);
-@@ -288,7 +290,7 @@ static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
- 		    !pte_range_has_valid_noncont(ptep))
- 			__prot = __pgprot(pgprot_val(prot) | PTE_CONT);
- 
--		init_pte(ptep, addr, next, phys, __prot);
-+		init_pte(ptep, addr, next, phys, __prot, mask);
- 
- 		ptep += pte_index(next) - pte_index(addr);
- 		phys += next - addr;
-@@ -306,7 +308,8 @@ static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
- 
- static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
- 		    phys_addr_t phys, pgprot_t prot,
--		    phys_addr_t (*pgtable_alloc)(enum pgtable_level), int flags)
-+		    phys_addr_t (*pgtable_alloc)(enum pgtable_level), int flags,
-+		    pgtbl_mod_mask *mask)
- {
- 	unsigned long next;
- 
-@@ -319,7 +322,10 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
- 		if (((addr | next | phys) & ~PMD_MASK) == 0 &&
- 		    (flags & NO_BLOCK_MAPPINGS) == 0 &&
- 		    !pmd_table(old_pmd)) {
--			WARN_ON(!pmd_set_huge(pmdp, phys, prot));
-+			if (pmd_set_huge(pmdp, phys, prot))
-+				*mask |= PGTBL_PMD_MODIFIED;
-+			else
-+				WARN_ON(1);
- 
- 			/*
- 			 * After the PMD entry has been populated once, we
-@@ -331,7 +337,7 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
- 			int ret;
- 
- 			ret = alloc_init_cont_pte(pmdp, addr, next, phys, prot,
--						  pgtable_alloc, flags);
-+						  pgtable_alloc, flags, mask);
- 			if (ret)
- 				return ret;
- 
-@@ -359,7 +365,7 @@ static int alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
- 			       unsigned long end, phys_addr_t phys,
- 			       pgprot_t prot,
- 			       phys_addr_t (*pgtable_alloc)(enum pgtable_level),
--			       int flags)
-+			       int flags, pgtbl_mod_mask *mask)
- {
- 	int ret;
- 	unsigned long next;
-@@ -384,6 +390,7 @@ static int alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
- 		init_clear_pgtable(pmdp);
- 		pmdp += pmd_index(addr);
- 		__pud_populate(pudp, pmd_phys, pudval);
-+		*mask |= PGTBL_PUD_MODIFIED;
- 	} else {
- 		BUG_ON(pud_bad(pud));
- 		pmdp = pmd_set_fixmap_offset(pudp, addr);
-@@ -400,7 +407,8 @@ static int alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
- 		    !pmd_range_has_valid_noncont(pmdp))
- 			__prot = __pgprot(pgprot_val(prot) | PTE_CONT);
- 
--		ret = init_pmd(pmdp, addr, next, phys, __prot, pgtable_alloc, flags);
-+		ret = init_pmd(pmdp, addr, next, phys, __prot, pgtable_alloc, flags,
-+			       mask);
- 		if (ret)
- 			goto out;
- 
-@@ -417,7 +425,7 @@ static int alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
- static int alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
- 			  phys_addr_t phys, pgprot_t prot,
- 			  phys_addr_t (*pgtable_alloc)(enum pgtable_level),
--			  int flags)
-+			  int flags, pgtbl_mod_mask *mask)
- {
- 	int ret = 0;
- 	unsigned long next;
-@@ -438,6 +446,7 @@ static int alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
- 		init_clear_pgtable(pudp);
- 		pudp += pud_index(addr);
- 		__p4d_populate(p4dp, pud_phys, p4dval);
-+		*mask |= PGTBL_P4D_MODIFIED;
- 	} else {
- 		BUG_ON(p4d_bad(p4d));
- 		pudp = pud_set_fixmap_offset(p4dp, addr);
-@@ -455,7 +464,10 @@ static int alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
- 		   ((addr | next | phys) & ~PUD_MASK) == 0 &&
- 		    (flags & NO_BLOCK_MAPPINGS) == 0 &&
- 		    !pud_table(old_pud)) {
--			WARN_ON(!pud_set_huge(pudp, phys, prot));
-+			if (pud_set_huge(pudp, phys, prot))
-+				*mask |= PGTBL_PUD_MODIFIED;
-+			else
-+				WARN_ON(1);
- 
- 			/*
- 			 * After the PUD entry has been populated once, we
-@@ -465,7 +477,7 @@ static int alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
- 						      READ_ONCE(pud_val(*pudp))));
- 		} else {
- 			ret = alloc_init_cont_pmd(pudp, addr, next, phys, prot,
--						  pgtable_alloc, flags);
-+						  pgtable_alloc, flags, mask);
- 			if (ret)
- 				goto out;
- 
-@@ -484,7 +496,7 @@ static int alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
- static int alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
- 			  phys_addr_t phys, pgprot_t prot,
- 			  phys_addr_t (*pgtable_alloc)(enum pgtable_level),
--			  int flags)
-+			  int flags, pgtbl_mod_mask *mask)
- {
- 	int ret;
- 	unsigned long next;
-@@ -505,6 +517,7 @@ static int alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
- 		init_clear_pgtable(p4dp);
- 		p4dp += p4d_index(addr);
- 		__pgd_populate(pgdp, p4d_phys, pgdval);
-+		*mask |= PGTBL_PGD_MODIFIED;
- 	} else {
- 		BUG_ON(pgd_bad(pgd));
- 		p4dp = p4d_set_fixmap_offset(pgdp, addr);
-@@ -516,7 +529,7 @@ static int alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
- 		next = p4d_addr_end(addr, end);
- 
- 		ret = alloc_init_pud(p4dp, addr, next, phys, prot,
--				     pgtable_alloc, flags);
-+				     pgtable_alloc, flags, mask);
- 		if (ret)
- 			goto out;
- 
-@@ -536,7 +549,7 @@ static int __create_pgd_mapping_locked(pgd_t *pgdir, phys_addr_t phys,
- 				       unsigned long virt, phys_addr_t size,
- 				       pgprot_t prot,
- 				       phys_addr_t (*pgtable_alloc)(enum pgtable_level),
--				       int flags)
-+				       int flags, pgtbl_mod_mask *mask)
- {
- 	int ret;
- 	unsigned long addr, end, next;
-@@ -556,7 +569,7 @@ static int __create_pgd_mapping_locked(pgd_t *pgdir, phys_addr_t phys,
- 	do {
- 		next = pgd_addr_end(addr, end);
- 		ret = alloc_init_p4d(pgdp, addr, next, phys, prot, pgtable_alloc,
--				     flags);
-+				     flags, mask);
- 		if (ret)
- 			return ret;
- 		phys += next - addr;
-@@ -569,13 +582,13 @@ static int __create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
- 				unsigned long virt, phys_addr_t size,
- 				pgprot_t prot,
- 				phys_addr_t (*pgtable_alloc)(enum pgtable_level),
--				int flags)
-+				int flags, pgtbl_mod_mask *mask)
- {
- 	int ret;
- 
- 	mutex_lock(&fixmap_lock);
- 	ret = __create_pgd_mapping_locked(pgdir, phys, virt, size, prot,
--					  pgtable_alloc, flags);
-+					  pgtable_alloc, flags, mask);
- 	mutex_unlock(&fixmap_lock);
- 
- 	return ret;
-@@ -588,9 +601,10 @@ static void early_create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
- 				     int flags)
- {
- 	int ret;
-+	pgtbl_mod_mask mask = 0;
- 
- 	ret = __create_pgd_mapping(pgdir, phys, virt, size, prot, pgtable_alloc,
--				   flags);
-+				   flags, &mask);
- 	if (ret)
- 		panic("Failed to create page tables\n");
- }
-@@ -1332,6 +1346,7 @@ static int __init __kpti_install_ng_mappings(void *__unused)
- 
- 	if (!cpu) {
- 		int ret;
-+		pgtbl_mod_mask mask = 0;
- 
- 		alloc = __get_free_pages(GFP_ATOMIC | __GFP_ZERO, order);
- 		kpti_ng_temp_pgd = (pgd_t *)(alloc + (levels - 1) * PAGE_SIZE);
-@@ -1355,7 +1370,7 @@ static int __init __kpti_install_ng_mappings(void *__unused)
- 		//
- 		ret = __create_pgd_mapping_locked(kpti_ng_temp_pgd, __pa(alloc),
- 						  KPTI_NG_TEMP_VA, PAGE_SIZE, PAGE_KERNEL,
--						  kpti_ng_pgd_alloc, 0);
-+						  kpti_ng_pgd_alloc, 0, &mask);
- 		if (ret)
- 			panic("Failed to create page tables\n");
- 	}
-@@ -1661,7 +1676,7 @@ static void unmap_hotplug_range(unsigned long addr, unsigned long end,
- 
- static void free_empty_pte_table(pmd_t *pmdp, unsigned long addr,
- 				 unsigned long end, unsigned long floor,
--				 unsigned long ceiling)
-+				 unsigned long ceiling, pgtbl_mod_mask *mask)
- {
- 	pte_t *ptep, pte;
- 	unsigned long i, start = addr;
-@@ -1677,6 +1692,7 @@ static void free_empty_pte_table(pmd_t *pmdp, unsigned long addr,
- 		WARN_ON(!pte_none(pte));
- 	} while (addr += PAGE_SIZE, addr < end);
- 
-+	*mask |= PGTBL_PTE_MODIFIED;
- 	if (!pgtable_range_aligned(start, end, floor, ceiling, PMD_MASK))
- 		return;
- 
-@@ -1692,13 +1708,14 @@ static void free_empty_pte_table(pmd_t *pmdp, unsigned long addr,
- 	}
- 
- 	pmd_clear(pmdp);
-+	*mask |= PGTBL_PMD_MODIFIED;
- 	__flush_tlb_kernel_pgtable(start);
- 	free_hotplug_pgtable_page(virt_to_page(ptep));
- }
- 
- static void free_empty_pmd_table(pud_t *pudp, unsigned long addr,
- 				 unsigned long end, unsigned long floor,
--				 unsigned long ceiling)
-+				 unsigned long ceiling, pgtbl_mod_mask *mask)
- {
- 	pmd_t *pmdp, pmd;
- 	unsigned long i, next, start = addr;
-@@ -1711,7 +1728,7 @@ static void free_empty_pmd_table(pud_t *pudp, unsigned long addr,
- 			continue;
- 
- 		WARN_ON(!pmd_present(pmd) || !pmd_table(pmd));
--		free_empty_pte_table(pmdp, addr, next, floor, ceiling);
-+		free_empty_pte_table(pmdp, addr, next, floor, ceiling, mask);
- 	} while (addr = next, addr < end);
- 
- 	if (CONFIG_PGTABLE_LEVELS <= 2)
-@@ -1732,13 +1749,14 @@ static void free_empty_pmd_table(pud_t *pudp, unsigned long addr,
- 	}
- 
- 	pud_clear(pudp);
-+	*mask |= PGTBL_PUD_MODIFIED;
- 	__flush_tlb_kernel_pgtable(start);
- 	free_hotplug_pgtable_page(virt_to_page(pmdp));
- }
- 
- static void free_empty_pud_table(p4d_t *p4dp, unsigned long addr,
- 				 unsigned long end, unsigned long floor,
--				 unsigned long ceiling)
-+				 unsigned long ceiling, pgtbl_mod_mask *mask)
- {
- 	pud_t *pudp, pud;
- 	unsigned long i, next, start = addr;
-@@ -1751,7 +1769,7 @@ static void free_empty_pud_table(p4d_t *p4dp, unsigned long addr,
- 			continue;
- 
- 		WARN_ON(!pud_present(pud) || !pud_table(pud));
--		free_empty_pmd_table(pudp, addr, next, floor, ceiling);
-+		free_empty_pmd_table(pudp, addr, next, floor, ceiling, mask);
- 	} while (addr = next, addr < end);
- 
- 	if (!pgtable_l4_enabled())
-@@ -1772,13 +1790,14 @@ static void free_empty_pud_table(p4d_t *p4dp, unsigned long addr,
- 	}
- 
- 	p4d_clear(p4dp);
-+	*mask |= PGTBL_P4D_MODIFIED;
- 	__flush_tlb_kernel_pgtable(start);
- 	free_hotplug_pgtable_page(virt_to_page(pudp));
- }
- 
- static void free_empty_p4d_table(pgd_t *pgdp, unsigned long addr,
- 				 unsigned long end, unsigned long floor,
--				 unsigned long ceiling)
-+				 unsigned long ceiling, pgtbl_mod_mask *mask)
- {
- 	p4d_t *p4dp, p4d;
- 	unsigned long i, next, start = addr;
-@@ -1791,7 +1810,7 @@ static void free_empty_p4d_table(pgd_t *pgdp, unsigned long addr,
- 			continue;
- 
- 		WARN_ON(!p4d_present(p4d));
--		free_empty_pud_table(p4dp, addr, next, floor, ceiling);
-+		free_empty_pud_table(p4dp, addr, next, floor, ceiling, mask);
- 	} while (addr = next, addr < end);
- 
- 	if (!pgtable_l5_enabled())
-@@ -1812,6 +1831,7 @@ static void free_empty_p4d_table(pgd_t *pgdp, unsigned long addr,
- 	}
- 
- 	pgd_clear(pgdp);
-+	*mask |= PGTBL_PGD_MODIFIED;
- 	__flush_tlb_kernel_pgtable(start);
- 	free_hotplug_pgtable_page(virt_to_page(p4dp));
- }
-@@ -1821,6 +1841,8 @@ static void free_empty_tables(unsigned long addr, unsigned long end,
- {
- 	unsigned long next;
- 	pgd_t *pgdp, pgd;
-+	pgtbl_mod_mask mask = 0;
-+	unsigned long start = addr;
- 
- 	do {
- 		next = pgd_addr_end(addr, end);
-@@ -1830,8 +1852,11 @@ static void free_empty_tables(unsigned long addr, unsigned long end,
- 			continue;
- 
- 		WARN_ON(!pgd_present(pgd));
--		free_empty_p4d_table(pgdp, addr, next, floor, ceiling);
-+		free_empty_p4d_table(pgdp, addr, next, floor, ceiling, &mask);
- 	} while (addr = next, addr < end);
+ void pcpu_free_vm_areas(struct vm_struct **vms, int nr_vms);
++struct vm_struct *pcpu_get_local_vm_area(unsigned long hint,
++				     int unit_size, size_t align);
 +
-+	if (mask & ARCH_PAGE_TABLE_SYNC_MASK)
-+		arch_sync_kernel_mappings(start, end);
+ # else
+ static inline struct vm_struct **
+ pcpu_get_vm_areas(const unsigned long *offsets,
+diff --git a/mm/percpu-internal.h b/mm/percpu-internal.h
+index ec2e55a2f836..4d461305243b 100644
+--- a/mm/percpu-internal.h
++++ b/mm/percpu-internal.h
+@@ -70,6 +70,7 @@ struct pcpu_chunk {
+ 	struct pcpu_block_md	*md_blocks;	/* metadata blocks */
+ 
+ 	void			*data;		/* chunk data */
++	void			*local_data;	/* chunk local vm */
+ 	bool			immutable;	/* no [de]population allowed */
+ 	bool			isolated;	/* isolated from active chunk
+ 						   slots */
+diff --git a/mm/percpu-vm.c b/mm/percpu-vm.c
+index 4f5937090590..5decaad7640f 100644
+--- a/mm/percpu-vm.c
++++ b/mm/percpu-vm.c
+@@ -112,6 +112,10 @@ static int pcpu_alloc_pages(struct pcpu_chunk *chunk,
+ 	return -ENOMEM;
  }
+ 
++#ifdef CONFIG_HAVE_LOCAL_PER_CPU_MAP
++extern pgd_t *percpu_pgd[NR_CPUS];
++#endif
++
+ /**
+  * pcpu_pre_unmap_flush - flush cache prior to unmapping
+  * @chunk: chunk the regions to be flushed belongs to
+@@ -130,6 +134,11 @@ static void pcpu_pre_unmap_flush(struct pcpu_chunk *chunk,
+ 	flush_cache_vunmap(
+ 		pcpu_chunk_addr(chunk, pcpu_low_unit_cpu, page_start),
+ 		pcpu_chunk_addr(chunk, pcpu_high_unit_cpu, page_end));
++
++#ifdef CONFIG_HAVE_LOCAL_PER_CPU_MAP
++	flush_cache_vunmap((unsigned long)chunk->local_base + (page_start << PAGE_SHIFT),
++			(unsigned long)chunk->local_base + (page_end << PAGE_SHIFT));
++#endif
+ }
+ 
+ static void __pcpu_unmap_pages(unsigned long addr, int nr_pages)
+@@ -137,6 +146,20 @@ static void __pcpu_unmap_pages(unsigned long addr, int nr_pages)
+ 	vunmap_range_noflush(addr, addr + (nr_pages << PAGE_SHIFT));
+ }
+ 
++#ifdef CONFIG_HAVE_LOCAL_PER_CPU_MAP
++static void __pcpu_unmap_pages_local(unsigned int cpu, unsigned long virt,
++			    int nr_pages)
++{
++	__vunmap_range_noflush(percpu_pgd[cpu], virt, virt + (nr_pages << PAGE_SHIFT));
++}
++#else
++static void __pcpu_unmap_pages_local(unsigned int cpu, unsigned long virt,
++			    int nr_pages)
++{
++	return;
++}
++#endif
++
+ /**
+  * pcpu_unmap_pages - unmap pages out of a pcpu_chunk
+  * @chunk: chunk of interest
+@@ -166,6 +189,10 @@ static void pcpu_unmap_pages(struct pcpu_chunk *chunk,
+ 		}
+ 		__pcpu_unmap_pages(pcpu_chunk_addr(chunk, cpu, page_start),
+ 				   page_end - page_start);
++
++		__pcpu_unmap_pages_local(cpu,
++					(unsigned long)chunk->local_base + (page_start << PAGE_SHIFT),
++					page_end - page_start);
+ 	}
+ }
+ 
+@@ -188,6 +215,12 @@ static void pcpu_post_unmap_tlb_flush(struct pcpu_chunk *chunk,
+ 	flush_tlb_kernel_range(
+ 		pcpu_chunk_addr(chunk, pcpu_low_unit_cpu, page_start),
+ 		pcpu_chunk_addr(chunk, pcpu_high_unit_cpu, page_end));
++
++#ifdef CONFIG_HAVE_LOCAL_PER_CPU_MAP
++	flush_tlb_kernel_range(
++		(unsigned long)chunk->local_base + (page_start << PAGE_SHIFT),
++		(unsigned long)chunk->local_base + (page_end << PAGE_SHIFT));
++#endif
+ }
+ 
+ static int __pcpu_map_pages(unsigned long addr, struct page **pages,
+@@ -197,6 +230,32 @@ static int __pcpu_map_pages(unsigned long addr, struct page **pages,
+ 			PAGE_KERNEL, pages, PAGE_SHIFT, GFP_KERNEL);
+ }
+ 
++#ifdef CONFIG_HAVE_LOCAL_PER_CPU_MAP
++static int __pcpu_map_pages_local(unsigned int cpu, unsigned long virt, struct page **pages,
++			    int nr_pages)
++{
++	unsigned int i;
++	int err = 0;
++
++	for (i = 0; i < nr_pages; i++) {
++		err = vmap_range_noflush(percpu_pgd[cpu], virt, virt + PAGE_SIZE,
++				page_to_phys(pages[i]), PAGE_KERNEL, PAGE_SHIFT);
++		if (err)
++			return err;
++
++		virt += PAGE_SIZE;
++	}
++
++	return err;
++}
++#else
++static int __pcpu_map_pages_local(unsigned int cpu, unsigned long virt, struct page **pages,
++			    int nr_pages)
++{
++	return 0;
++}
++#endif
++
+ /**
+  * pcpu_map_pages - map pages into a pcpu_chunk
+  * @chunk: chunk of interest
+@@ -224,6 +283,13 @@ static int pcpu_map_pages(struct pcpu_chunk *chunk,
+ 		if (err < 0)
+ 			goto err;
+ 
++		err = __pcpu_map_pages_local(cpu,
++					(unsigned long)chunk->local_base + (page_start << PAGE_SHIFT),
++					&pages[pcpu_page_idx(cpu, page_start)],
++					page_end - page_start);
++		if (err < 0)
++			goto err;
++
+ 		for (i = page_start; i < page_end; i++)
+ 			pcpu_set_page_chunk(pages[pcpu_page_idx(cpu, i)],
+ 					    chunk);
+@@ -233,6 +299,9 @@ static int pcpu_map_pages(struct pcpu_chunk *chunk,
+ 	for_each_possible_cpu(tcpu) {
+ 		__pcpu_unmap_pages(pcpu_chunk_addr(chunk, tcpu, page_start),
+ 				   page_end - page_start);
++		__pcpu_unmap_pages_local(tcpu,
++					(unsigned long)chunk->local_base + (page_start << PAGE_SHIFT),
++					page_end - page_start);
+ 		if (tcpu == cpu)
+ 			break;
+ 	}
+@@ -258,6 +327,11 @@ static void pcpu_post_map_flush(struct pcpu_chunk *chunk,
+ 	flush_cache_vmap(
+ 		pcpu_chunk_addr(chunk, pcpu_low_unit_cpu, page_start),
+ 		pcpu_chunk_addr(chunk, pcpu_high_unit_cpu, page_end));
++
++#ifdef CONFIG_HAVE_LOCAL_PER_CPU_MAP
++	flush_cache_vmap((unsigned long)chunk->local_base + (page_start << PAGE_SHIFT),
++			 (unsigned long)chunk->local_base + (page_end << PAGE_SHIFT));
++#endif
+ }
+ 
+ /**
+@@ -349,6 +423,24 @@ static struct pcpu_chunk *pcpu_create_chunk(gfp_t gfp)
+ 	chunk->data = vms;
+ 	chunk->base_addr = vms[0]->addr - pcpu_group_offsets[0];
+ 
++#ifdef CONFIG_HAVE_LOCAL_PER_CPU_MAP
++	unsigned long delta = (unsigned long)chunk->base_addr - (unsigned long)pcpu_base_addr;
++	unsigned long hint = delta + (unsigned long)pcpu_local_base;
++	struct vm_struct *local_vm = pcpu_get_local_vm_area(hint,
++					pcpu_unit_size, pcpu_atom_size);
++	if (!local_vm) {
++		pcpu_free_vm_areas(vms, pcpu_nr_groups);
++		pcpu_free_chunk(chunk);
++		return NULL;
++	}
++
++	chunk->local_base = local_vm->addr;
++	chunk->local_data = (void *)local_vm;
++#else
++	chunk->local_base = 0;
++	chunk->local_data = NULL;
++#endif
++
+ 	pcpu_stats_chunk_alloc();
+ 	trace_percpu_create_chunk(chunk->base_addr);
+ 
+@@ -365,6 +457,8 @@ static void pcpu_destroy_chunk(struct pcpu_chunk *chunk)
+ 
+ 	if (chunk->data)
+ 		pcpu_free_vm_areas(chunk->data, pcpu_nr_groups);
++	if (chunk->local_data)
++		free_vm_area((struct vm_struct *)chunk->local_data);
+ 	pcpu_free_chunk(chunk);
+ }
+ 
+diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+index 9ec401918736..3d94ca4bbd17 100644
+--- a/mm/vmalloc.c
++++ b/mm/vmalloc.c
+@@ -4923,17 +4923,21 @@ pvm_find_va_enclose_addr(unsigned long addr)
+  *   in - the VA we start the search(reverse order);
+  *   out - the VA with the highest aligned end address.
+  * @align: alignment for required highest address
++ * @pcpu: whether request allocation from local percpu area
+  *
+  * Returns: determined end address within vmap_area
+  */
+ static unsigned long
+-pvm_determine_end_from_reverse(struct vmap_area **va, unsigned long align)
++pvm_determine_end_from_reverse(struct vmap_area **va, unsigned long align, bool pcpu)
+ {
+ 	unsigned long vmalloc_end;
+ 	unsigned long addr;
+ 
+ #ifdef CONFIG_HAVE_LOCAL_PER_CPU_MAP
+-	vmalloc_end = PERCPU_END & ~(align - 1);
++	if (pcpu)
++		vmalloc_end = LOCAL_PERCPU_END & ~(align - 1);
++	else
++		vmalloc_end = PERCPU_END & ~(align - 1);
+ #else
+ 	vmalloc_end = VMALLOC_END & ~(align - 1);
  #endif
+@@ -5042,7 +5046,7 @@ struct vm_struct **pcpu_get_vm_areas(const unsigned long *offsets,
+ 	end = start + sizes[area];
  
-@@ -2039,6 +2064,7 @@ int arch_add_memory(int nid, u64 start, u64 size,
- 		    struct mhp_params *params)
- {
- 	int ret, flags = NO_EXEC_MAPPINGS;
-+	pgtbl_mod_mask mask = 0;
+ 	va = pvm_find_va_enclose_addr(vmalloc_end);
+-	base = pvm_determine_end_from_reverse(&va, align) - end;
++	base = pvm_determine_end_from_reverse(&va, align, false) - end;
  
- 	VM_BUG_ON(!mhp_range_allowed(start, size, true));
- 
-@@ -2047,10 +2073,13 @@ int arch_add_memory(int nid, u64 start, u64 size,
- 
- 	ret = __create_pgd_mapping(swapper_pg_dir, start, __phys_to_virt(start),
- 				   size, params->pgprot, pgd_pgtable_alloc_init_mm,
--				   flags);
-+				   flags, &mask);
- 	if (ret)
- 		goto err;
- 
-+	if (mask & ARCH_PAGE_TABLE_SYNC_MASK)
-+		arch_sync_kernel_mappings(start, start + size);
+ 	while (true) {
+ 		/*
+@@ -5063,7 +5067,7 @@ struct vm_struct **pcpu_get_vm_areas(const unsigned long *offsets,
+ 		 * base downwards and then recheck.
+ 		 */
+ 		if (base + end > va->va_end) {
+-			base = pvm_determine_end_from_reverse(&va, align) - end;
++			base = pvm_determine_end_from_reverse(&va, align, false) - end;
+ 			term_area = area;
+ 			continue;
+ 		}
+@@ -5073,7 +5077,7 @@ struct vm_struct **pcpu_get_vm_areas(const unsigned long *offsets,
+ 		 */
+ 		if (base + start < va->va_start) {
+ 			va = node_to_va(rb_prev(&va->rb_node));
+-			base = pvm_determine_end_from_reverse(&va, align) - end;
++			base = pvm_determine_end_from_reverse(&va, align, false) - end;
+ 			term_area = area;
+ 			continue;
+ 		}
+@@ -5236,6 +5240,84 @@ void pcpu_free_vm_areas(struct vm_struct **vms, int nr_vms)
+ 		free_vm_area(vms[i]);
+ 	kfree(vms);
+ }
 +
- 	memblock_clear_nomap(start, size);
++#ifdef CONFIG_HAVE_LOCAL_PER_CPU_MAP
++/* Find free vm area starts from hint */
++struct vm_struct *pcpu_get_local_vm_area(unsigned long hint,
++				     int unit_size, size_t align)
++{
++	struct vmap_area *tmp_va, *va;
++	struct vm_struct *vm;
++	struct vmap_node *vn;
++	unsigned long end;
++	int ret;
++
++	va = kmem_cache_zalloc(vmap_area_cachep, GFP_KERNEL);
++	vm = kzalloc(sizeof(struct vm_struct), GFP_KERNEL);
++	if (!va || !vm)
++		goto err_free;
++
++	spin_lock(&free_vmap_area_lock);
++
++	tmp_va = pvm_find_va_enclose_addr(hint);
++	if (!tmp_va) {
++		spin_unlock(&free_vmap_area_lock);
++		goto err_free;
++	}
++
++	end = pvm_determine_end_from_reverse(&tmp_va, align, true);
++
++	if (hint + unit_size > end) {
++		spin_unlock(&free_vmap_area_lock);
++		goto err_free;
++	}
++
++	ret = va_clip(&free_vmap_area_root,
++			&free_vmap_area_list, tmp_va, hint, unit_size);
++	if (ret) {
++		spin_unlock(&free_vmap_area_lock);
++		goto err_free;
++	}
++
++	va->va_start = hint;
++	va->va_end = hint + unit_size;
++
++	spin_unlock(&free_vmap_area_lock);
++
++	if (kasan_populate_vmalloc(va->va_start, unit_size, GFP_KERNEL))
++		goto err_free_shadow;
++
++	vn = addr_to_node(va->va_start);
++
++	spin_lock(&vn->busy.lock);
++	insert_vmap_area(va, &vn->busy.root, &vn->busy.head);
++	setup_vmalloc_vm(vm, va, VM_ALLOC,
++			 pcpu_get_local_vm_area);
++	spin_unlock(&vn->busy.lock);
++
++	kasan_unpoison_vmap_areas(&vm, 1, KASAN_VMALLOC_PROT_NORMAL);
++
++	return vm;
++
++err_free:
++	kmem_cache_free(vmap_area_cachep, va);
++	kfree(vm);
++
++	return NULL;
++
++err_free_shadow:
++	spin_lock(&free_vmap_area_lock);
++	va = merge_or_add_vmap_area_augment(va, &free_vmap_area_root,
++			&free_vmap_area_list);
++	if (va)
++		kasan_release_vmalloc(va->va_start, va->va_end, va->va_start, va->va_end,
++			       KASAN_VMALLOC_PAGE_RANGE | KASAN_VMALLOC_TLB_FLUSH);
++	kfree(vm);
++	spin_unlock(&free_vmap_area_lock);
++	return NULL;
++
++}
++#endif
+ #endif	/* CONFIG_SMP */
  
- 	ret = __add_pages(nid, start >> PAGE_SHIFT, size >> PAGE_SHIFT,
+ #ifdef CONFIG_PRINTK
 -- 
 2.47.0
 
