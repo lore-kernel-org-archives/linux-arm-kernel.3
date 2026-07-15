@@ -4,77 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52CB4C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 15:36:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F29F5C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 15:45:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yY805taQCjgb03o/s8e5sUsofMrXtbd/rx03espmDQw=; b=nNuhMmjc/2yovf6/LDEZtTkPZD
-	alV/J9oXvGYLXMoKVxzYs/EXXyvRIybqbCV9dnRBVnKb6J3OohCGOm1phdpeGXHJL+54j0eW+XSja
-	8rCg64uQyS1jyluTBtZ07/WxQta6Y+51OKiYnB4eaDWDOTkYZLm/ChOT9HVpSqI0NiK4WC7PO6mT0
-	QwVG+cHlFtpLQhvkG/mDJgEKZ6MiEJeNN+LEtEfSO/zbgOcoMEJJ091d2tXOKc9xl/wCzjXkshpVA
-	W/N+rbELRAu8ouZAaymjPCcEOEa+YggkSAYNMku7QOkC0paBukfpoyTqMKmjs/fJ+5Ej+x/tAzoq0
-	T+qomH+g==;
+	bh=oScIehFNLVV6Ks2K1Q/+8RY9UPPqDbzPiGCzLfB1ONk=; b=uIgjddl2hvQidPwW3xHcxnUr1e
+	vYPxHmf0FJ4nuss8q3X4aaSFM+/eczb7UjIX2Dlfo7hPqyt4m0A2gwM/li4STzhOoGrWQFGMW4lqq
+	NGRQ2WkJBKeREcjMcKyoJn6qyVxclqraoUCTTENtaAyYiMV6NxJPBP2LwZYCYrpVKYbHgyWF1GJJ9
+	PU57GRfLnY35sdedrR0XlBeOV+OtkwyTXuYXy8OM0PkTHdctRZDy//+205GG1OkAKl5qZIFn/fkHE
+	2FO15qcGYXS3cVIWdDVJKgPWb7aks91OVsRvy4YYwuMJKjFj6DkGbhzuuIm+GvRIHpGEx4HHV4Hoi
+	ZDtim0hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk1fG-0000000FL0h-3dj6;
-	Wed, 15 Jul 2026 15:36:50 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wk1n9-0000000FM3g-2QK7;
+	Wed, 15 Jul 2026 15:44:59 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk1fG-0000000FL0W-0fEW
+	id 1wk1n8-0000000FM3F-2f2p
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 15:36:50 +0000
+	Wed, 15 Jul 2026 15:44:58 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D613842E28;
-	Wed, 15 Jul 2026 15:36:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F23151F000E9;
-	Wed, 15 Jul 2026 15:36:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C9B9F6001D;
+	Wed, 15 Jul 2026 15:44:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7ACC11F000E9;
+	Wed, 15 Jul 2026 15:44:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784129809;
-	bh=yY805taQCjgb03o/s8e5sUsofMrXtbd/rx03espmDQw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=VygLZc03gz4xzJm+budUdm3rStKb6PFBOhsNxZQM0yXDPX70SIhaMelOv+5f3H8lb
-	 pz+OAsnmghx1L8QzstPAAnTqU2ML9N0M1WCURhWu8ijlIU8hYokpic9Uz3Z38vAbJC
-	 nsDnoKDLvjJr4/9iF9OmcTfcu+6ty2BYIm5j8MrxKXtr9RjRvg4QoCPurf+DSoyMEf
-	 KMvGIB80Ah1I93Ea1E6CZuXWzeVXDhudJGlkugb4+3Sx+zXQJTp/KAYXWOhp8g7Ril
-	 1wgbs3E9xuwpTHv2W3J6wljq31KKn/5B2ySg0h5+b/BH7lzt7RuUgdJqjdCh1oZtLx
-	 ieD241T8ApPLw==
-Date: Wed, 15 Jul 2026 21:06:46 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Stephan Gerhold <stephan.gerhold@linaro.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Thara Gopinath <thara.gopinath@gmail.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Udit Tiwari <quic_utiwari@quicinc.com>,
-	Md Sadre Alam <mdalam@qti.qualcomm.com>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Peter Ujfalusi <peter.ujfalusi@gmail.com>,
-	Michal Simek <michal.simek@amd.com>, Frank Li <Frank.Li@kernel.org>,
-	Andy Gross <agross@codeaurora.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	dmaengine@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Subject: Re: [PATCH v21 06/14] dmaengine: qcom: bam_dma: add support for BAM
- locking
-Message-ID: <alepDnRJmRLbFGRQ@vaman>
-References: <20260713-qcom-qce-cmd-descr-v21-0-bc2583e18475@oss.qualcomm.com>
- <20260713-qcom-qce-cmd-descr-v21-6-bc2583e18475@oss.qualcomm.com>
- <alYGGu7_3G6mJAzQ@linaro.org>
- <CAMRc=MevqXga1u-XC8LYc3hnjjzmdESntsSGYP25XECeeySfJA@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAMRc=MevqXga1u-XC8LYc3hnjjzmdESntsSGYP25XECeeySfJA@mail.gmail.com>
+	s=k20260515; t=1784130297;
+	bh=oScIehFNLVV6Ks2K1Q/+8RY9UPPqDbzPiGCzLfB1ONk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Lsv8XsarAjwRmT5pSLAM4xb1jKVASVgI//6qChlF8vms9nalzS+IYOPSadkp231pZ
+	 n14OOb+e1+fDZBasxdyAFtLYFQwZt1Tja85uQMBP5SNG5djGBGnRdhp1KApA3g9PxW
+	 B6MXHob+FpM6M3l0pFN3mwQa1R/TETjfNnuurjVsqkkoSpzECfZtMtAwe5dKHxqLRU
+	 v/ydBeczqHpCCgZVPdTWUFemud7sFswPzBTeaG2gZQUvmvma+KXXbqSymx3VaipF/m
+	 8PwZHALsLm0utsRH5IFDl51iKYHmyu9WeizolTYBTCOSijJfwUQ8tiggmcNpA6ptg7
+	 Q/uy/ua42au1A==
+Received: from [194.56.92.2] (helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wk1n5-00000005NeP-1TpK;
+	Wed, 15 Jul 2026 15:44:55 +0000
+Date: Wed, 15 Jul 2026 16:46:44 +0100
+Message-ID: <8733xk5k7v.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>,
+	WeiLin.Chang@arm.com,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: Re: [PATCH v15 26/37] KVM: arm64: WARN on injected undef exceptions
+In-Reply-To: <20260715142841.80544-27-steven.price@arm.com>
+References: <20260715142841.80544-1-steven.price@arm.com>
+	<20260715142841.80544-27-steven.price@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 194.56.92.2
+X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,120 +103,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15-07-26, 14:43, Bartosz Golaszewski wrote:
-> On Tue, 14 Jul 2026 11:49:14 +0200, Stephan Gerhold
-> <stephan.gerhold@linaro.org> said:
-> > On Mon, Jul 13, 2026 at 03:01:07PM +0200, Bartosz Golaszewski wrote:
-> >> Add support for BAM pipe locking. To that end: when starting DMA on an RX
-> >> channel - prepend the existing queue of issued descriptors with an
-> >> additional "dummy" command descriptor with the LOCK bit set. Once the
-> >> transaction is done (no more issued descriptors), issue one more dummy
-> >> descriptor with the UNLOCK bit.
-> >>
-> >> We *must* wait until the transaction is signalled as done because we
-> >> must not perform any writes into config registers while the engine is
-> >> busy.
-> >>
-> >> The dummy writes must be issued into a scratchpad register of the client
-> >> so provide a mechanism to communicate the right address via descriptor
-> >> metadata.
-> >>
-> >> Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
-> >> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> >
-> > Thanks for the fixes. The lock/unlock sequence looks good to me now,
-> > I commented on a couple of minor things below that would be good to fix
-> > (some of them are also reported by Sashiko).
-> >
+On Wed, 15 Jul 2026 15:28:28 +0100,
+Steven Price <steven.price@arm.com> wrote:
 > 
-> Thanks.
+> The RMM doesn't allow injection of a undefined exception into a realm
+> guest. Add a WARN to catch if this ever happens.
 > 
-> >> ---
-> >>  drivers/dma/qcom/bam_dma.c       | 191 +++++++++++++++++++++++++++++++++++++--
-> >>  include/linux/dma/qcom_bam_dma.h |  14 +++
-> >>  2 files changed, 198 insertions(+), 7 deletions(-)
-> >>
-> >> diff --git a/drivers/dma/qcom/bam_dma.c b/drivers/dma/qcom/bam_dma.c
-> >> index f3e713a5259c2c7c24cfdcec094814eb1202971a..f08549ee3872eece85884606d6ee9e540ee688ca 100644
-> >> --- a/drivers/dma/qcom/bam_dma.c
-> >> +++ b/drivers/dma/qcom/bam_dma.c
-> >> [...]
-> >> @@ -686,6 +702,35 @@ static int bam_slave_config(struct dma_chan *chan,
-> >>  	return 0;
-> >>  }
-> >>
-> >> +static int bam_metadata_attach(struct dma_async_tx_descriptor *desc, void *data, size_t len)
-> >> +{
-> >> +	struct bam_chan *bchan = to_bam_chan(desc->chan);
-> >> +	const struct bam_device_data *bdata = bchan->bdev->dev_data;
-> >> +	struct bam_desc_metadata *metadata = data;
-> >> +
-> >> +	if (!data)
-> >
-> > Doesn't really matter much, but since the parameter exists you might as
-> > well add
-> >
-> > 	&& len == sizeof(*metadata)
-> >
-> > here to be sure.
-> >
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> ---
+> Changes since v6:
+>  * if (x) WARN(1, ...) makes no sense, just WARN(x, ...)!
+> ---
+>  arch/arm64/kvm/inject_fault.c | 1 +
+>  1 file changed, 1 insertion(+)
 > 
-> Ok.
-> 
-> >> +		return -EINVAL;
-> >> +
-> >> +	if (!bdata->pipe_lock_supported)
-> >> +		/*
-> >> +		 * The client wants to use locking but this BAM version doesn't
-> >> +		 * support it. Don't return an error here as this will stop the
-> >> +		 * client from using DMA at all for no reason.
-> >> +		 */
-> >> +		return 0;
-> >> +
-> >> +	guard(spinlock_irqsave)(&bchan->vc.lock);
-> >> +
-> >> +	bchan->scratchpad_addr = metadata->scratchpad_addr;
-> >> +	bchan->direction = metadata->direction;
-> >> +
-> >> +	return 0;
-> >> +}
-> >> +
-> >> +static const struct dma_descriptor_metadata_ops bam_metadata_ops = {
-> >> +	.attach = bam_metadata_attach,
-> >> +};
-> >
-> > I'm not sure if we have discussed this before, but could we avoid
-> > re-programming the scratchpad_addr all the time by placing it into
-> > struct dma_slave_config -> peripheral_config? It still feels awkward to
-> > me to place a global constant configuration value into per-descriptor
-> > metadata.
+> diff --git a/arch/arm64/kvm/inject_fault.c b/arch/arm64/kvm/inject_fault.c
+> index 6492397b73d7..613f223bc7a3 100644
+> --- a/arch/arm64/kvm/inject_fault.c
+> +++ b/arch/arm64/kvm/inject_fault.c
+> @@ -327,6 +327,7 @@ void kvm_inject_size_fault(struct kvm_vcpu *vcpu)
+>   */
+>  void kvm_inject_undefined(struct kvm_vcpu *vcpu)
+>  {
+> +	WARN(vcpu_is_rec(vcpu), "Unexpected undefined exception injection to REC");
+>  	if (vcpu_el1_is_32bit(vcpu))
+>  		inject_undef32(vcpu);
+>  	else
 
-The concept is that a dmaengine can handle multiple peripherals, so the
-peripheral is always per desciptor
+No. WARN_ONCE at a push, but even then, this looks dodgy.
 
-> Yes, this was discussed several versions ago. I went with using
-> dmaengine_slave_config() until v11. I think Vinod or Dmitry requested we change
-> it to the metadata.
+Exceptions must be injectable. Otherwise, how do you respond to, for
+example, a sysreg access for a feature that is hidden from the guest?
 
-metadata seems better fit for this.
+Will the RMM perform this in KVM's stead?
 
-> >>  /**
-> >>   * bam_prep_slave_sg - Prep slave sg transaction
-> >>   *
-> >> [...]
-> >> @@ -802,6 +851,7 @@ static int bam_dma_terminate_all(struct dma_chan *chan)
-> >>  		}
-> >>
-> >>  		vchan_get_all_descriptors(&bchan->vc, &head);
-> >> +		bchan->bam_locked = false;
-> >
-> > I wonder about the implications of this. If the LOCK descriptor was
-> > already processed, will we cause a deadlock if we never submit the
-> > UNLOCK descriptor? Or I guess bam_reset_channel() might reset the lock
-> > as well?
-
-Good point
+	M.
 
 -- 
-~Vinod
+Jazz isn't dead. It just smells funny.
 
