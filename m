@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB0E3C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 06:22:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A85D9C4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 06:23:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q8e2F85Jk42cknJBTKAisusI5iJFywDQWX2RRkkLus4=; b=MHf562iXRrEqjLG4DPefBD8NYF
-	uyM8ANLdNzJ0MJ6iWFPnwQWwTq3O2Cn6tbCkqqY7W435e2UCL6CVPwjLWze3NRGLe1FSMQyzsk1W/
-	r0ZC2PFKlerePONOmGpfYs1hb5jFf+vr85p+uHzHiKK7q7y2rySv8566bp81N8q8yGuKHKRvl2Rn9
-	iB4tIPEgZPfsUDx7rc2Hu0DpceZpGgUYHh3sj2JK2KhUZXwF2Kh19cKddp05GPqnzAiF6pd/tlJ+q
-	z4C9WKoW4LKxLpNybiOZNZf6wcP0gHUaldbclXACICK7KikzIR0Jc9oi/FrE8kgGWU0+IXprgamma
-	mRgLIKyA==;
+	bh=ehG0wNhXC7EZrYAkm3RwKsx8ZO4vZ8QiozKkc4jo0Cw=; b=vLh+E7EQcIBdQBsS1+DjFZI9Q2
+	rJfHsJER0kbwqM2zk2vTzoC5C/Z2Czun50SJtLZ4zJ/6TyxOYjtbjtYd+EhY5za7uj5AKLUpfmTMU
+	RXlhwwwOX4cOHMIWW5JABNWn4NjMZBGoVWnTL143DbKUSSNq7DuFvpMBeBcXpEGBtjUXkpQoUcqqD
+	p76dUu7oxXcjTNNsulUCKhADDtrWKpEyNERMEWYMcDEDxvw/o8Scl/AhScf2K2nbuBpuDaoCLblFp
+	4F+6kOMbN2oq/47upODnhOV3EVOsXsjDflX/0s+aHd+I21+d3wV0Oct1/7uk2MUzDtHfbwarL5IEj
+	n8fD5Ihg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjt15-0000000Dsec-2ZVP;
-	Wed, 15 Jul 2026 06:22:47 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1wjt1V-0000000Dt7b-1evF;
+	Wed, 15 Jul 2026 06:23:13 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjt0x-0000000DsVp-0AVK
+	id 1wjt11-0000000DsZD-1CaM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 06:22:40 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-698bf053053so2734258a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 23:22:38 -0700 (PDT)
+	Wed, 15 Jul 2026 06:22:46 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-c1601d552a8so525824066b.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 23:22:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1784096557; x=1784701357; darn=lists.infradead.org;
+        d=amarulasolutions.com; s=google; t=1784096561; x=1784701361; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Q8e2F85Jk42cknJBTKAisusI5iJFywDQWX2RRkkLus4=;
-        b=gtnIyGM8mRtnonKuD4CsSI4YqbwPjXT8QEa5ROV0WNhkJNBp9ULkil2ywD/r2hvbkn
-         ltjURF5ClLMvfTluAAX2gEfBEGOxYXczu0gwrQ0jI5DvGZeCBmjebkBxC70jbPDTzknD
-         Dj6bnqAFP46PL6TUx04tplz0rz3mmAGrlIPn8=
+        bh=ehG0wNhXC7EZrYAkm3RwKsx8ZO4vZ8QiozKkc4jo0Cw=;
+        b=W1j9cPm7YegZ7791QdGUxvk+MPr0F3SOjWOMwzC8I630cMdjc/3svkwwuTIl0euyaT
+         bPMJpGko28PmCn37a6k9zWkcSdQ52c0n6pl1jxxo7mc3M41rZl4U3XTSBgM12bKRGk22
+         XZe6PhUoxCn/df1e3Ke5SjyR+QB4jlLFrNZwc=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784096557; x=1784701357;
+        d=1e100.net; s=20251104; t=1784096561; x=1784701361;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Q8e2F85Jk42cknJBTKAisusI5iJFywDQWX2RRkkLus4=;
-        b=REhLid7lOVoFaZ0xvvD4pypjKonzAKFeCps6P/fiYq9xwnZ0ISnqZ2QfgrcXI/PA8H
-         cPrGIPOmz3VTqZzEcqafKOx4QweT4Q2OCG9CdbnQRueLTSOVuKIB0nFkTJV6JNx/ynbH
-         WGcdd89NfUKO9RJZ1Gplem7bBesqcmCKsnAjtPsnSfQZSSoXA/Udtm4BQS5TGOmaBdFo
-         aIFynl2K+z4OkyEwra5ltejiJprrYxolvnZrCDHjSIJL13bTV1iNhTuiOOJZDG3PiYzt
-         H1PDkzCzYfMOyFOrXfEQI1DauSOCaoJE96tXeN6MmCFELY+klgyH8cFmzIR7QFndS3Yu
-         6FoQ==
-X-Forwarded-Encrypted: i=1; AHgh+RqplZYLnTfvTFxjkH546W9o487LQEC2+sBSr2gMHLo4WmsluNloycqkDnqW44lGokJUYa0loFvl/d48SppoaNC2@lists.infradead.org
-X-Gm-Message-State: AOJu0YyG1iLd/H1qBW0kGXEQxyZRmUMcxGzCi1Rc+Oap+fsxGw3ILRaD
-	zNMe++tpyTpTjnNlJpY4+ZlEPvc/ZTkXF9zq9imH9vnqC8TFUAji38qfEK56pA/aW+A=
-X-Gm-Gg: AfdE7cmvSRXv6jGshuzquZXKfUGxBu8tluRGDzu8qiIpeVm73yPvoS7Gl+Oq21p66wc
-	8xDahpbw/sJWjJiSGkIjPawB2hp9iexoZLmft4Slc98mysRQreQUz3dxu5Bqupr9KwWhsxu4rfx
-	dOHsx/OZmJngD+uctEzqyUpBh3dl+ZQ86MC0nX9ylXBRWZblauSB8hMNElbrAnycidBk3rJtTJy
-	/5tm+lVE5bwWiljf/2JmhILcDeHhQeIGsRT1dsdJ2pYdJBW9TvnRyFaNaAnuHQugFVxbru/9+NZ
-	JYlaVFDd+WOGuDzJjTmOzTjfiixp0WX1VeAyzFEnD+SPd41KVsr9ACx1AeHbLgrkj+YEgBhJnOa
-	zLkMoz6JFxR6QEjUcpv8A5IsGHyhbYr8nCJmgHbYbKGVbFj2F0zLSXkQXkf+nrRbUZIh2ZnsNPY
-	//2SnjTBJDsanqyXo50uM0nCO0R+l12LGqPDsIMJ0te8SEdLh8McJ4CR4fqi/0HeckOJto3icrS
-	KWClHF5RcYTviQWZ50MKwE=
-X-Received: by 2002:a17:907:9d19:b0:c16:6f41:8bf1 with SMTP id a640c23a62f3a-c166f419610mr273689066b.3.1784096557067;
-        Tue, 14 Jul 2026 23:22:37 -0700 (PDT)
+        bh=ehG0wNhXC7EZrYAkm3RwKsx8ZO4vZ8QiozKkc4jo0Cw=;
+        b=pDnqxiRiqUXHQQR54HMUSKOjtdoPXXhvPYDUBPrw7RPifvbW39lCq8+i8rMxaoRCzu
+         j2+0FZUFToT7x+mZkIow8n4y5EfgwLat1oLS+5ZCUThSFMi1qdsQBiULZ9muImjQYXny
+         WYcMII1U7dfDlLJQPksIxpeMEVg4TEQmDXfPLGVqM9tncH4usqZnb1MjQGVv9xBVb1UI
+         2cyWQaLZSFfs+nnSAJT8is1UHmilZONO8KaRQY97T/tjhOj8L6mktWkVPBChKS0fPBv9
+         nOr/CQzLh8HoPLJAhIGiu03EpVlEwqrHDvCm8zvY9lXsgkzCmnMO3XvsDdJQ6faC/245
+         GYDA==
+X-Forwarded-Encrypted: i=1; AHgh+Rqqq1+oC3pf/bntGGzfuYA7I0VCfzvrllXMzxFEYbIuCgmndWKAtP3T0xlPvqRLLQIRGlpHd3nbn6CEjPmQ9J5u@lists.infradead.org
+X-Gm-Message-State: AOJu0YwAgY9/pgVMIEyLYEtov/byF89K5Mo13PWPDUHpultQ8I9DZOP4
+	b/piTCx5o+VpRBehvyHtS8HHH2pY/wfi/tGpYBbxjolWh4pJ/NLPFcUQfRluOy5JYx8=
+X-Gm-Gg: AfdE7clccCBEDK8ebR7UTCu7Ckuz0E38D/1I4Y/cSBxVUEbWfXXgwW9AWIvIEKEqzTM
+	p/HWNuv/0KhHqQYdijTsZMl65Veu2aXw1Y8G4kyMDfhGJ+9wTuG7ZSHdKO1RQK+9IIBpcwOMPJf
+	9Dcij5rr0XLemX3efZwlyHuA5VmiT5EHBJIqlZbzFCwjdOLYEGlNHH5iLK03rNPAlXpkOvp1AQb
+	xY2fQzh+Vb7PuVd17aBW13Bfak8pAb3zau6Mq40fFpqo0vjtzBXn2HerM51z/cat6HyH/wyM6a4
+	vXHyKvekG3EYMMt8LLvCK5jjGmcRQgr9UksdV00tYHZNSVVs6E5FTxB0Kp/M27q1fCEwAiu7cZ4
+	zznndUOafXRIlx/7C6npUwJGZ6KRfIme9HL9khvNwtF0Nxly1AsKLR03fvKWchzQC2oDrqsf+Cd
+	rQM1eMPIYVpWCbVWKQpicoXYtbBJE7yWggnyqpIDwCr1FRGTOrsYew3ukTFWT8wSMwlw3K9LSHE
+	YBsuW776j2d2zw2YFdajZ4=
+X-Received: by 2002:a17:907:3fa0:b0:c12:34f0:49b6 with SMTP id a640c23a62f3a-c1667b9fc15mr331888666b.57.1784096561463;
+        Tue, 14 Jul 2026 23:22:41 -0700 (PDT)
 Received: from dario-ThinkPad-P14s-Gen-5.. ([2.196.41.101])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c15d0c3cf1esm1028820366b.44.2026.07.14.23.22.35
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c15d0c3cf1esm1028820366b.44.2026.07.14.23.22.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jul 2026 23:22:36 -0700 (PDT)
+        Tue, 14 Jul 2026 23:22:41 -0700 (PDT)
 From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 To: linux-kernel@vger.kernel.org
 Cc: michael@amarulasolutions.com,
@@ -82,17 +82,17 @@ Cc: michael@amarulasolutions.com,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com
-Subject: [RESEND PATCH v7 12/16] arm64: dts: st: add spi1 pins for stm32mp25
-Date: Wed, 15 Jul 2026 08:20:29 +0200
-Message-ID: <20260715062201.3599458-13-dario.binacchi@amarulasolutions.com>
+Subject: [RESEND PATCH v7 14/16] arm64: dts: st: support Engicam MicroGEA-STM32MP257 SoM
+Date: Wed, 15 Jul 2026 08:20:31 +0200
+Message-ID: <20260715062201.3599458-15-dario.binacchi@amarulasolutions.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260715062201.3599458-1-dario.binacchi@amarulasolutions.com>
 References: <20260715062201.3599458-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_232239_105477_14A64753 
-X-CRM114-Status: GOOD (  10.61  )
+X-CRM114-CacheID: sfid-20260714_232243_344375_656EA6FD 
+X-CRM114-Status: GOOD (  15.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,51 +107,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the spi1 pins used on MicroGEA-STM32MP257-RMM board.
+Support Engicam MicroGEA-STM32MP257 SoM with:
 
+ - 8 GB eMMC Flash
+ - 2 GB LPDDR4 DRAM
+
+The SoM also provides an Ethernet MAC, but Ethernet support is not
+enabled at this stage due to a known silicon limitation documented in
+[1].
+
+This corresponds to section 2.21.2 ("ETH1 RMII mode could have CRC
+errors"), where CRC errors may occur in ETH1 RMII direct mode when
+directly connected to I/Os.
+
+The workaround requires use of the Ethernet switch (ETHSW), which
+introduces additional DT bindings and topology complexity. This is
+intended to be addressed in a separate patch series.
+
+[1] https://www.st.com/resource/en/errata_sheet/es0598-stm32mp23xx25xx-device-errata-stmicroelectronics.pdf
 Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+
 ---
 
-(no changes since v1)
+(no changes since v4)
 
- arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi | 24 +++++++++++++++++++
- 1 file changed, 24 insertions(+)
+Changes in v4:
+- Drop inclusion of stm32mp25xf.dtsi, we are using stm32mp257d.
 
-diff --git a/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi b/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi
-index c816a6aece47..4e570e2e5157 100644
---- a/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi
-+++ b/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi
-@@ -702,6 +702,30 @@ pins {
- 		};
- 	};
- 
-+	/omit-if-no-ref/
-+	spi1_pins_a: spi1-0 {
-+		pins1 {
-+			pinmux = <STM32_PINMUX('G', 6, AF3)>, /* SPI1_SCK */
-+				 <STM32_PINMUX('I', 5, AF3)>; /* SPI1_MOSI */
-+			drive-push-pull;
-+			bias-disable;
-+			slew-rate = <1>;
-+		};
-+		pins2 {
-+			pinmux = <STM32_PINMUX('F', 12, AF3)>; /* SPI1_MISO */
-+			bias-disable;
-+		};
-+	};
+Changes in v3:
+- Fix a typo in the URL
+
+ .../dts/st/stm32mp257-engicam-microgea.dtsi   | 63 +++++++++++++++++++
+ 1 file changed, 63 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/st/stm32mp257-engicam-microgea.dtsi
+
+diff --git a/arch/arm64/boot/dts/st/stm32mp257-engicam-microgea.dtsi b/arch/arm64/boot/dts/st/stm32mp257-engicam-microgea.dtsi
+new file mode 100644
+index 000000000000..5b4287e86def
+--- /dev/null
++++ b/arch/arm64/boot/dts/st/stm32mp257-engicam-microgea.dtsi
+@@ -0,0 +1,63 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2026 Amarula Solutions, Dario Binacchi <dario.binacchi@amarulasolutions.com>
++ * Copyright (C) 2026 Engicam srl
++ */
 +
-+	/omit-if-no-ref/
-+	spi1_sleep_pins_a: spi1-sleep-0 {
-+		pins1 {
-+			pinmux = <STM32_PINMUX('G', 6, ANALOG)>, /* SPI1_SCK */
-+				 <STM32_PINMUX('I', 5, ANALOG)>, /* SPI1_MOSI */
-+				 <STM32_PINMUX('F', 12, ANALOG)>; /* SPI1_MISO */
-+		};
-+	};
++/dts-v1/;
 +
- 	/omit-if-no-ref/
- 	spi3_pins_a: spi3-0 {
- 		pins1 {
++#include <dt-bindings/regulator/st,stm32mp25-regulator.h>
++#include "stm32mp257.dtsi"
++#include "stm32mp25-pinctrl.dtsi"
++#include "stm32mp25xxai-pinctrl.dtsi"
++
++/ {
++	model = "Engicam MicroGEA STM32MP257 SoM";
++	compatible = "engicam,microgea-stm32mp257", "st,stm32mp257";
++
++	memory@80000000 {
++		device_type = "memory";
++		reg = <0x0 0x80000000 0x0 0x80000000>;
++	};
++};
++
++&scmi_regu {
++	scmi_vddio1: regulator@0 {
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++	};
++	scmi_vddcore: regulator@b {
++		reg = <VOLTD_SCMI_STPMIC2_BUCK2>;
++		regulator-name = "vddcore";
++	};
++	scmi_v1v8: regulator@e {
++		reg = <VOLTD_SCMI_STPMIC2_BUCK5>;
++		regulator-name = "v1v8";
++	};
++	scmi_v3v3: regulator@10 {
++		reg = <VOLTD_SCMI_STPMIC2_BUCK7>;
++		regulator-name = "v3v3";
++	};
++	scmi_vdd3v3_usb: regulator@14 {
++		reg = <VOLTD_SCMI_STPMIC2_LDO4>;
++		regulator-name = "vdd3v3_usb";
++	};
++};
++
++/* eMMC */
++&sdmmc2 {
++	pinctrl-names = "default", "opendrain", "sleep";
++	pinctrl-0 = <&sdmmc2_b4_pins_a &sdmmc2_d47_pins_a>;
++	pinctrl-1 = <&sdmmc2_b4_od_pins_a &sdmmc2_d47_pins_a>;
++	pinctrl-2 = <&sdmmc2_b4_sleep_pins_a &sdmmc2_d47_sleep_pins_a>;
++	non-removable;
++	no-sd;
++	no-sdio;
++	st,neg-edge;
++	bus-width = <8>;
++	vmmc-supply = <&scmi_v3v3>;
++	vqmmc-supply = <&scmi_vddio2>;
++	mmc-ddr-1_8v;
++	mmc-hs200-1_8v;
++	status = "okay";
++};
 -- 
 2.43.0
 
