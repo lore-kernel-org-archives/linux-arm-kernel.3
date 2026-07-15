@@ -4,69 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBDF1C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 07:29:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05EA8C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 07:30:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oxqnySUc8Q87H9Bf1NcMH+aFYiamz3WK9FMyyvPdOHQ=; b=n3VNRybK5vVW5k15m5bm2eYs/g
-	ckdhX9ZaH75nknd9bGxeQNgonmCS3E0u3F5KsguDZcGAQkWUhRtlFoVjU1891ZVB7OEyKix3ePQ86
-	5w58lRXkEW3XvWdJQC075SpnWU82hOxi2MV3m+FSyBNmmSL8hw+t5ljfXxH38xbem76aDiCVC2ycL
-	iAIzGckRfvhe0xnUL40re2/TjzuP6GRYoDme9Rv+tEgjqhSFzal0X+CXJzJpxokUtK0/nCloQ3Xxy
-	cGkmHQAjRvdFRltFnOEnDfRkiZycGpkrgO/raK3PmK9rqSl0ssZnWyTvJ/n9PuCx7QXM6DIABuR39
-	zC/smDIA==;
+	bh=7QT8G1UVbzpTbRLvZwmkB+akGdPhvpGnei6tcCmYvak=; b=OkHM7VdfzTc3t+7soWBFROKjSW
+	ALLK1elsjIfyQRPnooV1ui7fNWSVaJrEPzl57+wUVp9plCCHfuCNNhL1DpbpNezTaKtJIChWjEYQl
+	/DyPvGYCuIy/74Xm95OhRnbbRW9Fm3WqRI2GKCa5yTKv8ceTdKRIHz5ySeSgcdasqZn7nEvEjsvjX
+	WglTGK9yhCK135ixUnq2LvrBO5RtAJBhuVvRptzZQvGLE3qwJeRUs1aK6O5YxO0b5U50tFxbGxvB+
+	Zt1y2S3OdIB7SHK+9kwAXtKh57pFTD8eQHUvZQnXuYVTy9wCYZUASkLNhh+e0JNsKMwdl59RjV20l
+	6Jz5TFNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wju3l-0000000E1kI-0Awa;
-	Wed, 15 Jul 2026 07:29:37 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wju3g-0000000E1iC-0qGD;
-	Wed, 15 Jul 2026 07:29:32 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 86669600BB;
-	Wed, 15 Jul 2026 07:29:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AC081F000E9;
-	Wed, 15 Jul 2026 07:29:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784100571;
-	bh=oxqnySUc8Q87H9Bf1NcMH+aFYiamz3WK9FMyyvPdOHQ=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=RJ0obCk28CVa5NZXZuu1pUdenmJYIQlEs6MMF67avt9Mea6LpcXDIVL7emcqswy6r
-	 UgkNH7iltfdTsoSvDqFc79LhJfEhvqLhukc8Y/Q7laC5Z3yORMErsR1kYSgdpXfpDv
-	 H294L8Bf0ZCUGCplE4gq8sNMKQkSdNub3bGtTv3li48WsKckEvHNQXqbU3oeh1YSIp
-	 LcPVP513nmLfDBhvxLMKjr6P7w/49KZEyBsdIErNONwnpRw9kAf9IjWCSHp51bmaed
-	 mJ2iLNKEjZ3M2DA8TSMw2ugIPQced7dtn11Lt7Kygqdu+qA7a2QO/oKJt7ahGJJVzL
-	 mLJU3KRFXEyxA==
-From: Thomas Gleixner <tglx@kernel.org>
-To: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
- Arnd Bergmann
- <arnd@arndb.de>, Andy Lutomirski <luto@kernel.org>, Vincenzo Frascino
- <vincenzo.frascino@arm.com>, Nathan Chancellor <nathan@kernel.org>,
- Nicolas Schier <nsc@kernel.org>, Thomas Bogendoerfer
- <tsbogend@alpha.franken.de>, Daniel Lezcano <daniel.lezcano@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, Paul
- Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Huacai Chen
- <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>
-Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-kbuild@vger.kernel.org, linux-mips@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- loongarch@lists.linux.dev, Thomas =?utf-8?Q?Wei=C3=9Fschuh?=
- <thomas.weissschuh@linutronix.de>
-Subject: Re: [PATCH 2/7] vDSO: Make clockmode constants available without
- CONFIG_GENERIC_GETTIMEOFDAY
-In-Reply-To: <20260709-vdso-arch-clockmodes-v1-2-3fd780bbf851@linutronix.de>
-References: <20260709-vdso-arch-clockmodes-v1-0-3fd780bbf851@linutronix.de>
- <20260709-vdso-arch-clockmodes-v1-2-3fd780bbf851@linutronix.de>
-Date: Wed, 15 Jul 2026 09:29:26 +0200
-Message-ID: <87zezsogmh.ffs@fw13>
+	id 1wju4e-0000000E20H-2FiL;
+	Wed, 15 Jul 2026 07:30:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wju4b-0000000E1zX-0VUG
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Jul 2026 07:30:30 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2C183339;
+	Wed, 15 Jul 2026 00:30:24 -0700 (PDT)
+Received: from [10.57.2.177] (unknown [10.57.2.177])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4AE453F915;
+	Wed, 15 Jul 2026 00:30:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784100628; bh=4ya+7e7Gq+zYCLAtPdaipzA7BT6Sc/L0MJYPLfGGWEY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=JQ9F4qkPn9tb7PtaqYn/7qPnch21Mul+K7fQNjLNWgOpnIKel1gNAKRYTC9uotjov
+	 c3M5hpvDf55JmHNvw8uXlsl5hQH9luF44JI+2PvOFg22OABp05XBT23oTj/av73sY6
+	 z2XaX3Sm0SU/mHP//r9Jf2FLW7ekkjiUJoMYC3cQ=
+Message-ID: <a2dda094-4f91-4af8-a0d2-646e526dcb85@arm.com>
+Date: Wed, 15 Jul 2026 08:30:26 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 3/3] thermal/drivers/imx: Add calibration offset
+ support
+To: Haoning.CHENG@cn.bosch.com
+Cc: linux-pm@vger.kernel.org, Pengutronix Kernel Team
+ <kernel@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ Fabio Estevam <festevam@gmail.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Rob Herring <robh@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>
+References: <20260714-b4-symana21-11221-imx-thermal-support-upstream-6-18-v8-0-d54d8690e16e@cn.bosch.com>
+ <20260714-b4-symana21-11221-imx-thermal-support-upstream-6-18-v8-3-d54d8690e16e@cn.bosch.com>
+Content-Language: en-US
+From: Lukasz Luba <lukasz.luba@arm.com>
+In-Reply-To: <20260714-b4-symana21-11221-imx-thermal-support-upstream-6-18-v8-3-d54d8690e16e@cn.bosch.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260715_003029_246274_501920EE 
+X-CRM114-Status: GOOD (  27.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,57 +79,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 09 2026 at 13:32, Thomas Wei=C3=9Fschuh wrote:
-> diff --git a/include/asm-generic/Kbuild b/include/asm-generic/Kbuild
-> index 15df9dcb42a5..2bc00c67dc54 100644
-> --- a/include/asm-generic/Kbuild
-> +++ b/include/asm-generic/Kbuild
-> @@ -62,6 +62,7 @@ mandatory-y +=3D topology.h
->  mandatory-y +=3D trace_clock.h
->  mandatory-y +=3D uaccess.h
->  mandatory-y +=3D unwind_user.h
-> +mandatory-y +=3D vdso/clocksource.h
->  mandatory-y +=3D vermagic.h
->  mandatory-y +=3D vga.h
->  mandatory-y +=3D video.h
-> diff --git a/include/asm-generic/vdso/clocksource.h b/include/asm-generic=
-/vdso/clocksource.h
-> new file mode 100644
-> index 000000000000..e69de29bb2d1
-> diff --git a/include/vdso/clocksource.h b/include/vdso/clocksource.h
-> index c682e7c60273..63ee8c4ea15c 100644
-> --- a/include/vdso/clocksource.h
-> +++ b/include/vdso/clocksource.h
-> @@ -4,9 +4,12 @@
->=20=20
->  #include <vdso/limits.h>
->=20=20
-> -#ifdef CONFIG_GENERIC_GETTIMEOFDAY
->  #include <asm/vdso/clocksource.h>
-> -#endif /* CONFIG_GENERIC_GETTIMEOFDAY */
+
+
+On 7/14/26 11:28, Haoning CHENG via B4 Relay wrote:
+> From: Haoning CHENG <Haoning.CHENG@cn.bosch.com>
+> 
+> Some boards need a small per-design correction to align the reported CPU
+> temperature with board-level measurements. Read the optional
+> fsl,temp-calibration-offset-millicelsius property from DT and apply it
+> uniformly to the i.MX6/6SX/7D calibration formulas.
+> 
+> The offset is applied symmetrically at two points to ensure the thermal
+> framework sees calibrated temperatures while hardware thresholds remain
+> correctly positioned:
+> 
+> 1. In imx_set_alarm_temp() and imx_set_panic_temp(): the temperature
+>     threshold is *subtracted* by the offset before being converted to a
+>     hardware register value. This shifts the hardware IRQ trigger to the
+>     physical temperature that corresponds to the intended threshold.
+> 
+> 2. In imx_get_temp(): after computing physical temperature from the
+>     hardware register, the offset is *added* back. The thermal framework
+>     always sees the calibrated temperature.
+> 
+> For example, if DT sets offset = +3000 m°C (board reads 3°C too low)
+> and the passive trip is 95°C:
+> 
+>    imx_set_alarm_temp(95000):
+>      alarm_temp = 95000 - 3000 = 92000
+>      → hardware register programmed for 92°C physical
+> 
+>    Hardware IRQ fires at 92°C physical
+> 
+>    imx_get_temp():
+>      reads hardware, computes 92°C physical
+>      *temp = 92000 + 3000 = 95000
+>      → thermal framework sees 95°C → correct trip
+> 
+> When the property is not present, the offset defaults to 0, preserving
+> the current behavior.
+> 
+> Signed-off-by: Haoning CHENG <Haoning.CHENG@cn.bosch.com>
+> ---
+>   drivers/thermal/imx_thermal.c | 27 +++++++++++++++++++++++++++
+>   1 file changed, 27 insertions(+)
+> 
+> diff --git a/drivers/thermal/imx_thermal.c b/drivers/thermal/imx_thermal.c
+> index 7f7d1116b9d6..d471acc16bce 100644
+> --- a/drivers/thermal/imx_thermal.c
+> +++ b/drivers/thermal/imx_thermal.c
+> @@ -85,6 +85,10 @@ enum imx_thermal_trip {
+>   #define TEMPMON_IMX6SX			2
+>   #define TEMPMON_IMX7D			3
+>   
+> +/* Calibration offset limits (±20 °C in millicelsius) */
+> +#define IMX_TEMP_CALIB_OFFSET_MIN	(-20000)
+> +#define IMX_TEMP_CALIB_OFFSET_MAX	20000
 > +
-> +#if !IS_ENABLED(CONFIG_GENERIC_GETTIMEOFDAY) && defined(VDSO_ARCH_CLOCKM=
-ODES)
-> +/* Unlinkable dummy stubs */
-> +extern int VDSO_ARCH_CLOCKMODES;
-> +#endif
+>   struct thermal_soc_data {
+>   	u32 version;
+>   
+> @@ -207,6 +211,7 @@ struct imx_thermal_data {
+>   	struct regmap *tempmon;
+>   	u32 c1, c2; /* See formula in imx_init_calib() */
+>   	int temp_max;
+> +	s32 calibration_offset;
+>   	int alarm_temp;
+>   	int last_temp;
+>   	bool irq_enabled;
+> @@ -223,6 +228,7 @@ static void imx_set_panic_temp(struct imx_thermal_data *data,
+>   	struct regmap *map = data->tempmon;
+>   	int critical_value;
+>   
+> +	panic_temp -= data->calibration_offset;
+>   	critical_value = (data->c2 - panic_temp) / data->c1;
+>   
+>   	regmap_write(map, soc_data->panic_alarm_ctrl + REG_CLR,
+> @@ -239,6 +245,7 @@ static void imx_set_alarm_temp(struct imx_thermal_data *data,
+>   	int alarm_value;
+>   
+>   	data->alarm_temp = alarm_temp;
+> +	alarm_temp -= data->calibration_offset;
+>   
+>   	if (data->socdata->version == TEMPMON_IMX7D) {
+>   		if (alarm_temp >= 0)
+> @@ -283,6 +290,7 @@ static int imx_get_temp(struct thermal_zone_device *tz, int *temp)
+>   		*temp = (n_meas - data->c1 + 25) * 1000;
+>   	else
+>   		*temp = data->c2 - n_meas * data->c1;
+> +	*temp += data->calibration_offset;
+>   
+>   	/* Update alarm value to next higher trip point for TEMPMON_IMX6Q */
+>   	if (data->socdata->version == TEMPMON_IMX6Q) {
+> @@ -635,6 +643,25 @@ static int imx_thermal_probe(struct platform_device *pdev)
+>   
+>   	platform_set_drvdata(pdev, data);
+>   
+> +	if (of_property_present(dev->of_node,
+> +				"fsl,temp-calibration-offset-millicelsius")) {
+> +		ret = of_property_read_s32(dev->of_node,
+> +					   "fsl,temp-calibration-offset-millicelsius",
+> +					   &data->calibration_offset);
+> +		if (ret)
+> +			return dev_err_probe(dev, ret,
+> +					     "failed to read calibration offset\n");
+> +
+> +		if (data->calibration_offset < IMX_TEMP_CALIB_OFFSET_MIN ||
+> +		    data->calibration_offset > IMX_TEMP_CALIB_OFFSET_MAX)
+> +			return dev_err_probe(dev, -EINVAL,
+> +					     "calibration offset %d millicelsius out of range\n",
+> +					     data->calibration_offset);
+> +
+> +		dev_dbg(dev, "calibration offset: %d millicelsius\n",
+> +			data->calibration_offset);
+> +	}
+> +
+>   	if (of_property_present(dev->of_node, "nvmem-cells")) {
+>   		ret = imx_init_from_nvmem_cells(pdev);
+>   		if (ret)
+> 
 
-I'm utterly confused by this. What's this unlinkable stub for?
 
-The only usage of VDSO_ARCH_CLOCKMODES is in enum vdso_clock_modes where
-it is guarded with CONFIG_GENERIC_GETTIMEOFDAY.
-
-And your change log says:
-
-> Provide unlinkable dummy definitions. These can be used with
-> IS_ENABLED(CONFIG_GENERIC_GETTIMEOFDAY).
-
-which is even more confusing because that's related to the actual
-architecture specific defines and not to VDSO_ARCH_CLOCKMODES.
-
-None of this makes sense to me.
-
-Thanks,
-
-        tglx
+Reviewed-by: Lukasz Luba <lukasz.luba@arm.com>
 
