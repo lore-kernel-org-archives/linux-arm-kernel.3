@@ -4,86 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8933CC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 15:33:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52CB4C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 15:36:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0mg3ZeFY1mH/lkxcwLQcXVtiMYVBxfdswbYpOEBR4q8=; b=A32iPXowICaOki9XEdI7bg9yit
-	NrBJ0C3QEbV9cZ36GSXk5dXx94Ow7T5c6SJuCRiAetfade4o9LnsDRYtccCa4Tdt8uet21mSOzWRJ
-	IkKTDCiJO4JYhctBPaFU7a+Gcxkj5frYGoDR1F5jdxDw7zRyU5JAbBQjGf5ZpjAD4F2e60Ucby9tW
-	NTGIRqvL/PKmwNnxsJnSaYZFAD97vWHuL4fe+g+VYMblsPAB2bT12n50LPXxhKjLr2AjUn42O7leQ
-	rXg8etjzsRf25cPHtuoVBeSX1YeFEjzI/gV+ZdhNrb0G2mOLOOIdWZS7JYGXNiPpEDKyNP8yrYf06
-	s8czqRkw==;
+	bh=yY805taQCjgb03o/s8e5sUsofMrXtbd/rx03espmDQw=; b=nNuhMmjc/2yovf6/LDEZtTkPZD
+	alV/J9oXvGYLXMoKVxzYs/EXXyvRIybqbCV9dnRBVnKb6J3OohCGOm1phdpeGXHJL+54j0eW+XSja
+	8rCg64uQyS1jyluTBtZ07/WxQta6Y+51OKiYnB4eaDWDOTkYZLm/ChOT9HVpSqI0NiK4WC7PO6mT0
+	QwVG+cHlFtpLQhvkG/mDJgEKZ6MiEJeNN+LEtEfSO/zbgOcoMEJJ091d2tXOKc9xl/wCzjXkshpVA
+	W/N+rbELRAu8ouZAaymjPCcEOEa+YggkSAYNMku7QOkC0paBukfpoyTqMKmjs/fJ+5Ej+x/tAzoq0
+	T+qomH+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk1c3-0000000FKbg-1tiO;
-	Wed, 15 Jul 2026 15:33:31 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1wk1fG-0000000FL0h-3dj6;
+	Wed, 15 Jul 2026 15:36:50 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk1bz-0000000FKaT-20BW
+	id 1wk1fG-0000000FL0W-0fEW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 15:33:29 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-845b6d9bf39so2346854b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 08:33:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1784129607; x=1784734407; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=0mg3ZeFY1mH/lkxcwLQcXVtiMYVBxfdswbYpOEBR4q8=;
-        b=Py+a4S2TCAzGakNISCKb/tU0Hz+YyREGn3LlXQJEJ2h4hO1U7X1wErIZGs0ovNbxoK
-         TNh9zfEegfLy2tYyEcQNBfsZd/BZDMTrtrxfLAZpBicRLIiWPEnvt2pwNJMUZqU+kvB7
-         jndY2B0FU0Ou0u2m5bc4hmWJ7bTjVnfSg2O7xZXzqDX3Z1YLnM7Yxa2LhP+FWFeP16dy
-         F50Di+mjkRkqpyOuI/qnBSx4HytIi6Yqs0NGBypoPK/1cJQQy3RsBA9Qn5UvsfNeKDtv
-         5jknHslblX7c7xDQyFJ5S/Sd52Rf8SxmPoxJLnsDrwhsSDiC4RQ2eC1YpDnWIJHcFWcc
-         VngQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784129607; x=1784734407;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=0mg3ZeFY1mH/lkxcwLQcXVtiMYVBxfdswbYpOEBR4q8=;
-        b=ax2is+hYHBZDtMrZelwCremttLnFgUbl6s+qTbKeUVhGnrhc2z+Kdawqy8i29jT1ba
-         3vhG3KA+hYPrqdYATDbQPhVerpvEpb6DyyclPfCxMPwgVV69UrSwsqmkfZleeFaWIzYt
-         kVVMMUDgEk91gwsknQh2pxutXFYkcVCuvPjdlyM8oeR6foyWprYKQCaEQ4zNQDYl8KK+
-         SUYV8r9oN+ws7ibtC6cTXlbleggIfuLBGNibYkmskkziYtg4JYGrkYegGyvHmjUbSQ0h
-         WW7zv4i02DLEZPmRMsfzC5tFkE++bhsHFo8YwL0IhS/gYlpSLbH/Us9FSvE8wg2h/Szk
-         XrKQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rq1S7oXm4zZJntHDmJ/jLWLhK59LpS2ipBt0nGmMVy7ChEPHPSKaiXWgy7JbMdeRUsVRI26C+UfmiA8XEtIkw1x@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywd2wwSAbE9DuY5CNSpAFir23BZ+CdlE3wQgbDHZ4lLJGVQ04Fr
-	K4GDMchp1v+6xCZbyxA+ZVS9/71UTwokuOAO6vEePcghCGf1hIfGEwLT7pyeM9S3nAE=
-X-Gm-Gg: AfdE7cmC0pyGhag8u8Cw+eAuvG1xHlnl5i6wphHoz9pB2aXqKmbFYuAsxc9c/YbLcPv
-	VJcTT9hT/33p44dT30/ybL/CBPyo4AtjTz7iVMBvqCLr9K+51E1UUXuNWZ4xt1x2M4WdDtvXGgu
-	97eOwTmPohTC5fv4BZdR/kUMQVN/STUv4aguscVXprzQ6FnMks1vhMUWSxB3v5ksKyUbLvE7XyX
-	eAftVwgyjrFHwBMEZC2yyqyx96kOiABr4dQANJTSbixU7+8qpb7fabqE9wEL17lmW4y3U6G1jQi
-	v3GoNPhEbl2j557vYciYQkQfnSLROwKrz1JmZadHitLxhG4lvzxDb1DQDFSEyTDRXIvCwew7P+j
-	yg7tt4gxRB/C3+/LV5RpPB68uzWV3dl2ACjq7eTm2xkR3PNlJ6GudILd14aNRJtL7f/LFHS0KSc
-	j22I+3+EnZx2be4qrd
-X-Received: by 2002:a05:6a00:4f95:b0:847:9803:ec6f with SMTP id d2e1a72fcca58-84870373138mr20935586b3a.10.1784129606555;
-        Wed, 15 Jul 2026 08:33:26 -0700 (PDT)
-Received: from p14s ([2604:3d09:148c:c800:4f38:9a5e:fd18:7a9b])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84a4f7de23asm3373865b3a.49.2026.07.15.08.33.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jul 2026 08:33:26 -0700 (PDT)
-Date: Wed, 15 Jul 2026 09:33:23 -0600
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH] dt-bindings: remoteproc: Drop redundant $ref of
- firmware-name property
-Message-ID: <aleoQy-YePWJC0sW@p14s>
-References: <20260712145718.126492-2-krzysztof.kozlowski@oss.qualcomm.com>
+	Wed, 15 Jul 2026 15:36:50 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D613842E28;
+	Wed, 15 Jul 2026 15:36:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F23151F000E9;
+	Wed, 15 Jul 2026 15:36:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784129809;
+	bh=yY805taQCjgb03o/s8e5sUsofMrXtbd/rx03espmDQw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=VygLZc03gz4xzJm+budUdm3rStKb6PFBOhsNxZQM0yXDPX70SIhaMelOv+5f3H8lb
+	 pz+OAsnmghx1L8QzstPAAnTqU2ML9N0M1WCURhWu8ijlIU8hYokpic9Uz3Z38vAbJC
+	 nsDnoKDLvjJr4/9iF9OmcTfcu+6ty2BYIm5j8MrxKXtr9RjRvg4QoCPurf+DSoyMEf
+	 KMvGIB80Ah1I93Ea1E6CZuXWzeVXDhudJGlkugb4+3Sx+zXQJTp/KAYXWOhp8g7Ril
+	 1wgbs3E9xuwpTHv2W3J6wljq31KKn/5B2ySg0h5+b/BH7lzt7RuUgdJqjdCh1oZtLx
+	 ieD241T8ApPLw==
+Date: Wed, 15 Jul 2026 21:06:46 +0530
+From: Vinod Koul <vkoul@kernel.org>
+To: Bartosz Golaszewski <brgl@kernel.org>
+Cc: Stephan Gerhold <stephan.gerhold@linaro.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Thara Gopinath <thara.gopinath@gmail.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Udit Tiwari <quic_utiwari@quicinc.com>,
+	Md Sadre Alam <mdalam@qti.qualcomm.com>,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Peter Ujfalusi <peter.ujfalusi@gmail.com>,
+	Michal Simek <michal.simek@amd.com>, Frank Li <Frank.Li@kernel.org>,
+	Andy Gross <agross@codeaurora.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	dmaengine@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Subject: Re: [PATCH v21 06/14] dmaengine: qcom: bam_dma: add support for BAM
+ locking
+Message-ID: <alepDnRJmRLbFGRQ@vaman>
+References: <20260713-qcom-qce-cmd-descr-v21-0-bc2583e18475@oss.qualcomm.com>
+ <20260713-qcom-qce-cmd-descr-v21-6-bc2583e18475@oss.qualcomm.com>
+ <alYGGu7_3G6mJAzQ@linaro.org>
+ <CAMRc=MevqXga1u-XC8LYc3hnjjzmdESntsSGYP25XECeeySfJA@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260712145718.126492-2-krzysztof.kozlowski@oss.qualcomm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_083327_539108_EE61AD41 
-X-CRM114-Status: GOOD (  17.31  )
+In-Reply-To: <CAMRc=MevqXga1u-XC8LYc3hnjjzmdESntsSGYP25XECeeySfJA@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,54 +86,123 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Kevin Hilman <khilman@baylibre.com>, Bjorn Andersson <andersson@kernel.org>, linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-amlogic@lists.infradead.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, Jerome Brunet <jbrunet@baylibre.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 12, 2026 at 04:57:19PM +0200, Krzysztof Kozlowski wrote:
-> The DT schema core defines the type ($ref) of 'firmware-name' property
-> as string-array, so individual schemas do not need to.  They also should
-> not redefine it to a single string, but instead just set number of
-> expected firmware names.
+On 15-07-26, 14:43, Bartosz Golaszewski wrote:
+> On Tue, 14 Jul 2026 11:49:14 +0200, Stephan Gerhold
+> <stephan.gerhold@linaro.org> said:
+> > On Mon, Jul 13, 2026 at 03:01:07PM +0200, Bartosz Golaszewski wrote:
+> >> Add support for BAM pipe locking. To that end: when starting DMA on an RX
+> >> channel - prepend the existing queue of issued descriptors with an
+> >> additional "dummy" command descriptor with the LOCK bit set. Once the
+> >> transaction is done (no more issued descriptors), issue one more dummy
+> >> descriptor with the UNLOCK bit.
+> >>
+> >> We *must* wait until the transaction is signalled as done because we
+> >> must not perform any writes into config registers while the engine is
+> >> busy.
+> >>
+> >> The dummy writes must be issued into a scratchpad register of the client
+> >> so provide a mechanism to communicate the right address via descriptor
+> >> metadata.
+> >>
+> >> Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
+> >> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+> >
+> > Thanks for the fixes. The lock/unlock sequence looks good to me now,
+> > I commented on a couple of minor things below that would be good to fix
+> > (some of them are also reported by Sashiko).
+> >
 > 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> ---
->  .../devicetree/bindings/remoteproc/amlogic,meson-mx-ao-arc.yaml | 2 +-
->  .../devicetree/bindings/remoteproc/ti,pru-consumer.yaml         | 1 -
->  2 files changed, 1 insertion(+), 2 deletions(-)
-
-Applied.
-
-Thanks,
-Mathieu
-
+> Thanks.
 > 
-> diff --git a/Documentation/devicetree/bindings/remoteproc/amlogic,meson-mx-ao-arc.yaml b/Documentation/devicetree/bindings/remoteproc/amlogic,meson-mx-ao-arc.yaml
-> index 3f710433e937..4cd5121b9a4e 100644
-> --- a/Documentation/devicetree/bindings/remoteproc/amlogic,meson-mx-ao-arc.yaml
-> +++ b/Documentation/devicetree/bindings/remoteproc/amlogic,meson-mx-ao-arc.yaml
-> @@ -25,7 +25,7 @@ properties:
->        - const: amlogic,meson-mx-ao-arc
->  
->    firmware-name:
-> -    $ref: /schemas/types.yaml#/definitions/string
-> +    maxItems: 1
->      description:
->        The name of the firmware which should be loaded for this remote
->        processor.
-> diff --git a/Documentation/devicetree/bindings/remoteproc/ti,pru-consumer.yaml b/Documentation/devicetree/bindings/remoteproc/ti,pru-consumer.yaml
-> index 2811334515d1..591471e5f93a 100644
-> --- a/Documentation/devicetree/bindings/remoteproc/ti,pru-consumer.yaml
-> +++ b/Documentation/devicetree/bindings/remoteproc/ti,pru-consumer.yaml
-> @@ -30,7 +30,6 @@ properties:
->        maxItems: 1
->  
->    firmware-name:
-> -    $ref: /schemas/types.yaml#/definitions/string-array
->      minItems: 1
->      maxItems: 6
->      description: |
-> -- 
-> 2.53.0
+> >> ---
+> >>  drivers/dma/qcom/bam_dma.c       | 191 +++++++++++++++++++++++++++++++++++++--
+> >>  include/linux/dma/qcom_bam_dma.h |  14 +++
+> >>  2 files changed, 198 insertions(+), 7 deletions(-)
+> >>
+> >> diff --git a/drivers/dma/qcom/bam_dma.c b/drivers/dma/qcom/bam_dma.c
+> >> index f3e713a5259c2c7c24cfdcec094814eb1202971a..f08549ee3872eece85884606d6ee9e540ee688ca 100644
+> >> --- a/drivers/dma/qcom/bam_dma.c
+> >> +++ b/drivers/dma/qcom/bam_dma.c
+> >> [...]
+> >> @@ -686,6 +702,35 @@ static int bam_slave_config(struct dma_chan *chan,
+> >>  	return 0;
+> >>  }
+> >>
+> >> +static int bam_metadata_attach(struct dma_async_tx_descriptor *desc, void *data, size_t len)
+> >> +{
+> >> +	struct bam_chan *bchan = to_bam_chan(desc->chan);
+> >> +	const struct bam_device_data *bdata = bchan->bdev->dev_data;
+> >> +	struct bam_desc_metadata *metadata = data;
+> >> +
+> >> +	if (!data)
+> >
+> > Doesn't really matter much, but since the parameter exists you might as
+> > well add
+> >
+> > 	&& len == sizeof(*metadata)
+> >
+> > here to be sure.
+> >
 > 
+> Ok.
+> 
+> >> +		return -EINVAL;
+> >> +
+> >> +	if (!bdata->pipe_lock_supported)
+> >> +		/*
+> >> +		 * The client wants to use locking but this BAM version doesn't
+> >> +		 * support it. Don't return an error here as this will stop the
+> >> +		 * client from using DMA at all for no reason.
+> >> +		 */
+> >> +		return 0;
+> >> +
+> >> +	guard(spinlock_irqsave)(&bchan->vc.lock);
+> >> +
+> >> +	bchan->scratchpad_addr = metadata->scratchpad_addr;
+> >> +	bchan->direction = metadata->direction;
+> >> +
+> >> +	return 0;
+> >> +}
+> >> +
+> >> +static const struct dma_descriptor_metadata_ops bam_metadata_ops = {
+> >> +	.attach = bam_metadata_attach,
+> >> +};
+> >
+> > I'm not sure if we have discussed this before, but could we avoid
+> > re-programming the scratchpad_addr all the time by placing it into
+> > struct dma_slave_config -> peripheral_config? It still feels awkward to
+> > me to place a global constant configuration value into per-descriptor
+> > metadata.
+
+The concept is that a dmaengine can handle multiple peripherals, so the
+peripheral is always per desciptor
+
+> Yes, this was discussed several versions ago. I went with using
+> dmaengine_slave_config() until v11. I think Vinod or Dmitry requested we change
+> it to the metadata.
+
+metadata seems better fit for this.
+
+> >>  /**
+> >>   * bam_prep_slave_sg - Prep slave sg transaction
+> >>   *
+> >> [...]
+> >> @@ -802,6 +851,7 @@ static int bam_dma_terminate_all(struct dma_chan *chan)
+> >>  		}
+> >>
+> >>  		vchan_get_all_descriptors(&bchan->vc, &head);
+> >> +		bchan->bam_locked = false;
+> >
+> > I wonder about the implications of this. If the LOCK descriptor was
+> > already processed, will we cause a deadlock if we never submit the
+> > UNLOCK descriptor? Or I guess bam_reset_channel() might reset the lock
+> > as well?
+
+Good point
+
+-- 
+~Vinod
 
