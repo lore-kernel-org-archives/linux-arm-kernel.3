@@ -4,92 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E0DDC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 13:49:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ECA9C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 13:51:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OSkZawG7pcsTcJF66DLNdFJcFWhB9tSjWpIVbvD9zzY=; b=k0u8wep0R6aQeCmo3VoPi1PDET
-	c+LowtJ9zHJCcCUmPsbiogM2IvN6+InBJsdUAV4U9wROdvFhWM+fx94n/C+JQvwY4/I4ST24PksHM
-	P1Bena2y0n5N7lEA507ITIuT6Cq2iARDIuK8PAx+xJCGXXj+xPcS9ln3jJtCJKGzn2bYUgKr+OLsE
-	M6Z1vBp9pGuRnu6iE45W0uBIT6NU5CZjJ7EctWejI815BRjEjjjFSU3n782cFW79vlvJ1Qju4MjHt
-	Rdppk2CfUDSlMXx9e13L2EOyxANtlgC2B+ST073G/kef0FEHv9ubh3/Hsa2pn5XLb8xMTZdzEmb+h
-	CWw5XXrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vlMmABHURfgFO/daGhOyDVSFyXjuWEBaxvTIUoqfyqk=; b=mJuWG89YSzbh4CkwdM2qAaCkEA
+	c7p/ShSHYjYXCsBZ3twV0gDBfowAPOOHgjQ14QwERsayZk+b2F/Tfi+EJxrTvFX4WClRASf4kQyY1
+	6jketbysWkZyKH9zh4DInmmbdyRb/iJIA8+XlGqV508PJVqH3O69dDiQOUoCaL69I962HCuTzSKWt
+	ArWNdtto4K+urqehEyBFqOWKYlHUfFEN8XldvFs0PaJmjl0TjiCwLwEubrMcA1xza+zqMi9n0ftMJ
+	ETh4tP2rbnELMqmB7d9HJotdKmyxO0vkOkzPF/R0HoQKz3IhzBzlzKMcevMGLLxnw9tiCRUZATPrf
+	lUKoXhpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjzyu-0000000EzS2-0hkC;
-	Wed, 15 Jul 2026 13:49:00 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1wk00y-0000000EzpZ-2fUn;
+	Wed, 15 Jul 2026 13:51:08 +0000
+Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjzyq-0000000EzQl-3coZ
+	id 1wk00w-0000000EzoJ-03qU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 13:48:59 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-47f3e6cc44aso2974518f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 06:48:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784123335; x=1784728135; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=OSkZawG7pcsTcJF66DLNdFJcFWhB9tSjWpIVbvD9zzY=;
-        b=BgnFIizlXqCJnDzISO0Ip1PpgXcSRf28s2ftgKN5kxEzYcVlnGqfzKBHhVOEXaGqbD
-         Pu06cC9elvtEOIjcHjFgFa4v++o4NPQh2XsGUCnEfMMc1M0FZacgMSRbUYc651T+YZln
-         8013eawiKuF4/iYRy5blbhWjmjeiaBdur/RRMn/YUW5hcv/ipgm4eeFQYC5BoueRablV
-         yORrIVqOsSz5+r5dU+esuhZoyQlq65jm38Skc6g4J6PzOkVcXm2dP8uzlUJHZPgV/BIH
-         IDGxSZ+PWxHnr+ByToXv4f11/UbMax+NRIOwCRUyY4BdCVPV8Tt8BZk5nFRZ0GZDyN+i
-         wRyw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784123335; x=1784728135;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=OSkZawG7pcsTcJF66DLNdFJcFWhB9tSjWpIVbvD9zzY=;
-        b=QYplNFquq3nc7jouCzNawFJ7pmHQIR0ukkZbGZt7FtvfjVcT4f938+ykO4MGVjaMGL
-         hjkkSgSRiLmpnRVPoRwHxi3JIB7TOB6sFgV0r7BG9dfs4KXEZ20fv7NzYQwGe1j7kldn
-         yF7w4q38smMkJ6+SojX5ASz8LD5SnJsc3iTzdYrC/t7V3yx817PdgX2yQfpm0GccW1y/
-         88a3d0LjZn3htkqMH/A8Z1eqZFLFfpEsLtRHYnrfBmuBBjlUol4Xgd12KKd/8V2usxHg
-         goECLSF/uhKx/vqMa1ZLDXPF9sq/gKWiRF9M7gvb6xs1Jyu5LAV8X8hOuSkQEdzB9x7g
-         E+TA==
-X-Gm-Message-State: AOJu0YxIJwHykn6b3rxNHpOBeCOkEJ7l12/qTzlnn9SUefhH8+w0y7aq
-	HbAOM2atBs1hKwOQUYL7OnuTd9lR5CioG6b3pJoufi/UrsanedNklz04afTWqM6CbA==
-X-Gm-Gg: AfdE7cmivgo4lq7hF0y8c2Q8MmM9vA5cKYGaNvQ8vU5ffJgWb77gOkg2c7vswlXJBQ1
-	6czd2pPLPcdgh0Ily0Vwkqof02tbf8sN2rdWou9YQMG1bFxDpJiE12zvPsG6caf62AAkBYe/sUk
-	MNyGxrV37QOoyLxFFKpQ4Qct2CibPadghZQWjYJuGXpMT6IZNouMOsGS/lO+KSow+j/4MmOTSnc
-	W7Qd2+JQDAgRcCM2I5/g7LBwp8JTMGAwMuMPbtntDVm6Zyj7hoPj9x5BOi+IQR9BxW8sSt92xfD
-	tcYZBB6lFMVoFqSeE3v1ZHbKwBZTPWUsmMNHzgNef9LitN/HO3LzXiJKXuHrZ8RxNQmEeIeL0DY
-	387pk+NmxJuCRCKVujnxqxduh8LXSq9qLlVz0ribYeJkqYpu7N5YJ8WnOQsLeIYe4qUVr0Wjgw4
-	+8eOxqVV7eMHLWQ+pjn34l/+kIluJVl8YnHIxeGlQrMv0mZoUHm6c=
-X-Received: by 2002:a05:6000:491a:b0:473:24e3:fa8f with SMTP id ffacd0b85a97d-47f488a7656mr7712739f8f.47.1784123334603;
-        Wed, 15 Jul 2026 06:48:54 -0700 (PDT)
-Received: from google.com (137.69.77.34.bc.googleusercontent.com. [34.77.69.137])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f476e9d02sm16837588f8f.19.2026.07.15.06.48.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jul 2026 06:48:53 -0700 (PDT)
-Date: Wed, 15 Jul 2026 14:48:50 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
-	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, joro@8bytes.org, jgg@ziepe.ca,
-	mark.rutland@arm.com, qperret@google.com, tabba@google.com,
-	sebastianene@google.com, keirf@google.com
-Subject: Re: [PATCH v7 01/24] KVM: arm64: Add a generic clock
-Message-ID: <alePwq2eKV5g_7Gc@google.com>
-References: <20260715115906.2664882-1-smostafa@google.com>
- <20260715115906.2664882-2-smostafa@google.com>
+	Wed, 15 Jul 2026 13:51:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rhg92KCR1F3Z24btjoUy/GsxCHijjhazg8xvIFeVDfz3ADV7YYouc0SCmEd8piNPfuG3cGT/7WUCnLTQdPxoVmw0dKwFiRwpOyMe/Gf0thoniPipTpTkRWVgMwGLvhPkYWSJUW1Pzye8aTTKVmDhAUkjbHOJsOgCd7R0739dKMxsCvj1pBw2hs7h5EjEwLA8gTG41LXR0F2Zho5aangRfQftO314RBAdbJSYXZnH2aT2SgtYTvFilOSnodw1yS3ctS1QE31BrGKr9scdbxMYZwJlIHQmwq6dF5kjSUWMx5euDQDuXy13PMqoN3EUm9rUH0Jtszrc2VyNVF6KwBqjmw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vlMmABHURfgFO/daGhOyDVSFyXjuWEBaxvTIUoqfyqk=;
+ b=r9bn0jWDQn61UiuulCyf5mv0f3I/fKamu1J2Px9wvwB4pamJ2EEVNK3s+50olamdfDpYgm8JDOQ0lKvQSGtYQU+DyY4V2Hpv0HpVS1wvxoNBCHQd+YZE2iUMXAC6dEQoI5+evFTS4vdIpQlbWzA0bEZ9AA9tH6KybSiNNYaiJBua1ZRvMGXLlZBWSvo0A9sYutKR09Fp4B9BMIn3ukcg8pCz88E/Gy0zjzlKoU2eDxq7yMH66ijIRFd8phGf9QCnDyOeoRMvX5CFsQDQ0y1NeXquGawBYWAtQWdVZkRFFNM4J7si7hsGht3EwpFj605cPfchvgMkLddOkE5T+h4JOw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
+ dkim=pass header.d=vivo.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vlMmABHURfgFO/daGhOyDVSFyXjuWEBaxvTIUoqfyqk=;
+ b=B+9HWO8WN4fyw9iefG+O7hBGAwvA8PPVQM5hxV07VVRAbtHqmNizOHZ4cxnMZ3cSdy2v6AhtQSJ44i5vUW5wgW+DsGstE3aFLJQpGnIF/6MNSjVFsPeJZEAdXnILdZZtyoPtelArEKYQx47LmRcHRJPHt6gyXiAzeAKkXgFEPdKxyjqC+r49TyjcEPB+tzmZrXgsYFEY5Pqef3+0oSKY/paHBK42b2rkFJkffA6CWi1bbkA1tZlxF+MpeUxHPi9+utE7LBoaBBFztiLBtVfIjRVxqLUfMuGMUxaaead960SlNFH6l96XAzWM9S6lLi5es0IlMSnEBdCQScs1rq4nzQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=vivo.com;
+Received: from SEZPR06MB5832.apcprd06.prod.outlook.com (2603:1096:101:c8::12)
+ by SI3PR06MB8658.apcprd06.prod.outlook.com (2603:1096:4:2a7::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.10; Wed, 15 Jul
+ 2026 13:50:44 +0000
+Received: from SEZPR06MB5832.apcprd06.prod.outlook.com
+ ([fe80::f98:5e32:4ccb:d07b]) by SEZPR06MB5832.apcprd06.prod.outlook.com
+ ([fe80::f98:5e32:4ccb:d07b%6]) with mapi id 15.21.0223.008; Wed, 15 Jul 2026
+ 13:50:44 +0000
+From: Pan Chuang <panchuang@vivo.com>
+To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
+	William Breathitt Gray <wbg@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Julien Panis <jpanis@baylibre.com>,
+	David Lechner <david@lechnology.com>,
+	linux-iio@vger.kernel.org (open list:COUNTER SUBSYSTEM),
+	linux-stm32@st-md-mailman.stormreply.com (moderated list:ARM/STM32 ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/STM32 ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list),
+	linux-omap@vger.kernel.org (open list:TI ENHANCED CAPTURE (eCAP) DRIVER)
+Cc: Pan Chuang <panchuang@vivo.com>
+Subject: [PATCH 0/3] counter: Remove redundant error messages on IRQ request failure
+Date: Wed, 15 Jul 2026 21:50:27 +0800
+Message-Id: <20260715135030.326290-1-panchuang@vivo.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: TPYP295CA0019.TWNP295.PROD.OUTLOOK.COM
+ (2603:1096:7d0:a::14) To SEZPR06MB5832.apcprd06.prod.outlook.com
+ (2603:1096:101:c8::12)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260715115906.2664882-2-smostafa@google.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SEZPR06MB5832:EE_|SI3PR06MB8658:EE_
+X-MS-Office365-Filtering-Correlation-Id: cb65c303-0a63-46cc-8245-08dee27810d5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|376014|7416014|52116014|366016|6133799003|56012099006|11063799006|38350700014|921020|10067099003|18002099003;
+X-Microsoft-Antispam-Message-Info: OEPzfhHfjqVVs3upOUpY0l5DRAJwn5w8z7t412HhAoqqPbNFXeighqAda3mkEez2BpgG76YjQKw+WW8Xln9kjyCtCnykZJJT2mMPRW9A2E38lbqa7Tdh3jOCDZK+wrD30B/fFjnCU1dz5T84yr5wjrjAKarwbtrSO1VoO5DYNcejMJ44mlMh1xZc5dkUATalWSccYK9xLfXKfqoU12yknNgShjV/87YoG8WWA0dkgUNOEguaPhLurXfTV9GJfFUiCqDzimFMGSi0za45cbe6NYmXB2UMgB8O+nLRzCn6lKHB6FBaaPfJ5zAZYkPJ4AhIe3PTnLnS3sHJWXQ7xmyxOxspbh/sXdlpVBCglAh2IRUK4k3Uu2HvmWkM1hjCLrH1ICxyLKNAgvyNbDwr9XGGp0ymxeHiupsqu89wOP08StR76p0alSU1ZtWU9fYTU3sF9e4jcCyMxx5H9MK66uXdWKFyvYw5aHdO0EO6BgVVr7GyouK0NY3qkvZ3mMUtUbp6Vu8Qbd9+0eeO47peazus61ljYbW+smgeuKqfKJwFHY0Dq1Tq6UyjoTYdjIYmG5HesASeLjAzD9mMRJlRSiOI6HXNzZ6MH+DN5YJM2oRHm4+/nXWm45OEV/TeITS/JArwYG1GtCVjsvaArCk0pntbRFUr1gwV1fBcoy1boDRRVl+HEmDSwmgYdu5fW0uyiHS0iFlZd0qMepJb8hrG7coBsCX2N+wqE7PRtO32oqxuuX5akIyto0ITIeXK5qvK4jBn
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR06MB5832.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(376014)(7416014)(52116014)(366016)(6133799003)(56012099006)(11063799006)(38350700014)(921020)(10067099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?gXMNFWjNA849YJfLfW9RWa/QZfGlo4FgssxusWtxlIkEuG/2orcMnQrauWIo?=
+ =?us-ascii?Q?O90cdqEovnQ1/BLMt2HRQeuLVEBVpJI9fdWxqiIurYFDQQ752iemxU7wr3p3?=
+ =?us-ascii?Q?qgNfSd5BHxbA7HCevi3ySGmS6+nhQC8UW7cifI7Zja99gO+YfM5Lo3m1Tb+j?=
+ =?us-ascii?Q?sx2YXnMTErJRJeQjC48lRbXn74li0L9xS4OIqOpGsPMhMya4q8Y6w/bIX5RK?=
+ =?us-ascii?Q?VUboZuYpn7806q4R7xjQr1kLDsmsRop03RSyM1BNVUb0lhwdHn5OK1iBwtfq?=
+ =?us-ascii?Q?0jDBlAYQToW9l+AzDVAzAdQEvsHqA1qq/yNNTzvr1log/58VDNjBbEGPpTFq?=
+ =?us-ascii?Q?wkyB3R0iBWVB5sxXx4rDBJ3weqJ0LXEw2VCtNXop0AxjtMUtAm8xnMl9fdlm?=
+ =?us-ascii?Q?fzh0GWny6mXEWXptTL12tHdp1S93hYG8FbWP2TMzzoavG34FCWW/ALdQhYFN?=
+ =?us-ascii?Q?k2ybffXU1g+9eYk0w/0B3C1E29VTMH6VQVLf3L0iLpDJrDweylX2ykwr+pgh?=
+ =?us-ascii?Q?2JKxe6IEI2XHMH9ddxjEr1XNGmg9aVKrBmNqDUI/IIOuIyIJYqdkd1+PVFBP?=
+ =?us-ascii?Q?TJBWF4Zhw2FMxFMBNIANtk1FumAa0pMYtHr4QMV72W+IbEgTAoXlUTc4y0qX?=
+ =?us-ascii?Q?T9QHIB10FVxe0b7Oa7RxkFqkIjb45fmSRsx+Mm+i26p7utTC77IQa1IOPXq2?=
+ =?us-ascii?Q?BeFIv7u1JHT+u/IdFA7pfd+aP0Y0e11ySpDM/nl+9cyu1BT8XZgAty3Z5n2y?=
+ =?us-ascii?Q?T3JWGb99EQVZpdrH1zgS6qk/QpAhHfTEaOOToxtRETxXAwIHJaLrm3YACi8J?=
+ =?us-ascii?Q?sKqtHGUtWyS1Mm68BEOmrFLdsF8mea7o6e6mTNm8x7JS5/KzFe/5BkC7DlLS?=
+ =?us-ascii?Q?ieKHgw5TiXakUyHEBpvTySQfnHALxEU12lzfrKbsM4doRg97Smm2q4qiZCJ1?=
+ =?us-ascii?Q?PjiumvtyiohvenGhLLB6eZOWaVgf6sA0CX4u180kEv84BJx4bjz4UuJGIWej?=
+ =?us-ascii?Q?0+hjV5GiQpZHWQWQFajZ1WPIahYBM6oDqJOZFYsHUEVsGEUQK69jSoymIDpm?=
+ =?us-ascii?Q?6mtWabCGvePxy9uN3pVVibWig/YqevCeLMD+8p4hMayyRbnPc7GQUShSFKnw?=
+ =?us-ascii?Q?Le/L61OIDMVa0a/nTRwSyszk5HVXeo5SBrsI4KcoCxitNdHM/WyKP1nCKkYs?=
+ =?us-ascii?Q?YDJVbSDxhOB+J5EKb+jYAZJKFiukGbSgTe9K/mK5ZarTiexxp3524vlT/qAt?=
+ =?us-ascii?Q?SL/A/PbMhkq77fNnGbJKSx/zyYX6wQoez/cWsZID1qMZpTeYojQnhcTrXAZm?=
+ =?us-ascii?Q?q1uBR9apWLDAhme6/g6fMc9VHH+MG5HhfWitrdYcsahPShjbG2+qa5ANZM3Q?=
+ =?us-ascii?Q?c+mnqRv4hPN1zQOzvTF8dg1QUJI3LCQuN/6pesqGrjqS5rPsW4w08FJ4w39t?=
+ =?us-ascii?Q?8rBQ0k8PSVEGDbkiwtCuT/pGVPSMOlrtBGJYbfiy5KJ6vHOsn1H0fHUXVsJn?=
+ =?us-ascii?Q?L6QhsvlPYqdIffK2lqu9BVX+C7/SOFNRvKVFxYnWeSF1UTzYBHZAKIRjhetp?=
+ =?us-ascii?Q?jK+kjMDjFwQqwMKsiem+njThbuWV1F8dVnmECBU6MHXOnnqjm4eGtoYJyILE?=
+ =?us-ascii?Q?C3Us4KtkKMuoxbo5AITnxJWAel13PRTEQZpF+VRTTO15KUVMzHpJsDmSQTES?=
+ =?us-ascii?Q?2juheK26sZiZdfrIGF9YHkoz6IirfGj25ww06fFZOpSuFTnlK8puh8mbUW5F?=
+ =?us-ascii?Q?rmQCpFK1Jw=3D=3D?=
+X-OriginatorOrg: vivo.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cb65c303-0a63-46cc-8245-08dee27810d5
+X-MS-Exchange-CrossTenant-AuthSource: SEZPR06MB5832.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2026 13:50:44.3315
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: RBqmf1z+JkWTxpHWFtVEto1chqMfuB9W79WNK1CLJ6d8fBfYWQ5Ns/o239M7RQ2uHuOscupKNU1BCHCIiRnzqw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SI3PR06MB8658
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_064856_934723_B24800CC 
-X-CRM114-Status: GOOD (  20.63  )
+X-CRM114-CacheID: sfid-20260715_065106_184275_A6395DB1 
+X-CRM114-Status: UNSURE (   7.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,105 +144,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[...]
+Commit 55b48e23f5c4 ("genirq/devres: Add error handling in
+devm_request_*_irq()") added automatic error logging to
+devm_request_threaded_irq() and devm_request_any_context_irq()
+via the new devm_request_result() helper, which prints device
+name, IRQ number, handler functions, and error code on failure.
 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/clock.c b/arch/arm64/kvm/hyp/nvhe/clock.c
-> index f3e2619db4e4..43d2cba4f810 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/clock.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/clock.c
-> @@ -8,7 +8,12 @@
->  
->  #include <asm/arch_timer.h>
->  #include <asm/div64.h>
-> +#include <linux/math64.h>
-> +#include <vdso/time64.h>
->  
-> +static u32 timer_freq;
-> +
-> +#ifdef CONFIG_NVHE_EL2_TRACING
->  static struct clock_data {
->  	struct {
->  		u32 mult;
-> @@ -66,3 +71,27 @@ u64 trace_hyp_clock(void)
->  
->  	return (u64)ns + clock->data[bank].epoch_ns;
->  }
-> +#endif /* CONFIG_NVHE_EL2_TRACING */
-> +
-> +int hyp_clock_init(void)
-> +{
-> +	timer_freq = read_sysreg(cntfrq_el0);
-> +	/*
-> +	 * KVM will not initialize if FW didn't set cntfrq_el0, that is already
-> +	 * part of the boot protocol.
-> +	 */
-> +	if (!timer_freq)
-> +		return -ENODEV;
-> +
-> +	/* Timer freq can't be larger than 1Ghz by spec. */
-> +	if (timer_freq > NSEC_PER_SEC)
-> +		return -EINVAL;
-> +
-> +	return 0;
-> +}
-> +
-> +/* Return time in ns. */
-> +u64 hyp_clock_ns(void)
-> +{
-> +	return mul_u64_u32_div(__arch_counter_get_cntvct(), NSEC_PER_SEC, timer_freq);
+Since devm_request_irq() is a static inline wrapper around
+devm_request_threaded_irq(), it also benefits from this
+automatic logging.
 
-IIUC, this will overflow the u64 mult very quickly (in few minutes) and also I
-see that we don't need such small nanoseconds accuracy.
+Remove the now-redundant dev_err() and dev_err_probe() calls
+in counter drivers that follow these devm_request_*_irq()
+functions, as the core now provides more detailed diagnostic
+information on failure.
 
-So here we could always fallback to 128-bits mult... or update the epoch from
-time to time. But I have something completely different to propose:
+Pan Chuang (3):
+  counter: stm32-timer-cnt: Remove redundant dev_err()
+  counter: ti-ecap-capture: Remove redundant dev_err_probe()
+  counter: ti-eqep: Remove redundant dev_err_probe()
 
-Instead of using a "clock" how about we just modify smmu_wait?
+ drivers/counter/stm32-timer-cnt.c | 10 ++--------
+ drivers/counter/ti-ecap-capture.c |  2 +-
+ drivers/counter/ti-eqep.c         |  2 +-
+ 3 files changed, 4 insertions(+), 10 deletions(-)
 
-#define smmu_wait() {
-    static u32 window = arch_timer_get_cntfrq() / ARM_SMMU_EL2_POLL_TIMEOUT_US
-    u64 timeout = __arch_counter_get_cntvct() + window;
-    u64 cur;
+-- 
+2.34.1
 
-    ...
-
-    while (!(__cond)) {
-      ...
-
-      cur = __arch_counter_get_cntvct();
-      if (cur >= timeout)
-          __ret = -ETIMEOUT;
-
-
-No risk of overflowing u64
-No init necessary
-
-
-> +}
-> diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
-> index 75b00c323310..970c5cf342f5 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/setup.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/setup.c
-> @@ -10,6 +10,7 @@
->  #include <asm/kvm_pgtable.h>
->  #include <asm/kvm_pkvm.h>
->  
-> +#include <nvhe/clock.h>
->  #include <nvhe/early_alloc.h>
->  #include <nvhe/ffa.h>
->  #include <nvhe/gfp.h>
-> @@ -320,6 +321,10 @@ void __noreturn __pkvm_init_finalise(void)
->  	if (ret)
->  		goto out;
->  
-> +	ret = hyp_clock_init();
-> +	if (ret)
-> +		goto out;
-> +
->  	ret = fix_host_ownership();
->  	if (ret)
->  		goto out;
-> -- 
-> 2.55.0.141.g00534a21ce-goog
-> 
 
