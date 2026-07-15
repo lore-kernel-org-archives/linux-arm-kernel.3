@@ -4,132 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47C62C44501
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ADBEC4450B
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 07:16:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=stNNZ0M5tcRj0eiH5J7xatsBtIVCcGsFGE5+YMHUE5s=; b=mYx7Z2lsq7SP0gne8VfCB46B6t
-	2mn6UifUovkUTiY3IBOQoqrYnMtAmR968nlFm8xCsf3nGO/OeoQdV/ADhQ2OlnzL0pDqYSbtu2dHY
-	UZpTIqw+L9mr/f8IrkxLTHT7655zejosi70YGrdmXpPYLr+Rs+9N+FvnYiyyg4cnbwYETo2gJdwd2
-	3icpk8EnUZC5QLfAty+vgTfdpTkQ/biYMG3u6IgSGe/7YHG9VYDCBnsGEeJb5Bw96zGUdrQlUubM1
-	29wIk/DQpQ8NDbLVAT3cpqE4kPVjs3k0Cq/vVdGhgtFyJnp31U5GDsHYI2mtMqrmJlNuEDyy9WmDY
-	jZLuofKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PmTVIz1mGBUp/pqE1gE1VL/kInhOIxWxCgAeb1nblhs=; b=m3Z4KuxeDIKW9GXHRmM4YhyETr
+	B8JFzXSbq+lXVSUO1AGs/9t5J9ggLht2mFpsA50jfiYEB048ehUaRci33x4gTFVLGEMfI+JYdKD31
+	IToohXzWlVJqv9hk2I6GwNSFQ5ZLzVSLr+F96XuuU4nXtNSKD5AoYLY8FY+/QBl9sJUAhWfDgd+Fr
+	KfmvgZBK5BlZC3Hjl4ZHmqI7DSEvj+Hza9bFjXU3erSJ/7tQOajql5hZuxhptCiJeMoVhmPP5Mua/
+	DGvlknXDG87CsQXwEomOPO9/rw8YOEwzvyBwG/GfuIiu8DRMHy7aA/ZUDCqvSK8oRykaweRgZHv1U
+	DKWVAG5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjtqr-0000000Dzhh-46gm;
-	Wed, 15 Jul 2026 07:16:18 +0000
-Received: from mail-northeuropeazon11010060.outbound.protection.outlook.com ([52.101.84.60] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wjtqr-0000000DzhM-3VO2;
+	Wed, 15 Jul 2026 07:16:17 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjtqm-0000000Dzcs-0IgZ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 07:16:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZZzZ4bsp64snUhtWttIycVYUgAHmvDARRYg4B7brcJhIHTGhWPaH40PwSFOQrTm0cwoY26d67RQgn4lDTnhAbzoOP6W0VgZiFvOWha3wWX/3Dc7v9M2KPrXkYDihJjSiHhRQ5/+VLJaNuVHuQBT9NrguuVvFPkc7WKjrsTxkafdNFdu9IqzsyizReKVknFcqHZsGTscDuAlG//5pfR/GHKQ4gWnQAViFuxkPg3jN9qdYtjJ8oy5Gytar/dnTEDaU2nOwiG3HACrfvBX+JJW40XVLxrTtYg1jMdkzgOBpyfkh8M0li0/MOtkIrikkLCQY59JYc0/Y934Yt8HEES91zg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=stNNZ0M5tcRj0eiH5J7xatsBtIVCcGsFGE5+YMHUE5s=;
- b=NRHfVifnATCk627HMr1B39TwdO+tHdVsNw8FTRMdktbSh3GEpFGOCEo6uxXL3LCgnRSx9oRQn69FiGMeYKZenfmATet1DRffAT+ZrMmwdXXK8fbrkQy+edZiNXZcUaD5XbuIrJ6X/yIZHkoZAdVqZM8d2v33dfk2AthBOP2LszxJGJWLzHzN+2CIVRPYDsnX8mnZNLZxn0vV7zrPuultoWrvOK7wCtw3/0vw1yFad3aR9ARAXXM/8epKblqiIPUSCMQLSwF5nKoSPrrHlMF1zMvJPIi5bkAJNGm/KhcEHvCgHsgGnSyFq22C1DOdsdCwFu2T3rKvFS7DPE4eNG/Mtg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=stNNZ0M5tcRj0eiH5J7xatsBtIVCcGsFGE5+YMHUE5s=;
- b=Ujghetkub2iULt+rgonJg1vUYpjaftzZvscG+yDszTJD9PrWnKjydegq2UmbnvnNE4qqGCKfdcxyEL5UckyEsVHvI5/VZpQN9cmEAGNUBoPFga53H4oLagjUZGKZCEsO1wQUYKuXydY1TbXTwZBwOwWYAeu5/JJlawME2G/bpoXBgs5ovFO7ZhPpMOjL18sh6X+au7r/9OlcqTLDfn1f55oZ/O+DuMvzkhm3obM+lLpWz7u8qBsMT+Z4sfZ1/0+GIEuFr9Kq2OB6y3Lq63jTXBY/TjdEJKEuiMcquZ/jsaQ6naPcvErF43mXnk3we+oYogoPzzvEldIyIEWnKg1mPg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB9185.eurprd04.prod.outlook.com (2603:10a6:102:231::11)
- by MI3PR04MB12681.eurprd04.prod.outlook.com (2603:10a6:290:7e::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.18; Wed, 15 Jul
- 2026 07:16:06 +0000
-Received: from PAXPR04MB9185.eurprd04.prod.outlook.com
- ([fe80::b4c0:6119:2228:2ceb]) by PAXPR04MB9185.eurprd04.prod.outlook.com
- ([fe80::b4c0:6119:2228:2ceb%5]) with mapi id 15.21.0181.016; Wed, 15 Jul 2026
- 07:16:06 +0000
-From: ziniu.wang_1@oss.nxp.com
-To: adrian.hunter@intel.com,
-	ulfh@kernel.org,
-	haibo.chen@nxp.com,
-	Frank.Li@nxp.com
-Cc: s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	imx@lists.linux.dev,
-	linux-mmc@vger.kernel.org,
-	s32@nxp.com,
+	id 1wjtql-0000000Dzch-0HPg;
+	Wed, 15 Jul 2026 07:16:15 +0000
+X-UUID: 0a3b0c14801d11f1aa26b74ffac11d73-20260715
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:8bd619c9-c0ae-440f-b457-a8080b9c57a1,IP:0,U
+	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:-25
+X-CID-META: VersionHash:e7bac3a,CLOUDID:81dca6387843a2ed6db1532fab7a2c30,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:102|865|898,TC:nil,Content:0|15|50,EDM:-
+	3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,A
+	V:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 0a3b0c14801d11f1aa26b74ffac11d73-20260715
+X-User: pengcan@kylinos.cn
+Received: from lenovo [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <pengcan@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 1823525892; Wed, 15 Jul 2026 15:16:03 +0800
+From: Can Peng <pengcan@kylinos.cn>
+To: daniel.lezcano@kernel.org,
+	rafael@kernel.org,
+	heiko@sntech.de
+Cc: linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v7 2/8] mmc: sdhci-esdhc-imx: restore DLL override for DDR modes on resume
-Date: Wed, 15 Jul 2026 15:18:12 +0800
-Message-Id: <20260715071818.272318-3-ziniu.wang_1@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260715071818.272318-1-ziniu.wang_1@oss.nxp.com>
-References: <20260715071818.272318-1-ziniu.wang_1@oss.nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2P153CA0032.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c7::19)
- To PAXPR04MB9185.eurprd04.prod.outlook.com (2603:10a6:102:231::11)
+	linux-rockchip@lists.infradead.org,
+	Can Peng <pengcan@kylinos.cn>
+Subject: [PATCH] powercap: dtpm: constify OF match table
+Date: Wed, 15 Jul 2026 15:15:59 +0800
+Message-ID: <20260715071559.202016-1-pengcan@kylinos.cn>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9185:EE_|MI3PR04MB12681:EE_
-X-MS-Office365-Filtering-Correlation-Id: 37bdad59-6aad-4c5c-8137-08dee240eff1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|366016|19092799006|1800799024|3023799007|6133799003|56012099006|22082099003|18002099003|11063799006;
-X-Microsoft-Antispam-Message-Info: r8Ahgf1G/edNaDmIwyR37AqTvtSaWLw/8JLAw1IUWLK0odY0O8iFouVcPY0uv/2Hww+uPjOGugC3QalUIwTCtjcDsPI9GA8q8SJ1KCRyjP22RNGG45+TO19xmehPGyZeXTem8YcLfd4M7G2gm4h0CUHJERqFl6xyDmVoLqYnONV9qZcctnFRd13BeUx9pITobLkJobwT/JP4nNCxJUWNYchdlWkcWw5JMrQGbKkOqTd1houIW4NaEHMVEXygEIg3sFlOadO+suqBCl9rOlvhjAcR4nGSu0w65I8YPvdzm5uJpnUJfs/eaNk66lVWhEIYtOKqvAcjOKhaifdBQIdRuagMYnzarN2EmUK7BPR+YaS8Bt9QEYUOKIU/zoGo1RdGHdrg0RG1ntiFQx5y0VtG6QTz6jIWQAqlXlUIelcXOCpT6QVFOJLJp1G4qZrwSWz936Wb8bJNoA9vV3faSpnH5RSbeX45h+sNDLtO+jrey1K5GpOgn2B4C5ecxe6mXeJISLlQfUwl6eZhuqTL4uC9cx5fp6aYnK3x9V3swPdxWzZetaa86TjtLS/kIPc/cY9Pu+wfjAZmVvpVgvHRzpQYG33Q33TfsJH8mdvJjhGViq1+6H6deysfbTn8IbRbQWmerogh4vZVC8+U9uz7dN45XnS7lqYz6XT9qrOGG/a5xzk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9185.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(366016)(19092799006)(1800799024)(3023799007)(6133799003)(56012099006)(22082099003)(18002099003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?QipNbQpQKaYpNhMI9oN+SOUqJS4HeyckNerr3mPcVmQqaAXf2dAA57VIMl2n?=
- =?us-ascii?Q?9YvJRtTms3HPhgWOxmubUGNpghNZNO76OtOf0tJU/4DTsgbjyyJ5C3EFOjWo?=
- =?us-ascii?Q?IcEESV3Vw58SuI1cTnWcm5SFSbBgGmAewAyZ1XhAEZsaLnuMwXPyoLLWseoH?=
- =?us-ascii?Q?42wKm1SPcfIfXDrURkwmQWDKESNtfqaDr7hGFdPIaiU0swD29cpchTtwuiZe?=
- =?us-ascii?Q?HOCPEbyZxu7/Iw7KXKm628yZ5yevVE5rxSlS5OE0LTwlQc6E+Hw4jv7syLSH?=
- =?us-ascii?Q?LIhHH6Yp0dz18/G3cLmqc7z8nIAKECc018dduzi7Blx4ja588mU1FzlDg7J2?=
- =?us-ascii?Q?zcf3CjnGIRq7TQAQKszdGFxFLkw0PLiVejm1WOG2sthwr4NRz40eUu+Ph9ub?=
- =?us-ascii?Q?LhLU/HZHeLz/UM26jcy7IXkMiycA6Wd8pirdQBvtKqz2rOVxO3VB1bcM3w8W?=
- =?us-ascii?Q?PcNdoiuW7kDG8p9MT6wnhhy057281qDFRxNZeDYfKpCHadffAYi32jrv38kF?=
- =?us-ascii?Q?HEBsibRuIgrtjhbvy5dQbmG+mM1olpH3do4itqmSQv1UEnaN6RaQvcbVV5pI?=
- =?us-ascii?Q?KTL/MJmjPkqE25CzvOuisPEavKrpOdukcsxrdHfoGsItv985tbi3wDNZJ5UY?=
- =?us-ascii?Q?1OQJf9YXMzvCEMjotuE9fKpRTLDCVb6KngHiKIwqCygaRyUgyGFh4cwQEFMl?=
- =?us-ascii?Q?HINrHxuoRSVWBHlYpI2pQxxsVs/cB4kcDTAKkxGfqRV1cp/kQtaH+53pXTrF?=
- =?us-ascii?Q?zVNSPy1mBpEkq5N3r3KD3icGTJ9MfJtZYX5sYYIe8/0xsmdvG8S82WKZXn6n?=
- =?us-ascii?Q?EXAoF2yTp3bV4n4yqcjh97MJovxW65r80zQeoegUFI8ltk6Fx1bL+qqamchA?=
- =?us-ascii?Q?NT/7XHCEe6bo1MgomfFSNKsEVWoY3w8WmFSUVZHxLruXdJzyHNvUjx8i1cDH?=
- =?us-ascii?Q?j033NVbU91uWAB4tw54LD4axKiLmXpr8k2p59HcTykYHeaz6j4jwMXj3EX6P?=
- =?us-ascii?Q?S4ICOt4KWVMHGsmihtIItzQutSSL08FhIsIaqTy1P/EASoeqsjTfUa46QIeH?=
- =?us-ascii?Q?8Hnzcvx+AnQZuWgOTu2yORfXc0VH5j2e0CiAZONUy3IR9jHj+EmygobUwHet?=
- =?us-ascii?Q?E0mp3AJK4rjHwLKUScWG2Dl+oybkKqIkbTvWdjKYt15Pav9q+VV5Q6M+LQqr?=
- =?us-ascii?Q?gIaERzj3ldD8bd1+jepTi5MXd5yrJPzQae6rujk05+C2Jqt3/xGgIKzCylRd?=
- =?us-ascii?Q?9oIqsE9eto/R2PQW86JaNzk0H66z1NjiPXq3t2IaAaQoPziJLa8saadGSJAW?=
- =?us-ascii?Q?19uo6ugfmzmLKhjpjXvY33+B8lK90+YgMF36AimZcDVvocCHFWrmYmFKZP8F?=
- =?us-ascii?Q?pjMVfp7G+Wn+O2VO9jfcDEMRyIMUmwig3xYdy8LvLXceyJTRiBWV/ryRlnwW?=
- =?us-ascii?Q?wfQyeoCK1O7UR+1Q8kzsdC0QjTq3Kzs3QnZOaLj+ezFpHHnbWcH0plyH+INS?=
- =?us-ascii?Q?jVTEp+lisFOt18gyenJcRtHBGkf2J7MLnmQGQOSgjotpOuC4FeXf4XUprgl0?=
- =?us-ascii?Q?7pUXA3PCJ3dpYiV9d/LfTzZ77crcqLsKygMVxC4ncuQ0EUGazF/Z7nSjaVGx?=
- =?us-ascii?Q?P9RV7RoWKD4A4UUyOxp+kQAnIcLH2W4TsnbnjGTdz/KgdKUgPzB77seoA6FC?=
- =?us-ascii?Q?cxpFgm8i+reCeaF8N/5mNhiwcCh+Ilw8lHw6KDm9S659/7BRLxDPVyUzy/04?=
- =?us-ascii?Q?Imh51UuYCpARveye1s3KuKgrSsDyi9RYBfn8DK8VzzYF0mIjN3V9?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 37bdad59-6aad-4c5c-8137-08dee240eff1
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9185.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2026 07:16:06.5805
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: hqnwn5q+Z2CA01STSamTu9lyOh4MYuK3tukFQFuub0tHHVdQuKZgKsMLUO2Cu877BvR3is5f5jurva3qjrlpG858ZHEqTXv3UqzDzoEvZw9ZExWndA6ATaS4QuqKgrkg
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MI3PR04MB12681
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_001614_598191_C6797A2E 
-X-CRM114-Status: GOOD (  17.47  )
+X-CRM114-CacheID: sfid-20260715_001614_596735_584144CF 
+X-CRM114-Status: GOOD (  11.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,100 +77,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Luke Wang <ziniu.wang_1@nxp.com>
+dtpm_create_hierarchy() only passes the OF match table to
+of_machine_get_match_data(), which already takes a const struct
+of_device_id pointer.  The DTPM code does not modify the table.
 
-sdhci_esdhc_imx_hwinit() unconditionally clears ESDHC_DLL_CTRL by
-writing zero. For SDIO devices that keep power during system suspend
-and operate in DDR mode, the card remains in DDR timing while the host
-DLL override configuration is lost.
+Make the DTPM API const-correct and mark the Rockchip match table const as
+well.  This documents the read-only contract and allows the table to live
+in read-only init data.
 
-Extract the DLL override setup from esdhc_set_uhs_signaling() into
-a helper esdhc_set_dll_override(), and call it on the resume path
-when the card kept power and is using a DDR timing mode.
+No functional change.
 
-Fixes: 676a83855614 ("mmc: host: sdhci-esdhc-imx: refactor the system PM logic")
-Acked-by: Adrian Hunter <adrian.hunter@intel.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Reviewed-by: Haibo Chen <haibo.chen@nxp.com>
-Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
+Signed-off-by: Can Peng <pengcan@kylinos.cn>
 ---
- drivers/mmc/host/sdhci-esdhc-imx.c | 39 +++++++++++++++++++++---------
- 1 file changed, 28 insertions(+), 11 deletions(-)
+ drivers/powercap/dtpm.c     | 2 +-
+ drivers/soc/rockchip/dtpm.c | 2 +-
+ include/linux/dtpm.h        | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
-index 6526d65538de..7230d70e02ae 100644
---- a/drivers/mmc/host/sdhci-esdhc-imx.c
-+++ b/drivers/mmc/host/sdhci-esdhc-imx.c
-@@ -1349,6 +1349,23 @@ static int esdhc_change_pinstate(struct sdhci_host *host,
- 	return pinctrl_select_state(imx_data->pinctrl, pinctrl);
- }
+diff --git a/drivers/powercap/dtpm.c b/drivers/powercap/dtpm.c
+index b7a65e543f19..0a503dc38eb9 100644
+--- a/drivers/powercap/dtpm.c
++++ b/drivers/powercap/dtpm.c
+@@ -546,7 +546,7 @@ static int dtpm_for_each_child(const struct dtpm_node *hierarchy,
+  * Return: zero on success, a negative value in case of error. Errors
+  * are reported back from the underlying functions.
+  */
+-int dtpm_create_hierarchy(struct of_device_id *dtpm_match_table)
++int dtpm_create_hierarchy(const struct of_device_id *dtpm_match_table)
+ {
+ 	const struct dtpm_node *hierarchy;
+ 	int i, ret;
+diff --git a/drivers/soc/rockchip/dtpm.c b/drivers/soc/rockchip/dtpm.c
+index b36d4f752c30..6f1ad9b24289 100644
+--- a/drivers/soc/rockchip/dtpm.c
++++ b/drivers/soc/rockchip/dtpm.c
+@@ -41,7 +41,7 @@ static struct dtpm_node __initdata rk3399_hierarchy[] = {
+ 	[9] = { /* sentinel */ }
+ };
  
-+static void esdhc_set_dll_override(struct sdhci_host *host)
-+{
-+	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-+	struct pltfm_imx_data *imx_data = sdhci_pltfm_priv(pltfm_host);
-+	struct esdhc_platform_data *boarddata = &imx_data->boarddata;
-+	u32 v;
-+
-+	if (!boarddata->delay_line)
-+		return;
-+
-+	v = boarddata->delay_line << ESDHC_DLL_OVERRIDE_VAL_SHIFT |
-+	    (1 << ESDHC_DLL_OVERRIDE_EN_SHIFT);
-+	if (is_imx53_esdhc(imx_data))
-+		v <<= 1;
-+	writel(v, host->ioaddr + ESDHC_DLL_CTRL);
-+}
-+
- /*
-  * For HS400 eMMC, there is a data_strobe line. This signal is generated
-  * by the device and used for data output and CRC status response output
-@@ -1404,7 +1421,6 @@ static void esdhc_set_uhs_signaling(struct sdhci_host *host, unsigned timing)
- 	u32 m;
- 	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
- 	struct pltfm_imx_data *imx_data = sdhci_pltfm_priv(pltfm_host);
--	struct esdhc_platform_data *boarddata = &imx_data->boarddata;
+-static struct of_device_id __initdata rockchip_dtpm_match_table[] = {
++static const struct of_device_id rockchip_dtpm_match_table[] __initconst = {
+         { .compatible = "rockchip,rk3399", .data = rk3399_hierarchy },
+         {},
+ };
+diff --git a/include/linux/dtpm.h b/include/linux/dtpm.h
+index a4a13514b730..05993a55138e 100644
+--- a/include/linux/dtpm.h
++++ b/include/linux/dtpm.h
+@@ -67,7 +67,7 @@ void dtpm_unregister(struct dtpm *dtpm);
  
- 	/* disable ddr mode and disable HS400 mode */
- 	m = readl(host->ioaddr + ESDHC_MIX_CTRL);
-@@ -1425,15 +1441,7 @@ static void esdhc_set_uhs_signaling(struct sdhci_host *host, unsigned timing)
- 		m |= ESDHC_MIX_CTRL_DDREN;
- 		writel(m, host->ioaddr + ESDHC_MIX_CTRL);
- 		imx_data->is_ddr = 1;
--		if (boarddata->delay_line) {
--			u32 v;
--			v = boarddata->delay_line <<
--				ESDHC_DLL_OVERRIDE_VAL_SHIFT |
--				(1 << ESDHC_DLL_OVERRIDE_EN_SHIFT);
--			if (is_imx53_esdhc(imx_data))
--				v <<= 1;
--			writel(v, host->ioaddr + ESDHC_DLL_CTRL);
--		}
-+		esdhc_set_dll_override(host);
- 		break;
- 	case MMC_TIMING_MMC_HS400:
- 		m |= ESDHC_MIX_CTRL_DDREN | ESDHC_MIX_CTRL_HS400_EN;
-@@ -2123,9 +2131,18 @@ static int sdhci_esdhc_resume(struct device *dev)
- 	 * restore the saved tuning delay value for the device which keep
- 	 * power during system PM.
- 	 */
--	if (mmc_card_keep_power(host->mmc) && esdhc_is_usdhc(imx_data))
-+	if (mmc_card_keep_power(host->mmc) && esdhc_is_usdhc(imx_data)) {
- 		sdhc_esdhc_tuning_restore(host);
+ int dtpm_register(const char *name, struct dtpm *dtpm, struct dtpm *parent);
  
-+		/*
-+		 * Restore DLL override for DDR modes. hwinit unconditionally
-+		 * clears ESDHC_DLL_CTRL, but the card is still in DDR mode.
-+		 */
-+		if (host->timing == MMC_TIMING_UHS_DDR50 ||
-+		    host->timing == MMC_TIMING_MMC_DDR52)
-+			esdhc_set_dll_override(host);
-+	}
-+
- 	pm_runtime_put_autosuspend(dev);
+-int dtpm_create_hierarchy(struct of_device_id *dtpm_match_table);
++int dtpm_create_hierarchy(const struct of_device_id *dtpm_match_table);
  
- 	return ret;
+ void dtpm_destroy_hierarchy(void);
+ #endif
 -- 
-2.34.1
+2.53.0
 
 
