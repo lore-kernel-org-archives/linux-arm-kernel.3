@@ -4,74 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C35B8C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 12:27:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C14A3C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 12:28:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jwko2hrncYt53zZGnXY8IXUD28MaawCDLpcYVtsjjOo=; b=l0jwDYoAHb70+Fug9uVSWhLE8I
-	6t5IcK1Gr9fZYny0PguvcCZvEdgtZWz7251k7wseE0aZyU8ooVoa+sXsqAsOjXwzWXuX57fyFalDe
-	wrdsfOOST4QMsNzVjDW0RbYAlv6i59V5Ilx3L+mdekk+zdLZDlxM/QA3ZkAIyskTGCJWgWL3Qrbty
-	5LAizFMCIn3zMhuE6ymZjE67Em6L+xT5XNFoyMsODSeX5U9od/MvWBhmUNVfWUQAd2xnwZQ/QW/Vr
-	FC6KnglQI7JfbzSbmFa4crFrUHiGUBut4uX7n5RP5div1n+NbkMUTMLbamHfiYVKt0rMgNlpE+DYG
-	b0UXdbnQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j28hcJjQkZPaS3yZ4782JQxyz8Zd4wPyi3h2uE2kkXA=; b=wvNY/8lM0bdN8T+QoHAAy9w0QN
+	5DiEDn/LzY8w31ZU6t+CNwyF7SqJhb3QuU70fGaoVKyjwZbw305T57qmG5QwdZfDFM/iBXFVpG3jL
+	lwmgyi1tdVdVbtOIa/GqVXpaVaZAAJhqwQK+yiizDc6p6AU4GOQ4WMb6xLkjWDTpt3fjPcRjvlfmK
+	8eiRM8KECUglpBiS1KujcQWoZx0UFfEmv10ESZGgQwDL6cA5nl5lqLa7ZW/vwlrIIb2HNowHjFpQ1
+	peLvR+fYwgWaxjMHRNrgKZFWclSCGaaif6UY64qIHPAUxmI0C5IRap9KbZ1OdEdeFWEplKMmklc0V
+	ZS8GZbQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjyi3-0000000EmPp-1l9J;
-	Wed, 15 Jul 2026 12:27:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wjyiT-0000000Emhl-1YUT;
+	Wed, 15 Jul 2026 12:27:57 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjyi1-0000000EmOS-1hUe;
-	Wed, 15 Jul 2026 12:27:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E6CB840418;
-	Wed, 15 Jul 2026 12:27:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id BFC0BC2BCF4;
-	Wed, 15 Jul 2026 12:27:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1784118448;
-	bh=Ixh7QjHO8Sw6SkBbzsHgSMI9ywDCBo9qAZr4szmg7DI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=hREBKbQVHNYnpvpLjDiEOykL6cAFnIvFiE/HunwP11FOkUXdxtePz2K3ib4wrYzA4
-	 orbMl3R9hbpe26G6LY5QJU2Nn5mrQ7l+0jTqqBQ50W4J64sb31oTuj9qyQLPO8zFRc
-	 Q+ELrKz9aQyVf7b0H3JCTptagx25vgSrdXHRtQkX1sWYmIOzJWt2cAkiZnbnMU9tcu
-	 MdbZTxHRpdMVAzB1HgAhTovk9jhe6p8SudYsSq+SfP9emLb70rWIeOTQVDrnLzyhiM
-	 E1hC8U4ebAl05RvfdJPYqgSIV8SsABvL1QCzkNy9W/YxS2yjHsHjDRFJW1CT+8jUgL
-	 sMxS3ze9H7yng==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A3936C44507;
-	Wed, 15 Jul 2026 12:27:28 +0000 (UTC)
-From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
-Date: Wed, 15 Jul 2026 15:26:40 +0300
-Subject: [PATCH v2 3/3] soc: mediatek: pwrap: add mt6572 support
+	id 1wjyiS-0000000Emgs-0LbD
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Jul 2026 12:27:56 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 890E76137F
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 12:27:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 018661F01558
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 12:27:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784118475;
+	bh=j28hcJjQkZPaS3yZ4782JQxyz8Zd4wPyi3h2uE2kkXA=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=QloyeeZA+L0U0Nakkwr/lWVJ2epmV8vXIHzwlA6j94fp0HUd+UPMioZEIUHbjDN8W
+	 iKIdi3aCx+rXYWbmwTIh1ICFS6PFQssNjQAquhZJqFjg0wA+njAN4N57PbyX7F9jNB
+	 WUXt06OccYpYq0vonrNCnwKy5yOELeoBdgAtUg/Q36E0h9C2Ls8aJLO14r7o82lxGp
+	 /FiDjbu1eD3n4ltGunskB6hppF21R6j9g5Zujnk0NI6TvUJOrZ4jy2IsFX0nUWRTwf
+	 qsO7X2nTHn4u7dgR8dLHesPpOA7XOin9U5dPJEmjhmViRqSGvWZNPtZNbaLKb5KvK4
+	 fP5r1UYPLKo9w==
+Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5b0f19bea2fso1987074e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 05:27:54 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RpP6VGDG8ylUaStBqcNz72rDuJYnte/oXZe2fKb794syS8pSZFUziwwr+lnt0mZXuQueXD8qsXhRLhw9Vhwosat@lists.infradead.org
+X-Gm-Message-State: AOJu0YwAMVou6NqmRrrjLixmp7VWfyJg9DKe5NcrzUpCuXGaXEoVUyaN
+	lxY/zsrGhC7ufNjtSjdWp5YVJBh5WzPw3pm0ddvdkCmp6aRRoKGPdY+mB4Vi+LtOYiT4K8sH64T
+	1UrYYHk8DK0ibmcU/M47A5PCGk8WkQbaIB+OLDxsLQA==
+X-Received: by 2002:a05:6512:250f:b0:5b1:544e:7185 with SMTP id
+ 2adb3069b0e04-5b1544e721amr2489500e87.40.1784118473678; Wed, 15 Jul 2026
+ 05:27:53 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 15 Jul 2026 05:27:51 -0700
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 15 Jul 2026 05:27:51 -0700
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20260714-arm-psci-system_reset2-vendor-reboots-v23-0-e7453c548c21@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260715-6572-pwrap-v2-3-bea1d801c81b@protonmail.com>
-References: <20260715-6572-pwrap-v2-0-bea1d801c81b@protonmail.com>
-In-Reply-To: <20260715-6572-pwrap-v2-0-bea1d801c81b@protonmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Flora Fu <flora.fu@mediatek.com>, Alexandre Mergnat <amergnat@baylibre.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Roman Vivchar <rva333@protonmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784118429; l=3053;
- i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
- bh=734OeVA8OVJF9zkD8y++4eBar+yDgtHe1s1/kC7/Zxk=;
- b=DHzyEVHfr1jchQ2eMIJvIUXEpktNqNFiQGh7LMUnb35+vD/3R+cuXsTBdugL4SGiL0gbHPFa2
- rM7wXhvcZ/VD/JGoEUvtlFqLb5G2V1rzlLb2Sj/aVOaQXvh2Tax15Yw
-X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
- pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
-X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
- auth_id=777
-X-Original-From: Roman Vivchar <rva333@protonmail.com>
+References: <20260714-arm-psci-system_reset2-vendor-reboots-v23-0-e7453c548c21@oss.qualcomm.com>
+Date: Wed, 15 Jul 2026 05:27:51 -0700
+X-Gmail-Original-Message-ID: <CAMRc=Mc4e1Rso5Vr1ZoRTkAp4WYUz8H-dQWUjkyBg5sgXiDLOw@mail.gmail.com>
+X-Gm-Features: AUfX_mxYq9w3t7suoGM2tbsXEv1g058iRFyDqupc6ScLWcGXZxK2WeoKHlbXNCk
+Message-ID: <CAMRc=Mc4e1Rso5Vr1ZoRTkAp4WYUz8H-dQWUjkyBg5sgXiDLOw@mail.gmail.com>
+Subject: Re: [PATCH v23 00/13] Implement PSCI reboot mode driver for PSCI resets
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, Andre Draszik <andre.draszik@linaro.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>, mfd@lists.linux.dev, 
+	Srinivas Kandagatla <srini@kernel.org>, Sebastian Reichel <sebastian.reichel@collabora.com>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Song Xue <quic_songxue@quicinc.com>, 
+	Sebastian Reichel <sre@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Daniel Lezcano <daniel.lezcano@kernel.org>, Christian Loehle <christian.loehle@arm.com>, 
+	Ulf Hansson <ulfh@kernel.org>, Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Arnd Bergmann <arnd@arndb.de>, Souvik Chakravarty <Souvik.Chakravarty@arm.com>, 
+	Andy Yan <andy.yan@rock-chips.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	John Stultz <john.stultz@linaro.org>, Moritz Fischer <moritz.fischer@ettus.com>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Sudeep Holla <sudeep.holla@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,94 +96,90 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: rva333@protonmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Roman Vivchar <rva333@protonmail.com>
+On Tue, 14 Jul 2026 19:16:28 +0200, Shivendra Pratap
+<shivendra.pratap@oss.qualcomm.com> said:
+> Userspace should be able to initiate device reboots using the various
+> PSCI SYSTEM_RESET and SYSTEM_RESET2 types defined by PSCI spec. This
+> patch series introduces psci-reboot-mode driver that will induce
+> command-based resets to psci driver for executing the device reset.
+>
+> The PSCI system reset calls takes two arguments: reset_type and cookie.
+> It defines predefined reset types, such as warm and cold reset, and
+> vendor-specific reset types which are SoC vendor specific. To support
+> these requirements, the reboot-mode framework is enhanced in two key
+> ways:
+> 1. 64-bit magic support: Extend reboot-mode to handle two 32-bit
+> arguments (reset_type and cookie) by encoding them into a single 64-bit
+> magic value.
+> 2. Predefined modes: Add support for predefined reboot modes in the
+> framework.
+>
+> With these enhancements, the patch series enables:
+>  - Arch Warm reset and system reset cold as predefined reboot modes.
+>  - Vendor-specific resets, configurable via the SoC-specific device tree.
+>
+> Together, these changes allow userspace to trigger all above PSCI resets
+> from userspace.
+>
+> Note on introducing PSCI-MFD:
+> In v19/20, psci-reboot-mode was implemented as a faux-device. Review
+> discussion suggested this may not be the best model for firmware-backed
+> consumers, and that representing PSCI users as regular platform devices
+> would be better. One suggestion was to add a PSCI-MFD driver, allowing
+> multiple consumers tied to a single PSCI node "arm,psci-1.0" be probed
+> as MFD cells.
+>
+> Following this, the series adds a PSCI-MFD driver and introduces
+> cpuidle-psci-domain and psci-reboot-mode as child cells. To meet the
+> psci-reboot-mode requirement, the MFD core is extended to support
+> fwnode.
+> Reference discussions on this:
+> https://lore.kernel.org/all/20260306-faux-dev-with-fwnode-v1-1-792a86a62530@oss.qualcomm.com/
+>
+> ---
+> The patch is tested on rb3Gen2, lemans-ride, lemans-evk, monaco-ride,
+> qcs615-ride.
+>
+> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+>
+> Changes in v23:
+> mfd: core: Add firmware-node support to MFD cells
+>  - Add named_fwnode-based firmware node support in MFD cells.(by Bart)
+>  - Update the release path. (by Bart)
+>  - Add checks for duplicate fwnodes.
+>  - Update documentation for usage and limitations.
+> mfd: psci-mfd: Add psci-reboot-mode child cell
+>  - Update for a named_fwnode-based reboot-mode child cell. (By Bart)
+>  - Split psci-reboot-mode and psci-cpuidle-domain into separate child
+>    cells.
+> power: reset: Add psci-reboot-mode driver
+>  - Add COMPILE_TEST in Kconfig. (by Bart)
+>  - Update to support up to three u32 arguments to accommodate a
+>    32-bit reset_type and a 64-bit cookie. (By Sashiko, Lorenzo)
+> dt-bindings: arm: Document reboot mode magic
+>  - Update to support up to three u32 arguments to accommodate a
+>    32-bit reset_type and a 64-bit cookie.
+>  - Dropped reviewed by from Bart and Rob due to considerable changes.
+> firmware: psci: Introduce command-based resets
+>  - Update to support a 64-bit cookie. (By Sashiko, Lorenzo)
+>  - Update the flow so unsupported reset commands and any failures during
+>    reset command execution fall back to the
+>    Linux reboot_mode path. (By Sashiko)
+> power: reset: reboot-mode: Add support for predefined reboot modes
+>  - Handle errors and free lists in devm_reboot_mode_register(). (by Sashiko)
+>  - Update to support up to three u32 arguments.
+> power: reset: reboot-mode: Support up to 3 magic values per mode
+>  - Patch for 64 bit magic renamed.
+>  - Update to support up to three u32 arguments to accommodate a 32-bit
+>    reset_type and a 64-bit cookie.
+>  - Dropped reviewed by from Bart and Sebastian due to considerable changes.
+> - Link to v22: https://lore.kernel.org/r/20260514-arm-psci-system_reset2-vendor-reboots-v22-0-28a5bde07483@oss.qualcomm.com
+>
 
-Add mt6572 registers and platform data for the pmic wrapper.
+Just wanted to say: thanks for being persistent, we'll get there eventually. :)
 
-While vendor kernel source code suggests that mt6572 can be paired with
-the mt6320 PMIC, no such devices have been found yet. Hence, registers
-that not included in the mt2701 array are omitted.
-
-The mt2701 SoC-specific initialization function is used because they
-share the same GPS_INTF settings.
-
-Signed-off-by: Roman Vivchar <rva333@protonmail.com>
----
- drivers/soc/mediatek/mtk-pmic-wrap.c | 26 ++++++++++++++++++++++++++
- 1 file changed, 26 insertions(+)
-
-diff --git a/drivers/soc/mediatek/mtk-pmic-wrap.c b/drivers/soc/mediatek/mtk-pmic-wrap.c
-index a4b10b0a97cb..3f05fc724e15 100644
---- a/drivers/soc/mediatek/mtk-pmic-wrap.c
-+++ b/drivers/soc/mediatek/mtk-pmic-wrap.c
-@@ -1314,6 +1314,7 @@ enum pmic_type {
- 
- enum pwrap_type {
- 	PWRAP_MT2701,
-+	PWRAP_MT6572,
- 	PWRAP_MT6765,
- 	PWRAP_MT6779,
- 	PWRAP_MT6795,
-@@ -1733,6 +1734,11 @@ static void pwrap_init_chip_select_ext(struct pmic_wrapper *wrp, u8 hext_write,
- static int pwrap_common_init_reg_clock(struct pmic_wrapper *wrp)
- {
- 	switch (wrp->master->type) {
-+	case PWRAP_MT6572:
-+		pwrap_writel(wrp, 0x8, PWRAP_RDDMY);
-+		pwrap_write(wrp, wrp->slave->dew_regs[PWRAP_DEW_RDDMY_NO], 0x8);
-+		pwrap_init_chip_select_ext(wrp, 5, 0, 0, 0);
-+		break;
- 	case PWRAP_MT6795:
- 		if (wrp->slave->type == PMIC_MT6331) {
- 			const u32 *dew_regs = wrp->slave->dew_regs;
-@@ -1839,6 +1845,7 @@ static int pwrap_init_cipher(struct pmic_wrapper *wrp)
- 		pwrap_writel(wrp, 1, PWRAP_CIPHER_START);
- 		break;
- 	case PWRAP_MT2701:
-+	case PWRAP_MT6572:
- 	case PWRAP_MT6765:
- 	case PWRAP_MT6779:
- 	case PWRAP_MT6795:
-@@ -2277,6 +2284,24 @@ static const struct pmic_wrapper_type pwrap_mt2701 = {
- 	.init_soc_specific = pwrap_mt2701_init_soc_specific,
- };
- 
-+/*
-+ * MT6572 register map is a superset of the MT2701. It has additional registers
-+ * OP_TYPE (0x10), MSB_FIRST (0x14), GPS_STA (0x40) and SW_RST (0x180),
-+ * which were omitted because the driver doesn't use them.
-+ */
-+static const struct pmic_wrapper_type pwrap_mt6572 = {
-+	.regs = mt2701_regs,
-+	.type = PWRAP_MT6572,
-+	.arb_en_all = 0x1ff,
-+	.int_en_all = 0x7ffffffd,
-+	.int1_en_all = 0,
-+	.spi_w = PWRAP_MAN_CMD_SPI_WRITE,
-+	.wdt_src = PWRAP_WDT_SRC_MASK_ALL,
-+	.caps = PWRAP_CAP_RESET | PWRAP_CAP_DCM,
-+	.init_reg_clock = pwrap_common_init_reg_clock,
-+	.init_soc_specific = pwrap_mt2701_init_soc_specific,
-+};
-+
- static const struct pmic_wrapper_type pwrap_mt6765 = {
- 	.regs = mt6765_regs,
- 	.type = PWRAP_MT6765,
-@@ -2446,6 +2471,7 @@ static const struct pmic_wrapper_type pwrap_mt8186 = {
- 
- static const struct of_device_id of_pwrap_match_tbl[] = {
- 	{ .compatible = "mediatek,mt2701-pwrap", .data = &pwrap_mt2701 },
-+	{ .compatible = "mediatek,mt6572-pwrap", .data = &pwrap_mt6572 },
- 	{ .compatible = "mediatek,mt6765-pwrap", .data = &pwrap_mt6765 },
- 	{ .compatible = "mediatek,mt6779-pwrap", .data = &pwrap_mt6779 },
- 	{ .compatible = "mediatek,mt6795-pwrap", .data = &pwrap_mt6795 },
-
--- 
-2.54.0
-
-
+Bart
 
