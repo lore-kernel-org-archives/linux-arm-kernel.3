@@ -4,62 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 591D8C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 16:21:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D549BC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 16:23:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iFbmr1xKBDTV97iC3Cb+5mPyWuZMy4WCxAYvCPZrqco=; b=DSYgfIW8kAPWi1pIZ/bTxJm9lq
-	arr6SQegGb2M4G/4RDPJ1ipnARoWaaoyUdwS3DSXjtLAtwHZVZJYp9UHhPTBIpzpH8BUQGwiSIxSb
-	topf6Y4pOBpste0KGHD9nByQcDdmcYW1FzJb3YHWOcPLis819LBCz3/wPpr+pxygl7QQaiYXgSyES
-	oZIb2S0LDCI4h/b88UhaQZiat7kuveE5am72PCm2V++3jmZPJuyBZZYt5cxb3bht6eObr/mt2RC1Y
-	4qS7X/KC2O+us8dgWoqXrKSZVzxXI6IdgnDjphXs/x7sogUgEAJ9FY/d3DeA2EAvO7GPHBTAcSLXK
-	HtQIOKOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dlILUyAolVrYPr256QI3OVnDWr9y23vDwbFMtoDV4O4=; b=LQm/AcTvDXczTVbgryTmDjSNuk
+	8de5qdAkIqlobnStmj6o47ccAkwLipNrs5WB8eTKZkGruIMBRniqCLoFEPm756dQodhCefogXKEWq
+	pii0Cl3cH+CpCMw2ejU/wyzJMrMF5gxw4LGOPdq6duX1XMHDjVk+9ED3j036YVjO3slt/psQUfX7O
+	Xcrowx4dC+tVBdUVZg9DNTpmMGlt5UAbH6vIaKgi0Ys7yeFRLSxVu2vAk2OkAAStgQ8W06oCZU5cE
+	H33M+y7Uo91A/54CO3UjhbhKO7rvMbPIlM2gF8mEIwtwirk1s/oYrqjqrb1g5RWNRO6YnvdMIdvcw
+	4cdm5IbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk2MU-0000000FRqa-0OhB;
-	Wed, 15 Jul 2026 16:21:30 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk2MT-0000000FRpl-1Abs
+	id 1wk2O0-0000000FSJi-1Op6;
+	Wed, 15 Jul 2026 16:23:04 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wk2Nx-0000000FSIt-2CXN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 16:21:29 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CF99041FAC;
-	Wed, 15 Jul 2026 16:21:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B05D41F000E9;
-	Wed, 15 Jul 2026 16:21:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784132488;
-	bh=iFbmr1xKBDTV97iC3Cb+5mPyWuZMy4WCxAYvCPZrqco=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=A4gxDzuqUQCWqzJL8K3smRzi+U9fGzjd55IkvC4H6D+Dja9ZwZfKVKmgGN2IbjNYh
-	 7ygrPlSqASFHP3oBT8sRrXbAmj0x9oLA178+U1mLioZkiE4nOcv6v7hQmDSuzGB/uT
-	 oERkWexSs8MKrIjkKAcTwjKV4BlaUSLM1/LJps0uGZP2dDxh65mkpei3YdkNPO1y4p
-	 0KSwk/GIG/4ZXG0t81asFDQxm3loWIL+MPwwqSM47lvJRAmpst0HV1/rZz2H92YT0g
-	 URBlTIq9b115EHTXNphBU/svQIhF0XdafJNbFsNvbcXX71EwjatjkpbkVIO/jhGlys
-	 2IyTXlouiiIew==
-Date: Wed, 15 Jul 2026 09:21:28 -0700
-From: Kees Cook <kees@kernel.org>
-To: Linus Walleij <linusw@kernel.org>
-Cc: Russell King <linux@armlinux.org.uk>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org,
-	slipher <slipher@protonmail.com>,
-	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4] ARM: breakpoint: CFI breakpoints only on demand
-Message-ID: <202607150919.32DFB37@keescook>
-References: <20260703-arm32-cfi-bug-v4-1-c26acb640a8f@kernel.org>
+	Wed, 15 Jul 2026 16:23:02 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DB73F1477;
+	Wed, 15 Jul 2026 09:22:55 -0700 (PDT)
+Received: from [10.1.25.27] (e122027.cambridge.arm.com [10.1.25.27])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1F1FC3F7B4;
+	Wed, 15 Jul 2026 09:22:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784132580; bh=dg77XYklUbXh45Il0P/FqtiHFSzucVJ/8GhQ8vvAZAw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=jnIcFnKknQfFhH/ZSe16W7ygZ9aJlcMZzJmgb3/8BP5WJF38k0YQoe95evutPHZCY
+	 wtUNge/F7+Qy/lksFoWFKTY9/JKrf9epMGp7oRwIUwWJ0gGWRvpL9pVmGLNcqUrn0X
+	 oRgyjpzuCWM/MidzjoMBBdY108Dll4cKxIVKehFg=
+Message-ID: <ca802162-43b7-478f-9d12-ee7bdc4c2088@arm.com>
+Date: Wed, 15 Jul 2026 17:22:49 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260703-arm32-cfi-bug-v4-1-c26acb640a8f@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v15 02/37] KVM: arm64: Avoid including linux/kvm_host.h in
+ kvm_pgtable.h
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>
+References: <20260715142841.80544-1-steven.price@arm.com>
+ <20260715142841.80544-3-steven.price@arm.com> <871pd45jmn.wl-maz@kernel.org>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <871pd45jmn.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260715_092301_654711_E4A1CD39 
+X-CRM114-Status: GOOD (  12.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,109 +85,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 03, 2026 at 02:25:27PM +0200, Linus Walleij wrote:
-> This removes the stub hw_breakpoint_cfi_handler() from ARM, making
-> it not steal breakpoint type 0x03 (ARM_ENTRY_CFI_BREAKPOINT) unless
-> CFI is actively used in the kernel.
+On 15/07/2026 16:59, Marc Zyngier wrote:
+> On Wed, 15 Jul 2026 15:28:04 +0100,
+> Steven Price <steven.price@arm.com> wrote:
+>>
+>> To avoid future include cycles, drop the linux/kvm_host.h include in
+>> kvm_pgtable.h and include the lightweight headers required for the types and
+>> inline helpers used there. Additionally provide a forward declaration for
+>> struct kvm_s2_mmu as it's only used as a pointer in this file.
+>>
+>> Both pgtable.c and kvm_pkvm.h relied on the indirect inclusion of
+>> kvm_host.h, so make that explicit.
+>>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> ---
+>> New patch in v13
+>> ---
+>>  arch/arm64/include/asm/kvm_pgtable.h | 6 +++++-
+>>  arch/arm64/include/asm/kvm_pkvm.h    | 2 +-
+>>  arch/arm64/kvm/hyp/pgtable.c         | 1 +
+>>  3 files changed, 7 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+>> index 41a8687938eb..c2e4b29e605f 100644
+>> --- a/arch/arm64/include/asm/kvm_pgtable.h
+>> +++ b/arch/arm64/include/asm/kvm_pgtable.h
+>> @@ -8,9 +8,13 @@
+>>  #define __ARM64_KVM_PGTABLE_H__
+>>  
+>>  #include <linux/bits.h>
+>> -#include <linux/kvm_host.h>
+>> +#include <linux/kvm_types.h>
+>> +#include <linux/rbtree_types.h>
+>> +#include <linux/rcupdate.h>
+>>  #include <linux/types.h>
+>>  
+>> +struct kvm_s2_mmu;
+>> +
+>>  #define KVM_PGTABLE_FIRST_LEVEL		-1
+>>  #define KVM_PGTABLE_LAST_LEVEL		3
+>>  
+>> diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+>> index 74fedd9c5ff0..a0f7a699d690 100644
+>> --- a/arch/arm64/include/asm/kvm_pkvm.h
+>> +++ b/arch/arm64/include/asm/kvm_pkvm.h
+>> @@ -9,7 +9,7 @@
+>>  #include <linux/arm_ffa.h>
+>>  #include <linux/memblock.h>
+>>  #include <linux/scatterlist.h>
+>> -#include <asm/kvm_host.h>
+>> +#include <linux/kvm_host.h>
 > 
-> When not instrumenting with CFI, or when a breakpoint is issued in
-> userspace, we fall through to return 1 from hw_breakpoint_pending()
-> "unhandled fault" so userspace can make use of this breakpoint.
-> 
-> Tested with LKDTM and this command line:
-> echo CFI_FORWARD_PROTO > /sys/kernel/debug/provoke-crash/DIRECT
-> still works as expected.
-> 
-> Fixes: c3f89986fde7 ("ARM: 9391/2: hw_breakpoint: Handle CFI breakpoints")
+> nit: please keep the include directives in alphabetical order.
 
-Reviewed-by: Kees Cook <kees@kernel.org>
+Ack.
 
-BTW, I still would like to get the decoding implemented:
-https://lore.kernel.org/lkml/20250904034656.3670313-9-kees@kernel.org/
+Thanks,
+Steve
 
-But I'll need to rework the above patch, as the breakpoint code in
-c3f89986fde7 seems to be better than the register_undef_hook() approach
-I used.
-
--Kees
-
-> Reported-by: slipher <slipher@protonmail.com>
-> Suggested-by: Mark Rutland <mark.rutland@arm.com>
-> Closes: https://lore.kernel.org/lkml/kJqktbpLphg_Pk5I5SPptgTLjl3E3eq5mN5UzCslyFj7Q1Irp-wDid4mj5eQVd2iZtRGXgeZd8goq195EkXdjyt864YMc8mVb2B9NGH91NQ=@protonmail.com/
-> Signed-off-by: Linus Walleij <linusw@kernel.org>
-> ---
-> Trying to solve the CFI bug. Let's see of this first
-> approach is acceptable for the reporter.
-> ---
-> Changes in v4:
-> - Dodge the BKPT if we are coming from userspace!
-> - Would be great if the reporter can test this with and without
->   CONFIG_CFI.
-> - Link to v3: https://patch.msgid.link/20260701-arm32-cfi-bug-v3-1-e3c37e2b80a4@kernel.org
-> 
-> Changes in v3:
-> - Actually strip the RFC prefix...
-> - Link to v2: https://patch.msgid.link/20260701-arm32-cfi-bug-v2-1-9bf922593e00@kernel.org
-> 
-> Changes in v2:
-> - Resending as non-RFC so it can be applied as a band-aid.
-> - Link to v1: https://patch.msgid.link/20260626-arm32-cfi-bug-v1-1-a467b5050c0b@kernel.org
-> 
-> To: Will Deacon <will@kernel.org>
-> To: Mark Rutland <mark.rutland@arm.com>
-> To: Russell King <linux@armlinux.org.uk>
-> To: Kees Cook <kees@kernel.org>
-> To: Sami Tolvanen <samitolvanen@google.com>
-> To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-> To: Linus Walleij <linusw@kernel.org>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-perf-users@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
-> ---
->  arch/arm/kernel/hw_breakpoint.c | 11 ++++++-----
->  1 file changed, 6 insertions(+), 5 deletions(-)
-> 
-> diff --git a/arch/arm/kernel/hw_breakpoint.c b/arch/arm/kernel/hw_breakpoint.c
-> index cd4b34c96e35..38feb30dfb5f 100644
-> --- a/arch/arm/kernel/hw_breakpoint.c
-> +++ b/arch/arm/kernel/hw_breakpoint.c
-> @@ -929,10 +929,6 @@ static void hw_breakpoint_cfi_handler(struct pt_regs *regs)
->  		break;
->  	}
->  }
-> -#else
-> -static void hw_breakpoint_cfi_handler(struct pt_regs *regs)
-> -{
-> -}
->  #endif
->  
->  /*
-> @@ -964,9 +960,14 @@ static int hw_breakpoint_pending(unsigned long addr, unsigned int fsr,
->  	case ARM_ENTRY_SYNC_WATCHPOINT:
->  		watchpoint_handler(addr, fsr, regs);
->  		break;
-> +#ifdef CONFIG_CFI
->  	case ARM_ENTRY_CFI_BREAKPOINT:
-> -		hw_breakpoint_cfi_handler(regs);
-> +		if (user_mode(regs))
-> +			ret = 1; /* Don't handle userspace BKPT */
-> +		else
-> +			hw_breakpoint_cfi_handler(regs);
->  		break;
-> +#endif
->  	default:
->  		ret = 1; /* Unhandled fault. */
->  	}
-> 
-> ---
-> base-commit: 8cd9520d35a6c38db6567e97dd93b1f11f185dc6
-> change-id: 20260626-arm32-cfi-bug-10fb960749c4
-> 
-> Best regards,
-> --  
-> Linus Walleij <linusw@kernel.org>
+> 	M.
 > 
 
--- 
-Kees Cook
 
