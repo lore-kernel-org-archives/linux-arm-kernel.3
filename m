@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48034C4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 13:57:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C82D1C4450F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 13:57:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G/HumVezyXkFdkR2Wp7x3lPttt4LyXN9mRDtkiIPBF8=; b=4R/mh1IXYthbdGaKj1fNGR+zcC
-	ejp+JoajVq1zPAxI23UcbJuPdHSj+8trbcObTZGBsln8qLaFx+GbklVs4FfyjhauknDAL6NN47REb
-	BwGbwa0S7WbCH5bMrhRkMmbDNPpDv+psiWBf4OtF0wWxf9Ts7uPOPT6aum7sRbzgkLPCKZ0rwSPMT
-	xHltgCLt3BNcoX84vCOYpgmJFNnsC9nWiHv3hsgyVuZHhujmitRWvxYt/TKIy0og7/vgOdlokzjVF
-	AF2YkSm5xTaDnymLVJHCAK3Vyg2Xyp25U+E5l5/K1jus9fjhy/y5E6A34LTDgYoKOhww70lN4jaSr
-	S3y1C05g==;
+	bh=YBEGWNbG/MsrC0xeZ50xe5RyLfkInlFrsWVLitax2Js=; b=X++8isQwRbHrJX+F61JIVacc4m
+	T8Nn83eXqOtz8c8CjzWNOV++OwMOe+nxJiblEvhQvQ/8rlfjVCNGNVXvs3aqRjAXx3eBrnFzaJqpY
+	UT6HPOlef9vfCa9CTjNNy/POYeJO2fNJ+jrF4k8pZBLJp4BMBue7vLC6HrYfqR4vEvImPZLh0oJ56
+	ZLmOXYYFM+fMZz3JMf+w2uo9WeVJyjfQS3xKJo1ADfnoLmWI01jN4dZt6nRdeTfWz6Rs6bnSHiVqx
+	bFGBx2irJ8PbDkSKE80q74sNjIedHQC8oq0OuNCVDfRQACOwTbEQIb4wqdaJpBlBAo/N+DdjDI4py
+	k6+mXrpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk072-0000000F1cm-052S;
-	Wed, 15 Jul 2026 13:57:24 +0000
+	id 1wk06w-0000000F1PB-2lq5;
+	Wed, 15 Jul 2026 13:57:18 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk06w-0000000F1N7-1YOT;
-	Wed, 15 Jul 2026 13:57:19 +0000
+	id 1wk06p-0000000F1IA-3aD2;
+	Wed, 15 Jul 2026 13:57:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1784123836;
-	bh=7bip5Tqy1ZPoF/efWEyBg2SwtUUPRNICxgX4GqJcXsU=;
+	s=mail; t=1784123829;
+	bh=jVvxY/dayIuxqXjQkzU3DAubmMnZqUuinWaaEmpOnPA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=V/HP8DPoz0huP4gyvhCFFWWCeZzmTzeraHjnmCfLAIhUaJlaVeFoiyN2nClKNlabn
-	 5nBg5BzxMR0jkeuSLv/HYT46YUoek5Rc21WMo3cSkdxnu/lJneP1uOox8+6+4rCyR1
-	 w6idgTxbS40SWux+QhBPkq28H+jOHfX22pILQRL8qAlsWkFxppozkWCVdaOx/8byM7
-	 SMaU7BIWSq8SG14L0CWIL07IdBAEMNXBIYBk+ifrL8UfFXbd01bFbCx9OrvWd3kh5P
-	 NhDZ09ZuzXYLsOBHpzyI2hfrtDO0Ep8NNQ13X5SDoeH9PmrGZY7Wz66+OYgo+0pDgn
-	 Mp24rAV612IyQ==
+	b=MYBMDHTUAUBTvuUQcZDvf/9TwL5KpJJH0Ambpo/b76uOPmaIp7lY8l+fmXyvPADUg
+	 gB98W5GuPdG5E1m65BRLDjQd3iaQRWMt8+KujToJMbZCkwB6lpoSeQ3+elMjl89VdY
+	 0jIBYtB4iAFeNqYEd+ErYKkgekk7Zw/ziRyZtxos3oW/UfznpDr4JbGAztXkvMLxQx
+	 sXxwkdJrhnnG6KJVone30SwyBj0UOlCO7bxVSFZ1GsGWhVTP4NZ+osODwfmbUSVYxU
+	 LImcWHQwmYR1o2nBhmVNTzv/j0UPsl92EY4sY82ivZrnuCcf0UZ/FoFu5N3i1VHsNM
+	 9PmzCOixwcV7Q==
 Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8ACDD17E0DE9;
-	Wed, 15 Jul 2026 15:57:15 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C6A7717E0DE9;
+	Wed, 15 Jul 2026 15:57:07 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: chunkuang.hu@kernel.org
 Cc: p.zabel@pengutronix.de,
@@ -65,17 +65,17 @@ Cc: p.zabel@pengutronix.de,
 	kernel@collabora.com,
 	justin.yeh@mediatek.com,
 	jason-jh.lin@mediatek.com
-Subject: [PATCH v6 08/11] drm/mediatek: mtk_dsi: Add support for MT8196
-Date: Wed, 15 Jul 2026 15:57:00 +0200
-Message-ID: <20260715135703.46540-9-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v6 02/11] drm/mediatek: Implement Display Stream Compression support
+Date: Wed, 15 Jul 2026 15:56:54 +0200
+Message-ID: <20260715135703.46540-3-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260715135703.46540-1-angelogioacchino.delregno@collabora.com>
 References: <20260715135703.46540-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_065718_644968_586B691D 
-X-CRM114-Status: GOOD (  20.96  )
+X-CRM114-CacheID: sfid-20260715_065712_253002_BBC9CC91 
+X-CRM114-Status: GOOD (  32.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,316 +90,1020 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the new DSI IP found in the Kompanio Ultra MT8196
-SoC and its Dimensity and Genio variants.
+Add a real driver for the Display Stream Compression (DSC) Display
+Controller IP, implementing support for DSC v1.1 to v1.2.
 
-Differently from the older DSI IPs, the one from MT8196 requires
-the initialization of all of the QoS parameters and can make use
-of a DSI SRAM reserved buffer (present also on older SoCs but not
-mandatory on those).
+In order to do this, it was necessary to remove the basic DSC IP
+bypass setup from mtk_ddp_comp: this functionality is retained in
+the new mtk_disp_dsc driver, which checks if DSC was actually
+requested by other components (with the only one that currently
+supports this being DSI) and, if not, it will set BYPASS mode in
+the DSC IP.
+
+Like before, the BYPASS mode is set before starting the DSC IP,
+but unlike before, this is being done in the component start
+callback instead of the config one.
+Notably, the config callback is called by mtk_crtc always
+immediately before the calling start callback, so the order of
+register writes is retained.
+The only real difference is that now this is being done through
+CPU writes instead of CMDQ, but since that's called only once
+and since it's just three registers, the performance impact will
+not be minimal and not even measurable.
+
+As anticipated, DSC handling was also introduced in the mtk_dsi
+driver: when performing dsi_host_attach, the driver now checks
+if the DSI panel adds the DSC configuration structure to the
+mipi_dsi_device structure and, if it does, it will store a
+pointer in the driver-local mtk_dsi structure's `dsc` member.
+
+The DSI driver will then check whether the DSC configuration
+that comes from the panel is valid (in regard to MediaTek DSI)
+and will call the DRM API's DSC helpers to calculate and set
+all of the const and RC parameters for the actual DSC setup.
+
+For the time being, even though the latest MediaTek SoCs do
+support DSC v1.2, only DSC v1.1 pre-scr support is implemented
+as an initial contribution (which is rather big, and 1.2 would
+make it even bigger - but that can anyway be implemented later).
+
+As a last step for validation of DSC parameters in DSI, a check
+for the hdisplay against DSC slice sidth and one for vdisplay
+against DSC slice height was added to the mode_valid callback,
+making sure that H/V are, as expected, multiples of slice W/H.
 
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/gpu/drm/mediatek/mtk_drm_drv.c |   2 +
- drivers/gpu/drm/mediatek/mtk_dsi.c     | 211 +++++++++++++++++++++++++
- 2 files changed, 213 insertions(+)
+ drivers/gpu/drm/mediatek/Makefile       |   1 +
+ drivers/gpu/drm/mediatek/mtk_crtc.c     |  21 ++
+ drivers/gpu/drm/mediatek/mtk_ddp_comp.c |  43 +--
+ drivers/gpu/drm/mediatek/mtk_ddp_comp.h |   9 +
+ drivers/gpu/drm/mediatek/mtk_disp_drv.h |   9 +
+ drivers/gpu/drm/mediatek/mtk_disp_dsc.c | 455 ++++++++++++++++++++++++
+ drivers/gpu/drm/mediatek/mtk_drm_drv.c  |   2 +
+ drivers/gpu/drm/mediatek/mtk_drm_drv.h  |   1 +
+ drivers/gpu/drm/mediatek/mtk_dsi.c      | 151 +++++++-
+ 9 files changed, 642 insertions(+), 50 deletions(-)
+ create mode 100644 drivers/gpu/drm/mediatek/mtk_disp_dsc.c
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-index 08f6be311dd1..aec8da072a41 100644
---- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-+++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-@@ -828,6 +828,8 @@ static const struct of_device_id mtk_ddp_comp_dt_ids[] = {
- 	  .data = (void *)MTK_DSI },
- 	{ .compatible = "mediatek,mt8189-dsi",
- 	  .data = (void *)MTK_DSI },
-+	{ .compatible = "mediatek,mt8196-dsi",
-+	  .data = (void *)MTK_DSI },
- 	{ }
- };
+diff --git a/drivers/gpu/drm/mediatek/Makefile b/drivers/gpu/drm/mediatek/Makefile
+index 952d294642fb..03b3470ea5b5 100644
+--- a/drivers/gpu/drm/mediatek/Makefile
++++ b/drivers/gpu/drm/mediatek/Makefile
+@@ -5,6 +5,7 @@ mediatek-drm-y := mtk_crtc.o \
+ 		  mtk_disp_aal.o \
+ 		  mtk_disp_ccorr.o \
+ 		  mtk_disp_color.o \
++		  mtk_disp_dsc.o \
+ 		  mtk_disp_gamma.o \
+ 		  mtk_disp_merge.o \
+ 		  mtk_disp_ovl.o \
+diff --git a/drivers/gpu/drm/mediatek/mtk_crtc.c b/drivers/gpu/drm/mediatek/mtk_crtc.c
+index 8e552cdc3b53..d4be40b2574a 100644
+--- a/drivers/gpu/drm/mediatek/mtk_crtc.c
++++ b/drivers/gpu/drm/mediatek/mtk_crtc.c
+@@ -22,6 +22,7 @@
  
-diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
-index 3f58683be70f..4d8a02cbee38 100644
---- a/drivers/gpu/drm/mediatek/mtk_dsi.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
-@@ -153,6 +153,18 @@
- #define FORCE_COMMIT			BIT(0)
- #define BYPASS_SHADOW			BIT(1)
+ #include "mtk_crtc.h"
+ #include "mtk_ddp_comp.h"
++#include "mtk_disp_drv.h"
+ #include "mtk_drm_drv.h"
+ #include "mtk_plane.h"
  
-+/* DSI_VDE */
-+#define VDE_BLOCK_ULTRA			BIT(29)
+@@ -344,6 +345,8 @@ static int mtk_crtc_ddp_hw_init(struct mtk_crtc *mtk_crtc)
+ 	struct drm_connector *connector;
+ 	struct drm_encoder *encoder;
+ 	struct drm_connector_list_iter conn_iter;
++	struct mtk_ddp_comp *comp_dsi = NULL, *comp_dsc = NULL;
++	struct drm_dsc_config *dsc_cfg;
+ 	struct drm_device *dev = mtk_crtc->base.dev;
+ 	unsigned int width, height, vrefresh, bpc = MTK_MAX_BPC;
+ 	int ret;
+@@ -398,6 +401,17 @@ static int mtk_crtc_ddp_hw_init(struct mtk_crtc *mtk_crtc)
+ 		if (!mtk_ddp_comp_add(mtk_crtc->ddp_comp[i], mtk_crtc->mutex))
+ 			mtk_mutex_add_comp(mtk_crtc->mutex,
+ 					   mtk_crtc->ddp_comp[i]->id);
 +
-+/* DSI_BUF_CON0 */
-+#define DSI_QOS_BUF_EN			BIT(0)
++		/* For now, only single DSI is supported */
++		if (mtk_crtc->ddp_comp[i]->id >= DDP_COMPONENT_DSI0 &&
++		    mtk_crtc->ddp_comp[i]->id <= DDP_COMPONENT_DSI3)
++			if (!comp_dsi)
++				comp_dsi = mtk_crtc->ddp_comp[i];
 +
-+/* DSI_BUF_CON1 */
-+#define BUF_OUT_VALID_THRESH		GENMASK(14, 0)
-+
-+/* DSI_BUF_SODI_HIGH, SODI_LOW and other BUF registers */
-+#define BUF_THRESHOLD_PARAM		GENMASK(19, 0)
-+
- /* CMDQ related bits */
- #define CONFIG				GENMASK(7, 0)
- #define SHORT_PACKET			0
-@@ -165,6 +177,17 @@
++		if (mtk_crtc->ddp_comp[i]->id == DDP_COMPONENT_DSC0 ||
++		    mtk_crtc->ddp_comp[i]->id == DDP_COMPONENT_DSC1)
++			if (!comp_dsc)
++				comp_dsc = mtk_crtc->ddp_comp[i];
+ 	}
+ 	if (!mtk_ddp_comp_add(mtk_crtc->ddp_comp[i], mtk_crtc->mutex))
+ 		mtk_mutex_add_comp(mtk_crtc->mutex, mtk_crtc->ddp_comp[i]->id);
+@@ -413,6 +427,13 @@ static int mtk_crtc_ddp_hw_init(struct mtk_crtc *mtk_crtc)
+ 		mtk_ddp_comp_start(comp);
+ 	}
  
- #define NS_TO_CYCLE(n, c)    ((n) / (c) + (((n) % (c)) ? 1 : 0))
- 
-+/* HW QoS and Anti-Latency Buffer related bits */
-+#define MTK_DSI_MAX_FIFO_BYTES			1554
-+#define MTK_DSI_DEFAULT_QOS_VALID_FIFO_US	25
-+#define MTK_DSI_DEFAULT_QOS_SODI_LO_OVERHEAD	(23 + 5)
-+#define MTK_DSI_DEFAULT_QOS_PREULTRA_HI_US	36
-+#define MTK_DSI_DEFAULT_QOS_PREULTRA_LO_US	35
-+#define MTK_DSI_DEFAULT_QOS_ULTRA_HI_US		26
-+#define MTK_DSI_DEFAULT_QOS_ULTRA_LO_US		25
-+#define MTK_DSI_DEFAULT_QOS_URGENT_LO_US	11
-+#define MTK_DSI_DEFAULT_QOS_URGENT_HI_US	12
++	/* Setup the DSC if present, with the config coming from DSI */
++	if (comp_dsc && comp_dsi) {
++		dsc_cfg = mtk_dsi_get_dsc_config(comp_dsi->dev);
++		if (dsc_cfg)
++			mtk_ddp_comp_dsc_setup(comp_dsc, dsc_cfg);
++	}
 +
- #define MTK_DSI_HOST_IS_READ(type) \
- 	((type == MIPI_DSI_GENERIC_READ_REQUEST_0_PARAM) || \
- 	(type == MIPI_DSI_GENERIC_READ_REQUEST_1_PARAM) || \
-@@ -207,9 +230,26 @@ enum mtk_dsi_adv_regidx {
- 	DSI_VM_CMD_CON,
- 	DSI_SHADOW_DEBUG,
- 	DSI_CMDQ,
-+	DSI_VDE,
- 	DSI_ADV_REG_MAX
- };
+ 	/* Initially configure all planes */
+ 	for (i = 0; i < mtk_crtc->layer_nr; i++) {
+ 		struct drm_plane *plane = &mtk_crtc->planes[i];
+diff --git a/drivers/gpu/drm/mediatek/mtk_ddp_comp.c b/drivers/gpu/drm/mediatek/mtk_ddp_comp.c
+index 9672ea1f91a2..13aaf12ecbe5 100644
+--- a/drivers/gpu/drm/mediatek/mtk_ddp_comp.c
++++ b/drivers/gpu/drm/mediatek/mtk_ddp_comp.c
+@@ -40,12 +40,6 @@
+ #define DITHER_LSB_ERR_SHIFT_G(x)		(((x) & 0x7) << 12)
+ #define DITHER_ADD_LSHIFT_G(x)			(((x) & 0x7) << 4)
  
-+enum mtk_dsi_qos_regidx {
-+	DSI_QOS_BUF_CON0,
-+	DSI_QOS_BUF_CON1,
-+	DSI_QOS_TX_BUF_RW_TIMES,
-+	DSI_QOS_SODI_HIGH,
-+	DSI_QOS_SODI_LOW,
-+	DSI_QOS_PREULTRA_HIGH,
-+	DSI_QOS_PREULTRA_LOW,
-+	DSI_QOS_ULTRA_HIGH,
-+	DSI_QOS_ULTRA_LOW,
-+	DSI_QOS_URGENT_HIGH,
-+	DSI_QOS_URGENT_LOW,
-+	DSI_QOS_PREURGENT_HIGH,
-+	DSI_QOS_REG_MAX
-+};
-+
- struct mtk_phy_timing {
- 	u32 lpx;
- 	u32 da_hs_prepare;
-@@ -234,8 +274,12 @@ struct phy;
- struct mtk_dsi_driver_data {
- 	const u16 *reg_main;
- 	const u16 *reg_adv;
-+	const u16 *reg_qos;
- 
- 	const u16 max_link_rate_mbps;
-+	const u8 dsi_sram_bytes;
-+	const u8 pixels_per_iter;
-+	const u8 num_burst_lines;
- 
- 	bool has_size_ctl;
- 	bool cmdq_long_packet_ctl;
-@@ -329,6 +373,59 @@ static const u16 mtk_dsi_regs_mt8186[DSI_ADV_REG_MAX] = {
- 	[DSI_CMDQ] = 0xd00,
- };
- 
-+static const u16 mtk_dsi_regs_main_v2[DSI_MAIN_REG_MAX] = {
-+	[DSI_START] = 0x00,
-+	[DSI_INTEN] = 0x08,
-+	[DSI_INTSTA] = 0x0c,
-+	[DSI_CON_CTRL] = 0x30,
-+	[DSI_MODE_CTRL] = 0x34,
-+	[DSI_TXRX_CTRL] = 0x38,
-+	[DSI_PSCTRL] = 0x3c,
-+	[DSI_VSA_NL] = 0x60,
-+	[DSI_VBP_NL] = 0x64,
-+	[DSI_VFP_NL] = 0x68,
-+	[DSI_VACT_NL] = 0x6c,
-+	[DSI_SIZE_CON] = 0x2c,
-+	[DSI_HSA_WC] = 0x80,
-+	[DSI_HBP_WC] = 0x84,
-+	[DSI_HFP_WC] = 0x88,
-+	[DSI_CMDQ_SIZE] = 0x44,
-+	[DSI_HSTX_CKL_WC] = 0x100,
-+	[DSI_RX_DATA0] = 0xa4,
-+	[DSI_RX_DATA1] = 0xa8,
-+	[DSI_RX_DATA2] = 0xac,
-+	[DSI_RX_DATA3] = 0xb0,
-+	[DSI_RACK] = 0xb4,
-+	[DSI_PHY_LCCON] = 0x7d0,
-+	[DSI_PHY_LD0CON] = 0x7d4,
-+	[DSI_PHY_TIMECON0] = 0x600,
-+	[DSI_PHY_TIMECON1] = 0x604,
-+	[DSI_PHY_TIMECON2] = 0x608,
-+	[DSI_PHY_TIMECON3] = 0x60c,
-+};
-+
-+static const u16 mtk_dsi_regs_qos_v2[DSI_QOS_REG_MAX] = {
-+	[DSI_QOS_BUF_CON0] = 0x300,
-+	[DSI_QOS_BUF_CON1] = 0x304,
-+	[DSI_QOS_TX_BUF_RW_TIMES] = 0x310,
-+	[DSI_QOS_SODI_HIGH] = 0x314,
-+	[DSI_QOS_SODI_LOW] = 0x318,
-+	[DSI_QOS_PREULTRA_HIGH] = 0x324,
-+	[DSI_QOS_PREULTRA_LOW] = 0x328,
-+	[DSI_QOS_ULTRA_HIGH] = 0x32c,
-+	[DSI_QOS_ULTRA_LOW] = 0x330,
-+	[DSI_QOS_URGENT_HIGH] = 0x334,
-+	[DSI_QOS_URGENT_LOW] = 0x338,
-+	[DSI_QOS_PREURGENT_HIGH] = 0x33c
-+};
-+
-+static const u16 mtk_dsi_regs_mt8196[DSI_ADV_REG_MAX] = {
-+	[DSI_VM_CMD_CON] = 0x110,
-+	[DSI_SHADOW_DEBUG] = 0xd0,
-+	[DSI_CMDQ] = 0x400,
-+	[DSI_VDE] = 0x3f8,
-+};
-+
- static inline struct mtk_dsi *bridge_to_dsi(struct drm_bridge *b)
- {
- 	return container_of(b, struct mtk_dsi, bridge);
-@@ -776,6 +873,102 @@ static int mtk_dsi_set_dsc_params(struct mtk_dsi *dsi)
- 	return drm_dsc_compute_rc_parameters(dsc);
+-#define DISP_REG_DSC_CON			0x0000
+-#define DSC_EN					BIT(0)
+-#define DSC_DUAL_INOUT				BIT(2)
+-#define DSC_BYPASS				BIT(4)
+-#define DSC_UFOE_SEL				BIT(16)
+-
+ #define DISP_REG_OD_EN				0x0000
+ #define DISP_REG_OD_CFG				0x0020
+ #define OD_RELAYMODE				BIT(0)
+@@ -187,36 +181,6 @@ static void mtk_dither_set(struct device *dev, unsigned int bpc,
+ 			      DISP_DITHERING, cmdq_pkt);
  }
  
-+static void mtk_dsi_config_hw_buffers(struct mtk_dsi *dsi)
+-static void mtk_dsc_config(struct device *dev, unsigned int w,
+-			   unsigned int h, unsigned int vrefresh,
+-			   unsigned int bpc, struct cmdq_pkt *cmdq_pkt)
+-{
+-	struct mtk_ddp_comp_dev *priv = dev_get_drvdata(dev);
+-
+-	/* dsc bypass mode */
+-	mtk_ddp_write_mask(cmdq_pkt, DSC_BYPASS, &priv->cmdq_reg, priv->regs,
+-			   DISP_REG_DSC_CON, DSC_BYPASS);
+-	mtk_ddp_write_mask(cmdq_pkt, DSC_UFOE_SEL, &priv->cmdq_reg, priv->regs,
+-			   DISP_REG_DSC_CON, DSC_UFOE_SEL);
+-	mtk_ddp_write_mask(cmdq_pkt, DSC_DUAL_INOUT, &priv->cmdq_reg, priv->regs,
+-			   DISP_REG_DSC_CON, DSC_DUAL_INOUT);
+-}
+-
+-static void mtk_dsc_start(struct device *dev)
+-{
+-	struct mtk_ddp_comp_dev *priv = dev_get_drvdata(dev);
+-
+-	/* write with mask to reserve the value set in mtk_dsc_config */
+-	mtk_ddp_write_mask(NULL, DSC_EN, &priv->cmdq_reg, priv->regs, DISP_REG_DSC_CON, DSC_EN);
+-}
+-
+-static void mtk_dsc_stop(struct device *dev)
+-{
+-	struct mtk_ddp_comp_dev *priv = dev_get_drvdata(dev);
+-
+-	writel_relaxed(0x0, priv->regs + DISP_REG_DSC_CON);
+-}
+-
+ static void mtk_od_config(struct device *dev, unsigned int w,
+ 			  unsigned int h, unsigned int vrefresh,
+ 			  unsigned int bpc, struct cmdq_pkt *cmdq_pkt)
+@@ -309,9 +273,9 @@ static const struct mtk_ddp_comp_funcs ddp_dpi = {
+ };
+ 
+ static const struct mtk_ddp_comp_funcs ddp_dsc = {
+-	.clk_enable = mtk_ddp_clk_enable,
+-	.clk_disable = mtk_ddp_clk_disable,
+-	.config = mtk_dsc_config,
++	.clk_enable = mtk_dsc_clk_enable,
++	.clk_disable = mtk_dsc_clk_disable,
++	.dsc_setup = mtk_dsc_setup,
+ 	.start = mtk_dsc_start,
+ 	.stop = mtk_dsc_stop,
+ };
+@@ -671,6 +635,7 @@ int mtk_ddp_comp_init(struct device *dev, struct device_node *node, struct mtk_d
+ 	    type == MTK_DISP_BLS ||
+ 	    type == MTK_DISP_CCORR ||
+ 	    type == MTK_DISP_COLOR ||
++	    type == MTK_DISP_DSC ||
+ 	    type == MTK_DISP_GAMMA ||
+ 	    type == MTK_DISP_MERGE ||
+ 	    type == MTK_DISP_OVL ||
+diff --git a/drivers/gpu/drm/mediatek/mtk_ddp_comp.h b/drivers/gpu/drm/mediatek/mtk_ddp_comp.h
+index 3f3d43f4330d..99bf1e1015da 100644
+--- a/drivers/gpu/drm/mediatek/mtk_ddp_comp.h
++++ b/drivers/gpu/drm/mediatek/mtk_ddp_comp.h
+@@ -20,6 +20,7 @@ struct drm_crtc;
+ struct drm_device;
+ struct mtk_plane_state;
+ struct drm_crtc_state;
++struct drm_dsc_config;
+ 
+ enum mtk_ddp_comp_type {
+ 	MTK_DISP_AAL,
+@@ -56,6 +57,7 @@ struct mtk_ddp_comp_funcs {
+ 	void (*config)(struct device *dev, unsigned int w,
+ 		       unsigned int h, unsigned int vrefresh,
+ 		       unsigned int bpc, struct cmdq_pkt *cmdq_pkt);
++	void (*dsc_setup)(struct device *dev, struct drm_dsc_config *dsc);
+ 	void (*start)(struct device *dev);
+ 	void (*stop)(struct device *dev);
+ 	void (*register_vblank_cb)(struct device *dev,
+@@ -149,6 +151,13 @@ static inline void mtk_ddp_comp_config(struct mtk_ddp_comp *comp,
+ 		comp->funcs->config(comp->dev, w, h, vrefresh, bpc, cmdq_pkt);
+ }
+ 
++static inline void mtk_ddp_comp_dsc_setup(struct mtk_ddp_comp *comp,
++					  struct drm_dsc_config *dsc)
 +{
-+	const struct mtk_dsi_driver_data *data = dsi->driver_data;
-+	const u16 *reg_qos = data->reg_qos;
-+	u32 buffer_unit, sram_unit, num_hw_buffers;
-+	u32 preultra_hi, preultra_lo;
-+	u32 urgent_hi, urgent_lo;
-+	u32 ultra_hi, ultra_lo;
-+	u32 sodi_hi, sodi_lo;
-+	u32 data_rate_per_buf;
-+	u32 out_valid_thresh;
-+	u32 dsi_buf_bpp;
-+	u32 fill_rate;
-+	u32 pclk_mhz;
-+	u32 rw_times;
-+	u32 val;
-+	u64 tmp;
-+
-+	/*
-+	 * At the time of writing, only MT8196 is implemented and, for this SoC,
-+	 * the buffer unit is equal to the SRAM bytes.
-+	 *
-+	 * There are other SoCs already out in the wild that do support the HW
-+	 * buffers and that have different sizes, so keep the calculation as-is!
-+	 */
-+	buffer_unit = data->dsi_sram_bytes;
-+	sram_unit = data->dsi_sram_bytes;
-+	num_hw_buffers = sram_unit / buffer_unit;
-+
-+	if (data->support_per_frame_lp)
-+		val = CMDMODE_WAIT_DATA_EVERY_LINE_EN;
-+	else
-+		val = 0;
-+
-+	mtk_dsi_mask(dsi, data->reg_main[DSI_CON_CTRL],
-+		     CMDMODE_WAIT_DATA_EVERY_LINE_EN, val);
-+
-+	/* Read as: [Data rate (MHz)] * [Number of DSI lanes] / [8 buffer blocks] */
-+	tmp = (u64)dsi->data_rate * dsi->lanes;
-+	data_rate_per_buf = div_u64(tmp, 8 * buffer_unit * HZ_PER_MHZ);
-+
-+	/*
-+	 * Anti-latency buffer output threshold for absolute timer mode: this
-+	 * parameter controls the maximum amount of output data that the FIFO
-+	 * can hold before running out of buffer space.
-+	 *
-+	 * The data will therefore be sent either when the DSI IP0s internal
-+	 * vblank vs bus QoS timer expires or when it reaches the amount of
-+	 * buffers set in BUF_OUT_VALID_THRESHOLD (regardless of QoS) to avoid
-+	 * partially, or entirely, losing frame(s).
-+	 */
-+	out_valid_thresh = MTK_DSI_DEFAULT_QOS_VALID_FIFO_US * data_rate_per_buf;
-+	out_valid_thresh = min(out_valid_thresh, MTK_DSI_MAX_FIFO_BYTES - 1);
-+	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_BUF_CON1], BUF_OUT_VALID_THRESH, out_valid_thresh);
-+
-+	/* Enable ULTRA signal trigger between SOF and VACT */
-+	mtk_dsi_mask(dsi, data->reg_adv[DSI_VDE], VDE_BLOCK_ULTRA, 0);
-+
-+	/* Calculate fill rate with line counter mode for DSI Video Mode */
-+	if (dsi->format == MIPI_DSI_FMT_RGB565)
-+		dsi_buf_bpp = 2;
-+	else
-+		dsi_buf_bpp = 3;
-+
-+	pclk_mhz = dsi->vm.pixelclock / HZ_PER_MHZ;
-+	fill_rate = div_u64((u64)pclk_mhz * data->pixels_per_iter * dsi_buf_bpp,
-+			    buffer_unit);
-+
-+	/* Calculate QoS Anti-Latency parameters */
-+	sodi_hi = MTK_DSI_MAX_FIFO_BYTES * num_hw_buffers;
-+	sodi_hi -= (fill_rate - data_rate_per_buf) * 12 / 10;
-+	sodi_lo = MTK_DSI_DEFAULT_QOS_SODI_LO_OVERHEAD * data_rate_per_buf;
-+	preultra_hi = MTK_DSI_DEFAULT_QOS_PREULTRA_HI_US * data_rate_per_buf;
-+	preultra_lo = MTK_DSI_DEFAULT_QOS_PREULTRA_LO_US * data_rate_per_buf;
-+	ultra_hi = MTK_DSI_DEFAULT_QOS_ULTRA_HI_US * data_rate_per_buf;
-+	ultra_lo = MTK_DSI_DEFAULT_QOS_ULTRA_LO_US * data_rate_per_buf;
-+	urgent_hi = MTK_DSI_DEFAULT_QOS_URGENT_HI_US * data_rate_per_buf;
-+	urgent_lo = MTK_DSI_DEFAULT_QOS_URGENT_LO_US * data_rate_per_buf;
-+	rw_times = dsi->vm.vactive * dsi_buf_bpp;
-+	rw_times /= data->num_burst_lines * data->pixels_per_iter;
-+
-+	/* Write all QoS parameters: Screen On Deep Idle, (pre)Ultra, Urgent, RW times */
-+	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_SODI_HIGH], BUF_THRESHOLD_PARAM, sodi_hi);
-+	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_SODI_LOW], BUF_THRESHOLD_PARAM, sodi_lo);
-+	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_PREULTRA_HIGH], BUF_THRESHOLD_PARAM, preultra_hi);
-+	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_PREULTRA_LOW], BUF_THRESHOLD_PARAM, preultra_lo);
-+	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_ULTRA_HIGH], BUF_THRESHOLD_PARAM, ultra_hi);
-+	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_ULTRA_LOW], BUF_THRESHOLD_PARAM, ultra_lo);
-+	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_URGENT_HIGH], BUF_THRESHOLD_PARAM, urgent_hi);
-+	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_URGENT_LOW], BUF_THRESHOLD_PARAM, urgent_lo);
-+	writel(rw_times, dsi->regs + reg_qos[DSI_QOS_TX_BUF_RW_TIMES]);
-+
-+	/* Finally, activate internal line-buffering */
-+	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_BUF_CON0], DSI_QOS_BUF_EN, DSI_QOS_BUF_EN);
++	if (comp->funcs && comp->funcs->dsc_setup)
++		comp->funcs->dsc_setup(comp->dev, dsc);
 +}
 +
- static int mtk_dsi_config_vdo_timing(struct mtk_dsi *dsi)
+ static inline void mtk_ddp_comp_start(struct mtk_ddp_comp *comp)
  {
- 	const struct mtk_dsi_driver_data *data = dsi->driver_data;
-@@ -961,6 +1154,10 @@ static int mtk_dsi_poweron(struct mtk_dsi *dsi)
- 	mtk_dsi_reset_engine(dsi);
- 	mtk_dsi_phy_timconfig(dsi);
+ 	if (comp->funcs && comp->funcs->start)
+diff --git a/drivers/gpu/drm/mediatek/mtk_disp_drv.h b/drivers/gpu/drm/mediatek/mtk_disp_drv.h
+index 679d413bf10b..5e2d8748120a 100644
+--- a/drivers/gpu/drm/mediatek/mtk_disp_drv.h
++++ b/drivers/gpu/drm/mediatek/mtk_disp_drv.h
+@@ -12,6 +12,8 @@
+ #include "mtk_mdp_rdma.h"
+ #include "mtk_plane.h"
  
-+	/* Setup HW FIFO if DSI supports QoS Anti-Latency buffers */
-+	if (data->dsi_sram_bytes && data->reg_qos)
-+		mtk_dsi_config_hw_buffers(dsi);
++struct drm_dsc_config;
 +
- 	mtk_dsi_ps_control(dsi, true);
- 	mtk_dsi_set_vm_cmd(dsi);
- 	ret = mtk_dsi_config_vdo_timing(dsi);
-@@ -1598,6 +1795,19 @@ static const struct mtk_dsi_driver_data mt8189_dsi_driver_data = {
- 	.support_per_frame_lp = true,
- };
+ int mtk_aal_clk_enable(struct device *dev);
+ void mtk_aal_clk_disable(struct device *dev);
+ void mtk_aal_config(struct device *dev, unsigned int w,
+@@ -47,9 +49,16 @@ void mtk_dpi_start(struct device *dev);
+ void mtk_dpi_stop(struct device *dev);
+ unsigned int mtk_dpi_encoder_index(struct device *dev);
  
-+static const struct mtk_dsi_driver_data mt8196_dsi_driver_data = {
-+	.reg_main = mtk_dsi_regs_main_v2,
-+	.reg_qos = mtk_dsi_regs_qos_v2,
-+	.reg_adv = mtk_dsi_regs_mt8196,
-+	.max_link_rate_mbps = 2000,
-+	.dsi_sram_bytes = 32,
-+	.pixels_per_iter = 2,
-+	.num_burst_lines = 8,
-+	.has_size_ctl = true,
-+	.cmdq_long_packet_ctl = true,
-+	.support_per_frame_lp = true,
++int mtk_dsc_clk_enable(struct device *dev);
++void mtk_dsc_clk_disable(struct device *dev);
++void mtk_dsc_setup(struct device *dev, struct drm_dsc_config *dsc_cfg);
++void mtk_dsc_start(struct device *dev);
++void mtk_dsc_stop(struct device *dev);
++
+ void mtk_dsi_ddp_start(struct device *dev);
+ void mtk_dsi_ddp_stop(struct device *dev);
+ unsigned int mtk_dsi_encoder_index(struct device *dev);
++struct drm_dsc_config *mtk_dsi_get_dsc_config(struct device *dev);
+ 
+ int mtk_gamma_clk_enable(struct device *dev);
+ void mtk_gamma_clk_disable(struct device *dev);
+diff --git a/drivers/gpu/drm/mediatek/mtk_disp_dsc.c b/drivers/gpu/drm/mediatek/mtk_disp_dsc.c
+new file mode 100644
+index 000000000000..bed6b77bf9a9
+--- /dev/null
++++ b/drivers/gpu/drm/mediatek/mtk_disp_dsc.c
+@@ -0,0 +1,455 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (c) 2021 MediaTek Inc.
++ * Copyright (c) 2025 Collabora Ltd
++ *                    AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
++ */
++
++#include <linux/clk.h>
++#include <linux/component.h>
++#include <linux/module.h>
++#include <linux/of_device.h>
++#include <linux/platform_device.h>
++#include <linux/pm_runtime.h>
++#include <linux/soc/mediatek/mtk-cmdq.h>
++
++#include <drm/display/drm_dsc.h>
++#include <drm/display/drm_dsc_helper.h>
++
++#include "mtk_crtc.h"
++#include "mtk_ddp_comp.h"
++#include "mtk_disp_drv.h"
++
++#define DISP_REG_DSC_CON		0x0
++#  define DSC_EN			BIT(0)
++#  define DSC_DUAL_INOUT		BIT(2)
++#  define DSC_IN_SRC_SEL		BIT(3)
++#  define DSC_BYPASS			BIT(4)
++#  define DSC_RELAY			BIT(5)
++#  define DSC_V1_1_EXT			BIT(6)
++#  define DSC_PT_MEM_EN			BIT(7)
++#  define DSC_SW_RESET			BIT(8)
++#  define DSC_EMPTY_FLAG_SEL		GENMASK(15, 14)
++ #  define DSC_EMPTY_FLAG_NORMAL_DET	0
++ #  define DSC_EMPTY_FLAG_ALWAYS_HIGH	1
++ #  define DSC_EMPTY_FLAG_ALWAYS_LOW	2
++ #  define DSC_EMPTY_FLAG_DO_NOT_SEND	3
++#  define DSC_UFOE_SEL			BIT(16)
++#  define DSC_OUTPUT_SWAP		BIT(18)
++#  define DSC_ZERO_FIFO_STALL_DISABLE	BIT(20)
++
++#define DISP_REG_DSC_SPR		0x14
++#define DISP_REG_DSC_PIC_W		0x18
++#  define DSC_PIC_WIDTH			GENMASK(15, 0)
++#  define DSC_PIC_GROUP_WIDTH_M1	GENMASK(31, 16)
++
++#define DISP_REG_DSC_PIC_H		0x1c
++#  define DSC_PIC_HEIGHT		GENMASK(15, 0)
++#  define DSC_PIC_HEIGHT_EXT_M1		GENMASK(31, 16)
++
++#define DISP_REG_DSC_SLICE_W		0x20
++#  define DSC_SLICE_WIDTH		GENMASK(15, 0)
++#  define DSC_SLICE_GROUP_WIDTH_M1	GENMASK(31, 16)
++
++#define DISP_REG_DSC_SLICE_H		0x24
++#  define DSC_SLICE_HEIGHT_M1		GENMASK(15, 0)
++#  define DSC_SLICE_NUM_M1		GENMASK(29, 16)
++#  define DSC_SLICE_WIDTH_MOD3		GENMASK(31, 30)
++
++#define DISP_REG_DSC_CHUNK_SIZE		0x28
++
++#define DISP_REG_DSC_BUF_SIZE		0x2c
++#  define DISP_DSC_BUF_SIZE_MASK	GENMASK(23, 0)
++
++#define DISP_REG_DSC_MODE		0x30
++#  define DSC_RGB_SWAP			BIT(2)
++#  define DSC_INIT_DELAY_HEIGHT		GENMASK(11, 8)
++
++#define DISP_REG_DSC_CFG		0x34
++#  define DSC_CFG_FLATNESS_DET_THRES	GENMASK(4, 0)
++#  define DSC_CFG_FLATNESS_8BITS	2
++#  define DSC_CFG_FLATNESS_10BITS	8
++#  define DSC_CFG_ICH_EN		BIT(5)
++#  define DSC_CFG_ICH_LINE_CLEAR	GENMASK(7, 6)
++#  define DSC_CFG_V1P1			BIT(8)
++#  define DSC_CFG_IDLE_MODE		BIT(9)
++#  define DSC_CFG_CRC_EN		BIT(12)
++#  define DSC_CFG_DSC12_BUGFIX		BIT(14)
++#  define DSC_CFG_CORE_CHECKSUM		BIT(15)
++
++#define DISP_REG_DSC_PAD		0x38
++#  define DSC_PAD_NUMBER		GENMASK(2, 0)
++
++#define DISP_REG_DSC_ENC_WIDTH		0x3c
++#  define DSC_ENC_WIDTH_SLICE		GENMASK(15, 0)
++#  define DSC_ENC_WIDTH_PIC		GENMASK(31, 16)
++
++#define DISP_REG_DSC_PIC_PRE_PAD_SIZE	0x40
++#  define DSC_PIC_PREPAD_HEIGHT		GENMASK(15, 0)
++#  define DSC_PIC_PREPAD_WIDTH		GENMASK(31, 16)
++
++#define DISP_REG_DSC_DBG_CON		0x60
++#  define DSC_CKSM_CAL_EN		BIT(9)
++
++#define DISP_REG_DSC_OUTBUF		0x70
++#  define DSC_OBUF_SIZE			GENMASK(11, 0)
++
++#define DISP_REG_DSC_PPS(x)		(0x80 + (x * 4)) /* 0..19 */
++#  define DSC_P0_UP_LINE_BUF_DEPTH	GENMASK(3, 0)
++#  define DSC_P0_BPC			GENMASK(7, 4)
++#  define DSC_P0_BPP			GENMASK(17, 8)
++#  define DSC_P0_RCT_ON			BIT(18)
++#  define DSC_P0_BLOCK_PRED_EN		BIT(19)
++#  define DSC_P1_INITIAL_XMIT_DELAY	GENMASK(15, 0)
++#  define DSC_P1_INITIAL_DEC_DELAY	GENMASK(31, 16)
++#  define DSC_P2_INITIAL_SCALE_VALUE	GENMASK(15, 0)
++#  define DSC_P2_SCALE_INCR_INTERVAL	GENMASK(31, 16)
++#  define DSC_P3_SCALE_DECR_INTERVAL	GENMASK(15, 0)
++#  define DSC_P3_FIRST_LINE_BPG_OFFSET	GENMASK(31, 16)
++#  define DSC_P4_NFL_BPG_OFFSET		GENMASK(15, 0)
++#  define DSC_P4_SLICE_BPG_OFFSET	GENMASK(31, 16)
++#  define DSC_P5_INITIAL_OFFSET		GENMASK(15, 0)
++#  define DSC_P5_FINAL_OFFSET		GENMASK(31, 16)
++#  define DSC_P6_FLATNESS_MIN_QP	GENMASK(4, 0)
++#  define DSC_P6_FLATNESS_MAX_QP	GENMASK(12, 8)
++#  define DSC_P6_RC_MODEL_SIZE		GENMASK(31, 16)
++#  define DSC_P7_RC_EDGE_FACTOR		GENMASK(7, 0)
++#  define DSC_P7_RC_QUANT_INCR_LIMIT0	GENMASK(12, 8)
++#  define DSC_P7_RC_QUANT_INCR_LIMIT1	GENMASK(20, 16)
++#  define DSC_P7_RC_TGT_OFFSET_HI	GENMASK(27, 24)
++#  define DSC_P7_RC_TGT_OFFSET_LO	GENMASK(31, 28)
++#  define DSC_P8_RC_BUF_THR_X		GENMASK(7, 0)
++#  define DSC_P12_RC_RANGE_MIN_QP	GENMASK(4, 0)
++#  define DSC_P12_RC_RANGE_MAX_QP	GENMASK(9, 5)
++#  define DSC_P12_RC_RANGE_BPG_OFFSET	GENMASK(15, 10)
++
++#define DISP_REG_DSC_SHADOW		0x200
++#  define DSC_FORCE_COMMIT		BIT(0)
++#  define DSC_BYPASS_SHADOW		BIT(1)
++#  define DSC_READ_WORKING		BIT(2)
++#  define DSC_SHADOW_DSC_VERSION_MINOR	GENMASK(8, 5)
++
++struct mtk_dsc {
++	struct clk		*clk;
++	void __iomem		*reg;
++	struct cmdq_client_reg	cmdq_reg;
++	bool			dsc_config_done;
 +};
 +
- static const struct of_device_id mtk_dsi_of_match[] = {
- 	{ .compatible = "mediatek,mt2701-dsi", .data = &mt2701_dsi_driver_data },
- 	{ .compatible = "mediatek,mt8167-dsi", .data = &mt2701_dsi_driver_data },
-@@ -1606,6 +1816,7 @@ static const struct of_device_id mtk_dsi_of_match[] = {
- 	{ .compatible = "mediatek,mt8186-dsi", .data = &mt8186_dsi_driver_data },
- 	{ .compatible = "mediatek,mt8188-dsi", .data = &mt8188_dsi_driver_data },
- 	{ .compatible = "mediatek,mt8189-dsi", .data = &mt8189_dsi_driver_data },
-+	{ .compatible = "mediatek,mt8196-dsi", .data = &mt8196_dsi_driver_data },
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, mtk_dsi_of_match);
++int mtk_dsc_clk_enable(struct device *dev)
++{
++	struct mtk_dsc *disp_dsc = dev_get_drvdata(dev);
++
++	return clk_prepare_enable(disp_dsc->clk);
++}
++
++void mtk_dsc_clk_disable(struct device *dev)
++{
++	struct mtk_dsc *disp_dsc = dev_get_drvdata(dev);
++
++	clk_disable_unprepare(disp_dsc->clk);
++}
++
++static void mtk_dsc_pps_setup(struct mtk_dsc *disp_dsc, struct drm_dsc_config *dsc_cfg)
++{
++	struct drm_dsc_rc_range_parameters *rcrp = dsc_cfg->rc_range_params;
++	u16 *rbt = dsc_cfg->rc_buf_thresh;
++	u32 data;
++	int i, j;
++
++	/* PPS 0 - Note: Fractional BPP is not supported! */
++	data = FIELD_PREP(DSC_P0_UP_LINE_BUF_DEPTH, dsc_cfg->line_buf_depth);
++	data |= FIELD_PREP(DSC_P0_BPC, dsc_cfg->bits_per_component);
++	data |= FIELD_PREP(DSC_P0_BPP, dsc_cfg->bits_per_pixel);
++	data |= DSC_P0_RCT_ON | DSC_P0_BLOCK_PRED_EN;
++	writel(data, disp_dsc->reg + DISP_REG_DSC_PPS(0));
++
++	/* PPS 1 */
++	data = FIELD_PREP(DSC_P1_INITIAL_XMIT_DELAY, dsc_cfg->initial_xmit_delay);
++	data |= FIELD_PREP(DSC_P1_INITIAL_DEC_DELAY, dsc_cfg->initial_dec_delay);
++	writel(data, disp_dsc->reg + DISP_REG_DSC_PPS(1));
++
++	/* PPS 2 */
++	data = FIELD_PREP(DSC_P2_INITIAL_SCALE_VALUE, dsc_cfg->initial_scale_value);
++	data |= FIELD_PREP(DSC_P2_SCALE_INCR_INTERVAL, dsc_cfg->scale_increment_interval);
++	writel(data, disp_dsc->reg + DISP_REG_DSC_PPS(2));
++
++	/* PPS 3 */
++	data = FIELD_PREP(DSC_P3_SCALE_DECR_INTERVAL, dsc_cfg->scale_decrement_interval);
++	data |= FIELD_PREP(DSC_P3_FIRST_LINE_BPG_OFFSET, dsc_cfg->first_line_bpg_offset);
++	writel(data, disp_dsc->reg + DISP_REG_DSC_PPS(3));
++
++	/* PPS 4 */
++	data = FIELD_PREP(DSC_P4_NFL_BPG_OFFSET, dsc_cfg->nfl_bpg_offset);
++	data |= FIELD_PREP(DSC_P4_SLICE_BPG_OFFSET, dsc_cfg->slice_bpg_offset);
++	writel(data, disp_dsc->reg + DISP_REG_DSC_PPS(4));
++
++	/* PPS 5 */
++	data = FIELD_PREP(DSC_P5_INITIAL_OFFSET, dsc_cfg->initial_offset);
++	data |= FIELD_PREP(DSC_P5_FINAL_OFFSET, dsc_cfg->final_offset);
++	writel(data, disp_dsc->reg + DISP_REG_DSC_PPS(5));
++
++	/* PPS 6 */
++	data = FIELD_PREP(DSC_P6_FLATNESS_MIN_QP, dsc_cfg->flatness_min_qp);
++	data |= FIELD_PREP(DSC_P6_FLATNESS_MAX_QP, dsc_cfg->flatness_max_qp);
++	writel(data, disp_dsc->reg + DISP_REG_DSC_PPS(6));
++
++	/* PPS 7 */
++	data = FIELD_PREP(DSC_P7_RC_EDGE_FACTOR, dsc_cfg->rc_edge_factor);
++	data |= FIELD_PREP(DSC_P7_RC_QUANT_INCR_LIMIT0, dsc_cfg->rc_quant_incr_limit0);
++	data |= FIELD_PREP(DSC_P7_RC_QUANT_INCR_LIMIT1, dsc_cfg->rc_quant_incr_limit1);
++	data |= FIELD_PREP(DSC_P7_RC_TGT_OFFSET_HI, dsc_cfg->rc_tgt_offset_high);
++	data |= FIELD_PREP(DSC_P7_RC_TGT_OFFSET_LO, dsc_cfg->rc_tgt_offset_low);
++	writel(data, disp_dsc->reg + DISP_REG_DSC_PPS(7));
++
++	/* PPS 8..11 - Each register holds 4 RC buffer thresholds (PPS 11 has two) */
++	for (i = 0; i < 4; i++) {
++		u8 block_num = i * 4;
++		data = 0;
++
++		for (j = 0; j < 4; j++) {
++			u8 buf_index = block_num + j;
++			u8 data_shift = j * 8;
++
++			/* rc_buf_thresh holds 14 elements in total */
++			if (buf_index > 13)
++				break;
++
++			data |= (rbt[buf_index] & DSC_P8_RC_BUF_THR_X) << data_shift;
++		}
++		writel(data, disp_dsc->reg + DISP_REG_DSC_PPS(8 + i));
++	}
++
++	/* PPS 12..18 - Each register holds two sets of RC range parameters */
++	for (i = 0; i < 7; i++) {
++		u8 block_num = i * 2;
++		data = 0;
++
++		for (j = 0; j < 2; j++) {
++			u8 buf_index = block_num + j;
++			u8 data_shift = j * 16;
++			u32 range_data;
++
++			range_data = FIELD_PREP(DSC_P12_RC_RANGE_MIN_QP,
++						 rcrp[buf_index].range_min_qp);
++			range_data |= FIELD_PREP(DSC_P12_RC_RANGE_MAX_QP,
++						 rcrp[buf_index].range_max_qp);
++			range_data |= FIELD_PREP(DSC_P12_RC_RANGE_BPG_OFFSET,
++						 rcrp[buf_index].range_bpg_offset);
++			data |= range_data << data_shift;
++
++			/* rc_range_params holds 15 elements in total */
++			if (buf_index == 13)
++				break;
++		}
++		writel(data, disp_dsc->reg + DISP_REG_DSC_PPS(12 + i));
++	}
++
++	/* PPS 19 - Last RC range register, holds only one set of parameters */
++	writel(FIELD_PREP(DSC_P12_RC_RANGE_MIN_QP, rcrp[14].range_min_qp) |
++	       FIELD_PREP(DSC_P12_RC_RANGE_MAX_QP, rcrp[14].range_max_qp) |
++	       FIELD_PREP(DSC_P12_RC_RANGE_BPG_OFFSET, rcrp[14].range_bpg_offset),
++	       disp_dsc->reg + DISP_REG_DSC_PPS(19));
++}
++
++void mtk_dsc_setup(struct device *dev, struct drm_dsc_config *dsc_cfg)
++{
++	struct mtk_dsc *disp_dsc = dev_get_drvdata(dev);
++	u32 dsc_slice_w, dsc_slice_h, dsc_mode, dsc_cfg_rval, dsc_shadow;
++	u32 dsc_dbg_con, dsc_con, dsc_enc_width, dsc_pic_w, dsc_pic_h;
++	u32 pic_group_width, pic_height_ext_num, slice_group_width;
++	u32 chunk_size, dsc_pad_num, dsc_pre_pad_sz;
++	bool dsc_en_bit;
++
++	pic_height_ext_num = dsc_cfg->pic_height + dsc_cfg->slice_height - 1;
++	pic_group_width = dsc_cfg->slice_width * 4;
++	pic_group_width /= 3;
++
++	slice_group_width = dsc_cfg->slice_width + 2;
++	slice_group_width /= 3;
++
++	if (dsc_cfg->slice_chunk_size)
++		chunk_size = dsc_cfg->slice_chunk_size;
++	else
++		chunk_size = dsc_cfg->slice_width * dsc_cfg->bits_per_pixel / 8 / 16;
++
++	dsc_enc_width = FIELD_PREP(DSC_ENC_WIDTH_PIC, dsc_cfg->pic_width) |
++			FIELD_PREP(DSC_ENC_WIDTH_SLICE, dsc_cfg->slice_width);
++
++	dsc_pic_w = FIELD_PREP(DSC_PIC_GROUP_WIDTH_M1, pic_group_width - 1);
++	dsc_pic_w |= FIELD_PREP(DSC_PIC_WIDTH, dsc_cfg->pic_width);
++	dsc_pic_h = FIELD_PREP(DSC_PIC_HEIGHT_EXT_M1, pic_height_ext_num - 1);
++	dsc_pic_h |= FIELD_PREP(DSC_PIC_HEIGHT, dsc_cfg->pic_height - 1);
++
++	dsc_slice_w = FIELD_PREP(DSC_SLICE_GROUP_WIDTH_M1, slice_group_width - 1);
++	dsc_slice_w |= FIELD_PREP(DSC_SLICE_WIDTH, dsc_cfg->slice_width);
++	dsc_slice_h = FIELD_PREP(DSC_SLICE_WIDTH_MOD3, dsc_cfg->slice_width % 3);
++	dsc_slice_h |= FIELD_PREP(DSC_SLICE_NUM_M1,
++				  (pic_height_ext_num / dsc_cfg->slice_height) - 1);
++	dsc_slice_h |= FIELD_PREP(DSC_SLICE_HEIGHT_M1, dsc_cfg->slice_height - 1);
++
++	dsc_pad_num = (3 - ((chunk_size * 2) % 3)) % 3;
++	dsc_pad_num = FIELD_PREP(DSC_PAD_NUMBER, dsc_pad_num);
++
++	dsc_pre_pad_sz = FIELD_PREP(DSC_PIC_PREPAD_HEIGHT, dsc_cfg->pic_height);
++	dsc_pre_pad_sz |= FIELD_PREP(DSC_PIC_PREPAD_WIDTH, dsc_cfg->pic_width);
++
++	dsc_mode = FIELD_PREP(DSC_INIT_DELAY_HEIGHT, 4);
++	dsc_mode |= FIELD_PREP(DSC_RGB_SWAP, 0);
++
++	/* Must enable checksum calc in DBG if enabling core checksum in CFG */
++	dsc_cfg_rval = DSC_CFG_ICH_EN | DSC_CFG_CRC_EN | DSC_CFG_DSC12_BUGFIX |
++		       DSC_CFG_CORE_CHECKSUM;
++	dsc_dbg_con = DSC_CKSM_CAL_EN;
++
++	if (dsc_cfg->bits_per_component == 8)
++		dsc_cfg_rval |= FIELD_PREP_CONST(DSC_CFG_FLATNESS_DET_THRES,
++						 DSC_CFG_FLATNESS_8BITS);
++	else
++		dsc_cfg_rval |= FIELD_PREP_CONST(DSC_CFG_FLATNESS_DET_THRES,
++						 DSC_CFG_FLATNESS_10BITS);
++
++	dsc_shadow = FIELD_PREP(DSC_SHADOW_DSC_VERSION_MINOR,
++				dsc_cfg->dsc_version_minor);
++	dsc_shadow |= DSC_FORCE_COMMIT | DSC_BYPASS_SHADOW;
++
++	/* If DSC is currently enabled, disable it before setup and re-enable after */
++	dsc_con = readl(disp_dsc->reg + DISP_REG_DSC_CON);
++	if (dsc_con & DSC_EN) {
++		dsc_en_bit = true;
++		writel(dsc_con & ~DSC_EN, disp_dsc->reg + DISP_REG_DSC_CON);
++	} else {
++		dsc_en_bit = false;
++	}
++
++	writel(0, disp_dsc->reg + DISP_REG_DSC_SPR);
++	writel(dsc_enc_width, disp_dsc->reg + DISP_REG_DSC_ENC_WIDTH);
++	writel(dsc_pic_w, disp_dsc->reg + DISP_REG_DSC_PIC_W);
++	writel(dsc_pic_h, disp_dsc->reg + DISP_REG_DSC_PIC_H);
++	writel(dsc_slice_w, disp_dsc->reg + DISP_REG_DSC_SLICE_W);
++	writel(dsc_slice_h, disp_dsc->reg + DISP_REG_DSC_SLICE_H);
++	writel(((chunk_size * 4) / 3) << 16 | chunk_size,
++	       disp_dsc->reg + DISP_REG_DSC_CHUNK_SIZE);
++	writel(dsc_pre_pad_sz, disp_dsc->reg + DISP_REG_DSC_PIC_PRE_PAD_SIZE);
++	writel(dsc_pad_num, disp_dsc->reg + DISP_REG_DSC_PAD);
++	writel(FIELD_PREP(DISP_DSC_BUF_SIZE_MASK, chunk_size * dsc_cfg->slice_height),
++	       disp_dsc->reg + DISP_REG_DSC_BUF_SIZE);
++	writel(dsc_mode, disp_dsc->reg + DISP_REG_DSC_MODE);
++	writel(dsc_cfg_rval, disp_dsc->reg + DISP_REG_DSC_CFG);
++	writel(dsc_dbg_con, disp_dsc->reg + DISP_REG_DSC_DBG_CON);
++	writel(FIELD_PREP_CONST(DSC_OBUF_SIZE, 1040), disp_dsc->reg + DISP_REG_DSC_OUTBUF);
++	writel(dsc_shadow, disp_dsc->reg + DISP_REG_DSC_SHADOW);
++
++	/* Set PPS registers configuration */
++	mtk_dsc_pps_setup(disp_dsc, dsc_cfg);
++
++	dsc_con = FIELD_PREP_CONST(DSC_EMPTY_FLAG_SEL, DSC_EMPTY_FLAG_ALWAYS_LOW);
++	dsc_con |= DSC_V1_1_EXT | DSC_UFOE_SEL | DSC_PT_MEM_EN;
++	dsc_con |= DSC_ZERO_FIFO_STALL_DISABLE;
++
++	if (dsc_en_bit)
++		dsc_con |= DSC_EN;
++
++	writel(dsc_con, disp_dsc->reg + DISP_REG_DSC_CON);
++
++	disp_dsc->dsc_config_done = true;
++}
++
++void mtk_dsc_start(struct device *dev)
++{
++	struct mtk_dsc *disp_dsc = dev_get_drvdata(dev);
++
++	/* If no DSC or config not done, set bypass mode */
++	if (!disp_dsc->dsc_config_done) {
++		mtk_ddp_write_mask(NULL, DSC_BYPASS, &disp_dsc->cmdq_reg,
++				   disp_dsc->reg, DISP_REG_DSC_CON, DSC_BYPASS);
++		mtk_ddp_write_mask(NULL, DSC_UFOE_SEL, &disp_dsc->cmdq_reg,
++				   disp_dsc->reg, DISP_REG_DSC_CON, DSC_UFOE_SEL);
++		mtk_ddp_write_mask(NULL, DSC_DUAL_INOUT, &disp_dsc->cmdq_reg,
++				   disp_dsc->reg, DISP_REG_DSC_CON, DSC_DUAL_INOUT);
++	}
++
++	mtk_ddp_write_mask(NULL, DSC_EN, &disp_dsc->cmdq_reg,
++			   disp_dsc->reg, DISP_REG_DSC_CON, DSC_EN);
++}
++
++void mtk_dsc_stop(struct device *dev)
++{
++	struct mtk_dsc *disp_dsc = dev_get_drvdata(dev);
++
++	writel(0, disp_dsc->reg + DISP_REG_DSC_CON);
++}
++
++static int mtk_dsc_bind(struct device *dev, struct device *master, void *data)
++{
++	return 0;
++}
++
++static void mtk_dsc_unbind(struct device *dev, struct device *master, void *data)
++{
++}
++
++static const struct component_ops mtk_dsc_component_ops = {
++	.bind	= mtk_dsc_bind,
++	.unbind = mtk_dsc_unbind,
++};
++
++static int mtk_dsc_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct mtk_dsc *priv;
++	struct resource *res;
++	int ret;
++
++	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
++	if (!priv)
++		return -ENOMEM;
++
++	priv->clk = devm_clk_get(dev, NULL);
++	if (IS_ERR(priv->clk))
++		return dev_err_probe(dev, PTR_ERR(priv->clk),
++				     "failed to get clk\n");
++
++	priv->reg = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
++	if (IS_ERR(priv->reg))
++		return dev_err_probe(dev, PTR_ERR(priv->reg),
++				     "failed to do ioremap\n");
++
++#if IS_REACHABLE(CONFIG_MTK_CMDQ)
++	ret = cmdq_dev_get_client_reg(dev, &priv->cmdq_reg, 0);
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to get gce client reg\n");
++#endif
++
++	platform_set_drvdata(pdev, priv);
++
++	ret = devm_pm_runtime_enable(dev);
++	if (ret)
++		return ret;
++
++	ret = component_add(dev, &mtk_dsc_component_ops);
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to add component\n");
++
++	return 0;
++}
++
++static void mtk_dsc_remove(struct platform_device *pdev)
++{
++	component_del(&pdev->dev, &mtk_dsc_component_ops);
++}
++
++static const struct of_device_id mtk_dsc_driver_dt_match[] = {
++	{ .compatible = "mediatek,mt8195-disp-dsc" },
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, mtk_dsc_driver_dt_match);
++
++struct platform_driver mtk_disp_dsc_driver = {
++	.probe		= mtk_dsc_probe,
++	.remove		= mtk_dsc_remove,
++	.driver		= {
++		.name	= "mediatek-disp-dsc",
++		.of_match_table = mtk_dsc_driver_dt_match,
++	},
++};
+diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+index c86a3f54f35b..bd2d17017bd2 100644
+--- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
++++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+@@ -1164,6 +1164,7 @@ static int mtk_drm_probe(struct platform_device *pdev)
+ 		if (comp_type == MTK_DISP_AAL ||
+ 		    comp_type == MTK_DISP_CCORR ||
+ 		    comp_type == MTK_DISP_COLOR ||
++		    comp_type == MTK_DISP_DSC ||
+ 		    comp_type == MTK_DISP_GAMMA ||
+ 		    comp_type == MTK_DISP_MERGE ||
+ 		    comp_type == MTK_DISP_OVL ||
+@@ -1272,6 +1273,7 @@ static struct platform_driver * const mtk_drm_drivers[] = {
+ 	&mtk_disp_aal_driver,
+ 	&mtk_disp_ccorr_driver,
+ 	&mtk_disp_color_driver,
++	&mtk_disp_dsc_driver,
+ 	&mtk_disp_gamma_driver,
+ 	&mtk_disp_merge_driver,
+ 	&mtk_disp_ovl_adaptor_driver,
+diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.h b/drivers/gpu/drm/mediatek/mtk_drm_drv.h
+index d48da019a4a3..43aac2d956e7 100644
+--- a/drivers/gpu/drm/mediatek/mtk_drm_drv.h
++++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.h
+@@ -71,6 +71,7 @@ struct mtk_drm_private {
+ extern struct platform_driver mtk_disp_aal_driver;
+ extern struct platform_driver mtk_disp_ccorr_driver;
+ extern struct platform_driver mtk_disp_color_driver;
++extern struct platform_driver mtk_disp_dsc_driver;
+ extern struct platform_driver mtk_disp_gamma_driver;
+ extern struct platform_driver mtk_disp_merge_driver;
+ extern struct platform_driver mtk_disp_ovl_adaptor_driver;
+diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
+index 3f3f56eed3f9..8ab5c3431dbb 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dsi.c
++++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
+@@ -18,6 +18,8 @@
+ #include <video/mipi_display.h>
+ #include <video/videomode.h>
+ 
++#include <drm/display/drm_dsc.h>
++#include <drm/display/drm_dsc_helper.h>
+ #include <drm/drm_atomic_helper.h>
+ #include <drm/drm_bridge.h>
+ #include <drm/drm_bridge_connector.h>
+@@ -71,11 +73,12 @@
+ 
+ #define DSI_PSCTRL		0x1c
+ #define DSI_PS_WC			GENMASK(13, 0)
+-#define DSI_PS_SEL			GENMASK(17, 16)
++#define DSI_PS_SEL			GENMASK(19, 16)
+ #define PACKED_PS_16BIT_RGB565		0
+ #define PACKED_PS_18BIT_RGB666		1
+ #define LOOSELY_PS_24BIT_RGB666		2
+ #define PACKED_PS_24BIT_RGB888		3
++#define COMPRESSED_PS_DSC		5
+ 
+ #define DSI_VSA_NL		0x20
+ #define DSI_VBP_NL		0x24
+@@ -203,6 +206,7 @@ struct mtk_dsi {
+ 	struct drm_bridge bridge;
+ 	struct drm_bridge *next_bridge;
+ 	struct drm_connector *connector;
++	struct drm_dsc_config *dsc;
+ 	struct phy *phy;
+ 
+ 	void __iomem *regs;
+@@ -393,9 +397,35 @@ static void mtk_dsi_rxtx_control(struct mtk_dsi *dsi)
+ 	writel(regval, dsi->regs + DSI_TXRX_CTRL);
+ }
+ 
+-static void mtk_dsi_ps_control(struct mtk_dsi *dsi, bool config_vact)
++static void mtk_dsi_ps_control_dsc(struct mtk_dsi *dsi, bool config_vact)
++{
++	const struct mtk_dsi_driver_data *data = dsi->driver_data;
++	const u16 *reg_main = dsi->driver_data->reg_main;
++	const short dsi_buf_bpp = 3;
++	u32 ps_wc;
++
++	/* Word count */
++	ps_wc = FIELD_PREP(DSI_PS_WC, 2 * dsi->dsc->slice_chunk_size);
++
++	if (config_vact) {
++		writel(FIELD_PREP(VACT_NL, dsi->vm.vactive),
++		       dsi->regs + reg_main[DSI_VACT_NL]);
++		writel(ps_wc, dsi->regs + reg_main[DSI_HSTX_CKL_WC]);
++	}
++
++	/* Always use DSC Pixel Stream type */
++	writel(ps_wc | FIELD_PREP(DSI_PS_SEL, COMPRESSED_PS_DSC),
++	       dsi->regs + reg_main[DSI_PSCTRL]);
++
++	if (data->has_size_ctl)
++		writel(FIELD_PREP(DSI_HEIGHT, dsi->vm.vactive) |
++		       FIELD_PREP(DSI_WIDTH, (ps_wc + dsi_buf_bpp - 1) / dsi_buf_bpp),
++		       dsi->regs + reg_main[DSI_SIZE_CON]);
++}
++
++static void mtk_dsi_ps_control_uncompressed(struct mtk_dsi *dsi, bool config_vact)
+ {
+-	u32 dsi_buf_bpp, ps_val, ps_wc, vact_nl;
++	u32 dsi_buf_bpp, ps_val, ps_wc, size_val, vact_nl;
+ 
+ 	if (dsi->format == MIPI_DSI_FMT_RGB565)
+ 		dsi_buf_bpp = 2;
+@@ -430,6 +460,21 @@ static void mtk_dsi_ps_control(struct mtk_dsi *dsi, bool config_vact)
+ 		writel(ps_wc, dsi->regs + DSI_HSTX_CKL_WC);
+ 	}
+ 	writel(ps_val, dsi->regs + DSI_PSCTRL);
++
++	if (dsi->driver_data->has_size_ctl) {
++		size_val = FIELD_PREP(DSI_HEIGHT, dsi->vm.vactive);
++		size_val |= FIELD_PREP(DSI_WIDTH, dsi->vm.hactive);
++
++		writel(size_val, dsi->regs + DSI_SIZE_CON);
++	}
++}
++
++static void mtk_dsi_ps_control(struct mtk_dsi *dsi, bool config_vact)
++{
++	if (dsi->dsc)
++		mtk_dsi_ps_control_dsc(dsi, config_vact);
++	else
++		mtk_dsi_ps_control_uncompressed(dsi, config_vact);
+ }
+ 
+ static void mtk_dsi_config_vdo_timing_per_frame_lp(struct mtk_dsi *dsi)
+@@ -565,26 +610,68 @@ static void mtk_dsi_config_vdo_timing_per_line_lp(struct mtk_dsi *dsi)
+ 	writel(horizontal_frontporch_byte, dsi->regs + DSI_HFP_WC);
+ }
+ 
+-static void mtk_dsi_config_vdo_timing(struct mtk_dsi *dsi)
++static int mtk_dsi_set_dsc_params(struct mtk_dsi *dsi)
++{
++	struct drm_dsc_config *dsc = dsi->dsc;
++	struct device *dev = dsi->host.dev;
++	int ret;
++
++	if (dsc->bits_per_pixel & GENMASK(3, 0)) {
++		dev_err(dev, "Fractional bits_per_pixel not supported\n");
++		return -EINVAL;
++	}
++
++	if (dsc->bits_per_component != 8) {
++		dev_err(dev, "%u bits per component is not supported\n",
++			dsc->bits_per_component);
++		return -EINVAL;
++	}
++
++	dsc->simple_422 = false;
++	dsc->convert_rgb = true;
++	dsc->vbr_enable = false;
++
++	drm_dsc_set_const_params(dsc);
++	drm_dsc_set_rc_buf_thresh(dsc);
++
++	ret = drm_dsc_setup_rc_params(dsc, DRM_DSC_1_1_PRE_SCR);
++	if (ret) {
++		dev_err(dev, "Cannot find DSC RC params\n");
++		return ret;
++	}
++
++	dsc->initial_scale_value = drm_dsc_initial_scale_value(dsc);
++	dsc->line_buf_depth = dsc->bits_per_component + 1;
++
++	return drm_dsc_compute_rc_parameters(dsc);
++}
++
++static int mtk_dsi_config_vdo_timing(struct mtk_dsi *dsi)
+ {
+ 	struct videomode *vm = &dsi->vm;
++	int ret;
+ 
+ 	writel(vm->vsync_len, dsi->regs + DSI_VSA_NL);
+ 	writel(vm->vback_porch, dsi->regs + DSI_VBP_NL);
+ 	writel(vm->vfront_porch, dsi->regs + DSI_VFP_NL);
+ 	writel(vm->vactive, dsi->regs + DSI_VACT_NL);
+ 
+-	if (dsi->driver_data->has_size_ctl)
+-		writel(FIELD_PREP(DSI_HEIGHT, vm->vactive) |
+-			FIELD_PREP(DSI_WIDTH, vm->hactive),
+-			dsi->regs + DSI_SIZE_CON);
+-
+ 	if (dsi->driver_data->support_per_frame_lp)
+ 		mtk_dsi_config_vdo_timing_per_frame_lp(dsi);
+ 	else
+ 		mtk_dsi_config_vdo_timing_per_line_lp(dsi);
+ 
+-	mtk_dsi_ps_control(dsi, false);
++	if (dsi->dsc) {
++		ret = mtk_dsi_set_dsc_params(dsi);
++		if (ret)
++			return ret;
++
++		mtk_dsi_ps_control(dsi, true);
++	} else {
++		mtk_dsi_ps_control(dsi, false);
++	}
++
++	return 0;
+ }
+ 
+ static void mtk_dsi_start(struct mtk_dsi *dsi)
+@@ -741,12 +828,19 @@ static int mtk_dsi_poweron(struct mtk_dsi *dsi)
+ 
+ 	mtk_dsi_ps_control(dsi, true);
+ 	mtk_dsi_set_vm_cmd(dsi);
+-	mtk_dsi_config_vdo_timing(dsi);
++	ret = mtk_dsi_config_vdo_timing(dsi);
++	if (ret)
++		goto err_disable_dsi_and_digital_clk;
++
+ 	mtk_dsi_set_interrupt_enable(dsi);
+ 	mtk_dsi_lane_ready(dsi);
+ 	mtk_dsi_clk_hs_mode(dsi, 1);
+ 
+ 	return 0;
++
++err_disable_dsi_and_digital_clk:
++	mtk_dsi_disable(dsi);
++	clk_disable_unprepare(dsi->digital_clk);
+ err_disable_engine_clk:
+ 	clk_disable_unprepare(dsi->engine_clk);
+ err_phy_power_off:
+@@ -883,6 +977,28 @@ mtk_dsi_bridge_mode_valid(struct drm_bridge *bridge,
+ 	if (mode->clock * bpp / dsi->lanes > 1500000)
+ 		return MODE_CLOCK_HIGH;
+ 
++	if (dsi->dsc) {
++		if (dsi->dsc->slice_width == 0 || dsi->dsc->slice_height == 0) {
++			dev_err(dsi->host.dev,
++				"DSC: Slice width %u height %u not valid!\n",
++				dsi->dsc->slice_width, dsi->dsc->slice_height);
++			return MODE_BAD;
++		}
++
++		if (mode->hdisplay % dsi->dsc->slice_width) {
++			dev_dbg(dsi->host.dev,
++				"DSC: hdisplay %u is not a multiple of slice width %u\n",
++				dsi->dsc->slice_width, mode->hdisplay);
++			return MODE_H_ILLEGAL;
++		}
++		if (mode->vdisplay % dsi->dsc->slice_height) {
++			dev_dbg(dsi->host.dev,
++				"DSC: vdisplay %u is not a multiple of slice height %u\n",
++				dsi->dsc->slice_height, mode->vdisplay);
++			return MODE_V_ILLEGAL;
++		}
++	}
++
+ 	return MODE_OK;
+ }
+ 
+@@ -913,6 +1029,13 @@ void mtk_dsi_ddp_stop(struct device *dev)
+ 	mtk_dsi_poweroff(dsi);
+ }
+ 
++struct drm_dsc_config *mtk_dsi_get_dsc_config(struct device *dev)
++{
++	struct mtk_dsi *dsi = dev_get_drvdata(dev);
++
++	return dsi->dsc;
++}
++
+ static int mtk_dsi_encoder_init(struct drm_device *drm, struct mtk_dsi *dsi)
+ {
+ 	int ret;
+@@ -1006,12 +1129,16 @@ static int mtk_dsi_host_attach(struct mipi_dsi_host *host,
+ 			return PTR_ERR(dsi->next_bridge);
+ 	}
+ 
++	if (device->dsc)
++		dsi->dsc = device->dsc;
++
+ 	drm_bridge_add(&dsi->bridge);
+ 
+ 	ret = component_add(host->dev, &mtk_dsi_component_ops);
+ 	if (ret) {
+ 		drm_err(drm, "failed to add dsi_host component: %d\n", ret);
+ 		drm_bridge_remove(&dsi->bridge);
++		dsi->dsc = NULL;
+ 		return ret;
+ 	}
+ 
+@@ -1025,6 +1152,8 @@ static int mtk_dsi_host_detach(struct mipi_dsi_host *host,
+ 
+ 	component_del(host->dev, &mtk_dsi_component_ops);
+ 	drm_bridge_remove(&dsi->bridge);
++	dsi->dsc = NULL;
++
+ 	return 0;
+ }
+ 
 -- 
 2.54.0
 
