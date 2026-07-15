@@ -4,66 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2608BC44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 13:10:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2667DC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 13:10:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H+MMF/q5ugX//N+uDMb2mF7BpnfqLw5EsidChlurJNk=; b=Yz9O/suiqTksIX7EHyAJW+r9Vy
-	B0dEUHzfnpfIEmDeErs4wJbJJU9kBtpk4HJvXZ8Ykerwg5TzxLRGdPxjMZkpWy/gcJWEfvwtH1soe
-	ft5KqX+/GVEcOFN4mbHK+6nrsX3jiNiKYbjQCF66SjE2onfSfY8DzetjJA50gZaVr2ri+y3arACxp
-	iO+eiCEm3HlZuUZY4RaNU7shNtEJkocdFTV6CgYezg+mtyi4kBlG3bj9pB3YeaHxCCo3utXuXky/x
-	R9x+KdCxsZGxPMZgPAE02B3xW4/Du7L7YxstOXzvyilK/BS0/vmOIRsVpkL892mk2YUlDoYastJPU
-	rqShiTsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HDpvp8vnAzoZQLx8FKACNiz9sLgSiXd+woO3izJE9Kg=; b=M+SX2r9849tynZwyc6pZIm/wp0
+	v1OuUgJjf9SOcDBjWzqMv5qFaf5JQQBRrx5+ajT1GSRQhw4M1Ignea0CeSGDQ0fwVEHNq2ZOuQVQl
+	3fsjlyX4edWJTPpBPuluA+0iSx00IuMV9QQt81316NtCGh2FqRY52Rbvdmepa/J+Jtk4zfHb+Xhmp
+	8Vxn9HTqSvUuGGPPFpDVVAzFNrxtdGRkqT/JE/Napzwpbzt22F/V8yphjdQR1bczmE3cWs15m2UFj
+	a3z07CIWFU/vs166Bl8mIZLbh/5akP5EbHt4phg9WpzTpENImi7n/eJJjIe4ehRP+rftt62Dc2OXo
+	ExD2p+Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjzNT-0000000EtYc-0ayI;
-	Wed, 15 Jul 2026 13:10:19 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjzNQ-0000000EtY8-3s0q
+	id 1wjzNb-0000000Etab-11PZ;
+	Wed, 15 Jul 2026 13:10:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjzNX-0000000EtZr-2om6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 13:10:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9D58D1477;
-	Wed, 15 Jul 2026 06:10:10 -0700 (PDT)
-Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 48CFA3F915;
-	Wed, 15 Jul 2026 06:10:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784121014; bh=n0euHi7aeJqNwBhSD7TB73ysgzDUw1iWorxwlAz5VXA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=o/5KglD0KTSzp0M4QeaOlLLOZNxIZUd9caSktdYaqoJe8DivDHhJ5NyHbxwCb3Ukp
-	 Y2LWRv0tDCGp1Z/4lsK56fk5ePzkPXxgt0oPiKm1DaPFhVsC30mYl/keR3gaKgtDKt
-	 TW/5ONsGYsOq4qiGgp0P5wSvJf13gYhZaqWqzyl4=
-Message-ID: <7119d552-f686-4467-a572-11d1616b4c79@arm.com>
-Date: Wed, 15 Jul 2026 14:10:11 +0100
+	Wed, 15 Jul 2026 13:10:23 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0858E42B83
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 13:10:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D56591F01559
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 13:10:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784121022;
+	bh=HDpvp8vnAzoZQLx8FKACNiz9sLgSiXd+woO3izJE9Kg=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=UTM3Ff/Xjfkc1w+y5Rc4E23kuZYtpT6J1qO39PbniNPQT1veAV/ch628jHHSoAc+H
+	 UAoDbTsRGXLa40jN8Ur3skgvbIyziZGBxBvtZskuUwvhFYFFXK5HyAHrr+SoNyZbip
+	 XEK9Yzh2X3pFzSek30zbJ8Ugq9u+8valytG86OO4Vbx3sUQRPBA491ZdgXcjcJ7Bmi
+	 GEW31/+w7OC71rjSKOeMsvcT8Vpr50p9xQ9XyxGRHFOkv7F8umSXWPbwmI0AXXjJrF
+	 aYNMEWXtCkwv1R+47Cxs+T/mjcGLt9Kp5EeHocbT2uzWtPwhNrl00Cqu7lKkr5gOLO
+	 /Ghz4UbdRekfA==
+Received: by mail-lj1-f173.google.com with SMTP id 38308e7fff4ca-39c8dbf4f38so20478441fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 06:10:22 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RrPmtohvhFaNxogUJiF2ygRmd92386phxECBRf4OaDNM+EsvP/iKivplXC3AU3xVVurTGt6GiV54nV/8UlVr0RN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw++J54WEBQJfUTa51J/SMR/5cUPE2K42+xodtIXlT9tjXLk55M
+	ey9keVP+vZr2tQx3oI1tnxLzJVM/gc/mPdqzDt6s3tpO7pAiztUssHvri8E5R/nlvVndeOxu771
+	4NBYqwKwHVxS8xpKTX0Cgr+X1VNJQeU08anCRZKldXQ==
+X-Received: by 2002:a2e:a994:0:b0:39c:650c:454e with SMTP id
+ 38308e7fff4ca-39caa80368dmr38788201fa.13.1784121021501; Wed, 15 Jul 2026
+ 06:10:21 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 15 Jul 2026 13:10:18 +0000
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 15 Jul 2026 13:10:18 +0000
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20260714-arm-psci-system_reset2-vendor-reboots-v23-7-e7453c548c21@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Thunderbird Daily
-Subject: Re: [GIT PULL] arm_mpam fixes for v7.2-rc2
-To: Will Deacon <will@kernel.org>
-Cc: "james.morse@arm.com" <james.morse@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, Fenghua Yu <fenghuay@nvidia.com>,
- Guangshuo Li <lgs201920130244@gmail.com>,
- Reinette Chatre <reinette.chatre@intel.com>,
- Dave Martin <Dave.Martin@arm.com>, Andre Przywara <andre.przywara@arm.com>
-References: <1d22f80d-34c0-4e8f-a9a7-3c527fb97232@arm.com>
- <d39e20fe-e4ab-4bbb-8e97-b68400ece11a@arm.com>
- <aleEkbcWsYdZPgtW@willie-the-truck>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <aleEkbcWsYdZPgtW@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_061017_095158_78B85B37 
-X-CRM114-Status: GOOD (  19.63  )
+References: <20260714-arm-psci-system_reset2-vendor-reboots-v23-0-e7453c548c21@oss.qualcomm.com>
+ <20260714-arm-psci-system_reset2-vendor-reboots-v23-7-e7453c548c21@oss.qualcomm.com>
+Date: Wed, 15 Jul 2026 13:10:18 +0000
+X-Gmail-Original-Message-ID: <CAMRc=MdBC98zwc3jQwXgxMTEp_yBvjtU9cNQeRaTSsbZody3Zg@mail.gmail.com>
+X-Gm-Features: AUfX_mwKvQxfwhOc8sChG6IUYiOddNnheWaj2Ma61SgPXzcEOXNcrLK8YSHAqsk
+Message-ID: <CAMRc=MdBC98zwc3jQwXgxMTEp_yBvjtU9cNQeRaTSsbZody3Zg@mail.gmail.com>
+Subject: Re: [PATCH v23 07/13] power: reset: Add psci-reboot-mode driver
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, Andre Draszik <andre.draszik@linaro.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>, mfd@lists.linux.dev, 
+	Srinivas Kandagatla <srini@kernel.org>, Sebastian Reichel <sre@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Daniel Lezcano <daniel.lezcano@kernel.org>, Christian Loehle <christian.loehle@arm.com>, 
+	Ulf Hansson <ulfh@kernel.org>, Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Arnd Bergmann <arnd@arndb.de>, Souvik Chakravarty <Souvik.Chakravarty@arm.com>, 
+	Andy Yan <andy.yan@rock-chips.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	John Stultz <john.stultz@linaro.org>, Moritz Fischer <moritz.fischer@ettus.com>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Sudeep Holla <sudeep.holla@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,54 +98,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Will,
+On Tue, 14 Jul 2026 19:16:35 +0200, Shivendra Pratap
+<shivendra.pratap@oss.qualcomm.com> said:
+> PSCI supports different types of resets like SYSTEM_RESET, SYSTEM_RESET2
+> ARCH WARM reset and SYSTEM_RESET2 vendor-specific resets. Currently
+> there is no common driver that handles all supported psci resets at one
+> place. Additionally, there is no common mechanism to issue the supported
+> psci resets from userspace.
+>
+> Add a psci-reboot-mode driver, and define two types of PSCI resets,
+> predefined-resets and vendor-specific resets. Predefined-resets are
+> defined by psci driver and vendor-specific resets are defined by SoC
+> vendors, under the psci:reboot-mode node of SoC device tree.
+>
+> Register the driver with the reboot-mode framework to interface these
+> resets to userspace. When userspace initiates a supported command, pass
+> the reset arguments to the PSCI driver to enable command-based reset.
+>
+> This change allows userspace to issue supported PSCI reset commands
+> using the standard reboot system calls while enabling SoC vendors to
+> define their specific resets for PSCI.
+>
+> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+> ---
 
-On 7/15/26 14:01, Will Deacon wrote:
-> Hi Ben,
-> 
-> On Thu, Jul 09, 2026 at 05:23:38PM +0100, Ben Horgan wrote:
->> On 7/9/26 16:48, Ben Horgan wrote:
->>> I hope this method works for sending you MPAM changes but please let me know if
->>> you would like them some other way or I've made a mistake. It's not a signed tag
->>> as I still need to sort out my GPG key. The change authored by be me hasn't got
->>> an Reviewed-by's or Tested-by's but it's been on the list since the middle of
->>> May and James is on leave.
->>>
->>> Fix the reset values for two MPAM controls that are not known to exist in
->>> silicon. Fix a NULL pointer dereference on the driver teardown path.
->>>
->> Sorry, this is a retake. I forgot to add my Sob on the patches.
->>
->> The following changes since commit 8cdeaa50eae8dad34885515f62559ee83e7e8dda:
->>
->>   Linux 7.2-rc2 (2026-07-05 14:44:06 -1000)
->>
->> are available in the Git repository at:
->>
->>   git@git.gitlab.arm.com:linux-arm/linux-bh.git tags/mpam-fixes-7.2-rc2-RETAKE
-> 
-> Thanks, but I'll probably just pick these from the list given that your
-> key isn't sorted out yet.
-
-Ok, thank you, is there anything that you need from me for this iteration?
-
-> 
-> In future, it's probably easiest if you go down the route that James
-> used to tread where you collect the mpam patches up and then send them
-> out as a series (with your SoB added and with me and Catalin on cc) once
-> they've been reviewed and you're happy with them. Then we can just grab
-> 'em that way. I think that's probably easiest to start with, but we can
-> revisit it if the number of patches becomes too much.
-> 
-> Does that sound ok?
-
-Yes, I'm happy with that.
-
-Thanks,
-
-Ben
-
-> 
-> Will
-
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
