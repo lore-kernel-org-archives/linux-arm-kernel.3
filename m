@@ -4,73 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90001C4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 12:36:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2096C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 12:36:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2uqhzatz7NlDzESa9PUCo71vFC+Z9fG5K7FS6DttHiE=; b=SJ2cQjugtzQce4AUB1BYrcpSlA
-	QDlarhyMwZatHjjxRT/jieSEz0lOXwdTHyF/CaLXdAuf6zXVvTC6Z2z4JNKAkhyLfvC+UuuEgjGOY
-	zM5I9JDM0DQomtfjoRJHThLiQJvXQz8uJHOvTMTko0Vpaa7R30OwwadokP8y62Btl5375SksOvSES
-	6ycs02WjMZB5c1exPw5KISSaY3V7IWTh6ukN7OJn9lguXQc1Vc4FmRo8LtZE1K2oG3gDBKVlk5dZT
-	v2KDD6WKh3kiOR3gdfoobP+TqvsqbOYZwNTYEjyH+RdVJ//rFQX2e/RHD/r2nc3+OvfJDum0uwk2J
-	gKyMs4Tw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5g57A5VbRGUC82ryAttIcVIyb54fRoQlQaSUTrU3GWI=; b=DhynlzKYqynrgouVn9EftiF5id
+	eFe955LI9+Qw/2QvDlID8GW4WNAPRdIUUY7ppRslepk+YIQy3JH8yvckXViLJeK5o2uCujbwKd8IW
+	55nuZHiZkt+RK2uangSTJDiY71zLnq+YMhlRUIk5nFswsp7C4o7VQmVtSJDi5DhG/SThWL1JH3wCB
+	RlTBZsC0/PfbYODKRSKCEjlxejEJv66YWikYbp3t/AnPPKieQtBE136I1KshpDzAR+Bpv77mdK2kw
+	qbL5LoYIZLhtQTbDQ69450Vqm+B5cuPRtEfKqpCM/t0fRQk74Hfa0vDaehHlNWOwd31PG0tb986mX
+	HeGNuQ2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjyqd-0000000Eoqk-0f5i;
-	Wed, 15 Jul 2026 12:36:23 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1wjyqv-0000000Ep0T-2Yog;
+	Wed, 15 Jul 2026 12:36:41 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjyqZ-0000000Eonz-0lQj
+	id 1wjyqs-0000000Eoxj-1uv0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 12:36:22 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260715123610euoutp017f61549fae34d61c7406fb5e42414ed5~CdsBPZhw71661016610euoutp01A
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 12:36:10 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260715123610euoutp017f61549fae34d61c7406fb5e42414ed5~CdsBPZhw71661016610euoutp01A
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1784118970;
-	bh=2uqhzatz7NlDzESa9PUCo71vFC+Z9fG5K7FS6DttHiE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Y4ARRXf+GJzKGZmQz/G4oNqh5JkkL7uNFvoP1xvXPakuG7t4JlO9N7i28B/CBApxa
-	 T3Pi87yI62z7VgVz3nhjeP6v2RCcSHYqgAnHCrNdmGirXS+pLbMzELO5hztd9w0scK
-	 yAqWDfpmk0OfP5Htde2dMJvlwdtpPSXXRmYwFuZ0=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260715123610eucas1p100ea97629de7a87fa67016275cfb38f4~CdsAwxlzu0260302603eucas1p1Y;
-	Wed, 15 Jul 2026 12:36:10 +0000 (GMT)
-Received: from AMDC4843.eu.corp.samsungelectronics.net (unknown
-	[106.120.77.61]) by eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20260715123609eusmtip2ed2c8310254681e147758f83b064e203~CdsARqFta0361003610eusmtip2C;
-	Wed, 15 Jul 2026 12:36:09 +0000 (GMT)
-From: Jakub Raczynski <j.raczynski@samsung.com>
-To: netdev@vger.kernel.org
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Jakub
-	Raczynski <j.raczynski@samsung.com>
-Subject: [PATCH net v3 1/2] net/stmmac: Set Rx queue page_pool to NULL when
- freeing DMA resources
-Date: Wed, 15 Jul 2026 14:36:01 +0200
-Message-Id: <20260715123602.51950-2-j.raczynski@samsung.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260715123602.51950-1-j.raczynski@samsung.com>
+	Wed, 15 Jul 2026 12:36:40 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-493b27c7451so7719445e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 05:36:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=9elements.com; s=google; t=1784118996; x=1784723796; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=5g57A5VbRGUC82ryAttIcVIyb54fRoQlQaSUTrU3GWI=;
+        b=KhsrdrEl0gDkkfVwlsDhpzup7U3DUJZOYCnApelwg1izl0+IJu2PudeNxvzRbRWDo1
+         nl+X7tda34WJXlhHOkccsnw5UDeFAjbsdD374n3gNxf7QYLqx3CnIhjwKpcQ9WU0dQP6
+         2nQt6dh9Iz2QqliLqh8Hdaizi0nzb3VQB5n3uIWnyND3X48sua8IZvsAryv0umzAH60c
+         fC3qHan6VQDT3US1QO+NuOZtKwzz6HVTI1V7fZ2IoK7xI5vSwv22ix1CPy49DxpGTqfx
+         kAQG548Ley+ipBsuQB7UNfCVulOQ6UORT92ndXSKE/SXrX3IaHS58JV4CX4HQFEmDMT9
+         IwyA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784118996; x=1784723796;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=5g57A5VbRGUC82ryAttIcVIyb54fRoQlQaSUTrU3GWI=;
+        b=TlDYN6HbZ1RMCDjinqTLuxZu/Ts1vgT6AgfBhK/dqZvpBj68IpKPkt82ALl1uPTQmA
+         i6T/1zUXgnpH7ofRWNqZWtiTep3+rZ42ZiUShvMh+D/sAxKuStsK71GkTqThtYuON5Mi
+         rgQWikyIvMu0tS80YJ3H5yOeN2t875iojrFYC7VbHcN3VnYhpsGbh5lK/8F5ndTpVclM
+         o1fSWwzlOQ4NYy1BVU7WbYp7kEvTscZbQ1/FUGy88tjfgQiYqGom0YdcQ6jZTcOnnPA3
+         EGnqaCFyTsfsFWkLa0Z7FHDEmfLQmt75CMzkhvpUG9p9g1ucT+f02T19+lPPRepTTfsd
+         dXlQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rr1jk0XIbkGqsYW15XpzAvu6PuLwE+rU5+z+/l3zhmxOnBn4h/EZzEh3p5P0X7v5llqfpqGQNdqDPr6DlX3Bb8/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx4Ouexq+F5X1kGQzeSh2OwC+y1xlrufr++SRgI9+SUGB79+9IG
+	kb2R+VcRqjS6mRRNER8hoIxEYRCa59CvIy7Kp5BTqNcfOZi9SqjNHCGGpo9FvxT9ovXjrlq1DbB
+	/na0r
+X-Gm-Gg: AfdE7cnixGnjomrjp+iiC5jSUtzuKrLg4vk3NNQV1uZqiF7A0y9dnI9cx/qDf3aZ8vT
+	aDewNDboZetqYUGKlTrMXwJ1xg+s1MHlKnlbhC912gWZcetYMR3yL8UheidnTzWy2Phn1TDB5J9
+	JnolXNuNByw5aQ8cOoFPD+sR5XYpwGZKzLVuYAhCblDKCO/RM4xgPd6SfYjKB1tdW5yHGYnVrSO
+	1twxO7V3vLuWpPAq5E/+yPcbv/+EW7yo5MgyCbw3oWQtKn52BWI7r8MlObSJYSOdcKj7XLlLnV4
+	uIhiSSHPObxUTg+je/RGp7aSIYtcX2DwgDhiSpEDHoZ8oc79sBcyVDRebPMvT7WrnvA4e0U1LQz
+	3QTLbU2vTdTEj9HpL9xewa/2FQ+XB4ZdKrfDEYLPvI4n/qODxkk6ys9nMbUkYLGSXNB62E//TCF
+	PONHbVn+msNqc7pcD94ab7oyKWfj0Gn39PhXcNhqaMke3YVEB66WNZnwsrf0/uOgomBim6Dklx+
+	+FhA/v6EItH+F5ZJAm1Q7mlNKoA
+X-Received: by 2002:a05:600c:e557:20b0:48f:e230:29f5 with SMTP id 5b1f17b1804b1-493f88d2f66mr125124155e9.16.1784118995937;
+        Wed, 15 Jul 2026 05:36:35 -0700 (PDT)
+Received: from gregwork.sec.9e.network ([188.111.3.154])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4953c599049sm44497075e9.0.2026.07.15.05.36.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 Jul 2026 05:36:35 -0700 (PDT)
+From: =?UTF-8?q?Gr=C3=A9goire=20Layet?= <gregoire.layet@9elements.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: =?UTF-8?q?Gr=C3=A9goire=20Layet?= <gregoire.layet@9elements.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] ARM: dts: aspeed-g6: add pcie-lpc and pcie-kcs4
+Date: Wed, 15 Jul 2026 12:34:18 +0000
+Message-ID: <de49f2032f5b1f170161dcd6191c0daa48f0b0c2.1784117715.git.gregoire.layet@9elements.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20260715123610eucas1p100ea97629de7a87fa67016275cfb38f4
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260715123610eucas1p100ea97629de7a87fa67016275cfb38f4
-X-EPHeader: CA
-X-CMS-RootMailID: 20260715123610eucas1p100ea97629de7a87fa67016275cfb38f4
-References: <20260715123602.51950-1-j.raczynski@samsung.com>
-	<CGME20260715123610eucas1p100ea97629de7a87fa67016275cfb38f4@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_053619_685096_B9F7DD5E 
-X-CRM114-Status: GOOD (  15.00  )
+X-CRM114-CacheID: sfid-20260715_053638_630947_F5B9E1E3 
+X-CRM114-Status: GOOD (  12.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,46 +106,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When freeing RX descriptor resources, there is standard clearing of
-descriptor page_pool via page_pool_destroy() which does destroy
-page but does not set its pointer to NULL, which must be done by driver
-calling this function.
-It is not done in __free_dma_rx_desc_resources() when stopping interface,
-which is generally not an issue, because __alloc_dma_rx_desc_resources() does
-setup this regardless of previous state.
-But above is true assuming reinitialization is successful.
+Add pcie_lpc node and pcie_kcs4 child to the ast2600 g6 common dtsi.
 
-In case of failure of page_pool_create() in __alloc_dma_rx_desc_resources(),
-all non-NULL pages will be freed, including those already cleared.
-So there is possible kernel panic due to wrong paging request at address.
+The ASPEED AST2600 has a PCIe to LPC controller. It includes a KCS
+interface on channel 4. This is a fully KCS-compatible interface
+that is exposed over PCIe.
 
-Fix this by assigning NULL to page_pool pointer on free.
-Also remove NULL check as page_pool_destroy() does check for NULL param.
+This can be used by the host for IPMI when the PCIe BMC Device is
+activated.
 
-Fixes: da5ec7f22a0f1 ("net: stmmac: refactor stmmac_init_rx_buffers for stmmac_reinit_rx_buffers")
-Signed-off-by: Yashwant Varur <yashwant.v@samsung.com>
-Signed-off-by: Jakub Raczynski <j.raczynski@samsung.com>
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+While the datasheet provides interrupt numbers for KCS channels 1, 2,
+3 and 4 over PCI, not all 4 are described in the "PCIe to LPC Controller"
+section. Since only the KCS channel 4 is described, only this channel is
+added.
+
+Ordered next to existing lpc node for address ordering.
+Use existing "aspeed,ast2600-lpc-v2" compatible string.
+The pcie_kcs4 uses existing "aspeed,ast2600-kcs-bmc" compatible as it's a
+standard KCS interface.
+
+Signed-off-by: Grégoire Layet <gregoire.layet@9elements.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/arm/boot/dts/aspeed/aspeed-g6.dtsi | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 2a0d7eff88d3..3098971e0b66 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -2172,8 +2172,8 @@ static void __free_dma_rx_desc_resources(struct stmmac_priv *priv,
- 		xdp_rxq_info_unreg(&rx_q->xdp_rxq);
- 
- 	kfree(rx_q->buf_pool);
--	if (rx_q->page_pool)
--		page_pool_destroy(rx_q->page_pool);
-+	page_pool_destroy(rx_q->page_pool);
-+	rx_q->page_pool = NULL;
- }
- 
- static void free_dma_rx_desc_resources(struct stmmac_priv *priv,
--- 
-2.34.1
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
+index 56bb3b0444f7..ac351f01048f 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
++++ b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
+@@ -658,6 +658,21 @@ ibt: ibt@140 {
+ 				};
+ 			};
 
++			pcie_lpc: pcie-lpc@1e789800 {
++				compatible = "aspeed,ast2600-lpc-v2", "simple-mfd", "syscon";
++				reg = <0x1e789800 0x800>;
++				#address-cells = <1>;
++				#size-cells = <1>;
++				ranges = <0x0 0x1e789800 0x800>;
++
++				pcie_kcs4: pcie-kcs@114 {
++					compatible = "aspeed,ast2600-kcs-bmc";
++					reg = <0x114 0x1>, <0x118 0x1>, <0x11c 0x1>;
++					interrupts = <GIC_SPI 177 IRQ_TYPE_LEVEL_HIGH>;
++					status = "disabled";
++				};
++			};
++
+ 			sdc: sdc@1e740000 {
+ 				compatible = "aspeed,ast2600-sd-controller";
+ 				reg = <0x1e740000 0x100>;
+
+base-commit: 03f906d8f5541e8bb741035981304feceed5993d
+--
+2.54.0
 
