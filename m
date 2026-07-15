@@ -4,78 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94913C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 08:49:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A2D4C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 08:50:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rFNGUCLtwL0J9UMzLUhMW3/R8y1OqX7JmKnCzawnBV4=; b=kGAgAPTAfL3FEmqpAYFurNKSyQ
-	oydASurFneslUFkA4ncDQ3e0iTWNDVpxHeE2vHPUOi4HSl2Qyy8MvMeCtsSgXEqJosFQXAh+SvN+O
-	pv4zLoSChjT+BWfvOQ5f7qE7NH0PLt6IPlr2Cm++munFz/ov4ZcA0GYecP6k6nYNskWAv7E0aBdVk
-	Sf/YhBQh50iNVgP8OKw/Q2nZU593Wc7SZQuRNPdpROCRs1/CKKb9P7cxYDA3SKgrqHoLICiHtl+0f
-	IlhcEAYDlS6/iJM94ULtX5H9/h8j03ynOmRt2rwmzafArFcvHp9RICoRCdM8Z32X6S18kSfTTUfqk
-	44addkJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uitRDkWW53iDM4jOjF4jr38Fhuk8vDR/4csWNguwm80=; b=ztDXoBPjMh1+FDQZDB2I1//q+A
+	YYQKgGawyRt/2tixQ/INdPVbKuQxPhgZAIRvM4YgcmADP0q4d+J1HUZN+IeLt159ifFHmQBYbZNYu
+	3o/8aWzFj+0fWx60iQOHh55IGLPKLJEgs5m71V4+0dCNHZFFrnerjkArC7Tne0FWYFz3gowRz3pQi
+	cBnUoTywKAtvTtNcqHoxBN8zR1WtWOc+yKTsiKHl3tv4OUb9+3io0JP+wC5y1A301tPZ83Rg9TIVJ
+	uZizKU/KINxDiWoOn1HpTwHay/tZfvHX+DhY8+c661e3f9kL1AQTpuZQCJzVteLYVl/ZJfV1wIkLc
+	C6uJ1l6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjvJO-0000000EChA-0aAw;
-	Wed, 15 Jul 2026 08:49:50 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1wjvJV-0000000ECjA-1A0g;
+	Wed, 15 Jul 2026 08:49:57 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjvJK-0000000ECfc-1uq4
+	id 1wjvJT-0000000ECiZ-2VII
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 08:49:48 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id D9060C2B9C4;
-	Wed, 15 Jul 2026 08:49:59 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id F0D8D6035C;
-	Wed, 15 Jul 2026 08:49:42 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 51F9311BD3C24;
-	Wed, 15 Jul 2026 10:49:34 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1784105381; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=rFNGUCLtwL0J9UMzLUhMW3/R8y1OqX7JmKnCzawnBV4=;
-	b=v0kbq9Wp0Snw1mUEYQk9jToT+RDLdlswU2d0gC17xE5U6j9w26ZQcy27tuDIGkUnAsWC1r
-	mfHKBcv8AJCFniJb3MRRErQT9zgqyu8yiiG8WlCormo77+OHu3roSFs/eepL/Uc4wb9WV1
-	FbHWqZcpMDLxwYSTsZt8U3SBiWe14c6eWGWevDaw7Dgp2wSempFJvZIklMt7ywWFux98Zm
-	MFBSwcNJRqJbqxBhDAMGbIV6SF3THRFUdD+AyVAuTBGTmxgDX9iIQaY/gXXJ2nLOVIu9xj
-	6NP6WpfY8ydvPcYOcFNuJvo9SL3ml07T795y/M9jWuPy4Zf6L+qUYNadwe6HRA==
+	Wed, 15 Jul 2026 08:49:55 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 18172415D2;
+	Wed, 15 Jul 2026 08:49:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F0A91F00A3A;
+	Wed, 15 Jul 2026 08:49:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784105395;
+	bh=uitRDkWW53iDM4jOjF4jr38Fhuk8vDR/4csWNguwm80=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=eTTQs1kHDnv24z6sGGe74snLCNDI9BRDFvqV3VvH2UoGiOAL18jl/9sh+xVdzeprE
+	 1I+twMPVuuhWSHXX51WIqCtMvpOFG1qOBBPzoip6tGHXtDVeOpqTXBjTGbr2FFpnIL
+	 VLc01Le+nkjUAgDNbODM6IGcg8S06zlb+7RQSxcYeiMc5NJMnP2mtFihcOshJLo2jd
+	 RjH58YOIl7PvuElpdTUJ/Wo3VQWNhjtRfveKy0ovWEC/F3TlkTf3uxBggMtgPfUTEV
+	 GphG0Hd5vZ2U8OEqG43VvUi77GxBwfakSQ5av4f0VkfQ7c6fn17j6XVxYnOK9x5h9g
+	 u6AK2ovZnt79g==
+Date: Wed, 15 Jul 2026 09:49:36 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Dave Hansen <dave.hansen@intel.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	Suren Baghdasaryan <surenb@google.com>, "Liam R. Howlett" <liam@infradead.org>, 
+	Vlastimil Babka <vbabka@kernel.org>, Shakeel Butt <shakeel.butt@linux.dev>, 
+	David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
+	Uladzislau Rezki <urezki@gmail.com>, Toshi Kani <toshi.kani@hpe.com>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, Andy Lutomirski <luto@kernel.org>, 
+	Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, 
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Kiryl Shutsemau <kas@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Dev Jain <dev.jain@arm.com>, 
+	Ryan Roberts <ryan.roberts@arm.com>, David Carlier <devnexen@gmail.com>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	stable@vger.kernel.org
+Subject: Re: [PATCH mm-hotfixes v3 2/4] x86/mm/pat: acquire mmap lock on page
+ table free to avoid ptdump UAF
+Message-ID: <aldJG6vysez8HVJ4@lucifer>
+References: <20260714-series-vmap-race-fix-v3-0-b812eccfa0f9@kernel.org>
+ <20260714-series-vmap-race-fix-v3-2-b812eccfa0f9@kernel.org>
+ <13fcd4d7-0efc-4aa5-9425-8f4fa05c8eee@intel.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v4 2/2] drm/bridge: ti-sn65dsi83: Add reversed lvds
- lanes support
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-To: Wojciech Dubowik <wojciech.dubowik@mt.com>
-Cc: linux-kernel@vger.kernel.org, Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Marek Vasut <marex@denx.de>, 
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-In-Reply-To: <20260713082622.52985-3-wojciech.dubowik@mt.com>
-References: <20260713082622.52985-1-wojciech.dubowik@mt.com>
- <20260713082622.52985-3-wojciech.dubowik@mt.com>
-Date: Wed, 15 Jul 2026 10:49:31 +0200
-Message-Id: <178410537112.253594.1490996314225033236.b4-review@b4>
-X-Mailer: b4 0.15.2
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_014946_879933_59BE65DC 
-X-CRM114-Status: GOOD (  18.01  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <13fcd4d7-0efc-4aa5-9425-8f4fa05c8eee@intel.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,96 +82,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 13 Jul 2026 10:26:20 +0200, Wojciech Dubowik <wojciech.dubowik@mt.com> wrote:
+On Tue, Jul 14, 2026 at 10:29:51AM -0700, Dave Hansen wrote:
+> On 7/14/26 10:24, Lorenzo Stoakes wrote:
+> ...
+> > Resolve the issue by acquiring the mmap read lock on init_mm which prevents
+> > a concurrent ptdump as it acquires the write lock.
+>
+> The move over to locking on init_mm instead of current->mm fixes the
+> earlier issues I saw with this. Thanks for doing that!
 
-Hello Wojciech,
+No worries! It's kinda laying foundations and then addressing things with other
+patches in the series, which is why Mike's suggestion of combining all the
+patches in one series was clearly the right way to go :)
 
 >
-> diff --git a/drivers/gpu/drm/bridge/ti-sn65dsi83.c b/drivers/gpu/drm/bridge/ti-sn65dsi83.c
-> index e6dbe51d0dba..d676ea3b40e8 100644
-> --- a/drivers/gpu/drm/bridge/ti-sn65dsi83.c
-> +++ b/drivers/gpu/drm/bridge/ti-sn65dsi83.c
-> @@ -148,6 +148,18 @@ enum sn65dsi83_lvds_term {
->  	OHM_200
->  };
->  
-> +enum {
-> +	NORMAL_LANE_MAPPING,
-> +	REVERSE_LANE_MAPPING,
+> Reviewed-by: Dave Hansen <dave.hansen@linux.intel.com>
+>
 
-Please use a fixed prefix and use the suffix to differentiate:
+Thanks!
 
-  LANE_MAPPING_NORMAL,
-  LANE_MAPPING_REVERSE,
-
-> @@ -854,6 +873,37 @@ static int sn65dsi83_parse_lvds_endpoint(struct sn65dsi83 *ctx, int channel)
->  		goto exit;
->  	}
->  
-> +	ret_data = of_property_read_u32_array(endpoint, "data-lanes", data_lanes,
-> +			ARRAY_SIZE(data_lanes));
-> +	if (ret_data != 0 && ret_data != -EINVAL) {
-> +		ret = ret_data;
-> +		goto exit;
-
-The goto-based error handling is getting trickier and trickier with more
-error conditions. Can you please add a preliminary commit in this series
-that replaces:
-
- -struct device_node *endpoint;
- -endpoint = of_graph_get_endpoint_by_regs(dev->of_node, endpoint_reg, -1);
- +struct device_node *endpoint __free(device_node) =
- +         of_graph_get_endpoint_by_regs(dev->of_node, endpoint_reg, -1);
-
-and removes the entire "ret = foo; goto exit;" logic with simple returns?
-
-> +	}
-> +
-> +	if (!ret_data) {
-> +		for (i = 0; i < ARRAY_SIZE(supported_data_lane_mapping); i++) {
-> +			for (j = 0; j < DATA_LANES_COUNT; j++) {
-> +				if (data_lanes[j] != supported_data_lane_mapping[i][j])
-> +					break;
-> +			}
-> +
-> +			if (j == DATA_LANES_COUNT)
-> +				break;
-> +		}
-
-I think a memcmp() can simplify the implementation if you use the same data
-type (u32) for data_lanes and supported_data_lane_mapping[].
-
-> +
-> +		switch (i) {
-> +		case NORMAL_LANE_MAPPING:
-> +			break;
-> +		case REVERSE_LANE_MAPPING:
-> +			ctx->lvds_reverse_lanes_conf[channel] = true;
-> +			break;
-> +		default:
-> +			dev_err(dev, "invalid data lanes mapping\n");
-> +			ret = -EINVAL;
-> +			goto exit;
-> +		}
-> +	}
-
-And perhaps the whole if (!ret_data) here can be simplified a lot as this
-(pseudocode, not tested):
-
-  if (!ret_data) {
-      if (memcmp(data_lanes[j], supported_data_lane_mapping[NORMAL_LANE_MAPPING], size) == 0)
-          break;
-      else if (memcmp(data_lanes[j], supported_data_lane_mapping[REVERSE_LANE_MAPPING], size) == 0)
-          ctx->lvds_reverse_lanes_conf[channel] = true;
-      else
-          return dev_err_probe(...);
-  }
-
-Luca
-
--- 
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
-
+Cheers, Lorenzo
 
