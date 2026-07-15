@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5334CC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 15:04:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1B46C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 15:05:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1i7b3l9rJpq4HTYvS3RcBvBfTdofsIZ1RrmCSl+AOlc=; b=iGwNOpKX5Kub+O
-	SLqqEOFmMCrp4+i/h9M0BEwRXXL5jRTUA3kfn3GHCQbYQnZW24NJML1PCaxoRQSRO9zfC5LiTdRVF
-	2BSVAFAHvU+eDoMj+fqeRQ8fReur3q+I++PawlV36IBNPo6vpnTafMojNOTZM64VOufDz0L9k7QNP
-	PkdJhdEtj90cO0EtPjESTUhcowcJsSunYhVUYi2ssXdqTg/w1xU0wIy7ETzuqZWsA4zgdNWBaAkBC
-	h41cPuyG4A8Un7TilM9CU9wZEaA46uhzlc54IENoltnGxTUhoIn/C/hihxKxIAHbBnYGLP8ZdePr7
-	lOLZK/l8LAMreFKwOXoA==;
+	List-Owner; bh=1i7b3l9rJpq4HTYvS3RcBvBfTdofsIZ1RrmCSl+AOlc=; b=CGbZSCMLWyxG3V
+	pxz0Hv+V0nKM/RiMB1lUXCJ5NVGLe0kHi9g3q3n/JHS0xbQPqH+W+ebBIf15MOE9aipiwQv9WOdQC
+	735rbXKxHIe0Q4KGlDz8y8VWvQ0Oh8m7KjlBNa3acnhG39Dkult5O5crIRzqWU4Jteyz9jaBdTnRt
+	LPR+YayZFQf5DdKJfChfMbLKxaZZcLJhElH8BucjWTDs4cJgAeOG8aMI+r7PmOKsY9jJtIjjX5j5w
+	EFQykJC2DqsxJ+wDzK3Bl79jRA6wg3Pv9qdyyAjcRGUJ55VyYrTRt7BzubduGajrKH5LVfzLNN9RR
+	zHow8jpVfebjPAw/iPlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk1AK-0000000FFUz-0RH8;
-	Wed, 15 Jul 2026 15:04:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wk1Ae-0000000FFcV-1Kjt;
+	Wed, 15 Jul 2026 15:05:12 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk1AI-0000000FFUZ-2TxA
+	id 1wk1Ac-0000000FFbc-0t9u
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 15:04:50 +0000
+	Wed, 15 Jul 2026 15:05:10 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A16716001D
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 15:04:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5848E1F00A3E
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 15:04:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C5DE1423C5
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 15:05:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69F161F01558
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 15:05:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784127889;
+	s=k20260515; t=1784127909;
 	bh=1i7b3l9rJpq4HTYvS3RcBvBfTdofsIZ1RrmCSl+AOlc=;
 	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
-	b=ChP5ArcPoyxAheJKZwTqCP9/h3JqTIJqA/OU/wRQw4NdxXhX9JDhVSSJ71YT+2orz
-	 GElVYG1wyTwKrzodbclVbvhlZVZOQQ1ssp3AMtWphJlxYqIbMmFiej1eD97kodNDxj
-	 tqf/l0KH0c93RLcwKe2hUwnWyox9DSOU0XZkb+vQPckNl+RRiMDHsarz+bbQgbYfDZ
-	 gfw0ZIzySpIoUVIgUWchzSZaAHijZxtpBNW0K7NVVVkLd6pe4pV1hvCL9NW+4vpgeZ
-	 AO+j/BgzmuYS8Xgue9nVzNqr3GzmKe0sm1AhSnOHD58HwEg6UeTT1FawjP/0hYDJQo
-	 F/KLII+HIbxvA==
-Received: by mail-oa1-f52.google.com with SMTP id 586e51a60fabf-447a81776e9so1964879fac.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 08:04:49 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RooUYQ5rrkHZzs7xhNNq9rXqi/g7gSWoeEAFhtqkIz2csyKeoLDq9fM1LfgIVay2/G2NlEUvXPJc1R32RjyLME1@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw24g1SOvxf7MSVpAGaIxzFZfcz2hcRTjLqH/OSOJU9AsHpA93g
-	9kuxIrYBhHcBxbiDCKRtWT9Wtt8tDjeobmXHzve4Kp+RXgVYdRiVEMq8PH7uSP9V74/0wTViOxl
-	XceDvs5UaLDV21PNtN8WR9a7Pj0foykU=
-X-Received: by 2002:a05:6808:4446:b0:49f:39c9:82bd with SMTP id
- 5614622812f47-4a47a7cebedmr4190612b6e.41.1784127888495; Wed, 15 Jul 2026
- 08:04:48 -0700 (PDT)
+	b=NeR+IabXQW17kUJfwecht8YQ/HkK/kLqSIGyZ08BtCEClA+DyIw7EhtiazEb72jUZ
+	 DQpRGCli7gqQwUnCVvuYa+FNmzEeJFJnRS5b0U0+jDv0ZnespLIDF+0uvb26hhvdAG
+	 YVvyMeplBbKRTNHL6qh6udg33CiElN8xT/5Cy7JYSFlTDpqOT+Aqv7HPeImw2SHyK8
+	 2kbtEqX3dYnpRxWHksZuikPpWeMEJtn9buY4GFU9FODT0ljKFabsiBz64G97U8d+UA
+	 j+YYL27lNaZqz79nVTunJS9Q9px22wYROhZ2K0jyITz9p+M3S3briPWmy1rSSu5nQx
+	 rswOxbLKqXKEQ==
+Received: by mail-oi1-f177.google.com with SMTP id 5614622812f47-4896ae35be9so2296925b6e.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 08:05:09 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RoaEcuWmwhzA0Bo0QfXtXyB3Cm2XNCrs25QuOh/XwWViyzqZl7qHjS5h0lNpw8xTQewVySOQM7QYxO073FgsCgE@lists.infradead.org
+X-Gm-Message-State: AOJu0YyxI/2aMoCzYXgD9qW2tx4DIJvw2coGS88qHxjdMyhNwpofHynX
+	azYmJ18asz0Toqr+ZDZVBsEsRbBhK8qBMfZ6Eb0+brf57cthJEwz9REtwkCCN3Q5LxmHEvAJkbg
+	axFxKCv6+3Jk51A8eXaPSLR1tyWsilkM=
+X-Received: by 2002:a05:6808:1b26:b0:495:f67c:d96a with SMTP id
+ 5614622812f47-4a495eab032mr1747679b6e.12.1784127908616; Wed, 15 Jul 2026
+ 08:05:08 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260715095525.40668-1-phucduc.bui@gmail.com> <20260715095525.40668-6-phucduc.bui@gmail.com>
-In-Reply-To: <20260715095525.40668-6-phucduc.bui@gmail.com>
+References: <20260715095525.40668-1-phucduc.bui@gmail.com> <20260715095525.40668-7-phucduc.bui@gmail.com>
+In-Reply-To: <20260715095525.40668-7-phucduc.bui@gmail.com>
 From: Chen-Yu Tsai <wens@kernel.org>
-Date: Wed, 15 Jul 2026 23:04:32 +0800
-X-Gmail-Original-Message-ID: <CAGb2v64CEH5qEgMJsPL9fdT9M6_2vVjgsnv3Ot3f-Y_iHPNpiw@mail.gmail.com>
-X-Gm-Features: AUfX_myUc_a5M0pk-6lAb-cYFOcmcs2R1m0ZhqM4rRtcSdSlCczjuxeu7vx0bfI
-Message-ID: <CAGb2v64CEH5qEgMJsPL9fdT9M6_2vVjgsnv3Ot3f-Y_iHPNpiw@mail.gmail.com>
-Subject: Re: [PATCH 5/6] ASoC: sunxi: sun50i-codec-analog: Improve probe error handling
+Date: Wed, 15 Jul 2026 23:04:50 +0800
+X-Gmail-Original-Message-ID: <CAGb2v66EfrZLMB3fhpMtHJ=p6+JKr8xo4YoNcUZFbufT-Q7k-A@mail.gmail.com>
+X-Gm-Features: AUfX_myL8GPNUfHP8VLcNCxbPlwWk_yA0cgJ1EGx2St68obk-BOfwKmsXMj10Vw
+Message-ID: <CAGb2v66EfrZLMB3fhpMtHJ=p6+JKr8xo4YoNcUZFbufT-Q7k-A@mail.gmail.com>
+Subject: Re: [PATCH 6/6] ASoC: sunxi: sun8i-codec-analog: Improve probe error handling
 To: phucduc.bui@gmail.com
 Cc: Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
 	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
