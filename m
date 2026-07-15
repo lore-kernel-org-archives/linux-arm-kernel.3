@@ -4,71 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EE0DC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 19:31:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04970C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 19:33:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hL1GS79qzyM0ipi8jemKvD9nfesfcOl399h19NOhaM8=; b=nqljKynx86+3/0gqEj/tdpnHfF
-	gIaJFRAGCZUXgv9gjfNWjs1QiEVTaX+kTti9nLIlOuwWYKZXlazNlsaNpjbUVSoBLCCwPVripf2Tb
-	xw31FCLMF9rUq1MlN6RSbt9JvnjZdRYLyd+1zUyAZhHZyJ+HM23ZOmU+rLrbnfqCQHMEgTEBOxBHi
-	lLiKlj4KAj07MCfjue4MogceRjljQBBH/XXSzSy/swugf2TPeGqAcqdO5J+B9zb95kPCAGAJGQ9Ia
-	ZbVkgmpFaFCH+RlOWZeVG1Zna0oNWRWZoSoLycS9InyFAt/pl98PMJ3gWC58OzxmQpZPlq+qHQGjg
-	gdymQ0wA==;
+	bh=K2kRxoCAum/25lk+JMgZ5Et4r6PioAkR1hFgQluxBjo=; b=lkRY5UBCJUPCteJv7eEdbdPVek
+	Hxf6QCfLyIN5o4CFdoyyGkHxNW4Bt1tkqBJNoF41fDQ5HLFnZ58M8AEvxPIqBjJYeSDcIDh/HtnVJ
+	/EBiMPcJ1010/I/kt55O5TEJGVRsyOZ03Eu72IaXj4z4BLizhiVhuwzgguR0qoSZjRHjeSS2t9lb/
+	tABhYaI0kmsQJ0Mhm4slkWO3oa4zMUx9c8f/8kDNB0IftRZfC/L3Wq+GsMS7uRU8gxkoLnTsSMarY
+	4AZob4VDsMiDBeDv/dGZupwB4+O5E0NzDJofpGcpQo4AqHi9UhFYjmVwFUQrgQ4h7zbRh/D2IVKmN
+	vs+eu8Pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk5Jp-0000000FmxT-37Xf;
-	Wed, 15 Jul 2026 19:30:57 +0000
+	id 1wk5Lk-0000000Fn9U-09Bp;
+	Wed, 15 Jul 2026 19:32:56 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk5Jn-0000000Fmwp-0rSp;
-	Wed, 15 Jul 2026 19:30:56 +0000
+	id 1wk5Lg-0000000Fn8s-3iGO;
+	Wed, 15 Jul 2026 19:32:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=hL1GS79qzyM0ipi8jemKvD9nfesfcOl399h19NOhaM8=; b=zb9QXW1XMG4YfPtNV3RG+62Zmd
-	v8UvwL/ktHs4FtJ/TP0zlhZleTu7M3ckwlhFjD4fw+uytYiKG7LFVdi6L8rfGJpoUn9NXkCz66pN8
-	/qJeCo+4hjVSn+09UJwGZkBRxCikUAhVFdv/Y9jHZhsRA7jr9+/oTwWrn4fM7+AzWXr5cTmo4EQlr
-	fPpdq9Hyo1NSmaiNWEznadQPhH77OjmmymXNzamcUS3zD+zTNqb3owWxhn+mkg5Tv/Pndg4MN0jc+
-	XA/8uJNplYQGHCcxu061mq29I4T0soEHVGDgIqoMeWlNxc6tMpWJkAUf+VeOvTW/IHgHRScOlzpOk
-	uLO0XDIg==;
+	bh=K2kRxoCAum/25lk+JMgZ5Et4r6PioAkR1hFgQluxBjo=; b=nCrsCUz9KVyqdkiPlRd3mu0BPT
+	BY/lltifM6/ZbtqRxSSVVnMfwnl35jU1PkPGYv8A+wbOsLSpMRK/gb5sCfaHkhKsLqnEVYDUgmpNd
+	5uQpr/PPok9rRtziKGPHpBUZ8W3XMUksi8/X8IePJZZ2oEaLTHHQ8RMRSqiCsYhAR3dCRgd/+c4iY
+	57tkbVxfBWJ+8jYeCmFop9LlFXC0GOorAfeQIyY/XzyzbdKrtmZyo1kL5WaGTFDbuoywDiBHRTon7
+	r4AfvXEBr55f9k89DnejsBRcgAWYPmXHtT/kKU+J3OYevOpTGz8abQTlmWkU/i+utCoaoWxcIjRWf
+	9rr15+0g==;
 From: Heiko Stuebner <heiko@sntech.de>
-To: Andy Yan <andyshrk@gmail.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Damon Ding <damon.ding@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>,
- Alexey Charkov <alchark@gmail.com>, dri-devel@lists.freedesktop.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, kernel@collabora.com,
- linux-arm-kernel@lists.infradead.org, yubing.zhang@rock-chips.com
-Subject: Re: [PATCH v3 08/10] drm/rockchip: dw_dp: Add runtime PM support
-Date: Wed, 15 Jul 2026 21:30:27 +0200
-Message-ID: <2301403.NgBsaNRSFp@phil>
-In-Reply-To: <alfV1691ZgZ6KylX@venus>
-References: <20260612-synopsys-dw-dp-improvements-v3-0-dc61e6352508@collabora.com>
- <CANbgqATR-V0rRGfzj0hdJ2hsJex-iWzHMwD1L4vavTi2Jd79Kw@mail.gmail.com>
- <alfV1691ZgZ6KylX@venus>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Simon Glass <sjg@chromium.org>
+Cc: Jiri Slaby <jirislaby@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-serial@vger.kernel.org,
+ Simon Glass <sjg@chromium.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] dt-bindings: serial: snps-dw-apb-uart: Add RV1106 compatible
+Date: Wed, 15 Jul 2026 21:32:47 +0200
+Message-ID: <15791133.tv2OnDr8pf@phil>
+In-Reply-To: <20260714132035.v2.1.c1d92213393f49330ec14d0c670a802181b4fcbf@changeid>
+References: <20260714132035.v2.1.c1d92213393f49330ec14d0c670a802181b4fcbf@changeid>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_123055_248588_702D9D37 
-X-CRM114-Status: GOOD (  21.05  )
+X-CRM114-CacheID: sfid-20260715_123252_920896_7AD42D94 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,49 +69,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 15. Juli 2026, 21:00:12 Mitteleurop=C3=A4ische Sommerzeit schr=
-ieb Sebastian Reichel:
-> Hello Andy,
+Am Dienstag, 14. Juli 2026, 21:20:36 Mitteleurop=C3=A4ische Sommerzeit schr=
+ieb Simon Glass:
+> Add the compatible for the UARTs of the Rockchip RV1106, which are
+> compatible with the Synopsys DesignWare APB UART.
 >=20
-> On Tue, Jul 14, 2026 at 06:08:06PM +0800, Andy Yan wrote:
-> > > @@ -58,6 +59,8 @@ static void dw_dp_rockchip_hpd_sw_sel(void *data, b=
-ool
-> > > force_hpd_from_sw)
-> > >
-> > >         dp->hpd_sel =3D force_hpd_from_sw;
-> > >
-> > > +       ACQUIRE(pm_runtime_active_auto, pm)(dp->dev);
-> >=20
-> > This can triger  HPD irq for USB-C DP AltMode, but for a standard
-> > DP port, this is no way to acquire runtime, so there will no irq
-> > when plug in.
->=20
-> Right. I don't have any RK3588 or RK3576 system exposing a DP
-> connector directly. This this is non-trivial to test for me :/
->=20
-> I see the following options:
->=20
-> 1. Only enable runtime PM when running in USB-C mode
-> 2. Mux the HPD pin as GPIO to support waking up with the controller
->    being suspended; either remux when the controller is awake or use
->    the same mechanism as USB-C to do software based HPD on top of the
->    GPIO (which would allow using any GPIO as HPD).
-> 3. Have a poll function, which wakes up the controller regularly to
->    check the status
->=20
-> I consider going for option 1 for now, which allows option 2 to be
-> implemented as a follow up. Mostly to avoid that the series becomes
-> as big and messy as the USBDP PHY series became.
+> Signed-off-by: Simon Glass <sjg@chromium.org>
 
-I'd agree with that solution.
-I think we can all agree that option 3 is baaaad :-) .
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
 
-So with 1, functionality keeps working, and then someone can put the
-special HPD handling on top later - the Rock-5-ITX does expose the DP1
-(on a hdmi port)
+> ---
+>=20
+> Changes in v2:
+> - Split out into its own patch
+>=20
+>  Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.ya=
+ml b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
+> index 49f51b002879..c0d0524458c1 100644
+> --- a/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
+> +++ b/Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
+> @@ -72,6 +72,7 @@ properties:
+>                - rockchip,rk3576-uart
+>                - rockchip,rk3588-uart
+>                - rockchip,rv1103b-uart
+> +              - rockchip,rv1106-uart
+>                - rockchip,rv1108-uart
+>                - rockchip,rv1126-uart
+>                - sophgo,sg2044-uart
+> ---
+> base-commit: 3b029c035b34bbc693405ddf759f0e9b920c27f1
+> branch: rv1106c2
+>=20
+>=20
 
 
-Heiko
 
 
 
