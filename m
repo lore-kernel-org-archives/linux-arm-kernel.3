@@ -4,68 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3F6BC44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 13:25:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10779C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 13:25:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4ajz6QvfIPoWST2gPobUz4JJMn5hIHPMN2q0uTcAYj8=; b=XknSz2QzL6bHuetbPFDJmen7R4
-	W9ZWgMjJH6preMYe4lJJoY6a7TzF2kKNmmHA33SMQOFZ+1cEjUlK9mAEeZAGMS9RYFt0zu6gchuDU
-	o2n4RyF2RpxZEbLaqKtc3zjh8Ex4DkMFZuLMioFXU/eH60B4HR8N2pDg4XtXl32JOWy7bv7GnNRQr
-	E18wsnmxKA2gJVsR9oaGqnz3XrFrKMshJd5x4VpOCOwnuVJdAoyBb6uEJlZmOTyZG7huVcU+nR/15
-	e2oSyzIMi8tt5JKVNTlttf0lf3sE16K/0dOKGq1r/QTTsZdTXiVvhbqh2qVnIJ7u08KWsq9Qx7tkX
-	o6l6mDrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yoSrRSKif73YSb2a5jGtKpARnUijvX8usQsu2PfcH/w=; b=yhg/tWYB37sea/24BwqA/aw36n
+	bgOtQY5C4zmI/vCtpJBjBErbR40EACXPsEZ/5tS/AXZ8G0aUWnJ/8z3XX9DfsOKhVLd2QXG1o9haU
+	knztaBPNBzauiSRAmfkUCDNN5D3UPoIT4Yy7LHKLbltH/x6Pi7H5MxLn6IumHCD6LLJ9fKMPqDPUo
+	VUfjYpRtNHtYJAW1UO5HKA4ZK7yPGlZ2KngfM4TgGFRDjkNk7SDuoi0R9yhYAr7sNaxITavIPssDb
+	BtK/ATOThY0BckJ+5E++HKzzvcZBlAeAFhs0qSB4jFCewItFKjkNA6GWh/96s2MyqIhqBWwImfM2x
+	KL6WMW8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjzby-0000000EwGe-0vBy;
-	Wed, 15 Jul 2026 13:25:18 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wjzcB-0000000EwMu-2fc4;
+	Wed, 15 Jul 2026 13:25:31 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjzbu-0000000EwFP-46Q3;
-	Wed, 15 Jul 2026 13:25:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1784121912;
-	bh=X4hQ+PvvpEFhGE9C06CCHumxc5qZ+hbNEyoPw6puCII=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=oXumkldPtd+e+lBP2cMWTV4Ri8iZUa5BqPUvQpqEoi09jZd+Z+fozCyBlv3i7buBm
-	 0YhLBlvIADf/Rrg+TW28ks9sCjqpTLKRqGN31jUR4NQePGOGEN6Ps1fClmBiAj/Jss
-	 uvuviNrBdHRhichf9JK4C6pt5+2ahBzZkygh4KwwDJvr8sAuufHL31c59v//drDXWb
-	 EF3oUnOuKmjuunj8uy80HKIIr6pW29XMOexWQmokxrSz2S4ZrVnD0BlAB25uWYXBgg
-	 iwU9O+kHn6z0LCtaJrwzRaDLeTLQQvNvL1SWcIrpGWSFNU+MCgunihXM8xrnQcMMfl
-	 wr+jKqU3LQ4pA==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2D4BE17E0DE9;
-	Wed, 15 Jul 2026 15:25:12 +0200 (CEST)
-Message-ID: <0f719c00-3cf5-4403-afbf-713b07255981@collabora.com>
-Date: Wed, 15 Jul 2026 15:25:11 +0200
+	id 1wjzc8-0000000EwLA-3Xvm;
+	Wed, 15 Jul 2026 13:25:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1784121929; x=1815657929;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=FoJio/rVwDwRIkKJBPFy4VQTYHNnMkd8RIsGPHmXYtU=;
+  b=iCq6MiM6nn2AeLFK6OdwsJdOFMnlX+WY9pnlFHFqfhwnJ8ZcgSf+X4cg
+   p0EfxQ//JjeDT/UrQADlffD2F4iICH30ANU+2ekCs/6yMO/HP51GhbFdz
+   OU1reXn25uNMthXeEFBQRTVp+VUmihqqg8Oxogr9ipe4xQgY3fzRO62hX
+   v1aRm1jGC7iRgApwiF4b5SwBaoD6v+MAE04FWmXRl6dZZmAdSq8RAxpXq
+   d+hgbqjdm336zFswdjKxprjp8gdBhqytjlQnDBVovf7a51xz2DHiHSmJW
+   QWsDQ6x2OSJhU4dcKfDrwgs5j4bXNHJAOErneQc3i+A1CfFl5mUlobrcz
+   A==;
+X-CSE-ConnectionGUID: cLvsFzlNS3249MLgiZ10Dg==
+X-CSE-MsgGUID: 4DeZuXXwRr2INUj6xzn0dA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11847"; a="88661396"
+X-IronPort-AV: E=Sophos;i="6.25,165,1779174000"; 
+   d="scan'208";a="88661396"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jul 2026 06:25:28 -0700
+X-CSE-ConnectionGUID: 9Wz6tj6iT3aKtxwO1JLjGw==
+X-CSE-MsgGUID: 7GiJrNRMTn+eeKAn9h7sFg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,165,1779174000"; 
+   d="scan'208";a="258139844"
+Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.129])
+  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jul 2026 06:25:22 -0700
+Date: Wed, 15 Jul 2026 16:25:20 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Bartosz Golaszewski <brgl@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Daniel Scally <djrscally@gmail.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Wei Deng <wei.deng@oss.qualcomm.com>, linux-acpi@vger.kernel.org,
+	driver-core@lists.linux.dev, linux-pm@vger.kernel.org,
+	linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Alan Stern <stern@rowland.harvard.edu>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Subject: Re: [PATCH v5 10/16] usb: hub: Power on connected M.2 E-key
+ connectors with power sequencing API
+Message-ID: <aleKQKH2V-ck-SX6@ashevche-desk.local>
+References: <20260715085348.3457359-1-wenst@chromium.org>
+ <20260715085348.3457359-11-wenst@chromium.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drm/mediatek: mtk_dsi: enable hs clock during pre-enable
-To: Esben Haabendal <esben@geanix.com>, Gary Bisson <bisson.gary@gmail.com>
-Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>,
- dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Adam Thiede <me@adamthiede.com>,
- Thorsten Leemhuis <regressions@leemhuis.info>
-References: <20260120-mtkdsi-v1-1-b0f4094f3ac3@gmail.com>
- <8733xko1ms.fsf@geanix.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <8733xko1ms.fsf@geanix.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260715085348.3457359-11-wenst@chromium.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_062515_179831_8A07C8E3 
-X-CRM114-Status: GOOD (  12.46  )
+X-CRM114-CacheID: sfid-20260715_062528_980506_996C9E54 
+X-CRM114-Status: GOOD (  29.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,40 +103,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/15/26 14:53, Esben Haabendal wrote:
-> Gary Bisson <bisson.gary@gmail.com> writes:
+On Wed, Jul 15, 2026 at 04:53:40PM +0800, Chen-Yu Tsai wrote:
+> The new M.2 E-key connector can have a USB connection. For the USB device
+> on this connector to work, its power must be enabled and the W_DISABLE2#
+> signal deasserted. The connector driver handles this and provides a
+> toggle over the power sequencing API.
 > 
->> Some bridges, such as the TI SN65DSI83, require the HS clock to be
->> running in order to lock its PLL during its own pre-enable function.
->>
->> Without this change, the bridge gives the following error:
->> sn65dsi83 14-002c: failed to lock PLL, ret=-110
->> sn65dsi83 14-002c: Unexpected link status 0x01
->> sn65dsi83 14-002c: reset the pipe
->>
->> Move the necessary functions from enable to pre-enable.
->>
->> Signed-off-by: Gary Bisson <bisson.gary@gmail.com>
+> This feature currently only supports a directly connected (no mux in
+> between) M.2 E-key connector. Existing USB connector types are not
+> covered. The USB A connector was recently added to the onboard devices
+> driver. USB B connectors have historically been managed by the USB
+> gadget or dual-role device controller drivers. USB C connectors are
+> handled by TCPM drivers.
 > 
-> Hi
+> The power sequencing API does not know whether a power sequence provider
+> is not needed or not available yet, so we only request it for connectors
+> that we know need it, which at this time is just the E-key connector.
 > 
-> I have run into the same problem, but in combination with another
-> pipeline. I am seeing same problem with an i.MX8 using the nwl-dsi
-> bridge and the dcss driver.
+> On the USB side, the port firmware node (if present) is tied to the
+> usb_port device. This device is used to acquire the power sequencing
+> descriptor. This allows the provider to tell the different ports on one
+> hub apart.
 > 
-> I have submitted a fix that adresses the problem in the ti-sn65dsi83
-> driver instead. With a bit of luck, it can replace the fix proposed in
-> this thread.
+> This feature is not implemented in the onboard USB devices driver. The
+> power sequencing API expects the consumer device to make the request,
+> but there is no device node to instantiate a platform device to tie
+> the driver to. The connector is not a child node of the USB host or
+> hub, and the graph connection is from a USB port to the connector.
+> And the connector itself already has a driver.
 > 
-> See https://lore.kernel.org/all/20260711-ti-sn65dsi83-fixes-v1-2-d85eb5342b98@geanix.com/
-> 
-> /Esben
+> Power sequencing is not directly enabled in the connector driver as
+> that would completely decouple the timing of it from the USB subsystem.
+> It would not be possible for the USB subsystem to toggle the power
+> for a power cycle or to disable the port.
 
-That clarifies a lot of things.
+...
 
-The patch on mtk_dsi shall be reverted then.
+> static void usb_port_device_release(struct device *dev)
 
-Cheers,
-Angelo
+>  	fwnode_handle_put(dev_fwnode(dev));
+> +	/* usb_hub_create_port_device() could leave an error value */
+> +	if (!IS_ERR(port_dev->pwrseq))
+> +		pwrseq_put(port_dev->pwrseq);
+
+Hmm... I would rather make pwrseq_put() NULL and error pointer-aware, so
+it will be no-op in such cases. But I think Bart has his own opinion about
+this.
+
+>  	kfree(port_dev->req);
+>  	kfree(port_dev);
+>  }
+
+>  		put_device(&port_dev->dev);
+> +		hub->ports[port1 - 1] = NULL;
+>  		return retval;
+>  	}
+
+...
+
+> int usb_hub_create_port_device(struct usb_hub *hub, int port1)
+
+> +	port_dev->pwrseq = usb_hub_port_pwrseq_get(port_dev);
+> +	if (IS_ERR(port_dev->pwrseq)) {
+> +		retval = dev_err_probe(&port_dev->dev, PTR_ERR(port_dev->pwrseq),
+> +				       "failed to get power sequencing descriptor\n");
+> +		goto err_put_kn;
+
+OTOH, how pwrseq can be non-NULL and at the same time port be created?
+
+> +	}
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
 
 
