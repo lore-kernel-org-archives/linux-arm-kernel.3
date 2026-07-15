@@ -4,56 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A80BC44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 11:43:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF90BC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 11:46:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4iI7cm50TUfbt29M1XzW54/S6U86vKbruO9GvSiUuH0=; b=aSAzKAFqYuaCVBsg68LmOzjxwp
-	aamFLTSuB5yTDgK+1fkOBi+DEtmDYSz37U7sYqwFX4meIxQGlHIJc6qpJh5YT2+Ee1lbST42dr7K7
-	MaXbRf2vNPvhXMTwo+ssjqjuFkaoReJewTqpc9K/eMS8luSmswhEUuPcr2qJdUpr/dsgQu3sxYoT9
-	x8jC/0b9NNuGIG9sUyHGXC969QjxE5PvNe10wtavkR/3G4KDSCAFq6Yf+ajdAa6CNA6Gvkslx4NYV
-	3QxmvisbHjqSUIKpeGSijsciudnbTXYF7AVOl8/bnz4Y+7iueV/b9EIdI/3WjoDzanmZMT9hqBi5o
-	GzVL4Gcg==;
+	bh=f14g3eRyyv8r7gbbzRptTQGbfsDCiij3wkULxA9pH+c=; b=M+tUebv1vEnpC4xmE4vvPjj+Fk
+	PU9zqXwm5U8RFFrGwgRodOgPZCN3TRzq4upi4hejOyJ0fhRGIvWrmlId8ijAF3KAHTlDNxBYCFlPm
+	g+YkmASOD8kNOj7o8B8zdTiIZvG41tIQEj5M6F0CLlKXl0qSLszxf88zoBLGObLE1RUbzBtBqMQ+N
+	FIMfxardBG2RwmMOIhvhoKyZvQN9F0iyfiuTlo1ZA0VTllH4500Q41j7to6ZMiIRfvUFCHOoIT/8P
+	ia5iKadyU2wS1yBIxik8F/ZrhG5LljiikrJ19y21n2kqodH8bk05jqwBTJp2JmAV1Umpr0YjjdHQB
+	dD/j7+Nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjy18-0000000EbtT-3HIk;
-	Wed, 15 Jul 2026 11:43:10 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1wjy49-0000000EcFM-2IwG;
+	Wed, 15 Jul 2026 11:46:17 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjy15-0000000EbsP-3R2H;
-	Wed, 15 Jul 2026 11:43:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=4iI7cm50TUfbt29M1XzW54/S6U86vKbruO9GvSiUuH0=; b=sWAGpdJCjLiATuC2iZfg0E1iT8
-	5rxsKju5Y4nlh3QLn3hMx6qr69JvQ1H46Qx/HsW0jfcCJ9E1uEAmYxCjAQk2N1mtHLO9iWgx3hQs8
-	hURR00Tun5XOsU60sNFUfEPbTRh8BX9ZGBbA93gw79jfPTfSrl2OZEsjqWvI64QdLJvaUQ5Wx/+G5
-	KKAilP1EEdH8GzlFbgiWs3V+WrQiRkVrbjAZc+M5qkCbE2v7zdTBdvkCY5p0xCv7498A0R+kbF7Uu
-	OXI6aZs476f1wARdihN6FYfJJSsSUK9FYe2uyZvk04uj3HRJz4PWbcZoATcASfIVPLNZLOCeHh7bx
-	6hx4xtyw==;
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: srini@kernel.org, Hrushiraj Gandhi <hrushirajg23@gmail.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Hrushiraj Gandhi <hrushirajg23@gmail.com>
-Subject: Re: [PATCH 1/2] dt-bindings: nvmem: rockchip-efuse: add
- rockchip,efuse-write-enable property
-Date: Wed, 15 Jul 2026 13:42:56 +0200
-Message-ID: <2363663.KTMopqUuYO@diego>
-In-Reply-To: <20260715110107.409204-2-hrushirajg23@gmail.com>
-References: <20260715110107.409204-1-hrushirajg23@gmail.com>
- <20260715110107.409204-2-hrushirajg23@gmail.com>
+	id 1wjy47-0000000EcEz-3H2B
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Jul 2026 11:46:15 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 36AF1601ED;
+	Wed, 15 Jul 2026 11:46:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 805611F00A3D;
+	Wed, 15 Jul 2026 11:46:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784115974;
+	bh=f14g3eRyyv8r7gbbzRptTQGbfsDCiij3wkULxA9pH+c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=AbgbyXHl8cUaEz3REEKzALyupk0CFVibINKRLG2uDfaa6k5WSa1ZjsVa0lXEjYrJV
+	 mIgfYde0/JNKHbZ6t1L+PyWbEPHaesOkj3iTlSHbBLC/S2TY5L88SdBfed261+FcTp
+	 xhIwodabTjxe8Es9YfE43rL+731HMh3MvzIs4fQV1sRULgc3ar4nZTQTWueLfdIMpU
+	 Aa0dn6P+ikDQQwjqJO+lfkgcKsFuJuYYbnPjQfh2Ae6Ech2mfjsmYiQVBej1SGOxJt
+	 Ht5k5epDJgrhA331QxV+cXjMM/xQ1MYLv3qQvZzz32cgBgA59hUGtH3zxt2MyUCaDl
+	 bDHbPVdbnrGLw==
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfauth.phl.internal (Postfix) with ESMTP id 981FAF4006A;
+	Wed, 15 Jul 2026 07:46:13 -0400 (EDT)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-01.internal (MEProxy); Wed, 15 Jul 2026 07:46:13 -0400
+X-ME-Sender: <xms:BXNXajq-9k8s3sMG4Nr9Le4est4zXtTQ9udNj11ZP5EzLJ8G46qLYw>
+    <xme:BXNXapEsuGNn3OLsC4WuOh2Fz3X59-C4EZi0K3pqgRoEOVLIydfV1ZZbqgGUA_PJ1
+    2jCLOupkA6OquM8AKJu-HX-pkMzJDYvMVe5T-HSeEDE4CU6pMkWMsM>
+X-ME-Received: <xmr:BXNXau5lEhFVfYBb33xHjDrNMxePsOkNxcBXqvN8_PaZcfr8wYNObhR0FXi_vQ>
+X-ME-Proxy-Cause: dmFkZTE6lo2AS56jZyzx7GorcfUYrhxiBJWxGWdJtmOsWtXHXx7oT+ZZG0WbO09bxneiMa
+    30CkTgTNA8890T4LToWMNPiOXt37bxdE4E/TZKW0P1JxhHb2zrgPIM5r3k8/e3H4j1y+fZ
+    8/MTg3DGHXkEcQQQFj56E8oJR+mWMss6Bw9ov4Nk55IjEr/oU/hDfnvr1i2sO4aIl80Mar
+    HBJFidpj7fxjrN+3r2/oN2/jemBvZoAiTquYZBY+ZNmf7U4jA5dwEtPmt/JNyu8veLabrf
+    9NUHwSJz5cSM964BW3/z59OR8d2bdvTLvqfxAaY2V7bqYkZ5YIV1don3Izxik3JYJJpNFd
+    8Ww6rOwBsrvMNUJ8MPAI3Pq3bQbMKWtKXA19o6Y2yMsTriEBsO9Ihwux22K/CpKhSnql5Y
+    bL7AhT9jWfPUXeGGd52FmWrL2HIGyyT6GdWMTwL6Lw9z4eFMTdiBFPiaQL69hc5uag0QNR
+    qSTuAsE0S1luz9lerRtF8MvR7eMeJsIakd1fossbAurgISBUaYktS+sOt/+wFjlPXCWFme
+    ufuTUAsjr9OLq8ZXKfbaKrjKGQnog2e+K05o76vM950CCwy+PCPfsQHpsg+MJG3nI95V05
+    1WszXm3TkiMWcgFHK6Aln3QCxLRwUpYx0sj8SHIy8qcgdfsqSILFRTgbH6xw
+X-ME-Proxy: <xmx:BXNXakBpc4AUW9ccf0cl6XDdMk6WKJZN8hOzxB9Ae-UUUo9ExbJojw>
+    <xmx:BXNXapSc_RC347cAJzQGD7zgFEuNS5tTnA-EbJ1Yrx5by1SP5n_xtg>
+    <xmx:BXNXakc-dVritM6FtwFwNZO10tuqPG829ND9fKscruvV4WsZMsS72A>
+    <xmx:BXNXaiT_UdLzAd42EGmET30yZkJTAcfAlpznqxJ4cs6t4WLqQEkvmg>
+    <xmx:BXNXag3wwv6RFoqhD0z7Azd1uZ-WcMkGydaF_KU-MU2wqsw_C7bww41I>
+Feedback-ID: i10464835:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 15 Jul 2026 07:46:12 -0400 (EDT)
+Date: Wed, 15 Jul 2026 12:46:11 +0100
+From: Kiryl Shutsemau <kas@kernel.org>
+To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+	Joerg Roedel <joro@8bytes.org>
+Cc: Jason Gunthorpe <jgg@nvidia.com>, Nicolin Chen <nicolinc@nvidia.com>, 
+	Pranjal Shrivastava <praan@google.com>, Breno Leitao <leitao@debian.org>, Kyle McMartin <jkkm@meta.com>, 
+	Usama Arif <usama.arif@linux.dev>, linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] iommu/arm-smmu-v3: Shrink command/event/PRI queues in
+ kdump kernel
+Message-ID: <aldy9NMY1dRgJii7@thinkstation>
+References: <20260706084708.8072-1-kas@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_044307_909074_EB2E6104 
-X-CRM114-Status: GOOD (  18.12  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260706084708.8072-1-kas@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,58 +99,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 15. Juli 2026, 13:01:06 Mitteleurop=C3=A4ische Sommerzeit schr=
-ieb Hrushiraj Gandhi:
-> Add an optional boolean property to explicitly opt in to write (OTP
-> programming) support. eFuse bits are one-time-programmable and
-> permanently set once written; write support must therefore not be
-> enabled by default on arbitrary boards.
->=20
-> Boards that intend to use software-initiated eFuse programming (e.g.
-> factory key provisioning) must declare this property and must ensure
-> the required VQPS programming supply (1.8V to 1.98V per RK3399 TRM)
-> is present and correctly sequenced during writes.
->=20
-> Signed-off-by: Hrushiraj Gandhi <hrushirajg23@gmail.com>
-> ---
->  .../devicetree/bindings/nvmem/rockchip-efuse.yaml     | 11 +++++++++++
->  1 file changed, 11 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/nvmem/rockchip-efuse.yaml =
-b/Documentation/devicetree/bindings/nvmem/rockchip-efuse.yaml
-> index b80fd8d1ae5b..8a7195245c84 100644
-> --- a/Documentation/devicetree/bindings/nvmem/rockchip-efuse.yaml
-> +++ b/Documentation/devicetree/bindings/nvmem/rockchip-efuse.yaml
-> @@ -46,6 +46,17 @@ properties:
->        this property is defined.
->      $ref: /schemas/types.yaml#/definitions/uint32
-> =20
-> +  rockchip,efuse-write-enable:
-> +    type: boolean
-> +    description:
-> +      Enable write (programming) support for this eFuse block. eFuse bits
-> +      are one-time-programmable; setting a bit is permanent and cannot be
-> +      undone. This property must only be set on boards where irreversible
-> +      OTP programming from software is an intended use case (e.g. factory
-> +      provisioning), and where the required VQPS programming voltage
-> +      (1.8V to 1.98V per RK3399 TRM) is guaranteed to be present and
-> +      correctly sequenced by the board's power design during writes.
+On Mon, Jul 06, 2026 at 09:47:08AM +0100, Kiryl Shutsemau (Meta) wrote:
+> All SMMU queues are sized from the maxima the hardware advertises in IDR1,
+> which can be several megabytes each, and are allocated at probe. The kdump
+> kernel already disables the event and PRI queues (arm_smmu_device_reset()
+> drops CR0_EVTQEN/CR0_PRIQEN) but still allocates them at full size. On
+> systems with many SMMUv3 instances that cost is paid per instance and adds
+> up to tens of megabytes of coherent DMA in the capture kernel.
+> 
+> A kdump capture kernel runs from a small crashkernel reservation and only
+> has to drive the few devices used to save the dump, so deep queues serve
+> no purpose. The queues are not on the DMA data path, so dump throughput is
+> unaffected; a shallower command queue only bounds how many commands may be
+> in flight before a sync, which does not matter for the capture kernel's
+> small device count and modest I/O.
+> 
+> Clamp every queue to a single page when is_kdump_kernel() is true. Doing
+> it in arm_smmu_init_one_queue() covers the command, event and PRI queues
+> in one place. The command queue still holds at least one batch plus a sync
+> (256 entries on a 4K-page kernel, well above CMDQ_BATCH_ENTRIES), so
+> command batching keeps working.
+> 
+> Suggested-by: Kyle McMartin <jkkm@meta.com>
+> Signed-off-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+> Reviewed-by: Breno Leitao <leitao@debian.org>
+> Reviewed-by: Pranjal Shrivastava <praan@google.com>
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
+> Tested-by: Nicolin Chen <nicolinc@nvidia.com>
 
-Devicetree is not a configuration space, and I think this really does count
-as configuration - as the efuse will be writeable on every board.
+Gentle ping?
 
-You mention the VQPS voltage. If I'm reading schematics and application
-notes correctly, this is a separate input used solely for writing efuses
-and _needs_ to be 0V (off?) during reads.
-
-You mention "needs to be present and correctly sequenced", who is supposed
-to turn on/off that regulator?
-
-So you very likely need to define that regulator and can even use its
-absence as an indicator to disable writes.
-
-
-Heiko
-
-
+-- 
+  Kiryl Shutsemau / Kirill A. Shutemov
 
