@@ -4,78 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DEE4C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 11:06:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD84CC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 11:08:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=abtaHT+iM35mYhuUa0tFLYJlMk0dWSVeeSAZanDwdRY=; b=HGCYVOZ2JupoOh7huVBwuuK68+
-	TbxSK8Cpvl87ur/hnb/+1pEmJVyr5Ku2YEv6ioCgEqEqgvA814ONB76VGjUrH/TziuNSwRM5idnmt
-	ExaJBlDP7F5ULAlCjO6CNcxQeKJwpwXS70HVYMtarxwNdOKk9EE4JwxgOb60hNMFv5sLtNcM2rbX6
-	wXSU4cOk+oucyKYTONuxr0qSigq9BSpk+dlxvL04Mc7Ifgz1EzF/zpmju8RFFaY75xLiE7Z5hS19X
-	8VBpaIY6GxdZT0hMVAPIcO+Xn7/c2sFYjpbnPqYmX88iV56qVexjFac27PHZMZZjDPvmTUmhlJmmw
-	pitDKVLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=U6Z8UNdPRwdYEDpBm/8Wj8CPVrJHM5gjfHQvZCFzLD8=; b=yRXekXsmz8q9QgNQmQFEIRfsxj
+	zpQFTMFhTzrX9XixJIOqoqxac6szd1eEUo/mrru2yieCktIbm+gmMlr8x3lHOChsim3iECfnuhgMv
+	v+8jXOQGSyEqkYB/k3CfspZ08stv1kZ1EPPMU+z1M9QCG1ke83PXnH9sIpnJsfOcA4nDzVbkzbClX
+	bwOkdMiBiI7HBe/2u8IqoRUg2hUTQvCVHN+tt2SBaO1wQUB7PPidZnP1CvCXrDqTsCx8Xw3Sv2YYC
+	lAziiKihhUysjoiQlImUw6gTeEL6rkbGeYE/rEuMecVYArHvAlIjGUg+xfZCgOxuNDNY16GFd/eCC
+	YoAnaaKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjxRY-0000000EX2B-0QIN;
-	Wed, 15 Jul 2026 11:06:24 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1wjxTQ-0000000EXE0-1kNQ;
+	Wed, 15 Jul 2026 11:08:20 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjxRV-0000000EX1k-2b3E;
-	Wed, 15 Jul 2026 11:06:23 +0000
-Date: Wed, 15 Jul 2026 13:06:13 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1784113578;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=abtaHT+iM35mYhuUa0tFLYJlMk0dWSVeeSAZanDwdRY=;
-	b=1Q56+mb7FdmVtn2LseSeElkRG3+cBY0sq+4sHmMi4f8/OYZeRDvn1QWWrZVvm20Zwt/i4f
-	KIAA0hrOKzDmyvz4S23yrhyGLvIZRCmqbK+lXs/vw4EjtvY9TwvhZrT4SFIwRbcXWM36Ht
-	NmjV4QYTqhBT0YhtgNxnFx6ChnesB2qT9OWe/2+huuby5ySLYRSKFQRlSsc4USNKEHvEMi
-	v4Tbe6bg1sDx1548467nYT8272WMWIWeM/13hn+CeQ/BZRsGYQYYl/Rco/ZQ76vm/D2z8M
-	f33HH8nfd7NC54hsaeEvjSE4xgoRbcPGNpKluhrSbacyRWjKndBZcwb8z7d+wQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1784113578;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=abtaHT+iM35mYhuUa0tFLYJlMk0dWSVeeSAZanDwdRY=;
-	b=nOtaw3lpuc2tTTbVyR+QigURKy+xRCGuJurFvmtVUN0XYRnH+u6fxhtm7hTWCKyZxAd+BQ
-	tpHoDvSyj+3BCeCA==
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Thomas Gleixner <tglx@kernel.org>, Andy Lutomirski <luto@kernel.org>, 
-	Vincenzo Frascino <vincenzo.frascino@arm.com>, Nathan Chancellor <nathan@kernel.org>, 
-	Nicolas Schier <nsc@kernel.org>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
-	Daniel Lezcano <daniel.lezcano@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Marc Zyngier <maz@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Huacai Chen <chenhuacai@kernel.org>, 
-	WANG Xuerui <kernel@xen0n.name>, Linux-Arch <linux-arch@vger.kernel.org>, 
-	linux-kernel@vger.kernel.org, linux-kbuild@vger.kernel.org, linux-mips@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, loongarch@lists.linux.dev
-Subject: Re: [PATCH 3/7] MIPS: csrc-r4k: Replace CONFIG_GENERIC_GETTIMEOFDAY
- ifdeffery with IS_ENABLED()
-Message-ID: <20260715125715-5f101707-9307-4e7a-a8eb-698c42aadb21@linutronix.de>
-References: <20260709-vdso-arch-clockmodes-v1-0-3fd780bbf851@linutronix.de>
- <20260709-vdso-arch-clockmodes-v1-3-3fd780bbf851@linutronix.de>
- <87wluwoe1c.ffs@fw13>
- <20260715102751-d1ed7195-f541-484e-9843-73ee4237b7b5@linutronix.de>
- <ee62c755-a15a-41e8-b0bb-7595e9366977@app.fastmail.com>
+	id 1wjxTO-0000000EXD3-1mM9
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Jul 2026 11:08:19 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-493ae59eca6so10910315e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 04:08:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784113696; x=1784718496; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=U6Z8UNdPRwdYEDpBm/8Wj8CPVrJHM5gjfHQvZCFzLD8=;
+        b=sj204JA19LrswVQvdEw1HpPx2gmFLgGZ4OWgkqbAalRLJ7/uVHcBdK6GiF8ZJptqFQ
+         m3HkOAdhjvTIujOY7PaxTWWMbP1ElLhbqvY/wC4q/JeRPv4T8M9p7w/llY3tVRhcwGXN
+         Ct25hCriq0fg3wtE6egj8ur/ncTERsy/Bc41d40dIycpFvMtX/3cg7MWOX/9U35gu3Zt
+         avxzXQhFVkZrM0At3EmfExr3dWhecs6pKa8PcrU1zl712ii5iOmdyj4P6DumWgGG0hcC
+         uNl8ibFwYunI+n7KykiLQs9XDLMPX7jEbK+T/ggM4bq1BRlZ5dEAJvchM7QSOem9wwhk
+         Fm8w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784113696; x=1784718496;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=U6Z8UNdPRwdYEDpBm/8Wj8CPVrJHM5gjfHQvZCFzLD8=;
+        b=iAA3kQ5QvuEwynv59F72MoD5WB11vfHoLactZHmKPC4uQ1modn7QgvTkchzcs30u/2
+         MSndTPi6ay4RD/jiKSOriLybska+ThlEYKd5FTcUSZ999w587sq7WDOe9N+iy5eUxSR1
+         OzTypzFQFEbWo1Mwc1W7Uma7khaAxp3pGUXOesyqVQ2eFesWZAMHwuX+GI8dfae5IAgY
+         fo+j32LNXpiB4q6loXZ5tvfpRq6lztYfP+iTpGFgIJuz2fir+duL+NofHu+IQJCMk15L
+         SUkJjDtLPSBlLldfjA+g5YqE7Ky+DYo/k/a7QKQW6wV60Te1o0/orvTFzYBu22e83bhH
+         Lnxw==
+X-Forwarded-Encrypted: i=1; AHgh+RoLT2KtM+7lwVy2DvjcZrKzNy6v9fQhMlZMw6PbEbao1jzqjotQB7nah2nLOSli9wsrud8jMHrcCkdk4TUGBPr0@lists.infradead.org
+X-Gm-Message-State: AOJu0YxUkYz0+NZHQWQLrNC6ezxGhMS8QhyjZUJTvO9oF7Xuq1w2J5rk
+	bUHp0hQpSX/gpe/JFCexw9IIOZVuMjLfVM+mY6R3Zj6skwmTGjoXmKgI
+X-Gm-Gg: AfdE7clVvkCoBYgJ5ImkAua7ci7/lNWyfC06E7zFnRfRRP1hQk+fsTSxuPDLA/gXjpJ
+	5fytGqKQ6pEw9E8gxe7cwdHZTkk8KeJTtSx5kpYmu15Je7qhM3ELs8Hc4KPi3N4sd9pz16z38xI
+	FY6i2deA0cw/bZDHqtXRUSEkAPmMtZbNKZyze/k5Zhyrw3+YijJRTAHIIOMOf9Dh+iAMouhMx4+
+	ebw5wxpylzW8MrMk9dtEij4gG/5Grj0ggj+RFqXVi+n8F4kbYed7nKpqqRuMOREo0twCJhsMKew
+	SmGTcibBCG0Xtn1W0KgnVIbq2jflceOiu705dBFgOSnVITZeTXTaPZEdnpbQpmPbWEPHtPpLG24
+	HFk5HZ2zMu1FQX3fKluZHk+TU0wELWyj0azjzKEJsbTXzj2sJ85/G0YrK67/4K+pfqG38o0CW0L
+	fuX/hBGojunPiaFzTrZxnpvER68TmmBXYogK87poAz9N2md790VApBlLeO1Q==
+X-Received: by 2002:a05:600c:6989:b0:493:bfbf:1da4 with SMTP id 5b1f17b1804b1-493f881de65mr167311485e9.22.1784113696023;
+        Wed, 15 Jul 2026 04:08:16 -0700 (PDT)
+Received: from Lord-Beerus.station ([93.144.65.248])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4950a2f951asm151389875e9.14.2026.07.15.04.08.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 Jul 2026 04:08:15 -0700 (PDT)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
+To: linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Josua Mayer <josua@solid-run.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
+	Maud Spierings <maudspierings@gocontroll.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>
+Subject: [PATCH v3 0/3] Add support for Variscite VAR-SOM-MX8QM and Symphony board
+Date: Wed, 15 Jul 2026 13:08:09 +0200
+Message-ID: <cover.1784113547.git.stefano.r@variscite.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <ee62c755-a15a-41e8-b0bb-7595e9366977@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_040621_808429_34E31FDF 
-X-CRM114-Status: GOOD (  20.73  )
+X-CRM114-CacheID: sfid-20260715_040818_478679_8184A6A4 
+X-CRM114-Status: GOOD (  13.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,55 +114,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 15, 2026 at 12:13:06PM +0200, Arnd Bergmann wrote:
-> On Wed, Jul 15, 2026, at 10:43, Thomas Weißschuh wrote:
-> > On Wed, Jul 15, 2026 at 10:25:19AM +0200, Thomas Gleixner wrote:
-> 
-> >> -#ifdef CONFIG_GENERIC_GETTIMEOFDAY
-> >>  #include <asm/vdso/clocksource.h>
-> >> -#endif /* CONFIG_GENERIC_GETTIMEOFDAY */
-> >>  enum vdso_clock_mode {
-> >>  	VDSO_CLOCKMODE_NONE,
-> >> -#ifdef CONFIG_GENERIC_GETTIMEOFDAY
-> >> +#ifdef VDSO_ARCH_CLOCKMODES
-> >>  	VDSO_ARCH_CLOCKMODES,
-> >>  #endif
-> >>  	VDSO_CLOCKMODE_MAX,
-> >> 
-> >> and then you can just unconditionally set clocksource::vdso_clock_mode
-> >> in all drivers.
-> >> 
-> >> No?
-> >
-> > It will weaken the sanity check in __clocksouce_register_scale() if
-> > CONFIG_GENERIC_GETTIMEOFDAY=n. I am not sure what that sanity check
-> > is supposed to protect against, so I left it as is.
+This patch series adds support for the Variscite VAR-SOM-MX8 QuadMax
+system on module and the Symphony carrier board.
 
-See [0], where HAVE_GENERIC_VDSO is now VDSO_DATASTORE.
-The naming "generic vDSO" does not make much sense anymore.
-There are different pieces which are used in various combinations.
+The series includes:
+- SOM device tree with on-module peripherals
+- Symphony carrier board device tree with board-specific features
 
-> Is there still a reason to even allow CONFIG_GENERIC_GETTIMEOFDAY=n
-> when  generic VDSO is enabled? I see that loongarch32 and
-> riscv32 are still missing the vdso time support, but that may
-> be more a sign that nobody cares enough about performance
-> on those targets.
+The implementation follows the standard SOM + carrier board pattern
+where the SOM dtsi contains only peripherals mounted on the module,
+while carrier-specific interfaces are enabled in the board dts.
 
-> In particular, riscv64 doesn't even build the vdso32 code for
-> compat tasks, which indicates that userspace doesn't actually
-> need vdso.
+v2->v3:
+ - Fix led typo
+ - Moved reset-gpios in pciea_port0
+ - Removed wrong captouch pinctrl gpio
 
-It doesn't build the time bits. But it has the hwprobe bits,
-which do need the datastore (which is effectively HAVE_GENERIC_VDSO).
+v1->v2:
+ - Added non-removable property to usdhc3
+ - Removed unused fec gpio pinctrl
+ - Fix ptn5150 interrupt
+ - Fix ecspi1 cs gpio
 
-> On loongarch32, the commit adding the vdso said
-> GENERIC_GETTIMEOFDAY 'will be supported in future'.
+Stefano Radaelli (3):
+  dt-bindings: arm: fsl: add Variscite VAR-SOM-MX8 QuadMax Boards
+  arm64: dts: freescale: Add support for Variscite VAR-SOM-MX8 QuadMax
+  arm64: dts: imx8qm-var-som: Add support for Variscite Symphony board
 
-I have no idea if this port is even functional right now.
-So far I was unable to run it in QEMU.
+ .../devicetree/bindings/arm/fsl.yaml          |   6 +
+ arch/arm64/boot/dts/freescale/Makefile        |   1 +
+ .../dts/freescale/imx8qm-var-som-symphony.dts | 490 ++++++++++++++++
+ .../boot/dts/freescale/imx8qm-var-som.dtsi    | 530 ++++++++++++++++++
+ 4 files changed, 1027 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8qm-var-som-symphony.dts
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8qm-var-som.dtsi
 
-> On everything else, GENERIC_GETTIMEOFDAY and HAVE_GENERIC_VDSO
-> are already synonyms.
 
-[0] https://lore.kernel.org/lkml/20260709-vdso-have_generic_vdso-v1-0-d2e1061f268b@linutronix.de/
+base-commit: d0c222c2e2ce577d801bdf129dc6c078f29e22df
+prerequisite-patch-id: 0996915f031a1d899202c5fba75a969d6ce2a53d
+prerequisite-patch-id: dbed47ecb907f6b7f7e284c5c1a3c325566eafd7
+prerequisite-patch-id: c758aa296e6effc94c30449cc7e4773f0ae02914
+prerequisite-patch-id: 31784fa7a3ee5c178b2f1ffa97c1dd7c1d3d898a
+prerequisite-patch-id: 5810f43cde9c24ee318d680c1852b3ded18f3aa0
+prerequisite-patch-id: 012c9c8ba4e290532a1b7f8642274b7c5f252e03
+prerequisite-patch-id: a57d576be42d5061bba453f0d5960132be55a1ff
+prerequisite-patch-id: e34a75fb6f7e01455dd5ca734dacad66b12de06c
+prerequisite-patch-id: cc7abadd0354d14bad0cac1fbacda14ab9d4e02b
+prerequisite-patch-id: c0276686c0247cb2385c56b96cbfd6de5128415c
+prerequisite-patch-id: 100c47538870af63194b407fae06183fee85fc09
+prerequisite-patch-id: 3a3b3e40f5fba785857091dda909d22bfc5e2d0e
+-- 
+2.47.3
+
 
