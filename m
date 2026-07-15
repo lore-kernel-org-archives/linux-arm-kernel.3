@@ -4,112 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D119C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 10:24:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58BCBC4450C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 10:34:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LHHyMLTFhxklID5pIbIJxW41nvs20KqRL73EVnGtbTI=; b=RGtzsV6qgJEFjpaCBJjTP3WmG5
-	3+kynNfNX8EegakmMKcYGpZHZ2WErqlSX0bmqU5A5OyPa8eC6ONIONCPicKgF8KYsGpE9TX/UVAi+
-	dPVveCJ1f2lkHnVEMamGyHe17YACtbWVQzZm6tPGwNUoQTNTMyTTZThG+9KDatgXpfjZ8nkxjTrSf
-	0NRWFazZwsiiAf8p1yArKY+EbScQc9c5411FIW2FhfUOK2E7gB5GGdoNEIHoOu15fPOw/kSwjq465
-	hng7w4q/vSGMkX462pE+wZNhq5q4XY03FLLtk/H4SVXBdbXQclXHoIPHsyHUsspOHsZkvBAg2nWbz
-	KTxb6eYg==;
+	bh=mBqYW4z7FS94MKsSiJu64PdVNBzFZuAgdIt6t5MrHjs=; b=QYmR+DeHODXWfM1mPyggJO1v82
+	0snv9X4zP92DVqD5T7ch4+hZFI9ddI+ci1O1C940y9pnIk7Pyhu8LSjeQ9P2jCCsKtew1F5+s1Weu
+	a+FYuDHF8GrJLK0qWFwjMMVLcPsU6rO+2gKMDOZ39WaKNczX9XKs0LeeWuUse7HxGQdFQHelGhTKX
+	4cyn+BiNPEBsu8Q7B6t1cAtcok+8lm3muVdQnD0elr/JSdgBuoXEEaviTxCPkYWD39zaQ50qceUpj
+	1LU6FWkdG69w4IhH3bCbac16shWx+HJkJtr5QvDbyljBUfdNdouXjpNDE74UXETBPXNxNXL3VTVTo
+	kGyp2eUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjwmT-0000000ERaU-0r5t;
-	Wed, 15 Jul 2026 10:23:57 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wjwwc-0000000ESrz-1dLx;
+	Wed, 15 Jul 2026 10:34:26 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjwmQ-0000000ERYX-0phY
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 10:23:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1784111033;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LHHyMLTFhxklID5pIbIJxW41nvs20KqRL73EVnGtbTI=;
-	b=Gx8X/bvcyR/wvAhxzbgK53f9/BIztTyPbnC/YausYPIBnX6jkYBcROnoMxKynBH9eC6lMA
-	szjGJ8d/1sHeIzICNCLqEA6EJKwrBwqOQrgB3PGQie0yHRdEix4w1wXg7B9hCQSqRBl0qO
-	i6L3AzNSLCsRtTOk8ABOvedLuDNeAvk=
-Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com
- [209.85.216.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-657-uvKnNXM7Mxm5E43f9oNJpQ-1; Wed, 15 Jul 2026 06:23:52 -0400
-X-MC-Unique: uvKnNXM7Mxm5E43f9oNJpQ-1
-X-Mimecast-MFC-AGG-ID: uvKnNXM7Mxm5E43f9oNJpQ_1784111031
-Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-3811ae55313so2020498a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 03:23:51 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784111031; x=1784715831;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=LHHyMLTFhxklID5pIbIJxW41nvs20KqRL73EVnGtbTI=;
-        b=Gq17N7vpi/wVtLRMoFiSTF2poiLQSRcDs3GWVvC1roSDGpw1g5Xjh7HlK7Y5C97Vu+
-         DCO4KxPivKRTRHsQw9hpWwm0oSUGMgn3/xt/qIM/QNR2BtnBgFW1Hp4GwIuwjr0CAQOc
-         q41e01keBYZJox9X9ZWjzB+Hi+U3mEa0usj9aJ0sDER0KHQJo0G6przOqm5YuZpAWfEL
-         KMICLbLT0UYep0mfiWsY+wJLAtg3FdJIxHyEkxz9H5SNM2N9THyezWn8S+tj86K3Lbln
-         m0AH2zbenVfeJY6PXdA3w7G+tA1P2jiBUCQiHUCgXL1zc/d1POUTIzVW75d+pVwHsTYF
-         PHsg==
-X-Forwarded-Encrypted: i=1; AHgh+Rr1zxzHRuX0j9hyET5Lt9Jqd++7fH9+3ybGO1kNPUC4m8uNbiaqbYjJnfgXOr0zi99w+TyMlmga07l/GZRkXXcP@lists.infradead.org
-X-Gm-Message-State: AOJu0YxX5m+eE/bhoGtoe1gyqZa0iLEcWa3YBR3+hshtu0xqvhica06h
-	tFCZWBA0bsAfHng6eLlddvp2SbE7dAFi5BXyVOW3xFvO76/HmDsodOe3J60zKzaQELGrSUOg/Gu
-	D786USlsLK4hgWueX0NrVKG9bafMAyvCPFMQbllzuK0feOLiXcEknsl8WpBHoM5HqZIAhNUtC4Z
-	7JsH1mZOKN
-X-Gm-Gg: AfdE7cnNc7d6WZH2mMRawee/sDuycaAmgWLzhRV/MSOaCBZVpgymIEOWRkxXCCN3Qjc
-	LwrPt8yqEGjS+w7TZsCO7qRK4fgwhzdMxeHKOUM+aAmmPpqggXeU+IkChrpgD4WU03CY94S1SZY
-	x8iAavVJfnfpCNzA14n3ZAD/kTks65lOhQzGw/TSDKWK55HDiNXElxIEclU+SJVmXCKFoyvsdlH
-	KM18Q8qZVDo+xd1WoiAJxmR5T0XYwaq/O7juPefqwoQLAFCN9cDDImIFUNoH6i6FoGOMPxJL0Bb
-	omXq5BGjmTin87aY5/d0B5kgo7kx2xjzDa2+rWp9z/T1NBsKxw3uc13C5gGv6Ten9vOZHLtqg2a
-	kOPGaCFNCUCmtuQ6TyC8XSxUTcNVUuJR51mp/5DN8jOYXDAPdmwxtDA==
-X-Received: by 2002:a17:90b:2cce:b0:38d:c834:2106 with SMTP id 98e67ed59e1d1-38dc834255bmr15227501a91.28.1784111030652;
-        Wed, 15 Jul 2026 03:23:50 -0700 (PDT)
-X-Received: by 2002:a17:90b:2cce:b0:38d:c834:2106 with SMTP id 98e67ed59e1d1-38dc834255bmr15227470a91.28.1784111030171;
-        Wed, 15 Jul 2026 03:23:50 -0700 (PDT)
-Received: from [192.168.68.51] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38e2a06c049sm298694a91.0.2026.07.15.03.23.37
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 15 Jul 2026 03:23:48 -0700 (PDT)
-Message-ID: <33ed2078-9de0-42e8-9e3d-728e9089bc86@redhat.com>
-Date: Wed, 15 Jul 2026 20:23:37 +1000
+	id 1wjwwZ-0000000ESrO-2mUB;
+	Wed, 15 Jul 2026 10:34:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1784111660;
+	bh=IkJnX4Q0f685MGMac/EYnUgIc/6fHPJFWwoic2nfCBc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=CxCfyxWQoK2fMzcMWdxysiIbfEO8pWawDkEtOLsZZ0z/6FsDYUX9OULxrqC34oZBH
+	 N68/5SZtUEdYAw4scbkcZjpFg/Id+Eby8XuPmPeFHpm/q3EJX+NbmL0H1pjqvmWRw2
+	 gf/OEkv50g2ICcYVGLdLUgXivS9ZmP2fSOAxiHnTSWtIZyI4LK0n/p8oHW1qk3223k
+	 SRVRWYRp3xksrLBDUA/s2i7yxt8IetEFDamBHOYIJdxDpqlXBfdfDAKx4HrQ79DXi2
+	 W34Lpeah3JDsmGJLzVLIx1MxfDGrHbcBiVl8234GCfyq2FhRBGRDObQEGoUqUb2s9/
+	 JfJBXjRblX3zg==
+Received: from [100.64.0.241] (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id BAB4A17E0076;
+	Wed, 15 Jul 2026 12:34:19 +0200 (CEST)
+Message-ID: <45113534-94ad-4a0f-8014-c04e9ab67a26@collabora.com>
+Date: Wed, 15 Jul 2026 13:34:19 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 5/5] arm64: mpam: Add memory bandwidth usage (MBWU)
- documentation
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
- dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
- fenghuay@nvidia.com, james.morse@arm.com, jic23@kernel.org,
- kobak@nvidia.com, lcherian@marvell.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- peternewman@google.com, punit.agrawal@oss.qualcomm.com,
- quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com,
- tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, zengheng4@huawei.com,
- x86@kernel.org, leitao@kernel.org, kas@kernel.org, puranjay@kernel.org,
- usama.arif@linux.dev, kernel-team@meta.com,
- Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-References: <20260707162440.12132-1-ben.horgan@arm.com>
- <20260707162440.12132-6-ben.horgan@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20260707162440.12132-6-ben.horgan@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: VQsd3a5NM4jnlkjdKa1FH6YtFrsVy1yCYkx1Fmv0KIM_1784111031
-X-Mimecast-Originator: redhat.com
+Subject: Re: [PATCH v8 02/39] drm/connector: Add caps-based HDMI connector
+ init helper
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>,
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org
+References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
+ <20260702-dw-hdmi-qp-scramb-v8-2-d79890d00b6a@collabora.com>
+ <i4tjtsf5rsckfcayo5nuhlger5wqxn3ujeaubm4g2fgrwvhzb2@hf4uhgq3ja5p>
+ <ad75cf26-9437-47d0-864d-d71263401615@collabora.com>
+ <20260707-illegal-tuna-of-force-1c06e3@houat>
+ <737678ab-f082-4a0e-b453-f403ba141437@collabora.com>
+ <80374deb-3246-413f-a043-66bcdb438ab1@collabora.com>
+ <20260715-fair-opalescent-rhino-c6407b@houat>
 Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <20260715-fair-opalescent-rhino-c6407b@houat>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_032354_321653_89646BBA 
-X-CRM114-Status: GOOD (  10.96  )
+X-CRM114-CacheID: sfid-20260715_033423_867102_9CE0EABD 
+X-CRM114-Status: GOOD (  22.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,22 +96,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/8/26 2:24 AM, Ben Horgan wrote:
-> Memory bandwidth monitoring make uses of MBWU monitors and is now exposed
-> to the user via resctrl. Add some documentation so the user knows what to
-> expect.
+On 7/15/26 11:50 AM, Maxime Ripard wrote:
+> On Fri, Jul 10, 2026 at 01:27:37PM +0300, Cristian Ciocaltea wrote:
+>> On 7/8/26 1:11 PM, Cristian Ciocaltea wrote:
+>>> Hi Maxime,
+>>>
+>>> On 7/7/26 7:10 PM, Maxime Ripard wrote:
+>>>> On Fri, Jul 03, 2026 at 10:31:55PM +0300, Cristian Ciocaltea wrote:
+>>>>> Hi Dmitry,
+>>>>>
+>>>>> Thanks for your quick review!
+>>>>>
+>>>>> On 7/3/26 5:05 PM, Dmitry Baryshkov wrote:
+>>>>>> On Thu, Jul 02, 2026 at 05:46:15PM +0300, Cristian Ciocaltea wrote:
+>>>>>>> In preparation for adding HDMI 2.x source capabilities, introduce struct
+>>>>>>> drm_connector_hdmi_caps and a new drmm_connector_hdmi_init_with_caps()
+>>>>>>> helper.
+>>>>>>>
+>>>>>>> The existing drmm_connector_hdmi_init() helper currently takes
+>>>>>>> individual capability arguments such as supported_formats and max_bpc.
+>>>>>>> Adding more HDMI-specific arguments to that function would not scale
+>>>>>>> well, so move those values into a dedicated capabilities structure and
+>>>>>>> implement the existing helper as a wrapper around the new caps-based
+>>>>>>> interface.
+>>>>>>
+>>>>>> I think, it was an intention of Maxime: make sure that every driver is
+>>>>>> forced to provide some values here. With the struct-based init it is
+>>>>>> easy to overlook or to ommit a value.
+>>>>>
+>>>>> Agreed that the struct-based init loses the compile-time guarantee that every
+>>>>> argument is explicitly provided - that's a real downside.  
+>>>>>
+>>>>> I'd argue it's recoverable, though: the init helper validates the mandatory
+>>>>> fields, so a driver that omits a required value gets rejected at init time
+>>>>> rather than silently misconfigured.  The "you must provide sane values" property
+>>>>> is expected to be preserved, just enforced at runtime instead of by the
+>>>>> compiler. 
+>>>>
+>>>> Yeah, I don't think we can win with C here. Rust might, but we're
+>>>> probably a long way from that.
+>>>>
+>>>>> The main motivation for the struct is scalability/maintainability as we add HDMI
+>>>>> 2.x capabilities: new fields go into the struct rather than growing the helper's
+>>>>> argument list, so existing callers don't need churny signature updates on every
+>>>>> extension.
+>>>>>
+>>>>> FWIW, in the previous revision we discussed addressing the concern with a
+>>>>> callback instead.  Sadly, I had to discard that approach, as it proved not
+>>>>> flexible enough, e.g. drm_bridge_connector_init() computes caps dynamically, and
+>>>>> would have required either stateful callbacks, or storing redundant/temporary
+>>>>> cap data in driver-private structures just to satisfy the callback.
+>>>>
+>>>> I just realized something reviewing your patch: we don't necessarily
+>>>> need an extra argument or a callback, we can just put these fields into
+>>>> drm_hdmi_connector_funcs directly, and then validate them in init.
+>>>
+>>> If I understand correctly, we should drop the drm_connector_hdmi_caps struct
+>>> introduced by this patch and move all its fields into drm_hdmi_connector_funcs.
+>>>
+>>> In that case, how should we proceed with drmm_connector_hdmi_init()? 
+>>
+>> Actually, this brings us to the callback issue: we cannot compute caps
+>> dynamically, as it only works with static data, since funcs is supposed to be
+>> immutable.
 > 
-> Co-developed-by: James Morse <james.morse@arm.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-> Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-> ---
-> Changes since v4:
-> Add paragraph about the future.
-> ---
->   Documentation/arch/arm64/mpam.rst | 22 ++++++++++++++++++++++
->   1 file changed, 22 insertions(+)
-> 
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+> Does it? The core and helpers must consider it immutable but it doesn't
+> have to. drm_bridge_connector for example could totally allocate it and
+> dynamically create it based on the bridge capabilities.
 
+If we take the VC4 case, is it fine to drop the const from the static
+drm_connector_hdmi_funcs to allow dynamically setting up supported_hdmi_ver and
+max_bpc in vc4_hdmi_connector_init()?
+
+static struct drm_connector_hdmi_funcs vc4_hdmi_hdmi_connector_funcs = {
+	.tmds_char_rate_valid	 = vc4_hdmi_connector_clock_valid,
+	...
+}
+
+static int vc4_hdmi_connector_init() 
+{
+	...
+    
+	if (vc4_hdmi->variant->supports_hdr)
+		vc4_hdmi_hdmi_connector_funcs.max_bpc = 12;
+
+	if (vc4_hdmi->variant->max_pixel_clock >= HDMI_2_0_TMDS_CHAR_RATE_MAX_HZ)
+		vc4_hdmi_hdmi_connector_funcs.supported_hdmi_ver = HDMI_VERSION_2_0;
+	else if (vc4_hdmi->variant->max_pixel_clock >= HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ)
+		vc4_hdmi_hdmi_connector_funcs.supported_hdmi_ver = HDMI_VERSION_1_3;
+	...
+}
+
+>> Moreover, we would end up with some redundancy, as most of these input fields,
+>> after validation, would be stored (altered or not) directly in
+>> drm_connector/drm_connector_hdmi structs.
+> 
+> I mean, part of the conversion would obviously be to remove the
+> redundant fields.
+
+Ack.
 
