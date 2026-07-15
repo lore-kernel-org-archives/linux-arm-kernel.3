@@ -4,70 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FED9C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 11:59:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41277C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 11:59:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ol5Kv9IuMOC5gLvUo+ftrDGNdodUvogtRoPdfqHnaTA=; b=H+eHJpaKcCuL0XkbrglPZ4K/sG
-	84DwMgVug46zIYRtyJZNbqc1tL1dtTwXyEgck48sflf4y1TJCEDUMTu3Ehj3sKUKORG05yy+zZ/dp
-	kEdBcnSTRb+7xVBiRHGmHAl9HYDi2OPqjI7K2NTFnC02FPospWLVXiVPZxJ1bFNfjg45Q4ZN3+dR/
-	mKZN/h6yi2WHPfefLxu6NQ+tyQ+wnbpP2vnjrLz+rsZ4lAkd+Kfk0HEmsERXCLqbjbPj6jdwdsqPm
-	KHCAT2xJHHp1bypI/qtFcwPNCeRXKe76S5PwouDhJy2WtLMBcYKBKVZKP82HLpVhtwNyNX0kCLkQB
-	vkiOL2Fg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:From:Subject:Message-ID:Mime-Version:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Zlkerxj/6cIGFeB/G68zdZ4AXs2hpuxjhC5FAY5cthk=; b=LArxMypfleLMbbQG1kIHFmOdaX
+	/2Y236sc9K+2GanQuhjaOvRzxzBHvkF6oLFPKjm4BjAksbu74Q7qiwPrXo3yqBLNCR4CFCesdo045
+	r8SOy3l1yG/ZybAJZ9JrKBsINbvhgTARildUN255LLtAJZblhoaQBCV1dISYJvQoOzMpp3rzbQ1ag
+	R7x1D/8CaUXqIYg1W3UBPjjSG/gRAzQYQZ5uyuWJRBIy+Exvsqeg0tmQ6ZU0uIgfdfukn7Wt9A66E
+	iw0CC4FTmz2ve5F7qgmfsegHYjZatm+Ga6+7NIBFbBDIEw+tS2MxARROAyh/pnjojxMJEZ0He60US
+	8BVR1vxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjyGm-0000000Ef0a-1mcr;
+	id 1wjyGm-0000000Ef0I-1CBi;
 	Wed, 15 Jul 2026 11:59:20 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjyGk-0000000EeyZ-1kOu
+	id 1wjyGi-0000000Eey9-3DtO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 11:59:19 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-493c20d0468so22898755e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 04:59:15 -0700 (PDT)
+	Wed, 15 Jul 2026 11:59:18 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-493b0fe95b6so34588825e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 04:59:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784116754; x=1784721554; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ol5Kv9IuMOC5gLvUo+ftrDGNdodUvogtRoPdfqHnaTA=;
-        b=YYHgJL1q35fruwGYiuGG5OYz/QPgldvniR7ZSk2wWkDyj9lb61hcfNZCgxOpynF+X4
-         S/dgaocoOVKNCmiEbkDQrF8YYQ24o5+QSawbeiZZ+414ulzbfXoNVGHPxMzCi+xdkGs8
-         +GKPSTB60mpBe9El9Sjt2J26G9XaURX9Amx2tx0OgK/dNEBgi50vHXQJINwA8QL/IJ1N
-         VfRDDNc9BxPuFpxvQADyNW7vytvCL0QYvTdmYYyLz95JBZ6gkcezoCMrnMjaKpCt3U4O
-         8422Q9q6On3q0anr6lOuHzBGDEGtVMOXbyNeJV6Y52jNdATsaH4/jCyHCgYLuoe+pmRV
-         /dtA==
+        d=google.com; s=20251104; t=1784116753; x=1784721553; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:from:subject
+         :message-id:mime-version:date:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=Zlkerxj/6cIGFeB/G68zdZ4AXs2hpuxjhC5FAY5cthk=;
+        b=ZVWE55F0cyV59Q17Fy8kHJt4FcyGbukdpEt5cOmAJiVCOr+9xVebW8UhxXz+gd9Okk
+         8k+UcfJj3r9OKYrXJcBYIpc3RTyz9zbKQMyTAftsB2AisMSOMcesYfjGi4fAzxWnaHgp
+         CYbMoFwysk8b9qcBR13jmNVLUKvHwc8lcpQ8np//Y9fBJrn/vUE8rh6qpHoqtVz608V5
+         NoPflILtEtBS8sZy0dbyH0xH+X4MPMz8kIO9hwnWyPQdGGb41Z3/FiIfkOAISLGHDW2J
+         7P3LDO6PqY3eEXXkg43C3lLiWgqg5GF5n8dkY6LXY4wdiVrv5bAu4SClnYhvhDc6aHfT
+         f/Gg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784116754; x=1784721554;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ol5Kv9IuMOC5gLvUo+ftrDGNdodUvogtRoPdfqHnaTA=;
-        b=EP4sM6MVbFH5KxI+0KVAAOl9Brzf4LV2dw97LduIeFBlXLKJNCz/PxwV/AIB9hSz2U
-         ZbdkIqQusZBk5uyaLWCtMgw8dux74lifENynmd/fl1Vedfl3tYGY7pWcamwYi6G7l1Fm
-         WxpkVM1nk3MMdn3ReLA5XLz14mBr+a9RiAG4H83AjDj1KNDDoX5883uoo+WRApyDvtTY
-         MEG5lnQGsnIaQRFHSrreY6PNLgiVlJBRkFaeHA3csk5YsS8Dtk5h1nTO323R+amDonOu
-         syXSoXoyupDgIWrDgxD4cnFLfTnErFAbUNIIwubsvduVTMWLVDe8vW1jMcHEZauz3ekD
-         jWWw==
-X-Gm-Message-State: AOJu0YyTYI5m7EJGobtdzHqH9SQxjSGklti7X7EAEPoMGRdg58Pyniah
-	zgu5Kxf+Tuz5f6RDRuXA73lfbUuwxo5CLhO8IXweVkZ9FOmbV1jPdjnFECMthy8eo0WYwByqmj2
-	Hi8bAD3El6ZYiqgmwzuvv/Hn3/O4DcI7xTHAOOzrwjlov1bVbOEgmXpvWbo+r8G4zpeAEBkxqK3
-	m4KCmOXZGBPDK5xFH/X5cfDk2u5AhbAHgUL9Rrx5GQmPw+jERqF6hdKxqPsBwqBQzwsA==
-X-Received: from wmbe13.prod.google.com ([2002:a05:600c:590d:b0:493:bb14:ecfa])
+        d=1e100.net; s=20251104; t=1784116753; x=1784721553;
+        h=content-transfer-encoding:content-type:cc:to:from:subject
+         :message-id:mime-version:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Zlkerxj/6cIGFeB/G68zdZ4AXs2hpuxjhC5FAY5cthk=;
+        b=KQzzlnOUeJJlEE4EEpZQH6Jo+kIi+TqoP8bLVw09eR+hUn/XPI3KJp0vTJOEUScP4j
+         qkzTziJeXt1OGJ7sZT2sy6yvVABfRincmD2Cyw0PCUJp8sR3KeBRFGDP3K1T2VFgehHd
+         yFiU0FlWBV3kwmtOX9KBL1orMYfIbr9kWxGFY3tzc27NCpaVB6NRqIMDn9fVeW9noOTF
+         nXVoEdOMOfe1utLGkFBfIxpg4ao2PZAREATO+DUcbku/FlVNK6OvGtaqQvRJ7SK5TOY+
+         BmrpiuY8A4IOCkvCNfnvwL9pxDVU2zZaJho/y3XcARCODP9WcdC7PR6pr98wCcHn9XaY
+         3REA==
+X-Gm-Message-State: AOJu0YziSm+PQXQObUs+0WDCg5NygkNnSSlCq1imEjBQ+zBlus2Cj66A
+	3y/uMr+1LgRGonFCY7cVqesUfuA6693KtEg7HxWLI8vO44AypHyF18wCvamvnilg08JPXSNprqw
+	MI3VAbir4LQ9TSU9JTV7E9qVLe92Rtta+yWigiRWwjlPc4doz3gaJdLMbCDBt7rwToeqVvAcqTW
+	TUP/mVeS+2Byi1QveBu+QhcNlc0BWGDOQZO+DkU9pgNOOcdt2cn5ZzwoPYGUmjJdtg0w==
+X-Received: from wmpq9.prod.google.com ([2002:a05:600c:3309:b0:493:bc2d:feac])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:3f06:b0:495:3c8c:c16a with SMTP id 5b1f17b1804b1-4953c8cc25bmr27537525e9.0.1784116753865;
- Wed, 15 Jul 2026 04:59:13 -0700 (PDT)
-Date: Wed, 15 Jul 2026 11:58:42 +0000
-In-Reply-To: <20260715115906.2664882-1-smostafa@google.com>
+ 2002:a05:600c:6214:b0:494:1cdd:4f9e with SMTP id 5b1f17b1804b1-4953c27eae2mr25726535e9.31.1784116752796;
+ Wed, 15 Jul 2026 04:59:12 -0700 (PDT)
+Date: Wed, 15 Jul 2026 11:58:41 +0000
 Mime-Version: 1.0
-References: <20260715115906.2664882-1-smostafa@google.com>
 X-Mailer: git-send-email 2.55.0.141.g00534a21ce-goog
-Message-ID: <20260715115906.2664882-2-smostafa@google.com>
-Subject: [PATCH v7 01/24] KVM: arm64: Add a generic clock
+Message-ID: <20260715115906.2664882-1-smostafa@google.com>
+Subject: [PATCH v7 00/24] KVM: arm64: SMMUv3 driver for pKVM (trap and emulate)
 From: Mostafa Saleh <smostafa@google.com>
 To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	kvmarm@lists.linux.dev, iommu@lists.linux.dev
@@ -78,9 +76,10 @@ Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
 	sebastianene@google.com, keirf@google.com, 
 	Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_045918_468758_039B9841 
-X-CRM114-Status: GOOD (  19.43  )
+X-CRM114-CacheID: sfid-20260715_045916_887978_C29F1D4D 
+X-CRM114-Status: GOOD (  34.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,123 +94,264 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-IOMMU drivers need to track time, mainly for timeouts.
+This is v7 of pKVM SMMUv3 support with trap and emulate
 
-Add 2 new functions to nvhe/clock.c:
-- hyp_clock_init(): Get the system timer frequency at boot
-- hyp_clock_ns(): Get current time in nano seconds.
+v1: Implements full fledged pv interface
+https://lore.kernel.org/kvmarm/20230201125328.2186498-1-jean-philippe@linar=
+o.org/
 
-This is mainly used for timeouts, so a malicious host can DoS the
-system or cause premature timeouts which likely end up in hyp panic,
-that should be acceptable as neither of those would undermine the
-security guarantees.
+v2:  Implements full fledged pv interface (+ more features as evtq and s1)
+https://lore.kernel.org/kvmarm/20241212180423.1578358-1-smostafa@google.com=
+/
 
-Signed-off-by: Mostafa Saleh <smostafa@google.com>
----
- arch/arm64/kvm/hyp/include/nvhe/clock.h |  3 +++
- arch/arm64/kvm/hyp/nvhe/Makefile        |  4 ++--
- arch/arm64/kvm/hyp/nvhe/clock.c         | 29 +++++++++++++++++++++++++
- arch/arm64/kvm/hyp/nvhe/setup.c         |  5 +++++
- 4 files changed, 39 insertions(+), 2 deletions(-)
+v3: Only DMA isolation (using pv)
+https://lore.kernel.org/kvmarm/20250728175316.3706196-1-smostafa@google.com=
+/
 
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/clock.h b/arch/arm64/kvm/hyp/include/nvhe/clock.h
-index ae03ec6965af..7ef982939bf9 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/clock.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/clock.h
-@@ -13,4 +13,7 @@ static inline void
- trace_hyp_clock_update(u32 mult, u32 shift, u64 epoch_ns, u64 epoch_cyc) { }
- static inline u64 trace_hyp_clock(void) { return 0; }
- #endif
-+
-+u64 hyp_clock_ns(void);
-+int hyp_clock_init(void);
- #endif
-diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
-index f57450ebcb49..7c879292974d 100644
---- a/arch/arm64/kvm/hyp/nvhe/Makefile
-+++ b/arch/arm64/kvm/hyp/nvhe/Makefile
-@@ -26,10 +26,10 @@ hyp-obj-y := timer-sr.o sysreg-sr.o debug-sr.o switch.o tlb.o hyp-init.o host.o
- 	 hyp-main.o hyp-smp.o psci-relay.o early_alloc.o page_alloc.o \
- 	 cache.o setup.o mm.o mem_protect.o sys_regs.o pkvm.o stacktrace.o ffa.o
- hyp-obj-y += ../vgic-v3-sr.o ../aarch32.o ../vgic-v2-cpuif-proxy.o ../entry.o \
--	 ../hyp-entry.o ../exception.o ../pgtable.o ../vgic-v5-sr.o
-+	 ../hyp-entry.o ../exception.o ../pgtable.o ../vgic-v5-sr.o clock.o
- hyp-obj-y += ../../../kernel/smccc-call.o
- hyp-obj-$(CONFIG_LIST_HARDENED) += list_debug.o
--hyp-obj-$(CONFIG_NVHE_EL2_TRACING) += clock.o trace.o events.o
-+hyp-obj-$(CONFIG_NVHE_EL2_TRACING) += trace.o events.o
- hyp-obj-y += $(lib-objs)
- 
- # Path to simple_ring_buffer.c
-diff --git a/arch/arm64/kvm/hyp/nvhe/clock.c b/arch/arm64/kvm/hyp/nvhe/clock.c
-index f3e2619db4e4..43d2cba4f810 100644
---- a/arch/arm64/kvm/hyp/nvhe/clock.c
-+++ b/arch/arm64/kvm/hyp/nvhe/clock.c
-@@ -8,7 +8,12 @@
- 
- #include <asm/arch_timer.h>
- #include <asm/div64.h>
-+#include <linux/math64.h>
-+#include <vdso/time64.h>
- 
-+static u32 timer_freq;
-+
-+#ifdef CONFIG_NVHE_EL2_TRACING
- static struct clock_data {
- 	struct {
- 		u32 mult;
-@@ -66,3 +71,27 @@ u64 trace_hyp_clock(void)
- 
- 	return (u64)ns + clock->data[bank].epoch_ns;
- }
-+#endif /* CONFIG_NVHE_EL2_TRACING */
-+
-+int hyp_clock_init(void)
-+{
-+	timer_freq = read_sysreg(cntfrq_el0);
-+	/*
-+	 * KVM will not initialize if FW didn't set cntfrq_el0, that is already
-+	 * part of the boot protocol.
-+	 */
-+	if (!timer_freq)
-+		return -ENODEV;
-+
-+	/* Timer freq can't be larger than 1Ghz by spec. */
-+	if (timer_freq > NSEC_PER_SEC)
-+		return -EINVAL;
-+
-+	return 0;
-+}
-+
-+/* Return time in ns. */
-+u64 hyp_clock_ns(void)
-+{
-+	return mul_u64_u32_div(__arch_counter_get_cntvct(), NSEC_PER_SEC, timer_freq);
-+}
-diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
-index 75b00c323310..970c5cf342f5 100644
---- a/arch/arm64/kvm/hyp/nvhe/setup.c
-+++ b/arch/arm64/kvm/hyp/nvhe/setup.c
-@@ -10,6 +10,7 @@
- #include <asm/kvm_pgtable.h>
- #include <asm/kvm_pkvm.h>
- 
-+#include <nvhe/clock.h>
- #include <nvhe/early_alloc.h>
- #include <nvhe/ffa.h>
- #include <nvhe/gfp.h>
-@@ -320,6 +321,10 @@ void __noreturn __pkvm_init_finalise(void)
- 	if (ret)
- 		goto out;
- 
-+	ret = hyp_clock_init();
-+	if (ret)
-+		goto out;
-+
- 	ret = fix_host_ownership();
- 	if (ret)
- 		goto out;
--- 
+v4: Trap and emulate
+https://lore.kernel.org/all/20250819215156.2494305-1-smostafa@google.com/
+
+v5: Trap and emulate
+https://lore.kernel.org/all/20251117184815.1027271-1-smostafa@google.com/
+
+v6: Trap and emulate
+https://lore.kernel.org/all/20260501111928.259252-1-smostafa@google.com/
+
+This series applies on top of:
+https://lore.kernel.org/all/20260713141320.4065600-1-smostafa@google.com/
+
+Main changes:
+- Rebase on top of  the new SMMUv3 command queue and io-pgtable-arm rework.=
+ [Jason]
+- Move IIDR detection to the common code. [Jason]
+- Hide ATS from the host. [Jason]
+- Convert cmdline parsing to use memparse(). [Vincent]
+- Rework page table shadowing logic. [Vincent]
+- Rename IOMMU functions to use pkvm prefix [Vincent]
+- Use the system timer instead of tracing clock and reduce timeouts [Vincen=
+t]
+- Fix an issue with stale TLBs introduced in the last version.
+- Fix a possible deadlock between host_mmu lock and smmu lock.
+- Fix emulation of MSI registers.
+- Relax PRIQ/EVTQ emulation.
+
+Notes about Sashiko
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+I ran Sashiko locally and it was helpful in discovering problems in
+the series. However, it still shows large number of critical and high
+severity issues, I went through them and I believe they are false
+positive, mainly because (in the order of frequently reported):
+- It doesn=E2=80=99t understand de-privilege and which data is trusted that
+  the driver populated at boot (keeps complaining about missing checks
+  for zero mmio size..)
+- It doesn=E2=80=99t understand WARNs are fatal in the hypervisor.
+- It doesn=E2=80=99t understand that a malicious host can DoS the system an=
+d
+  pKVM doesn=E2=80=99t guarantee availability
+- It doesn=E2=80=99t understand the SMMUv3 spec and makes stuff up (eg.  ab=
+out
+  CMD_SYC CS field it makes up an non-existent encoding or wrong
+  semantics for the gbpa register)
+- It seems to look at one patch at a time and not the whole series, and
+  as the series is written in a way to be bisectable that confuses it.
+- Sometimes it complains about code which is not related to the change.
+
+Design:
+=3D=3D=3D=3D=3D=3D=3D
+Assumptions:
+------------
+One of the important points, is that this doesn=E2=80=99t emulate the full
+SMMUv3 architecture, but only the parts used by Linux kernel,
+that=E2=80=99s why enablement of this (ARM_SMMU_V3_PKVM) depends on
+(ARM_SMMU_V3=3Dy) so we are sure of the driver behaviour.
+
+Any new change in the driver will likely trigger a WARN_ON ending up
+in panic, that will require to support also in the hypervisor.
+
+Most notable assumptions:
+- Changing of stream table format/size or l2 pointers is not allowed
+  after initialization.
+- leaf=3D0 CFGI is not allowed.
+- CFGI_ALL with any value but 31 is not allowed.
+- Some commands which are not used are not allowed.
+- Values set in ARM_SMMU_CR1 are hardcoded and don't change.
+
+Emulation logic mainly targets:
+
+1) Command Queue
+----------------
+At boot time, the hypervisor will allocate a shadow command queue
+(doesn=E2=80=99t need to match the host size) which then sets up in HW, the=
+n
+it will trap access to
+
+i) ARM_SMMU_CMDQ_BASE
+That can only be written when the cmdq is disabled. Then on enable,
+the hypervisor will put the host command queue in a shared state to
+avoid transition into the hypervisor or VMs. It will be unshared with
+the cmdq is disabled
+
+ii) ARM_SMMU_CMDQ_PROD
+Trigger emulation code, where the hypervisor will copy the commands
+between cons and prod, of the host queue and sanitise them (mostly
+WARNs if the host is malicious and issuing commands it shouldn=E2=80=99t)
+then eagerly consume them, updating the host cons.
+
+iii) ARM_SMMU_CMDQ_CONS
+No much logic, just return the emulated cons + error bits.
+
+2) Stream table
+---------------
+Similar to the command queue, the first level is allocated at boot
+with max possible size, then the hypervisor  will trap access to:
+i) ARM_SMMU_STRTAB_BASE/ARM_SMMU_STRTAB_BASE_CFG: Keep track of
+   the stream table to put it in a shared state.
+
+On CFGI_STE, the hypervisor will read the STE in scope from the host
+copy, shadow L2 pointers if needed and attach stage-2.
+
+3) GBPA
+-------
+The hypervisor will set GBPA to abort at boot, then any read from the
+host will return ABORT and writes are ignored.
+If the host tries to clear GBPA, it will look like GBPA is refusing
+to update and time out.
+
+4) EVTQ and PRIDQ
+No shadowing needed for those queues, but the hypervisor needs to keep
+track of them to put them in a shared state so they can=E2=80=99t be used b=
+y
+the host or the hypervisor.
+
+Bisectibility:
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+I wrote the patches where most of them are bisectable at run time (so
+we can run with a prefix of the series till MMIO emulation, cmdq
+emulation, STE or full nested) that was very helpful in debugging,
+and I kept it like this to make debugging easier.
+
+Constraints:
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+1) Discovery:
+-------------
+Only device trees are supported at the moment.
+I don=E2=80=99t usually use ACPI, but I can look into adding that later.
+(not make this series bigger)
+
+2) Shadow page table
+--------------------
+Uses page granularity (leaf) for memory, that=E2=80=99s because of the lack
+of split_block_unmap() logic. I am currently looking into the
+possibility of sharing page tables, if that turned complicated (as
+expected) it might be worth to re-add this logic
+
+Boot and Probe ordering:
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+The main SMMUv3 MUST be only bound/probed after KVM fully initialises
+so it can set up the MMIO emulation.
+
+The KVM SMMUv3 driver is loaded early before KVM init so it can
+register itself, during that point it will probe all the SMMUs from the
+platform bus and bind them to the driver.
+
+Then at a later init call it will create an auxiliary device per SMMU,
+that the main driver will probe. The main driver still relies on this
+device(parent) for all driver activity. (Check comment in patch 14.
+
+Future work
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+1) Sharing page tables will be an interesting optimization, but
+   requires dealing with stage-2 page faults (which are handled
+   by the kernel), BBM and possibly more complexity.
+
+2) There is currently ongoing work to enable RPM, that will possibly
+   enable/disable the SMMU frequently, we might need some optimizations
+   to avoid re-shadowing the CMDQ/STE unnecessarily.
+
+3) Add support for non-coherent SMMUs
+
+4) Optimizations (as using block mappings for memory)
+
+Patches overview
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+The patches are split as follows:
+
+Patches 01-02: Core hypervisor: Dealing with MMIO and timers.
+Patches 03-05: Refactoring of io-pgtable-arm and SMMUv3 driver.
+Patches 06-09: Hypervisor IOMMU core: pagetable management, dabts.
+Patches 10-24: KVM SMMUv3 code.
+
+Tested on Lenovo IdeaCentre mini X and Qemu.
+
+A development branch can be found at [1]
+
+[1] https://android-kvm.googlesource.com/linux/+/refs/heads/pkvm-smmu-v7
+
+Jean-Philippe Brucker (1):
+  iommu/arm-smmu-v3-kvm: Add SMMUv3 driver
+
+Mostafa Saleh (23):
+  KVM: arm64: Add a generic clock
+  KVM: arm64: Donate MMIO to the hypervisor
+  iommu/arm-smmu-v3: Split code with hyp
+  iommu/arm-smmu-v3: Move TLB range invalidation into common code
+  iommu/arm-smmu-v3: Move IDR parsing to common functions
+  KVM: arm64: iommu: Introduce IOMMU driver infrastructure
+  KVM: arm64: iommu: Shadow host stage-2 page table
+  KVM: arm64: iommu: Add memory pool
+  KVM: arm64: iommu: Support DABT for IOMMU
+  iommu/arm-smmu-v3-kvm: Add the kernel driver
+  iommu/arm-smmu-v3-kvm: Probe SMMU HW
+  iommu/arm-smmu-v3-kvm: Add MMIO emulation
+  iommu/arm-smmu-v3-kvm: Shadow the command queue
+  iommu/arm-smmu-v3-kvm: Add CMDQ functions
+  iommu/arm-smmu-v3-kvm: Emulate CMDQ for host
+  iommu/arm-smmu-v3-kvm: Shadow stream table
+  iommu/arm-smmu-v3-kvm: Shadow STEs
+  iommu/arm-smmu-v3-kvm: Share other queues
+  iommu/arm-smmu-v3-kvm: Emulate GBPA
+  iommu/io-pgtable-arm: Support io-pgtable-arm in the hypervisor
+  iommu/arm-smmu-v3-kvm: Shadow the CPU stage-2 page table
+  iommu/arm-smmu-v3-kvm: Enable nesting
+  KVM: arm64: Add documentation for pKVM DMA isolation
+
+ .../admin-guide/kernel-parameters.txt         |    4 +
+ Documentation/virt/kvm/arm/pkvm.rst           |   23 +-
+ arch/arm64/include/asm/kvm_host.h             |    6 +
+ arch/arm64/kvm/Makefile                       |    2 +-
+ arch/arm64/kvm/hyp/include/nvhe/clock.h       |    3 +
+ arch/arm64/kvm/hyp/include/nvhe/iommu.h       |   24 +
+ arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |    8 +
+ arch/arm64/kvm/hyp/nvhe/Makefile              |   13 +-
+ arch/arm64/kvm/hyp/nvhe/clock.c               |   29 +
+ arch/arm64/kvm/hyp/nvhe/iommu.c               |  174 +++
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c         |  133 +-
+ arch/arm64/kvm/hyp/nvhe/setup.c               |   24 +
+ arch/arm64/kvm/hyp/pgtable.c                  |   11 +-
+ arch/arm64/kvm/iommu.c                        |   65 +
+ arch/arm64/kvm/pkvm.c                         |    1 +
+ drivers/iommu/arm/Kconfig                     |    9 +
+ drivers/iommu/arm/arm-smmu-v3/Makefile        |    3 +-
+ .../arm/arm-smmu-v3/arm-smmu-v3-common-lib.c  |  184 +++
+ .../iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c   |  233 +++
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |  343 +----
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  164 ++
+ .../iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c  | 1326 +++++++++++++++++
+ .../iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h  |   77 +
+ .../arm/arm-smmu-v3/pkvm/io-pgtable-arm-hyp.h |   68 +
+ drivers/iommu/io-pgtable-arm.c                |   39 +-
+ drivers/iommu/io-pgtable-arm.h                |   17 +
+ 26 files changed, 2679 insertions(+), 304 deletions(-)
+ create mode 100644 arch/arm64/kvm/hyp/include/nvhe/iommu.h
+ create mode 100644 arch/arm64/kvm/hyp/nvhe/iommu.c
+ create mode 100644 arch/arm64/kvm/iommu.c
+ create mode 100644 drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-common-lib.c
+ create mode 100644 drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c
+ create mode 100644 drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
+ create mode 100644 drivers/iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h
+ create mode 100644 drivers/iommu/arm/arm-smmu-v3/pkvm/io-pgtable-arm-hyp.h
+
+--=20
 2.55.0.141.g00534a21ce-goog
 
 
