@@ -4,63 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89B93C4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 06:06:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E21CCC4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 06:08:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ybH6iy/jmMklY3ZOKz98OawUvoJ0wyl2XX2l5/80kMg=; b=dfabrlvP0yKBcS+vr74EgKVBqU
-	DN/xm9yqEZpMacAqrby5hkdtt1xwadlR/gPcWsnjD+qeIAqPZpBIWuyccSCn6F+DAZ37spwhy4BPu
-	c14zpUkzpmIOJv8MAir/Ci7PMeaviRnY2/vsvBIY04ULKyqaoIM+WEOsaHn3hG1TDU5mpwRnwm6n2
-	mq47tlhH8wz0qMH257VeCaE5375anbqzlHKrebbvLZf7nOpDUAorrlMIRaeME/L5vgzoIBZ+E9+TG
-	8GYhVj7rrf7blj8p1Pkc97zqJWEVmOxe2E92e8nJysCt2JASap5XJtC7tNXVvlXiCuuNrAm/28jDN
-	wXr6hytQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1ULBlpWcCMHL+k8mUwAGMRXmL/LM436Hb11RBQxXZXI=; b=4wMT2YhYGLx8+Yo7MF7lKdpRFk
+	eqm5fdgHEghivxqpioOHNGywzw0c2zSULUyF40GZcpXVBZLNRuuP4xVQLTYQR94EBTQAuYRwYv/fI
+	eGgrvbT3SbXsEPvi/I2niMb4gKSEGxDfs0bA78yVqv5tCDNJVYNZCx3oMsvwH1DFYkDAHL1JKHUgQ
+	ak7NGc9dCVxfBq7jHJTn5K9ibsK/+Au4knnn3+YVZTQ3ezObrj2SQJ/OWjKNrXIKDkY6qbtbcj1bZ
+	ySEFY7uHun97sNwCqvSldT6+wNT2noY6V7WTpxEx5ST+bLfl45FYd9sl3L3KVCPHpn7Ri15RvDU0v
+	1aEieRXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjslN-0000000Dqsw-3yDp;
-	Wed, 15 Jul 2026 06:06:33 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjslL-0000000Dqrx-0bjZ
+	id 1wjsnM-0000000Dr37-2jhP;
+	Wed, 15 Jul 2026 06:08:36 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjsnL-0000000Dr2z-0QJA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 06:06:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 521FC339;
-	Tue, 14 Jul 2026 23:06:25 -0700 (PDT)
-Received: from [10.164.18.40] (unknown [10.164.18.40])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 224E33F7D8;
-	Tue, 14 Jul 2026 23:06:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784095589; bh=FU/fTrfu1x2zOXnH4TjfbCrXQEQPIF0X3YJyDBMbC80=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=LeOVttFSDZP9fMDZlB5HQo9yMLmX9mSD2gfJgnokZeszD4MBB42fTVxKcD7LZaz9m
-	 MeELTkQgOYh9xLjmsPjw3c3JzwN1RQUbPLP4LpzRptryNuwVLlRv1JYI/20meo5jW6
-	 qN78exzpy/HMhms7cV90yKi4qIHNG1QEjEoKH/EI=
-Message-ID: <0fe2d985-3ba4-47b1-beb2-02c8d2e4a4d5@arm.com>
-Date: Wed, 15 Jul 2026 11:36:24 +0530
+	Wed, 15 Jul 2026 06:08:35 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2530E600FF;
+	Wed, 15 Jul 2026 06:08:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A52BC1F000E9;
+	Wed, 15 Jul 2026 06:08:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784095713;
+	bh=1ULBlpWcCMHL+k8mUwAGMRXmL/LM436Hb11RBQxXZXI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=msrmTNsY7g4JoySUPK1RxwcFJKZNddLzswjgd1NLJg8MrXGz/iMisVd21N+dWpBWt
+	 Gby6reU0jSVj1jFxQX9VGOyQS+YV04CgK+CUbPmSkLm0JCq8GGRFnh6jeWaSo4HzWt
+	 OkKBNsumCIOF806T+AhormuIIC2LFCMzIq1CkXvekB85W5fVVljuzTxChVTHoRElbN
+	 oSFdtpLEDDXd2nVyBAHMHhUImInQ66Hh/Nm6nbacyCP+UD8aLrvUQiH1hFx8dnyhm8
+	 0J6Y4eCbqKSnTrquLB5g1SwmhUpYRyMEqp5fkoViZLLoXFS+vBK77mWZO9hG1BYXXC
+	 TI8YW4af2ZwmA==
+Date: Wed, 15 Jul 2026 08:08:30 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Wojciech Dubowik <wojciech.dubowik@mt.com>
+Cc: linux-kernel@vger.kernel.org, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Marek Vasut <marex@denx.de>, dri-devel@lists.freedesktop.org, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4 1/2] dt-bindings: display: sn65dsi83: Add output
+ data-lanes
+Message-ID: <20260715-successful-quetzal-of-amplitude-bf3cb8@quoll>
+References: <20260713082622.52985-1-wojciech.dubowik@mt.com>
+ <20260713082622.52985-2-wojciech.dubowik@mt.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/6] arm64: cpufeature: Extend bbml2_noabort support
- list
-To: Linu Cherian <linu.cherian@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>, Kevin Brodsky <kevin.brodsky@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260715053408.1950475-1-linu.cherian@arm.com>
- <20260715053408.1950475-4-linu.cherian@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20260715053408.1950475-4-linu.cherian@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_230631_274866_CF5E1877 
-X-CRM114-Status: GOOD (  13.94  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260713082622.52985-2-wojciech.dubowik@mt.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,77 +79,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jul 13, 2026 at 10:26:19AM +0200, Wojciech Dubowik wrote:
+> From: Wojciech Dubowik <Wojciech.Dubowik@mt.com>
+> 
+> Add an optional output lvds data lanes property with
+> two allowed values. The array <1 2 3 4> for standard
+> layout and <4 3 2 1> for reversed lvds output lanes.
+> The latter informs the driver that reverse lvds config
+> option has to be set in config register for the respective
+> output channel.
 
+Please wrap commit message according to Linux coding style / submission
+process (neither too early nor over the limit):
+https://elixir.bootlin.com/linux/v6.4-rc1/source/Documentation/process/submitting-patches.rst#L597
 
-On 15/07/26 11:04 AM, Linu Cherian wrote:
-> Add below cpus to the midr list, which supports
-> BBML2_NOABORT.
 > 
-> Cortex A520(AE)
-> Cortex A715
-> Cortex A720(AE)
-> Cortex A725
-> Neoverse N3
-> C1-Nano
-> C1-Pro
-> C1-Ultra
-> C1-Premium
-> 
-> C1-Ultra and C1-Premium both suffer from erratum 3683289,
-> where Break-Before-Make must be followed to avoid a livelock.
-> For both CPUs, the erratum is fixed from r1p1.
-> Hence we do not enable BBML2_NOABORT for CPU revisions <= r1p0.
-> 
-> The relevant SDENs are:
-> * C1-Ultra: https://developer.arm.com/documentation/111077/9-00/
-> * C1-Premium: https://developer.arm.com/documentation/111078/9-00/
-> 
-> Signed-off-by: Linu Cherian <linu.cherian@arm.com>
+> Signed-off-by: Wojciech Dubowik <Wojciech.Dubowik@mt.com>
 > ---
->  Documentation/arch/arm64/silicon-errata.rst |  4 ++++
->  arch/arm64/kernel/cpufeature.c              | 10 ++++++++++
->  2 files changed, 14 insertions(+)
+>  .../bindings/display/bridge/ti,sn65dsi83.yaml | 52 +++++++++++++++++++
+>  1 file changed, 52 insertions(+)
 > 
-> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
-> index 014aa1c215a1..57c778446936 100644
-> --- a/Documentation/arch/arm64/silicon-errata.rst
-> +++ b/Documentation/arch/arm64/silicon-errata.rst
-> @@ -242,10 +242,14 @@ stable kernels.
->  +----------------+-----------------+-----------------+-----------------------------+
->  | ARM            | Neoverse-V3AE   | #4193784        | ARM64_ERRATUM_4118414       |
->  +----------------+-----------------+-----------------+-----------------------------+
-> +| ARM            | C1-Premium      | #3683289        | N/A                         |
-> ++----------------+-----------------+-----------------+-----------------------------+
->  | ARM            | C1-Premium      | #4193780        | ARM64_ERRATUM_4118414       |
->  +----------------+-----------------+-----------------+-----------------------------+
->  | ARM            | C1-Pro          | #4193714        | ARM64_ERRATUM_4193714       |
->  +----------------+-----------------+-----------------+-----------------------------+
-> +| ARM            | C1-Ultra        | #3683289        | N/A                         |
-> ++----------------+-----------------+-----------------+-----------------------------+
->  | ARM            | C1-Ultra        | #4193780        | ARM64_ERRATUM_4118414       |
->  +----------------+-----------------+-----------------+-----------------------------+
->  | ARM            | MMU-500         | #562869,        | ARM_SMMU_MMU_500_CPRE_ERRATA|
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index 9a22df0c5120..1b804b6c4fe0 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -2152,6 +2152,16 @@ bool cpu_supports_bbml2_noabort(void)
->  		MIDR_ALL_VERSIONS(MIDR_NVIDIA_OLYMPUS),
->  		MIDR_ALL_VERSIONS(MIDR_AMPERE1),
->  		MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
-> +		MIDR_ALL_VERSIONS(MIDR_CORTEX_A520AE),
-> +		MIDR_ALL_VERSIONS(MIDR_CORTEX_A715),
-> +		MIDR_ALL_VERSIONS(MIDR_CORTEX_A720AE),
-> +		MIDR_ALL_VERSIONS(MIDR_CORTEX_A725),
-> +		MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N3),
-> +		MIDR_ALL_VERSIONS(MIDR_C1_NANO),
-> +		MIDR_ALL_VERSIONS(MIDR_C1_PRO),
-> +		/* Erratum 3683289 fixed in r1p1 */
-> +		MIDR_REV_RANGE(MIDR_C1_ULTRA, 1, 1, 0xf),
-> +		MIDR_REV_RANGE(MIDR_C1_PREMIUM, 1, 1, 0xf),
->  		{}
->  	};
-> 
+> diff --git a/Documentation/devicetree/bindings/display/bridge/ti,sn65dsi83.yaml b/Documentation/devicetree/bindings/display/bridge/ti,sn65dsi83.yaml
+> index e69b6343a8eb..2693c0273f9a 100644
+> --- a/Documentation/devicetree/bindings/display/bridge/ti,sn65dsi83.yaml
+> +++ b/Documentation/devicetree/bindings/display/bridge/ti,sn65dsi83.yaml
+> @@ -86,10 +86,62 @@ properties:
+>          description: Video port for LVDS Channel-A output (panel or bridge).
+>          $ref: '#/$defs/lvds-port'
+>  
+> +        properties:
+> +          endpoint:
+> +            $ref: /schemas/media/video-interfaces.yaml#
+> +            unevaluatedProperties: false
+> +
+> +            properties:
+> +              data-lanes:
+> +                $ref: /schemas/types.yaml#/definitions/uint32-array
+> +                description: |
 
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Drop |
+
+> +                  Array of physical LVDS data lane indexes
+> +                oneOf:
+> +                  - items:
+> +                      - const: 1
+> +                      - const: 2
+> +                      - const: 3
+> +                      - const: 4
+> +                    description: |
+
+As well
+
+> +                      This is the default layout
+> +                  - items:
+> +                      - const: 4
+> +                      - const: 3
+> +                      - const: 2
+> +                      - const: 1
+> +                    description: |
+
+Ditto
+
+> +                      This is the reversed layout
+
+Honestly, this previous description are redundant. I can read 4-3-2-1
+and I do understand it is a reversed from 1-2-3-4.
+
+Do not explain the obvious code, but rather design behind. Just drop the
+descriptions except the first one.
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+
+Best regards,
+Krzysztof
+
 
