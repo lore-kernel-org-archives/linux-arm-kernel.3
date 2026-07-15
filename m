@@ -4,71 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32E6FC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 09:26:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61DC6C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 09:29:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5D/ZXFAVFJnsI0vOzgV8C7obFLHbtyIa001p1gbE7so=; b=BeY2ocqoJSswMiqKAMWqKStvpO
-	bkKn7sZndqPgJKMh7W3dNAuckEJKNPH2obhJh2uw2G7Y/S8LPnmRCu6SplExB2P362FyI2A7OeTQ6
-	Ql+KcwcpVcl0WbZxfHNGbuu/kdtVCKoanvi10PehM8kNxGyfUX4OTEdroZUg+83sx573zNR7SOjVn
-	qtk1FSUVdk9lsMgL6LCxDPYo3s/9ZMANEk1wzrsReRRbweKoGYIc+ME1kCJnyFJPChtv6n30VnZ+G
-	aZ7c/pr4PD/N6SYzEZWEl+MGVej5wHSMdJK0JmNB7HBCmSIUqS6TqYFpAvnnHPVJJQ1WW6BKVv3HO
-	b+vUy7wA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/mY2zSWg1aNRjDRgnHgWnHyOuWTG9nVHKJK+qD70fIw=; b=oCM9hrme3RBP4orocQG8+f9+BJ
+	mXRBWSVWx/lxNyltFEwvB334t81iz5uKwawIrLPjM9bEug8PsHbZ4anoJz1cmAcAVBe+xR0M2bpFV
+	0RZwjbA/6LMmlxRg/XSO5OKRxrcbMDi0NpZQI5rfa6APoUZcwEz7lD7O6cWuoB76vL++CpbeX+dZ+
+	XvmBGyMIw4eB65oFfQnJ3R+xmBTg5aeWVo9MvajcK0QsBWjsM06VlG0f3oK8qf/RFs5ZHj3bWkUMH
+	IlveU0FAp1htPgpzXAStFB8dlsx1Om3vRbYyEE2z0zk1eCCU5o6tPRHjRQOZbXlI7ElpAEmFb1xHk
+	DkCR8QUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjvtC-0000000EJnp-1KDL;
-	Wed, 15 Jul 2026 09:26:50 +0000
-Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
+	id 1wjvvW-0000000EKCn-1O6Q;
+	Wed, 15 Jul 2026 09:29:14 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjvt9-0000000EJmr-27s3
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 09:26:49 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=5D/ZXFAVFJnsI0vOzgV8C7obFLHbtyIa001p1gbE7so=;
-	b=dK/Y3STzjIx/TwTSiWwjRQFz82dWZ7uwNMfDCrylmmWOhrEDgBHulSjLr1GQKXmYk221PvCJo
-	hPdH1I3RSbtzIyFPmxnpsuuzwXL2CvUHGhSQjIUYydEeegWw8AYM6On2Np/Jso4SIfjcjS/8ihR
-	pd/y0ydZ0w8JGK37rig8cmM=
-Received: from mail.maildlp.com (unknown [172.19.162.92])
-	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4h0Vtj5lBzz1cyQQ;
-	Wed, 15 Jul 2026 17:17:17 +0800 (CST)
-Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
-	by mail.maildlp.com (Postfix) with ESMTPS id B628D40565;
-	Wed, 15 Jul 2026 17:26:34 +0800 (CST)
-Received: from kwepemq200011.china.huawei.com (7.202.195.155) by
- dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 15 Jul 2026 17:26:34 +0800
-Received: from [10.67.110.108] (10.67.110.108) by
- kwepemq200011.china.huawei.com (7.202.195.155) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 15 Jul 2026 17:26:33 +0800
-Message-ID: <51864d9c-5af0-43f4-937c-244d39c4a83e@huawei.com>
-Date: Wed, 15 Jul 2026 17:26:33 +0800
+	id 1wjvvS-0000000EKBE-3Mc3;
+	Wed, 15 Jul 2026 09:29:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1784107751; x=1815643751;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=/5aaAsVdQN0eiTG/66eGgXteBugptKLohzhJXhN02NU=;
+  b=CRbNMu8MLuQAJaO5Qbuu56DDzuGxvLsLdYU4lFELL6MtRKomF+nGrc3p
+   x5/mAUbIQWdoEAcVD0e1ngfV+irN8bMe9B0mronc0TMXvfLRgpp83PUmi
+   vF/gUTE2LMA6rqpRbSkolkdkFwEHIQUO5K5WUQCjtWb9vrpmuLCBy2frQ
+   I0Cg8gKfHaFV7q/eSLVmC/3FE7riJVoI4zEbV3VFAyshkxBxnp4XrgBe+
+   cjeTn2CYkKDzS0QP/NWLUbnFKvFn1WEoIUOhdoziILcfznu4Ct9LtGWmz
+   jydulsHPtpXhgrOmuqxdtmA2na4BZ2daXUxyT3wMidYQgabJhGp7WT0U0
+   g==;
+X-CSE-ConnectionGUID: lpA1cZWtTcO2xp4/TcPYPA==
+X-CSE-MsgGUID: MZw2L4hsRzmE3H5aGOQ+4w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11847"; a="84830141"
+X-IronPort-AV: E=Sophos;i="6.25,165,1779174000"; 
+   d="scan'208";a="84830141"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jul 2026 02:29:10 -0700
+X-CSE-ConnectionGUID: t3nl7JS5TxCiXiLKm/nhqQ==
+X-CSE-MsgGUID: BfWSW46GSw+l5U7M4cVNLg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,165,1779174000"; 
+   d="scan'208";a="286203001"
+Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.129])
+  by orviesa002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jul 2026 02:29:05 -0700
+Date: Wed, 15 Jul 2026 12:29:02 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Bartosz Golaszewski <brgl@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Daniel Scally <djrscally@gmail.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Wei Deng <wei.deng@oss.qualcomm.com>, linux-acpi@vger.kernel.org,
+	driver-core@lists.linux.dev, linux-pm@vger.kernel.org,
+	linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Alan Stern <stern@rowland.harvard.edu>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Subject: Re: [PATCH v5 03/16] power: sequencing: Add pwrseq_power_is_on()
+Message-ID: <aldS3qTympJuVXYj@ashevche-desk.local>
+References: <20260715085348.3457359-1-wenst@chromium.org>
+ <20260715085348.3457359-4-wenst@chromium.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 15/36] arm64: replace local_daif helpers
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <mark.rutland@arm.com>, <maz@kernel.org>, <ruanjinjie@huawei.com>,
-	<catalin.marinas@arm.com>, <will@kernel.org>
-References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-16-vladimir.murzin@arm.com>
-From: "Liao, Chang" <liaochang1@huawei.com>
-In-Reply-To: <20260709121333.23507-16-vladimir.murzin@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.110.108]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemq200011.china.huawei.com (7.202.195.155)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260715085348.3457359-4-wenst@chromium.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_022647_875341_420BB346 
-X-CRM114-Status: GOOD (  36.51  )
+X-CRM114-CacheID: sfid-20260715_022910_887379_57CA56EB 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,544 +102,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-在 2026/7/9 20:13, Vladimir Murzin 写道:
-> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> 
-> Replace existing `local_daif_...` usage with the new `local_all_irqs...`
-> helpers, adding the necessary save-state struct where required.
-> 
-> Slightly rework `apei_claim_sea()`'s handling of interrupt masking to
-> fit with the new APIs.  Currently, it saves the DAIF flags to restore
-> later and the `local_irq` ones to check if interrupts are disabled.
-> It then masks AIF to signal the SEA (forcing DAIF masking), and will
-> unmask to IF (re-enabling PMR masking if pseudo-NMIs are in use) if it
-> interrupted a task with interrupts unmaksed, restoring with the DAIF
-> flags from the beginning afterwards.
-> 
-> As we want to preserve a "mask/unmask" process, change the logic from
-> "mask AIF/unmask A/unmask IF" to "mask IF/mask A/unmask A/unmask IF" :
-> first mask with `local_irq_save()`, mask/unmask further around the
-> SEA signaling, and restore at the end with `local_irq_restore()`.
-> Now that both APIs properly work with DAIF and PMR, this works
-> as expected and also removes the need for a "save flags without masking"
-> function for the new helpers, as this was the only user.
-> 
-> Remove the use of GIC_PRIO_PSR_I_SET in `kvm/hyp/nvhe/switch.c`,
-> as we now check both PMR and DAIF everywhere and we don't need to signal
-> interrupts being masked in DAIF in the PMR anymore.
-> 
-> As we removed the `daifflags.h` include in preparation for its removal,
-> move `local_interrupt_priority_init()` to `asm/interrupts/masking.h`.
-> 
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-> ---
->  arch/arm64/include/asm/daifflags.h          | 14 --------------
->  arch/arm64/include/asm/interrupts/masking.h | 14 ++++++++++++++
->  arch/arm64/kernel/acpi.c                    | 15 +++++++--------
->  arch/arm64/kernel/hibernate.c               | 16 ++++++++--------
->  arch/arm64/kernel/irq.c                     |  2 +-
->  arch/arm64/kernel/machine_kexec.c           |  4 ++--
->  arch/arm64/kernel/setup.c                   |  4 ++--
->  arch/arm64/kernel/smp.c                     | 14 +++++++-------
->  arch/arm64/kernel/suspend.c                 | 14 +++++++-------
->  arch/arm64/kvm/hyp/nvhe/switch.c            |  2 +-
->  arch/arm64/kvm/hyp/vgic-v3-sr.c             |  7 ++++---
->  arch/arm64/kvm/hyp/vhe/switch.c             | 12 +++++++-----
->  arch/arm64/mm/mmu.c                         |  7 ++++---
->  13 files changed, 64 insertions(+), 61 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/daifflags.h b/arch/arm64/include/asm/daifflags.h
-> index 6b14ec4d4dbe..8f097a2d9099 100644
-> --- a/arch/arm64/include/asm/daifflags.h
-> +++ b/arch/arm64/include/asm/daifflags.h
-> @@ -120,18 +120,4 @@ static __always_inline void local_daif_restore(unsigned long flags)
->  		trace_hardirqs_off();
->  }
->  
-> -/*
-> - * During early boot, we unmask PSR.DA before the GIC has been set up.
-> - * If we use IRQ priority masking, the PMR and PSR will be out of sync
-> - * after the GIC is enabled : sync them up.
-> - */
-> -static inline void local_interrupt_priority_init(void)
-> -{
-> -	WARN_ON(read_sysreg(daif) & PSR_A_BIT);
-> -	lockdep_assert_irqs_disabled();
-> -
-> -	gic_write_pmr(GIC_PRIO_IRQOFF);
-> -	write_sysreg(DAIF_PROCCTX, daif);
-> -}
-> -
->  #endif
-> diff --git a/arch/arm64/include/asm/interrupts/masking.h b/arch/arm64/include/asm/interrupts/masking.h
-> index 66ee03f7ab68..19d32618b2b9 100644
-> --- a/arch/arm64/include/asm/interrupts/masking.h
-> +++ b/arch/arm64/include/asm/interrupts/masking.h
-> @@ -98,4 +98,18 @@ static inline void local_all_irqs_final_mask(void)
->  	trace_hardirqs_off();
->  }
->  #endif /* CONFIG_DEBUG_IRQFLAGS */
-> +
-> +/*
-> + * During early boot, we unmask PSR.DA before the GIC has been set up.
-> + * If we use IRQ priority masking, the PMR and PSR will be out of sync
-> + * after the GIC is enabled : sync them up.
+On Wed, Jul 15, 2026 at 04:53:33PM +0800, Chen-Yu Tsai wrote:
+> The power sequencing consumer API already does power on state tracking
+> internally. Expose the state to consumers through pwrseq_power_is_on()
+> so that they don't have to reimplement it locally.
+
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+
+...
+
+> +/**
+> + * pwrseq_power_is_on() - Queries the last requested state of the power sequencer.
+> + * @desc: Descriptor referencing the power sequencer.
+> + *
+> + * This returns the last requested state of the power sequencer.
+> + *
+> + * Returns:
+> + * On success, 1 for on or desc is NULL (optional) and 0 for off;
+> + * negative error number on failure.
+
+I would rephrase it a bit.
+
+ * On success, 1 for on and 0 for off; negative error number on failure.
+ * If desc is NULL (means optional) return 1.
+
+And this rises a question: why 1? Shouldn't it be some "unknown" state?
+(But since Bart Acked this, this doesn't prevent the patch to go, you
+ got my tag above.)
+
 > + */
-> +static inline void local_interrupt_priority_init(void)
-> +{
-> +	WARN_ON(read_sysreg(daif) & PSR_A_BIT);
-> +	lockdep_assert_irqs_disabled();
-> +
-> +	arm64_update_exc_context(NOIRQ_CONTEXT, true);
-> +}
-> +
->  #endif /* __ASM_INTERRUPTS_MASKING_H */
-> diff --git a/arch/arm64/kernel/acpi.c b/arch/arm64/kernel/acpi.c
-> index 5891f92c2035..8ec784f96693 100644
-> --- a/arch/arm64/kernel/acpi.c
-> +++ b/arch/arm64/kernel/acpi.c
-> @@ -33,7 +33,7 @@
->  #include <acpi/processor.h>
->  #include <asm/cputype.h>
->  #include <asm/cpu_ops.h>
-> -#include <asm/daifflags.h>
-> +#include <asm/interrupts/masking.h>
->  #include <asm/smp_plat.h>
->  
->  int acpi_noirq = 1;		/* skip ACPI IRQ initialization */
-> @@ -391,15 +391,14 @@ int apei_claim_sea(struct pt_regs *regs)
->  	int err = -ENOENT;
->  	bool return_to_irqs_enabled;
->  	unsigned long current_flags;
-> +	arm64_exc_hwstates_t all_irqs_state;
->  
->  	if (!IS_ENABLED(CONFIG_ACPI_APEI_GHES))
->  		return err;
->  
-> -	current_flags = local_daif_save_flags();
-> -
-> -	/* current_flags isn't useful here as daif doesn't tell us about pNMI */
-> -	return_to_irqs_enabled = !irqs_disabled_flags(arch_local_save_flags());
-> +	local_irq_save(current_flags);
->  
-> +	return_to_irqs_enabled = !irqs_disabled_flags(current_flags);
->  	if (regs)
->  		return_to_irqs_enabled = !regs_irqs_disabled(regs);
->  
-> @@ -407,10 +406,11 @@ int apei_claim_sea(struct pt_regs *regs)
->  	 * SEA can interrupt SError, mask it and describe this as an NMI so
->  	 * that APEI defers the handling.
->  	 */
-> -	local_daif_restore(DAIF_ERRCTX);
-> +	all_irqs_state = local_all_irqs_save_mask(ERROR_CONTEXT);
->  	nmi_enter();
->  	err = ghes_notify_sea();
->  	nmi_exit();
-> +	local_all_irqs_restore(all_irqs_state);
->  
->  	/*
->  	 * APEI NMI-like notifications are deferred to irq_work. Unless
-> @@ -418,7 +418,6 @@ int apei_claim_sea(struct pt_regs *regs)
->  	 */
->  	if (!err) {
->  		if (return_to_irqs_enabled) {
-> -			local_daif_restore(DAIF_PROCCTX_NOIRQ);
->  			__irq_enter();
->  			irq_work_run();
->  			__irq_exit();
-> @@ -428,7 +427,7 @@ int apei_claim_sea(struct pt_regs *regs)
->  		}
->  	}
->  
-> -	local_daif_restore(current_flags);
-> +	local_irq_restore(current_flags);
->  
->  	return err;
->  }
-> diff --git a/arch/arm64/kernel/hibernate.c b/arch/arm64/kernel/hibernate.c
-> index d0d9bd91e639..4dd40593f736 100644
-> --- a/arch/arm64/kernel/hibernate.c
-> +++ b/arch/arm64/kernel/hibernate.c
-> @@ -20,7 +20,7 @@
->  #include <asm/barrier.h>
->  #include <asm/cacheflush.h>
->  #include <asm/cputype.h>
-> -#include <asm/daifflags.h>
-> +#include <asm/interrupts/masking.h>
->  #include <asm/irqflags.h>
->  #include <asm/kexec.h>
->  #include <asm/memory.h>
-> @@ -332,16 +332,16 @@ static void swsusp_mte_restore_tags(void)
->  
->  int swsusp_arch_suspend(void)
->  {
-> -	int ret = 0;
-> -	unsigned long flags;
->  	struct sleep_stack_data state;
-> +	arm64_exc_hwstates_t flags;
-> +	int ret = 0;
->  
->  	if (cpus_are_stuck_in_kernel()) {
->  		pr_err("Can't hibernate: no mechanism to offline secondary CPUs.\n");
->  		return -EBUSY;
->  	}
->  
-> -	flags = local_daif_save();
-> +	flags = local_all_irqs_save_mask(CRITICAL_CONTEXT);
->  
->  	if (__cpu_suspend_enter(&state)) {
->  		/* make the crash dump kernel image visible/saveable */
-> @@ -391,7 +391,7 @@ int swsusp_arch_suspend(void)
->  		spectre_v4_enable_mitigation(NULL);
->  	}
->  
-> -	local_daif_restore(flags);
-> +	local_all_irqs_restore(flags);
->  
->  	return ret;
->  }
-> @@ -405,11 +405,11 @@ int swsusp_arch_suspend(void)
->  int __nocfi swsusp_arch_resume(void)
->  {
->  	int rc;
-> -	unsigned long flags;
->  	void *zero_page;
->  	size_t exit_size;
->  	pgd_t *tmp_pg_dir;
->  	phys_addr_t el2_vectors;
-> +	arm64_exc_hwstates_t flags;
->  	void __noreturn (*hibernate_exit)(phys_addr_t, phys_addr_t, void *,
->  					  void *, phys_addr_t, phys_addr_t);
->  	struct trans_pgd_info trans_info = {
-> @@ -476,11 +476,11 @@ int __nocfi swsusp_arch_resume(void)
->  	 *   swsusp_arch_resume(), and expects to be re-entered in the
->  	 *   same state : with all DAIF exceptions masked.
->  	 */
-> -	flags = local_daif_save();
-> +	flags = local_all_irqs_save_mask(CRITICAL_CONTEXT);
->  	hibernate_exit(virt_to_phys(tmp_pg_dir), resume_hdr.ttbr1_el1,
->  		       resume_hdr.reenter_kernel, restore_pblist,
->  		       resume_hdr.__hyp_stub_vectors, virt_to_phys(zero_page));
-> -	local_daif_restore(flags);
-> +	local_all_irqs_restore(flags);
->  
->  	return 0;
->  }
-> diff --git a/arch/arm64/kernel/irq.c b/arch/arm64/kernel/irq.c
-> index c73faa30268d..36da80169aae 100644
-> --- a/arch/arm64/kernel/irq.c
-> +++ b/arch/arm64/kernel/irq.c
-> @@ -21,7 +21,7 @@
->  #include <linux/seq_file.h>
->  #include <linux/smp.h>
->  #include <linux/vmalloc.h>
-> -#include <asm/daifflags.h>
-> +#include <asm/interrupts/masking.h>
->  #include <asm/exception.h>
->  #include <asm/numa.h>
->  #include <asm/softirq_stack.h>
-> diff --git a/arch/arm64/kernel/machine_kexec.c b/arch/arm64/kernel/machine_kexec.c
-> index c5693a32e49b..0ff45f918488 100644
-> --- a/arch/arm64/kernel/machine_kexec.c
-> +++ b/arch/arm64/kernel/machine_kexec.c
-> @@ -17,7 +17,7 @@
->  
->  #include <asm/cacheflush.h>
->  #include <asm/cpu_ops.h>
-> -#include <asm/daifflags.h>
-> +#include <asm/interrupts/masking.h>
->  #include <asm/memory.h>
->  #include <asm/mmu.h>
->  #include <asm/mmu_context.h>
-> @@ -173,7 +173,7 @@ void machine_kexec(struct kimage *kimage)
->  
->  	pr_info("Bye!\n");
->  
-> -	local_daif_mask();
-> +	local_all_irqs_final_mask();
->  
->  	/*
->  	 * Both restart and kernel_reloc will shutdown the MMU, disable data
-> diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
-> index 23c05dc7a8f2..14f283f7ac3a 100644
-> --- a/arch/arm64/kernel/setup.c
-> +++ b/arch/arm64/kernel/setup.c
-> @@ -37,7 +37,7 @@
->  #include <asm/fixmap.h>
->  #include <asm/cpu.h>
->  #include <asm/cputype.h>
-> -#include <asm/daifflags.h>
-> +#include <asm/interrupts/masking.h>
->  #include <asm/elf.h>
->  #include <asm/cpufeature.h>
->  #include <asm/cpu_ops.h>
-> @@ -311,7 +311,7 @@ void __init __no_sanitize_address setup_arch(char **cmdline_p)
->  	 * IRQ and FIQ will be unmasked after the root irqchip has been
->  	 * detected and initialized.
->  	 */
-> -	local_daif_restore(DAIF_PROCCTX_NOIRQ);
-> +	local_all_irqs_cpu_init_mask(NOIRQ_CONTEXT);
->  
->  	/*
->  	 * TTBR0 is only used for the identity mapping at this stage. Make it
-> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-> index b91cf163aac7..257d50529d14 100644
-> --- a/arch/arm64/kernel/smp.c
-> +++ b/arch/arm64/kernel/smp.c
-> @@ -42,7 +42,7 @@
->  #include <asm/cpu.h>
->  #include <asm/cputype.h>
->  #include <asm/cpu_ops.h>
-> -#include <asm/daifflags.h>
-> +#include <asm/interrupts/masking.h>
->  #include <asm/kvm_mmu.h>
->  #include <asm/mmu_context.h>
->  #include <asm/numa.h>
-> @@ -263,7 +263,7 @@ asmlinkage notrace void secondary_start_kernel(void)
->  	 * as the root irqchip has already been detected and initialized we can
->  	 * unmask IRQ and FIQ at the same time.
->  	 */
-> -	local_daif_restore(DAIF_PROCCTX);
-> +	local_all_irqs_cpu_init_mask(PROCESS_CONTEXT);
->  
->  	/*
->  	 * OK, it's off to the idle thread for us
-> @@ -370,7 +370,7 @@ void __noreturn cpu_die(void)
->  
->  	idle_task_exit();
->  
-> -	local_daif_mask();
-> +	local_all_irqs_final_mask();
->  
->  	/* Tell cpuhp_bp_sync_dead() that this CPU is now safe to dispose of */
->  	cpuhp_ap_report_dead();
-> @@ -870,7 +870,7 @@ static void __noreturn local_cpu_stop(unsigned int cpu)
->  {
->  	set_cpu_online(cpu, false);
->  
-> -	local_daif_mask();
-> +	local_all_irqs_final_mask();
->  	sdei_mask_local_cpu();
->  	cpu_park_loop();
->  }
-> @@ -889,14 +889,14 @@ static void __noreturn ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs
->  {
->  #ifdef CONFIG_KEXEC_CORE
->  	/*
-> -	 * Use local_daif_mask() instead of local_irq_disable() to make sure
-> -	 * that pseudo-NMIs are disabled. The "crash stop" code starts with
-> +	 * Use local_all_irqs_final_mask() instead of local_irq_disable() to make
-> +	 * sure that pseudo-NMIs are disabled. The "crash stop" code starts with
->  	 * an IRQ and falls back to NMI (which might be pseudo). If the IRQ
->  	 * finally goes through right as we're timing out then the NMI could
->  	 * interrupt us. It's better to prevent the NMI and let the IRQ
->  	 * finish since the pt_regs will be better.
->  	 */
-> -	local_daif_mask();
-> +	local_all_irqs_final_mask();
->  
->  	crash_save_cpu(regs, cpu);
->  
-> diff --git a/arch/arm64/kernel/suspend.c b/arch/arm64/kernel/suspend.c
-> index c41724a40b75..d8c62d7e8922 100644
-> --- a/arch/arm64/kernel/suspend.c
-> +++ b/arch/arm64/kernel/suspend.c
-> @@ -9,7 +9,7 @@
->  #include <asm/cacheflush.h>
->  #include <asm/cpufeature.h>
->  #include <asm/cpuidle.h>
-> -#include <asm/daifflags.h>
-> +#include <asm/interrupts/masking.h>
->  #include <asm/debug-monitors.h>
->  #include <asm/exec.h>
->  #include <asm/fpsimd.h>
-> @@ -69,7 +69,7 @@ void notrace __cpu_suspend_exit(void)
->  	/*
->  	 * Restore HW breakpoint registers to sane values
->  	 * before debug exceptions are possibly reenabled
-> -	 * by cpu_suspend()s local_daif_restore() call.
-> +	 * by cpu_suspend()s local_all_irqs_save_mask() call.
->  	 */
->  	if (hw_breakpoint_restore)
->  		hw_breakpoint_restore(cpu);
-> @@ -97,7 +97,7 @@ void notrace __cpu_suspend_exit(void)
->  int cpu_suspend(unsigned long arg, int (*fn)(unsigned long))
->  {
->  	int ret = 0;
-> -	unsigned long flags;
-> +	arm64_exc_hwstates_t flags;
->  	struct sleep_stack_data state;
->  
->  	/*
-> @@ -119,12 +119,12 @@ int cpu_suspend(unsigned long arg, int (*fn)(unsigned long))
->  	 *
->  	 * Strictly speaking the trace_hardirqs_off() here is superfluous,
->  	 * hardirqs should be firmly off by now. This really ought to use
-> -	 * something like raw_local_daif_save().
-> +	 * something like raw_local_all_irqs_save_mask().
->  	 *
->  	 * This also unmasks interrupts in PMR in order to reliably
->  	 * resume if we're using pseudo-NMIs.
->  	 */
-> -	flags = local_daif_save();
-> +	flags = local_all_irqs_save_mask(CRITICAL_CONTEXT);
->  
->  	/*
->  	 * Function graph tracer state gets inconsistent when the kernel
-> @@ -158,11 +158,11 @@ int cpu_suspend(unsigned long arg, int (*fn)(unsigned long))
->  	unpause_graph_tracing();
->  
->  	/*
-> -	 * Restore pstate flags. OS lock and mdscr have been already
-> +	 * Restore interrupt masks. OS lock and mdscr have been already
->  	 * restored, so from this point onwards, debugging is fully
->  	 * reenabled if it was enabled when core started shutdown.
->  	 */
-> -	local_daif_restore(flags);
-> +	local_all_irqs_restore(flags);
->  
->  	return ret;
->  }
-> diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
-> index 7318e3e6a5f3..50566b455c80 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/switch.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/switch.c
-> @@ -270,7 +270,7 @@ int __kvm_vcpu_run(struct kvm_vcpu *vcpu)
->  	 * Naturally, we want to avoid this.
->  	 */
->  	if (system_uses_irq_prio_masking()) {
-> -		gic_write_pmr(GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET);
-> +		gic_write_pmr(GIC_PRIO_IRQON);
->  		pmr_sync();
->  	}
->  
-> diff --git a/arch/arm64/kvm/hyp/vgic-v3-sr.c b/arch/arm64/kvm/hyp/vgic-v3-sr.c
-> index c4d2f1feea8b..402d51430599 100644
-> --- a/arch/arm64/kvm/hyp/vgic-v3-sr.c
-> +++ b/arch/arm64/kvm/hyp/vgic-v3-sr.c
-> @@ -10,6 +10,7 @@
->  #include <linux/irqchip/arm-gic-v3.h>
->  #include <linux/kvm_host.h>
->  
-> +#include <asm/interrupts/masking.h>
->  #include <asm/kvm_emulate.h>
->  #include <asm/kvm_hyp.h>
->  #include <asm/kvm_mmu.h>
-> @@ -446,7 +447,7 @@ void __vgic_v3_init_lrs(void)
->  u64 __vgic_v3_get_gic_config(void)
->  {
->  	u64 val, sre;
-> -	unsigned long flags = 0;
-> +	arm64_exc_hwstates_t flags;
->  
->  	/*
->  	 * In compat mode, we cannot access ICC_SRE_EL1 at any EL
-> @@ -476,7 +477,7 @@ u64 __vgic_v3_get_gic_config(void)
->  	 * of the exception entry to EL2.
->  	 */
->  	if (has_vhe()) {
-> -		flags = local_daif_save();
-> +		flags = local_all_irqs_save_mask(CRITICAL_CONTEXT);
->  	} else {
->  		sysreg_clear_set_hcr(0, HCR_AMO | HCR_FMO | HCR_IMO);
->  		isb();
-> @@ -491,7 +492,7 @@ u64 __vgic_v3_get_gic_config(void)
->  	isb();
->  
->  	if (has_vhe()) {
-> -		local_daif_restore(flags);
-> +		local_all_irqs_restore(flags);
->  	} else {
->  		sysreg_clear_set_hcr(HCR_AMO | HCR_FMO | HCR_IMO, 0);
->  		isb();
-> diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-> index bbe9cebd3d9d..e7475d796f0a 100644
-> --- a/arch/arm64/kvm/hyp/vhe/switch.c
-> +++ b/arch/arm64/kvm/hyp/vhe/switch.c
-> @@ -17,6 +17,7 @@
->  
->  #include <asm/barrier.h>
->  #include <asm/cpufeature.h>
-> +#include <asm/interrupts/masking.h>
->  #include <asm/kprobes.h>
->  #include <asm/kvm_asm.h>
->  #include <asm/kvm_emulate.h>
-> @@ -630,8 +631,9 @@ NOKPROBE_SYMBOL(__kvm_vcpu_run_vhe);
->  int __kvm_vcpu_run(struct kvm_vcpu *vcpu)
->  {
->  	int ret;
-> +	arm64_exc_hwstates_t irqs_state;
->  
-> -	local_daif_mask();
-> +	irqs_state = local_all_irqs_save_mask(CRITICAL_CONTEXT);
->  
->  	/*
->  	 * Having IRQs masked via PMR when entering the guest means the GIC
-> @@ -639,18 +641,18 @@ int __kvm_vcpu_run(struct kvm_vcpu *vcpu)
->  	 * only way to get out will be via guest exceptions.
->  	 * Naturally, we want to avoid this.
->  	 *
-> -	 * local_daif_mask() already sets GIC_PRIO_PSR_I_SET, we just need a
-> -	 * dsb to ensure the redistributor is forwards EL2 IRQs to the CPU.
-> +	 * local_all_irqs_save_mask() already sets GIC_PRIO_IRQON, we just need a
-> +	 * dsb to ensure the redistributor forwards EL2 IRQs to the CPU.
->  	 */
->  	pmr_sync();
-
-Since the new helper local_all_irqs_save_mask() already takes care of modifying ICC_PMR
-and internally invokes pmr_sync() right after(from arm64_update_exc_hwstate()), keeping
-this explicit pmr_sync() here is a bit redundant.
-
->  
->  	ret = __kvm_vcpu_run_vhe(vcpu);
->  
->  	/*
-> -	 * local_daif_restore() takes care to properly restore PSTATE.DAIF
-> +	 * local_all_irqs_restore() takes care to properly restore PSTATE.DAIF
->  	 * and the GIC PMR if the host is using IRQ priorities.
->  	 */
-> -	local_daif_restore(DAIF_PROCCTX_NOIRQ);
-> +	local_all_irqs_restore(irqs_state);
->  
->  	return ret;
->  }
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index f2be501468ce..f2c74911f5d9 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -32,6 +32,7 @@
->  
->  #include <asm/barrier.h>
->  #include <asm/cputype.h>
-> +#include <asm/interrupts/masking.h>
->  #include <asm/fixmap.h>
->  #include <asm/kasan.h>
->  #include <asm/kernel-pgtable.h>
-> @@ -2307,7 +2308,7 @@ void __cpu_replace_ttbr1(pgd_t *pgdp, bool cnp)
->  	typedef void (ttbr_replace_func)(phys_addr_t);
->  	extern ttbr_replace_func idmap_cpu_replace_ttbr1;
->  	ttbr_replace_func *replace_phys;
-> -	unsigned long daif;
-> +	arm64_exc_hwstates_t all_irqs;
->  
->  	/* phys_to_ttbr() zeros lower 2 bits of ttbr with 52-bit PA */
->  	phys_addr_t ttbr1 = phys_to_ttbr(virt_to_phys(pgdp));
-> @@ -2323,9 +2324,9 @@ void __cpu_replace_ttbr1(pgd_t *pgdp, bool cnp)
->  	 * We really don't want to take *any* exceptions while TTBR1 is
->  	 * in the process of being replaced so mask everything.
->  	 */
-> -	daif = local_daif_save();
-> +	all_irqs = local_all_irqs_save_mask(CRITICAL_CONTEXT);
->  	replace_phys(ttbr1);
-> -	local_daif_restore(daif);
-> +	local_all_irqs_restore(all_irqs);
->  
->  	cpu_uninstall_idmap();
->  }
-
 
 -- 
-BR
-Liao, Chang
+With Best Regards,
+Andy Shevchenko
+
+
 
