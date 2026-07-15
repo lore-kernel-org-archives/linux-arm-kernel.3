@@ -4,119 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7356C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 20:31:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 507BEC44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 20:45:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jaPqsnevYHfyxj/8LHZ7XcH7CTej6Jr8t12ZOKmhuI4=; b=P2sXPod5sBUlbXLg3zPoc65vXQ
-	F0/rd/yRtz8kyzJUsApwkzymHzxB9CIxUKsyxRcP42Ol0N8/zbYGleREJVtOHAl+tUkb3tLOE/eFG
-	46eGovoB18LPDkrpJMX27+5kwxTjB3gwdVhS0btT5zZ3uee77ennvexN2dBPlXwDIkOawdQUZELqp
-	8gtCWyp88Y+Jy+17EO+UUhEJM05L9Jnm9DPU/hFNfDyG0KySye0Ezi/+ccRk25aR8U/g7nw/9A21m
-	5olfPp7lFyRgxVles4PZ0v3Npe/ENtLRuMhVnF3L/pfbn+1A19sHasB2YHev7eQNlHMz/jw0NiKk0
-	uk3J6Fmg==;
+	bh=nP0r16HI0g8TlAa23nMBM941RGjBe5Aem38C/sHAXXw=; b=IL23VeI/iZv1766VXfQgYrhYpl
+	9Ue3qckSL56yETDl575xMIkiYpC6IgWzwrEWwthvl29PRr4ykztGasaHAo0oIMdkqllD36xLM4GoW
+	7FZ0J/32UnWGLXhlprcQNLt0bKm6rVqbklvoPIusEcyD02snKITMP4rV2JiSU5OtA64t/TA/eD2xx
+	RZTBs2oBPk91eKFordKyETMlJ2BJTp/I5UxtZeNEXsrlp5IPmYEJ8VtA9Na1+D9ujDZYV+sw5rl79
+	pm10ksXMqtBLGrUgO59C8ZcTfGbqp4rZnPfvjPER95ht5sY1xGobGtqjdMpRFdheU+w6LZhGCw3IX
+	sB3k9NDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk6G7-0000000Fsnk-31iE;
-	Wed, 15 Jul 2026 20:31:11 +0000
-Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1wk6TV-0000000FtnM-0dHr;
+	Wed, 15 Jul 2026 20:45:01 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk6G5-0000000FsnI-1rBs
+	id 1wk6TU-0000000Ftmt-0AAc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 20:31:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=P0iiPLpCrgqF3XQSCOuOB3E53pGatQoyL3aqNvjw/aKfwsdL4OOCfG1b4kGTWIKNsHNwSvAwpCR26mk4vKfB9BHIHT00rLHKeho2u+Gg8Z9qgZ4DYKfBBgW5DLBL7FYHdN131n2GMbARbcW8bCR9EmMgkOkLWPblSV7ai1GCv6AhqcMR52X1KFbFISe5HGDsFic+0E3RF94x86y0hkLbssNdwu/8DMYnuRnk7k0EV+EP9esgKGfaJOdLEmBthPx1DsQGJe/D0DnKoYAY1FhXOOm/2Ycg3Vbqqzn4g18RaLrf3NCUmyEiR9FWwgIOlZ87Ar1JKn25ZH/MKGVMPzNYTA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jaPqsnevYHfyxj/8LHZ7XcH7CTej6Jr8t12ZOKmhuI4=;
- b=y8KTOOu6uTEMYK/eKQYadifevbBrfvsPdyS8V8sYnPv5ub8FV/c6A8YERssUximFPsGIgPdZO6kfGTkjx4EVenLkju3I2wkwk4+AxtGQybTnr8buv1swdu8ltwJxm8AaMsMCBQGXokdHUNnQu+MqyJ2tdwyCnUFeUQmnRHYZ1AOEyd95ppXNzs+9VTZuBqe+u6EPmC2zSGd3x7oR9wZXjNfNcjqXxOnl+2gcdaGsA1ijo7tV4DiU+1FefwYEutXezbSmRMSU4mxgh4Hnv60KuQp8spOVzxLbz8RDe/aPjg2qzq7coPPuEYmZWsqR6EEcX/YjemCBzhrrekyv/XZvlQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jaPqsnevYHfyxj/8LHZ7XcH7CTej6Jr8t12ZOKmhuI4=;
- b=qN3aNKGvEdqssrBVCrzTroukEARu4pXJqtgc50EynhJ2X5Lu3hZ+eSmtzEK2cq2k/fH1greywpXdn2qBsaLPXJhnymvkSJdUWjqC+JsgPLw4ksNBP/FcRkJDKNsSH/Fz3jH6G43QjfxKzsfVdOspQqz6JaPKu94zgs77tffXHjvQxraHKxtUsB+O9FLUEU/Y8zFrnvBl9HmOkbLcWx7mtJUNfL7vF2lZRsdejUJOofFPMEYO4RTaSHAkmX7s7+FoyI00zg8nXciMqWw+sG68BdMsuRAgKz5Tcun40gV5eQmhTKrEo+UzAIGFzg90jTgTPqIEL9Y/YKTfrOoW4YAgRQ==
-Received: from BN1PR13CA0021.namprd13.prod.outlook.com (2603:10b6:408:e2::26)
- by CY5PR12MB6298.namprd12.prod.outlook.com (2603:10b6:930:21::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.12; Wed, 15 Jul
- 2026 20:30:51 +0000
-Received: from BL6PEPF0001AB72.namprd02.prod.outlook.com
- (2603:10b6:408:e2:cafe::4a) by BN1PR13CA0021.outlook.office365.com
- (2603:10b6:408:e2::26) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.223.11 via Frontend Transport; Wed,
- 15 Jul 2026 20:30:51 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- BL6PEPF0001AB72.mail.protection.outlook.com (10.167.242.165) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.223.9 via Frontend Transport; Wed, 15 Jul 2026 20:30:51 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 15 Jul
- 2026 13:30:25 -0700
-Received: from drhqmail201.nvidia.com (10.126.190.180) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Wed, 15 Jul 2026 13:30:25 -0700
-Received: from nvidia.com (10.127.8.11) by mail.nvidia.com (10.126.190.180)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 15 Jul 2026 13:30:22 -0700
-Date: Wed, 15 Jul 2026 13:30:22 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: Will Deacon <will@kernel.org>, Kevin Tian <kevin.tian@intel.com>, "Robin
- Murphy" <robin.murphy@arm.com>, <joro@8bytes.org>, David Woodhouse
-	<dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, Pranjal Shrivastava <praan@google.com>
-Subject: Re: [PATCH v4 0/6] iommufd: Iterate the cache invalidation array in
- the core
-Message-ID: <alft3llhZ79t17j8@nvidia.com>
-References: <cover.1784054606.git.nicolinc@nvidia.com>
- <20260715201521.GL3775915@nvidia.com>
+	Wed, 15 Jul 2026 20:45:00 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5AAC441B46;
+	Wed, 15 Jul 2026 20:44:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC4CB1F000E9;
+	Wed, 15 Jul 2026 20:44:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784148299;
+	bh=nP0r16HI0g8TlAa23nMBM941RGjBe5Aem38C/sHAXXw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=c6mvsBnMITSp/9lTkwua8C95fb+syxVGbWN7QlyXTQMGlCdEy89PJtuuklmq4Pv6i
+	 T00BrxbzCwTgnrj7scdsxeQ276G9db+Q8IDbrkqQQvlxN0AGogBj8IywDjIX7jtLu7
+	 Ebe/IpB7HxR1CD+CMhhNhagDpgK2iT2h+Cm4Gx+o0Ean3Krd7vlsCcKXVgfZlW68Wc
+	 qkFinVYjJgePyNgMp/B4Wo1PI4hx2vvJCpMECBxFW79D01YblOG0Mh/3fPzkEmWLUz
+	 h28Chkn/MREjusF9fceulMNbSgQCxV6uXrxdWw/fsPviNNiEdkho3VLlaGjectISux
+	 5yv+upBmcFBpw==
+Date: Wed, 15 Jul 2026 15:44:55 -0500
+From: Bjorn Andersson <andersson@kernel.org>
+To: Pragnesh Papaniya <pragnesh.papaniya@oss.qualcomm.com>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>, 
+	Cristian Marussi <cristian.marussi@arm.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Sibi Sankar <sibi.sankar@oss.qualcomm.com>, MyungJoo Ham <myungjoo.ham@samsung.com>, 
+	Kyungmin Park <kyungmin.park@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, 
+	Dmitry Osipenko <digetx@gmail.com>, Thierry Reding <thierry.reding@kernel.org>, 
+	Jonathan Hunter <jonathanh@nvidia.com>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Rajendra Nayak <rajendra.nayak@oss.qualcomm.com>, Pankaj Patil <pankaj.patil@oss.qualcomm.com>, 
+	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-pm@vger.kernel.org, 
+	linux-tegra@vger.kernel.org, Amir Vajid <amir.vajid@oss.qualcomm.com>, 
+	Ramakrishna Gottimukkula <ramakrishna.gottimukkula@oss.qualcomm.com>
+Subject: Re: [PATCH RFC v7 7/9] PM / devfreq: Introduce the QCOM SCMI Memlat
+ devfreq driver
+Message-ID: <alfs7gOhE2D8wbVX@baldur>
+References: <20260610-rfc_v7_scmi_memlat-v7-0-f3f68c608f25@oss.qualcomm.com>
+ <20260610-rfc_v7_scmi_memlat-v7-7-f3f68c608f25@oss.qualcomm.com>
+ <akWBtfG1j7-53fec@baldur>
+ <ee407cbf-3476-4209-ad40-b381535b94ac@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260715201521.GL3775915@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB72:EE_|CY5PR12MB6298:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5b74dad9-2e7a-4fae-5021-08dee2aff662
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|23010399003|1800799024|36860700016|7416014|376014|10067099003|13003099007|18002099003|22082099003|3023799007|4143699003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: /MNn6E/4fq0EWVAtOkIoiPwCLjpMlf6V6qIdL6ipQ1fcJKxxYIOWlHMEagkb6cwpj4LXAWQX43U3PwjYxh8pUfsfz0zjJ+nAUTbRjKIAbuTqLvDWhEOmJ2wQJvEITuWhqNF9aHz7A5UbIhW3VTWSpS/9+0QOz8G7U5/HyylcQaxVtVico8ywLNIjvPbGNLyeHeGw0aEh/RRpccAg5oZMP3PQb4xG+WipEwkj/p59jxrCNMeuXbZNrrGxRSPAziwILapdyqIlLgmJFGauahNxCfrXK0rY/UiEXogKLnwxqYHQs0+rdmBtiO40wHHO0/YnwKmOqgSl/uLMu7+VxMFT04u4UfPakERe6cYGeVnF8q/seM3UeFTuBmHoMOIp5ty6q6JLSuxH3CNmMSN7RK9shy5COyuPTl5kPN/wUnQKv13FC6PnPOC6DYEp+YwFNMPOdwatDCdomVUj2Z2bauHaeQ7aB+eq5W7oM078zynr0X5ygbaps8FprH+Ym0ajMChGmTP8MoqLkQs6qcswuiAv/Jsjq3+oTQwD2YAFDzEhmfpK5CS9aQQV7Cg4az8jETz43GG/wFstV6UoguGRJ1hU104AuFhumy8TZ9tGckeDwFRoEcysS4v5CbN8IAbhTnRttNSachFWGpF6H6yClnznJryGPDPcY5c3fq2yfb+NFftffTAQxsqvVtqHsO4zcdljNSmak7ZLYDzGe7lMCUhCFA==
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(1800799024)(36860700016)(7416014)(376014)(10067099003)(13003099007)(18002099003)(22082099003)(3023799007)(4143699003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 97Tv/BvNvxeVPd/ckvMzw376zE3pBOTyGJ8HvykHr7zDbVeBUBcoZJvDsCdXUxj0eOwVGkGPEb1RUL49luJd+79dzKHw5Nbg/NTyCGBydd21yRcEBC+mM9u2J8olg6PT0WljrghpD+WSMs6zsGY0kB8Wht1t9awAla2EeAULhTKn7T99/soDs7XD68AHo29AmvDrYcHgeCzG6rcNl/PmXWIDKniR56rzZmQXZYUhtKTWM/4w6lgr+7V6ZvDCBz2TwVRYeWZvRFT4Kzjqv1VIlbJEC/EuQ+DRxM9wQegD6rL3OPtCVwyWcT6VvXpZ721SVDTOX+rquBJtPwFH7uSAv3pRgf+dTk/zb2w3zui0jQc6t2ybZUfUETC6xeL5JKnqcsF70oO7XVCPJ3XIVi904exxicsb9JL/HgLa9K91ab9XvKL+cOjArG6M4JljEw17
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2026 20:30:51.2094
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5b74dad9-2e7a-4fae-5021-08dee2aff662
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB72.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6298
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_133109_488001_FA939DED 
-X-CRM114-Status: GOOD (  13.54  )
+In-Reply-To: <ee407cbf-3476-4209-ad40-b381535b94ac@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,29 +82,217 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 15, 2026 at 05:15:21PM -0300, Jason Gunthorpe wrote:
-> On Tue, Jul 14, 2026 at 11:48:46AM -0700, Nicolin Chen wrote:
-> > Nicolin Chen (6):
-> >   iommu/arm-smmu-v3: Support IDR5.DS and widen the TLBI SCALE field
-> >   iommu/arm-smmu-v3-iommufd: Reject unsupported bits in invalidation
-> >     commands
-> >   iommufd: Iterate the cache invalidation array in the core
-> >   iommufd/selftest: Convert cache invalidation mocks to the core array
-> >     loop
-> >   iommu/arm-smmu-v3-iommufd: Convert cache invalidation to the core
-> >     array loop
-> >   iommu/vt-d: Convert nested cache invalidation to the core array loop
+On Tue, Jul 14, 2026 at 01:14:23AM +0530, Pragnesh Papaniya wrote:
 > 
-> I was tempted to take this through the iommufd tree, but Will, I think
-> the first two ought to go to -stable through iommu ?
 > 
-> If you do that then maybe I'll pick up the rest
+> On 02-Jul-26 10:51 PM, Bjorn Andersson wrote:
+> > On Wed, Jun 10, 2026 at 02:21:34PM +0530, Pragnesh Papaniya wrote:
+> >> From: Sibi Sankar <sibi.sankar@oss.qualcomm.com>
+> >>
+> >> On Qualcomm Glymur, Mahua and X1E/X1P (Hamoa) SoCs, the memlat governor and
+> >> the mechanism to control the various caches and RAM is hosted on the CPU
+> >> Control Processor (CPUCP), and configuration and control of this governor
+> >> is exposed through the QCOM SCMI Generic Extension Protocol, addressed via
+> >> the "MEMLAT" algorithm string.
+> >>
+> > 
+> > This explains that there's a bunch of functionality running on CPUCP and
+> > there's a "MEMLAT" string.
+> > 
+> 
+> CPUCP does all the real work: it samples CPU perf counters, computes IPM/stall,
+> and votes the DDR/LLCC/DDR_QOS buses on its own timer. The Linux driver only
+> pushes static configuration (freq maps, ceilings) once at probe and
+> starts/stops the CPUCP timer. I'll rewrite the message to say this plainly.
+> 
 
-PATCH-5 touches arm-smmu-v3-iommufd. Merging via the iommufd tree
-will conflict with the PATCH-2 in Ashish's series (via iommu):
-https://lore.kernel.org/all/20260714104202.1664187-1-amhetre@nvidia.com/
+Thank you, that was not clear from reading this patch.
 
-Maybe it needs a shared branch; and then, Ashish can rebase?
+> >> Introduce a devfreq SCMI client driver that uses the MEMLAT algorithm
+> >> string to detect memory-latency-bound workloads and control the
+> >> frequency/level of the memory buses (DDR, LLCC and DDR_QOS).
+> > 
+> > You established that there's stuff running in the firmware, now we're
+> > introducing a client driver to control memory buses.
+> > 
+> > But where did you explain how these two "facts" are related? Why is
+> > there a client driver, what is the actual distribution of roles in this
+> > dance?
+> > 
+> 
+> At runtime the driver is not in the control loop, CPUCP is. devfreq is used so
+> each bus shows up as a real device with trans_stat and the remote governor's
+> parameters like sample_ms and ipm_ceil are user-configurable. I'll make that
+> reasoning explicit in the commit text.
+> 
 
-Nicolin
+Are you saying that there's no actual devfreq'ing going on, we just
+expose it through that framework in order to get the standardized
+metrics out of sysfs?
+
+Or that and to perform the initial configuration and start the memlat
+logic? Does the firmware do memlat adjustments without this driver?
+
+Please make sure that it's clear what role this driver has.
+
+[..]
+> >> diff --git a/drivers/devfreq/Kconfig b/drivers/devfreq/Kconfig
+> >> index 2caa87554914..98b5a50d3189 100644
+> >> --- a/drivers/devfreq/Kconfig
+> >> +++ b/drivers/devfreq/Kconfig
+> >> @@ -169,6 +169,19 @@ config ARM_SUN8I_A33_MBUS_DEVFREQ
+> >>  	  This adds the DEVFREQ driver for the MBUS controller in some
+> >>  	  Allwinner sun8i (A33 through H3) and sun50i (A64 and H5) SoCs.
+> >>  
+> >> +config SCMI_QCOM_MEMLAT_DEVFREQ
+> >> +	tristate "Qualcomm Technologies Inc. SCMI client driver"
+> >> +	depends on QCOM_SCMI_GENERIC_EXT || COMPILE_TEST
+> >> +	select DEVFREQ_GOV_REMOTE
+> >> +	help
+> >> +	  This driver uses the MEMLAT (memory latency) algorithm string
+> > 
+> > Is "driver uses X algorithm string" idiomatic SCMI terms?
+> > 
+> 
+> No, "algorithm string" is an internal term. I'll drop the jargon and describe
+> it in plain SCMI vendor-protocol terms.
+> 
+
+In line with our discussion above, please make sure that the help text
+is helpful for someone to understand the purpose of the driver and help
+them make that y/m/n decision.
+
+> >> +	  hosted on QCOM SCMI Vendor Protocol to detect memory latency
+> >> +	  workloads and control frequency/level of the various memory
+> >> +	  buses (DDR/LLCC/DDR_QOS).
+> >> +
+> >> +	  This driver defines/documents the parameter IDs used while configuring
+> >> +	  the memory buses.
+> > 
+> > Imagine an person outside your team, sitting there in menuconfig
+> > wondering if they should enable this driver or not.
+> > 
+> > There's a sentence in the middle ("control frequency/level of various
+> > memory buses" - that sounds like something I want. But "detect memory
+> > latency", is it just monitoring or does that part relate to the
+> > controlling part? "This driver defines" so what are those parameters
+> > used for, do I need some other driver for the control part? Is this last
+> > paragraph adding value to my understanding for that
+> > CONFIG_SCMI_QCOM_MEMLAT_DEVFREQ does?
+> > 
+> 
+> I'll rewrite it to say what you get (memory-bus scaling on these Qualcomm
+> SoCs), that CPUCP does the actual scaling, and that nothing else is required
+> to enable it. The parameter-ID paragraph will go.
+> 
+
+Sounds good. I'm a bit puzzled about it being a devfreq driver, but if
+you can explain the bigger picture, I think that will help to reason
+about it.
+
+[..]
+> >> diff --git a/drivers/devfreq/scmi-qcom-memlat-cfg.h b/drivers/devfreq/scmi-qcom-memlat-cfg.h
+> >> new file mode 100644
+> >> index 000000000000..1ab8b61ea271
+> >> --- /dev/null
+> >> +++ b/drivers/devfreq/scmi-qcom-memlat-cfg.h
+> > 
+> > Are the entities declared in this header file used by anything other
+> > than scmi-qcom-memlat-devfreq.c? If not why is it a separate header file?
+> > 
+> 
+> No, only scmi-qcom-memlat-devfreq.c uses it. I split it out just to keep the
+> large config tables out of the driver logic. Happy either way: do you prefer
+> I fold it back into the .c, or keep it as a header?
+> 
+
+Please move it into the c-file, move things around so that you have
+clear segments of "definitions", "configuration", "logic", and "driver
+boilerplate".
+
+[..]
+> >> +struct scmi_qcom_monitor_cfg {
+> >> +	const struct scmi_qcom_map_table *table;
+> >> +	const char *name;
+> >> +	u32 be_stall_floor;
+> > 
+> > What is a "be stall floor"? Also, it seems to be 1 in all your cases. Is
+> > it boolean? Is it constant?
+> > 
+> 
+> It's a back-end-stall percentage threshold. It happens to be 1 in all current
+> configs (meaning almost any stall qualifies). I'll document it as a percent.
+> 
+
+back_end_stall_percentage is a bit log (and I'm not entirely sure that
+it is). Perhaps you can provide some kernel-doc and express what it is?
+
+[..]
+
+> >> +static const struct scmi_qcom_memory_cfg glymur_memory_cfg[] = {
+> >> +	{
+> >> +		.memory_type = MEMLAT_HW_DDR,
+> >> +		.name = "ddr",
+> >> +		.mem_table = glymur_ddr_table,
+> >> +		.num_opps = ARRAY_SIZE(glymur_ddr_table),
+> >> +		.grp_ev = glymur_ddr_grp_ev,
+> >> +		.monitor_cnt = 4,
+> >> +		.memory_range = { .min_freq = 547000, .max_freq = 4761000},
+> >> +		.monitor_cfg = (const struct scmi_qcom_monitor_cfg[]) {
+> >> +			{
+> >> +				.name = "mon_0",
+> >> +				.cpu_mask = 0x3f,
+> >> +				.ipm_ceil = 60000000,
+> >> +				.be_stall_floor = 1,
+> >> +				.table_len = 8,
+> >> +				.table = (const struct scmi_qcom_map_table[]) {
+> >> +					{ .cpu_freq = 960, .mem_freq = 547000 },
+> >> +					{ .cpu_freq = 1133, .mem_freq = 1353000 },
+> >> +					{ .cpu_freq = 1594, .mem_freq = 1555000 },
+> >> +					{ .cpu_freq = 1920, .mem_freq = 1708000 },
+> >> +					{ .cpu_freq = 2228, .mem_freq = 2736000 },
+> >> +					{ .cpu_freq = 2362, .mem_freq = 3187000 },
+> >> +					{ .cpu_freq = 2650, .mem_freq = 3686000 },
+> >> +					{ .cpu_freq = 2938, .mem_freq = 4761000 },
+> > 
+> > Why are these tables hard coded in the driver? Are they constant?
+> > 
+> 
+> These tables can be either in DT (like in earlier re-spins of the series) or in
+> the driver. For the former to work well with the existing OPP framework, we
+> would need a clock provider created for DDR/LLCC/DDR-QOS just to derive the
+> cpufreq to memfreq map tables. Having it in the driver simplifies the overall
+> implementation. 
+> 
+
+But are there not different SKUs of these SoCs which need different
+tables? Information that we today would encode in e.g. OPP-tables in
+DeviceTree.
+
+> >> +				}
+> >> +			},
+[..]
+> >> diff --git a/drivers/devfreq/scmi-qcom-memlat-devfreq.c b/drivers/devfreq/scmi-qcom-memlat-devfreq.c
+[..]
+> >> +	for (i = 0; i < info->memory_cnt; i++) {
+> >> +		struct scmi_qcom_memory_info *memory = info->memory[i];
+> >> +		struct platform_device *pdev = memory->pdev;
+> >> +		struct devfreq_dev_profile *profile = &memory->profile;
+> >> +
+> >> +		/* sampling time should be double the devfreq observing time */
+> > 
+> > That's interesting, tell me more...
+> > 
+> 
+> This follows Lukasz's earlier point on Nyquist criterion: sample about 2x
+> faster than the changes you want to observe. CPUCP updates every
+> cpucp_sample_ms, so the devfreq poll runs at half that (sample_ms / 2) to
+> actually catch the transitions in trans_stat.
+> 
+
+While that's true for sampling in general, please make the comment
+explain why it's true in this case.
+
+Regards,
+Bjorn
 
