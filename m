@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 810BCC44511
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 14:32:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C981CC44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 14:32:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dLvApkgnLDdkoXupp3WVo1KCKGdWR2cyGX89ZdxiMS8=; b=oevJg7eHw1zlLCZpftPpHnBcUU
-	MGtof05vXfxWqoxWffsCmlHOK5H5tbxpj6pGbLg28tDWNFvwnxyfRFrkxvC5VuBR26vtYWVXGd58A
-	VybnCBnhhbx5ZchkjO1r9bd+n1UJCukecqauZ6ovn9PBj8+7L0B8MxAEuGJw30R4xUfBwratCGleW
-	yEYxsii4Lvy3b4HwVhC2/3He+PD6FPz4zKQazH1ZrmuzpuV9bcRrQrGjuROqQ/Piw7MqrIHei4MMW
-	BxAJriIqvvkI9DcQO3mfF9bIJNoJwhg0yCxE4ZMhIBRABa6dc4m/61LDS8CJQwkR/h+TQ0ZiKquiS
-	jGbNHBIQ==;
+	bh=CJJCLYrXCbYLwdhGrrtWDIlG39Gn/CtnSLCACdCPn+U=; b=4Eor62BF5lBOHFpaWmitvbm56s
+	miDKBFxA82hO7BE4cs94u3mFbGluRxIM96yLUTeM3wzNLk+zTY7A529hgceVx/MQxGPZsuCzNiV7b
+	9AAMuDK1NEycAHemN5TSemBw3fJkoeu6XgndtgnBz78a48dzU9Z2u3J7YZiyFb1MAq3lDH7bUhLra
+	8mIYYi+y72azsrmu0fSQ/tElR3R4+2f49HG4uIatA8L9UOP+vt/at23UCLex8uemBo64ItnJrifCb
+	ebRr7LtcyABxz/633mGVJo57ga3YATjOYyko8OReJASWH3Pr3YkzP+I47myt1a8CQ76bDujFC+gzA
+	3iASlg/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk0eR-0000000FAfG-4A3x;
-	Wed, 15 Jul 2026 14:31:56 +0000
+	id 1wk0eT-0000000FAiZ-2drm;
+	Wed, 15 Jul 2026 14:31:57 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk0dz-0000000FA1c-3yVY
+	id 1wk0eE-0000000FAUY-1n0s
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 14:31:39 +0000
+	Wed, 15 Jul 2026 14:31:47 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0574E1576;
-	Wed, 15 Jul 2026 07:31:23 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0F3FC1576;
+	Wed, 15 Jul 2026 07:31:37 -0700 (PDT)
 Received: from e122027.cambridge.arm.com (e122027.cambridge.arm.com [10.1.25.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 392E63F7B4;
-	Wed, 15 Jul 2026 07:31:22 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EE7573F7B4;
+	Wed, 15 Jul 2026 07:31:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784125887; bh=bzMrd1BqoPkxp7vkmCHD+vARLfctGd6IuFpz4Uz0tUQ=;
+	t=1784125901; bh=ZHXmGLH5TzpE00LEqay722W7AHFsS1ZBbuLYGDuFBAc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=tjCwL1NewjLx7UjGlSY6+a0y1aq4ttXG8Ij+BMFCeWeArd0BrU7pjtjMU/MYJJfeW
-	 8Z2LzLQUNeHIckbE3XSuWXo8VkiqAMUAh3zQPPVV45kIfoT0BJMMiwOsOBKhhjTuwO
-	 LDPgXNv1QvGfxlWBbnXU/wkoF6gIcJ5pMdPUPqt4=
+	b=QYlHt8fBSqvoIFxcS6i1AC/I0WgIcQuCDengsZhEdhxlBnI1iFgf8U82bN61e0Kst
+	 Q4Y0sKtmpoacPuwRwBs3lEgE4byHDntWAThAxu2+UMk9yU9txVHRTOYBqNyRdpvY2t
+	 tff+a2NJf+RvjzwDhgewDGBPZbd6JiOgBAy+bBdg=
 From: Steven Price <steven.price@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
@@ -67,17 +67,17 @@ Cc: Jean-Philippe Brucker <jean-philippe@linaro.org>,
 	WeiLin.Chang@arm.com,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Steven Price <steven.price@arm.com>
-Subject: [PATCH v15 32/37] KVM: arm64: CCA: Set breakpoint parameters through SET_ONE_REG
-Date: Wed, 15 Jul 2026 15:28:34 +0100
-Message-ID: <20260715142841.80544-33-steven.price@arm.com>
+Subject: [PATCH v15 35/37] KVM: arm64: CCA: Provide register list for unfinalized RECs
+Date: Wed, 15 Jul 2026 15:28:37 +0100
+Message-ID: <20260715142841.80544-36-steven.price@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260715142841.80544-1-steven.price@arm.com>
 References: <20260715142841.80544-1-steven.price@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_073128_089693_9409E3B9 
-X-CRM114-Status: GOOD (  18.60  )
+X-CRM114-CacheID: sfid-20260715_073142_580392_6C5F3ABB 
+X-CRM114-Status: GOOD (  17.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,116 +94,76 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Jean-Philippe Brucker <jean-philippe@linaro.org>
 
-Allow userspace to configure the number of breakpoints and watchpoints
-of a Realm VM through KVM_SET_ONE_REG ID_AA64DFR0_EL1.
+KVM_GET_REG_LIST should not be called before SVE is finalized. The ioctl
+handler currently returns -EPERM in this case. But because it uses
+kvm_arm_vcpu_is_finalized(), it now also rejects the call for
+unfinalized REC even though finalizing the REC can only be done late,
+after Realm descriptor creation.
 
-The KVM sys_reg handler checks the user value against the maximum value
-given by RMM (arm64_check_features() gets it from the
-read_sanitised_id_aa64dfr0_el1() reset handler).
-
-Userspace discovers that it can write these fields by issuing a
-KVM_ARM_GET_REG_WRITABLE_MASKS ioctl.
+Move the check to copy_sve_reg_indices(). One adverse side effect of
+this change is that a KVM_GET_REG_LIST call that only probes for the
+array size will now succeed even if SVE is not finalized, but that seems
+harmless since the following KVM_GET_REG_LIST with the full array will
+fail.
 
 Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
 Signed-off-by: Steven Price <steven.price@arm.com>
 Reviewed-by: Gavin Shan <gshan@redhat.com>
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 ---
- arch/arm64/kvm/guest.c    |  7 +++++++
- arch/arm64/kvm/rmi.c      |  3 +++
- arch/arm64/kvm/sys_regs.c | 17 +++++++++++------
- 3 files changed, 21 insertions(+), 6 deletions(-)
+ arch/arm64/kvm/arm.c   |  4 ----
+ arch/arm64/kvm/guest.c | 10 +++++-----
+ 2 files changed, 5 insertions(+), 9 deletions(-)
 
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index aa7617e72e22..3862db30779f 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -1966,10 +1966,6 @@ long kvm_arch_vcpu_ioctl(struct file *filp,
+ 		if (unlikely(!kvm_vcpu_initialized(vcpu)))
+ 			break;
+ 
+-		r = -EPERM;
+-		if (!kvm_arm_vcpu_is_finalized(vcpu))
+-			break;
+-
+ 		r = -EFAULT;
+ 		if (copy_from_user(&reg_list, user_list, sizeof(reg_list)))
+ 			break;
 diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-index 5469c9a97fad..3ed563e85572 100644
+index 452cf5d3152e..128fec56993a 100644
 --- a/arch/arm64/kvm/guest.c
 +++ b/arch/arm64/kvm/guest.c
-@@ -735,6 +735,8 @@ int kvm_arm_get_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
- 	return kvm_arm_sys_reg_get_reg(vcpu, reg);
- }
+@@ -617,8 +617,8 @@ static unsigned long num_sve_regs(const struct kvm_vcpu *vcpu)
+ 	if (!vcpu_has_sve(vcpu))
+ 		return 0;
  
-+#define KVM_REG_ARM_ID_AA64DFR0_EL1	ARM64_SYS_REG(3, 0, 0, 5, 0)
+-	/* Policed by KVM_GET_REG_LIST: */
+-	WARN_ON(!kvm_arm_vcpu_sve_finalized(vcpu));
++	if (!kvm_arm_vcpu_sve_finalized(vcpu))
++		return 1; /* KVM_REG_ARM64_SVE_VLS */
+ 
+ 	return slices * (SVE_NUM_PREGS + SVE_NUM_ZREGS + 1 /* FFR */)
+ 		+ 1; /* KVM_REG_ARM64_SVE_VLS */
+@@ -635,9 +635,6 @@ static int copy_sve_reg_indices(const struct kvm_vcpu *vcpu,
+ 	if (!vcpu_has_sve(vcpu))
+ 		return 0;
+ 
+-	/* Policed by KVM_GET_REG_LIST: */
+-	WARN_ON(!kvm_arm_vcpu_sve_finalized(vcpu));
+-
+ 	/*
+ 	 * Enumerate this first, so that userspace can save/restore in
+ 	 * the order reported by KVM_GET_REG_LIST:
+@@ -647,6 +644,9 @@ static int copy_sve_reg_indices(const struct kvm_vcpu *vcpu,
+ 		return -EFAULT;
+ 	++num_regs;
+ 
++	if (!kvm_arm_vcpu_sve_finalized(vcpu))
++		return num_regs;
 +
- /*
-  * The RMI ABI only enables setting some GPRs and PC. The selection of GPRs
-  * that are available depends on the Realm state and the reason for the last
-@@ -749,6 +751,11 @@ static bool validate_realm_set_reg(struct kvm_vcpu *vcpu,
- 		u64 off = core_reg_offset_from_id(reg->id);
- 
- 		return kvm_realm_validate_core_reg(off);
-+	} else {
-+		switch (reg->id) {
-+		case KVM_REG_ARM_ID_AA64DFR0_EL1:
-+			return true;
-+		}
- 	}
- 
- 	return false;
-diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
-index 491097a57328..6850338e2f19 100644
---- a/arch/arm64/kvm/rmi.c
-+++ b/arch/arm64/kvm/rmi.c
-@@ -493,6 +493,7 @@ static int realm_create_rd(struct kvm *kvm)
- 	void *rd = NULL;
- 	phys_addr_t rd_phys, params_phys, top_delegated;
- 	size_t pgd_size = kvm_pgtable_stage2_pgd_size(kvm->arch.mmu.vtcr);
-+	u64 dfr0 = kvm_read_vm_id_reg(kvm, SYS_ID_AA64DFR0_EL1);
- 	int r;
- 
- 	realm->ia_bits = VTCR_EL2_IPA(kvm->arch.mmu.vtcr);
-@@ -520,6 +521,8 @@ static int realm_create_rd(struct kvm *kvm)
- 	params->rtt_level_start = get_start_level(realm);
- 	params->rtt_num_start = pgd_size / PAGE_SIZE;
- 	params->rtt_base = kvm->arch.mmu.pgd_phys;
-+	params->num_bps = SYS_FIELD_GET(ID_AA64DFR0_EL1, BRPs, dfr0);
-+	params->num_wps = SYS_FIELD_GET(ID_AA64DFR0_EL1, WRPs, dfr0);
- 	params->hash_algo = RMI_HASH_SHA_256;
- 
- 	if (kvm->arch.arm_pmu) {
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index e0fe9f2562bc..e47be8f8d259 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -2174,6 +2174,9 @@ static int set_id_aa64dfr0_el1(struct kvm_vcpu *vcpu,
- {
- 	u8 debugver = SYS_FIELD_GET(ID_AA64DFR0_EL1, DebugVer, val);
- 	u8 pmuver = SYS_FIELD_GET(ID_AA64DFR0_EL1, PMUVer, val);
-+	u8 bps = SYS_FIELD_GET(ID_AA64DFR0_EL1, BRPs, val);
-+	u8 wps = SYS_FIELD_GET(ID_AA64DFR0_EL1, WRPs, val);
-+	u8 ctx_cmps = SYS_FIELD_GET(ID_AA64DFR0_EL1, CTX_CMPs, val);
- 
- 	/*
- 	 * Prior to commit 3d0dba5764b9 ("KVM: arm64: PMU: Move the
-@@ -2193,10 +2196,11 @@ static int set_id_aa64dfr0_el1(struct kvm_vcpu *vcpu,
- 		val &= ~ID_AA64DFR0_EL1_PMUVer_MASK;
- 
- 	/*
--	 * ID_AA64DFR0_EL1.DebugVer is one of those awkward fields with a
--	 * nonzero minimum safe value.
-+	 * ID_AA64DFR0_EL1.DebugVer, BRPs and WRPs all have to be greater than
-+	 * zero. CTX_CMPs is never greater than BRPs.
- 	 */
--	if (debugver < ID_AA64DFR0_EL1_DebugVer_IMP)
-+	if (debugver < ID_AA64DFR0_EL1_DebugVer_IMP || !bps || !wps ||
-+	    ctx_cmps > bps)
- 		return -EINVAL;
- 
- 	if (ignore_feat_doublelock(vcpu, val)) {
-@@ -2429,10 +2433,11 @@ static int set_id_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *rd,
- 	mutex_lock(&vcpu->kvm->arch.config_lock);
- 
- 	/*
--	 * Once the VM has started the ID registers are immutable. Reject any
--	 * write that does not match the final register value.
-+	 * Once the VM has started or the Realm descriptor is created, the ID
-+	 * registers are immutable. Reject any write that does not match the
-+	 * final register value.
- 	 */
--	if (kvm_vm_has_ran_once(vcpu->kvm)) {
-+	if (kvm_vm_has_ran_once(vcpu->kvm) || kvm_realm_is_created(vcpu->kvm)) {
- 		if (val != read_id_reg(vcpu, rd))
- 			ret = -EBUSY;
- 		else
+ 	for (i = 0; i < slices; i++) {
+ 		for (n = 0; n < SVE_NUM_ZREGS; n++) {
+ 			reg = KVM_REG_ARM64_SVE_ZREG(n, i);
 -- 
 2.43.0
 
