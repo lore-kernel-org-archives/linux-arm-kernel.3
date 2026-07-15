@@ -4,75 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7521DC44507
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 09:17:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E739EC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 09:20:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dH5jL6YB5OieydwdIYKQd8DRqZORSBSglWLgHTZ76SM=; b=O02JOZRqqV3CO6zRQbxfCNnCQY
-	Ftl5U5vB5nlsV6Sw47L5PGmodZ000KseOlmxTa2gu7J3Lak5PtelHQdnvgCkJDz98qj5OeCdeRsvG
-	Tn1APQ6qDwtEbO8KV0Gs5aerHvCdUp7/4owRoKtSfFi+2VOfg06UpvXYFPXeNFXfhxZofIgoGQFyb
-	+xtQneV9lAQH0YxaB7YVMgnVOxsd8Hc0oAY8OZFUKDH+/YjokpIzp5yNJLj4rswzCtJ7vxARHhX/E
-	cQTFDu0/EztMHj4ohlb+SzZdDbyk+SrQKpanT3FoEDrMobbJCxZdC08CrolpPwJkmQO8aOdMSVopY
-	g9lny2cQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+AEWs80x8QhCvqs69tA//G/NjwkGCn+l1v3SgTSIaCM=; b=Ik9DiFSQqFJA3+qSbHH++FpwrS
+	XocL/+8vjh+rS8xXZ9cuaLfpNCBWgBtaHehCBnoC9ICqw9JrLGb6Zv66A9ADLXjNmocMiF4+/yZWW
+	8Yz+vjjx39JYCHfIr+SxYIklUJlQYUrrB/I/kPHlI4dYBr7MFVe0syScX35WR8WvmABaupbFK5l8b
+	lYhFwB/f9M2dHHvjsRWDbft1xO7W1+iAiUnTykqDnlWJthWhsK30lbVp3XclqPpcJ6aRKfhq6hh7n
+	gT24D5I/h80UvdmoOFmofyv+RBa6eyrT7x5OrXPkvKSiycUUEKirmwfNskw4KCMCVaK7XXArIuMnK
+	D68KUTxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjvjp-0000000EIgz-2erY;
-	Wed, 15 Jul 2026 09:17:09 +0000
-Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
+	id 1wjvnN-0000000EJ6T-1Dvm;
+	Wed, 15 Jul 2026 09:20:49 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjvjl-0000000EIfe-42sh
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 09:17:08 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=dH5jL6YB5OieydwdIYKQd8DRqZORSBSglWLgHTZ76SM=;
-	b=2LI+n88z7up6IjvryZB1GQjeuLBiqIQH7kp3OEr5kk5AREpcwFFs0pPwLXL2OrgTkU/IYYqgW
-	dpF/15bOYBxSN0mpjcG67+KKlYTJ/eFjGtsBuHUXvKy3O6RPLJRjSBrH5EFVk0umeV0T4MA+Ohy
-	opcSdClMmSRQUFSrP+zP3gM=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4h0Vgd56Bzz1T4Mc;
-	Wed, 15 Jul 2026 17:07:41 +0800 (CST)
-Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
-	by mail.maildlp.com (Postfix) with ESMTPS id 547B740537;
-	Wed, 15 Jul 2026 17:16:52 +0800 (CST)
-Received: from [10.67.120.103] (10.67.120.103) by
- kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Wed, 15 Jul 2026 17:16:51 +0800
-Message-ID: <f360c92e-878d-49b5-bcd4-e18240a3600a@huawei.com>
-Date: Wed, 15 Jul 2026 17:16:51 +0800
+	id 1wjvnK-0000000EJ5v-1oeG;
+	Wed, 15 Jul 2026 09:20:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1784107246; x=1815643246;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=GNwWwlwKmSHKcifYCWTeyGH5lZcsn6dd0tzvoKNoxb4=;
+  b=E8TyQTIYYYg4cyJUmvc3yuZvV/tST6cuhnR969CBzTbePw/gk78+ioHU
+   6t2S45LucpjHSUf5n508TxKDlQ4wvx6G4DKQE/9/ACdDptJ8/9WGw7xL3
+   ZOcuA/n8nAppf/wdSYfgEvVI5R449xb20KWwfi+VSM1iXf84SVQBe2c0V
+   SyWdVjtDnTGmxSA+GP0rOl08+Pr2BwsG6IFqtBejyF5ApmX/iXqs3BjDq
+   CspMyxonqJS02cfPtHxBNh/XHXDMjGpyhyBdUy/SFu2KiEWCcoTAKhh6T
+   VGyRR3ofry3nb1kDp907joAnTB8UcyXI+hlalu9GdnlCpdi5uB3hjOMiX
+   w==;
+X-CSE-ConnectionGUID: DVyZYLoeRtKJmXYBbO2DXA==
+X-CSE-MsgGUID: eQNdrcdKQ++zLDU6WdDoBg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11847"; a="84781015"
+X-IronPort-AV: E=Sophos;i="6.25,165,1779174000"; 
+   d="scan'208";a="84781015"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jul 2026 02:20:45 -0700
+X-CSE-ConnectionGUID: rohPZ6YPTZinj6UTJQYdjw==
+X-CSE-MsgGUID: Nj0Y0ejIQuSWjXGPb/1fOg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,165,1779174000"; 
+   d="scan'208";a="254379157"
+Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.129])
+  by orviesa006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jul 2026 02:20:40 -0700
+Date: Wed, 15 Jul 2026 12:20:38 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Bartosz Golaszewski <brgl@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Daniel Scally <djrscally@gmail.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Wei Deng <wei.deng@oss.qualcomm.com>, linux-acpi@vger.kernel.org,
+	driver-core@lists.linux.dev, linux-pm@vger.kernel.org,
+	linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Alan Stern <stern@rowland.harvard.edu>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Subject: Re: [PATCH v5 06/16] usb: hub: Associate port@ fwnode with USB port
+ device
+Message-ID: <aldQ5odptfmK5aCw@ashevche-desk.local>
+References: <20260715085348.3457359-1-wenst@chromium.org>
+ <20260715085348.3457359-7-wenst@chromium.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 4/6] KVM: arm64: Add HDBSS per-vCPU buffer management
-To: Leonardo Bras <leo.bras@arm.com>
-CC: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>,
-	<yangjinqian1@huawei.com>, <caijian11@h-partners.com>,
-	<liuyonglong@huawei.com>, <yezhenyu2@huawei.com>, <yubihong@huawei.com>,
-	<linuxarm@huawei.com>, <joey.gouly@arm.com>, <kvmarm@lists.linux.dev>,
-	<kvm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <seiden@linux.ibm.com>,
-	<suzuki.poulose@arm.com>
-References: <20260709104026.2612599-1-zhengtian10@huawei.com>
- <20260709104026.2612599-5-zhengtian10@huawei.com>
- <alTqqxEZLuYN-gY6@LeoBrasDK>
- <df479edc-cca0-4b54-aed0-4d8c6fd4ffc7@huawei.com>
- <alYTt-fG5rJ9D6Dm@LeoBrasDK>
-From: Tian Zheng <zhengtian10@huawei.com>
-In-Reply-To: <alYTt-fG5rJ9D6Dm@LeoBrasDK>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.120.103]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemr100010.china.huawei.com (7.202.195.125)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260715085348.3457359-7-wenst@chromium.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_021706_684254_ED89189F 
-X-CRM114-Status: GOOD (  49.41  )
+X-CRM114-CacheID: sfid-20260715_022046_494139_B8D82B6C 
+X-CRM114-Status: GOOD (  16.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,301 +103,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Jul 15, 2026 at 04:53:36PM +0800, Chen-Yu Tsai wrote:
+> When a USB hub port is connected to a connector in a firmware node
+> graph, the port itself has a node in the graph.
+> 
+> Associate the port's firmware node with the USB port's device,
+> usb_port::dev. This is used in later changes for the M.2 slot power
+> sequencing provider to match against the requesting port.
+> 
+> To avoid potential conflicts with ACPI firmware nodes and then causing
+> power management issues, only assign the firmware node if the hub's
+> firmware node is not an ACPI firmware node.
 
-On 7/14/2026 6:47 PM, Leonardo Bras wrote:
-> On Tue, Jul 14, 2026 at 03:15:03PM +0800, Tian Zheng wrote:
->> On 7/13/2026 9:39 PM, Leonardo Bras wrote:
->>> On Thu, Jul 09, 2026 at 06:40:24PM +0800, Tian Zheng wrote:
->>>> From: eillon <yezhenyu2@huawei.com>
->>>>
->>>> Add HDBSS (Hardware Dirty Bit State Structure) per-vCPU buffer
->>>> management including allocation, freeing, and loading of HDBSS
->>>> registers during vCPU load.
->>>>
->>>> This patch creates the foundational infrastructure:
->>>> - struct vcpu_hdbss_state and enable_hdbss/hdbss_order in kvm_arch
->>>> - kvm_dirty_bit.h header with alloc/free declarations
->>>> - dirty_bit.c with alloc/free helpers
->>>> - __load_hdbss() in VHE switch for register loading
->>>> - vCPU create/destroy hooks for buffer lifecycle
->>>> - sysreg definitions for HDBSS register manipulation
->>>> - Makefile update for dirty_bit.o
->>>>
->>>> Signed-off-by: Eillon <yezhenyu2@huawei.com>
->>>> Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
->>>> ---
->>>>    arch/arm64/include/asm/kvm_dirty_bit.h | 16 ++++++++
->>>>    arch/arm64/include/asm/kvm_host.h      | 13 +++++++
->>>>    arch/arm64/include/asm/sysreg.h        | 11 ++++++
->>>>    arch/arm64/kvm/Makefile                |  1 +
->>>>    arch/arm64/kvm/arm.c                   |  7 ++++
->>>>    arch/arm64/kvm/dirty_bit.c             | 52 ++++++++++++++++++++++++++
->>>>    arch/arm64/kvm/hyp/vhe/switch.c        | 15 ++++++++
->>>>    arch/arm64/kvm/mmu.c                   |  1 +
->>>>    arch/arm64/kvm/reset.c                 |  4 ++
->>>>    9 files changed, 120 insertions(+)
->>>>    create mode 100644 arch/arm64/include/asm/kvm_dirty_bit.h
->>>>    create mode 100644 arch/arm64/kvm/dirty_bit.c
->>>>
->>>> diff --git a/arch/arm64/include/asm/kvm_dirty_bit.h b/arch/arm64/include/asm/kvm_dirty_bit.h
->>>> new file mode 100644
->>>> index 000000000000..84b12f0a10af
->>>> --- /dev/null
->>>> +++ b/arch/arm64/include/asm/kvm_dirty_bit.h
->>>> @@ -0,0 +1,16 @@
->>>> +/* SPDX-License-Identifier: GPL-2.0-only */
->>>> +/*
->>>> + * Copyright (C) 2026 ARM Ltd.
->>>> + * Author: Leonardo Bras <leo.bras@arm.com>
->>> You are adding the file, so the copyright note should be yours, then?
->>
->> I originally thought your earlier patchset had already created this file, so
->> I
->>
->> kept your copyright and author info. I'll update it to mine in the next
->> version.
->>
->>
->> Thanks for pointing that out!
-> :)
->
->>
->>>> + */
->>>> +
->>>> +#ifndef __ARM64_KVM_DIRTY_BIT_H__
->>>> +#define __ARM64_KVM_DIRTY_BIT_H__
->>>> +
->>>> +#include <asm/kvm_pgtable.h>
->>>> +#include <asm/sysreg.h>
->>>> +
->>>> +int kvm_arm_vcpu_alloc_hdbss(struct kvm_vcpu *vcpu, unsigned int order);
->>>> +void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu);
->>>> +
->>>> +#endif /* __ARM64_KVM_DIRTY_BIT_H__ */
->>>> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
->>>> index bae2c4f92ef5..c41ec6d9c45a 100644
->>>> --- a/arch/arm64/include/asm/kvm_host.h
->>>> +++ b/arch/arm64/include/asm/kvm_host.h
->>>> @@ -420,6 +420,10 @@ struct kvm_arch {
->>>>    	 */
->>>>    	struct kvm_protected_vm pkvm;
->>>>
->>>> +	/* HDBSS: per-VM dirty tracking state */
->>>> +	bool enable_hdbss;
->>> Is there not a way of checking hdbss without adding this new member on the
->>> struct? Would not checking the vcpu_hdbss_state from current vcpu should be
->>> enough?
->>
->> HDBSS is a VM-wide property, so I currently use a VM-level flag
->> (kvm->arch.enable_hdbss)
->>
->> to track whether it's enabled. Paths like kvm_arch_commit_memory_region()
->> and VM teardown
->>
->> don't have a vCPU context to query, so per-vCPU state wouldn't work there.
->>
->>
->> But you're right, maybe we don't need a value to store it — we could remove
->> this flag and instead
->>
->> check the VTCR_EL2_HDBSS bit directly from kvm->arch.mmu.vtcr:
->>
->>
->> ```
->> static inline bool kvm_hdbss_enabled(const struct kvm *kvm)
->> {
->>      return kvm->arch.mmu.vtcr & VTCR_EL2_HDBSS;
->> }
->>
->> if (kvm_hdbss_enabled(kvm))
->>      ...
->> ```
-> That looks better :)
->
->>
->>>> +	unsigned int hdbss_order;
->>> Is that the order for hdbss buffer size?
->>> Haven't finished reading the series, but would that be bad if this was also
->>> in the per-vcpu state struct, instead?
->>>
->>> Also, here I suggest that we save a number, instead of the encoding for
->>> HDBSSBR_ELS_SZ, and convert it on hdbss setup. It could be either a
->>> shift, or size.
->>>
->>> Reason being that you used this to compare with HDBSS_MAX_ORDER at some
->>> point, and there is no guarantee that the encoding will always be in
->>> crescent form.
->>>
->>> Also, it's not clear where you set this value.
->>
->> Yes, this is the HDBSS buffer order (2^order bytes per vCPU).
->>
->> I put it in kvm->arch *to make sure all vCPUs in a VM have the same order*.
->>
-> Right, but do we need to retrieve this value at any context that is not
-> per-vcpu later? If all allocations happen at the same time, and the vcpus
-> can get the size of their arrays (even by the register itself), maybe there
-> is no need to add this member in the kvm_arch structure.
->
->>
->> I agree we should store a plain order number rather than the raw SZ
->> encoding.
->>
-> I would recommend we always save the value in the way its most convenient
-> to use. In this case, I only recall it to be used as bounds to read the
-> HDBSS array, so it would be better if we save it as plain size.
->
->> The assignment should happen in kvm_arm_enable_hdbss_global(), which I
->> missed in v4 and will add in v5.
->>
-> Okay
->
->>>> +
->>>>    #ifdef CONFIG_PTDUMP_STAGE2_DEBUGFS
->>>>    	/* Nested virtualization info */
->>>>    	struct dentry *debugfs_nv_dentry;
->>>> @@ -838,6 +842,12 @@ struct vcpu_reset_state {
->>>>    	bool		reset;
->>>>    };
->>>>
->>>> +struct vcpu_hdbss_state {
->>>> +	phys_addr_t base_phys;   /* for memory free */
->>>> +	u64 hdbssbr_el2;         /* load directly */
->>>> +	u64 hdbssprod_el2;       /* save directly */
->>>> +};
->>>> +
->>>>    struct vncr_tlb;
->>>>
->>>>    struct kvm_vcpu_arch {
->>>> @@ -945,6 +955,9 @@ struct kvm_vcpu_arch {
->>>>
->>>>    	/* Hyp-readable copy of kvm_vcpu::pid */
->>>>    	pid_t pid;
->>>> +
->>>> +	/* HDBSS registers info */
->>>> +	struct vcpu_hdbss_state hdbss;/
->>>>    };
->>>>
->>>>    /*
->>>> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
->>>> index 7aa08d59d494..1354a58c3316 100644
->>>> --- a/arch/arm64/include/asm/sysreg.h
->>>> +++ b/arch/arm64/include/asm/sysreg.h
->>>> @@ -1039,6 +1039,17 @@
->>>>
->>>>    #define GCS_CAP(x)	((((unsigned long)x) & GCS_CAP_ADDR_MASK) | \
->>>>    					       GCS_CAP_VALID_TOKEN)
->>>> +
->>>> +/*
->>>> + * Definitions for the HDBSS feature
->>>> + */
->>>> +#define HDBSS_MAX_ORDER		HDBSSBR_EL2_SZ_2MB
->>>> +
->>> See above comment on using the encoding instead of an actual size/shift
->>> number.
->>
->> You're right — I will fix this in the next version as follows:
->>
->> First, HDBSS_MAX_ORDER will be defined as a plain order number. In v4 I only
->> considered the 4KB page
-> Maybe consider a plain size number, instead.
->
->> case and hard-coded it to 9. To make it work for any PAGE_SIZE configuration
->> (4KB, 16KB, or 64KB), I'll derive
->>
->> it from HDBSSBR_EL2_SZ_2MB:
->>
->> ```
->> #define HDBSS_MAX_ORDER    (12 + HDBSSBR_EL2_SZ_2MB - PAGE_SHIFT)
->> ```
->>
->> This evaluates to 9 on 4KB pages, and the correct value on 16KB/64KB pages
->> as well.
-> Wait, I don't see what you are trying to achieve here with this.
-> This order is related to the size of a HDBSS buffer, which is defined
-> independently of the page size being used. In 2MB example, it does hold
-> 256K HDBSS entries, disregarding on the page size, IIRC.
->
->
->> Second, I will add two conversion helpers in sysreg.h to bridge between
->> kernel semantics (alloc_pages order)
->>
->> and hardware encoding (HDBSSBR_EL2.SZ):
->>
->> ```
->> /* Convert alloc_pages order to HDBSSBR_EL2.SZ encoding */
->> #define hdbss_order_to_sz(order)  (PAGE_SHIFT + (order) - 12)
->> ```
-> (would be *_to_shift() no?)
->
-> In any case, see above.
->
->> These helpers work for any PAGE_SIZE configuration (4KB, 16KB, or 64KB)
->> because they use PAGE_SHIFT directly.
->>
->> Third, I will update the HDBSSBR_EL2 register construction in
->> kvm_arm_vcpu_alloc_hdbss()：
->>
->> ```
->> /* before */
->> .hdbssbr_el2 = HDBSSBR_EL2(page_to_phys(hdbss_pg), order),
->>
->> /* after */
->> .hdbssbr_el2 = HDBSSBR_EL2(page_to_phys(hdbss_pg),
->>                              hdbss_order_to_sz(order)),
->> ```
->>
-> That would be the other way around, right? I mean, here you would want the
-> order encoded in HDBSSBR_SZ from the page shift, not the other way around.
->
-> In any case, see above.
->
->
->> And I will also update the __free_pages() call to use
->> vcpu->kvm->arch.hdbss_order directly, since that field
->>
->> stores the plain order number and avoids decoding the SZ encoding at free
->> time:
->>
->>
->> ```
->> /* before */
->> __free_pages(hdbss_pg,
->>       FIELD_GET(HDBSSBR_EL2_SZ_MASK,
->>                 vcpu->arch.hdbss.hdbssbr_el2));
->>
->> /* after */
->> __free_pages(hdbss_pg,
->>       vcpu->kvm->arch.hdbss_order);
->> ```
->>
-> Ah, you use the 'order' to free the buffers as well, ok.
-> But those are per-vcpu buffers as well, right?
->
-> Again, the HDBSSBR_EL2.SZ AFAIK is not related to page size.
->
-> Thanks!
-> Leo
+...
 
+> int usb_hub_create_port_device(struct usb_hub *hub, int port1)
 
-Got it. I'll store the plain size (in bytes) instead of the order or SZ
-encoding.
+What about adding
 
-One clarification though: I'd like to keep this as a VM-level field
-(kvm->arch.hdbss_buffer_size) in case we may want to allow userspace to
-configure the buffer size via ioctl in the future.
+	struct fwnode_handle *fwnode = dev_fwnode(&hdev->dev);
 
-The field would be unsigned long hdbss_buffer_size (in bytes), with helpers
-to convert to order or SZ encoding when needed:
-   - get_order(size) → for alloc_pages()
-   - ilog2(size) - 12 → for HDBSSBR_EL2.SZ
+to the top of the function, and...
 
-Does that work for you?
+>  	port_dev->dev.driver = &usb_port_driver;
+>  	dev_set_name(&port_dev->dev, "%s-port%d", dev_name(&hub->hdev->dev),
+>  			port1);
+> +	/*
+> +	 * ACPI FW nodes are associated later when device_register() happens.
+> +	 * Skip assigning one here to avoid potential conflicts.
+> +	 */
+> +	if (!is_acpi_node(dev_fwnode(&hdev->dev)))
+> +		device_set_node(&port_dev->dev,
+> +				fwnode_graph_get_port_by_id(dev_fwnode(&hdev->dev), port1,
+> +							    FWNODE_GRAPH_DEVICE_DISABLED));
 
+...shorten this a bit to
 
-Thanks!
+	if (!is_acpi_node(fwnode)) {
+		struct fwnode_handle *ep;
 
-Tian
+		ep = fwnode_graph_get_port_by_id(fwnode, port1, FWNODE_GRAPH_DEVICE_DISABLED);
+
+// Is NULL or error pointer is fine here to be set as fwnode in port device?
+// Perhaps add a comment?
+
+		device_set_node(&port_dev->dev, ep);
+	}
+
+-- 
+With Best Regards,
+Andy Shevchenko
 
 
 
