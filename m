@@ -4,65 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A6B6C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 11:36:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 048A9C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 11:39:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5hkQ1X3dNI+y7n8z5kAh8s8mH54WX+OhAWV76vg8las=; b=nfe4vlccl75WXX82XS2SuHhxct
-	L2uS3SkMPMDdiztBItyyo+IPqMGQViPDifZSj7CYK4K7TUO+E35yfnUS1HwUy7ne2/twGRzDk/INj
-	2Bzf9VOfSHBxhCMKI+LSeL3XQSeMyyLkWL+xTRvbNUUlh1k8AKsEBzb/5U6+XwNYO8DVYyY2bMw72
-	jMYh0fwPbDVljfpUfo3jySPpblEYs9CJyXTcoYCzFdJxImNFqSls4YgoLDm4E3Qxn7C1LRXrgaxwp
-	KG/5TGDNA7KFDHpw7KuT2Pyva/YbqzJkDTe5+wJQDlXS+BvH6nHsn8cAa+EiVuYCVi8MKXfbCcNP8
-	Akl2ZUcA==;
+	bh=2ImEeyGX/03IdqhPpHyL8+qMOdo9yyi9xzZSn0X5s1I=; b=vDfloYCFbUaLLUADR0jkwfZqAD
+	xe5i0Yi7+Jkj3zyXsaKgHExpxqgq26hfIwa89I2PGJit5D/nGC0olup59kAryfS8pCAauyPPthk1u
+	7NVfzzva/BBZIThdzC/nIhdlpWGqgaPkhBRUe03JMTYKDGlZiNm8upmA/dOzLdfjQNHglV/BcY8GT
+	pHql2B7hAeV4zP9PzYbUDCSUsc/5UbxwBFHppFQWIu5HJWKFNo0IdNtTFaplRAx5N1nesLG2JZ/bE
+	/OGbgONmdgbRj9R1/DFts9dj6K5Ksu5YDIS/pU67pOt6CXb0oKmGHNu3P8Mu8e7qz8D5EyfupCcnG
+	NjI2Vk7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjxuB-0000000EawK-0DxY;
-	Wed, 15 Jul 2026 11:35:59 +0000
-Received: from out-178.mta1.migadu.com ([95.215.58.178])
+	id 1wjxxT-0000000EbXD-43EX;
+	Wed, 15 Jul 2026 11:39:23 +0000
+Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjxu9-0000000EauF-0GXz
+	id 1wjxxR-0000000EbWb-0WSX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 11:35:58 +0000
-X-Forwarded-Encrypted: i=1; AHgh+RpZ94ZMzOCCV8Ace93qRRFhKQLkZXCYq8WrnsELpDSO/38f0rlIoeWMfdc4YcoTUBKQsx1vhWn6Bo0K16YIAHeS@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1784115354;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=5hkQ1X3dNI+y7n8z5kAh8s8mH54WX+OhAWV76vg8las=;
-	b=BqnQaKDKW32iBLyU6sQA10IExV1fsbIClIh+9uPp+ZyH6OWNrLzvXOAmKR0tjRuMXXlbyx
-	ixD+Cz7/BqizjbxWtz4K7C/T4vcpgh+NoTZPXfOg2ZRIgHgzxj8RzoE5AaS2oUg5wZEbXP
-	5IdcKtaLXQCJ278xze9KeKwot5a12EU=
-X-Gm-Message-State: AOJu0YwjOPIAwGwSlpGeBLktDp8oDGdexgaSiguCHwrci6Y8etdXP2n1
-	soDRrMjddnK9BjGnnLBkiflu3B2XZB9X6qZrv5p2OQRcbR74Yx7GnPKU/r59NYl+Tc1j83dKNYt
-	xfqq5lUbKYv85ayt/D8s68i6Fs9i6EfLxO8c/WX8t
-X-Received: by 2002:a05:622a:a591:b0:51b:ff0a:2048 with SMTP id
- d75a77b69052e-51d71543adamr26047821cf.3.1784115337213; Wed, 15 Jul 2026
- 04:35:37 -0700 (PDT)
+	Wed, 15 Jul 2026 11:39:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IoeCL8yXpIPdd8cYNGYjUFOSJeMdvYwjW01/KlF0+wdRFizBcS2cskvwTCeQhGEP9TJcGB2lPftFVtQpq3lgnFMh+2mT+8H7CeYXjzm9hl7PefskvOqqmYSnuHZyVjbBo9s4pyNHq6ZmM+CPTeCF9ub71x6amqzXM1TUNyq9lPwdvQuOR+ogBbDgXjucOg00qWc32d0kpOaTfAwB0PmBJqWPJ4kjWlebM3w0MO9ZnLswvq8pXgcMQpgfpeNMPw50UeclBN9ftbPLNZP/5Ur2tYDjqSqpYHMVmEOzXMKb8IHay4b9xDcoGGxVHjAmNjNvI6DaqsaEuWwg0lNg0VoC/g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2ImEeyGX/03IdqhPpHyL8+qMOdo9yyi9xzZSn0X5s1I=;
+ b=osif8BnTKYzKFdwI9poNvJk/m/JVxqEPZjy0DP5C0xmS8XhHR2ZGZXiS7evbhxWy0Cc2xytve957oKEQljF1ceSUx1MJrygtUrzrooyKT8HCsKUqF7TKfL6pb7RBuDSEmCnqbIpUdP8ayQd6DW+eWDppZunsX1aPahtzvE5PxXNGPtdkmhkNKROxlJEjVHCX6OgeOBtrdfLuZszEsvq3tNgHHinNR9VRxdnjl/LP9ib0TqZP2Wx/+5FS2fMqItxGgaTyxPmzG95Tw3pYgWX+bSdp3uiJoy8cuhjRMx3YcEr6MLsQQMcx43ovl26Nfgm2xM+HeGAbmXH1rtfNZ0SerQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2ImEeyGX/03IdqhPpHyL8+qMOdo9yyi9xzZSn0X5s1I=;
+ b=SY2ZEaJvPhSgKxQibAlVib3lu9DKCl5fG3rMW2vZk3Xd2iFu9gb7c98xSd9Xc7UOd5dD7jc2Iareb33vnk6QGvxQ6f3Py35MOsBoYLecwV7UFL1dyp+yvXL8/R4LML/ocjsNDvhS8gncGI65q4eOdXrbA6Ap52ZyRkKqA1ohE3lCr8bWjEJhdxnktkO7HdwSAmSVoS1q34jZZhdZ10rni7Lq57MUfyDXhgPZFk0fGpR1HJ4h4voA5DeIwWqdZbymfKLhzl0Psj7J21zDKVwqg7+H1QeMjz2SP0fknhouxo5CARSY+f3uouDk9ldIZix8iuDOEO+mxLA/xhrR6gTO5A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by SA1PR12MB9491.namprd12.prod.outlook.com (2603:10b6:806:458::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.22; Wed, 15 Jul
+ 2026 11:39:14 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0202.014; Wed, 15 Jul 2026
+ 11:39:14 +0000
+Date: Wed, 15 Jul 2026 08:39:13 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
+Cc: "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>, linux-arm-msm@vger.kernel.org,
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Prakash Gupta <prakash.gupta@oss.qualcomm.com>
+Subject: Re: [PATCH] iommu/io-pgtable-arm: Add support for contiguous hint bit
+Message-ID: <20260715113913.GA3775915@nvidia.com>
+References: <20260618-iommu_contig_hint-v1-1-4502a59e6388@oss.qualcomm.com>
+ <20260703161228.GA1948451@nvidia.com>
+ <b7224dff-7e51-49cb-8421-14d090492dfc@oss.qualcomm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <b7224dff-7e51-49cb-8421-14d090492dfc@oss.qualcomm.com>
+X-ClientProxiedBy: YT4PR01CA0121.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:d5::9) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-References: <20260706175415.2604046-1-vdonnefort@google.com> <20260706175415.2604046-14-vdonnefort@google.com>
-In-Reply-To: <20260706175415.2604046-14-vdonnefort@google.com>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Wed, 15 Jul 2026 12:35:00 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTypUuO5mGFvMcM3uxLV9AfT1o+ue97FxPOTETEFd-6gng@mail.gmail.com>
-X-Gm-Features: AUfX_myf92oOkH0YbXhV4wPBITqN6TIW4rOsI6YKVHEl4UE5O_W3P54hnk7d2AI
-Message-ID: <CA+EHjTypUuO5mGFvMcM3uxLV9AfT1o+ue97FxPOTETEFd-6gng@mail.gmail.com>
-Subject: Re: [PATCH v2 13/18] KVM: arm64: Move hyp_vm refcount into the structure
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
-	will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kernel-team@android.com, qperret@google.com
-Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|SA1PR12MB9491:EE_
+X-MS-Office365-Filtering-Correlation-Id: cbdaa356-0718-4aff-abd4-08dee265b202
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|366016|376014|10067099003|56012099006|22082099003|11063799006|18002099003|4143699003;
+X-Microsoft-Antispam-Message-Info: HNCUewJ/W165KX6QYklsYgxdIlVhMTDhRgDhVKnXotk7yXXknE4k508jmI+XK388brmmkFG/Gt49M3CFpzirOYhGlBrWSdNKfF/keRe2tqdcoMQ3PoGd+LZeCJ0MnVwF2agLGujuUCqNb44YhYKNiLRuDktokymOSrSqIcby4m+v3lMFC1m7MBtV8gZl5DfWoNCQpnClukitD0FI/J6j83vzgRW1wyNOKhsxgVqwXyGP2nYt6mj1XuP3BeeBP0nV2NF3Y2C2z/jJmUdSzJlz1L4z81nZeiHZNdLHTlfAohFHUJJ4YkWkkPxKW12iGLHiMyWBACf6PTJPyPlFv7MOiPfq3RzmcY8/jv3b8ONlPQmdJb0sIU2bLaSWS4EaZ9aXHqyi+8+/YCaijV44BuWt5USvBy9n43xdgoxUPStlM0Y1S9gRe0oAqH7v3aLKQL/Wn4E4KvVVfx6aukiUzarrMLUl0TDBCnI/Px7+ZlRo8I/hW73kOfNdYPTliUEkCCZuLAxviZ3K/0jLg5m5xZq3wXmklFEyU4KqqbKKbhJtU7/ThFG9WsDa/iCQvjgM7sSd2Lo39pqScMWgHPU91bUaBE+nMQFsUm74tQPcOCV3+Q6WusHRULlDUa0Rh0rq/3tOPbEgzxSTJ9HA3zKdVVx5AOxqHSVl1zS7RufuL5KOUYI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(376014)(10067099003)(56012099006)(22082099003)(11063799006)(18002099003)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?qX3zipOg9oZ1p2rupVAoiWGV0V15u/9AIQ8tsNnA2q6oIFLL+XrJJ1keEyoq?=
+ =?us-ascii?Q?mSnmIE0Vn5FaXpN/7Mg362x2m9A7aWP2expgnFIO3yr2yBDB5dupY6xuF0Qu?=
+ =?us-ascii?Q?bPm8C+Y+mgVyiQuPd4GZlJ/P7cDm6DEpZS6whILpb0gOIYlQ0+ekCP2Dq17P?=
+ =?us-ascii?Q?fMnE9YwgcUjjFExj3ZL5UTfcJGcwNQaR6/aADtU0gT2Kexo8BegNSB54b8PT?=
+ =?us-ascii?Q?y9kbgV5hjclB+O95w4HuddVTVOqd+zGuFj0aIdIPeeYhrwIQsYp3SBfU5Ks5?=
+ =?us-ascii?Q?6IVbCt/QsopEoJ784blPpRNJDAvOejHE7E4fskR8k6Rxxl5XpMLFU76Q6pmk?=
+ =?us-ascii?Q?7JmQRh9jZOrC6WYJ8ExJGywRUMKkH+sMnANYKUGACUEpKt5Y1n1c3LOaJYzG?=
+ =?us-ascii?Q?vUR7rC/m5p2cghbWtuji8EU5JejRyvaOUVblEOGXTOw1JUkMpFw869KYwTJD?=
+ =?us-ascii?Q?qbuJ6gB6y0W+97mxovm19j0Jq6fEt1rk7t/mULJy5azF4n91g5RBqMxMY6GB?=
+ =?us-ascii?Q?h83WHqcPd/s3LK+n5hupU6q9Ike69vMOtFhrcpsr51JHCciBIB1ktmCrkONB?=
+ =?us-ascii?Q?2EaFV68p2gsbNrSAYyQE86jslVK97r7NDRgZEVGZWuIDxOZFEc5EIe28YlLp?=
+ =?us-ascii?Q?18U3kjbahB7gzEDcfonSUcb8i8EowvRhBTUkI6mhHYNFkfxb0OP/vJsU4gkh?=
+ =?us-ascii?Q?HIVlR5d/CCWL0d29fYx+7TumJYhSlygOiEw2xZAPBDHYCVbCpiPj2JxdOSlr?=
+ =?us-ascii?Q?td1Zx/ReteNa2CS6jb4nzfzQ6rdtcRZdtdyF3GrhLE4D3qzG92p53iJSYwat?=
+ =?us-ascii?Q?BBwzg+9E/Fc3Abm6c/gWOpYsf+ZIiK8GoSz6/lbu6dtZpSkAkQW3u8WDSwl0?=
+ =?us-ascii?Q?WHwQgIsSL8hRfQWu6fgQoGxbuhhGJDuEFIppqCb5Lhy2NWLw2PEPC8RvT6jX?=
+ =?us-ascii?Q?SFg6duQvZ9OFmpWVR1zniInwHfdmX/4/5B7gIOiuzmES2AI2UO1USKMO2Vz0?=
+ =?us-ascii?Q?Z5nt88z7exZIYa5va6vAEsMRxdQvbCIemftc2hWl42Ftcks1e5cwUENoBUfv?=
+ =?us-ascii?Q?R3uCVNc5Casuk+k4Gr2Nv+kyAqjA7ZIu1qDs+KvEmm/OfWdia/ipM4moWBbm?=
+ =?us-ascii?Q?Caz6SJtFqGetaLIT8jUGFRn+xPToKZx1oUl5eXBlsy2WGi9io3N/MtJRViWL?=
+ =?us-ascii?Q?0drfB5RJ9eFHDPqDheJMSh3qYlI+96hsC9xVXA0zW64KSi+A8Jztq2piyEz1?=
+ =?us-ascii?Q?31GYc18jukhRFKYyjsbEBCl87AxoH39keQJh7GylrkRG3ciz9lP1XmRhh6o8?=
+ =?us-ascii?Q?8f+b1R4agE22dDmc5oZSV/vtJXnMa9h2kCkeRg+T+Av6Aec1KHKZhjur9r76?=
+ =?us-ascii?Q?+KkPsSPYV8x85/+Q1CFDwLtNt7rCQju6hNo5DL9JakpFccp3cApDOhD8DRXe?=
+ =?us-ascii?Q?Y0Qm09y3TkYoOGBji0cxf/ZoyoO0+pTMif3QAJzS+4XFY/G0i15MsJlfy3Aq?=
+ =?us-ascii?Q?7XKNL8s7yKuyOoiM1SR/J8lxL1qnHtGr5KN4EtZIKteubH3/pJqSLiw9P6nC?=
+ =?us-ascii?Q?v5TRyKwrVNJ60gJaEwjfkhtCdWnvmLkxPrfuX59mU3+Fq0GoevkAscV2itfc?=
+ =?us-ascii?Q?rmN07Bhv71MFiHphjc0k49EKUSKoSyFuLTxOEk4r3zYthI/AvjCow6SpmeSi?=
+ =?us-ascii?Q?Q2+IUfQC01p4gE9bY6Ja0uu8C2E0UJikEMSV12hze4/xVe4A?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cbdaa356-0718-4aff-abd4-08dee265b202
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2026 11:39:14.1144
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: PvgbelmPUjP9jIOD6xUFFq5xnWYP7FKWNVptyeDJDqecNychgey2N3IHgU2a6c5h
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB9491
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_043557_270063_B1D7C0AD 
-X-CRM114-Status: GOOD (  15.71  )
+X-CRM114-CacheID: sfid-20260715_043921_200926_0DD4CED6 
+X-CRM114-Status: GOOD (  20.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,104 +139,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 6 Jul 2026 at 18:54, Vincent Donnefort <vdonnefort@google.com> wrote:
->
-> In preparation for allocating hyp_vm using the pKVM heap allocator
-> (hyp_alloc()), move its reference count out of the page metadata
-> (vmemmap) and place it into the structure itself. This transition is
-> necessary because hyp_alloc() allows multiple small objects to share the
-> same physical page.
->
-> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+On Wed, Jul 15, 2026 at 11:25:42AM +0530, Vijayanand Jitta wrote:
+> On 7/3/2026 9:42 PM, Jason Gunthorpe wrote:
+> > On Thu, Jun 18, 2026 at 02:32:09PM +0530, Vijayanand Jitta wrote:
+> >> From: Prakash Gupta <prakash.gupta@oss.qualcomm.com>
+> >>
+> >> Add support for the contiguous hint (CONT) bit in ARM LPAE page tables.
+> >> When a set of consecutive PTEs map a naturally-aligned contiguous block
+> >> of memory, the CONT bit can be set on all entries in the group to allow
+> >> the hardware to combine them into a single TLB entry, improving TLB
+> >> utilization.
+> >>
+> >> The contiguous hint sizes per granule are:
+> >>
+> >>   Page Size | CONT PTE |  PMD  | CONT PMD
+> >>   ----------+----------+-------+---------
+> >>       4K    |   64K    |   2M  |   32M
+> >>      16K    |    2M    |  32M  |    1G
+> >>      64K    |    2M    | 512M  |   16G
+> > 
+> > My series to convert smmuv3 to the iommupt takes care of this and
+> > supports all the orders too. I'd rather we move forward with that then
+> > try to patch up this.
+> 
+> Thanks for details, I have gone through your series. As this patch
+> targets io-pgtable-arm.c directly and would benefit all its users (SMMUv2,
+> Apple DART, etc.), not just SMMUv3. I think there will still be value in
+> this patch for the other users.
 
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+If other users care they should also be converted to iommupt, there
+are many benefits to this besides just cont support.
 
-Cheers,
-/fuad
-
-
->
-> diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-> index c904647d2f76..624367d0ef5b 100644
-> --- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-> +++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-> @@ -41,6 +41,7 @@ struct pkvm_hyp_vm {
->         struct kvm_pgtable pgt;
->         struct kvm_pgtable_mm_ops mm_ops;
->         struct hyp_pool pool;
-> +       unsigned short refcount;
->         hyp_spinlock_t lock;
->
->         /* Array of the hyp vCPU structures for this VM. */
-> @@ -65,6 +66,18 @@ static inline bool pkvm_hyp_vm_is_protected(struct pkvm_hyp_vm *hyp_vm)
->         return kvm_vm_is_protected(&hyp_vm->kvm);
->  }
->
-> +static inline void pkvm_hyp_vm_ref_inc(struct pkvm_hyp_vm *hyp_vm)
-> +{
-> +       BUG_ON(hyp_vm->refcount == USHRT_MAX);
-> +       hyp_vm->refcount++;
-> +}
-> +
-> +static inline void pkvm_hyp_vm_ref_dec(struct pkvm_hyp_vm *hyp_vm)
-> +{
-> +       BUG_ON(!hyp_vm->refcount);
-> +       hyp_vm->refcount--;
-> +}
-> +
->  void pkvm_hyp_vm_table_init(void *tbl);
->
->  int __pkvm_reserve_vm(void);
-> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> index 3b2c4fbc34d8..d9ab58226889 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> @@ -278,7 +278,7 @@ struct pkvm_hyp_vcpu *pkvm_load_hyp_vcpu(pkvm_handle_t handle,
->         }
->
->         hyp_vcpu->loaded_hyp_vcpu = this_cpu_ptr(&loaded_hyp_vcpu);
-> -       hyp_page_ref_inc(hyp_virt_to_page(hyp_vm));
-> +       pkvm_hyp_vm_ref_inc(hyp_vm);
->  unlock:
->         hyp_spin_unlock(&vm_table_lock);
->
-> @@ -294,7 +294,7 @@ void pkvm_put_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
->         hyp_spin_lock(&vm_table_lock);
->         hyp_vcpu->loaded_hyp_vcpu = NULL;
->         __this_cpu_write(loaded_hyp_vcpu, NULL);
-> -       hyp_page_ref_dec(hyp_virt_to_page(hyp_vm));
-> +       pkvm_hyp_vm_ref_dec(hyp_vm);
->         hyp_spin_unlock(&vm_table_lock);
->  }
->
-> @@ -311,7 +311,7 @@ struct pkvm_hyp_vm *get_pkvm_hyp_vm(pkvm_handle_t handle)
->         hyp_spin_lock(&vm_table_lock);
->         hyp_vm = get_vm_by_handle(handle);
->         if (hyp_vm)
-> -               hyp_page_ref_inc(hyp_virt_to_page(hyp_vm));
-> +               pkvm_hyp_vm_ref_inc(hyp_vm);
->         hyp_spin_unlock(&vm_table_lock);
->
->         return hyp_vm;
-> @@ -320,7 +320,7 @@ struct pkvm_hyp_vm *get_pkvm_hyp_vm(pkvm_handle_t handle)
->  void put_pkvm_hyp_vm(struct pkvm_hyp_vm *hyp_vm)
->  {
->         hyp_spin_lock(&vm_table_lock);
-> -       hyp_page_ref_dec(hyp_virt_to_page(hyp_vm));
-> +       pkvm_hyp_vm_ref_dec(hyp_vm);
->         hyp_spin_unlock(&vm_table_lock);
->  }
->
-> @@ -966,7 +966,7 @@ static struct pkvm_hyp_vm *get_pkvm_unref_hyp_vm_locked(pkvm_handle_t handle)
->         hyp_assert_lock_held(&vm_table_lock);
->
->         hyp_vm = get_vm_by_handle(handle);
-> -       if (!hyp_vm || hyp_page_count(hyp_vm))
-> +       if (!hyp_vm || hyp_vm->refcount)
->                 return NULL;
->
->         return hyp_vm;
-> --
-> 2.55.0.rc2.803.g1fd1e6609c-goog
->
+Jason
 
