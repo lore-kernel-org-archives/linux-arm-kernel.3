@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0756C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 14:29:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63B94C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 14:30:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gzmp0XWXSJOKoTEoF1ghxTUyUHJztJjH8erBiI8jNH0=; b=mcTrQy/+z3Ku3T6YE1QSp9ab6m
-	6Hj0SCZujR8Ue/8BKSyZJ0VL6dIlCyyF3o+ja9eUmDZErXvMjWYbKTTlr/01t4Se5kZbw59tLBhze
-	g7B92osNrJ54psBgEYY/qr6HUeQZakGpZcG7HgUybTVtNtg8yqWT5Unqpn9ujsa9gafGAGtrYswyH
-	ouXbBQE+ObbBRRzeyjNJ0Qy26ggCr3/f8D1qpWZszvqnqPKDRqLM1t86LlPOMQiaSH6tluDTI/Y4e
-	is8QWKxkzSfJTFzxw3TQi+EAfNdP/oS+4SITFkDFfnxItkPd+4DuqTWUFRc7d1UZ3OyRyoB5Ea5Ed
-	dZp1qxig==;
+	bh=Umkeji7pwan6KC0JI/rzT89TtwEX0mvoawjID9lgcVg=; b=qoNjKdK6sTDyMt4n/bnpjFIZLX
+	LcHOpPmSf7wTx9wBfqKO0jn9PICaABC20M4EXlDR8SWuZQO8gMe/SWrzUHovXc86ElCKOE3GOdWwm
+	e41M46iCcLph1eYRAiIPX9+quKN8dJhEd7GNy17+dNh1ixdt3ViyhTdYOLjjga1vRPUPmEUVVbdrt
+	KhDB5ExfJxwIccfaTpoU8JlvXccg+BvX/cq6vGwkCi/JcTd4hpKxINuswuc4bQwzC1rq13ssmNobf
+	lwHXXfmQ2Jd3WQ+OP4tkTdhSH6QbrGVmm4cps4HGWuhGrdyjfb42dMr8KpBiG+qBoHtmPSRHz06vN
+	ayJDv8aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk0cS-0000000F8SJ-1w2t;
-	Wed, 15 Jul 2026 14:29:52 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk0cO-0000000F8OH-2oci
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 14:29:50 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D388D153B;
-	Wed, 15 Jul 2026 07:29:43 -0700 (PDT)
-Received: from e122027.cambridge.arm.com (e122027.cambridge.arm.com [10.1.25.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 882B53F7B4;
-	Wed, 15 Jul 2026 07:29:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784125788; bh=i/sQSnE603pausWZ6kD5UkzrMpNRSULcD4834UkICJY=;
+	id 1wk071-0000000F1b0-0mlC;
+	Wed, 15 Jul 2026 13:57:23 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wk06v-0000000F1Mq-47SJ;
+	Wed, 15 Jul 2026 13:57:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1784123835;
+	bh=iz0KnuVGcck2z6u+H3eYklRaAOtKKQAC++LigpNKgoM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=hmaBSOkRY2UBVjRNElbwCv8W4DECle9GMvIK9vePmx1zrTyVi+a+RzQnaPaSQWXv8
-	 zyQkofsuuEZDP2gWojMuVwiiGKlPcyM5jq1v/M+2GtvhI/TvEUVJCPvRFdMrxRE+dv
-	 /v8+7vdZ0+oeSB8gvGft38Q5fCn3LnCt3UH5SXak=
-From: Steven Price <steven.price@arm.com>
-To: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Cc: Steven Price <steven.price@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
+	b=VYHDFgnDiTDGuNhqHOrjzVfDmHpQed5jFqI7r7BVNWaQ8BCihN3pJ5v6pg68DoAJu
+	 gw5tdwKBvfnG4bWx0pbhjleZ2Bd2iPTueJNFdgA2cBHwcxgtopakdv62uQi5AZKGnS
+	 kV1uLbRJhnffkcLwn8Kj0J/H4OEABvX+3XUOW+V401mtQjXPUJVDVpU8HjVKtcyqRj
+	 e5NT0ExYxPVJ3Z5GIYv+yZ9x0r8GrSZOoI90pnA9nMEg7LwWAJLsnBfHUK63Ps3mcg
+	 tUdrmmWqIfhYW7mjv12EjmIRWI2Y95q8t7RIyhWyMkQvmSt4QTbz7nzQzB+9ddWf4O
+	 TLIcUNuj6c61g==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 904BA17E0720;
+	Wed, 15 Jul 2026 15:57:14 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: chunkuang.hu@kernel.org
+Cc: p.zabel@pengutronix.de,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	jitao.shi@mediatek.com,
+	dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>,
-	WeiLin.Chang@arm.com,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: [PATCH v15 11/37] KVM: arm64: CCA: Allocate and free RECs to match vCPUs
-Date: Wed, 15 Jul 2026 15:28:13 +0100
-Message-ID: <20260715142841.80544-12-steven.price@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260715142841.80544-1-steven.price@arm.com>
-References: <20260715142841.80544-1-steven.price@arm.com>
+	linux-arm-kernel@lists.infradead.org,
+	kernel@collabora.com,
+	justin.yeh@mediatek.com,
+	jason-jh.lin@mediatek.com
+Subject: [PATCH v6 07/11] drm/mediatek: mtk_dsi: Add support for MT8189
+Date: Wed, 15 Jul 2026 15:56:59 +0200
+Message-ID: <20260715135703.46540-8-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260715135703.46540-1-angelogioacchino.delregno@collabora.com>
+References: <20260715135703.46540-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_072948_833574_AB19E9B0 
-X-CRM114-Status: GOOD (  26.02  )
+X-CRM114-CacheID: sfid-20260715_065718_201421_FA83CD0C 
+X-CRM114-Status: GOOD (  18.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,276 +90,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RMM maintains a data structure known as the Realm Execution Context
-(or REC). It is similar to struct kvm_vcpu and tracks the state of the
-virtual CPUs. KVM must delegate memory and request the structures are
-created when vCPUs are created, and suitably tear down on destruction.
+Add support for the DSI IP found in the MT8189 SoC: this one is
+similar to the IPs found in the most recent already supported SoCs
+with the only difference being that it supports a higher link rate
+of 2.5Gbps instead of 1.5Gbps.
 
-RECs may require additional pages (e.g. for storing larger register
-state for SVE). The RMM can request extra pages for this purpose using
-the Stateful RMI Operations (SRO) functionality to request pages during
-REC creation. These pages are then passed back to the host from the RMM
-('reclaimed') when the REC is destroyed. The kernel tracking object
-(struct rmi_sro_state) is stored in the realm_rec structure to avoid
-memory allocation during the destruction path.
+To support the higher rate, add a new "max_link_rate_mbps" member
+to the mtk_dsi_driver_data, assign the correct one to all of the
+supported SoCs, other than to the newly introduced MT8189, and
+use it in the .mode_valid() callback in place of the hardcoded
+1.5Gbps value.
 
-Note that only some of register state for the REC can be set by KVM, the
-rest is defined by the RMM (zeroed). The register state then cannot be
-changed by KVM after the REC is created (except when the guest
-explicitly requests this e.g. by performing a PSCI call).
+Since .mode_valid() is supposed to run just for resolution changes
+the link rate was expressed in Mbps and gets multiplied on the fly
+to save some bits.
 
-Note that the function kvm_create_rec() is unused at this point, a
-future patch will add the call and remove the __maybe_unused attribute.
+As a note, starting with MT8189, higher maximum pixel clock rates
+are achievable: while at it, also make sure that calculations are
+not overflowing by casting to u64 where needed.
 
-Signed-off-by: Steven Price <steven.price@arm.com>
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
-Changes since v14:
- * Handle partial REC creation better by NULLing rec->run, rec->rec_page
-   and rec->sro when freeing.
-Changes since v13:
- * Support SRO for REC creation/destruction instead of auxiliary
-   granules.
-Changes since v12:
- * Use the new range-based delegation RMI.
-Changes since v11:
- * Remove the KVM_ARM_VCPU_REC feature. User space no longer needs to
-   configure each VCPU separately, RECs are created on the first VCPU
-   run of the guest.
-Changes since v9:
- * Size the aux_pages array according to the PAGE_SIZE of the host.
-Changes since v7:
- * Add comment explaining the aux_pages array.
- * Rename "undeleted_failed" variable to "should_free" to avoid a
-   confusing double negative.
-Changes since v6:
- * Avoid reporting the KVM_ARM_VCPU_REC feature if the guest isn't a
-   realm guest.
- * Support host page size being larger than RMM's granule size when
-   allocating/freeing aux granules.
-Changes since v5:
- * Separate the concept of vcpu_is_rec() and
-   kvm_arm_vcpu_rec_finalized() by using the KVM_ARM_VCPU_REC feature as
-   the indication that the VCPU is a REC.
-Changes since v2:
- * Free rec->run earlier in kvm_destroy_realm() and adapt to previous patches.
----
- arch/arm64/include/asm/kvm_emulate.h |   5 ++
- arch/arm64/include/asm/kvm_host.h    |   3 +
- arch/arm64/include/asm/kvm_rmi.h     |  16 +++++
- arch/arm64/kvm/arm.c                 |   6 ++
- arch/arm64/kvm/reset.c               |   1 +
- arch/arm64/kvm/rmi.c                 | 100 +++++++++++++++++++++++++++
- 6 files changed, 131 insertions(+)
+ drivers/gpu/drm/mediatek/mtk_drm_drv.c |  2 ++
+ drivers/gpu/drm/mediatek/mtk_dsi.c     | 29 ++++++++++++++++++++++++--
+ 2 files changed, 29 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index e26d6755279f..2e69fe494716 100644
---- a/arch/arm64/include/asm/kvm_emulate.h
-+++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -712,4 +712,9 @@ static inline bool kvm_realm_is_created(struct kvm *kvm)
- 	return kvm_is_realm(kvm) && kvm_realm_state(kvm) != REALM_STATE_NONE;
- }
- 
-+static inline bool vcpu_is_rec(const struct kvm_vcpu *vcpu)
-+{
-+	return kvm_is_realm(vcpu->kvm);
-+}
-+
- #endif /* __ARM64_KVM_EMULATE_H__ */
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 1a5e15040111..9b46b39ed11e 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -949,6 +949,9 @@ struct kvm_vcpu_arch {
- 
- 	/* Hyp-readable copy of kvm_vcpu::pid */
- 	pid_t pid;
-+
-+	/* Realm meta data */
-+	struct realm_rec rec;
+diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+index bd2d17017bd2..08f6be311dd1 100644
+--- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
++++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+@@ -826,6 +826,8 @@ static const struct of_device_id mtk_ddp_comp_dt_ids[] = {
+ 	  .data = (void *)MTK_DSI },
+ 	{ .compatible = "mediatek,mt8188-dsi",
+ 	  .data = (void *)MTK_DSI },
++	{ .compatible = "mediatek,mt8189-dsi",
++	  .data = (void *)MTK_DSI },
+ 	{ }
  };
  
- /*
-diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
-index 31ec856561c6..ccd09d55c69f 100644
---- a/arch/arm64/include/asm/kvm_rmi.h
-+++ b/arch/arm64/include/asm/kvm_rmi.h
-@@ -77,12 +77,28 @@ struct realm {
- 	bool rtts_destroyed;
+diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
+index c5db63b93ff9..3f58683be70f 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dsi.c
++++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
+@@ -235,6 +235,8 @@ struct mtk_dsi_driver_data {
+ 	const u16 *reg_main;
+ 	const u16 *reg_adv;
+ 
++	const u16 max_link_rate_mbps;
++
+ 	bool has_size_ctl;
+ 	bool cmdq_long_packet_ctl;
+ 	bool support_per_frame_lp;
+@@ -926,7 +928,7 @@ static int mtk_dsi_poweron(struct mtk_dsi *dsi)
+ 	}
+ 	bit_per_pixel = ret;
+ 
+-	dsi->data_rate = DIV_ROUND_UP_ULL(dsi->vm.pixelclock * bit_per_pixel,
++	dsi->data_rate = DIV_ROUND_UP_ULL((u64)dsi->vm.pixelclock * bit_per_pixel,
+ 					  dsi->lanes);
+ 
+ 	ret = clk_set_rate(dsi->hs_clk, dsi->data_rate);
+@@ -1101,13 +1103,21 @@ mtk_dsi_bridge_mode_valid(struct drm_bridge *bridge,
+ 			  const struct drm_display_mode *mode)
+ {
+ 	struct mtk_dsi *dsi = bridge_to_dsi(bridge);
++	const struct mtk_dsi_driver_data *data = dsi->driver_data;
++	u64 wanted_link_rate, max_link_rate;
+ 	int bpp;
+ 
+ 	bpp = mipi_dsi_pixel_format_to_bpp(dsi->format);
+ 	if (bpp < 0)
+ 		return MODE_ERROR;
+ 
+-	if (mode->clock * bpp / dsi->lanes > 1500000)
++	wanted_link_rate = mode->clock;
++	wanted_link_rate *= bpp;
++	max_link_rate = data->max_link_rate_mbps;
++	max_link_rate *= dsi->lanes;
++	max_link_rate *= KILO;
++
++	if (wanted_link_rate > max_link_rate)
+ 		return MODE_CLOCK_HIGH;
+ 
+ 	if (dsi->dsc) {
+@@ -1547,28 +1557,42 @@ static void mtk_dsi_remove(struct platform_device *pdev)
+ static const struct mtk_dsi_driver_data mt8173_dsi_driver_data = {
+ 	.reg_main = mtk_dsi_regs_main_v1,
+ 	.reg_adv = mtk_dsi_regs_mt8173,
++	.max_link_rate_mbps = 1500,
  };
  
-+/**
-+ * struct realm_rec - Additional per VCPU data for a Realm
-+ *
-+ * @mpidr: MPIDR (Multiprocessor Affinity Register) value to identify this VCPU
-+ * @rec_page: Kernel VA of the RMM's private page for this REC
-+ * @run: Kernel VA of the RmiRecRun structure shared with the RMM
-+ * @sro: A preallocated SRO state context
-+ */
-+struct realm_rec {
-+	unsigned long mpidr;
-+	void *rec_page;
-+	struct rec_run *run;
-+	struct rmi_sro_state *sro;
+ static const struct mtk_dsi_driver_data mt2701_dsi_driver_data = {
+ 	.reg_main = mtk_dsi_regs_main_v1,
+ 	.reg_adv = mtk_dsi_regs_mt2701,
++	.max_link_rate_mbps = 1500,
+ };
+ 
+ static const struct mtk_dsi_driver_data mt8183_dsi_driver_data = {
+ 	.reg_main = mtk_dsi_regs_main_v1,
+ 	.reg_adv = mtk_dsi_regs_mt8183,
++	.max_link_rate_mbps = 1500,
+ 	.has_size_ctl = true,
+ };
+ 
+ static const struct mtk_dsi_driver_data mt8186_dsi_driver_data = {
+ 	.reg_main = mtk_dsi_regs_main_v1,
+ 	.reg_adv = mtk_dsi_regs_mt8186,
++	.max_link_rate_mbps = 1500,
+ 	.has_size_ctl = true,
+ };
+ 
+ static const struct mtk_dsi_driver_data mt8188_dsi_driver_data = {
+ 	.reg_main = mtk_dsi_regs_main_v1,
+ 	.reg_adv = mtk_dsi_regs_mt8186,
++	.max_link_rate_mbps = 1500,
++	.has_size_ctl = true,
++	.cmdq_long_packet_ctl = true,
++	.support_per_frame_lp = true,
 +};
 +
- void kvm_init_rmi(void);
- u32 kvm_rmm_ipa_limit(void);
- 
- int kvm_init_realm(struct kvm *kvm);
- void kvm_destroy_realm(struct kvm *kvm);
- int kvm_realm_teardown_stage2(struct kvm *kvm);
-+void kvm_destroy_rec(struct kvm_vcpu *vcpu);
- 
- static inline bool kvm_realm_is_private_address(struct realm *realm,
- 						unsigned long addr)
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 9881fd6c511c..38fac98cd6a4 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -589,6 +589,8 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
- 	/* Force users to call KVM_ARM_VCPU_INIT */
- 	vcpu_clear_flag(vcpu, VCPU_INITIALIZED);
- 
-+	vcpu->arch.rec.mpidr = INVALID_HWID;
-+
- 	vcpu->arch.mmu_page_cache.gfp_zero = __GFP_ZERO;
- 
- 	/* Set up the timer */
-@@ -1668,6 +1670,10 @@ static int kvm_vcpu_init_check_features(struct kvm_vcpu *vcpu,
- 	if (test_bit(KVM_ARM_VCPU_HAS_EL2, &features))
- 		return -EINVAL;
- 
-+	/* Realms are incompatible with AArch32 */
-+	if (vcpu_is_rec(vcpu))
-+		return -EINVAL;
-+
- 	return 0;
- }
- 
-diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
-index b963fd975aac..c18cdca7d125 100644
---- a/arch/arm64/kvm/reset.c
-+++ b/arch/arm64/kvm/reset.c
-@@ -161,6 +161,7 @@ void kvm_arm_vcpu_destroy(struct kvm_vcpu *vcpu)
- 	free_page((unsigned long)vcpu->arch.ctxt.vncr_array);
- 	kfree(vcpu->arch.vncr_tlb);
- 	kfree(vcpu->arch.ccsidr);
-+	kvm_destroy_rec(vcpu);
- }
- 
- static void kvm_vcpu_reset_sve(struct kvm_vcpu *vcpu)
-diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
-index db32448a0fc1..aa97ad5fd7e9 100644
---- a/arch/arm64/kvm/rmi.c
-+++ b/arch/arm64/kvm/rmi.c
-@@ -203,6 +203,106 @@ int kvm_realm_teardown_stage2(struct kvm *kvm)
- 	return realm_destroy_rtts(kvm);
- }
- 
-+static int __maybe_unused kvm_create_rec(struct kvm_vcpu *vcpu)
-+{
-+	struct user_pt_regs *vcpu_regs = vcpu_gp_regs(vcpu);
-+	unsigned long mpidr = kvm_vcpu_get_mpidr_aff(vcpu);
-+	struct realm *realm = &vcpu->kvm->arch.realm;
-+	struct realm_rec *rec = &vcpu->arch.rec;
-+	unsigned long rec_page_phys;
-+	struct rec_params *params;
-+	int r, i;
-+
-+	if (rec->run)
-+		return -EBUSY;
-+
-+	/*
-+	 * The RMM will report PSCI v1.0 to Realms and the KVM_ARM_VCPU_PSCI_0_2
-+	 * flag covers v0.2 and onwards.
-+	 */
-+	if (!vcpu_has_feature(vcpu, KVM_ARM_VCPU_PSCI_0_2))
-+		return -EINVAL;
-+
-+	BUILD_BUG_ON(sizeof(*params) > PAGE_SIZE);
-+	BUILD_BUG_ON(sizeof(*rec->run) > PAGE_SIZE);
-+
-+	params = (struct rec_params *)get_zeroed_page(GFP_KERNEL);
-+	rec->rec_page = (void *)__get_free_page(GFP_KERNEL);
-+	rec->run = (struct rec_run *)get_zeroed_page(GFP_KERNEL);
-+	rec->sro = kmalloc_obj(*rec->sro);
-+	if (!params || !rec->rec_page || !rec->run || !rec->sro) {
-+		r = -ENOMEM;
-+		goto out_free_pages;
-+	}
-+
-+	for (i = 0; i < ARRAY_SIZE(params->gprs); i++)
-+		params->gprs[i] = vcpu_regs->regs[i];
-+
-+	params->pc = vcpu_regs->pc;
-+
-+	if (vcpu->vcpu_id == 0)
-+		params->flags |= REC_PARAMS_FLAG_RUNNABLE;
-+
-+	rec_page_phys = virt_to_phys(rec->rec_page);
-+
-+	if (rmi_delegate_page(rec_page_phys)) {
-+		r = -ENXIO;
-+		goto out_free_pages;
-+	}
-+
-+	params->mpidr = mpidr;
-+
-+	if (rmi_rec_create(virt_to_phys(realm->rd), rec_page_phys,
-+			   virt_to_phys(params), rec->sro)) {
-+		r = -ENXIO;
-+		goto out_undelegate_rmm_rec;
-+	}
-+
-+	rec->mpidr = mpidr;
-+
-+	free_page((unsigned long)params);
-+	return 0;
-+
-+out_undelegate_rmm_rec:
-+	if (WARN_ON(rmi_undelegate_page(rec_page_phys)))
-+		rec->rec_page = NULL;
-+out_free_pages:
-+	free_page((unsigned long)rec->run);
-+	free_page((unsigned long)rec->rec_page);
-+	free_page((unsigned long)params);
-+	kfree(rec->sro);
-+	rec->run = NULL;
-+	rec->rec_page = NULL;
-+	rec->sro = NULL;
-+	return r;
-+}
-+
-+void kvm_destroy_rec(struct kvm_vcpu *vcpu)
-+{
-+	struct realm_rec *rec = &vcpu->arch.rec;
-+	unsigned long rec_page_phys;
-+
-+	if (!vcpu_is_rec(vcpu))
-+		return;
-+
-+	if (!rec->run) {
-+		/* Nothing to do if the VCPU hasn't been finalized */
-+		return;
-+	}
-+
-+	rec_page_phys = virt_to_phys(rec->rec_page);
-+
-+	if (WARN_ON(rmi_rec_destroy(rec_page_phys, rec->sro)))
-+		return;
-+
-+	free_page((unsigned long)rec->run);
-+	kfree(rec->sro);
-+	free_delegated_page(rec_page_phys);
-+	rec->run = NULL;
-+	rec->sro = NULL;
-+	rec->rec_page = NULL;
-+}
-+
- void kvm_destroy_realm(struct kvm *kvm)
- {
- 	struct realm *realm = &kvm->arch.realm;
++static const struct mtk_dsi_driver_data mt8189_dsi_driver_data = {
++	.reg_main = mtk_dsi_regs_main_v1,
++	.reg_adv = mtk_dsi_regs_mt8186,
++	.max_link_rate_mbps = 2500,
+ 	.has_size_ctl = true,
+ 	.cmdq_long_packet_ctl = true,
+ 	.support_per_frame_lp = true,
+@@ -1581,6 +1605,7 @@ static const struct of_device_id mtk_dsi_of_match[] = {
+ 	{ .compatible = "mediatek,mt8183-dsi", .data = &mt8183_dsi_driver_data },
+ 	{ .compatible = "mediatek,mt8186-dsi", .data = &mt8186_dsi_driver_data },
+ 	{ .compatible = "mediatek,mt8188-dsi", .data = &mt8188_dsi_driver_data },
++	{ .compatible = "mediatek,mt8189-dsi", .data = &mt8189_dsi_driver_data },
+ 	{ /* sentinel */ }
+ };
+ MODULE_DEVICE_TABLE(of, mtk_dsi_of_match);
 -- 
-2.43.0
+2.54.0
 
 
