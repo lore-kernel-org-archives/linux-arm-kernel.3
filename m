@@ -4,111 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59419C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 23:02:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1409DC44507
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 23:47:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y8obYoQRW0D7bMouRYacqh4D5cOARHGrRdydWcpJ2O8=; b=PuyNIOseWLS6nfdGEcrlqXfaDM
-	GwSYrDbJJEfvgc9AtOn5bNJCZvqa2y3ghsE9aXBF+Gx//IJC2bCmbYl2zU0bylOxezVeQ02WR86M9
-	bvivL5mp8ZWOPYcWblr7xe9oOaXzDFP+2qQhVo5kxlZecMqHJuBECaIplG5GfLSOdZQs7bFAzFiht
-	zKWI+JYBB6gsIttn67WRBfLSR8Eg17FFaqG9lfP3jbZY3Bd/WqYGMMOBREycIXVlZ2W98mNqh2+Jh
-	8lngh23Xtdf/BqLg+85swIsJV4ta2lQjyrtrCJUQpU6v4+GgeCzn5+cg9Xt9+663Bwygt2EGi9NDY
-	DteFi6nw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=Bl5lk7GtKJUn87j4SLMbzfc5HjmGwGRh3/zLnBPvIAQ=; b=cZRocatleLucAA
+	iJSBJUrjTzV3tDtNu2t3HyNst5p/P+ac+PFyWZWbNeNUbWBh/N6S2x/njbVb1SjeBSm6t7K3dYaQ9
+	DpyoqJI120LqOmfGVCjqT4vPkDSm9mOtO6/Uvtf2mKUqNULuli/Q/Gmdnvzz3CsAfapDKX31sZekt
+	6iMQ+88PhYuTqvdwtQMXoR8CzcBVo6cCPsxm6rcBvq8laK+Y3FizL9HfeLG5TsxNdUBItOJOmG/31
+	+w4maaqZwxpsaOsrepXIejhjV9zYL9WVxOZ0A/iMlskvcUlXPg0YxyXN61ff7sX8mBu0taRPzku/k
+	aaur0REYS5U27V6A0kRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk8bz-0000000G3hP-0M5f;
-	Wed, 15 Jul 2026 23:01:55 +0000
-Received: from mail-ej2-x03.google.com ([2a00:1450:4864:34::3])
+	id 1wk9KI-0000000G5kj-2ICr;
+	Wed, 15 Jul 2026 23:47:42 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk8bw-0000000G3fx-3TZs
+	id 1wk9KH-0000000G5kX-010F
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 23:01:54 +0000
-Received: by mail-ej2-x03.google.com with SMTP id a640c23a62f3a-c15a2e27498so373700866b.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 16:01:50 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1784156509; cv=none;
-        d=google.com; s=arc-20260327;
-        b=On0XndeOOM+0TjThmbufADj9UOEFa8wI7DACh0ZCgsbI4KE6JnPovXAQ9xrzFF+8Sl
-         9Ia9C/sAmQwNXEJN+deSPrzZyY/i0eSWtXVDHpe8EbglVwF1aLMgzlk2ZZ44PmA7wmWQ
-         KJtbr/FMdIySsTYwIFK1GEqUs2LXR5eaG0wvIZxi4gvSvnDoZ6Csi5rK0yKV5xozmFqC
-         awCYjWAmZy00Onb4rYPMTRcEEa8FSyGKtFihUESKpDGs/+T1f0qa8zMpSVgHzVfU9Q9G
-         MsLcuF9MLxQjNtkIVSE9bsVhNCgnRvNhylFE7nKkL+TdZDNtNRjbeKT72lghklf8efdq
-         nd6A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Y8obYoQRW0D7bMouRYacqh4D5cOARHGrRdydWcpJ2O8=;
-        fh=1/y04DMDSynZgW1YZ4Zb4CLyyn6DnsiyULcZnwiL4Yw=;
-        b=siFKbplpgmCBS37F9uMQ4iDksjmUzNzAlQ1eTba3uZqJhunx8jE+Rj5a2s0pZ0ToSH
-         qIHn7wXTU8G2c6kou2eXancXKBKmwBsxj+bh0277G9VmB2PRHXc0myIztTo1i+tlYQjw
-         yzh0/nBQU+jc7aqG8SrmTv0ANOQcIoY8kWefDCGXMVlpG6aBK8vtS83akaKzV9LInlX1
-         WKw0IH6+vGHc9qYwXfZfSbZmRdXsfBNdaTrSWd6LHkzUDCjWvade96+q1rOKUPVHgtiJ
-         s+3OtfmtJ5P79qRTX3kTaBiV7sADWY7MkUG8YsRz0sYNjjO1u3AYJBa67tgtM4uJkfpu
-         aQJg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784156509; x=1784761309; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Y8obYoQRW0D7bMouRYacqh4D5cOARHGrRdydWcpJ2O8=;
-        b=VmUbIgjv/IAYNVwj1H04oQPJm3t3kVPhrXhbkfNilpdWe/RVZxEhpsLZp+gJEGB7H8
-         38dkXvBUwUdconWabC1xkFybqfrO7stWhJN2twlfAFCLjLTBwh1bBy8I04iRSWx0Bkjz
-         U2Xc5E48bkm8OG4SEhSe71OvA/5ZOZ/BXRib5ZRG1PVdkSuZwIG2AMYMfcSbo/b+a972
-         xlS/Rp7F4mcH9dKpPrED7rJL7M+Hj5SJBaG0YEhMgDHhgkEZP0/N4avrdkqtNMyCKScc
-         mooBazjRVYenBN+LmuHPWyiYsN5vaCsEwzzpL4fOuuAaY/ABE+xBPXx54PjN/MtVGQPc
-         7N1A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784156509; x=1784761309;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Y8obYoQRW0D7bMouRYacqh4D5cOARHGrRdydWcpJ2O8=;
-        b=V4AgbLiTyCmfDtX4qe7TWwWKgX6sFPY78+FJez/LmsVlGrt/PYdIXHKF+FpIBOmBQn
-         0fqDfk3XBHesyqVCTkboy4Wxr2XZGsWQj+DPn1fG49yx7KQtoF3UKvneSr4lZ4fNHGEi
-         d/mOZcurdYHHh105OGj188oc1i1WecGa/XPSYWxKJA6lBB9h7EEPo1jKSgfotGle9tY5
-         TkLR0qZNu2uGWFadrVDYhCB2DmKK9JKLiXzZuI41T5EVGjSeA7iYnrVlAwXte2bmtOsJ
-         jUf5PHdhRWriW/r1CY0zXKp+xhT0ImmmUWPVEIT3DJXunXmwVylL0dvA1RQrFv84FBJb
-         VX0g==
-X-Forwarded-Encrypted: i=1; AHgh+Ro+NhBeSDYsB1YEr4hvW5u+ogxpPaYbFwaXt4V7ZbPnOUMm8cB8yy7brdqLFYBv8Z5w3rbSK9BsJL1OJlCYjEf4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyb3HwvgswOb21VzN0RDWIROBL/IpKlNxcjWR5zV+w7/I6wi6mu
-	fFBota1dXXE5J9vZUSCUryIFAumpid2Lj1kfPQ4y2dpehh5yIk0frszm/hGgQfCP54jl5xxaI05
-	Mzkw1ppat3Jpj6DDfrQ2M7hnRM9wVGMI=
-X-Gm-Gg: AfdE7clwRuwtIEoy8wtUjuKLYyG1hXl7TQ8IotnUcFvBX9OxyZn/ns37Np6EllX6LZv
-	gIMJbjmWO3UADjrI4hkjBsNHekjLHC0mL9XIKV6RE/WhKltEJ7SS2qmvivRkRdgexr9gWuzmYsq
-	mF2hHrMgYg0QlqVWimUaV+JF8kb5oGtyrCKtOKH0knZSj9z2RdsPxqJik8Pc9eMD6ICt5+HQw7q
-	seuykSMbPU9OBWc4Ipu+s+gaB66zStF2UExTd/Frmi6pPrOuX5mfLFvbDpAqs9X
-X-Received: by 2002:a17:907:3f22:b0:c15:9350:dfa6 with SMTP id
- a640c23a62f3a-c16619ad2b0mr539188966b.60.1784156508425; Wed, 15 Jul 2026
- 16:01:48 -0700 (PDT)
+	Wed, 15 Jul 2026 23:47:41 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 215C960054;
+	Wed, 15 Jul 2026 23:47:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1D4A1F000E9;
+	Wed, 15 Jul 2026 23:47:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784159257;
+	bh=Bl5lk7GtKJUn87j4SLMbzfc5HjmGwGRh3/zLnBPvIAQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=T+t9BbyH/xH5eCUFOoC7kkJIlgvKdo+Ku+RFk+UbSXqwismvztyU1uJjx/qICqmS8
+	 QvO7B8sM5QeI2opwEKmvQC4yPbOmdP4N6cKRYX7vRjwwL3NcMIvpepZIETJDV1zpgP
+	 XmDE8ft22lJBNGenY9+yBXmAEA0HGqFaMiTzCoHJy1sjHckpdK11yfAx9JHKDCETQN
+	 m4LhxZHVyK/oCyCApXzQZFHgzprgyE8EMCfcsPBNWMSBD+94e8rxS6o2cMc48iE2pe
+	 DUFzXLoPeCMpVK88aihoRHaxPaeAOdJ2tYluLtlJkN3BWNgG/yMkvjz/L0PyEEYYHf
+	 DlaDnDB+4R8yQ==
+Date: Wed, 15 Jul 2026 18:47:36 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Leonardo Costa <leoreis.costa@gmail.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, leonardo.costa@toradex.com,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	regressions@lists.linux.dev, Sherry Sun <sherry.sun@nxp.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Richard Zhu <hongxing.zhu@nxp.com>, linux-pci@vger.kernel.org
+Subject: Re: [REGRESSION] mainline/master: Apalis iMX6 no longer boots
+Message-ID: <20260715234736.GA288957@bhelgaas>
 MIME-Version: 1.0
-References: <20260714191341.690906-1-coiaprant@gmail.com> <20260714191341.690906-8-coiaprant@gmail.com>
- <4823c1d9-51d9-45fa-a96c-f2caab1cb29e@bootlin.com> <CALj3r0h4cFd-tp9-UVxihL9-a1W7_4nvnKoXW_cP5WECKc66Hw@mail.gmail.com>
- <1d92078f-3009-43d1-a228-c3e67a1f4f4c@lunn.ch> <CALj3r0gBnyEVwo3rK-dKssYN9F4nFn93QJ24FVv8YBLjNNgPmg@mail.gmail.com>
- <039c2cce-e76e-4321-ba4a-cd80801f136e@lunn.ch>
-In-Reply-To: <039c2cce-e76e-4321-ba4a-cd80801f136e@lunn.ch>
-From: Coia Prant <coiaprant@gmail.com>
-Date: Thu, 16 Jul 2026 07:01:37 +0800
-X-Gm-Features: AUfX_mwFPn4a5IZZI8ivW-vw003zPra-aQ5NOk6yPm8eSjdntp4P_3w-2rjiAlg
-Message-ID: <CALj3r0gmNudG2pCebGzd+453ORVakkyct4oDYR+SrqLPkx1nFg@mail.gmail.com>
-Subject: Re: [RFC PATCH 07/10] net: pcs: xpcs: add Rockchip RK3568 platform
- glue driver
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, kuba@kernel.org, davem@davemloft.net, 
-	edumazet@google.com, pabeni@redhat.com, andrew+netdev@lunn.ch, 
-	robh@kernel.org, krzk+dt@kernel.org, heiko@sntech.de, netdev@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_160153_072310_AC80A57A 
-X-CRM114-Status: GOOD (  26.08  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260629143439.361560-1-leoreis.costa@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,126 +73,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Andrew Lunn <andrew@lunn.ch> =E4=BA=8E2026=E5=B9=B47=E6=9C=8816=E6=97=A5=E5=
-=91=A8=E5=9B=9B 06:25=E5=86=99=E9=81=93=EF=BC=9A
->
-> > The current design
-> > =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> > The dependency chain I chose is simple:
-> >
-> >     stmmac (GMAC) -> pcs-handle -> XPCS node -> phys -> SerDes PHY
->
-> Maybe we need to be more accurate here.
->
-> In QSGMII I _think_ it is actually
->
-> stmmac (GMAC) -> pcs-handle -> XPCS node -\
-> stmmac (GMAC) -> pcs-handle -> XPCS node -------> phys -> SerDes PHY
-> stmmac (GMAC) -> pcs-handle -> XPCS node -/ /
-> stmmac (GMAC) -> pcs-handle -> XPCS node --/
->
-> There are four instances of stmmac, four instances of the XPCS, which
-> then all come together into one PHY.
->
-> When using SGMII, does it look like this ?
->
-> stmmac (GMAC) -> pcs-handle -> XPCS node -------> phys -> SerDes PHY
-> stmmac (GMAC) -> pcs-handle -> XPCS node -------> phys -> SerDes PHY
-> stmmac (GMAC) -> pcs-handle -> XPCS node -------> phys -> SerDes PHY
-> stmmac (GMAC) -> pcs-handle -> XPCS node -------> phys -> SerDes PHY
->
-> There are four of everything, all working independently.
->
-> Is there 1 QSGMII PHY and 4 SGMII PHYs? Or does one of the 4 phys
-> support SGMII + QSGMII, while 3 are SGMII only?
->
-> > 2. User misconfiguration: even with reference counting, if a user sets
-> >    `phys =3D <&combphy2 PHY_TYPE_SGMII>` for GMAC0 and
-> >    `phys =3D <&combphy2 PHY_TYPE_QSGMII>` for GMAC1, the same PHY would
-> >    be initialized in two different modes.
->
-> I would hope that results in -EINVAL.
->
->   Andrew
+[+cc Sherry, author of 610fa91d9863, Richard, Mani, linux-pci]
 
-Hi Andrew,
+On Mon, Jun 29, 2026 at 11:34:32AM -0300, Leonardo Costa wrote:
+> Hello,
+> 
+> We are seeing a regression on Apalis iMX6 where the kernel doesn't boot in the
+> newest v7.2-rc1 (it was working before, in v7.1). The device tree being used is the imx6q-apalis-eval.dtb. The kernel
+> configuration used is the one shown below:
+> 
+>     https://gist.github.com/lcosta37/53efdb2fb6e6e0fc05437c7e53b47737
+> 
+> The kernel logs stop almost immediately as the board starts to boot, and I 
+> don't notice any difference in the logs that points to the cause.
+> 
+> Is this known? We are seeing this behavior on all Apalis iMX6 modules, though
+> we don't see it on Colibri iMX6, so it is not SoC-specific.
 
-Thanks for the follow-up. I've dug through Rockchip's BSP and found the
-exact device tree configurations they use for their EVBs, which I think
-clears up the topology question.
+This regression is listed on
+https://linux-regtracking.leemhuis.info/regzbot/mainline/ as being
+caused by
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?h=master&id=610fa91d9863
+("PCI: imx6: Assert PERST# before enabling regulators") but I can't
+find any bisect or other report that specifically points to
+610fa91d9863.
 
-For reference, here are the relevant BSP device tree files:
-- QSGMII: https://github.com/armbian/linux-rockchip/blob/rk-6.1-rkr6.1/arch=
-/arm64/boot/dts/rockchip/rk3568-evb2-lp4x-v10.dtsi#L185
-- SGMII: https://github.com/armbian/linux-rockchip/blob/rk-6.1-rkr6.1/arch/=
-arm64/boot/dts/rockchip/rk3568-evb5-ddr4-v10.dtsi#L208
+Can somebody confirm that reverting 610fa91d9863 fixes this
+regression, or at least that 610fa91d9863^ works and 610fa91d9863
+fails?
 
-Hardware topology confirmed
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D
-The BSP shows that for RK3568, the hardware is indeed a shared resource.
-
-One important clarification: the XPCS block has four logical entities
-(corresponding to the four MII ports, pcs-mii@0..3). In my driver, these
-are all attached to the same MDIO bus and distinguished by address.
-
-To clarify the PHY topology: there is only one physical SerDes PHY on
-RK3568 (combphy1_usq). In QSGMII mode, this single PHY provides four
-logical ports via time-division multiplexing. In the device tree, all
-four ports are attached to the same MDIO bus and distinguished by
-address (pcs-mii@0..3).
-
-So it's not "4 PHYs" but "1 PHY with 4 logical ports", all accessible
-through the same MDIO bus with different address. The BSP EVB2
-configuration confirms this:
-both gmac0 and gmac1 reference the same combphy1_usq with
-PHY_TYPE_QSGMII.
-
-To clarify the difference between SGMII and QSGMII:
-- SGMII is a single serial link at 1.25 Gbaud, providing one Gigabit port.
-- QSGMII is a 5 Gbaud SerDes protocol that multiplexes four SGMII links
-  onto the same physical lanes.
-
-So for RK3568: one PHY for SGMII, or one PHY for QSGMII (both GMACs share
-the same PHY, each using a dedicated logical port).
-
-For SGMII mode, only one of these ports can be used at a time, and only
-one GMAC can use the SGMII link. The BSP EVB5 configuration shows this
-clearly: gmac0 uses SGMII, while gmac1 falls back to RGMII.
-
-For QSGMII mode, the BSP EVB2 configuration shows both gmac0 and gmac1
-configured with phy-mode =3D "qsgmii", both referencing the same combphy1_u=
-sq
-as their phys. This confirms your diagram: multiple MACs converge on a
-single SerDes PHY via the XPCS, with the four logical ports time-division
-multiplexed onto the single PHY.
-
-Why this matters for the design
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D
-This BSP evidence supports my current design where the XPCS node owns
-the SerDes PHY:
-
-1. It matches the hardware: the XPCS is the central multiplexer.
-   Placing the PHY under the XPCS node in the device tree accurately
-   reflects this hardware reality.
-
-2. It's the only viable path for QSGMII: as the BSP shows, QSGMII
-   requires multiple MACs to share one PHY. If the PHY were owned by the
-   MAC driver (dwmac-rk), we'd need complex refcounting and cross-MAC
-   coordination. The XPCS-owner model solves this cleanly by making the
-   XPCS the single point of control.
-
-3. It aligns with the BSP's own logic: even though the BSP uses a
-   non-standard property (rockchip,xpcs), the underlying idea is the
-   same: the MACs point to a shared XPCS node, which then manages the
-   PHY. My design just does this using the standard kernel frameworks.
-
-So, I believe the current design is correct. It's based on the hardware
-reality confirmed by Rockchip's own BSP, and it uses the standard kernel
-interfaces to do so. I'm happy to keep the XPCS as the owner of the
-SerDes PHY in v2 if you agree.
-
-Thanks,
-Coia
+Bjorn
 
