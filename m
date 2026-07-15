@@ -4,72 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6118FC44507
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 08:49:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94913C44507
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 08:49:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tsnx7EZ3K3hSCWm/s0tNHSYkDr7roidM5tSjKqD3bPI=; b=y2fj+Qoty65YaWtx9Vob3IPGIv
-	u6MU/ERcKDeprApb8OsagaVlQjMFTi3C0ogq1/UR6/EVWEZPyVV84VnjNhum3oyWbZ7pr8XI/Tp0n
-	jstbr6DlvHHaIYARtPhIDTk8joopnWz1oaAcxU0gfv94W94lCHQ8iIuukgPJOzZzYNGgysjVcu0Kd
-	i9qQkMNG1fXA8OSkp+hl3s+EQaVdkCQGagDDiA24DxG7/4fGkpIbkKgdYoe64boYcTedmB5Y9tzBL
-	bCqStsucDYINTFsvC6JQN8c/gPJewcSO/DDlz5SiVm3E0aFdQCZVYM51W1E1aAqGAf7MRBpTX8B/l
-	bBcxLJ0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
+	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rFNGUCLtwL0J9UMzLUhMW3/R8y1OqX7JmKnCzawnBV4=; b=kGAgAPTAfL3FEmqpAYFurNKSyQ
+	oydASurFneslUFkA4ncDQ3e0iTWNDVpxHeE2vHPUOi4HSl2Qyy8MvMeCtsSgXEqJosFQXAh+SvN+O
+	pv4zLoSChjT+BWfvOQ5f7qE7NH0PLt6IPlr2Cm++munFz/ov4ZcA0GYecP6k6nYNskWAv7E0aBdVk
+	Sf/YhBQh50iNVgP8OKw/Q2nZU593Wc7SZQuRNPdpROCRs1/CKKb9P7cxYDA3SKgrqHoLICiHtl+0f
+	IlhcEAYDlS6/iJM94ULtX5H9/h8j03ynOmRt2rwmzafArFcvHp9RICoRCdM8Z32X6S18kSfTTUfqk
+	44addkJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjvIt-0000000ECa3-3M4q;
-	Wed, 15 Jul 2026 08:49:19 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wjvJO-0000000EChA-0aAw;
+	Wed, 15 Jul 2026 08:49:50 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjvIt-0000000ECZp-0rzl;
-	Wed, 15 Jul 2026 08:49:19 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 375F4600BB;
-	Wed, 15 Jul 2026 08:49:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B4BA1F000E9;
-	Wed, 15 Jul 2026 08:49:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784105357;
-	bh=Tsnx7EZ3K3hSCWm/s0tNHSYkDr7roidM5tSjKqD3bPI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=i6Cnb2E3I+/RyJKcTwEIKMcax4M0sD05NYGRKzvCDRdCd6kjNoteV/SmLGx3Lyjjw
-	 9oDYbcsY2pP14PcN8Knk4UqbFwz7q0H8xlKkaMnSBrIGHtvDT6tKmYe0K6RgUdHK5u
-	 yGvEcHmGsJTxvFxuW8wwnO/9JKSCVP6hH4b6C1zpM9Lv1OOxB6jXx6gF4GRqcu3lt9
-	 XDy7WDX2U7ZL7ZvKSqkgpw3H6FBcUZz71FI+bAoLF1qCyh8uHQEtctRvdarC1c36UO
-	 DRMZDs/8yAA+MPICnRFdhmdZEF2S8kNtEk0H5aGtjRHS74sZL1HeUraSUk2xW8VJaN
-	 qa0sRcVChbguA==
-Date: Wed, 15 Jul 2026 10:49:11 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
-	Daniel Stone <daniels@collabora.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
-	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
-	kernel@collabora.com, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v8 02/39] drm/connector: Add caps-based HDMI connector
- init helper
-Message-ID: <20260715-functional-jackrabbit-of-enhancement-7c0db6@houat>
-References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
- <20260702-dw-hdmi-qp-scramb-v8-2-d79890d00b6a@collabora.com>
- <i4tjtsf5rsckfcayo5nuhlger5wqxn3ujeaubm4g2fgrwvhzb2@hf4uhgq3ja5p>
- <ad75cf26-9437-47d0-864d-d71263401615@collabora.com>
- <20260707-illegal-tuna-of-force-1c06e3@houat>
- <737678ab-f082-4a0e-b453-f403ba141437@collabora.com>
+	id 1wjvJK-0000000ECfc-1uq4
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Jul 2026 08:49:48 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id D9060C2B9C4;
+	Wed, 15 Jul 2026 08:49:59 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id F0D8D6035C;
+	Wed, 15 Jul 2026 08:49:42 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 51F9311BD3C24;
+	Wed, 15 Jul 2026 10:49:34 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1784105381; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=rFNGUCLtwL0J9UMzLUhMW3/R8y1OqX7JmKnCzawnBV4=;
+	b=v0kbq9Wp0Snw1mUEYQk9jToT+RDLdlswU2d0gC17xE5U6j9w26ZQcy27tuDIGkUnAsWC1r
+	mfHKBcv8AJCFniJb3MRRErQT9zgqyu8yiiG8WlCormo77+OHu3roSFs/eepL/Uc4wb9WV1
+	FbHWqZcpMDLxwYSTsZt8U3SBiWe14c6eWGWevDaw7Dgp2wSempFJvZIklMt7ywWFux98Zm
+	MFBSwcNJRqJbqxBhDAMGbIV6SF3THRFUdD+AyVAuTBGTmxgDX9iIQaY/gXXJ2nLOVIu9xj
+	6NP6WpfY8ydvPcYOcFNuJvo9SL3ml07T795y/M9jWuPy4Zf6L+qUYNadwe6HRA==
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="cp5o5xnmuujb2sqc"
-Content-Disposition: inline
-In-Reply-To: <737678ab-f082-4a0e-b453-f403ba141437@collabora.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v4 2/2] drm/bridge: ti-sn65dsi83: Add reversed lvds
+ lanes support
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+To: Wojciech Dubowik <wojciech.dubowik@mt.com>
+Cc: linux-kernel@vger.kernel.org, Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Marek Vasut <marex@denx.de>, 
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+In-Reply-To: <20260713082622.52985-3-wojciech.dubowik@mt.com>
+References: <20260713082622.52985-1-wojciech.dubowik@mt.com>
+ <20260713082622.52985-3-wojciech.dubowik@mt.com>
+Date: Wed, 15 Jul 2026 10:49:31 +0200
+Message-Id: <178410537112.253594.1490996314225033236.b4-review@b4>
+X-Mailer: b4 0.15.2
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260715_014946_879933_59BE65DC 
+X-CRM114-Status: GOOD (  18.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,128 +90,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, 13 Jul 2026 10:26:20 +0200, Wojciech Dubowik <wojciech.dubowik@mt.com> wrote:
 
---cp5o5xnmuujb2sqc
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v8 02/39] drm/connector: Add caps-based HDMI connector
- init helper
-MIME-Version: 1.0
+Hello Wojciech,
 
-Hi,
+>
+> diff --git a/drivers/gpu/drm/bridge/ti-sn65dsi83.c b/drivers/gpu/drm/bridge/ti-sn65dsi83.c
+> index e6dbe51d0dba..d676ea3b40e8 100644
+> --- a/drivers/gpu/drm/bridge/ti-sn65dsi83.c
+> +++ b/drivers/gpu/drm/bridge/ti-sn65dsi83.c
+> @@ -148,6 +148,18 @@ enum sn65dsi83_lvds_term {
+>  	OHM_200
+>  };
+>  
+> +enum {
+> +	NORMAL_LANE_MAPPING,
+> +	REVERSE_LANE_MAPPING,
 
-On Wed, Jul 08, 2026 at 01:11:49PM +0300, Cristian Ciocaltea wrote:
-> On 7/7/26 7:10 PM, Maxime Ripard wrote:
-> > On Fri, Jul 03, 2026 at 10:31:55PM +0300, Cristian Ciocaltea wrote:
-> >> Hi Dmitry,
-> >>
-> >> Thanks for your quick review!
-> >>
-> >> On 7/3/26 5:05 PM, Dmitry Baryshkov wrote:
-> >>> On Thu, Jul 02, 2026 at 05:46:15PM +0300, Cristian Ciocaltea wrote:
-> >>>> In preparation for adding HDMI 2.x source capabilities, introduce st=
-ruct
-> >>>> drm_connector_hdmi_caps and a new drmm_connector_hdmi_init_with_caps=
-()
-> >>>> helper.
-> >>>>
-> >>>> The existing drmm_connector_hdmi_init() helper currently takes
-> >>>> individual capability arguments such as supported_formats and max_bp=
-c.
-> >>>> Adding more HDMI-specific arguments to that function would not scale
-> >>>> well, so move those values into a dedicated capabilities structure a=
-nd
-> >>>> implement the existing helper as a wrapper around the new caps-based
-> >>>> interface.
-> >>>
-> >>> I think, it was an intention of Maxime: make sure that every driver is
-> >>> forced to provide some values here. With the struct-based init it is
-> >>> easy to overlook or to ommit a value.
-> >>
-> >> Agreed that the struct-based init loses the compile-time guarantee tha=
-t every
-> >> argument is explicitly provided - that's a real downside. =20
-> >>
-> >> I'd argue it's recoverable, though: the init helper validates the mand=
-atory
-> >> fields, so a driver that omits a required value gets rejected at init =
-time
-> >> rather than silently misconfigured.  The "you must provide sane values=
-" property
-> >> is expected to be preserved, just enforced at runtime instead of by the
-> >> compiler.=20
-> >=20
-> > Yeah, I don't think we can win with C here. Rust might, but we're
-> > probably a long way from that.
-> >=20
-> >> The main motivation for the struct is scalability/maintainability as w=
-e add HDMI
-> >> 2.x capabilities: new fields go into the struct rather than growing th=
-e helper's
-> >> argument list, so existing callers don't need churny signature updates=
- on every
-> >> extension.
-> >>
-> >> FWIW, in the previous revision we discussed addressing the concern wit=
-h a
-> >> callback instead.  Sadly, I had to discard that approach, as it proved=
- not
-> >> flexible enough, e.g. drm_bridge_connector_init() computes caps dynami=
-cally, and
-> >> would have required either stateful callbacks, or storing redundant/te=
-mporary
-> >> cap data in driver-private structures just to satisfy the callback.
-> >=20
-> > I just realized something reviewing your patch: we don't necessarily
-> > need an extra argument or a callback, we can just put these fields into
-> > drm_hdmi_connector_funcs directly, and then validate them in init.
->=20
-> If I understand correctly, we should drop the drm_connector_hdmi_caps str=
-uct
-> introduced by this patch and move all its fields into drm_hdmi_connector_=
-funcs.
->=20
-> In that case, how should we proceed with drmm_connector_hdmi_init()? I se=
-e the
-> following options:
->=20
-> 1. Continue with drmm_connector_hdmi_init_with_caps() after removing the =
-caps
->    parameter, and then drop drmm_connector_hdmi_init() after the migratio=
-n.
+Please use a fixed prefix and use the suffix to differentiate:
 
-If we're going that road, we can also move the format, bpc and vendor
-and product there for example.
+  LANE_MAPPING_NORMAL,
+  LANE_MAPPING_REVERSE,
 
-> 2. Keep the existing (unaltered) drmm_connector_hdmi_init(), which would =
-be
->    slightly inconsistent: supported_formats and max_bpc would still be pa=
-ssed=20
->    as arguments, while the rest would go through drm_hdmi_connector_funcs.
+> @@ -854,6 +873,37 @@ static int sn65dsi83_parse_lvds_endpoint(struct sn65dsi83 *ctx, int channel)
+>  		goto exit;
+>  	}
+>  
+> +	ret_data = of_property_read_u32_array(endpoint, "data-lanes", data_lanes,
+> +			ARRAY_SIZE(data_lanes));
+> +	if (ret_data != 0 && ret_data != -EINVAL) {
+> +		ret = ret_data;
+> +		goto exit;
 
-I'm not sure why we would want to do that?
+The goto-based error handling is getting trickier and trickier with more
+error conditions. Can you please add a preliminary commit in this series
+that replaces:
 
-> 3. A variation of option 1: additionally rename
->    drmm_connector_hdmi_init_with_caps() to drmm_connector_hdmi_init() aft=
-er the
->    migration.
+ -struct device_node *endpoint;
+ -endpoint = of_graph_get_endpoint_by_regs(dev->of_node, endpoint_reg, -1);
+ +struct device_node *endpoint __free(device_node) =
+ +         of_graph_get_endpoint_by_regs(dev->of_node, endpoint_reg, -1);
 
-It should be renamed indeed.
+and removes the entire "ret = foo; goto exit;" logic with simple returns?
 
-Maxime
+> +	}
+> +
+> +	if (!ret_data) {
+> +		for (i = 0; i < ARRAY_SIZE(supported_data_lane_mapping); i++) {
+> +			for (j = 0; j < DATA_LANES_COUNT; j++) {
+> +				if (data_lanes[j] != supported_data_lane_mapping[i][j])
+> +					break;
+> +			}
+> +
+> +			if (j == DATA_LANES_COUNT)
+> +				break;
+> +		}
 
---cp5o5xnmuujb2sqc
-Content-Type: application/pgp-signature; name="signature.asc"
+I think a memcmp() can simplify the implementation if you use the same data
+type (u32) for data_lanes and supported_data_lane_mapping[].
 
------BEGIN PGP SIGNATURE-----
+> +
+> +		switch (i) {
+> +		case NORMAL_LANE_MAPPING:
+> +			break;
+> +		case REVERSE_LANE_MAPPING:
+> +			ctx->lvds_reverse_lanes_conf[channel] = true;
+> +			break;
+> +		default:
+> +			dev_err(dev, "invalid data lanes mapping\n");
+> +			ret = -EINVAL;
+> +			goto exit;
+> +		}
+> +	}
 
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaldJhgAKCRAnX84Zoj2+
-dqO/AYC9AZdgH/JpMcBIWDu/Vknv6j6Z9Z489YI50y9fj0sorpkNqOxc3b1y9/b+
-Rcc1YYQBf09mu2L5Oi1kiTr227962LwMKfviDKo0zifcYLjfkEzfBZUBCjdqznwe
-/4szmSGb5g==
-=1515
------END PGP SIGNATURE-----
+And perhaps the whole if (!ret_data) here can be simplified a lot as this
+(pseudocode, not tested):
 
---cp5o5xnmuujb2sqc--
+  if (!ret_data) {
+      if (memcmp(data_lanes[j], supported_data_lane_mapping[NORMAL_LANE_MAPPING], size) == 0)
+          break;
+      else if (memcmp(data_lanes[j], supported_data_lane_mapping[REVERSE_LANE_MAPPING], size) == 0)
+          ctx->lvds_reverse_lanes_conf[channel] = true;
+      else
+          return dev_err_probe(...);
+  }
+
+Luca
+
+-- 
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
 
