@@ -4,133 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC9F4C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 08:04:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F105C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 08:07:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e85xM/oV7cZp86wVQmgVWWcPx8R3MsQPBDdsTXfWfRU=; b=QKYIZkmzK6ibkH/PhGtVTJi+yq
-	lrdchfyCFcB2ZiL01PIiQ07B11+tmEuVURpUEBsuUEFSM2wRhTeiMtFuvAeLkYr0hUO/LrWpTF7se
-	tMlsoxeurnIffoh6pwHxGLwNYzUHAsUFVcWaLcFRWnNCZPzBbJGjBniBADxTZjgjbiM6PqmttQ/C7
-	tqSHiHfzn13veYyuiAyo/EeEQKvxJtQTWVXqrm8X7zNIfiA8GfmVQWBHFucbFy9KJQqASJygDZmCY
-	0L6QHXhPe+KegudxL4srA9sFS1zwVryV5gMTB3QzYvoKzcxxvN0l5VFuDVtFzVBBFJt/c67iMil5l
-	ZFTGUVhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yvL7sGJmKNG6SEfg8yAMFMk/Xw+FZlpecB/5dIcp8wo=; b=qtjTUEUUqOHQ0YENRmWP7YdrzE
+	jwor+sZHPqtAGqxC/OdNQXHsZtARxm5xASyoEzIyh/e6EACvWJcWX6WnOezGQum9vV8mEEBYk+jmo
+	/PE9gDEDZ4iFSMXJJ8cW39Or7VaM+5SQNMY2nGdOgZJ8EDgohH+RbtPLk8AVjCUErksb/MZcX3YSX
+	Pw53G5FvySIZbkaOSt7GmilkwOa9PNawl7bi8/3H7raOYsRsyZYG9FhtoedUvwZoCT2dgm3j2eNEb
+	ep43RGV22+bogW4ilU+yNv1Z2b05LbXiDhApKmF/O7gezLDEAdvTNAY981Z08zImCiFhFoHFUCseA
+	AVw8S3sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjubM-0000000E6W7-0u1p;
-	Wed, 15 Jul 2026 08:04:20 +0000
-Received: from mail-francecentralazon11013065.outbound.protection.outlook.com ([40.107.162.65] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1wjudu-0000000E6id-2j1i;
+	Wed, 15 Jul 2026 08:06:58 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjubI-0000000E6V8-370F
+	id 1wjudr-0000000E6i9-3tbM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 08:04:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PL40o368lcyl18gG8fC7pz8FJ200CEywz8oYtckaYwXSwp9VKduWjgIKPdW1PTkLmhQYf9Ky9UBDoNPIusHC5Jw04ZTV3+TffnGwjNYddnTn4HypnOHGMjeWPljPg9DHHNVTXJPBJ/jPQxSnj4huyEzh1BhfDD61rjwdP2+HAMXomqlEqELocPyvbn+Vk1pdXmLugaVZ81xB9hkXs1fPunyNoZyxrvkmivtEaMmR14JHxZv1YanjqaFdOHvRtYnFohzg9DPj2YR1/pxRZmVIaGUmUJdXqxIm0UMpUIwWbcpL+uwVKuZq4xIhbF3K3iyzm6KfmtEFbYJchTmyBvuD8g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=e85xM/oV7cZp86wVQmgVWWcPx8R3MsQPBDdsTXfWfRU=;
- b=hkCgZjG0N2xA0ZQXOVu33+6eMyAifXajrL5eJkv5xEsc7Nf5OdT4AnSrP5yJRG5/FUZacPngQ26kvLKD3FC/ArV5Ztg/wHvVFOsO9LSzCzPPPJk8fLLsHNiSPkEtsOOzrvFZjcl7OOFlTiC7Bo39l8k/f9rwV5McFfRVp+CymFPTTNDQx7efL+h0HbtdXWtZP/z1Bt/X7FruJKgGBmWSAKF/74kBxf+rF1IVyj8hhFMqCJVi/QRgMVepzVv73iN40NERXU+xTiYqTVQnTaBXwAsHz6B4LeJ+iPErLhbREOf8BNH0r/jwZlrFZY3Ua9cilKLFyegt9PBEina8yG/fnw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=e85xM/oV7cZp86wVQmgVWWcPx8R3MsQPBDdsTXfWfRU=;
- b=ZFSsXCyiHLpFjMaAICGDktMfsF4v8DMhks1xERRGMDrMKcI7/ubzNLs2ptcfbonxWhfu+Ha/zhwydg+KeILNoznLapqLMnF/NVmIIiRtizWOphvM+3R1h5jG4nAbjGRNUBy/mX09wPz2lUq/1H5BTbakZw2Q77ADsnkeKWoQOz++AwEmv9MKz6kbNzvx6gwmIUdsHRBnGeITgapg9eN8jRv3C3/dsrLyLYjKtQFKSkWUMNDDDRfpD/fOUAJ+0atToNXo39pA9W1U9oizgjV987o4I30qQhEThPxQiETYN1BNKkgPYQL1azk48HLZdISDYyXS7UF5D62thgjaUICGcQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS1PR04MB9287.eurprd04.prod.outlook.com (2603:10a6:20b:4dd::8)
- by AM7PR04MB6840.eurprd04.prod.outlook.com (2603:10a6:20b:10f::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.11; Wed, 15 Jul
- 2026 08:04:11 +0000
-Received: from AS1PR04MB9287.eurprd04.prod.outlook.com
- ([fe80::6f30:763d:17d2:b79c]) by AS1PR04MB9287.eurprd04.prod.outlook.com
- ([fe80::6f30:763d:17d2:b79c%3]) with mapi id 15.21.0223.008; Wed, 15 Jul 2026
- 08:04:11 +0000
-Date: Wed, 15 Jul 2026 16:05:43 +0800
-From: Liu Ying <victor.liu@nxp.com>
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>
-Cc: linux-kernel@vger.kernel.org,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/3] drm/imx: remove unneeded 'fast_io' parameter in
- regmap_config
-Message-ID: <alc_Vy8U9CYrdt5Q@raspi>
-References: <20260705163536.1850-5-wsa+renesas@sang-engineering.com>
- <20260705163536.1850-7-wsa+renesas@sang-engineering.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260705163536.1850-7-wsa+renesas@sang-engineering.com>
-X-ClientProxiedBy: SI2PR02CA0042.apcprd02.prod.outlook.com
- (2603:1096:4:196::19) To AS1PR04MB9287.eurprd04.prod.outlook.com
- (2603:10a6:20b:4dd::8)
+	Wed, 15 Jul 2026 08:06:57 +0000
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66F4CEux3301893;
+	Wed, 15 Jul 2026 08:06:26 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=yvL7sG
+	JmKNG6SEfg8yAMFMk/Xw+FZlpecB/5dIcp8wo=; b=nkJoiVi9CjX6/qMkyY+QZq
+	MSMENx7vFpK2EYWd+Lqbe2W/pj/d50mZM3UnHnSyOfS1yNm5FX6yTadWGYgxRzAP
+	baVjEGYLYga9oXm+rm18rGRC5ZiiXGyvrLbfU6tDHIx8LhSDjozmwk06c3UIJUKb
+	AbnljVTuqT/9kt4izUYLL8YReUxrtMag4GTwYCLCMe7RYvx7IPULQj5VuxPS7Mk/
+	yNRiIptyQD+n8R/4sCGg5B7WXJLmfBYWG2mfaViMR03yegWN7f/XwtfGovm+u7XL
+	ofKZCqMwtotFx/F/wts/S3ecoKY8zrWiTu0AM2NFGfbaakBZ4drSclui7CoMbPFQ
+	==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fbegtacx7-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 15 Jul 2026 08:06:25 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 66F84dZx010270;
+	Wed, 15 Jul 2026 08:06:24 GMT
+Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4fc15jxua1-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 15 Jul 2026 08:06:24 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
+	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 66F86LF028967248
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 15 Jul 2026 08:06:22 GMT
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id D4BCA20067;
+	Wed, 15 Jul 2026 08:06:21 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 1846A20043;
+	Wed, 15 Jul 2026 08:06:21 +0000 (GMT)
+Received: from [9.224.91.136] (unknown [9.224.91.136])
+	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Wed, 15 Jul 2026 08:06:20 +0000 (GMT)
+Message-ID: <6e0d0afc-8a54-4763-b25d-dea122c4cd12@linux.ibm.com>
+Date: Wed, 15 Jul 2026 10:06:20 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS1PR04MB9287:EE_|AM7PR04MB6840:EE_
-X-MS-Office365-Filtering-Correlation-Id: c4552cce-ec73-421e-bf14-08dee247a722
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|23010399003|19092799006|7416014|376014|56012099006|4143699003|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: bcnNhk2kKz2J11f6yu9FrJh4LnzBvndPQDAghNfRwzTFV9RSVuk4gNSgLvpot4fInIf2JV6girVXZGgmjQ7t6VzSeTFmHp/ZbmoEIPY/I+tENoa3DkfyDvit0qwkaprVF5U7dI86vF7IfYsc+dr5TnULI2WQYIG+SS9Lvt63zPUQaMOFjIXYMXfDR6dPt/7UMzAzWFEnoOiis5Oq9OqMXqhnKnztKFa2td3PH4ndI85Woh5iS0GKx8l1BIbJqwGTDo2Jj8bLWp65iqiMui45Y+2li/J/BIPJ7PD7NujWxWhvjR5UO8S2gMLGDSvwz6qOMF45my3sUyQT0wQkdxmnLON4yLbQi9+uOaNCIT4SmF6UVcCTPuKWs/Y6FnBoYz2uDJ+Sv9iCxzNJI9ptc4lCNGGrOtvXHDDjynmGvWdW2Quj8f1ExIHDzxKEAlhxvsEQ5AaSkk65j15FPp7grS0cJenKsHjh2g3WlS/a/dqYRSsHqhOB9bpMO1SZm7ncR69xgwti9qOF0nzT5wR6ncXq9kUCggPTvx42eQLH2TWy1NEp+/yGKCe636B+J+bN3ML62YpKtsGlqzM2CI9CgPZFqD8HbhcQzdouuCq/PoZfNPdEyKQF57fosx6riw/HpXLBoClax+kBdhNz2WSyhJD97jehphnKdkGGDVGP1QbmZXM=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS1PR04MB9287.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(23010399003)(19092799006)(7416014)(376014)(56012099006)(4143699003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9Dxa9CS2YYHn25b6NCiVl0gYKLJZDAlu4E37LXMUZ9Nqdl8QD7fIBUtSix7a?=
- =?us-ascii?Q?2Ns/65nAlBX5jJC0dWYGkRrzVEvKld2hReBLF/2P4wYCVFZ8eEwtJdcPTc8/?=
- =?us-ascii?Q?fGft7ACfQbwN48AwHJKS/Akhh6M8mIf+BTsCJuaZAxWC1TaPYcwpIrs05iPt?=
- =?us-ascii?Q?bQbgHbludYPGx9jDJYRIuP0pqckeMbMpKyl7oVUWFcmm2eQALXvT7YA2zyQX?=
- =?us-ascii?Q?Um3/VKUod+7jQmBuZuwy1TdMFGlB5aydPI2UWJcAXfX2S43kwZa4J14XGXSy?=
- =?us-ascii?Q?hrnwpg6XFws6AofoSOvxp4W4+OU3hKI2A7tiKHRFSdmLseAxHt4Xh9+IhsfN?=
- =?us-ascii?Q?DVSDxZYKTbboHXOvw8dvq9t3GyG7ZGZx7iVdIoXIMrFEpwK1ELtWNgMv5XVa?=
- =?us-ascii?Q?U9MsrZp8JIoVmn9UsZ5ZRBjZd15pxuXMsvs0TmOiig3WDKwv92VMieIWE5AN?=
- =?us-ascii?Q?FtKLDfwzGjRBI8lGwOjM1q00jjz3Qj2SMhsVC3JYlB31bNWI9FftXjXwJpVO?=
- =?us-ascii?Q?7iProuW4yovTJA7ekbctATMAP3MUWDXF9U6xZtZ7ibNVgJKFdrGylzic6RC7?=
- =?us-ascii?Q?r02k9UV056OTeeOeedpS0l/FuH8WYJF+77om/CYnMglYACzNtDG2Zt3cd49a?=
- =?us-ascii?Q?kQwWw8gU14jpp6laHCmBAXJCkDYE3undqhNXU4i7PSJf/M7g+H4bEZi7CTHV?=
- =?us-ascii?Q?VoLuTYadSUqOGhTZP3b34rqtRNX9+ROU6Ptc6tr2dxbp+EcuwZUFzYndfbVW?=
- =?us-ascii?Q?qrwpMyVVs883n3j1IX5osvA8hZQ+KgZsjxZCWXr8z81S+SolbTV/YH4j38m+?=
- =?us-ascii?Q?8jWkEsO1xTA7e6nhO7/bT7pUhDgnkjE0H2U8XzSZ3pfBtRd2T1TJP+2k70Eh?=
- =?us-ascii?Q?TYjgubQAyNk5EL350G9ooqKYKX6AIN8CmeeVR1UJWh0wHpc67VxyAzlAhi6M?=
- =?us-ascii?Q?sVOudk6e3b8ilHUPoeQElkOU9352hUQgTVnjSUZVyFuFwWCNr9VvM8pQCZDi?=
- =?us-ascii?Q?GqA6CIi/gUJ4KJtkFbTsrvLKlCD8Pn0viaNAEy1i7M7b0WYE4QFXPWo97G09?=
- =?us-ascii?Q?5AyAM9UNZh4LnRfZP0rGxneNe2k3Tt3TymusqMlib1ozAoIwdsUkluKUgquN?=
- =?us-ascii?Q?WwpHOJKeq5K47apLu5mb9XX8L2t9mSdnlh6caZAgmB2x5j3WWOW4sazkodRV?=
- =?us-ascii?Q?OHn2nxfCxDgaEGKhQw5epcEiSnAAyF1IFCMCVv7NpQFY5W+IGQvObwnHrLxv?=
- =?us-ascii?Q?H1VDwz0p/x8YxoIECZd7ih4xgv+6ymVdqYjjpph89yGHUBgWaB00dlI3edDN?=
- =?us-ascii?Q?N5DYJu0tuHvsL9zCVG9/4oTEuGw+8aH5MktJ2u1nxoM3pEqfPhBKTPxO0AIv?=
- =?us-ascii?Q?89t4lS0qIc5ZpKtrGsEEHDIdAKnQXIcPVTmDSmBcoKN2baEp1vis8/ByuQ//?=
- =?us-ascii?Q?PcuTqWGdRogGzMUVWsc7VdRRktGg+ds+aYl9Z75/H/5Rtwy9yxjoSp8P/FOA?=
- =?us-ascii?Q?qpickZUz0m2O2kjGwLmdaxaO4k6o93RCCDf5QPMAsvvGhs814PsCfiXzMylD?=
- =?us-ascii?Q?GwYMntANd8jQj7c/QUglJppMFw/cFTT6hSctx/nrI0zNFxgCs4CWzoSMsjmP?=
- =?us-ascii?Q?QX4Nk66xwHay1M4srhQpSUdgCSudzCa0sA2/VHTyLdElrVvbqOG7t4yLcBiw?=
- =?us-ascii?Q?fXufHeYA0cd2onwFUOvlDXOsfCgCKddgwl3eALXxdmmRwY2enoVE7w8C8BoW?=
- =?us-ascii?Q?m+Wyc536sg=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c4552cce-ec73-421e-bf14-08dee247a722
-X-MS-Exchange-CrossTenant-AuthSource: AS1PR04MB9287.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2026 08:04:11.0801
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: E/R8x4K+nDdmJz2Q0JvIrZ5RgvZpqP6UcWsTTApJ1Zh/K3bzZXePsPj2PQK8N2YASB0G+Dhr5fx+gU8pmO30Mw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB6840
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 0/8] unwind, arm64: add sframe unwinder for kernel
+To: Brian Norris <briannorris@chromium.org>,
+        Indu Bhagat <ibhagatgnu@gmail.com>
+Cc: Dylan Hatch <dylanbhatch@google.com>, Mostafa Saleh
+ <smostafa@google.com>,
+        Roman Gushchin <roman.gushchin@linux.dev>,
+        Weinan Liu <wnliu@google.com>, Will Deacon <will@kernel.org>,
+        Josh Poimboeuf <jpoimboe@kernel.org>,
+        Peter Zijlstra <peterz@infradead.org>,
+        Steven Rostedt <rostedt@goodmis.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Jiri Kosina <jikos@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+        Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
+        Puranjay Mohan <puranjay@kernel.org>, Song Liu <song@kernel.org>,
+        joe.lawrence@redhat.com, linux-toolchains@vger.kernel.org,
+        linux-kernel@vger.kernel.org, live-patching@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org,
+        Randy Dunlap <rdunlap@infradead.org>
+References: <20260428183643.3796063-1-dylanbhatch@google.com>
+ <agcEMEl-QR0g6DgF@google.com>
+ <CADBMgpx38SUUuYYCm612STqh01jqv817WnJeeXYTD7Uc1r-fug@mail.gmail.com>
+ <4f429a50-df5d-411f-b40e-048d3cad5133@linux.ibm.com>
+ <alWCuAA7r1otvROg@google.com>
+Content-Language: en-US
+From: Jens Remus <jremus@linux.ibm.com>
+Organization: IBM Deutschland Research & Development GmbH
+In-Reply-To: <alWCuAA7r1otvROg@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-ORIG-GUID: Li_ffEFtPdqZ6AuIRg5cq_kWiQIb06S3
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzE1MDA3MyBTYWx0ZWRfX59V8lUsx3lmE
+ ICkTk/hkotsyWTXD+8WrDeaJt+RloeGwnSLfac+KEdoi4VmwPJYwLbUfkCbYvKURy4/5MOy68xG
+ eB3QDlhCmo3NpDPC6cS0HFs7wGXRQB8=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzE1MDA3MyBTYWx0ZWRfX7l+JkKl8k+dp
+ DrsGpOuQOYjp+D5VlQA2E6Xgz1rNQVnb8N0r61MZugFejJw/8p/IZMTcJcdR9/wCFG3Eg7XarTt
+ Yd7wbf7aqGBnpSBxq7c7v8IGj1N2lVoG3jkjrRdFpSwsgbknTnhLKF7gEEBrMP04h5KuzAscQ1i
+ nfCE2Ug1l0DGdIvBZkl4CLObO5YMuja1/oNbfpINAVL3yP9mlASIhv2dmYK+GkF14n5iAtTE0Z5
+ rK+GR2AZxPtYThNeuxvDXD6QFBBWLubRfwVr2kC58mHWaBcvFhM5+Lk9QcfJ/6exEoxqyiuBTWC
+ AFd0E+Mda2HXkK8CnWEU7878MkT1pKqmmLV07ItfO480QG8PFYHGTqM/yqbhyPMUQ6Z0pzAGP8L
+ O0QecKAP/3WSHGtietgFgkv4dM/ZaSkSQxOSjE5e5hpydsoKouXM4ImP6NaXvgeMMDT1xd5FVo0
+ W5nvFcxHCUvcZcsnUaQ==
+X-Authority-Analysis: v=2.4 cv=IqMutr/g c=1 sm=1 tr=0 ts=6a573f82 cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=VnNF1IyMAAAA:8
+ a=1XWaLZrsAAAA:8 a=qJcv4byePZYX52udqPwA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: 4-naH3hLE9ZKFw5cPJC2M2F62Bfm2lYK
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-15_02,2026-07-14_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 clxscore=1011 impostorscore=0 malwarescore=0 adultscore=0
+ phishscore=0 suspectscore=0 priorityscore=1501 bulkscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607150073
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_010416_788920_03A14A24 
-X-CRM114-Status: GOOD (  12.23  )
+X-CRM114-CacheID: sfid-20260715_010655_986585_935CEBE2 
+X-CRM114-Status: GOOD (  30.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,30 +142,180 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 05, 2026 at 06:35:37PM +0200, Wolfram Sang wrote:
-> When using MMIO with regmap, fast_io is implied. No need to set it
-> again.
-> 
-> Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
-> ---
-> No dependencies, can be applied directly to the subsystem tree. Buildbot is
-> happy, too.
-> 
->  drivers/gpu/drm/imx/dc/dc-cf.c      | 1 -
->  drivers/gpu/drm/imx/dc/dc-de.c      | 1 -
->  drivers/gpu/drm/imx/dc/dc-ed.c      | 2 --
->  drivers/gpu/drm/imx/dc/dc-fg.c      | 1 -
->  drivers/gpu/drm/imx/dc/dc-fl.c      | 1 -
->  drivers/gpu/drm/imx/dc/dc-fw.c      | 2 --
->  drivers/gpu/drm/imx/dc/dc-ic.c      | 1 -
->  drivers/gpu/drm/imx/dc/dc-lb.c      | 2 --
->  drivers/gpu/drm/imx/dc/dc-tc.c      | 1 -
->  drivers/gpu/drm/imx/ipuv3/imx-tve.c | 2 --
->  10 files changed, 14 deletions(-)
+Hi Brian!
 
-Reviewed-by: Liu Ying <victor.liu@nxp.com> # dc-*.c
+On 7/14/2026 2:28 AM, Brian Norris wrote:
+> On Tue, May 19, 2026 at 01:05:23PM +0200, Jens Remus wrote:
 
--- 
-Regards,
-Liu Ying
+> I also work at the same company as Dylan and Mostafa, and am therefore
+> probably using the same company-maintained Linux distribution.
+>=20
+>> On 5/18/2026 7:55 PM, Dylan Hatch wrote:
+>>> On Fri, May 15, 2026 at 4:32=E2=80=AFAM Mostafa Saleh <smostafa@googl=
+e.com> wrote:
+>>>> Not sure if related, but after updating my toolchain
+>>>> (aarch64-linux-gnu-gcc (Debian 15.2.0-4) 15.2.0), I hit link errors:=
+
+>>>> ld.lld: error: arch/arm64/kernel/vdso/vgettimeofday.o:(.sframe) is b=
+eing placed in '.sframe'
+>>>> ld.lld: error: arch/arm64/kernel/vdso/vgetrandom.o:(.sframe) is bein=
+g placed in '.sframe`
+
+My understanding of above message is that the linker complains that the
+input object (e.g. vgettimeofday.o) has an .sframe section for which
+the linker script does not have any rule, so that it defaults to place
+it in .sframe in the output, which could not be the desired result.
+
+> I've also been hitting this for some time, and I'd like to see if I can=
+
+> figure out what's going wrong. My current workaround is:
+>=20
+> --- a/Makefile
+> +++ b/Makefile
+> @@ -946,6 +946,8 @@ ifdef CONFIG_CC_IS_GCC
+>  KBUILD_CFLAGS	+=3D $(call cc-option,--param=3Dallow-store-data-races=3D=
+0)
+>  KBUILD_CFLAGS	+=3D $(call cc-option,-fno-allow-store-data-races)
+>  endif
+> +# No sframe generation for kernel if enabled by default
+> +KBUILD_CFLAGS	+=3D $(call cc-option,-Xassembler --gsframe=3Dno)
+> =20
+>  ifdef CONFIG_READABLE_ASM
+>  # Disable optimizations that make assembler listings hard to read.
+>=20
+>>> Previously when developing against the SFrame V2 format, I had fixed
+>>> these warnings with the VDSO Makefile change currently in this series=
+:
+>>>
+>>> diff --git a/arch/arm64/kernel/vdso/Makefile b/arch/arm64/kernel/vdso=
+/Makefile
+>>> index 7dec05dd33b7..c60ef921956f 100644
+>>> --- a/arch/arm64/kernel/vdso/Makefile
+>>> +++ b/arch/arm64/kernel/vdso/Makefile
+>>> @@ -38,7 +38,7 @@ ccflags-y +=3D -DDISABLE_BRANCH_PROFILING -DBUILD_V=
+DSO
+>>>  CC_FLAGS_REMOVE_VDSO :=3D $(CC_FLAGS_FTRACE) -Os $(CC_FLAGS_SCS) \
+>>>                         $(RANDSTRUCT_CFLAGS) $(KSTACK_ERASE_CFLAGS) \=
+
+>>>                         $(GCC_PLUGINS_CFLAGS) \
+>>> -                       $(CC_FLAGS_LTO) $(CC_FLAGS_CFI) \
+>>> +                       $(CC_FLAGS_LTO) $(CC_FLAGS_CFI) $(CC_FLAGS_SF=
+RAME) \
+>>>                         -Wmissing-prototypes -Wmissing-declarations
+>>>
+>>>  CC_FLAGS_ADD_VDSO :=3D -O2 -mcmodel=3Dtiny -fasynchronous-unwind-tab=
+les
+>>>
+>>> But the warnings seem to have returned after upgrading my toolchain,
+>>> possibly due to SFrame V3 or some confounding change in GCC. The
+>>> --gsframe in the assembler should be set to 'no' by default, so
+>>> perhaps GCC is providing an override --gsframe internally?
+>>
+>> Could it be that your build of binutils was configured with
+>> --enable-default-sframe, so that the GNU assembler defaults to generat=
+e
+>> .sframe?  AFAIK this configure option was meant for distributors and
+>> package maintainers.
+>>
+>> You can check as follows whether --gsframe defaults to "no" or "yes":
+>>
+>> $ as --help | grep -A1 gsframe
+>>   --gsframe[=3D{no|yes}]    whether to generate SFrame stack trace inf=
+ormation
+>>                           (default: no)
+>> ...
+>=20
+> $ aarch64-linux-gnu-as --help | grep -A1 gsframe
+>   --gsframe[=3D{no|yes}]    whether to generate SFrame stack trace info=
+rmation
+>                           (default: no)
+> --
+>   --gsframe-<N>           generate SFrame version <N> information. 3 =3D=
+=3D <N>
+>   --scfi=3Dexperimental     Synthesize DWARF CFI for hand-written asm
+>=20
+>> Maybe build the VDSO separately with V=3D1 to see what assembler/compi=
+ler
+>> options are effectively used (e.g. for vgettimeofday.o and vgetrandom.=
+o
+>> mentioned in the linker error message above)?
+>=20
+> A slightly tweaked version of my vgetrandom.o build line:
+>=20
+> # CC      arch/arm64/kernel/vdso/vgetrandom.o
+>   aarch64-linux-gnu-gcc -Wp,-MMD,arch/arm64/kernel/vdso/.vgetrandom.o.d=
+ -nostdinc -I./arch/arm64/include -I./arch/arm64/include/generated -I./in=
+clude -I./include -I./arch/arm64/include/uapi -I./arch/arm64/include/gene=
+rated/uapi -I./include/uapi -I./include/generated/uapi -include ./include=
+/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./i=
+nclude/linux/compiler_types.h -D__KERNEL__ -mlittle-endian -DCC_USING_PAT=
+CHABLE_FUNCTION_ENTRY -DKASAN_SHADOW_SCALE_SHIFT=3D -Werror -fshort-wchar=
+ -funsigned-char -fno-common -fno-PIE -fno-strict-aliasing -std=3Dgnu11 -=
+fms-extensions -mgeneral-regs-only -DCONFIG_CC_HAS_K_CONSTRAINT=3D1 -Wno-=
+psabi -mabi=3Dlp64 -fno-asynchronous-unwind-tables -fno-unwind-tables -mb=
+ranch-protection=3Dpac-ret -Wa,-march=3Darmv8.5-a -DARM64_ASM_ARCH=3D'"ar=
+mv8.5-a"' -DKASAN_SHADOW_SCALE_SHIFT=3D -fno-delete-null-pointer-checks -=
+O2 -fno-allow-store-data-races -fstack-protector-strong -fno-omit-frame-p=
+ointer -fno-optimize-sibling-calls -ftrivial-auto-var-init=3Dzero -fzero-=
+init-padding-bits=3Dall -fno-stack-clash-protection -fno-inline-functions=
+-called-once -fmin-function-alignment=3D8 -fstrict-flex-arrays=3D3 -fno-s=
+trict-overflow -fno-stack-check -fconserve-stack -fno-builtin-wcslen -Wal=
+l -Wextra -Wundef -Werror=3Dimplicit-function-declaration -Werror=3Dimpli=
+cit-int -Werror=3Dreturn-type -Werror=3Dstrict-prototypes -Wno-format-sec=
+urity -Wno-trigraphs -Wno-frame-address -Wno-address-of-packed-member -Wf=
+rame-larger-than=3D2048 -Wno-main -Wno-type-limits -Wno-dangling-pointer =
+-Wvla-larger-than=3D1 -Wno-pointer-sign -Wcast-function-type -Wno-untermi=
+nated-string-initialization -Wno-array-bounds -Wno-stringop-overflow -Wno=
+-alloc-size-larger-than -Wimplicit-fallthrough=3D5 -Werror=3Ddate-time -W=
+error=3Dincompatible-pointer-types -Werror=3Ddesignated-init -Wenum-conve=
+rsion -Wunused -Wno-unused-but-set-variable -Wno-unused-const-variable -W=
+no-packed-not-aligned -Wno-format-overflow -Wno-format-truncation -Wno-st=
+ringop-truncation -Wno-override-init -Wno-missing-field-initializers -Wno=
+-shift-negative-value -Wno-maybe-uninitialized -Wno-sign-compare -Wno-unu=
+sed-parameter -g -mstack-protector-guard=3Dsysreg -mstack-protector-guard=
+-reg=3Dsp_el0 -mstack-protector-guard-offset=3D1344 -fno-common -fno-buil=
+tin -fno-stack-protector -ffixed-x18 -DDISABLE_BRANCH_PROFILING -DBUILD_V=
+DSO -O2 -mcmodel=3Dtiny -fasynchronous-unwind-tables -include ./lib/vdso/=
+getrandom.c   -I./arch/arm64/kernel/vdso -Iarch/arm64/kernel/vdso    -DKB=
+UILD_MODFILE=3D'"arch/arm64/kernel/vdso/vgetrandom"' -DKBUILD_BASENAME=3D=
+'"vgetrandom"' -DKBUILD_MODNAME=3D'"vgetrandom"' -D__KBUILD_MODNAME=3Dvge=
+trandom -c -o arch/arm64/kernel/vdso/vgetrandom.o ./arch/arm64/kernel/vds=
+o/vgetrandom.c
+
+That command line does not have any --gsframe[-3] (e.g. -Wa,--gsframe).
+I am not aware of any binutils release / repository state where the
+--gsframe default was broken.
+
+@Indu: Do you have any idea what could be going on?
+
+> I mostly don't know what I'm looking for w.r.t. gsframe features, but
+> I'm willing to poke at my compiler/assembler/build-process.
+
+Could it be that your gcc injects --gsframe e.g. via its spec file?
+Maybe that would show up if you run above command manually and append
+gcc option -v?
+
+Does the intermediate source or assembler source have any
+".cfi_section .sframe" statement?
+
+$ make arch/arm64/kernel/vdso/vgetrandom.i
+$ make arch/arm64/kernel/vdso/vgetrandom.s
+
+Can you please verify that your arch/arm64/kernel/vdso/vgetrandom.o
+actually contains an .sframe section:
+
+$ readelf -WS arch/arm64/kernel/vdso/vgetrandom.o
+
+Thanks and regards,
+Jens
+--=20
+Jens Remus
+Linux on Z Development (D3303)
+jremus@de.ibm.com / jremus@linux.ibm.com
+
+IBM Deutschland Research & Development GmbH; Vorsitzender des Aufsichtsra=
+ts: Wolfgang Wendt; Gesch=C3=A4ftsf=C3=BChrung: David Faller; Sitz der Ge=
+sellschaft: Ehningen; Registergericht: Amtsgericht Stuttgart, HRB 243294
+IBM Data Privacy Statement: https://www.ibm.com/privacy/
+
 
