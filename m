@@ -4,129 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50E77C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 15:28:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C41A7C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 15:29:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hjdLvqTYMdmq6YJjDVV1MuSty97ibwW8lRLkoP2T1lA=; b=eFYwx/XQqvfTpI3gAKGh+zOgzQ
-	aHNlenbo+uhqjedkKyfPWojRx0owu+iGNHfsG9vOl8gTnEgyosCdDCzWE/0bd6nv3dSCnwXMqYl2M
-	1DMfh9NgDuR2P03+XuKt/AOIr6nypgbvKLIQCK0Ry3xZGPK+serX2Wbo3c8S3lk3Vg+x7v3bcdnNO
-	RysYmyTiZhLKS8H9NCGPPWd6M8ne2avk71yNYEmRDxNjt74dov4HMQpl81ofTWEvD/KO8BDRFROjC
-	o5CM/PN0SIPgYQ9ZzSrawX3roFRWsFOBQdGumZHRtzenRCcrFasdZTB4YsBNCILOPwLj3UwIZnYfV
-	X8dbQWFw==;
+	bh=ya0kPxPMwzONFPvdHsO2SixUs66H91xKUBR89qLPyic=; b=YimAMNXNQnvsSR03LB++LczLAI
+	3gUrUTfCuebp6k4rX3ztvR24TYgY6ImLa5MvGhNfRofYr1PluE4lCdQogajc7U5yT7lz+5/gvit1a
+	6u87SKeBb/WMvN4jnPyTN7xtbnmURkEVX/LdDZVXzkT2mQ1f00+xnUVbQMbDnQwA/UnGPNqrtWgqE
+	FAUHx9D5mVI7RKIFmn4GSyhv92KrYvlOd2BAtDmraNByN+zUiomLvSal64X2WvChFaZf5hpzePBqA
+	PGQHvTsYeS2VxeHUwLPZzvnRhIblCmmuH6ohdqSmcSTv6AgdMI24k6QdzoTeOFnMNECHQtz9/bbYF
+	d0SxEueg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk1X5-0000000FJZP-3dDt;
-	Wed, 15 Jul 2026 15:28:23 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk1X3-0000000FJY5-0h3I;
-	Wed, 15 Jul 2026 15:28:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NAVEIJPzZE8VCPQWL9rfZbfWE6PztFLwcaLtxPGev7VR9CxPEtovKlxIYnRokfELHDKrZ4QEi6SHJ+PvNzhk+aik5E8uo4/kLP+fjR3wtl3LW9o3BnBrcsTOqQvKM/iNMB1Dtfci8s1tu1Zw1X4sRGaH/yVyDCJVWWw+lotupKA177W821Rbl3yawxruqbAjNFivjwLyELgKBPPZbLn5pq0uR3RwC/CwFRoKYWsFgph0hSpKi2NohPYxruNJwbN2AniIjgaZM179/fBDozFi2HyGUmB975z/1dKL7cmpbqz5mCebJTjJmYWFhJ94mIMaNXGLtMuh5yc98UtRiuWvrw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hjdLvqTYMdmq6YJjDVV1MuSty97ibwW8lRLkoP2T1lA=;
- b=K9ypest28sGQCjI8VTdeceSHJPEvkDGBl1cSZmXqNCSskD774u2m+27c57sGv/nQRHHUnm+D6ZqBaRN+6j9Uh/GEl+8qb84xD7/swAfUgr5tf73mwajtTldJymdVsFLrNn9dh4WaT2Dl12bF1IGYbD8eBzi77uGX/wip/kJU7z0ThHq8QaupvWCXRxvQt40SqBmQ7Lol/4vvyiSey78CwOxZR7Hm4jgambZnzpzkAg4zy4lhxm4E1MGSKNowkvmEomG2bUvokOJkcey49xljJUGsHZd4ST9k7AOK1NfMrKUKahBfZlUamQ2jGjA+CTJs+7W0NtCSESCZdob7suXExA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hjdLvqTYMdmq6YJjDVV1MuSty97ibwW8lRLkoP2T1lA=;
- b=GZG0m6CuQ0J72tr/A7eDiiiFWyJdQWeczx64g8bp2Nje999vuSn9T9Xqf6o0idYACke1vVXdGUkWrOqbIhbiZJCIybZjf++204nfAon+ZrvEg+bC8nEAWyOeXS6sZXs8M/HYhmGrH8c6eOyBXLTdO+PnY7Dwrdc2RH76xIOaueeyB/1p6XMcK0yB0gWr0TTew9lKyJIdFc96/X5QSACAC6sSII9eokgQauOpzuyANBiPwnR70z01G2qyBE3AYDeGUhK8zB3aTs91Haa+0RxCVmamaWtMfE8vyTLHgqsXUDxf9b80hQqrc1LT/weON7HLKC0KnaJ2n03iavEv36BERw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by VI0PR04MB10496.eurprd04.prod.outlook.com (2603:10a6:800:21a::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.11; Wed, 15 Jul
- 2026 15:28:15 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0202.018; Wed, 15 Jul 2026
- 15:28:15 +0000
-Date: Wed, 15 Jul 2026 10:28:05 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Xu Yang <xu.yang_2@oss.nxp.com>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Jun Li <jun.li@nxp.com>,
-	linux-phy@lists.infradead.org, imx@lists.linux.dev,
+	id 1wk1YI-0000000FJpa-0zFu;
+	Wed, 15 Jul 2026 15:29:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wk1YF-0000000FJoh-0a7y
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Jul 2026 15:29:36 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1A3541477;
+	Wed, 15 Jul 2026 08:29:28 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 02E283F905;
+	Wed, 15 Jul 2026 08:29:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784129372; bh=0DoSozkuyO2Bq2KoLc6X2figCfBt0AFxngHQNyo5a8I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GcM4Kd8mPE2PHx0j8T7wYpzwAYmG3jhNzy5V9WsoxZTxxFklzQE5IxDCsCMlFKZMx
+	 FUFiFuLqfl76lvBqT9+e8c0rTtPPQONE32TmfBbf+GHj8RJDA3m4mFZrldPQt9Ajo6
+	 Uoo+py9hIrBcwNZLNgyDrfXnRwBtxekcn1gUn7/I=
+Date: Wed, 15 Jul 2026 16:29:15 +0100
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Subrahmanya Lingappa <subrahmanya.lingappa@oss.qualcomm.com>
+Cc: Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Xu Yang <xu.yang_2@nxp.com>
-Subject: Re: [PATCH v6 3/6] phy: fsl-imx8mq-usb: add runtime PM support
-Message-ID: <alenBaMOTSPo7DJV@SMW015318>
-References: <20260715-imx8mp-usb-phy-improvement-v6-0-00d95e270e4c@nxp.com>
- <20260715-imx8mp-usb-phy-improvement-v6-3-00d95e270e4c@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260715-imx8mp-usb-phy-improvement-v6-3-00d95e270e4c@nxp.com>
-X-ClientProxiedBy: SN7PR04CA0109.namprd04.prod.outlook.com
- (2603:10b6:806:122::24) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	linux-doc@vger.kernel.org, sudeep.holla@kernel.org,
+	james.quinlan@broadcom.com, f.fainelli@gmail.com,
+	vincent.guittot@linaro.org, etienne.carriere@st.com,
+	peng.fan@oss.nxp.com, michal.simek@amd.com, d-gole@ti.com,
+	jic23@kernel.org, elif.topuz@arm.com, lukasz.luba@arm.com,
+	philip.radford@arm.com, brauner@kernel.org, david@kernel.org,
+	souvik.chakravarty@arm.com, leitao@kernel.org, kas@kernel.org,
+	puranjay@kernel.org, usama.arif@linux.dev, kernel-team@meta.com
+Subject: Re: [PATCH v5 00/23] Introduce SCMI Telemetry support
+Message-ID: <alenP8e_2SFtgWw4@pluto>
+References: <20260703123601.381275-1-cristian.marussi@arm.com>
+ <20260707063137.3222972-1-subrahmanya.lingappa@oss.qualcomm.com>
+ <alCuJsOgh1ioFHAL@pluto>
+ <CAPxK-6cE7QAnMxO843T_MhipsVed=q7M6yQG6q5mAknY+T91kw@mail.gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI0PR04MB10496:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9266854c-0fc1-47a6-b1e5-08dee285b038
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|23010399003|376014|3023799007|22082099003|18002099003|10067099003|11063799006|56012099006|4143699003;
-X-Microsoft-Antispam-Message-Info: Cn/4EyZQyqV7AP2dKaRLv3kbwhq/L8gFRAbDsTDvum74SgDBG/WA/00fUaHEP8w40pUNPsRHtcNvSMx+9WcsXW74VVcrwQpAZVW7KbmBeDyvZs7bccmfP3uux2HG9RJDRjXmy5X0ct+FAelMBSYnbUu/BF3sTBXmCxAiIcfjE6jgBI8Y4gojGkpiyjCWdGDqi4+/xbkq4ehK2+nA4rq5UXcyd7TCeDPYl86G5NZ7AwcWX5iA6QsNYPXGvi89QxNfevnypYbbs7NvBTG28n3OM9zBe4FjAnMdqbztHdDHmnv3dBaR6MH5NHKaQOPOCvvRBu2mCptk+2q2r+fXi2Ge8w7LxS6OF6z04nNwurrYeXIflJ1XA2sA0j3ldHoLc8Xt7A21sjL/v4Fs5G7JchPRu/Haekm6GNtZl6OVXDam6iVjVAh6ymRq3ZHtbxIvVFCViLkSt6ne0O3nw12SROqsS8xK4o0J5tUWHoRtYBJsnkqiwcLY4GSbnLGyKybWADR4/rew7f4Xb1/HcfxmpadmTN/fkBltF8xs4GPCY+bUzDpRtWZrMDju/kzE84lBj/1/QT6rSrfpKtoupArbFTQ8GR6zgDo8tYWE8Te7/Tt8z+uc7Nt4+/1ghL1iu9KdXpubHinPsNrHJSC1tAaXKaz2AAziYnaO3tQp11IU2/HhmiU=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(23010399003)(376014)(3023799007)(22082099003)(18002099003)(10067099003)(11063799006)(56012099006)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?DIO8OeSRU0vNLDdqOy4GYiO/QCq25CiaCIyaDd8JaDxB+bPilzI4q3Wj345g?=
- =?us-ascii?Q?kfwpsHdZ5ynRxx45UiouX1hdC4rfJlRh4r3sZauT0PyAYexpY1ahQqXiPat0?=
- =?us-ascii?Q?M2g59Oyzf2rebku/V78z87dXOcGm9L1gVWt+iMKccIHjpATYTW9xhFBlGE41?=
- =?us-ascii?Q?o64ww5gz5qk8UCo55wBpmJtlMd00QwSD2AOg6l62VQsVBixPIyu9yjDUxbAW?=
- =?us-ascii?Q?S3SurOQKz0qi8b1vP07EREhudF1SVfX47rM+4bL/siow0ojMZIiCVQ91N3nw?=
- =?us-ascii?Q?xHfa6SATHtJCjhJbeUoRGoG9/CSySFrS0HfwmQrOldn3Jarvxkm3iW4ykpG7?=
- =?us-ascii?Q?nC7N16+EiznuontFG//WLgxpQPsJVMWkIOPqVUOLeaXOOE7B6hWU3MeqsTdB?=
- =?us-ascii?Q?IeJ2u4bRwzEFyVCAMmPW3PguPxHkGO9VOktbtXh+b4MO4DPrtyryB7S4mptM?=
- =?us-ascii?Q?pxJJa5XX6GJCt+k3rK5+l51RZmrtwx9wyUCMhK45VhAzAOPwKNfaeK47RUVp?=
- =?us-ascii?Q?IC3qRkRIKz/3grQhpisPkYaOhEeNT7rEkG53njISzOZGEhKtmoRbk4Fxc9+0?=
- =?us-ascii?Q?0KRzc2xBAtKjXDh/k68eFd6haEeyngpwGGq8gSMMej14AEwuvqdGhFAyEBmI?=
- =?us-ascii?Q?FlLFJWVv1e7ODAOdURV+0TnH7yL6PIeCJcdxC5Xz6P8v15IPJRGupVV/PCen?=
- =?us-ascii?Q?/HSTlvhHYXIFViPxoyiS7A/HlJAuZh03NLQ6tPlyY2ThcaKg1OArKiyVuSJ3?=
- =?us-ascii?Q?fGdtaezzAbjre4N2B4Zx2eb1e0kRR1okpS3H1oGibvjFcyuauoiC2PrAP2h4?=
- =?us-ascii?Q?ncngKAfYhxR6m78iO9YHGYwysZPsAgjSdp8yX4GyzW5i1zdGkJLjhVo4dT5/?=
- =?us-ascii?Q?SNacVUfbGrWRsHnk6OnErLe47vAUumevRuOCrCySMqhN6LiWQI2JcP++3Ha1?=
- =?us-ascii?Q?5sEsvWRU752MDFe+7BDHNC5GvVtRu2rUgpXUqUCf2AdFkni1Y39ECH+8gyLA?=
- =?us-ascii?Q?MNTXwOh7SUjwB0iQvs0NQEBOhZYHUpSMvHLm1B1FH6V+MHOtrwizmcVEyjJQ?=
- =?us-ascii?Q?oBP7p0/QQk0oZ3JJVJM6glxCpnUtqHKYP3aRpUOWS4hVjVLR1VWCprBRk2ND?=
- =?us-ascii?Q?9pBA3UDW2QyFi4a7nolVJYG2ZNj4OLKpTWeE4PwTiCogZ2hOthqcvV02ku6N?=
- =?us-ascii?Q?6MwloVDqVzxkDUesvOtzJgtPhamp8jvzuSQs/oIkVLkQwoc3AtlwD4Y6Uu1L?=
- =?us-ascii?Q?YG+107Gf4dp6qqJtVqNO+Huc6W4WPNXJWkIsgGXH728Acwrozbw5qWUR/1EG?=
- =?us-ascii?Q?xJEoI5nk5/j70T5Q+uP57Lg2n64z16gLkarli5aazRikVOmhvUvNcKRdjrVu?=
- =?us-ascii?Q?qviigbPOjM2RXQXx7kaZ5ry35CjF0Vpv2x3Gr6quCUeYm5EG2t0Mih3dPLib?=
- =?us-ascii?Q?8RVJLoOWhgTW7TEDZwBoCHWrru+yPFrGjGsI3KvBZqxGZR/s9sLXHc7TSV+n?=
- =?us-ascii?Q?h2nGQu0XWd6iZAhYCwWymot1r04vNgMPyPAMfRNj9Jb5FANyhHum4hWbMStL?=
- =?us-ascii?Q?bakIzN57c1k9dpk1ye8rhOiDgyKi4mAILhBb4u1bXPhNGbU5WHcthsyWkoHD?=
- =?us-ascii?Q?S/bDGaiJVprj3vB57PhypdeEqPndQv83CxDZYXAu/E5/rGdZIz6dgtqRco4Z?=
- =?us-ascii?Q?fBVyzbukSQ8tNdzaW7tp/jxSCryjH0i+mb0kEe9N/bCM6o1bpRHl8LDsxBvv?=
- =?us-ascii?Q?yBCox/mdRwAi8+BUNfL0lQbW2q4tkL0srq1/tjyys3PRbQrrCLpJ?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9266854c-0fc1-47a6-b1e5-08dee285b038
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2026 15:28:15.1598
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: TfQ3X5PUh2AL1imZ3tdn0LAZtlydxBUNnvtkJ/QksJDaPK2KGebrqcA/UL3Iyb4LLmd9eZ2gaw9WnMuuqhBPDYXaSA4FIFFgdJz74tjcOc8cInmgkF16HoXxZ+qWGL0o
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10496
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAPxK-6cE7QAnMxO843T_MhipsVed=q7M6yQG6q5mAknY+T91kw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_082821_208762_800E9C54 
-X-CRM114-Status: GOOD (  27.96  )
+X-CRM114-CacheID: sfid-20260715_082935_260842_846BD898 
+X-CRM114-Status: GOOD (  31.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,192 +80,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 15, 2026 at 07:33:58PM +0800, Xu Yang wrote:
-> From: Xu Yang <xu.yang_2@nxp.com>
->
-> Add runtime PM to ensure the PHY is properly powered and clocked during
-> register access, preventing potential system hangs.
->
-> It guards register access in the following scenarios:
-> - PHY operations: init() and power_on/off() callbacks are guarded by
->   phy core
-> - Type-C orientation switching when PHY/Controller are suspended which
->   needs explicitly care
-> - Future PHY control port register regmap debugfs access
->
-> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
->
-> ---
-> Changes in v6:
->  - use devm_pm_runtime_enable() to disable runtime PM when probe fails
->  - simply pm_runtime_get_sync/disable/put_noidle() to pm_runtime_resume()
-> Changes in v5:
->  - use non-devm PM runtime callback to correctly enable/disable clocks
->    when unbind the device
-> Changes in v4:
->  - replace guard() with PM_RUNTIME_ACQUIRE()
-> Changes in v3:
->  - new patch
-> ---
->  drivers/phy/freescale/phy-fsl-imx8mq-usb.c | 67 +++++++++++++++++++++---------
->  1 file changed, 48 insertions(+), 19 deletions(-)
->
-> diff --git a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> index 3a5788c609e1..bc804d2b5aee 100644
-> --- a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> +++ b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> @@ -9,6 +9,7 @@
->  #include <linux/of.h>
->  #include <linux/phy/phy.h>
->  #include <linux/platform_device.h>
-> +#include <linux/pm_runtime.h>
->  #include <linux/regulator/consumer.h>
->  #include <linux/usb/typec_mux.h>
->
-> @@ -136,17 +137,15 @@ static int tca_blk_typec_switch_set(struct typec_switch_dev *sw,
->  {
->  	struct imx8mq_usb_phy *imx_phy = typec_switch_get_drvdata(sw);
->  	struct tca_blk *tca = imx_phy->tca;
-> -	int ret;
->
->  	if (tca->orientation == orientation)
->  		return 0;
->
-> -	ret = clk_prepare_enable(imx_phy->clk);
-> -	if (ret)
-> -		return ret;
-> +	PM_RUNTIME_ACQUIRE(&imx_phy->phy->dev, pm);
-> +	if (PM_RUNTIME_ACQUIRE_ERR(&pm))
-> +		return -ENXIO;
->
->  	tca_blk_orientation_set(tca, orientation);
-> -	clk_disable_unprepare(imx_phy->clk);
->
->  	return 0;
->  }
-> @@ -620,16 +619,6 @@ static int imx8mq_phy_power_on(struct phy *phy)
->  	if (ret)
->  		return ret;
->
-> -	ret = clk_prepare_enable(imx_phy->clk);
-> -	if (ret)
-> -		return ret;
-> -
-> -	ret = clk_prepare_enable(imx_phy->alt_clk);
-> -	if (ret) {
-> -		clk_disable_unprepare(imx_phy->clk);
-> -		return ret;
-> -	}
-> -
->  	/* Disable rx term override */
->  	value = readl(imx_phy->base + PHY_CTRL6);
->  	value &= ~PHY_CTRL6_RXTERM_OVERRIDE_SEL;
-> @@ -648,8 +637,6 @@ static int imx8mq_phy_power_off(struct phy *phy)
->  	value |= PHY_CTRL6_RXTERM_OVERRIDE_SEL;
->  	writel(value, imx_phy->base + PHY_CTRL6);
->
-> -	clk_disable_unprepare(imx_phy->alt_clk);
-> -	clk_disable_unprepare(imx_phy->clk);
->  	regulator_disable(imx_phy->vbus);
->
->  	return 0;
-> @@ -686,6 +673,7 @@ static int imx8mq_usb_phy_probe(struct platform_device *pdev)
->  	struct device *dev = &pdev->dev;
->  	struct imx8mq_usb_phy *imx_phy;
->  	const struct phy_ops *phy_ops;
-> +	int ret;
->
->  	imx_phy = devm_kzalloc(dev, sizeof(*imx_phy), GFP_KERNEL);
->  	if (!imx_phy)
-> @@ -693,13 +681,13 @@ static int imx8mq_usb_phy_probe(struct platform_device *pdev)
->
->  	platform_set_drvdata(pdev, imx_phy);
->
-> -	imx_phy->clk = devm_clk_get(dev, "phy");
-> +	imx_phy->clk = devm_clk_get_enabled(dev, "phy");
->  	if (IS_ERR(imx_phy->clk)) {
->  		dev_err(dev, "failed to get imx8mq usb phy clock\n");
->  		return PTR_ERR(imx_phy->clk);
->  	}
->
-> -	imx_phy->alt_clk = devm_clk_get_optional(dev, "alt");
-> +	imx_phy->alt_clk = devm_clk_get_optional_enabled(dev, "alt");
->  	if (IS_ERR(imx_phy->alt_clk))
->  		return dev_err_probe(dev, PTR_ERR(imx_phy->alt_clk),
->  				    "Failed to get alt clk\n");
-> @@ -708,6 +696,11 @@ static int imx8mq_usb_phy_probe(struct platform_device *pdev)
->  	if (IS_ERR(imx_phy->base))
->  		return PTR_ERR(imx_phy->base);
->
-> +	pm_runtime_set_active(dev);
-> +	ret = devm_pm_runtime_enable(dev);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "failed to enable runtime PM\n");
-> +
+On Wed, Jul 15, 2026 at 07:15:10PM +0530, Subrahmanya Lingappa wrote:
+>  Hi David, Cristian,
+> 
+>  Thanks, both. Fair points.
+> 
 
-no place to call pm runtime suspend, so whole driver's life cycle runtime
-pm is on, is it expected?
+Hi Subrahmanya,
 
-Frank
+> On Fri, Jul 10, 2026 at 2:02 PM Cristian Marussi
+> <cristian.marussi@arm.com> wrote:
+> >
+> > On Tue, Jul 07, 2026 at 12:01:37PM +0530, Subrahmanya Lingappa wrote:
+> > > Hi Cristian,
+> >
 
->  	phy_ops = of_device_get_match_data(dev);
->  	if (!phy_ops)
->  		return -EINVAL;
-> @@ -737,15 +730,51 @@ static int imx8mq_usb_phy_probe(struct platform_device *pdev)
->
->  static void imx8mq_usb_phy_remove(struct platform_device *pdev)
->  {
-> +	struct device *dev = &pdev->dev;
-> +
-> +	/* To allow devm-managed resources to be released cleanly */
-> +	if (pm_runtime_suspended(dev))
-> +		pm_runtime_resume(dev);
-> +}
-> +
-> +static int imx8mq_usb_phy_runtime_suspend(struct device *dev)
-> +{
-> +	struct imx8mq_usb_phy *imx_phy = dev_get_drvdata(dev);
-> +
-> +	clk_disable_unprepare(imx_phy->alt_clk);
-> +	clk_disable_unprepare(imx_phy->clk);
->
-> +	return 0;
->  }
->
-> +static int imx8mq_usb_phy_runtime_resume(struct device *dev)
-> +{
-> +	struct imx8mq_usb_phy *imx_phy = dev_get_drvdata(dev);
-> +	int ret;
-> +
-> +	ret = clk_prepare_enable(imx_phy->clk);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = clk_prepare_enable(imx_phy->alt_clk);
-> +	if (ret) {
-> +		clk_disable_unprepare(imx_phy->clk);
-> +		return ret;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static DEFINE_RUNTIME_DEV_PM_OPS(imx8mq_usb_phy_pm_ops, imx8mq_usb_phy_runtime_suspend,
-> +				 imx8mq_usb_phy_runtime_resume, NULL);
-> +
->  static struct platform_driver imx8mq_usb_phy_driver = {
->  	.probe	= imx8mq_usb_phy_probe,
->  	.remove = imx8mq_usb_phy_remove,
->  	.driver = {
->  		.name	= "imx8mq-usb-phy",
->  		.of_match_table	= imx8mq_usb_phy_of_match,
-> +		.pm = pm_ptr(&imx8mq_usb_phy_pm_ops),
->  		.suppress_bind_attrs = true,
->  	}
->  };
->
-> --
-> 2.34.1
->
->
+[snip]
+
+> 
+>  I agree that asking this series to grow a generic telemetry subsystem now is
+>  too much. With only SCMI in-tree, it would be easy to create a "generic"
+>  interface that is really just SCMI with different names. I also agree that raw
+>  SHMTI is not just a debug path if the expected users are high-rate tooling.
+> 
+>  So let me narrow the ask.
+> 
+>  I am not asking for `drivers/telemetry/` in v6. I am asking that the SCMI
+>  chardev/UAPI not be tied too closely to the current SCMI core storage layout.
+>  In particular, I think v6 should try to:
+> 
+>    - copy descriptor/config/sample data through fixed and extensible UAPI
+>      structs, not structs mirroring SCMI internal objects;
+
+If you mean by this adding a bit more of pad/reserved space scattered
+here and there, it is not a problem; also, one thing that is still missing
+and planned to be added is some ABI Versioning and related IOCTL,
+should not this be enough to address future possible UAPI expansions ?
+
+Regarding avoiding mapping internal SCMI object in the UAPI, I think I
+am already NOT blindly sharing internal structures but instead I copy
+explicitly internal representations into the UAPI fields....I think the
+only exception to this is the sample (scmi_tlm_de_sample) that I take
+care to keep aligned with the internals to avoid the overhead of the
+double copy...but it seems one of the few pretty much general concept
+that I felt confident to abstract no ?
+
+...but of course this UAPI abstraction into which I copy the results
+is mapped into SCMI inspired concepts/abstractions...for the reasons
+we said....
+
+>    - treat DE IDs, group IDs and SHMTI IDs as protocol identifiers, not as
+>      implicit indexes into kernel arrays;
+
+Not sure what you mean here... a shim layer used to acces info data
+indirectly instead of the SCMI data structures ?
+
+or some sort of layer/abstraction to be able to remap references
+internally ? again it is not easy to imagine an abstraction without any
+other example than SCMI...or you mean naming issue in the UAPI ?
+
+>    - keep the TDCF/SHMTI parsing and SCMI command handling behind small
+>      internal ops used by the chardev side;
+
+well..if you refer to the telemetry_ops, this is an SCMI driver so it
+has the structure of an SCMI driver, the Telemetry Operations exposed by
+the core SCMI stack are the internal ops themselves that you ask for in
+my opinion...I mean this is pretty much internal stuff that has nothing
+to do with the UAPI itself and I imagine that when some future protocol
+of yours, like the XXMI you mentioned, will appear you will write a new
+driver on your own subsystem that will implement the UAPI itself for
+your protocols (if you want to share that)...any possible future internal
+reworking due to possible common abstractions on our side can be carried
+out in the future...
+
+>    - document the config model explicitly: per SCMI instance, last writer wins,
+>      generation changes tell userspace that state changed;
+>    - document the mmap contract: length, offsets, cache attributes, lifetime,
+>      and reset/reconfiguration behaviour.
+
+Completely agreed on this...Documentation is still lacking, including
+extensive examples...I should have marked docs as RFC too...
+
+> 
+>  That keeps the ABI explicitly SCMI-specific and does not make SHMTI second
+>  class. It just avoids baking too much of today's SCMI implementation shape into
+>  the userspace contract.
+> 
+>  Cristian's point about policy being enforced by the SCMI server also makes
+>  sense to me. I am not suggesting Linux should second-guess that partitioning.
+>  Documenting the Linux-visible semantics is enough: what is shared per SCMI
+>  instance, what userspace may race with, and how generation/poll reports that.
+
+Yes it will be documented too...in one of the future series.
+
+> 
+>  So I would reduce my earlier suggestion to: no generic framework required now,
+>  but please keep a clean provider/backend boundary inside the driver and leave
+>  some UAPI growth room. That should make a later common layer possible, if a
+>  second provider or an in-kernel user ever justifies it, without forcing this
+>  series to solve that problem today.
+
+No problem for UAPI growth and possible compatibility visa reserved
+space and ABI versioning, but I dont see how a very susbsystem specific
+driver like this SCMI Telemetry driver can be made more generic in terms of
+provider/backend...the provider here is indeed already separated by the usage
+of the SCMI telemetry protocol operations exposed by the core SCMI stack...
+
+I think in order to have multiple backend providers pluggable/interchangeable
+at will without the need to write a new driver for ecah one would mean, again,
+having some sort common framework...thing that seems premature, as agreed.
+
+Thanks,
+Cristian
 
