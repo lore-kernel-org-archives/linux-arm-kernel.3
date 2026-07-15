@@ -4,45 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5392AC44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 16:08:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6295C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 16:09:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5Xrjmbkm8barrhYoqfImBgisfBZKUQo+6xNF44a5GgY=; b=3KKY2HgSnI9ok+K3AMwC1ujmDx
-	pHKKRnJKkrY9ehv0CwIkfhmFGua0B2VbHapcek2DO+bbEJk2WMLYHphLZRn8g4LOUEL6q7xFI0MtN
-	QoRskLDNAFcZ7U49d+57NYM0vT1Sgkz5hEkAyIB1oSgUnez1ouqxgywHvhMAebckRqGisTJAsFUiU
-	/5Xc5mqhydZXYkRHCaJirljiaXyegXqmr4zOCwIQXZNAjwdnOTQJKI9L6LJIBGKneUrBwhaOrtxD8
-	+a+dmaDG+aBlOSFch0h40ARi6RC3supEyPDtQ3ihhHcInQXT7TfR8mCNt4gH32b2vU6ApduwG9eRN
-	76X7vSpQ==;
+	bh=iPyD1Z2DVtMVqwugtVKEj8vS5EFs5ogj/+fURIbOnWA=; b=BmS1kp5SgAlPzT8b6JnC12NTfp
+	4OFZOIVAiybTTbaSI8FenV5huVwyJOEk4zwwwWVRHWCGowx/+/6NBfNLDyuUuHA6nGjxARSpREU/z
+	8uYLo3X2/mzSnUw2HIpZj2IONT2wou00HKBEc8m8hW7jVJF8SSNQxrigj+G554js80puvarqjvWDW
+	Wi+m46f9awoTWtkWQqnr2zDZWX4j6KHBSpOJbe9XO8AkIu4BQVvOoQEQ7ycLssn2Rt3yaPRSPzgyi
+	3oBJbp9wEhc6iD84JUE68oKGNF/MOCc/uddi01CvonSL+ESfceORDhHQCa/55txucDwGungrT9Z1+
+	SVrUO9BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk2A6-0000000FPWK-2dDc;
-	Wed, 15 Jul 2026 16:08:42 +0000
-Received: from trager.us ([52.5.81.116])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk2A3-0000000FPV9-37w9
+	id 1wk2AO-0000000FPaH-0pVt;
+	Wed, 15 Jul 2026 16:09:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wk2AL-0000000FPZL-1ZMR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 16:08:40 +0000
-Received: from c-73-254-161-40.hsd1.wa.comcast.net ([73.254.161.40] helo=[192.168.1.226])
-	by trager.us with esmtpsa (TLSv1.3:TLS_AES_128_GCM_SHA256:128)
-	(Exim 4.92.3)
-	(envelope-from <lee@trager.us>)
-	id 1wk29n-0008NF-8r; Wed, 15 Jul 2026 16:08:23 +0000
-Message-ID: <52dc486f-2ef2-4c57-b3fb-fb4c240a9198@trager.us>
-Date: Wed, 15 Jul 2026 09:08:15 -0700
+	Wed, 15 Jul 2026 16:08:59 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6705B1477;
+	Wed, 15 Jul 2026 09:08:51 -0700 (PDT)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 40C113F7B4;
+	Wed, 15 Jul 2026 09:08:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784131735; bh=VL1Iq5O6TVtNHTsx5IP7Kgws7EcKFJo0NIN1naJp298=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=EO4mE+lpYoEy2GmzXsAaov+j2nYPyv+PpMTUdFBA5Crm/SFn3kCAwXDDFFTlwHDaw
+	 YdCKSzYyAQvw2mBuT3YlpyeC88e4GLEQ6Rw4K1qT7FIRjthVUc94q+qIRPz6SEOS9u
+	 oeq2F2FW0uHm5RMqn0mFNoqHI0NqxEI6Ifmhn758=
+Message-ID: <2a5efa78-952f-41a5-b372-e138cb30361d@arm.com>
+Date: Wed, 15 Jul 2026 17:08:51 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 16/16] arm_mpam: detect and enable MPAM-Fb PCC support
+User-Agent: Thunderbird Daily
+Subject: Re: [PATCH v3 15/16] arm_mpam: prevent MPAM-Fb accesses inside IRQ
+ handler
 To: Andre Przywara <andre.przywara@arm.com>,
  Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
  <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
+ James Morse <james.morse@arm.com>,
  Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
 Cc: Jonathan Cameron <jic23@kernel.org>,
  Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
@@ -51,15 +59,15 @@ Cc: Jonathan Cameron <jic23@kernel.org>,
  Niyas Sait <niyas.sait@arm.com>, linux-acpi@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <20260710144520.917375-1-andre.przywara@arm.com>
- <20260710144520.917375-17-andre.przywara@arm.com>
+ <20260710144520.917375-16-andre.przywara@arm.com>
 Content-Language: en-US
-From: Lee Trager <lee@trager.us>
-In-Reply-To: <20260710144520.917375-17-andre.przywara@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20260710144520.917375-16-andre.przywara@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_090839_800424_33DA2205 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20260715_090857_500332_C920C3DB 
+X-CRM114-Status: GOOD (  24.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,27 +82,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/10/26 7:45 AM, Andre Przywara wrote:
+Hi Andre,
 
-> diff --git a/drivers/acpi/arm64/mpam.c b/drivers/acpi/arm64/mpam.c
-> index 84963a20c3e7..64bc84bb2029 100644
-> --- a/drivers/acpi/arm64/mpam.c
-> +++ b/drivers/acpi/arm64/mpam.c
-> @@ -256,6 +256,8 @@ static struct platform_device * __init acpi_mpam_parse_msc(struct acpi_mpam_msc_
->   	} else if (iface == MPAM_IFACE_PCC) {
->   		props[next_prop++] = PROPERTY_ENTRY_U32("pcc-channel",
->   							tbl_msc->base_address);
-> +		props[next_prop++] = PROPERTY_ENTRY_U32("msc-id",
-> +							tbl_msc->identifier);
->   	}
+On 7/10/26 15:45, Andre Przywara wrote:
+> When an MPAM MSC gets into an error condition, it can trigger an error
+> IRQ. We cannot really do much about those errors, but we at least query
+> and log the error, then disable MPAM functionality.
+> 
+> This error report relies on reading the MSC's error status register
+> (ESR) in the IRQ handler, which is not possible for MPAM-Fb based
+> MSC accesses, since they involve mailbox routines that might sleep.
+> The same is true for clearing the interrupt at the source, which
+> requires MSC access.
+> 
+> For simplicity just skip the ESR read when the MSC is not using direct
+> MMIO accesses, and just ignore the pending interrupts. 
 
-props is defined above as:
+Is this definitely ok? Don't we just keep on calling the hardirq handler on a level triggered
+interrupt. Does a IRQF_ONESHOT threaded interrupt where the threaded part calls
+mpam_disable_msc_ecr() and schedules mpam_broken_work make things better.
 
-/* pcc, nrdy, affinity, and a sentinel */
+What you have may be ok but I don't know enough to be sure.
 
-struct property_entry props[4] = { 0 };
+Thanks,
 
-With the addition of the new property the array size needs to be 
-increased to 5 and the comment updated
+Ben
+
+We will wrap up
+> MPAM functionality regardless, knowing the exact error value will not
+> change that.
+> 
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> ---
+>  drivers/resctrl/mpam_devices.c | 38 ++++++++++++++++++++--------------
+>  1 file changed, 23 insertions(+), 15 deletions(-)
+> 
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index 4d3e642486d4..220b4a06e739 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -2645,7 +2645,7 @@ static int mpam_disable_msc_ecr(void *_msc)
+>  
+>  static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
+>  {
+> -	u64 reg;
+> +	u64 reg = 0;
+>  	u16 partid;
+>  	u8 errcode, pmg, ris;
+>  
+> @@ -2654,25 +2654,33 @@ static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
+>  					   &msc->accessibility)))
+>  		return IRQ_NONE;
+>  
+> -	mpam_msc_read_esr(msc, &reg);
+> +	/* MPAM-Fb MSC accesses cannot be done in atomic context. */
+> +	if (msc->iface == MPAM_IFACE_MMIO) {
+> +		mpam_msc_read_esr(msc, &reg);
+>  
+> -	errcode = FIELD_GET(MPAMF_ESR_ERRCODE, reg);
+> -	if (!errcode)
+> -		return IRQ_NONE;
+> +		errcode = FIELD_GET(MPAMF_ESR_ERRCODE, reg);
+> +		if (!errcode)
+> +			return IRQ_NONE;
+>  
+> -	/* Clear level triggered irq */
+> -	mpam_msc_clear_esr(msc);
+> +		/* Clear level triggered irq */
+> +		mpam_msc_clear_esr(msc);
+>  
+> -	partid = FIELD_GET(MPAMF_ESR_PARTID_MON, reg);
+> -	pmg = FIELD_GET(MPAMF_ESR_PMG, reg);
+> -	ris = FIELD_GET(MPAMF_ESR_RIS, reg);
+> +		partid = FIELD_GET(MPAMF_ESR_PARTID_MON, reg);
+> +		pmg = FIELD_GET(MPAMF_ESR_PMG, reg);
+> +		ris = FIELD_GET(MPAMF_ESR_RIS, reg);
+>  
+> -	pr_err_ratelimited("error irq from msc:%u '%s', partid:%u, pmg: %u, ris: %u\n",
+> -			   msc->id, mpam_errcode_names[errcode], partid, pmg,
+> -			   ris);
+> +		pr_err_ratelimited("error irq from msc:%u '%s', partid:%u, pmg: %u, ris: %u\n",
+> +				   msc->id, mpam_errcode_names[errcode], partid,
+> +				   pmg, ris);
+>  
+> -	/* Disable this interrupt. */
+> -	mpam_disable_msc_ecr(msc);
+> +		/* Disable this interrupt. */
+> +		mpam_disable_msc_ecr(msc);
+> +	} else {
+> +		struct irq_data *d = irq_get_irq_data(irq);
+> +
+> +		pr_err_ratelimited("unknown error irq %d/%ld from msc:%u\n",
+> +				   irq, d ? irqd_to_hwirq(d) : -1, msc->id);
+> +	}
+>  
+>  	/* Are we racing with the thread disabling MPAM? */
+>  	if (!mpam_is_enabled())
 
 
