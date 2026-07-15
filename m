@@ -4,138 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28071C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 18:06:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E81FFC4450E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 18:06:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O0cNl+F+N/MuIxcquS5c8uEGtyAEfWEhi4ngJqfJiDk=; b=Ta/R6cKPtKa12vuVDfQm5VazXL
-	7KTPmdojNjEVKylNgZgXDYoT6x+M9+rUc9hpFrbAVrzjUSo8/GO5n2nvFiCtGMHsDEeZri/Wl9xNS
-	RP5tLsflcbmf+o4JTLbgQtTTJ6FKduGFHmbcKwqc1iA+pEUwhQ/gC0P8SCMOmvqEctf2wAxzBnESD
-	so0XrU54IJRiYgO0Dvz6Wd9u3aUyi3EhnQBR7Z+yXi8FzdwF2qGiodBo0UiJF56nPqBM+QMSDGPMw
-	k+0zD6AbFFuUy2+Mu1fh12hcygjQWa/PAyve26J7mtqgoT0tfEFSlvlQyATI6Px9/QGSNERyYHHYm
-	/GlUT1iQ==;
+	bh=pbDYprAtTAaUYhTnGvnNHpzVJY8syKc/fpVU22ZOJTI=; b=GoR5RvVYaHaJQTjUmQ80q1+rBw
+	3ivj3BBMJtgD4RgUPrv668mdH5unmuZ5rnrTpp7Zij2F7q7BUql7zVTze3Qc0aKvpcFa18u82hqA9
+	MzdR2kTPdEJU/MaMyamd0xyC9g8bS0gNVprkLIdQ2pwLxq9OjqMFI2Alx3pjL7WQXPc8uX5bYi5cR
+	lVpUx98QRvLPWLC8xOYyV/KejsEc0qNAahwEL8hlBP0RQBo8Uz/JWJbLgBZ1rHz7d84pKlrdNMllD
+	dZIPe7aZAqcSRAZQWNTeZmvd09a7dfofd+IMOwu6IbdH/ejinuSYbPzx5M0azeLFsM8n6a17AeoD6
+	etpBZWEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk3zr-0000000Fcj5-1wSi;
-	Wed, 15 Jul 2026 18:06:15 +0000
-Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
+	id 1wk3zs-0000000FckZ-08uX;
+	Wed, 15 Jul 2026 18:06:16 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk3ze-0000000FcJK-2TeF
+	id 1wk3zn-0000000Fccb-1rw0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 18:06:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=slt6WGMfpg5v+hO67u7WwX9IZ04+JvfDETkxeW7FA44E6sqHBuWAAYXUvirxjdXYHC8lIwYDFZy19IbuyHMaoUkr5DmVN89XNx2sujroJy6xm6wRiQTZEkp4GRh8zOJNn8wsWtKcPUgYPCWcB1pMggEZK3pAelnjFktiiC/pNB4EqAu0JXIwHb6p2TNaTLL3o0kE8t1FHqeH68EPdCiPcwSGwr4F68oIulLn/5PJ/fIEF/49E4JI+b3wKb7g8OyQNBKmLWkya1fILU0mxn2gAiyF+fxYWH4SLof/wuzwPfF3daU2DPx7MslMll775/b18FrJkF/sj7U7yIj2OANumA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=O0cNl+F+N/MuIxcquS5c8uEGtyAEfWEhi4ngJqfJiDk=;
- b=qLFk/kaKbT4zI9oBMRMBJ+hs6SZPLPJrmlhV9qvoSj0xd1/diJwKrd4AXBKIZItIpvlWAxAHJmlgLj05d0re1WyNaps/uRdoTECFCArbtjujvOxdzX2zgEYoY3csXD56OcuZb1qwXSm5Twgb8+M+xBuH0JG2tkuiyDKCvwPGblcdL8HZgJ034aDmOckuLYScW9tFLLpp2KJynRVIgGLLbKfPVEwufzm61cV+S+FDFB6bjrzi5avUgbCstVpUb14ku2JIcM5JmWvx1nZNYIR8Sx0xHZSxlRGrXXXa8cujcAca3CqQlTBvKqYWNVrsErOSS5GFA2ThJTzIXfanY0e6gw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
+	Wed, 15 Jul 2026 18:06:12 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2cacef7d299so10335ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 11:06:10 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1784138770; cv=none;
+        d=google.com; s=arc-20260327;
+        b=iZXWFllv0S+KHP2EeVGXsq2oPjXrHxyap4RO1S+6Ses4+yilV92udR4xByjtvhIebJ
+         OCrSR3GFLnWLkduh7mLqL5gU84kXGHScb5ijRWsF8IDs6O3Um9OzdeEUU34vB4ivRZ6K
+         rWE8xYwJV4jea6q1qQx5/XuRlgEftwXMIzg1mqNosQDexSERJbqTRArdc1DoVnhLcUL3
+         oMG73kTGvO+CQ4vyTqAsviXFIZUOGUtKWHxbYSFEhiqubgZtHKSwWvzVxrUv+EfgSBIv
+         vY6FCulT9mJ2GV4bZolA9RNt0t0l5KwO2Ofbd3wb+5UIqpg4/XXlpur2U4Bf6GQ0MGOc
+         iIJg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=pbDYprAtTAaUYhTnGvnNHpzVJY8syKc/fpVU22ZOJTI=;
+        fh=SZNfnqOVfJoGqUvTgGoQh7zBWXjBwTG3yulKAjCSi3s=;
+        b=bWV7UhWuBQWPRQHyQ6fsG53q50Azmkk7+MFCIfm3ah0/QjqmD0APHoDvM6tpYRprPg
+         k0/B+yZYu7bwWm15Nd2WUdKKLVxgoSBMsQeZKThhGHinKP7nrO08fX9a4QSwYD+oeg7P
+         t1OguhA5vPmOX8tOhKsW8DjxW4TZFMoedkojd+84jW28nstsdcGLlvidy4JgWcH+FxyQ
+         y5eZWCVgeWaHY7ajG1eaq+zJiI4wVPka7cSJulKltML1k21axYT9MsUeyxGyVdKh4w2o
+         Of8qEkI+sRPGneAa4nwlGqalYYyrgRJxFxgDzeII6H0L6bhthlVmBPVnw5FGAcGp8bp3
+         ZcqA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=O0cNl+F+N/MuIxcquS5c8uEGtyAEfWEhi4ngJqfJiDk=;
- b=MceQqPeZ6xudZmh+n/2knrcG0PpsP3OYBNAjdP+YYO4GNUTDmvdkcbKN4Uks6HgOg29DtpsqzZJFg84e/eZCToUfOj8Tu1Hq8hXfOJhtAueoyjxg8h7IX/6ugvL9pFmgh6GMyWtnsE/N6g7/Sey19n8yfhf75NoLrjHZSRooczw=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
- LV2PR01MB7767.prod.exchangelabs.com (2603:10b6:408:170::6) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.223.10; Wed, 15 Jul 2026 18:05:50 +0000
-Received: from CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::46eb:64a3:667c:c1a0]) by CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::46eb:64a3:667c:c1a0%3]) with mapi id 15.21.0223.008; Wed, 15 Jul 2026
- 18:05:50 +0000
-From: Yang Shi <yang@os.amperecomputing.com>
-To: cl@gentwo.org,
-	dennis@kernel.org,
-	tj@kernel.org,
-	urezki@gmail.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	ryan.roberts@arm.com,
-	david@kernel.org,
-	akpm@linux-foundation.org,
-	hca@linux.ibm.com,
-	gor@linux.ibm.com,
-	agordeev@linux.ibm.com
-Cc: yang@os.amperecomputing.com,
-	linux-mm@kvack.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 14/16] mm: percpu: allocate and free local percpu vm area
-Date: Wed, 15 Jul 2026 11:04:16 -0700
-Message-ID: <20260715180455.515692-15-yang@os.amperecomputing.com>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20260715180455.515692-1-yang@os.amperecomputing.com>
-References: <20260715180455.515692-1-yang@os.amperecomputing.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: CYZPR05CA0010.namprd05.prod.outlook.com
- (2603:10b6:930:89::18) To CH0PR01MB6873.prod.exchangelabs.com
- (2603:10b6:610:112::22)
+        d=google.com; s=20251104; t=1784138770; x=1784743570; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=pbDYprAtTAaUYhTnGvnNHpzVJY8syKc/fpVU22ZOJTI=;
+        b=okZPdajuYytO4IKHbzeb6fNdKINSrWbexcvRqXYCzUaS27K20jkQbspNV8Nm9024Ir
+         UObu7BcXyTtQ4VvmQ2sSxmChCohVlI8UlTnJTE4RgoMdG8p9gdmTRAVNmkcnseWrUJUA
+         E6n0q2Vcbvvz96AuaEPglEkWprZxj5slCFLJGMVEEJyG+YP7cbhCJiOcNi+/6Rm31pmw
+         oSqM8y8rVSZgYvSTEsskuwHDR4Q2frKm6kT3BQcKhMGbvO+j8DiBXc2UPg1sw5SUmFl+
+         yCFUsqCsqQZxfO84oX1jOdtevK05bxeTDuLnt/Oq0t0y4iIo4eFzHoDBZPkzoAl7xSaP
+         e62w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784138770; x=1784743570;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=pbDYprAtTAaUYhTnGvnNHpzVJY8syKc/fpVU22ZOJTI=;
+        b=XxRJWhCGvSu26rVPv5Ox6B6qlPQT7BkmTvEgSQeHGvBQ9y2Ja11ii4iDjUwV6Rgl7a
+         0hFJrqWYxTyv2RWZGDRX3QyyfWAfKt1KPUqyxqSEjgOTYm3bJZkTK8dj5ftWT7Ccohqm
+         D6gertiD+anU3RYRJ13djJxZox6k4OTl5WPvZoPl8gwmOCUiyUfElBjptRaUv43L3Wx3
+         qEkkkY+P2uQWYcZoGH3LdBKuEDoG5fl9CH3pS0oQMtJlR/kax6fx2ftMyF2eFAPwGhol
+         MiBsmtVoaoWj7fWfn33n81bgA8Lxz47NNII4qWlMtCHkSF838y9BeX72NJiC74G9LIug
+         McRQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqC527jOnwmz/xXo2oDlwtLpq2ic61z0hyn0kicRmDc/q/pSp0jVKw4rT3eQm2Z6VdkSX7I/PMw/pO94Iky+q2Y@lists.infradead.org
+X-Gm-Message-State: AOJu0YxedmhgIp7CVICd/IylJJJF9PjP7xkO0xjurOREiOLpRniwRfXS
+	9XiMUrEcDSO4F8lBUHhCYAVgFmecfWdlIN7cIYdQ11u7POBr3iGFncNzL0+Z2LIN/yFdoVpWWnS
+	rjh6umCX81RsfoxtOXf1n5k71uVHKGbVJQNnLW8yq
+X-Gm-Gg: AfdE7cmfpOncakFVxpeSROGctCAgnjX5x84yxgQCyjVJPUn7qypThEqe5ALvujqNWl5
+	t9IiHn4tEyemPBJ4eedVLMLG9zV/5L+QanKjKBa+01ZkuQm/fK9fm6wOj5tVXpcTCYYGTOy20ek
+	J2nYlNQATtf9fR8FUfiRdjT+BE29h/zqkEQDn5fpx0/qq/0BCoyziAbyoJChPbFO76Q5HzeNmL0
+	mjV7t0mR4cPhsXOIY7M2lyFVLj4JkY5yt+sDZBut8pASAlEzz6b9uuiVETdGdcv/1PJ9Abl4XqG
+	1SQzp3f1eNstObFrfyaIVo1Dztg=
+X-Received: by 2002:a17:903:1850:b0:2bf:139c:dcf3 with SMTP id
+ d9443c01a7336-2cf19639aa5mr404555ad.19.1784138769096; Wed, 15 Jul 2026
+ 11:06:09 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|LV2PR01MB7767:EE_
-X-MS-Office365-Filtering-Correlation-Id: de4ff39c-60c5-4af2-94eb-08dee29bb3fc
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|7416014|11063799006|56012099006|10067099003|22082099003|55112099003|18002099003|921020;
-X-Microsoft-Antispam-Message-Info: aeYk+Ocf0i2ubpnXZYXyre0SXJ/oYioPwKXnGJuXVoutVTUWnq5XMJ4898xyNy2S9smymVWPco/dYmeWNiocrNlaKEx8WIY9QkNVU4TpvrW2+bbv9sXB1KzReHZc5mEZVD7HfEsY9xKioK0Q8gEgN76OPBMiaFQ1E+RytHmT4SKFsN3tfMnT7emPJ0XTx/VhEnU+mfO0FGuWlIOwjYfJl8CnJpfkqgXkTCNuSkK8yTDyx/+LRrzaCQUz41v52NK4NK8indZHuQkDWnOr/0prM1tASseJMMm+4j46EBjEn5Sk+5sB99l1ebU0mX5XCitf3IxiOQd9zBu5494iXmtbvakTz3w00os8zf81S/2vh5my4zPIY7wlpT4fCn9TyBZXAfL0O1EWiiOeTTDAZ8BpzQO+F4zFNpHyWWnAuXF07ANFhKcw4x6WQAg7C3RtNaRIdErLIb9Y66GZgtBNXcGdprGjAxCw2rTX0yRlTlrQocRAoyI5g2I/uN4I7Xp6ymqQSR4nt4FEb5pI/R+jWQeOJufd7bAeYbQ6fuDXUyodlCi8vRwTDYZ+nUMNZ3Losq4+qUgfJj9isT8h5c/DmRvDXY23phdgehP7Yr63G2EEjH82Aqjn/A0uGv9Q9ZRrkJ0/bo7BTPZ9HCzap1Nr+0n5AHFemjC7rPoYIx3hjDdmvu9lN8NPndY4seIaOMe6JIGIKTWQ9C97hHU4C4xBEI3jpw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(7416014)(11063799006)(56012099006)(10067099003)(22082099003)(55112099003)(18002099003)(921020);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?k3Z2msaU/uaNwTlauFJjp/J0xUWWs3b14Y3kcA5yCKa8+B3Qv/mvo2545I76?=
- =?us-ascii?Q?i/90C0YQ5SbzYnxA5YoewigG6EgjcHlKkLfmBpF95Ri9mcVUojLqMd7mRwcq?=
- =?us-ascii?Q?DwBoYSNaXgp6f4qv6t1JBPqlJSQl0s7gZ+LWbShL7iOcR4MXznbsJt10MQS5?=
- =?us-ascii?Q?2Ul7hN1/mnW5lZlALqJDEL3IFWBA2Zy6FjAPCCuyHLovbATyZxAJyLUas+JY?=
- =?us-ascii?Q?PJuI6djNkK4Xpl4lgnQ0UcAyphxhDPYAVrPpNl6WNtZ8/bIXbvpoQaqy217t?=
- =?us-ascii?Q?iXtHEyaAGQb9DVRP5ok3Qlgl3MxstsTISu/HHDhoKgq+FW6QI7T7wpUHCV8c?=
- =?us-ascii?Q?kQUgBNf8btr3sDHmdznQm1KCO6Qv/yk4swp8rYl+vIJ8oE54gXk3ySCLAnM4?=
- =?us-ascii?Q?m7a1ONg/NOwXXEb0gsRZfjtUCY2SvE43l6Lx89GtL96IMmIOjBvOpFNaR+Mw?=
- =?us-ascii?Q?T2nQ2eOv9wGK/ZOG0k0TPvYC9Ox8XD1CsNSQ8M959KDGKVVVEVWPRCOZpsMW?=
- =?us-ascii?Q?/2XSai/f1U4xopFgYlaibRe/oHFKe+nT3eX6ET/0bf9p+Xs+6WTKvEBp6Duo?=
- =?us-ascii?Q?ZXrD6M+8SOeBV1V5g+3MF+jkU9UXIVvKpOstx//zQwiQdA6RYSaBJ9BjmiUD?=
- =?us-ascii?Q?3R/NasebqmGfHkDb4cpD7Zgm2jbAJJUtGcdXJB60+4TjN9h8bbuALbcJmE+k?=
- =?us-ascii?Q?BvpD75svuycgNEiiD5loUDParOh34ePXKInK2KvYxJK/qh4KQw6kv6l3SBbM?=
- =?us-ascii?Q?XyqjdYwuriXxIf0oq/T+vBv2HXM5mSlL2f7wB1yODvXOUATq63MlXl0JE+4R?=
- =?us-ascii?Q?FzYySBQWeS2gyB5OIj3Aa6kkI1GYK0P/XgvS2TrvshO1IIs5aloLfABckjf0?=
- =?us-ascii?Q?3o9TUxOTo0HKCaUAWjEXAVWQYOVyivnazCNAtCzNfpkb9hsdUUjFE1hiSXKt?=
- =?us-ascii?Q?ao5srFY95xIuc11MOzOaUhG62uN7G/9/PRUQ2dTKrEO14LXbnZ5zkH0qi4tY?=
- =?us-ascii?Q?kXa2oCKtc3+zj6KcqLg6ZEJHprbsrys9bpC7JnQk1YxnKlsUrvATVyTew8Lq?=
- =?us-ascii?Q?p6RoRm9eyWZQGbi9I53bDfGizW6A5GywCl8Hw7OUvvGKveBE+rIAkLovwMVI?=
- =?us-ascii?Q?1VrbFhKmF4ElNPeOyIVQwz35LnsEShJT9KL4lBn2L0kTdEXY559Lxc5izJtm?=
- =?us-ascii?Q?2A2p+tN1NdzDFjUSSljGnuHCIeNG2zAIRY1lgTWUoOSPw2Cw39eTl2o/dJzQ?=
- =?us-ascii?Q?nEqT+/j8JPeRWBvNsrOqagveyG3KzoJ5fRgNpgvRQkdC9w7Zp69hk5f93d92?=
- =?us-ascii?Q?8u6fVf+xHDPiaC4X3Khdw8FwN6FFsvlkqU9IZkgihc+9myknS9dRRDlgneNY?=
- =?us-ascii?Q?xsviGonZ0yuCCUgvrkWAPcIH3S2vgdGWquS13mtge6ZHcRO4exB8L7UCKvnT?=
- =?us-ascii?Q?Wcbs40z0fz5TAVfA1NFNTfKwZVRqyp/GEvdxQeXajGbn4QVeyBrPx1vBy0T0?=
- =?us-ascii?Q?FcTtMqCCWjLZY7T69dcSDfEZzh6IGg23LMT7+xAPlZJtooRo7hmDaxPh7Iyk?=
- =?us-ascii?Q?NoU2e2UvACJE3bSC7KCFmNmSt4oO55HIGDWiItVEfDpOeuA1ca/UXsRfEHqe?=
- =?us-ascii?Q?Rj7BGIbrD7BvdwoqDE1MSePmOQW+wmbus7p+7U06jc3SIL3c4pxLSoxnY0t9?=
- =?us-ascii?Q?SkE7MoGfdEPGtw97AM+RLHFWLbYL+dxcb9LCqgr8SHEv+rMinUKJcBHT729q?=
- =?us-ascii?Q?oW2vj8KhcYGWucvD436mSD5YwTViYl8=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: de4ff39c-60c5-4af2-94eb-08dee29bb3fc
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2026 18:05:50.1822
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qcBg44gWhAxN3xigMQvYSm79TO+Ixq4KR9/dNG3leuBGu/wtAfqYx8I+saTHkzrdzOJrKqj1Nu7G0BiLE0AvnXHP32mMsPGfKyxsP774jXQ=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR01MB7767
+References: <CGME20260715123610eucas1p100ea97629de7a87fa67016275cfb38f4@eucas1p1.samsung.com>
+ <20260715123602.51950-1-j.raczynski@samsung.com> <20260715123602.51950-2-j.raczynski@samsung.com>
+In-Reply-To: <20260715123602.51950-2-j.raczynski@samsung.com>
+From: Mina Almasry <almasrymina@google.com>
+Date: Wed, 15 Jul 2026 11:05:55 -0700
+X-Gm-Features: AUfX_myiC01IMInrfsYG52lU15TUIyRDhJY9tdWQ7zQwCgNUQoJkmDKfWc-MS5U
+Message-ID: <CAHS8izOC=hSwB=nFhs5h8UP8knnfMTj7Zu=9trxZ5+vHN0dXBg@mail.gmail.com>
+Subject: Re: [PATCH net v3 1/2] net/stmmac: Set Rx queue page_pool to NULL
+ when freeing DMA resources
+To: Jakub Raczynski <j.raczynski@samsung.com>
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net, 
+	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, 
+	mcoquelin.stm32@gmail.com, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_110602_645545_A5A7436F 
-X-CRM114-Status: GOOD (  18.71  )
+X-CRM114-CacheID: sfid-20260715_110611_495354_BDBFDFFD 
+X-CRM114-Status: GOOD (  21.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,364 +121,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allocate local percpu vm area.  The delta between the allocated addr
-(chunk local base) and pcpu_local_base must be same with the delta
-between chunk base and pcpu_base_addr.  Each CPU's local percpu area
-will be mapped to its own page table.  This section of page table is not
-shared between CPUs.
+On Wed, Jul 15, 2026 at 5:42=E2=80=AFAM Jakub Raczynski <j.raczynski@samsun=
+g.com> wrote:
+>
+> When freeing RX descriptor resources, there is standard clearing of
+> descriptor page_pool via page_pool_destroy() which does destroy
+> page but does not set its pointer to NULL, which must be done by driver
+> calling this function.
+> It is not done in __free_dma_rx_desc_resources() when stopping interface,
+> which is generally not an issue, because __alloc_dma_rx_desc_resources() =
+does
+> setup this regardless of previous state.
+> But above is true assuming reinitialization is successful.
+>
+> In case of failure of page_pool_create() in __alloc_dma_rx_desc_resources=
+(),
+> all non-NULL pages will be freed, including those already cleared.
+> So there is possible kernel panic due to wrong paging request at address.
+>
+> Fix this by assigning NULL to page_pool pointer on free.
+> Also remove NULL check as page_pool_destroy() does check for NULL param.
+>
+> Fixes: da5ec7f22a0f1 ("net: stmmac: refactor stmmac_init_rx_buffers for s=
+tmmac_reinit_rx_buffers")
+> Signed-off-by: Yashwant Varur <yashwant.v@samsung.com>
+> Signed-off-by: Jakub Raczynski <j.raczynski@samsung.com>
+> Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/=
+net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 2a0d7eff88d3..3098971e0b66 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -2172,8 +2172,8 @@ static void __free_dma_rx_desc_resources(struct stm=
+mac_priv *priv,
+>                 xdp_rxq_info_unreg(&rx_q->xdp_rxq);
+>
+>         kfree(rx_q->buf_pool);
+> -       if (rx_q->page_pool)
+> -               page_pool_destroy(rx_q->page_pool);
+> +       page_pool_destroy(rx_q->page_pool);
+> +       rx_q->page_pool =3D NULL;
 
-And free local percpu vm area.  Also unmap from percpu page table.
+I wonder if it's reasonable to add pool =3D NULL; to the end of
+page_pool_destroy. I don't know that any caller wants to ever retain
+the pool pointer after that function returns, and grepping this
+function I see almost every call site nulling after destroy anyway.
+But anyway:
 
-Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
----
- include/linux/vmalloc.h |  3 ++
- mm/percpu-internal.h    |  1 +
- mm/percpu-vm.c          | 94 +++++++++++++++++++++++++++++++++++++++++
- mm/vmalloc.c            | 92 +++++++++++++++++++++++++++++++++++++---
- 4 files changed, 185 insertions(+), 5 deletions(-)
+Reviewed-by: Mina Almasry <almasrymina@google.com>
 
-diff --git a/include/linux/vmalloc.h b/include/linux/vmalloc.h
-index d87dc7f77f4e..daf9965a111d 100644
---- a/include/linux/vmalloc.h
-+++ b/include/linux/vmalloc.h
-@@ -313,6 +313,9 @@ struct vm_struct **pcpu_get_vm_areas(const unsigned long *offsets,
- 				     size_t align);
- 
- void pcpu_free_vm_areas(struct vm_struct **vms, int nr_vms);
-+struct vm_struct *pcpu_get_local_vm_area(unsigned long hint,
-+				     int unit_size, size_t align);
-+
- # else
- static inline struct vm_struct **
- pcpu_get_vm_areas(const unsigned long *offsets,
-diff --git a/mm/percpu-internal.h b/mm/percpu-internal.h
-index ec2e55a2f836..4d461305243b 100644
---- a/mm/percpu-internal.h
-+++ b/mm/percpu-internal.h
-@@ -70,6 +70,7 @@ struct pcpu_chunk {
- 	struct pcpu_block_md	*md_blocks;	/* metadata blocks */
- 
- 	void			*data;		/* chunk data */
-+	void			*local_data;	/* chunk local vm */
- 	bool			immutable;	/* no [de]population allowed */
- 	bool			isolated;	/* isolated from active chunk
- 						   slots */
-diff --git a/mm/percpu-vm.c b/mm/percpu-vm.c
-index 4f5937090590..5decaad7640f 100644
---- a/mm/percpu-vm.c
-+++ b/mm/percpu-vm.c
-@@ -112,6 +112,10 @@ static int pcpu_alloc_pages(struct pcpu_chunk *chunk,
- 	return -ENOMEM;
- }
- 
-+#ifdef CONFIG_HAVE_LOCAL_PER_CPU_MAP
-+extern pgd_t *percpu_pgd[NR_CPUS];
-+#endif
-+
- /**
-  * pcpu_pre_unmap_flush - flush cache prior to unmapping
-  * @chunk: chunk the regions to be flushed belongs to
-@@ -130,6 +134,11 @@ static void pcpu_pre_unmap_flush(struct pcpu_chunk *chunk,
- 	flush_cache_vunmap(
- 		pcpu_chunk_addr(chunk, pcpu_low_unit_cpu, page_start),
- 		pcpu_chunk_addr(chunk, pcpu_high_unit_cpu, page_end));
-+
-+#ifdef CONFIG_HAVE_LOCAL_PER_CPU_MAP
-+	flush_cache_vunmap((unsigned long)chunk->local_base + (page_start << PAGE_SHIFT),
-+			(unsigned long)chunk->local_base + (page_end << PAGE_SHIFT));
-+#endif
- }
- 
- static void __pcpu_unmap_pages(unsigned long addr, int nr_pages)
-@@ -137,6 +146,20 @@ static void __pcpu_unmap_pages(unsigned long addr, int nr_pages)
- 	vunmap_range_noflush(addr, addr + (nr_pages << PAGE_SHIFT));
- }
- 
-+#ifdef CONFIG_HAVE_LOCAL_PER_CPU_MAP
-+static void __pcpu_unmap_pages_local(unsigned int cpu, unsigned long virt,
-+			    int nr_pages)
-+{
-+	__vunmap_range_noflush(percpu_pgd[cpu], virt, virt + (nr_pages << PAGE_SHIFT));
-+}
-+#else
-+static void __pcpu_unmap_pages_local(unsigned int cpu, unsigned long virt,
-+			    int nr_pages)
-+{
-+	return;
-+}
-+#endif
-+
- /**
-  * pcpu_unmap_pages - unmap pages out of a pcpu_chunk
-  * @chunk: chunk of interest
-@@ -166,6 +189,10 @@ static void pcpu_unmap_pages(struct pcpu_chunk *chunk,
- 		}
- 		__pcpu_unmap_pages(pcpu_chunk_addr(chunk, cpu, page_start),
- 				   page_end - page_start);
-+
-+		__pcpu_unmap_pages_local(cpu,
-+					(unsigned long)chunk->local_base + (page_start << PAGE_SHIFT),
-+					page_end - page_start);
- 	}
- }
- 
-@@ -188,6 +215,12 @@ static void pcpu_post_unmap_tlb_flush(struct pcpu_chunk *chunk,
- 	flush_tlb_kernel_range(
- 		pcpu_chunk_addr(chunk, pcpu_low_unit_cpu, page_start),
- 		pcpu_chunk_addr(chunk, pcpu_high_unit_cpu, page_end));
-+
-+#ifdef CONFIG_HAVE_LOCAL_PER_CPU_MAP
-+	flush_tlb_kernel_range(
-+		(unsigned long)chunk->local_base + (page_start << PAGE_SHIFT),
-+		(unsigned long)chunk->local_base + (page_end << PAGE_SHIFT));
-+#endif
- }
- 
- static int __pcpu_map_pages(unsigned long addr, struct page **pages,
-@@ -197,6 +230,32 @@ static int __pcpu_map_pages(unsigned long addr, struct page **pages,
- 			PAGE_KERNEL, pages, PAGE_SHIFT, GFP_KERNEL);
- }
- 
-+#ifdef CONFIG_HAVE_LOCAL_PER_CPU_MAP
-+static int __pcpu_map_pages_local(unsigned int cpu, unsigned long virt, struct page **pages,
-+			    int nr_pages)
-+{
-+	unsigned int i;
-+	int err = 0;
-+
-+	for (i = 0; i < nr_pages; i++) {
-+		err = vmap_range_noflush(percpu_pgd[cpu], virt, virt + PAGE_SIZE,
-+				page_to_phys(pages[i]), PAGE_KERNEL, PAGE_SHIFT);
-+		if (err)
-+			return err;
-+
-+		virt += PAGE_SIZE;
-+	}
-+
-+	return err;
-+}
-+#else
-+static int __pcpu_map_pages_local(unsigned int cpu, unsigned long virt, struct page **pages,
-+			    int nr_pages)
-+{
-+	return 0;
-+}
-+#endif
-+
- /**
-  * pcpu_map_pages - map pages into a pcpu_chunk
-  * @chunk: chunk of interest
-@@ -224,6 +283,13 @@ static int pcpu_map_pages(struct pcpu_chunk *chunk,
- 		if (err < 0)
- 			goto err;
- 
-+		err = __pcpu_map_pages_local(cpu,
-+					(unsigned long)chunk->local_base + (page_start << PAGE_SHIFT),
-+					&pages[pcpu_page_idx(cpu, page_start)],
-+					page_end - page_start);
-+		if (err < 0)
-+			goto err;
-+
- 		for (i = page_start; i < page_end; i++)
- 			pcpu_set_page_chunk(pages[pcpu_page_idx(cpu, i)],
- 					    chunk);
-@@ -233,6 +299,9 @@ static int pcpu_map_pages(struct pcpu_chunk *chunk,
- 	for_each_possible_cpu(tcpu) {
- 		__pcpu_unmap_pages(pcpu_chunk_addr(chunk, tcpu, page_start),
- 				   page_end - page_start);
-+		__pcpu_unmap_pages_local(tcpu,
-+					(unsigned long)chunk->local_base + (page_start << PAGE_SHIFT),
-+					page_end - page_start);
- 		if (tcpu == cpu)
- 			break;
- 	}
-@@ -258,6 +327,11 @@ static void pcpu_post_map_flush(struct pcpu_chunk *chunk,
- 	flush_cache_vmap(
- 		pcpu_chunk_addr(chunk, pcpu_low_unit_cpu, page_start),
- 		pcpu_chunk_addr(chunk, pcpu_high_unit_cpu, page_end));
-+
-+#ifdef CONFIG_HAVE_LOCAL_PER_CPU_MAP
-+	flush_cache_vmap((unsigned long)chunk->local_base + (page_start << PAGE_SHIFT),
-+			 (unsigned long)chunk->local_base + (page_end << PAGE_SHIFT));
-+#endif
- }
- 
- /**
-@@ -349,6 +423,24 @@ static struct pcpu_chunk *pcpu_create_chunk(gfp_t gfp)
- 	chunk->data = vms;
- 	chunk->base_addr = vms[0]->addr - pcpu_group_offsets[0];
- 
-+#ifdef CONFIG_HAVE_LOCAL_PER_CPU_MAP
-+	unsigned long delta = (unsigned long)chunk->base_addr - (unsigned long)pcpu_base_addr;
-+	unsigned long hint = delta + (unsigned long)pcpu_local_base;
-+	struct vm_struct *local_vm = pcpu_get_local_vm_area(hint,
-+					pcpu_unit_size, pcpu_atom_size);
-+	if (!local_vm) {
-+		pcpu_free_vm_areas(vms, pcpu_nr_groups);
-+		pcpu_free_chunk(chunk);
-+		return NULL;
-+	}
-+
-+	chunk->local_base = local_vm->addr;
-+	chunk->local_data = (void *)local_vm;
-+#else
-+	chunk->local_base = 0;
-+	chunk->local_data = NULL;
-+#endif
-+
- 	pcpu_stats_chunk_alloc();
- 	trace_percpu_create_chunk(chunk->base_addr);
- 
-@@ -365,6 +457,8 @@ static void pcpu_destroy_chunk(struct pcpu_chunk *chunk)
- 
- 	if (chunk->data)
- 		pcpu_free_vm_areas(chunk->data, pcpu_nr_groups);
-+	if (chunk->local_data)
-+		free_vm_area((struct vm_struct *)chunk->local_data);
- 	pcpu_free_chunk(chunk);
- }
- 
-diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-index 9ec401918736..3d94ca4bbd17 100644
---- a/mm/vmalloc.c
-+++ b/mm/vmalloc.c
-@@ -4923,17 +4923,21 @@ pvm_find_va_enclose_addr(unsigned long addr)
-  *   in - the VA we start the search(reverse order);
-  *   out - the VA with the highest aligned end address.
-  * @align: alignment for required highest address
-+ * @pcpu: whether request allocation from local percpu area
-  *
-  * Returns: determined end address within vmap_area
-  */
- static unsigned long
--pvm_determine_end_from_reverse(struct vmap_area **va, unsigned long align)
-+pvm_determine_end_from_reverse(struct vmap_area **va, unsigned long align, bool pcpu)
- {
- 	unsigned long vmalloc_end;
- 	unsigned long addr;
- 
- #ifdef CONFIG_HAVE_LOCAL_PER_CPU_MAP
--	vmalloc_end = PERCPU_END & ~(align - 1);
-+	if (pcpu)
-+		vmalloc_end = LOCAL_PERCPU_END & ~(align - 1);
-+	else
-+		vmalloc_end = PERCPU_END & ~(align - 1);
- #else
- 	vmalloc_end = VMALLOC_END & ~(align - 1);
- #endif
-@@ -5042,7 +5046,7 @@ struct vm_struct **pcpu_get_vm_areas(const unsigned long *offsets,
- 	end = start + sizes[area];
- 
- 	va = pvm_find_va_enclose_addr(vmalloc_end);
--	base = pvm_determine_end_from_reverse(&va, align) - end;
-+	base = pvm_determine_end_from_reverse(&va, align, false) - end;
- 
- 	while (true) {
- 		/*
-@@ -5063,7 +5067,7 @@ struct vm_struct **pcpu_get_vm_areas(const unsigned long *offsets,
- 		 * base downwards and then recheck.
- 		 */
- 		if (base + end > va->va_end) {
--			base = pvm_determine_end_from_reverse(&va, align) - end;
-+			base = pvm_determine_end_from_reverse(&va, align, false) - end;
- 			term_area = area;
- 			continue;
- 		}
-@@ -5073,7 +5077,7 @@ struct vm_struct **pcpu_get_vm_areas(const unsigned long *offsets,
- 		 */
- 		if (base + start < va->va_start) {
- 			va = node_to_va(rb_prev(&va->rb_node));
--			base = pvm_determine_end_from_reverse(&va, align) - end;
-+			base = pvm_determine_end_from_reverse(&va, align, false) - end;
- 			term_area = area;
- 			continue;
- 		}
-@@ -5236,6 +5240,84 @@ void pcpu_free_vm_areas(struct vm_struct **vms, int nr_vms)
- 		free_vm_area(vms[i]);
- 	kfree(vms);
- }
-+
-+#ifdef CONFIG_HAVE_LOCAL_PER_CPU_MAP
-+/* Find free vm area starts from hint */
-+struct vm_struct *pcpu_get_local_vm_area(unsigned long hint,
-+				     int unit_size, size_t align)
-+{
-+	struct vmap_area *tmp_va, *va;
-+	struct vm_struct *vm;
-+	struct vmap_node *vn;
-+	unsigned long end;
-+	int ret;
-+
-+	va = kmem_cache_zalloc(vmap_area_cachep, GFP_KERNEL);
-+	vm = kzalloc(sizeof(struct vm_struct), GFP_KERNEL);
-+	if (!va || !vm)
-+		goto err_free;
-+
-+	spin_lock(&free_vmap_area_lock);
-+
-+	tmp_va = pvm_find_va_enclose_addr(hint);
-+	if (!tmp_va) {
-+		spin_unlock(&free_vmap_area_lock);
-+		goto err_free;
-+	}
-+
-+	end = pvm_determine_end_from_reverse(&tmp_va, align, true);
-+
-+	if (hint + unit_size > end) {
-+		spin_unlock(&free_vmap_area_lock);
-+		goto err_free;
-+	}
-+
-+	ret = va_clip(&free_vmap_area_root,
-+			&free_vmap_area_list, tmp_va, hint, unit_size);
-+	if (ret) {
-+		spin_unlock(&free_vmap_area_lock);
-+		goto err_free;
-+	}
-+
-+	va->va_start = hint;
-+	va->va_end = hint + unit_size;
-+
-+	spin_unlock(&free_vmap_area_lock);
-+
-+	if (kasan_populate_vmalloc(va->va_start, unit_size, GFP_KERNEL))
-+		goto err_free_shadow;
-+
-+	vn = addr_to_node(va->va_start);
-+
-+	spin_lock(&vn->busy.lock);
-+	insert_vmap_area(va, &vn->busy.root, &vn->busy.head);
-+	setup_vmalloc_vm(vm, va, VM_ALLOC,
-+			 pcpu_get_local_vm_area);
-+	spin_unlock(&vn->busy.lock);
-+
-+	kasan_unpoison_vmap_areas(&vm, 1, KASAN_VMALLOC_PROT_NORMAL);
-+
-+	return vm;
-+
-+err_free:
-+	kmem_cache_free(vmap_area_cachep, va);
-+	kfree(vm);
-+
-+	return NULL;
-+
-+err_free_shadow:
-+	spin_lock(&free_vmap_area_lock);
-+	va = merge_or_add_vmap_area_augment(va, &free_vmap_area_root,
-+			&free_vmap_area_list);
-+	if (va)
-+		kasan_release_vmalloc(va->va_start, va->va_end, va->va_start, va->va_end,
-+			       KASAN_VMALLOC_PAGE_RANGE | KASAN_VMALLOC_TLB_FLUSH);
-+	kfree(vm);
-+	spin_unlock(&free_vmap_area_lock);
-+	return NULL;
-+
-+}
-+#endif
- #endif	/* CONFIG_SMP */
- 
- #ifdef CONFIG_PRINTK
--- 
-2.47.0
-
+--=20
+Thanks,
+Mina
 
