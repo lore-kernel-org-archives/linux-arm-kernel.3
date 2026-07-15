@@ -4,39 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2164C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 08:12:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABC36C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 08:13:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SIvsACrAS7RQRCj8RR0epLhmqG3p9vaMI7C8iM/3PJc=; b=Y6Yg6N0VB2lBc/klY7KG15ZvkT
-	GY3om3AnN80WVPiMIOhsRxHBpdBkrsaYFhCk3vS9plEcf/110Ma051vLKAA01t+kFHsMXjC2ejXRm
-	G1e5kQrUIzHsK34bowG4snWPYfoMrEe7hZedILIelA00J8ENM7ilCe6sgHN+NG+8k305NUHD1fXi2
-	A0qpb+KkD0X7P422uqMYWDsZLohoyxhLxlm0utfVEg6XmwVQbOHpJagPYzxaAvqLyKh9btI0tNA9U
-	xavqxKkqNlYf5LdB9x1I33mP+JxwSsASWuqpmr0wSuqCYdJ97Hgswz8HeKg46iFNo+c7eqLRaUghP
-	aMXYuQMw==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qxoy1Kzk49UcTJHO4dzJoh7+3ty/viZDiAEnpAXvxVg=; b=qbHKNkKzwpoe14oaPpYBazrSA6
+	7KVAZU7r72DdDSQ28ZcTZEFbxbCmWlUuQrgtQklBRNagoPyY3iPhYTq4uLXA1s8D2Ly4xV+gnGkKk
+	jchaUipMqs3gcZrBxBTPLmJh+gtLWlsMFdIUtafqp6auYQe3yEHcyQIaWJQKSES5zfzbK88TCuzd5
+	cTQ48FOZ7GvMtRc5VsNfyNq44m9eOTShmnCBrm5KO+wULP9WnNtTGIWuig6AHlDCvKWoMDzecYqzS
+	F3O1dhT6qxEdDxpd/m6GddDfkuJourhT2IiDb/sKEDFWEseJdkhFbvQG1jqtpn9VxnFUNQ2fNubsg
+	eGNCPOdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjuja-0000000E7Sp-1LUf;
-	Wed, 15 Jul 2026 08:12:50 +0000
-Received: from out-181.mta0.migadu.com ([91.218.175.181])
+	id 1wjujh-0000000E7WT-2SOa;
+	Wed, 15 Jul 2026 08:12:57 +0000
+Received: from out-172.mta0.migadu.com ([91.218.175.172])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjujX-0000000E7RQ-0n7J
+	id 1wjujZ-0000000E7Rd-1kWn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 08:12:49 +0000
+	Wed, 15 Jul 2026 08:12:50 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1784103161;
+	t=1784103165;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=SIvsACrAS7RQRCj8RR0epLhmqG3p9vaMI7C8iM/3PJc=;
-	b=DGkMhVdOwtro7i/SjbXY75xK7M3buAUw0SVvBRcflqqAnzlxKDdLM61O+3g3kKkOzfCdkh
-	3YCQBfs+tgdHq4opBd8X0gVf+2SzZmgSh0DsMCE8x4OPMjElaWJ1WdPaIxlHODfiwvwEIm
-	NoUB2DNGlbfon6bykDeDGoOqljLRaYg=
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=qxoy1Kzk49UcTJHO4dzJoh7+3ty/viZDiAEnpAXvxVg=;
+	b=Mzs/oC0qRrTvnf0RoSXMut8S7FZS4q3Yr1okEnTdSEaYoceUAWBbKJN1JqtYqMkW3/vNz9
+	YmHX421gDQLbWKwde2IGyKf5vnH1wNLQ2/J9BTP2Ro1ZR++DJ0uKHQ+dSBW2Ard4ATaeOK
+	EE+f/ZItA7p8Au8MNOmJw93zMa5ZcPo=
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
 	Oliver Upton <oupton@kernel.org>,
@@ -54,16 +55,17 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Sebastian Ene <sebastianene@google.com>,
 	Hyunwoo Kim <imv4bel@gmail.com>,
 	Fuad Tabba <tabba@google.com>
-Subject: [PATCH v6 0/8] KVM: arm64: pKVM vCPU state management at EL2
-Date: Wed, 15 Jul 2026 09:12:30 +0100
-Message-Id: <20260715081238.1891918-1-fuad.tabba@linux.dev>
+Subject: [PATCH v6 2/8] KVM: arm64: Make vcpu_{read,write}_sys_reg available to HYP code
+Date: Wed, 15 Jul 2026 09:12:32 +0100
+Message-Id: <20260715081238.1891918-3-fuad.tabba@linux.dev>
+In-Reply-To: <20260715081238.1891918-1-fuad.tabba@linux.dev>
+References: <20260715081238.1891918-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_011247_957567_4A4FA39D 
-X-CRM114-Status: UNSURE (   9.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260715_011249_757520_DB1FDE60 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,75 +80,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi folks,
+The vcpu_{read,write}_sys_reg() accessors abstract where a system
+register lives, but their VHE implementation cannot be linked into the
+nVHE hypervisor, so exception.c open-codes has_vhe() wrappers instead.
 
-Changes since v5 [1]:
-  - Reworked how vcpu_{read,write}_sys_reg() are made available to hyp
-    code. Instead of renaming the host-only implementations, keep the
-    canonical names and redirect them to the raw context accessors in
-    nVHE hyp builds via the preprocessor. (Marc)
+Redirect the accessors to the raw context accessors for nVHE hyp builds,
+where registers are always in memory, and drop the local wrappers. This
+lets hyp code reuse helpers built on the canonical accessors.
 
-Building on Will's pKVM infrastructure series [2], this series reworks
-how pKVM moves vCPU state between the host and EL2, and stops copying a
-non-protected guest's state on every world switch.
+No functional change intended.
 
-EL2 gains proper primitives for the state it transfers: vCPU lookup
-helpers, and VGIC flush/sync that reduces how much host state EL2
-dereferences. The series also moves some preparatory code (such as sys
-reg access and PSCI helpers) to shared headers and HYP, and implements
-lazy copying of a non-protected guest's register state back to the host
-until the host actually needs it, instead of on every exit.
+Suggested-by: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+---
+ arch/arm64/include/asm/kvm_emulate.h |  6 +++++
+ arch/arm64/kvm/hyp/exception.c       | 34 ++++++++--------------------
+ 2 files changed, 15 insertions(+), 25 deletions(-)
 
-This is the first of two series moving pKVM vCPU state management to
-EL2. The follow-up completes the job for protected VMs: state
-isolation, PSCI handling at EL2, and the resulting API behaviour.
-
-The series is structured as follows:
-
-  01-04:  Preparatory refactoring (MPIDR, sys reg access, vCPU reset, PSCI
-          helpers) to shared headers and HYP.
-  05:     Host and hypervisor vCPU lookup primitives.
-  06-07:  VGIC: reduce EL2's exposure to host state, add flush/sync primitives.
-  08:     Lazy state sync for non-protected guests.
-
-Based on v7.2-rc3 (a13c140cc289c).
-
-Cheers,
-/fuad
-
-[1] https://lore.kernel.org/all/20260714101601.4142645-1-fuad.tabba@linux.dev/
-[2] https://lore.kernel.org/all/20260105154939.11041-1-will@kernel.org/
-
-Fuad Tabba (5):
-  KVM: arm64: Extract MPIDR computation into a shared header
-  KVM: arm64: Make vcpu_{read,write}_sys_reg available to HYP code
-  KVM: arm64: Factor out reusable vCPU reset helpers
-  KVM: arm64: Move PSCI helper functions to a shared header
-  KVM: arm64: Implement lazy vCPU state sync for non-protected guests
-
-Marc Zyngier (3):
-  KVM: arm64: Add host and hypervisor vCPU lookup primitives
-  KVM: arm64: Minimise EL2's exposure of host VGIC state during world
-    switch
-  KVM: arm64: Add primitives to flush/sync the VGIC state at EL2
-
- arch/arm64/include/asm/kvm_arm.h     |  12 ++
- arch/arm64/include/asm/kvm_asm.h     |   1 +
- arch/arm64/include/asm/kvm_emulate.h |  63 +++++++
- arch/arm64/include/asm/kvm_host.h    |   2 +
- arch/arm64/kvm/arm.c                 |   7 +
- arch/arm64/kvm/handle_exit.c         |  23 +++
- arch/arm64/kvm/hyp/exception.c       |  34 +---
- arch/arm64/kvm/hyp/nvhe/hyp-main.c   | 258 +++++++++++++++++++++++----
- arch/arm64/kvm/psci.c                |  30 +---
- arch/arm64/kvm/reset.c               |  60 +------
- arch/arm64/kvm/sys_regs.c            |  14 +-
- arch/arm64/kvm/sys_regs.h            |  19 ++
- include/kvm/arm_psci.h               |  27 +++
- 13 files changed, 390 insertions(+), 160 deletions(-)
-
-
-base-commit: a13c140cc289c0b7b3770bce5b3ad42ab35074aa
+diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+index 5bf3d7e1d92c7..fb4062b3ce55a 100644
+--- a/arch/arm64/include/asm/kvm_emulate.h
++++ b/arch/arm64/include/asm/kvm_emulate.h
+@@ -506,6 +506,12 @@ static inline unsigned long kvm_vcpu_get_mpidr_aff(struct kvm_vcpu *vcpu)
+ 	return __vcpu_sys_reg(vcpu, MPIDR_EL1) & MPIDR_HWID_BITMASK;
+ }
+ 
++/* In nVHE hyp code, registers are always in memory: use the raw accessors. */
++#if defined(__KVM_NVHE_HYPERVISOR__)
++#define vcpu_read_sys_reg(v, r)		__vcpu_sys_reg(v, r)
++#define vcpu_write_sys_reg(v, x, r)	__vcpu_assign_sys_reg(v, r, x)
++#endif
++
+ static inline void kvm_vcpu_set_be(struct kvm_vcpu *vcpu)
+ {
+ 	if (vcpu_mode_is_32bit(vcpu)) {
+diff --git a/arch/arm64/kvm/hyp/exception.c b/arch/arm64/kvm/hyp/exception.c
+index bef40ddb16dbc..754e2dc1df54a 100644
+--- a/arch/arm64/kvm/hyp/exception.c
++++ b/arch/arm64/kvm/hyp/exception.c
+@@ -20,22 +20,6 @@
+ #error Hypervisor code only!
+ #endif
+ 
+-static inline u64 __vcpu_read_sys_reg(const struct kvm_vcpu *vcpu, int reg)
+-{
+-	if (has_vhe())
+-		return vcpu_read_sys_reg(vcpu, reg);
+-
+-	return __vcpu_sys_reg(vcpu, reg);
+-}
+-
+-static inline void __vcpu_write_sys_reg(struct kvm_vcpu *vcpu, u64 val, int reg)
+-{
+-	if (has_vhe())
+-		vcpu_write_sys_reg(vcpu, val, reg);
+-	else
+-		__vcpu_assign_sys_reg(vcpu, reg, val);
+-}
+-
+ static void __vcpu_write_spsr(struct kvm_vcpu *vcpu, unsigned long target_mode,
+ 			      u64 val)
+ {
+@@ -101,14 +85,14 @@ static void enter_exception64(struct kvm_vcpu *vcpu, unsigned long target_mode,
+ 
+ 	switch (target_mode) {
+ 	case PSR_MODE_EL1h:
+-		vbar = __vcpu_read_sys_reg(vcpu, VBAR_EL1);
+-		sctlr = __vcpu_read_sys_reg(vcpu, SCTLR_EL1);
+-		__vcpu_write_sys_reg(vcpu, *vcpu_pc(vcpu), ELR_EL1);
++		vbar = vcpu_read_sys_reg(vcpu, VBAR_EL1);
++		sctlr = vcpu_read_sys_reg(vcpu, SCTLR_EL1);
++		vcpu_write_sys_reg(vcpu, *vcpu_pc(vcpu), ELR_EL1);
+ 		break;
+ 	case PSR_MODE_EL2h:
+-		vbar = __vcpu_read_sys_reg(vcpu, VBAR_EL2);
+-		sctlr = __vcpu_read_sys_reg(vcpu, SCTLR_EL2);
+-		__vcpu_write_sys_reg(vcpu, *vcpu_pc(vcpu), ELR_EL2);
++		vbar = vcpu_read_sys_reg(vcpu, VBAR_EL2);
++		sctlr = vcpu_read_sys_reg(vcpu, SCTLR_EL2);
++		vcpu_write_sys_reg(vcpu, *vcpu_pc(vcpu), ELR_EL2);
+ 		break;
+ 	default:
+ 		/* Don't do that */
+@@ -185,7 +169,7 @@ static void enter_exception64(struct kvm_vcpu *vcpu, unsigned long target_mode,
+  */
+ static unsigned long get_except32_cpsr(struct kvm_vcpu *vcpu, u32 mode)
+ {
+-	u32 sctlr = __vcpu_read_sys_reg(vcpu, SCTLR_EL1);
++	u32 sctlr = vcpu_read_sys_reg(vcpu, SCTLR_EL1);
+ 	unsigned long old, new;
+ 
+ 	old = *vcpu_cpsr(vcpu);
+@@ -281,7 +265,7 @@ static void enter_exception32(struct kvm_vcpu *vcpu, u32 mode, u32 vect_offset)
+ {
+ 	unsigned long spsr = *vcpu_cpsr(vcpu);
+ 	bool is_thumb = (spsr & PSR_AA32_T_BIT);
+-	u32 sctlr = __vcpu_read_sys_reg(vcpu, SCTLR_EL1);
++	u32 sctlr = vcpu_read_sys_reg(vcpu, SCTLR_EL1);
+ 	u32 return_address;
+ 
+ 	*vcpu_cpsr(vcpu) = get_except32_cpsr(vcpu, mode);
+@@ -305,7 +289,7 @@ static void enter_exception32(struct kvm_vcpu *vcpu, u32 mode, u32 vect_offset)
+ 	if (sctlr & (1 << 13))
+ 		vect_offset += 0xffff0000;
+ 	else /* always have security exceptions */
+-		vect_offset += __vcpu_read_sys_reg(vcpu, VBAR_EL1);
++		vect_offset += vcpu_read_sys_reg(vcpu, VBAR_EL1);
+ 
+ 	*vcpu_pc(vcpu) = vect_offset;
+ }
 -- 
 2.39.5
 
