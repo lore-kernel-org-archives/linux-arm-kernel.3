@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 803ABC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 18:06:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC59DC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 18:06:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=abzZe3fsbFI4wiw+EAoWz2guLXEYVn3YimvEHKe4VIU=; b=eOQMPHmwug/w45LVx0IwP/n8Tc
-	bPBSXnr/fMwI8doGeKTfGGXDE316/jZUPrjJFE1AoirdkL1eKGw8xwf6KUI+1tlQ9XjIT0/VbudC9
-	Ux0iAdUOID0bixzhKWCzCXUPyxRP7MiY37gitZvW6JN26w9Hd2EtMZyT4JPuXiEEhDik6CAqFFM1X
-	RSLXaI2RlSICYC08Sb+sCUOIW4sQclNm1UVwNf45//Vd4RdGhyqel42/MKsXCGXKVC5fueDQiuj3O
-	8iAEoKwesFNxEO0MxnT7MsuXysS+InT2nyPSHQUyTDoQLOVItnacHvjh5mB7aRva5dMNRIOwe1z0Z
-	VA9c0TOA==;
+	bh=sc4DDd+cQ6kv3hKNLVMRVQ+JpaHxehsf4M1/oCbtNBc=; b=o8ZJOWXm3THYefqQ2O1jVIoa6F
+	O0wmoFGtaynEsY1w2WoxPsqY0wBaTWFgK+POskAIF48wkGCklQ9A5zIJeRrZgQouz4kT/IbfEFEnb
+	TbSInUehLQXzZ8q+1SHgoZiN48T3BlsL1P348hRBEpfOghfZ06c/cTNRaR4gnFRAtaK+nAhp9Oq0D
+	YKmp1Fo6nJPlbUCGMq7wXuFrIqykdqCj6Zyme4a1kVwr08su0Ul7CDcYkNWl1CmZk6DtD/q8x+knt
+	0HCfg/uiBUP8Q0yXVISBE/euG5C/LhNQ5hLNzVEB9muw2AWHldz/jMaG8xARBH2bB4eGEm7Zjbbat
+	pPMXAqYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk3zU-0000000FcMH-2wZz;
-	Wed, 15 Jul 2026 18:05:52 +0000
+	id 1wk3zq-0000000Fch6-3UsZ;
+	Wed, 15 Jul 2026 18:06:14 +0000
 Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk3zR-0000000FcJK-0qyI
+	id 1wk3zb-0000000FcJK-1Oqw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 18:05:50 +0000
+	Wed, 15 Jul 2026 18:06:00 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lL2TPy9UaS1EfpYKmzJW2lRuhJS68W5O7pjR/b3oJ3pvaBVTUV5sKTYJPBHLQN9KIq2ZNgXVypfylXRd2mVAzg9Ko0M2U/1g6wczitmR3CfsSoTrk80UdxV1zu8+CnbHutoFAG2Il9kQIDtCeztXJbZ1z+H8jQtfSQDB9CTF4SNscGABm+Z4G4czMvUgYwNEeKhxpX9A2Vmjgxgw8B+AbGb8/dgKKDzPRIqszw9mizK8thFSGBAhCWUh544W+zm3b0sEA5xIU8dmvEWdhdXgNVNSMkuP92Vqxsc+8dcsS5a8lb7xMYLWIUcARu3KNnuFyzKv1PtNkogZLtqnc3WpWg==
+ b=opKWfv/BDktkF+XIkZLR+jqRzuh7kmvcPRq2gAwAkTrubPkK4Raz7TSAtrSiuGCKWDpyJv/jUbGA7gHh8hHKBs47YKOIPJvGuP+oUZ1Q4PjJjv4jsgWYe4Gywyk20hR0GYP3Aum7m2WFiO5niG8QIMECGMjwXMnWvg83a+4/NLerpTS1h6ZGRpmH6LP+ccgz3QHmQXtsrr8ChgsL/Ad42NLXQp0FQeew7lJ2p/3W/nu2tDGA582t7fUK6R0QCBGPcTHZ8BxuteHtJqgx5CCvDXwNWTJHxH54Eo7YSUG1eAYfSTzN6dVeRUQsQUOmcj+IlfWaxPyNxpY8ydp+foB6gA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=abzZe3fsbFI4wiw+EAoWz2guLXEYVn3YimvEHKe4VIU=;
- b=KihD8Jodx5wENBD87naoEB/Y1Q3FZZSJlW4Iawhj+kZSI2L3X6136Iyh7G+onNGifyAa+NafA7tEj7538NWVX4XRYVy4QSsKIU+wsmWen9SHkkhNkSYWkn1l2xa5KJkzdq1K86rlR8gV2CfEEEz63hUkF4RztC6i8F1C2EYid7XHq05WOqnbq0i7ReFgDT+8stUdlSDvp3Y37UENXIOc87mrp8+zHWDGaCjZUbQ5cUdUoJ2eFPy7Rn8rLHAccCspfdJrkaqE3K3Hq9sSF4wGFjFDwB9u9oCKuHu5LJZoCdychFdYM+K26kU4P+elR5Ik3CBNQ9a7BQkvjUc6YzLoBA==
+ bh=sc4DDd+cQ6kv3hKNLVMRVQ+JpaHxehsf4M1/oCbtNBc=;
+ b=k4HDgkgvKTOWSoMJ6o+/WA91xlFGqCzwsB4u5UZN6MX9sRlgiXeJ7JyDEWF0aRLqovcmmf7N7OWCn9v4OV6dvQwAsRp41DOYtp8HK6Pz/ILVSEi0xN3H6a23nuixN+uCmy7CF+pmY61spdCfPd6bXVgYXossXy7bbIZoaNU2ByfnZtdVByzOUyfSCykwddFz4Mch3Yq3tFqdbWO6y+wFTYXXaOukfM3s55hH5L3hv5OFO3VsHm5hOhWQ7Eg/h5BjY40nEa/jInr8/ASmEdtdo7Z0CJV4qIPAPDjiVD2Hx21EI3LK5HcW3O8yEeNB0rP0F+nVygedD/O27es7RjWQrA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
  header.from=os.amperecomputing.com; dkim=pass
@@ -41,18 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=os.amperecomputing.com; s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=abzZe3fsbFI4wiw+EAoWz2guLXEYVn3YimvEHKe4VIU=;
- b=gnC65t6ut7hiUcS92BkoXjERrjqiow4/Vn1tJ+5gUQIomGksWSSvYI2CjDbDHD6/nDrpnz+VlIT+iPzyWrCnLPAMrXon40NQd2b80nZgG7z+kPBMw+VqHONd1yKsB7VjWeCZEXeSv3uTiG3R1zPFmL+tp32qv6zEX47o79fZXoc=
+ bh=sc4DDd+cQ6kv3hKNLVMRVQ+JpaHxehsf4M1/oCbtNBc=;
+ b=vFq1UpQlYQ0XzqLTnBdhecGsj1sYSqHEBjRuDaT2sX4euyXMILT2l2bTwku0J6M6qt3i4OtHRDapoVJJFuzoj3R1yMonXDviq3Me9G/iVCBfcIwi0IIKTt+3iVIcQAbIgvpgc9xvRveB7XvvnE68TC2lfi8y/+Wf0QU8Oziu5Ao=
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
 Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
  LV2PR01MB7767.prod.exchangelabs.com (2603:10b6:408:170::6) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.223.10; Wed, 15 Jul 2026 18:05:38 +0000
+ 15.21.223.10; Wed, 15 Jul 2026 18:05:45 +0000
 Received: from CH0PR01MB6873.prod.exchangelabs.com
  ([fe80::46eb:64a3:667c:c1a0]) by CH0PR01MB6873.prod.exchangelabs.com
  ([fe80::46eb:64a3:667c:c1a0%3]) with mapi id 15.21.0223.008; Wed, 15 Jul 2026
- 18:05:38 +0000
+ 18:05:45 +0000
 From: Yang Shi <yang@os.amperecomputing.com>
 To: cl@gentwo.org,
 	dennis@kernel.org,
@@ -70,9 +70,9 @@ Cc: yang@os.amperecomputing.com,
 	linux-mm@kvack.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 05/16] arm64: mm: enable percpu kernel page table
-Date: Wed, 15 Jul 2026 11:04:07 -0700
-Message-ID: <20260715180455.515692-6-yang@os.amperecomputing.com>
+Subject: [PATCH 10/16] mm: percpu: prepare to use dedicated percpu area
+Date: Wed, 15 Jul 2026 11:04:12 -0700
+Message-ID: <20260715180455.515692-11-yang@os.amperecomputing.com>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260715180455.515692-1-yang@os.amperecomputing.com>
 References: <20260715180455.515692-1-yang@os.amperecomputing.com>
@@ -84,58 +84,58 @@ X-ClientProxiedBy: CYZPR05CA0010.namprd05.prod.outlook.com
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|LV2PR01MB7767:EE_
-X-MS-Office365-Filtering-Correlation-Id: 404477ca-26c0-4daa-2154-08dee29bacf4
+X-MS-Office365-Filtering-Correlation-Id: c18bd9bf-4020-4ab9-b56d-08dee29bb0ea
 X-MS-Exchange-AtpMessageProperties: SA
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|7416014|11063799006|56012099006|10067099003|22082099003|55112099003|18002099003|921020;
-X-Microsoft-Antispam-Message-Info: 3zR8Piin2QepN4JiBcYBCaZfSAp7AKMP2/ULuNK32f5FQCuoYgkBv/hvZ4FZ+oeUb+09tSL1CjbpnP69E1u+gcObjBdNHHyBX+vpffc9Vk76ZsOcBKOP7q2Vlo80Pwku6NlFQQrliy2sH5a/cdBbNo2QRcbFunZQM4O/9FBa9h1BQc7mDmrlvIrw9i0f9STHwOJwsO47MxE7bhUX/21NLQXZ1q6cO5w1yWv4xMKcBGL3ALo00FUvVfk1dsA2hdEqdNRN50RZjW2MiwyLB5Q668EnlqygEhCrzLRWadXGY6vu7m7hn8IjgxegvpPOKPNVDtMDyvzFOEvtC7otI66F9sxWulbCYr0sF/hKT8sUkpGUL0BWSG0vXkK1p9NVvb/sxuz5wfOAsh1vdGcg4iP39HpsWgG2yVLgLF64qCSkUbhqE3fqoMNx6Cr9vYrNB9U0WpPe+pH9y7oRuMYuMeyPjAjVkjFilzvJoOx6Hx2OLf1TUiQ9xq61pVoics951dgEaFHEzPKOsh8aCKpEeLdQHOpA496fxQEZPqPEyVwuX7IAhrz6dmZPlAPzZCBPsvgW3T0F2sawl5ZVgdoJjU7qhmskftoKkNpgsq1aaz8lkpUtNiaHxG8+LR9m0sg5FDbIn0B9UFN5O+X9iChVVC5Cxlo8cRBxsgjF4q3g0OLMs4Bg9tzsqeMSV9pJAtYf6BmHIGsRRFr+1biC2MPZtJxzXg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(7416014)(11063799006)(56012099006)(10067099003)(22082099003)(55112099003)(18002099003)(921020);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|7416014|11063799006|56012099006|10067099003|3023799007|22082099003|55112099003|18002099003|921020;
+X-Microsoft-Antispam-Message-Info: lYTJ5qU1ar3ibmVjeEeClgHS5kqjfnNpGhRxS5MhZ5e19lN6aTin7P4smSSnpb4XelL2MKzFDz++nAHQSPO6VS4Wq2qhb1QxiADaWC62rTJ+tH+agEonvU3U2ArKAuwGPPdGe/g6NbJcjiIU3BU/pqpjBHoiI5WLVDAJksjJlXvA1Vq9eimhUGW3LROyjF9KVBDov/Fz2jEr3yK9zcvUBTQCmCOFzd1/XOeY0mgE6HUl15uoGCBVI3y0Oh/GJfo+5zWUmby2OEXfIXgOFqvDDt08r+rfiBcfdhorI4bp+V6+4f0ymu+j/KOn5srnTQvihA5J144AgZnPq8iU2Y+HhWBhmuplom7y044z80uZeqzn7it1bWdx6TMwsfMq4ApZT+4HXQaHehSXDlK2rmHGgsyzrUR0htCn6j5A4GJ/uqKbf++DQ/wHgL9ZN8Ipf5KukTz3i42s7znsxAwN6AB7YCsad0eDwHbeW0EKCEI0d9NEeANDpVDMFk0sTXu+uQndCLa2g2YuF0JVFQsVLpbm/qFqGeQepONR/jlvO2o4CbFeVkU4RnlVNhCx/fR5PsRvMmiDkIZF0TAxMSq6y1Af4v5bDIEs4VaYF32I5ANZAQL7rDpmCe16VHMP3QPiqiq8Z9OAMVPGLO00wOs+pvdtTBWLgGZPAe8Hd8rjQYn1QL07lxa9JuyFkyg82cQdCDWMkzSiLluZFl2A0tBeSYmI3w==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(7416014)(11063799006)(56012099006)(10067099003)(3023799007)(22082099003)(55112099003)(18002099003)(921020);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?f/2I/Z2wISLVtTovpvhIbrbBw6kmnm7BFw0KMNF12xXP0VK/DQhK8i7nGHZv?=
- =?us-ascii?Q?s+Y1hKRQAstkh3m2GkNIH8ERzB8ETED7HNmHLlSwYSjg4ZWq9MPwp1f0zhcP?=
- =?us-ascii?Q?0Dof7ltqmWdxBgg+x+m1wJg9vnZ7TdBW3QDkd/5qsGJrqCIZUtu7TpyhSiQY?=
- =?us-ascii?Q?eHIWpJbjfjXM8QVh1o37b+jxyvMQtD2UqT+P6G6n+Ha5kK1EAREHwob4eCc9?=
- =?us-ascii?Q?2WRlwtl9VZuwlPRCWVsvtU7dYgQO1u+RfkemJt9byNO4RqSRK7aI8Syj2JU5?=
- =?us-ascii?Q?q53KkJst/VhUAGi4Wne5lA4WmINhB36LnPTuvdZWctQhw+WyzEkwBVjs5jRm?=
- =?us-ascii?Q?lnLupysREmMW+cysZPqy2Afttu2pouP7qtFd+LPlzULhCS4XnEDScx21kz9g?=
- =?us-ascii?Q?bdFcfm4z6ptTkvABQoOa9T1X+xO6if4NwK0xLU0QeJVSe/nAo8dxYHgf5j1Z?=
- =?us-ascii?Q?E/xIkCvKe+mfvm6ex/gWGsF24ewOs+z8t5nqYKQPvDxEiyV0zF/B4L33zf6T?=
- =?us-ascii?Q?cUdcLgf5/oro/CKfwhZefahUDWs78JGjawvXOhz/goI2c2C/+tD4Lyh5+7fO?=
- =?us-ascii?Q?0/sOXRLRIEsa2G+XtSNHoIXiZFnBaiN8lu3QU3m2njHyaBx+uNl20xH379lD?=
- =?us-ascii?Q?SHVRmc8EzVawuomPMNuZB5B9lU+IwQjbf87iO+/JPt3Yxpg1fBtGQYFuLG92?=
- =?us-ascii?Q?uACr5uxVSzM/hgJWK3QmIAmVBi62UZRJJzelT4Yw8nbq45MCNUdK/IeIyQCP?=
- =?us-ascii?Q?fhD90QH4CC0x/vwg/z7LAtKIidYTgNPqL4jdwrKV/iMWl1Cn/0y6dBjUMNvg?=
- =?us-ascii?Q?bUHGfb9sxwqzs9jiFn1rghZzLWYgRCxzE93IivAUifrUbmXF3ZLbIB7a4riQ?=
- =?us-ascii?Q?lcMx7SjvOWTkDlJ/YVhfSaCXXyaRKnfLJYwRqFLD3P4bDosbD7OjLfkCWdPM?=
- =?us-ascii?Q?QrLlR0JUl74lGnjdhSp5qNMZvBkcZZUbXbXvBh6UtzvdlZuizHtvp7xv237s?=
- =?us-ascii?Q?xO1ZKBTRwT6+KcV07S0NzQktNvjJwO+/ifmqwihODdlWTmbsKO/bnOnUkQoF?=
- =?us-ascii?Q?wQxa4HA4utUfWt37btxEqM+A4k1wPEKXKwCruCvbPkHP0mofjO0AKSSuscOG?=
- =?us-ascii?Q?Xq5WwuiyXZ33NS/xQP3izM+EaWhstop+SxxDyiT9fi2gGBF1rfTh9Irs/7R8?=
- =?us-ascii?Q?qIeBjx98m8aJmikIMTlkP72OZyF+ZdE2eWk57pA9ZoN2US71Tr6hqgC1SQzb?=
- =?us-ascii?Q?xLLsdIZFAncpXIubLGdMbExl9/0Puy+xYZ0dnIVPOgaMK8wuyO0x3isjtLwK?=
- =?us-ascii?Q?jFFG3T/CZxzGY8ETQBu8SlT+b8/oRum2hdMCSwHlQqsB8U1CUpg7DzrJdHTa?=
- =?us-ascii?Q?sAfpqbNWg5nt3ix0P6mH/wYltDVMe3uOk6PytcYEBAR774nMnOaqVfAG4yh7?=
- =?us-ascii?Q?fDkCI3JNsgA4/no0SeQUr3JOVfYAdFFaRq7CT/n6uddVPC0CaZFgkaMbhxvD?=
- =?us-ascii?Q?oziUJUAkR4nMQl52QIatYtNyrTdONiJcfT/cqatjCSdukTH7GCDjiLV8GWM8?=
- =?us-ascii?Q?pIZP0fTEyoTz11uAADEJhvy3po+FX5rqibDeyERrs97hWisRoTTgEkDiy+Mv?=
- =?us-ascii?Q?5Fl691bXR5sjWYdASbq2G52rr/4Jus3qzf/n4BmDwrzddSM1Z9WvqCafeOcS?=
- =?us-ascii?Q?pVVgoDmcOOHpXBJxBUyRvHKP3c0Wf7wOKqArDs4djBErpMbTkBrYKOWHsFEW?=
- =?us-ascii?Q?QqlktyrGENcHBjxuTe25eZRoLT/G88I=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?XWgfVG1kkHYXJy3qYlSzFF445WgKrl4StXgYktOkEcXUFWnzwoizwZgZKJ+0?=
+ =?us-ascii?Q?KyEYW+kLGH2A1T4tVTykzbZRO3eJBwjYrzoZtOu5pYecTnymnpyrQ+DilefO?=
+ =?us-ascii?Q?jaA8fveW5M/gbYuGMx2h+gByxtGOcPXRzAJkMuIGnj2szB/Oo/tWweSYdSay?=
+ =?us-ascii?Q?oA7VDPTALDw+q8D6a/LqVQFkLV7Snsoj6GfxmQDRWp/TqlcZlJyCoVjSucqx?=
+ =?us-ascii?Q?jYZIsBxh3Z96HpIqqsOlM4hXHpvV79171p52Kv4TYb4ouEtw1m8NJlUkDDph?=
+ =?us-ascii?Q?yLzFBFGzfEGcqSDw6H8PKFIsT1w560gE5trqKwYmFeGNjFD3IohwtVkd6XQF?=
+ =?us-ascii?Q?8w3SroxMy0qVe2RfArFdxJxChVzVpwS1I5Q3uVLjgoI7NzC46eFDu33bI30N?=
+ =?us-ascii?Q?XyFZ/E7cmNi/uO46Yml/9SfjJAVFBWz6zw/9FhBop8uLfkx6/8ujpKkOXmso?=
+ =?us-ascii?Q?Ahz/valVc5TrPOecxIMYNuiz+TTjg1gUVdsUlUVH82vWCZ+HoNqzg/r10Pcl?=
+ =?us-ascii?Q?WknRL/I2nD7VgXnggosoZgyXzASCNguYDi+/qAD3YEZcgX6HwB40XKnF3aFl?=
+ =?us-ascii?Q?Q5TdQh+dfrIxlnkk6cIPXbmpv5DgLv9YojBogYjWNdCOqeRUtt5pPKE0qDxO?=
+ =?us-ascii?Q?fTFvU5vvKl2ReYMnpWgo7LXuSCN7s02pWztBRJ2I75OqYwnSPATyTvUf+syL?=
+ =?us-ascii?Q?ZRjMMC0Agmp+/aTpTOX2x9kgo2sjoH6QMdmv1EwuR//weDGv27CyDHV6Zshv?=
+ =?us-ascii?Q?2Mt+CSkADp3byGGGJhxHW/6q8pDDbVkYCwZnga3jeeWbvf2g0PX8V2xKotm9?=
+ =?us-ascii?Q?WV5Tidfem/8w7YiOQwCImEf6QWAkjR0qUxfrZ5Peh+c8afm6ALcjOpg3qx9H?=
+ =?us-ascii?Q?XlmS4FWi5RpzSlJK3Gj0mlKnDMe2ysIwVrNaCEMtzngXkPQpGMa+Ax/tnf77?=
+ =?us-ascii?Q?McLksGrDpPRthtRD3jhfFxdc0cEF9xHSMRD8fG4qtI/61eJ/+BcC+CaI52tj?=
+ =?us-ascii?Q?pWRKcFK/qSwqxGonAYmo9r8ki+veO8HVZphUs5k85llG8ONcWstmfdvDY+Vg?=
+ =?us-ascii?Q?ctDfWgl3/NrfbCr5fi66WBTTtMRaADYvhlZ3b7gi4hw/X/fcVZ+sxFs1uZpn?=
+ =?us-ascii?Q?xhpR+qmGLDCtz5p6/Pk7NLiTvWAeg9LJjr6wVvL++7hM7lftvqYEDlrVP6KP?=
+ =?us-ascii?Q?IVRp+5JcB6Vud3HCEwmbWw5+6nY8q1f1iVgjqc0ZjhrXiAzpa30LeZwdrER6?=
+ =?us-ascii?Q?g+OKeiPDSW1O3caJOOwIDA+rCYS5b8ZytUDj90fiNEg9ola1DeDmzSadQ9is?=
+ =?us-ascii?Q?SdOvtbbp21ANMr3HdvrwKFeLXzQlyjPir7/pEs3qCGCI6zR1BsyY/PbDu8fr?=
+ =?us-ascii?Q?kjNDoihs21uaDQ0eUhluKmtxNHa1dAmSg5bRufg2TJixjKNkSOQP+vP/KB6W?=
+ =?us-ascii?Q?68saiQCXRP8aOxY56O6F5e5dRfuEtip8+3tf0f9RQmYgJIXyREPEkJlAx9bb?=
+ =?us-ascii?Q?Ce9DDU5WS+iS/JL4OfwxTPcJ9SwLKiYoxOwaHbt86IXSMR2ryIEhnSgaEsft?=
+ =?us-ascii?Q?tJakY9nLZ/0vs94yJ+B1dEQ9blWOGdIrrpk59sok94sp0jC6SfKm938JLBV3?=
+ =?us-ascii?Q?dJRnCPyYW1NTfgye4c/NX63eeJhAUeAu5bZ+cSJE1U1r8NhK6NIKAUgst5tZ?=
+ =?us-ascii?Q?h6zDQeEJ8UBzNWq8Xz46LTtx4Wwon/2sk1Zx0NPHZGiGLKXepQC5Mj/34IqX?=
+ =?us-ascii?Q?3glOWfqpN/fTARYwBKPC93NSMZ6XsqE=3D?=
 X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 404477ca-26c0-4daa-2154-08dee29bacf4
+X-MS-Exchange-CrossTenant-Network-Message-Id: c18bd9bf-4020-4ab9-b56d-08dee29bb0ea
 X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2026 18:05:38.3836
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2026 18:05:45.0305
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +6FOKOHYo5OGal9lq8y1VGpC/OZLMVh5T7TszMhqSjX+VsORxqEwU/HwUlruIcqy6ZKlfuGbG9o/roCcwfCZyTI0ebki35FuEg+mM1XL4Oo=
+X-MS-Exchange-CrossTenant-UserPrincipalName: E6BwwYx5TWqD3wOQM1Alni5OxCsi/gdZFSkguIaaL6r2K6SeZOYSCw4eCuUKnxaOWuPXpCF7LW4przjxbg6f/LfXPQguJqXP2BbpnPe8J+U=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR01MB7767
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_110549_261662_0D7AA4FF 
-X-CRM114-Status: GOOD (  20.05  )
+X-CRM114-CacheID: sfid-20260715_110559_383412_4F7733DF 
+X-CRM114-Status: GOOD (  14.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,196 +150,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently all cpus share the same kernel page table (swapper_pg_dir),
-this patch creates kernel page table for each cpu and each cpu uses its
-own kernel page table.  The cpu 0 keeps using swapper_pg_dir.  All the
-kernel page tables share the same content.  So we don't have to
-duplicate the whole page table for all cpus, we just need to have
-different pgd page for each cpu.  All kernel page table modification (split,
-creation, deletion, etc) actually still happens on swapper_pg_dir, the
-modification needs to be synchronized to other cpu's page tables when
-the top level is modified.
+The percpu variables are allocated from vmalloc area by default.  The
+architectures which support local percpu map will allocate percpu
+variables from dedicated percpu area, for example, ARM64.
 
-The percpu page table can't be shared across cores, so clear cnp bit
-too even though CNP is supported.
+Introduce a new kernel config, CONFIG_HAVE_LOCAL_PER_CPU_MAP.  The
+architectures which support local percpu map will need to select it.  If
+it is enabled, allocate percpu variables from the dedicated percpu area.
 
-Some features may not work with it for now, for example, memory hotplug,
-KASAN, etc.  They will be fixed in the following patches.
+But still treat percpu area address as vmalloc address.
 
 Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
 ---
- arch/arm64/include/asm/mmu.h         |  1 +
- arch/arm64/include/asm/mmu_context.h |  9 ++++-
- arch/arm64/include/asm/pgtable.h     | 10 ++++++
- arch/arm64/kernel/setup.c            |  3 ++
- arch/arm64/kernel/smp.c              |  8 +++++
- arch/arm64/mm/mmu.c                  | 53 ++++++++++++++++++++++++++++
- 6 files changed, 83 insertions(+), 1 deletion(-)
+ include/linux/mm.h | 11 +++++++++++
+ mm/Kconfig         |  3 +++
+ mm/percpu.c        |  8 ++++++++
+ mm/vmalloc.c       | 23 ++++++++++++++++++++---
+ 4 files changed, 42 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
-index 5e1211c540ab..8ed3b5f3cf84 100644
---- a/arch/arm64/include/asm/mmu.h
-+++ b/arch/arm64/include/asm/mmu.h
-@@ -63,6 +63,7 @@ static inline bool arm64_kernel_unmapped_at_el0(void)
- extern void arm64_memblock_init(void);
- extern void paging_init(void);
- extern void bootmem_init(void);
-+extern void setup_percpu_pgd(void);
- extern void create_mapping_noalloc(phys_addr_t phys, unsigned long virt,
- 				   phys_addr_t size, pgprot_t prot);
- extern void create_pgd_mapping(struct mm_struct *mm, phys_addr_t phys,
-diff --git a/arch/arm64/include/asm/mmu_context.h b/arch/arm64/include/asm/mmu_context.h
-index 803b68758152..0e991b98ed9e 100644
---- a/arch/arm64/include/asm/mmu_context.h
-+++ b/arch/arm64/include/asm/mmu_context.h
-@@ -27,6 +27,7 @@
- #include <asm/tlbflush.h>
- 
- extern bool rodata_full;
-+extern pgd_t *percpu_pgd[NR_CPUS];
- 
- static inline void contextidr_thread_switch(struct task_struct *next)
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index 485df9c2dbdd..c8c3800fbd9f 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -1858,6 +1858,17 @@ unsigned long vmalloc_to_pfn(const void *addr);
+ #ifdef CONFIG_MMU
+ extern bool is_vmalloc_addr(const void *x);
+ extern int is_vmalloc_or_module_addr(const void *x);
++#ifdef CONFIG_HAVE_LOCAL_PER_CPU_MAP
++static inline bool is_percpu_addr(unsigned long addr)
++{
++	return addr >= PERCPU_START && addr < LOCAL_PERCPU_END;
++}
++#else
++static inline bool is_percpu_addr(unsigned long addr)
++{
++	return false;
++}
++#endif
+ #else
+ static inline bool is_vmalloc_addr(const void *x)
  {
-@@ -138,7 +139,13 @@ void __cpu_replace_ttbr1(pgd_t *pgdp, bool cnp);
+diff --git a/mm/Kconfig b/mm/Kconfig
+index 13ea4b29ee7b..e1910c332638 100644
+--- a/mm/Kconfig
++++ b/mm/Kconfig
+@@ -1061,6 +1061,9 @@ config NEED_PER_CPU_PAGE_FIRST_CHUNK
+ config USE_PERCPU_NUMA_NODE_ID
+ 	bool
  
- static inline void cpu_enable_swapper_cnp(void)
++config HAVE_LOCAL_PER_CPU_MAP
++	bool
++
+ config HAVE_SETUP_PER_CPU_AREA
+ 	bool
+ 
+diff --git a/mm/percpu.c b/mm/percpu.c
+index 45c30c6531c5..b27828602c32 100644
+--- a/mm/percpu.c
++++ b/mm/percpu.c
+@@ -3243,9 +3243,17 @@ int __init pcpu_page_first_chunk(size_t reserved_size, pcpu_fc_cpu_to_node_fn_t
+ 	}
+ 
+ 	/* allocate vm area, map the pages and copy static data */
++#ifdef CONFIG_HAVE_LOCAL_PER_CPU_MAP
++	vm.flags = VM_ALLOC;
++	vm.addr = (void *)ALIGN(PERCPU_START, PAGE_SIZE);
++	vm.size = num_possible_cpus() * ai->unit_size;
++	vm_area_add_early(&vm);
++	kasan_populate_early_vm_area_shadow(vm.addr, vm.size);
++#else
+ 	vm.flags = VM_ALLOC;
+ 	vm.size = num_possible_cpus() * ai->unit_size;
+ 	vm_area_register_early(&vm, PAGE_SIZE);
++#endif
+ 
+ 	for (unit = 0; unit < num_possible_cpus(); unit++) {
+ 		unsigned long unit_addr =
+diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+index 17c26e9796b2..9ec401918736 100644
+--- a/mm/vmalloc.c
++++ b/mm/vmalloc.c
+@@ -80,6 +80,9 @@ bool is_vmalloc_addr(const void *x)
  {
--	__cpu_replace_ttbr1(lm_alias(swapper_pg_dir), true);
-+	unsigned int cpu = smp_processor_id();
-+	pgd_t *ttbr1 = percpu_pgd[cpu];
+ 	unsigned long addr = (unsigned long)kasan_reset_tag(x);
+ 
++	if (is_percpu_addr(addr))
++		return true;
 +
-+	if (cpu == 0)
-+		ttbr1 = lm_alias(swapper_pg_dir);
-+
-+	__cpu_replace_ttbr1(ttbr1, false);
+ 	return addr >= VMALLOC_START && addr < VMALLOC_END;
  }
+ EXPORT_SYMBOL(is_vmalloc_addr);
+@@ -4926,9 +4929,15 @@ pvm_find_va_enclose_addr(unsigned long addr)
+ static unsigned long
+ pvm_determine_end_from_reverse(struct vmap_area **va, unsigned long align)
+ {
+-	unsigned long vmalloc_end = VMALLOC_END & ~(align - 1);
++	unsigned long vmalloc_end;
+ 	unsigned long addr;
  
- static inline void cpu_replace_ttbr1(pgd_t *pgdp)
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 27689c62bd25..13e069b01600 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -1216,6 +1216,16 @@ p4d_t *p4d_offset_lockless_folded(pgd_t *pgdp, pgd_t pgd, unsigned long addr)
- 
- #endif  /* CONFIG_PGTABLE_LEVELS > 4 */
- 
-+#if CONFIG_PGTABLE_LEVELS == 2
-+#define ARCH_PAGE_TABLE_SYNC_MASK      PGTBL_PMD_MODIFIED
-+#elif CONFIG_PGTABLE_LEVELS == 3
-+#define ARCH_PAGE_TABLE_SYNC_MASK      PGTBL_PUD_MODIFIED
-+#elif CONFIG_PGTABLE_LEVELS == 4
-+#define ARCH_PAGE_TABLE_SYNC_MASK      PGTBL_P4D_MODIFIED
-+#elif CONFIG_PGTABLE_LEVELS == 5
-+#define ARCH_PAGE_TABLE_SYNC_MASK      PGTBL_PGD_MODIFIED
++#ifdef CONFIG_HAVE_LOCAL_PER_CPU_MAP
++	vmalloc_end = PERCPU_END & ~(align - 1);
++#else
++	vmalloc_end = VMALLOC_END & ~(align - 1);
 +#endif
 +
- #define pgd_ERROR(e)	\
- 	pr_err("%s:%d: bad pgd %016llx.\n", __FILE__, __LINE__, pgd_val(e))
- 
-diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
-index 23c05dc7a8f2..6d420ad59af4 100644
---- a/arch/arm64/kernel/setup.c
-+++ b/arch/arm64/kernel/setup.c
-@@ -360,6 +360,9 @@ void __init __no_sanitize_address setup_arch(char **cmdline_p)
- 	smp_init_cpus();
- 	smp_build_mpidr_hash();
- 
-+	/* Must be called after smp_init_cpus */
-+	setup_percpu_pgd();
-+
- #ifdef CONFIG_ARM64_SW_TTBR0_PAN
- 	/*
- 	 * Make sure init_thread_info.ttbr0 always generates translation
-diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index 28ff889658d3..49524a7176b2 100644
---- a/arch/arm64/kernel/smp.c
-+++ b/arch/arm64/kernel/smp.c
-@@ -55,6 +55,8 @@
- 
- #include <trace/events/ipi.h>
- 
-+extern void idmap_cpu_replace_ttbr1(phys_addr_t pgdir);
-+
- /*
-  * as from 2.5, kernels no longer have an init_tasks structure
-  * so we need some other way of telling a new secondary core
-@@ -198,6 +200,12 @@ asmlinkage notrace void secondary_start_kernel(void)
- 	struct mm_struct *mm = &init_mm;
- 	const struct cpu_operations *ops;
- 	unsigned int cpu = smp_processor_id();
-+	typedef void (ttbr_replace_func)(phys_addr_t);
-+	ttbr_replace_func *replace_ttbr;
-+
-+	phys_addr_t ttbr1 = phys_to_ttbr(virt_to_phys(percpu_pgd[cpu]));
-+	replace_ttbr = (void *)__pa_symbol(idmap_cpu_replace_ttbr1);
-+	replace_ttbr(ttbr1);
- 
- 	/*
- 	 * All kernel threads share the same mm context; grab a
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index f2be501468ce..5a235491f268 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -67,6 +67,59 @@ long __section(".mmuoff.data.write") __early_cpu_boot_status;
- static DEFINE_SPINLOCK(swapper_pgdir_lock);
- static DEFINE_MUTEX(fixmap_lock);
- 
-+pgd_t *percpu_pgd[NR_CPUS] __ro_after_init;
-+bool percpu_pgd_setup_done __ro_after_init = false;
-+
-+void __init setup_percpu_pgd(void)
-+{
-+	int cpu;
-+
-+	for_each_possible_cpu(cpu) {
-+		void *addr;
-+
-+		if (cpu == 0) {
-+			percpu_pgd[cpu] = swapper_pg_dir;
-+			continue;
-+		}
-+
-+		addr = memblock_alloc(PAGE_SIZE, PAGE_SIZE);
-+		if (!addr)
-+			panic("Can't alloc percpu pgd\n");
-+
-+		memcpy(addr, (void *)swapper_pg_dir, PAGE_SIZE);
-+		percpu_pgd[cpu] = (pgd_t *)addr;
-+	}
-+
-+	dsb(ishst);
-+
-+	percpu_pgd_setup_done = true;
-+}
-+
-+void arch_sync_kernel_mappings(unsigned long start, unsigned long end)
-+{
-+	unsigned long addr, next;
-+	int cpu;
-+	pgd_t *pgdp = pgd_offset_k(start);
-+	pgd_t pgd;
-+	unsigned int index = pgd_index(start);
-+
-+	BUG_ON(start > end);
-+
-+	if (!percpu_pgd_setup_done)
-+		return;
-+
-+	addr = start;
-+	do {
-+		pgd = READ_ONCE(*pgdp);
-+		next = pgd_addr_end(addr, end);
-+		for_each_possible_cpu(cpu) {
-+			if (cpu == 0)
-+				continue;
-+			set_pgd(percpu_pgd[cpu] + index, pgd);
-+		}
-+	} while (pgdp++, index++, addr = next, addr != end);
-+}
-+
- void noinstr set_swapper_pgd(pgd_t *pgdp, pgd_t pgd)
+ 	if (likely(*va)) {
+ 		list_for_each_entry_from_reverse((*va),
+ 				&free_vmap_area_list, list) {
+@@ -4969,14 +4978,22 @@ struct vm_struct **pcpu_get_vm_areas(const unsigned long *offsets,
+ 				     const size_t *sizes, int nr_vms,
+ 				     size_t align)
  {
- 	pgd_t *fixmap_pgdp;
+-	const unsigned long vmalloc_start = ALIGN(VMALLOC_START, align);
+-	const unsigned long vmalloc_end = VMALLOC_END & ~(align - 1);
++	unsigned long vmalloc_start;
++	unsigned long vmalloc_end;
+ 	struct vmap_area **vas, *va;
+ 	struct vm_struct **vms;
+ 	int area, area2, last_area, term_area;
+ 	unsigned long base, start, size, end, last_end, orig_start, orig_end;
+ 	bool purged = false;
+ 
++#ifdef CONFIG_HAVE_LOCAL_PER_CPU_MAP
++	vmalloc_start = ALIGN(PERCPU_START, align);
++	vmalloc_end = PERCPU_END & ~(align - 1);
++#else
++	vmalloc_start = ALIGN(VMALLOC_START, align);
++	vmalloc_end = VMALLOC_END & ~(align - 1);
++#endif
++
+ 	/* verify parameters and allocate data structures */
+ 	BUG_ON(offset_in_page(align) || !is_power_of_2(align));
+ 	for (last_area = 0, area = 0; area < nr_vms; area++) {
 -- 
 2.47.0
 
