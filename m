@@ -4,69 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADC1FC44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 13:52:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF45FC4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 13:54:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UDCxRirisfN6uyLux6/NztFWSmSCbhNLIdUjj9NMzD4=; b=UzfjCygBS55VogBLePAgWR6GaI
-	kZ74rAWWiI3mx+lY7eZBakOUF/WjdMJj2QpXHD0f5bSySocOvRZR0u8rhQ874lVLaW4TEtTNs5TGV
-	jGIDoH18HnIe/yZaYIgjAe/Msre3mZYTrGCZmXAw7aRDx9dTtfgvROI6ZyuV29nMAcyUdvIvvHlvO
-	eIHSF2BMZAbunRqjcyuMdBHWnVibH6XSu3EVyfwg/9fS/Jq+eko1V/ZzZS39bjKua/XymJWujjdIk
-	3iv02uB9zu94RKaFdfw/DrzpDGLUmV2W5BZsHbdrGUg/3s0v+COTdjwTmVcI2yCheOxga4Z1JlyYC
-	/9Bla9XQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aFFoxHyq9ESVutJsXqxK9Pnzo+cCg/UBQdjZIq76ufE=; b=FmbMztPEEgrzILhyRpopdySPap
+	XOyHmEdtjnQ/VTDhwDFkU/eGkfKuVA5/7eHNGI6mUfme/Y3xeYTpoD1YU1HCa1l8A2QI3gURx8CPT
+	Hle7p2Ievvr9MiDjZF5EF2GhQLkQa4EsoMRZQzqQLBaQYkXNwxTV0gDzC/Bnu9rQJGF8Gp1MLYP5g
+	1B7C7JkpUPfkOVtlnwBIXsu6Oq/Z9LYf0l2PHvqplbTI0T+b/tfTWDRxQ31nIGc7jcCDONmsCpS4v
+	/Q7rpHCK9EWGATy0vsW66wRRCurH55mnTCZ+6b+yjynlHfr/Tg1fafQt/e4fRVR2SyDarrBg6XzOb
+	hlH10cYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk024-0000000F04t-41Mm;
-	Wed, 15 Jul 2026 13:52:16 +0000
-Received: from mail-43172.protonmail.ch ([185.70.43.172])
+	id 1wk03t-0000000F0NP-3FFD;
+	Wed, 15 Jul 2026 13:54:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk01z-0000000F02p-1Xdw
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 13:52:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=geanix.com;
-	s=protonmail3; t=1784123528; x=1784382728;
-	bh=UDCxRirisfN6uyLux6/NztFWSmSCbhNLIdUjj9NMzD4=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:Message-ID:From:To:
-	 Cc:Date:Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=a0Bkiclvw7YtsGdiNjijqEeosPqVmlBJqkPRQOPVjRIcWdpBc5/QHRK6DQJprrq+t
-	 IfvVn2dizCjb17bdJFwICujNj8H6+pvdUjbsWcadr3arvnYa46wdSmqXScdp2Ki9Va
-	 Todt33JafTXncgGHC7VTBIY2pY+XfoMh7SZi4GmxyzJKjEpI5E+igZp837cHzF7U8Q
-	 mJpF3MPRFuxliBSQwWyzwUi9GCbyFfrfu/9Y/+1EQcHFMFBzZ+dC+8kIk5yXU0PYcx
-	 4PouPhkKWaSEpPYvHTCfQNyZ4pIxTrrwiztTovh8S1cscxjYwpmzjtxHP6FUohyo+3
-	 2V1fw1pkrQYUA==
-X-Pm-Submission-Id: 4h0czp2zL3z2ScqH
-From: Esben Haabendal <esben@geanix.com>
-To: "AngeloGioacchino Del Regno" <angelogioacchino.delregno@collabora.com>
-Cc: "Gary Bisson" <bisson.gary@gmail.com>,  "Chun-Kuang Hu"
- <chunkuang.hu@kernel.org>,  "Philipp Zabel" <p.zabel@pengutronix.de>,
-  "David Airlie" <airlied@gmail.com>,  "Simona Vetter" <simona@ffwll.ch>,
-  "Matthias Brugger" <matthias.bgg@gmail.com>,
-  <dri-devel@lists.freedesktop.org>,  <linux-mediatek@lists.infradead.org>,
-  <linux-kernel@vger.kernel.org>,  <linux-arm-kernel@lists.infradead.org>,
-  "Adam Thiede" <me@adamthiede.com>,  "Thorsten Leemhuis"
- <regressions@leemhuis.info>
-Subject: Re: [PATCH] drm/mediatek: mtk_dsi: enable hs clock during pre-enable
-In-Reply-To: <65558ccc-4f2c-492d-8c74-627d27dce864@collabora.com>
-	(AngeloGioacchino Del Regno's message of "Wed, 15 Jul 2026 15:40:37
-	+0200")
-References: <20260120-mtkdsi-v1-1-b0f4094f3ac3@gmail.com>
-	<8733xko1ms.fsf@geanix.com>
-	<0f719c00-3cf5-4403-afbf-713b07255981@collabora.com>
-	<aleM9Wy9otpd6Je3@owl5>
-	<aRN3_2FHX8XmTcwduTAPwz4UFde4B0tbB09ajyeUg5qZxiIYMmbvMkG7CPoNTl4iySYMZawbLMWijO47R22gkg==@protonmail.internalid>
-	<65558ccc-4f2c-492d-8c74-627d27dce864@collabora.com>
-Date: Wed, 15 Jul 2026 15:52:05 +0200
-Message-ID: <87h5m0mkca.fsf@geanix.com>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	id 1wk03r-0000000F0MG-3rZo;
+	Wed, 15 Jul 2026 13:54:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A7C34423D7;
+	Wed, 15 Jul 2026 13:54:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 809B3C2BCB7;
+	Wed, 15 Jul 2026 13:54:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1784123647;
+	bh=SHVrqQXDa3qm76wiWIeX3DinpsCQYw46zj+EOA7gjzg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=pSRfmnSJmdhT30QJauObX7m9rNmygPipBhx+U00ct3O6akcOEFWo/U1Kl/Q0/4NXX
+	 LhDudRGn2Uw2sDQzDpT3oE3ZyHKT6IQxpPdHDFPw0RPAicdlFnVu8ZcG4oGqxuNbth
+	 /27AOd1BPl7nQ7tMJ04xz1cuIA2yYGFcqR07Uj3IZ+SK7YCtv8mx14ABDNJ+RWeDsv
+	 JpbW5jHX5yeI4zl666V7TXcd2Z5fW8KYkBUv3aJwSmvwn+V96FMgIxI+CcKfs/7X2C
+	 8UB+syAabNzf/QBBADcEzW0hYU5u7Izfo37pYfe9cOR+uw7LGMlYAoRb4bPt9zHQcy
+	 0xFmef2Wnu4sQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5EE16C4450E;
+	Wed, 15 Jul 2026 13:54:07 +0000 (UTC)
+From: Nikolai Burov via B4 Relay <devnull+nikolai.burov.jolla.com@kernel.org>
+Date: Wed, 15 Jul 2026 16:54:05 +0300
+Subject: [PATCH v2 1/3] dt-bindings: power: Add MediaTek MT6858 power
+ domain controller
 MIME-Version: 1.0
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_065211_565950_466E19F8 
-X-CRM114-Status: GOOD (  14.25  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260715-mt6858-pmdomain-v2-1-6293e87fc093@jolla.com>
+References: <20260715-mt6858-pmdomain-v2-0-6293e87fc093@jolla.com>
+In-Reply-To: <20260715-mt6858-pmdomain-v2-0-6293e87fc093@jolla.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Ulf Hansson <ulfh@kernel.org>
+Cc: Matthias Brugger <mbrugger@suse.com>, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org, 
+ Nikolai Burov <nikolai.burov@jolla.com>, 
+ Nikolai Burov <nikolai.burov+review@abscue.de>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784123646; l=3838;
+ i=nikolai.burov@jolla.com; s=20260707; h=from:subject:message-id;
+ bh=wyTDtPwagfipv98JCBqQB356TgxsTT3pxKgmlZsP7cU=;
+ b=r22tiqpwyDHLAplPVvax8X+Lcya77yyrKXCW71dkieN5RL99On7hmytf6hKIhUncbsZs/kNq5
+ RnUKhxSlbqyB0Kp6S4WZ/i5ilKfz32RBP03L4thDQcz5btY4PsbVjUu
+X-Developer-Key: i=nikolai.burov@jolla.com; a=ed25519;
+ pk=yzpa+PD+ovHUFMIOBA9o2QqGwI110jM6hdGHLc7jtoQ=
+X-Endpoint-Received: by B4 Relay for nikolai.burov@jolla.com/20260707 with
+ auth_id=859
+X-Original-From: Nikolai Burov <nikolai.burov@jolla.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,63 +86,107 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: nikolai.burov@jolla.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-"AngeloGioacchino Del Regno" <angelogioacchino.delregno@collabora.com>
-writes:
+From: Nikolai Burov <nikolai.burov@jolla.com>
 
-> On 7/15/26 15:36, Gary Bisson wrote:
->> Hi,
->>
->> On Wed, Jul 15, 2026 at 03:25:11PM +0200, AngeloGioacchino Del Regno wrote:
->>> On 7/15/26 14:53, Esben Haabendal wrote:
->>>> Gary Bisson <bisson.gary@gmail.com> writes:
->>>>
->>>>> Some bridges, such as the TI SN65DSI83, require the HS clock to be
->>>>> running in order to lock its PLL during its own pre-enable function.
->>>>>
->>>>> Without this change, the bridge gives the following error:
->>>>> sn65dsi83 14-002c: failed to lock PLL, ret=-110
->>>>> sn65dsi83 14-002c: Unexpected link status 0x01
->>>>> sn65dsi83 14-002c: reset the pipe
->>>>>
->>>>> Move the necessary functions from enable to pre-enable.
->>>>>
->>>>> Signed-off-by: Gary Bisson <bisson.gary@gmail.com>
->>>>
->>>> Hi
->>>>
->>>> I have run into the same problem, but in combination with another
->>>> pipeline. I am seeing same problem with an i.MX8 using the nwl-dsi
->>>> bridge and the dcss driver.
->>>>
->>>> I have submitted a fix that adresses the problem in the ti-sn65dsi83
->>>> driver instead. With a bit of luck, it can replace the fix proposed in
->>>> this thread.
->>>>
->>>> See https://lore.kernel.org/all/20260711-ti-sn65dsi83-fixes-v1-2-d85eb5342b98@geanix.com/
->>
->> Thanks, just tried it on 7.2-rc3 with my patch reverted and confirm that
->> it works too. My assumption was that the SN65DSI83 was locking the PLL
->> earlier for some specific reason and therefore was reluctant to change
->> it.
->>
->>>> /Esben
->>>
->>> That clarifies a lot of things.
->>>
->>> The patch on mtk_dsi shall be reverted then.
->>
->> Angelo, do you want me to offer the revert patch? Should I wait to see
->> how the other thread goes?
->>
->
-> Gary, yes please, send a revert and make sure to explain the reason why
-> we're reverting this in the commit description :-)
+Add a new compatible and document bindings for the power domain
+controller of the MT6858 SoC.
 
-Maybe test if my fix actually solves the problem with the mtk_dsi driver
-also ;)
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Nikolai Burov <nikolai.burov@jolla.com>
+---
+ .../bindings/power/mediatek,power-controller.yaml  | 21 +++++++++++++++++++-
+ include/dt-bindings/power/mediatek,mt6858-power.h  | 23 ++++++++++++++++++++++
+ 2 files changed, 43 insertions(+), 1 deletion(-)
 
-/Esben
+diff --git a/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml b/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
+index 070c6e5666dc..d03e4a925163 100644
+--- a/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
++++ b/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
+@@ -25,6 +25,7 @@ properties:
+     enum:
+       - mediatek,mt6735-power-controller
+       - mediatek,mt6795-power-controller
++      - mediatek,mt6858-power-controller
+       - mediatek,mt6893-power-controller
+       - mediatek,mt8167-power-controller
+       - mediatek,mt8173-power-controller
+@@ -56,7 +57,7 @@ properties:
+       faults while enabling or disabling a power domain.
+       For example, this may hold phandles to INFRACFG and SMI.
+     minItems: 1
+-    maxItems: 3
++    maxItems: 6
+ 
+ patternProperties:
+   "^power-domain@[0-9a-f]+$":
+@@ -103,6 +104,7 @@ $defs:
+         description: |
+           Power domain index. Valid values are defined in:
+               "include/dt-bindings/power/mt6795-power.h" - for MT8167 type power domain.
++              "include/dt-bindings/power/mediatek,mt6858-power.h" - for MT6858 type power domain.
+               "include/dt-bindings/power/mediatek,mt6893-power.h" - for MT6893 type power domain.
+               "include/dt-bindings/power/mt8167-power.h" - for MT8167 type power domain.
+               "include/dt-bindings/power/mt8173-power.h" - for MT8173 type power domain.
+@@ -156,6 +158,23 @@ required:
+   - compatible
+ 
+ allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - mediatek,mt6858-power-controller
++    then:
++      properties:
++        access-controllers:
++          items:
++            - description: handle to INFRACFG register block
++            - description: handle to IMG_SUB0 register block
++            - description: handle to CAM_SUB1 register block
++            - description: handle to CAM_SUB0 register block
++            - description: handle to IPE_SUB0 register block
++            - description: handle to VLPCFG register block
++
+   - if:
+       properties:
+         compatible:
+diff --git a/include/dt-bindings/power/mediatek,mt6858-power.h b/include/dt-bindings/power/mediatek,mt6858-power.h
+new file mode 100644
+index 000000000000..6ed9e82d4ad3
+--- /dev/null
++++ b/include/dt-bindings/power/mediatek,mt6858-power.h
+@@ -0,0 +1,23 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++
++#ifndef _DT_BINDINGS_POWER_MT6858_POWER_H
++#define _DT_BINDINGS_POWER_MT6858_POWER_H
++
++#define MT6858_POWER_DOMAIN_MD				0
++#define MT6858_POWER_DOMAIN_CONN			1
++#define MT6858_POWER_DOMAIN_AUDIO			2
++#define MT6858_POWER_DOMAIN_MM_INFRA			3
++#define MT6858_POWER_DOMAIN_ISP_IMG1			4
++#define MT6858_POWER_DOMAIN_ISP_IMG2			5
++#define MT6858_POWER_DOMAIN_ISP_IPE			6
++#define MT6858_POWER_DOMAIN_VDE0			7
++#define MT6858_POWER_DOMAIN_VEN0			8
++#define MT6858_POWER_DOMAIN_CAM_MAIN			9
++#define MT6858_POWER_DOMAIN_CAM_SUBA			10
++#define MT6858_POWER_DOMAIN_CAM_SUBB			11
++#define MT6858_POWER_DOMAIN_DIS0			12
++#define MT6858_POWER_DOMAIN_MM_PROC_DORMANT		13
++#define MT6858_POWER_DOMAIN_CSI_RX			14
++#define MT6858_POWER_DOMAIN_SSUSB			15
++
++#endif /* _DT_BINDINGS_POWER_MT6858_POWER_H */
+
+-- 
+2.54.0
+
+
 
