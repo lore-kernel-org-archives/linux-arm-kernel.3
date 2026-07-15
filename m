@@ -4,61 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18ED5C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 05:41:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0125C4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 05:44:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hMQq0jJEQshTzjxnb1XfDCm8LASdaJ7clh2uWi+5Tsc=; b=119sTbyT6bR35lT7urHP0oQ+n7
-	EDpFYDLfUa0FfuFIk2Zar2X30RpsXCJHIig8OTvT9RAgZyN8Kv7hazdxMX1X7J6nBg3zA3Z7I/Qux
-	i3mVFUAODxoIvvbgyOGI7BHPt3EDmjXORs4I0uzxpBDasEODZNZgVFxlRtIxUar30UXd0ktN4Mrza
-	e23wHoBGxGXJJFD+hJIChSzD7whWkazAuTKy3KAuvmCMnd153/s+HZo2rZy2Vwv6UdJ7jcRXoGXLQ
-	BegGi/oCd8AyQTsrnWQSBBxqDCd5pr2ASfl6jGWn/9SGAqO5YH7Z8VtHRs4uYsktGKy8d1QGjzl6n
-	e7T+ebTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yUv3OMYlAJVCg65Ns07vkHCsxN93lcUrF3TSM4E88dE=; b=qpdbM9YzdThL03xMPvr+v1zsHE
+	+dCiczUo1ZUv0fbKhaBk5rFo3bHj2O8cNtY0CWIBisPSwjLhc1ZUq7BlOG4OSjXpTWq24TermvO1r
+	Qe1NSb5kqfXHhbMUjcRVyQ7fJck66eZ0Okv0lhCRi/yRv3jLaGwZl2IxaKKPqQDHzKEoHBdkeAaa+
+	wEJu6SO107xJ49BRJd3nEuit5DS5lYAQz2M81lRtFlLpHYS3e+DyYMrydEM2FuOOGMmcSiS2XQNxF
+	f1kPsnjx5ICC/UPaw9Ex2vVWTqR3s81dJXq44/RDBoADt51LFA7ct4/yyFpB46TCe0a/rPq4tdyuK
+	qSesnsUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjsMo-0000000Dp4R-0yaL;
-	Wed, 15 Jul 2026 05:41:10 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wjsQE-0000000DpIY-30zm;
+	Wed, 15 Jul 2026 05:44:42 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjsMm-0000000Dp4J-1sBt
+	id 1wjsQB-0000000DpI5-2Dcv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 05:41:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 73F17600FF;
-	Wed, 15 Jul 2026 05:41:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B26371F000E9;
-	Wed, 15 Jul 2026 05:41:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784094067;
-	bh=hMQq0jJEQshTzjxnb1XfDCm8LASdaJ7clh2uWi+5Tsc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=AH4aTfvDY5e8DVBk0K2mX2cWVmPb+J7VHhpunZwIEDTNnFrO5WVUXGGmcFU/dQ1Ke
-	 Yj9YWaZRJsivMAhj0+0a+C/cbDat6h1jV++jjlpXYlSUVn1KB98ZxUyV8IXI9T1GCI
-	 2B2lhwXSZ8DCodJEu4Bcn1X7X0Rt2kj7F07FT9hjlOzfQQpkECoKE3iBz1PeWlWPOl
-	 kR9tng4/1i/fHV6IcH7KzySOPRYBjnyY4G0LPykQzJJrHpWfFyBuYTlkNIe7V6n/fR
-	 ruWs+8DAhXYmuYYfCqAfrk9Dk+0RDmgHSjSFCSrnge7TGpH0pm5L/Ti3t79QK6YIWY
-	 nFFuiD6yTZrIw==
-Date: Wed, 15 Jul 2026 07:40:59 +0200
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Soeren Moch <smoch@web.de>
-Cc: Bjorn Helgaas <bhelgaas@google.com>, 
-	Richard Zhu <hongxing.zhu@nxp.com>, stable@vger.kernel.org, Lucas Stach <l.stach@pengutronix.de>, 
-	Frank Li <Frank.Li@nxp.com>, Fabio Estevam <festevam@gmail.com>, linux-pci@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] PCI: imx6: Keep Root Port MSI capability also for i.MX6Q
-Message-ID: <6ayf4vt5wiftgz4myxpyze2wmmuxf5miakq6ffz2k3r6beiztu@lh5z5zjnljad>
-References: <20260427115804.134231-1-smoch@web.de>
- <2cbqhvfjszzuanp4i3rohntkxpfgftfjvzt66te3wkohsvw26g@yv4txuy74tvu>
- <465b1dcc-8e96-4edb-aebd-52937b8076d0@web.de>
+	Wed, 15 Jul 2026 05:44:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1784094278;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=yUv3OMYlAJVCg65Ns07vkHCsxN93lcUrF3TSM4E88dE=;
+	b=KHg2Vcl4Zz0ph0wAhLiX1tY5jAJNOQh1WoBSIcTf+ZSfMWbg/ZvCMf1Gj+fPoKrOvEBxgP
+	00sO1hw8d07tDjd/GFDOPp9PmrRhGzwtflKeWZ6eFL7DbcUBSWB6GV1c4qXESx3ui1TCl9
+	riP5EHRaxRmWV2vGcC7OXu/8IhYBHAw=
+Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com
+ [209.85.210.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-252-tM41fD5RODaO3VhWt1918A-1; Wed, 15 Jul 2026 01:44:36 -0400
+X-MC-Unique: tM41fD5RODaO3VhWt1918A-1
+X-Mimecast-MFC-AGG-ID: tM41fD5RODaO3VhWt1918A_1784094275
+Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-8484f26852dso1882672b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 22:44:36 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784094275; x=1784699075;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=yUv3OMYlAJVCg65Ns07vkHCsxN93lcUrF3TSM4E88dE=;
+        b=XY3cA05orjyOzHM//tLwR3c0TQ7bwR3I8rIjDzB9hdtv4vB9yazTrNOtix4J8BStUJ
+         nq6eOoXaZem52FOQlXHfV2YC/4n3ltP55ysveVamAkFCnc7MAFODo1zJjcYEUCAZIMsf
+         m/qv7yhiQDcRrnMfoysMNYNRLal7wO0yIzzlONj2k2ktCTWhP4XDnHwkC7vMY9At/Q9K
+         D0LABcAp1wLvHqus8TNYbcdittwgJPK7uZGDgSppRBoTFhQOcqCiS2ikbZDDY9b+eA1l
+         /6mf7ZBZmIMneI3VyiGnidU7s6cWh0aphYa4XKb5JgDcogTy3QjfiDwMtB00sYRbzk0Q
+         LidQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqRVpj7B2p9DKfaG/CC+EqhuQLfTn3EpLt8GE6+ZvLK9HLBcD3gaTuvfwGJUlAVvB8HzKaVbgE1uveFokgljKLS@lists.infradead.org
+X-Gm-Message-State: AOJu0YyS5xrcZu0Ue7mPaXJMjZAiz6eS4cPqWXlII1+0QJl9eJRjxj8d
+	aYb1bbQglCa4X6rAVrR+7cQML9/f2NY2a+NtHiJul0fUMGjFfS389Z670PD+NhOoXQEdzTCp6oL
+	L/KRyaCJVIK9EpMjQ5BBPRyjBRokRydH9Slxx6emI7owG57/i/qxkxBPGIcmcl9wgb2lLZ/eI1/
+	LI
+X-Gm-Gg: AfdE7ck8eCAInsIS/a2eLA6UC3cwDUe9QJWMLLhK2hnKM5V+n6zqUcQM++QuSaX4v05
+	3RyhEmEdzG6Im2n/Pfmv+4Ixy2WrtU7706q8Zu94xDH/KNeoIsP9cnHhMwaiGDko7NPJ8PHhJOy
+	4NOfS3iKPu5IrDYiOBBW0NoDJDSk8ebt4bpVIYoX9eVHJOTD/tC/38LAOU/p8b5oXguBM0MSzqJ
+	C1r3aUD2khzQ87LjlUJByBY/xlCsZ8eRn6X4Qvyd7t/G+mP9Ne5VMinHHhGIYgmD8CbK3wb+l2B
+	vxxaF5JcX5I3tvytikAoQjc/D5GCm9ou5o757FtVT0i5C1E/9fvpkpCwuJ1KITahlNpMbWo4jv8
+	XWblXZQ6jfgymn35yioiRNrk6irP74K24ofm19QYwCiih6M0NAslR4Q==
+X-Received: by 2002:a05:6a00:3cc7:b0:845:d274:c01a with SMTP id d2e1a72fcca58-848896eb1e0mr14811784b3a.51.1784094275103;
+        Tue, 14 Jul 2026 22:44:35 -0700 (PDT)
+X-Received: by 2002:a05:6a00:3cc7:b0:845:d274:c01a with SMTP id d2e1a72fcca58-848896eb1e0mr14811746b3a.51.1784094274632;
+        Tue, 14 Jul 2026 22:44:34 -0700 (PDT)
+Received: from [192.168.68.51] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84a4f7dade0sm2497396b3a.46.2026.07.14.22.44.23
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 14 Jul 2026 22:44:33 -0700 (PDT)
+Message-ID: <8e36f71d-598b-45bf-a3ea-6d44ff728877@redhat.com>
+Date: Wed, 15 Jul 2026 15:44:20 +1000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <465b1dcc-8e96-4edb-aebd-52937b8076d0@web.de>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 0/5] arm_mpam: resctrl: Counter Assignment (ABMC)
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+ dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+ fenghuay@nvidia.com, james.morse@arm.com, jic23@kernel.org,
+ kobak@nvidia.com, lcherian@marvell.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ peternewman@google.com, punit.agrawal@oss.qualcomm.com,
+ quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
+ scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, zengheng4@huawei.com,
+ x86@kernel.org, leitao@kernel.org, kas@kernel.org, puranjay@kernel.org,
+ usama.arif@linux.dev, kernel-team@meta.com
+References: <20260707162440.12132-1-ben.horgan@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20260707162440.12132-1-ben.horgan@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 6osAQ5ooqhgYOzp8xMRUWykeVwJiVBoHSbsmDqcJ1G0_1784094275
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260714_224439_654483_E16D8C00 
+X-CRM114-Status: GOOD (  16.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,39 +121,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 08, 2026 at 10:52:22AM +0200, Soeren Moch wrote:
-> On 06.07.26 12:29, Manivannan Sadhasivam wrote:
-> > On Mon, Apr 27, 2026 at 01:58:04PM +0200, Soeren Moch wrote:
-> > > Also on the NXP i.MX6Q chipset MSIs from the endpoints won't be received by
-> > > the iMSI-RX MSI controller if the Root Port MSI capability is disabled.
-> > > 
-> > > Even though the Root Port MSIs won't be received by the iMSI-RX controller
-> > > due to design, this chipset has some weird hardware bug that prevents
-> > > the endpoint MSIs from reaching when the Root Port MSI capability is
-> > > disabled.
-> > > 
-> > > Hence, always keep the Root Port MSI capability for this chipset.
-> > > 
-> > > Note that by keeping Root Port MSI capability, Root Port MSIs such as AER,
-> > > PME and others won't be received by default. So users need to use
-> > > workarounds such as passing 'pcie_pme=nomsi' cmdline param.
-> > > 
-> > > Fixes: 3a4e8302e72f ("PCI: imx6: Keep Root Port MSI capability with iMSI-RX to work around hardware bug")
-> > This is not the correct fixes tag. Correct one is:
-> > f5cd8a929c825 ("PCI: dwc: Remove MSI/MSIX capability for Root Port if iMSI-RX is used as MSI controller")
-> Thanks for the fix of the fixes tag!
-> > > Cc: <stable@vger.kernel.org> # 7.0.x
-> > > Signed-off-by: Soeren Moch <smoch@web.de>
-> > Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
-> > 
-> > @Bjorn: Can you merge this patch for 7.2-rcS with correct fixes tag?
-> I can send a v2 of the patch if you prefer.
+On 7/8/26 2:24 AM, Ben Horgan wrote:
+> Version 5 of this series addresses a few review comments but is pretty
+> similar to v4. The precursors in x86/cache have been merged so there is no
+> longer a need for this to go through there. It's likely easiest if this
+> goes through arm64.
+> 
+> This series adds support for memory bandwidth monitoring. Counter assignment
+> will be used for all platforms with memory bandwidth monitors rather than just
+> those with insufficient counters as originally proposed.
+> 
+> rfc v1: https://lore.kernel.org/lkml/20260225205436.3571756-1-ben.horgan@arm.com/
+> rfc v2: https://lore.kernel.org/lkml/20260319165540.381410-1-ben.horgan@arm.com/
+> v3: https://lore.kernel.org/linux-arm-kernel/20260511154147.557481-1-ben.horgan@arm.com/
+> v4: https://lore.kernel.org/lkml/20260520212458.1797221-1-ben.horgan@arm.com/
+> 
+> The code can be found at:
+> https://gitlab.arm.com/linux-arm/linux-bh.git mpam_abmc_v5
+> 
+> Ben Horgan (2):
+>    arm_mpam: resctrl: Pre-allocate assignable monitors
+>    arm64: mpam: Add memory bandwidth usage (MBWU) documentation
+> 
+> James Morse (3):
+>    arm_mpam: resctrl: Pick classes for use as MBM counters
+>    arm_mpam: resctrl: Add resctrl_arch_config_cntr() for ABMC use
+>    arm_mpam: resctrl: Add resctrl_arch_cntr_read() &
+>      resctrl_arch_reset_cntr()
+> 
+>   Documentation/arch/arm64/mpam.rst |  22 +++
+>   drivers/resctrl/mpam_internal.h   |   6 +-
+>   drivers/resctrl/mpam_resctrl.c    | 318 +++++++++++++++++++++++++++---
+>   3 files changed, 323 insertions(+), 23 deletions(-)
 > 
 
-That'll help.
+The tests on NVidia's grace-hopper machine looks good: (a) no error or warning is seen
+from the kunit-tests; (b) L3 cache partitioning and MBW (soft) limiting aren't broken,
+still working to me; (c) The counter 'mbm_total_bytes' can be assigned to newly created
+group and it gets increased when workload runs in the group.
 
-- Mani
+Tested-by: Gavin Shan <gshan@redhat.com>
 
--- 
-மணிவண்ணன் சதாசிவம்
+Thanks,
+Gavin
+
 
