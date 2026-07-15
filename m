@@ -4,63 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3F9CC44507
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 08:25:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91825C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 08:25:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M8aSEDEK6ZPgt07ch8i5G0m8dM5j9fAVclCMjxvWcOU=; b=cFHGxphGj5tWuI9YRTfKiFy2S4
-	zDQvv1STJOM2naBxzyyfk+rOzFn1z0GALAkkZCHSzE93+pLm7PpWV9b1fuG3WheSsNsZPSYITKVzh
-	4up3PdLoHuEsdGa3zZjM+xC5H/WboNqc27oX/+b394j5Vyc+KEOEKtCsj3LIee1amAIW2WKbTfg2J
-	v/3QYdBTMP8US1RTgL7+u/WjzurLtYEQ//MIyZAk1zZ68rXMDLDusSV82sRZow2Ym/itydPwgUOQE
-	Z9vQKZj9X+nIXn5EAuuAN0HHAMddqyWmOuxC8+HF22JlHxsTNbgiPhP42vYwEFrqvB510LRwPdRjW
-	gCMqOkcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0hWGr6yIYZ3hmyl+qH6n3K7Fm452o43E71VabCLMJ2s=; b=oDcA3lZl+AICWW4yyFHPVUN14o
+	SVboZSWfRQIbIZOHFt+SpwNggVqAxRJFl1voEHUaYo/yFrsyRWvSMESsnC4U+nfUqEPMY4gmlzD2+
+	RYtQpsPoJo2kmINXCQLxhCH9JpmTKUpO1oTaPy9cuvLxgHSBgSlo12PZwKEApj4+TeVg20n6SmqCx
+	sFhfiDv90Uz0QrrDBz4pCihOS18UGg7iLqA5Z5g7PZJSP8EE32LAggaM2hHNnSmoNHayKF6sym3Go
+	3LF2m6AZmoXlaP6QUj0K0qDTKN4WojvyjLAh8u0vczHPBwr8eB8NyQaqpyY/Q0bawX6PlL7Asbqeh
+	qyd3t2uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjuvm-0000000E9jD-3Dqy;
+	id 1wjuvm-0000000E9is-2Dg9;
 	Wed, 15 Jul 2026 08:25:26 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjuvk-0000000E9iV-39ho
-	for linux-arm-kernel@lists.infradead.org;
+	id 1wjuvk-0000000E9iW-3A1i;
 	Wed, 15 Jul 2026 08:25:24 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1FD1B439CA;
+	by sea.source.kernel.org (Postfix) with ESMTP id 2172943A31;
 	Wed, 15 Jul 2026 08:25:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E33EB1F00A3D;
-	Wed, 15 Jul 2026 08:25:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B4271F000E9;
+	Wed, 15 Jul 2026 08:25:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1784103924;
-	bh=M8aSEDEK6ZPgt07ch8i5G0m8dM5j9fAVclCMjxvWcOU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=BX3+yfwq25Y7fZyDbwcjjnC7civgxwrMYEi7Bw48MC0GfbEpBwqA/oyZe4euVTH8D
-	 xzg+fI4mpLrP6H4Yhi6h6wgxyFjAH01R3PuG6WitKKFua20A/y6IV1OaC5zyRRKEP8
-	 //YaxE9fkG5EDEojKw4+WjGO8rmDmnVguSLc71SJ/h/URrc3M9RE561kKDGrI89fud
-	 cTtLYZ4bgbIpJ0JMVErt3h9mSOR9xqVkihO5Dd7aGUZSOUW+bsWGfvDf9PL9HlUNqA
-	 cjm3k623kMUKGFdt+n9r3k98BPtKwStDHBcln/WRyr/cd/8O2jwNdq2PhD6oVt9GFE
-	 QZK0JkdolT/Sg==
-Date: Wed, 15 Jul 2026 01:25:22 -0700
-From: Oliver Upton <oupton@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org, Steffen Eiden <seiden@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v2 07/28] KVM: arm64: Don't evaluate HCR_EL2.NV nor
- HFGITR_EL2.ERET on ERET fast path
-Message-ID: <aldD8rdS06QlI_nU@kernel.org>
-References: <20260714091641.1970822-1-maz@kernel.org>
- <20260714091641.1970822-8-maz@kernel.org>
- <alc-JSvHDjSV5c_G@kernel.org>
- <86ech4oebm.wl-maz@kernel.org>
+	bh=0hWGr6yIYZ3hmyl+qH6n3K7Fm452o43E71VabCLMJ2s=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=M1Pb9WQu0IhR3P6JRYVgpOzljOTuLBL5n6r0R+i3T6Cj6Pfq/BbEAeyvAAd6q+GwU
+	 yoh16hddpke8YRXj4bfC0BlqZXoh2oOxkxxfr/ZZ4LtH1IwctkRUOsAZ2DTsl5MwXL
+	 OgwbU2Z0EXRTi2suwmOEdZwMcMw1UwD4qnCb2U0UIGMxWSKqmkI4rJV0fOaz7frsyp
+	 2UgeFb3NExlZX58pouMZoZOq3U2RBWV9ghRcw3YrJThQyIqJBrSR5X77jMSfD+Yh9P
+	 Vqa0sNn/IVBkbkj+87yT6Eh8x08MbkvvvCwenfxyZ52gn69bWZbYdUyMpeOjJGr8Vu
+	 P097FVeUHn00g==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
+ Arnd Bergmann
+ <arnd@arndb.de>, Andy Lutomirski <luto@kernel.org>, Vincenzo Frascino
+ <vincenzo.frascino@arm.com>, Nathan Chancellor <nathan@kernel.org>,
+ Nicolas Schier <nsc@kernel.org>, Thomas Bogendoerfer
+ <tsbogend@alpha.franken.de>, Daniel Lezcano <daniel.lezcano@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, Paul
+ Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Huacai Chen
+ <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>
+Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-kbuild@vger.kernel.org, linux-mips@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ loongarch@lists.linux.dev, Thomas =?utf-8?Q?Wei=C3=9Fschuh?=
+ <thomas.weissschuh@linutronix.de>
+Subject: Re: [PATCH 3/7] MIPS: csrc-r4k: Replace CONFIG_GENERIC_GETTIMEOFDAY
+ ifdeffery with IS_ENABLED()
+In-Reply-To: <20260709-vdso-arch-clockmodes-v1-3-3fd780bbf851@linutronix.de>
+References: <20260709-vdso-arch-clockmodes-v1-0-3fd780bbf851@linutronix.de>
+ <20260709-vdso-arch-clockmodes-v1-3-3fd780bbf851@linutronix.de>
+Date: Wed, 15 Jul 2026 10:25:19 +0200
+Message-ID: <87wluwoe1c.ffs@fw13>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <86ech4oebm.wl-maz@kernel.org>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,76 +81,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 15, 2026 at 09:19:09AM +0100, Marc Zyngier wrote:
-> On Wed, 15 Jul 2026 09:00:37 +0100,
-> Oliver Upton <oupton@kernel.org> wrote:
-> > 
-> > Hey,
-> > 
-> > On Tue, Jul 14, 2026 at 10:16:20AM +0100, Marc Zyngier wrote:
-> > > We currently avoid using the ERET fast path if the guest has HCR_EL2.NV
-> > > set. This is an odd check, as NV doesn't mean much if HCR_EL2.TGE==1.
-> > > 
-> > > Similarly, evaluating HFGITR_EL2.ERET makes little sense, as
-> > > this only applies to the nested context, while the ERET fast-path
-> > > is purely for the benefit of L1.
-> > > 
-> > > Replace these bizarre checks with is_nested_ctxt() which makes a lot
-> > > more sense: if we are running an L2, the ERET trap must go to L1.
-> > > 
-> > > Fixes: dd0717a998f77 ("KVM: arm64: nv: Fast-track 'InHost' exception returns")
-> > > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> > > ---
-> > >  arch/arm64/kvm/hyp/vhe/switch.c | 9 +++------
-> > >  1 file changed, 3 insertions(+), 6 deletions(-)
-> > > 
-> > > diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-> > > index bbe9cebd3d9d5..a83be345f8450 100644
-> > > --- a/arch/arm64/kvm/hyp/vhe/switch.c
-> > > +++ b/arch/arm64/kvm/hyp/vhe/switch.c
-> > > @@ -344,13 +344,10 @@ static bool kvm_hyp_handle_eret(struct kvm_vcpu *vcpu, u64 *exit_code)
-> > >  	 * if this is a VHE guest hypervisor returning to its own
-> > >  	 * userspace, or the hypervisor performing a local exception
-> > >  	 * return. No need to save/restore registers, no need to
-> > > -	 * switch S2 MMU. Just do the canonical ERET.
-> > > -	 *
-> > > -	 * Unless the trap has to be forwarded further down the line,
-> > > -	 * of course...
-> > > +	 * switch S2 MMU. Just do the canonical ERET unlesss we are in
-> > > +	 * nested context.
-> > >  	 */
-> > 
-> > typo: unless
-> > 
-> > I feel like it wouldn't hurt to add a bit more detail to the comment
-> > here, that L0 KVM doesn't use ERET traps in the nested context.
-> > Otherwise it isn't clear why these always belong to the L1.
-> 
-> We already have a tiny bit of information in kvm_handle_eret(), but
-> that's obviously a bit far down the line. Something like this?
-> 
-> diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-> index a83be345f8450..684cebf23aa0e 100644
-> --- a/arch/arm64/kvm/hyp/vhe/switch.c
-> +++ b/arch/arm64/kvm/hyp/vhe/switch.c
-> @@ -344,8 +344,13 @@ static bool kvm_hyp_handle_eret(struct kvm_vcpu *vcpu, u64 *exit_code)
->  	 * if this is a VHE guest hypervisor returning to its own
->  	 * userspace, or the hypervisor performing a local exception
->  	 * return. No need to save/restore registers, no need to
-> -	 * switch S2 MMU. Just do the canonical ERET unlesss we are in
-> +	 * switch S2 MMU. Just do the canonical ERET unless we are in
->  	 * nested context.
-> +	 *
-> +	 * Note that this is made possible because KVM itself never traps
-> +	 * ERET when running an L2. The consequence is that any ERET trap is
-> +	 * the result of HCR_EL2 or HFGITR_EL2 programming by L1 for its own
-> +	 * guest, and the exception must be forwarded to L1.
->  	 */
->  	if (is_nested_ctxt(vcpu))
->  		return false;
+On Thu, Jul 09 2026 at 13:32, Thomas Wei=C3=9Fschuh wrote:
+> Now that there is a dummy declaration of VDSO_CLOCKMODE_R4K, even if no
+> vDSO is built, the ugly ifdeffery can be replaced with a cleaner
+> IS_ENABLED() check.
 
-Works for me!
+Duh. This stuff is really obfuscated. I just realized that the previous
+one actually expands the architecture defines to non-defined integer
+variable declarations.
+
+Smart, but seriously?
+
+I just double checked and it turns out that none of this ifdeffery is
+required. If CONFIG_GENERIC_GETTIMEOFDAY is disabled, then it does not
+matter at all whether the actual ARCH_CLOCK_VDSO_MODE is set in
+clocksource::vdso_mode or not.
+
+Nothing uses the vdso mode field outside of update_vsyscall and that's
+compiled out when CONFIG_GENERIC_GETTIMEOFDAY=3Dn.
+
+So all what's required is:
+
+--- a/include/vdso/clocksource.h
++++ b/include/vdso/clocksource.h
+@@ -3,14 +3,11 @@
+ #define __VDSO_CLOCKSOURCE_H
+=20
+ #include <vdso/limits.h>
+-
+-#ifdef CONFIG_GENERIC_GETTIMEOFDAY
+ #include <asm/vdso/clocksource.h>
+-#endif /* CONFIG_GENERIC_GETTIMEOFDAY */
+=20
+ enum vdso_clock_mode {
+ 	VDSO_CLOCKMODE_NONE,
+-#ifdef CONFIG_GENERIC_GETTIMEOFDAY
++#ifdef VDSO_ARCH_CLOCKMODES
+ 	VDSO_ARCH_CLOCKMODES,
+ #endif
+ 	VDSO_CLOCKMODE_MAX,
+
+and then you can just unconditionally set clocksource::vdso_clock_mode
+in all drivers.
+
+No?
 
 Thanks,
-Oliver
+
+        tglx
 
