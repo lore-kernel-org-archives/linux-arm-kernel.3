@@ -4,145 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0FB8C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 09:06:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92E64C44507
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 09:08:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B4jIKTS2vGol5HgodB5nA8th5ZHEAxg2pONte3uyDWw=; b=PFF19xwGcBRgXsrFmiApOU/HsZ
-	8tcA/lbhiJYURSHVZsFKGkFgdfjUxE6DC+zEy70Vdmu+0cwTxWI4dMLgda6g5A/87u6h+i3bTIsVb
-	oxhhCtyF1uhgg6U/fo9PHtePrfnX+Arj+7KIpX/omjMB7AUgSvJpNdvrZbkuieBTypejw2R6IoSkV
-	2LBQ3zKTuEj/s/D6NiUpkBN3LUwlra+A97jZ2pFY00WFCh/EXY1xW2YlNEm+sQ+DLTJqrnA87xtPw
-	GFz510APXGOFw3YhRu4l1hX/njxBzFMKe+7LgwJ0VXylS1b7dDaLT/iy+Gz68VZozPYR7RKuQ+mzS
-	j+mai13Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0s4UvEQjbDQF2ld7XgN78VAO8eHi8w7IlIEUGbUVuOE=; b=MClhtMGZGVHP8T3d9j63L10OZt
+	4AjYohztSfelDJOYjp8AK5f4t6WOBhTTyZLsG9Mog5XSfbWms4RBL6iqKhnhlZvSEO5UcH1DWY1BM
+	nhzxNpr1SwYliN+mibLVcTsrPHI+4V2MUXVLOfwY0CWyUoCbaRXC0vrU8uCIXlWdOYzCqpbz9LdPo
+	YQUX3Hg1pU/u/PDqPwcpaeX5Y/Rb/Yej9tEfgGcOSrzPq5IBrb/Xg7fZGW39TCUE4wgxPrUVkEAoE
+	vO50hh9zAtlGlumA6WuzWJ+Xd0ta3rYcpzp+eC67U1j2aAlWbYYIHckDeDZ+UsW5NgOA3D53qE85i
+	XO2uBi9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjvZO-0000000EGOl-2Cuk;
-	Wed, 15 Jul 2026 09:06:22 +0000
-Received: from mail-northeuropeazon11022102.outbound.protection.outlook.com ([52.101.66.102] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1wjvbn-0000000EGgx-0VM0;
+	Wed, 15 Jul 2026 09:08:51 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjvZL-0000000EGO9-3PfI
+	id 1wjvbl-0000000EGgN-0PPO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 09:06:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Sye7Z4xfbZ/f+bglYJyIXFiKlocoAVWf7xOQjVqddFWlKBiXseLnov6SMpqRvnd4E9ZuxLANbFhi76AqEisGQnTKrJJRObkDuZMpiqGhLU6pktwmZvfOhO1La1EGlQqGSIjutssQxfw6lpuTxeeU3k4RS56Bwwpf5e1iwILylYbjA2CYZG6Q9uScM+pl3cJZvHI1Ow7jRfi3x0qkjM+nOmSL586BU7gLbJsK/a7Z5vLCoguLP7AQ+iTTpzbgjQcY6sVeEyGzFINX6wOteUUi48PFswOp7Emtr1Q+zpf9v72eQE8Yf0HusKuic91BReynt+jEOgq9NsI1IhTAbTW0/A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=B4jIKTS2vGol5HgodB5nA8th5ZHEAxg2pONte3uyDWw=;
- b=qJjnprBsYbv/i4v9qrl/iN/xzxKl1t1VnNFZHDdssMWvfmuD8J51UCKADsea01PX+KcxSE+mw66ICMdMwWfeBlQv9FjLqwwhbZQtCNrt82u3RNe/VdK8yEsftlnK10kLzCYy9SyruE8HA6/SSU4yFlh9HTqp749QX5VbNuviJFQKnM1xAVBBQvnY7vWGRsL+0MFNu7DX02zSCpYCXJL/7a3tNZRWLyEkHLH0C2cRnOiYc2I0iwhZK2oJFR4Mpy58qx2PIJY4c2HI2BRMbNEr/F07n1I27xzk90UNzXU5WMkqeTHj0dqbxB5Xl9a/JJZ7D3ceYFohL5yZD+rHpJ2t6w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=kontron.de; dmarc=pass action=none header.from=kontron.de;
- dkim=pass header.d=kontron.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kontron.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=B4jIKTS2vGol5HgodB5nA8th5ZHEAxg2pONte3uyDWw=;
- b=VZMJ962w4HAdvssFAwPTsUlKCqCJfRoEGFk4MzCUrzqWme2GkEop3fpo54mEx+rnQqtFE2bcCsR07lMbM48NaF6A7zGI6sIRs/lSA5oygfycSO6JUQZWtmvHx0pm03Qo7hF0XLwwl0DS7AMenVmu55ZdOA2RwSPtNEa945gE9CQ7Hsh1/adQ97+YnVu2o4PB+HC2WILHNnrAOq1O6tJ787DUCkJfTYVEzD6bGTjU1aVm8qp8SVdL8Hz87tMFwJUbmpe/5eqOFSNXvAPNqq63CJBdDSGKRAhQuo0hdVLpiPFs2oATzhYqMw5PDnitgJ89ahSRMUVlWsfH5lwkndwXRw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=kontron.de;
-Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:1fb::23)
- by GVXPR10MB5813.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:150:6d::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.9; Wed, 15 Jul
- 2026 09:06:09 +0000
-Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::a276:4ad7:962:da22]) by AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::a276:4ad7:962:da22%6]) with mapi id 15.21.0223.008; Wed, 15 Jul 2026
- 09:06:09 +0000
-Message-ID: <5a000235-5e17-4d54-8bbe-42fda0b59db0@kontron.de>
-Date: Wed, 15 Jul 2026 11:06:07 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 3/3] thermal/drivers/imx: Add calibration offset
- support
-To: Haoning.CHENG@cn.bosch.com, "Rafael J. Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260714-b4-symana21-11221-imx-thermal-support-upstream-6-18-v8-0-d54d8690e16e@cn.bosch.com>
- <20260714-b4-symana21-11221-imx-thermal-support-upstream-6-18-v8-3-d54d8690e16e@cn.bosch.com>
-Content-Language: en-US, de-DE
-From: Frieder Schrempf <frieder.schrempf@kontron.de>
-In-Reply-To: <20260714-b4-symana21-11221-imx-thermal-support-upstream-6-18-v8-3-d54d8690e16e@cn.bosch.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR4P281CA0329.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:eb::12) To AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:20b:1fb::23)
+	Wed, 15 Jul 2026 09:08:50 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66F7mRAP3142996
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 09:08:48 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	0s4UvEQjbDQF2ld7XgN78VAO8eHi8w7IlIEUGbUVuOE=; b=MjQO47h+G/ky7ZP/
+	j8kG6VyYVGzZFEz0WuFuA2LE+aszAqo8E9xYzqvtH/YTc0CVYIcrbQUDuTaWtTOe
+	5x/Ik2Q53EXNmQNwh75UcicAiWj7r9fOCRfiqs1A5Ix3169JSJ1BrPO/gXRKlbTO
+	CQgbl5qUjuMFP9sjrGIS1TctXo0sLN852Tn9f/kkx3jsWF6QdsaGD+IPjsnpsjgI
+	UweFeqhupPuq/79C1BdHUIQVST98Nu3PiznsbWFL8oPbkbaWHc0tn+kjXXAVIU5B
+	hmusFKhgTHekiZSeY7vtZxQ6z+00N4ljAIP+iOzuf2A9b2dHr7F3JntliOgYj3qn
+	A2LVYg==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fe65289mj-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 09:08:48 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-92e6a2f5995so844392485a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 02:08:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1784106527; cv=none;
+        d=google.com; s=arc-20260327;
+        b=h5jq2Y7FVZHSiGu7HqPWYxgvgpX2j2tCfNgDwCpd8/V8TGwDCbFEj+yLYK+UPo8wuA
+         tPWkAzm2+n/Avn5ASRjqI3OQ39unzff0ksQmjysEVUnazE9OmmE3lYSeqzrXvcH0P7xT
+         ILEJvQilf1PDwxRf6lVKlJNicG0DmgmZ0SkVFbv4ehMNo96pgYHxj0YnzzjebQO+/4Tk
+         MatkAz7ZhCqx03YYL7zdk3pdOt2swXbfdrwDXMXoiWVYsnbJe/tOrY6Vg/J0+VcEIUZA
+         qlQrF1Aphd9yUFJxHkNmMh4DmpQ5JCSvvF1rLnKE0Noizp05YDSN1hELcpvo5Uq9jHRP
+         CbiQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=0s4UvEQjbDQF2ld7XgN78VAO8eHi8w7IlIEUGbUVuOE=;
+        fh=FAS8XfkQclshsgKqLR5VoA2HmZNJ9MULz92WsUI5IFk=;
+        b=nCjqn6gHP0L+XwU30WS8Ld9UNwceHrg0OrlqmUoTVhdq3RaugKEmr4dvxgL96lmzcO
+         ZKBObGGEXyM9hmhjE/hyFMAACK86uCiypNiVsn1iFtcK45WN3Wy64LfjHGsLxGgnU7aJ
+         G8/OBuc2yIX0osl04A87q3DJ570A4wRgnXJZ7tD41ibNwfFSugF7A5CjF27Cs7jW78DT
+         hWIVk6RtvJMsu9rgHx1+45QchLE1tPC4cOBeZzPqPmk79NJbqQLMXi8lQxImaQnG5fUM
+         53S0JubueEnaDY6FCIjQWIxpIYIJM+XlZRWl27WwpWB4w5YtvDntAo4/aKdSyyqn9QY+
+         MODA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1784106527; x=1784711327; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=0s4UvEQjbDQF2ld7XgN78VAO8eHi8w7IlIEUGbUVuOE=;
+        b=OIjtvcq83ejqZNPTWcsi3UrYgQPmTuttxL0sl13GmQth2cFvkUmLwqIxasAy8bn14k
+         MNMzgfj2JDLIzLlr0jOalF1t7NVfJIsvQ/7VX0BkR7TnyAnA7DT9JbR/VKZYQjJNbyfo
+         L9LnHKzCG6IKJ6OvBtGReEBnrMHz4w6cX99yYI3aIP5iSX3nSeoAjIWVAMEoFsP4/1bT
+         5VUgjQil91ak6ZeIYLJF7LNde14WaRXo3gGnYCqTxwY+GqasfkCP0BUsrcm20YsjIQUP
+         Yo8mmsFaopacj0I+k0C5I0XU1Hwvo8aJhNPUgzR6wl2PRC6GcllJulA6XAcDUIoZwgYr
+         WV8Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784106527; x=1784711327;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=0s4UvEQjbDQF2ld7XgN78VAO8eHi8w7IlIEUGbUVuOE=;
+        b=bpWID6x28HuGQSxsSZ9laai9BYoc4YSGetKpa5XnrxMjCBb1X5uH0KUd29Xo+Bu5kd
+         Mg8tckBlMGYWU+AzBrn6MflAc14IGWb52G+5IZJt6ZsKLx9GnxXvfl8er/YB7FNAR8Em
+         q4KvhE94Vln3bytpqf2Q7kY8GPI0LsLsnZS8c+iy4nuhdjc4Wo1quuvyKw7hvP9tUs3Z
+         LJ66YNNr4TN8Hz5n1vSTwIbxvVZhMjZD1GGnvfecwVpKt1acXopu1tfvNLC4G/dU14bX
+         zPRcs+aMgYjMVwKwE2LdQ3B7+K3GKVIiuwzbNcfeEvYkaq5KQAyTEIYA6efGuc7CrtvY
+         V59A==
+X-Forwarded-Encrypted: i=1; AHgh+Rq854T7u5u9eJKjKNtXfp6peUuLxMc7i7ayMxLhoTdMRVpe6LNRQmRQLoMEARcKkVhN1ehHLQQVcDUZPlzXYqoF@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXZOmTK/YmdZVB9Ysl2Eb3WNKUjT18XFG52PIKFhtuBmC++rAN
+	PyHHgnrGtYAakzJ8kd5A8ukjjJhXttICR11W4V9LqTbueUOTvdqkViZ/Z/aXagTkI6twat4jY0P
+	b8l22UspF9VWNKFzVIfRBs+s38yi/ERgTNW2y0cFfVt7LJaRx+W3i0fFOjd8uhl+a/LE66+aOmi
+	FpivLos1hQaXdfKXRAomVBL8Y1ykNR4UATAAWvQtTEnvmsdt4cqhkZVAvE6bv2
+X-Gm-Gg: AfdE7cmzR6YygHHJzHkBJsSpKlN7T+VxohAsYAAQSsQFiD5wJ/b+mJcavIkbZOEMIjO
+	ET5hpqlShGyxG3H6cFDq5XZLgHd6I7aBenVNd76BCe+/GopAJ5McxPshK73FTXM7kn4qpc9ANwz
+	ih0lnXQJOn49gV7iWJ4UlhKxrMEwec9OhVBhvywTy5z/LIreWL/TqUrLresZaQ6cHUUkE=
+X-Received: by 2002:a05:622a:124f:b0:516:d612:d1c4 with SMTP id d75a77b69052e-51e4f0a754dmr18899801cf.52.1784106527443;
+        Wed, 15 Jul 2026 02:08:47 -0700 (PDT)
+X-Received: by 2002:a05:622a:124f:b0:516:d612:d1c4 with SMTP id
+ d75a77b69052e-51e4f0a754dmr18899531cf.52.1784106526991; Wed, 15 Jul 2026
+ 02:08:46 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR10MB4277:EE_|GVXPR10MB5813:EE_
-X-MS-Office365-Filtering-Correlation-Id: 65f78b40-51d3-49eb-c60a-08dee2504f5b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|23010399003|56012099006|11063799006|4143699003|6133799003|22082099003|18002099003|921020;
-X-Microsoft-Antispam-Message-Info: vSUYK2/8YuBu3NNXJkgBGvk0nLdVNMm0i4JchrvXwyLEcC+jVM/58tbpDkEc1QoGqqTRfZGQikqogP6tasrkHd65SJ5asR1MScNlYLsYrl+dtdkEinyXdmqQs9VnMEoI5AI20/uSUDpGxmmn5Wrvc4fsWyNgV0Q/YCPDYN/FTv4vt4jGX8EJdR1lac0UJyNyolfl6sj7sfah/rmlpQtlC/pLM1OUm5w0WiAUeQYprRyCSi8q2wmnvh2fie2cULOwmOSdKw5PdJfgQbV/x2wYsDZErGSRfvGf1kLl2vwnqO1B7iUQDRK/t4Zj94TJz+Eli7DiyIw+F3tX0WUcM9pJKCGssFEyglwJxBU436ILYpUdhNRwotog+hQrHLZEk/Uw7bZ483zrPLt3lrTVZuxQYlfmJXpunugotFCz7pPZiHja4IQfzwax2ZrfqDFWrmxDWPkbglQYljKghIUX98UEg0HbPQKuedD+C/AKM8uUaXtFmC8Pn78ICfFlpJ34jjo5E2p5Jbi3KBP7flEwW8IWVNJQxsqJ8tStN+yMLp8rVxeE0I0/Zk8PjdUrY5fZWmh5QxcB8OGpBZYOHANCeAfOsGi4zbAEYvAe8AjP+wIbVlkCSaHe5bbETUhLBQ70kJwcQAzX3UaRnd3q6CMVuvfv+3A2kEdtcC3HkvS2IZyrgHwttdNdy10boO1VLcpePn6hwQ/poWvCp20ypWOeFi8oXg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(23010399003)(56012099006)(11063799006)(4143699003)(6133799003)(22082099003)(18002099003)(921020);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?d0w5RHVrS0hBWTZsQll5YzB1eE1ROTlFeVZzT2JpdjNMSVBaVTVLTjR1T29Q?=
- =?utf-8?B?WUNLMnozTGpRKytlMWJKdTNkelh3RjR6NHdKSnI0M0NiZ1dJbWNHSUNyN2FD?=
- =?utf-8?B?aS9uVXVMTzdOa2pINEd5N25WdTVxaHRLc2laWXBIUlFwOUt4M3U0MHJRTExv?=
- =?utf-8?B?SE9yMEZFQXZhZDc5WExGbmJTWC8wajhHZWNucm1lYWxjQ3crV205TG5jalJo?=
- =?utf-8?B?UzF3UElmRll3cGMxNUZCVDM1Q2VNNVNnZ0xkWktrVDZoUWJCMndZd0Z2dWZX?=
- =?utf-8?B?Tlh5WGVLaGNRZ3Vva2NvNXg4VmVBczN2U1hEblV6NGFYRDhvOXU4VTBpRm9K?=
- =?utf-8?B?cXJncnVoOHNpOVNUM3FGbUk0NXNybTgyQjBldDBqT3lVSkgySXlVUjdMbjd6?=
- =?utf-8?B?R09GUU53RmN5cTduN2ZjQzVqV1Z6cUR1b091dmNMWmgxQ0lvLy9NckdpVksv?=
- =?utf-8?B?VmpEUmdkRC8wSnBSVEJPYm1sNkF3eXk5cURxdGwwTkRRcmVVbVJ6azlmbGsx?=
- =?utf-8?B?UFB2THo3cmppUTVWdm84U2hoQ1p2RVJvQzU5bmZLcThnc1FaQ2JHV1pKTUlO?=
- =?utf-8?B?SFNwSEhYNm1WRWJFQzN2MUZHcS9PVytUbC9kWmhXZG0xTERFN01aM285a0dF?=
- =?utf-8?B?MGg5eUJVM3VzS1ZUbjFuSFJkR25IWFR4dmJ4MDZFdkc4Zy9ocEs0WTJmbEd3?=
- =?utf-8?B?VzRFcC92a0ZCRzNBWE5CSmRVNS9SK04xMER2MDdVOHE4Uko5SjRyZ1hmaElN?=
- =?utf-8?B?MmNseFUvVkgxdW1TdnVQUVp3NjExbXNkd2tMYkhacXpZOHQ1R3U0ZnowUk1s?=
- =?utf-8?B?MGltc1lOVUJNVGpvZjZ2dzNnb0J6WXJ5bkowSlZ4KzFBRnh3TitLK3ZLVENG?=
- =?utf-8?B?ZFFOWU5hRnlWcUtFRy9neHp4V1hLaHpIRmdYWEo2bTIrZkRpWk5paHJya1FO?=
- =?utf-8?B?WkhKUXhMTUE0VlVXUnVWbytITGRGTjBDQWJ6MFBxZjVmb1J6dnpYR0s5SG1i?=
- =?utf-8?B?cDJ1cnF4OVlPQUVuVWhjQTJmdWNpSjJCc21wVFFiT2ZtMW4zaUVQOFRNdWh3?=
- =?utf-8?B?cnhjcUpnVjRwTG1XLzhRWmVqbzBjWXlldzA4WnIwTmJmMUdiT0xUY2MyU1dF?=
- =?utf-8?B?YktwdWozcjNqWlJCdmxjM0RuUWk3YVlNbW1UNlhPaFh1ZFl2OG1JczRjbHZj?=
- =?utf-8?B?bDhxRVZTRjhLbXA2c25BOEVZMm96MGdNSE95VHZySThmaVlaZzhJT1plZHBV?=
- =?utf-8?B?a09KZTNOTjJlQ3RPdXhHS1hwblZ6TUtRaTlIOFpWeVNvNzlKallwM3pnV2FQ?=
- =?utf-8?B?SmV1Rmora0ZQUnBEVWpVTUJ2MGVleHRYalYyYVg0K3lSZ0lSVzVKSFRkZjZT?=
- =?utf-8?B?L2o3YStPUVozSCtGNG1TTDBCMVhxbzhucG9nQ3c4WVQ0b1ZveWVNc2xaWC9R?=
- =?utf-8?B?MFlpMG40Y3BlbEE0bzNkcEJIUW5VYXNIZFRqallGTnpwM0k5enV5ZHlSSDZt?=
- =?utf-8?B?U3lacFRwZ0RkWXFuei8zQzVKRUk5MFcvU0dlbHFReUZySlBYWnE1cmU5Wk1O?=
- =?utf-8?B?RCtMQjhtekZtdFJWdy90MWxMV2JrdGlJY0lLUklIM05Uc0lRNkcxLzhFRFgy?=
- =?utf-8?B?TS8wVW5RSVFCeHY5Vm9MZWpaenh5SnRWYTlNaC9mbnBJaVh0cmwrY3M2bzRq?=
- =?utf-8?B?cVN5ZnZDZE1FMGRyL0N2WW5lNEJXWGFleE1VY05TK1ltdzU0QzdTdkR2Vkd1?=
- =?utf-8?B?ZGNybXNwWG5BY2NHTVlPVFFjZUV6SU54RXUvb3NZOTFUL0FSSlNkRkJjUFRB?=
- =?utf-8?B?Z0cxUlBlNW9ZYnZJeHdyOCs4bFBmU3U2RkQybmk2TUV0TkFvb2YrdkVNVHV6?=
- =?utf-8?B?TjAxOU9nRTlrdVB2M0c3UENWREdJQkpzWXR3cTM1MDlqT1I1Z1RhR0QxT1lT?=
- =?utf-8?B?dm5HaW5VYStvK09ZOFRLZDd5TW5jKytmRHNrV0oyZWNmQmhRaFQwekw1TXJp?=
- =?utf-8?B?Rm8yR3dnU0RYcTFTZndMWkNyQzBrOFZOZWNrT3U1QXgwNzI0d1RkR3JiREdV?=
- =?utf-8?B?WVBlY0h4NFYzZk56cVZ3K1dTbU9aclFDUUxvcmM4WFMrcVc0b1pYcFhFRUlS?=
- =?utf-8?B?Mmc4TWlXMHE5ZjRFTXpHWFF1Vm5nUHUwSnAxc3p4S3o4MlJOMm4wTlVnKzFS?=
- =?utf-8?B?ZmM4ZVJEQTFESjRkYnk3cjhLVFk2WnBOQnZsUnNvdEh1azNrU2VNSkpqM1lX?=
- =?utf-8?B?T21CR2FkNFBtQmtieENNZWxTd3k0cDJrOEwxZGlTT09DL1BzQ1NWdlNmaGRk?=
- =?utf-8?B?U0wweTFrOGxvOXVGYVZlamtTc043LzU0UVVlU3A2T0Fuek0rRWp0Y0ViUU9I?=
- =?utf-8?Q?cMwOtXc3AbcYwMkU=3D?=
-X-OriginatorOrg: kontron.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 65f78b40-51d3-49eb-c60a-08dee2504f5b
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2026 09:06:09.1294
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8c9d3c97-3fd9-41c8-a2b1-646f3942daf1
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: aISbe6fgV3obn47Ob3nFMiByO5VI5yocLA7ozz6y0MODR4iEjHjOagAUyy4BT5mTwHpofl1JZW1Yh/oD3mQDcE+Np8tz4OuzPW5qP1Xi4C8=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR10MB5813
+References: <20260715071818.272318-1-ziniu.wang_1@oss.nxp.com>
+In-Reply-To: <20260715071818.272318-1-ziniu.wang_1@oss.nxp.com>
+From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+Date: Wed, 15 Jul 2026 11:08:34 +0200
+X-Gm-Features: AUfX_mw5_zd7FHkNF2aqrnmGS08lBZtf204AnFVjvOZno8cszHuFFX58iO0JEgc
+Message-ID: <CAPx+jO8LALFoiB+7JkNhG9D3e+DN+D-iM0qL0T=UAw=BTouN=Q@mail.gmail.com>
+Subject: Re: [PATCH v7 0/8] mmc: sdhci-esdhc-imx: fix SDIO suspend/resume issues
+To: ziniu.wang_1@oss.nxp.com
+Cc: adrian.hunter@intel.com, ulfh@kernel.org, haibo.chen@nxp.com,
+        Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
+        festevam@gmail.com, imx@lists.linux.dev, linux-mmc@vger.kernel.org,
+        s32@nxp.com, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzE1MDA4NyBTYWx0ZWRfX4ILEBDm4YVAA
+ C54Ao8iQVBUGUmWpEBno55Y1hlnMtUwe6A5dWMcauVaDjqxsCdmaEMBXOkCA7PEXy2D6RZXLLIW
+ j+UKYdhR5Ei+Yf1KurJr6HUgDd0+KGSXfaI5USHmTjpwNaRBI/qbXiZP0YCuPYIAlxOqv7GTBoh
+ cYWQrCpBNkyK1LKKI5Jue9Fa6eKMAFfpC+kOvxqlZnoEsEke4Sah2LnZho89c3CpIPVvNfAegFY
+ mMHqAU60uIchbT9Sw0pmKzF5ibj/zlBJtzpzkZhpnRp+lpigOzNZR+5zTc17fsvUqgRcCLS7l3Y
+ 5sGnDjav/4uSHTtcykHhah+OHjrBSVgRHBFx/rZDrwkmrJugko8q4jmI+rsQMk2D49jlMyHguMi
+ F4qmY/dLUmaG7SXZYK+FHiLuUHQoFFFe9+/wswPHybmIzAU1GmvmhEknRkg0GH01RGLCfUtF124
+ lnJRvZf9OfpCKyMpHFA==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzE1MDA4NyBTYWx0ZWRfX//9ZgAghyQXV
+ ndGzeODOZC1eY4ypYcb38qjGWOlumZ1f3dOfhmdbaXq0ftxgZkKPevsSxfZX7+XFCY/0uPTg1n5
+ gNb+hu1k9WqO8dHdW76yg/nPrLRNBi8=
+X-Authority-Analysis: v=2.4 cv=bKcm5v+Z c=1 sm=1 tr=0 ts=6a574e20 cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=yOCtJkima9RkubShWh1s:22 a=8AirrxEcAAAA:8 a=j4ls_bG9junj-QLuZ2QA:9
+ a=QEXdDO2ut3YA:10 a=O8hF6Hzn-FEA:10 a=bTQJ7kPSJx9SKPbeHEYW:22
+ a=ST-jHhOKWsTCqRlWije3:22
+X-Proofpoint-ORIG-GUID: SPh3uCMCWiLiulYqxZkrn_BdiGgWyfdK
+X-Proofpoint-GUID: SPh3uCMCWiLiulYqxZkrn_BdiGgWyfdK
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-15_02,2026-07-14_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 spamscore=0 bulkscore=0 clxscore=1015 adultscore=0
+ malwarescore=0 impostorscore=0 suspectscore=0 priorityscore=1501 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607150087
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_020620_210328_D85BCF40 
-X-CRM114-Status: GOOD (  32.14  )
+X-CRM114-CacheID: sfid-20260715_020849_147605_6AFB8618 
+X-CRM114-Status: GOOD (  24.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,140 +165,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14.07.26 12:28, Haoning CHENG via B4 Relay wrote:
-> From: Haoning CHENG <Haoning.CHENG@cn.bosch.com>
-> 
-> Some boards need a small per-design correction to align the reported CPU
-> temperature with board-level measurements. Read the optional
-> fsl,temp-calibration-offset-millicelsius property from DT and apply it
-> uniformly to the i.MX6/6SX/7D calibration formulas.
-> 
+On Wed, Jul 15, 2026 at 9:16=E2=80=AFAM <ziniu.wang_1@oss.nxp.com> wrote:
+>
+> From: Luke Wang <ziniu.wang_1@nxp.com>
+>
+> This series fixes several suspend/resume issues in the sdhci-esdhc-imx
+> driver, primarily affecting SDIO devices (e.g., WiFi).
+>
+> Issues fixed:
+> - Tuning delay values not saved/restored for out-of-band wakeup devices
+> - DLL override lost after resume for DDR modes
+> - Pinctrl not restored before DDR_EN is set, causing CRC errors
+> - Unhandled interrupt during resume causing "nobody cared" warning
+> - Various error handling issues in suspend/resume paths
+>
+> All patches now carry a Fixes tag pointing at v6.16. Patches 2-8 fix
+> regressions introduced by commit 676a83855614 ("mmc: host:
+> sdhci-esdhc-imx: refactor the system PM logic") in v6.16; patch 1 fixes
+> commit c63d25cdc59a ("mmc: sdhci-esdhc-imx: Save tuning value when card
+> stays powered in suspend"), also in v6.16.
+>
+> Changes since v6:
+> - Patch 7: Drop "ret =3D" for non-fatal calls (sdhci_enable_irq_wakeups,
+>   pinctrl_pm_select_sleep_state, mmc_gpio_set_cd_wake) so they no longer
+>   touch ret. Call them directly in if() to keep semantics clear and
+>   avoid any risk of a non-fatal return value polluting the fatal error
+>   path. (Frank Li)
+>
+> Changes since v5:
+> - Added Fixes tags to all remaining patches (patch 3, 6, 7, 8) so the
+>   whole series is properly tagged for stable, as requested by Ulf.
+>   No functional changes.
+>
+> Changes since v4:
+> - New patch 3: Fix esdhc_change_pinstate() to move IS_ERR checks for
+>   pins_100mhz/pins_200mhz into their respective switch cases, so that
+>   legacy timing modes can still reach pinctrl_select_default_state().
+>   This avoids log spam on resume for devices without UHS pin states (Sash=
+iko)
+>
+> Changes since v3:
+> - Patch 2: Remove unused 'boarddata' variable in esdhc_set_uhs_signaling(=
+)
+> - Patch 7: Expand commit message to document intentional skip of enable_i=
+rq()
+>   and sdhci_disable_irq_wakeups() on early return, and explain why the
+>   PM runtime usage counter leak is acceptable (Sashiko)
+>
+> Changes since v2:
+> - Patch 3: Updated commit message to explain the SoC IP integration
+>   detail about internal loopback path change when switching pinctrl
+>   from GPIO to USDHC function (per Bough Chen suggestion)
+> - Patch 5 (v2): Split into three separate patches (5/6/7) so each
+>   patch fixes one problem (per Frank Li suggestion)
+>
+> Changes since v1:
+> - Added patch 5 to fix error handling issues identified during review
+> - Use pm_runtime_resume_and_get() instead of pm_runtime_get_sync()
+> - Make pinctrl and cd-wake failures non-fatal (dev_warn only)
+> - Use esdhc_change_pinstate() instead of pinctrl_pm_select_default_state(=
+)
+>   in resume to restore correct pin state based on timing mode
+> - Skip pinctrl restore for wakeup devices to avoid SD bus glitch
+> - Check pm_runtime_force_resume() return value in resume
+>
+> Luke Wang (8):
+>   mmc: sdhci-esdhc-imx: remove unnecessary mmc_card_wake_sdio_irq check
+>     for tuning save/restore
+>   mmc: sdhci-esdhc-imx: restore DLL override for DDR modes on resume
+>   mmc: sdhci-esdhc-imx: fix esdhc_change_pinstate() to allow default
+>     state restore
+>   mmc: sdhci-esdhc-imx: restore pinctrl before restoring ios timing on
+>     resume
+>   mmc: sdhci-esdhc-imx: disable irq during suspend to fix unhandled
+>     interrupt
+>   mmc: sdhci-esdhc-imx: use pm_runtime_resume_and_get() in suspend
+>   mmc: sdhci-esdhc-imx: make non-fatal errors non-blocking in suspend
+>   mmc: sdhci-esdhc-imx: fix resume error handling
+>
+>  drivers/mmc/host/sdhci-esdhc-imx.c | 91 +++++++++++++++++++-----------
+>  1 file changed, 58 insertions(+), 33 deletions(-)
+>
+> --
+> 2.34.1
 
-Sorry to chime in so late. I just want to understand what this
-calibration offset is about. Why would there be a need of a
-board-specific offset? The sensor is in the SoC and if you add a
-board-specific offset, you no longer measure the SoC core temperature,
-right?
+The v7 series applied for fixes and by adding stable tags to all of
+the patches, thanks!
 
-How would you determine the offset in the first place? How would I know
-what fsl,temp-calibration-offset-millicelsius should be set to? I could
-put a sensor on the SoC case and use the delta as offset, but then I
-would just account for the thermal resistance of the casing and not
-measure the SoC core temperature anymore, right?
-
-Maybe I'm just missing something obvious here, so if anyone could
-enlighten me that would be appreciated.
-
-Thanks!
-
-> The offset is applied symmetrically at two points to ensure the thermal
-> framework sees calibrated temperatures while hardware thresholds remain
-> correctly positioned:
-> 
-> 1. In imx_set_alarm_temp() and imx_set_panic_temp(): the temperature
->    threshold is *subtracted* by the offset before being converted to a
->    hardware register value. This shifts the hardware IRQ trigger to the
->    physical temperature that corresponds to the intended threshold.
-> 
-> 2. In imx_get_temp(): after computing physical temperature from the
->    hardware register, the offset is *added* back. The thermal framework
->    always sees the calibrated temperature.
-> 
-> For example, if DT sets offset = +3000 m°C (board reads 3°C too low)
-> and the passive trip is 95°C:
-> 
->   imx_set_alarm_temp(95000):
->     alarm_temp = 95000 - 3000 = 92000
->     → hardware register programmed for 92°C physical
-> 
->   Hardware IRQ fires at 92°C physical
-> 
->   imx_get_temp():
->     reads hardware, computes 92°C physical
->     *temp = 92000 + 3000 = 95000
->     → thermal framework sees 95°C → correct trip
-> 
-> When the property is not present, the offset defaults to 0, preserving
-> the current behavior.
-> 
-> Signed-off-by: Haoning CHENG <Haoning.CHENG@cn.bosch.com>
-> ---
->  drivers/thermal/imx_thermal.c | 27 +++++++++++++++++++++++++++
->  1 file changed, 27 insertions(+)
-> 
-> diff --git a/drivers/thermal/imx_thermal.c b/drivers/thermal/imx_thermal.c
-> index 7f7d1116b9d6..d471acc16bce 100644
-> --- a/drivers/thermal/imx_thermal.c
-> +++ b/drivers/thermal/imx_thermal.c
-> @@ -85,6 +85,10 @@ enum imx_thermal_trip {
->  #define TEMPMON_IMX6SX			2
->  #define TEMPMON_IMX7D			3
->  
-> +/* Calibration offset limits (±20 °C in millicelsius) */
-> +#define IMX_TEMP_CALIB_OFFSET_MIN	(-20000)
-> +#define IMX_TEMP_CALIB_OFFSET_MAX	20000
-> +
->  struct thermal_soc_data {
->  	u32 version;
->  
-> @@ -207,6 +211,7 @@ struct imx_thermal_data {
->  	struct regmap *tempmon;
->  	u32 c1, c2; /* See formula in imx_init_calib() */
->  	int temp_max;
-> +	s32 calibration_offset;
->  	int alarm_temp;
->  	int last_temp;
->  	bool irq_enabled;
-> @@ -223,6 +228,7 @@ static void imx_set_panic_temp(struct imx_thermal_data *data,
->  	struct regmap *map = data->tempmon;
->  	int critical_value;
->  
-> +	panic_temp -= data->calibration_offset;
->  	critical_value = (data->c2 - panic_temp) / data->c1;
->  
->  	regmap_write(map, soc_data->panic_alarm_ctrl + REG_CLR,
-> @@ -239,6 +245,7 @@ static void imx_set_alarm_temp(struct imx_thermal_data *data,
->  	int alarm_value;
->  
->  	data->alarm_temp = alarm_temp;
-> +	alarm_temp -= data->calibration_offset;
->  
->  	if (data->socdata->version == TEMPMON_IMX7D) {
->  		if (alarm_temp >= 0)
-> @@ -283,6 +290,7 @@ static int imx_get_temp(struct thermal_zone_device *tz, int *temp)
->  		*temp = (n_meas - data->c1 + 25) * 1000;
->  	else
->  		*temp = data->c2 - n_meas * data->c1;
-> +	*temp += data->calibration_offset;
->  
->  	/* Update alarm value to next higher trip point for TEMPMON_IMX6Q */
->  	if (data->socdata->version == TEMPMON_IMX6Q) {
-> @@ -635,6 +643,25 @@ static int imx_thermal_probe(struct platform_device *pdev)
->  
->  	platform_set_drvdata(pdev, data);
->  
-> +	if (of_property_present(dev->of_node,
-> +				"fsl,temp-calibration-offset-millicelsius")) {
-> +		ret = of_property_read_s32(dev->of_node,
-> +					   "fsl,temp-calibration-offset-millicelsius",
-> +					   &data->calibration_offset);
-> +		if (ret)
-> +			return dev_err_probe(dev, ret,
-> +					     "failed to read calibration offset\n");
-> +
-> +		if (data->calibration_offset < IMX_TEMP_CALIB_OFFSET_MIN ||
-> +		    data->calibration_offset > IMX_TEMP_CALIB_OFFSET_MAX)
-> +			return dev_err_probe(dev, -EINVAL,
-> +					     "calibration offset %d millicelsius out of range\n",
-> +					     data->calibration_offset);
-> +
-> +		dev_dbg(dev, "calibration offset: %d millicelsius\n",
-> +			data->calibration_offset);
-> +	}
-> +
->  	if (of_property_present(dev->of_node, "nvmem-cells")) {
->  		ret = imx_init_from_nvmem_cells(pdev);
->  		if (ret)
-> 
-
+Kind regards
+Uffe
 
