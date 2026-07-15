@@ -4,64 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F86BC44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 16:09:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BFBEC44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 16:13:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T7qi0wjqw+T24Xr8wpK4TVGLaBhYNi0U20FSDe/v/ig=; b=yA8/Dfc13PKnh7sEYdGwTYuylj
-	2Lg9ESdj9zD03snPBzJXo3l7TSwSsMbTdMo+7iF6LrT4KNfCWRZk+TY+OSubiHZH8/eYOktVVTmgF
-	BPx54LjFsW7WsuCeFkDc3BYfPx3yv0FB+40pkvEaVxRqvjCT7srC12I5vr2BVSDHQnIWFlrfH91sk
-	L568ycum6Fgtqj5Dj9HWye/XsUu+nTgFg3IGMAvMJ3tkaELZNC0XMqHLjekNCxIAt/9P9+HvzGEri
-	nLy1o5Kmu2qh41H510iIzBSJdOhxlOK/IjLPMlYvReqsTmkJ31+K2BWs6JOK2vlAiXbHCl3nopkd2
-	b/Rvwbww==;
+	bh=hoc4sBVA38BJgNS+RSLviYr+scjAjo8V7n3kbm3q76s=; b=hc1buKTGULptrmuwKFiAWzjMrP
+	AYTd6wgb/VB7f4wJfnmR9HUtfwVFmiDqLzPddH1H4vMHYMPCOxylW5Aon1mClLn9ZuVldaJ+J+HaC
+	amuzCV6crMMAG6fqUZjHzxh7i6aYWDT/XVnXqeM4xv2f31G8WJuRtTUO4D+CXrNERcPI1bnP4SYnE
+	j+gIrPFxZrCdwsUI+ASgO2tHOT8VK00QVTeI9PaLI4ZwNnW6pj7rd9q0fpAbzRNTsjSneV29+R3aN
+	iTzrEdNAXbOou0Kabfdbmc8h2LqbvY3gyQqX16nV6jyJYEA4NYyYhgpRvMockM+5kXzHjFhVcRRSj
+	wv/zIExg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk2Ad-0000000FPfm-1YZg;
-	Wed, 15 Jul 2026 16:09:15 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1wk2ER-0000000FQCf-47s9;
+	Wed, 15 Jul 2026 16:13:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk2Ab-0000000FPe3-15Q2;
-	Wed, 15 Jul 2026 16:09:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=T7qi0wjqw+T24Xr8wpK4TVGLaBhYNi0U20FSDe/v/ig=; b=vO3cm7v27gbIX2NkA8hpCjAP7e
-	pxKwIkxWJO9cj6JatLoo1VS7q/2JBz1/WHrKVzJKM9BK5dq5AEXP+HU8LtDLpoYVX1Mq9jI6xuN4u
-	G3JlaHoEkW71eb6GTZwh6/2Tr5gUXXo5ahYVWeE7ls2PwtkGzGKnArVqtVo+XRlyxEyw=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wk2AQ-00CNlk-VJ; Wed, 15 Jul 2026 18:09:02 +0200
-Date: Wed, 15 Jul 2026 18:09:02 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Coia Prant <coiaprant@gmail.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, kuba@kernel.org,
-	davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
-	andrew+netdev@lunn.ch, robh@kernel.org, krzk+dt@kernel.org,
-	heiko@sntech.de, netdev@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
-	Christian Marangi <ansuelsmth@gmail.com>
-Subject: Re: [RFC PATCH 01/10] net: stmmac: move XPCS lifetime management to
- platform drivers
-Message-ID: <685d91a3-be6f-42c6-9e23-07629e21bcee@lunn.ch>
-References: <20260714191341.690906-1-coiaprant@gmail.com>
- <20260714191341.690906-2-coiaprant@gmail.com>
- <dc21b2fc-ae11-4fde-a5b9-09e2c6bee5c9@bootlin.com>
- <CALj3r0gWyfHHp0S4=71M1-TjgHKcgGax4Lr0DzPi37Q69-iCwA@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CALj3r0gWyfHHp0S4=71M1-TjgHKcgGax4Lr0DzPi37Q69-iCwA@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_090913_310881_B0DEE08F 
-X-CRM114-Status: UNSURE (   6.16  )
-X-CRM114-Notice: Please train this message.
+	id 1wk2EQ-0000000FQCE-1X98
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Jul 2026 16:13:10 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 736DE43287;
+	Wed, 15 Jul 2026 16:13:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52DC11F000E9;
+	Wed, 15 Jul 2026 16:13:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784131989;
+	bh=hoc4sBVA38BJgNS+RSLviYr+scjAjo8V7n3kbm3q76s=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=LRYqaDLwCjZ90T7+b/n0QyldeEUvCYq1xgMdAV3MQotzOGco1EOXv+oWS5cTd98g6
+	 15FpqiOBf254F+RwRg/JeaT2xMhpI4iSD0o/bgCli/qCiywLgI2EMcyVEsIdSxRDR+
+	 +R3cYVvHzfSUc7nAgXeip5byLBQKup+IeFV2j+/cfAmOQnHOBxOj7apvwOaX/EapQA
+	 PHBs7XRrLfJz9jgFNoqEDakM8I1rjD55Xa81eAMszHPaW1RQgbmrbOTwEeVlIgQr5g
+	 b+rkej/XbF3+TfjjfdmbtF7If6pp3SSf4YHfP8VSQBFATEh24jLi31BgmjVRwhCFHF
+	 3wTF8R43u4D+A==
+Received: from [194.56.92.2] (helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wk2EN-00000005OGD-1MhH;
+	Wed, 15 Jul 2026 16:13:07 +0000
+Date: Wed, 15 Jul 2026 17:14:56 +0100
+Message-ID: <87zezs44cf.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>,
+	WeiLin.Chang@arm.com,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: Re: [PATCH v15 09/37] KVM: arm64: CCA: Allow passing the machine type in KVM creation
+In-Reply-To: <20260715142841.80544-10-steven.price@arm.com>
+References: <20260715142841.80544-1-steven.price@arm.com>
+	<20260715142841.80544-10-steven.price@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 194.56.92.2
+X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,19 +103,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> I actually spent all night debugging call traces caused by the current
-> stmmac PCS lifetime management, and it was not a pleasant experience.
-> The code feels like accumulated technical debt that should be cleaned
-> up.
+On Wed, 15 Jul 2026 15:28:11 +0100,
+Steven Price <steven.price@arm.com> wrote:
+> 
+> Previously machine type was used purely for specifying the physical
+> address size of the guest. Reserve the higher bits to specify an ARM
+> specific machine type and declare a new type 'KVM_VM_TYPE_ARM_REALM'
+> used to create a realm guest.
+> 
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+> Changes since v13:
+>  * Rework to use the two top bits for the machine type now that pKVM has
+>    merged and used the top bit for KVM_VM_TYPE_ARM_PROTECTED.
+>  * Update the documentation to include KVM_VM_TYPE_ARM_PROTECTED as
+>    well.
+> Changes since v9:
+>  * Explictly set realm.state to REALM_STATE_NONE rather than rely on the
+>    zeroing of the structure.
+> Changes since v7:
+>  * Add some documentation explaining the new machine type.
+> Changes since v6:
+>  * Make the check for kvm_rme_is_available more visible and report an
+>    error code of -EPERM (instead of -EINVAL) to make it explicit that
+>    the kernel supports RME, but the platform doesn't.
+> ---
+>  Documentation/virt/kvm/api.rst | 18 ++++++++++++++++--
+>  arch/arm64/kvm/arm.c           | 11 +++++++++++
+>  include/uapi/linux/kvm.h       |  7 ++++++-
+>  3 files changed, 33 insertions(+), 3 deletions(-)
+> 
+> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+> index b38e090ad95d..e39d146b34a3 100644
+> --- a/Documentation/virt/kvm/api.rst
+> +++ b/Documentation/virt/kvm/api.rst
+> @@ -181,8 +181,22 @@ flag KVM_VM_MIPS_VZ.
+>  ARM64:
+>  ^^^^^^
+>  
+> -On arm64, the physical address size for a VM (IPA Size limit) is limited
+> -to 40bits by default. The limit can be configured if the host supports the
+> +On arm64, the machine type identifier is used to encode a type and the
+> +physical address size for the VM. The lower byte (bits[7-0]) encode the
+> +address size and the upper bits[30-31] encode a machine type. The machine
+> +types that might be available are:
+> +
+> + =========================   ============================================
+> + KVM_VM_TYPE_ARM_NORMAL      A standard VM
+> + KVM_VM_TYPE_ARM_REALM       A "Realm" VM using the Arm Confidential
+> +                             Compute extensions, the VM's memory is
+> +                             protected from the host.
+> + KVM_VM_TYPE_ARM_PROTECTED   A "protected" VM using pKVM to isolate the
+> +                             VM from the host.
+> + =========================   ============================================
+> +
 
-Russell King will strongly agree with you, if he was around. The
-phylink integration into stmmac causes a lot of pain, and he wanted to
-rip it all out and start again. But doing that without breaking stuff
-is going to be interesting.
+Probably worth mentioning that REALM+PROTECTED is an illegal
+combination.
 
-If you feel up to it, have a go. But take a good look around first,
-make sure you understand the different variant, internal vs external
-PCS.
+	M.
 
-	Andrew
+-- 
+Jazz isn't dead. It just smells funny.
 
