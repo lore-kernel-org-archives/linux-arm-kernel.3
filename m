@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4D8CC4450E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 18:05:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E47DC4450F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 18:06:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wYTcMpCGQoeSA3WN+ofCp+QWfkKB14/vhiJiLjROXnY=; b=i8z0qjhRSMWIXEe9qa2/cewIfj
-	e+eGBcw+r7bKdsD+Te6Kvr8v5XKyYuH1XgtbeBXabr9CDVJSo/7KbSvaPoeeBfSohAxokgE8f4WTf
-	f3zc+vsRPFDxOfFAdPBe9C1QaSbno/+qcJdMVYVbqMA/axQmNPhlVkdD5mZfz7TJGj/iSv6A7TywV
-	eICvX7Megj0PM5DgobAPlQ6MmOZDxJ85G38Q2MaaJmSqhduHfSrFNhWNhBfG3O/VCtRI5cbqHfsmC
-	8nWQMAmscDpZosSiCt1vuv6tkzu0DLrfvbRlEWq2A/CGXCq19oPmh4rLPpknJ9DEdV1SG8g34RQbv
-	EpvKfRow==;
+	bh=e2t0BTW0L0KAqYei4Xv/1VSaBkyJwgz1/HwudPiGu9Y=; b=1mpt114KiSGtzT7IRzzcvbOFpM
+	0qwipq3dMVELDYnAHqqk55Kmx0w5w5JGuhE1oSguh+lIyE0LlSiMYujzBcpWMeMh1c80mKnitoUJe
+	gbz77xeiiK8nYDmCV9n1s0xtgSmfthDCGLe9DM1OApO0DhaPjCpngpvQtwYKeRo6Wy5TFhlK73h93
+	9MZvr1mAvxUyRjJmp9Yfj8kaYfzGQoL6KCQ9f6zEu3UzO5fJ9k1Z+30SUztvUwlKZtgGizjl7PmBE
+	jL+NybuPxBzE2YOxoINJTbJYJZaqZNOx5cRkgRqAhHW2BlFeLAPGOx+ASFQAnV6+LR7O6CLNy8b/S
+	xh8ffilw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk3zU-0000000FcLl-21zJ;
+	id 1wk3zU-0000000FcLW-1RX4;
 	Wed, 15 Jul 2026 18:05:52 +0000
 Received: from mail-centralusazon11020137.outbound.protection.outlook.com ([52.101.61.137] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk3zQ-0000000FcHk-2TuO
+	id 1wk3zO-0000000FcHk-2h70
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 18:05:49 +0000
+	Wed, 15 Jul 2026 18:05:48 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GkElIBLjHASkj+5/YAZEuXsjKxuIYebaJ5aGViP7phFHNNAOqxBmvuD/hr3uQZivCwdazu+DL0kekaCjyZ+vXOA7dpoPgu9OyY+b2o6Y3208+cU129MBnKZfQq/Gth/bwX9tTu2IvCIsZp/VyNRcNsA8T82ff2KEYR8RCWE11H/Io4sSHh0ihiBQMO7YSvS6Fvsgjjf6rqv4C/4xVbpVmw97svHtcluF26veStbUJ6tXS4sVs0EFQLDZGbikj5Dj27P6wsn0T8DCI2hwEjdp4wRTMyYaETVSVM+ooLwJU+/gdMw02vDnMWeYpDTLUKcqw+zmmHpiiF+/z7LPDM7JMQ==
+ b=eHnASWd8vyBC8va4caUr6TiSAo+5XhvERLlvBrjlJVz+l66uh8CSW2AJSrREIy0/24LJU6aHxws458zLMFm5p6yxpbQxPvqxw5KJkLWqmGlBw83+fSrybbjXBuQ1i32Dr6bMqVNzdflqdDLf6xiLI+T16BOybwIzZCxSlO6E/jrDBMIK+wWJZ3IzzlYWPGz7VdOjWAEcPpJaN5+dEOhXrjOg20/FwBt4tFQ84FTVFVWH/55KNRzzDVDlWlEhbSLjYpS1IitOVYgEvvsx541zdLELs5D2mZAT/xV+7c0t2e/Pidu4OE6ynxP9zjmx9ex0fCHDxGGZaYUXkJhbNxSVMw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wYTcMpCGQoeSA3WN+ofCp+QWfkKB14/vhiJiLjROXnY=;
- b=USDGh2a0lHWqlqT0pb/oklHX0O5H/O5YQ1FB9snbLsdTiec33/r2bBiXV6Z4H7wbv/QV5mzUJvBa8cGlL/CNnWkBNgp51VsBEMQjrRK9tj9qDjeEAdiRArpvl+KBOZ8oxUs+pi1M/LsiHJXtRHHUO7NCs5859eCvahy3QLoZ4Me97UXxskp10r8ZNiUZcFothwFhufkK/rQIXrxv4DHFWh18AGGh+HmrJw9JlNMDbLahaH8h7l4Akxr0F9j5FdiqHZA44Bo6ilbdP1VgtPsB2/ncEcmM2BK/YPuvs2WUn45doxuGxwY3X3Azz2ZMoXvpCkiHVh/5nAzkTVL2StwcmQ==
+ bh=e2t0BTW0L0KAqYei4Xv/1VSaBkyJwgz1/HwudPiGu9Y=;
+ b=UazEXMSm+Vj8e7bgTyjtpQX1nCa19+AsVoCLWZbLVDINvDVPtTD4DJV5FJOliQ/fqu67OESeV0LNgEmtcwibQtw1UthRMJ5yYpN4xqdaJrEN62B2By9FDLb93oP+JCGapovy2Djl6CPQYnM7zmUrzOTN4VSewERpyhbODQK53eSZQy/jvkd9+ODS+H2j9YgOUesq8pH23uZ9VqsYcB8GV3TftUp5TH9P9+aqe5moLsUob4u+DKtVku5ZNL65nqWWh0faEdbZ8PXX3tMuaghwK6Q3tfM0waXR/cmoXB8F4H5PNIHFObJ/Tx/rJa+zXHTEzOXT140IFzlyb5K/wExpfw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
  header.from=os.amperecomputing.com; dkim=pass
@@ -41,18 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=os.amperecomputing.com; s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wYTcMpCGQoeSA3WN+ofCp+QWfkKB14/vhiJiLjROXnY=;
- b=O+do1APelCiCAtIxgiNIxncFn5VXBVt9v88/DXjg8BOrBOxzFAdeZ6OojBQ3Kc4t1Ky+EXfN+bqVlTocJ0/w2pyc/2ddzLdF5ItB4oAvgOyQOCMhYY/3v3FnywgUAD44SDsHmXTVH4vKB4nq535r8TbkmxWqD8FSol9qToP3WkQ=
+ bh=e2t0BTW0L0KAqYei4Xv/1VSaBkyJwgz1/HwudPiGu9Y=;
+ b=vGEY361Q8Ha5nj1T+MJfsCVXK1y1S59gyrDxOuN/rEBIRfDt3rs4sm9ZWD9YXaKGMqYsTbadoZNyZiA6oQaVttEAskCNAMYVBmfbACdZNILjVUjgq1Y/FD2cAQADxrWzgR1wShjHiDoptFTPz8oU1/2aXU9I0uW7eFRxf/HRZuA=
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
 Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
  SJ0PR01MB6207.prod.exchangelabs.com (2603:10b6:a03:29d::10) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.223.12; Wed, 15 Jul 2026 18:05:35 +0000
+ 15.21.223.12; Wed, 15 Jul 2026 18:05:34 +0000
 Received: from CH0PR01MB6873.prod.exchangelabs.com
  ([fe80::46eb:64a3:667c:c1a0]) by CH0PR01MB6873.prod.exchangelabs.com
  ([fe80::46eb:64a3:667c:c1a0%3]) with mapi id 15.21.0223.008; Wed, 15 Jul 2026
- 18:05:35 +0000
+ 18:05:34 +0000
 From: Yang Shi <yang@os.amperecomputing.com>
 To: cl@gentwo.org,
 	dennis@kernel.org,
@@ -70,9 +70,9 @@ Cc: yang@os.amperecomputing.com,
 	linux-mm@kvack.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 03/16] mm: pgalloc: introduce {pud|pmd}_populate_sync()
-Date: Wed, 15 Jul 2026 11:04:05 -0700
-Message-ID: <20260715180455.515692-4-yang@os.amperecomputing.com>
+Subject: [PATCH 02/16] arm64: kconfig: make percpu related configs not depend on NUMA
+Date: Wed, 15 Jul 2026 11:04:04 -0700
+Message-ID: <20260715180455.515692-3-yang@os.amperecomputing.com>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260715180455.515692-1-yang@os.amperecomputing.com>
 References: <20260715180455.515692-1-yang@os.amperecomputing.com>
@@ -84,58 +84,58 @@ X-ClientProxiedBy: CYZPR05CA0010.namprd05.prod.outlook.com
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|SJ0PR01MB6207:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4ea69a7a-9e2b-4f2b-2cd1-08dee29bab6b
+X-MS-Office365-Filtering-Correlation-Id: 9fb3fa7a-2e40-498c-3e96-08dee29baaaa
 X-MS-Exchange-AtpMessageProperties: SA
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|1800799024|366016|56012099006|11063799006|6133799003|55112099003|18002099003|22082099003|10067099003|921020;
-X-Microsoft-Antispam-Message-Info: 2CvRLLDnfiUaGJoNy34blsDEsf5Ib3yBY1e+lF1cwU4OnMT+ybVtBVa2da+ZrwuozG4ZuFShZNigIsuzIvl04leg8vGd5VxzkWa6otxcf2t37gE8ZfNT1SYk5aUSevap39KuoEQrAlL41PUXFasbY6aB4Dki14WObyRqOm7Ajh46ejAerLLWwCkKeJf1xYzFJM3kYGD8agLERQqdLd1IhPtgMrlw/ChdVTZJJMDsbBMqTEPJfxLK2XFrgmPOjAvuHDcpY0Re2hSBn5kLIEJwsfx+zuKrIuIJhhEt4IH5tBwVPHwI1b/LQF1urSasPTnhpseUILi+uqO5Sm8sRGQLkkTBaHEgzwh23vQuaYMhXIP0kxTV0yjZPAoIVWDN+flRr7Y56IwsLEQlIemS52G+50Bm2iKYWm7V9FN32hyi1I1wO/+VB6Mkzc9c4IT0HBE06QlcK8yOZCAx40E5wr+WAHGOJ1CDBRHIu8C1xIu+CpVoB6F/esWMIt+BW6JaPZ6w43XZq4UnC9NRWN/AZezudHO/x+vbyZd8yXLm5sjZSa+qvsrYl95QN6ArjQlgBmVxiF5JUxrBwW92HSQ5ctI9RVZ5ZhtXSTHVKs7TDc+rKo9s3uz5hkxg4YRI39TOs10gt/IsfBTuiwbfnOzJ50+zXzo05mcR1UyrveVHbjSVW+sekqVdHaP8bdWjnHK2gd0s3jbHXbKEPtRGUC4zSCohjA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(1800799024)(366016)(56012099006)(11063799006)(6133799003)(55112099003)(18002099003)(22082099003)(10067099003)(921020);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|1800799024|366016|56012099006|11063799006|55112099003|18002099003|22082099003|10067099003|921020;
+X-Microsoft-Antispam-Message-Info: bvw3/TQKLJ9gglh9ntO/D9ggaUYgfbwBQ7ejbyCdpdL5G7TFH/JQmNsZ5CwVi1dG15dPCUcrEGbAgKUv0iNEQ7ay+ZUfeOj/eMJyjR+RavckxdpTLb31Hn1Bi2G7myt/tF1lGGS8Nd5SEYkZBFuxepIOWWbPrFPmAd7MTwbw897B0eXLMEoWBi8VjxoQ9i3Ar8+QTk72uyC40wZ2MikV1B7RwsIBGib/rP3NLGsvs0owzJuEz6vt87b/vCntvzGNvHmRf17nm5HftNQsBnXlkuEuTkT3Hm4o7o1LAypmMbi2v5Xn1lWdTxK0/o0yYw0xYh74S3rgcnpdK4NWmlG+h+JbHSyii1FbTl2AcKeCa9MKfkKUJjyT8iqTRviRFkpyp0W4GKY1mF7emoeE2+vDJ3adfmZNlp7N+t2aDrDEtIf/VbOS2T8+sqs9hVB0HojVHhlDmltD39zBK6htAuqyQ0StJ6QenbFg9JlPeWCq9z9o0DgIPI5ZpO1oXF0I42tBxWfSZvHLObAKtYdS2xgQ3hZD7zv0CAXXZLdg0uHg2f8NzbopPaFhtw/HXhGlz1muXzVBxqjV0dvYWvL3IpHIt2axvZVx+eHkUqEQRWbVeZfy2wHSrbJV2mZIwX6XLoExKz76fH7x7hR/5wwArWY+xHsTJMC6KuY2nRtTwVxeqOUPYY+3QFNWS040AIc9lvma4VaracfLrjXMbn2uwsPZ/A==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(1800799024)(366016)(56012099006)(11063799006)(55112099003)(18002099003)(22082099003)(10067099003)(921020);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?FuR6of1q8nRdY/8D8xglkaqxPgVrZNimEfm0hx99Fa2w8BmdnmiaCz1zY6aq?=
- =?us-ascii?Q?uXJG73PljwoqHzXwDwiNlW95XHKx3n7jtVbU9HyE/LmD5boVqBNnHGZ6JJj+?=
- =?us-ascii?Q?yS9kn9R4gziQTfvVtcdsRtMMr3vvSJSvH1zLMkgpOZHUCT9aY2Hol20ZqWtF?=
- =?us-ascii?Q?zl63oftFQnpSXNIJ4m+VG+BCzOPf7QUmqBTllUu/qFSb/LqvKkr+D0oFz+zn?=
- =?us-ascii?Q?FD+/BOkBDPCwBR3EFSvb3A/L36Zm3XhmGENsM+Sd/wcQ28XiEOFk3l1omGOU?=
- =?us-ascii?Q?27zxcX/qzDlEifwPMKiAe0mK6N2qxNdJykizW0j96eEKCQBp7jtR5FQdXi9l?=
- =?us-ascii?Q?PHiO4eIapky6AtE5ooqSEUTyyke0Oq/rgXfEl8h3EJxy0uuBkG5jvuQhVToq?=
- =?us-ascii?Q?01L912kjLfYFVnqk/mX27cxkRorShPzX/om3V4HKNPtO6xXvjX16vcnKUB+Y?=
- =?us-ascii?Q?7elQGD/UqtyDHgLE8JsHfdF5SgmhW1AP8d8EPTG4OWIREF9tZ1Nu2Xd0U5mZ?=
- =?us-ascii?Q?e4pePN+/qxHqnTwclRB5VZaUEwkqvC2OU7RGaHFwIDNka5p009EmycVaodgn?=
- =?us-ascii?Q?QnVoUh9sU4+hkZ2r8wV99zcbNtXoP1KTD2QASQUB6rMs6BuOC3hK6Xb/vq4y?=
- =?us-ascii?Q?F1HDRG4gT6iz2vH9PZVqQCFBmV/0XtUr5u/TUiqcvVSlnk/eIDP/saeDknv+?=
- =?us-ascii?Q?qPeYh49OB35vBOCBRlwWT78ox//rrN1GchEBO1MOjggA45UY4tdh3Dp28Bzt?=
- =?us-ascii?Q?CdFXE6t0yimAjdeOmnOIn2O6Ur9qybHPQKo4byHts6FlS0gLytwS6/h5MKeo?=
- =?us-ascii?Q?P5jyb2l/FtcbxfoDRiCckw347j0lpzGC6+rNzz2ov5I4erDan25GYXWIzBSg?=
- =?us-ascii?Q?zbrpiyGxAz4Jpl0nUmG63vcqkgiG/Rv82JvAOW05Ta785qZSFdy3YNwzTEvS?=
- =?us-ascii?Q?3OsU3wFtzRID4JZ9+/WpLhhdD0OkxGR68wldW6aHz425/TNHMU0pKkFesEPR?=
- =?us-ascii?Q?Y5QFVaq2evgbksdh5NY2JW8rlEMcZfphlTZH5XehkGYdBMqqbcmwsgHw/RhK?=
- =?us-ascii?Q?HECc92xpTh9QUJKtidoVXoNoGp6bD22y93abSTzE7qSIgzyIKKM47mArA4Io?=
- =?us-ascii?Q?Pi35YEcmQi2nEyB9PJDkSH3PNET7oprrEWp9LSowW9JNYhUaagYr8AQ9Isuk?=
- =?us-ascii?Q?x8lcyR47/hWtyNZCij5yVXAAbZdoY98NGwJj7aFz8CTPoo4azmi+2Jk3GUyf?=
- =?us-ascii?Q?eDhFRyzO56Yay7QELeRd6iiw6dQ1tmrqduYYnfEErBV9RUHUNDXsSzwZbdxe?=
- =?us-ascii?Q?ZiFKmTiFQVM0WKTLlUIkTp0H3O1X/HTGOuUos0LE3kBB0S5W1Iw02VeO3xLR?=
- =?us-ascii?Q?fXdMJsBnwUL5b6nlKW+RVk2nXu8q7yQl5O9JW3P3IxPGs/NvwqGSyta40Gle?=
- =?us-ascii?Q?MsIJW9hwd6BsTNWlef9o5QvqU6PtT3djmmRnsoGqhNUhUYnNtZ0pwdsgsmpl?=
- =?us-ascii?Q?Djw7Et59b7CugF+7LEuJ3+7t42XndZrKd8Gqud0e34/QctX6aB3MFBSh60cP?=
- =?us-ascii?Q?RdT1ylPdQQq1ccXtlVZCWoeRIhAsVWhmzdnMT1PHPCRM3UEh8/1HBCE+vkVo?=
- =?us-ascii?Q?6ExBoxSzT7fpaB6phi4SIVt1FudbNZNqT2acRvOpPtlBBlnJdGCGbC/LiU6G?=
- =?us-ascii?Q?ehAEN6JRFPiioXUW/6PZ41dBQ7ojmJIWrElHbHqzy86Af1JjC6CH+nkBwrsU?=
- =?us-ascii?Q?WSMXi10azIld3Avog9OUwMp4tjiZ7dk=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8sIQaHKMbPBNFzkR7JW9TdMpiyEs1UEylBb9Aza00mlUJSkM6WvuO7g42jam?=
+ =?us-ascii?Q?Q9iR3vD5c5mPitO/eRSX6UAY7N8EwcVjdC/m6ira/SSFxL+jU1r3I7vzNIIC?=
+ =?us-ascii?Q?KDCbX5NIa4v8XXz6XQxSOlakkXnKpvDBLDWVNRbjEIyHGwroiGe2pG+3A1iX?=
+ =?us-ascii?Q?Hfunv/tRvgFrIF/PfEV0gX5DryQbRp9194RJNxnZ/byJUEUYVFqnpDAkoAKd?=
+ =?us-ascii?Q?Z4VuUPGvd5DK0vS/wCP2qejZ92lhMZuIay+xt0GzZbtV2upt9cnMEXsmyJ10?=
+ =?us-ascii?Q?xb/rfRv5UFzBp3dhdeV1tZMz+hqGKgAddSpPjXtPoMFAFP2YJ+MGFFTTJNiw?=
+ =?us-ascii?Q?FzLIThYrCM4U+0CIpnNHzMlMZwpuztpLeSahuW9gK9EKOlA2v2f+hEl+CqXR?=
+ =?us-ascii?Q?w/YcgpvUdk/Ddjqlr9hdgiSsfZi1eeNHC0R6u8mxNvJkBzfs5v3YaiwgW8KU?=
+ =?us-ascii?Q?kexuET8bx4tAACTeuaNyGIxUJleN0qp5yFyOu+zgsxxERvKGd8CdykFdz2+8?=
+ =?us-ascii?Q?OimmMd/VZadOyyIfESLx4d+8y1SixsB/dWNZWGysPEayhgR/R68nll2Ac4S/?=
+ =?us-ascii?Q?Cs2VHLFLljO2ZaqYSVGNNCDS1cHnqG4F0v7QNx90uBMCdsCILAaDjcL2bbZR?=
+ =?us-ascii?Q?XqWWq/vg9LPKJXOlJMECnnMoykZNVYFGikwVkyHUt5FQA5Px766OzBST6JZ2?=
+ =?us-ascii?Q?Rr5z5h7jP/G2P8MC2zPiqQAKFCO4BNYsdtKEB02lNrdhyzMv9sAFFkVk5Mtp?=
+ =?us-ascii?Q?CaqM91FwrG+KE2wCdQ+fXIQa7SS9vDWufIYazsDclT71tCcumb+iASLq0j4N?=
+ =?us-ascii?Q?MVCyZpabJqE3DhGGEdC0tUBBDF0x21R27LCmEuS7Bs38aIy1zh74u7Y5tP4t?=
+ =?us-ascii?Q?pMR07I4XW0231qfG1FCwN2lS1gggIhJ7hvU8uUB0XYxZoz8gX6NncWbjqT5Q?=
+ =?us-ascii?Q?GPh6rBIzeBiURr6qXT66tnRiY2/Ugk/U4DPKFZydurQGiRpCYRJeaaHEt1cc?=
+ =?us-ascii?Q?VMBvoxw1sq9ygCYqo7sm6YAfCm1JK1mVUyw8AmG0GucfOjkyxNkT1VnUNuNJ?=
+ =?us-ascii?Q?IiWCuCSjK2tRRw0eShDFqx10koCj5eApi5tSw/m6BQvbm89BS8tKojjD5UPW?=
+ =?us-ascii?Q?xjgr+uP78Y+vHyqNQKybDw5sAnQSh5ZaKvNC5GB0lMe3PDyyQ/aso+ku0qUw?=
+ =?us-ascii?Q?XhyY8HDwwzQ/vg+UgzGE2Ioe8alfvspc2kFf7sIX9l+zDnOeRZGmj0pYSLBi?=
+ =?us-ascii?Q?67xQxxwbUJQ8SgmcoVYBMokIOuqddA0D6l9NkBtQBPLPzxEPLvemO4O1PiXe?=
+ =?us-ascii?Q?li+E/DA6hp4YHaUg4JDA131nzirTO1YLObpETzq7N5TlacR4lBKzrMoZDo7O?=
+ =?us-ascii?Q?HjJS9DtfrdH0ALHgduog3B0MYnhx66jSmfiUqEctLHSD11UYoSR/7km4mwmt?=
+ =?us-ascii?Q?2HREAr8htkDotTIRPsGxBvVTTZXF48SVaIzUiNJ3dqE31w0uzcMIGr4qhFDq?=
+ =?us-ascii?Q?hKHNprJsUSklXvOt1Xak5a/9ua4of5D+Hap6IQnfvyquQIpQbi4pOb7xbpOE?=
+ =?us-ascii?Q?13k+Cr1EMuB2i06bXJPGewVh6HdCtq89sPgXFGhl7qnqVXRoeDLl7uo3DR+u?=
+ =?us-ascii?Q?eqgjuARFZul+ibNxEBtmjAGbTJDU1TEdpsA1X7kBDqSJgKiu66JxLe1adju4?=
+ =?us-ascii?Q?+zBLQkTmz6D7WS0ttnw9Oc2Wvd1ILqhdkht3jzDGstzo7Mq4H624UwZ4Q36J?=
+ =?us-ascii?Q?yzeSluiTCHv/fy+zHEqCSjFImlziLz8=3D?=
 X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4ea69a7a-9e2b-4f2b-2cd1-08dee29bab6b
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9fb3fa7a-2e40-498c-3e96-08dee29baaaa
 X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2026 18:05:35.8455
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2026 18:05:34.5653
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: yXOCk4yw0TTs918881rn5PTWrj8ZmfcPqacrEoxJOXsmxWWS2R81d+mKXmf54pqv2+j0S2hQ5at2hFCmeiI75l4B1JMp0aMM2t1pbrNCs+w=
+X-MS-Exchange-CrossTenant-UserPrincipalName: 33VfcPOiSP9nmCRigjHinJoK+xKOcPHTTZBZls7rqS794WA/RKCvsz6/SBvre48/Uqn6E/5emdDe9pAR0NnhYDJJDgjUN/icj1xw448xJH4=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR01MB6207
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_110548_666316_2A353FD3 
-X-CRM114-Status: GOOD (  13.96  )
+X-CRM114-CacheID: sfid-20260715_110547_109783_3FF14092 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,111 +150,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-pud_populate() and pmd_populate_kernel() are called by percpu and
-vmemmap to populate PUD and PMD.  They need to sync up kernel page table
-when percpu page table support for ARM64 is added in the later patch.
-So introduce {pud|pmd}_populate_sync() and protect them with
-ARCH_HAS_{PUD|PMD}_POPULATE_SYNC kernel configs.  ARM64 specific
-implementation will be defined in the later patch.
-
-We can change pud_populate() and pmd_populate_kernel() to take address
-as a new parameter, but this change is needed for all architectures and
-not all callsites of them need sync page table.  So introducing new APIs
-for this usecase seems much more simple.
-
-This is a preparation patch, no functional change.
+The percpu set up code has been moved out of arch_numa.c, so it is
+unnecessary to have percpu related kernel configs depend on NUMA.
 
 Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
 ---
- include/linux/pgalloc.h | 13 +++++++++++++
- mm/Kconfig              |  6 ++++++
- mm/percpu.c             |  4 ++--
- mm/sparse-vmemmap.c     |  4 ++--
- 4 files changed, 23 insertions(+), 4 deletions(-)
+ arch/arm64/Kconfig      |  6 +++---
+ arch/arm64/kernel/smp.c | 10 ++++++----
+ 2 files changed, 9 insertions(+), 7 deletions(-)
 
-diff --git a/include/linux/pgalloc.h b/include/linux/pgalloc.h
-index 9174fa59bbc5..062c64a5d4bd 100644
---- a/include/linux/pgalloc.h
-+++ b/include/linux/pgalloc.h
-@@ -26,4 +26,17 @@
- 			arch_sync_kernel_mappings(addr, addr);		\
- 	} while (0)
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index b3afe0688919..2e1bd79a579c 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -224,6 +224,7 @@ config ARM64
+ 	select MMU_GATHER_RCU_TABLE_FREE
+ 	select HAVE_RSEQ
+ 	select HAVE_RUST if RUSTC_SUPPORTS_ARM64
++	select HAVE_SETUP_PER_CPU_AREA
+ 	select HAVE_STACKPROTECTOR
+ 	select HAVE_STATIC_CALL if CFI
+ 	select HAVE_SYSCALL_TRACEPOINTS
+@@ -239,6 +240,8 @@ config ARM64
+ 	select LOCK_MM_AND_FIND_VMA
+ 	select MODULES_USE_ELF_RELA
+ 	select NEED_DMA_MAP_STATE
++	select NEED_PER_CPU_EMBED_FIRST_CHUNK
++	select NEED_PER_CPU_PAGE_FIRST_CHUNK
+ 	select NEED_SG_DMA_LENGTH
+ 	select OF
+ 	select OF_EARLY_FLATTREE
+@@ -1581,9 +1584,6 @@ config NUMA
+ 	bool "NUMA Memory Allocation and Scheduler Support"
+ 	select GENERIC_ARCH_NUMA
+ 	select OF_NUMA
+-	select HAVE_SETUP_PER_CPU_AREA
+-	select NEED_PER_CPU_EMBED_FIRST_CHUNK
+-	select NEED_PER_CPU_PAGE_FIRST_CHUNK
+ 	select USE_PERCPU_NUMA_NODE_ID
+ 	help
+ 	  Enable NUMA (Non-Uniform Memory Access) support.
+diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+index 0dab4e9c97e4..28ff889658d3 100644
+--- a/arch/arm64/kernel/smp.c
++++ b/arch/arm64/kernel/smp.c
+@@ -819,16 +819,18 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
+ 	}
+ }
  
-+#ifndef CONFIG_ARCH_HAS_PUD_POPULATE_SYNC
-+#define pud_populate_sync(addr, pud, pmd)				\
-+	do {								\
-+		pud_populate(&init_mm, pud, pmd);			\
-+	} while (0)
+-#ifdef CONFIG_HAVE_SETUP_PER_CPU_AREA
++#ifdef CONFIG_NUMA
+ extern int cpu_to_node_map[NR_CPUS];
+ 
+-unsigned long __per_cpu_offset[NR_CPUS] __read_mostly;
+-EXPORT_SYMBOL(__per_cpu_offset);
+-
+ int early_cpu_to_node(int cpu)
+ {
+ 	return cpu_to_node_map[cpu];
+ }
 +#endif
 +
-+#ifndef CONFIG_ARCH_HAS_PMD_POPULATE_SYNC
-+#define pmd_populate_sync(addr, pmd, pte)				\
-+	do {								\
-+		pmd_populate_kernel(&init_mm, pmd, pte);		\
-+	} while (0)
-+#endif
- #endif /* _LINUX_PGALLOC_H */
-diff --git a/mm/Kconfig b/mm/Kconfig
-index 9e0ca4824905..13ea4b29ee7b 100644
---- a/mm/Kconfig
-+++ b/mm/Kconfig
-@@ -1509,6 +1509,12 @@ config LAZY_MMU_MODE_KUNIT_TEST
++#ifdef CONFIG_HAVE_SETUP_PER_CPU_AREA
++unsigned long __per_cpu_offset[NR_CPUS] __read_mostly;
++EXPORT_SYMBOL(__per_cpu_offset);
  
- 	  If unsure, say N.
- 
-+config ARCH_HAS_PMD_POPULATE_SYNC
-+	bool
-+
-+config ARCH_HAS_PUD_POPULATE_SYNC
-+	bool
-+
- source "mm/damon/Kconfig"
- 
- endmenu
-diff --git a/mm/percpu.c b/mm/percpu.c
-index b0676b8054ed..45c30c6531c5 100644
---- a/mm/percpu.c
-+++ b/mm/percpu.c
-@@ -3163,7 +3163,7 @@ void __init __weak pcpu_populate_pte(unsigned long addr)
- 	pud = pud_offset(p4d, addr);
- 	if (pud_none(*pud)) {
- 		pmd = memblock_alloc_or_panic(PMD_TABLE_SIZE, PMD_TABLE_SIZE);
--		pud_populate(&init_mm, pud, pmd);
-+		pud_populate_sync(addr, pud, pmd);
- 	}
- 
- 	pmd = pmd_offset(pud, addr);
-@@ -3171,7 +3171,7 @@ void __init __weak pcpu_populate_pte(unsigned long addr)
- 		pte_t *new;
- 
- 		new = memblock_alloc_or_panic(PTE_TABLE_SIZE, PTE_TABLE_SIZE);
--		pmd_populate_kernel(&init_mm, pmd, new);
-+		pmd_populate_sync(addr, pmd, new);
- 	}
- 
- 	return;
-diff --git a/mm/sparse-vmemmap.c b/mm/sparse-vmemmap.c
-index 99e2be39671b..463c2f8b611c 100644
---- a/mm/sparse-vmemmap.c
-+++ b/mm/sparse-vmemmap.c
-@@ -198,7 +198,7 @@ static pmd_t * __meminit vmemmap_pmd_populate(pud_t *pud, unsigned long addr, in
- 		if (!p)
- 			return NULL;
- 		kernel_pte_init(p);
--		pmd_populate_kernel(&init_mm, pmd, p);
-+		pmd_populate_sync(addr, pmd, p);
- 	}
- 	return pmd;
- }
-@@ -211,7 +211,7 @@ static pud_t * __meminit vmemmap_pud_populate(p4d_t *p4d, unsigned long addr, in
- 		if (!p)
- 			return NULL;
- 		pmd_init(p);
--		pud_populate(&init_mm, pud, p);
-+		pud_populate_sync(addr, pud, p);
- 	}
- 	return pud;
- }
+ static int __init pcpu_cpu_distance(unsigned int from, unsigned int to)
+ {
 -- 
 2.47.0
 
