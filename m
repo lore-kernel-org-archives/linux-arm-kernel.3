@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62A04C4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 05:35:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18ED5C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 05:41:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2fm7nTT4KMovCb4jSQoKVSqVdeJkQcXUeH2CcGeqOIo=; b=DaIAk4FiIylr+mOkxv85hR/r+d
-	cMLSqLE/iXpskwkVrBgG22Lm4PNVJK4X5IH96FXRXh82pZlAkhB8/yTa+XeWNkf9AnB7UL0fJ4H3s
-	BM1FT6s+22JSE0F7X5D0oAH4ydKN/Nom8QXCYX0MZZKQg8Py2d0fLuRA9UnKLgxLSJ2JD2VRWl5iP
-	7k8GjiL3Lmrd/ektKF1vt2FOslWB7xBGfc038zy+gmRb3WXlG49VyNdpnGSQ05Glj4rPv+W5rwodz
-	KMFDbOzBLFzvBaxKSsZvBKH7hebDAP7EBZWotVp43r/7+2MLvgI94MLj4e2vA7jHKC5zxhtwx8RhD
-	8Ted3sQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hMQq0jJEQshTzjxnb1XfDCm8LASdaJ7clh2uWi+5Tsc=; b=119sTbyT6bR35lT7urHP0oQ+n7
+	EDpFYDLfUa0FfuFIk2Zar2X30RpsXCJHIig8OTvT9RAgZyN8Kv7hazdxMX1X7J6nBg3zA3Z7I/Qux
+	i3mVFUAODxoIvvbgyOGI7BHPt3EDmjXORs4I0uzxpBDasEODZNZgVFxlRtIxUar30UXd0ktN4Mrza
+	e23wHoBGxGXJJFD+hJIChSzD7whWkazAuTKy3KAuvmCMnd153/s+HZo2rZy2Vwv6UdJ7jcRXoGXLQ
+	BegGi/oCd8AyQTsrnWQSBBxqDCd5pr2ASfl6jGWn/9SGAqO5YH7Z8VtHRs4uYsktGKy8d1QGjzl6n
+	e7T+ebTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjsGr-0000000DoRh-0w0F;
-	Wed, 15 Jul 2026 05:35:01 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjsGj-0000000DoKj-271Q
+	id 1wjsMo-0000000Dp4R-0yaL;
+	Wed, 15 Jul 2026 05:41:10 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjsMm-0000000Dp4J-1sBt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 05:34:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6B109339;
-	Tue, 14 Jul 2026 22:34:48 -0700 (PDT)
-Received: from a079125.blr.arm.com (a079125.arm.com [10.164.21.43])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 470B03F915;
-	Tue, 14 Jul 2026 22:34:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784093692; bh=xvWUwM25jkFsnNcI43QGqVVl3Rwv1/DjKc78I+lBWqM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=G6wCkvGskLePoHKA/n5nuizoDjgIdhGsDiSi3elStoMYQC4zdex8jP1EUeY+hP31m
-	 rsG3ez2hhDTlfLx2R3dkI5F0z8/ftZMguLrkAmRQuXKzhjTE9hyjVEvv61G5jRtSc4
-	 qCo7QfHply7l6I7LieH2S16Taxc2vrr3MgB6COVo=
-From: Linu Cherian <linu.cherian@arm.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Linu Cherian <linu.cherian@arm.com>
-Subject: [PATCH v3 6/6] arm64: cpufeature: Detect BBML3 based on ID_AA64MMFR2_EL1.BBM
-Date: Wed, 15 Jul 2026 11:04:08 +0530
-Message-ID: <20260715053408.1950475-7-linu.cherian@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260715053408.1950475-1-linu.cherian@arm.com>
-References: <20260715053408.1950475-1-linu.cherian@arm.com>
+	Wed, 15 Jul 2026 05:41:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 73F17600FF;
+	Wed, 15 Jul 2026 05:41:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B26371F000E9;
+	Wed, 15 Jul 2026 05:41:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784094067;
+	bh=hMQq0jJEQshTzjxnb1XfDCm8LASdaJ7clh2uWi+5Tsc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=AH4aTfvDY5e8DVBk0K2mX2cWVmPb+J7VHhpunZwIEDTNnFrO5WVUXGGmcFU/dQ1Ke
+	 Yj9YWaZRJsivMAhj0+0a+C/cbDat6h1jV++jjlpXYlSUVn1KB98ZxUyV8IXI9T1GCI
+	 2B2lhwXSZ8DCodJEu4Bcn1X7X0Rt2kj7F07FT9hjlOzfQQpkECoKE3iBz1PeWlWPOl
+	 kR9tng4/1i/fHV6IcH7KzySOPRYBjnyY4G0LPykQzJJrHpWfFyBuYTlkNIe7V6n/fR
+	 ruWs+8DAhXYmuYYfCqAfrk9Dk+0RDmgHSjSFCSrnge7TGpH0pm5L/Ti3t79QK6YIWY
+	 nFFuiD6yTZrIw==
+Date: Wed, 15 Jul 2026 07:40:59 +0200
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Soeren Moch <smoch@web.de>
+Cc: Bjorn Helgaas <bhelgaas@google.com>, 
+	Richard Zhu <hongxing.zhu@nxp.com>, stable@vger.kernel.org, Lucas Stach <l.stach@pengutronix.de>, 
+	Frank Li <Frank.Li@nxp.com>, Fabio Estevam <festevam@gmail.com>, linux-pci@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] PCI: imx6: Keep Root Port MSI capability also for i.MX6Q
+Message-ID: <6ayf4vt5wiftgz4myxpyze2wmmuxf5miakq6ffz2k3r6beiztu@lh5z5zjnljad>
+References: <20260427115804.134231-1-smoch@web.de>
+ <2cbqhvfjszzuanp4i3rohntkxpfgftfjvzt66te3wkohsvw26g@yv4txuy74tvu>
+ <465b1dcc-8e96-4edb-aebd-52937b8076d0@web.de>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_223453_583433_9D7B0CBB 
-X-CRM114-Status: GOOD (  11.76  )
+In-Reply-To: <465b1dcc-8e96-4edb-aebd-52937b8076d0@web.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,52 +73,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add ID_AA64MMFR2_EL1.BBM based BBML3 feature detection in
-cpu_supports_bbml3() so that cpus with the feature would
-not have to be added into MIDR based supports_bbml3_list.
+On Wed, Jul 08, 2026 at 10:52:22AM +0200, Soeren Moch wrote:
+> On 06.07.26 12:29, Manivannan Sadhasivam wrote:
+> > On Mon, Apr 27, 2026 at 01:58:04PM +0200, Soeren Moch wrote:
+> > > Also on the NXP i.MX6Q chipset MSIs from the endpoints won't be received by
+> > > the iMSI-RX MSI controller if the Root Port MSI capability is disabled.
+> > > 
+> > > Even though the Root Port MSIs won't be received by the iMSI-RX controller
+> > > due to design, this chipset has some weird hardware bug that prevents
+> > > the endpoint MSIs from reaching when the Root Port MSI capability is
+> > > disabled.
+> > > 
+> > > Hence, always keep the Root Port MSI capability for this chipset.
+> > > 
+> > > Note that by keeping Root Port MSI capability, Root Port MSIs such as AER,
+> > > PME and others won't be received by default. So users need to use
+> > > workarounds such as passing 'pcie_pme=nomsi' cmdline param.
+> > > 
+> > > Fixes: 3a4e8302e72f ("PCI: imx6: Keep Root Port MSI capability with iMSI-RX to work around hardware bug")
+> > This is not the correct fixes tag. Correct one is:
+> > f5cd8a929c825 ("PCI: dwc: Remove MSI/MSIX capability for Root Port if iMSI-RX is used as MSI controller")
+> Thanks for the fix of the fixes tag!
+> > > Cc: <stable@vger.kernel.org> # 7.0.x
+> > > Signed-off-by: Soeren Moch <smoch@web.de>
+> > Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
+> > 
+> > @Bjorn: Can you merge this patch for 7.2-rcS with correct fixes tag?
+> I can send a v2 of the patch if you prefer.
+> 
 
-Signed-off-by: Linu Cherian <linu.cherian@arm.com>
----
- arch/arm64/kernel/cpufeature.c | 17 +++++++++--------
- 1 file changed, 9 insertions(+), 8 deletions(-)
+That'll help.
 
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 25a705e02618..b58fdcb35406 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -2133,6 +2133,12 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
- 
- bool cpu_supports_bbml3(void)
- {
-+	u64 mmfr2;
-+
-+	mmfr2 = __read_sysreg_by_encoding(SYS_ID_AA64MMFR2_EL1);
-+	if (SYS_FIELD_GET(ID_AA64MMFR2_EL1, BBM, mmfr2) >= ID_AA64MMFR2_EL1_BBM_3)
-+		return true;
-+
- 	/* CPUs that support BBML3 but dont advertise through MMFR2 ID */
- 	static const struct midr_range supports_bbml3_list[] = {
- 		MIDR_REV_RANGE(MIDR_CORTEX_X4, 0, 3, 0xf),
-@@ -2154,15 +2160,10 @@ bool cpu_supports_bbml3(void)
- 		{}
- 	};
- 
--	if (!is_midr_in_range_list(supports_bbml3_list))
--		return false;
--
--	/*
--	 * We currently ignore the ID_AA64MMFR2_EL1 register, and only care
--	 * about whether the MIDR check passes.
--	 */
-+	if (is_midr_in_range_list(supports_bbml3_list))
-+		return true;
- 
--	return true;
-+	return false;
- }
- 
- static bool has_bbml3(const struct arm64_cpu_capabilities *caps, int scope)
+- Mani
+
 -- 
-2.43.0
-
+மணிவண்ணன் சதாசிவம்
 
