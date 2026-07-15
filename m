@@ -4,100 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48891C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 14:06:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDE24C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 14:07:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BArhhnpdI/Cv8HoI1hRJgRyqIoDXROOU23KIbFFyDpY=; b=q7K+JLrwlfCz653e6AIJ/cADsE
-	f7cFanrxGfzrkmxjNFy0gkKubAasKneKTdIaHiI8eTqoNzVIbeoPsYc6EdH/KI8JKeAL/ZpHWCzny
-	KihlDvWSdCMm0/9V2thmNHYh7WaL0On0IJ0RxrRPDDtXML5OsC3U96enb6aN0YG11jCwH2HVGUEfH
-	X2cRmSD5ZNkmq2ZRWlc51hwaGSCLu+0IoWNnczO9EPhyjQqMw78BCLbkPuyfYT4S398dNrxG6ij7+
-	L4tqRHXiwc2gglFzwMF6Z4oNv0SbykPfK0yTBI1fvPMXYOs9PjbwBL+fqYDmKAdCN6Ul9LDtSpw0R
-	75VFtCcA==;
+	bh=z0x9Yb75Iw5UsehfXbTGezEb7bFrOH4PRkmZEKX0WWc=; b=AIu1A0sf3rjsC142BBGlboYluV
+	uTQyIUFaiTr2tr7/BIpgc9gxsIPTdG5lEz2oDaIRPP24j+5SFkGEH/vH1drPcrUzm5FAX8UANpF6p
+	ZBij3Oquy7BEjcWuiHaooJLrrlRGCTpRw9DTMjZrQBFwfTKPj3RQ/GEbmMAtulBXVa7icbSFNvmXW
+	wXsScnD3yqmi194YqFliqPhkuKBP5DbhOIIyYYvDh1aHWD1iqJ3fg21I87GIKB6u4Xx/quXMTHEI3
+	4evBw7fJ49DRM1pYsUpODLZI+IYpJp6hg3HUv1kr/hiDowBCwv4ghF7DMFQj1XFrgmH2AgS5x+hjW
+	1NDYnL4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk0AS-0000000F2zd-0bsz;
-	Wed, 15 Jul 2026 14:00:56 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk0AP-0000000F2yH-2lDS
+	id 1wk0GJ-0000000F3le-48Ur;
+	Wed, 15 Jul 2026 14:06:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wk0GH-0000000F3ko-2aSG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 14:00:54 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-493ec555a26so35550815e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 07:00:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784124051; x=1784728851; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=BArhhnpdI/Cv8HoI1hRJgRyqIoDXROOU23KIbFFyDpY=;
-        b=V1hEvxLgF3nlyfTDpuvisgHZRFuJheEawKg2lzokLMnkfef5ZunhYd5XmCWStu/PxT
-         7m03+HKWJpoKJZ+v3+gHWWb41UYsx9bDL01IIQxpgZC5DZwLTT36cjzC51IvBcVGC8se
-         1T7pp2I1GC489WmU0AMJmWFjTvEqDiL/Zr7N/jiI0eniyO1S8PmcrpliC2sYwP7O2YRv
-         fUcZFdOKFDuN/MeMfTudE9SInq7kTwhOkwO2dGISql4eI3fNMARP4aw5q1dYY2Nh7TBJ
-         QSXYgzG+shOTMzMZxYo2yjOu5uKJxM3Dd2y/pahkzg4+Gz4FAH6/osAGEMrg24/BC7EI
-         KZjw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784124051; x=1784728851;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=BArhhnpdI/Cv8HoI1hRJgRyqIoDXROOU23KIbFFyDpY=;
-        b=nX4nmc1smjAq2e+3J51g91k6eThHYvjprXr8xLzOsA9H2t4OJs5eaCM5KT/R4LcHpa
-         OvmR9DVEkkiZAvV0C82HGOh0LPmejyuTLuO2Vgk7nAUbaPdVzMSwkgFPoKkL+wKRFG47
-         AEhRn0cflVD4s9/L1YC7s0bRG77LQ1VmvpSSVcMFS+r6XkhnM34gRqe5v6bnttq4++09
-         0akAaSokWYZAOLO2LJfwiMmeXSnAspSiz187wHfuwCv4Jo+TuoPHAsr6nSMNfHdbpvaS
-         z87V0cnHJJuZCufEG6k3FP5CrihFM31ZvYAKRbogdzSmGIg1g4HHfGTGGTv6ASJrjU/x
-         YBCw==
-X-Forwarded-Encrypted: i=1; AHgh+Rpynq4N1zzb+Ma/+KmjNJsnpKPxbF36jF1qePNKXsck5FeXraH2sdEm8YucFCH8rLT4bXe3ixvTdU8d4BgxnkAj@lists.infradead.org
-X-Gm-Message-State: AOJu0YzSjYO54kJg7N/wMuNDhwE+OAlIRY4Ql1/E5mTqj9xJMXCHE86a
-	JOqmM/lSHYKCC/MpRWjeqSZ17QIrOJ1uZ4ZiTwEkZH4pEhmbxKNODsXp
-X-Gm-Gg: AfdE7clhm5yMXehKbszipexuFxxI3f66npEqwwPUxo/KMtkvLPiE7ggALfPUF8zmkRj
-	Elb67Era75IsJqiMeGQuU+0GPmc4yVYzLnQ450PHw6AjCvDPE+VghkJ/chXrBKe/2DrQaOvFPTz
-	Xp60eNGA7uxdsaz/dBYx6lpx9fm7y+nbXucUF26xPfj5hKrzXoFDXtFFbLkIXyHrxPzcOVqc5sr
-	2ygOKA8YAFGBXJAKTZg8oyFYIVnNzKA9r+qECvWftW2bh28wiX7Pb+Xv2cLH1WLv6EH9kzAYHnk
-	78siQN5+I1X00nxom46hs3VEP4i/kEhq3wKO+KdTcnWlFtTZi8/q83Lasb+ubLfRae3N3MkEqef
-	RoSP3WihtrBhwXUVmY3/9o7p74DITR3+xTn2B9QAf5IKE0cTSgHUHbc1/yP5VNfEtiOU8mlNNY2
-	TjYx5Lny5Um5cUbOTIrtUeL169ShDP3QozVdrCqeWa0uYzCol80vLSnG7oYSIa2OKs62OdfbuU7
-	VgwlRb0MOQZDfw9zdsawZwall/eh5sV0LBpy0AwZU3qYTQvVgzZR6Zo+dethsD7nXyAmILuousJ
-	xvGLfQz0+UG3tLF7Mxvt14M3AULDxnSdHfpOvgvhY0/quHXikqrA5z9BTpMdm7PLHM6WU9/hxHX
-	oc3vE9LEet1f2Loo67czHB+U=
-X-Received: by 2002:a05:600c:6211:b0:495:3a21:4e5d with SMTP id 5b1f17b1804b1-4953c001211mr34667645e9.0.1784124050314;
-        Wed, 15 Jul 2026 07:00:50 -0700 (PDT)
-Received: from localhost (90-182-112-124.rcp.o2.cz. [90.182.112.124])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4950a2edd6fsm150750035e9.11.2026.07.15.07.00.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jul 2026 07:00:50 -0700 (PDT)
-Date: Wed, 15 Jul 2026 16:00:48 +0200
-From: Joshua Crofts <joshua.crofts1@gmail.com>
-To: Pan Chuang <panchuang@vivo.com>
-Cc: Fabrice Gasnier <fabrice.gasnier@foss.st.com>, William Breathitt Gray
- <wbg@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre
- Torgue <alexandre.torgue@foss.st.com>, Vignesh Raghavendra
- <vigneshr@ti.com>, Julien Panis <jpanis@baylibre.com>, David Lechner
- <david@lechnology.com>, linux-iio@vger.kernel.org (open list:COUNTER
- SUBSYSTEM), linux-stm32@st-md-mailman.stormreply.com (moderated
- list:ARM/STM32 ARCHITECTURE), linux-arm-kernel@lists.infradead.org
- (moderated list:ARM/STM32 ARCHITECTURE), linux-kernel@vger.kernel.org (open
- list), linux-omap@vger.kernel.org (open list:TI ENHANCED CAPTURE (eCAP)
- DRIVER)
-Subject: Re: [PATCH 0/3] counter: Remove redundant error messages on IRQ
- request failure
-Message-ID: <20260715160048.00000737@gmail.com>
-In-Reply-To: <20260715135030.326290-1-panchuang@vivo.com>
-References: <20260715135030.326290-1-panchuang@vivo.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+	Wed, 15 Jul 2026 14:06:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ABD0F1477;
+	Wed, 15 Jul 2026 07:06:48 -0700 (PDT)
+Received: from [10.1.25.27] (e122027.cambridge.arm.com [10.1.25.27])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 73C703F7B4;
+	Wed, 15 Jul 2026 07:06:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784124412; bh=1ZeNg9YTuPw/AmC+GZRY0j4BvPPBnhLsNmw1jbgJg7Y=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=qFS5q/GEJBFM5qm1yviVBB20cZjHISg0vJ8nxqcQRXasfZg1u3OjdqRliIqw9JYsV
+	 LPp+Iy5h4umC2YCdohZ+MSbdfnQEob8eaowep9qLC2vtu6yAHTkZxT7pqmPBouYvn3
+	 5INR4WzBfrCmMJuk21PrysPuWCAIeqSAu0xZ5FdI=
+Message-ID: <b605b7bc-7d0f-478a-8df4-ef1bea67c8fb@arm.com>
+Date: Wed, 15 Jul 2026 15:06:43 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v14 26/44] arm64: RMI: Allow populating initial contents
+To: Kohei Enju <enju.kohei@fujitsu.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+ Lorenzo.Pieralisi2@arm.com
+References: <20260513131757.116630-1-steven.price@arm.com>
+ <20260513131757.116630-27-steven.price@arm.com>
+ <alWzvLK1RRotK1LL@FCCLS0092175.localdomain>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <alWzvLK1RRotK1LL@FCCLS0092175.localdomain>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_070053_714286_4764AE53 
-X-CRM114-Status: GOOD (  13.94  )
+X-CRM114-CacheID: sfid-20260715_070657_750763_EDD83DB2 
+X-CRM114-Status: GOOD (  33.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,39 +86,281 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 15 Jul 2026 21:50:27 +0800
-Pan Chuang <panchuang@vivo.com> wrote:
+On 14/07/2026 05:37, Kohei Enju wrote:
+> On 05/13 14:17, Steven Price wrote:
+>> The VMM needs to populate the realm with some data before starting (e.g.
+>> a kernel and initrd). This is measured by the RMM and used as part of
+>> the attestation later on.
+>>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> ---
+>> Changes since v13:
+>>  * Rename realm_create_protected_data_page() to realm_data_map_init().
+>> Changes since v12:
+>>  * The ioctl now updates the structure with the amount populated rather
+>>    than returning this through the ioctl return code.
+>>  * Use the new RMM v2.0 range based RMI calls.
+>>  * Adapt to upstream changes in kvm_gmem_populate().
+>> Changes since v11:
+>>  * The multiplex CAP is gone and there's a new ioctl which makes use of
+>>    the generic kvm_gmem_populate() functionality.
+>> Changes since v7:
+>>  * Improve the error codes.
+>>  * Other minor changes from review.
+>> Changes since v6:
+>>  * Handle host potentially having a larger page size than the RMM
+>>    granule.
+>>  * Drop historic "par" (protected address range) from
+>>    populate_par_region() - it doesn't exist within the current
+>>    architecture.
+>>  * Add a cond_resched() call in kvm_populate_realm().
+>> Changes since v5:
+>>  * Refactor to use PFNs rather than tracking struct page in
+>>    realm_create_protected_data_page().
+>>  * Pull changes from a later patch (in the v5 series) for accessing
+>>    pages from a guest memfd.
+>>  * Do the populate in chunks to avoid holding locks for too long and
+>>    triggering RCU stall warnings.
+>> ---
+>>  arch/arm64/include/asm/kvm_rmi.h |   4 ++
+>>  arch/arm64/kvm/Kconfig           |   1 +
+>>  arch/arm64/kvm/arm.c             |  13 ++++
+>>  arch/arm64/kvm/rmi.c             | 106 +++++++++++++++++++++++++++++++
+>>  4 files changed, 124 insertions(+)
+>>
+>> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
+>> index 007249a13dbc..a2b6bc412a22 100644
+>> --- a/arch/arm64/include/asm/kvm_rmi.h
+>> +++ b/arch/arm64/include/asm/kvm_rmi.h
+>> @@ -88,6 +88,10 @@ int kvm_rec_enter(struct kvm_vcpu *vcpu);
+>>  int kvm_rec_pre_enter(struct kvm_vcpu *vcpu);
+>>  int handle_rec_exit(struct kvm_vcpu *vcpu, int rec_run_status);
+>>  
+>> +struct kvm_arm_rmi_populate;
+>> +
+>> +int kvm_arm_rmi_populate(struct kvm *kvm,
+>> +			 struct kvm_arm_rmi_populate *arg);
+>>  void kvm_realm_unmap_range(struct kvm *kvm,
+>>  			   unsigned long ipa,
+>>  			   unsigned long size,
+>> diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+>> index 4e16719fda22..d0cd011cf672 100644
+>> --- a/arch/arm64/kvm/Kconfig
+>> +++ b/arch/arm64/kvm/Kconfig
+>> @@ -38,6 +38,7 @@ menuconfig KVM
+>>  	select GUEST_PERF_EVENTS if PERF_EVENTS
+>>  	select KVM_GUEST_MEMFD
+>>  	select KVM_GENERIC_MEMORY_ATTRIBUTES
+>> +	select HAVE_KVM_ARCH_GMEM_POPULATE
+>>  	help
+>>  	  Support hosting virtualized guest machines.
+>>  
+>> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+>> index ed88a203b892..073ba9181da9 100644
+>> --- a/arch/arm64/kvm/arm.c
+>> +++ b/arch/arm64/kvm/arm.c
+>> @@ -2131,6 +2131,19 @@ int kvm_arch_vm_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
+>>  			return -EFAULT;
+>>  		return kvm_vm_ioctl_get_reg_writable_masks(kvm, &range);
+>>  	}
+>> +	case KVM_ARM_RMI_POPULATE: {
+>> +		struct kvm_arm_rmi_populate req;
+>> +		int ret;
+>> +
+>> +		if (!kvm_is_realm(kvm))
+>> +			return -ENXIO;
+>> +		if (copy_from_user(&req, argp, sizeof(req)))
+>> +			return -EFAULT;
+>> +		ret = kvm_arm_rmi_populate(kvm, &req);
+>> +		if (copy_to_user(argp, &req, sizeof(req)))
+>> +			return -EFAULT;
+>> +		return ret;
+>> +	}
+>>  	default:
+>>  		return -EINVAL;
+>>  	}
+>> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
+>> index a89873a5eb77..209087bcf399 100644
+>> --- a/arch/arm64/kvm/rmi.c
+>> +++ b/arch/arm64/kvm/rmi.c
+>> @@ -486,6 +486,75 @@ void kvm_realm_unmap_range(struct kvm *kvm, unsigned long start,
+>>  		realm_unmap_private_range(kvm, start, end, may_block);
+>>  }
+>>  
+>> +static int realm_data_map_init(struct kvm *kvm, unsigned long ipa,
+>> +			       kvm_pfn_t dst_pfn, kvm_pfn_t src_pfn,
+>> +			       unsigned long flags)
+>> +{
+>> +	struct realm *realm = &kvm->arch.realm;
+>> +	phys_addr_t rd = virt_to_phys(realm->rd);
+>> +	phys_addr_t dst_phys, src_phys;
+>> +	int ret;
+>> +
+>> +	dst_phys = __pfn_to_phys(dst_pfn);
+>> +	src_phys = __pfn_to_phys(src_pfn);
+>> +
+>> +	if (rmi_delegate_page(dst_phys))
+>> +		return -ENXIO;
+>> +
+>> +	ret = rmi_rtt_data_map_init(rd, dst_phys, ipa, src_phys, flags);
+>> +	if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT) {
+>> +		/* Create missing RTTs and retry */
+>> +		int level = RMI_RETURN_INDEX(ret);
+>> +
+>> +		KVM_BUG_ON(level == KVM_PGTABLE_LAST_LEVEL, kvm);
+>> +
+>> +		ret = realm_create_rtt_levels(realm, ipa, level,
+>> +					      KVM_PGTABLE_LAST_LEVEL, NULL);
+>> +		if (!ret) {
+>> +			ret = rmi_rtt_data_map_init(rd, dst_phys, ipa, src_phys,
+>> +						    flags);
+> 
+> I think rmi_rtt_data_map_init() returns a raw RMI return value which is
+> positive on failure. Shouldn't it be converted to -ENXIO or another
+> Linux errno before returning it?
+> 
+> Otherwise, the positive error value can propagate through
+> kvm_gmem_populate() and populate_region() to kvm_arm_rmi_populate().
+> There, it would be treated as the number of pages populated, even though
+> the operation did not populate any pages.
 
-> Commit 55b48e23f5c4 ("genirq/devres: Add error handling in
-> devm_request_*_irq()") added automatic error logging to
-> devm_request_threaded_irq() and devm_request_any_context_irq()
-> via the new devm_request_result() helper, which prints device
-> name, IRQ number, handler functions, and error code on failure.
-> 
-> Since devm_request_irq() is a static inline wrapper around
-> devm_request_threaded_irq(), it also benefits from this
-> automatic logging.
-> 
-> Remove the now-redundant dev_err() and dev_err_probe() calls
-> in counter drivers that follow these devm_request_*_irq()
-> functions, as the core now provides more detailed diagnostic
-> information on failure.
-> 
-> Pan Chuang (3):
->   counter: stm32-timer-cnt: Remove redundant dev_err()
->   counter: ti-ecap-capture: Remove redundant dev_err_probe()
->   counter: ti-eqep: Remove redundant dev_err_probe()
-> 
->  drivers/counter/stm32-timer-cnt.c | 10 ++--------
->  drivers/counter/ti-ecap-capture.c |  2 +-
->  drivers/counter/ti-eqep.c         |  2 +-
->  3 files changed, 4 insertions(+), 10 deletions(-)
-> 
+Good spot.
 
-LGTM.
+>> +		}
+>> +	}
+>> +
+>> +	if (ret) {
+>> +		if (WARN_ON(rmi_undelegate_page(dst_phys))) {
+>> +			/* Undelegate failed, so we leak the page */
+>> +			get_page(pfn_to_page(dst_pfn));
+> 
+> Since realm_create_rtt_levels() returns either 0 or a negative errno,
+> how about preserving that error and converting any raw RMI erorr to
+> -ENXIO here?
+> 
+> 		return ret < 0 ? ret : -ENXIO;
 
--- 
-Kind regards
+Makes sense, although this needs to be:
 
-CJD
+	return ret <= 0 ? ret : -ENXIO;
+
+to handle the ret==0 case. I'll fix this in my next posting.
+
+>> +		}
+>> +	}
+>> +
+>> +	return ret;
+>> +}
+>> +
+>> +static int populate_region_cb(struct kvm *kvm, gfn_t gfn, kvm_pfn_t pfn,
+>> +			      struct page *src_page, void *opaque)
+>> +{
+>> +	unsigned long data_flags = *(unsigned long *)opaque;
+>> +	phys_addr_t ipa = gfn_to_gpa(gfn);
+>> +
+>> +	if (!src_page)
+>> +		return -EOPNOTSUPP;
+>> +
+>> +	return realm_data_map_init(kvm, ipa, pfn, page_to_pfn(src_page),
+>> +				   data_flags);
+>> +}
+>> +
+>> +static long populate_region(struct kvm *kvm,
+>> +			    gfn_t base_gfn,
+>> +			    unsigned long pages,
+>> +			    u64 uaddr,
+>> +			    unsigned long data_flags)
+>> +{
+>> +	long ret = 0;
+>> +
+>> +	mutex_lock(&kvm->slots_lock);
+>> +	ret = kvm_gmem_populate(kvm, base_gfn, u64_to_user_ptr(uaddr), pages,
+>> +				populate_region_cb, &data_flags);
+>> +	mutex_unlock(&kvm->slots_lock);
+>> +
+>> +	return ret;
+>> +}
+>> +
+>>  enum ripas_action {
+>>  	RIPAS_INIT,
+>>  	RIPAS_SET,
+>> @@ -574,6 +643,43 @@ static int realm_ensure_created(struct kvm *kvm)
+>>  	return -ENXIO;
+>>  }
+>>  
+>> +int kvm_arm_rmi_populate(struct kvm *kvm,
+>> +			 struct kvm_arm_rmi_populate *args)
+>> +{
+>> +	unsigned long data_flags = 0;
+>> +	unsigned long ipa_start = args->base;
+>> +	unsigned long ipa_end = ipa_start + args->size;
+>> +	long pages_populated;
+>> +	int ret;
+>> +
+>> +	if (args->reserved ||
+>> +	    (args->flags & ~KVM_ARM_RMI_POPULATE_FLAGS_MEASURE) ||
+>> +	    !IS_ALIGNED(ipa_start, PAGE_SIZE) ||
+>> +	    !IS_ALIGNED(ipa_end, PAGE_SIZE) ||
+>> +	    !IS_ALIGNED(args->source_uaddr, PAGE_SIZE))
+>> +		return -EINVAL;
+>> +
+>> +	ret = realm_ensure_created(kvm);
+>> +	if (ret)
+>> +		return ret;
+> 
+> If I understand correctly, concurrent KVM_ARM_RMI_POPULATE calls can
+> race with each other in realm_ensure_created(). 
+> 
+> realm_ensure_created() calls realm_create_rd() when kvm_realm_state() ==
+> REALM_STATE_NONE. Since kvm->arch.config_lock is not held here, multiple
+> threads could enter realm_create_rd() concurrently.
+> 
+> KVM_ARM_RMI_POPULATE can also race with KVM_RUN through
+> kvm_activate_realm(). kvm_activate_realm() takes kvm->arch.config_lock
+> while checking the Realm state, calling realm_ensure_created(), and
+> updating the state, whereas KVM_ARM_RMI_POPULATE does not.
+> 
+> How about serializing Realm creation here as follows?
+> 	scoped_guard(mutex, &kvm->arch.config_lock) {
+> 		ret = realm_ensure_created(kvm);
+> 		if (ret)
+> 			return ret;
+> 	}
+> 
+> Does that make sense?
+
+Yes this is a bug I'd already caught and is due to the fixed in my next
+posting - similar to what you suggest the config_lock is now held when
+realm_ensure_created() is called (and I've put a lockdep_assert_held()
+in realm_ensure_created).
+
+Thanks,
+Steve
+
+>> +
+>> +	if (args->flags & KVM_ARM_RMI_POPULATE_FLAGS_MEASURE)
+>> +		data_flags |= RMI_MEASURE_CONTENT;
+>> +
+>> +	pages_populated = populate_region(kvm, gpa_to_gfn(ipa_start),
+>> +					  args->size >> PAGE_SHIFT,
+>> +					  args->source_uaddr, data_flags);
+>> +
+>> +	if (pages_populated < 0)
+>> +		return pages_populated;
+>> +
+>> +	args->size -= pages_populated << PAGE_SHIFT;
+>> +	args->source_uaddr += pages_populated << PAGE_SHIFT;
+>> +	args->base += pages_populated << PAGE_SHIFT;
+>> +
+>> +	return 0;
+>> +}
+>> +
+>>  static void kvm_complete_ripas_change(struct kvm_vcpu *vcpu)
+>>  {
+>>  	struct kvm *kvm = vcpu->kvm;
+>> -- 
+>> 2.43.0
+>>
+>>
+
 
