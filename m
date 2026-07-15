@@ -4,78 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93B4CC44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 06:50:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B99BBC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 06:58:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kf5iFx/H7Oqazj4You+NJk5Cr462LYWEnHLr3t8qGJY=; b=JDfehbCDl36Sysv1V2NO8oGtUa
-	TEkIF3Ok7e4HLz6goPvcP8rRTH75vcVcug0EmWHu5NTjOXbydCZ5u0ihiFhuK2YF0JNjCLuwGVQ7D
-	qDnbF91tIRuGJ2Hir8/7mEl/Ov0nEesPJPWXdDvzboOf8fGKzAIWsdhUAiNmFDVPsHSZyukQ02b+p
-	OXt+Gm+yzgYRbQYmz84BD3cFrYAGdm5UXbeWsMJrEjmlh8FJdmbuQBt7eV3c2v+whfc+IiYwUBB9W
-	1hirAk/+5VhsTpHWbUsaIMGqdd3kdWpkxnrsuuf/1bVKz2yh2WuHW8TAsK3Z9WhXAbO79cjIqmeb8
-	mwXvTOvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M0mol56OeFOLoPE50aRHGw+ca2VnBERRt74M97RUREk=; b=VTe0JnjUDVbLAzj7YoiF9BXgG+
+	Nv4iB6H6OmUKyvIUDvbFfTr77IEuH+H6XhES2fZo00+oC4Ic45axjCL/gG4xwE8EFsuSmBIlxwuzN
+	N3OsUgb2496sbFB+6k05cLKSpP7WBJ+Nlsan/QqsUVIHhQFM+7Y1CFshV5yfBwsjl3hxMnXuBN1lR
+	ZN4Ubb+EP8af59NPRPK6iQHq/dEwheN3txtLld0r/7aRr7XLtvp6XJLXO61HVM16qAcTkzt8olOWH
+	2W8ltWNgr7Go4Q2NxqqgA+eUxHYPzzfkGady7lGBXACB87ZXG6myIugpVS62GnHFz8qW+ZI0Cu7Qn
+	5kx2iSxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjtSE-0000000DwfM-2wtM;
-	Wed, 15 Jul 2026 06:50:50 +0000
-Received: from mout.web.de ([212.227.15.14])
+	id 1wjtZp-0000000DxVe-1HRZ;
+	Wed, 15 Jul 2026 06:58:41 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjtSC-0000000Dwei-0a8B
+	id 1wjtZm-0000000DxV4-3RJD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 06:50:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1784098244; x=1784703044; i=markus.elfring@web.de;
-	bh=Kf5iFx/H7Oqazj4You+NJk5Cr462LYWEnHLr3t8qGJY=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=TCsrQf0fFPX2M9ALbL5aomS8Af4Hf10o/wgA54obukIniIS4fhElF1Igu7vgDfs/
-	 dm34CxBXWmj+63tA+4RLWYyEqdEMdZWO4Eg/lJFxTxXYZTPurkenHsGoTlLKj4SaF
-	 5PGXAEo4KfxA048MwXc04fVL8Ne0uMb3RG/bPlrGUjm4TSBWjrVSyd7Wt1XvroCfo
-	 fwnvKBgH5Zy3dkiuUw3A1ZPEcMYBeSxlXGNsGRvNviuJ5OlID5X21SZKCgMwZdQ6p
-	 skx8W1pMcmzGatjhNOjZav6SMAnuUO9z/f3DvFPOIiXe9ou5rFR8uVxb31xshlI8O
-	 iXoEOpOK9gIpFIgckQ==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb005
- [213.165.67.108]) with ESMTPSA (Nemesis) id 1MF2gW-1wqT2h3KOm-00EK3m; Wed, 15
- Jul 2026 08:50:43 +0200
-Message-ID: <693e0bee-6522-4d6a-803f-3bbd0ea2243b@web.de>
-Date: Wed, 15 Jul 2026 08:50:41 +0200
+	Wed, 15 Jul 2026 06:58:40 +0000
+Date: Wed, 15 Jul 2026 08:58:32 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1784098714;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=M0mol56OeFOLoPE50aRHGw+ca2VnBERRt74M97RUREk=;
+	b=TIWmDRW4FGasjDIy7WqLSusYTjUObf4nRjqHBNfsaWJvbQo272KaYPw6NTNO3CvIewl5kp
+	OIZ/qbV6lElnpU2I+0u/Pr/WmkyieoAmMWNL8OzxftlfKFq9Vj4Y2oQN2Y4piyRAOdmUmK
+	LCy5UvMcooQkqqiOYOcyFiwEyvjyOYNclPYc1WHCFiMC0EF9XwOAphI0AkJBcIwmDDF5ar
+	I7OmdRt8AJVJAMjenWkiOxMUHE+fzx6Dt2xQr6L9WtuCou/fAtgu9W3ESgaFQ4WZyiowRF
+	9oh5hfcE2+KU//adKJkkUa+L7SmJ4Z0l39DFAkLPBqOverJfirSzYXHgsq2XQQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1784098714;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=M0mol56OeFOLoPE50aRHGw+ca2VnBERRt74M97RUREk=;
+	b=lccC5GJsOFnqIHdkjERveWjvsMWe+8tdazhZB/+RL2ukRNuhHNJUSATmuBFVM5R5Pcgn9G
+	6kQWqDTrtGwYuhBQ==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: MOHAMED AYMAN <mohamedaymanworkspace@gmail.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@arm.com>,
+	James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	"moderated list:ARM/CORESIGHT FRAMEWORK AND DRIVERS" <coresight@lists.linaro.org>,
+	"moderated list:ARM/CORESIGHT FRAMEWORK AND DRIVERS" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	"open list:Real-time Linux (PREEMPT_RT):Keyword:PREEMPT_RT" <linux-rt-devel@lists.linux.dev>
+Subject: Re: [PATCH v2] coresight: Fix scheduling while atomic in
+ coresight_put_percpu_source_ref()
+Message-ID: <20260715065832.qI7c2Px5@linutronix.de>
+References: <20260712210446.14290-1-mohamedaymanworkspace@gmail.com>
+ <20260713230028.8046-1-mohamedaymanworkspace@gmail.com>
+ <20260714104252.NuPnAQyJ@linutronix.de>
+ <CABWZVho1=oJHU6U16Kc-Nh1bQbn07oz7PPkM9Diy=JS0beGjFQ@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [v5 1/2] i2c: imx-lpi2c: properly unwind resources on probe
- failure
-To: Carlos Song <carlos.song@oss.nxp.com>, imx@lists.linux.dev,
- linux-i2c@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kernel@pengutronix.de
-Cc: Carlos Song <carlos.song@nxp.com>, Andi Shyti <andi.shyti@kernel.org>,
- Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>,
- Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
- LKML <linux-kernel@vger.kernel.org>
-References: <20260630105223.3687516-2-carlos.song@oss.nxp.com>
- <f6284d81-75fa-4418-b4f6-531163bd02cb@web.de>
- <5fp45u3yuwz73nk6eeofx5fp5drvaqxp435mithslttb73zylb@t2s3se5a4qux>
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <5fp45u3yuwz73nk6eeofx5fp5drvaqxp435mithslttb73zylb@t2s3se5a4qux>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Provags-ID: V03:K1:5g9+4PnFGin4TKW+0JEB+INZPsUEFxIwpEmldkaL1xfEUP/4ulb
- bvcZJ/7/74/u85Op7aEo5pagcD/8sYhWit7fpfbb1aGaKFuo3EP3SpiCFTxaT/favL4ZlLk
- 50DgqwDYkMrXJYjFrc3z6MVJAoz8N/MNdh4bCFRFkukC7Msa8SijRljsJfs04K7eC3Bz4AV
- eZ28hKBy8yFE0C3ejlkXw==
-UI-OutboundReport: notjunk:1;M01:P0:AVNG5ggCihc=;HUFFSq5Wvt0QAXZ7ps+YXqdAvSa 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 =
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <CABWZVho1=oJHU6U16Kc-Nh1bQbn07oz7PPkM9Diy=JS0beGjFQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_235048_555369_70B78A38 
-X-CRM114-Status: UNSURE (   4.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260714_235839_033493_9298C91C 
+X-CRM114-Status: GOOD (  20.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,13 +87,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Does it look better?
+On 2026-07-14 22:42:12 [+0300], MOHAMED AYMAN wrote:
+> Hi Sebastian,
+Hi Mohamed,
 
-I suggest to reconsider missing tab characters in the indentation.
+> Thank you for the review and the feedback.
+> 
+> Regarding the commit message:
+> You are completely right. I will update the wording in the v4 patch to
+> explicitly state that it "uses a spinlock_t for locking which becomes
+> a sleeping lock on PREEMPT_RT" instead of calling it an rt_mutex
+> directly.
+> 
+> Regarding the module-ref counter:
+> We don't explicitly bump the module reference count for each new
+> device. Instead, we rely on `destroy_workqueue(coresight_wq)` inside
+> `coresight_exit()`. `destroy_workqueue()` synchronously drains all
+> pending work items before returning, which ensures no deferred puts
+> are executed after the module is unmapped.
+
+But what stops the module unload before all devices are released?
+
+> Regarding deferring coresight_device_release() vs put_device():
+> My initial v1 patch did exactly what you suggested, it only deferred
+> the body of `coresight_device_release()`. However, it was pointed out
+> that `put_device()` synchronously recurses into `kobject_cleanup()`,
+> which invokes the child's release function and immediately afterwards
+> calls `kobject_put(parent)`.
+> 
+> If we only defer the child's release callback, the `put_device()` call
+> itself will still execute in the atomic CPU_PM notifier context. If
+> the parent device's release path acquires any sleeping locks, we will
+> still hit a "scheduling while atomic" panic. Deferring `put_device()`
+> entirely protects against this parent cascade.
+> 
+> If it is strictly guaranteed that Coresight parent devices (liike
+> AMBA) will never sleep during their release paths, I can happily
+> revert to the simpler approach of just deferring
+> `coresight_device_release()`.
+> 
+> Would you prefer I revert to deferring just the release function, or
+> keep the current architecture to safeguard the parent put?
+
+Well deferring as I suggested if the kobj goes away is a not good.
+That I part I didn't get: You have the call chain:
+|  coresight_cpu_pm_notify() (IRQs off)
+|    -> coresight_put_percpu_source_ref()
+|      -> put_device()
+|        -> coresight_device_release()
+|          -> free_percpu()
 
 
-https://elixir.bootlin.com/linux/v7.2-rc3/source/drivers/i2c/busses/i2c-imx-lpi2c.c#L1471-L1583
+What you skipped is coresight_cpu_get_active_path() and this one has a
+get and a put. Your put has a irqlock on coresight_dev_lock which I am
+not sure you need. But more importantly, why is the reference going back
+to 0? There would have to be a coresight_clear_percpu_source() in
+between, right?
 
-Regards,
-Markus
+If you could avoid grabbing a reference in the coresight_cpu_pm_notify()
+path then we wouldn't have that problem or is there more to it?
+
+> Best regards,,
+> Mohamed Ayman
+
+Sebastian
 
