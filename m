@@ -4,74 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29CB6C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 08:18:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA56AC44507
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 08:19:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8hGVZh4PoHLjhUPeUZDk7YT9r2Csoy+q60RG1t1sPcs=; b=2yfAApyKmi1bVyDIO6K5MgRSmL
-	dFMMSYsuGlRxEFrkF6/qM49K+NSs86Sg9x6f8PYATMoUc/diklS2dDryJMCKxll+E+9qFRxH4Yb4k
-	RiVquq1qpPKMsVUAkwIzwuzFHEEkF7oR11pZWEZMEweGyql1+IQFkIwKS4bS+4EZmrscm6l6In2Cf
-	dEoUtqUBk3A+4tnZ0yQ/tJzzMjUVyHrxlpstdHAr8skglBaq3Q5KsY1MAX5lN6BPdWtFS37ZtOquz
-	lO9ncETwUOuSv2tdCUSDZQSRmcC53bS1lvr73e0XR2lixS5cL/UeRbWRuxPNZpJXPAlCZlQ23+uI0
-	pObdgaHA==;
+	bh=9di0iPNirA8i2aRvfh+nDPIZh/v7N+As+I0AKLeoCG0=; b=3HwdKnjOPHR1PnjbDtPe4KwOsc
+	r18Cw0IyWzskcmnWPnQrux1N5PKAtQafMkWg7Blr3o8zjwJWecGNvEcG1LbZUIpoTjksOkPcC/eBV
+	js0wq0zVSJDjV+svu2v+iiZbHmmdd0yp7h3NkPiGgzsLd18BhWcz3BhWDchNB+4I4w3LG9icoF/3e
+	nZHFKXT7xjMuMSwxUUzdPGM3YOp2G30e6XLN/m6dkVO/XCwQ3SbG/IL6/BCCtD580hMPJA72tYNZc
+	lcXvpmZ3vRh0IRjbkqJjA3JgkDJYS63DAAPJNaIhFi5ohoFB0S/c4ZeInMYapOBG3egy6p5+3LkLc
+	/chhgdgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjupM-0000000E96W-34R8;
-	Wed, 15 Jul 2026 08:18:48 +0000
+	id 1wjupl-0000000E9C0-3pkY;
+	Wed, 15 Jul 2026 08:19:13 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjupL-0000000E96N-3yNj
+	id 1wjupk-0000000E9BT-0yaB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 08:18:47 +0000
+	Wed, 15 Jul 2026 08:19:12 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3E86740D7D
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 08:18:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23B051F00A3F
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 08:18:45 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 02CC74379F;
+	Wed, 15 Jul 2026 08:19:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DADDF1F000E9;
+	Wed, 15 Jul 2026 08:19:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784103525;
-	bh=8hGVZh4PoHLjhUPeUZDk7YT9r2Csoy+q60RG1t1sPcs=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=Y+vkypAFF2VaKmeNBsJM168DosyIXULOV/1fpLuzsTul1sgGvXaBR4KZ6xOeIC+2j
-	 Ci+eiuoe5uMuHswoUkQiT4cMDUrKyJHoTFFQmF37me/jk2bry6CyrZbFe4/+NfwFcX
-	 SG7ighaYJUwUSjtA22Qc2YIC4pFU+ExRU41dvQRVxxFMEEaWzAjIETlABGoFhH67vD
-	 hcmZwvOC5bee6CUqAe029xw9LtrSlXAKvUsDYQycVXhHx0+E6TaxSvcfjZ5xskzofp
-	 L3QcfMeKA0I8rSRy0J4LVEzwZYEL7usUigDcxEmdjKlPkyB9vRYGbpTIPLxVrXraLs
-	 6i7e19kgfMjHw==
-Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-39b3931e259so46870561fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 01:18:45 -0700 (PDT)
-X-Gm-Message-State: AOJu0YzABb6MsljntEBBo74KpRpdxCAF/p4momfvUNF60e3ilckiZaTF
-	Kn5SBMX0HqJAWbBCUdNSzAHSbAquiIt9sMH0htZDDzu/IPRE+L6lyeIOjB7w44BgUBh4PLywcZi
-	vFvJknS9pQOsZocbjhucg3mieCsIQNGI/ZMsv1/poWw==
-X-Received: by 2002:a2e:a58f:0:b0:39c:7919:fcf1 with SMTP id
- 38308e7fff4ca-39db6d81975mr4644921fa.33.1784103523816; Wed, 15 Jul 2026
- 01:18:43 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 15 Jul 2026 01:18:41 -0700
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 15 Jul 2026 01:18:41 -0700
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260711210131.236025-3-marex@nabladev.com>
-MIME-Version: 1.0
-References: <20260711210131.236025-1-marex@nabladev.com> <20260711210131.236025-3-marex@nabladev.com>
-Date: Wed, 15 Jul 2026 01:18:41 -0700
-X-Gmail-Original-Message-ID: <CAMRc=McWngnxX1TE7jj+4hr25PN6o4rZGW+Jm2CivXtzA53CwA@mail.gmail.com>
-X-Gm-Features: AUfX_mwKBsfMiGTO8O5kdCZA1clS20B1ees3zGV3oL0u74_c0uWhHuUReKtAFA8
-Message-ID: <CAMRc=McWngnxX1TE7jj+4hr25PN6o4rZGW+Jm2CivXtzA53CwA@mail.gmail.com>
-Subject: Re: [PATCH 02/10] dt-bindings: gpio: pca95xx: Document Kinetic KTS1622
-To: Marek Vasut <marex@nabladev.com>, 
-	Konstantin Ryabitsev <konstantin@linuxfoundation.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Bartosz Golaszewski <brgl@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
-	kernel@dh-electronics.com, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
-Content-Type: text/plain; charset="UTF-8"
+	s=k20260515; t=1784103551;
+	bh=9di0iPNirA8i2aRvfh+nDPIZh/v7N+As+I0AKLeoCG0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=kQK1MBtwlgMoUlw+ZFZSEhZkWzYiwM2C/vf8niFWavErPgPikzRicOEYoGcwwepk7
+	 YZg960F967Jt5M7QRlZl11I5DfvP0ZMzXEkdaAufi9S065qa7Q/+o1ClThI1TMWY7Z
+	 nCG3wDL2zfiO8jbCKZEsajqFsSO8cvdXFXSY/CUOXLBqveWGc+nf+RuP82N8xYqjOg
+	 BEJIF5uG8RcqPog75uL5SxO3HOGy9ibKdI64bDU/HO3+8I2+EB0wB3Bf4UvID2uqE6
+	 MmV8LPG6YKD2vNb7HDEmBEzJs1q0S95BCZvEmqilgFpsp2D13u1xsNEFd7Fbg/9mLK
+	 XhJNXkIYxRrJA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wjuph-00000005CWU-3n29;
+	Wed, 15 Jul 2026 08:19:09 +0000
+Date: Wed, 15 Jul 2026 09:19:09 +0100
+Message-ID: <86ech4oebm.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oupton@kernel.org>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v2 07/28] KVM: arm64: Don't evaluate HCR_EL2.NV nor HFGITR_EL2.ERET on ERET fast path
+In-Reply-To: <alc-JSvHDjSV5c_G@kernel.org>
+References: <20260714091641.1970822-1-maz@kernel.org>
+	<20260714091641.1970822-8-maz@kernel.org>
+	<alc-JSvHDjSV5c_G@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,89 +87,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 11 Jul 2026 22:59:31 +0200, Marek Vasut <marex@nabladev.com> said:
-> The Kinetic Technologies KTS1622 is a 16-bit general-purpose I/O
-> expander via the I2C bus for microcontrollers when additional I/Os
-> are needed while keeping interconnections to the minimum. Datasheet
-> comparison suggests that it is compatible with TCAL6416, add the
-> compatible string and TCAL6416 as a fallback compatible.
->
-> Signed-off-by: Marek Vasut <marex@nabladev.com>
-> ---
-> Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
-> Cc: Bartosz Golaszewski <brgl@kernel.org>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Linus Walleij <linusw@kernel.org>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: devicetree@vger.kernel.org
-> Cc: kernel@dh-electronics.com
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-gpio@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-stm32@st-md-mailman.stormreply.com
-> ---
->  Documentation/devicetree/bindings/gpio/gpio-pca95xx.yaml | 3 +++
->  1 file changed, 3 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/gpio/gpio-pca95xx.yaml b/Documentation/devicetree/bindings/gpio/gpio-pca95xx.yaml
-> index 4f955f855e1ab..4631388a7d914 100644
-> --- a/Documentation/devicetree/bindings/gpio/gpio-pca95xx.yaml
-> +++ b/Documentation/devicetree/bindings/gpio/gpio-pca95xx.yaml
-> @@ -22,6 +22,9 @@ properties:
->        - items:
->            - const: diodes,pi4ioe5v6534q
->            - const: nxp,pcal6534
-> +      - items:
-> +          - const: kinetic,kts1622
-> +          - const: ti,tcal6416
->        - items:
->            - enum:
->                - exar,xra1202
-> --
-> 2.53.0
->
->
+On Wed, 15 Jul 2026 09:00:37 +0100,
+Oliver Upton <oupton@kernel.org> wrote:
+> 
+> Hey,
+> 
+> On Tue, Jul 14, 2026 at 10:16:20AM +0100, Marc Zyngier wrote:
+> > We currently avoid using the ERET fast path if the guest has HCR_EL2.NV
+> > set. This is an odd check, as NV doesn't mean much if HCR_EL2.TGE==1.
+> > 
+> > Similarly, evaluating HFGITR_EL2.ERET makes little sense, as
+> > this only applies to the nested context, while the ERET fast-path
+> > is purely for the benefit of L1.
+> > 
+> > Replace these bizarre checks with is_nested_ctxt() which makes a lot
+> > more sense: if we are running an L2, the ERET trap must go to L1.
+> > 
+> > Fixes: dd0717a998f77 ("KVM: arm64: nv: Fast-track 'InHost' exception returns")
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  arch/arm64/kvm/hyp/vhe/switch.c | 9 +++------
+> >  1 file changed, 3 insertions(+), 6 deletions(-)
+> > 
+> > diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
+> > index bbe9cebd3d9d5..a83be345f8450 100644
+> > --- a/arch/arm64/kvm/hyp/vhe/switch.c
+> > +++ b/arch/arm64/kvm/hyp/vhe/switch.c
+> > @@ -344,13 +344,10 @@ static bool kvm_hyp_handle_eret(struct kvm_vcpu *vcpu, u64 *exit_code)
+> >  	 * if this is a VHE guest hypervisor returning to its own
+> >  	 * userspace, or the hypervisor performing a local exception
+> >  	 * return. No need to save/restore registers, no need to
+> > -	 * switch S2 MMU. Just do the canonical ERET.
+> > -	 *
+> > -	 * Unless the trap has to be forwarded further down the line,
+> > -	 * of course...
+> > +	 * switch S2 MMU. Just do the canonical ERET unlesss we are in
+> > +	 * nested context.
+> >  	 */
+> 
+> typo: unless
+> 
+> I feel like it wouldn't hurt to add a bit more detail to the comment
+> here, that L0 KVM doesn't use ERET traps in the nested context.
+> Otherwise it isn't clear why these always belong to the L1.
 
-Hi Konstantin!
+We already have a tiny bit of information in kvm_handle_eret(), but
+that's obviously a bit far down the line. Something like this?
 
-I applied this patch with b4 and tried to generate the .thanks email. It failed
-like so:
-
-$ b4 ty -all
-Auto-thankanating commits in gpio/for-next
-Found 9 of your commits since 1.week
-Calculating patch hashes, may take a moment...
-  Located: [PATCH 00/10] arm64: dts: st: Add support for DH
-electronics STM32MP23xx/STM32MP25xx DHCOS SoM and Breakout Board and
-DHSBC
----
-Generating 1 thank-you letters
-  Writing: ./marex_nabladev_com_patch_00_10_arm64_dts_st_add_support_for_dh_electronics_stm32mp23xx_stm32mp25xx_dhcos_som_and_breakout_board_and_dhsbc.thanks
-Traceback (most recent call last):
-  File "/usr/bin/b4", line 8, in <module>
-    sys.exit(cmd())
-             ~~~^^
-  File "/usr/lib/python3/dist-packages/b4/command.py", line 417, in cmd
-    cmdargs.func(cmdargs)
-    ~~~~~~~~~~~~^^^^^^^^^
-  File "/usr/lib/python3/dist-packages/b4/command.py", line 113, in cmd_ty
-    b4.ty.main(cmdargs)
-    ~~~~~~~~~~^^^^^^^^^
-  File "/usr/lib/python3/dist-packages/b4/ty.py", line 681, in main
-    auto_thankanator(cmdargs)
-    ~~~~~~~~~~~~~~~~^^^^^^^^^
-  File "/usr/lib/python3/dist-packages/b4/ty.py", line 386, in auto_thankanator
-    send_messages(applied, wantbranch, cmdargs)
-    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3/dist-packages/b4/ty.py", line 452, in send_messages
-    with open(outfile, 'wb') as fh:
-         ~~~~^^^^^^^^^^^^^^^
-OSError: [Errno 36] File name too long:
-'./marex_nabladev_com_patch_00_10_arm64_dts_st_add_support_for_dh_electronics_stm32mp23xx_stm32mp25xx_dhcos_som_and_breakout_board_and_dhsbc.thanks'
-
-The name is under the 255 byte limit, is this a b4 bug/limitation?
+diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
+index a83be345f8450..684cebf23aa0e 100644
+--- a/arch/arm64/kvm/hyp/vhe/switch.c
++++ b/arch/arm64/kvm/hyp/vhe/switch.c
+@@ -344,8 +344,13 @@ static bool kvm_hyp_handle_eret(struct kvm_vcpu *vcpu, u64 *exit_code)
+ 	 * if this is a VHE guest hypervisor returning to its own
+ 	 * userspace, or the hypervisor performing a local exception
+ 	 * return. No need to save/restore registers, no need to
+-	 * switch S2 MMU. Just do the canonical ERET unlesss we are in
++	 * switch S2 MMU. Just do the canonical ERET unless we are in
+ 	 * nested context.
++	 *
++	 * Note that this is made possible because KVM itself never traps
++	 * ERET when running an L2. The consequence is that any ERET trap is
++	 * the result of HCR_EL2 or HFGITR_EL2 programming by L1 for its own
++	 * guest, and the exception must be forwarded to L1.
+ 	 */
+ 	if (is_nested_ctxt(vcpu))
+ 		return false;
 
 Thanks,
-Bart
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
