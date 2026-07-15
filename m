@@ -4,69 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16B6BC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 07:29:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23A5FC44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 07:29:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vk/Pmtw5V1S5Wy95XZKiQxPxVWpzziuE+PvkoAYgcUs=; b=IgOTEyB0g+NsKaSd0WLVwBjp2v
-	3gjSftqFyHrLNvCigVicVsq0KTn/y0EjJTiBerBAFjUSeVdaJMeNL/5PR+h9A335zfxUoYU56dkFx
-	4tduPAsqivq0RQb4aFfvGxJRPRykQVRJBk3J9Buy1aH40wbT0jAkQFjKevLKjFtKdbELy3nK1qgvt
-	DsbT6trLuibzk/0pDvMBv/KAbNdJV+jz0M0KZGIq311hb/R1M2j96HQ+OB/HLY30WWGruUJV0xLil
-	vH1HYNkU0dYt+nxmwWTDzcXHW6J57Noexm+6JP+ekyr7Odloa9MhywANDv6uML53fxlHnpbwlw2CW
-	bTKLtgXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0D6+b7NIcI0cE6mu1KZnMkeelwn9bdYbGTnJWKwkR6w=; b=C2NDoiu6jS2D/tsxm3USm5FUzn
+	PjfgaGDJvH9XgD3ooz/mP/24+jJqodArYxM8Ns1xnusLwpp/o4LX/Q9Xna3RXCg/rt1j2Fqr8y5Ey
+	jYPqaKEGm5kjK1r0Mnz1EtI7RbUY2jWdWAEyRSvib9JDtOPP3oZPVrRbo3iXBrAk70pvRcmDWnWoV
+	Z8rldoP+rk0NIP2jHiDdcxYM7iUe0B5islHIaeQFPfS3XarBVxHFSCswrIU433Mku/DiG2yvcu5k+
+	bzYm/kDJ01Ir9WMsUhA3uTKmvr9x6m63sRBuogn8wTWIYVskLsijHVKo4s2U7e6yzNOxCKl+VaFu6
+	dXiMa5RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wju39-0000000E1b2-10yc;
-	Wed, 15 Jul 2026 07:28:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wju37-0000000E1ae-2BYn
+	id 1wju3f-0000000E1iH-3oSH;
+	Wed, 15 Jul 2026 07:29:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wju3d-0000000E1gr-2vYN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 07:28:57 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 97954600BB;
-	Wed, 15 Jul 2026 07:28:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 226311F000E9;
-	Wed, 15 Jul 2026 07:28:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784100536;
-	bh=Vk/Pmtw5V1S5Wy95XZKiQxPxVWpzziuE+PvkoAYgcUs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=KCWKi30MM2OO4LbExOFY2K96V4NJnrOuSYk2LaflLMjhkhQxOtZ8oF5qHjCyMhZjy
-	 fPI9vhQ68B18TFLQc3JbwI/Bza/bFsu5vcGWnxMof6ezZ2Al6zMpJSuqppPOTYXzYT
-	 8+D5XxspV4qS44G7arRn0036MucchjV9d63PSsiJbu1DSE6GwYB0emo7MC2q4heaGB
-	 TKK6px3LaBeex8N46xrQYxluBESDOGdkya0vb+VTMG0INmsmp1l+C1gSOSe8CTqgcr
-	 pRlVqlQ7TMusHrBvhsj2AwYxV1OOC6mM8wt75yCtk/bubtRjZK+Pe103PlnYk0FR5u
-	 LwNn3Od+F1tEg==
-Date: Wed, 15 Jul 2026 08:28:39 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Dave Hansen <dave.hansen@intel.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>, 
-	Suren Baghdasaryan <surenb@google.com>, "Liam R. Howlett" <liam@infradead.org>, 
-	Vlastimil Babka <vbabka@kernel.org>, Shakeel Butt <shakeel.butt@linux.dev>, 
-	David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
-	Uladzislau Rezki <urezki@gmail.com>, Toshi Kani <toshi.kani@hpe.com>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, Andy Lutomirski <luto@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, x86@kernel.org, 
-	"H. Peter Anvin" <hpa@zytor.com>, Kiryl Shutsemau <kas@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Dev Jain <dev.jain@arm.com>, 
-	Ryan Roberts <ryan.roberts@arm.com>, David Carlier <devnexen@gmail.com>, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	stable@vger.kernel.org, syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com
-Subject: Re: [PATCH mm-hotfixes v3 0/4] mm: fix UAF caused by race between
- ptdump and vmap pgtable freeing
-Message-ID: <alc0YTcSVuBMdo8A@lucifer>
-References: <20260714-series-vmap-race-fix-v3-0-b812eccfa0f9@kernel.org>
- <e2d9f516-2dae-4356-830a-14b99fd32a90@intel.com>
+	Wed, 15 Jul 2026 07:29:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BE8D5152B;
+	Wed, 15 Jul 2026 00:29:23 -0700 (PDT)
+Received: from [10.57.2.177] (unknown [10.57.2.177])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 58BF33F915;
+	Wed, 15 Jul 2026 00:29:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784100567; bh=MsXvHNOp7jRLeDUmwfDBA82AWHhFNBc6/5erc1wQXKY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=QsxDWt3KD0gLwwOVoSwz6F9QcdMXkaoZzWSEXTWUDIGD8Wbyn3D8MGU6B6LhHga5H
+	 7BIEM0JS4ez1HsCRWPMHhfRoAtjGUsdKSVU/XGI2BRVs6ji9U/sUxioC0KlqV7r46w
+	 n5UTC4yHj6i0ZuJHGmRoDUwkvaiT8cfh48r7v5Eo=
+Message-ID: <a886ad87-d17a-4ace-8388-fab5c4c2ba3c@arm.com>
+Date: Wed, 15 Jul 2026 08:29:27 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <e2d9f516-2dae-4356-830a-14b99fd32a90@intel.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 2/3] thermal/drivers/imx: Fix rounding and clamp for
+ i.MX7D alarm
+To: Haoning.CHENG@cn.bosch.com
+Cc: linux-pm@vger.kernel.org, Fabio Estevam <festevam@gmail.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Zhang Rui <rui.zhang@intel.com>
+References: <20260714-b4-symana21-11221-imx-thermal-support-upstream-6-18-v8-0-d54d8690e16e@cn.bosch.com>
+ <20260714-b4-symana21-11221-imx-thermal-support-upstream-6-18-v8-2-d54d8690e16e@cn.bosch.com>
+Content-Language: en-US
+From: Lukasz Luba <lukasz.luba@arm.com>
+In-Reply-To: <20260714-b4-symana21-11221-imx-thermal-support-upstream-6-18-v8-2-d54d8690e16e@cn.bosch.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260715_002929_859379_BB9B2130 
+X-CRM114-Status: GOOD (  17.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,24 +79,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2026 at 10:31:52AM -0700, Dave Hansen wrote:
-> On 7/14/26 10:24, Lorenzo Stoakes wrote:
-> >  arch/arm64/include/asm/ptdump.h |  2 --
-> >  arch/arm64/mm/mmu.c             | 43 ++++-------------------------------------
-> >  arch/arm64/mm/ptdump.c          | 11 ++---------
-> >  arch/x86/mm/pat/set_memory.c    | 14 +++++++++++---
-> >  include/linux/mmap_lock.h       |  1 +
-> >  mm/pagewalk.c                   | 36 ++++++++++++++++++++--------------
-> >  mm/ptdump.c                     |  7 +++++++
-> >  mm/vmalloc.c                    | 41 ++++++++++++++++++++++++++++++---------
-> >  8 files changed, 78 insertions(+), 77 deletions(-)
->
-> BTW, this is super nice. It fixes a bug, makes the architectures more
-> consistent, and is effectively neutral on lines-of-code.
->
-> Very cool.
 
-Thanks very much Dave, that's very kind of you to say :)
 
-Cheers, Lorenzo
+On 7/14/26 11:28, Haoning CHENG via B4 Relay wrote:
+> From: Haoning CHENG <Haoning.CHENG@cn.bosch.com>
+> 
+> Convert the alarm temperature from millicelsius to degrees for i.MX7D
+> using ceiling division instead of integer division, ensuring rounding
+> errors do not cause the alarm to trigger below the intended threshold.
+> Use DIV_ROUND_UP() for non-negative values and plain integer division
+> for negative values, since C rounds toward zero which is equivalent to
+> ceiling when the divisor is positive.
+> 
+> Add clamp() to ensure the hardware register value stays within the 9-bit
+> range (0..0x1ff) of the i.MX7D alarm field, preventing silent truncation
+> if an out-of-range value is written.
+> 
+> Signed-off-by: Haoning CHENG <Haoning.CHENG@cn.bosch.com>
+> ---
+>   drivers/thermal/imx_thermal.c | 12 +++++++++---
+>   1 file changed, 9 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/thermal/imx_thermal.c b/drivers/thermal/imx_thermal.c
+> index 38c993d1bcb3..7f7d1116b9d6 100644
+> --- a/drivers/thermal/imx_thermal.c
+> +++ b/drivers/thermal/imx_thermal.c
+> @@ -240,10 +240,16 @@ static void imx_set_alarm_temp(struct imx_thermal_data *data,
+>   
+>   	data->alarm_temp = alarm_temp;
+>   
+> -	if (data->socdata->version == TEMPMON_IMX7D)
+> -		alarm_value = alarm_temp / 1000 + data->c1 - 25;
+> -	else
+> +	if (data->socdata->version == TEMPMON_IMX7D) {
+> +		if (alarm_temp >= 0)
+> +			alarm_temp = DIV_ROUND_UP(alarm_temp, 1000);
+> +		else
+> +			alarm_temp /= 1000;
+> +		alarm_value = alarm_temp + data->c1 - 25;
+> +		alarm_value = clamp(alarm_value, 0, 0x1ff);
+> +	} else {
+>   		alarm_value = (data->c2 - alarm_temp) / data->c1;
+> +	}
+>   
+>   	regmap_write(map, soc_data->high_alarm_ctrl + REG_CLR,
+>   		     soc_data->high_alarm_mask);
+> 
+
+Reviewed-by: Lukasz Luba <lukasz.luba@arm.com>
 
