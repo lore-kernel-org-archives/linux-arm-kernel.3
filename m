@@ -4,84 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58BCBC4450C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 10:34:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C525EC44507
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 10:34:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mBqYW4z7FS94MKsSiJu64PdVNBzFZuAgdIt6t5MrHjs=; b=QYmR+DeHODXWfM1mPyggJO1v82
-	0snv9X4zP92DVqD5T7ch4+hZFI9ddI+ci1O1C940y9pnIk7Pyhu8LSjeQ9P2jCCsKtew1F5+s1Weu
-	a+FYuDHF8GrJLK0qWFwjMMVLcPsU6rO+2gKMDOZ39WaKNczX9XKs0LeeWuUse7HxGQdFQHelGhTKX
-	4cyn+BiNPEBsu8Q7B6t1cAtcok+8lm3muVdQnD0elr/JSdgBuoXEEaviTxCPkYWD39zaQ50qceUpj
-	1LU6FWkdG69w4IhH3bCbac16shWx+HJkJtr5QvDbyljBUfdNdouXjpNDE74UXETBPXNxNXL3VTVTo
-	kGyp2eUg==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xKcXMkXgs0vkWS/3WbGI2OItNJaWZoaQD1tIjmqmAeE=; b=og94I10mbrUPZJq/WiNAX5ga5H
+	QBkgDR6zKmEfADTqbA/Q+BOdQxcqe0t4tWR/hTzZosCV/rSIOV5nCmNbiCWQ+7racHK70bnJW332r
+	YX4cC5kKUOSdyTo8ctefvaibLxe7zIoXtJYUgLvm/iyaN3EG65NEu8e0Vr+fl8ttMERhTiG/ZEbzm
+	eHpK86FYyNMz0SpZhN7DiIOLeZkFZntiPczGV6M3wTmoes6TEkYgzrZhasIZ/OTIoxpwUCyIiLOAZ
+	vn0peaqcW+cAT7SvzHbX9HqSdz80pPtmny/m/1kuRqayrnYQ4WzYXfugXfarSK255yWZe+8uaxrtQ
+	gvCD4lCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjwwc-0000000ESrz-1dLx;
-	Wed, 15 Jul 2026 10:34:26 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjwwZ-0000000ESrO-2mUB;
-	Wed, 15 Jul 2026 10:34:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1784111660;
-	bh=IkJnX4Q0f685MGMac/EYnUgIc/6fHPJFWwoic2nfCBc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=CxCfyxWQoK2fMzcMWdxysiIbfEO8pWawDkEtOLsZZ0z/6FsDYUX9OULxrqC34oZBH
-	 N68/5SZtUEdYAw4scbkcZjpFg/Id+Eby8XuPmPeFHpm/q3EJX+NbmL0H1pjqvmWRw2
-	 gf/OEkv50g2ICcYVGLdLUgXivS9ZmP2fSOAxiHnTSWtIZyI4LK0n/p8oHW1qk3223k
-	 SRVRWYRp3xksrLBDUA/s2i7yxt8IetEFDamBHOYIJdxDpqlXBfdfDAKx4HrQ79DXi2
-	 W34Lpeah3JDsmGJLzVLIx1MxfDGrHbcBiVl8234GCfyq2FhRBGRDObQEGoUqUb2s9/
-	 JfJBXjRblX3zg==
-Received: from [100.64.0.241] (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id BAB4A17E0076;
-	Wed, 15 Jul 2026 12:34:19 +0200 (CEST)
-Message-ID: <45113534-94ad-4a0f-8014-c04e9ab67a26@collabora.com>
-Date: Wed, 15 Jul 2026 13:34:19 +0300
+	id 1wjwwr-0000000ESwY-2Pw7;
+	Wed, 15 Jul 2026 10:34:41 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjwwo-0000000ESv3-3gJB
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Jul 2026 10:34:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 361CF1477;
+	Wed, 15 Jul 2026 03:34:31 -0700 (PDT)
+Received: from [10.1.34.162] (e121487-lin.cambridge.arm.com [10.1.34.162])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 980773F7B4;
+	Wed, 15 Jul 2026 03:34:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784111675; bh=f+V9zcUv69i428+OEjPq1+bRyCU6inOwbYWYQGvrArY=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=DLlxy3YkJhsvmzNAPYd3tg+NTjIk638y5CeoXXRWlvr45UyudD4FWkwKdfv83MZrn
+	 L6EoD0w01kkx9Zido3x4yg81G1wb6mA7qX6HQM+OngE+N10aj65CX4UHYYvZ4sPdTc
+	 dz5f2pDHWctyhVeAlisAOhNGE0cMXJfEAXotmR7M=
+Message-ID: <eb014ff8-7dd7-4b99-a902-01f79f8ceffd@arm.com>
+Date: Wed, 15 Jul 2026 11:34:32 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 02/39] drm/connector: Add caps-based HDMI connector
- init helper
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>,
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
- kernel@collabora.com, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
- <20260702-dw-hdmi-qp-scramb-v8-2-d79890d00b6a@collabora.com>
- <i4tjtsf5rsckfcayo5nuhlger5wqxn3ujeaubm4g2fgrwvhzb2@hf4uhgq3ja5p>
- <ad75cf26-9437-47d0-864d-d71263401615@collabora.com>
- <20260707-illegal-tuna-of-force-1c06e3@houat>
- <737678ab-f082-4a0e-b453-f403ba141437@collabora.com>
- <80374deb-3246-413f-a043-66bcdb438ab1@collabora.com>
- <20260715-fair-opalescent-rhino-c6407b@houat>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <20260715-fair-opalescent-rhino-c6407b@houat>
+Subject: Re: [RFC PATCH 11/36] arm64: interrupts: introduce interrupt masking
+ helpers for entry code
+To: "Liao, Chang" <liaochang1@huawei.com>,
+ linux-arm-kernel@lists.infradead.org
+References: <20260709121333.23507-1-vladimir.murzin@arm.com>
+ <20260709121333.23507-12-vladimir.murzin@arm.com>
+ <90dda273-1351-4e21-b554-025881de1ff1@huawei.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <90dda273-1351-4e21-b554-025881de1ff1@huawei.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_033423_867102_9CE0EABD 
-X-CRM114-Status: GOOD (  22.36  )
+X-CRM114-CacheID: sfid-20260715_033439_009195_F3841574 
+X-CRM114-Status: GOOD (  30.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,103 +72,472 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/15/26 11:50 AM, Maxime Ripard wrote:
-> On Fri, Jul 10, 2026 at 01:27:37PM +0300, Cristian Ciocaltea wrote:
->> On 7/8/26 1:11 PM, Cristian Ciocaltea wrote:
->>> Hi Maxime,
->>>
->>> On 7/7/26 7:10 PM, Maxime Ripard wrote:
->>>> On Fri, Jul 03, 2026 at 10:31:55PM +0300, Cristian Ciocaltea wrote:
->>>>> Hi Dmitry,
->>>>>
->>>>> Thanks for your quick review!
->>>>>
->>>>> On 7/3/26 5:05 PM, Dmitry Baryshkov wrote:
->>>>>> On Thu, Jul 02, 2026 at 05:46:15PM +0300, Cristian Ciocaltea wrote:
->>>>>>> In preparation for adding HDMI 2.x source capabilities, introduce struct
->>>>>>> drm_connector_hdmi_caps and a new drmm_connector_hdmi_init_with_caps()
->>>>>>> helper.
->>>>>>>
->>>>>>> The existing drmm_connector_hdmi_init() helper currently takes
->>>>>>> individual capability arguments such as supported_formats and max_bpc.
->>>>>>> Adding more HDMI-specific arguments to that function would not scale
->>>>>>> well, so move those values into a dedicated capabilities structure and
->>>>>>> implement the existing helper as a wrapper around the new caps-based
->>>>>>> interface.
->>>>>>
->>>>>> I think, it was an intention of Maxime: make sure that every driver is
->>>>>> forced to provide some values here. With the struct-based init it is
->>>>>> easy to overlook or to ommit a value.
->>>>>
->>>>> Agreed that the struct-based init loses the compile-time guarantee that every
->>>>> argument is explicitly provided - that's a real downside.  
->>>>>
->>>>> I'd argue it's recoverable, though: the init helper validates the mandatory
->>>>> fields, so a driver that omits a required value gets rejected at init time
->>>>> rather than silently misconfigured.  The "you must provide sane values" property
->>>>> is expected to be preserved, just enforced at runtime instead of by the
->>>>> compiler. 
->>>>
->>>> Yeah, I don't think we can win with C here. Rust might, but we're
->>>> probably a long way from that.
->>>>
->>>>> The main motivation for the struct is scalability/maintainability as we add HDMI
->>>>> 2.x capabilities: new fields go into the struct rather than growing the helper's
->>>>> argument list, so existing callers don't need churny signature updates on every
->>>>> extension.
->>>>>
->>>>> FWIW, in the previous revision we discussed addressing the concern with a
->>>>> callback instead.  Sadly, I had to discard that approach, as it proved not
->>>>> flexible enough, e.g. drm_bridge_connector_init() computes caps dynamically, and
->>>>> would have required either stateful callbacks, or storing redundant/temporary
->>>>> cap data in driver-private structures just to satisfy the callback.
->>>>
->>>> I just realized something reviewing your patch: we don't necessarily
->>>> need an extra argument or a callback, we can just put these fields into
->>>> drm_hdmi_connector_funcs directly, and then validate them in init.
->>>
->>> If I understand correctly, we should drop the drm_connector_hdmi_caps struct
->>> introduced by this patch and move all its fields into drm_hdmi_connector_funcs.
->>>
->>> In that case, how should we proceed with drmm_connector_hdmi_init()? 
+On 7/10/26 10:39, Liao, Chang wrote:
+> 在 2026/7/9 20:13, Vladimir Murzin 写道:
+>> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 >>
->> Actually, this brings us to the callback issue: we cannot compute caps
->> dynamically, as it only works with static data, since funcs is supposed to be
->> immutable.
+>> The entry code handles interrupt masking differently from the rest of
+>> the kernel. Exception handlers enter and exit with all exceptions
+>> masked, but they must temporarily unmask the appropriate set of
+>> exceptions so that the rest of the handler executes with the expected
+>> exception state.
+>>
+>> For EL0 handlers, this means dropping to masking context appropriate
+>> for the work to be performed. For EL1 handlers, this means restoring
+>> the masking context of the interrupted task. In both cases, all
+>> exceptions must be masked again before returning from the exception
+>> handler.
+>>
+>> The rest of the kernel typically follows the opposite pattern: it
+>> raises the masking context to protect a critical section and later
+>> restores the previous context.
+>>
+>> Given these different usage patterns, introduce a dedicated set of
+>> exception masking helpers for the entry code. Keeping these helpers
+>> separate from the generic interrupt masking APIs makes the intended
+>> usage explicit and helps avoid mixing the two masking models.
+>>
+>> To make the masking logic easier to reason about, introduce exception
+>> contexts that map directly to the corresponding hardware exception
+>> state. Along with these contexts, provide helpers to:
+>>
+>> - translate an exception context into the corresponding hardware
+>>   state,
+>>
+>> - verify that the current hardware exception state matches the
+>>   expected exception context,
+>>
+>> - raise or lower the current exception context, and
+>>
+>> - perform the common mask/unmask operations when the starting or
+>>   target exception context is already known.
+>>
+>> Tracking the current exception context also provides two additional
+>> benefits:
+>>
+>> - improved debugging by verifying that the hardware exception state
+>>   matches the expected exception context, and
+>>
+>> - avoiding unnecessary writes to the hardware exception state.
+>>
+>> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+>> ---
+>>  .../include/asm/interrupts/common_flags.h     | 197 ++++++++++++++++++
+>>  arch/arm64/include/asm/interrupts/entry.h     | 110 ++++++++++
+>>  2 files changed, 307 insertions(+)
+>>  create mode 100644 arch/arm64/include/asm/interrupts/common_flags.h
+>>  create mode 100644 arch/arm64/include/asm/interrupts/entry.h
+>>
+>> diff --git a/arch/arm64/include/asm/interrupts/common_flags.h b/arch/arm64/include/asm/interrupts/common_flags.h
+>> new file mode 100644
+>> index 000000000000..6ce60d1519e8
+>> --- /dev/null
+>> +++ b/arch/arm64/include/asm/interrupts/common_flags.h
+>> @@ -0,0 +1,197 @@
+>> +/* SPDX-License-Identifier: GPL-2.0-only */
+>> +/*
+>> + * Copyright (C) 2025 Arm Ltd.
+>> + */
+>> +#ifndef __ASM_INTERRUPTS_COMMON_FLAGS_H
+>> +#define __ASM_INTERRUPTS_COMMON_FLAGS_H
+>> +
+>> +#include <asm/arch_gicv3.h>
+>> +#include <asm/bug.h>
+>> +#include <asm/cpufeature.h>
+>> +#include <asm/ptrace.h>
+>> +#include <asm/sysreg.h>
+>> +#include <asm/irqflags.h>
+>> +
+>> +#define DAIF_PROCCTX		0
+>> +#define DAIF_PROCCTX_NOIRQ	(PSR_I_BIT | PSR_F_BIT)
+>> +#define DAIF_ERRCTX		(PSR_A_BIT | PSR_I_BIT | PSR_F_BIT)
+>> +#define DAIF_MASK		(PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT)
+>> +
+>> +/*
+>> + * Exception context mapping
+>> + *
+>> + * pseudo-NMI
+>> + *
+>> + * CRITICAL -> DAIF + IRQON  (corresponds to the state on exception entry)
+>> + * ERROR    ->  AIF + IRQON
+>> + * NONMI    ->   IF + IRQON
+>> + * NOIRQ    ->    0 + IRQOFF
+>> + * PROCESS  ->    0 + IRQON
+>> + *
+>> + * Otherwise
+>> + *
+>> + * CRITICAL -> DAIF           (corresponds to the state on exception entry)
+>> + * ERROR    ->  AIF
+>> + * NONMI    ->   IF
+>> + * NOIRQ    ->   IF
+>> + * PROCESS  ->    0
+>> + */
+>> +typedef enum arm64_exc_context {
+>> +	PROCESS_CONTEXT,
+>> +	NOIRQ_CONTEXT,
+>> +	NONMI_CONTEXT,
+>> +	ERROR_CONTEXT,
+>> +	CRITICAL_CONTEXT,
+>> +} arm64_exc_context_t;
+>> +
+>> +static __always_inline
+>> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_process_context(void)
+>> +{
+>> +	if (system_uses_irq_prio_masking())
+>> +		return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX, .pmr=GIC_PRIO_IRQON};
+>> +
+>> +	return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX};
+>> +}
+>> +
+>> +static __always_inline
+>> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_noirq_context(void)
+>> +{
+>> +	if (system_uses_irq_prio_masking())
+>> +		return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX, .pmr=GIC_PRIO_IRQOFF};
+>> +
+>> +	return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ};
+>> +}
+>> +
+>> +static __always_inline
+>> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_nonmi_context(void)
+>> +{
+>> +	if (system_uses_irq_prio_masking())
+>> +		return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ, .pmr=GIC_PRIO_IRQON};
+>> +
+>> +	return (arm64_exc_hwstate_t){.daif=DAIF_PROCCTX_NOIRQ};
+>> +}
+>> +
+>> +static __always_inline
+>> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_error_context(void)
+>> +{
+>> +	if (system_uses_irq_prio_masking())
+>> +		return (arm64_exc_hwstate_t){.daif=DAIF_ERRCTX, .pmr=GIC_PRIO_IRQON};
+>> +
+>> +	return (arm64_exc_hwstate_t){.daif=DAIF_ERRCTX};
+>> +}
+>> +
+>> +static __always_inline
+>> +arm64_exc_hwstate_t __arm64_exc_hwstate_of_critical_context(void)
+>> +{
+>> +	if (system_uses_irq_prio_masking())
+>> +		return (arm64_exc_hwstate_t){.daif=DAIF_MASK, .pmr=GIC_PRIO_IRQON};
+>> +
+>> +	return (arm64_exc_hwstate_t){.daif=DAIF_MASK};
+>> +}
+>> +
+>> +static __always_inline
+>> +arm64_exc_hwstate_t arm64_exc_hwstate_of_context(arm64_exc_context_t context) {
+>> +	switch (context) {
+>> +	case PROCESS_CONTEXT:
+>> +		return __arm64_exc_hwstate_of_process_context();
+>> +	case NOIRQ_CONTEXT:
+>> +		return __arm64_exc_hwstate_of_noirq_context();
+>> +	case NONMI_CONTEXT:
+>> +		return __arm64_exc_hwstate_of_nonmi_context();
+>> +	case ERROR_CONTEXT:
+>> +		return __arm64_exc_hwstate_of_error_context();
+>> +	case CRITICAL_CONTEXT:
+>> +		return __arm64_exc_hwstate_of_critical_context();
+>> +	default:
+>> +		BUG();
+>> +	}
+>> +}
+>> +
+>> +static __always_inline
+>> +arm64_exc_hwstate_t arm64_inherit_exc_hwstate(struct pt_regs *regs)
+>> +{
+>> +	arm64_exc_hwstate_t state = {.daif=regs->pstate & DAIF_MASK};
+>> +
+>> +	if (system_uses_irq_prio_masking())
+>> +		state.pmr = regs->pmr;
+>> +
+>> +	return state;
+>> +}
+>> +
+>> +static __always_inline
+>> +void arm64_debug_exc_hwstate(arm64_exc_hwstate_t expected)
+>> +{
+>> +	arm64_exc_hwstate_t actual;
+>> +
+>> +	if (!IS_ENABLED(CONFIG_DEBUG_IRQFLAGS))
+>> +		return;
+>> +
+>> +	actual.flags = arch_local_save_flags();
+>> +
+>> +	if (expected.flags == actual.flags)
+>> +		return;
+>> +
+>> +	if (system_uses_irq_prio_masking()) {
+>> +		WARN_ONCE(1, "Unexpected DAIF+PMR: 0x%x + 0x%x (expected 0x%x + 0x%x)\n",
+>> +			  actual.daif, actual.pmr, expected.daif, expected.pmr);
+>> +	} else {
+>> +		WARN_ONCE(1, "Unexpected DAIF: 0x%x (expected 0x%x)\n",
+>> +			  actual.daif, expected.daif);
+>> +	}
+>> +}
+>> +
+>> +static __always_inline
+>> +void arm64_debug_exc_context(arm64_exc_context_t context)
+>> +{
+>> +	arm64_exc_hwstate_t expected = arm64_exc_hwstate_of_context(context);
+>> +
+>> +	arm64_debug_exc_hwstate(expected);
+>> +}
+>> +
+>> +static __always_inline
+>> +void arm64_update_exc_hwstate(arm64_exc_hwstate_t hwstate, bool update_pmr)
+>> +{
+>> +	if (system_uses_irq_prio_masking() &&
+>> +	    update_pmr &&
+>> +	    hwstate.pmr == GIC_PRIO_IRQOFF) {
+>> +		/*
+>> +		 * There has been concern that the write to daif
+>> +		 * might be reordered before this write to PMR.
+>> +		 * From the ARM ARM DDI 0487D.a, section D1.7.1
+>> +		 * "Accessing PSTATE fields":
+>> +		 *   Writes to the PSTATE fields have side-effects on
+>> +		 *   various aspects of the PE operation. All of these
+>> +		 *   side-effects are guaranteed:
+>> +		 *     - Not to be visible to earlier instructions in
+>> +		 *       the execution stream.
+>> +		 *     - To be visible to later instructions in the
+>> +		 *       execution stream
+>> +		 *
+>> +		 * Also, writes to PMR are self-synchronizing, so no
+>> +		 * interrupts with a lower priority than PMR is signaled
+>> +		 * to the PE after the write.
+>> +		 *
+>> +		 * So we don't need additional synchronization here.
+>> +		 */
+>> +		write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
+>> +		pmr_sync();
+> According to the comment above, pmr_sync() seems unnecessary here, can
+> we safely remove it?
 > 
-> Does it? The core and helpers must consider it immutable but it doesn't
-> have to. drm_bridge_connector for example could totally allocate it and
-> dynamically create it based on the bridge capabilities.
 
-If we take the VC4 case, is it fine to drop the const from the static
-drm_connector_hdmi_funcs to allow dynamically setting up supported_hdmi_ver and
-max_bpc in vc4_hdmi_connector_init()?
+Yes.
 
-static struct drm_connector_hdmi_funcs vc4_hdmi_hdmi_connector_funcs = {
-	.tmds_char_rate_valid	 = vc4_hdmi_connector_clock_valid,
-	...
-}
-
-static int vc4_hdmi_connector_init() 
-{
-	...
-    
-	if (vc4_hdmi->variant->supports_hdr)
-		vc4_hdmi_hdmi_connector_funcs.max_bpc = 12;
-
-	if (vc4_hdmi->variant->max_pixel_clock >= HDMI_2_0_TMDS_CHAR_RATE_MAX_HZ)
-		vc4_hdmi_hdmi_connector_funcs.supported_hdmi_ver = HDMI_VERSION_2_0;
-	else if (vc4_hdmi->variant->max_pixel_clock >= HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ)
-		vc4_hdmi_hdmi_connector_funcs.supported_hdmi_ver = HDMI_VERSION_1_3;
-	...
-}
-
->> Moreover, we would end up with some redundancy, as most of these input fields,
->> after validation, would be stored (altered or not) directly in
->> drm_connector/drm_connector_hdmi structs.
+>> +	}
+>> +
+>> +	write_sysreg(hwstate.daif, daif);
+>> +
+>> +	if (system_uses_irq_prio_masking() &&
+>> +	    update_pmr &&
+>> +	    hwstate.pmr == GIC_PRIO_IRQON) {
+>> +		write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
+>> +		pmr_sync();
+>> +	}
+> I notice the sequence of manipulating DAIF and PMR for IRQ disabling
+> has been reordered from the old one, is there any subtle side effect
+> we should be aware of?
 > 
-> I mean, part of the conversion would obviously be to remove the
-> redundant fields.
 
-Ack.
+Here is my rationale for structuring it this way.
+
+PMR only needs to be set to IRQOFF for NOIRQ context, so we can think
+about the edge cases when entering and leaving NOIRQ context:
+
+1. NONMI -> NOIRQ
+
+   This means transitioning from IF+IRQON to 0+IRQOFF.
+
+   The required order is:
+     1. Set PMR to IRQOFF
+     2. Clear IF
+
+   Doing this in the reverse order would open a window for IRQs.
+
+2. PROCESS -> NOIRQ
+
+   This means transitioning from 0+IRQON to 0+IRQOFF.
+
+   We do not care about DAIF here, so the only required step is:
+     1. Set PMR to IRQOFF
+
+3. NOIRQ -> NONMI
+
+   This means transitioning from 0+IRQOFF to IF+IRQON.
+
+   The required order is:
+     1. Set DAIF to IF
+     2. Set PMR to IRQON
+
+   Doing this in the reverse order would open a window for IRQs.
+
+4. NOIRQ -> PROCESS
+
+   This means transitioning from 0+IRQOFF to 0+IRQON.
+
+   We do not care about DAIF here, so the required order is:
+     1. Set PMR to IRQON
+     2. PMR sync
+
+Notes:
+
+  * Cases #1 and #3 also apply to ERROR and CRITICAL context; the only
+    difference is the DAIF value.
+
+  * Case #2 is equivalent to local_irq_disable().
+
+  * Case #4 is equivalent to local_irq_enable().
+
+So we can group the operations together as (pseudo-code):
+
+  if IRQOFF
+      Set PMR to IRQOFF
+
+  Set DAIF to [value]
+
+  if IRQON {
+      Set PMR to IRQON;
+      PMR sync;
+  }
+
+Additional notes:
+
+* I agree that I was too defensive with pmr_sync() in the C code for the IRQOFF case.
+* The C code also needs compiler barriers sprinkled in the right places.
+* I will fix these in the next version.
+
+Have I missed anything?
+
+
+>> +}
+>> +
+>> +static __always_inline
+>> +void arm64_update_exc_context(arm64_exc_context_t context, bool update_pmr)
+>> +{
+>> +	arm64_exc_hwstate_t hwstate = arm64_exc_hwstate_of_context(context);
+>> +
+>> +	arm64_update_exc_hwstate(hwstate, update_pmr);
+>> +}
+>> +#endif /* __ASM_INTERRUPTS_COMMON_FLAGS_H */
+>> diff --git a/arch/arm64/include/asm/interrupts/entry.h b/arch/arm64/include/asm/interrupts/entry.h
+>> new file mode 100644
+>> index 000000000000..3034c490ed66
+>> --- /dev/null
+>> +++ b/arch/arm64/include/asm/interrupts/entry.h
+>> @@ -0,0 +1,110 @@
+>> +/* SPDX-License-Identifier: GPL-2.0-only */
+>> +/*
+>> + * Copyright (C) 2025 Arm Ltd.
+>> + */
+>> +#ifndef __ASM_INTERRUPTS_ENTRY_H
+>> +#define __ASM_INTERRUPTS_ENTRY_H
+>> +
+>> +#include <asm/arch_gicv3.h>
+>> +#include <asm/bug.h>
+>> +#include <asm/cpufeature.h>
+>> +#include <asm/interrupts/common_flags.h>
+>> +
+>> +
+>> +static __always_inline
+>> +arm64_exc_hwstate_t __arm64_switch_exc_hwstate_to(arm64_exc_hwstate_t prev,
+>> +						  arm64_exc_hwstate_t next)
+>> +{
+>> +	bool update_pmr = system_uses_irq_prio_masking() && prev.pmr != next.pmr;
+>> +
+>> +	arm64_debug_exc_hwstate(prev);
+>> +
+>> +	if (prev.flags == next.flags)
+>> +		return next;
+>> +
+>> +	if (!arch_irqs_disabled_flags(next.flags))
+>> +		trace_hardirqs_on();
+>> +
+>> +	arm64_update_exc_hwstate(next, update_pmr);
+>> +
+>> +	if (arch_irqs_disabled_flags(next.flags))
+> Could we save the disabled flags in a local variable to avoid the duplicate calls?
+> 
+
+Yes we can, I will do it in the next version.
+
+>> +		trace_hardirqs_off();
+>> +
+>> +	return next;
+>> +}
+>> +
+>> +static __always_inline
+>> +arm64_exc_hwstate_t arm64_inherit_exc_context(struct pt_regs *regs)
+>> +{
+>> +	arm64_exc_hwstate_t prev = arm64_exc_hwstate_of_context(CRITICAL_CONTEXT);
+>> +	arm64_exc_hwstate_t next = arm64_inherit_exc_hwstate(regs);
+>> +
+>> +	return __arm64_switch_exc_hwstate_to(prev, next);
+>> +}
+>> +
+>> +static __always_inline
+>> +arm64_exc_hwstate_t arm64_drop_exc_context(arm64_exc_hwstate_t prev, arm64_exc_context_t context)
+>> +{
+>> +	arm64_exc_hwstate_t next = arm64_exc_hwstate_of_context(context);
+>> +
+>> +	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
+>> +		bool pnmi = system_uses_irq_prio_masking();
+>> +
+>> +		WARN_ON_ONCE(context > ERROR_CONTEXT &&
+>> +			     prev.daif == DAIF_ERRCTX);
+>> +
+>> +		WARN_ON_ONCE(context > NONMI_CONTEXT &&
+>> +			     prev.daif == DAIF_PROCCTX_NOIRQ);
+>> +
+>> +		WARN_ON_ONCE(context > NOIRQ_CONTEXT &&
+>> +			     pnmi && prev.pmr == GIC_PRIO_IRQOFF);
+>> +
+>> +		WARN_ON_ONCE(context > PROCESS_CONTEXT &&
+>> +			     ((pnmi && prev.daif == DAIF_PROCCTX && prev.pmr == GIC_PRIO_IRQON) ||
+>> +			      (!pnmi && prev.daif == DAIF_PROCCTX)));
+>> +	}
+>> +
+>> +	return __arm64_switch_exc_hwstate_to(prev, next);
+>> +}
+>> +
+>> +static __always_inline
+>> +arm64_exc_hwstate_t arm64_lift_exc_context(arm64_exc_hwstate_t prev, arm64_exc_context_t context)
+>> +{
+>> +	arm64_exc_hwstate_t next = arm64_exc_hwstate_of_context(context);
+>> +
+>> +	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
+>> +		bool pnmi = system_uses_irq_prio_masking();
+>> +
+>> +		WARN_ON_ONCE(context < CRITICAL_CONTEXT &&
+>> +			     prev.daif == DAIF_MASK);
+>> +
+>> +		WARN_ON_ONCE(context < ERROR_CONTEXT &&
+>> +			     prev.daif == DAIF_ERRCTX);
+>> +
+>> +		WARN_ON_ONCE(context < NONMI_CONTEXT &&
+>> +			     pnmi && prev.daif == DAIF_PROCCTX_NOIRQ);
+>> +
+>> +		WARN_ON_ONCE(context < NOIRQ_CONTEXT &&
+>> +			     ((pnmi && prev.pmr == GIC_PRIO_IRQOFF) ||
+>> +			      (!pnmi && prev.daif == DAIF_PROCCTX_NOIRQ)));
+>> +	}
+>> +
+>> +	return __arm64_switch_exc_hwstate_to(prev, next);
+>> +}
+>> +
+>> +
+>> +static __always_inline
+>> +arm64_exc_hwstate_t arm64_unmask_exc_context(arm64_exc_context_t context)
+>> +{
+>> +	arm64_exc_hwstate_t prev = arm64_exc_hwstate_of_context(CRITICAL_CONTEXT);
+>> +
+>> +	return arm64_drop_exc_context(prev, context);
+>> +}
+>> +
+>> +static __always_inline
+>> +arm64_exc_hwstate_t arm64_mask_exc_context(arm64_exc_hwstate_t prev)
+>> +{
+>> +	return arm64_lift_exc_context(prev, CRITICAL_CONTEXT);
+>> +}
+>> +
+>> +#endif /* __ASM_INTERRUPTS_ENTRY_H */
+> 
+> -- BR Liao, Chang
+> 
+
+Cheers
+Vladimir
 
