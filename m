@@ -4,95 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90373C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 01:32:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ED49C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 01:39:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4RLro0zVrzQrjAPm6l1qYto9Dw+jSbq9LMC2c97EwCE=; b=1x2NQ9iRb13OVYpHHXP1ro3r4/
-	yzaBTPkuW+nVqsau70lVkyW+6UA4SbJSfFcUtA1vlTk4Ez8yENdcy0mu66orlAB+RaE1Tc+38tuLH
-	NIqx/2xS9FKOo2A6F2N3TJ6FGmxeh+NqEIijKbCqXYUdvBCMOVZqETLxGBSPmsDJuRa1/cHVbY+mK
-	KXlIKir6nAGdEDYz6ClWm2IUcn2EKsljSxzjNdUWSZafSjUNVkWUmG6951QrS2XeKI6VAPA575Bh/
-	8eZNvPfLFgADymb+vjZDWBm/Q3TBvg2UROznYqPJ+gaygq5J4bqS92yDGK/w3ftUizEYTnpLfsRzk
-	S3IJcYQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fxyvcLwKtdazNqOvkLyv6ht9xfM1XCHujNvTJY/tIrg=; b=2TuNSxoHwOaaYcSMpYO5ybXTZq
+	rrTq3394csw/8cOO41BM+Jr23j/EBVm9gg2jshD98h5s6otfKzdDa26r+SLn3AyF9yPUSf/+a35fm
+	QBH6clG6zxzkuhOUpUICRkXW1vRyQpbI4yuA37aLZOBQaqp4CQfSkGtDF5RAm1dhmK7MQPOUd4UDO
+	u46hBuqZmOp9RtF7u05N0ff1gOKwt/s0yMImU9JepOXHaBxeXkY/6Y7iA9w5SynIewmnnlCeHBCne
+	c2j+5RIC/YSicRLS/AbeMJDcYoIgnovgydwKM1ztoNp952XO63prUDplydSBS5vSva+eIuz8qgfmg
+	C/9Il2GQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjoTh-0000000DZPB-0T2C;
-	Wed, 15 Jul 2026 01:32:01 +0000
-Received: from mail-ot1-x331.google.com ([2607:f8b0:4864:20::331])
+	id 1wjoaP-0000000DZvv-0t6j;
+	Wed, 15 Jul 2026 01:38:57 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjoTd-0000000DZO2-1yle
+	id 1wjoaM-0000000DZv8-2wq1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 01:31:59 +0000
-Received: by mail-ot1-x331.google.com with SMTP id 46e09a7af769-7e9ecd7216cso833417a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 18:31:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784079116; x=1784683916; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=4RLro0zVrzQrjAPm6l1qYto9Dw+jSbq9LMC2c97EwCE=;
-        b=VLpnmMGY0x+dFUQKUABzhf/yPDHCGtMPDwE0D7youWM3fu5PYbkG9COffG/w/XZ+2G
-         IiUPfX4QT24hlpvz7GPVv8tHRh+Uq86fv4GK8pw9+F4TVPnMnrEJqn51ApZq0wsPojOq
-         H9jpRaH38yMHwS4y89YRbENpGrLLBx72cYQEDaKvfMlXPgAvO7qZIwgpVtMTyrSaY34+
-         VHoislRV1aNcHPOSPjX/5+S9DKjB3n38GTO3rg4cTv2zWoPsL1isjxzTOeKzIK9NV4Cr
-         PWzVUmpxorXC9xpa4QTVuk57PboMcT6XhuKLnne8lRhEXI5A5wmTJEh+6+0cbsA2UtZM
-         0epQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784079116; x=1784683916;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=4RLro0zVrzQrjAPm6l1qYto9Dw+jSbq9LMC2c97EwCE=;
-        b=n+9ETRPTnVUcbuckwVz4eG1kj6iS3ewhT8Q2giUQpZc3rP7hPL/dPgQyl5OkE6Ydf2
-         b5pv+fH0t1k/HYaBdVvoc26sZB7bn2KprnNpR8EifMh5sUC0NgrFXH4xNZb4vyNRSE2+
-         apRnhg24yfoftnP8jZXSsIvjnsBsLn0UAin6I2f8UexUnuc8Qgt64Hen88xmpT3XaDDi
-         HvJfEQmbOsuBQpEiHqdX4N6cj6Vhh3P/WI+nAUKyZN+QuOuJ+ALclOoOI+GCT0p63B81
-         3nKNpYgRhjmxs8DQQarVTkRUUjzYLxWbXvw8K51rvRqdZlZOsVR/47j2oJmXoPU7ae/J
-         rp4w==
-X-Forwarded-Encrypted: i=1; AHgh+RrX64FHeBPrqJpWAAaHyDknACqouRU+AWveZv6pYLeBS1Z06avtzWigZciY80RVJuVLDnj0ieou6hRWGodK4nG+@lists.infradead.org
-X-Gm-Message-State: AOJu0YxkUcrYOVT9Qwk9QTsyFhFLQkz0Xnm4okC6GvFRozNBeLAjv5A+
-	8PrDaF0a1MD8/fX3LKDTBgDLc/40+1n4nQFPuvwxg4ctbbaDluyCFXmI
-X-Gm-Gg: AfdE7cnWM2Mil8b/XxzZiY94tlZ92T2Rs4ceDGpZFThJpvuBcu8ko2pwZUZElAifhyj
-	2XHdyKnH3T+x8djHYigZlQihPfa3h2nrtMhHD+J6RIL3MybkwyGUU5241TOO0v2OU7gP7RoMb3X
-	Ji1r7SFPOCwnciL/mQgkZ1L4vtRn5n2kwhpimrq5hzMLP2pkWsHa2FtU01shvpZ95vc3/oPPmkx
-	p52cqbyPai7P58CgjWVpQLu2RrWKpbGfVv4+jBpWBIULpR199NQRSRjnsbL9G0tnLy2jYG89Q7w
-	g6oKqvDTVvkBpUOF3pFZaQawnX/zdQHkT+yp3TP2tl56QFU/chCDQ2LKBU2ugQQIfTTbw/xVs4Z
-	kpx+4OdeIxJD89WWO6Xvd7FBGC2V8r/vv7rqZccW0Nxbs70Vu8JcH/Th8/Gw5XhtsqfrJ/nHcXN
-	T/kODEudz+atAsscSANTAvoJBMcsY/igSxMzkLelRpIVfX/u/rmdb7TEHQep/jJ6CaZLGxaeiCx
-	r3HIXFQW5ASkCJorv3w1m7GU4KsVNo42iYPm94CZ8lEFrh5XMRjFrcTjbf/O17M2VmA3kSAIL49
-	2A2QiVXfaA==
-X-Received: by 2002:a05:6830:2306:b0:7e9:ead3:4449 with SMTP id 46e09a7af769-7ec0967b3e2mr9849272a34.6.1784079116368;
-        Tue, 14 Jul 2026 18:31:56 -0700 (PDT)
-Received: from james-x399.tailafd1a.ts.net (174-29-11-8.hlrn.qwest.net. [174.29.11.8])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7ebcafda2ffsm16289012a34.12.2026.07.14.18.31.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jul 2026 18:31:55 -0700 (PDT)
-From: James Hilliard <james.hilliard1@gmail.com>
-To: linux-mtd@lists.infradead.org,
-	linux-sunxi@lists.linux.dev
-Cc: James Hilliard <james.hilliard1@gmail.com>,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Richard Genoud <richard.genoud@bootlin.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] mtd: rawnand: sunxi: fix H6/H616 controller timings
-Date: Tue, 14 Jul 2026 19:31:38 -0600
-Message-ID: <20260715013142.640977-1-james.hilliard1@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	Wed, 15 Jul 2026 01:38:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UTzpAD9Q6/9DC6pwzhSvy5lQe1tFDN1ZdYSFFLUcj79WAYMD49Cqhfz/nW7PH/CtxGW3qyVTVFT36TiQncepeUURXVv8gt6lhO07QyRW3tYjqYJckEetiz1qz2r2h3UdpCzqkUwNxrVS1o+vuW3Qx0B07LNzwZMgfJ22G5vG30AaCYFV/rslQRklzXUYsQP3s8h+QtPisfR2MLRRefpoSPLfYyeyyHzX2gIMnv6nMyBpsEBnRu3Wrix8/EAjko50Kan6iIU2FTh40ubMqbrwu6PU0CKz/019qcqWvyR2qY+6pNNddcxBt7f71ObveD4e3Us3TXyb5TV1NK68xJnxag==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fxyvcLwKtdazNqOvkLyv6ht9xfM1XCHujNvTJY/tIrg=;
+ b=QQn72aaGLFnUaaKKFf76s3XbZRX4lTA4DXn/4Od3azCq/uWIX/8KIFBffBUNP4TwZNr3xS9Wte0cZOiMGSdOphzD2u+kBokBhlYbWE0YQTvpxauXeI+ogHFMDfiFtwCY4cb87fUNA50w+AxSyW3NMf6/drk1m2N+qy0eCqoHoMk2M0R8oyzYk3zsN2bee8AZLyElSyzDK23g2/9h/TiAFNWRJR0VJ4paO1VYrnkiCmo/dW8u0hj6AcXrM8ij8BSGWKl9dRsubLYMBIi9bcIITHTxiFYxXoZqCYmmeEGzYF/xsYRAmEVyps/f7ylgx93hiq74tB5fYT5Da3XCNmRX3Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fxyvcLwKtdazNqOvkLyv6ht9xfM1XCHujNvTJY/tIrg=;
+ b=MRV+VO3F3pLL/kSqBaceoYPnDD3DBbwnyFlq8IN+7wcgAc6rUlEWbY2bRQTIn+nbh26tj94VEHZ16CjY6Es+O7Gk2d6yz0ky6iJ2zt5J2ziAAV089WekXrtiLYhz/GcubPySb2wbZgHn3B+rtnW4cKGLxr6NSb5GcrKfT+G5QP6yKjBOKO2fo+ncLZGYaWJN7IrHLW9rwb50vsvg5m6/2BV8iotTtyVi9Zs1ML9K7siHtuYa79GT1vzTIIagd1XAmtliwx1xfkqW39K32fJbZQwBAViV1zkj5OTHgQqqHqZothUM+TCt492C1mVvy58XGMybePIX7crVuWYscqw81A==
+Received: from GV2PR04MB12019.eurprd04.prod.outlook.com
+ (2603:10a6:150:30c::14) by DB8PR04MB7017.eurprd04.prod.outlook.com
+ (2603:10a6:10:123::20) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.11; Wed, 15 Jul
+ 2026 01:38:46 +0000
+Received: from GV2PR04MB12019.eurprd04.prod.outlook.com
+ ([fe80::ed75:bac1:2554:5cbe]) by GV2PR04MB12019.eurprd04.prod.outlook.com
+ ([fe80::ed75:bac1:2554:5cbe%4]) with mapi id 15.21.0223.008; Wed, 15 Jul 2026
+ 01:38:46 +0000
+From: "Hongxing Zhu (OSS)" <hongxing.zhu@oss.nxp.com>
+To: Francesco Dolcini <francesco@dolcini.it>, "bhelgaas@google.com"
+	<bhelgaas@google.com>, "Hongxing Zhu (OSS)" <hongxing.zhu@oss.nxp.com>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, Hongxing Zhu
+	<hongxing.zhu@nxp.com>
+CC: Frank Li <frank.li@nxp.com>, "l.stach@pengutronix.de"
+	<l.stach@pengutronix.de>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"kwilczynski@kernel.org" <kwilczynski@kernel.org>, "mani@kernel.org"
+	<mani@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "kernel@pengutronix.de"
+	<kernel@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "regressions@lists.linux.dev"
+	<regressions@lists.linux.dev>
+Subject: RE: [PATCH v2] PCI: imx6: Fix i.MX6Q/DL boot hang by separating PHY
+ power and reference clock control
+Thread-Topic: [PATCH v2] PCI: imx6: Fix i.MX6Q/DL boot hang by separating PHY
+ power and reference clock control
+Thread-Index: AQHdDo25W26RGvcpZ0Gq9kNHQoJzyLZtAdsAgADWRcA=
+Date: Wed, 15 Jul 2026 01:38:46 +0000
+Message-ID: <GV2PR04MB12019768BFE54BDA674B9C4B48CF82@GV2PR04MB12019.eurprd04.prod.outlook.com>
+References: <20260708035928.580236-1-hongxing.zhu@oss.nxp.com>
+ <20260708035928.580236-2-hongxing.zhu@oss.nxp.com>
+ <20260714125126.GA84291@francesco-nb>
+In-Reply-To: <20260714125126.GA84291@francesco-nb>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+x-ms-exchange-messagesentrepresentingtype: 1
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: GV2PR04MB12019:EE_|DB8PR04MB7017:EE_
+x-ms-office365-filtering-correlation-id: 6235696f-1b90-4d79-8c1e-08dee211cfc7
+x-ms-exchange-sharedmailbox-routingagent-processed: True
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|23010399003|19092799006|7416014|376014|38070700021|6133799003|56012099006|4143699003|11063799006|22082099003|18002099003;
+x-microsoft-antispam-message-info: uXMlXH+nHi2tnwfH7qGvH37ZMw68Ozj1LF8eMaqCTvuE+xQ1bJVn+nFToYOxfTYetmdZQZtjRszGihNWxILdkJQf3bFKooaQxbf+2xKa1bLOeuBcWxakBVERqiWmZTFVqBIXsIhZPcPrZqDPhicJ0y+Tj5lW+R+vY509WV5cEbLD6UIlwXAC0WGDF/lE3vhfOwpFJI6jyMrCRhANRYR/ZwJNzMGSNJTvUeHQQOYz8v50DS23GSSJ9ut9DDwm2KQoXD7eDuEVi1J5WcF1hsXRq11z6EXyjfQAIQhumizs/ybyZF1FqM3TXzoz9Ghvc43T+diVY5cG1EOxuurBanCsVh0WdW43e0XkKOtBOcS4l4zJ7E9aK59hJB5KbWZhelD61jxuBGLjn2E4f0irnT98VlEdEKwL++ejMguioSJsBGvJiRcQinkEtmTDGf6D6xkuQ18uBjNnc6A6KEZHLJn1rqlR8GoR/byx8hIEt2fy53XGfvTBN+Y0wNhdTs73cuNoaCE1yL0bFNSRgYFHd/M/wii0X7grQXli4iiXFf/mwAEN4G4+4VO1xb0WuxvSlBc4b/KM1q9fUUJeGyE7AJjoIdWI5CITWM3fBvdoZp7jCK1x4D5YrH4E/aRlXrlymkTvWbSJjBVOWPoSf2o9BgcqYC+bgPL0jSDj9rKkQkZE22kh1iFexQglY8NolJsoEBv8nQPDj4W8gtnEUOOHFDueHmjfk71jKRORPd0xGEV9Duc=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12019.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(23010399003)(19092799006)(7416014)(376014)(38070700021)(6133799003)(56012099006)(4143699003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?+D09Bv2/HtvZIMf1BqZ7OxVRjE7bcLgn5cVnRrjdb3pw242kbI8BfPgEp5ej?=
+ =?us-ascii?Q?UNKuV+DPhBbvdAl87qENVPRcXfOQVj5IT06oYy2aAQH6WBIIJegw1EE9HzgS?=
+ =?us-ascii?Q?LlbLD7hrfsFEXW7fqGJ8Di+J6nYovXgb0392PQudpj010XQEIhhsjMu1hf+m?=
+ =?us-ascii?Q?nDaKrr/zNID1cuQ1eHT7Jh52Vb1ch98joDwIbZRyfOradxm29g9AgWpOdSnB?=
+ =?us-ascii?Q?n+/siPna5jsTqgf+GlfO7RQP0fgYgSf60rYSXFCx9JVTvEzQDUHodkIXoGkR?=
+ =?us-ascii?Q?23u4ihBPFyGWsRkDBcs7lyQJQsnzJJ7ilJ9V75/Z5LbbFBRo4AyVjRBTlBor?=
+ =?us-ascii?Q?0+3FeJGRjd35GGON7KbOwF740dRSrxVADRcLgpt1DIf/JFDfjtoaXay62rh7?=
+ =?us-ascii?Q?vW9XXYz13drNYKJJUCXXxr7tqhoV7x30j8vkXHWCIGp06OEU8S/C8Bcs++n+?=
+ =?us-ascii?Q?EWrYI/0zZhREa0o8toXMMY+xsabPRz7bZOMXhXZ99fbLelkIXmvF2tid1RxB?=
+ =?us-ascii?Q?0cVRAx0Ayzc1C8Pee/ba445j39L38SylUqM9ht+/sOJGp57yo+7ryqkzq73q?=
+ =?us-ascii?Q?phdZGskHvnJ3sToIt6XOZEixqSNgKChecvLTiM0OzjrH4nX6KP7+h7a3oQvT?=
+ =?us-ascii?Q?MYIid1YJHSmBxGnG+wcx00RzkJ8bKCTKlLwsw9M+tk+gqnADezQy2UT+ZPPq?=
+ =?us-ascii?Q?JEHItMXLTpV5lHdeHFDjkNFXlDlc073BlHYa1JpqsLU482CDHcCxQGhhbsAo?=
+ =?us-ascii?Q?1Cx/+ucm99nn4XnnT/arlTZCcmzhR+TVERWNnLBfDTr9cTk+H7Y0SWhnal26?=
+ =?us-ascii?Q?vrHnQosIaiO17gkMC2wMOhv7Rf4drPtPr+/MmpqD9fzLJptZ5Nko5MkLQbUm?=
+ =?us-ascii?Q?QGqTkGAUoaO1KM2dZiqlQNxHfl8cfH2HtKT7Kq+xcvdljl1oKS8+3FGFLI5j?=
+ =?us-ascii?Q?ASY5xb2jzYybTbFl/hSOqTEBn+OTYZmzPkct3Ne4+MjhbLekkbDO6jNVnmEQ?=
+ =?us-ascii?Q?WCRwPnSWrK2vDlakni1uzOaqxfKMCF/K/KmYUFAO2W4okjRNFcYhtNErdkj/?=
+ =?us-ascii?Q?h3k8vfToZ6Ns1DjH88j/RyUvYt32/C8jDfi+VMJjFXR6EjIaYPGD3fRGhN7l?=
+ =?us-ascii?Q?DxqECZOMFhhYq9+Gcl/GFMioqRSfZbj0NP1gNa54eArVm426lE6dUzy9c3mg?=
+ =?us-ascii?Q?ty4JtbygsrPyfCCXFnOP4riYQwZ4xuPf2DqlEFCd0r56GMycmh/uGgWna9ik?=
+ =?us-ascii?Q?O7kKqKNWW3JPtAimeUg5xtAP8VO7W1vwvpeajsSo8iAXkJ+f5VrHbyQtjt9k?=
+ =?us-ascii?Q?yfhRdVbYTNuLupoXxweK7olXmCPcCClgZ0TX4Jq48INl3J36WX/IvHlx8I2i?=
+ =?us-ascii?Q?/CdRCsM+wEZU5gQ4sF8d73sVtNL7T02krOiMfxwBX/i1Msn/LbODAGWuDSEZ?=
+ =?us-ascii?Q?t50dg5dDDwUmuGedQDKiZBUJUWYcRzV7y9wOISroFPbf67qkz8bTh3ZZf2Sg?=
+ =?us-ascii?Q?8cN/13Gp+06SBnfdiXqq6l1HFtnHTJPYV3WlbX8IeRo3N0nwBf65LlAA6QuU?=
+ =?us-ascii?Q?W5ZPYXm5+iK3cPalm1x9sc+RQqrBOMOInoxuBy6yP4FhfS5QOEUtSQ4FBCg4?=
+ =?us-ascii?Q?oFhnGkBW9sSHhoZTZ905RfwwiIXm8EfI7bVwO+0+xWIvd9EjItJ44vxIi85r?=
+ =?us-ascii?Q?eyHGzy6lAMhwtZL92KBXCbTBBmA+oMKG9zao7jE2kOBTjAvQiVpTNTyOf1b5?=
+ =?us-ascii?Q?phQBEvpgrg=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12019.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6235696f-1b90-4d79-8c1e-08dee211cfc7
+X-MS-Exchange-CrossTenant-originalarrivaltime: 15 Jul 2026 01:38:46.1451
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: axS5R/t1VZR6zjmCrZPU8Efttwt1BvlkMaYeWC9Qa7bs4ahiocYT89XQajNL/bINErOzgUQAk4m1Ol/jRysYhQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB7017
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_183157_528796_79D09179 
-X-CRM114-Status: GOOD (  21.35  )
+X-CRM114-CacheID: sfid-20260714_183854_754734_9F6375C1 
+X-CRM114-Status: GOOD (  24.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,298 +156,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The NAND timing calculation was written for the original A10 NDFC. It
-assumes command and address setup and hold intervals T1-T4, T7 and T11
-are one controller clock and uses the A10 timing-register encodings.
+> -----Original Message-----
+> From: Francesco Dolcini <francesco@dolcini.it>
+> Sent: Tuesday, July 14, 2026 8:51 PM
+> To: bhelgaas@google.com; Hongxing Zhu (OSS) <hongxing.zhu@oss.nxp.com>;
+> linux-pci@vger.kernel.org; Hongxing Zhu <hongxing.zhu@nxp.com>
+> Cc: Frank Li <frank.li@nxp.com>; l.stach@pengutronix.de; lpieralisi@kerne=
+l.org;
+> kwilczynski@kernel.org; mani@kernel.org; robh@kernel.org;
+> s.hauer@pengutronix.de; kernel@pengutronix.de; festevam@gmail.com; linux-
+> arm-kernel@lists.infradead.org; imx@lists.linux.dev; linux-
+> kernel@vger.kernel.org; regressions@lists.linux.dev
+> Subject: Re: [PATCH v2] PCI: imx6: Fix i.MX6Q/DL boot hang by separating =
+PHY
+> power and reference clock control
+>=20
+> [You don't often get email from francesco@dolcini.it. Learn why this is i=
+mportant
+> at https://aka.ms/LearnAboutSenderIdentification ]
+>=20
+> Hello,
+>=20
+> On Wed, Jul 08, 2026 at 11:59:27AM +0800, hongxing.zhu@oss.nxp.com wrote:
+> > From: Richard Zhu <hongxing.zhu@nxp.com>
+> >
+> > Commit 610fa91d9863 ("PCI: imx6: Assert PERST# before enabling
+> > regulators") introduced a boot hang on i.MX6Q/DL variants by changing
+> > the initialization sequence.
+> >
+> > The issue stems from coupling PHY power (TEST_PD) and reference clock
+> > (REF_CLK_EN) control in imx6q_pcie_enable_ref_clk(). When these are
+> > managed together, the timing between PHY power-up and reference clock
+> > enablement cannot be properly controlled, leading to initialization
+> > failures.
+> >
+> > Fix this by separating the two concerns:
+> >
+> > - Move PHY power control (TEST_PD) to imx6q_pcie_core_reset() where it
+> >   logically belongs with reset operations. This ensures PHY power state
+> >   is managed as part of the core reset sequence.
+> >
+> > - Update imx6qp_pcie_core_reset() to call imx6q_pcie_core_reset() for
+> >   shared PHY power management, avoiding code duplication.
+> >
+> > - Make imx6q_pcie_enable_ref_clk() responsible only for reference clock
+> >   (REF_CLK_EN) control, simplifying its purpose.
+> >
+> > - Remove the 10us delay workaround from imx6q_pcie_enable_ref_clk() as
+> >   proper sequencing is now handled by the core_reset functions.
+> >
+> > This refactoring ensures PHY power is controlled during reset
+> > operations, fixing the boot hang while improving code maintainability.
+> >
+> > Fixes: 610fa91d9863 ("PCI: imx6: Assert PERST# before enabling
+> > regulators")
+> > Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+>=20
+> What's the plan with this? 610fa91d9863 ("PCI: imx6: Assert PERST# before
+> enabling regulators") introduces a severe regression with boards not boot=
+ing at
+> all.
+>=20
+> As of now we are not able to test anything, and our CI is completely blin=
+d on any
+> other issue that linux 7.2 might have introduced.
+>=20
+> Is the plan to merge this, or to revert the commit? Any timeline?[]=20
+Hi Francesco:
+Sorry for this severe regression.
 
-The H6/H616 NDFC instead defines those intervals as two internal clock
-cycles and uses different encodings for tWB, tADL, tWHR and tRHW, as
-documented in the H616 User Manual.
+I prefer to merge this fix as soon as possible. Would you be able to test t=
+his
+patch on your affected boards? Your testing would help expedite the merge
+process and ensure the fix resolves the boot issue you're experiencing.
 
-Describe the timing characteristics in the controller capability data
-so the clock solver can select a rate permitted by the NAND SDR timings
-and program valid delay fields. Keep the legacy A10 behavior unchanged.
+Thank you for your assistance.
 
-Fixes: 88fd4e4deae8 ("mtd: rawnand: sunxi: Add support for H616 nand controller")
-Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
----
- drivers/mtd/nand/raw/sunxi_nand.c | 140 +++++++++++++++++-------------
- 1 file changed, 82 insertions(+), 58 deletions(-)
-
-diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/sunxi_nand.c
-index 02647565c8ba..9b7d17b6d81a 100644
---- a/drivers/mtd/nand/raw/sunxi_nand.c
-+++ b/drivers/mtd/nand/raw/sunxi_nand.c
-@@ -237,6 +237,18 @@ struct sunxi_nand_hw_ecc {
- 	u32 ecc_ctl;
- };
- 
-+#define SUNXI_NFC_TIMING_STEPS	4
-+
-+/* Delay arrays contain internal NDFC clock cycles for field values 0 to 3. */
-+struct sunxi_nfc_timings {
-+	/* Internal clock cycles used by T1-T4, T7 and T11. */
-+	u8 setup_cycles;
-+	u8 tWB[SUNXI_NFC_TIMING_STEPS];
-+	u8 tADL[SUNXI_NFC_TIMING_STEPS];
-+	u8 tWHR[SUNXI_NFC_TIMING_STEPS];
-+	u8 tRHW[SUNXI_NFC_TIMING_STEPS];
-+};
-+
- /**
-  * struct sunxi_nand_chip - stores NAND chip device related information
-  *
-@@ -301,6 +313,7 @@ static inline struct sunxi_nand_chip *to_sunxi_nand(struct nand_chip *nand)
-  *			bytes to write
-  * @nuser_data_tab:	Size of @user_data_len_tab
-  * @sram_size:		Size of the NAND controller SRAM
-+ * @timings:		Controller timing characteristics
-  */
- struct sunxi_nfc_caps {
- 	bool has_mdma;
-@@ -327,6 +340,7 @@ struct sunxi_nfc_caps {
- 	unsigned int nuser_data_tab;
- 	unsigned int max_ecc_steps;
- 	int sram_size;
-+	const struct sunxi_nfc_timings *timings;
- };
- 
- /**
-@@ -1667,16 +1681,35 @@ static int sunxi_nfc_hw_ecc_write_oob(struct nand_chip *nand, int page)
- 	return nand_prog_page_end_op(nand);
- }
- 
--static const s32 tWB_lut[] = {6, 12, 16, 20};
--static const s32 tRHW_lut[] = {4, 8, 12, 20};
-+static const struct sunxi_nfc_timings sun4i_a10_nfc_timings = {
-+	.setup_cycles = 1,
-+	.tWB = { 6, 12, 16, 20 },
-+	.tADL = { 7, 15, 23, 31 },
-+	.tWHR = { 7, 15, 23, 31 },
-+	.tRHW = { 4, 8, 12, 20 },
-+};
-+
-+static const struct sunxi_nfc_timings sun50i_h6_nfc_timings = {
-+	.setup_cycles = 2,
-+	.tWB = { 28, 44, 60, 76 },
-+	.tADL = { 0, 12, 28, 44 },
-+	.tWHR = { 0, 12, 28, 44 },
-+	.tRHW = { 8, 24, 40, 56 },
-+};
-+
-+static void sunxi_nand_update_min_period(u32 *min_period, u32 duration,
-+					 unsigned int cycles)
-+{
-+	*min_period = max(*min_period, DIV_ROUND_UP(duration, cycles));
-+}
- 
--static int _sunxi_nand_lookup_timing(const s32 *lut, int lut_size, u32 duration,
--		u32 clk_period)
-+static int sunxi_nand_lookup_timing(const u8 *lut, u32 duration,
-+				    u32 clk_period)
- {
- 	u32 clk_cycles = DIV_ROUND_UP(duration, clk_period);
- 	int i;
- 
--	for (i = 0; i < lut_size; i++) {
-+	for (i = 0; i < SUNXI_NFC_TIMING_STEPS; i++) {
- 		if (clk_cycles <= lut[i])
- 			return i;
- 	}
-@@ -1685,14 +1718,12 @@ static int _sunxi_nand_lookup_timing(const s32 *lut, int lut_size, u32 duration,
- 	return -EINVAL;
- }
- 
--#define sunxi_nand_lookup_timing(l, p, c) \
--			_sunxi_nand_lookup_timing(l, ARRAY_SIZE(l), p, c)
--
- static int sunxi_nfc_setup_interface(struct nand_chip *nand, int csline,
- 				     const struct nand_interface_config *conf)
- {
- 	struct sunxi_nand_chip *sunxi_nand = to_sunxi_nand(nand);
- 	struct sunxi_nfc *nfc = to_sunxi_nfc(sunxi_nand->nand.controller);
-+	const struct sunxi_nfc_timings *nfc_timings = nfc->caps->timings;
- 	const struct nand_sdr_timings *timings;
- 	u32 min_clk_period = 0;
- 	s32 tWB, tADL, tWHR, tRHW, tCAD;
-@@ -1703,77 +1734,65 @@ static int sunxi_nfc_setup_interface(struct nand_chip *nand, int csline,
- 		return -ENOTSUPP;
- 
- 	/* T1 <=> tCLS */
--	if (timings->tCLS_min > min_clk_period)
--		min_clk_period = timings->tCLS_min;
-+	sunxi_nand_update_min_period(&min_clk_period, timings->tCLS_min,
-+				     nfc_timings->setup_cycles);
- 
- 	/* T2 <=> tCLH */
--	if (timings->tCLH_min > min_clk_period)
--		min_clk_period = timings->tCLH_min;
-+	sunxi_nand_update_min_period(&min_clk_period, timings->tCLH_min,
-+				     nfc_timings->setup_cycles);
- 
- 	/* T3 <=> tCS */
--	if (timings->tCS_min > min_clk_period)
--		min_clk_period = timings->tCS_min;
-+	sunxi_nand_update_min_period(&min_clk_period, timings->tCS_min,
-+				     nfc_timings->setup_cycles);
- 
- 	/* T4 <=> tCH */
--	if (timings->tCH_min > min_clk_period)
--		min_clk_period = timings->tCH_min;
-+	sunxi_nand_update_min_period(&min_clk_period, timings->tCH_min,
-+				     nfc_timings->setup_cycles);
- 
- 	/* T5 <=> tWP */
--	if (timings->tWP_min > min_clk_period)
--		min_clk_period = timings->tWP_min;
-+	sunxi_nand_update_min_period(&min_clk_period, timings->tWP_min, 1);
- 
- 	/* T6 <=> tWH */
--	if (timings->tWH_min > min_clk_period)
--		min_clk_period = timings->tWH_min;
-+	sunxi_nand_update_min_period(&min_clk_period, timings->tWH_min, 1);
- 
- 	/* T7 <=> tALS */
--	if (timings->tALS_min > min_clk_period)
--		min_clk_period = timings->tALS_min;
-+	sunxi_nand_update_min_period(&min_clk_period, timings->tALS_min,
-+				     nfc_timings->setup_cycles);
- 
- 	/* T8 <=> tDS */
--	if (timings->tDS_min > min_clk_period)
--		min_clk_period = timings->tDS_min;
-+	sunxi_nand_update_min_period(&min_clk_period, timings->tDS_min, 1);
- 
- 	/* T9 <=> tDH */
--	if (timings->tDH_min > min_clk_period)
--		min_clk_period = timings->tDH_min;
-+	sunxi_nand_update_min_period(&min_clk_period, timings->tDH_min, 1);
- 
- 	/* T10 <=> tRR */
--	if (timings->tRR_min > (min_clk_period * 3))
--		min_clk_period = DIV_ROUND_UP(timings->tRR_min, 3);
-+	sunxi_nand_update_min_period(&min_clk_period, timings->tRR_min, 3);
- 
- 	/* T11 <=> tALH */
--	if (timings->tALH_min > min_clk_period)
--		min_clk_period = timings->tALH_min;
-+	sunxi_nand_update_min_period(&min_clk_period, timings->tALH_min,
-+				     nfc_timings->setup_cycles);
- 
- 	/* T12 <=> tRP */
--	if (timings->tRP_min > min_clk_period)
--		min_clk_period = timings->tRP_min;
-+	sunxi_nand_update_min_period(&min_clk_period, timings->tRP_min, 1);
- 
- 	/* T13 <=> tREH */
--	if (timings->tREH_min > min_clk_period)
--		min_clk_period = timings->tREH_min;
-+	sunxi_nand_update_min_period(&min_clk_period, timings->tREH_min, 1);
- 
- 	/* T14 <=> tRC */
--	if (timings->tRC_min > (min_clk_period * 2))
--		min_clk_period = DIV_ROUND_UP(timings->tRC_min, 2);
-+	sunxi_nand_update_min_period(&min_clk_period, timings->tRC_min, 2);
- 
- 	/* T15 <=> tWC */
--	if (timings->tWC_min > (min_clk_period * 2))
--		min_clk_period = DIV_ROUND_UP(timings->tWC_min, 2);
-+	sunxi_nand_update_min_period(&min_clk_period, timings->tWC_min, 2);
- 
- 	/* T16 - T19 + tCAD */
--	if (timings->tWB_max > (min_clk_period * 20))
--		min_clk_period = DIV_ROUND_UP(timings->tWB_max, 20);
--
--	if (timings->tADL_min > (min_clk_period * 32))
--		min_clk_period = DIV_ROUND_UP(timings->tADL_min, 32);
--
--	if (timings->tWHR_min > (min_clk_period * 32))
--		min_clk_period = DIV_ROUND_UP(timings->tWHR_min, 32);
--
--	if (timings->tRHW_min > (min_clk_period * 20))
--		min_clk_period = DIV_ROUND_UP(timings->tRHW_min, 20);
-+	sunxi_nand_update_min_period(&min_clk_period, timings->tWB_max,
-+				     nfc_timings->tWB[SUNXI_NFC_TIMING_STEPS - 1]);
-+	sunxi_nand_update_min_period(&min_clk_period, timings->tADL_min,
-+				     nfc_timings->tADL[SUNXI_NFC_TIMING_STEPS - 1]);
-+	sunxi_nand_update_min_period(&min_clk_period, timings->tWHR_min,
-+				     nfc_timings->tWHR[SUNXI_NFC_TIMING_STEPS - 1]);
-+	sunxi_nand_update_min_period(&min_clk_period, timings->tRHW_min,
-+				     nfc_timings->tRHW[SUNXI_NFC_TIMING_STEPS - 1]);
- 
- 	/*
- 	 * In non-EDO, tREA should be less than tRP to guarantee that the
-@@ -1789,26 +1808,28 @@ static int sunxi_nfc_setup_interface(struct nand_chip *nand, int csline,
- 	if (timings->tREA_max > min_clk_period && !timings->tRLOH_min)
- 		min_clk_period = timings->tREA_max;
- 
--	tWB  = sunxi_nand_lookup_timing(tWB_lut, timings->tWB_max,
-+	tWB  = sunxi_nand_lookup_timing(nfc_timings->tWB, timings->tWB_max,
- 					min_clk_period);
- 	if (tWB < 0) {
- 		dev_err(nfc->dev, "unsupported tWB\n");
- 		return tWB;
- 	}
- 
--	tADL = DIV_ROUND_UP(timings->tADL_min, min_clk_period) >> 3;
--	if (tADL > 3) {
-+	tADL = sunxi_nand_lookup_timing(nfc_timings->tADL,
-+					timings->tADL_min, min_clk_period);
-+	if (tADL < 0) {
- 		dev_err(nfc->dev, "unsupported tADL\n");
--		return -EINVAL;
-+		return tADL;
- 	}
- 
--	tWHR = DIV_ROUND_UP(timings->tWHR_min, min_clk_period) >> 3;
--	if (tWHR > 3) {
-+	tWHR = sunxi_nand_lookup_timing(nfc_timings->tWHR,
-+					timings->tWHR_min, min_clk_period);
-+	if (tWHR < 0) {
- 		dev_err(nfc->dev, "unsupported tWHR\n");
--		return -EINVAL;
-+		return tWHR;
- 	}
- 
--	tRHW = sunxi_nand_lookup_timing(tRHW_lut, timings->tRHW_min,
-+	tRHW = sunxi_nand_lookup_timing(nfc_timings->tRHW, timings->tRHW_min,
- 					min_clk_period);
- 	if (tRHW < 0) {
- 		dev_err(nfc->dev, "unsupported tRHW\n");
-@@ -1824,7 +1845,7 @@ static int sunxi_nfc_setup_interface(struct nand_chip *nand, int csline,
- 	 */
- 	tCAD = 0x7;
- 
--	/* TODO: A83 has some more bits for CDQSS, CS, CLHZ, CCS, WC */
-+	/* TODO: A83 and H6 have more bits for CDQSS, CS, CLHZ, CCS, WC */
- 	sunxi_nand->timing_cfg = NFC_TIMING_CFG(tWB, tADL, tWHR, tRHW, tCAD);
- 
- 	/* Convert min_clk_period from picoseconds to nanoseconds */
-@@ -2595,6 +2616,7 @@ static const struct sunxi_nfc_caps sunxi_nfc_a10_caps = {
- 	.nstrengths = ARRAY_SIZE(sunxi_ecc_strengths_a10),
- 	.max_ecc_steps = 16,
- 	.sram_size = 1024,
-+	.timings = &sun4i_a10_nfc_timings,
- };
- 
- static const struct sunxi_nfc_caps sunxi_nfc_a23_caps = {
-@@ -2617,6 +2639,7 @@ static const struct sunxi_nfc_caps sunxi_nfc_a23_caps = {
- 	.nstrengths = ARRAY_SIZE(sunxi_ecc_strengths_a10),
- 	.max_ecc_steps = 16,
- 	.sram_size = 1024,
-+	.timings = &sun4i_a10_nfc_timings,
- };
- 
- static const struct sunxi_nfc_caps sunxi_nfc_h616_caps = {
-@@ -2641,6 +2664,7 @@ static const struct sunxi_nfc_caps sunxi_nfc_h616_caps = {
- 	.nuser_data_tab = ARRAY_SIZE(sunxi_user_data_len_h6),
- 	.max_ecc_steps = 32,
- 	.sram_size = 8192,
-+	.timings = &sun50i_h6_nfc_timings,
- };
- 
- static const struct of_device_id sunxi_nfc_ids[] = {
--- 
-2.53.0
+Best Regards
+Richard Zhu
+>=20
+> Francesco
+>=20
 
 
