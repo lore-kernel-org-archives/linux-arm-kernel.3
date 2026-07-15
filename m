@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAF3EC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 18:05:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4D8CC4450E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 18:05:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dhgYyHhNx3mFWlfEOgFLcf2FH4tPJUwjwawBC1RyrP0=; b=x+94ynqVPOxFC8HWduycjMzR3x
-	CTeDgKJBAHRunBinfRlqDkNMQdeF/f5ggQPsyJ0X9eqtniatbNclMsDFyURFQigyaAU4kOFdPRZcK
-	+g+Cg0tgijmWbwrQeu+w2xP6g541VkiYqs3g6OXsUfObhy4krNfthY6au5KH3BtMIeREVEJEs8bMW
-	ciIaMhC4obyLNtyOHke3zzzP8a2RQ5Obr6AM7GZr5pxRKAAm+ve05lpSkiAFAHRBwcu9AfOEM0wa+
-	NmCmmXVs6PnjqaarG5gK9MzcMsUumqOb+M8RPTVSs4yfeDDNcBk47sBHjynKUdGH2c/sYgDHTYwh9
-	TtcILHxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wYTcMpCGQoeSA3WN+ofCp+QWfkKB14/vhiJiLjROXnY=; b=i8z0qjhRSMWIXEe9qa2/cewIfj
+	e+eGBcw+r7bKdsD+Te6Kvr8v5XKyYuH1XgtbeBXabr9CDVJSo/7KbSvaPoeeBfSohAxokgE8f4WTf
+	f3zc+vsRPFDxOfFAdPBe9C1QaSbno/+qcJdMVYVbqMA/axQmNPhlVkdD5mZfz7TJGj/iSv6A7TywV
+	eICvX7Megj0PM5DgobAPlQ6MmOZDxJ85G38Q2MaaJmSqhduHfSrFNhWNhBfG3O/VCtRI5cbqHfsmC
+	8nWQMAmscDpZosSiCt1vuv6tkzu0DLrfvbRlEWq2A/CGXCq19oPmh4rLPpknJ9DEdV1SG8g34RQbv
+	EpvKfRow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk3zO-0000000FcIc-1s9f;
-	Wed, 15 Jul 2026 18:05:47 +0000
+	id 1wk3zU-0000000FcLl-21zJ;
+	Wed, 15 Jul 2026 18:05:52 +0000
 Received: from mail-centralusazon11020137.outbound.protection.outlook.com ([52.101.61.137] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk3zL-0000000FcHk-2ABM
+	id 1wk3zQ-0000000FcHk-2TuO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 18:05:44 +0000
+	Wed, 15 Jul 2026 18:05:49 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MIzyEPXomQYUafbCmTm066o8wMu3Htf7bgPS4Ep2ufxTQlN7eZt8P9spCyrOWcgJ1pQGZX+k753f2htrMjXduwClzqo11FbP6iC2YW5tqUA0d4RTYRna1wf6OI/liqZZUoB6rJ0yXJYkTsaSVusHK7AN+Bt81ZeZYvEoK7G0K4t3VIfU9bIJRBWFuZn5l/81LcvBf2zTU0nXB0vzxjb5x+TUySubapCundyw1mXTKMpdbXyRb9bRn+x9F+ePH1cw+0YT4Q1EbzN1kkbl/CIeI/X0zPBnA0KfhlBDTIbjEShE7F7ukHanmuuOoLyL910Sn6Nxyuyi0kXUJF381c81bQ==
+ b=GkElIBLjHASkj+5/YAZEuXsjKxuIYebaJ5aGViP7phFHNNAOqxBmvuD/hr3uQZivCwdazu+DL0kekaCjyZ+vXOA7dpoPgu9OyY+b2o6Y3208+cU129MBnKZfQq/Gth/bwX9tTu2IvCIsZp/VyNRcNsA8T82ff2KEYR8RCWE11H/Io4sSHh0ihiBQMO7YSvS6Fvsgjjf6rqv4C/4xVbpVmw97svHtcluF26veStbUJ6tXS4sVs0EFQLDZGbikj5Dj27P6wsn0T8DCI2hwEjdp4wRTMyYaETVSVM+ooLwJU+/gdMw02vDnMWeYpDTLUKcqw+zmmHpiiF+/z7LPDM7JMQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dhgYyHhNx3mFWlfEOgFLcf2FH4tPJUwjwawBC1RyrP0=;
- b=c54Q9q6QLt3Yue+IEd+8aIEkWzP2dTn1l29r0ku1eqyUHaMbZtGQB/7JaYP76zicSTcdcOHK3Vube7qear4F1JeLdpaP+br6mlhTM+W7UTbW5yQUZg9Z3NijbINrUih6yWEcZJMPP2RziHVXI46rubtDjXCrh/0HxIN0Q8z5swKNMQUXfxYTVYw/w9cQIZAJIf5fR1nCgZ2b/CuCfwgGuJYy7pNNK91VI8QH7Oo7mwsJw5NYEeckHHgYd5nVkpi6GIbN50lHF+VSyHaXik52k6dS+Z1Ez4jpPgOz6PRgVnYWQ5CT2Yh9V4A49y8l/lzv5jzaGkUtLIde+JjpPeNDuQ==
+ bh=wYTcMpCGQoeSA3WN+ofCp+QWfkKB14/vhiJiLjROXnY=;
+ b=USDGh2a0lHWqlqT0pb/oklHX0O5H/O5YQ1FB9snbLsdTiec33/r2bBiXV6Z4H7wbv/QV5mzUJvBa8cGlL/CNnWkBNgp51VsBEMQjrRK9tj9qDjeEAdiRArpvl+KBOZ8oxUs+pi1M/LsiHJXtRHHUO7NCs5859eCvahy3QLoZ4Me97UXxskp10r8ZNiUZcFothwFhufkK/rQIXrxv4DHFWh18AGGh+HmrJw9JlNMDbLahaH8h7l4Akxr0F9j5FdiqHZA44Bo6ilbdP1VgtPsB2/ncEcmM2BK/YPuvs2WUn45doxuGxwY3X3Azz2ZMoXvpCkiHVh/5nAzkTVL2StwcmQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
  header.from=os.amperecomputing.com; dkim=pass
@@ -41,18 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=os.amperecomputing.com; s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dhgYyHhNx3mFWlfEOgFLcf2FH4tPJUwjwawBC1RyrP0=;
- b=CxijXkxUzn+9shMOcPz5otcULHjqGMKRIQiyBObOVBWqrf7KHQ1hyBGaEIO+7SKm+diwrjDiBYAEgYZstBNze0wu/vFq8vsSkJrwcNewJam7HU2afSdJ9RpDMUDu6e7St290FrOi2fQxXWrjmgxgKVi6K2rL+8sh5uxdiQ/HkYg=
+ bh=wYTcMpCGQoeSA3WN+ofCp+QWfkKB14/vhiJiLjROXnY=;
+ b=O+do1APelCiCAtIxgiNIxncFn5VXBVt9v88/DXjg8BOrBOxzFAdeZ6OojBQ3Kc4t1Ky+EXfN+bqVlTocJ0/w2pyc/2ddzLdF5ItB4oAvgOyQOCMhYY/3v3FnywgUAD44SDsHmXTVH4vKB4nq535r8TbkmxWqD8FSol9qToP3WkQ=
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
 Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
  SJ0PR01MB6207.prod.exchangelabs.com (2603:10b6:a03:29d::10) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.223.12; Wed, 15 Jul 2026 18:05:32 +0000
+ 15.21.223.12; Wed, 15 Jul 2026 18:05:35 +0000
 Received: from CH0PR01MB6873.prod.exchangelabs.com
  ([fe80::46eb:64a3:667c:c1a0]) by CH0PR01MB6873.prod.exchangelabs.com
  ([fe80::46eb:64a3:667c:c1a0%3]) with mapi id 15.21.0223.008; Wed, 15 Jul 2026
- 18:05:31 +0000
+ 18:05:35 +0000
 From: Yang Shi <yang@os.amperecomputing.com>
 To: cl@gentwo.org,
 	dennis@kernel.org,
@@ -70,80 +70,72 @@ Cc: yang@os.amperecomputing.com,
 	linux-mm@kvack.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [RFC v2 PATCH 0/16] Optimize this_cpu_*() ops for non-x86 (ARM64 for this series)
-Date: Wed, 15 Jul 2026 11:04:02 -0700
-Message-ID: <20260715180455.515692-1-yang@os.amperecomputing.com>
+Subject: [PATCH 03/16] mm: pgalloc: introduce {pud|pmd}_populate_sync()
+Date: Wed, 15 Jul 2026 11:04:05 -0700
+Message-ID: <20260715180455.515692-4-yang@os.amperecomputing.com>
 X-Mailer: git-send-email 2.52.0
-Content-Type: text/plain; charset=UTF-8
+In-Reply-To: <20260715180455.515692-1-yang@os.amperecomputing.com>
+References: <20260715180455.515692-1-yang@os.amperecomputing.com>
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-ClientProxiedBy: CYZPR05CA0010.namprd05.prod.outlook.com
  (2603:10b6:930:89::18) To CH0PR01MB6873.prod.exchangelabs.com
  (2603:10b6:610:112::22)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|SJ0PR01MB6207:EE_
-X-MS-Office365-Filtering-Correlation-Id: b735caa3-519c-4802-de73-08dee29ba909
+X-MS-Office365-Filtering-Correlation-Id: 4ea69a7a-9e2b-4f2b-2cd1-08dee29bab6b
 X-MS-Exchange-AtpMessageProperties: SA
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|1800799024|366016|56012099006|11063799006|6133799003|3023799007|55112099003|18002099003|10067099003|921020;
-X-Microsoft-Antispam-Message-Info: TbBw/NGl1kmTmAiqZ+GPTPXsv3UUYtCzUZIqQl3e/yF6SYuWbPaPdQqaL4yFApGgvadEYzi1+lyfOv25SuMl2YYW/dsXSxfHvdRTvDMMjRPUBkZDG8tTOCySDNqUGIUPo8t/JCtR1AcXcP/dHYRgTM1DEjzpCtc01dfq7aoA9Em30nj2KTeeSLdJcC4pa/C1H+xsoBKywYzACsMXeGyAVdjTJtRm/2sVhg899yw651eSYdOaNz0X4z1mxn2+N5j7kollfm89Fc0gWg5J9d/jYKRWV/q9LcEYTsNnDDrQ6PpranQ78h6odaoFiXvboApkXGnGV2zSeyVNOWS2QyPRQyUIlMhd/hwG3Kfkf1xt6u39lhykoa2zhkCiL1hMiWY5hCSufBvN+brZQvB1dQlI7J706PemDqBH60PSA2CV47jOgv+zfJtNU52WO4U0Qg9xbalquRRAXs2e5v90tYPw2uE8x7IaVUuXqIzTfeeYFThzPFueKQsm3XbRZyzjCZBZ7bqoiBrIlldIw/nKBQkgezCFHzsjQ8w2I2vHBJSZaxeUzD9MVm8YmikV5Nzk8RtZiFwtAXQGsi3qaO7HqA3SdE8grM8GhvZZhwN/s/F3uVVun8lRJ8crAdlU+wbTWzX4Rxh2Slp8h3Tw1Kx/HMoofbA9uTiRsCbsec4p9WUgcxgqNZ1f4wC1w8Mmri2+u5V762fcDSaSSqYidna6pqkqPw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(1800799024)(366016)(56012099006)(11063799006)(6133799003)(3023799007)(55112099003)(18002099003)(10067099003)(921020);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|1800799024|366016|56012099006|11063799006|6133799003|55112099003|18002099003|22082099003|10067099003|921020;
+X-Microsoft-Antispam-Message-Info: 2CvRLLDnfiUaGJoNy34blsDEsf5Ib3yBY1e+lF1cwU4OnMT+ybVtBVa2da+ZrwuozG4ZuFShZNigIsuzIvl04leg8vGd5VxzkWa6otxcf2t37gE8ZfNT1SYk5aUSevap39KuoEQrAlL41PUXFasbY6aB4Dki14WObyRqOm7Ajh46ejAerLLWwCkKeJf1xYzFJM3kYGD8agLERQqdLd1IhPtgMrlw/ChdVTZJJMDsbBMqTEPJfxLK2XFrgmPOjAvuHDcpY0Re2hSBn5kLIEJwsfx+zuKrIuIJhhEt4IH5tBwVPHwI1b/LQF1urSasPTnhpseUILi+uqO5Sm8sRGQLkkTBaHEgzwh23vQuaYMhXIP0kxTV0yjZPAoIVWDN+flRr7Y56IwsLEQlIemS52G+50Bm2iKYWm7V9FN32hyi1I1wO/+VB6Mkzc9c4IT0HBE06QlcK8yOZCAx40E5wr+WAHGOJ1CDBRHIu8C1xIu+CpVoB6F/esWMIt+BW6JaPZ6w43XZq4UnC9NRWN/AZezudHO/x+vbyZd8yXLm5sjZSa+qvsrYl95QN6ArjQlgBmVxiF5JUxrBwW92HSQ5ctI9RVZ5ZhtXSTHVKs7TDc+rKo9s3uz5hkxg4YRI39TOs10gt/IsfBTuiwbfnOzJ50+zXzo05mcR1UyrveVHbjSVW+sekqVdHaP8bdWjnHK2gd0s3jbHXbKEPtRGUC4zSCohjA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(1800799024)(366016)(56012099006)(11063799006)(6133799003)(55112099003)(18002099003)(22082099003)(10067099003)(921020);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VHovQUFLTEVENThab2ZsNVBvNG9rdlNER2tYdEM0QURJWkhicEVWTWl0V0VC?=
- =?utf-8?B?TCt2UDNmaHhjbUJJMUdFNkRkUS8zeEdZSU04MWY0TGNYbVE1MGRHM1VCWHpi?=
- =?utf-8?B?Z3ZUM0FNTU5JTVg5SmxNU2wyQjhIQXBxWmhoY2dCdU5BRURXTFZoZVFIYk9i?=
- =?utf-8?B?Nkw2anRUcDlyOWpRWHdodzNJNDlLTm9WekgvTWtUUTgxZE0xdm02Mm1VellY?=
- =?utf-8?B?RVdUbHdqd0NJbEJBdWtzNHVINTZmOGFxOXh0NFg3OXYxS0VrT0ptbWdoa0gw?=
- =?utf-8?B?bllVUmQ5M2VWTmpmRmdMelBBaDc3VGtjMVA2RDIxblc1ZERsTXVWWlNJaHI4?=
- =?utf-8?B?M3lzNTI4bXJ1R201cGl6Mjh4R0VWa1JCUUFPV1AzOFNLZFhJRjZDeTFGRzBZ?=
- =?utf-8?B?K1gwSzI0TTh5anJGN0ZIdWxaU0xvb3ZkdHREQlhmYi9wc3dNdnhGVGduenMx?=
- =?utf-8?B?NFNCRG5HbGxHWTRjRE9YTFdMYkhGQld6UGFEcVJoMWNpeWlPRk1VUHhMN051?=
- =?utf-8?B?ZDVNNFl5RFI3dkF3dWkvOXllMXdVOEZ3TW5GYWRvU0xIMmIvbE9KSTZYWlZn?=
- =?utf-8?B?WlhvcktpZFpaelBlQWVOUDNNYWE4UzhETjF0RkpVSTdKMjAyeVdiOWVxZlph?=
- =?utf-8?B?TEZSTUlNK3Z1bDdnclQ3aUs4Uzd3YUdWYndNQkVvY3poVUNlL0dheUdySFJn?=
- =?utf-8?B?MS93SWdzWHdTWERCanpQY1dOazhLVUZIM3B1aFJGY0c0Wkg3L3JPaUhlOWky?=
- =?utf-8?B?VFhuZ1FCRHhYN3ZySFFKUVJrNzRROUl6YmQxc0tBNGFsV21jQnNiSUlxcHNp?=
- =?utf-8?B?NGxFeEsvK2UrNGpkZVJBaXhaelN0TWNCMVhkaFU2NmZWOFYvcE9mcW5Ma3VR?=
- =?utf-8?B?YkZFQmNsTU9vSldnbHp3ODJGZHBSNy9LZ1hpTVljY1Z5TGY1Z0IzcVBvRm5w?=
- =?utf-8?B?T2tNZk11YzRzc1RubGp6OWZINklaS1l0b0M3blZEOFZ5UjFQVDduWlhOWXpC?=
- =?utf-8?B?bnMwanIwVDk2ckhqQ3lDd3AvMUIxZlh0Qzc2cTZTWjhRZWxjZ2ZuaWx1UkpK?=
- =?utf-8?B?SEVzZks0UHFrZ2RwZ1pNb1FyR0NsQng0TmRjUlJsWm1rM1ZaSmE4YUFXL056?=
- =?utf-8?B?MUNvK1E3RndsTS9ZLzd0WFF2R2JHTU1RQzQ5TkpoeWw0bEJ4VGlqbXQ4Z0ZB?=
- =?utf-8?B?ZzBCVHZjMm43T1R3TVpUQ0RlMXdZdi9ydXRucWNhOHQyWUpRb2pwcVdLTWJJ?=
- =?utf-8?B?Z1M0cWc0dURTdmdBYlV6OFBUS2txMkFXSWU5UVlxN0JDMWRPL0NoVGU3SlZZ?=
- =?utf-8?B?TnpvVW5raEpLUVVHM1lEZllkN0tRWVlrY1FpTmk4aVJPYUZQMmdScXpReFFY?=
- =?utf-8?B?L2dNNkdZdnF3czd3TlB1ZFVWdXhCN3liMk85eWIwNmpUYnBjQU15cW1CTjBv?=
- =?utf-8?B?QWIzVHhzaG01VFFUZGVhc0NlSmtxeitZd3kyMWtDWXdSMGVJK2V2TGs5Ym93?=
- =?utf-8?B?K0o0TzNkR1RpMWk1Qi8vR1JXRVR4elVVeWM1bFk2M2swalhUTGlSdUprMjJX?=
- =?utf-8?B?b1N6Tm5waWRHb0hEdjBtR2V2ZW4wRjZuc0k5Wm13NUQzTkgvSFBNV1FMcCtk?=
- =?utf-8?B?YnlXck5tVWs1N25NOXlJMUM3RWZnc3RrcU0zY2NtYkVRVVVTb3U2S0N5NXJ1?=
- =?utf-8?B?SjJsdzc2bzY4VnFqakkxeklhdU56MVRPTVZIOWMrZGtnckV2d211NHVBaTlB?=
- =?utf-8?B?Z1NKcWZRQVlwaTNkUzUrMHdXdmE0RUYxZkV0eXlRb2E3T3c3MGQzZ0Vmc2Q5?=
- =?utf-8?B?NUNaRnlQajdOQVVlMnl1QlNmdTlTb1ExRDJNdWVoM3RkL1FkaDZaS2tHRitu?=
- =?utf-8?B?TUxhRVkyakRGdXVsbEgrdmZUYjJEcm9BRjhRZXIyd0RhNXFSdUFwbUZRbFdp?=
- =?utf-8?B?RlFTakpGQkFyeGxyVWk5S3JWRmVScGpWWDluNUpkQTkvWVBoK0hCQUpBaHhW?=
- =?utf-8?B?WnJteTdFVURXQml5SE1ZODZ0dE0zYUJIOUVtaWVnQWQ0ZFdDa09hQkd1Q3lR?=
- =?utf-8?B?MVBhRnN1TFUrT2hQUHVhRU5xWmM2Y2lpUmJISmU5aWNmVFc5M0UwQkloUWZL?=
- =?utf-8?B?OEZ0WnJBOWNVeEwxMSt1aFYwK2J1N0RHWnRESnlsdlN2RjQ3YnRhTzZLeFFP?=
- =?utf-8?B?Skw3NzBXOEN6TlZDVE1WQzdxWCt0QWloWkM4MHY2NmJUditGdWZYZ3RJVXdY?=
- =?utf-8?B?aXE0UDVnUmtDZnpnYzJkbFNWQ0xKQkR5eEZPOEY2SHAzOHNyUnFlRHBqSnJr?=
- =?utf-8?B?TnR4OTdRU1g5Y1hUTzVyRXhQSTdIN2g1SVVkMkR3cnVNZXpuc3J5clVXaGVG?=
- =?utf-8?Q?Epktc37p92Y60tJc=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?FuR6of1q8nRdY/8D8xglkaqxPgVrZNimEfm0hx99Fa2w8BmdnmiaCz1zY6aq?=
+ =?us-ascii?Q?uXJG73PljwoqHzXwDwiNlW95XHKx3n7jtVbU9HyE/LmD5boVqBNnHGZ6JJj+?=
+ =?us-ascii?Q?yS9kn9R4gziQTfvVtcdsRtMMr3vvSJSvH1zLMkgpOZHUCT9aY2Hol20ZqWtF?=
+ =?us-ascii?Q?zl63oftFQnpSXNIJ4m+VG+BCzOPf7QUmqBTllUu/qFSb/LqvKkr+D0oFz+zn?=
+ =?us-ascii?Q?FD+/BOkBDPCwBR3EFSvb3A/L36Zm3XhmGENsM+Sd/wcQ28XiEOFk3l1omGOU?=
+ =?us-ascii?Q?27zxcX/qzDlEifwPMKiAe0mK6N2qxNdJykizW0j96eEKCQBp7jtR5FQdXi9l?=
+ =?us-ascii?Q?PHiO4eIapky6AtE5ooqSEUTyyke0Oq/rgXfEl8h3EJxy0uuBkG5jvuQhVToq?=
+ =?us-ascii?Q?01L912kjLfYFVnqk/mX27cxkRorShPzX/om3V4HKNPtO6xXvjX16vcnKUB+Y?=
+ =?us-ascii?Q?7elQGD/UqtyDHgLE8JsHfdF5SgmhW1AP8d8EPTG4OWIREF9tZ1Nu2Xd0U5mZ?=
+ =?us-ascii?Q?e4pePN+/qxHqnTwclRB5VZaUEwkqvC2OU7RGaHFwIDNka5p009EmycVaodgn?=
+ =?us-ascii?Q?QnVoUh9sU4+hkZ2r8wV99zcbNtXoP1KTD2QASQUB6rMs6BuOC3hK6Xb/vq4y?=
+ =?us-ascii?Q?F1HDRG4gT6iz2vH9PZVqQCFBmV/0XtUr5u/TUiqcvVSlnk/eIDP/saeDknv+?=
+ =?us-ascii?Q?qPeYh49OB35vBOCBRlwWT78ox//rrN1GchEBO1MOjggA45UY4tdh3Dp28Bzt?=
+ =?us-ascii?Q?CdFXE6t0yimAjdeOmnOIn2O6Ur9qybHPQKo4byHts6FlS0gLytwS6/h5MKeo?=
+ =?us-ascii?Q?P5jyb2l/FtcbxfoDRiCckw347j0lpzGC6+rNzz2ov5I4erDan25GYXWIzBSg?=
+ =?us-ascii?Q?zbrpiyGxAz4Jpl0nUmG63vcqkgiG/Rv82JvAOW05Ta785qZSFdy3YNwzTEvS?=
+ =?us-ascii?Q?3OsU3wFtzRID4JZ9+/WpLhhdD0OkxGR68wldW6aHz425/TNHMU0pKkFesEPR?=
+ =?us-ascii?Q?Y5QFVaq2evgbksdh5NY2JW8rlEMcZfphlTZH5XehkGYdBMqqbcmwsgHw/RhK?=
+ =?us-ascii?Q?HECc92xpTh9QUJKtidoVXoNoGp6bD22y93abSTzE7qSIgzyIKKM47mArA4Io?=
+ =?us-ascii?Q?Pi35YEcmQi2nEyB9PJDkSH3PNET7oprrEWp9LSowW9JNYhUaagYr8AQ9Isuk?=
+ =?us-ascii?Q?x8lcyR47/hWtyNZCij5yVXAAbZdoY98NGwJj7aFz8CTPoo4azmi+2Jk3GUyf?=
+ =?us-ascii?Q?eDhFRyzO56Yay7QELeRd6iiw6dQ1tmrqduYYnfEErBV9RUHUNDXsSzwZbdxe?=
+ =?us-ascii?Q?ZiFKmTiFQVM0WKTLlUIkTp0H3O1X/HTGOuUos0LE3kBB0S5W1Iw02VeO3xLR?=
+ =?us-ascii?Q?fXdMJsBnwUL5b6nlKW+RVk2nXu8q7yQl5O9JW3P3IxPGs/NvwqGSyta40Gle?=
+ =?us-ascii?Q?MsIJW9hwd6BsTNWlef9o5QvqU6PtT3djmmRnsoGqhNUhUYnNtZ0pwdsgsmpl?=
+ =?us-ascii?Q?Djw7Et59b7CugF+7LEuJ3+7t42XndZrKd8Gqud0e34/QctX6aB3MFBSh60cP?=
+ =?us-ascii?Q?RdT1ylPdQQq1ccXtlVZCWoeRIhAsVWhmzdnMT1PHPCRM3UEh8/1HBCE+vkVo?=
+ =?us-ascii?Q?6ExBoxSzT7fpaB6phi4SIVt1FudbNZNqT2acRvOpPtlBBlnJdGCGbC/LiU6G?=
+ =?us-ascii?Q?ehAEN6JRFPiioXUW/6PZ41dBQ7ojmJIWrElHbHqzy86Af1JjC6CH+nkBwrsU?=
+ =?us-ascii?Q?WSMXi10azIld3Avog9OUwMp4tjiZ7dk=3D?=
 X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b735caa3-519c-4802-de73-08dee29ba909
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4ea69a7a-9e2b-4f2b-2cd1-08dee29bab6b
 X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2026 18:05:31.8710
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2026 18:05:35.8455
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: KvgL6JDpzeNRXVL1Qlgj5uCdldwTuELpObMI5h0BQ5iLgOCbUjpSU6a+7g3ZKtgUJkxQWBrFAQVN+gDY/NfMYTJ54Uh2UtKGQVvloD/fK3A=
+X-MS-Exchange-CrossTenant-UserPrincipalName: yXOCk4yw0TTs918881rn5PTWrj8ZmfcPqacrEoxJOXsmxWWS2R81d+mKXmf54pqv2+j0S2hQ5at2hFCmeiI75l4B1JMp0aMM2t1pbrNCs+w=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR01MB6207
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_110543_647594_8EF9EC9D 
-X-CRM114-Status: GOOD (  27.96  )
+X-CRM114-CacheID: sfid-20260715_110548_666316_2A353FD3 
+X-CRM114-Status: GOOD (  13.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,241 +150,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+pud_populate() and pmd_populate_kernel() are called by percpu and
+vmemmap to populate PUD and PMD.  They need to sync up kernel page table
+when percpu page table support for ARM64 is added in the later patch.
+So introduce {pud|pmd}_populate_sync() and protect them with
+ARCH_HAS_{PUD|PMD}_POPULATE_SYNC kernel configs.  ARM64 specific
+implementation will be defined in the later patch.
 
-Hi,
+We can change pud_populate() and pmd_populate_kernel() to take address
+as a new parameter, but this change is needed for all architectures and
+not all callsites of them need sync page table.  So introducing new APIs
+for this usecase seems much more simple.
 
-This is v2 RFC. In v2 a lot problems found out by Sashiko were fixed and more
-feature gaps were closed (please see the below changelog for the details).
-Although there are still some open issues, for example, it just can support
-48 bits VA (for 4K and 64K) and 47 bits VA (for 16K), KPTI support has not
-been solved yet, etc, but I think the delta should be big enough and worth
-a new RFC to gather comments in order to make sure I'm on the right track.
+This is a preparation patch, no functional change.
 
-Some more benchmarks were done, for example, some latency related benchmarks
-that I mentioned at LSFMM because I thought responsiveness should be improved
-due to the removal of preempt_disable. Collected more PMU counters as well.
-Please refer to the benchmark section for more details. 
+Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
+---
+ include/linux/pgalloc.h | 13 +++++++++++++
+ mm/Kconfig              |  6 ++++++
+ mm/percpu.c             |  4 ++--
+ mm/sparse-vmemmap.c     |  4 ++--
+ 4 files changed, 23 insertions(+), 4 deletions(-)
 
-Look forward to comments.
-
-
-Changelog
-v2: * Added 3-level and 2-level page table support.
-    * Tested with 16K and 64K page size. But we just support 48 bits VA (4K
-      and 64K) and 47 bits VA with 16K for now.  Please refer to the below
-      "known issue" section for the detail reason.
-    * Added support for memory hotplug.
-    * Added support for KASAN (generic).
-    * Treated percpu and local percpu area address as vmalloc address.
-    * Fixed build failure for x86.
-    * Fixed build failure for !CONFIG_NUMA.
-    * Added KASAN support for local percpu area.
-    * Some other misc bug fixes found out by Sashiko.
-    * More code refactor and cleanup.
-    * Regorganized the patches.
-    * More benchmarks, refer to benchmark section for more details.
-    * Rebased to v7.2-rc1.
-
-
-Introduction
-============
-This patch series implemented the LSFMM 2026 proposal for optimizing
-this_cpu_*() ops on ARM64. For the details of the proposal, Please refer to:
-https://lore.kernel.org/linux-mm/CAHbLzkpcN-T8MH6=W3jCxcFj1gVZp8fRqe231yzZT-rV_E_org@mail.gmail.com/
-I didn't repeat it in the cover letter because there is no change to the
-proposal.
-
-The series is based on 7.1-rc1. It is basically minimum viable patches.
-There are still a few hacks in this series and it may break something,
-for example, KPTI, SMT machines which shared TLB, etc. But it shoule be
-good enough for now to demonstrate the core idea. The main purpose of the
-RFC is to gather feedback, figure out missing parts and risks, and make sure
-we are on the right track, as well as hopefully it can help the discussion
-for the upcoming LSFMM.
-
-I broke the patches down to arch-dependent and arch-independent parts so that
-hopefully the interested persons can do experiments on other architectures,
-for example, S390, easier.
-
-A new kernel config is introduced, HAVE_LOCAL_PER_CPU_MAP. The architectures
-which can support this feature will select it. Allocating and freeing percpu
-local mapping is protected by this config so that others won't pay the cost.
-
+diff --git a/include/linux/pgalloc.h b/include/linux/pgalloc.h
+index 9174fa59bbc5..062c64a5d4bd 100644
+--- a/include/linux/pgalloc.h
++++ b/include/linux/pgalloc.h
+@@ -26,4 +26,17 @@
+ 			arch_sync_kernel_mappings(addr, addr);		\
+ 	} while (0)
  
-Known Issues
-============
-1. KPTI
--------
-We need determine what CPU we are on, then switch to the right page table.
-Currently arm64 kernel fetches tramp_pg_dir via swapper_pg_dir - fixed_offset,
-and fetches swapper_pg_dir from ttbr1. But ttbr1 may not hold swapper_pg_dir
-anymore except CPU #0. So we need to figure out the other way to handle it.
-Switching to tramp_pg_dir should be easy, but the reverse seems harder because
-tramp_pg_dir just maps the trampoline vectors.
-Maybe we can do two steps switch. Switch to swapper_pg_dir at the first step,
-then switch to per cpu page table (for entry) or tramp page table (for exit).
-Nobody should call this_cpu_*() at either userspace -> kernel entry stage or
-kernel -> userspace exit stage.
-
-2. SW PAN
----------
-Has the similar issue as KPTI. It installs reserved_pg_dir to TTBR0 when running
-in kernel space, but fetching reserved_pg_dir via swapper_pg_dir - fixed_offset.
-Maybe we can save the physical address of swapper_pg_dir in a variable, then load
-it from that variable instead of ttbr1.
-
-3. Shared TLB machines
-----------------------
-Some machines may share TLB between CPUs, for example, SMT machines may share
-TLB between the two hardware threads in one core.
-The per cpu page table just can't work with it. Maybe we need a new
-cpufeature to indicate whether per cpu page table is allowed or not. Then
-just enable it for not-shared-TLB machines.
-
-4. Don't support all VA bits
-----------------------------
-We just support 48 bits VA (4K and 64K) and 47 bits VA (16K) for now. For 4K
-and 64K, supporting other VA bits is not hard, we just need to determine the
-size for percpu and local percpu area.
-But it is harder for supporting 48 bits VA + 16K page size. We just have two
-top level kernel page table entries with this configuration, but we assume we
-just need to sync up kernel page table at the top level for now. We need to
-sync up kernel page table at the second level in order to support it. I'm not
-sure whether it is worth it or not.
-
-
-Benchmark
-=========
-The benchmarks are done on 160 core AmpereOne machine. The baseline is
-v7.2-rc1 kernel.
-
-1. Reduction of kernel text size
---------------------------------
-The patchset can reduce at least 11 instructions for this_cpu_*() ops. Both
-preempt_disable() and preempt_enable() need 4 instructions to manipulate
-the preempt count, and preempt_enable() needs more instructions (compare +
-READ + compare) to determine whether reschedule is needed or not.
-Because this_cpu_*() ops are inlined and called in a lot of places so we
-can save a lot of instructions.
-
-The size of kernel text is reduced by ~184KB with default Fedora kernel
-config. This also helps reduce kernel icache miss rate and stalled frontend
-cycles as kernel build benchmark result showed.
-
-2. Kernel Build
----------------
-Run kernel build (make -j160) with the default Fedora kernel config in a
-memcg.
-13% - 18% sys time improvment
-3% - 7% wall time improvement
-
-5% fewer kernel icache miss, 5% fewer executed kernel instructions and
-15% fewer stalled frontend cycles for kernel.
-
-3. stress-ng vm ops
--------------------
-stress-ng --vm 160 --vm-bytes 128M --vm-ops 100000000
-8.5% improvement
-
-4. stress-ng vm ops + fork
---------------------------
-stress-ng --mmapfork 160 --mmapfork-bytes 128M --mmapfork-ops 500
-15% improvement
-
-5. Specjbb
-----------
-The specjbb test latency curves showed the patched kernel has consistently
-lower p99 latency (the lower the better) than the baseline.
-
-2.5% improvement on max-jOPS and 4% - 5% improvement on critical-jOPS.
-The specjbb benchmark is quite sensitive to latency and responsiveness, 
-particularly critical-jOPS result. The patches are supposed to improve the
-responsiveness due to the reduction of preempt-disabled critical sections.
-
-6. MySQL
---------
-1% - 2% gains on read-only test, 2% - 4% gains on write-only test. Also see
-15% decrease on frontend cache stall.
-
-
-Regression test
-===============
-1. memcg creation
------------------
-Create 10K memcgs. Each memcg creation needs to allocate multiple percpu
-variables, for example, percpu refcnt, rstat and objcg percpu refcnt.
-
-Consumed 2112K more virtual memory for percpu “local mapping” and a few
-more mega bytes consumed by per cpu page tables.
-No noticeable regression was found for elapsed time.
-
-2. fork test
-------------
-stress-ng --fork 160 --fork-ops 10000000
-fork() needs to allocate multiple percpu variables, for example, rss
-counters and mm_cid_cpu.
-
-Roughly 1% regression was found. However stress-ng fork test has quites
-small address space, the real life workloads typically have much larger
-address space and do more complicated works. The stress-ng mmapfork
-benchmark saw 15% improvement.
-
-
-The organization of patches
-===========================
-The refactor and prepatory patches (patch 1 - patch 4)
-Percpu page table support patches (patch 5 - patch 8)
-Local percpu area support patches (patch 7 - patch 15)
-Use local percpu area for this_cpu ops (patch 16)
-
-
-Yang Shi (16):
-      drivers: arch_numa: move percpu set up code to arch
-      arm64: kconfig: make percpu related configs not depend on NUMA
-      mm: pgalloc: introduce {pud|pmd}_populate_sync()
-      vmalloc: pass in pgd pointer for vmap{__vunmap}_range_noflush()
-      arm64: mm: enable percpu kernel page table
-      arm64: mm: defined {pud|pmd}_populate_sync()
-      arm64: mm: sync percpu page table for memory hotplug/unplug
-      arm64: kasan: sync up kasan shadow area page table
-      arm64: mm: define percpu virtual space area
-      mm: percpu: prepare to use dedicated percpu area
-      arm64: mm: map local percpu first chunk
-      mm: percpu: set up first chunk and reserve chunk
-      arm64: mm: introduce __per_cpu_local_off
-      mm: percpu: allocate and free local percpu vm area
-      arm64: kconfig: select HAVE_LOCAL_PER_CPU_MAP
-      arm64: percpu: use local percpu for this_cpu_*() APIs
-
- arch/arm64/Kconfig                   |  12 +++++++---
- arch/arm64/include/asm/mmu.h         |   5 ++++
- arch/arm64/include/asm/mmu_context.h |   9 +++++++-
- arch/arm64/include/asm/percpu.h      |  37 ++++++++++++++++++++++++++++-
- arch/arm64/include/asm/pgalloc.h     |  24 +++++++++++++++++++
- arch/arm64/include/asm/pgtable.h     |  37 ++++++++++++++++++++++++++---
- arch/arm64/kernel/setup.c            |   3 +++
- arch/arm64/kernel/smp.c              |  44 +++++++++++++++++++++++++++++++++++
- arch/arm64/mm/kasan_init.c           |  47 +++++++++++++++++++++++--------------
- arch/arm64/mm/mmu.c                  | 165 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++----------------------
- arch/arm64/mm/ptdump.c               |   4 ++++
- arch/riscv/kernel/smp.c              |  51 ++++++++++++++++++++++++++++++++++++++++
- drivers/base/arch_numa.c             |  51 +---------------------------------------
- include/linux/mm.h                   |  11 +++++++++
- include/linux/percpu.h               |   4 +++-
- include/linux/pgalloc.h              |  13 +++++++++++
- include/linux/vmalloc.h              |   3 +++
- mm/Kconfig                           |   9 ++++++++
- mm/internal.h                        |   5 +++-
- mm/kmsan/hooks.c                     |  14 +++++------
- mm/percpu-internal.h                 |  14 +++++++++++
- mm/percpu-vm.c                       |  94 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- mm/percpu.c                          |  58 +++++++++++++++++++++++++++++++++++++---------
- mm/sparse-vmemmap.c                  |   4 ++--
- mm/vmalloc.c                         | 138 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++---------------
- 25 files changed, 712 insertions(+), 144 deletions(-)
-
-
-Thanks,
-Yang
++#ifndef CONFIG_ARCH_HAS_PUD_POPULATE_SYNC
++#define pud_populate_sync(addr, pud, pmd)				\
++	do {								\
++		pud_populate(&init_mm, pud, pmd);			\
++	} while (0)
++#endif
++
++#ifndef CONFIG_ARCH_HAS_PMD_POPULATE_SYNC
++#define pmd_populate_sync(addr, pmd, pte)				\
++	do {								\
++		pmd_populate_kernel(&init_mm, pmd, pte);		\
++	} while (0)
++#endif
+ #endif /* _LINUX_PGALLOC_H */
+diff --git a/mm/Kconfig b/mm/Kconfig
+index 9e0ca4824905..13ea4b29ee7b 100644
+--- a/mm/Kconfig
++++ b/mm/Kconfig
+@@ -1509,6 +1509,12 @@ config LAZY_MMU_MODE_KUNIT_TEST
+ 
+ 	  If unsure, say N.
+ 
++config ARCH_HAS_PMD_POPULATE_SYNC
++	bool
++
++config ARCH_HAS_PUD_POPULATE_SYNC
++	bool
++
+ source "mm/damon/Kconfig"
+ 
+ endmenu
+diff --git a/mm/percpu.c b/mm/percpu.c
+index b0676b8054ed..45c30c6531c5 100644
+--- a/mm/percpu.c
++++ b/mm/percpu.c
+@@ -3163,7 +3163,7 @@ void __init __weak pcpu_populate_pte(unsigned long addr)
+ 	pud = pud_offset(p4d, addr);
+ 	if (pud_none(*pud)) {
+ 		pmd = memblock_alloc_or_panic(PMD_TABLE_SIZE, PMD_TABLE_SIZE);
+-		pud_populate(&init_mm, pud, pmd);
++		pud_populate_sync(addr, pud, pmd);
+ 	}
+ 
+ 	pmd = pmd_offset(pud, addr);
+@@ -3171,7 +3171,7 @@ void __init __weak pcpu_populate_pte(unsigned long addr)
+ 		pte_t *new;
+ 
+ 		new = memblock_alloc_or_panic(PTE_TABLE_SIZE, PTE_TABLE_SIZE);
+-		pmd_populate_kernel(&init_mm, pmd, new);
++		pmd_populate_sync(addr, pmd, new);
+ 	}
+ 
+ 	return;
+diff --git a/mm/sparse-vmemmap.c b/mm/sparse-vmemmap.c
+index 99e2be39671b..463c2f8b611c 100644
+--- a/mm/sparse-vmemmap.c
++++ b/mm/sparse-vmemmap.c
+@@ -198,7 +198,7 @@ static pmd_t * __meminit vmemmap_pmd_populate(pud_t *pud, unsigned long addr, in
+ 		if (!p)
+ 			return NULL;
+ 		kernel_pte_init(p);
+-		pmd_populate_kernel(&init_mm, pmd, p);
++		pmd_populate_sync(addr, pmd, p);
+ 	}
+ 	return pmd;
+ }
+@@ -211,7 +211,7 @@ static pud_t * __meminit vmemmap_pud_populate(p4d_t *p4d, unsigned long addr, in
+ 		if (!p)
+ 			return NULL;
+ 		pmd_init(p);
+-		pud_populate(&init_mm, pud, p);
++		pud_populate_sync(addr, pud, p);
+ 	}
+ 	return pud;
+ }
+-- 
+2.47.0
 
 
