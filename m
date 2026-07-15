@@ -4,64 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F732C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 13:01:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 949C5C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 13:05:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yomLt5MYeBxxDvtOrB2iJXb6Q+rhw/2kN+Xp7CuMTK0=; b=il9Xb1cHq/YVw5czil3cPI9RIb
-	cWPs9PrmYOHh4exSmZFQwlYSufTCyKlohYgUaTk5sSoENlJTKZxFfdxMy2ittXtN9LYnS4TEXm89O
-	BPY6yxv8FVSBFBw6BoLXCTiualdR607WfHpSFc/8h4qErOOZcTTvu1qy1ByruphuN7hpgN+F3ucK6
-	A9pVy5RTrwTxSR/8AZN971jWOiZk8ZijSWb1SHzP8rEKjySrYMwCvROy1RjcrNQsDTk9eFF71/174
-	xLbvmpds5A5P0QgH9m0rNHNle/j+q0Z1jXeBQiH7D5rzjMaI9X+xTR7Ub9FBTFKHs36VIdgnXFCni
-	aFsNwaBw==;
+	bh=6GoCz/ULvd+/SKvUCY2cC1AScuvrYcaccndOJDl5pug=; b=C9gFLRNiOFoYyDAsbBQWgynv95
+	0c4fFOmfbaH/DXAPN/4iQ8Z4jXsCETqFFPcJnSzTZ+3lWYsGHZgCOykTzb/BTVYWjpBwqDoDm8RXq
+	9xLPQOnJZS7DcU2vtZvulT2Tm/K5m6w/ktQxjK7ni+AmIE5KDDviHq4I1KbIbz6IoPdvwG8PD1N9i
+	5jVRhcPYA+DnEUOqDvtj7lMLwlbSKpL+ZkDaJbGqlV7KLMrNH0r5SggjgcFGVgTaKc1kW4TW1457f
+	QY4GrUOrDKlquphCNYGp6hVsSyjkd5YPIxuQYtpHFx/ImwZVsnxl6CQJToXOfLCnsDJQh20XB4un1
+	ybZGoAkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjzEc-0000000Esca-3cxA;
-	Wed, 15 Jul 2026 13:01:10 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wjzCf-0000000EsQp-2gd5;
+	Wed, 15 Jul 2026 12:59:09 +0000
+Received: from out-171.mta0.migadu.com ([91.218.175.171])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjzEc-0000000EscS-0VHK
+	id 1wjzCd-0000000EsQQ-0aW0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 13:01:10 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CACF142A02;
-	Wed, 15 Jul 2026 13:01:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD6F31F000E9;
-	Wed, 15 Jul 2026 13:01:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784120469;
-	bh=yomLt5MYeBxxDvtOrB2iJXb6Q+rhw/2kN+Xp7CuMTK0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=nUXWYJg0hSRTg8is3/pkFQSP6N7vN4SMoHhTbFl7n8KL5p7op5sqqQB4CndiUvSXg
-	 UJeUUkwp/pIncdHUrZ5+30xi8M/8MLnBxpMhRZp+WAPU7b3lyy1D/suZZEjKgt4j/U
-	 8wenaMQd8eCOqj+ujwl6jz9HEHDN9xpOwIKRYBSqEJTLNSCOLYjUuAJ1EVLE+W0BPi
-	 EHbxnebk5uGSatiLdawl1i0me0Fxs1/SzBAsgxplOfCH2Zhr6oy8t3csqQVW+jePLu
-	 6yyeCENQA+wxrWN+64GK3GRtLjX65UtZhxsneP6UEpp5IlxjxEg5WVhOayULgZZvcV
-	 e0CFrKFSdtPiw==
-Date: Wed, 15 Jul 2026 14:01:05 +0100
-From: Will Deacon <will@kernel.org>
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: "james.morse@arm.com" <james.morse@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Fenghua Yu <fenghuay@nvidia.com>,
-	Guangshuo Li <lgs201920130244@gmail.com>,
-	Reinette Chatre <reinette.chatre@intel.com>,
-	Dave Martin <Dave.Martin@arm.com>,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [GIT PULL] arm_mpam fixes for v7.2-rc2
-Message-ID: <aleEkbcWsYdZPgtW@willie-the-truck>
-References: <1d22f80d-34c0-4e8f-a9a7-3c527fb97232@arm.com>
- <d39e20fe-e4ab-4bbb-8e97-b68400ece11a@arm.com>
+	Wed, 15 Jul 2026 12:59:08 +0000
+X-Forwarded-Encrypted: i=1; AHgh+RoK3LYjHzB82wxT2aYzMKTjV4kQ6YY5BJAp/fGOt7FoN+a7dxdRAcTsiZlHu1WlNTWs8YRbVQQK6rUBpsfh3n4X@lists.infradead.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1784120344;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=6GoCz/ULvd+/SKvUCY2cC1AScuvrYcaccndOJDl5pug=;
+	b=xu0VNnfmhOPfmu9+mZaxJWOhozKMFf31qspr1KvvONH2rN9grtJrL1iArs6KARNdMbKVPe
+	6xXpmNI2ldqjqrxObwx0ZjeY9ud8Q2Q1VJdidfA3rqawMnuL7J4crqlOj0NpL29t4zAEXF
+	lRx4/tPPQfKdZT/rI5TOchmcsmN+nt4=
+X-Gm-Message-State: AOJu0YykALnFr+3cLZlygMGKDCDgFyZ+gI9Z3J63JD09l5UfboQLuANe
+	UsAvydZL6OsV3pCAbrOhe978lOFs0yfUxQ0kjrOI/isP2ceS/Kp4tooCtkSnJjyn9D0mAMJEQdx
+	QYxZfBzl5LZ4EZaNWOaFXQP8awKXgEgJ+Rp0W3u7r
+X-Received: by 2002:ac8:7c48:0:b0:50d:edb1:6bd1 with SMTP id
+ d75a77b69052e-51d7bd1f623mr26939691cf.13.1784120341010; Wed, 15 Jul 2026
+ 05:59:01 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <d39e20fe-e4ab-4bbb-8e97-b68400ece11a@arm.com>
+References: <20260706175415.2604046-1-vdonnefort@google.com>
+ <20260706175415.2604046-16-vdonnefort@google.com> <CA+EHjTzNMCMAt=VDnCuR2+Pfz9Qh5HmbEm6tdjpdcPBO+UchEg@mail.gmail.com>
+ <aleDOyiP5E8TcoZg@google.com>
+In-Reply-To: <aleDOyiP5E8TcoZg@google.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Wed, 15 Jul 2026 13:58:23 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTzsFueadxqyaBUD5sywTxozv4PrdkpCC+NbmhWT=AeUnQ@mail.gmail.com>
+X-Gm-Features: AUfX_my9Tyv6FaAb2GNxMgl-a8hnzWqh8JyUkaxnbUnjZ2zpERJwcmQFskiDRUY
+Message-ID: <CA+EHjTzsFueadxqyaBUD5sywTxozv4PrdkpCC+NbmhWT=AeUnQ@mail.gmail.com>
+Subject: Re: [PATCH v2 15/18] KVM: arm64: Alloc pkvm_hyp_vm using pKVM heap allocator
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
+	will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kernel-team@android.com, qperret@google.com
+Content-Type: text/plain; charset="UTF-8"
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260715_055907_410602_A25E41DA 
+X-CRM114-Status: GOOD (  15.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,40 +79,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
+> > Sashiko might be right on the memcg point: hyp_vm used to be
+> > GFP_KERNEL_ACCOUNT and now comes from the heap unaccounted, while pgd
+> > next to it is still accounted, so it's inconsistent.
+>
+> Yep that is correct but there is no way around that:
+>
+>  * Donated memory can now be shared be shared by several VM (or other parts of
+>    the hypervisor)
+>
+>  * Donated memory is also not reclaimed until the shrinker fires.
+>
+> So we don't really have a way to account for that meta-data anymore.
+>
+> (I should at least mention this in the commit message)
 
-On Thu, Jul 09, 2026 at 05:23:38PM +0100, Ben Horgan wrote:
-> On 7/9/26 16:48, Ben Horgan wrote:
-> > I hope this method works for sending you MPAM changes but please let me know if
-> > you would like them some other way or I've made a mistake. It's not a signed tag
-> > as I still need to sort out my GPG key. The change authored by be me hasn't got
-> > an Reviewed-by's or Tested-by's but it's been on the list since the middle of
-> > May and James is on leave.
-> > 
-> > Fix the reset values for two MPAM controls that are not known to exist in
-> > silicon. Fix a NULL pointer dereference on the driver teardown path.
-> > 
-> Sorry, this is a retake. I forgot to add my Sob on the patches.
-> 
-> The following changes since commit 8cdeaa50eae8dad34885515f62559ee83e7e8dda:
-> 
->   Linux 7.2-rc2 (2026-07-05 14:44:06 -1000)
-> 
-> are available in the Git repository at:
-> 
->   git@git.gitlab.arm.com:linux-arm/linux-bh.git tags/mpam-fixes-7.2-rc2-RETAKE
+Sgtm.
+/fuad
 
-Thanks, but I'll probably just pick these from the list given that your
-key isn't sorted out yet.
-
-In future, it's probably easiest if you go down the route that James
-used to tread where you collect the mpam patches up and then send them
-out as a series (with your SoB added and with me and Catalin on cc) once
-they've been reviewed and you're happy with them. Then we can just grab
-'em that way. I think that's probably easiest to start with, but we can
-revisit it if the number of patches becomes too much.
-
-Does that sound ok?
-
-Will
+>
+> >
+> > If we do want to fix it, would it go in pkvm_hyp_topup() to cover all
+> > consumers rather than here?
+> >
+> > Cheers,
+> > /fuad
 
