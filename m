@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C82D1C4450F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D62B5C44512
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 13:57:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,37 +12,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YBEGWNbG/MsrC0xeZ50xe5RyLfkInlFrsWVLitax2Js=; b=X++8isQwRbHrJX+F61JIVacc4m
-	T8Nn83eXqOtz8c8CjzWNOV++OwMOe+nxJiblEvhQvQ/8rlfjVCNGNVXvs3aqRjAXx3eBrnFzaJqpY
-	UT6HPOlef9vfCa9CTjNNy/POYeJO2fNJ+jrF4k8pZBLJp4BMBue7vLC6HrYfqR4vEvImPZLh0oJ56
-	ZLmOXYYFM+fMZz3JMf+w2uo9WeVJyjfQS3xKJo1ADfnoLmWI01jN4dZt6nRdeTfWz6Rs6bnSHiVqx
-	bFGBx2irJ8PbDkSKE80q74sNjIedHQC8oq0OuNCVDfRQACOwTbEQIb4wqdaJpBlBAo/N+DdjDI4py
-	k6+mXrpg==;
+	bh=2Jdzo/tukRedt2o2OspfpGBTP3MNz1I8xox8RlxyyB4=; b=PFvWKpn5lccP6w52gl1BsW/Kxm
+	x5zI8dxOLqcZ1KocP08Iq5buuf5aEqJJansEwxkv4GS58lGz+T9VWTdfh7GTl+G9g9p1n4tSIfSR1
+	0Qh8gIS1X2UTsKWxkBLgwWjWIdAjCU/P0y2lWx9WTL9SKtiJiR8nFMjfYpnt2rjsA/g0Fd6/cfm5J
+	sQyXM0kEfO1WZ0ZlQ+UF85C8fPSP4NJzQRsPIMIIzThAzLANezUfgl6dpiy5WUGmO5fpQrhCwMi79
+	AcIguRv+rniuutj+z02mx1cFuEiE5iUK2FVh3QHTOXwI8S5l9o7K0oFJe9Zx1Ke4ZeIMkVN5r5C8o
+	kPLmf8dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk06w-0000000F1PB-2lq5;
-	Wed, 15 Jul 2026 13:57:18 +0000
+	id 1wk076-0000000F1p7-3OLX;
+	Wed, 15 Jul 2026 13:57:28 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk06p-0000000F1IA-3aD2;
-	Wed, 15 Jul 2026 13:57:15 +0000
+	id 1wk070-0000000F1V7-2a2m;
+	Wed, 15 Jul 2026 13:57:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1784123829;
-	bh=jVvxY/dayIuxqXjQkzU3DAubmMnZqUuinWaaEmpOnPA=;
+	s=mail; t=1784123840;
+	bh=rQeMV2PJhzBnQ+FKXUM6KSChRPWR4JJCCJdu4suyjn8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=MYBMDHTUAUBTvuUQcZDvf/9TwL5KpJJH0Ambpo/b76uOPmaIp7lY8l+fmXyvPADUg
-	 gB98W5GuPdG5E1m65BRLDjQd3iaQRWMt8+KujToJMbZCkwB6lpoSeQ3+elMjl89VdY
-	 0jIBYtB4iAFeNqYEd+ErYKkgekk7Zw/ziRyZtxos3oW/UfznpDr4JbGAztXkvMLxQx
-	 sXxwkdJrhnnG6KJVone30SwyBj0UOlCO7bxVSFZ1GsGWhVTP4NZ+osODwfmbUSVYxU
-	 LImcWHQwmYR1o2nBhmVNTzv/j0UPsl92EY4sY82ivZrnuCcf0UZ/FoFu5N3i1VHsNM
-	 9PmzCOixwcV7Q==
+	b=moV/FSmvm9ee5yAXUqPbqy2yjEws7U72vP1XrrkE65HUB5K8ZrRVoMYop9q7tOqNC
+	 UB/fq27UVFqForYET/EtAIA9tgkf4z6GckqvLsl3NSPGs8VYucNvPCFD0X6T92AkI6
+	 N/fhlBwsLQfS3ps4ZtQjYkWdg5T4fjOXWn1E7fm5EzViVmWTWtrgDADvb1SUNVF0BY
+	 4jW7fUxOooUug3yQlLcCzxkRt/h4ctRDo3fPqtfhO0JfmFzwkAxshNuAmV+tepWDU9
+	 ptirjyb9OHG3efgYQ4qqEkPMDNmqnEU74OxvlZGIo/tbqBgR0Q5WxesPrFhIngUFAu
+	 sgfukp5lj+1NQ==
 Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C6A7717E0DE9;
-	Wed, 15 Jul 2026 15:57:07 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9C92F17E0E95;
+	Wed, 15 Jul 2026 15:57:18 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: chunkuang.hu@kernel.org
 Cc: p.zabel@pengutronix.de,
@@ -65,17 +65,17 @@ Cc: p.zabel@pengutronix.de,
 	kernel@collabora.com,
 	justin.yeh@mediatek.com,
 	jason-jh.lin@mediatek.com
-Subject: [PATCH v6 02/11] drm/mediatek: Implement Display Stream Compression support
-Date: Wed, 15 Jul 2026 15:56:54 +0200
-Message-ID: <20260715135703.46540-3-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v6 11/11] drm/mediatek: Add Write DMA (WDMA) Engine for Writeback support
+Date: Wed, 15 Jul 2026 15:57:03 +0200
+Message-ID: <20260715135703.46540-12-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260715135703.46540-1-angelogioacchino.delregno@collabora.com>
 References: <20260715135703.46540-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_065712_253002_BBC9CC91 
-X-CRM114-Status: GOOD (  32.82  )
+X-CRM114-CacheID: sfid-20260715_065722_991384_401D8754 
+X-CRM114-Status: GOOD (  25.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,272 +90,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a real driver for the Display Stream Compression (DSC) Display
-Controller IP, implementing support for DSC v1.1 to v1.2.
+Add a basic driver for the Write DMA Engine and initial compatible
+for the MediaTek MT8173 and MediaTek Dimensity 1200 MT6893, and
+hook it up to the mtk_ddp_comp and mtk_drm_drv in order for it to
+probe.
 
-In order to do this, it was necessary to remove the basic DSC IP
-bypass setup from mtk_ddp_comp: this functionality is retained in
-the new mtk_disp_dsc driver, which checks if DSC was actually
-requested by other components (with the only one that currently
-supports this being DSI) and, if not, it will set BYPASS mode in
-the DSC IP.
-
-Like before, the BYPASS mode is set before starting the DSC IP,
-but unlike before, this is being done in the component start
-callback instead of the config one.
-Notably, the config callback is called by mtk_crtc always
-immediately before the calling start callback, so the order of
-register writes is retained.
-The only real difference is that now this is being done through
-CPU writes instead of CMDQ, but since that's called only once
-and since it's just three registers, the performance impact will
-not be minimal and not even measurable.
-
-As anticipated, DSC handling was also introduced in the mtk_dsi
-driver: when performing dsi_host_attach, the driver now checks
-if the DSI panel adds the DSC configuration structure to the
-mipi_dsi_device structure and, if it does, it will store a
-pointer in the driver-local mtk_dsi structure's `dsc` member.
-
-The DSI driver will then check whether the DSC configuration
-that comes from the panel is valid (in regard to MediaTek DSI)
-and will call the DRM API's DSC helpers to calculate and set
-all of the const and RC parameters for the actual DSC setup.
-
-For the time being, even though the latest MediaTek SoCs do
-support DSC v1.2, only DSC v1.1 pre-scr support is implemented
-as an initial contribution (which is rather big, and 1.2 would
-make it even bigger - but that can anyway be implemented later).
-
-As a last step for validation of DSC parameters in DSI, a check
-for the hdisplay against DSC slice sidth and one for vdisplay
-against DSC slice height was added to the mode_valid callback,
-making sure that H/V are, as expected, multiples of slice W/H.
+This display controller component is used to enable the writeback
+engine that can be used for faster display image capturing in the
+userspace (for example, screenshots and screen recording).
 
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/gpu/drm/mediatek/Makefile       |   1 +
- drivers/gpu/drm/mediatek/mtk_crtc.c     |  21 ++
- drivers/gpu/drm/mediatek/mtk_ddp_comp.c |  43 +--
- drivers/gpu/drm/mediatek/mtk_ddp_comp.h |   9 +
- drivers/gpu/drm/mediatek/mtk_disp_drv.h |   9 +
- drivers/gpu/drm/mediatek/mtk_disp_dsc.c | 455 ++++++++++++++++++++++++
- drivers/gpu/drm/mediatek/mtk_drm_drv.c  |   2 +
- drivers/gpu/drm/mediatek/mtk_drm_drv.h  |   1 +
- drivers/gpu/drm/mediatek/mtk_dsi.c      | 151 +++++++-
- 9 files changed, 642 insertions(+), 50 deletions(-)
- create mode 100644 drivers/gpu/drm/mediatek/mtk_disp_dsc.c
+ drivers/gpu/drm/mediatek/Makefile        |   1 +
+ drivers/gpu/drm/mediatek/mtk_ddp_comp.c  |  21 +-
+ drivers/gpu/drm/mediatek/mtk_disp_drv.h  |  20 +
+ drivers/gpu/drm/mediatek/mtk_disp_wdma.c | 628 +++++++++++++++++++++++
+ drivers/gpu/drm/mediatek/mtk_drm_drv.c   |   4 +
+ drivers/gpu/drm/mediatek/mtk_drm_drv.h   |   1 +
+ 6 files changed, 673 insertions(+), 2 deletions(-)
+ create mode 100644 drivers/gpu/drm/mediatek/mtk_disp_wdma.c
 
 diff --git a/drivers/gpu/drm/mediatek/Makefile b/drivers/gpu/drm/mediatek/Makefile
-index 952d294642fb..03b3470ea5b5 100644
+index 03b3470ea5b5..8079962597c8 100644
 --- a/drivers/gpu/drm/mediatek/Makefile
 +++ b/drivers/gpu/drm/mediatek/Makefile
-@@ -5,6 +5,7 @@ mediatek-drm-y := mtk_crtc.o \
- 		  mtk_disp_aal.o \
- 		  mtk_disp_ccorr.o \
- 		  mtk_disp_color.o \
-+		  mtk_disp_dsc.o \
- 		  mtk_disp_gamma.o \
- 		  mtk_disp_merge.o \
+@@ -11,6 +11,7 @@ mediatek-drm-y := mtk_crtc.o \
  		  mtk_disp_ovl.o \
-diff --git a/drivers/gpu/drm/mediatek/mtk_crtc.c b/drivers/gpu/drm/mediatek/mtk_crtc.c
-index 8e552cdc3b53..d4be40b2574a 100644
---- a/drivers/gpu/drm/mediatek/mtk_crtc.c
-+++ b/drivers/gpu/drm/mediatek/mtk_crtc.c
-@@ -22,6 +22,7 @@
- 
- #include "mtk_crtc.h"
- #include "mtk_ddp_comp.h"
-+#include "mtk_disp_drv.h"
- #include "mtk_drm_drv.h"
- #include "mtk_plane.h"
- 
-@@ -344,6 +345,8 @@ static int mtk_crtc_ddp_hw_init(struct mtk_crtc *mtk_crtc)
- 	struct drm_connector *connector;
- 	struct drm_encoder *encoder;
- 	struct drm_connector_list_iter conn_iter;
-+	struct mtk_ddp_comp *comp_dsi = NULL, *comp_dsc = NULL;
-+	struct drm_dsc_config *dsc_cfg;
- 	struct drm_device *dev = mtk_crtc->base.dev;
- 	unsigned int width, height, vrefresh, bpc = MTK_MAX_BPC;
- 	int ret;
-@@ -398,6 +401,17 @@ static int mtk_crtc_ddp_hw_init(struct mtk_crtc *mtk_crtc)
- 		if (!mtk_ddp_comp_add(mtk_crtc->ddp_comp[i], mtk_crtc->mutex))
- 			mtk_mutex_add_comp(mtk_crtc->mutex,
- 					   mtk_crtc->ddp_comp[i]->id);
-+
-+		/* For now, only single DSI is supported */
-+		if (mtk_crtc->ddp_comp[i]->id >= DDP_COMPONENT_DSI0 &&
-+		    mtk_crtc->ddp_comp[i]->id <= DDP_COMPONENT_DSI3)
-+			if (!comp_dsi)
-+				comp_dsi = mtk_crtc->ddp_comp[i];
-+
-+		if (mtk_crtc->ddp_comp[i]->id == DDP_COMPONENT_DSC0 ||
-+		    mtk_crtc->ddp_comp[i]->id == DDP_COMPONENT_DSC1)
-+			if (!comp_dsc)
-+				comp_dsc = mtk_crtc->ddp_comp[i];
- 	}
- 	if (!mtk_ddp_comp_add(mtk_crtc->ddp_comp[i], mtk_crtc->mutex))
- 		mtk_mutex_add_comp(mtk_crtc->mutex, mtk_crtc->ddp_comp[i]->id);
-@@ -413,6 +427,13 @@ static int mtk_crtc_ddp_hw_init(struct mtk_crtc *mtk_crtc)
- 		mtk_ddp_comp_start(comp);
- 	}
- 
-+	/* Setup the DSC if present, with the config coming from DSI */
-+	if (comp_dsc && comp_dsi) {
-+		dsc_cfg = mtk_dsi_get_dsc_config(comp_dsi->dev);
-+		if (dsc_cfg)
-+			mtk_ddp_comp_dsc_setup(comp_dsc, dsc_cfg);
-+	}
-+
- 	/* Initially configure all planes */
- 	for (i = 0; i < mtk_crtc->layer_nr; i++) {
- 		struct drm_plane *plane = &mtk_crtc->planes[i];
+ 		  mtk_disp_ovl_adaptor.o \
+ 		  mtk_disp_rdma.o \
++		  mtk_disp_wdma.o \
+ 		  mtk_drm_drv.o \
+ 		  mtk_dsi.o \
+ 		  mtk_dpi.o \
 diff --git a/drivers/gpu/drm/mediatek/mtk_ddp_comp.c b/drivers/gpu/drm/mediatek/mtk_ddp_comp.c
-index 9672ea1f91a2..13aaf12ecbe5 100644
+index 13aaf12ecbe5..94b356da6de7 100644
 --- a/drivers/gpu/drm/mediatek/mtk_ddp_comp.c
 +++ b/drivers/gpu/drm/mediatek/mtk_ddp_comp.c
-@@ -40,12 +40,6 @@
- #define DITHER_LSB_ERR_SHIFT_G(x)		(((x) & 0x7) << 12)
- #define DITHER_ADD_LSHIFT_G(x)			(((x) & 0x7) << 4)
- 
--#define DISP_REG_DSC_CON			0x0000
--#define DSC_EN					BIT(0)
--#define DSC_DUAL_INOUT				BIT(2)
--#define DSC_BYPASS				BIT(4)
--#define DSC_UFOE_SEL				BIT(16)
--
- #define DISP_REG_OD_EN				0x0000
- #define DISP_REG_OD_CFG				0x0020
- #define OD_RELAYMODE				BIT(0)
-@@ -187,36 +181,6 @@ static void mtk_dither_set(struct device *dev, unsigned int bpc,
- 			      DISP_DITHERING, cmdq_pkt);
- }
- 
--static void mtk_dsc_config(struct device *dev, unsigned int w,
--			   unsigned int h, unsigned int vrefresh,
--			   unsigned int bpc, struct cmdq_pkt *cmdq_pkt)
--{
--	struct mtk_ddp_comp_dev *priv = dev_get_drvdata(dev);
--
--	/* dsc bypass mode */
--	mtk_ddp_write_mask(cmdq_pkt, DSC_BYPASS, &priv->cmdq_reg, priv->regs,
--			   DISP_REG_DSC_CON, DSC_BYPASS);
--	mtk_ddp_write_mask(cmdq_pkt, DSC_UFOE_SEL, &priv->cmdq_reg, priv->regs,
--			   DISP_REG_DSC_CON, DSC_UFOE_SEL);
--	mtk_ddp_write_mask(cmdq_pkt, DSC_DUAL_INOUT, &priv->cmdq_reg, priv->regs,
--			   DISP_REG_DSC_CON, DSC_DUAL_INOUT);
--}
--
--static void mtk_dsc_start(struct device *dev)
--{
--	struct mtk_ddp_comp_dev *priv = dev_get_drvdata(dev);
--
--	/* write with mask to reserve the value set in mtk_dsc_config */
--	mtk_ddp_write_mask(NULL, DSC_EN, &priv->cmdq_reg, priv->regs, DISP_REG_DSC_CON, DSC_EN);
--}
--
--static void mtk_dsc_stop(struct device *dev)
--{
--	struct mtk_ddp_comp_dev *priv = dev_get_drvdata(dev);
--
--	writel_relaxed(0x0, priv->regs + DISP_REG_DSC_CON);
--}
--
- static void mtk_od_config(struct device *dev, unsigned int w,
- 			  unsigned int h, unsigned int vrefresh,
- 			  unsigned int bpc, struct cmdq_pkt *cmdq_pkt)
-@@ -309,9 +273,9 @@ static const struct mtk_ddp_comp_funcs ddp_dpi = {
+@@ -357,6 +357,22 @@ static const struct mtk_ddp_comp_funcs ddp_rdma = {
+ 	.get_num_formats = mtk_rdma_get_num_formats,
  };
  
- static const struct mtk_ddp_comp_funcs ddp_dsc = {
--	.clk_enable = mtk_ddp_clk_enable,
--	.clk_disable = mtk_ddp_clk_disable,
--	.config = mtk_dsc_config,
-+	.clk_enable = mtk_dsc_clk_enable,
-+	.clk_disable = mtk_dsc_clk_disable,
-+	.dsc_setup = mtk_dsc_setup,
- 	.start = mtk_dsc_start,
- 	.stop = mtk_dsc_stop,
- };
-@@ -671,6 +635,7 @@ int mtk_ddp_comp_init(struct device *dev, struct device_node *node, struct mtk_d
- 	    type == MTK_DISP_BLS ||
- 	    type == MTK_DISP_CCORR ||
- 	    type == MTK_DISP_COLOR ||
-+	    type == MTK_DISP_DSC ||
- 	    type == MTK_DISP_GAMMA ||
- 	    type == MTK_DISP_MERGE ||
- 	    type == MTK_DISP_OVL ||
-diff --git a/drivers/gpu/drm/mediatek/mtk_ddp_comp.h b/drivers/gpu/drm/mediatek/mtk_ddp_comp.h
-index 3f3d43f4330d..99bf1e1015da 100644
---- a/drivers/gpu/drm/mediatek/mtk_ddp_comp.h
-+++ b/drivers/gpu/drm/mediatek/mtk_ddp_comp.h
-@@ -20,6 +20,7 @@ struct drm_crtc;
- struct drm_device;
- struct mtk_plane_state;
- struct drm_crtc_state;
-+struct drm_dsc_config;
- 
- enum mtk_ddp_comp_type {
- 	MTK_DISP_AAL,
-@@ -56,6 +57,7 @@ struct mtk_ddp_comp_funcs {
- 	void (*config)(struct device *dev, unsigned int w,
- 		       unsigned int h, unsigned int vrefresh,
- 		       unsigned int bpc, struct cmdq_pkt *cmdq_pkt);
-+	void (*dsc_setup)(struct device *dev, struct drm_dsc_config *dsc);
- 	void (*start)(struct device *dev);
- 	void (*stop)(struct device *dev);
- 	void (*register_vblank_cb)(struct device *dev,
-@@ -149,6 +151,13 @@ static inline void mtk_ddp_comp_config(struct mtk_ddp_comp *comp,
- 		comp->funcs->config(comp->dev, w, h, vrefresh, bpc, cmdq_pkt);
- }
- 
-+static inline void mtk_ddp_comp_dsc_setup(struct mtk_ddp_comp *comp,
-+					  struct drm_dsc_config *dsc)
-+{
-+	if (comp->funcs && comp->funcs->dsc_setup)
-+		comp->funcs->dsc_setup(comp->dev, dsc);
-+}
++static const struct mtk_ddp_comp_funcs ddp_wdma = {
++	.clk_enable = mtk_wdma_clk_enable,
++	.clk_disable = mtk_wdma_clk_disable,
++	.config = mtk_wdma_config,
++	.start = mtk_wdma_start,
++	.stop = mtk_wdma_stop,
++	.register_vblank_cb = mtk_wdma_register_vblank_cb,
++	.unregister_vblank_cb = mtk_wdma_unregister_vblank_cb,
++	.enable_vblank = mtk_wdma_enable_vblank,
++	.disable_vblank = mtk_wdma_disable_vblank,
++	.layer_nr = mtk_wdma_layer_nr,
++	.layer_config = mtk_wdma_layer_config,
++	.get_formats = mtk_wdma_get_formats,
++	.get_num_formats = mtk_wdma_get_num_formats,
++};
 +
- static inline void mtk_ddp_comp_start(struct mtk_ddp_comp *comp)
- {
- 	if (comp->funcs && comp->funcs->start)
+ static const struct mtk_ddp_comp_funcs ddp_ufoe = {
+ 	.clk_enable = mtk_ddp_clk_enable,
+ 	.clk_disable = mtk_ddp_clk_disable,
+@@ -460,8 +476,8 @@ static const struct mtk_ddp_comp_match mtk_ddp_matches[DDP_COMPONENT_DRM_ID_MAX]
+ 	[DDP_COMPONENT_RDMA2]		= { MTK_DISP_RDMA,		2, &ddp_rdma },
+ 	[DDP_COMPONENT_RDMA4]		= { MTK_DISP_RDMA,		4, &ddp_rdma },
+ 	[DDP_COMPONENT_UFOE]		= { MTK_DISP_UFOE,		0, &ddp_ufoe },
+-	[DDP_COMPONENT_WDMA0]		= { MTK_DISP_WDMA,		0, NULL },
+-	[DDP_COMPONENT_WDMA1]		= { MTK_DISP_WDMA,		1, NULL },
++	[DDP_COMPONENT_WDMA0]		= { MTK_DISP_WDMA,		0, &ddp_wdma },
++	[DDP_COMPONENT_WDMA1]		= { MTK_DISP_WDMA,		1, &ddp_wdma },
+ };
+ 
+ static bool mtk_ddp_comp_find(struct device *dev,
+@@ -642,6 +658,7 @@ int mtk_ddp_comp_init(struct device *dev, struct device_node *node, struct mtk_d
+ 	    type == MTK_DISP_OVL_2L ||
+ 	    type == MTK_DISP_PWM ||
+ 	    type == MTK_DISP_RDMA ||
++	    type == MTK_DISP_WDMA ||
+ 	    type == MTK_DPI ||
+ 	    type == MTK_DP_INTF ||
+ 	    type == MTK_DSI)
 diff --git a/drivers/gpu/drm/mediatek/mtk_disp_drv.h b/drivers/gpu/drm/mediatek/mtk_disp_drv.h
-index 679d413bf10b..5e2d8748120a 100644
+index 5e2d8748120a..e0c30c6c7cc8 100644
 --- a/drivers/gpu/drm/mediatek/mtk_disp_drv.h
 +++ b/drivers/gpu/drm/mediatek/mtk_disp_drv.h
-@@ -12,6 +12,8 @@
- #include "mtk_mdp_rdma.h"
- #include "mtk_plane.h"
+@@ -181,6 +181,26 @@ void mtk_mdp_rdma_config(struct device *dev, struct mtk_mdp_rdma_cfg *cfg,
+ const u32 *mtk_mdp_rdma_get_formats(struct device *dev);
+ size_t mtk_mdp_rdma_get_num_formats(struct device *dev);
  
-+struct drm_dsc_config;
++int mtk_wdma_clk_enable(struct device *dev);
++void mtk_wdma_clk_disable(struct device *dev);
++void mtk_wdma_config(struct device *dev, unsigned int width,
++		     unsigned int height, unsigned int vrefresh,
++		     unsigned int bpc, struct cmdq_pkt *cmdq_pkt);
++unsigned int mtk_wdma_layer_nr(struct device *dev);
++void mtk_wdma_layer_config(struct device *dev, unsigned int idx,
++			   struct mtk_plane_state *state,
++			   struct cmdq_pkt *cmdq_pkt);
++void mtk_wdma_start(struct device *dev);
++void mtk_wdma_stop(struct device *dev);
++void mtk_wdma_register_vblank_cb(struct device *dev,
++				 void (*vblank_cb)(void *),
++				 void *vblank_cb_data);
++void mtk_wdma_unregister_vblank_cb(struct device *dev);
++void mtk_wdma_enable_vblank(struct device *dev);
++void mtk_wdma_disable_vblank(struct device *dev);
++const u32 *mtk_wdma_get_formats(struct device *dev);
++size_t mtk_wdma_get_num_formats(struct device *dev);
 +
- int mtk_aal_clk_enable(struct device *dev);
- void mtk_aal_clk_disable(struct device *dev);
- void mtk_aal_config(struct device *dev, unsigned int w,
-@@ -47,9 +49,16 @@ void mtk_dpi_start(struct device *dev);
- void mtk_dpi_stop(struct device *dev);
- unsigned int mtk_dpi_encoder_index(struct device *dev);
- 
-+int mtk_dsc_clk_enable(struct device *dev);
-+void mtk_dsc_clk_disable(struct device *dev);
-+void mtk_dsc_setup(struct device *dev, struct drm_dsc_config *dsc_cfg);
-+void mtk_dsc_start(struct device *dev);
-+void mtk_dsc_stop(struct device *dev);
-+
- void mtk_dsi_ddp_start(struct device *dev);
- void mtk_dsi_ddp_stop(struct device *dev);
- unsigned int mtk_dsi_encoder_index(struct device *dev);
-+struct drm_dsc_config *mtk_dsi_get_dsc_config(struct device *dev);
- 
- int mtk_gamma_clk_enable(struct device *dev);
- void mtk_gamma_clk_disable(struct device *dev);
-diff --git a/drivers/gpu/drm/mediatek/mtk_disp_dsc.c b/drivers/gpu/drm/mediatek/mtk_disp_dsc.c
+ int mtk_padding_clk_enable(struct device *dev);
+ void mtk_padding_clk_disable(struct device *dev);
+ void mtk_padding_start(struct device *dev);
+diff --git a/drivers/gpu/drm/mediatek/mtk_disp_wdma.c b/drivers/gpu/drm/mediatek/mtk_disp_wdma.c
 new file mode 100644
-index 000000000000..bed6b77bf9a9
+index 000000000000..650ab902f795
 --- /dev/null
-+++ b/drivers/gpu/drm/mediatek/mtk_disp_dsc.c
-@@ -0,0 +1,455 @@
++++ b/drivers/gpu/drm/mediatek/mtk_disp_wdma.c
+@@ -0,0 +1,628 @@
 +// SPDX-License-Identifier: GPL-2.0-only
 +/*
 + * Copyright (c) 2021 MediaTek Inc.
@@ -363,399 +212,548 @@ index 000000000000..bed6b77bf9a9
 + *                    AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 + */
 +
++#include <drm/drm_atomic.h>
++#include <drm/drm_atomic_helper.h>
++#include <drm/drm_connector.h>
++#include <drm/drm_edid.h>
++#include <drm/drm_fourcc.h>
++#include <drm/drm_framebuffer.h>
++#include <drm/drm_gem_dma_helper.h>
++#include <drm/drm_probe_helper.h>
++#include <drm/drm_writeback.h>
++
++#include <linux/align.h>
 +#include <linux/clk.h>
 +#include <linux/component.h>
 +#include <linux/module.h>
-+#include <linux/of_device.h>
++#include <linux/of.h>
 +#include <linux/platform_device.h>
 +#include <linux/pm_runtime.h>
 +#include <linux/soc/mediatek/mtk-cmdq.h>
-+
-+#include <drm/display/drm_dsc.h>
-+#include <drm/display/drm_dsc_helper.h>
++#include <linux/wordpart.h>
 +
 +#include "mtk_crtc.h"
 +#include "mtk_ddp_comp.h"
 +#include "mtk_disp_drv.h"
++#include "mtk_drm_drv.h"
 +
-+#define DISP_REG_DSC_CON		0x0
-+#  define DSC_EN			BIT(0)
-+#  define DSC_DUAL_INOUT		BIT(2)
-+#  define DSC_IN_SRC_SEL		BIT(3)
-+#  define DSC_BYPASS			BIT(4)
-+#  define DSC_RELAY			BIT(5)
-+#  define DSC_V1_1_EXT			BIT(6)
-+#  define DSC_PT_MEM_EN			BIT(7)
-+#  define DSC_SW_RESET			BIT(8)
-+#  define DSC_EMPTY_FLAG_SEL		GENMASK(15, 14)
-+ #  define DSC_EMPTY_FLAG_NORMAL_DET	0
-+ #  define DSC_EMPTY_FLAG_ALWAYS_HIGH	1
-+ #  define DSC_EMPTY_FLAG_ALWAYS_LOW	2
-+ #  define DSC_EMPTY_FLAG_DO_NOT_SEND	3
-+#  define DSC_UFOE_SEL			BIT(16)
-+#  define DSC_OUTPUT_SWAP		BIT(18)
-+#  define DSC_ZERO_FIFO_STALL_DISABLE	BIT(20)
++#define DISP_REG_WDMA_INT_ENABLE		0x000
++ #define WDMA_FRAME_COMPLETE_INT		BIT(0)
++#define DISP_REG_WDMA_INT_STATUS		0x004
++#define DISP_REG_WDMA_EN			0x008
++ #define WDMA_ENGINE_EN				BIT(0)
++#define DISP_REG_WDMA_CFG			0x014
++ #define WDMA_CFG_OUT_FMT			GENMASK(7, 4)
++  #define WDMA_OUT_FMT_RGB565			0
++  #define WDMA_OUT_FMT_RGB888			1
++  #define WDMA_OUT_FMT_RGBA8888			2
++  #define WDMA_OUT_FMT_ARGB8888			3
++  #define WDMA_OUT_FMT_UYVY			4
++  #define WDMA_OUT_FMT_YUY2			5
++  #define WDMA_OUT_FMT_P010			6
++  #define WDMA_OUT_FMT_Y_ONLY			7
++  #define WDMA_OUT_FMT_I420			8
++  #define WDMA_OUT_FMT_ARGB2101010		11
++  #define WDMA_OUT_FMT_NV12			12
++ #define WDMA_CT_EN				BIT(11)
++ #define WDMA_CFG_SWAP				BIT(16)
++ #define WDMA_UFO_DCP_ENABLE			BIT(17)
++ #define WDMA_INT_MTX_SEL			GENMASK(27, 23)
++  #define WDMA_CT_COEF_RGB_TO_JPEG		0
++  #define WDMA_CT_COEF_JPEG_TO_RGB		4
++#define DISP_REG_WDMA_SRC_SIZE			0x018
++#define DISP_REG_WDMA_CLIP_SIZE			0x01c
++ #define WDMA_HEIGHT_PX				GENMASK(29, 16)
++ #define WDMA_WIDTH_PX				GENMASK(13, 0)
++#define DISP_REG_WDMA_CLIP_COORD		0x020
++ #define WDMA_CLIP_Y_COORD			GENMASK(29, 16)
++ #define WDMA_CLIP_X_COORD			GENMASK(13, 0)
++#define DISP_REG_WDMA_SHADOW_CTRL		0x024
++ #define WDMA_FORCE_COMMIT			BIT(0)
++ #define WDMA_BYPASS_SHADOW			BIT(1)
++#define DISP_REG_WDMA_DST_W_IN_BYTE		0x028
++#define DISP_REG_WDMA_DST_UV_PITCH		0x078
++ #define WDMA_UV_DST_W_IN_BYTE			GENMASK(15, 0)
++#define DISP_REG_WDMA_DST_ADDR_LSB		0xf00
++#define DISP_REG_WDMA_DST_ADDR_MSB_MT6893	0xf20
++#define DISP_REG_WDMA_DST_ADDRX(r, x)		(r + (x * 0x4))
 +
-+#define DISP_REG_DSC_SPR		0x14
-+#define DISP_REG_DSC_PIC_W		0x18
-+#  define DSC_PIC_WIDTH			GENMASK(15, 0)
-+#  define DSC_PIC_GROUP_WIDTH_M1	GENMASK(31, 16)
-+
-+#define DISP_REG_DSC_PIC_H		0x1c
-+#  define DSC_PIC_HEIGHT		GENMASK(15, 0)
-+#  define DSC_PIC_HEIGHT_EXT_M1		GENMASK(31, 16)
-+
-+#define DISP_REG_DSC_SLICE_W		0x20
-+#  define DSC_SLICE_WIDTH		GENMASK(15, 0)
-+#  define DSC_SLICE_GROUP_WIDTH_M1	GENMASK(31, 16)
-+
-+#define DISP_REG_DSC_SLICE_H		0x24
-+#  define DSC_SLICE_HEIGHT_M1		GENMASK(15, 0)
-+#  define DSC_SLICE_NUM_M1		GENMASK(29, 16)
-+#  define DSC_SLICE_WIDTH_MOD3		GENMASK(31, 30)
-+
-+#define DISP_REG_DSC_CHUNK_SIZE		0x28
-+
-+#define DISP_REG_DSC_BUF_SIZE		0x2c
-+#  define DISP_DSC_BUF_SIZE_MASK	GENMASK(23, 0)
-+
-+#define DISP_REG_DSC_MODE		0x30
-+#  define DSC_RGB_SWAP			BIT(2)
-+#  define DSC_INIT_DELAY_HEIGHT		GENMASK(11, 8)
-+
-+#define DISP_REG_DSC_CFG		0x34
-+#  define DSC_CFG_FLATNESS_DET_THRES	GENMASK(4, 0)
-+#  define DSC_CFG_FLATNESS_8BITS	2
-+#  define DSC_CFG_FLATNESS_10BITS	8
-+#  define DSC_CFG_ICH_EN		BIT(5)
-+#  define DSC_CFG_ICH_LINE_CLEAR	GENMASK(7, 6)
-+#  define DSC_CFG_V1P1			BIT(8)
-+#  define DSC_CFG_IDLE_MODE		BIT(9)
-+#  define DSC_CFG_CRC_EN		BIT(12)
-+#  define DSC_CFG_DSC12_BUGFIX		BIT(14)
-+#  define DSC_CFG_CORE_CHECKSUM		BIT(15)
-+
-+#define DISP_REG_DSC_PAD		0x38
-+#  define DSC_PAD_NUMBER		GENMASK(2, 0)
-+
-+#define DISP_REG_DSC_ENC_WIDTH		0x3c
-+#  define DSC_ENC_WIDTH_SLICE		GENMASK(15, 0)
-+#  define DSC_ENC_WIDTH_PIC		GENMASK(31, 16)
-+
-+#define DISP_REG_DSC_PIC_PRE_PAD_SIZE	0x40
-+#  define DSC_PIC_PREPAD_HEIGHT		GENMASK(15, 0)
-+#  define DSC_PIC_PREPAD_WIDTH		GENMASK(31, 16)
-+
-+#define DISP_REG_DSC_DBG_CON		0x60
-+#  define DSC_CKSM_CAL_EN		BIT(9)
-+
-+#define DISP_REG_DSC_OUTBUF		0x70
-+#  define DSC_OBUF_SIZE			GENMASK(11, 0)
-+
-+#define DISP_REG_DSC_PPS(x)		(0x80 + (x * 4)) /* 0..19 */
-+#  define DSC_P0_UP_LINE_BUF_DEPTH	GENMASK(3, 0)
-+#  define DSC_P0_BPC			GENMASK(7, 4)
-+#  define DSC_P0_BPP			GENMASK(17, 8)
-+#  define DSC_P0_RCT_ON			BIT(18)
-+#  define DSC_P0_BLOCK_PRED_EN		BIT(19)
-+#  define DSC_P1_INITIAL_XMIT_DELAY	GENMASK(15, 0)
-+#  define DSC_P1_INITIAL_DEC_DELAY	GENMASK(31, 16)
-+#  define DSC_P2_INITIAL_SCALE_VALUE	GENMASK(15, 0)
-+#  define DSC_P2_SCALE_INCR_INTERVAL	GENMASK(31, 16)
-+#  define DSC_P3_SCALE_DECR_INTERVAL	GENMASK(15, 0)
-+#  define DSC_P3_FIRST_LINE_BPG_OFFSET	GENMASK(31, 16)
-+#  define DSC_P4_NFL_BPG_OFFSET		GENMASK(15, 0)
-+#  define DSC_P4_SLICE_BPG_OFFSET	GENMASK(31, 16)
-+#  define DSC_P5_INITIAL_OFFSET		GENMASK(15, 0)
-+#  define DSC_P5_FINAL_OFFSET		GENMASK(31, 16)
-+#  define DSC_P6_FLATNESS_MIN_QP	GENMASK(4, 0)
-+#  define DSC_P6_FLATNESS_MAX_QP	GENMASK(12, 8)
-+#  define DSC_P6_RC_MODEL_SIZE		GENMASK(31, 16)
-+#  define DSC_P7_RC_EDGE_FACTOR		GENMASK(7, 0)
-+#  define DSC_P7_RC_QUANT_INCR_LIMIT0	GENMASK(12, 8)
-+#  define DSC_P7_RC_QUANT_INCR_LIMIT1	GENMASK(20, 16)
-+#  define DSC_P7_RC_TGT_OFFSET_HI	GENMASK(27, 24)
-+#  define DSC_P7_RC_TGT_OFFSET_LO	GENMASK(31, 28)
-+#  define DSC_P8_RC_BUF_THR_X		GENMASK(7, 0)
-+#  define DSC_P12_RC_RANGE_MIN_QP	GENMASK(4, 0)
-+#  define DSC_P12_RC_RANGE_MAX_QP	GENMASK(9, 5)
-+#  define DSC_P12_RC_RANGE_BPG_OFFSET	GENMASK(15, 10)
-+
-+#define DISP_REG_DSC_SHADOW		0x200
-+#  define DSC_FORCE_COMMIT		BIT(0)
-+#  define DSC_BYPASS_SHADOW		BIT(1)
-+#  define DSC_READ_WORKING		BIT(2)
-+#  define DSC_SHADOW_DSC_VERSION_MINOR	GENMASK(8, 5)
-+
-+struct mtk_dsc {
-+	struct clk		*clk;
-+	void __iomem		*reg;
-+	struct cmdq_client_reg	cmdq_reg;
-+	bool			dsc_config_done;
++static const u32 mtk_wdma_wb_output_formats[] = {
++	DRM_FORMAT_RGB888
 +};
 +
-+int mtk_dsc_clk_enable(struct device *dev)
-+{
-+	struct mtk_dsc *disp_dsc = dev_get_drvdata(dev);
++static const u32 mt6893_formats[] = {
++	DRM_FORMAT_XRGB8888,
++	DRM_FORMAT_ARGB8888,
++	DRM_FORMAT_BGRX8888,
++	DRM_FORMAT_BGRA8888,
++	DRM_FORMAT_ABGR8888,
++	DRM_FORMAT_XBGR8888,
++	DRM_FORMAT_RGB888,
++	DRM_FORMAT_BGR888,
++	DRM_FORMAT_RGB565,
++	DRM_FORMAT_YUV420,
++	DRM_FORMAT_YVU420,
++	DRM_FORMAT_UYVY,
++	DRM_FORMAT_YUYV,
++};
 +
-+	return clk_prepare_enable(disp_dsc->clk);
++struct mtk_disp_wdma_data {
++	u32 reg_wdma_dst_addr0_msb;
++	const u32 *formats;
++	size_t num_formats;
++};
++
++struct mtk_disp_wdma {
++	struct device			*dev;
++	struct clk			*clk;
++	void __iomem			*regs;
++	struct cmdq_client_reg		cmdq_reg;
++	const struct mtk_disp_wdma_data	*data;
++	void				(*vblank_cb)(void *data);
++	void				*vblank_cb_data;
++	int				irq;
++	struct drm_writeback_connector	wb_connector;
++	bool				wb_pending;
++};
++
++static inline struct mtk_disp_wdma *connector_to_wdma(struct drm_connector *connector)
++{
++	return container_of(connector, struct mtk_disp_wdma, wb_connector.base);
 +}
 +
-+void mtk_dsc_clk_disable(struct device *dev)
++static irqreturn_t mtk_disp_wdma_irq_handler(int irq, void *dev_id)
 +{
-+	struct mtk_dsc *disp_dsc = dev_get_drvdata(dev);
++	struct mtk_disp_wdma *wdma = dev_id;
 +
-+	clk_disable_unprepare(disp_dsc->clk);
-+}
++	/* Clear frame completion interrupt */
++	writel(0x0, wdma->regs + DISP_REG_WDMA_INT_STATUS);
 +
-+static void mtk_dsc_pps_setup(struct mtk_dsc *disp_dsc, struct drm_dsc_config *dsc_cfg)
-+{
-+	struct drm_dsc_rc_range_parameters *rcrp = dsc_cfg->rc_range_params;
-+	u16 *rbt = dsc_cfg->rc_buf_thresh;
-+	u32 data;
-+	int i, j;
++	if (wdma->vblank_cb)
++		wdma->vblank_cb(wdma->vblank_cb_data);
 +
-+	/* PPS 0 - Note: Fractional BPP is not supported! */
-+	data = FIELD_PREP(DSC_P0_UP_LINE_BUF_DEPTH, dsc_cfg->line_buf_depth);
-+	data |= FIELD_PREP(DSC_P0_BPC, dsc_cfg->bits_per_component);
-+	data |= FIELD_PREP(DSC_P0_BPP, dsc_cfg->bits_per_pixel);
-+	data |= DSC_P0_RCT_ON | DSC_P0_BLOCK_PRED_EN;
-+	writel(data, disp_dsc->reg + DISP_REG_DSC_PPS(0));
-+
-+	/* PPS 1 */
-+	data = FIELD_PREP(DSC_P1_INITIAL_XMIT_DELAY, dsc_cfg->initial_xmit_delay);
-+	data |= FIELD_PREP(DSC_P1_INITIAL_DEC_DELAY, dsc_cfg->initial_dec_delay);
-+	writel(data, disp_dsc->reg + DISP_REG_DSC_PPS(1));
-+
-+	/* PPS 2 */
-+	data = FIELD_PREP(DSC_P2_INITIAL_SCALE_VALUE, dsc_cfg->initial_scale_value);
-+	data |= FIELD_PREP(DSC_P2_SCALE_INCR_INTERVAL, dsc_cfg->scale_increment_interval);
-+	writel(data, disp_dsc->reg + DISP_REG_DSC_PPS(2));
-+
-+	/* PPS 3 */
-+	data = FIELD_PREP(DSC_P3_SCALE_DECR_INTERVAL, dsc_cfg->scale_decrement_interval);
-+	data |= FIELD_PREP(DSC_P3_FIRST_LINE_BPG_OFFSET, dsc_cfg->first_line_bpg_offset);
-+	writel(data, disp_dsc->reg + DISP_REG_DSC_PPS(3));
-+
-+	/* PPS 4 */
-+	data = FIELD_PREP(DSC_P4_NFL_BPG_OFFSET, dsc_cfg->nfl_bpg_offset);
-+	data |= FIELD_PREP(DSC_P4_SLICE_BPG_OFFSET, dsc_cfg->slice_bpg_offset);
-+	writel(data, disp_dsc->reg + DISP_REG_DSC_PPS(4));
-+
-+	/* PPS 5 */
-+	data = FIELD_PREP(DSC_P5_INITIAL_OFFSET, dsc_cfg->initial_offset);
-+	data |= FIELD_PREP(DSC_P5_FINAL_OFFSET, dsc_cfg->final_offset);
-+	writel(data, disp_dsc->reg + DISP_REG_DSC_PPS(5));
-+
-+	/* PPS 6 */
-+	data = FIELD_PREP(DSC_P6_FLATNESS_MIN_QP, dsc_cfg->flatness_min_qp);
-+	data |= FIELD_PREP(DSC_P6_FLATNESS_MAX_QP, dsc_cfg->flatness_max_qp);
-+	writel(data, disp_dsc->reg + DISP_REG_DSC_PPS(6));
-+
-+	/* PPS 7 */
-+	data = FIELD_PREP(DSC_P7_RC_EDGE_FACTOR, dsc_cfg->rc_edge_factor);
-+	data |= FIELD_PREP(DSC_P7_RC_QUANT_INCR_LIMIT0, dsc_cfg->rc_quant_incr_limit0);
-+	data |= FIELD_PREP(DSC_P7_RC_QUANT_INCR_LIMIT1, dsc_cfg->rc_quant_incr_limit1);
-+	data |= FIELD_PREP(DSC_P7_RC_TGT_OFFSET_HI, dsc_cfg->rc_tgt_offset_high);
-+	data |= FIELD_PREP(DSC_P7_RC_TGT_OFFSET_LO, dsc_cfg->rc_tgt_offset_low);
-+	writel(data, disp_dsc->reg + DISP_REG_DSC_PPS(7));
-+
-+	/* PPS 8..11 - Each register holds 4 RC buffer thresholds (PPS 11 has two) */
-+	for (i = 0; i < 4; i++) {
-+		u8 block_num = i * 4;
-+		data = 0;
-+
-+		for (j = 0; j < 4; j++) {
-+			u8 buf_index = block_num + j;
-+			u8 data_shift = j * 8;
-+
-+			/* rc_buf_thresh holds 14 elements in total */
-+			if (buf_index > 13)
-+				break;
-+
-+			data |= (rbt[buf_index] & DSC_P8_RC_BUF_THR_X) << data_shift;
-+		}
-+		writel(data, disp_dsc->reg + DISP_REG_DSC_PPS(8 + i));
++	/* TODO: Move completion signaling to CMDQ interrupt callback */
++	if (wdma->wb_pending) {
++		drm_writeback_signal_completion(&wdma->wb_connector, 0);
++		wdma->wb_pending = false;
 +	}
 +
-+	/* PPS 12..18 - Each register holds two sets of RC range parameters */
-+	for (i = 0; i < 7; i++) {
-+		u8 block_num = i * 2;
-+		data = 0;
-+
-+		for (j = 0; j < 2; j++) {
-+			u8 buf_index = block_num + j;
-+			u8 data_shift = j * 16;
-+			u32 range_data;
-+
-+			range_data = FIELD_PREP(DSC_P12_RC_RANGE_MIN_QP,
-+						 rcrp[buf_index].range_min_qp);
-+			range_data |= FIELD_PREP(DSC_P12_RC_RANGE_MAX_QP,
-+						 rcrp[buf_index].range_max_qp);
-+			range_data |= FIELD_PREP(DSC_P12_RC_RANGE_BPG_OFFSET,
-+						 rcrp[buf_index].range_bpg_offset);
-+			data |= range_data << data_shift;
-+
-+			/* rc_range_params holds 15 elements in total */
-+			if (buf_index == 13)
-+				break;
-+		}
-+		writel(data, disp_dsc->reg + DISP_REG_DSC_PPS(12 + i));
-+	}
-+
-+	/* PPS 19 - Last RC range register, holds only one set of parameters */
-+	writel(FIELD_PREP(DSC_P12_RC_RANGE_MIN_QP, rcrp[14].range_min_qp) |
-+	       FIELD_PREP(DSC_P12_RC_RANGE_MAX_QP, rcrp[14].range_max_qp) |
-+	       FIELD_PREP(DSC_P12_RC_RANGE_BPG_OFFSET, rcrp[14].range_bpg_offset),
-+	       disp_dsc->reg + DISP_REG_DSC_PPS(19));
++	return IRQ_HANDLED;
 +}
 +
-+void mtk_dsc_setup(struct device *dev, struct drm_dsc_config *dsc_cfg)
++static void wdma_update_bits(struct device *dev, unsigned int reg,
++			     unsigned int mask, unsigned int val)
 +{
-+	struct mtk_dsc *disp_dsc = dev_get_drvdata(dev);
-+	u32 dsc_slice_w, dsc_slice_h, dsc_mode, dsc_cfg_rval, dsc_shadow;
-+	u32 dsc_dbg_con, dsc_con, dsc_enc_width, dsc_pic_w, dsc_pic_h;
-+	u32 pic_group_width, pic_height_ext_num, slice_group_width;
-+	u32 chunk_size, dsc_pad_num, dsc_pre_pad_sz;
-+	bool dsc_en_bit;
++	struct mtk_disp_wdma *wdma = dev_get_drvdata(dev);
++	unsigned int tmp = readl(wdma->regs + reg);
 +
-+	pic_height_ext_num = dsc_cfg->pic_height + dsc_cfg->slice_height - 1;
-+	pic_group_width = dsc_cfg->slice_width * 4;
-+	pic_group_width /= 3;
++	tmp = (tmp & ~mask) | (val & mask);
++	writel(tmp, wdma->regs + reg);
++}
 +
-+	slice_group_width = dsc_cfg->slice_width + 2;
-+	slice_group_width /= 3;
++void mtk_wdma_register_vblank_cb(struct device *dev,
++				 void (*vblank_cb)(void *),
++				 void *vblank_cb_data)
++{
++	struct mtk_disp_wdma *wdma = dev_get_drvdata(dev);
 +
-+	if (dsc_cfg->slice_chunk_size)
-+		chunk_size = dsc_cfg->slice_chunk_size;
-+	else
-+		chunk_size = dsc_cfg->slice_width * dsc_cfg->bits_per_pixel / 8 / 16;
++	wdma->vblank_cb = vblank_cb;
++	wdma->vblank_cb_data = vblank_cb_data;
++}
 +
-+	dsc_enc_width = FIELD_PREP(DSC_ENC_WIDTH_PIC, dsc_cfg->pic_width) |
-+			FIELD_PREP(DSC_ENC_WIDTH_SLICE, dsc_cfg->slice_width);
++void mtk_wdma_unregister_vblank_cb(struct device *dev)
++{
++	struct mtk_disp_wdma *wdma = dev_get_drvdata(dev);
 +
-+	dsc_pic_w = FIELD_PREP(DSC_PIC_GROUP_WIDTH_M1, pic_group_width - 1);
-+	dsc_pic_w |= FIELD_PREP(DSC_PIC_WIDTH, dsc_cfg->pic_width);
-+	dsc_pic_h = FIELD_PREP(DSC_PIC_HEIGHT_EXT_M1, pic_height_ext_num - 1);
-+	dsc_pic_h |= FIELD_PREP(DSC_PIC_HEIGHT, dsc_cfg->pic_height - 1);
++	wdma->vblank_cb = NULL;
++	wdma->vblank_cb_data = NULL;
++}
 +
-+	dsc_slice_w = FIELD_PREP(DSC_SLICE_GROUP_WIDTH_M1, slice_group_width - 1);
-+	dsc_slice_w |= FIELD_PREP(DSC_SLICE_WIDTH, dsc_cfg->slice_width);
-+	dsc_slice_h = FIELD_PREP(DSC_SLICE_WIDTH_MOD3, dsc_cfg->slice_width % 3);
-+	dsc_slice_h |= FIELD_PREP(DSC_SLICE_NUM_M1,
-+				  (pic_height_ext_num / dsc_cfg->slice_height) - 1);
-+	dsc_slice_h |= FIELD_PREP(DSC_SLICE_HEIGHT_M1, dsc_cfg->slice_height - 1);
++void mtk_wdma_enable_vblank(struct device *dev)
++{
++	wdma_update_bits(dev, DISP_REG_WDMA_INT_ENABLE, WDMA_FRAME_COMPLETE_INT,
++			 WDMA_FRAME_COMPLETE_INT);
++}
 +
-+	dsc_pad_num = (3 - ((chunk_size * 2) % 3)) % 3;
-+	dsc_pad_num = FIELD_PREP(DSC_PAD_NUMBER, dsc_pad_num);
++void mtk_wdma_disable_vblank(struct device *dev)
++{
++	wdma_update_bits(dev, DISP_REG_WDMA_INT_ENABLE, WDMA_FRAME_COMPLETE_INT, 0);
++}
 +
-+	dsc_pre_pad_sz = FIELD_PREP(DSC_PIC_PREPAD_HEIGHT, dsc_cfg->pic_height);
-+	dsc_pre_pad_sz |= FIELD_PREP(DSC_PIC_PREPAD_WIDTH, dsc_cfg->pic_width);
++const u32 *mtk_wdma_get_formats(struct device *dev)
++{
++	struct mtk_disp_wdma *wdma = dev_get_drvdata(dev);
 +
-+	dsc_mode = FIELD_PREP(DSC_INIT_DELAY_HEIGHT, 4);
-+	dsc_mode |= FIELD_PREP(DSC_RGB_SWAP, 0);
++	return wdma->data->formats;
++}
 +
-+	/* Must enable checksum calc in DBG if enabling core checksum in CFG */
-+	dsc_cfg_rval = DSC_CFG_ICH_EN | DSC_CFG_CRC_EN | DSC_CFG_DSC12_BUGFIX |
-+		       DSC_CFG_CORE_CHECKSUM;
-+	dsc_dbg_con = DSC_CKSM_CAL_EN;
++size_t mtk_wdma_get_num_formats(struct device *dev)
++{
++	struct mtk_disp_wdma *wdma = dev_get_drvdata(dev);
 +
-+	if (dsc_cfg->bits_per_component == 8)
-+		dsc_cfg_rval |= FIELD_PREP_CONST(DSC_CFG_FLATNESS_DET_THRES,
-+						 DSC_CFG_FLATNESS_8BITS);
-+	else
-+		dsc_cfg_rval |= FIELD_PREP_CONST(DSC_CFG_FLATNESS_DET_THRES,
-+						 DSC_CFG_FLATNESS_10BITS);
++	return wdma->data->num_formats;
++}
 +
-+	dsc_shadow = FIELD_PREP(DSC_SHADOW_DSC_VERSION_MINOR,
-+				dsc_cfg->dsc_version_minor);
-+	dsc_shadow |= DSC_FORCE_COMMIT | DSC_BYPASS_SHADOW;
++int mtk_wdma_clk_enable(struct device *dev)
++{
++	struct mtk_disp_wdma *wdma = dev_get_drvdata(dev);
 +
-+	/* If DSC is currently enabled, disable it before setup and re-enable after */
-+	dsc_con = readl(disp_dsc->reg + DISP_REG_DSC_CON);
-+	if (dsc_con & DSC_EN) {
-+		dsc_en_bit = true;
-+		writel(dsc_con & ~DSC_EN, disp_dsc->reg + DISP_REG_DSC_CON);
++	return clk_prepare_enable(wdma->clk);
++}
++
++void mtk_wdma_clk_disable(struct device *dev)
++{
++	struct mtk_disp_wdma *wdma = dev_get_drvdata(dev);
++
++	clk_disable_unprepare(wdma->clk);
++}
++
++void mtk_wdma_start(struct device *dev)
++{
++	wdma_update_bits(dev, DISP_REG_WDMA_EN, WDMA_ENGINE_EN,
++			 WDMA_ENGINE_EN);
++}
++
++void mtk_wdma_stop(struct device *dev)
++{
++	struct mtk_disp_wdma *wdma = dev_get_drvdata(dev);
++
++	if (wdma->wb_pending) {
++		drm_writeback_signal_completion(&wdma->wb_connector, 0);
++		wdma->wb_pending = false;
++	}
++
++	wdma_update_bits(dev, DISP_REG_WDMA_EN, WDMA_ENGINE_EN, 0);
++}
++
++void mtk_wdma_config(struct device *dev, unsigned int width,
++		     unsigned int height, unsigned int vrefresh,
++		     unsigned int bpc, struct cmdq_pkt *cmdq_pkt)
++{
++	struct mtk_disp_wdma *wdma = dev_get_drvdata(dev);
++
++	writel(WDMA_FORCE_COMMIT | WDMA_BYPASS_SHADOW,
++	       wdma->regs + DISP_REG_WDMA_SHADOW_CTRL);
++}
++
++static u32 wdma_fmt_convert(unsigned int fmt)
++{
++	switch (fmt) {
++	default:
++	case DRM_FORMAT_RGB565:
++		return FIELD_PREP(WDMA_CFG_OUT_FMT, WDMA_OUT_FMT_RGB565);
++	case DRM_FORMAT_BGR565:
++		return FIELD_PREP(WDMA_CFG_OUT_FMT, WDMA_OUT_FMT_RGB565) | WDMA_CFG_SWAP;
++	case DRM_FORMAT_RGB888:
++		return FIELD_PREP(WDMA_CFG_OUT_FMT, WDMA_OUT_FMT_RGB888);
++	case DRM_FORMAT_BGR888:
++		return FIELD_PREP(WDMA_CFG_OUT_FMT, WDMA_OUT_FMT_RGB888) | WDMA_CFG_SWAP;
++	case DRM_FORMAT_RGBX8888:
++	case DRM_FORMAT_RGBA8888:
++		return FIELD_PREP(WDMA_CFG_OUT_FMT, WDMA_OUT_FMT_RGBA8888);
++	case DRM_FORMAT_BGRX8888:
++	case DRM_FORMAT_BGRA8888:
++		return FIELD_PREP(WDMA_CFG_OUT_FMT, WDMA_OUT_FMT_RGBA8888) | WDMA_CFG_SWAP;
++	case DRM_FORMAT_XRGB8888:
++	case DRM_FORMAT_ARGB8888:
++		return FIELD_PREP(WDMA_CFG_OUT_FMT, WDMA_OUT_FMT_ARGB8888);
++	case DRM_FORMAT_XBGR8888:
++	case DRM_FORMAT_ABGR8888:
++		return FIELD_PREP(WDMA_CFG_OUT_FMT, WDMA_OUT_FMT_ARGB8888) | WDMA_CFG_SWAP;
++	case DRM_FORMAT_UYVY:
++		return FIELD_PREP(WDMA_CFG_OUT_FMT, WDMA_OUT_FMT_UYVY);
++	case DRM_FORMAT_YUYV:
++		return FIELD_PREP(WDMA_CFG_OUT_FMT, WDMA_OUT_FMT_YUY2);
++	case DRM_FORMAT_YUV420:
++		return FIELD_PREP(WDMA_CFG_OUT_FMT, WDMA_OUT_FMT_I420);
++	case DRM_FORMAT_YVU420:
++		return FIELD_PREP(WDMA_CFG_OUT_FMT, WDMA_OUT_FMT_I420) | WDMA_CFG_SWAP;
++	}
++}
++
++unsigned int mtk_wdma_layer_nr(struct device *dev)
++{
++	return 1;
++}
++
++static void mtk_wdma_ddp_write_dst_addr(struct cmdq_pkt *cmdq_pkt, u64 val,
++					u8 reg_id, struct mtk_disp_wdma *wdma)
++{
++	mtk_ddp_write(cmdq_pkt, lower_32_bits(val), &wdma->cmdq_reg, wdma->regs,
++		      DISP_REG_WDMA_DST_ADDRX(DISP_REG_WDMA_DST_ADDR_LSB, reg_id));
++
++	if (wdma->data->reg_wdma_dst_addr0_msb == 0)
++		return;
++
++	mtk_ddp_write(cmdq_pkt, upper_32_bits(val), &wdma->cmdq_reg, wdma->regs,
++		      DISP_REG_WDMA_DST_ADDRX(wdma->data->reg_wdma_dst_addr0_msb, reg_id));
++}
++
++static void mtk_wdma_format_config(struct mtk_disp_wdma *wdma,
++				   struct mtk_plane_pending_state *pending,
++				   const struct drm_format_info *fmt_info,
++				   struct cmdq_pkt *cmdq_pkt)
++{
++	unsigned int u_off, u_stride, u_size, v_off;
++	u32 val;
++
++	/*
++	 * For RGB formats, this sets the image destination address;
++	 * For YUV formats, this sets the Y component destination address.
++	 */
++	mtk_wdma_ddp_write_dst_addr(cmdq_pkt, pending->addr, 0, wdma);
++
++	if (!fmt_info->is_yuv) {
++		/* Disable color transform matrix and data compression */
++		mtk_ddp_write_mask(cmdq_pkt, 0, &wdma->cmdq_reg, wdma->regs,
++				   DISP_REG_WDMA_CFG,
++				   WDMA_UFO_DCP_ENABLE | WDMA_CT_EN);
++		return;
++	}
++
++	/* Additional format config required only for 420 sampling */
++	if (!drm_format_info_is_yuv_sampling_420(fmt_info))
++		return;
++
++	u_off = pending->pitch * pending->height;
++	u_stride = pending->pitch / 2;
++
++	if (drm_format_info_is_yuv_planar(fmt_info)) {
++		/* YUV420 or YVU420 */
++		u_stride = ALIGN(u_stride, 16);
++		u_size = u_stride * pending->height / 2;
++		v_off = u_off + u_size;
 +	} else {
-+		dsc_en_bit = false;
++		/* NV12 or NV21 */
++		u_size = u_stride * pending->height / 2;
++		v_off = 0;
 +	}
 +
-+	writel(0, disp_dsc->reg + DISP_REG_DSC_SPR);
-+	writel(dsc_enc_width, disp_dsc->reg + DISP_REG_DSC_ENC_WIDTH);
-+	writel(dsc_pic_w, disp_dsc->reg + DISP_REG_DSC_PIC_W);
-+	writel(dsc_pic_h, disp_dsc->reg + DISP_REG_DSC_PIC_H);
-+	writel(dsc_slice_w, disp_dsc->reg + DISP_REG_DSC_SLICE_W);
-+	writel(dsc_slice_h, disp_dsc->reg + DISP_REG_DSC_SLICE_H);
-+	writel(((chunk_size * 4) / 3) << 16 | chunk_size,
-+	       disp_dsc->reg + DISP_REG_DSC_CHUNK_SIZE);
-+	writel(dsc_pre_pad_sz, disp_dsc->reg + DISP_REG_DSC_PIC_PRE_PAD_SIZE);
-+	writel(dsc_pad_num, disp_dsc->reg + DISP_REG_DSC_PAD);
-+	writel(FIELD_PREP(DISP_DSC_BUF_SIZE_MASK, chunk_size * dsc_cfg->slice_height),
-+	       disp_dsc->reg + DISP_REG_DSC_BUF_SIZE);
-+	writel(dsc_mode, disp_dsc->reg + DISP_REG_DSC_MODE);
-+	writel(dsc_cfg_rval, disp_dsc->reg + DISP_REG_DSC_CFG);
-+	writel(dsc_dbg_con, disp_dsc->reg + DISP_REG_DSC_DBG_CON);
-+	writel(FIELD_PREP_CONST(DSC_OBUF_SIZE, 1040), disp_dsc->reg + DISP_REG_DSC_OUTBUF);
-+	writel(dsc_shadow, disp_dsc->reg + DISP_REG_DSC_SHADOW);
++	/* Set U and V components destination addresses */
++	mtk_wdma_ddp_write_dst_addr(cmdq_pkt, pending->addr + u_off, 1, wdma);
++	mtk_wdma_ddp_write_dst_addr(cmdq_pkt, pending->addr + v_off, 2, wdma);
 +
-+	/* Set PPS registers configuration */
-+	mtk_dsc_pps_setup(disp_dsc, dsc_cfg);
++	mtk_ddp_write(cmdq_pkt, FIELD_PREP(WDMA_UV_DST_W_IN_BYTE, u_stride),
++		      &wdma->cmdq_reg, wdma->regs, DISP_REG_WDMA_DST_UV_PITCH);
 +
-+	dsc_con = FIELD_PREP_CONST(DSC_EMPTY_FLAG_SEL, DSC_EMPTY_FLAG_ALWAYS_LOW);
-+	dsc_con |= DSC_V1_1_EXT | DSC_UFOE_SEL | DSC_PT_MEM_EN;
-+	dsc_con |= DSC_ZERO_FIFO_STALL_DISABLE;
++	/* Color transform coefficient selection */
++	val = FIELD_PREP_CONST(WDMA_INT_MTX_SEL, WDMA_CT_COEF_JPEG_TO_RGB);
++	mtk_ddp_write_mask(cmdq_pkt, val, &wdma->cmdq_reg, wdma->regs,
++			   DISP_REG_WDMA_CFG, WDMA_INT_MTX_SEL);
 +
-+	if (dsc_en_bit)
-+		dsc_con |= DSC_EN;
-+
-+	writel(dsc_con, disp_dsc->reg + DISP_REG_DSC_CON);
-+
-+	disp_dsc->dsc_config_done = true;
++	/* Enable color transform matrix, disable data compression */
++	mtk_ddp_write_mask(cmdq_pkt, WDMA_CT_EN, &wdma->cmdq_reg, wdma->regs,
++			   DISP_REG_WDMA_CFG, WDMA_UFO_DCP_ENABLE | WDMA_CT_EN);
 +}
 +
-+void mtk_dsc_start(struct device *dev)
++void mtk_wdma_layer_config(struct device *dev, unsigned int idx,
++			   struct mtk_plane_state *state,
++			   struct cmdq_pkt *cmdq_pkt)
 +{
-+	struct mtk_dsc *disp_dsc = dev_get_drvdata(dev);
++	struct mtk_disp_wdma *wdma = dev_get_drvdata(dev);
++	struct mtk_plane_pending_state *pending = &state->pending;
++	unsigned int pitch = pending->pitch & 0xffff;
++	unsigned int fmt = pending->format;
++	unsigned int con = wdma_fmt_convert(fmt);
++	const struct drm_format_info *fmt_info = drm_format_info(fmt);
++	u16 clip_sz_h = pending->height;
++	u16 clip_sz_w = pending->width;
++	u32 val;
 +
-+	/* If no DSC or config not done, set bypass mode */
-+	if (!disp_dsc->dsc_config_done) {
-+		mtk_ddp_write_mask(NULL, DSC_BYPASS, &disp_dsc->cmdq_reg,
-+				   disp_dsc->reg, DISP_REG_DSC_CON, DSC_BYPASS);
-+		mtk_ddp_write_mask(NULL, DSC_UFOE_SEL, &disp_dsc->cmdq_reg,
-+				   disp_dsc->reg, DISP_REG_DSC_CON, DSC_UFOE_SEL);
-+		mtk_ddp_write_mask(NULL, DSC_DUAL_INOUT, &disp_dsc->cmdq_reg,
-+				   disp_dsc->reg, DISP_REG_DSC_CON, DSC_DUAL_INOUT);
++	val = FIELD_PREP(WDMA_HEIGHT_PX, pending->height);
++	val |= FIELD_PREP(WDMA_WIDTH_PX, pending->width);
++	mtk_ddp_write(cmdq_pkt, val, &wdma->cmdq_reg, wdma->regs,
++		      DISP_REG_WDMA_SRC_SIZE);
++
++	val = FIELD_PREP(WDMA_HEIGHT_PX, pending->y);
++	val |= FIELD_PREP(WDMA_WIDTH_PX, pending->x);
++	mtk_ddp_write(cmdq_pkt, val, &wdma->cmdq_reg, wdma->regs,
++		      DISP_REG_WDMA_CLIP_COORD);
++
++	if (fmt_info->is_yuv) {
++		if ((pending->y + pending->height) % 2)
++			clip_sz_h--;
++
++		if ((pending->x + pending->width) % 2)
++			clip_sz_w--;
++	}
++	val = FIELD_PREP(WDMA_HEIGHT_PX, clip_sz_h);
++	val |= FIELD_PREP(WDMA_WIDTH_PX, clip_sz_w);
++	mtk_ddp_write(cmdq_pkt, val, &wdma->cmdq_reg, wdma->regs,
++		      DISP_REG_WDMA_CLIP_SIZE);
++
++	mtk_ddp_write(cmdq_pkt, con, &wdma->cmdq_reg, wdma->regs,
++		      DISP_REG_WDMA_CFG);
++	mtk_ddp_write(cmdq_pkt, pitch, &wdma->cmdq_reg, wdma->regs,
++		      DISP_REG_WDMA_DST_W_IN_BYTE);
++
++	mtk_wdma_format_config(wdma, pending, fmt_info, cmdq_pkt);
++
++	drm_writeback_queue_job(&wdma->wb_connector, wdma->wb_connector.base.state);
++}
++
++static enum drm_connector_status
++mtk_wdma_wb_connector_detect(struct drm_connector *connector, bool force)
++{
++	return connector_status_connected;
++}
++
++static const struct drm_connector_funcs mtk_wdma_wb_connector_funcs = {
++	.detect = mtk_wdma_wb_connector_detect,
++	.fill_modes = drm_helper_probe_single_connector_modes,
++	.destroy = drm_connector_cleanup,
++	.reset = drm_atomic_helper_connector_reset,
++	.atomic_duplicate_state = drm_atomic_helper_connector_duplicate_state,
++	.atomic_destroy_state = drm_atomic_helper_connector_destroy_state,
++};
++
++static int mtk_wdma_wb_atomic_check(struct drm_encoder *encoder,
++				    struct drm_crtc_state *crtc_state,
++				    struct drm_connector_state *conn_state)
++{
++	const struct drm_display_mode *mode = &crtc_state->mode;
++	struct drm_framebuffer *fb;
++	int i;
++
++	if (!conn_state->writeback_job || !conn_state->writeback_job->fb)
++		return 0;
++
++	fb = conn_state->writeback_job->fb;
++	if (fb->width != mode->hdisplay || fb->height != mode->vdisplay)
++		return -EINVAL;
++
++	for (i = 0; i < ARRAY_SIZE(mtk_wdma_wb_output_formats); i++) {
++		if (fb->format->format == mtk_wdma_wb_output_formats[i])
++			return 0;
 +	}
 +
-+	mtk_ddp_write_mask(NULL, DSC_EN, &disp_dsc->cmdq_reg,
-+			   disp_dsc->reg, DISP_REG_DSC_CON, DSC_EN);
++	return -EINVAL;
 +}
 +
-+void mtk_dsc_stop(struct device *dev)
-+{
-+	struct mtk_dsc *disp_dsc = dev_get_drvdata(dev);
++static const struct drm_encoder_helper_funcs mtk_wdma_wb_encoder_helper_funcs = {
++	.atomic_check = mtk_wdma_wb_atomic_check,
++};
 +
-+	writel(0, disp_dsc->reg + DISP_REG_DSC_CON);
++static int mtk_wdma_wb_connector_get_modes(struct drm_connector *connector)
++{
++	struct drm_device *dev = connector->dev;
++
++	return drm_add_modes_noedid(connector, dev->mode_config.max_width,
++				    dev->mode_config.max_height);
 +}
 +
-+static int mtk_dsc_bind(struct device *dev, struct device *master, void *data)
++static enum drm_mode_status
++mtk_wdma_wb_connector_mode_valid(struct drm_connector *connector,
++				 const struct drm_display_mode *mode)
 +{
++	struct drm_device *dev = connector->dev;
++	struct drm_mode_config *mode_config = &dev->mode_config;
++	int w = mode->hdisplay, h = mode->vdisplay;
++
++	if (w < mode_config->min_width || w > mode_config->max_width)
++		return MODE_BAD_HVALUE;
++
++	if (h < mode_config->min_height || h > mode_config->max_height)
++		return MODE_BAD_VVALUE;
++
++	return MODE_OK;
++}
++
++static void mtk_wdma_wb_connector_atomic_commit(struct drm_connector *connector,
++						struct drm_atomic_commit *state)
++{
++	struct drm_connector_state *conn_state =
++		drm_atomic_get_new_connector_state(state, connector);
++	struct mtk_disp_wdma *wdma = connector_to_wdma(connector);
++	struct drm_framebuffer *fb;
++	struct drm_gem_object *gem;
++	struct drm_gem_dma_object *dma_obj;
++	dma_addr_t addr;
++
++	if (WARN_ON(!conn_state->writeback_job))
++		return;
++
++	fb = conn_state->writeback_job->fb;
++	if (!fb)
++		return;
++
++	gem = fb->obj[0];
++	dma_obj = to_drm_gem_dma_obj(gem);
++	addr = dma_obj->dma_addr;
++
++	/* Store writeback pending state before queuing the job */
++	wdma->wb_pending = true;
++
++	mtk_wdma_ddp_write_dst_addr(NULL, addr, 0, wdma);
++	drm_writeback_queue_job(&wdma->wb_connector, conn_state);
++}
++
++static const struct drm_connector_helper_funcs mtk_wdma_wb_connector_helper_funcs = {
++	.get_modes = mtk_wdma_wb_connector_get_modes,
++	.mode_valid = mtk_wdma_wb_connector_mode_valid,
++	.atomic_commit = mtk_wdma_wb_connector_atomic_commit,
++};
++
++static int mtk_disp_wdma_bind(struct device *dev, struct device *master,
++			      void *data)
++{
++	struct mtk_disp_wdma *wdma = dev_get_drvdata(dev);
++	struct drm_device *drm_dev = data;
++	int crtcs, ret;
++
++	crtcs = mtk_find_possible_crtcs(drm_dev, wdma->dev);
++	if (crtcs < 0)
++		return crtcs;
++
++	drm_connector_helper_add(&wdma->wb_connector.base,
++				 &mtk_wdma_wb_connector_helper_funcs);
++
++	ret = drm_writeback_connector_init(drm_dev, &wdma->wb_connector,
++					   &mtk_wdma_wb_connector_funcs,
++					   &mtk_wdma_wb_encoder_helper_funcs,
++					   mtk_wdma_wb_output_formats,
++					   ARRAY_SIZE(mtk_wdma_wb_output_formats),
++					   crtcs);
++	if (ret)
++		return ret;
++
++	ret = pm_runtime_get_sync(dev);
++	if (ret)
++		dev_warn(dev, "Could not get PM Runtime!\n");
++
++	/*
++	 * Disable and clear pending interrupts - write unconditionally as no
++	 * crash (SError, etc) will happen as if unpowered/unclocked this is
++	 * simply going to be ignored (and the registers will be 0 at reset).
++	 */
++	writel(0x0, wdma->regs + DISP_REG_WDMA_INT_ENABLE);
++	writel(0x0, wdma->regs + DISP_REG_WDMA_INT_STATUS);
++
++	/* Put RPM only if refcount was incremented before to avoid unbalancing */
++	if (ret >= 0)
++		pm_runtime_put(dev);
++
++	enable_irq(wdma->irq);
 +	return 0;
 +}
 +
-+static void mtk_dsc_unbind(struct device *dev, struct device *master, void *data)
++static void mtk_disp_wdma_unbind(struct device *dev, struct device *master,
++				 void *data)
 +{
++	struct mtk_disp_wdma *wdma = dev_get_drvdata(dev);
++
++	disable_irq(wdma->irq);
 +}
 +
-+static const struct component_ops mtk_dsc_component_ops = {
-+	.bind	= mtk_dsc_bind,
-+	.unbind = mtk_dsc_unbind,
++static const struct component_ops mtk_disp_wdma_component_ops = {
++	.bind	= mtk_disp_wdma_bind,
++	.unbind = mtk_disp_wdma_unbind,
 +};
 +
-+static int mtk_dsc_probe(struct platform_device *pdev)
++static int mtk_disp_wdma_probe(struct platform_device *pdev)
 +{
 +	struct device *dev = &pdev->dev;
-+	struct mtk_dsc *priv;
++	struct mtk_disp_wdma *priv;
 +	struct resource *res;
 +	int ret;
 +
@@ -763,347 +761,119 @@ index 000000000000..bed6b77bf9a9
 +	if (!priv)
 +		return -ENOMEM;
 +
++	priv->dev = dev;
++
++	priv->irq = platform_get_irq(pdev, 0);
++	if (priv->irq < 0)
++		return priv->irq;
++
 +	priv->clk = devm_clk_get(dev, NULL);
 +	if (IS_ERR(priv->clk))
 +		return dev_err_probe(dev, PTR_ERR(priv->clk),
-+				     "failed to get clk\n");
++				     "failed to get wdma clk\n");
 +
-+	priv->reg = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
-+	if (IS_ERR(priv->reg))
-+		return dev_err_probe(dev, PTR_ERR(priv->reg),
-+				     "failed to do ioremap\n");
-+
++	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
++	priv->regs = devm_ioremap_resource(dev, res);
++	if (IS_ERR(priv->regs))
++		return dev_err_probe(dev, PTR_ERR(priv->regs),
++				     "failed to ioremap wdma\n");
 +#if IS_REACHABLE(CONFIG_MTK_CMDQ)
 +	ret = cmdq_dev_get_client_reg(dev, &priv->cmdq_reg, 0);
 +	if (ret)
-+		return dev_err_probe(dev, ret, "failed to get gce client reg\n");
++		dev_dbg(dev, "get mediatek,gce-client-reg fail!\n");
 +#endif
 +
++	priv->data = of_device_get_match_data(dev);
 +	platform_set_drvdata(pdev, priv);
++
++	ret = devm_request_irq(dev, priv->irq, mtk_disp_wdma_irq_handler,
++			       IRQF_NO_AUTOEN, dev_name(dev), priv);
++	if (ret < 0)
++		return dev_err_probe(dev, ret, "Failed to request irq\n");
 +
 +	ret = devm_pm_runtime_enable(dev);
 +	if (ret)
 +		return ret;
 +
-+	ret = component_add(dev, &mtk_dsc_component_ops);
++	ret = component_add(dev, &mtk_disp_wdma_component_ops);
 +	if (ret)
-+		return dev_err_probe(dev, ret, "failed to add component\n");
++		return dev_err_probe(dev, ret, "Failed to add component\n");
 +
 +	return 0;
 +}
 +
-+static void mtk_dsc_remove(struct platform_device *pdev)
++static void mtk_disp_wdma_remove(struct platform_device *pdev)
 +{
-+	component_del(&pdev->dev, &mtk_dsc_component_ops);
++	component_del(&pdev->dev, &mtk_disp_wdma_component_ops);
 +}
 +
-+static const struct of_device_id mtk_dsc_driver_dt_match[] = {
-+	{ .compatible = "mediatek,mt8195-disp-dsc" },
++static const struct mtk_disp_wdma_data mt6893_wdma_driver_data = {
++	.reg_wdma_dst_addr0_msb = DISP_REG_WDMA_DST_ADDR_MSB_MT6893,
++	.formats = mt6893_formats,
++	.num_formats = ARRAY_SIZE(mt6893_formats),
++};
++
++static const struct mtk_disp_wdma_data mt8173_wdma_driver_data = {
++	.formats = mt6893_formats,
++	.num_formats = ARRAY_SIZE(mt6893_formats),
++};
++
++static const struct of_device_id mtk_disp_wdma_driver_dt_match[] = {
++	{ .compatible = "mediatek,mt6893-disp-wdma", .data = &mt6893_wdma_driver_data },
++	{ .compatible = "mediatek,mt8173-disp-wdma", .data = &mt8173_wdma_driver_data },
 +	{ /* sentinel */ }
 +};
-+MODULE_DEVICE_TABLE(of, mtk_dsc_driver_dt_match);
++MODULE_DEVICE_TABLE(of, mtk_disp_wdma_driver_dt_match);
 +
-+struct platform_driver mtk_disp_dsc_driver = {
-+	.probe		= mtk_dsc_probe,
-+	.remove		= mtk_dsc_remove,
++struct platform_driver mtk_disp_wdma_driver = {
++	.probe		= mtk_disp_wdma_probe,
++	.remove		= mtk_disp_wdma_remove,
 +	.driver		= {
-+		.name	= "mediatek-disp-dsc",
-+		.of_match_table = mtk_dsc_driver_dt_match,
++		.name	= "mediatek-disp-wdma",
++		.of_match_table = mtk_disp_wdma_driver_dt_match,
 +	},
 +};
 diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-index c86a3f54f35b..bd2d17017bd2 100644
+index aec8da072a41..7020fc0845cf 100644
 --- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
 +++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-@@ -1164,6 +1164,7 @@ static int mtk_drm_probe(struct platform_device *pdev)
- 		if (comp_type == MTK_DISP_AAL ||
- 		    comp_type == MTK_DISP_CCORR ||
- 		    comp_type == MTK_DISP_COLOR ||
-+		    comp_type == MTK_DISP_DSC ||
- 		    comp_type == MTK_DISP_GAMMA ||
- 		    comp_type == MTK_DISP_MERGE ||
- 		    comp_type == MTK_DISP_OVL ||
-@@ -1272,6 +1273,7 @@ static struct platform_driver * const mtk_drm_drivers[] = {
- 	&mtk_disp_aal_driver,
- 	&mtk_disp_ccorr_driver,
- 	&mtk_disp_color_driver,
-+	&mtk_disp_dsc_driver,
- 	&mtk_disp_gamma_driver,
- 	&mtk_disp_merge_driver,
+@@ -796,6 +796,8 @@ static const struct of_device_id mtk_ddp_comp_dt_ids[] = {
+ 	  .data = (void *)MTK_DISP_RDMA },
+ 	{ .compatible = "mediatek,mt8173-disp-ufoe",
+ 	  .data = (void *)MTK_DISP_UFOE },
++	{ .compatible = "mediatek,mt6893-disp-wdma",
++	  .data = (void *)MTK_DISP_WDMA },
+ 	{ .compatible = "mediatek,mt8173-disp-wdma",
+ 	  .data = (void *)MTK_DISP_WDMA },
+ 	{ .compatible = "mediatek,mt2701-dpi",
+@@ -1175,6 +1177,7 @@ static int mtk_drm_probe(struct platform_device *pdev)
+ 		    comp_type == MTK_DISP_OVL_2L ||
+ 		    comp_type == MTK_DISP_OVL_ADAPTOR ||
+ 		    comp_type == MTK_DISP_RDMA ||
++		    comp_type == MTK_DISP_WDMA ||
+ 		    comp_type == MTK_DP_INTF ||
+ 		    comp_type == MTK_DPI ||
+ 		    comp_type == MTK_DSI) {
+@@ -1283,6 +1286,7 @@ static struct platform_driver * const mtk_drm_drivers[] = {
  	&mtk_disp_ovl_adaptor_driver,
+ 	&mtk_disp_ovl_driver,
+ 	&mtk_disp_rdma_driver,
++	&mtk_disp_wdma_driver,
+ 	&mtk_dpi_driver,
+ 	&mtk_drm_platform_driver,
+ 	&mtk_dsi_driver,
 diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.h b/drivers/gpu/drm/mediatek/mtk_drm_drv.h
-index d48da019a4a3..43aac2d956e7 100644
+index 43aac2d956e7..8b5c51d93f72 100644
 --- a/drivers/gpu/drm/mediatek/mtk_drm_drv.h
 +++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.h
-@@ -71,6 +71,7 @@ struct mtk_drm_private {
- extern struct platform_driver mtk_disp_aal_driver;
- extern struct platform_driver mtk_disp_ccorr_driver;
- extern struct platform_driver mtk_disp_color_driver;
-+extern struct platform_driver mtk_disp_dsc_driver;
- extern struct platform_driver mtk_disp_gamma_driver;
- extern struct platform_driver mtk_disp_merge_driver;
+@@ -77,6 +77,7 @@ extern struct platform_driver mtk_disp_merge_driver;
  extern struct platform_driver mtk_disp_ovl_adaptor_driver;
-diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
-index 3f3f56eed3f9..8ab5c3431dbb 100644
---- a/drivers/gpu/drm/mediatek/mtk_dsi.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
-@@ -18,6 +18,8 @@
- #include <video/mipi_display.h>
- #include <video/videomode.h>
- 
-+#include <drm/display/drm_dsc.h>
-+#include <drm/display/drm_dsc_helper.h>
- #include <drm/drm_atomic_helper.h>
- #include <drm/drm_bridge.h>
- #include <drm/drm_bridge_connector.h>
-@@ -71,11 +73,12 @@
- 
- #define DSI_PSCTRL		0x1c
- #define DSI_PS_WC			GENMASK(13, 0)
--#define DSI_PS_SEL			GENMASK(17, 16)
-+#define DSI_PS_SEL			GENMASK(19, 16)
- #define PACKED_PS_16BIT_RGB565		0
- #define PACKED_PS_18BIT_RGB666		1
- #define LOOSELY_PS_24BIT_RGB666		2
- #define PACKED_PS_24BIT_RGB888		3
-+#define COMPRESSED_PS_DSC		5
- 
- #define DSI_VSA_NL		0x20
- #define DSI_VBP_NL		0x24
-@@ -203,6 +206,7 @@ struct mtk_dsi {
- 	struct drm_bridge bridge;
- 	struct drm_bridge *next_bridge;
- 	struct drm_connector *connector;
-+	struct drm_dsc_config *dsc;
- 	struct phy *phy;
- 
- 	void __iomem *regs;
-@@ -393,9 +397,35 @@ static void mtk_dsi_rxtx_control(struct mtk_dsi *dsi)
- 	writel(regval, dsi->regs + DSI_TXRX_CTRL);
- }
- 
--static void mtk_dsi_ps_control(struct mtk_dsi *dsi, bool config_vact)
-+static void mtk_dsi_ps_control_dsc(struct mtk_dsi *dsi, bool config_vact)
-+{
-+	const struct mtk_dsi_driver_data *data = dsi->driver_data;
-+	const u16 *reg_main = dsi->driver_data->reg_main;
-+	const short dsi_buf_bpp = 3;
-+	u32 ps_wc;
-+
-+	/* Word count */
-+	ps_wc = FIELD_PREP(DSI_PS_WC, 2 * dsi->dsc->slice_chunk_size);
-+
-+	if (config_vact) {
-+		writel(FIELD_PREP(VACT_NL, dsi->vm.vactive),
-+		       dsi->regs + reg_main[DSI_VACT_NL]);
-+		writel(ps_wc, dsi->regs + reg_main[DSI_HSTX_CKL_WC]);
-+	}
-+
-+	/* Always use DSC Pixel Stream type */
-+	writel(ps_wc | FIELD_PREP(DSI_PS_SEL, COMPRESSED_PS_DSC),
-+	       dsi->regs + reg_main[DSI_PSCTRL]);
-+
-+	if (data->has_size_ctl)
-+		writel(FIELD_PREP(DSI_HEIGHT, dsi->vm.vactive) |
-+		       FIELD_PREP(DSI_WIDTH, (ps_wc + dsi_buf_bpp - 1) / dsi_buf_bpp),
-+		       dsi->regs + reg_main[DSI_SIZE_CON]);
-+}
-+
-+static void mtk_dsi_ps_control_uncompressed(struct mtk_dsi *dsi, bool config_vact)
- {
--	u32 dsi_buf_bpp, ps_val, ps_wc, vact_nl;
-+	u32 dsi_buf_bpp, ps_val, ps_wc, size_val, vact_nl;
- 
- 	if (dsi->format == MIPI_DSI_FMT_RGB565)
- 		dsi_buf_bpp = 2;
-@@ -430,6 +460,21 @@ static void mtk_dsi_ps_control(struct mtk_dsi *dsi, bool config_vact)
- 		writel(ps_wc, dsi->regs + DSI_HSTX_CKL_WC);
- 	}
- 	writel(ps_val, dsi->regs + DSI_PSCTRL);
-+
-+	if (dsi->driver_data->has_size_ctl) {
-+		size_val = FIELD_PREP(DSI_HEIGHT, dsi->vm.vactive);
-+		size_val |= FIELD_PREP(DSI_WIDTH, dsi->vm.hactive);
-+
-+		writel(size_val, dsi->regs + DSI_SIZE_CON);
-+	}
-+}
-+
-+static void mtk_dsi_ps_control(struct mtk_dsi *dsi, bool config_vact)
-+{
-+	if (dsi->dsc)
-+		mtk_dsi_ps_control_dsc(dsi, config_vact);
-+	else
-+		mtk_dsi_ps_control_uncompressed(dsi, config_vact);
- }
- 
- static void mtk_dsi_config_vdo_timing_per_frame_lp(struct mtk_dsi *dsi)
-@@ -565,26 +610,68 @@ static void mtk_dsi_config_vdo_timing_per_line_lp(struct mtk_dsi *dsi)
- 	writel(horizontal_frontporch_byte, dsi->regs + DSI_HFP_WC);
- }
- 
--static void mtk_dsi_config_vdo_timing(struct mtk_dsi *dsi)
-+static int mtk_dsi_set_dsc_params(struct mtk_dsi *dsi)
-+{
-+	struct drm_dsc_config *dsc = dsi->dsc;
-+	struct device *dev = dsi->host.dev;
-+	int ret;
-+
-+	if (dsc->bits_per_pixel & GENMASK(3, 0)) {
-+		dev_err(dev, "Fractional bits_per_pixel not supported\n");
-+		return -EINVAL;
-+	}
-+
-+	if (dsc->bits_per_component != 8) {
-+		dev_err(dev, "%u bits per component is not supported\n",
-+			dsc->bits_per_component);
-+		return -EINVAL;
-+	}
-+
-+	dsc->simple_422 = false;
-+	dsc->convert_rgb = true;
-+	dsc->vbr_enable = false;
-+
-+	drm_dsc_set_const_params(dsc);
-+	drm_dsc_set_rc_buf_thresh(dsc);
-+
-+	ret = drm_dsc_setup_rc_params(dsc, DRM_DSC_1_1_PRE_SCR);
-+	if (ret) {
-+		dev_err(dev, "Cannot find DSC RC params\n");
-+		return ret;
-+	}
-+
-+	dsc->initial_scale_value = drm_dsc_initial_scale_value(dsc);
-+	dsc->line_buf_depth = dsc->bits_per_component + 1;
-+
-+	return drm_dsc_compute_rc_parameters(dsc);
-+}
-+
-+static int mtk_dsi_config_vdo_timing(struct mtk_dsi *dsi)
- {
- 	struct videomode *vm = &dsi->vm;
-+	int ret;
- 
- 	writel(vm->vsync_len, dsi->regs + DSI_VSA_NL);
- 	writel(vm->vback_porch, dsi->regs + DSI_VBP_NL);
- 	writel(vm->vfront_porch, dsi->regs + DSI_VFP_NL);
- 	writel(vm->vactive, dsi->regs + DSI_VACT_NL);
- 
--	if (dsi->driver_data->has_size_ctl)
--		writel(FIELD_PREP(DSI_HEIGHT, vm->vactive) |
--			FIELD_PREP(DSI_WIDTH, vm->hactive),
--			dsi->regs + DSI_SIZE_CON);
--
- 	if (dsi->driver_data->support_per_frame_lp)
- 		mtk_dsi_config_vdo_timing_per_frame_lp(dsi);
- 	else
- 		mtk_dsi_config_vdo_timing_per_line_lp(dsi);
- 
--	mtk_dsi_ps_control(dsi, false);
-+	if (dsi->dsc) {
-+		ret = mtk_dsi_set_dsc_params(dsi);
-+		if (ret)
-+			return ret;
-+
-+		mtk_dsi_ps_control(dsi, true);
-+	} else {
-+		mtk_dsi_ps_control(dsi, false);
-+	}
-+
-+	return 0;
- }
- 
- static void mtk_dsi_start(struct mtk_dsi *dsi)
-@@ -741,12 +828,19 @@ static int mtk_dsi_poweron(struct mtk_dsi *dsi)
- 
- 	mtk_dsi_ps_control(dsi, true);
- 	mtk_dsi_set_vm_cmd(dsi);
--	mtk_dsi_config_vdo_timing(dsi);
-+	ret = mtk_dsi_config_vdo_timing(dsi);
-+	if (ret)
-+		goto err_disable_dsi_and_digital_clk;
-+
- 	mtk_dsi_set_interrupt_enable(dsi);
- 	mtk_dsi_lane_ready(dsi);
- 	mtk_dsi_clk_hs_mode(dsi, 1);
- 
- 	return 0;
-+
-+err_disable_dsi_and_digital_clk:
-+	mtk_dsi_disable(dsi);
-+	clk_disable_unprepare(dsi->digital_clk);
- err_disable_engine_clk:
- 	clk_disable_unprepare(dsi->engine_clk);
- err_phy_power_off:
-@@ -883,6 +977,28 @@ mtk_dsi_bridge_mode_valid(struct drm_bridge *bridge,
- 	if (mode->clock * bpp / dsi->lanes > 1500000)
- 		return MODE_CLOCK_HIGH;
- 
-+	if (dsi->dsc) {
-+		if (dsi->dsc->slice_width == 0 || dsi->dsc->slice_height == 0) {
-+			dev_err(dsi->host.dev,
-+				"DSC: Slice width %u height %u not valid!\n",
-+				dsi->dsc->slice_width, dsi->dsc->slice_height);
-+			return MODE_BAD;
-+		}
-+
-+		if (mode->hdisplay % dsi->dsc->slice_width) {
-+			dev_dbg(dsi->host.dev,
-+				"DSC: hdisplay %u is not a multiple of slice width %u\n",
-+				dsi->dsc->slice_width, mode->hdisplay);
-+			return MODE_H_ILLEGAL;
-+		}
-+		if (mode->vdisplay % dsi->dsc->slice_height) {
-+			dev_dbg(dsi->host.dev,
-+				"DSC: vdisplay %u is not a multiple of slice height %u\n",
-+				dsi->dsc->slice_height, mode->vdisplay);
-+			return MODE_V_ILLEGAL;
-+		}
-+	}
-+
- 	return MODE_OK;
- }
- 
-@@ -913,6 +1029,13 @@ void mtk_dsi_ddp_stop(struct device *dev)
- 	mtk_dsi_poweroff(dsi);
- }
- 
-+struct drm_dsc_config *mtk_dsi_get_dsc_config(struct device *dev)
-+{
-+	struct mtk_dsi *dsi = dev_get_drvdata(dev);
-+
-+	return dsi->dsc;
-+}
-+
- static int mtk_dsi_encoder_init(struct drm_device *drm, struct mtk_dsi *dsi)
- {
- 	int ret;
-@@ -1006,12 +1129,16 @@ static int mtk_dsi_host_attach(struct mipi_dsi_host *host,
- 			return PTR_ERR(dsi->next_bridge);
- 	}
- 
-+	if (device->dsc)
-+		dsi->dsc = device->dsc;
-+
- 	drm_bridge_add(&dsi->bridge);
- 
- 	ret = component_add(host->dev, &mtk_dsi_component_ops);
- 	if (ret) {
- 		drm_err(drm, "failed to add dsi_host component: %d\n", ret);
- 		drm_bridge_remove(&dsi->bridge);
-+		dsi->dsc = NULL;
- 		return ret;
- 	}
- 
-@@ -1025,6 +1152,8 @@ static int mtk_dsi_host_detach(struct mipi_dsi_host *host,
- 
- 	component_del(host->dev, &mtk_dsi_component_ops);
- 	drm_bridge_remove(&dsi->bridge);
-+	dsi->dsc = NULL;
-+
- 	return 0;
- }
- 
+ extern struct platform_driver mtk_disp_ovl_driver;
+ extern struct platform_driver mtk_disp_rdma_driver;
++extern struct platform_driver mtk_disp_wdma_driver;
+ extern struct platform_driver mtk_dpi_driver;
+ extern struct platform_driver mtk_dsi_driver;
+ extern struct platform_driver mtk_ethdr_driver;
 -- 
 2.54.0
 
