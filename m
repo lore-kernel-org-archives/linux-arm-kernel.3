@@ -4,81 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDB63C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 11:56:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41FCAC44507
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 11:57:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u9wJHKiV23P2GLbMmzVOeIGyReKDaO4AJFuZast6R08=; b=YJOZYbFtp7IwKRH1QHrDCApXtI
-	niZ/UOMi0JXx5SLR3+9BrLf+h3cHo9qjPGAPN0gITT3rBGZGuNB1nvLgKC6yqZpg2tQ3+t1IUmdtA
-	1/pnQrFCq/ALAqrGy9v9ukwcI6GvVxhQ3pFo+Em36jQuQvcqNEbM1DbYJl8ngx9vr++LlBBOcWoM6
-	MuAchPJ7+WDW4GIAMxJwbJbD3SmnQ+b2FK2NWldEHrJlbnflUaqrSGQSQQMl4bc5dx7dxRA1P1Ttl
-	DUuf3uN9CDoyBubzpJNGNzfxsIjp2FKmTWyLuS5eivaYbl91SL/DnCiRiLhu2+xWuFnZLzjiZSTxP
-	q4dBYhsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AiWQwRYXK2ect7bQDu75GH3hgE4r/BOXJyGbx1WJyc8=; b=GZe+61pozkBCVZmMpzyg7WboyE
+	Xl+EZQgcYQQWFN0PrNhS81EU1Z0tDxU4wG7cXsYqtlCZPti5CDnh+aQjYZ4/vCRKFGhYaO85ByulE
+	3GrRkyWaNDvuVKBxlBgUVXHHFWpmhlxpRvrka1gd/rBbdxdsDbabqHH8xyFPdv6XU1WvrsBQD4CE8
+	NUl0ApH+eRWIkigNlSv7hmulzWwJ39QNlQ8FmiiXkmz8fQ4tFa5YLgKUd55SsUKC2NO8H8Vlo8EdZ
+	KBofhW1mjaXfAIdqIO/CwM02MDMfwv+agkBOzASLC7LwuNmRDVOyfIdSfopn0Z/Kt3FXJAaalzbNm
+	2Er6FW6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjyDk-0000000EeTY-1daU;
-	Wed, 15 Jul 2026 11:56:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wjyF4-0000000Eehj-317x;
+	Wed, 15 Jul 2026 11:57:34 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjyDj-0000000EeTA-0tPy
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 11:56:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 94B5D42A26;
-	Wed, 15 Jul 2026 11:56:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 715131F000E9;
-	Wed, 15 Jul 2026 11:56:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784116570;
-	bh=u9wJHKiV23P2GLbMmzVOeIGyReKDaO4AJFuZast6R08=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=hWcnDRifBQOBuXKk7Y87WvSAYB0GUR0mBPWzDtZQ8cwFCRiSAFRIGymSi3j7BdxaX
-	 YF8ONpbBKamJiY7YUrkPSfoxN3wxywi1v6xeb+O5TBzRUZ3PTfWUgx4IE4bZ1PTjq0
-	 L+hw3UdfX3PZc3q7shYUzh9hEV+mXKLiYKjjDg8f7b7NndG6K/IESn64N1XNmNNFvD
-	 cSb5FEAFpitcYYFqTpuPoywBnJM9uuxEKSMses2GU6y5JG77b7+B/yCcpAp4plhXv5
-	 hH6RuiJsk8RoQqWR01c26lGBDuJFyz088Q8tmYiw7QUiEIZFnsMntWimisVumy6R/V
-	 Uy8ipp1x1fdqg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wjyDg-00000005H0X-19Tp;
-	Wed, 15 Jul 2026 11:56:08 +0000
-Date: Wed, 15 Jul 2026 12:56:07 +0100
-Message-ID: <86bjc8o4a0.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Yureka Lilian <yureka@cyberchaos.dev>
-Cc: Manivannan Sadhasivam <mani@kernel.org>,	Lorenzo Pieralisi
- <lpieralisi@kernel.org>,	Krzysztof =?UTF-8?B?V2lsY3p5xYRza2k=?=
- <kwilczynski@kernel.org>,	Rob Herring <robh@kernel.org>,	Bjorn Helgaas
- <bhelgaas@google.com>,	Sven Peter <sven@kernel.org>,	Janne Grunau
- <j@jannau.net>,	Neal Gompa <neal@gompa.dev>,	Krzysztof Kozlowski
- <krzk+dt@kernel.org>,	Conor Dooley <conor+dt@kernel.org>,
-	linux-pci@vger.kernel.org,	linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev,	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH 1/2] PCI: apple: Integrate pwrctrl API
-In-Reply-To: <76243051-e391-45d2-b47a-d4a904f0a36f@cyberchaos.dev>
-References: <20260707-apple-pcie-pwren-v1-0-5a281b182fe2@cyberchaos.dev>
-	<20260707-apple-pcie-pwren-v1-1-5a281b182fe2@cyberchaos.dev>
-	<86a4s3p2vy.wl-maz@kernel.org>
-	<8a80a170-a508-4a9e-8090-27cfcedb1cd4@cyberchaos.dev>
-	<865x2qq4ts.wl-maz@kernel.org>
-	<jqaxvdaxfpm5g3tdwdqpuk2ubkwim6ckmlblocvakloqishvmm@c5ofbdbdj7lf>
-	<76243051-e391-45d2-b47a-d4a904f0a36f@cyberchaos.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: yureka@cyberchaos.dev, mani@kernel.org, lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, bhelgaas@google.com, sven@kernel.org, j@jannau.net, neal@gompa.dev, krzk+dt@kernel.org, conor+dt@kernel.org, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1wjyF1-0000000EegT-0l2H;
+	Wed, 15 Jul 2026 11:57:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1784116648;
+	bh=ygstzEkP+JyZmGcQ7tRnuvfQYRLdyR6bfVZsm5RzxQY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=BdB3UVJwnodQo8Cy8oL0ZTippxQaEiXCbBb5Lq713EfsjOJylM/LuKN/oL0BNYkSJ
+	 ImuP4A1tymrkeOYuDScouAbUrkeUtjT8HEcOs2jW1WlmPsD9AIo6kLpSMrmHqmJl9h
+	 RK+XHMJtjK1kuInm4xj9wi+aVnyXoJWGddfVFLcHl/+qclxqDr2QElORH3uzqVOejx
+	 prEsPDaPleQ/1fHggJY9FE1Pn2d/Xo0irxR2tFr0sw2ncPJhu7c00YDVaTaIcI224h
+	 fUUm2sqVeQJrpVJZtGHREIt8EB9weUkOLXwxjm2SrB2voH+shzOuZ6gkMS5Zvdbm7k
+	 3nZHajprWomKQ==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3C09017E0A4E;
+	Wed, 15 Jul 2026 13:57:28 +0200 (CEST)
+Message-ID: <821ce2b4-2630-4110-b493-b31c5d04556a@collabora.com>
+Date: Wed, 15 Jul 2026 13:57:27 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/2] phy: mediatek: Add support for MT8196 MIPI DSI PHY
+To: Vinod Koul <vkoul@kernel.org>
+Cc: chunfeng.yun@mediatek.com, neil.armstrong@linaro.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, chunkuang.hu@kernel.org,
+ p.zabel@pengutronix.de, matthias.bgg@gmail.com, justin.yeh@mediatek.com,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ kernel@collabora.com
+References: <20260713103805.23030-1-angelogioacchino.delregno@collabora.com>
+ <20260713103805.23030-3-angelogioacchino.delregno@collabora.com>
+ <alZm25Ro_WdKigPd@vaman>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <alZm25Ro_WdKigPd@vaman>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260715_045731_380999_B88365D3 
+X-CRM114-Status: GOOD (  11.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,42 +81,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 14 Jul 2026 17:57:11 +0100,
-Yureka Lilian <yureka@cyberchaos.dev> wrote:
+On 7/14/26 18:42, Vinod Koul wrote:
+> On 13-07-26, 12:38, AngeloGioacchino Del Regno wrote:
+>> Add support for the MIPI DSI PHY found in the MediaTek MT8196 SoC
+>> and its variants.
+>> This PHY has a different register layout and provides support for
+>> more hardware features compared to the previous generation.
+>>
+>> This initial driver only adds support for basic functionality that
+>> is necessary to drive MIPI DSI displays as a D-PHY.
+>>
+>> Feature additions like lane-swap, DPHY/CPHY switching, dual-port,
+>> and others, may be done in the future.
 > 
+> This seems to fail to build
 > 
-> On 7/9/26 14:29, Manivannan Sadhasivam wrote:
-> > On Tue, Jul 07, 2026 at 02:58:39PM +0100, Marc Zyngier wrote:
-> >> Works fine is one thing. Being consistent with the way the rest of the
-> >> driver works is another. pci_pwrctrl_create_device() and
-> >> pci_pwrctrl_power_on_device() appear to do exactly what would be
-> >> required for a single port. They just needs to be exported made
-> >> global/exported.
-> >> 
-> > I'm fine with exporting pci_pwrctrl_create_device() and
-> > pci_pwrctrl_power_on_device() and calling them with per-port np.
-> > 
-> > - Mani
+> https://patchwork.kernel.org/project/linux-phy/patch/20260713103805.23030-2-angelogioacchino.delregno@collabora.com/
 > 
-> In theory I do agree this would work to power on the slots, and I can
-> send a v2 of the patch doing it that way, but I don't quite understand
-> yet how this fits better with the existing driver code: If this is the
-> case, what is the difference between pcie-apple and pcie-qcom and why
-> should pcie-qcom use the recursive function but pcie-apple not?
 
-Consistency is important to maintaining any piece of code, and I do
-not want to deal with two management models simultaneously.
+The failure in your log is:
 
-Furthermore, the qcom stuff is bolted on the side the DWC train wreck,
-has to deal with the existing way the DWC driver works, and I see no
-reason to be dragged down to that level of horror.
+make[7]: *** Deleting file 'drivers/gpu/drm/msm/msm_gem.o'
+Segmentation fault (core dumped)
+make[7]: *** [../scripts/Makefile.build:289: drivers/gpu/drm/msm/msm_gem.o] Error 139
+make[6]: *** [../scripts/Makefile.build:549: drivers/gpu/drm/msm] Error 2
 
-Yes, this is an arbitrary decision.
+...your build server is experiencing some hardware issues maybe? :-)
 
-Thanks,
 
-	M.
+In any case, I've just rechecked this series, and it builds fine here, with:
 
--- 
-Without deviation from the norm, progress is not possible.
+ce1b90b20bbc (HEAD) phy: mediatek: Add support for MT8196 MIPI DSI PHY
+522a9d162c98 dt-bindings: phy: mediatek,dsi-phy: Add support for MT8196
+49362394dad7 (tag: next-20260713, next/master, next/HEAD) Add linux-next specific 
+files for 20260713
+
+With CONFIG_PHY_MTK_MIPI_DSI=m :
+   AR      drivers/phy/mediatek/built-in.a
+   CC [M]  drivers/phy/mediatek/phy-mtk-mipi-dsi.o
+   CC [M]  drivers/phy/mediatek/phy-mtk-mipi-dsi-mt8173.o
+   CC [M]  drivers/phy/mediatek/phy-mtk-mipi-dsi-mt8183.o
+   CC [M]  drivers/phy/mediatek/phy-mtk-mipi-dsi-mt8196.o
+   UPD     kernel/config_data
+   GZIP    kernel/config_data.gz
+   CC      kernel/configs.o
+   LD [M]  drivers/phy/mediatek/phy-mtk-mipi-dsi-drv.o
+   AR      drivers/phy/built-in.a
+   AR      kernel/built-in.a
+   AR      drivers/built-in.a
+   AR      built-in.a
+   AR      built-in-fixup.a
+   COPY    vmlinux.a
+   LD      vmlinux.o
+   MODPOST Module.symvers
+   CC      .vmlinux.export.o
+   UPD     include/generated/utsversion.h
+   CC      init/version-timestamp.o
+   KSYMS   .tmp_vmlinux0.kallsyms.S
+   AS      .tmp_vmlinux0.kallsyms.o
+   LD      .tmp_vmlinux1
+   LD [M]  drivers/phy/mediatek/phy-mtk-mipi-dsi-drv.ko
+   NM      .tmp_vmlinux1.syms
+......[ etc etc ]......
+
+
+With CONFIG_PHY_MTK_MIPI_DSI=y :
+
+   CC      drivers/phy/mediatek/phy-mtk-mipi-dsi.o
+   CC      drivers/phy/mediatek/phy-mtk-mipi-dsi-mt8173.o
+   CC      drivers/phy/mediatek/phy-mtk-mipi-dsi-mt8183.o
+   CC      drivers/phy/mediatek/phy-mtk-mipi-dsi-mt8196.o
+   UPD     kernel/config_data
+   GZIP    kernel/config_data.gz
+   CC      kernel/configs.o
+   AR      drivers/phy/mediatek/built-in.a
+   AR      drivers/phy/built-in.a
+   AR      kernel/built-in.a
+   AR      drivers/built-in.a
+   AR      built-in.a
+   AR      built-in-fixup.a
+   COPY    vmlinux.a
+   LD      vmlinux.o
+   MODPOST Module.symvers
+......[ etc etc ]......
+
+
+Regards,
+Angelo
 
