@@ -4,69 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6F11C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 15:01:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F25F0C4450E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 15:01:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M3mQcEyrJtzUIUxeTEaVv9W7Nl9c/dERPsqjmEowiaQ=; b=288aRYJDNLNxTfqgqRi5uPnvAN
-	Ww4dEwzuIRiiQkwFKCqmZNPjpTuDsdGHDvLBMPdpd2ULa5EK1Sbq7d/FgSWdunUhrtIt9ityYWpqv
-	Wi/9j2Yf1hLLjQP5hCVD0bRekQK0lUX+wslWgWenl2hJozsP2e+Gys6N3imf5lIj1zylsWAhNKDcX
-	osBsQk+KfocJMdAqtLX9lNGdyHevRrygQOscEHG4bjXRqA2vK7wiyX4nhQixO6IqkK3Nrs31xmeA6
-	RiDRxd95wrVv/YIO3QO0mklge7nrIzDqrzFVXW6pFksS/8rzMkTHRiwyC3n/7TlmTy4OpB93bNWfQ
-	G9H1orcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=j8UdcPrCWpOwvzYn0GBOE+Kb77J6h4WrSrgHpYB821s=; b=C599EWIJLqKQyUTUQe87O5x15i
+	es+qwJrOfY9KHsn2u5/9huO2x+eSVf7p9ni3HOI0HRkI0dkOey++DNkgt4OOaIKRXVJu7hGiGWDmZ
+	CqyAoBuerFYUUSrgzU+oTuxRskpvG3/DbJqTDIOGBYaLf3ysXka21zxO5rz8vcO0+N4XoxSFQhJsq
+	zYkro6CNdwpKGXx0igbXEcXr0CYbKWrpCmNZpmRnNIVQ+utbjEUQjpRP+/xQVNS6wSpBoZ5AnAtKz
+	nUngaqWpck296kl7l7r6BIdZMDZkybeCGH7OY07O8c2NvHDr08E0KcY0oCzJFbAsfOHGOjhyjr1qO
+	/tmQwg5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk16y-0000000FErW-0R2h;
-	Wed, 15 Jul 2026 15:01:24 +0000
-Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
+	id 1wk178-0000000FEtj-1Arr;
+	Wed, 15 Jul 2026 15:01:34 +0000
+Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk16v-0000000FEql-04mm
+	id 1wk176-0000000FEt1-27F9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 15:01:23 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
-	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 9A94B201CD0;
-	Wed, 15 Jul 2026 17:01:11 +0200 (CEST)
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1wk16l-001xBS-1i;
-	Wed, 15 Jul 2026 17:01:11 +0200
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1wk16l-0000000BlOO-1dv7;
-	Wed, 15 Jul 2026 17:01:11 +0200
-Date: Wed, 15 Jul 2026 17:01:11 +0200
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Mathieu Dubois-Briand <mathieu.dubois-briand@bootlin.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Wei Xu <xuwei5@hisilicon.com>, 
-	Andrew Jeffery <andrew@codeconstruct.com.au>, Avi Fishman <avifishman70@gmail.com>, 
-	Tomer Maimon <tmaimon77@gmail.com>, Tali Perry <tali.perry1@gmail.com>, 
-	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>, 
-	Benjamin Fair <benjaminfair@google.com>, devicetree@vger.kernel.org, Tom Rini <trini@konsulko.com>, 
-	imx@lists.linux.dev, openbmc@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
-	Sashiko <sashiko-bot@kernel.org>, Peter Robinson <pbrobinson@gmail.com>, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-stm32@st-md-mailman.stormreply.com, 
+	Wed, 15 Jul 2026 15:01:33 +0000
+Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-4629f312a67so4640222f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 08:01:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1784127690; x=1784732490; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=j8UdcPrCWpOwvzYn0GBOE+Kb77J6h4WrSrgHpYB821s=;
+        b=lZteae96AMnyL+vquMCwSoX5Ljep0RGzUXt6pLSthj4hvoOAzuCC1lZKeYQemmOJ+g
+         AzWpDEjzIEiOQyyNDKY8W3jww9Z2zs3/YZ2qYNX1RnR2TT0e7JGw9Wv1oXd9wh3cs+fB
+         DezJ6sapfBAxzSMIVFmjCrg5ASh4khtpI2MVMVyQYe0WKMyHTEYeUo/cPONNO9vHbx1K
+         BJJamDtayUN54wtIM0jHEZcULrfm957yIwiGYH+v2brpcR5GNaUR+2b15hyVYkRnCk+3
+         Q4acak7SAZB8O+lk0ect2agAmxuzUaG4yvF1pvEDZNO4fhkxBDrxW4vvG/NypKwimch9
+         x8Yg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784127690; x=1784732490;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=j8UdcPrCWpOwvzYn0GBOE+Kb77J6h4WrSrgHpYB821s=;
+        b=bJyKss+83xq+IqrVQXGnQVeFXVhcqEgzm9XMmxFgd621nUL3CvcJj0XrRpO0JFSINu
+         BxyCRrhU784fc+Cx+TId6gSdinLB7+B0+vzhJ9erp1cU1EKNP743DvpCoy2pAai94Dtp
+         UDzOlJ1bBOlpT5Ty83dqfRLYWj9FPOI3Dx//OegsqWioTB57j11CyoGmWGO9ZNXyyhbH
+         cptVK23UAhjf7dzujCcQ7odhRl53KHxILlQbwI2uLf6qYyQPeRMQICJMexqW+UDrKBoA
+         da0hwCOoWT7qW++lRa8TlfzAvrGDMvjBRmH6RHNeOMATlEqHtYrT1zMRn2cY8FtDn98+
+         iZyA==
+X-Forwarded-Encrypted: i=1; AHgh+Ro49GDT3iRs8mz9oAjjaV3j+wwde6CjJRO26hsNyw8lYVLY2OPGMkUOShmHz8cqEidUHIo62oq+v5dOeT16WXEw@lists.infradead.org
+X-Gm-Message-State: AOJu0YzgdcoD750NzEFls5le7iaWo/RyTXsc+zt9GL3XGmB2eBRudVqI
+	A9bT9OYzkom6mRKoxOnddR7DYPbBJTxf/KEFNzFpaEx6+1+8fa4V4RbtobKFfvojnu0PvFrji/m
+	9XWohgOY7A3sYGA==
+X-Received: from wrwq6.prod.google.com ([2002:a5d:5746:0:b0:47a:6462:7fbe])
+ (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6000:2c0a:b0:474:4525:eb55 with SMTP id ffacd0b85a97d-47f4fd1fc60mr3529438f8f.47.1784127689429;
+ Wed, 15 Jul 2026 08:01:29 -0700 (PDT)
+Date: Wed, 15 Jul 2026 15:01:25 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.55.0.141.g00534a21ce-goog
+Message-ID: <20260715150125.2798116-1-smostafa@google.com>
+Subject: [PATCH] KVM: arm64: Use consistent type for pool size
+From: Mostafa Saleh <smostafa@google.com>
+To: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 0/7] Import optee node from u-boot device trees
-Message-ID: <f225zh7v6z2a2lwbtk3lhw3mcsttneba364de5vjl4pcj5gr65@ckuo6hyj46vx>
-References: <20260715-mathieu-uboot-dts-import-v2-0-bc931417bd0e@bootlin.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260715-mathieu-uboot-dts-import-v2-0-bc931417bd0e@bootlin.com>
+Cc: maz@kernel.org, oupton@kernel.org, seiden@linux.ibm.com, 
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, will@kernel.org, vdonnefort@google.com, 
+	tabba@google.com, Mostafa Saleh <smostafa@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_080121_364231_BBEE17ED 
-X-CRM114-Status: GOOD (  27.48  )
+X-CRM114-CacheID: sfid-20260715_080132_566654_6144E42B 
+X-CRM114-Status: GOOD (  15.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,113 +90,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mathieu,
+All the pool sizes in the hypervisor are "unsigned long" but when
+they get passed to hyp_early_alloc_contig() or hyp_pool_init() they get
+truncated to 32-bits.
 
-On 26-07-15, Mathieu Dubois-Briand wrote:
-> In a recent discussion on the U-Boot mailing list [1], it was found out
-> that several platforms were adding the OP-TEE device tree-node thanks to
-> some U-Boot specific dtsi. This was deemed as a bad solution, as this
-> should instead be added in the DTS files hosted in Linux sources,
-> particularly for platforms already using the "upstream" (Linux) device
-> tree.
-> 
-> Most i.MX8 and i.MX9 platforms are already using OF_UPSTREAM
-> configuration in U-Boot. Some are not, but are fairly new, so we can
-> expect them to use the Linux device tree once their support is a bit
-> more stable. So they will benefit from these changes once upstream
-> device trees are refreshed in U-Boot.
-> 
-> STM32MP157 platforms are using OF_UPSTREAM, with similar consequences.
-> 
-> The two other platforms are using an U-Boot specific device tree, yet
-> adding these nodes on the kernel side will help to reduce the
-> differences.
-> 
-> The zynqmp platform was ignored, as a similar change was previously
-> reverted [2]. I also ignored a few platforms without direct match
-> between U-Boot and Linux dts files.
+That is not a big problem at the moment as to overflow this we need
+4G bytes of carveout (2 TB of host or guest system memory).
 
-We do the same in barebox bootloader for all OP-TEE supported i.MX
-platforms. Therefore this change would cause a regression for barebox as
-well.
+However when new users are added (as IOMMU) it is hard to reason
+about the carveout size anymore.
 
-Furthermore, this change would cause an anyoing dmesg warning on
-platforms which don't use OP-TEE at all, because it's not ensured that
-the OP-TEE firmware was actually loaded.
+Signed-off-by: Mostafa Saleh <smostafa@google.com>
+---
+For example in the SMMUv3 to avoid this overflow, I add a cap
+for the pools size to UINT_MAX to work around this:
+https://lore.kernel.org/linux-iommu/20260715115906.2664882-9-smostafa@google.com/
+---
+ arch/arm64/kvm/hyp/include/nvhe/early_alloc.h | 2 +-
+ arch/arm64/kvm/hyp/include/nvhe/gfp.h         | 4 ++--
+ arch/arm64/kvm/hyp/nvhe/early_alloc.c         | 2 +-
+ arch/arm64/kvm/hyp/nvhe/page_alloc.c          | 6 +++---
+ 4 files changed, 7 insertions(+), 7 deletions(-)
 
-Therefore the bootloader adds the OP-TEE nodes only if the OP-TEE binary
-was actually loaded.
-
-Therefore I vote for dynamic adding the nodes and not this static
-approach.
-
-Furthermore OP-TEE can provide a DTB overlay fragment with all the
-required nodes, which you only need to apply within the bootloader. This
-is cleanest way. You only need to provide OP-TEE the DTB location during
-runtime.
-
-Regards,
-  Marco
-
-> Also add the OP-TEE node on the imx93 FRDM platform device tree: while
-> this is not part of U-Boot code today, it is the change that triggered
-> the U-Boot discussion.
-> 
-> [1]: https://lore.kernel.org/all/20260706145906.GW749385@bill-the-cat/
-> [2]: https://lore.kernel.org/all/20251125-revert-zynqmp-optee-v1-1-d2ce4c0fcaf6@vaisala.com/
-> 
-> Signed-off-by: Mathieu Dubois-Briand <mathieu.dubois-briand@bootlin.com>
-> ---
-> Changes in v2:
-> - Splitting i.MX8 SoC changes in a separate commit.
-> - Adding bootph-pre-ram on stm32mp157c-ed1 reserved memory.
-> - Rebased on v7.2-rc3.
-> - Link to v1: https://lore.kernel.org/r/20260710-mathieu-uboot-dts-import-v1-0-ffe0210e50c9@bootlin.com
-> 
-> ---
-> Mathieu Dubois-Briand (7):
->       arm64: dts: freescale: Import optee node from u-boot i.MX91 and i.MX93 device trees
->       arm64: dts: freescale: Import optee node from u-boot i.MX8 device trees
->       arm: dts: st: Import optee node from u-boot device trees
->       arm: dts: st: stm32mp157c-ed1: Add bootph-pre-ram tag on optee reserved memory
->       arm64: dts: hisilicon: hi3798cv200-poplar: Import optee node from u-boot device tree
->       arm64: dts: nuvoton: npcm845-evb: Import optee node from u-boot device tree
->       arm64: dts: freescale: imx93-frdm: Add OP-TEE device tree node
-> 
->  arch/arm/boot/dts/st/stm32mp157a-dk1.dts                | 17 +++++++++++++++++
->  arch/arm/boot/dts/st/stm32mp157c-ed1.dts                | 14 ++++++++++++++
->  arch/arm64/boot/dts/freescale/imx8mm.dtsi               |  7 +++++++
->  arch/arm64/boot/dts/freescale/imx8mn.dtsi               |  7 +++++++
->  arch/arm64/boot/dts/freescale/imx8mp.dtsi               |  7 +++++++
->  arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts       |  7 +++++++
->  arch/arm64/boot/dts/freescale/imx91-11x11-frdm.dts      |  7 +++++++
->  arch/arm64/boot/dts/freescale/imx91-phyboard-segin.dts  |  7 +++++++
->  arch/arm64/boot/dts/freescale/imx93-11x11-evk.dts       |  7 +++++++
->  arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts      |  7 +++++++
->  arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts         |  7 +++++++
->  .../arm64/boot/dts/freescale/imx93-kontron-bl-osm-s.dts |  7 +++++++
->  arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts  |  7 +++++++
->  .../arm64/boot/dts/freescale/imx93-var-som-symphony.dts |  7 +++++++
->  arch/arm64/boot/dts/hisilicon/hi3798cv200-poplar.dts    |  7 +++++++
->  arch/arm64/boot/dts/nuvoton/nuvoton-npcm845-evb.dts     |  7 +++++++
->  16 files changed, 129 insertions(+)
-> ---
-> base-commit: a13c140cc289c0b7b3770bce5b3ad42ab35074aa
-> change-id: 20260710-mathieu-uboot-dts-import-69f51bc097d7
-> 
-> Best regards,
-> -- 
-> Mathieu Dubois-Briand <mathieu.dubois-briand@bootlin.com>
-> 
-> 
-> 
-
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/early_alloc.h b/arch/arm64/kvm/hyp/include/nvhe/early_alloc.h
+index dc61aaa56f31..462883c4e325 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/early_alloc.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/early_alloc.h
+@@ -7,7 +7,7 @@
+ void hyp_early_alloc_init(void *virt, unsigned long size);
+ unsigned long hyp_early_alloc_nr_used_pages(void);
+ void *hyp_early_alloc_page(void *arg);
+-void *hyp_early_alloc_contig(unsigned int nr_pages);
++void *hyp_early_alloc_contig(unsigned long nr_pages);
+ 
+ extern struct kvm_pgtable_mm_ops hyp_early_alloc_mm_ops;
+ 
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/gfp.h b/arch/arm64/kvm/hyp/include/nvhe/gfp.h
+index 3766333bace9..3a428dc40b14 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/gfp.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/gfp.h
+@@ -29,6 +29,6 @@ void hyp_get_page(struct hyp_pool *pool, void *addr);
+ void hyp_put_page(struct hyp_pool *pool, void *addr);
+ 
+ /* Used pages cannot be freed */
+-int hyp_pool_init(struct hyp_pool *pool, u64 pfn, unsigned int nr_pages,
+-		  unsigned int reserved_pages);
++int hyp_pool_init(struct hyp_pool *pool, u64 pfn, unsigned long nr_pages,
++		  unsigned long reserved_pages);
+ #endif /* __KVM_HYP_GFP_H */
+diff --git a/arch/arm64/kvm/hyp/nvhe/early_alloc.c b/arch/arm64/kvm/hyp/nvhe/early_alloc.c
+index 00de04153cc6..9fef0c7d2185 100644
+--- a/arch/arm64/kvm/hyp/nvhe/early_alloc.c
++++ b/arch/arm64/kvm/hyp/nvhe/early_alloc.c
+@@ -21,7 +21,7 @@ unsigned long hyp_early_alloc_nr_used_pages(void)
+ 	return (cur - base) >> PAGE_SHIFT;
+ }
+ 
+-void *hyp_early_alloc_contig(unsigned int nr_pages)
++void *hyp_early_alloc_contig(unsigned long nr_pages)
+ {
+ 	unsigned long size = (nr_pages << PAGE_SHIFT);
+ 	void *ret = (void *)cur;
+diff --git a/arch/arm64/kvm/hyp/nvhe/page_alloc.c b/arch/arm64/kvm/hyp/nvhe/page_alloc.c
+index 57f86aa0f82f..51460d420c94 100644
+--- a/arch/arm64/kvm/hyp/nvhe/page_alloc.c
++++ b/arch/arm64/kvm/hyp/nvhe/page_alloc.c
+@@ -229,12 +229,12 @@ void *hyp_alloc_pages(struct hyp_pool *pool, u8 order)
+ 	return hyp_page_to_virt(p);
+ }
+ 
+-int hyp_pool_init(struct hyp_pool *pool, u64 pfn, unsigned int nr_pages,
+-		  unsigned int reserved_pages)
++int hyp_pool_init(struct hyp_pool *pool, u64 pfn, unsigned long nr_pages,
++		  unsigned long reserved_pages)
+ {
+ 	phys_addr_t phys = hyp_pfn_to_phys(pfn);
+ 	struct hyp_page *p;
+-	int i;
++	unsigned long i;
+ 
+ 	hyp_spin_lock_init(&pool->lock);
+ 	pool->max_order = min(MAX_PAGE_ORDER,
 -- 
-#gernperDu 
-#CallMeByMyFirstName
+2.55.0.141.g00534a21ce-goog
 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
 
