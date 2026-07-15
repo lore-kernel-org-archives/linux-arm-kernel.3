@@ -4,63 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C59CC44507
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 12:21:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E285AC44507
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 12:26:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Im+Aa3TngIB1QFVLXN/LGM7mqAVaEHiZKdCdR1CrjLQ=; b=XXOW3U4ECpt5+5+0QHdbv2EyXH
-	gwxTYFurTE/BDLqshLD/SXS757vS3LXvfHlzaQ5OVM/sfMvv7UccgZ2C9b58rGLwDFVGIK3meFKZT
-	UEz2PZQ1nGoz+G0j0LN25F2K3hyyASqTz2ysE+JrgXzJ+oPBeCmXJ7L+FvSvfW7Q/ew3SdLBOMv0J
-	1uE7jgvSi30ejG7MqGA+mlvlyG1tHUfxT4b15Bnv8BG2EZzk911pUuwqBkve8RXhHS0gKewNef6vC
-	OySmXE2tGzeQkvE8zwJIfWD7DHrrsVBBtQ90VeLlrg+E/aKIYfC9e8iZToBise6sY1RkxI+a31miX
-	SlvYpz0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ufSU06HSFFf/HF9xxtT6zNddSL0W/3RadTy6uo0f3pw=; b=Ih2lEqNrW90tS7bXgx08hqSLzY
+	71p9R7jdspeaVTaOLt7AiSyC6+6s2Mt0Zhj/TvmvBRWFStBcD4GPgXwUwQbKWegMiZdY14WbowOrA
+	BVVOB8ultVzGXdADjvxgNBHnSu9APC7wmq8FBE1Z9wQ2PN3DP7gsM0t14IND+vcQB2sD5kf+5idmZ
+	QY1cDoIpwFtA1o3LqEfyQD9ZX7+S5fcuvAgptDdGWc4Tcb9Gx7r9pexE92d/WT4VoEunPzE3wVWLR
+	rJwaZxvjYCWtR6S2k6rpApo2ZIVX0WJvLfQHfmUztNGxDvQniqBwvBU7+MkM1MCNPP//NbcqFlIjy
+	jEdail+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjybz-0000000Elcn-0qOH;
-	Wed, 15 Jul 2026 12:21:15 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjybx-0000000ElcH-1yJJ
+	id 1wjyhM-0000000EmIL-4A2R;
+	Wed, 15 Jul 2026 12:26:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjyhL-0000000EmI5-2Snm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 12:21:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 568562F;
-	Wed, 15 Jul 2026 05:21:08 -0700 (PDT)
-Received: from [10.1.34.162] (e121487-lin.cambridge.arm.com [10.1.34.162])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7D02B3F7B4;
-	Wed, 15 Jul 2026 05:21:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784118072; bh=92LmSyPv0MDpvg5uzitknZ1qVtZJI7TtPQkAmsIUSRc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PCgRZ9nawDHYnDAM/oRjt7HTAqrZTEEpdUrLrcZ/32+W2eMYgMbZ994gaWv2yRfEH
-	 L1n1ZlutHwAIaBSGfTfI6pF1Ak9z7SxeKVMKXya+I1rroT4EWFfQHVSBvkx9PWkZ1J
-	 gv08rvP9XRnCyiodguckQVdPyOhB/WZFpYjcOWGs=
-Message-ID: <c5ed3515-0ea1-4db4-809a-97020439e1f1@arm.com>
-Date: Wed, 15 Jul 2026 13:21:09 +0100
+	Wed, 15 Jul 2026 12:26:47 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8D8196137C
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 12:26:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FCB61F0155A
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 12:26:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784118406;
+	bh=ufSU06HSFFf/HF9xxtT6zNddSL0W/3RadTy6uo0f3pw=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=QKykeVV+vjB0vBKkxzt1G8Vl5kKWhAKrI3T18ni2Hmw7Ye9vGMPmHsQOOafa6Rkz8
+	 Ms0JYatvX30UIvmhmwHhmdX9yRaau4XM7UMuftPm2YrvDgVpRTT9y0EvcfS+iJMopa
+	 wn5EvKEKra8RnO1k8aY6zl3W8kTP7P1IlnB4/LKGhKGxEg2xEMFyvVePT3Jcft61ug
+	 gLoOZQLE17mfUgB/wOuZnmcyg2/bXhPTd+ObHBKZgp4ncS4UOBn+dwfyO9BIdDE/Ik
+	 iVS87KexyX8aSDr2Cs39sUkAux0k+DNAdUQG8yS15R4tPMKJ4Ufu/ntoSvaqilpRBT
+	 Qrj1mAGszI78g==
+Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-39d560a1dd4so4006801fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 05:26:46 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RoFX08XSzWmeiAYE7u2TB6qJLb/ADNL62mKIFZ+YIhVf0JmIdrzxQMii9NWpvql1EkqVnBXnqICoyHPii2vCDk7@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz0vscxNEfreGMXrlJQnHg8vwN9Yh/uzeZS7uEXBslXkPuix4pt
+	+q6i2qTRVzO8iMdkURXB2VdzX19LU4lGwYK+ImqaBXmhZgGl0Wajhx74XLP8l2I/iFiXazBfObO
+	VF+Q8gDINkHoZSUL4xcsbEl2F+A8skDeo4lHsuHHgmw==
+X-Received: by 2002:a05:651c:23db:20b0:39c:6e2c:23c3 with SMTP id
+ 38308e7fff4ca-39db6ba5ea7mr4965071fa.5.1784118404814; Wed, 15 Jul 2026
+ 05:26:44 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 15 Jul 2026 05:26:43 -0700
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 15 Jul 2026 05:26:42 -0700
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20260714-arm-psci-system_reset2-vendor-reboots-v23-2-e7453c548c21@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 23/36] arm64/efi: Implement override for IRQ flags
- checks
-To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
-Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org,
- catalin.marinas@arm.com
-References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-24-vladimir.murzin@arm.com>
- <e1694eb7-3459-43bd-9f37-1066bef43a14@huawei.com>
- <94589fd3-d81c-4603-8226-131894d6af08@arm.com>
- <649a6d54-3335-4523-a683-e2bf7fb865d0@huawei.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <649a6d54-3335-4523-a683-e2bf7fb865d0@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_052113_566877_86D28A1E 
-X-CRM114-Status: GOOD (  11.23  )
+References: <20260714-arm-psci-system_reset2-vendor-reboots-v23-0-e7453c548c21@oss.qualcomm.com>
+ <20260714-arm-psci-system_reset2-vendor-reboots-v23-2-e7453c548c21@oss.qualcomm.com>
+Date: Wed, 15 Jul 2026 05:26:42 -0700
+X-Gmail-Original-Message-ID: <CAMRc=McKp4WsOY-EQ21n2wbqCp5V0Lr1Cbub5geEhz-LZvVkZw@mail.gmail.com>
+X-Gm-Features: AUfX_mylt-DYfwtCtULeZMicFYpxh50vEHg7XonNMSy71MZwRMycF3EtBgUVrSQ
+Message-ID: <CAMRc=McKp4WsOY-EQ21n2wbqCp5V0Lr1Cbub5geEhz-LZvVkZw@mail.gmail.com>
+Subject: Re: [PATCH v23 02/13] power: reset: reboot-mode: Support up to 3
+ magic values per mode
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, Andre Draszik <andre.draszik@linaro.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>, mfd@lists.linux.dev, 
+	Srinivas Kandagatla <srini@kernel.org>, Sebastian Reichel <sre@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Daniel Lezcano <daniel.lezcano@kernel.org>, Christian Loehle <christian.loehle@arm.com>, 
+	Ulf Hansson <ulfh@kernel.org>, Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Arnd Bergmann <arnd@arndb.de>, Souvik Chakravarty <Souvik.Chakravarty@arm.com>, 
+	Andy Yan <andy.yan@rock-chips.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	John Stultz <john.stultz@linaro.org>, Moritz Fischer <moritz.fischer@ettus.com>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Sudeep Holla <sudeep.holla@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,59 +99,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/15/26 13:09, Jinjie Ruan wrote:
-> 
-> On 7/15/2026 8:00 PM, Vladimir Murzin wrote:
->> On 7/13/26 09:22, Jinjie Ruan wrote:
->>>> diff --git a/arch/arm64/include/asm/efi.h b/arch/arm64/include/asm/efi.h
->>>> index e8a9783235cb..479741d52c90 100644
->>>> --- a/arch/arm64/include/asm/efi.h
->>>> +++ b/arch/arm64/include/asm/efi.h
->>>> @@ -5,6 +5,7 @@
->>>>  #include <asm/boot.h>
->>>>  #include <asm/cpufeature.h>
->>>>  #include <asm/fpsimd.h>
->>>> +#include <asm/interrupts/common_flags.h>
->>>>  #include <asm/io.h>
->>>>  #include <asm/memory.h>
->>>>  #include <asm/mmu_context.h>
->>>> @@ -48,18 +49,43 @@ void arch_efi_call_virt_teardown(void);
->>>>  	(efi_rt_stack_top != NULL &&					\
->>>>  	 on_task_stack(current, READ_ONCE(efi_rt_stack_top[-1]), 1))
->>>>  
->>>> -#define ARCH_EFI_IRQ_FLAGS_MASK (PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT)
->>>> -
->>>>  /*
->>>>   * Even when Linux uses IRQ priorities for IRQ disabling, EFI does not.
->>>>   * And EFI shouldn't really play around with priority masking as it is not aware
->>>>   * which priorities the OS has assigned to its interrupts.
->>> Can this comment be deleted?
->> The comment still looks valid to me. Why should it be deleted?
-> The current implementation of arch_local_save_flags() can already know
-> the PMR status.
-> 
-> 112 static __always_inline unsigned long arch_local_save_flags(void)
-> 113 {
-> 114 >-------arm64_exc_hwstate_t hwstate = { .daif = read_sysreg(daif) };
-> 115
-> 116 >-------if (system_uses_nmi())
-> 117 >------->-------hwstate.allint = read_sysreg_s(SYS_ALLINT);
-> 118
-> 119 >-------if (system_uses_irq_prio_masking())
-> 120 >------->-------hwstate.pmr = read_sysreg_s(SYS_ICC_PMR_EL1);
-> 121
-> 122 >-------return hwstate.flags;
-> 123 }
-> 
-> 
+On Tue, 14 Jul 2026 19:16:30 +0200, Shivendra Pratap
+<shivendra.pratap@oss.qualcomm.com> said:
+> ARM PSCI vendor-specific resets, require a 32-bit reset_type and a 64-bit
+> cookie as arguments. This cannot be implemented via the reboot-mode
+> framework, which supports a single 32-bit argument as magic value.
+>
+> Extend the reboot-mode framework to support up to three 32-bit arguments
+> as magic, per reboot-mode.
+>
+> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+> ---
+>  drivers/power/reset/nvmem-reboot-mode.c  | 10 ++++----
+>  drivers/power/reset/qcom-pon.c           |  8 ++++---
+>  drivers/power/reset/reboot-mode.c        | 41 +++++++++++++++++++++-----------
+>  drivers/power/reset/syscon-reboot-mode.c |  8 ++++---
+>  include/linux/reboot-mode.h              |  4 +++-
 
-How is that related? Comment talks about EFI messing up with IRQs.
+Could we avoid having to modify multiple files here by just providing a new
+function:
 
-Cheers
-Vladimir
+    nvmem_reboot_mode_write_full()
 
->> Cheers
->> Vladimir
->>
+with the prototype you proposed and making the existing
+nvmem_reboot_mode_write() a thin wrapper around it?
 
+Bart
 
