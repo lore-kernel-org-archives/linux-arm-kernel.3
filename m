@@ -4,80 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 752B8C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 14:32:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47EFEC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 14:34:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8KltodfnQ8jvDV9VFEqhVdTdYTjOiX+vNA4GIrzxhZM=; b=pAq6JkTcgoqD5+miMh5apTclhp
-	tF2mya74wKYiRT+gb9wQUtxRNo+l2xCx4T+SUyKTuWVhMXCXpLdqmfxSHwWLzle+V7CA97kjPQJUT
-	uMIVZP2Ch90iqFdm7wQnbsFqaQsOVIXhL5kdqfTVw0fuhx5ZmjiVh2cq0xKWc1Davyn+Dw+zF2l5g
-	x/JrNdDGjls9XdGHdkMM8DL+3uAXCNvZhnNCoBtfLQjlh+nBvGUxX/KM8Ogvk+JPx021hCF2MaUn2
-	QjMTgwXXoqEhnOYXmuCz8fSiWPOBQp+72WzNMKWsdqkFAgwlH5velWnx9WM5/QR+8VXmSeiqi2jVM
-	+g5+a1Aw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=knIg8/634584Ytue9vf6OuJG9Of4+644gUu2jDQuGXU=; b=Uldh/gWu7CZ4VE8dAn5RYi3Wp7
+	3CVKdi/1xMK1kOfX4V6xtBKx/cbFzFhOpNCQ7LS7pcXMsQxJ+kY84V0zq7Op70Zv2Q9KbaW/L17N+
+	t58z4rlsVzcx/3sqOSJRsaf4RGa3QpiN0+sIu7S+0Pcp0AVB4tkzwjG+3g/qgTcEbae2mFEKbFnk9
+	cbaOKkxkhbfwzbcgEQAgx6IcV2+QEQxo+LeOMG9F1ieI3WGHNIPibUqQTbV5rE4Ues7bFDz4PpxRs
+	70/Mpfy0pqXVC9KHgmodHtuPVgo46OACfSqN7W7pCMGCyNov33MVAqoSdZsFv++8lDQIsH5/QZTN7
+	oOCeK9pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk0f1-0000000FBDB-00Pb;
-	Wed, 15 Jul 2026 14:32:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk0eI-0000000FAXo-2pbK
+	id 1wk0gk-0000000FBfA-3SCK;
+	Wed, 15 Jul 2026 14:34:18 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wk0gi-0000000FBec-3NKC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 14:31:55 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B7B3915A1;
-	Wed, 15 Jul 2026 07:31:41 -0700 (PDT)
-Received: from e122027.cambridge.arm.com (e122027.cambridge.arm.com [10.1.25.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A83563F7B4;
-	Wed, 15 Jul 2026 07:31:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784125905; bh=R2faogoYaXkfqGHnF6vJJOqEqJmwTNS9i4WmOVnJpXU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QdZarbfSdc5lkye8g/rO8oqfaXwf8ScDp8caHxqwKFZ8INWULaG+6xkKtRgeak9pI
-	 Yiqf1IJP517QX6gci4s1cPvqpZK0n4+k+2sm/sZy8D79U4OEUQEhv8qsNkQxpTqh1B
-	 YnkZsMZBIkGGmBgzEDLsPAE9/ns1U2mahYMlgGHs=
-From: Steven Price <steven.price@arm.com>
-To: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Cc: Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>,
-	WeiLin.Chang@arm.com,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Steven Price <steven.price@arm.com>
-Subject: [PATCH v15 36/37] KVM: arm64: CCA: Provide an accurate register list
-Date: Wed, 15 Jul 2026 15:28:38 +0100
-Message-ID: <20260715142841.80544-37-steven.price@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260715142841.80544-1-steven.price@arm.com>
-References: <20260715142841.80544-1-steven.price@arm.com>
+	Wed, 15 Jul 2026 14:34:17 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-47de0093c42so1855855f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 07:34:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1784126055; x=1784730855; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=knIg8/634584Ytue9vf6OuJG9Of4+644gUu2jDQuGXU=;
+        b=n3HOp1vOyIaQfVetaQKP45x1aKUZs1x6W0AgzhTbOGJdx0G1WM9uYzM2aKOyXeICTx
+         zpiJiKJCU5QvqE55DfY6rs8+lznhK3USkbPeIhcQv75u81h9li0ix/jQwioG4t7Ijij0
+         cAPlhDJPfh1QZlZkmygjA9dyAuPPMzFi159TG9uoGAVnQqMT8ixeEbtIx4bFmpiiMlZw
+         OueZ+HHiCiSK0QHknfUMmP7molKDqUM441u6RSF4eTTFwBxiXdQ5lXGomzOx1SfozA2F
+         pl8StZzbfl7MENYiUuf6Hr5KckdH9CwvwNVCf0eR/EJ4xWW9/MmFHuo8NCsFzoGqktIm
+         WafA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784126055; x=1784730855;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=knIg8/634584Ytue9vf6OuJG9Of4+644gUu2jDQuGXU=;
+        b=gzb+57n6JdzSbvkuY7soU1GZfJbN40frxZIMvpZTKItxYbu9QMJs6yXh0z0RoQuvUJ
+         /QPK2NO1LiyXrbakRyBFkngwpqcTeMyybk6ndyel5WMB8WpUES9yBZEjbTabR4V7bO3J
+         TwNg7klQWnMFzs7j1XlcLAtUXpWVZHbPJy04PC2D3a3X2JCzLxfkAJH4qVc+lNPcPUlD
+         iJeI6mHKWDGnjT25u5MAh9cUaKBEq2rUmhr4WDy6RbYZSOhjAzr1BEP7MDh9OLtDwRnd
+         /dw0eJdq8Smj1e7ougiWH9GlrgVujK7GDk6PjV7NRCZGrPHN2oaLoFHZgngIZOyKrqQU
+         9blA==
+X-Gm-Message-State: AOJu0Yx1SWJbicuT1IwX23DoXiEGaKVNBQWHuKkzbQ9UfIZecwh145Nc
+	uV7UqUQlb5t56dB+l47fsPJC1J+HEtAMx6bRGBZ39ozgRDKPoBYuvgyKMpMFDcwWzw==
+X-Gm-Gg: AfdE7cmOvepJ6WcPmFQRegvxjqUGqLl5nemrZTPFAR73Ph/9MB7+Ys1mIfQms0U6iku
+	6ZRu3NpLn6Y3aj35NBWmTZ+SpcguGI01x9tofDcWXnCh7N1uVy/BqFjKZ3ADJ+ee8qe+TrdniT7
+	v7FBzZJ36uCBjx9bgA7si0gJLIfZleR3s4UnXdW+EBzveZ3j6b6gatoVCHVFxc9KA+sdjBSqtLo
+	QZvaQ+LghxXlLHkWvB41AgnKt//DLAAIwo2e0RjkwJOoOxCNFL6HfBiSKLxZzq3DjcsIZSdVRnf
+	hftup7mpKcbRLqHVDobvpbLscyg4+EK6oIGcehiae3ESwYxBYKIF7RgYHDA6GDYStaZ8TvMsaRH
+	zpF5TMr4A/yZSOVZ3fGxmgs4taSHQa3JB+7YJO0ifjqwwivVu7c+FB3tOb1smSV14GtfdpDhsQx
+	X1Hd9mq7SR7XFmyzTvjtVKzoN6ST41Cw3hBogDhfSvGfvYh4QNZwBzeJfiH3HZoQ==
+X-Received: by 2002:a05:6000:220e:b0:474:e0f2:905c with SMTP id ffacd0b85a97d-47f2dccb729mr19822692f8f.26.1784126054166;
+        Wed, 15 Jul 2026 07:34:14 -0700 (PDT)
+Received: from google.com (137.69.77.34.bc.googleusercontent.com. [34.77.69.137])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f464a96cfsm17087436f8f.20.2026.07.15.07.34.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 Jul 2026 07:34:13 -0700 (PDT)
+Date: Wed, 15 Jul 2026 15:34:09 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
+	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, joro@8bytes.org, jgg@ziepe.ca,
+	mark.rutland@arm.com, qperret@google.com, tabba@google.com,
+	sebastianene@google.com, keirf@google.com
+Subject: Re: [PATCH v7 01/24] KVM: arm64: Add a generic clock
+Message-ID: <aleaYVz5m19veRjT@google.com>
+References: <20260715115906.2664882-1-smostafa@google.com>
+ <20260715115906.2664882-2-smostafa@google.com>
+ <alePwq2eKV5g_7Gc@google.com>
+ <aleVozZEcxiGE4Y3@google.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aleVozZEcxiGE4Y3@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_073146_802220_F5007691 
-X-CRM114-Status: GOOD (  15.66  )
+X-CRM114-CacheID: sfid-20260715_073416_879508_82B77035 
+X-CRM114-Status: GOOD (  12.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,145 +106,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jean-Philippe Brucker <jean-philippe@linaro.org>
+[...]
 
-Userspace can set a few registers with KVM_SET_ONE_REG (9 GP registers
-at runtime, and 3 system registers during initialization). Update the
-register list returned by KVM_GET_REG_LIST.
+> > #define smmu_wait() {
+> >     static u32 window = arch_timer_get_cntfrq() / ARM_SMMU_EL2_POLL_TIMEOUT_US
+> >     u64 timeout = __arch_counter_get_cntvct() + window;
+> >     u64 cur;
+> > 
+> >     ...
+> > 
+> >     while (!(__cond)) {
+> >       ...
+> > 
+> >       cur = __arch_counter_get_cntvct();
+> >       if (cur >= timeout)
+> >           __ret = -ETIMEOUT;
+> > 
+> > 
+> > No risk of overflowing u64
+> > No init necessary
+> 
+> It believe init will be needed as caching arch_timer_get_cntfrq()
+> is much better that re-reading everytime. But I can make all of this
+> contained in the SMMUv3 driver and remove this patch.
 
-Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
-Signed-off-by: Steven Price <steven.price@arm.com>
----
-Changes since v11:
- * Reworked due to upstream changes.
-Changes since v8:
- * Minor type changes following review.
-Changes since v7:
- * Reworked on upstream changes.
----
- arch/arm64/kvm/guest.c      |  6 ++++++
- arch/arm64/kvm/hypercalls.c |  4 ++--
- arch/arm64/kvm/sys_regs.c   | 27 +++++++++++++++++++++------
- 3 files changed, 29 insertions(+), 8 deletions(-)
+That's why I have made window static :) (well of course it is per callsite...) 
 
-diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-index 128fec56993a..5e495dd39e39 100644
---- a/arch/arm64/kvm/guest.c
-+++ b/arch/arm64/kvm/guest.c
-@@ -620,6 +620,9 @@ static unsigned long num_sve_regs(const struct kvm_vcpu *vcpu)
- 	if (!kvm_arm_vcpu_sve_finalized(vcpu))
- 		return 1; /* KVM_REG_ARM64_SVE_VLS */
- 
-+	if (kvm_is_realm(vcpu->kvm))
-+		return 1; /* KVM_REG_ARM64_SVE_VLS */
-+
- 	return slices * (SVE_NUM_PREGS + SVE_NUM_ZREGS + 1 /* FFR */)
- 		+ 1; /* KVM_REG_ARM64_SVE_VLS */
- }
-@@ -647,6 +650,9 @@ static int copy_sve_reg_indices(const struct kvm_vcpu *vcpu,
- 	if (!kvm_arm_vcpu_sve_finalized(vcpu))
- 		return num_regs;
- 
-+	if (kvm_is_realm(vcpu->kvm))
-+		return num_regs;
-+
- 	for (i = 0; i < slices; i++) {
- 		for (n = 0; n < SVE_NUM_ZREGS; n++) {
- 			reg = KVM_REG_ARM64_SVE_ZREG(n, i);
-diff --git a/arch/arm64/kvm/hypercalls.c b/arch/arm64/kvm/hypercalls.c
-index b11b8821c9fb..82278ccb19ae 100644
---- a/arch/arm64/kvm/hypercalls.c
-+++ b/arch/arm64/kvm/hypercalls.c
-@@ -414,14 +414,14 @@ void kvm_arm_teardown_hypercalls(struct kvm *kvm)
- 
- int kvm_arm_get_fw_num_regs(struct kvm_vcpu *vcpu)
- {
--	return ARRAY_SIZE(kvm_arm_fw_reg_ids);
-+	return kvm_is_realm(vcpu->kvm) ? 0 : ARRAY_SIZE(kvm_arm_fw_reg_ids);
- }
- 
- int kvm_arm_copy_fw_reg_indices(struct kvm_vcpu *vcpu, u64 __user *uindices)
- {
- 	int i;
- 
--	for (i = 0; i < ARRAY_SIZE(kvm_arm_fw_reg_ids); i++) {
-+	for (i = 0; i < kvm_arm_get_fw_num_regs(vcpu); i++) {
- 		if (put_user(kvm_arm_fw_reg_ids[i], uindices++))
- 			return -EFAULT;
- 	}
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index e47be8f8d259..6d805160d70e 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -5540,18 +5540,18 @@ int kvm_arm_sys_reg_set_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg
- 				    sys_reg_descs, ARRAY_SIZE(sys_reg_descs));
- }
- 
--static unsigned int num_demux_regs(void)
-+static inline unsigned int num_demux_regs(struct kvm_vcpu *vcpu)
- {
--	return CSSELR_MAX;
-+	return kvm_is_realm(vcpu->kvm) ? 0 : CSSELR_MAX;
- }
- 
--static int write_demux_regids(u64 __user *uindices)
-+static int write_demux_regids(struct kvm_vcpu *vcpu, u64 __user *uindices)
- {
- 	u64 val = KVM_REG_ARM64 | KVM_REG_SIZE_U32 | KVM_REG_ARM_DEMUX;
- 	unsigned int i;
- 
- 	val |= KVM_REG_ARM_DEMUX_ID_CCSIDR;
--	for (i = 0; i < CSSELR_MAX; i++) {
-+	for (i = 0; i < num_demux_regs(vcpu); i++) {
- 		if (put_user(val | i, uindices))
- 			return -EFAULT;
- 		uindices++;
-@@ -5595,11 +5595,26 @@ static bool copy_reg_to_user(const struct sys_reg_desc *reg, u64 __user **uind)
- 	return true;
- }
- 
-+static inline bool kvm_realm_sys_reg_hidden_user(const struct kvm_vcpu *vcpu,
-+						 u64 reg)
-+{
-+	switch (reg) {
-+	case SYS_ID_AA64DFR0_EL1:
-+	case SYS_PMCR_EL0:
-+		return false;
-+	}
-+	return true;
-+}
-+
- static int walk_one_sys_reg(const struct kvm_vcpu *vcpu,
- 			    const struct sys_reg_desc *rd,
- 			    u64 __user **uind,
- 			    unsigned int *total)
- {
-+	if (vcpu_is_rec(vcpu) &&
-+	    kvm_realm_sys_reg_hidden_user(vcpu, reg_to_encoding(rd)))
-+		return 0;
-+
- 	/*
- 	 * Ignore registers we trap but don't save,
- 	 * and for which no custom user accessor is provided.
-@@ -5637,7 +5652,7 @@ static int walk_sys_regs(struct kvm_vcpu *vcpu, u64 __user *uind)
- 
- unsigned long kvm_arm_num_sys_reg_descs(struct kvm_vcpu *vcpu)
- {
--	return num_demux_regs()
-+	return num_demux_regs(vcpu)
- 		+ walk_sys_regs(vcpu, (u64 __user *)NULL);
- }
- 
-@@ -5650,7 +5665,7 @@ int kvm_arm_copy_sys_reg_indices(struct kvm_vcpu *vcpu, u64 __user *uindices)
- 		return err;
- 	uindices += err;
- 
--	return write_demux_regids(uindices);
-+	return write_demux_regids(vcpu, uindices);
- }
- 
- #define KVM_ARM_FEATURE_ID_RANGE_INDEX(r)			\
--- 
-2.43.0
-
+> 
+> Thanks,
+> Mostafa
+> 
 
