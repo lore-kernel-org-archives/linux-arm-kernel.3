@@ -4,76 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0FD9C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 14:31:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5F6EC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 14:31:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vo0Yx8Ikhbay4ONTglJpP40j7u1kHmhdBZMp3AoNslE=; b=M9RRsbSoLrO9kC2sDWoIyhjB+W
-	TDF7c94udQcbj4oh74k3UQ/jrYH9LDjtz0hOKpkz0qIEBmD+gpW4hHUX/kt3YpM0EdSDBVv+uFjl3
-	gwHxOfHwn2Z2vHKc2duDo3j7onqS0/DroCakKGGBulsJT7iJAeUVgkGEzNX+9arQpcoOBG4RSKJ5J
-	a3pB9fVx5fU8kt2gOsV59HdFIfCbaFSi1oGJPHTzF5mjS8FRqkwgPNwrlGcbJQEIkYLDS0jBX20wR
-	8YUTUPhyBB0+vurmEXTVbKbWMlQdII8mmd82haKZX8ckLs4HBdC/GMVHN3dFSAMJILHEuAetVrArm
-	+0RD6Qqg==;
+	bh=sWcHpuMxpYCisKyhPLH9vgHoB10SUVnynvQlEFsGUmQ=; b=lDS2LssVU8YO091BVTmLuK17Zm
+	2Kp1diT7y5aQ+EBSq45LjR9SKfDjizL69+oSwUUnR0wy91wMHdKpGmpbbGEesRB0qXONY+Zh0PTkW
+	lRhTMKd6thezPDhxM9bbTLxFrE8aASvI5fcbOliOutOQMlm8Rn4SWPuoHMax5Vt0UpI+Gj1hsWsVO
+	JFliHpIoWoSEvP0KY1gdCg9heRki9PwVzmktcXk1mngeBd4jPXWDqXxbEAvrojjwtsGG2zsBi5b5D
+	fOGdnPtX5kvvKj9bUjLRxORpKAVlFfjV1AiQqacpilbFBC5YJoMPRBpFIt9bWkhRMgZJZs0jA+jBC
+	5kAA1lfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk0dO-0000000F9R1-2rnh;
-	Wed, 15 Jul 2026 14:30:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk0dL-0000000F9Mg-2Fq2;
-	Wed, 15 Jul 2026 14:30:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E3EF742B94;
-	Wed, 15 Jul 2026 14:30:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id B7B50C2BCF5;
-	Wed, 15 Jul 2026 14:30:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1784125846;
-	bh=bxddUKlpQ/zaqaV7lCBZr3OZ5pRRSWUAginc50C9BCA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=Dzri78mgMSZBmHzQ+S7tmPsBIUdYNCz8FgeGhmJ/4BSxxnqZ9UhouMpYb4pGsrCUH
-	 65Geo5DYXPL9TA/pUDsvslbDK8/GoIcCFP+cN0LDnhDIUbHpafmCgwgygWE5oz89P7
-	 0SG8j4jDbog1szeSXPNTSkqtUms7FI4CrpPHIviKujSHfBXdRymSUEJxL8F16bD1VU
-	 b2VEVkn1J530ytmU6LJ11UlOeGZZ3ztwQ6UQMrVgs4ROecC4xfHOCFsyKladKGxVve
-	 LVauxnMabUllfewYuum3eyo0hR/vGh/H0yMB8Wzd9/QwHXksTiW75eb6rSFPW3FOie
-	 nAMXhDFURrs1A==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 95187C4450F;
-	Wed, 15 Jul 2026 14:30:46 +0000 (UTC)
-From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
-Date: Wed, 15 Jul 2026 17:27:47 +0300
-Subject: [PATCH 2/3] nvmem: mtk-efuse: add support for 32-bit aligned reads
+	id 1wk0dn-0000000F9yf-2b2Y;
+	Wed, 15 Jul 2026 14:31:15 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wk0dL-0000000F9MZ-0hNX
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Jul 2026 14:30:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 454C41595;
+	Wed, 15 Jul 2026 07:30:42 -0700 (PDT)
+Received: from e122027.cambridge.arm.com (e122027.cambridge.arm.com [10.1.25.27])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 940823F93E;
+	Wed, 15 Jul 2026 07:30:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784125846; bh=JZym60zbrF+ZMsN57R7TWSgm37sQOomsgrW5gOlLZu4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=bbwb03nNFjXUcW1IZnu9G+dlaX2iZxpyhQQRpzBDed6sVsVmuaR5pE/RC10v8ctD9
+	 KOwdpvlhO/sQDdbjWIRdt4Q09o8SruJXDM5sJih9ItRBD+CS84/MDWL0AT0F1WEMlz
+	 ZkZgHQkUXGDN5hhjiNL2llvOYV+5qeVg2T92bODU=
+From: Steven Price <steven.price@arm.com>
+To: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Cc: Steven Price <steven.price@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>,
+	WeiLin.Chang@arm.com,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: [PATCH v15 23/37] KVM: arm64: CCA: Handle realm vCPU load
+Date: Wed, 15 Jul 2026 15:28:25 +0100
+Message-ID: <20260715142841.80544-24-steven.price@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260715142841.80544-1-steven.price@arm.com>
+References: <20260715142841.80544-1-steven.price@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260715-6572-nvmem-v1-2-9c13be99d077@protonmail.com>
-References: <20260715-6572-nvmem-v1-0-9c13be99d077@protonmail.com>
-In-Reply-To: <20260715-6572-nvmem-v1-0-9c13be99d077@protonmail.com>
-To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Andrew-CT Chen <andrew-ct.chen@mediatek.com>, 
- Lala Lin <lala.lin@mediatek.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Roman Vivchar <rva333@protonmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784125843; l=3135;
- i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
- bh=gOEk3xV/ih0Hcv+/D9l/u/kTXVslxW9X99D1kWTUUDw=;
- b=q7erFPeQUkoybLyUukh26Ulgz+g/gbaNCEYnLZ0l2O9BHFQ2r6pMpOfwAeh02qLqtGkF7s0QU
- V4bXXhD1MkXAi4268YXyYMS/PwzfqYCaVW+w+m+jt4am6mOtThmMMc0
-X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
- pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
-X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
- auth_id=777
-X-Original-From: Roman Vivchar <rva333@protonmail.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260715_073047_276197_DE77CF11 
+X-CRM114-Status: UNSURE (   9.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,119 +89,63 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: rva333@protonmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Roman Vivchar <rva333@protonmail.com>
+When loading a realm VCPU much of the work is handled by the RMM so only
+some of the actions are required. Rearrange kvm_arch_vcpu_load()
+slightly so we can bail out early for a realm guest.
 
-Some MediaTek SoCs, such as mt6572, don't support 8-bit reads, leading
-to zeroes or garbage data. 32-bit aligned reads must be used instead.
-
-Introduce an 'needs_aligned_read' field to the platform data to enforce
-32-bit aligned register access. All reads will be performed by reading
-4-byte words and masking them.
-
-Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+Signed-off-by: Steven Price <steven.price@arm.com>
 ---
- drivers/nvmem/mtk-efuse.c | 31 ++++++++++++++++++++++++++++---
- 1 file changed, 28 insertions(+), 3 deletions(-)
+ arch/arm64/kvm/arm.c | 19 ++++++++++++-------
+ 1 file changed, 12 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/nvmem/mtk-efuse.c b/drivers/nvmem/mtk-efuse.c
-index af953e1d9230..1462f2760818 100644
---- a/drivers/nvmem/mtk-efuse.c
-+++ b/drivers/nvmem/mtk-efuse.c
-@@ -4,6 +4,7 @@
-  * Author: Andrew-CT Chen <andrew-ct.chen@mediatek.com>
-  */
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 1558bb12b1b1..4ad9462e9d47 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -707,7 +707,7 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+ 	struct kvm_s2_mmu *mmu;
+ 	int *last_ran;
  
-+#include <linux/align.h>
- #include <linux/device.h>
- #include <linux/module.h>
- #include <linux/mod_devicetable.h>
-@@ -14,10 +15,12 @@
+-	if (is_protected_kvm_enabled())
++	if (is_protected_kvm_enabled() || kvm_is_realm(vcpu->kvm))
+ 		goto nommu;
  
- struct mtk_efuse_pdata {
- 	bool uses_post_processing;
-+	bool needs_aligned_read;
- };
+ 	if (vcpu_has_nv(vcpu))
+@@ -751,12 +751,6 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+ 	kvm_vgic_load(vcpu);
+ 	kvm_vcpu_load_debug(vcpu);
+ 	kvm_vcpu_load_fgt(vcpu);
+-	if (has_vhe())
+-		kvm_vcpu_load_vhe(vcpu);
+-	kvm_arch_vcpu_load_fp(vcpu);
+-	kvm_vcpu_pmu_restore_guest(vcpu);
+-	if (kvm_arm_is_pvtime_enabled(&vcpu->arch))
+-		kvm_make_request(KVM_REQ_RECORD_STEAL, vcpu);
  
- struct mtk_efuse_priv {
- 	void __iomem *base;
-+	const struct mtk_efuse_pdata *data;
- };
+ 	if (kvm_vcpu_should_clear_twe(vcpu))
+ 		vcpu->arch.hcr_el2 &= ~HCR_TWE;
+@@ -778,6 +772,17 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+ 			     &vcpu->arch.vgic_cpu.vgic_v3);
+ 	}
  
- static int mtk_reg_read(void *context,
-@@ -28,6 +31,26 @@ static int mtk_reg_read(void *context,
- 	u8 *val = _val;
- 	int i;
- 
-+	if (priv->data->needs_aligned_read) {
-+		u32 pos, shift, val32;
++	/* No additional state needs to be loaded on Realmed VMs */
++	if (vcpu_is_rec(vcpu))
++		return;
 +
-+		for (i = 0; i < bytes; i++, val++) {
-+			pos = reg + i;
++	if (has_vhe())
++		kvm_vcpu_load_vhe(vcpu);
++	kvm_arch_vcpu_load_fp(vcpu);
++	kvm_vcpu_pmu_restore_guest(vcpu);
++	if (kvm_arm_is_pvtime_enabled(&vcpu->arch))
++		kvm_make_request(KVM_REQ_RECORD_STEAL, vcpu);
 +
-+			/*
-+			 * Read on 32-bit word boundary or if it's the first
-+			 * iteration
-+			 */
-+			if (i == 0 || IS_ALIGNED(pos, 4))
-+				val32 = readl(priv->base + (pos & ~3));
-+
-+			shift = (pos & 3) * 8;
-+			*val = (val32 >> shift) & 0xff;
-+		}
-+
-+		return 0;
-+	}
-+
- 	for (i = 0; i < bytes; i++, val++)
- 		*val = readb(addr + i);
+ 	if (!cpumask_test_cpu(cpu, vcpu->kvm->arch.supported_cpus))
+ 		vcpu_set_on_unsupported_cpu(vcpu);
  
-@@ -67,7 +90,6 @@ static int mtk_efuse_probe(struct platform_device *pdev)
- 	struct nvmem_device *nvmem;
- 	struct nvmem_config econfig = {};
- 	struct mtk_efuse_priv *priv;
--	const struct mtk_efuse_pdata *pdata;
- 	struct platform_device *socinfo;
- 
- 	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-@@ -78,7 +100,8 @@ static int mtk_efuse_probe(struct platform_device *pdev)
- 	if (IS_ERR(priv->base))
- 		return PTR_ERR(priv->base);
- 
--	pdata = device_get_match_data(dev);
-+	priv->data = device_get_match_data(dev);
-+
- 	econfig.add_legacy_fixed_of_cells = true;
- 	econfig.stride = 1;
- 	econfig.word_size = 1;
-@@ -86,7 +109,7 @@ static int mtk_efuse_probe(struct platform_device *pdev)
- 	econfig.size = resource_size(res);
- 	econfig.priv = priv;
- 	econfig.dev = dev;
--	if (pdata->uses_post_processing)
-+	if (priv->data->uses_post_processing)
- 		econfig.fixup_dt_cell_info = &mtk_efuse_fixup_dt_cell_info;
- 	nvmem = devm_nvmem_register(dev, &econfig);
- 	if (IS_ERR(nvmem))
-@@ -103,10 +126,12 @@ static int mtk_efuse_probe(struct platform_device *pdev)
- 
- static const struct mtk_efuse_pdata mtk_mt8186_efuse_pdata = {
- 	.uses_post_processing = true,
-+	.needs_aligned_read = false,
- };
- 
- static const struct mtk_efuse_pdata mtk_efuse_pdata = {
- 	.uses_post_processing = false,
-+	.needs_aligned_read = false,
- };
- 
- static const struct of_device_id mtk_efuse_of_match[] = {
-
 -- 
-2.54.0
-
+2.43.0
 
 
