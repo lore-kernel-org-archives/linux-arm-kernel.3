@@ -4,91 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F29F5C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 15:45:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83E55C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 15:49:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oScIehFNLVV6Ks2K1Q/+8RY9UPPqDbzPiGCzLfB1ONk=; b=uIgjddl2hvQidPwW3xHcxnUr1e
-	vYPxHmf0FJ4nuss8q3X4aaSFM+/eczb7UjIX2Dlfo7hPqyt4m0A2gwM/li4STzhOoGrWQFGMW4lqq
-	NGRQ2WkJBKeREcjMcKyoJn6qyVxclqraoUCTTENtaAyYiMV6NxJPBP2LwZYCYrpVKYbHgyWF1GJJ9
-	PU57GRfLnY35sdedrR0XlBeOV+OtkwyTXuYXy8OM0PkTHdctRZDy//+205GG1OkAKl5qZIFn/fkHE
-	2FO15qcGYXS3cVIWdDVJKgPWb7aks91OVsRvy4YYwuMJKjFj6DkGbhzuuIm+GvRIHpGEx4HHV4Hoi
-	ZDtim0hg==;
+	bh=dppU3jext8Cfhc/a4fcob/OWEauwlB4pCHse6dF5FfE=; b=2/QSwJHk9R+ZfVooSfNl0qad/8
+	LIqc0H+yAT/4VPBnxgc+FpBXRIdwyAF6ociy7HWf/nkGr9pI1R4M9MUF7TE+1RQXf2fTcs9eFrj6n
+	bOOf0M1Zi/pE+S9PeuWNbY+brxAPDDkzv2sNO9aMInK0df56yFxPIHYXVr9K3BUaOd2G0C5TpM11z
+	m/DYI6tfvoBatE2hp7JleiNHMaDSKlEX25fYdvayCIg9I7Afhh1WgOb3K2KTzvOgc9CYigx+IHi0o
+	YE50LTDl/ZF3iBydfRo+TpB1DuX+POkj0gmSP85mGWgeM+n+d4bsLzY1/jIxAi8nvqc1MqM3J69TS
+	hr6nXB2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk1n9-0000000FM3g-2QK7;
-	Wed, 15 Jul 2026 15:44:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wk1ri-0000000FMf7-0QKG;
+	Wed, 15 Jul 2026 15:49:42 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk1n8-0000000FM3F-2f2p
+	id 1wk1rg-0000000FMeu-3maB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 15:44:58 +0000
+	Wed, 15 Jul 2026 15:49:40 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C9B9F6001D;
-	Wed, 15 Jul 2026 15:44:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7ACC11F000E9;
-	Wed, 15 Jul 2026 15:44:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5F3E041318;
+	Wed, 15 Jul 2026 15:49:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27E021F000E9;
+	Wed, 15 Jul 2026 15:49:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784130297;
-	bh=oScIehFNLVV6Ks2K1Q/+8RY9UPPqDbzPiGCzLfB1ONk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=Lsv8XsarAjwRmT5pSLAM4xb1jKVASVgI//6qChlF8vms9nalzS+IYOPSadkp231pZ
-	 n14OOb+e1+fDZBasxdyAFtLYFQwZt1Tja85uQMBP5SNG5djGBGnRdhp1KApA3g9PxW
-	 B6MXHob+FpM6M3l0pFN3mwQa1R/TETjfNnuurjVsqkkoSpzECfZtMtAwe5dKHxqLRU
-	 v/ydBeczqHpCCgZVPdTWUFemud7sFswPzBTeaG2gZQUvmvma+KXXbqSymx3VaipF/m
-	 8PwZHALsLm0utsRH5IFDl51iKYHmyu9WeizolTYBTCOSijJfwUQ8tiggmcNpA6ptg7
-	 Q/uy/ua42au1A==
-Received: from [194.56.92.2] (helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wk1n5-00000005NeP-1TpK;
-	Wed, 15 Jul 2026 15:44:55 +0000
-Date: Wed, 15 Jul 2026 16:46:44 +0100
-Message-ID: <8733xk5k7v.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
+	s=k20260515; t=1784130580;
+	bh=dppU3jext8Cfhc/a4fcob/OWEauwlB4pCHse6dF5FfE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=JfStKliWix9MQgnZ5RZg9SJ72c2MTpasGugfWwP7+RJOvdJ96GK2cdQR/hyjOHt3N
+	 PoICC3f/12tQsSjwwmrk4qdrpdx1oTc2w0cCF1zgOQtDB3SYTldCH7cLg9v+LTWwhz
+	 ae8/7OsggPgfBKlm6DusfuBPm0vDTJvOIhJKlGSlqVZGP3XK5SlSJyzr1dntetduZK
+	 QL307ELqTSxqUUyNDPoqjM2I4XRG1/wxlv+2MHaJ4ORE4CwT1irifJgiPl1kCjBUZy
+	 qoHp+UfSipV3mdjpYbAVCBIMkI5oFsyDTv1YESKX7JKF2Logz1eO7y05C7pC1uVQ6a
+	 D7LztoDurYkGA==
+Date: Wed, 15 Jul 2026 18:49:30 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: Lorenzo Stoakes <ljs@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	David Hildenbrand <david@kernel.org>,
+	Michal Hocko <mhocko@suse.com>, Uladzislau Rezki <urezki@gmail.com>,
+	Toshi Kani <toshi.kani@hpe.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>, Kiryl Shutsemau <kas@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>,
-	WeiLin.Chang@arm.com,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: Re: [PATCH v15 26/37] KVM: arm64: WARN on injected undef exceptions
-In-Reply-To: <20260715142841.80544-27-steven.price@arm.com>
-References: <20260715142841.80544-1-steven.price@arm.com>
-	<20260715142841.80544-27-steven.price@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 194.56.92.2
-X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Dev Jain <dev.jain@arm.com>, Ryan Roberts <ryan.roberts@arm.com>,
+	David Carlier <devnexen@gmail.com>, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org,
+	abarnas@google.com
+Subject: Re: [PATCH mm-hotfixes v3 2/4] x86/mm/pat: acquire mmap lock on page
+ table free to avoid ptdump UAF
+Message-ID: <alesCtwXdIqH6bOP@kernel.org>
+References: <20260714-series-vmap-race-fix-v3-0-b812eccfa0f9@kernel.org>
+ <20260714-series-vmap-race-fix-v3-2-b812eccfa0f9@kernel.org>
+ <alemS7vxeRB7NcBO@willie-the-truck>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <alemS7vxeRB7NcBO@willie-the-truck>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,44 +90,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 15 Jul 2026 15:28:28 +0100,
-Steven Price <steven.price@arm.com> wrote:
+Hi Will,
+
+On Wed, Jul 15, 2026 at 04:24:59PM +0100, Will Deacon wrote:
+> Hi Lorenzo,
 > 
-> The RMM doesn't allow injection of a undefined exception into a realm
-> guest. Add a WARN to catch if this ever happens.
+> I'm certainly no x86 expert (quite the opposite!), but I was looking at
+> this with Adrian and got myself confused. See below.
 > 
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> ---
-> Changes since v6:
->  * if (x) WARN(1, ...) makes no sense, just WARN(x, ...)!
-> ---
->  arch/arm64/kvm/inject_fault.c | 1 +
->  1 file changed, 1 insertion(+)
+> On Tue, Jul 14, 2026 at 06:24:24PM +0100, Lorenzo Stoakes wrote:
+> > x86 implements page attribute modification using its Change Page
+> > Attributes (CPA) mechanism.
+> > 
+> > This tracks properties of ranges such as cache mode through x86 page
+> > attributes, and as part of that logic manipulates kernel page tables.
+> > 
+> > Since commit 41d88484c71c ("x86/mm/pat: restore large ROX pages after
+> > fragmentation") ranges of kernel page table entries can be collapsed into
+> > huge page table entries as part of this logic.
+> > 
+> > As part of this collapse, it frees the page tables which the collapsed
+> > entries previously pointed to, and it does so without any relevant locks
+> > being held to preclude concurrent kernel page table walkers.
+> > 
+> > The only way this code can be reached is if CPA_COLLAPSE is specified, and
+> > this is only set in set_memory_rox() via:
+> > 
+> > set_memory_rox()
+> > -> change_page_attr_set_clr()
+> > -> cpa_flush()
+> > -> cpa_collapse_large_pages()
+> > 
+> > Notable users of this are execmem and bpf when manipulating executable
+> > mappings.
+> > 
+> > However, this is problematic for ptdump as it walks ranges it does not own
+> > and thus runs the risk of a use-after-free on page tables freed underneath
+> > it.
+> > 
+> > Resolve the issue by acquiring the mmap read lock on init_mm which prevents
+> > a concurrent ptdump as it acquires the write lock.
+> > 
+> > It is safe to acquire a sleeping lock as all the callers invoke
+> > set_memory_rox() from process context and in any case,
+> > change_page_attr_set_clr() calls vm_unmap_alias() which ultimately takes a
+> > mutex, disallowing atomic context here.
+> > 
+> > Fixes: 41d88484c71c ("x86/mm/pat: restore large ROX pages after fragmentation")
+> > Cc: stable@vger.kernel.org
+> > Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> > Reviewed-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+> > Signed-off-by: Lorenzo Stoakes <ljs@kernel.org>
+> > ---
+> >  arch/x86/mm/pat/set_memory.c | 14 +++++++++++---
+> >  1 file changed, 11 insertions(+), 3 deletions(-)
+> > 
+> > diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
+> > index d023a40a1e03..4c4b8244502f 100644
+> > --- a/arch/x86/mm/pat/set_memory.c
+> > +++ b/arch/x86/mm/pat/set_memory.c
+> > @@ -22,6 +22,7 @@
+> >  #include <linux/cc_platform.h>
+> >  #include <linux/set_memory.h>
+> >  #include <linux/memregion.h>
+> > +#include <linux/cleanup.h>
+> >  
+> >  #include <asm/e820/api.h>
+> >  #include <asm/processor.h>
+> > @@ -436,9 +437,16 @@ static void cpa_collapse_large_pages(struct cpa_data *cpa)
+> >  
+> >  	flush_tlb_all();
+> >  
+> > -	list_for_each_entry_safe(ptdesc, tmp, &pgtables, pt_list) {
+> > -		list_del(&ptdesc->pt_list);
+> > -		pagetable_free(ptdesc);
+> > +	/*
+> > +	 * ptdump might read these page tables, so avoid a use-after-free by
+> > +	 * acquiring the mmap read lock on init_mm (ptdump acquires the mmap
+> > +	 * write lock).
+> > +	 */
+> > +	scoped_guard(mmap_read_lock, &init_mm) {
+> > +		list_for_each_entry_safe(ptdesc, tmp, &pgtables, pt_list) {
+> > +			list_del(&ptdesc->pt_list);
+> > +			pagetable_free(ptdesc);
+> > +		}
 > 
-> diff --git a/arch/arm64/kvm/inject_fault.c b/arch/arm64/kvm/inject_fault.c
-> index 6492397b73d7..613f223bc7a3 100644
-> --- a/arch/arm64/kvm/inject_fault.c
-> +++ b/arch/arm64/kvm/inject_fault.c
-> @@ -327,6 +327,7 @@ void kvm_inject_size_fault(struct kvm_vcpu *vcpu)
->   */
->  void kvm_inject_undefined(struct kvm_vcpu *vcpu)
->  {
-> +	WARN(vcpu_is_rec(vcpu), "Unexpected undefined exception injection to REC");
->  	if (vcpu_el1_is_32bit(vcpu))
->  		inject_undef32(vcpu);
->  	else
+> As I understand it, the argument for taking the read lock is that we're
+> operating on a region that we "wholly own" and therefore we can happily
+> run concurrently with CPUs walking distinct parts of the page-table.
+> However, from what I can tell, the CPA collapse logic will operate on
+> regions outside of the address range being manipulated by its caller
+> because it rounds up to the PMD size.
+> 
+> As a made-up example, imagine I have a 2MiB aligned region where the
+> first 1MiB is read-only and the second 1MiB is in the default r/w state.
+> If one CPU calls set_memory_rw() on the first 1MiB while another CPU is
+> walking the second 1MiB (via some other API that doesn't take cpa_lock),
+> it looks to me like the first CPU can collapse the page-table and free
+> the unused pages under the feet of the other CPU. What prevents that
+> from happening?
 
-No. WARN_ONCE at a push, but even then, this looks dodgy.
+Nothing, and there's a patch to fix that that synchronizes
+cpa_collapse_large_pages() using cpa_lock:
 
-Exceptions must be injectable. Otherwise, how do you respond to, for
-example, a sysreg access for a feature that is hidden from the guest?
+https://lore.kernel.org/all/20260626163213.2284080-1-den@openvz.org
 
-Will the RMM perform this in KVM's stead?
-
-	M.
+This still won't be enough to sync with ptdump though.
+ 
+> If all concurrent walkers have interrupts disabled, I guess the TLB
+> invalidation logic would do it, but it would be good to call this out in
+> the commit message because it's not clear to me why the read_lock is
+> sufficient for the collapsing case.
+> 
+> Cheers,
+> 
+> Will
 
 -- 
-Jazz isn't dead. It just smells funny.
+Sincerely yours,
+Mike.
 
