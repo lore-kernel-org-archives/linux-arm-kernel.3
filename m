@@ -4,120 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D78EC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 08:56:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF7C5C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 08:58:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fzcA9TG2yqej8iZO6JRem4wjlVQiv9Z5qdYjer6rUOE=; b=oAYTTsSx3aVZ6xTcDWcu9Sl+JL
-	iOgIpAs14fJNsYi8D6AeOYYxua1CrFHnOIcl05Zb8WY2qjp5m2OhMnyH0UTNYSGSDhbY2NiOkoSnV
-	2U6DCwwPpNeWj86na/LdRhf1+OfRO1m4oeNXJF4/z5AKNwPFhDEdhOwj9ELFQZl++gkK3FNtRYlSA
-	H+pzcDvZBDvhoYfvSxaMjwoQXGqP1y5J5frWfhotd+Loqa5mImawSGduJpJZIYQt3B7kB6GS4aXTg
-	9rX8w4356FMtXdgDP11sl4uFoAg3bB/elnPRcA/PS4qPYGoMRutO+IQaE9SInkHtf705wLfcZIyPH
-	ShGYhpag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kIeWr4qWe0Ig+GOra4mnZ6mrW3E9gxiXXny9RK2rdMU=; b=kMIcBXg92ybP+cUtoL4iIdqg+S
+	WYCa3DtJ6RdHniCgn9t3PLxAqVarWMAisXLvcEUNJ1f8CenVIxfhwG14pnv5EBusa1CWt1XCi6SBR
+	RTe6/bmqgC89M2Rwmala9UDR2SNUpMDu5IN4uLk88y7iDL/FQAivubTjHQpDPrZH4kgFBcCFUFZTd
+	gdLRwl2wZ961iyl3v5Jw7JyZdwCgFmkcKe3Mn+lYk8CtWniG/ha9+MsTQgUH2+FXSuCIWow1zPqax
+	IxqJfBioDzUbWFcBSr4uquLPrE2QhngPre5MVgv/8Js5UZRb41BEeMTVyjt/m08NNqjQjLFHxpjcv
+	Ui598cyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjvPO-0000000EF11-1TBw;
-	Wed, 15 Jul 2026 08:56:02 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wjvRp-0000000EFT7-2Tth;
+	Wed, 15 Jul 2026 08:58:33 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjvP2-0000000EEmC-43VU
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 15 Jul 2026 08:55:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=fzcA9TG2yqej8iZO6JRem4wjlVQiv9Z5qdYjer6rUOE=; b=MzfAKs8+scl8Jfu4zT38I7jUzn
-	GBEhrygqWUzHpd837bNBHzDrEAyei462gZoROuyuA8eroEYTZS74ZhcU0c7lKYNDtbQWZ3FeqyqBZ
-	uuAI1fNV95aowVr7XLziW2XLbYguizKm6t6V8ydNnE56lNEZniqZV7oxYHMaWzmwRu3pdxFISq+RR
-	+W/6uXOgVhm0lxbLj6yyTLg5pIv00WhN7AJ0OkwDxLD0cJMf0aPQct5GeqNSTnI+kF3HhMggIuqu8
-	PQNm4PfyrrUgPY8+giazUrA3EuL1459VqBEeRpYIGishBn90353VHbwThr/w5bD72K5slt9/jig1N
-	dWOoaqDA==;
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wjvOy-0000000D9BD-10Bz
+	id 1wjvRn-0000000EFSl-2YVw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 08:55:39 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-848882fdb18so1898306b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 01:55:34 -0700 (PDT)
+	Wed, 15 Jul 2026 08:58:32 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-493e497643fso8861215e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 01:58:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1784105733; x=1784710533; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=fzcA9TG2yqej8iZO6JRem4wjlVQiv9Z5qdYjer6rUOE=;
-        b=OAFd9/BxX7kfeMu19mB1wKIOHlIt5VzB9Kw7Z2Xna6YCjhL4tcnUt3dPkKWngGCbuY
-         aP4rQSSz1MB/JZL0G1TBDnzJFiWasYdf1IcpZXFYmks5WcTFuXPRfjj443XdHZZwPeO8
-         k/ynIVT3No4qgWwp3YYEz27ES1w7AzSooU3nY=
+        d=google.com; s=20251104; t=1784105909; x=1784710709; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=kIeWr4qWe0Ig+GOra4mnZ6mrW3E9gxiXXny9RK2rdMU=;
+        b=WuI0mNZK9XB06BPS4mHKlELNKj+hR5G4CfOGefZZL+A/w5Ogd+lKe6SALK/eP6q1gE
+         8Tnh0gnS4cnGAJN1HR9j6uJskphh6zk5vott1th0nYX7fvDcyyqHP5xREJYpRIVgd9Fo
+         b/N8blRrZBaFgiANzjh9bR8Mqm0hB0rIk9jdLb35+2i0yAMcDFUnppovEHUMigDFZyPD
+         rMHUPDCXmAlec6gVqQjEaVpj6c9tjOpTE9XjTvRb8b4yaiOsO8SVRsQt5LukQHUmx61Z
+         Fxa9PpdBHv34WWYOPQnXoI/QIoHiQTPFx+HBrJhsxUbQXc6iSruDJCowS1OcxTPG4fXR
+         d5Qw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784105733; x=1784710533;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=fzcA9TG2yqej8iZO6JRem4wjlVQiv9Z5qdYjer6rUOE=;
-        b=Nhw9OJGgyu1AYgbqWBSRiiTcRLVDPRGtYiokibGbIcxeaEYMxszjkRl8+4t/JTr08J
-         snZsk3ZgqC5oolvjp+hQHnJO0N4A3BNboHhUBkJQa8+hZEpPFmuXJ4SxItAY3rivEY4v
-         C7beEtGXmufEtNZi/ykvogzvokfl6yHgR6H6FCOuxqzDAvRRK8xe72DVPSXPmEfqmEhu
-         vyZWjbBky/Zl707BoFag2pF0gCzhApYm+1H9M5JDRaLwDgHT+zZBobLRTniDxd7QPQZR
-         VPf2oelSqZSu3v3aF494cwQ3IgxGrpUk4xKpFBpeAGoH7O9afGTxKICypWWPcn0qr/g/
-         OiaQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rrpoclq2mhkF3GSHBz8T+wc3ISOKiqxtTCBjvrVgPj2SiEY4Akj0Lk9eNO9/46ervFpzPoT28l2Q2qDmoHNo58t@lists.infradead.org
-X-Gm-Message-State: AOJu0YzBCh7rZWOWaR+M/uJXwe75ineizacF7PeyuYCBjYp01YvglvZk
-	nh7P5s54EtRaL5wR243O018CrjaV8h9PV02qCF29tc3q+QeYMxWLYf7IrX1DgH5AXQ==
-X-Gm-Gg: AfdE7clldQ9x0qIYuDCeqdL96tT4lDGlG+QYIAHEHw20KoI3pcSSVZqlpUDmIDWE7Az
-	bordre/KSHPADsAqSaJA+k2EM72CcX9Tu/L51yRwZrcFP/qGvtK1YNBYZra74rSrPHRjmWoAesn
-	SsQ2iaKvrjLXWBfsq4+pTpzFXC4gVbSn4n+L3KUQ/KOipktPh05aAs6z8+FYOLZt3ZyN7m1Fnak
-	+gK8l4vLTbJ2iPxBoAcST/3e6xG1XJKS1CHMYh6XCrhvHb2ahDqIsrV3s4eNCHz8cyDSEA5vIAI
-	/ECvZK0duah0LwVs655HImp5v5jGwseGYxrhnNFhlGCb7ggvObT9Fchpfv8XaUAX/DNfBQ2Xqql
-	DW3YXGDpRVqpC6gs1EV0UhsvIdwJQIN7kbqjwUHxC5OFLxs7iCDxG2u80a5RKetiqXkX4YnwUXK
-	RrS9iZFQV7g+5D7/RCsBzKZvmsGxNAmGjXm1UjDBIJYPlDnQ4iySMGIPgWV+QQaE9B5NbJxQ==
-X-Received: by 2002:a05:6a00:368d:b0:848:56ff:6ced with SMTP id d2e1a72fcca58-84a6723d613mr1884956b3a.8.1784105733495;
-        Wed, 15 Jul 2026 01:55:33 -0700 (PDT)
-Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:47d7:4aa5:a6f8:2279])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84a4f819117sm2757491b3a.59.2026.07.15.01.55.29
+        d=1e100.net; s=20251104; t=1784105909; x=1784710709;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=kIeWr4qWe0Ig+GOra4mnZ6mrW3E9gxiXXny9RK2rdMU=;
+        b=XrTaozRykuMovNZZ56lFuRgG2KCuh3aykGH9bHHNH/LSUcSMxtFwZWSHi4neLj68Ch
+         /8Z7sgUjA58HUNIKSVXb1JKfdAqDqfdArQ4Gz2YZ8tGqI6s0MFEl0Ypy0Nw0SdVViRg1
+         qDgRlQpAKn3sYmB0TsH0J/fLAIhukiPVOZ1ZNZhepi/6OyYe6T6HMtfBaloLirnAW9/D
+         MOK2Khum+C/zz2+Jq6wVKzm9ME0fUcS0YHUX6DWDrTGIcU3Td+oC+1sX1136qhCtl5R2
+         p5Dtj1Y6dZ8RAzUf/qMPJcRMW+45jiRnMrBTs/6R1n3KKMiQJm4K2Z+AC9tIKoWNDn+l
+         CO9w==
+X-Forwarded-Encrypted: i=1; AHgh+Ro/8j30v0neKN9EUSgPGngn19SqcC7wNSFNtUeUVEv7Vf4+LVS2TRoKGEm60arEz4whMqx+TNelDWrJDT6Y4kqW@lists.infradead.org
+X-Gm-Message-State: AOJu0YzLvlIXjfU5i7XOyO1jNAX087KdDzVnuyoi7nTvZGwXazmXEtox
+	a7oMVMCgnT1q22/SolZSYaPZUk19q1YFZC4WwEb4qNxlB/c9sVBx68Fq031Mh99QiA==
+X-Gm-Gg: AfdE7clNqxSVBr1rX5Z0j+kefTlKnDjTmNc/x3XepIh4AKvi6ZwAG/vCnGFrYMaqxhC
+	78mTE+TE69voPPMqy4RAS2r4rAT9IDpQYPGQnbcgrjbnzhBZ6R8n2CrX3D4dOMXk5Rs7sPzgBwJ
+	JD8bIIJxH0CtIj87xuAfqtdCDfBRUmNHi4xtP5OI26GXhGOOtNJGpzKYtS6C3VGH7piBVVNAk5X
+	lv8iErYaAQWwtlE1XVs7lAuE6LYtXO3dUccMNZpCJL0ZItqIVGkJfsr5aVTGR3tXgdiNeDBVhAb
+	a05xY6uKbh2TIKESc81oyE1J3YHP/eFYhUGc4TYITYHiPF/QnShndlHw3mVS/PT0x/y64EePzlK
+	LPjXV+jyhdD/Gi3I8+vwbPJMisTaD2qFBrmoih3d0gOWJEGfKKXq5LoPGpK8u3q7/FCi2esvMmy
+	EsJBn5kQXwbCX361pmjxSDTEsCJKiHfjk51rqO0dz7xSjU5DncgW8=
+X-Received: by 2002:a05:600c:34d0:b0:493:ee2b:c876 with SMTP id 5b1f17b1804b1-494eb1b6de3mr83415115e9.35.1784105908213;
+        Wed, 15 Jul 2026 01:58:28 -0700 (PDT)
+Received: from google.com (137.69.77.34.bc.googleusercontent.com. [34.77.69.137])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4953df0fc6esm25752265e9.9.2026.07.15.01.58.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jul 2026 01:55:33 -0700 (PDT)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Bartosz Golaszewski <brgl@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Wei Deng <wei.deng@oss.qualcomm.com>,
-	Chen-Yu Tsai <wenst@chromium.org>,
-	linux-acpi@vger.kernel.org,
-	driver-core@lists.linux.dev,
-	linux-pm@vger.kernel.org,
-	linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Alan Stern <stern@rowland.harvard.edu>
-Subject: [PATCH v5 16/16] arm64: dts: mediatek: mt8188-geralt: Add WiFi/BT as M.2 E-key slot
-Date: Wed, 15 Jul 2026 16:53:46 +0800
-Message-ID: <20260715085348.3457359-17-wenst@chromium.org>
-X-Mailer: git-send-email 2.55.0.141.g00534a21ce-goog
-In-Reply-To: <20260715085348.3457359-1-wenst@chromium.org>
-References: <20260715085348.3457359-1-wenst@chromium.org>
+        Wed, 15 Jul 2026 01:58:27 -0700 (PDT)
+Date: Wed, 15 Jul 2026 09:58:23 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kernel-team@android.com, qperret@google.com
+Subject: Re: [PATCH v2 03/18] KVM: arm64: Add __hyp_allocator_map for the
+ pKVM hyp
+Message-ID: <aldLr8Q8ovbwJn65@google.com>
+References: <20260706175415.2604046-1-vdonnefort@google.com>
+ <20260706175415.2604046-4-vdonnefort@google.com>
+ <CA+EHjTwMz+Ojq18Fq9USJqz_pZmemryNhy99Sw36sOejtpaf4w@mail.gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CA+EHjTwMz+Ojq18Fq9USJqz_pZmemryNhy99Sw36sOejtpaf4w@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_095537_699194_454035D8 
-X-CRM114-Status: GOOD (  17.52  )
+X-CRM114-CacheID: sfid-20260715_015831_663084_8ECD5955 
+X-CRM114-Status: GOOD (  20.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,184 +105,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MT8188 Geralt design features a chip-on-board WiFi/BT solution. This
-is a M.2 E-key WiFi/BT board layout directly inserted into the mainboard
-design. The connections to the rest of the board are almost the same as
-if it were a separate M.2 card. The only addition is the PMU_EN pin on
-the chip; on M.2 cards this would be tied to the primary power source.
+On Tue, Jul 14, 2026 at 06:53:55PM +0100, Fuad Tabba wrote:
+> On Mon, 6 Jul 2026 at 18:54, Vincent Donnefort <vdonnefort@google.com> wrote:
+> >
+> > In preparation for the pKVM heap allocator, introduce __hyp_allocator_map()
+> > to map a single physical page to a given virtual address in the hypervisor
+> > stage-1 page-table.
+> >
+> > Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+> >
+> > diff --git a/arch/arm64/kvm/hyp/include/nvhe/mm.h b/arch/arm64/kvm/hyp/include/nvhe/mm.h
+> > index 725bb0fb941d..98a7774b541c 100644
+> > --- a/arch/arm64/kvm/hyp/include/nvhe/mm.h
+> > +++ b/arch/arm64/kvm/hyp/include/nvhe/mm.h
+> > @@ -32,5 +32,6 @@ int __pkvm_create_private_mapping(phys_addr_t phys, size_t size,
+> >  int pkvm_create_stack(phys_addr_t phys, unsigned long *haddr);
+> >  int pkvm_alloc_private_va_range(size_t size, unsigned long *haddr);
+> >  phys_addr_t __pkvm_private_range_pa(void *va);
+> > +int __hyp_allocator_map(void *va, phys_addr_t phys);
+> >
+> >  #endif /* __KVM_HYP_MM_H */
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/mm.c b/arch/arm64/kvm/hyp/nvhe/mm.c
+> > index ec59da1322a7..c1c01f81ac5f 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/mm.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/mm.c
+> > @@ -160,6 +160,11 @@ void pkvm_remove_mappings(void *from, void *to)
+> >         hyp_spin_unlock(&pkvm_pgd_lock);
+> >  }
+> >
+> > +int __hyp_allocator_map(void *va, phys_addr_t phys)
+> > +{
+> > +       return __pkvm_create_mappings((unsigned long)va, PAGE_SIZE, phys, PAGE_HYP);
+> > +}
+> > +
+> 
+> nit: __hyp_allocator_map() is named for its caller rather than what it does
+> (map a single hyp page). Its siblings here (pkvm_create_mappings,
+> pkvm_remove_mappings) are named for the operation. Consider a name like
+> pkvm_map_page() so it reads as a generic primitive.
 
-Model the chip-on-board WiFi/BT solution as a M.2 E-key slot with PCIe,
-USB and auxiliary signals. The PMU_EN pin, which enables the internal
-power controls and regulators, is modeled as a regulator fed by the
-pp3300_wlan regulator. Since power sequencing is now correctly modeled
-using the M.2 E-key slot, drop the "regulator-always-on" property one
-pp3300_wlan regulator. Also drop the comment in xhci2 saying "MT7921's
-power is controlled by PCIe".
+IIRC (it was a few years ago) this was a suggestion from Quentin who didn't want
+to expose too much of mm and suggested to make it clear that was a function
+private to the allocator.
 
-Also drop the voltage range on the pp3300_wlan regulator. This
-"regulator" is just a load switch and does not provide any regulation.
+But looking at what we have now. perhaps 
 
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
----
-Changes since v2:
-- Drop default GPIO output state from kill pins pinconfig
----
- .../boot/dts/mediatek/mt8188-geralt.dtsi      | 92 ++++++++++++++++++-
- 1 file changed, 88 insertions(+), 4 deletions(-)
+int __pkvm_map_private_pages(phys_addr_t phys, void *addr, size_t size);
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-index dee946309121..73b5c0fdeae6 100644
---- a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-@@ -88,13 +88,11 @@ pp3300_z1: regulator-pp3300-z1 {
- 	pp3300_wlan: regulator-pp3300-wlan {
- 		compatible = "regulator-fixed";
- 		regulator-name = "pp3300_wlan";
--		regulator-always-on;
--		regulator-min-microvolt = <3300000>;
--		regulator-max-microvolt = <3300000>;
- 		enable-active-high;
- 		gpio = <&pio 12 GPIO_ACTIVE_HIGH>;
- 		pinctrl-0 = <&wlan_en>;
- 		pinctrl-names = "default";
-+		/* load switch */
- 		vin-supply = <&pp3300_z1>;
- 	};
- 
-@@ -161,6 +159,17 @@ ppvar_mipi_disp_avee: regulator-ppvar-mipi-disp-avee {
- 		vin-supply = <&pp5000_z1>;
- 	};
- 
-+	/* PMU_EN pin controls internal regulators and power sequence */
-+	wlan_pmu: regulator-wlan-pmu {
-+		compatible = "regulator-fixed";
-+		regulator-name = "wlan-pmu";
-+		enable-active-high;
-+		gpio = <&pio 145 GPIO_ACTIVE_HIGH>;
-+		pinctrl-0 = <&wlan_pmu_en>;
-+		pinctrl-names = "default";
-+		vin-supply = <&pp3300_wlan>;
-+	};
-+
- 	reserved_memory: reserved-memory {
- 		#address-cells = <2>;
- 		#size-cells = <2>;
-@@ -195,6 +204,39 @@ adsp_dma_mem: memory@61000000 {
- 			no-map;
- 		};
- 	};
-+
-+	wifi-bt-connector {
-+		compatible = "pcie-m2-e-connector";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&m2_e_key_kill_pins>;
-+		vpcie1v8-supply = <&mt6359_vcn18_ldo_reg>;
-+		vpcie3v3-supply = <&wlan_pmu>;
-+		w-disable1-gpios = <&pio 13 GPIO_ACTIVE_LOW>;
-+		w-disable2-gpios = <&pio 14 GPIO_ACTIVE_LOW>;
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			/* PCIe for WiFi */
-+			port@0 {
-+				reg = <0>;
-+
-+				wifi_ep: endpoint {
-+					remote-endpoint = <&pcie_ep>;
-+				};
-+			};
-+
-+			/* USB for Bluetooth */
-+			port@2 {
-+				reg = <2>;
-+
-+				bt_ep: endpoint {
-+					remote-endpoint = <&usb2_ep>;
-+				};
-+			};
-+		};
-+	};
- };
- 
- &adsp {
-@@ -659,6 +701,22 @@ &pcie {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pcie_pins>;
- 	status = "okay";
-+
-+	pcie@0 {
-+		compatible = "pciclass,0604";
-+		reg = <0 0 0 0 0>;
-+		device_type = "pci";
-+		num-lanes = <1>;
-+		#address-cells = <3>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		port {
-+			pcie_ep: endpoint {
-+				remote-endpoint = <&wifi_ep>;
-+			};
-+		};
-+	};
- };
- 
- &pciephy {
-@@ -1002,6 +1060,13 @@ pins-bus {
- 		};
- 	};
- 
-+	m2_e_key_kill_pins: m2-e-key-kill-pins {
-+		pins-kill {
-+			pinmux = <PINMUX_GPIO13__FUNC_B_GPIO13>,
-+				 <PINMUX_GPIO14__FUNC_B_GPIO14>;
-+		};
-+	};
-+
- 	mipi_disp_avdd_en: mipi-disp-avdd-en-pins {
- 		pins-en-ppvar-mipi-disp {
- 			pinmux = <PINMUX_GPIO3__FUNC_B_GPIO3>;
-@@ -1174,6 +1239,13 @@ pins-bus {
- 		};
- 	};
- 
-+	wlan_pmu_en: wlan-pmu-en-pins {
-+		pins-wlan-pmu-en {
-+			pinmux = <PINMUX_GPIO145__FUNC_B_GPIO145>;
-+			output-low;
-+		};
-+	};
-+
- 	wlan_en: wlan-en-pins {
- 		pins-en-pp3300-wlan {
- 			pinmux = <PINMUX_GPIO12__FUNC_B_GPIO12>;
-@@ -1417,10 +1489,22 @@ vdosys1_ep_ext: endpoint@1 {
- };
- 
- &xhci2 {
--	/* no power supply since MT7921's power is controlled by PCIe */
- 	/* MT7921's USB BT has issues with USB2 LPM */
- 	usb2-lpm-disable;
- 	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@1 {
-+			reg = <1>;
-+
-+			usb2_ep: endpoint {
-+				remote-endpoint = <&bt_ep>;
-+			};
-+		};
-+	};
- };
- 
- #include <arm/cros-ec-keyboard.dtsi>
--- 
-2.55.0.795.g602f6c329a-goog
+And this could verify that addr is actually aprt of the private range
 
+WDYS?
+
+> 
+> That said, naming is hard:
+> 
+> Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+> 
+> Cheers,
+> /fuad
+> 
+> >  int hyp_back_vmemmap(phys_addr_t back)
+> >  {
+> >         unsigned long i, start, size, end = 0;
+> > --
+> > 2.55.0.rc2.803.g1fd1e6609c-goog
+> >
 
