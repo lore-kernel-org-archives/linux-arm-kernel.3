@@ -4,169 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BA1BC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 08:16:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0BE2C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 08:18:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yQlqwBfc65FH+2HxRqwcBbEnVVowm37MJ277WssqSVQ=; b=OkecaA06R9uU3n/1qQ0nSKtf8q
-	gOldx4jBAx56zA1qFlw8TLwj40OFAUnwBMtbe14d1UvQ2sVN6T0yHLyewhUaP1dLfwahiogOUQxNx
-	5o+edT8fPTBGxTtLAJJb94odtaOSBuJHWcNjqCWswXfF3fW6xrq2bP8IlFCRg2n8cTWfztCbRcLda
-	i37RplqcrOxs64bS7itiuYgNxWxFYl59jIPtUcLaLl08O/yEhs6XLZ90fGfEiOD14xescSY2XQR9C
-	aig8FakTlI13Qo4PgBlsYTFegSGlxVrfB/tS/2IQiEwGxWt7e3W3HOLR9gBZwlytEnPRr5mUG7Hoo
-	VnhMXUVg==;
+	bh=D1M03uqUJX0kuAkqVXmzpq08Mjp3bxAKOr4K6xCx7KU=; b=WEneSIE1H0tBmmOoSZNL7nEOyt
+	jmP6eyjAFzkGVybT1iQYOuwfj00t29WoOhrKcTTGyJMLJafx/ouEFtVFiUNQe7X0T0Brx7zlwWmVg
+	hYOwdXNvvZsJvjpFARfz6FQhi2so5C1X8De7qzceyuGSLhGImAhDcXuHKtdNIuVZj9SFZ/LBlz97t
+	zjdInrmYyh1qVhN7Fyd5tRFr810HQ3sWYEEm+DGnhFxIlS+rv5xCoxDM3FzFB8FVunIkHxs8r3JTP
+	ai7B09VGYCfRoTmB9XdYsBnzpJR7ftrwSXpY2wnUQxcMIOgU7Z+oopFxgKtCSeJcKx2HaHFCwF4k4
+	iZ0HVA0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjumr-0000000E8YV-1TcT;
-	Wed, 15 Jul 2026 08:16:13 +0000
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
+	id 1wjuog-0000000E8wz-39Qn;
+	Wed, 15 Jul 2026 08:18:06 +0000
+Received: from mail-ed1-x543.google.com ([2a00:1450:4864:20::543])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjumo-0000000E8Wy-2P3f
+	id 1wjuod-0000000E8vn-3JGP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 08:16:12 +0000
-Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
-	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 66F3jXkx2575349;
-	Wed, 15 Jul 2026 03:15:55 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=yQlqwBfc65FH+2HxRqwcBbEnVVowm37MJ277WssqS
-	VQ=; b=ejmxH8NYSRSCejNDqtE2y5Q2vGDCanccvvLm7Jo6gzzWkaBKAYD1b3H4H
-	BNAuRM+pHCJiR+8gLb9/pbOWduZgVAzBJTCUYP0HIEqflViv67d/aaZ0U6FyRM/o
-	mUmiTQy3R92CXYN3dt56mW1wKNVFSEeMX7xO4kMmTOPSyPxrrQFXFtkcLrXW5Hxo
-	P815WlCFVNSHKhFA8zrw0HEMkfsyZVzzGopCT87WMw5yJ8jLGVIaNZ8EHLgZvHlw
-	2lBhY5CoCeBIruKvKzSP4LPft1Jn7460wQ2qTK2Z7Gateijmjj1gLgA7bxjyC39d
-	5tVPZpup4vkBKKLfqZC6ji+qxnGWw==
-Received: from dm5pr21cu001.outbound.protection.outlook.com (mail-centralusazon11011064.outbound.protection.outlook.com [52.101.62.64])
-	by m0384305.ppops.net (PPS) with ESMTPS id 4fe0501sth-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 15 Jul 2026 03:15:54 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PlZ861rLNlOJRQ7qAW4xb6H3Zg+haEjZCDikyooajIflfJ5G4W28nJUQpHgqT6wD/h7Al487WV4Z3aqeSlFn64qii0RZLDmv3F97p0J/YPzyq0Np+7lxseV1p9g1i2J1qw9pfK1+/uHKcq1CsgBJgCioO51q2uPQe6XT9VQVRQofZWEquFIInpKVjHyCJnjET3+WfBrzeqJ0wb8D2bXrVSFTTZXbcgPONszv1YXAhep0sxqb02Txz9nbQbdENiYNokJPynzYU1ZVoBh2UdZEBB7kkuVfoCKwiCmrWcBGwCLCLbkXGZAVFuNCW0qsPIP8/ECJ2XBhwUERH+5tFmYQ5A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yQlqwBfc65FH+2HxRqwcBbEnVVowm37MJ277WssqSVQ=;
- b=UBaac9kdDJ91HKmAEPZ4LYe8ADnSlpCvNxmY8RIAnq4P0gzlnd0wleg85r3wRqTQi+X9ReqCLXecTCw4xg4QPs8p9BGfHwkL0TfUiNl/HO2S35ipym7XtE9IvUJEPRk3XWZkM4Gw9E/nfK0QDMpe8wD/uX6FcrTOiNmPIqdmSjE5RxImTjCU3BMU5w8M4Pby1PiNbibDDfGu6ooLmflO4Wf7v419HcQ+5Lm/QRz+THZpHtzp5cpztVODVfroyulxqsHeNRtprSVLgPh2n7UEEkNaxC0eHC2nDky+OiWV42/AGUn2V/HBsMbl9Q0IoJoIHq3YDVPvv1nK0QjXsX87qw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yQlqwBfc65FH+2HxRqwcBbEnVVowm37MJ277WssqSVQ=;
- b=Cqb3KgoZkwoo3WbuVHhNxhgLhjcTfiU0FZuiCDVxQcLXo55QvLoJMmOpqaYTOfEomyKobaIKBPBEgzVsHJHAp7BWTnQQVzeV6ZYuLUjCs8NXAj7YN9jexY+Rm43LbBSIbt9S41YqPaI2/IkWkgrhkDOG5ytFlsrVgEK9orUoyC4=
-Received: from BY5PR03CA0028.namprd03.prod.outlook.com (2603:10b6:a03:1e0::38)
- by CH0PR10MB5113.namprd10.prod.outlook.com (2603:10b6:610:c9::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.18; Wed, 15 Jul
- 2026 08:15:50 +0000
-Received: from MWH0EPF000A6733.namprd04.prod.outlook.com
- (2603:10b6:a03:1e0:cafe::9d) by BY5PR03CA0028.outlook.office365.com
- (2603:10b6:a03:1e0::38) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.223.11 via Frontend Transport; Wed,
- 15 Jul 2026 08:15:49 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- MWH0EPF000A6733.mail.protection.outlook.com (10.167.249.25) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.223.9 via Frontend Transport; Wed, 15 Jul 2026 08:15:48 +0000
-Received: from DFLE206.ent.ti.com (10.64.6.64) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 15 Jul
- 2026 03:15:38 -0500
-Received: from DFLE212.ent.ti.com (10.64.6.70) by DFLE206.ent.ti.com
- (10.64.6.64) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 15 Jul
- 2026 03:15:38 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE212.ent.ti.com
- (10.64.6.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Wed, 15 Jul 2026 03:15:38 -0500
-Received: from [10.24.68.129] (a0507033-hp.dhcp.ti.com [10.24.68.129])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 66F8FXMw2011891;
-	Wed, 15 Jul 2026 03:15:34 -0500
-Message-ID: <178d9f0c-2ac4-40bb-9214-30948389d306@ti.com>
-Date: Wed, 15 Jul 2026 13:45:33 +0530
+	Wed, 15 Jul 2026 08:18:05 +0000
+Received: by mail-ed1-x543.google.com with SMTP id 4fb4d7f45d1cf-69c20ba892eso547927a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 01:18:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1784103482; cv=none;
+        d=google.com; s=arc-20260327;
+        b=F934HlVsvXkJNbqrilGoAZxdVduvcQZbLU5KCbWVM3zO+mgK2YTVApjgjBFDmoQp19
+         GW5decXiE8lTXehzvPWHLu9MmtXscg+UXekg1MFB260cyVuDOCTMkKuXy2aLRuLuoyRB
+         Ojo8cINfswVKGTtEbZhYr1wA1jcfu/wJUpOGDUuJb2U3752AlwiPWJcoWYYOS3Bm9OnD
+         aaREsJmn07pdmPKfLg4Z4FCUpJh5U2fSE0mJznf5mDXLVQL+9pJ15mwzdBMohjP8agkR
+         RcFMjAcqH+SHvfW5Ch+INOclQ72ppSFoFq2C/dcJHE/CYnUrXDmFDORZ3H4SS66EI6+x
+         n7dw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=D1M03uqUJX0kuAkqVXmzpq08Mjp3bxAKOr4K6xCx7KU=;
+        fh=pLddK+TuFBCFioFzZlfY1SO4OTcotdBcukRJwFE2JII=;
+        b=V/wpqR0ak8I85wt3OV9zOKKbkoB42CJSy0h14uhrAVc2dfa7zv5hpdGkYkUvDeRavJ
+         BAD2Y7b6ww6Ddk80m8sKDH/ppVfjJz/b5MqUS5nbsXAUicrX4P5ylxCIoSgcVbhZq9KU
+         zjoHIFwewX6Dqrjn0TIRYfjBIoTpq598xrTToPlJ0fbEY27I8/iUPSsAik0GL1CGdCXT
+         mPJ2wtqPAJoaeUgShex9MkuumTm6qA5klrCoE7SgBIM7ZTg11pOpdB9LgF0ueyDz+mkn
+         rWoqKp52lK1xK722XfbwYJ43eMM6vTaNqDYSE1XgarA60hhTLvB1TeOvcydWF6fKdQ9P
+         MP9Q==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784103482; x=1784708282; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=D1M03uqUJX0kuAkqVXmzpq08Mjp3bxAKOr4K6xCx7KU=;
+        b=fKWC+lqqONs44YM5V30IYbZ6XslaJK49EvFaO4hUdZ6ChsP6NlLNm8KpuDXcuwj2T+
+         9xPQAPuZnS+9Y3WWhxdVe8Zv/LwDkUvvlmJ9lfHorwRrDWGlrU1PFHUfatarlB5zTr+Q
+         u0oJUByMdNwxjuOtyAvFnQLHoYR8QRBA1svAnvn+9IggRVVoLL/8mGVDrVXTICR0L8i4
+         ciZhrSO/WG+axUy7pXqdBGBAhK5LfCB4LSCKwm66up4HjhaI5iKtjjgOmiVW0UCOvFL9
+         sgLol9xPmIUUxm92vXyY/rIUDaDNys2fkJ2cJ+eTIjzudp3BtGIEurBYkNKMNHNQs67r
+         3IBw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784103482; x=1784708282;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=D1M03uqUJX0kuAkqVXmzpq08Mjp3bxAKOr4K6xCx7KU=;
+        b=oyv0i989Wj3IvZaAfrVceg8af5n3q6z7i8TEyQImaPjraAau8dtT8PSdrjjePyMRBs
+         uW5O6POVSk8xdV6b8moguFwMLhJoTfvPfgqzjixQbNOeYmlqnYjoNnPR0ynyztPs2g0B
+         YDMLyYQ8pmSKHpfm7cT96FD9YsZIiYDs88gLil47L5bFoR3YclV5TGPFO25/+E3yMhle
+         Vb1aAqOVUwa+xYQ55eG3USIAKfk/sqXnk4RFcuMeuuv/b1bQim91RPXS0IUVDEjYQ+Ch
+         RnnM5MMN89RZwcsJohNx+EEDO8PSBdd7ADd94PnGb8svAJhTb0yGaNATZVCwQrqLKck2
+         6a8Q==
+X-Forwarded-Encrypted: i=1; AHgh+RrGjkdz3yo3WKLvG/kvApd45qEWOsqSp5KxavDR18TwVJscre2VNSeAyKu5BdXRhNNsmr0mBpNUS4xN7DCS3/vX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7vJZ2DudPbylpHPG4yY3IYbkH5oVrssWNj9ChyxS/0V9Tt6ZS
+	yMpH1GHPTWlNn2qJvYobmO4UDxcenHdLBhQfuu+FmjptPHsRaHdV13ngFIIAnHc32WPUfr+XurV
+	dX0HG0yF4HF7D2QsQ0ofHa9byMbZB4nU=
+X-Gm-Gg: AfdE7cl+SSOGGO2N4pYn2WonZ+PVirUFSdsIfcc889V6Lqj/vgStobkYzo94KfQPBtk
+	mcWTS/devzyVmxwjYICGGmqidwYG0fxgf+OnlsOrTq0kdgz9icjSyUDoE0l1wIHljmzhVX5lt3C
+	yUBY3g906ArpyzHnU54+zUWoZ8ISYvdG5n2vhFh3DXMMYfX3JAIhEUFnj9dn0MkzUzgZKTsbvBs
+	n0wE/BVbDMUp2bqbU59ToQ9G7pzwXcqnBO5BoqNfohmRtm8M5exW2Dud5+JLVAkomTWxVR8s26F
+	raarU0k6674=
+X-Received: by 2002:a17:907:d587:b0:c12:58c0:db2 with SMTP id
+ a640c23a62f3a-c15fe781907mr1024570366b.18.1784103481564; Wed, 15 Jul 2026
+ 01:18:01 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] PCI: cadence: skip the link polling when endpoint not
- connected
-To: Manivannan Sadhasivam <mani@kernel.org>
-CC: <linux-pci@vger.kernel.org>, <vigneshr@ti.com>, <s-vadapalli@ti.com>,
-        <lpieralisi@kernel.org>, <kwilczynski@kernel.org>, <robh@kernel.org>,
-        <bhelgaas@google.com>, <mpillai@cadence.com>,
-        <unicorn_wang@outlook.com>, <me@ziyao.cc>, <18255117159@163.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <danishanwar@ti.com>
-References: <20260623095148.721206-1-a-garg7@ti.com>
- <bwaho225txqny2p24nyhezmnc4r3yv3yckurvz2gtzxpbeqs5l@tx4mwgblp65n>
-Content-Language: en-US
-From: Aksh Garg <a-garg7@ti.com>
-In-Reply-To: <bwaho225txqny2p24nyhezmnc4r3yv3yckurvz2gtzxpbeqs5l@tx4mwgblp65n>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MWH0EPF000A6733:EE_|CH0PR10MB5113:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8ade7e5d-ee61-42bf-9650-08dee2494701
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|82310400026|1800799024|32650700020|36860700016|23010399003|18002099003|22082099003|4143699003|56012099006|13003099007;
-X-Microsoft-Antispam-Message-Info: WtBLqeJSobImNgkJwiqTHF5+pvMnamPKApVHBXW4GQYkG4Vd9tNmx1zCgSbBFs3u7zg9sMSPPnItpUmNgmZfgOOnYxbJQ0sVCSaaKb9gOlgRD4wqoyyAzmBbYQ3lYQGSXjq1Lo92G5HrDaBT1PaFlWrn5iV7rcXv4XDXwKEMQU3qos9aMsXlHmrz/HO/pL4/Or+knAMOKmoqrOWOHmmwCIkZ67E8gDR4FgL/ND9COkTG7LdLP0JBxlmLJa0ccVoaRm6r//kfOsObebooteVFnimSHpJaDYr/uF560CZXpy2hvq/YY96wE0aEcjG7/dOpDah9g0WV+Uw4LndtKrtIPWd3L1hjrDRdAj5kqWpVcltDiwjTGjKxcYOcjzqmyhBbKpMY/DbhAH4I39B1mbY5EkLtE8vnSD9gSol7T1fEYljWw8SU9ATdV/4B8Zw4hMCVTC/Q644L93PVIoCeFwRGChkY6Z1N9p2hOZBQZ4PsR3ijYSIyZNE8fDsVKJFnau0IjEaYTwea3wAyosiGe9s1ueTpv8fOS6qeNUzJzidgCGkn9A3RM65uhKLgxrEsKrdsPdFJelbVm5AdVgWlDOihxTHB1pv3r5plXJZ1qiBzOpIFT1BR3MYh1BiEqtlqZo3U+691d8WJzdgJYWgY11PQWSIqJvdZKs93PuxXEkEFr3Z3MxhjF+icVJr2odKnXGfJtcnuwHaAThPYkZME+ry/jg==
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(7416014)(376014)(82310400026)(1800799024)(32650700020)(36860700016)(23010399003)(18002099003)(22082099003)(4143699003)(56012099006)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: e2mUh5sSeJaugSLJe3xvHZu14tbIQQFJZEEVbulWYMS6QJ4ZU4u8J4bJHnSs6SO5ZHisXUYllKdGfXVg+pDXYrB+ZWiFrkVG7unr2Ek5UAQCnMKq71fadWHi/9ajP+k/gV9naO68lUZKl1Gt766424NEp5dAa4zXvRp4Uxw7Y4MM+M6HMMYemqyrVcy//ZoquEOwzXqhCsCpeIQkoAW4w3wnvHVePgj89ZyH1xaLgHQx3rkng+OSfT9kpHfhxvgsdAYe90MyEJNCxQHCq+Wjf6O+De91hl5MoJ0iWZlFqnknFlF0n3s5VZROYaXWpIl199mMXBvxEw7l/kuboUOquhri0R3ajwUYbLh1TcP8nXfOKw3QDh+Gr3DWv6ajuqEfaRkk2ZmJrlbJ8+5Zyo6Yuuw7dSZBIcJKaEv7LWYaxhavlVJAciQuplzYazfYlSbV
-X-Exchange-RoutingPolicyChecked: GvjWb6LrvHO4yF1wVDjx8b+rWrYGLAh+dTh6gxCBIqJwEsVKIJ9ePyPdh96/wo9BkGF3fUILWl/Xwyq8tJKO5qvttE5u1ZGKJIbDEfsO6/EC4oh7c8Pt7fzueYBhzuQk/YmqxLXMRbonoSEmroSV/4jOFZFrNCEcPBTGpgcWw1ouw0S7kuCWmMdTI6ebNfsE3HtR382SOhUD0N5oC6dY2s2t8aa852yYcLaxs7/cA/uFts6GsAlwHs+QSu5M1Z7OgMzoMXUjMFyktqdWllVYOj2LYMr1nHTJI9os/gWQgQV6cDbMgzoBOhm0vHSCKxpfPYGqq1YD41rtDChzOkV9nQ==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2026 08:15:48.3599
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8ade7e5d-ee61-42bf-9650-08dee2494701
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000A6733.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR10MB5113
-X-Proofpoint-ORIG-GUID: OChCm1Nn8qr2Eprwx4OH8pTjZF98kzZh
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzE1MDA3OSBTYWx0ZWRfX5DuuBeTPagKf
- tJwPnPT3ig3Z06cRJ45saO/TvrMu1BeqM39rC0rsiLczQG+ecTkw8c/xnc5hRZCw3CI6VUgzbQM
- /MQ3yhOYFk/ha83iLFqxVvE004nhJxg=
-X-Authority-Analysis: v=2.4 cv=KfLidwYD c=1 sm=1 tr=0 ts=6a5741ba cx=c_pps
- a=ImwGUT2bfrWU7DBu6bNfJw==:117 a=tJyPKKxUohctrY4NYmUjkA==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10
- a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
- a=taLDd7a_hP9WKsMzeGRc:22 a=VwQbUJbxAAAA:8 a=sozttTNsAAAA:8 a=UqCG9HQmAAAA:8
- a=m7-Bn73eetEpg8y05zkA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzE1MDA3OSBTYWx0ZWRfXxTI3VcE1QpZn
- GSmvE6WpAGdJIdWFA8XZMUI3iBz1sbDmYRb3Ah0aJip/XGjcpClqPCKu5vRGMoUjIZfJN9AN5IT
- e+NN1wi9NLS19QN6QSV8xy8SDnbIzI9+QJt7pgx+jzh5QI1TIfSgxJCtqL6TsUp8prLB3mh4Q4n
- 2ZhpHDAOnZI2p+fP4NBl2PDEAglCN3tXYVrNC9vv37Yafhuqtn5OvafOdGTVBM1brvz+HNOtnAi
- V22HEvWmDXDs3lxpszsr/wgmLjdQkZ0tPb8dWmRMzXlMqw4vwZ4mYw1qmA7EFrPSp5EX5GeHmBi
- lVSnnrdEqXJgpsS9CDKqTc6QdFSffwS5zzCdKiE8dlH+mbR+1sTlGf3sKwMek5B+Wh49818EgfJ
- T+9mfMEGxLibedj9FlihwKax00PsQdT86C3EoJimmwJoeDUYXcr0imFXrheU0/KiNv8YLWCuY8c
- 4DQF0rfF1aSa0yAaJVQ==
-X-Proofpoint-GUID: OChCm1Nn8qr2Eprwx4OH8pTjZF98kzZh
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-15_02,2026-07-14_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 spamscore=0 phishscore=0 lowpriorityscore=0 bulkscore=0
- priorityscore=1501 adultscore=0 suspectscore=0 clxscore=1015 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607150079
+References: <20260714191341.690906-1-coiaprant@gmail.com> <20260714191341.690906-2-coiaprant@gmail.com>
+ <dc21b2fc-ae11-4fde-a5b9-09e2c6bee5c9@bootlin.com>
+In-Reply-To: <dc21b2fc-ae11-4fde-a5b9-09e2c6bee5c9@bootlin.com>
+From: Coia Prant <coiaprant@gmail.com>
+Date: Wed, 15 Jul 2026 16:17:50 +0800
+X-Gm-Features: AUfX_mxch48mUromtsSVd92z4I08mky6NZMzT4EVIwR-2P4_-bFyj_YHpBs-rv8
+Message-ID: <CALj3r0gWyfHHp0S4=71M1-TjgHKcgGax4Lr0DzPi37Q69-iCwA@mail.gmail.com>
+Subject: Re: [RFC PATCH 01/10] net: stmmac: move XPCS lifetime management to
+ platform drivers
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: kuba@kernel.org, davem@davemloft.net, edumazet@google.com, 
+	pabeni@redhat.com, andrew+netdev@lunn.ch, robh@kernel.org, krzk+dt@kernel.org, 
+	heiko@sntech.de, netdev@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-phy@lists.infradead.org, Christian Marangi <ansuelsmth@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_011610_632888_6CA11718 
-X-CRM114-Status: GOOD (  20.50  )
+X-CRM114-CacheID: sfid-20260715_011803_854427_0A3445D5 
+X-CRM114-Status: GOOD (  20.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,119 +122,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Maxime Chevallier <maxime.chevallier@bootlin.com> =E4=BA=8E2026=E5=B9=B47=
+=E6=9C=8815=E6=97=A5=E5=91=A8=E4=B8=89 15:31=E5=86=99=E9=81=93=EF=BC=9A
+>
+> Hi,
+>
+> +Christian
+>
+> On 7/14/26 21:08, Coia Prant wrote:
+> > The current XPCS creation logic in stmmac_pcs_setup() is problematic
+> > for several reasons.
+> >
+> > First, if a device tree specifies a "pcs-handle" but no select_pcs()
+> > callback is provided by the platform driver, the created XPCS is never
+> > used. The phylink framework requires select_pcs() to actually return
+> > the PCS to the core, so the pcs-handle property becomes effectively
+> > useless without the matching callback. This is confusing for developers
+> > who expect that specifying a pcs-handle in their device tree should be
+> > sufficient to enable the PCS.
+>
+> I think Christian's work on fwnode PCS would help a lot with that PCS
+> handling in stmmac:
+>
+> https://lore.kernel.org/netdev/20260618125752.1223-1-ansuelsmth@gmail.com=
+/
+>
+> I don't know when Christian plans to iterate, it could be worth using
+> that new fwnode mechanism here ?
+>
+> Maxime
 
+Hi Maxime,
 
-On 15/07/26 11:31, Manivannan Sadhasivam wrote:
-> On Tue, Jun 23, 2026 at 03:21:48PM +0530, Aksh Garg wrote:
->> cdns_pcie_host_wait_for_link() polls on link-up for 10 retries with a
->> delay of 90-100ms each (~1 second). A call to cdns_pcie_host_link_setup()
->> during the resume operation blocks the resume operation unnecessarily for
->> ~1s even when no endpoint device is connected.
->>
->> Add link_down_no_hotplug flag to track link state across suspend/resume
->> cycles (for the platforms that do not support hotplug). If link was
->> down before suspend in such platforms, skip the expensive polling in
->> resume since no endpoint was present.
->>
->> Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
->> Reviewed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
->> Signed-off-by: Aksh Garg <a-garg7@ti.com>
->> ---
->>
->> Changes from v1 to v2:
->> - Updated the flag name from 'skip_link_polling' to 'link_down_no_hotplug'
->>
->> v1: https://lore.kernel.org/all/20260605071922.1724499-1-a-garg7@ti.com/
->>
->>   drivers/pci/controller/cadence/pci-j721e.c             | 5 +++++
->>   drivers/pci/controller/cadence/pcie-cadence-host-hpa.c | 3 +++
->>   drivers/pci/controller/cadence/pcie-cadence-host.c     | 3 +++
->>   drivers/pci/controller/cadence/pcie-cadence.h          | 3 +++
->>   4 files changed, 14 insertions(+)
->>
->> diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
->> index bfdfe98d5aba..48db7a6cf754 100644
->> --- a/drivers/pci/controller/cadence/pci-j721e.c
->> +++ b/drivers/pci/controller/cadence/pci-j721e.c
->> @@ -686,6 +686,11 @@ static int j721e_pcie_suspend_noirq(struct device *dev)
->>   	struct j721e_pcie *pcie = dev_get_drvdata(dev);
->>   
->>   	if (pcie->mode == PCI_MODE_RC) {
->> +		struct cdns_pcie_rc *rc = cdns_pcie_to_rc(pcie->cdns_pcie);
->> +
->> +		/* If link is down before suspend, skip polling in resume */
->> +		rc->link_down_no_hotplug = !j721e_pcie_link_up(pcie->cdns_pcie);
->> +
->>   		gpiod_set_value_cansleep(pcie->reset_gpio, 0);
->>   		clk_disable_unprepare(pcie->refclk);
->>   	}
->> diff --git a/drivers/pci/controller/cadence/pcie-cadence-host-hpa.c b/drivers/pci/controller/cadence/pcie-cadence-host-hpa.c
->> index 0f540bed58e8..31cf50cff8f8 100644
->> --- a/drivers/pci/controller/cadence/pcie-cadence-host-hpa.c
->> +++ b/drivers/pci/controller/cadence/pcie-cadence-host-hpa.c
->> @@ -301,6 +301,9 @@ int cdns_pcie_hpa_host_link_setup(struct cdns_pcie_rc *rc)
->>   		return ret;
->>   	}
->>   
->> +	if (rc->link_down_no_hotplug)
->> +		return 0;
->> +
->>   	ret = cdns_pcie_host_wait_for_link(pcie, cdns_pcie_hpa_link_up);
->>   	if (ret)
->>   		dev_dbg(dev, "PCIe link never came up\n");
->> diff --git a/drivers/pci/controller/cadence/pcie-cadence-host.c b/drivers/pci/controller/cadence/pcie-cadence-host.c
->> index 0bc9e6e90e0e..50abc657a871 100644
->> --- a/drivers/pci/controller/cadence/pcie-cadence-host.c
->> +++ b/drivers/pci/controller/cadence/pcie-cadence-host.c
->> @@ -352,6 +352,9 @@ int cdns_pcie_host_link_setup(struct cdns_pcie_rc *rc)
->>   		return ret;
->>   	}
->>   
->> +	if (rc->link_down_no_hotplug)
->> +		return 0;
->> +
->>   	ret = cdns_pcie_host_start_link(rc, cdns_pcie_link_up);
->>   	if (ret)
->>   		dev_dbg(dev, "PCIe link never came up\n");
->> diff --git a/drivers/pci/controller/cadence/pcie-cadence.h b/drivers/pci/controller/cadence/pcie-cadence.h
->> index 574e9cf4d003..1561022c1a8b 100644
->> --- a/drivers/pci/controller/cadence/pcie-cadence.h
->> +++ b/drivers/pci/controller/cadence/pcie-cadence.h
->> @@ -117,6 +117,8 @@ struct cdns_pcie {
->>    * @no_inbound_map: Whether inbound mapping is supported
->>    * @quirk_broken_aspm_l0s: Disable ASPM L0s support as quirk
->>    * @quirk_broken_aspm_l1: Disable ASPM L1 support as quirk
->> + * @link_down_no_hotplug: Skip link polling during resume on no-hotplug
->> + *			  platforms when link was down before suspend
->>    */
->>   struct cdns_pcie_rc {
->>   	struct cdns_pcie	pcie;
->> @@ -131,6 +133,7 @@ struct cdns_pcie_rc {
->>   	unsigned int            no_inbound_map:1;
->>   	unsigned int            quirk_broken_aspm_l0s:1;
->>   	unsigned int            quirk_broken_aspm_l1:1;
->> +	unsigned int		link_down_no_hotplug:1;
-> 
-> If the goal of this flag is to convey the information that the platform doesn't
-> support hotplug, then it should be called 'no_hotplug'. Skipping the polling
-> during LDn is the usecase.
+Thanks for pointing me to Christian's work. This looks like a
+much-needed improvement.
 
-Hi Mani,
+I actually spent all night debugging call traces caused by the current
+stmmac PCS lifetime management, and it was not a pleasant experience.
+The code feels like accumulated technical debt that should be cleaned
+up.
 
-The goal of the flag "link_down_no_hotplug" is to convey both: the
-platform doesn't support hotplug, as well as the link is down (as both
-of these conditions must be true to skip the polling). Hence, I chose to
-name the flag this way.
+Regarding timeline: since Christian's series is still in RFC with an
+uncertain merge date, I'd prefer to keep this series as-is for now, as
+it solves the problem for Rockchip and has already started receiving
+review feedback. Once Christian's fwnode PCS work lands in net-next,
+I'm happy to rebase and convert the Rockchip glue driver to the new
+interface.
 
-If we choose to name the flag "no_hotplug", then we would need to add
-another flag "link_down", and then skip the polling
-"if (rc->link_down && rc->no_hotplug)".
+One thing I'd really like to see: the ability to specify the logical
+MII port instance via something like:
 
-Regards,
-Aksh Garg
+    pcs-handle =3D <&pcs MII_PortX>;
 
-> 
-> - Mani
-> 
+That would make the DT binding much cleaner and more flexible for
+multi-port configurations.
 
+Thanks,
+Coia
 
