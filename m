@@ -4,98 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35BBCC44507
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 10:14:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7719FC44507
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 10:21:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OTfS1o6FG2+VSRsM8RoeMYV4oV1nuMVaP/qPFLezgiM=; b=Fy3BvUJNbuLldoZA2CqL8877C2
-	SQZ3BsHBe1fsjPXAGohKa5H7hJu4LOW2hM/E7oGzHVo7Epp1wHE8y2j6xH7lvom6b3EvPtVHwmUZL
-	7Noh58nHjxGMTs304hhWcyJyZep19xKxttx6WahGUBdzHMDtNPOoR3ZnKvBzinIT2pyFgUVcm/KIO
-	pfIawpNopf7CizXGh6W9WCihvAOk6sQKh7LMrNMUXfIEUmoXkC5+gLNaHkRQz/bRJMxa1cEKAyWxj
-	uy3rwUBg1DOIznhBf6Tq1wAUiiTpo8EuK+COmdh2FWb7ElGkyYJf+q/lXqInJSrrrUQtlH5hGIjbI
-	/qCt5dUw==;
+	bh=AcIRfrbuvvEOy1EVAdQ0GdATJLshKcgOJCqDWzfbhjA=; b=C1mOLITkRX4oy0orgeCw5y/XKN
+	1iSUWlYr/3frdY9WA2BuuJEHJW288fa7gv/Kk+UY6mIDFYVazR0Qkse/Y+gAkbbjLEgm0q1q3ltcI
+	/CBGCwze23XEP/N/P74g2WNcc9EB+pyhdbnvu0cs6bHrCOi5Bm4NzyTc0nT1xBnt74Z3HXe6cLTpx
+	5lOMionLFUQRzF+5vWX2SRB0iEkES1gAD+xqt2NtE/5chVeZYS8cA5sOkqnC2H3Sx41DxMYfqaAwd
+	vKCu/YSbA23IZnkHkHvUrNCsoZZvTHUgv9oFeIlRr9szjVRzeBl2tEWs23/DbZ7vH9JOG5uGWmUiS
+	Zjgt0nTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjwdK-0000000EPuk-3Xrr;
-	Wed, 15 Jul 2026 10:14:30 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wjwje-0000000EQdb-3iDx;
+	Wed, 15 Jul 2026 10:21:02 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjwdG-0000000EPsq-0fqe
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 10:14:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1784110465;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=OTfS1o6FG2+VSRsM8RoeMYV4oV1nuMVaP/qPFLezgiM=;
-	b=RMz63dGSk/0uDGMkfYeiL2mh3r7JhmXI5//xy/vxFS1nDDbt/T1FzKoDW+MTDXh6dXCNuY
-	xUz6xJzbIb5YW+1Fp6IJVp1thFDH8R651FbJuNfAjPZIJh597Z0jqau/cDop2bIcDNxWoR
-	dWzvmu98yHKm4L0fBRtfSpvh+IMzBRw=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-507-mlpAmN_MPF-e-xVV9n3-VQ-1; Wed, 15 Jul 2026 06:14:21 -0400
-X-MC-Unique: mlpAmN_MPF-e-xVV9n3-VQ-1
-X-Mimecast-MFC-AGG-ID: mlpAmN_MPF-e-xVV9n3-VQ_1784110461
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-47d81cf0c4cso3932046f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 03:14:21 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784110460; x=1784715260;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=OTfS1o6FG2+VSRsM8RoeMYV4oV1nuMVaP/qPFLezgiM=;
-        b=eedX1BH9ycCEbsDVhYl34gq7JS9Nc8PcT2mj5iHq8DLba0UMeLIzrecoWvlcjhKl4e
-         n+TppJzBEaP//rHcmavajoRjjUteuUSlSK0KHAYsrjc7iBtqpzwLr37u1DWHvjQgd4xA
-         WZOZEofyF/Zvr50qm/109uyNOe2xXmKu2rN6KMEiGd12cM4xTBzYTvuVFbioihCS1PNH
-         vu0OT7cgHcskMODKyKzRdHfWtYK2KHArZzXi15zCAP4TMlln/8m0CTG2kE1AavahqDFQ
-         IE1IeMQn0+6tdVTMubzYZ6rqqBgVUk5KEYnxx6N/UfQOkZhnQiXwb+EQuScskdsgYFrn
-         SZ4g==
-X-Forwarded-Encrypted: i=1; AHgh+Rpbbl2VOH6O+P9N9o+UGy2urrKQEv+J+zgDFEpP77MSLVOhe/+qEWcqlAO99jWp3TUM89vYzlPECMno1zFh20S5@lists.infradead.org
-X-Gm-Message-State: AOJu0YyIeeOZZwagImj00LFtbVHeUcopKmRGDje6Y+xnIi9FiEG4bcxp
-	eMipUzsPyq8DRVVDtGBG/ev1kQRiLrEzZf1/hhDAmYrzW9e0/umV/o03VYJOOzHcbk0n42jTd1m
-	dgNqU/AynGZnKa+dnkKjWgo8SJsGBQOpg0GLMAJsTt/cQOtzT7PvEsXW9ESilFWztdRiI/db8La
-	7KGVMgTHalxco9jGXTwYVgHtYNIk8k9ZPK/hFtvh321bbmTxkijMk=
-X-Gm-Gg: AfdE7ckJrFcIj7hYgRcxGjZRXfhhZ/LwE8+zUGRbhbOP1uS/Ls516UVPoQfoNClQATf
-	XoIhS8BWBsN6sZJDzGp8cFZnAfx6Ur2JQPU5ovOxfYKyqnrhs0+bF2deZU2ka8Qt3c40FRsJjcH
-	3omhCnTWU7J3qokU5xEFl7hkd5WsZ9xjcusPusKpDbIawkQNimvSvVwI3CORt3Txc34f6AL0Gf+
-	ym+ZAQQVe9gSd3VUl8o7+wnd2A0KXFmloonUk5eqenNrRWFHhfET2DexxQIjLbq8ZCBSg==
-X-Received: by 2002:adf:f0c3:0:b0:460:3233:beef with SMTP id ffacd0b85a97d-47f46386e3fmr7594783f8f.43.1784110460623;
-        Wed, 15 Jul 2026 03:14:20 -0700 (PDT)
-X-Received: by 2002:adf:f0c3:0:b0:460:3233:beef with SMTP id
- ffacd0b85a97d-47f46386e3fmr7594731f8f.43.1784110460011; Wed, 15 Jul 2026
- 03:14:20 -0700 (PDT)
+	id 1wjwjc-0000000EQcJ-3wWj;
+	Wed, 15 Jul 2026 10:21:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1784110858;
+	bh=y+ynGkCaYoXRDmgB014d4Ad6Wj5i1LOY4L9jyC5DNh0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=YJfVJDzNldvpTUS5ABBvAnFhP6Vnzwp+yH2e3DTFWYOwgB0Q3VP1YHf6rvLm1lHwj
+	 /3J/fXZAoEC8Kf1shil5y3lnP/tFvantshMIHagW6+zcctJ99IYkVKfjWm/LfWwsHt
+	 ke1tXGJu1eANIyj2XclkQ+6be8j3POLtQI7cQFmTQ9kCL2HqbC/k3Q8lmtS5mvgo1t
+	 qeHjH10VKhMROLXBvov2e2lbL4Qz6m3hNj32fptiBdq2Syrd/GTAtz2cFSLed1L/z/
+	 HQolHnFHd/YWOR5y25nxtbr7x0G4n/EZlwzTwsz6eRA10QZjnFKUySHY26UfQTHmgX
+	 sBzYr8njRAE8g==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5D15117E0720;
+	Wed, 15 Jul 2026 12:20:58 +0200 (CEST)
+Message-ID: <f9e34c90-5f9f-4a51-9968-0fb3467a782b@collabora.com>
+Date: Wed, 15 Jul 2026 12:20:58 +0200
 MIME-Version: 1.0
-References: <20260708161242.1912769-1-maz@kernel.org>
-In-Reply-To: <20260708161242.1912769-1-maz@kernel.org>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Date: Wed, 15 Jul 2026 12:14:08 +0200
-X-Gm-Features: AUfX_mzYYojltzRopjsZWj-BSyvTHnDNy-EhsjgnxP0aoffOaIAQ3DKZpIh1JXg
-Message-ID: <CABgObfbpDt2iATf=d-BiawY_41rLnYFzNiDLDx8W8c-iRCxEXA@mail.gmail.com>
-Subject: Re: [GIT PULL] KVM/arm64 fixes for 7.2, take #2
-To: Marc Zyngier <maz@kernel.org>
-Cc: Fuad Tabba <fuad.tabba@linux.dev>, Mark Brown <broonie@kernel.org>, 
-	Mostafa Saleh <smostafa@google.com>, Oliver Upton <oupton@kernel.org>, 
-	Sebastian Ene <sebastianene@google.com>, Sudeep Holla <sudeep.holla@kernel.org>, 
-	Vincent Donnefort <vdonnefort@google.com>, Wei-Lin Chang <weilin.chang@arm.com>, 
-	Will Deacon <will@kernel.org>, Steffen Eiden <seiden@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 3kANtjZsGsYuoH4r-iq4UtgSzM6mtBZZ6CDlPQ_luGY_1784110461
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] soc: mediatek: pwrap: use correct log level
+To: rva333@protonmail.com, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Flora Fu <flora.fu@mediatek.com>, Alexandre Mergnat <amergnat@baylibre.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20260714-6572-pwrap-v1-0-d8e5a39cf7ef@protonmail.com>
+ <20260714-6572-pwrap-v1-2-d8e5a39cf7ef@protonmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20260714-6572-pwrap-v1-2-d8e5a39cf7ef@protonmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_031426_292971_5ACF0739 
-X-CRM114-Status: GOOD (  23.35  )
+X-CRM114-CacheID: sfid-20260715_032101_138052_0F3CFA00 
+X-CRM114-Status: UNSURE (   8.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,100 +79,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 8, 2026 at 6:13=E2=80=AFPM Marc Zyngier <maz@kernel.org> wrote:
->
-> Paolo,
->
-> Here's the second drop of KVM/arm64 fixes for 7.2. This time around,
-> we have a locking issue in kvm_io_bus_get_dev(), which is only used by
-> arm64, a few S2 page table fixes, a set of FFA proxy fixes for pKVM,
-> and finally a very esoteric fix for emulation of sign-extended loads
-> from MMIO. Not only this is rather niche, it dates back to day one of
-> KVM support for 32bit ARM...
->
-> Note that this is on top of the kvmarm-fixes-7.2-1 tag pull request
-> posted at [1] about 12 days ago.
+On 7/14/26 14:42, Roman Vivchar via B4 Relay wrote:
+> From: Roman Vivchar <rva333@protonmail.com>
+> 
+> Errors paths should be dev_err, not dev_dbg. Replace all dev_dbg in error
+> branches to have the correct log level. Also simplify dev_err and return
+> with dev_err_probe.
+> 
+> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
 
-Yes, pulled that first and then this one.
 
-Paolo
+Yeah.... I agree.
 
-> Please pull,
->
->         M.
->
-> [1] https://lore.kernel.org/all/20260626133526.817232-1-maz@kernel.org
->
-> The following changes since commit d098bb75d14fde2f12155f1a95ec0168160867=
-ce:
->
->   KVM: arm64: account pKVM reclaim against the VM mm (2026-06-22 10:48:08=
- +0100)
->
-> are available in the Git repository at:
->
->   git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git tags/kv=
-marm-fixes-7.2-2
->
-> for you to fetch changes up to 8d187d4b33c262c0f3e44842553521151d8629e8:
->
->   KVM: arm64: Fix propagation of TLBI level in kvm_pgtable_stage2_relax_p=
-erms() (2026-07-07 17:43:39 +0100)
->
-> ----------------------------------------------------------------
-> KVM/arm64 fixes for 7.2, take #2
->
-> - Move locking for kvm_io_bus_get_dev() into the caller, ensuring
->   race-free checks that the returned object is of the correct type
->
-> - Fix initialisation of the page-table walk level when relaxing
->   permissions
->
-> - Correctly update the XN attribute when relaxing permissions
->
-> - Fix the sign extension of loads from emulated MMIO regions
->
-> - Assorted collection of fixes for pKVM's FFA proxy, together with a
->   couple of FFA driver adjustments
->
-> ----------------------------------------------------------------
-> Fuad Tabba (2):
->       KVM: arm64: Fix sign-extension of MMIO loads
->       KVM: arm64: selftests: Add MMIO sign-extending load test
->
-> Marc Zyngier (2):
->       KVM: Move kvm_io_bus_get_dev() locking responsibilities to callers
->       KVM: arm64: Fix propagation of TLBI level in kvm_pgtable_stage2_rel=
-ax_perms()
->
-> Mostafa Saleh (3):
->       KVM: arm64: Fix bounds checking in do_ffa_mem_reclaim()
->       KVM: arm64: Ensure FFA ranges are page aligned
->       firmware: arm_ffa: Fix out-of-bound writes in ffa_setup_and_transmi=
-t()
->
-> Oliver Upton (2):
->       KVM: arm64: Ensure level is always initialized when relaxing perms
->       KVM: arm64: Only update XN attr when requested during S2 relaxation
->
-> Sebastian Ene (3):
->       KVM: arm64: Validate the offset to the mem access descriptor
->       KVM: arm64: Zero out the stack initialized data in the FFA handler
->       firmware: arm_ffa: Fix Endpoint Memory Access Descriptor offset cal=
-culation
->
->  arch/arm64/kvm/hyp/nvhe/ffa.c                     |  44 ++--
->  arch/arm64/kvm/hyp/pgtable.c                      |  15 +-
->  arch/arm64/kvm/mmio.c                             |   7 +-
->  arch/arm64/kvm/vgic/vgic-its.c                    |   2 +
->  drivers/firmware/arm_ffa/driver.c                 |  25 ++-
->  include/linux/arm_ffa.h                           |   9 +-
->  tools/testing/selftests/kvm/Makefile.kvm          |   1 +
->  tools/testing/selftests/kvm/arm64/mmio_sign_ext.c | 255 ++++++++++++++++=
-++++++
->  virt/kvm/kvm_main.c                               |  16 +-
->  9 files changed, 331 insertions(+), 43 deletions(-)
->  create mode 100644 tools/testing/selftests/kvm/arm64/mmio_sign_ext.c
->
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
+> ---
+>   drivers/soc/mediatek/mtk-pmic-wrap.c | 45 ++++++++++++++----------------------
+>   1 file changed, 17 insertions(+), 28 deletions(-)
+> 
 
