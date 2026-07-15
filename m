@@ -4,73 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D34CC44507
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A33C1C44501
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 08:55:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z3wUKrGG21PQMUu0kd7DBV0yHXAtkX/rwuwlWXDYxKw=; b=rgsyxP+Vq8bBg5ggM3xHE0lk1t
-	AXylXvpiYP42PDvf9MEQFrS4XMJuJ6iPav68A8xPHQGIMYYerxFXqmV3dHvstgzfAWO/TEzyKXcN3
-	dBUQ1qsXJGD1ag2JJyKKqw9uyvXyIzYPUePKUniQt91Xg/CAjiYPYfO3aPB27apY+EYsflGpmVkhU
-	K9I0GIByQWihTVt2Uem1gh9TZaE5RF1psQQY2mKQ6Zw34ZyFkiIyXM2Wff2ghHVmhTv9AXdN99FfL
-	pds+c0R67JWGF4BsM9cmohHRmOPS9qbtxTSo5+rhj9nq2+h+WsIq+K8yqQS9PpbXvX4iMI5NiqJ9P
-	I89qDUGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R59ctZio0nbgqHRQ4JYecMwYKlS4svhcqsOXKq5o7ro=; b=KuEyRucx0dEhAtWHic7zH5ORSB
+	Ya2AaU2yq1qFK1tRm0/bn9OWnC1+h1vlW9cPg34Hyujp4tjR3JOQbydUPNkZkvt0auRKLjOx18jDL
+	Ggv4Y1hgpCFf3IV3kEeGdem0tUq2BAPu8fIDGjgvU7RVfWBcf7LM3BFvh8U9hSNmM4osl7AM9MOsX
+	qqqHl2La1HLr0G48y0XlvRPEphoW/jyq6anntPKyy6UMoT2aK+W3hbbhB0/y2MG4TQTnMbeY+TgZV
+	w+LGPOpSdOKa38Eo/6I64AWZl1AQ6zS9MzMuCHKudQefs4bhNbp0BuiG+Wdx/e8QANiH4xIImEoVV
+	Dzz1eYkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjvOq-0000000EEVy-1JH0;
-	Wed, 15 Jul 2026 08:55:28 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wjvOr-0000000EEXB-0jnm;
+	Wed, 15 Jul 2026 08:55:29 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjvOj-0000000EEO5-2Z5S;
-	Wed, 15 Jul 2026 08:55:21 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 566EC438B0;
-	Wed, 15 Jul 2026 08:55:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B99241F00A3E;
-	Wed, 15 Jul 2026 08:55:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784105721;
-	bh=Z3wUKrGG21PQMUu0kd7DBV0yHXAtkX/rwuwlWXDYxKw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=cECXb+VJoR+yj3jVqoQiYsUTp85S/mZ6iPkKHA8qdyfmKip6k0znsuyxCKjKXsCb1
-	 hd8NEEs5A95KQ9zDQLBjmeugvDL5UuAgA9xIJD+iqFprTldJArH0l40sDaDMdCilrg
-	 7UvTr0OkibOLlZebpv3bD9Kg6fwSB3u8Rc3RoEgPrD5EqyT2IYe7ytrGbWVgyhJQjq
-	 r6MxKuA3O65/qCzoleLgSwBnPk0RoqFUswD91pwLj5vP0yJ97ausjdWaF+TEOInrA8
-	 6MQRitPOK6vDPdMG9Ni4k3YqIvTL2b1wFpFYYai//3KEfTfwzNfl8Z0oksLG6Xz1gO
-	 PAIE76Ets/1ag==
-Date: Wed, 15 Jul 2026 10:55:19 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
-	Daniel Stone <daniels@collabora.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
-	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
-	kernel@collabora.com, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v8 04/39] drm/connector: Add HDMI 2.0 scrambler
- infrastructure
-Message-ID: <20260715-ancient-zealous-eagle-b13e94@houat>
-References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
- <20260702-dw-hdmi-qp-scramb-v8-4-d79890d00b6a@collabora.com>
- <tjsidlnvswo2rdhqa6jybxrnb47lxgmxdlfrfbasuh67wjbqoy@3a45n3zawvnf>
- <17753a1c-824a-4835-ac2d-8b2796bba1eb@collabora.com>
- <534b921c-638c-4fc3-b89e-5dfc1f269f96@collabora.com>
- <20260713-statuesque-nonchalant-seagull-b9c39d@houat>
- <91c3a825-3344-4ff5-8ea0-f8f057665b3f@collabora.com>
+	id 1wjvOi-0000000EEL4-1i6S
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Jul 2026 08:55:27 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-84830c774a0so1411011b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 01:55:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1784105719; x=1784710519; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=R59ctZio0nbgqHRQ4JYecMwYKlS4svhcqsOXKq5o7ro=;
+        b=T33nPbBTcD1AT/aT6J1SYuuDLHrczwFFAGJxpVDIqoDv0vs54Aqv+IIwTXB/xeFCVY
+         3nRf1smNhPrlnDfBaSm1NzMWXjttJYmYqlz2RWkaoXVgrW4BRLS0K/NS3XfpbswiCDkj
+         xcuq3CfRVm9uMEOjNBFcZoTCUNdfpNppuDvys=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784105719; x=1784710519;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=R59ctZio0nbgqHRQ4JYecMwYKlS4svhcqsOXKq5o7ro=;
+        b=CdhxAJ1mQJSY1fWGnvGMsbIFZ73TSNCbQXIuzIdfAl+dx5oRxnMnmHsvVY1G+ObyrS
+         NBXkhzhQHjYAq536KZO1jHQ/DCr5pjRQ5lz+oCoFyox4GnubKnejPYq+Ui1QkTvd9fkn
+         g87C4jSaRCzxrKPpERoyYE4W0IgCW5yuvphF+37exnHNl8MbjOmEyfgO2MJB28XgnIiT
+         3LXbkt2rci6CT+XYqS1h3AxLxDJ3zwnmp3eyhUGAyN/yUVMkruUa/jEp9h1e5+sS8UuS
+         EOCItIcmo+DeYPZZZ2EptDu4MNNgdx1AyV1O0MPsNqDmLgP+tX4NU2e8+Bj1XXpROQOw
+         A7yA==
+X-Forwarded-Encrypted: i=1; AHgh+RqLE90tks38Oo2hlCYSgfZwKNQFJV4IWeGblyDYPy2c+3E5ZC++xifJCQB6ySAflppdzZsssq8ThjCipQj9Cm1G@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzq2sYdpIEf08CwJgep1cadd/bgkwQyIxfC0CRFXcfx4h1ZmQbQ
+	XZyMRLfKmeePnJtJKe4vmPuFtg5I4+ML50E62T6+u0vbWhS1v7Tng1SEtYRh79+otg==
+X-Gm-Gg: AfdE7cnfgdIiYvPX6UIwLuc6D73qEGN5M6wfb1Pl6HUEbtUgThR1UCa0Gxn2wWuNs6l
+	I9Lmg5dRBTkBV9ayV4oWG1a9k8lG7f0DENtu5e0Roktp4cRO2ak/teUiQJFq+dxTbccVWlnQTSe
+	6eOnEWNL1nw9UNa8dFw7YoXC3aZVCgxVKRqXl/EfBwsZyNAY523akuFQIZk3zCYicBH07S/ZXm9
+	px4VDtsVjc0UqJVxnFhhkCXR4Kcs33JqlmSDj1i8iAZkha/YlTSuf4E+SNQMSKtM63l/SwpLeeO
+	zQvuWBG+HhLLvZRwfhpG613sS4mOeD3mMWf3bnAz5bwPMSdagBpnsxbDxyR7ALS9ISiNJ/Z47zx
+	sGUwFHHT4SviHghcPz77yE8zmxtX7nkPN9Bjjf+hyxz7eylzQvYqSvXo8LW/GhFYcxjzXnCaq8u
+	5CSaoqmmNzG/V6Msm135S0hCHXG0qvu+O3ORiLZuf1FtHiDab6tMFfkTcVSYrGqX3IUR3Nxg==
+X-Received: by 2002:a05:6a00:ab8a:b0:848:48e7:437b with SMTP id d2e1a72fcca58-8488985bd87mr15890965b3a.69.1784105719486;
+        Wed, 15 Jul 2026 01:55:19 -0700 (PDT)
+Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:47d7:4aa5:a6f8:2279])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84a4f819117sm2757491b3a.59.2026.07.15.01.55.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 Jul 2026 01:55:19 -0700 (PDT)
+From: Chen-Yu Tsai <wenst@chromium.org>
+To: Bartosz Golaszewski <brgl@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Daniel Scally <djrscally@gmail.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Wei Deng <wei.deng@oss.qualcomm.com>,
+	Chen-Yu Tsai <wenst@chromium.org>,
+	linux-acpi@vger.kernel.org,
+	driver-core@lists.linux.dev,
+	linux-pm@vger.kernel.org,
+	linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Alan Stern <stern@rowland.harvard.edu>
+Subject: [PATCH v5 13/16] power: sequencing: pcie-m2: Add usb and sdio targets for E-key connector
+Date: Wed, 15 Jul 2026 16:53:43 +0800
+Message-ID: <20260715085348.3457359-14-wenst@chromium.org>
+X-Mailer: git-send-email 2.55.0.141.g00534a21ce-goog
+In-Reply-To: <20260715085348.3457359-1-wenst@chromium.org>
+References: <20260715085348.3457359-1-wenst@chromium.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="r5otlnmsebefwt2i"
-Content-Disposition: inline
-In-Reply-To: <91c3a825-3344-4ff5-8ea0-f8f057665b3f@collabora.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260715_015520_537097_C6E413EA 
+X-CRM114-Status: GOOD (  15.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,98 +117,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The M.2 E-key connector allows either PCIe or SDIO for WiFi and USB or
+UART for BT. Currently the driver only supports PCIe and UART.
 
---r5otlnmsebefwt2i
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v8 04/39] drm/connector: Add HDMI 2.0 scrambler
- infrastructure
-MIME-Version: 1.0
+Add power sequencing targets for SDIO and USB. To avoid adding a
+complicated dependency tree, rename the existing power sequencing units
+"pcie" and "uart" to "wifi" and "bt". The existing target names are left
+untouched. The new "sdio" and "usb" targets just point to the renamed
+"wifi" and "bt" units.
 
-On Mon, Jul 13, 2026 at 01:23:00PM +0300, Cristian Ciocaltea wrote:
-> On 7/13/26 11:50 AM, Maxime Ripard wrote:
-> > On Thu, Jul 09, 2026 at 10:25:54PM +0300, Cristian Ciocaltea wrote:
-> >> On 7/3/26 11:54 PM, Cristian Ciocaltea wrote:
-> >>> On 7/3/26 5:34 PM, Dmitry Baryshkov wrote:
-> >>>> On Thu, Jul 02, 2026 at 05:46:17PM +0300, Cristian Ciocaltea wrote:
-> >>>>> Add the connector-level infrastructure to support HDMI 2.0 scrambli=
-ng:
-> >>>>>
-> >>>>> - A scrambler_supported flag to indicate whether the source support=
-s the
-> >>>>>   scrambling capability, in which case the newly introduced
-> >>>>>   .scrambler_{enable|disable}() callbacks in drm_connector_hdmi_fun=
-cs
-> >>>>>   are mandatory
-> >>>>
-> >>>> Do we need a flag? What would it mean if the flag is set, but the
-> >>>> callbacks are not? Can we drop the flag and use the presence of the
-> >>>> callbacks as a way to identify that scrambler is enabled?
-> >>>
-> >>> The flag is intended to be set only within drmm_connector_hdmi_init_w=
-ith_caps()
-> >>> when drivers advertise HDMI 2.x capability, in which case it also ens=
-ures the
-> >>> callbacks are provided. =20
-> >>>
-> >>> We could drop the flag and instead have the init helper clear the cal=
-lbacks if
-> >>> they were provided for HDMI 1.x.  This might slightly reduce code rea=
-dability,
-> >>> as it relies on checking the presence of individual callbacks - espec=
-ially since
-> >>> we plan to extend this further with HDMI 2.1 support, providing four =
-or five
-> >>> additional FRL-specific callbacks.
-> >>
-> >> I tried to replace the flag with a helper that checks the presence of =
-(one of)
-> >> the callbacks, but it's not straightforward to unset those for non-HDM=
-I 2.x
-> >> cases since the hdmi_funcs argument is immutable.
-> >=20
-> > I'm not sure why we would need to unset them. If the driver states that
-> > it support HDMI 2.0, then it needs to be there, if it doesn't, then who
-> > cares? it's not going to be used. We can log a warning that it's
-> > inconsistent I guess, but there's no need to actively remove it.
->=20
-> I was trying to address the use case where drivers provide the scrambler
-> callbacks despite not supporting HDMI 2.0.
+The "unit" names are internal to the power sequencing framework, and
+should be confined to a single provider. The names are only
+informational. Dependencies are tracked with pointers to other units.
 
-Scrambling got introduced with HDMI 2.0. That doesn't make sense, but
-it's not a total deal breaker, it's just going to be here unused. Hence
-why I was suggesting to put a warning there if you wanted to.
+The "target" names are the strings that the consumer uses to acquire a
+descriptor with. As these remain the same, existing users will continue
+to work.
 
-> If we replace the scrambler_supported flag with a helper checking the
-> presence of the scrambler callbacks, then we would need to ensure the
-> callbacks do not exist in this case.
+Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+---
+Changes since v2:
+- Expand commit message
+---
+ drivers/power/sequencing/pwrseq-pcie-m2.c | 41 +++++++++++++++--------
+ 1 file changed, 27 insertions(+), 14 deletions(-)
 
-Keep it simple:
+diff --git a/drivers/power/sequencing/pwrseq-pcie-m2.c b/drivers/power/sequencing/pwrseq-pcie-m2.c
+index 691cad0a6dd0..693b0d33f8cf 100644
+--- a/drivers/power/sequencing/pwrseq-pcie-m2.c
++++ b/drivers/power/sequencing/pwrseq-pcie-m2.c
+@@ -69,46 +69,46 @@ static const struct pwrseq_unit_data *pwrseq_pcie_m2_unit_deps[] = {
+ 	NULL
+ };
+ 
+-static int pwrseq_pci_m2_e_uart_enable(struct pwrseq_device *pwrseq)
++static int pwrseq_pci_m2_e_bt_enable(struct pwrseq_device *pwrseq)
+ {
+ 	struct pwrseq_pcie_m2_ctx *ctx = pwrseq_device_get_drvdata(pwrseq);
+ 
+ 	return gpiod_set_value_cansleep(ctx->w_disable2_gpio, 0);
+ }
+ 
+-static int pwrseq_pci_m2_e_uart_disable(struct pwrseq_device *pwrseq)
++static int pwrseq_pci_m2_e_bt_disable(struct pwrseq_device *pwrseq)
+ {
+ 	struct pwrseq_pcie_m2_ctx *ctx = pwrseq_device_get_drvdata(pwrseq);
+ 
+ 	return gpiod_set_value_cansleep(ctx->w_disable2_gpio, 1);
+ }
+ 
+-static const struct pwrseq_unit_data pwrseq_pcie_m2_e_uart_unit_data = {
+-	.name = "uart-enable",
++static const struct pwrseq_unit_data pwrseq_pcie_m2_e_bt_unit_data = {
++	.name = "bt-enable",
+ 	.deps = pwrseq_pcie_m2_unit_deps,
+-	.enable = pwrseq_pci_m2_e_uart_enable,
+-	.disable = pwrseq_pci_m2_e_uart_disable,
++	.enable = pwrseq_pci_m2_e_bt_enable,
++	.disable = pwrseq_pci_m2_e_bt_disable,
+ };
+ 
+-static int pwrseq_pci_m2_e_pcie_enable(struct pwrseq_device *pwrseq)
++static int pwrseq_pci_m2_e_wifi_enable(struct pwrseq_device *pwrseq)
+ {
+ 	struct pwrseq_pcie_m2_ctx *ctx = pwrseq_device_get_drvdata(pwrseq);
+ 
+ 	return gpiod_set_value_cansleep(ctx->w_disable1_gpio, 0);
+ }
+ 
+-static int pwrseq_pci_m2_e_pcie_disable(struct pwrseq_device *pwrseq)
++static int pwrseq_pci_m2_e_wifi_disable(struct pwrseq_device *pwrseq)
+ {
+ 	struct pwrseq_pcie_m2_ctx *ctx = pwrseq_device_get_drvdata(pwrseq);
+ 
+ 	return gpiod_set_value_cansleep(ctx->w_disable1_gpio, 1);
+ }
+ 
+-static const struct pwrseq_unit_data pwrseq_pcie_m2_e_pcie_unit_data = {
+-	.name = "pcie-enable",
++static const struct pwrseq_unit_data pwrseq_pcie_m2_e_wifi_unit_data = {
++	.name = "wifi-enable",
+ 	.deps = pwrseq_pcie_m2_unit_deps,
+-	.enable = pwrseq_pci_m2_e_pcie_enable,
+-	.disable = pwrseq_pci_m2_e_pcie_disable,
++	.enable = pwrseq_pci_m2_e_wifi_enable,
++	.disable = pwrseq_pci_m2_e_wifi_disable,
+ };
+ 
+ static const struct pwrseq_unit_data pwrseq_pcie_m2_m_pcie_unit_data = {
+@@ -130,13 +130,24 @@ static int pwrseq_pcie_m2_e_pwup_delay(struct pwrseq_device *pwrseq)
+ 
+ static const struct pwrseq_target_data pwrseq_pcie_m2_e_uart_target_data = {
+ 	.name = "uart",
+-	.unit = &pwrseq_pcie_m2_e_uart_unit_data,
++	.unit = &pwrseq_pcie_m2_e_bt_unit_data,
+ 	.post_enable = pwrseq_pcie_m2_e_pwup_delay,
+ };
+ 
++static const struct pwrseq_target_data pwrseq_pcie_m2_e_usb_target_data = {
++	.name = "usb",
++	.unit = &pwrseq_pcie_m2_e_bt_unit_data,
++};
++
+ static const struct pwrseq_target_data pwrseq_pcie_m2_e_pcie_target_data = {
+ 	.name = "pcie",
+-	.unit = &pwrseq_pcie_m2_e_pcie_unit_data,
++	.unit = &pwrseq_pcie_m2_e_wifi_unit_data,
++	.post_enable = pwrseq_pcie_m2_e_pwup_delay,
++};
++
++static const struct pwrseq_target_data pwrseq_pcie_m2_e_sdio_target_data = {
++	.name = "sdio",
++	.unit = &pwrseq_pcie_m2_e_wifi_unit_data,
+ 	.post_enable = pwrseq_pcie_m2_e_pwup_delay,
+ };
+ 
+@@ -147,7 +158,9 @@ static const struct pwrseq_target_data pwrseq_pcie_m2_m_pcie_target_data = {
+ 
+ static const struct pwrseq_target_data *pwrseq_pcie_m2_e_targets[] = {
+ 	&pwrseq_pcie_m2_e_pcie_target_data,
++	&pwrseq_pcie_m2_e_sdio_target_data,
+ 	&pwrseq_pcie_m2_e_uart_target_data,
++	&pwrseq_pcie_m2_e_usb_target_data,
+ 	NULL
+ };
+ 
+-- 
+2.55.0.795.g602f6c329a-goog
 
-if (hdmi_version >=3D HDMI_VERSION_2_0)
-   if (funcs->scrambler_enable)
-      hdmi->scramblers_supported =3D true
-   else
-      return -EINVAL
-else
-    drm_warn(warn, "Inconsistent HDMI version");
-
-We don't need anything more than that.
-
-Maxime
-
---r5otlnmsebefwt2i
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaldK9gAKCRAnX84Zoj2+
-dtiSAYCQu9KcWvuZmn9ga9LZdgJaVIDPuT7TU896zIyMgZrU9Y4Z7K/BVp+ja2wo
-PJPHb/MBgNa/bcF9LTNuobtKeO7OjWhTX9TRuccydJYn14FFBYI4MSwo9wgXvaoZ
-w3E2VgsTMA==
-=cc5C
------END PGP SIGNATURE-----
-
---r5otlnmsebefwt2i--
 
