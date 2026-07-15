@@ -4,91 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99C4EC44507
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 09:11:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74FE8C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 09:11:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9S1sMsOnPqBb3uwAEItPWAvMzZg7JW5Rca0L0NiCUe8=; b=sIWU+0zm5jbov0H0hSxfnnybR8
-	S8TugILlCCY8BIgKtTj0xxaHDo8dsIUizcVXnzHKGuptr4sd+3oYKzKg0dHoW4RCjGnuhQlic6rLc
-	q1mV+EmyFJla/AxCRG/IMhVx6iMVwaBrQzrZ0Qb1RvqLqIkh9ijnAw3aBOO3T6Oev6FhgYlWDwyR3
-	nmsAYd5pRUdkYfNRojB6nuBJ8twLPgPII3HJ7QBmIUsZGfULweEG6trUQZnJ7VM1uY/RaxIrnX1gk
-	HyY72Fp+dYfwVmIxMrHMLE+nsoCVjctc1ZJ1pib2ur7Aqd7/H3okzbdx5C65O2dMzd0MtegPeRCCQ
-	r6MfsNUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5q2hB1LBw3E9PZKThVBEpkPRCV1GJdxtutqVr0TxPrc=; b=xLGgmBP8JGzaR+wgutp0LUnPG3
+	xl1q7VIXcfr7J3Tcu/RKEpHEzZjqgwfAfSDtdgm8RzyZFDGpC4vwqjANX84Esrgt46yQ8m/Swwz6+
+	nP8jloP0SW4EaaAHT1E08Oeonw+aw3BztzaveOA0ryxwLm0YfRRe4+s83p6LH2TgsfYro3chf8UlC
+	uzINbP3ZUCZgMMFlXIHLlGXdo0omDebBTMWHHHIGC09OFl5NaSQ4KhaVk6Cly4nt7LUfWpCmmHmo+
+	4uY/y0VrDDlgvx3nUksAvBn8j76pyi4Cp8TJb8pPGzVimSNe5YMHy7OxZvLK6xeoUGLED6/NzVF9B
+	NCjJ/nCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjve8-0000000EH0A-0JIk;
-	Wed, 15 Jul 2026 09:11:16 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjve3-0000000EGyY-38y7;
-	Wed, 15 Jul 2026 09:11:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1784106671; x=1815642671;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=jliDADGCLmkXxXJ784OiVvMm1uOKkWyQ+k6fHfNWlms=;
-  b=cc5w23vVUC3e8YykRLOfWYSdu0HwCIBtJxvuXBaX0wHkGE/HQOGAuDGx
-   G/U+6Y6kzxNhnmtQutBy9xxBn2+luxgkwaxgfJlB77GKP2tYKgOBhH+Gb
-   h8ITkE8qvrOlB4+I7i8idF/GIMz4hrq9CFUnaCZMdZylD2lkqsKsfHu+U
-   GhqPWg8y4GtRBsekiNJfc7yjhAlc4UUKl6QOb7VFZuJOer7mb0Tj3M+4y
-   LKyZOgnhNH21kzN1aDIjv+KFZnxI7+Azg8rRCS4xMo8pyC0bJmbayH+fZ
-   lcnIqxljrG8xlfcWZkQ/7+COoQgfJobwdx9Wms5/b6rzJ358lslx4kgU5
-   A==;
-X-CSE-ConnectionGUID: 4YkbQSAzQIyDHO34Qq7Cgw==
-X-CSE-MsgGUID: /nQh8uACQM6iHaMq/2YWUw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11847"; a="96106097"
-X-IronPort-AV: E=Sophos;i="6.25,165,1779174000"; 
-   d="scan'208";a="96106097"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jul 2026 02:11:10 -0700
-X-CSE-ConnectionGUID: HlUvXl7zTAay9OsRhPH9+g==
-X-CSE-MsgGUID: mm+NVqUFTFGtw1BU54676A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,165,1779174000"; 
-   d="scan'208";a="255617959"
-Received: from mkosciow-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.129])
-  by orviesa008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jul 2026 02:11:06 -0700
-Date: Wed, 15 Jul 2026 12:11:02 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Bartosz Golaszewski <brgl@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Wei Deng <wei.deng@oss.qualcomm.com>, linux-acpi@vger.kernel.org,
-	driver-core@lists.linux.dev, linux-pm@vger.kernel.org,
-	linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Alan Stern <stern@rowland.harvard.edu>
-Subject: Re: [PATCH v5 04/16] usb: hub: Use assign_bit() in
- usb_hub_set_port_power()
-Message-ID: <aldOpuACh_FAainj@ashevche-desk.local>
-References: <20260715085348.3457359-1-wenst@chromium.org>
- <20260715085348.3457359-5-wenst@chromium.org>
+	id 1wjve9-0000000EH0v-18gR;
+	Wed, 15 Jul 2026 09:11:17 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjve3-0000000EGyb-3H9M
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Jul 2026 09:11:15 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1A4271477;
+	Wed, 15 Jul 2026 02:11:06 -0700 (PDT)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 65C813F915;
+	Wed, 15 Jul 2026 02:11:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784106670; bh=NWRGhRQrsMTVwpVRHjf73I+9DQBOHVtwuNXynKGyA/M=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=VkCtGFX9fHLkn8ZF/ukOGPFLNQK99tA0c50s0cXnzxHb4NbVKWN2aIuEyJsrLh8Zv
+	 Pej5WNdfk3oQEXQoLM5RQrQknoOzPKHv/VQiJJyFXLwFuhubiEZTH435P95u8EHn9q
+	 ltN9Gp1L8Pln4FDaxgeXf3ixDNMgDqsQoqMqGnIM=
+Message-ID: <81b32767-442f-498a-bf85-d448b5cdece3@arm.com>
+Date: Wed, 15 Jul 2026 10:11:08 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260715085348.3457359-5-wenst@chromium.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Thunderbird Daily
+Subject: Re: [PATCH v1 03/11] arm_mpam: Set mpam_feat_msmon_mbwu_31counter
+ when there are bandwidth counters
+To: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
+Cc: "james.morse@arm.com" <james.morse@arm.com>,
+ "reinette.chatre@intel.com" <reinette.chatre@intel.com>,
+ "fenghuay@nvidia.com" <fenghuay@nvidia.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "dave.martin@arm.com" <dave.martin@arm.com>,
+ "andre.przywara@arm.com" <andre.przywara@arm.com>
+References: <20260710115546.29644-4-ben.horgan@arm.com>
+ <OS9PR01MB1692066CAAC8AAB6AD3362EBF8BF82@OS9PR01MB16920.jpnprd01.prod.outlook.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <OS9PR01MB1692066CAAC8AAB6AD3362EBF8BF82@OS9PR01MB16920.jpnprd01.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_021111_798117_0996C5E8 
-X-CRM114-Status: UNSURE (   9.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260715_021111_917352_3DEAA782 
+X-CRM114-Status: GOOD (  17.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,20 +78,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 15, 2026 at 04:53:34PM +0800, Chen-Yu Tsai wrote:
-> usb_hub_set_port_power() open-codes assign_bit(). Just use the
-> assign_bit() macro instead. This makes subsequent additions to
-> usb_hub_set_port_power() easier to read.
+Hi Shaopeng,
+
+On 7/15/26 07:34, Shaopeng Tan (Fujitsu) wrote:
+> Hello Ben,
 > 
-> This change does not introduce any functional changes.
+>> If there are memory bandwidth counters then there are 31 bit counters even
+>> if there are also 44 bit counters or 63 bit counters.
+> 
+> Although 31-bit counters are always exist, aren't they never used simultaneously with 44-bit or 63-bit counters?
+> If the `mpam_feat_msmon_mbwu_31counter` feature is set to always be enabled, could that potentially cause a bug?
 
-Yes, it's a pure cleanup.
+Sure, potentially, any change of meaning of a feature flag can be a source of confusion and so bugs
+but based on my analysis this patch causes no change of behaviour in the driver other than in the
+lines it changes. I do, however, think it's clearer to have feature bits just indicate whether the
+feature is present or not rather than adding extra meaning.
 
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+In a mismatched system, a class may end up using 31 bit counters even if some of the RIS support
+long counters.
 
--- 
-With Best Regards,
-Andy Shevchenko
+Thanks,
 
+Ben
+
+
+
+> 
+> Best regards,
+> Shaopeng TAN
+> 
+> 
+>> Set the 31 bit bandwidth counter feature bit whenever there are bandwidth
+>> counters.
+>>
+>> Fixes: fdc29a141d63 ("arm_mpam: Probe for long/lwd mbwu counters")
+>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+>> ---
+>>  drivers/resctrl/mpam_devices.c | 4 ++--
+>>  1 file changed, 2 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>> index acfa9a4dc2fc..11b10c3bc334 100644
+>> --- a/drivers/resctrl/mpam_devices.c
+>> +++ b/drivers/resctrl/mpam_devices.c
+>> @@ -930,9 +930,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+>>                                                  mpam_set_feature(mpam_feat_msmon_mbwu_63counter, props);
+>>                                          else
+>>                                                  mpam_set_feature(mpam_feat_msmon_mbwu_44counter, props);
+>> -                               } else {
+>> -                                       mpam_set_feature(mpam_feat_msmon_mbwu_31counter, props);
+>>                                  }
+>> +
+>> +                               mpam_set_feature(mpam_feat_msmon_mbwu_31counter, props);
+>>                          }
+>>                  }
+>>          }
+>> -- 
+>> 2.43.0
+>>
 
 
