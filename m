@@ -4,73 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFAC3C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 15:01:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37C5EC44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 15:03:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9Z2zNKjRbgDz18AB/OdbEQN5wpqYTgFBDPBnDwJEk2E=; b=HP7NrTBVcWY6ZNDTeaHiNkOKjT
-	ScabTd83GmXNCL7LHi+6Eju5fxpLieY6272NWQY5KnLfqEXEz7HiK3t68fUHNXYaZHVkN3glklADP
-	OUsHhu4RrNH/dlqpE+qwLwXJTG7SijyJhGtIt3fvGbOid+X7U/or3ku1G7KyKvWdGxE/UwUk84Fr9
-	ziZ+j459O5XAT6+CKCOxDdn7HYPPeX88bK4Ed3UONqHuwsiN0z+OM7BVZrpFEYR8iRLHjO4Inypj/
-	7mz/J92GlLO54AqxW9CxejDGn0l1UFvtYpl4uwx9RS6d0fVrGeVEt2DEj4OEO5P9ZxJR2uNCzR3A0
-	q/uahMyw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=s8uriDz24bpdoccH4vWMOCq6HU4t2QJ/y1gbdDpbspE=; b=yiOTCsiSzgbgEK
+	bErU/Aa8R317AU7t2tIJUySg97HTSBks/7XLRyGO310vMYLczT8ge8qUlfpX8PGHZWU3TdLLK4MTy
+	0og49NUtl42Xv0NyyqvR0uQqGhivfvHG8G6BLcnVn1iavrdkCiGNst91zeX+qW8O0ALuF+tLPGXSp
+	nX4643P9TFmF2Rz9clpHaOQ4TJfKM2YCdxgYcjpGOf5+28tlqJ08A/Bb04LjVVjq1whbnY0X82bmV
+	I0jP6xGDE5DUYrmoWpQRGkq5YrNSnXXZZwoo2GpH81EIN2i92ji92TioBY8BUqRb9gRHrtz1KRb0l
+	Qb1cOxoWV06FxvCYF9WQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk17D-0000000FEvo-1cib;
-	Wed, 15 Jul 2026 15:01:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wk18l-0000000FFC9-2rkH;
+	Wed, 15 Jul 2026 15:03:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk17C-0000000FEv2-0VoA
+	id 1wk18k-0000000FFC2-23gq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 15:01:38 +0000
+	Wed, 15 Jul 2026 15:03:14 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 29ACC6001D;
-	Wed, 15 Jul 2026 15:01:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E95521F000E9;
-	Wed, 15 Jul 2026 15:01:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CD16340DFE
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 15:03:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B009C1F00ADF
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 15:03:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784127696;
-	bh=9Z2zNKjRbgDz18AB/OdbEQN5wpqYTgFBDPBnDwJEk2E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=cPiuISMOHZKbNJ/q+U6zBqKZl6i/54DB+RZCuayF6sI/kqfwtjdaALQ69uJ88Y9Tb
-	 t9oj0Gwrjx61elraU/lF3M+8XrCqQFajfZU2mv8YfRrP78r/Wx340y3KQ4iUlEGzM5
-	 eE16z35L/cQdoa8olim+hEXZt4VTFLQlzUnuc/usVzrf89juTGp0WUhVkaElN3dhQx
-	 LbUCrcNvso4ErQy0XseZ4PxpaGqrP2jfw6djWjwKyuHqNf1PD0jPkdNqnYsTErA07p
-	 qx9E+rQb+xIH6dJ9sMrZ7/kfrX+NQDC/1YbeWlscd9NRHmuuwccHGiNexKkLt5Onau
-	 bl+psB0aDqyCw==
-Date: Wed, 15 Jul 2026 16:01:18 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Kiryl Shutsemau <kas@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, 
-	Suren Baghdasaryan <surenb@google.com>, "Liam R. Howlett" <liam@infradead.org>, 
-	Vlastimil Babka <vbabka@kernel.org>, Shakeel Butt <shakeel.butt@linux.dev>, 
-	David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
-	Uladzislau Rezki <urezki@gmail.com>, Toshi Kani <toshi.kani@hpe.com>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, Andy Lutomirski <luto@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, x86@kernel.org, 
-	"H. Peter Anvin" <hpa@zytor.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Dev Jain <dev.jain@arm.com>, Ryan Roberts <ryan.roberts@arm.com>, 
-	David Carlier <devnexen@gmail.com>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
-	bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org, 
-	syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com, Lance Yang <lance.yang@linux.dev>
-Subject: Re: [PATCH mm-hotfixes v2 0/4] mm: fix UAF caused by race between
- ptdump and vmap pgtable freeing
-Message-ID: <aleYrvnf4nVUCu-f@lucifer>
-References: <20260712-series-vmap-race-fix-v2-0-ad134cc3a12a@kernel.org>
- <alTn7NguEW_4bodu@thinkstation>
- <alTq4V50767L-s5H@lucifer>
- <alUNiWcygLd4rqBo@thinkstation>
- <178404602957.85099.8935151447302412515.b4-reply@b4>
- <alZm0tBf8DpMXimM@thinkstation>
+	s=k20260515; t=1784127793;
+	bh=s8uriDz24bpdoccH4vWMOCq6HU4t2QJ/y1gbdDpbspE=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
+	b=Mg8SD4XjqFxEhVvUb7Rw7m6gxyqCFykXs0hQYgBxtwU0FEDg1hLUxobvy6V29Nlq6
+	 bz031aMYeEvbsRwphnMQsXDNoue1Erw2J/AM0m6tPsFEuVl4WgHM1llTKS7m8g1hno
+	 swDUge/7WhaQN8ljISgS/RqJ3vMlXKtQlc/JCDMHLkL+8Xw7JoMFGPfT//si7uE2L5
+	 /tlGy9TJmirzzwtkxGhbqekk9Pm9113lGpZ4Wk4Ch9OZPo3gu4kgJWzoqzn9aoyr3H
+	 B5CTNcm1vat3e+p3ofvbcK+YqhDzQSjq4AMaXLeOxvabUNDl2XfDqyQsAespN/iG4X
+	 649IIEfkzaT9g==
+Received: by mail-ot1-f46.google.com with SMTP id 46e09a7af769-7eb3865ea6fso3686856a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 08:03:13 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RqEdYCW+64re7bmbxRk5Th0ZRZy636F0nNOZSv+g8P2ihAhuTOwIL9HyKQAcKF52hfV7utpuLpvk7NqQ9DYONKu@lists.infradead.org
+X-Gm-Message-State: AOJu0YyR5sjAf17aLXVFbq7UqsWqq6a6MeL+sbqUrK63BEayVfE21esf
+	b20yVTfGQatiMMHGD6iwnsOYPJY/bLSI8EXjeWlcKEuZEc2KY7hHTgEK+KgW5dWPok5r5WipGQE
+	zitEX8I8vN9z3aCYJMUpEZgPhGuKcECE=
+X-Received: by 2002:a05:6830:290a:b0:7e9:e19f:c015 with SMTP id
+ 46e09a7af769-7ec423e1b9amr4763700a34.30.1784127792848; Wed, 15 Jul 2026
+ 08:03:12 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <alZm0tBf8DpMXimM@thinkstation>
+References: <20260715095525.40668-1-phucduc.bui@gmail.com> <20260715095525.40668-3-phucduc.bui@gmail.com>
+In-Reply-To: <20260715095525.40668-3-phucduc.bui@gmail.com>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Wed, 15 Jul 2026 23:02:54 +0800
+X-Gmail-Original-Message-ID: <CAGb2v67tVzjZsPbA9oeCFjuRjrixxCut05P5zkw+sYq-gJPoJg@mail.gmail.com>
+X-Gm-Features: AUfX_mzAhYE5GHJMqIrUkkUhLvN9sPzUv98iZb5X0KnS9-GyHXUfIRnCGG3q2Ys
+Message-ID: <CAGb2v67tVzjZsPbA9oeCFjuRjrixxCut05P5zkw+sYq-gJPoJg@mail.gmail.com>
+Subject: Re: [PATCH 2/6] ASoC: sunxi: sun4i-codec: Drop redundant error messages
+To: phucduc.bui@gmail.com
+Cc: Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Charles Keepax <ckeepax@opensource.cirrus.com>, 
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, Chen Ni <nichen@iscas.ac.cn>, 
+	Marcus Cooper <codekipper@gmail.com>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Danilo Krummrich <dakr@kernel.org>, u.kleine-koenig@baylibre.com, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sound@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,63 +83,72 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+cc Lance for thanks :)
-
-On Tue, Jul 14, 2026 at 06:05:01PM +0100, Kiryl Shutsemau wrote:
-> On Tue, Jul 14, 2026 at 05:20:29PM +0100, Lorenzo Stoakes (ARM) wrote:
-> > Basically you need the IRQs disabled to get the semi-RCU behaviour and to
-> > be able to safely traverse page tables that way.
-> >
-> > So with CONFIG_PT_RECLAIM you're safe to RCU traverse PTEs only.
+On Wed, Jul 15, 2026 at 5:56=E2=80=AFPM <phucduc.bui@gmail.com> wrote:
 >
-> I think this is stale. Since 1fb3d8c20bfa ("mm/mmu_gather: replace IPI
-> with synchronize_rcu() when batch allocation fails") the !PT_RECLAIM
-> fallback is a real grace period -- note your own quote of
-> __tlb_remove_table_one() calls tlb_remove_table_sync_rcu(), which is
-> synchronize_rcu() nowadays, not the IPI broadcast. The name invites
-> the confusion.
-
-Ahhh, nice thank you Lance :)
-
-
+> From: bui duc phuc <phucduc.bui@gmail.com>
 >
-> Together with a37259732a7d ("x86/mm: Make MMU_GATHER_RCU_TABLE_FREE
-> unconditional") that means every freeing path through the generic
-> mmu_gather is genuine RCU, batched or not, all levels. A plain
-> rcu_read_lock() walker is protected; IRQs disabled is not required.
-
-Lovely. I'll probably send a patch to fix the comment then :)
-
+> The called functions already log failures where appropriate. Return the
+> original error directly and avoid duplicate error messages.
 >
-> > HAVE_ARCH_TLB_REMOVE_TABLE is set for powerpc, which also enables PTDUMP :)
-> > and that's because it actually tracks multiple PTE page tables together as
-> > a fragment.
+> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+> ---
+>  sound/soc/sunxi/sun4i-codec.c | 19 +++++--------------
+>  1 file changed, 5 insertions(+), 14 deletions(-)
 >
-> sparc also sets it with SMP. So the audit list for custom
-> tlb_remove_table() implementations is powerpc and sparc -- everything
-> else gets the generic behaviour above.
-
-Yeah.
-
+> diff --git a/sound/soc/sunxi/sun4i-codec.c b/sound/soc/sunxi/sun4i-codec.=
+c
+> index 05308df3ae5b..71f7a1fedd88 100644
+> --- a/sound/soc/sunxi/sun4i-codec.c
+> +++ b/sound/soc/sunxi/sun4i-codec.c
+> @@ -2380,31 +2380,22 @@ static int sun4i_codec_probe(struct platform_devi=
+ce *pdev)
 >
-> No disagreement on the rest: the walker needs
-> ptep_get_lockless()/pmdp_get_lockless(), and the ppc kernel-side
-> fragments need a look.
+>         ret =3D devm_snd_soc_register_component(&pdev->dev, quirks->codec=
+,
+>                                      &sun4i_codec_dai, 1);
+> -       if (ret) {
+> -               dev_err(&pdev->dev, "Failed to register our codec\n");
+> +       if (ret)
+>                 return ret;
+> -       }
+>
+>         ret =3D devm_snd_soc_register_component(&pdev->dev,
+>                                               &sun4i_codec_component,
+>                                               &dummy_cpu_dai, 1);
+> -       if (ret) {
+> -               dev_err(&pdev->dev, "Failed to register our DAI\n");
+> +       if (ret)
+>                 return ret;
+> -       }
+>
+>         ret =3D devm_snd_dmaengine_pcm_register(&pdev->dev, NULL, 0);
 
-Indeed.
+snd_dmaengine_pcm_register() doesn't seem to print an error when
+dma_request_chan() fails.
 
-I know Suren's been taken a look at this, pinged him off-list (he's also
-cc'd) to see where he's at but I'm going to take a general look at this.
-
-I feel that RCU page table freeing is likely to be a requirement for
-scalable CoW, so directly impacts me :)
-
+> -       if (ret) {
+> -               dev_err(&pdev->dev, "Failed to register against DMAEngine=
+\n");
+> +       if (ret)
+>                 return ret;
+> -       }
+>
+>         card =3D quirks->create_card(&pdev->dev);
+> -       if (IS_ERR(card)) {
+> -               ret =3D PTR_ERR(card);
+> -               dev_err(&pdev->dev, "Failed to create our card\n");
+> -               return ret;
+> -       }
+> +       if (IS_ERR(card))
+> +               return PTR_ERR(card);
+>
+>         snd_soc_card_set_drvdata(card, scodec);
 >
 > --
->   Kiryl Shutsemau / Kirill A. Shutemov
-
-Cheers, Lorenzo
+> 2.43.0
+>
 
