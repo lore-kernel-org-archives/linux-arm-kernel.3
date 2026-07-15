@@ -4,95 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D71F7C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 19:03:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F275CC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 19:09:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pc5zej8Cp2CJIzssMoKWrKfQALA6yoxrIoO3Y71lFVo=; b=iQWlWl1p3Z3cI17QE8e/Ip9fta
-	oNbzh5HnrVy1M847PvmA8nTVqhy8bPHHhmEiG8bDddozknW/eElvzpazDCLm1A5uCCUMj03ppo8ve
-	V1hM9uTe9pAUi8m9utSKHMNgSYaT/iThsq51aAt5ED/z18I3CU9Zqu++6xTlNZjSd2x4iRyNXvHwd
-	PbtFfC3BYNJwiLm6BFwVQHwJ40KBG4LcACmJ958aVPz+z2pY5SK7c2FUNO4OWTiwZNr2Zm/3Uvqh/
-	pQvnTIIO+U71gWVPxARjLEkv5y+W5vBE4ScRmTPQ+ubx1xaLFR2urjvFo1REiW7u5zJyYm01DcNSK
-	e6om2RnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JVte+qBFAiblhyzUMBEEPT044OiLyJRnPNqnE57mdqs=; b=dyIDeJRSYjARGgD7ntK5q+7WFy
+	RJe8pI8Z/GSxH4wlcAgDXBQmxnVN+mykfpMaeJax0pE0XVAgJUV1sB/h1SN3+v/jb7SWd2yLNQVNa
+	fN69h1bm6BnyRqEKY4t3tACPGV2IGyEav50m64FcbKr2TDn+bA7LOTA0TH+qTqlsSC0zX40AAZro7
+	3i8JnsAV/YPdVJiyzx+OckAwaewjPgdofyHCKnXolPiUKBdH1+It2ZWQOlgb1o3Q68aSYTnegT7TB
+	N1kTdPDTgtd56Ezv8POexWURgxTxtRKHV4I5WCoK1Ur4Qrb+4rHtavCPq/1cvJD2ADfQIACdG5JK3
+	bBMVjfAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk4su-0000000Fkdg-0dEd;
-	Wed, 15 Jul 2026 19:03:08 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1wk4ys-0000000Fl6A-08Ms;
+	Wed, 15 Jul 2026 19:09:18 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk4sr-0000000Fkd2-39Km
+	id 1wk4yp-0000000Fl4W-2PmY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 19:03:06 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-5b0231a3e86so5087527e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 12:03:03 -0700 (PDT)
+	Wed, 15 Jul 2026 19:09:16 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-493bfe9f886so31528295e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 12:09:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784142181; x=1784746981; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Pc5zej8Cp2CJIzssMoKWrKfQALA6yoxrIoO3Y71lFVo=;
-        b=bOT7FbWfpx5FgwGhg7IOXe73H2HQrKhNwk+dtDttDPQRdziCzBxoG7s2QCYr8QkY2I
-         nCD2SVI30QsPmj1PjQrw4mV7DYhpia3gnN9o6TstRjKzEhiqAl20f6A1KNnPD8ElFYQE
-         Lzpzw1MWU8GacItA1YiaGu9ErT+DFJfhYVVw2co2x1HsUonZHQKy/ZFzK54uu7XS6oci
-         Bhe12OaVBPUwocSmSeak/SucK9qJg27kOU40KEK2dvND8JJfJtYU4Uyxlo6iAS4brhrg
-         k4l5lBvHJfVkmm2PIp+LD8s7KSTu9He9O6aFow+obG0O1wDXHg5jx1WGJ9p0YNgdb6ea
-         xGzQ==
+        d=gmail.com; s=20251104; t=1784142553; x=1784747353; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=JVte+qBFAiblhyzUMBEEPT044OiLyJRnPNqnE57mdqs=;
+        b=I/BBGTHEyd8HU+9iO/FfXqALTQtSSraSCoHopCNo7+1XH0t/g+WX/2EAELxolmZ5X9
+         5FFQFVulitL36oS0LYIHfP6gWnsuLTZvD/uW9apQqkS+u89iOXcaQ8UNxhPOPR33fsz6
+         GLHArpSgk3wEZ06DwIDWDN/QjwrW2uvTj5/kkvsAGL49A47livie1cfoUTPWfn70sXbc
+         prXp0lOQ23j1HiXrxo07z0KaF2K+JKLbRTdMq9otHIxffNC/0ZO8st42N0ysGo9hzgXz
+         WUvS+1CRwjYlgwdqonnEn3dU2ViiQJSDBDYpuTth6AOwVdrGOZGmqf8UQ/o1VvOHJeV+
+         vRrQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784142181; x=1784746981;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=Pc5zej8Cp2CJIzssMoKWrKfQALA6yoxrIoO3Y71lFVo=;
-        b=l2i3rZ8lO0yOEAGetq/H6t1Ux8eMRt/ErVJ/jFVjf7sH+lRA0cfSsV1sk+6ndpEuNk
-         4ip2tXT0dG+wyC/8iP7OJfXEIZCvijG4K3948RfChjjRUeZp2Ajbxj9m8jcaZ6LQBoiF
-         aohf/iylFwgmjUcwnzk82uKrOslsuQwUEz0/vgd91VgjvObs+myHrv4PobBu6aIbJ+oh
-         SbVYqeqHP4UoNSYo0mc2g32iExJKYz7LAwCD6Orium648kXfs1g66RdIWy9w8GpCgASQ
-         kr3WSQoup88wZG5wKHc1jy9e+S/50oO0FIYTjaRS/Kk4BuQ/3Bqg6FkygMTyhY2Vb5o2
-         3vMg==
-X-Forwarded-Encrypted: i=1; AHgh+RrNV7YTayaQ8rATUoyeyGEW4Ratj3pLz68dHcSBySUYjdF84DmyMIPR/3FWMERdgVghBVulFr8z52afd/eU4joS@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNvJ2C9DLy67XmRYYyHShH5b/g3c0+wCuceZIboroec1F/Mg2B
-	8KkbL+xLUZySjXZ6VP3wLHAI4cM9vHJ+QSe1ipvNH7+Dk5Xd7F0H6zFI
-X-Gm-Gg: AfdE7ckg1di3tO0kDiVCJ8eg0iQvd8s7LrSEOhyOFRMR/t+PqupD7LjAwPTTXaVdMp0
-	nJaojwIPMmlV7xDo63gX21WhiwOvLFFyEslwIBwdtI3St+gIfm0uUjqF3+Pohfwuf9abviH3jfg
-	aoOqtN0srrFsIn4jBmvqHaAnO0zwVBYuWRXtr4Ff/IgKxYm2ieEvPv0pmQr7fQrCliPCQhguF43
-	c2dfbY2ZrjBDva807jIkViCQa3NZ0ISE5tH+hmieYEL/sGFb5WiBl19f0Ak28cx3iv/7Yx9WxBT
-	H3z5Tx4GUMMW48yGxAMz4idXzdwx+ohUDtgBPqXpQMOgiuWPhWywAPsDw8S2h7IIjyhTfpSPp6b
-	gKeZeLSPGlWjE5enA4pov3O8etpozH48nAL4p4ctcrZMdRUf/1PlCSEc4OyuurZ1hE+C1T9dSlC
-	l/elfrOxBuqw2/3HIgZwkmbO0kGEnidNGxzxs+xNj4Knf+nnnOkg==
-X-Received: by 2002:a05:6512:3d1c:b0:5b0:1760:facb with SMTP id 2adb3069b0e04-5b15d779c02mr1056769e87.21.1784142180582;
-        Wed, 15 Jul 2026 12:03:00 -0700 (PDT)
-Received: from gmail.com (83-233-6-197.cust.bredband2.com. [83.233.6.197])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5b023b5931bsm3701194e87.42.2026.07.15.12.02.58
+        d=1e100.net; s=20251104; t=1784142553; x=1784747353;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=JVte+qBFAiblhyzUMBEEPT044OiLyJRnPNqnE57mdqs=;
+        b=c+w271rJbI7B2+cHduHjI4Jq6cpiKGk47tLRvsSmJ+8tvvWsEkAm/OAhPsF0m5nEhn
+         9BiDZYYCShYsvIxXiZ/2xY39td57qnBNBxA7mwnLA5+oNDSkRbhbzQP2Gl4JTHcnHLz8
+         LYrjy3Gzq8bJ1jCVxntd6pwqS3ptCh+zY7qDMKSX7tR9geKjQ8+L2ht/JdwX2RlYZZg0
+         FOf5xJjcLtK5pLU3UySxEwOL4f5qVMcTOTLPZNOCPy66oq3P7rAVcljIu3Ai499nRwIA
+         D4MrfehIP8TQzPtONQ/VBP0HO9Li+x1kbM3Jopqss7RBMvpepBWLwcwkyJVZEFFhNEqd
+         SYzQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqnfSRuVGG+Q844ln2aNdF+gFPRZk0cYOOBQ6sKzu/u19rv8pewY2Sd4C0T+cqpku9jFqP+Y6TSly05C1Bi7JHH@lists.infradead.org
+X-Gm-Message-State: AOJu0YzxYsbI+iAmGROjpjBYymml+rADiVdWEcNaxLL2vNybiJjykR4p
+	8bUOWX33Qmcli+/3VtS6oef+QSfoaT8Zs4+YmGk9w7StBOyTj2hPkz4T
+X-Gm-Gg: AfdE7cmpDwgQUQ9a0BHNIzvxLkI8uTvtG6QKMTd/c+fZAaKfylPNXQpju0RqxDcyN1V
+	F6SJz5OVFBaNDIOlN7ljFVhbXyAUrDERo5U9NecN+6dA+oDs69Aewtk8ukXt7ws1oGEot3dozUw
+	ImiKCHftHbUVIthG5hhKXLAmgSMBP6EqtrMFKP30A3ZSrfXa/mRokjHSGedmKB3R3HCYq5VAKW9
+	YEY4O/C66JP+OIuUQY7Y9nzVwr+/wrnUeGLLcdhe8MbSIVMr+AzP71yfheCpMJODKMHkNbZuYJx
+	2W3UKklwxRKGTr5gxa2LaWoxEOKs2XmPHWWWo3y6n/oFrirf7k1GCrRPPOY6lh1VHzIJr85EOJz
+	d+yLo6AhzWDHGbOjuUlKVK6UJGa3o3sAE2Pfxp+cMHEkNlYabqEfhBrNQmdu1FBIV3eWH/Niayj
+	J/GScho/8ID3YHpKJxcEgi+t+GqaXrI4X9LFt03UqC0NAEOr+SlvKBFdHz1hzeqX70nG839d/fP
+	V4OzfTrkuZESW6xd9HkVa568Oa/1II9dV2V
+X-Received: by 2002:a05:600c:19cb:b0:493:b87c:c87d with SMTP id 5b1f17b1804b1-4953c15d121mr46243825e9.11.1784142553147;
+        Wed, 15 Jul 2026 12:09:13 -0700 (PDT)
+Received: from Lord-Beerus.station (net-93-144-65-248.cust.dsl.teletu.it. [93.144.65.248])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49541eb7372sm3786325e9.13.2026.07.15.12.09.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jul 2026 12:02:59 -0700 (PDT)
-Date: Wed, 15 Jul 2026 21:02:56 +0200
-From: Marcus Folkesson <marcus.folkesson@gmail.com>
-To: Peter Rosin <peda@lysator.liu.se>
-Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Michael Hennerich <michael.hennerich@analog.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@intel.com>,
-	Bartosz Golaszewski <brgl@kernel.org>, linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v11 2/7] i2c: mux: add idle_state property to i2c_mux_core
-Message-ID: <alfZYOKCjf6CKN6i@gmail.com>
-References: <20260713-i2c-mux-v11-0-72bb8af8ee8c@gmail.com>
- <20260713-i2c-mux-v11-2-72bb8af8ee8c@gmail.com>
- <e2d4fdf8-4dae-43dc-95ae-b9aa1884fdf5@lysator.liu.se>
+        Wed, 15 Jul 2026 12:09:12 -0700 (PDT)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
+To: linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Josua Mayer <josua@solid-run.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
+	Maud Spierings <maudspierings@gocontroll.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>
+Subject: [PATCH v5 0/3] Add support for Variscite VAR-SOM-MX8QM and Symphony board
+Date: Wed, 15 Jul 2026 21:09:06 +0200
+Message-ID: <cover.1784142385.git.stefano.r@variscite.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <e2d4fdf8-4dae-43dc-95ae-b9aa1884fdf5@lysator.liu.se>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_120305_826137_B51C3B8E 
-X-CRM114-Status: GOOD (  29.92  )
+X-CRM114-CacheID: sfid-20260715_120915_632188_662035F8 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,99 +115,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Peter,
+This patch series adds support for the Variscite VAR-SOM-MX8 QuadMax
+system on module and the Symphony carrier board.
 
-On Tue, Jul 14, 2026 at 01:29:01PM +0200, Peter Rosin wrote:
-> Hi Marcus,
->=20
-> Sorry for the very late feedback.
->=20
-> On 2026-07-13 09:19, Marcus Folkesson wrote:
-> > Muxes treat their channels differently when idle.
-> > Let the mux core have this information to make it available for
-> > internal use.
-> > Reuse the same state values used by CONFIG_MULTIPLEXER.
-> >=20
-> > Possible idle states are:
-> > - MUX_IDLE_AS_IS: Leave channels as is when idle
-> > - MUX_IDLE_DISCONNECT: Disconnect channel (set HiZ when idle)
-> > - <n>: Enable channel n when idle
-> >=20
-> > Default value is set to MUX_IDLE_AS_IS.
-> >=20
-> > Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
-> > ---
-> >   drivers/i2c/i2c-mux.c   |  1 +
-> >   include/linux/i2c-mux.h | 26 ++++++++++++++++++++++++++
-> >   2 files changed, 27 insertions(+)
-> >=20
-> > diff --git a/drivers/i2c/i2c-mux.c b/drivers/i2c/i2c-mux.c
-> > index 681a201c239b..edf16683dc83 100644
-> > --- a/drivers/i2c/i2c-mux.c
-> > +++ b/drivers/i2c/i2c-mux.c
-> > @@ -247,6 +247,7 @@ struct i2c_mux_core *i2c_mux_alloc(struct i2c_adapt=
-er *parent,
-> >   	muxc->select =3D select;
-> >   	muxc->deselect =3D deselect;
-> >   	muxc->max_adapters =3D max_adapters;
-> > +	muxc->idle_state =3D MUX_IDLE_AS_IS;
->=20
-> This is insufficient. AS_IS is simply not an adequate default.
->=20
-> For i2c-mux-gpmux, there is currently no way to dig out what
-> the idle state is, as it is not exposed by the mux subsystem. For
-> i2c-mux-gpio, the idle state depends on both the idle-state /and/
-> the i2c-mux-idle-disconnect props. For i2c-mux-pca954x the idle
-> state can be adjusted at runtime. Etc.
->=20
-> In short, idle state handling is a bit diverse, and I think this
-> adds to that mess.
->=20
-> I think it will be a bit of work to come up with a scheme for the
-> I2C mux core to accurately keep track of what the idle state is.
-> One way to deal with that is to introduce a new "unknown" value
-> that can be the default for all drivers that has not yet figured
-> out how to feed the correct idle state to the core.
->=20
-> And that hints at why I think reusing the mux.h bindings #include
-> is bad. The mux subsystem simply has no need for an unknown state,
-> and adding that to mux.h is therefore out of place.
+The series includes:
+- SOM device tree with on-module peripherals
+- Symphony carrier board device tree with board-specific features
 
-I see.
+The implementation follows the standard SOM + carrier board pattern
+where the SOM dtsi contains only peripherals mounted on the module,
+while carrier-specific interfaces are enabled in the board dts.
 
-I think I will introduce a few defines in i2c-mux.c then;
+v4->v5:
+ - Fix sai7 clock
+ - Fix codec regulator voltage
+
+v3->v4:
+ - Fix sai peripherals clocks
+ - Add comment to clarify 1GB variant
+
+v2->v3:
+ - Fix led typo
+ - Moved reset-gpios in pciea_port0
+ - Removed wrong captouch pinctrl gpio
+
+v1->v2:
+ - Added non-removable property to usdhc3
+ - Removed unused fec gpio pinctrl
+ - Fix ptn5150 interrupt
+ - Fix ecspi1 cs gpio
+
+Stefano Radaelli (3):
+  dt-bindings: arm: fsl: add Variscite VAR-SOM-MX8 QuadMax Boards
+  arm64: dts: freescale: Add support for Variscite VAR-SOM-MX8 QuadMax
+  arm64: dts: imx8qm-var-som: Add support for Variscite Symphony board
+
+ .../devicetree/bindings/arm/fsl.yaml          |   6 +
+ arch/arm64/boot/dts/freescale/Makefile        |   1 +
+ .../dts/freescale/imx8qm-var-som-symphony.dts | 490 ++++++++++++++++
+ .../boot/dts/freescale/imx8qm-var-som.dtsi    | 531 ++++++++++++++++++
+ 4 files changed, 1028 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8qm-var-som-symphony.dts
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8qm-var-som.dtsi
 
 
-#define I2C_MUX_IDLE_UNKNOWN	(-1)
-#define I2C_MUX_IDLE_AS_IS      (-2)
-#define I2C_MUX_IDLE_DISCONNECT (-3)
-
-[...]
-
-struct i2c_mux_core {
-
-    [...]
-
-	/*
-	 * The mux state to use when not active.
-	 * Possible idle states are:
-	 *  - I2C_MUX_IDLE_UNKNOWN: Unknown idle state
-	 *  - I2C_MUX_IDLE_AS_IS: Leave channels as is when idle
-	 *  - I2C_MUX_IDLE_DISCONNECT: Disconnect channel (set HiZ when idle)
-	 *  - <n>: Enable channel n (starting from 0) when idle"
-	 *
-	 * Default value is set to I2C_MUX_IDLE_UNKNOWN.
-	 */
-	int idle_state;
-
-    [...]
-};
-
-
-Would that be a better approach?
-
-Thanks,
-Marcus Folkesson
-
+base-commit: d0c222c2e2ce577d801bdf129dc6c078f29e22df
+prerequisite-patch-id: 0996915f031a1d899202c5fba75a969d6ce2a53d
+prerequisite-patch-id: dbed47ecb907f6b7f7e284c5c1a3c325566eafd7
+prerequisite-patch-id: c758aa296e6effc94c30449cc7e4773f0ae02914
+prerequisite-patch-id: 31784fa7a3ee5c178b2f1ffa97c1dd7c1d3d898a
+prerequisite-patch-id: 5810f43cde9c24ee318d680c1852b3ded18f3aa0
+prerequisite-patch-id: 012c9c8ba4e290532a1b7f8642274b7c5f252e03
+prerequisite-patch-id: a57d576be42d5061bba453f0d5960132be55a1ff
+prerequisite-patch-id: e34a75fb6f7e01455dd5ca734dacad66b12de06c
+prerequisite-patch-id: cc7abadd0354d14bad0cac1fbacda14ab9d4e02b
+prerequisite-patch-id: c0276686c0247cb2385c56b96cbfd6de5128415c
+prerequisite-patch-id: 100c47538870af63194b407fae06183fee85fc09
+prerequisite-patch-id: 3a3b3e40f5fba785857091dda909d22bfc5e2d0e
+-- 
+2.47.3
 
 
