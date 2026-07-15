@@ -4,50 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33E39C4450B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 14:29:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22935C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 14:29:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lWYFCQGH3WcPrzGJef3V5uYoe1IhzMz6CEpc/ZS7Sqw=; b=ftkXdo/Bw2kBolhAPed4tw8Llv
-	B4JcmSlVPVyDgg5LJicJ27Fq3Qw1NJIh4H2EQut0Jp8FQi86S+Cn/MQ7v0WjqtNrjPrOeJPL8Afi5
-	JR73s9Taq9Ky6U8sz5qrtL2xA+9PEHlqYCzKd0H1ARKaSPCpqBNqyoSLEIsauho9mB4zCoJQY8zA2
-	B1640n3m1gep/4p09QcZ+P7vxOmHKuCVtzP5psgAT8rDMk/VTdjBrbTRlLLaAIRn83++nmmORQJo7
-	iGpE3JVwJtwFb/eTROVmS3hcwaTj6yZmU6EHmJCLPe+A1xYnq7zVuR79HC52oYFcUluMQDFB/DP03
-	ZKoAYHSA==;
+	bh=p3cWLsUuFurJjuc0a1be3ESQT3qFrcAeNKmZsZJ1uIk=; b=t6Vf4qMxQv51wJOrA2fopQNYhs
+	Ug0pzDpf6kcXTN041eDCWx0I9+jW8leUanqoBF5aaBi9tsmu4KCmTTcJYofyR+njv1FosVl5LHi1o
+	alTAGGGtHOl0xrzwxJiLOYxtqKR5nPjwHC0QYKdDRd5I1llq+gjCEn5tIRw5koztmQV/qYwmXkVCJ
+	xwoIFcCmjLBPTwtNeY+dfvTeT2mxLrqdRFp73w8gmErDHTRC/S/K5T0qrHoSxllulDoA/TEDF9giZ
+	PtLMCbc9QioGgivtofkyALqm80oHZGHAm323XbuB9lWCrvOPMPaxUbFwLqDlGhXZi1zjc7tfp4/3B
+	wH7G1ZLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk0cH-0000000F8Ga-1Uws;
-	Wed, 15 Jul 2026 14:29:41 +0000
+	id 1wk0cM-0000000F8LC-2AUX;
+	Wed, 15 Jul 2026 14:29:46 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk0cA-0000000F8Aj-2rCd
+	id 1wk0cF-0000000F8FH-2yDx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 14:29:36 +0000
+	Wed, 15 Jul 2026 14:29:41 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 091A8153B;
-	Wed, 15 Jul 2026 07:29:29 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1C2071576;
+	Wed, 15 Jul 2026 07:29:34 -0700 (PDT)
 Received: from e122027.cambridge.arm.com (e122027.cambridge.arm.com [10.1.25.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BD2A43F7B4;
-	Wed, 15 Jul 2026 07:29:28 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9B5793F7B4;
+	Wed, 15 Jul 2026 07:29:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784125773; bh=RQcKO9nHmQHlEm5pEoraUvIMCuQ6ccv5B7RjBEVRDt8=;
+	t=1784125778; bh=zixYPQ+w+37O4gvY4lHd1xlI1aPi6dhUKtIpVG5gxWM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=H+SWvEqVbUvdinqg1SnnD7zCojLavo1U7cNC+Zo7E9P27kP9sgE/4g0PBiitGmIqe
-	 zildhx2tzPPwz6eUdT8TB5/nQs0MM4/45S2cN5gynvWUOpL5JALRRCByX+mDcMz6d6
-	 n74V0r/jATIWBi4lMrT0kiu7JiBhLgI2zGrGwYj8=
+	b=Q1n9fhcRpdoIR0XGyMLVabJHxznFgtVeFu8FAxAQEoRf7pA+4j6bcsRZkT4KUojOj
+	 GGkSMq4IbgZ7ckgLDg78LeZO5+1tW+RYerumDWb4A7DxgeknRB7cgihtfMozrMxlSr
+	 UD5G7ag5jwn25TRuKcdYYk18bfyoMTLVAsN3z7MU=
 From: Steven Price <steven.price@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+Cc: Steven Price <steven.price@arm.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Marc Zyngier <maz@kernel.org>,
 	Will Deacon <will@kernel.org>,
 	James Morse <james.morse@arm.com>,
 	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -64,19 +65,18 @@ Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Emi Kisanuki <fj0570is@fujitsu.com>,
 	Vishal Annapurve <vannapurve@google.com>,
 	WeiLin.Chang@arm.com,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Steven Price <steven.price@arm.com>
-Subject: [PATCH v15 08/37] KVM: arm64: CCA: Don't expose unsupported capabilities for realm guests
-Date: Wed, 15 Jul 2026 15:28:10 +0100
-Message-ID: <20260715142841.80544-9-steven.price@arm.com>
+	Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: [PATCH v15 09/37] KVM: arm64: CCA: Allow passing the machine type in KVM creation
+Date: Wed, 15 Jul 2026 15:28:11 +0100
+Message-ID: <20260715142841.80544-10-steven.price@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260715142841.80544-1-steven.price@arm.com>
 References: <20260715142841.80544-1-steven.price@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_072934_808958_B0E7BB6C 
-X-CRM114-Status: GOOD (  13.04  )
+X-CRM114-CacheID: sfid-20260715_072939_857807_19879201 
+X-CRM114-Status: GOOD (  19.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,80 +91,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
+Previously machine type was used purely for specifying the physical
+address size of the guest. Reserve the higher bits to specify an ARM
+specific machine type and declare a new type 'KVM_VM_TYPE_ARM_REALM'
+used to create a realm guest.
 
-RMM v2.0 provides no mechanism for the host to perform debug operations
-on the guest. So limit the extensions that are visible to an allowlist
-so that only those capabilities we can support are advertised.
-
-Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 Signed-off-by: Steven Price <steven.price@arm.com>
 ---
 Changes since v13:
- * Add missing check in kvm_vm_ioctl_enable_cap().
-Changes since v10:
- * Add a kvm_realm_ext_allowed() function which limits which extensions
-   are exposed to an allowlist. This removes the need for special casing
-   various extensions.
+ * Rework to use the two top bits for the machine type now that pKVM has
+   merged and used the top bit for KVM_VM_TYPE_ARM_PROTECTED.
+ * Update the documentation to include KVM_VM_TYPE_ARM_PROTECTED as
+   well.
+Changes since v9:
+ * Explictly set realm.state to REALM_STATE_NONE rather than rely on the
+   zeroing of the structure.
 Changes since v7:
- * Remove the helper functions and inline the kvm_is_realm() check with
-   a ternary operator.
- * Rewrite the commit message to explain this patch.
+ * Add some documentation explaining the new machine type.
+Changes since v6:
+ * Make the check for kvm_rme_is_available more visible and report an
+   error code of -EPERM (instead of -EINVAL) to make it explicit that
+   the kernel supports RME, but the platform doesn't.
 ---
- arch/arm64/kvm/arm.c | 26 ++++++++++++++++++++++++++
- 1 file changed, 26 insertions(+)
+ Documentation/virt/kvm/api.rst | 18 ++++++++++++++++--
+ arch/arm64/kvm/arm.c           | 11 +++++++++++
+ include/uapi/linux/kvm.h       |  7 ++++++-
+ 3 files changed, 33 insertions(+), 3 deletions(-)
 
+diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+index b38e090ad95d..e39d146b34a3 100644
+--- a/Documentation/virt/kvm/api.rst
++++ b/Documentation/virt/kvm/api.rst
+@@ -181,8 +181,22 @@ flag KVM_VM_MIPS_VZ.
+ ARM64:
+ ^^^^^^
+ 
+-On arm64, the physical address size for a VM (IPA Size limit) is limited
+-to 40bits by default. The limit can be configured if the host supports the
++On arm64, the machine type identifier is used to encode a type and the
++physical address size for the VM. The lower byte (bits[7-0]) encode the
++address size and the upper bits[30-31] encode a machine type. The machine
++types that might be available are:
++
++ =========================   ============================================
++ KVM_VM_TYPE_ARM_NORMAL      A standard VM
++ KVM_VM_TYPE_ARM_REALM       A "Realm" VM using the Arm Confidential
++                             Compute extensions, the VM's memory is
++                             protected from the host.
++ KVM_VM_TYPE_ARM_PROTECTED   A "protected" VM using pKVM to isolate the
++                             VM from the host.
++ =========================   ============================================
++
++The physical address size for a VM (IPA Size limit) is limited to 40bits
++by default. The limit can be configured if the host supports the
+ extension KVM_CAP_ARM_VM_IPA_SIZE. When supported, use
+ KVM_VM_TYPE_ARM_IPA_SIZE(IPA_Bits) to set the size in the machine type
+ identifier, where IPA_Bits is the maximum width of any physical
 diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index c4d906861736..6f39831dcf5d 100644
+index 6f39831dcf5d..9881fd6c511c 100644
 --- a/arch/arm64/kvm/arm.c
 +++ b/arch/arm64/kvm/arm.c
-@@ -135,6 +135,26 @@ int kvm_arch_vcpu_should_kick(struct kvm_vcpu *vcpu)
- 	return kvm_vcpu_exiting_guest_mode(vcpu) == IN_GUEST_MODE;
- }
+@@ -249,6 +249,17 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
+ 	mutex_unlock(&kvm->lock);
+ #endif
  
-+static bool kvm_realm_ext_allowed(long ext)
-+{
-+	switch (ext) {
-+	case KVM_CAP_IRQCHIP:
-+	case KVM_CAP_ARM_PSCI:
-+	case KVM_CAP_ARM_PSCI_0_2:
-+	case KVM_CAP_NR_VCPUS:
-+	case KVM_CAP_MAX_VCPUS:
-+	case KVM_CAP_MAX_VCPU_ID:
-+	case KVM_CAP_MSI_DEVID:
-+	case KVM_CAP_ARM_VM_IPA_SIZE:
-+	case KVM_CAP_ARM_PTRAUTH_ADDRESS:
-+	case KVM_CAP_ARM_PTRAUTH_GENERIC:
-+	case KVM_CAP_ARM_RMI:
-+	case KVM_CAP_SYNC_MMU:
-+		return true;
-+	}
-+	return false;
-+}
-+
- int kvm_vm_ioctl_enable_cap(struct kvm *kvm,
- 			    struct kvm_enable_cap *cap)
- {
-@@ -146,6 +166,9 @@ int kvm_vm_ioctl_enable_cap(struct kvm *kvm,
- 	if (is_protected_kvm_enabled() && !kvm_pkvm_ext_allowed(kvm, cap->cap))
- 		return -EINVAL;
- 
-+	if (kvm && kvm_is_realm(kvm) && !kvm_realm_ext_allowed(cap->cap))
++	if ((type & KVM_VM_TYPE_ARM_PROTECTED) &&
++	    (type & KVM_VM_TYPE_ARM_REALM))
 +		return -EINVAL;
 +
- 	switch (cap->cap) {
- 	case KVM_CAP_ARM_NISV_TO_USER:
- 		r = 0;
-@@ -380,6 +403,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
- 	if (is_protected_kvm_enabled() && !kvm_pkvm_ext_allowed(kvm, ext))
- 		return 0;
- 
-+	if (kvm && kvm_is_realm(kvm) && !kvm_realm_ext_allowed(ext))
-+		return 0;
++	if (type & KVM_VM_TYPE_ARM_REALM) {
++		if (!static_branch_unlikely(&kvm_rmi_is_available))
++			return -EINVAL;
++		kvm_set_realm_state(kvm, REALM_STATE_NONE);
++		kvm->arch.is_realm = true;
++	}
 +
- 	switch (ext) {
- 	case KVM_CAP_IRQCHIP:
- 		r = vgic_present;
+ 	kvm_init_nested(kvm);
+ 
+ 	ret = kvm_share_hyp(kvm, kvm + 1);
+diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
+index 0231ff174a50..adee3936d6ae 100644
+--- a/include/uapi/linux/kvm.h
++++ b/include/uapi/linux/kvm.h
+@@ -700,14 +700,19 @@ struct kvm_enable_cap {
+  * address size for the VM. Bits[7-0] are reserved for the guest
+  * PA size shift (i.e, log2(PA_Size)). For backward compatibility,
+  * value 0 implies the default IPA size, 40bits.
++ *
++ * Bits[30-31] are reserved for the VM type
+  */
+ #define KVM_VM_TYPE_ARM_IPA_SIZE_MASK	0xffULL
+ #define KVM_VM_TYPE_ARM_IPA_SIZE(x)		\
+ 	((x) & KVM_VM_TYPE_ARM_IPA_SIZE_MASK)
+ 
++#define KVM_VM_TYPE_ARM_NORMAL		0
++#define KVM_VM_TYPE_ARM_REALM		(1UL << 30)
+ #define KVM_VM_TYPE_ARM_PROTECTED	(1UL << 31)
+ #define KVM_VM_TYPE_ARM_MASK		(KVM_VM_TYPE_ARM_IPA_SIZE_MASK | \
+-					 KVM_VM_TYPE_ARM_PROTECTED)
++					 KVM_VM_TYPE_ARM_PROTECTED | \
++					 KVM_VM_TYPE_ARM_REALM)
+ 
+ /*
+  * ioctls for /dev/kvm fds:
 -- 
 2.43.0
 
