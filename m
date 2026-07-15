@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F55AC44501
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A151FC44508
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 12:00:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,62 +12,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fxl8rp8wqmkZLCdj3/pqUays/JOlw0FMpgaoC2sElPo=; b=XG02b6u2qPswNEkaqzsCb46F1P
-	evl5+O///MGDhFK/Z+psSRRFV7n5BMXYf4ohNuflP3LytTP3W8VehfV4ks23l0182WJJ8Kg6f+kGg
-	46m2bOc3aGEYwAxT1E7DZrpAqqegweIeTh/eWEQK8qER2Vow3PTXK6ijzb0s0OibdIs3Hde3KvYpP
-	OJS1DiWvuj+X4wC5We9KrL2L9xdgn31ERtMy8F7qAIoF5LeCa09utl45uho53KOb6H4DfEn5G3KiX
-	Mit5gYtEcGZFL3GnpC33hu37Y9UwQqBFGHC07rWQCmFMzHcEntE0ujn2LV7aSmh3AEX6JWXI6sjHK
-	fF0rlAOw==;
+	bh=QhVA7+fH5iuDTjPK4Ro+fz5qNNNKxyVJWdTpr47ZOpA=; b=XPKnNom4tBjEsvwGzkW27EfCmF
+	c6x6hhFV3RGeU63Byu0F6okHPAU6vfKqKbkfb6faZxg/V7NJcNCbg4RTrTovHM5blI4WwF1tHCeUt
+	X3k/vgULMl0AuOxgQVQEevTWqkpFfio8RI/qE97QFaqrN+cUZkznbklgvQ1Ri2uY4yJ8th7ms27Un
+	oTC3pz7dqacKAu6fB9Hlu0mHBdgtj5u9RWVluNOiJHJzX5ep3+RRJZdPwBgw0iVZMcjmm9yBSCSJX
+	G+xffbfIH6Ntmp46UenMVOV6otzTTgp+wPwW73D4LuwGh6yfxK0Rg5nEzjWwK6eO1DLYyGgiG2F+g
+	PpcxJtPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjyHW-0000000Efnq-2YBT;
-	Wed, 15 Jul 2026 12:00:06 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1wjyHX-0000000EfqI-313U;
+	Wed, 15 Jul 2026 12:00:07 +0000
+Received: from mail-ed1-x54a.google.com ([2a00:1450:4864:20::54a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjyGv-0000000Ef57-0ADk
+	id 1wjyH3-0000000EfHe-2uME
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 11:59:31 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-493c47a09b5so27826735e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 04:59:28 -0700 (PDT)
+	Wed, 15 Jul 2026 11:59:41 +0000
+Received: by mail-ed1-x54a.google.com with SMTP id 4fb4d7f45d1cf-698b9b2edc8so5461111a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 04:59:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784116767; x=1784721567; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1784116775; x=1784721575; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=fxl8rp8wqmkZLCdj3/pqUays/JOlw0FMpgaoC2sElPo=;
-        b=CUxP8aT/jFCoKtU/xkdhNPlRcZ9NCCDZcCOk8RzrRlo6bsIv6eOO1Bt4TKoyfj0Pqb
-         jcJ/UU2yp+oXVsZQbQim4dnEruvMZJGp/FqOuLkH/JPzov4jgsTvM4mVvrfoDf1CqWpB
-         oHa4Kc2YLewbRok7+rg8vBaAyy7vjjFd4tzJeA0KIPtAHzBl2Ipv5R+QS7GFieGmu/0H
-         2RKGt5mmhB3VOjH0Hu4sMQJXWH2jjqTbdH8q3YStzOyPzuzcCHdFEjq92l1oMefpHSpg
-         pwXR+i3FiiL+ZPrCWv1GdtK+UmB6Me+h2+970ozhnq2aR7tFL+RNdZ+z2ni0jISHtLPf
-         hO0w==
+        bh=QhVA7+fH5iuDTjPK4Ro+fz5qNNNKxyVJWdTpr47ZOpA=;
+        b=hU5V6N09iu/WS5RjsORCVJGAO8AimBCkuym7K7f9fM+cRj4Dw1gO2NBZlZymcCY2a4
+         Xeh7ma0kt2keiDs+9IDYNXs5Yh/2CKPIT3lS6TgEscPXqi1RMRGE7VzbzfneoL8LCu48
+         PmpuJgX3kHm9uc0yMhLYO/ELKjmAhNc/8TDLnvur2AMW+Qwq3Wlq1N5sU1D9rM8rrnVS
+         QgvW4P+oeB0BZqnm3n1jF6aRTsLO/ll3T+8NsBBo8XaSVgjhiWoE7/EeaKdE/Xq/NDrX
+         zA+0eeeHNvaWeGMO19VD+zeLvPVlMZAlCIkYVE5KpTe8YPZd/RC7XwOhQrlzXcE9QbO0
+         U2+w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784116767; x=1784721567;
+        d=1e100.net; s=20251104; t=1784116775; x=1784721575;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=fxl8rp8wqmkZLCdj3/pqUays/JOlw0FMpgaoC2sElPo=;
-        b=NOhXBikXTBbO+CImhpCOsf3dSRDysXygReqMUQlJgN1vha+MR+P94/pUEqzTqv4VE5
-         zfDrZ6S/WU6c4Ofm17eOk1Pqem0EbgOhWPq60B+c1+7BwiQtHR4u9G8WLjmsMGD8M3k+
-         2m+bjG6KyzpL5Rqll98aqqtOtBKVpequjDHZxCBg/o8Wv9PIE0u7l25HiRHJy/skm7fA
-         P8TQ1WUls2wa39zQqh0E2LmcxNKoq7ChOxPOnk8yfBhWSyaB7KWdzKx6HJM6DCOVrLMF
-         BCM0p395kGjrYZWykRuJoROwynhedO/kcjNx5tY/CkGR6cSx4LKavXrj5ANxX84+n6Nm
-         gYVA==
-X-Gm-Message-State: AOJu0Yyl48M4Kb5fDoAO7MqbC5IY2EXDEy6tJpuIzboRZenfSyRCdRwJ
-	qacfUbeiiK33oTeACbmML4WsmdG/2Ih1+3toMyMJaY7YfVVMjGtywibuD3KaBb/z0S0pm/NRnIo
-	QPX5I0xxN+fJmnAXVvk1+WdXYqAHHO89j6VAvCiqoBvsZQajzvm8PU5yyYzL3KDC3RORoMLwafZ
-	qLTLmgSCPvhLy6sQvDmmzaXP6WLhE9FTpukYIcDr26SiMKvuNialpPBS2DIj1PgnLZTA==
-X-Received: from wmbdt5.prod.google.com ([2002:a05:600c:6305:b0:493:e190:29a1])
+        bh=QhVA7+fH5iuDTjPK4Ro+fz5qNNNKxyVJWdTpr47ZOpA=;
+        b=LIolaTKTi5RzAzmI8Y47aEjUseUlwJubMUnUIserofVCeFapq644RTqSslKw58qHNg
+         u7MQthSMbtCNZ85r52/2osCSijKUfWE61dsc0flNE3fXts+bEMPQlULbuQUI4O1Me/dd
+         IE62HXvuMq6O5/dW97OdJrZmyl51JUPeIpeagvmCHP/TN9YIiRGE7Wcvrqu3r81tJtOd
+         /urt5RBZz4X+p7cgbiSDGJggiUGEOVXRbXO/c8IBo1y0b/0YeA6Q0Oq37FHZxqzFJaTa
+         yaTCvcfGSGfq+PZXxNgEjQw5rRnzy8EMbkI8jCe5bJRxVgjO2Rp7WdQCT9KIOtDxqeEJ
+         msew==
+X-Gm-Message-State: AOJu0YzOBQDM1mJBaMZJ1U//yLPay7SI6ul2o02mFUD4iAJbneVitJEc
+	u5Ot7hMOdbdN2mex23LMhKHnHD9O7nz+jRC56AvfrSqQq5jdL9QnUzedNMgEZ4wxqCKX4basb1T
+	84rg8J64gRyW9Iom4lmBlwoASuh5uKM/LGy0pkgmS2j4UT8XnDbEWGmmwK2uYltmlg/s56kg39z
+	HllxG3zgtWJH1tKgyOqp0jNabASuVOpXlYjZIL+hTJrhmxQ+DzdZQh7d+wQrtV79cvSA==
+X-Received: from edr22.prod.google.com ([2002:a05:6402:44d6:b0:695:9e2c:a1ca])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:3486:b0:493:b7a6:3dac with SMTP id 5b1f17b1804b1-4953b156ee2mr37101555e9.33.1784116766396;
- Wed, 15 Jul 2026 04:59:26 -0700 (PDT)
-Date: Wed, 15 Jul 2026 11:58:52 +0000
+ 2002:a05:6402:1ed6:b0:698:52b4:c2c9 with SMTP id 4fb4d7f45d1cf-69cd6f069dcmr3544598a12.31.1784116774920;
+ Wed, 15 Jul 2026 04:59:34 -0700 (PDT)
+Date: Wed, 15 Jul 2026 11:58:58 +0000
 In-Reply-To: <20260715115906.2664882-1-smostafa@google.com>
 Mime-Version: 1.0
 References: <20260715115906.2664882-1-smostafa@google.com>
 X-Mailer: git-send-email 2.55.0.141.g00534a21ce-goog
-Message-ID: <20260715115906.2664882-12-smostafa@google.com>
-Subject: [PATCH v7 11/24] iommu/arm-smmu-v3-kvm: Add the kernel driver
+Message-ID: <20260715115906.2664882-18-smostafa@google.com>
+Subject: [PATCH v7 17/24] iommu/arm-smmu-v3-kvm: Shadow stream table
 From: Mostafa Saleh <smostafa@google.com>
 To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	kvmarm@lists.linux.dev, iommu@lists.linux.dev
@@ -79,8 +79,8 @@ Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
 	Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_045929_131104_79FD888A 
-X-CRM114-Status: GOOD (  36.57  )
+X-CRM114-CacheID: sfid-20260715_045937_960110_7EBB2C9C 
+X-CRM114-Status: GOOD (  30.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,311 +95,302 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When KVM runs in protected mode, and CONFIG_ARM_SMMU_V3_PKVM
-is enabled, it will manage the SMMUv3 HW using trap and emulate
-and present emulated SMMUs to the host kernel.
+Allocate the shadow stream table per SMMU.
+We choose the size of that table to be 1MB which is the
+max size used by host in the case of 2 levels.
 
-In that case, those SMMUs will be on the aux bus, so make it
-possible to the driver to probe those devices.
+All the host writes are still paththrough for bisectibility, that
+is changed next where CFGI commands will be trapped and used to
+update the shadow copy hypervisor that will be used by HW.
 
-Otherwise, everything else is the same as the KVM emulation
-complies with the architecture,so the driver doesn't need
-to be modified.
+Similar to the command queue, the host stream table is
+shared/unshared each time the SMMU is enabled/disabled.
 
-Suggested-by: Jason Gunthorpe <jgg@ziepe.ca>
+Handling of L2 tables is also done in the next patch when
+the shadowing is added.
+
 Signed-off-by: Mostafa Saleh <smostafa@google.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/Makefile        |   1 +
- .../iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c   | 189 ++++++++++++++++++
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |  43 ++++
- .../iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h  |   2 +
- 4 files changed, 235 insertions(+)
- create mode 100644 drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c
+ .../iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c   |  21 ++-
+ .../iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c  | 122 ++++++++++++++++++
+ .../iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h  |  10 ++
+ 3 files changed, 152 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/Makefile b/drivers/iommu/arm/arm-smmu-v3/Makefile
-index c9ce392e6d31..c3fc5c4a4a1e 100644
---- a/drivers/iommu/arm/arm-smmu-v3/Makefile
-+++ b/drivers/iommu/arm/arm-smmu-v3/Makefile
-@@ -4,5 +4,6 @@ arm_smmu_v3-y := arm-smmu-v3.o arm-smmu-v3-common-lib.o
- arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_IOMMUFD) += arm-smmu-v3-iommufd.o
- arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_SVA) += arm-smmu-v3-sva.o
- arm_smmu_v3-$(CONFIG_TEGRA241_CMDQV) += tegra241-cmdqv.o
-+arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_PKVM) += arm-smmu-v3-kvm.o
- 
- obj-$(CONFIG_ARM_SMMU_V3_KUNIT_TEST) += arm-smmu-v3-test.o
 diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c
-new file mode 100644
-index 000000000000..68b78ed933d4
---- /dev/null
+index 81a4cd539415..2cafb03995ea 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c
 +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c
-@@ -0,0 +1,189 @@
-+// SPDX-License-Identifier: GPL-2.0
+@@ -16,6 +16,13 @@
+ #include "pkvm/arm_smmu_v3.h"
+ 
+ #define SMMU_KVM_CMDQ_ORDER				4
 +/*
-+ * pKVM host driver for the Arm SMMUv3
-+ *
-+ * Copyright (C) 2022 Linaro Ltd.
++ * Use the max value of L1 the kernel uses, that also covers the worst case
++ * for linear tables as it is mandatory according to the spec to support 2
++ * lvl tables if SIDSIZE >= 7
 + */
-+#include <asm/kvm_mmu.h>
-+#include <asm/kvm_pkvm.h>
-+
-+#include <linux/auxiliary_bus.h>
-+#include <linux/of_address.h>
-+#include <linux/of_platform.h>
-+#include <linux/platform_device.h>
-+
-+#include "arm-smmu-v3.h"
-+#include "pkvm/arm_smmu_v3.h"
-+
-+extern struct pkvm_iommu_ops kvm_nvhe_sym(smmu_ops);
-+
-+static size_t				kvm_arm_smmu_count;
-+static struct hyp_arm_smmu_v3_device	*kvm_arm_smmu_array;
-+static size_t				kvm_arm_smmu_cur;
-+
-+static void kvm_arm_smmu_array_free(void)
-+{
-+	int order;
-+
-+	order = get_order(kvm_arm_smmu_count * sizeof(*kvm_arm_smmu_array));
-+	free_pages((unsigned long)kvm_arm_smmu_array, order);
-+}
-+
-+static int kvm_arm_smmu_array_alloc(void)
-+{
-+	int smmu_order;
-+	struct device_node *np;
-+
-+	for_each_compatible_node(np, NULL, "arm,smmu-v3")
-+		kvm_arm_smmu_count++;
-+
-+	if (!kvm_arm_smmu_count)
-+		return -ENODEV;
-+	smmu_order = get_order(kvm_arm_smmu_count * sizeof(*kvm_arm_smmu_array));
-+	kvm_arm_smmu_array = (void *)__get_free_pages(GFP_KERNEL | __GFP_ZERO, smmu_order);
-+	if (!kvm_arm_smmu_array)
++#define SMMU_KVM_STRTAB_ORDER				(get_order(STRTAB_MAX_L1_ENTRIES * \
++							 sizeof(struct arm_smmu_strtab_l1)))
+ 
+ extern struct pkvm_iommu_ops kvm_nvhe_sym(smmu_ops);
+ 
+@@ -34,6 +41,9 @@ static void kvm_arm_smmu_array_free(void)
+ 		if (smmu->cmdq.base_dma)
+ 			free_pages((unsigned long)phys_to_virt(smmu->cmdq.base_dma),
+ 				   SMMU_KVM_CMDQ_ORDER);
++		if (smmu->strtab_dma)
++			free_pages((unsigned long)phys_to_virt(smmu->strtab_dma),
++				   SMMU_KVM_STRTAB_ORDER);
+ 	}
+ 
+ 	order = get_order(kvm_arm_smmu_count * sizeof(*kvm_arm_smmu_array));
+@@ -80,8 +90,8 @@ static int smmuv3_nesting_probe(struct platform_device *pdev)
+ {
+ 	struct hyp_arm_smmu_v3_device *smmu = &kvm_arm_smmu_array[kvm_arm_smmu_cur];
+ 	struct device *dev = &pdev->dev;
++	void *cmdq_base, *strtab;
+ 	struct resource *res;
+-	void *cmdq_base;
+ 
+ 	/* Only device tree, ACPI not supported. */
+ 	if (!dev->of_node)
+@@ -117,6 +127,15 @@ static int smmuv3_nesting_probe(struct platform_device *pdev)
+ 	smmu->cmdq.base_dma = virt_to_phys(cmdq_base);
+ 	smmu->cmdq.llq.max_n_shift = SMMU_KVM_CMDQ_ORDER + PAGE_SHIFT - CMDQ_ENT_SZ_SHIFT;
+ 
++	strtab = (void *)__get_free_pages(GFP_KERNEL | __GFP_ZERO, SMMU_KVM_STRTAB_ORDER);
++	if (!strtab) {
++		free_pages((unsigned long)cmdq_base, SMMU_KVM_CMDQ_ORDER);
 +		return -ENOMEM;
-+	return 0;
-+}
-+
-+static unsigned int smmu_hyp_pgt_pages(void)
-+{
-+	struct device_node *np = of_find_compatible_node(NULL, NULL, "arm,smmu-v3");
-+
-+	/*
-+	 * SMMUv3 uses the same format as the CPU stage-2 and hence have the same memory
-+	 * requirements, we add extra 500 pages for L2 STEs.
-+	 * Only one set of memory is allocated as the page table is shared between all
-+	 * the SMMUs.
-+	 */
-+	if (np) {
-+		of_node_put(np);
-+		return host_s2_pgtable_pages() + 500;
 +	}
 +
-+	return 0;
++	smmu->strtab_dma = virt_to_phys(strtab);
++	smmu->strtab_size = PAGE_SIZE << SMMU_KVM_STRTAB_ORDER;
++
+ 	if (of_dma_is_coherent(dev->of_node))
+ 		smmu->features |= ARM_SMMU_FEAT_COHERENCY;
+ 
+diff --git a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
+index f62c9e8f2c59..3b133f24b4ca 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
+@@ -16,6 +16,14 @@
+ size_t __ro_after_init kvm_hyp_arm_smmu_v3_count;
+ struct hyp_arm_smmu_v3_device *kvm_hyp_arm_smmu_v3_smmus;
+ 
++/* strtab accessors */
++#define strtab_log2size(smmu)	(FIELD_GET(STRTAB_BASE_CFG_LOG2SIZE, (smmu)->host_ste_cfg))
++#define strtab_size(smmu)	((1UL << strtab_log2size(smmu)) * STRTAB_STE_DWORDS * 8)
++#define strtab_host_base(smmu)	((smmu)->host_ste_base & STRTAB_BASE_ADDR_MASK)
++#define strtab_split(smmu)	(FIELD_GET(STRTAB_BASE_CFG_SPLIT, (smmu)->host_ste_cfg))
++#define strtab_l1_size(smmu)	((1UL << (strtab_log2size(smmu) - strtab_split(smmu))) * \
++				 (sizeof(struct arm_smmu_strtab_l1)))
++
+ #define for_each_smmu(smmu) \
+ 	for ((smmu) = kvm_hyp_arm_smmu_v3_smmus; \
+ 	     (smmu) != &kvm_hyp_arm_smmu_v3_smmus[kvm_hyp_arm_smmu_v3_count]; \
+@@ -58,6 +66,11 @@ static bool is_cmdq_enabled(struct hyp_arm_smmu_v3_device *smmu)
+ 	return FIELD_GET(CR0_CMDQEN, smmu->cr0);
+ }
+ 
++static bool is_smmu_enabled(struct hyp_arm_smmu_v3_device *smmu)
++{
++	return FIELD_GET(CR0_SMMUEN, smmu->cr0);
 +}
 +
-+static struct platform_driver smmuv3_nesting_driver;
-+static int smmuv3_nesting_probe(struct platform_device *pdev)
+ /*
+  * CMDQ, STE host copies are accessed by the hypervisor, we share them to
+  * - Prevent the host from passing protected VM memory.
+@@ -190,6 +203,11 @@ static void smmu_deinit_device(struct hyp_arm_smmu_v3_device *smmu)
+ 	if (smmu->cmdq.base)
+ 		WARN_ON(__pkvm_hyp_donate_host(smmu->cmdq.base_dma >> PAGE_SHIFT,
+ 					       cmdq_size(&smmu->cmdq) >> PAGE_SHIFT));
++
++	if (smmu->strtab_cfg.linear.table ||
++	    smmu->strtab_cfg.l2.l1tab)
++		WARN_ON(__pkvm_hyp_donate_host(hyp_phys_to_pfn(smmu->strtab_dma),
++					       smmu->strtab_size >> PAGE_SHIFT));
+ 	smmu->base = NULL;
+ }
+ 
+@@ -265,6 +283,45 @@ static int smmu_init_cmdq(struct hyp_arm_smmu_v3_device *smmu)
+ 	return 0;
+ }
+ 
++static int smmu_init_strtab(struct hyp_arm_smmu_v3_device *smmu)
 +{
-+	struct hyp_arm_smmu_v3_device *smmu = &kvm_arm_smmu_array[kvm_arm_smmu_cur];
-+	struct device *dev = &pdev->dev;
-+	struct resource *res;
-+
-+	/* Only device tree, ACPI not supported. */
-+	if (!dev->of_node)
-+		return -EINVAL;
-+
-+	if (kvm_arm_smmu_cur >= kvm_arm_smmu_count)
-+		return -ENOSPC;
-+
-+	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-+	if (!res)
-+		return -ENODEV;
-+
-+	if (of_property_read_bool(dev->of_node, "cavium,cn9900-broken-page1-regspace"))
-+		return -EINVAL;
-+
-+	smmu->mmio_addr = res->start;
-+	smmu->mmio_size = resource_size(res);
-+	if (smmu->mmio_size < SZ_128K) {
-+		dev_err(dev, "MMIO region too small(%pr)\n", res);
-+		return -EINVAL;
-+	}
-+
-+	if (of_dma_is_coherent(dev->of_node))
-+		smmu->features |= ARM_SMMU_FEAT_COHERENCY;
-+
-+	kvm_arm_smmu_cur++;
-+	return 0;
-+}
-+
-+static int __init kvm_arm_smmu_v3_register(void)
-+{
-+	size_t nr_pages = smmu_hyp_pgt_pages();
++	struct arm_smmu_strtab_cfg *cfg = &smmu->strtab_cfg;
 +	int ret;
++	u32 reg;
 +
-+	if (!is_protected_kvm_enabled() || !nr_pages)
-+		return 0;
-+
-+	ret = kvm_arm_smmu_array_alloc();
++	ret = __pkvm_host_donate_hyp(hyp_phys_to_pfn(smmu->strtab_dma),
++				     smmu->strtab_size >> PAGE_SHIFT);
 +	if (ret)
-+		goto out_err;
++		return ret;
 +
-+	ret = platform_driver_probe(&smmuv3_nesting_driver, smmuv3_nesting_probe);
-+	if (ret)
-+		goto out_free;
++	if (smmu->features & ARM_SMMU_FEAT_2_LVL_STRTAB) {
++		unsigned int last_sid_idx =
++			arm_smmu_strtab_l1_idx((1ULL << smmu->sid_bits) - 1);
 +
-+	ret = pkvm_iommu_register_driver(kern_hyp_va(lm_alias(&kvm_nvhe_sym(smmu_ops))),
-+					nr_pages);
-+	if (ret)
-+		goto out_unregister;
++		cfg->l2.l1tab = hyp_phys_to_virt(smmu->strtab_dma);
++		cfg->l2.l1_dma = smmu->strtab_dma;
++		cfg->l2.num_l1_ents = min(last_sid_idx + 1, STRTAB_MAX_L1_ENTRIES);
 +
-+	/*
-+	 * These variables are stored in the nVHE image, and won't be accessible
-+	 * after KVM initialization. Ownership of kvm_arm_smmu_array will be
-+	 * transferred to the hypervisor as well.
-+	 */
-+	kvm_hyp_arm_smmu_v3_smmus = kvm_arm_smmu_array;
-+	kvm_hyp_arm_smmu_v3_count = kvm_arm_smmu_cur;
-+	return ret;
-+
-+out_unregister:
-+	platform_driver_unregister(&smmuv3_nesting_driver);
-+out_free:
-+	kvm_arm_smmu_array_free();
-+out_err:
-+	kvm_arm_smmu_count = 0;
-+	kvm_arm_smmu_array = NULL;
-+	return ret;
-+};
-+
-+static int smmu_create_aux_device(struct device *dev, void *data)
-+{
-+	static int dev_id;
-+	struct auxiliary_device *auxdev;
-+
-+	auxdev = __devm_auxiliary_device_create(dev, "protected_kvm",
-+						"smmu_v3_emu", NULL, dev_id++);
-+	if (!auxdev)
-+		return -ENODEV;
-+
-+	auxdev->dev.parent = dev;
-+	return 0;
-+}
-+
-+static int kvm_arm_smmu_v3_post_init(void)
-+{
-+	if (!kvm_arm_smmu_count)
-+		return 0;
-+
-+	/*
-+	 * If the hypervisor part of the driver fails, KVM will not initialise.
-+	 */
-+	if (!is_kvm_arm_initialised()) {
-+		kvm_arm_smmu_array_free();
-+		platform_driver_unregister(&smmuv3_nesting_driver);
-+		return 0;
++		reg = FIELD_PREP(STRTAB_BASE_CFG_FMT,
++				 STRTAB_BASE_CFG_FMT_2LVL) |
++		      FIELD_PREP(STRTAB_BASE_CFG_LOG2SIZE,
++				 ilog2(cfg->l2.num_l1_ents) + STRTAB_SPLIT) |
++		      FIELD_PREP(STRTAB_BASE_CFG_SPLIT, STRTAB_SPLIT);
++	} else {
++		cfg->linear.table = hyp_phys_to_virt(smmu->strtab_dma);
++		cfg->linear.ste_dma = smmu->strtab_dma;
++		cfg->linear.num_ents = 1UL << smmu->sid_bits;
++		reg = FIELD_PREP(STRTAB_BASE_CFG_FMT,
++				 STRTAB_BASE_CFG_FMT_LINEAR) |
++		      FIELD_PREP(STRTAB_BASE_CFG_LOG2SIZE, smmu->sid_bits);
 +	}
 +
-+	WARN_ON(driver_for_each_device(&smmuv3_nesting_driver.driver, NULL,
-+				       NULL, smmu_create_aux_device));
-+
++	writeq_relaxed((smmu->strtab_dma & STRTAB_BASE_ADDR_MASK) | STRTAB_BASE_RA,
++		       smmu->base + ARM_SMMU_STRTAB_BASE);
++	writel_relaxed(reg, smmu->base + ARM_SMMU_STRTAB_BASE_CFG);
 +	return 0;
 +}
 +
-+static const struct of_device_id smmuv3_nested_of_match[] = {
-+	{ .compatible = "arm,smmu-v3", },
-+	{ },
-+};
-+
-+static struct platform_driver smmuv3_nesting_driver = {
-+	.driver = {
-+		.name = "smmuv3-nesting",
-+		.of_match_table = smmuv3_nested_of_match,
-+		.suppress_bind_attrs = true,
-+	},
-+};
-+late_initcall(kvm_arm_smmu_v3_post_init);
-+subsys_initcall(kvm_arm_smmu_v3_register);
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 674ff98706f6..49728d8076d9 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -11,6 +11,7 @@
+ static int smmu_init_device(struct hyp_arm_smmu_v3_device *smmu)
+ {
+ 	unsigned long haddr;
+@@ -288,6 +345,10 @@ static int smmu_init_device(struct hyp_arm_smmu_v3_device *smmu)
+ 	if (ret)
+ 		goto out_ret;
  
- #include <linux/acpi.h>
- #include <linux/acpi_iort.h>
-+#include <linux/auxiliary_bus.h>
- #include <linux/bitops.h>
- #include <linux/crash_dump.h>
- #include <linux/delay.h>
-@@ -5311,6 +5312,48 @@ static struct platform_driver arm_smmu_driver = {
- module_driver(arm_smmu_driver, platform_driver_register,
- 	      arm_smmu_driver_unregister);
- 
-+#ifdef CONFIG_ARM_SMMU_V3_PKVM
-+/*
-+ * Now we have 2 devices, the aux device bound to this driver, and pdev
-+ * which is the physical platform device bound to the KVM driver but not used.
-+ * However, this driver keeps using the platform device for 2 reasons:
-+ * 1) Simplicity: Avoiding changing big parts of the code assuming
-+ *    the underlying device is a platform device.
-+ * 2) Dealing with DMA-API, irqs(MSIs), RPM... requires the physical device.
-+ */
++	ret = smmu_init_strtab(smmu);
++	if (ret)
++		goto out_ret;
 +
-+static int arm_smmu_device_probe_emu(struct auxiliary_device *auxdev,
-+				     const struct auxiliary_device_id *id)
+ 	return 0;
+ 
+ out_ret:
+@@ -422,6 +483,46 @@ static int smmu_emulate_cmdq_insert(struct hyp_arm_smmu_v3_device *smmu)
+ 	return ret;
+ }
+ 
++static int smmu_update_ste_shadow(struct hyp_arm_smmu_v3_device *smmu, bool enabled)
 +{
-+	struct device *parent = auxdev->dev.parent;
++	size_t strtab_size;
++	u32 fmt  = FIELD_GET(STRTAB_BASE_CFG_FMT, smmu->host_ste_cfg);
 +
-+	dev_info(&auxdev->dev, "Probing from %s\n", dev_name(parent));
-+	return arm_smmu_device_probe(to_platform_device(parent));
++	/* Linux doesn't change the fmt nor size of the strtab in the run time. */
++	if (smmu->features & ARM_SMMU_FEAT_2_LVL_STRTAB) {
++		if ((fmt != STRTAB_BASE_CFG_FMT_2LVL) ||
++		     (strtab_split(smmu) != STRTAB_SPLIT) ||
++		     (strtab_log2size(smmu) > (ilog2(STRTAB_MAX_L1_ENTRIES) + STRTAB_SPLIT)) ||
++		     (strtab_split(smmu) >= strtab_log2size(smmu)))
++			return -EINVAL;
++		strtab_size = strtab_l1_size(smmu);
++	} else {
++		if ((fmt != STRTAB_BASE_CFG_FMT_LINEAR) ||
++		    (strtab_log2size(smmu) > smmu->sid_bits))
++			return -EINVAL;
++		strtab_size = strtab_size(smmu);
++	}
++
++	if (enabled)
++		return smmu_share_pages(strtab_host_base(smmu), strtab_size);
++
++	return smmu_unshare_pages(strtab_host_base(smmu), strtab_size);
 +}
 +
-+static void arm_smmu_device_remove_emu(struct auxiliary_device *auxdev)
++static void smmu_emulate_enable(struct hyp_arm_smmu_v3_device *smmu)
 +{
-+	arm_smmu_device_remove(to_platform_device(auxdev->dev.parent));
++	/* Enabling SMMU without CMDQ, means TLB invalidation won't work. */
++	if (WARN_ON(!is_cmdq_enabled(smmu)))
++		return;
++
++	WARN_ON(smmu_update_ste_shadow(smmu, true));
 +}
 +
-+const struct auxiliary_device_id arm_smmu_aux_table[] = {
-+	{ .name = "protected_kvm.smmu_v3_emu" },
-+	{ },
-+};
++static void smmu_emulate_disable(struct hyp_arm_smmu_v3_device *smmu)
++{
++	WARN_ON(smmu_update_ste_shadow(smmu, false));
++}
 +
-+struct auxiliary_driver arm_smmu_driver_emu = {
-+	.driver = {
-+		.suppress_bind_attrs = true,
-+	},
-+	.name = "arm-smmu-v3-emu",
-+	.id_table = arm_smmu_aux_table,
-+	.probe = arm_smmu_device_probe_emu,
-+	.remove = arm_smmu_device_remove_emu,
-+};
-+
-+module_auxiliary_driver(arm_smmu_driver_emu);
-+#endif
-+
- MODULE_DESCRIPTION("IOMMU API for ARM architected SMMUv3 implementations");
- MODULE_AUTHOR("Will Deacon <will@kernel.org>");
- MODULE_ALIAS("platform:arm-smmu-v3");
+ static void smmu_emulate_cmdq_enable(struct hyp_arm_smmu_v3_device *smmu)
+ {
+ 	u32 shift = smmu->cmdq_host.q_base & Q_BASE_LOG2SIZE;
+@@ -509,7 +610,23 @@ static bool smmu_dabt_device(struct hyp_arm_smmu_v3_device *smmu,
+ 		}
+ 	/* Passthrough the register access for bisectiblity, handled later */
+ 	case ARM_SMMU_STRTAB_BASE:
++		if (is_write) {
++			/* Must only be written when SMMU_CR0.SMMUEN == 0.*/
++			if (is_smmu_enabled(smmu))
++				break;
++			smmu->host_ste_base = val;
++		}
++		mask = read_write;
++		break;
+ 	case ARM_SMMU_STRTAB_BASE_CFG:
++		if (is_write) {
++			/* Must only be written when SMMU_CR0.SMMUEN == 0.*/
++			if (is_smmu_enabled(smmu))
++				break;
++			smmu->host_ste_cfg = val;
++		}
++		mask = read_write;
++		break;
+ 	case ARM_SMMU_GBPA:
+ 		mask = read_write;
+ 		break;
+@@ -518,12 +635,17 @@ static bool smmu_dabt_device(struct hyp_arm_smmu_v3_device *smmu,
+ 			break;
+ 		if (is_write) {
+ 			bool last_cmdq_en = is_cmdq_enabled(smmu);
++			bool last_smmu_en = is_smmu_enabled(smmu);
+ 
+ 			smmu->cr0 = val;
+ 			if (!last_cmdq_en && is_cmdq_enabled(smmu))
+ 				smmu_emulate_cmdq_enable(smmu);
+ 			else if (last_cmdq_en && !is_cmdq_enabled(smmu))
+ 				smmu_emulate_cmdq_disable(smmu);
++			if (!last_smmu_en && is_smmu_enabled(smmu))
++				smmu_emulate_enable(smmu);
++			else if (last_smmu_en && !is_smmu_enabled(smmu))
++				smmu_emulate_disable(smmu);
+ 		}
+ 		mask = read_write;
+ 		break;
 diff --git a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h
-index 0d9e48b201f5..744ee2b7f0b4 100644
+index 74a7f62d93eb..085aead009b6 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h
 +++ b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h
-@@ -8,6 +8,7 @@
-  * Parameters from the trusted host:
+@@ -15,6 +15,8 @@
   * @mmio_addr		base address of the SMMU registers
   * @mmio_size		size of the registers resource
-+ * @features		Features of SMMUv3, subset of the main driver
+  * @features		Features of SMMUv3, subset of the main driver
++ * @strtab_dma		Phys address of stream table
++ * @strtab_size		Stream table size
   *
   * Other members are filled and used at runtime by the SMMU driver.
   * @base		Virtual address of SMMU registers
-@@ -16,6 +17,7 @@ struct hyp_arm_smmu_v3_device {
+@@ -27,6 +29,9 @@
+  * @cmdq		CMDQ as observed by HW
+  * @cmdq_host		Host view of the CMDQ, only q_base and llq used.
+  * @cr0			Last value of CR0
++ * @host_ste_cfg	Host stream table config
++ * @host_ste_base	Host stream table base
++ * @strtab_cfg		Stream table as seen by HW
+  */
+ struct hyp_arm_smmu_v3_device {
  	phys_addr_t		mmio_addr;
- 	size_t			mmio_size;
- 	void __iomem		*base;
-+	u32			features;
+@@ -46,6 +51,11 @@ struct hyp_arm_smmu_v3_device {
+ 	struct arm_smmu_queue	cmdq;
+ 	struct arm_smmu_queue	cmdq_host;
+ 	u32			cr0;
++	dma_addr_t		strtab_dma;
++	size_t			strtab_size;
++	u64			host_ste_cfg;
++	u64			host_ste_base;
++	struct arm_smmu_strtab_cfg strtab_cfg;
  };
  
  extern size_t kvm_nvhe_sym(kvm_hyp_arm_smmu_v3_count);
