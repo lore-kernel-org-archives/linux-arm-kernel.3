@@ -4,91 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BFBEC44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 16:13:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F618C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 16:15:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hoc4sBVA38BJgNS+RSLviYr+scjAjo8V7n3kbm3q76s=; b=hc1buKTGULptrmuwKFiAWzjMrP
-	AYTd6wgb/VB7f4wJfnmR9HUtfwVFmiDqLzPddH1H4vMHYMPCOxylW5Aon1mClLn9ZuVldaJ+J+HaC
-	amuzCV6crMMAG6fqUZjHzxh7i6aYWDT/XVnXqeM4xv2f31G8WJuRtTUO4D+CXrNERcPI1bnP4SYnE
-	j+gIrPFxZrCdwsUI+ASgO2tHOT8VK00QVTeI9PaLI4ZwNnW6pj7rd9q0fpAbzRNTsjSneV29+R3aN
-	iTzrEdNAXbOou0Kabfdbmc8h2LqbvY3gyQqX16nV6jyJYEA4NYyYhgpRvMockM+5kXzHjFhVcRRSj
-	wv/zIExg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wlzVyfcBx91gz78ypXUmC61FLoEguwYDwI0TRaRC9rs=; b=29lZ1ED9J4+Jifm8k6o02M+ac9
+	f5NlTIFlrWwc7gzgY1gEKzY5C8Z/Eb45g4XryO9zegk43pkxrq1SIqUwd3dOyVToX4z2t12SGhgvT
+	iCCc3ke8Jjk6mLb4TWEZYfh0ClrRu9E2yydcXs2B3nsjMhMqCr8y9hwdfulLAMV6fTBXyO02wICmw
+	8is7cQuND+yanO4/lZxLHz01cPqsmWXHI1ObHsqGESIz5OZMDHWZm2s4JcarCm+L7mlhZKlYZmFxk
+	Yyg75t01uBtR2A/f0q/Fjs6EobFrjxRtZC8i1wJ3Ofi2+c4Tvbn7Bh3D5UPArweUBiDDPgmQe/j9f
+	Tkl26rTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk2ER-0000000FQCf-47s9;
-	Wed, 15 Jul 2026 16:13:11 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk2EQ-0000000FQCE-1X98
+	id 1wk2Gs-0000000FQTS-1fi0;
+	Wed, 15 Jul 2026 16:15:42 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wk2Gp-0000000FQT4-3Ap0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 16:13:10 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 736DE43287;
-	Wed, 15 Jul 2026 16:13:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52DC11F000E9;
-	Wed, 15 Jul 2026 16:13:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784131989;
-	bh=hoc4sBVA38BJgNS+RSLviYr+scjAjo8V7n3kbm3q76s=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=LRYqaDLwCjZ90T7+b/n0QyldeEUvCYq1xgMdAV3MQotzOGco1EOXv+oWS5cTd98g6
-	 15FpqiOBf254F+RwRg/JeaT2xMhpI4iSD0o/bgCli/qCiywLgI2EMcyVEsIdSxRDR+
-	 +R3cYVvHzfSUc7nAgXeip5byLBQKup+IeFV2j+/cfAmOQnHOBxOj7apvwOaX/EapQA
-	 PHBs7XRrLfJz9jgFNoqEDakM8I1rjD55Xa81eAMszHPaW1RQgbmrbOTwEeVlIgQr5g
-	 b+rkej/XbF3+TfjjfdmbtF7If6pp3SSf4YHfP8VSQBFATEh24jLi31BgmjVRwhCFHF
-	 3wTF8R43u4D+A==
-Received: from [194.56.92.2] (helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wk2EN-00000005OGD-1MhH;
-	Wed, 15 Jul 2026 16:13:07 +0000
-Date: Wed, 15 Jul 2026 17:14:56 +0100
-Message-ID: <87zezs44cf.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>,
-	WeiLin.Chang@arm.com,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: Re: [PATCH v15 09/37] KVM: arm64: CCA: Allow passing the machine type in KVM creation
-In-Reply-To: <20260715142841.80544-10-steven.price@arm.com>
+	Wed, 15 Jul 2026 16:15:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0CD4F1477;
+	Wed, 15 Jul 2026 09:15:34 -0700 (PDT)
+Received: from [10.1.25.27] (e122027.cambridge.arm.com [10.1.25.27])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BFBE93F7B4;
+	Wed, 15 Jul 2026 09:15:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784132138; bh=PKg6jBC/MYOa0C63d4sWEQyRzx/nigEWXdfsBnDnOqM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=pCu86zEJfeCDXQkrept5gXczJP3GrT+IwQ8hxr8Kqn7Xcv4jZ1lbcV1eA5eSt2B35
+	 V2q4PZFuvcGPE5yaqnhq1aRfrG/VElkjm/pykufi7OS5yb9ELmGlV4aO5xgBbEWvgC
+	 1nAeKtvsIRkxzANupJeB0PyiH7sTfbSR4a7ot74U=
+Message-ID: <ec0f52d4-666d-4b6f-b010-eb0391fa53a7@arm.com>
+Date: Wed, 15 Jul 2026 17:15:31 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v15 26/37] KVM: arm64: WARN on injected undef exceptions
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>
 References: <20260715142841.80544-1-steven.price@arm.com>
-	<20260715142841.80544-10-steven.price@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 194.56.92.2
-X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+ <20260715142841.80544-27-steven.price@arm.com> <8733xk5k7v.wl-maz@kernel.org>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <8733xk5k7v.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260715_091539_915700_DA57088B 
+X-CRM114-Status: GOOD (  14.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,66 +84,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 15 Jul 2026 15:28:11 +0100,
-Steven Price <steven.price@arm.com> wrote:
+On 15/07/2026 16:46, Marc Zyngier wrote:
+> On Wed, 15 Jul 2026 15:28:28 +0100,
+> Steven Price <steven.price@arm.com> wrote:
+>>
+>> The RMM doesn't allow injection of a undefined exception into a realm
+>> guest. Add a WARN to catch if this ever happens.
+>>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> Reviewed-by: Gavin Shan <gshan@redhat.com>
+>> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>> ---
+>> Changes since v6:
+>>  * if (x) WARN(1, ...) makes no sense, just WARN(x, ...)!
+>> ---
+>>  arch/arm64/kvm/inject_fault.c | 1 +
+>>  1 file changed, 1 insertion(+)
+>>
+>> diff --git a/arch/arm64/kvm/inject_fault.c b/arch/arm64/kvm/inject_fault.c
+>> index 6492397b73d7..613f223bc7a3 100644
+>> --- a/arch/arm64/kvm/inject_fault.c
+>> +++ b/arch/arm64/kvm/inject_fault.c
+>> @@ -327,6 +327,7 @@ void kvm_inject_size_fault(struct kvm_vcpu *vcpu)
+>>   */
+>>  void kvm_inject_undefined(struct kvm_vcpu *vcpu)
+>>  {
+>> +	WARN(vcpu_is_rec(vcpu), "Unexpected undefined exception injection to REC");
+>>  	if (vcpu_el1_is_32bit(vcpu))
+>>  		inject_undef32(vcpu);
+>>  	else
 > 
-> Previously machine type was used purely for specifying the physical
-> address size of the guest. Reserve the higher bits to specify an ARM
-> specific machine type and declare a new type 'KVM_VM_TYPE_ARM_REALM'
-> used to create a realm guest.
-> 
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
-> Changes since v13:
->  * Rework to use the two top bits for the machine type now that pKVM has
->    merged and used the top bit for KVM_VM_TYPE_ARM_PROTECTED.
->  * Update the documentation to include KVM_VM_TYPE_ARM_PROTECTED as
->    well.
-> Changes since v9:
->  * Explictly set realm.state to REALM_STATE_NONE rather than rely on the
->    zeroing of the structure.
-> Changes since v7:
->  * Add some documentation explaining the new machine type.
-> Changes since v6:
->  * Make the check for kvm_rme_is_available more visible and report an
->    error code of -EPERM (instead of -EINVAL) to make it explicit that
->    the kernel supports RME, but the platform doesn't.
-> ---
->  Documentation/virt/kvm/api.rst | 18 ++++++++++++++++--
->  arch/arm64/kvm/arm.c           | 11 +++++++++++
->  include/uapi/linux/kvm.h       |  7 ++++++-
->  3 files changed, 33 insertions(+), 3 deletions(-)
-> 
-> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-> index b38e090ad95d..e39d146b34a3 100644
-> --- a/Documentation/virt/kvm/api.rst
-> +++ b/Documentation/virt/kvm/api.rst
-> @@ -181,8 +181,22 @@ flag KVM_VM_MIPS_VZ.
->  ARM64:
->  ^^^^^^
->  
-> -On arm64, the physical address size for a VM (IPA Size limit) is limited
-> -to 40bits by default. The limit can be configured if the host supports the
-> +On arm64, the machine type identifier is used to encode a type and the
-> +physical address size for the VM. The lower byte (bits[7-0]) encode the
-> +address size and the upper bits[30-31] encode a machine type. The machine
-> +types that might be available are:
-> +
-> + =========================   ============================================
-> + KVM_VM_TYPE_ARM_NORMAL      A standard VM
-> + KVM_VM_TYPE_ARM_REALM       A "Realm" VM using the Arm Confidential
-> +                             Compute extensions, the VM's memory is
-> +                             protected from the host.
-> + KVM_VM_TYPE_ARM_PROTECTED   A "protected" VM using pKVM to isolate the
-> +                             VM from the host.
-> + =========================   ============================================
-> +
+> No. WARN_ONCE at a push, but even then, this looks dodgy.
 
-Probably worth mentioning that REALM+PROTECTED is an illegal
-combination.
+Yep WARN_ONCE() would be better. This function should never be called
+for a realm guest.
 
-	M.
+> Exceptions must be injectable. Otherwise, how do you respond to, for
+> example, a sysreg access for a feature that is hidden from the guest?
 
--- 
-Jazz isn't dead. It just smells funny.
+The RMM doesn't allow the host to inject exceptions - with the exception
+of SEA after a host-emulated MMIO.
+
+> Will the RMM perform this in KVM's stead?
+
+Yes the RMM would have to handle this for the likes of sysreg accesses.
+The host doesn't control the trapping of sysreg accesses. There are a
+few GIC-related registers which are forwarded to the host ("REC exit due
+to system register access") but generally the handling of sysregs is
+entirely internal to the RMM.
+
+Thanks,
+Steve
+
 
