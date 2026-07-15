@@ -4,65 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83A2DC44507
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 11:31:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01B17C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 11:31:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gxp3fXNq8XYNE/nkPh7KFYIhP3YHcDVUtPAtTd5Tryg=; b=wbDwInMXc5snf/ithWN7PJM7Dw
-	stModMJl55MHR6kUtRxsw1lhq+8EIQZkIrrK58lvthibvlDWLXloQIKSV1Fvdgqy9MIVxX2d+u0sF
-	IP5yYEuOwfSF/6v1KjeBN54hMG2WbjIRbnq+O8zECyHGHq3gMmFC/cKcxXuR2LslDdJvuKKfAX5Zm
-	CWcpZQ9O0rUO1xu9iAYTOso7ptUDZvt/4k87vLVCwsURttlrTfRj14C8QKAw6u6Af0nEz29aKjJBV
-	IejgJ8oZrXsGpD5WdtBj4ACHksTiXUSx0qfBvAgyFDWnQFmuq7dDd52vR240seZuS0xj8YdTIGlHH
-	TyV1qIbw==;
+	bh=FngayvHBAoj+/PxqT9NJfMx9Z+0Va0qsofMSXmId85c=; b=DG5FPlmeaiWKK8lxqVQAWJe89x
+	9Du1eMYuZDHY7/Gr826rcFgbIo1+YB+Qzn2spkPmkaisNZeNckk/+sxczEUd1I/MU6RDlCtXsqN9o
+	SF9QhF4VJvQZmsGxMCTTIkqtjDwrrqJK++o48YNcXo7M0Xu3wu7+X70ccqMZs3j5wz14vr+78Mkwz
+	yAksL/I7ZJLSs9jHHdXMpXuk0r9ofkYJNsBy7z8AbdIeoc4jA8++yoT+d9GO5KHV1JcePF//GHDfa
+	MC0jSX7omzDZhmyFp/sUo7ldY3D/siHWxudW9lDCZEWZlho1ARGp3TDRP7DKNnVkW26sMi5fvxCUl
+	Sxd2Z/vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjxpt-0000000Ea6l-19Sy;
-	Wed, 15 Jul 2026 11:31:33 +0000
-Received: from out-189.mta0.migadu.com ([2001:41d0:1004:224b::bd])
+	id 1wjxqB-0000000EaFk-1rH6;
+	Wed, 15 Jul 2026 11:31:51 +0000
+Received: from mail-swedencentralazon11013015.outbound.protection.outlook.com ([52.101.83.15] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjxpq-0000000Ea4j-0ksd
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 11:31:31 +0000
-X-Forwarded-Encrypted: i=1; AHgh+RoeHDlc1n5vs4eev89d16gpczymkaqMnq+AtZLrwBXOPuCSi4/xuANxdXHArZ5lpwXvo7XiLqPxoE8+Z6IX67x2@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1784115086;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gxp3fXNq8XYNE/nkPh7KFYIhP3YHcDVUtPAtTd5Tryg=;
-	b=peSFJr/p0XHXDfujAtlLOkW0qK1fJSaa6MDAZznZeWi61tkx0ZrSxLstB7uf3LrJ2h8dw3
-	rQuSQvFbLMRpxPXQieQhNRCUEWwx9wEE4awlJNpE/TWZu7bYYJm7JRFAyUKM0rabsDY2Ni
-	4DYfTbOecIaLmv+hgBf+V8u+4HJpEmg=
-X-Gm-Message-State: AOJu0YzU1vLdwsnQbexnSYDKk0tf62U172stsrUO5YLn7bp1B70S+EEI
-	Iu0FTo5O+Cyy47IflJ/eu4edly2N9f//Tffn1+CSrvD6qTNRNy94YqiauwoC6mEUCagUlbjAkLx
-	UckaAC4BOAjnH/brOb+F07AOmmwhzTcmF+Bkf4gJn
-X-Received: by 2002:a05:622a:4d:b0:51c:ba4f:9d19 with SMTP id
- d75a77b69052e-51d7bd752e0mr24873701cf.19.1784115061509; Wed, 15 Jul 2026
- 04:31:01 -0700 (PDT)
+	id 1wjxq6-0000000EaB7-0e9r;
+	Wed, 15 Jul 2026 11:31:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ugSrD/xNVu5tSGRDp1rEo10XTEi8KWgDNDN+xLYPhNQzWeR2TEgGOI7NRcXxC5iuwwpftka8O0Idth1FKrl/Vr14JX1iIfn2dp9YMk1kZvnx5z3WKgWnIVy1OIWFKBuHs7yER+cALhRFqmksBqMjbHXOoMJeu2ql8pEKbC0YIKSa93ceNzOMA6fqCUHwU8GvEusRQPBrasi+RkBmCuoHRZLtpWNcwEA6EvsEoTPSp0gcGoQPvB9U2d5D7KhhqfOKxfrPa0uBOY/PYR+cCYP26+ev6hr66Yh5hTCACsS5jQBg7ac73ogiCHqpC5tIT9XHokbjAP2Rarw4bqoGPZTRDg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=FngayvHBAoj+/PxqT9NJfMx9Z+0Va0qsofMSXmId85c=;
+ b=yz8JqMjBrFdEPxmntn3Lwg0hGxHquqWTck0/B8rgQmJxiOH60Oa5+USf9oiAVj/kS299RC8k8u5jywGg5meNVT6R443RSVoUGU7xSspr0OsVtx3Mq0W1zEBah9OaBZ38uf6qUJ+unExP+i4Rk2MP0D3FfYzz6VLbqgKjPPI4JVgdg+W3Uxvxol3zPerNfdyUh6GBFvN+Usc2EQofIncB9JmuxALCphnUw3OFq6mBQTF1qVAoI0Y2VNKADCVTlsjVBISh9vjGp1rj7iYre0ln/mX+MuKswPkEgeBgIzaC7FCZcp/kpzqPya/LQsNZzPhSQ7NWqbuqux5P+wCryVX2GA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=FngayvHBAoj+/PxqT9NJfMx9Z+0Va0qsofMSXmId85c=;
+ b=cpu808bolAiFdwWyhn72Rct1ER1JM2ey5sXUgrVpYcS8K2TWZAAPA7urIvi9N3J1PzpvHWLa0YjKa2jgWy/9vJcFe+tZODK/29daTAPcKQHxHUpl/EsqlhkcBnplEWrHcNcVeNhz+keTpmAvrGZGM4D+Vh6EvQxAEMbUCflIODdsPMIs4zQu8Tu9bWBZajIK+TgnA1GqtpWN8J/rSxjY79n7LSdY7f78+YeXwxGoVDIcD13SQ/7lm3v93r/4E274c+3i954oeIUw4Sed4gEI3hFT4xs50uFBXUTvmDYZ/zgMl6fFQ0dScBm80rC6tpT2ChsvXSm6Bp9zoxR2pM2dQg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB9422.eurprd04.prod.outlook.com (2603:10a6:102:2b4::21)
+ by DU2PR04MB8982.eurprd04.prod.outlook.com (2603:10a6:10:2e1::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.11; Wed, 15 Jul
+ 2026 11:31:05 +0000
+Received: from PAXPR04MB9422.eurprd04.prod.outlook.com
+ ([fe80::54e:28bf:aa85:d25d]) by PAXPR04MB9422.eurprd04.prod.outlook.com
+ ([fe80::54e:28bf:aa85:d25d%4]) with mapi id 15.21.0202.014; Wed, 15 Jul 2026
+ 11:31:05 +0000
+From: Xu Yang <xu.yang_2@oss.nxp.com>
+Date: Wed, 15 Jul 2026 19:34:01 +0800
+Subject: [PATCH v6 6/6] phy: fsl-imx8mq-usb: keep PHY power domain runtime
+ always-on for i.MX8MP
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260715-imx8mp-usb-phy-improvement-v6-6-00d95e270e4c@nxp.com>
+References: <20260715-imx8mp-usb-phy-improvement-v6-0-00d95e270e4c@nxp.com>
+In-Reply-To: <20260715-imx8mp-usb-phy-improvement-v6-0-00d95e270e4c@nxp.com>
+To: Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Jun Li <jun.li@nxp.com>
+Cc: linux-phy@lists.infradead.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Xu Yang <xu.yang_2@nxp.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784115243; l=2286;
+ i=xu.yang_2@nxp.com; s=20250815; h=from:subject:message-id;
+ bh=kLzuGj/Y+CnGPVZyVB45XjBGff4ec67lzUjxvTNPg74=;
+ b=kGmH6XtUmhwPVDP8KH/ZESosztcnyu5RvvTyHY1Wq85t3p4+3bOCiMKW+5bWSn2odMdmeNuWm
+ N4LxYnLMe7QAw9/rwQP2zfGnuc2LDzy/Gx/qC+OC64+AnaiIVfBcDA1
+X-Developer-Key: i=xu.yang_2@nxp.com; a=ed25519;
+ pk=5c2HwftfKxFlMJboUe40+xawMtfnp5F8iEiv5CiKS+4=
+X-ClientProxiedBy: MA5PR01CA0291.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:21b::18) To PAXPR04MB9422.eurprd04.prod.outlook.com
+ (2603:10a6:102:2b4::21)
 MIME-Version: 1.0
-References: <20260706175415.2604046-1-vdonnefort@google.com> <20260706175415.2604046-13-vdonnefort@google.com>
-In-Reply-To: <20260706175415.2604046-13-vdonnefort@google.com>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Wed, 15 Jul 2026 12:30:24 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTynPXq+h8z4U7kg6Vqh5+Jvi2dDY4w9eL_6YOW=yN=i-w@mail.gmail.com>
-X-Gm-Features: AUfX_mxhMGLkpuT8Eh9JQ0ObVBlPYewUpp8cXDJp91EMiI7N1SswSQZWtF5PdKw
-Message-ID: <CA+EHjTynPXq+h8z4U7kg6Vqh5+Jvi2dDY4w9eL_6YOW=yN=i-w@mail.gmail.com>
-Subject: Re: [PATCH v2 12/18] KVM: arm64: Filter out non-kernel addresses in kern_hyp_va
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
-	will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kernel-team@android.com, qperret@google.com
-Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9422:EE_|DU2PR04MB8982:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3393dbcf-4f9d-4761-ffb9-08dee2648ef4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|19092799006|23010399003|1800799024|18002099003|22082099003|10067099003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: G40vm0KjARNVchkKRs818C1rFkbDXGs5aU8Ep9i3TKkOlXGenUa6fHNJs/58F7MSnd8djXZJf040n4G23FkXcU0wu0TGkFItf6QcAErL+rN3mRv6cPiXxziM1Pf+q3tJVJLi8/x/F0h3SO5Tjxpddl7H+/B96LBaV6cq6tVhiM+xFezB3HTshNj/HJ6n8MLjcrIJTZnqPEFCk+ktE5kUSZanYkKlpubSJ8IdyWEOH8NtCNcQpr9DQFLwYhsZepitnFjWqUJEUrTPCo98m5eYZjHEbk4YmtCHoSHU5alvrkhUloA5xGUDMrKbCiwK1ugDODCStC7HatMhsf0jRre+VWHLNfJ/YhcK408U4ptiLh4PehXaUvEz2n0r3t9N19NS/h1bIK7O71BrwBS51o8g2ZJViNd+LscTuB4thm0V5IlPjctsYoByNoo5527M4du5KgiKPq9cD1fu4QgCqXp9GcbwBurFdqEvyS2WX7JVU1FYqfuuYLTPgYQLjdUrtJq/ZfOJ594BKfOEP1FnPnlKzNWYINFQmDbe7lccx+03QLY3P5fq/gU1YYaV55zP+oAiOrQmY8BXyMvU2jnEVvTKma/NwXOAG4cOyCZqfFgpzx6POXeZloD4txfknEuhPpNLlvLaVQbE3YzCoYJlMFSfxb7OxGXgHl+7NZgBitNyDnk=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9422.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(19092799006)(23010399003)(1800799024)(18002099003)(22082099003)(10067099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Z0dXYk16aTJrTVIrWjl5dmJxTnQ4SUIvLzRlMDEyOEF0U2dEL0ZtZU5RTHpU?=
+ =?utf-8?B?aU5YbXhWLzAzRnJ5Rmdrdzh0bWs1aHJQcVd4V3Z6WXFNSVZ4SXRaSzl4MThE?=
+ =?utf-8?B?MDBVZ2dsd0Z5V3BNOFA3a04vUFVqaWdIWEtJM1NtYWJMdkFTc1pCZ0V1TmNZ?=
+ =?utf-8?B?TS8wSXB3NkJkamZTbDFjRUVJMEtzbEhGckxMcHFoQW5McVFZTURzNDdBWE8y?=
+ =?utf-8?B?UklaYm1EcTRoSmRvVVVEUERYNTZsV21rdS9MRXRGMFBUb0NxY0pPemp6K1dr?=
+ =?utf-8?B?MDA2cTc5TjBxTHdSYmxiVGxoZkNGc2tOK3Q5ZG81TGhRcWJRbS9jNVpYVHB2?=
+ =?utf-8?B?ejZGbjlMbERsK1NWdW1MOVBZc25nTWRPaFIvS0R6dDIwd1lJUFNiUGF6WnBi?=
+ =?utf-8?B?V1Q0L29CZy90VHEzMjhSbS9BOThtcjhJdW5sMGo3YWdNTTlqWVB2VmZVK1lZ?=
+ =?utf-8?B?ejNQQTdoTFYyMGVIRnV5aDd3SG5OZVUvQ0xZdVdpSWhRWDRBUGRXMDRrK2dX?=
+ =?utf-8?B?ZUxUK0ZWdVB3clRjcjV5RlZaUVdaMCt3d1FoeXllMUdJUTBZNXFRSXV5aDlH?=
+ =?utf-8?B?UGVuRzdSL25ZblhpY2ZDclhUeElobm5KUFlGb3JVd3MwQlUzTXROaGhoOGRV?=
+ =?utf-8?B?QTRVVXIyWHJTZ21GNnFPN1ovUm1JT1V3bFc1bkQ1bTc5Z05SbXMvMWEzTDkw?=
+ =?utf-8?B?Yy9LeHVvdGg2bFpUdTRySjdXYnljamlGU0d2RTRnNytFRW5OVkh4b2lWMXJH?=
+ =?utf-8?B?QjdRWWVXVEJQSWtOWHhLYk5yeEJjdkFNMVBOamw0RThEMy9NcTM2NzRvZTJq?=
+ =?utf-8?B?SmNudkhIbEFVWkp0S2VRV3huNkFDaEhjdU0rbVNwU1ZnejNDV21jSVlaU1FH?=
+ =?utf-8?B?NFhXKzNva09INitHK2J5OXljYTVzWkIzWlNUR2dhc1BHc1NabUN6K2FYdGtQ?=
+ =?utf-8?B?bWVBcUdPdVZ2VjFwbVJROUFUTjZoOVMvcHZwUHl2MVlyMTNQcWZqeUtReDI4?=
+ =?utf-8?B?a2FMU0NtazVrYU1XdmJhZDZUY1FudXlkRjBPcmdOenNvQjBkQjM0QkVrRkJu?=
+ =?utf-8?B?SFVmS1RLODVFV1JXTjMvRVFqcnZGM3pMZnRhQjJDL251NC8wSmV6N0NHQ0Rt?=
+ =?utf-8?B?ckNPTG1mdkZXWGJyL0hFblMrY1FQSUcxaVFULzI3NEVqbTdvcngwMWpReDlY?=
+ =?utf-8?B?RkU1cEk1a01zSlVmdllxbTh2L3pBM1UvZDJ4Q3ZLUkJMU0hRVjVtWDN6MHlB?=
+ =?utf-8?B?L1Bmd3ZiR2lYdlBjdy93RWx2NkVYNFhWQlZiVnZic2tyRHVHMkZhNzNpOVRW?=
+ =?utf-8?B?WnBSdFArMzRmR08weHFQZnJ6bWxjUTBRckJRNDBhM1M0OEtXMksyV1RmbHRr?=
+ =?utf-8?B?U2xzTlBadmMrOUFhYUZJdHpYdmFkSnFDbmFjWGZUaWZZeDRWaXo1ZDQ5SVZU?=
+ =?utf-8?B?VXNLS24wK0p2eGFISUY4UVUxUU5BeC9OS2hrQkg1NVdRL0U1b3RZWlJNbHVO?=
+ =?utf-8?B?RXlueG5ZYjRpWTFMZkNtV1EzdVNCOXk4TzlobXZoZWU3ZThPbk9GNERmanVQ?=
+ =?utf-8?B?S2g0eDVzWnNlckIzcWNTdlBkdXVQaUtPajN1TDlIMXg0TG1wYXpWekRINlVD?=
+ =?utf-8?B?NFVTTUNsbCtjQ1hUMVI5aFZPaGdZMndpS3pKNk0yQVY3Y1hLeHRWc3dDV1dF?=
+ =?utf-8?B?Ym8yS28vbkVaMzFEZkc1OS9mTWwvZFQ0OGRaWkI1RE9QTEIxK25OVUsyK2Z4?=
+ =?utf-8?B?dGR5aXFOcklmcWV0ZXZubmhYam50V2xHNnlpOStjZHlDNW03RnZqV3JKWWxs?=
+ =?utf-8?B?M21NZXdGVXBpSXNmQ1RXUFovdTVyWnVOQUl6bjJ3cDNqdlA1dGgrMWhjR2o4?=
+ =?utf-8?B?cy9tMXIzUSt5MWF0aG14WkJDZWM1dXN2ckhRK3ZXZXkrQnAxakFHMXlDVXZH?=
+ =?utf-8?B?Tjh5cXR6Q2I4MzVPQmI3bTczM096ckp1TnNYWkZGODl3MDdwVlg1WjZ5QmlT?=
+ =?utf-8?B?N2dTUmZleXUycFVUWk5zM3VHSFBXekhjZE90dE1nbU1PTGhMUEd4cnRkeDdG?=
+ =?utf-8?B?aFJXQU1GRFdDeC9VWldDbkJMT2sxcW52aFBtRnhYcDZ6Nm1OVDdVOGxKNmJ1?=
+ =?utf-8?B?OHNJT08zNVZnSklkSjVIelZsa2lDMVdHd2ZDZmQzVFpBQkw2Y0YzYS9KeTRF?=
+ =?utf-8?B?aHZkMjRCanoxSmRRNkNIVlpmRDhST2VoS2MvbFd4SEt4UXBQRmFIQkZPL2ZL?=
+ =?utf-8?B?cXZxUFNYekE2SlFuaXVyQXdCNnZmbFNtV2srSW1vK0JyVno1RnI0Q1poRHZH?=
+ =?utf-8?B?ZU13YlVUeEdVQWF5VURMMmhDRG9DN25MYW1WcjhEM2hhcXAycTAyN29xa0M4?=
+ =?utf-8?Q?r0FVq7kVb5sPbetpckvnA5MT8zTKrVjWgNegd?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3393dbcf-4f9d-4761-ffb9-08dee2648ef4
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9422.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2026 11:31:05.7667
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: cq3WE/xZct4dtGC5mPgumIa53+M7hVIB+AZJVLBpmujSYuqW+vIAdza8pMN2TME239Bj33wq42bAG8w2KX+4ouScgGAM64vHY3VeRnr0e3HqcwxTN/lr6D7zaMNbl6/E
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8982
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_043130_362237_23C1A685 
-X-CRM114-Status: GOOD (  16.76  )
+X-CRM114-CacheID: sfid-20260715_043146_413411_E9685E50 
+X-CRM114-Status: GOOD (  14.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,45 +158,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 6 Jul 2026 at 18:54, Vincent Donnefort <vdonnefort@google.com> wrote:
->
-> kern_hyp_va() is idempotent for the hypervisor linear space. This is
-> handy for nVHE hypervisor callers handling kvm_vcpu or kvm_arch
-> pointers. Those pointers can originate from the hypervisor space (when
-> protected mode is enabled, we don't trust the kernel and the hypervisor
-> uses its own copy) or from the kernel space (we do trust the kernel in
-> "non-protected" nVHE).
->
-> This idempotence does not hold for addresses within the hypervisor
-> private range, like the ones you get from the pKVM heap allocator
-> (hyp_alloc()). To resolve this, filter out non-kernel addresses based on
-> PAGE_OFFSET.
->
-> Leave the assembly version untouched as it has no current users.
->
-> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+From: Xu Yang <xu.yang_2@nxp.com>
 
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+On i.MX8MP, the USB PHY has a dedicated power domain that was previously
+never powered off at runtime. With the introduction of runtime PM support,
+the power domain will be powered off if the device is runtime suspended,
+which breaks USB wakeup functionality.
 
-Cheers,
-/fuad
+To preserve wakeup functionality, mark the PHY power domain as runtime
+always-on for i.MX8MP platform. To limit the behavior to i.MX8MP, add a
+need_genpd_rpm_on to imx8mq_usb_phy_drvdata and set it as true for i.MX8MP.
 
->
-> diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
-> index 6eae7e7e2a68..d60e5f2de10c 100644
-> --- a/arch/arm64/include/asm/kvm_mmu.h
-> +++ b/arch/arm64/include/asm/kvm_mmu.h
-> @@ -126,6 +126,9 @@ static __always_inline unsigned long __kern_hyp_va(unsigned long v)
->   * replace the instructions with `nop`s.
->   */
->  #ifndef __KVM_VHE_HYPERVISOR__
-> +       if (!is_ttbr1_addr(v))
-> +               return v;
-> +
->         asm volatile(ALTERNATIVE_CB("and %0, %0, #1\n"         /* mask with va_mask */
->                                     "ror %0, %0, #1\n"         /* rotate to the first tag bit */
->                                     "add %0, %0, #0\n"         /* insert the low 12 bits of the tag */
-> --
-> 2.55.0.rc2.803.g1fd1e6609c-goog
->
+Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+
+---
+Changes in v6:
+ - set need_genpd_rpm_on flag for i.MX8MP and call dev_pm_genpd_rpm_always_on()
+   if the flag is true
+Changes in v5:
+ - no changes
+Changes in v4:
+ - no changes
+Changes in v3:
+ - new patch
+---
+ drivers/phy/freescale/phy-fsl-imx8mq-usb.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
+index f0bdfa75d586..2398bda50eb8 100644
+--- a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
++++ b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
+@@ -9,6 +9,7 @@
+ #include <linux/of.h>
+ #include <linux/phy/phy.h>
+ #include <linux/platform_device.h>
++#include <linux/pm_domain.h>
+ #include <linux/pm_runtime.h>
+ #include <linux/regulator/consumer.h>
+ #include <linux/regmap.h>
+@@ -134,6 +135,7 @@ struct imx8mq_usb_phy {
+ 
+ struct imx8mq_usb_phy_drvdata {
+ 	const struct phy_ops *ops;
++	bool need_genpd_rpm_on;
+ };
+ 
+ static void tca_blk_orientation_set(struct tca_blk *tca,
+@@ -669,6 +671,7 @@ static const struct imx8mq_usb_phy_drvdata imx8mq_usb_phy_data = {
+ 
+ static const struct imx8mq_usb_phy_drvdata imx8mp_usb_phy_data = {
+ 	.ops = &imx8mp_usb_phy_ops,
++	.need_genpd_rpm_on = true,
+ };
+ 
+ static const struct imx8mq_usb_phy_drvdata imx95_usb_phy_data = {
+@@ -739,6 +742,12 @@ static int imx8mq_usb_phy_probe(struct platform_device *pdev)
+ 	if (!phy_data)
+ 		return -EINVAL;
+ 
++	if (phy_data->need_genpd_rpm_on) {
++		ret = dev_pm_genpd_rpm_always_on(dev, true);
++		if (ret)
++			return dev_err_probe(dev, ret, "failed to set genpd rpm always on\n");
++	}
++
+ 	imx_phy->phy = devm_phy_create(dev, NULL, phy_data->ops);
+ 	if (IS_ERR(imx_phy->phy))
+ 		return PTR_ERR(imx_phy->phy);
+
+-- 
+2.34.1
+
 
