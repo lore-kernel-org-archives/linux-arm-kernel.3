@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2FC7C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 15:04:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 590A0C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 15:04:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Uc9ixU7mpRtpCs70jSp612g1hyAczHyKoacPjXdxzoE=; b=luS31mLMMQQlJ2
-	FtJ3yo8JJF5q/T6wUacu8UeAOtg2ZrTEZORkq3pZbOwGZbAs36XLy5d5rwQu7n5O21P59JMw+sx+L
-	xCSPP4z/M4tj+RDWVE49GjxfQZaZxD+GMKG3VAd6qDeIPyCbHy1WCzDEBVaroxvc0rkdaDza2crQ6
-	V20pjO+4DHgCU7MgheYKTMtAywgqvl4HxUPWthGpmrO7C9bZMx3a5fiJd8FR2hZSuKMOrdQNA/Jk5
-	lrYfubwL1S8wCAlZkGj+mywYS0SoRM/gJxQcZC2MdAnv9jbM8dxTBEeBnm5EXmCzDm7u22ajsP1un
-	gxqJgLm4bN2OfEGaFbnQ==;
+	List-Owner; bh=Uc9ixU7mpRtpCs70jSp612g1hyAczHyKoacPjXdxzoE=; b=lG2O9F2TnB3t7J
+	cGjVh6HFsMccuwomvWe8/vopnCJtI179+nUfQyLbvxvLYdHEetnhcsFitf8CNPbaW8sphGm1EgVN7
+	ysXemQZ4z65HZX2vo6xdZxiDA8LaEW3bnGhC4kJTPdvBy0CJEY3eNqLqlTpInl3avuHl4PBV8gaQe
+	Kw8EAduiL84HDyvmIouwlVhLB7CoEX1dvrZqtN2kxMHyRBwtLhmO5Z1dFK4vMLHMIL6pfBtKOCp0L
+	P4x3mssSjtLRsDIKiS93QnQzcz9umWhOcTU1XqZ3joN3oK9fYImhxiWV6l3uNrAGEh5hg0tJ24A9T
+	ca4/bJYL/8OavxDzgNbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk19J-0000000FFGf-3U1Z;
-	Wed, 15 Jul 2026 15:03:49 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wk19h-0000000FFL6-3xzX;
+	Wed, 15 Jul 2026 15:04:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk19I-0000000FFGQ-4C2d
+	id 1wk19g-0000000FFKm-0ryQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 15:03:49 +0000
+	Wed, 15 Jul 2026 15:04:12 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7279E600AB
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 15:03:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A1D21F00AC4
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 15:03:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F122641472
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 15:04:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D153D1F0155B
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 15:04:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784127828;
+	s=k20260515; t=1784127851;
 	bh=Uc9ixU7mpRtpCs70jSp612g1hyAczHyKoacPjXdxzoE=;
 	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
-	b=WO77sP1LBjx1OQs6QMN2uAIJ+HzcNGdJSVtzETJbmBsmtUniPpRDGo9xfPqrgjwJr
-	 Fv5KgSl9S333F1QdhHd8AuPtiQo2PGMPaIF0cHt0pe/DQyVYg9dbPzKqse+UfAzGor
-	 QMF+Gah5ol5qHqgVV3V5EeTD+C9TsGo6n0kd7jzdHZDZYIjAdjnrigtF8t+ERznpsv
-	 Tzw7tC2D1lc9EvlQEbYCZgYQu4VWvhZlwwrb+RUeDZ5EtA5Ycz+Hr1TVXrvqPW7vbH
-	 sPCUAy+BCt1aF5WXajwAsE0do6iV1DdNaMsDA1Id56q7M8UbCAHcz8BM0m8hrpcPh4
-	 nMUZGqZVcOLdA==
-Received: by mail-oi1-f171.google.com with SMTP id 5614622812f47-497e6956acfso2138322b6e.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 08:03:48 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RqBBHl1kMrz6M1KlFKWykCqdLpkDKRUITOHzG2tIZ9TLrpyiVuCCn4a2wztgefwyh70iPmszENYZx0noiX1LEif@lists.infradead.org
-X-Gm-Message-State: AOJu0YxuIGeF1z12sKbMwPv0nrsLccf/VxjwOfb4vQ3ZV5DMMcRtqPJb
-	w7uFF5wvCyRsUHRTao/NH74HcXq1UKJ8O88SpUpLwHInW0h6bt9CCC9yDh+JbTPniRDL4e/YymF
-	2rGswZt6gwXnRrSwhB7wrxBOcjUQ+2kA=
-X-Received: by 2002:a05:6808:4f67:b0:491:3c9a:c486 with SMTP id
- 5614622812f47-4a40f01dd66mr14811091b6e.27.1784127827370; Wed, 15 Jul 2026
- 08:03:47 -0700 (PDT)
+	b=lkZrl/va3yl6Q4VJC9ZefqvyJ4sx07gRYONmK6vWlBWL8XdKuvfHMxPJdYeM4YjuX
+	 GKZ4xMRJ3XfaK0LI4OM1RQe7PG5uhjgRFY0EIdDY7OFzbzMSXKZHyrOPvYurVpseMh
+	 dS26ABRzLqtUAmOSFGhQcauKcuCAXsB+4u4JJ5d3uHn7KWHd/6YQducbRzIS1cuQKA
+	 EBTFm3xFSb17TEacdM18qE7rmvj+RI0YAupvqoXj0nliCH291Ik1zmra1LIbTJ8ku0
+	 Xg2bBohiyv4kBv6Xe0+B2JCTdqaKs9yF93n037UfBlYkVdbWq9IKrhN2EPPhAqnZXu
+	 VhbeYU9pQEh3w==
+Received: by mail-oi1-f182.google.com with SMTP id 5614622812f47-495b98b4f6aso2031675b6e.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 08:04:11 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Rp9xZYux3KA+IBIGGIbYSivwz8SSifmQOh0uJZGsFYIXKm9eJMQedu6lsawtUtzWVwk7/B1i0P0ujoXPyLywAwC@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw+lvE6ZIK6k73DO2ATGoO2y2P727sk/scX+ZaMkEq+SpBQRp6t
+	ReqNtmNTiMLuyiPA+TkYsWKne7uUO1ci32yDCPkbOZzFg5cSPRHv2Dcxj3zRyLCNumYNdSq3j1q
+	SbyGzd3MDNSs5bQWcDjFdS9WpfLyNefE=
+X-Received: by 2002:a05:6808:1703:b0:497:e39e:a002 with SMTP id
+ 5614622812f47-4a47a72a883mr3694530b6e.30.1784127850988; Wed, 15 Jul 2026
+ 08:04:10 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260715095525.40668-1-phucduc.bui@gmail.com> <20260715095525.40668-4-phucduc.bui@gmail.com>
-In-Reply-To: <20260715095525.40668-4-phucduc.bui@gmail.com>
+References: <20260715095525.40668-1-phucduc.bui@gmail.com> <20260715095525.40668-5-phucduc.bui@gmail.com>
+In-Reply-To: <20260715095525.40668-5-phucduc.bui@gmail.com>
 From: Chen-Yu Tsai <wens@kernel.org>
-Date: Wed, 15 Jul 2026 23:03:30 +0800
-X-Gmail-Original-Message-ID: <CAGb2v65hizaQy=faLehwvdxRN3DDtfsTbtyhfs66-mfomaXMtg@mail.gmail.com>
-X-Gm-Features: AUfX_mzJioDX5B6d_Vy4Xtr7WpYHUvgusTkTEi6eeq4XOqzYfJ6OMFJbCn3XcIA
-Message-ID: <CAGb2v65hizaQy=faLehwvdxRN3DDtfsTbtyhfs66-mfomaXMtg@mail.gmail.com>
-Subject: Re: [PATCH 3/6] ASoC: sunxi: sun4i-i2s: Use dev_err_probe() for probe
- error handling
+Date: Wed, 15 Jul 2026 23:03:56 +0800
+X-Gmail-Original-Message-ID: <CAGb2v66nAAdni7d5-D0iT0qDaA0evzu6KdtE+BmVw=9Tw+vQ1Q@mail.gmail.com>
+X-Gm-Features: AUfX_mwt_greS7zKZg9j8B0HbmtSXlCaT15WYQ9IZOCzMApLlmkpzfRkYHxh7Ko
+Message-ID: <CAGb2v66nAAdni7d5-D0iT0qDaA0evzu6KdtE+BmVw=9Tw+vQ1Q@mail.gmail.com>
+Subject: Re: [PATCH 4/6] ASoC: sunxi: sun4i-spdif: Use dev_err_probe() for
+ probe error handling
 To: phucduc.bui@gmail.com
 Cc: Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
 	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
