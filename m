@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 232AEC44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 11:59:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4FDAC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 12:00:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=116XGPIsH3uc1TP/YR0VtloeUIWM18cD/kEPtzKIUwA=; b=Q4MI5udnE1Jy/4kgV1cDISPjrR
-	kkHSPKd8uSjyGFqXb+HlqPJ4TCx8ySRQxRbuaRRzHaG6mSVOc+WF8J7GDNNqJ1b3RrMO+Dezrf/7f
-	wJCnmW4qJ3dBpeuTaru8Uz+RcPO2tA0AvwClOF0OQRKfDBu5VBw8/WIDvdS6IL9USHzFw1poqCozR
-	nK5nramqH0hWARW0MwG+k/ZBpoD425cnLzRIg2rmqYluhCInjaGJfQci54T9JjVboBe6PR6GMa/ol
-	w94l9UO9Imw6WGRfJGTHHHwqh5wvxE7jAfVzuVW+pS1kCIMnr3yC6WancjVirArTl4Z7W+1ctR+PD
-	Mgzd2eaQ==;
+	bh=KjYDN+7EM7Yvzl2aRWCfwJrzMD6Nz8HQwAfKQduR34E=; b=Ou/GNteSebUuBKWyGU5jz9Spt4
+	nVVQ5qnU1/Wk8f+iMTiNcS/RC1jUs7cDGhx92a//6QHxbByXnmjdJDNfwwMNwgzA8+Vl0XRSBfxHG
+	5Akv9OFJ/tPQdvjwjoI6z+QbfGaHFW8hs/LEHslOodCS5z8mnI2iO5KzzvTaqPUJduPWwk1Y/muJb
+	K4UU7G5VmCidA+sKwq28fK8/am4hraAOivXmjKogopkO82b6yscX9WR6bR/FK56JHDa75WdPZ1gGD
+	qDD/7tR6PhyXQ4Zdpd27pB6riZXf7h26gadM8DEhoHBux9xiylSbQDhz575ruYCeD+Ggzm0eKnEDR
+	N7EkA/dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjyGw-0000000Ef7K-05yU;
-	Wed, 15 Jul 2026 11:59:30 +0000
-Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
+	id 1wjyHW-0000000EfnK-1quu;
+	Wed, 15 Jul 2026 12:00:06 +0000
+Received: from mail-ej1-x64a.google.com ([2a00:1450:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjyGm-0000000Eezk-2DKX
+	id 1wjyGu-0000000Ef4E-1vLd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 11:59:22 +0000
-Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-4744b72f90bso2892890f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 04:59:19 -0700 (PDT)
+	Wed, 15 Jul 2026 11:59:29 +0000
+Received: by mail-ej1-x64a.google.com with SMTP id a640c23a62f3a-c1662ffbf57so193446466b.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 04:59:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784116758; x=1784721558; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1784116765; x=1784721565; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=116XGPIsH3uc1TP/YR0VtloeUIWM18cD/kEPtzKIUwA=;
-        b=kM00zNnyGZ9RNTSgqBdFzoYMzRnSvnagmHrJ/ShayTNCvYRg5c/NzsPZSy5uurhssu
-         FhIfhD8qGYQych22jxF4w2iP6kV/bIb+imHf4VMr2n/88ueNCGDN3lU6YSrw1XIGuQVm
-         Q+7gEk1qHey8pWADlxwBiJo2frqV4UhbRanoHhzv7pWwWg+Jbz1oRUJ7kLlupICfJlls
-         tl0gw1k0aeNfJfIGvhf60SHxLyReF1qobkmqOGxPYoXCBEcEZ2B8/6QeETSPNF8B+i8k
-         u1wiVa5/IzZrlqOwUw5CvhjQUPmRwHa4avEXYEy7RIbgZX5I5N8+yaZ/5408/7Xh8xsv
-         sIew==
+        bh=KjYDN+7EM7Yvzl2aRWCfwJrzMD6Nz8HQwAfKQduR34E=;
+        b=KnYlmgBlxsijnRCjJzzYiusJsfi6tEJuqDGcYRRgJ/5jNLxM4QuQ3PkyxHWxw9EXmC
+         VwPnij+teeKPLY1OHbcveramEY8SYxA1u0Vu/bpkl5qZhsXtMrYd1337TGzG1tPfdAUD
+         DM0GjgY2mK+GTuzAdunkrAmM5oeuaKZKVaL40TrlIHM3iGGjiaLbKlFM+WXucjNaLz87
+         TGzIaAExF16PMygo6ETseLuWBPCeKBJDFv/9CY87sx86LtH6B97khf1qtnbdY8e/0ZpO
+         uOfgloU9rgI5xp7dui7gJaX135hNTVDW5vdEFIEN4Y+ZNTeyzIZMqrsrpDZaGvLCAiXS
+         uorg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784116758; x=1784721558;
+        d=1e100.net; s=20251104; t=1784116765; x=1784721565;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=116XGPIsH3uc1TP/YR0VtloeUIWM18cD/kEPtzKIUwA=;
-        b=eBVGih+ZWkyLRigMtitmp8nBcDd1rZrTcvLXwij+pGxNs6bFKcVKufIaqqhjrIDL/C
-         p4Mc59ExAgmVba6sEHkI+APHLNIqLGUWkDG4dOQq1y6CMn+sqeF4UbO3jTWJFFegbHmM
-         yDfdhNkxPp9h8ahQIM0RlF7w1WDLCH9ivlr9Qio0Bcsd8FmM1uBT+UvCWCsPAne+SfKW
-         DVukQXOysDd5dSWdtVzz4oerhCLh7EX2bHF3xh/GpN/jm840GHJ/H4wHOMIx6Pe+xB/x
-         TOh4DZgND81NVBKIKSQU8bItDfmwi7kU88qbNO97uMjR0faZ0Yky5FVKsa6Z62k/PBFJ
-         DRDQ==
-X-Gm-Message-State: AOJu0Yy/xcG3CqNZwfB6V5yqSUyHmIL9/QE6vX6IZ6Uq9xEv25yZGtWD
-	zrfWp5XD9whNR23rs/GssspP8/2pCeGiuENRMYA/5TD0wKNm9J+LcaKdixfjrg6FtHcxoXMimDl
-	fNklRyKgK8w7nsXJTWPlFjHh1L4xCiAtYV/ZOlgTP4ovUUhao7aEUQj6LWPpp7ejSGyJDhMwD+N
-	qovbXvFioEy+G5JLkYNAf21CjOGBUZ1dasqLL0gNiJK7BFQ/waps6LTS/b95QwBU1XMA==
-X-Received: from wmap7.prod.google.com ([2002:a7b:cc87:0:b0:487:3739:c5c4])
+        bh=KjYDN+7EM7Yvzl2aRWCfwJrzMD6Nz8HQwAfKQduR34E=;
+        b=WHVbKi53u4zKJrK+x/M98SW14ITqeJg0MJTNCpqf/4IOVNS3jLKsfEuB2KzrPcsVVI
+         KWbLqunqnLBvu+ejXzPrcAm5skUZi8vv+BafcB//ISu2Wh0bjnD6kdm/b4CYQfbVO9SS
+         0ouIr2zjT78X6gF4L+8oTzT+5FY0FeS9CMmdcTnx8zHQw6BTN11wpZrcPMsaRN3FPc20
+         IWG/iIg/AYxUB2McUpttSYOLgbFoNTAKR9kQG1ICtcfF/Nj3b+y2MtbOcyfjQQrhaiyL
+         PPNF92RSVypysmzHzcaggZ1ehg6d3QycM80QIIOM+seDiKJr9Cvg8S3nAoMeHGgcy91K
+         SLHg==
+X-Gm-Message-State: AOJu0Yxzye7RmtRkC88dRROp2Q+1FBvn+U4O0rEAMIobRu1MJSs4j6Ur
+	NZbRR2zPYo06utAFiLj0UZ1dF8WZTqgmeRUiaoSwwdJFQwnnkaoe6VhfcaTatgLMsv3UQ2JzgQU
+	jju/DxNOKQczN/+gvsS8AVkungDLv45PKv/tvURYSTJO6AEquZMWBIZIIjvXA8sDllB31THh5s5
+	kyNvfledExLqsglZectjQXcw1T7NVuzfpPMwAT72IIb/NxW4Yler6yDNYl3gzL2DuT3A==
+X-Received: from ejjr20.prod.google.com ([2002:a17:906:7054:b0:c12:9227:4a93])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600d:108:20b0:495:401d:9f4f with SMTP id 5b1f17b1804b1-495401da1a5mr2255395e9.25.1784116757928;
- Wed, 15 Jul 2026 04:59:17 -0700 (PDT)
-Date: Wed, 15 Jul 2026 11:58:45 +0000
+ 2002:a17:907:1804:b0:c12:34ed:da0b with SMTP id a640c23a62f3a-c1667b099abmr363811866b.55.1784116765282;
+ Wed, 15 Jul 2026 04:59:25 -0700 (PDT)
+Date: Wed, 15 Jul 2026 11:58:51 +0000
 In-Reply-To: <20260715115906.2664882-1-smostafa@google.com>
 Mime-Version: 1.0
 References: <20260715115906.2664882-1-smostafa@google.com>
 X-Mailer: git-send-email 2.55.0.141.g00534a21ce-goog
-Message-ID: <20260715115906.2664882-5-smostafa@google.com>
-Subject: [PATCH v7 04/24] iommu/arm-smmu-v3: Move TLB range invalidation into
- common code
+Message-ID: <20260715115906.2664882-11-smostafa@google.com>
+Subject: [PATCH v7 10/24] iommu/arm-smmu-v3-kvm: Add SMMUv3 driver
 From: Mostafa Saleh <smostafa@google.com>
 To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	kvmarm@lists.linux.dev, iommu@lists.linux.dev
@@ -77,11 +76,11 @@ Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
 	yuzenghui@huawei.com, joro@8bytes.org, jgg@ziepe.ca, mark.rutland@arm.com, 
 	qperret@google.com, tabba@google.com, vdonnefort@google.com, 
 	sebastianene@google.com, keirf@google.com, 
-	Mostafa Saleh <smostafa@google.com>
+	Jean-Philippe Brucker <jean-philippe@linaro.org>, Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_045920_636239_D36DD95A 
-X-CRM114-Status: GOOD (  22.37  )
+X-CRM114-CacheID: sfid-20260715_045928_527770_0490057B 
+X-CRM114-Status: GOOD (  23.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,215 +95,186 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Range TLB invalidation has a very specific algorithm. Instead of
-re-writing it for the hypervisor, move it to a function that can
-be re-used.
+From: Jean-Philippe Brucker <jean-philippe@linaro.org>
 
+Add the skeleton for an Arm SMMUv3 driver at EL2.
+
+The driver rely on an array of SMMUv3s on the system, where at
+init it will donate the array and the resources of the SMMUv3s
+so they can't be changed by the host after de-privilege.
+
+This array will be populated in the next patch.
+
+Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
 Signed-off-by: Mostafa Saleh <smostafa@google.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 79 +++---------------
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h | 89 +++++++++++++++++++++
- 2 files changed, 102 insertions(+), 66 deletions(-)
+ arch/arm64/kvm/hyp/nvhe/Makefile              |  5 ++
+ drivers/iommu/arm/Kconfig                     |  9 ++
+ .../iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c  | 87 +++++++++++++++++++
+ .../iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h  | 27 ++++++
+ 4 files changed, 128 insertions(+)
+ create mode 100644 drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
+ create mode 100644 drivers/iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 2a2289d4a3f3..cd17a3255312 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -2336,81 +2336,28 @@ static void arm_smmu_tlb_inv_context(void *cookie)
- 	arm_smmu_domain_inv(smmu_domain);
- }
+diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
+index b3e7473f18d2..dcb75fb5b4f1 100644
+--- a/arch/arm64/kvm/hyp/nvhe/Makefile
++++ b/arch/arm64/kvm/hyp/nvhe/Makefile
+@@ -33,6 +33,11 @@ hyp-obj-$(CONFIG_LIST_HARDENED) += list_debug.o
+ hyp-obj-$(CONFIG_NVHE_EL2_TRACING) += trace.o events.o
+ hyp-obj-y += $(lib-objs)
  
-+static void __arm_smmu_cmdq_batch_add(void *__opaque,
-+				      struct arm_smmu_cmdq_batch *cmds,
-+				      struct arm_smmu_cmd *cmd)
-+{
-+	struct arm_smmu_device *smmu = (struct arm_smmu_device *)__opaque;
++HYP_SMMU_V3_DRV_PATH = ../../../../../drivers/iommu/arm/arm-smmu-v3
 +
-+	arm_smmu_cmdq_batch_add_cmd_p(smmu, cmds, cmd);
-+}
++hyp-obj-$(CONFIG_ARM_SMMU_V3_PKVM) += $(HYP_SMMU_V3_DRV_PATH)/pkvm/arm-smmu-v3.o \
++	$(HYP_SMMU_V3_DRV_PATH)/arm-smmu-v3-common-lib.o
 +
- static void arm_smmu_cmdq_batch_add_range(struct arm_smmu_device *smmu,
- 					  struct arm_smmu_cmdq_batch *cmds,
- 					  struct arm_smmu_cmd *cmd, bool leaf,
- 					  unsigned long iova, size_t size,
- 					  size_t granule, size_t pgsize)
- {
--	unsigned long end = iova + size, num_pages = 0, tg = pgsize;
--	u64 orig_data0 = cmd->data[0];
--	size_t inv_range = granule;
--	u8 ttl = 0, tg_enc = 0;
--
- 	if (WARN_ON_ONCE(!size))
- 		return;
+ # Path to simple_ring_buffer.c
+ CFLAGS_trace.nvhe.o += -I$(srctree)/kernel/trace/
  
--	if (smmu->features & ARM_SMMU_FEAT_RANGE_INV) {
--		num_pages = size >> tg;
--
--		/* Convert page size of 12,14,16 (log2) to 1,2,3 */
--		tg_enc = (tg - 10) / 2;
--
--		/*
--		 * Determine what level the granule is at. For non-leaf, both
--		 * io-pgtable and SVA pass a nominal last-level granule because
--		 * they don't know what level(s) actually apply, so ignore that
--		 * and leave TTL=0. However for various errata reasons we still
--		 * want to use a range command, so avoid the SVA corner case
--		 * where both scale and num could be 0 as well.
--		 */
--		if (leaf)
--			ttl = 4 - ((ilog2(granule) - 3) / (tg - 3));
--		else if ((num_pages & CMDQ_TLBI_RANGE_NUM_MAX) == 1)
--			num_pages++;
--	}
--
--	while (iova < end) {
--		if (smmu->features & ARM_SMMU_FEAT_RANGE_INV) {
--			/*
--			 * On each iteration of the loop, the range is 5 bits
--			 * worth of the aligned size remaining.
--			 * The range in pages is:
--			 *
--			 * range = (num_pages & (0x1f << __ffs(num_pages)))
--			 */
--			unsigned long scale, num;
--
--			/* Determine the power of 2 multiple number of pages */
--			scale = __ffs(num_pages);
--
--			/* Determine how many chunks of 2^scale size we have */
--			num = (num_pages >> scale) & CMDQ_TLBI_RANGE_NUM_MAX;
--
--			cmd->data[0] = orig_data0 |
--				FIELD_PREP(CMDQ_TLBI_0_NUM, num - 1) |
--				FIELD_PREP(CMDQ_TLBI_0_SCALE, scale);
--
--			/* range is num * 2^scale * pgsize */
--			inv_range = num << (scale + tg);
--
--			/* Clear out the lower order bits for the next iteration */
--			num_pages -= num << scale;
--		}
--
--		/*
--		 * IPA has fewer bits than VA, but they are reserved in the
--		 * command and something would be very broken if iova had them
--		 * set.
--		 */
--		cmd->data[1] = FIELD_PREP(CMDQ_TLBI_1_LEAF, leaf) |
--			       FIELD_PREP(CMDQ_TLBI_1_TTL, ttl) |
--			       FIELD_PREP(CMDQ_TLBI_1_TG, tg_enc) |
--			       (iova & ~GENMASK_U64(11, 0));
--
--		arm_smmu_cmdq_batch_add_cmd_p(smmu, cmds, cmd);
--		iova += inv_range;
--	}
-+	arm_smmu_tlb_inv_build(cmd, iova, size, granule, pgsize,
-+			       smmu->features & ARM_SMMU_FEAT_RANGE_INV,
-+			       smmu, leaf, __arm_smmu_cmdq_batch_add,
-+			       cmds);
- }
- 
- static bool arm_smmu_inv_size_too_big(struct arm_smmu_device *smmu, size_t size,
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index e93489841ec7..494e55a2dc34 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -1272,6 +1272,95 @@ static inline void arm_smmu_write_strtab_l1_desc(struct arm_smmu_strtab_l1 *dst,
- 	WRITE_ONCE(dst->l2ptr, cpu_to_le64(val));
- }
- 
-+/**
-+ * arm_smmu_tlb_inv_build - Create a range invalidation command
-+ * @cmd: Base command initialized with OPCODE (S1, S2..), vmid and asid
-+ * @iova: Start IOVA to invalidate
-+ * @size: Size of range
-+ * @granule: Granule of invalidation
-+ * @pgsize: Page size of the invalidation
-+ * @is_range: Use range invalidation commands
-+ * @opaque: Pointer to pass to add_cmd
-+ * @leaf: Is leaf invalidation
-+ * @add_cmd: Function to send/batch the invalidation command
-+ * @cmds: Incase of batching, it includes the pointer to the batch
+diff --git a/drivers/iommu/arm/Kconfig b/drivers/iommu/arm/Kconfig
+index 5fac08b89dee..916f4723238d 100644
+--- a/drivers/iommu/arm/Kconfig
++++ b/drivers/iommu/arm/Kconfig
+@@ -141,3 +141,12 @@ config QCOM_IOMMU
+ 	select ARM_DMA_USE_IOMMU
+ 	help
+ 	  Support for IOMMU on certain Qualcomm SoCs.
++
++config ARM_SMMU_V3_PKVM
++	bool "ARM SMMUv3 support for protected Virtual Machines"
++	depends on KVM && ARM64 && ARM_SMMU_V3=y
++	help
++	  Enable a SMMUv3 driver in the KVM hypervisor, to protect VMs against
++	  memory accesses from devices owned by the host.
++
++	  Say Y here if you intend to enable KVM in protected mode.
+diff --git a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
+new file mode 100644
+index 000000000000..fee5db6c9c20
+--- /dev/null
++++ b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
+@@ -0,0 +1,87 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * pKVM hyp driver for the Arm SMMUv3
++ *
++ * Copyright (C) 2022 Linaro Ltd.
 + */
-+static inline void arm_smmu_tlb_inv_build(struct arm_smmu_cmd *cmd,
-+					  unsigned long iova, size_t size,
-+					  size_t granule, unsigned long pgsize,
-+					  bool is_range, void *opaque, bool leaf,
-+					  void (*add_cmd)(void *_opaque,
-+							  struct arm_smmu_cmdq_batch *cmds,
-+							  struct arm_smmu_cmd *cmd),
-+					  struct arm_smmu_cmdq_batch *cmds)
++#include <asm/kvm_hyp.h>
++
++#include <nvhe/iommu.h>
++#include <nvhe/mem_protect.h>
++
++#include "arm_smmu_v3.h"
++
++size_t __ro_after_init kvm_hyp_arm_smmu_v3_count;
++struct hyp_arm_smmu_v3_device *kvm_hyp_arm_smmu_v3_smmus;
++
++#define for_each_smmu(smmu) \
++	for ((smmu) = kvm_hyp_arm_smmu_v3_smmus; \
++	     (smmu) != &kvm_hyp_arm_smmu_v3_smmus[kvm_hyp_arm_smmu_v3_count]; \
++	     (smmu)++)
++
++/* Put the device in a state that can be probed by the host driver. */
++static void smmu_deinit_device(struct hyp_arm_smmu_v3_device *smmu)
 +{
-+	unsigned long end = iova + size, num_pages = 0, tg = pgsize;
-+	u64 orig_data0 = cmd->data[0];
-+	size_t inv_range = granule;
-+	u8 ttl = 0, tg_enc = 0;
-+
-+	if (is_range) {
-+		num_pages = size >> tg;
-+
-+		/* Convert page size of 12,14,16 (log2) to 1,2,3 */
-+		tg_enc = (tg - 10) / 2;
-+
-+		/*
-+		 * Determine what level the granule is at. For non-leaf, both
-+		 * io-pgtable and SVA pass a nominal last-level granule because
-+		 * they don't know what level(s) actually apply, so ignore that
-+		 * and leave TTL=0. However for various errata reasons we still
-+		 * want to use a range command, so avoid the SVA corner case
-+		 * where both scale and num could be 0 as well.
-+		 */
-+		if (leaf)
-+			ttl = 4 - ((ilog2(granule) - 3) / (tg - 3));
-+		else if ((num_pages & CMDQ_TLBI_RANGE_NUM_MAX) == 1)
-+			num_pages++;
-+	}
-+
-+	while (iova < end) {
-+		if (is_range) {
-+			/*
-+			 * On each iteration of the loop, the range is 5 bits
-+			 * worth of the aligned size remaining.
-+			 * The range in pages is:
-+			 *
-+			 * range = (num_pages & (0x1f << __ffs(num_pages)))
-+			 */
-+			unsigned long scale, num;
-+
-+			/* Determine the power of 2 multiple number of pages */
-+			scale = __ffs(num_pages);
-+
-+			/* Determine how many chunks of 2^scale size we have */
-+			num = (num_pages >> scale) & CMDQ_TLBI_RANGE_NUM_MAX;
-+
-+			cmd->data[0] = orig_data0 |
-+				FIELD_PREP(CMDQ_TLBI_0_NUM, num - 1) |
-+				FIELD_PREP(CMDQ_TLBI_0_SCALE, scale);
-+
-+			/* range is num * 2^scale * pgsize */
-+			inv_range = num << (scale + tg);
-+
-+			/* Clear out the lower order bits for the next iteration */
-+			num_pages -= num << scale;
-+		}
-+		/*
-+		 * IPA has fewer bits than VA, but they are reserved in the
-+		 * command and something would be very broken if iova had them
-+		 * set.
-+		 */
-+		cmd->data[1] = FIELD_PREP(CMDQ_TLBI_1_LEAF, leaf) |
-+			       FIELD_PREP(CMDQ_TLBI_1_TTL, ttl) |
-+			       FIELD_PREP(CMDQ_TLBI_1_TG, tg_enc) |
-+			       (iova & ~GENMASK_U64(11, 0));
-+
-+		add_cmd(opaque, cmds, cmd);
-+		iova += inv_range;
-+	}
++	WARN_ON(__pkvm_hyp_donate_host_mmio(smmu->mmio_addr, smmu->mmio_size));
++	smmu->base = NULL;
 +}
 +
- #ifdef CONFIG_ARM_SMMU_V3_SVA
- bool arm_smmu_sva_supported(struct arm_smmu_device *smmu);
- void arm_smmu_sva_notifier_synchronize(void);
++static int smmu_init_device(struct hyp_arm_smmu_v3_device *smmu)
++{
++	unsigned long haddr;
++	int ret;
++
++	if (!PAGE_ALIGNED(smmu->mmio_addr | smmu->mmio_size))
++		return -EINVAL;
++
++	ret = __pkvm_host_donate_hyp_mmio(smmu->mmio_addr, smmu->mmio_size, &haddr);
++	if (ret)
++		return ret;
++
++	smmu->base = (void __iomem *)haddr;
++
++	return 0;
++}
++
++/* Called while is the host is still trusted. */
++static int smmu_init(void)
++{
++	size_t smmu_arr_size = PAGE_ALIGN(sizeof(*kvm_hyp_arm_smmu_v3_smmus) *
++					  kvm_hyp_arm_smmu_v3_count);
++	struct hyp_arm_smmu_v3_device *smmu;
++	u64 pfn, nr_pages;
++	int ret;
++
++	kvm_hyp_arm_smmu_v3_smmus = kern_hyp_va(kvm_hyp_arm_smmu_v3_smmus);
++	pfn = hyp_virt_to_pfn(kvm_hyp_arm_smmu_v3_smmus);
++	nr_pages = smmu_arr_size >> PAGE_SHIFT;
++
++	ret = __pkvm_host_donate_hyp(pfn, nr_pages);
++	if (ret)
++		return ret;
++
++	for_each_smmu(smmu) {
++		ret = smmu_init_device(smmu);
++		if (ret)
++			goto out_reclaim_smmu;
++	}
++
++	return 0;
++
++out_reclaim_smmu:
++	while (smmu != kvm_hyp_arm_smmu_v3_smmus)
++		smmu_deinit_device(--smmu);
++	WARN_ON(__pkvm_hyp_donate_host(pfn, nr_pages));
++	return ret;
++}
++
++static int smmu_host_stage2_idmap(phys_addr_t start, phys_addr_t end, int prot)
++{
++	return 0;
++}
++
++/* Shared with the kernel driver in EL1 */
++struct pkvm_iommu_ops smmu_ops = {
++	.init				= smmu_init,
++	.host_stage2_idmap		= smmu_host_stage2_idmap,
++};
+diff --git a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h
+new file mode 100644
+index 000000000000..0d9e48b201f5
+--- /dev/null
++++ b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h
+@@ -0,0 +1,27 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef __KVM_ARM_SMMU_V3_H
++#define __KVM_ARM_SMMU_V3_H
++
++#include <asm/kvm_asm.h>
++
++/*
++ * Parameters from the trusted host:
++ * @mmio_addr		base address of the SMMU registers
++ * @mmio_size		size of the registers resource
++ *
++ * Other members are filled and used at runtime by the SMMU driver.
++ * @base		Virtual address of SMMU registers
++ */
++struct hyp_arm_smmu_v3_device {
++	phys_addr_t		mmio_addr;
++	size_t			mmio_size;
++	void __iomem		*base;
++};
++
++extern size_t kvm_nvhe_sym(kvm_hyp_arm_smmu_v3_count);
++#define kvm_hyp_arm_smmu_v3_count kvm_nvhe_sym(kvm_hyp_arm_smmu_v3_count)
++
++extern struct hyp_arm_smmu_v3_device *kvm_nvhe_sym(kvm_hyp_arm_smmu_v3_smmus);
++#define kvm_hyp_arm_smmu_v3_smmus kvm_nvhe_sym(kvm_hyp_arm_smmu_v3_smmus)
++
++#endif /* __KVM_ARM_SMMU_V3_H */
 -- 
 2.55.0.141.g00534a21ce-goog
 
