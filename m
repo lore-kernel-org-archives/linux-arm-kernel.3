@@ -4,64 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39FF9C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 09:00:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54F36C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 09:04:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5VtbUyXNZDuhV6bSABJhftrGxCknDqtWcOIQUqrvTi4=; b=z3bCCYRa688D8Hp5NvIGZx3DjV
-	lCe+BIqVb+2SrktKJbyeioYp49M4V6lVZD2RTtp5PeEEEmjv08hR0DbkImFQJwpBheN7j30Ef8XYf
-	N6Y1Y4jPPek9g0sVDv6LpNXq83guWfdeygDZQvGqZsV5W5tv+P/6iGp8uSaJ4P/GZX4XOlAjZcyyl
-	0jRjZeZolLL09Rhx1mDUOuPQ0wUw9cWl6hqZByB6siQLRrRMQTGPzQ1teQ4FtKxIS52vJpJq4/XNC
-	ZCeOBLT6ZSTZ5HhPG2WqN4wjDXbDDgMDvmjUP47VrE9SkRkTxJl7eKFl2b2xv6hlPq0xTzpNGawy2
-	jBC7HKHQ==;
+	bh=VX7v5KznOGst/S32zIq13isYK9aQbcFUdNYlBguUuc0=; b=r4i4S19PbdwG94hlUztj2MBeGR
+	K+QT/Sd9bYqnLpKLSPS3gYUJoXEafNUy0+1MRcF5yhmSkEHeQtRjy8vDK9Um+J/p4TKjBrQ+hFVWS
+	jlRmhCBd2+OafiGnJw9EGIyfM+xc5KC+gSwGn7GBCV2KNoFtYHQDlgH1VEWu035NmyveeTJn3vYcp
+	u/Jy/FnuxsIjn3gsTCKqWMUTUrilv0ldIrfdVZnSVCIAZBqOkR514ZAoADnAQ4mBfN8h0KstsoqXJ
+	/Gws6gVdjmk6rNblkE9u2Xh/eL4Fjdp/HhoBcx8PWms3jog+qTQLLAQKTiKoCYjU+up+EpUht6ipd
+	v0DqZf3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjvU0-0000000EFeS-0ug8;
-	Wed, 15 Jul 2026 09:00:48 +0000
-Received: from mail-m155101.qiye.163.com ([101.71.155.101])
+	id 1wjvWy-0000000EFwA-3XDL;
+	Wed, 15 Jul 2026 09:03:54 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjvTw-0000000EFdT-1GN2;
-	Wed, 15 Jul 2026 09:00:46 +0000
-Received: from Vostro-3710.lan (unknown [113.80.141.85])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 46448d459;
-	Wed, 15 Jul 2026 17:00:36 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: lorenzo@kernel.org
-Cc: Bo.Jiao@mediatek.com,
-	amadeus@jmu.edu.cn,
-	angelogioacchino.delregno@collabora.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-wireless@vger.kernel.org,
-	matthias.bgg@gmail.com,
-	nbd@nbd.name,
-	rex.lu@mediatek.com,
-	ryder.lee@mediatek.com,
-	sean.wang@mediatek.com,
-	shayne.chen@mediatek.com,
-	sujuan.chen@mediatek.com
-Subject: Re: [PATCH mt76 v5 16/16] wifi: mt76: mt7996: Add SW path for HW-RRO v3.1
-Date: Wed, 15 Jul 2026 17:00:30 +0800
-Message-Id: <20260715090030.1535098-1-amadeus@jmu.edu.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <alc6xTe4uPIJHQy8@lore-desk>
-References: <alc6xTe4uPIJHQy8@lore-desk>
+	id 1wjvWx-0000000EFw0-2joo;
+	Wed, 15 Jul 2026 09:03:51 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0B29A43B69;
+	Wed, 15 Jul 2026 09:03:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 110871F000E9;
+	Wed, 15 Jul 2026 09:03:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784106230;
+	bh=VX7v5KznOGst/S32zIq13isYK9aQbcFUdNYlBguUuc0=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=Mp9b9tA1KsQJcysDV5RgBKBMJTWV+8PyD1YK/DtL5YbfSJnfI2mdI68YW8UhLCZsN
+	 yHzbUs5VcVEC4mFb+D2l+PtQWybslLwNtVqM7ljXGi8kYsmMs56+Ijv0vyr+iRpsC8
+	 vOP7qSTE8VGiPtNWfpzA4RhaYAMQMF0cuxho3kGHt/9zuP7emOkG0JxyBE2dIs4Zzj
+	 i7WyuimjZqPZ6UkZO9oPeX19hsIGSbz06E13ot/gmtLrxK24748nIGVEqQI+cbKF/d
+	 Sm4O626cWSzvQEDbEtTWkY9c4yJvyd4TGLZfKBAuRRkw7ohLEo2/kz0DKlHbUrG8lY
+	 ZgWrFIC1PQf0w==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+Cc: Arnd Bergmann <arnd@arndb.de>, Andy Lutomirski <luto@kernel.org>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>, Nathan Chancellor
+ <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, Thomas Bogendoerfer
+ <tsbogend@alpha.franken.de>, Daniel Lezcano <daniel.lezcano@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, Paul
+ Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Huacai Chen
+ <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+ linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-kbuild@vger.kernel.org, linux-mips@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ loongarch@lists.linux.dev
+Subject: Re: [PATCH 3/7] MIPS: csrc-r4k: Replace CONFIG_GENERIC_GETTIMEOFDAY
+ ifdeffery with IS_ENABLED()
+In-Reply-To: <20260715102751-d1ed7195-f541-484e-9843-73ee4237b7b5@linutronix.de>
+References: <20260709-vdso-arch-clockmodes-v1-0-3fd780bbf851@linutronix.de>
+ <20260709-vdso-arch-clockmodes-v1-3-3fd780bbf851@linutronix.de>
+ <87wluwoe1c.ffs@fw13>
+ <20260715102751-d1ed7195-f541-484e-9843-73ee4237b7b5@linutronix.de>
+Date: Wed, 15 Jul 2026 11:03:47 +0200
+Message-ID: <87tsq0oc98.ffs@fw13>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9f6501aadf03a2kunm7c2e8de7748cb
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCTRpOVh1ITEodQktKTx9CHVYeHw
-	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKSkhVQ0tVSk9KVUNOWVdZFhoPEhUdFFlBWU9LSFVCQklOS1
-	VKS0tVSkJLQlkG
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_020044_524862_42FA4B74 
-X-CRM114-Status: UNSURE (   3.77  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,15 +81,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Wed, Jul 15 2026 at 10:43, Thomas Wei=C3=9Fschuh wrote:
+> On Wed, Jul 15, 2026 at 10:25:19AM +0200, Thomas Gleixner wrote:
+>> and then you can just unconditionally set clocksource::vdso_clock_mode
+>> in all drivers.
+>>=20
+>> No?
+>
+> It will weaken the sanity check in __clocksouce_register_scale() if
+> CONFIG_GENERIC_GETTIMEOFDAY=3Dn. I am not sure what that sanity check
+> is supposed to protect against, so I left it as is.
+> If we can weaken the check, or maybe even remove it,
+> I'm all for your simpler aproach.
 
-> IIRC WED is not supported for HW RRO3.1 at the moment
+The sanity check is there to catch random numbers being assigned. I
+does not weaken when it's actually unused :)
 
-Okay, seeing this commit, I mistakenly thought it meant support:
-net: mediatek: wed: Introduce MT7992 WED support to MT7988 SoC
-
-Sorry for the noise.
-
-Thanks,
-Chukun
 
