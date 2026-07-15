@@ -4,73 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEB6DC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 17:52:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F131C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 17:55:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=c4f1ZmkmR1O0A/LfhQpAbZrixZvj3u3dIvoVYNBSYh4=; b=3M5qKn0QcO9meduOK9G9F2A8bG
-	PYUC2ONnPUS+evMKTKVSfAMyyQ+gWF2PcwYciaR4JGi4PzFw/D0oFzWttcXFl+d0onADTCzdzwHit
-	QcvTDOYf8yD7ZNTBYpcYxfmyRPTsuZV1JFCfpbmKK88lTpm0LhY/M8towVm2mAD+71AXEYB00fEDJ
-	hiZVFwCL3kwHx0zhXZOIwtHI5hJ6/8+3Euon7HqlSd3MwVgmv28yEUc0fckFqYftVptUI2aOVGP5j
-	PAYcrqtWeKg+grK6zKGHiBdIb0Q0og6eQe6IyHAi4aZu94wV3XZLSBPylmmb1DF+7Ur5dLhs4pJHE
-	eQ3oOY2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B1fLH5vkVlaT9TAQEnaHfQcEDTexVsSO83pCVpu+qHI=; b=hwU3uxvzI6VHZh5z9sUv6wkvG/
+	M+MYEKpppkw9A9LXoDT1uZ6GRvNQFNDPPtit9zwIyXxXMpgG2/NehZKOBmJR3WNl5TH6FKfMiUi8l
+	lD8cSxTL2iJKKYvNevmnSR96jYKd3p3uGmV6DIfdOss+2SeJ3QPaanOuuaBY5PUww27Cn0bVeWZyJ
+	A0pRKN6gyIAmma9G/UAHx2ayTgVulvAPvO7zt5SKeg66/UY+790+bnEg8aReJUf7r/R/qBAMwPN9q
+	nFhfeGMQJQ7+l/nDU/vs5L5pssIGYIWHKwiB7X2Ph+exwPAZXHfmT5DjHkm2wQVg0FI81d6yDbldf
+	84HOQcqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk3mf-0000000FapF-0cxY;
-	Wed, 15 Jul 2026 17:52:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wk3pk-0000000FbQ6-2sbC;
+	Wed, 15 Jul 2026 17:55:48 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk3md-0000000Fap0-2VJs
+	id 1wk3ph-0000000FbPg-48Kd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 17:52:35 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9E23B61836;
-	Wed, 15 Jul 2026 17:52:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F7FE1F000E9;
-	Wed, 15 Jul 2026 17:52:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784137954;
-	bh=c4f1ZmkmR1O0A/LfhQpAbZrixZvj3u3dIvoVYNBSYh4=;
-	h=From:To:Cc:Subject:Date;
-	b=XWsYGyR489TIbiO60xP95miqy5Mz+ODVYQx6qB4rJ3C6GdOax3bmvzr/FKRhG+Iag
-	 /CjsEaXrA6thWIGEy3tCpCsQr5sagu31+W1Pw3lyI5hfIiRpgRyh+N5n6f4iElRjb1
-	 sU3wQ8iIll5AvaZ+LXHEXJ9uoJndNuk6iiy9hB9eQySpU3GeHy9J657OTD33BMkBRP
-	 2xGkmXhd0jieoe1zOnt9LQxa7cDEg3FNsWG2LFDdaNLM1VaObItGo9Af1O+10y+Y/Z
-	 H8WyoMVWWDC4r06kP0cUVZfmGEqu0Q+NdwPjUuGPi0cWwHdq0U8rM3yniPNHhKAUbm
-	 +15G9QFnnmjKQ==
-From: Kees Cook <kees@kernel.org>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Kees Cook <kees@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Zhen Lei <thunder.leizhen@huawei.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	=?UTF-8?q?Micha=C5=82=20Pecio?= <michal.pecio@gmail.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	linux-arm-kernel@lists.infradead.org,
-	Russell King <linux@armlinux.org.uk>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev,
-	linux-hardening@vger.kernel.org
-Subject: [PATCH v3] ARM: traps: Implement KCFI trap handler for ARM32
-Date: Wed, 15 Jul 2026 10:52:27 -0700
-Message-Id: <20260715175223.make.153-kees@kernel.org>
-X-Mailer: git-send-email 2.34.1
+	Wed, 15 Jul 2026 17:55:47 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-69c5eb6dfd3so7531307a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 10:55:44 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1784138143; cv=none;
+        d=google.com; s=arc-20260327;
+        b=MtyMfyyG3uu6zcHjxom8vm+0uzjpOfsliNMlg1eodjz6TkAeUsn5TdXdjJpeLeso6W
+         p6cWtNuGSNVKSpU4A1CHaM7bmcTdpfb/Mdu6jQLbHeeXjMNqfy6+dVeXMHmXq+g6+xBY
+         Xp8bve+8+vdel+yRr7HQ290LBJj2tHBw0ZOHdHvqzf7stsrrM3YMZ2173Kq+dwf4P2FW
+         TcgPhm1JVTtq6VFLemF9316tFboyHynPs7HxD91aBe/IbRz3Fz0X6zlbHqK5+y38qxcd
+         mF30jTQMw6JpD7sHoPu3eTtCKDHXUfTaA5sWxcUf0zcmf97zxBwztZY2ywPDPVklvhuG
+         RRbQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=B1fLH5vkVlaT9TAQEnaHfQcEDTexVsSO83pCVpu+qHI=;
+        fh=A3Um3jGc25kzPmjqeKIhcZUDpd5APbGaXXGrCDPOpAc=;
+        b=M9ta3uDLhZeG0FVXhCqJNWVaPfQxg4d1VGA9+m4lyZQoCmM5saePfmFO+V2L8Y8gwL
+         lc/T7P3X9M78ot+9jwbpn4bjvZWeVgvvpcmKw6sKmRL8I+HEZX5B9alrSTp6GB/n6OxE
+         NRYsUrF1JJLDRqml9QejQOkbstEHafTkXEL/GLOeFNu9Tf7sObvf/0VKfnB3vOa9/i/0
+         jx2MriDewjFyR3eDNNsUYZJ4B/y9VEhu4jxWYbpBtIGIGzRJPRhEzTlx3l2Pm63EpAS7
+         dmo1e89hhjQ+JAOZVqdBkz4kfaxF5l8omO+bG5vZUAm4P5RvN8hekoHUmE4+bkgWhyiW
+         YsCQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1784138143; x=1784742943; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=B1fLH5vkVlaT9TAQEnaHfQcEDTexVsSO83pCVpu+qHI=;
+        b=k9UrxhEs6mxxSwQk/lTQNs1jvnC+auk43bwhiHP6/9WODW7Dr018pYybV6tHuRuvn6
+         DP+WT+RzURVMjJXdhfObVOvhSDkzSt8gaGxw7UDnrzN3cWSFXqRYycN+TmCG9F/oNlsj
+         zyQmLOP1IlJ7dPaI4N/Q+S4o5fHbwfKEmRvnDH7jt/vNnImn+kkk5btVD+1IV+el3wii
+         qn9CwaNlfqW4KotmLYEeZE8pnWmeAuQ/soVvhr5CPbJGG31m68jUFh1ATK8KRHUGqbQo
+         Oeej1P0eifEMjpGyAlR2CmIUGla78XJxkB0QcF0Ag9M+x0KvcOtF375WFjjwmM0BpYuY
+         cw/Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784138143; x=1784742943;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=B1fLH5vkVlaT9TAQEnaHfQcEDTexVsSO83pCVpu+qHI=;
+        b=OYz1mFBSE+jjlqQRS9HindOUeP/z4ZrZFIwiladF1tQXhWXovcRH5d5Uj0csdTsVMp
+         sL0V2wsq6oK/NTUYn3C+SijKpXJWacADcvGgN7marAq3YgXk8VZSdroefifAeFY4udy/
+         aHo9exFAZuX4xqsFmG86Fec39KAqd399pKZ8lnM4lLrz8HMgN1goK6u/r/HTLvrTqi94
+         Jas285XhBnNeGKEnf3opkVhrOUtGt3U97z+4vGO54qtqnqyqrX9udBV0sFzdJxGaZ5vG
+         uzlRSgz156h0GUWk8Xg2n9FkRVMf7ka6ghi/eX1+xIsCimgLC5D9znuVdN5MMdCiMBNx
+         J/pA==
+X-Forwarded-Encrypted: i=1; AHgh+RoE+LJmacFrQzS8NCeibNeIPgvycZgnXyC2lHtNhE8yqkPydNnYva62VmUlmgBnCtwDTFMXjAk+wRt8etIx2EIc@lists.infradead.org
+X-Gm-Message-State: AOJu0YzPzbpL2hjQUe9CGTjCCGdDtcUeJVrP+iADeKWaCRuBOnH8S1+4
+	sHhaeVan/Chji8nCG54NwcWLcEP8WS3WmKez+E81ZSQ72R9b95M/rwsTqb8mRUYDLTLEeZuZOc+
+	AvakBSarqB5KjXXtl1sIIOVN6Da+KesKt3/vSAJ3hQw==
+X-Gm-Gg: AfdE7cknYLmAgKdV0XQ+gDLPD5GZXtNSUI4k3e8nXLSEbomgA5IjHIyjAo86kUJ5TEe
+	OMbP4cm3usUGVmmBRiTRGH5eKU7C6iN0mz0t9ASeGs32OKi2A+ODLOrMOKk7wsoj8x7ggLdU01I
+	l2I0vE94f7yVDSCFZqKd7+oKdPFykx3jybhvyZPjJyqjgIiB3do90nG0YNfCTPIGGrXsUmoWgFM
+	DLARhaPKgEEH8M1vtxamqcx1PwkOTMcNBx7PUf66Lb0mCmqy3iKispxxhgQM9KYoDLkCPjxdYFI
+	2EIJ0yCf2jriEhdhPPVJS7zZ+bVncxM=
+X-Received: by 2002:a05:6402:1588:b0:69c:7567:cf5c with SMTP id
+ 4fb4d7f45d1cf-69cd6ddfb91mr4781134a12.41.1784138143408; Wed, 15 Jul 2026
+ 10:55:43 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=12094; i=kees@kernel.org; h=from:subject:message-id; bh=+1G8QPlUFuILDnO393TH65EL6dK2Ay6tH2J4v/o3ZwI=; b=owGbwMvMwCVmps19z/KJym7G02pJDFnhJ26xlGVcs5hru5Bxs2Gp6tlFfHIPHD5f+yZY5//nx nau5cXrOkpZGMS4GGTFFFmC7NzjXDzetoe7z1WEmcPKBDKEgYtTACZyqZWRYW3cxOy4/dLX2gXz snjcDy35XzfNlV3s/q6jt/UYss3T/BgZNq2/GMZ3u7GnunvRRrVFUTNNJggb7b+56FmamCXj6x+ rGQE=
-X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
-Content-Transfer-Encoding: 8bit
+References: <20260625155432.815185-1-shenwei.wang@oss.nxp.com>
+ <20260625155432.815185-2-shenwei.wang@oss.nxp.com> <alUdg9iTysXCFUa5@p14s>
+ <PAXPR04MB91852808D2C7491AEF98CF1589F92@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <alZlZvQQwq-g6VL3@p14s> <PAXPR04MB9185B1A3F16D82E8C0C76EE689F92@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <alemgbM2ktRLE9wT@p14s> <PAXPR04MB9185DC31980327326D289C4C89F82@PAXPR04MB9185.eurprd04.prod.outlook.com>
+In-Reply-To: <PAXPR04MB9185DC31980327326D289C4C89F82@PAXPR04MB9185.eurprd04.prod.outlook.com>
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+Date: Wed, 15 Jul 2026 11:55:32 -0600
+X-Gm-Features: AUfX_mzC-pSYEjUJ9BYRTa4GlO7TcNO2B0DY7O1_KieZEYL7x6Ya_ZTaPmF0Y3w
+Message-ID: <CANLsYkww_2d_eFGCTrTvoSavdkfOh41joKHypDnW-z0XUonR1Q@mail.gmail.com>
+Subject: Re: [PATCH v14 1/5] docs: driver-api: gpio: rpmsg gpio driver over
+ rpmsg bus
+To: "Shenwei Wang (OSS)" <shenwei.wang@oss.nxp.com>
+Cc: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Frank Li <frank.li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Shuah Khan <skhan@linuxfoundation.org>, 
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>, 
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Shenwei Wang <shenwei.wang@nxp.com>, Peng Fan <peng.fan@nxp.com>, 
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
+	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>, 
+	"imx@lists.linux.dev" <imx@lists.linux.dev>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, dl-linux-imx <linux-imx@nxp.com>, 
+	Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>, "b-padhi@ti.com" <b-padhi@ti.com>, 
+	Andrew Lunn <andrew@lunn.ch>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260715_105546_114269_4A618892 
+X-CRM114-Status: GOOD (  49.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,329 +133,289 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ARM32 GCC KCFI[1] violations currently show as generic "Oops - undefined
-instruction" errors, making debugging CFI failures difficult. Add a proper
-KCFI trap handler similar to the aarch64 implementation to provide clear
-CFI error messages, including the call target and the expected type.
+On Wed, 15 Jul 2026 at 09:55, Shenwei Wang (OSS)
+<shenwei.wang@oss.nxp.com> wrote:
+>
+>
+>
+> > -----Original Message-----
+> > From: Mathieu Poirier <mathieu.poirier@linaro.org>
+> > Sent: Wednesday, July 15, 2026 10:26 AM
+> > To: Shenwei Wang (OSS) <shenwei.wang@oss.nxp.com>
+> > Cc: Linus Walleij <linusw@kernel.org>; Bartosz Golaszewski <brgl@kernel.org>;
+> > Jonathan Corbet <corbet@lwn.net>; Rob Herring <robh@kernel.org>; Krzysztof
+> > Kozlowski <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>; Bjorn
+> > Andersson <andersson@kernel.org>; Frank Li <frank.li@nxp.com>; Sascha Hauer
+> > <s.hauer@pengutronix.de>; Shuah Khan <skhan@linuxfoundation.org>; linux-
+> > gpio@vger.kernel.org; linux-doc@vger.kernel.org; linux-kernel@vger.kernel.org;
+> > Pengutronix Kernel Team <kernel@pengutronix.de>; Fabio Estevam
+> > <festevam@gmail.com>; Shenwei Wang <shenwei.wang@nxp.com>; Peng Fan
+> > <peng.fan@nxp.com>; devicetree@vger.kernel.org; linux-
+> > remoteproc@vger.kernel.org; imx@lists.linux.dev; linux-arm-
+> > kernel@lists.infradead.org; dl-linux-imx <linux-imx@nxp.com>; Arnaud
+> > POULIQUEN <arnaud.pouliquen@foss.st.com>; b-padhi@ti.com; Andrew Lunn
+> > <andrew@lunn.ch>
+> > Subject: Re: [PATCH v14 1/5] docs: driver-api: gpio: rpmsg gpio driver over rpmsg
+> > bus
+> >
+> > On Tue, Jul 14, 2026 at 06:43:30PM +0000, Shenwei Wang (OSS) wrote:
+> > >
+> > >
+> > > > -----Original Message-----
+> > > > From: Mathieu Poirier <mathieu.poirier@linaro.org>
+> > > > Sent: Tuesday, July 14, 2026 11:36 AM
+> > > > To: Shenwei Wang (OSS) <shenwei.wang@oss.nxp.com>
+> > > > Cc: Linus Walleij <linusw@kernel.org>; Bartosz Golaszewski
+> > > > <brgl@kernel.org>; Jonathan Corbet <corbet@lwn.net>; Rob Herring
+> > > > <robh@kernel.org>; Krzysztof Kozlowski <krzk+dt@kernel.org>; Conor
+> > > > Dooley <conor+dt@kernel.org>; Bjorn Andersson
+> > > > <andersson@kernel.org>; Frank Li <frank.li@nxp.com>; Sascha Hauer
+> > > > <s.hauer@pengutronix.de>; Shuah Khan <skhan@linuxfoundation.org>;
+> > > > linux- gpio@vger.kernel.org; linux-doc@vger.kernel.org;
+> > > > linux-kernel@vger.kernel.org; Pengutronix Kernel Team
+> > > > <kernel@pengutronix.de>; Fabio Estevam <festevam@gmail.com>; Shenwei
+> > > > Wang <shenwei.wang@nxp.com>; Peng Fan <peng.fan@nxp.com>;
+> > > > devicetree@vger.kernel.org; linux- remoteproc@vger.kernel.org;
+> > > > imx@lists.linux.dev; linux-arm- kernel@lists.infradead.org;
+> > > > dl-linux-imx <linux-imx@nxp.com>; Arnaud POULIQUEN
+> > > > <arnaud.pouliquen@foss.st.com>; b-padhi@ti.com; Andrew Lunn
+> > > > <andrew@lunn.ch>
+> > > > Subject: Re: [PATCH v14 1/5] docs: driver-api: gpio: rpmsg gpio
+> > > > driver over rpmsg bus
+> > > >
+> > > > On Tue, Jul 14, 2026 at 02:29:12PM +0000, Shenwei Wang (OSS) wrote:
+> > > d
+> > > > > > > +  - 3: Both edge trigger
+> > > > > > > +  - 4: High level trigger
+> > > > > > > +  - 8: Low level trigger
+> > > > > >
+> > > > > > I'm in agreement with cmd 3, 4, 5 and 6.
+> > > > > >
+> > > > >
+> > > > > How about cmd 2?
+> > > >
+> > > > Yes, I forgot cmd 2.
+> > > >
+> > > > >
+> > > > > > > +
+> > > > > > > +**Reply:**
+> > > > > > > +
+> > > > > > > +.. code-block:: none
+> > > > > > > +
+> > > > > > > +   +------+--------+--------+
+> > > > > > > +   | 0x00 |  0x01  |  0x02  |
+> > > > > > > +   |   1  | status |    0   |
+> > > > > > > +   +------+--------+--------+
+> > > > > > > +
+> > > > > > > +- **status**:
+> > > > > > > +
+> > > > > > > +  - 0: Ok
+> > > > > > > +  - 1: Error
+> > > > > > > +
+> > > > > > > +SET_WAKEUP (Cmd=16)
+> > > > > > > +~~~~~~~~~~~~~~~~~~~
+> > > > > >
+> > > > > > I already commented on messages that are not part of the
+> > > > > > virtio-gpio specification.
+> > > > > >
+> > > > >
+> > > > > I don't believe virtio-gpio needs a SET_WAKEUP command.
+> > > > >
+> > > > > In the RPMSG case, SET_WAKEUP is required because it performs an
+> > > > > operation on the remote processor, so the remote side must be
+> > > > > explicitly
+> > > > notified.
+> > > >
+> > > > What operations would that be?
+> > > >
+> > >
+> > > The operation is enabling the line as a wakeup source. In practice,
+> > > this involves configuring hardware-specific wakeup settings (e.g.,
+> > > register bits) on the remote processor, so the remote side must be explicitly
+> > notified through SET_WAKEUP.
+> > >
+> >
+> > As I said before, we are not enhancing the virtio-gpio specification.  If the
+> > functionality is not part of the specification, it is not part of this protocol.
+> >
+>
+> It's about the functionality, not the specification.
+>
 
-Clang and GCC trap CFI failures differently on ARM32. Clang lowers
-its checks to a BKPT, handled via the breakpoint/prefetch-abort path
-in hw_breakpoint.c, which cannot recover the target or expected type
-and so must report via report_cfi_failure_noaddr(). GCC instead lowers
-KCFI checks to a UDF (undefined instruction) whose immediate encodes
-the registers involved, so the handler can decode it and call the full
-report_cfi_failure() with the target and expected type.
+No, it's about the specification.
 
-The GCC ARM32 KCFI implementation uses UDF instructions with a specific
-encoding pattern:
-- UDF instruction format: cccc 0111 1111 imm12 1111 imm4
-- 16-bit immediate reconstructed from bits 19-8 and 3-0
-- KCFI encoding: 0x8000 | (type_reg_num << 5) | (target_reg_num & 31)
-- Bit 15: KCFI trap identifier (0x8000)
-- Bits 9-5: Type ID register field (0x1F when unavailable)
-- Bits 4-0: Target address register number
+> Without SET_WAKEUP, a virtio-GPIO line can still be used as a wakeup source, but
+> an RPMSG implementation cannot because the remote processor is never notified
+> to configure its wakeup settings.
+>
+> So both implementations may follow the same virtio-gpio specification, but they do
+> not provide the same wakeup functionality.
+>
 
-When the type register field is 0x1F (the type was spilled rather than
-kept in a register), the handler walks back up to 6 preceding
-instructions to recover the 32-bit type ID from the four EOR-immediate
-instructions the compiler emits, similar to x86 CFI trap reconstruction.
+No.  The kernel treats rpmsg-gpio the same way as virtio-gpio - they
+need to provide exactly the same functionality.
 
-The handler is dispatched directly from do_undefinstr() rather than
-through register_undef_hook(). A registered hook is only installed once
-initcalls run, so any KCFI violation that fires earlier in boot would be
-reported as a generic "undefined instruction"; calling the decoder from
-the exception handler itself catches failures from the very first
-instruction. Dispatching directly also lets the handler ignore
-non-kernel-mode UDFs, preventing a user process from spoofing the KCFI
-encoding.
-
-Both the UDF handler and the Clang breakpoint handler in hw_breakpoint.c
-act on the report_cfi_failure*() result identically (oops on a fatal
-violation, or skip the trapping instruction under CFI permissive mode)
-so factor that shared tail into arm_cfi_handle_failure(), declared in
-asm/traps.h.
-
-Link: https://inbox.sourceware.org/gcc-patches/20260618204539.824446-6-kees@kernel.org/ [1]
-Signed-off-by: Kees Cook <kees@kernel.org>
----
- v3:
-  - rebased on https://lore.kernel.org/lkml/20260701-arm32-cfi-bug-v3-1-e3c37e2b80a4@kernel.org/
-  - drop initcall registration: potentially too late
-  - share logic with hw_breakpoint.c
- v2: https://lore.kernel.org/lkml/20250904034656.3670313-9-kees@kernel.org/#r
-Cc: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Linus Walleij <linusw@kernel.org>
-Cc: Nathan Chancellor <nathan@kernel.org>
-Cc: Sami Tolvanen <samitolvanen@google.com>
-Cc: Zhen Lei <thunder.leizhen@huawei.com>
-Cc: Arnd Bergmann <arnd@arndb.de>
-Cc: "Michał Pecio" <michal.pecio@gmail.com>
-Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: <linux-arm-kernel@lists.infradead.org>
----
- arch/arm/include/asm/traps.h    |   3 +
- arch/arm/kernel/hw_breakpoint.c |  40 +++------
- arch/arm/kernel/traps.c         | 144 ++++++++++++++++++++++++++++++++
- 3 files changed, 158 insertions(+), 29 deletions(-)
-
-diff --git a/arch/arm/include/asm/traps.h b/arch/arm/include/asm/traps.h
-index 2621b9fb9b19..5f10af964774 100644
---- a/arch/arm/include/asm/traps.h
-+++ b/arch/arm/include/asm/traps.h
-@@ -2,6 +2,7 @@
- #ifndef _ASMARM_TRAP_H
- #define _ASMARM_TRAP_H
- 
-+#include <linux/bug.h>
- #include <linux/linkage.h>
- #include <linux/list.h>
- 
-@@ -20,6 +21,8 @@ struct undef_hook {
- void register_undef_hook(struct undef_hook *hook);
- void unregister_undef_hook(struct undef_hook *hook);
- 
-+bool arm_cfi_handle_failure(struct pt_regs *regs, enum bug_trap_type type);
-+
- static inline int __in_irqentry_text(unsigned long ptr)
- {
- 	extern char __irqentry_text_start[];
-diff --git a/arch/arm/kernel/hw_breakpoint.c b/arch/arm/kernel/hw_breakpoint.c
-index 38feb30dfb5f..04755b4373f2 100644
---- a/arch/arm/kernel/hw_breakpoint.c
-+++ b/arch/arm/kernel/hw_breakpoint.c
-@@ -904,33 +904,6 @@ static void breakpoint_handler(unsigned long unknown, struct pt_regs *regs)
- 	watchpoint_single_step_handler(addr);
- }
- 
--#ifdef CONFIG_CFI
--static void hw_breakpoint_cfi_handler(struct pt_regs *regs)
--{
--	/*
--	 * TODO: implementing target and type to pass to CFI using the more
--	 * elaborate report_cfi_failure() requires compiler work. To be able
--	 * to properly extract target information the compiler needs to
--	 * emit a stable instructions sequence for the CFI checks so we can
--	 * decode the instructions preceding the trap and figure out which
--	 * registers were used.
--	 */
--
--	switch (report_cfi_failure_noaddr(regs, instruction_pointer(regs))) {
--	case BUG_TRAP_TYPE_BUG:
--		die("Oops - CFI", regs, 0);
--		break;
--	case BUG_TRAP_TYPE_WARN:
--		/* Skip the breaking instruction */
--		instruction_pointer(regs) += 4;
--		break;
--	default:
--		die("Unknown CFI error", regs, 0);
--		break;
--	}
--}
--#endif
--
- /*
-  * Called from either the Data Abort Handler [watchpoint] or the
-  * Prefetch Abort Handler [breakpoint] with interrupts disabled.
-@@ -962,10 +935,19 @@ static int hw_breakpoint_pending(unsigned long addr, unsigned int fsr,
- 		break;
- #ifdef CONFIG_CFI
- 	case ARM_ENTRY_CFI_BREAKPOINT:
-+		/*
-+		 * Clang lowers its CFI checks to a plain breakpoint that does not
-+		 * encode the call target or expected type, so (unlike the GCC UDF
-+		 * handler in traps.c) this can only report via
-+		 * report_cfi_failure_noaddr(). Recovering the target would require
-+		 * the compiler to emit a stable instruction sequence around the
-+		 * check to decode the registers used.
-+		 */
- 		if (user_mode(regs))
- 			ret = 1; /* Don't handle userspace BKPT */
--		else
--			hw_breakpoint_cfi_handler(regs);
-+		else if (!arm_cfi_handle_failure(regs,
-+				report_cfi_failure_noaddr(regs, instruction_pointer(regs))))
-+			die("Unknown CFI error", regs, 0);
- 		break;
- #endif
- 	default:
-diff --git a/arch/arm/kernel/traps.c b/arch/arm/kernel/traps.c
-index afbd2ebe5c39..adaa6170963b 100644
---- a/arch/arm/kernel/traps.c
-+++ b/arch/arm/kernel/traps.c
-@@ -27,6 +27,7 @@
- #include <linux/sched/task_stack.h>
- #include <linux/irq.h>
- #include <linux/vmalloc.h>
-+#include <linux/cfi.h>
- 
- #include <linux/atomic.h>
- #include <asm/cacheflush.h>
-@@ -40,6 +41,7 @@
- #include <asm/stacktrace.h>
- #include <asm/system_misc.h>
- #include <asm/opcodes.h>
-+#include <linux/bitfield.h>
- 
- 
- static const char *handler[]= {
-@@ -442,6 +444,141 @@ int call_undef_hook(struct pt_regs *regs, unsigned int instr)
- 	return fn ? fn(regs, instr) : 1;
- }
- 
-+#ifdef CONFIG_CFI
-+/**
-+ * arm_cfi_handle_failure() - Act on a report_cfi_failure() result
-+ * @regs: registers at the trapping instruction
-+ * @type: the bug_trap_type returned by report_cfi_failure*()
-+ *
-+ * Shared by the GCC UDF handler in this file and the Clang breakpoint handler
-+ * in hw_breakpoint.c: oops on a fatal violation, or under CFI permissive mode
-+ * skip the (4-byte, ARM state) trapping instruction and continue.
-+ *
-+ * Return: true if @type was a recognized CFI failure and has been handled;
-+ * false otherwise, so the caller can escalate.
-+ */
-+bool arm_cfi_handle_failure(struct pt_regs *regs, enum bug_trap_type type)
-+{
-+	switch (type) {
-+	case BUG_TRAP_TYPE_BUG:
-+		die("Oops - CFI", regs, 0);
-+		break;
-+	case BUG_TRAP_TYPE_WARN:
-+		/* Permissive mode: skip the trapping instruction and continue. */
-+		instruction_pointer(regs) += 4;
-+		break;
-+	default:
-+		return false;
-+	}
-+
-+	return true;
-+}
-+
-+/*
-+ * ARM32 KCFI trap handler.
-+ * UDF instruction format: cccc 0111 1111 imm12 1111 imm4
-+ * Immediate is reconstructed from bits 19-8 (12 bits) and bits 3-0 (4 bits)
-+ * KCFI immediate encoding: 0x8000 | (0x1F << 5) | (target_reg_num & 31)
-+ * - Bit 15: KCFI trap identifier (0x8000)
-+ * - Bits 9-5: Type ID register field (0x1F when invalid due to stack spilling)
-+ * - Bits 4-0: Target address register number
-+ */
-+#define CFI_UDF_KCFI_BIT    BIT(15)	  /* KCFI identifier bit (0x8000) */
-+#define CFI_UDF_IMM_TARGET  GENMASK(4, 0) /* Target register (bits 4:0) */
-+#define CFI_UDF_IMM_TYPE    GENMASK(9, 5) /* Type register (bits 9:5) */
-+
-+/* UDF base pattern with KCFI bit: cond=0xe, 0x7f, xxxx, 1xxx, 0xf, xxxx */
-+#define CFI_UDF_IMM_BASE    0xe7f008f0
-+#define CFI_UDF_IMM_MASK    0xfff008f0	/* Mask for UDF + KCFI bit matching */
-+
-+/**
-+ * cfi_udf_handler() - Decode and report a GCC KCFI UDF trap
-+ * @regs: registers at the trapping instruction
-+ * @instr: the trapping instruction word
-+ *
-+ * Called for every kernel-mode undefined instruction. If @instr is a GCC
-+ * KCFI UDF, decode its target and expected type and hand them to
-+ * report_cfi_failure(), which oopses (fatal) or, under CFI permissive mode,
-+ * warns and skips the instruction.
-+ *
-+ * Return: 0 if this was a KCFI failure and has been handled (the caller
-+ * should return to the interrupted context); 1 otherwise when the UDF was not
-+ * a KCFI trap (user mode, non-KCFI encoding, malformed operands, or an
-+ * unrecognized report), so the caller should keep looking for a handler.
-+ */
-+static int cfi_udf_handler(struct pt_regs *regs, unsigned int instr)
-+{
-+	unsigned long target;
-+	u32 target_reg, type_reg, type, imm16;
-+
-+	/*
-+	 * KCFI checks are only emitted in kernel code, so ignore user-mode UDFs
-+	 * (this also stops a user process spoofing the KCFI encoding), and only
-+	 * handle UDFs carrying the KCFI pattern.
-+	 */
-+	if (processor_mode(regs) != SVC_MODE)
-+		return 1;
-+	if ((instr & CFI_UDF_IMM_MASK) != CFI_UDF_IMM_BASE)
-+		return 1;
-+
-+	/* Reconstruct 16-bit immediate from bits 19-8 and 3-0 */
-+	imm16 = ((instr >> 4) & 0xfff0) | (instr & 0x0f);
-+
-+	target_reg = FIELD_GET(CFI_UDF_IMM_TARGET, imm16);
-+	type_reg = FIELD_GET(CFI_UDF_IMM_TYPE, imm16);
-+
-+	if (target_reg >= 16) {
-+		pr_err("CFI UDF handler: invalid target register %u\n", target_reg);
-+		return 1;
-+	}
-+
-+	target = regs->uregs[target_reg];
-+
-+	/* Type register field is set to all 1s (0x1F) when spilled; extract from EOR sequence */
-+	if (type_reg == 0x1F) {
-+		u32 *pc = (u32 *)regs->ARM_pc;
-+		int eor_count = 0;
-+		int i;
-+
-+		type = 0;
-+		/* Walk back up to 6 instructions to find EOR sequence for type ID */
-+		for (i = 1; i <= 6 && eor_count < 4; i++) {
-+			u32 instr_prev = __mem_to_opcode_arm(pc[-i]);
-+
-+			/* Check for EOR/EORS immediate: cccc 0010 0x1n Rn Rd immediate */
-+			if ((instr_prev & 0x0fe00000) == 0x02200000) {
-+				/* Extract EOR immediate value and XOR to reconstruct type */
-+				u32 rotate = (instr_prev >> 8) & 0xf;
-+				u32 imm8 = instr_prev & 0xff;
-+				u32 imm32 = (imm8 >> (rotate * 2)) | (imm8 << (32 - rotate * 2));
-+				type ^= imm32;
-+				eor_count++;
-+			}
-+		}
-+		if (eor_count != 4)
-+			pr_err("CFI UDF handler: found %d EOR instructions, expected 4\n", eor_count);
-+	} else {
-+		if (type_reg >= 16) {
-+			pr_err("CFI UDF handler: invalid type register %u\n", type_reg);
-+			return 1;
-+		}
-+
-+		type = regs->uregs[type_reg];
-+	}
-+
-+	if (!arm_cfi_handle_failure(regs,
-+			report_cfi_failure(regs, regs->ARM_pc, &target, type)))
-+		return 1;
-+
-+	return 0;
-+}
-+#else
-+static inline int cfi_udf_handler(struct pt_regs *regs, unsigned int instr)
-+{
-+	return 1;
-+}
-+#endif /* CONFIG_CFI */
-+
- asmlinkage void do_undefinstr(struct pt_regs *regs)
- {
- 	unsigned int instr;
-@@ -478,6 +615,13 @@ asmlinkage void do_undefinstr(struct pt_regs *regs)
- 		instr = __mem_to_opcode_arm(instr);
- 	}
- 
-+	/*
-+	 * Decode KCFI failures directly (not via register_undef_hook) so they
-+	 * are diagnosed even when they fire before initcalls have run.
-+	 */
-+	if (cfi_udf_handler(regs, instr) == 0)
-+		return;
-+
- 	if (call_undef_hook(regs, instr) == 0)
- 		return;
- 
--- 
-2.34.1
-
+> Anyway, if you want to drop the function, the command can be removed.
+>
+> Shenwei
+>
+> > >
+> > > > >
+> > > > > For virtio-gpio, however, everything is handled locally. The other
+> > > > > side does not need to perform any action, so sending a SET_WAKEUP
+> > > > > command
+> > > > appears unnecessary.
+> > > >
+> > > > What is "everything"?
+> > > >
+> > >
+> > > I mean masking, unmasking, and marking the interrupt as a wakeup
+> > > source. All of these operations are handled on local processor.
+> >
+> > There may be enough capability in your remote processor to do all that, but we
+> > can't assume the same applies to all implementations.  rpmsg-gpio is not about
+> > inventing a new protocol or delegating actions to the remote processor.  It is
+> > about carrying virtio-gpio packets on top of RPMSG.  It needs to operate
+> > _exactly_ the same way as virtio-gpio.
+> >
+> > >
+> > > Shenwei
+> > >
+> > > > >
+> > > > >
+> > > > > > > +
+> > > > > > > +**Request:**
+> > > > > > > +
+> > > > > > > +.. code-block:: none
+> > > > > > > +
+> > > > > > > +   +------+------+------+------+------+------+------+------+
+> > > > > > > +   | 0x00 | 0x01 | 0x02 | 0x03 | 0x04 | 0x05 | 0x06 | 0x07 |
+> > > > > > > +   |      1      |    line     |           value           |
+> > > > > > > +   +------+------+------+------+------+------+------+------+
+> > > > > > > +
+> > > > > > > +- **value**: Wakeup enable.
+> > > > > > > +
+> > > > > > > +  The remote system should always aim to stay in a
+> > > > > > > + power-efficient state by  shutting down or clock-gating the
+> > > > > > > + GPIO blocks that aren't in use. Since  the remoteproc driver
+> > > > > > > + is responsible for managing the power states of the  remote
+> > > > > > > + firmware, the GPIO driver does not require to know the
+> > > > > > > + firmware's
+> > > > running states.
+> > > > > > > +
+> > > > > > > +  When the wakeup bit is set, the remote firmware should
+> > > > > > > + configure the line  as a wakeup source. The firmware should
+> > > > > > > + send the notification message to  Linux after it is woken from the GPIO
+> > line.
+> > > > > > > +
+> > > > > > > +  - 0: Disable wakeup from GPIO
+> > > > > > > +  - 1: Enable wakeup from GPIO
+> > > > > > > +
+> > > > > > > +**Reply:**
+> > > > > > > +
+> > > > > > > +.. code-block:: none
+> > > > > > > +
+> > > > > > > +   +------+--------+--------+
+> > > > > > > +   | 0x00 |  0x01  |  0x02  |
+> > > > > > > +   |   1  | status |    0   |
+> > > > > > > +   +------+--------+--------+
+> > > > > > > +
+> > > > > > > +- **status**:
+> > > > > > > +
+> > > > > > > +  - 0: Ok
+> > > > > > > +  - 1: Error
+> > > > > > > +
+> > > > > > > +Notification Message
+> > > > > > > +--------------------
+> > > > > >
+> > > > > > "Interrupt Messages"
+> > > > > >
+> > > > > > > +
+> > > > > > > +Notifications are sent by the remote core and they have
+> > > > > > > +**Type=2 (GPIO_RPMSG_NOTIFY)**:
+> > > > > > > +
+> > > > > > > +When a GPIO line asserts an interrupt on the remote
+> > > > > > > +processor, the firmware should immediately mask the
+> > > > > > > +corresponding interrupt source and send a notification
+> > > > > > > +message to the Linux. Upon completion of the interrupt
+> > > > > > > +handling on the Linux side, the driver should issue a command
+> > > > > > > +**SET_IRQ_TYPE** to the firmware to
+> > > > unmask the interrupt.
+> > > > > > > +
+> > > > > > > +A Notification message can arrive between a SEND and its
+> > > > > > > +REPLY message, and the driver is expected to handle this scenario.
+> > > > > > > +
+> > > > > > > +.. code-block:: none
+> > > > > > > +
+> > > > > > > +   +------+------+--------+
+> > > > > > > +   | 0x00 | 0x01 |  0x02  |
+> > > > > > > +   |   2  | line | trigger|
+> > > > > > > +   +------+------+--------+
+> > > > > >
+> > > > > > 2 things here:
+> > > > > >
+> > > > > > 1) You did not include messages that mask and unmask interrupts
+> > > > > > at the driver side.
+> > > > >
+> > > > > Interrupt masking and unmasking are handled entirely on the local
+> > processor.
+> > > > >
+> > > > > When an interrupt occurs, the remote system masks the interrupt
+> > > > > and then sends a notification to Linux. After Linux processes the
+> > > > > notification, it sends a SET_IRQ_TYPE message back to the remote
+> > > > > system,
+> > > > which then unmasks the interrupt.
+> > > >
+> > > > This is the kind of information that should be part of this documentation.
+> > > >
+> > > > >
+> > > > > Thanks,
+> > > > > Shenwei
+> > > > >
+> > > > > >
+> > > > > > 2) We are carrying virtio-gpio messages on top of RPMSG and as
+> > > > > > such, this whole protocol should be about thar:
+> > > > > >
+> > > > > > +------+------+--------+--------
+> > > > > > | 0x00 |       payload         |
+> > > > > > |  Q   |                       |
+> > > > > > +------+------+--------+--------
+> > > > > >
+> > > > > > Q = 0 requestq
+> > > > > > Q = 1 eventq
+> > > > > >
+> > > > > > The "payload" part is simply the format of the messages as found
+> > > > > > in the virtio- gpio specification.  From there, the only thing
+> > > > > > left to mention is which messages are not supported, i.e get line names.
+> > > > > >
+> > > > > > > +
+> > > > > > > +- **line**: The GPIO line (pin) index of the port.
+> > > > > > > +
+> > > > > > > +- **trigger**: Optional parameter to indicate the trigger event type.
+> > > > > >
+> > > > > > Not part of the spec - remove.
+> > > > > >
+> > > > > > Given the refactoring work that is still needed, I will not look
+> > > > > > at the implementation.
+> > > > > >
+> > > > > > Thanks,
+> > > > > > Mathieu
+> > > > > >
+> > > > > > > +
+> > > > > > > diff --git a/Documentation/driver-api/gpio/index.rst
+> > > > > > > b/Documentation/driver-api/gpio/index.rst
+> > > > > > > index bee58f709b9a..e5eb1f82f01f 100644
+> > > > > > > --- a/Documentation/driver-api/gpio/index.rst
+> > > > > > > +++ b/Documentation/driver-api/gpio/index.rst
+> > > > > > > @@ -16,6 +16,7 @@ Contents:
+> > > > > > >     drivers-on-gpio
+> > > > > > >     bt8xxgpio
+> > > > > > >     pca953x
+> > > > > > > +   gpio-rpmsg
+> > > > > > >
+> > > > > > >  Core
+> > > > > > >  ====
+> > > > > > > --
+> > > > > > > 2.43.0
+> > > > > > >
 
