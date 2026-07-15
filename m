@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D01D4C44501
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E03ABC44508
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 16:40:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,63 +12,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vy+lzTyWF45tjpu8Hq+wOembnGO1H0tTuiWdkH6yY0o=; b=k+A/GSfgbx3nLp0M+Woktvw1At
-	EsBn0icd1g06RJthCPCJSVa5Wi1MI7Y/18quOdLWkS0e8TO1ImU3TXcBesz4PuKwX33nt4tnxn7iw
-	91Dj3sWqqSD3AAhF7GDHCP9QUE51adX7snTic15o0bWzuw/obTVhDPRkLDCsBnFfuSjo4eFKvKmm4
-	el/HjmrqLiInFyx9sjij+Yyt+RdKTJzzcJ44erh9BrkcrpEdoSvFXPA0vnx0sMOUdaVObDIJ9gSfe
-	nmaKT3R/xFk++J0WKC1oT52Z0muzEe+GWVxaRdb7KgNaIEURWdmKSB/UnVjw1CmpzzTHpluxhFckZ
-	Wq339cVg==;
+	bh=Dnt0wH3KniIC/sue0KDm3yMoC13NNC6ukWb5nsXBxIw=; b=W7aIjrTxPjlTTdo2gqVVazFXrD
+	lIKREabB55n6ovWHJ+k6dDlksIDZ3p0uAhlY3+dPQxVyi+01LhEgedBbdJznPP5YdgNZaXSrcY+Qk
+	zwPpyepM7c7097xBeVfmUHPM3BnavMlOdmRE9L5MY+Dgh6CZ+W4RmFrSxapyaW8bGQlgqGduQupzT
+	HteMEHm66s6cvuGraioZEdQOMHVfN6L7EuP0s4JlWq5MlzpXvolXmNCVAUb9EgUJJlUuCrpZlyyzQ
+	DrpSS2mc4J+saWk0rtLfiqd3UlmaUvPm7ryjafffw0OwFQUUo55bdi0i3PY7OOz1Snxl5ED/Pmfmu
+	44p+PM8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk2fD-0000000FUHf-4BRs;
+	id 1wk2fE-0000000FUIE-0yPP;
 	Wed, 15 Jul 2026 16:40:52 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk2f7-0000000FUEl-1KCr
+	id 1wk2fB-0000000FUGI-1KH0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 16:40:46 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-47dec32798aso5888909f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 09:40:44 -0700 (PDT)
+	Wed, 15 Jul 2026 16:40:50 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-47defd0c1c5so1839663f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 09:40:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784133643; x=1784738443; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1784133647; x=1784738447; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=vy+lzTyWF45tjpu8Hq+wOembnGO1H0tTuiWdkH6yY0o=;
-        b=bCxrWqhbC1RxQzuKKPEUxxnVWPoXJKl1ShvtV6gQFJ3rCxEGasWq3SCEWK3HtzQX9b
-         8RXrSN0O4Yob8/Onu2ZxoWzZS1L7sUrVdEoO9YD3zvgSGzSNZnxDu2g9J/0YhYV021GS
-         mrBlCp2s+ADXg4Ojnuvj9xvpGm7ipCgDq7h7oTx1wGF3+1AWtKn2zOwyyKen+Fo6Vq5O
-         tkb8utoc2aDvnJvnvCPbTr8H62j7s9N/lrsp0kWKiZKHKW3kzR0PkwY/ygbGoR4ylzcQ
-         V+f93KojrCdhv18saLAQi2a7sRLfh5lBAKZeihgatdh90Kvnl0A2jb5Uy4Ka1xHRkPNK
-         eRbg==
+        bh=Dnt0wH3KniIC/sue0KDm3yMoC13NNC6ukWb5nsXBxIw=;
+        b=aFHBjt35jvZlLshGP94V81bSd+MWpfuhJPNYkxlCvFZsZrWbvB7aZI+IlHMcOSZq93
+         FRLxizxAh2pZWYz0SCp/o1ZvcQONXd3tZomShZs+PvwC9BlTWWVAhg81Sw2YLC525k5d
+         hJ4QzIfqHiVayS3jxMpXJajTcsR2odIr0sUVWY7ZRasp8iQHO18b1m/KU2GbYrEmtJD1
+         9HiF1aMurhLV3gK0wpFJv3Wnjh9LHIw/V62j7eEPk2udK2rr/pFbGBYq34g3RDrEDcoi
+         aUgnVd+w1U0vTDhztUy8vKFj81yHTIixt9V7/3rSvz0c8zNNNL/3ilLW6SlqlA/00nWd
+         mhxg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784133643; x=1784738443;
+        d=1e100.net; s=20251104; t=1784133647; x=1784738447;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=vy+lzTyWF45tjpu8Hq+wOembnGO1H0tTuiWdkH6yY0o=;
-        b=MqhEBCJSTikBcreoVOyEYf60OXPX/GVLeh2kkSgcklF0d12T2tgZR+SL+z8vI1FBPH
-         ZqfbfbzfcfpOEf+JCO9yK0M9LgZRmWm1IpKz9yP2s4VZ7Ni905rZ8VFEIDmdJEkyCXv8
-         Mv+Z6mqTUnSGJ8DGH/0SPGX7ROio23WOz10Em/30D4R5KjKgsEH+kU9n41w4XVI7r5gl
-         eG9FvyrW4hf4zGRb4tWmcTvGwNg1wH7U8lf4o77TpSGSuH+mVvO747nJcvY6ysKlYtSX
-         iN4/awa2d9XuehXD5C/UZxYwpOxeAn/+3Jo0AcjmaRjPL6hZdjF41nSVexJ8Ndi6S0s9
-         TTRg==
-X-Forwarded-Encrypted: i=1; AHgh+RrLJORRfxWhGk+LWXXYmxcsBCjsz3DewAe3CTsBk3aN3wQqbPFEhlkx/vo3nm35+9K1oGx5199u/F5MPSqmVutW@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywfov43p6uIJGAXRDVDZGkSD/GCwJz7OxSLoUYNxeICSwIY76xJ
-	I6Czvj4baBO8TRutTcJv5mbHSDQY2NK8mIho7PJtZshGcyD2eXSf1BFd
-X-Gm-Gg: AfdE7ck/bjntCauhKPvwx1YULFnw0DWsy1iRfD/q/dlfe4KU62d1EBgmHa96tF5pFz6
-	AySYJZwIm+vjIYp1bVpa6QvZFWlJjFh5s2UqpgKgfdX6zrPC3MIbXP2sPHbVraRDAbiMP5/GmEB
-	37ThYPSewv46g9I0lMYPWsvo59RlgsJGlzo0DBaOcXYie7pYIP8Ao4+IWhY+/GxACPDskQf8s7N
-	/QTqjUfivEm4Ht/r3EabbZqUS4O/lPGke251oK6KD4o32hC7cZDeGl4F56xgHJYzHpPTcHTLU4s
-	iQsUzH61TgkKhLFexz0R6HU71+AK44RC6BrivNRnJPPNQbQxHc2dYeSA5+RbII83Ix/DeyPyyOa
-	ycwc1U1mwygaBlQMgHUmwaoacMUHlxBMy5Y9+SxrN/YSuChJpGF9NuzYljiepegubpQGzgEIfWn
-	eDDO1wMJoTrMdwELcjJSgeuZqWJkSol8wkUygvd9bOFdaE7n/KW0eyZ+Sv9Q==
-X-Received: by 2002:a05:6000:41e3:b0:47d:fc33:df0d with SMTP id ffacd0b85a97d-47f488c1dc9mr9593088f8f.58.1784133643146;
-        Wed, 15 Jul 2026 09:40:43 -0700 (PDT)
+        bh=Dnt0wH3KniIC/sue0KDm3yMoC13NNC6ukWb5nsXBxIw=;
+        b=Vna8JUDHKJ/eOOZeXkI3SXgguOWlXx+CZHy5jrpOspjH5efUsyakvfVgFQYK+edr43
+         QMJH7LvZsuzgAacNjSu/u8NqWz7PvO5P7YTG355fU+7dwvNQqxBCJvWNhRipdLVi1oCN
+         ItSkrsq2mKc3YLCeOGTB7JRuHKY7qzhkBhnGdO687AOcCaO2C21pBUCNURvo2ymY7R3J
+         7xk/rv7ytX97hM00JQCb8VV7OUahG7RsfDwDR6MUOvrsfPcGGtyduOJ1fmzDaMsei//0
+         Yje3Pq8tKOapLwPB7EU6VIR8eMl6OFAExLvdHml4wq64QHY+RJv7JXJKMsjRYWPqwYgY
+         zkIg==
+X-Forwarded-Encrypted: i=1; AHgh+RqCYODDjpuLPHPAL/da0GwkvZBmcjMcb4Yzv3WzTlQa7/vfk6ZxVDyXOh4zRB0OPO1YxCU86DMGs3kmfU9mSJar@lists.infradead.org
+X-Gm-Message-State: AOJu0YzLwUq9+Xsltjgq0FG9aeML4/pH7JJ3xKH22B+tFfwkSQV/7wSk
+	Xh77t5mKSXeTu5qyluNJzK519do43gNQGh1h/qScxH4pwGuGLIS6vB5u
+X-Gm-Gg: AfdE7clVP6tFNT0mFtO0k2FtaOvSEFMTkvyBwTK9ebpQESu4aJ2oekdueqeU6+I4c4+
+	vKMKShVF5KbnbKgYhyekHslQhijQzY+oTVHl5EuW6Y4k5BBcfX82eSuYVKaK9rzPEQFYVi2MqJz
+	rhUXNPFngF+6BnypZEMZgzopaoN7Qw63ZaV0mgcHZEMWiE7ZJqD3aaeGQDzeqBZiNXdPGwq+G1w
+	WyjAUd9mGmDupfyRtuhr7ZGdNw4yboUDF3eNsc1xd0aQcxG/c6gxCforW890Cg9IvExeKgcB284
+	Q8oeaMTl1EGXQZctiKYn8kKUyIks1cMFLopybo2yBfheTDwvoReY/nd5Ey9UtSvpmieepG5peDk
+	O9K5MlYYFAHpZQ+g3oCW1FQqgauBlzAmhGQ/Z0WUNO59wvmzVHmjqUTTSN4gvWVNYCIH1e5Uiw1
+	GOXJcrG//YlzrmvtGYMl58c/RbTeqC4ND+BnCDv4rzCVzG2/cqA2gyes+mMQ==
+X-Received: by 2002:a05:600c:564b:b0:493:e79e:da98 with SMTP id 5b1f17b1804b1-493f8837fdbmr137162165e9.39.1784133645862;
+        Wed, 15 Jul 2026 09:40:45 -0700 (PDT)
 Received: from Lord-Beerus.station ([93.144.65.248])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f464bbb0esm17836432f8f.28.2026.07.15.09.40.41
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f464bbb0esm17836432f8f.28.2026.07.15.09.40.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jul 2026 09:40:42 -0700 (PDT)
+        Wed, 15 Jul 2026 09:40:45 -0700 (PDT)
 From: Stefano Radaelli <stefano.radaelli21@gmail.com>
 X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
 To: linux-kernel@vger.kernel.org,
@@ -91,20 +91,18 @@ Cc: pierluigi.p@variscite.com,
 	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
 	Maud Spierings <maudspierings@gocontroll.com>,
 	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH v4 1/3] dt-bindings: arm: fsl: add Variscite VAR-SOM-MX8 QuadMax Boards
-Date: Wed, 15 Jul 2026 18:40:35 +0200
-Message-ID: <ab828fa11ee190cf703cf6a422c43fc2c2d60a60.1784133402.git.stefano.r@variscite.com>
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>
+Subject: [PATCH v4 3/3] arm64: dts: imx8qm-var-som: Add support for Variscite Symphony board
+Date: Wed, 15 Jul 2026 18:40:37 +0200
+Message-ID: <b86e2a96a3f41e7db1d25de47ffd6f86aa890ba1.1784133402.git.stefano.r@variscite.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <cover.1784133402.git.stefano.r@variscite.com>
 References: <cover.1784133402.git.stefano.r@variscite.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_094045_377743_3A14EFB4 
-X-CRM114-Status: UNSURE (   9.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260715_094049_525844_74C5A40A 
+X-CRM114-Status: GOOD (  18.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,41 +119,548 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Stefano Radaelli <stefano.r@variscite.com>
 
-Add DT compatible strings for Variscite VAR-SOM-MX8 QuadMax SoM and
-Variscite Symphony development carrier Board.
+Add device tree support for the Variscite Symphony carrier board with
+the VAR-SOM-MX8 QuadMax system on module.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+The Symphony board includes
+- uSD Card support
+- USB ports and OTG
+- Additional Gigabit Ethernet interface
+- Uart, SPI and I2C interfaces
+- GPIO Expanders
+- RTC module
+- TPM module
+- CAN peripherals
+- PCIE support
+
+Link: https://variscite.com/carrier-boards/symphony-board/
 Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
 ---
 v3->v4:
  - 
 
 v2->v3:
- - 
+ - Fix led typo
+ - Moved reset-gpios in pciea_port0
+ - Removed wrong captouch pinctrl gpio
 
 v1->v2:
- - 
+ - Fix ptn5150 interrupt
+ - Fix ecspi1 cs gpio
 
- Documentation/devicetree/bindings/arm/fsl.yaml | 6 ++++++
- 1 file changed, 6 insertions(+)
+ arch/arm64/boot/dts/freescale/Makefile        |   1 +
+ .../dts/freescale/imx8qm-var-som-symphony.dts | 490 ++++++++++++++++++
+ 2 files changed, 491 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8qm-var-som-symphony.dts
 
-diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
-index 6237fb2ae50e..532e4308dc46 100644
---- a/Documentation/devicetree/bindings/arm/fsl.yaml
-+++ b/Documentation/devicetree/bindings/arm/fsl.yaml
-@@ -1381,6 +1381,12 @@ properties:
-               - fsl,imx8qm-mek-revd      # i.MX8QM MEK Rev D Board
-           - const: fsl,imx8qm
+diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+index 430085123b4e..ceb31556a8c0 100644
+--- a/arch/arm64/boot/dts/freescale/Makefile
++++ b/arch/arm64/boot/dts/freescale/Makefile
+@@ -540,6 +540,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8qm-apalis-v1.1-ixora-v1.1.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8qm-apalis-v1.1-ixora-v1.2.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8qm-mek.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8qm-tqma8qm-mba8x.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx8qm-var-som-symphony.dtb
  
-+      - description: i.MX8QM Variscite VAR-SOM-MX8 based Boards
-+        items:
-+          - const: variscite,var-som-imx8qm-symphony
-+          - const: variscite,var-som-imx8qm
-+          - const: fsl,imx8qm
+ imx8qm-mek-ov5640-csi0-dtbs := imx8qm-mek.dtb imx8qm-mek-ov5640-csi0.dtbo
+ dtb-${CONFIG_ARCH_MXC} += imx8qm-mek-ov5640-csi0.dtb
+diff --git a/arch/arm64/boot/dts/freescale/imx8qm-var-som-symphony.dts b/arch/arm64/boot/dts/freescale/imx8qm-var-som-symphony.dts
+new file mode 100644
+index 000000000000..7c7fc8958efc
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx8qm-var-som-symphony.dts
+@@ -0,0 +1,490 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Variscite Symphony carrier board for VAR-SOM-MX8 QuadMax
++ *
++ * Link: https://variscite.com/carrier-boards/symphony-board/
++ *
++ * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com/
++ *
++ */
 +
-       - description: i.MX8QM Boards with Toradex Apalis iMX8 Modules
-         items:
-           - enum:
++/dts-v1/;
++
++#include <dt-bindings/input/input.h>
++#include <dt-bindings/leds/common.h>
++#include "imx8qm-var-som.dtsi"
++
++/ {
++	model = "Variscite VAR-SOM-MX8 on Symphony evaluation board";
++	compatible = "variscite,var-som-imx8qm-symphony",
++		     "variscite,var-som-imx8qm", "fsl,imx8qm";
++	chosen {
++		stdout-path = &lpuart0;
++	};
++
++	 gpio-keys {
++		compatible = "gpio-keys";
++
++		button-back {
++			label = "Back";
++			gpios = <&pca9534 1 GPIO_ACTIVE_LOW>;
++			linux,code = <KEY_BACK>;
++		};
++
++		button-home {
++			label = "Home";
++			gpios = <&pca9534 2 GPIO_ACTIVE_LOW>;
++			linux,code = <KEY_HOME>;
++		};
++
++		button-menu {
++			label = "Menu";
++			gpios = <&pca9534 3 GPIO_ACTIVE_LOW>;
++			linux,code = <KEY_MENU>;
++		};
++	};
++
++	gpio-leds {
++		compatible = "gpio-leds";
++
++		led-heartbeat {
++			function = LED_FUNCTION_STATUS;
++			color = <LED_COLOR_ID_GREEN>;
++			gpios = <&pca9534 0 GPIO_ACTIVE_LOW>;
++			linux,default-trigger = "heartbeat";
++		};
++	};
++
++	reg_fec_phy: regulator-fec-phy {
++		compatible = "regulator-fixed";
++		regulator-name = "fec-phy";
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++		regulator-enable-ramp-delay = <20000>;
++		vin-supply = <&reg_vselect>;
++		gpio = <&pca9534 7 GPIO_ACTIVE_HIGH>;
++		enable-active-high;
++	};
++
++	reg_usb_otg1_vbus: regulator-usb-otg1-vbus {
++		compatible = "regulator-fixed";
++		regulator-name = "usb_otg1_vbus";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		gpio = <&lsio_gpio0 18 GPIO_ACTIVE_HIGH>;
++		enable-active-high;
++	};
++
++	reg_usdhc2_vmmc: regulator-usdhc2-vmmc {
++		compatible = "regulator-fixed";
++		regulator-name = "sw-3p3-sd1";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		regulator-always-on;
++	};
++
++	reg_vselect: regulator-vselect {
++		compatible = "regulator-fixed";
++		regulator-name = "reg_vselect";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		regulator-always-on;
++		gpio = <&pca9534 6 GPIO_ACTIVE_HIGH>;
++		enable-active-high;
++	};
++};
++
++&ethphy0 {
++	leds {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		led@0 {
++			reg = <0>;
++			color = <LED_COLOR_ID_YELLOW>;
++			function = LED_FUNCTION_LAN;
++			linux,default-trigger = "netdev";
++		};
++
++		led@1 {
++			reg = <1>;
++			color = <LED_COLOR_ID_GREEN>;
++			function = LED_FUNCTION_LAN;
++			linux,default-trigger = "netdev";
++		};
++	};
++};
++
++&fec1 {
++	mdio {
++		ethphy1: ethernet-phy@5 {
++			compatible = "ethernet-phy-ieee802.3-c22";
++			reg = <5>;
++			vddio-supply = <&reg_phy_vddio>;
++			reset-gpios = <&pca9534 5 GPIO_ACTIVE_LOW>;
++			reset-assert-us = <10000>;
++			reset-deassert-us = <100000>;
++
++			leds {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				led@0 {
++					reg = <0>;
++					color = <LED_COLOR_ID_YELLOW>;
++					function = LED_FUNCTION_LAN;
++					linux,default-trigger = "netdev";
++				};
++
++				led@1 {
++					reg = <1>;
++					color = <LED_COLOR_ID_GREEN>;
++					function = LED_FUNCTION_LAN;
++					linux,default-trigger = "netdev";
++				};
++			};
++		};
++	};
++};
++
++&fec2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_fec2>;
++	/*
++	 * The required RGMII TX and RX 2ns delays are implemented directly
++	 * in hardware via passive delay elements on the SOM PCB.
++	 * No delay configuration is needed in software via PHY driver.
++	 */
++	phy-mode = "rgmii";
++	phy-handle = <&ethphy1>;
++	phy-supply = <&reg_fec_phy>;
++	status = "okay";
++};
++
++&flexcan1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_flexcan1>;
++	status = "okay";
++};
++
++&flexcan2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_flexcan2>;
++	status = "okay";
++};
++
++&hsio_phy {
++	fsl,hsio-cfg = "pciea-pcieb-sata";
++	fsl,refclk-pad-mode = "input";
++	status = "okay";
++};
++
++&i2c1 {
++	clock-frequency = <100000>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_i2c1>;
++	status = "okay";
++
++	pca9534: gpio@20 {
++		compatible = "nxp,pca9534";
++		reg = <0x20>;
++		gpio-controller;
++		#gpio-cells = <2>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_pca9534>;
++		interrupt-parent = <&lsio_gpio1>;
++		interrupts = <24 IRQ_TYPE_LEVEL_LOW>;
++	};
++
++	/* USB Type-C Controller */
++	typec_ptn5150: typec@3d {
++		compatible = "nxp,ptn5150";
++		reg = <0x3d>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_ptn5150>;
++		interrupt-parent = <&lsio_gpio3>;
++		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
++
++		port {
++			typec_dr_sw: endpoint {
++				remote-endpoint = <&usb3_drd_sw>;
++			};
++		};
++	};
++};
++
++&i2c4 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++	clock-frequency = <100000>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_i2c4>;
++	status = "okay";
++
++	pca6408: gpio@21 {
++		compatible = "nxp,pcal6408";
++		reg = <0x21>;
++		gpio-controller;
++		#gpio-cells = <2>;
++
++		/* RGB_SEL */
++		lvds-brg-enable-hog {
++			gpio-hog;
++			gpios = <7 GPIO_ACTIVE_HIGH>;
++			output-low;
++			line-name = "lvds_brg_en";
++		};
++	};
++
++	st33ktpm2xi2c: tpm@2e {
++		compatible = "st,st33ktpm2xi2c", "tcg,tpm-tis-i2c";
++		reg = <0x2e>;
++		label = "tpm";
++		reset-gpios = <&pca6408 4 GPIO_ACTIVE_LOW>;
++	};
++
++	/* Capacitive touch */
++	ft5x06_ts: touchscreen@38 {
++		compatible = "edt,edt-ft5406";
++		pinctrl-names = "default";
++		reg = <0x38>;
++		pinctrl-0 = <&pinctrl_captouch>;
++		interrupt-parent = <&lsio_gpio0>;
++		interrupts = <19 IRQ_TYPE_LEVEL_LOW>;
++		touchscreen-size-x = <800>;
++		touchscreen-size-y = <480>;
++		touchscreen-inverted-x;
++		touchscreen-inverted-y;
++		wakeup-source;
++	};
++
++	rtc@68 {
++		compatible = "dallas,ds1337";
++		reg = <0x68>;
++	};
++};
++
++&lpspi1 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_lpspi1>;
++	cs-gpios = <&lsio_gpio3 24 GPIO_ACTIVE_LOW>;
++	status = "okay";
++};
++
++/* console */
++&lpuart0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_lpuart0>;
++	status = "okay";
++};
++
++/* header */
++&lpuart2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_lpuart2>;
++	status = "okay";
++};
++
++&pca9534 {
++	usb3-signal-route-hog {
++		gpio-hog;
++		gpios = <4 GPIO_ACTIVE_HIGH>;
++		output-low;
++		line-name = "usb3_signal_route";
++	};
++};
++
++&pciea{
++	phys = <&hsio_phy 0 PHY_TYPE_PCIE 0>;
++	phy-names = "pcie-phy";
++	status = "okay";
++};
++
++&pciea_port0 {
++	reset-gpios = <&pca6408 1 GPIO_ACTIVE_LOW>;
++};
++
++&usb3_phy {
++	status = "okay";
++};
++
++&usbotg1 {
++	dr_mode = "host";
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_usbotg1>;
++	vbus-supply = <&reg_usb_otg1_vbus>;
++	srp-disable;
++	hnp-disable;
++	adp-disable;
++	disable-over-current;
++	status = "okay";
++};
++
++&usbotg3 {
++	status = "okay";
++};
++
++&usbotg3_cdns3 {
++	dr_mode = "otg";
++	usb-role-switch;
++	status = "okay";
++
++	port {
++		usb3_drd_sw: endpoint {
++			remote-endpoint = <&typec_dr_sw>;
++		};
++	};
++};
++
++&usbphy1 {
++	status = "okay";
++};
++
++&usdhc2 {
++	pinctrl-names = "default", "state_100mhz", "state_200mhz";
++	pinctrl-0 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
++	pinctrl-1 = <&pinctrl_usdhc2_100mhz>, <&pinctrl_usdhc2_gpio>;
++	pinctrl-2 = <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_gpio>;
++	bus-width = <4>;
++	cd-gpios = <&lsio_gpio0 14 GPIO_ACTIVE_LOW>;
++	vmmc-supply = <&reg_usdhc2_vmmc>;
++	status = "okay";
++};
++
++&iomuxc {
++	pinctrl_captouch: captouchgrp {
++		fsl,pins = <
++			IMX8QM_GPT1_COMPARE_LSIO_GPIO0_IO19			0x06000021
++		>;
++	};
++
++	pinctrl_fec2: fec2grp {
++		fsl,pins = <
++			IMX8QM_ENET1_RGMII_TX_CTL_CONN_ENET1_RGMII_TX_CTL	0x06000048
++			IMX8QM_ENET1_RGMII_TXC_CONN_ENET1_RGMII_TXC		0x06000048
++			IMX8QM_ENET1_RGMII_TXD0_CONN_ENET1_RGMII_TXD0		0x06000048
++			IMX8QM_ENET1_RGMII_TXD1_CONN_ENET1_RGMII_TXD1		0x06000048
++			IMX8QM_ENET1_RGMII_TXD2_CONN_ENET1_RGMII_TXD2		0x06000048
++			IMX8QM_ENET1_RGMII_TXD3_CONN_ENET1_RGMII_TXD3		0x06000048
++			IMX8QM_ENET1_RGMII_RXC_CONN_ENET1_RGMII_RXC		0x06000048
++			IMX8QM_ENET1_RGMII_RX_CTL_CONN_ENET1_RGMII_RX_CTL	0x06000048
++			IMX8QM_ENET1_RGMII_RXD0_CONN_ENET1_RGMII_RXD0		0x06000048
++			IMX8QM_ENET1_RGMII_RXD1_CONN_ENET1_RGMII_RXD1		0x06000048
++			IMX8QM_ENET1_RGMII_RXD2_CONN_ENET1_RGMII_RXD2		0x06000048
++			IMX8QM_ENET1_RGMII_RXD3_CONN_ENET1_RGMII_RXD3		0x06000048
++		>;
++	};
++
++	pinctrl_flexcan1: flexcan0grp {
++		fsl,pins = <
++			IMX8QM_FLEXCAN0_TX_DMA_FLEXCAN0_TX			0x00000021
++			IMX8QM_FLEXCAN0_RX_DMA_FLEXCAN0_RX			0x00000021
++		>;
++	};
++
++	pinctrl_flexcan2: flexcan1grp {
++		fsl,pins = <
++			IMX8QM_FLEXCAN1_TX_DMA_FLEXCAN1_TX			0x00000021
++			IMX8QM_FLEXCAN1_RX_DMA_FLEXCAN1_RX			0x00000021
++		>;
++	};
++
++	pinctrl_i2c1: i2c1grp {
++		fsl,pins = <
++			IMX8QM_USB_SS3_TC3_DMA_I2C1_SDA				0xc6000020
++			IMX8QM_USB_SS3_TC1_DMA_I2C1_SCL				0xc6000020
++		>;
++	};
++
++	pinctrl_i2c4: i2c4grp {
++		fsl,pins = <
++			IMX8QM_ENET1_MDC_DMA_I2C4_SCL				0xc6000020
++			IMX8QM_ENET1_MDIO_DMA_I2C4_SDA				0xc6000020
++		>;
++	};
++
++	pinctrl_lpspi1: lpspi1grp {
++		fsl,pins = <
++			IMX8QM_ADC_IN3_DMA_SPI1_SCK				0x0600004c
++			IMX8QM_ADC_IN4_DMA_SPI1_SDO				0x0600004c
++			IMX8QM_ADC_IN5_DMA_SPI1_SDI				0x0600004c
++			IMX8QM_ADC_IN6_LSIO_GPIO3_IO24				0x00000021
++		>;
++	};
++
++	pinctrl_lpuart0: lpuart0grp {
++		fsl,pins = <
++			IMX8QM_UART0_RX_DMA_UART0_RX				0x06000020
++			IMX8QM_UART0_TX_DMA_UART0_TX				0x06000020
++		>;
++	};
++
++	pinctrl_lpuart2: lpuart2grp {
++		fsl,pins = <
++			IMX8QM_LVDS0_I2C1_SCL_DMA_UART2_TX			0x06000020
++			IMX8QM_LVDS0_I2C1_SDA_DMA_UART2_RX			0x06000020
++		>;
++	};
++
++	pinctrl_pca9534: pca9534grp {
++		fsl,pins = <
++			IMX8QM_MIPI_CSI0_MCLK_OUT_LSIO_GPIO1_IO24		0x00000021
++		>;
++	};
++
++	pinctrl_ptn5150: ptn5150grp {
++		fsl,pins = <
++			IMX8QM_SPI2_CS1_LSIO_GPIO3_IO11				0x00000021
++		>;
++	};
++
++	pinctrl_usbotg1: otg1grp {
++		fsl,pins = <
++			IMX8QM_GPT1_CAPTURE_LSIO_GPIO0_IO18			0x06000048
++		>;
++	};
++
++	pinctrl_usdhc2: usdhc2grp {
++		fsl,pins = <
++			IMX8QM_USDHC1_CLK_CONN_USDHC1_CLK			0x06000041
++			IMX8QM_USDHC1_CMD_CONN_USDHC1_CMD			0x00000021
++			IMX8QM_USDHC1_DATA0_CONN_USDHC1_DATA0			0x00000021
++			IMX8QM_USDHC1_DATA1_CONN_USDHC1_DATA1			0x00000021
++			IMX8QM_USDHC1_DATA2_CONN_USDHC1_DATA2			0x00000021
++			IMX8QM_USDHC1_DATA3_CONN_USDHC1_DATA3			0x00000021
++			IMX8QM_USDHC1_VSELECT_CONN_USDHC1_VSELECT		0x00000021
++		>;
++	};
++
++	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
++		fsl,pins = <
++			IMX8QM_USDHC1_CLK_CONN_USDHC1_CLK			0x06000040
++			IMX8QM_USDHC1_CMD_CONN_USDHC1_CMD			0x00000020
++			IMX8QM_USDHC1_DATA0_CONN_USDHC1_DATA0			0x00000020
++			IMX8QM_USDHC1_DATA1_CONN_USDHC1_DATA1			0x00000020
++			IMX8QM_USDHC1_DATA2_CONN_USDHC1_DATA2			0x00000020
++			IMX8QM_USDHC1_DATA3_CONN_USDHC1_DATA3			0x00000020
++			IMX8QM_USDHC1_VSELECT_CONN_USDHC1_VSELECT		0x00000020
++		>;
++	};
++
++	pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
++		fsl,pins = <
++			IMX8QM_USDHC1_CLK_CONN_USDHC1_CLK			0x06000040
++			IMX8QM_USDHC1_CMD_CONN_USDHC1_CMD			0x00000020
++			IMX8QM_USDHC1_DATA0_CONN_USDHC1_DATA0			0x00000020
++			IMX8QM_USDHC1_DATA1_CONN_USDHC1_DATA1			0x00000020
++			IMX8QM_USDHC1_DATA2_CONN_USDHC1_DATA2			0x00000020
++			IMX8QM_USDHC1_DATA3_CONN_USDHC1_DATA3			0x00000020
++			IMX8QM_USDHC1_VSELECT_CONN_USDHC1_VSELECT		0x00000020
++		>;
++	};
++
++	pinctrl_usdhc2_gpio: usdhc2-gpiogrp {
++		fsl,pins = <
++			IMX8QM_GPT0_CLK_LSIO_GPIO0_IO14				0x00000021
++		>;
++	};
++};
 -- 
 2.47.3
 
