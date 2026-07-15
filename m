@@ -4,93 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D379BC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 17:56:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAF3EC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 18:05:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0V1FTARVtoHKDhD2y26WaLiZ0OdS9Qk3q3wsxYlCeSQ=; b=j0jIy3dBfCpc7P9Nh6/m8myG2p
-	KeiX6IvXxwLUVoBskiZSzt0qrrZEp9DjvFAlQ5NLA7ctT1MB2LjULSqwM7w3QajCkN6pZtgRECXJR
-	F5pTmnRCGawBZpuGeBxGviapKI+QWW9g3csGjhzSX27S6yB/ffceou0PxJRdm5T4X2DaysXizasjD
-	jDrluKkE4Ch+gqsmuhDql95GJHBMRLjPWYOMyn1JtnPSfYzqWAUQxd4sW3IjYx/BdwhfkFIxOX5pG
-	QTnS2r4yYFJzZGccIDOOMKv41gOEQk4KFG/z78oy1mIhvqZT4bBtpY83o3Pv888bITOTHZIhV8Aor
-	aCLmDHvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dhgYyHhNx3mFWlfEOgFLcf2FH4tPJUwjwawBC1RyrP0=; b=x+94ynqVPOxFC8HWduycjMzR3x
+	CTeDgKJBAHRunBinfRlqDkNMQdeF/f5ggQPsyJ0X9eqtniatbNclMsDFyURFQigyaAU4kOFdPRZcK
+	+g+Cg0tgijmWbwrQeu+w2xP6g541VkiYqs3g6OXsUfObhy4krNfthY6au5KH3BtMIeREVEJEs8bMW
+	ciIaMhC4obyLNtyOHke3zzzP8a2RQ5Obr6AM7GZr5pxRKAAm+ve05lpSkiAFAHRBwcu9AfOEM0wa+
+	NmCmmXVs6PnjqaarG5gK9MzcMsUumqOb+M8RPTVSs4yfeDDNcBk47sBHjynKUdGH2c/sYgDHTYwh9
+	TtcILHxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk3qc-0000000Fbc4-3fbB;
-	Wed, 15 Jul 2026 17:56:42 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1wk3zO-0000000FcIc-1s9f;
+	Wed, 15 Jul 2026 18:05:47 +0000
+Received: from mail-centralusazon11020137.outbound.protection.outlook.com ([52.101.61.137] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk3qa-0000000FbbO-1dt7
+	id 1wk3zL-0000000FcHk-2ABM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 17:56:41 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-493f45e20cdso34185235e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 10:56:39 -0700 (PDT)
+	Wed, 15 Jul 2026 18:05:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MIzyEPXomQYUafbCmTm066o8wMu3Htf7bgPS4Ep2ufxTQlN7eZt8P9spCyrOWcgJ1pQGZX+k753f2htrMjXduwClzqo11FbP6iC2YW5tqUA0d4RTYRna1wf6OI/liqZZUoB6rJ0yXJYkTsaSVusHK7AN+Bt81ZeZYvEoK7G0K4t3VIfU9bIJRBWFuZn5l/81LcvBf2zTU0nXB0vzxjb5x+TUySubapCundyw1mXTKMpdbXyRb9bRn+x9F+ePH1cw+0YT4Q1EbzN1kkbl/CIeI/X0zPBnA0KfhlBDTIbjEShE7F7ukHanmuuOoLyL910Sn6Nxyuyi0kXUJF381c81bQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dhgYyHhNx3mFWlfEOgFLcf2FH4tPJUwjwawBC1RyrP0=;
+ b=c54Q9q6QLt3Yue+IEd+8aIEkWzP2dTn1l29r0ku1eqyUHaMbZtGQB/7JaYP76zicSTcdcOHK3Vube7qear4F1JeLdpaP+br6mlhTM+W7UTbW5yQUZg9Z3NijbINrUih6yWEcZJMPP2RziHVXI46rubtDjXCrh/0HxIN0Q8z5swKNMQUXfxYTVYw/w9cQIZAJIf5fR1nCgZ2b/CuCfwgGuJYy7pNNK91VI8QH7Oo7mwsJw5NYEeckHHgYd5nVkpi6GIbN50lHF+VSyHaXik52k6dS+Z1Ez4jpPgOz6PRgVnYWQ5CT2Yh9V4A49y8l/lzv5jzaGkUtLIde+JjpPeNDuQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784138198; x=1784742998; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=0V1FTARVtoHKDhD2y26WaLiZ0OdS9Qk3q3wsxYlCeSQ=;
-        b=BxKYEDRJAvynEMXq/yC0YSyhh1oq2V+3hEY9vrEOVEJLldzQa9wPrtbo7EKpBV1usX
-         rl50Om8RFelXBNo60m8ZysDYEm8cMTo3kr8iPzP3NIknvxIdctGOjQzLAxwztkFT7zKM
-         3XyntFK4heD0HSd2xztVgFcDfIEx/VPup2o4+n3Tnih+8CWlNKdbOaRLujMJgfve1/xf
-         yABZSLxrdfWyxQFPlOeFC3EWnMMmW4joSRgOrkQIVzcBb46n9DOUlNmWPlUVdBtbpJov
-         2dkIlNdrzGVgqeX1vgPCakrWqaWlhO+rXSK6wAEib3wjAZTwFsFbSpzMLN7j+t4K7N3J
-         zChg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784138198; x=1784742998;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=0V1FTARVtoHKDhD2y26WaLiZ0OdS9Qk3q3wsxYlCeSQ=;
-        b=Maxx/eTSYG+WhpLX4C97tYTJUc8mBdCW6vSn1WB3PishsknU/VJ5MtIj3HLZZoz4Gj
-         Nub3CdM79hZ9sIZVqXaRZBbNr6LizKxl7WslmEAXN1etRO31CLzTFGOAGpG5T4TLYZtc
-         o59J/XI0iZgjSlaWytORJoCXdgTdnwA+5wmrTAMKsvCq8hXRTlPk1mQ8Nz9OyDzl6aKh
-         GE2YB6BI1HZR505tP5Vbm+226JF3ApjPCxd1f6sbXVCIHFFWISt6LB6Xar+2+O2qE5ga
-         x840+5ck9pbwemLJjkAlkWeLJtgkGC2JD1rbBz+GjW6cv1Sgino0LWYis6fXSBbOJYX3
-         /srQ==
-X-Gm-Message-State: AOJu0YzgJdlgn+UhwbxwpmMY0wleKbCO1pSIUIIzlp9f1Ogch5k2vqKn
-	EuX8Pxg0bLT229nyzpLarGFT75y2DX/B/llm+1Szhjy3esgyJ1xVoXd6ZKTA2T8w9g==
-X-Gm-Gg: AfdE7clX99H+nYo60A47eFI/azJgNzVQ1DlNy1vohsyoBgCb4iPG+jXzYVGFFMcgvxi
-	SQon/nUOzmc6rOolBeelCmXnrh0D4VAxYYR9aqgDXaap4RpRB+6WNparKvJu3OfnVQiE7Ymem3W
-	RZMRNW9lz52C0VqvwYnyJGg/xLlOZig6GvCc7q0o1vtZZ4UCUwVqRt9DL4WZRMpzDgPB5IibnfR
-	Pv01w5+cnyJdTbqpNk610FWVNxgyrJM1jSMOSOD2Z1cYrgHGFXmsfpTjNhgzYnz49QlxuFktICb
-	sRLbyeEo99LfHh4rBd3iZ38kmRh7c1aTuWCWV6ZZtnE1jBUhAdfyEYKbKtR963Qdm1Uk6S9jsRa
-	imsgGLdl0+4jk360gtnJtDPrkom2770Rt1HD0DAoRYwpB9mgHBF7AkOieVVmoBmshDrmUPXP2/M
-	JfdYm+LXXTY22uEc3yd8XCdxtWW0o5jAWD7As6bJP3yXDbSoIjjZg=
-X-Received: by 2002:a05:600c:a00b:b0:493:f261:d295 with SMTP id 5b1f17b1804b1-4953f1552bfmr26635515e9.4.1784138197915;
-        Wed, 15 Jul 2026 10:56:37 -0700 (PDT)
-Received: from google.com (137.69.77.34.bc.googleusercontent.com. [34.77.69.137])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49508728019sm163467455e9.5.2026.07.15.10.56.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jul 2026 10:56:36 -0700 (PDT)
-Date: Wed, 15 Jul 2026 18:56:33 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
-	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, joro@8bytes.org, jgg@ziepe.ca,
-	mark.rutland@arm.com, qperret@google.com, tabba@google.com,
-	sebastianene@google.com, keirf@google.com
-Subject: Re: [PATCH v7 07/24] KVM: arm64: iommu: Shadow host stage-2 page
- table
-Message-ID: <alfJ0cLRSw-qmCrP@google.com>
-References: <20260715115906.2664882-1-smostafa@google.com>
- <20260715115906.2664882-8-smostafa@google.com>
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dhgYyHhNx3mFWlfEOgFLcf2FH4tPJUwjwawBC1RyrP0=;
+ b=CxijXkxUzn+9shMOcPz5otcULHjqGMKRIQiyBObOVBWqrf7KHQ1hyBGaEIO+7SKm+diwrjDiBYAEgYZstBNze0wu/vFq8vsSkJrwcNewJam7HU2afSdJ9RpDMUDu6e7St290FrOi2fQxXWrjmgxgKVi6K2rL+8sh5uxdiQ/HkYg=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
+ SJ0PR01MB6207.prod.exchangelabs.com (2603:10b6:a03:29d::10) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.223.12; Wed, 15 Jul 2026 18:05:32 +0000
+Received: from CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::46eb:64a3:667c:c1a0]) by CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::46eb:64a3:667c:c1a0%3]) with mapi id 15.21.0223.008; Wed, 15 Jul 2026
+ 18:05:31 +0000
+From: Yang Shi <yang@os.amperecomputing.com>
+To: cl@gentwo.org,
+	dennis@kernel.org,
+	tj@kernel.org,
+	urezki@gmail.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	ryan.roberts@arm.com,
+	david@kernel.org,
+	akpm@linux-foundation.org,
+	hca@linux.ibm.com,
+	gor@linux.ibm.com,
+	agordeev@linux.ibm.com
+Cc: yang@os.amperecomputing.com,
+	linux-mm@kvack.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [RFC v2 PATCH 0/16] Optimize this_cpu_*() ops for non-x86 (ARM64 for this series)
+Date: Wed, 15 Jul 2026 11:04:02 -0700
+Message-ID: <20260715180455.515692-1-yang@os.amperecomputing.com>
+X-Mailer: git-send-email 2.52.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: CYZPR05CA0010.namprd05.prod.outlook.com
+ (2603:10b6:930:89::18) To CH0PR01MB6873.prod.exchangelabs.com
+ (2603:10b6:610:112::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260715115906.2664882-8-smostafa@google.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|SJ0PR01MB6207:EE_
+X-MS-Office365-Filtering-Correlation-Id: b735caa3-519c-4802-de73-08dee29ba909
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|1800799024|366016|56012099006|11063799006|6133799003|3023799007|55112099003|18002099003|10067099003|921020;
+X-Microsoft-Antispam-Message-Info: TbBw/NGl1kmTmAiqZ+GPTPXsv3UUYtCzUZIqQl3e/yF6SYuWbPaPdQqaL4yFApGgvadEYzi1+lyfOv25SuMl2YYW/dsXSxfHvdRTvDMMjRPUBkZDG8tTOCySDNqUGIUPo8t/JCtR1AcXcP/dHYRgTM1DEjzpCtc01dfq7aoA9Em30nj2KTeeSLdJcC4pa/C1H+xsoBKywYzACsMXeGyAVdjTJtRm/2sVhg899yw651eSYdOaNz0X4z1mxn2+N5j7kollfm89Fc0gWg5J9d/jYKRWV/q9LcEYTsNnDDrQ6PpranQ78h6odaoFiXvboApkXGnGV2zSeyVNOWS2QyPRQyUIlMhd/hwG3Kfkf1xt6u39lhykoa2zhkCiL1hMiWY5hCSufBvN+brZQvB1dQlI7J706PemDqBH60PSA2CV47jOgv+zfJtNU52WO4U0Qg9xbalquRRAXs2e5v90tYPw2uE8x7IaVUuXqIzTfeeYFThzPFueKQsm3XbRZyzjCZBZ7bqoiBrIlldIw/nKBQkgezCFHzsjQ8w2I2vHBJSZaxeUzD9MVm8YmikV5Nzk8RtZiFwtAXQGsi3qaO7HqA3SdE8grM8GhvZZhwN/s/F3uVVun8lRJ8crAdlU+wbTWzX4Rxh2Slp8h3Tw1Kx/HMoofbA9uTiRsCbsec4p9WUgcxgqNZ1f4wC1w8Mmri2+u5V762fcDSaSSqYidna6pqkqPw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(1800799024)(366016)(56012099006)(11063799006)(6133799003)(3023799007)(55112099003)(18002099003)(10067099003)(921020);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VHovQUFLTEVENThab2ZsNVBvNG9rdlNER2tYdEM0QURJWkhicEVWTWl0V0VC?=
+ =?utf-8?B?TCt2UDNmaHhjbUJJMUdFNkRkUS8zeEdZSU04MWY0TGNYbVE1MGRHM1VCWHpi?=
+ =?utf-8?B?Z3ZUM0FNTU5JTVg5SmxNU2wyQjhIQXBxWmhoY2dCdU5BRURXTFZoZVFIYk9i?=
+ =?utf-8?B?Nkw2anRUcDlyOWpRWHdodzNJNDlLTm9WekgvTWtUUTgxZE0xdm02Mm1VellY?=
+ =?utf-8?B?RVdUbHdqd0NJbEJBdWtzNHVINTZmOGFxOXh0NFg3OXYxS0VrT0ptbWdoa0gw?=
+ =?utf-8?B?bllVUmQ5M2VWTmpmRmdMelBBaDc3VGtjMVA2RDIxblc1ZERsTXVWWlNJaHI4?=
+ =?utf-8?B?M3lzNTI4bXJ1R201cGl6Mjh4R0VWa1JCUUFPV1AzOFNLZFhJRjZDeTFGRzBZ?=
+ =?utf-8?B?K1gwSzI0TTh5anJGN0ZIdWxaU0xvb3ZkdHREQlhmYi9wc3dNdnhGVGduenMx?=
+ =?utf-8?B?NFNCRG5HbGxHWTRjRE9YTFdMYkhGQld6UGFEcVJoMWNpeWlPRk1VUHhMN051?=
+ =?utf-8?B?ZDVNNFl5RFI3dkF3dWkvOXllMXdVOEZ3TW5GYWRvU0xIMmIvbE9KSTZYWlZn?=
+ =?utf-8?B?WlhvcktpZFpaelBlQWVOUDNNYWE4UzhETjF0RkpVSTdKMjAyeVdiOWVxZlph?=
+ =?utf-8?B?TEZSTUlNK3Z1bDdnclQ3aUs4Uzd3YUdWYndNQkVvY3poVUNlL0dheUdySFJn?=
+ =?utf-8?B?MS93SWdzWHdTWERCanpQY1dOazhLVUZIM3B1aFJGY0c0Wkg3L3JPaUhlOWky?=
+ =?utf-8?B?VFhuZ1FCRHhYN3ZySFFKUVJrNzRROUl6YmQxc0tBNGFsV21jQnNiSUlxcHNp?=
+ =?utf-8?B?NGxFeEsvK2UrNGpkZVJBaXhaelN0TWNCMVhkaFU2NmZWOFYvcE9mcW5Ma3VR?=
+ =?utf-8?B?YkZFQmNsTU9vSldnbHp3ODJGZHBSNy9LZ1hpTVljY1Z5TGY1Z0IzcVBvRm5w?=
+ =?utf-8?B?T2tNZk11YzRzc1RubGp6OWZINklaS1l0b0M3blZEOFZ5UjFQVDduWlhOWXpC?=
+ =?utf-8?B?bnMwanIwVDk2ckhqQ3lDd3AvMUIxZlh0Qzc2cTZTWjhRZWxjZ2ZuaWx1UkpK?=
+ =?utf-8?B?SEVzZks0UHFrZ2RwZ1pNb1FyR0NsQng0TmRjUlJsWm1rM1ZaSmE4YUFXL056?=
+ =?utf-8?B?MUNvK1E3RndsTS9ZLzd0WFF2R2JHTU1RQzQ5TkpoeWw0bEJ4VGlqbXQ4Z0ZB?=
+ =?utf-8?B?ZzBCVHZjMm43T1R3TVpUQ0RlMXdZdi9ydXRucWNhOHQyWUpRb2pwcVdLTWJJ?=
+ =?utf-8?B?Z1M0cWc0dURTdmdBYlV6OFBUS2txMkFXSWU5UVlxN0JDMWRPL0NoVGU3SlZZ?=
+ =?utf-8?B?TnpvVW5raEpLUVVHM1lEZllkN0tRWVlrY1FpTmk4aVJPYUZQMmdScXpReFFY?=
+ =?utf-8?B?L2dNNkdZdnF3czd3TlB1ZFVWdXhCN3liMk85eWIwNmpUYnBjQU15cW1CTjBv?=
+ =?utf-8?B?QWIzVHhzaG01VFFUZGVhc0NlSmtxeitZd3kyMWtDWXdSMGVJK2V2TGs5Ym93?=
+ =?utf-8?B?K0o0TzNkR1RpMWk1Qi8vR1JXRVR4elVVeWM1bFk2M2swalhUTGlSdUprMjJX?=
+ =?utf-8?B?b1N6Tm5waWRHb0hEdjBtR2V2ZW4wRjZuc0k5Wm13NUQzTkgvSFBNV1FMcCtk?=
+ =?utf-8?B?YnlXck5tVWs1N25NOXlJMUM3RWZnc3RrcU0zY2NtYkVRVVVTb3U2S0N5NXJ1?=
+ =?utf-8?B?SjJsdzc2bzY4VnFqakkxeklhdU56MVRPTVZIOWMrZGtnckV2d211NHVBaTlB?=
+ =?utf-8?B?Z1NKcWZRQVlwaTNkUzUrMHdXdmE0RUYxZkV0eXlRb2E3T3c3MGQzZ0Vmc2Q5?=
+ =?utf-8?B?NUNaRnlQajdOQVVlMnl1QlNmdTlTb1ExRDJNdWVoM3RkL1FkaDZaS2tHRitu?=
+ =?utf-8?B?TUxhRVkyakRGdXVsbEgrdmZUYjJEcm9BRjhRZXIyd0RhNXFSdUFwbUZRbFdp?=
+ =?utf-8?B?RlFTakpGQkFyeGxyVWk5S3JWRmVScGpWWDluNUpkQTkvWVBoK0hCQUpBaHhW?=
+ =?utf-8?B?WnJteTdFVURXQml5SE1ZODZ0dE0zYUJIOUVtaWVnQWQ0ZFdDa09hQkd1Q3lR?=
+ =?utf-8?B?MVBhRnN1TFUrT2hQUHVhRU5xWmM2Y2lpUmJISmU5aWNmVFc5M0UwQkloUWZL?=
+ =?utf-8?B?OEZ0WnJBOWNVeEwxMSt1aFYwK2J1N0RHWnRESnlsdlN2RjQ3YnRhTzZLeFFP?=
+ =?utf-8?B?Skw3NzBXOEN6TlZDVE1WQzdxWCt0QWloWkM4MHY2NmJUditGdWZYZ3RJVXdY?=
+ =?utf-8?B?aXE0UDVnUmtDZnpnYzJkbFNWQ0xKQkR5eEZPOEY2SHAzOHNyUnFlRHBqSnJr?=
+ =?utf-8?B?TnR4OTdRU1g5Y1hUTzVyRXhQSTdIN2g1SVVkMkR3cnVNZXpuc3J5clVXaGVG?=
+ =?utf-8?Q?Epktc37p92Y60tJc=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b735caa3-519c-4802-de73-08dee29ba909
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2026 18:05:31.8710
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: KvgL6JDpzeNRXVL1Qlgj5uCdldwTuELpObMI5h0BQ5iLgOCbUjpSU6a+7g3ZKtgUJkxQWBrFAQVN+gDY/NfMYTJ54Uh2UtKGQVvloD/fK3A=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR01MB6207
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_105640_499699_69A98CEE 
-X-CRM114-Status: GOOD (  46.84  )
+X-CRM114-CacheID: sfid-20260715_110543_647594_8EF9EC9D 
+X-CRM114-Status: GOOD (  27.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,314 +158,241 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 15, 2026 at 11:58:48AM +0000, Mostafa Saleh wrote:
-> Create a page-table for the IOMMU that shadows the host CPU stage-2
-> to establish DMA isolation.
-> 
-> An initial snapshot is created after the driver init, then
-> on every permission change a callback would be called for
-> the IOMMU driver to update the page table.
-> 
-> There are 3 different ways to add the callback:
-> 1) In the high level memory transitions: (__pkvm_host_donate_hyp(),
->   __pkvm_host_donate_guest()...
-> 
-> 2) In Lower level functions covering all transitions
->   - host_stage2_set_owner_metadata_locked() which covers:
->    - __pkvm_host_donate_hyp()
->    - __pkvm_host_donate_guest()
->    - __pkvm_host_donate_hyp()
->    - __pkvm_guest_unshare_host()
->   - host_stage2_set_owner_locked() only for ID_HOST which covers:
->    - __pkvm_hyp_donate_host()
->    - __pkvm_host_force_reclaim_page_guest()
->    - __pkvm_host_reclaim_page_guest()
->   - __pkvm_guest_share_host()
-> 
-> 3) In the lowest level function __host_update_page_state(), which
->    requires only one callback. However, in that case the page state
->    is not enough as we might need to know the old state also.
-> 
-> Option #2 was implemented here.
-> 
-> For some cases, an SMMUv3 may be able to share the same page-table
-> used with the host CPU stage-2 directly.
-> 
-> However, this is too strict and requires changes to the core hypervisor
-> page-table code, plus it would require the hypervisor to handle IOMMU
-> page-faults. This can be added later as an optimization for SMMUV3.
-> 
-> Signed-off-by: Mostafa Saleh <smostafa@google.com>
-> ---
->  arch/arm64/kvm/hyp/include/nvhe/iommu.h       |   4 +
->  arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |   1 +
->  arch/arm64/kvm/hyp/nvhe/iommu.c               | 129 +++++++++++++++++-
->  arch/arm64/kvm/hyp/nvhe/mem_protect.c         |  27 ++--
->  4 files changed, 145 insertions(+), 16 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/hyp/include/nvhe/iommu.h b/arch/arm64/kvm/hyp/include/nvhe/iommu.h
-> index df3d0cc5d4db..857d7dd2ebc3 100644
-> --- a/arch/arm64/kvm/hyp/include/nvhe/iommu.h
-> +++ b/arch/arm64/kvm/hyp/include/nvhe/iommu.h
-> @@ -3,11 +3,15 @@
->  #define __ARM64_KVM_NVHE_IOMMU_H__
->  
->  #include <asm/kvm_host.h>
-> +#include <asm/kvm_pgtable.h>
->  
->  struct pkvm_iommu_ops {
->  	int (*init)(void);
-> +	int (*host_stage2_idmap)(phys_addr_t start, phys_addr_t end, int prot);
->  };
->  
->  int pkvm_iommu_init(void);
->  
-> +int pkvm_iommu_host_stage2_idmap(phys_addr_t start, phys_addr_t end,
-> +				 enum kvm_pgtable_prot prot);
->  #endif /* __ARM64_KVM_NVHE_IOMMU_H__ */
-> diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-> index 51b0eb3844a9..99b821b3cf65 100644
-> --- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-> +++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-> @@ -59,6 +59,7 @@ int __pkvm_host_test_clear_young_guest(u64 gfn, u64 nr_pages, bool mkold, struct
->  int __pkvm_host_mkyoung_guest(u64 gfn, struct pkvm_hyp_vcpu *vcpu);
->  
->  bool addr_is_memory(phys_addr_t phys);
-> +
->  int host_stage2_idmap_locked(phys_addr_t addr, u64 size, enum kvm_pgtable_prot prot);
->  int host_stage2_set_owner_locked(phys_addr_t addr, u64 size, u8 owner_id);
->  int kvm_host_prepare_stage2(void *pgt_pool_base);
-> diff --git a/arch/arm64/kvm/hyp/nvhe/iommu.c b/arch/arm64/kvm/hyp/nvhe/iommu.c
-> index ef456eff42d2..08009609ec59 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/iommu.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/iommu.c
-> @@ -4,16 +4,137 @@
->   *
->   * Copyright (C) 2022 Linaro Ltd.
->   */
-> +#include <linux/iommu.h>
-> +#include <asm/kvm_pkvm.h>
-> +
->  #include <nvhe/iommu.h>
-> +#include <nvhe/mem_protect.h>
-> +#include <nvhe/spinlock.h>
->  
->  /* Only one set of ops supported */
->  struct pkvm_iommu_ops *pkvm_iommu_ops;
->  
-> -int pkvm_iommu_init(void)
-> +/* Protected by host_mmu.lock */
-> +static bool pkvm_idmap_initialized;
-> +
-> +static inline int pkvm_to_iommu_prot(enum kvm_pgtable_prot prot)
->  {
-> -	/* Keep DMA isolation optional. */
-> -	if (!pkvm_iommu_ops || !pkvm_iommu_ops->init)
-> +	int iommu_prot = 0;
-> +
-> +	if (prot & KVM_PGTABLE_PROT_R)
-> +		iommu_prot |= IOMMU_READ;
-> +	if (prot & KVM_PGTABLE_PROT_W)
-> +		iommu_prot |= IOMMU_WRITE;
-> +
-> +	/* We don't understand that, might be dangerous. */
-> +	WARN_ON(prot & ~PKVM_HOST_MEM_PROT);
-> +	return iommu_prot;
-> +}
-> +
-> +/*
-> + * IOMMU page tables are shadowed and not shared, that is mainly because:
-> + * - Possible inconsistency between IOMMU and CPU features or format.
-> + * - KVM relies on handling in page faults (BBM, lazy mapping).
-> + */
-> +static int __snapshot_host_stage2(const struct kvm_pgtable_visit_ctx *ctx,
-> +				  enum kvm_pgtable_walk_flags visit)
-> +{
-> +	u64 start = ctx->addr;
-> +	u64 block_end = ALIGN_DOWN(ctx->addr, kvm_granule_size(ctx->level)) +
-> +			kvm_granule_size(ctx->level);
 
-nit: I believe that for more complex init like that we should just put it after
-the declarations.
+Hi,
 
-> +	u64 end = min(ctx->end, block_end);
-> +	kvm_pte_t pte = *ctx->ptep;
-> +	bool is_memory = *(bool *)ctx->arg;
-> +	int prot;
-> +
-> +	/*
-> +	 * Keep annotated PTEs unmapped, and map everything else even lazily
-> +	 * mapped PTEs(0), as the IOMMU can't handle page faults.
-> +	 * That maps the whole address space which can be large, but that doesn't
-> +	 * use a lot of memory as it will be mostly large block (1 GB with 4kb pages)
-> +	 */
-> +	if (pte && !kvm_pte_valid(pte))
->  		return 0;
->  
-> -	return pkvm_iommu_ops->init();
-> +	if (kvm_pte_valid(pte))
-> +		prot = pkvm_to_iommu_prot(kvm_pgtable_stage2_pte_prot(pte));
-> +	else
-> +		prot = IOMMU_READ | IOMMU_WRITE;
-> +
-> +	if (!is_memory)
-> +		prot |= IOMMU_MMIO;
-> +
-> +	return pkvm_iommu_ops->host_stage2_idmap(start, end, prot);
-> +}
-> +
-> +static int pkvm_iommu_snapshot_host_stage2(void)
-> +{
-> +	struct kvm_pgtable *pgt = &host_mmu.pgt;
-> +	bool is_memory;
-> +	struct kvm_pgtable_walker walker = {
-> +		.cb	= __snapshot_host_stage2,
-> +		.flags	= KVM_PGTABLE_WALK_LEAF,
-> +		.arg	= &is_memory,
-> +	};
-> +	int ret = 0, i;
-> +	u64 start = 0;
-> +
-> +	hyp_spin_lock(&host_mmu.lock);
-> +	for (i = 0; i < hyp_memblock_nr; i++) {
-> +		struct memblock_region *reg = &hyp_memory[i];
-> +
-> +		if (start < reg->base) {
-> +			is_memory = false;
-> +			ret = kvm_pgtable_walk(pgt, start, reg->base - start, &walker);
+This is v2 RFC. In v2 a lot problems found out by Sashiko were fixed and more
+feature gaps were closed (please see the below changelog for the details).
+Although there are still some open issues, for example, it just can support
+48 bits VA (for 4K and 64K) and 47 bits VA (for 16K), KPTI support has not
+been solved yet, etc, but I think the delta should be big enough and worth
+a new RFC to gather comments in order to make sure I'm on the right track.
 
-nit: You could have a helper? So is_memory isn't passed as a reference.
+Some more benchmarks were done, for example, some latency related benchmarks
+that I mentioned at LSFMM because I thought responsiveness should be improved
+due to the removal of preempt_disable. Collected more PMU counters as well.
+Please refer to the benchmark section for more details. 
 
-__snapshot_host_stage2(u64 start, u64 end, bool is_memory)
+Look forward to comments.
 
-> +			if (ret)
-> +				goto out_unlock;
-> +		}
-> +
-> +		is_memory = true;
-> +		ret = kvm_pgtable_walk(pgt, reg->base, reg->size, &walker);
-> +		if (ret)
-> +			goto out_unlock;
-> +
-> +		start = reg->base + reg->size;
-> +	}
-> +
-> +	if (start < BIT(pgt->ia_bits)) {
-> +		is_memory = false;
-> +		ret = kvm_pgtable_walk(pgt, start, BIT(pgt->ia_bits) - start, &walker);
-> +		if (ret)
-> +			goto out_unlock;
-> +	}
-> +
-> +	pkvm_idmap_initialized = true;
-> +
-> +out_unlock:
-> +	hyp_spin_unlock(&host_mmu.lock);
-> +	return ret;
-> +}
-> +
-> +int pkvm_iommu_init(void)
-> +{
-> +	int ret;
-> +
-> +	/* Keep DMA isolation optional. */
-> +	if (!pkvm_iommu_ops || !pkvm_iommu_ops->init ||
-> +	    !pkvm_iommu_ops->host_stage2_idmap)
-> +		return 0;
-> +
-> +	ret = pkvm_iommu_ops->init();
-> +	if (ret)
-> +		return ret;
-> +
-> +	return pkvm_iommu_snapshot_host_stage2();
-> +}
-> +
-> +int pkvm_iommu_host_stage2_idmap(phys_addr_t start, phys_addr_t end,
-> +				enum kvm_pgtable_prot prot)
-> +{
-> +	hyp_assert_lock_held(&host_mmu.lock);
-> +
-> +	if (!pkvm_idmap_initialized)
-> +		return 0;
-> +
-> +	return pkvm_iommu_ops->host_stage2_idmap(start, end, pkvm_to_iommu_prot(prot));
 
-Out of curiosity, why is it "host_stage2_idmap" and not just "idmap" ?
+Changelog
+v2: * Added 3-level and 2-level page table support.
+    * Tested with 16K and 64K page size. But we just support 48 bits VA (4K
+      and 64K) and 47 bits VA with 16K for now.  Please refer to the below
+      "known issue" section for the detail reason.
+    * Added support for memory hotplug.
+    * Added support for KASAN (generic).
+    * Treated percpu and local percpu area address as vmalloc address.
+    * Fixed build failure for x86.
+    * Fixed build failure for !CONFIG_NUMA.
+    * Added KASAN support for local percpu area.
+    * Some other misc bug fixes found out by Sashiko.
+    * More code refactor and cleanup.
+    * Regorganized the patches.
+    * More benchmarks, refer to benchmark section for more details.
+    * Rebased to v7.2-rc1.
 
->  }
-> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> index d803b3dd4cb4..ce610274bda0 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> @@ -17,6 +17,7 @@
->  
->  #include <nvhe/arm-smccc.h>
->  #include <nvhe/gfp.h>
-> +#include <nvhe/iommu.h>
->  #include <nvhe/memory.h>
->  #include <nvhe/mem_protect.h>
->  #include <nvhe/mm.h>
-> @@ -596,16 +597,15 @@ static int host_stage2_set_owner_metadata_locked(phys_addr_t addr, u64 size,
->  	ret = host_stage2_try(kvm_pgtable_stage2_annotate, &host_mmu.pgt,
->  			      addr, size, &host_s2_pool,
->  			      KVM_HOST_INVALID_PTE_TYPE_DONATION, annotation);
-> -	if (!ret) {
-> -		/*
-> -		 * After stage2 maintenance has happened, but before the page
-> -		 * owner has changed.
-> -		 */
-> -		pkvm_sme_dvmsync_fw_call();
-> -		__host_update_page_state(addr, size, PKVM_NOPAGE);
-> -	}
-> -
-> -	return ret;
-> +	if (ret)
-> +		return ret;
-> +	/*
-> +	 * After stage2 maintenance has happened, but before the page
-> +	 * owner has changed.
-> +	 */
-> +	pkvm_sme_dvmsync_fw_call();
-> +	__host_update_page_state(addr, size, PKVM_NOPAGE);
-> +	return pkvm_iommu_host_stage2_idmap(addr, addr + size, 0);
 
-On error here the host stage-2 annotation needs to be reverted. Or just
-WARN_ON() here. It also probably better to do it before the page-state has
-changed, even if we hold the host stage-2 lock.
+Introduction
+============
+This patch series implemented the LSFMM 2026 proposal for optimizing
+this_cpu_*() ops on ARM64. For the details of the proposal, Please refer to:
+https://lore.kernel.org/linux-mm/CAHbLzkpcN-T8MH6=W3jCxcFj1gVZp8fRqe231yzZT-rV_E_org@mail.gmail.com/
+I didn't repeat it in the cover letter because there is no change to the
+proposal.
 
->  }
->  
->  int host_stage2_set_owner_locked(phys_addr_t addr, u64 size, u8 owner_id)
-> @@ -618,8 +618,10 @@ int host_stage2_set_owner_locked(phys_addr_t addr, u64 size, u8 owner_id)
->  			return -EPERM;
->  
->  		ret = host_stage2_idmap_locked(addr, size, PKVM_HOST_MEM_PROT);
-> -		if (!ret)
-> -			__host_update_page_state(addr, size, PKVM_PAGE_OWNED);
-> +		if (ret)
-> +			break;
-> +		__host_update_page_state(addr, size, PKVM_PAGE_OWNED);
-> +		ret = pkvm_iommu_host_stage2_idmap(addr, addr + size, PKVM_HOST_MEM_PROT);
->  		break;
->  	case PKVM_ID_HYP:
->  		ret = host_stage2_set_owner_metadata_locked(addr, size,
-> @@ -1022,6 +1024,7 @@ int __pkvm_guest_share_host(struct pkvm_hyp_vcpu *vcpu, u64 gfn)
->  				       pkvm_mkstate(KVM_PGTABLE_PROT_RWX, PKVM_PAGE_SHARED_OWNED),
->  				       &vcpu->vcpu.arch.pkvm_memcache, 0));
->  	WARN_ON(__host_set_page_state_range(phys, PAGE_SIZE, PKVM_PAGE_SHARED_BORROWED));
-> +	WARN_ON(pkvm_iommu_host_stage2_idmap(phys, phys + PAGE_SIZE, PKVM_HOST_MEM_PROT));
+The series is based on 7.1-rc1. It is basically minimum viable patches.
+There are still a few hacks in this series and it may break something,
+for example, KPTI, SMT machines which shared TLB, etc. But it shoule be
+good enough for now to demonstrate the core idea. The main purpose of the
+RFC is to gather feedback, figure out missing parts and risks, and make sure
+we are on the right track, as well as hopefully it can help the discussion
+for the upcoming LSFMM.
 
-Ha ok I understand your remark yesterday. I thought you'd put
-pkvm_iommu_host_stage2_idmap() into host_stage2_idmap_locked()... but then it
-means it tries to map on very host abort. 
+I broke the patches down to arch-dependent and arch-independent parts so that
+hopefully the interested persons can do experiments on other architectures,
+for example, S390, easier.
 
-(same though as host_stage2_set_owner_metadata_locked(), I would first update
-the iommu and then update the page-state)
+A new kernel config is introduced, HAVE_LOCAL_PER_CPU_MAP. The architectures
+which can support this feature will select it. Allocating and freeing percpu
+local mapping is protected by this config so that others won't pay the cost.
 
->  unlock:
->  	guest_unlock_component(vm);
->  	host_unlock_component();
-> -- 
-> 2.55.0.141.g00534a21ce-goog
-> 
+ 
+Known Issues
+============
+1. KPTI
+-------
+We need determine what CPU we are on, then switch to the right page table.
+Currently arm64 kernel fetches tramp_pg_dir via swapper_pg_dir - fixed_offset,
+and fetches swapper_pg_dir from ttbr1. But ttbr1 may not hold swapper_pg_dir
+anymore except CPU #0. So we need to figure out the other way to handle it.
+Switching to tramp_pg_dir should be easy, but the reverse seems harder because
+tramp_pg_dir just maps the trampoline vectors.
+Maybe we can do two steps switch. Switch to swapper_pg_dir at the first step,
+then switch to per cpu page table (for entry) or tramp page table (for exit).
+Nobody should call this_cpu_*() at either userspace -> kernel entry stage or
+kernel -> userspace exit stage.
+
+2. SW PAN
+---------
+Has the similar issue as KPTI. It installs reserved_pg_dir to TTBR0 when running
+in kernel space, but fetching reserved_pg_dir via swapper_pg_dir - fixed_offset.
+Maybe we can save the physical address of swapper_pg_dir in a variable, then load
+it from that variable instead of ttbr1.
+
+3. Shared TLB machines
+----------------------
+Some machines may share TLB between CPUs, for example, SMT machines may share
+TLB between the two hardware threads in one core.
+The per cpu page table just can't work with it. Maybe we need a new
+cpufeature to indicate whether per cpu page table is allowed or not. Then
+just enable it for not-shared-TLB machines.
+
+4. Don't support all VA bits
+----------------------------
+We just support 48 bits VA (4K and 64K) and 47 bits VA (16K) for now. For 4K
+and 64K, supporting other VA bits is not hard, we just need to determine the
+size for percpu and local percpu area.
+But it is harder for supporting 48 bits VA + 16K page size. We just have two
+top level kernel page table entries with this configuration, but we assume we
+just need to sync up kernel page table at the top level for now. We need to
+sync up kernel page table at the second level in order to support it. I'm not
+sure whether it is worth it or not.
+
+
+Benchmark
+=========
+The benchmarks are done on 160 core AmpereOne machine. The baseline is
+v7.2-rc1 kernel.
+
+1. Reduction of kernel text size
+--------------------------------
+The patchset can reduce at least 11 instructions for this_cpu_*() ops. Both
+preempt_disable() and preempt_enable() need 4 instructions to manipulate
+the preempt count, and preempt_enable() needs more instructions (compare +
+READ + compare) to determine whether reschedule is needed or not.
+Because this_cpu_*() ops are inlined and called in a lot of places so we
+can save a lot of instructions.
+
+The size of kernel text is reduced by ~184KB with default Fedora kernel
+config. This also helps reduce kernel icache miss rate and stalled frontend
+cycles as kernel build benchmark result showed.
+
+2. Kernel Build
+---------------
+Run kernel build (make -j160) with the default Fedora kernel config in a
+memcg.
+13% - 18% sys time improvment
+3% - 7% wall time improvement
+
+5% fewer kernel icache miss, 5% fewer executed kernel instructions and
+15% fewer stalled frontend cycles for kernel.
+
+3. stress-ng vm ops
+-------------------
+stress-ng --vm 160 --vm-bytes 128M --vm-ops 100000000
+8.5% improvement
+
+4. stress-ng vm ops + fork
+--------------------------
+stress-ng --mmapfork 160 --mmapfork-bytes 128M --mmapfork-ops 500
+15% improvement
+
+5. Specjbb
+----------
+The specjbb test latency curves showed the patched kernel has consistently
+lower p99 latency (the lower the better) than the baseline.
+
+2.5% improvement on max-jOPS and 4% - 5% improvement on critical-jOPS.
+The specjbb benchmark is quite sensitive to latency and responsiveness, 
+particularly critical-jOPS result. The patches are supposed to improve the
+responsiveness due to the reduction of preempt-disabled critical sections.
+
+6. MySQL
+--------
+1% - 2% gains on read-only test, 2% - 4% gains on write-only test. Also see
+15% decrease on frontend cache stall.
+
+
+Regression test
+===============
+1. memcg creation
+-----------------
+Create 10K memcgs. Each memcg creation needs to allocate multiple percpu
+variables, for example, percpu refcnt, rstat and objcg percpu refcnt.
+
+Consumed 2112K more virtual memory for percpu “local mapping” and a few
+more mega bytes consumed by per cpu page tables.
+No noticeable regression was found for elapsed time.
+
+2. fork test
+------------
+stress-ng --fork 160 --fork-ops 10000000
+fork() needs to allocate multiple percpu variables, for example, rss
+counters and mm_cid_cpu.
+
+Roughly 1% regression was found. However stress-ng fork test has quites
+small address space, the real life workloads typically have much larger
+address space and do more complicated works. The stress-ng mmapfork
+benchmark saw 15% improvement.
+
+
+The organization of patches
+===========================
+The refactor and prepatory patches (patch 1 - patch 4)
+Percpu page table support patches (patch 5 - patch 8)
+Local percpu area support patches (patch 7 - patch 15)
+Use local percpu area for this_cpu ops (patch 16)
+
+
+Yang Shi (16):
+      drivers: arch_numa: move percpu set up code to arch
+      arm64: kconfig: make percpu related configs not depend on NUMA
+      mm: pgalloc: introduce {pud|pmd}_populate_sync()
+      vmalloc: pass in pgd pointer for vmap{__vunmap}_range_noflush()
+      arm64: mm: enable percpu kernel page table
+      arm64: mm: defined {pud|pmd}_populate_sync()
+      arm64: mm: sync percpu page table for memory hotplug/unplug
+      arm64: kasan: sync up kasan shadow area page table
+      arm64: mm: define percpu virtual space area
+      mm: percpu: prepare to use dedicated percpu area
+      arm64: mm: map local percpu first chunk
+      mm: percpu: set up first chunk and reserve chunk
+      arm64: mm: introduce __per_cpu_local_off
+      mm: percpu: allocate and free local percpu vm area
+      arm64: kconfig: select HAVE_LOCAL_PER_CPU_MAP
+      arm64: percpu: use local percpu for this_cpu_*() APIs
+
+ arch/arm64/Kconfig                   |  12 +++++++---
+ arch/arm64/include/asm/mmu.h         |   5 ++++
+ arch/arm64/include/asm/mmu_context.h |   9 +++++++-
+ arch/arm64/include/asm/percpu.h      |  37 ++++++++++++++++++++++++++++-
+ arch/arm64/include/asm/pgalloc.h     |  24 +++++++++++++++++++
+ arch/arm64/include/asm/pgtable.h     |  37 ++++++++++++++++++++++++++---
+ arch/arm64/kernel/setup.c            |   3 +++
+ arch/arm64/kernel/smp.c              |  44 +++++++++++++++++++++++++++++++++++
+ arch/arm64/mm/kasan_init.c           |  47 +++++++++++++++++++++++--------------
+ arch/arm64/mm/mmu.c                  | 165 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++----------------------
+ arch/arm64/mm/ptdump.c               |   4 ++++
+ arch/riscv/kernel/smp.c              |  51 ++++++++++++++++++++++++++++++++++++++++
+ drivers/base/arch_numa.c             |  51 +---------------------------------------
+ include/linux/mm.h                   |  11 +++++++++
+ include/linux/percpu.h               |   4 +++-
+ include/linux/pgalloc.h              |  13 +++++++++++
+ include/linux/vmalloc.h              |   3 +++
+ mm/Kconfig                           |   9 ++++++++
+ mm/internal.h                        |   5 +++-
+ mm/kmsan/hooks.c                     |  14 +++++------
+ mm/percpu-internal.h                 |  14 +++++++++++
+ mm/percpu-vm.c                       |  94 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ mm/percpu.c                          |  58 +++++++++++++++++++++++++++++++++++++---------
+ mm/sparse-vmemmap.c                  |   4 ++--
+ mm/vmalloc.c                         | 138 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++---------------
+ 25 files changed, 712 insertions(+), 144 deletions(-)
+
+
+Thanks,
+Yang
+
 
