@@ -4,103 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88F7DC44507
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 00:13:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A17FC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 00:17:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aADQWG87fq6XITbxBIYillliqdnDSadEcTkAR2o/L7Q=; b=tIPHjYscTux5J+BpGLvFfL/Ly/
-	NjjDeHngcPx74W3Nf3aUdSaY+h8D8biARleMqRaKwJPMXf7P3mxnBEh4V0W6I4Gr7yunqajzEAQYH
-	vkp9STr/zcA7Ulf+Kxbd+jLMnuGdHW0Lc7vFwJwL47nuPMav+8sYoRm1a1+jOyIlvnw5Ry98mjrpO
-	xi6OhIp9WOwO+psYiphs6oRXgeMlCoZT3JxkoA7V1YDRIdkD4/rSprGsRBd9b9b63KHVr6kDDMrs5
-	+dKDoSlvjsnL9uUGTebt/uWVrl0oHQCmTu9JVm1j8oeZI9OmWXPwiUfEKWD0V71BfWZI9kBJMrTFu
-	lIB1Jk1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9oViBGLJ4tg1nMndV2WceJKmMWbQp7NZXBPBVg5InRE=; b=pxGPArg0mje3+b3NLW2g1TCYHo
+	GCi2e0xHHUW4gknePuTYTROA/Q+mueNu65nxU9oF1Ou5HtOb2tqmF8nTcl2qcmF4PeesTA7ATtptl
+	01VXTnmE1BpZ2dDtx/qQh4MoS0dCEGsug5GNVQ7ZEwztIvdjv6mNnoLBCI1dwo8BhSl6CecxgmqfB
+	nK0Y4eWDq/Z2IQ5vlfIz2Ua5QpJV+L5Q8W9ZtzFKKuKGEAaE1J43RAMf4gtuzHM4vXjNj/P+a5Nzn
+	C0YROxaDr4aDb79X6sqzOBdTK74zEZuJ+caxA3iKa3vlWFDdvkM1CGZC6XvxUuUVGc7W6PQJsz6bp
+	Mo6IEMEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjnFx-0000000DU6M-0GjF;
-	Wed, 15 Jul 2026 00:13:45 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjnFu-0000000DU51-0H25
+	id 1wjnJP-0000000DURi-1x9s;
+	Wed, 15 Jul 2026 00:17:19 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjnJM-0000000DURM-12si
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 00:13:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1784074419;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=aADQWG87fq6XITbxBIYillliqdnDSadEcTkAR2o/L7Q=;
-	b=hjeO4YTGKTf5UnBFkbukJSlnns4YB9f5iJS1J/FDP3h1XXtd1NhLUFw8bId63z8hfw38wX
-	AO+0AZYGqYl/RPcXjkLO1GqHZDXL0u2x0M2jv28S0rS3yB/AlWEZ5dnUmjAqRwVuix/TnK
-	xgYvX21dei4S/ngHccRtCr7uLYhYvHY=
-Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com
- [209.85.215.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-611-R7NxXwkaPAGEqtE2sg8-xA-1; Tue, 14 Jul 2026 20:13:38 -0400
-X-MC-Unique: R7NxXwkaPAGEqtE2sg8-xA-1
-X-Mimecast-MFC-AGG-ID: R7NxXwkaPAGEqtE2sg8-xA_1784074417
-Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-c8924f4d0a4so7134641a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 17:13:37 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784074417; x=1784679217;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=aADQWG87fq6XITbxBIYillliqdnDSadEcTkAR2o/L7Q=;
-        b=s55aWvJP7M26uYH2P5eGMnJA8tUTmt70Qhmc3LqEzpdDiVmL/3N5pYGqT9YRhCyv1s
-         Whz9u+PspTQ6sdiFLRlDecDH1uovK3/xDs7pn11ROXP4Xg/ItpD+dQLs+le6Mjvgwta0
-         XIvlj5ewD5FI+7Zn0C5PPgUKl5nsV4NBIiLKtHNMbbwhhvb1yz4unwyS6KSKc1l5/XuJ
-         DXaxBFbeK21Mc57gxkowL4Cbj01IOHS/E8q3WJlz9R+39MmsSkHM5aqSuYbA5d/z6M9L
-         WHy7qSE1nA7SIv6gskEXHxhQrKoqdmuI0NjGz4owF+R04SXjdGiSUs4mD/LQNpWv8/7b
-         bfRQ==
-X-Forwarded-Encrypted: i=1; AHgh+RoiYUE2vjl7i9CeMNFXwRPqpheR76B1mmO9DN41v36rhhc6zCfTpEiNLpxnHqzdvL95tcn2fD6bVXaDpp8YShzE@lists.infradead.org
-X-Gm-Message-State: AOJu0YyO6aALs9u8r+uFsIyYCwPPTzCeV1+Q7w+FmlSBQeD501O9XbPF
-	8sYtSaKe2Kwpm0H8wvTQqtBmF8pBQcHluLxTEJw9GWa2ig3rsF45K7EVX0xHQMsQY3s5xSqS97U
-	LjFh0UAAC3yeuE05lZHV7pMMPXcsTiGuibIK9Tg9J3k+ff3fuZ2iePq7/6WiR8q0DmzxJF1n3pQ
-	n1
-X-Gm-Gg: AfdE7clna223obxcAc5bE3UnNZ6cya8HmbplMIr18yS3ifg5L+hhbLEa/gr+mURaU3B
-	aRVnJ1UQo/ldhGna4RR0rZyWnxchgaY+NqQ75NRGew08O813oIDwpJC0VR4gdnNLnQnEOTv4oYb
-	gBQfbM/7PyENRkpM3CaMbkg8D2Ey0xzALaLQAAdxnJPrz+p8khIzt56kZLEjLV68Ja+DeYPLZU+
-	DtqKzbkl/xKG70kHssnm1N54QE6CSNv7ZAa1zzHDv51W8H8TpyTltkew5KfIHQEpRzluhCF902t
-	PGtnzwZo4nu0Ffe2OVauzKg+DC6vI+D+s0DSiTNVqIq49DHV2SfUlzZFIka6jZrm1kxlZUodbSx
-	3rS7MdAmyDRkS1DDMizJ76AiixZu3yoTtIj/vfFhMtgeoL2txOAY1tw==
-X-Received: by 2002:a05:6a21:3998:b0:3bf:6c08:fb98 with SMTP id adf61e73a8af0-3c36c4099b7mr705224637.58.1784074416918;
-        Tue, 14 Jul 2026 17:13:36 -0700 (PDT)
-X-Received: by 2002:a05:6a21:3998:b0:3bf:6c08:fb98 with SMTP id adf61e73a8af0-3c36c4099b7mr705190637.58.1784074416440;
-        Tue, 14 Jul 2026 17:13:36 -0700 (PDT)
-Received: from [192.168.68.51] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13b659c865asm92038212c88.11.2026.07.14.17.13.30
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 14 Jul 2026 17:13:35 -0700 (PDT)
-Message-ID: <9892de2f-9e29-41ff-997b-a6a2e7c98585@redhat.com>
-Date: Wed, 15 Jul 2026 10:13:28 +1000
+	Wed, 15 Jul 2026 00:17:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3B1BE339;
+	Tue, 14 Jul 2026 17:17:09 -0700 (PDT)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C67573F7D8;
+	Tue, 14 Jul 2026 17:17:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784074633; bh=yKfQ0GflKniKbcTiQEcokqqiBLZSSKEnGRM/ps+7LEw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fRua4iHZvThGUR/J15sDSpBSVZDSq6MoZM6eoRmjBJ/YIJW0HpdFfris79gLUuOcR
+	 HE43sySB5EsjwfP/Q3jUaSMJgqZwaUahQJAFu2eNtvT60+DnwWfLtA8L3x7bA8oUYW
+	 EXfqwaFXdu3vj+FUWVM1qh3SEn8n+cPYopQ8l2cw=
+Date: Wed, 15 Jul 2026 01:16:44 +0100
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
+Cc: Steffen Eiden <seiden@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v2 25/28] KVM: arm64: Engage NV3 TLBI trap elision
+Message-ID: <nre6kiamcmf4azxni5def5kd5p74ia7rp7ynenpyczqticjcof@4inxwalqfyth>
+References: <20260714091641.1970822-1-maz@kernel.org>
+ <20260714091641.1970822-26-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 0/3] x86,fs/resctrl,arm_mpam: Factor MBA parse-time
- conversion to be per-arch
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: james.morse@arm.com, reinette.chatre@intel.com, fenghuay@nvidia.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
- dave.hansen@linux.intel.com, hpa@zytor.com, corbet@lwn.net, x86@kernel.org,
- linux-doc@vger.kernel.org, dave.martin@arm.com
-References: <20260709093111.367851-1-ben.horgan@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20260709093111.367851-1-ben.horgan@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 5IabTxj_gfpUp-aM5RWR-6CaxhP-0QHkDcg-9Uu0SkE_1784074417
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260714091641.1970822-26-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_171342_181820_70EBEAAE 
-X-CRM114-Status: GOOD (  22.87  )
+X-CRM114-CacheID: sfid-20260714_171716_508063_DBC265E3 
+X-CRM114-Status: GOOD (  19.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,57 +71,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/9/26 7:31 PM, Ben Horgan wrote:
-> This version fixes a couple of non-functional mistakes in v4 pointed out by Reinette.
+On Tue, Jul 14, 2026 at 10:16:38AM +0100, Marc Zyngier wrote:
+> Similarly to the ERET elision mechanism, FEAT_NV3 can elide TLBIs
+> that only affects the guest's S1 translation. Enable this, with the
+> express condition that the guest isn't NV2 aware, as we otherwise
+> need to trap these TLBIs to deal with VNCR mappings.
 > 
-> The patches should stay together so please could this all go via tip.
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/include/asm/kvm_emulate.h | 13 +++++++++++++
+>  1 file changed, 13 insertions(+)
 > 
-> Changelogs in patches.
-> 
->  From cover letter of v3:
-> 
-> This is a new version of Dave Martin's patch [1] to delegate rounding of
-> bandwidth control user values to the arch code. As there is now more than one
-> architecture using resctrl, I split the original patch into two, a core resctrl
-> patch and an x86 patch, and added an MPAM patch. Please let me know if the patch
-> break down and ordering is sensible and whether the pattern should be followed
-> for any future similar changes.
-> 
-> This does have a user visible effect on MB schema when using MPAM hardware
-> with 'bandwidth_gran' greater than 1. I'm not sure if MPAM hardware with such
-> coarse controls exists in the wild but it is spec compliant and I've tested it
-> on a model.
-> 
-> [1] https://lore.kernel.org/lkml/20251031154225.14799-1-Dave.Martin@arm.com/
-> 
-> v3: https://lore.kernel.org/lkml/20260515140612.1205251-1-ben.horgan@arm.com/
-> v4: https://lore.kernel.org/lkml/20260706160639.2136674-1-ben.horgan@arm.com/
-> 
-> Based on v7.2-rc2
-> 
-> Ben Horgan (1):
->    arm_mpam: resctrl: Add pass-through resctrl_arch_preconvert_bw()
-> 
-> Dave Martin (2):
->    x86,fs/resctrl: Add resctrl_arch_preconvert_bw()
->    fs/resctrl: Factor MBA parse-time conversion to be per-arch
-> 
->   Documentation/filesystems/resctrl.rst     | 17 +++++++++--------
->   arch/x86/kernel/cpu/resctrl/ctrlmondata.c |  6 ++++++
->   drivers/resctrl/mpam_resctrl.c            |  5 +++++
->   fs/resctrl/ctrlmondata.c                  |  6 +++---
->   include/linux/resctrl.h                   | 19 +++++++++++++++++++
->   5 files changed, 42 insertions(+), 11 deletions(-)
-> 
+> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+> index b32870a5e1236..d17b161d4ba3a 100644
+> --- a/arch/arm64/include/asm/kvm_emulate.h
+> +++ b/arch/arm64/include/asm/kvm_emulate.h
+> @@ -715,6 +715,19 @@ static inline void vcpu_set_hcrx(struct kvm_vcpu *vcpu)
+>  		if (cpus_have_final_cap(ARM64_HAS_NV3) &&
+>  		    vcpu_has_nv(vcpu) && vcpu_el2_e2h_is_set(vcpu)) {
+>  			vcpu->arch.hcrx_el2 |= HCRX_EL2_NVTGE;
+> +
+> +			/*
+> +			 * If the guest is NV2-capable, then we need to see
+> +			 * all the TLBIs, as configured in HCR_EL2.
+> +			 * Otherwise, relax the TLBI traps to only TGE=0.
+> +			 */
+> +			if (!kvm_has_nv2(vcpu->kvm)) {
+> +				vcpu->arch.hcrx_el2 |= (HCRX_EL2_NVnTTLB   |
+> +							HCRX_EL2_NVnTTLBIS);
+> +
+> +				if (kvm_has_feat(kvm, ID_AA64ISAR0_EL1, TLB, OS))
+> +					vcpu->arch.hcrx_el2 |= HCRX_EL2_NVnTTLBOS;;
+> +			}
 
-Looks good in my tests on NVidia's grace-hopper machine. No errors found
-from the kunit-tests and the MBW limiting works with more precise granularity.
-The code changes look good to me either.
+I also suspected if this is dead code, but Sashiko had beat me to it :P
+So from your response in v1, is this code here just for completeness?
 
-Tested-by: Gavin Shan <gshan@redhat.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+It's amusing that we're not able to take advantage of this feature at
+all!
 
 Thanks,
-Gavin
+Wei-Lin Chang
 
+>  		}
+>  	}
+>  }
+> -- 
+> 2.47.3
+> 
 
