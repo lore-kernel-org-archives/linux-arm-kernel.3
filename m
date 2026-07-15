@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53BCDC44507
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 18:51:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E932C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 18:51:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/JUnyILCuCHm9xif9x0aTG1ELA/JAcvGAudj2v68t74=; b=g9ZOxevaWuJKc+qlgnRU1VOFOI
-	7bFdTEShqEwdSrGbtkfJusvaFLPcLtr5aUVwoXCZ45ULzpGWC0ui0YGmzGO7SJlr77awZwae129u0
-	23LyLfFJYplAgny3Wo1cAL+q/sBj4MVXuKzi0AisTKYcOh+Q4gcc/d2LgSUEcn/5oecghFZfqzh/2
-	/ZXEFR3nrgWxn4TlqAlCTZ+u1WQ8zqfJIOz2cxWn/9KfGDjxMU7a54/OquxykpL+doOVT7Bcxt5jJ
-	huiHylJOLHelXECfNZoxCbqhK87/b7UIzzsz2k8/2GsT+u9QDKMm0DMI8H1Jz9ijt0fZ76Np4xTuX
-	vXKf3B+A==;
+	bh=OEcu3ksvny1DyWHbLUrYF2+7n1lMryaW716e1NKmQ+I=; b=VfjxQTdWX3cO7L/mkTUAUInhqw
+	loLvAAlmwbEfgSU798uxtYfdh2XciFMvIVqJ192/NHAatEAuXcy69MqObe6A0uDN76IGQXsX3XQZE
+	DLZOi61/yzcb4jZDHS8BJaZ69nchnVByYpQbn8/lx84Weuzjm7lJqw5UFusVcNR4gAFnlc/qbpaR7
+	F5y7f9N/Aoug2KI73ldaBCpQnLusft6nEq9vyM263lEcWP0QXJpXDrboSryZpUOGcXA3iEDbsfjdK
+	oOfE+F4ESQiCcGKLH/1Gpam17Hr82ZggfTUfcbhWE4B3AgsBueWtUdh0Esw+44zcsBqCpGLSyBjFD
+	hhXrONjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk4hd-0000000Fiej-3wvf;
-	Wed, 15 Jul 2026 18:51:29 +0000
+	id 1wk4he-0000000FifK-0p9Q;
+	Wed, 15 Jul 2026 18:51:30 +0000
 Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk4hZ-0000000FiaH-2Dv3
+	id 1wk4hZ-0000000Fibq-41ui
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 18:51:26 +0000
+	Wed, 15 Jul 2026 18:51:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
   t=1784141486; x=1815677486;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=3RT0bvr0YlMj/g53DZqvYLkN+FeBp21Hqe9FY6G7j0c=;
-  b=hQHPGyWimJmdUqJN5rPbb5OT3AXeuM/0pF8cgqyK2uhkrAz9tkUNP3hn
-   b65TM/OySS/1DyFfLFOCio+FzP/ono9brvXKHEKsfX70m2qu18g2bA9C6
-   eRFwt6ZX+YLdMBSuMVqz18leJiNcCO+dklUB5qom1acN8TTn69hbqUApF
-   gSeL3/QNhc4QUoq4tr79mXKDu7z0rUoj8ZER59KWyOkiQFOtB0cw9dy4u
-   AMi49E7L/EboxEY6P+L4gqSnYZ8oXxDDf+hsIaAGQru/ir9gtyonumlVc
-   +FzWu7x7bUjDe+13X+BJXKcZqXwt/1ckDtRuNjvIjLqZPJNYsqtg9qSZl
-   w==;
-X-CSE-ConnectionGUID: Nr9S+eW6R56EHBf+G6L+fw==
-X-CSE-MsgGUID: 5M2//yWNTuO/3MK+pZhbUg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11847"; a="96308579"
+  bh=c6hpNb2JXzDFRlDVnT3j7w6ZUzrfVzvezdxIsX1aXGo=;
+  b=YSGxDaIE7mtp6u8iXVEffjIJClGOkKGJSs2Tm90BiUqjOkJj1cUF+lGT
+   KQzv5fn7HNr7LoA4LXiYt75YF0RnnFOYx4ETL3S4++0qIjhDBJGDIRgBH
+   AWi8iQDScebS5wIuoPsxo59MdSZfwh50y4uDQCUnFFIwo1CWuaifBjxJh
+   GNWA0BIbTs9MN5QzAmAXFfkFFaS06aRK7xKnY4l8Y0jXBC2Bs67KmgKHd
+   um03uPSb8BIdc+GdjMWwqH14iyK8zevXwmgYZFynZfSG48HGwpJCTDvdk
+   i53MnSINfSaNWL7A6UsDivhGMRKmT2lwxGXln6lPJZp3s0wTJi6YeKAIt
+   g==;
+X-CSE-ConnectionGUID: 2SqLCrPLR+Gquk6g1I23dQ==
+X-CSE-MsgGUID: wSlgdsNoR1OYM//5NJtEHA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11847"; a="96308592"
 X-IronPort-AV: E=Sophos;i="6.25,166,1779174000"; 
-   d="scan'208";a="96308579"
+   d="scan'208";a="96308592"
 Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jul 2026 11:51:25 -0700
-X-CSE-ConnectionGUID: lMLnisCeQDm4TCWmtpr1gw==
-X-CSE-MsgGUID: IPOQ6sDsQcmUjgaIpa0bmQ==
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jul 2026 11:51:26 -0700
+X-CSE-ConnectionGUID: IBaGDHu7QKeuyExlv8l9Uw==
+X-CSE-MsgGUID: 9Rn3eEowS7mtmEOv0en++Q==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.25,166,1779174000"; 
-   d="scan'208";a="294491680"
+   d="scan'208";a="294491681"
 Received: from black.igk.intel.com ([10.91.253.5])
   by orviesa001.jf.intel.com with ESMTP; 15 Jul 2026 11:51:21 -0700
 Received: by black.igk.intel.com (Postfix, from userid 1003)
-	id 0C37BA1; Wed, 15 Jul 2026 20:51:16 +0200 (CEST)
+	id 1125CA2; Wed, 15 Jul 2026 20:51:16 +0200 (CEST)
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
 	Bradford Love <brad@nextdimension.cc>,
@@ -77,17 +77,17 @@ Cc: Linus Walleij <linusw@kernel.org>,
 	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <zajec5@gmail.com>,
 	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
 	Mauro Carvalho Chehab <mchehab@kernel.org>
-Subject: [PATCH v1 6/7] MIPS: BCM63XX: Open code gpio_request_one()
-Date: Wed, 15 Jul 2026 20:46:46 +0200
-Message-ID: <20260715185112.1323510-7-andriy.shevchenko@linux.intel.com>
+Subject: [PATCH v1 7/7] gpiolib: Get rid of not used anymore gpio_request_one()
+Date: Wed, 15 Jul 2026 20:46:47 +0200
+Message-ID: <20260715185112.1323510-8-andriy.shevchenko@linux.intel.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20260715185112.1323510-1-andriy.shevchenko@linux.intel.com>
 References: <20260715185112.1323510-1-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_115125_685841_F5F5A2E3 
-X-CRM114-Status: GOOD (  12.31  )
+X-CRM114-CacheID: sfid-20260715_115126_107232_C4CCB2E1 
+X-CRM114-Status: GOOD (  15.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,32 +102,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Open code the gpio_request_one() call to be able to kill that API
-in the follow changes.
+No more users.
 
 Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 ---
- arch/mips/bcm63xx/boards/board_bcm963xx.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+ Documentation/driver-api/gpio/consumer.rst |  2 +-
+ drivers/gpio/gpiolib-legacy.c              | 31 ----------------------
+ include/linux/gpio/legacy.h                |  8 ------
+ 3 files changed, 1 insertion(+), 40 deletions(-)
 
-diff --git a/arch/mips/bcm63xx/boards/board_bcm963xx.c b/arch/mips/bcm63xx/boards/board_bcm963xx.c
-index 57e916c06792..993341604439 100644
---- a/arch/mips/bcm63xx/boards/board_bcm963xx.c
-+++ b/arch/mips/bcm63xx/boards/board_bcm963xx.c
-@@ -903,8 +903,11 @@ int __init board_register_devices(void)
+diff --git a/Documentation/driver-api/gpio/consumer.rst b/Documentation/driver-api/gpio/consumer.rst
+index bb3366047fad..03edd9472f07 100644
+--- a/Documentation/driver-api/gpio/consumer.rst
++++ b/Documentation/driver-api/gpio/consumer.rst
+@@ -463,7 +463,7 @@ and vice-versa::
+ The GPIO number returned by desc_to_gpio() can safely be used as a parameter of
+ the gpio\_*() functions for as long as the GPIO descriptor `desc` is not freed.
+ All the same, a GPIO number passed to gpio_to_desc() must first be properly
+-acquired using e.g. gpio_request_one(), and the returned GPIO descriptor is only
++acquired using e.g. gpio_request(), and the returned GPIO descriptor is only
+ considered valid until that GPIO number is released using gpio_free().
  
- 	platform_device_register(&bcm63xx_gpio_leds);
- 
--	if (board.ephy_reset_gpio)
--		gpio_request_one(board.ephy_reset_gpio, GPIOF_OUT_INIT_HIGH, "ephy-reset");
-+	if (board.ephy_reset_gpio) {
-+		gpio_request(board.ephy_reset_gpio, "ephy-reset");
-+		gpio_direction_output(board.ephy_reset_gpio, 1);
-+		gpio_free(board.ephy_reset_gpio);
-+	}
- 
- 	return 0;
+ Freeing a GPIO obtained by one API with the other API is forbidden and an
+diff --git a/drivers/gpio/gpiolib-legacy.c b/drivers/gpio/gpiolib-legacy.c
+index ef3f2ef30cf2..c2b04605b203 100644
+--- a/drivers/gpio/gpiolib-legacy.c
++++ b/drivers/gpio/gpiolib-legacy.c
+@@ -21,37 +21,6 @@ void gpio_free(unsigned gpio)
  }
+ EXPORT_SYMBOL_GPL(gpio_free);
+ 
+-/**
+- * gpio_request_one - request a single GPIO with initial configuration
+- * @gpio:	the GPIO number
+- * @flags:	GPIO configuration as specified by GPIOF_*
+- * @label:	a literal description string of this GPIO
+- *
+- * **DEPRECATED** This function is deprecated and must not be used in new code.
+- *
+- * Returns:
+- * 0 on success, or negative errno on failure.
+- */
+-int gpio_request_one(unsigned gpio, unsigned long flags, const char *label)
+-{
+-	int err;
+-
+-	err = gpio_request(gpio, label);
+-	if (err)
+-		return err;
+-
+-	if (flags & GPIOF_IN)
+-		err = gpio_direction_input(gpio);
+-	else
+-		err = gpio_direction_output(gpio, !!(flags & GPIOF_OUT_INIT_HIGH));
+-
+-	if (err)
+-		gpio_free(gpio);
+-
+-	return err;
+-}
+-EXPORT_SYMBOL_GPL(gpio_request_one);
+-
+ /*
+  * **DEPRECATED** This function is deprecated and must not be used in new code.
+  */
+diff --git a/include/linux/gpio/legacy.h b/include/linux/gpio/legacy.h
+index 557ef635935e..d4273162ed13 100644
+--- a/include/linux/gpio/legacy.h
++++ b/include/linux/gpio/legacy.h
+@@ -82,8 +82,6 @@ static inline int gpio_to_irq(unsigned gpio)
+ 	return gpiod_to_irq(gpio_to_desc(gpio));
+ }
+ 
+-int gpio_request_one(unsigned gpio, unsigned long flags, const char *label);
+-
+ int devm_gpio_request_one(struct device *dev, unsigned gpio,
+ 			  unsigned long flags, const char *label);
+ 
+@@ -104,12 +102,6 @@ static inline int gpio_request(unsigned gpio, const char *label)
+ 	return -ENOSYS;
+ }
+ 
+-static inline int gpio_request_one(unsigned gpio,
+-					unsigned long flags, const char *label)
+-{
+-	return -ENOSYS;
+-}
+-
+ static inline void gpio_free(unsigned gpio)
+ {
+ 	might_sleep();
 -- 
 2.50.1
 
