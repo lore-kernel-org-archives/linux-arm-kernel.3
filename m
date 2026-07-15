@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B4CCC4450F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9847C44511
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 18:06:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,28 +12,28 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DpaTpdar5NmCn6KDifPZIoCGv+BUoPNwYtyDeM8tyOQ=; b=VsESX7PJnSz8mQUVOKiWhTaZ3V
-	xyYWMrWnifCzdQ5+6vgL7MjHN0UCmlTUEps3gOCVkt8gPmpJL+3gcFDv6dcSy8ZAb0W9qIApvD36u
-	kTiMpHhG+tgRZxS3Fd5eSy2HFnCHsVGo+GqXPBodrHsWXSC+LzB4M9Ko4XMOQ/YSIK0SvV+lLqj/B
-	JOaPMZR7CTFt/e6eUghjwF+7xoIf+jStWn9nIhgk3Ox26bEcON989VSALTZM0cd6RXTdDP7Mafj0z
-	2/IXjXQ6ufsq1d8G5A+yu2yYiNrvJzhuq0fK1CjLq8u+Tb8CT5fgzA+IIXY+LR/J5uskPnwzqJG9P
-	JXJE2Nfg==;
+	bh=pNNyNTfsOG8Ek82+6Ao7fqrhzwIJ/uNOESZvwBJE5oA=; b=EnDYwT+dpyG+6phJWgDlDr7VXp
+	ezpCVPvNTwRV050ofHVAPonpaXbAVKVc4h9HEH5k+79n5GGK7UrJXm/9wPyJPDEF+5nXZN8H/UYZ6
+	71xDJnaBWHmXk0WgKYhqTuhDyCDg2l6xdenM3sgEXeANZ1DQh7xrDh8lBuuoXNbe3jy3x+y+JTZ3h
+	o43xe/P6WmiLMVCrmmb1/dn5R9mPPW7K3+h26pIVybw7XnSzF+KzYHh57yV/hrIjUHpl1aEiqW4H1
+	BAClryAIP+InCojYQeyp8n7la5ZR53ywYpwaGER/c2PSLrzehv7WN3rLDAd3MdIIj+tIQYv/Qjokb
+	UnKLE3Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk3zr-0000000Fcjc-2sWb;
+	id 1wk3zr-0000000Fcjz-3aL5;
 	Wed, 15 Jul 2026 18:06:15 +0000
-Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
+Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk3zf-0000000FcOH-2AgO
+	id 1wk3zg-0000000FcJK-0tYn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 18:06:04 +0000
+	Wed, 15 Jul 2026 18:06:05 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=a1hJbx0H5xPh0gswX9vlaB2Uuo2ZVVsMJkmjW8vH6wNswhhXeCCEaV8OC6AeRClW4C1QNkf25xzvbiab8OLkcZK0/oGz/LbOqIr2QUElbdEB3ALLwvi4pP2ni6QAuhQCNHTDULRbjKAmH0bwLM3oqrIZIgPTDcn5P+WZ6tfSZXivz7LBxeOboSFudHL9VxDAo0drxlq+e79TqQfCkKENncwA/3ufJ38ofqc5j2moYPYq5yyFDm4hGOAokkr8vumew57uEjs8Ag6lc/BBlVl2YXFiG4VnUmzT853rFWsgfmEtEjddBzhIoSeSou4vqLENb/n3rqHDPPjXdk58wSW1bA==
+ b=AxaGw3mOBZa3MsKXfTHKuXoBKuOFCD1qbdb0sG6I4NuSV/FhmCpdLKZSIZdW9HcpKqW3vjrHGXZ0xVu0X54AugAoYVPY2jKxv9sQz2dRXS/ir0SX6CF2db7PASMNqs+Pf21fDCH/RuBDxdZjk0ge2fm85/paA91UWmlXttJGxRtv+195wx+O86SYhfYiyzGZEnd/dqwfDZs+uHX7RN/HPO4dRL/IzpJrogGEx2Oo57cSHyyDdMpdM1qW6/qCqy1d/4Q/QtbbWJiVjkiiWRBYmx6UTLfnuwXliIHUzpvfTBrK4M5qFesZqoLYqJsMxP9UI//k58+LSQMZsLLH1z2kdw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DpaTpdar5NmCn6KDifPZIoCGv+BUoPNwYtyDeM8tyOQ=;
- b=YxEjHtD/ORa0pk8+g8lRPqbuAo6e+oWCb6o86L8SzzH9UMeW3Y2Z5Cxh/Q4bQmSNREYuYxPCkuDBYvqWZJ7NMmDnze3ucgWZDfliWFkay3ndaaZOr7jEKQ79aICZxSmGBGwWTEkcrYN9Ph9D3L05lANzW83nxJiTdhoEoVMZH4hRNerGcWi6UzshWeKV4Vf+Ql2rh7CLbOxC6TeQ7O/9c8sHGZ8Un6PBbkGarVT079lLsO6iNAtMoGObfbOYOwWamU1gx+oSqQZduBbXv+3UREyFF+nOpuDvCzVWmZQ1xrlTSrZtR8nQh0u6fC44TT04FyCiIEIXRR17yRZIakC26Q==
+ bh=pNNyNTfsOG8Ek82+6Ao7fqrhzwIJ/uNOESZvwBJE5oA=;
+ b=gDqy/DAePtXq4IK2T0GikM35GPEgG0cTeo1FS6taXEKKuWhQpdSkymqcJObV44OxylLajPJwefJoWpPu//BHk2LvajH08/rHZ+kF9HdQ4wSFGGWYFqz1b2OkVkcIIrDrOyKFDHl4uLoiwyYwIlazNqHUV1G4bKbneviCUuwSWMAlrgjIY3oufbmTuw9OF8XntY7pI7CNsWhfmeDYIQb3gfHoADoizwiFe/JOKd6ZWEPXbIgLsdt0hmkoT0CdWNXnUDH90Pw4nyZewmMBtT1EIfyg7PVB61n+/2UjNAXzmio2PQFQn4LYvLefvi2aRej6q1ddeLZEx+xaEwNgfajgzQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
  header.from=os.amperecomputing.com; dkim=pass
@@ -41,18 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=os.amperecomputing.com; s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DpaTpdar5NmCn6KDifPZIoCGv+BUoPNwYtyDeM8tyOQ=;
- b=dvGpYiPVywlL2zHHNhQB++U7y5TE4Efge/wqlQ0NQH2y88JhbTwCojiXrL2Iy+iqDAhXELMBStqc6azIO3QE2uYQaQNeub8yOQoEtBGBlPNKGjGKKzkMoH0mmI4PMVs1fqJsj8BimyO1bt1N8oQ5o4igwqBNFNiWONuowODVuig=
+ bh=pNNyNTfsOG8Ek82+6Ao7fqrhzwIJ/uNOESZvwBJE5oA=;
+ b=hi47ZyJZivknmFizomT0fHWJB8r10WKH7qsNxJ5oOBriZ5YNO+wNYVOouxRsv5OhEjs6vxJm38WKiTyKzG4QSwJ7fpuOcsBT+An58E8fU3ri9xo1J+VhwElaWrEahaasNaliO6Jgbv3YHFMYGXdhs7UD9YZ4jRlta0rXh6bkOhc=
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
 Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
  LV2PR01MB7767.prod.exchangelabs.com (2603:10b6:408:170::6) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.223.10; Wed, 15 Jul 2026 18:05:51 +0000
+ 15.21.223.10; Wed, 15 Jul 2026 18:05:53 +0000
 Received: from CH0PR01MB6873.prod.exchangelabs.com
  ([fe80::46eb:64a3:667c:c1a0]) by CH0PR01MB6873.prod.exchangelabs.com
  ([fe80::46eb:64a3:667c:c1a0%3]) with mapi id 15.21.0223.008; Wed, 15 Jul 2026
- 18:05:51 +0000
+ 18:05:52 +0000
 From: Yang Shi <yang@os.amperecomputing.com>
 To: cl@gentwo.org,
 	dennis@kernel.org,
@@ -70,9 +70,9 @@ Cc: yang@os.amperecomputing.com,
 	linux-mm@kvack.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 15/16] arm64: kconfig: select HAVE_LOCAL_PER_CPU_MAP
-Date: Wed, 15 Jul 2026 11:04:17 -0700
-Message-ID: <20260715180455.515692-16-yang@os.amperecomputing.com>
+Subject: [PATCH 16/16] arm64: percpu: use local percpu for this_cpu_*() APIs
+Date: Wed, 15 Jul 2026 11:04:18 -0700
+Message-ID: <20260715180455.515692-17-yang@os.amperecomputing.com>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260715180455.515692-1-yang@os.amperecomputing.com>
 References: <20260715180455.515692-1-yang@os.amperecomputing.com>
@@ -84,59 +84,58 @@ X-ClientProxiedBy: CYZPR05CA0010.namprd05.prod.outlook.com
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|LV2PR01MB7767:EE_
-X-MS-Office365-Filtering-Correlation-Id: ae6172e5-7a90-445c-9f29-08dee29bb4bb
+X-MS-Office365-Filtering-Correlation-Id: f2e6bd10-9355-443a-96db-08dee29bb58f
 X-MS-Exchange-AtpMessageProperties: SA
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|7416014|11063799006|56012099006|10067099003|22082099003|55112099003|18002099003|921020;
-X-Microsoft-Antispam-Message-Info: Re9mHU3BS+kL/MeXeXlTBcQPME3ja3FPtdC8Uocrxx4D8wKbRL8wigsyY8OK2+dNjHbO9CsDeWRZSI/rfb0x0qOyyYf4u2aB3jPDXytY0aoSNaFGM9ixevnCuROGpgjsIlQtJSpVlHqPc8/6edMuodfjBwPzdeZQ32xnXJl31GagNI/mPz5dO8qobS6M3dAWODWmaQUBk+havdLF7gvca0VrEvCj/2tU+ul+eDm0XHLG2w2ui1eR42/pXEzmQpSH18voxUTNBWrT6LEpk8a/wf/MDg2hzxmsmX/w8TcrJiDI58fuyD8RwwglK3+Bl5EQkkf8BNXaRYtxqswDcbRvCeht9hgnhRPCtrlIV6d4fNGBDxfcRSavYoNu79a/XCzhH1t9wHHXkxKPP5gsEChc08fNNTOUPKhwXohwZdB6kyJjwmTR20toWKWLfGkG3LrLUvfTVIrVKe5ECDaEkSHacgtwq8ptL+nQaqTRbS/0GkZepjJsuXESmCl7ygA0sAoFPRFe0nfYmvmPJCL8omnyg3PNhryfcoYweAlyb9ji1z4znn5kgtBdcI+GCzbfl5iomgD3t+Rpx0D5B8q/mARkn4yo4QJ8uMne89a59J3HE+/pdFSZzTk1x9Ly7OFkQNM3F9I6757fcghBVu8z5UAcfbfBbjVzph0UXaUNYYF18E8ps0Bm4a5qFaQLuXaSYx2UMJoKMBHDo3iYFQMm7p+D9w==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(7416014)(11063799006)(56012099006)(10067099003)(22082099003)(55112099003)(18002099003)(921020);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|7416014|11063799006|56012099006|10067099003|22082099003|55112099003|18002099003|6133799003|921020;
+X-Microsoft-Antispam-Message-Info: L9R+xQx5kWDFPcFDD6qFkPMWZ400S+0lBFNfpLAFsF7JHHEY4S8McnpQB6OQIfyahqySFtgO+dEZ5gl5JE6WKLVg94a2Cjl017cvNk6AeQK+LNAw8suPT3qwgp8xxKv8gpJBhqVW/9rq46cRuUyAxB7I68/7aNBEcOYaG149ZMedA4y44CW2fBt5Zq6EwzDFH+/grMc7fLF9u6fgqmEhaL1cG2Sm53BaZ3DKd9jYzX4gCI38mlGsV809EDza5cIEgSrhjkHPeQH6OHoOp8h1PP8bcVAcinm4G4EK8ndoK4VDB9EIXECV5NS4OjFYO5q4awb8j5uVACAhMi/4egJkIly6RPeNdtFYskK+EqkCohpRNPqtJ304AFTYqmWxRFsxQDoayrKxfK8wGeJzjicsqA8Fdau3kG+vGSZA6dU3Y5XxuDH1tb7sDWutug8xOq2ZnhngDowbRc5qcQYa/qzJcbpiMFKQaVXQXsCh9uJ1taa5WA7E4ClNV7hCI3X7Fzsso7PoaXHBS3PgDxiT0Cq2KLHGGarOBC22EtDHpPUCeVBDemXM9W8GGn58RULPPcHPnytxDRC19ZrOAAVBdUba1WgJnei09G+dOmUlwB5XzH5YGNIidoADkYzWk2J4uEKwY+TWxtxaFsZeg8a8AyqBsTI2t/EXzKUQ7XZxvr9hzxp/7PKqx+zuBY/F0OQsfaHAmiq6GtZJYNaU5V+N/5xnow==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(7416014)(11063799006)(56012099006)(10067099003)(22082099003)(55112099003)(18002099003)(6133799003)(921020);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8x+/HOtolt31i2OGfFuBtzNf+vV290Ccf22gpVKWTW6KEGyNZhN47rduwu1n?=
- =?us-ascii?Q?5ha5W0aNsmlcCj3HTTluMdjuoBaV+eQ7MQuk1bTw5wVxaeMQAzq3fSgJ6w7n?=
- =?us-ascii?Q?VYf0sPMkefePaDr5R+giEM3j+TYa2n3mIPoCD2VCVgDMWdcRzQE4U41i1i2R?=
- =?us-ascii?Q?bkZym31EC2Jd/Y4Nh9+OFbVZfbSS+SW1S/zDybelpIEtsHCxT9SD6Vc9Ifjt?=
- =?us-ascii?Q?E8xrQaI6tnMZr4kVeHSz1tE5Q+juS1WuR2J+ZIWFXa1Gz/DNUQhVtMdeZYp+?=
- =?us-ascii?Q?oXQyQ47+s2eUBsMiGkasS3RnBkvpICsjlaxK4f11MFQ/8yrI/ypJm/zjCrJi?=
- =?us-ascii?Q?r93LSuNrM6xA1HScWADV6naIDd9kLvaV7XHDwi6Qi9KqKwuoK3BtTKHgKf0u?=
- =?us-ascii?Q?UB1LMgh5QPEykIaVvPMvGHofkFRn1siwTYFgG2Pzs1WJjusAwrSsnbTi9dUl?=
- =?us-ascii?Q?QXVq+dzpA5Wupr+MFRk78x/qtr0i8OsYhmxSWJtRYiAK9XtMKRTXsY0fOYfY?=
- =?us-ascii?Q?TxKJvd+GLok6BGr5ll3uB25UhXvDL23jr95j6jtrjtoXk/qlHx0niqRdqgto?=
- =?us-ascii?Q?M4a8mPRJfuhpArJ4uQQ4SLnVEgmJyh+qnpuihweq6Mv89NlUObVXd+MXM9R3?=
- =?us-ascii?Q?8LvRxllIWaSgjWmoZYppA7NwlV9pC5qXBIqRpT8B6WL2W3qAjMAdRV/S+koU?=
- =?us-ascii?Q?1DD426sm23ibxVVTDuV0yta9QhHRLWOghUNejfZCticukaSHGbZsQCd33h5y?=
- =?us-ascii?Q?9GA4dhX5t6hAU4HfdG1iNoSGtOFsRRknz//Fjf6+lQtIX4IBfZFbBTac9/64?=
- =?us-ascii?Q?tvNAFE4fnQeMG/KMNTvSt9BJekqbouGyj62vYiydE/w9qKnwjOkZ8EdTYIuj?=
- =?us-ascii?Q?uQPY/vOabOX2/OYJftDV9KtdSKAk48Jts6RhrACA79sEJyKVUlkh9BlpVvar?=
- =?us-ascii?Q?X5FxDWQYd033h965X7r3YbEdC8NBe3RAvjObtsEWjZQ+v9BtduD8BNeN8l3Y?=
- =?us-ascii?Q?wC4fz6AIlK7A//kSS/ejNf2Lq5G4OKbnqB1VUHquLIXDtDEKOY6itYsOcAqZ?=
- =?us-ascii?Q?QvwychLGkBhY512fEhXTmhQ8vh9KsIdvq0LEqRUPgClb3m4hsTd1z5HQ+uty?=
- =?us-ascii?Q?VYmcvg2veGk+0FwsyfXqT9Tvv1fi8nS/CgGz3UQ3m0gZFNUWCP+GLcPBYr8Y?=
- =?us-ascii?Q?/dCDzs8psCixqgtTN0kcBWgLReFNMdnltgkmDf9mbEpfAqIcw0k2ADJ0guOj?=
- =?us-ascii?Q?E7n+qVTm15UOn5U6e6djzddroUKh2+cjgXAbMJc9RTjwQ9NCc+MytGfTxTjE?=
- =?us-ascii?Q?SQSBop+srj3LJ5ikR/4r7/Hd7jmmMpHbr9oaL+AZPRql7wWpWS6lJperrlCV?=
- =?us-ascii?Q?CIbzkPf29Yd5LVKTwtVFX0qYF1axPKzvIRLLQP0Bw/BQmhMoONxZd9SuwC3j?=
- =?us-ascii?Q?mkbD9J177+fd6ArC/RAE6hyIujYoicO9KiZKnMANvCHENgkNPnJwqikTXsHa?=
- =?us-ascii?Q?6WUHu2FK4GAG/Fyq7tXL3O/ms2bYo+j627wlxGGEBAyTHy9F8iFmRY4gnBm3?=
- =?us-ascii?Q?mV1dLZv6GMVyUNSOsTSGxKK25QP7oubuhsZF6b5prRdxcqj+Yey8EgAb3yBG?=
- =?us-ascii?Q?ZEI4lPu+JNXnNHMmzfGNmPZtC4NQDK2REHbIXvRd+kMMEEM+4/a1WSEgtcrM?=
- =?us-ascii?Q?f0G4zM/GWfqHZpPMIOE0yYc9we5RCpIM2Jq25U+KtVdz1E3eLbKFgqIfe/BX?=
- =?us-ascii?Q?BKgVr8OxX9Ko3/Ofz0XPhlMgDPjTj3Y=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?kRBCXe1zfDpwzag8m9k3KlHDh9kQX0L8el2SVhvcuufrw6SYpNVtub2ZxdI1?=
+ =?us-ascii?Q?Y+K7NxUfDi9+68DtCP96bFldxQjr/d7KSIC8mcQtemDm/ybdRiIVH0WBfT4y?=
+ =?us-ascii?Q?rAtZSD+9wh46yyuU8tqga6OlWLCBm7AjLxmZiEA+ieiPsK8ziMse8ThIqL36?=
+ =?us-ascii?Q?5ACJ5661bhQrME7jcrrm/mDIMXTa0CtOO84RZkHe715SqaDdzz9c4aAaOXwb?=
+ =?us-ascii?Q?tQNVnAdB8sMopPybbiVNf42tC8r3A+MsDd+hyXbmO+Phn1tRAZKTkKgTeLbi?=
+ =?us-ascii?Q?sR4ArrcpZUhjwZfRrFfTG4rSRIfdO9sIeyxjOZdXv48sXBuavMZp7z5uS5E1?=
+ =?us-ascii?Q?INPLfOHIIWLjjK+UQJ9g6xfs7bVQ/P+xU2SgK21F1VAP0auOVLJZp1w9Pa2d?=
+ =?us-ascii?Q?iqAafmKziWW+7j6yD9nq8C3Fd5FNYyyXKczztvi5iNFg3gRLRM6msnznEYCI?=
+ =?us-ascii?Q?rQpHuFJN7f3dUpvZ3JM5pojP/Nd2IkbaRCDorZoNhKTMNJcJJCxxcw7f2LFm?=
+ =?us-ascii?Q?yccFjb137mt05Pd4CLW5gV5chRFrB7vcCK/0Q+KGkm6ZDs/hncb7XfuO7+lv?=
+ =?us-ascii?Q?Wq338BgncAgE/28HpqvIqL0WvJ9ceTULu7CGSbznkS6grZH14pDhNcYqHW4k?=
+ =?us-ascii?Q?WMUOFLa5qmbuHAt0DTDKRukoPxzIldMZZ10Mhq3zKVaAJJZk2964w7iNrt3A?=
+ =?us-ascii?Q?SlUgVZ2EmsHk9JbhOtCFcPdFIWzp+9A5u3O+LW+Q/eAR6vzKxEgScvKZUgCk?=
+ =?us-ascii?Q?fifoENid+7FWvoNDhtrfcfXeOnrpgv7+AyMDPayUhlfhNyLoCJAZX6hvREdP?=
+ =?us-ascii?Q?njjgYkX77x48HvSu17HjVIB/ERGmyqXPdD4Wzd1btDCUlwSmtupOxSAmTlXe?=
+ =?us-ascii?Q?7oniM72Ga1T16qrEPeTAEt+lqEZ4h2YBHZkRO/UtM6cQNPHeeo0JI/iI0JkJ?=
+ =?us-ascii?Q?uuTxR7MbLeyCivxol3Nh0c0ywFjyC6BkZ1ApdVhOLFyliariaXe+V8V1UpjY?=
+ =?us-ascii?Q?bqAR72LyLClgF+Ab6DMKKPhUi+YkMWEnkLIQv05ll59ebR5hYUMtM4Xsc+fq?=
+ =?us-ascii?Q?ZBNCCkZpxUW+4VIDLO/rbshbpa8v4RBJlowdGWksXFCZwTyx6fIM2dE/Btia?=
+ =?us-ascii?Q?FOzCh7e3jlgj74B1q5R3zR4lwr96JIplDzRwfjLtjH8as14S+N5aZyq4964h?=
+ =?us-ascii?Q?t4IWhN0lTO0UtSC1edyJ2XAFJnGAcgSp//HoDu4pYOHkUAJPLLHS69mhEASi?=
+ =?us-ascii?Q?ahFO27A2wP3RZ0u2DfmufgSaE5OzmqxGvPAYYymv1huercG62nj1QUQdD653?=
+ =?us-ascii?Q?Y/WRHr/AKwRE8bV8u1fbnLqQRBBjBYx8SvdWgo2LcPau+sAdH8xhQEo9BEqz?=
+ =?us-ascii?Q?vI6MWwhtK2cGdHpn6bO45RBlw+CMmslJGhAAyz3FGK1OtxWpdtHuNVorhroq?=
+ =?us-ascii?Q?DJFMzQcxMRwNPKohQFyEzeTwCV4OlGeWCsLCbU61URK7RAKY8c9WndEtoYL7?=
+ =?us-ascii?Q?7GR7xpAoGkKsv+zXNhHI4w2TRZ9OWrkA5eWBtyMVjRs4YJ4LE0Uud6LVbpgt?=
+ =?us-ascii?Q?tQLfo469WoDsAyzzm1biuV6ZW5No6p+eSnKQHAiCs6k0ZfRUZYmY01GX/oae?=
+ =?us-ascii?Q?fOu2VAGGAiVc+71X8KOPoxq/MumXmBeVfCWYTIckcRdLZm1F8jqkWtXtT3mI?=
+ =?us-ascii?Q?ykm2dKsan3aQxDSVTPNOKdWZBIDgKcZmv9G5AjgtpOeJPIklRhIlYeUDH1vf?=
+ =?us-ascii?Q?bqTxDKnnRsqTiMZwocuzgTwnlOPZVoI=3D?=
 X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ae6172e5-7a90-445c-9f29-08dee29bb4bb
+X-MS-Exchange-CrossTenant-Network-Message-Id: f2e6bd10-9355-443a-96db-08dee29bb58f
 X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2026 18:05:51.5077
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2026 18:05:52.8239
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: InASsdjKg1A3e4RsMCaX8w1kZT7het6FeFfB/SHJceVsoNpREyLMiGnZD5MpLskX/fiCLY8N+iA4fwKnaBu4ghSVfWWG3BtNvYTjvbO861k=
+X-MS-Exchange-CrossTenant-UserPrincipalName: ti8PNjmsQafulMW1Ycr4B5cCUE51/odRdr7LQ2HQdOwkoeCjdE5I9WXRKuGfkYsVAD98YgOX4eBDXWIsQOv46LbRQFzDSENNPIy2uF5bMIM=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR01MB7767
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_110603_563999_2DB73D17 
-X-CRM114-Status: UNSURE (   8.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260715_110604_282941_C70BF20D 
+X-CRM114-Status: GOOD (  12.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,30 +150,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ARM64 supports local percpu map, so select HAVE_LOCAL_PER_CPU_MAP. But
-it depends on VA bits and page size for now.
+Use local percpu address for this_cpu_*() APIs.  Because the percpu
+variable is mapped to the same virtual address, their address can be
+calculated by using __per_cpu_local_off which has same value for all
+CPUs.  So preempt_disable/preempt_enable is not needed anymore.  This
+optimization can improve the performance for this_cpu_*() operations.
+
+Kernel build test on AmpereOne (160 cores) with default Fedora kernel
+config in a memcg roughly showed 13% - 15% sys time improvement.
 
 Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
 ---
- arch/arm64/Kconfig | 5 +++++
- 1 file changed, 5 insertions(+)
+ arch/arm64/include/asm/percpu.h | 37 ++++++++++++++++++++++++++++++++-
+ 1 file changed, 36 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index df55e6bdf81f..95ffd151187f 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -415,6 +415,11 @@ config KASAN_SHADOW_OFFSET
- config UNWIND_TABLES
- 	bool
+diff --git a/arch/arm64/include/asm/percpu.h b/arch/arm64/include/asm/percpu.h
+index b57b2bb00967..03d149f9177c 100644
+--- a/arch/arm64/include/asm/percpu.h
++++ b/arch/arm64/include/asm/percpu.h
+@@ -142,6 +142,27 @@ PERCPU_RET_OP(add, add, ldadd)
+ #undef PERCPU_OP
+ #undef PERCPU_RET_OP
  
-+config HAVE_LOCAL_PER_CPU_MAP
-+	def_bool y
-+	depends on (ARM64_VA_BITS_48 && (ARM64_4K_PAGES || ARM64_64K_PAGES)) || \
-+		   (ARM64_VA_BITS_47 && ARM64_16K_PAGES)
++#ifdef CONFIG_HAVE_LOCAL_PER_CPU_MAP
++extern unsigned long __per_cpu_local_off;
 +
- source "arch/arm64/Kconfig.platforms"
++#define local_cpu_ptr(ptr)						\
++({									\
++	__verify_pcpu_ptr(ptr);						\
++	SHIFT_PERCPU_PTR(ptr, __per_cpu_local_off);			\
++})
++
++#define _pcp_protect(op, pcp, ...)					\
++({									\
++	op(local_cpu_ptr(&(pcp)), __VA_ARGS__);				\
++})
++
++#define _pcp_protect_return(op, pcp, args...)				\
++({									\
++	typeof(pcp) __retval;						\
++	__retval = (typeof(pcp))op(local_cpu_ptr(&(pcp)), ##args);	\
++	__retval;							\
++})
++#else
+ /*
+  * It would be nice to avoid the conditional call into the scheduler when
+  * re-enabling preemption for preemptible kernels, but doing that in a way
+@@ -152,7 +173,6 @@ PERCPU_RET_OP(add, add, ldadd)
+  * preemption point when TIF_NEED_RESCHED gets set while preemption is
+  * disabled.
+  */
+-
+ #define _pcp_protect(op, pcp, ...)					\
+ ({									\
+ 	preempt_disable_notrace();					\
+@@ -168,6 +188,7 @@ PERCPU_RET_OP(add, add, ldadd)
+ 	preempt_enable_notrace();					\
+ 	__retval;							\
+ })
++#endif
  
- menu "Kernel Features"
+ #define this_cpu_read_1(pcp)		\
+ 	_pcp_protect_return(__percpu_read_8, pcp)
+@@ -243,6 +264,19 @@ PERCPU_RET_OP(add, add, ldadd)
+ 
+ #define this_cpu_cmpxchg64(pcp, o, n)	this_cpu_cmpxchg_8(pcp, o, n)
+ 
++#ifdef CONFIG_HAVE_LOCAL_PER_CPU_MAP
++#define this_cpu_cmpxchg128(pcp, o, n)					\
++({									\
++	typedef typeof(pcp) pcp_op_T__;					\
++	u128 old__, new__, ret__;					\
++	pcp_op_T__ *ptr__;						\
++	old__ = o;							\
++	new__ = n;							\
++	ptr__ = local_cpu_ptr(&(pcp));					\
++	ret__ = cmpxchg128_local((void *)ptr__, old__, new__);		\
++	ret__;								\
++})
++#else
+ #define this_cpu_cmpxchg128(pcp, o, n)					\
+ ({									\
+ 	typedef typeof(pcp) pcp_op_T__;					\
+@@ -256,6 +290,7 @@ PERCPU_RET_OP(add, add, ldadd)
+ 	preempt_enable_notrace();					\
+ 	ret__;								\
+ })
++#endif
+ 
+ #ifdef __KVM_NVHE_HYPERVISOR__
+ extern unsigned long __hyp_per_cpu_offset(unsigned int cpu);
 -- 
 2.47.0
 
