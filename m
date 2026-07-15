@@ -4,55 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0F82C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 04:55:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C80FC44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 04:57:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0f6Hx0+X7PBcLwbcoUhv+pHzoGoMBlL/GCpeovfrjJo=; b=tbxmKwmWO3XjpBTlMU+BnwfYmp
-	Pd9Awg3yRiZZvudWipSHIF9rmbeAyeS0XiSQliY1JprLjg9BKVJyq5ZmJlFvTOuuSnMoqkIYXQjC8
-	s8fUSg2VAXJd49C90S6+f/iztOK+CT2QQM16v+qBUEkwG8ScRxJhQov04L1bJY3bEA14WMFCGdaMq
-	S6CAg3+2FsCWhUobX2xZjZ7TK9vRQeFznDYuoYs1ZBNEUXmmTJ7CZ/G3PgQZsoCWhNHFH35P0S6oF
-	pnBil8RqUlmxs8Sh1cZqirnsuHH7E/SnsKyFU7ZAVCdYROESVL8+Hn3yAe561uzndxt8O9pI3jUPa
-	5D99AU0A==;
+	bh=ZMCSF+tDs7aEe5I8XrCTwnbeBbAXQ8kr+88Pi5y5xNY=; b=4UP/uevCEEdpB4S2wF+8nSIRzT
+	QU58T6CsdEtqa9QMpI34AqdN8+0JHZ9w+3uguqCsnYVd5C2dAYbkwSY6bnYe0zGCSpsXTowEnUtCv
+	Y+LYOVw19Y7nTVo6yyThXSjf+UbaFNHOlr8od48Um6EunhAWPr3AnkMnknYuJKJpGcddxmMvzNIfZ
+	5a/KYFQsV/WMQsRTUGkb+CjFgD/Sc+i9caCMeuTsnHy+Q7G0goO039z+Z4RSSP3MXKEi59GAItBTj
+	F632VPLszESpObauoleTxD1+YwQeQbDd2Nz/psqpUjWkHOPRNWtOpyq0U4Ogfbu8/5OGhDxEk1UOp
+	ee8Ty45w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjreu-0000000DlL8-1TJ5;
-	Wed, 15 Jul 2026 04:55:48 +0000
+	id 1wjrgI-0000000DlUI-2cj1;
+	Wed, 15 Jul 2026 04:57:14 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjret-0000000DlL1-0CGG
+	id 1wjrgG-0000000DlUB-3czP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 04:55:47 +0000
+	Wed, 15 Jul 2026 04:57:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8B0A3419F6;
-	Wed, 15 Jul 2026 04:55:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0EF381F000E9;
-	Wed, 15 Jul 2026 04:55:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8FCEB43D3F;
+	Wed, 15 Jul 2026 04:57:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17BD31F000E9;
+	Wed, 15 Jul 2026 04:57:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784091346;
-	bh=0f6Hx0+X7PBcLwbcoUhv+pHzoGoMBlL/GCpeovfrjJo=;
+	s=k20260515; t=1784091432;
+	bh=ZMCSF+tDs7aEe5I8XrCTwnbeBbAXQ8kr+88Pi5y5xNY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=X5kU5xubfIqHSAo8lJME07VTsIJshHcWsMSV++GShIIT0aOd5L9hvmbO9TZi9/ojr
-	 JrJ2BTZIHQpvQpZGg6drp1cfNbLUTroXVOstoTfIJTY4Yw329Lc11zcI7GsMotZELM
-	 cKVosj727AN3zs8s/oUboncZ1j7XC6DhErPyg8ASj5I1vXWvMyRTXQ6EI2loucgK2S
-	 rRkE4RSsDk27gc1KfihKiAhAMx7Zm8SCtuTH3eEYgJE7UUbXaRA8VFHfs46QlilMtV
-	 DPUrGV4+M7KTmcpre04A5YEnFMW9x4gESLhCmAl5xBKT7uKY838wPn3Hi4MIzlKc32
-	 9BQx7mTk/t+gw==
-Message-ID: <a7208f27-97a7-4fc9-b7ef-58b62405bb3b@kernel.org>
-Date: Wed, 15 Jul 2026 06:55:41 +0200
+	b=GHg8sDFlC8BFehVDC1woqNv93zmO1dbP5EEn3ZY6mU8do1hqAvYQABZE6gxtNxoAG
+	 0VGv4MToGi0ZamFCVq+uB5c5kU9u7dl11nKeXp0ywEiGr2hMPDzBTZ9IbnqdBMMxgq
+	 hU/lS3DLjxlR5M+yVzVjc5rIfRUVBowCDe+1Rmo8JHuyHDIS2bDrd81t84DBP9B+4g
+	 knZ6bBIPUGDdNtDyHO4xc+81veTsVZYMV5Um/IiOVyfmPgV6bMgoBrO6+0hscK1iwb
+	 CgpEJy4yrKi9K1bjpBeqK9j3VCjizKjI9qubruUyKbj0SBjpYkxja+KmVyfjtKQ9oa
+	 16vc07QuoSCQg==
+Message-ID: <f45a8496-b003-4cc0-bb4d-a94c9ac6b911@kernel.org>
+Date: Wed, 15 Jul 2026 06:57:06 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 01/22] dt-bindings: memory: cdns,k3-ddr: Add Cadence
- K3 DDR controller binding
+Subject: Re: [RFC PATCH 03/22] dt-bindings: memory: ti,j721s2-msmc: Add TI K3
+ MSMC binding
 To: MANNURU VENKATESWARLU <v-mannuru@ti.com>, robh@kernel.org,
  conor+dt@kernel.org
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, n-francis@ti.com, s-k6@ti.com, bb@ti.com
 References: <20260714125537.3304217-1-v-mannuru@ti.com>
+ <20260714125537.3304217-3-v-mannuru@ti.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -98,7 +99,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260714125537.3304217-1-v-mannuru@ti.com>
+In-Reply-To: <20260714125537.3304217-3-v-mannuru@ti.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -116,116 +117,37 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 14/07/2026 14:55, MANNURU VENKATESWARLU wrote:
-> Add device tree binding for the Cadence DDR controller used in TI K3 SoCs.
-> 
-> Signed-off-by: Neha Malcom Francis <n-francis@ti.com>
-> Signed-off-by: Gandhar Deshpande <g-deshpande@ti.com>
-> Signed-off-by: MANNURU VENKATESWARLU <v-mannuru@ti.com>
-> ---
->  .../memory-controllers/ti/cdns,k3-ddr.yaml    | 81 +++++++++++++++++++
->  1 file changed, 81 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/memory-controllers/ti/cdns,k3-ddr.yaml
-> 
-
-Where is the rest of 22 patches? I got only these three patches.
-
-
-A nit, subject: drop second/last, redundant "bindings". The
-"dt-bindings" prefix is already stating that these are bindings.
-See also:
-https://elixir.bootlin.com/linux/v7.1-rc7/source/Documentation/devicetree/bindings/submitting-patches.rst#L23
-
-> diff --git a/Documentation/devicetree/bindings/memory-controllers/ti/cdns,k3-ddr.yaml b/Documentation/devicetree/bindings/memory-controllers/ti/cdns,k3-ddr.yaml
-> new file mode 100644
-> index 0000000000000..89caeb111627a
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/memory-controllers/ti/cdns,k3-ddr.yaml
-> @@ -0,0 +1,81 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/memory-controllers/ti/cdns,k3-ddr.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Cadence DDR controller for K3 devices
-> +
-> +maintainers:
-> +  - Santhosh Kumar K <s-k6@ti.com>
-> +  - Neha Malcom Francis <n-francis@ti.com>
-> +
-> +properties:
-> +  compatible:
-> +    const: cdns,k3-ddr
-
-cdns does not make a K3 SoC.
-
-This is confusing. Are you sure you understand which company products
-you are working on?
-
-
-> +
-> +  reg:
-> +    minItems: 3
-
-Drop.
-
-> +    maxItems: 3
-> +    description: |
-> +      Address ranges for the different register regions of the DDRSS controller.
-> +      - ctl_cfg: Controller configuration registers
-> +      - ctl_cfg_pi: PHY Interface configuration registers
-> +      - ctl_cfg_phy: PHY configuration registers
-
-Describe items.
-
-> +
-> +  reg-names:
-> +    items:
-> +      - const: ctl_cfg
-> +      - const: ctl_cfg_pi
-> +      - const: ctl_cfg_phy
-> +
-> +  bootph-pre-ram: true
-
-Nope
-
-> +
 > +required:
 > +  - compatible
-> +  - reg
-> +  - reg-names
+> +  - '#address-cells'
+> +  - '#size-cells'
+> +  - ranges
 > +
-> +unevaluatedProperties: false
-
-More NO.
-
-Really, can't you make some internal review back there in TI to avoid
-sending something which does not resemble upstream code at all?
-
+> +additionalProperties: false
 > +
 > +examples:
 > +  - |
 > +    #include <dt-bindings/interrupt-controller/arm-gic.h>
 > +    #include <dt-bindings/soc/ti,sci_pm_domain.h>
 > +
-> +    cbass_main {
+> +    msmc0: msmc {
+> +        compatible = "ti,j721s2-msmc", "simple-bus";
 
 NAK
 
-> +      #address-cells = <2>;
-> +      #size-cells = <2>;
-> +
-> +      memorycontroller: memorycontroller@2980000 {
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +        ranges;
+> +        intrlv-gran = <0>;
+> +        intrlv-size = <0>;
+> +        ecc-enable  = <0>;
+> +        emif-config = <0>;
+> +        emif-active = <0>;
 
+I do not accept downstream code sent to review.
 
-git grep memorycontroller
-
-And it did not made you thinking that name is wrong? I am done with it.
-
-
-> +        compatible = "ti,j721e-ddrss";
-
-Irrelevant. Which binding are you describing here?
+Start doing proper internal reviews. This binding and DTS is absolutely
+unacceptable, you just repeat all known mistakes ignoring any guidelines.
 
 Best regards,
 Krzysztof
