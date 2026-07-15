@@ -4,70 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 507BEC44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 20:45:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA9DFC44507
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 20:49:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nP0r16HI0g8TlAa23nMBM941RGjBe5Aem38C/sHAXXw=; b=IL23VeI/iZv1766VXfQgYrhYpl
-	9Ue3qckSL56yETDl575xMIkiYpC6IgWzwrEWwthvl29PRr4ykztGasaHAo0oIMdkqllD36xLM4GoW
-	7FZ0J/32UnWGLXhlprcQNLt0bKm6rVqbklvoPIusEcyD02snKITMP4rV2JiSU5OtA64t/TA/eD2xx
-	RZTBs2oBPk91eKFordKyETMlJ2BJTp/I5UxtZeNEXsrlp5IPmYEJ8VtA9Na1+D9ujDZYV+sw5rl79
-	pm10ksXMqtBLGrUgO59C8ZcTfGbqp4rZnPfvjPER95ht5sY1xGobGtqjdMpRFdheU+w6LZhGCw3IX
-	sB3k9NDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uDgXUuVQoBIL9ZYJrBHwWmD4XomyrVP/6QluVeWBDsM=; b=vIo6/+Rues8LmkTshMTLRHSaZl
+	+Fy0ZzlwnJqw//73Lh8CgTDmBLa1zx5cO8qcItbjpsQkVNvhgzYd/vr9+CTL4n3RZiG+oNIg/x1fu
+	Y4rtpXXTJglzcmn0kVoor4X3sGDbMyio2S8HOdn74QHxLRslKoibl227VtmLGlveHEdZ/X4PQIDwv
+	L5vSq5qepUMcLt+RlkTUN2gNXE2MIpqFURn7Uif/wcsYu4k4XtX8La7TWatqCVOsV6WhLJj9PRKYR
+	kOgxTzpXD1EYDfUaBQl+nQCab3hy7aVU/Q8k78qwiWsBq7OZ+8qVrcJBS2c3jzG125vphc7x53iDV
+	OwvSG76A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk6TV-0000000FtnM-0dHr;
-	Wed, 15 Jul 2026 20:45:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wk6Xq-0000000Fu7Y-2Oj1;
+	Wed, 15 Jul 2026 20:49:30 +0000
+Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk6TU-0000000Ftmt-0AAc
+	id 1wk6Xn-0000000Fu6z-0Fx8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 20:45:00 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5AAC441B46;
-	Wed, 15 Jul 2026 20:44:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC4CB1F000E9;
-	Wed, 15 Jul 2026 20:44:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784148299;
-	bh=nP0r16HI0g8TlAa23nMBM941RGjBe5Aem38C/sHAXXw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=c6mvsBnMITSp/9lTkwua8C95fb+syxVGbWN7QlyXTQMGlCdEy89PJtuuklmq4Pv6i
-	 T00BrxbzCwTgnrj7scdsxeQ276G9db+Q8IDbrkqQQvlxN0AGogBj8IywDjIX7jtLu7
-	 Ebe/IpB7HxR1CD+CMhhNhagDpgK2iT2h+Cm4Gx+o0Ean3Krd7vlsCcKXVgfZlW68Wc
-	 qkFinVYjJgePyNgMp/B4Wo1PI4hx2vvJCpMECBxFW79D01YblOG0Mh/3fPzkEmWLUz
-	 h28Chkn/MREjusF9fceulMNbSgQCxV6uXrxdWw/fsPviNNiEdkho3VLlaGjectISux
-	 5yv+upBmcFBpw==
-Date: Wed, 15 Jul 2026 15:44:55 -0500
-From: Bjorn Andersson <andersson@kernel.org>
-To: Pragnesh Papaniya <pragnesh.papaniya@oss.qualcomm.com>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>, 
-	Cristian Marussi <cristian.marussi@arm.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Sibi Sankar <sibi.sankar@oss.qualcomm.com>, MyungJoo Ham <myungjoo.ham@samsung.com>, 
-	Kyungmin Park <kyungmin.park@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, 
-	Dmitry Osipenko <digetx@gmail.com>, Thierry Reding <thierry.reding@kernel.org>, 
-	Jonathan Hunter <jonathanh@nvidia.com>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Rajendra Nayak <rajendra.nayak@oss.qualcomm.com>, Pankaj Patil <pankaj.patil@oss.qualcomm.com>, 
-	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-pm@vger.kernel.org, 
-	linux-tegra@vger.kernel.org, Amir Vajid <amir.vajid@oss.qualcomm.com>, 
-	Ramakrishna Gottimukkula <ramakrishna.gottimukkula@oss.qualcomm.com>
-Subject: Re: [PATCH RFC v7 7/9] PM / devfreq: Introduce the QCOM SCMI Memlat
- devfreq driver
-Message-ID: <alfs7gOhE2D8wbVX@baldur>
-References: <20260610-rfc_v7_scmi_memlat-v7-0-f3f68c608f25@oss.qualcomm.com>
- <20260610-rfc_v7_scmi_memlat-v7-7-f3f68c608f25@oss.qualcomm.com>
- <akWBtfG1j7-53fec@baldur>
- <ee407cbf-3476-4209-ad40-b381535b94ac@oss.qualcomm.com>
+	Wed, 15 Jul 2026 20:49:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xFS8T+6A7iFP2dQX8PiWmC7iGexkjsAgxdBveauGMaRW5aTmH/WDpTeUUPME5feifr+ZKKCPO/42vBVdtOlk395wqEvhhBfb2UR0mpnc+vFylOMhnB+998rBPG3rX9aePtGa9BslXvnM7+/XRuapvlLOwj8O9apuFz+WYWo7wRKIy2Uw96HASFnKZWsnoP4ndJS8tfhn16e9fCCNsB9wsYs0jPyEhRYQkYoKREn+0JttxC+XbwP82fnM/8CgklsT0KNuEsEizk1daWXceNzr1tiLZjbXCyOFSbcyejRY5iuI6jO6uQmiijUtIm+BIEeKMpYAOfus+BQZ5Qh1TOYsIg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uDgXUuVQoBIL9ZYJrBHwWmD4XomyrVP/6QluVeWBDsM=;
+ b=Qw/mxwRPUpUbRDHTGhQqoqVc6nDIU8ASRj+3G0QzADUnkLbA3YniK7vKVesO7gFIUMVx4bULxWOq3ORuDuLOJbWIZzehfdhZTtaD/3sjjzRFB/n9g2DP8blkwT1w0M3vou9s84Z1DCIxTTnWNMGZhkAh/oxf/DTxH7/iqxYF048hnpRfCUgzUUFybbS+u+vYCpZBrATih2Y05nBVuxqc757vG6M9A9CkgNGL5O6wjir97sU6gzZxAUM8I5kh1yZw7vL8iIRGxGLU+CYY20zmdAjhYnPEf//Ft8xlt2hWBro6wYkixYAiI3GrUwsSL2ZCjhq5pYhA+KFyOMoZBWm8ng==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uDgXUuVQoBIL9ZYJrBHwWmD4XomyrVP/6QluVeWBDsM=;
+ b=hwQMrmpXzeeTyEK4SD01IqQdGIWBD22Ef+le7hVgGi0ek6FCM0kqbKbsM+1kKUZ6X7ZdM5OKyEWdql6yKgqufRLQvksbjEl5LZPhDRFeEKqCI8vAWzWdfZGzt1MPCS36P9Ys+hx0lmKRaN7rvUgHPfdA0h9RO67/E+KuqR4R1ibabl3M5wbht6AV86gXR4keX6ZxSfbtgaj4H99bjDmCP11NSQZo/v8AvDETuzuAnXb3fv5JoiCMuVhA4Mkn3vkpUEBqe5O2hIuJAfHcefpEX1J7qi2l7qn93z0su5qF2La1acd0rfI9fxU8ygahTk8o6aYmUQK6JZHHd/09cmWOVw==
+Received: from DS7P220CA0008.NAMP220.PROD.OUTLOOK.COM (2603:10b6:8:1ca::15) by
+ DM6PR12MB4057.namprd12.prod.outlook.com (2603:10b6:5:213::9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.202.18; Wed, 15 Jul 2026 20:49:14 +0000
+Received: from DS1PEPF0001709A.namprd05.prod.outlook.com
+ (2603:10b6:8:1ca:cafe::64) by DS7P220CA0008.outlook.office365.com
+ (2603:10b6:8:1ca::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.223.12 via Frontend Transport; Wed,
+ 15 Jul 2026 20:49:14 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ DS1PEPF0001709A.mail.protection.outlook.com (10.167.18.104) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.223.9 via Frontend Transport; Wed, 15 Jul 2026 20:49:14 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 15 Jul
+ 2026 13:48:59 -0700
+Received: from drhqmail203.nvidia.com (10.126.190.182) by
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Wed, 15 Jul 2026 13:48:59 -0700
+Received: from sdonthineni01.nvidia.com (10.127.8.9) by mail.nvidia.com
+ (10.126.190.182) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
+ Transport; Wed, 15 Jul 2026 13:48:58 -0700
+From: Shanker Donthineni <sdonthineni@nvidia.com>
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+	Vladimir Murzin <vladimir.murzin@arm.com>
+CC: Jason Gunthorpe <jgg@nvidia.com>, <linux-arm-kernel@lists.infradead.org>,
+	Mark Rutland <mark.rutland@arm.com>, <linux-kernel@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>, Shanker Donthineni <sdonthineni@nvidia.com>,
+	Vikram Sethi <vsethi@nvidia.com>, Jason Sequeira <jsequeira@nvidia.com>
+Subject: [PATCH v5] arm64: errata: work around NVIDIA Olympus device store/load ordering
+Date: Wed, 15 Jul 2026 15:48:56 -0500
+Message-ID: <20260715204856.3707449-1-sdonthineni@nvidia.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ee407cbf-3476-4209-ad40-b381535b94ac@oss.qualcomm.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS1PEPF0001709A:EE_|DM6PR12MB4057:EE_
+X-MS-Office365-Filtering-Correlation-Id: fc98cbf2-f10b-4318-9cdd-08dee2b287d2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|82310400026|376014|1800799024|6133799003|3023799007|18002099003|56012099006|11063799006|10067099003|13003099007;
+X-Microsoft-Antispam-Message-Info: iKOHokhhjd0EHW1B+1WSr8qes0Ac/Be/ijbI5WMy2tES6v+mlKiipR+e+FJ3uKjWouv5j5bn0c3nwwq4Gf5rU/a0k1Lmisf9vMg03A1EuQpHAGhXBwBKbFt7R/PsgVRAOjaHSmaJ9beF5Ys+OTqgezIKuiQ5H17nFto/GxIETmUZcIFAcrmDYT5xwFOzhYqVXLOE/pHHKiBbIs3s3k+fqeEIKyLtCWJK58jr9RvTa3PDKS9t6SFg9RFfkBNKjKGKgzVkerumUbBnj8h/i0rZjK/4L+Zm5i10mqo135VC0Ec6QlCzGYb1rVzaRD5u0fEoh0J/5+59JVNht8VrQBCjkg9zT2MtO2R9hk6MVvyNZYxuApkVcXNNrvFSEt6ef0oBWmhHrrzqDO32JEsp+QaR+TpMLos70+DhIIOk2o22YDeSnCIURNJ6KfHLayKYcNRFxzpEq63Yg4/IzoMlSdpgET+/AmkwlrUoZxH+f7mFnqU5SMlMAKi0FtcOQud32lB85owol9eqLsqF5o8F9xBRXlZYfhB4t7LVmEbGSX4inOpYiSSMknBIaBevTjfYMg35/jAsVKW+gqXjRfYxL7OXb2NZs7G7z4hje3FPTiwcKYWbL5BWHbooH2ZvOkN1tVZQoD1NKszlv3FbS2Hnxe1tncxtIG0O67L84/Y8GymLIp6n2eyaXTXT2EudWv2sf9FoCbrUcsyjQBuFi/u1xoet0g==
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(82310400026)(376014)(1800799024)(6133799003)(3023799007)(18002099003)(56012099006)(11063799006)(10067099003)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: rHZTHR1fUiZltkbwWJ7CgNncCIPGd+jpM2lVAdfsENB6r2mfnZmcWv03gyP3LCJ9nmiYlhimz3cd1Jqv9MS+lUlmBj2hk/Txq9E+uxdl4il5N79BjQwkBjh+k+WguDneqakwWeQIw80Z5bXMw4IeG7Ft4tMBRObSUJcoKmGUPpYJtPQED9SYPrLF0STBlPQmTUxNUJwL7wh37QkNX2978rCvldfgcCmQ65TArb4Zn6YqvISs2t/2/bBIhu0cQKVHBPtyqHWXswucqI38OgnsDJOzUkhzxihJWS/IAPiydTxCAcyjHBquRQyod2Idca70WJYDSQ7R+8CQmAdDax/7+5VNxUWhNWZEG8ovnu6/lb3UPQ0TUFuiwlQR4pY/WEfp10KvNcFMQ4pt6kmG8yJbg4coh5W7FWJg7P8WBIJpIyxFpKI524NAQKY25lG/JDu9
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2026 20:49:14.2696
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: fc98cbf2-f10b-4318-9cdd-08dee2b287d2
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF0001709A.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4057
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260715_134927_754043_886CA5E2 
+X-CRM114-Status: GOOD (  22.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,217 +126,204 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2026 at 01:14:23AM +0530, Pragnesh Papaniya wrote:
-> 
-> 
-> On 02-Jul-26 10:51 PM, Bjorn Andersson wrote:
-> > On Wed, Jun 10, 2026 at 02:21:34PM +0530, Pragnesh Papaniya wrote:
-> >> From: Sibi Sankar <sibi.sankar@oss.qualcomm.com>
-> >>
-> >> On Qualcomm Glymur, Mahua and X1E/X1P (Hamoa) SoCs, the memlat governor and
-> >> the mechanism to control the various caches and RAM is hosted on the CPU
-> >> Control Processor (CPUCP), and configuration and control of this governor
-> >> is exposed through the QCOM SCMI Generic Extension Protocol, addressed via
-> >> the "MEMLAT" algorithm string.
-> >>
-> > 
-> > This explains that there's a bunch of functionality running on CPUCP and
-> > there's a "MEMLAT" string.
-> > 
-> 
-> CPUCP does all the real work: it samples CPU perf counters, computes IPM/stall,
-> and votes the DDR/LLCC/DDR_QOS buses on its own timer. The Linux driver only
-> pushes static configuration (freq maps, ceilings) once at probe and
-> starts/stops the CPUCP timer. I'll rewrite the message to say this plainly.
-> 
+On systems with NVIDIA Olympus cores, a Device-nGnR* load can be
+observed by a peripheral before an older, non-overlapping Device-nGnR*
+store to the same peripheral. This breaks the program-order guarantee
+that software expects for Device-nGnR* accesses and can leave a
+peripheral in an incorrect state.
 
-Thank you, that was not clear from reading this patch.
+The erratum can occur only when all of the following apply:
 
-> >> Introduce a devfreq SCMI client driver that uses the MEMLAT algorithm
-> >> string to detect memory-latency-bound workloads and control the
-> >> frequency/level of the memory buses (DDR, LLCC and DDR_QOS).
-> > 
-> > You established that there's stuff running in the firmware, now we're
-> > introducing a client driver to control memory buses.
-> > 
-> > But where did you explain how these two "facts" are related? Why is
-> > there a client driver, what is the actual distribution of roles in this
-> > dance?
-> > 
-> 
-> At runtime the driver is not in the control loop, CPUCP is. devfreq is used so
-> each bus shows up as a real device with trans_stat and the remote governor's
-> parameters like sample_ms and ipm_ceil are user-configurable. I'll make that
-> reasoning explicit in the commit text.
-> 
+  - A PE executes a Device-nGnR* store followed by a younger
+    Device-nGnR* load.
+  - The store is not a store-release.
+  - The accesses target the same peripheral and do not overlap in bytes.
+  - There is at most one intervening Device-nGnR* store in program
+    order, and there are no intervening Device-nGnR* loads.
+  - There is no DSB or full DMB between the store and the load.
+  - Specific microarchitectural and timing conditions occur.
 
-Are you saying that there's no actual devfreq'ing going on, we just
-expose it through that framework in order to get the standardized
-metrics out of sysfs?
+Insert a DMB OSH immediately before each raw MMIO load on affected CPUs.
+As a full barrier, DMB OSH orders the older Device store before the
+younger Device load and prevents the erroneous observation.
 
-Or that and to perform the initial configuration and start the memlat
-logic? Does the firmware do memlat adjustments without this driver?
+Add the barrier directly to the __raw_read*() helpers, independently of
+the existing device-load-acquire alternative. On affected CPUs this adds
+one DMB OSH per raw MMIO load, including each load used by
+memcpy_fromio(). On unaffected CPUs the alternative remains a NOP.
 
-Please make sure that it's clear what role this driver has.
+Co-developed-by: Vikram Sethi <vsethi@nvidia.com>
+Signed-off-by: Vikram Sethi <vsethi@nvidia.com>
+Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
+Link: https://lore.kernel.org/all/akPQ8F3OgER621UP@willie-the-truck/
+---
+Changes since v4:
+  - Reworked the workaround following Will Deacon's review: leave the raw
+    MMIO write helpers unchanged and insert a DMB OSH before raw MMIO loads.
+  - Use DMB OSH after hardware confirmation that it fixes T410-OLY-1027.
+  - Dropped the separate memcpy_fromio() optimization patch because the
+    benchmark showed no noticeable benefit over the per-load workaround.
+  - Updated the cpucap, Kconfig help text, and commit messages for the
+    load-side workaround.
 
-[..]
-> >> diff --git a/drivers/devfreq/Kconfig b/drivers/devfreq/Kconfig
-> >> index 2caa87554914..98b5a50d3189 100644
-> >> --- a/drivers/devfreq/Kconfig
-> >> +++ b/drivers/devfreq/Kconfig
-> >> @@ -169,6 +169,19 @@ config ARM_SUN8I_A33_MBUS_DEVFREQ
-> >>  	  This adds the DEVFREQ driver for the MBUS controller in some
-> >>  	  Allwinner sun8i (A33 through H3) and sun50i (A64 and H5) SoCs.
-> >>  
-> >> +config SCMI_QCOM_MEMLAT_DEVFREQ
-> >> +	tristate "Qualcomm Technologies Inc. SCMI client driver"
-> >> +	depends on QCOM_SCMI_GENERIC_EXT || COMPILE_TEST
-> >> +	select DEVFREQ_GOV_REMOTE
-> >> +	help
-> >> +	  This driver uses the MEMLAT (memory latency) algorithm string
-> > 
-> > Is "driver uses X algorithm string" idiomatic SCMI terms?
-> > 
-> 
-> No, "algorithm string" is an internal term. I'll drop the jargon and describe
-> it in plain SCMI vendor-protocol terms.
-> 
+Changes since v3:
+  - Split the workaround into two patches: the erratum fix (1/2) and the
+    arm64 memset_io()/memcpy_toio() block writers (2/2).
+  - Reworked the raw MMIO write helpers to use a direct base-register
+    str*/stlr* alternative sequence instead of a per-write static branch.
+  - Covered the write-combining __iowrite{32,64}_copy() path by patching
+    dgh() to dmb osh on affected CPUs, keeping the contiguous STR groups
+    and the ordering barrier outside the copy loop; the single-element
+    case now uses a plain str* as well.
+  - Added arm64 memset_io()/memcpy_toio() so the byte/word block writers
+    take one trailing dmb osh instead of a per-store store-release.
+  - Updated the commit messages to describe the offset-addressing
+    trade-off.
 
-In line with our discussion above, please make sure that the help text
-is helpful for someone to understand the purpose of the driver and help
-them make that y/m/n decision.
+Changes since v2:
+  - Reworked the raw MMIO write helpers so unaffected CPUs keep the
+    existing offset-addressed STR sequence, while affected CPUs use the
+    base-register STLR path.
+  - Updated the commit message to match the code changes.
+  - Rebased on top of the arm64 for-next/errata branch:
+    https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git/log/?h=for-next/errata
 
-> >> +	  hosted on QCOM SCMI Vendor Protocol to detect memory latency
-> >> +	  workloads and control frequency/level of the various memory
-> >> +	  buses (DDR/LLCC/DDR_QOS).
-> >> +
-> >> +	  This driver defines/documents the parameter IDs used while configuring
-> >> +	  the memory buses.
-> > 
-> > Imagine an person outside your team, sitting there in menuconfig
-> > wondering if they should enable this driver or not.
-> > 
-> > There's a sentence in the middle ("control frequency/level of various
-> > memory buses" - that sounds like something I want. But "detect memory
-> > latency", is it just monitoring or does that part relate to the
-> > controlling part? "This driver defines" so what are those parameters
-> > used for, do I need some other driver for the control part? Is this last
-> > paragraph adding value to my understanding for that
-> > CONFIG_SCMI_QCOM_MEMLAT_DEVFREQ does?
-> > 
-> 
-> I'll rewrite it to say what you get (memory-bus scaling on these Qualcomm
-> SoCs), that CPUCP does the actual scaling, and that nothing else is required
-> to enable it. The parameter-ID paragraph will go.
-> 
+Changes since v1:
+  - Updated the commit message based on feedback from Vladimir Murzin.
 
-Sounds good. I'm a bit puzzled about it being a devfreq driver, but if
-you can explain the bigger picture, I think that will help to reason
-about it.
+---
+ Documentation/arch/arm64/silicon-errata.rst |  2 ++
+ arch/arm64/Kconfig                          | 22 +++++++++++++++++++++
+ arch/arm64/include/asm/io.h                 | 16 ++++++++++++----
+ arch/arm64/kernel/cpu_errata.c              |  8 ++++++++
+ arch/arm64/tools/cpucaps                    |  1 +
+ 5 files changed, 45 insertions(+), 4 deletions(-)
 
-[..]
-> >> diff --git a/drivers/devfreq/scmi-qcom-memlat-cfg.h b/drivers/devfreq/scmi-qcom-memlat-cfg.h
-> >> new file mode 100644
-> >> index 000000000000..1ab8b61ea271
-> >> --- /dev/null
-> >> +++ b/drivers/devfreq/scmi-qcom-memlat-cfg.h
-> > 
-> > Are the entities declared in this header file used by anything other
-> > than scmi-qcom-memlat-devfreq.c? If not why is it a separate header file?
-> > 
-> 
-> No, only scmi-qcom-memlat-devfreq.c uses it. I split it out just to keep the
-> large config tables out of the driver logic. Happy either way: do you prefer
-> I fold it back into the .c, or keep it as a header?
-> 
-
-Please move it into the c-file, move things around so that you have
-clear segments of "definitions", "configuration", "logic", and "driver
-boilerplate".
-
-[..]
-> >> +struct scmi_qcom_monitor_cfg {
-> >> +	const struct scmi_qcom_map_table *table;
-> >> +	const char *name;
-> >> +	u32 be_stall_floor;
-> > 
-> > What is a "be stall floor"? Also, it seems to be 1 in all your cases. Is
-> > it boolean? Is it constant?
-> > 
-> 
-> It's a back-end-stall percentage threshold. It happens to be 1 in all current
-> configs (meaning almost any stall qualifies). I'll document it as a percent.
-> 
-
-back_end_stall_percentage is a bit log (and I'm not entirely sure that
-it is). Perhaps you can provide some kernel-doc and express what it is?
-
-[..]
-
-> >> +static const struct scmi_qcom_memory_cfg glymur_memory_cfg[] = {
-> >> +	{
-> >> +		.memory_type = MEMLAT_HW_DDR,
-> >> +		.name = "ddr",
-> >> +		.mem_table = glymur_ddr_table,
-> >> +		.num_opps = ARRAY_SIZE(glymur_ddr_table),
-> >> +		.grp_ev = glymur_ddr_grp_ev,
-> >> +		.monitor_cnt = 4,
-> >> +		.memory_range = { .min_freq = 547000, .max_freq = 4761000},
-> >> +		.monitor_cfg = (const struct scmi_qcom_monitor_cfg[]) {
-> >> +			{
-> >> +				.name = "mon_0",
-> >> +				.cpu_mask = 0x3f,
-> >> +				.ipm_ceil = 60000000,
-> >> +				.be_stall_floor = 1,
-> >> +				.table_len = 8,
-> >> +				.table = (const struct scmi_qcom_map_table[]) {
-> >> +					{ .cpu_freq = 960, .mem_freq = 547000 },
-> >> +					{ .cpu_freq = 1133, .mem_freq = 1353000 },
-> >> +					{ .cpu_freq = 1594, .mem_freq = 1555000 },
-> >> +					{ .cpu_freq = 1920, .mem_freq = 1708000 },
-> >> +					{ .cpu_freq = 2228, .mem_freq = 2736000 },
-> >> +					{ .cpu_freq = 2362, .mem_freq = 3187000 },
-> >> +					{ .cpu_freq = 2650, .mem_freq = 3686000 },
-> >> +					{ .cpu_freq = 2938, .mem_freq = 4761000 },
-> > 
-> > Why are these tables hard coded in the driver? Are they constant?
-> > 
-> 
-> These tables can be either in DT (like in earlier re-spins of the series) or in
-> the driver. For the former to work well with the existing OPP framework, we
-> would need a clock provider created for DDR/LLCC/DDR-QOS just to derive the
-> cpufreq to memfreq map tables. Having it in the driver simplifies the overall
-> implementation. 
-> 
-
-But are there not different SKUs of these SoCs which need different
-tables? Information that we today would encode in e.g. OPP-tables in
-DeviceTree.
-
-> >> +				}
-> >> +			},
-[..]
-> >> diff --git a/drivers/devfreq/scmi-qcom-memlat-devfreq.c b/drivers/devfreq/scmi-qcom-memlat-devfreq.c
-[..]
-> >> +	for (i = 0; i < info->memory_cnt; i++) {
-> >> +		struct scmi_qcom_memory_info *memory = info->memory[i];
-> >> +		struct platform_device *pdev = memory->pdev;
-> >> +		struct devfreq_dev_profile *profile = &memory->profile;
-> >> +
-> >> +		/* sampling time should be double the devfreq observing time */
-> > 
-> > That's interesting, tell me more...
-> > 
-> 
-> This follows Lukasz's earlier point on Nyquist criterion: sample about 2x
-> faster than the changes you want to observe. CPUCP updates every
-> cpucp_sample_ms, so the devfreq poll runs at half that (sample_ms / 2) to
-> actually catch the transitions in trans_stat.
-> 
-
-While that's true for sampling in general, please make the comment
-explain why it's true in this case.
-
-Regards,
-Bjorn
+diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+index ad04d1cdc0f0..c4137f89acef 100644
+--- a/Documentation/arch/arm64/silicon-errata.rst
++++ b/Documentation/arch/arm64/silicon-errata.rst
+@@ -298,6 +298,8 @@ stable kernels.
+ +----------------+-----------------+-----------------+-----------------------------+
+ | NVIDIA         | Carmel Core     | N/A             | NVIDIA_CARMEL_CNP_ERRATUM   |
+ +----------------+-----------------+-----------------+-----------------------------+
++| NVIDIA         | Olympus core    | T410-OLY-1027   | NVIDIA_OLYMPUS_1027_ERRATUM |
+++----------------+-----------------+-----------------+-----------------------------+
+ | NVIDIA         | Olympus core    | T410-OLY-1029   | ARM64_ERRATUM_4118414       |
+ +----------------+-----------------+-----------------+-----------------------------+
+ | NVIDIA         | T241 GICv3/4.x  | T241-FABRIC-4   | N/A                         |
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 10c69474f276..73e3e68db161 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -1363,6 +1363,28 @@ config NVIDIA_CARMEL_CNP_ERRATUM
+ 
+ 	  If unsure, say Y.
+ 
++config NVIDIA_OLYMPUS_1027_ERRATUM
++	bool "NVIDIA Olympus: device store/load ordering erratum"
++	default y
++	help
++	  This option adds an alternative code sequence to work around an
++	  NVIDIA Olympus core erratum where a Device-nGnR* store can be
++	  observed by a peripheral after a younger Device-nGnR* load to the
++	  same peripheral. This breaks the program order that drivers rely
++	  on for MMIO and can leave a device in an incorrect state.
++
++	  The workaround inserts a DMB OSH immediately before raw MMIO loads.
++	  The erratum cannot occur when a DMB that orders loads appears
++	  between the store and load, preventing the younger load from being
++	  observed before the older store.
++
++	  The alternatives framework patches in DMB OSH only when an affected
++	  CPU is detected. Other CPUs execute a NOP in its place. Disabling
++	  this option leaves the original MMIO read instruction stream
++	  unchanged.
++
++	  If unsure, say Y.
++
+ config ROCKCHIP_ERRATUM_3568002
+ 	bool "Rockchip 3568002: GIC600 can not access physical addresses higher than 4GB"
+ 	default y
+diff --git a/arch/arm64/include/asm/io.h b/arch/arm64/include/asm/io.h
+index 8cbd1e96fd50..6d6d54c1b74c 100644
+--- a/arch/arm64/include/asm/io.h
++++ b/arch/arm64/include/asm/io.h
+@@ -54,7 +54,9 @@ static __always_inline void __raw_writeq(u64 val, volatile void __iomem *addr)
+ static __always_inline u8 __raw_readb(const volatile void __iomem *addr)
+ {
+ 	u8 val;
+-	asm volatile(ALTERNATIVE("ldrb %w0, [%1]",
++	asm volatile(ALTERNATIVE("nop", "dmb osh",
++				 ARM64_WORKAROUND_NVIDIA_OLYMPUS_1027)
++		     ALTERNATIVE("ldrb %w0, [%1]",
+ 				 "ldarb %w0, [%1]",
+ 				 ARM64_WORKAROUND_DEVICE_LOAD_ACQUIRE)
+ 		     : "=r" (val) : "r" (addr));
+@@ -66,7 +68,9 @@ static __always_inline u16 __raw_readw(const volatile void __iomem *addr)
+ {
+ 	u16 val;
+ 
+-	asm volatile(ALTERNATIVE("ldrh %w0, [%1]",
++	asm volatile(ALTERNATIVE("nop", "dmb osh",
++				 ARM64_WORKAROUND_NVIDIA_OLYMPUS_1027)
++		     ALTERNATIVE("ldrh %w0, [%1]",
+ 				 "ldarh %w0, [%1]",
+ 				 ARM64_WORKAROUND_DEVICE_LOAD_ACQUIRE)
+ 		     : "=r" (val) : "r" (addr));
+@@ -77,7 +81,9 @@ static __always_inline u16 __raw_readw(const volatile void __iomem *addr)
+ static __always_inline u32 __raw_readl(const volatile void __iomem *addr)
+ {
+ 	u32 val;
+-	asm volatile(ALTERNATIVE("ldr %w0, [%1]",
++	asm volatile(ALTERNATIVE("nop", "dmb osh",
++				 ARM64_WORKAROUND_NVIDIA_OLYMPUS_1027)
++		     ALTERNATIVE("ldr %w0, [%1]",
+ 				 "ldar %w0, [%1]",
+ 				 ARM64_WORKAROUND_DEVICE_LOAD_ACQUIRE)
+ 		     : "=r" (val) : "r" (addr));
+@@ -88,7 +94,9 @@ static __always_inline u32 __raw_readl(const volatile void __iomem *addr)
+ static __always_inline u64 __raw_readq(const volatile void __iomem *addr)
+ {
+ 	u64 val;
+-	asm volatile(ALTERNATIVE("ldr %0, [%1]",
++	asm volatile(ALTERNATIVE("nop", "dmb osh",
++				 ARM64_WORKAROUND_NVIDIA_OLYMPUS_1027)
++		     ALTERNATIVE("ldr %0, [%1]",
+ 				 "ldar %0, [%1]",
+ 				 ARM64_WORKAROUND_DEVICE_LOAD_ACQUIRE)
+ 		     : "=r" (val) : "r" (addr));
+diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
+index 4b0d5d932897..740ba3d51e30 100644
+--- a/arch/arm64/kernel/cpu_errata.c
++++ b/arch/arm64/kernel/cpu_errata.c
+@@ -839,6 +839,14 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
+ 		ERRATA_MIDR_ALL_VERSIONS(MIDR_NVIDIA_CARMEL),
+ 	},
+ #endif
++#ifdef CONFIG_NVIDIA_OLYMPUS_1027_ERRATUM
++	{
++		/* NVIDIA Olympus core */
++		.desc = "NVIDIA Olympus device store/load ordering erratum",
++		.capability = ARM64_WORKAROUND_NVIDIA_OLYMPUS_1027,
++		ERRATA_MIDR_ALL_VERSIONS(MIDR_NVIDIA_OLYMPUS),
++	},
++#endif
+ #ifdef CONFIG_ARM64_WORKAROUND_TRBE_OVERWRITE_FILL_MODE
+ 	{
+ 		/*
+diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+index 811c2479e82d..8d919b6699f0 100644
+--- a/arch/arm64/tools/cpucaps
++++ b/arch/arm64/tools/cpucaps
+@@ -121,6 +121,7 @@ WORKAROUND_CAVIUM_TX2_219_TVM
+ WORKAROUND_CLEAN_CACHE
+ WORKAROUND_DEVICE_LOAD_ACQUIRE
+ WORKAROUND_NVIDIA_CARMEL_CNP
++WORKAROUND_NVIDIA_OLYMPUS_1027
+ WORKAROUND_PMUV3_IMPDEF_TRAPS
+ WORKAROUND_QCOM_FALKOR_E1003
+ WORKAROUND_QCOM_ORYON_CNTVOFF
+-- 
+2.54.0.windows.1
 
