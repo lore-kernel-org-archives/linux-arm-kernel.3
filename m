@@ -4,127 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 048A9C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 11:39:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB887C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 11:40:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2ImEeyGX/03IdqhPpHyL8+qMOdo9yyi9xzZSn0X5s1I=; b=vDfloYCFbUaLLUADR0jkwfZqAD
-	xe5i0Yi7+Jkj3zyXsaKgHExpxqgq26hfIwa89I2PGJit5D/nGC0olup59kAryfS8pCAauyPPthk1u
-	7NVfzzva/BBZIThdzC/nIhdlpWGqgaPkhBRUe03JMTYKDGlZiNm8upmA/dOzLdfjQNHglV/BcY8GT
-	pHql2B7hAeV4zP9PzYbUDCSUsc/5UbxwBFHppFQWIu5HJWKFNo0IdNtTFaplRAx5N1nesLG2JZ/bE
-	/OGbgONmdgbRj9R1/DFts9dj6K5Ksu5YDIS/pU67pOt6CXb0oKmGHNu3P8Mu8e7qz8D5EyfupCcnG
-	NjI2Vk7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KJRMVavXKsYTe80eRZtLYQwVngIGjT5OT9X370LluXc=; b=M4QgTSTDEP/r4KcPXXlu1jYV1M
+	4+P9+v205Yv9OiSnqDZj0AU6T+rYZO+ZBXERXwCtpH2GJ1j3qYjlbe/PFuAyB1GyUabYjbV+L3kNf
+	ngTrPf2mFhnfK+h+SRlAnB1f8fghvoxWO2G2vHj/yN0zlIoCFZthgSaBTqzvWrYFOe7AJUBKM4fLL
+	bd0laKoKg96KFWTe1Y//dB0qWFf3xsv/mSnhBHY0bqBFG7WZeiHNwwiiIuRPEJmk9ljMKVAf4eHww
+	0lhNupaFexAO/L1SSfgw7jEotLyeDeUB3yUFKtqa/2iUz0d/RQdnZPI4qxBMbW7mpQSdxbRDSzXiO
+	T0pA2b9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjxxT-0000000EbXD-43EX;
-	Wed, 15 Jul 2026 11:39:23 +0000
-Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+	id 1wjxyM-0000000EbeY-0YPb;
+	Wed, 15 Jul 2026 11:40:18 +0000
+Received: from [113.46.200.221] (helo=canpmsgout06.his.huawei.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjxxR-0000000EbWb-0WSX
+	id 1wjxyH-0000000Ebbj-43n7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 11:39:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IoeCL8yXpIPdd8cYNGYjUFOSJeMdvYwjW01/KlF0+wdRFizBcS2cskvwTCeQhGEP9TJcGB2lPftFVtQpq3lgnFMh+2mT+8H7CeYXjzm9hl7PefskvOqqmYSnuHZyVjbBo9s4pyNHq6ZmM+CPTeCF9ub71x6amqzXM1TUNyq9lPwdvQuOR+ogBbDgXjucOg00qWc32d0kpOaTfAwB0PmBJqWPJ4kjWlebM3w0MO9ZnLswvq8pXgcMQpgfpeNMPw50UeclBN9ftbPLNZP/5Ur2tYDjqSqpYHMVmEOzXMKb8IHay4b9xDcoGGxVHjAmNjNvI6DaqsaEuWwg0lNg0VoC/g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2ImEeyGX/03IdqhPpHyL8+qMOdo9yyi9xzZSn0X5s1I=;
- b=osif8BnTKYzKFdwI9poNvJk/m/JVxqEPZjy0DP5C0xmS8XhHR2ZGZXiS7evbhxWy0Cc2xytve957oKEQljF1ceSUx1MJrygtUrzrooyKT8HCsKUqF7TKfL6pb7RBuDSEmCnqbIpUdP8ayQd6DW+eWDppZunsX1aPahtzvE5PxXNGPtdkmhkNKROxlJEjVHCX6OgeOBtrdfLuZszEsvq3tNgHHinNR9VRxdnjl/LP9ib0TqZP2Wx/+5FS2fMqItxGgaTyxPmzG95Tw3pYgWX+bSdp3uiJoy8cuhjRMx3YcEr6MLsQQMcx43ovl26Nfgm2xM+HeGAbmXH1rtfNZ0SerQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2ImEeyGX/03IdqhPpHyL8+qMOdo9yyi9xzZSn0X5s1I=;
- b=SY2ZEaJvPhSgKxQibAlVib3lu9DKCl5fG3rMW2vZk3Xd2iFu9gb7c98xSd9Xc7UOd5dD7jc2Iareb33vnk6QGvxQ6f3Py35MOsBoYLecwV7UFL1dyp+yvXL8/R4LML/ocjsNDvhS8gncGI65q4eOdXrbA6Ap52ZyRkKqA1ohE3lCr8bWjEJhdxnktkO7HdwSAmSVoS1q34jZZhdZ10rni7Lq57MUfyDXhgPZFk0fGpR1HJ4h4voA5DeIwWqdZbymfKLhzl0Psj7J21zDKVwqg7+H1QeMjz2SP0fknhouxo5CARSY+f3uouDk9ldIZix8iuDOEO+mxLA/xhrR6gTO5A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by SA1PR12MB9491.namprd12.prod.outlook.com (2603:10b6:806:458::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.22; Wed, 15 Jul
- 2026 11:39:14 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0202.014; Wed, 15 Jul 2026
- 11:39:14 +0000
-Date: Wed, 15 Jul 2026 08:39:13 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
-Cc: "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>, linux-arm-msm@vger.kernel.org,
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Prakash Gupta <prakash.gupta@oss.qualcomm.com>
-Subject: Re: [PATCH] iommu/io-pgtable-arm: Add support for contiguous hint bit
-Message-ID: <20260715113913.GA3775915@nvidia.com>
-References: <20260618-iommu_contig_hint-v1-1-4502a59e6388@oss.qualcomm.com>
- <20260703161228.GA1948451@nvidia.com>
- <b7224dff-7e51-49cb-8421-14d090492dfc@oss.qualcomm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <b7224dff-7e51-49cb-8421-14d090492dfc@oss.qualcomm.com>
-X-ClientProxiedBy: YT4PR01CA0121.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:d5::9) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Wed, 15 Jul 2026 11:40:16 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=KJRMVavXKsYTe80eRZtLYQwVngIGjT5OT9X370LluXc=;
+	b=lDxNM4Ujf/jwPWfJQZ3bZzFBxRWgJNIWTXFL//aIKOiPLGlYC2ANkmNozESfnS/SJmfmJnUvm
+	FXSqGXkFXUgLhWBo4H/JVTw0Ujzfgp10k7jRg/ujR0peSQH1Uzu6gUvfgiXXo1Ko3JNeVZU3r/C
+	eUO4VWFPLskw8UoYjU9h5TU=
+Received: from mail.maildlp.com (unknown [172.19.163.104])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4h0YrM2BsRzRhQR;
+	Wed, 15 Jul 2026 19:30:27 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 79F434057F;
+	Wed, 15 Jul 2026 19:39:44 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 15 Jul 2026 19:39:43 +0800
+Message-ID: <55b6734e-39b9-40bb-93ae-b869f17476d5@huawei.com>
+Date: Wed, 15 Jul 2026 19:39:43 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|SA1PR12MB9491:EE_
-X-MS-Office365-Filtering-Correlation-Id: cbdaa356-0718-4aff-abd4-08dee265b202
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|366016|376014|10067099003|56012099006|22082099003|11063799006|18002099003|4143699003;
-X-Microsoft-Antispam-Message-Info: HNCUewJ/W165KX6QYklsYgxdIlVhMTDhRgDhVKnXotk7yXXknE4k508jmI+XK388brmmkFG/Gt49M3CFpzirOYhGlBrWSdNKfF/keRe2tqdcoMQ3PoGd+LZeCJ0MnVwF2agLGujuUCqNb44YhYKNiLRuDktokymOSrSqIcby4m+v3lMFC1m7MBtV8gZl5DfWoNCQpnClukitD0FI/J6j83vzgRW1wyNOKhsxgVqwXyGP2nYt6mj1XuP3BeeBP0nV2NF3Y2C2z/jJmUdSzJlz1L4z81nZeiHZNdLHTlfAohFHUJJ4YkWkkPxKW12iGLHiMyWBACf6PTJPyPlFv7MOiPfq3RzmcY8/jv3b8ONlPQmdJb0sIU2bLaSWS4EaZ9aXHqyi+8+/YCaijV44BuWt5USvBy9n43xdgoxUPStlM0Y1S9gRe0oAqH7v3aLKQL/Wn4E4KvVVfx6aukiUzarrMLUl0TDBCnI/Px7+ZlRo8I/hW73kOfNdYPTliUEkCCZuLAxviZ3K/0jLg5m5xZq3wXmklFEyU4KqqbKKbhJtU7/ThFG9WsDa/iCQvjgM7sSd2Lo39pqScMWgHPU91bUaBE+nMQFsUm74tQPcOCV3+Q6WusHRULlDUa0Rh0rq/3tOPbEgzxSTJ9HA3zKdVVx5AOxqHSVl1zS7RufuL5KOUYI=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(376014)(10067099003)(56012099006)(22082099003)(11063799006)(18002099003)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?qX3zipOg9oZ1p2rupVAoiWGV0V15u/9AIQ8tsNnA2q6oIFLL+XrJJ1keEyoq?=
- =?us-ascii?Q?mSnmIE0Vn5FaXpN/7Mg362x2m9A7aWP2expgnFIO3yr2yBDB5dupY6xuF0Qu?=
- =?us-ascii?Q?bPm8C+Y+mgVyiQuPd4GZlJ/P7cDm6DEpZS6whILpb0gOIYlQ0+ekCP2Dq17P?=
- =?us-ascii?Q?fMnE9YwgcUjjFExj3ZL5UTfcJGcwNQaR6/aADtU0gT2Kexo8BegNSB54b8PT?=
- =?us-ascii?Q?y9kbgV5hjclB+O95w4HuddVTVOqd+zGuFj0aIdIPeeYhrwIQsYp3SBfU5Ks5?=
- =?us-ascii?Q?6IVbCt/QsopEoJ784blPpRNJDAvOejHE7E4fskR8k6Rxxl5XpMLFU76Q6pmk?=
- =?us-ascii?Q?7JmQRh9jZOrC6WYJ8ExJGywRUMKkH+sMnANYKUGACUEpKt5Y1n1c3LOaJYzG?=
- =?us-ascii?Q?vUR7rC/m5p2cghbWtuji8EU5JejRyvaOUVblEOGXTOw1JUkMpFw869KYwTJD?=
- =?us-ascii?Q?qbuJ6gB6y0W+97mxovm19j0Jq6fEt1rk7t/mULJy5azF4n91g5RBqMxMY6GB?=
- =?us-ascii?Q?h83WHqcPd/s3LK+n5hupU6q9Ike69vMOtFhrcpsr51JHCciBIB1ktmCrkONB?=
- =?us-ascii?Q?2EaFV68p2gsbNrSAYyQE86jslVK97r7NDRgZEVGZWuIDxOZFEc5EIe28YlLp?=
- =?us-ascii?Q?18U3kjbahB7gzEDcfonSUcb8i8EowvRhBTUkI6mhHYNFkfxb0OP/vJsU4gkh?=
- =?us-ascii?Q?HIVlR5d/CCWL0d29fYx+7TumJYhSlygOiEw2xZAPBDHYCVbCpiPj2JxdOSlr?=
- =?us-ascii?Q?td1Zx/ReteNa2CS6jb4nzfzQ6rdtcRZdtdyF3GrhLE4D3qzG92p53iJSYwat?=
- =?us-ascii?Q?BBwzg+9E/Fc3Abm6c/gWOpYsf+ZIiK8GoSz6/lbu6dtZpSkAkQW3u8WDSwl0?=
- =?us-ascii?Q?WHwQgIsSL8hRfQWu6fgQoGxbuhhGJDuEFIppqCb5Lhy2NWLw2PEPC8RvT6jX?=
- =?us-ascii?Q?SFg6duQvZ9OFmpWVR1zniInwHfdmX/4/5B7gIOiuzmES2AI2UO1USKMO2Vz0?=
- =?us-ascii?Q?Z5nt88z7exZIYa5va6vAEsMRxdQvbCIemftc2hWl42Ftcks1e5cwUENoBUfv?=
- =?us-ascii?Q?R3uCVNc5Casuk+k4Gr2Nv+kyAqjA7ZIu1qDs+KvEmm/OfWdia/ipM4moWBbm?=
- =?us-ascii?Q?Caz6SJtFqGetaLIT8jUGFRn+xPToKZx1oUl5eXBlsy2WGi9io3N/MtJRViWL?=
- =?us-ascii?Q?0drfB5RJ9eFHDPqDheJMSh3qYlI+96hsC9xVXA0zW64KSi+A8Jztq2piyEz1?=
- =?us-ascii?Q?31GYc18jukhRFKYyjsbEBCl87AxoH39keQJh7GylrkRG3ciz9lP1XmRhh6o8?=
- =?us-ascii?Q?8f+b1R4agE22dDmc5oZSV/vtJXnMa9h2kCkeRg+T+Av6Aec1KHKZhjur9r76?=
- =?us-ascii?Q?+KkPsSPYV8x85/+Q1CFDwLtNt7rCQju6hNo5DL9JakpFccp3cApDOhD8DRXe?=
- =?us-ascii?Q?Y0Qm09y3TkYoOGBji0cxf/ZoyoO0+pTMif3QAJzS+4XFY/G0i15MsJlfy3Aq?=
- =?us-ascii?Q?7XKNL8s7yKuyOoiM1SR/J8lxL1qnHtGr5KN4EtZIKteubH3/pJqSLiw9P6nC?=
- =?us-ascii?Q?v5TRyKwrVNJ60gJaEwjfkhtCdWnvmLkxPrfuX59mU3+Fq0GoevkAscV2itfc?=
- =?us-ascii?Q?rmN07Bhv71MFiHphjc0k49EKUSKoSyFuLTxOEk4r3zYthI/AvjCow6SpmeSi?=
- =?us-ascii?Q?Q2+IUfQC01p4gE9bY6Ja0uu8C2E0UJikEMSV12hze4/xVe4A?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cbdaa356-0718-4aff-abd4-08dee265b202
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2026 11:39:14.1144
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: PvgbelmPUjP9jIOD6xUFFq5xnWYP7FKWNVptyeDJDqecNychgey2N3IHgU2a6c5h
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB9491
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: syscall: Ensure saved x0 is kept in-sync with
+ tracer updates
+To: Will Deacon <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>
+CC: <linux-kernel@vger.kernel.org>, Kees Cook <kees@kernel.org>, Mark Rutland
+	<mark.rutland@arm.com>, Yiqi Sun <sunyiqixm@gmail.com>, Catalin Marinas
+	<catalin.marinas@arm.com>
+References: <20260714143600.23853-1-will@kernel.org>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260714143600.23853-1-will@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_043921_200926_0DD4CED6 
-X-CRM114-Status: GOOD (  20.67  )
+X-CRM114-CacheID: sfid-20260715_044014_407997_D4A92059 
+X-CRM114-Status: GOOD (  35.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,36 +79,188 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 15, 2026 at 11:25:42AM +0530, Vijayanand Jitta wrote:
-> On 7/3/2026 9:42 PM, Jason Gunthorpe wrote:
-> > On Thu, Jun 18, 2026 at 02:32:09PM +0530, Vijayanand Jitta wrote:
-> >> From: Prakash Gupta <prakash.gupta@oss.qualcomm.com>
-> >>
-> >> Add support for the contiguous hint (CONT) bit in ARM LPAE page tables.
-> >> When a set of consecutive PTEs map a naturally-aligned contiguous block
-> >> of memory, the CONT bit can be set on all entries in the group to allow
-> >> the hardware to combine them into a single TLB entry, improving TLB
-> >> utilization.
-> >>
-> >> The contiguous hint sizes per granule are:
-> >>
-> >>   Page Size | CONT PTE |  PMD  | CONT PMD
-> >>   ----------+----------+-------+---------
-> >>       4K    |   64K    |   2M  |   32M
-> >>      16K    |    2M    |  32M  |    1G
-> >>      64K    |    2M    | 512M  |   16G
-> > 
-> > My series to convert smmuv3 to the iommupt takes care of this and
-> > supports all the orders too. I'd rather we move forward with that then
-> > try to patch up this.
+
+
+On 7/14/2026 10:35 PM, Will Deacon wrote:
+> When seccomp support was originally added to arm64 in a1ae65b21941
+> ("arm64: add seccomp support"), seccomp was erroneously called _before_
+> the ptrace syscall-enter-stop and therefore the tracer could trivially
+> manipulate the syscall register state after the seccomp check had
+> passed. This was subsequently fixed in a5cd110cb836 ("arm64/ptrace: run
+> seccomp after ptrace") by moving the seccomp check after the tracer has
+> run. Unfortunately, a decade later, that fix has been reported to be
+> incomplete.
 > 
-> Thanks for details, I have gone through your series. As this patch
-> targets io-pgtable-arm.c directly and would benefit all its users (SMMUv2,
-> Apple DART, etc.), not just SMMUv3. I think there will still be value in
-> this patch for the other users.
+> On arm64, both the first argument to a syscall and its eventual return
+> value are allocated to register x0. In order to facilitate syscall
+> restarting and querying of syscall arguments on the syscall exit path,
+> the original value of x0 is stashed in 'struct pt_regs::orig_x0' early
+> during the syscall entry path and is returned for the first argument by
+> syscall_get_arguments(). Unlike 32-bit Arm, this stashed value is not
+> directly exposed via ptrace() and so changes to register x0 made by the
+> tracer on a syscall-enter-stop are not reflected in 'orig_x0'. This
+> means that seccomp and audit can observe a stale value for the register
+> compared to the argument that will be observed by the actual syscall.
+> 
+> Re-sync 'orig_x0' from x0 on the syscall entry path following a
+> potential ptrace stop (i.e. PTRACE_EVENTMSG_SYSCALL_ENTRY or
+> SECCOMP_RET_TRACE). This behaviour is limited to native tasks (because
+> compat tasks expose 'orig_r0' to ptrace) where the syscall is not being
+> skipped (because x0 is updated to hold the return value of -ENOSYS in
+> that case).
+> 
+> Cc: Kees Cook <kees@kernel.org>
+> Cc: Jinjie Ruan <ruanjinjie@huawei.com>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Reported-by: Yiqi Sun <sunyiqixm@gmail.com>
+> Link: https://lore.kernel.org/all/20260529065444.1336608-1-sunyiqixm@gmail.com/
+> Suggested-by: Catalin Marinas <catalin.marinas@arm.com>
+> Fixes: a5cd110cb836 ("arm64/ptrace: run seccomp after ptrace")
+> Signed-off-by: Will Deacon <will@kernel.org>
+> ---
+>  arch/arm64/kernel/ptrace.c | 24 ++++++++++++++++++++++++
+>  1 file changed, 24 insertions(+)
+> 
+> diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
+> index 4d08598e2891..57e8c6714d44 100644
+> --- a/arch/arm64/kernel/ptrace.c
+> +++ b/arch/arm64/kernel/ptrace.c
+> @@ -2408,6 +2408,21 @@ static void report_syscall_exit(struct pt_regs *regs)
+>  	}
+>  }
+>  
+> +static void update_syscall_orig_x0_after_ptrace(struct pt_regs *regs)
+> +{
+> +	/*
+> +	 * Keep orig_x0 authoritative so that seccomp (via
+> +	 * syscall_get_arguments()), audit and the restart path all see the same
+> +	 * first argument the syscall is dispatched with, even if it has been
+> +	 * updated by a tracer. Skip this for NO_SYSCALL (set either by the user
+> +	 * or the tracer), as regs[0] holds the return value (see the comment in
+> +	 * el0_svc_common()) and can be unwound using syscall_rollback().
+> +	 * For compat tasks, orig_r0 is provided directly through GPR index 17.
+> +	 */
+> +	if (!is_compat_task() && regs->syscallno != NO_SYSCALL)
+> +		regs->orig_x0 = regs->regs[0];
+> +}
+> +
+>  int syscall_trace_enter(struct pt_regs *regs)
+>  {
+>  	unsigned long flags = read_thread_flags();
+> @@ -2417,12 +2432,21 @@ int syscall_trace_enter(struct pt_regs *regs)
+>  		ret = report_syscall_entry(regs);
+>  		if (ret || (flags & _TIF_SYSCALL_EMU))
+>  			return NO_SYSCALL;
+> +
+> +		/*
+> +		 * Ensure ptrace changes to x0 are visible to seccomp
+> +		 * ptrace exits (SECCOMP_RET_TRACE).
+> +		 */
 
-If other users care they should also be converted to iommupt, there
-are many benefits to this besides just cont support.
+Hi, will,
 
-Jason
+After delving into the seccomp code, I believe the comments are not
+quite accurate, I think SECCOMP_RET_TRACE not return to here.
+
+maybe,
+
+/*
+ * Ensure ptrace changes to x0 during a regular syscall-enter-stop
+ * (PTRACE_SYSCALL) are visible to subsequent seccomp and audit
+ * checking.
+ */
+
+> +		update_syscall_orig_x0_after_ptrace(regs);
+>  	}
+>  
+>  	/* Do the secure computing after ptrace; failures should be fast. */
+>  	if (secure_computing() == -1)
+>  		return NO_SYSCALL;
+>  
+> +	/* Ensure seccomp updates to x0 are visible to audit. */
+
+This comment is also not quite accurate, it implies that Seccomp itself
+(such as SECCOMP_RET_ERRNO) modifies x0, but in this scenario, the audit
+is not executed, because __seccomp_filter() skip the syscall.
+
+1279 >-------switch (action) {
+1280 >-------case SECCOMP_RET_ERRNO:
+1281 >------->-------/* Set low-order bits as an errno, capped at
+MAX_ERRNO. */
+1282 >------->-------if (data > MAX_ERRNO)
+1283 >------->------->-------data = MAX_ERRNO;
+1284 >------->-------syscall_set_return_value(current, current_pt_regs(),
+1285 >------->------->------->------->------- -data, 0);
+1286 >------->-------goto skip;
+                   ^^^^^^^^^^^^^<- we skip the syscall if
+SECCOMP_RET_ERRNO changes x0
+
+
+Here what we actually need to synchronize is the tracer's modification
+of x0 in the SECCOMP_RET_TRACE path, the SECCOMP_RET_TRACE logic
+notifies the tracer, the tracer modifies x0 and modifies the system call
+number to a legal value and so we can continue the latter audit.
+
+1295    case SECCOMP_RET_TRACE:
+1296        /* We've been put in this state by the ptracer already. */
+1297        if (recheck_after_trace)
+1298            return true;
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^  <- I think we return here.
+
+1299
+1300        /* ENOSYS these calls if there is no tracer attached. */
+1301        if (!ptrace_event_enabled(current, PTRACE_EVENT_SECCOMP)) {
+1302            syscall_set_return_value(current,
+1303                         current_pt_regs(),
+1304                         -ENOSYS, 0);
+1305            goto skip;
+1306        }
+1307
+1308        /* Allow the BPF to provide the event message */
+1309        ptrace_event(PTRACE_EVENT_SECCOMP, data);
+1310        /*
+1311         * The delivery of a fatal signal during event
+1312         * notification may silently skip tracer notification,
+1313         * which could leave us with a potentially unmodified
+1314         * syscall that the tracer would have liked to have
+1315         * changed. Since the process is about to die, we just
+1316         * force the syscall to be skipped and let the signal
+1317         * kill the process and correctly handle any tracer exit
+1318         * notifications.
+1319         */
+1320        if (fatal_signal_pending(current))
+1321            goto skip;
+1322        /* Check if the tracer forced the syscall to be skipped. */
+1323        this_syscall = syscall_get_nr(current, current_pt_regs());
+1324        if (this_syscall < 0)
+1325            goto skip;
+1326
+1327        /*
+1328         * Recheck the syscall, since it may have changed. This
+1329         * intentionally uses a NULL struct seccomp_data to force
+1330         * a reload of all registers. This does not goto skip since
+1331         * a skip would have already been reported.
+1332         */
+1333        return __seccomp_filter(this_syscall, true);
+
+
+maybe,
+
+/*
+ * Ensure tracer changes to x0 during SECCOMP_RET_TRACE processing
+ * are visible to later trace and audit.
+*/
+
+
+Otherwsie, LGTM
+
+Best reagards,
+Jinjie
+
+> +	update_syscall_orig_x0_after_ptrace(regs);
+> +
+>  	if (test_thread_flag(TIF_SYSCALL_TRACEPOINT))
+>  		trace_sys_enter(regs, regs->syscallno);
+>  
+
 
