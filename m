@@ -4,105 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39BB0C4450C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 08:55:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D34CC44507
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 08:55:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YVHm6p5wN5KSAyn8QSBlqPHJusamsYORhaWsm3vPLUI=; b=HH7KQT41/gS4LH3wFAQof6jea/
-	SGovTDh3euJWS35VmnZEaaqhZ2idNRNzoyC3A+JNc51kpM8OmNdA3/C1gL8IZvmuWnR5SOLqeq3Ut
-	FV8xIcs5vOt9DM1BduMP5BYn11JvhwThXMm17KEbkszCVEs35izjWLb075hig4GOuG+bwLPfkquP4
-	Y5NLcOV76/E8Ep/WqvLGfhgAAco37mg+Ih6/+P6LdNWKgdQu4UKD+bS9emDPhwdc2pYfpQcvai2aG
-	GqiLqe/LS1ouPzqkJ16g+5QDCAtllpMdj1zitga4D7KM+TR74Fn+TuzEkKsPYiEZk+HIYke+bBmAe
-	yJ11aAaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z3wUKrGG21PQMUu0kd7DBV0yHXAtkX/rwuwlWXDYxKw=; b=rgsyxP+Vq8bBg5ggM3xHE0lk1t
+	AXylXvpiYP42PDvf9MEQFrS4XMJuJ6iPav68A8xPHQGIMYYerxFXqmV3dHvstgzfAWO/TEzyKXcN3
+	dBUQ1qsXJGD1ag2JJyKKqw9uyvXyIzYPUePKUniQt91Xg/CAjiYPYfO3aPB27apY+EYsflGpmVkhU
+	K9I0GIByQWihTVt2Uem1gh9TZaE5RF1psQQY2mKQ6Zw34ZyFkiIyXM2Wff2ghHVmhTv9AXdN99FfL
+	pds+c0R67JWGF4BsM9cmohHRmOPS9qbtxTSo5+rhj9nq2+h+WsIq+K8yqQS9PpbXvX4iMI5NiqJ9P
+	I89qDUGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjvOg-0000000EEHx-0yQZ;
-	Wed, 15 Jul 2026 08:55:18 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1wjvOq-0000000EEVy-1JH0;
+	Wed, 15 Jul 2026 08:55:28 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjvOd-0000000EEDT-1vXJ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 08:55:16 +0000
-Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-845c92bc464so1817816b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 01:55:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1784105715; x=1784710515; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=YVHm6p5wN5KSAyn8QSBlqPHJusamsYORhaWsm3vPLUI=;
-        b=TdmYQff2sD3OYowbhckR1a24H9AS3f2MZDaV8Rdn65Z2Q9eKrP0JasAsIFpR5KAi6x
-         ihXGgVGGsK+1ZuKiEzcg8VtwjPxl4B8VwCd17Byho1E7dij/mrBn+8Bptw/H1UYLXbYX
-         3QMbgibmBETE2ZjGgkwoc7JaGpvd8UhWhQqgI=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784105715; x=1784710515;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=YVHm6p5wN5KSAyn8QSBlqPHJusamsYORhaWsm3vPLUI=;
-        b=Usbq0UAMrSsi8hC9QZ80x2nSYtw56n1urp2AV3X+86LZwo3OcYUQgK5f11O8TrSw6f
-         /9wFiJ82S0/iSLYZ/StUZtlRLQZsAQPV3K8YwX3cO38dKL21P1drmFjLv1ohBVfGBIKq
-         pCiv56WAcq3CK6Iy2qHzY4AJa+s5hVcMZDpaQLjYzfqyz9cAi/eyRfacy72bdrkgrvGN
-         C10lFGd6MGyfRxQJyninobPQbteSizYWoyfXQ5YzxatwA31760xQh0E/ihEpkY9XPaM9
-         KgZ3vqgM3/zFaJcVD1vbJitk7fNpQ53gyl4mUxFIi7b6mw4XsIu+By42dUvEdQyXTGvA
-         8BGA==
-X-Forwarded-Encrypted: i=1; AHgh+RoPUwaMHS9o50gcc1Nd0eHMy3chocjkdAN7Xwm+DhvWDM/eMi1feKi/38gOD/jvPF7XiDZ2yNwffE7wQBpq9GYK@lists.infradead.org
-X-Gm-Message-State: AOJu0YznsNF1wFwgX6iYrbn/F2a5sQnxjUwzKVD+PtG7/mYp0FNNhHfE
-	RaNXW3luNlpz0cldV3rMns/zt9kt5w6Vpd4pQMkdh5n16yJFynZqvExamB3iHebu1A==
-X-Gm-Gg: AfdE7cnhoSkPUmbiO9C1DpuPXKEJYmUK4N8VvwTHC5CO0lZo/iEF6FcEoEpMt6YA9Qd
-	dBjqkdAUHA3RudL67qgnkwouV07zHpTBeWuOmMyXSataU/EkU5q1JimoIcjCROQB1ug/bplL8L3
-	r+S9r09Txhc2yzvRbVBXML8Ns4LknCtpzijy22fObdc8zwyf2yJ4VWTCCONNu6ojCseZzly4y/4
-	jgZH2dObiTNb10UxTrH9WpIAeqEaWswE4JmNqFbHbS+WNYojuTDxudHo2pG73pLK95LsfmvekkP
-	Lp3bL7tFWDVORLhSW4aI5H7nsYPluueZcwlTFcoQf+dcxyt673TosYu6fcjrOdyCOjII2Mps+Du
-	SgoiNcX5dxQ4tbdxTYKwZXLOjHUeWPQZqhl2OUYNsTcSDz4qiCSLeftwN22f5UGob3GDvYx41Ce
-	XmSnzQus0gjzfGBYRLUFqYEll3DIF6NW8AXdDlVwZ/A4xrzrpTeb2DqnnEU+282azwLUFPEQ==
-X-Received: by 2002:a05:6a00:228e:b0:842:3aee:12c0 with SMTP id d2e1a72fcca58-8488960660emr14884802b3a.23.1784105714825;
-        Wed, 15 Jul 2026 01:55:14 -0700 (PDT)
-Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:47d7:4aa5:a6f8:2279])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84a4f819117sm2757491b3a.59.2026.07.15.01.55.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jul 2026 01:55:14 -0700 (PDT)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Bartosz Golaszewski <brgl@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Wei Deng <wei.deng@oss.qualcomm.com>,
-	Chen-Yu Tsai <wenst@chromium.org>,
-	linux-acpi@vger.kernel.org,
-	driver-core@lists.linux.dev,
-	linux-pm@vger.kernel.org,
-	linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Alan Stern <stern@rowland.harvard.edu>
-Subject: [PATCH v5 12/16] power: sequencing: pcie-m2: support matching on remote "port" node
-Date: Wed, 15 Jul 2026 16:53:42 +0800
-Message-ID: <20260715085348.3457359-13-wenst@chromium.org>
-X-Mailer: git-send-email 2.55.0.141.g00534a21ce-goog
-In-Reply-To: <20260715085348.3457359-1-wenst@chromium.org>
-References: <20260715085348.3457359-1-wenst@chromium.org>
+	id 1wjvOj-0000000EEO5-2Z5S;
+	Wed, 15 Jul 2026 08:55:21 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 566EC438B0;
+	Wed, 15 Jul 2026 08:55:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B99241F00A3E;
+	Wed, 15 Jul 2026 08:55:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784105721;
+	bh=Z3wUKrGG21PQMUu0kd7DBV0yHXAtkX/rwuwlWXDYxKw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=cECXb+VJoR+yj3jVqoQiYsUTp85S/mZ6iPkKHA8qdyfmKip6k0znsuyxCKjKXsCb1
+	 hd8NEEs5A95KQ9zDQLBjmeugvDL5UuAgA9xIJD+iqFprTldJArH0l40sDaDMdCilrg
+	 7UvTr0OkibOLlZebpv3bD9Kg6fwSB3u8Rc3RoEgPrD5EqyT2IYe7ytrGbWVgyhJQjq
+	 r6MxKuA3O65/qCzoleLgSwBnPk0RoqFUswD91pwLj5vP0yJ97ausjdWaF+TEOInrA8
+	 6MQRitPOK6vDPdMG9Ni4k3YqIvTL2b1wFpFYYai//3KEfTfwzNfl8Z0oksLG6Xz1gO
+	 PAIE76Ets/1ag==
+Date: Wed, 15 Jul 2026 10:55:19 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Daniel Stone <daniels@collabora.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+	kernel@collabora.com, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v8 04/39] drm/connector: Add HDMI 2.0 scrambler
+ infrastructure
+Message-ID: <20260715-ancient-zealous-eagle-b13e94@houat>
+References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
+ <20260702-dw-hdmi-qp-scramb-v8-4-d79890d00b6a@collabora.com>
+ <tjsidlnvswo2rdhqa6jybxrnb47lxgmxdlfrfbasuh67wjbqoy@3a45n3zawvnf>
+ <17753a1c-824a-4835-ac2d-8b2796bba1eb@collabora.com>
+ <534b921c-638c-4fc3-b89e-5dfc1f269f96@collabora.com>
+ <20260713-statuesque-nonchalant-seagull-b9c39d@houat>
+ <91c3a825-3344-4ff5-8ea0-f8f057665b3f@collabora.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_015515_534015_23CC1CA5 
-X-CRM114-Status: GOOD (  15.94  )
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="r5otlnmsebefwt2i"
+Content-Disposition: inline
+In-Reply-To: <91c3a825-3344-4ff5-8ea0-f8f057665b3f@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,54 +85,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A USB hub can have multiple ports, and this driver needs to
-differentiate which port is being matched to. The USB hub driver now
-associates the "port" node with the usb_port device, so here we can
-use the remote "port" node to check for a match. Then fall back to
-the remote device node for the other connection types.
 
-Also rewrite the existing "remote == dev_of_node(dev)" with
-device_match_of_node() for consistency.
+--r5otlnmsebefwt2i
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v8 04/39] drm/connector: Add HDMI 2.0 scrambler
+ infrastructure
+MIME-Version: 1.0
 
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
----
-Changes since v4:
-- Dropped blank line between __free() variable declaration and
-  subsequent use of the variable in conditional (Andy)
+On Mon, Jul 13, 2026 at 01:23:00PM +0300, Cristian Ciocaltea wrote:
+> On 7/13/26 11:50 AM, Maxime Ripard wrote:
+> > On Thu, Jul 09, 2026 at 10:25:54PM +0300, Cristian Ciocaltea wrote:
+> >> On 7/3/26 11:54 PM, Cristian Ciocaltea wrote:
+> >>> On 7/3/26 5:34 PM, Dmitry Baryshkov wrote:
+> >>>> On Thu, Jul 02, 2026 at 05:46:17PM +0300, Cristian Ciocaltea wrote:
+> >>>>> Add the connector-level infrastructure to support HDMI 2.0 scrambli=
+ng:
+> >>>>>
+> >>>>> - A scrambler_supported flag to indicate whether the source support=
+s the
+> >>>>>   scrambling capability, in which case the newly introduced
+> >>>>>   .scrambler_{enable|disable}() callbacks in drm_connector_hdmi_fun=
+cs
+> >>>>>   are mandatory
+> >>>>
+> >>>> Do we need a flag? What would it mean if the flag is set, but the
+> >>>> callbacks are not? Can we drop the flag and use the presence of the
+> >>>> callbacks as a way to identify that scrambler is enabled?
+> >>>
+> >>> The flag is intended to be set only within drmm_connector_hdmi_init_w=
+ith_caps()
+> >>> when drivers advertise HDMI 2.x capability, in which case it also ens=
+ures the
+> >>> callbacks are provided. =20
+> >>>
+> >>> We could drop the flag and instead have the init helper clear the cal=
+lbacks if
+> >>> they were provided for HDMI 1.x.  This might slightly reduce code rea=
+dability,
+> >>> as it relies on checking the presence of individual callbacks - espec=
+ially since
+> >>> we plan to extend this further with HDMI 2.1 support, providing four =
+or five
+> >>> additional FRL-specific callbacks.
+> >>
+> >> I tried to replace the flag with a helper that checks the presence of =
+(one of)
+> >> the callbacks, but it's not straightforward to unset those for non-HDM=
+I 2.x
+> >> cases since the hdmi_funcs argument is immutable.
+> >=20
+> > I'm not sure why we would need to unset them. If the driver states that
+> > it support HDMI 2.0, then it needs to be there, if it doesn't, then who
+> > cares? it's not going to be used. We can log a warning that it's
+> > inconsistent I guess, but there's no need to actively remove it.
+>=20
+> I was trying to address the use case where drivers provide the scrambler
+> callbacks despite not supporting HDMI 2.0.
 
-Changes since v3:
-- Drop redundant device node validity check; device_match_of_node()
-  does it internally
+Scrambling got introduced with HDMI 2.0. That doesn't make sense, but
+it's not a total deal breaker, it's just going to be here unused. Hence
+why I was suggesting to put a warning there if you wanted to.
 
-Changes since v2:
-- Use device_match_of_node()
----
- drivers/power/sequencing/pwrseq-pcie-m2.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+> If we replace the scrambler_supported flag with a helper checking the
+> presence of the scrambler callbacks, then we would need to ensure the
+> callbacks do not exist in this case.
 
-diff --git a/drivers/power/sequencing/pwrseq-pcie-m2.c b/drivers/power/sequencing/pwrseq-pcie-m2.c
-index 83fe6a1396bc..691cad0a6dd0 100644
---- a/drivers/power/sequencing/pwrseq-pcie-m2.c
-+++ b/drivers/power/sequencing/pwrseq-pcie-m2.c
-@@ -175,9 +175,16 @@ static int pwrseq_pcie_m2_match(struct pwrseq_device *pwrseq,
- 	 * parent matches the OF node of 'dev'.
- 	 */
- 	for_each_endpoint_of_node(ctx->of_node, endpoint) {
-+		/* USB port devices are tied to the port nodes. */
-+		struct device_node *remote_port __free(device_node) =
-+				of_graph_get_remote_port(endpoint);
-+		if (device_match_of_node(dev, remote_port))
-+			return PWRSEQ_MATCH_OK;
-+
-+		/* Try the remote port parent for other types. */
- 		struct device_node *remote __free(device_node) =
- 				of_graph_get_remote_port_parent(endpoint);
--		if (remote && (remote == dev_of_node(dev)))
-+		if (device_match_of_node(dev, remote))
- 			return PWRSEQ_MATCH_OK;
- 	}
- 
--- 
-2.55.0.795.g602f6c329a-goog
+Keep it simple:
 
+if (hdmi_version >=3D HDMI_VERSION_2_0)
+   if (funcs->scrambler_enable)
+      hdmi->scramblers_supported =3D true
+   else
+      return -EINVAL
+else
+    drm_warn(warn, "Inconsistent HDMI version");
+
+We don't need anything more than that.
+
+Maxime
+
+--r5otlnmsebefwt2i
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaldK9gAKCRAnX84Zoj2+
+dtiSAYCQu9KcWvuZmn9ga9LZdgJaVIDPuT7TU896zIyMgZrU9Y4Z7K/BVp+ja2wo
+PJPHb/MBgNa/bcF9LTNuobtKeO7OjWhTX9TRuccydJYn14FFBYI4MSwo9wgXvaoZ
+w3E2VgsTMA==
+=cc5C
+-----END PGP SIGNATURE-----
+
+--r5otlnmsebefwt2i--
 
