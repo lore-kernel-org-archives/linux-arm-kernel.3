@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7024AC4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 05:59:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37CEAC4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 05:59:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pjm/2/Dd4ZfLuzbgAHtKlOVzx5R3S4ZFBISKeUkecyw=; b=xUXKIc+9e/xqVwpk+Pzvn9xjVU
-	LT9WLQbE2hEMI4/ifRbRWQ9AmC8NAbQ2iiQkM1tcrB1uPfhOTOvlfYnuAv6uJLP9AcT1CBDvtdUdL
-	hMmZa/g00F4DBpUvX5O24wrAhBPv+9xrcjIsHBhsQYQ7wTpiCUzZHo1q0iC37aknOTFLxhXeQwG/8
-	X4FXdGsI54HVvin6aVZ7hXgQGgIrxTx78+7X58NaUVOyiasNJy7aWDvBjfDwyF8MzcOfNwR981NrO
-	ZKH1yE43Bftk/lL1DFeT5INkzveFXje9HtT/9rgo4fQRHkbs6+A78t7Bc2rzIbNKvHu6cRk+nw6d8
-	Xbp8ofag==;
+	bh=n0SGocToquLN1fFBmS7KLjAIRrJxEJXwbv4xjRLyoF8=; b=y4vplTTtaAcHAsnSwQDAv0tszm
+	sBpJnsFLMIO+rJYtVmv7dJGt5lXkn5ticUJcrD+Pwam2VCXPTV4P02hGrQf6j3CRnFYv6/47zsPBg
+	E0TR9H4R7z6YyQBRAYtZSmS6aDifJvo4tbTiEZnaSQpV38/I3QzuiaIVXpaa+f81oqM+7NVsOmNru
+	eXzsGDY2RdCh8RbZBUYRRe8nLpYurd3A5FyvMUgIgdjT9RcydbfEmIr1OSb4evC5NxSJ08jSWUdVS
+	940KIE4QGgUxuqztiGxTcthSiQOMHi2N7YwfQOfhmvCOSsOlLseHkn6Nhr5UoEiuZEXPzW/FsO220
+	LGllBSew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjse7-0000000DqCV-2MCZ;
-	Wed, 15 Jul 2026 05:59:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wjseH-0000000DqEF-36tn;
+	Wed, 15 Jul 2026 05:59:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjse6-0000000DqCJ-2Xme
+	id 1wjseG-0000000DqDt-0cED
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 05:59:02 +0000
+	Wed, 15 Jul 2026 05:59:12 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E7C1A42EA2;
-	Wed, 15 Jul 2026 05:59:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D05D11F00A3A;
-	Wed, 15 Jul 2026 05:59:00 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3B5E3601C6;
+	Wed, 15 Jul 2026 05:59:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 127FB1F000E9;
+	Wed, 15 Jul 2026 05:59:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784095141;
-	bh=pjm/2/Dd4ZfLuzbgAHtKlOVzx5R3S4ZFBISKeUkecyw=;
+	s=k20260515; t=1784095150;
+	bh=n0SGocToquLN1fFBmS7KLjAIRrJxEJXwbv4xjRLyoF8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=TPWIoQ9iGrbYDn6JQ7C3mSfqeeS1y1SPv1SXmg6VXbrt5OVz7AhxoSot9s5mv6nLp
-	 CYvV8qmzOZvZLAFpTigTfcgZRMZZMifGv/bCl+9//pDkcI+DnrFDwCqykTMe/FdChC
-	 9URwadkBvghO2yQDCRJBxclTSTC5U9oEA4M5ulZCxP2pGIpFRYlXkhshU+QX4mZvrJ
-	 WwpOiildTfVAUuoOZutQjClOVzO6PmGSK12wcNQYB58vnBjBsNtVDWDi4VGvMQebsU
-	 0DlLCUmFXAKIhV3OSuDOgLInILAinZrRBkpuTzZZyYqDi30A02mkvkFhuUFlWkVNPd
-	 h8zbc3V0Im0+Q==
-Date: Wed, 15 Jul 2026 07:58:57 +0200
+	b=Oq+KYvmE5SBNjAa0lG4FN4Rwv3CPNZ93T9avUd4rPiEGNeRK+sP2xbsfk2B3HggqJ
+	 4VO/FSnRP1QoCAj1hsBSg+usGL2ZsYEukkJRGAWdz27uIuNicpvaqD9dqNSWsHoxIi
+	 fV3K7DOFC3qhZ3xfQbbK0aO9qxieXJJfbz9Kri0wFZ1lDILlM2+3/dvZgZ8cjc/fjq
+	 ImAOHHXPR8voq0ds6AYOnivUdCdiaR0Tm6dJ64F8SvycaP8IBSbsivvo3TuFJgK/hj
+	 7FPr2vkluNlKB6yQs6p3S4HwpplReqR0YnJOj/RMAys64Fs8fVkWmE63KHebWzeVUO
+	 Lz+yPhahON7dg==
+Date: Wed, 15 Jul 2026 07:59:07 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Taniya Das <taniya.das@oss.qualcomm.com>
 Cc: Bjorn Andersson <andersson@kernel.org>, 
@@ -56,15 +56,15 @@ Cc: Bjorn Andersson <andersson@kernel.org>,
 	linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
 	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
 	linux-arm-kernel@lists.infradead.org, Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Subject: Re: [PATCH v7 01/10] dt-bindings: clock: qcom,milos-camcc: Add
+Subject: Re: [PATCH v7 02/10] dt-bindings: clock: qcom,milos-videocc: Add
  missing power-domains support
-Message-ID: <20260715-eager-smiling-swine-8484e0@quoll>
+Message-ID: <20260715-luminous-bittern-of-coffee-2ecfd1@quoll>
 References: <20260713-b4-eliza_mm_cc_v6-v7-0-4d91bcef50eb@oss.qualcomm.com>
- <20260713-b4-eliza_mm_cc_v6-v7-1-4d91bcef50eb@oss.qualcomm.com>
+ <20260713-b4-eliza_mm_cc_v6-v7-2-4d91bcef50eb@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260713-b4-eliza_mm_cc_v6-v7-1-4d91bcef50eb@oss.qualcomm.com>
+In-Reply-To: <20260713-b4-eliza_mm_cc_v6-v7-2-4d91bcef50eb@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,21 +79,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 13, 2026 at 08:23:39PM +0530, Taniya Das wrote:
-> The Milos camera clock controller requires the CX and MX power
+On Mon, Jul 13, 2026 at 08:23:40PM +0530, Taniya Das wrote:
+> The Milos video clock controller requires the CX and MX power
 > domains, along with their performance state votes, to be enabled
 > before the clock controller can be accessed.
 > 
 > Document the 'power-domains' and 'required-opps' properties and add
 > them to the required properties list and example. Since these
-> properties become required for the already-documented qcom,milos-camcc
-> compatible, this is an ABI break for any devicetree using this binding
-> without specifying them.
+> properties become required for the already-documented
+> qcom,milos-videocc compatible, this is an ABI break for any devicetree
+> using this binding without specifying them.
 > 
-> Fixes: dbb9d53b7197 ("dt-bindings: clock: qcom: document the Milos Camera Clock Controller")
+> Fixes: a4937e974186 ("dt-bindings: clock: qcom: document the Milos Video Clock Controller")
 > Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
 > ---
->  .../devicetree/bindings/clock/qcom,milos-camcc.yaml   | 19 +++++++++++++++++++
+>  .../devicetree/bindings/clock/qcom,milos-videocc.yaml | 19 +++++++++++++++++++
 >  1 file changed, 19 insertions(+)
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
