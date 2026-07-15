@@ -4,95 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B62D3C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 01:12:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6BCFC44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 01:12:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7t3rulmgzdudnQm0VJU/fmU5yA2DaWNz98HbbPrWp/M=; b=Wiu0BS/Xvl5bpULaqej5SV3ovL
-	RO+fwFkmdRNCkMegmrvPP60gOHgiQK1rNRFnA3PMbQKl5Fv3dKUwpkpG3u9R76z3SdWF5mfyjLbDU
-	f0MsdwGIGEkk0gCBsKYLpWvcGLsCKhSz3Ro19exMpEoZhZkwKfWQE9bygZZ+TUkOfbOMPUT4OumrI
-	EBFKOuKDnuNb26KDqaZVC/7LwGA9EY4iYqVKZMym9ga2LOK+UI76Tu9sv/67+4hNnLRObp74A1Xsv
-	n9RgX8seg3ge8A6Bgq7ZY4y6BruhqN8qniAxqiI4R15VI01mfzFashYcVlli9wut2LMOHsC1Pz+MB
-	45sbaaLw==;
+	bh=lCUYlxb6BsnAbaXQaOLOynpXjnyMHB9hBKlRYLAY5As=; b=WHHSeCnPsY83aikkJAqJ+DaTP4
+	GXqbOPLqIW5+kMtzv/9RV2UXmVJ/ZdlJ3jJc6Dv0ssTWnzIxdaylYplc4b6YFvP6tKYEEmk7ZB+jw
+	DevLVzqSVpwsBq+SAlWPzrcLVUpv3lT6tOsuz3XeNrplCNhqkkhfOj6QMYwQuXe7F255Fd06LwRXV
+	tatnljMoMCdo8PHpQgj3t1OBCjnQf8f1TEamptH/JLiHWkpeIZm2RAwlXygSgmrRvyZuIFGEXnHmu
+	jYxpGLZpX3EfBNWX8eSRRYb7qL6sfFzCo81dkgolIXaVjHSj75rHDs54j3DLwZuEj0WJ6b7dpivrU
+	3DJz7fcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjoA8-0000000DWzJ-3pHt;
-	Wed, 15 Jul 2026 01:11:49 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1wjoAf-0000000DX3h-14Km;
+	Wed, 15 Jul 2026 01:12:21 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjoA6-0000000DWyl-00S8
+	id 1wjoAc-0000000DX31-2CEg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 01:11:47 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2cc6dd436c6so18817255ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 18:11:45 -0700 (PDT)
+	Wed, 15 Jul 2026 01:12:19 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-384930ca5e2so5085498a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 18:12:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784077904; x=1784682704; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1784077938; x=1784682738; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=7t3rulmgzdudnQm0VJU/fmU5yA2DaWNz98HbbPrWp/M=;
-        b=WEce/tVaCcXh8rENki0Tbga5wHXhmkrIN70EciQ3VNfMjwYXl4UflYQRZBPJWYfXDM
-         GUohHJKWn1nu2OsOhzslu0K/7q7I2u8hRD6rOTupK1dlG5Oz+ApFcCTLwC4fBPj4ga9k
-         gUAsGwryjv7CLTRcRQQduKUZ9LLltvN9MxPsu9sY/S7FPC0m5yliuN98qSghdR+N5efs
-         qv9yAhJUGA+z+extFXyah1xpHmR49xoGQxQvZ5zrtt1YflSABHNhRhGTGdv7WQ3Icwz7
-         tKsEIXKkuZ7LowRRuGSpmOL824WYx2Bj0D7+qQn1kNw3U75ZWCKrW1xQ0xHpV4TFRzlr
-         IXiA==
+        bh=lCUYlxb6BsnAbaXQaOLOynpXjnyMHB9hBKlRYLAY5As=;
+        b=FvepDMMugYZupbO53WYDcqrLDWCCA530zkfqu5am/j/hVJNYdUGfxWi3t+ek4SSxhS
+         pooTwMGy6gBbQXfF6ZBkNXrRu1r5tedijvcIDawcVN8zHO954zu034leItvrS+F00GMG
+         c+lCqO1esJYjDR/Ix9sQ5yVX/sVkbq1LokoOVZ+3fiGrrT8lU8ZcEw6zqncC6BIMdEV2
+         PHSSH8dkweLtkytYA/K+S9LJ+twk0FPpDlrt0ewuQ6tnJWdwF9wkHpKeyuodar7+NCG+
+         ZO3GQT2hkKlX2Z5xRx0ZkkNXR2XTZvuTyPfVaGRdMHYl7hjjxRXkoGLQZxMGzpa3pbIv
+         IMMg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784077904; x=1784682704;
+        d=1e100.net; s=20251104; t=1784077938; x=1784682738;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=7t3rulmgzdudnQm0VJU/fmU5yA2DaWNz98HbbPrWp/M=;
-        b=W2JIMNT9FCt6Pde/r9fJSPFPhKBJWvOaIhS19YsCnxcj57F5UcM1yH+J0ZQg13jRIw
-         hA90hIubijXy4sssLGabfG7OAJMTZKuHTsey+UgQ7Sn1PCB9DPgFQNbz2BaBNOPWcA7u
-         8T9c20Dj/O76Eaxmc1Fei6jZa46eYP5+P9BJIgcXcxwU7TUTqSC/rdj5sVYmRtlqUFKz
-         JIVBt+AkBLil8SSlC5eIwejwSHm+n8lMwVedR8FhUW10SBXSzwy+8EoW9s4cKjDWWQHz
-         acIcFwdaj/kOIo2aaO1eR3oEDNWrwOLRp817Zpvy6JZrkqtdYJMpOZTVzJ/KsPnoGW3m
-         p4Ug==
-X-Forwarded-Encrypted: i=1; AHgh+RrrfQO7mqgnfOP9l+KXwuUHBbKiCs/ykmroYCSZZxU6Ayx4Ec+hTBfeOw3aZWCGBrD6OrbzB4tld4f2fCNDESBt@lists.infradead.org
-X-Gm-Message-State: AOJu0YzrBwUvJ4XtoLQWFvA/DQSjkq0I7Qb/yby/Ja/wx99CX2nLpT3A
-	7Ctgvp2SX36Y5gRAIl+SqXg5U1ha4hS6c9iJRT/fFf6Obo4MDz+cBTer
-X-Gm-Gg: AfdE7cktXtBeByQM7byNEVfLYKTr47JRyzSkToYAOC7nMuc+hqCGXqW8oKryZ5VMn3z
-	SfO8KW8Wc5caNkDqCXRipmDr/vxZIh6cxJtH4o9yljyWtjxRBi/QGMG3605/EDkd8B+hmqJAjmN
-	6nGdfwMzCvswEKKEiUPbMAI1m47dfvf8LV3wHr9rDDOlYNPqOOI+/1k8DlbvIrIWRg2PPSd+VAg
-	Nc4tu2NycXPzMayXQm4vkrCF7313xKboHZfDek00KfqRGN8jJvAZmv9qDKdoKHbTKXTKD3Hkluc
-	GZ8TjG30ydkx2VZjUT5auVXqwIdGL69TaQZsReMnzX0u8xhsNSsywswbdXfTwU+tE1VNMsAPUKU
-	9vYJZ4YeEvuCWpPK+0wBgrum4r2dQHRFKhxpGXetXmCr+HwhZMMevqxsgMCKzx0bAqyFS9jDoPr
-	tpbr1qsE0Lk63iv+NBhqJVw0H8uMslXiG8Zbg0yOwitQ9cbTR7pubDaGboHHGQ7UK9z8Ur/iWZ6
-	lz95i4+6NgYPIdT1Co7PT7dAu6jkT22P4DaGZRbx5IMP2IMQJSsTQDT7ymBKfAHvg==
-X-Received: by 2002:a17:902:f706:b0:2c9:97a8:afef with SMTP id d9443c01a7336-2ce9f3c2c44mr142226605ad.40.1784077904158;
-        Tue, 14 Jul 2026 18:11:44 -0700 (PDT)
+        bh=lCUYlxb6BsnAbaXQaOLOynpXjnyMHB9hBKlRYLAY5As=;
+        b=S2Rd09PFE6V4qLrbLxmp9KN9y9IxClDKElSgoU7cz4dodDPMvURZ9Ulprix0DxTGP5
+         PGR2+pth2w4qIl0e/roQA84lnjZbl07XkredkFeUO1hIbQRu/11WuAYZ+At7SU1VCtXA
+         u4nr9LeOA5RIHJYZSrxl9tsUUK7nhgcVwSgKCjTB+h2RMxxy0HM60zQvO+vncprK6m9v
+         avMx05FfwfbtWoKjTC+fbV1yxMqR/Ss5666eQC5+cqkywU80ION+6n3k9MvDeLjmLkTY
+         ETtiOFY8RL04InlcHY0JAXLwf5SSsjz+phWpzMcPm+faVXxOuyEbCQPuflotrvGlZqNj
+         oJog==
+X-Forwarded-Encrypted: i=1; AHgh+RrrOqiBtnW74aKD1rLPg1RX2zXXNZLmZnnVBykCAzzdT2kkLjrE/LDg/NfndQAjtJYjUDA9AnRDmK4vqQHGXO/z@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzfv28Uhkv4dA6d3s85CGFmDtzQKH+KzfcZ59dNDKQ4U8skaBzz
+	8dgoBdXWtSfTeDf6eg7in3eNKobj2YyDF3NOzSZouytl48gXlPFJFbp7
+X-Gm-Gg: AfdE7cm2kXasjLU7I6gqEEKMhtagkQByOR21q21YP8oZuJwSVyCuL91eYgoh3SaLWiX
+	/dah/douPbWrDIFQzKtNjOdrgrOUmaq1qz16JtlGUoSyR2G3bDZK07r+ozWOUODiXWNtyZSfrte
+	3Ls1ME3B7vgb85gh49GjQU/sqoG5VPMU7bFiq/ULNcgHuW95SqOnVxUXtvPQagM8vvyc5PvhRfh
+	Of8KrJglyMwxEs+32Qy62GfdrJhBl1nrWg6I85hzCyf/w7P0gDoqo2EOg3U0EeA3Mdj9kQUiaFd
+	tx0pzh5BVzIbV46q7nFRAS+8WG1hLfbakm18ZLwZcwpTDz06rodiwOWKnHuuOIgao3RombzGGPN
+	B5LCX3gGKFXemowKEzARh0x8nO5E3nftHd753xRM2wvtav9jS70btZCFYeQnB1lQ4FbQFM0Vctc
+	dn+lhtuBwquh/ra9qW08Tetdqjf/inm+fpNiLncUAjAfEia1fP54aKfYSLUeQhbViTYJtJhqLKw
+	mMO9qDPq5jOn77vQPdbXMMk1u/7oiIiM6lkbuq2AWci55K3EaG4DMOWpGuLVjOzEQ==
+X-Received: by 2002:a17:90b:51cb:b0:38e:7eb:d07b with SMTP id 98e67ed59e1d1-38e2a06179cmr845415a91.34.1784077937648;
+        Tue, 14 Jul 2026 18:12:17 -0700 (PDT)
 Received: from ryzen.lan ([2601:644:8000:7a86::e34])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cee5ccb579sm26357165ad.52.2026.07.14.18.11.42
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38e1730accesm2235481a91.15.2026.07.14.18.12.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Jul 2026 18:11:43 -0700 (PDT)
+        Tue, 14 Jul 2026 18:12:17 -0700 (PDT)
 From: Rosen Penev <rosenp@gmail.com>
 To: linux-pci@vger.kernel.org
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+Cc: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
 	Manivannan Sadhasivam <mani@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Bjorn Helgaas <bhelgaas@google.com>,
-	Michal Simek <michal.simek@amd.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
 	Nathan Chancellor <nathan@kernel.org>,
 	Nick Desaulniers <ndesaulniers@google.com>,
 	Bill Wendling <morbo@google.com>,
 	Justin Stitt <justinstitt@google.com>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/ZYNQ ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/UNIPHIER ARCHITECTURE),
 	linux-kernel@vger.kernel.org (open list),
 	llvm@lists.linux.dev (open list:CLANG/LLVM BUILD SUPPORT:Keyword:\b(?i:clang|llvm)\b)
-Subject: [PATCH] PCI: xilinx: use fwnode_irq_get() for INTx IRQ lookup
-Date: Tue, 14 Jul 2026 18:11:41 -0700
-Message-ID: <20260715011142.1261469-1-rosenp@gmail.com>
+Subject: [PATCH] PCI: dwc: uniphier: use fwnode API for legacy-interrupt-controller
+Date: Tue, 14 Jul 2026 18:12:15 -0700
+Message-ID: <20260715011215.1263935-1-rosenp@gmail.com>
 X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_181146_077038_4529BFCE 
-X-CRM114-Status: GOOD (  15.23  )
+X-CRM114-CacheID: sfid-20260714_181218_652641_824A5260 
+X-CRM114-Status: GOOD (  16.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,63 +108,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace irq_of_parse_and_map() with fwnode_irq_get(dev_fwnode(dev), 0)
-in xilinx_pcie_parse_dt(). For an OF-backed device this is equivalent to
-the previous call, but uses the generic firmware-node API.
+Convert uniphier_pcie_config_intx_irq() from the OF-specific to the
+generic firmware-node API: of_get_child_by_name() to
+device_get_named_child_node(), irq_of_parse_and_map() to
+fwnode_irq_get(), of_fwnode_handle() on the child node to passing the
+fwnode directly, and of_node_put() to fwnode_handle_put().
 
-Unlike irq_of_parse_and_map(), fwnode_irq_get() returns a positive IRQ or
-a negative errno and never 0 (it rewrites 0 to -EINVAL). Store the result
-in an int and check for irq < 0, returning the error (including
--EPROBE_DEFER). This also adds the error handling the previous code
-lacked, where irq_of_parse_and_map() failures were passed straight into
-devm_request_irq().
+Unlike irq_of_parse_and_map(), fwnode_irq_get() returns a positive IRQ
+or a negative errno and never 0 (it rewrites 0 to -EINVAL), so check
+pp->irq < 0 and propagate the error. pp->irq is an int, so the negative
+value is preserved. Drop the now-unused np / dev_fwnode() locals, since
+device_get_named_child_node() operates on the device directly.
 
-Built for ARM (multi_v7_defconfig + CONFIG_PCIE_XILINX) with LLVM=1;
-drivers/pci/controller/pcie-xilinx.o compiles cleanly.
+Built for arm64 (defconfig + CONFIG_PCIE_UNIPHIER) with LLVM=1;
+drivers/pci/controller/dwc/pcie-uniphier.o compiles cleanly.
 
 Assisted-by: opencode:hy3-free
 Signed-off-by: Rosen Penev <rosenp@gmail.com>
 ---
- drivers/pci/controller/pcie-xilinx.c | 9 ++++++---
- 1 file changed, 6 insertions(+), 3 deletions(-)
+ drivers/pci/controller/dwc/pcie-uniphier.c | 22 +++++++++++-----------
+ 1 file changed, 11 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/pci/controller/pcie-xilinx.c b/drivers/pci/controller/pcie-xilinx.c
-index 4aa139abac16..a7b069f7673a 100644
---- a/drivers/pci/controller/pcie-xilinx.c
-+++ b/drivers/pci/controller/pcie-xilinx.c
-@@ -20,10 +20,10 @@
- #include <linux/of_address.h>
- #include <linux/of_pci.h>
- #include <linux/of_platform.h>
--#include <linux/of_irq.h>
- #include <linux/pci.h>
- #include <linux/pci-ecam.h>
- #include <linux/platform_device.h>
-+#include <linux/property.h>
+diff --git a/drivers/pci/controller/dwc/pcie-uniphier.c b/drivers/pci/controller/dwc/pcie-uniphier.c
+index 297e7a3d9b36..6516264fdfc1 100644
+--- a/drivers/pci/controller/dwc/pcie-uniphier.c
++++ b/drivers/pci/controller/dwc/pcie-uniphier.c
+@@ -262,27 +262,27 @@ static int uniphier_pcie_config_intx_irq(struct dw_pcie_rp *pp)
+ {
+ 	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+ 	struct uniphier_pcie *pcie = to_uniphier_pcie(pci);
+-	struct device_node *np = pci->dev->of_node;
+-	struct device_node *np_intc;
++	struct device *dev = pci->dev;
++	struct fwnode_handle *fw_intc;
+ 	int ret = 0;
  
- #include "../pci.h"
+-	np_intc = of_get_child_by_name(np, "legacy-interrupt-controller");
+-	if (!np_intc) {
+-		dev_err(pci->dev, "Failed to get legacy-interrupt-controller node\n");
++	fw_intc = device_get_named_child_node(dev, "legacy-interrupt-controller");
++	if (!fw_intc) {
++		dev_err(dev, "Failed to get legacy-interrupt-controller node\n");
+ 		return -EINVAL;
+ 	}
  
-@@ -535,7 +535,7 @@ static int xilinx_pcie_parse_dt(struct xilinx_pcie *pcie)
- 	struct device *dev = pcie->dev;
- 	struct device_node *node = dev->of_node;
- 	struct resource regs;
--	unsigned int irq;
-+	int irq;
- 	int err;
+-	pp->irq = irq_of_parse_and_map(np_intc, 0);
+-	if (!pp->irq) {
+-		dev_err(pci->dev, "Failed to get an IRQ entry in legacy-interrupt-controller\n");
++	pp->irq = fwnode_irq_get(fw_intc, 0);
++	if (pp->irq < 0) {
++		dev_err(dev, "Failed to get an IRQ entry in legacy-interrupt-controller\n");
+ 		ret = -EINVAL;
+ 		goto out_put_node;
+ 	}
  
- 	err = of_address_to_resource(node, 0, &regs);
-@@ -548,7 +548,10 @@ static int xilinx_pcie_parse_dt(struct xilinx_pcie *pcie)
- 	if (IS_ERR(pcie->reg_base))
- 		return PTR_ERR(pcie->reg_base);
+-	pcie->intx_irq_domain = irq_domain_create_linear(of_fwnode_handle(np_intc), PCI_NUM_INTX,
++	pcie->intx_irq_domain = irq_domain_create_linear(fw_intc, PCI_NUM_INTX,
+ 						&uniphier_intx_domain_ops, pp);
+ 	if (!pcie->intx_irq_domain) {
+-		dev_err(pci->dev, "Failed to get INTx domain\n");
++		dev_err(dev, "Failed to get INTx domain\n");
+ 		ret = -ENODEV;
+ 		goto out_put_node;
+ 	}
+@@ -291,7 +291,7 @@ static int uniphier_pcie_config_intx_irq(struct dw_pcie_rp *pp)
+ 					 pp);
  
--	irq = irq_of_parse_and_map(node, 0);
-+	irq = fwnode_irq_get(dev_fwnode(dev), 0);
-+	if (irq < 0)
-+		return irq;
-+
- 	err = devm_request_irq(dev, irq, xilinx_pcie_intr_handler,
- 			       IRQF_SHARED | IRQF_NO_THREAD,
- 			       "xilinx-pcie", pcie);
+ out_put_node:
+-	of_node_put(np_intc);
++	fwnode_handle_put(fw_intc);
+ 	return ret;
+ }
+ 
 -- 
 2.55.0
 
