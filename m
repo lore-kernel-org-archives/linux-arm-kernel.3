@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3100C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 21:30:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93CC3C44507
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 21:35:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QlZJ9Oq0iUmfLZTq+2Yt0wQMB3kH+WdcRcJz7YsThu8=; b=khy5seQ29dNQ/lpk8q8mh1+sim
-	R3dk/W8sqhiXJq/IFjtNg134v72GHlingxcfkPHwRIqp8C3gMLZGxkw5hJxO9HqG+GHv2Rrbi81kG
-	DqddwZCEVQy4So2Trz7o0sk3XzykUeLAUGHO+c5TzN3XPzzhamYNwgMRhcwl2+7mCCP7iMdiybGRZ
-	g/WOKwo9LKnBh9ZhelMnhm4bCARTtwPIqJU2OVSlm4c15vHiui2zKtZwUSt1L3WrSGnL6hzAIuv66
-	ysJPSbXZHDcLJtKJm1qWbykLYfS+WjxkDMIYq8Ci6LmHbOJBUHPL5YqnDlr/jBymg+wPaBifAJtIv
-	Ro30FucQ==;
+	bh=i0oVjFQK2ejAAXz4P8kPZme0Eli+uE+tvezil+zX+jY=; b=uKhhumsxPh7NlbXsVVfSrXMr5V
+	x+ASAaD0nkW72B12TP4zEIb4fDRZAifUgPjG1gLuLshLFdWnvXDxgriTnXyzAyCtny8InMZ61yDqW
+	niBaUm+wSmRAm4v6LFpsvZgJ280WxviLmWbbEl9I4j0btsqHkJWsk2LD+ki7G6In0NTGyOoiIUfk/
+	FaLXU27PwhjcaBuCZ8l4mf9iEN94XCv6eb6BgYKb/VW+90GzOWIO3oMKW4xvDD18xSL4tPBm+LTK/
+	oVaCMRT6BdPEcGPsB22LrzS05G3kdj8wBMGVW69j5a6x+hg2JEYATlXfLSfZFou7oZsnxbI2GdUu3
+	6LHu0zvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk7Bl-0000000Fxbb-0VQW;
-	Wed, 15 Jul 2026 21:30:45 +0000
-Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
+	id 1wk7G6-0000000Fy3V-1e0o;
+	Wed, 15 Jul 2026 21:35:14 +0000
+Received: from mail-vs1-xe2c.google.com ([2607:f8b0:4864:20::e2c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk7Bi-0000000FxaT-36W2
+	id 1wk7G2-0000000Fy2I-1VBu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 21:30:43 +0000
-Received: by mail-qt1-x835.google.com with SMTP id d75a77b69052e-51c1805b8a7so60400391cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 14:30:42 -0700 (PDT)
+	Wed, 15 Jul 2026 21:35:11 +0000
+Received: by mail-vs1-xe2c.google.com with SMTP id ada2fe7eead31-738cdd667ceso723800137.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 14:35:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20251104.gappssmtp.com; s=20251104; t=1784151041; x=1784755841; darn=lists.infradead.org;
+        d=ndufresne-ca.20251104.gappssmtp.com; s=20251104; t=1784151309; x=1784756109; darn=lists.infradead.org;
         h=mime-version:user-agent:content-type:autocrypt:references
          :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=QlZJ9Oq0iUmfLZTq+2Yt0wQMB3kH+WdcRcJz7YsThu8=;
-        b=Up4dZaljlkNkY0V00fDdEpeYy9CrY0zClb1G/ELqm+sJntmfwNmh6Mw4z4klZmiMzV
-         jy4x/RlwTiZoMAYLVLC8U9G2uhJ8nYCS6WkeHjpXJhhORaA0e7+zkPMISpZjSsr3hvV7
-         DRms5/voK5eXUBd7anqqckbb5XZKDUzpKrQhYbYfD9khdCG+ohXNJKkzcQ5SXSNvpT/P
-         PP94LmkHtl7wfAOmfxA1YR415/PBX5R4wHRSwFK4az4Pzv7hKPklXvVjQgJ/ZEZz/qjK
-         BnthZyjpLKcw/LmqRlBqpdQBfWtAS5S2zd6yApUKi3W1BGU+snK2GiEpWt68GwYD4Qhq
-         kFGw==
+        bh=i0oVjFQK2ejAAXz4P8kPZme0Eli+uE+tvezil+zX+jY=;
+        b=lck8WKDi3McquTnEAFej18T4oTIFDKNgCnUyHnn5qnBzDQwNxyrWGHcBI+EusixnUY
+         RRwyF/LsccD1+ysfaunhEYJERp8KTF4EPOmqfqpdSFcXptn7E+VjnG8rTS15podY2nCD
+         XUehftS//F8+aBiPgrVxdNSmyQK6sn5Uh27pUoWOGbmSXSCIbrwbL92Pb+iPOqxWDqaL
+         NQ2+frBKlPVteITxoTf12DuVE8dePXtN3lFHv/E/nkYYs4HjA0mcZrCo2oAgRzxZlQOD
+         hl6ccMQ53Jagx3sgfpiSBqsaAb48EVVVHCM6ghLHGHaLlhSJOOMub0OZS8pyA5J8JYjF
+         3vYg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784151041; x=1784755841;
+        d=1e100.net; s=20251104; t=1784151309; x=1784756109;
         h=mime-version:user-agent:content-type:autocrypt:references
          :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=QlZJ9Oq0iUmfLZTq+2Yt0wQMB3kH+WdcRcJz7YsThu8=;
-        b=V72zi5m0YQMjWIw1JuD6vL9PjxWS3U2tcUH0AwPdzhWXneyb044xXk7jPnWbUb6vdu
-         5r1Jqep2YCZCl71e1l0aQtCQW6Gx3hWneRKYYmtP6TN4wdFHcslDFzqC17DLYk/i23pQ
-         o7DOIO0xsH5Y53YTU/J1KzsPtqimamM13HPs6EATrKq4wIF8VhLxiuqydkYn2OeiEA9B
-         /qbmAgi6vpqi3xgH597w0B/jDu38AI+ZtcKZUf58/R8LKElhK9L/WFupvO2V8lAF42em
-         aopRVZhQ+2lg9dUwaGfRtg0aGoorLCGWIAv5S1ccxVMStgjg5tEhI7ei+InufMiM+r9J
-         lK9g==
-X-Forwarded-Encrypted: i=1; AHgh+RoLFtEZivMK+qOE65Pv2oWQy+o3kLO0fkjIuk2h4OrE+/HSjDtrp756065cvnENaF8bqMVTfQJPN5/URCZXqJl7@lists.infradead.org
-X-Gm-Message-State: AOJu0YyY0mboMvkiXq89cs2CpLb/N/oZPA9aiEcMtKoUj7TSTnY1skfH
-	OR+hyFlWk+n7QL3ct9Ci0OSVxPIGpCXqyJi+XEXnVFAa8JRm1kwbSv7LZQOSjbBYYXU=
-X-Gm-Gg: AfdE7cmDeKjD3WH8DpFja8PzYjrg4LHNHjrBrMfGKpzkk420V1UvSdbr4d7q5JiQY0s
-	B21d2rEFhzg6beBGq/RWKWtWmKfSBVeNsvt7wZIRpcM8o6GQ3kFGuy8pmsxOuOLmn+XYw16Db7I
-	T7k1vUPiX86TBpbx+qpFw56/gXoH2x8JHB8NAgGzQ522sxbbHdk3ciRbobqS77vsMmRUAnTlg6Z
-	Y9/owsBFmVAlSXGwlAUpofYhTqNzEnU3jim5DRymnVaCYsEkK4uZFC0UmFAy/eHZBWsWqNI9PJ+
-	ms9Vh+g+IzKwFphkA4KaQUik6TUL/SCLpJEqT1tABrySfsfY4mMy1dCGjTQtKt8X7Gfb/FNydJU
-	Wvw41TRrUBQSy3HdAjDEYt0DOyAQSv0EdR7Hm1Nwweuh1BsHWsmFJpDeJT+0Liz9daHsRGIV23v
-	bRBMNPzgI=
-X-Received: by 2002:a05:622a:2610:b0:519:f884:b587 with SMTP id d75a77b69052e-51e4eff37b5mr46908081cf.27.1784151041296;
-        Wed, 15 Jul 2026 14:30:41 -0700 (PDT)
+        bh=i0oVjFQK2ejAAXz4P8kPZme0Eli+uE+tvezil+zX+jY=;
+        b=Z4Eqtibwe0qGx2B9vh/arwKY6hLjWcrBLu8kwa7HvqGTOQHQfGcyLo3rVGTZlARf69
+         rBWpOMHeelzJ8A/mVkMLvOFvhtYhPz6/OpF+cCsThAy1saoOH0FUTyMJiBgws8OvCFcV
+         zi0j0CmsPWhWiKdy3gX5UOpxHd682gy8NLVXUlr1EYpwxaJRDzwwceHqGVONgom032ZF
+         o7Ajjkreyp+6yrr7aY3S7qMM1UhjD1m7Eo9jEAGoX/AfDc9FuqL3Nc3WM4WZq/RARTJI
+         Z3hihX+K7hTfCq5abMI/OKS6LkliV8YUhnFzXYI6cl52bL7yXkrpjt2tGEjBnsIAYEol
+         D16g==
+X-Forwarded-Encrypted: i=1; AHgh+RqhW+H8we4jfGWYbc0Px/KwwnT5LdMzZUc7jD34sXZh05oJNKNvE7WE3+upqM6Tt4/BQYU7CXgfU/84m9AYAvlb@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw/ArjFPFfBV4yET/7N3s2Dit08+KU/Hvfw4qJS0mt8GglRAl1G
+	aMUXjCNda1l77hoIEk4vTe6vsu6Cwu2qSuOC2c9t0kmnMq4qkgJuVkdgDp+vc5FIrOw=
+X-Gm-Gg: AfdE7ckF4QrV6/2cd0AXyINznO/kDtKSZOX33mTDddNuMeFkHq/goIKvcafUN2Vmg79
+	kW0YIyirYJYZH+tI6+Q/G4Aj9niLHQAzZE2lbmJRauORwOSMCQ1cRpOidISmxLQUpuoL21FnUHt
+	eWyt6QyO3Wr464ccvQOHHOzMrjwMMAiubstYeDrFJZJrdF8sxLYasvbN4MZoSndMeDmO4uLzk43
+	bZ6X/w9olMTKyx6JZoIxcKU6qRn8L69ou76LIpTrtnidfzmrY0kpp4pbH9MVRu371xjhdQrTszz
+	SlwFSdd/hjkbR6IhC1avAy2J50byHd142ABBFjZnxzWW/8INqoRrDLqAvqQeMDb5Eev4G4vT9Nk
+	HK5/LHG8iLLUNCu15J3OBhuY8qe8r1eFDntiA6hKIDMWCHAeiAk1L61WmWEnCKcPu7piWygZAoI
+	/+C/lzprk=
+X-Received: by 2002:a67:e119:0:10b0:745:7f23:a876 with SMTP id ada2fe7eead31-7457f23a8b8mr4213170137.1.1784151308881;
+        Wed, 15 Jul 2026 14:35:08 -0700 (PDT)
 Received: from ?IPv6:2606:6d00:15:e06b::5ac? ([2606:6d00:15:e06b::5ac])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8ffd80fd492sm224622526d6.34.2026.07.15.14.30.39
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-96ed3184b2asm10838154241.5.2026.07.15.14.35.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jul 2026 14:30:40 -0700 (PDT)
-Message-ID: <84fb82b5f765c98d1e22af9e60658df2d42ba016.camel@ndufresne.ca>
-Subject: Re: [PATCH 2/4] media: mediatek: vcodec: remove redundant return
- value of vdec_vp9_slice_setup_prob_buffer()
+        Wed, 15 Jul 2026 14:35:08 -0700 (PDT)
+Message-ID: <ac55379e5e84dd68146dac9cf38d1cc40c5f1691.camel@ndufresne.ca>
+Subject: Re: [PATCH 3/4] media: mediatek: vcodec: free working buf on error
+ path in vdec_vp9_slice_setup_lat()
 From: Nicolas Dufresne <nicolas@ndufresne.ca>
 To: Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>, tiffany.lin@mediatek.com, 
 	andrew-ct.chen@mediatek.com, yunfei.dong@mediatek.com, mchehab@kernel.org, 
@@ -80,11 +80,12 @@ To: Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>, tiffany.lin@mediatek.com,
 	hverkuil+cisco@kernel.org, laurent.pinchart@ideasonboard.com, 
 	p.zabel@pengutronix.de, benjamin.gaignard@collabora.com
 Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Date: Wed, 15 Jul 2026 17:30:37 -0400
-In-Reply-To: <20260506084203.202882-3-lihaoxiang@isrc.iscas.ac.cn>
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	stable@vger.kernel.org
+Date: Wed, 15 Jul 2026 17:35:06 -0400
+In-Reply-To: <20260506084203.202882-4-lihaoxiang@isrc.iscas.ac.cn>
 References: <20260506084203.202882-1-lihaoxiang@isrc.iscas.ac.cn>
-	 <20260506084203.202882-3-lihaoxiang@isrc.iscas.ac.cn>
+	 <20260506084203.202882-4-lihaoxiang@isrc.iscas.ac.cn>
 Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
  keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
  /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
@@ -99,12 +100,12 @@ Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
  ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
  bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
 Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-uijvWZFgWMICyZhGcasg"
+	protocol="application/pgp-signature"; boundary="=-BPGkvXWrEAcE1IG1kYVb"
 User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_143042_789183_2FC33AFF 
-X-CRM114-Status: GOOD (  15.84  )
+X-CRM114-CacheID: sfid-20260715_143510_412255_4ED7E8EF 
+X-CRM114-Status: GOOD (  14.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,100 +121,66 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---=-uijvWZFgWMICyZhGcasg
+--=-BPGkvXWrEAcE1IG1kYVb
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
 Le mercredi 06 mai 2026 =C3=A0 16:42 +0800, Haoxiang Li a =C3=A9crit=C2=A0:
-> vdec_vp9_slice_setup_prob_buffer() never fails, remove 'return 0' from
-> vdec_vp9_slice_setup_prob_buffer() and modify its signature.
-> Also, remove the return value check in vdec_vp9_slice_setup_single()
-> and vdec_vp9_slice_setup_lat().
+> Add an error path label in vdec_vp9_slice_setup_lat()
+> and call vdec_vp9_slice_free_working_buffer() to free
+> working buffer to prevent potential memory leak.
 >=20
+> Fixes: 5d418351ca8f ("media: mediatek: vcodec: support stateless VP9
+> decoding")
+> Cc: stable@vger.kernel.org
 > Signed-off-by: Haoxiang Li <lihaoxiang@isrc.iscas.ac.cn>
 
 Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
 > ---
-> =C2=A0.../vcodec/decoder/vdec/vdec_vp9_req_lat_if.c=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 | 13 +++----------
-> =C2=A01 file changed, 3 insertions(+), 10 deletions(-)
+> =C2=A0.../mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 4 +++-
+> =C2=A01 file changed, 3 insertions(+), 1 deletion(-)
 >=20
 > diff --git
 > a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if=
 .c
 > b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if=
 .c
-> index 092fd34e21d2..0f47b2671353 100644
+> index 0f47b2671353..673b17d0dd8d 100644
 > ---
 > a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if=
 .c
 > +++
 > b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if=
 .c
-> @@ -1013,7 +1013,7 @@ static void vdec_vp9_slice_setup_lat_buffer(struct
-> vdec_vp9_slice_instance *inst
-> =C2=A0	vsi->row_info.size =3D 0;
-> =C2=A0}
-> =C2=A0
-> -static int vdec_vp9_slice_setup_prob_buffer(struct vdec_vp9_slice_instan=
-ce
-> *instance,
-> +static void vdec_vp9_slice_setup_prob_buffer(struct vdec_vp9_slice_insta=
-nce
-> *instance,
-> =C2=A0					=C2=A0=C2=A0=C2=A0 struct vdec_vp9_slice_vsi *vsi)
-> =C2=A0{
-> =C2=A0	struct vdec_vp9_slice_frame_ctx *frame_ctx;
-> @@ -1030,8 +1030,6 @@ static int vdec_vp9_slice_setup_prob_buffer(struct
-> vdec_vp9_slice_instance *inst
-> =C2=A0	else
-> =C2=A0		frame_ctx =3D vdec_vp9_slice_default_frame_ctx;
-> =C2=A0	memcpy(instance->prob.va, frame_ctx, sizeof(*frame_ctx));
-> -
-> -	return 0;
-> =C2=A0}
-> =C2=A0
-> =C2=A0static void vdec_vp9_slice_setup_seg_buffer(struct vdec_vp9_slice_i=
-nstance
-> *instance,
-> @@ -1170,9 +1168,7 @@ static int vdec_vp9_slice_setup_lat(struct
+> @@ -1172,10 +1172,12 @@ static int vdec_vp9_slice_setup_lat(struct
 > vdec_vp9_slice_instance *instance,
-> =C2=A0
-> =C2=A0	/* setup prob/tile buffers for LAT */
-> =C2=A0
-> -	ret =3D vdec_vp9_slice_setup_prob_buffer(instance, vsi);
-> -	if (ret)
-> -		goto err;
-> +	vdec_vp9_slice_setup_prob_buffer(instance, vsi);
 > =C2=A0
 > =C2=A0	ret =3D vdec_vp9_slice_setup_tile_buffer(instance, vsi, bs);
 > =C2=A0	if (ret)
-> @@ -1804,10 +1800,7 @@ static int vdec_vp9_slice_setup_single(struct
-> vdec_vp9_slice_instance *instance,
-> =C2=A0
-> =C2=A0	vdec_vp9_slice_setup_single_buffer(instance, pfc, vsi, bs, fb);
-> =C2=A0	vdec_vp9_slice_setup_seg_buffer(instance, vsi, &instance->seg[0]);
-> -
-> -	ret =3D vdec_vp9_slice_setup_prob_buffer(instance, vsi);
-> -	if (ret)
 > -		goto err;
-> +	vdec_vp9_slice_setup_prob_buffer(instance, vsi);
+> +		goto alloc_err;
 > =C2=A0
-> =C2=A0	ret =3D vdec_vp9_slice_setup_tile_buffer(instance, vsi, bs);
-> =C2=A0	if (ret)
+> =C2=A0	return 0;
+> =C2=A0
+> +alloc_err:
+> +	vdec_vp9_slice_free_working_buffer(instance);
+> =C2=A0err:
+> =C2=A0	return ret;
+> =C2=A0}
 
---=-uijvWZFgWMICyZhGcasg
+--=-BPGkvXWrEAcE1IG1kYVb
 Content-Type: application/pgp-signature; name="signature.asc"
 Content-Description: This is a digitally signed message part
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCalf7/gAKCRDZQZRRKWBy
-9AuhAP45kkmqN6KDRPau8KsNlbh+VehZLSyD0vR1d0SaUrC9YwEA6rBKC53JzIa4
-e3mkBO2afGzRaiVa1ujr4Kj+OTnn9Qw=
-=FGyY
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCalf9CgAKCRDZQZRRKWBy
+9GUlAQCiIYGKuOGYT5TanEl67O39XYvu/biLdLS48sx4lqa2UwEAq720eTrXwm+3
+GboJu4m0lDSSaP4OwRGYTcVkIJSRGAY=
+=bkfy
 -----END PGP SIGNATURE-----
 
---=-uijvWZFgWMICyZhGcasg--
+--=-BPGkvXWrEAcE1IG1kYVb--
 
