@@ -4,108 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23944C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 02:50:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AF6DC4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 02:52:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FKnWx5LrBtIKgWAbXgiWOXDWrG19qs6MsR+rTdIDWJM=; b=d+HUEWicx5jDu5pw6gqIgpmfqT
-	vmWbrEzE4w5AxKWx5io+5w0O2EPaMl1Qocr95hq1w3GITH+t2DpogUMnhZ7i1RyqsQGMAl55uBy1V
-	u6l1SwpyUwMW/N+zWwcJ4uKYa5ZQMBMSgazfuTYpvVV9QA9AhrMyJVpA8TUa22op+rfPUltBC4ro5
-	3EyNSptEFw8jLMjucwVzqWkV8bFywRq9+TsRQjmrWZDcRXetVnVtBef+WU1dTcEAt3iyWbKHZwrsu
-	pP7f2r8UU1qVeqkIAi2w27VGOMwo3e1F6Ih5sasl5BfXyyepOXBYujzPZ5ZRIRV5P2qv/p0Zrv0uc
-	g5K/cAEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iBaHrm0DZrYULwDF8Q3yBCiR3gUUI1Ti16lOV9jg2qY=; b=tvK/M9Tm6U9/ocJIoc8EaoJJKZ
+	7r9yDrbxWIggK1rAYVC6Sp9Mb1ZY03+XFv4KnBxO6sDql1SrDg8EwoFhKhnwnYQgeLn3ai5h7BGGi
+	q50C+qrVCfw6CpqBeCKl5bTlw/qgAQv5yCbx5NrRn728LRgD9d0kOlo+uHbHSlG3PxOtTSABoN72p
+	3vh/ADNCik/R6sr2piiJtFIeqRnwbeXuIZWG3ndhv3EcIqbUWs1tcGCoeBej5ciH8oHag4Y7M9vL6
+	KVSAJlwdWtnyvsvnyvpYrTDoOGiozaZo++l//jS2sdXO1/ShYfYuLI8Da0tenlibAnnlPL+c2iU2X
+	S4F9vxFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjph2-0000000De0e-2fX2;
-	Wed, 15 Jul 2026 02:49:52 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1wjpjm-0000000DeC2-07nl;
+	Wed, 15 Jul 2026 02:52:42 +0000
+Received: from mail-northeuropeazon11011033.outbound.protection.outlook.com ([52.101.65.33] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjpgz-0000000De0F-12nl
+	id 1wjpji-0000000DeBQ-1IyT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 02:49:50 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-47c2b362ee2so4265369f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 19:49:48 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1784083787; cv=none;
-        d=google.com; s=arc-20260327;
-        b=NyxHIt3YAtrU/UtxAHzIprLu+sPyxcN3jsbt/HQHRRcrjDsWvg+lHc7N9tSX3GIIMC
-         pr/aex3M6hUn8QAZxLOy+OwIi5ognFoslH8FgIzqBDHcnD6It4t70WMgejqS8RFiY+ll
-         NH34pPbCHesAP2YqDaWWhScNcdYJySdTttt/yDcaF2GdqT3tF/TpIb2ewkJZKqFxZPDW
-         86Ocmp+XTcbAK7pC+jWG6jHPIMcc6PgibuB2EMBqhYBe4BALO5u7P68IcFbjyg1WBZaI
-         DYSHJ/7B9Bc16H05GxmXv0knChCKOnvm2Uz4bWYcygN5yab5e+XIQTzllpb5gd/yNVBu
-         l+8g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=FKnWx5LrBtIKgWAbXgiWOXDWrG19qs6MsR+rTdIDWJM=;
-        fh=4crY0TtU5d8qj3zEa5iNx7ZkVcz8Bd9qbc096ZR6m3Y=;
-        b=j0qMCn8fHzKveB1M8j8oVqvOu2a5OOfvqNqI08rQL10j+259KGSdM4uxf4zIgxBVXO
-         J1fVPC7roum9s9hSReeYH1gTeao55vw6avOUfHtOHbGIGZBFu8UWKjBUA717HFOp7nfu
-         U4R92PW94DJQLT8uOIY80TSCg8gsnGj7jkhb3m0JofPaq+TRyDKkqElu1iaQEpisCpqr
-         Mzefl3oUGptF+wDdxiEMgaAn+q/77JZbpgJ8ms4MHwUvmBZuFOOs1uLKCtYtrniFPNbf
-         YmdoRqyJIjpIfEFWwDaJE4+25C2JK/iK2rKvHbyHgzeQIolNFPTBmhJo+lRba8f8HTq1
-         V4mQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784083787; x=1784688587; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=FKnWx5LrBtIKgWAbXgiWOXDWrG19qs6MsR+rTdIDWJM=;
-        b=IO7InJCz4k16m9jkhJnPDXuPQQNMHAsZLvlxn5JmA++u/uB1ASxZejj5SwJ2vt7eSH
-         KTS/UNRLB3RV0bu7uHwNvN6U4oZKi0NOo5xncWKTvXrrL8rjUMKmLwp++vnxrWsJIkSj
-         NqzOg6fqgC2TKmuspIvC2u6KdJtASLg/fiQwzVhWSbUgIK/36dtSwT2dVthzA+23aQO7
-         +/+wacc6D+w7WQbBgHXJ+o/f1ECIlZFW1BP3SKlcpWdtIE84SnNdpngVin3YkMjD1i+Q
-         6TH7YIpnQHxBKyTY258BF/V/sRl6uneZDo1/m/6CBvtA4aavEV1CxbJXNuTcRpAfHfyI
-         SxWw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784083787; x=1784688587;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=FKnWx5LrBtIKgWAbXgiWOXDWrG19qs6MsR+rTdIDWJM=;
-        b=EwgWkdqLBBF8kCSoilkfUYsSewi5j3Ab15qqrk4wUphUXW1rvgRUAlJU+13p6DPgLF
-         84cv87UY2xujtBC8moYKwwynuhROJjvO7mUSBkfHDmI9t2g4/6hDuT9qJ2SQvJwRBLAs
-         Y9ocyCAIUXI+JUtg0ayGuJri/gL+5TGK+vSk0HBBc2HZ29d4dHdYhqLPKkDnhlqaTCzU
-         NqD/fkBL+YxN+cgukFSSl1wt3WumY8vnKG+OAXPRVuhS0GSgBH+BNDz2ihZcIk6rWksO
-         GCOOnlFDZCEfcy7OhuT1UjSUSUyOdSzL79LxR28rBXDGBDOUPazeWC6sGidHsJqN9oJ+
-         f8iQ==
-X-Forwarded-Encrypted: i=1; AHgh+RqfxlQjLsUFybGZBALAmztRk+QlLlyRXY72QBqqmSCg7vvSKsyWAZCGHoGU773l+xtssBHGXrWFlsXzayIMtZPV@lists.infradead.org
-X-Gm-Message-State: AOJu0YzoKKzU3montQ2sDtrRG9t4H9jWP+EU4UtN/NYDTagYk/l7vLux
-	WBdglt6Ou2qnOFnj3ELlNhaoQkvuqIOo3GjGMgeBYBQRf7A32MCYOMYB6mQ1y2VOZBVqnLRv5Go
-	c6hrb+GZafaYELcHuqF9CUITakdEVMNk=
-X-Gm-Gg: AfdE7cnok2E4UhmLzUEfxzPYF2st/g5Bv/eob6VQToWjIV2kZHxzmiIF2fTn4h08pDj
-	ocwA0Bcv8oNh0Kiwbd4ETC0iSXEcKelxMguWkaUo1MgHpAOVokZTWnZNq2dqZk8IZZWInFayX1x
-	TSY4oFIe6i7I7V8ssa/8gvZ3jbJGp/3Pqic2foomzqsfxFZ8LSL7Ms0PG7gIeBjNtpwr752qP26
-	eUV9Nxce+GTf+/zro3V9b3wYcqfhVbgeqriFfObgv2T48ciiftGYQgySdyXNq7NV6uobRF3ag==
-X-Received: by 2002:a05:6000:4382:b0:47d:fc45:8589 with SMTP id
- ffacd0b85a97d-47f4fc6b180mr843449f8f.0.1784083787198; Tue, 14 Jul 2026
- 19:49:47 -0700 (PDT)
+	Wed, 15 Jul 2026 02:52:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uKfoQwOmunoENA0fErQ8sVpXJ4AFGSP8uc8rb2s/gNfjyChulgKjbqyidF2B607RnGx9JQDS7P/s1UvRNc5jvbOJOgEEgkieVWUx6whFMZH5VXctsQqYz7PT1a7iE4UzS45PKxVdnCesVWFs3GnamfWLpDRCTMAFk8DUoznnWFLtgc8RLLlnCZ71idH9MvPBNJYTqV7qxlQvcXE5QhSPf/Vc5rUcWbT5C7F49FBnMXqjsmMDh+5HxaTS579TyZpWflDkrqRbZIJM6pjxahePEa35pPCVDpHgEy0o+CvpgBz6UPvnmyqffsghlQ9TaAdIYTUErlV5mXiAfcds6BDnUA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=iBaHrm0DZrYULwDF8Q3yBCiR3gUUI1Ti16lOV9jg2qY=;
+ b=eWb7Nyac0DMN3cQ9ol+yQLF+vkoOr7r5jiHo8grW+bNxv/jl/oHrvwtJLIbt0Nj8cOZ4lBPBuLYE5ziJZMQ4Dw9gQpPWz8tgFa1zOhx0LZrU67MmjuDIYDVl4fjuKF0BnoFIUufxzLog6EwcPlJpsyQFXIgjdk24iecPSKM6hUFCfZKGfRnCmHvlFFN2dB5mP1TNqWTvV49Pa/2RCV4+yvGCYALFE5j8/ZNTu9hWE1JuvG5LsogD/3NCE14iP95PdjlwJLQQ3wKf2ZEJPswLhnuT44xgFB50J5Io2XAGXx28LpT2XPJSvVC5KjOYQud62gpG02F3tRiBu6q9QkRTOA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=iBaHrm0DZrYULwDF8Q3yBCiR3gUUI1Ti16lOV9jg2qY=;
+ b=ZQ69EiKRdaoVuxh+twpIiUAHkE7A1eehy7BKpDsfhQDJ6dhZpLB+qBtNB9D0AudSqY/FLhq/yFV6wg1Oqyj2dX7UnaaM5jZCWvIVqth2kG17ug9dr98BEK7gJmrpXaDYvLZLWHALJmkgq/1lQmLREg5Zn6klPPxzICrIx8LcEmZWvgKUNHOW+Dx3nzb0oN/0VLJIqxBzEITRSRJK2YeSmMYfMZG1rbATIl8JuIRPGxJXzwgWys+cs+6pGvvyNIou2weLUnDkeSkv6mMWfMkX3xcyRbpDORsH5lnQc/8h2nvzfeCbHdkjOYRN7OX4p59390Ux6US6yvSDaU+Ud6ppnw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DU0PR04MB9466.eurprd04.prod.outlook.com (2603:10a6:10:35a::6)
+ by PA1PR04MB11310.eurprd04.prod.outlook.com (2603:10a6:102:4f5::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.10; Wed, 15 Jul
+ 2026 02:52:32 +0000
+Received: from DU0PR04MB9466.eurprd04.prod.outlook.com
+ ([fe80::326b:ef06:42b5:c83c]) by DU0PR04MB9466.eurprd04.prod.outlook.com
+ ([fe80::326b:ef06:42b5:c83c%4]) with mapi id 15.21.0223.008; Wed, 15 Jul 2026
+ 02:52:31 +0000
+Date: Wed, 15 Jul 2026 10:54:40 +0800
+From: Carlos Song <carlos.song@oss.nxp.com>
+To: Markus Elfring <Markus.Elfring@web.de>
+Cc: Carlos Song <carlos.song@nxp.com>, imx@lists.linux.de, 
+	linux-i2c@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kernel@pengutronix.de, 
+	Andi Shyti <andi.shyti@kernel.org>, Dong Aisheng <aisheng.dong@nxp.com>, 
+	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, LKML <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v5 1/2] i2c: imx-lpi2c: properly unwind resources on
+ probe failure
+Message-ID: <5fp45u3yuwz73nk6eeofx5fp5drvaqxp435mithslttb73zylb@t2s3se5a4qux>
+References: <20260630105223.3687516-2-carlos.song@oss.nxp.com>
+ <f6284d81-75fa-4418-b4f6-531163bd02cb@web.de>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <f6284d81-75fa-4418-b4f6-531163bd02cb@web.de>
+X-ClientProxiedBy: FR2P281CA0183.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:9f::19) To DU0PR04MB9466.eurprd04.prod.outlook.com
+ (2603:10a6:10:35a::6)
 MIME-Version: 1.0
-References: <20260709073823.6643-1-jiangwen6@xiaomi.com> <20260709073823.6643-3-jiangwen6@xiaomi.com>
- <bc4ab9da-0b16-4203-9901-4845323c3e5c@arm.com> <CAHKocdFn9DP=wGLYJrhndxTnxz=eMeWYjK1m2OzPotcvz_sVjA@mail.gmail.com>
-In-Reply-To: <CAHKocdFn9DP=wGLYJrhndxTnxz=eMeWYjK1m2OzPotcvz_sVjA@mail.gmail.com>
-From: Wen Jiang <jiangwenxiaomi@gmail.com>
-Date: Wed, 15 Jul 2026 10:49:35 +0800
-X-Gm-Features: AUfX_mxTQ2AORVdVLQD0WyKg_A5YApzG5_NgRHhzAQxuuwLcGmmwOTgb4HGKwEg
-Message-ID: <CAHKocdEOveLGiad3pOFMNGEKec-wvnwY7w88-8k1Npm1t_YTcA@mail.gmail.com>
-Subject: Re: [PATCH v6 2/6] arm64/vmalloc: Allow arch_vmap_pte_range_map_size
- to batch multiple CONT_PTE
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: akpm@linux-foundation.org, catalin.marinas@arm.com, linux-mm@kvack.org, 
-	urezki@gmail.com, will@kernel.org, Xueyuan.chen21@gmail.com, 
-	ajd@linux.ibm.com, david@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, rppt@kernel.org, ryan.roberts@arm.com, 
-	dev.jain@arm.com, "Barry Song (Xiaomi)" <baohua@kernel.org>, Wen Jiang <jiangwen6@xiaomi.com>, 
-	Leo Yan <leo.yan@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU0PR04MB9466:EE_|PA1PR04MB11310:EE_
+X-MS-Office365-Filtering-Correlation-Id: 023ecf28-a4d0-45e9-315f-08dee21c1d39
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|366016|1800799024|23010399003|18002099003|22082099003|56012099006|11063799006|4143699003;
+X-Microsoft-Antispam-Message-Info: glAd+hAskQ+UyB7besWo+IqKwf73jHlJ2XcQPdyOIr8CAu4zas8Tc/gcz5rHk9FnpY6X4n5mJ0f7nz9RKy32mApi/dQKQzYtdmZvS8SJZ9H1oLG1zGEYMWNL+qidwBVaYEo1ODisK8jM0ZJQDP4S4W8uMXbJnF54no1ApF818Cp18aenmNQwDwyZQihOlLQGWbMeTjSoCcrQ5AUsYSN0pz48TnytkeI9785QMmiYFnYPaYDNnq5OPdWYT9tz8KG11lQ+BBD3NzSev7qFhpMdY8PuC9bJZ11lDk3xCpcI4iMdFizWWG0plZOuzwLFsO7lJJKgdDqNs6iCVVz4QpGvaFFn/5Z0/eX/2w0Rl511P2IQrla52Q7HqyWBA07HjIoFre6Hf0AgkP3cbfgvQzAG25GLpNSLOFllCwKoFRS8TGRVUJ6Yx15QuyxYOFTsj4q/FjZ5bnEfuosFLlWv1/dLiqZNQdczqXDd0+GuTeCPwN3t/stiQ7GWkOy+kVEERLyiwXJo1100yk/PBGV7nkmDicdre8zEbVymWXh24238ZUlOw+0R/DAB5z6/44SGm7JOeYGjzyTBXB3jpk1uJasicr7vttIO0XKYsgoaAP+kwJzjda6F8H4jVPYRsfQ9dRInrOce5fXxwhLPz/pcYC5s2jVSlSKrr6hWPjwXzP3KceI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9466.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(366016)(1800799024)(23010399003)(18002099003)(22082099003)(56012099006)(11063799006)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YjVXcjhJK1hzSUZlV05OM2o0S0c4WTVNeFhDa1d1emp3clEvcXkwUjUrQzJk?=
+ =?utf-8?B?eklZUDVtMDBEdFhvZjd6b3lBa2tSSi8wcGZxUHNHKzNjODJOL00vUHNmYktT?=
+ =?utf-8?B?ckdrN0lCMWtUQ1I5dXoxV0M3blBRMVdVSTNLODl4bSsvZjRwTFJDTVdOWnB4?=
+ =?utf-8?B?c1FaTVREU0J4SHNPNFhOcnN0NXhTTDVKeUlyY0h2MVZENmZIcU9ZL0REaXdn?=
+ =?utf-8?B?UzB3dFhmTVZSb3dqRC9FeklXVFdWQjN3ZTByTXFWMUZicWlCeHBFTjJWaHBx?=
+ =?utf-8?B?V09LTFNCeCtYNkYyS2xKenNrWEN2VktBU1A1UDRDeVZjVW9KY05EdzIraHg2?=
+ =?utf-8?B?VHFGcC9LYXJ1WVJPQUJpMFRHcU1DVGlDQW03bEUyNXc3QlJOM2RCSk5FWGpy?=
+ =?utf-8?B?SE81eW82U1cwdkY0dkYzK29qaEF5MWZFOEk4MEw1T3NJZ0NWVE5xM2ZLYS9J?=
+ =?utf-8?B?VG1qeFVOdmRvc0hrS0R6d1hmdEFDSkU1L0ovQWwxQ1VXUnpxNUQ4Y0NhdmVW?=
+ =?utf-8?B?S2E1MnM1elBIK1JaeDllaVU1U1ZYN0lFZGprbnNGVU9XZVIwK0YyQ0ZsQk1u?=
+ =?utf-8?B?ZkdGM1F6azRMWjBwOTBWWGFpV2lwRFJDY21oZE1EVGlqNm1xNDMvdUt5dlhs?=
+ =?utf-8?B?YkJoYVYzVUNIRlFWSTBTbzdUbDhtOUFEcWZSOSt3TnFwaVhyT3FGSzRhWDFq?=
+ =?utf-8?B?OU5yQ2xzbW1oUFdxbCtZVGZMN0ZBOUg5cWhKc1ZSbnY1RnpLK2lrRnBBUXFK?=
+ =?utf-8?B?NlowK2hMVFJhQ3NxcysxcFhNZzFtSVUwUXpFTWN6YTV0T0lUeTF5UFFOMzgr?=
+ =?utf-8?B?VjMzMnBlOXN4QUZhcHBLRlk3Qzk0SGdnVkVXSzVQRG9UV1N0ZzNMYmNNRHVn?=
+ =?utf-8?B?NDlRbGpoeSswR0MraTg2ZjlyclhSU0NYa0tpNkVJc1lsMlQ1aDNmQkEvT0J1?=
+ =?utf-8?B?MHl4ZXdRZ2hGdXBmZ21mM1N3ei8zemRzd3VIVzk1b20zZ1BpZDU1UzA1UzBG?=
+ =?utf-8?B?SG4rTnQ4MkZxY0FRT1JqRzZteEdvMFhES0JVSmFPV1EzWE5WaVZwaDhMQS9j?=
+ =?utf-8?B?NVcyczR3bU9PQys1QU81YzBvOG1OcThNc0NXTSs3bXYrQVpCZG1uc003M002?=
+ =?utf-8?B?YTFieDBtSXI4T0dzSG5OajFtblgySVZUQXNZSnpGd3NncEk0bjR3VUVObmpY?=
+ =?utf-8?B?VCtlanBzSUJmWUt6WE1KeEhxemVHRkU4MzFsOU1VOGlCSmhSK1JRVXkwaW40?=
+ =?utf-8?B?ZncrVFFja2doaUhrS1hyVGM5dW9vK2lUL2ljbExTMVRPM3JzZDlRUWlYaTd6?=
+ =?utf-8?B?TGxRb2E0Tm5DV2JDTFEwSzdSSWRqVDc2SDFkSjlGcFN2aEtienE5WEEzZFpB?=
+ =?utf-8?B?UnBEOXQrTnpnSXphVzR3ZDFHTllNVkpxRkR5b2dkeW5NSVd1WE9UL2VDQWpa?=
+ =?utf-8?B?N2ZMVXc5Tjg5ZUk4WGdBd2dYSEh6Rldjc25aekczWi95ZlljV2xIemw2bS9s?=
+ =?utf-8?B?VWl6dkIxazFVWnArTnFROXRRNFRhV3VJWFVQc3p5MmlNeU0xNWs5dk9Sa0d0?=
+ =?utf-8?B?RGFjR0t0djJDWHRNc1orR3BEcCs3WEJNR3dEYmR0V00vR0NpWkE1RW50ZzQx?=
+ =?utf-8?B?Tk1sVG8rb1lOaVdYcG9wUk0xR3pCTzFsdE84N1J6MGJyeDJaUnZQSTJzTmQy?=
+ =?utf-8?B?Vi9tMWdzOUoxcFFhYVRDM1ZTUnZpOThOQkFvdEg2MWNLYkhhQ1hYaUtCR1dl?=
+ =?utf-8?B?bEVJZmplVHUyYzI0Z3p2SWd3TFFhalIyLzA2VVpMcnUySFFzWjVYOHFFQndZ?=
+ =?utf-8?B?TXBsU08zS1lmWHFpWHhtK3phQXlFQWczVU9OZ3lJNVlReWhTMjRUcnlZeVZZ?=
+ =?utf-8?B?a1c0Yi9iVkJtbE1QTGdFcHNzUG5ObmF2dDRuLzhheTF0VHljTnIwaFBBckxP?=
+ =?utf-8?B?TXlFeHN4WVQvbW1iRDUvQ0JQa2k2VktvRkRWNkNlbnp3ekxkeDQxNUR2Qnh5?=
+ =?utf-8?B?MG5tMUQ1VHYrTHRvS1hrdER5VjBMY2ZVci9Gam83M3k2VEV6VFpwL2dhamxj?=
+ =?utf-8?B?MHNXclV0b2hiTGt4cVZzRlltRHM5Wmk5Zm5Ca25JTG5LdHQrQzU3aHBjU1gr?=
+ =?utf-8?B?bW5mK241OXdYRklrUCtvNVlTamUranpFWTZ2Nmk1QWF4N1k3d3ZiQWIyZldy?=
+ =?utf-8?B?SzhYbmpXUTdGUXhacGpidHhJeFFxMVBWd3lHL2JwbVI1TzYwalBHaXpEYldN?=
+ =?utf-8?B?NkxqbVJBZGVxYUlBUTlLT3ZWL2IwV094MHBudXJyUnRvbEJGcEo4SnBmWVhp?=
+ =?utf-8?B?OVp5aXR6TnVaMVhYdnE5eElnREJwY1JHNHlseFZQdXg1bmdyY1lPbWYrMVRS?=
+ =?utf-8?Q?C2Ffr5bBes4sUnWu3yeIG2vwWi6CiGM9bNe3e?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 023ecf28-a4d0-45e9-315f-08dee21c1d39
+X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9466.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2026 02:52:31.6900
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: +Dt8ZpSjlrehoTy6D9PmGm8tuuW8FoFi4kuajBMNVOP7C/XenDa1YwoMtBp0fO/YTjn3gt/FxdQszu4ohU8s34ar70QDGYA5ctHh0iscaU2vKzB6viaKSagPJHHE1ahB
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11310
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_194949_678650_8DDA6033 
-X-CRM114-Status: GOOD (  30.61  )
+X-CRM114-CacheID: sfid-20260714_195238_420077_6F438BAE 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,97 +151,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 14 Jul 2026 at 17:24, Wen Jiang <jiangwenxiaomi@gmail.com> wrote:
+On Tue, Jul 14, 2026 at 04:10:20PM +0200, Markus Elfring wrote:
+> …
+> > Introduce a new error label 'clk_disable' …
+> 
+> Can another bit of duplicate source code be avoided in any if branches?
 >
-> On Tue, 14 Jul 2026 at 15:13, Anshuman Khandual
-> <anshuman.khandual@arm.com> wrote:
-> >
-> >
-> >
-> > On 09/07/26 1:08 PM, Wen Jiang wrote:
-> > > From: "Barry Song (Xiaomi)" <baohua@kernel.org>
-> > >
-> > > Allow arch_vmap_pte_range_map_size to batch across multiple CONT_PTE
-> > > blocks, reducing both PTE setup and TLB flush iterations.
-> >
-> > Too little commit description for the proposed change here.
-> > >
-> > > Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
-> > > Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
-> > > Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
-> > > Tested-by: Leo Yan <leo.yan@arm.com>
-> > > Reviewed-by: Dev Jain <dev.jain@arm.com>
-> > > ---
-> > >  arch/arm64/include/asm/vmalloc.h | 6 +++++-
-> > >  1 file changed, 5 insertions(+), 1 deletion(-)
-> > >
-> > > diff --git a/arch/arm64/include/asm/vmalloc.h b/arch/arm64/include/asm/vmalloc.h
-> > > index 4ec1acd3c1b34..7d9c7dc795c42 100644
-> > > --- a/arch/arm64/include/asm/vmalloc.h
-> > > +++ b/arch/arm64/include/asm/vmalloc.h
-> > > @@ -23,6 +23,8 @@ static inline unsigned long arch_vmap_pte_range_map_size(unsigned long addr,
-> > >                                               unsigned long end, u64 pfn,
-> > >                                               unsigned int max_page_shift)
-> > >  {
-> > > +     unsigned long size;
-> > > +
-> > >       /*
-> > >        * If the block is at least CONT_PTE_SIZE in size, and is naturally
-> > >        * aligned in both virtual and physical space, then we can pte-map the
-> > > @@ -40,7 +42,9 @@ static inline unsigned long arch_vmap_pte_range_map_size(unsigned long addr,
-> > >       if (!IS_ALIGNED(PFN_PHYS(pfn), CONT_PTE_SIZE))
-> > >               return PAGE_SIZE;
-> > >
-> > > -     return CONT_PTE_SIZE;
-> > > +     size = min3(end - addr, 1UL << max_page_shift, PMD_SIZE >> 1);
-> > > +     size = rounddown_pow_of_two(size);
-> > > +     return size;
-> >
-> > Please do explain the fact in a comment that huge pte mappings
-> > upto PMD_SIZE are being allowed here, if the given block is
-> > CONT_PTE_SIZE aligned.
-> >
-
-Hi Anshuman,
-
-Would the following comment address your concern?
-
-diff --git a/arch/arm64/include/asm/vmalloc.h b/arch/arm64/include/asm/vmalloc.h
---- a/arch/arm64/include/asm/vmalloc.h
-+++ b/arch/arm64/include/asm/vmalloc.h
-@@ -29,6 +29,8 @@ static inline unsigned long
-arch_vmap_pte_range_map_size(unsigned long addr,
-  * If the block is at least CONT_PTE_SIZE in size, and is naturally
-  * aligned in both virtual and physical space, then we can pte-map the
-  * block using the PTE_CONT bit for more efficient use of the TLB.
-+ * The returned mapping size may cover multiple CONT_PTE_SIZE blocks,
-+ * capped below PMD_SIZE.
-  */
-  if (max_page_shift < CONT_PTE_SHIFT)
-  return PAGE_SIZE;
-
-> > IIUC arch_vmap_pte_range_map_size() gets used only when config
-> > CONFIG_HUGETLB_PAGE is enabled. Hence should not these new huge
-> > sizes being supported here also be added as valid HugeTLB sizes
-> > thus updating __hugetlb_valid_size() and adding corresponding
-> > new HugeTLB page sizes with hugetlb_add_hstate() ?
-> >
-> > OR could arch_vmap_pte_range_map_size() and set_huge_pte_at()
-> > can be updated for vmalloc without doing corresponding changes
-> > into HugeTLB itself ?
+> Regards,
+> Markus
 >
-> These sizes are not new HugeTLB page sizes. They are only vmalloc mapping
-> spans selected for a particular virtually and physically aligned range, so that
-> the PTEs can be installed with the contiguous bit in larger batches.
->
-> Therefore I do not think they should be added to __hugetlb_valid_size() or
-> registered with hugetlb_add_hstate(). Those describe the HugeTLB hstate sizes,
-> while this change only affects how vmalloc chooses the PTE-level mapping span.
->
-> Thanks,
-> Wen
-> > >  }
-> > >
-> > >  #define arch_vmap_pte_range_unmap_size arch_vmap_pte_range_unmap_size
-> >
+
+Thank you! I plan to change the code like this:
+'''
+        ret = devm_clk_rate_exclusive_get(&pdev->dev, lpi2c_imx->clks[0].clk);
+        if (ret) {
+                ret = dev_err_probe(&pdev->dev, ret,
+                                    "can't lock I2C peripheral clock rate\n");
+                goto clk_disable;
+        }
+
+        lpi2c_imx->rate_per = clk_get_rate(lpi2c_imx->clks[0].clk);
+        if (!lpi2c_imx->rate_per) {
+                ret = dev_err_probe(&pdev->dev, -EINVAL,
+                                    "can't get I2C peripheral clock rate\n");
+                goto clk_disable;
+        }
+'''
+Does it look better?
+
+Carlos Song
 
