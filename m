@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8D45C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 05:34:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BE06C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 05:35:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y+lZgAAesZMWTzy3gYy82mO3ksFiDdoXTNTHRkB30ks=; b=waILFOy4xae52fFp5qFqyjRfEl
-	/OvRrR+xcjUD8TZENtVI13NrIEA+wPqm4B5p5PVvRUElDJhAgyvGftkGQwOBTvE6241CXroIB81WY
-	mxwaNqPD/J+cK9cvnB92J1eN7mQ0GgKjgFWpQySwzOXUEnI/qiVjZZjKamtd8f7cFW8eStApwlLQp
-	T5rgzAcJxmfSuqQA/fF0QZ1CIJJCC+jft53yG3sFY4QljkF/aK4vTgQQEap/pYItRMlUhoTQbmKdB
-	Xt5fhU+FdrPllQDjJfQb5EfDVUJVJQUpjNnD7HtqcDGcPuhWWzzgJI1TzPtgQ1r1Gji94JrSMxudP
-	Lh3GqLRw==;
+	bh=6VZfi/Sxd7xOeiYk5Wi//9/5DpiE7ZJVjm+HEr4xMvo=; b=wm6urRqK9tdKRTsFnLiW1RD4pN
+	Sywq4sSULMQrJus8AHgp2/qgmWGAnabIybfGNJEs0b4aWn/obwXunTIBwt750sSMuBg6qvE1JDqwd
+	jCuyfn7r8H/APEifsBmxSPLo3mIs6OvUy5EX5EBXkig1LxQs9wyKxYM5FCXjtc1gHJ78IVjtb0H2g
+	X3zfDesHMZYR0n+kMH757TZGKJlbfGdaklgUuTBjF1VqiP2ZzqpqlmNd0i9dPFgF6wQ9XUp+WeW2C
+	fxIjrcMSF8WprlPlChYp/r7V/KTz0TOyDcyH/+ZGJqeeUl8aOukjAefgP7mkstQ/XFBPeNw5PO+SI
+	QUlSuf6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjsGf-0000000DoIa-2n3K;
-	Wed, 15 Jul 2026 05:34:49 +0000
+	id 1wjsGj-0000000DoLK-3X81;
+	Wed, 15 Jul 2026 05:34:53 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjsGZ-0000000DoFR-2UOy
+	id 1wjsGd-0000000DoHH-3JKS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 05:34:44 +0000
+	Wed, 15 Jul 2026 05:34:49 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EB0AD339;
-	Tue, 14 Jul 2026 22:34:37 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4A9C0339;
+	Tue, 14 Jul 2026 22:34:41 -0700 (PDT)
 Received: from a079125.blr.arm.com (a079125.arm.com [10.164.21.43])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 51B653F915;
-	Tue, 14 Jul 2026 22:34:39 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 9BF4F3F915;
+	Tue, 14 Jul 2026 22:34:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784093682; bh=N7dBfVaI7343acB0SSAtsxc3PMX1dKExbRDxnREghp8=;
+	t=1784093685; bh=nxgV4VVUbFhBk+TSn4RlaqR9wD5zcYBXwUNgBXrhO6c=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bl0S0hqs9IXXWEHjjCVDLxRM8UWFJU6CjYBItjLLAwKtip/UTC3HUWo4NWPBawb2h
-	 0zybto25wB65R7tUiRHUdLwroi6BFRLXKE8OxlvLti+p2l5I1GgpHwgFGHBeME8Zje
-	 ehoR1W3FEdx4hAaMh3xS4VpsOyzxY+tN3tDJi6QE=
+	b=lxmjtZV/C65aumSvmajIJK5/sM7r5TRB0kEGQbMsY+jG+DOrcAUeWRYgVmDN3O2e0
+	 K51weK32F8bIozpvYHiaZ2tS/Oos1mv936uBDjmWNbhMOlyH6Dhv90r7xnJP+YdxTP
+	 0bB33lhe+jSbaK/+IHKnJCqo/BKLqnYV6oHi+XG0=
 From: Linu Cherian <linu.cherian@arm.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -50,17 +50,17 @@ To: Catalin Marinas <catalin.marinas@arm.com>,
 Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Linu Cherian <linu.cherian@arm.com>
-Subject: [PATCH v3 3/6] arm64: cpufeature: Extend bbml2_noabort support list
-Date: Wed, 15 Jul 2026 11:04:05 +0530
-Message-ID: <20260715053408.1950475-4-linu.cherian@arm.com>
+Subject: [PATCH v3 4/6] arm64: sysreg: Add BBM_3
+Date: Wed, 15 Jul 2026 11:04:06 +0530
+Message-ID: <20260715053408.1950475-5-linu.cherian@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260715053408.1950475-1-linu.cherian@arm.com>
 References: <20260715053408.1950475-1-linu.cherian@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_223443_723723_B7965E57 
-X-CRM114-Status: UNSURE (   8.56  )
+X-CRM114-CacheID: sfid-20260714_223447_981588_0DB60A1D 
+X-CRM114-Status: UNSURE (   7.09  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,74 +76,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add below cpus to the midr list, which supports
-BBML2_NOABORT.
-
-Cortex A520(AE)
-Cortex A715
-Cortex A720(AE)
-Cortex A725
-Neoverse N3
-C1-Nano
-C1-Pro
-C1-Ultra
-C1-Premium
-
-C1-Ultra and C1-Premium both suffer from erratum 3683289,
-where Break-Before-Make must be followed to avoid a livelock.
-For both CPUs, the erratum is fixed from r1p1.
-Hence we do not enable BBML2_NOABORT for CPU revisions <= r1p0.
-
-The relevant SDENs are:
-* C1-Ultra: https://developer.arm.com/documentation/111077/9-00/
-* C1-Premium: https://developer.arm.com/documentation/111078/9-00/
+Add BBM_3 definition for ID_AA64MMFR2_EL1 register.
 
 Signed-off-by: Linu Cherian <linu.cherian@arm.com>
 ---
- Documentation/arch/arm64/silicon-errata.rst |  4 ++++
- arch/arm64/kernel/cpufeature.c              | 10 ++++++++++
- 2 files changed, 14 insertions(+)
+ arch/arm64/tools/sysreg | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
-index 014aa1c215a1..57c778446936 100644
---- a/Documentation/arch/arm64/silicon-errata.rst
-+++ b/Documentation/arch/arm64/silicon-errata.rst
-@@ -242,10 +242,14 @@ stable kernels.
- +----------------+-----------------+-----------------+-----------------------------+
- | ARM            | Neoverse-V3AE   | #4193784        | ARM64_ERRATUM_4118414       |
- +----------------+-----------------+-----------------+-----------------------------+
-+| ARM            | C1-Premium      | #3683289        | N/A                         |
-++----------------+-----------------+-----------------+-----------------------------+
- | ARM            | C1-Premium      | #4193780        | ARM64_ERRATUM_4118414       |
- +----------------+-----------------+-----------------+-----------------------------+
- | ARM            | C1-Pro          | #4193714        | ARM64_ERRATUM_4193714       |
- +----------------+-----------------+-----------------+-----------------------------+
-+| ARM            | C1-Ultra        | #3683289        | N/A                         |
-++----------------+-----------------+-----------------+-----------------------------+
- | ARM            | C1-Ultra        | #4193780        | ARM64_ERRATUM_4118414       |
- +----------------+-----------------+-----------------+-----------------------------+
- | ARM            | MMU-500         | #562869,        | ARM_SMMU_MMU_500_CPRE_ERRATA|
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 9a22df0c5120..1b804b6c4fe0 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -2152,6 +2152,16 @@ bool cpu_supports_bbml2_noabort(void)
- 		MIDR_ALL_VERSIONS(MIDR_NVIDIA_OLYMPUS),
- 		MIDR_ALL_VERSIONS(MIDR_AMPERE1),
- 		MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
-+		MIDR_ALL_VERSIONS(MIDR_CORTEX_A520AE),
-+		MIDR_ALL_VERSIONS(MIDR_CORTEX_A715),
-+		MIDR_ALL_VERSIONS(MIDR_CORTEX_A720AE),
-+		MIDR_ALL_VERSIONS(MIDR_CORTEX_A725),
-+		MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N3),
-+		MIDR_ALL_VERSIONS(MIDR_C1_NANO),
-+		MIDR_ALL_VERSIONS(MIDR_C1_PRO),
-+		/* Erratum 3683289 fixed in r1p1 */
-+		MIDR_REV_RANGE(MIDR_C1_ULTRA, 1, 1, 0xf),
-+		MIDR_REV_RANGE(MIDR_C1_PREMIUM, 1, 1, 0xf),
- 		{}
- 	};
- 
+diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+index 7cb61aca3797..e070ada06196 100644
+--- a/arch/arm64/tools/sysreg
++++ b/arch/arm64/tools/sysreg
+@@ -2259,6 +2259,7 @@ UnsignedEnum	55:52	BBM
+ 	0b0000	0
+ 	0b0001	1
+ 	0b0010	2
++	0b0011	3
+ EndEnum
+ UnsignedEnum	51:48	TTL
+ 	0b0000	NI
 -- 
 2.43.0
 
