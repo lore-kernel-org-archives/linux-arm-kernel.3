@@ -4,144 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC988C4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 02:30:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23944C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 02:50:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a1Z/xLKs4TOg0eAYHeHh/2ehT7l+aSr/5Oh1a8Te1l4=; b=SqXzlu/AdDZ5gZXsQ2Zx05xbtg
-	oSYpI8FvyCaSj9Xx2z5vA+eiZ04sB/FC9i9LbdHCzWtXfoQ5DLOVgvPhVW/QnnbP4HRkoKmVGmYRw
-	P//SkEvl1U51+6Y445xA/0ldyEGozYZBCxvSCRIGnIz0lNWxG/+t1w2i1svpCIRoj7lZDFyTD8u0w
-	SJNI6g4RYgO1n9/OYqXQ1lGM4S/DuZZbluqsYxBaX/GFysUxjVw9qwVFQxfyrQhSiSb8tNZiC0oPK
-	vC1ALBSL+JO4L/sTuVsxLN7QL3jUhUDKuVMX45VTK0eEnxmOX8pqVK4bqsf7WNKBFgqmOgtEiau0O
-	ZloU7+JQ==;
+	bh=FKnWx5LrBtIKgWAbXgiWOXDWrG19qs6MsR+rTdIDWJM=; b=d+HUEWicx5jDu5pw6gqIgpmfqT
+	vmWbrEzE4w5AxKWx5io+5w0O2EPaMl1Qocr95hq1w3GITH+t2DpogUMnhZ7i1RyqsQGMAl55uBy1V
+	u6l1SwpyUwMW/N+zWwcJ4uKYa5ZQMBMSgazfuTYpvVV9QA9AhrMyJVpA8TUa22op+rfPUltBC4ro5
+	3EyNSptEFw8jLMjucwVzqWkV8bFywRq9+TsRQjmrWZDcRXetVnVtBef+WU1dTcEAt3iyWbKHZwrsu
+	pP7f2r8UU1qVeqkIAi2w27VGOMwo3e1F6Ih5sasl5BfXyyepOXBYujzPZ5ZRIRV5P2qv/p0Zrv0uc
+	g5K/cAEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjpOF-0000000DcqJ-0pfM;
-	Wed, 15 Jul 2026 02:30:28 +0000
-Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1wjph2-0000000De0e-2fX2;
+	Wed, 15 Jul 2026 02:49:52 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjpOB-0000000Dcpl-248f
+	id 1wjpgz-0000000De0F-12nl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 02:30:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MaGPr8N2wcZmJ4rlKJDt8Plzm3HPjhiRzKHExo+yYlKaYYwK8D82oUBqihEF18G0ShKvE3VbbS0eduuUBfnZ5ql+5tHaIdollkNkSm9IJdAwlxIuKhI0NGdI2kArzXW8zAkeBAWtSmHwjfnP4udz8GOg5yETeWJUsZAq9UNWZ0T8hyPPmaFayZcMf7qs1agNH+FQJJq1q6fOH5KmadklQtUJNIMy5sLetfYQdkE+1rVKkevnsEbpLMKzKINtgGwwmdODoiYAM84KPPiiI9PLD2by3VESl2KEOKTDQF2DEDZmb3bWlMiBzxo23sljY80IuN3faWdPBNejOw9WE/hRTw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=a1Z/xLKs4TOg0eAYHeHh/2ehT7l+aSr/5Oh1a8Te1l4=;
- b=EJTBDabg4ciEUGrBiR35XWiExiAEwzefOJo3WHVw5OnhsKPq2U0WgDS0D8kGJagC012y3AfbCvgkEMMWjcCky38rLgNbdL+ZatzPre5qc8T7Dc8+UFdK9HC2DPL6GRCBJk8fTD0vSwwCobkSUbMFOv3P8eaIOXzJImIhJ7ExVa0VdDG7RmKZAOGUuypLTBOxPosIGlpV3eVVuEhHURyQuFFnEQFsAY0U28zbI7waV/pojMTTOBasY3LaO2G+UNS+XbVMjq5N7OK8xmcyQ0Tyj4V6vaIeI/KMLaib291kEZVXryLzg0tQ8Bs58ipFPFdMGuSTjStWTO9rJ4Y0KzIaBA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
- dkim=pass header.d=vivo.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=a1Z/xLKs4TOg0eAYHeHh/2ehT7l+aSr/5Oh1a8Te1l4=;
- b=cLiR0lubxqZc9pa/l964xqPDzICWh0f3czhQmUu+fROwb538KoWqP6EBMyOH3jVBUn+HPRQm1Nf4tuz3dfZBv/BUh5LCAbgNGoALetF465NsNCjC2URlfk/uHHGgSMeaqS2fP0KAT7l4lEMdXKv8Mzgo3wLnEMyq35FE4EdBsn3wPhAlfDbC0LvAeC4iW59Zcl9ltoAisPG3vPA5vZI4wbz3yn7UhYIJ7IjKrp03h2BtDCjet85joKfkPQcJWbUx+ZNqLqWeKTt2ivjqwU0MzB99nrIcQiUPXp577n2RW88htvpQgdv4yZLB3cmtnQ+Atw6JpjyQ9PikemHTDTEjVg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=vivo.com;
-Received: from SEZPR06MB5832.apcprd06.prod.outlook.com (2603:1096:101:c8::12)
- by SEYPR06MB5938.apcprd06.prod.outlook.com (2603:1096:101:d4::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.10; Wed, 15 Jul
- 2026 02:30:15 +0000
-Received: from SEZPR06MB5832.apcprd06.prod.outlook.com
- ([fe80::f98:5e32:4ccb:d07b]) by SEZPR06MB5832.apcprd06.prod.outlook.com
- ([fe80::f98:5e32:4ccb:d07b%6]) with mapi id 15.21.0223.008; Wed, 15 Jul 2026
- 02:30:15 +0000
-Message-ID: <2e62df2c-698e-4f22-9498-bed0388b6bc6@vivo.com>
-Date: Wed, 15 Jul 2026 10:30:10 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] counter: Remove redundant dev_err()/dev_err_probe()
-To: David Lechner <david@lechnology.com>,
- Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
- William Breathitt Gray <wbg@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Vignesh Raghavendra <vigneshr@ti.com>, Julien Panis <jpanis@baylibre.com>,
- "open list:COUNTER SUBSYSTEM" <linux-iio@vger.kernel.org>,
- "moderated list:ARM/STM32 ARCHITECTURE"
- <linux-stm32@st-md-mailman.stormreply.com>,
- "moderated list:ARM/STM32 ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>,
- "open list:TI ENHANCED CAPTURE (eCAP) DRIVER" <linux-omap@vger.kernel.org>
-References: <20260713131005.306069-1-panchuang@vivo.com>
- <1e330026-cd09-48d5-9478-4cff59f521e0@lechnology.com>
-From: PanChuang <panchuang@vivo.com>
-In-Reply-To: <1e330026-cd09-48d5-9478-4cff59f521e0@lechnology.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: TPYP295CA0049.TWNP295.PROD.OUTLOOK.COM
- (2603:1096:7d0:8::13) To SEZPR06MB5832.apcprd06.prod.outlook.com
- (2603:1096:101:c8::12)
+	Wed, 15 Jul 2026 02:49:50 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-47c2b362ee2so4265369f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Jul 2026 19:49:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1784083787; cv=none;
+        d=google.com; s=arc-20260327;
+        b=NyxHIt3YAtrU/UtxAHzIprLu+sPyxcN3jsbt/HQHRRcrjDsWvg+lHc7N9tSX3GIIMC
+         pr/aex3M6hUn8QAZxLOy+OwIi5ognFoslH8FgIzqBDHcnD6It4t70WMgejqS8RFiY+ll
+         NH34pPbCHesAP2YqDaWWhScNcdYJySdTttt/yDcaF2GdqT3tF/TpIb2ewkJZKqFxZPDW
+         86Ocmp+XTcbAK7pC+jWG6jHPIMcc6PgibuB2EMBqhYBe4BALO5u7P68IcFbjyg1WBZaI
+         DYSHJ/7B9Bc16H05GxmXv0knChCKOnvm2Uz4bWYcygN5yab5e+XIQTzllpb5gd/yNVBu
+         l+8g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=FKnWx5LrBtIKgWAbXgiWOXDWrG19qs6MsR+rTdIDWJM=;
+        fh=4crY0TtU5d8qj3zEa5iNx7ZkVcz8Bd9qbc096ZR6m3Y=;
+        b=j0qMCn8fHzKveB1M8j8oVqvOu2a5OOfvqNqI08rQL10j+259KGSdM4uxf4zIgxBVXO
+         J1fVPC7roum9s9hSReeYH1gTeao55vw6avOUfHtOHbGIGZBFu8UWKjBUA717HFOp7nfu
+         U4R92PW94DJQLT8uOIY80TSCg8gsnGj7jkhb3m0JofPaq+TRyDKkqElu1iaQEpisCpqr
+         Mzefl3oUGptF+wDdxiEMgaAn+q/77JZbpgJ8ms4MHwUvmBZuFOOs1uLKCtYtrniFPNbf
+         YmdoRqyJIjpIfEFWwDaJE4+25C2JK/iK2rKvHbyHgzeQIolNFPTBmhJo+lRba8f8HTq1
+         V4mQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784083787; x=1784688587; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=FKnWx5LrBtIKgWAbXgiWOXDWrG19qs6MsR+rTdIDWJM=;
+        b=IO7InJCz4k16m9jkhJnPDXuPQQNMHAsZLvlxn5JmA++u/uB1ASxZejj5SwJ2vt7eSH
+         KTS/UNRLB3RV0bu7uHwNvN6U4oZKi0NOo5xncWKTvXrrL8rjUMKmLwp++vnxrWsJIkSj
+         NqzOg6fqgC2TKmuspIvC2u6KdJtASLg/fiQwzVhWSbUgIK/36dtSwT2dVthzA+23aQO7
+         +/+wacc6D+w7WQbBgHXJ+o/f1ECIlZFW1BP3SKlcpWdtIE84SnNdpngVin3YkMjD1i+Q
+         6TH7YIpnQHxBKyTY258BF/V/sRl6uneZDo1/m/6CBvtA4aavEV1CxbJXNuTcRpAfHfyI
+         SxWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784083787; x=1784688587;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=FKnWx5LrBtIKgWAbXgiWOXDWrG19qs6MsR+rTdIDWJM=;
+        b=EwgWkdqLBBF8kCSoilkfUYsSewi5j3Ab15qqrk4wUphUXW1rvgRUAlJU+13p6DPgLF
+         84cv87UY2xujtBC8moYKwwynuhROJjvO7mUSBkfHDmI9t2g4/6hDuT9qJ2SQvJwRBLAs
+         Y9ocyCAIUXI+JUtg0ayGuJri/gL+5TGK+vSk0HBBc2HZ29d4dHdYhqLPKkDnhlqaTCzU
+         NqD/fkBL+YxN+cgukFSSl1wt3WumY8vnKG+OAXPRVuhS0GSgBH+BNDz2ihZcIk6rWksO
+         GCOOnlFDZCEfcy7OhuT1UjSUSUyOdSzL79LxR28rBXDGBDOUPazeWC6sGidHsJqN9oJ+
+         f8iQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqfxlQjLsUFybGZBALAmztRk+QlLlyRXY72QBqqmSCg7vvSKsyWAZCGHoGU773l+xtssBHGXrWFlsXzayIMtZPV@lists.infradead.org
+X-Gm-Message-State: AOJu0YzoKKzU3montQ2sDtrRG9t4H9jWP+EU4UtN/NYDTagYk/l7vLux
+	WBdglt6Ou2qnOFnj3ELlNhaoQkvuqIOo3GjGMgeBYBQRf7A32MCYOMYB6mQ1y2VOZBVqnLRv5Go
+	c6hrb+GZafaYELcHuqF9CUITakdEVMNk=
+X-Gm-Gg: AfdE7cnok2E4UhmLzUEfxzPYF2st/g5Bv/eob6VQToWjIV2kZHxzmiIF2fTn4h08pDj
+	ocwA0Bcv8oNh0Kiwbd4ETC0iSXEcKelxMguWkaUo1MgHpAOVokZTWnZNq2dqZk8IZZWInFayX1x
+	TSY4oFIe6i7I7V8ssa/8gvZ3jbJGp/3Pqic2foomzqsfxFZ8LSL7Ms0PG7gIeBjNtpwr752qP26
+	eUV9Nxce+GTf+/zro3V9b3wYcqfhVbgeqriFfObgv2T48ciiftGYQgySdyXNq7NV6uobRF3ag==
+X-Received: by 2002:a05:6000:4382:b0:47d:fc45:8589 with SMTP id
+ ffacd0b85a97d-47f4fc6b180mr843449f8f.0.1784083787198; Tue, 14 Jul 2026
+ 19:49:47 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SEZPR06MB5832:EE_|SEYPR06MB5938:EE_
-X-MS-Office365-Filtering-Correlation-Id: b2bc56af-d51a-4568-af2f-08dee21900e3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|23010399003|11063799006|4143699003|6133799003|56012099006|18002099003|22082099003|921020;
-X-Microsoft-Antispam-Message-Info: +4lPnIhhrHdHBwqiDFacUcOwMDf2qrsomVmi8q2w0d8ueTBtTGBczaYO/HVeP5igSIV9+QH0RInpg1xGrDTL87P1dDrKPrOhJKF/VnvW//VxM9FD5R117OZbGZxHiShxJKo8j2727Po8o9/VFw4eCpEghNkQ+g5ItZeHsmVm7f5SiQLl5kpre5ROtifqyuzTlLk+UAAqmHn93/uzCRlHlHnH642k1KbFWsWuXQJ/6X2KNVKQHANBn/nZQ8ZxUvYkdGWd6FTL7ckqp+HMzoEge1P0b/wHHipziM/7DVHtqwB8DpiG1BmKcDxRIHOkKb5tkqJjeginLwVFXXr0ka+x/O6w6fdwYcmMc8jYOYCA8M/BKDHPxjtp3nbnh2f85yIiscaji1lFqb/YYJJle0rPg/p2EKqd580eLieFq4wz2hnfbIMs0z5yAN0L5L2bOQ/pDnAJgPKXefUA7URqrafJ2aRgMJZdyUM8j2C5eAWEjOKKjLpHP8fHGsND3WKyY0ehJCrhFujOLqFETT91WCbFHbpqz1atQ+3y/nPMGQhk4JCGrMSYh5VAdHxczwEIK5fadLwRriG1JlsHp/xgosa5+J5MNQrF5zBx7KMYG0Tf4P2KrTv0igXSzj/AhAArXyY8GISy2E8pc8eLOxzGhqIW38zXPxM4Vytj+9MY8KaIRX1v7oqutGxkWN1mfwQuDw9L0sWKOFYK63RMK/hs4mOhLw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR06MB5832.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(23010399003)(11063799006)(4143699003)(6133799003)(56012099006)(18002099003)(22082099003)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cVNjV3JzZ3VZUmw2a1VDYVJJd2tHNVdCVTJ5MG9mNVdnNW51aFRFSnZLVzJI?=
- =?utf-8?B?bHdxQzVZTGxmYXNBdVpDY0VLVVh2NXQyb2RkOHNQT0gvSU81Mm9tckRMVkk0?=
- =?utf-8?B?aE9DdWlTczU0bVBDYXMrdXBSby9kQ2F1UE5sTkxtMm5YVTE5MVpYV1JuS3pJ?=
- =?utf-8?B?RDJyZk53VkxiL0tGOFpsZmxTTmozUWJMOUVKaXBRbTNQWnBqQ05BcVF2UE1H?=
- =?utf-8?B?OTRCekxKVWZQTVhKSTdCRlpsYjVnTTUyQ2JoblA5QWQ1bXpSMjRvTjRaelVW?=
- =?utf-8?B?aytMT3VZQmdlUTFQRW55TXExamJ3bkQzUy9ZWXVoVXI3QXZibDJtTXFLS21z?=
- =?utf-8?B?RTh4c2lCK3FZQXB5bW1oM0dBUk8zWXhOYzRKZExEeXcwdVBhOUxkOG5GKy9u?=
- =?utf-8?B?SE14VGxzb1ErWjNKUmVNY3BFNzlPQkNnZUttSi8xUFNqMmY1ZnBvTE1OQlVP?=
- =?utf-8?B?cHBXYUVsNUpCQjdFMU1CWko1MVlhamJKY25VWlBZZktQTTI4NHI0c29GdmNq?=
- =?utf-8?B?Q2MrS2UrRk9yZWJ2V205dXJGMzNod1VzSzNtSXdaUXpCQUZTZzlSckZISzVW?=
- =?utf-8?B?TW5NcHZDUFFQSEl6T0t4dzJpL3IyVTNBOTZOV0dhRXVrY2FaUm9VbGhPdzdZ?=
- =?utf-8?B?TnJneGhyN2lRcDQ3RVNXWWNuU09YTWpvWU56MFBORkh6ekYwaThRUjY2K3JG?=
- =?utf-8?B?WlpkeXdYUitZVHVIZEpVaEFJQml6VHUvUlFPd3R5ZHhjd0RSN1JNbkpFS3lO?=
- =?utf-8?B?VHNZYUV5N3B5c0IwelB3bWxqUVY5VFRQODg4ZWNCc244VG15Um1GZVN0MWht?=
- =?utf-8?B?VHArOGcrUE1DQmF1S01kdDNWa2U5K2d3VlVUbExQUTRWdnV5TkRJVkVHcVJm?=
- =?utf-8?B?enowanJPbDhFU2E4NG1tc0RhNEQ4Q0RLc3hPRERpaExtNHlrQklDYXVKWTVJ?=
- =?utf-8?B?bmVnbkk5VkpXTEJENVhYejZ1dUFDWHFGakVlNUxCRHlWRUNkclprNjhBZ2Y0?=
- =?utf-8?B?K25ucHlIMXJObGhzZ2RjT3dqdWNPd2g3b0xvTjh6V1ovNG9nU2IxNzJOTjli?=
- =?utf-8?B?Ry83b0QwYnc0QitHZVdmVytrWXhWWDV4MmlKaVVaNmVkRDBPa1FOOWlJZ0xU?=
- =?utf-8?B?K3ZkOWJWcUk0SXcraTRveWRhZ1RsbFBnSDMrRUxmR1VMaUVjTkU3QjhmcVN1?=
- =?utf-8?B?Y0JFdTRkejJPRjBESHFEbHZ5RFlLcUxLUnJjNGVDQWFqZ21jU0dkVVpVUnlh?=
- =?utf-8?B?V05YckpkVTVJZCtXVnV5ZVRDR3E1YTJmYUoxWDRQNUtaeWhHbllCNkxVNXpt?=
- =?utf-8?B?OXlxc25GcVp4eHZ2cEtRTmEya3Y4c0VEN0tVbHZmSEQvQnltQURORGhEbDJX?=
- =?utf-8?B?NEhYemUzcS91dDhGVzRtNlVuWTRiVHVFaDJPTXo2cU1SRW1Rc1FmZU5tN1Nx?=
- =?utf-8?B?ZXduZnUyVmIyWGdJN2VWT0NKaWpsbVhRMCtEY1NFYlRJblc0dDZiZUJmSFda?=
- =?utf-8?B?MGpJR1I5T3I2S0FCajZFZ1NtSFlCK09SWHRIMWpvY21wV2RYcDFXcTROMHhw?=
- =?utf-8?B?MnU1Y3JBUWNtbmNzZTBtYmpjS0REVEZHL1lIRGFhcGx6NFd6aEN3U1NTZ2dQ?=
- =?utf-8?B?MllFS1dYcDlhWDlFZGFydThJa3E5YksvVkVwZWxEQnd3T25MZk1VQzhZalJW?=
- =?utf-8?B?ZjBabDk5V2RHNStCU0lDK2hzTEZGK1d0dHVkb29vUXF2Nzd0RWJ5VW53ZjlT?=
- =?utf-8?B?MjhrTmZVb0JURUFRMUxubVluSEVwbTYyTk1FUHQzd04xMnBHdXdYcmk4MFUv?=
- =?utf-8?B?RVMyWkJCWmg5T004bzRFVUJCOGI5SXQvbnFoMDNSMUplM3h2bDdZcFdrMzVj?=
- =?utf-8?B?YnFpWkF3YjdQcjViekVDNGI0V1ZjMENYYnRrdC8yWjgzcnFDYUJQeUtocDlO?=
- =?utf-8?B?SlBXcEtuOVRLdjNuWnNRaXhjZmZUbjRGT3l3U0dCWHdoTFFHY0poMVBtbGhs?=
- =?utf-8?B?NGNvR0g0aTQ2Y09WNHNVd0tjUXRqSHJZaWFaaFNQaFJkYjRkVHBHZ1dpdTNH?=
- =?utf-8?B?S25OenhlZjEyMDRkVnhDaTVhWTFZd2FDZ2JTK1R4azVTcTk1SS9pajc5OHQw?=
- =?utf-8?B?U0lsdXFkZ3lWWERNOHloRXFNMVgvVHpXTlF2UnRQMm5Da3hMOGRhd0tJZFpJ?=
- =?utf-8?B?bUpWeFJGZ0VLV3kwL3pvSHVEMWZQeW1MS3JhZVhtMVYxY2RPVk82cERKWjg2?=
- =?utf-8?B?VEN5UExUbkRBLzJhWVlNY0cxRkw3Sk5HL3M5TUQ3QzVGbVYwaG5ZR25kQUkx?=
- =?utf-8?Q?hPjJOHy6XYNVKqI7/u?=
-X-OriginatorOrg: vivo.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b2bc56af-d51a-4568-af2f-08dee21900e3
-X-MS-Exchange-CrossTenant-AuthSource: SEZPR06MB5832.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2026 02:30:15.1411
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: SraU05XgwHw62Hk9KasjpzxRQWmd1uJXvuYS64NCCsgdLPGoGnwrilORCu4iOC72lTAfBmBOsgsVFwpIurhTYA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR06MB5938
+References: <20260709073823.6643-1-jiangwen6@xiaomi.com> <20260709073823.6643-3-jiangwen6@xiaomi.com>
+ <bc4ab9da-0b16-4203-9901-4845323c3e5c@arm.com> <CAHKocdFn9DP=wGLYJrhndxTnxz=eMeWYjK1m2OzPotcvz_sVjA@mail.gmail.com>
+In-Reply-To: <CAHKocdFn9DP=wGLYJrhndxTnxz=eMeWYjK1m2OzPotcvz_sVjA@mail.gmail.com>
+From: Wen Jiang <jiangwenxiaomi@gmail.com>
+Date: Wed, 15 Jul 2026 10:49:35 +0800
+X-Gm-Features: AUfX_mxTQ2AORVdVLQD0WyKg_A5YApzG5_NgRHhzAQxuuwLcGmmwOTgb4HGKwEg
+Message-ID: <CAHKocdEOveLGiad3pOFMNGEKec-wvnwY7w88-8k1Npm1t_YTcA@mail.gmail.com>
+Subject: Re: [PATCH v6 2/6] arm64/vmalloc: Allow arch_vmap_pte_range_map_size
+ to batch multiple CONT_PTE
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: akpm@linux-foundation.org, catalin.marinas@arm.com, linux-mm@kvack.org, 
+	urezki@gmail.com, will@kernel.org, Xueyuan.chen21@gmail.com, 
+	ajd@linux.ibm.com, david@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, rppt@kernel.org, ryan.roberts@arm.com, 
+	dev.jain@arm.com, "Barry Song (Xiaomi)" <baohua@kernel.org>, Wen Jiang <jiangwen6@xiaomi.com>, 
+	Leo Yan <leo.yan@arm.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_193023_546690_88AC779B 
-X-CRM114-Status: UNSURE (   7.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260714_194949_678650_8DDA6033 
+X-CRM114-Status: GOOD (  30.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,22 +120,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, 14 Jul 2026 at 17:24, Wen Jiang <jiangwenxiaomi@gmail.com> wrote:
+>
+> On Tue, 14 Jul 2026 at 15:13, Anshuman Khandual
+> <anshuman.khandual@arm.com> wrote:
+> >
+> >
+> >
+> > On 09/07/26 1:08 PM, Wen Jiang wrote:
+> > > From: "Barry Song (Xiaomi)" <baohua@kernel.org>
+> > >
+> > > Allow arch_vmap_pte_range_map_size to batch across multiple CONT_PTE
+> > > blocks, reducing both PTE setup and TLB flush iterations.
+> >
+> > Too little commit description for the proposed change here.
+> > >
+> > > Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
+> > > Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
+> > > Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
+> > > Tested-by: Leo Yan <leo.yan@arm.com>
+> > > Reviewed-by: Dev Jain <dev.jain@arm.com>
+> > > ---
+> > >  arch/arm64/include/asm/vmalloc.h | 6 +++++-
+> > >  1 file changed, 5 insertions(+), 1 deletion(-)
+> > >
+> > > diff --git a/arch/arm64/include/asm/vmalloc.h b/arch/arm64/include/asm/vmalloc.h
+> > > index 4ec1acd3c1b34..7d9c7dc795c42 100644
+> > > --- a/arch/arm64/include/asm/vmalloc.h
+> > > +++ b/arch/arm64/include/asm/vmalloc.h
+> > > @@ -23,6 +23,8 @@ static inline unsigned long arch_vmap_pte_range_map_size(unsigned long addr,
+> > >                                               unsigned long end, u64 pfn,
+> > >                                               unsigned int max_page_shift)
+> > >  {
+> > > +     unsigned long size;
+> > > +
+> > >       /*
+> > >        * If the block is at least CONT_PTE_SIZE in size, and is naturally
+> > >        * aligned in both virtual and physical space, then we can pte-map the
+> > > @@ -40,7 +42,9 @@ static inline unsigned long arch_vmap_pte_range_map_size(unsigned long addr,
+> > >       if (!IS_ALIGNED(PFN_PHYS(pfn), CONT_PTE_SIZE))
+> > >               return PAGE_SIZE;
+> > >
+> > > -     return CONT_PTE_SIZE;
+> > > +     size = min3(end - addr, 1UL << max_page_shift, PMD_SIZE >> 1);
+> > > +     size = rounddown_pow_of_two(size);
+> > > +     return size;
+> >
+> > Please do explain the fact in a comment that huge pte mappings
+> > upto PMD_SIZE are being allowed here, if the given block is
+> > CONT_PTE_SIZE aligned.
+> >
 
-On 2026/7/13 22:20, David Lechner wrote:
-> On 7/13/26 8:10 AM, Pan Chuang wrote:
->> Since commit 55b48e23f5c4 ("genirq/devres: Add error handling in
->> devm_request_*_irq()"), devm_request_irq() and devm_request_threaded_irq()
->> automatically log detailed error messages on failure. Remove the
->> now-redundant driver-specific dev_err() and dev_err_probe() calls.
->>
->> Signed-off-by: Pan Chuang <panchuang@vivo.com>
->> ---
-> Seems OK, but probably be should be split into one patch per driver.
+Hi Anshuman,
 
-Got it, I will separate them by driver.
+Would the following comment address your concern?
 
-Best regards,
+diff --git a/arch/arm64/include/asm/vmalloc.h b/arch/arm64/include/asm/vmalloc.h
+--- a/arch/arm64/include/asm/vmalloc.h
++++ b/arch/arm64/include/asm/vmalloc.h
+@@ -29,6 +29,8 @@ static inline unsigned long
+arch_vmap_pte_range_map_size(unsigned long addr,
+  * If the block is at least CONT_PTE_SIZE in size, and is naturally
+  * aligned in both virtual and physical space, then we can pte-map the
+  * block using the PTE_CONT bit for more efficient use of the TLB.
++ * The returned mapping size may cover multiple CONT_PTE_SIZE blocks,
++ * capped below PMD_SIZE.
+  */
+  if (max_page_shift < CONT_PTE_SHIFT)
+  return PAGE_SIZE;
 
-PanChuang
-
+> > IIUC arch_vmap_pte_range_map_size() gets used only when config
+> > CONFIG_HUGETLB_PAGE is enabled. Hence should not these new huge
+> > sizes being supported here also be added as valid HugeTLB sizes
+> > thus updating __hugetlb_valid_size() and adding corresponding
+> > new HugeTLB page sizes with hugetlb_add_hstate() ?
+> >
+> > OR could arch_vmap_pte_range_map_size() and set_huge_pte_at()
+> > can be updated for vmalloc without doing corresponding changes
+> > into HugeTLB itself ?
+>
+> These sizes are not new HugeTLB page sizes. They are only vmalloc mapping
+> spans selected for a particular virtually and physically aligned range, so that
+> the PTEs can be installed with the contiguous bit in larger batches.
+>
+> Therefore I do not think they should be added to __hugetlb_valid_size() or
+> registered with hugetlb_add_hstate(). Those describe the HugeTLB hstate sizes,
+> while this change only affects how vmalloc chooses the PTE-level mapping span.
+>
+> Thanks,
+> Wen
+> > >  }
+> > >
+> > >  #define arch_vmap_pte_range_unmap_size arch_vmap_pte_range_unmap_size
+> >
 
