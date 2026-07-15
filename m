@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38CF4C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 11:49:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D6D1C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 11:49:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=JkG3rqinE1MlyoBhNe7HC5z+Mru7Bjw+6xVEam57Rg8=; b=08LYwPVdRM6HCgUHQMt9rH4nkr
-	i30lvPp9zNpVfEnC4eE5/1K0h6B0ZtbrVjg/eM/WgnhoqPrWQYZhCI0JwbAEscW20iFGFLEebscW0
-	2ZSxogkZYmZx+I1J4FpeF44jV0l5+8wBHSTsdKoGGjsLW89bDCsPB0HFurvMKWdpX0DqLxpTHm9zt
-	pyyLwrspTDaGbGePAh+9TzqV3xGa/a+7rO5oRv040owY6W7pbKNU3eaGn4vtxb3Z39s6tnf6a69gr
-	3mnXsOkpjyuRwV9z+k0aKk6ZhzVU9QDehpfonKurPt9h9Ptdz7PUXkXqj/P16LDeglFyepwPOgQxz
-	z95JTY9g==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tIgAeSIeWMFrrZERdWh8nLvd/FHWfZLBVZiJ36Ls+jA=; b=JdEzV7B0INVzmFybai2R8Pt3IN
+	QOOhIPv42klzWRmHoIb/eX5agTUku9poBuJxGWDOms6olhTW52qIn+b0e+5FO7G92WISeHm/RiNsW
+	ESkxVuPh8XA+Gi662U59K9cf32PTuzuEr94D3gc7UMXlZ5RL+3KdHyNWKhyGZsd68t/b5345GHHz8
+	+7kLoV6J2BQXE5JqVW/viGpnYNBRQKBT7j8nZ3eO0QwZzpj7iJYdut9NgxHFxl4WdWBOFZ+M+GWJw
+	2Kt5PpSY62zGJPiKFevujF4+G9W3FRL1kZWHPoXaUh0w/dAoAGvt4pWMmlkPKeg3GPLSiqdPtvwY9
+	2/JHxTDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjy7I-0000000Ecbc-0CWA;
-	Wed, 15 Jul 2026 11:49:32 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wjy7N-0000000Ecg2-1c5Z;
+	Wed, 15 Jul 2026 11:49:37 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjy7G-0000000Ecaj-1anT;
-	Wed, 15 Jul 2026 11:49:31 +0000
+	id 1wjy7G-0000000Ecal-1cKc;
+	Wed, 15 Jul 2026 11:49:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1784116166;
-	bh=htXBBYCCGNWLqgJjvvXUTq2WTxMjS9aKGJ0yCk36khU=;
-	h=From:To:Cc:Subject:Date:From;
-	b=dypUvvxj+mWvebpf3uOAl9NHcaAf9zVbsY+DdcqpbyNO0xX5Ey9rvP74bfWcvT++u
-	 if0qSIWdWNbQ5oTPBgAzooSD/VSNuYvgLzr7RVqJmZVw2Bu7yF6IxMgmQj6/94dwlL
-	 NCkxkmu6CDZn6hmI0dGy1nLtA8/EYYM52ojklXfwMyQNFBFO4ZWodbFi91oMCUSP4J
-	 qeiYDXeJVf8Jx1gpy1fIL4P/K24qhJJuFYRL6BhEjdVLWeDXuujHSsyJx7IZK6Tdtq
-	 Z6+WysfgKca+F3i4rr41PkwGwMQSrsQ7lhtc5Mifnq/uwph+RZzcHlr9fqjFq8ZX0t
-	 ViXTzAZ/vgcjA==
+	s=mail; t=1784116167;
+	bh=CRTgzEIiCGF3Q0P2KDt3LTOIuTWsDk2Q75L0QVm3KT8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=iHn0rbAKCkUGyoyrm/O3sV6Mgp9Y45bImQUaNkjx8tuJHD/JT+nweVhDiNACvV3GO
+	 cH4Egu15kkKnvirlaCAt9LgVhupXeAWHBAQ8QQ48dKCFBfTyigrxM6ncig/uqug/G8
+	 EuqnNafSyHv1WqncPnMBRTpGznLXa/6CB22AFSVTuyaBKSg/MIPIXWLG/KW60I1LZo
+	 qB8efkDQo4yUWfH51zFzkieGyTCFFTkJOqUpGXohF5u2HLJezzqxKjYm2ET4bOPx1W
+	 WoEtKd/4gxrcD5aUYGE/k+AeULL/KP9N2BWoFYc7UNqFs/tfRhZdWwOOauMk9oBozh
+	 1yKBmN5yPXgVw==
 Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C146717E00F6;
-	Wed, 15 Jul 2026 13:49:25 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B0F8417E071A;
+	Wed, 15 Jul 2026 13:49:26 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: chunkuang.hu@kernel.org
 Cc: p.zabel@pengutronix.de,
@@ -65,15 +65,18 @@ Cc: p.zabel@pengutronix.de,
 	kernel@collabora.com,
 	justin.yeh@mediatek.com,
 	jason-jh.lin@mediatek.com
-Subject: [PATCH v5 00/11] drm/mediatek: Add DSC, WDMA, MT8189/96 DSI support
-Date: Wed, 15 Jul 2026 13:49:05 +0200
-Message-ID: <20260715114916.19690-1-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v5 01/11] dt-bindings: display: mediatek: dsc: Add MT8196 compatible
+Date: Wed, 15 Jul 2026 13:49:06 +0200
+Message-ID: <20260715114916.19690-2-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260715114916.19690-1-angelogioacchino.delregno@collabora.com>
+References: <20260715114916.19690-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_044930_606241_839ADA48 
-X-CRM114-Status: GOOD (  16.54  )
+X-CRM114-CacheID: sfid-20260715_044930_604230_CBEBAF47 
+X-CRM114-Status: UNSURE (   9.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,87 +91,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Changes in v5:
- - Clarified commit description for WDMA binding compatibles addition
-   explaining why Dimensity 1200 is not compatible with MT8173
- - Added missing mediatek,mt8189-dsi compatible in mtk_drm_drv.c
- - Added fix in mtk_dsi for failing device_reset_optional() producing
-   a possible use-after-free issue
+Add compatible for the Display Stream Compression (DSC) IP found
+in the display controller of the MT8196 SoC.
 
-Changes in v4:
- - WDMA: Delete the .remove() callback from WDMA as not needed anymore
- - WDMA: Add comments explaining no bus errors will happen if writing
-   to INT_ENABLE, INT_STATUS registers while unpowered or unclocked
- - Return error in mtk_wdma_wb_atomic_check() error conditions, oops!
- - DSC: Fix dsc_pad_num calculation (missing parenthesis...)
- - DSI: Change dsc slice check error to dev_dbg instead to avoid spam
- - DSI: Correctly cleanup dsi->dsc upon component_add failure
- - DSI: Make sure the CKTX_CKL_WC register is correctly programmed in
-   DSI w/DSC case
+This IP is compatible with the one found in MT8195.
 
-Changes in v3:
- - Changed mtk_dsi DSC implementation to use a different DSI_PS
-   setting function for compressed or uncompressed, as the dsc one
-   is way simpler than the regular one and becomes way shorter
- - DSC: Fixed missing PPS 19 register write
- - DSI: Anticipated call to devm_pm_runtime_enable() to before
-   registering the DSI Host interface
- - DSI: Anticipated installing IRQ handler before registering the
-   dsi host interface, which wasn't a problem before, but now it
-   would be one because the interrupt is being enabled when binding!
- - DSI: Fixed some possible calculation overflows that may happen in
-   MT8189 and MT8196 because of the higher supported resolutions
- - WDMA: Use devm variant of pm_runtime_enable()
- - Change WDMA interrupt handler to allow signaling WB complete even
-   if there is no specific vblank callback installed to avoid very
-   long timeouts (in any case, WB is complete for real even if there
-   is no vblank_cb, just a bit useless without, but still complete)
- - Fixed WDMA register writes as register id was in function signature
-   for mtk_wdma_ddp_write_dst_addr() but the function itself never
-   used it in DISP_REG_WDMA_DST_ADDRX() macro
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ .../devicetree/bindings/display/mediatek/mediatek,dsc.yaml    | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-Changes in v2:
- - Rebased on next-20260706
-
-This series adds support for:
- - Display Stream Compression (DSC) for DSI and DisplayPort for both
-   legacy (8188/92/95 and others) and for Kompanio Ultra MT8196 SoCs
- - Write DMA (WDMA) Engine (for legacy only at this time) as a step
-   to enable Writeback support (coming later with a restructuring of
-   the entire mediatek-drm driver)
- - Newer MIPI DSI IP revisions, found in MT8189 and MT8196 SoCs
-
-
-AngeloGioacchino Del Regno (11):
-  dt-bindings: display: mediatek: dsc: Add MT8196 compatible
-  drm/mediatek: Implement Display Stream Compression support
-  dt-bindings: display: mediatek: dsi: Document MT8189 and MT8196
-  drm/mediatek: mtk_dsi: Cleanup encoder if reset fails during bind
-  drm/mediatek: mtk_dsi: Enable interrupt at component bind time
-  drm/mediatek: mtk_dsi: Transfer register offsets to per-SoC const
-  drm/mediatek: mtk_dsi: Add support for MT8189
-  drm/mediatek: mtk_dsi: Add support for MT8196
-  drm/mediatek: mtk_dsi: Enable PM Runtime on probe
-  dt-bindings: display: mediatek: wdma: Add compatibles for more SoCs
-  drm/mediatek: Add Write DMA (WDMA) Engine for Writeback support
-
- .../display/mediatek/mediatek,dsc.yaml        |   4 +-
- .../display/mediatek/mediatek,dsi.yaml        |   2 +
- .../display/mediatek/mediatek,wdma.yaml       |   5 +
- drivers/gpu/drm/mediatek/Makefile             |   2 +
- drivers/gpu/drm/mediatek/mtk_crtc.c           |  21 +
- drivers/gpu/drm/mediatek/mtk_ddp_comp.c       |  64 +-
- drivers/gpu/drm/mediatek/mtk_ddp_comp.h       |   9 +
- drivers/gpu/drm/mediatek/mtk_disp_drv.h       |  29 +
- drivers/gpu/drm/mediatek/mtk_disp_dsc.c       | 455 ++++++++++
- drivers/gpu/drm/mediatek/mtk_disp_wdma.c      | 628 ++++++++++++++
- drivers/gpu/drm/mediatek/mtk_drm_drv.c        |  10 +
- drivers/gpu/drm/mediatek/mtk_drm_drv.h        |   2 +
- drivers/gpu/drm/mediatek/mtk_dsi.c            | 801 ++++++++++++++----
- 13 files changed, 1842 insertions(+), 190 deletions(-)
- create mode 100644 drivers/gpu/drm/mediatek/mtk_disp_dsc.c
- create mode 100644 drivers/gpu/drm/mediatek/mtk_disp_wdma.c
-
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,dsc.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,dsc.yaml
+index a5b88eb97e3b..c8b3e86943e4 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,dsc.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,dsc.yaml
+@@ -23,7 +23,9 @@ properties:
+       - enum:
+           - mediatek,mt8195-disp-dsc
+       - items:
+-          - const: mediatek,mt8188-disp-dsc
++          - enum:
++              - mediatek,mt8188-disp-dsc
++              - mediatek,mt8196-disp-dsc
+           - const: mediatek,mt8195-disp-dsc
+ 
+   reg:
 -- 
 2.54.0
 
