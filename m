@@ -4,84 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99901C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 10:46:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C708C44507
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 10:48:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JXgSRxTKj+L+xXrdSkwaJ31uXWibcCMSOUuoYLHSytQ=; b=akUyGUPjr4oaqfvQU2BunWh/jy
-	+tmpK/mtn6JMRXGkyt2ul4pUiNAdjb27RAD1X2mO3VkKD/yp7Aig8kKPEz2eiHp2ymbPAaVZ8o7RT
-	Q84lhtKjpHrQzZ0S5UEDSUWTs8d1BRfNDa0HtguAI2iyYO/IfGbraZVjYw2e5fF9BzQErxuzPa8mQ
-	XxrWz63cZOGv9X2w+0hkxUG9GNK/xBWZ4p9KpqOPCndxdynqRouGlMlZboZAWXJe1pD4TG9VNDNsx
-	rlEDiQrrfPngyLfCgHuaVh27LfRZeUTdyTmDPt9b4gxBb69Odydo437Aivo8uWocAC+cWO13g0C8s
-	HAp2SQlQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bsbcmEk0ykYalAwjYy6hHPK6BGsbqNVuZPGax2hgyQE=; b=4Hw6GNiFxiGBVhm8WJK+NvFu4P
+	8SAg9/Efo6EYVW+FO1RFj1nmUKWx8G1AsLx8Neh7MVWv3Fqwvdv/LNdMKQlMhWVhbbZzo3oPTNzGi
+	kNirQ7sc0ZyfLObwNQDtT7hOqjN8olGpnxZ//XEi4h3DjQpKQshVf54zmg57Qmn/pzFM7CUU8M5cf
+	diI+VPiqEmxqxHt7WsL3sojEl73cE13UZZR6Gf1L06oSbwyBzXN1ZwKmllWR9m40B0jn+Vx0hhX6L
+	rnQSUj6SSKxzF/1SUDShrIF/Pr6sqHSXjnAFTFmdlPTT/FPSSg3ZGwXnwWybGZoJUtJfccQkCnBNj
+	uyz5U6JA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjx88-0000000EUjI-2YcS;
-	Wed, 15 Jul 2026 10:46:20 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wjxAX-0000000EV4C-0M8i;
+	Wed, 15 Jul 2026 10:48:49 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjx85-0000000EUin-334L;
-	Wed, 15 Jul 2026 10:46:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1784112374;
-	bh=Y/KBs2j+URnHAEFXdxv03n1EZjRY256pe45tY92sp2A=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=a1x7CCuYOFQ0iFeG0/UdjnHbh3eoJCpjm3qpcJNSz6pqh0gYK8zjgWWPNJINuvLUI
-	 JXIhkqi195vQiLdzXBr8aY2vD9wAsZTQt6zrAQcHlGu38BqZW4XaalyT5qHiR01yDF
-	 5eExmNkKD6ST1/u5EmqzkmBuBOlqZoBoo7LucB3aOgH5icFd044Cr2gedClUTmY48A
-	 UfE5IlkxUUDCWr4awcYEtbOvbBHBkx8P2TZw8+hrEyuM0FJhmalvxqeOigYw5NEr5q
-	 o+DlN8esrjrwddTbyfPCfupHMkHjcKDVuNqaF5KjE06KIJIMKwOdHlyYn7XJ4QhLua
-	 a7yyTuYE3LoWw==
-Received: from [100.64.0.241] (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5B15E17E00F6;
-	Wed, 15 Jul 2026 12:46:13 +0200 (CEST)
-Message-ID: <dfca9032-98ca-4c61-b1b1-85fd05283d77@collabora.com>
-Date: Wed, 15 Jul 2026 13:46:12 +0300
+	id 1wjxAU-0000000EV3Q-3LI7;
+	Wed, 15 Jul 2026 10:48:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=f5cXE6hmj6E5IY+lQj+M7iKbBJ0r9KktTL0s9gYg/MO9y+0rxk+WhTJZpoAOD2A5YkxVq+Pmc7rVOVbLOlQoEsW+Ayz2++QflJSujZfr9J20MStGq6duSxyO/F7XCHHxPzKuFYZ1YElvas1raWcw8D0YyvGAdZnzOey3fwFY41snesahFe/r6WSOl10/pfq5uGtoa+FQjqPOZAO6E7Y7SIK0OV3h3KR8jxYsRYa1orBoyTG2K58KBkymHI8svgGfMzjm+dFFTfcFY1gaEkXNh9+0ugUofdZuCndDzj8xXkDnRAjfXyzH9w/QQUg+MSxmfIJcE1pBDL5+6CF1QBFTmQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bsbcmEk0ykYalAwjYy6hHPK6BGsbqNVuZPGax2hgyQE=;
+ b=fABeGKo1IXxk1lEKOfs9oKyIbkuViW6/jdNhslawqAVq7Ag51nkPGjgSH23Gv6OPvqhktptsY5Yh37RgJUdsK8ScQ+Vv1ubRRxhQMTgpIUIWrkYm1GoPnMzY13+WCsUvml85oYXmIvClrPeoQ3q7G1IWyPsSt5tB0ZEdKjdrSSOoEYVIrVcWC64mIIiCh+dAkyUzRoWMn0StofXDQZ02dNxznjRsx8yGm4u9nIflOXu4e16qcLqOdwHLgZYj+56A+j8FxCtUQ8a4RRVPqxy3KpCLiOc9NXtAMjtfleb2PX/XaTxS40/TymQuaLos3WSND/vFs9dnEvDysypdr7YlMA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bsbcmEk0ykYalAwjYy6hHPK6BGsbqNVuZPGax2hgyQE=;
+ b=lnu7a3rwpmbIi3JZRcP2fvmIZteFuDxPt/HTK5HnqlLzM60Ko75htJsA/lTTZzNrHo8Mlvz3eZSjOHmR/YuyYmSAs5EBLE6W2L/1PLwHoKFdKUneF2fsKgWurMRDvAua3XR7pxSq2GSgNu3AFdybAFM7ZxIi6UPqfl1sR4jCnYclN7b4o6+2y97l2VtqvNnQGzY95KGYePX0w4h/FXbX8gSXFEcBkfKqJaeSAsoXAPJAzi4Yu6SlgXSRYi979E5ve3gpNjUAcG9FY1POC0ENZWBPzpq36DUHhr4KkQxbcdv50UthPkyowZennksvR3/vmi3bUWHfWtbFvV/Wjs5OVA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB9422.eurprd04.prod.outlook.com (2603:10a6:102:2b4::21)
+ by VI0PR04MB10950.eurprd04.prod.outlook.com (2603:10a6:800:25a::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.19; Wed, 15 Jul
+ 2026 10:48:36 +0000
+Received: from PAXPR04MB9422.eurprd04.prod.outlook.com
+ ([fe80::54e:28bf:aa85:d25d]) by PAXPR04MB9422.eurprd04.prod.outlook.com
+ ([fe80::54e:28bf:aa85:d25d%4]) with mapi id 15.21.0202.014; Wed, 15 Jul 2026
+ 10:48:36 +0000
+Date: Wed, 15 Jul 2026 18:47:13 +0800
+From: Xu Yang <xu.yang_2@oss.nxp.com>
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Jun Li <jun.li@nxp.com>, linux-phy@lists.infradead.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Xu Yang <xu.yang_2@nxp.com>
+Subject: Re: [PATCH v5 3/5] phy: fsl-imx8mq-usb: add runtime PM support
+Message-ID: <53qnpunh3yj4zinchexpjvj3sy3hsqy7lj3qq557dietoivf6q@b4gdtrlsoagm>
+References: <20260630-imx8mp-usb-phy-improvement-v5-0-25d616403844@nxp.com>
+ <20260630-imx8mp-usb-phy-improvement-v5-3-25d616403844@nxp.com>
+ <akQTrWWbnDSr1Nd1@SMW015318>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <akQTrWWbnDSr1Nd1@SMW015318>
+X-ClientProxiedBy: FR4P281CA0278.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:e6::15) To PAXPR04MB9422.eurprd04.prod.outlook.com
+ (2603:10a6:102:2b4::21)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 04/39] drm/connector: Add HDMI 2.0 scrambler
- infrastructure
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>,
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
- kernel@collabora.com, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
- <20260702-dw-hdmi-qp-scramb-v8-4-d79890d00b6a@collabora.com>
- <tjsidlnvswo2rdhqa6jybxrnb47lxgmxdlfrfbasuh67wjbqoy@3a45n3zawvnf>
- <17753a1c-824a-4835-ac2d-8b2796bba1eb@collabora.com>
- <534b921c-638c-4fc3-b89e-5dfc1f269f96@collabora.com>
- <20260713-statuesque-nonchalant-seagull-b9c39d@houat>
- <91c3a825-3344-4ff5-8ea0-f8f057665b3f@collabora.com>
- <20260715-ancient-zealous-eagle-b13e94@houat>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <20260715-ancient-zealous-eagle-b13e94@houat>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9422:EE_|VI0PR04MB10950:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9e49f609-c697-4f41-89ae-08dee25e9f8b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|19092799006|366016|1800799024|6133799003|56012099006|11063799006|4143699003|22082099003|18002099003|10067099003|3023799007;
+X-Microsoft-Antispam-Message-Info: ZmrWE3hZ85qejUno2CoE4Mh+b5KHBmN3cDweYyne+vcIaA5VZFUysLuBKFb+JnAQwLK+6Iog10Rr4b5bMTzvgSwpzekKoHucIbn6EIMl+Nu3O+OQFraMepv5bGKzA2YaQvAtiX9g2BDQJP4YF5/6it/xyHcHgqOa3WBYtfCjvpz9cyuz8pIFQfJ/Jc0CGLByWpr3H7sPNwn2KjcNZNDBmCDoVHi8Q1YZDnEDlI9Ltdk/YjjPXGr9mvVvxcuLrCMWCHTb+0VlvZyu3HoaQhqyQU8mERMU9yiVEGiwl5KD9BtAvmdd2aBK46IZOzbvsixlOevBXt2I8YK1EwsZPl/u6Vknih3r0t3u4SBPL51q/1p2v07IxfjGR1+fhWiHPQHGg5udsYKIRh0eAj6Tpc8UysDpkQvma9q33KuRQVVPjng1E6TAQdA7vNbU6bK2sDLsx4NAgfiS69spULuIxs2d25JCDb5IkL3PO/3msTlgYIU3Vil7a90Ck3hPh8QvfZRtvhTSb0xSGhz2adcNnQ4HGWQVLeHCb0ZgWFCwK2pjSRibjSufbE7N07iuMAQdV7o5gI1pq1pQGC7CODL+xVGMuwFQ1zJw2U+lMzYvfto6Dlbg1W4KOwhVectLkDl79bnHfqF3vnuESV4tJLTb+SGxSyRijGIIGJdFFGk22wEqNWA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9422.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(19092799006)(366016)(1800799024)(6133799003)(56012099006)(11063799006)(4143699003)(22082099003)(18002099003)(10067099003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?W6p1DcAdD6Dcc2vim48nnv2KqbGF8s14wr4/UyVt449u2NxLok/qnwtOaDgy?=
+ =?us-ascii?Q?NK1bjK/j8ekDijKMNpCDZDZ7U60xE/625kz9O+9yWxkXX+2NaP/XphMGtXRP?=
+ =?us-ascii?Q?H4MArxu76JBkricqmsKD9vFYr5nzeTQ5eRjEHsC6st+d7orn1EB3P56nt37S?=
+ =?us-ascii?Q?4gIh6GA/6vBG1+2DT3xd8RhMvmZpmuva7s+8Owvi+HqcZMKkp0S6s9li8bvN?=
+ =?us-ascii?Q?UhqNIQM6YDM/EuomOW9q8dR6+YR4TWnWdKu6eNw3C7IrbFPwZjU5dYcNCQmn?=
+ =?us-ascii?Q?f+juGAXURqLPoAzkrokF0YK3DPVJhRHERBoNpimPhtEOYhoJZs7x8XlFu0RQ?=
+ =?us-ascii?Q?BP2KPpVHYWq2snssq5TrSKiCCQgNkK/CryyKc4FwZbIDrcgvQDRoSr4u2FbA?=
+ =?us-ascii?Q?fKDiErQfmAyULdzJhu7YKPEUXpxKkN6UJ8EjBZqATeZq7z6rzBwmPiJXbCW7?=
+ =?us-ascii?Q?GsEpzW4VM6qTOSzoBSMDQ7a3l9IQZfSBtSThvqxt8ps6mJR9K6+EtR456BLB?=
+ =?us-ascii?Q?5dlHbmZH1AYodK5ywgahSpFUESLL8ZV5dHBWIlKCTr3h6X12lmGuG7ClTqWV?=
+ =?us-ascii?Q?ewr1i0OZNmRp/4u0+O3RhzCdO4GiOIuaQG84Acx9H7MpOYSQoJEewJK4+TYu?=
+ =?us-ascii?Q?H9w6Qar/8kwUkHtAmUHhiesGsoYjaaq+5rQXuTAliY9ge+cflnU1eKhB3nAo?=
+ =?us-ascii?Q?Y2aPHVw6SKNzWDqWDnpLRrXkDYGxniPQ2GKY90gsuwgg4HWX4ZjJy8Qisyym?=
+ =?us-ascii?Q?he4zA3lOeWYggSbtQGW6LXjYOGpH5aDo09bymgLBquBX5pE+nx7YBthpX85N?=
+ =?us-ascii?Q?VLYj6vZ5bifMEoOY5lYZGy1A41ktcQ7cyiSzyXSdcC2xf0WcUaLiDDGnmQE/?=
+ =?us-ascii?Q?S7g+Pdcb67z5P4FF1gc6At+NjclJ+ENL0ZrpqELshBysYnM7pyupdmgpooKE?=
+ =?us-ascii?Q?VWVvgKB1CHVMZlvlX6udEFfAI0oE7aeYQt9KYw1yS6sBPvPQDU44Ucfhc8kJ?=
+ =?us-ascii?Q?6Mp2RnVlBVrf84ao0WgHx9Rx0DPQu72QYF+6ntiTcbjZp00LDxxehopdUeZK?=
+ =?us-ascii?Q?oz+fRRmSuwn8IReJlJFd0PdyWdQl9sF3bwecVc9c+ytyhlPocmmmCTWbokxq?=
+ =?us-ascii?Q?2kgza/REzLVFQLuIGw1xEWnj7WdtkcZAjSZnn3x4rN+tkNLeDf+pixhU9GyU?=
+ =?us-ascii?Q?iY2O9/COMjzClV38EGP0rRiMAViCWnCFF2U0BfIsDmKctyKMzmV3e+0RlFwj?=
+ =?us-ascii?Q?JtFGjA3I2GlrZhj3PODvNzESwTnmmp1d8RXolp41WbZpsN9SEf8FObTZ5Int?=
+ =?us-ascii?Q?FIJ2poYmQKiKeCd7ThEbrHYo9zvA2TBq6wtHUGZlMDWRjQIRQapeE1B3XDrn?=
+ =?us-ascii?Q?TkR2vVI447/YGSbg5ev2nl6AO7BbdQuA7y+FmdGkRs3b/MlWW4ve4SjfcvQT?=
+ =?us-ascii?Q?iPrCyYPUoswMV8vVLLXPL0PcRYsiLUceFvh5uNcTxcscnM4Y6aozq3U8Lgcq?=
+ =?us-ascii?Q?+Xb/ZDf6yuQnH6X240lRNb2KH8rQiovFb4iWM6yQXSDQEghBm8b80Mvn9X91?=
+ =?us-ascii?Q?CgSJpT6rIhJsYo2kaYN9erPYvIQS/+NS01pLzZTZpalDF6455jbg9FwKbPyJ?=
+ =?us-ascii?Q?ndq1WywWcuwIZqruDmKRd3NfskFgUFq8O0WT5MhJmNJoHl4EKWVfo/VfVmEi?=
+ =?us-ascii?Q?aES514RQVIb67YU2RVjvm99CfWRJC8FwQgtniJGL36ZgrTFXK28DpvxwIkmA?=
+ =?us-ascii?Q?IfaItcddozdV6WmryWRupwN9EUK3fC95qWGVEy7y1NTyN6WPdmbs?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9e49f609-c697-4f41-89ae-08dee25e9f8b
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9422.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2026 10:48:36.7071
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: JKLLsIjZ14+MDGogwb5zNmnsOFcdPhXGoptZGNZ1HfOpvetkhvjXVECz5bEY3+31AR7FenO1rzlVvJD565OX61WgSNhlYpwtH9vAJyoH+IDzc+ujC4YhB7cBgVS7WmBQ
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10950
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_034617_930829_C2EAE674 
-X-CRM114-Status: GOOD (  24.79  )
+X-CRM114-CacheID: sfid-20260715_034846_845538_1891B10A 
+X-CRM114-Status: GOOD (  28.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,101 +140,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/15/26 11:55 AM, Maxime Ripard wrote:
-> On Mon, Jul 13, 2026 at 01:23:00PM +0300, Cristian Ciocaltea wrote:
->> On 7/13/26 11:50 AM, Maxime Ripard wrote:
->>> On Thu, Jul 09, 2026 at 10:25:54PM +0300, Cristian Ciocaltea wrote:
->>>> On 7/3/26 11:54 PM, Cristian Ciocaltea wrote:
->>>>> On 7/3/26 5:34 PM, Dmitry Baryshkov wrote:
->>>>>> On Thu, Jul 02, 2026 at 05:46:17PM +0300, Cristian Ciocaltea wrote:
->>>>>>> Add the connector-level infrastructure to support HDMI 2.0 scrambling:
->>>>>>>
->>>>>>> - A scrambler_supported flag to indicate whether the source supports the
->>>>>>>   scrambling capability, in which case the newly introduced
->>>>>>>   .scrambler_{enable|disable}() callbacks in drm_connector_hdmi_funcs
->>>>>>>   are mandatory
->>>>>>
->>>>>> Do we need a flag? What would it mean if the flag is set, but the
->>>>>> callbacks are not? Can we drop the flag and use the presence of the
->>>>>> callbacks as a way to identify that scrambler is enabled?
->>>>>
->>>>> The flag is intended to be set only within drmm_connector_hdmi_init_with_caps()
->>>>> when drivers advertise HDMI 2.x capability, in which case it also ensures the
->>>>> callbacks are provided.  
->>>>>
->>>>> We could drop the flag and instead have the init helper clear the callbacks if
->>>>> they were provided for HDMI 1.x.  This might slightly reduce code readability,
->>>>> as it relies on checking the presence of individual callbacks - especially since
->>>>> we plan to extend this further with HDMI 2.1 support, providing four or five
->>>>> additional FRL-specific callbacks.
->>>>
->>>> I tried to replace the flag with a helper that checks the presence of (one of)
->>>> the callbacks, but it's not straightforward to unset those for non-HDMI 2.x
->>>> cases since the hdmi_funcs argument is immutable.
->>>
->>> I'm not sure why we would need to unset them. If the driver states that
->>> it support HDMI 2.0, then it needs to be there, if it doesn't, then who
->>> cares? it's not going to be used. We can log a warning that it's
->>> inconsistent I guess, but there's no need to actively remove it.
->>
->> I was trying to address the use case where drivers provide the scrambler
->> callbacks despite not supporting HDMI 2.0.
+On Tue, Jun 30, 2026 at 02:06:21PM -0500, Frank Li wrote:
+> On Tue, Jun 30, 2026 at 06:11:30PM +0800, Xu Yang wrote:
+> > From: Xu Yang <xu.yang_2@nxp.com>
+> >
+> > Add runtime PM to ensure the PHY is properly powered and clocked during
+> > register access, preventing potential system hangs.
+> >
+> > It guards register access in the following scenarios:
+> > - PHY operations: init() and power_on/off() callbacks are guarded by
+> >   phy core
+> > - Type-C orientation switching when PHY/Controller are suspended which
+> >   needs explicitly care
+> > - Future PHY control port register regmap debugfs access
+> >
+> > Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+> >
+> > ---
+> > Changes in v5:
+> >  - use non-devm PM runtime callback to correctly enable/disable clocks
+> >    when unbind the device
+> > Changes in v4:
+> >  - replace guard() with PM_RUNTIME_ACQUIRE()
+> > Changes in v3:
+> >  - new patch
+> > ---
+> >  drivers/phy/freescale/phy-fsl-imx8mq-usb.c | 64 +++++++++++++++++++++---------
+> >  1 file changed, 45 insertions(+), 19 deletions(-)
+> >
+> > diff --git a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
+> > index 3a5788c609e1..9d1dd0e7352e 100644
+> > --- a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
+> > +++ b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
+> > @@ -9,6 +9,7 @@
+> >  #include <linux/of.h>
+> >  #include <linux/phy/phy.h>
+> >  #include <linux/platform_device.h>
+> > +#include <linux/pm_runtime.h>
+> >  #include <linux/regulator/consumer.h>
+> >  #include <linux/usb/typec_mux.h>
+> >
+> > @@ -136,17 +137,15 @@ static int tca_blk_typec_switch_set(struct typec_switch_dev *sw,
+> >  {
+> >  	struct imx8mq_usb_phy *imx_phy = typec_switch_get_drvdata(sw);
+> >  	struct tca_blk *tca = imx_phy->tca;
+> > -	int ret;
+> >
+> >  	if (tca->orientation == orientation)
+> >  		return 0;
+> >
+> > -	ret = clk_prepare_enable(imx_phy->clk);
+> > -	if (ret)
+> > -		return ret;
+> > +	PM_RUNTIME_ACQUIRE(&imx_phy->phy->dev, pm);
+> > +	if (PM_RUNTIME_ACQUIRE_ERR(&pm))
+> > +		return -ENXIO;
+> >
+> >  	tca_blk_orientation_set(tca, orientation);
+> > -	clk_disable_unprepare(imx_phy->clk);
+> >
+> >  	return 0;
+> >  }
+> > @@ -620,16 +619,6 @@ static int imx8mq_phy_power_on(struct phy *phy)
+> >  	if (ret)
+> >  		return ret;
+> >
+> > -	ret = clk_prepare_enable(imx_phy->clk);
+> > -	if (ret)
+> > -		return ret;
+> > -
+> > -	ret = clk_prepare_enable(imx_phy->alt_clk);
+> > -	if (ret) {
+> > -		clk_disable_unprepare(imx_phy->clk);
+> > -		return ret;
+> > -	}
+> > -
+> >  	/* Disable rx term override */
+> >  	value = readl(imx_phy->base + PHY_CTRL6);
+> >  	value &= ~PHY_CTRL6_RXTERM_OVERRIDE_SEL;
+> > @@ -648,8 +637,6 @@ static int imx8mq_phy_power_off(struct phy *phy)
+> >  	value |= PHY_CTRL6_RXTERM_OVERRIDE_SEL;
+> >  	writel(value, imx_phy->base + PHY_CTRL6);
+> >
+> > -	clk_disable_unprepare(imx_phy->alt_clk);
+> > -	clk_disable_unprepare(imx_phy->clk);
+> >  	regulator_disable(imx_phy->vbus);
+> >
+> >  	return 0;
+> > @@ -693,13 +680,13 @@ static int imx8mq_usb_phy_probe(struct platform_device *pdev)
+> >
+> >  	platform_set_drvdata(pdev, imx_phy);
+> >
+> > -	imx_phy->clk = devm_clk_get(dev, "phy");
+> > +	imx_phy->clk = devm_clk_get_enabled(dev, "phy");
+> >  	if (IS_ERR(imx_phy->clk)) {
+> >  		dev_err(dev, "failed to get imx8mq usb phy clock\n");
+> >  		return PTR_ERR(imx_phy->clk);
+> >  	}
+> >
+> > -	imx_phy->alt_clk = devm_clk_get_optional(dev, "alt");
+> > +	imx_phy->alt_clk = devm_clk_get_optional_enabled(dev, "alt");
+> >  	if (IS_ERR(imx_phy->alt_clk))
+> >  		return dev_err_probe(dev, PTR_ERR(imx_phy->alt_clk),
+> >  				    "Failed to get alt clk\n");
+> > @@ -708,6 +695,9 @@ static int imx8mq_usb_phy_probe(struct platform_device *pdev)
+> >  	if (IS_ERR(imx_phy->base))
+> >  		return PTR_ERR(imx_phy->base);
+> >
+> > +	pm_runtime_set_active(dev);
+> > +	pm_runtime_enable(dev);
+> > +
 > 
-> Scrambling got introduced with HDMI 2.0. That doesn't make sense, but
-> it's not a total deal breaker, it's just going to be here unused. Hence
-> why I was suggesting to put a warning there if you wanted to.
+> devm_pm_runtime_enable();
+
+OK.
+
 > 
->> If we replace the scrambler_supported flag with a helper checking the
->> presence of the scrambler callbacks, then we would need to ensure the
->> callbacks do not exist in this case.
+> runtime pm will be always on active status, why suspend it?
+
+First, at the end of __driver_probe_device(), it will call pm_request_idle()
+for the device. So runtime_suspend() will run.
+Second, this platform device is the parent of created phy device, the runtime status
+of phy device is managed by phy core, so this platform device will be managed by phy
+core indirectly.
+
 > 
-> Keep it simple:
+> >  	phy_ops = of_device_get_match_data(dev);
+> >  	if (!phy_ops)
+> >  		return -EINVAL;
+> > @@ -737,15 +727,51 @@ static int imx8mq_usb_phy_probe(struct platform_device *pdev)
+> >
+> >  static void imx8mq_usb_phy_remove(struct platform_device *pdev)
+> >  {
+> > +	struct device *dev = &pdev->dev;
+> > +
+> > +	pm_runtime_get_sync(dev);
+> > +	pm_runtime_disable(dev);
+> > +	pm_runtime_put_noidle(dev);
+> > +}
+> > +
+> > +static int imx8mq_usb_phy_runtime_suspend(struct device *dev)
+> > +{
+> > +	struct imx8mq_usb_phy *imx_phy = dev_get_drvdata(dev);
+> > +
+> > +	clk_disable_unprepare(imx_phy->alt_clk);
+> > +	clk_disable_unprepare(imx_phy->clk);
 > 
-> if (hdmi_version >= HDMI_VERSION_2_0)
->    if (funcs->scrambler_enable)
->       hdmi->scramblers_supported = true
->    else
->       return -EINVAL
-> else
->     drm_warn(warn, "Inconsistent HDMI version");
-> 
-> We don't need anything more than that.
+> can you switch to use bulk clk api.
 
-I dropped the scrambler_supported flag and introduced a helper:
+imx_phy->clk is required but imx_phy->alt_clk is optional. So it seems not
+convenient to use clk_bulk_get()/clk_bulk_get_optional() APIs. Maybe we can
+switch to use bulk clk API when more clocks are required in the future.
 
-static inline bool
-drm_connector_hdmi_scrambler_supported(struct drm_connector *connector)
-{
-	return connector->hdmi.funcs && connector->hdmi.funcs->scrambler_enable;
-}
-
-Therefore we need to ensure the callbacks are not set in the HDMI 1.x cases:
-
-int drmm_connector_hdmi_init_with_caps()
-{
-	...
-	if (caps->supported_hdmi_ver >= HDMI_VERSION_2_0) {
-		if (!hdmi_funcs->scrambler_enable ||
-		    !hdmi_funcs->scrambler_disable)
-			return -EINVAL;
-
-		connector->hdmi.max_tmds_char_rate = HDMI_2_0_TMDS_CHAR_RATE_MAX_HZ;
-	} else {
-		/*
-		 * Scrambler callbacks are only valid for connectors advertising
-		 * HDMI 2.0 capability. drm_connector_hdmi_scrambler_supported()
-		 * relies on their presence to report scrambling support.
-		 */
-		if (hdmi_funcs->scrambler_enable ||
-		    hdmi_funcs->scrambler_disable)
-			return -EINVAL;
-
-		if (caps->supported_hdmi_ver >= HDMI_VERSION_1_3) {
-			connector->hdmi.max_tmds_char_rate = HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ;
-		} else if (caps->supported_hdmi_ver >= HDMI_VERSION_1_0) {
-			connector->hdmi.max_tmds_char_rate = HDMI_1_0_TMDS_CHAR_RATE_MAX_HZ;
-		}
-	}
-	...
-}
+Thanks,
+Xu Yang
 
