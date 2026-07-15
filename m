@@ -4,75 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DEB4C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 08:00:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2E0CC44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 08:00:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=87clj23hFfpt9QBNepHjfZoYycZtPvLMabqLFhkG2z0=; b=Z7k3jR3fIoxwxc7Be5PuBqy29R
-	NqciO//Ix6qwRXO3/cnfWqys/GiIms/MoMBWBJLG10uL6206CQa/+Nb6ENT8EbDBK/7bZgGEQozeb
-	o6HFclIPxT23bc9sJH2ZPKArLVQg5V3HuM06ht38HfGvKaz7YwKSZ7/0ASvUByGmPOM/JdAnsyJb6
-	odTUt2ERfopjksUI+gwutsznvOxKwyBPkwBXAvEeg9BL0J2FBjkr8VtatS6GPRV6ogDieWDCwgTNW
-	szo4aptzW4YJ5yQMrTOb/WhJ/Eakr2zJQOK7vhnuNB1/4De/KsTgdrooLo6uxsC4w+zVldM6KOSat
-	Og2MVmBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6xRWik7oMk39agPS8Gpaej2sQhyVer8C5rt7PdSERk0=; b=ekhwOtKjCxPzyrthg3y16rwM5J
+	2iMWBZTxPacxlusBvpUNsbh1s7sxWig3Ny6Ln8BCHjThHK2H+PxYR+jYY/aCy/CAcKDK2gN38JdN7
+	xAas2W2/rKTNzc9DuyOnk/37QoR2ykN0KQN8uu/FAb7n83ZOPZLu7jaP2p0F3hJOpHptW0OwmpRAl
+	LSmAfeC1h2M5Lc49nRZdMBAykvhLT5Ka7e4t0DPi8Ej5pgvJbOJ/NtkF0Oa76gsorM524UXwll62G
+	1Vfz4nB4yfnlGMjoNIdIZ6JrFMUvF7KCy2c9AlrHK41asUWpMPUdf0kfHpawHxpddbzhxTwQZgCGP
+	M2qunhRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjuXo-0000000E618-2Vbk;
-	Wed, 15 Jul 2026 08:00:40 +0000
-Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
+	id 1wjuXw-0000000E63y-3AbR;
+	Wed, 15 Jul 2026 08:00:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjuXl-0000000E60D-2nhM
+	id 1wjuXn-0000000E60t-3RJf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 08:00:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=kemnade.info; s=20220719; h=References:In-Reply-To:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description;
-	bh=87clj23hFfpt9QBNepHjfZoYycZtPvLMabqLFhkG2z0=; t=1784102437; x=1785312037; 
-	b=5ST0TM8Bbh8xUxze6F+wn08XmjeVQHLcMZEgLb1Llt3km8Z1oA4MmNEoREI9LnPhdNjTG4BrYxo
-	4n/EyXnAy7PFUmRZK8rhOOopHW1eKwjdimwRj+227VXUh3hGU+4ogJCca9oJI4wF2xyo2Zvcbc5Dv
-	+Slfojq5/jZ4CTgy9rsY8xqhpyofOr8kZ7uS2tpZm56+vi8ny3OM7outNgJBHt5+oJX/8PAsEaASc
-	qnCkGX29RzVn8Gr6dySp8s2tjgyiLPJ57DMab+Vo3jc+9wlYF034swpkqGWeTh2Vd11241nlt6J1w
-	JRXjW3T43gKqWwPhDFt6F7GvLQCOeaFvVehA==;
-Date: Tue, 14 Jul 2026 20:46:36 +0200
-From: Andreas Kemnade <andreas@kemnade.info>
-To: "H. Nikolaus Schaller" <hns@goldelico.com>
-Cc: Grond <grond66@riseup.net>, Stefan Leichter <sle85276@gmx.de>, Grazvydas
- Ignotas <notasas@gmail.com>, Tony Lindgren <tony@atomide.com>, Ethan
- Nelson-Moore <enelsonmoore@gmail.com>, Jarkko Nikula
- <jarkko.nikula@bitmer.com>, Sascha Hauer <s.hauer@pengutronix.de>, Lee
- Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Liam Girdwood
- <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Aaro Koskinen
- <aaro.koskinen@iki.fi>, Kevin Hilman <khilman@baylibre.com>, Roger Quadros
- <rogerq@kernel.org>, Russell King <linux@armlinux.org.uk>, Daniel Thompson
- <danielt@kernel.org>, Jingoo Han <jingoohan1@gmail.com>, Helge Deller
- <deller@gmx.de>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai
- <tiwai@suse.com>, Sen Wang <sen@ti.com>, Richard Fitzgerald
- <rf@opensource.cirrus.com>, Arnd Bergmann <arnd@arndb.de>, Srinivas
- Kandagatla <srinivas.kandagatla@oss.qualcomm.com>, Kuninori Morimoto
- <kuninori.morimoto.gx@renesas.com>, Charles Keepax
- <ckeepax@opensource.cirrus.com>, Niranjan H Y <niranjan.hy@ti.com>,
- letux-kernel@openphoenux.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org,
- linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- dri-devel@lists.freedesktop.org, linux-fbdev@vger.kernel.org,
- kernel@pyra-handheld.com, mfd@lists.linux.dev
-Subject: Re: [PATCH 16/16] arm: omap2: remove remaining pdata-quirks for
- pandora legacy devices
-Message-ID: <20260714204630.0fd6bcb1@kemnade.info>
-In-Reply-To: <d380941287c655a3d205ee8b08516d364c0ddec9.1783749722.git.hns@goldelico.com>
-References: <cover.1783749722.git.hns@goldelico.com>
-	<d380941287c655a3d205ee8b08516d364c0ddec9.1783749722.git.hns@goldelico.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	Wed, 15 Jul 2026 08:00:39 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 46555600BB;
+	Wed, 15 Jul 2026 08:00:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D96691F00A3A;
+	Wed, 15 Jul 2026 08:00:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784102439;
+	bh=6xRWik7oMk39agPS8Gpaej2sQhyVer8C5rt7PdSERk0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=nA3IRwwErLKqfQGojuyqxnTXbJwwXvZDVgVhUl5OuKarcqsxrQo+7R4J6Kyi8skLH
+	 mhsFU97kz0buOOx8UicSxnPYXuznj0hqYYsMIhD2Wx2d5ZcSI9xgJJFphb4NP8Id8g
+	 t7CpwYDb1R7o/hfz7Ef78aDJdv1xn5kNBoG7Xv29w4F63eWdSjhlY1idsLxcq/y7v4
+	 7txuwuMXKNzwQxdQBAaG36/frJQxOmwBPCZJ9fFHiIyeze7MmuP6YlQYp01saXJckl
+	 EtgJaT9VJ0Q/eQiCEZkRQ3BY2cioFM3JMI+3A7QJUjg5KjXf166H2nSxZ6NcmcB+g9
+	 5J7g75j2La4jw==
+Date: Wed, 15 Jul 2026 01:00:37 -0700
+From: Oliver Upton <oupton@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org, Steffen Eiden <seiden@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v2 07/28] KVM: arm64: Don't evaluate HCR_EL2.NV nor
+ HFGITR_EL2.ERET on ERET fast path
+Message-ID: <alc-JSvHDjSV5c_G@kernel.org>
+References: <20260714091641.1970822-1-maz@kernel.org>
+ <20260714091641.1970822-8-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_010037_715234_64E2EF79 
-X-CRM114-Status: GOOD (  17.24  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260714091641.1970822-8-maz@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,74 +73,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 11 Jul 2026 08:02:03 +0200
-"H. Nikolaus Schaller" <hns@goldelico.com> wrote:
+Hey,
 
-> After updating the pandora-backligt setup and removing the
-> omap3pandora sound system and defining related gpios by device tree,
-> we can remove omap3_pandora_legacy_init() and the related legacy
-> devices completely.
+On Tue, Jul 14, 2026 at 10:16:20AM +0100, Marc Zyngier wrote:
+> We currently avoid using the ERET fast path if the guest has HCR_EL2.NV
+> set. This is an odd check, as NV doesn't mean much if HCR_EL2.TGE==1.
 > 
-> Signed-off-by: H. Nikolaus Schaller <hns@goldelico.com>
-
-regarding bisectabily: Do we create mess, if the platform devices via
-quirks are disabled?
-
-I am wondering how we handle this. If this patch goes together with the
-removal of the legacy drivers, then there might be a situation where
-neither the new one nor the old one is available? Split this all up?
-
-If sound discussion takes longer, maybe do the backlight thing alone?
-
-Regards,
-Andreas
+> Similarly, evaluating HFGITR_EL2.ERET makes little sense, as
+> this only applies to the nested context, while the ERET fast-path
+> is purely for the benefit of L1.
+> 
+> Replace these bizarre checks with is_nested_ctxt() which makes a lot
+> more sense: if we are running an L2, the ERET trap must go to L1.
+> 
+> Fixes: dd0717a998f77 ("KVM: arm64: nv: Fast-track 'InHost' exception returns")
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
 > ---
->  arch/arm/mach-omap2/pdata-quirks.c | 23 -----------------------
->  1 file changed, 23 deletions(-)
+>  arch/arm64/kvm/hyp/vhe/switch.c | 9 +++------
+>  1 file changed, 3 insertions(+), 6 deletions(-)
 > 
-> diff --git a/arch/arm/mach-omap2/pdata-quirks.c
-> b/arch/arm/mach-omap2/pdata-quirks.c index
-> b947bacf23a37..aca7097a692ed 100644 ---
-> a/arch/arm/mach-omap2/pdata-quirks.c +++
-> b/arch/arm/mach-omap2/pdata-quirks.c @@ -268,27 +268,6 @@ static void
-> __init omap3_logicpd_torpedo_init(void) omap3_gpio126_127_129();
->  }
->  
-> -/* omap3pandora legacy devices */
-> -
-> -static struct platform_device pandora_backlight = {
-> -	.name	= "pandora-backlight",
-> -	.id	= -1,
-> -};
-> -
-> -static struct gpiod_lookup_table pandora_soc_audio_gpios = {
-> -	.dev_id = "soc-audio",
-> -	.table = {
-> -		GPIO_LOOKUP("gpio-112-127", 6, "dac",
-> GPIO_ACTIVE_HIGH),
-> -		GPIO_LOOKUP("gpio-0-15", 14, "amp",
-> GPIO_ACTIVE_HIGH),
-> -		{ }
-> -	},
-> -};
-> -
-> -static void __init omap3_pandora_legacy_init(void)
-> -{
-> -	platform_device_register(&pandora_backlight);
-> -	gpiod_add_lookup_table(&pandora_soc_audio_gpios);
-> -}
->  #endif /* CONFIG_ARCH_OMAP3 */
->  
->  #ifdef CONFIG_SOC_DRA7XX
-> @@ -514,8 +493,6 @@ static struct pdata_init pdata_quirks[]
-> __initdata = { { "ti,omap3-evm-37xx", omap3_evm_legacy_init, },
->  	{ "ti,am3517-evm", am3517_evm_legacy_init, },
->  	{ "technexion,omap3-tao3530", omap3_tao3530_legacy_init, },
-> -	{ "openpandora,omap3-pandora-600mhz",
-> omap3_pandora_legacy_init, },
-> -	{ "openpandora,omap3-pandora-1ghz",
-> omap3_pandora_legacy_init, }, #endif
->  	{ /* sentinel */ },
->  };
+> diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
+> index bbe9cebd3d9d5..a83be345f8450 100644
+> --- a/arch/arm64/kvm/hyp/vhe/switch.c
+> +++ b/arch/arm64/kvm/hyp/vhe/switch.c
+> @@ -344,13 +344,10 @@ static bool kvm_hyp_handle_eret(struct kvm_vcpu *vcpu, u64 *exit_code)
+>  	 * if this is a VHE guest hypervisor returning to its own
+>  	 * userspace, or the hypervisor performing a local exception
+>  	 * return. No need to save/restore registers, no need to
+> -	 * switch S2 MMU. Just do the canonical ERET.
+> -	 *
+> -	 * Unless the trap has to be forwarded further down the line,
+> -	 * of course...
+> +	 * switch S2 MMU. Just do the canonical ERET unlesss we are in
+> +	 * nested context.
+>  	 */
 
+typo: unless
+
+I feel like it wouldn't hurt to add a bit more detail to the comment
+here, that L0 KVM doesn't use ERET traps in the nested context.
+Otherwise it isn't clear why these always belong to the L1.
+
+Thanks,
+Oliver
+
+> -	if ((__vcpu_sys_reg(vcpu, HCR_EL2) & HCR_NV) ||
+> -	    (__vcpu_sys_reg(vcpu, HFGITR_EL2) & HFGITR_EL2_ERET))
+> +	if (is_nested_ctxt(vcpu))
+>  		return false;
+>  
+>  	spsr = read_sysreg_el1(SYS_SPSR);
+> -- 
+> 2.47.3
+> 
 
