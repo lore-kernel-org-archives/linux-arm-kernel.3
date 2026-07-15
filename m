@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31D6AC44508
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 752B8C44501
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 14:32:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,37 +12,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hYxY1VCsepXd4jN+1aJ4CRmIav/53Uiu2Af1XhEZdGE=; b=mOpKDMShBv6bKcH5kFjbcOrUc/
-	6zmq/klUtqdfOEsGXJ+0Vd37DTvn0fj6/Wga+Hx34jnaZ0kE+yHOBnwHbShSdMAFO9aSnjvsRiOyG
-	+dsdUYvjjLqrjrloU3asXCQ1ckj/PAAkSnBWkfvpmTHqpN0LGRY+EhaEaRbbvZtXGjPUuFssThs9M
-	w3dAxKfjHidyHwZ7Fbw3EmkA1WwxrSKRalfhrOQ3lBiz5xCkyS+J0xAHQx/XKVN7t6YX1JvnSGedg
-	L3FyqeOxizBeXFE6f3g1mfFar7QaaraLLf5YjO+x+b0jLBke45PqmTmAXLxJC1rvvKd5opmsiX/u2
-	1uG8WO5Q==;
+	bh=8KltodfnQ8jvDV9VFEqhVdTdYTjOiX+vNA4GIrzxhZM=; b=pAq6JkTcgoqD5+miMh5apTclhp
+	tF2mya74wKYiRT+gb9wQUtxRNo+l2xCx4T+SUyKTuWVhMXCXpLdqmfxSHwWLzle+V7CA97kjPQJUT
+	uMIVZP2Ch90iqFdm7wQnbsFqaQsOVIXhL5kdqfTVw0fuhx5ZmjiVh2cq0xKWc1Davyn+Dw+zF2l5g
+	x/JrNdDGjls9XdGHdkMM8DL+3uAXCNvZhnNCoBtfLQjlh+nBvGUxX/KM8Ogvk+JPx021hCF2MaUn2
+	QjMTgwXXoqEhnOYXmuCz8fSiWPOBQp+72WzNMKWsdqkFAgwlH5velWnx9WM5/QR+8VXmSeiqi2jVM
+	+g5+a1Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk0f1-0000000FBDU-0aTa;
+	id 1wk0f1-0000000FBDB-00Pb;
 	Wed, 15 Jul 2026 14:32:31 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk0eN-0000000FAaf-03QZ
+	id 1wk0eI-0000000FAXo-2pbK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 14:32:00 +0000
+	Wed, 15 Jul 2026 14:31:55 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4133D1576;
-	Wed, 15 Jul 2026 07:31:46 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B7B3915A1;
+	Wed, 15 Jul 2026 07:31:41 -0700 (PDT)
 Received: from e122027.cambridge.arm.com (e122027.cambridge.arm.com [10.1.25.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4B4FA3F7B4;
-	Wed, 15 Jul 2026 07:31:46 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A83563F7B4;
+	Wed, 15 Jul 2026 07:31:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784125910; bh=hTHvGHo3aq13/0hCdni+YB/1LbAGuEZAjUd+4tZoURQ=;
+	t=1784125905; bh=R2faogoYaXkfqGHnF6vJJOqEqJmwTNS9i4WmOVnJpXU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=AR2vGpGk/pJKe3cSknWcS3UCEVyGMxAWtRMINXoVYuQ5KnoUiu3HircLCLB7+QqRS
-	 l3NnR1yUEHGBt1G8I6z0uTusataDJtdw1V5AnjVcCS7dcysd+dq64vL73OVK3VSJOu
-	 RelST7tzou4LH3wGD49r4zLAwVpDqy0yuTwKEPTQ=
+	b=QdZarbfSdc5lkye8g/rO8oqfaXwf8ScDp8caHxqwKFZ8INWULaG+6xkKtRgeak9pI
+	 Yiqf1IJP517QX6gci4s1cPvqpZK0n4+k+2sm/sZy8D79U4OEUQEhv8qsNkQxpTqh1B
+	 YnkZsMZBIkGGmBgzEDLsPAE9/ns1U2mahYMlgGHs=
 From: Steven Price <steven.price@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
-Cc: Steven Price <steven.price@arm.com>,
+Cc: Jean-Philippe Brucker <jean-philippe@linaro.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Marc Zyngier <maz@kernel.org>,
 	Will Deacon <will@kernel.org>,
@@ -65,19 +65,19 @@ Cc: Steven Price <steven.price@arm.com>,
 	Emi Kisanuki <fj0570is@fujitsu.com>,
 	Vishal Annapurve <vannapurve@google.com>,
 	WeiLin.Chang@arm.com,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: [PATCH v15 37/37] KVM: arm64: CCA: Enable realms to be created
-Date: Wed, 15 Jul 2026 15:28:39 +0100
-Message-ID: <20260715142841.80544-38-steven.price@arm.com>
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Steven Price <steven.price@arm.com>
+Subject: [PATCH v15 36/37] KVM: arm64: CCA: Provide an accurate register list
+Date: Wed, 15 Jul 2026 15:28:38 +0100
+Message-ID: <20260715142841.80544-37-steven.price@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260715142841.80544-1-steven.price@arm.com>
 References: <20260715142841.80544-1-steven.price@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_073151_115792_464912DF 
-X-CRM114-Status: UNSURE (   9.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260715_073146_802220_F5007691 
+X-CRM114-Status: GOOD (  15.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,26 +92,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-All the pieces are now in place, so enable kvm_rmi_is_available when the
-RMM is detected.
+From: Jean-Philippe Brucker <jean-philippe@linaro.org>
 
+Userspace can set a few registers with KVM_SET_ONE_REG (9 GP registers
+at runtime, and 3 system registers during initialization). Update the
+register list returned by KVM_GET_REG_LIST.
+
+Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
 Signed-off-by: Steven Price <steven.price@arm.com>
 ---
- arch/arm64/kvm/rmi.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+Changes since v11:
+ * Reworked due to upstream changes.
+Changes since v8:
+ * Minor type changes following review.
+Changes since v7:
+ * Reworked on upstream changes.
+---
+ arch/arm64/kvm/guest.c      |  6 ++++++
+ arch/arm64/kvm/hypercalls.c |  4 ++--
+ arch/arm64/kvm/sys_regs.c   | 27 +++++++++++++++++++++------
+ 3 files changed, 29 insertions(+), 8 deletions(-)
 
-diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
-index 3f1c6351b71a..06cc85fb5092 100644
---- a/arch/arm64/kvm/rmi.c
-+++ b/arch/arm64/kvm/rmi.c
-@@ -1518,5 +1518,6 @@ void kvm_init_rmi(void)
- 	if (rmm_check_features())
- 		return;
+diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
+index 128fec56993a..5e495dd39e39 100644
+--- a/arch/arm64/kvm/guest.c
++++ b/arch/arm64/kvm/guest.c
+@@ -620,6 +620,9 @@ static unsigned long num_sve_regs(const struct kvm_vcpu *vcpu)
+ 	if (!kvm_arm_vcpu_sve_finalized(vcpu))
+ 		return 1; /* KVM_REG_ARM64_SVE_VLS */
  
--	/* Future patch will enable static branch kvm_rmi_is_available */
-+	kvm_info("Realm guests supported\n");
-+	static_branch_enable(&kvm_rmi_is_available);
++	if (kvm_is_realm(vcpu->kvm))
++		return 1; /* KVM_REG_ARM64_SVE_VLS */
++
+ 	return slices * (SVE_NUM_PREGS + SVE_NUM_ZREGS + 1 /* FFR */)
+ 		+ 1; /* KVM_REG_ARM64_SVE_VLS */
  }
+@@ -647,6 +650,9 @@ static int copy_sve_reg_indices(const struct kvm_vcpu *vcpu,
+ 	if (!kvm_arm_vcpu_sve_finalized(vcpu))
+ 		return num_regs;
+ 
++	if (kvm_is_realm(vcpu->kvm))
++		return num_regs;
++
+ 	for (i = 0; i < slices; i++) {
+ 		for (n = 0; n < SVE_NUM_ZREGS; n++) {
+ 			reg = KVM_REG_ARM64_SVE_ZREG(n, i);
+diff --git a/arch/arm64/kvm/hypercalls.c b/arch/arm64/kvm/hypercalls.c
+index b11b8821c9fb..82278ccb19ae 100644
+--- a/arch/arm64/kvm/hypercalls.c
++++ b/arch/arm64/kvm/hypercalls.c
+@@ -414,14 +414,14 @@ void kvm_arm_teardown_hypercalls(struct kvm *kvm)
+ 
+ int kvm_arm_get_fw_num_regs(struct kvm_vcpu *vcpu)
+ {
+-	return ARRAY_SIZE(kvm_arm_fw_reg_ids);
++	return kvm_is_realm(vcpu->kvm) ? 0 : ARRAY_SIZE(kvm_arm_fw_reg_ids);
+ }
+ 
+ int kvm_arm_copy_fw_reg_indices(struct kvm_vcpu *vcpu, u64 __user *uindices)
+ {
+ 	int i;
+ 
+-	for (i = 0; i < ARRAY_SIZE(kvm_arm_fw_reg_ids); i++) {
++	for (i = 0; i < kvm_arm_get_fw_num_regs(vcpu); i++) {
+ 		if (put_user(kvm_arm_fw_reg_ids[i], uindices++))
+ 			return -EFAULT;
+ 	}
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index e47be8f8d259..6d805160d70e 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -5540,18 +5540,18 @@ int kvm_arm_sys_reg_set_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg
+ 				    sys_reg_descs, ARRAY_SIZE(sys_reg_descs));
+ }
+ 
+-static unsigned int num_demux_regs(void)
++static inline unsigned int num_demux_regs(struct kvm_vcpu *vcpu)
+ {
+-	return CSSELR_MAX;
++	return kvm_is_realm(vcpu->kvm) ? 0 : CSSELR_MAX;
+ }
+ 
+-static int write_demux_regids(u64 __user *uindices)
++static int write_demux_regids(struct kvm_vcpu *vcpu, u64 __user *uindices)
+ {
+ 	u64 val = KVM_REG_ARM64 | KVM_REG_SIZE_U32 | KVM_REG_ARM_DEMUX;
+ 	unsigned int i;
+ 
+ 	val |= KVM_REG_ARM_DEMUX_ID_CCSIDR;
+-	for (i = 0; i < CSSELR_MAX; i++) {
++	for (i = 0; i < num_demux_regs(vcpu); i++) {
+ 		if (put_user(val | i, uindices))
+ 			return -EFAULT;
+ 		uindices++;
+@@ -5595,11 +5595,26 @@ static bool copy_reg_to_user(const struct sys_reg_desc *reg, u64 __user **uind)
+ 	return true;
+ }
+ 
++static inline bool kvm_realm_sys_reg_hidden_user(const struct kvm_vcpu *vcpu,
++						 u64 reg)
++{
++	switch (reg) {
++	case SYS_ID_AA64DFR0_EL1:
++	case SYS_PMCR_EL0:
++		return false;
++	}
++	return true;
++}
++
+ static int walk_one_sys_reg(const struct kvm_vcpu *vcpu,
+ 			    const struct sys_reg_desc *rd,
+ 			    u64 __user **uind,
+ 			    unsigned int *total)
+ {
++	if (vcpu_is_rec(vcpu) &&
++	    kvm_realm_sys_reg_hidden_user(vcpu, reg_to_encoding(rd)))
++		return 0;
++
+ 	/*
+ 	 * Ignore registers we trap but don't save,
+ 	 * and for which no custom user accessor is provided.
+@@ -5637,7 +5652,7 @@ static int walk_sys_regs(struct kvm_vcpu *vcpu, u64 __user *uind)
+ 
+ unsigned long kvm_arm_num_sys_reg_descs(struct kvm_vcpu *vcpu)
+ {
+-	return num_demux_regs()
++	return num_demux_regs(vcpu)
+ 		+ walk_sys_regs(vcpu, (u64 __user *)NULL);
+ }
+ 
+@@ -5650,7 +5665,7 @@ int kvm_arm_copy_sys_reg_indices(struct kvm_vcpu *vcpu, u64 __user *uindices)
+ 		return err;
+ 	uindices += err;
+ 
+-	return write_demux_regids(uindices);
++	return write_demux_regids(vcpu, uindices);
+ }
+ 
+ #define KVM_ARM_FEATURE_ID_RANGE_INDEX(r)			\
 -- 
 2.43.0
 
