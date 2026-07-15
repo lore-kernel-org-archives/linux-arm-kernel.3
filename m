@@ -4,84 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C8EFC44507
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 19:01:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 332C2C44507
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 19:01:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wx7zVh6+YVdbciHjwu98zS3vCnhsUo+yZKW7w0GKraQ=; b=xJ/xl1nwuH7AzffpDS55GqCxyX
-	59fARlAY9owS4bDKO33QSbC3nXwFRMblQVDtl/XkHTHLV1Tp5YLYx1eb8j/10XvRIENHtp9ZmTlAl
-	sXJ3EW0EaN2Uved/xy8bOraZFnwOZHyxmcW6oHrHvxS+/N+cVUJsFhI52Y4dxomjaqqkxR+tzG0Gr
-	64R34UK68RhYKN9Y2wYOIzAqHzHOoq4bShn3qRds1592qKW/JdQ9CSnneaZIXKcXQ88OhJv8w5lI9
-	XK6Su5f5mCcSVNCmpuWSqtspOaNxPFnqcExpObZdg1beKOgcFTAXo/ABOT9XkiCre5S4mGkiuUe87
-	gTM9tfhg==;
+	bh=2KwFp/rDG/Jcs71YY6OW+QLomaTFzlderb80409TlVM=; b=daS7HVA0k8tYP7qVbCr3Y/eQrS
+	YcJA5Hri0iqLFNEWpviXM1m7UEmz2fgZpd7AMGRxepDdLG5MuIE9MMxiweoGNWAOPNnfErbd0BVu4
+	MldJhHMZPlukSPkCtpcz4adNaTnyGFmNo76mIW08iYnmA+52Ha0g36GJi6hwF5/AxPAbnmi3/x/Pe
+	NldajqX2Ps+M/2CeNmE+Bs7HhbL4cOSJuQymR4yVwMrZ9bPh2cvp4pHkdvFFsFTrwon/StciKoodu
+	K7sLG4CVOiiiUXhykPDsxyS7pVSSuF7RJToe/qhYcO65xjGk09xghfQHVFw33/Lg67HjD4BtMVt2e
+	Bsrqla/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk4qn-0000000FkHX-2dn4;
-	Wed, 15 Jul 2026 19:00:57 +0000
-Received: from sender4-op-o11.zoho.com ([136.143.188.11])
+	id 1wk4r0-0000000FkM6-3LFn;
+	Wed, 15 Jul 2026 19:01:10 +0000
+Received: from mail-southcentralusazon11011068.outbound.protection.outlook.com ([40.93.194.68] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk4ql-0000000FkGw-1Nt3;
-	Wed, 15 Jul 2026 19:00:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1784142021; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=HGclnZF4WMpho9f8V4+4GrYlMK3objtIhSbW17+1WNUQwDd/kYGpQsleFCCm/JeuxCvhC5l4/Q6rjvYeNggq/qv90UZgFiN+ssyU6JuyXpgk5gUikVbSoRm+WjWDcwuSUDe5hI8HPWEcyA5OKQIHfMAnVTQfzgGIlrmSXw90uZg=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1784142021; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=wx7zVh6+YVdbciHjwu98zS3vCnhsUo+yZKW7w0GKraQ=; 
-	b=kWbrsMBolZ8Zfd49lpKd4UdMZQsHUxhMJnme3IJOIYSgpYOd3trna9rOk001ngldl4jM1+egA96LKFE1c8GOX+xSM318lTCHmGxbEZO2aNNVSvQgsUHPDtIy0MQF/6DAtCuzqqqKOvHq18E6tzG93e2SBBkHfG7t4msK0EC18Wg=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1784142021;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=wx7zVh6+YVdbciHjwu98zS3vCnhsUo+yZKW7w0GKraQ=;
-	b=VniaRhcF9Kv5Ccr1lpzh2sryx9dhlO7JBY9X1tBtK97Hi/EftXhhFR9/g9hKeOZV
-	62ZCj4EGeocih9kVJgLoblFtMpmm/+yEgh+f9CIlEIcsin+Rh4XwkgskLCzY82ra6Se
-	AVxGvsePHXkfiR6ZLCewtjbf+MSe5xpStpVIwafs=
-Received: by mx.zohomail.com with SMTPS id 1784142018690682.4989574920343;
-	Wed, 15 Jul 2026 12:00:18 -0700 (PDT)
-Received: by venus (Postfix, from userid 1000)
-	id 178E9180820; Wed, 15 Jul 2026 21:00:12 +0200 (CEST)
-Date: Wed, 15 Jul 2026 21:00:12 +0200
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Andy Yan <andyshrk@gmail.com>
-Cc: Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, Damon Ding <damon.ding@rock-chips.com>, 
-	Dmitry Baryshkov <lumag@kernel.org>, Alexey Charkov <alchark@gmail.com>, 
-	dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, kernel@collabora.com, linux-arm-kernel@lists.infradead.org, 
-	yubing.zhang@rock-chips.com
-Subject: Re: [PATCH v3 08/10] drm/rockchip: dw_dp: Add runtime PM support
-Message-ID: <alfV1691ZgZ6KylX@venus>
-References: <20260612-synopsys-dw-dp-improvements-v3-0-dc61e6352508@collabora.com>
- <20260612-synopsys-dw-dp-improvements-v3-8-dc61e6352508@collabora.com>
- <CANbgqATR-V0rRGfzj0hdJ2hsJex-iWzHMwD1L4vavTi2Jd79Kw@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="m5xipsbap4cvs25e"
+	id 1wk4qy-0000000FkL2-2mWE
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Jul 2026 19:01:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tuYn/rygirM0d0JoAxfGTEj09s2+ctoBqFVLzZxmjGraT22JlLZJ28TSkZDyiJkOvQDijBpXIdHsLe918zutFxwm5dMJZRKXCGUFbab2UStJETPSt78mcx+raGIjOn5XreBG9QWEdcVjZOcp4TcP0JdJ3LRL+5PLKbVvJ1eG408UWKp1QvtaxnBm8jAqoJhHzonx3piCSvtwW1jzOOccaVJwxY2rbvI1NRH+yYhoHjoEnPHbT4V03craHoX2fD6loGK3WDMWMKGAA4FI2UfmaCg3T2RYJ4z/vYkbkoz3MfWC+LJRlyYqyOhTUxUj97Ph/s/6etEw/Y5QBs4Qo+D+Qg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2KwFp/rDG/Jcs71YY6OW+QLomaTFzlderb80409TlVM=;
+ b=fqcno6kQc2E3R0x+KwYEG2WYkbbk0AHGRUgfXNd/8SRELZ89IalljrqY0Rpz6CTktDLwaLJj9M+RwywilH/8lHyasmIoFZaG8CUyFfAa1Q0XaDLNTVJJJ90zzgvJ+NovNicrT37Abn/N3+3Chc6KSM1BQC9ib971KjMA9Y1CvmxYXqf+flhJWD3SGSQbRu5YarXmm1dLnVQvDfNRym3W5V2Q6+J6hZSm8p59x+PfjH6DmsvOYEiAAhQswTXROanULwOlCzqdvQETDrNSxbI7BO+Ux0dOgpldR+Fu9a3SK8hfXVpCPZGQbUdkQIOGOAGjscaqo2EgYlKqwBqVqjl2VA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2KwFp/rDG/Jcs71YY6OW+QLomaTFzlderb80409TlVM=;
+ b=JsojcEFDXuaVieGfXnM7f2bna87GvPDNp56RCuNzaSuGykpA3ULnx3mycFUzXkK6/20Aycv4sDe/g/eI+LUPrhOA1ZqUh7LFubXttBJNTu/Mbdj8JKlEWqO3Dlf1MzE7KgkhZ5yOXu8vH0+YKa5as1Rxm/Moc4MzMl5voCT+85YFvu+wcYBcupCd/yoSJUGGtVu3mDGFL1yFPxa2QoajKJktIsj/l4XZXyyTNbmpp5CYk/gI5G5FX/lVgI2kOHayf3JFxhNhzUurcZjqZR2vMvAX+BsO5eosAIXDddSdE9LM2gfvF5Ko17Zq2QEVFXGk1qXrkmnTlRzPSn1T4sksaA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by SA5PPFCAFD069B8.namprd12.prod.outlook.com (2603:10b6:80f:fc04::8e1) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.11; Wed, 15 Jul
+ 2026 19:00:55 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0202.014; Wed, 15 Jul 2026
+ 19:00:53 +0000
+Date: Wed, 15 Jul 2026 16:00:51 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: Will Deacon <will@kernel.org>, Kevin Tian <kevin.tian@intel.com>,
+	Robin Murphy <robin.murphy@arm.com>, joro@8bytes.org,
+	David Woodhouse <dwmw2@infradead.org>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Pranjal Shrivastava <praan@google.com>
+Subject: Re: [PATCH v4 2/6] iommu/arm-smmu-v3-iommufd: Reject unsupported
+ bits in invalidation commands
+Message-ID: <20260715190051.GH3775915@nvidia.com>
+References: <cover.1784054606.git.nicolinc@nvidia.com>
+ <5c70a336821e3cea176356470d94ff18329ff867.1784054606.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CANbgqATR-V0rRGfzj0hdJ2hsJex-iWzHMwD1L4vavTi2Jd79Kw@mail.gmail.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.10.1.5.2/284.121.97
-X-ZohoMailClient: External
+In-Reply-To: <5c70a336821e3cea176356470d94ff18329ff867.1784054606.git.nicolinc@nvidia.com>
+X-ClientProxiedBy: IA4P221CA0006.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:208:559::9) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|SA5PPFCAFD069B8:EE_
+X-MS-Office365-Filtering-Correlation-Id: de106d4e-304b-43cb-0cc8-08dee2a364fe
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|23010399003|7416014|376014|11063799006|56012099006|4143699003|3023799007|22082099003|18002099003|10067099003;
+X-Microsoft-Antispam-Message-Info: b4P3GFZ4CW5Jdw0mVzlNoS8xLlvA7+5HCJDX/Qfs3emAshi5cxMHNClrymReG8EuaeTu7unixAANpi8nGdcMRkF5L+UxWXW6Bza8jjtI+RSYY80jD9fvR4YzMe3NfsIMDumZ5FMC+p4qzLXj0CPyYrw05enhpwy7gsSDp59oAkLlNx62+ZQjOypXgP6tV+QsxudxVBpLI5WPQJv7bAwqXuv8+gv8nw7piwaUnii1bX4xo/WQFYk0xZGUMryDjwcMOYsl8F57FaUDGZ6jcVmPzFi9BQzZkfm6JlPUNJKWKtKNGp3/sUnSD+FtJDl3X+08YkxED7h6bWSv1qbTkoSPNRxuTD3y87hpuPgOztbbmsQ9aHfKghZ2YWy567a18g2pcHxKmnwGyi4ucg6V/FaXkCVaosaYBRqOCpp6eg1S0zMyc5abTtRt/2s/WFfYdYIYnmbwd/FuEU3yw6OzkW07b/CrqBf4FFfMXUVQoamNN6J6xcClHizkloU++YN/pBUyXrgJsQ5ZZ0plIDwyCjgg7RstNdd6iDzbT537j1sYbN64CLLxOU5vPkEi83fN/o+Rrj/pKxvOofuNwNEdY8hcRW+WsBssECw3KdGnH8UIqCOOeOIhMYjcF6VPjqsXT26AYue/qvCaYjsIS7ocP06sZrs4riFG1mUkSJCy8cyXMQM=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(23010399003)(7416014)(376014)(11063799006)(56012099006)(4143699003)(3023799007)(22082099003)(18002099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ILXAiapdAc7GjGEPRUnoze/NBb2B18k9EQYRGVPKDDDycvm6gD2aKJxaJkpA?=
+ =?us-ascii?Q?9gNW0sYJPg25S+VquTDuG+stffR3VAd9YpRzuxPNN92BSA0VLgr92/RdOvow?=
+ =?us-ascii?Q?8Doel/sg3RT9InwxcQ2qe250YcXKhcsmGC4uJpAIVPOU/zC1D9HZpX7D/hRJ?=
+ =?us-ascii?Q?7sbqoM/YBD+o6zP9PhfZhjKM60SFfhFDeZbmgL0BfOYEtcE8kG7NZQXwMAIT?=
+ =?us-ascii?Q?hmJSZiqEfYxxDIFHEz7XOanhjE/2nTrY2WscOg8QKt48+p/t6ffalPJ5Y6dv?=
+ =?us-ascii?Q?afMfLdbjdL692dz/qDjYtlWT3Kr+bmyuV7Swrf++PbW7kOFkVm8GaDU8vF2H?=
+ =?us-ascii?Q?VkQoG+S3JhNyxgbVslPMDwt9eNHmBH3J8PTTzt5o1A0lMDs+kfxyl9p4wqeo?=
+ =?us-ascii?Q?fFcM1N0rC/xM7ehbhVX1EKCX5Q4a+RRbrOOqtaJLbKUFvIN8h9nTtfF1wQvh?=
+ =?us-ascii?Q?3txoNBiv7J8OxUS23oecJBQiRmIWhnczOweuvkQpYqK5A6dBnyrwjvfbUKGC?=
+ =?us-ascii?Q?sX9212hA0Rdx4KKW1vlIBrDdv0dyMATyqFEsySr5RjDPgTdZhYPO+hhUcnrw?=
+ =?us-ascii?Q?+8xVik52eT+axJXRWVgU21soik7E0S4UgGgwuei1X/yKlorcQq0ZfLLlVj9Q?=
+ =?us-ascii?Q?Bw5XB4fPLIGf7nxuB8Tofn0CQcLN1m24n+PFOGNJEpmXNB+q8OGze3qCHllZ?=
+ =?us-ascii?Q?ZrADV2AENeckJf+l+JG9MAVPB4WRSlgGd/wIsz2S4VxcLoq7jUYBIuDvfyka?=
+ =?us-ascii?Q?ygxo6idhzDJzadFJUs4blLW9b04rSZwuyWm2aLHZI7aft/H2jk0OGhQVASu9?=
+ =?us-ascii?Q?FVKwCbKY7Nb7i2CEqbDixTTBTmUru6Csi3enLjICE8zB7aZE8Ks5GC4KZ2nU?=
+ =?us-ascii?Q?pS8qB08ftXWC0HJ33GKrNOWUcl7VnQQ9/9OyKlTPo71LQ/YmwRiFjq2qpI7X?=
+ =?us-ascii?Q?zWKQamHA5PgdIRb2ArIoIn0ECGDTOj2NWn0lBYuu2JuvBq1jUtaGxluxtw3E?=
+ =?us-ascii?Q?7ZO2DYdUMefx5DqP6IHiSXfTUsDZYXmCuqQaOBZdMzv/fntNxB/Py1bv4Ewd?=
+ =?us-ascii?Q?eFA/+7NRxsB0H/gc3cccAwqDGGpb88bcpD9WZzu5xxvOwouVDSRPHrOPMM6p?=
+ =?us-ascii?Q?lGN5/tVmVWFg9z3ef52evTcbn83nC3eV5yPOie71RzJPplG5tnqnf5KDxNiM?=
+ =?us-ascii?Q?gtyn+WxZ+0MOx+PJwWI4OPgS477JXnB1erJC0XSmamdVCql6Wjvnby8lRLYP?=
+ =?us-ascii?Q?n15KFl46FBFRYxpJk1ac2Giob6hRx37Wr4Sn/78Jt/Lwv16dCNk0LZO7NdO8?=
+ =?us-ascii?Q?I3kYo2XklgsqORW6JCwAZbJLPGUSe+bg6Z8Ti++xpy9GhZ07rE6OKpPSjS34?=
+ =?us-ascii?Q?PZMiL/v23RaXIx2rlqGbmPTwHWoKqCaeHsHBxW+yFf/xA3AFclZFWE7vcWk6?=
+ =?us-ascii?Q?Y+mW6mcEuxG1mHLXxbLF2pN1pR5f+ZLbbGEsH0DbTTprg1v6Ru4Gkz6K4T+Y?=
+ =?us-ascii?Q?xD1KF2gdOZDcI6MDaJrf1Jk+HerylQZZnT2P0izAjUG3tZdJ+vnVzYn+s5IX?=
+ =?us-ascii?Q?5Ib7YpdUMs1tz2P9wnAPFoLkS/dhsr3FCXylZVVqBLr2Z6G68Cgj7fxbq/d2?=
+ =?us-ascii?Q?l36TOmFsI+qZKFavGUdjlV2/QFG2Hxt4+jJvBvUD71yrssNGHTDcs+MjMXFA?=
+ =?us-ascii?Q?UEKwD1wHyRO3Qv752xs/2JWJhPxq3zzDmSONM2xac05DHIiL?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: de106d4e-304b-43cb-0cc8-08dee2a364fe
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2026 19:00:53.6356
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: vtOoWljBzdFpZC9/PKup8fLwiQnCdAdAs1Qvr3UwPZaFLB36dRz8GYvnW6e2VxLk
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA5PPFCAFD069B8
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_120055_399075_B314174C 
-X-CRM114-Status: GOOD (  17.82  )
+X-CRM114-CacheID: sfid-20260715_120108_709196_52FCEF11 
+X-CRM114-Status: GOOD (  24.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,68 +141,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Jul 14, 2026 at 11:48:48AM -0700, Nicolin Chen wrote:
+> The arm_vsmmu_cache_invalidate() op hands a guest's invalidation commands
+> to the trusted main command queue after enforcing only the VMID or the SID,
+> and passes the rest of the command through to the queue unchanged.
+> 
+> That lets a guest set bits the host never meant to forward: a reserved or
+> undefined bit makes a command malformed; per the Arm SMMUv3 specification,
+> in its section 4.1.3 "Command errors", a CERROR_ILL is raised, among other
+> cases, when:
+> 
+>   A valid command opcode is used and a Reserved or undefined field is
+>   optionally detected as non-zero, which results in the command being
+>   treated as malformed.
+> 
+> Restrict each opcode to the fields that the driver supports and reject the
+> command with -EIO if it sets any other bit, before the command reaches the
+> queue. This stops the host from forwarding any bit whose meaning it does
+> not control. Document this contract in the uAPI header, so user space must
+> take the responsibility to forward valid commands only.
+> 
+> Some fields and whole opcodes are legal only on an SMMU that implements
+> the matching feature, so accept them conditionally:
+> 
+>  - NUM, SCALE, TG and TTL need FEAT_RANGE_INV.
+>  - SCALE bit 25, for values above 31, and TTL == 0b01 with a 16KB TG
+>    need SMMU_IDR5.DS, gated on ARM_SMMU_FEAT_DS so that a VMM exposing
+>    DS from the reported IDR5 register keeps working.
+>  - ASID is limited to asid_bits, since its upper 8 bits are RES0 on an
+>    SMMU that only supports 8-bit ASIDs.
+>  - ATC_INV needs FEAT_ATS. Per the specification's section 4.5 "ATS and
+>    PRI", CMD_ATC_INV is ILLEGAL when:
+> 
+>      SMMU_IDR0.ATS == 0 and this command is issued on a Non-secure or
+>      Secure Command queue.
+> 
+>  - SSV, SSID and Global need a non-zero ssid_bits. Without it, setting
+>    them is not illegal but CONSTRAINED UNPREDICTABLE, which a guest
+>    should not be able to provoke. Global also takes effect only when
+>    SSV == 1, broadening the invalidation from the one SSID to all the
+>    PASIDs of the single device that the SID field addresses.
+> 
+> Some values inside the accepted fields are Reserved too:
+> 
+>  - NUM == 0, SCALE == 0 and TTL == 0 together are a Reserved combination
+>    and cause a CERROR_ILL.
+>  - NUM, SCALE and TTL turn RES0 when TG == 0.
+>  - An ATC_INV Size above 52, the invalidate-all span, is permitted to
+>    raise a CERROR_ILL.
+> 
+> Reject these Reserved values the same way. In contrast, an out-of-range
+> address or ID value is defined as CONSTRAINED UNPREDICTABLE that would
+> be scoped to the guest itself, so it does not deserve a check.
+> 
+> Fixes: d68beb276ba2 ("iommu/arm-smmu-v3: Support IOMMU_HWPT_INVALIDATE using a VIOMMU object")
+> Cc: stable@vger.kernel.org
+> Assisted-by: Claude:claude-fable-5
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> ---
+>  include/uapi/linux/iommufd.h                  |   4 +-
+>  .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     | 125 ++++++++++++++++--
+>  2 files changed, 117 insertions(+), 12 deletions(-)
 
---m5xipsbap4cvs25e
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v3 08/10] drm/rockchip: dw_dp: Add runtime PM support
-MIME-Version: 1.0
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 
-Hello Andy,
-
-On Tue, Jul 14, 2026 at 06:08:06PM +0800, Andy Yan wrote:
-> > @@ -58,6 +59,8 @@ static void dw_dp_rockchip_hpd_sw_sel(void *data, bool
-> > force_hpd_from_sw)
-> >
-> >         dp->hpd_sel =3D force_hpd_from_sw;
-> >
-> > +       ACQUIRE(pm_runtime_active_auto, pm)(dp->dev);
->=20
-> This can triger  HPD irq for USB-C DP AltMode, but for a standard
-> DP port, this is no way to acquire runtime, so there will no irq
-> when plug in.
-
-Right. I don't have any RK3588 or RK3576 system exposing a DP
-connector directly. This this is non-trivial to test for me :/
-
-I see the following options:
-
-1. Only enable runtime PM when running in USB-C mode
-2. Mux the HPD pin as GPIO to support waking up with the controller
-   being suspended; either remux when the controller is awake or use
-   the same mechanism as USB-C to do software based HPD on top of the
-   GPIO (which would allow using any GPIO as HPD).
-3. Have a poll function, which wakes up the controller regularly to
-   check the status
-
-I consider going for option 1 for now, which allows option 2 to be
-implemented as a follow up. Mostly to avoid that the series becomes
-as big and messy as the USBDP PHY series became.
-
-Greetings,
-
--- Sebastian
-
---m5xipsbap4cvs25e
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmpX2LgACgkQ2O7X88g7
-+pofLA/9Gk+Hgl5TYBlSBTTGDlszYL/ZEfUIjLTcafwMgKO2MWL3n75mkgEi13Js
-0GT01J5veXw8MzGn/IQocRtb8S56feu/IYYUMOE10vlBAMoOfXbRjHrKgveqUcdO
-MvnaVVgy59xFHrxkMBXAtEGW4ghJjWA2kpoN5wN3Xh6DEzFfedI+JaN//fqCYLBZ
-syCPN/uKQzxnmyQFpLEb8Mn4SQZslnGCAzLjIC6krN0MeD0IpkdgaSsAyRHO7re8
-BpEMCuIMjroeZqNSkotoVSd8ByCMLF8S0EV1KsyW5PIY5j50BC9uBKXvJiKWml3o
-MduS/NpzM3ESfxxYdDwX/hD1jdaOHLJlyVcJXxHFir2kgqYvR+Eov/Uv+uKupeRt
-j7NycFrW0kZzgY+uQ6AEPrNLQOXmKimhoIrn75HZoS2+4aezaQf26bmrdRg/9fEN
-rLO9OgREMcIuebfZyyOGXiC6UoQmRvUu+OxcCPh8ILsi+80OfTXF8y8zmUY/PGJN
-lLF+kTfiqKGNe+3Ka8mkXiGi5kVEJUUqEKqX+j75LL6kDEknWJC3sFWEds5Ep3hD
-1/CJdhbeEAyFpzmJuJun5MXb0HN0yFkPau6I2kSL15m3nTDkvZ5gPj0FX6AMpodP
-7sgketnrnf6at+yLz3v6Y1d4dUWgPJUsEp5PAQnWew5x1FJYgVI=
-=LMCP
------END PGP SIGNATURE-----
-
---m5xipsbap4cvs25e--
+Jason
 
