@@ -4,56 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C80FC44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 04:57:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44FECC44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 05:15:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZMCSF+tDs7aEe5I8XrCTwnbeBbAXQ8kr+88Pi5y5xNY=; b=4UP/uevCEEdpB4S2wF+8nSIRzT
-	QU58T6CsdEtqa9QMpI34AqdN8+0JHZ9w+3uguqCsnYVd5C2dAYbkwSY6bnYe0zGCSpsXTowEnUtCv
-	Y+LYOVw19Y7nTVo6yyThXSjf+UbaFNHOlr8od48Um6EunhAWPr3AnkMnknYuJKJpGcddxmMvzNIfZ
-	5a/KYFQsV/WMQsRTUGkb+CjFgD/Sc+i9caCMeuTsnHy+Q7G0goO039z+Z4RSSP3MXKEi59GAItBTj
-	F632VPLszESpObauoleTxD1+YwQeQbDd2Nz/psqpUjWkHOPRNWtOpyq0U4Ogfbu8/5OGhDxEk1UOp
-	ee8Ty45w==;
+	bh=jmWXgJ7YEgUvHj92YNbsfml9sc+M9dzaxT2+t7KDPeA=; b=KfCxfDWKnhRMByRdgozF03dw1r
+	kQe+dku6jtr8j3ET1emvm3B9HkQVwP73ETT+tOBQZrSDBI26Knyrfx41q3uBYZJiWEf04zPyP08aC
+	3JmGcT7WnoNCfM+gxGlPEin1gRDqeIBCXOePABolDfsdD4U63lhEgln2XQ1cDVBoF/r527qlNYGJk
+	ykFkAYUFSzvS4hh8Zzzso4FlcjrAsB+1VfUnRb8v6SIrlJ5S22p8s1xlVfqpx9T6hhQCZCnm2iSx5
+	r+7lK0U7Lrnh6Q9lN6doTwZiTTXwOzsvvEQODlXtgVbgvkc4p2B32RFbIBmI9yobOdqBzmuyejz+V
+	eVG+EY8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjrgI-0000000DlUI-2cj1;
-	Wed, 15 Jul 2026 04:57:14 +0000
+	id 1wjrxP-0000000DmPj-35Mm;
+	Wed, 15 Jul 2026 05:14:55 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjrgG-0000000DlUB-3czP
+	id 1wjrxN-0000000DmPW-3Ipw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 04:57:13 +0000
+	Wed, 15 Jul 2026 05:14:53 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8FCEB43D3F;
-	Wed, 15 Jul 2026 04:57:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17BD31F000E9;
-	Wed, 15 Jul 2026 04:57:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1643F417F4;
+	Wed, 15 Jul 2026 05:14:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 716521F000E9;
+	Wed, 15 Jul 2026 05:14:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784091432;
-	bh=ZMCSF+tDs7aEe5I8XrCTwnbeBbAXQ8kr+88Pi5y5xNY=;
+	s=k20260515; t=1784092492;
+	bh=jmWXgJ7YEgUvHj92YNbsfml9sc+M9dzaxT2+t7KDPeA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=GHg8sDFlC8BFehVDC1woqNv93zmO1dbP5EEn3ZY6mU8do1hqAvYQABZE6gxtNxoAG
-	 0VGv4MToGi0ZamFCVq+uB5c5kU9u7dl11nKeXp0ywEiGr2hMPDzBTZ9IbnqdBMMxgq
-	 hU/lS3DLjxlR5M+yVzVjc5rIfRUVBowCDe+1Rmo8JHuyHDIS2bDrd81t84DBP9B+4g
-	 knZ6bBIPUGDdNtDyHO4xc+81veTsVZYMV5Um/IiOVyfmPgV6bMgoBrO6+0hscK1iwb
-	 CgpEJy4yrKi9K1bjpBeqK9j3VCjizKjI9qubruUyKbj0SBjpYkxja+KmVyfjtKQ9oa
-	 16vc07QuoSCQg==
-Message-ID: <f45a8496-b003-4cc0-bb4d-a94c9ac6b911@kernel.org>
-Date: Wed, 15 Jul 2026 06:57:06 +0200
+	b=XzWONfwEho8hhz0FamliJHjFHAJvPBjDNUTfaADAZbui/3LH3PnIflKkR+L4L1f92
+	 PvByQW7dH1IGujN1q2jXC3hJoNJ2XJ6Av8VHVZnzMuoh2nvl1yO0CqXo6mX9DEQiro
+	 jMdYfSYVYaL4KL2q2FRn1oHa+YjPd7MUHZZP1Z7Fu0oe2EqEputjtd4/URsV/7VBlF
+	 V47U6W5L12vNf065EJyOvcafW+HOn4ugFYMf/VVBuUmofh9lvxiQlYbJOkaWfbUGZl
+	 Z8pGj2VaAwCAJcHeHb8p5ANU3N9sWt56fLfMT82UnDPUHp6vCIlH8a2WvvHKv/DMJR
+	 v7ut9zfLRuHIg==
+Message-ID: <223ab7f7-f176-4d96-9397-c8c54259f50e@kernel.org>
+Date: Wed, 15 Jul 2026 07:14:45 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 03/22] dt-bindings: memory: ti,j721s2-msmc: Add TI K3
- MSMC binding
-To: MANNURU VENKATESWARLU <v-mannuru@ti.com>, robh@kernel.org,
- conor+dt@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, n-francis@ti.com, s-k6@ti.com, bb@ti.com
-References: <20260714125537.3304217-1-v-mannuru@ti.com>
- <20260714125537.3304217-3-v-mannuru@ti.com>
+Subject: =?UTF-8?B?UmU6IOWbnuimhjog5Zue6KaGOiBbUEFUQ0ggMy80XSBkdC1iaW5kaW5n?=
+ =?UTF-8?Q?s=3A_ipmi=3A_Add_optional_LPC_properties_to_ASPEED_BT_devices?=
+To: YC Hsieh <yc_hsieh@aspeedtech.com>, Corey Minyard <corey@minyard.net>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: "openipmi-developer@lists.sourceforge.net"
+ <openipmi-developer@lists.sourceforge.net>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>
+References: <20260629-aspeed-bt-bmc-multichannel-v1-0-fc23ee337f7a@aspeedtech.com>
+ <20260629-aspeed-bt-bmc-multichannel-v1-3-fc23ee337f7a@aspeedtech.com>
+ <35a8e3b3-7725-4d1b-8667-84e6fa24b2ca@kernel.org>
+ <TY0PR06MB6855F4F499246CD5C44DB23893FA2@TY0PR06MB6855.apcprd06.prod.outlook.com>
+ <31df2c13-9c31-4a78-975f-b0152ad3356d@kernel.org>
+ <TY0PR06MB68558AD7FBBCEBB09DFAFCF593FA2@TY0PR06MB6855.apcprd06.prod.outlook.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -99,7 +110,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260714125537.3304217-3-v-mannuru@ti.com>
+In-Reply-To: <TY0PR06MB68558AD7FBBCEBB09DFAFCF593FA2@TY0PR06MB6855.apcprd06.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -116,38 +127,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/07/2026 14:55, MANNURU VENKATESWARLU wrote:
-> +required:
-> +  - compatible
-> +  - '#address-cells'
-> +  - '#size-cells'
-> +  - ranges
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/soc/ti,sci_pm_domain.h>
-> +
-> +    msmc0: msmc {
-> +        compatible = "ti,j721s2-msmc", "simple-bus";
+On 13/07/2026 09:09, YC Hsieh wrote:
+>>> +
+>>> +  aspeed,lpc-interrupts:
+>>> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+>>> +    minItems: 2
+>>> +    maxItems: 2
+>>> +    description: |
+>>> +      A 2-cell property expressing the LPC SerIRQ number and the interrupt
+>>> +      level/sense encoding (specified in the standard fashion).
+>>> +
+>>> +      Note that the generated interrupt is issued from the BMC to the host, and
+>>> +      thus the target interrupt controller is not captured by the BMC's
+>> +     devicetree.
+> 
+>> No, you do not get second interrupts property.
+> 
+> Understood.
+> 
+> These values are not addressable resources of the BMC node itself;
+> rather, they describe how the BMC's LPC engine is exposed on the host
+> LPC bus. I am not sure how they should be represented in DT, since
+> they do not seem to fit the usual semantics of either "reg" or "interrupts".
+> 
+> Do you have a preferred way to represent this kind of host-facing LPC
+> configuration in the binding?
 
-NAK
-
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
-> +        ranges;
-> +        intrlv-gran = <0>;
-> +        intrlv-size = <0>;
-> +        ecc-enable  = <0>;
-> +        emif-config = <0>;
-> +        emif-active = <0>;
-
-I do not accept downstream code sent to review.
-
-Start doing proper internal reviews. This binding and DTS is absolutely
-unacceptable, you just repeat all known mistakes ignoring any guidelines.
+How this device is expressed somewhere else (on some other system -
+"host") feels like outside of this device concern.
 
 Best regards,
 Krzysztof
