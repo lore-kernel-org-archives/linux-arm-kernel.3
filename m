@@ -4,102 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BDD2C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 12:09:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB12EC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 12:10:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v8qJhOk4bnpu1WPc4oSH+kzjjMIN2seacJoWKksNoa0=; b=a0+fco4iyu3jmt7JxXNR3IdI+d
-	Wr4EfM8cpZmErZFrm0Al6YYA1Oe9Em4J88AnpSHdwD6FvLIgYb6vNOvPhdsD9dbuNMs/CytZKssLN
-	QAmkixAeJvvz5rXS6CldXCJ9x0XtnAkHttnUT0UtNJrWi+3G9xXDnaDeJJJNlKnafo6LqrZCTlwV/
-	MkjdZTlHH+LYvU7d2QORiDqGgubrLpWQ3rZAsnN5g49e614l6YvOy0dv8Vfk0KRN2jJeETg8OgyMd
-	4EWQmf2kqPyZ70f9QCm7S6vwFCtP+lw9glbX3zWy5uhJRDUD83WtmfAUNmFKI1mffREZlMcDElcGX
-	23yr8Diw==;
+	bh=SbWw043RFMMCoN8vwm9pDZewHUKZlXu593LcldGE86U=; b=HnBK79H3sKZyz0xiXnAgTRiEXL
+	1lSkOQfycszwAu9dT+mI0h6qYJoBpu/aA3YTX9XxgreAKygabtVSmAO0sqdIWwqZtd5yO2P0fKeIa
+	+m/ZTUcOR3Lq8xaFILxvtvJYS26Jhn1KP9/HOqtknsp3NFf2gFRzWaRqn/7Fhw3hYbndUKeoX0phT
+	n0C0tkIzyLKH3i2G3PCKYhE5j/CK7fOLwRq9+hF8Qu8Hrd2FBb6uwOH3QgYuXAuR0mGHBMFkzN0sW
+	CRsjxxN0jvnjNQ6IJunf/+VxYOh6xh48RkLah6julfg4giYq78UluDEwAaWj+OIjN1yGJ6OsanSo9
+	m/nnoetA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjyQH-0000000Einx-0Udq;
-	Wed, 15 Jul 2026 12:09:09 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1wjyRC-0000000Ej9E-1d3P;
+	Wed, 15 Jul 2026 12:10:06 +0000
+Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjyQA-0000000Eihj-30Uh
+	id 1wjyR9-0000000Ej7R-1ST3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 12:09:07 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2cab973140bso62233925ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 05:09:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784117342; x=1784722142; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=v8qJhOk4bnpu1WPc4oSH+kzjjMIN2seacJoWKksNoa0=;
-        b=iuomgY6N2jWU2v63giR5RN90Yd2OfbOZGYxdNaf8odpbu5IThA7W9hz9Gyt8m1xzoW
-         snT7OlwVaSvy/YToAFTskafNqgsxf5PRI8o66X9P/54goFgo9wSNq65l1tb5567IT2AF
-         C0BtcpEZC6uNG08fLCQm7ea5btKbmdfqKuUllAjSjok9w1XHF2tJZJNci326HlC2Yra+
-         V5o23CLlv7O3X07IIgqSKM6GnmB+AAXu3sraPFQSK67teGivE2Vci3XOvdLdt94xUA4U
-         vjX3A6MKECcuQe/nzpH7bUiU/vXUNes1rVjO9NYv5zG1+NZC2nSWCyz11ud0r8UfgQWl
-         jnWw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784117342; x=1784722142;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=v8qJhOk4bnpu1WPc4oSH+kzjjMIN2seacJoWKksNoa0=;
-        b=st0IxMhhgjmaNFxjQx7nCNJry1/hb4wpVtnr68du62r9TdOsXoYDw2vgKGyPWGFc2Q
-         1USoQnUawJyAtrzvsxV0IoBcuhg/pJE/Uwsama5zXGangIU48GbH4V6I+OJo/BsAnGCM
-         ZNfyerBQcHqFf7X4enIeAMkHX6ZEmrmsbCwBKzHvqo97umKK3puJsCBAdpoe9M7N4yl9
-         uVDdXeVQAJDr879WsX0B2gxB+qGWFPNnKHzU3rrAr/atgWXI643Eeorp4DZ9Pb8T+Nnq
-         1fw3vjKq61tgeQ7TnSPVn4VAKLRRsjE3DJ0SmnkJay3ty0WzZQoA4bBFShb22T7oQBQl
-         yJjQ==
-X-Forwarded-Encrypted: i=1; AHgh+RrrsdSa4UXNiipAie+RbXdEZ2H/OU7Chsea0gJTWKoYNue/tlNsWQuIPzJfytHSoIe78H39sRD7aCP14HzC3Aed@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzuq/53guOEmVibmc8GOXOw2XKqzjFbEEs4J7N8Wzqu/PUJnSU8
-	b9VLgmFwkfHLj42vG6UWBovYPku6dSI2jtZDCk+Mj4/Rn8Pn7S1v9I7v
-X-Gm-Gg: AfdE7ckVZuTBHRTgbQlAFPhubcp7cPW3+n8q4ub45LNFfQYJ4GrPmbxTGtqFkrSzp2U
-	OtgBzLULoBm+g3NKg0IO9CxV02+WgGSFsDBVqJQS1YLTUmEzTSX58V1CpWQkdxgw256p6m07kqu
-	WmL5ao/aEBeaXer9F2Fw4EbEj1e+u5xPHJRPtnSR5sOWKx4nz/xuVMSlEMU16yrLYXKCXpC15h/
-	uCb/j33W23aGG5EPMrhcCLA8E+hgGUnkzgD4ahWgrZsqiq9QX8XB0n1jK1UM1f0nH3R5t/Pnc6P
-	qP/bAAFPNqg/whfSYKsIykvxEYYBAAHF2DGYa/JcQwtAZNYp47wyJbP0e+iQRtkcQ+LrF0dYZ0Y
-	bAV8eQWu26o1Aj9tRYx3o4TZieWwVepFyTqXLF5/IJLAjIxkwh/6orGIzxpplZpsEwfAOT6rQdT
-	aO00GMaRbBt6KmJwtlxUaF5U3vNPMQ1gI7q+0=
-X-Received: by 2002:a17:902:e5c3:b0:2c9:e6d7:fbb4 with SMTP id d9443c01a7336-2cf03cf6203mr22618325ad.31.1784117341728;
-        Wed, 15 Jul 2026 05:09:01 -0700 (PDT)
-Received: from mi-OptiPlex-7060.mioffice.cn ([43.224.245.234])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf105bc642sm1216325ad.63.2026.07.15.05.08.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jul 2026 05:09:01 -0700 (PDT)
-From: Wen Jiang <jiangwenxiaomi@gmail.com>
-X-Google-Original-From: Wen Jiang <jiangwen6@xiaomi.com>
-To: akpm@linux-foundation.org,
-	catalin.marinas@arm.com,
-	linux-mm@kvack.org,
-	urezki@gmail.com,
-	will@kernel.org
-Cc: Xueyuan.chen21@gmail.com,
-	ajd@linux.ibm.com,
-	anshuman.khandual@arm.com,
-	david@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	rppt@kernel.org,
-	ryan.roberts@arm.com,
-	dev.jain@arm.com,
-	baohua@kernel.org,
-	Wen Jiang <jiangwen6@xiaomi.com>,
-	Xueyuan Chen <xueyuan.chen21@gmail.com>,
-	Leo Yan <leo.yan@arm.com>
-Subject: [PATCH v7 7/7] mm/vmalloc: align vm_area so vmap() can batch mappings
-Date: Wed, 15 Jul 2026 20:08:13 +0800
-Message-Id: <20260715120813.3609949-8-jiangwen6@xiaomi.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260715120813.3609949-1-jiangwen6@xiaomi.com>
-References: <20260715120813.3609949-1-jiangwen6@xiaomi.com>
+	Wed, 15 Jul 2026 12:10:04 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=SbWw043RFMMCoN8vwm9pDZewHUKZlXu593LcldGE86U=;
+	b=cuPGtbF3l4y+rRRCp6T+ZUTedQWTVcqaNUhSEVuFufgaDV9s6J2Y43BSNv3U3LQG7kLAlu13X
+	awl4mVeLo2ZLNRPNfGM7KylFKUxukSau7phucjhr+coktY+LsygPIYr2KrZSL41AX0NGbCbmAxC
+	3Y1YxexnoGwltTmMjoj9t3c=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4h0ZW85Y2jzRhTk;
+	Wed, 15 Jul 2026 20:00:36 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id EF7884056D;
+	Wed, 15 Jul 2026 20:09:53 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 15 Jul 2026 20:09:53 +0800
+Message-ID: <649a6d54-3335-4523-a683-e2bf7fb865d0@huawei.com>
+Date: Wed, 15 Jul 2026 20:09:52 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 23/36] arm64/efi: Implement override for IRQ flags
+ checks
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <mark.rutland@arm.com>, <maz@kernel.org>, <will@kernel.org>,
+	<catalin.marinas@arm.com>
+References: <20260709121333.23507-1-vladimir.murzin@arm.com>
+ <20260709121333.23507-24-vladimir.murzin@arm.com>
+ <e1694eb7-3459-43bd-9f37-1066bef43a14@huawei.com>
+ <94589fd3-d81c-4603-8226-131894d6af08@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <94589fd3-d81c-4603-8226-131894d6af08@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_050902_892982_F390BAD6 
-X-CRM114-Status: GOOD (  13.33  )
+X-CRM114-CacheID: sfid-20260715_051003_554911_82F469E3 
+X-CRM114-Status: UNSURE (   8.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,89 +83,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Barry Song (Xiaomi)" <baohua@kernel.org>
 
-Try to align the vmap virtual address to PMD_SHIFT or a
-larger PTE mapping size hinted by the architecture, so
-contiguous pages can be batch-mapped when setting PMD or
-PTE entries. We do not expect any significant overhead for
-this.
 
-Add __get_vm_area_node_aligned_caller() as a wrapper over
-__get_vm_area_node() to simplify repeated calls with fixed
-arguments.
+On 7/15/2026 8:00 PM, Vladimir Murzin wrote:
+> On 7/13/26 09:22, Jinjie Ruan wrote:
+>>> diff --git a/arch/arm64/include/asm/efi.h b/arch/arm64/include/asm/efi.h
+>>> index e8a9783235cb..479741d52c90 100644
+>>> --- a/arch/arm64/include/asm/efi.h
+>>> +++ b/arch/arm64/include/asm/efi.h
+>>> @@ -5,6 +5,7 @@
+>>>  #include <asm/boot.h>
+>>>  #include <asm/cpufeature.h>
+>>>  #include <asm/fpsimd.h>
+>>> +#include <asm/interrupts/common_flags.h>
+>>>  #include <asm/io.h>
+>>>  #include <asm/memory.h>
+>>>  #include <asm/mmu_context.h>
+>>> @@ -48,18 +49,43 @@ void arch_efi_call_virt_teardown(void);
+>>>  	(efi_rt_stack_top != NULL &&					\
+>>>  	 on_task_stack(current, READ_ONCE(efi_rt_stack_top[-1]), 1))
+>>>  
+>>> -#define ARCH_EFI_IRQ_FLAGS_MASK (PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT)
+>>> -
+>>>  /*
+>>>   * Even when Linux uses IRQ priorities for IRQ disabling, EFI does not.
+>>>   * And EFI shouldn't really play around with priority masking as it is not aware
+>>>   * which priorities the OS has assigned to its interrupts.
+>> Can this comment be deleted?
+> 
+> The comment still looks valid to me. Why should it be deleted?
 
-Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
-Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
-Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
-Tested-by: Leo Yan <leo.yan@arm.com>
-Reviewed-by: Uladzislau Rezki (Sony) <urezki@gmail.com>
-Reviewed-by: Dev Jain <dev.jain@arm.com>
----
- mm/vmalloc.c | 35 ++++++++++++++++++++++++++++++++++-
- 1 file changed, 34 insertions(+), 1 deletion(-)
+The current implementation of arch_local_save_flags() can already know
+the PMR status.
 
-diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-index 92f9cd5e9def5..7a3aa9e5c885a 100644
---- a/mm/vmalloc.c
-+++ b/mm/vmalloc.c
-@@ -3320,6 +3320,14 @@ struct vm_struct *get_vm_area_caller(unsigned long size, unsigned long flags,
- 				  NUMA_NO_NODE, GFP_KERNEL, caller);
- }
+112 static __always_inline unsigned long arch_local_save_flags(void)
+113 {
+114 >-------arm64_exc_hwstate_t hwstate = { .daif = read_sysreg(daif) };
+115
+116 >-------if (system_uses_nmi())
+117 >------->-------hwstate.allint = read_sysreg_s(SYS_ALLINT);
+118
+119 >-------if (system_uses_irq_prio_masking())
+120 >------->-------hwstate.pmr = read_sysreg_s(SYS_ICC_PMR_EL1);
+121
+122 >-------return hwstate.flags;
+123 }
 
-+static struct vm_struct *__get_vm_area_node_aligned_caller(unsigned long size,
-+		unsigned long align, unsigned long flags, const void *caller)
-+{
-+	return __get_vm_area_node(size, align, PAGE_SHIFT, flags,
-+				  VMALLOC_START, VMALLOC_END,
-+				  NUMA_NO_NODE, GFP_KERNEL, caller);
-+}
-+
- /**
-  * find_vm_area - find a continuous kernel virtual area
-  * @addr:	  base address
-@@ -3635,6 +3643,30 @@ static int vmap_pages_range_batched(unsigned long addr, unsigned long end,
- 	return err;
- }
 
-+static struct vm_struct *vmap_get_aligned_vm_area(unsigned long size,
-+		unsigned long flags, pgprot_t prot, const void *caller)
-+{
-+	struct vm_struct *vm_area;
-+	unsigned int shift;
-+
-+	if (arch_vmap_pmd_supported(prot) && size >= PMD_SIZE) {
-+		vm_area = __get_vm_area_node_aligned_caller(size, PMD_SIZE,
-+				flags, caller);
-+		if (vm_area)
-+			return vm_area;
-+	}
-+
-+	shift = arch_vmap_pte_supported_shift(size);
-+	if (shift > PAGE_SHIFT) {
-+		vm_area = __get_vm_area_node_aligned_caller(size, 1UL << shift,
-+				flags, caller);
-+		if (vm_area)
-+			return vm_area;
-+	}
-+
-+	return __get_vm_area_node_aligned_caller(size, PAGE_SIZE, flags, caller);
-+}
-+
- /**
-  * vmap - map an array of pages into virtually contiguous space
-  * @pages: array of page pointers
-@@ -3673,7 +3705,8 @@ void *vmap(struct page **pages, unsigned int count,
- 		return NULL;
-
- 	size = (unsigned long)count << PAGE_SHIFT;
--	area = get_vm_area_caller(size, flags, __builtin_return_address(0));
-+	area = vmap_get_aligned_vm_area(size, flags, prot,
-+				__builtin_return_address(0));
- 	if (!area)
- 		return NULL;
-
---
-2.34.1
+> 
+> Cheers
+> Vladimir
+> 
 
 
