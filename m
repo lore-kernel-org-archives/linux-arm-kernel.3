@@ -4,100 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AEBFC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 16:35:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5656C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 16:40:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xKMpslmS1nZLwbcYPHb8iOZLrmPISU+0dOPEfAdriDw=; b=GNN1O7hojhz8hY6ih4Hy91nG3p
-	fUwY37QiteeW2eYLE7vcZzOkhsqveiz7cNzsfOiwknuCC7w+dtYZxPlUjnJmOh3moqrQnvBp9ANw8
-	qYpjaQlsj6ZEbLQ9J/UDR+zAJK2L073kDBMBEpnnCHaIlgmsHiZm+RuT3OuhR5Nd9Z7YkwMbaIz98
-	nhLjTst90tdMRNU6m/1LODfu/c0dpgSpfWqsuLlTBlgBoT0nAUszemJnnnIuQ2NdgvsuC1jfyNJIn
-	h6r/Iq3xfOBqQXNYEI5EFiwjgCCrv2KgQmlJXm4vGPAzOXv39X8j0HoYot3VAR1Cj/Kv6SLG7s6AE
-	IdyC/PWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=W28MgOlBEIrBDEwzq9cApro4f/MG3ayuQJC7ubK1/ik=; b=M5dDzukzGzCMSX6Xmnql6LMmkZ
+	+8eMMbuo+gtDOAPUyLf2CDc0yxGUYRUjG2iSZ9wCZh8zcyER+tr+0jPoxL5DYqZYsNBmD23MVlt6N
+	glFgEjBVvpa8//lx9/14EQIaoI+Fu/zQWPz7ITDF+6O9OrrujtC9ZNnniuXpmVqMXYlIVDKLwOsbQ
+	VFmA0izuGZOntmC0wmMoR0bHzuQwPgsfY9Quj9pUwHT+8PuNpkUkpAI3QIyYKKZGoCQjz10nIlnjm
+	ScWjyiLawryrhM1SnM9j+/+bKrBR/XHfQyNBSBtJ8dvEg9LGqyGdwxbKjTTvRBM65OZvfE927FIpI
+	6bMvzOFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk2aM-0000000FTo7-1GrG;
-	Wed, 15 Jul 2026 16:35:50 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1wk2f8-0000000FUFg-3k6L;
+	Wed, 15 Jul 2026 16:40:46 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk2aJ-0000000FTnJ-28Xn
+	id 1wk2f5-0000000FUEj-3m0K
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 16:35:48 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-848593533cbso3103623b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 09:35:47 -0700 (PDT)
+	Wed, 15 Jul 2026 16:40:45 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-493b27c7451so10672185e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 09:40:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784133346; x=1784738146; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=xKMpslmS1nZLwbcYPHb8iOZLrmPISU+0dOPEfAdriDw=;
-        b=UpD1D3sTL6ZZM+NIr0gCOq/o/9QTIbOQwIb0PCKlNG1eEXNf+maqLbGg+CPxwl/mOJ
-         vaWZnNHqjFZpRrXBxMQFzn9K0jnDCd+ku3XkdT++RGGjGa5aAzXUF5ql0Q9AssiG9m3R
-         ZySNgAk2UcqaM45sqX8b1+gHUu6+uhxBx0FiuM2JTHXVNbwAVb3N79S0Zu1J0J6gqMWa
-         F5pXtnf0wEO2uWCoZv372rS5ucv2uqzfdKDWgtNS8PSi+q7mYmBn3kgi7s/6eEzPFn//
-         mAFwF7RE+j6uyk/pJA/bnLH5ui1cH6nMSLp556H8Wa5RG1vs0mun0ZUJGx4KWpctjFr3
-         34fg==
+        d=gmail.com; s=20251104; t=1784133642; x=1784738442; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=W28MgOlBEIrBDEwzq9cApro4f/MG3ayuQJC7ubK1/ik=;
+        b=L2LhGi0jpphBLOFkhzBN7LhdT/SBtDlXVlPJjAS7JUfVOv/izf004JvwYTFTXEnt5X
+         C18OrMgmMObqmsFB9Ts9er0+rylOZ4nb67PwXnGgGlnjMwuuw48j17Wh2GBURqKxpJ90
+         cjb6soaYTTMbzqjVk2Pz+jbpCPU/9mqGegGeSYVLsDUlU7o7QM/tX+R1ns78nq8KkUbG
+         UXCKphVx/epR3CONfCxCv1Dwo7l7TzPrEr+wn+iFe4NQTApp8pshcOp3ZWdQZXCVNaMY
+         kAuixIUYhdsn3mHPBa+l70fGFkpJmaJyF8MBAWq0X2Kva1XKjwFhPZpvVv9H3Mk7ZCGz
+         a9WQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784133346; x=1784738146;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=xKMpslmS1nZLwbcYPHb8iOZLrmPISU+0dOPEfAdriDw=;
-        b=BxMBpBAVQEqa99YF9qMUn5gHg75fetTxRuLKXEQsbXhRZpwRF3RuJBhXky0IDxuW3G
-         UO6bWeR2X9Cou+4EGAV45dyBJKgoKis6qvX3DGBKagZG9Ej/1Rvpno7UCswo/6VA8qlR
-         tvSqcYD6i/O1lOl2cVBqertD5P3dfqtjtP9SCaQLz6PtiBYnyZR2L2uGnBSo1KZC5jmp
-         o/xkuHyV4IW3nNaYC7IMs5atQ8AKjXeiPj+kcCR3APf2yanADSzKvBEiwXOiTYgsvxDB
-         meh4T0ABC9OXiBMBQQtN4/rOw3vGE5zFDkhdAWM56REUUVtjL1iARyuU6XRMu2rGkWnE
-         l2gw==
-X-Forwarded-Encrypted: i=1; AHgh+Rp5RILlt85N5if7apjnbdHPu4Sw8DcSoqDFu6tn+jyEXhdPy3uhiKCL0aFgVCrSRj3j3vNngH0O4rjRW1TyFIpr@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5V1HK1zEAfJIRvAARW0CraJDZ5gC60Phkid6XCRpFL2iascYD
-	41K0tShGdUf2e3A1JfmrD2QF1fraxZGJymBhQLXnwKEy6eSYDripDEVi
-X-Gm-Gg: AfdE7clTHUPA9/pV/CAYWISD3MTmbxqQFNA2lp9EWXzIwqZiJZg3zIykxUb20Ls/Fbt
-	5rVpI11f8A9xZcInOZ0T593oXh9Ric603rpmq06+Z0itjM3rcQvR8bMPYXserx6xwKgzvA+9OkV
-	FQ993CSOUaPxB8nbnDun06l/ymts93WpmoTK+e+sH16lYb1nhYCbarcwCA3mi9hmJqchJsISSPY
-	mq9gZhCErhNZkl/qSWbNGlhh7Wx3fUGe1hgI4GOwFY9ReTST2vVXKxb5VAIQb3QLGU0UUG9Thmw
-	X1I816cTsS0RCe72hzUJR6qDrjZV33iLm2B0ohddsVsbROxsrMVaRy/C1TXtkWu+A++nTskZlCu
-	ftjIGGkIwQ6bcMTRsGYGu/ro71zHihJ8TGY7scQD3vzNWRwZRNdWeatpxGPc3n7qNBxhCpqVbiZ
-	RrQgk+pI4pZzvU/TOsHgW48ak1Ww==
-X-Received: by 2002:a05:6a00:2d8b:b0:847:770f:da4c with SMTP id d2e1a72fcca58-84a672425fdmr2861024b3a.16.1784133346501;
-        Wed, 15 Jul 2026 09:35:46 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84a4f238b21sm3470359b3a.7.2026.07.15.09.35.45
+        d=1e100.net; s=20251104; t=1784133642; x=1784738442;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=W28MgOlBEIrBDEwzq9cApro4f/MG3ayuQJC7ubK1/ik=;
+        b=r+sXocKlOEU9I8IkE0nmH5eaMFMF412nBqDAc8K1NK6gYQ0upwZFddNJSVo9+3iMIs
+         cCSUuvbrJY0hBjH3zmP+2gLygElMxUqIAeNolvqE4pNDNQOVAmlbErP4Sx5b78RTxZFh
+         +VojobSClkakkK2bGTH/HdnqDlMxruQsE1XhA6cDBttYC0bRn+oIYbKneRZCQkfRnege
+         dS0wpY/mxvzc3eCSdqfgslAPTCrobjNpaZXktf2Gi4xml7qe4hG2MbENfBrO93xbHsqm
+         +B386ZpeMS8H3ePiggHfrwtTTtELRhHr9KqGMUq29S4p3qcBKDy2HVq/tPlEBesZuJ7T
+         r1gQ==
+X-Forwarded-Encrypted: i=1; AHgh+RpzcpOa9fNNsEDvb0NuPv0JguSOGwFyqji9NF3oXmaYvJY5oM/Ts/bTZPVPPEOtkKZ+2HiDLybJEtDJXhOCOB9f@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy0LN9JYQkyW5Xv3VrBQJ+sU0H/zR78BQRvGYhKMrwVDIykY7bB
+	YhHcbL+HoQ9XLp/5dcYPguzidXc5kd8vGci2Vil/zTvcRRd1ooJl1y7Z
+X-Gm-Gg: AfdE7cnH8kiaOvMrwYLWFppHuinTCfJzVjb90BeutcNtrOQkav4K2PpkZd8YrIkAVOq
+	BQJfGS6MBIJD5b8sqUlyrX2vSBSAXEEZNBPGT/1dN51QBI7/nuTEIBMnxeyC3zEkdZzgMOd07eF
+	rWbhIm0HCykGBsxLo1ppiTCW0UcKDPuoHSD2IoZgP1vRY+s+dTDCalTTyQdT2C+0jlx4RXOJ/x/
+	PVrqvQvyksPTRpyjsOi9s5kdgklqEOI/LaEa9A5yVS2lXKUzBWFzOfB4JYwVp1wXEKskYpDOPJz
+	kf1uAC2vF95rm61+cKCPKv1Ld2s67UX9AtP1NmmEctnQ8bmYdAAF4npX4pmsXz20XGvPtkS6nJX
+	csVToywIN7n5EgMD1gJxCYJl4oUqOaS6FYig1AJyc+4c1rZ+feLBPJOkz5uItXuYcFHFzmlHAQP
+	JdReSKUY1r74pruzxT3/Qg7WJ1RiAzYdfDU14+X56JaFEZIndDY/SiYG38UQ==
+X-Received: by 2002:a05:600c:6285:b0:495:3f64:26bf with SMTP id 5b1f17b1804b1-49540cdf249mr1832915e9.4.1784133641846;
+        Wed, 15 Jul 2026 09:40:41 -0700 (PDT)
+Received: from Lord-Beerus.station ([93.144.65.248])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f464bbb0esm17836432f8f.28.2026.07.15.09.40.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jul 2026 09:35:45 -0700 (PDT)
-Date: Wed, 15 Jul 2026 09:35:44 -0700
-From: Guenter Roeck <linux@roeck-us.net>
-To: Janne Grunau <j@jannau.net>
-Cc: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>,
+        Wed, 15 Jul 2026 09:40:41 -0700 (PDT)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
+To: linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
-	Sasha Finkelstein <k@chaosmail.tech>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-watchdog@vger.kernel.org,
-	linux-i2c@vger.kernel.org, linux-pwm@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v2 06/10] dt-bindings: watchdog: apple,wdt: Add t6030 and
- t6031 compatibles
-Message-ID: <990ec316-5050-4e7b-93f4-b5a2a85ef447@roeck-us.net>
-References: <20260715-apple-t603x-initial-devices-v2-0-df65b2485710@jannau.net>
- <20260715-apple-t603x-initial-devices-v2-6-df65b2485710@jannau.net>
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Josua Mayer <josua@solid-run.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
+	Maud Spierings <maudspierings@gocontroll.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>
+Subject: [PATCH v4 0/3] Add support for Variscite VAR-SOM-MX8QM and Symphony board
+Date: Wed, 15 Jul 2026 18:40:34 +0200
+Message-ID: <cover.1784133402.git.stefano.r@variscite.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260715-apple-t603x-initial-devices-v2-6-df65b2485710@jannau.net>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_093547_550110_6DEADC0B 
-X-CRM114-Status: GOOD (  15.32  )
+X-CRM114-CacheID: sfid-20260715_094043_978008_A305B26D 
+X-CRM114-Status: GOOD (  13.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,36 +114,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+This patch series adds support for the Variscite VAR-SOM-MX8 QuadMax
+system on module and the Symphony carrier board.
 
-On Wed, Jul 15, 2026 at 11:11:53AM +0200, Janne Grunau wrote:
-> The watchdog on Apple silicon M3 Pro, Max and Ultra SoCs is compatible
-> with the t8103 (M1) one. Add "apple,t6030-wdt" for M3 Pro and
-> "apple,t6031-wdt" for M3 Max and Ultra as per-SoC compatibles.
-> 
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> Signed-off-by: Janne Grunau <j@jannau.net>
+The series includes:
+- SOM device tree with on-module peripherals
+- Symphony carrier board device tree with board-specific features
 
-This patch didn't trigger any conflicts against watchdog-next,
-so I applied it directly.
+The implementation follows the standard SOM + carrier board pattern
+where the SOM dtsi contains only peripherals mounted on the module,
+while carrier-specific interfaces are enabled in the board dts.
 
-Guenter
+v3->v4:
+ - Fix sai peripherals clocks
+ - Add comment to clarify 1GB variant
 
-> ---
->  Documentation/devicetree/bindings/watchdog/apple,wdt.yaml | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/watchdog/apple,wdt.yaml b/Documentation/devicetree/bindings/watchdog/apple,wdt.yaml
-> index 845b5e8b5abc..bef8255022fa 100644
-> --- a/Documentation/devicetree/bindings/watchdog/apple,wdt.yaml
-> +++ b/Documentation/devicetree/bindings/watchdog/apple,wdt.yaml
-> @@ -18,6 +18,8 @@ properties:
->        - items:
->            - enum:
->                - apple,t6020-wdt
-> +              - apple,t6030-wdt
-> +              - apple,t6031-wdt
->                - apple,t8122-wdt
->            - const: apple,t8103-wdt
->        - items:
+v2->v3:
+ - Fix led typo
+ - Moved reset-gpios in pciea_port0
+ - Removed wrong captouch pinctrl gpio
+
+v1->v2:
+ - Added non-removable property to usdhc3
+ - Removed unused fec gpio pinctrl
+ - Fix ptn5150 interrupt
+ - Fix ecspi1 cs gpio
+
+Stefano Radaelli (3):
+  dt-bindings: arm: fsl: add Variscite VAR-SOM-MX8 QuadMax Boards
+  arm64: dts: freescale: Add support for Variscite VAR-SOM-MX8 QuadMax
+  arm64: dts: imx8qm-var-som: Add support for Variscite Symphony board
+
+ .../devicetree/bindings/arm/fsl.yaml          |   6 +
+ arch/arm64/boot/dts/freescale/Makefile        |   1 +
+ .../dts/freescale/imx8qm-var-som-symphony.dts | 490 ++++++++++++++++
+ .../boot/dts/freescale/imx8qm-var-som.dtsi    | 531 ++++++++++++++++++
+ 4 files changed, 1028 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8qm-var-som-symphony.dts
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8qm-var-som.dtsi
+
+
+base-commit: d0c222c2e2ce577d801bdf129dc6c078f29e22df
+prerequisite-patch-id: 0996915f031a1d899202c5fba75a969d6ce2a53d
+prerequisite-patch-id: dbed47ecb907f6b7f7e284c5c1a3c325566eafd7
+prerequisite-patch-id: c758aa296e6effc94c30449cc7e4773f0ae02914
+prerequisite-patch-id: 31784fa7a3ee5c178b2f1ffa97c1dd7c1d3d898a
+prerequisite-patch-id: 5810f43cde9c24ee318d680c1852b3ded18f3aa0
+prerequisite-patch-id: 012c9c8ba4e290532a1b7f8642274b7c5f252e03
+prerequisite-patch-id: a57d576be42d5061bba453f0d5960132be55a1ff
+prerequisite-patch-id: e34a75fb6f7e01455dd5ca734dacad66b12de06c
+prerequisite-patch-id: cc7abadd0354d14bad0cac1fbacda14ab9d4e02b
+prerequisite-patch-id: c0276686c0247cb2385c56b96cbfd6de5128415c
+prerequisite-patch-id: 100c47538870af63194b407fae06183fee85fc09
+prerequisite-patch-id: 3a3b3e40f5fba785857091dda909d22bfc5e2d0e
+-- 
+2.47.3
+
 
