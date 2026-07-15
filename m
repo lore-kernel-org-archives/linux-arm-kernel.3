@@ -4,62 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67E95C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 06:30:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AAD3C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 06:35:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZPQPBBleZwd81hb4vLSnARDjj+eXLs3hQJQaQZ8FueI=; b=bHb2OuwjuzngisgWJa/hETmYYU
-	5FWEnMs0YEjjX1o5oaS0wn5SB9YzzHHkuECcqWzGvi58LBZUnPI/xBVmHXDc0+4HfqI1TzY9N4saO
-	pWrE58ik96yEc9BWz8ESlcdRiPib2Ho7O108+pCWFbJ+KrZunnOyCc49P3xZKfBaTWGdzHU6eEwO2
-	k1aeRgW+g1D/CFfRFnetXiyvV1nLTvehvrKOev3Kg/XfinXcyUA+GpazyFgC52l/CVBERWBIyzXm2
-	F4Fpbjne1UUV6ojKPtKmVM0qFIuZprnaerZLSV7XKjIJ7UrwoggA9R8QM9ATuPfxUk84GHmLrRFNh
-	oFwV2zJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xITOPNOCKYq3fbypGvULirapDnuGZXgi+PVdlwVVKio=; b=GgwCk/CCBVl9IDmdzzb82z3Q5E
+	Voe5d4h6+H5IDUZeEhYHI3qA/K/x2hxPc2ugibjQ91Wu56FfIvWtoe8EPQLq2SRzM6QeboY8B8Ote
+	A8XYn6+U08C+Xg1ybxwjSnPDGzmYtMH7Uxl6wdzuXgaRfwJzFRXke7F4AG6b+N1b1JjvwObz1axjT
+	EN62LuE9yHYlXi23D3XZ/1WjKeK95+85t0y7PEUdPkRH8rZf9qzpCJVpcgB+ebI9AjUcHtdYtpCvW
+	MNBhhjXb3HtDLXC/wZVqwmQFVgHV6XefcqZ2ca+jbtMfjF8PQR/gQarpV8whkamuuJ7w8xo5GWwG2
+	oQMPUa5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjt80-0000000DuNs-3ShU;
-	Wed, 15 Jul 2026 06:29:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjt7y-0000000DuMy-3ctD
+	id 1wjtCm-0000000DujD-2hQn;
+	Wed, 15 Jul 2026 06:34:52 +0000
+Received: from mail-japanwestazon11011014.outbound.protection.outlook.com ([40.107.74.14] helo=OS0P286CU010.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjtCk-0000000DuiZ-1yTU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 06:29:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9C25A339;
-	Tue, 14 Jul 2026 23:29:49 -0700 (PDT)
-Received: from [10.164.18.40] (unknown [10.164.18.40])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 359353F7B4;
-	Tue, 14 Jul 2026 23:29:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784096993; bh=uDuItjRFGmm5oiqRBL4CPnju3/aj4dhRpf7N9vrne9A=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ocZMdltesV6COxBD/F050fREyBd6vM3J/cZZN0meV1618i2pH1th+hFlVVz1Z19HC
-	 OCHxX7cvSDwxvWeDRH9jMRMZYcFHRa2INCkPsAehv1E7VV8luu9rIQ0NF9PR7+RKVU
-	 LD2aNdzoiUT+bV3nJTPdGJ+RIuEfYBIg/K2sx/+U=
-Message-ID: <0b5ac4c8-9112-4383-b200-f25bb64033d8@arm.com>
-Date: Wed, 15 Jul 2026 11:59:48 +0530
+	Wed, 15 Jul 2026 06:34:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IHjIPLy7/FKQsqqqVPsL0+i8QmQyVh4So6SO9NA1MuQGYjGInQckhUnWbfxmGwrraHqd6z45Kt/bjDiwidTzA4nbdIDqwgBZ83O0MtB8Hf76u1m9hMdCcHT1vJbZFn7AasxwxtcwFM2ciwtBAo/qr5rWTjNngCAHolGMr93xwKOFx0riuwROv2+m9ZOse6SUdpkSUtsthLFqWfJgVNltkXh9KOgCMS7vsxZGhjl8t/kYd5LYdM/44uYZySBCs3N6U7Lo04qKFwf7rYCRrH3dxDV3lzp96NmZKN2Dz+oHkAwUQrobe/9FeYkjVHqpnHCiOspZhN/xT82BnKHTdzHrRw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xITOPNOCKYq3fbypGvULirapDnuGZXgi+PVdlwVVKio=;
+ b=xt2orzxDTZSp1Hythu9Yba6Nhyv1sjZUqiGWqw0JqW4qsTdBsnifg3k86RVZQYwO4Tx7h/AoIoMXBnJkGtaeX04sZhSaukWT2STVkisokvfiswOWKbtnL/L0Kjg0wBYaek3yIiY25b+Ilb0T+1Tj0sLoa2YzIBxQlktfiE4KN+PkZeofGUEufwNEmPcOyWAh6tlqnLIlFPTMieMO85DSherdYPQ5x6sCZII/MIe09LxqrZ/xUY7PNLXXauThDN5MEiXjKRz6IIbRD22ftLqmzaU5uDeyDPeoL64bLwgph/OoBc+UgkWAXQKyYLNy+GtFkjRp7wlLQTd4EzyaZ93fUA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=fujitsu.com; dmarc=pass action=none header.from=fujitsu.com;
+ dkim=pass header.d=fujitsu.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fujitsu.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xITOPNOCKYq3fbypGvULirapDnuGZXgi+PVdlwVVKio=;
+ b=YxP+851IBKE3X9Fi4q6QI2f7gFkX6XVP1yQ7UNdFd+1ORzB59Z1ZVGwIdy6kILVyDd49hOJU2uzD0M7QlDdJp1xtfVhI41gQmHdsdG45Hbsb4xiDVKCheQ06Hi0mSkxVv4zZXl3JstFok48lshfDg54gVjQngnGrhe9Qgu+/PYK+GjLErERfRJvKN+SArKsDXzy26M590o19jiJ697ToDpgmR7h6IafMqHhk54UQwjEs6XgNzK13u3s3f5zQfSm5HP9QGmzztKdoqZ+bbCclg9l63IqCpZFkgvaS+w/U2V5i56qv88ColdiOt9s3PhZ8qtNJpBlq8F/ihUNNWQpKoQ==
+Received: from OS9PR01MB16920.jpnprd01.prod.outlook.com
+ (2603:1096:604:40a::10) by TYCPR01MB6756.jpnprd01.prod.outlook.com
+ (2603:1096:400:b3::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Wed, 15 Jul
+ 2026 06:34:42 +0000
+Received: from OS9PR01MB16920.jpnprd01.prod.outlook.com
+ ([fe80::82de:de33:b50e:56b1]) by OS9PR01MB16920.jpnprd01.prod.outlook.com
+ ([fe80::82de:de33:b50e:56b1%4]) with mapi id 15.21.0202.014; Wed, 15 Jul 2026
+ 06:34:42 +0000
+From: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
+To: "ben.horgan@arm.com" <ben.horgan@arm.com>
+CC: "james.morse@arm.com" <james.morse@arm.com>, "reinette.chatre@intel.com"
+	<reinette.chatre@intel.com>, "fenghuay@nvidia.com" <fenghuay@nvidia.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "dave.martin@arm.com"
+	<dave.martin@arm.com>, "andre.przywara@arm.com" <andre.przywara@arm.com>
+Subject: Re: [PATCH v1 03/11] arm_mpam: Set mpam_feat_msmon_mbwu_31counter
+ when there are bandwidth counters
+Thread-Topic: [PATCH v1 03/11] arm_mpam: Set mpam_feat_msmon_mbwu_31counter
+ when there are bandwidth counters
+Thread-Index: AQHdFCDNEj8HsxbocEa77FgRkKOSxbZuGzLa
+Date: Wed, 15 Jul 2026 06:34:42 +0000
+Message-ID: <OS9PR01MB1692066CAAC8AAB6AD3362EBF8BF82@OS9PR01MB16920.jpnprd01.prod.outlook.com>
+References: <20260710115546.29644-4-ben.horgan@arm.com>
+In-Reply-To: <20260710115546.29644-4-ben.horgan@arm.com>
+Accept-Language: ja-JP, en-US
+Content-Language: ja-JP
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Enabled=True;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SiteId=a19f121d-81e1-4858-a9d8-736e267fd4c7;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SetDate=2026-07-15T06:34:41.973Z;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Name=FUJITSU-RESTRICTED;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_ContentBits=1;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Method=Standard;
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=fujitsu.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: OS9PR01MB16920:EE_|TYCPR01MB6756:EE_
+x-ms-office365-filtering-correlation-id: 802e67a6-d3f4-48cb-0927-08dee23b274f
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|1800799024|366016|376014|1580799027|11063799006|56012099006|22082099003|38070700021|18002099003;
+x-microsoft-antispam-message-info: tKwK06KvkScYUUoNvm+CrwPBZlfpvDbdcLSPMipCYJljeuiYuDPOIZwFst+X5LbvBQRSmN30Er7E2pbCD0mt4yYmrDMWql8GplzhHTJv+40EL2AA2VjYmWe6d4XrndA89tTeptaS8GJkUqEYyCm90/h9h7Pmntm7Rh9zHsghAc2VXuAl1ULvMl6Xiq8juh60Cjyt4FqzsMfQwSGTiSITvxh50rtdKmqjNJsvRxdfuAywxO0yhjdpLpW1VKej1PBJGgF4cZwDBFOD4ENun6T1pQT/vwr5l8MmC2TEL34gcgq82q/PHA6obTycGjxhF7xAzIil1ip9S/NDEKiFKH/5BqQiZMOI79MAr56ElNu/ys6jB84Ba2V+L18V3RaiVmx270KmHQWTkjf9qx5blUK7rD6fmRQYq2vZ6W12fOyJnLD8tx0syB6jPtE0YAtdA1iAzlf8FX37Uue4StarVbCOMOdypeljnGflsCIUtZE8CMRc5nFOlMshaRCkL8ejqirzQ4RClWdZDDbUaU7zqCrl9nYDygZ3A437iUdXd0lAi1Yk/pEppzTHLx7B2rq1/lJvumbpO5o9FiQKGEXThaBWMEpk8n1NLy6BifgakiOlvRXLsReq5KLWcMklgQxyPJ6XzGpWNS8v1t1cqsiO1tyOCepTZnEI6dEbF+YOWd6ta4vaekZSz8YZAPNuVEwFp6Ou82ZRL+3453b4lG02089n+h4Jz3QTPs0v5/LdRdVReNZdQro/sPwj2w7w1CCkAvu2
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OS9PR01MB16920.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(376014)(1580799027)(11063799006)(56012099006)(22082099003)(38070700021)(18002099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?TFFmZU9YQXlnKytzbUppVWVHcDVBTmgzSTVpbUtjSTE3SWRRMjQ2TW10LytT?=
+ =?utf-8?B?RGhWVG9xUWhkeENqWlZ3WjNOQlFhak1oNW9aZFR4MDlYelVyaGo0NEZoZGly?=
+ =?utf-8?B?Q05TYk5Mb3hzYmhwQXdCekM5a29PbENhTzJwd3BSYk0veEZrMENlcEsycnoy?=
+ =?utf-8?B?L1ozKzV1UTNoVHEwYlJzLytkTldLR3FGcnJHN29IOEhiSzJqSzd6eGc3elpC?=
+ =?utf-8?B?akF4VEhpRXpjQmJUU1Z3WlIzaEVPVFZSeit1S2RsQnhzbDNWbHUvNnZjSE4r?=
+ =?utf-8?B?emJGM2hZZ05UZ3ZVVjluRFVBdGJ2dEJMMENGU2NTdy96QTFlQkdXdEFEdXVp?=
+ =?utf-8?B?YnRUd2YzUjAyTWIwZFVkUjR5VkwxeUtFKzdOR1J4OG1xNGFpUlgyRlZFQVdj?=
+ =?utf-8?B?aDJwUDF3UitPNFhoMmFlSEMrdkFIY0haRW5JQXRpMWNmS0JoblJoNWh5WnpM?=
+ =?utf-8?B?TGR5K0RQRTNaMy9wVDgwL1l3RUswMHBlWWVmbTlqbVZOVEVpS3BwbXRGNWhy?=
+ =?utf-8?B?azhtckNSZnRaa1hXYkFLZWpKcDJYd0FNSFhJTVcwNzE2blVzSHN0VWdSalYr?=
+ =?utf-8?B?bkJFTEdHNStDMnh2UUVRK2w5T21id1RDcVU3WVFQMGxsZGNzRDI0bzJvUVp3?=
+ =?utf-8?B?L2tiRG9PWmRad1psQjRCWmZ0enRDblp1Und2ZGlsTW5PY3RzSHB0U2FGRFVo?=
+ =?utf-8?B?azl3Y1NybXRDanppek5QMWI1ODlXbno1bEt3ZjZwdnFuZCtQd2FROE1FL3dD?=
+ =?utf-8?B?SjVYamNwelkyb3kyREU1WXhjYlEvMnNEK0YxVEFweGNSVldjZEdUQ2NHZEhB?=
+ =?utf-8?B?SjNDZDlIWTBJVDBlOGJuSndqa0dMOE1aN255a21Fa1NRNGdnWUZtUkQ1L1JS?=
+ =?utf-8?B?bGx2QTZsTE1wTTRmTWZGK0tBeFlSZ1NlTUxTZkJURXNLdlVmSmdDTDVzZCtt?=
+ =?utf-8?B?M25ZRFpEMzVtMEFnR1VGRlJwemVWVmFRa3Y1ZkNjNTI3NWFwZG0ydUNxSmZh?=
+ =?utf-8?B?OHdZRGxXVGlaVVRRRzhkcDIyUElwTlBidWR1VHNIUk93U1RHQlUwSkpPeHJ4?=
+ =?utf-8?B?M1lHNHlFUEw3SFhOeTNvNCtQTnEvT1FzUlY3QmdIMjcvUVlPd1Q2ZUhjZDlt?=
+ =?utf-8?B?R1BnakpSWjVobThvT0FUaU5TcjJzdU9ZSHVVOFV2eW9MRVQ3SFVFbkpwbHdG?=
+ =?utf-8?B?dWZzU3EydXExV0VnTE0ydHR0T1R0QUJLdnhkSWdJSHFrWHgrSkw4MHNuVVhm?=
+ =?utf-8?B?TnBFTysrTzRMaDZGWThxZlRVY3gwcFZCVDBJcE5zU2F3UzBkZWhRcmMrWERI?=
+ =?utf-8?B?cWtZbE1VdjUzd2IwSGZZTXovb0ptSm51WTFvL1dqSU5wZmdvZUlNTmNWSXFM?=
+ =?utf-8?B?QVNldys0R1ZoV3FYclVFWUNtVllvb0VUc1pyeWNrL3dNRDJQMFdjMk9UbzBy?=
+ =?utf-8?B?NS82Tmg4T2c3QWhxU1RyNzJhUDhTTXQ5ME5DNGc5VzRSbGVYYUhsNU5DWEdK?=
+ =?utf-8?B?c1BlaHh4aXgwa0tBTi9GL3JkelpMYS9hTVlxNFdja0l3YTgxNWw5dUluN3Z5?=
+ =?utf-8?B?cHRoQ2I3OURKZ2FYdUtpcGRqdXBqNEtodEFLTGg2VlZWd09EbWxiNm1sNXRK?=
+ =?utf-8?B?YmFCSm1PUTV3S0J2QXVKeXZNNnlCeWtER2JocXRzeW5FZGw5WllXTHhHZEha?=
+ =?utf-8?B?QjhBVnhRQ2pYWm5IbGxZcVI2MVlER1RUdVZnYmlObXl6RzdjbDZpZnMrZGRO?=
+ =?utf-8?B?V3BGTVM2MDhJc3FHR2l5aHJwckNtN3I0OHBZRVRzUUU4cUlIMTkvUWFTRlVW?=
+ =?utf-8?B?UzkxVEpPK0N6RjN3WGFtVGZDdVd1MEhCUzV2OGZ5QXJ4c2o4YmJPQWZFZndI?=
+ =?utf-8?B?bk5CeWdUV1NpTFJFM3pVSDhxM2ovVXZHZ1hMUitBNHlKMWR3UnhITVVIbW1P?=
+ =?utf-8?B?TTlqalNmMzJENHJ1cVh2UkMzQVN2Wmx3RHpCRk1Hb0FBdE1JV0huWXhNQlgz?=
+ =?utf-8?B?dDFaYVNBTG5WTjNQT2VWS1cvMWlnTXAyZnY4YjdBY3paOUtMZjNSS1pvMjcw?=
+ =?utf-8?B?bWVTYytYVXRSaVc3NVYrV3p6WFZ1NnN1bWxudmV5L296SGQrSkxDQzMzREVM?=
+ =?utf-8?B?LzRvK2kwV0tlbVNRYm55UTg5Zjd2ZS84bkNXbnNkaERCdVRVa0RpUW1BaGhJ?=
+ =?utf-8?B?NWdTQ3VPb1VHOTVlWlNKT2IyRnVibFFONzZ1NlUveEJJZ0RQUUVGNW16eXpj?=
+ =?utf-8?B?TWFkOExYTytIblBBaE5OMmlXY0pycXEwTVRMbjNxeDFHbU9XV2lPKytacURN?=
+ =?utf-8?B?TnpyV3ZIdnlLQzdJWXplOUM1RDhKM0l5Z0JkeUtJODlISUhHYzRGQT09?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 5/6] arm64: cpufeature: Rename BBML2_NOABORT as BBML3
-To: Linu Cherian <linu.cherian@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>, Kevin Brodsky <kevin.brodsky@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260715053408.1950475-1-linu.cherian@arm.com>
- <20260715053408.1950475-6-linu.cherian@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20260715053408.1950475-6-linu.cherian@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-Exchange-RoutingPolicyChecked: dD0oZ7qWEA4jAkvT15TzoVbYQ9gV9cy7yxR7LwzOvstBmPIFb1peAdDk1gX/r2Sq1LYJZ3uq+CdH30dPwCOHtR4uXSDlaT9n2yV/mbeH/sFbVsed18s2rAePFt5EAiAXUMrF1cnjoK/FPCeQjjWvSSErSWJGvJsgm7yDL38CmSTiU/Q3eGnfDgmSO0mVsvs+5SnRNGy+LnOQzjmM/jkVBV6nGG3sGiHemEsAr1zhicCB7Mj2+iPU4MUUaFeRoQRu8UeSdrQiX7vJR67GX8jy4LOhtoy8G9dyPM9ov4rLE4CQDGoBHPnUgjghhzcBNl5Mb3lnqf5Uo7eqDbfC03uqdw==
+X-OriginatorOrg: fujitsu.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: OS9PR01MB16920.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 802e67a6-d3f4-48cb-0927-08dee23b274f
+X-MS-Exchange-CrossTenant-originalarrivaltime: 15 Jul 2026 06:34:42.3030
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a19f121d-81e1-4858-a9d8-736e267fd4c7
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: WX7hmMwffMzyxtkdi9GYNTlxJZw0FDdQ2l3zXREaZLYplAiL3Zju9/hMDrec4v3Gnbh+8dJSDgdtmVjAffgg2gPQQ6cvpkt3XlRRbi9U7ZM=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYCPR01MB6756
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_232955_009990_ACF4074F 
-X-CRM114-Status: GOOD (  50.27  )
+X-CRM114-CacheID: sfid-20260714_233450_530198_3BE6FF33 
+X-CRM114-Status: GOOD (  10.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,404 +155,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 15/07/26 11:04 AM, Linu Cherian wrote:
-> - As bbml2_noabort is functionally equivalent to bbml3,
->   rename cpu/system_supports_bbml2_noabort to
->   cpu/system_supports_bbml3.
->   The ARM64 capability name is also renamed accordingly.
-> 
-> - As BBML2_NOABORT or the equivalent BBML3 is the
->   kernel requirement for setting up linear map with
->   block/contpte mappings and not BBML2, replace all
->   bbml2 references with bbml3.
-> 
-> FEAT_BBML3, is introduced as part of 2025 Architecture Extensions.
-> https://developer.arm.com/documentation/109697/2026_03/2025-Architecture-Extensions
-> 
-> No functional changes are introduced with this patch.
-> 
-> Signed-off-by: Linu Cherian <linu.cherian@arm.com>
-
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
-
-> ---
->  arch/arm64/include/asm/cpufeature.h |  6 ++--
->  arch/arm64/kernel/cpufeature.c      | 30 +++++------------
->  arch/arm64/mm/contpte.c             | 21 +++++-------
->  arch/arm64/mm/mmu.c                 | 52 ++++++++++++++---------------
->  arch/arm64/mm/proc.S                |  4 +--
->  arch/arm64/tools/cpucaps            |  2 +-
->  6 files changed, 49 insertions(+), 66 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-> index a57870fa96db..d90040fb9de6 100644
-> --- a/arch/arm64/include/asm/cpufeature.h
-> +++ b/arch/arm64/include/asm/cpufeature.h
-> @@ -878,11 +878,11 @@ static inline bool system_supports_pmuv3(void)
->  	return cpus_have_final_cap(ARM64_HAS_PMUV3);
->  }
->  
-> -bool cpu_supports_bbml2_noabort(void);
-> +bool cpu_supports_bbml3(void);
->  
-> -static inline bool system_supports_bbml2_noabort(void)
-> +static inline bool system_supports_bbml3(void)
->  {
-> -	return alternative_has_cap_unlikely(ARM64_HAS_BBML2_NOABORT);
-> +	return alternative_has_cap_unlikely(ARM64_HAS_BBML3);
->  }
->  
->  int do_emulate_mrs(struct pt_regs *regs, u32 sys_reg, u32 rt);
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index 1b804b6c4fe0..25a705e02618 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -2131,21 +2131,10 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
->  	return arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_HVHE);
->  }
->  
-> -bool cpu_supports_bbml2_noabort(void)
-> +bool cpu_supports_bbml3(void)
->  {
-> -	/*
-> -	 * We want to allow usage of BBML2 in as wide a range of kernel contexts
-> -	 * as possible. This list is therefore an allow-list of known-good
-> -	 * implementations that both support BBML2 and additionally, fulfill the
-> -	 * extra constraint of never generating TLB conflict aborts when using
-> -	 * the relaxed BBML2 semantics (such aborts make use of BBML2 in certain
-> -	 * kernel contexts difficult to prove safe against recursive aborts).
-> -	 *
-> -	 * Note that implementations can only be considered "known-good" if their
-> -	 * implementors attest to the fact that the implementation never raises
-> -	 * TLB conflict aborts for BBML2 mapping granularity changes.
-> -	 */
-> -	static const struct midr_range supports_bbml2_noabort_list[] = {
-> +	/* CPUs that support BBML3 but dont advertise through MMFR2 ID */
-> +	static const struct midr_range supports_bbml3_list[] = {
->  		MIDR_REV_RANGE(MIDR_CORTEX_X4, 0, 3, 0xf),
->  		MIDR_REV_RANGE(MIDR_NEOVERSE_V3, 0, 2, 0xf),
->  		MIDR_REV_RANGE(MIDR_NEOVERSE_V3AE, 0, 2, 0xf),
-> @@ -2165,8 +2154,7 @@ bool cpu_supports_bbml2_noabort(void)
->  		{}
->  	};
->  
-> -	/* Does our cpu guarantee to never raise TLB conflict aborts? */
-> -	if (!is_midr_in_range_list(supports_bbml2_noabort_list))
-> +	if (!is_midr_in_range_list(supports_bbml3_list))
->  		return false;
->  
->  	/*
-> @@ -2177,9 +2165,9 @@ bool cpu_supports_bbml2_noabort(void)
->  	return true;
->  }
->  
-> -static bool has_bbml2_noabort(const struct arm64_cpu_capabilities *caps, int scope)
-> +static bool has_bbml3(const struct arm64_cpu_capabilities *caps, int scope)
->  {
-> -	return cpu_supports_bbml2_noabort();
-> +	return cpu_supports_bbml3();
->  }
->  
->  static void cpu_enable_pan(const struct arm64_cpu_capabilities *__unused)
-> @@ -3072,10 +3060,10 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
->  		ARM64_CPUID_FIELDS(ID_AA64MMFR2_EL1, EVT, IMP)
->  	},
->  	{
-> -		.desc = "BBM Level 2 without TLB conflict abort",
-> -		.capability = ARM64_HAS_BBML2_NOABORT,
-> +		.desc = "BBM Level 3",
-> +		.capability = ARM64_HAS_BBML3,
->  		.type = ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE,
-> -		.matches = has_bbml2_noabort,
-> +		.matches = has_bbml3,
->  	},
->  	{
->  		.desc = "52-bit Virtual Addressing for KVM (LPA2)",
-> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
-> index 2de12656b4d8..0acab179fc1a 100644
-> --- a/arch/arm64/mm/contpte.c
-> +++ b/arch/arm64/mm/contpte.c
-> @@ -89,7 +89,7 @@ static void contpte_convert(struct mm_struct *mm, unsigned long addr,
->  	}
->  
->  	/*
-> -	 * On eliding the __tlb_flush_range() under BBML2+noabort:
-> +	 * On eliding the __tlb_flush_range() under BBML3:
->  	 *
->  	 * NOTE: Instead of using N=16 as the contiguous block length, we use
->  	 *       N=4 for clarity.
-> @@ -135,7 +135,7 @@ static void contpte_convert(struct mm_struct *mm, unsigned long addr,
->  	 * contiguous TLB entry, which is a micro-optimisation opportunity,
->  	 * but does not affect correctness.
->  	 *
-> -	 * In the BBML2 case, the change is avoiding the intermediate tlbi+dsb.
-> +	 * In the BBML3 case, the change is avoiding the intermediate tlbi+dsb.
->  	 * This means a few things, but notably other PEs will still "see" any
->  	 * stale cached TLB entries. This could lead to a "contiguous bit
->  	 * misprogramming" issue until the final tlbi+dsb of the changed page,
-> @@ -158,21 +158,16 @@ static void contpte_convert(struct mm_struct *mm, unsigned long addr,
->  	 *  are present, and a write is made to this address, do we fault or
->  	 *  is the write permitted (via amalgamation)?
->  	 *
-> -	 * The relevant Arm ARM DDI 0487L.a requirements are RNGLXZ and RJQQTC,
-> -	 * and together state that when BBML1 or BBML2 are implemented, either
-> -	 * a TLB conflict abort is raised (which we expressly forbid), or will
-> -	 * "produce an OA, access permissions, and memory attributes that are
-> -	 * consistent with any of the programmed translation table values".
-> -	 *
-> -	 * That is to say, will either raise a TLB conflict, or produce one of
-> -	 * the cached TLB entries, but never amalgamate.
-> +	 * With BBML3 implemented, no TLB conflict abort is raised and the OA,
-> +	 * access permissions and memory attributes produced is one of the cached
-> +	 * TLB entries, but never amalgamate.
->  	 *
->  	 * Thus, as the page tables are only considered "consistent" after
->  	 * the final tlbi+dsb (which evicts both the single stale (RW,n) TLB
->  	 * entry as well as the new contiguous (RO,c) TLB entry), omitting the
->  	 * initial tlbi+dsb is correct.
->  	 *
-> -	 * It is also important to note that at the end of the BBML2 folding
-> +	 * It is also important to note that at the end of the BBML3 folding
->  	 * case, we are still left with potentially all N TLB entries still
->  	 * cached (the N-1 non-contiguous ptes, and the single contiguous
->  	 * block). However, over time, natural TLB pressure will cause the
-> @@ -214,7 +209,7 @@ static void contpte_convert(struct mm_struct *mm, unsigned long addr,
->  	 *
->  	 *                  |____| <--- tlbi + dsb
->  	 *
-> -	 * For BBML2, we again remove the intermediate tlbi+dsb. Here, there
-> +	 * For BBML3, we again remove the intermediate tlbi+dsb. Here, there
->  	 * are no issues, as the final tlbi+dsb covering the changed page is
->  	 * guaranteed to remove the original large contiguous (RW,c) TLB entry,
->  	 * as well as the intermediate (RW,n) TLB entry; the next access will
-> @@ -224,7 +219,7 @@ static void contpte_convert(struct mm_struct *mm, unsigned long addr,
->  	 * regardless.
->  	 */
->  
-> -	if (!system_supports_bbml2_noabort())
-> +	if (!system_supports_bbml3())
->  		__flush_tlb_range(&vma, start_addr, addr, PAGE_SIZE, 3,
->  				  TLBF_NOWALKCACHE);
->  
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index a25d8beacc83..7d17b002fb6f 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -779,18 +779,18 @@ static int split_kernel_leaf_mapping_locked(unsigned long addr)
->  
->  static inline bool force_pte_mapping(void)
->  {
-> -	const bool bbml2 = system_capabilities_finalized() ?
-> -		system_supports_bbml2_noabort() : cpu_supports_bbml2_noabort();
-> +	const bool bbml3 = system_capabilities_finalized() ?
-> +		system_supports_bbml3() : cpu_supports_bbml3();
->  
->  	if (debug_pagealloc_enabled())
->  		return true;
-> -	if (bbml2)
-> +	if (bbml3)
->  		return false;
->  	return rodata_full || arm64_kfence_can_set_direct_map() || is_realm_world();
->  }
->  
->  static DEFINE_MUTEX(pgtable_split_lock);
-> -static bool linear_map_requires_bbml2;
-> +static bool linear_map_requires_bbml3;
->  
->  int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
->  {
-> @@ -803,15 +803,15 @@ int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
->  	 * always pte-mapped), we must not go any further because taking the
->  	 * mutex below may sleep. Do not call force_pte_mapping() here because
->  	 * it could return a confusing result if called from a secondary cpu
-> -	 * prior to finalizing caps. Instead, linear_map_requires_bbml2 gives us
-> +	 * prior to finalizing caps. Instead, linear_map_requires_bbml3 gives us
->  	 * what we need.
->  	 */
-> -	if (!linear_map_requires_bbml2 || is_kfence_address((void *)start))
-> +	if (!linear_map_requires_bbml3 || is_kfence_address((void *)start))
->  		return 0;
->  
-> -	if (!system_supports_bbml2_noabort()) {
-> +	if (!system_supports_bbml3()) {
->  		/*
-> -		 * !BBML2_NOABORT systems should not be trying to change
-> +		 * BBML3 systems should not be trying to change
->  		 * permissions on anything that is not pte-mapped in the first
->  		 * place. Just return early and let the permission change code
->  		 * raise a warning if not already pte-mapped.
-> @@ -828,7 +828,7 @@ int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
->  
->  		/*
->  		 * Boot-time: Started secondary cpus but don't know if they
-> -		 * support BBML2_NOABORT yet. Can't allow splitting in this
-> +		 * support BBML3 yet. Can't allow splitting in this
->  		 * window in case they don't.
->  		 */
->  		if (WARN_ON(num_online_cpus() > 1))
-> @@ -934,11 +934,11 @@ static int range_split_to_ptes(unsigned long start, unsigned long end, gfp_t gfp
->  	return ret;
->  }
->  
-> -u32 idmap_kpti_bbml2_flag;
-> +u32 idmap_kpti_bbml3_flag;
->  
-> -static void __init init_idmap_kpti_bbml2_flag(void)
-> +static void __init init_idmap_kpti_bbml3_flag(void)
->  {
-> -	WRITE_ONCE(idmap_kpti_bbml2_flag, 1);
-> +	WRITE_ONCE(idmap_kpti_bbml3_flag, 1);
->  	/* Must be visible to other CPUs before stop_machine() is called. */
->  	smp_mb();
->  }
-> @@ -947,7 +947,7 @@ static int __init linear_map_split_to_ptes(void *__unused)
->  {
->  	/*
->  	 * Repainting the linear map must be done by CPU0 (the boot CPU) because
-> -	 * that's the only CPU that we know supports BBML2. The other CPUs will
-> +	 * that's the only CPU that we know supports BBML3. The other CPUs will
->  	 * be held in a waiting area with the idmap active.
->  	 */
->  	if (!smp_processor_id()) {
-> @@ -960,7 +960,7 @@ static int __init linear_map_split_to_ptes(void *__unused)
->  		/*
->  		 * Wait for all secondary CPUs to be put into the waiting area.
->  		 */
-> -		smp_cond_load_acquire(&idmap_kpti_bbml2_flag, VAL == num_online_cpus());
-> +		smp_cond_load_acquire(&idmap_kpti_bbml3_flag, VAL == num_online_cpus());
->  
->  		/*
->  		 * Walk all of the linear map [lstart, lend), except the kernel
-> @@ -979,7 +979,7 @@ static int __init linear_map_split_to_ptes(void *__unused)
->  		 * Relies on dsb in flush_tlb_kernel_range() to avoid reordering
->  		 * before any page table split operations.
->  		 */
-> -		WRITE_ONCE(idmap_kpti_bbml2_flag, 0);
-> +		WRITE_ONCE(idmap_kpti_bbml3_flag, 0);
->  	} else {
->  		typedef void (wait_split_fn)(void);
->  		extern wait_split_fn wait_linear_map_split_to_ptes;
-> @@ -988,7 +988,7 @@ static int __init linear_map_split_to_ptes(void *__unused)
->  		wait_fn = (void *)__pa_symbol(wait_linear_map_split_to_ptes);
->  
->  		/*
-> -		 * At least one secondary CPU doesn't support BBML2 so cannot
-> +		 * At least one secondary CPU doesn't support BBML3 so cannot
->  		 * tolerate the size of the live mappings changing. So have the
->  		 * secondary CPUs wait for the boot CPU to make the changes
->  		 * with the idmap active and init_mm inactive.
-> @@ -1003,8 +1003,8 @@ static int __init linear_map_split_to_ptes(void *__unused)
->  
->  void __init linear_map_maybe_split_to_ptes(void)
->  {
-> -	if (linear_map_requires_bbml2 && !system_supports_bbml2_noabort()) {
-> -		init_idmap_kpti_bbml2_flag();
-> +	if (linear_map_requires_bbml3 && !system_supports_bbml3()) {
-> +		init_idmap_kpti_bbml3_flag();
->  		stop_machine(linear_map_split_to_ptes, NULL, cpu_online_mask);
->  	}
->  }
-> @@ -1127,7 +1127,7 @@ bool arch_kfence_init_pool(void)
->  	mutex_unlock(&pgtable_split_lock);
->  
->  	/*
-> -	 * Since the system supports bbml2_noabort, tlb invalidation is not
-> +	 * Since the system supports bbml3, tlb invalidation is not
->  	 * required here; the pgtable mappings have been split to pte but larger
->  	 * entries may safely linger in the TLB.
->  	 */
-> @@ -1166,7 +1166,7 @@ static void __init map_mem(void)
->  
->  	arm64_kfence_map_pool();
->  
-> -	linear_map_requires_bbml2 = !force_pte_mapping() && can_set_direct_map();
-> +	linear_map_requires_bbml3 = !force_pte_mapping() && can_set_direct_map();
->  
->  	if (force_pte_mapping())
->  		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
-> @@ -1333,7 +1333,7 @@ void __init kpti_install_ng_mappings(void)
->  	if (arm64_use_ng_mappings)
->  		return;
->  
-> -	init_idmap_kpti_bbml2_flag();
-> +	init_idmap_kpti_bbml3_flag();
->  	stop_machine(__kpti_install_ng_mappings, NULL, cpu_online_mask);
->  }
->  
-> @@ -1394,7 +1394,7 @@ void __pi_map_range(phys_addr_t *pte, u64 start, u64 end, phys_addr_t pa,
->  		    u64 va_offset);
->  
->  static u8 idmap_ptes[IDMAP_LEVELS - 1][PAGE_SIZE] __aligned(PAGE_SIZE) __ro_after_init,
-> -	  kpti_bbml2_ptes[IDMAP_LEVELS - 1][PAGE_SIZE] __aligned(PAGE_SIZE) __ro_after_init;
-> +	  kpti_bbml3_ptes[IDMAP_LEVELS - 1][PAGE_SIZE] __aligned(PAGE_SIZE) __ro_after_init;
->  
->  static void __init create_idmap(void)
->  {
-> @@ -1406,17 +1406,17 @@ static void __init create_idmap(void)
->  		       IDMAP_ROOT_LEVEL, (pte_t *)idmap_pg_dir, false,
->  		       __phys_to_virt(ptep) - ptep);
->  
-> -	if (linear_map_requires_bbml2 ||
-> +	if (linear_map_requires_bbml3 ||
->  	    (IS_ENABLED(CONFIG_UNMAP_KERNEL_AT_EL0) && !arm64_use_ng_mappings)) {
-> -		phys_addr_t pa = __pa_symbol(&idmap_kpti_bbml2_flag);
-> +		phys_addr_t pa = __pa_symbol(&idmap_kpti_bbml3_flag);
->  
->  		/*
->  		 * The KPTI G-to-nG conversion code needs a read-write mapping
->  		 * of its synchronization flag in the ID map. This is also used
->  		 * when splitting the linear map to ptes if a secondary CPU
-> -		 * doesn't support bbml2.
-> +		 * doesn't support bbml3.
->  		 */
-> -		ptep = __pa_symbol(kpti_bbml2_ptes);
-> +		ptep = __pa_symbol(kpti_bbml3_ptes);
->  		__pi_map_range(&ptep, pa, pa + sizeof(u32), pa, PAGE_KERNEL,
->  			       IDMAP_ROOT_LEVEL, (pte_t *)idmap_pg_dir, false,
->  			       __phys_to_virt(ptep) - ptep);
-> diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
-> index 22866b49be37..f4e4e71a0ea8 100644
-> --- a/arch/arm64/mm/proc.S
-> +++ b/arch/arm64/mm/proc.S
-> @@ -287,7 +287,7 @@ SYM_TYPED_FUNC_START(idmap_kpti_install_ng_mappings)
->  
->  	mov	x5, x3				// preserve temp_pte arg
->  	mrs	swapper_ttb, ttbr1_el1
-> -	adr_l	flag_ptr, idmap_kpti_bbml2_flag
-> +	adr_l	flag_ptr, idmap_kpti_bbml3_flag
->  
->  	cbnz	cpu, __idmap_kpti_secondary
->  
-> @@ -445,7 +445,7 @@ SYM_TYPED_FUNC_START(wait_linear_map_split_to_ptes)
->  	flag_ptr	.req	x4
->  
->  	mrs     swapper_ttb, ttbr1_el1
-> -	adr_l   flag_ptr, idmap_kpti_bbml2_flag
-> +	adr_l   flag_ptr, idmap_kpti_bbml3_flag
->  	__idmap_cpu_set_reserved_ttbr1 x16, x17
->  
->  scondary_cpu_wait:
-> diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-> index 9b85a84f6fd4..c05371365d14 100644
-> --- a/arch/arm64/tools/cpucaps
-> +++ b/arch/arm64/tools/cpucaps
-> @@ -14,6 +14,7 @@ HAS_ADDRESS_AUTH_ARCH_QARMA5
->  HAS_ADDRESS_AUTH_IMP_DEF
->  HAS_AMU_EXTN
->  HAS_ARMv8_4_TTL
-> +HAS_BBML3
->  HAS_CACHE_DIC
->  HAS_CACHE_IDC
->  HAS_CNP
-> @@ -51,7 +52,6 @@ HAS_LS64_V
->  HAS_LSUI
->  HAS_MOPS
->  HAS_NESTED_VIRT
-> -HAS_BBML2_NOABORT
->  HAS_PAN
->  HAS_PMUV3
->  HAS_S1PIE
-
+SGVsbG8gQmVuLAoKPklmIHRoZXJlIGFyZSBtZW1vcnkgYmFuZHdpZHRoIGNvdW50ZXJzIHRoZW4g
+dGhlcmUgYXJlIDMxIGJpdCBjb3VudGVycyBldmVuCj5pZiB0aGVyZSBhcmUgYWxzbyA0NCBiaXQg
+Y291bnRlcnMgb3IgNjMgYml0IGNvdW50ZXJzLgoKQWx0aG91Z2ggMzEtYml0IGNvdW50ZXJzIGFy
+ZSBhbHdheXMgZXhpc3QsIGFyZW4ndCB0aGV5IG5ldmVyIHVzZWQgc2ltdWx0YW5lb3VzbHkgd2l0
+aCA0NC1iaXQgb3IgNjMtYml0IGNvdW50ZXJzPwpJZiB0aGUgYG1wYW1fZmVhdF9tc21vbl9tYnd1
+XzMxY291bnRlcmAgZmVhdHVyZSBpcyBzZXQgdG8gYWx3YXlzIGJlIGVuYWJsZWQsIGNvdWxkIHRo
+YXQgcG90ZW50aWFsbHkgY2F1c2UgYSBidWc/CgpCZXN0IHJlZ2FyZHMsClNoYW9wZW5nIFRBTgoK
+Cj5TZXQgdGhlIDMxIGJpdCBiYW5kd2lkdGggY291bnRlciBmZWF0dXJlIGJpdCB3aGVuZXZlciB0
+aGVyZSBhcmUgYmFuZHdpZHRoCj5jb3VudGVycy4KPgo+Rml4ZXM6IGZkYzI5YTE0MWQ2MyAoImFy
+bV9tcGFtOiBQcm9iZSBmb3IgbG9uZy9sd2QgbWJ3dSBjb3VudGVycyIpCj5TaWduZWQtb2ZmLWJ5
+OiBCZW4gSG9yZ2FuIDxiZW4uaG9yZ2FuQGFybS5jb20+Cj4tLS0KPsKgZHJpdmVycy9yZXNjdHJs
+L21wYW1fZGV2aWNlcy5jIHwgNCArKy0tCj7CoDEgZmlsZSBjaGFuZ2VkLCAyIGluc2VydGlvbnMo
+KyksIDIgZGVsZXRpb25zKC0pCj4KPmRpZmYgLS1naXQgYS9kcml2ZXJzL3Jlc2N0cmwvbXBhbV9k
+ZXZpY2VzLmMgYi9kcml2ZXJzL3Jlc2N0cmwvbXBhbV9kZXZpY2VzLmMKPmluZGV4IGFjZmE5YTRk
+YzJmYy4uMTFiMTBjM2JjMzM0IDEwMDY0NAo+LS0tIGEvZHJpdmVycy9yZXNjdHJsL21wYW1fZGV2
+aWNlcy5jCj4rKysgYi9kcml2ZXJzL3Jlc2N0cmwvbXBhbV9kZXZpY2VzLmMKPkBAIC05MzAsOSAr
+OTMwLDkgQEAgc3RhdGljIHZvaWQgbXBhbV9yaXNfaHdfcHJvYmUoc3RydWN0IG1wYW1fbXNjX3Jp
+cyAqcmlzKQo+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIG1wYW1fc2V0
+X2ZlYXR1cmUobXBhbV9mZWF0X21zbW9uX21id3VfNjNjb3VudGVyLCBwcm9wcyk7Cj7CoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoCBlbHNlCj7CoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqAgbXBhbV9zZXRfZmVhdHVyZShtcGFtX2ZlYXRfbXNtb25fbWJ3dV80NGNvdW50ZXIsIHBy
+b3BzKTsKPi3CoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqAgfSBlbHNlIHsKPi3CoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIG1wYW1fc2V0X2ZlYXR1
+cmUobXBhbV9mZWF0X21zbW9uX21id3VfMzFjb3VudGVyLCBwcm9wcyk7Cj7CoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIH0KPisK
+PivCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqAgbXBhbV9zZXRfZmVhdHVyZShtcGFtX2ZlYXRfbXNtb25fbWJ3dV8zMWNvdW50ZXIsIHBy
+b3BzKTsKPsKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB9
+Cj7CoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB9Cj7CoMKgwqDCoMKgwqDCoMKgIH0K
+Pi0tIAo+Mi40My4wCj4K
 
