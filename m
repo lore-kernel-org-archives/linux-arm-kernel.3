@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AA3AC44510
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 11:59:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FD56C4450C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 11:59:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4P0vhJSxO+G+Vc4nk48G6MnzTMo1FQyjg7u/hgjKJK4=; b=A/cQ/vATjrd4+Z5mp7PzAlNXCz
-	NNUiAKIGJkromeoLeU0mZALJn5lY8vESi3GVPuY80Uqsi4D6RWmeitbWmUV6RhYLN+hnlQm13OL/R
-	UIv//bddEYYV3tnVh1RAUqiPPCegxkAzS0LgZ8pdrfC7sFOm7O39RZ5BGW0RRX0G7eHyA/1YDGJAg
-	Vr4MNJzDIdhps8YWl3YofljaIlkMz8oZPVmYJko8ZSV+yx7vKbH5hulMwTRYkzpgzDAhAfWO6+qBk
-	V10yNHpqSjCaJ0TlFZpfpbFnQ75b2c4KdM/saKw3wqKcJHKJsFidY7PxjpbS4OZFzrlxRPxr+bJt+
-	4Vt2QIHQ==;
+	bh=DulTGTw97uMRHQPlm6xWX2ICmo+Sh9dZV8TFaDf+QVU=; b=m/E7em5s/4m4umE7jOxCdI6hSz
+	752yIq/BMYWirzhd8qGcsh3Jm3Q1WyJjxU7m/3Z9dmhbeNrjQVFlBTjOXgZhA4/pBUBlrLbusz8dH
+	Cwv56PzQkiweuMOO6BKiTxzf5GGbCd3cY1AvIwuzXV3rHnhZZQ9znJ+ClAhVHhFt4rzhcxWq5rsEY
+	4j/GwKxmnVA9YczwUcoOKGUVhWf+9B8wmsUhB+3eHD6tptgalMlpSYSnOwawhH5TmmXTYfevQQ28L
+	tdrWhTF46HoMtOigLGfkkpur6z6F0M0A2D8AFU1nmkvVv0Z0Jr9Px0VJHxyl6RiVePc1bKPRMsO8Q
+	z9WEhxgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjyGx-0000000Ef9e-02rx;
-	Wed, 15 Jul 2026 11:59:31 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1wjyGw-0000000Ef8j-2MZ5;
+	Wed, 15 Jul 2026 11:59:30 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjyGr-0000000Ef2y-0zZb
+	id 1wjyGq-0000000Ef1q-0dFe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 11:59:26 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-493e94719e7so35025195e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 04:59:24 -0700 (PDT)
+	Wed, 15 Jul 2026 11:59:25 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-4953c5d6d87so6751295e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 04:59:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784116763; x=1784721563; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1784116762; x=1784721562; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=4P0vhJSxO+G+Vc4nk48G6MnzTMo1FQyjg7u/hgjKJK4=;
-        b=RiLMwCOv2XXbppFHh9PR+GB/KisqaSI4PxScL4wPX4q3qPfbmJ3VXAEffJ++bBERr+
-         9BkEUsHXbgActyWepy2igvNjeTGYeHq9rNLdXb0YvauZb11Y57LaXGKk2JI37J1ycrB2
-         qc8lDbpMgnPeXvLXLf9S3BhWe4D+ntHUzPqreRkQ2+BUEgM5UQVvGCDFC889INsPgEDV
-         u2RphDo4MiWDsXKxCDBptMEHFArUKFiypcwi6Y2JIoR2ki0Df4Lg1xKFZ7QtPQykKGkf
-         OtlXIy4LhYvqPYZFwjJi1TNLfDF9z+HbN/oT61HvIdB6u0QUaSWRA4wyYV6NYwncDc7m
-         Fn8w==
+        bh=DulTGTw97uMRHQPlm6xWX2ICmo+Sh9dZV8TFaDf+QVU=;
+        b=jemFtH1HgKTzblcntH0UgfmjD/yedRCOcPJYGGfvEdIHE1lVrf4NM1WitqMuGXllRN
+         NpPSjlfS/6/PZa54Yzhifw6PIl84uqCq95WSwCeRdrpj5UZ9IeZIUZkx3lMNOKYcUXkv
+         jDA0cFHerehps7vn8oJ9Hj5Eq7zv/m23g/y93dP4F9yV3UKxeOs2xZ7eKuXX0PgCkWSj
+         dIE0CZa0z4vFgfv6tz0cbllXYL3/2keEANohlKGcFVz+K3JP+CIPpMY+mSFpEiP5WvGO
+         egnQ453qNxeff8ys7BGL5+FbyUKV9u34vutk1ZMP6KPjYL1ujic/NetHOKWwLfHsr3Y8
+         Y5rg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784116763; x=1784721563;
+        d=1e100.net; s=20251104; t=1784116762; x=1784721562;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=4P0vhJSxO+G+Vc4nk48G6MnzTMo1FQyjg7u/hgjKJK4=;
-        b=P2tuHjCEhI8IoBkyfiP6NLKpG+i1gRIdXezDNvsS1iesg4d10nYorPN1nRMSnYBiZF
-         9ix+slolP4PK2AysvjsH8FRPcPZHCPGOaiGtsLWtdmwx7uCb0OrIw+xb9XabrcvP8YWz
-         JmIKwL8ZBKxyJn/9wpNpMyiB1/XvY47KTwYRflhHk5IU6tNqLYeGIJvkO6ZN+8Gxfeq1
-         6sdb3nYV5vmBpxNJVVU/3HBvOHEk3eJ7BMgJVqhauENldch0JzjWExxNRiBxyYbqq+st
-         a0jApbfOILMUZB5kr4Ul1CRJ4JshdEN5U1W0xXqmRpVSz43iB2/CthxIwvYenOf1bs2o
-         tHWA==
-X-Gm-Message-State: AOJu0YyaFJEJhHMZi7Bp6chn/dd/9SzTqD2gd83dk/qGezRKadZK21Jv
-	jgIrHpO/HVRMXw9KPlHAhe0Jq9lZYpdCWLOIqP2wBW20RYFVBGfbw0PNmCGKvpE9JKgFyW2d04D
-	lpk0311LRtSKIxTUn/D0PHtzYmCkaS2WeKJls6yQ3BB8Rn87veFi/bFOdPSAe53sI4sALJepFxU
-	DaQBDjQgcpQy9Gu9eT6jX/dPS5n6v+nlBkoqkbvRgFPfrxvAw1GgXySotBbjO3zJDhHg==
-X-Received: from wmga19.prod.google.com ([2002:a05:600c:2d53:b0:495:3dd3:e994])
+        bh=DulTGTw97uMRHQPlm6xWX2ICmo+Sh9dZV8TFaDf+QVU=;
+        b=Y7BCvCDq88ArBY+aCzdrPhlN12BDzcWCqAQ1wpOmcpSbv2b5cOmFY4HMNeO++z56EI
+         5cQvo4ad9xZa0gXObCR9uK41RCxhSWAMUh9N6XawstaYETc3nmBoyP/Ppfr+pZ88Q4IA
+         M30yuq1XBtsuXw8BDsIFW9hY+vBsSNCjfmQxJ9Y4yvV3/GbwJNkrQiptNsnFp0302tvD
+         DgAOz34T2xE/uWAMKUiujaBEv1z8Qa5VpBTlQx/x+qKMrj9eiJs/mBuhtnVz8locrf7f
+         8EB3WxYQ7GxwQOXMzGMnX5krbOYAxR3syy/1h9ZhNQGTMjjvKUiN7O9rjJ7BXR89kApA
+         lqKQ==
+X-Gm-Message-State: AOJu0Yw1p4uPFGMWQHrPXZ5hotpeZQd/yS6xzWZk0HmsoLImQnI15T7g
+	pX0sObvUn6SP/8D3fDOdYQnMccos+UASt5hQFTs2HQMqs+VyXYR5yqKd1fn7N3O2ZnlzBTckpxN
+	Nt7qrfbIiXuv139a63n+3nz3b+XA19Ry/uyPLJdx5G9gsFzYeiMckIifJ6rd/XOb/iZqxicyNOf
+	XOfYfkb6l+GApdsaM/StlYwht98hJqJz+SLa9m0ZjK2KYEoV86swIMYVZ8rWC2MnYvcg==
+X-Received: from wmby15.prod.google.com ([2002:a05:600c:c04f:b0:493:bdba:620b])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:c16a:b0:493:b89b:9a27 with SMTP id 5b1f17b1804b1-495389d2a9cmr64618175e9.9.1784116762784;
- Wed, 15 Jul 2026 04:59:22 -0700 (PDT)
-Date: Wed, 15 Jul 2026 11:58:49 +0000
+ 2002:a05:600c:e557:20b0:493:f822:ac5e with SMTP id 5b1f17b1804b1-493f8818052mr132724075e9.23.1784116761502;
+ Wed, 15 Jul 2026 04:59:21 -0700 (PDT)
+Date: Wed, 15 Jul 2026 11:58:48 +0000
 In-Reply-To: <20260715115906.2664882-1-smostafa@google.com>
 Mime-Version: 1.0
 References: <20260715115906.2664882-1-smostafa@google.com>
 X-Mailer: git-send-email 2.55.0.141.g00534a21ce-goog
-Message-ID: <20260715115906.2664882-9-smostafa@google.com>
-Subject: [PATCH v7 08/24] KVM: arm64: iommu: Add memory pool
+Message-ID: <20260715115906.2664882-8-smostafa@google.com>
+Subject: [PATCH v7 07/24] KVM: arm64: iommu: Shadow host stage-2 page table
 From: Mostafa Saleh <smostafa@google.com>
 To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	kvmarm@lists.linux.dev, iommu@lists.linux.dev
@@ -79,8 +79,8 @@ Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
 	Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_045925_318637_981A7C84 
-X-CRM114-Status: GOOD (  29.22  )
+X-CRM114-CacheID: sfid-20260715_045924_287178_66DD3BFC 
+X-CRM114-Status: GOOD (  29.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,247 +95,287 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-IOMMU drivers need to allocate memory for the shadow page table.
-Similar to the host stage-2 CPU page table, the IOMMU pool
-is allocated early from the carveout and it's memory is added to
-a pool which the IOMMU driver can allocate from and reclaim to at
-run time.
+Create a page-table for the IOMMU that shadows the host CPU stage-2
+to establish DMA isolation.
 
-As this is too early for drivers to use initcalls, the number of
-pages allocated is set from command line "kvm-arm.iommu_pgt_mem".
+An initial snapshot is created after the driver init, then
+on every permission change a callback would be called for
+the IOMMU driver to update the page table.
 
-Later when the driver registers, it will pass how many pages it
-needs, and if it was less than what was allocated, it will fail
-to register.
+There are 3 different ways to add the callback:
+1) In the high level memory transitions: (__pkvm_host_donate_hyp(),
+  __pkvm_host_donate_guest()...
+
+2) In Lower level functions covering all transitions
+  - host_stage2_set_owner_metadata_locked() which covers:
+   - __pkvm_host_donate_hyp()
+   - __pkvm_host_donate_guest()
+   - __pkvm_host_donate_hyp()
+   - __pkvm_guest_unshare_host()
+  - host_stage2_set_owner_locked() only for ID_HOST which covers:
+   - __pkvm_hyp_donate_host()
+   - __pkvm_host_force_reclaim_page_guest()
+   - __pkvm_host_reclaim_page_guest()
+  - __pkvm_guest_share_host()
+
+3) In the lowest level function __host_update_page_state(), which
+   requires only one callback. However, in that case the page state
+   is not enough as we might need to know the old state also.
+
+Option #2 was implemented here.
+
+For some cases, an SMMUv3 may be able to share the same page-table
+used with the host CPU stage-2 directly.
+
+However, this is too strict and requires changes to the core hypervisor
+page-table code, plus it would require the hypervisor to handle IOMMU
+page-faults. This can be added later as an optimization for SMMUV3.
 
 Signed-off-by: Mostafa Saleh <smostafa@google.com>
 ---
- .../admin-guide/kernel-parameters.txt         |  4 ++
- arch/arm64/include/asm/kvm_host.h             |  3 +-
- arch/arm64/kvm/hyp/include/nvhe/iommu.h       |  8 +++-
- arch/arm64/kvm/hyp/nvhe/iommu.c               | 21 +++++++++-
- arch/arm64/kvm/hyp/nvhe/setup.c               | 11 ++++-
- arch/arm64/kvm/iommu.c                        | 42 ++++++++++++++++++-
- arch/arm64/kvm/pkvm.c                         |  1 +
- 7 files changed, 85 insertions(+), 5 deletions(-)
+ arch/arm64/kvm/hyp/include/nvhe/iommu.h       |   4 +
+ arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |   1 +
+ arch/arm64/kvm/hyp/nvhe/iommu.c               | 129 +++++++++++++++++-
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c         |  27 ++--
+ 4 files changed, 145 insertions(+), 16 deletions(-)
 
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index b5493a7f8f22..5cbac46bc941 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -3253,6 +3253,10 @@ Kernel parameters
- 			trap: set WFI instruction trap
- 
- 			notrap: clear WFI instruction trap
-+	kvm-arm.iommu_pgt_mem=nn[KMG]
-+			[KVM, ARM, EARLY]
-+			Memory allocated for the IOMMU pool from the KVM carveout
-+			when running in protected mode.
- 
- 	kvm_cma_resv_ratio=n [PPC,EARLY]
- 			Reserves given percentage from system memory area for
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 43821767ccab..8d3b4500b360 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -1713,7 +1713,8 @@ long kvm_get_cap_for_kvm_ioctl(unsigned int ioctl, long *ext);
- 
- #ifndef __KVM_NVHE_HYPERVISOR__
- struct pkvm_iommu_ops;
--int pkvm_iommu_register_driver(struct pkvm_iommu_ops *hyp_ops);
-+int pkvm_iommu_register_driver(struct pkvm_iommu_ops *hyp_ops, unsigned int nr_pages);
-+unsigned int pkvm_iommu_pages(void);
- #endif
- 
- #endif /* __ARM64_KVM_HOST_H__ */
 diff --git a/arch/arm64/kvm/hyp/include/nvhe/iommu.h b/arch/arm64/kvm/hyp/include/nvhe/iommu.h
-index 857d7dd2ebc3..028e89a3448d 100644
+index df3d0cc5d4db..857d7dd2ebc3 100644
 --- a/arch/arm64/kvm/hyp/include/nvhe/iommu.h
 +++ b/arch/arm64/kvm/hyp/include/nvhe/iommu.h
-@@ -10,8 +10,14 @@ struct pkvm_iommu_ops {
- 	int (*host_stage2_idmap)(phys_addr_t start, phys_addr_t end, int prot);
+@@ -3,11 +3,15 @@
+ #define __ARM64_KVM_NVHE_IOMMU_H__
+ 
+ #include <asm/kvm_host.h>
++#include <asm/kvm_pgtable.h>
+ 
+ struct pkvm_iommu_ops {
+ 	int (*init)(void);
++	int (*host_stage2_idmap)(phys_addr_t start, phys_addr_t end, int prot);
  };
  
--int pkvm_iommu_init(void);
-+int pkvm_iommu_init(void *pool_base, unsigned int nr_pages);
+ int pkvm_iommu_init(void);
  
- int pkvm_iommu_host_stage2_idmap(phys_addr_t start, phys_addr_t end,
- 				 enum kvm_pgtable_prot prot);
-+
-+/* Allocate pages from the IOMMU carveout, returns zeroed memory. */
-+void *pkvm_iommu_donate_pages(u8 order);
-+/* Free pages from pkvm_iommu_donate_pages(). Must use same size */
-+void pkvm_iommu_reclaim_pages(void *ptr);
-+
++int pkvm_iommu_host_stage2_idmap(phys_addr_t start, phys_addr_t end,
++				 enum kvm_pgtable_prot prot);
  #endif /* __ARM64_KVM_NVHE_IOMMU_H__ */
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+index 51b0eb3844a9..99b821b3cf65 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+@@ -59,6 +59,7 @@ int __pkvm_host_test_clear_young_guest(u64 gfn, u64 nr_pages, bool mkold, struct
+ int __pkvm_host_mkyoung_guest(u64 gfn, struct pkvm_hyp_vcpu *vcpu);
+ 
+ bool addr_is_memory(phys_addr_t phys);
++
+ int host_stage2_idmap_locked(phys_addr_t addr, u64 size, enum kvm_pgtable_prot prot);
+ int host_stage2_set_owner_locked(phys_addr_t addr, u64 size, u8 owner_id);
+ int kvm_host_prepare_stage2(void *pgt_pool_base);
 diff --git a/arch/arm64/kvm/hyp/nvhe/iommu.c b/arch/arm64/kvm/hyp/nvhe/iommu.c
-index 08009609ec59..8891cb7920c4 100644
+index ef456eff42d2..08009609ec59 100644
 --- a/arch/arm64/kvm/hyp/nvhe/iommu.c
 +++ b/arch/arm64/kvm/hyp/nvhe/iommu.c
-@@ -16,6 +16,7 @@ struct pkvm_iommu_ops *pkvm_iommu_ops;
+@@ -4,16 +4,137 @@
+  *
+  * Copyright (C) 2022 Linaro Ltd.
+  */
++#include <linux/iommu.h>
++#include <asm/kvm_pkvm.h>
++
+ #include <nvhe/iommu.h>
++#include <nvhe/mem_protect.h>
++#include <nvhe/spinlock.h>
  
- /* Protected by host_mmu.lock */
- static bool pkvm_idmap_initialized;
-+static struct hyp_pool iommu_pages_pool;
- 
- static inline int pkvm_to_iommu_prot(enum kvm_pgtable_prot prot)
- {
-@@ -112,7 +113,7 @@ static int pkvm_iommu_snapshot_host_stage2(void)
- 	return ret;
- }
+ /* Only one set of ops supported */
+ struct pkvm_iommu_ops *pkvm_iommu_ops;
  
 -int pkvm_iommu_init(void)
-+int pkvm_iommu_init(void *pool_base, unsigned int nr_pages)
++/* Protected by host_mmu.lock */
++static bool pkvm_idmap_initialized;
++
++static inline int pkvm_to_iommu_prot(enum kvm_pgtable_prot prot)
  {
- 	int ret;
- 
-@@ -121,6 +122,14 @@ int pkvm_iommu_init(void)
- 	    !pkvm_iommu_ops->host_stage2_idmap)
+-	/* Keep DMA isolation optional. */
+-	if (!pkvm_iommu_ops || !pkvm_iommu_ops->init)
++	int iommu_prot = 0;
++
++	if (prot & KVM_PGTABLE_PROT_R)
++		iommu_prot |= IOMMU_READ;
++	if (prot & KVM_PGTABLE_PROT_W)
++		iommu_prot |= IOMMU_WRITE;
++
++	/* We don't understand that, might be dangerous. */
++	WARN_ON(prot & ~PKVM_HOST_MEM_PROT);
++	return iommu_prot;
++}
++
++/*
++ * IOMMU page tables are shadowed and not shared, that is mainly because:
++ * - Possible inconsistency between IOMMU and CPU features or format.
++ * - KVM relies on handling in page faults (BBM, lazy mapping).
++ */
++static int __snapshot_host_stage2(const struct kvm_pgtable_visit_ctx *ctx,
++				  enum kvm_pgtable_walk_flags visit)
++{
++	u64 start = ctx->addr;
++	u64 block_end = ALIGN_DOWN(ctx->addr, kvm_granule_size(ctx->level)) +
++			kvm_granule_size(ctx->level);
++	u64 end = min(ctx->end, block_end);
++	kvm_pte_t pte = *ctx->ptep;
++	bool is_memory = *(bool *)ctx->arg;
++	int prot;
++
++	/*
++	 * Keep annotated PTEs unmapped, and map everything else even lazily
++	 * mapped PTEs(0), as the IOMMU can't handle page faults.
++	 * That maps the whole address space which can be large, but that doesn't
++	 * use a lot of memory as it will be mostly large block (1 GB with 4kb pages)
++	 */
++	if (pte && !kvm_pte_valid(pte))
  		return 0;
  
-+	if (!nr_pages)
-+		return -ENOMEM;
+-	return pkvm_iommu_ops->init();
++	if (kvm_pte_valid(pte))
++		prot = pkvm_to_iommu_prot(kvm_pgtable_stage2_pte_prot(pte));
++	else
++		prot = IOMMU_READ | IOMMU_WRITE;
 +
-+	ret = hyp_pool_init(&iommu_pages_pool, hyp_virt_to_pfn(pool_base),
-+			    nr_pages, 0);
++	if (!is_memory)
++		prot |= IOMMU_MMIO;
++
++	return pkvm_iommu_ops->host_stage2_idmap(start, end, prot);
++}
++
++static int pkvm_iommu_snapshot_host_stage2(void)
++{
++	struct kvm_pgtable *pgt = &host_mmu.pgt;
++	bool is_memory;
++	struct kvm_pgtable_walker walker = {
++		.cb	= __snapshot_host_stage2,
++		.flags	= KVM_PGTABLE_WALK_LEAF,
++		.arg	= &is_memory,
++	};
++	int ret = 0, i;
++	u64 start = 0;
++
++	hyp_spin_lock(&host_mmu.lock);
++	for (i = 0; i < hyp_memblock_nr; i++) {
++		struct memblock_region *reg = &hyp_memory[i];
++
++		if (start < reg->base) {
++			is_memory = false;
++			ret = kvm_pgtable_walk(pgt, start, reg->base - start, &walker);
++			if (ret)
++				goto out_unlock;
++		}
++
++		is_memory = true;
++		ret = kvm_pgtable_walk(pgt, reg->base, reg->size, &walker);
++		if (ret)
++			goto out_unlock;
++
++		start = reg->base + reg->size;
++	}
++
++	if (start < BIT(pgt->ia_bits)) {
++		is_memory = false;
++		ret = kvm_pgtable_walk(pgt, start, BIT(pgt->ia_bits) - start, &walker);
++		if (ret)
++			goto out_unlock;
++	}
++
++	pkvm_idmap_initialized = true;
++
++out_unlock:
++	hyp_spin_unlock(&host_mmu.lock);
++	return ret;
++}
++
++int pkvm_iommu_init(void)
++{
++	int ret;
++
++	/* Keep DMA isolation optional. */
++	if (!pkvm_iommu_ops || !pkvm_iommu_ops->init ||
++	    !pkvm_iommu_ops->host_stage2_idmap)
++		return 0;
++
++	ret = pkvm_iommu_ops->init();
 +	if (ret)
 +		return ret;
 +
- 	ret = pkvm_iommu_ops->init();
- 	if (ret)
- 		return ret;
-@@ -138,3 +147,13 @@ int pkvm_iommu_host_stage2_idmap(phys_addr_t start, phys_addr_t end,
- 
- 	return pkvm_iommu_ops->host_stage2_idmap(start, end, pkvm_to_iommu_prot(prot));
- }
-+
-+void *pkvm_iommu_donate_pages(u8 order)
-+{
-+	return hyp_alloc_pages(&iommu_pages_pool, order);
++	return pkvm_iommu_snapshot_host_stage2();
 +}
 +
-+void pkvm_iommu_reclaim_pages(void *ptr)
++int pkvm_iommu_host_stage2_idmap(phys_addr_t start, phys_addr_t end,
++				enum kvm_pgtable_prot prot)
 +{
-+	hyp_put_page(&iommu_pages_pool, ptr);
-+}
-diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
-index c6698ecea4a2..39d59ff30f34 100644
---- a/arch/arm64/kvm/hyp/nvhe/setup.c
-+++ b/arch/arm64/kvm/hyp/nvhe/setup.c
-@@ -23,6 +23,8 @@
- 
- unsigned long hyp_nr_cpus;
- 
-+unsigned int hyp_kvm_iommu_pages;
++	hyp_assert_lock_held(&host_mmu.lock);
 +
- #define hyp_percpu_size ((unsigned long)__per_cpu_end - \
- 			 (unsigned long)__per_cpu_start)
- 
-@@ -34,6 +36,7 @@ static void *selftest_base;
- static void *ffa_proxy_pages;
- static struct kvm_pgtable_mm_ops pkvm_pgtable_mm_ops;
- static struct hyp_pool hpool;
-+static void *iommu_base;
- 
- static int divide_memory_pool(void *virt, unsigned long size)
- {
-@@ -71,6 +74,12 @@ static int divide_memory_pool(void *virt, unsigned long size)
- 	if (!ffa_proxy_pages)
- 		return -ENOMEM;
- 
-+	if (hyp_kvm_iommu_pages) {
-+		iommu_base = hyp_early_alloc_contig(hyp_kvm_iommu_pages);
-+		if (!iommu_base)
-+			return -ENOMEM;
-+	}
++	if (!pkvm_idmap_initialized)
++		return 0;
 +
- 	return 0;
++	return pkvm_iommu_ops->host_stage2_idmap(start, end, pkvm_to_iommu_prot(prot));
  }
+diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+index d803b3dd4cb4..ce610274bda0 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
++++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+@@ -17,6 +17,7 @@
  
-@@ -339,7 +348,7 @@ void __noreturn __pkvm_init_finalise(void)
- 	 * that would be leaked if the hypervisor fails after as there is no
- 	 * remove_iommu_driver() ops at the moment, that can be added later if necessary.
- 	 */
--	ret = pkvm_iommu_init();
-+	ret = pkvm_iommu_init(iommu_base, hyp_kvm_iommu_pages);
- 	if (ret)
- 		goto out;
- 
-diff --git a/arch/arm64/kvm/iommu.c b/arch/arm64/kvm/iommu.c
-index 6492285012a4..c80663b506c0 100644
---- a/arch/arm64/kvm/iommu.c
-+++ b/arch/arm64/kvm/iommu.c
-@@ -7,10 +7,11 @@
- #include <linux/kvm_host.h>
- 
- extern struct pkvm_iommu_ops *kvm_nvhe_sym(pkvm_iommu_ops);
-+extern unsigned int kvm_nvhe_sym(hyp_kvm_iommu_pages);
- 
- static DEFINE_MUTEX(pkvm_iommu_reg_lock);
- 
--int __init pkvm_iommu_register_driver(struct pkvm_iommu_ops *hyp_ops)
-+int pkvm_iommu_register_driver(struct pkvm_iommu_ops *hyp_ops, unsigned int nr_pages)
- {
- 	guard(mutex)(&pkvm_iommu_reg_lock);
- 
-@@ -20,6 +21,45 @@ int __init pkvm_iommu_register_driver(struct pkvm_iommu_ops *hyp_ops)
- 	if (kvm_nvhe_sym(pkvm_iommu_ops))
- 		return -EBUSY;
- 
-+	/* See kvm_iommu_pages() */
-+	if (nr_pages > kvm_nvhe_sym(hyp_kvm_iommu_pages)) {
-+		kvm_err("IOMMU pool needs 0x%x pages, check kvm-arm.iommu_pgt_mem", nr_pages);
-+		return -ENOMEM;
-+	}
-+
- 	kvm_nvhe_sym(pkvm_iommu_ops) = hyp_ops;
- 	return 0;
- }
-+
-+unsigned int pkvm_iommu_pages(void)
-+{
+ #include <nvhe/arm-smccc.h>
+ #include <nvhe/gfp.h>
++#include <nvhe/iommu.h>
+ #include <nvhe/memory.h>
+ #include <nvhe/mem_protect.h>
+ #include <nvhe/mm.h>
+@@ -596,16 +597,15 @@ static int host_stage2_set_owner_metadata_locked(phys_addr_t addr, u64 size,
+ 	ret = host_stage2_try(kvm_pgtable_stage2_annotate, &host_mmu.pgt,
+ 			      addr, size, &host_s2_pool,
+ 			      KVM_HOST_INVALID_PTE_TYPE_DONATION, annotation);
+-	if (!ret) {
+-		/*
+-		 * After stage2 maintenance has happened, but before the page
+-		 * owner has changed.
+-		 */
+-		pkvm_sme_dvmsync_fw_call();
+-		__host_update_page_state(addr, size, PKVM_NOPAGE);
+-	}
+-
+-	return ret;
++	if (ret)
++		return ret;
 +	/*
-+	 * This is used very early during setup_arch() before any initcalls
-+	 * or any drivers are registered.
-+	 * This value is set by a command line option.
-+	 * Later, when the driver is registered, it will pass the number
-+	 * pages needed for it's page tables, if it was more than what
-+	 * the system has already allocated, it will fail registration.
++	 * After stage2 maintenance has happened, but before the page
++	 * owner has changed.
 +	 */
-+	return kvm_nvhe_sym(hyp_kvm_iommu_pages);
-+}
-+
-+/* Number of pages to reserve for iommu pool*/
-+static int __init early_iommu_pgt_mem(char *arg)
-+{
-+	unsigned long long requested_size;
-+
-+	if (!arg)
-+		return -EINVAL;
-+
-+	requested_size = memparse(arg, NULL);
-+
-+	if (requested_size > UINT_MAX) {
-+		kvm_err("kvm-arm.iommu_pgt_mem is too large\n");
-+		return -EINVAL;
-+	}
-+
-+	kvm_nvhe_sym(hyp_kvm_iommu_pages) = requested_size >> PAGE_SHIFT;
-+	return 0;
-+}
-+early_param("kvm-arm.iommu_pgt_mem", early_iommu_pgt_mem);
-diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-index 053e4f733e4b..72ca1393c504 100644
---- a/arch/arm64/kvm/pkvm.c
-+++ b/arch/arm64/kvm/pkvm.c
-@@ -63,6 +63,7 @@ void __init kvm_hyp_reserve(void)
- 	hyp_mem_pages += hyp_vmemmap_pages(STRUCT_HYP_PAGE_SIZE);
- 	hyp_mem_pages += pkvm_selftest_pages();
- 	hyp_mem_pages += hyp_ffa_proxy_pages();
-+	hyp_mem_pages += pkvm_iommu_pages();
++	pkvm_sme_dvmsync_fw_call();
++	__host_update_page_state(addr, size, PKVM_NOPAGE);
++	return pkvm_iommu_host_stage2_idmap(addr, addr + size, 0);
+ }
  
- 	/*
- 	 * Try to allocate a PMD-aligned region to reduce TLB pressure once
+ int host_stage2_set_owner_locked(phys_addr_t addr, u64 size, u8 owner_id)
+@@ -618,8 +618,10 @@ int host_stage2_set_owner_locked(phys_addr_t addr, u64 size, u8 owner_id)
+ 			return -EPERM;
+ 
+ 		ret = host_stage2_idmap_locked(addr, size, PKVM_HOST_MEM_PROT);
+-		if (!ret)
+-			__host_update_page_state(addr, size, PKVM_PAGE_OWNED);
++		if (ret)
++			break;
++		__host_update_page_state(addr, size, PKVM_PAGE_OWNED);
++		ret = pkvm_iommu_host_stage2_idmap(addr, addr + size, PKVM_HOST_MEM_PROT);
+ 		break;
+ 	case PKVM_ID_HYP:
+ 		ret = host_stage2_set_owner_metadata_locked(addr, size,
+@@ -1022,6 +1024,7 @@ int __pkvm_guest_share_host(struct pkvm_hyp_vcpu *vcpu, u64 gfn)
+ 				       pkvm_mkstate(KVM_PGTABLE_PROT_RWX, PKVM_PAGE_SHARED_OWNED),
+ 				       &vcpu->vcpu.arch.pkvm_memcache, 0));
+ 	WARN_ON(__host_set_page_state_range(phys, PAGE_SIZE, PKVM_PAGE_SHARED_BORROWED));
++	WARN_ON(pkvm_iommu_host_stage2_idmap(phys, phys + PAGE_SIZE, PKVM_HOST_MEM_PROT));
+ unlock:
+ 	guest_unlock_component(vm);
+ 	host_unlock_component();
 -- 
 2.55.0.141.g00534a21ce-goog
 
