@@ -4,63 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B6B8C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 06:40:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52480C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 06:43:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4/vDHVLfxg8qgMLW6CiAwQ3F24tx77/8H67nEjBJEs0=; b=mSxilAxSjelrSNbUgengzieA37
-	pSLuF85P9qZUbze7ccVW89niaOVUSkwlG60jbKs6zsTXE79JGlapaBUFKo7tuy3+BXLHGnYx9647m
-	FjkdzAS5Sn8RfLtN9BXdIpbJT4EhstS4dnXJlwLZya9t7P3eAjcHJckjQJaycl+8Nu8cZeJJMa0Mb
-	QVqYRuj9XWzaTy3+Sw5bEwfoBO0VIwNXlZQc1gnGpLBPmv9YQrxs1N+x5feNB5RGC6+hR7fsdwtsn
-	SnBQLsOtA5cOtQUZQ3ETdLM9vCAaD0VPuN8r1hfUVM7JhvhuhSH+TubTuTpPrFsH9CA2t3eSah9JA
-	nLdp5G+g==;
+	bh=PmsEAjJS+eKCQ4dXmeQVw9aVx6qI0BsyF8cXt1ghixk=; b=r7nINJB6mdWX1eXTJnnIQxD/u5
+	0plP2ukHLf1Iv6LHkydB0Xks+IZgljGDOv1jYz5hY/Xy59LxLFb932vrZqNyoYhQjFRByO8BzJH9N
+	D8PK0FAMgt/ig8XtVjVRtjnIeTzBVYj37/Z9AeGHtYHNsrlXJ3nBw0dO81qdZknqbHA2oKTTW3d7u
+	WmpjXJAjlj++uXvbrqYsn36XUSSGTDC23k1iLrnFwGcagxfeFiI0/Yvm3yzHomyARFLZMSXvZh2dY
+	LE3IV1h+A/6Y1ZvlsKzuEOcyhuLuAgdmC5IXOA1GWjNwkmB0KswgX40cVaThr813aS4CvdDW11Ib2
+	HyAqHp7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjtIS-0000000DvJT-35X2;
-	Wed, 15 Jul 2026 06:40:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjtIN-0000000DvI6-3jH8
+	id 1wjtKl-0000000Dvmw-3wIV;
+	Wed, 15 Jul 2026 06:43:08 +0000
+Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjtKj-0000000Dvll-0Ie5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 06:40:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 54A76339;
-	Tue, 14 Jul 2026 23:40:33 -0700 (PDT)
-Received: from [10.164.18.40] (unknown [10.164.18.40])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 288863F7B4;
-	Tue, 14 Jul 2026 23:40:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784097637; bh=bLAfLzVt7ntqmSXbOeKwwpHZAStHJPdoa/I97we9o4U=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=AW1sDgytLZzTWH9K2UrxVzozwdDizwhFfha8bmtyWfqsg4w8ZklLbH8smj3Iv4tAQ
-	 vuB2FsUcRB9ML2waDsPFXZMBu4ypvQg8MR9K/tQwdn/51oyiiSzYr3WFDTVMYeYxtH
-	 hGxTRmkGoyM8GLKSPw6GY3cqIe5KWwaU5Sha44X4=
-Message-ID: <3360aad7-2884-4fc2-8fe9-e0ea767c9ee3@arm.com>
-Date: Wed, 15 Jul 2026 12:10:32 +0530
+	Wed, 15 Jul 2026 06:43:07 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=PmsEAjJS+eKCQ4dXmeQVw9aVx6qI0BsyF8cXt1ghixk=;
+	b=3mdOeZVB0PvqhYmxzQJwFGSFj6M/w/eOyRSY3DEvCGqmROVrWSniXt9XtMykM1WFk4OIRVnHM
+	b6SBcLCvh6HP+XxADq3ZnTPfrGkZzoUAMk0f8pB1Xw29ZnSuuiEuAHWgwL0rgvICkPN2keJ6PLL
+	p11c9T4Yt728OVVAy5GXbto=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4h0RG15mQpz1T4Hh;
+	Wed, 15 Jul 2026 14:33:45 +0800 (CST)
+Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 4A8B540579;
+	Wed, 15 Jul 2026 14:42:56 +0800 (CST)
+Received: from kwepemq200011.china.huawei.com (7.202.195.155) by
+ dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 15 Jul 2026 14:42:56 +0800
+Received: from [10.67.110.108] (10.67.110.108) by
+ kwepemq200011.china.huawei.com (7.202.195.155) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 15 Jul 2026 14:42:55 +0800
+Message-ID: <d77b4056-5b5f-4fc2-9fc8-7c25134aa060@huawei.com>
+Date: Wed, 15 Jul 2026 14:42:54 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 6/6] arm64: cpufeature: Detect BBML3 based on
- ID_AA64MMFR2_EL1.BBM
-To: Linu Cherian <linu.cherian@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>, Kevin Brodsky <kevin.brodsky@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260715053408.1950475-1-linu.cherian@arm.com>
- <20260715053408.1950475-7-linu.cherian@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20260715053408.1950475-7-linu.cherian@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Subject: Re: [RFC PATCH 11/36] arm64: interrupts: introduce interrupt masking
+ helpers for entry code
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <mark.rutland@arm.com>, <maz@kernel.org>, <ruanjinjie@huawei.com>,
+	<catalin.marinas@arm.com>, <will@kernel.org>
+References: <20260709121333.23507-1-vladimir.murzin@arm.com>
+ <20260709121333.23507-12-vladimir.murzin@arm.com>
+ <d93699cb-1541-4744-8b3a-bb1ac156d392@huawei.com>
+ <c5c563e9-2157-4a54-ae5b-2ddd1ca51a4a@arm.com>
+From: "Liao, Chang" <liaochang1@huawei.com>
+In-Reply-To: <c5c563e9-2157-4a54-ae5b-2ddd1ca51a4a@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.110.108]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemq200011.china.huawei.com (7.202.195.155)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_234040_053517_50A7E805 
-X-CRM114-Status: GOOD (  17.59  )
+X-CRM114-CacheID: sfid-20260714_234305_462409_C2A8433C 
+X-CRM114-Status: GOOD (  12.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,56 +86,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 15/07/26 11:04 AM, Linu Cherian wrote:
-> Add ID_AA64MMFR2_EL1.BBM based BBML3 feature detection in
-> cpu_supports_bbml3() so that cpus with the feature would
-> not have to be added into MIDR based supports_bbml3_list.
+在 2026/7/14 23:45, Vladimir Murzin 写道:
+> On 7/14/26 08:33, Liao, Chang wrote:
+>> 在 2026/7/9 20:13, Vladimir Murzin 写道:
+>>> diff --git a/arch/arm64/include/asm/interrupts/entry.h b/arch/arm64/include/asm/interrupts/entry.h
+>>> new file mode 100644
+>>> index 000000000000..3034c490ed66
+>>> --- /dev/null
+>>> +++ b/arch/arm64/include/asm/interrupts/entry.h
+>>> @@ -0,0 +1,110 @@
+>>> +/* SPDX-License-Identifier: GPL-2.0-only */
+>>> +/*
+>>> + * Copyright (C) 2025 Arm Ltd.
+>>> + */
+>>> +#ifndef __ASM_INTERRUPTS_ENTRY_H
+>>> +#define __ASM_INTERRUPTS_ENTRY_H
+>>> +
+>>> +#include <asm/arch_gicv3.h>
+>>> +#include <asm/bug.h>
+>>> +#include <asm/cpufeature.h>
+>>> +#include <asm/interrupts/common_flags.h>
+>>> +
+>>> +
+>>> +static __always_inline
+>>> +arm64_exc_hwstate_t __arm64_switch_exc_hwstate_to(arm64_exc_hwstate_t prev,
+>>> +						  arm64_exc_hwstate_t next)
+>>> +{
+>>> +	bool update_pmr = system_uses_irq_prio_masking() && prev.pmr != next.pmr;
+>>> +
+>>> +	arm64_debug_exc_hwstate(prev);
+>>> +
+>>> +	if (prev.flags == next.flags)
+>>> +		return next;
+>>> +
+>>> +	if (!arch_irqs_disabled_flags(next.flags))
+>>> +		trace_hardirqs_on();
+>>> +
+>>> +	arm64_update_exc_hwstate(next, update_pmr);
+>>> +
+>>> +	if (arch_irqs_disabled_flags(next.flags))
+>>> +		trace_hardirqs_off();
+>>> +
+>>> +	return next;
+>>> +}
+>>> +
+>>> +static __always_inline
+>>> +arm64_exc_hwstate_t arm64_inherit_exc_context(struct pt_regs *regs)
+>>> +{
+>>> +	arm64_exc_hwstate_t prev = arm64_exc_hwstate_of_context(CRITICAL_CONTEXT);
+>>> +	arm64_exc_hwstate_t next = arm64_inherit_exc_hwstate(regs);
+>>> +
+>>> +	return __arm64_switch_exc_hwstate_to(prev, next);
+>>> +}
+>>> +
+>>> +static __always_inline
+>>> +arm64_exc_hwstate_t arm64_drop_exc_context(arm64_exc_hwstate_t prev, arm64_exc_context_t context)
+>>> +{
+>>> +	arm64_exc_hwstate_t next = arm64_exc_hwstate_of_context(context);
+>>> +
+>>> +	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
+>>> +		bool pnmi = system_uses_irq_prio_masking();
+>>> +
+>>> +		WARN_ON_ONCE(context > ERROR_CONTEXT &&
+>>> +			     prev.daif == DAIF_ERRCTX);
+>> By definition, arm64_drop_exc_context() seems to require the target context to mask fewer (or equal)
+>> exception types than the prev state. In this case, if context > ERROR_CONTEXT while
+>> prev.daif == DAIF_PROCCTX_NOIRQ, doesn't that violate this assumption?
+>>
 > 
-> Signed-off-by: Linu Cherian <linu.cherian@arm.com>
+> My AI disagrees with your AI :D Honestly, prev.daif == DAIF_PROCCTX_NOIRQ is few lines bellow and
+> we guard it with context > NONMI_CONTEXT which covers ERROR_CONTEXT and CRITICAL_CONTEXT as well.
 
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Ah, sorry for the nosie, I completely overlooked the additional guard checks a few lines beblow,
+thanks for pointing out. Your AI wins this round.
 
-> ---
->  arch/arm64/kernel/cpufeature.c | 17 +++++++++--------
->  1 file changed, 9 insertions(+), 8 deletions(-)
 > 
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index 25a705e02618..b58fdcb35406 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -2133,6 +2133,12 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
->  
->  bool cpu_supports_bbml3(void)
->  {
-> +	u64 mmfr2;
-> +
-> +	mmfr2 = __read_sysreg_by_encoding(SYS_ID_AA64MMFR2_EL1);
-> +	if (SYS_FIELD_GET(ID_AA64MMFR2_EL1, BBM, mmfr2) >= ID_AA64MMFR2_EL1_BBM_3)
-> +		return true;
-> +
->  	/* CPUs that support BBML3 but dont advertise through MMFR2 ID */
->  	static const struct midr_range supports_bbml3_list[] = {
->  		MIDR_REV_RANGE(MIDR_CORTEX_X4, 0, 3, 0xf),
-> @@ -2154,15 +2160,10 @@ bool cpu_supports_bbml3(void)
->  		{}
->  	};
->  
-> -	if (!is_midr_in_range_list(supports_bbml3_list))
-> -		return false;
-> -
-> -	/*
-> -	 * We currently ignore the ID_AA64MMFR2_EL1 register, and only care
-> -	 * about whether the MIDR check passes.
-> -	 */
-> +	if (is_midr_in_range_list(supports_bbml3_list))
-> +		return true;
->  
-> -	return true;
-> +	return false;
->  }
->  
->  static bool has_bbml3(const struct arm64_cpu_capabilities *caps, int scope)
+>>> +
+>>> +		WARN_ON_ONCE(context > NONMI_CONTEXT &&
+>>> +			     prev.daif == DAIF_PROCCTX_NOIRQ);
+>>> +
+>>> +		WARN_ON_ONCE(context > NOIRQ_CONTEXT &&
+>>> +			     pnmi && prev.pmr == GIC_PRIO_IRQOFF);
+>>> +
+>>> +		WARN_ON_ONCE(context > PROCESS_CONTEXT &&
+>>> +			     ((pnmi && prev.daif == DAIF_PROCCTX && prev.pmr == GIC_PRIO_IRQON) ||
+>>> +			      (!pnmi && prev.daif == DAIF_PROCCTX)));
+>>> +	}
+>>> +
+>>> +	return __arm64_switch_exc_hwstate_to(prev, next);
+>>> +}
+>>> +
+>>> +static __always_inline
+>>> +arm64_exc_hwstate_t arm64_lift_exc_context(arm64_exc_hwstate_t prev, arm64_exc_context_t context)
+>>> +{
+>>> +	arm64_exc_hwstate_t next = arm64_exc_hwstate_of_context(context);
+>>> +
+>>> +	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
+>>> +		bool pnmi = system_uses_irq_prio_masking();
+>>> +
+>>> +		WARN_ON_ONCE(context < CRITICAL_CONTEXT &&
+>>> +			     prev.daif == DAIF_MASK);
+>> Is it intentional to allow prev.daif == DAIF_ERRCTX when context has a value of NONMI_CONTEXT,
+>> NOIRQ_CONTEXT or PROCESS_CONTEXT? Or should these transitions also be caught here?
+>>
+>> By definition, arm64_lift_exc_context() seems to require the target context to mask more (or equal)
+>> exception types than the prev state. Allowing these transitions appears to violate that assumption.
+>>
+> 
+> Similarly prev.daif == DAIF_ERRCTX is few lines bellow and it is guarded by context < ERROR_CONTEXT
+> which covers NONMI_CONTEXT, NOIRQ_CONTEXT and PROCESS_CONTEXT.
 
+Thanks for pointing out.
+
+> 
+>>> +
+>>> +		WARN_ON_ONCE(context < ERROR_CONTEXT &&
+>>> +			     prev.daif == DAIF_ERRCTX);
+>>> +
+>>> +		WARN_ON_ONCE(context < NONMI_CONTEXT &&
+>>> +			     pnmi && prev.daif == DAIF_PROCCTX_NOIRQ);
+>>> +
+>>> +		WARN_ON_ONCE(context < NOIRQ_CONTEXT &&
+>>> +			     ((pnmi && prev.pmr == GIC_PRIO_IRQOFF) ||
+>>> +			      (!pnmi && prev.daif == DAIF_PROCCTX_NOIRQ)));
+>>> +	}
+>>> +
+>>> +	return __arm64_switch_exc_hwstate_to(prev, next);
+>>> +}
+>>> +
+>>> +
+>>> +static __always_inline
+>>> +arm64_exc_hwstate_t arm64_unmask_exc_context(arm64_exc_context_t context)
+>>> +{
+>>> +	arm64_exc_hwstate_t prev = arm64_exc_hwstate_of_context(CRITICAL_CONTEXT);
+>>> +
+>>> +	return arm64_drop_exc_context(prev, context);
+>>> +}
+>>> +
+>>> +static __always_inline
+>>> +arm64_exc_hwstate_t arm64_mask_exc_context(arm64_exc_hwstate_t prev)
+>>> +{
+>>> +	return arm64_lift_exc_context(prev, CRITICAL_CONTEXT);
+>>> +}
+>>> +
+>>> +#endif /* __ASM_INTERRUPTS_ENTRY_H */
+>>
+>> -- BR Liao, Chang
+>>
+> 
+> Cheers
+> Vladimir
+> 
+
+
+-- 
+BR
+Liao, Chang
 
