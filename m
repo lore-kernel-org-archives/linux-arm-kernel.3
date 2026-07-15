@@ -4,75 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56124C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 14:56:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6F11C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 15:01:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ot+mkzy97NL/CsqY0rSsvtS6zFCj6FDV5nN9Lq+EnEA=; b=QLLaZ4apvU8csL
-	3tLFX/1GQt/CU4OofdpISHQ01XU9jFuNl0h+gwOaBzL8yCVkG5HaxiEQT4KOnovJzWsC+QRqakF7f
-	4MqhLsGxq41n11woGIhJrCsn1Fm9+jCb61w/FsahL4kH8rjdOne7KrN/JdpOD1qFLaG1zDRS6Gm4u
-	3W9pCLfpjVvTOt0C909N8CZ6+qQTrHSydrudndz3bSFVzylAFXM7S30kOSqt4NFFoWKnGsDshfqk9
-	l2c39ZHieMxtd+3UfWTw1PjPso2Dl5NGb6QpgUqXHK2wbSjYd+eD/AWlAZ218qGgy51I8t5l/g7ld
-	UPKUQrEFUsIICo+wfJKQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M3mQcEyrJtzUIUxeTEaVv9W7Nl9c/dERPsqjmEowiaQ=; b=288aRYJDNLNxTfqgqRi5uPnvAN
+	Ww4dEwzuIRiiQkwFKCqmZNPjpTuDsdGHDvLBMPdpd2ULa5EK1Sbq7d/FgSWdunUhrtIt9ityYWpqv
+	Wi/9j2Yf1hLLjQP5hCVD0bRekQK0lUX+wslWgWenl2hJozsP2e+Gys6N3imf5lIj1zylsWAhNKDcX
+	osBsQk+KfocJMdAqtLX9lNGdyHevRrygQOscEHG4bjXRqA2vK7wiyX4nhQixO6IqkK3Nrs31xmeA6
+	RiDRxd95wrVv/YIO3QO0mklge7nrIzDqrzFVXW6pFksS/8rzMkTHRiwyC3n/7TlmTy4OpB93bNWfQ
+	G9H1orcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk11e-0000000FE1n-2KLF;
-	Wed, 15 Jul 2026 14:55:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wk16y-0000000FErW-0R2h;
+	Wed, 15 Jul 2026 15:01:24 +0000
+Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk11d-0000000FE1d-25eA
+	id 1wk16v-0000000FEql-04mm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 14:55:53 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1DBDD40213
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 14:55:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 028BA1F00ACF
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 14:55:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784127353;
-	bh=Ot+mkzy97NL/CsqY0rSsvtS6zFCj6FDV5nN9Lq+EnEA=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
-	b=bfPyQBnMrePgS0gsls84e5NymQoU9NI2k8eIbUXBcnCc/PN0MBsMY0eyzNrGywcjN
-	 woIPBL/ZrgTFZxn1Rwid8Ob0hbYXDZums21U87ngVyZh4GGB9qNf3M8856b+SekyGh
-	 lghmvhyu7KU9Fa99c+Q0kN5F2DyB59V04xyALAXwYuAytmrRSo0KmUGYD+tKYZjnON
-	 qNN4KHzdojKVSjLwUwmhAX91uqAskuvouX52JXMIS3Ivwcaeli+Mx9QbyhppuWUT53
-	 TfUgsV2gDIuuoTQQVdNrxmvt5fkJIPFhbezsFS7Dxx14ftB5DXZy/nq6Jk7CHbvurm
-	 yznH4IQbvR73w==
-Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-39c9107baa7so56398771fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 07:55:52 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RpGpFEL9N0AJaXoMVrG/bQGyyRW2p0jxqd1Wsd2pddm2lccqcTNAYg98P4aODIyoxiK0utzHxI7YhcYVcv57jZU@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx9jKtmeqy1H88Bu9UxQ5Vy6+pWrNlNHWLbBzpetVR7warS3PiZ
-	mjR5CLDWS5haeIDNv1EJtNQiAozhg3ZtoZ7KKNn3QoS6ieS+kd7RjSSCHjl3k+I3jDYoet3Il/g
-	t2hzJ3MBg2SpReqxZ0GogMediQb/xFCs=
-X-Received: by 2002:a05:6512:66da:b0:5ae:bbcc:7a55 with SMTP id
- 2adb3069b0e04-5b15d76a23fmr548738e87.7.1784127351426; Wed, 15 Jul 2026
- 07:55:51 -0700 (PDT)
+	Wed, 15 Jul 2026 15:01:23 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
+	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 9A94B201CD0;
+	Wed, 15 Jul 2026 17:01:11 +0200 (CEST)
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1wk16l-001xBS-1i;
+	Wed, 15 Jul 2026 17:01:11 +0200
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1wk16l-0000000BlOO-1dv7;
+	Wed, 15 Jul 2026 17:01:11 +0200
+Date: Wed, 15 Jul 2026 17:01:11 +0200
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Mathieu Dubois-Briand <mathieu.dubois-briand@bootlin.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Wei Xu <xuwei5@hisilicon.com>, 
+	Andrew Jeffery <andrew@codeconstruct.com.au>, Avi Fishman <avifishman70@gmail.com>, 
+	Tomer Maimon <tmaimon77@gmail.com>, Tali Perry <tali.perry1@gmail.com>, 
+	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>, 
+	Benjamin Fair <benjaminfair@google.com>, devicetree@vger.kernel.org, Tom Rini <trini@konsulko.com>, 
+	imx@lists.linux.dev, openbmc@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+	Sashiko <sashiko-bot@kernel.org>, Peter Robinson <pbrobinson@gmail.com>, 
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 0/7] Import optee node from u-boot device trees
+Message-ID: <f225zh7v6z2a2lwbtk3lhw3mcsttneba364de5vjl4pcj5gr65@ckuo6hyj46vx>
+References: <20260715-mathieu-uboot-dts-import-v2-0-bc931417bd0e@bootlin.com>
 MIME-Version: 1.0
-References: <20260715095525.40668-1-phucduc.bui@gmail.com> <20260715095525.40668-2-phucduc.bui@gmail.com>
-In-Reply-To: <20260715095525.40668-2-phucduc.bui@gmail.com>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Wed, 15 Jul 2026 22:55:38 +0800
-X-Gmail-Original-Message-ID: <CAGb2v67piCB3y=Pzvq9QZi0=zs6299UAxRdU6O2kukSW+JqMqw@mail.gmail.com>
-X-Gm-Features: AUfX_mxcQ3YqNDO_ieBbHpUkaQUkcwRm2R6d1PkTwYWjPGrm2EyNbVKGbYPMcj8
-Message-ID: <CAGb2v67piCB3y=Pzvq9QZi0=zs6299UAxRdU6O2kukSW+JqMqw@mail.gmail.com>
-Subject: Re: [PATCH 1/6] ASoC: sunxi: sun4i-codec: Use dev_err_probe() for
- probe error handling
-To: phucduc.bui@gmail.com
-Cc: Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Charles Keepax <ckeepax@opensource.cirrus.com>, 
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, Chen Ni <nichen@iscas.ac.cn>, 
-	Marcus Cooper <codekipper@gmail.com>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Danilo Krummrich <dakr@kernel.org>, u.kleine-koenig@baylibre.com, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sound@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260715-mathieu-uboot-dts-import-v2-0-bc931417bd0e@bootlin.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260715_080121_364231_BBEE17ED 
+X-CRM114-Status: GOOD (  27.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,18 +78,116 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 15, 2026 at 5:55=E2=80=AFPM <phucduc.bui@gmail.com> wrote:
->
-> From: bui duc phuc <phucduc.bui@gmail.com>
->
-> Use dev_err_probe() for probe error handling to simplify the error paths
-> and handle -EPROBE_DEFER correctly.
->
-> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+Hi Mathieu,
 
-Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
+On 26-07-15, Mathieu Dubois-Briand wrote:
+> In a recent discussion on the U-Boot mailing list [1], it was found out
+> that several platforms were adding the OP-TEE device tree-node thanks to
+> some U-Boot specific dtsi. This was deemed as a bad solution, as this
+> should instead be added in the DTS files hosted in Linux sources,
+> particularly for platforms already using the "upstream" (Linux) device
+> tree.
+> 
+> Most i.MX8 and i.MX9 platforms are already using OF_UPSTREAM
+> configuration in U-Boot. Some are not, but are fairly new, so we can
+> expect them to use the Linux device tree once their support is a bit
+> more stable. So they will benefit from these changes once upstream
+> device trees are refreshed in U-Boot.
+> 
+> STM32MP157 platforms are using OF_UPSTREAM, with similar consequences.
+> 
+> The two other platforms are using an U-Boot specific device tree, yet
+> adding these nodes on the kernel side will help to reduce the
+> differences.
+> 
+> The zynqmp platform was ignored, as a similar change was previously
+> reverted [2]. I also ignored a few platforms without direct match
+> between U-Boot and Linux dts files.
+
+We do the same in barebox bootloader for all OP-TEE supported i.MX
+platforms. Therefore this change would cause a regression for barebox as
+well.
+
+Furthermore, this change would cause an anyoing dmesg warning on
+platforms which don't use OP-TEE at all, because it's not ensured that
+the OP-TEE firmware was actually loaded.
+
+Therefore the bootloader adds the OP-TEE nodes only if the OP-TEE binary
+was actually loaded.
+
+Therefore I vote for dynamic adding the nodes and not this static
+approach.
+
+Furthermore OP-TEE can provide a DTB overlay fragment with all the
+required nodes, which you only need to apply within the bootloader. This
+is cleanest way. You only need to provide OP-TEE the DTB location during
+runtime.
+
+Regards,
+  Marco
+
+> Also add the OP-TEE node on the imx93 FRDM platform device tree: while
+> this is not part of U-Boot code today, it is the change that triggered
+> the U-Boot discussion.
+> 
+> [1]: https://lore.kernel.org/all/20260706145906.GW749385@bill-the-cat/
+> [2]: https://lore.kernel.org/all/20251125-revert-zynqmp-optee-v1-1-d2ce4c0fcaf6@vaisala.com/
+> 
+> Signed-off-by: Mathieu Dubois-Briand <mathieu.dubois-briand@bootlin.com>
+> ---
+> Changes in v2:
+> - Splitting i.MX8 SoC changes in a separate commit.
+> - Adding bootph-pre-ram on stm32mp157c-ed1 reserved memory.
+> - Rebased on v7.2-rc3.
+> - Link to v1: https://lore.kernel.org/r/20260710-mathieu-uboot-dts-import-v1-0-ffe0210e50c9@bootlin.com
+> 
+> ---
+> Mathieu Dubois-Briand (7):
+>       arm64: dts: freescale: Import optee node from u-boot i.MX91 and i.MX93 device trees
+>       arm64: dts: freescale: Import optee node from u-boot i.MX8 device trees
+>       arm: dts: st: Import optee node from u-boot device trees
+>       arm: dts: st: stm32mp157c-ed1: Add bootph-pre-ram tag on optee reserved memory
+>       arm64: dts: hisilicon: hi3798cv200-poplar: Import optee node from u-boot device tree
+>       arm64: dts: nuvoton: npcm845-evb: Import optee node from u-boot device tree
+>       arm64: dts: freescale: imx93-frdm: Add OP-TEE device tree node
+> 
+>  arch/arm/boot/dts/st/stm32mp157a-dk1.dts                | 17 +++++++++++++++++
+>  arch/arm/boot/dts/st/stm32mp157c-ed1.dts                | 14 ++++++++++++++
+>  arch/arm64/boot/dts/freescale/imx8mm.dtsi               |  7 +++++++
+>  arch/arm64/boot/dts/freescale/imx8mn.dtsi               |  7 +++++++
+>  arch/arm64/boot/dts/freescale/imx8mp.dtsi               |  7 +++++++
+>  arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts       |  7 +++++++
+>  arch/arm64/boot/dts/freescale/imx91-11x11-frdm.dts      |  7 +++++++
+>  arch/arm64/boot/dts/freescale/imx91-phyboard-segin.dts  |  7 +++++++
+>  arch/arm64/boot/dts/freescale/imx93-11x11-evk.dts       |  7 +++++++
+>  arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts      |  7 +++++++
+>  arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts         |  7 +++++++
+>  .../arm64/boot/dts/freescale/imx93-kontron-bl-osm-s.dts |  7 +++++++
+>  arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts  |  7 +++++++
+>  .../arm64/boot/dts/freescale/imx93-var-som-symphony.dts |  7 +++++++
+>  arch/arm64/boot/dts/hisilicon/hi3798cv200-poplar.dts    |  7 +++++++
+>  arch/arm64/boot/dts/nuvoton/nuvoton-npcm845-evb.dts     |  7 +++++++
+>  16 files changed, 129 insertions(+)
+> ---
+> base-commit: a13c140cc289c0b7b3770bce5b3ad42ab35074aa
+> change-id: 20260710-mathieu-uboot-dts-import-69f51bc097d7
+> 
+> Best regards,
+> -- 
+> Mathieu Dubois-Briand <mathieu.dubois-briand@bootlin.com>
+> 
+> 
+> 
+
+-- 
+#gernperDu 
+#CallMeByMyFirstName
+
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
 
