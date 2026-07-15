@@ -4,67 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEC9BC44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 16:00:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C60AC4450E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 16:01:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N+qVwV2aNltYFdxx/9mvVwz5Hq1QR+apcslhNzwT5x0=; b=To+MYgjYbdSX1WBGCa+iu48WL0
-	c7LQgzUVswegW0gDcF1kL+00NbXkxSPpctZvNv9+wivybEMvLFu81wieTUR9M+hZZOcGOCiVIF9tI
-	gBhWw5dsDH0EWw+iOXa9qqhRuvOnuVmsUcBVI9VksCefIz/dvdKWPno2Vb4D1Tkf8EkLKebuG1nIN
-	to98FAWKDWR5HCBhVpjoY1PTDXgwTqrZLaalW9NpOnnFuUzADOb1C4zEtsXxVpBu2brwml0nihPqt
-	GmHFLUDUnk9nyAXucjBJkvER8Sz/yPqVZT59mwD+HWk4L0kCfNEqeydSQO3Nt5I3Be7JG+6SQsQ9j
-	G0cciK8g==;
+	bh=PnMaZ9rLUwegJbCl+hMXgmC4wVJrv88KFOLnkV0W75Q=; b=Y5oQYcbZKv9XPEGxt9LkIQsUn/
+	rZyE/3LJoFNLLvo3x9DZYuqKU8tpVvEFyCt1Uq3CSiYTISuac1HiOCCa/al1E1I02sI7mHfmRbuKd
+	0ZtFFLrmnF4+HMVuoSu0lS/tUx1ZpEKcK+5s4+xN0H5t3wKuknuO7izydZo6ep/aQqpXgExzTnotk
+	IIn2boZyTLX82g0SipOS8p1sCHGoH5pmRg2tNk3stkj8UWwrS38xZZiDLONhNzGh1C/pu3OSNQKdp
+	7ztEnRx3MJBhM9rIGUuSoRd3zirDHC6Y1j5afNqpLe6WhRdHw36lV6E3Mqygu1YgJLQeGlczaEd0+
+	FuPriTDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk21d-0000000FOJb-1KJU;
-	Wed, 15 Jul 2026 15:59:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk21b-0000000FOIw-21I4
+	id 1wk237-0000000FOZQ-2ccE;
+	Wed, 15 Jul 2026 16:01:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wk235-0000000FOZ0-3RW4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 15:59:55 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 309FF432A7;
-	Wed, 15 Jul 2026 15:59:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5971F1F000E9;
-	Wed, 15 Jul 2026 15:59:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784131195;
-	bh=N+qVwV2aNltYFdxx/9mvVwz5Hq1QR+apcslhNzwT5x0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=V+uYLfKrlDGoRE018a/ACM72eQ//ba/OxJxjMN+blpaRXH5vj+QPK/MWIKI7wF6DV
-	 JvqLQf/7seBAaUE4aKlC61cJjenMDGkJI9vTW46OYXS9O2lhlLdZ3r9o1+5MZz3N4A
-	 fMIaUUg7xMuXFZjS8u5Na1cjqthXymyVev0vfR5of0o8w3X8F64AvFPy3P5lhtLrRV
-	 Zng2+as+VzSKGmP1Wt3r7acB6aFmKMyQW5DcDMyxchEXb5uK5beVW4nZICqa6kCAl6
-	 vDecircMkneRozZgJ1uMdP7C4QHnuI0OD7Pja8vPGTrTIv+Zx4tXvsx8Nfwo8eyaPl
-	 XxfT2iHuYXciQ==
-Message-ID: <f8ff669d-da2c-4560-ac7c-617b18c41177@kernel.org>
-Date: Wed, 15 Jul 2026 17:59:49 +0200
+	Wed, 15 Jul 2026 16:01:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B11481477;
+	Wed, 15 Jul 2026 09:01:21 -0700 (PDT)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3315C3F905;
+	Wed, 15 Jul 2026 09:01:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784131285; bh=mJJklrROHEk/tA5Mbwt+AYggUFwOMun7Z1dh7jn/DRE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=FKpGyqfyRetwxovw7y092KStA6+osWVtZ6nL37lpeA8y6aLmqMjEoPzX4rOKopVqf
+	 StzSCYj2CtYBlVW8jVmM/BWw8XRB3Ehp2QslU5myRNBlRXGCN95lC1FngFDDiBOko2
+	 HLz4+DH1EIFjanOUJBaTfLaP2VZms3VeDHYZly4M=
+Message-ID: <7cbb06bc-7fac-4323-915a-9a6fc3330f5d@arm.com>
+Date: Wed, 15 Jul 2026 17:01:21 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 00/10] Initial Apple M3 Pro, Max and Ultra device trees
-To: Guenter Roeck <linux@roeck-us.net>, Janne Grunau <j@jannau.net>,
- Neal Gompa <neal@gompa.dev>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
- Wim Van Sebroeck <wim@linux-watchdog.org>, Andi Shyti
- <andi.shyti@kernel.org>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
- <ukleinek@kernel.org>, Sasha Finkelstein <k@chaosmail.tech>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-watchdog@vger.kernel.org, linux-i2c@vger.kernel.org,
- linux-pwm@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>
-References: <20260715-apple-t603x-initial-devices-v2-0-df65b2485710@jannau.net>
- <c2bbbd1a-a188-41f0-8225-65ca52ee3afe@roeck-us.net>
+User-Agent: Thunderbird Daily
+Subject: Re: [PATCH v3 01/16] arm_mpam: let low level MSC read accessors
+ return an error
+To: Andre Przywara <andre.przywara@arm.com>,
+ Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu
+ <fenghuay@nvidia.com>, Jonathan Cameron <jic23@kernel.org>,
+ Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ Niyas Sait <niyas.sait@arm.com>, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260710144520.917375-1-andre.przywara@arm.com>
+ <20260710144520.917375-2-andre.przywara@arm.com>
+ <20260710111159.00001367@oss.qualcomm.com>
+ <6b2845cf-e7ba-4588-b65a-c52f8ea40237@arm.com>
 Content-Language: en-US
-From: Sven Peter <sven@kernel.org>
-In-Reply-To: <c2bbbd1a-a188-41f0-8225-65ca52ee3afe@roeck-us.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <6b2845cf-e7ba-4588-b65a-c52f8ea40237@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260715_090127_967070_B227E684 
+X-CRM114-Status: GOOD (  25.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,56 +85,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Andre,
 
-
-On 7/15/26 17:55, Guenter Roeck wrote:
-> On 7/15/26 02:11, Janne Grunau wrote:
->> This series adds device trees for Apple silicon devices with M3 Pro, Max
->> and Ultra SoCs. The M3 generation has fewer devices than their M1 and M2
->> predecessors. The only non-laptop device is the M3 Ultra Mac Studio. The
->> Laptops are the known 14 and 16-inch Macbook Pros now with M3 Pro and
->> M3 Max SoCs. The M3 Max variant with fewer CPU and GPU cores has
->> additionally only a 384-bit wide memory bus instead of 512-bit of the
->> full M3 Max. It has a separate identifier (T6034) and so there are six
->> laptop device trees.
->> Another difference to M1 and M2 Pro/Max/Ultra is that the M3 Pro is
->> distinct SoC design and not a smaller M3 Max. For this reason both M3
->> Max variants and the M3 Ultra will use "apple,t6030" as compatible
->> prefix. In the M1 and M2 generations Pro, Max and Ultra SoCs shared
->> "apple,t6000" / "apple,t6020" as common prefix. There is currently no
->> known difference but M3 Pro and M3 Max are not as closely related as
->> previously.
+On 7/10/26 22:40, Andre Przywara wrote:
+> Hi Jonathan,
+> 
+> many thanks for the time you spent on this - though it wasn't particularly pretty, I guess.
+> 
+> This is just a quick reply, unfortunately (well...) I will be on holidays next week, so cannot reply
+> in detail now.
+> 
+> On 7/10/26 20:11, Jonathan Cameron wrote:
+>> On Fri, 10 Jul 2026 16:45:05 +0200
+>> Andre Przywara <andre.przywara@arm.com> wrote:
 >>
->> This series adds the same level of hardware as the base M3 (T8122) has
->> in v7.2-rc1. This includes CPU cores, interrupt controller, power
->> states, watchdog, serial, pin controller, i2c and the boot framebuffer.
->> This is intended as base so that support for additional hardware can be
->> added to all M3 based devices at the same time.
+>>> The upcoming MPAM-Fb support does not use MMIO primitives to access an
+>>> MSC, but employs a shared-memory/doorbell based firmware protocol.
+>>> Its complexity means that is must be able to handle errors, whereas we
+>>> always assume an MSC access succeeds today.
+>>>
+>>> Change the __mpam_read_reg() low level accessor function to return the
+>>> requested data through a pointer, and return an error code instead.
+>>> At the moment this is always 0, but this will change with alternative
+>>> MSC access methods.
+>>> Change all users of those MSC read wrappers to comply with the new
+>>> prototype, though at the moment without propagating any errors.
+>>>
+>>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 >>
->> Merge strategy:
->> Since the dt-binding add new compatible strings without driver changes
->> it would be preferred if the whole [1] series would be merged through
->> apple-soc/arm-soc. This will help ensuring a warning free
->> `make dtbs_check` for followup series with additional M3* hardware
->> support I hope to send for this cycle.
->>
->> This series will conflict with the M4 series [3] sent A couple of days
->> ago. I would prefer if this could be merged first (in order of SoC
->> release).
->>
->> [1]: I see that the M4 watchdog change was already picked up by Guenter
->>       in [2]
->>
->
-> Whatever one does with individual patches in such series seems to be
-> wrong. Are you saying that I should drop the M4 (t8132) patch from
-> the watchdog-next branch ?
+>> Why do it in this order? It seems like it is a path for some code churn
+>> from patch to path.
+> 
+> Well, this is pain however you do this - as you figured. And I knew this before, that's why I
+> avoided this in v1, but then found we have to bite the bullet at some point anyway, so we could as
+> well just do it now.
+> 
+> So I did the change in one go, and the diff was completely unreadable and even more so unreviewable.
+> Then I figured to start with the actual root cause: the low level accessors, to show the motivation,
+> then split the rest up in reasonably small chunks. And with the unavoidable dependencies, this led
+> to the structure you see, with the added churn of requested changes and refactors between v2 and v3.
+> 
 
-Feel free to keep it. I'll just pick up everything that's left once this 
-series is ready and make sure there are no duplicate patches in -next.
+From my point view, I think the order of the patches is ok and I'd consider it a bonus if you do
+find a clean way to avoid changing the same line twice in this patch set. What I'm more interested
+in is that the code itself is clean and consistent but with correctness trumping everything. I
+hadn't discovered the ACQUIRE() and ACQUIRE_ERR() before but I do expect that, as Jonathan points
+out, they could be used judiciously to make the code clearer.
 
+Thanks,
 
-Sven
-
-
+Ben
 
