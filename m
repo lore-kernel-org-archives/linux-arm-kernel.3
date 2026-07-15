@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49C00C4450E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 18:06:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36449C4450F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 18:06:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T82x0+tqCac5WC2NVMzpold+Q4C9KwJqzoGnFI9+n5E=; b=UvgMoMlOhs3oeQjD2toMuhVeIm
-	H3se7ec/jB/aypNY2biRNKZ9UKt5Oq8ufwbyuGeim4oAOceN6mIg66FLw1XNZR37BPukMazeLf/4s
-	F+LAl70RKDHXC6VwFNDGKY9QBuwzDfTa74hmQB8X8TC3qQKkmIOabkJhMl4DCfWh8+t1M0wiXOp/W
-	HTg/bo+izrFryC4Ry91Hc1cgJiCnUM2nnqKBHBUeJOdYFeAS5nIRASO8LC7UiPi8iXRrw84ycyC+w
-	AL/oXYvmLu0s1vGY6IEMWIW8TyhosxGlncbNRWbD+j/dXeKEGnxeZda2PzTF7oCosY+n87CWwGxtc
-	wsTEi7RQ==;
+	bh=P5u3Ui48riKUdMAO/FmOhP2DfS5AnkZBgM9oG/Y3LyM=; b=BWuTMSIzknASWsFl2iKmNcm2bm
+	UZg0uNIcp8DvLXeFNni5s/S9j7vTOYZ/wvAgSKgqHF0MwOAlsWgd8v/Gba0QjKDS8Xs7RlKyzjhaQ
+	em1lgR013Y9DaozFZSv0nAM8wgI99EoXIyZXXSp6Odt4fvsBm9vwOtfa08dzdgLSEUTkNiWy3Gnpp
+	mnGfOSSZZDZbHw1NznjNWKkXBUklIABENMle+1gAaKN3SLCY3S8N3XDMwwS0iHi5IO167Stv57pOz
+	ABp+vIoUidKTQMXOFbhiFyGEYvyqhSdTg+eeBGHul8AaVeT+dAQMyraEz6Ua/LNQrPz1X90t4A7sU
+	+wC3WPvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk3zq-0000000FcgQ-2NJB;
+	id 1wk3zq-0000000FcfW-198y;
 	Wed, 15 Jul 2026 18:06:14 +0000
 Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk3zX-0000000FcJK-1Nzw
+	id 1wk3zU-0000000FcJK-0W5x
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 18:05:56 +0000
+	Wed, 15 Jul 2026 18:05:53 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tUUoyg3iN1UgAZ+kb/P/e1Sjsex48PPTR6ERKqJn8t5CjHIMiuY5aFUZx5ch73y9fY4I+zsRgv3Byhckdo3VHZnwVZdflWwKv3rvQGVvHuLkJZ6BHFnb/wLNFnAvgBe0h2PYCC69Ntso969DavXJv4P885V21V4KJi/0sMzn7NxSDpLBlgBw0XHXr/HgkVj6ePh7DSWbaMU45LBLK+CvqgkjDxITLs+iAcYNwHO8oQ6LsCiqc+GI+vHCCdXW3CrZusuXFfVx4k34GHLKmD3teK4+0tL2FOx2/xIeGENXPGFKR6gyjpFn7x7kADjhT6j5XPWmrRO5W9vZ8iDqr5x8iw==
+ b=rx65cVkxA7MptQmmJhZAV5bex9athqgAdRRG5ZIVIf2esZJjnZmsRVXoo8zV/ObmarlwYm5iSVFOXj3Eds2krLiQob/BFEUokK03hCAFufs1SBCV+FmtCNvePAoE9ZgTbVzYQ4VGxvN9UDAZjVFUGmbXZNvh/RHFDjgvQcNvajCMK0HUXvTnWyzfoywP1rvONpfVXjuz7NU85ErSE//yhyQKt1U+weaxNJbtQFWAXOB2mXcM2+V5Of6Rm1N1wMwq8Ipd9hSNO+sC8SqP9PUP3riiTb7/kIi859YwTIFZfEX9SM0Q91EveCc3OuuzzRhO9/652yvViGsqYx3b9P7tpA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=T82x0+tqCac5WC2NVMzpold+Q4C9KwJqzoGnFI9+n5E=;
- b=G9Adg47TsPQAmnrI3F+4rEhmFBaHeorjElEtDVWX6vIQddWpD3n44EI2yUMiI6CBBbbjqGMkRZWSXQIg6X+o3kVROBZU/ID9dPkq9ARlmooswpLIsiQ/WTnl2fVrF1J10G+a8KA8sn3DLsklVG7Zfr0DjYinXBPsGbitAsNST6v68E6BEFuhn000d9ydISdKCB0xNYQmiuEFyzpqW/0yARWdOxf/hIt7d2KM+8VvSMiwXAeYARrcUDXA28lfYJ36QkLXV4p2vgCeU8NO9wa1Js+tPWWh5FTCiQ5/znHwJPMYUuJN277S6te8eBTItm2mZu77Ffe2DrbDuwxq4kZivA==
+ bh=P5u3Ui48riKUdMAO/FmOhP2DfS5AnkZBgM9oG/Y3LyM=;
+ b=vgJkfanLXWh/+pAroU7Jw3T2mG7UN24m8K9sIEJNKSppLzN/HXq3lru8/lgTpp4UYZoWim4l0vXY7I2u0GacgBy1ASfOWFv4+QEnLBzPD+lJicfCFmfPs5uBc0el8kihDSmVFtpKC1ohh7aQUk1NNkmT2t4joio27d2RwgLA7ZQd10KxKAq8yQ6CYoQHA/CDvPtz75AepyznZfylFASawgOlFpw4zWbE37NN1bTQV8PrvM4mXJIJ8dci2nu/46yK85q2w6aAcKpGRhTZ6xMKxS/gPCEMN9JMbkv7AbY5HgX01DM+Lp4f9wLNInzdK6mC1cl/iTf6oa4MCD9tzVGRRw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
  header.from=os.amperecomputing.com; dkim=pass
@@ -41,18 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=os.amperecomputing.com; s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=T82x0+tqCac5WC2NVMzpold+Q4C9KwJqzoGnFI9+n5E=;
- b=EgrEr9BB4TUqXKZWfr2HxiLyHlxb4Dqchhq8WVCLOm4vnzqqJtuZkacYk+5kgNUPj/1ToDo8FIovl+ivMRZTv1HepOMMahChKp6iozsI/LaaFGBQHrFv7fMHZI5AVIKuLhzsUOcWapL6cNMQ7+QJYzcEkQr1CtR34aifmYNKpcY=
+ bh=P5u3Ui48riKUdMAO/FmOhP2DfS5AnkZBgM9oG/Y3LyM=;
+ b=ErYp7ioYxq+epTH8IZCyneSZopH58b2oo3+Eni3/XAIqnxid1AFZwnGbFtNkMuf0PhKjB0ZgJ7uHZo8ezVvYSIIw0JiWziyGMG2CihM/uV1UzrvA64uB5gRfPDh7wUaorAb/2VdPONlRp3oxMkxldJlyN2N1ogbsPNIdojJ1Fyo=
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
 Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
  LV2PR01MB7767.prod.exchangelabs.com (2603:10b6:408:170::6) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.223.10; Wed, 15 Jul 2026 18:05:43 +0000
+ 15.21.223.10; Wed, 15 Jul 2026 18:05:42 +0000
 Received: from CH0PR01MB6873.prod.exchangelabs.com
  ([fe80::46eb:64a3:667c:c1a0]) by CH0PR01MB6873.prod.exchangelabs.com
  ([fe80::46eb:64a3:667c:c1a0%3]) with mapi id 15.21.0223.008; Wed, 15 Jul 2026
- 18:05:43 +0000
+ 18:05:42 +0000
 From: Yang Shi <yang@os.amperecomputing.com>
 To: cl@gentwo.org,
 	dennis@kernel.org,
@@ -70,9 +70,9 @@ Cc: yang@os.amperecomputing.com,
 	linux-mm@kvack.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 09/16] arm64: mm: define percpu virtual space area
-Date: Wed, 15 Jul 2026 11:04:11 -0700
-Message-ID: <20260715180455.515692-10-yang@os.amperecomputing.com>
+Subject: [PATCH 07/16] arm64: mm: sync percpu page table for memory hotplug/unplug
+Date: Wed, 15 Jul 2026 11:04:09 -0700
+Message-ID: <20260715180455.515692-8-yang@os.amperecomputing.com>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260715180455.515692-1-yang@os.amperecomputing.com>
 References: <20260715180455.515692-1-yang@os.amperecomputing.com>
@@ -84,58 +84,58 @@ X-ClientProxiedBy: CYZPR05CA0010.namprd05.prod.outlook.com
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|LV2PR01MB7767:EE_
-X-MS-Office365-Filtering-Correlation-Id: f3f093f5-5e61-4ce0-77b3-08dee29bb01b
+X-MS-Office365-Filtering-Correlation-Id: a7f1a099-35e8-4495-fc6d-08dee29bae80
 X-MS-Exchange-AtpMessageProperties: SA
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|7416014|11063799006|56012099006|10067099003|22082099003|55112099003|18002099003|6133799003|921020;
-X-Microsoft-Antispam-Message-Info: Urdzy9ROeXGPhNuPLFw6vFTq8mdBBAo+2KSOcHQ9VwAOwFyJZ8SpkJNjGvUkjtfkldkqkKiYrFMLDx8s+15OeX3dYHPCk8fom4dyLuvSR+77RNVHBlfPga3UuoCxBv0w4sFeg0MfeBGdFXKXSqYhBLhFnCAvSyhOt1WNNhLbvGo42klamENjdc5dpWifzm0hm2jss90jVhzI11i1l4VAumYV/eMX9QK/NdIz4O3UGBiHjHglr0v/3jUIGq+1aexvkKWF2z6HRsSZ19fVA3sqdowgsKvrOWF5EewyaOuIqJVpbJEnWLF8zH+td3yAG+/jFPBVFK3j7AcSgCM0dZ8DYahVz89vv925CoRd4xD/ZfFET42WzlB7wGgt4Uk2CgQz191HO5qCE+HJb7M4f4mMvXYMFDfYUSAcNK2B/UvcKCuKzIXm5A7BJbcLT+egWCTdHgpeZUqn2n1tqDlK7Ob1Q4IFyBEhQyAwzkYEh2BTLzl/BBBxllEFkK1ehSwPzdCrVrO4AIj/QHJUkrqwTR3+A4Hvk0cjSIm5thFsooHWmO/7o71MWQwsdHVqvJ1iWbqHNVcQOupjyRKj0PXF6ScxGAsY9h1rxKPNJdheQLwoA0ux1QdeStIIQnGbnc5C3SP/pQmMMaPDyeGdD0MoTlm2byeDqmUEyqI4RSPnCAIh3G9l1/HORvoF4ttKhyliwc1DZ+sPMvq8XTELTy7D8/qmtQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(7416014)(11063799006)(56012099006)(10067099003)(22082099003)(55112099003)(18002099003)(6133799003)(921020);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|7416014|11063799006|56012099006|10067099003|22082099003|55112099003|18002099003|921020;
+X-Microsoft-Antispam-Message-Info: Byry+Fa+vQBaAwLGgOjBW5Bp7bkPRZWRpQ/+jjbuwktMlW7x9yyKLz7xkFGctt89SlvfGi4FZRoYCnscyCRh6/5EYaOSWKA+zCUrEGD0CZ9LKaQ0IbHQPhQhbIrY09Wy+E3/0QZTcA2GWz24PzXeaQeNsat8ATFiarx+u21dPbSU6I/yz/mLTKlnCH3v/Omuub3LtwVyYohecZEgLlnpCnsWhxHwvn5ffpvSd7qAFovSgsVoifWP16X28yeXdJgneE8sKGIOxqUuih9snPB4LpmkfakGXX5JqXNXhyDZipAqrdeN1/OQw0xWNqqAoRzrNyGn95sHd544uhyIQTF2XY2ffqtVy3/S6YomX4KEerbzfrBvAOTBchp7rR9Fw2cUzQtao/xqq07G+4fh3DfiGjgmvwpJFBhic9Pq3fADQc3I5z91mY2kYkrqUeHQRQJrobgaAa18jJPMuStH4o836BkQxGiDF81rouPHqnrC3La6Lq95hP/r499dTiI+hRLFly4vR9P3i5pna2+oBKgcu8yzmGgxrciPADZPhPeKMNGNnrDhTBR+vOMIjld0NrOfy4qQjAkLOgK+yxMpibeYLDCsPAkfqYK6AdgnlC4tESd3CAs6YvLTc0N6dt4T423+LPdORaYgBilCXEUMs47cRTpOGbIfuksZjXer7ukcDLMUMb6Eaqy2sE5W6l3Sk222GUG1oNyaLK8GiKUTsMSN3g==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(7416014)(11063799006)(56012099006)(10067099003)(22082099003)(55112099003)(18002099003)(921020);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/qUSn12XcCqHkJyVSLSpGtEfrAhmFaDFOY00PPrcSmdiaeE2sSEjZ1gAnFKh?=
- =?us-ascii?Q?RJ2guRDPMXrfoi8/wXxbHlfV1wpPvsaDJCOEonxtVOftrvFuNSXea9VfcAGe?=
- =?us-ascii?Q?+TcCf6uaJQnp3QXZIYUezf1MQSbtLpQqb7XNvYwOLX+60SAMvvObC0q/afN3?=
- =?us-ascii?Q?sqJrmmDRZumIzzaujlh0Vtrd61+bArabN3IbfeaH1RXUwd3D5863aaH+pjAw?=
- =?us-ascii?Q?FheOMjgOUYGYHPT7LO8LuRs+kgMPbHxzeLGOnjkV6c/kzlGA7lx9R/R9WXup?=
- =?us-ascii?Q?Leq1Saz+bRjGopFUNuGYFztJIP5g6PJqIGcYvfuJLJLsbTjYV9Yd2h6SiBv/?=
- =?us-ascii?Q?bpwa5TDch5xeZJHiecfaYg/3UdAzlPUvVUQsjoQhRBatHZMW5wHj/x/KrVFP?=
- =?us-ascii?Q?0tyVNtCQutH2woROOqY8DcEERdfv52gU8blJQ+WCQkUObgnIueXW+w1D34vj?=
- =?us-ascii?Q?IZL6wxqgnyE7taSDZsNX6ZKaoe8aqy+9qPsjwnaR3NkAYtHK3ILzW6FknqEn?=
- =?us-ascii?Q?XyToORVWDuNHmcPKPZt3LGrf8s5wSEfbbaK6xvqjg76bJsX0M5LwgAhM6Kbt?=
- =?us-ascii?Q?OCSwtRq13vDNkLe7NeDM5+z5+rqx9rd0AZaOqcsh9m7YLCR/yXqQz7jwM7v3?=
- =?us-ascii?Q?U1M3E7yNEgSUvoZ2vh2TEvAs/wHuPDGuRaHVx8O0o6keo1LJARPJNfWCtlzq?=
- =?us-ascii?Q?PCOOsc8vaB5ARyk/CRIhzJuLIggQJYwckQtoZz++SR9eQoKITnszvmt/SqWw?=
- =?us-ascii?Q?nj55YBpgBUXsVbL9SrgHjBHbtLHoChp41s6FTei079lbN0e+reNmajr8Phlf?=
- =?us-ascii?Q?UY7lUUAn9ayqegTmpR8uTLK1KoZfq4fGFgeNuRoqbn/Y8/OImHvPVyIJ3QxH?=
- =?us-ascii?Q?idu4EfzXImr9DwS/8dLlWJPiKAFBPMA2LjMHEQ+SNN0yn+ZlyWwqFwNWhPIk?=
- =?us-ascii?Q?kYWtYM4Pj+vr6ob5MC0Ejnddg3pfNwGTHwMiCJj2Fg51keyxNKbRJFXrYq+o?=
- =?us-ascii?Q?QRkPTVSeN9Jxt7G3Ag0+KPLbY7I/QyPRqiuXrepEFydJCu/tRH9iVyMH3ErM?=
- =?us-ascii?Q?hAVl3xOZnGrf0aNVCa3jyHFbbAE1esSB/U6rnoh/as5kNbaOTtoxkznV2Mu6?=
- =?us-ascii?Q?kVw0/SKMrB+Gpt4DNSQEB3RogbySrWVeLwIoI3Hsu76MuWd+bJ+bbo7PnlWl?=
- =?us-ascii?Q?hS2M4vYX8Dkwi+ExkL6uWd9Em1OSdfSTRo2CtDm2Akcd8mYcpCTb+xdbwbMx?=
- =?us-ascii?Q?QcWN/5nH/yGJMuBSUNwur5UoTMKfAF1GbSX04o2t77sMsucnLrqTNzvqHWJ0?=
- =?us-ascii?Q?f3hXCtj6SCecTKtwUuqh3BTLTrBc1msE50vy2sFp/i8Ob1iqWffH3AKOmn3H?=
- =?us-ascii?Q?Eu0VSHj39dUeD4A7Lj+lz3z0dwC67MIRfRDAzIOtpDPy4iMfYNquaQPFu8Or?=
- =?us-ascii?Q?D7rrnIyOpo5M6sUPeOH5KQS/lqne20RxT6YZ1AkIEXhFsc49bk32NY2DP8nw?=
- =?us-ascii?Q?gqAc/IRsblPHTrBVT88Msqt81fwmvAF4jEo7KXa8U7cagIUlAkjqU8d0OImO?=
- =?us-ascii?Q?71c7zHOLqJijr87OabOieZ9yQT0J2Ta8Va4Y3h7cH+fE9tbkn3RMpVTsZP/Y?=
- =?us-ascii?Q?wlAPouNzwgDV0Lbeowsjxnt4u816tAge4nZ4tUqA9ivPCsclJhvPPjzfaZHT?=
- =?us-ascii?Q?HLFtHgMI5WfQZ2y+AsWzJNfSyiEfviij7QAGLaBKW2BJXIZ5tl6y5msslbWN?=
- =?us-ascii?Q?VfPPXGL3GePp0Me1ciGwb2T/oHK4sEc=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fus4iSpsDqTMRF3snIBqfKxcvFC9irtMpadVcOGRKYCfqXxSnkWFzJba9j43?=
+ =?us-ascii?Q?j5Bf2q1zCROn/XiWDB4KttS3UDL4ezRkDHpQFBKhwcwNCxrbE7clOe38+Fru?=
+ =?us-ascii?Q?ujqsETPiFKpZ52gfZfxUvcoYfucM0QiXxLrwQsCXsoWT+ywMG3fitKln7ew9?=
+ =?us-ascii?Q?1pjU3rlp7MRxYTL/rRB5ppCeSjRqxvYYvkBTx//vXGx/DFLcMn+Jyf9yU9Tl?=
+ =?us-ascii?Q?i0HoiOgvM9Nu4NiKZ2ZIZF6QIGpkjC/7RKgKAxEszZY9ribhHexrOnUk8jfX?=
+ =?us-ascii?Q?y/PYizAjag0jmlK19SjlAxuD7y4WU0oZ2wZL7xhHFk/60GzrNgbRydnng+Yt?=
+ =?us-ascii?Q?AQHPjJzIbz2FmnCBBPbUQMhJhooaJHJmt+pghO2p8Pjrgk0euJCGh650WKOQ?=
+ =?us-ascii?Q?nIXYnq8y1X0XyOq/kbXH+F0xkdQ/uBnuz8ub5r3WEaRFs2TzKdcKV0oRdiZP?=
+ =?us-ascii?Q?BpfM+/plhIOXtQRJrsOJa/JAJD0CJJJ7Vfilc3g6JlL+EK3/8rcwzz+nLtmC?=
+ =?us-ascii?Q?CxbPk2DC+8y6idG8B5CUeNHoDaevggYymWvz3TU5HeuAzbCy7ZB6MFBSKfSW?=
+ =?us-ascii?Q?AnWToDtHp5P2QPpRKFT8fbd7Wq0mMk3Zy+ACGwacwwUwITixhxfkUOfU+nGA?=
+ =?us-ascii?Q?dnxRt8PWhLS6Xc9Dl+UoKUDedOXV6lSnQCQLpm2VseKc3JTIMO4bO2ceEjk7?=
+ =?us-ascii?Q?LaSEonZcbc+M2W3Eo/FEB3oZJgETl29Ustzv+eGP/PsGRbRduHmTutfswH/G?=
+ =?us-ascii?Q?yboG0PtMHBQD0rf83gm0bCX15jNeGPCuagOadYclQrlgg1CzBhhY3R+5nDb6?=
+ =?us-ascii?Q?3f7To+MSSPNftu5i9h/9t4Z6URyLddNXGLU39HnZ0QnyDLus1hLGS4RkDKni?=
+ =?us-ascii?Q?tV8mCUUCoxwrmnl9wRHHwamtyGc6I9ChYLYPrBJB2FaI/2S3XJYjpaDeatGU?=
+ =?us-ascii?Q?T2CvQVZINQmlYtUC0FfmGpkmSeG71ECjKjAbK46BTd0SEFXBOiIAHdDfknpD?=
+ =?us-ascii?Q?GGt23+RUv3jCnlTq2qeRL3+7nSNsS1ZvDLeJNZeIThliIVKfxxVZPJWrKie9?=
+ =?us-ascii?Q?2B/CHXip5z8wq3RsBZ+jY1bQGdJh9SAYuuD+0LK9ii/oSxG74/jAaheGN/lx?=
+ =?us-ascii?Q?5PZpglE6Lc7IDHXPX3duvkKKVwcRk06qxT3rtI7YOMCz0QKbd+Mitw3zXWlC?=
+ =?us-ascii?Q?tKghYLQLALX8HQPdIGjiLsy/vEZ80Kj6zFBqtBfrKcSSmF5AMWOLb/WOip9V?=
+ =?us-ascii?Q?tDFisa6mv0TGcJNki9MkOCFiXsLLX/Q5cfTEo3R+ZKnDvo7VBnR4nZ+Hd4aX?=
+ =?us-ascii?Q?l3TR5aoBqBxAYaTHNLXfN12naqRDUD5O0FCGntSvIEggr6JHr6DPygKH1oBs?=
+ =?us-ascii?Q?8esoDs3MUb76g9KZNl3AV7JnN5KvFb1IZA2ndFz97Jvn7M/yyk7mfGhT4rvu?=
+ =?us-ascii?Q?jap8BwMURxC2uPeGbQgip14r+FZY2OyEtgDinh1ho/wQEh0r5G+eqgzIykfX?=
+ =?us-ascii?Q?B+V4eWRwnz1189wcDCh0cyECs5HEe5xMZZr2RIMng+YiJqQGST3dZYS42f9f?=
+ =?us-ascii?Q?tp2PZkqKsWhDIxJ1zqxXJ3PJzY85F+LHAccMnl18UoH5IYsUNIjTm/15F9Vm?=
+ =?us-ascii?Q?ssXJtqrYxnEzUSX64x8ZcVwha8GKQ+eCunlDXM6M4gIC4ltPjK6EDwIErp7f?=
+ =?us-ascii?Q?6HCEYAC+Nu0C95VpggfYfDGdVBdiCVI3WgCGfBkPLI9jU2smqbX3XcRdvvR9?=
+ =?us-ascii?Q?x47eQ7kFwBuZ71FfNXxi+1Rq7fMOHGw=3D?=
 X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f3f093f5-5e61-4ce0-77b3-08dee29bb01b
+X-MS-Exchange-CrossTenant-Network-Message-Id: a7f1a099-35e8-4495-fc6d-08dee29bae80
 X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2026 18:05:43.7917
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2026 18:05:41.0561
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: zZ4ndr603TnkDWJAsr8nBerlwEIcJtVQcvhuwoh2ABbWup9g74P80h+fYvrEzXZetzWY2si/w9JkxhLI36doqdI4+q0/kyY7jdpqMKbRfC0=
+X-MS-Exchange-CrossTenant-UserPrincipalName: d3TsiLXqp5z/1LGO/i0O/8fghtlkkn24kEHm4T71gO6uA7QEzCCvUNRqv2PUiRpSQh/udoYhRTsYIT9rpeN3ki/j9VKJ9003rDFnkAT50cw=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR01MB7767
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_110555_384332_77A86C6B 
-X-CRM114-Status: GOOD (  18.25  )
+X-CRM114-CacheID: sfid-20260715_110552_174077_03C6BABC 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,141 +150,391 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The percpu allocator returns offset from percpu base address.  The
-percpu base address is determined by the first chunk which is typically
-in the low address of vmalloc space, however percpu varriables are
-typically allocated from the high address of vmalloc space.  So the offset
-could be quite big.  It may be the whole size of vmalloc space.  To support
-local percpu mapping in order to optimize this_cpu_*() ops, the percpu
-allocator needs to allocate memory from local percpu area too in the following
-patch and the offset to local percpu base address must be same because
-the offset returned by percpu allocator must be used to access both
-global percpu and local percpu.
-
-We can half vmalloc space to have either half dedicated to local percpu,
-but it wastes too much address space.  So carve out dedicated global percpu
-and local percpu areas.  Each area size is 2 * PGDIR_SIZE if page size is 4K.
-It is 1TB with 4K page size, should be big enough for percpu.  It has different
-size for 16K and 64K page size respectively.
-
-The percpu areas are aligned to top level page table entry size in order to
-just need to sync percpu page table at pgd level to minimize page table sync
-overhead.
-
-The kernel virtual address space layout now looks like:
-
-+-----------------+
-|  Linear mapping |
-+-----------------+
-|  Modules        |
-+-----------------+
-|  Vmalloc        |
-+-----------------+
-|  Global Percpu  |
-+-----------------+
-|  Local Percpu   |
-+-----------------+
-|  Vmemap         |
-+-----------------+
-|  PCI I/O        |
-+-----------------+
-|  Fixed map      |
-+-----------------+
+Need to sync kernel percpu page table for memory hotplug/unplug,
+including both linear mapping and vmemmap.
 
 Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
 ---
- arch/arm64/include/asm/pgtable.h | 27 ++++++++++++++++++++++++---
- arch/arm64/mm/kasan_init.c       |  2 +-
- arch/arm64/mm/mmu.c              |  4 ++++
- arch/arm64/mm/ptdump.c           |  4 ++++
- 4 files changed, 33 insertions(+), 4 deletions(-)
+ arch/arm64/mm/mmu.c | 85 ++++++++++++++++++++++++++++++---------------
+ 1 file changed, 57 insertions(+), 28 deletions(-)
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 13e069b01600..83cd65610d7f 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -18,14 +18,35 @@
-  * VMALLOC range.
-  *
-  * VMALLOC_START: beginning of the kernel vmalloc space
-- * VMALLOC_END: extends to the available space below vmemmap
-+ * VMALLOC_END: extends to the space below global percpu area
-  */
- #define VMALLOC_START		(MODULES_END)
-+#define VMALLOC_END		(PERCPU_START - SZ_8M)
-+
-+/*
-+ * PERCPU range
-+ *
-+ * PERCPU_START: beginning of global percpu area
-+ * PERCPU_END: end of global percpu area
-+ * LOCAL_PERCPU_START: beginning of local percpu area
-+ * LOCAL_PERCPU_END: end of local percpu area, extend to the available
-+ *                   space below vmemmap
-+ */
-+#if defined(CONFIG_ARM64_4K_PAGES)
-+#define PERCPU_SIZE		(2 * PGDIR_SIZE)
-+#elif defined(CONFIG_ARM64_16K_PAGES)
-+#define PERCPU_SIZE            (16 * PUD_SIZE)
-+#elif defined(CONFIG_ARM64_64K_PAGES)
-+#define PERCPU_SIZE            (PGDIR_SIZE)
-+#endif
-+#define PERCPU_START		(PERCPU_END - PERCPU_SIZE)
-+#define PERCPU_END		(LOCAL_PERCPU_START)
-+#define LOCAL_PERCPU_START	(LOCAL_PERCPU_END - PERCPU_SIZE)
- #if VA_BITS == VA_BITS_MIN
--#define VMALLOC_END		(VMEMMAP_START - SZ_8M)
-+#define LOCAL_PERCPU_END	(ALIGN_DOWN(VMEMMAP_START, PERCPU_SIZE))
- #else
- #define VMEMMAP_UNUSED_NPAGES	((_PAGE_OFFSET(vabits_actual) - PAGE_OFFSET) >> PAGE_SHIFT)
--#define VMALLOC_END		(VMEMMAP_START + VMEMMAP_UNUSED_NPAGES * sizeof(struct page) - SZ_8M)
-+#define LOCAL_PERCPU_END	(ALIGN_DOWN((VMEMMAP_START + VMEMMAP_UNUSED_NPAGES * sizeof(struct page)), PERCPU_SIZE))
- #endif
- 
- #define vmemmap			((struct page *)VMEMMAP_START - (memstart_addr >> PAGE_SHIFT))
-diff --git a/arch/arm64/mm/kasan_init.c b/arch/arm64/mm/kasan_init.c
-index 960020343760..a8e272bfefe1 100644
---- a/arch/arm64/mm/kasan_init.c
-+++ b/arch/arm64/mm/kasan_init.c
-@@ -324,7 +324,7 @@ static void __init kasan_init_shadow(void)
- 
- 	mod_shadow_start = (u64)kasan_mem_to_shadow((void *)MODULES_VADDR);
- 
--	vmalloc_shadow_end = (u64)kasan_mem_to_shadow((void *)VMALLOC_END);
-+	vmalloc_shadow_end = (u64)kasan_mem_to_shadow((void *)LOCAL_PERCPU_END);
- 
- 	/*
- 	 * We are going to perform proper setup of shadow memory.
 diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index e1290ccaa5be..f14ba512fd8f 100644
+index 5a235491f268..e1290ccaa5be 100644
 --- a/arch/arm64/mm/mmu.c
 +++ b/arch/arm64/mm/mmu.c
-@@ -108,6 +108,10 @@ void arch_sync_kernel_mappings(unsigned long start, unsigned long end)
- 	if (!percpu_pgd_setup_done)
+@@ -214,7 +214,7 @@ static void init_clear_pgtable(void *table)
+ }
+ 
+ static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
+-		     phys_addr_t phys, pgprot_t prot)
++		     phys_addr_t phys, pgprot_t prot, pgtbl_mod_mask *mask)
+ {
+ 	do {
+ 		pte_t old_pte = __ptep_get(ptep);
+@@ -224,6 +224,7 @@ static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
+ 		 * are deferred to the end of alloc_init_cont_pte().
+ 		 */
+ 		__set_pte_nosync(ptep, pfn_pte(__phys_to_pfn(phys), prot));
++		*mask |= PGTBL_PTE_MODIFIED;
+ 
+ 		/*
+ 		 * After the PTE entry has been populated once, we
+@@ -251,7 +252,7 @@ static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+ 			       unsigned long end, phys_addr_t phys,
+ 			       pgprot_t prot,
+ 			       phys_addr_t (*pgtable_alloc)(enum pgtable_level),
+-			       int flags)
++			       int flags, pgtbl_mod_mask *mask)
+ {
+ 	unsigned long next;
+ 	pmd_t pmd = READ_ONCE(*pmdp);
+@@ -272,6 +273,7 @@ static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+ 		init_clear_pgtable(ptep);
+ 		ptep += pte_index(addr);
+ 		__pmd_populate(pmdp, pte_phys, pmdval);
++		*mask |= PGTBL_PMD_MODIFIED;
+ 	} else {
+ 		BUG_ON(pmd_bad(pmd));
+ 		ptep = pte_set_fixmap_offset(pmdp, addr);
+@@ -288,7 +290,7 @@ static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+ 		    !pte_range_has_valid_noncont(ptep))
+ 			__prot = __pgprot(pgprot_val(prot) | PTE_CONT);
+ 
+-		init_pte(ptep, addr, next, phys, __prot);
++		init_pte(ptep, addr, next, phys, __prot, mask);
+ 
+ 		ptep += pte_index(next) - pte_index(addr);
+ 		phys += next - addr;
+@@ -306,7 +308,8 @@ static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+ 
+ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+ 		    phys_addr_t phys, pgprot_t prot,
+-		    phys_addr_t (*pgtable_alloc)(enum pgtable_level), int flags)
++		    phys_addr_t (*pgtable_alloc)(enum pgtable_level), int flags,
++		    pgtbl_mod_mask *mask)
+ {
+ 	unsigned long next;
+ 
+@@ -319,7 +322,10 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+ 		if (((addr | next | phys) & ~PMD_MASK) == 0 &&
+ 		    (flags & NO_BLOCK_MAPPINGS) == 0 &&
+ 		    !pmd_table(old_pmd)) {
+-			WARN_ON(!pmd_set_huge(pmdp, phys, prot));
++			if (pmd_set_huge(pmdp, phys, prot))
++				*mask |= PGTBL_PMD_MODIFIED;
++			else
++				WARN_ON(1);
+ 
+ 			/*
+ 			 * After the PMD entry has been populated once, we
+@@ -331,7 +337,7 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+ 			int ret;
+ 
+ 			ret = alloc_init_cont_pte(pmdp, addr, next, phys, prot,
+-						  pgtable_alloc, flags);
++						  pgtable_alloc, flags, mask);
+ 			if (ret)
+ 				return ret;
+ 
+@@ -359,7 +365,7 @@ static int alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
+ 			       unsigned long end, phys_addr_t phys,
+ 			       pgprot_t prot,
+ 			       phys_addr_t (*pgtable_alloc)(enum pgtable_level),
+-			       int flags)
++			       int flags, pgtbl_mod_mask *mask)
+ {
+ 	int ret;
+ 	unsigned long next;
+@@ -384,6 +390,7 @@ static int alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
+ 		init_clear_pgtable(pmdp);
+ 		pmdp += pmd_index(addr);
+ 		__pud_populate(pudp, pmd_phys, pudval);
++		*mask |= PGTBL_PUD_MODIFIED;
+ 	} else {
+ 		BUG_ON(pud_bad(pud));
+ 		pmdp = pmd_set_fixmap_offset(pudp, addr);
+@@ -400,7 +407,8 @@ static int alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
+ 		    !pmd_range_has_valid_noncont(pmdp))
+ 			__prot = __pgprot(pgprot_val(prot) | PTE_CONT);
+ 
+-		ret = init_pmd(pmdp, addr, next, phys, __prot, pgtable_alloc, flags);
++		ret = init_pmd(pmdp, addr, next, phys, __prot, pgtable_alloc, flags,
++			       mask);
+ 		if (ret)
+ 			goto out;
+ 
+@@ -417,7 +425,7 @@ static int alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
+ static int alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+ 			  phys_addr_t phys, pgprot_t prot,
+ 			  phys_addr_t (*pgtable_alloc)(enum pgtable_level),
+-			  int flags)
++			  int flags, pgtbl_mod_mask *mask)
+ {
+ 	int ret = 0;
+ 	unsigned long next;
+@@ -438,6 +446,7 @@ static int alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+ 		init_clear_pgtable(pudp);
+ 		pudp += pud_index(addr);
+ 		__p4d_populate(p4dp, pud_phys, p4dval);
++		*mask |= PGTBL_P4D_MODIFIED;
+ 	} else {
+ 		BUG_ON(p4d_bad(p4d));
+ 		pudp = pud_set_fixmap_offset(p4dp, addr);
+@@ -455,7 +464,10 @@ static int alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+ 		   ((addr | next | phys) & ~PUD_MASK) == 0 &&
+ 		    (flags & NO_BLOCK_MAPPINGS) == 0 &&
+ 		    !pud_table(old_pud)) {
+-			WARN_ON(!pud_set_huge(pudp, phys, prot));
++			if (pud_set_huge(pudp, phys, prot))
++				*mask |= PGTBL_PUD_MODIFIED;
++			else
++				WARN_ON(1);
+ 
+ 			/*
+ 			 * After the PUD entry has been populated once, we
+@@ -465,7 +477,7 @@ static int alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+ 						      READ_ONCE(pud_val(*pudp))));
+ 		} else {
+ 			ret = alloc_init_cont_pmd(pudp, addr, next, phys, prot,
+-						  pgtable_alloc, flags);
++						  pgtable_alloc, flags, mask);
+ 			if (ret)
+ 				goto out;
+ 
+@@ -484,7 +496,7 @@ static int alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+ static int alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
+ 			  phys_addr_t phys, pgprot_t prot,
+ 			  phys_addr_t (*pgtable_alloc)(enum pgtable_level),
+-			  int flags)
++			  int flags, pgtbl_mod_mask *mask)
+ {
+ 	int ret;
+ 	unsigned long next;
+@@ -505,6 +517,7 @@ static int alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
+ 		init_clear_pgtable(p4dp);
+ 		p4dp += p4d_index(addr);
+ 		__pgd_populate(pgdp, p4d_phys, pgdval);
++		*mask |= PGTBL_PGD_MODIFIED;
+ 	} else {
+ 		BUG_ON(pgd_bad(pgd));
+ 		p4dp = p4d_set_fixmap_offset(pgdp, addr);
+@@ -516,7 +529,7 @@ static int alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
+ 		next = p4d_addr_end(addr, end);
+ 
+ 		ret = alloc_init_pud(p4dp, addr, next, phys, prot,
+-				     pgtable_alloc, flags);
++				     pgtable_alloc, flags, mask);
+ 		if (ret)
+ 			goto out;
+ 
+@@ -536,7 +549,7 @@ static int __create_pgd_mapping_locked(pgd_t *pgdir, phys_addr_t phys,
+ 				       unsigned long virt, phys_addr_t size,
+ 				       pgprot_t prot,
+ 				       phys_addr_t (*pgtable_alloc)(enum pgtable_level),
+-				       int flags)
++				       int flags, pgtbl_mod_mask *mask)
+ {
+ 	int ret;
+ 	unsigned long addr, end, next;
+@@ -556,7 +569,7 @@ static int __create_pgd_mapping_locked(pgd_t *pgdir, phys_addr_t phys,
+ 	do {
+ 		next = pgd_addr_end(addr, end);
+ 		ret = alloc_init_p4d(pgdp, addr, next, phys, prot, pgtable_alloc,
+-				     flags);
++				     flags, mask);
+ 		if (ret)
+ 			return ret;
+ 		phys += next - addr;
+@@ -569,13 +582,13 @@ static int __create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
+ 				unsigned long virt, phys_addr_t size,
+ 				pgprot_t prot,
+ 				phys_addr_t (*pgtable_alloc)(enum pgtable_level),
+-				int flags)
++				int flags, pgtbl_mod_mask *mask)
+ {
+ 	int ret;
+ 
+ 	mutex_lock(&fixmap_lock);
+ 	ret = __create_pgd_mapping_locked(pgdir, phys, virt, size, prot,
+-					  pgtable_alloc, flags);
++					  pgtable_alloc, flags, mask);
+ 	mutex_unlock(&fixmap_lock);
+ 
+ 	return ret;
+@@ -588,9 +601,10 @@ static void early_create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
+ 				     int flags)
+ {
+ 	int ret;
++	pgtbl_mod_mask mask = 0;
+ 
+ 	ret = __create_pgd_mapping(pgdir, phys, virt, size, prot, pgtable_alloc,
+-				   flags);
++				   flags, &mask);
+ 	if (ret)
+ 		panic("Failed to create page tables\n");
+ }
+@@ -1332,6 +1346,7 @@ static int __init __kpti_install_ng_mappings(void *__unused)
+ 
+ 	if (!cpu) {
+ 		int ret;
++		pgtbl_mod_mask mask = 0;
+ 
+ 		alloc = __get_free_pages(GFP_ATOMIC | __GFP_ZERO, order);
+ 		kpti_ng_temp_pgd = (pgd_t *)(alloc + (levels - 1) * PAGE_SIZE);
+@@ -1355,7 +1370,7 @@ static int __init __kpti_install_ng_mappings(void *__unused)
+ 		//
+ 		ret = __create_pgd_mapping_locked(kpti_ng_temp_pgd, __pa(alloc),
+ 						  KPTI_NG_TEMP_VA, PAGE_SIZE, PAGE_KERNEL,
+-						  kpti_ng_pgd_alloc, 0);
++						  kpti_ng_pgd_alloc, 0, &mask);
+ 		if (ret)
+ 			panic("Failed to create page tables\n");
+ 	}
+@@ -1661,7 +1676,7 @@ static void unmap_hotplug_range(unsigned long addr, unsigned long end,
+ 
+ static void free_empty_pte_table(pmd_t *pmdp, unsigned long addr,
+ 				 unsigned long end, unsigned long floor,
+-				 unsigned long ceiling)
++				 unsigned long ceiling, pgtbl_mod_mask *mask)
+ {
+ 	pte_t *ptep, pte;
+ 	unsigned long i, start = addr;
+@@ -1677,6 +1692,7 @@ static void free_empty_pte_table(pmd_t *pmdp, unsigned long addr,
+ 		WARN_ON(!pte_none(pte));
+ 	} while (addr += PAGE_SIZE, addr < end);
+ 
++	*mask |= PGTBL_PTE_MODIFIED;
+ 	if (!pgtable_range_aligned(start, end, floor, ceiling, PMD_MASK))
  		return;
  
-+	/* Don't sync local percpu area page table */
-+	if (start >= LOCAL_PERCPU_START && end < LOCAL_PERCPU_END)
-+		return;
-+
- 	addr = start;
+@@ -1692,13 +1708,14 @@ static void free_empty_pte_table(pmd_t *pmdp, unsigned long addr,
+ 	}
+ 
+ 	pmd_clear(pmdp);
++	*mask |= PGTBL_PMD_MODIFIED;
+ 	__flush_tlb_kernel_pgtable(start);
+ 	free_hotplug_pgtable_page(virt_to_page(ptep));
+ }
+ 
+ static void free_empty_pmd_table(pud_t *pudp, unsigned long addr,
+ 				 unsigned long end, unsigned long floor,
+-				 unsigned long ceiling)
++				 unsigned long ceiling, pgtbl_mod_mask *mask)
+ {
+ 	pmd_t *pmdp, pmd;
+ 	unsigned long i, next, start = addr;
+@@ -1711,7 +1728,7 @@ static void free_empty_pmd_table(pud_t *pudp, unsigned long addr,
+ 			continue;
+ 
+ 		WARN_ON(!pmd_present(pmd) || !pmd_table(pmd));
+-		free_empty_pte_table(pmdp, addr, next, floor, ceiling);
++		free_empty_pte_table(pmdp, addr, next, floor, ceiling, mask);
+ 	} while (addr = next, addr < end);
+ 
+ 	if (CONFIG_PGTABLE_LEVELS <= 2)
+@@ -1732,13 +1749,14 @@ static void free_empty_pmd_table(pud_t *pudp, unsigned long addr,
+ 	}
+ 
+ 	pud_clear(pudp);
++	*mask |= PGTBL_PUD_MODIFIED;
+ 	__flush_tlb_kernel_pgtable(start);
+ 	free_hotplug_pgtable_page(virt_to_page(pmdp));
+ }
+ 
+ static void free_empty_pud_table(p4d_t *p4dp, unsigned long addr,
+ 				 unsigned long end, unsigned long floor,
+-				 unsigned long ceiling)
++				 unsigned long ceiling, pgtbl_mod_mask *mask)
+ {
+ 	pud_t *pudp, pud;
+ 	unsigned long i, next, start = addr;
+@@ -1751,7 +1769,7 @@ static void free_empty_pud_table(p4d_t *p4dp, unsigned long addr,
+ 			continue;
+ 
+ 		WARN_ON(!pud_present(pud) || !pud_table(pud));
+-		free_empty_pmd_table(pudp, addr, next, floor, ceiling);
++		free_empty_pmd_table(pudp, addr, next, floor, ceiling, mask);
+ 	} while (addr = next, addr < end);
+ 
+ 	if (!pgtable_l4_enabled())
+@@ -1772,13 +1790,14 @@ static void free_empty_pud_table(p4d_t *p4dp, unsigned long addr,
+ 	}
+ 
+ 	p4d_clear(p4dp);
++	*mask |= PGTBL_P4D_MODIFIED;
+ 	__flush_tlb_kernel_pgtable(start);
+ 	free_hotplug_pgtable_page(virt_to_page(pudp));
+ }
+ 
+ static void free_empty_p4d_table(pgd_t *pgdp, unsigned long addr,
+ 				 unsigned long end, unsigned long floor,
+-				 unsigned long ceiling)
++				 unsigned long ceiling, pgtbl_mod_mask *mask)
+ {
+ 	p4d_t *p4dp, p4d;
+ 	unsigned long i, next, start = addr;
+@@ -1791,7 +1810,7 @@ static void free_empty_p4d_table(pgd_t *pgdp, unsigned long addr,
+ 			continue;
+ 
+ 		WARN_ON(!p4d_present(p4d));
+-		free_empty_pud_table(p4dp, addr, next, floor, ceiling);
++		free_empty_pud_table(p4dp, addr, next, floor, ceiling, mask);
+ 	} while (addr = next, addr < end);
+ 
+ 	if (!pgtable_l5_enabled())
+@@ -1812,6 +1831,7 @@ static void free_empty_p4d_table(pgd_t *pgdp, unsigned long addr,
+ 	}
+ 
+ 	pgd_clear(pgdp);
++	*mask |= PGTBL_PGD_MODIFIED;
+ 	__flush_tlb_kernel_pgtable(start);
+ 	free_hotplug_pgtable_page(virt_to_page(p4dp));
+ }
+@@ -1821,6 +1841,8 @@ static void free_empty_tables(unsigned long addr, unsigned long end,
+ {
+ 	unsigned long next;
+ 	pgd_t *pgdp, pgd;
++	pgtbl_mod_mask mask = 0;
++	unsigned long start = addr;
+ 
  	do {
- 		pgd = READ_ONCE(*pgdp);
-diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
-index 1c20144700d7..dd293319823e 100644
---- a/arch/arm64/mm/ptdump.c
-+++ b/arch/arm64/mm/ptdump.c
-@@ -389,6 +389,10 @@ static int __init ptdump_init(void)
- 		{ MODULES_END,		"Modules end" },
- 		{ VMALLOC_START,	"vmalloc() area" },
- 		{ VMALLOC_END,		"vmalloc() end" },
-+		{ PERCPU_START,		"Global percpu start" },
-+		{ PERCPU_END,		"Global percpu end" },
-+		{ LOCAL_PERCPU_START,	"Local percpu start" },
-+		{ LOCAL_PERCPU_END,	"Local percpu end" },
- 		{ vmemmap_start,	"vmemmap start" },
- 		{ VMEMMAP_END,		"vmemmap end" },
- 		{ PCI_IO_START,		"PCI I/O start" },
+ 		next = pgd_addr_end(addr, end);
+@@ -1830,8 +1852,11 @@ static void free_empty_tables(unsigned long addr, unsigned long end,
+ 			continue;
+ 
+ 		WARN_ON(!pgd_present(pgd));
+-		free_empty_p4d_table(pgdp, addr, next, floor, ceiling);
++		free_empty_p4d_table(pgdp, addr, next, floor, ceiling, &mask);
+ 	} while (addr = next, addr < end);
++
++	if (mask & ARCH_PAGE_TABLE_SYNC_MASK)
++		arch_sync_kernel_mappings(start, end);
+ }
+ #endif
+ 
+@@ -2039,6 +2064,7 @@ int arch_add_memory(int nid, u64 start, u64 size,
+ 		    struct mhp_params *params)
+ {
+ 	int ret, flags = NO_EXEC_MAPPINGS;
++	pgtbl_mod_mask mask = 0;
+ 
+ 	VM_BUG_ON(!mhp_range_allowed(start, size, true));
+ 
+@@ -2047,10 +2073,13 @@ int arch_add_memory(int nid, u64 start, u64 size,
+ 
+ 	ret = __create_pgd_mapping(swapper_pg_dir, start, __phys_to_virt(start),
+ 				   size, params->pgprot, pgd_pgtable_alloc_init_mm,
+-				   flags);
++				   flags, &mask);
+ 	if (ret)
+ 		goto err;
+ 
++	if (mask & ARCH_PAGE_TABLE_SYNC_MASK)
++		arch_sync_kernel_mappings(start, start + size);
++
+ 	memblock_clear_nomap(start, size);
+ 
+ 	ret = __add_pages(nid, start >> PAGE_SHIFT, size >> PAGE_SHIFT,
 -- 
 2.47.0
 
