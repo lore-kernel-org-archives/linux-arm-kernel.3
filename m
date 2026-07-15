@@ -4,80 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91071C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 10:59:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58DBFC44507
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 10:59:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Zom0HCqvV9ymBQMnU5opsJOC+sxs/ZJDLNegrm+5oqU=; b=IdXi3Gh2dE3jlJNG/8NZ0b+3Hz
-	yWCx4GJ0WQNFJivxNhdRRavlR+NlMlT/tAet2z9Xr9DsQVegREKrfyZcvMlBb8kdP7lP3r0UtpDqB
-	wM1cRsewKAt1q7NDOwRrkihS3sa/2U8apcm9evWdi84A3PMAxjBbFXUkLOeCGrAd5KPh1FHifOm6n
-	yyQ1nZ9ieOUjA4KFQZdIBhuoEkg079wyQKUqiqJH5R7k9+RtUAxbLOVT79ykd0lSX6nJOa0Ax14Eg
-	oyvvesnIvKALlanKr0rF+arPku2HA11ZT2rSaaK11V0PZdpvbI6UWBY4WMKSEQ1kF6YZ8uj2nLCX3
-	KjGYUGrg==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ub1xEUiERA6LK0AoCGyXqyJPlNdNRIjkR+1FYTShN8A=; b=aOzvMjVZ+a1JXxW59H/G1NWqJL
+	4DlEzTlUITV36WPKdCsCUI99cw4CIVP+a2OdDQea5c0lLIjhJ7xtcif+lsWbS2lp8wkls9kK7osSM
+	H730zF8c/S5GGSIw88sxwxzEAJghmDcMSavzZELQVRee0qpASEHB3MwyvZKx7noDdTLZ/Dlyz4RJc
+	lx3IfdwMoz1Fs9eSCnPz7gPMLMwMCUksdmXcaTnKvg9QDWxYeQXuPEUy0J+YxZOY6RxOeFnvlEO50
+	8OqJtP8Kj5EkS5c5Br+pmMb+3iprL5tcVo1tHq8Qp+DbD2lmbaj9VYBrIb+ZUmuryWYImf+RwABhp
+	+tF6BbVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjxKq-0000000EVyf-1TVS;
-	Wed, 15 Jul 2026 10:59:28 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1wjxKu-0000000EVzs-1z8G;
+	Wed, 15 Jul 2026 10:59:32 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjxKo-0000000EVxi-1hPs
+	id 1wjxKp-0000000EVxt-0F5X
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 10:59:27 +0000
+	Wed, 15 Jul 2026 10:59:29 +0000
 Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id DBE453E31;
-	Wed, 15 Jul 2026 10:59:22 +0000 (UTC)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id DE39978373;
+	Wed, 15 Jul 2026 10:59:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1784113162; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1784113164; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=Zom0HCqvV9ymBQMnU5opsJOC+sxs/ZJDLNegrm+5oqU=;
-	b=LwfLK6XaYjuvKbqFl8jd8+1qSoaE6jDiORGlue/ymFEzT0h0C4mbyoidK33KqLrvaRFbge
-	ZBJGcZpk10AaYpXS6P80v43tAy/dMl+QcZKNOApHWkHAxhB9gV+OK6JXu5KAOBMwPbIL/7
-	37S4HTe1jQg2NeWlIKnkdvhzGw8/aCA=
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ub1xEUiERA6LK0AoCGyXqyJPlNdNRIjkR+1FYTShN8A=;
+	b=d9IV3LHXhLOIQCaS7BLN5hZGyB8q9Y4kXa4dwWs8CTLrY5qGrF24rZEAq74RCWVPi+nEHd
+	UnRa0hFXE0hwA2TYQjks6PJNd7jLslnV4lbr3zQsCkVBImDmerSWIv6pKV/VMlRQXcE7oj
+	Xu+2p6dsCh5noPliokCzWNgm3Q4Z6yo=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1784113162;
+	s=susede2_ed25519; t=1784113164;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=Zom0HCqvV9ymBQMnU5opsJOC+sxs/ZJDLNegrm+5oqU=;
-	b=Wr8I4U2PNE9TkJ5xKU2jZYxQf3LsRNmBBB0Pm1Y+76gFdO7MfcJipz6I0hG9l13TmFDMO+
-	ordCan90Cu9EotBQ==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=LwfLK6Xa;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=Wr8I4U2P
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ub1xEUiERA6LK0AoCGyXqyJPlNdNRIjkR+1FYTShN8A=;
+	b=ZFlsK3sB5x0I5BCKmwbHfSTeqrNgyZ1urctFKmeEkBSdg/QC32mSARUsyZd46no+7tmd7L
+	K/DPhtVmIHyIboBw==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=m1jXFtoX;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=hu5yr+SE
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1784113162; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	t=1784113163; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=Zom0HCqvV9ymBQMnU5opsJOC+sxs/ZJDLNegrm+5oqU=;
-	b=LwfLK6XaYjuvKbqFl8jd8+1qSoaE6jDiORGlue/ymFEzT0h0C4mbyoidK33KqLrvaRFbge
-	ZBJGcZpk10AaYpXS6P80v43tAy/dMl+QcZKNOApHWkHAxhB9gV+OK6JXu5KAOBMwPbIL/7
-	37S4HTe1jQg2NeWlIKnkdvhzGw8/aCA=
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ub1xEUiERA6LK0AoCGyXqyJPlNdNRIjkR+1FYTShN8A=;
+	b=m1jXFtoXwqhUmCoWNc02N/+O3AOaoJtLwKcAK4vtmWGG7WJ2dACghTNkSB4LeAqn8GbnF/
+	ZzmltSLCvvwZslUCLwPfUI+m1CRdH9WsN4HMIs1xazWBgs0ynt4tCOXV3Ezza71ide/sQg
+	3KxjpxuGXqLJMyeOalD+yEfSe1DakNU=
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1784113162;
+	s=susede2_ed25519; t=1784113163;
 	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
 	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=Zom0HCqvV9ymBQMnU5opsJOC+sxs/ZJDLNegrm+5oqU=;
-	b=Wr8I4U2PNE9TkJ5xKU2jZYxQf3LsRNmBBB0Pm1Y+76gFdO7MfcJipz6I0hG9l13TmFDMO+
-	ordCan90Cu9EotBQ==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ub1xEUiERA6LK0AoCGyXqyJPlNdNRIjkR+1FYTShN8A=;
+	b=hu5yr+SEbOPkEa1pY+BHmpjuGfkvjzEkKrGJaveDZ4GlwQahSyodDshCFd/j1WtH/+/vTY
+	FAh5zPy7LR4EFdAQ==
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 369F6779AD;
-	Wed, 15 Jul 2026 10:59:22 +0000 (UTC)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 3F4E5779AD;
+	Wed, 15 Jul 2026 10:59:23 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id /biiCgpoV2reeAAAD6G6ig
-	(envelope-from <clopez@suse.de>); Wed, 15 Jul 2026 10:59:22 +0000
+	id 2LfMDAtoV2reeAAAD6G6ig
+	(envelope-from <clopez@suse.de>); Wed, 15 Jul 2026 10:59:23 +0000
 From: =?UTF-8?q?Carlos=20L=C3=B3pez?= <clopez@suse.de>
 To: kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org
@@ -91,17 +95,19 @@ Cc: maz@kernel.org,
 	will@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	=?UTF-8?q?Carlos=20L=C3=B3pez?= <clopez@suse.de>
-Subject: [PATCH v6 0/2] KVM: arm64: vgic: Fix racy LPI release and re-registration handling
-Date: Wed, 15 Jul 2026 12:51:36 +0200
-Message-ID: <20260715105137.3973823-3-clopez@suse.de>
+Subject: [PATCH v6 1/2] KVM: arm64: vgic: Fix race between LPI release and re-registration
+Date: Wed, 15 Jul 2026 12:51:37 +0200
+Message-ID: <20260715105137.3973823-4-clopez@suse.de>
 X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20260715105137.3973823-3-clopez@suse.de>
+References: <20260715105137.3973823-3-clopez@suse.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-Rspamd-Action: no action
-X-Rspamd-Queue-Id: DBE453E31
+X-Rspamd-Queue-Id: DE39978373
 X-Spamd-Result: default: False [-3.51 / 50.00];
-	BAYES_HAM(-3.00)[99.99%];
+	BAYES_HAM(-3.00)[100.00%];
 	MID_CONTAINS_FROM(1.00)[];
 	NEURAL_HAM_LONG(-1.00)[-1.000];
 	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
@@ -122,14 +128,13 @@ X-Spamd-Result: default: False [-3.51 / 50.00];
 	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
 	RCVD_COUNT_TWO(0.00)[2];
 	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:mid,suse.de:dkim];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:dkim,suse.de:email,suse.de:mid];
 	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
 	DKIM_TRACE(0.00)[suse.de:+]
 X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_035926_596054_7120C640 
-X-CRM114-Status: UNSURE (   9.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260715_035927_400876_86CB34B5 
+X-CRM114-Status: GOOD (  21.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,47 +149,184 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix a couple of potential issues that could arise from racy LPI release
-and re-registration for the same INTID.
+Fix a potential race between decrementing an LPI's reference count and
+evicting that structure from the LPI xarray.
 
-The issue fixed in patch 1 can manifest itself through either a
-leaked LPI structure, or a prematurely deleted LPI. The issue fixed
-in patch 2 could materialize as a spurious -ENOMEM failure when
-registering an LPI.
+LPI structures are maintained in the VGIC LPI xarray (dist->lpi_xa).
+When the reference count of an LPI structure drops to zero,
+vgic_release_lpi_locked() removes the structure from the xarray and
+frees it under the xarray lock.
 
-v6:
-* Remove pending_release in patch 1, preventing use-after-free and/or
-  spurious WARNs.
-* Avoid lock inversion via xa_release() (Sashiko).
+However, the release of an LPI can race with a concurrent LPI
+re-registration with the same INTID via vgic_add_lpi() on another CPU,
+since the reference count drop and the xarray eviction are not performed
+in a single atomic step. This can happen e.g. if the guest issues a
+DISCARD while the LPI is still referenced from a vCPU's active-pending
+list (ap_list), and the same INTID is re-mapped via MAPTI.
 
-v5:
-* Make sure evicted IRQs on the registration path are pending
-  release (Oliver Upton).
+Particularly, vgic_release_lpi_locked() is called from two distinct
+paths: direct release via vgic_put_irq(), and deferred release via
+vgic_release_deleted_lpis(). During direct release, the issue can result
+in deleting a newly registered LPI from the xarray:
 
-v4:
-* Add __GFP_ACCOUNT to patch 2 (Sashiko).
+  CPU0 (Releasing LPI)                    CPU1 (Adding new LPI)
+  ====================                    =====================
+  vgic_put_irq()
+      __vgic_put_irq()
+          refcount_dec_and_test()
+                                          vgic_add_lpi()
+                                              xa_lock_irqsave()
+                                              old_irq = xa_load(.., intid)
+                                              vgic_try_get_irq_ref(old_irq) == false
+                        new IRQ inserted -->  __xa_store(.., intid, ..)
+                                              xa_unlock_irqrestore()
+  xa_lock_irqsave();
+  vgic_release_lpi_locked()
+      __xa_erase(.., irq->intid)   <-- BUG: new IRQ is erased
+      kfree_rcu(old_irq)
 
-v3:
-* Use refcount_dec_and_lock_irqsave() instead of unconditionally
-  grabbing the xarray lock in patch 1.
-* Add patch 2.
+During the deferred release path, the old IRQ can be leaked:
 
-v2:
-* Address Sashiko's review. Fix the direct release path by decrementing
-  the refcount under the xarray spinlock, preventing a UAF that would
-  have been introduced in v1.
+  CPU0 (Releasing LPI)                    CPU1 (Adding new LPI)
+  ====================                    =====================
+  vgic_put_irq_norelease()
+      __vgic_put_irq()
+          refcount_dec_and_test()
+      irq->pending_release = true
+                                          vgic_add_lpi()
+                                              xa_lock_irqsave()
+                                              old_irq = xa_load(.., intid)
+                                              vgic_try_get_irq_ref(oldirq) == false
+                 BUG: old IRQ overwritten --> __xa_store(.., intid, ..)
+                                              xa_unlock_irqrestore()
 
-Carlos López (2):
-  KVM: arm64: vgic: Fix race between LPI release and re-registration
-  KVM: arm64: vgic: Mitigate potential LPI registration failure
+  vgic_release_deleted_lpis()
+      xa_lock_irqsave()
+      xa_for_each() { .. } <-- old IRQ with pending_release = true
+                               is gone, so it cannot be released
 
- arch/arm64/kvm/vgic/vgic-its.c | 25 +++++++++++++++++--------
+To fix the direct release path, move the reference count drop inside
+the xarray lock, making sure that vgic_add_lpi() never encounters the
+to-be-released LPI.
+
+In the deferred release path, the refcount drop must happen under a raw
+spinlock, so the xarray lock cannot be grabbed, and the same solution
+does not work. Instead, update vgic_add_lpi(), so that if it evicts
+an LPI from the xarray, it takes on the responsibility of freeing it.
+Consequently, an LPI may now be freed concurrently after a deferred
+release drops the refcount, so accessing the pending_release field is no
+longer safe from use-after-free. Delete all uses of the flag, and update
+vgic_release_deleted_lpis() to identify orphaned LPIs purely based on
+their refcount.
+
+Reported-by: Claude:claude-opus-4-6
+Fixes: 3a08a6ca7c37 ("KVM: arm64: vgic-v3: Use bare refcount for VGIC LPIs")
+Fixes: d54594accf73 ("KVM: arm64: vgic-v3: Erase LPIs from xarray outside of raw spinlocks")
+Signed-off-by: Carlos López <clopez@suse.de>
+---
+ arch/arm64/kvm/vgic/vgic-its.c | 24 ++++++++++++++++--------
  arch/arm64/kvm/vgic/vgic.c     | 18 ++++++++----------
  include/kvm/arm_vgic.h         |  3 ---
- 3 files changed, 25 insertions(+), 21 deletions(-)
+ 3 files changed, 24 insertions(+), 21 deletions(-)
 
-
-base-commit: 1ee27dacbe5dc4def481794d899d67b0d4570094
+diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+index 67d107e9a77d..2240bdf20c92 100644
+--- a/arch/arm64/kvm/vgic/vgic-its.c
++++ b/arch/arm64/kvm/vgic/vgic-its.c
+@@ -116,18 +116,26 @@ static struct vgic_irq *vgic_add_lpi(struct kvm *kvm, u32 intid,
+ 		kfree(irq);
+ 		irq = oldirq;
+ 	} else {
+-		ret = xa_err(__xa_store(&dist->lpi_xa, intid, irq, 0));
+-	}
+-
+-	xa_unlock_irqrestore(&dist->lpi_xa, flags);
++		/*
++		 * The entry is either empty or contains a dead LPI (refcount=0)
++		 * from the deferred release path, pending cleanup by
++		 * vgic_release_deleted_lpis(). Evict and free it if present.
++		 */
++		oldirq = __xa_store(&dist->lpi_xa, intid, irq, 0);
++		ret = xa_err(oldirq);
++		if (ret) {
++			xa_unlock_irqrestore(&dist->lpi_xa, flags);
++			kfree(irq);
+ 
+-	if (ret) {
+-		xa_release(&dist->lpi_xa, intid);
+-		kfree(irq);
++			return ERR_PTR(ret);
++		}
+ 
+-		return ERR_PTR(ret);
++		if (oldirq && !WARN_ON_ONCE(refcount_read(&oldirq->refcount)))
++			kfree_rcu(oldirq, rcu);
+ 	}
+ 
++	xa_unlock_irqrestore(&dist->lpi_xa, flags);
++
+ 	/*
+ 	 * We "cache" the configuration table entries in our struct vgic_irq's.
+ 	 * However we only have those structs for mapped IRQs, so we read in
+diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
+index 5a4768d8cd4f..eea9db2bac4a 100644
+--- a/arch/arm64/kvm/vgic/vgic.c
++++ b/arch/arm64/kvm/vgic/vgic.c
+@@ -146,11 +146,7 @@ static __must_check bool __vgic_put_irq(struct kvm *kvm, struct vgic_irq *irq)
+ 
+ static __must_check bool vgic_put_irq_norelease(struct kvm *kvm, struct vgic_irq *irq)
+ {
+-	if (!__vgic_put_irq(kvm, irq))
+-		return false;
+-
+-	irq->pending_release = true;
+-	return true;
++	return __vgic_put_irq(kvm, irq);
+ }
+ 
+ void vgic_put_irq(struct kvm *kvm, struct vgic_irq *irq)
+@@ -167,12 +163,14 @@ void vgic_put_irq(struct kvm *kvm, struct vgic_irq *irq)
+ 		guard(spinlock_irqsave)(&dist->lpi_xa.xa_lock);
+ 	}
+ 
+-	if (!__vgic_put_irq(kvm, irq))
++	if (!irq_is_lpi(kvm, irq->intid))
+ 		return;
+ 
+-	xa_lock_irqsave(&dist->lpi_xa, flags);
+-	vgic_release_lpi_locked(dist, irq);
+-	xa_unlock_irqrestore(&dist->lpi_xa, flags);
++	if (refcount_dec_and_lock_irqsave(&irq->refcount,
++					  &dist->lpi_xa.xa_lock, &flags)) {
++		vgic_release_lpi_locked(dist, irq);
++		xa_unlock_irqrestore(&dist->lpi_xa, flags);
++	}
+ }
+ 
+ static void vgic_release_deleted_lpis(struct kvm *kvm)
+@@ -184,7 +182,7 @@ static void vgic_release_deleted_lpis(struct kvm *kvm)
+ 	xa_lock_irqsave(&dist->lpi_xa, flags);
+ 
+ 	xa_for_each(&dist->lpi_xa, intid, irq) {
+-		if (irq->pending_release)
++		if (!refcount_read(&irq->refcount))
+ 			vgic_release_lpi_locked(dist, irq);
+ 	}
+ 
+diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
+index fe49fb56dc3c..cefddc9c621d 100644
+--- a/include/kvm/arm_vgic.h
++++ b/include/kvm/arm_vgic.h
+@@ -247,9 +247,6 @@ struct vgic_irq {
+ 					 * affinity reg (v3).
+ 					 */
+ 
+-	bool pending_release:1;		/* Used for LPIs only, unreferenced IRQ
+-					 * pending a release */
+-
+ 	bool pending_latch:1;		/* The pending latch state used to calculate
+ 					 * the pending state for both level
+ 					 * and edge triggered IRQs. */
 -- 
 2.51.0
 
