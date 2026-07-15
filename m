@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32113C44507
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78BCCC4450E
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 11:59:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
+	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nojqcuetD+/ikKOr3q9aYEmPsN9V6B5kzgOM/WeBKUw=; b=FWtbqN9izgzaDlU+zW2QNWYbs+
-	d0Vy18Tu4OoJu9wc0KuOIeGMtXA6b5k5hd6EPEt5YbR7ij5FPxXNGeT0gu+W+sPK4+FUkmprHuOf7
-	6mvm8IpEgmKhgUNj8QfpUjvhjXDvVTv4rpDd4OPTnZL8qi7K7W6dUoTBHi/LGhDp3FtddjrTs8C1v
-	44TyWzToBM8pt7Fjb0LEfLGjwi0wROnZ5VQGeLsXUIupoG1JDLJPzQnXx0wfFvl2MMqHol1Vam3S6
-	t1EEYR7Sfpe1ag4g7pJq6i9vKh82po3vHNFdumBQkFjg+v8G6YZiC9UKOf7Me0TdGDA+piltECGEj
-	NS2EbslQ==;
+	bh=M3eZs1fgfcJqE0urG21tDoGKs0yo1icKieB+aaaZBxk=; b=SGjW+mmH5HUQVthQWcsGfDD/iX
+	0+huDNQNEQfQ9vy+RqHU9TxF2aUQBwEApjoSYsOPorxImZCMu9ZPrT7LLjUZGLc4oYi8snggrIc6F
+	2VJwP3fhZ8yrS9rODGdC82ifD1Ae2BDiPGr9Z5SmOboR7XujgzhCa54fDozoICbzQrNlpfjF3ss9Z
+	DLpEbFDeZCrBj0UUaGmCP7atjx2pe4EkLxb93WGyjTT/oIQS0DqAXAFERsHgQUjH53K9MCV1E2Tbv
+	01cj3/VCMBsr1ASV/iAW8pvGR0/1CrHWzEH7iQ0U3VzH4UOfM4uLSi5fM2B1YDI0prPPtMxhy8bz1
+	X6yVuKtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjyGx-0000000EfA8-1F0V;
-	Wed, 15 Jul 2026 11:59:31 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1wjyGv-0000000Ef6T-2oBS;
+	Wed, 15 Jul 2026 11:59:29 +0000
+Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjyGt-0000000Ef3l-0EsS
+	id 1wjyGk-0000000Eeym-3FaV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 11:59:28 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-493c55d5ce5so29689595e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 04:59:25 -0700 (PDT)
+	Wed, 15 Jul 2026 11:59:19 +0000
+Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-47f3e6cc5c4so1198831f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 04:59:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784116764; x=1784721564; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=nojqcuetD+/ikKOr3q9aYEmPsN9V6B5kzgOM/WeBKUw=;
-        b=D/5J0ImmWYavumKlUNFIlXxmby7nZ0lrOY20bS67F6NEVQQ+pvPSOufUmdqbyGBkaQ
-         xKbP7qkmHujw1vb1+Qe7qpPrV9S1bfTT5tL+olyUqa3RqYDPtvKLux++F2JK5+fR4adK
-         RbbFrRG0ZIM+4vX8djwVloTWOC1/mybowV+kvgzybTcVDtQiP2nKDH2JfB7QQMqcFZOk
-         LY7XWnhkoOg7xRYUsrzdPTp2WEHkvAt4MGfm04pdjla2Ork/VgizFEtVVJahZFPtW8Y7
-         PrNEkYYS1xiS6Q+mXVdMR+c3zE9GntjioXnJG0vkeb5ZvRxAM3SZWY3qUxHmKPzu8fJs
-         0Cyg==
+        d=google.com; s=20251104; t=1784116755; x=1784721555; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:from:subject
+         :message-id:references:mime-version:in-reply-to:date:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=M3eZs1fgfcJqE0urG21tDoGKs0yo1icKieB+aaaZBxk=;
+        b=wPSKdyRuCnpnDB5dT3rlAUgAIybEkfNnBf9Qyc7wVWGknS5CvHdRjEzQ0DWE8CRkt4
+         prTae+pwl9SMGa39ScaIp+o6OTHfYcO4bIWk9wAFBLJQtm6YHlodNa0VT2l0p0ayU7pP
+         ZpNaGEOIQc6O0mEBcu9Lr0k7MiSa2Y/oAHU4RgiPBJPGF9yRTcn0o2aLhFNjpGbAOkaC
+         haA1vBrTYYGXn5j+ExH55Y7HzQ86CwLIOjQOxuCW6lmxDF/rrXTcJb2TwlCIRIhR7rYi
+         M2wgfICE6bj32vfDI0DVHNS3PmhS8Msg4G1YxqMRJSDke+mY5fy28kI0sJe18zTo/HfO
+         v7CA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784116764; x=1784721564;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=nojqcuetD+/ikKOr3q9aYEmPsN9V6B5kzgOM/WeBKUw=;
-        b=okrYJlLymeLAX5w+Gpt8Zar3F6DsmC28738cDGXUIS3g7aszq4KPclqNUSJ1otqlBH
-         WhVGkZxRmzFsR+GducOydkS9YcuP1CfK4YbPftH5hg67qj6O8r1ip6aThDpX+THbHctD
-         ai6Op1CZX1fzRTmY5VFMB0M4Bk7BYeckXC4+cXhqIuSB114JwP5/Dq08aQoaBAtOH4zy
-         CrBP4nuSgWwXvCmiDpBCniN42b3TP7kMUl1n0CX/0SbeDNQgFt/MfWQYX0T9LtCLngcL
-         /Wy1e1vqcblxwM+L9rtpFZDS3rmcvcAbykEnPEfTujxLkqzN3DsU1qpNBdSj18ftgsry
-         FtpQ==
-X-Gm-Message-State: AOJu0YwP+oHdJx0z3yN441e30wfo5/kWV+LPcWNW3dUPgloh4l5vZwZy
-	PzHGp+Hd3sOMXGsBW60TDJ9W1ZGx1ZFnj8pI/fvV3DvcRTmOnko8JLfxV/Qvw03vJww1Fqq6KGI
-	RZHvECrLosj/Wd+afstQtvpkjU/xF3ogn6jc5jgSiOPQ0weUZ5O8Qpz3X2kiDKZtNkLfhzwClQe
-	M7fmsWWDOyGl/Ql92qqBpoO9S9UBesQw4MeMTGMnJNZS3wd8fSfUk5EeqeJkN3n+qFhQ==
-X-Received: from wmbdx5.prod.google.com ([2002:a05:600c:63c5:b0:493:f781:b52f])
+        d=1e100.net; s=20251104; t=1784116755; x=1784721555;
+        h=content-transfer-encoding:content-type:cc:to:from:subject
+         :message-id:references:mime-version:in-reply-to:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=M3eZs1fgfcJqE0urG21tDoGKs0yo1icKieB+aaaZBxk=;
+        b=p4Ov4iw87zbeqbw+Ezjk+Rr2kBKHeDMWI1T1WUQYs4lNKp/I5QHYx2t4OSQB7zwztF
+         jwmzYisOgH0P1oa22b+iHhAg6W1AcJ2JuwuAPaFGjsUxEEKvjB16yswlhDTOzHRYJLcI
+         3A6D1tidVasxsvUeWLdQe+gNPeq4BwHaQsnPRg0UNj9A3bQKsk95TCLAFKvHoy0CIFWM
+         Nqcw0cU464wl8PYDH9bHSgOWYJn5phE2EaQdudERiOXdWt4JAjkg374LAust9n/EgWL2
+         ASm9KPyHSwrg4n7kgxZ4OjpKlZXOBIzY8PkFYTW0UqlsrzsgeEKw7eXxpkmwo4HzDfh/
+         XWUA==
+X-Gm-Message-State: AOJu0YxX8RNyH+3FQnfQax6UNlM30rgcN1asg1N2BI7UC8mMKKVjE448
+	wnBNfdRHOk6LTJCCZ368R09qKhUcWcohm9Lp6k9un6Ias3vkzOZaH2wss1LRRbuY1o8c8V6cYjm
+	LtaFlUSRzMngg9rXHaJXOB0V32uiwI6zzIIQtalZ6e40Eav8AEN2jdq2Gc+kqJUmzwLYj06LOcw
+	r1ymKaSVYX/Do15bKHv8NpjqZS9QDz3ePHQCxT7HlHsAqod/a5i4wRlWCo/hbwhStJZA==
+X-Received: from wmdn11.prod.google.com ([2002:a05:600c:294b:b0:494:415:3ecd])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:5656:b0:493:c77c:108a with SMTP id 5b1f17b1804b1-4953c2897b9mr17716955e9.36.1784116763927;
- Wed, 15 Jul 2026 04:59:23 -0700 (PDT)
-Date: Wed, 15 Jul 2026 11:58:50 +0000
+ 2002:a05:600c:621b:b0:493:faf3:3ead with SMTP id 5b1f17b1804b1-4952cc3c566mr74288995e9.4.1784116755156;
+ Wed, 15 Jul 2026 04:59:15 -0700 (PDT)
+Date: Wed, 15 Jul 2026 11:58:43 +0000
 In-Reply-To: <20260715115906.2664882-1-smostafa@google.com>
 Mime-Version: 1.0
 References: <20260715115906.2664882-1-smostafa@google.com>
 X-Mailer: git-send-email 2.55.0.141.g00534a21ce-goog
-Message-ID: <20260715115906.2664882-10-smostafa@google.com>
-Subject: [PATCH v7 09/24] KVM: arm64: iommu: Support DABT for IOMMU
+Message-ID: <20260715115906.2664882-3-smostafa@google.com>
+Subject: [PATCH v7 02/24] KVM: arm64: Donate MMIO to the hypervisor
 From: Mostafa Saleh <smostafa@google.com>
 To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	kvmarm@lists.linux.dev, iommu@lists.linux.dev
@@ -78,9 +79,10 @@ Cc: catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
 	sebastianene@google.com, keirf@google.com, 
 	Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_045927_124858_7DEBDED0 
-X-CRM114-Status: GOOD (  16.80  )
+X-CRM114-CacheID: sfid-20260715_045918_861705_62A7C615 
+X-CRM114-Status: GOOD (  21.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,103 +97,194 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pKVM SMMUv3 driver needs to trap and emulate access to the MMIO
-space of the SMMUv3 to provide emulation for the kernel driver.
+Add a function to donate MMIO to the hypervisor so IOMMU hypervisor
+drivers can protect and access the MMIO of IOMMUs.
 
-Add a handler for DABTs for IOMMU drivers to be able to do so.
-In case the host causes a data abort, check if it's part of IOMMU
-emulation first.
+As donating MMIO is very rare, and we don=E2=80=99t need to encode the full
+state, it=E2=80=99s reasonable to have a separate function to do this.
+It will init the host s2 page table with an invalid leaf with the owner ID
+to prevent the host from mapping the page on faults.
+
+Also, prevent kvm_pgtable_stage2_unmap() from removing owner ID from
+stage-2 PTEs, as this can be triggered from recycle logic under memory
+pressure. There is no code relying on this, as all ownership changes is
+done via kvm_pgtable_stage2_set_owner()
+
+For the error path in IOMMU drivers, add a function to donate MMIO
+back from hyp to host. However, that leaks the hypervisor virtual
+address range which should be acceptable as this is quite rare and
+it matches the behaviour of fix_map/block.
 
 Signed-off-by: Mostafa Saleh <smostafa@google.com>
 ---
- arch/arm64/kvm/hyp/include/nvhe/iommu.h |  3 ++-
- arch/arm64/kvm/hyp/nvhe/iommu.c         | 15 +++++++++++++++
- arch/arm64/kvm/hyp/nvhe/mem_protect.c   | 15 +++++++++++++++
- 3 files changed, 32 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  7 ++
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 91 ++++++++++++++++++-
+ arch/arm64/kvm/hyp/pgtable.c                  | 11 +--
+ 3 files changed, 102 insertions(+), 7 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/iommu.h b/arch/arm64/kvm/hyp/include/nvhe/iommu.h
-index 028e89a3448d..8b7521135792 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/iommu.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/iommu.h
-@@ -8,6 +8,7 @@
- struct pkvm_iommu_ops {
- 	int (*init)(void);
- 	int (*host_stage2_idmap)(phys_addr_t start, phys_addr_t end, int prot);
-+	bool (*dabt_handler)(struct user_pt_regs *regs, u64 esr, u64 addr);
- };
- 
- int pkvm_iommu_init(void *pool_base, unsigned int nr_pages);
-@@ -19,5 +20,5 @@ int pkvm_iommu_host_stage2_idmap(phys_addr_t start, phys_addr_t end,
- void *pkvm_iommu_donate_pages(u8 order);
- /* Free pages from pkvm_iommu_donate_pages(). Must use same size */
- void pkvm_iommu_reclaim_pages(void *ptr);
--
-+bool pkvm_iommu_host_dabt_handler(struct user_pt_regs *regs, u64 esr, u64 addr);
- #endif /* __ARM64_KVM_NVHE_IOMMU_H__ */
-diff --git a/arch/arm64/kvm/hyp/nvhe/iommu.c b/arch/arm64/kvm/hyp/nvhe/iommu.c
-index 8891cb7920c4..8ea9c8c23985 100644
---- a/arch/arm64/kvm/hyp/nvhe/iommu.c
-+++ b/arch/arm64/kvm/hyp/nvhe/iommu.c
-@@ -4,6 +4,10 @@
-  *
-  * Copyright (C) 2022 Linaro Ltd.
-  */
-+#include <asm/kvm_hyp.h>
-+
-+#include <hyp/adjust_pc.h>
-+
- #include <linux/iommu.h>
- #include <asm/kvm_pkvm.h>
- 
-@@ -157,3 +161,14 @@ void pkvm_iommu_reclaim_pages(void *ptr)
- {
- 	hyp_put_page(&iommu_pages_pool, ptr);
- }
-+
-+bool pkvm_iommu_host_dabt_handler(struct user_pt_regs *regs, u64 esr, u64 addr)
-+{
-+	if (pkvm_iommu_ops && pkvm_iommu_ops->dabt_handler &&
-+	    pkvm_iommu_ops->dabt_handler(regs, esr, addr)) {
-+		/* DABT handled by the driver, skip to next instruction. */
-+		kvm_skip_host_instr();
-+		return true;
-+	}
-+	return false;
-+}
-diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index ce610274bda0..b798a36e0ddb 100644
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm=
+/hyp/include/nvhe/mem_protect.h
+index 29935c7da1de..51b0eb3844a9 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+@@ -36,6 +36,13 @@ int __pkvm_guest_share_host(struct pkvm_hyp_vcpu *vcpu, =
+u64 gfn);
+ int __pkvm_guest_unshare_host(struct pkvm_hyp_vcpu *vcpu, u64 gfn);
+ int __pkvm_host_unshare_hyp(u64 pfn);
+ int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages);
++/*
++ * Donate MMIO range to the hypervisor, it will be mapped in the hyperviso=
+r's
++ * private range and unmapped from the host stage-2.
++ */
++int __pkvm_host_donate_hyp_mmio(phys_addr_t addr, size_t size, unsigned lo=
+ng *haddr);
++/* Remaps MMIO range in the host, typically used in error path. */
++int __pkvm_hyp_donate_host_mmio(phys_addr_t addr, size_t size);
+ int __pkvm_hyp_donate_host(u64 pfn, u64 nr_pages);
+ int __pkvm_host_share_ffa(u64 pfn, u64 nr_pages);
+ int __pkvm_host_unshare_ffa(u64 pfn, u64 nr_pages);
+diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvh=
+e/mem_protect.c
+index 4e329e39a695..d803b3dd4cb4 100644
 --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
 +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -751,6 +751,12 @@ static void host_inject_mem_abort(struct kvm_cpu_context *host_ctxt)
- 	inject_host_exception(esr);
+@@ -378,7 +378,11 @@ static int host_stage2_unmap_dev_all(void)
+ 	u64 addr =3D 0;
+ 	int i, ret;
+=20
+-	/* Unmap all non-memory regions to recycle the pages */
++	/*
++	 * Unmap all non-memory regions to recycle the pages.
++	 * That relies on kvm_pgtable_stage2_unmap() not clearing
++	 * counted PTEs which include hypervisor MMIO.
++	 */
+ 	for (i =3D 0; i < hyp_memblock_nr; i++, addr =3D reg->base + reg->size) {
+ 		reg =3D &hyp_memory[i];
+ 		ret =3D kvm_pgtable_stage2_unmap(pgt, addr, reg->base - addr);
+@@ -1119,6 +1123,91 @@ int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages)
+ 	return ret;
  }
- 
-+static bool is_mmio_dabt(u64 esr)
+=20
++int __pkvm_host_donate_hyp_mmio(phys_addr_t addr, size_t size, unsigned lo=
+ng *haddr)
 +{
-+	return (ESR_ELx_EC(esr) == ESR_ELx_EC_DABT_LOW) &&
-+		(esr & ESR_ELx_ISV);
++	kvm_pte_t pte;
++	u64 offset;
++	int ret;
++
++	/* Only before de-privilege. */
++	if (static_branch_unlikely(&kvm_protected_mode_initialized))
++		return -EPERM;
++
++	if (!PAGE_ALIGNED(addr | size) ||
++	    !pfn_range_is_valid(hyp_phys_to_pfn(addr), size >> PAGE_SHIFT))
++		return -EINVAL;
++
++	ret =3D __pkvm_create_private_mapping(addr, size, PAGE_HYP_DEVICE, haddr)=
+;
++	if (ret)
++		return ret;
++
++	host_lock_component();
++	for (offset =3D 0; offset < size; offset +=3D PAGE_SIZE) {
++		if (addr_is_memory(addr + offset)) {
++			ret =3D -EINVAL;
++			goto unlock;
++		}
++		ret =3D kvm_pgtable_get_leaf(&host_mmu.pgt, addr + offset, &pte, NULL);
++		if (ret)
++			goto unlock;
++		if (pte && !kvm_pte_valid(pte)) {
++			ret =3D -EPERM;
++			goto unlock;
++		}
++	}
++	/*
++	 * We set HYP as the owner of the MMIO pages in the host stage-2, for:
++	 * - host aborts: host_stage2_adjust_range() would fail for invalid non z=
+ero PTEs.
++	 * - recycle under memory pressure: host_stage2_unmap_dev_all() would cal=
+l
++	 *   kvm_pgtable_stage2_unmap() which will not clear non zero invalid pte=
+s (counted).
++	 * - other MMIO donation: Would fail as we check that the PTE is valid or=
+ empty.
++	 */
++	ret =3D host_stage2_try(kvm_pgtable_stage2_annotate, &host_mmu.pgt,
++			      addr, size, &host_s2_pool,
++			      KVM_HOST_INVALID_PTE_TYPE_DONATION,
++			      FIELD_PREP(KVM_HOST_DONATION_PTE_OWNER_MASK, PKVM_ID_HYP));
++unlock:
++	host_unlock_component();
++	return ret;
 +}
 +
- void handle_host_mem_abort(struct kvm_cpu_context *host_ctxt)
- {
- 	struct kvm_vcpu_fault_info fault;
-@@ -773,6 +779,15 @@ void handle_host_mem_abort(struct kvm_cpu_context *host_ctxt)
- 	BUG_ON(!(fault.hpfar_el2 & HPFAR_EL2_NS));
- 	addr = FIELD_GET(HPFAR_EL2_FIPA, fault.hpfar_el2) << 12;
- 
-+	/*
-+	 * Emulate data aborts for IOMMU drivers, other access will be denied
-+	 * by host_stage2_adjust_range()
-+	 */
-+	if (is_mmio_dabt(esr) && !addr_is_memory(addr) &&
-+	    pkvm_iommu_host_dabt_handler(&host_ctxt->regs,
-+					 esr, addr | FAR_TO_FIPA_OFFSET(fault.far_el2)))
-+		return;
++int __pkvm_hyp_donate_host_mmio(phys_addr_t addr, size_t size)
++{
++	kvm_pte_t pte;
++	u64 offset;
++	int ret =3D 0;
 +
- 	switch (host_stage2_idmap(addr)) {
- 	case -EPERM:
- 		host_inject_mem_abort(host_ctxt);
--- 
++	if (static_branch_unlikely(&kvm_protected_mode_initialized))
++		return -EPERM;
++
++	if (!PAGE_ALIGNED(addr | size) ||
++	    !pfn_range_is_valid(hyp_phys_to_pfn(addr), size >> PAGE_SHIFT))
++		return -EINVAL;
++
++	host_lock_component();
++	for (offset =3D 0; offset < size; offset +=3D PAGE_SIZE) {
++		if (addr_is_memory(addr + offset)) {
++			ret =3D -EINVAL;
++			goto unlock;
++		}
++		ret =3D kvm_pgtable_get_leaf(&host_mmu.pgt, addr + offset, &pte, NULL);
++		if (ret)
++			goto unlock;
++		if (!pte || kvm_pte_valid(pte)) {
++			ret =3D -EINVAL;
++			goto unlock;
++		}
++		if (FIELD_GET(KVM_HOST_DONATION_PTE_OWNER_MASK, pte) !=3D PKVM_ID_HYP) {
++			ret =3D -EPERM;
++			goto unlock;
++		}
++	}
++	WARN_ON(host_stage2_idmap_locked(addr, size, PKVM_HOST_MMIO_PROT));
++unlock:
++	host_unlock_component();
++	return ret;
++}
++
+ int __pkvm_hyp_donate_host(u64 pfn, u64 nr_pages)
+ {
+ 	u64 phys =3D hyp_pfn_to_phys(pfn);
+diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+index 91a7dfad6686..3073184cf6ad 100644
+--- a/arch/arm64/kvm/hyp/pgtable.c
++++ b/arch/arm64/kvm/hyp/pgtable.c
+@@ -1161,13 +1161,12 @@ static int stage2_unmap_walker(const struct kvm_pgt=
+able_visit_ctx *ctx,
+ 	kvm_pte_t *childp =3D NULL;
+ 	bool need_flush =3D false;
+=20
+-	if (!kvm_pte_valid(ctx->old)) {
+-		if (stage2_pte_is_counted(ctx->old)) {
+-			kvm_clear_pte(ctx->ptep);
+-			mm_ops->put_page(ctx->ptep);
+-		}
++	/*
++	 * That also ignores stage2_pte_is_counted() instead of clearing
++	 * the PTE as the MMIO can be owned by the hypervisor.
++	 */
++	if (!kvm_pte_valid(ctx->old))
+ 		return 0;
+-	}
+=20
+ 	if (kvm_pte_table(ctx->old, ctx->level)) {
+ 		childp =3D kvm_pte_follow(ctx->old, mm_ops);
+--=20
 2.55.0.141.g00534a21ce-goog
 
 
