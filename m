@@ -4,67 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92E6FC4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 04:05:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11116C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 04:11:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+NKTSivvd/RznSgZgQ5XRa9Kux+hc0gRY6vB/wLL5b8=; b=JzKxEad2Bj44iJ2L7m6glCv1hz
-	WO2HtEAw1NXBH6mf4JNfeuxXNzXBMKpU/mSAyoENDigzwBFyefPM9uT0Dr3l9Ma9FQr4JCa+/IRG5
-	uJCRhOW1InXyjhHI2vK5Q6ilrUKemTnrltccVdlKXPEjfiFwhdaeVAprQIR1rcJJhpM8gNZJfckHD
-	nEwUjPZ4skCNaiYf9tNzrEH8cd3U6zG2+v5qb1zqE8m5ShOoFe2HWjc4HQJRpqzu1rC9nV/azuL+T
-	1WLgDuA4xR6AylZeRZUozs0CsqXt1KQz1x94h+I5ua25eawqSr0YkTWnsYD5MwiNmQ10rtTIAMRLf
-	6FI/KR2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PSAZ47Of7UK85VcWqktBJN3gGLir+OlRjJF7UPBePns=; b=wGEWqXqc1aZAC5BmhHJvfnOeks
+	lFv+baI1eQiYaQ9Rm3CUeoL/IvgZzoQ0of0aZyL8S+j1VDI6aRdYB+J4he+Nrf/5ufYtveeOv31x2
+	8OUL+J+pVDFCg0/aUhu01oeXO8sOHRy4ZzUI+oKcg45YgBOjA1cVs+ZhsmurHQaiXxRGwsxY3o4VS
+	/7bvG44dnJUTeDsrp00CLi9Prt4hvvldiGEkXfepVi4TqippSd8+d7UGlBhZlJmQfSDKualu2Hr+o
+	omPl40p/62iBjKyUc7iB7vTfQF0/TN+WQCZImC1jJBaw+2B0MqpDtlbS2XVpg7MoFj0dc5tNmodpG
+	vMjNoVJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjqsF-0000000DiW5-1hnu;
-	Wed, 15 Jul 2026 04:05:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjqsB-0000000DiVc-0n96
+	id 1wjqi3-0000000Dhqq-0k39;
+	Wed, 15 Jul 2026 03:54:59 +0000
+Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjqhz-0000000Dhpm-19uF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 04:05:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7FA7E339;
-	Tue, 14 Jul 2026 21:05:20 -0700 (PDT)
-Received: from [10.164.18.40] (unknown [10.164.18.40])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D24F23F7D8;
-	Tue, 14 Jul 2026 21:05:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784088324; bh=JleE5ZWx9SjpMJn0oHA2QSPbxd8mp4PaHdJxoION0bY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Be6daMTs1IbU1CSoetXmxbaEoBz8AoymrrC01Gu2ZMKnuQTFZg2itQMyvkNGJewjG
-	 W00xD+NdY68zakgWc9vHhmLYz2D0EOw8R5GaE/MwzP4v6IMDxG+eCYgDl+6Ojz1itL
-	 dUS8pwTSACiNa/1z7jgbTix7dOW1TdVfVZn1Jrzk=
-Message-ID: <90194352-7389-4942-a33f-37ed4df7c51e@arm.com>
-Date: Wed, 15 Jul 2026 09:35:18 +0530
+	Wed, 15 Jul 2026 03:54:58 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=PSAZ47Of7UK85VcWqktBJN3gGLir+OlRjJF7UPBePns=;
+	b=ZqjPazn9eVRNAhGTtpmomTOfvKjrd/HPoBM6mu2QglWeQIwO4Q5011d/zjhc86MlvqVjxGRiY
+	Ul15YZ3fUweSEXnAmZPf4rLn34zzslIJ2teppDcW6RmL/khLVcUp1UOz5PQTr5ni40/r5HDj1l/
+	MrtxQtQU8ML1oT+qigMowMU=
+Received: from mail.maildlp.com (unknown [172.19.163.200])
+	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4h0MWl3SnNz1K96g;
+	Wed, 15 Jul 2026 11:45:23 +0800 (CST)
+Received: from dggpemf500013.china.huawei.com (unknown [7.185.36.188])
+	by mail.maildlp.com (Postfix) with ESMTPS id 771F340563;
+	Wed, 15 Jul 2026 11:54:40 +0800 (CST)
+Received: from huawei.com (10.50.163.32) by dggpemf500013.china.huawei.com
+ (7.185.36.188) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 15 Jul
+ 2026 11:54:39 +0800
+From: Jinqian Yang <yangjinqian1@huawei.com>
+To: <lpieralisi@kernel.org>, <maz@kernel.org>, <tglx@kernel.org>,
+	<alex@shazbot.org>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<liuyonglong@huawei.com>, <wangzhou1@hisilicon.com>, <linuxarm@huawei.com>,
+	Jinqian Yang <yangjinqian1@huawei.com>
+Subject: [PATCH v3] irqchip/gic-v3-its: enable dynamic MSI-X allocation
+Date: Wed, 15 Jul 2026 11:54:37 +0800
+Message-ID: <20260715035437.700601-1-yangjinqian1@huawei.com>
+X-Mailer: git-send-email 2.33.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 0/6] mm/vmalloc: Speed up ioremap, vmalloc and vmap
- with contiguous memory
-To: Dev Jain <dev.jain@arm.com>, Wen Jiang <jiangwenxiaomi@gmail.com>,
- Andrew Morton <akpm@linux-foundation.org>
-Cc: catalin.marinas@arm.com, linux-mm@kvack.org, urezki@gmail.com,
- will@kernel.org, Xueyuan.chen21@gmail.com, ajd@linux.ibm.com,
- david@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, rppt@kernel.org, ryan.roberts@arm.com,
- Wen Jiang <jiangwen6@xiaomi.com>
-References: <20260709073823.6643-1-jiangwen6@xiaomi.com>
- <20260709160805.26e63bae89dd03cf2951104e@linux-foundation.org>
- <CAHKocdH5kp5kTtZht+v5j-4-Thh40TGvif3=kRMgErRXr+Q+RQ@mail.gmail.com>
- <929dedc2-eea3-4153-be6d-d2dd727fed89@arm.com>
- <a08e2a7b-2ab8-4429-8d4d-9c13b6a2a77b@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <a08e2a7b-2ab8-4429-8d4d-9c13b6a2a77b@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.163.32]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ dggpemf500013.china.huawei.com (7.185.36.188)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260714_210527_476068_06EAE706 
-X-CRM114-Status: GOOD (  21.11  )
+X-CRM114-CacheID: sfid-20260714_205456_013384_599F39E8 
+X-CRM114-Status: GOOD (  14.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,80 +77,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On ARM64 platforms with GICv3 ITS, VFIO PCI passthrough currently
+cannot dynamically allocate MSI-X vectors after MSI-X has been
+enabled. When QEMU needs to extend the vector range, it must
+disable MSI-X, free all interrupts, then re-enable with a larger
+allocation. This creates an interrupt loss window for already-active
+vectors.
 
+Consider HNS3 with RoCE: NIC and RDMA share one PCI device and
+ITS DeviceID, with MSI-X vectors partitioned as NIC (lower range)
+then RoCE (starting at base_vector = num_nic_msi). In VFIO
+passthrough, loading hns_roce after hns3 forces QEMU to tear down
+all interrupts before re-allocating the larger range. During this
+process, NIC interrupts may be lost. Testing confirmed that this
+occasionally occurs, causing the network port reset to fail. This
+appears to be unavoidable, as it's a standard approach adopted by
+all network card vendors.
 
-On 14/07/26 4:47 PM, Dev Jain wrote:
-> 
-> 
-> On 14/07/26 2:06 pm, Anshuman Khandual wrote:
->>
->>
->> On 10/07/26 2:24 PM, Wen Jiang wrote:
->>> On Fri, 10 Jul 2026 at 07:08, Andrew Morton <akpm@linux-foundation.org> wrote:
->>>>
->>>> On Thu,  9 Jul 2026 15:38:17 +0800 Wen Jiang <jiangwenxiaomi@gmail.com> wrote:
->>>>
->>>>> This patchset accelerates ioremap, vmalloc, and vmap when the memory
->>>>> is physically fully or partially contiguous.
->>>>
->>>> Thanks, I added this to mm.git's mm-new branch for wider testing.
->>>>
->>>> AI review asked some questions, and some of them are new since the v5
->>>> series:
->>>>         https://sashiko.dev/#/patchset/20260709073823.6643-1-jiangwen6@xiaomi.com
->>>
->>> Hi Andrew,
->>>
->>> I've gone through the Sashiko findings:
->>>
->>> - Patch 1 (find_num_contig): Over-interpretation. No new hugetlbfs hstate
->>>   is added. The extra sizes are only used by init_mm kernel mappings via.
->>
->> But not sure if that is a right approach. If these multi CONT_PTE
->> sized mappings need to be supported in vmalloc() but without adding
->> corresponding HugeTLB sizes, probably these required helpers could
->> just be factored outside HugeTLB.
-> 
-> The problem is that the existing vmalloc-huge code reuses the hugetlb helpers
-> because it is easier that way.
-> 
-> If you really look at it, num_contig_ptes(), set_huge_pte_at() and arch_make_huge_pte()
-> do not have anything to do with hugetlbfs, but with huge mappings. It is unfortunate
-> that these helpers are sitting in hugetlbpage.c . Really these functions should be
-> pulled out of CONFIG_HUGETLBFS and put into some common header - but I can't think
-> of a clean solution to this.
-> 
+On Hisilicon HIP09 (ARM64, GICv3/GICv4.1) with latest upstream kernel
+and QEMU 8.2. VFIO passthrough of HNS3 NIC to VM: load both hns3 and
+hns_roce_hw_v2 drivers and trigger FLR, this bug will occur occasionally.
+After enabling dynamic MSIX allocation, this bug no longer occurs.
 
-set_huge_pte_at() and arch_make_huge_pte() are provided by subscribing platforms
-to be used in generic HugeTLB. But later these callbacks started getting used in
-generic vmalloc() as well. Although arch_vmap_pte_range_map_size() first narrows
-down supported size from HugeTLB list. Basically vmalloc huge mapping support is
-still a subset of HugeTLB support. Hence we should not add new vmalloc based huge
-size support without first adding that up in HugeTLB. Otherwise set_huge_pte_at()
-and arch_make_huge_pte() need moved outside generic HugeTLB as well.
+When set this flag, for the ITT, adding a new vector only inserts a new
+entry, existing entries are untouched, so already-active vectors are
+unaffected.
 
-> So I think for this series, the least we can do is add a comment to clarify that these
-> helpers can be used by non-hugetlbfs mm code to set multiple huge mappings at the PTE level.
+The ITT are sized to hwsize at MSI-X domain creation time. so there
+is always sufficient space for any vector index that may be dynamiclly
+allocated later. So the ITT never needs to be resized at runtime. The
+dynamic allocation path(msi_domain_alloc_irq_at -> populate_alloc_info)
+simply copies the pre-prepared alloc_data without re-invoking
+msi_prepare(). Then picking a free EventID from the already-allocated
+ITT and a free LPI form the already-reserved bitmap --- no existing
+vector is affected.
 
-For these helpers to be used outside HugeTLB (without prerequisite)
+Signed-off-by: Jinqian Yang <yangjinqian1@huawei.com>
+Reviewed-by: Marc Zyngier <maz@kernel.org>
+---
+Changes in v2:
+  - Updated the commit message to add test information.
+Changes in v3:
+  - Updated the commit message to add analysis.
+  - Added Reviewed-by tags from Marc.
 
-- Move them outside generic HugeTLB
-- Drop #ifdef CONFIG_HUGETLB_PAGE in vmalloc.c
+v1: https://lore.kernel.org/linux-arm-kernel/20260624025345.458387-1-yangjinqian1@huawei.com/
+v2: https://lore.kernel.org/linux-arm-kernel/20260711022015.3049867-1-yangjinqian1@huawei.com/
+---
+ drivers/irqchip/irq-gic-its-msi-parent.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-Not sure if a comment would be sufficient here.
-
-> > 
->>>
->>> - Patch 5/6 (NULL page): Invalid input. vmap() expects a fully populated
->>>     array of valid struct page pointers.
->>>
->>> - Patch 6 (32-bit count << PAGE_SHIFT overflow): Pre-existing. This was
->>>     already discussed in the V3 thread, and a separate fix was proposed
->>>     there.
->>>
->>> Thanks,
->>> Wen
->>
-> 
+diff --git a/drivers/irqchip/irq-gic-its-msi-parent.c b/drivers/irqchip/irq-gic-its-msi-parent.c
+index b9257103a999..b2b9d2068bb1 100644
+--- a/drivers/irqchip/irq-gic-its-msi-parent.c
++++ b/drivers/irqchip/irq-gic-its-msi-parent.c
+@@ -18,7 +18,8 @@
+ 
+ #define ITS_MSI_FLAGS_SUPPORTED (MSI_GENERIC_FLAGS_MASK |	\
+ 				 MSI_FLAG_PCI_MSIX      |	\
+-				 MSI_FLAG_MULTI_PCI_MSI)
++				 MSI_FLAG_MULTI_PCI_MSI |	\
++				 MSI_FLAG_PCI_MSIX_ALLOC_DYN)
+ 
+ static int its_translate_frame_address(struct fwnode_handle *msi_node, phys_addr_t *pa)
+ {
+-- 
+2.33.0
 
 
