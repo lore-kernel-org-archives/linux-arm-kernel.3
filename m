@@ -4,78 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 618BEC44507
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 10:51:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91071C44507
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 10:59:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dwtuWs6fZAlqKW07ZWIa/L7IvORP1bCSU0S6TTxBnXQ=; b=C4reEYtnAilfWRXbyzk7mEu7xO
-	wBGbqfojOJ9tE4LQ4Hk5eifB/R3dDKJrx4z3HLUKPwesB+kIMCLHxMSfnob5kTYWmCm9TCerRUek4
-	StF2KlJZ86TIpkoxZbENgm+VmL7RyxXvv/Cq5644dQmGahcK2x71JSfUoVI3D8WBQRyNe/zbVMZTD
-	7ZbWYQyR7D0qxl2kgys+P5226eXhO5VL3Ik01D/uxt4vzQ64OfuGo9l/V3nexswGDOlG5y4Nz/K9h
-	mhKDYadeWYrimVU3zVR/6EbuMFeT3bJTVf02KtJQx4lVEa61gGLWXIscfiN2uRF9AVpiC0b3oEFc8
-	fv3yJscA==;
+	bh=Zom0HCqvV9ymBQMnU5opsJOC+sxs/ZJDLNegrm+5oqU=; b=IdXi3Gh2dE3jlJNG/8NZ0b+3Hz
+	yWCx4GJ0WQNFJivxNhdRRavlR+NlMlT/tAet2z9Xr9DsQVegREKrfyZcvMlBb8kdP7lP3r0UtpDqB
+	wM1cRsewKAt1q7NDOwRrkihS3sa/2U8apcm9evWdi84A3PMAxjBbFXUkLOeCGrAd5KPh1FHifOm6n
+	yyQ1nZ9ieOUjA4KFQZdIBhuoEkg079wyQKUqiqJH5R7k9+RtUAxbLOVT79ykd0lSX6nJOa0Ax14Eg
+	oyvvesnIvKALlanKr0rF+arPku2HA11ZT2rSaaK11V0PZdpvbI6UWBY4WMKSEQ1kF6YZ8uj2nLCX3
+	KjGYUGrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjxCs-0000000EVQj-2IIF;
-	Wed, 15 Jul 2026 10:51:14 +0000
-Received: from mail-ej1-x64a.google.com ([2a00:1450:4864:20::64a])
+	id 1wjxKq-0000000EVyf-1TVS;
+	Wed, 15 Jul 2026 10:59:28 +0000
+Received: from smtp-out2.suse.de ([195.135.223.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjxCo-0000000EVQ1-0rpv
+	id 1wjxKo-0000000EVxi-1hPs
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 10:51:13 +0000
-Received: by mail-ej1-x64a.google.com with SMTP id a640c23a62f3a-c11f2b9f62fso157191466b.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 03:51:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784112667; x=1784717467; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=dwtuWs6fZAlqKW07ZWIa/L7IvORP1bCSU0S6TTxBnXQ=;
-        b=YYL8dOjz2L8kJ/hyi7smkJntNA4uqexFx0Q0GrJu6lV0ceF3eV6vdy2mzNvGdX80dq
-         raPglNshQln2KevBZ1ZcPb3sWfWYaOwwtbd3eax0KrKPoMXlZgzKKnzFp05KZW8a/Oss
-         OK1Ta6i8ZV9RQJof4f/hlK6h0TVWi/KN+wYAbGMN09xDuMuS+yyPiXcs2TcJa8IaaT0w
-         rJCHe2W7P9s36buPQQb0xEAQhWIyFId9p/BeYHkPGbXQ7AyZtOrnmbjEOHIspgGD5GMe
-         EAyOgXBK4nf9nC0Ot+424PESrUadFawmp1zLC6ClNpXlJ2QPXFRy6ZKOd1C5C+yLL5/9
-         6cMA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784112667; x=1784717467;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=dwtuWs6fZAlqKW07ZWIa/L7IvORP1bCSU0S6TTxBnXQ=;
-        b=WhslMgZQ/tqcWtG0XDEmAwDpX8grC/jdzhLQJWZIG+rCxpIRFok4UIzoXVtUOZkN51
-         ST4BPmGCHj+jQoslrUoFiatXpZzJw9h5thm+z5RGUt4shCn9YVMy+V1lHEOna0B12x/m
-         v/qYBeidiukMpXsZrQXID7DVpFrrTxpBTwq9uwwBdvPLFq5QOFaJDJThLV02oObycmeW
-         QFA4oV+2qP6TsNZDG37X9q/fQOhaF6+kYRd5MWjG3wi6s5zJp0v1a3NRzTdmJN9V+6nf
-         nplCl6qygVmu+9xQtGr/L9tdXc967SxyQnFJ8FoibPSelymKk2UCKqZgr1ACYp1xhErs
-         6H4g==
-X-Forwarded-Encrypted: i=1; AHgh+Rqvz92k/l23cLfRSrhGZi89g1HEK6z92x+Tp5k56Xek/jmd78py1iV0LQww+VXcHe6wrbSAQu/o9i0H8vWOHn8f@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw8B5AGo37bqgh1wlnPB7HwXNLbfB946C6ZGROOkHFH/JpV2xjB
-	YFk1wU8P4G3DdByXQTAV/p8qiriUr5OGj/wNb/XhahmJve0H3DIjoJlqcl8Ka2u5bLMtGSni6H5
-	10a7SvEnrh3vUDKePxagcSg==
-X-Received: from edn4.prod.google.com ([2002:a05:6402:a0c4:b0:69a:a0e5:c4fe])
- (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:907:a703:b0:c16:66ad:f8ff with SMTP id a640c23a62f3a-c1666adfb6amr360778566b.39.1784112666977;
- Wed, 15 Jul 2026 03:51:06 -0700 (PDT)
-Date: Wed, 15 Jul 2026 11:51:00 +0100
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.55.0.141.g00534a21ce-goog
-Message-ID: <20260715105100.3178255-1-vdonnefort@google.com>
-Subject: [PATCH v2] KVM: arm64: Fix hyp_trace clock disabling
-From: Vincent Donnefort <vdonnefort@google.com>
-To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
-	kernel-team@android.com, tabba@google.com, 
-	Vincent Donnefort <vdonnefort@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Wed, 15 Jul 2026 10:59:27 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id DBE453E31;
+	Wed, 15 Jul 2026 10:59:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1784113162; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=Zom0HCqvV9ymBQMnU5opsJOC+sxs/ZJDLNegrm+5oqU=;
+	b=LwfLK6XaYjuvKbqFl8jd8+1qSoaE6jDiORGlue/ymFEzT0h0C4mbyoidK33KqLrvaRFbge
+	ZBJGcZpk10AaYpXS6P80v43tAy/dMl+QcZKNOApHWkHAxhB9gV+OK6JXu5KAOBMwPbIL/7
+	37S4HTe1jQg2NeWlIKnkdvhzGw8/aCA=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1784113162;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=Zom0HCqvV9ymBQMnU5opsJOC+sxs/ZJDLNegrm+5oqU=;
+	b=Wr8I4U2PNE9TkJ5xKU2jZYxQf3LsRNmBBB0Pm1Y+76gFdO7MfcJipz6I0hG9l13TmFDMO+
+	ordCan90Cu9EotBQ==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=LwfLK6Xa;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=Wr8I4U2P
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1784113162; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=Zom0HCqvV9ymBQMnU5opsJOC+sxs/ZJDLNegrm+5oqU=;
+	b=LwfLK6XaYjuvKbqFl8jd8+1qSoaE6jDiORGlue/ymFEzT0h0C4mbyoidK33KqLrvaRFbge
+	ZBJGcZpk10AaYpXS6P80v43tAy/dMl+QcZKNOApHWkHAxhB9gV+OK6JXu5KAOBMwPbIL/7
+	37S4HTe1jQg2NeWlIKnkdvhzGw8/aCA=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1784113162;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=Zom0HCqvV9ymBQMnU5opsJOC+sxs/ZJDLNegrm+5oqU=;
+	b=Wr8I4U2PNE9TkJ5xKU2jZYxQf3LsRNmBBB0Pm1Y+76gFdO7MfcJipz6I0hG9l13TmFDMO+
+	ordCan90Cu9EotBQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 369F6779AD;
+	Wed, 15 Jul 2026 10:59:22 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id /biiCgpoV2reeAAAD6G6ig
+	(envelope-from <clopez@suse.de>); Wed, 15 Jul 2026 10:59:22 +0000
+From: =?UTF-8?q?Carlos=20L=C3=B3pez?= <clopez@suse.de>
+To: kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Cc: maz@kernel.org,
+	oupton@kernel.org,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	=?UTF-8?q?Carlos=20L=C3=B3pez?= <clopez@suse.de>
+Subject: [PATCH v6 0/2] KVM: arm64: vgic: Fix racy LPI release and re-registration handling
+Date: Wed, 15 Jul 2026 12:51:36 +0200
+Message-ID: <20260715105137.3973823-3-clopez@suse.de>
+X-Mailer: git-send-email 2.51.0
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Rspamd-Action: no action
+X-Rspamd-Queue-Id: DBE453E31
+X-Spamd-Result: default: False [-3.51 / 50.00];
+	BAYES_HAM(-3.00)[99.99%];
+	MID_CONTAINS_FROM(1.00)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	ARC_NA(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	RCPT_COUNT_TWELVE(0.00)[12];
+	RCVD_TLS_ALL(0.00)[];
+	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	RCVD_COUNT_TWO(0.00)[2];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:mid,suse.de:dkim];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	DKIM_TRACE(0.00)[suse.de:+]
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_035110_288237_A7EE1748 
-X-CRM114-Status: GOOD (  11.40  )
+X-CRM114-CacheID: sfid-20260715_035926_596054_7120C640 
+X-CRM114-Status: UNSURE (   9.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,79 +144,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix the disable path in hyp_trace_clock_enable(), which fell through to
-re-initialize and reschedule the clock after cancelling the work. Return
-early instead.
+Fix a couple of potential issues that could arise from racy LPI release
+and re-registration for the same INTID.
 
-While at it, cleanup hyp_trace_clock::lock which is unused and
-hyp_trace_clock::running which is redundant: the trace_remote framework
-already serializes calls to the callback enable_tracing.
+The issue fixed in patch 1 can manifest itself through either a
+leaked LPI structure, or a prematurely deleted LPI. The issue fixed
+in patch 2 could materialize as a spurious -ENOMEM failure when
+registering an LPI.
 
-Fixes: b22888917fa4 ("KVM: arm64: Sync boot clock with the nVHE/pKVM hyp")
-Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+v6:
+* Remove pending_release in patch 1, preventing use-after-free and/or
+  spurious WARNs.
+* Avoid lock inversion via xa_release() (Sashiko).
 
---- 
+v5:
+* Make sure evicted IRQs on the registration path are pending
+  release (Oliver Upton).
 
-v1 -> v2:
-  * Rollback hyp_trace_clock_enable() on __tracing_enable error (Sashiko)
+v4:
+* Add __GFP_ACCOUNT to patch 2 (Sashiko).
 
-v1: https://lore.kernel.org/all/alczBmnItMwq8xj4@google.com/
+v3:
+* Use refcount_dec_and_lock_irqsave() instead of unconditionally
+  grabbing the xarray lock in patch 1.
+* Add patch 2.
 
-diff --git a/arch/arm64/kvm/hyp_trace.c b/arch/arm64/kvm/hyp_trace.c
-index 2411b4c32932..9bfa368dd841 100644
---- a/arch/arm64/kvm/hyp_trace.c
-+++ b/arch/arm64/kvm/hyp_trace.c
-@@ -37,8 +37,6 @@ static struct hyp_trace_clock {
- 	u32			shift;
- 	struct delayed_work	work;
- 	struct completion	ready;
--	struct mutex		lock;
--	bool			running;
- } hyp_clock;
- 
- static void __hyp_clock_work(struct work_struct *work)
-@@ -110,12 +108,9 @@ static void hyp_trace_clock_enable(struct hyp_trace_clock *hyp_clock, bool enabl
- {
- 	struct system_time_snapshot snap;
- 
--	if (hyp_clock->running == enable)
--		return;
--
- 	if (!enable) {
- 		cancel_delayed_work_sync(&hyp_clock->work);
--		hyp_clock->running = false;
-+		return;
- 	}
- 
- 	ktime_get_snapshot_id(CLOCK_BOOTTIME, &snap);
-@@ -128,7 +123,6 @@ static void hyp_trace_clock_enable(struct hyp_trace_clock *hyp_clock, bool enabl
- 	INIT_DELAYED_WORK(&hyp_clock->work, __hyp_clock_work);
- 	schedule_delayed_work(&hyp_clock->work, msecs_to_jiffies(CLOCK_INIT_MS));
- 	wait_for_completion(&hyp_clock->ready);
--	hyp_clock->running = true;
- }
- 
- /* Access to this struct within the trace_remote_callbacks are protected by the trace_remote lock */
-@@ -304,9 +298,15 @@ static void hyp_trace_unload(struct trace_buffer_desc *desc, void *priv)
- 
- static int hyp_trace_enable_tracing(bool enable, void *priv)
- {
-+	int ret;
-+
- 	hyp_trace_clock_enable(&hyp_clock, enable);
- 
--	return kvm_call_hyp_nvhe(__tracing_enable, enable);
-+	ret = kvm_call_hyp_nvhe(__tracing_enable, enable);
-+	if (ret)
-+		hyp_trace_clock_enable(&hyp_clock, !enable);
-+
-+	return ret;
- }
- 
- static int hyp_trace_swap_reader_page(unsigned int cpu, void *priv)
+v2:
+* Address Sashiko's review. Fix the direct release path by decrementing
+  the refcount under the xarray spinlock, preventing a UAF that would
+  have been introduced in v1.
 
-base-commit: a13c140cc289c0b7b3770bce5b3ad42ab35074aa
+Carlos López (2):
+  KVM: arm64: vgic: Fix race between LPI release and re-registration
+  KVM: arm64: vgic: Mitigate potential LPI registration failure
+
+ arch/arm64/kvm/vgic/vgic-its.c | 25 +++++++++++++++++--------
+ arch/arm64/kvm/vgic/vgic.c     | 18 ++++++++----------
+ include/kvm/arm_vgic.h         |  3 ---
+ 3 files changed, 25 insertions(+), 21 deletions(-)
+
+
+base-commit: 1ee27dacbe5dc4def481794d899d67b0d4570094
 -- 
-2.55.0.141.g00534a21ce-goog
+2.51.0
 
 
