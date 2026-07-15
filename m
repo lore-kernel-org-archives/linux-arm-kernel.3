@@ -4,59 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 799C3C44512
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 10:39:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FD80C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 10:41:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jd5jzYngT6dqOkpuwWyJZc53GLB4Od6aD/xFdQAU4Ow=; b=w+rjRZOvqpC7sr
-	sk95vNyK1dpLZlH1rKAIeckr8QBWgtZ9eq+Fvt1KqNYqexHZuubuY+6hM4Ro86g9Bcm9stYGn6G9X
-	4RgGP7L6VIlLp5Vt8VJsez5fydNdl1EbBw8Ao4BiQoICut5EgNUsF5llrzuNBRRrjrVRfVP34B/1a
-	+M5xIi7aXH5JTae5B73FvgvYTy5K4RcEjtzZbAAnMmNXa8xWS6jzMquEyAEXQqOHsR4f5Zb9ivQD2
-	LaTscBvqQfHEQx+Np5ROz7FEwopjLQ67vIzkS4HSy2RCeJGTTKtSwyvqfz7FYJMv0rEnjpYp7jLG0
-	EnDFGJLVU26BTOch6p7w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UWMOa8RmO9jpoN2Ud/1SRKZL8yZlX2jyFLFqSrdjzG0=; b=CcNAWXwd69HWKOojPWJ9QipTjw
+	Q76TdF8m5QL/An1kKwkEIJz9KMrjqW+dfrRdDYXp7VGP4B3zLAvFAzjl/tDbtHchTXR/RiYWi4r5Y
+	wdQx4RVxoMeAnEkkQxAKA6o206m/CSyR18SIAq2EtQn36N7a6v+DYuvETPe1xuj00ITtn+/qI27kU
+	BndrhUSbKPaQDUX6pBwgdlbWFzAkYbC22ClmCX+W4DE8vpstDirmP2rZKseETbZPvjZHs4r1SieCE
+	ZZ5PhWm5WkrQiNVqWJ07/59j2Uo0pKmjjvMHMqIyaRLbIrxaOJyXWw8y5DTVYQ+UlS12yyzK/1pQK
+	IAYATVHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjx1k-0000000ETnY-28qN;
-	Wed, 15 Jul 2026 10:39:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjx1i-0000000ETmv-00AT
+	id 1wjx3X-0000000EU7M-3kRA;
+	Wed, 15 Jul 2026 10:41:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjx3X-0000000EU6u-13IG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 10:39:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 126D51477;
-	Wed, 15 Jul 2026 03:39:36 -0700 (PDT)
-Received: from [10.1.34.162] (e121487-lin.cambridge.arm.com [10.1.34.162])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AA60B3F7B4;
-	Wed, 15 Jul 2026 03:39:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784111980; bh=wmdL16b70l2qBmvW8NWILneMtGOzGt1bbGt10mvhgEU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ICDpKz2g1AgI8AqFCCpuTV5wQbVmlVPmRUOypsqvL7LYFlMppxIqnacQEwY0F0nv6
-	 6aFlxEYPscws9qgy8sSGXbbRtPhbttejd0lFh2nW4LD9H/Id1HeZKFIGybN7pVW3cY
-	 CuKnpt5bb8QLFUpwiDEDv5kzQph/938qD22AQY7s=
-Message-ID: <8c74549a-5a0c-40f5-95e3-26119d2f85a7@arm.com>
-Date: Wed, 15 Jul 2026 11:39:36 +0100
+	Wed, 15 Jul 2026 10:41:35 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B66D341745;
+	Wed, 15 Jul 2026 10:41:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 257531F000E9;
+	Wed, 15 Jul 2026 10:41:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784112094;
+	bh=UWMOa8RmO9jpoN2Ud/1SRKZL8yZlX2jyFLFqSrdjzG0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Pb1SVBvQEnQdCnEA4d1ZJbdJtVz9dqsYwMn0rYprhqu25XojSgUHMqOvvRnCh6v71
+	 8YzM5r8VwzFZ+TSozHwfJ74ny/7EbeDG4PrSR3U5hglezbjHkGp2Yg7YdGyYqQcSLN
+	 U+THj5ZpLIYWQ4PO4lWn1buLFLoUsM7+jSvmUDR19PVSbLiHxanYv8Za+Dg19N2I6Z
+	 nolYM0tr8gAPhT7nhn6zF0Mc4wm2xWMbMawYMoivaCDPrImpWc+kvbQfV+W+eAH5SV
+	 KHxYJM3R9Kii9uJH1ION6Yi7O4EZPxAhMkz1/j/nR5cNONttYwOPiyocjg8lOGTCYp
+	 G2xOzpfRMWauw==
+Date: Wed, 15 Jul 2026 11:41:30 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Yu-Chun Lin =?utf-8?B?W+ael+elkOWQm10=?= <eleanor.lin@realtek.com>
+Cc: "linux-next@vger.kernel.org" <linux-next@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"afaerber@suse.com" <afaerber@suse.com>,
+	James Tai =?utf-8?B?W+aItOW/l+WzsF0=?= <james.tai@realtek.com>,
+	Stanley =?utf-8?B?Q2hhbmdb5piM6IKy5b63XQ==?= <stanley_chang@realtek.com>,
+	=?utf-8?B?Q1lfSHVhbmdb6buD6Ymm5pmPXQ==?= <cy.huang@realtek.com>
+Subject: Re: Add the Realtek SoC tree to linux-next
+Message-ID: <b1536553-af32-4a33-9fda-3880ac029bf4@sirena.org.uk>
+References: <555485abc39a4ad1b252b4fd7c5bf706@realtek.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 11/36] arm64: interrupts: introduce interrupt masking
- helpers for entry code
-To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
-References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-12-vladimir.murzin@arm.com>
- <6374def7-d2fd-4e34-9fc3-465e479ab681@huawei.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <6374def7-d2fd-4e34-9fc3-465e479ab681@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_033942_089840_30B5BE57 
-X-CRM114-Status: GOOD (  13.73  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="GhOrWfz6I3jQbq3f"
+Content-Disposition: inline
+In-Reply-To: <555485abc39a4ad1b252b4fd7c5bf706@realtek.com>
+X-Cookie: "Speed is subsittute fo accurancy."
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,55 +71,57 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org, catalin.marinas@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/10/26 10:39, Jinjie Ruan wrote:
->> +static __always_inline
->> +void arm64_update_exc_hwstate(arm64_exc_hwstate_t hwstate, bool update_pmr)
->> +{
->> +	if (system_uses_irq_prio_masking() &&
->> +	    update_pmr &&
->> +	    hwstate.pmr == GIC_PRIO_IRQOFF) {
->> +		/*
->> +		 * There has been concern that the write to daif
->> +		 * might be reordered before this write to PMR.
->> +		 * From the ARM ARM DDI 0487D.a, section D1.7.1
->> +		 * "Accessing PSTATE fields":
->> +		 *   Writes to the PSTATE fields have side-effects on
->> +		 *   various aspects of the PE operation. All of these
->> +		 *   side-effects are guaranteed:
->> +		 *     - Not to be visible to earlier instructions in
->> +		 *       the execution stream.
->> +		 *     - To be visible to later instructions in the
->> +		 *       execution stream
->> +		 *
->> +		 * Also, writes to PMR are self-synchronizing, so no
->> +		 * interrupts with a lower priority than PMR is signaled
->> +		 * to the PE after the write.
->> +		 *
->> +		 * So we don't need additional synchronization here.
->> +		 */
->> +		write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
->> +		pmr_sync();
->> +	}
->> +
->> +	write_sysreg(hwstate.daif, daif);
->> +
->> +	if (system_uses_irq_prio_masking() &&
->> +	    update_pmr &&
->> +	    hwstate.pmr == GIC_PRIO_IRQON) {
->> +		write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
->> +		pmr_sync();
->> +	}
-> The default behavior of both local_daif_restore() and
-> local_daif_inherit() is to first restore the PMR register and then
-> restore DAIF. It appears that there has been a functional change here.
 
-Please see my other reply on this patch for the rationale behind
-structuring this function this way.
+--GhOrWfz6I3jQbq3f
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Cheers
-Vladimir
+On Wed, Jul 15, 2026 at 06:25:14AM +0000, Yu-Chun Lin [=E6=9E=97=E7=A5=90=
+=E5=90=9B] wrote:
+
+> Could you please add the following to linux-next?
+
+> - Git repository URL: https://git.kernel.org/pub/scm/linux/kernel/git/yu_=
+chun/linux.git
+> - Branch: for-next & fixes
+
+fixes was already there, I've added for-next from today.
+
+Thanks for adding your subsystem tree as a participant of linux-next.  As
+you may know, this is not a judgement of your code.  The purpose of
+linux-next is for integration testing and to lower the impact of
+conflicts between subsystems in the next merge window.
+
+You will need to ensure that the patches/commits in your tree/series have
+been:
+     * submitted under GPL v2 (or later) and include the Contributor's
+        Signed-off-by,
+     * posted to the relevant mailing list,
+     * reviewed by you (or another maintainer of your subsystem tree),
+     * successfully unit tested, and
+     * destined for the current or next Linux merge window.
+
+Basically, this should be just what you would send to Linus (or ask him
+to fetch).  It is allowed to be rebased if you deem it necessary.
+
+--GhOrWfz6I3jQbq3f
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmpXY9kACgkQJNaLcl1U
+h9ChMAf+LZ1wlVvoNZcbfgsS8CU85tTESQV3LyeKXRqPajv/BazYrgnAxfZu8tvb
+Y0ykGu1hhAufpN25FfU5Us8ZOj1hYQM/L8ueeV+8wDSn89lalQ9vjwww8BrvPL4V
+/PJ1NpNr6BV1DZPhUvacwJdDas+68mmetTV2Q6LqVxrWcJbXj+VACYWDe5C+rLgs
+CjGLfrcx9bC9rnjLyOps5Eg/C5+8M0sojyNXhMzVr2wyDwr2KZYed5XLhzGL1BfG
+kb/VLJRcBeXTPcgsufetODA+Ggw8c5//pY5UtFGxGLB6V/AIS7Ys0AIIopk1bSBN
+i6F/ckkAbI76e18KHom21B/8aIkmRw==
+=j/6K
+-----END PGP SIGNATURE-----
+
+--GhOrWfz6I3jQbq3f--
 
