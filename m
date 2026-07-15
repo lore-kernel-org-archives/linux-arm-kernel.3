@@ -4,59 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 958E3C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 10:43:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99901C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 10:46:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EHJ3paD55i7zus9Qk9EYKpiugs/TV0iilkm9IjMJHm0=; b=cmEMXx3dbEGVpk
-	wrIku3DdAiFVX1qXP9gV3rFoS34957QAxvMOdm7FaSIBQVxlD0XXTQDIWKgtSneVnOv3QxojnprEF
-	sjze05tHU37q924vHuV+WAxdJuuYfxTRNjDk3jQSx3WsSlPEPkoBz3DCNodv8BNg6loKY8qbq/91U
-	7KDSMFSk5sOwwY0/TpnyAz7uHi1Pr++wNR8hEEpRY5Cgy9CY+kG7g0JeVFrvWxqxRVBbLtqAcEOVM
-	Na3njli93LBUbsXqbiykV+qhbScbAkUXv52mjfOdtAn+8pnux9uD+n03zQceg/E255devE6KGr11d
-	SiS0SjZoNQAVJq5Tu/yQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JXgSRxTKj+L+xXrdSkwaJ31uXWibcCMSOUuoYLHSytQ=; b=akUyGUPjr4oaqfvQU2BunWh/jy
+	+tmpK/mtn6JMRXGkyt2ul4pUiNAdjb27RAD1X2mO3VkKD/yp7Aig8kKPEz2eiHp2ymbPAaVZ8o7RT
+	Q84lhtKjpHrQzZ0S5UEDSUWTs8d1BRfNDa0HtguAI2iyYO/IfGbraZVjYw2e5fF9BzQErxuzPa8mQ
+	XxrWz63cZOGv9X2w+0hkxUG9GNK/xBWZ4p9KpqOPCndxdynqRouGlMlZboZAWXJe1pD4TG9VNDNsx
+	rlEDiQrrfPngyLfCgHuaVh27LfRZeUTdyTmDPt9b4gxBb69Odydo437Aivo8uWocAC+cWO13g0C8s
+	HAp2SQlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjx5X-0000000EUTk-0pbS;
-	Wed, 15 Jul 2026 10:43:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjx5U-0000000EUTD-1yFk
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 10:43:37 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 254CD1477;
-	Wed, 15 Jul 2026 03:43:31 -0700 (PDT)
-Received: from [10.1.34.162] (e121487-lin.cambridge.arm.com [10.1.34.162])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 059533F7B4;
-	Wed, 15 Jul 2026 03:43:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784112215; bh=/rpRhT2EBWKL2i6C/kd+OnXVQ37BfQUbnXIaIXqVWRY=;
+	id 1wjx88-0000000EUjI-2YcS;
+	Wed, 15 Jul 2026 10:46:20 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wjx85-0000000EUin-334L;
+	Wed, 15 Jul 2026 10:46:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1784112374;
+	bh=Y/KBs2j+URnHAEFXdxv03n1EZjRY256pe45tY92sp2A=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=YmwOJ4DjimS59u20HmvHu269zD9LA3vMqA1Xry2xWX3fV9CptfsY0L4kFLYMbEwaY
-	 1GLCdBd+4yjrW0EyK4yk9/SS4lAopPuevGCUnOjmD3xjES+MfUSPZ4kRFhMoYjg9jw
-	 64AI3dfLVW3JUlvVWzWO04RDGPGwVz/w5vTgs3mc=
-Message-ID: <77fba859-cfcc-4120-ba17-b4e1c4113e10@arm.com>
-Date: Wed, 15 Jul 2026 11:43:32 +0100
+	b=a1x7CCuYOFQ0iFeG0/UdjnHbh3eoJCpjm3qpcJNSz6pqh0gYK8zjgWWPNJINuvLUI
+	 JXIhkqi195vQiLdzXBr8aY2vD9wAsZTQt6zrAQcHlGu38BqZW4XaalyT5qHiR01yDF
+	 5eExmNkKD6ST1/u5EmqzkmBuBOlqZoBoo7LucB3aOgH5icFd044Cr2gedClUTmY48A
+	 UfE5IlkxUUDCWr4awcYEtbOvbBHBkx8P2TZw8+hrEyuM0FJhmalvxqeOigYw5NEr5q
+	 o+DlN8esrjrwddTbyfPCfupHMkHjcKDVuNqaF5KjE06KIJIMKwOdHlyYn7XJ4QhLua
+	 a7yyTuYE3LoWw==
+Received: from [100.64.0.241] (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5B15E17E00F6;
+	Wed, 15 Jul 2026 12:46:13 +0200 (CEST)
+Message-ID: <dfca9032-98ca-4c61-b1b1-85fd05283d77@collabora.com>
+Date: Wed, 15 Jul 2026 13:46:12 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 11/36] arm64: interrupts: introduce interrupt masking
- helpers for entry code
-To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
-References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-12-vladimir.murzin@arm.com>
- <797df793-51c3-4311-8c0a-98c1642e1035@huawei.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <797df793-51c3-4311-8c0a-98c1642e1035@huawei.com>
+Subject: Re: [PATCH v8 04/39] drm/connector: Add HDMI 2.0 scrambler
+ infrastructure
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>,
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org
+References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
+ <20260702-dw-hdmi-qp-scramb-v8-4-d79890d00b6a@collabora.com>
+ <tjsidlnvswo2rdhqa6jybxrnb47lxgmxdlfrfbasuh67wjbqoy@3a45n3zawvnf>
+ <17753a1c-824a-4835-ac2d-8b2796bba1eb@collabora.com>
+ <534b921c-638c-4fc3-b89e-5dfc1f269f96@collabora.com>
+ <20260713-statuesque-nonchalant-seagull-b9c39d@houat>
+ <91c3a825-3344-4ff5-8ea0-f8f057665b3f@collabora.com>
+ <20260715-ancient-zealous-eagle-b13e94@houat>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <20260715-ancient-zealous-eagle-b13e94@houat>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_034336_800970_D2DC6F60 
-X-CRM114-Status: GOOD (  14.45  )
+X-CRM114-CacheID: sfid-20260715_034617_930829_C2EAE674 
+X-CRM114-Status: GOOD (  24.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,57 +93,104 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org, catalin.marinas@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/10/26 10:44, Jinjie Ruan wrote:
->> +static __always_inline
->> +void arm64_update_exc_hwstate(arm64_exc_hwstate_t hwstate, bool update_pmr)
->> +{
->> +	if (system_uses_irq_prio_masking() &&
->> +	    update_pmr &&
->> +	    hwstate.pmr == GIC_PRIO_IRQOFF) {
->> +		/*
->> +		 * There has been concern that the write to daif
->> +		 * might be reordered before this write to PMR.
->> +		 * From the ARM ARM DDI 0487D.a, section D1.7.1
->> +		 * "Accessing PSTATE fields":
->> +		 *   Writes to the PSTATE fields have side-effects on
->> +		 *   various aspects of the PE operation. All of these
->> +		 *   side-effects are guaranteed:
->> +		 *     - Not to be visible to earlier instructions in
->> +		 *       the execution stream.
->> +		 *     - To be visible to later instructions in the
->> +		 *       execution stream
->> +		 *
->> +		 * Also, writes to PMR are self-synchronizing, so no
->> +		 * interrupts with a lower priority than PMR is signaled
->> +		 * to the PE after the write.
->> +		 *
->> +		 * So we don't need additional synchronization here.
->> +		 */
->> +		write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
->> +		pmr_sync();
->> +	}
->> +
->> +	write_sysreg(hwstate.daif, daif);
->> +
->> +	if (system_uses_irq_prio_masking() &&
->> +	    update_pmr &&
->> +	    hwstate.pmr == GIC_PRIO_IRQON) {
->> +		write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
->> +		pmr_sync();
-> In the original local_daif_restore, pmr_sync is only required when
-> interrupts are enabled. Is there any performance issue?
+On 7/15/26 11:55 AM, Maxime Ripard wrote:
+> On Mon, Jul 13, 2026 at 01:23:00PM +0300, Cristian Ciocaltea wrote:
+>> On 7/13/26 11:50 AM, Maxime Ripard wrote:
+>>> On Thu, Jul 09, 2026 at 10:25:54PM +0300, Cristian Ciocaltea wrote:
+>>>> On 7/3/26 11:54 PM, Cristian Ciocaltea wrote:
+>>>>> On 7/3/26 5:34 PM, Dmitry Baryshkov wrote:
+>>>>>> On Thu, Jul 02, 2026 at 05:46:17PM +0300, Cristian Ciocaltea wrote:
+>>>>>>> Add the connector-level infrastructure to support HDMI 2.0 scrambling:
+>>>>>>>
+>>>>>>> - A scrambler_supported flag to indicate whether the source supports the
+>>>>>>>   scrambling capability, in which case the newly introduced
+>>>>>>>   .scrambler_{enable|disable}() callbacks in drm_connector_hdmi_funcs
+>>>>>>>   are mandatory
+>>>>>>
+>>>>>> Do we need a flag? What would it mean if the flag is set, but the
+>>>>>> callbacks are not? Can we drop the flag and use the presence of the
+>>>>>> callbacks as a way to identify that scrambler is enabled?
+>>>>>
+>>>>> The flag is intended to be set only within drmm_connector_hdmi_init_with_caps()
+>>>>> when drivers advertise HDMI 2.x capability, in which case it also ensures the
+>>>>> callbacks are provided.  
+>>>>>
+>>>>> We could drop the flag and instead have the init helper clear the callbacks if
+>>>>> they were provided for HDMI 1.x.  This might slightly reduce code readability,
+>>>>> as it relies on checking the presence of individual callbacks - especially since
+>>>>> we plan to extend this further with HDMI 2.1 support, providing four or five
+>>>>> additional FRL-specific callbacks.
+>>>>
+>>>> I tried to replace the flag with a helper that checks the presence of (one of)
+>>>> the callbacks, but it's not straightforward to unset those for non-HDMI 2.x
+>>>> cases since the hdmi_funcs argument is immutable.
+>>>
+>>> I'm not sure why we would need to unset them. If the driver states that
+>>> it support HDMI 2.0, then it needs to be there, if it doesn't, then who
+>>> cares? it's not going to be used. We can log a warning that it's
+>>> inconsistent I guess, but there's no need to actively remove it.
+>>
+>> I was trying to address the use case where drivers provide the scrambler
+>> callbacks despite not supporting HDMI 2.0.
 > 
-> If all are using pmr_sync, why not merge it with the previous pmr
-> operations?
+> Scrambling got introduced with HDMI 2.0. That doesn't make sense, but
+> it's not a total deal breaker, it's just going to be here unused. Hence
+> why I was suggesting to put a warning there if you wanted to.
+> 
+>> If we replace the scrambler_supported flag with a helper checking the
+>> presence of the scrambler callbacks, then we would need to ensure the
+>> callbacks do not exist in this case.
+> 
+> Keep it simple:
+> 
+> if (hdmi_version >= HDMI_VERSION_2_0)
+>    if (funcs->scrambler_enable)
+>       hdmi->scramblers_supported = true
+>    else
+>       return -EINVAL
+> else
+>     drm_warn(warn, "Inconsistent HDMI version");
+> 
+> We don't need anything more than that.
 
-IIUC, pmr_sync is not required for IRQOFF case. Please see my other
-reply on this patch for the rationale behind structuring this function
-this way.
+I dropped the scrambler_supported flag and introduced a helper:
 
-Cheers
-Vladimir
+static inline bool
+drm_connector_hdmi_scrambler_supported(struct drm_connector *connector)
+{
+	return connector->hdmi.funcs && connector->hdmi.funcs->scrambler_enable;
+}
+
+Therefore we need to ensure the callbacks are not set in the HDMI 1.x cases:
+
+int drmm_connector_hdmi_init_with_caps()
+{
+	...
+	if (caps->supported_hdmi_ver >= HDMI_VERSION_2_0) {
+		if (!hdmi_funcs->scrambler_enable ||
+		    !hdmi_funcs->scrambler_disable)
+			return -EINVAL;
+
+		connector->hdmi.max_tmds_char_rate = HDMI_2_0_TMDS_CHAR_RATE_MAX_HZ;
+	} else {
+		/*
+		 * Scrambler callbacks are only valid for connectors advertising
+		 * HDMI 2.0 capability. drm_connector_hdmi_scrambler_supported()
+		 * relies on their presence to report scrambling support.
+		 */
+		if (hdmi_funcs->scrambler_enable ||
+		    hdmi_funcs->scrambler_disable)
+			return -EINVAL;
+
+		if (caps->supported_hdmi_ver >= HDMI_VERSION_1_3) {
+			connector->hdmi.max_tmds_char_rate = HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ;
+		} else if (caps->supported_hdmi_ver >= HDMI_VERSION_1_0) {
+			connector->hdmi.max_tmds_char_rate = HDMI_1_0_TMDS_CHAR_RATE_MAX_HZ;
+		}
+	}
+	...
+}
 
