@@ -4,68 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 024B9C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 08:13:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23EB8C44507
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 08:16:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zStigLhV4Yy76Iea0IqvLSUMMxu60sak2zphCm7EfOk=; b=xVRoBGNsLusBHml8WhzEn8ZPkB
-	ZZQFepkTAnF6L0nvzB5DFRsvO/cYr9c123NTheR90nyHRa6urT5wTRxsxkIBp8q94At1Y0LhUXbbv
-	mcxLLkSEINKlgUM2mp8M1VmElUhaaAZKyY6eBBP4w9U7xSyN3UDTyUx/ExHDLYAXVmaOlH+2wZndw
-	c4+wCq+x7i9rzopTQo8XQn8QWRgwQTckysJ/7ISIV6LRx55V6kSXVXbJ9M/x2vz6hsELnZktTXcsl
-	JLWzlz5A/1FDDKz8/au+BQYOb/PBBqxqFOWO/pCggKM1X/iM7aqOvOkszfrgMs1AAZnu41yXX05A7
-	MdsHJ+PA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=069svORtyCtYRHYaLHWNs2IVK4x94dg6+FEW0jE90ig=; b=H2sAOkK3B3g2gSsHlieGiCd+jt
+	TcHGGaK61miHQVyoL3p9wBkU1VjMTmL7LPYs81GKfKODPGdX4g1+SFxA+e6QFyPePfEyz1sSh7njW
+	oD6r0Z3izS71uiD2HJMZ1uB+WM5FKT6vYNylY9umQyBvZREHEDd9VpqSspJtfmAV+sZwNml8FVSv9
+	UY4unrTfpWGPHc+GwwQv1/D2xqLmlTAlnwv7U/Heber5N1xMZRnbHtsRl85+gpZYvuvdTVRb/23tr
+	NhBq9DKHJSUCtqcuNi8hS8PeOBQguDxnTOrcq7o9u7Q2/l67qnjTHuI9+CNOWDttnJpd69VY/4au+
+	aJcP+rxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjuk3-0000000E7q8-24VB;
-	Wed, 15 Jul 2026 08:13:19 +0000
-Received: from out-186.mta0.migadu.com ([91.218.175.186])
+	id 1wjumi-0000000E8VG-3hu2;
+	Wed, 15 Jul 2026 08:16:04 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjujt-0000000E7ec-3MJN
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 08:13:11 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1784103187;
+	id 1wjumg-0000000E8UW-2l34;
+	Wed, 15 Jul 2026 08:16:04 +0000
+From: Gregor Herburger <gregor.herburger@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1784103357;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=zStigLhV4Yy76Iea0IqvLSUMMxu60sak2zphCm7EfOk=;
-	b=fi69MUetKLiPoB9kSGFklvsov0Mw+v6XMninxkhobiuedKz4VirOyGjVlg8hPGmBLNOveb
-	UVhTTY+chjjRgdUhyVoFEA6OGiMm+JUsNM8zOMlE4s2A/1NHR8XOqim9CP3xF2Vev2+EDJ
-	EpAUs38VYHZxgogSk2SRhd6WsOSxQVc=
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Quentin Perret <qperret@google.com>,
-	Sebastian Ene <sebastianene@google.com>,
-	Hyunwoo Kim <imv4bel@gmail.com>,
-	Fuad Tabba <tabba@google.com>
-Subject: [PATCH v6 8/8] KVM: arm64: Implement lazy vCPU state sync for non-protected guests
-Date: Wed, 15 Jul 2026 09:12:38 +0100
-Message-Id: <20260715081238.1891918-9-fuad.tabba@linux.dev>
-In-Reply-To: <20260715081238.1891918-1-fuad.tabba@linux.dev>
-References: <20260715081238.1891918-1-fuad.tabba@linux.dev>
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=069svORtyCtYRHYaLHWNs2IVK4x94dg6+FEW0jE90ig=;
+	b=S+VeRqtG5jBbEUtIk/aobk8kRiO5gVxLPO/2xwGMHffxZuw5FuTltyoWFzKrfQFVpAdE34
+	Jl+ibliUh8TXAW5Z70ThtVx9Y0keOLIU0SLSYQUspaLTZ0F/6+UxmLOm+lluMBRrQyqbCO
+	U1Ki6umQVT7far+z4iefIieKFcuKA1F25gFcJmLlOzjHRewh4htFoZGAZRRwvpEkEZfNJm
+	cI0kYA5UninTshHJkq/n/mKqIdP93kLZFD9uuQmZeClT05gfQ9Tj7/wPhhjy2m4Ut8thF2
+	0OWlSBi85yIbG+QpCj6UToX/sMKdCr1F0lJ29u6Dmd8dq/9NpQuIXvGkkd7WLQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1784103357;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=069svORtyCtYRHYaLHWNs2IVK4x94dg6+FEW0jE90ig=;
+	b=K6wu4rnQ1ce5y0zo5F93CG2EgbmU5dIuXh+ePpbjHxEarAL7PgnebMyiR7S7jNOOVRV51C
+	hBe1VfXQcMPq/4BA==
+Date: Wed, 15 Jul 2026 10:15:49 +0200
+Subject: [PATCH] pmdomain: raspberrypi-power: add remove function
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260715-rpi-pm-remove-v1-1-e4eed226e08a@linutronix.de>
+X-B4-Tracking: v=1; b=H4sIALRBV2oC/yXMQQqDMBBG4avIrDsQgxroVUoXGv/oCGqYVBHEu
+ 5u2y2/x3kkJKkj0LE5S7JJkXTLKR0F+bJcBLH02WWMb48qaNQrHmRXzuoMrDxus62qElnITFUG
+ O3+/1/jtt3QT/+U7oum7kWY3dcQAAAA==
+X-Change-ID: 20260715-rpi-pm-remove-4ce2f27b5efa
+To: Ulf Hansson <ulfh@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: linux-pm@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Gregor Herburger <gregor.herburger@linutronix.de>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784103357; l=1632;
+ i=gregor.herburger@linutronix.de; s=20260226; h=from:subject:message-id;
+ bh=DUMpCtmzqNZECMm9DCH89x+Qh2EGRoVif4z9CSmaRlw=;
+ b=7Vqo1EJ6O4wEXv/6vBSIwOV9PCjZmGsxxCW8jc9inW5fLCsIxVbw9OHMBL3g6IXpq2oJ2uBlZ
+ MrCfMdowNI7ABWa2RpIn81fuXOVMxbK81Cb5R4fqV2XmCVwRwhqYDj8
+X-Developer-Key: i=gregor.herburger@linutronix.de; a=ed25519;
+ pk=u72Lv7+/lS5CC1hmSrb17lv/6CK7HBh4Lvz77PHA5LM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_011310_080226_9725A1A1 
-X-CRM114-Status: GOOD (  25.13  )
+X-CRM114-CacheID: sfid-20260715_011602_852000_E8F3E107 
+X-CRM114-Status: GOOD (  10.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,249 +86,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-pKVM copies a non-protected guest's register context between the host
-and the hypervisor on every world switch, even when the host never
-inspects it. Defer the copy: on entry, flush the host context into the
-hyp vCPU only when the host marked it dirty (PKVM_HOST_STATE_DIRTY); on
-exit, leave it in the hyp vCPU and copy it back only when the host needs
-it, via a __pkvm_vcpu_sync_state hypercall or at vcpu put. A protected
-guest's context is copied as before, since lazy sync only helps where
-the host is trusted to see the guest's registers.
+The raspberrypi-power driver registers resources with
+of_genpd_add_provider_onecell and pm_genpd_init but never removes them.
+When the driver gets unbound and bound again this causes error. Add a
+remove function to cleanup all registered resources.
 
-PC and PSTATE are the exception: they are copied back on every exit so
-the kvm_exit tracepoint reports the guest's real exit PC, and the run
-loop's vcpu_mode_is_bad_32bit() and SError-masking checks evaluate the
-guest's current PSTATE rather than the value left by the previous sync.
-
-The host needs the full context when it is about to read it (trap
-handling) or write it (the SError injection that writes ESR_EL1). Sync
-both from handle_exit_early(), which runs non-preemptible so the loaded
-hyp vCPU is stable without a preempt guard.
-
-Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
 ---
- arch/arm64/include/asm/kvm_asm.h   |  1 +
- arch/arm64/include/asm/kvm_host.h  |  2 +
- arch/arm64/kvm/arm.c               |  7 +++
- arch/arm64/kvm/handle_exit.c       | 23 ++++++++
- arch/arm64/kvm/hyp/nvhe/hyp-main.c | 86 ++++++++++++++++++++++++++++--
- 5 files changed, 114 insertions(+), 5 deletions(-)
+ drivers/pmdomain/bcm/raspberrypi-power.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-index 043495f7fc78b..6e1135b3ded44 100644
---- a/arch/arm64/include/asm/kvm_asm.h
-+++ b/arch/arm64/include/asm/kvm_asm.h
-@@ -113,6 +113,7 @@ enum __kvm_host_smccc_func {
- 	__KVM_HOST_SMCCC_FUNC___pkvm_finalize_teardown_vm,
- 	__KVM_HOST_SMCCC_FUNC___pkvm_vcpu_load,
- 	__KVM_HOST_SMCCC_FUNC___pkvm_vcpu_put,
-+	__KVM_HOST_SMCCC_FUNC___pkvm_vcpu_sync_state,
- 	__KVM_HOST_SMCCC_FUNC___pkvm_tlb_flush_vmid,
- 
- 	MARKER(__KVM_HOST_SMCCC_FUNC_MAX)
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index bae2c4f92ef5c..86d45bc8f4959 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -1051,6 +1051,8 @@ struct kvm_vcpu_arch {
- #define INCREMENT_PC		__vcpu_single_flag(iflags, BIT(1))
- /* Target EL/MODE (not a single flag, but let's abuse the macro) */
- #define EXCEPT_MASK		__vcpu_single_flag(iflags, GENMASK(3, 1))
-+/* Host-set: the hyp flushes the non-protected vCPU state in on entry */
-+#define PKVM_HOST_STATE_DIRTY	__vcpu_single_flag(iflags, BIT(4))
- 
- /* Helpers to encode exceptions with minimum fuss */
- #define __EXCEPT_MASK_VAL	unpack_vcpu_flag(EXCEPT_MASK)
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 50adfff75be82..ace7b67fe1cc8 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -735,6 +735,10 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
- 	if (is_protected_kvm_enabled()) {
- 		kvm_call_hyp(__vgic_v3_save_aprs, &vcpu->arch.vgic_cpu.vgic_v3);
- 		kvm_call_hyp_nvhe(__pkvm_vcpu_put);
-+
-+		/* __pkvm_vcpu_put implies a sync of the state */
-+		if (!kvm_vm_is_protected(vcpu->kvm))
-+			vcpu_set_flag(vcpu, PKVM_HOST_STATE_DIRTY);
- 	}
- 
- 	kvm_vcpu_put_debug(vcpu);
-@@ -966,6 +970,9 @@ int kvm_arch_vcpu_run_pid_change(struct kvm_vcpu *vcpu)
- 		return ret;
- 
- 	if (is_protected_kvm_enabled()) {
-+		/* Start with the vcpu in a dirty state */
-+		if (!kvm_vm_is_protected(vcpu->kvm))
-+			vcpu_set_flag(vcpu, PKVM_HOST_STATE_DIRTY);
- 		ret = pkvm_create_hyp_vm(kvm);
- 		if (ret)
- 			return ret;
-diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
-index 54aedf93c78b6..29108e5c0206e 100644
---- a/arch/arm64/kvm/handle_exit.c
-+++ b/arch/arm64/kvm/handle_exit.c
-@@ -486,9 +486,32 @@ int handle_exit(struct kvm_vcpu *vcpu, int exception_index)
- 	}
+diff --git a/drivers/pmdomain/bcm/raspberrypi-power.c b/drivers/pmdomain/bcm/raspberrypi-power.c
+index b87ea7adb7bea..2c2135c17afb0 100644
+--- a/drivers/pmdomain/bcm/raspberrypi-power.c
++++ b/drivers/pmdomain/bcm/raspberrypi-power.c
+@@ -232,6 +232,17 @@ static int rpi_power_probe(struct platform_device *pdev)
+ 	return 0;
  }
  
-+static void handle_exit_pkvm_state(struct kvm_vcpu *vcpu, int exception_index)
++static void rpi_power_remove(struct platform_device *pdev)
 +{
-+	int exception_code = ARM_EXCEPTION_CODE(exception_index);
++	struct rpi_power_domains *rpi_domains = platform_get_drvdata(pdev);
++	int nr_domains = RPI_POWER_DOMAIN_COUNT - 1;
 +
-+	if (!is_protected_kvm_enabled() || kvm_vm_is_protected(vcpu->kvm))
-+		return;
++	of_genpd_del_provider(pdev->dev.of_node);
 +
-+	/*
-+	 * Sync the context back when the host will read (trap) or write
-+	 * (SError) it. Preempt-off here, so the loaded hyp vCPU is stable.
-+	 */
-+	if (exception_code == ARM_EXCEPTION_TRAP ||
-+	    exception_code == ARM_EXCEPTION_EL1_SERROR ||
-+	    ARM_SERROR_PENDING(exception_index)) {
-+		kvm_call_hyp_nvhe(__pkvm_vcpu_sync_state);
-+		vcpu_set_flag(vcpu, PKVM_HOST_STATE_DIRTY);
-+	} else {
-+		vcpu_clear_flag(vcpu, PKVM_HOST_STATE_DIRTY);
-+	}
++	for (int i = nr_domains; i >= 0; i--)
++		pm_genpd_remove(&rpi_domains->domains[i].base);
 +}
 +
- /* For exit types that need handling before we can be preempted */
- void handle_exit_early(struct kvm_vcpu *vcpu, int exception_index)
- {
-+	handle_exit_pkvm_state(vcpu, exception_index);
-+
- 	if (ARM_SERROR_PENDING(exception_index)) {
- 		if (this_cpu_has_cap(ARM64_HAS_RAS_EXTN)) {
- 			u64 disr = kvm_vcpu_get_disr(vcpu);
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index 2db56146ec493..4a8445b636e60 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -143,6 +143,48 @@ static void sync_hyp_vgic_state(struct pkvm_hyp_vcpu *hyp_vcpu)
- 		host_cpu_if->vgic_lr[i] = hyp_cpu_if->vgic_lr[i];
- }
- 
-+static void __copy_vcpu_state(const struct kvm_vcpu *from_vcpu,
-+			      struct kvm_vcpu *to_vcpu)
-+{
-+	int i;
-+
-+	to_vcpu->arch.ctxt.regs		= from_vcpu->arch.ctxt.regs;
-+	to_vcpu->arch.ctxt.spsr_abt	= from_vcpu->arch.ctxt.spsr_abt;
-+	to_vcpu->arch.ctxt.spsr_und	= from_vcpu->arch.ctxt.spsr_und;
-+	to_vcpu->arch.ctxt.spsr_irq	= from_vcpu->arch.ctxt.spsr_irq;
-+	to_vcpu->arch.ctxt.spsr_fiq	= from_vcpu->arch.ctxt.spsr_fiq;
-+	to_vcpu->arch.ctxt.fp_regs	= from_vcpu->arch.ctxt.fp_regs;
-+
-+	/*
-+	 * Copy the sysregs, but don't mess with the timer state which
-+	 * is directly handled by EL1 and is expected to be preserved.
-+	 * enum vcpu_sysreg is sparse: VNCR-mapped registers take values
-+	 * derived from their VNCR page offset, so the timer registers do
-+	 * not form a contiguous numeric range and must be skipped by name.
-+	 */
-+	for (i = 1; i < NR_SYS_REGS; i++) {
-+		switch (i) {
-+		case CNTVOFF_EL2:
-+		case CNTV_CVAL_EL0:
-+		case CNTV_CTL_EL0:
-+		case CNTP_CVAL_EL0:
-+		case CNTP_CTL_EL0:
-+			continue;
-+		}
-+		to_vcpu->arch.ctxt.sys_regs[i] = from_vcpu->arch.ctxt.sys_regs[i];
-+	}
-+}
-+
-+static void sync_hyp_vcpu_state(struct pkvm_hyp_vcpu *hyp_vcpu)
-+{
-+	__copy_vcpu_state(&hyp_vcpu->vcpu, hyp_vcpu->host_vcpu);
-+}
-+
-+static void flush_hyp_vcpu_state(struct pkvm_hyp_vcpu *hyp_vcpu)
-+{
-+	__copy_vcpu_state(hyp_vcpu->host_vcpu, &hyp_vcpu->vcpu);
-+}
-+
- static void flush_debug_state(struct pkvm_hyp_vcpu *hyp_vcpu)
- {
- 	struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
-@@ -172,7 +214,17 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
- 	fpsimd_sve_flush();
- 	flush_debug_state(hyp_vcpu);
- 
--	hyp_vcpu->vcpu.arch.ctxt	= host_vcpu->arch.ctxt;
-+	/*
-+	 * If we deal with a non-protected guest and the state is potentially
-+	 * dirty (from a host perspective), copy the state back into the hyp
-+	 * vcpu.
-+	 */
-+	if (!pkvm_hyp_vcpu_is_protected(hyp_vcpu)) {
-+		if (vcpu_get_flag(host_vcpu, PKVM_HOST_STATE_DIRTY))
-+			flush_hyp_vcpu_state(hyp_vcpu);
-+	} else {
-+		hyp_vcpu->vcpu.arch.ctxt = host_vcpu->arch.ctxt;
-+	}
- 
- 	/* __hyp_running_vcpu must be NULL in a guest context. */
- 	hyp_vcpu->vcpu.arch.ctxt.__hyp_running_vcpu = NULL;
-@@ -203,9 +255,13 @@ static void sync_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
- 	fpsimd_sve_sync(&hyp_vcpu->vcpu);
- 	sync_debug_state(hyp_vcpu);
- 
--	host_vcpu->arch.ctxt		= hyp_vcpu->vcpu.arch.ctxt;
--
--	host_vcpu->arch.hcr_el2		= hyp_vcpu->vcpu.arch.hcr_el2;
-+	if (pkvm_hyp_vcpu_is_protected(hyp_vcpu)) {
-+		host_vcpu->arch.ctxt = hyp_vcpu->vcpu.arch.ctxt;
-+	} else {
-+		/* Keep PC (tracepoint) and PSTATE (vcpu_mode_is_bad_32bit) current. */
-+		host_vcpu->arch.ctxt.regs.pc = hyp_vcpu->vcpu.arch.ctxt.regs.pc;
-+		host_vcpu->arch.ctxt.regs.pstate = hyp_vcpu->vcpu.arch.ctxt.regs.pstate;
-+	}
- 
- 	host_vcpu->arch.fault		= hyp_vcpu->vcpu.arch.fault;
- 
-@@ -239,8 +295,27 @@ static void handle___pkvm_vcpu_put(struct kvm_cpu_context *host_ctxt)
- {
- 	struct pkvm_hyp_vcpu *hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
- 
--	if (hyp_vcpu)
-+	if (hyp_vcpu) {
-+		struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
-+
-+		if (!pkvm_hyp_vcpu_is_protected(hyp_vcpu) &&
-+		    !vcpu_get_flag(host_vcpu, PKVM_HOST_STATE_DIRTY)) {
-+			sync_hyp_vcpu_state(hyp_vcpu);
-+		}
-+
- 		pkvm_put_hyp_vcpu(hyp_vcpu);
-+	}
-+}
-+
-+static void handle___pkvm_vcpu_sync_state(struct kvm_cpu_context *host_ctxt)
-+{
-+	struct pkvm_hyp_vcpu *hyp_vcpu;
-+
-+	hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
-+	if (!hyp_vcpu || pkvm_hyp_vcpu_is_protected(hyp_vcpu))
-+		return;
-+
-+	sync_hyp_vcpu_state(hyp_vcpu);
- }
- 
- static struct kvm_vcpu *__get_host_hyp_vcpus(struct kvm_vcpu *arg,
-@@ -871,6 +946,7 @@ static const hcall_t host_hcall[] = {
- 	HANDLE_FUNC(__pkvm_finalize_teardown_vm),
- 	HANDLE_FUNC(__pkvm_vcpu_load),
- 	HANDLE_FUNC(__pkvm_vcpu_put),
-+	HANDLE_FUNC(__pkvm_vcpu_sync_state),
- 	HANDLE_FUNC(__pkvm_tlb_flush_vmid),
+ static const struct of_device_id rpi_power_of_match[] = {
+ 	{ .compatible = "raspberrypi,bcm2835-power", },
+ 	{},
+@@ -244,6 +255,7 @@ static struct platform_driver rpi_power_driver = {
+ 		.of_match_table = rpi_power_of_match,
+ 	},
+ 	.probe		= rpi_power_probe,
++	.remove		= rpi_power_remove,
  };
+ builtin_platform_driver(rpi_power_driver);
  
--- 
-2.39.5
+
+---
+base-commit: 58717b2a1365d06c8c64b72aa948541b53fe31eb
+change-id: 20260715-rpi-pm-remove-4ce2f27b5efa
+
+Best regards,
+--  
+Gregor Herburger <gregor.herburger@linutronix.de>
 
 
