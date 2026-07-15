@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 542CAC44507
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF643C44501
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 18:51:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,50 +12,50 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JBPDGgewSNgcI2i1mzNeBC02hYe/trS4eMTdpa/mBVA=; b=TDliktC4oTXeeI/9vsZWJOhqhj
-	2lYSFkjBW2kYLZzFuowo6/eLeKugjcUpepksTExztFiR2hypSItI568TqZ9vF7u5YbpnD+AkCRAZk
-	r3hHPc4r6lq5QreoX6Hzfx9d1LKeUbRupWER3OePlXdcnaz1VhoD7e9PdFRro47HtCgW/nRHdJ258
-	mvC1DTTLkirxeiSQaf4VxgLoR3fBj3ltOkCJ18mpw/WTdcaoeegWNFCYedDCNbskuAw20lr1OaG/D
-	PrXxHHKmu9Dabvvb/R2+Mn+hgAVnFmq0s4ZnGC0wzKriAFLIlaIwr+vnaHhGZRR0P6+gh3P7Db1i3
-	rJzdcUtQ==;
+	bh=nm9MdCc56O0ybRA1MooKBiWRQY+I+nlZ2IPu4g6zyPk=; b=NwdF1inWLxzCAaaPuIGwj42AXx
+	IMkqXjpETpNy+9oT0CZgESj3+YB9IXYU8O7UZ99Fe4JIWpjSs3e1aSBN7umcWK53kBSsQfBut3p4n
+	rHcCSY4qgPRw9+w/bQYhe/ODSpaxIApORs1se2OU7NJdncLZiZfuO1L8+uF9tsAbCGbRGcSevYbvF
+	1PdLBSVUMM9TI0E861bG/IIZ9DZGP0JqTH7hVj9WO+npUjoaO8v0pvFFIwmpxAr1oe1bJUFFWdNA0
+	A4/vzEcCs03faJVNbUALn6OAAT7I+dBQcujWGqQXdBRpWf+0xFpOviYUspRHRt0p7hTgJkCuTHlBy
+	ziZzlpew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk4hd-0000000FieQ-3UbR;
-	Wed, 15 Jul 2026 18:51:29 +0000
+	id 1wk4he-0000000Fif5-0KjJ;
+	Wed, 15 Jul 2026 18:51:30 +0000
 Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk4hY-0000000Fib0-2vAg
+	id 1wk4hZ-0000000Fib0-3znq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 18:51:25 +0000
+	Wed, 15 Jul 2026 18:51:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1784141485; x=1815677485;
+  t=1784141486; x=1815677486;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=FDPjXoCgRJnJSh11Yjsc76ru2V/iRZPQNxJkLKiuzdo=;
-  b=jS7fxJUMa71xYJtWPuyN7iNM5ZWFfdtxb110bCdrJ8ZJheK3om4+7vO6
-   ISUlcIn1q24kL8pT9KmAqBKY+wXBPh7LwrQ5xuw/l8CRBkPvbwNkGrFrZ
-   Bkuxxr2wyvyjTUnhyFl4NaENWp7DwFBDfMSVrUE2dp4HpB/4LIElfxjFe
-   5234nT0yhXBGWhU+w2pfV10mYvKwSFOLXTZDmp9qNzgPo2wvQelOZEXkl
-   rVRYh/qL8Bk2xgiut5pczICMA0DxXhzuQYHCT8engMg0OSZmeqc2NIjGT
-   0Wd83Ljuk5//AkI3vPK6tfGQ3WIut/5nvWrQZM9OP/x/IVL9Omwt98Oo9
-   A==;
-X-CSE-ConnectionGUID: s+zyw4FnT1W+YPNbowVuVw==
-X-CSE-MsgGUID: JnCrKMbvQIKCsGqPfO4Qrw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11847"; a="84887474"
+  bh=JwEf2B0/taqBgVcAFv7SQawwrLtkBIODJnPpyfPpuQ8=;
+  b=QTMylQQB5lz8Y6TEuXrfeuRbpAyHBCNjjfOBBhgiEK6Ql4YhCZC7ONVo
+   tTE1aeRaD1jHIuu7rO2c0LMJhMu7IQECF8DvP3+rNkefkS/zs2XmgZaPL
+   0D5kaMwvdYq9esFzFQ9L7WTh5q7gtMpKZ6LTb0L+kC1sMibguw73IvZzU
+   sVYE9er5H/yIyKQwZBCFTBexTQC6Advlr9kxslZo9yasfINrJ7MBjCoa/
+   CZtwsq4eviB9mqMsBw2HLQMkgj57s5PLXo0oxp+3uwCDS7rCNXJbaVjrt
+   PlDHvAA98YGbyxHnNby3xYiTFqNlQnKaUM86RGkDDoswx5rWVqa/rfu+h
+   Q==;
+X-CSE-ConnectionGUID: hTcMsjO4T2il7SpdDk2gYQ==
+X-CSE-MsgGUID: bkGuuYSwTBuCAuydtRwDiw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11847"; a="84887488"
 X-IronPort-AV: E=Sophos;i="6.25,166,1779174000"; 
-   d="scan'208";a="84887474"
+   d="scan'208";a="84887488"
 Received: from fmviesa001.fm.intel.com ([10.60.135.141])
   by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jul 2026 11:51:21 -0700
-X-CSE-ConnectionGUID: c0ePlU7xTLe50ZfQ5a0cZA==
-X-CSE-MsgGUID: 2XWh0XIhRhen6eEpbG1r2w==
+X-CSE-ConnectionGUID: OrV9bNQNTGWJhH0jJhKgFg==
+X-CSE-MsgGUID: 8rEnzpPOQHC01JImubDiYg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.25,166,1779174000"; 
-   d="scan'208";a="280700291"
+   d="scan'208";a="280700292"
 Received: from black.igk.intel.com ([10.91.253.5])
   by fmviesa001.fm.intel.com with ESMTP; 15 Jul 2026 11:51:17 -0700
 Received: by black.igk.intel.com (Postfix, from userid 1003)
-	id 039AE9D; Wed, 15 Jul 2026 20:51:16 +0200 (CEST)
+	id EA4F198; Wed, 15 Jul 2026 20:51:15 +0200 (CEST)
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
 	Bradford Love <brad@nextdimension.cc>,
@@ -77,17 +77,17 @@ Cc: Linus Walleij <linusw@kernel.org>,
 	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <zajec5@gmail.com>,
 	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
 	Mauro Carvalho Chehab <mchehab@kernel.org>
-Subject: [PATCH v1 4/7] MIPS: BCM47XX: Open code gpio_request_one()
-Date: Wed, 15 Jul 2026 20:46:44 +0200
-Message-ID: <20260715185112.1323510-5-andriy.shevchenko@linux.intel.com>
+Subject: [PATCH v1 1/7] ARM: pxa: spitz: Open code gpio_request_one()
+Date: Wed, 15 Jul 2026 20:46:41 +0200
+Message-ID: <20260715185112.1323510-2-andriy.shevchenko@linux.intel.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20260715185112.1323510-1-andriy.shevchenko@linux.intel.com>
 References: <20260715185112.1323510-1-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_115124_782768_D046FAC3 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20260715_115126_053541_7ACC349C 
+X-CRM114-Status: GOOD (  12.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,30 +107,23 @@ in the follow changes.
 
 Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 ---
- arch/mips/bcm47xx/workarounds.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+ arch/arm/mach-pxa/spitz_pm.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/arch/mips/bcm47xx/workarounds.c b/arch/mips/bcm47xx/workarounds.c
-index 745c6228eb2c..9148d2c219d1 100644
---- a/arch/mips/bcm47xx/workarounds.c
-+++ b/arch/mips/bcm47xx/workarounds.c
-@@ -9,11 +9,13 @@ static void __init bcm47xx_workarounds_enable_usb_power(int usb_power)
- {
- 	int err;
+diff --git a/arch/arm/mach-pxa/spitz_pm.c b/arch/arm/mach-pxa/spitz_pm.c
+index 03b4b347f11a..f46a3fb7e07c 100644
+--- a/arch/arm/mach-pxa/spitz_pm.c
++++ b/arch/arm/mach-pxa/spitz_pm.c
+@@ -108,7 +108,8 @@ static void spitz_presuspend(void)
+ 	PGSR2 |= GPIO_bit(SPITZ_GPIO_KEY_STROBE0);
  
--	err = gpio_request_one(usb_power, GPIOF_OUT_INIT_HIGH, "usb_power");
--	if (err)
-+	err = gpio_request(usb_power, "usb_power");
-+	if (err) {
- 		pr_err("Failed to request USB power gpio: %d\n", err);
--	else
-+	} else {
-+		gpio_direction_output(usb_power, 1);
- 		gpio_free(usb_power);
-+	}
- }
+ 	pxa2xx_mfp_config(&gpio18_config, 1);
+-	gpio_request_one(18, GPIOF_OUT_INIT_HIGH, "Unknown");
++	gpio_request(18, "Unknown");
++	gpio_direction_output(18, 1);
+ 	gpio_free(18);
  
- void __init bcm47xx_workarounds(void)
+ 	PRER = GPIO_bit(SPITZ_GPIO_KEY_INT);
 -- 
 2.50.1
 
