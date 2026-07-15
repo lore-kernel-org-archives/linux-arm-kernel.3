@@ -4,71 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 689BEC44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 19:15:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6689C44507
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 19:21:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ViHw0i/Ol3YgTRIw9C4EDJ0sBKCT3F9/+wZKL98nwYI=; b=S0IFbUUNB/VWVH3R5uyDRrFHdY
-	/sHr+6/hXMiPd5UIUc01evPwXJGAxy6IsPWGQ+xfhkTRWYCPGm2wWAo85rpbd5dyHoq8GUNcP+C7N
-	K3bYNn3Ur9XXnhj41qTs4tp19Byz/alMzqoZuiV2oo291AoZWmt7VOYWt7wi0MJeyZUsMI/p5v/45
-	Z/eOhTN2LMMtVMCiYrO0/8o+BtnSoP4qHA5AfpljFlz2Cj7DIPkhsAwg9yl7iPDhNjrZvRQngo913
-	P+HoPXfx1QoUz6yiv3IM9wqU2tFXPsbOqRnpEVZKgn3XhK++rNySesYlvspJt+3epxhU6ddm0zwoY
-	gDe6BLyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GRvBsyOxjoM7JpMGphXVWqRw3nmtRnJk0afh/8PqTyE=; b=ygmZCTp8XYFFoHCacD38lwjY0h
+	kTeIOwqWg4MUpIbPUpMRoGjvABdg2c0KZi6U/2xZuAmImhFB2VpniYUHsg1RjtCK1u00/5fcReK4C
+	2mNDl1u6ozTJIRgzMFYvCh+i9yUAI47E9KeXTI97DLq4HwB3d9rPy4YOD+j7k3iupNE/E5slOVpvd
+	O1lu65Vnz0VGTI4XOmjHTTX9FkEt0Wj+vmpeTqUU87GWnPnUYAW0DgHXrDW2EsHTmgE4V/kZ0EyxC
+	as2rRVUMxApr0vH9xlYPKt1LTJRoloOi1jCU+/7V0NnZGX7/DH03QsmUwx0xyQPHXDIqZPhBUa9jA
+	jAx0qb9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk54K-0000000FlyW-3gXS;
-	Wed, 15 Jul 2026 19:14:56 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wk5Ag-0000000FmKx-3TRQ;
+	Wed, 15 Jul 2026 19:21:30 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk54J-0000000Flwy-1YWA
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 19:14:55 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2EABF61878;
-	Wed, 15 Jul 2026 19:14:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2D151F00ADB;
-	Wed, 15 Jul 2026 19:14:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux-foundation.org; s=korg; t=1784142893;
-	bh=ViHw0i/Ol3YgTRIw9C4EDJ0sBKCT3F9/+wZKL98nwYI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=wM3fu0hQUE2ZXeszCzbkXLBbR0dCG5bwf0UQtBQA7nGKj9H0vkzsdRCLcRDBHDRvl
-	 oW/UCFp1zjFYwiluqA8Anl7AliHSWpMayahnYCHmlv73JUX7cea0fqZAmvYU/9P40A
-	 C3SsVY8UUbuFctRY81KY8OGqMm6+JX0KWy6eVf38=
-Date: Wed, 15 Jul 2026 12:14:52 -0700
-From: Andrew Morton <akpm@linux-foundation.org>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Kiryl Shutsemau <kas@kernel.org>, Suren Baghdasaryan
- <surenb@google.com>, "Liam R. Howlett" <liam@infradead.org>, Vlastimil
- Babka <vbabka@kernel.org>, Shakeel Butt <shakeel.butt@linux.dev>, David
- Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>, Michal
- Hocko <mhocko@suse.com>, Uladzislau Rezki <urezki@gmail.com>, Toshi Kani
- <toshi.kani@hpe.com>, Dave Hansen <dave.hansen@linux.intel.com>, Andy
- Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, Thomas
- Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
- <bp@alien8.de>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, Catalin
- Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Dev Jain
- <dev.jain@arm.com>, Ryan Roberts <ryan.roberts@arm.com>, David Carlier
- <devnexen@gmail.com>, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- stable@vger.kernel.org,
- syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com
-Subject: Re: [PATCH mm-hotfixes v3 1/4] mm/vmalloc: acquire init_mm lock on
- huge vmap to avoid ptdump UAF
-Message-Id: <20260715121452.3e8047663eeaaa3048f80985@linux-foundation.org>
-In-Reply-To: <178412496800.59347.11482869717348078349.b4-reply@b4>
-References: <20260714-series-vmap-race-fix-v3-0-b812eccfa0f9@kernel.org>
-	<20260714-series-vmap-race-fix-v3-1-b812eccfa0f9@kernel.org>
-	<aldhVdwj9oMRN1Lk@thinkstation>
-	<178412496800.59347.11482869717348078349.b4-reply@b4>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+	id 1wk5Ae-0000000FmKP-2bto;
+	Wed, 15 Jul 2026 19:21:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=GRvBsyOxjoM7JpMGphXVWqRw3nmtRnJk0afh/8PqTyE=; b=R3tAvy2Zn6mL2TjWKqMx87QUY8
+	W3uAEocfkN9IncKeWxVb1X5xtGBhECmRmknAmm2aaXXnvzmICIDGQLo+FBtnB0sfWqkDIhCiTw2lk
+	i19Ee3OnmHPgOreZkMCcgvB6Gfq0Bld7FniZ4W0adpUT0NFuPg0vk2SKEHvTvD+izXtVKJ4dpizU+
+	f5pMu9pcOkgJq5h9hhrydpOhx/0Cl19MR1XL8yYNTbFkn00TX7DaTcnm8pDIMzah2XbTsRj8dr4rw
+	lf6x4j8DaoPpOnlKmLqy/FdKiMr2RplpduZ8dJaty51uRIsBOcqbyXk11FZE/jJFUWtwOkf1/7Cx8
+	B7NU7cmA==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Jonathan Cameron <jic23@kernel.org>, Simon Glass <sjg@chromium.org>
+Cc: Andy Shevchenko <andy@kernel.org>, David Lechner <dlechner@baylibre.com>,
+ linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ Conor Dooley <conor+dt@kernel.org>, linux-rockchip@lists.infradead.org,
+ Krzysztof Kozlowski <krzk@kernel.org>,
+ Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Rob Herring <robh@kernel.org>,
+ Simon Glass <sjg@chromium.org>, Jonas Karlman <jonas@kwiboo.se>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] dt-bindings: iio: adc: rockchip-saradc: Add RV1106 compatible
+Date: Wed, 15 Jul 2026 21:21:17 +0200
+Message-ID: <5684233.Sb9uPGUboI@phil>
+In-Reply-To: <20260714131631.v2.1.0b846080833e4b836793c43fc26d1c6d817cf9b4@changeid>
+References: <20260714131631.v2.1.0b846080833e4b836793c43fc26d1c6d817cf9b4@changeid>
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260715_122128_776939_82BB2F81 
+X-CRM114-Status: UNSURE (   7.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,98 +71,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 15 Jul 2026 15:16:08 +0100 "Lorenzo Stoakes (ARM)" <ljs@kernel.org> wrote:
+Am Dienstag, 14. Juli 2026, 21:16:32 Mitteleurop=C3=A4ische Sommerzeit schr=
+ieb Simon Glass:
+> Add the compatible for the SARADC of the Rockchip RV1106, which is
+> compatible with the RK3588 variant.
+>=20
+> Signed-off-by: Simon Glass <sjg@chromium.org>
 
-> On 2026-07-15 11:34 +0100, Kiryl Shutsemau wrote:
-> > On Tue, Jul 14, 2026 at 06:24:23PM +0100, Lorenzo Stoakes wrote:
-> > > Currently there is a nasty race between ptdump and vmap when attempting to
-> > > map a huge P4D, PMD or PUD entry:
-> >
-> > Nit: that's a strange order of levels :P
-> 
-> Ha, seems I couldn't decide on ordering so went with something random :P
-> 
-> Let's try 'P4D, PUD or PMD' instead :))
-> 
-> >
-> > > Fix this by holding the mmap read lock in vmap_try_huge_*() when freeing
-> > > page tables.
-> >
-> > How about adding here something like:
-> >
-> >   The read lock is sufficient: ptdump is the only walker that must be
-> >   excluded and it holds the mmap write lock. Other holders of the read
-> >   lock may run concurrently, but each exclusively owns the range it
-> >   operates on and cannot reach the page tables freed here.
-> 
-> You mean maybe I put the commit message on _too_ much of a diet? :)
-> 
-> Yeah sure, sounds good.
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
 
-I made this changelog alteration:
 
---- a/txt/mm-vmalloc-acquire-init_mm-lock-on-huge-vmap-to-avoid-ptdump-uaf.txt
-+++ b/txt/mm-vmalloc-acquire-init_mm-lock-on-huge-vmap-to-avoid-ptdump-uaf.txt
-@@ -103,6 +103,11 @@ walk_page_range_debug(), vmap takes no relevant locks at all.
- Fix this by holding the mmap read lock in vmap_try_huge_*() when freeing
- page tables.
- 
-+The read lock is sufficient: ptdump is the only walker that must be
-+excluded and it holds the mmap write lock.  Other holders of the read lock
-+may run concurrently, but each exclusively owns the range it operates on
-+and cannot reach the page tables freed here.
-+
- We also hold the lock while assigning the huge page table entry, which
- means page table walkers observe only the huge or non-huge page table
- entry.
-
-> >
-> > > +	/*
-> > > +	 * Kernel page table walkers either walk ranges they own exclusively or
-> > > +	 * hold the mmap write lock on init_mm (ptdump being the motivating
-> > > +	 * case).
-> > > +	 *
-> > > +	 * Therefore, acquire the mmap read lock to prevent use-after-free when
-> > > +	 * freeing page tables.
-> > > +	 */
-> >
-> > Same for the comment, maybe:
-> >
-> >       /*
-> >        * Acquire the mmap read lock to exclude ptdump, which walks
-> >        * kernel page tables it does not own under the mmap write lock.
-> +	 *
-> >        * Concurrent read lock holders are safe: each exclusively owns
-> >        * the range it operates on and cannot reach this page table.
-> >        */
-> 
-> Yeah that's better agreed.
-> 
-> Let's replace it, but I think (being super nitty) with an extra blank line as
-> above.
-
-This?
-
---- a/mm/vmalloc.c~mm-vmalloc-acquire-init_mm-lock-on-huge-vmap-to-avoid-ptdump-uaf-fix
-+++ a/mm/vmalloc.c
-@@ -163,12 +163,11 @@ static int vmap_try_huge_pmd(pmd_t *pmd,
- 		return pmd_set_huge(pmd, phys_addr, prot);
- 
- 	/*
--	 * Kernel page table walkers either walk ranges they own exclusively or
--	 * hold the mmap write lock on init_mm (ptdump being the motivating
--	 * case).
-+	 * Acquire the mmap read lock to exclude ptdump, which walks kernel
-+	 * page tables it does not own under the mmap write lock.
- 	 *
--	 * Therefore, acquire the mmap read lock to prevent use-after-free when
--	 * freeing page tables.
-+	 * Concurrent read lock holders are safe: each exclusively owns the
-+	 * range it operates on and cannot reach this page table.
- 	 */
- #ifndef CONFIG_ARM64
- 	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm)
-_
 
 
 
