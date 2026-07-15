@@ -4,64 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62FD7C4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 04:51:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C989C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 04:52:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eo7gGws/DrbN8yHGv13gYgUCN6nrmJ83aBUglPh9mis=; b=kfPvErMI76M6zhI63J3vBeOvUk
-	7r2v0Bw+EXlLWVa2IBYKTilx20WvcxYdP7KYzbnN59WIij2xnEKu6ry7/srdE0IbeSGmd409uymlU
-	QdcOXVU0TJ1UxdTv2TDEHdNv8e8dWVMZzGothVjN0pePO5oBZv3apLHSmo13gIzvBc3Gcr967QvgT
-	m0hOLTxi+6RA7Il3Yl1Y/fclZc6vtWXhT1g+eNVOIvxTbMyWEdRX9LqLZKij6RD81gFGvxjw+/FSf
-	Como2G9ShLAkce7EzRhJYY2oj4Auw9sNi106NFXME1VioqoHy1HMDnMONkvPnp49OOsVG6Lhs3GeE
-	ylTEHF0w==;
+	bh=5CpJoZVDYUfmDJdlIDiJjy9V7OixQnwOG9BhD1egO6c=; b=0nfiPeEpw3IhPRDLVhDdl4urYf
+	sZrGaqiozKaY3v8h50mXM+YuCipNPwi4IH+QaQr3Q0p5Y6erR3UKpjEAqGkK4OEi9fh0nHrHeI9In
+	/1r42lr+LhD2FeboGUCVHuTfMW2A/YGP9eJS0dTewB/bX51KWM20+Rds8WlybwJXuD88xyMDq+3bl
+	A17W9UZe0kqHnR7bJ8HgjbVqq3EE6FVAzehPWRhXLJYN6Z1oDd44RZFRYveZ1TPNl873PEaVkWFl/
+	0DD/gRcToyqzT0fRuAMvuUO8nnXE+cxYfsi/uh4xr0njH/k2du+AAw0Mc8jcZQKISkbHZynylDJUh
+	/5mkIdOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjrav-0000000Dkv1-11nu;
-	Wed, 15 Jul 2026 04:51:41 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wjrbO-0000000Dl1s-2scM;
+	Wed, 15 Jul 2026 04:52:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjrau-0000000Dkui-0sjI
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 04:51:40 +0000
+	id 1wjrbN-0000000Dl1T-1D7B;
+	Wed, 15 Jul 2026 04:52:09 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0BE00600BB;
-	Wed, 15 Jul 2026 04:51:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F07301F000E9;
-	Wed, 15 Jul 2026 04:51:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9B9184046C;
+	Wed, 15 Jul 2026 04:52:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D338A1F000E9;
+	Wed, 15 Jul 2026 04:52:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784091098;
-	bh=eo7gGws/DrbN8yHGv13gYgUCN6nrmJ83aBUglPh9mis=;
+	s=k20260515; t=1784091128;
+	bh=5CpJoZVDYUfmDJdlIDiJjy9V7OixQnwOG9BhD1egO6c=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=GNhapHtIMPmtpx8b8TAke80Lgf1mC3YO0kfyB631tIo6xcRYWy8CvjiX+qKVoWXlR
-	 aLw6uEbbhNwrjHq5oqZfbzHVvafnlN/Edj2F4av/NLucgcmSnA7Z2Yptd9+t8d0y67
-	 UvhlMwWPi4hjFwF8TJ3c4wSiD63kMTxkpFBONVqeNTR8VKmK/KPjF/ClG4yYtDZQVh
-	 LV1RuoLorPllIFm+7ZQvdLyldD75PbnwCCWv8Ntplv3OvSda2xwWYQB/+2D4ZgIg/y
-	 QNytvDGyZeNEzcZfM325GwHe0miH8tqYe4S+xwXSq16g+//xEaTf8cgMx/lRrdqwhl
-	 m1inbos8qFHzA==
-Message-ID: <8e3025c5-16a0-40d7-affa-098ca37699c7@kernel.org>
-Date: Wed, 15 Jul 2026 06:51:31 +0200
+	b=mgJthT5dTKzmguXGCfl0MbxZoHOv8AY+CqXdq4fdDo+lnSBZLaJqXjvFS71OPGz9h
+	 tQ+WJkuHrloErXv3ezjV+61b4dT2VwwMVCBjm6WCLlgHyRzMON1721mgGqlJWyRSV0
+	 4lIR1Te1lP0SHti0KVpo0eHJ3NJzYgT3A/2AAFd5a2S13+YuydStOvEpAwqvegvTx4
+	 yIV+XBuJlcRqreDnlXoh66qYkg/HR2ylwMIiiYBhtNFHAvH3o+oWueOSCPkTU1EUcw
+	 OrIRwhUeHhD82jMNvsCBKjMtq1tPnYGbWP17ElL+CEFGTiYd9QeKsfq0NqRaayN0Qx
+	 zg63GXHKyYavQ==
+Message-ID: <c7e9d38d-0edb-4e58-a649-862c262681af@kernel.org>
+Date: Wed, 15 Jul 2026 06:52:01 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6/7] dt-bindings: mailbox: goog-mba: Add goog-mba mailbox
- bindings
-To: Douglas Anderson <dianders@chromium.org>,
- Jassi Brar <jassisinghbrar@gmail.com>
-Cc: Joonwon Kang <joonwonkang@google.com>,
- Subhash Jadavani <sjadavani@google.com>,
- Tudor Ambarus <tudor.ambarus@linaro.org>, Lucas Wei <lucaswei@google.com>,
- Brian Norris <briannorris@chromium.org>,
- Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org
-References: <20260714222338.2965707-1-dianders@chromium.org>
- <20260714152138.6.Ia186a29119b4b5c409815b755e0c2c3965b0495f@changeid>
+Subject: Re: [PATCH v2] dt-bindings: iio: adc: rockchip-saradc: Add RV1106
+ compatible
+To: Simon Glass <sjg@chromium.org>, Jonathan Cameron <jic23@kernel.org>
+Cc: Heiko Stuebner <heiko@sntech.de>, Andy Shevchenko <andy@kernel.org>,
+ David Lechner <dlechner@baylibre.com>, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+ linux-rockchip@lists.infradead.org, =?UTF-8?Q?Nuno_S=C3=A1?=
+ <nuno.sa@analog.com>, Rob Herring <robh@kernel.org>,
+ Jonas Karlman <jonas@kwiboo.se>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260714131631.v2.1.0b846080833e4b836793c43fc26d1c6d817cf9b4@changeid>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,7 +101,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260714152138.6.Ia186a29119b4b5c409815b755e0c2c3965b0495f@changeid>
+In-Reply-To: <20260714131631.v2.1.0b846080833e4b836793c43fc26d1c6d817cf9b4@changeid>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -124,228 +118,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/07/2026 00:21, Douglas Anderson wrote:
-> Introduce bindings for the MailBox Array IP block present in Laguna
-> SoCs (AKA "lga", AKA "Google Tensor G5").
+On 14/07/2026 21:16, Simon Glass wrote:
+> Add the compatible for the SARADC of the Rockchip RV1106, which is
+> compatible with the RK3588 variant.
 > 
-> Signed-off-by: Douglas Anderson <dianders@chromium.org>
+> Signed-off-by: Simon Glass <sjg@chromium.org>
 > ---
 > 
->  .../bindings/mailbox/google,mba.yaml          | 216 ++++++++++++++++++
-
-Filename must match compatible.
-
->  1 file changed, 216 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/mailbox/google,mba.yaml
+> Changes in v2:
+> - Fold the compatible into an enum together with rk3576-saradc, since
+>   both fall back to rk3588-saradc
 > 
-> diff --git a/Documentation/devicetree/bindings/mailbox/google,mba.yaml b/Documentation/devicetree/bindings/mailbox/google,mba.yaml
-> new file mode 100644
-> index 000000000000..6c4505a369e2
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/mailbox/google,mba.yaml
-> @@ -0,0 +1,216 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +# Copyright 2025 Google LLC
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/mailbox/google,mba.yaml#
-> +$schema: http://devicetree.org/meta-schemas/base.yaml#
-> +
-> +title: Google MailBox Array
-> +
-> +maintainers:
-> +  - Douglas Anderson <dianders@chromium.org>
-> +
-> +description: |
-> +  The Google MailBox Array (MBA) is an IP block in Google-designed SoCs
-> +  starting in Laguna (AKA "lga", AKA Google Tensor G5). In a typical SoC
-> +  that includes this IP block, there are a number of instances of the MBA
-> +  controller with each instance having slightly different hardware
-> +  parameters and intended for communication with a different remote
-> +  processor.
-> +
-> +  An MBA instance has a "host" that is defined as the processor "providing"
-> +  a "service". This is typically not the main Application Processor (AP) but
-> +  is instead some specialized co-processor in the SoC like the Central Power
-> +  Manager (CPM). A processor (like the AP) talking to the "host" of the MBA
-> +  is a "client" of the MBA. A given MBA instance only ever has one host, but
-> +  it may have several clients. For instance, the CPM (an MBA "host") may need
-> +  to send/receive mailbox messages not just from the AP but from other
-> +  processors in the SoC and each of these other processors can be "clients"
-> +  of the same MBA.
-> +
-> +  The "host" of an MBA instance has full access to everything in the MBA
-> +  instance. It can access its own private set of "host" MBA registers, the
-> +  "global" MBA registers (if they exist), and all of the "client" MBA
-> +  registers.
-> +
-> +  A "client" of an MBA instance has access to the "global" MBA registers (if
-> +  they exist) and one or more sets of "client" MBA registers.
-> +
-> +  These bindings are focused on describing the MBA from the point of view of
-> +  a single client.
-> +
-> +  As per above, a client may have access to several sets of MBA "client"
-> +  registers. Each set of "client" registers represents a logical mailbox
-> +  "channel". However, because each channel may have different configuration
-> +  parameters and a mailbox "channel" in typical usage means one of a number
-> +  of identical channels, each channel in a Google MailBox Array is typically
-> +  referred to as a full "mailbox" and the whole collection of mailboxes as
-> +  the "mailbox array".
-> +
-> +  Mailboxes in an MBA instance have these features:
-> +  * 1 to 256 32-bit words of shared memory.
-> +  * The ability for the client to ring the main doorbell of the host and be
-> +    notified when the host Acks the doorbell.
-> +  * The ability for the host to ring the main doorbell of the client and be
-> +    notified when the client Acks the doorbell.
-> +
-> +  Some mailboxes may also have the ability to have counted doorbells. This
-> +  means that the receiver of the doorbell can tell how many times it rung.
-> +  This is intended for implementing "queued" mailboxes. See below.
-> +
-> +  The MBA hardware doesn't have any specific directionality. That is to
-> +  say, both the host and the client have full read and write access to
-> +  their shared memory. All mailbox instances have doorbells going both from
-> +  the client to the host as well as the host to the client.
-> +
-> +  The mailboxes can only be used for communication if the host and client
-> +  both agree on conventions. These conventions are described in the
-> +  device tree as they describe how the remote firmware is expecting to
-> +  communicate.
-> +
-> +  Current known in-use conventions:
-> +  1. An RX mailbox with payloads that are of a well-defined size.
-> +     On mailboxes of this type, the host is the only one to write shared
-> +     memory. After placing a fixed-size message in shared memory, it rings
-> +     the main doorbell of the client. The client reads the message and Acks
-> +     the doorbell.
-> +  2. A TX mailbox with payloads that could vary in size.
-> +     On mailboxes of this type, the mailbox client is the only one to write
-> +     shared memory. The client always writes a payload to the start of shared
-> +     memory and rings the main host doorbell. The client then looks for the
-> +     host to Ack the doorbell. The clients of the mailbox have ways to know
-> +     the size of any given message.
-> +  3. A half-duplex TX/RX mailbox. This is a mailbox that can switch between
-> +     convention #1 and #2 above. Since both sides write data to the start of
-> +     shared memory, the two sides must have some convention to know whose
-> +     turn it is to send a message.
-> +  4. A "queued" RX mailbox with a payload of a well-defined size.
-> +     This type of mailbox is only possible if the MBA instance can count
-> +     doorbells. On mailboxes of this type, the host is the only one to write
-> +     shared memory. When the client doorbell rings, the client reads a
-> +     fixed-size from the next "slot" in shared memory and then updates its
-> +     internal state. The shared memory is treated as a circular queue.
-> +  5. A "queued" TX mailbox with a payload of a well-defined size.
-> +     This type of mailbox is only possible if the MBA instance can count
-> +     doorbells. On mailboxes of this type, the mailbox client is the only one
-> +     to write shared memory. The shared memory is treated as a circular queue.
-> +     The client writes a fixed-sized payload to the next "slot" in the shared
-> +     memory (where the slot size is determined by the client's first transfer),
-> +     updates its internal state, and rings the host doorbell. The client can
-> +     keep writing more messages as long as the circular queue isn't full. The
-> +     client gets an interrupt when the host Acks a doorbell and can tell how
-> +     many doorbells still haven't been Acked.
-> +
-> +  Conventions will be supported with a small number of properties specified
-> +  for each mailbox.
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - enum:
-> +          - google,lga-mailbox-array
-> +      - const: google,mailbox-array
 
-Don't use generic fallback. Just the SoCs.
-
-
-> +
-> +  reg:
-> +    minItems: 1
-> +    items:
-> +      - description: Host registers (not accessible to client)
-> +      - description: Global registers (not present on newer IP blocks)
-
-You have only one SoC. One SoC has only one IP block, no?
-
-> +
-> +  ranges: true
-> +
-> +  "#address-cells":
-> +    const: 1
-> +
-> +  "#size-cells":
-> +    const: 1
-> +
-> +patternProperties:
-> +  "^mailbox@[0-9a-f]+$":
-> +    type: object
-> +    description:
-> +      Each sub-node is a single-channel mailbox.
-
-This does not look like correct representation. You have one mailbox
-controller with multiple mailboxes, not multiple mailbox controllers of
-single channel boxes.
-
-
-> +
-> +    properties:
-> +      reg:
-> +        maxItems: 1
-> +
-> +      interrupts:
-> +        maxItems: 1
-> +
-> +      "#mbox-cells":
-> +        const: 0
-> +
-> +      google,rx-payload-words:
-> +        $ref: /schemas/types.yaml#/definitions/uint32
-> +        maximum: 256
-> +        default: 0
-> +        description:
-> +          The number of 32-bit words in each mailbox message from the remote
-> +          processor. May be 0 for doorbell-only. If not specified this is
-> +          assumed to be 0.
-> +
-> +      google,mba-queue-mode:
-> +        type: boolean
-> +        description:
-> +          The remote processor is expecting the shared memory to be treated
-> +          as a circular queue and that there may be several outstanding
-> +          messages at once. Only usable on instances with counted doorbell
-> +          interrupts.
-> +
-> +    required:
-> +      - reg
-> +      - interrupts
-> +      - "#mbox-cells"
-> +
-> +    additionalProperties: false
-> +
-> +required:
-> +  - compatible
-> +  - ranges
-> +  - reg
-> +  - "#address-cells"
-> +  - "#size-cells"
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +
-> +    soc {
-> +      #address-cells = <2>;
-> +      #size-cells = <2>;
-> +
-> +      cpm_ap_ns_mba: mailbox-array@5240000 {
-
-Drop all unused labels.
-
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 Best regards,
 Krzysztof
