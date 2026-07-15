@@ -4,73 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D549BC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 16:23:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFE92C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 16:23:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dlILUyAolVrYPr256QI3OVnDWr9y23vDwbFMtoDV4O4=; b=LQm/AcTvDXczTVbgryTmDjSNuk
-	8de5qdAkIqlobnStmj6o47ccAkwLipNrs5WB8eTKZkGruIMBRniqCLoFEPm756dQodhCefogXKEWq
-	pii0Cl3cH+CpCMw2ejU/wyzJMrMF5gxw4LGOPdq6duX1XMHDjVk+9ED3j036YVjO3slt/psQUfX7O
-	Xcrowx4dC+tVBdUVZg9DNTpmMGlt5UAbH6vIaKgi0Ys7yeFRLSxVu2vAk2OkAAStgQ8W06oCZU5cE
-	H33M+y7Uo91A/54CO3UjhbhKO7rvMbPIlM2gF8mEIwtwirk1s/oYrqjqrb1g5RWNRO6YnvdMIdvcw
-	4cdm5IbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nVtlpmzMXPInWvl/hpKSfGHp45T1wj2acsX8b9iirpc=; b=ZRh2g5Mkl9omfya6X702byk6++
+	yMZlm2eKyqgEMx+XXpDzE4LcL4LKc18ffn8KZaOXJgfKPM0Z5FrCevYb63yYfUEyKj19Ad/E5HKkN
+	64X+Qkd9DH4tCqD1gYWB6WQInn6Es+YsG5V2inqOqcKDLICAaxJDEvD+I3LGVUesTvk/ggY5tUaK+
+	VGvpfI29tVu7uT+fQVTBIn+jlFjl5OWxiVGZ1cpfD9upRLpt4ftt4qVQZF05mqHihiD9xbD7mqQoO
+	kZvJaK3K1p+ssMvE0dePNYGvIn5sZ/ZBIeJBqgfu2rmRqMCPdH/Etq0Pu8umuow/giZq3w0Hc5UeQ
+	hMgcvdIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk2O0-0000000FSJi-1Op6;
-	Wed, 15 Jul 2026 16:23:04 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk2Nx-0000000FSIt-2CXN
+	id 1wk2Of-0000000FSUi-241S;
+	Wed, 15 Jul 2026 16:23:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wk2Od-0000000FSUC-31rl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 16:23:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DB73F1477;
-	Wed, 15 Jul 2026 09:22:55 -0700 (PDT)
-Received: from [10.1.25.27] (e122027.cambridge.arm.com [10.1.25.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1F1FC3F7B4;
-	Wed, 15 Jul 2026 09:22:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784132580; bh=dg77XYklUbXh45Il0P/FqtiHFSzucVJ/8GhQ8vvAZAw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jnIcFnKknQfFhH/ZSe16W7ygZ9aJlcMZzJmgb3/8BP5WJF38k0YQoe95evutPHZCY
-	 wtUNge/F7+Qy/lksFoWFKTY9/JKrf9epMGp7oRwIUwWJ0gGWRvpL9pVmGLNcqUrn0X
-	 oRgyjpzuCWM/MidzjoMBBdY108Dll4cKxIVKehFg=
-Message-ID: <ca802162-43b7-478f-9d12-ee7bdc4c2088@arm.com>
-Date: Wed, 15 Jul 2026 17:22:49 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v15 02/37] KVM: arm64: Avoid including linux/kvm_host.h in
- kvm_pgtable.h
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
- Lorenzo Pieralisi <lpieralisi@kernel.org>
+	Wed, 15 Jul 2026 16:23:43 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2DD906001D;
+	Wed, 15 Jul 2026 16:23:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D38971F000E9;
+	Wed, 15 Jul 2026 16:23:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784132622;
+	bh=nVtlpmzMXPInWvl/hpKSfGHp45T1wj2acsX8b9iirpc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=aDVnt9vR5KV+6pF4ampF1wEeddjMcxnvrJa7deL8fPo/iuJwSL2loktpEkvS0tFUR
+	 4DHJBCRc5u7gBzgEkLFWIQ8LIHQsaC026PRfA2UzP41Obsig+SkPVH3+YPtyHeSjqd
+	 l/uHGnScjmAePG8TQmXwnYWbS0u5AzOkjx1mTgI7k60MCDwHXdWOXdq3UHJDHqIEDL
+	 Yng6zHMWUvSMban7bGrFAV7nGTg2YRGDCfWRo0ZKQGBMSzvE1c4OAJ0lNQqYxfqcWP
+	 7Xht9dh7mbE2MupK+R/D2Qn2LBIKODoj7iB8UkRjiVBi9iIRyD3ZDwdIbBcojV69SX
+	 YGHE+r9gsEf7w==
+Received: from [194.56.92.2] (helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wk2Oa-00000005OXC-3Yl1;
+	Wed, 15 Jul 2026 16:23:40 +0000
+Date: Wed, 15 Jul 2026 17:25:30 +0100
+Message-ID: <87y0fc43ut.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu
+ <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>,
+	WeiLin.Chang@arm.com,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: Re: [PATCH v15 26/37] KVM: arm64: WARN on injected undef exceptions
+In-Reply-To: <ec0f52d4-666d-4b6f-b010-eb0391fa53a7@arm.com>
 References: <20260715142841.80544-1-steven.price@arm.com>
- <20260715142841.80544-3-steven.price@arm.com> <871pd45jmn.wl-maz@kernel.org>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <871pd45jmn.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_092301_654711_E4A1CD39 
-X-CRM114-Status: GOOD (  12.46  )
+	<20260715142841.80544-27-steven.price@arm.com>
+	<8733xk5k7v.wl-maz@kernel.org>
+	<ec0f52d4-666d-4b6f-b010-eb0391fa53a7@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 194.56.92.2
+X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,65 +107,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/07/2026 16:59, Marc Zyngier wrote:
-> On Wed, 15 Jul 2026 15:28:04 +0100,
-> Steven Price <steven.price@arm.com> wrote:
->>
->> To avoid future include cycles, drop the linux/kvm_host.h include in
->> kvm_pgtable.h and include the lightweight headers required for the types and
->> inline helpers used there. Additionally provide a forward declaration for
->> struct kvm_s2_mmu as it's only used as a pointer in this file.
->>
->> Both pgtable.c and kvm_pkvm.h relied on the indirect inclusion of
->> kvm_host.h, so make that explicit.
->>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> ---
->> New patch in v13
->> ---
->>  arch/arm64/include/asm/kvm_pgtable.h | 6 +++++-
->>  arch/arm64/include/asm/kvm_pkvm.h    | 2 +-
->>  arch/arm64/kvm/hyp/pgtable.c         | 1 +
->>  3 files changed, 7 insertions(+), 2 deletions(-)
->>
->> diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
->> index 41a8687938eb..c2e4b29e605f 100644
->> --- a/arch/arm64/include/asm/kvm_pgtable.h
->> +++ b/arch/arm64/include/asm/kvm_pgtable.h
->> @@ -8,9 +8,13 @@
->>  #define __ARM64_KVM_PGTABLE_H__
->>  
->>  #include <linux/bits.h>
->> -#include <linux/kvm_host.h>
->> +#include <linux/kvm_types.h>
->> +#include <linux/rbtree_types.h>
->> +#include <linux/rcupdate.h>
->>  #include <linux/types.h>
->>  
->> +struct kvm_s2_mmu;
->> +
->>  #define KVM_PGTABLE_FIRST_LEVEL		-1
->>  #define KVM_PGTABLE_LAST_LEVEL		3
->>  
->> diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
->> index 74fedd9c5ff0..a0f7a699d690 100644
->> --- a/arch/arm64/include/asm/kvm_pkvm.h
->> +++ b/arch/arm64/include/asm/kvm_pkvm.h
->> @@ -9,7 +9,7 @@
->>  #include <linux/arm_ffa.h>
->>  #include <linux/memblock.h>
->>  #include <linux/scatterlist.h>
->> -#include <asm/kvm_host.h>
->> +#include <linux/kvm_host.h>
+On Wed, 15 Jul 2026 17:15:31 +0100,
+Steven Price <steven.price@arm.com> wrote:
 > 
-> nit: please keep the include directives in alphabetical order.
-
-Ack.
-
-Thanks,
-Steve
-
-> 	M.
+> On 15/07/2026 16:46, Marc Zyngier wrote:
+> > On Wed, 15 Jul 2026 15:28:28 +0100,
+> > Steven Price <steven.price@arm.com> wrote:
+> >>
+> >> The RMM doesn't allow injection of a undefined exception into a realm
+> >> guest. Add a WARN to catch if this ever happens.
+> >>
+> >> Signed-off-by: Steven Price <steven.price@arm.com>
+> >> Reviewed-by: Gavin Shan <gshan@redhat.com>
+> >> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> >> ---
+> >> Changes since v6:
+> >>  * if (x) WARN(1, ...) makes no sense, just WARN(x, ...)!
+> >> ---
+> >>  arch/arm64/kvm/inject_fault.c | 1 +
+> >>  1 file changed, 1 insertion(+)
+> >>
+> >> diff --git a/arch/arm64/kvm/inject_fault.c b/arch/arm64/kvm/inject_fault.c
+> >> index 6492397b73d7..613f223bc7a3 100644
+> >> --- a/arch/arm64/kvm/inject_fault.c
+> >> +++ b/arch/arm64/kvm/inject_fault.c
+> >> @@ -327,6 +327,7 @@ void kvm_inject_size_fault(struct kvm_vcpu *vcpu)
+> >>   */
+> >>  void kvm_inject_undefined(struct kvm_vcpu *vcpu)
+> >>  {
+> >> +	WARN(vcpu_is_rec(vcpu), "Unexpected undefined exception injection to REC");
+> >>  	if (vcpu_el1_is_32bit(vcpu))
+> >>  		inject_undef32(vcpu);
+> >>  	else
+> > 
+> > No. WARN_ONCE at a push, but even then, this looks dodgy.
 > 
+> Yep WARN_ONCE() would be better. This function should never be called
+> for a realm guest.
+> 
+> > Exceptions must be injectable. Otherwise, how do you respond to, for
+> > example, a sysreg access for a feature that is hidden from the guest?
+> 
+> The RMM doesn't allow the host to inject exceptions - with the exception
+> of SEA after a host-emulated MMIO.
+>
+> > Will the RMM perform this in KVM's stead?
+> 
+> Yes the RMM would have to handle this for the likes of sysreg accesses.
+> The host doesn't control the trapping of sysreg accesses. There are a
+> few GIC-related registers which are forwarded to the host ("REC exit due
+> to system register access") but generally the handling of sysregs is
+> entirely internal to the RMM.
 
+Then the only option is not to just warn, but to mark all realms as
+dead and refuse to run them any further. If we can't inject an
+exception and that the RMM isn't doing its job, I can't see how we can
+continue at all.
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
