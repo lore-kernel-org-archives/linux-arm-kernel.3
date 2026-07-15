@@ -4,93 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62287C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 14:14:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3CC6C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 14:16:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KgbwbSIUrCAJoYAPbbnt1Im9GqwGuzBgACzlnjm4QXs=; b=mZ8NpuH2Wfxztsw9F4AnvZyje9
-	4gzW/GIJJ8x9qh4f9bYPUVvjfW7iP7XUwH/E4xBRyX19SmOeb4DjtJQVC1s5/YfutVPo36L7dYG9A
-	krO+TI8IDSA7/r3o0uQUBfPde27eAlyzgVDB2a+HXRKj6bra4+nR+zCpfpODMyYlPRhMEkgQxTmA4
-	8X+YBrwTYM0bIsIuT4YpVV6sTr/ojncwaC8fpcPGUfuIpOtF7otJgpWY04URobXdaQlr0raYZOZC1
-	CUdL+NCQG9Inw3ejb/hu7ygZd5XoTm3ZsYBgGePitLoknVpcVNG4y/WojNQ37DMAsbYvdaOFhORID
-	gAFrxdHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
+	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=t+bwpuTRptvyCO3bOxQYXi/J+49Jig0wU9FV1VYgk1U=; b=1Zv1KT9uPB9IpJkTz9l6NFBOJ8
+	XpHrA6zmaPQ+DKES4AYyOSDbA8uP50kDl9fFmyof6A/uJ7L3yeN4PfQGKGCSQyMDyfdNaGaQ44Vpe
+	lXopNtY79+1yYQkFFh3Ld/62P7F4KoBOs82B0+C7sTSs0QezQgafwexGT083vM7HmpqOHjt/PSWWZ
+	bqmONsxQtl5v7Z0aAYRSc4moqHCCUun1mOX0seNnh2Xufj9fh6gVy5dcRq4CNE8FmPEJZYHNnwcxI
+	zLqCl87yeG3jIvrjtq7Etxs0EZsXK8VSmd1aZO7CxLB2evUcQ/4yaXVM2Wu5yiO9IHik+/sjVDcc8
+	at7MBM+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk0NC-0000000F56T-0Cfz;
-	Wed, 15 Jul 2026 14:14:06 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1wk0PX-0000000F5da-1iKU;
+	Wed, 15 Jul 2026 14:16:31 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk0N9-0000000F55c-2BYr
+	id 1wk0PW-0000000F5dP-09KJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 14:14:04 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-493be0fbcc5so43975e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 07:14:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784124841; x=1784729641; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=KgbwbSIUrCAJoYAPbbnt1Im9GqwGuzBgACzlnjm4QXs=;
-        b=gpD9VYnT5AAzPuqZhqleBmjtWMigyuTALCwdTZYDyh8cWmHpatWu61xgomrsOTLynb
-         nd3YDkzqszPg8BhtiGquOoaC/P8Y96Wx70EJit8ghlwe8w4qcubi0U3UD+LPrbAQlVfX
-         Y4YnnXBbRV3Pn0dUYn/pVZngAlonwPJ1IXYkkbETtNL0EyoioqWFXYHFbYu6idkYoKzH
-         9ml0+N+OJXENZm/c3offIm/0rZUIfua4FQWt6hQ3o6nmns6b6rK7/cfEL1qAYrk31xCU
-         bD9HbsUe7LDCAYNW8KOj5RmxqUQV2TUsoywRtw/gzKA4gDBJGxQT+EoY/yRY2hEreiWd
-         rHdQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784124841; x=1784729641;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=KgbwbSIUrCAJoYAPbbnt1Im9GqwGuzBgACzlnjm4QXs=;
-        b=VF8tHc8q6AnvvaRNEny/Qh5OBJqjNTIl8PWJ3jMn2pLUiqCrjtlqU3SxsZf1B3pDId
-         3ewFaOnrnqc+qZPmbZ/eZf6E2SAh0+TwyKPm3ME/46bCUplJFYovNMmFJiEAMcxRRFQc
-         L8j6EENfaGaDXIeDi1dTEZSeK9zsCgeTItrX/KV/LGW7zqn87DBM5ip3qq2jFBnDmPyR
-         3nfIMkyrJMrLS7CO5g5HDJOVqmNLX5GegGcrL3j1IgMHtwtIDbjsw6vMUcvW4Beus0D5
-         /Hk+OdXB52UU8CMc8X8ZJj7lmUgyjGDfpsuesjw//bWQL/Gu1Lsix2szjy84aGq8J3CD
-         L5vw==
-X-Gm-Message-State: AOJu0YwjX8o/MbVSNg73K9E4Zd2IrTOeEpkBHWX99HDWdi2pAoUDdE3n
-	BOKedzJyTdqhwyJ0IVV33aEaEZnUGNG6Lq/nk6hpiGb75JhO1ezNVPvBVzNqFSWHjg==
-X-Gm-Gg: AfdE7clqDws34KeB8pXYc2HmBQx48Aj8O1FlLano1et/6oEehnERfoXKksBWAOdAdX/
-	2TeTw2pVVqUMnikwCjSkIQcO22F6JHo8naM3A9xya8Z14Vi18Mn/nv+5BNk0+jgtRFQNGQQGpdb
-	hSSDk4nBnrEGa5JzgUSDavegIYPglLIRJdvvtyP3J+bEbqYjc7RP4wIc3YjUyCdGbObr6srYHIH
-	THex4A3rdU2g51+5WnFBVe8h4sq8PhWOcMlEzrBoyFATbE0Jeq/zmrId8IkFgedrRELC5XrtpZi
-	Yf/M5wCcp/KpwdnIwkBLoaSDDbNpZjQDaykRLIEbTn+nVqeY5N+RAaRO4Vq6J0vyXw85AkRFzSN
-	HkhOR/1oAdzM7G0EeyhCufhKq2Jpg1TMfJe19XUaIO2FurBtAuDF7/ZG3bsuZBgIhbCzsUR6WxV
-	m0fgLuVoJN2ck75aQKd31jcI5fiA3AtN9CT+aj6Ul8DMIGwRr2
-X-Received: by 2002:a05:600c:14b:b0:48a:5618:b4d4 with SMTP id 5b1f17b1804b1-495156d9fddmr2601775e9.1.1784124839966;
-        Wed, 15 Jul 2026 07:13:59 -0700 (PDT)
-Received: from google.com (220.60.76.34.bc.googleusercontent.com. [34.76.60.220])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f464a9879sm17605107f8f.22.2026.07.15.07.13.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jul 2026 07:13:59 -0700 (PDT)
-Date: Wed, 15 Jul 2026 14:13:55 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
-	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, joro@8bytes.org, jgg@ziepe.ca,
-	mark.rutland@arm.com, qperret@google.com, tabba@google.com,
-	sebastianene@google.com, keirf@google.com
-Subject: Re: [PATCH v7 01/24] KVM: arm64: Add a generic clock
-Message-ID: <aleVozZEcxiGE4Y3@google.com>
-References: <20260715115906.2664882-1-smostafa@google.com>
- <20260715115906.2664882-2-smostafa@google.com>
- <alePwq2eKV5g_7Gc@google.com>
+	Wed, 15 Jul 2026 14:16:30 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B002D42A18;
+	Wed, 15 Jul 2026 14:16:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 179E91F000E9;
+	Wed, 15 Jul 2026 14:16:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784124989;
+	bh=t+bwpuTRptvyCO3bOxQYXi/J+49Jig0wU9FV1VYgk1U=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=LRTh16mRsy/c1BfJrXztagTLiF6iwreCzUL+HMeDfNjLTGE+v0MTqoHM8/94eqABY
+	 N+4rtgZL0EhbYK5cAWGP8gj1ZAFr8ysQnUg3LJ1PmoX2SySSt09D3L2ijTv/4nXxuR
+	 4LDqQrY4WGX8Sm/idsfK4IcTNLzYVepREK/kdWMk38B1xyBvHKg+MdYQDRQF14bs45
+	 jul3NIZI0mB8QJhljbpCxZSix9msf8uYy+MmNt65ImY7LaGLv/N9lIzfEszPHiiEtr
+	 Acq2DWAV0AppoRiInvJeAEKS8BHpzof/0gBMpYFlWjlydAXfZwQxHBKZTGLZ8EgTm/
+	 CUv8LK3VaELxw==
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <alePwq2eKV5g_7Gc@google.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_071403_576946_E2CCA8CE 
-X-CRM114-Status: GOOD (  25.82  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH mm-hotfixes v3 1/4] mm/vmalloc: acquire init_mm lock on
+ huge vmap to avoid ptdump UAF
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Kiryl Shutsemau <kas@kernel.org>
+Cc: Lorenzo Stoakes <ljs@kernel.org>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ Suren Baghdasaryan <surenb@google.com>, 
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+ Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, 
+ Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
+ Uladzislau Rezki <urezki@gmail.com>, Toshi Kani <toshi.kani@hpe.com>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, 
+ Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, x86@kernel.org, 
+ "H. Peter Anvin" <hpa@zytor.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Dev Jain <dev.jain@arm.com>, 
+ Ryan Roberts <ryan.roberts@arm.com>, David Carlier <devnexen@gmail.com>, 
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org, bpf@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org, 
+ syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com
+In-Reply-To: <aldhVdwj9oMRN1Lk@thinkstation>
+References: <20260714-series-vmap-race-fix-v3-0-b812eccfa0f9@kernel.org>
+ <20260714-series-vmap-race-fix-v3-1-b812eccfa0f9@kernel.org>
+ <aldhVdwj9oMRN1Lk@thinkstation>
+Date: Wed, 15 Jul 2026 15:16:08 +0100
+Message-Id: <178412496800.59347.11482869717348078349.b4-reply@b4>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1974; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=pGwB/bTHOs2/inH07hoVPtuuEgBzmNSQea1pphRCakw=;
+ b=kA0DAAoWz53NioHifxQByyZiAGpXlimhljcAvWKWFrIOS3sEzEn8GxUJs2S9+ijUshZ0yWDKX
+ oh1BAAWCgAdFiEE5/QXv1IUVp6J0E9Gz53NioHifxQFAmpXlikACgkQz53NioHifxSp3QD/TBV5
+ Z46e/1R1KuwDd9I5f4zeXSY2PL7Lfd/HyDWWJhEA/2/77m0B36Vzye1+PL6ojrs5HOdPpWBBkzu
+ ZANDfPtQA
+X-Developer-Key: i=ljs@kernel.org; a=openpgp;
+ fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,88 +95,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 15, 2026 at 02:48:50PM +0100, Vincent Donnefort wrote:
-> [...]
-> 
-> > diff --git a/arch/arm64/kvm/hyp/nvhe/clock.c b/arch/arm64/kvm/hyp/nvhe/clock.c
-> > index f3e2619db4e4..43d2cba4f810 100644
-> > --- a/arch/arm64/kvm/hyp/nvhe/clock.c
-> > +++ b/arch/arm64/kvm/hyp/nvhe/clock.c
-> > @@ -8,7 +8,12 @@
-> >  
-> >  #include <asm/arch_timer.h>
-> >  #include <asm/div64.h>
-> > +#include <linux/math64.h>
-> > +#include <vdso/time64.h>
-> >  
-> > +static u32 timer_freq;
-> > +
-> > +#ifdef CONFIG_NVHE_EL2_TRACING
-> >  static struct clock_data {
-> >  	struct {
-> >  		u32 mult;
-> > @@ -66,3 +71,27 @@ u64 trace_hyp_clock(void)
-> >  
-> >  	return (u64)ns + clock->data[bank].epoch_ns;
-> >  }
-> > +#endif /* CONFIG_NVHE_EL2_TRACING */
-> > +
-> > +int hyp_clock_init(void)
-> > +{
-> > +	timer_freq = read_sysreg(cntfrq_el0);
+On 2026-07-15 11:34 +0100, Kiryl Shutsemau wrote:
+> On Tue, Jul 14, 2026 at 06:24:23PM +0100, Lorenzo Stoakes wrote:
+> > Currently there is a nasty race between ptdump and vmap when attempting to
+> > map a huge P4D, PMD or PUD entry:
+>
+> Nit: that's a strange order of levels :P
+
+Ha, seems I couldn't decide on ordering so went with something random :P
+
+Let's try 'P4D, PUD or PMD' instead :))
+
+>
+> > Fix this by holding the mmap read lock in vmap_try_huge_*() when freeing
+> > page tables.
+>
+> How about adding here something like:
+>
+>   The read lock is sufficient: ptdump is the only walker that must be
+>   excluded and it holds the mmap write lock. Other holders of the read
+>   lock may run concurrently, but each exclusively owns the range it
+>   operates on and cannot reach the page tables freed here.
+
+You mean maybe I put the commit message on _too_ much of a diet? :)
+
+Yeah sure, sounds good.
+
+>
 > > +	/*
-> > +	 * KVM will not initialize if FW didn't set cntfrq_el0, that is already
-> > +	 * part of the boot protocol.
+> > +	 * Kernel page table walkers either walk ranges they own exclusively or
+> > +	 * hold the mmap write lock on init_mm (ptdump being the motivating
+> > +	 * case).
+> > +	 *
+> > +	 * Therefore, acquire the mmap read lock to prevent use-after-free when
+> > +	 * freeing page tables.
 > > +	 */
-> > +	if (!timer_freq)
-> > +		return -ENODEV;
-> > +
-> > +	/* Timer freq can't be larger than 1Ghz by spec. */
-> > +	if (timer_freq > NSEC_PER_SEC)
-> > +		return -EINVAL;
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +/* Return time in ns. */
-> > +u64 hyp_clock_ns(void)
-> > +{
-> > +	return mul_u64_u32_div(__arch_counter_get_cntvct(), NSEC_PER_SEC, timer_freq);
-> 
-> IIUC, this will overflow the u64 mult very quickly (in few minutes) and also I
-> see that we don't need such small nanoseconds accuracy.
-> 
-> So here we could always fallback to 128-bits mult... or update the epoch from
-> time to time. But I have something completely different to propose:
-> 
+>
+> Same for the comment, maybe:
+>
+>       /*
+>        * Acquire the mmap read lock to exclude ptdump, which walks
+>        * kernel page tables it does not own under the mmap write lock.
++	 *
+>        * Concurrent read lock holders are safe: each exclusively owns
+>        * the range it operates on and cannot reach this page table.
+>        */
 
-It should not overflow because mul_u64_u32_div() handles this.
+Yeah that's better agreed.
 
-> Instead of using a "clock" how about we just modify smmu_wait?
-> 
-> #define smmu_wait() {
->     static u32 window = arch_timer_get_cntfrq() / ARM_SMMU_EL2_POLL_TIMEOUT_US
->     u64 timeout = __arch_counter_get_cntvct() + window;
->     u64 cur;
-> 
->     ...
-> 
->     while (!(__cond)) {
->       ...
-> 
->       cur = __arch_counter_get_cntvct();
->       if (cur >= timeout)
->           __ret = -ETIMEOUT;
-> 
-> 
-> No risk of overflowing u64
-> No init necessary
+Let's replace it, but I think (being super nitty) with an extra blank line as
+above.
 
-It believe init will be needed as caching arch_timer_get_cntfrq()
-is much better that re-reading everytime. But I can make all of this
-contained in the SMMUv3 driver and remove this patch.
+>
+> With that:
+>
+> Reviewed-by: Kiryl Shutsemau <kas@kernel.org>
 
-Thanks,
-Mostafa
+Thanks!
+
+>
+> --
+>   Kiryl Shutsemau / Kirill A. Shutemov
+>
+
+Andrew - could you fix the commit message and the comment as above? Can respin
+if needed.
+
+Thanks, Lorenzo
 
 
