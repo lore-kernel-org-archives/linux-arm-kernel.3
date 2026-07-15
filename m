@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E236C4450B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 14:29:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D66AC4450B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 14:29:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i4sn1AfuSjVMSHI04BfVVQFL/PeDcnTuFpwOSB+LP+k=; b=Z/0CVO+9qQDrnOmPyJkkR55arG
-	W+Mc1k2TYyXeJ0oiWTybTNM6ZT0tmERGCAXMhapggL/P6PGLbm57d3p8rgJBbMznajBSXSAMWHwh9
-	I7TGrjepzq6E++4bPYKpSHamN6qadBwMQ6ru4OH2yO5cdLT1BYWTkJ0kw8rrjHqdwhoXJ04m4CSKX
-	sgovmGsBbYFJ36fkgJHHBk3jCVMW5kuSbbY66/GU/DeIbNB4iAk8dpg8nMVuhL3AgQ1tNl6q9mKAA
-	8dW8NMVSSQIQQ6/EZZXQOpJp9vvnfITMTilPeCVQGSDo43w9TeOYrjXs/jntDHM1xN98v2KezfCPr
-	Q2HVXvhg==;
+	bh=tOmx9xi7k0YHt4u4h9slLgYijvSu3ApLlMRZAJ/jiBY=; b=bNWjP7tG1SYX2KV5SbygJl8kNX
+	0DC45tjEaFlbnO+Uk2+caG7cGcgC65HBHHOiiSTlC21pL5e2QxTNR97MkRmAexjOhFSoG4W2XDCgY
+	L+Oy7HdUCYShpS+sHo/CM3zvj1sufAS+xZikhYS6r9umXJLwwW24LePJwagiPJqhYBspiESA9xOXc
+	Tuk5qoxQhIf+qLWuIJkpaFLosR5FcWIG7IOHT3Cjlf/8eDjREUQnVwBYLpRkJ9MQwg5TywTzVlZBV
+	/B8vjJB97IXtP2yZqIZpm9bvZWPtHh9L2dxe1eMOhesv6C6rDCzBSRkKvTZoAyOGGeNvpiefCNieI
+	1fiZIO3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk0c0-0000000F82n-37pi;
-	Wed, 15 Jul 2026 14:29:24 +0000
+	id 1wk0c6-0000000F87p-3pZc;
+	Wed, 15 Jul 2026 14:29:30 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk0bu-0000000F7yb-3SET
+	id 1wk0bz-0000000F81w-49vJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 14:29:23 +0000
+	Wed, 15 Jul 2026 14:29:25 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9446B153B;
-	Wed, 15 Jul 2026 07:29:13 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 981861576;
+	Wed, 15 Jul 2026 07:29:18 -0700 (PDT)
 Received: from e122027.cambridge.arm.com (e122027.cambridge.arm.com [10.1.25.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DF4413F7B4;
-	Wed, 15 Jul 2026 07:29:12 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2C5A33F7B4;
+	Wed, 15 Jul 2026 07:29:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784125757; bh=nW7/u/8ytSl027az4/gQTrog0UWHJWQHxjfzk2ofIrk=;
+	t=1784125762; bh=Aq3mAH3poSFbImflFNQAkOr2RDqb2iCoUJzNSYta8b8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=o79Cj0UhKUE0ZUJMcVo9NDGCbiXgRWZ+bShrkDmKFuklkECL2mOQMjgsW4Y4akVqT
-	 OA++hUC1Enfa80QB53kaSBps6rSWkGJ1KiWEf3HUdRCRaHawGpY25mf5JM950VaSOm
-	 XN2g7hgfkJUw5HN2Fkkr4AiXQdr+Pj2btk3V0sds=
+	b=mqg01ireFUQuau+Jq/lxkK2DmZz8g+6xcHbQFdwNnJY70ENUgp+eJZbnndvwKFmo+
+	 6LyiP9k2YrmabTXrvxVfiyA27QDCp/tHOFlhCi/z3fwCod7axxSgocMmaQurcBR44i
+	 mdLZkJaAQED8zGKy2lEEaS4D4L45h0+PG2lh21yA=
 From: Steven Price <steven.price@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
@@ -66,17 +66,17 @@ Cc: Steven Price <steven.price@arm.com>,
 	Vishal Annapurve <vannapurve@google.com>,
 	WeiLin.Chang@arm.com,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: [PATCH v15 05/37] KVM: arm64: CCA: Check for LPA2 support
-Date: Wed, 15 Jul 2026 15:28:07 +0100
-Message-ID: <20260715142841.80544-6-steven.price@arm.com>
+Subject: [PATCH v15 06/37] KVM: arm64: CCA: Define the user ABI
+Date: Wed, 15 Jul 2026 15:28:08 +0100
+Message-ID: <20260715142841.80544-7-steven.price@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260715142841.80544-1-steven.price@arm.com>
 References: <20260715142841.80544-1-steven.price@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_072918_909289_19B1701E 
-X-CRM114-Status: GOOD (  12.89  )
+X-CRM114-CacheID: sfid-20260715_072924_174896_ED3FCB97 
+X-CRM114-Status: GOOD (  18.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,66 +91,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If KVM has enabled LPA2 support then check that the RMM also supports
-it. If there is a mismatch then disable support for realm guests as the
-VMM may attempt to create a guest which is incompatible with the RMM.
+There is one CAP (KVM_CAP_ARM_RMI) which identifies the presence of CCA,
+and one ioctl.  The ioctl (KVM_ARM_RMI_POPULATE) is used to populate
+memory during creation of the realm as this requires the RMM to copy
+data from an unprotected address to the protected memory - CCA does not
+support shared <-> private memory conversion where the memory contents
+is preserved as this is incompatible with memory encryption.
 
 Signed-off-by: Steven Price <steven.price@arm.com>
 ---
-v15:
- * Extend rmi_has_feature() to take the register number and check the
-   presence of SHA-256 support which is default.
-v13:
- * New patch
+Changes since v13:
+ * KVM_ARM_VCPU_RMI_PSCI_COMPLETE removed.
+ * KVM_ARM_RMI_POPULATE documentation updated to reflect that the
+   structure is written by the kernel.
+ * CAP number bumped.
+Changes since v12:
+ * Change KVM_ARM_RMI_POPULATE to update the structure with the amount
+   that has been progressed rather than return the number of bytes
+   populated.
+ * Describe the flag KVM_ARM_RMI_POPULATE_FLAGS_MEASURE.
+ * CAP number is bumped.
+ * NOTE: The PSCI ioctl may be removed in a future spec release.
+Changes since v11:
+ * Completely reworked to be more implicit. Rather than having explicit
+   CAP operations to progress the realm construction these operations
+   are done when needed (on populating and on first vCPU run).
+ * Populate and PSCI complete are promoted to proper ioctls.
+Changes since v10:
+ * Rename symbols from RME to RMI.
+Changes since v9:
+ * Improvements to documentation.
+ * Bump the magic number for KVM_CAP_ARM_RME to avoid conflicts.
+Changes since v8:
+ * Minor improvements to documentation following review.
+ * Bump the magic numbers to avoid conflicts.
+Changes since v7:
+ * Add documentation of new ioctls
+ * Bump the magic numbers to avoid conflicts
+Changes since v6:
+ * Rename some of the symbols to make their usage clearer and avoid
+   repetition.
+Changes from v5:
+ * Actually expose the new VCPU capability (KVM_ARM_VCPU_REC) by bumping
+   KVM_VCPU_MAX_FEATURES - note this also exposes KVM_ARM_VCPU_HAS_EL2!
 ---
- arch/arm64/kvm/rmi.c | 25 +++++++++++++++++++++++++
- 1 file changed, 25 insertions(+)
+ Documentation/virt/kvm/api.rst | 41 ++++++++++++++++++++++++++++++++++
+ include/uapi/linux/kvm.h       | 13 +++++++++++
+ 2 files changed, 54 insertions(+)
 
-diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
-index 384991d69f78..247c4f033945 100644
---- a/arch/arm64/kvm/rmi.c
-+++ b/arch/arm64/kvm/rmi.c
-@@ -5,9 +5,31 @@
+diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+index 304b9c3209ae..b38e090ad95d 100644
+--- a/Documentation/virt/kvm/api.rst
++++ b/Documentation/virt/kvm/api.rst
+@@ -6642,6 +6642,38 @@ if the guest_memfd memory was pinned in IOMMU page tables.
  
- #include <linux/kvm_host.h>
+ See also: :ref: `KVM_SET_MEMORY_ATTRIBUTES`.
  
-+#include <asm/kvm_pgtable.h>
- #include <asm/rmi_cmds.h>
- #include <asm/virt.h>
++4.146 KVM_ARM_RMI_POPULATE
++--------------------------
++
++:Capability: KVM_CAP_ARM_RMI
++:Architectures: arm64
++:Type: vm ioctl
++:Parameters: struct kvm_arm_rmi_populate (in/out)
++:Returns: 0 on success, < 0 on error
++
++::
++
++  struct kvm_arm_rmi_populate {
++	__u64 base;
++	__u64 size;
++	__u64 source_uaddr;
++	__u32 flags;
++	__u32 reserved;
++  };
++
++Populate a region of protected address space by copying the data from the
++(non-protected) user space pointer provided into a protected region (backed by
++guestmem_fd). It implicitly sets the destination region to RIPAS RAM. This is
++only valid before any VCPUs have been run. The ioctl might not populate the
++entire region and in this case the kernel updates the fields `base`, `size` and
++`source_uaddr`. User space may have to repeatedly call it until `size` is 0 to
++populate the entire region.
++
++`flags` can be set to `KVM_ARM_RMI_POPULATE_FLAGS_MEASURE` to request that the
++populated data is hashed and added to the guest's Realm Initial Measurement
++(RIM) stored by the RMM. This can then be retrieved by the guest (using the RSI
++interface) to present to an attestation server.
++
+ .. _kvm_run:
  
-+static bool rmi_has_feature(int reg, unsigned long feature)
-+{
-+	return !!u64_get_bits(rmi_feat_reg(reg), feature);
-+}
-+
-+static int rmm_check_features(void)
-+{
-+	if (kvm_lpa2_is_enabled() &&
-+	    !rmi_has_feature(0, RMI_FEATURE_REGISTER_0_LPA2)) {
-+		kvm_err("RMM doesn't support LPA2\n");
-+		return -ENXIO;
-+	}
-+
-+	if (!rmi_has_feature(1, RMI_FEATURE_REGISTER_1_HASH_SHA_256)) {
-+		kvm_err("RMM doesn't support SHA-256 measurements\n");
-+		return -ENXIO;
-+	}
-+
-+	return 0;
-+}
-+
- void kvm_init_rmi(void)
- {
- 	/*
-@@ -20,5 +42,8 @@ void kvm_init_rmi(void)
- 	if (!is_rmi_available())
- 		return;
+ 5. The kvm_run structure
+@@ -9025,6 +9057,15 @@ enabled, cmma can't be enabled anymore and pfmfi and the storage key
+ interpretation are disabled. If cmma has already been enabled or the
+ hpage_2g module parameter is not set to 1, -EINVAL is returned.
  
-+	if (rmm_check_features())
-+		return;
++7.48 KVM_CAP_ARM_RMI
++--------------------
 +
- 	/* Future patch will enable static branch kvm_rmi_is_available */
- }
++:Architectures: arm64
++:Target: VM
++:Parameters: None
++
++This capability indicates that support for CCA realms is available.
++
+ 8. Other capabilities.
+ ======================
+ 
+diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
+index 129d6f630325..0231ff174a50 100644
+--- a/include/uapi/linux/kvm.h
++++ b/include/uapi/linux/kvm.h
+@@ -998,6 +998,7 @@ struct kvm_enable_cap {
+ #define KVM_CAP_S390_VSIE_ESAMODE 248
+ #define KVM_CAP_S390_HPAGE_2G 249
+ #define KVM_CAP_GUEST_MEMFD_MEMORY_ATTRIBUTES 250
++#define KVM_CAP_ARM_RMI 251
+ 
+ struct kvm_irq_routing_irqchip {
+ 	__u32 irqchip;
+@@ -1686,4 +1687,16 @@ struct kvm_pre_fault_memory {
+ 	__u64 padding[5];
+ };
+ 
++/* Available with KVM_CAP_ARM_RMI, only for VMs with KVM_VM_TYPE_ARM_REALM */
++#define KVM_ARM_RMI_POPULATE	_IOWR(KVMIO, 0xd7, struct kvm_arm_rmi_populate)
++#define KVM_ARM_RMI_POPULATE_FLAGS_MEASURE	(1 << 0)
++
++struct kvm_arm_rmi_populate {
++	__u64 base;
++	__u64 size;
++	__u64 source_uaddr;
++	__u32 flags;
++	__u32 reserved;
++};
++
+ #endif /* __LINUX_KVM_H */
 -- 
 2.43.0
 
