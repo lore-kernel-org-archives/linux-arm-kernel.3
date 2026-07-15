@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E8E7C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 08:54:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B62FBC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 08:54:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1XAlo36/cvqlWCfJP/st8V9NvEK1f/LvSK5OHVxavmM=; b=NV4nkLa2ciGlHOnnvXAaMinTT6
-	kL5fz3/VL+rJGDzw4WOyluWjkCC2GsMR8G8v2We1n8n7WHZrSaXZIoEXhcwFaKmJK04Ce+XZu52lw
-	0+jc5iGw586b8m+5ByG+F5d8HGHiXSLlGUht5z8Z1JlonVlWOZ6dCWKibhya/2gRqONXi4WXmOX+9
-	jOneMyqpHFP8Dj8BXYnvL7aj4sHZ2s/0Ul+Tjl2syJLWnV9NEFrxOOPgZLbQNWRPR8z5CIHApms93
-	Um32y5hKmWLV42Rwul/0HETyI2qvtQW+7nj5Ctc7QfbqrZp8eONmPqHFEqKKO+sKJcYYfcN3s88M9
-	D/F27X1w==;
+	bh=VZ7tYQ51+XcWWhdGhKfBc+Z+vMHf2l2pRpxpCrkBTOs=; b=YEDy4mmErJefln86lvA//ZNJnX
+	r8FBiSB2IwPluQI4op+b5XqMqynD0L7UdUHrxediL5JSz1lVdhCmf5KWr7kXyF9CfyiuBzYtw9Iyy
+	jaO8x51yZGp+vuAfPQZ1Y6/px3OSezrfJXucOX7Kazps16ENahsUJu1Euphr7TStArLREhBlbQdZP
+	lemFWnVhiR5Ysy0pMeMcYfFdqNsRLFvY0nBSRyR4b566kGPmmZHiTnV51F97zRgel1LsJ9k9LL4Dp
+	PE5cVCJjo9ZTrVq0pkekEqkb/66JjTNf6mdZdiDPv/0SuCoZaX4jJZnBN431dJS5Nu+6Nf++bK6ov
+	AacoNRXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjvNp-0000000EDO0-4BQY;
-	Wed, 15 Jul 2026 08:54:26 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1wjvNv-0000000EDQw-0eha;
+	Wed, 15 Jul 2026 08:54:31 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjvNm-0000000EDLI-2HaX
+	id 1wjvNr-0000000EDOk-1BZ1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 08:54:23 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-8423f236418so1551810b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 01:54:22 -0700 (PDT)
+	Wed, 15 Jul 2026 08:54:28 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-848743155bcso787372b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 01:54:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1784105662; x=1784710462; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1784105666; x=1784710466; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=1XAlo36/cvqlWCfJP/st8V9NvEK1f/LvSK5OHVxavmM=;
-        b=Z3CkqtAO6dC5ndePqMXXPxFDlZGdyqWOh+g70cSgGJHiO7NWgdvYQ+spYK7Mmh6cxN
-         vll6JxhWEih+vcDK612O6B3He80H/gkKZitFSEYBEsFy1QnbSTUAfwhpw+O50QHsaB9l
-         gKc1+haFCSfegtbI3ewWI/QzpeACR8sgwiTAY=
+        bh=VZ7tYQ51+XcWWhdGhKfBc+Z+vMHf2l2pRpxpCrkBTOs=;
+        b=PN/UTKQNtvuZJqe09v29L2rTSkqFe2hTIz704q023URH0kGPHt30Myu4RXEa+FwK9p
+         XOpasGMr4A/TIGv08QYu8wrZc2gkUGE3hecN0R3b0zSfwH29f2gwBZ//pKlk22r8j/q2
+         NLknGXvPTKMS5ZxMbjneJPLZpkSiVpJSaFpI8=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784105662; x=1784710462;
+        d=1e100.net; s=20251104; t=1784105666; x=1784710466;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=1XAlo36/cvqlWCfJP/st8V9NvEK1f/LvSK5OHVxavmM=;
-        b=EYbj+DRZ/PloLnnXwwibISBie8QptUJyEwEOXsaEMM4GPyRipg/lj1Db4SB2ii/PEN
-         m3Lh9s35sKxAAHKey48ZrzOadxyl7+8vOr+PUvOiRfAfJwO8xx5fzhl3nme4hOpVZPgl
-         z57eSFDZkz552R9+zlQ9VJ+AJzKL64X7htLBLt1Em9ZKQiqMOoTDooTi9MtuQDGBAQqp
-         T/yMb89fjbmrvqn8/zQqpgu6nAYsRlz7Blu6DVpUJXI9vrGQ8BQUj8fZm6HCiXMXvwtV
-         8K/2p9KdFef7NOFA4+XimQjqyZeWFzlZKwesySCuL6ky0fGQKmSM41Iv1DkeAvniiJq/
-         7Kmg==
-X-Forwarded-Encrypted: i=1; AHgh+RqhYdrUa1S2gWPYWXp08NQnKz1PiLb1XM6+h4ks1oXObALsWgT7YQRW9vY0YIyhxxzaRYmr0s094y+zQfa5aiW9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzjyh0hRPkhfCFs6denyOUnaDSr3O3X0O8ydaN8PnzgEgNU3T7g
-	EddE/S7KQEnVnqa7BopPubAOB5UM3XHrzdTFYWNjcR7ohsUZ+kmMLmjDvEg9bg1rYQ==
-X-Gm-Gg: AfdE7cnTUoj8z9lEj+jRAnx7xAYLQoPmBPDWTkVqH8wIB/u4G1ey7GlNiUsEoTpC7W+
-	StJDz0G/x0x49x6aVGuyXbM5sBzVLixz1slGJr1WHdqACWm0IDrpLOGNMraTJP8nSlev/TUkmR7
-	oAS36yLYBaeHB7+e2RnLFY83Lqo8pU9avj/vqOvcn3tuEFtuKybNcI+h4W4GrBbPoz4Wu+uc01e
-	1FyIT5oeAFkShCOQ8LLofZ7hGiImPFsSThPQjG9IUVz5tIF5UIpC2SklBclLASw11AGzqpsaVw9
-	kKYT+0mgoV/Z5EDkMGZqpR0RfylZwFrJfdZps9FD9jKUSIxhxljdnME8HmGU5wULAw6TpBJpj/l
-	5GVmtcM+sXaO7vsH6vWFEzzmRClK1F7m2EH/ClWOTPICo8Rlz5Ewcs9jgO01+fawNXn2vqZCJ71
-	nlD4IZWc8EmWzDP+9nc2Vhel+nAmaFwd956q3hElKpN00rTbqfxoWddPBbn1JPhkJVJSj6mg==
-X-Received: by 2002:a05:6a00:21d2:b0:845:c6fc:2821 with SMTP id d2e1a72fcca58-84889604f51mr14884898b3a.22.1784105661732;
-        Wed, 15 Jul 2026 01:54:21 -0700 (PDT)
+        bh=VZ7tYQ51+XcWWhdGhKfBc+Z+vMHf2l2pRpxpCrkBTOs=;
+        b=JJOjFFvxbhzw+hMUNLKKM/oEsV6fZSla2BxD0toDMfba97eR69gdPRA9PvCqpYwKKj
+         Urm8ENimliUAfd7yu806rhIjap0fsbItAN9/fLMqVB+a8EMjLMorRDpSJYIYc58vxH+w
+         hi+yz+Q+M3oVDDWeKlKWrPngImUmxO1aUHevhSXoyV+PXE0d9hw+eT/8Zi2Y8AlRPLV0
+         S8A8pcXzDQpF0zC6ocMHLBRuQ4Ff8CgjXNeD0DBh9cVcVZ6GGB1DmLi+umgwup+Ht885
+         bKylsPWQgTfWWzbVM8d03yNrZmRIC63Dc7geZ4lFdjNdlyOVeQHifDF9w0AbFVTqm0e8
+         YFCw==
+X-Forwarded-Encrypted: i=1; AHgh+RqY+BqVhxghD9UPCFGg/jfbVn7Yi4vIsgJ53qOXhu7bEMw6iCGSH4Rkm1Z2Uu1kT2R7NCFQ2AcaaXTiOoyX3z88@lists.infradead.org
+X-Gm-Message-State: AOJu0YwY64W+mTNILzJpvtPDKaqR6WAxajHDK/k8Om8lpK4H4TrnIDbN
+	96RpIbLKMEpSXOYLYbzom4th6uOvDy4etJ/K2JZT3mn6PcNL+xBZVKskv1EDmE3Rfw==
+X-Gm-Gg: AfdE7ckBX/9rDEKdJb7uFLoGC9MnM2Hl6BJ6jZgdTAwzluZsB53X3PgrNv/awXb7lZN
+	4BHxCY2fgTPG2gFibNUMr7JSqF/sHWz4TT2L2H0diNr+w5uekFWAU4SIK5pZW0uZJpGqZBxQ+jP
+	dDXJO4j/DEEAHsS0JvJ+2KIekpfOF2TgIYIPTIQePQDOm4nUfOp42aCzkwGZYtv5akIhXaV2Sz9
+	TOtGKGmH9K+FBRfkXfuwRLd1YQqb7G0h9YdnIIv1F25vnTKVoCiiUADPGydLuviVJyxjQ92Ux2a
+	I+rcAfnY4lalcTFG4QAEOMZG6hV6fy87lDZHJWsBbYate24tMAw9EIS3Qd6X1FuJDE89n7H+jE6
+	Y3VF/y2VYayo59WZZNTUhnIFRl3oP6v2AxbsT8ey2/PgVSpzlqxMGajfHWvx6l7MqgIJLtG0I4L
+	xELZMM5cckyhWlMhqMVI3sl+Mch7kQtFPHgqED6sHGFJOOIdYLRdizeJVZzuoEBe+O/dL8XQ==
+X-Received: by 2002:a05:6a00:228f:b0:848:2f74:1d65 with SMTP id d2e1a72fcca58-84889744e25mr15178478b3a.75.1784105666556;
+        Wed, 15 Jul 2026 01:54:26 -0700 (PDT)
 Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:47d7:4aa5:a6f8:2279])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84a4f819117sm2757491b3a.59.2026.07.15.01.54.17
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84a4f819117sm2757491b3a.59.2026.07.15.01.54.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jul 2026 01:54:21 -0700 (PDT)
+        Wed, 15 Jul 2026 01:54:26 -0700 (PDT)
 From: Chen-Yu Tsai <wenst@chromium.org>
 To: Bartosz Golaszewski <brgl@kernel.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -93,17 +93,17 @@ Cc: Wei Deng <wei.deng@oss.qualcomm.com>,
 	Manivannan Sadhasivam <mani@kernel.org>,
 	Alan Stern <stern@rowland.harvard.edu>,
 	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Subject: [PATCH v5 01/16] device property: Add fwnode_graph_get_port_by_id()
-Date: Wed, 15 Jul 2026 16:53:31 +0800
-Message-ID: <20260715085348.3457359-2-wenst@chromium.org>
+Subject: [PATCH v5 02/16] device property: Add fwnode_graph_get_next_port_endpoint()
+Date: Wed, 15 Jul 2026 16:53:32 +0800
+Message-ID: <20260715085348.3457359-3-wenst@chromium.org>
 X-Mailer: git-send-email 2.55.0.141.g00534a21ce-goog
 In-Reply-To: <20260715085348.3457359-1-wenst@chromium.org>
 References: <20260715085348.3457359-1-wenst@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_015422_628643_AFB77E57 
-X-CRM114-Status: GOOD (  16.14  )
+X-CRM114-CacheID: sfid-20260715_015427_335675_7E361E5D 
+X-CRM114-Status: GOOD (  19.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,82 +118,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In some cases the driver needs a reference to the port firmware node.
-Once such case is the upcoming USB power sequencing integration. The
-USB hub port is tied to the corresponding port firmware node if it
-exists.
+Due to design constraints of the power sequencing API, the consumer
+must first be sure that the other side is actually a provider, or it
+will continually get -EPROBE_DEFER when requesting the power
+sequencing descriptor.
 
-Provide a helper for this.
+In the upcoming USB power sequencing integration, the USB hub driver
+first needs to check whether a graph connection exists, and whether
+the other side of the connection is a supported connector type. The
+USB port is tied to a "port" firmware node, and this new helper will
+be used to get the endpoint under the known "port" firmware node.
 
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 ---
-Changes since v4:
-- Added flags parameter so users can specify whether incomplete ports
-  are returned or not (Sashiko)
-
 Changes since v2:
-- Moved "Return:" kernel-doc section to the end. (Andy)
-
-Changes since v1:
-- New patch
+- Dropped unused |ep| variable
+- Rewrote as do {} while()
+- Dropped WARN() use
 ---
- drivers/base/property.c  | 29 +++++++++++++++++++++++++++++
- include/linux/property.h |  3 +++
- 2 files changed, 32 insertions(+)
+ drivers/base/property.c  | 25 +++++++++++++++++++++++++
+ include/linux/property.h |  3 ++-
+ 2 files changed, 27 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/base/property.c b/drivers/base/property.c
-index 9387bb83eb54..950defc0c55a 100644
+index 950defc0c55a..5d3993bd8fc4 100644
 --- a/drivers/base/property.c
 +++ b/drivers/base/property.c
-@@ -1346,6 +1346,35 @@ int fwnode_graph_parse_endpoint(const struct fwnode_handle *fwnode,
+@@ -1099,6 +1099,31 @@ int fwnode_irq_get_byname(const struct fwnode_handle *fwnode, const char *name)
  }
- EXPORT_SYMBOL(fwnode_graph_parse_endpoint);
+ EXPORT_SYMBOL(fwnode_irq_get_byname);
  
 +/**
-+ * fwnode_graph_get_port_by_id - get the port matching a given id
-+ * @fwnode: parent fwnode_handle containing the graph
-+ * @id: id of the port
-+ * @flags: fwnode lookup flags
++ * fwnode_graph_get_next_port_endpoint - Get next endpoint firmware node in port
++ * @port: Pointer to the target port firmware node
++ * @prev: Previous endpoint node or %NULL to get the first
 + *
 + * The caller is responsible for calling fwnode_handle_put() on the returned
-+ * fwnode pointer.
++ * fwnode pointer. Note that this function also puts a reference to @prev
++ * unconditionally.
 + *
-+ * Does not return ports that belong to disabled devices or endpoints that
-+ * are unconnected, unless FWNODE_GRAPH_DEVICE_DISABLED is passed in @flags.
-+ *
-+ * Return: A 'port' firmware node pointer with refcount incremented.
++ * Return: an endpoint firmware node pointer or %NULL if no more endpoints
++ * are available.
 + */
-+struct fwnode_handle *fwnode_graph_get_port_by_id(struct fwnode_handle *fwnode,
-+						  u32 id,
-+						  unsigned long flags)
++struct fwnode_handle *fwnode_graph_get_next_port_endpoint(const struct fwnode_handle *port,
++							  struct fwnode_handle *prev)
 +{
-+	struct fwnode_handle *ep;
++	do {
++		prev = fwnode_get_next_child_node(port, prev);
++		if (fwnode_name_eq(prev, "endpoint"))
++			break;
++	} while (prev);
 +
-+	ep = fwnode_graph_get_endpoint_by_id(fwnode, id, 0,
-+					     flags | FWNODE_GRAPH_ENDPOINT_NEXT);
-+	if (!ep)
-+		return NULL;
-+
-+	return fwnode_get_next_parent(ep);
++	return prev;
 +}
-+EXPORT_SYMBOL_GPL(fwnode_graph_get_port_by_id);
++EXPORT_SYMBOL_GPL(fwnode_graph_get_next_port_endpoint);
 +
- const void *device_get_match_data(const struct device *dev)
- {
- 	return fwnode_call_ptr_op(dev_fwnode(dev), device_get_match_data, dev);
+ /**
+  * fwnode_graph_get_next_endpoint - Get next endpoint firmware node
+  * @fwnode: Pointer to the parent firmware node
 diff --git a/include/linux/property.h b/include/linux/property.h
-index 14c304db4664..480ba8646bcc 100644
+index 480ba8646bcc..9a784a856773 100644
 --- a/include/linux/property.h
 +++ b/include/linux/property.h
-@@ -505,6 +505,9 @@ int fwnode_get_phy_mode(const struct fwnode_handle *fwnode);
+@@ -505,9 +505,10 @@ int fwnode_get_phy_mode(const struct fwnode_handle *fwnode);
  
  void __iomem *fwnode_iomap(struct fwnode_handle *fwnode, int index);
  
-+struct fwnode_handle *fwnode_graph_get_port_by_id(struct fwnode_handle *fwnode, u32 id);
-+struct fwnode_handle *fwnode_graph_get_port_by_id(struct fwnode_handle *fwnode, u32 id,
-+						  unsigned long flags);
+-struct fwnode_handle *fwnode_graph_get_port_by_id(struct fwnode_handle *fwnode, u32 id);
+ struct fwnode_handle *fwnode_graph_get_port_by_id(struct fwnode_handle *fwnode, u32 id,
+ 						  unsigned long flags);
++struct fwnode_handle *fwnode_graph_get_next_port_endpoint(
++	const struct fwnode_handle *port, struct fwnode_handle *prev);
  struct fwnode_handle *fwnode_graph_get_next_endpoint(
  	const struct fwnode_handle *fwnode, struct fwnode_handle *prev);
  struct fwnode_handle *
