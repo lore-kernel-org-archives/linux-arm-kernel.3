@@ -4,94 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F22FC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 18:28:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D38CEC44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 18:31:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ciQ1DWmOl90RU8Z0TC+0zcZO7jcoRA4J346GsiDnDic=; b=JqPtfYQEYyzh11XQf0HWZth3Tc
-	FQhv/FXB08yX+aAGSAu+Sy9lauQNV2qk+BckAvM5cybrW01IUZSlclse5Q+VKMFmXQRKcElX6LIW0
-	Pun7lnaA9IkH71WdCNn3IzTewtP8sOxJKEnb9MOj70E6KpFnpypyMdGXp8Tyn13yDJ8wiSEHrgNIH
-	+YMs2vis8Uk3SZ3wxShwrRWGhpXEFV24CZzkrTGSoUN9kbKR5dZL7Nj7KOd8OU1RCoIFUxnnkhJ0h
-	KBysDfVxxel/IJfBaKbSA88ncKVugkq3FBV86abFPOhcPK1tNzFal79chF9mFbTcRkAWt+zNtttHU
-	6hd7qnLA==;
+	bh=N/wiBLYHdGXZJkCg3oiCX/MSyspe/eiXGex9ftDaZcE=; b=ape2JU2efL6s3+E66zs0BiahE7
+	AHVBsoRIDQi6UKQ9i8QHBKlkXzZpkhJ5U7knREosJWytKi//cspSSGQfL+seqhw9bY+cNtOJlNErf
+	8KGBcwxGRkDG6RL44/rrhM9LXAugcJOYB7MiLt6F084dV+/+WtGk+DpYtJK7Cg7E1uGIhJs6tmEuL
+	Xmibe5NxX/RjHEOVbPejgHNkz/CEd/j5FebYpWV3ch1CmmFpXhsZ/ZXJIdGLwsPULz8gfMjV6Y9yk
+	xgV9GKyHFgTGsH0sPExdrTmwU9eaX/MNkYVK5TAqoSMTeHIxd/v+hK+hRdxoHTEe4vZau1GKzw1/3
+	xNqZLOeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk4LA-0000000FfrW-2w0F;
-	Wed, 15 Jul 2026 18:28:16 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1wk4Oc-0000000FgHG-10MX;
+	Wed, 15 Jul 2026 18:31:50 +0000
+Received: from sender4-op-o11.zoho.com ([136.143.188.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk4L8-0000000Ffr1-3c04
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 18:28:16 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-493b8d92a4eso6775e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 11:28:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784140092; x=1784744892; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ciQ1DWmOl90RU8Z0TC+0zcZO7jcoRA4J346GsiDnDic=;
-        b=m2hnS1APHvpL2kn1NaY07JYQqAZl0I3xeCrp25v2VXaMqZhZQAxy/eKJdLeNd64P7k
-         d3N11Ai326vrW7g+QeGfFJ5MjCQ9ltac+FUVYSTMTj/5enwmkEeB81zMo8aKmPak6O5q
-         kJMwL+ihNbVdIKrbvx0AP9VXZwBJw1ycyPbh0J/TCv0xsgtap7l19dnFf1D3mjltTuXn
-         /2zBXa8ADcGN3EamzYDNnWreUtXOZ/88ZxZX+H9KLwPNdZw2s5tIYyWpD3LjK0VoOyJQ
-         GluerFi62HW/qrGTakOj1gtyUPhRvfMc1Bslo8wO7ZQcMgjE0/7vTfdRxwDMwpvgPRNo
-         ogoQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784140092; x=1784744892;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=ciQ1DWmOl90RU8Z0TC+0zcZO7jcoRA4J346GsiDnDic=;
-        b=o+Jzx44j8xzwiIIIIZfyy2Nwvy0WMeUeYeBppOsvq6wfNdk+S2BrRkkX9PR/ainTbT
-         9m26Fxxf6GAINLE1UuQIs736xlafN404OQ/wzpIt/uncm+96z/X4n6HBa19xvt4FDTg7
-         XsrkU6SGulkzoPVUy0mfWkQjV1r1PgZGEyUaa9dumkc31h9xDG8C1nHM0oe+k6VQ/dN/
-         aFBX0XvzoX1uGP4YlSaPLMeN1Io51unpJ7oXC29dc3DKj+JTBBNtTVpCHlWZLqzVyu3p
-         RUPLjkaYPLAXcT2/3tamNCbbsaInrcxcjrVOEDHSbO5GI791hg7SI9S+Q8x7Xs4ut2Kk
-         tZFQ==
-X-Gm-Message-State: AOJu0Yz3aw9otiJz3p0s+kqZN9fin+exs2nzKhCXWv5RUXVhH3kbgtdO
-	8Cpc+RepoQgXPP75lQwzVd7/0SQbfMigLtITIYStUQIFG8PEVfrsKNmCwQ9JvKxgKQ==
-X-Gm-Gg: AfdE7cmwtNybykZs+iK/fm4DbSh8fQXrAC/Lt7wm60QezCYs4EZ/cPirIKDxCE2PgOF
-	qFOqW/F1oBFkYwgOKhqbKcDY9rk5nPqzuW3pNOL1SlihZdljoleDLEL6AcDCp5J5WKMwiEjYoOj
-	9ACkj1I1qw9YHuoZAaU55cFc+WbVasB0kZh2JhKyKxjC91ZlgkLm/Njjq2bL9bCkFEm7mltxLq1
-	0wRhj/yaIaVpxXI8mLfzSwd6UXR2ZXY9+wmhFgXk/DDPuTHniBmA6WmQW3c4kkgzNdYghL2+9ET
-	E1n/yO7GZfU8FgB+uMAemeakIHRnrnhffEkIvIlQ8/3GqDseBONG47Q4suYOUDkgvl4EdIirZPg
-	6eDR3QbHoe87fpiXkNOYOMvbVtxVhDY2zv/AqIqGaA754sMbfz3TZ6aC49icnoUSOdLnqH9o4By
-	up1cG37HDu5j3DfGvpLyA+AjOSNYcADQ84CRsMvV3Og8+4npvk
-X-Received: by 2002:a05:600c:5797:b0:493:b86f:c913 with SMTP id 5b1f17b1804b1-49541e941fbmr34885e9.1.1784140091687;
-        Wed, 15 Jul 2026 11:28:11 -0700 (PDT)
-Received: from google.com (220.60.76.34.bc.googleusercontent.com. [34.76.60.220])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49541e9ac02sm771805e9.14.2026.07.15.11.28.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jul 2026 11:28:10 -0700 (PDT)
-Date: Wed, 15 Jul 2026 18:28:06 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
-	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, joro@8bytes.org, jgg@ziepe.ca,
-	mark.rutland@arm.com, qperret@google.com, tabba@google.com,
-	sebastianene@google.com, keirf@google.com
-Subject: Re: [PATCH v7 02/24] KVM: arm64: Donate MMIO to the hypervisor
-Message-ID: <alfRNu-Y7EMol7Gd@google.com>
-References: <20260715115906.2664882-1-smostafa@google.com>
- <20260715115906.2664882-3-smostafa@google.com>
- <alfCz_WQR_Al2lFw@google.com>
+	id 1wk4Oa-0000000FgGd-0BPz;
+	Wed, 15 Jul 2026 18:31:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1784140269; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=mF+82Ak2xmHGgbVpn39yFo1ujKBHtUruIeLUq0wT0hxE/5VO0yqPQx/X2vQZsW2pXD5c+hXeTXHqnqG49GgFapriRA//Ut8ZOikB+NbBQ6WKuXTatdXVJ0Zv8tsFSfuekO7RFRhpR+6uiCi+nCXHhfkM+LLRtVuGnyq4++lnCn0=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1784140269; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=N/wiBLYHdGXZJkCg3oiCX/MSyspe/eiXGex9ftDaZcE=; 
+	b=Wq86dZDfxwLzEPjzbpEFWxu+0Bn/IBHdVt7Gplx3r/tgpwmMlScib11AeXnv4lbmBAqoprAeOviGj964g1je+zrhI3eRtNf7MS0wNXDcRtUMtLkCrmNsEvueR9Ld9Udx4yHoSX3UpeGlk8KfxYNE/GLS8rqlBb0jl5lsOfMTGbQ=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1784140269;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=N/wiBLYHdGXZJkCg3oiCX/MSyspe/eiXGex9ftDaZcE=;
+	b=i/YH6zzu7szwG3X/T7xICxR7uKdgqUMZmCHJ1dMCpLh9NfGt+npTLJuO8Z0qTLeZ
+	d0X+UpC7bvzAlaaAEyagubKAqouLSvOlYtfzI3FamtSP7oc8x7SH6Mb6FM1gg0K40Dr
+	UpT6qfSnFS2y4v5ji2KXDYD1NCIpVdcdEXZjtX18=
+Received: by mx.zohomail.com with SMTPS id 1784140267504649.5715776031727;
+	Wed, 15 Jul 2026 11:31:07 -0700 (PDT)
+Received: by venus (Postfix, from userid 1000)
+	id 1F034180820; Wed, 15 Jul 2026 20:31:00 +0200 (CEST)
+Date: Wed, 15 Jul 2026 20:31:00 +0200
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Andy Yan <andyshrk@gmail.com>
+Cc: Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, Damon Ding <damon.ding@rock-chips.com>, 
+	Dmitry Baryshkov <lumag@kernel.org>, Alexey Charkov <alchark@gmail.com>, 
+	dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, kernel@collabora.com, linux-arm-kernel@lists.infradead.org, 
+	yubing.zhang@rock-chips.com
+Subject: Re: [PATCH v3 07/10] drm/bridge: synopsys: dw-dp: Add Runtime PM
+ support
+Message-ID: <alfQl182eZjaDwgZ@venus>
+References: <20260612-synopsys-dw-dp-improvements-v3-0-dc61e6352508@collabora.com>
+ <20260612-synopsys-dw-dp-improvements-v3-7-dc61e6352508@collabora.com>
+ <CANbgqAQLROuf9wvZZWRufZg6iqubKnC4fW5Bh+DkQ7RP1x5KKQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="k4oubbgopkkrgoq4"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <alfCz_WQR_Al2lFw@google.com>
+In-Reply-To: <CANbgqAQLROuf9wvZZWRufZg6iqubKnC4fW5Bh+DkQ7RP1x5KKQ@mail.gmail.com>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.10.1.5.2/284.121.97
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_112814_957798_16B1CFC9 
-X-CRM114-Status: GOOD (  41.73  )
+X-CRM114-CacheID: sfid-20260715_113148_123665_EC04ADD6 
+X-CRM114-Status: GOOD (  32.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,175 +97,205 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 15, 2026 at 06:26:39PM +0100, Vincent Donnefort wrote:
-> On Wed, Jul 15, 2026 at 11:58:43AM +0000, Mostafa Saleh wrote:
-> > Add a function to donate MMIO to the hypervisor so IOMMU hypervisor
-> > drivers can protect and access the MMIO of IOMMUs.
-> > 
-> > As donating MMIO is very rare, and we don’t need to encode the full
-> > state, it’s reasonable to have a separate function to do this.
-> > It will init the host s2 page table with an invalid leaf with the owner ID
-> > to prevent the host from mapping the page on faults.
-> > 
-> > Also, prevent kvm_pgtable_stage2_unmap() from removing owner ID from
-> > stage-2 PTEs, as this can be triggered from recycle logic under memory
-> > pressure. There is no code relying on this, as all ownership changes is
-> > done via kvm_pgtable_stage2_set_owner()
-> > 
-> > For the error path in IOMMU drivers, add a function to donate MMIO
-> > back from hyp to host. However, that leaks the hypervisor virtual
-> > address range which should be acceptable as this is quite rare and
-> > it matches the behaviour of fix_map/block.
-> > 
-> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
+
+--k4oubbgopkkrgoq4
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 07/10] drm/bridge: synopsys: dw-dp: Add Runtime PM
+ support
+MIME-Version: 1.0
+
+Hello Andy,
+
+On Tue, Jul 14, 2026 at 05:01:14PM +0800, Andy Yan wrote:
+> Hello Sebastian,
+>=20
+> Sebastian Reichel <sebastian.reichel@collabora.com> =E4=BA=8E2026=E5=B9=
+=B46=E6=9C=8813=E6=97=A5=E5=91=A8=E5=85=AD 02:01=E5=86=99=E9=81=93=EF=BC=9A
+>=20
+> > Add runtime PM stubs to the Synopsys DesignWare DisplayPort bridge
+> > driver. Support is not enabled automatically and must be hooked up
+> > in the vendor specific glue code.
+> >
+> > Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 > > ---
-> >  arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  7 ++
-> >  arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 91 ++++++++++++++++++-
-> >  arch/arm64/kvm/hyp/pgtable.c                  | 11 +--
-> >  3 files changed, 102 insertions(+), 7 deletions(-)
-> > 
-[...]
-> > +	u64 offset;
-> > +	int ret;
+> >  drivers/gpu/drm/bridge/synopsys/dw-dp.c | 27 +++++++++++++++++++++++++=
+++
+> >  include/drm/bridge/dw_dp.h              |  3 +++
+> >  2 files changed, 30 insertions(+)
+> >
+> > diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+> > b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+> > index 7fa38145e35c..7f4f36c61484 100644
+> > --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+> > +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+> > @@ -1465,6 +1465,8 @@ static ssize_t dw_dp_aux_transfer(struct drm_dp_a=
+ux
+> > *aux,
+> >         if (WARN_ON(msg->size > 16))
+> >                 return -E2BIG;
+> >
+> > +       ACQUIRE(pm_runtime_active_auto, pm)(dp->dev);
 > > +
-> > +	/* Only before de-privilege. */
-> > +	if (static_branch_unlikely(&kvm_protected_mode_initialized))
-> > +		return -EPERM;
+> >         switch (msg->request & ~DP_AUX_I2C_MOT) {
+> >         case DP_AUX_NATIVE_WRITE:
+> >         case DP_AUX_I2C_WRITE:
+> > @@ -1655,6 +1657,8 @@ static void dw_dp_bridge_atomic_enable(struct
+> > drm_bridge *bridge,
+> >         struct drm_connector_state *conn_state;
+> >         int ret;
+> >
+> > +       pm_runtime_get_sync(dp->dev);
 > > +
-> > +	if (!PAGE_ALIGNED(addr | size) ||
-> 
-> You wouldn't need that with u64 pfn, u64 nr_pages :) 
-
-Well that need to be added somewhere :) but I am ok changing the args.
-
-> 
-> > +	    !pfn_range_is_valid(hyp_phys_to_pfn(addr), size >> PAGE_SHIFT))
-> > +		return -EINVAL;
-> > +
-> > +	ret = __pkvm_create_private_mapping(addr, size, PAGE_HYP_DEVICE, haddr);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	host_lock_component();
-> > +	for (offset = 0; offset < size; offset += PAGE_SIZE) {
-> > +		if (addr_is_memory(addr + offset)) {
-> > +			ret = -EINVAL;
-> > +			goto unlock;
-> > +		}
-> > +		ret = kvm_pgtable_get_leaf(&host_mmu.pgt, addr + offset, &pte, NULL);
-> > +		if (ret)
-> > +			goto unlock;
-> 
-> Is that called for big regions? because that looks quite inefficient even for
-> something that is init and IIRC we want to use this for GIC hardening too?
-> 
-
-It is 128KB, and that's called once at boot (where we walk the whole
-addres space anyway) so I don't think it has any impact, and we do
-that in other hot paths as __pkvm_guest_share_host().
-
-> Perhaps it wouldn't be complicated to walk hyp_memory[] to make sure this
-> doesn't overlap any memory region. And then to reuse check_page_state_range() to
-> verify the host stage-2? 
-
-tbh, I think that current implementation is simpler, as we need to
-write a special callback for check_page_state_range()
-
-> 
-> > +		if (pte && !kvm_pte_valid(pte)) {
-> > +			ret = -EPERM;
-> > +			goto unlock;
-> > +		}
-> > +	}
-> > +	/*
-> > +	 * We set HYP as the owner of the MMIO pages in the host stage-2, for:
-> > +	 * - host aborts: host_stage2_adjust_range() would fail for invalid non zero PTEs.
-> > +	 * - recycle under memory pressure: host_stage2_unmap_dev_all() would call
-> > +	 *   kvm_pgtable_stage2_unmap() which will not clear non zero invalid ptes (counted).
-> > +	 * - other MMIO donation: Would fail as we check that the PTE is valid or empty.
-> > +	 */
-> 
-> Not sure we want that level of detail, it will probably become stall very
-> quickly. Perhaps we can simply say "the annotation is refcounted and protects
-> this region until it is released with __pkvm_hyp_donate_host_mmio()" or
-> something like that?
-> 
-> Also that makes me think, do we want to add this to the ownership_selftest?
-
-Sure, I can look into that.
-
-> 
-> > +	ret = host_stage2_try(kvm_pgtable_stage2_annotate, &host_mmu.pgt,
-> > +			      addr, size, &host_s2_pool,
-> > +			      KVM_HOST_INVALID_PTE_TYPE_DONATION,
-> > +			      FIELD_PREP(KVM_HOST_DONATION_PTE_OWNER_MASK, PKVM_ID_HYP));
-> > +unlock:
-> > +	host_unlock_component();
-> > +	return ret;
-> > +}
-> > +
-> > +int __pkvm_hyp_donate_host_mmio(phys_addr_t addr, size_t size)
-> > +{
-> > +	kvm_pte_t pte;
-> > +	u64 offset;
-> > +	int ret = 0;
-> > +
-> > +	if (static_branch_unlikely(&kvm_protected_mode_initialized))
-> > +		return -EPERM;
-> > +
-> > +	if (!PAGE_ALIGNED(addr | size) ||
-> > +	    !pfn_range_is_valid(hyp_phys_to_pfn(addr), size >> PAGE_SHIFT))
-> > +		return -EINVAL;
-> > +
-> > +	host_lock_component();
-> > +	for (offset = 0; offset < size; offset += PAGE_SIZE) {
-> > +		if (addr_is_memory(addr + offset)) {
-> > +			ret = -EINVAL;
-> > +			goto unlock;
-> > +		}
-> > +		ret = kvm_pgtable_get_leaf(&host_mmu.pgt, addr + offset, &pte, NULL);
-> > +		if (ret)
-> > +			goto unlock;
-> > +		if (!pte || kvm_pte_valid(pte)) {
-> > +			ret = -EINVAL;
-> > +			goto unlock;
-> > +		}
-> > +		if (FIELD_GET(KVM_HOST_DONATION_PTE_OWNER_MASK, pte) != PKVM_ID_HYP) {
-> > +			ret = -EPERM;
-> > +			goto unlock;
-> > +		}
-> > +	}
-> > +	WARN_ON(host_stage2_idmap_locked(addr, size, PKVM_HOST_MMIO_PROT));
-> > +unlock:
-> > +	host_unlock_component();
-> > +	return ret;
-> > +}
-> > +
-> >  int __pkvm_hyp_donate_host(u64 pfn, u64 nr_pages)
+> >         connector =3D drm_atomic_get_new_connector_for_encoder(state,
+> > bridge->encoder);
+> >         if (!connector) {
+> >                 dev_err(dp->dev, "failed to get connector\n");
+> > @@ -1709,6 +1713,7 @@ static void dw_dp_bridge_atomic_disable(struct
+> > drm_bridge *bridge,
+> >         dw_dp_link_disable(dp);
+> >         bitmap_zero(dp->sdp_reg_bank, SDP_REG_BANK_SIZE);
+> >         dw_dp_reset(dp);
+> > +       pm_runtime_put_autosuspend(dp->dev);
+> >  }
+> >
+> >  static bool dw_dp_hpd_detect_link(struct dw_dp *dp, struct drm_connect=
+or
+> > *connector)
+> > @@ -1729,6 +1734,8 @@ static enum drm_connector_status
+> > dw_dp_bridge_detect(struct drm_bridge *bridge,
 > >  {
-> >  	u64 phys = hyp_pfn_to_phys(pfn);
-> > diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-> > index 91a7dfad6686..3073184cf6ad 100644
-> > --- a/arch/arm64/kvm/hyp/pgtable.c
-> > +++ b/arch/arm64/kvm/hyp/pgtable.c
-> > @@ -1161,13 +1161,12 @@ static int stage2_unmap_walker(const struct kvm_pgtable_visit_ctx *ctx,
-> >  	kvm_pte_t *childp = NULL;
-> >  	bool need_flush = false;
-> >  
-> > -	if (!kvm_pte_valid(ctx->old)) {
-> > -		if (stage2_pte_is_counted(ctx->old)) {
-> > -			kvm_clear_pte(ctx->ptep);
-> > -			mm_ops->put_page(ctx->ptep);
-> > -		}
-> > +	/*
-> > +	 * That also ignores stage2_pte_is_counted() instead of clearing
-> > +	 * the PTE as the MMIO can be owned by the hypervisor.
-> 
-> Not sure we should reference something pKVM specific in that code. Perhaps just
-> say we don't touch refcounted PTEs?
+> >         struct dw_dp *dp =3D bridge_to_dp(bridge);
+> >
+> > +       ACQUIRE(pm_runtime_active_auto, pm)(dp->dev);
+> >
+>=20
+> This may not work correctly. Per the DW-DP TRM, the " HPD_HOT_PLUG
+> bit is asserted only after the sink is attached and holds HPD high
+> for at least 100ms". Consequently, reading this bit within 100ms
+> after resuming runtime_pm may fail to detect the status. I've
+> verified this behavior on a Rock 5B board=E2=80=94the HPD bit remains
+> unreadable at this point.
+>=20
+> +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+> @@ -1761,12 +1761,17 @@ static enum drm_connector_status
+> dw_dp_bridge_detect(struct drm_bridge *bridge,
+>=20
+>         ACQUIRE(pm_runtime_active_auto, pm)(dp->dev);
+>=20
+> -       if (!dw_dp_hpd_detect(dp))
+> +       if (!dw_dp_hpd_detect(dp)) {
+> +               printk(KERN_DEBUG "%s no hpd\n", __func__);
+>                 return connector_status_disconnected;
+> +       }
+>=20
+> -       if (!dw_dp_hpd_detect_link(dp, connector))
+> +       if (!dw_dp_hpd_detect_link(dp, connector)) {
+> +               printk(KERN_DEBUG "%s no link\n", __func__);
+>                 return connector_status_disconnected;
+> +       }
+>=20
+> +       printk(KERN_DEBUG "%s connected\n", __func__);
+>         return connector_status_connected;
+>  }
+>=20
+> @@ -2149,6 +2154,7 @@ static irqreturn_t dw_dp_irq(int irq, void *data)
+>         u32 value;
+>=20
+>         regmap_read(dp->regmap, DW_DP_GENERAL_INTERRUPT, &value);
+> +       printk(KERN_DEBUG "%s value: %d\n", __func__, value);
+>         if (!value)
+>                 return IRQ_NONE;
+>=20
+> bootup
+> [    5.218035] panthor fb000000.gpu: [drm] Using Transparent Hugepage
+> [    5.219073] [drm] Initialized panthor 1.9.0 for fb000000.gpu on minor 1
+> [    7.953973] r8169 0004:41:00.0 enP4p65s0: Link is Up - 1Gbps/Full - fl=
+ow
+> control off
+> [    8.601273] dw_dp_rockchip_runtime_resume ret: 0
+> [    8.702748] dw_dp_irq value: 1        // (HPD irq 100 100ms  after
+> runtime_resume)
+> [    8.714236] dw_dp_irq value: 2
+> [    8.714775] dw_dp_irq value: 2
+> [    8.715201] dw_dp_irq value: 2
+> [    8.715710] dw_dp_irq value: 2
+> [    8.715744] dw_dp_bridge_detect connected
+> [    9.226752] dw_dp_rockchip_runtime_suspend
+>=20
+>=20
+> Then run modetest:
+>=20
+> # modetest
+> trying to open device '/dev/dri/card1'... is not a KMS device
+> trying to open device '/dev/dri/card0'... done
+> opened device `RockChip Soc DRM` on driver `rockchip` (version 1.0.0 at 0)
+> Encoders:
+> id      crtc    type    possible crtcs  possible clones
+> 86      0       TMDS    0x00000004      0x00000001
+> 88      0       TMDS    0x00000001      0x00000002
+> 92      0       TMDS    0x00000002      0x00000004
+>=20
+> Connectors:
+> id      encoder status          name            size (mm)       modes
+> encoders
+> 87      0       disconnected    DP-1            0x0             0       86
+>   props:
+>         1 EDID:
+>=20
+> [   13.809398] rockchip-pm-domain
+> fd8d8000.power-management:power-controller: sync_state() pending due to
+> fdee0000.hdmi_receiver
+> [   29.225506] dw_dp_rockchip_runtime_resume ret: 0
+> [   29.225940] dw_dp_bridge_detect no hpd         // no HPD read here
+> [   29.326986] dw_dp_irq value: 1                         // HPD irq ater
+> 100ms
+> [   29.346609] dw_dp_irq value: 2
+> [   29.347150] dw_dp_irq value: 2
+> [   29.347578] dw_dp_irq value: 2
+> [   29.348092] dw_dp_irq value: 2
+>=20
+>=20
+> if I add a mdelay(110) after  ACQUIRE pm_runtime,  the hdp can be read.
+> index 02ca7fe725876..5959e79eb3e2b 100644
+> --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+> +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+> @@ -1760,7 +1760,7 @@ static enum drm_connector_status
+> dw_dp_bridge_detect(struct drm_bridge *bridge,
+>         struct dw_dp *dp =3D bridge_to_dp(bridge);
+>=20
+>         ACQUIRE(pm_runtime_active_auto, pm)(dp->dev);
+> -
+> +       mdelay(110);
 
-Sure, I can simplify it.
+Interesting, I did not notice this issue with the Sige 5 (RK3576).
+Thanks for not just reporting it to not work, but also figuring out
+what is going on :) I will add an msleep(110); in the next version.
 
-Thanks,
-Mostafa
+Greetings,
+
+-- Sebastian
+
+--k4oubbgopkkrgoq4
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmpX0eMACgkQ2O7X88g7
++proiw//TpC4KRIooalLSV6qAZujhx/NZeM1RZgdMyLHA8A5+uvrO4uhjIrPPivv
+zUqwAU90nbdoVNt8zyKhjwpabHHXtrh2wxwMjesYOYO1SLNDgLvF7IrUYdOfXzJA
+00hzJglxvIB5aJllxCzSkrP2WpNEqjrBpL3QfuzObOc/qd9yq/Z/OmNh6HTWsmFi
+6lASNypyehhXPwwgyP8brI7Nb+w7IaemGTEAbOMkbxDZ1VnBOLde0BKCsLyKwZV0
+jtSEozTs8Hzh6Wfpu66oklAsxZhp64lbYDNpOtYb5YsBeyoy56D4mR1++hYXcIxf
+tr0TaiVMSEwa32cX1YEg2ZaDGz+odB+nGdiPffg3+2UhNQoae/qxrpmRpgvTWijW
+Wz5YqfGmFs/s/iR10Osxwy3YBY/mKScp81F6S4Lv191vDCfs+9j5wYArv/52m7zf
+hPUbiy0k2SRTgt0VSmHly81fQRTzM1VUamYBTzdy0Gik5EsYwRZSggLip8aWHlct
+tQHNgpu8iOhaDP9aEu19HMQtKF1ppHBPJPIREBT19JOyr4Shv18IzGbBNjrZuQU5
+nO94Xviw9otQpWfWGdvHgXSgsWIkgNLGuHrgOQK3YZF0V9N9/C4cCqSf3N6vFqUu
+rqHu9882Hg7u63fDL0KVTrVGzfg+FH6MNF1N5mHwKthNiCkbPHM=
+=fomM
+-----END PGP SIGNATURE-----
+
+--k4oubbgopkkrgoq4--
 
