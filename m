@@ -4,97 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A026AC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 10:13:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A7B1C4450C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 10:14:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1jZxb/DyGzc2Aox27RZLCNs8CB48ahE7uYx1FJS8/x4=; b=lWHVSn1s6oetds4unVa0vsJ4GE
-	cu3hOLDG94lYyTghY2dVRTTe0sGSFS5UcMuMxCS+r1hCa/4jt6UepLZLMLZuEAyfco5G6QG6UJZS2
-	Y3dapqCPoi8V/sLY4aH+ZPLoiaFBNagnt8099Qww2ZTSb97gS/KBYCjVspBjiqQ+kyhIo503ksa2z
-	X0pP167+jpOQX649qwUkD75NayOaH7nAua1Hb9d7/uqT2rQpXy+CsX5gfJtsD8xPOL45Uwbc4g0j7
-	+ZKkxdPO6kbsiV2goJSG5ElEx+KLVVrbBFX3r1UoO4fslSVu75/cewI0n63Lyb757DqoMX/8sWAat
-	eWXTBgqg==;
+	bh=Gu9zw8RR2Cmhp5RnOK+0qu8XOtAv+L3E2BPrnjRUzAk=; b=1O4GKCyru9LFMmZbelxX6wbhnc
+	Vd5GQlaPA5OtwabPz2+ykwSpcg5ItlSzYpZoEss3a0NR4/6WvgjVZWvV1zfr3XhqexFielWa0qygC
+	iC+CvYbMU47oSQlL7ivySyUhYkfrveqjr492Ei6jVtUkRJyXEw+o9iowtkJDBejXLCQpc1coUJK+Q
+	r76IvzxHT3uLrCb9zxaKeKEnwAnqjibXuXaGH7nI9ad8T7gYxC2USQRWY+X6d3ceemSGV4BPdhLlA
+	DuEui0lnwSPrtYZOmh8fsnpPvNkYfIdM6KYN5ETiim5WEwmgqe0+LDMe5CqzAB6wt3LCSLTuMvsT0
+	dNJdTDsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjwcW-0000000EPf7-0XBP;
-	Wed, 15 Jul 2026 10:13:40 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wjwcr-0000000EPlL-1hGy;
+	Wed, 15 Jul 2026 10:14:01 +0000
+Received: from fout-a3-smtp.messagingengine.com ([103.168.172.146])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjwcN-0000000EPe2-0spq
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 10:13:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1784110410;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=1jZxb/DyGzc2Aox27RZLCNs8CB48ahE7uYx1FJS8/x4=;
-	b=h2LnATXky627HUxuQiN5ZTvRQd+nCrYXbAI2VyfS2ifrkzb1WKuvpz65Bs6oewXdnXHCdv
-	FGzX/gWSStfPH5XIfRtmkrU410tfWo2teFITyh9SWhI5cTrEbO0cefzUTeghj4NbmgB0Gx
-	3r+AAgwCVV1Yorxd465alE8d/igUmOA=
-Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
- [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-139-aaw_Yc3BOi-jif9vvqCzHQ-1; Wed, 15 Jul 2026 06:13:27 -0400
-X-MC-Unique: aaw_Yc3BOi-jif9vvqCzHQ-1
-X-Mimecast-MFC-AGG-ID: aaw_Yc3BOi-jif9vvqCzHQ_1784110406
-Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-493b21b1fe8so17301475e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 03:13:27 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784110406; x=1784715206;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=1jZxb/DyGzc2Aox27RZLCNs8CB48ahE7uYx1FJS8/x4=;
-        b=lBMznrFuMCfP0wG0QMNY5X/pTGzZR84EVdgfiWP+yr1Tr4agl5ajlIj0c7r5tbO/4/
-         1Cqlt0GHRE43LTXtB/hp/ivI6r1m7/3FjQh6Kclh3zdJuiI41wE7n5YewlNXC2I78yYg
-         F5KGRXVj1ZC7VBkjo2wP6PS9w37twkuuGjMr5jelFE6gPGGlm71PNsbPQU7sz1saFT9w
-         xgihp6YqO301FXp4O/Pr5UlE45QPrgj+QEbA8fkio4PcA8iUzelsJ5tk7lAcX11b8+Gl
-         wooE8DVO37D7l7pVVbuJ8sQ0RqplZckSm9GxiDl6tvOTSbeIx27D/+hU/t6CIeNCttV3
-         wYbg==
-X-Forwarded-Encrypted: i=1; AHgh+RoGHrD1TdpgNUHRrpme1BuayWyyvM96EU4ByIHW/8lVOL/IYLbRuhh+0xqYEG5zxixYnDlomMG5vQVLQmEvfbdG@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3gHLZbqYDRkO7sr5rEsCdssrzgGUNnggBOd2kg+keXsQ19fJR
-	7OuE454UIzWWpq9zT0OLBwgLc9wJbYLe52RX4zGnw/Nt5LZ8z30e8oWcjqJA8BQ+yRHH7s1DXLm
-	jDaQyx4wzQ+CtXMcjWEv0SMJKkczIunnp81nWs47KhhDTMrAifkMkJ6z7GHbzYLE3ZbRcZ6MHor
-	A1jSTnvERc9MKXlfaqlVy+3qPpiUdBeEl4IoZBv7rYm0g4D8qf8T8=
-X-Gm-Gg: AfdE7clPKEfipJfECeC3z16veNqANi7dq7rAzG1LD6JIq5lMi52Yol+imAaUbSQSe3c
-	y+z93kgGcmJzdO3bmBnMPF79QlJFHpJ0yJJ457Gp3u60TIrOuRGqhS53sNbAZGJhiahrOjO82Yh
-	codwRdPEtFeYlT6tJKAGyR378v+COtjYAX6FbKeWbTsb1BsscvPnfpoyvE6beEU+ahb7Rfytfkv
-	JLfQn33WlgNayzGLcjo2XQk0SW3PzLFI9b8id3FxiIVboay2d45ttVi7V9J+StnMKL2/w==
-X-Received: by 2002:a05:600c:4e50:b0:495:3f48:5df2 with SMTP id 5b1f17b1804b1-4953f48693emr7640355e9.29.1784110406270;
-        Wed, 15 Jul 2026 03:13:26 -0700 (PDT)
-X-Received: by 2002:a05:600c:4e50:b0:495:3f48:5df2 with SMTP id
- 5b1f17b1804b1-4953f48693emr7639785e9.29.1784110405766; Wed, 15 Jul 2026
- 03:13:25 -0700 (PDT)
+	id 1wjwco-0000000EPjj-46bm;
+	Wed, 15 Jul 2026 10:14:00 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.phl.internal (Postfix) with ESMTP id B34E3EC01F0;
+	Wed, 15 Jul 2026 06:13:57 -0400 (EDT)
+Received: from phl-imap-05 ([10.202.2.95])
+  by phl-compute-04.internal (MEProxy); Wed, 15 Jul 2026 06:13:57 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1784110437;
+	 x=1784196837; bh=Gu9zw8RR2Cmhp5RnOK+0qu8XOtAv+L3E2BPrnjRUzAk=; b=
+	xV5+RR4pDt0UViS7EXROvKgdzfemK4kJs/mc/M4kEeEhQn3yuUIbGHuZscTSw8l5
+	zrQkJU+ngMoDVdLtq+qfR4qKI7dBrik/7fCMvc36+MRSPlVdfsncsjON9K9QmiTq
+	e2dCk/vQoyZrBrqwUiqwAPKW7RjZUX7TG9eL6Z0Otvjuus0eez3LegPT/LO5HYIo
+	4YgEyIj/SNBby5WXCPYxR+dx6dmJ68OTgCYXlzDXHwzHDcMomhuF1rvr6MD2RIpP
+	hVb+VomZ/lKEE/T2nWb8nChL+qarxcjdD3aulkvwfRUZFJwaUWlVomHCPqX6oaSB
+	SnhwXr23Ha7a27yVvejl6Q==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1784110437; x=
+	1784196837; bh=Gu9zw8RR2Cmhp5RnOK+0qu8XOtAv+L3E2BPrnjRUzAk=; b=b
+	YEn7OOof0QUF6qWo8cPh9eDHxrPJn/D33ZVC23wXoRhggqcEzF1kAfaotBQ1Nz5z
+	kMMTrPf7A9GrDySSFlsRlgqs+YLznLmXb0wkoE7CpTKZhAqMftWTbazQ2n9KFnGE
+	tCad1ono7TPVxiVBOztuvZnmsn6Mfi9KK1+x7RzoM0kLCUcMQUg8faMrnSECSwyL
+	GHXh55WjUjd/VP+B1SLaXAAjC5wvwrPs+w1QWaN7cA5w3Od8ODqufaFq2kBuBXVs
+	ulE6lpsIikZJCqdSNVcfOezBX+r0QsZZuTq1ovWqXdqesqJDIlN6LHBjdznTB3Ss
+	lqNSI2SFiCD4Ut7fVRT1A==
+X-ME-Sender: <xms:ZF1XakRqZTH7wv1ZcRAvW2VWX-BDNvbi4Xp9vkAFPyLV7tMveE0PPw>
+    <xme:ZF1Xaskq5u_i-PGWhwDmmkuKCuhj7BDLGgqNtP71NuE7eZvA5vcbwk5vvOS1YDxZf
+    -SMw5MdRzxwkKcOwnuimQcHdmaezYJEytVlAIWNy2duQdht1QqddAs>
+X-ME-Proxy-Cause: dmFkZTFLhEwUOOUSeE15S3w19zjkdTnAsNUBdeZx7QjdH/i+PYps0l7WyNVeJwiurKDuvo
+    NgJyy+q0Y56GLBdscP8qD05J4sLi8nYcemPbel6b0753Xdv4ChYVvZxsltLQ8RkWUpXshF
+    OjUg23v7wa8tpWy8tfxP1nnWJ1fJmuoj0LDWtTUi0AHe5jnjrku6BTu6DJKQzUT9xg1KA+
+    6IrTZymLwYB7kkRY6GbT3zaZOiKepFB9jHKAXzmQJFgu9r0m6xmCcCTG3TAyiMvOiIXc9z
+    Ohxb0rTiqtaZ75qL1bxitFDtCJ/gQGz3/Kk7RTtsY6PsTVkSuXMKDd04xxwol5viKVoKXh
+    5NKqNrWowQd2J+Htud9T5mig4KvREhwaTJ3n30FIat1siB44W8OcIz19Ge4gCrW7Oz8UBZ
+    1C/YcqkSwbB/FPQcsE8mvto3ckIXwjmSzVSBh9CYRNSuaHZYLEfBTEH03HduFpFCDVO53A
+    jagUk0oEXngNZB8CGr61JJHYxdWFECeXd9if5e3EbdG1eE0NH7960PqmKkKfu6sWO6fPt4
+    YQ7dYkop3El95uNGDIVwb3zmtaGVQik5MEIUClDFCDsUux2S88w3uNwKrKEWhXRL+3vXEq
+    LMt2VWNOmTG5FUNNA+SUhigUmkz3Ay1qdf8jGHr25FMqf3hZceUjqlGeygtQ
+X-ME-Proxy: <xmx:ZF1Xamqvn0dSlc6OKp74fshXHrxVhXUYQZ3JVNFpL8VDOOpGgOLE6w>
+    <xmx:ZF1Xagwb8fD0pDUjqYAaJ3-oRpY8fFKBvpxLgWcL80JJJpaWOcK2_g>
+    <xmx:ZF1XanCYT7QkpsDd333iBz2crSePeHcEn-zcKAuFZEjohHLVUDt_xA>
+    <xmx:ZF1XavMidYNHjdaV8L3n5tPqA4AcDSBzKSoMqjSeyLxNoL_HEaYFqw>
+    <xmx:ZV1XatutlieSAZZxBaUy3rH_MgAXR1gL-pzhmiShjrI00JyMl41re_g2>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 72D39182007E; Wed, 15 Jul 2026 06:13:56 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-References: <20260626133526.817232-1-maz@kernel.org>
-In-Reply-To: <20260626133526.817232-1-maz@kernel.org>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Date: Wed, 15 Jul 2026 12:13:10 +0200
-X-Gm-Features: AUfX_mxVOlhzpUoKqPqzo5NYFwSGnaFmiBzLMOnOOVrVLohEJlEsW4snDDbir2w
-Message-ID: <CABgObfY=eyZ6=hLsJ2mH8=ojthafiOzo5OCrae6W48JD4SxSjQ@mail.gmail.com>
-Subject: Re: [GIT PULL] KVM/arm64 fixes for 7.2, take #1
-To: Marc Zyngier <maz@kernel.org>
-Cc: Bradley Morgan <include@grrlz.net>, Fuad Tabba <tabba@google.com>, Hyunwoo Kim <imv4bel@gmail.com>, 
-	Oliver Upton <oupton@kernel.org>, Weiming Shi <bestswngs@gmail.com>, Will Deacon <will@kernel.org>, 
-	Xuanqing Shi <shixuanqing.11@bytedance.com>, Zhong Wang <wangzhong.c0ss4ck@bytedance.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: ycZDM4cJaaBfoeezefdki0NY6S03BPmIk2GeZpJ1xWk_1784110406
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
+X-ThreadId: AjbDdkWFEQuV
+Date: Wed, 15 Jul 2026 12:13:06 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
+ "Thomas Gleixner" <tglx@kernel.org>
+Cc: "Andy Lutomirski" <luto@kernel.org>,
+ "Vincenzo Frascino" <vincenzo.frascino@arm.com>,
+ "Nathan Chancellor" <nathan@kernel.org>, "Nicolas Schier" <nsc@kernel.org>,
+ "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
+ "Daniel Lezcano" <daniel.lezcano@kernel.org>,
+ "Mark Rutland" <mark.rutland@arm.com>, "Marc Zyngier" <maz@kernel.org>,
+ "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>,
+ "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>,
+ "Huacai Chen" <chenhuacai@kernel.org>, "WANG Xuerui" <kernel@xen0n.name>,
+ Linux-Arch <linux-arch@vger.kernel.org>, linux-kernel@vger.kernel.org,
+ linux-kbuild@vger.kernel.org, linux-mips@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ loongarch@lists.linux.dev
+Message-Id: <ee62c755-a15a-41e8-b0bb-7595e9366977@app.fastmail.com>
+In-Reply-To: <20260715102751-d1ed7195-f541-484e-9843-73ee4237b7b5@linutronix.de>
+References: <20260709-vdso-arch-clockmodes-v1-0-3fd780bbf851@linutronix.de>
+ <20260709-vdso-arch-clockmodes-v1-3-3fd780bbf851@linutronix.de>
+ <87wluwoe1c.ffs@fw13>
+ <20260715102751-d1ed7195-f541-484e-9843-73ee4237b7b5@linutronix.de>
+Subject: Re: [PATCH 3/7] MIPS: csrc-r4k: Replace CONFIG_GENERIC_GETTIMEOFDAY ifdeffery
+ with IS_ENABLED()
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_031331_332649_EE7224E6 
-X-CRM114-Status: GOOD (  24.48  )
+X-CRM114-CacheID: sfid-20260715_031359_311350_13FA50FA 
+X-CRM114-Status: GOOD (  12.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,126 +123,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 26, 2026 at 3:35=E2=80=AFPM Marc Zyngier <maz@kernel.org> wrote=
-:
->
-> Paolo,
->
-> As predicted, here's another largeish set of fixes for KVM/arm64. A
-> bunch of them are fairly benign (the PSTATE.IL stuff), but some are
-> pretty annoying (vgic, MOPS) and are stable material.
->
-> On the bright side, Fuad has volunteered to be an official reviewer.
-> We really need people to engage with the reviewing process instead of
-> simply dumping patches on us, as me and Oliver really can't be
-> stretched much further. So many thanks Fuad for offering to help.
+On Wed, Jul 15, 2026, at 10:43, Thomas Wei=C3=9Fschuh wrote:
+> On Wed, Jul 15, 2026 at 10:25:19AM +0200, Thomas Gleixner wrote:
 
-Indeed, thanks very much!
+>> -#ifdef CONFIG_GENERIC_GETTIMEOFDAY
+>>  #include <asm/vdso/clocksource.h>
+>> -#endif /* CONFIG_GENERIC_GETTIMEOFDAY */
+>>  enum vdso_clock_mode {
+>>  	VDSO_CLOCKMODE_NONE,
+>> -#ifdef CONFIG_GENERIC_GETTIMEOFDAY
+>> +#ifdef VDSO_ARCH_CLOCKMODES
+>>  	VDSO_ARCH_CLOCKMODES,
+>>  #endif
+>>  	VDSO_CLOCKMODE_MAX,
+>>=20
+>> and then you can just unconditionally set clocksource::vdso_clock_mode
+>> in all drivers.
+>>=20
+>> No?
+>
+> It will weaken the sanity check in __clocksouce_register_scale() if
+> CONFIG_GENERIC_GETTIMEOFDAY=3Dn. I am not sure what that sanity check
+> is supposed to protect against, so I left it as is.
 
-> I expect to be back next week with a similar delivery, as my Inbox
-> keeps filling with this stuff...
+Is there still a reason to even allow CONFIG_GENERIC_GETTIMEOFDAY=3Dn
+when  generic VDSO is enabled? I see that loongarch32 and
+riscv32 are still missing the vdso time support, but that may
+be more a sign that nobody cares enough about performance
+on those targets.
 
-Pulled, thanks. Sorry for the delay (though it was known in advance).
+In particular, riscv64 doesn't even build the vdso32 code for
+compat tasks, which indicates that userspace doesn't actually
+need vdso. On loongarch32, the commit adding the vdso said
+GENERIC_GETTIMEOFDAY 'will be supported in future'.
 
-Paolo
+On everything else, GENERIC_GETTIMEOFDAY and HAVE_GENERIC_VDSO
+are already synonyms.
 
-> Please pull,
->
->         M.
->
-> The following changes since commit 1ee27dacbe5dc4def481794d899d67b0d45700=
-94:
->
->   Merge branch kvm-arm64/nv-mmu-7.2 into kvmarm-master/next (2026-06-12 0=
-9:29:34 +0100)
->
-> are available in the Git repository at:
->
->   git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git tags/kv=
-marm-fixes-7.2-1
->
-> for you to fetch changes up to d098bb75d14fde2f12155f1a95ec0168160867ce:
->
->   KVM: arm64: account pKVM reclaim against the VM mm (2026-06-22 10:48:08=
- +0100)
->
-> ----------------------------------------------------------------
-> KVM/arm64 fixes for 7.2, take #1
->
-> - Fix an accounting buglet when reclaiming pages from a protected
->   guest
->
-> - Fix a bunch of architectural compliance issues when injecting a
->   synthesised exception, most of which were missing the PSTATE.IL bit
->   indicating a 32bit-wide instruction
->
-> - Another set of fixes addressing issues with translation of VNCR_EL2,
->   including corner cases where the guest point that register at a RO
->   page...
->
-> - Don't warn when trapping accesses to ZCR_EL2 from an L2 guest, as
->   that's not unexpected at all
->
-> - Address a bunch of races with LPI migration vs LPIs being disabled
->
-> - Fix a total howler of a bug combining FEAT_MOPS and NV, resulting in
->   exception returning in the wrong place...
->
-> - Coerce Fuad Tabba into a reviewer role, and may his Inbox catch
->   fire!
->
-> ----------------------------------------------------------------
-> Bradley Morgan (1):
->       KVM: arm64: account pKVM reclaim against the VM mm
->
-> Fuad Tabba (11):
->       KVM: arm64: nv: Write ESR_EL2 for injected nested SError exceptions
->       KVM: arm64: Sync SPSR_EL1 when injecting an exception into a pVM
->       KVM: arm64: nv: Fix PSTATE construction on illegal exception return
->       KVM: arm64: Add Fuad Tabba as a reviewer
->       KVM: arm64: Set ESR_ELx.IL for injected undefined exceptions at EL2
->       KVM: arm64: Unconditionally set IL for injected undefined exception=
-s
->       KVM: arm64: Unconditionally set IL for injected abort exceptions
->       KVM: arm64: Set IL for injected FPAC exceptions during ERET emulati=
-on
->       KVM: arm64: Set IL for emulated SError injection
->       KVM: arm64: Set IL for nested SError injection
->       KVM: arm64: Set IL in fake ESR for pKVM memory sharing exit
->
-> Hyunwoo Kim (1):
->       KVM: arm64: vgic: Check the interrupt is still ours before migratin=
-g it
->
-> Marc Zyngier (1):
->       KVM: arm64: vgic: Handle race between interrupt affinity change and=
- LPI disabling
->
-> Oliver Upton (6):
->       KVM: arm64: nv: Drop bogus WARN for write to ZCR_EL2
->       KVM: arm64: nv: Respect read-only PFN when mapping L1 VNCR
->       KVM: arm64: nv: Inject SEA if kvm_translate_vncr() can't resolve PF=
-N
->       KVM: arm64: nv: Re-translate VNCR before injecting abort
->       KVM: arm64: nv: Inject SEA if guest VNCR isn't normal memory
->       KVM: arm64: nv: Mark VM as bugged for unexpected VNCR abort
->
-> Weiming Shi (1):
->       KVM: arm64: nv: Fix SPSR_EL2 restore in kvm_hyp_handle_mops()
->
->  MAINTAINERS                             |   1 +
->  arch/arm64/include/asm/kvm_nested.h     |   8 ++
->  arch/arm64/kvm/at.c                     |   8 --
->  arch/arm64/kvm/emulate-nested.c         |  37 +++++--
->  arch/arm64/kvm/hyp/include/hyp/switch.h |  11 ++-
->  arch/arm64/kvm/hyp/nvhe/pkvm.c          |   3 +-
->  arch/arm64/kvm/hyp/nvhe/sys_regs.c      |   3 +-
->  arch/arm64/kvm/inject_fault.c           |  18 +---
->  arch/arm64/kvm/nested.c                 | 164 ++++++++++++++++----------=
-------
->  arch/arm64/kvm/pkvm.c                   |   2 +-
->  arch/arm64/kvm/vgic/vgic.c              |  20 ++--
->  11 files changed, 149 insertions(+), 126 deletions(-)
->
-
+    Arnd
 
