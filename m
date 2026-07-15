@@ -4,65 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80A2CC44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 11:21:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6502CC44507
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 11:30:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g2xc5XImhz7yv/LH3/qlvK74Dh7JZH9qnVWu+RRjZYc=; b=KGAK6p7vC362E1Nrs3NM56/C42
-	V3NZfvVEswGzFdEcYFFXAQB9iXiGBHKDLqjuwF+MBOxVE8ru0yXCG1dIAOx1qMg5Q4VIEOa4Thjrm
-	Bc8qCZ+8nwaNmKqr52KZe603QsbB3qYbESkRCr0fgziObylLIXwCmwPkO5D5RNUjeNS9M2zfckEBy
-	szQPRkxvdkk4rft1aPMYtyHwpT779YHJpibzzHO8v8kq8+5ylkTjFrMKlUJpV8I6rh9vIwQ21axK9
-	eumBWHSgsT/rTX27AyawDhuYbYVQ11mSnKwlZigJbu34jE77ZSEaEYwlexPGZg79Xxz5xXzHU7sT6
-	GjMaB/+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YrEoK95xb+2ZrH3XGzXeroxxZyUSkYn/xzGO08Wpo08=; b=he+i8EabEzdO/tZCCzpZcjbScW
+	V6FgdVCpH6FUvtw04kCoyIUP5w8ntQS1BDOxLxRcz3pciNN2eQsNZW7qIgauy5cj4Xc3RWkdLx7uV
+	QTUtJz0oOSOne2sLQOEdC4mFU51CiI8tGSPMpthdbm84rlxq7paBcU/3Pv1+OZ5xC/llYQIBbqRID
+	NmA5enNdaogPr8Pv3kgowDKG4jNUfJCT23Yg66AcxvlpN1hU+w2SgwN/yByU5dT//292VO6Fl+Z+s
+	aLFc/YGNcapH1ALs1R3H0au6TiHJQl2qKunUab2JFVJ1ghKqlovv7eeu7qnco4xXN2ntgbv3cABA5
+	8nh9G5Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjxgJ-0000000EYpq-3DRV;
-	Wed, 15 Jul 2026 11:21:39 +0000
-Received: from out-183.mta0.migadu.com ([91.218.175.183])
+	id 1wjxoy-0000000EZZ3-3nmp;
+	Wed, 15 Jul 2026 11:30:36 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wjxgG-0000000EYob-1Hrp
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 11:21:38 +0000
-X-Forwarded-Encrypted: i=1; AHgh+RrsySWJm2IFsZ9uKhk9xjoL/K7MKGF1iRorrvu0GghmfkqrrheAqWPyDPhMZpa0Xu0nwgAsZRC8xWA9bbagXI1c@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1784114493;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=g2xc5XImhz7yv/LH3/qlvK74Dh7JZH9qnVWu+RRjZYc=;
-	b=XC9VB1IcWiYrdLpIRhMUY4hcz4Bn5YfaYrLcR0FafgjPiZ5oxCMOZhbTdi1nak6gG2gv7c
-	JnZS/uqRSqeHM8le6lhgJZU0yng94gZlPVawBp/WwU2M9y9O8zAoo9sxSoFa1vdoDD2zXP
-	GwVjW23uIGGMRFYjSKCAynuZuLyY8qk=
-X-Gm-Message-State: AOJu0YysobKTYg9nHs+AFUJ52SA7mQbAwM7YbbUPlCV1m0PhHdhabLbz
-	19iY+Z67IwCdwCsbIN0mwremWIKJEs71pXggHh2+cEXzUwgmxA6/rPCmX7D3noe316xilZgLFPF
-	eIr24waVgFEgXfVxd9YorieUraHgyDg/Qj60zpev6
-X-Received: by 2002:a05:622a:1803:b0:51b:fd21:c077 with SMTP id
- d75a77b69052e-51d7bd8c7aemr25509781cf.21.1784114490270; Wed, 15 Jul 2026
- 04:21:30 -0700 (PDT)
+	id 1wjxov-0000000EZY7-3vut;
+	Wed, 15 Jul 2026 11:30:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PunSms4zNYEZinTaFq1O3jC3KhFJEba1cppG0U5QxwtmFLPY7ga+Dke/XqUMxM6mRwegqVMfT3EPordKw7J0voqTXfZeVlAlU2hxxoG8taPr8uL057nEAIgAHEaGhnZrauWtqP/LzX9Whi9nF7fdBj0K852JMaN/dWHdcYNyH0GQ4ccyT1zh/4GIsYxEwbIlPnuAtBSQGd2sSpho8LvsrBciAWJAOqqGwFmX132BmsNEPIBvCamHfwqqDJfbWagZbi1UxdyCyjdj3AQ5Xij0yvbSe1WXXQkLVOfbyf+fc4zfbzqNNGRxsS1gd538r+bA+aB7vrHuhd+ZrphusEoexg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YrEoK95xb+2ZrH3XGzXeroxxZyUSkYn/xzGO08Wpo08=;
+ b=aKGn2etskM29ni7RnlWdTniUoycM63LLF6YloTa39InVyD8bJpmw0nph3Hr0sGSUAGoaHx6YCGIDHKzbgs6X/qFtWglsADoSIerSv25kGrlG9Ux5pYBwiYXYfdjwuG23DUBIIYGl+GTMbz0qp28y5HSJPU156ZamjQ71wRUH3LOm4e77qKRyrARn9ysiiiR6YIXKjo2aQYttl7C8Xn7BPBqWNUdI/ZioI5pmE5JX8AYq5fQ2DK8c6y5ouMbpq8QSzVUGn5zkAlv/uqrwg3hdzO4A0gtOD0JKLBcR5AU6YpSzcf3TS9KhwC12TK6MBGz+UQfmdKqhwdxpUD//dTVPxg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YrEoK95xb+2ZrH3XGzXeroxxZyUSkYn/xzGO08Wpo08=;
+ b=VwQvmLXfmd0Xae7a6JYSpRmc1Qp9KmHb9vwB9HwUxfl12X7/x/6MPdPBN3pyfYz1HwbPOaQgsea/3lDSrkYkNDimVu3o2erM2nExd+Zo0a+99irPeRDtDFrm+fcjvrZyCneBVyEwpAdGSetsIavlREB27wca1vz0Aq9MuUEiXSFeSSUCPET1b3y02k/c2bc1PDXucSgO+xU5HfNFa7t/rPqGvepOzaY9VeTnWYT7mLDdsjXTrZVnd5/CoHD/D7VGktV4uDTjrK5TJgMFKjFifJYT1lZbOJJPCVY4C7nQleNT29tuPum5nKKyhFPOBuyPE9s/WJZEzOgFUprcqZ64sw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB9422.eurprd04.prod.outlook.com (2603:10a6:102:2b4::21)
+ by GV1PR04MB9134.eurprd04.prod.outlook.com (2603:10a6:150:25::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.18; Wed, 15 Jul
+ 2026 11:30:28 +0000
+Received: from PAXPR04MB9422.eurprd04.prod.outlook.com
+ ([fe80::54e:28bf:aa85:d25d]) by PAXPR04MB9422.eurprd04.prod.outlook.com
+ ([fe80::54e:28bf:aa85:d25d%4]) with mapi id 15.21.0202.014; Wed, 15 Jul 2026
+ 11:30:28 +0000
+From: Xu Yang <xu.yang_2@oss.nxp.com>
+Subject: [PATCH v6 0/6] phy: fsl-imx8mq-usb: few improvements
+Date: Wed, 15 Jul 2026 19:33:55 +0800
+Message-Id: <20260715-imx8mp-usb-phy-improvement-v6-0-00d95e270e4c@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIACNwV2oC/33OvQ6CMBSG4Vshna2pp6VUJ+/DONA/6QA0LTYQw
+ r1bSIy4ML5neL4zo2iCMxHdihkFk1x0fZeDnwqkmrp7Gex0bgQEOOEEsGtH0Xr8jhL7ZsrpQ59
+ Ma7oBM6hAUyK04IAy4IOxbtzwxzN34+LQh2nbSnS9fll6xCaKCa5qK4UV11oqfu9Gf1Z9i1Y0s
+ T1UHkIsQxK0tmBp/lH9Q+UOouQQKjMEpeYXzggVjP2gZVk+K6D9d1QBAAA=
+X-Change-ID: 20260602-imx8mp-usb-phy-improvement-4272d308d862
+To: Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Jun Li <jun.li@nxp.com>
+Cc: linux-phy@lists.infradead.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Felix Gu <ustc.gu@gmail.com>, stable@vger.kernel.org, 
+ Xu Yang <xu.yang_2@nxp.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784115243; l=2097;
+ i=xu.yang_2@nxp.com; s=20250815; h=from:subject:message-id;
+ bh=1hc7hpppuXD3qASfv+sk9Z79rdi6tKFOgdwb+NE/DKk=;
+ b=KDJxYae6xEd8hI+Z+FHv61mk4mRGqB4lhsLFTbeOrQv+XUkdxVB6c7in8Y2dGWfiMGa2/S6du
+ O4nSRvo84HeD5ii2U/4rylHGEgqJI0/vJEaBIe/PepP6siAGUNvSCZo
+X-Developer-Key: i=xu.yang_2@nxp.com; a=ed25519;
+ pk=5c2HwftfKxFlMJboUe40+xawMtfnp5F8iEiv5CiKS+4=
+X-ClientProxiedBy: SI3PR01CA0011.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:296::6) To PAXPR04MB9422.eurprd04.prod.outlook.com
+ (2603:10a6:102:2b4::21)
 MIME-Version: 1.0
-References: <20260706175415.2604046-1-vdonnefort@google.com> <20260706175415.2604046-12-vdonnefort@google.com>
-In-Reply-To: <20260706175415.2604046-12-vdonnefort@google.com>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Wed, 15 Jul 2026 12:20:51 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTwcz8T_RfgE46+xMKP_nz7Mi9rVCdhtnC2CbjtO1O5xCQ@mail.gmail.com>
-X-Gm-Features: AUfX_mz1RLvH9JXOmIBy2vCcAXLuKzZgjvV33kiVgqna39ElIrdN_-tuf2FZors
-Message-ID: <CA+EHjTwcz8T_RfgE46+xMKP_nz7Mi9rVCdhtnC2CbjtO1O5xCQ@mail.gmail.com>
-Subject: Re: [PATCH v2 11/18] KVM: arm64: Add a shrinker for pKVM
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
-	will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kernel-team@android.com, qperret@google.com
-Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9422:EE_|GV1PR04MB9134:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1319095f-586e-4792-5438-08dee264782a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|19092799006|366016|1800799024|10067099003|56012099006|18002099003|5023799004|11063799006;
+X-Microsoft-Antispam-Message-Info: sRvut4AAlFcfn/Ncj5i232m5GwxW3bLFm9ZE3xVgAhpiGqGM8bCde1tbFZJiBDsNCIpcBkMycRpZRaEE1zWW4k3SX5hQtwJyBYOoTtbGD+IGp7agWUFnSKAh8jdG8XLvlSRSjcKRO7QRmqYLebML/rL6Eejgr6m3azpcvSwjo2cfs4hKSnlp6I97MAAfdmYdFxfio0pslo3hq3wqN3xnAC+f7KF+afD4cYhzq05OinZ2sOpk/W4t2s47mhAodHXrG7iQJSsvhKN8AAuyqb3n1knXuycTMQC4J2oqH30VuvsfIXKqgG8rfPqaRjS+hjr+LuahzsOuziO5qCvc2ADATlA5IqyT6K3Lc6GwLV2wemFATKHZtO0+XY9k9KKu6KJjusZW0jsZA6eL50Oy9z2Yp0ktiwbAgmvtZEnIK5H9xC/Sk+tzOu63CZj0h6b+xrhpiUfpdPRWylslxgpPT0CloPxVgj4d2M5SGjR7Ny1FipXCWpQfc5+LZkHWOreQCxz5ifEr+lPz7YRIk60d7VHZETcMwAzk/rk9RSRPWYpjs5E7ShW5S57c1BkX3zFmhK6JiJImEwIn5yIpFGyUpO/J+kjxaEWtRa2wu38iDH5/OU8v1DVhKBN/XTbLjEWYca9r
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9422.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(19092799006)(366016)(1800799024)(10067099003)(56012099006)(18002099003)(5023799004)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Z3VRQnpIL1ZBRi9MNTAxZXNYOEN3S3hBSXRDTVlCaDZPdDk2bktUcUV2YzRC?=
+ =?utf-8?B?MTM3YjlocHZqeVdIbUtFVGt6WE9HWTZwaHFnV0hBbEljdW56M2p3djJvQWhi?=
+ =?utf-8?B?cTFzTGhTQXNJaEFZNUtrQXB4Tjh6d3JJSE9ORlU3UmFPS3VMUDdQaU1MZVVB?=
+ =?utf-8?B?ZjIxVFFIK1owUmIzNXVXRERaMmZvQ0hyc3Rlc3l1UlJqTFg1dnJidzk4RTNx?=
+ =?utf-8?B?RTNTalhiZXc1b2lNdkRXN0pDaXVMQTZhU2ZYWHFOeVdJM04ycGQrRkM1TWxk?=
+ =?utf-8?B?SjNPbXFmSFlhbjlZbGJMNDUzR3UvK3R3anRRSVU2TkhHbjJqcVQ3UFQ4NGxt?=
+ =?utf-8?B?dzVLOG96RzVTcndnTURHc0JGbURoeUVoUml0U053ZzE0ZVBLVjJLRkxRMWl1?=
+ =?utf-8?B?Y3BKSVRLc2NXaE4vN3J3YncrRXpjK29jSExCUGJEazg1SE41eE9sL3lySGI0?=
+ =?utf-8?B?M2JydW16REgyOWRXUzE3MzJqSS9MY24wTFp4YWZiVm5yMnZzU2QwalhnVGhj?=
+ =?utf-8?B?WFdXdHkyaTRaSk5nZ2pVa3ZtZGZWcTRVRFl1ZUljMzRyQS90NFBxLy85ZVV1?=
+ =?utf-8?B?eStPTU8xRnZIS1dxbzdUNkozUVRRTGJYOEZOeVhMc3RPSEFrMDlqVUFZMWp2?=
+ =?utf-8?B?Wko2bDdRSkxFamlnVWQ3cFdFQjdTWlhFOGFhK09FWkk5TXE5OVk3WUZZbGFJ?=
+ =?utf-8?B?Z2NuM2Yvenh6NXNTcDYrTXQ5bm1BSjk1clZReTdSQ2VWUDJVOEU5SkRSSTVM?=
+ =?utf-8?B?ZDd3UnQ1b2Q5ZTNSRW5FSVMyVWJUM0lBUk9VOXN4bG5ZTncxQmJLeXBPeUJL?=
+ =?utf-8?B?MUpBMWUzenk4Sy8xZnhteGJZeElpMGxYZ0NIWVpJUkFUOUd4ZUlaQVhVUXp4?=
+ =?utf-8?B?aFBFR24zOUttSlAwbVlTVS9nZ1lDTjlSbDB3NmdzM2hQY1ZOVzZMVyt3NFNv?=
+ =?utf-8?B?ZEQzUVcwdzBkN1l6WUVQa1hQSDZZZUo0c0x2UlJrT2lxSG5YRzBwYVRtZkZT?=
+ =?utf-8?B?K2lYbTBUN3lJeEF2Z2tvdDhZb0kyK2RJN2RBSCs4YnQzcXJoQVJ4MUc1SVBl?=
+ =?utf-8?B?YjVPempIZlFiUVUwaTdxL1h5MXUyWWordzhQV3pya3B4aCtiOVR5Q2Y5MFR5?=
+ =?utf-8?B?MHNFbDk2K0FIUndQd2pJVXVaTUo4Ykd1eXlGd0h2WXRFeVRMSzFYMFlwc3RX?=
+ =?utf-8?B?Um9xTG9LSEhzU01EcE42YkkzR1Z3dXBEVEZSR1Y1Y3hHSnBlMGJ2TUZqUkFq?=
+ =?utf-8?B?SlJtcWFqU1pNZ2pNSVY2N0FOcE1CcVZyekd1dGRxbWFwTUVIWHRpZ21WNk5v?=
+ =?utf-8?B?a1lFb25SbUJnUmdlVzJFcGhBbzIrTlhiOW9OMzF1NVEyTDQ5U3JzMHhpK2xD?=
+ =?utf-8?B?OUk4NldhaGdJN0RsTlVMeWlQUjE3bGZaRWtxMzN1eU9YNE1aa1piRnp2WkFJ?=
+ =?utf-8?B?eFE1dFFMYS91TEtuUlF0dzlZUnZHWG9JM0s4Vlp1bDJ0Q016VW41SWsxUDNl?=
+ =?utf-8?B?S2JCNEVGeWY2Wmc5OGZxeW5TemJvY25IUk1wQVVINmlMSVRQUUZ4OFhqWUdx?=
+ =?utf-8?B?ZVliTWV1TUZ5Vm1wZXcvWEVGc3JGVFJXdWM1a1hxQkJycU9xSmZaamFxNkJq?=
+ =?utf-8?B?dXBXZ2oxUGhXZGUwYkthdEVXblA4VDJKYnJ2WkEwVEl2NGg1L2M5djZlNHpT?=
+ =?utf-8?B?eTJENklhdTl4Um8rdlVXN21nL0tlMlE5cFNROHEwQnBVU2FRTXdOMXB5RGtw?=
+ =?utf-8?B?SzRoaytnVnUxb25WVE1kakVucitZK2xXVUhWSUEwNFZFc2ROMjA5VjJha0xh?=
+ =?utf-8?B?SWZtNGo1aFdsR1dGZHErNWI0QWdPMXBpbzJYV2N6UVZMLytyK1NvUFdraHdH?=
+ =?utf-8?B?MXk2dk1QNGpuMWxXMUdBZy9ObTBjTTRKTkFObWc3RVhsZGxXTFJSaFY3QUpz?=
+ =?utf-8?B?YS91RzJ1NXMzd01FQzdEZmRwTlQ3bXI4U1BEYkV2eWNJSkgyTnQ0NmZFVGhH?=
+ =?utf-8?B?dldYejVtVkR3NlVLZkVJU2V2aExUakRkZDcvNnpPdE4waFJ0bnR6ck51ZWtH?=
+ =?utf-8?B?dU5Pb0ZuSzZmMEk2UXpXKzBzSXFWYUR0WGdqMUJYd2djUEMrWlNiUGhsZWlX?=
+ =?utf-8?B?aEg4TkdDSm5DQy92MnRBcElYbGdGVHJkOS9TQy9Zc3BwbSt6MCtFUmc4K1Zv?=
+ =?utf-8?B?c1hzV0Zya2VDK0RIWXVIeGM5dVYxcEpXdkx4cmNVZG11SUx3WGdhbTdHWkFy?=
+ =?utf-8?B?SlFYb3FQanhBb3dnWit5eGd1dUdWczNtNHdGU205aHVKajl3QkdSaThxdGRZ?=
+ =?utf-8?B?UEtETlVtS0lvWi9WUHBnQWUrN1dMNXgvUWkxenFlbDZSc1VFalBoc1hWMXhM?=
+ =?utf-8?Q?VPra+CnqD6lS3jYaZpjP/6FV5kdpwUJCTqzDZ?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1319095f-586e-4792-5438-08dee264782a
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9422.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2026 11:30:27.7811
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: r16AlTCFYgili8WpjzE2VnpfCYFDduXTxyBkRebZ/rVVueq7b8sO/d/MEJMMdKWUEE+mXhDHoWw26VGAoq6D58UtDNRsu6Sc8ff9DC+H1kDNYqOPeRAT6xG4e3RHMHQ8
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB9134
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_042136_557824_47D72460 
-X-CRM114-Status: GOOD (  19.00  )
+X-CRM114-CacheID: sfid-20260715_043033_984417_53265592 
+X-CRM114-Status: UNSURE (   6.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,84 +162,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 6 Jul 2026 at 18:54, Vincent Donnefort <vdonnefort@google.com> wrote:
->
-> Integrate the pKVM memory reclaim interface with the host's memory
-> management subsystem.
->
-> This allows the host to automatically recover unused memory fom the
-> hypervisor's heap allocator when the host is under memory pressure.
->
-> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
->
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 50adfff75be8..3dc2b9d2c322 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -122,6 +122,8 @@ static bool vgic_present, kvm_arm_initialised;
->
->  static DEFINE_PER_CPU(unsigned char, kvm_hyp_initialized);
->
-> +static struct shrinker *pkvm_shrinker;
-> +
->  bool is_kvm_arm_initialised(void)
->  {
->         return kvm_arm_initialised;
-> @@ -2526,8 +2528,8 @@ static void __init teardown_hyp_mode(void)
->                 }
->
->                 free_pages(kvm_nvhe_sym(kvm_arm_hyp_percpu_base)[cpu], nvhe_percpu_order());
-> -
->         }
-> +       shrinker_free(pkvm_shrinker);
->  }
->
->  static int __init do_pkvm_init(u32 hyp_va_bits)
-> @@ -2713,6 +2715,18 @@ static void pkvm_hyp_init_ptrauth(void)
->         }
->  }
->
-> +static unsigned long
-> +pkvm_shrinker_count(struct shrinker *shrink, struct shrink_control *sc)
-> +{
-> +       return pkvm_hyp_reclaimable(PKVM_TOPUP_HYP_ALLOC) ?: SHRINK_EMPTY;
-> +}
-> +
-> +static unsigned long
-> +pkvm_shrinker_scan(struct shrinker *shrink, struct shrink_control *sc)
-> +{
-> +       return pkvm_hyp_reclaim(PKVM_TOPUP_HYP_ALLOC, sc->nr_to_scan);
-> +}
-> +
->  /* Inits Hyp-mode on all online CPUs */
->  static int __init init_hyp_mode(void)
->  {
-> @@ -2883,6 +2897,16 @@ static int __init init_hyp_mode(void)
->                         kvm_err("Failed to init hyp memory protection\n");
->                         goto out_err;
->                 }
-> +
-> +               pkvm_shrinker = shrinker_alloc(0, "pkvm");
-> +               if (pkvm_shrinker) {
-> +                       pkvm_shrinker->count_objects = pkvm_shrinker_count;
-> +                       pkvm_shrinker->scan_objects = pkvm_shrinker_scan;
-> +                       shrinker_register(pkvm_shrinker);
-> +               } else {
-> +                       kvm_err("Failed to register shrinker for pKVM\n");
-> +               }
-> +
->         }
+Patch #1 fix Type-C switch resource leak if probe() fails.
+Patch #3 add runtime PM support to avoid register access issue if the
+      USB controller enters into runtime suspended state, in this state
+      accessing USB PHY register may lack some resources. This will also
+      avoid regulator leak if power_on() fails.
+Patch #4 add debug control register regmap
+Patch #5 add imx8mq_usb_phy_drvdata drvdata for better extension
+Patch #6 correct i.MX8MP USB runtime wakeup issue after introduce runtime
+      PM support.
 
-Sashiko might be onto something here. The shrinker goes live in
-init_hyp_mode(), but kvm_protected_mode_initialized isn't set until
-finalize_pkvm()...
+---
+Changes in v6:
+- use devm_pm_runtime_enable() to disable runtime PM if probe fails 
+- add imx8mq_usb_phy_drvdata drvdata and need_genpd_rpm_on flag for better extension
+- Link to v5: https://patch.msgid.link/20260630-imx8mp-usb-phy-improvement-v5-0-25d616403844@nxp.com
 
-Cheers,
-/fuad
+Changes in v5:
+- not use devm runtime callback to avoid clk enable/disable imblance
+- Link to v4: https://patch.msgid.link/20260605-imx8mp-usb-phy-improvement-v4-0-b2ddf2f3862c@nxp.com
 
->
->         return 0;
-> --
-> 2.55.0.rc2.803.g1fd1e6609c-goog
->
+Changes in v4:
+- add Rb tag
+- replace guard() with PM_RUNTIME_ACQUIRE()
+- Link to v3: https://patch.msgid.link/20260603-imx8mp-usb-phy-improvement-v3-0-7afb8f89abc6@nxp.com
+
+Link to v2:
+ - https://lore.kernel.org/linux-phy/20260512101046.1498096-1-xu.yang_2@nxp.com/
+ - https://lore.kernel.org/linux-phy/20260512101212.1498223-1-xu.yang_2@nxp.com/
+
+---
+Felix Gu (1):
+      phy: fsl-imx8mq-usb: fix typec switch leak on probe error path
+
+Xu Yang (5):
+      phy: fsl-imx8mq-usb: set usb phy to be wakeup capable
+      phy: fsl-imx8mq-usb: add runtime PM support
+      phy: fsl-imx8mq-usb: add control register regmap
+      phy: fsl-imx8mq-usb: introduce per-variant driver data structure
+      phy: fsl-imx8mq-usb: keep PHY power domain runtime always-on for i.MX8MP
+
+ drivers/phy/freescale/phy-fsl-imx8mq-usb.c | 154 +++++++++++++++++++++--------
+ 1 file changed, 113 insertions(+), 41 deletions(-)
+---
+base-commit: cc2b5f627e8ccbae1188ef2d8be3e451d7f933a5
+change-id: 20260602-imx8mp-usb-phy-improvement-4272d308d862
+
+Best regards,
+--  
+Xu Yang <xu.yang_2@nxp.com>
+
 
