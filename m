@@ -4,70 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6295C44508
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 16:09:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F86BC44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Jul 2026 16:09:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iPyD1Z2DVtMVqwugtVKEj8vS5EFs5ogj/+fURIbOnWA=; b=BmS1kp5SgAlPzT8b6JnC12NTfp
-	4OFZOIVAiybTTbaSI8FenV5huVwyJOEk4zwwwWVRHWCGowx/+/6NBfNLDyuUuHA6nGjxARSpREU/z
-	8uYLo3X2/mzSnUw2HIpZj2IONT2wou00HKBEc8m8hW7jVJF8SSNQxrigj+G554js80puvarqjvWDW
-	Wi+m46f9awoTWtkWQqnr2zDZWX4j6KHBSpOJbe9XO8AkIu4BQVvOoQEQ7ycLssn2Rt3yaPRSPzgyi
-	3oBJbp9wEhc6iD84JUE68oKGNF/MOCc/uddi01CvonSL+ESfceORDhHQCa/55txucDwGungrT9Z1+
-	SVrUO9BQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T7qi0wjqw+T24Xr8wpK4TVGLaBhYNi0U20FSDe/v/ig=; b=yA8/Dfc13PKnh7sEYdGwTYuylj
+	2Lg9ESdj9zD03snPBzJXo3l7TSwSsMbTdMo+7iF6LrT4KNfCWRZk+TY+OSubiHZH8/eYOktVVTmgF
+	BPx54LjFsW7WsuCeFkDc3BYfPx3yv0FB+40pkvEaVxRqvjCT7srC12I5vr2BVSDHQnIWFlrfH91sk
+	L568ycum6Fgtqj5Dj9HWye/XsUu+nTgFg3IGMAvMJ3tkaELZNC0XMqHLjekNCxIAt/9P9+HvzGEri
+	nLy1o5Kmu2qh41H510iIzBSJdOhxlOK/IjLPMlYvReqsTmkJ31+K2BWs6JOK2vlAiXbHCl3nopkd2
+	b/Rvwbww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk2AO-0000000FPaH-0pVt;
-	Wed, 15 Jul 2026 16:09:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk2AL-0000000FPZL-1ZMR
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Jul 2026 16:08:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6705B1477;
-	Wed, 15 Jul 2026 09:08:51 -0700 (PDT)
-Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 40C113F7B4;
-	Wed, 15 Jul 2026 09:08:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784131735; bh=VL1Iq5O6TVtNHTsx5IP7Kgws7EcKFJo0NIN1naJp298=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=EO4mE+lpYoEy2GmzXsAaov+j2nYPyv+PpMTUdFBA5Crm/SFn3kCAwXDDFFTlwHDaw
-	 YdCKSzYyAQvw2mBuT3YlpyeC88e4GLEQ6Rw4K1qT7FIRjthVUc94q+qIRPz6SEOS9u
-	 oeq2F2FW0uHm5RMqn0mFNoqHI0NqxEI6Ifmhn758=
-Message-ID: <2a5efa78-952f-41a5-b372-e138cb30361d@arm.com>
-Date: Wed, 15 Jul 2026 17:08:51 +0100
+	id 1wk2Ad-0000000FPfm-1YZg;
+	Wed, 15 Jul 2026 16:09:15 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wk2Ab-0000000FPe3-15Q2;
+	Wed, 15 Jul 2026 16:09:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=T7qi0wjqw+T24Xr8wpK4TVGLaBhYNi0U20FSDe/v/ig=; b=vO3cm7v27gbIX2NkA8hpCjAP7e
+	pxKwIkxWJO9cj6JatLoo1VS7q/2JBz1/WHrKVzJKM9BK5dq5AEXP+HU8LtDLpoYVX1Mq9jI6xuN4u
+	G3JlaHoEkW71eb6GTZwh6/2Tr5gUXXo5ahYVWeE7ls2PwtkGzGKnArVqtVo+XRlyxEyw=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1wk2AQ-00CNlk-VJ; Wed, 15 Jul 2026 18:09:02 +0200
+Date: Wed, 15 Jul 2026 18:09:02 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Coia Prant <coiaprant@gmail.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, kuba@kernel.org,
+	davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
+	andrew+netdev@lunn.ch, robh@kernel.org, krzk+dt@kernel.org,
+	heiko@sntech.de, netdev@vger.kernel.org,
+	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
+	Christian Marangi <ansuelsmth@gmail.com>
+Subject: Re: [RFC PATCH 01/10] net: stmmac: move XPCS lifetime management to
+ platform drivers
+Message-ID: <685d91a3-be6f-42c6-9e23-07629e21bcee@lunn.ch>
+References: <20260714191341.690906-1-coiaprant@gmail.com>
+ <20260714191341.690906-2-coiaprant@gmail.com>
+ <dc21b2fc-ae11-4fde-a5b9-09e2c6bee5c9@bootlin.com>
+ <CALj3r0gWyfHHp0S4=71M1-TjgHKcgGax4Lr0DzPi37Q69-iCwA@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Thunderbird Daily
-Subject: Re: [PATCH v3 15/16] arm_mpam: prevent MPAM-Fb accesses inside IRQ
- handler
-To: Andre Przywara <andre.przywara@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260710144520.917375-1-andre.przywara@arm.com>
- <20260710144520.917375-16-andre.przywara@arm.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <20260710144520.917375-16-andre.przywara@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CALj3r0gWyfHHp0S4=71M1-TjgHKcgGax4Lr0DzPi37Q69-iCwA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_090857_500332_C920C3DB 
-X-CRM114-Status: GOOD (  24.54  )
+X-CRM114-CacheID: sfid-20260715_090913_310881_B0DEE08F 
+X-CRM114-Status: UNSURE (   6.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,101 +76,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andre,
+> I actually spent all night debugging call traces caused by the current
+> stmmac PCS lifetime management, and it was not a pleasant experience.
+> The code feels like accumulated technical debt that should be cleaned
+> up.
 
-On 7/10/26 15:45, Andre Przywara wrote:
-> When an MPAM MSC gets into an error condition, it can trigger an error
-> IRQ. We cannot really do much about those errors, but we at least query
-> and log the error, then disable MPAM functionality.
-> 
-> This error report relies on reading the MSC's error status register
-> (ESR) in the IRQ handler, which is not possible for MPAM-Fb based
-> MSC accesses, since they involve mailbox routines that might sleep.
-> The same is true for clearing the interrupt at the source, which
-> requires MSC access.
-> 
-> For simplicity just skip the ESR read when the MSC is not using direct
-> MMIO accesses, and just ignore the pending interrupts. 
+Russell King will strongly agree with you, if he was around. The
+phylink integration into stmmac causes a lot of pain, and he wanted to
+rip it all out and start again. But doing that without breaking stuff
+is going to be interesting.
 
-Is this definitely ok? Don't we just keep on calling the hardirq handler on a level triggered
-interrupt. Does a IRQF_ONESHOT threaded interrupt where the threaded part calls
-mpam_disable_msc_ecr() and schedules mpam_broken_work make things better.
+If you feel up to it, have a go. But take a good look around first,
+make sure you understand the different variant, internal vs external
+PCS.
 
-What you have may be ok but I don't know enough to be sure.
-
-Thanks,
-
-Ben
-
-We will wrap up
-> MPAM functionality regardless, knowing the exact error value will not
-> change that.
-> 
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> ---
->  drivers/resctrl/mpam_devices.c | 38 ++++++++++++++++++++--------------
->  1 file changed, 23 insertions(+), 15 deletions(-)
-> 
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index 4d3e642486d4..220b4a06e739 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -2645,7 +2645,7 @@ static int mpam_disable_msc_ecr(void *_msc)
->  
->  static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
->  {
-> -	u64 reg;
-> +	u64 reg = 0;
->  	u16 partid;
->  	u8 errcode, pmg, ris;
->  
-> @@ -2654,25 +2654,33 @@ static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
->  					   &msc->accessibility)))
->  		return IRQ_NONE;
->  
-> -	mpam_msc_read_esr(msc, &reg);
-> +	/* MPAM-Fb MSC accesses cannot be done in atomic context. */
-> +	if (msc->iface == MPAM_IFACE_MMIO) {
-> +		mpam_msc_read_esr(msc, &reg);
->  
-> -	errcode = FIELD_GET(MPAMF_ESR_ERRCODE, reg);
-> -	if (!errcode)
-> -		return IRQ_NONE;
-> +		errcode = FIELD_GET(MPAMF_ESR_ERRCODE, reg);
-> +		if (!errcode)
-> +			return IRQ_NONE;
->  
-> -	/* Clear level triggered irq */
-> -	mpam_msc_clear_esr(msc);
-> +		/* Clear level triggered irq */
-> +		mpam_msc_clear_esr(msc);
->  
-> -	partid = FIELD_GET(MPAMF_ESR_PARTID_MON, reg);
-> -	pmg = FIELD_GET(MPAMF_ESR_PMG, reg);
-> -	ris = FIELD_GET(MPAMF_ESR_RIS, reg);
-> +		partid = FIELD_GET(MPAMF_ESR_PARTID_MON, reg);
-> +		pmg = FIELD_GET(MPAMF_ESR_PMG, reg);
-> +		ris = FIELD_GET(MPAMF_ESR_RIS, reg);
->  
-> -	pr_err_ratelimited("error irq from msc:%u '%s', partid:%u, pmg: %u, ris: %u\n",
-> -			   msc->id, mpam_errcode_names[errcode], partid, pmg,
-> -			   ris);
-> +		pr_err_ratelimited("error irq from msc:%u '%s', partid:%u, pmg: %u, ris: %u\n",
-> +				   msc->id, mpam_errcode_names[errcode], partid,
-> +				   pmg, ris);
->  
-> -	/* Disable this interrupt. */
-> -	mpam_disable_msc_ecr(msc);
-> +		/* Disable this interrupt. */
-> +		mpam_disable_msc_ecr(msc);
-> +	} else {
-> +		struct irq_data *d = irq_get_irq_data(irq);
-> +
-> +		pr_err_ratelimited("unknown error irq %d/%ld from msc:%u\n",
-> +				   irq, d ? irqd_to_hwirq(d) : -1, msc->id);
-> +	}
->  
->  	/* Are we racing with the thread disabling MPAM? */
->  	if (!mpam_is_enabled())
-
+	Andrew
 
