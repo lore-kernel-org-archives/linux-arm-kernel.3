@@ -4,88 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 438E9C44512
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 06:27:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 084A9C44512
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 06:42:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y5XRNJnPZSAm5lm9IWfGalOvrFDddPu+vsDu/YFgQc4=; b=3SKramfxlj1FUSEfji0UeYTjjK
-	wSuSvIAJpQg+g2w+JHT2lpqLJrDUR9kFf6wwBHxHkLh4o6JrQCk5Bi97X8RpGmM/WJdmwDa75jPb6
-	pYuBHfJLrfomiOBK6tC/dUr4Wv36LlzYzEThH9zQoVyIFr4eNzNcl3K2g8+LMd6wqDJfok6T0L5Te
-	/QmpincdRd1BvzUqkno/TkwxCGuddgBOOrnBGnFOqHAPdCtCeH2KIF4mue4KJUDZWp6g7B/bhm0Ob
-	+F9IqpYi/S8BP4zn0E6KHcdbU0U9PHN81c0A97+ydYE1T1FRzAiyt8fL86LX5h4J+Kpuk/ehkH8Dy
-	etgrag2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=spmz0a8B9oV1Adt6KvKiqlrCskX3CSLHf/anY8Ol2wo=; b=n1sHQJbo6WJBFA2zykZVKf93+3
+	a7nGiobRyy732fhTGMqFgChNN79ipX0wFsBSsXjFzaAtzn9iisEZtdyIf1LsOVULPB3k14lKUsoZ2
+	MfBQyfJ1i0hZueWOxhDMc6MpGImpIugIeENrRcLyS7O1FZ47A2VyeUU8DUUhWI/ZhjmWAbvxS0LRZ
+	wIN/AyjiaMvJUupDYrTcV7DJJRiOtReNYz+64jCrZEzNtgCmOdAXooX294sYmV7LH4M1bis8pP6hg
+	eP5B1pEBXBuYwibvH3JLuyecat6CpREhSf1hpSWlSpc8p89uws93DtLQYStDamjAL52G6Lk8vFUO+
+	wrodOGbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkFZ4-0000000GXY6-3Eo8;
-	Thu, 16 Jul 2026 06:27:22 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wkFnE-0000000GYZC-1y8Y;
+	Thu, 16 Jul 2026 06:42:00 +0000
+Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkFZ2-0000000GXXj-3o0f;
-	Thu, 16 Jul 2026 06:27:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Y5XRNJnPZSAm5lm9IWfGalOvrFDddPu+vsDu/YFgQc4=; b=K6J+Cblw9p8Hb7CIZ+hO/oHfRj
-	jzyvqqfu7ejEX2FVl8aoDqcJ+F4MyGPFV0amGbbCCuMdTgSvcvlxsqsbWsfyh0f8luIw/NwsnOx9f
-	FAI41Ni75m/jkw4G1JyyGgil18T60UzkR0wEAjklZ9gnyd5m0f5KqQf1180zi/tgPR8llKPXF1mT9
-	qqX9rvoCmT3hPDSOU99Ui8JyVpjJc5Om0J2fptnQSqezNfl0emnQ3CFmP/g/ex6cInDu86CsL4+Ty
-	aArmehBiblz4x3TKFLbd0GcQn7R24G1MWHN7c67Tzdr8/oLw4ZbkHVszHjRVtfknStxSdsBZ3WLaV
-	R5gwJA/w==;
-Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wkFYy-0000000Dodn-44TD;
-	Thu, 16 Jul 2026 06:27:19 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 66G6QGYf83437599, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1784183176; bh=Y5XRNJnPZSAm5lm9IWfGalOvrFDddPu+vsDu/YFgQc4=;
-	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type;
-	b=fBeupTKWxRaRBWdddptFNMx+fjL1aA6jvZEhiWo8xxEpGRLymmABf0praAWzC3g5k
-	 2cHUBltj+ZFZb3Qg6TcXr7ifpSJOs1tGxpDYZX0ZY2NkgYoL0iSUHrjoJ+03HtNxEF
-	 9soMuSEBLZoQOXOAKVCuiw5YehRRF6QpmzX4CoHu4cLzLywNgvx9xLZt+0+drbx/y8
-	 BNvaRbF6zQMmLzGS85PfCM6k1N0Fibv3tGTAgSqWP2WUH5sHO8FrDWPe0oFLC2Wtd+
-	 vnbnCapIptOEC67x3wBP3WFhWrVDgP1qvaHkJnuUGqhHIFCTn1amJG9scr5LpVpb4l
-	 LUknsjKR0nl1g==
-Received: from mail.realtek.com (rtkexhmbs04.realtek.com.tw[10.21.1.54])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 66G6QGYf83437599
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 16 Jul 2026 14:26:16 +0800
-Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
- RTKEXHMBS04.realtek.com.tw (10.21.1.54) with Microsoft SMTP Server
+	id 1wkFnA-0000000GYV2-3I01
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 16 Jul 2026 06:41:59 +0000
+dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=spmz0a8B9oV1Adt6KvKiqlrCskX3CSLHf/anY8Ol2wo=;
+	b=nu7kelF5cHuF/KccNYwIo4/a2j3GYLBCWEdvpZ+UTLM2JNWSTZFm3zvOK8q7EXf9GyK0kq6r5
+	bb/bw6yJSr1KJ7TAETJ6BxnmB6cUfi3Hm2Vege5TwQzd0kwICFts9Vz+Kbpe9uUtFkRy05CKIPp
+	ZjypAYIT/UVVkVO4NZrkZ7g=
+Received: from mail.maildlp.com (unknown [172.19.162.92])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4h139k11DwzmVX8;
+	Thu, 16 Jul 2026 14:32:10 +0800 (CST)
+Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
+	by mail.maildlp.com (Postfix) with ESMTPS id 38DFB40565;
+	Thu, 16 Jul 2026 14:41:29 +0800 (CST)
+Received: from [10.174.179.37] (10.174.179.37) by
+ kwepemf100008.china.huawei.com (7.202.181.222) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Thu, 16 Jul 2026 14:26:15 +0800
-Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS05.realtek.com.tw
- (10.21.1.55) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Thu, 16 Jul 2026 14:26:14 +0800
-From: Yu-Chun Lin <eleanor.lin@realtek.com>
-To: <eleanor.lin@realtek.com>
-CC: <Michael.Hennerich@analog.com>, <afaerber@suse.com>, <andy@kernel.org>,
-	<brgl@kernel.org>, <conor+dt@kernel.org>, <cy.huang@realtek.com>,
-	<devicetree@vger.kernel.org>, <dlechner@baylibre.com>,
-	<james.tai@realtek.com>, <jic23@kernel.org>, <krzk+dt@kernel.org>,
-	<lars@metafoo.de>, <linus.walleij@linaro.org>, <linusw@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-gpio@vger.kernel.org>,
-	<linux-iio@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-realtek-soc@lists.infradead.org>, <mathieu.dubois-briand@bootlin.com>,
-	<mwalle@kernel.org>, <nuno.sa@analog.com>, <robh@kernel.org>,
-	<stanley_chang@realtek.com>, <tychang@realtek.com>, <wbg@kernel.org>
-Subject: RE: [PATCH v3 3/7] gpio: regmap: Add gpio_regmap_operation and write-enable support
-Date: Thu, 16 Jul 2026 14:26:14 +0800
-Message-ID: <20260716062614.1507243-1-eleanor.lin@realtek.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <d301ba0cd45d49d59e6a014188306ec9@realtek.com>
-References: <d301ba0cd45d49d59e6a014188306ec9@realtek.com>
+ 15.2.1544.36; Thu, 16 Jul 2026 14:41:28 +0800
+Message-ID: <1fef5984-1f07-6a20-c6a8-20b285a82327@huawei.com>
+Date: Thu, 16 Jul 2026 14:41:27 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH mpam mpam/snapshot+extras/v6.18-rc1 v2 3/3] fs/resctrl:
+ Migrate IOMMU groups when removing resource groups
+To: Lee Trager <lee@trager.us>, <ben.horgan@arm.com>, <james.morse@arm.com>,
+	<Dave.Martin@arm.com>, <fenghuay@nvidia.com>, <reinette.chatre@intel.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<sunnanyong@huawei.com>, <xiaqinxin@huawei.com>, <wuyifan50@huawei.com>
+References: <20260414032610.1523958-1-zengheng4@huawei.com>
+ <20260414032610.1523958-4-zengheng4@huawei.com>
+ <c53d8057-d3c3-4000-8ce2-876385ca3f25@trager.us>
+Content-Language: en-US
+From: Zeng Heng <zengheng4@huawei.com>
+In-Reply-To: <c53d8057-d3c3-4000-8ce2-876385ca3f25@trager.us>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+X-Originating-IP: [10.174.179.37]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemf100008.china.huawei.com (7.202.181.222)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_072717_875451_60F92DAC 
-X-CRM114-Status: GOOD (  24.80  )
+X-CRM114-CacheID: sfid-20260715_234157_280095_09C62214 
+X-CRM114-Status: GOOD (  13.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,150 +83,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+Hi Lee,
 
->> > @@ -185,7 +218,7 @@ static int gpio_regmap_set_direction(struct
->> gpio_chip *chip,
->> >                                    unsigned int offset, bool output)
->> > {
->> >       struct gpio_regmap *gpio = gpiochip_get_data(chip);
->> > -     unsigned int base, val, reg, mask;
->> > +     unsigned int base, val, reg, mask, wren_mask;
->> >       int invert, ret;
->> >
->> >       if (gpio->reg_dir_out_base) {
->> > @@ -198,7 +231,12 @@ static int gpio_regmap_set_direction(struct
->> gpio_chip *chip,
->> >               return -ENOTSUPP;
->> >       }
->> >
->> > -     ret = gpio->reg_mask_xlate(gpio, base, offset, &reg, &mask);
->> > +     ret = gpio->reg_mask_xlate(gpio, GPIO_REGMAP_SET_DIR_OP, base,
->> offset, &reg, &mask);
->> > +     if (ret)
->> > +             return ret;
->> > +
->> > +     ret = gpio->reg_mask_xlate(gpio, GPIO_REGMAP_SET_DIR_WREN_OP,
->> base, offset, &reg,
->> > +                                &wren_mask);
->> 
->> What constrains these two to provide the same value back for reg?
->> To me it seems like the write enable might well be in a different register.
->> 
->> >       if (ret)
->> >               return ret;
->> >
->> > @@ -207,7 +245,7 @@ static int gpio_regmap_set_direction(struct
->> gpio_chip *chip,
->> >       else
->> >               val = output ? mask : 0;
->> >
->> > -     return regmap_update_bits(gpio->regmap, reg, mask, val);
->> > +     return regmap_update_bits(gpio->regmap, reg, mask | wren_mask,
->> > + val | wren_mask);
->> >  }
->> >
->> >  static int gpio_regmap_direction_input(struct gpio_chip *chip,
->
-> My initial design indeed assumed that the WREN mask and Data mask reside in
-> the same register.
->  
-> Regarding WREN support, especially if WREN and Data use separate registers, I
-> came up with three ideas. Which direction do you prefer?
->  
-> Approach 1: Provide Custom Callbacks in config (Let consumer driver handle it)
-> We can add '.set' and '.set_direction' function pointers in
-> 'struct gpio_regmap_config'. If a driver requires WREN, it can implement these
-> callbacks itself.
+On 2026/7/16 5:35, Lee Trager wrote:
+> Hi Zeng,
 > 
-> static void gpio_regmap_set(struct gpio_chip *chip, unsigned int offset, int val)
-> {
->         struct gpio_regmap *gpio = gpiochip_get_data(chip);
->  
->         /* If the driver provides a custom set (to handle WREN), delegate to it */
->         if (gpio->set) {
->                 gpio->set(chip, offset, val);
->                 return;
->         }
->         /* ... existing generic regmap logic ... */
-> }
->
-> Pros: Clean core, no need to touch existing drivers' xlate signature. The consumer
-> driver handles its own locking for different registers.
-> Cons: It feels a bit strange and inconsistent to expose only '.set' and
-> '.set_direction' overrides while keeping other operations entirely abstracted.
->  
-> Approach 2: Handle separate WREN register in the core (with locking concerns)
-> We keep the 'XX_WREN_OP' in 'xlate'. If someone needs WREN and 'wren_reg != reg',
-> we write to both.
->  
-> static int gpio_regmap_set(struct gpio_chip *chip, unsigned int offset,
->                            int val)
-> {
->         /* skip */
->         ret = gpio->reg_mask_xlate(gpio, GPIO_REGMAP_SET_WREN_OP, base, offset, &wren_reg,
->                                    &wren_mask);
->         if (ret == -ENOTSUPP)
->                 has_wren = false;
->         else if (ret)
->                 return ret;
-> 
->        ret = gpio->reg_mask_xlate(gpio, GPIO_REGMAP_SET_OP, base, offset, &reg, &mask);
-> 
->        if (has_wren && reg == wren_reg) {
->                mask |= wren_mask;
->                mask_val |= wren_mask;
->                has_wren = false;
->        }
-> 
->        if (has_wren)
->                ret = regmap_set_bits(gpio->regmap, wren_reg, wren_mask); 
-> 
->         /* ignore input values which shadow the old output value */
->         if (gpio->reg_dat_base == gpio->reg_set_base)
->                 ret = regmap_write_bits(gpio->regmap, reg, mask, mask_val);
->         else
->                 ret = regmap_update_bits(gpio->regmap, reg, mask, mask_val);
->  
->         return ret;
-> }
->  
-> Pros: Keeps all WREN logic unified inside the core framework.
-> Cons: Introduces a locking issue. writing to 'wren_reg' and then 'reg' requires an
-> external lock to be atomic, which seems to defeat the purpose of relying on regmap's
-> internal lock. 
-> 
-> Approach 3: Assume WREN and Data always share the same register
-> 
-> static int gpio_regmap_set(struct gpio_chip *chip, unsigned int offset, int val)
-> {
->         /* ... */
->         ret = gpio->reg_mask_xlate(gpio, GPIO_REGMAP_SET_WREN_OP, base, offset, &reg, &wren_mask);
->         if (ret == -ENOTSUPP)
->                 wren_mask = 0;
->         else if (ret)
->                 return ret;
->  
->         ret = gpio->reg_mask_xlate(gpio, GPIO_REGMAP_SET_OP, base, offset, &reg, &mask);
->  
->         ret = regmap_update_bits(gpio->regmap, reg, mask | wren_mask, mask_val | wren_mask);
->         return ret;
-> }
->  
-> Regarding this approach, I would like to ask from your experience: Is it
-> actually common for hardware designs to place WREN and Data bits in completely
-> different registers for GPIO operations?
-> 
-> If they practically always share the same register, this simpler approach might
-> suffice.
->  
-> Best Regards,
-> Yu Chun Lin
+> Thanks for the series, I found it while backporting MPAM support to 6.18.
 > 
 
-If there are no further concerns, I will proceed with the third approach and
-send out v6.
+You are welcome. Glad it could help you fix the issues you encountered.
 
-Thanks.
-Yu-Chun
+
+> iommu_group_get_from_kobj() returns holding a reference on 
+> group->devices_kobj, the one iommu_group_put() releases. The 
+> kobject_get() above only compensates for the kobject_put(&group->kobj) 
+> done internally by iommu_group_get_from_kobj(). Nothing in this loop 
+> ever calls iommu_group_put(), so this leaks one iommu_group reference 
+> per group in the kset on every call, e.g on rmdir and every unmount. 
+> Since device_kobj pins the group's koject, the leaked groups can never 
+> be freed.
+> 
+> The same pattern exists in show_rdt_iommu() from "fs/resctrl: Add 
+> support for assigning iommu_groups to resctrl groups", where it leaks 
+> one reference per group on every read of a tasks file.
+> 
+> There is a second, smaller leak on these break paths: 
+> kset_get_next_obj() only drops its reference on the current kobject when 
+> it is passed back as @prev on the next iteration, so breaking out of the 
+> loop also leaks the group_kobj reference taken by the iterator. I am 
+> carrying the fix below:
+> 
+> if (!from || iommu_matches_rdtgroup(group, from)) {
+>      err = kstrtoint(group_kobj->name, 0, &iommu_group_id);
+>      if (!err)
+>          err = rdtgroup_move_iommu(iommu_group_id, to);
+> }
+> 
+> iommu_group_put(group);
+> if (err) {
+>      kobject_put(group_kobj);
+>      break;
+> }
+> 
+> Thanks,
+> 
+
+Thank you for the review. The changes look reasonable to me, and I'll
+carry these memory leak fixes into v3.
+
+
+Best regards,
+Zeng Heng
 
