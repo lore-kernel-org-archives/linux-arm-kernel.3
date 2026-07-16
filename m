@@ -4,112 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A850C4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 12:49:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08E78C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 12:49:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nO85MVJ/GroYzN+9MZfoFUtca8YGfxaXtsNEwIUviEk=; b=XwcqleRMwl1csT98FlFnHQfAxj
-	ca4TzySJq2dQvnwJeqGnIRVJWWJnsyzr1VtSburBD2swBEgtlqoH27o6LK+fqGwegFhEilZkm9ylY
-	j/kUyF+8ozdYBwjsxhFa5QydeJbpz0Zkq6TEfDjwbZNssuwLY3XhGqY7rqd+v9S7rKKftGjY5GmW0
-	y001V9QvoKD771Qz6iJVogOCo1hcUYiCIVdnCLriMbLdKy/wfIS++DKPy06Pwr9AQGe2QHWav4NCy
-	ysbh8NVjg8vBsdUW8ZD1Z3Jch09gTOxw8Ca5MMshW05xQk3c8tncS+uh1fxRvWt/EjMIhi7pq/cgw
-	w9G/u7gQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hPC4/bkySYuEIDm7sSNDHaTK4nJg9WPIz/TBHjyeJK0=; b=sKtQFsBkbCCcinoyGTN9HDgEnU
+	y+q9ps1iEm6gdOmYvXAheRUUWsdz7GANNU3XIQbs+pmyYdEIWYxMrZm5W0BnQ3rrngatdrEZks1S8
+	Fz3J5dlEa3om4o3wiGCp+7AYRPElQ5gQMXUIfw9ohTQCLwsAww5/VeEJnIv2jXBIR+qdGyoDc8SR+
+	D2BJ0p0blA7LKQ+N+RGFibiyGU1oo4/YIImkBDobBZBU9ir243u3KXVpaJ6lEFNBDVCN0O0WH0sS4
+	F+6y1VOLEFa7SGU1HejvNBVWnYF+V4CCuwajmZoyUlMS3dmbFd8ywgaUiLMJXQnNENBGy1YlEVd0L
+	XmRH/hRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkLWM-0000000HLP8-1GDr;
-	Thu, 16 Jul 2026 12:48:58 +0000
-Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	id 1wkLWm-0000000HLV6-1nCq;
+	Thu, 16 Jul 2026 12:49:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkLWI-0000000HLOI-35To
+	id 1wkLWl-0000000HLUv-0MxC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 12:48:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ChsLAxFjG6rTS7ixR9QDqHd5kX+aO0nIs13isluBM4Wd5vkaNCmUb8JfNfFVZczSwe4DYrkEYSpHkTIYx2v2UzY2V3ZZz3tTLXCiiwNa8gcg8XOaorqkWJB//ZNqbb0Rt28KaHybzp1rQWygZTU8SbV4HDPoewQUtFWJjTgcDd94+n9ux/Jy9eszXhCejtawarUQrcyUvN+a9bIEQX+Xh4XY/OfNzYxCU9xjVvIX/uHnSN9tOf0Sk6d51k2tED2kWUsZWYQcHJChrtyNkyDL38/IvRVZ0Bk5ackK2UepoE6lIFzpaEK/GG404hBwv8khgtZ+YMrywRKkLnoCaa97cQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nO85MVJ/GroYzN+9MZfoFUtca8YGfxaXtsNEwIUviEk=;
- b=m5gfZBGzB48xB6gMQJ3Mi7NLHQee5V7Knr8pfcDMG4DLtNMtudrICOLS5fAMcl85uAZrwHyfRgPLcj0tIE0e9NbKDyzbvw860TVkdNw1k+6fXohq3au/fdW76cby7c4KftWZWhFs9YJfCD1ZkrGWhRa8r5lL0WwQhwNZPfvzWPY/cWPaTXK4HSGDc6nF7xYyhEF5QfxzxqNqxMhr3ePE84fZMaUyViBVkTSKA1RfrlN/RYQi1PM505UFGKygtv0EjcaWkIH87Lx9KDEhl2w3+sjBkXu+k3UZVVl9wA4g/IYe/VYcr70z0WKsWyOuE9t/0/ghelxsp1OI+6mmhDyfSg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=lunn.ch smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nO85MVJ/GroYzN+9MZfoFUtca8YGfxaXtsNEwIUviEk=;
- b=aqziUj06ErLBGI6Sm40O11n1OVvxLk9sxtW+8T2I1k3q9aN3tSWW6r9gFfi3xybIRZgh6rIh6FTzE8HCyPdYwxCUlwAtQD1BugvrUBM3PolyaNMGtXCnhYRk57KY3Q4/Nd58qQyHhzSuDA6Pivv2qblolS8FT2hmmeqrsmDkanQ=
-Received: from DS1PR04CA0019.namprd04.prod.outlook.com (2603:10b6:8:243::6) by
- LV3PR12MB9265.namprd12.prod.outlook.com (2603:10b6:408:215::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.12; Thu, 16 Jul
- 2026 12:48:47 +0000
-Received: from DS1PEPF00017091.namprd03.prod.outlook.com
- (2603:10b6:8:243:cafe::70) by DS1PR04CA0019.outlook.office365.com
- (2603:10b6:8:243::6) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.223.12 via Frontend Transport; Thu,
- 16 Jul 2026 12:48:47 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- DS1PEPF00017091.mail.protection.outlook.com (10.167.17.133) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.245.5 via Frontend Transport; Thu, 16 Jul 2026 12:48:46 +0000
-Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Thu, 16 Jul
- 2026 07:48:46 -0500
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb10.amd.com
- (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Thu, 16 Jul
- 2026 07:48:45 -0500
-Received: from xhdharinik40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
- Transport; Thu, 16 Jul 2026 07:48:41 -0500
-From: Kusuma Vasana <kusuma.vasana@amd.com>
-To: <radhey.shyam.pandey@amd.com>, <andrew+netdev@lunn.ch>,
-	<davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
-	<pabeni@redhat.com>, <michal.simek@amd.com>, <Kusuma.Vasana@amd.com>
-CC: <git@amd.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>
-Subject: [PATCH net-next V2] net: axienet: Clear stale AXI DMA TX/RX status before re-enabling interrupts
-Date: Thu, 16 Jul 2026 18:18:40 +0530
-Message-ID: <20260716124841.2761722-1-kusuma.vasana@amd.com>
-X-Mailer: git-send-email 2.43.0
+	Thu, 16 Jul 2026 12:49:23 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 75DC0438DB;
+	Thu, 16 Jul 2026 12:49:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE8401F000E9;
+	Thu, 16 Jul 2026 12:49:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784206162;
+	bh=hPC4/bkySYuEIDm7sSNDHaTK4nJg9WPIz/TBHjyeJK0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=EBTnCvJ9LBKnvWT6txkoqJfPx80j2qmCPPgtys2eexys61AqRBL/PikdcJ6hRJAu9
+	 N/7/eAlmSuk+e3pdfg1br9QTOhJW2GGB9kHXTsWQFNTHz0JCZ97PbPUW/LdJ4+wRy/
+	 +XTaRU6ByVV8cgDQ/Y8URNaE9ixhEq3zlBP78l090NnAF3jztLYymQ9AP81piPIYAS
+	 +eLW/SudvgS/2t8T899cAQ7pEdr9DwlUjvvFQEk6oEwv3wdptotD0TLRa6MM1FffAR
+	 YHD2d42XYxRErp70skW71CAatVzJVw6VUlhs8jh9r8ff+ImW/liW57cAnWmulaWueU
+	 l0WsUaQ0QduBw==
+Date: Thu, 16 Jul 2026 13:49:12 +0100
+From: Will Deacon <will@kernel.org>
+To: "David Hildenbrand (Arm)" <david@kernel.org>, akpm@linux-foundation.org
+Cc: Dev Jain <dev.jain@arm.com>, muchun.song@linux.dev, osalvador@suse.de,
+	ljs@kernel.org, liam@infradead.org, riel@surriel.com,
+	vbabka@kernel.org, harry@kernel.org, jannh@google.com,
+	lance.yang@linux.dev, kas@kernel.org, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org, apopple@nvidia.com,
+	rcampbell@nvidia.com, ziy@nvidia.com, matthew.brost@intel.com,
+	joshua.hahnjy@gmail.com, rakie.kim@sk.com, byungchul@sk.com,
+	gourry@gourry.net, ying.huang@linux.alibaba.com, ak@linux.intel.com,
+	nao.horiguchi@gmail.com, mel@csn.ul.ie, j-nomura@ce.jp.nec.com,
+	pfalcato@suse.de, tglx@kernel.org, dave.hansen@intel.com,
+	jpoimboe@kernel.org, catalin.marinas@arm.com,
+	linux-arm-kernel@lists.infradead.org, ryan.roberts@arm.com,
+	anshuman.khandual@arm.com, stable@vger.kernel.org
+Subject: Re: [PATCH v3 1/6] arm64: make huge_ptep_get handled unaligned
+ addresses
+Message-ID: <aljTSN3yGRv1OoUN@willie-the-truck>
+References: <20260703114202.365553-1-dev.jain@arm.com>
+ <20260703114202.365553-2-dev.jain@arm.com>
+ <20260705003559.8b124d2b94b685cc2e4e77ae@linux-foundation.org>
+ <8fdbe0d6-87fd-441c-b6d2-baac380f6fb3@arm.com>
+ <4b4e8007-3747-457a-85cc-d1003e1c8fe2@kernel.org>
+ <39a13445-dc6f-4a75-92b8-f4a122c63b89@arm.com>
+ <7ac558fd-1081-456b-b997-c7321241cf8c@arm.com>
+ <2b9d60a2-8698-46b0-80ae-b8747a66a85b@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS1PEPF00017091:EE_|LV3PR12MB9265:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5df77dac-8239-462e-8d8b-08dee3389391
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|1800799024|82310400026|36860700016|18002099003|11063799006|10067099003|56012099006;
-X-Microsoft-Antispam-Message-Info: UzVl5lmmIIUNN5ZNPiMp5qXSFy0YYj2HmNeIhQYwpFF95h09EiRtIEGKJh02IKaDzCopM2TEmRWA2eegwTanrGAjHb7gDLspwvO1UHWo3ysch0aez+GTqWFIZtvYW0LUsTNxpY3KQRSK2M7oDTCl2xlKUGif4E+jh5CrWq009xzOb9ihfHLYCCsK9fzl0wwJ2VMZkuNhUmWLMH3wfaD5t9nqUPpco23pwNYjRiRMVRibo5eH99mELBT0HNM9VDiBymBMTp0GOdqrCudpbh/6yaVv88oinjVN5+XLhv67DdkLInVdEBj1Jfeh3RCe0ep8GvaL06PhXQQ4sk5j60XPZhDb7P1duDExj4tV0Ns+Okxkb+phdR5x/zrSgpUq59ZDcYS+5T8w6zYw0HY2/W36yrlOJbyVbR4DUYLkDLRJski8dz+HX68KMkEAO4j9O7G32KmFfVnH6HoH78vC2yqOR2P9FijIWPDovuvOYpI9AnVfpigSW1CdZOkV9n/H7j2QT14bhDxM51mstIUXR3Wxx3ckj5P7l+x0Y5afF593y3THoXKhXwGL2IOxwFyqTUcEzdv4HdzIe5Gkvv42MraKMZ5GIksZMlwj0pbHNJgBpIzEd0/+TSUn8rEkXww/EEWvWI0rX1a8umw1FvgZD4hs5n9imy0/uD23JGmCCrUXSKSv+K2CfWt59gGIlnzrg5J2ilnEJJCHWN/nVIP0unDCDw==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(376014)(1800799024)(82310400026)(36860700016)(18002099003)(11063799006)(10067099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: qpN7UDScsjVYISJxvVI9rXtrTL2Kk7eHRGDJh0u2Q/OtAsp8ffov0fWRrYMzzppTnxBZVVL9+cSuue8zQWSiafSywNZu8TAgwVTSP/f+0J6VkJvJxBKgsuT2eAGMZ8vAnQwB54FRpZZV8I1gegO39lxpq58fj/xQqNTR4OJqSOFdXpIA22f+pjO0fxKZufXMIpVsFtKpXXm+z5xyhAJHBx8/OCLulrcKw2GCHVw8eJcOxez9fOJYg3mV9icrNles8t4LOQew8TX+1Pv5U19Mb7S0iRllknE9dvBRzA5J8BLnAc08qBPHcMRzQkJgbJlngnLqgdAhELKcVorw2xdQ4RTiSDnvLWBA07RBjxcWoWzx1lUmilSieKiE0hI85zQlOah9X1qJ8FqWOfCJSjDctjD12Z6FlFT7Y17rM+w4SR/Z/hHLb3wDNXI7HXhqS7f2
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jul 2026 12:48:46.5856
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5df77dac-8239-462e-8d8b-08dee3389391
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF00017091.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR12MB9265
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_054854_825143_E3A9B838 
-X-CRM114-Status: GOOD (  14.26  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2b9d60a2-8698-46b0-80ae-b8747a66a85b@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,76 +87,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The AXI DMA interrupt line is level-sensitive: it asserts whenever
-the IOC (XAXIDMA_IRQ_IOC_MASK) or DELAY (XAXIDMA_IRQ_DELAY_MASK) bits
-in the status register (XAXIDMA_TX_SR_OFFSET / XAXIDMA_RX_SR_OFFSET)
-are set and their corresponding enable bits in the control register
-are active.
+On Mon, Jul 06, 2026 at 04:04:40PM +0200, David Hildenbrand (Arm) wrote:
+> On 7/6/26 12:54, Dev Jain wrote:
+> > 
+> > 
+> > On 06/07/26 4:22 pm, Dev Jain wrote:
+> >>
+> >>
+> >> On 06/07/26 2:15 pm, David Hildenbrand (Arm) wrote:
+> >>>
+> >>> Even worse, right? We could walk 128 entries, when we really should just walk 16
+> >>> (IIRC) entries, possibly reading garbage or even worse, into a memory hole at
+> >>> the end of memory?
+> >>
+> >> Hmm I was thinking that the checks pte_dirty() and pte_young() wouldn't care whether
+> >> the pte is garbage. But, we could actually dereference a ptep pointer not having
+> >> backing memory at all.
+> >>
+> >> Does the following sound good?
+> >>
+> >> "On systems where CONT_PTES != CONT_PMDS (meaning page size is 16K), we could collect
+> >> excess a/d bit state, meaning extra work for the kernel. Even worse, we may iterate
+> >> beyond the PTE table and dereference a garbage ptep pointer to access physical
+> >> memory we don't own. Since the ptep pointer is a linear map address, we may run off
+> >> the end of the linear map, dereference a VA not mapped into the kernel pgtables and
+> >> cause kernel panic."
+> >>
+> >> Although I checked on arm64, there is no case in which there is a hole after the
+> >> linear map, but still that assumption shouldn't be made.
+> > 
+> > Oh but we could access a linear map address which corresponds to a DRAM hole, meaning
+> > there is no entry in the kernel pgtable.
+> 
+> Yes, exactly. With debug-pagealloc and things like that we might have many holes
+> in the direct map.
 
-During TX/RX, interrupts are disabled in the control register while
-NAPI runs. Completions arriving in this window cause hardware to latch
-IOC/DELAY into the status register regardless of the control register
-mask state. After NAPI completion, re-enabling interrupts immediately
-re-asserts the IRQ line due to these stale status register bits, even
-when no new work is pending.
+I think this one patch should go in as a fix.
 
-This results in a stale interrupt and redundant NAPI poll cycle with
-no new work pending, causing unnecessary CPU processing.
+Andrew, do you mind if I pick it via arm64? If you'd rather manage the
+whole lot, please can you send just this one as a fix for this cycle?
 
-In the initial driver, the status register was cleared after polling
-all packets, which naturally consumed any status accumulated during
-processing. When the driver was converted to NAPI, status register
-clearing was moved to the ISR before polling begins, leaving no
-mechanism to clear status bits that arrive during the NAPI poll window.
+Thanks,
 
-Fix this by unconditionally clearing interrupt status bits before
-re-enabling interrupts in the NAPI poll handlers.
-
-Signed-off-by: Kusuma Vasana <kusuma.vasana@amd.com>
-Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
----
-Changes in V2 :
-
--Added net-next prefix in the subject
--Updated the commit description
-
----
- drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
-
-diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-index fcf517069d16..29050c8d04e2 100644
---- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-+++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-@@ -1018,6 +1018,13 @@ static int axienet_tx_poll(struct napi_struct *napi, int budget)
- 			netif_wake_queue(ndev);
- 	}
- 
-+	/* Clear stale IOC/DELAY bits that may have latched during the
-+	 * poll window to prevent a stale interrupt when there is no
-+	 * work pending.
-+	 */
-+	axienet_dma_out32(lp, XAXIDMA_TX_SR_OFFSET,
-+			  XAXIDMA_IRQ_IOC_MASK | XAXIDMA_IRQ_DELAY_MASK);
-+
- 	if (packets < budget && napi_complete_done(napi, packets)) {
- 		/* Re-enable TX completion interrupts. This should
- 		 * cause an immediate interrupt if any TX packets are
-@@ -1293,6 +1300,13 @@ static int axienet_rx_poll(struct napi_struct *napi, int budget)
- 		cur_p = &lp->rx_bd_v[lp->rx_bd_ci];
- 	}
- 
-+	/* Clear stale IOC/DELAY bits that may have latched during the
-+	 * poll window to prevent a stale interrupt when there is no
-+	 * work pending.
-+	 */
-+	axienet_dma_out32(lp, XAXIDMA_RX_SR_OFFSET,
-+			  XAXIDMA_IRQ_IOC_MASK | XAXIDMA_IRQ_DELAY_MASK);
-+
- 	u64_stats_update_begin(&lp->rx_stat_sync);
- 	u64_stats_add(&lp->rx_packets, packets);
- 	u64_stats_add(&lp->rx_bytes, size);
--- 
-2.43.0
-
+Will
 
