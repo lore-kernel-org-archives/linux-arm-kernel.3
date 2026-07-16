@@ -4,83 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F13ACC4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 08:27:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 683ABC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 08:36:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=adUBNob18OYmBB9kVkDazfnMtoQOgNrVku/4a5SwouA=; b=Z1lwv6MEQL7M0/cB0H5uAmxp+j
-	9DLKoVvPBWyWahkfiPlY7DCRGobtZe7Vqb+nI9MpUGd2qVARFmZCPyZ1DqQXNPeeIRfMMDZ+WzrsC
-	Mxm3mEGs/ZBJRoZ830Zut3NHTb4EbmWidIomkMlOI4b3jrcWFuFTTA9YeM91sdcUW41ey2OJ3UHWF
-	elU2PJdTsGMyc8kyEleiTy9mlvACuOmnI3FOlhPlJHqSUfQvQZ/NLjBXJcT6m0LzQBgKvYHKru3M/
-	Mb0S0ZgEu8on9OzmsdYEvuuwOBTxFkXUUkhQj/qC8aCGezzoYwrRuAe4SZKP9TbO/MmdaG92cF2xw
-	KzGs+qKA==;
+	bh=V8QPTigTcCC4UZr+acj1ZYLdorlKdGn8i+G4wCG9sso=; b=HdXTBvZ7yUtmTcEFejFYnmWjFW
+	AuSwDCetj60kUIHA2a5NsY0zdH8UNw3Z8RpHnwsMjtkTCJOsJMxX8bnmLXk06wuVu3fKZc7PWM26g
+	iOU4v15+vab1cb+IMOiqPLH4YbiIlffaiXF+LxAqzt6EfiiCbDvEpFNjDlfvCeo8LydqqkKPIkwFt
+	fNKS9cROtiuj26MZSJM+bsJmJU/3Wq+UNH1S4f8Mh4/2D4yRSB0mROSxrx09g5Bdii2GsTVw6s+S/
+	y/K1e96xLv7PgyVuz5cLPjduizsdNH9kp0+Rxm+tvtaRsBpDLf6YaHdfvCFgBw5v2aRW/+hLKa1pX
+	QUNnAyVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkHRG-0000000Gkgq-02JD;
-	Thu, 16 Jul 2026 08:27:26 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
+	id 1wkHaA-0000000Glb4-0IiW;
+	Thu, 16 Jul 2026 08:36:38 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkHRC-0000000GkgB-3P7n;
-	Thu, 16 Jul 2026 08:27:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1784190442; x=1815726442;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=5oa/5XioJ8flc5AgybunsF5G261OjV++bUe/mqwllp4=;
-  b=ijut/ciCPyYEeatgfxdksK/tovlXGKAUXqWV98kfOU7IyD7fW/0oOD0W
-   aVJkTj9xEYfbGAkc/0CmEsRLGsG+3P8ec8zInTqRZpK5c9VT2lCHvQchj
-   /btemIFPM1aaHoXjZK9BsZ9RxBHBrHm5/+P7bCFkepo8ZAgOLqkOUiZR1
-   mAGKKAviQ1UKDND0sIahctijVIYtV0PFxR0fvY4cLgghaIF3dq21G7LnX
-   5zVGUINLj47YER7W/I64uUh+1uVHXxBya2WQ4VcTlQLPKIdqrIfSJmKqz
-   HNgIhctv2TE03KStTFpDroQ3flbFzQ/GjcJqeQW4U6Jr7In1P6b9izKCr
-   g==;
-X-CSE-ConnectionGUID: 3YejFzJeS+KMPDkz+Z3R2Q==
-X-CSE-MsgGUID: qQvhWYGrS4uLZh7+Ro0bvw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11847"; a="83826039"
-X-IronPort-AV: E=Sophos;i="6.25,167,1779174000"; 
-   d="scan'208";a="83826039"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jul 2026 01:27:22 -0700
-X-CSE-ConnectionGUID: 43hHWRy4SXmvtkTrwMjpSw==
-X-CSE-MsgGUID: stKbAuGLSyOVXOgq7dl9xA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,167,1779174000"; 
-   d="scan'208";a="279701626"
-Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.26])
-  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jul 2026 01:27:16 -0700
-Date: Thu, 16 Jul 2026 11:27:14 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Yu-Chun Lin <eleanor.lin@realtek.com>
-Cc: Michael.Hennerich@analog.com, afaerber@suse.com, andy@kernel.org,
-	brgl@kernel.org, conor+dt@kernel.org, cy.huang@realtek.com,
-	devicetree@vger.kernel.org, dlechner@baylibre.com,
-	james.tai@realtek.com, jic23@kernel.org, krzk+dt@kernel.org,
-	lars@metafoo.de, linus.walleij@linaro.org, linusw@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
-	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-realtek-soc@lists.infradead.org,
-	mathieu.dubois-briand@bootlin.com, mwalle@kernel.org,
-	nuno.sa@analog.com, robh@kernel.org, stanley_chang@realtek.com,
-	tychang@realtek.com, wbg@kernel.org
-Subject: Re: [PATCH v3 3/7] gpio: regmap: Add gpio_regmap_operation and
- write-enable support
-Message-ID: <aliV4u6_xzx9D9Aq@ashevche-desk.local>
-References: <d301ba0cd45d49d59e6a014188306ec9@realtek.com>
- <20260716062614.1507243-1-eleanor.lin@realtek.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260716062614.1507243-1-eleanor.lin@realtek.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_012722_910471_8876BE5A 
-X-CRM114-Status: GOOD (  28.84  )
+	id 1wkHa9-0000000Glav-0QXQ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 16 Jul 2026 08:36:37 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 956026001A;
+	Thu, 16 Jul 2026 08:36:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4717F1F000E9;
+	Thu, 16 Jul 2026 08:36:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784190995;
+	bh=V8QPTigTcCC4UZr+acj1ZYLdorlKdGn8i+G4wCG9sso=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Au26i0us2sYQaroQUjDyPJSDZsHl32dMOiqnb0Hpy4twDI32a+hp96+lQuL83G8SM
+	 IHAHRZSA3LPXHf4AUAe118dY/cuOpJiSSXMCHnX7DN1vG9ojE++4zSjp8/7OlzwwUU
+	 f/X2wF2tbLy90a8noT7WM/DRJZqR1F3eYBH9SdoTu76IOhUCnTjTncNZQ8NLvTQahx
+	 B4qVoEFHdoOdKAy2e+MqPdizZndaDGGXk6dUiDxIP1jWwux/pqZO90KMWgXiY3qJaO
+	 xsi5NAJDLFQmk7FoH7ZR9OYl+xokh8+zPNt33+Muo02oODb5lSAE4XZEkRTJpWH8L7
+	 vaeQARGCzhx1g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wkHa4-00000005b7P-3HoW;
+	Thu, 16 Jul 2026 08:36:32 +0000
+Date: Thu, 16 Jul 2026 09:36:32 +0100
+Message-ID: <868q7bnxf3.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>,
+	WeiLin.Chang@arm.com,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: Re: [PATCH v15 00/37] arm64: Support for Arm CCA in KVM
+In-Reply-To: <20260715142841.80544-1-steven.price@arm.com>
+References: <20260715142841.80544-1-steven.price@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,139 +102,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 16, 2026 at 02:26:14PM +0800, Yu-Chun Lin wrote:
-
-...
-
-> >> > -     ret = gpio->reg_mask_xlate(gpio, base, offset, &reg, &mask);
-> >> > +     ret = gpio->reg_mask_xlate(gpio, GPIO_REGMAP_SET_DIR_OP, base,
-> >> offset, &reg, &mask);
-> >> > +     if (ret)
-> >> > +             return ret;
-> >> > +
-> >> > +     ret = gpio->reg_mask_xlate(gpio, GPIO_REGMAP_SET_DIR_WREN_OP,
-> >> base, offset, &reg,
-> >> > +                                &wren_mask);
-> >> 
-> >> What constrains these two to provide the same value back for reg?
-> >> To me it seems like the write enable might well be in a different register.
-> >> 
-> >> >       if (ret)
-> >> >               return ret;
-
-...
-
-> >> > -     return regmap_update_bits(gpio->regmap, reg, mask, val);
-> >> > +     return regmap_update_bits(gpio->regmap, reg, mask | wren_mask,
-> >> > + val | wren_mask);
-> >> >  }
-> >> >
-> >> >  static int gpio_regmap_direction_input(struct gpio_chip *chip,
-> >
-> > My initial design indeed assumed that the WREN mask and Data mask reside in
-> > the same register.
-> >  
-> > Regarding WREN support, especially if WREN and Data use separate registers, I
-> > came up with three ideas. Which direction do you prefer?
-> >  
-> > Approach 1: Provide Custom Callbacks in config (Let consumer driver handle it)
-> > We can add '.set' and '.set_direction' function pointers in
-> > 'struct gpio_regmap_config'. If a driver requires WREN, it can implement these
-> > callbacks itself.
-> > 
-> > static void gpio_regmap_set(struct gpio_chip *chip, unsigned int offset, int val)
-> > {
-> >         struct gpio_regmap *gpio = gpiochip_get_data(chip);
-> >  
-> >         /* If the driver provides a custom set (to handle WREN), delegate to it */
-> >         if (gpio->set) {
-> >                 gpio->set(chip, offset, val);
-> >                 return;
-> >         }
-> >         /* ... existing generic regmap logic ... */
-> > }
-> >
-> > Pros: Clean core, no need to touch existing drivers' xlate signature. The consumer
-> > driver handles its own locking for different registers.
-> > Cons: It feels a bit strange and inconsistent to expose only '.set' and
-> > '.set_direction' overrides while keeping other operations entirely abstracted.
-> >  
-> > Approach 2: Handle separate WREN register in the core (with locking concerns)
-> > We keep the 'XX_WREN_OP' in 'xlate'. If someone needs WREN and 'wren_reg != reg',
-> > we write to both.
-> >  
-> > static int gpio_regmap_set(struct gpio_chip *chip, unsigned int offset,
-> >                            int val)
-> > {
-> >         /* skip */
-> >         ret = gpio->reg_mask_xlate(gpio, GPIO_REGMAP_SET_WREN_OP, base, offset, &wren_reg,
-> >                                    &wren_mask);
-> >         if (ret == -ENOTSUPP)
-> >                 has_wren = false;
-> >         else if (ret)
-> >                 return ret;
-> > 
-> >        ret = gpio->reg_mask_xlate(gpio, GPIO_REGMAP_SET_OP, base, offset, &reg, &mask);
-> > 
-> >        if (has_wren && reg == wren_reg) {
-> >                mask |= wren_mask;
-> >                mask_val |= wren_mask;
-> >                has_wren = false;
-> >        }
-> > 
-> >        if (has_wren)
-> >                ret = regmap_set_bits(gpio->regmap, wren_reg, wren_mask); 
-> > 
-> >         /* ignore input values which shadow the old output value */
-> >         if (gpio->reg_dat_base == gpio->reg_set_base)
-> >                 ret = regmap_write_bits(gpio->regmap, reg, mask, mask_val);
-> >         else
-> >                 ret = regmap_update_bits(gpio->regmap, reg, mask, mask_val);
-> >  
-> >         return ret;
-> > }
-> >  
-> > Pros: Keeps all WREN logic unified inside the core framework.
-> > Cons: Introduces a locking issue. writing to 'wren_reg' and then 'reg' requires an
-> > external lock to be atomic, which seems to defeat the purpose of relying on regmap's
-> > internal lock. 
-> > 
-> > Approach 3: Assume WREN and Data always share the same register
-> > 
-> > static int gpio_regmap_set(struct gpio_chip *chip, unsigned int offset, int val)
-> > {
-> >         /* ... */
-> >         ret = gpio->reg_mask_xlate(gpio, GPIO_REGMAP_SET_WREN_OP, base, offset, &reg, &wren_mask);
-> >         if (ret == -ENOTSUPP)
-> >                 wren_mask = 0;
-> >         else if (ret)
-> >                 return ret;
-> >  
-> >         ret = gpio->reg_mask_xlate(gpio, GPIO_REGMAP_SET_OP, base, offset, &reg, &mask);
-> >  
-> >         ret = regmap_update_bits(gpio->regmap, reg, mask | wren_mask, mask_val | wren_mask);
-> >         return ret;
-> > }
-> >  
-> > Regarding this approach, I would like to ask from your experience: Is it
-> > actually common for hardware designs to place WREN and Data bits in completely
-> > different registers for GPIO operations?
-> > 
-> > If they practically always share the same register, this simpler approach might
-> > suffice.
+On Wed, 15 Jul 2026 15:28:02 +0100,
+Steven Price <steven.price@arm.com> wrote:
 > 
-> If there are no further concerns, I will proceed with the third approach and
-> send out v6.
+> This series adds support for running protected VMs using KVM under the
+> Arm Confidential Compute Architecture (CCA).
+> 
+> It is the second part of the Arm CCA host support that was previously
+> posted as a single 44-patch series. The generic firmware/RMM support has
+> now been split into a separate 6-patch base series[0] so that it can also be
+> used by other work (and hopefully make reviewing a little easier). This
+> series applies on top of that base.
 
-From the above list I tend to the approach 2, but this might require to have
-GPIO regmap level of locking. I'm a bit lost in the context, though. I assume
-we need a fresh start, id est issue a v6 with approach 2 or 3 in place and
-summarize the choices in the cover letter, so we can understand what has been
-considered.
+Splitting the series this way means that no Sashiko review can occur,
+as nothing applies on its own:
+
+https://sashiko.dev/#/patchset/20260715142841.80544-1-steven.price%40arm.com
+
+In the future, please post this with the relevant patches as an
+integral prefix, so that we can make use of the tooling.
+
+Thanks,
+
+	M.
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
-
+Without deviation from the norm, progress is not possible.
 
