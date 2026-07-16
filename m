@@ -4,30 +4,30 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BA61C44517
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 14:24:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55F73C44512
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 14:24:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0hAN414k2RosC67SvQyfypL2WPKPJXXzN3ZBvIEnuL0=; b=wxjTBZyRcsDk2lDawIyAssgRqz
-	S29HaFfjZ1oVKMJfGRB9aVWCyUI8EOsxlMSmEsNr/UqMBq/a6tok0tt8qCL1q58yZOtboyqVP7gNQ
-	n/nEJa0oVlSUAK/xZKUCt+jHBlTMi+2kt7JZuBzrS76A0VMMF3/xb4BrTPGreXwRsN9D/pQaP3AJU
-	RQgnfFP7ZtFMHgiaFO7TB3uSJVpbbhFjHmsdVYMvF0F9Y0udP/F47xat+xMki/KIW+FOin6TwoXzX
-	Q3c0r4X7EClTuK1TY7y/WURpV46pgcPyRO8F9alsjEip/OeleLF519kBk7taWIq/IkruVefdu9bsI
-	+i5lEJig==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1s9r2Uk+StvOfZS/X3nFt7tnCnDoFfQj7313EuiKRWI=; b=QvY1DtYioTEO1BmWUcFpjLp/dB
+	t0XeD2xCcyC4BDa268NdlVFOwWlG7WOIK+54Vvq44FYnYQxsFkGHIT+F1HFrpygTgnHpN2xSFIqaM
+	pKXzoekjaagIWC2iQHPsJ/uqltNkY9XjJ4OTEv4RxY9PdMcFyWb8IGT4e/3a2grHq70KsrAKb4B0E
+	IzVzSj8cMuztD6beOI0ThDpE0NBpdkMOUi9RLI4xDjM4VYpRu+gJG2ZtQOoUi40Kt5oR9YQADbz4/
+	nRScRz8IQ4mHgvYu7GY89gPIa4ORSZnvtKeqwdhuopcm5nqAlNv32sjWLiKDN/ExoK15HguZOOWIY
+	Bt1DnH8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkN0w-0000000HTUE-07wa;
-	Thu, 16 Jul 2026 14:24:38 +0000
-Received: from 82-65-109-163.subs.proxad.net ([82.65.109.163] helo=luna.linkmauve.fr)
+	id 1wkN15-0000000HTaK-2U4M;
+	Thu, 16 Jul 2026 14:24:47 +0000
+Received: from [2a01:e0a:1040:9780:49:5ff:fe41:d261] (helo=luna.linkmauve.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkN0s-0000000HTTZ-2pf5;
-	Thu, 16 Jul 2026 14:24:36 +0000
+	id 1wkN13-0000000HTXJ-1hAQ;
+	Thu, 16 Jul 2026 14:24:46 +0000
 Received: by luna.linkmauve.fr (Postfix, from userid 1000)
-	id 62DE9F40D31; Thu, 16 Jul 2026 16:24:24 +0200 (CEST)
+	id 51F28F40D35; Thu, 16 Jul 2026 16:24:28 +0200 (CEST)
 From: Link Mauve <linkmauve@linkmauve.fr>
 To: Srinivas Kandagatla <srini@kernel.org>
 Cc: Link Mauve <linkmauve@linkmauve.fr>,
@@ -76,16 +76,17 @@ Cc: Link Mauve <linkmauve@linkmauve.fr>,
 	linux-arm-msm@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	rust-for-linux@vger.kernel.org
-Subject: [PATCH v3 0/4] nvmem: fix a const-unsoundness in reg_write
-Date: Thu, 16 Jul 2026 16:24:07 +0200
-Message-ID: <20260716142415.28718-1-linkmauve@linkmauve.fr>
+Subject: [PATCH v3 3/4] nvmem: apple-spmi: improve calling safety with wrapper functions
+Date: Thu, 16 Jul 2026 16:24:10 +0200
+Message-ID: <20260716142415.28718-4-linkmauve@linkmauve.fr>
 X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260716142415.28718-1-linkmauve@linkmauve.fr>
+References: <20260716142415.28718-1-linkmauve@linkmauve.fr>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_072434_974621_5893A64D 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20260716_072445_751562_4CBCACA4 
+X-CRM114-Status: GOOD (  10.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,70 +101,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This callback used to take a mutable void * for no reason, which causes
-the compiler to be unaware that the val buffer should never be modified
-by the callback.
+This driver used to cast the regmap_bulk_*() functions to void *,
+bypassing any compiler safety around incompatible function pointers.
 
-This was found while drafting the nvmem-provider Rust abstraction.
+With two small wrappers, which just convert the void * priv parameter
+into the wanted struct regmap *, we can remove the void * cast
+altogether.
 
-Thanks to the guidance of Andy Shevchenko, this now introduces a new
-callback and deprecates the existing one, with the goal of renaming the
-new one into the old one once no user remains in the kernel.
+Signed-off-by: Link Mauve <linkmauve@linkmauve.fr>
+---
+ drivers/nvmem/apple-spmi-nvmem.c | 18 ++++++++++++++++--
+ 1 file changed, 16 insertions(+), 2 deletions(-)
 
-Changes since v2:
-- Link to v2:
-  https://lore.kernel.org/rust-for-linux/aljAqBNVXV1aVJqx@luna/T/
-- Rebase on top of linux-next/master.
-- Fix logic error which made all devices read-only.
-- Remove a blanket cast of function pointers to void * in
-  apple-spmi-nvmem (patch 3).
-- Also fix constness of write buffer in firmware: meson, which is used
-  exclusively by meson-efuse (patch 4).
-- Re-review all changes to make sure the passed types are more correct
-  than they were before.
-- Actually test with COMPILE_TEST, which I forgot to enable before…
-
-Changes since v1:
-- Link to v1:
-  https://lore.kernel.org/rust-for-linux/20260715175229.24672-1-linkmauve@linkmauve.fr/
-- Removed all changes to other subsystems than nvmem.
-- Added a new reg_write_const callback instead of changing the exisitng
-  reg_write.
-- Deprecated the existing reg_write callback, it will get removed once
-  all users in the kernel will be done migrating to the new one.
-
-Link Mauve (4):
-  nvmem: core: deprecate reg_write callback and add reg_write_const
-  nvmem: make all reg_write callbacks take const void *
-  nvmem: apple-spmi: improve calling safety with wrapper functions
-  firmware: meson: pass a const buffer to meson_sm_call_write()
-
- drivers/firmware/meson/meson_sm.c       |  2 +-
- drivers/nvmem/apple-spmi-nvmem.c        | 18 ++++++++++++++--
- drivers/nvmem/bcm-ocotp.c               |  8 +++----
- drivers/nvmem/core.c                    | 28 ++++++++++++++-----------
- drivers/nvmem/imx-ocotp-scu.c           |  6 +++---
- drivers/nvmem/imx-ocotp.c               |  6 +++---
- drivers/nvmem/internals.h               |  1 +
- drivers/nvmem/lan9662-otpc.c            |  6 +++---
- drivers/nvmem/lpc18xx_eeprom.c          |  6 +++---
- drivers/nvmem/max77759-nvmem.c          |  4 ++--
- drivers/nvmem/meson-efuse.c             |  8 +++----
- drivers/nvmem/qcom-spmi-sdam.c          |  6 +++---
- drivers/nvmem/qfprom.c                  |  6 +++---
- drivers/nvmem/rave-sp-eeprom.c          |  6 +++---
- drivers/nvmem/snvs_lpgpr.c              |  4 ++--
- drivers/nvmem/sprd-efuse.c              |  6 +++---
- drivers/nvmem/stm32-bsec-optee-ta.c     |  2 +-
- drivers/nvmem/stm32-bsec-optee-ta.h     |  4 ++--
- drivers/nvmem/stm32-romem.c             | 10 ++++-----
- drivers/nvmem/zynqmp_nvmem.c            |  6 +++---
- include/linux/firmware/meson/meson_sm.h |  2 +-
- include/linux/nvmem-provider.h          |  6 +++++-
- 22 files changed, 87 insertions(+), 64 deletions(-)
-
-
-base-commit: b8809969e1d7a591e0f49dd464a5d04b3cf02ab1
+diff --git a/drivers/nvmem/apple-spmi-nvmem.c b/drivers/nvmem/apple-spmi-nvmem.c
+index cbf25c53d048..81d9e242c836 100644
+--- a/drivers/nvmem/apple-spmi-nvmem.c
++++ b/drivers/nvmem/apple-spmi-nvmem.c
+@@ -18,6 +18,20 @@ static const struct regmap_config apple_spmi_regmap_config = {
+ 	.max_register	= 0xffff,
+ };
+ 
++static int apple_spmi_nvmem_read(void *priv, unsigned int offset,
++				 void *val, size_t bytes)
++{
++	struct regmap *regmap = priv;
++	return regmap_bulk_read(regmap, offset, val, bytes);
++}
++
++static int apple_spmi_nvmem_write(void *priv, unsigned int offset,
++				  const void *val, size_t bytes)
++{
++	struct regmap *regmap = priv;
++	return regmap_bulk_write(regmap, offset, val, bytes);
++}
++
+ static int apple_spmi_nvmem_probe(struct spmi_device *sdev)
+ {
+ 	struct regmap *regmap;
+@@ -28,8 +42,8 @@ static int apple_spmi_nvmem_probe(struct spmi_device *sdev)
+ 		.word_size = 1,
+ 		.stride = 1,
+ 		.size = 0xffff,
+-		.reg_read = (void *)regmap_bulk_read,
+-		.reg_write_const = (void *)regmap_bulk_write,
++		.reg_read = apple_spmi_nvmem_read,
++		.reg_write_const = apple_spmi_nvmem_write,
+ 	};
+ 
+ 	regmap = devm_regmap_init_spmi_ext(sdev, &apple_spmi_regmap_config);
 -- 
 2.55.0
 
