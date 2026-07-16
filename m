@@ -4,137 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01AD2C44512
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 21:13:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0B88C44512
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 21:19:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1sSUlg5zoDJCca+wr6NHpayGmCTObicVg/Sxg26I8Xg=; b=G05xi1inYLc2z9tatjDQzKKlD7
-	OUhRMjUqM5gWzoYmSF6u/frWR+4W7cydT6uT27+66L6bCcULD8K7EHORmbCdvsTjNK8Rj4DJgfb1n
-	dTFaM4iIh0aU+Ec5qQ2yV5iMLcL2fhJ3TD/3NhVFPLixBuqtmRiPQTPeO9H2KaFgz9rW2VO/IOId6
-	+/WcH7L6VZAicJKU6HrLv4Org4tnY474bDN3rXRacOyVO1T63PMfZEC5wI5s0JgypefxhGjt+z2DZ
-	am6r79PD3f6zY2H9AKnSlkYbucI3IVbY5a95/QV/7tC4pkzdFWBtbcS82ZF9wgqLV20X/nQFSw/+P
-	Acv/3oJw==;
+	References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3mfs6TPohHB4ptVhWPd7wCfPWGeW/kT+9UO9C9aZwuc=; b=jxanh4tZtE4rjaZltVUhPrVMa8
+	7CtgsGH+4akniWut+MEL1y9VbOe3mlmR3njIIbVA2Pw9T6fO024ceWNTJaBmn82UH7bCONjT1L9uH
+	m/b5XnnbKy9KgNdkSrxyu/LFh1I5g/2hGvaXha/UKTUEf3Q8ifb0bE4reX1DNivsyR4uEKONH34jv
+	oMNMUOhZ3kXRNkYosaQ7XhVRYKc3xYKodWYPottfHWBKCDITbt/QJy9z/iUY/HwrUA+YGnjOzG0bV
+	MaDYCDIsOkV6aLilZ+/Rc4XVY8cw/9CkIluY1cQ5h/fp+qfVxGWmRjiODS5Dwv6o5qsiQCtAlhmTl
+	SBMrBnuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkTFT-00000000YHA-2ZTv;
-	Thu, 16 Jul 2026 21:04:03 +0000
-Received: from mail-eastusazlp170120007.outbound.protection.outlook.com ([2a01:111:f403:c101::7] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	id 1wkTTv-00000000ayQ-2vXy;
+	Thu, 16 Jul 2026 21:18:59 +0000
+Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkTFF-00000000Xx9-2bEp
+	id 1wkTTt-00000000ax0-0LZ6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 21:03:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=o+hvWWcZ8OnSq+6EUmlviCjJEFaicNLQ0Waabq3NVF9VNDEylHHR7mLbwyCQnmycETkHAj5zb029gzcf4pNeJzkwngX1dF7J14w4hPMbZyXleHf4e2eI+43hVzLovD7N9CkpzK4o/v4Q+6M6xnXpvnVLInI0IRhdSt+xoLOdtH4Sq+L+e51Ba5pb5BRLwTX+31JolpJORHd5pAyuTtHI+tEMjzSM42hPulUhMJyAO0Fdznv6Vl9TeGhRQO+8cHC6V3ghaGbLqT9HXB+s8KhYiey5bjUJY6x+IfubLStjXvkCwLJQqgU92qLVp9uH2nGioSy07jvMH/xheZ1zjkBJgw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1sSUlg5zoDJCca+wr6NHpayGmCTObicVg/Sxg26I8Xg=;
- b=BwSLIILZkc4Koy/KecSM/sTNm/zW4Lmsiq1zBMXjF4BhGUzpXtEX+z5jAXN5ndRoHztmIhPtoN0w8jQ6M4zrMsCutU3PppRJzhikfd7emuhQTAOjDbcoXNRi0fOGowcIjXM9pCk8mu9g1Q0yhSwHznuPSJaCvwzPw/IKKHFr4nOlLgcnS67zBfkoDq3lmTZdINSScrGcRLWDHHG5cFxmoLWhwuLid+wJXzI8tfD8il3zNvHp5z9HRTSO3OIXivTmN/bFiNN5qmqzRn5mTAQEOromcTTp24Ue5Zz29/NsGfYdvnqz+QT/Ic3uwgXNLyFb6T6grnE9bNzyKhcVDaeGDg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1sSUlg5zoDJCca+wr6NHpayGmCTObicVg/Sxg26I8Xg=;
- b=J41R0Q9CZ3E2On/PaKRJMjH9Oz6ZdxmjYBKScW4v3s6h3f+1OgRziKZgRpn69M1Ttu1mzbCXM/mzCing27+FuXlaFvXo0tHzllRce4jot/72hWcdHxOSKuFR/uHZg87hVxsGnM8/AdAwpbK5SFFuMajs44/6IbtfTHXw9KWVMEWthQDCgrHLY0pAtbx4Rez6QAKele4swl8C/KTqLxKouc1G6wh7imJbPiMNfGbLH7ZO3ITXCjSBzgknd8GquCXtjJn5ECTvZqQcAUFqPyxGdDsBvAm2ZuCAH7hczpO/CLoQxR0rAgOpXL0vIQxCUe+EU3h2UwTwySPc/bO6ucAgMA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DM4PR12MB5230.namprd12.prod.outlook.com (2603:10b6:5:399::11)
- by PH0PR12MB7485.namprd12.prod.outlook.com (2603:10b6:510:1e9::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.12; Thu, 16 Jul
- 2026 21:03:36 +0000
-Received: from DM4PR12MB5230.namprd12.prod.outlook.com
- ([fe80::6e87:1bde:1853:3b73]) by DM4PR12MB5230.namprd12.prod.outlook.com
- ([fe80::6e87:1bde:1853:3b73%5]) with mapi id 15.21.0223.011; Thu, 16 Jul 2026
- 21:03:36 +0000
-From: Fenghua Yu <fenghuay@nvidia.com>
-To: Reinette Chatre <reinette.chatre@intel.com>,
-	Tony Luck <tony.luck@intel.com>,
-	Ben Horgan <ben.horgan@arm.com>,
-	James Morse <james.morse@arm.com>,
-	Dave Martin <Dave.Martin@arm.com>,
-	Shaopeng Tan <tan.shaopeng@fujitsu.com>,
-	Chen Yu <yu.c.chen@intel.com>,
-	Babu Moger <babu.moger@amd.com>,
-	Drew Fustini <fustini@kernel.org>,
-	Vikram Sethi <vsethi@nvidia.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Newton Liu <newtonl@nvidia.com>,
-	Gavin Shan <gshan@redhat.com>
-Cc: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Fenghua Yu <fenghuay@nvidia.com>
-Subject: [PATCH 05/23] resctrl: Add nested resource_schemata support for emulated controls
-Date: Thu, 16 Jul 2026 14:02:55 -0700
-Message-ID: <20260716210329.2914625-5-fenghuay@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1784217438.git.fenghuay@nvidia.com>
-References: <cover.1784217438.git.fenghuay@nvidia.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SJ0PR13CA0103.namprd13.prod.outlook.com
- (2603:10b6:a03:2c5::18) To DM4PR12MB5230.namprd12.prod.outlook.com
- (2603:10b6:5:399::11)
+	Thu, 16 Jul 2026 21:18:58 +0000
+Received: by mail-qt1-x835.google.com with SMTP id d75a77b69052e-51bfbe05683so60610891cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 14:18:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ndufresne-ca.20251104.gappssmtp.com; s=20251104; t=1784236736; x=1784841536; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-type:autocrypt:references
+         :in-reply-to:date:to:from:subject:message-id:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=3mfs6TPohHB4ptVhWPd7wCfPWGeW/kT+9UO9C9aZwuc=;
+        b=z4j7KRD99myzH+WMn+TsvaGKdJUo4RZ7eI/wWXWNiDymIVkpGyEC1KqrjNe+94bxGO
+         kMi6mZ/U8gFDHWUNUaMtBZkDyTcUB0GtWNqxMI/4EK/UxHJQTRVy/MNowRcnhzixL0hr
+         3O6SHTPKdHBuwQLtQK/xq9952DNVAfEBgN8JQNjSqK3A0t6MyWRC+AORFqJPIEO6X4GV
+         bTgS/wHkuhtB5xJ+4iiG14ieaPoaFSohdmtQD/xZTcyh11kOjHqrnm3BcuZfD+FX18fB
+         v+QKLRthoHZmW3JQ1m+gSVFs5+bTyVbxQqMQu7E4J4Qdn54ciYHvw/zaZMEaYo2vKR46
+         hTxA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784236736; x=1784841536;
+        h=mime-version:user-agent:content-type:autocrypt:references
+         :in-reply-to:date:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=3mfs6TPohHB4ptVhWPd7wCfPWGeW/kT+9UO9C9aZwuc=;
+        b=pE5aC8tD/ubMgO5BLP+fI28J56SbMosNeHGeGM0dAwO2Wqyomfkpgsi5L8YJ+QEKVr
+         y/6Iq45CzayP/QWvuuwHruDjXDCZp9qd/22OgjZkV4syKKNrfepCzoq9mCc2Dn+YPG/f
+         JZcvAMtBhndDtlG1NvrnJM6WFd9x2vi0rnzL+pURQiDsjxKQWOlT0eo9Gmx0+iOGXphW
+         59WNmSpFfFhxz5C7DHiHTg/OgHsNbjyaPb/B624tBOHu42N8QI3rjj5m1WLXgoK25QP8
+         Xx8Qmbd2BhrZ27IiS0Fcllgea2bDIRFLCJPtyd9zTmbGRYFu8MfUVuFvy3beF5/Ef6L4
+         Gwqg==
+X-Forwarded-Encrypted: i=1; AHgh+Rp9qcGe5H2UxZs2+cKEb4swNTJXGUl8j+mLeSlhFoFfpMpqOr2DnFdV+zK0uCFXYqtArOlk4/02GfKsY81xtDD8@lists.infradead.org
+X-Gm-Message-State: AOJu0YwDG/MNRcoypi/7lhzO14ZGXkDf4l+U3hPr5FBNj/qXN7j1ahJq
+	Spxu/fIMOdkOZb1jgGfWpK5MrP/+jLYm4bWwG0yqvl/QKjZc/aUlbHvhhTSn10T6Y2A=
+X-Gm-Gg: AfdE7cn4SmgQxfDSDIVkcr61yekHhA5Nb05hJhBXMJoRvQsn224CLEG40KaltaER7wz
+	q/24SXFTbF+LmNlt5wSWbm2TNz9k7TLQJlxy/99tRNf/6HHd4TIn+C4etVAa+vwjzJOh8PG3u2e
+	NloPqe3N8jUlutEv5d/KBFY9VHfEYFPKWO98/H27r/e8fXvyJ2GDmQqAA7UDSsK7t0mFqk4zKGa
+	VNP9+dPI7wZDmu4G58GR6rzIluO7SSN/7Moj0pY1FJpmJ5tQtnxW0N2BactCkvAPVwRHxdi4HDt
+	N8dTZXT1B8QU2WLb4/YULl+ipmET3tNZTG4IaO3vMEqd/kNjWLfJ33TcBVtOCKN7XxLyCuuQuox
+	4600SfsS74B3COHblbbg4jCXosOpNwicRbvyDgGLF4fYvVLMwqKel8s7Il5l41y4bZ043pwYCn/
+	pfCKGbIlA=
+X-Received: by 2002:ac8:5915:0:b0:51a:8c9c:7f52 with SMTP id d75a77b69052e-51e3c340859mr149029421cf.69.1784236735471;
+        Thu, 16 Jul 2026 14:18:55 -0700 (PDT)
+Received: from ?IPv6:2606:6d00:15:e06b::c41? ([2606:6d00:15:e06b::c41])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-51caaf671e2sm162519051cf.25.2026.07.16.14.18.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 16 Jul 2026 14:18:54 -0700 (PDT)
+Message-ID: <723eb4c02c01e2af19394b715413c198baef687e.camel@ndufresne.ca>
+Subject: Re: [PATCH] media: mtk-mdp: unregister VPU watchdog handler
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Guangshuo Li <lgs201920130244@gmail.com>, Minghsiu Tsai	
+ <minghsiu.tsai@mediatek.com>, Houlong Wei <houlong.wei@mediatek.com>, 
+ Andrew-CT Chen <andrew-ct.chen@mediatek.com>, Mauro Carvalho Chehab
+ <mchehab@kernel.org>, Matthias Brugger	 <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno	 <angelogioacchino.delregno@collabora.com>,
+ Tiffany Lin	 <tiffany.lin@mediatek.com>, Yunfei Dong
+ <yunfei.dong@mediatek.com>, Hans Verkuil <hverkuil@kernel.org>, Eizan
+ Miyamoto <eizan@chromium.org>, Enric Balletbo i Serra	
+ <eballetbo@kernel.org>, linux-media@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
+Date: Thu, 16 Jul 2026 17:18:53 -0400
+In-Reply-To: <20260708121910.758166-1-lgs201920130244@gmail.com>
+References: <20260708121910.758166-1-lgs201920130244@gmail.com>
+Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-crHtUZ7+2c5Ajf8qSv7r"
+User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR12MB5230:EE_|PH0PR12MB7485:EE_
-X-MS-Office365-Filtering-Correlation-Id: fc30905c-27d3-418e-a9c5-08dee37db3ea
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|7416014|376014|1800799024|921020|22082099003|18002099003|56012099006|11063799006|10067099003|3023799007|6133799003;
-X-Microsoft-Antispam-Message-Info: zbIyUWXOKA2J61VoeY2J5SBEh61frk8LgX2Cynq6GzGBrsgw1R+kkdnrxAjQuN2W0OQZPtK5/5kHuvY1HoT+M7gt6JPn/gBUzBk6c2p/PphI2a5e9cvDqXJ6w3MjwClHX+CYhtx+hEq8k3b8KC9YNenR3tAgZPDUBhMYFy1osebScbb64mG91zeTRLeH9rKMj6iyrEO+gZh1WsmynEVO0OXglEAPkox3fTDdYsQK+ZzHvlAE01O52DosYxIdHyT/c+be1uE8QtVzOGtQHkk0BmJsi57ERH+oErQ2xxhuK+EPXMgKRTkcMiDHECFNFxNHUptPwd/t4KBZp5ADeqD54yLwR63jlDz5Yxx4G3HaamC3S2y9oLGySLHJ7jZ8T6zlY9fnofMmp1K8gQbqwX2/i22dIuT7/N+n6YfYqbSC/cC6y2sHvPLS1si9kz/5eGRe/fBbfOOijYlWZiJKlyAvV/KixCP+1cUl7u3f9/e9ut0dspugrIaMqfrg1ZeLeA5yuoyh0qvBb2sCQ6rJQvS/xE5ifcZcVY5O3JGpBQiZMlLK9vvgo++BsA32XTkkU3B4FbXne+gvlJKdu6+alkzm1K+u3X6InEd/14BDMi325Ho7QgTc3YClKdkG15JyOX1ERJ1E0RPUrjSA04DnGV7XxVZL53eSZZnmT0wao96rvTOJUSng6NRj58TbwPTMrVvrtE0BYECFerYSKnhq8J3k2Q==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB5230.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(7416014)(376014)(1800799024)(921020)(22082099003)(18002099003)(56012099006)(11063799006)(10067099003)(3023799007)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?GXLaCbkpCRApx+3+MMyIpt6uF00p5EGxAft6C6+uQy2srubBB4PpE6VdnWSS?=
- =?us-ascii?Q?tzNCqnpNijbaDLzco7BbwuibGNv/lbdaN6cyYdG3gdy+eQVVkUjXZHmzM8Ob?=
- =?us-ascii?Q?VxC6/PS6Q8udZRZIHKZ1aq5K4iThX3PhobBKT8/QdupZNNmoHJkKwD0iiGKO?=
- =?us-ascii?Q?TkQzTLNUPN03YyNtDXSbh3SkBYOS4SC03s/hsRPXoeRLd8n+zd1fSx0Ec37j?=
- =?us-ascii?Q?DV4IbrgUlrhz5acAfeMFQZBN5Q4OohrQUZ2We+E61fmxO8adrFpws3hUFGU1?=
- =?us-ascii?Q?QDZgirTuuE7TeGzh7V923yJAsc/8wB9ioXi3Ey0XBdSYOGo3s7jIswBTbQp3?=
- =?us-ascii?Q?PFSk0nGCHUtksLny0OiKjpIPHnnflTwMk7/JjkJF7pLaCuo8HoRWengj2cTj?=
- =?us-ascii?Q?C3NIsKsMdrE6NCQ6i2C4F8iuFz7Nulx8bEJ0YCDT6ZAGPzHih649yGkAQp4q?=
- =?us-ascii?Q?sS8SII+xJkt2gFbyZjrxl9DImrPCIW/oseK8mQ1YTMFp9bma/wioXfKlDMa7?=
- =?us-ascii?Q?GBdbcxPPwDh8ELCuXVorrLI6t+ReSdF65n/LrX9ZMUUOwPMiDCRCSw4xYZRB?=
- =?us-ascii?Q?CUn0b872JwKf3cY9mmMzcSiHVChmCuUAzcgSNBnZrtaHraxSupqEBM/mPQXP?=
- =?us-ascii?Q?JPqZp2WNjkV5mts8zsaOeSGzXNlJ5RlhDwgzR6P605ECfjcLqvbVpfBwhM9l?=
- =?us-ascii?Q?/CHjHS7xwT+AHbyJctoZ4NtPB7VoIdCMsSG1b+1FtrlvPI83RYJfUB7iXCj6?=
- =?us-ascii?Q?rSr0jzfQ3DLYSHP2o74xHlJOXDkS/dMNmQ5F9hXCT5xxPWV84sJN6tOOEbNI?=
- =?us-ascii?Q?d6ovCeayWW6ABcluktpDcdgnAaVuAyo6qxiplZct6EYTPuKx8rmIwx1cSnrW?=
- =?us-ascii?Q?GkYkJW4SgPNzRkCaaLPD2FZ0IDcnr2T6ARCxfDGJUrJdaF65ZTCOgdTAZTP+?=
- =?us-ascii?Q?KeBb4K6VvqhEfa3gZ9/KnPs8APeJAZp4LZmDmI26UyomU3j9JVX1Ss6A4wXp?=
- =?us-ascii?Q?ALc4uQyKf9EJ0Dc7ih7rCB8RD1lcZ+oVfGeCmZ7stkWvAN1n25hNLIzwZRse?=
- =?us-ascii?Q?i7cgQKx+gM7xb65+aUq1eItrC8FpXDO9ZMxLhWr6scvRpiRJeDELN6C/S+MQ?=
- =?us-ascii?Q?ZDMn1ZY/ERuYn+H1FpP0QpM1iXI6Gp4fgxu1We9UurvIEnb98cj0LO1LcehL?=
- =?us-ascii?Q?255zDyOTGqQ5esUMmHW1dY5xgy0p2bKOWw0daa43jaAhsLasRD/ljtgWwpGF?=
- =?us-ascii?Q?rVY+P1EgzE/U81hsfMfeNQVOEIXaWrt0Xg64obDwS4Ug7iUh4eMbmom7eUsm?=
- =?us-ascii?Q?jXbr1WbpsyM8eH48vHN/fYV0m09gxpbhhIHpqIWqNZR7KVPP6g8CUaO1soIw?=
- =?us-ascii?Q?iftfzBUbot8mg26DF7ICaORtIRryilANf774K2j2Hrh5v3Z3Y+1QLA3NC0Vm?=
- =?us-ascii?Q?LYDYjvofsSkNFOjFtmRmVvub+U1mlx7W5bBiyoVygavKvFiEOZ5LqBBO9WOn?=
- =?us-ascii?Q?QCJ/w19C2aLwx23159ZveeMhuc/xcPiikB1e1t5XvreerXgQxzZHqpvqzMbq?=
- =?us-ascii?Q?G/kybkXR9Qo8qDTbHyX2d2PK4FiclQhVESGEJLtZIOUjEADDoKWdVphM8EyQ?=
- =?us-ascii?Q?3m6C6o+SmKm+WY391Q0m3a+c18ODGWLt8OLMn357jJyHdyFfwm4TUHRevIYb?=
- =?us-ascii?Q?8frTyQa6CBueQoyrI4uUaPvWuhXEByLOdhwH5HH9tGf1W0vHH3hsGOpSucYQ?=
- =?us-ascii?Q?pLDwoyCq1Q=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fc30905c-27d3-418e-a9c5-08dee37db3ea
-X-MS-Exchange-CrossTenant-AuthSource: DM4PR12MB5230.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jul 2026 21:03:36.3906
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /ghVzkNUkEpIvlMR0PO2yq2qz9Pnul6OjhZaHYJzohwujVETKGOXvAh/g4pVYYyQRSF600SjFO9GGacNIO9xig==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB7485
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_140349_662229_57330E8C 
-X-CRM114-Status: GOOD (  21.59  )
+X-CRM114-CacheID: sfid-20260716_141857_144341_0D7F0955 
+X-CRM114-Status: GOOD (  20.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,195 +121,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some architectures expose an alternate, hardware-native control that
-emulates a legacy control (for example a node-scoped bandwidth control
-emulating the L3-shaped MB control). Represent this relationship with a
-new resctrl_ctrl::emulated_by pointer stored on the emulated (default)
-control, pointing at the control that emulates it, and add a
-RESCTRL_CTRL_NAME_NODE control name for the node-scoped variant.
 
-Build the resource_schemata tree accordingly: create the default control
-directory first, then nest each emulating control beneath the default
-control it emulates, while non-emulated controls remain directly under
-resource_schemata. Creating the default directory up front makes the
-layout independent of the order controls appear in the list.
+--=-crHtUZ7+2c5Ajf8qSv7r
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Architecture backends set emulated_by during control init; until then the
-nesting branch is never taken and all controls remain directly under
-resource_schemata.
+Le mercredi 08 juillet 2026 =C3=A0 20:19 +0800, Guangshuo Li a =C3=A9crit=
+=C2=A0:
+> mtk_mdp_probe() registers the MDP reset handler with the VPU watchdog
+> code and passes the MDP device as the private data.
+>=20
+> The handler is stored in the VPU device and can outlive the MDP probe or
+> remove path. If probe fails after the handler has been registered, or if
+> the MDP device is removed, the VPU watchdog table can keep a pointer to
+> an MDP object that is about to be released. A later VPU watchdog reset ca=
+n
+> then call mtk_mdp_reset_handler() with a stale pointer and dereference
+> freed memory while queuing the MDP watchdog work.
+>=20
+> Add a VPU watchdog unregister helper and clear the MDP watchdog handler
+> from both the probe error path and the remove path before dropping the VP=
+U
+> device reference.
+>=20
+> Fixes: ee18fc7b0b95 ("media: mtk-mdp: handle vpu_wdt_reg_handler() errors=
+ during probe")
+> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+> ---
+> =C2=A0.../media/platform/mediatek/mdp/mtk_mdp_core.c=C2=A0=C2=A0=C2=A0 |=
+=C2=A0 2 ++
+> =C2=A0drivers/media/platform/mediatek/vpu/mtk_vpu.c=C2=A0=C2=A0=C2=A0=C2=
+=A0 | 15 +++++++++++++++
+> =C2=A0drivers/media/platform/mediatek/vpu/mtk_vpu.h=C2=A0=C2=A0=C2=A0=C2=
+=A0 |=C2=A0 2 ++
+> =C2=A03 files changed, 19 insertions(+)
+>=20
+> diff --git a/drivers/media/platform/mediatek/mdp/mtk_mdp_core.c b/drivers=
+/media/platform/mediatek/mdp/mtk_mdp_core.c
+> index 8432833814f3..5ccb7aa925d9 100644
+> --- a/drivers/media/platform/mediatek/mdp/mtk_mdp_core.c
+> +++ b/drivers/media/platform/mediatek/mdp/mtk_mdp_core.c
+> @@ -221,6 +221,7 @@ static int mtk_mdp_probe(struct platform_device *pdev=
+)
+> =C2=A0	return 0;
+> =C2=A0
+> =C2=A0err_reg_handler:
+> +	vpu_wdt_unreg_handler(mdp->vpu_dev, VPU_RST_MDP);
+> =C2=A0	platform_device_put(mdp->vpu_dev);
+> =C2=A0
+> =C2=A0err_vpu_get_dev:
+> @@ -254,6 +255,7 @@ static void mtk_mdp_remove(struct platform_device *pd=
+ev)
+> =C2=A0
+> =C2=A0	pm_runtime_disable(&pdev->dev);
+> =C2=A0	vb2_dma_contig_clear_max_seg_size(&pdev->dev);
+> +	vpu_wdt_unreg_handler(mdp->vpu_dev, VPU_RST_MDP);
+> =C2=A0	platform_device_put(mdp->vpu_dev);
+> =C2=A0	mtk_mdp_unregister_m2m_device(mdp);
+> =C2=A0	v4l2_device_unregister(&mdp->v4l2_dev);
+> diff --git a/drivers/media/platform/mediatek/vpu/mtk_vpu.c b/drivers/medi=
+a/platform/mediatek/vpu/mtk_vpu.c
+> index 8d8319f0cd22..5dc50a658c2b 100644
+> --- a/drivers/media/platform/mediatek/vpu/mtk_vpu.c
+> +++ b/drivers/media/platform/mediatek/vpu/mtk_vpu.c
+> @@ -437,6 +437,21 @@ int vpu_wdt_reg_handler(struct platform_device *pdev=
+,
+> =C2=A0}
+> =C2=A0EXPORT_SYMBOL_GPL(vpu_wdt_reg_handler);
+> =C2=A0
+> +void vpu_wdt_unreg_handler(struct platform_device *pdev, enum rst_id id)
+> +{
+> +	struct mtk_vpu *vpu =3D platform_get_drvdata(pdev);
+> +
+> +	if (!vpu || id >=3D VPU_RST_MAX)
+> +		return;
+> +
+> +	mutex_lock(&vpu->vpu_mutex);
+> +	vpu->wdt.handler[id].reset_func =3D NULL;
+> +	vpu->wdt.handler[id].priv =3D NULL;
+> +	mutex_unlock(&vpu->vpu_mutex);
+> +}
+> +EXPORT_SYMBOL_GPL(vpu_wdt_unreg_handler);
+> +
+> +
 
-Factor the per-control directory creation into
-resctrl_ctrl_create_subdir() and fix its error and ownership handling so
-the newly created directory (not its parent) is validated and gets its
-uid/gid applied.
+This extra blank makes checkpatch sad :-\ Since I see nothing else to comme=
+nt
+about, I'll simply apply this fix on my end.
 
-Signed-off-by: Fenghua Yu <fenghuay@nvidia.com>
----
- arch/x86/kernel/cpu/resctrl/core.c |  2 +
- fs/resctrl/ctrlmondata.c           |  1 +
- fs/resctrl/rdtgroup.c              | 67 ++++++++++++++++++++++++------
- include/linux/resctrl.h            |  7 +++-
- 4 files changed, 63 insertions(+), 14 deletions(-)
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
-diff --git a/arch/x86/kernel/cpu/resctrl/core.c b/arch/x86/kernel/cpu/resctrl/core.c
-index 07c6ebb7fc43..5575a16caeab 100644
---- a/arch/x86/kernel/cpu/resctrl/core.c
-+++ b/arch/x86/kernel/cpu/resctrl/core.c
-@@ -214,6 +214,8 @@ static __init bool __temporary_multiple_mba_intel_controls(struct rdt_resource *
- 	case RESCTRL_CTRL_NAME_MAX:
- 		hw_ctrl->msr_update = update_temporary_max;
- 		break;
-+	default:
-+		break;
- 	}
- 
- 	return true;
-diff --git a/fs/resctrl/ctrlmondata.c b/fs/resctrl/ctrlmondata.c
-index d95ab8ad36e2..1f832a838115 100644
---- a/fs/resctrl/ctrlmondata.c
-+++ b/fs/resctrl/ctrlmondata.c
-@@ -304,6 +304,7 @@ static const char * const resctrl_ctrl_name[] = {
- 	[RESCTRL_CTRL_NAME_DEF]		= "",
- 	[RESCTRL_CTRL_NAME_MIN]		= "MIN",
- 	[RESCTRL_CTRL_NAME_MAX]		= "MAX",
-+	[RESCTRL_CTRL_NAME_NODE]	= "NODE",
- };
- 
- const char *resctrl_ctrl_name_str(enum resctrl_ctrl_name name)
-diff --git a/fs/resctrl/rdtgroup.c b/fs/resctrl/rdtgroup.c
-index a3aad9b1ff6e..3bec23728847 100644
---- a/fs/resctrl/rdtgroup.c
-+++ b/fs/resctrl/rdtgroup.c
-@@ -2781,6 +2781,26 @@ static int resctrl_ctrl_add_files(struct kernfs_node *kn)
- 	return ret;
- }
- 
-+static int resctrl_ctrl_create_subdir(struct kernfs_node *kn_dir,
-+				      struct rdt_resource_final *f,
-+				      struct resctrl_ctrl *ctrl, struct kernfs_node **kn_ctrl)
-+{
-+	char ctrl_full_name[20];
-+	int ret;
-+
-+	ret = snprintf(ctrl_full_name, sizeof(ctrl_full_name), "%s%s%s",
-+		       f->name, resctrl_ctrl_is_default(ctrl) ? "" : "_",
-+		       resctrl_ctrl_is_default(ctrl) ? "" : resctrl_ctrl_name_str(ctrl->name));
-+	if (ret >= sizeof(ctrl_full_name))
-+		return -ENOSPC;
-+
-+	*kn_ctrl = kernfs_create_dir(kn_dir, ctrl_full_name, kn_dir->mode, ctrl);
-+	if (IS_ERR(*kn_ctrl))
-+		return PTR_ERR(*kn_ctrl);
-+
-+	return rdtgroup_kn_set_ugid(*kn_ctrl);
-+}
-+
- /*
-  * No need to cleanup on exit - caller calls the recursive kernfs_remove()
-  * on failure.
-@@ -2788,10 +2808,9 @@ static int resctrl_ctrl_add_files(struct kernfs_node *kn)
- static int resctrl_mkdir_schemata_dir(struct kernfs_node *kn,
- 				      struct rdt_resource_final *f)
- {
--	struct kernfs_node *kn_subdir, *kn_ctrl;
-+	struct kernfs_node *kn_subdir, *kn_ctrl, *kn_ctrl_def = NULL;
-+	struct resctrl_ctrl *ctrl, *ctrl_def = NULL;
- 	struct rdt_resource *r = f->res;
--	struct resctrl_ctrl *ctrl;
--	char ctrl_full_name[20];
- 	int ret;
- 
- 	kn_subdir = kernfs_create_dir(kn, "resource_schemata", kn->mode, f);
-@@ -2808,19 +2827,41 @@ static int resctrl_mkdir_schemata_dir(struct kernfs_node *kn,
- 			return ret;
- 	}
- 
-+	/*
-+	 * Create the default control sub-dir first. Emulated controls are
-+	 * nested underneath it and may be iterated before it, so it has to
-+	 * exist before the rest of the controls are created.
-+	 */
- 	for_each_resource_ctrl(ctrl, f->res) {
--		ret = snprintf(ctrl_full_name, sizeof(ctrl_full_name), "%s%s%s",
--			       f->name, resctrl_ctrl_is_default(ctrl) ? "" : "_",
--			       resctrl_ctrl_is_default(ctrl) ? "" : resctrl_ctrl_name_str(ctrl->name));
--		if (ret >= sizeof(ctrl_full_name))
--			return -ENOSPC;
-+		if (ctrl->name != RESCTRL_CTRL_NAME_DEF)
-+			continue;
- 
--		kn_ctrl = kernfs_create_dir(kn_subdir, ctrl_full_name, kn_subdir->mode,
--					    ctrl);
--		if (IS_ERR(kn_ctrl))
--			return PTR_ERR(kn_ctrl);
-+		ret = resctrl_ctrl_create_subdir(kn_subdir, f, ctrl, &kn_ctrl_def);
-+		if (ret)
-+			return ret;
-+		ret = resctrl_add_ctrl_files(kn_ctrl_def, ctrl);
-+		if (ret)
-+			return ret;
-+		ctrl_def = ctrl;
-+		break;
-+	}
- 
--		ret = rdtgroup_kn_set_ugid(kn_ctrl);
-+	for_each_resource_ctrl(ctrl, f->res) {
-+		if (ctrl->name == RESCTRL_CTRL_NAME_DEF)
-+			continue;
-+
-+		/*
-+		 * In legacy mode the emulating control is nested under the
-+		 * default control it emulates (the default control's
-+		 * emulated_by points at it). In native mode there is no
-+		 * emulation, so every control sits directly under
-+		 * resource_schemata.
-+		 */
-+		if (r->mode == RESCTRL_CTRL_LEGACY &&
-+		    ctrl_def && ctrl_def->emulated_by == ctrl)
-+			ret = resctrl_ctrl_create_subdir(kn_ctrl_def, f, ctrl, &kn_ctrl);
-+		else
-+			ret = resctrl_ctrl_create_subdir(kn_subdir, f, ctrl, &kn_ctrl);
- 		if (ret)
- 			return ret;
- 
-diff --git a/include/linux/resctrl.h b/include/linux/resctrl.h
-index 5d8ea12ae16b..06482e766087 100644
---- a/include/linux/resctrl.h
-+++ b/include/linux/resctrl.h
-@@ -362,12 +362,14 @@ struct resctrl_mon {
-  *				has the same name as the resource.
-  * @RESCTRL_CTRL_NAME_MIN:	"MIN"
-  * @RESCTRL_CTRL_NAME_MAX:	"MAX"
-+ * @RESCTRL_CTRL_NAME_NODE:	"NODE"
-  */
- enum resctrl_ctrl_name {
- 	RESCTRL_CTRL_NAME_DEF,
- 	RESCTRL_CTRL_NAME_MIN,
- 	RESCTRL_CTRL_NAME_MAX,
--	RESCTRL_CTRL_NAME_LAST = RESCTRL_CTRL_NAME_MAX
-+	RESCTRL_CTRL_NAME_NODE,
-+	RESCTRL_CTRL_NAME_LAST = RESCTRL_CTRL_NAME_NODE
- };
- 
- /**
-@@ -383,6 +385,8 @@ enum resctrl_ctrl_name {
-  *		Specifically, "rdt_resource_final::name"_"resctrl_ctrl::name".
-  *		For example, with resource name "MB" and control name "MAX" the
-  *		schema entry will be "MB_MAX".
-+ * @emulated_by: For an emulated control, points at the control that emulates
-+ *		it; NULL if this control is not emulated.
-  * @cache:	Cache allocation control properties.
-  * @membw:	Bandwidth control properties.
-  */
-@@ -392,6 +396,7 @@ struct resctrl_ctrl {
- 	struct list_head	domains;
- 	enum resctrl_ctrl_type	type;
- 	enum resctrl_ctrl_name	name;
-+	struct resctrl_ctrl	*emulated_by;
- 	union {
- 		struct resctrl_cache	cache;
- 		struct resctrl_membw	membw;
--- 
-2.43.0
+regards,
+Nicolas
 
+> =C2=A0unsigned int vpu_get_vdec_hw_capa(struct platform_device *pdev)
+> =C2=A0{
+> =C2=A0	struct mtk_vpu *vpu =3D platform_get_drvdata(pdev);
+> diff --git a/drivers/media/platform/mediatek/vpu/mtk_vpu.h b/drivers/medi=
+a/platform/mediatek/vpu/mtk_vpu.h
+> index 3951547e9ec5..2ccb481a04cf 100644
+> --- a/drivers/media/platform/mediatek/vpu/mtk_vpu.h
+> +++ b/drivers/media/platform/mediatek/vpu/mtk_vpu.h
+> @@ -141,6 +141,8 @@ int vpu_wdt_reg_handler(struct platform_device *pdev,
+> =C2=A0			void vpu_wdt_reset_func(void *priv),
+> =C2=A0			void *priv, enum rst_id id);
+> =C2=A0
+> +void vpu_wdt_unreg_handler(struct platform_device *pdev, enum rst_id id)=
+;
+> +
+> =C2=A0/**
+> =C2=A0 * vpu_get_vdec_hw_capa - get video decoder hardware capability
+> =C2=A0 *
+
+--=-crHtUZ7+2c5Ajf8qSv7r
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCallKvQAKCRDZQZRRKWBy
+9IGdAQCpnzqE1azFjuacoNMcIeisgg6SaEx51b5TkFJe6O4jWgEA32oGJzf58ofO
++IbTOnKXkPrL4p5Lp8+f60gxG2qdQAY=
+=4s28
+-----END PGP SIGNATURE-----
+
+--=-crHtUZ7+2c5Ajf8qSv7r--
 
