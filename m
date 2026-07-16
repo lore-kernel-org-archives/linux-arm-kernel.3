@@ -4,66 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ED01C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 13:48:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F246C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 13:50:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZP1hGg+vIIZLmINM9b5Wbzal6moErgQ6R3p9ljUzhvk=; b=24GmBBMwcLZWrWboPa3UMfOeFX
-	HTFRJKuzOTeKRH6rejrIS4Djt3DK5bIVsSN8EwRzwhEsfLXKNuG+dQukcXjkotIDxY4Czr2s7Dn2F
-	5bwd08eebVOTeRBJohT+4H4v2utP0x/UmF05LEc5SecOciDj1q7Wxm0PCAd6DlM66a9skuWHTtYiA
-	B8lcm1MI3eYUOvZbvC7XWaZXRFk5cBlMaO1Sy8S43ERbFgvESDChJOfd+I97wVtYsZXSqW6wdhtdC
-	wCr+K6k9FU1NV0AWwc76UGKOSWziC4oO3iMdN8Duljvs0qM7xHr5vWQzd/HivAAj54hlJHIbJrYoI
-	UB6h+S6w==;
+	bh=ucTI3ctwz7P4bafmOQoOoow7pk9pdyLWWyIglYkCCtE=; b=gQutrOfd8Cz4q/WVHsmdllUNzd
+	7ZHP6+8F05v/DAEjXZ0sKAaHcfMtbY780S3WzXn8v9YknNfVxa7oapoNPyJAAqptL7PFQoyovVcRX
+	ku27evPgmAOE/Ais85YuFt8ih5g8gii7hMqidhhMpEUQLX7F7c7VRaEbwZr38Fu1JFm/OeBszbzbV
+	JSfK7EYJ9d26S+K1qOgiyGrKWOEjukdYXnR2DueJlN3x98qkTdShR01eWoAKEYNOHpBMjBBxSJk64
+	8UFJV0ngVnJstLSC85f+cTfa2RqWpj6n2qefzCZWlG6vNNNO0zDFCeqWG1cZ9eEO1zdpSUNEqzDMS
+	1g07HK7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkMS9-0000000HPbg-32r2;
-	Thu, 16 Jul 2026 13:48:41 +0000
+	id 1wkMTy-0000000HPfs-04Om;
+	Thu, 16 Jul 2026 13:50:34 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkMS9-0000000HPbU-0AZa
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 13:48:41 +0000
+	id 1wkMTx-0000000HPfj-09wv;
+	Thu, 16 Jul 2026 13:50:33 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5ED3D61380;
-	Thu, 16 Jul 2026 13:48:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 329CC1F00A3E;
-	Thu, 16 Jul 2026 13:48:38 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 79BD161380;
+	Thu, 16 Jul 2026 13:50:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2F691F000E9;
+	Thu, 16 Jul 2026 13:50:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784209720;
-	bh=ZP1hGg+vIIZLmINM9b5Wbzal6moErgQ6R3p9ljUzhvk=;
+	s=k20260515; t=1784209832;
+	bh=ucTI3ctwz7P4bafmOQoOoow7pk9pdyLWWyIglYkCCtE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=AXiT7EYBGUtAKPQIsEDZ3yvYdsWbEUSJsTlzGYcte/DG9sd0byPCX6P767Ymd5JMG
-	 RZAyhktYoUNzuvjLtSD6q7T+cumPyGtDJe6fd44aKCihfdpLbiZU21WpnS59luW0RJ
-	 aMe5OvMQMIT/TFTqHQxaa98hYF6ENwQKq5cxziDeqEsIhlDTLPc3+ldNUdzeoPs3Io
-	 QyEBCIlAAUD+TLd5AWFS98qakpIFy1SHA5RJdLoptcQBHFFP3kz1D/gEtnM7KhtB3s
-	 fuuHwP7+267C4fuo1R5aLaenRO69ZC43UZx/+LG0md/JVlm0u2ZqFdtMf7Bn1lq/ar
-	 d6Xo0HLg3+2gw==
-Date: Thu, 16 Jul 2026 14:48:34 +0100
-From: Will Deacon <will@kernel.org>
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: "james.morse@arm.com" <james.morse@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Fenghua Yu <fenghuay@nvidia.com>,
-	Guangshuo Li <lgs201920130244@gmail.com>,
-	Reinette Chatre <reinette.chatre@intel.com>,
-	Dave Martin <Dave.Martin@arm.com>,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [GIT PULL] arm_mpam fixes for v7.2-rc2
-Message-ID: <aljhMiv9j1Ae8-yo@willie-the-truck>
-References: <1d22f80d-34c0-4e8f-a9a7-3c527fb97232@arm.com>
- <d39e20fe-e4ab-4bbb-8e97-b68400ece11a@arm.com>
- <aleEkbcWsYdZPgtW@willie-the-truck>
- <7119d552-f686-4467-a572-11d1616b4c79@arm.com>
+	b=gND08iiPLrzULmDx5dMtcLqIrljf7N/ye9aV2+ow7d2CxVZdsL2cVYoEZZvAzBCCA
+	 ZQFibTZyt3zJ3gM6hbZW0Y7CS4it4S2tImxc+eP+uVlXrh1T9mtWPNmaEvt0FYUd7W
+	 sxxhNRYxj3OY9js0G675biSI3NFAG5FXRjM60oM/hVBAQxlsjgo/X45V3qeVQM2+ZR
+	 BlVqs2dd8QBAD5vWRm2eKVASKM8ZPBDurwUkVHjceXVIkhu/1iX5YBZVAaMGj9gC3Y
+	 3fyqVJqoOD6RZEDCKZsi485qbxbPu+l5shK7kwztDdxdxqMKdTGDpR7k9kmgf9/NGn
+	 yDGrlVSks6rLg==
+Date: Thu, 16 Jul 2026 15:50:29 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Daniel Stone <daniels@collabora.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+	kernel@collabora.com, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v8 04/39] drm/connector: Add HDMI 2.0 scrambler
+ infrastructure
+Message-ID: <20260716-astute-nippy-moose-bd22b5@houat>
+References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
+ <20260702-dw-hdmi-qp-scramb-v8-4-d79890d00b6a@collabora.com>
+ <tjsidlnvswo2rdhqa6jybxrnb47lxgmxdlfrfbasuh67wjbqoy@3a45n3zawvnf>
+ <17753a1c-824a-4835-ac2d-8b2796bba1eb@collabora.com>
+ <534b921c-638c-4fc3-b89e-5dfc1f269f96@collabora.com>
+ <20260713-statuesque-nonchalant-seagull-b9c39d@houat>
+ <91c3a825-3344-4ff5-8ea0-f8f057665b3f@collabora.com>
+ <20260715-ancient-zealous-eagle-b13e94@houat>
+ <dfca9032-98ca-4c61-b1b1-85fd05283d77@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="e64try3cwjwjk5gn"
 Content-Disposition: inline
-In-Reply-To: <7119d552-f686-4467-a572-11d1616b4c79@arm.com>
+In-Reply-To: <dfca9032-98ca-4c61-b1b1-85fd05283d77@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,38 +87,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 15, 2026 at 02:10:11PM +0100, Ben Horgan wrote:
-> On 7/15/26 14:01, Will Deacon wrote:
-> > On Thu, Jul 09, 2026 at 05:23:38PM +0100, Ben Horgan wrote:
-> >> On 7/9/26 16:48, Ben Horgan wrote:
-> >>> I hope this method works for sending you MPAM changes but please let me know if
-> >>> you would like them some other way or I've made a mistake. It's not a signed tag
-> >>> as I still need to sort out my GPG key. The change authored by be me hasn't got
-> >>> an Reviewed-by's or Tested-by's but it's been on the list since the middle of
-> >>> May and James is on leave.
+
+--e64try3cwjwjk5gn
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v8 04/39] drm/connector: Add HDMI 2.0 scrambler
+ infrastructure
+MIME-Version: 1.0
+
+On Wed, Jul 15, 2026 at 01:46:12PM +0300, Cristian Ciocaltea wrote:
+> On 7/15/26 11:55 AM, Maxime Ripard wrote:
+> > On Mon, Jul 13, 2026 at 01:23:00PM +0300, Cristian Ciocaltea wrote:
+> >> On 7/13/26 11:50 AM, Maxime Ripard wrote:
+> >>> On Thu, Jul 09, 2026 at 10:25:54PM +0300, Cristian Ciocaltea wrote:
+> >>>> On 7/3/26 11:54 PM, Cristian Ciocaltea wrote:
+> >>>>> On 7/3/26 5:34 PM, Dmitry Baryshkov wrote:
+> >>>>>> On Thu, Jul 02, 2026 at 05:46:17PM +0300, Cristian Ciocaltea wrote:
+> >>>>>>> Add the connector-level infrastructure to support HDMI 2.0 scramb=
+ling:
+> >>>>>>>
+> >>>>>>> - A scrambler_supported flag to indicate whether the source suppo=
+rts the
+> >>>>>>>   scrambling capability, in which case the newly introduced
+> >>>>>>>   .scrambler_{enable|disable}() callbacks in drm_connector_hdmi_f=
+uncs
+> >>>>>>>   are mandatory
+> >>>>>>
+> >>>>>> Do we need a flag? What would it mean if the flag is set, but the
+> >>>>>> callbacks are not? Can we drop the flag and use the presence of the
+> >>>>>> callbacks as a way to identify that scrambler is enabled?
+> >>>>>
+> >>>>> The flag is intended to be set only within drmm_connector_hdmi_init=
+_with_caps()
+> >>>>> when drivers advertise HDMI 2.x capability, in which case it also e=
+nsures the
+> >>>>> callbacks are provided. =20
+> >>>>>
+> >>>>> We could drop the flag and instead have the init helper clear the c=
+allbacks if
+> >>>>> they were provided for HDMI 1.x.  This might slightly reduce code r=
+eadability,
+> >>>>> as it relies on checking the presence of individual callbacks - esp=
+ecially since
+> >>>>> we plan to extend this further with HDMI 2.1 support, providing fou=
+r or five
+> >>>>> additional FRL-specific callbacks.
+> >>>>
+> >>>> I tried to replace the flag with a helper that checks the presence o=
+f (one of)
+> >>>> the callbacks, but it's not straightforward to unset those for non-H=
+DMI 2.x
+> >>>> cases since the hdmi_funcs argument is immutable.
 > >>>
-> >>> Fix the reset values for two MPAM controls that are not known to exist in
-> >>> silicon. Fix a NULL pointer dereference on the driver teardown path.
-> >>>
-> >> Sorry, this is a retake. I forgot to add my Sob on the patches.
+> >>> I'm not sure why we would need to unset them. If the driver states th=
+at
+> >>> it support HDMI 2.0, then it needs to be there, if it doesn't, then w=
+ho
+> >>> cares? it's not going to be used. We can log a warning that it's
+> >>> inconsistent I guess, but there's no need to actively remove it.
 > >>
-> >> The following changes since commit 8cdeaa50eae8dad34885515f62559ee83e7e8dda:
-> >>
-> >>   Linux 7.2-rc2 (2026-07-05 14:44:06 -1000)
-> >>
-> >> are available in the Git repository at:
-> >>
-> >>   git@git.gitlab.arm.com:linux-arm/linux-bh.git tags/mpam-fixes-7.2-rc2-RETAKE
-> > 
-> > Thanks, but I'll probably just pick these from the list given that your
-> > key isn't sorted out yet.
-> 
-> Ok, thank you, is there anything that you need from me for this iteration?
+> >> I was trying to address the use case where drivers provide the scrambl=
+er
+> >> callbacks despite not supporting HDMI 2.0.
+> >=20
+> > Scrambling got introduced with HDMI 2.0. That doesn't make sense, but
+> > it's not a total deal breaker, it's just going to be here unused. Hence
+> > why I was suggesting to put a warning there if you wanted to.
+> >=20
+> >> If we replace the scrambler_supported flag with a helper checking the
+> >> presence of the scrambler callbacks, then we would need to ensure the
+> >> callbacks do not exist in this case.
+> >=20
+> > Keep it simple:
+> >=20
+> > if (hdmi_version >=3D HDMI_VERSION_2_0)
+> >    if (funcs->scrambler_enable)
+> >       hdmi->scramblers_supported =3D true
+> >    else
+> >       return -EINVAL
+> > else
+> >     drm_warn(warn, "Inconsistent HDMI version");
+> >=20
+> > We don't need anything more than that.
+>=20
+> I dropped the scrambler_supported flag and introduced a helper:
+>=20
+> static inline bool
+> drm_connector_hdmi_scrambler_supported(struct drm_connector *connector)
+> {
+> 	return connector->hdmi.funcs && connector->hdmi.funcs->scrambler_enable;
 
-Please just yell if you get any critical fixes come in. Otherwise, I'm
-assuming you'll send a series around -rc5 with the MPAM updates for 7.3?
+I'd add disable to that test
 
-Cheers,
+> }
+>=20
+> Therefore we need to ensure the callbacks are not set in the HDMI 1.x cas=
+es:
+>=20
+> int drmm_connector_hdmi_init_with_caps()
+> {
+> 	...
+> 	if (caps->supported_hdmi_ver >=3D HDMI_VERSION_2_0) {
+> 		if (!hdmi_funcs->scrambler_enable ||
+> 		    !hdmi_funcs->scrambler_disable)
+> 			return -EINVAL;
+>=20
+> 		connector->hdmi.max_tmds_char_rate =3D HDMI_2_0_TMDS_CHAR_RATE_MAX_HZ;
+> 	} else {
+> 		/*
+> 		 * Scrambler callbacks are only valid for connectors advertising
+> 		 * HDMI 2.0 capability. drm_connector_hdmi_scrambler_supported()
+> 		 * relies on their presence to report scrambling support.
+> 		 */
+> 		if (hdmi_funcs->scrambler_enable ||
+> 		    hdmi_funcs->scrambler_disable)
+> 			return -EINVAL;
+>=20
+> 		if (caps->supported_hdmi_ver >=3D HDMI_VERSION_1_3) {
+> 			connector->hdmi.max_tmds_char_rate =3D HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ;
+> 		} else if (caps->supported_hdmi_ver >=3D HDMI_VERSION_1_0) {
+> 			connector->hdmi.max_tmds_char_rate =3D HDMI_1_0_TMDS_CHAR_RATE_MAX_HZ;
+> 		}
+> 	}
 
-Will
+Drivers might have a lower limit than the max allowed by the spec. It
+should be provided by the driver, possibly optionally with a fallback to
+what the spec states?
+
+Maxime
+
+--e64try3cwjwjk5gn
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaljhpQAKCRAnX84Zoj2+
+dtmfAX4hb36DjoE4VEr38K1RxVvH6fMaYc4tGgZ5azN7kKXkf+xx8ruXvL0qAOFh
+VBxEz9IBfiL9+MgYvxA576doURHAq97OCDOVjqmqFBKmaZ51qcWE/LJhjrzU/1JC
+BSNPP7oopA==
+=Y9rm
+-----END PGP SIGNATURE-----
+
+--e64try3cwjwjk5gn--
 
