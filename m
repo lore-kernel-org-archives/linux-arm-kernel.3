@@ -4,90 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92BFAC44512
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 14:25:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADB9CC44515
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 14:27:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1QfMlgGx5Pc+O44N6YFGS3MSSQqN0EaQkjdnUJFJXOU=; b=m0Z0tA7iz+Leru7DACseT3lb9e
-	Whu3CGJ8Md1/DMioifcsz2pLlAPQTCHgbAXW0IFiN6v6Ic7OwD7x1v3z5uwZi4C5Y2UwWCjbpc/Pl
-	0wUI7oZHRfPpYcg7DSWfeea4fquGIwikm5lz2J+rj+67m+2i849t27JA5z3Ydzk+Fx1mPrr3gpXoS
-	i5LE6wSe5IC5IzwSiljWc6+daS21M8ajyAQNpn39y+lHHfv6nXDH0CVyIJaSa4dhc0uBgRUJwNLmk
-	2ipYQy6FomVy+YYjYxg3Ey/ugTnCsi6BFjnAuTV6fICkGB5mzRNUUUiWk6lZR1lTqwhX1MJDkR14J
-	zIfcNJfA==;
+	bh=+ERGbrPzFPaYP0e6/gDjw6faxA0FAelXxygeWl7v5mI=; b=XDwM1GCgsdD5dHIl9tFzveqtA9
+	jWPEOrp7+IVUAvHiSKhWNYgDFy4/UWFOtte+C95bXtHrvwStFduqxf6TxdS2afb5LgdOnXRJWe0oN
+	j29NDvNId5nYP+m8ZMXuemu7bFs0Ki3962vStY1Hb8WA9UVYht2+jLWDwTIMzwYGBEm8illaC0RN1
+	i8TqPxYmaVKD41SJ1WwFjtTmBW487j9Eo6LGJtzKCO3+59qRdiZvr+6rjEn6XgrzF5Sb66+drj9x3
+	AjOSkIeGBr0hegiUUXyx58l90TmNKVpEY95xSDsnpvOqMFRmXGDHEBB7OOqO/ynIb7dRifqvGp5ft
+	9XEsf57Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkN1D-0000000HTip-3yx3;
-	Thu, 16 Jul 2026 14:24:55 +0000
-Received: from [2a01:e0a:1040:9780:49:5ff:fe41:d261] (helo=luna.linkmauve.fr)
+	id 1wkN3X-0000000HUSs-1FwH;
+	Thu, 16 Jul 2026 14:27:19 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkN16-0000000HTZO-3r30;
-	Thu, 16 Jul 2026 14:24:50 +0000
-Received: by luna.linkmauve.fr (Postfix, from userid 1000)
-	id 9B9B3F40D36; Thu, 16 Jul 2026 16:24:29 +0200 (CEST)
-From: Link Mauve <linkmauve@linkmauve.fr>
-To: Srinivas Kandagatla <srini@kernel.org>
-Cc: Link Mauve <linkmauve@linkmauve.fr>,
-	Andy Shevchenko <andriy.shevchenko@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Sven Peter <sven@kernel.org>,
-	Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Vladimir Zapolskiy <vz@mleia.com>,
-	=?UTF-8?q?Andr=C3=A9=20Draszik?= <andre.draszik@linaro.org>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Kalyani Akula <kalyani.akula@amd.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Boqun Feng <boqun@kernel.org>,
-	Gary Guo <gary@garyguo.net>,
-	=?UTF-8?q?Bj=C3=B6rn=20Roy=20Baron?= <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>,
-	Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Tamir Duberstein <tamird@kernel.org>,
-	Alexandre Courbot <acourbot@nvidia.com>,
-	=?UTF-8?q?Onur=20=C3=96zkan?= <work@onurozkan.dev>,
-	Johan Hovold <johan@kernel.org>,
-	Ronald Claveau <linux-kernel-dev@aliel.fr>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev,
-	imx@lists.linux.dev,
-	linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	rust-for-linux@vger.kernel.org
-Subject: [PATCH v3 4/4] firmware: meson: pass a const buffer to meson_sm_call_write()
-Date: Thu, 16 Jul 2026 16:24:11 +0200
-Message-ID: <20260716142415.28718-5-linkmauve@linkmauve.fr>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260716142415.28718-1-linkmauve@linkmauve.fr>
-References: <20260716142415.28718-1-linkmauve@linkmauve.fr>
+	id 1wkN3V-0000000HURt-0U4p;
+	Thu, 16 Jul 2026 14:27:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1784212033;
+	bh=uBIk09xBbnHw14aNehfnGLINBkgGT0M+ApnJKNl4TE0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=B90xVPcPxOpZCfBS0lJfINdFlIfxyDxXfV5D+E3f1GOHbUhdHIPNVT0o8KP2fVxwi
+	 GOYs0VcdhVmMv9oZd70Oqv+ZSkHtZD3zd/kxJqVd/UMGTvkEkSJMCzA6vIpVoY6kLc
+	 +fifVvix/WFSiNItdH1gdxMbRy1VqYtcKdfg/mNnBdUvp5pHNnzHVlQ8LEGH2MPE6d
+	 poUlW5mRlddrD4cH0psPMucSKgujFTZbk5hoPwOofQQjoSmwDd7DbGl1AJl+XjcXUQ
+	 10F4QkjFzxk21v5Ab5TtQ5M9nYabbwDSNXfWy5tuE9fz6tpdYDq0oVGIJK5d98bnob
+	 Y9Ghzyr33bS8Q==
+Received: from [100.64.0.241] (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 66F8017E023C;
+	Thu, 16 Jul 2026 16:27:12 +0200 (CEST)
+Message-ID: <fb2c3414-f011-4ea0-af9d-1e3c65d769e3@collabora.com>
+Date: Thu, 16 Jul 2026 17:27:11 +0300
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 02/39] drm/connector: Add caps-based HDMI connector
+ init helper
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>,
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org
+References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
+ <20260702-dw-hdmi-qp-scramb-v8-2-d79890d00b6a@collabora.com>
+ <i4tjtsf5rsckfcayo5nuhlger5wqxn3ujeaubm4g2fgrwvhzb2@hf4uhgq3ja5p>
+ <ad75cf26-9437-47d0-864d-d71263401615@collabora.com>
+ <20260707-illegal-tuna-of-force-1c06e3@houat>
+ <737678ab-f082-4a0e-b453-f403ba141437@collabora.com>
+ <80374deb-3246-413f-a043-66bcdb438ab1@collabora.com>
+ <20260715-fair-opalescent-rhino-c6407b@houat>
+ <45113534-94ad-4a0f-8014-c04e9ab67a26@collabora.com>
+ <20260716-mega-ocelot-of-foundation-e3bcf6@houat>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <20260716-mega-ocelot-of-foundation-e3bcf6@houat>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_072449_142771_589769F5 
-X-CRM114-Status: GOOD (  10.56  )
+X-CRM114-CacheID: sfid-20260716_072717_326993_B72CE9B5 
+X-CRM114-Status: GOOD (  23.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,65 +98,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This was found while introducing the new nvmem-provider reg_write_const
-callback in meson_sm_call_write()’s only user, in meson-efuse.
+On 7/16/26 4:44 PM, Maxime Ripard wrote:
+> On Wed, Jul 15, 2026 at 01:34:19PM +0300, Cristian Ciocaltea wrote:
+>> On 7/15/26 11:50 AM, Maxime Ripard wrote:
+>>> On Fri, Jul 10, 2026 at 01:27:37PM +0300, Cristian Ciocaltea wrote:
+>>>> On 7/8/26 1:11 PM, Cristian Ciocaltea wrote:
+>>>>> Hi Maxime,
+>>>>>
+>>>>> On 7/7/26 7:10 PM, Maxime Ripard wrote:
+>>>>>> On Fri, Jul 03, 2026 at 10:31:55PM +0300, Cristian Ciocaltea wrote:
+>>>>>>> Hi Dmitry,
+>>>>>>>
+>>>>>>> Thanks for your quick review!
+>>>>>>>
+>>>>>>> On 7/3/26 5:05 PM, Dmitry Baryshkov wrote:
+>>>>>>>> On Thu, Jul 02, 2026 at 05:46:15PM +0300, Cristian Ciocaltea wrote:
+>>>>>>>>> In preparation for adding HDMI 2.x source capabilities, introduce struct
+>>>>>>>>> drm_connector_hdmi_caps and a new drmm_connector_hdmi_init_with_caps()
+>>>>>>>>> helper.
+>>>>>>>>>
+>>>>>>>>> The existing drmm_connector_hdmi_init() helper currently takes
+>>>>>>>>> individual capability arguments such as supported_formats and max_bpc.
+>>>>>>>>> Adding more HDMI-specific arguments to that function would not scale
+>>>>>>>>> well, so move those values into a dedicated capabilities structure and
+>>>>>>>>> implement the existing helper as a wrapper around the new caps-based
+>>>>>>>>> interface.
+>>>>>>>>
+>>>>>>>> I think, it was an intention of Maxime: make sure that every driver is
+>>>>>>>> forced to provide some values here. With the struct-based init it is
+>>>>>>>> easy to overlook or to ommit a value.
+>>>>>>>
+>>>>>>> Agreed that the struct-based init loses the compile-time guarantee that every
+>>>>>>> argument is explicitly provided - that's a real downside.  
+>>>>>>>
+>>>>>>> I'd argue it's recoverable, though: the init helper validates the mandatory
+>>>>>>> fields, so a driver that omits a required value gets rejected at init time
+>>>>>>> rather than silently misconfigured.  The "you must provide sane values" property
+>>>>>>> is expected to be preserved, just enforced at runtime instead of by the
+>>>>>>> compiler. 
+>>>>>>
+>>>>>> Yeah, I don't think we can win with C here. Rust might, but we're
+>>>>>> probably a long way from that.
+>>>>>>
+>>>>>>> The main motivation for the struct is scalability/maintainability as we add HDMI
+>>>>>>> 2.x capabilities: new fields go into the struct rather than growing the helper's
+>>>>>>> argument list, so existing callers don't need churny signature updates on every
+>>>>>>> extension.
+>>>>>>>
+>>>>>>> FWIW, in the previous revision we discussed addressing the concern with a
+>>>>>>> callback instead.  Sadly, I had to discard that approach, as it proved not
+>>>>>>> flexible enough, e.g. drm_bridge_connector_init() computes caps dynamically, and
+>>>>>>> would have required either stateful callbacks, or storing redundant/temporary
+>>>>>>> cap data in driver-private structures just to satisfy the callback.
+>>>>>>
+>>>>>> I just realized something reviewing your patch: we don't necessarily
+>>>>>> need an extra argument or a callback, we can just put these fields into
+>>>>>> drm_hdmi_connector_funcs directly, and then validate them in init.
+>>>>>
+>>>>> If I understand correctly, we should drop the drm_connector_hdmi_caps struct
+>>>>> introduced by this patch and move all its fields into drm_hdmi_connector_funcs.
+>>>>>
+>>>>> In that case, how should we proceed with drmm_connector_hdmi_init()? 
+>>>>
+>>>> Actually, this brings us to the callback issue: we cannot compute caps
+>>>> dynamically, as it only works with static data, since funcs is supposed to be
+>>>> immutable.
+>>>
+>>> Does it? The core and helpers must consider it immutable but it doesn't
+>>> have to. drm_bridge_connector for example could totally allocate it and
+>>> dynamically create it based on the bridge capabilities.
+>>
+>> If we take the VC4 case, is it fine to drop the const from the static
+>> drm_connector_hdmi_funcs to allow dynamically setting up supported_hdmi_ver and
+>> max_bpc in vc4_hdmi_connector_init()?
+>>
+>> static struct drm_connector_hdmi_funcs vc4_hdmi_hdmi_connector_funcs = {
+>> 	.tmds_char_rate_valid	 = vc4_hdmi_connector_clock_valid,
+>> 	...
+>> }
+>>
+>> static int vc4_hdmi_connector_init() 
+>> {
+>> 	...
+>>     
+>> 	if (vc4_hdmi->variant->supports_hdr)
+>> 		vc4_hdmi_hdmi_connector_funcs.max_bpc = 12;
+>>
+>> 	if (vc4_hdmi->variant->max_pixel_clock >= HDMI_2_0_TMDS_CHAR_RATE_MAX_HZ)
+>> 		vc4_hdmi_hdmi_connector_funcs.supported_hdmi_ver = HDMI_VERSION_2_0;
+>> 	else if (vc4_hdmi->variant->max_pixel_clock >= HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ)
+>> 		vc4_hdmi_hdmi_connector_funcs.supported_hdmi_ver = HDMI_VERSION_1_3;
+>> 	...
+>> }
+> 
+> No, but you don't have to do that either.
+> 
+> You have three cases:
+>  - Rpi < 4 has max_bpc = 8, HDMI 1.4
+>  - RPI 4 HDMI 0 and RPI 5 has max_bpc = 12, HDMI 2.0
+>  - RPI 4 HDMI 1 has max_bpc = 12, HDMI 1.4
+> 
+> Just create three different structures, and put a pointer to the right
+> one in the vc4_hdmi_variant structure. There's no need to be dynamic
+> there.
 
-Signed-off-by: Link Mauve <linkmauve@linkmauve.fr>
----
- drivers/firmware/meson/meson_sm.c       | 2 +-
- drivers/nvmem/meson-efuse.c             | 4 ++--
- include/linux/firmware/meson/meson_sm.h | 2 +-
- 3 files changed, 4 insertions(+), 4 deletions(-)
+Ack, will do!
 
-diff --git a/drivers/firmware/meson/meson_sm.c b/drivers/firmware/meson/meson_sm.c
-index ab9751a59b55..5d4da2e3c3a9 100644
---- a/drivers/firmware/meson/meson_sm.c
-+++ b/drivers/firmware/meson/meson_sm.c
-@@ -196,7 +196,7 @@ EXPORT_SYMBOL(meson_sm_call_read);
-  *
-  * Return:	size of sent data on success, a negative value on error
-  */
--int meson_sm_call_write(struct meson_sm_firmware *fw, void *buffer,
-+int meson_sm_call_write(struct meson_sm_firmware *fw, const void *buffer,
- 			unsigned int size, unsigned int cmd_index, u32 arg0,
- 			u32 arg1, u32 arg2, u32 arg3, u32 arg4)
- {
-diff --git a/drivers/nvmem/meson-efuse.c b/drivers/nvmem/meson-efuse.c
-index c922c5bcbd10..5e056e707a96 100644
---- a/drivers/nvmem/meson-efuse.c
-+++ b/drivers/nvmem/meson-efuse.c
-@@ -20,7 +20,7 @@ static int meson_efuse_read(void *context, unsigned int offset,
- 	struct meson_sm_firmware *fw = context;
- 	int ret;
- 
--	ret = meson_sm_call_read(fw, (u8 *)val, bytes, SM_EFUSE_READ, offset,
-+	ret = meson_sm_call_read(fw, val, bytes, SM_EFUSE_READ, offset,
- 				 bytes, 0, 0, 0);
- 
- 	return ret < 0 ? ret : 0;
-@@ -32,7 +32,7 @@ static int meson_efuse_write(void *context, unsigned int offset,
- 	struct meson_sm_firmware *fw = context;
- 	int ret;
- 
--	ret = meson_sm_call_write(fw, (u8 *)val, bytes, SM_EFUSE_WRITE, offset,
-+	ret = meson_sm_call_write(fw, val, bytes, SM_EFUSE_WRITE, offset,
- 				  bytes, 0, 0, 0);
- 
- 	return ret < 0 ? ret : 0;
-diff --git a/include/linux/firmware/meson/meson_sm.h b/include/linux/firmware/meson/meson_sm.h
-index 3ebc2bd9a976..92cc61f3a1c0 100644
---- a/include/linux/firmware/meson/meson_sm.h
-+++ b/include/linux/firmware/meson/meson_sm.h
-@@ -21,7 +21,7 @@ struct meson_sm_firmware;
- 
- int meson_sm_call(struct meson_sm_firmware *fw, unsigned int cmd_index,
- 		  s32 *ret, u32 arg0, u32 arg1, u32 arg2, u32 arg3, u32 arg4);
--int meson_sm_call_write(struct meson_sm_firmware *fw, void *buffer,
-+int meson_sm_call_write(struct meson_sm_firmware *fw, const void *buffer,
- 			unsigned int b_size, unsigned int cmd_index, u32 arg0,
- 			u32 arg1, u32 arg2, u32 arg3, u32 arg4);
- int meson_sm_call_read(struct meson_sm_firmware *fw, void *buffer,
--- 
-2.55.0
-
+Thanks,
+Cristian
 
