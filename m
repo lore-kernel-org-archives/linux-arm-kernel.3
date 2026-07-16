@@ -4,64 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17206C44514
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 19:24:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15644C44512
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 19:48:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=87h17Vm3Kg4e1AvNbenx3pMVHZ02lJjFNP0N/SI3OkE=; b=s6JOD0vrzblI1Ys3OpItqrBBtd
-	b9p2c3BWHGiLXUu0vyMGQvUvBQZF11khhATAIuZgG6HUrGEO1vrfcRKFUQyY6tmzbskoWhLVPSzQg
-	SHRucOeoh2lSnUi9i/qgrbmA2WebXTe2T37cxhPJJlo+HotNrrjU+X+xlIUm08tPL2zJsLoXxCkV3
-	IPHDTiIFBw9j14J6Jdd4XDhvCsOgOacSlPKCe82U5d8x0Dx4rWzJON90xuhsQip26Slgeq4j9qJCh
-	dz1nL8q9UFL+n4cID4w2u6s25hGydztKdlHkmQto7pkWkoTkKS71l6r92GNQXo3QHcm4+ibrjyGbv
-	Vvqjnl2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3hhyWssp07/ZGm2jj07OWH53BPbjC4C4wZgRggSv8zQ=; b=tiUYqG8L0DlKMr9uFubEjVoqqm
+	+oNtKNu/1zrSvbbAO7jmp1ZIK+nvmWFHiNlVvPcUFto0FxoiXahR9rQoYKdI6fj4buMSa8eNCO7YA
+	OVFEYfznwdNoLMEVzXvJgXzFQOMTt9b+HALCuxw7Y03yxawZsKVeWwglhtVMVEi9pK0RUtwtK/PR9
+	yIY5IKaOYMPB3gneJuweuQy1CKdcYk8sbP/lR9lccHpb/G6V4eKNhsMua60vE6jLxd5xolmXuNqBJ
+	3wtDu7NAcxr9NzsuM66nGBynyZLSvlm9HTowBUth9P0WRoOxDxL3DxDTfrv8LH9jbKMRE+CsYtAI3
+	dR6Z+67Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkRhT-00000000Sh5-3moM;
-	Thu, 16 Jul 2026 19:24:51 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1wkS42-00000000Txe-0S0K;
+	Thu, 16 Jul 2026 19:48:10 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkRhM-00000000SdY-2Qiq;
-	Thu, 16 Jul 2026 19:24:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=87h17Vm3Kg4e1AvNbenx3pMVHZ02lJjFNP0N/SI3OkE=; b=L278ZaGZ+l/HlGPc9/ZvDmVq12
-	9AsMVRfzZd1OFMD5Nsh6x/6Oo9XkBcGUxDXg+3/TA3CrC14fA2GOW+tQiq126G+3KCsx8EAY6ziA5
-	g+OA3jm+2H7jQPBokaJVz+RsvrEyQUZktrlMDEZZqKbGC5XeBb1D9ypwej7n6VaMF1cmqXBs+pdnp
-	17o4qLE7Jy5zVC5YM1aiydoJrBPlwnt/CJj/1WocYeYyYqcrgTs5wbcIY1hkJOuekd8f9JGeKtDoc
-	uZCM/SAXbuwYhWP3KuQp9zigUYue0YbDemdoc5oOrbus58IcTteBY39n/Ub66SmAGuw6UMLowHPpC
-	F1DxYiaQ==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Dennis Gilmore <dennis@ausil.us>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	Rob Herring <robh@kernel.org>,
+	id 1wkS40-00000000TxV-38ZH
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 16 Jul 2026 19:48:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7991F60A6D;
+	Thu, 16 Jul 2026 19:48:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BD891F000E9;
+	Thu, 16 Jul 2026 19:48:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784231287;
+	bh=3hhyWssp07/ZGm2jj07OWH53BPbjC4C4wZgRggSv8zQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=OWvezLmh8IpOIQJUxbAuOnrKQsiVynhZzqrFMr83q4sRZ8wHNC0UZA/jpqcVEVMTT
+	 GydXWvDua5aNX+XLkSCgK2xOcsCBZLccMaURql4LbAreu7MEnYy099QbeZ0qzNlRW0
+	 yQ3u0whE/1vo3rND97O8vjNOnj7EAaJGpKiv85DqDoh1cZlgN9kq9J6pEB/FWG2Rzw
+	 q/4zgvsbrTQwyvCeZFa3au66pcVI3CGGxL49r73+tB68YE4HRbTOhit/8IcOWK0cJm
+	 0uvXZy266TgLv18ytV332cq0+bu5cuQ4nuspFgzubXr+oBFPVAKWkIGvVVoZXstIN+
+	 868u333PzLL2Q==
+Date: Thu, 16 Jul 2026 14:48:06 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: "Richard Genoud (TI)" <richard.genoud@bootlin.com>
+Cc: Tero Kristo <kristo@kernel.org>, Beleswar Padhi <b-padhi@ti.com>,
+	Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>,
+	Abhash Kumar <a-kumar2@ti.com>, Udit Kumar <u-kumar1@ti.com>,
+	Thomas Richard <thomas.richard@bootlin.com>,
+	Gregory CLEMENT <gregory.clement@bootlin.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Vignesh Raghavendra <vigneshr@ti.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Alexey Charkov <alchark@gmail.com>,
-	Quentin Schulz <quentin.schulz@cherry.de>,
-	FUKAUMI Naoki <naoki@radxa.com>,
-	Peter Robinson <pbrobinson@gmail.com>,
 	devicetree@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v10 0/4] Add support for Orange Pi 5 Pro
-Date: Thu, 16 Jul 2026 21:24:31 +0200
-Message-ID: <178422977233.2335819.13925907620580546087.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260511025352.106126-1-dennis@ausil.us>
-References: <20260511025352.106126-1-dennis@ausil.us>
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Subject: Re: [PATCH v3 1/6] dt-bindings: remoteproc: k3-r5f: Add Jacinto LPM
+ memory region
+Message-ID: <178423118332.1182230.16969278384286286126.robh@kernel.org>
+References: <20260703143717.177362-1-richard.genoud@bootlin.com>
+ <20260703143717.177362-2-richard.genoud@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_122444_619694_36395777 
-X-CRM114-Status: GOOD (  10.53  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260703143717.177362-2-richard.genoud@bootlin.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,31 +79,45 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sun, 10 May 2026 21:53:46 -0500, Dennis Gilmore wrote:
-> This series adds initial support for the Xunlong Orange Pi 5 Pro, based on
-> the Rockchip RK3588S SoC. The board features eMMC, SD card, NVMe (PCIe),
-> a Motorcomm YT6801 NIC (PCIe), WiFi/BT (BCM43456), HDMI connected to SoC
-> (Second port is disabled in this patch), and a 40-pin expansion header.
+On Fri, 03 Jul 2026 16:37:12 +0200, Richard Genoud (TI) wrote:
+> Declare a carveout memory region to store LPM metadata on Jacinto
+> devices.
 > 
-> The series was tested against Linux 7.0
+> For Jacinto devices, this memory region is needed for saving ATF context
+> and the certificate information of ATF and OPTEE and DM image. This LPM
+> metadata area is firewalled to be accessed only by TIFS.
 > 
-> [...]
+> U-Boot R5 SPL/TIFS will use this area to save and restore:
+> - ATF context
+> - ATF certificate information
+> - OPTEE certificate information
+> - DM image (which has been copied in memory at boot time by U-Boot
+> R5-SPL)
+> 
+> At resume, U-Boot R5 SPL is executed and detects that the board is
+> resuming (with a flag set in the PMIC), then it:
+> - brings out of retention the DDR
+> - retrieves the LPM memory region from DTS
+> - authenticates certificates from LPM memory region and applies firewalls
+> - asks TIFS to restore TFA and its own minimal context
+> - starts TFA on remote proc
+> - loads back DM image from memory and jumps to DM
+> 
+> https://software-dl.ti.com/tisci/esd/latest/2_tisci_msgs/pm/lpm.html#lpm-msg-lpm-save-addr
+> 
+> NB: This memory region is not part of DM memory (which is not retained
+> at suspend)
+> 
+> Signed-off-by: Richard Genoud (TI) <richard.genoud@bootlin.com>
+> ---
+>  .../bindings/remoteproc/ti,k3-r5f-rproc.yaml   | 18 +++++++++++++++---
+>  1 file changed, 15 insertions(+), 3 deletions(-)
+> 
 
-Applied, thanks!
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
-[1/4] dt-bindings: arm: rockchip: Add Orange Pi 5 Pro
-      commit: beca9854e249515fb1ff4c575c875a85df9961dc
-[2/4] arm64: dts: rockchip: rk3588s-orangepi-5: rename PLDO regulator labels to match schematic
-      commit: f724b899d0f30d78a7b2c3f025aa826cd3f5eccd
-[3/4] arm64: dts: rockchip: refactor items from Orange Pi 5/b to prep for Pro
-      commit: d20f5368a4db0a70a5a7d3deb06553aae61f4ac8
-[4/4] arm64: dts: rockchip: Add Orange Pi 5 Pro board support
-      commit: 4d6c68f39300bc52dacd204d08a4470ab2524726
+Seems like sashiko raises a legit issue, but that's a kernel issue and 
+not my problem if your board crashes.
 
-Sorry for the wait.
-
-
-Best regards,
--- 
-Heiko Stuebner <heiko@sntech.de>
+Rob
 
