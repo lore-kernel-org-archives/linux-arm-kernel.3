@@ -4,61 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDA5EC44515
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 13:21:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A801C4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 13:22:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GJR7gVJyRXrLY++XR9JQ1vCya65axpJvhZr2icFxhVk=; b=CWObH013oTgRug45ZF7ayB53wl
-	4H5Bu+p5IGJE+U9IxYbQ281vNHONtd6xNdm701KJZlHnIPzwqcEpBwsDrYkBozpqfmFhVKDQJPLTK
-	trgVdzDpMvbyG2oh8oVYYCf/5hW67PKc1P9U4oKzlO5W3mbxOkoUJyXfxJ24Q8kEzSsv6S7a8Co5W
-	tIBrnIE5oQ6S16P9h4qOHQdj9C3rbQ1+XzMkLNJFvx+qkdcdmI2mvGBZkmAXBxzZ9iv8/65hmvNKb
-	8IP0HXK+MbrWYG8Gs80WO8AUJpLTEY3Tz+VuafwDwVhdp1h6ahuq9CuIa/bcarBZsk0RXtTKnPAPA
-	oKT2oPAQ==;
+	bh=J1RcUzFubrLSPOJNAhV5g/NysrNzTE7RrFaLaVTbccY=; b=nRsZq+XVot2b1SCcQHqOICGrwr
+	FNsKogTEGWm2VrXF/Z5cg/jWEPakMznCvAU76uUpXOWjyXcienHaDn2bTb+ArsFMy3eV7RVx6rhpt
+	C0dKjxSv9ixEVxlo7hAhTMMI737IZ0Ol7vTGxy5rO7OcC/mSqcidfDmDNawbRBYSCbyYIzpL0S6ko
+	kjPu6be9mNrpad3abSU84cEP2Gio34m4ZT9oE0CSARHziYN00MeyFaCOTKnDtnE37wlppT3vWBM6N
+	nAXAWHNO8pAsEWTamqvOKLIWjdwpGECjfl23fLEE6eWb4uRTdSEwcqw4hRTjsR5zKP4dyMza1APxE
+	BdhzIMcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkM1x-0000000HNIH-1uTZ;
-	Thu, 16 Jul 2026 13:21:37 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1wkM33-0000000HNRH-2k0q;
+	Thu, 16 Jul 2026 13:22:45 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkM1u-0000000HNHL-2fR1;
-	Thu, 16 Jul 2026 13:21:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=GJR7gVJyRXrLY++XR9JQ1vCya65axpJvhZr2icFxhVk=; b=2Fzpmqp8ywnO6URqrTy6u4JIzf
-	OMPPvpjpys6nhxarYYe5eQ+lpPjXkxevWd8sJ0Xr0R3tPb5S6cXGtggdQPZQR9UnzzxKtBAHFD5BJ
-	BxsHEWZ6T79iKWrmfkewAEN8Ey+zPhVCcg3it8R+rAlE7ZDZ0HNjAwXz7IDgmOzd2+Tk=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wkM1h-00CX7e-2J; Thu, 16 Jul 2026 15:21:21 +0200
-Date: Thu, 16 Jul 2026 15:21:21 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Jiaxing Hu <gahing@gahingwoo.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, heiko@sntech.de,
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-	netdev@vger.kernel.org, linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next] net: stmmac: dwmac-rk: enable the reference
- clock for output mode
-Message-ID: <dac6db00-b286-45d8-8ce4-ed76a7aa019a@lunn.ch>
-References: <02ef3409-4078-4c3a-8c17-cb1a7f1f07e4@smtp-relay.sendinblue.com>
+	id 1wkM32-0000000HNR8-1I9q
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 16 Jul 2026 13:22:44 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B7ED743768;
+	Thu, 16 Jul 2026 13:22:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BE8F1F000E9;
+	Thu, 16 Jul 2026 13:22:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784208163;
+	bh=J1RcUzFubrLSPOJNAhV5g/NysrNzTE7RrFaLaVTbccY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=e3jU/vXLz1kCVPN9lk57N/39U6sesNTekwEhhOhKLCJpwWQeRRkvy85ApYKpAbHr7
+	 OHbvhz2KSV8mgXOlnjzugYt1f0B0lj2c8fjKuzxe4P4ekCdmrOKTtGmMKDZJjD9Oi+
+	 pkIC2Ub5uINhYp7N27YXS3MtVPn2lfeb6bUArRfW1pR+l0/g3UI+UKbodoubFHdYJd
+	 uCLqVTxT/2ZUzWHbZpsffXcIiRHfFGPkLaq/WukCsLFBtqfC/1jLrkdnSucx7W+6Xt
+	 +8RHcpBDa2cownZYwQP+9CqmbTuaJtcqAkyAFqEWKdw0K3VADVqJOSXDd6Jg6bAxsH
+	 l3c7SMtzsOzMA==
+Date: Thu, 16 Jul 2026 15:22:41 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Inki Dae <inki.dae@samsung.com>, 
+	Jagan Teki <jagan@amarulasolutions.com>, Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Hui Pu <Hui.Pu@gehealthcare.com>, 
+	Ian Ray <ian.ray@gehealthcare.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 05/37] drm/display: bridge-connector: split code creating
+ the connector to a subfunction
+Message-ID: <20260716-stoic-muskox-from-asgard-c12b65@houat>
+References: <DJ735MTNMYD1.3LPNV404V8PIU@bootlin.com>
+ <20260624-proud-unbiased-pony-ecc3c3@houat>
+ <DJHEAWSEZR79.19UFIKS8QJBQ7@bootlin.com>
+ <20260626-polite-hairy-perch-25e1aa@houat>
+ <DJJ1MPCEJGZD.UZM9183V6ZE5@bootlin.com>
+ <20260626-classy-nightingale-of-romance-1cacad@houat>
+ <DJJ4X22CJ3FG.5EYF84LVRNOG@bootlin.com>
+ <20260707-warping-goshawk-of-swiftness-beea4a@penduick>
+ <20260707123205.GB211515@killaraus.ideasonboard.com>
+ <DJZUXUBO8DI4.2J2NI3S0KYNUE@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="hy4gwehtz7opgsid"
 Content-Disposition: inline
-In-Reply-To: <02ef3409-4078-4c3a-8c17-cb1a7f1f07e4@smtp-relay.sendinblue.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_062134_676760_EB26406F 
-X-CRM114-Status: UNSURE (   7.03  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <DJZUXUBO8DI4.2J2NI3S0KYNUE@bootlin.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,18 +90,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 16, 2026 at 06:56:06PM +1200, Jiaxing Hu wrote:
-> 
-> rk_gmac_clk_init() only requests the refout clock group for RMII. The
-> ArmSoM CM5 has an on-module YT8531 RGMII PHY with no crystal that needs
-> the SoC 25 MHz reference (clk_mac_refout), so in RGMII the clock was
-> never enabled and the PHY did not respond on MDIO.
 
-Since the PHY is the consumer of the clock, it would be better if the
-PHY enabled the clock.
+--hy4gwehtz7opgsid
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 05/37] drm/display: bridge-connector: split code creating
+ the connector to a subfunction
+MIME-Version: 1.0
 
-    Andrew
+On Thu, Jul 16, 2026 at 10:37:24AM +0200, Luca Ceresoli wrote:
+> >> > Now if the bridges start doing it themselves we should go back to
+> >> > those encoder drivers and ditch all the drm_bridge_connector from
+> >> > there?
+> >> >
+> >> > I must be missing something. Can you elaborate on this?
+> >>
+> >> drm_bridge_connectors bring together a (complete) bridge chain and a
+> >> connector. If you don't have either anymore, then we shouldn't keep it
+> >> around.
+> >>
+> >> What I was suggesting before was only a suggestion. I guess we could
+> >> also make the encoder own the hotplug handling code and create the
+> >> drm_bridge_connector when the chain is complete, and remove it when it=
+'s
+> >> no longer the case.
+> >
+> > That's an interesting option. We don't have to keep drm_bridge_connector
+> > in its current form, but I don't think we should go back to individual
+> > bridge driver creating connectors, especially now that we have bridge
+> > chains where the connector ops are implemented collectively by multiple
+> > bridges.
+>=20
+> I definitely agree we don't want to add burden back on the encoder.
 
----
-pw-bot: cr
+I don't think Laurent mentioned the encoder anywhere.
+
+> >> We can discuss alternatives too. But either way, we shouldn't have it
+> >> stick around.
+>=20
+> Bottom line, I roughly see three ideas mentioned:
+>=20
+>  1. (this series) extend the drm_bridge_connector to create the
+>     drm_connector based on bridge hotplug events [+rename it]
+>  2. - keep the drm_bridge_connector (mostly) as is
+>     - let each encoder driver add/remove it based on bridge hotplug events
+>     =3D> more burden on encoder drivers -> no
+
+Can you motivate that with *any* reason? Because I really feel like it's
+the best solution going forward.
+
+Maxime
+
+--hy4gwehtz7opgsid
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaljbHAAKCRAnX84Zoj2+
+dqTdAX929rSvBRbObFUgBFSbAjeGJKAihEQm5mwvUemnQR8RPQTHUpIFoxoU64cT
++ncZYoIBf2oprQXmliswkjFLbOXkrIghOFzxcuJlTTV7xnm4UrAXDjJgcRCFFbs8
+Equ80zFtIg==
+=nsi0
+-----END PGP SIGNATURE-----
+
+--hy4gwehtz7opgsid--
 
