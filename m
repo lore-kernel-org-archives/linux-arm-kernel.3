@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5CA5C4450E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 10:03:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 530C8C4450E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 10:04:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NPmEKODxYJMajvK/1zNsFdtLlKRZEgYLQoOojKtdR1c=; b=OXsM/p/dKg/EYvBWWkQaproq9Z
-	DpevBwr1Pv7LOy0S1m9pa1Ib8eadbatVDOmrIwr15TKt4wB+hu2BRs6nXXNKvBAVfad4vHGKlcA5T
-	tZiATAhZzGS7UK2AYmqjfutsKoaBRhiz6jpnQKExNlZpi4xsli4+civ6NEFuRyJWdL35M2qCQCl9T
-	jXKqZyPjxLIHPL8KvXbyDNA+ccIcNc7UNMDuZXmWzikmD223ZggdvOZCnbac7/r904kyy3ZgjnKCC
-	MM+kDpj512buqqtt831RRiewnwp7vbA65UHbG+TDwOELiAc54UGyyW4a09yK0Czs00hF2Q+bxo7Rj
-	jT/vRIJQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KfXo70ODIe+deUMsgoRZzV7WbheUeKes57gPQzywSfc=; b=0VWEa7wQeON3MFsqa7zOGySAEE
+	FCE7q0DJGnMH4UGApEXW34jli+MR3mLjK0badkLe+mva4eENKl9f9y7j4aWdk/7KINuYx175nf9mI
+	FF0U0u/8NipSe1TU3yUOHzxgrRCGgAk9QOfYhwo0f2DN6PNdKTAa4JZ17upwqDPXKFBwWeAG/Rbvi
+	VguC2TWyU/2DqLotDSoNOJI1JYavwb0ZOsLoSNsIbWuYA2Ci9BMCyFeJfFLZWRVQTNESEwsJxQy3g
+	kRARVh70+XsfBVAZdqomYveil2PEe/ConQpcRp4QbKJ3Y2VHyh+Oh5upCjUZTenV/3Q8fHXqcAsVj
+	e6GpSdhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkIwa-0000000GxN7-2hgl;
-	Thu, 16 Jul 2026 10:03:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wkIwe-0000000GxOw-3BNC;
+	Thu, 16 Jul 2026 10:03:56 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkIwZ-0000000GxMw-0CW9
+	id 1wkIwa-0000000GxN6-3CdK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 10:03:51 +0000
+	Thu, 16 Jul 2026 10:03:52 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5FC4B600AB;
+	by tor.source.kernel.org (Postfix) with ESMTP id 21DDD600AF;
+	Thu, 16 Jul 2026 10:03:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 806D71F00A3D;
 	Thu, 16 Jul 2026 10:03:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0C381F00A3A;
-	Thu, 16 Jul 2026 10:03:48 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: soc@lists.linux.dev,
 	soc <soc@kernel.org>
@@ -39,10 +39,12 @@ Cc: Magnus Damm <magnus.damm@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-renesas-soc@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [GIT PULL 0/3] Renesas SoC updates for v7.3
-Date: Thu, 16 Jul 2026 12:03:40 +0200
-Message-ID: <cover.1784194401.git.geert+renesas@glider.be>
+Subject: [GIT PULL 1/3] Renesas ARM SoC updates for v7.3
+Date: Thu, 16 Jul 2026 12:03:41 +0200
+Message-ID: <cover.1784194403.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1784194401.git.geert+renesas@glider.be>
+References: <cover.1784194401.git.geert+renesas@glider.be>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -59,49 +61,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-	Hi SoC folks,
+The following changes since commit dc59e4fea9d83f03bad6bddf3fa2e52491777482:
 
-This is my first pull request for the inclusion of Renesas SoC updates
-for v7.3.
+  Linux 7.2-rc1 (2026-06-28 12:01:31 -0700)
 
-It consists of 3 parts:
+are available in the Git repository at:
 
-  [GIT PULL 1/3] Renesas ARM SoC updates for v7.3
+  git://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git renesas-arm-soc-for-v7.3-tag1
 
-    - Use the of_machine_compatible_match() helper.
+for you to fetch changes up to c902a6887eaadf56e6da79f68f8843cbe45cc808:
 
-  [GIT PULL 2/3] Renesas driver updates for v7.3
+  ARM: shmobile: rcar-gen2: Use of_machine_compatible_match() helper (2026-06-29 11:18:03 +0200)
 
-    - Drop duplicate default for ARCH_R8A78000.
+----------------------------------------------------------------
+Renesas ARM SoC updates for v7.3
 
-  [GIT PULL 3/3] Renesas DTS updates for v7.3
-
-    - Add sound support for the RZ/G3E SoC and the RZ/G3E SMARC EVK board,
-    - Add more serial and SPI support for the RZ/G3L SoC and the RZ/G3L
-      SMARC EVK board,
-    - Add SMP support (32x Cortex-A720AE) for the R-Car X5H SoC,
-    - Add hwspinlock and mailbox (MFIS) support for the R-Car V4H SoC,
-    - Add GPU support for R-Car M3-N-based Salvator-X(S) and ULCB
-      development boards,
-    - Add SPI and FRAM support for the RZ/N1D SoC and the RZN1D Expansion
-      Board,
-    - Add PCIe support for the RZ/V2H SoC and the RZ/V2H EVK development
-      board,
-    - Miscellaneous fixes and improvements.
-
-Note that the third PR is based on renesas-fixes-for-v7.2-tag1, for
-which I have just sent a PR.
+  - Use the of_machine_compatible_match() helper.
 
 Thanks for pulling!
 
-Gr{oetje,eeting}s,
+----------------------------------------------------------------
+Geert Uytterhoeven (1):
+      ARM: shmobile: rcar-gen2: Use of_machine_compatible_match() helper
 
-						Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-							    -- Linus Torvalds
+ arch/arm/mach-shmobile/regulator-quirk-rcar-gen2.c | 10 +++++-----
+ arch/arm/mach-shmobile/setup-rcar-gen2.c           |  9 +++++----
+ 2 files changed, 10 insertions(+), 9 deletions(-)
 
