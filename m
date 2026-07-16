@@ -4,65 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 021B9C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 05:58:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15A2EC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 06:20:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OpO/1H7qqfugEK1FHOGt2hFvCM9Rqey1DdPaNVFFXEo=; b=maXgNvnn/hbCJuDUDiDwpCK2nH
-	XlF4ZdtC7mLkZbQDTpeNMHOXPyRU4MPXhy9DUesHrFEmaMeaJqerdKpTfbP7bITWiC94+RMzVAkag
-	3dMomdazFm1vQvMq1whd3cf+BDWo7tzzSWQudf0ODxNZpAGrEsWhjX4bxkwChi+C0DnQJMeN7wodm
-	3qd1yw65zR72TmcTE6e0KEIWG/C4JauSffwqNOyVIymLfnwaZuXqOJRqZDIErFVf6c3OZVt4KdnSQ
-	nPCs4oYyDOH+UrIO94dT7EbEx4reZ51m06jA3Pw4ngDx8pybS7w23QKY7DR27H8+L2D7i0gBJF/Oq
-	nvEmHRQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QgvkBWHWdR346IwLVQEHaZZsFXG1V1Qn4Ec2u3LFb+A=; b=XosZk/mx/kyOM5WLUg+yUw7DMZ
+	bEdNRhx8Ki7DohOkSLNdmUl1uTS9SKC6MDNbbt5IXR+P6jI61ZxFmHK/7soKfFwIZXSc7ys4FQRBa
+	gPs0rkZC7XbpQLnjTnO3XSNo2zWehL1yBSs8gmSv02TiUqmjoWVD4uptBa7L5507S702Y+4LjDQtS
+	srsL4sMm18uPc3Wbe/vkdf4oMAUyO/WuGeEzKK79uW1sP8Six+YRg2E2i4k3OgDY8U8XWKYThzvmX
+	2c9BJtAO1Yt8rB3o9hqw8V8uOMtJqXjyEzRXucNUd3AK8AwNp8/kBXD5de/Il60q+FffHb13wE9fA
+	WuN2k1CA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkF6v-0000000GV6K-3Qwo;
-	Thu, 16 Jul 2026 05:58:17 +0000
-Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
+	id 1wkFRs-0000000GWv1-3EqE;
+	Thu, 16 Jul 2026 06:19:56 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkF6o-0000000GV2w-1D7d
+	id 1wkFRq-0000000GWue-0nZR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 05:58:13 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id ABE8F119FAD;
-	Thu, 16 Jul 2026 07:58:00 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1784181481; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=OpO/1H7qqfugEK1FHOGt2hFvCM9Rqey1DdPaNVFFXEo=;
-	b=DB5G9PFQ2c2t9R3YU/kAgQ4h/7mYzW49CZeTFp2tI7KN5EzCP3I3K5pX790VwDqnnJlEuF
-	InauhbgnSJ+rcOdEMnpbNEkWx15keVG22YGs5rr26sB9aLhyoTkTLcM1Hkqds990XWd16e
-	lD9H+3DFe/AghRzuM+kRzteT2ytMmXUftPNLyKyN3SLVPulZjSoDXkBcB2dzMiMTl11egl
-	/S05sGBdyA/W1O95WdEuJucmSvnlxN+m0QN7S1ARLnDY63+AvT7c/Z1lxTshOeS2YV1dUE
-	7RsDCTN8PttLwQLrRXOFjCHPKjZIppNVepj8gkVSI83onf6lhD2mHrjcBERylA==
-From: Marek Vasut <marex@nabladev.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Marek Vasut <marex@nabladev.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v5 2/6] arm64: dts: imx8mm: imx8mp: Add legacy board DTOs for Data Modul i.MX8M Mini and Plus eDM SBC
-Date: Thu, 16 Jul 2026 07:56:54 +0200
-Message-ID: <20260716055751.279033-2-marex@nabladev.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260716055751.279033-1-marex@nabladev.com>
-References: <20260716055751.279033-1-marex@nabladev.com>
+	Thu, 16 Jul 2026 06:19:55 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-38e071ed6aeso3107928a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 23:19:54 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1784182793; cv=none;
+        d=google.com; s=arc-20260327;
+        b=dABUHAuIWB0nz2yH06K/kik8pR7+4GbJnyn8tFJ+Wbo3INDcHzw23hZN03V7XxDdlS
+         A33x1EMl7uYn05IFsYV1nPm5L4QaQG5YCrIHoHykuOEfQC3amzb0gEm9GF2IES2ODARA
+         /RPrkmWRuuFEhRD+M/WLTZLTcaU9BXN/qwiX3xfVRo5X72AGYEpGhIet8GsgpZ+AHUJq
+         tO6hMKYGocxu7bOG9k2DHnRWolwFzXqMVl5AP9jr5O8GsXmQZu3Z4MNkUdEQcVDWGdj6
+         pL8HhxezNIPzb2gTFpGEdVsmX9rUCe1ciXdZD9bRz/xmKGo/W3OhGUmkCyqGysNXE5uq
+         QrUw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=QgvkBWHWdR346IwLVQEHaZZsFXG1V1Qn4Ec2u3LFb+A=;
+        fh=PJPXIUwm3mMaFXkaxIyhGsU3Vx4SdJshxoj8ko9WTho=;
+        b=DL6UjPaYxMZQZGDvv1LfNLOTn7Z6D5pZkfluAw9+IHAyTuVQtgrv0mOMZXwuHiF0Wi
+         rg9Jk8P56ks8dWIsTES9RdBlqnIUNItc49Euvo6Tm4WkExwtmL5DbMy7/t5ErGgEoFWp
+         RXSkUTmL5p0IX3qr9oeYKhBVK3wmmglWP+DMe6naFQ+aRe22YmcGP72aRlqXG+F7DrtZ
+         CJSYCo4UBnU2gsacm4Uv0dwlbxCRc1cJUR48Nd5fej7zDNxoa4v4jYWWn25XwdjwzaBH
+         n7LP34IU/shPDBQGkiPmFhT2QR6M6fFbAnB6MK2o9cw1hXtZhx7rtfql+0s5zDKZRFep
+         0d9A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784182793; x=1784787593; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=QgvkBWHWdR346IwLVQEHaZZsFXG1V1Qn4Ec2u3LFb+A=;
+        b=IqT9NWBVibCifNrF7hySX1tVJh4kUTInqFvRgj/WQ9rI/PhM949pxUSwSzvdySalO6
+         xycnDUwjKYQiPzRdtBUPKCpityxNTSivGgORU1SC9j+/udg421NQm2Ub37YrCPR4C3C/
+         KX8sSSRa2qf0CpTWVAxQAUSWCtehHwBWLh+YRdMY0338KHvjk9jSg8cT6Awg8yKfrev0
+         F1+R5RE5X4MRLZ4B/XsLat0ZpTmUEA4aIUADU6TxP5BsGyxsC/W/MtCKXAaTJHKC5/cS
+         JhyoqKVYTF+EliVDthZ9OyBeEmWh0KhUeD89yF7YnrkEkfLldHIRP3SVv7PqUR74At8q
+         o0ow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784182793; x=1784787593;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=QgvkBWHWdR346IwLVQEHaZZsFXG1V1Qn4Ec2u3LFb+A=;
+        b=lhdB7E04TodLYbr5/k9nkOZwqX/h2TgAUo9CfFqNZxrexNRK3jyR1eDlMnVxTVRByk
+         KbSDYWUbK95VnS0eb+RMC4sb9w2L66DdmmOqnCiKYhpTAR22EAXnx90/ldrsW+SN+FEn
+         3gqieuEF1n0DLFx+e9lD4e//GQD2tA9JYhxwGESWjwEA0lKCUsEAEZ9hu6jXTlpFlX8E
+         0u+SIE6sTWpvBhm0jfr3dlpCRt7uZNvg5UkuUlxqZf+dbz4GxV/z7qQ5S/cOtN+9fec8
+         tTRaPFX+NAmUiH3Vl1NNrmLITBtEQPcJR6QGDkEd+J1ZMZFM0bwq8vSwGUaIrWBpjxF7
+         Sbfg==
+X-Forwarded-Encrypted: i=1; AHgh+RpVCGbIT/YKlPDMqxjOXqyh0uN+3djnl0m9u7BNQAr3xuKNQG1GsoKNeQpUP5/HHGkndRjpaKhZ8iTorl6GjB4Q@lists.infradead.org
+X-Gm-Message-State: AOJu0YxlXu9sW9xM89Rq6KGzn6HTItBqJzKIMysIt54+EoXAdjx5UUg6
+	aevTgTEPqODdcgO3Voxb9ofMb4JJd6iIGVbtW8kEcsncMsF067tUh4QnAYsrTtRV+kq2Blu25B9
+	yhaz7qgCtDGJrguWrLMSAYiz/Ob42xgs=
+X-Gm-Gg: AfdE7cmwmGWlJrknmS/ffBDdSRFHImDS+d0tH2mFRkH/ejtR8s5/jpN9yilzK7dsb+j
+	s0ijunt8mDGsRZsJl+264A+NVw19vJNI/91D4byQK0PrnqRucMYdNI8AKaDBuwr85vk/diFvujA
+	TCfCGiHnsh/tRTiuxcjdbEnAeSJ9HM1Doug0aVmcLC0RYbT5xfnQHOcti13untDZtDlRu22d6r9
+	6nh5Yl//uNDSCYR2TWaguJDETwKvY+fWKLoke5mj33l97XL2IVHuXVaxcc9dnyhr0oxLvYtPScD
+	aSSzz2ZMjmKKed57
+X-Received: by 2002:a17:90b:2b43:b0:38d:eac8:2dbc with SMTP id
+ 98e67ed59e1d1-38e29f6c683mr4862337a91.9.1784182793361; Wed, 15 Jul 2026
+ 23:19:53 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+References: <20260715095525.40668-1-phucduc.bui@gmail.com> <20260715095525.40668-3-phucduc.bui@gmail.com>
+ <CAGb2v67tVzjZsPbA9oeCFjuRjrixxCut05P5zkw+sYq-gJPoJg@mail.gmail.com>
+In-Reply-To: <CAGb2v67tVzjZsPbA9oeCFjuRjrixxCut05P5zkw+sYq-gJPoJg@mail.gmail.com>
+From: Bui Duc Phuc <phucduc.bui@gmail.com>
+Date: Thu, 16 Jul 2026 13:19:42 +0700
+X-Gm-Features: AUfX_mzLT5bgNmawwyrEk5EUD4UBu9qW-wp_xIJKTxIxw3V-_Jn5uIqdk4DToog
+Message-ID: <CAABR9nEk19N-hBm+QKv6U=7SBgkQwC2Ohb_NDz8OLEetavLLAQ@mail.gmail.com>
+Subject: Re: [PATCH 2/6] ASoC: sunxi: sun4i-codec: Drop redundant error messages
+To: wens@kernel.org
+Cc: Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Charles Keepax <ckeepax@opensource.cirrus.com>, 
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, Chen Ni <nichen@iscas.ac.cn>, 
+	Marcus Cooper <codekipper@gmail.com>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Danilo Krummrich <dakr@kernel.org>, u.kleine-koenig@baylibre.com, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sound@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_225810_684275_5411C1AB 
-X-CRM114-Status: GOOD (  19.37  )
+X-CRM114-CacheID: sfid-20260715_231954_251678_2B3D5F3E 
+X-CRM114-Status: GOOD (  17.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,380 +123,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add legacy board revision compatibility DT overlays for both i.MX8M Mini
-and Plus eDM SBC boards. This adds adjustments to support legacy board
-revisions.
+Hi Chen-Yu Tsai,
 
-Signed-off-by: Marek Vasut <marex@nabladev.com>
----
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Fabio Estevam <festevam@gmail.com>
-Cc: Frank Li <Frank.Li@nxp.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>
-Cc: devicetree@vger.kernel.org
-Cc: imx@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
----
-V2: Deduplicate the DTOs further
-V3: New patch split from the original megapatch
-V4: Rebase on next-20260703
-V5: No change
----
- arch/arm64/boot/dts/freescale/Makefile        | 36 ++++++-
- ...edm-sbc-overlay-edm-sbc-imx8mm-rev900.dtso | 18 ++++
- ...bc-overlay-edm-sbc-imx8mp-lvds-rev900.dtso | 41 ++++++++
- ...bc-overlay-edm-sbc-imx8mp-lvds-rev902.dtso | 14 +++
- ...edm-sbc-overlay-edm-sbc-imx8mp-rev900.dtso | 97 +++++++++++++++++++
- ...edm-sbc-overlay-edm-sbc-imx8mp-rev902.dtso | 69 +++++++++++++
- 6 files changed, 273 insertions(+), 2 deletions(-)
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-data-modul-edm-sbc-overlay-edm-sbc-imx8mm-rev900.dtso
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev900.dtso
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev902.dtso
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev900.dtso
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev902.dtso
+Thank you for your review.
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 2ee15aa8dc5d3..e0630f7bc58b7 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -148,6 +148,10 @@ imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-lvds-mi1010z1t-1cp11-dtbs := \
- 	imx8mm-data-modul-edm-sbc.dtb \
- 	imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-lvds-mi1010z1t-1cp11.dtbo
- 
-+imx8mm-data-modul-edm-sbc-overlay-edm-sbc-imx8mm-rev900-dtbs := \
-+	imx8mm-data-modul-edm-sbc.dtb \
-+	imx8mm-data-modul-edm-sbc-overlay-edm-sbc-imx8mm-rev900.dtbo
-+
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-data-modul-edm-sbc.dtb \
- 			  imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-lvds-g070y2-l01.dtb \
- 			  imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-lvds-g070y2-l01.dtbo \
-@@ -162,7 +166,9 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mm-data-modul-edm-sbc.dtb \
- 			  imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-lvds-mi0700a2t-30.dtb \
- 			  imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-lvds-mi0700a2t-30.dtbo \
- 			  imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-lvds-mi1010z1t-1cp11.dtb \
--			  imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-lvds-mi1010z1t-1cp11.dtbo
-+			  imx8mm-data-modul-edm-sbc-overlay-edm-mod-imx8mm-lvds-mi1010z1t-1cp11.dtbo \
-+			  imx8mm-data-modul-edm-sbc-overlay-edm-sbc-imx8mm-rev900.dtb \
-+			  imx8mm-data-modul-edm-sbc-overlay-edm-sbc-imx8mm-rev900.dtbo
- 
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-ddr4-evk.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-emcon-avari.dtb
-@@ -345,6 +351,24 @@ imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-mi1010z1t-1cp11-dtbs := \
- 	imx8mp-data-modul-edm-sbc.dtb \
- 	imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-mi1010z1t-1cp11.dtbo
- 
-+imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev900-dtbs := \
-+	imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev900.dtb \
-+	imx8mp-data-modul-edm-sbc-overlay-edm-mod-imx8mm-lvds-g070y2-l01.dtbo \
-+	imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev900.dtbo
-+
-+imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev902-dtbs := \
-+	imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev902.dtb \
-+	imx8mp-data-modul-edm-sbc-overlay-edm-mod-imx8mm-lvds-g070y2-l01.dtbo \
-+	imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev902.dtbo
-+
-+imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev900-dtbs := \
-+	imx8mp-data-modul-edm-sbc.dtb \
-+	imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev900.dtbo
-+
-+imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev902-dtbs := \
-+	imx8mp-data-modul-edm-sbc.dtb \
-+	imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev902.dtbo
-+
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-data-modul-edm-sbc.dtb \
- 			  imx8mp-data-modul-edm-sbc-overlay-edm-mod-imx8mm-lvds-g070y2-l01.dtb \
- 			  imx8mp-data-modul-edm-sbc-overlay-edm-mod-imx8mm-lvds-g070y2-l01.dtbo \
-@@ -373,7 +397,15 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-data-modul-edm-sbc.dtb \
- 			  imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-mi0700a2t-30.dtb \
- 			  imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-mi0700a2t-30.dtbo \
- 			  imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-mi1010z1t-1cp11.dtb \
--			  imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-mi1010z1t-1cp11.dtbo
-+			  imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-mi1010z1t-1cp11.dtbo \
-+			  imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev900.dtb \
-+			  imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev900.dtbo \
-+			  imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev902.dtb \
-+			  imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev902.dtbo \
-+			  imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev900.dtb \
-+			  imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev900.dtbo \
-+			  imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev902.dtb \
-+			  imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev902.dtbo
- 
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-debix-model-a.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-debix-som-a-bmb-08.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-data-modul-edm-sbc-overlay-edm-sbc-imx8mm-rev900.dtso b/arch/arm64/boot/dts/freescale/imx8mm-data-modul-edm-sbc-overlay-edm-sbc-imx8mm-rev900.dtso
-new file mode 100644
-index 0000000000000..14038215f298c
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-data-modul-edm-sbc-overlay-edm-sbc-imx8mm-rev900.dtso
-@@ -0,0 +1,18 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (C) 2023-2026 Marek Vasut
-+ */
-+/dts-v1/;
-+/plugin/;
-+
-+&fec1 {
-+	phy-handle = <&fec1_phy_ath>;
-+};
-+
-+&fec1_phy_ath {
-+	status = "okay";
-+};
-+
-+&fec1_phy_bcm {
-+	status = "disabled";
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev900.dtso b/arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev900.dtso
-new file mode 100644
-index 0000000000000..427585b78e45d
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev900.dtso
-@@ -0,0 +1,41 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2023-2026 Marek Vasut
-+ */
-+/dts-v1/;
-+/plugin/;
-+
-+&{/} {
-+	reg_panel_vcc_raw: regulator-panel-vcc-raw {
-+		compatible = "regulator-fixed";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_panel_vcc_reg>;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-name = "PANEL_VCC";
-+	};
-+};
-+
-+&panel {
-+	power-supply = <&reg_panel_vcc_raw>;
-+};
-+
-+&reg_backlight_en_level {
-+	status = "disabled";
-+};
-+
-+&reg_backlight_pwm_level {
-+	status = "disabled";
-+};
-+
-+&reg_panel_bl_supply {
-+	status = "disabled";
-+};
-+
-+&reg_panel_bl {
-+	gpio = <&gpio3 0 0>;
-+};
-+
-+&reg_panel_vcc {
-+	status = "disabled";
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev902.dtso b/arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev902.dtso
-new file mode 100644
-index 0000000000000..a21fea27e0b41
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-lvds-rev902.dtso
-@@ -0,0 +1,14 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2023-2026 Marek Vasut
-+ */
-+/dts-v1/;
-+/plugin/;
-+
-+&reg_panel_bl {
-+	gpio = <&gpio3 0 0>;
-+};
-+
-+&reg_panel_vcc {
-+	enable-gpios = <&gpio3 6 0>;
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev900.dtso b/arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev900.dtso
-new file mode 100644
-index 0000000000000..ec861aa64541e
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev900.dtso
-@@ -0,0 +1,97 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (C) 2023-2026 Marek Vasut
-+ */
-+/dts-v1/;
-+/plugin/;
-+
-+#include "imx8mp-pinfunc.h"
-+
-+&eeprom900 {
-+	status = "okay";
-+};
-+
-+&eeprom902 {
-+	status = "disabled";
-+};
-+
-+&eqos {	/* First ethernet */
-+	phy-handle = <&phy_eqos_ath>;
-+};
-+
-+&fec {	/* Second ethernet */
-+	/* pinctrl_wifi is ENET2_INT# */
-+	pinctrl-0 = <&pinctrl_fec &pinctrl_wifi>;
-+	phy-handle = <&phy_fec_ath>;
-+};
-+
-+&gpiolvds {
-+	status = "disabled";
-+};
-+
-+/*
-+ * External pull ups on R242 and R243 on I2C2_SCL_3V3 and I2C2_SDA_3V3
-+ * are not populated on this early board revision, activate in-SoC pull
-+ * up resistors instead to work around the missing external pull ups.
-+ */
-+&pinctrl_i2c2 {
-+	fsl,pins = <
-+		MX8MP_IOMUXC_I2C2_SCL__I2C2_SCL			0x400001c4
-+		MX8MP_IOMUXC_I2C2_SDA__I2C2_SDA			0x400001c4
-+	>;
-+};
-+
-+&pinctrl_i2c2_gpio {
-+	fsl,pins = <
-+		MX8MP_IOMUXC_I2C2_SCL__GPIO5_IO16		0x1c4
-+		MX8MP_IOMUXC_I2C2_SDA__GPIO5_IO17		0x1c4
-+	>;
-+};
-+
-+&pcie_phy {
-+	status = "disabled";
-+};
-+
-+&pcie {
-+	status = "disabled";
-+};
-+
-+&phy_eqos_ath {
-+	/*
-+	 * The software support for combination of EEE capable PHY and EEE
-+	 * capable MAC is so far missing from the Linux kernel. By default,
-+	 * the AR8035 PHY does enable EEE functionality on the PHY side,
-+	 * while the EQoS/DWMAC MAC expects to handle the EEE functionality
-+	 * on the MAC side. Because the Linux kernel is currently unable to
-+	 * align EEE configuration of the PHY and MAC, enabling EEE leads
-+	 * to unreliable link. Disable EEE until the kernel support is in
-+	 * place.
-+	 */
-+	eee-broken-100tx;
-+	eee-broken-1000t;
-+	status = "okay";
-+};
-+
-+&phy_eqos_bcm {
-+	status = "disabled";
-+};
-+
-+&phy_fec_ath {
-+	status = "okay";
-+};
-+
-+&phy_fec_bcm {
-+	status = "disabled";
-+};
-+
-+&reg_pcie0 {
-+	status = "disabled";
-+};
-+
-+&tpm {
-+	status = "disabled";
-+};
-+
-+&uart4 {
-+	status = "disabled";
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev902.dtso b/arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev902.dtso
-new file mode 100644
-index 0000000000000..0141b5d77c6bd
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc-overlay-edm-sbc-imx8mp-rev902.dtso
-@@ -0,0 +1,69 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (C) 2024-2026 Marek Vasut
-+ */
-+/dts-v1/;
-+/plugin/;
-+
-+#include "imx8mp-pinfunc.h"
-+
-+&pinctrl_hog_misc {
-+	fsl,pins = <
-+		/* ENET_WOL# -- shared by both PHYs */
-+		MX8MP_IOMUXC_GPIO1_IO10__GPIO1_IO10		0x40000090
-+
-+		/* PG_V_IN_VAR# */
-+		MX8MP_IOMUXC_NAND_CE0_B__GPIO3_IO01		0x40000000
-+		/* CSI2_PD_1V8 */
-+		MX8MP_IOMUXC_NAND_DATA02__GPIO3_IO08		0x0
-+		/* CSI2_RESET_1V8# */
-+		MX8MP_IOMUXC_NAND_DATA03__GPIO3_IO09		0x0
-+
-+		/* DIS_USB_DN1 */
-+		MX8MP_IOMUXC_SAI2_RXFS__GPIO4_IO21		0x0
-+		/* DIS_USB_DN2 */
-+		MX8MP_IOMUXC_SAI2_RXC__GPIO4_IO22		0x0
-+
-+		/* EEPROM_WP_1V8# */
-+		MX8MP_IOMUXC_NAND_DQS__GPIO3_IO14		0x100
-+		/* PCIE_CLK_GEN_CLKPWRGD_PD_1V8# */
-+		MX8MP_IOMUXC_SAI5_RXD0__GPIO3_IO21		0x0
-+		/* GRAPHICS_PRSNT_1V8# */
-+		MX8MP_IOMUXC_SAI1_TXD6__GPIO4_IO18		0x40000000
-+
-+		/* CLK_CCM_CLKO1_3V3 */
-+		MX8MP_IOMUXC_GPIO1_IO14__CCM_CLKO1		0x10
-+	>;
-+};
-+
-+&pinctrl_pcie0 {
-+	fsl,pins = <
-+		/* M2_PCIE_RST# */
-+		MX8MP_IOMUXC_GPIO1_IO05__GPIO1_IO05		0x2
-+		/* M2_W_DISABLE1_1V8# */
-+		MX8MP_IOMUXC_SAI5_RXD2__GPIO3_IO23		0x2
-+		/* M2_W_DISABLE2_1V8# */
-+		MX8MP_IOMUXC_SAI5_RXD3__GPIO3_IO24		0x2
-+		/* CLK_M2_32K768 */
-+		MX8MP_IOMUXC_GPIO1_IO00__CCM_EXT_CLK1		0x14
-+		/* M2_PCIE_WAKE# */
-+		MX8MP_IOMUXC_GPIO1_IO06__GPIO1_IO06		0x40000140
-+		/* M2_PCIE_CLKREQ# */
-+		MX8MP_IOMUXC_I2C4_SCL__PCIE_CLKREQ_B		0x61
-+	>;
-+};
-+
-+&pinctrl_uart4 {
-+	fsl,pins = <
-+		MX8MP_IOMUXC_UART4_RXD__UART4_DCE_RX		0x49
-+		MX8MP_IOMUXC_UART4_TXD__UART4_DCE_TX		0x49
-+	>;
-+};
-+
-+&gpiowifi {
-+	status = "disabled";
-+};
-+
-+&uart4 {
-+	status = "disabled";
-+};
--- 
-2.53.0
 
+> >         ret = devm_snd_dmaengine_pcm_register(&pdev->dev, NULL, 0);
+>
+> snd_dmaengine_pcm_register() doesn't seem to print an error when
+> dma_request_chan() fails.
+>
+> > -       if (ret) {
+> > -               dev_err(&pdev->dev, "Failed to register against DMAEngine\n");
+> > +       if (ret)
+> >                 return ret;
+> > -       }
+> >
+
+You are right that dma_request_chan() itself has several code paths where
+it doesn't print any error logs when it fails.
+However, if we look at how the caller handles the return value of
+dma_request_chan():
+
+---------------------------------
+chan = dma_request_chan(dev, name);
+if (IS_ERR(chan)) {
+                /*
+                * Only report probe deferral errors, channels
+                * might not be present for devices that
+                * support only TX or only RX.
+                */
+                if (PTR_ERR(chan) == -EPROBE_DEFER)
+                        return -EPROBE_DEFER;
+                pcm->chan[i] = NULL;
+} else {
+                pcm->chan[i] = chan;
+}
+---------------------------------------
+
+As shown here, the code only propagates a single error code, -EPROBE_DEFER
+regardless of whatever other errors might have occurred. The reasoning behind
+this is already well-documented in the comment block above.
+
+Therefore, keeping the following error log is not particularly useful:
+
+----------------------
+ret = devm_snd_dmaengine_pcm_register(&pdev->dev, NULL, 0);
+if (ret) {
+        dev_err(&pdev->dev, "Failed to register against DMAEngine\n");
+        return ret;
+}
+-----------------------
+
+This logging statement does not make much sense here because if the returned
+error is -EPROBE_DEFER , we should definitely avoid printing error messages to
+the kernel log.
+
+Let me know if this makes sense to you, or if you'd still prefer to keep
+the log with a check to avoid printing on -EPROBE_DEFER.
+
+Best regards,
+Phuc
 
