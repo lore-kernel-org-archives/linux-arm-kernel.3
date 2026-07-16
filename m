@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 152AFC4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 12:41:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 743EAC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 12:42:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5ASEg+LPUNythxyPQgR2kNgKdj/Y2CNNfzUmoJBF8q4=; b=1SAPeMT/I1Cdy7u2TLWEJry93n
-	oN9/9XYDkAUxW+Alf6vl4ZIHLFbwre8joADNJf15Fnft7/yt3W0hpQObQirx5zKx/ybCwlJ09y/wX
-	sCCGgh8CFFbUIReurLss1l0Q1N+PU/ikb1/eESrhWcOgLjAGqZUP68mh2qYoW/4YbyL4nymWg2AsL
-	vGUCzDDvZECiHL5K9qJjsmYoGlrk9BJSN3qjLprNZKuDewuIAsEXLxzSv1EiI5qfDEkJq163BOJfK
-	h8gSLNcCHjCDGkmc+m0JiaTNEnbBX1z5+YXmc+U9JVgKn40ku+eo/1abIFM/L+TaTAM7Bp+Aaff1o
-	36CYDumg==;
+	bh=SEtfcM+KW7L5CPl0b/+m1XcLdqGH3Lnf0/OmVJPKHLg=; b=2e2l4bc8ScxRXD0XRK50jfYHJO
+	kJ7uLIPEUqYsaXSq+TMs221EhAkYvFvXZrVdhmH93zNDSQChM8q03NDI2dMge9f/xJt4wHM6d3Adw
+	+6PdDDFXrqKGJTY1gLUFVMbDxZJrJnHb0q7ta9k3e5/gq2+wbsZmBnmAvPXkxhCvoOm4e/AcvlQsA
+	Cbjo/5LnkUBGTT+Hl17LDh5yqMJhnZZNAoTUO2/8wR5wUBxRIMVub8UNuuNigS7X/ANG0uGsrcWAI
+	8v2FK3eH5LbBBSslPvBwDBCTuWhkqTUuV1a3CfFbeuQU8nZdN1mHL3ym4tqgE+YUehidjU6WGkqA8
+	8cmx1mqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkLP7-0000000HHaR-2jRG;
-	Thu, 16 Jul 2026 12:41:29 +0000
+	id 1wkLQ9-0000000HHkC-47ml;
+	Thu, 16 Jul 2026 12:42:34 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkLP4-0000000HHZR-3reY
+	id 1wkLQ6-0000000HHjp-45US
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 12:41:28 +0000
+	Thu, 16 Jul 2026 12:42:32 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0840B1476;
-	Thu, 16 Jul 2026 05:41:19 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EF3F11476;
+	Thu, 16 Jul 2026 05:42:25 -0700 (PDT)
 Received: from [10.2.197.99] (ewhatever.cambridge.arm.com [10.2.197.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8C6003F7B4;
-	Thu, 16 Jul 2026 05:41:21 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AB1D33F7B4;
+	Thu, 16 Jul 2026 05:42:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784205683; bh=Y3aM/kQqvp++lv0mc4QE+i4DL7rm5D/JWaR3nRML3zI=;
+	t=1784205750; bh=Bu3u6wPSdJa2kf7X/oaorEhXjHXCtj79kYQ35nA1rTs=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qlVTQLJGnpvRinTtJ4NWwCfIhzmffxp11KxgrK0NTEaJMtM4Reo3kYV51OHiMKJc7
-	 IEyNzUjXeLXO/sNY4CrPhGN23/73KwC89/+b+HyLPbh62C64kN3rHWgy2RlKTiBkKh
-	 6IR1YMRL4qxLGWz14Kmko2cB7UUemkSebOa8J6Kg=
-Message-ID: <2005044a-ff4d-4585-963b-1c346d661a35@arm.com>
-Date: Thu, 16 Jul 2026 13:41:19 +0100
+	b=Y7JV1bySJv8kadfk00E+z5GQ/401Y+MIhxN7sxJjscQd4rCtCSNvrNN4ZAuK8iUUI
+	 RFmjRwBEtiJbXkoWnWDxr2Hcr/U767395SwiY0pU2h3i208J3xW7u/8Nwq6FrFj2HH
+	 MKEAwrxR3Q8tmKXM4vCsRX765WJYiP5f9AGyDF0E=
+Message-ID: <d7498d65-50e7-4fe5-a414-dd4bdf3b2c76@arm.com>
+Date: Thu, 16 Jul 2026 13:42:26 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v8 08/13] coresight: etm4x: fix inconsistencies with sysfs
  configuration
-To: Leo Yan <leo.yan@arm.com>, Yeoreum Yun <yeoreum.yun@arm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>, Leo Yan <leo.yan@arm.com>
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, mike.leach@arm.com, james.clark@linaro.org,
  alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
 References: <20260629090007.1718746-1-yeoreum.yun@arm.com>
  <20260629090007.1718746-9-yeoreum.yun@arm.com>
- <20260706173940.GB1024232@e132581.arm.com>
+ <20260706172159.GA1024232@e132581.arm.com> <akvxCqDgkElhCuH5@e129823.arm.com>
+ <20260707082510.GD1024232@e132581.arm.com> <aky_9FCsv1XbyUvW@e129823.arm.com>
+ <akzMypA6LOtjCsXz@e129823.arm.com>
 Content-Language: en-US
 From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260706173940.GB1024232@e132581.arm.com>
+In-Reply-To: <akzMypA6LOtjCsXz@e129823.arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_054127_058197_3102C581 
-X-CRM114-Status: GOOD (  16.55  )
+X-CRM114-CacheID: sfid-20260716_054231_114693_0B53C9BD 
+X-CRM114-Status: GOOD (  13.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,89 +76,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/07/2026 18:39, Leo Yan wrote:
-> On Mon, Jun 29, 2026 at 10:00:01AM +0100, Yeoreum Yun wrote:
-> 
-> [...]
-> 
->> @@ -922,25 +950,7 @@ static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_pa
->>   {
->>   	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
->>   	struct etm4_enable_arg arg = { };
->> -	unsigned long cfg_hash;
->> -	int ret, preset;
->> -
->> -	/* enable any config activated by configfs */
->> -	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
->> -	if (cfg_hash) {
->> -		ret = cscfg_csdev_enable_active_config(csdev, cfg_hash, preset);
->> -		if (ret) {
->> -			etm4_release_trace_id(drvdata);
->> -			return ret;
->> -		}
->> -	}
->> -
->> -	raw_spin_lock(&drvdata->spinlock);
->> -
->> -	drvdata->trcid = path->trace_id;
->> -
->> -	/* Tracer will never be paused in sysfs mode */
->> -	drvdata->paused = false;
->> +	int ret;
->>   
->>   	/*
->>   	 * Executing etm4_enable_hw on the cpu whose ETM is being enabled
->> @@ -948,20 +958,20 @@ static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_pa
->>   	 */
->>   	arg.drvdata = drvdata;
->>   	arg.path = path;
->> +
->> +	raw_spin_lock(&drvdata->spinlock);
->> +	arg.config = drvdata->config;
->> +	raw_spin_unlock(&drvdata->spinlock);
->> +
->>   	ret = smp_call_function_single(drvdata->cpu,
->>   				       etm4_enable_sysfs_smp_call, &arg, 1);
->>   	if (!ret)
->>   		ret = arg.rc;
->>   	if (!ret)
->> -		drvdata->sticky_enable = true;
->> -
->> -	if (ret)
->> +		dev_dbg(&csdev->dev, "ETM tracing enabled\n");
->> +	else
->>   		etm4_release_trace_id(drvdata);
->>   
->> -	raw_spin_unlock(&drvdata->spinlock);
->> -
->> -	if (!ret)
->> -		dev_dbg(&csdev->dev, "ETM tracing enabled\n");
->>   	return ret;
->>   }
-> 
-> This is most valuable change for me, as now we will have much clear
-> scope for what is protected ("drvdata->config").
-> 
-> However, a corner case was mentioned by Sashiko:
-> 
->   | It appears etm4_enable_hw() modifies drvdata->ss_status while executing
->   | via IPI, but sshot_ctrl_store() can modify the same array concurrently
+On 07/07/2026 10:54, Yeoreum Yun wrote:
+> On Tue, Jul 07, 2026 at 09:59:36AM +0100, Yeoreum Yun wrote:
+>> On Tue, Jul 07, 2026 at 09:25:10AM +0100, Leo Yan wrote:
+>>> On Mon, Jul 06, 2026 at 07:16:42PM +0100, Yeoreum Yun wrote:
+>>>
+>>> [...]
+>>>
+>>>>> I try best to not paste any non-sense AI reviews, record one from
+>>>>> Sashiko [1]:
+>>>>>
+>>>>>   | If a user writes to a sysfs attribute like pe_sel_store(), it acquires
+>>>>>   | drvdata->spinlock without disabling interrupts. If an IPI is then handled
+>>>>>   | on the same CPU, etm4_enable_sysfs_smp_call() will call
+>>>>>   | cscfg_csdev_enable_active_config() which attempts to acquire the exact
+>>>>>   | same spinlock, hanging the CPU."
+>>>>>
+>>>>> The flow for acquiring drvdata->spinlock in SMP call is:
+>>>>>
+>>>>>    etm4_enable_sysfs_smp_call()
+>>>>>      `> cscfg_csdev_enable_active_config()
+>>>>>           `> cscfg_csdev_enable_config()
+>>>>>                `> cscfg_prog_config()
+>>>>>                     `> cscfg_set_on_enable()
+>>>>>                          `> raw_spin_lock_irqsave(feat_csdev->drv_spinlock, flags);
+>>>>>
+>>>>> We might expect the complaint from LOCKDEP with this patch.
+>>>>
+>>>> Hmm. I miss the this point and there is two solution:
+>>>>
+>>>>    1. Remove "feat_csdev->drv_spinlock"
+>>>>
+>>>>      Before this patch, the "feat_csdev->drv_spinlock" is for
+>>>>      synchronizing with the "drvdata->config". However,
+>>>>      After this patch, the the configfs only show the "active" config
+>>>>      and the active config can be used only after taking the "mode".
+>>>>
+>>>>      Furthermore, the sysfs only uses the "config" not "active config",
+>>>>      there is no race between the sysfs and the configfs.
+>>>>
+>>>>      When I check the, "feat_csdev->drv_spinlock" is for the
+>>>>      active/deactive the configfs config, so I seems safe to remove.
+>>>
+>>> My interpretation is:
+>>>
+>>> After this series, we updates active_config on local CPU within atomic
+>>> context, it is nature to be protected. So we don't need to use
+>>> feat_csdev->drv_spinlock when updating active_config.
+>>>
+>>> If so, it is fine for me to remove feat_csdev->drv_spinlock.
+>>
+>> Yes. but if I add a little bit more comment. the "active_config"
+>> is accessed after "mode changed (perf of sysfs)" it accesses atomically
+>> and the "active_config" is refered from the configfs not "config"
+>> after this patch. So we can remove the "feat_csdev->drv_spinlock".
 
-Could we stop modifying the drvdata->ss_status in enable_hw() ? We moved
-it outside the config claiming that the status is not used(or useful). #
-Then why not remove the updating from enable_hw()
+Ack
 
 Suzuki
-
-
->   | from process context since the lock is no longer held across the
->   | smp_call_function_single() call.
-> 
-> "drvdata->ss_status" is a race condition between SMP call and sysfs
-> knobs. Should we change to spinlock_irqsave/irqrestore when access
-> drvdata->ss_status?
-> 
-> Thanks,
-> Leo
-
 
