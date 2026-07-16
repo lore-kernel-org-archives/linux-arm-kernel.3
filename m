@@ -4,64 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27C5FC44511
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 16:26:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67B02C44512
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 16:31:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f0GzdtlCUYTXnzjiQW280fKKm7vsjhmIBbW5lFiCYW8=; b=sRT9CrFQZumvmSdz9yhfC8Oi8I
-	AECTKHkaYHss0q7cH8ZVBWMy8QYbF1dr+0I1ySLwqo2gI4RJt/3EVjk+xtnXVBX+DA4aguW7oGywh
-	0nws0eaIpTc2shUwBkIdX1lop1XofikTXU6tPTHw4LD5/l0g3JyEAqGlNWTeXvxp9RCc8OQMzEzgX
-	3xdV0GtnqrsBpS0YdXCLfOVGVyuDBW7HB9FDPMkX52T3Hp4cMTmuVsY1/dScQXzYjIUvfZOrg9gg4
-	RM7vb5v52VvdmXymxQ357H0gfE+GD1i8mh3zkasNGhDzh82rQctNx14CLrnPNaHPa3hwm0K7PXqyl
-	E2vH2Jvw==;
+	bh=RUaLGPZ5j3VqnvxuPFbCeedwozNP234RROFK3oar0Uc=; b=YcJt721aF/LbRtJKPCJxkOQx9B
+	YEra0Q/21ooEvcwPIlygzvz7NC3lB4SdXrNtdiLIJ06P7SQW5Nd6qeHYg1zRVR0bRIPp4Zig01Da4
+	yD89mtNQFvR5QvQOA1PJnzc83Dz93lGYuxdhLqMsqZv/cSict7caeYUFguHf5oDjvrNOLbppZw8sN
+	R5vHJrzc+ZyD1GXlQconGCeozHV+eE+VyNePN3yxdnBRyxNC8Lfg/46NOcD9U5LFHKc9n3o7OOELd
+	S2cAGa2rMF5bjZA6nxDlpvqxUQMdzr3HvOw8PMgXdzNfHFDJGPuDefUppul270iXeFnYqjy3kYBbP
+	LGMfH/8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkOuF-000000009Ym-2Ffp;
-	Thu, 16 Jul 2026 16:25:51 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkOuD-000000009Xi-1ez9
+	id 1wkOzf-00000000ALD-0fgS;
+	Thu, 16 Jul 2026 16:31:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkOze-00000000AL6-2CFX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 16:25:50 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0C9EC1476;
-	Thu, 16 Jul 2026 09:25:44 -0700 (PDT)
-Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 82C643F7B4;
-	Thu, 16 Jul 2026 09:25:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784219148; bh=Ol8RXOW90RspxBYRMmqnn0Jm2Hs0leRmgMXzEwXKFD8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=raNF62Kx5WvhyNd24QVTbfe3UNmBnNDsaz2hDB854T686iwGoDmD1Q76W9cl87vQf
-	 2WkwOr2MkN3IA/qi+kAK120l+veNSgVsXwL5OC9IUAL9eIktErZkN+rZEthLO6sfU7
-	 Db8SDOyDxLNHQPxFWUjqW8dUqhYwXjx8ExXTB+bo=
-Date: Thu, 16 Jul 2026 17:25:35 +0100
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Itaru Kitayama <itaru.kitayama@fujitsu.com>, 
-	Sebastian Ene <sebastianene@google.com>
-Subject: Re: [PATCH v4 3/6] KVM: arm64: nv: Add nested revmap broken
- tracepoint
-Message-ID: <clbxsg4rvtgsg3eqnuolj6q5ckmo6ltigujfzawko2r662ebbw@fnx3ommt457j>
-References: <20260714115926.2044757-1-weilin.chang@arm.com>
- <20260714115926.2044757-4-weilin.chang@arm.com>
- <alh98Zz42OdWo-jp@kernel.org>
- <867bmvnwhq.wl-maz@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <867bmvnwhq.wl-maz@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_092549_476069_562D35B5 
-X-CRM114-Status: GOOD (  19.70  )
+	Thu, 16 Jul 2026 16:31:26 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id E08F240435;
+	Thu, 16 Jul 2026 16:31:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEF301F00A3E;
+	Thu, 16 Jul 2026 16:31:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784219485;
+	bh=RUaLGPZ5j3VqnvxuPFbCeedwozNP234RROFK3oar0Uc=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc;
+	b=iZWxMS6NrN+WHoqYEOSeK7kTT60ZJAscfmBaoAeHo2eAwJjoLyeiQkBnRmmbnflVT
+	 hWENbn0V6qZhsmzb/nDgnIUm5CzLLl1Ez0LM+JTcKYAFe/3WHQYy2BUYgjjZMvbKbo
+	 EXKUAy10ZAu3O0VYVXeUd1JUHULC0jdrnwGjrn021UT9/+jdQTwlOvqSiCXHOSteGH
+	 QugFB8VBq9ZgpMSHHt+929d0q5ll3Lc+a5mpxQ6fmJzlrBEcHUGiB9P2rcQXrruQms
+	 G59HhNyxt5kAKLdMufrDq7yO45UXNrpJnuX4ErtY9bCIczrunGNY3WA3g0G9BQC3xP
+	 oyaon2r+YLSfQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 199CB3809A19;
+	Thu, 16 Jul 2026 16:31:00 +0000 (UTC)
+Subject: Re: [GIT PULL] pmdomain fixes for v7.2-rc4
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <20260716124635.45302-1-ulf.hansson@oss.qualcomm.com>
+References: <20260716124635.45302-1-ulf.hansson@oss.qualcomm.com>
+X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
+X-PR-Tracked-Message-Id: <20260716124635.45302-1-ulf.hansson@oss.qualcomm.com>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v7.2-rc2
+X-PR-Tracked-Commit-Id: a4876f11aa1d076802676e23f8af500706e780e3
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 4302c3503cbe00c54900105d15eeea3b1a8030fa
+Message-Id: <178421945874.1334695.1376180464929495873.pr-tracker-bot@kernel.org>
+Date: Thu, 16 Jul 2026 16:30:58 +0000
+To: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+Cc: Linus <torvalds@linux-foundation.org>, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, Ulf Hansson <ulf.hansson@oss.qualcomm.com>, linux-arm-kernel@lists.infradead.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,47 +74,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 16, 2026 at 09:56:33AM +0100, Marc Zyngier wrote:
-> On Thu, 16 Jul 2026 07:45:05 +0100,
-> Oliver Upton <oupton@kernel.org> wrote:
-> > 
-> > Hi Wei-Lin,
-> > 
-> > On Tue, Jul 14, 2026 at 12:59:22PM +0100, Wei-Lin Chang wrote:
-> > > Add a tracepoint to track when a nested reverse map becomes broken. This
-> > > makes it easier to detect NV performance degradation caused by full
-> > > shadow stage-2 unmaps.
-> > > 
-> > > Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
-> > 
-> > I'm not too excited about making a tracepoint out of this, especially
-> > since a 'broken' reverse map is more of a KVM implementation detail
-> > (that could change) than anything else.
-> > 
-> > BPF is quite popular at this point, do you think it's reasonable to
-> > instead expect the curious KVM developer to attach a kprobe and inspect
-> > the state of the nested MMU?
-> 
-> I was the one asking for a way to report this stuff. I'd be completely
-> fine with BPF as long as we give the recipe for this so that people
-> can readily look at this.
+The pull request you sent on Thu, 16 Jul 2026 14:46:35 +0200:
 
-Cool, I'll drop the tracepoint in the next iteration.
+> git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v7.2-rc2
 
-> 
-> Even better, find a way not to have a broken rmap the first place ;-).
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/4302c3503cbe00c54900105d15eeea3b1a8030fa
 
-One possible way is to not do the shadow stage-2 map if maple tree store
-fails, please see the response for patch 2 for details!
+Thank you!
 
-Thanks,
-Wei-Lin Chang
-
-> 
-> Thanks,
-> 
-> 	M.
-> 
-> -- 
-> Without deviation from the norm, progress is not possible.
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
