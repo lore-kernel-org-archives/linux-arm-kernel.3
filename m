@@ -4,66 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C16DC44514
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 21:07:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62E30C44512
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 21:13:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wRv4lOlKrq3dAOzPxj081DoRmnFjvX+pfhBpXeiahJI=; b=kSuB7jcvIJ03kNxdECM20vfvIG
-	Sg+r8FVHvPEzoHevGhq3cv5i8zUAcHpUZHDTh8brpSrxFIrUbcnXxGupkUYyJeFZWn3xZuFlkJoa0
-	d+n3DyiwQ6Bpt4Uc20duOXtvDyK7Rg2NKyF/1hD1WPWd0kV1h1RmZlX1s2P6CjQW1IiEqRLE3HFER
-	RyWhx0TZIQKD3rMxf6dua7w6q0tqyL+fZ2X3Rg9hXShv9+E7+N0tst72LqzpVLxVk4wbomAvXGEHz
-	yCm4SCKfxUnK4GBd9ZDKhYI1Sjbq+a9yXtR3gbYGBHYOcDhLUiBA5nWeZ/SXIMCk7s1VI0TcSgCQG
-	fXTdlaSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XQhQndfAjCCW41vmT/buRxfVcInkS0CvR5/XJnbPAXc=; b=PaN9LjoXrjk+4eFXgnXA1CaZ4G
+	5hS5n2C0zThpWxjPTzmS/ZjLCFVRGPTQz0W98jCMmiLH8oztT1gmpZ27pWiKovAcHBw0n0i8jNaXV
+	0p+3yk7Tm/J+bxldEknjcEnZNx/Pqcg3tEWYDR7l+3JSKi8C7ksbKTtfAfTRLyAlDMAIL3as/4102
+	TJZqrBf5Y4elvwqKf/JczggAWM5NJGOF0zRdNa+HOyLnDmRx4LdcVec2r5jlOi1qj+eSG2Hf/P+7b
+	zoV9nHTTJ/WPuey7StIQkkET1nFMgQ5Fb5ddVQyCxXG6rxhSbUpBcq34yEH7t/BnNfJhwTa2KqUzw
+	JGJuW47Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkTIQ-00000000ZxV-1Jsa;
-	Thu, 16 Jul 2026 21:07:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wkTOr-00000000aRV-0CFH;
+	Thu, 16 Jul 2026 21:13:45 +0000
+Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkTIP-00000000ZxH-0ihL;
-	Thu, 16 Jul 2026 21:07:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E710E411FD;
-	Thu, 16 Jul 2026 21:07:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD7171F000E9;
-	Thu, 16 Jul 2026 21:07:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784236024;
-	bh=wRv4lOlKrq3dAOzPxj081DoRmnFjvX+pfhBpXeiahJI=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=D2vMWjornlyVXuKs4ZElabuNI7w1Q3eVyg5StJmER9vXugRvhmkx9JO18TXH+ZEuF
-	 Rs1kYbqnqUazDhraR1RRZzVA1hQ/nl9zkOwV5baDCNG91SK0kRqcVaqdcikpGAZ/45
-	 OiR05TZv9aVfYwMI7xw9HzGTAxxJXIEIs+TTpI3B6c3yCbV+WeRlMvtpm8mPIUV5A8
-	 8z+NEwAjHbDZVIYJbqbWUidGgMR0LVQnBaqpEDPT3zlAi5QdVr5qNl0VISAqP9bYDc
-	 teQ4Z1KkDIeTwDcEJ5pJVjF2/TaTQpvOh0qCHcggSJi5UfPlJb6q7E8zyw+LDVBcnY
-	 H/8wbiIimcRFw==
-From: Srinivas Kandagatla <srini@kernel.org>
-To: Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
- Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Roman Vivchar <rva333@protonmail.com>
-Cc: Andy Shevchenko <andy@kernel.org>, linux-pm@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Ben Grisdale <bengris32@protonmail.ch>, 
- Conor Dooley <conor.dooley@microchip.com>
-In-Reply-To: <20260713-mt6323-nvmem-v3-0-205c39267a24@protonmail.com>
-References: <20260713-mt6323-nvmem-v3-0-205c39267a24@protonmail.com>
-Subject: Re: (subset) [PATCH v3 0/3] nvmem: add support for the MediaTek
- mt6323 PMIC
-Message-Id: <178423602161.378875.7272283878375160682.b4-ty@kernel.org>
-Date: Thu, 16 Jul 2026 22:07:01 +0100
+	id 1wkTOo-00000000aQv-26Vz
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 16 Jul 2026 21:13:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mbGFyEqUIW3q5pWwwc68Qm1mHuPUX1EManeJ4Xavp16WMi4F1ZROWt3TrX9aZcd3fWi2FoJjjj7C7tWBzMTShcqQhggjVa3ANyPZJfFamMhj57xqJKh92GgnbJfF8OxQdAiVRs7v9Yf4HhSyjrcEw7CA7VowtBsye2/FLwuYGNIibSp0xKkiFy+TJwhovh7D9HXw94pPaA5rUWpf8KveIcTGZjOKhcm7J6EwoH6bFjaq0Od9tWqNV7K3kjzxVmAWHC1/5bGkIx2Uihh5IcaWGCES+cVMzWbrDMl0qg3gVVFcU/cVe4cUGCek9uZI9y0E6/fbmSzvftOwazEHk7aQ0Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XQhQndfAjCCW41vmT/buRxfVcInkS0CvR5/XJnbPAXc=;
+ b=T3odd4UIauLQ1fwMnMfL3Fx2p5V+BbD7SvFPyFIu8QppMY1VuHVZ3KwyjnnHmprziusiBETtXjXMjwUUljwQFqpfiT+azSEWMZkBDKrqs01RO5lgfr88o1vKlwDsciX8btjXh/2Dm+BXTcVmEi7/ltAaKsyP/Bif9N4J9Ke+8rNectnyfNw+BYKHiThCK1SoC8YRCtZkm2339lAnK6jeKnU2OmFUH55ogHUHBWQWmWnAjF22rbjX5z+OGdSYg84dzymNSRnS4C6PE3VknN0IC+lxtli/UXFXnk8BDc95Q2B47HyW4bfJFzSzteZFw/v1Ho4S1MRclNyoXyNoIG+dbA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XQhQndfAjCCW41vmT/buRxfVcInkS0CvR5/XJnbPAXc=;
+ b=k9251eDqK6w9nGNkUW/YxefZ9cq3OyC+y3NHuwGo94o3dBMBZTMFSznQn3ozT/gHP1F2/uwUAotF7TCRcUMyoa0TY4is3lAQqYwNhhFvES/BtNHON75wTiOudvjm4K1RqTZnSpKQQ21SvIQOsIck2FoofHBI+Ioy87Ew3jNk3pg=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from MN2PR01MB5615.prod.exchangelabs.com (2603:10b6:208:11c::29) by
+ DS3PR01MB994655.prod.exchangelabs.com (2603:10b6:8:38f::22) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.14; Thu, 16 Jul 2026 21:13:35 +0000
+Received: from MN2PR01MB5615.prod.exchangelabs.com
+ ([fe80::996f:e4f2:dbd8:120e]) by MN2PR01MB5615.prod.exchangelabs.com
+ ([fe80::996f:e4f2:dbd8:120e%4]) with mapi id 15.21.0223.011; Thu, 16 Jul 2026
+ 21:13:34 +0000
+Date: Thu, 16 Jul 2026 14:13:30 -0700 (PDT)
+From: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+To: Robin Murphy <robin.murphy@arm.com>
+cc: will@kernel.org, mark.rutland@arm.com, catalin.marinas@arm.com, 
+    ilkka@os.amperecomputing.com, bwicaksono@nvidia.com, 
+    linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+    linux-perf-users@vger.kernel.org
+Subject: Re: [PATCH v2 2/4] perf/arm_cspmu: Improve APMT-based PMU naming
+In-Reply-To: <8f260d150da4fd8acbe0a070033c9b9e045fced2.1784213435.git.robin.murphy@arm.com>
+Message-ID: <8954907b-9ec0-8a58-8cff-c7c3fc1f6aa6@os.amperecomputing.com>
+References: <cover.1784213435.git.robin.murphy@arm.com> <8f260d150da4fd8acbe0a070033c9b9e045fced2.1784213435.git.robin.murphy@arm.com>
+Content-Type: text/plain; format=flowed; charset=US-ASCII
+X-ClientProxiedBy: MW4PR03CA0225.namprd03.prod.outlook.com
+ (2603:10b6:303:b9::20) To MN2PR01MB5615.prod.exchangelabs.com
+ (2603:10b6:208:11c::29)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN2PR01MB5615:EE_|DS3PR01MB994655:EE_
+X-MS-Office365-Filtering-Correlation-Id: b39b5da0-17c6-4644-dd47-08dee37f1881
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|23010399003|18002099003|22082099003|10067099003|55112099003|56012099006|11063799006|4143699003;
+X-Microsoft-Antispam-Message-Info: YeI23aHpgSh6FYjS0JIOgcmakKZBsPzbdvTQp9sdusFQrBbXWFI3JlvtP77kjxUvFltcjkF0+TiaqfM5B0Z4tIEddw+oCTrxqwbdNeXg69PfLtHwbVuWasj5nTbWD/kh51YvptJhWWICbZuo4irabSBrM+vNwF1sAW3MoTjGH5WM4ng64xk/3QgliMtOc2A6odiN6HGr9M0pEamu7apHEWOstUqu3SNH3k1ozuN6uxB2TVXrdTaz/TX2i8HEY4XHirtj+PQXQ5p0ldoaPPUzGA5dIZxRLDyLGAl/lOAyEGWbSXMf0VVNwmBk0cnNLj/5dzuNso9h1vYSliWW4u5uvyOHnBlvqo/4h1zC56nTJIuDikEwhJuJ1uOL2fduGD4bUK7xq3tgZK0jVF/kIdpczWpH9CTqYNN/C5Uegh20ZYzKvknPBslEH7vysQdjFlAh+plCk9ABQCNNQ2+BOueoPnugOy9zuuyxXGQRLk5rp48/CfDA1Ez8J83qsO1HZAUzOaCZDubxnoSYhcFxicMPF6DKoPikJvXq6NpqKJyS1bwZV0otOs0cvHazEN2/PZjg84QdQiYj0pDXBuLVbFyhKaPbVV0TaVjony5umdUUTVHvnTNgEb8dSU/sW4kP0P9R2RsnGZhwDXF7HaDVQxZORTqAYkIBLL/clRo2IayNr2U=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR01MB5615.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(23010399003)(18002099003)(22082099003)(10067099003)(55112099003)(56012099006)(11063799006)(4143699003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cQ5q/qQkSoYrjBmP8eFRLm4fMi4xBrvEYBApwrWZ816w7/heU8uDbE7RBWwM?=
+ =?us-ascii?Q?uftHt7/rilfXGWQlj+tkWteUCgWR+BFdYTZquoFJWim4y+MM0wnVBw8rlkf+?=
+ =?us-ascii?Q?AwmByWaKzhj9k1NT+9zzxvbFiwjDfzij0UJukOO8fvjd3d5/x22M7vGngjAa?=
+ =?us-ascii?Q?9IGfLMhtvKgwc82DjJcQc+PfF8vpL0ZoaoL9VkbRgGz8gL7jHXQHpKXmj12+?=
+ =?us-ascii?Q?uz1kzSM++daC6NQW4siBwWk22DQicd07387jzSxbCZeN9QIGOg7w8aO73Sik?=
+ =?us-ascii?Q?XV4pYGrPheiBkAon/o4r0GRt8urDdcgmwXld3k6+elFbVrdfzVbpBYRyOiKu?=
+ =?us-ascii?Q?J0OzyWmo/E9lnLGikz+KXP8gXIVhkF87m3QsIm16PJa4v5p0j0ZCJusVAdcH?=
+ =?us-ascii?Q?ijZ8Lv+dseMubewQ/p9BR8X98sbwWARC3UWRBtiBlNa78m3gRhsGZKWXWtsG?=
+ =?us-ascii?Q?pt3n4EbHkF0GrNbqlx+vxzEthr6M/g4lxcZvgjwJhX9Wdo7eF6AHS/8RFXBu?=
+ =?us-ascii?Q?QuLwiC0Op+nFLe/u/3CXO3DSklnlbfyug9u480KPR/dHUyNhWC10o/dsRvT0?=
+ =?us-ascii?Q?ecTl8LJs8m97aiLcZbBtcFPFghrNwQ3kZX5opapgGysJh8oMCY+JeOA0vaVk?=
+ =?us-ascii?Q?RRNjRMR/mI0m+bIL36xCL2pb1jQ8kC2RalXoJjqf7p0CHf0iSAy4JtpQBkeO?=
+ =?us-ascii?Q?x91GJkd5D7TwN9OkX+38pCCaSlYpkhJuSPfR7OB8VKZbVCWMMCDYrJzsHygJ?=
+ =?us-ascii?Q?NcFPeOGCx68/WREo1j9tsGDkHRfkL1rw1M+uVjt9tWz+f+nkiGX8+YuUD5Rd?=
+ =?us-ascii?Q?YU/rtiMfpTvAfizx+Ebqn1WVqLGkcBC0WtZFeekROS0cMXesMKqjMxciL7mT?=
+ =?us-ascii?Q?2FjnKGWi5E51OeIgcjymisH6d+VDRMCvczkfMzBTLVv+PB83QHBfjX5mpkHx?=
+ =?us-ascii?Q?QaKEZGHLiTGT+wGnnCdhHY9tNawnPmwNFhn2co6j2oQn5GLEp46z8Odf5NFO?=
+ =?us-ascii?Q?tLk8MR76tTBTd4LjEBb30uYrFKwoMVOWmFcN79cunQXr3fbo1GIjuoQA+Wca?=
+ =?us-ascii?Q?RmLJ37+c3roG1zJqj2kmb1ul2qM9QJWUqEL7weFGGESrp8WSRShqlB79EFtA?=
+ =?us-ascii?Q?YrbonDlfgNmEJsl+H9ijffNnnU+py3tj9CLfiAWmujVsPliQqGCSyZeA7wzf?=
+ =?us-ascii?Q?IwSmt/I+Gm4BaLHJ8pMWWL8LMxUhARr5n6jIztAgFziSbqm6Lf5MbzZMqjXY?=
+ =?us-ascii?Q?t2CAk8YmaVkAxUVNQBlNnG4CbpRfGxpUezLCi22i55yEhhTSJfsptxEMpFRo?=
+ =?us-ascii?Q?JlCdvJBYJS5TtqW38+kxGlTDU0mJjp9y7r4Txhy2iGtmGqg8cN04mV9nmt4d?=
+ =?us-ascii?Q?t+m95DvJvzljRsK/8uAN9DEYnhABPdZew1ZFI/nzjoyPVq+tYQvYM/zStZhW?=
+ =?us-ascii?Q?3K81/MFT67qDq18L9Wa1FCioDkkumg8tzutBal4hfLPfK3ML0iCsm4awATO9?=
+ =?us-ascii?Q?QylLr863Qbjm1o8J6KcA5CwQPhA22Szg1M6oEPzHLxNvk15MGCWl3cn+jkob?=
+ =?us-ascii?Q?QpkgDwsZa4y4mvOrxAClwQxz+NaPGr5TX3qwdi9tHJSNkVs+F3dDaZ4xbzN+?=
+ =?us-ascii?Q?P8tZKylHhsi1rCXFfh3SaprzmxdMuytTEXMMyJPvb8siqKZlgr8K9+t3ccCf?=
+ =?us-ascii?Q?ARxCx4VJdeLqT3TXaV2z+9TZXADwfaTDIwDlRU2xrDCVodonC+3CKjcNGnYn?=
+ =?us-ascii?Q?xJ2HizudMIi1rdFBXQrwGtygMkDAxrA=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b39b5da0-17c6-4644-dd47-08dee37f1881
+X-MS-Exchange-CrossTenant-AuthSource: MN2PR01MB5615.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jul 2026 21:13:34.8956
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 39/Y6/pR00b0YJ6rdBmZKAoYWor/vkroJm/0ZPYsuGMqqdSF4pTS+0jhRpvB/ZIeAdEiPHgzVr/edRc6HfhEPvzOnSBoAyV/U2TiPqGXgU0AXEUQwJ4h3PB49XEtbCoy
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS3PR01MB994655
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260716_141342_598288_E2829935 
+X-CRM114-Status: GOOD (  21.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,26 +138,104 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 13 Jul 2026 13:11:34 +0300, Roman Vivchar wrote:
-> This series adds support for the EFUSE found on the MediaTek mt6323 PMIC.
-> 
-> The previous version of the series for all AUXADC, EFUSE and thermal
-> drivers was split after Krzysztof's comment [1].
-> 
-> Tested on the MediaTek mt6572 and mt8163 SoCs (Ben), both paired with a
-> mt6323.
-> 
-> [...]
 
-Applied, thanks!
+On Thu, 16 Jul 2026, Robin Murphy wrote:
+> On ACPI systems, it has not actually been possible for userspace to
+> reliably tell which PMU corresponds to which APMT entry for types
+> other than "ACPI device" - the evidence trail only leads from the
+> arbitrarily-numbered PMU device to its arbitrarily-numbered parent
+> platform device that has no distinguishing features either.
+>
+> While we've now improved the platform device creation to associate the
+> actual APMT unique ID, we may as well also tweak the PMU devices to
+> substitute the arbitrary number with a different arbitrary number that
+> might be more directly meaningful based on the APMT definitions.
+>
+> We don't have an equivalent for Devicetree, but in that case the
+> platform devices are at least identifiable via their sysfs-visible
+> of_node.
+>
+> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+>
+> ---
+> v2: Actually use the instance-based ID where different from node->id
 
-[1/3] dt-bindings: mfd: mediatek: mt6397: add mt6323 PMIC EFUSE
-      commit: 8852dfee93d3f8a54399060052e68792ba35f1b1
-[2/3] nvmem: add mt6323 PMIC EFUSE driver
-      commit: b3c090960d86901bd4e41447744fd532d6e1d7f9
 
-Best regards,
--- 
-Srinivas Kandagatla <srini@kernel.org>
+Looks good to me now,
 
+Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+
+Cheers, Ilkka
+
+> ---
+> drivers/perf/arm_cspmu/arm_cspmu.c | 35 +++++++++++++++++-------------
+> 1 file changed, 20 insertions(+), 15 deletions(-)
+>
+> diff --git a/drivers/perf/arm_cspmu/arm_cspmu.c b/drivers/perf/arm_cspmu/arm_cspmu.c
+> index 80fb314d5135..8c2dda17d73e 100644
+> --- a/drivers/perf/arm_cspmu/arm_cspmu.c
+> +++ b/drivers/perf/arm_cspmu/arm_cspmu.c
+> @@ -250,38 +250,43 @@ static const char *arm_cspmu_get_name(const struct arm_cspmu *cspmu)
+> 	struct device *dev;
+> 	struct acpi_apmt_node *apmt_node;
+> 	u8 pmu_type;
+> -	char *name;
+> 	char acpi_hid_string[ACPI_ID_LEN] = { 0 };
+> -	static atomic_t pmu_idx[ACPI_APMT_NODE_TYPE_COUNT] = { 0 };
+> +	static atomic_t pmu_idx;
+> +	u32 id;
+>
+> 	dev = cspmu->dev;
+> 	apmt_node = arm_cspmu_apmt_node(dev);
+> 	if (!apmt_node)
+> 		return devm_kasprintf(dev, GFP_KERNEL, PMUNAME "_%u",
+> -				      atomic_fetch_inc(&pmu_idx[0]));
+> +				      atomic_fetch_inc(&pmu_idx));
+>
+> 	pmu_type = apmt_node->type;
+> -
+> -	if (pmu_type >= ACPI_APMT_NODE_TYPE_COUNT) {
+> +	switch (pmu_type) {
+> +	default:
+> 		dev_err(dev, "unsupported PMU type-%u\n", pmu_type);
+> 		return NULL;
+> -	}
+> -
+> -	if (pmu_type == ACPI_APMT_NODE_TYPE_ACPI) {
+> +	case ACPI_APMT_NODE_TYPE_ACPI:
+> 		memcpy(acpi_hid_string,
+> 			&apmt_node->inst_primary,
+> 			sizeof(apmt_node->inst_primary));
+> -		name = devm_kasprintf(dev, GFP_KERNEL, "%s_%s_%s_%u", PMUNAME,
+> +		return devm_kasprintf(dev, GFP_KERNEL, "%s_%s_%s_%u", PMUNAME,
+> 				      arm_cspmu_type_str[pmu_type],
+> 				      acpi_hid_string,
+> 				      apmt_node->inst_secondary);
+> -	} else {
+> -		name = devm_kasprintf(dev, GFP_KERNEL, "%s_%s_%d", PMUNAME,
+> -				      arm_cspmu_type_str[pmu_type],
+> -				      atomic_fetch_inc(&pmu_idx[pmu_type]));
+> -	}
+> +	case ACPI_APMT_NODE_TYPE_MC:
+> +		id = apmt_node->id;
+> +		break;
+> +	case ACPI_APMT_NODE_TYPE_SMMU:
+> +	case ACPI_APMT_NODE_TYPE_PCIE_ROOT:
+> +		id = apmt_node->inst_primary;
+> +		break;
+> +	case ACPI_APMT_NODE_TYPE_CACHE:
+> +		id = apmt_node->inst_secondary;
+> +		break;
+> +	};
+>
+> -	return name;
+> +	return devm_kasprintf(dev, GFP_KERNEL, "%s_%s_%u", PMUNAME,
+> +			      arm_cspmu_type_str[pmu_type], id);
+> }
+>
+> static ssize_t arm_cspmu_cpumask_show(struct device *dev,
+> -- 
+> 2.54.0.dirty
+>
+>
 
