@@ -4,92 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7875DC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 09:43:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95496C4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 09:54:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H3kc+neWyehlIpkf7WYpZ3XjGhqaMPOicmWK3YOMAk0=; b=uSmBMa5LdeRQnmz2j6kPL2CcVk
-	JjY5AnPddi7Q7nr5IPFxxg0vvb1oEUSq9KdDSoJnXxybRuGTIWuBJLIGpjOhaGUqXrHiViEHxUj/a
-	a7Wv2/oHocOuED7l4HRcZBkS8SwXMRoZaMQ0t1Tnml4a9l0qXElxRnC5sS5uHxw++Rqx18Sycuift
-	iOxxWFdGdJBlZlNdMlcGZAJKpLaxb19cV9v2R90fRtjDBgmEK62FgLZDmljU8pvRA4R3BVC74XYUX
-	DdbL21lRIY2P5f2rx5sLe5oxoZAzgpuoaBiPeQN4Q6elURWg7hZ92aiPtPcQE8jIrIjgGszhXDj5d
-	qRWP/PVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n5CfasO0ETUI94CdcqzUm6T818X9OnbwiUpuYudmGo4=; b=vFJtWAgNqGUiOD7YsbUh6lHlSa
+	8E4BEA0mGYVBrPVknVht7TYhhnXoxIyJ860bkMyx908xngAdC9PFueYNCFiXav0RUmI9PWoVVtSfB
+	Q3yuq1Ne/DYNny80xRU8oPXxFAz91dpB5C3E0pkm7R1mg131NYLubcr4y6To7MRytBWme+REMSXY2
+	/605x80FURhR0rJEi2V8vsms0oIFYwOpoyZSd8VWCZVLegXtR/S3oeT8a5opTgQIR7PCA/xwZhbDp
+	U0PDwXmr0WWc2n1NFLOrgTEJ6tGpTX7cdibpG3KU617kGRHEFVP+6TOvJ/tCirgDyatgCF+6ZTxYF
+	agFEhZbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkIcb-0000000Guq7-3PqK;
-	Thu, 16 Jul 2026 09:43:13 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1wkImz-0000000Gvvi-28bm;
+	Thu, 16 Jul 2026 09:53:57 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkIcZ-0000000Gup0-145M
+	id 1wkImy-0000000GvvY-3QZH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 09:43:12 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2cc7ef7ec27so73561095ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 02:43:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784194990; x=1784799790; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=H3kc+neWyehlIpkf7WYpZ3XjGhqaMPOicmWK3YOMAk0=;
-        b=mYos07SOXlkof6cxHm1FHg1rAN95zzmLU0VpRhS7gTQeC7p9IaZKV6gnFHu9nh8CNR
-         nj3Qc18TKfSLJYYyyd+cdLkuSUwHRxVXcKBL4FPjZnep3K+hmj1tfdwEjamHsJlhP0yW
-         wDkk9iMjRm0UTwMbCBMwlYUG8HZ3XJ1s6HQ976P4jM35mroBwumVy3gNjoxYmgKIwQkE
-         xhgGU7gFAZV8YXQCA3xHEEy4/ae3Fq/+8UbjKQoUkkagcBdOY9tHTk8Gp6EpmP0Qu8Mn
-         RPeue/lrlK1D88GhQ/MJqNGKniwAv108lt44OdxQSULftatfDN9uPnRQjW/jTIhyWdLt
-         yUiQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784194990; x=1784799790;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=H3kc+neWyehlIpkf7WYpZ3XjGhqaMPOicmWK3YOMAk0=;
-        b=hrnJ3GR6FDeCOQbdv7qgH2HrFpRtUXwY02pDg+a7EJxpRtlg0yDdBbCs61xqXgnfcA
-         fJRgVy7W3AVCSEJQL0f32iBpNFexPayRi2zc3fEPyuR5ay1X6KtUGQdFETGxbN2et5d5
-         8Wx1DWpm0c3OECdgJMCZ7Wbnhcm430ulkHwH2yXGRp4oYorYPlQAiyw8WcbRFDyGEjZX
-         Zj04PDXPuEw80RCc/W8VCvVpt3VjibuQS95h0NnT4eBzrlmpZkEe8EkBtrAs0JR/7NlD
-         N77xO/vxBKg+IsgfQ6iEGB96JL4ur+EH4tPG6P7bXpWITfPeWA0LS3wjISJ4A22O1M97
-         Iipg==
-X-Forwarded-Encrypted: i=1; AHgh+RqCn0usfpn/OsM19ghj2yhdZBLEGVP/2PZOgkfXCWakwG6IBoOYR4sAOe+51gx4zPGBb+8PPKysNLYTHUJ08xwP@lists.infradead.org
-X-Gm-Message-State: AOJu0YxEviPAQtFNEOw4tcXRIkKOrhchG64HrXE+VNbQ4g/rJd/wM5Ne
-	wHso58Dg9GuPOYPUmHZ1qQ1/ZiTsBipJSpXFYe2AYyWLXQNUpeLBjZko
-X-Gm-Gg: AfdE7clvr7hgjNB1dCNS+jluOonT4HnmulCs05CHVGX/MNMuixxsUVaypyEQNsQq/5P
-	ZHy3+BRt8vJZ1PmI6HtPmqOWhfG0GcM40p+NBlF0AsxDxsMEoenZLspNN0BPLIOqK0MsJbnwSox
-	C1sVgiJMRnOVjsugkoPW/lUxgDkdMRWIbfZtqGnUJ1ewbvsQcDXSdTq9MsoUmaqXHB7eBsujJ3o
-	Zu1VFPHx/KCxsGPAOT2SAXGiaD/dQMazZExO7/VTkLudLfpMUYwtmKrtixGuIOI6LbzxwYW1iOj
-	pBr5fEu9W2SrjZlf0XEUyHUsCXdBd1fXBIh4d7WtST/QBZfzCq9n/fRB7DH6OhZPn5c6YNCYJl2
-	P8QdCvfU5d92X4NOCQpzqmSsUReFFviTvVNrlEaQ+BqeUUUAU70r+wLX2hjc1jqo4TQbBerarb+
-	Fc1pRu1WvSgyHORZP4BPureDcky3DyMyc=
-X-Received: by 2002:a17:903:1b48:b0:2cc:777f:d67d with SMTP id d9443c01a7336-2cf03cef842mr61110295ad.30.1784194989404;
-        Thu, 16 Jul 2026 02:43:09 -0700 (PDT)
-Received: from i386.168.1.127 ([2402:a00:163:2ce9:6882:91b7:8e79:7958])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf1055b1fcsm17449255ad.54.2026.07.16.02.43.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 16 Jul 2026 02:43:08 -0700 (PDT)
-Date: Thu, 16 Jul 2026 15:13:03 +0530
-From: Hrushiraj Gandhi <hrushirajg23@gmail.com>
-To: Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>
-Cc: srini@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] dt-bindings: nvmem: rockchip-efuse: add
- rockchip,efuse-write-enable property
-Message-ID: <6gn64vxmeksjtrp7q7y5jwniszeqrmdurbp4l466tli63aixnz@i6nlxwdjhewh>
-References: <20260715110107.409204-1-hrushirajg23@gmail.com>
- <20260715110107.409204-2-hrushirajg23@gmail.com>
- <2363663.KTMopqUuYO@diego>
+	Thu, 16 Jul 2026 09:53:56 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1F46F6001A;
+	Thu, 16 Jul 2026 09:53:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C82D1F000E9;
+	Thu, 16 Jul 2026 09:53:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784195635;
+	bh=n5CfasO0ETUI94CdcqzUm6T818X9OnbwiUpuYudmGo4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=K3XW/P6jR69B+V3zWrDch4hnyiDtsUokJ3l9UXrsgWNKDm2q3udtHcv9YpJsc90Xh
+	 BafM3EAgQNOyRBedUMQGJ7hTMB38nVj0T01CciUd6GTl0dyDAgaP0ya8fhmstt2/65
+	 CYyaUZccojmQeQmVreMz5ZXzvqQy8nWhtAArnB35+kGfXw9DyXDmcukdISl+p0fhwW
+	 uo5J1K+o2oeydrd1H3HMpDt8X8jTuXi1ypTDfozGLJfW4uAW+wApocjL4EWnyMAtUe
+	 w8grc7uuqCwT+40ph/zUBfuAmqd/5mYy5jOrE1uk4pOwoYbJID+lX4W4dJpo3zyta/
+	 n1e/VyPBzAM/w==
+Message-ID: <d3b07e20-fa35-41c7-ac40-11614f7a3b2e@kernel.org>
+Date: Thu, 16 Jul 2026 11:53:50 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <2363663.KTMopqUuYO@diego>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_024311_302368_6E2E14E3 
-X-CRM114-Status: GOOD (  27.44  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH mm-hotfixes v3 1/4] mm/vmalloc: acquire init_mm lock on
+ huge vmap to avoid ptdump UAF
+To: Lorenzo Stoakes <ljs@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Suren Baghdasaryan <surenb@google.com>, "Liam R. Howlett"
+ <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
+ Shakeel Butt <shakeel.butt@linux.dev>, Mike Rapoport <rppt@kernel.org>,
+ Michal Hocko <mhocko@suse.com>, Uladzislau Rezki <urezki@gmail.com>,
+ Toshi Kani <toshi.kani@hpe.com>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, Kiryl Shutsemau <kas@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Dev Jain <dev.jain@arm.com>, Ryan Roberts <ryan.roberts@arm.com>
+Cc: David Carlier <devnexen@gmail.com>, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org,
+ syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com
+References: <20260714-series-vmap-race-fix-v3-0-b812eccfa0f9@kernel.org>
+ <20260714-series-vmap-race-fix-v3-1-b812eccfa0f9@kernel.org>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20260714-series-vmap-race-fix-v3-1-b812eccfa0f9@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,89 +130,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 15, 2026 at 01:42:56PM +0200, Heiko Stübner wrote:
-> Am Mittwoch, 15. Juli 2026, 13:01:06 Mitteleuropäische Sommerzeit schrieb Hrushiraj Gandhi:
-> > Add an optional boolean property to explicitly opt in to write (OTP
-> > programming) support. eFuse bits are one-time-programmable and
-> > permanently set once written; write support must therefore not be
-> > enabled by default on arbitrary boards.
-> > 
-> > Boards that intend to use software-initiated eFuse programming (e.g.
-> > factory key provisioning) must declare this property and must ensure
-> > the required VQPS programming supply (1.8V to 1.98V per RK3399 TRM)
-> > is present and correctly sequenced during writes.
-> > 
-> > Signed-off-by: Hrushiraj Gandhi <hrushirajg23@gmail.com>
-> > ---
-> >  .../devicetree/bindings/nvmem/rockchip-efuse.yaml     | 11 +++++++++++
-> >  1 file changed, 11 insertions(+)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/nvmem/rockchip-efuse.yaml b/Documentation/devicetree/bindings/nvmem/rockchip-efuse.yaml
-> > index b80fd8d1ae5b..8a7195245c84 100644
-> > --- a/Documentation/devicetree/bindings/nvmem/rockchip-efuse.yaml
-> > +++ b/Documentation/devicetree/bindings/nvmem/rockchip-efuse.yaml
-> > @@ -46,6 +46,17 @@ properties:
-> >        this property is defined.
-> >      $ref: /schemas/types.yaml#/definitions/uint32
-> >  
-> > +  rockchip,efuse-write-enable:
-> > +    type: boolean
-> > +    description:
-> > +      Enable write (programming) support for this eFuse block. eFuse bits
-> > +      are one-time-programmable; setting a bit is permanent and cannot be
-> > +      undone. This property must only be set on boards where irreversible
-> > +      OTP programming from software is an intended use case (e.g. factory
-> > +      provisioning), and where the required VQPS programming voltage
-> > +      (1.8V to 1.98V per RK3399 TRM) is guaranteed to be present and
-> > +      correctly sequenced by the board's power design during writes.
-> 
-> Devicetree is not a configuration space, and I think this really does count
-> as configuration - as the efuse will be writeable on every board.
-> 
-> You mention the VQPS voltage. If I'm reading schematics and application
-> notes correctly, this is a separate input used solely for writing efuses
-> and _needs_ to be 0V (off?) during reads.
-> 
-> You mention "needs to be present and correctly sequenced", who is supposed
-> to turn on/off that regulator?
-> 
-> So you very likely need to define that regulator and can even use its
-> absence as an indicator to disable writes.
-> 
-> 
-> Heiko
-> 
-> 
-You're right, the boolean property was the wrong approach - agreed
-that it's policy, not hardware description. I'll drop it.
 
-I was planning to model VQPS as a proper optional supply in the
-binding:
+>  
+>  #define CREATE_TRACE_POINTS
+>  #include <trace/events/vmalloc.h>
+> @@ -158,10 +159,25 @@ static int vmap_try_huge_pmd(pmd_t *pmd, unsigned long addr, unsigned long end,
+>  	if (!IS_ALIGNED(phys_addr, PMD_SIZE))
+>  		return 0;
+>  
+> -	if (pmd_present(*pmd) && !pmd_free_pte_page(pmd, addr))
+> -		return 0;
+> +	if (!pmd_present(*pmd))
+> +		return pmd_set_huge(pmd, phys_addr, prot);
+>  
+> -	return pmd_set_huge(pmd, phys_addr, prot);
+> +	/*
+> +	 * Kernel page table walkers either walk ranges they own exclusively or
+> +	 * hold the mmap write lock on init_mm (ptdump being the motivating
+> +	 * case).
+> +	 *
+> +	 * Therefore, acquire the mmap read lock to prevent use-after-free when
+> +	 * freeing page tables.
+> +	 */
 
-  vqps-supply:
-    description:
-      Supply for the eFuse programming voltage (VQPS), required only
-      on boards where software-initiated OTP programming is intended.
-      Per RK3399 TRM section 21.6.1, table 21-3, VQPS must be 0V
-      during reads and 1.8V~1.98V during A_PGM mode writes. If this
-      supply is absent, the driver leaves the nvmem device read-only.
+Can you spell out here why arm64 is special?
 
-and in the driver, gate reg_write on whether
-devm_regulator_get_optional() actually finds it:
+-- 
+Cheers,
 
-  efuse->vqps = devm_regulator_get_optional(dev, "vqps");
-  if (!IS_ERR(efuse->vqps))
-      econfig.reg_write = soc_data->reg_write;
-
-The driver would own sequencing entirely inside
-rockchip_rk3399_efuse_write(): regulator_enable() immediately before
-the A_PGM STROBE loop, regulator_disable() right after - mirroring
-how efuse->clk is already handled around the same window. reg_read
-never touches the regulator, so VQPS stays at 0V for the entire read
-path.
-
-Does this approach look reasonable to you, or do you see a problem
-with it?
-
-Hrushiraj
+David
 
