@@ -4,100 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E9C9C4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 23:12:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B61FC4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 23:19:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m/QuFRSQM6jGskvpikRuPMQOLWa3drDNhXx6nuoLZqg=; b=sMx/4SWgyQ1Bwe6uTVCyYZEvtZ
-	rsiUbIa18y20ek+8zXbHPjiOftpyAB/+btA+i2ODsBCnlDD1p2gJ0t24ehEuYhHWoAawl1oVbr+kC
-	aU+uBbgnHqimmlZ8CV4vIMUA3psipkmHB4kpAO2mFugEUjlQZpiFi182ejJB8pyrayOwNTs5KR9Cy
-	2P8gukFtyM6sFL8FJ2B1kPyCgeA8BQ69cCdqomnJypKx3v+8pJ6tQSyA0+M/10ddZcl17GVmf8VPB
-	JktIIYdYhEVfn8WqG4/i1cOVi6XZPUKM0j7MNXndZ4hUWNFtCHiO9YeebsMyJ/tjJiJaLHyVPoCKM
-	rXb64E9Q==;
+	bh=s3cXULbKCIHVZXaBSZwWm05rlQZf/t8tj2PxjsvmhEk=; b=xcSOUwcaVNLBpZKZVTBIiZxIfS
+	zDjMIOdpUwrl1HJJ4lPBrzpRdwRPUB2tcbMRDC7HhgIMfDb4oZkgaee1GXoHtZDKGF3qsdTDnGlOI
+	OjCVoEgRlwpvgb6MoYwCRQewJUDQ8TMkQrn7bCzFFtnIoT7KTFuHYWl5z8WRECXyZso8WBAQU4P4P
+	0ay08FBEgmrWDdwyi4rqsm4qGu818aqzMBDYGmmYnOKsmPAhqWrJNRIRsl1JxwYOisajcAp3z3hr6
+	goxQb5ANuSdC9E29O2tf33SlIS+4+5Hh5Y95Eod/V7jHqC8cw6uPLm4SfLt2GjtFCSIphEBYBkOwH
+	xgrB5dyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkVFw-00000000mi1-3sTT;
-	Thu, 16 Jul 2026 23:12:40 +0000
+	id 1wkVFr-00000000mgn-34cz;
+	Thu, 16 Jul 2026 23:12:35 +0000
 Received: from fout-a8-smtp.messagingengine.com ([103.168.172.151])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkVFo-00000000mfy-2YlA;
-	Thu, 16 Jul 2026 23:12:34 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfout.phl.internal (Postfix) with ESMTP id 3F95BEC0089;
-	Thu, 16 Jul 2026 18:51:49 -0400 (EDT)
+	id 1wkVFo-00000000mfx-2Ylt;
+	Thu, 16 Jul 2026 23:12:33 +0000
+Received: from phl-compute-11.internal (phl-compute-11.internal [10.202.2.51])
+	by mailfout.phl.internal (Postfix) with ESMTP id F2DD9EC003C;
+	Thu, 16 Jul 2026 18:51:42 -0400 (EDT)
 Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-05.internal (MEProxy); Thu, 16 Jul 2026 18:51:49 -0400
+  by phl-compute-11.internal (MEProxy); Thu, 16 Jul 2026 18:51:42 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
 	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
 	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm1; t=1784242309; x=
-	1785106309; bh=m/QuFRSQM6jGskvpikRuPMQOLWa3drDNhXx6nuoLZqg=; b=I
-	9Z+S1Jbh8fSe11k4PFZ1HDPDPCV0jeQvIHeODEQntFh2PR6SG7a7QK6ymJ9VPbMW
-	3ejOoCW3JamQjg/Sb88Am0vhSrBmxNGoUDFOhFj/YHgtUFz9r7HqKcmtT7F6l23j
-	/RoYsEvOcEpSzH2sr4/Uo38M7B4Sada1SIScA0G53MMUDwFQQBQAUyN9m0yV5oFq
-	1cWmnvFus0IEMnFX3g5DpGF/3tbaD+zUiNXDfJrtgSGh+SwRtCsDeTKBJsxn4vFI
-	39xpXHUq6/jq5JxMh59WR8d0diMKAw3BZY9BlCEyebJxiEm5xO9Jz2iU/m6mazbT
-	XrtCHUAPgDKroPIxvsxgg==
+	:reply-to:subject:subject:to:to; s=fm1; t=1784242302; x=
+	1785106302; bh=s3cXULbKCIHVZXaBSZwWm05rlQZf/t8tj2PxjsvmhEk=; b=V
+	McHBbSMI62JlGYzwu6OQy/xohl/s/66EkzaYYt/+QFhwFKpR9hTorD97T/SxIkLx
+	wc7gswCXBv96l4Zp+bWS07cdUi0oXx961dtCuAsOsImrjqeYu4HBpQE7pppOpdmG
+	NnSHICYxriHahKapvOjbHZHbOO5HcBfxBhNryuMDt/ZLOrnpXubnJJmyuBoC/sTP
+	0HsoaiSbp9nxgqhiJcHSu8QqFxxhnDToB58qEaqXibC08+KAc6L8ZIOUzMCyGaa4
+	20puS+fTh76geGgjcTbWIlr7nHewXZmaZy5GK+UDyHPPboQ8VdH07/+tnarjgA5u
+	dHK+bkIERCbr2RE297j/w==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:date:date:feedback-id:feedback-id:from:from
 	:in-reply-to:in-reply-to:message-id:mime-version:references
 	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm2; t=1784242309; x=1785106309; bh=m
-	/QuFRSQM6jGskvpikRuPMQOLWa3drDNhXx6nuoLZqg=; b=PWI9MLRrWAKH8LvwY
-	MD0XzwrD/Q3MYlT0+Uzgyw3a6h4hEt11K2rqu2ePK73hDGuNjsM/hc84hXr11+od
-	HInC6JqXt+9TPUcqeqzcOmVQ8XVecL3gRAvgtC7Yn41z0WV0lwMZa1ohMcnvxeVj
-	89ascf0fRAZviF4Pf6aS6q1Tx2c9c2p5O7/PqtdI4eP52CTgowS9jtpzPy18NZ03
-	Ei1uTXm9JIVsSpTC70B0d+LnrN/b9knOib9O/NtWIJzTbfUKjE/hPEgVgFZ4E87E
-	k5HFZdj+v86q2f1M/tbdUjGbTBbJ1eplp63Nv/i/ZeDERl47L/6npw1Z3WaR0tRv
-	XuXgQ==
-X-ME-Sender: <xms:hWBZal699OaAIKlm46-GGbZcmGDka6KMPMXj6q1jHowQbcd9uskp_A>
-    <xme:hWBZarElcRE88ESna4uy1rxzxRz8hinGA5i_MsVR8hk-vWYKdAfMMGDMIqZSEndsz
-    zobPjEYrAwMxzlgmK9pn-UTd_qhzTKKyV5gHeLKwn7Pe0gysYqHjUo>
-X-ME-Received: <xmr:hWBZaoDUsNttMKk3UGHiPx9_-uW75OYeUS89xU2OhaR_VnBFKHxs8pw5w8jXWqEnDoFMCvVT2jAG9KKl38g>
+	:x-me-sender:x-sasl-enc; s=fm2; t=1784242302; x=1785106302; bh=s
+	3cXULbKCIHVZXaBSZwWm05rlQZf/t8tj2PxjsvmhEk=; b=WOmjHf8WmOGFH7u/5
+	L7KG+EQypcB5G42/Rqx6uUKCfaHl0RiJrCvrtUItKrm940+vQwerGJZs1AIFUowr
+	DobYD/fsgwMKXQ8AALcgBxGwArEi55LGos2e91uyDfvAeLjd93TbPUppq78kGUdq
+	QNPWmYRdmi641TVddzNYIEuKsKBnNcgXJrDrl3w73C1xeTDN5RWKqhGMfbLBkYDZ
+	V3hWMVKT/DDwh07l4DXeuwmb5X5HF0ynPXfi060qVHNny5FQUe0Y7v/ktAjmbQ/h
+	wCrae8gaNkgznYreArvpzXUEE9ADXnhmsbmKrRuwjub+ugn9b0b2fN6gKcbFZfa/
+	gRITw==
+X-ME-Sender: <xms:fmBZaglz8jEM8AgvPj2b53QieZXxJfVYcmjbUmfAyQE4cbUOJlV32g>
+    <xme:fmBZaoAhU7T2YiS1xuqm5HFkAxyo7au_rc949u7XAkvuH509qdAxUt0YYzb0wiCtj
+    Enc4ZWh43v0qqrfm4DxIkPCPtTVLk-a0rYyeFzN4qrFDdtDXtvvekA>
+X-ME-Received: <xmr:fmBZaqMF-eIdE_7gdJ673U55LCokpNtl7fJxE_X3Ne--nTjxQhWeYyCc2u7-Sz0cbNhIfzBTJkfjR5f-obE>
 X-ME-Proxy-Cause: dmFkZTG0kLL2r3BGP8LXEPxN2Zb6VvSqQ9uCR8eBin4CWjH1opqEBzK+o7HzQhPMU+8DaU
     Hg6S5aSkKo2oLZ6tFycACl68psHaw+rt60gPT+fiE16kWsg5izpHh5k+kicW2vIjZlcypa
     ckL1HKlP/PKtzdDCLGSg5ZG1R2AuPb3zfsqqh+cOgQ5JCjK7unJu2iCeXsP8flBJGK3Lzj
     ki6Cj8SbJN8jf9b/dETi4UJdSOAzfE8vmZ2WIfwJTICY+5sDmt37/UaeEIquZwIu7z5hsl
-    ohrQyrU78XzMUxpofzdCqnp7o9RJjyG1PHP1BrzoTHTwRuQDuyPkP/u+qlRLqfQSXyszgG
-    tSZES5+oVmhrA6az+Mu6Nx3/2xBwZCpmM8igfHOSLPO+YgEE53MV1+g4Brz0OunsfOEPwR
-    RYXfcfgOpz/6I9jTL5wMS6WkUkChGZYs5If19MKZVGQV6pTQrOtciuFq6JNaqdcgkY3CP5
-    yMYLOSuV88bjAPNGt31BOqdjVhWHiXegjMUDMzLLnuh5V2fD+WE+c+N+FCP5tkGVHEJmUj
-    NY4wCKa9XaKVRGzjgAzO1JyisGqjpRVjR+VuAY+ktuwporWwnxgFt80HUv3giIpuHlzXHE
-    WIB3AEy3DWt5n67h+5r9fEvKfTPRDTJXfipZcL8jNi+qUra7bNVcLDB0QrSw
-X-ME-Proxy: <xmx:hWBZaowArrFhmUm3w3LhNEbfCsa1hLvZKRwjhc8jJL1stbVGhm9D6A>
-    <xmx:hWBZak5H8tt95k4mgQt9isxVxBlfPsbXcw1WjklYVgcaVNyIDBH86Q>
-    <xmx:hWBZahxDBamjrXe3PPC0L2umTL5PAohPVw2qxHS7uLScgGgrZgX0Qw>
-    <xmx:hWBZagfWI6cZK9BRPnCHsjb5YMU3wl6OIfbVZiX61f-jTO0kirzrUA>
-    <xmx:hWBZatwddIYE4_Vh0kdLZfYYdvPs5k9xWgeddlhYXGF2Us3c1gxxioz0>
+    ohrQyrU78XzMUxpofzdCqnp7o9RJjyG1PHP1BrzoTHTwRuQDuyPkP/u+qlRLqfQSXyszYb
+    M6u+rVADxavm/d2ADd/sB2sCXFteBCu7xVCKoiKCcJlCzu+gaPYbubx1Y9dmk5EbatunIA
+    7ESQDJIo//iAdO+Md3Kum9jCvcrtu3MKCIupVEz5cTXMwiWwg39qyGqn5eqld0oBBcGht2
+    8fvANe7UgHnxhHCqgRKll1tXeRA4o6S3XgeAhxnmZYuk2T199NQqVDTZ4QwJ0MY74e7zo6
+    Z1Q2pIwdoJCbalMlM9/EebybbJNTcC04kbfa6ZAl5QBzIzxJuznhyr34F6vEMjVeDrYxTa
+    znu1oKvKab13D0y80udLUwzgLs/FC3Alljzrr1aXhuoTXW7CglaEGdItlxRQ
+X-ME-Proxy: <xmx:fmBZanNe1E38J-zpkw3OagtFH7E6suGZL4y_fsUSUO3RHNjLDHAGIQ>
+    <xmx:fmBZaqnMmbMDe1vouBW7QRbwCaKV3kp7ZrG_m9ia4bHdo5z4xLQU0A>
+    <xmx:fmBZatvMDNdDqUYHVyRZ6d_5IRXSSML9Vd2QAc2VYukpP6XC0BS94A>
+    <xmx:fmBZaloWL6TbWwnRs3O_BEVVntV8FbXQXjoUSYK2smxb0h6cO0FIUQ>
+    <xmx:fmBZavOFncnRBa5ZiakygoOTQs2Dn5odbta26JuGj9JHeg57HCCqDb0b>
 Feedback-ID: i7a5e4b5f:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 16 Jul 2026 18:51:45 -0400 (EDT)
+ 16 Jul 2026 18:51:39 -0400 (EDT)
 From: Jiaxing Hu <gahing@gahingwoo.com>
-To: heiko@sntech.de
-Cc: robh@kernel.org,
+To: andrew@lunn.ch
+Cc: heiko@sntech.de,
+	robh@kernel.org,
 	krzk+dt@kernel.org,
 	conor+dt@kernel.org,
-	andrew@lunn.ch,
 	devicetree@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 0/2] arm64: dts: rockchip: Add ArmSoM CM5 and CM5-IO
-Date: Fri, 17 Jul 2026 10:51:43 +1200
-Message-ID: <20260716225143.2544913-1-gahing@gahingwoo.com>
+Subject: Re: [PATCH v3 2/2] arm64: dts: rockchip: Add ArmSoM CM5 and CM5-IO
+Date: Fri, 17 Jul 2026 10:51:37 +1200
+Message-ID: <20260716225137.2544880-1-gahing@gahingwoo.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <40552860.10thIPus4b@phil>
-References: <20260716095101.2498464-1-gahing@gahingwoo.com> <40552860.10thIPus4b@phil>
+In-Reply-To: <e99f752a-da1f-498d-9305-089b9d736e70@lunn.ch>
+References: <20260716081711.2482259-3-gahing@gahingwoo.com> <e99f752a-da1f-498d-9305-089b9d736e70@lunn.ch>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_161232_840257_9A914077 
-X-CRM114-Status: UNSURE (   6.68  )
+X-CRM114-CacheID: sfid-20260716_161232_840516_C141F7B3 
+X-CRM114-Status: UNSURE (   6.31  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -113,19 +113,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> As Rob said in the v2 bindings, please slow down.
-> Additionally that is the 2nd "v3" today?
+> Try setting phy-mode to rgmii-id, and these delays to 0, or removing
+> them.
 
-Sorry, both for the pace and for the double v3. The second v3 was not
-intentional: my mail provider accepted the first one with SMTP 250 but
-then held it without delivering, so when nothing appeared on the list I
-resent it. The provider released both copies hours later, so two v3
-threads showed up. I have moved off that provider.
+You are right. The PCB does not use long clock lines, so rgmii-id is the
+correct description and the delays should not be in the DT. Most rk3576
+boards upstream already use rgmii-id with no tx_delay/rx_delay.
 
-I will stop respinning and collect review first. The next version will
-wait, will fold in Andrew's rgmii-id feedback after a board re-test, and
-will be marked and explained in the cover letter.
+I will switch to rgmii-id, let the YT8531 add both delays internally, drop
+tx_delay/rx_delay, and re-test the 1000 Mbit/s link on the board before I
+send v4.
 
-Sorry for the noise,
+Thanks,
 Jiaxing
 
