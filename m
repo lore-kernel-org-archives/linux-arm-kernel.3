@@ -4,62 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80D7BC4450E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 10:35:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30C85C4450E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 10:38:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XZ9neGSTZv0tRZ93sQ9W4RHlZGFSNmTmyLUpPYeswWY=; b=d58WCvcruFiS6+6t68nvxQv0EG
-	Phe31BxYtp4s51+vmVCQjMZCQADyooH26NfHnBcXS5xPg1deVTJ4QqBcxyZfg5Pk/r4fBbUHSDBbj
-	THppv+ZUxeX2KHpiOIu4BjIn/jxq1PCTgRHH0hkzQaPx7j+8srfLh/YxXvI8MH/s4lIsFMnb6H1/9
-	JqZcbFW/oL3kzGsA0GkfO3uTu1gkbOheOQGeCBb6k3SeYQ111tWfXcxhFNHIxQYL11jOJelgyaGcE
-	9II6SO6tQuvV7IOmggecWNS3KQ1ouNfmWRmuD1plir22PtdB8Naajq77B6AeL1L69DYiiB0+wuDKZ
-	Z3RQ3m/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BhOpj6+kixXR4+MK0rXQUPeZjps5sPIf7d5Xvn5niZA=; b=Yp7s3vk11yfLNNYLVgulX137lI
+	BUPdvKTQar0kNEXIu7RyAvjeCsQOQmSsTa+uZgJcsevPI8yEuR4Nz0ezivpw238qEa+it0dmXf3sB
+	ThgBo//NRgGhcKvKPVvmBQr2MxKWY0zvgFqk9qpVhKzwfdwBEwQEVG2f1VDP+vNFECvKN/a6zNA53
+	a1PBWMDG7P6naQWdqsC7OdQPiR+m/H7FuBpIeMFhwXvwhrLxEZnza8UHmM3c1MxKuSgq4N8/OAhYo
+	U6JoHQPX/6nA1aiIUIRa93oLOMUtuZ9wI3k40OTrk26gEwLhvFtuwuoDrMVOoRHMuSqHIWwr2tdiK
+	7ucJF1Sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkJR6-0000000H1u2-2zpp;
-	Thu, 16 Jul 2026 10:35:24 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkJR5-0000000H1tl-2146;
-	Thu, 16 Jul 2026 10:35:23 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9D24260054;
-	Thu, 16 Jul 2026 10:35:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 257321F000E9;
-	Thu, 16 Jul 2026 10:35:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784198122;
-	bh=XZ9neGSTZv0tRZ93sQ9W4RHlZGFSNmTmyLUpPYeswWY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=BkpHrTRTQT75v0uMFSewydd/owJ6qBCoAG5UY1ioioKVsH5yQth9Bxoh4lAkzkHRc
-	 NJA14urfKi711qp5hkcEZt4Ng+7oeOXrLAonuzhVVqAmWJK5dzAq1jae5v0+pK/Opp
-	 xahRoQrykXPo7nAMmlwsNq/g9LJW+TplC3EkGQd+P7ZijU25AZCIsYIB4ufX1a0Da9
-	 xor42r0e/e/X/SAuW4HNVBoa7qLXRI09/+nEnlxrx6+2KNyVcDY5xyFLfHMLeq1GYS
-	 MDM76mBUU8A6gxO193nizg30o+pNhbDC84KUGp3jBXxnHJLC7IV6OHsc882KzNt586
-	 D+gbeD4t6lThw==
-Date: Thu, 16 Jul 2026 11:35:17 +0100
-From: Lee Jones <lee@kernel.org>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>, Samuel Holland <samuel@sholland.org>,
-	Pavel Machek <pavel@kernel.org>, linux-rockchip@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-leds@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/4] dt-bindings: leds: Document "gpio" trigger
-Message-ID: <20260716103517.GA1260374@google.com>
-References: <20260711192842.845048-1-samuel@sholland.org>
- <20260711192842.845048-2-samuel@sholland.org>
- <5188715.0VBMTVartN@phil>
+	id 1wkJU8-0000000H2Nr-0vEV;
+	Thu, 16 Jul 2026 10:38:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkJU5-0000000H2Mt-2bXW
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 16 Jul 2026 10:38:30 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CFAA4339;
+	Thu, 16 Jul 2026 03:38:23 -0700 (PDT)
+Received: from [10.2.197.99] (ewhatever.cambridge.arm.com [10.2.197.99])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CD1F93F93E;
+	Thu, 16 Jul 2026 03:38:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784198308; bh=eatil/BgWzzUzjknYQO/rfLqqSuIy87cjTAYJwTkPlQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ObQrMAPvENDnI4UYljIfKi3c66d6yFzXc7APc/4AQnh2Kjf2K++w7kUQv6jonhB8I
+	 mdp93z/QHSDFwC0OMjyGWN6bOymarLt2VrW2G/qD/QIHo9y6u5q/JbpaV4eOtrx9or
+	 Su+SguHT78PMEtpDRzFEF2a5FR92VMwEVK8VzgcY=
+Message-ID: <609440c1-7bdc-4f43-9b16-23521ca96394@arm.com>
+Date: Thu, 16 Jul 2026 11:38:21 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <5188715.0VBMTVartN@phil>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v15 25/37] KVM: arm64: CCA: Handle Realm PSCI requests
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>
+References: <20260715142841.80544-1-steven.price@arm.com>
+ <20260715142841.80544-26-steven.price@arm.com>
+Content-Language: en-US
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20260715142841.80544-26-steven.price@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260716_033829_746772_2CE7F331 
+X-CRM114-Status: GOOD (  25.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,28 +83,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 15 Jul 2026, Heiko Stuebner wrote:
-
-> Hi Samuel,
+On 15/07/2026 15:28, Steven Price wrote:
+> Some PSCI commands cause a REC exit and the host has to call
+> RMI_PSCI_COMPLETE to provide the status value to return to the guest.
 > 
-> Am Samstag, 11. Juli 2026, 21:28:25 Mitteleuropäische Sommerzeit schrieb Samuel Holland:
-> > The "gpio" trigger is used to control LEDs by the level of a GPIO input
-> > referenced by the trigger-sources property. This is already documented
-> > in the trigger-sources property description and is used in at least one
-> > devicetree (am335x-regor.dtsi). Document it so validation of those and
-> > future DTs will pass.
-> > 
-> > Signed-off-by: Samuel Holland <samuel@sholland.org>
+> Co-developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+> Changes since v14:
+>   * Dropped the support for providing the target REC for a PSCI call (as
+>     per v2.0-bet2 spec).
+> Changes since v13:
+>   * The ioctl KVM_ARM_VCPU_RMI_PSCI_COMPLETE has gone. The RMI call is
+>     made automatically just before entering the REC again.
+> Changes since v12:
+>   * Change return code for non-realms to -ENXIO to better represent that
+>     the ioctl is invalid for non-realms (checkpatch is insistent that
+>     "ENOSYS means 'invalid syscall nr' and nothing else").
+> Changes since v11:
+>   * RMM->RMI renaming.
+> Changes since v6:
+>   * Use vcpu_is_rec() rather than kvm_is_realm(vcpu->kvm).
+>   * Minor renaming/formatting fixes.
+> ---
+>   arch/arm64/include/asm/kvm_rmi.h |  2 ++
+>   arch/arm64/kvm/psci.c            | 14 ++++++++++++
+>   arch/arm64/kvm/rmi.c             | 38 ++++++++++++++++++++++++++++++++
+>   3 files changed, 54 insertions(+)
 > 
-> having Lee only in Cc in a longer patch series might make it difficult
-> to notice this change.
+> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
+> index 718c7128a3c3..a9bb9aabee5d 100644
+> --- a/arch/arm64/include/asm/kvm_rmi.h
+> +++ b/arch/arm64/include/asm/kvm_rmi.h
+> @@ -120,6 +120,8 @@ int realm_map_ipa(struct kvm *kvm, phys_addr_t ipa,
+>   		  enum kvm_pgtable_prot prot,
+>   		  struct kvm_mmu_memory_cache *memcache);
+>   
+> +int realm_psci_complete(struct kvm_vcpu *source, unsigned long status);
+> +
+>   static inline bool kvm_realm_is_private_address(struct realm *realm,
+>   						unsigned long addr)
+>   {
+> diff --git a/arch/arm64/kvm/psci.c b/arch/arm64/kvm/psci.c
+> index 3b5dbe9a0a0e..b0983ee416a2 100644
+> --- a/arch/arm64/kvm/psci.c
+> +++ b/arch/arm64/kvm/psci.c
+> @@ -142,6 +142,20 @@ static unsigned long kvm_psci_vcpu_affinity_info(struct kvm_vcpu *vcpu)
+>   	/* Ignore other bits of target affinity */
+>   	target_affinity &= target_affinity_mask;
+>   
+> +	if (vcpu_is_rec(vcpu)) {
+> +		struct kvm_vcpu *target_vcpu;
+> +
+> +		/* RMM supports only zero affinity level */
+> +		if (lowest_affinity_level != 0)
+> +			return PSCI_RET_INVALID_PARAMS;
+> +
+> +		target_vcpu = kvm_mpidr_to_vcpu(kvm, target_affinity);
+> +		if (!target_vcpu)
+> +			return PSCI_RET_INVALID_PARAMS;
+> +
+> +		return PSCI_RET_SUCCESS;
+> +	}
+> +
 
-It's okay.  I don't pay any attention to To:, Cc:, or Bcc.
+We don't have to deal with AFFINITY_INFO anymore with the RMM
+maintaining the MPIDR to REC mapping. This can be removed.
 
-> I guess this patch needs to be applied or at least "Acked-by" by them.
+Otherwise looks good to me.
 
-Applied.
+Suzuki
 
--- 
-Lee Jones
+
+>   	/*
+>   	 * If one or more VCPU matching target affinity are running
+>   	 * then ON else OFF
+> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
+> index 31effae067c8..8fb6403893e8 100644
+> --- a/arch/arm64/kvm/rmi.c
+> +++ b/arch/arm64/kvm/rmi.c
+> @@ -3,6 +3,7 @@
+>    * Copyright (C) 2023-2026 ARM Ltd.
+>    */
+>   
+> +#include <uapi/linux/psci.h>
+>   #include <linux/kvm_host.h>
+>   
+>   #include <asm/kvm_emulate.h>
+> @@ -119,6 +120,18 @@ static void free_rtt(phys_addr_t phys)
+>   	kvm_account_pgtable_pages(phys_to_virt(phys), -1);
+>   }
+>   
+> +int realm_psci_complete(struct kvm_vcpu *source, unsigned long status)
+> +{
+> +	int ret;
+> +
+> +	ret = rmi_psci_complete(virt_to_phys(source->arch.rec.rec_page),
+> +				status);
+> +	if (ret)
+> +		return -ENXIO;
+> +
+> +	return 0;
+> +}
+> +
+>   static int realm_rtt_create(struct realm *realm,
+>   			    unsigned long addr,
+>   			    int level,
+> @@ -1115,6 +1128,28 @@ static void kvm_complete_ripas_change(struct kvm_vcpu *vcpu)
+>   	rec->run->exit.ripas_base = base;
+>   }
+>   
+> +static void kvm_rec_complete_psci(struct kvm_vcpu *vcpu)
+> +{
+> +	struct rec_run *run = vcpu->arch.rec.run;
+> +	unsigned long status = PSCI_RET_DENIED;
+> +	unsigned long ret = vcpu_get_reg(vcpu, 0);
+> +
+> +	switch (run->exit.gprs[0]) {
+> +	case PSCI_0_2_FN64_CPU_ON: {
+> +		if (ret != PSCI_RET_SUCCESS &&
+> +		    ret != PSCI_RET_ALREADY_ON)
+> +			status = PSCI_RET_DENIED;
+> +		else
+> +			status = PSCI_RET_SUCCESS;
+> +		break;
+> +	}
+> +	default:
+> +		return;
+> +	}
+> +
+> +	realm_psci_complete(vcpu, status);
+> +}
+> +
+>   /*
+>    * kvm_rec_pre_enter - Complete operations before entering a REC
+>    *
+> @@ -1139,6 +1174,9 @@ int kvm_rec_pre_enter(struct kvm_vcpu *vcpu)
+>   		for (int i = 0; i < REC_RUN_GPRS; i++)
+>   			rec->run->enter.gprs[i] = vcpu_get_reg(vcpu, i);
+>   		break;
+> +	case RMI_EXIT_PSCI:
+> +		kvm_rec_complete_psci(vcpu);
+> +		break;
+>   	case RMI_EXIT_RIPAS_CHANGE:
+>   		kvm_complete_ripas_change(vcpu);
+>   		break;
+
 
