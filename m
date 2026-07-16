@@ -4,82 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE8F2C4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 10:07:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC93BC4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 10:07:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5tKcp++W9RRjEDy+R6pD5foQbNdJ0IxaBoDOKU7PrwI=; b=DRANjCs4d+VOCxYL7jcRJbeMVV
-	V/1sKz/UPCMg/YXz/kzuxb0aACTNN4OCwTzz3v+hmstLCG+ImdtNGaS2HW1rUyods25hJHWXbpHab
-	CKRdJL57GJVkOXylXZLpfi6TwO1VNsyAGY0V8bY11BhLhfGkcQMSpI/OSQNmsOfEfWkL3im21bKsR
-	jr2O+VMJDjYJh106rqxj/rBq/GhMezuoXDWrn5TMm9qcHwwknN2wwirtq7yA3OHMMrj8vjBywu4r5
-	R8aC6OTiR679UP5CWYwAZOzXkPfAxYmTwCa8rEfN0GvvD7hOTwYFt0nPyUxLSv0B0jD6pgJC9mhjg
-	KfPwD0QA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=go136pBsLDhcZhtaoyOkpun7aLmwyUi6+4cWEM39SXg=; b=s24jHTZaKmLNCaoL90dkSjYfSV
+	3JeihLurighJ5DolguXhwgqsiO27rohZAcy6ZQI4Lok+n/yDzmTYWe9XKsNyj/U2GBIfOFWFuPuea
+	9Pdekn4oWe4RMnGFTyYnYCm/nzzAvswCALTB+9RDcHePjy+qFGrOe8Up0dZziBkWe8kYhNiCjDbT2
+	oHveTq8GfDFY8mGE6g4zuCGh6r2Af+sXdU2Cj7MgpKK6dtum2fyVWcqcf0TVWEjUvStAWBGgfE6UI
+	jVEuGc89QRsvS/f3FxMOK8UT034WtAIve7uYnTwG55GwDQBs0Njx+z4vTXp06USvnx+3ThJVju/pT
+	Cdb5iRjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkIzs-0000000Gy5k-2rw4;
-	Thu, 16 Jul 2026 10:07:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wkIzx-0000000Gy7D-3Tfu;
+	Thu, 16 Jul 2026 10:07:21 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkIzq-0000000Gy5N-26xy
+	id 1wkIzv-0000000Gy6X-0Scq
 	for linux-arm-kernel@lists.infradead.org;
+	Thu, 16 Jul 2026 10:07:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1784196440; x=1815732440;
+  h=date:from:to:cc:subject:message-id;
+  bh=vwuoQS9pKnNRJo8VIeMvOuNXYzHBhs7LqGTN26wN6NM=;
+  b=YEHK/6F5IetePrEjMGuOHgOtlbMmjQyYfpcDtFOIJSrUAczIoxRzkO4t
+   Zb2yTkGANp48oLK61PrdIl409/gXjQUTg6bu97cAMXvGp/JQ+dUpAOVeu
+   s8gBWd7B9r2qc0oJEBvopEqTxZlpPItpdCdcDcRZ7ZHCL0sI+S3IvhcRY
+   DaiM9R9EzqeaPuygdgBYoSx5pHLZ/m6NyB/wKCZD3TkTiuDhhKW4bB5BT
+   g8c/gnoeYq2aWloYfohTvaZ1ikfZFx+QwYQMViHtqdQpoE1y4cnNCxSZZ
+   9wC5uIufQDqKm9KQcwKx7Ry7yBO5fuOlCuJH080ZXI1lKEOpjdaedwXgc
+   g==;
+X-CSE-ConnectionGUID: qb/FPybuQsadK69ryDqxPg==
+X-CSE-MsgGUID: v0guzku2SRGcVIQ7aEjjpA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11847"; a="88528214"
+X-IronPort-AV: E=Sophos;i="6.25,167,1779174000"; 
+   d="scan'208";a="88528214"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jul 2026 03:07:19 -0700
+X-CSE-ConnectionGUID: 6WRAqE4tQYuWWlSYG0kMUw==
+X-CSE-MsgGUID: uTfnRCSvSEWPklSg2KTuLw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,167,1779174000"; 
+   d="scan'208";a="254702808"
+Received: from lkp-server02.sh.intel.com (HELO ea128546eb3d) ([10.239.97.151])
+  by orviesa006.jf.intel.com with ESMTP; 16 Jul 2026 03:07:16 -0700
+Received: from kbuild by ea128546eb3d with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wkIzq-00000000Of6-21p0;
 	Thu, 16 Jul 2026 10:07:14 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 33E786001A;
-	Thu, 16 Jul 2026 10:07:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 792BF1F00A3A;
-	Thu, 16 Jul 2026 10:07:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784196432;
-	bh=5tKcp++W9RRjEDy+R6pD5foQbNdJ0IxaBoDOKU7PrwI=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=JEdUlVQ+VeJPhPWILa33JXb+YRo/px2dEU3YC8KSVNGdSvjaYzyF2z2U+H6ki9bZR
-	 LxKbP7xW3TQtZBKR5jPGHOsCEShYvquhCgqyUE4xk3ztbXPhtq7dpLf2G6y/kzCcv1
-	 5AQr412nCyxL9pSSP321S5acvE9GsjldBcNphWA6VDNwdtUPWua5Jhwg0KrODCEfzF
-	 1vWb2OmmT19Q1Bh+nhWQeVhQ++ccZTfjn9PVB8XxswoSkeSCiuq43Wbt7CDRkp+rLy
-	 WfUy66rMm0sUWcJT5ydx+4F6JuorMNK2T0HXqgn85H9J2zYhk4AkdlujUdTSOiWcvC
-	 FnJ2JspcGBDZQ==
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH mm-hotfixes v3 2/4] x86/mm/pat: acquire mmap lock on
- page table free to avoid ptdump UAF
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Will Deacon <will@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Suren Baghdasaryan <surenb@google.com>, 
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
- Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, 
- Michal Hocko <mhocko@suse.com>, Uladzislau Rezki <urezki@gmail.com>, 
- Toshi Kani <toshi.kani@hpe.com>, Dave Hansen <dave.hansen@linux.intel.com>, 
- Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
- Borislav Petkov <bp@alien8.de>, x86@kernel.org, 
- "H. Peter Anvin" <hpa@zytor.com>, Kiryl Shutsemau <kas@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Dev Jain <dev.jain@arm.com>, 
- Ryan Roberts <ryan.roberts@arm.com>, David Carlier <devnexen@gmail.com>, 
- linux-mm@kvack.org, linux-kernel@vger.kernel.org, bpf@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org, 
- abarnas@google.com
-In-Reply-To: <alesCtwXdIqH6bOP@kernel.org>
-References: <20260714-series-vmap-race-fix-v3-0-b812eccfa0f9@kernel.org>
- <20260714-series-vmap-race-fix-v3-2-b812eccfa0f9@kernel.org>
- <alemS7vxeRB7NcBO@willie-the-truck> <alesCtwXdIqH6bOP@kernel.org>
-Date: Thu, 16 Jul 2026 11:06:51 +0100
-Message-Id: <178419641178.59347.17339330762419756196.b4-reply@b4>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5764; i=ljs@kernel.org;
- h=from:subject:message-id; bh=JU1Y4eHM5POzYbA0Sr4DJu8EPkBOGBT027UhQoiCNW0=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLIi1tqWT05a/ZR/x7U50U+uONccT2t7pis3gctKOVbhg
- cfeOa91OkpZGMS4GGTFFFmefxHfHyQSNq/zgr8bzBxWJpAhDFycAjARLReG/9k3Wf2uzuLtz3Lp
- Umsv1v08R/Z0rwDbPqkiUV6HU5y7bRkZ5i45+ZexT9fI/E1qm2nej3ClsgC5Sb32az49OT7PnOs
- KOwA=
-X-Developer-Key: i=ljs@kernel.org; a=openpgp;
- fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
+Date: Thu, 16 Jul 2026 18:06:30 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:arm/deprecation] BUILD SUCCESS
+ 6cb7a10ef7488720f4379e27575d723a85790b30
+Message-ID: <202607161819.KKSBX8Bn-lkp@intel.com>
+User-Agent: s-nail v14.9.25
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260716_030719_202887_5243CA55 
+X-CRM114-Status: UNSURE (   5.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,148 +83,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-07-15 18:49 +0300, Mike Rapoport wrote:
-> Hi Will,
->
-> On Wed, Jul 15, 2026 at 04:24:59PM +0100, Will Deacon wrote:
-> > Hi Lorenzo,
-> >
-> > I'm certainly no x86 expert (quite the opposite!), but I was looking at
-> > this with Adrian and got myself confused. See below.
-> >
-> > On Tue, Jul 14, 2026 at 06:24:24PM +0100, Lorenzo Stoakes wrote:
-> > > x86 implements page attribute modification using its Change Page
-> > > Attributes (CPA) mechanism.
-> > >
-> > > This tracks properties of ranges such as cache mode through x86 page
-> > > attributes, and as part of that logic manipulates kernel page tables.
-> > >
-> > > Since commit 41d88484c71c ("x86/mm/pat: restore large ROX pages after
-> > > fragmentation") ranges of kernel page table entries can be collapsed into
-> > > huge page table entries as part of this logic.
-> > >
-> > > As part of this collapse, it frees the page tables which the collapsed
-> > > entries previously pointed to, and it does so without any relevant locks
-> > > being held to preclude concurrent kernel page table walkers.
-> > >
-> > > The only way this code can be reached is if CPA_COLLAPSE is specified, and
-> > > this is only set in set_memory_rox() via:
-> > >
-> > > set_memory_rox()
-> > > -> change_page_attr_set_clr()
-> > > -> cpa_flush()
-> > > -> cpa_collapse_large_pages()
-> > >
-> > > Notable users of this are execmem and bpf when manipulating executable
-> > > mappings.
-> > >
-> > > However, this is problematic for ptdump as it walks ranges it does not own
-> > > and thus runs the risk of a use-after-free on page tables freed underneath
-> > > it.
-> > >
-> > > Resolve the issue by acquiring the mmap read lock on init_mm which prevents
-> > > a concurrent ptdump as it acquires the write lock.
-> > >
-> > > It is safe to acquire a sleeping lock as all the callers invoke
-> > > set_memory_rox() from process context and in any case,
-> > > change_page_attr_set_clr() calls vm_unmap_alias() which ultimately takes a
-> > > mutex, disallowing atomic context here.
-> > >
-> > > Fixes: 41d88484c71c ("x86/mm/pat: restore large ROX pages after fragmentation")
-> > > Cc: stable@vger.kernel.org
-> > > Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> > > Reviewed-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
-> > > Signed-off-by: Lorenzo Stoakes <ljs@kernel.org>
-> > > ---
-> > >  arch/x86/mm/pat/set_memory.c | 14 +++++++++++---
-> > >  1 file changed, 11 insertions(+), 3 deletions(-)
-> > >
-> > > diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-> > > index d023a40a1e03..4c4b8244502f 100644
-> > > --- a/arch/x86/mm/pat/set_memory.c
-> > > +++ b/arch/x86/mm/pat/set_memory.c
-> > > @@ -22,6 +22,7 @@
-> > >  #include <linux/cc_platform.h>
-> > >  #include <linux/set_memory.h>
-> > >  #include <linux/memregion.h>
-> > > +#include <linux/cleanup.h>
-> > >
-> > >  #include <asm/e820/api.h>
-> > >  #include <asm/processor.h>
-> > > @@ -436,9 +437,16 @@ static void cpa_collapse_large_pages(struct cpa_data *cpa)
-> > >
-> > >  	flush_tlb_all();
-> > >
-> > > -	list_for_each_entry_safe(ptdesc, tmp, &pgtables, pt_list) {
-> > > -		list_del(&ptdesc->pt_list);
-> > > -		pagetable_free(ptdesc);
-> > > +	/*
-> > > +	 * ptdump might read these page tables, so avoid a use-after-free by
-> > > +	 * acquiring the mmap read lock on init_mm (ptdump acquires the mmap
-> > > +	 * write lock).
-> > > +	 */
-> > > +	scoped_guard(mmap_read_lock, &init_mm) {
-> > > +		list_for_each_entry_safe(ptdesc, tmp, &pgtables, pt_list) {
-> > > +			list_del(&ptdesc->pt_list);
-> > > +			pagetable_free(ptdesc);
-> > > +		}
-> >
-> > As I understand it, the argument for taking the read lock is that we're
-> > operating on a region that we "wholly own" and therefore we can happily
-> > run concurrently with CPUs walking distinct parts of the page-table.
-> > However, from what I can tell, the CPA collapse logic will operate on
-> > regions outside of the address range being manipulated by its caller
-> > because it rounds up to the PMD size.
-> >
-> > As a made-up example, imagine I have a 2MiB aligned region where the
-> > first 1MiB is read-only and the second 1MiB is in the default r/w state.
-> > If one CPU calls set_memory_rw() on the first 1MiB while another CPU is
-> > walking the second 1MiB (via some other API that doesn't take cpa_lock),
-> > it looks to me like the first CPU can collapse the page-table and free
-> > the unused pages under the feet of the other CPU. What prevents that
-> > from happening?
->
-> Nothing, and there's a patch to fix that that synchronizes
-> cpa_collapse_large_pages() using cpa_lock:
->
-> https://lore.kernel.org/all/20260626163213.2284080-1-den@openvz.org
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git arm/deprecation
+branch HEAD: 6cb7a10ef7488720f4379e27575d723a85790b30  ARM: mark mv78xx0 support as deprecated
 
-Thanks Mike!
+elapsed time: 781m
 
->
-> This still won't be enough to sync with ptdump though.
+configs tested: 2
+configs skipped: 69
 
-Yeah, so this patch is still necessary.
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-But that patch conflicts with this one as it holds a spin lock over the page
-table freeing, which prevents taking an rwsem... :/
+tested configs:
+arm   allnoconfig    clang-17
+arm  allyesconfig    gcc-16.1.0
 
-Anyway I think this one is still fine as it seems there's not a consensus over
-there as there was discussion about just removing the locking anyway ([0])?
-
-So can kick that can down the road and just get these ptdump bugs fixed :)
-
->
-> > If all concurrent walkers have interrupts disabled, I guess the TLB
-> > invalidation logic would do it, but it would be good to call this out in
-> > the commit message because it's not clear to me why the read_lock is
-> > sufficient for the collapsing case.
-
-Yeah, so this patch is _only_ fixing the ptdump case. Any existing bug must be
-addressed separately.
-
-> >
-> > Cheers,
-> >
-> > Will
->
-> --
-> Sincerely yours,
-> Mike.
->
-
-Cheers, Lorenzo
-
-[0]:https://lore.kernel.org/all/aab44f08-89f8-47fe-bee4-0ab6b25968c6@intel.com/
-
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
