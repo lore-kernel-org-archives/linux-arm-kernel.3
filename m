@@ -4,149 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8013C4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 14:49:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 455ECC4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 14:50:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z+4O5rz8YkcMXakY59FOWAZ+Tfpz85dSRNfNF7Rbr2s=; b=T3fjc2nTENhBzwPnKVFZf1AvWn
-	2gWHQGYv7IGdRdguyswPCoSbJW1ciLKuU2/CyD4vI1yNygY96hYdoNs3iYUhg4RjZaWLf/NW8wHBQ
-	EnjwEeIQwjSfWGgRhNwNT5/CDt90DsVIGquZn09YBdIHCoA9Yi7PsdZi8QC0WDjgZtxor72xu84iU
-	HkUYr1HlZ3V7pTQXUA40JODFiBou5DEb7Oz1smNz6B989pcb1QTYGMp5mHqQQauCONn4eZeyQAaai
-	MF4gFbCtADB2QimAw4FufXiZ4u4ffptG1lfLYKfK1fZHyJXA1w8HleEreLizTDtvvDKlBUsAIUuw5
-	etRBYfjQ==;
+	bh=zqNK14fvUgJPkPKSw3F2wEzBp6SPYyPXK1qyOUdckgI=; b=OgSEDYGTPXWrgIh5HBB3Zwv3GY
+	sNeSysvdQxyQ19RCvqUQd3bMypQ+U/ZOHpGBcl/qpRmTqvMQFlkA/We4rIij+vOMhAm1P1HLLxqzo
+	ieq138vDTodqDIWfzpxGvWGja+Sij4+bXv4Mrg58ZJlXFVyG5J9md+fdwKLOMR1s8W8SyL8p+ZhSv
+	tMGVs8FEvBIaY0dbk9pgU6MTZ/5eK1BENdsqZSeXHEtyz5PRjEh3r+1bf5HnF7nuG+xulRcHatUtK
+	6sprVDhdqKNvU3JqFGVgdjo/hYkQq6k+onUGXNZeTnAvBNtJOrmjKi/Kq5VySgZBstE+zI/La9uIb
+	x4ieZPOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkNPE-0000000HXKB-1zyS;
-	Thu, 16 Jul 2026 14:49:44 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1wkNPX-0000000HXOW-3JGm;
+	Thu, 16 Jul 2026 14:50:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkNPB-0000000HXJN-3vHH
+	id 1wkNPF-0000000HXKC-0JTe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 14:49:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QqsfCbYogaVr3tFXgww2xBa5t1iaiOuNDtxCSrS83i3zEan3Jgp0BmmB1pY0xRNBRZ0loWD8Sp0Lr2q1a+6CFWKCFjHIXwL8L9qfJzlwBo2DiyxGoulEiE7kLtbF2+x566Qi849IIFXaY3Oa/RoYzHhTt5rkadP6U31YKtS1mFif1OfxPjv0uATZaR7JU6zWkIRp2FM9sM0muBnFFZSbZGveUkDlEWVW/LrGAnWIUOFuQvC5ssdAsUf0T+NkJawo5K9577o88/q6rSkzCPBluw7djfKESbm1w3ynMGrdVoP9xUU85snNIDAMiv/M4O5qvaxmGvwv3CMNQSi0sYpJ8g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=z+4O5rz8YkcMXakY59FOWAZ+Tfpz85dSRNfNF7Rbr2s=;
- b=RvEWiYMa3++5mIk3U6A01+XcgOursHcB5+cyZZfOqM6T9MXQuTwHcA7DKMyfdWFYEb5Htmt2CvtX3IHltxuZnwdsnv2WIrfN/IMSpmCz4th8b9LKlZheoeVKHJT0BuvoXxNdN0V83F5Zi8Kp2tusfwsfGMI+sOQFLlp4DjdTgYcK+Kc3V5xzj87DJFvzs5Zg5BYJ9dyHmk6+2/D9XqYUfnpZx81vD02gNd3NYUdUaN8xfnIBC8Fm7SoJyuLyGv8kVB+dtZAYyWmWRTrCpIs0r1IZ5qlCndg/jCzBw687kN53GryIo/qSi3DBtfzFNW5fVICFSK4prGfjX2FM3eKeLA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=z+4O5rz8YkcMXakY59FOWAZ+Tfpz85dSRNfNF7Rbr2s=;
- b=T+3lVjNouMYe7pXterf9vyhRRiitz+lqbgSeVNhzhp1M97onJ5u+oWN+uZwPRFbcvhRjjTwAY61Jfs+A2aSoXzbaJ0skeTssHwxTdwNSOI8F48xyPDUkyIIzaaDAxdz5lQWI35/JDnzlB0KpCw0yqFSby5NVXjFwaqyVan4D2cyGZ4EC27QTt/kQH5LvQWqcSbh4NyZvw20XDvMHgTDwtaHZZNVSl/gX4iZvpEtVeK2iLD5DgOoq4rm/aQh8jLz3oBGTYuMxMb6oPSF89ziAn45pcOlBkY14SOHrDDSJDXgycwv+YozIIquondt2WFVMMsEZIK0cBwnSBZAbf2PSgw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DUZPR04MB9948.eurprd04.prod.outlook.com (2603:10a6:10:4dd::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.12; Thu, 16 Jul
- 2026 14:49:35 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0223.011; Thu, 16 Jul 2026
- 14:49:35 +0000
-From: Frank.Li@oss.nxp.com
-To: Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	Markus Niebel <Markus.Niebel@ew.tq-group.com>,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux@ew.tq-group.com,
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH v8 1/1] arm64: dts: add tqma9596la-mba95xxca
-Date: Thu, 16 Jul 2026 10:49:26 -0400
-Message-ID: <178421335540.3679675.14506765191534970486.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260714143154.787825-1-alexander.stein@ew.tq-group.com>
-References: <20260714143154.787825-1-alexander.stein@ew.tq-group.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SA0PR11CA0173.namprd11.prod.outlook.com
- (2603:10b6:806:1bb::28) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Thu, 16 Jul 2026 14:49:47 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4758C60A5C;
+	Thu, 16 Jul 2026 14:49:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30D7B1F000E9;
+	Thu, 16 Jul 2026 14:49:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784213384;
+	bh=zqNK14fvUgJPkPKSw3F2wEzBp6SPYyPXK1qyOUdckgI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=K3esabGfmFIKjOLPgAKaolLSygDxiOrWrwG/Ry2KPI0YTB50PTTslkIhpdBVK24PH
+	 eqPi1gcalpvP/P65xerJArZDH03ErvYW+Ls2wOb98Y7u5DcbUsk/tJtRVludwWgps0
+	 scZvArB+O9fDEE+uh+OlV0FCHOqxjFMxycWqbf1/JDOIgziKpP+JiejFIUc3SOEsBI
+	 QVLc3HhonSLz2/9j0TJl/+98YUfTDlqhYNgi9nosmAWXQpfgvrcbVDV1ArAKx5OHJc
+	 4serm5zFAq3uG1kEn3yWDECkW50gOHrGA0TsdONZQfTErTY9kPNOSvR6RORaWJAQjQ
+	 bJJ1PUEbjZmCQ==
+Date: Thu, 16 Jul 2026 16:49:29 +0200
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Yureka Lilian <yureka@cyberchaos.dev>
+Cc: Marc Zyngier <maz@kernel.org>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-pci@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH 1/2] PCI: apple: Integrate pwrctrl API
+Message-ID: <pbxefv7wotwcaavoas347htdx22rdupfqn6cbuyjf4y2kjlv4p@7xdael6h7d57>
+References: <20260707-apple-pcie-pwren-v1-0-5a281b182fe2@cyberchaos.dev>
+ <20260707-apple-pcie-pwren-v1-1-5a281b182fe2@cyberchaos.dev>
+ <86a4s3p2vy.wl-maz@kernel.org>
+ <8a80a170-a508-4a9e-8090-27cfcedb1cd4@cyberchaos.dev>
+ <865x2qq4ts.wl-maz@kernel.org>
+ <jqaxvdaxfpm5g3tdwdqpuk2ubkwim6ckmlblocvakloqishvmm@c5ofbdbdj7lf>
+ <76243051-e391-45d2-b47a-d4a904f0a36f@cyberchaos.dev>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DUZPR04MB9948:EE_
-X-MS-Office365-Filtering-Correlation-Id: d1001bcf-af85-44d6-0110-08dee349741d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|7416014|376014|366016|23010399003|11063799006|56012099006|22082099003|18002099003|10067099003;
-X-Microsoft-Antispam-Message-Info: bSO+Z8cAl6UkLc/X3E3LiwOoEvBFaAbQ1vUnRFbgDHW1NNd6mgLZwOF5BnI739xeZ/rP66XgXNuXhF/efBXeRxFNLh69aHwZsCuUdrA5o1MAGPJYj0xVSGZfSpEx4aaD9Kw4AXhe0VHMUOvsYFLPXDNAX+x1EJTSi+VLPFkN3lJYiSJOGXbwklmS1KcY8xiTsr95ZtUn9/YsT8hsZ1h0emN5Bq8KawzEwgqc6aVHkY4IWdWnuZCPRDp+hUdAhilE5/Q17KszB5xXct2r4QhwSDAkYOWuOmIRRJ6vM1x10T0+E+1RDSUHMXEfavbimnjxDP3HN+LtyOoxHTzHuzNO5pmt4d8vZUedHhvJp1Aat7+tKTHjMyYddP0w+cczV0QquxUhT9QqBx6/ICiMkrAVy4mMa5gcPi4zESA2yyiFTKAQs9OJ8rs1dJrsFrtEt4LkDUW2C86TbSu3EVhIxSWFNhp47+F/2tdA3AiX9pgEW99MSfXRfZxcmzsllaSs/03SkcZZCVg8XpK35zah5n6TyGA7I/P1zvph3TNAs6M8drdmqWZFInKQCazjR0X41WWe5+EJ1tE0qUIa3PafinqqdCvzx5mfmQtR+EOc85dgkx1+HKUTTJCSdGSsPA0D/MYKf1/UfmcBlQ5AFKsropcBJ2UCA9Hd1qstQjtBDFgNVqk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(7416014)(376014)(366016)(23010399003)(11063799006)(56012099006)(22082099003)(18002099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bEt2bHZSZEIzWTZFSXJrTHRuUVZkeFVxMGRIbjRNL3JvRFQrNVNzQjBuRjkv?=
- =?utf-8?B?RXA3QXJlaHBPa3Bqc2N6SERCdmlJcDh2UDFUUjF0Z0YvTUlTVHJGeWo3eWdx?=
- =?utf-8?B?UWdRN3ByK2thSFE4L2ZhU3FUVHdwYVNQV0lsNXY2NGJyZHkyUUtSNFpjVHAz?=
- =?utf-8?B?Zll4amdsL0ltQmt4VW1KSU1xUjQzN1p4c3h5b3ZqY2JRMHIzV21VZEJzNjZD?=
- =?utf-8?B?bHBhWFJaMjV2dmNzL0phcFdHTG01a3hTa0tiaWlQbzJmVG02dUdQaGNMUktx?=
- =?utf-8?B?OFdLajNGRzV0OXI1SGsvS2VhdkNCalYrUXNEUVRFM3JSOFNlRUFiUWYwa21R?=
- =?utf-8?B?Z0QzaDlwYmZoSzNUaCt4UC9ub05kUjB0eUdLZ0NSY1JYaXJNTjNaNEZGZmtz?=
- =?utf-8?B?bGxUOXk4UWc5TU9ZQk5FQUE3bis2ZHhlMmMzdlZHcmhiS21Nd3FlSVdwc3hN?=
- =?utf-8?B?ZStKSGQxTWRueUJGU1JHVU1XcXAxS0VJMWk2S2tENUJ0MVl1TE9VMmpYM01G?=
- =?utf-8?B?UnVDNFQyVlM5NmhhbkY2TVZlWTdlUzdDakdwMzI0Zmt1d1B2Vm1UZmNTUkt2?=
- =?utf-8?B?M2l6M0EyK3NkcUZSRkJBTWU5K1hPd0xwWlQ2NHExTVRRU2J1R0MxOFh6RDJT?=
- =?utf-8?B?T2ZQUTdqWHZnOVJmdHJOUHNoRjdrVU1kcG92ZnVXV1MzWkRwdU1nUEFxNFJP?=
- =?utf-8?B?Z3VManN1a3FjVVFMTGl4VGEwNXBEZEdIdk5xY0lSMGkrbHFIT2xSeCtzaDBQ?=
- =?utf-8?B?UzZ2cGpPSWhaY1lMSmtCNWg2cGwraWZ1bXZYc0lndUFZeUk2bFFyRnlDd3h3?=
- =?utf-8?B?V1F4b1BmM1FPZWhiVDRiV09HTU1aK0wzTWRZRGlHL3lOSjZyWXU0bWRqMmtR?=
- =?utf-8?B?UVFmYUJVcXgremNUanBLVjc3Tzh1eTJoamdPVHdKS2VLTllGVnBETUE0blNx?=
- =?utf-8?B?THRVQ3ArS3Q4bmtLaW1NNktPMGx2OW50Y1lrSjVzTTBRV1dSNnFmUzFNdkVw?=
- =?utf-8?B?ZjdvNzJHT0ZBRzNpYURwWThsRVVjZ1JCNW1oWDNxM0h0TGthRDVnMXY2VDBI?=
- =?utf-8?B?a1NlU2NYcitNWGlPUFJXNWQ5Q3U0T2pzRzRtM293dy94K2lQakFEcFNPMjM1?=
- =?utf-8?B?MGllWG5nTjl0dlFMNjVXZTZhenYxbStBVlU2UE5yQ1hIM05pTXdhNitCV0Ru?=
- =?utf-8?B?WGhBdE1rUTBKd3pWQnJaL2U3emd5ZFhQNWZ3ZlNLMHZYR3ZjYnovTWJHTGhS?=
- =?utf-8?B?d1lmbndTZHBuNnVFamxsRjhuaUhwbExHUlB1L3hrYlhhUG1KZFBVYXBHamVN?=
- =?utf-8?B?QmVCS2NKWVJ3R0lnQ3M3bEV3d2xxZlA3QU54ZVVaU2FzZ213YWcvdDkyT1dt?=
- =?utf-8?B?SnNKT1UrS0NRVnBMOWdXbFZPV1NaM2JRZmM3MVRWV2JCQXJTTkhKVEdOdnY4?=
- =?utf-8?B?b08vRkx3QjViam8veTE0eWJTQVAvQU9Wby9PVVRERFNDYkRSYUgreEE4MFJQ?=
- =?utf-8?B?U0VyK3pxTVpFSWNjK0lRSEluMzBhOGxud0VaZ1FITy95ajdHdDNIc0Uxeit4?=
- =?utf-8?B?ZFZNTGNWck1YaXJwNE5lZmRGVEVwaE13S3l2QTVnL0Jha0dmaGtUZ2U2V1Fi?=
- =?utf-8?B?MTI2MFoxUlY1aDVwa1B5blJLQzJEVnBVL3B1NnNabkFDZE9FMFdlV3JEZkF6?=
- =?utf-8?B?NnUwVXN2WDZWQncxQXpXUFFXd0Z2MUF5WlpDYzFhSmt2SGxlQncwalIwVFp4?=
- =?utf-8?B?MVBESDhrTEtkVlVYWGFQZWdjZVRKMGgxSW4rRUJYd1N2WHNRdzF2ZDBzSkRN?=
- =?utf-8?B?SjZ3Q0dHby82V0ZkNjRtS1k1Qldzay9iWVQxTk44ZmJqWkVPd3RPc0JWYmF6?=
- =?utf-8?B?azI0N04vVGl5UHkwNW5oQzZVSTd2Z1VzaGp2Z0FmdzZ1cS9nNVlwMFplT29w?=
- =?utf-8?B?M0NvVm9Ca3JPcWJkcG5zMGlmQngrZGtZYVZSRHJ3ME9FUHZzWFhBZTNpeits?=
- =?utf-8?B?RFYwVm1PalhNdVRNOW5YZTFmRXppdVJoUk1uamJia3ZUL1VSUlNWZklycXlm?=
- =?utf-8?B?MDl4TXBuak45aW9haktsc1lXNWNqZEZFZzFIWlhhOFNCVXRhMjZyV05iWHd6?=
- =?utf-8?B?My95U3JUaXlLSFBVbkZPM1pXWjUyRTV2NjUyZkU4YytFL2RxV3J1OVFLcldD?=
- =?utf-8?B?ejZtTjdiVkd3S1Zhd0lKVzE5dXJ6L2NyMmdWRUJWOFZBR1dkS1E2Nno1eEgz?=
- =?utf-8?B?YkZhQVNhSVFIT0ZQbmlBWkZTajhCbzJOUFRKTGcrSmhRM2tWMkRzV2JJMkVo?=
- =?utf-8?B?QnBMNmpPeXNNVDRvOHdOV3JJYnVEWlV5M2hQU1R5OEN3NGFIVXBNdkpGNDRP?=
- =?utf-8?Q?dD/Xi9H5IIIWQmxxkJ0PxU/EAs26MIqGWlDCP?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d1001bcf-af85-44d6-0110-08dee349741d
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jul 2026 14:49:35.5937
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 4B6w3lFByIz9XLuTAXxBnvLP8hp4cqb1aAw+h/13n26CNXM8ju+pJXEiSnCA9tTfuVUjfJ4kH0eOCun6Ndhg9uu7q77ppVI9Fwv/zFlEyvXPXB66g8hASiyWLVGr6B4I
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUZPR04MB9948
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_074941_999310_F55B6E51 
-X-CRM114-Status: UNSURE (   9.00  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <76243051-e391-45d2-b47a-d4a904f0a36f@cyberchaos.dev>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,25 +80,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
-
-
-On Tue, 14 Jul 2026 16:31:52 +0200, Alexander Stein wrote:
-> This adds support for TQMa95xxLA modules, designed to be soldered
-> on a carrier board. MBa95xxCA is a carrier reference board / starter kit
-> design.
+On Tue, Jul 14, 2026 at 06:57:11PM +0200, Yureka Lilian wrote:
 > 
-> There is a common device tree for all variants with e.g. reduced
-> CPU core / feature count.
+> On 7/9/26 14:29, Manivannan Sadhasivam wrote:
+> > On Tue, Jul 07, 2026 at 02:58:39PM +0100, Marc Zyngier wrote:
+> > > On Tue, 07 Jul 2026 13:04:21 +0100,
+> > > Yureka Lilian <yureka@cyberchaos.dev> wrote:
+> > > > On 7/7/26 11:25, Marc Zyngier wrote:
+> > > > > On Mon, 06 Jul 2026 23:38:27 +0100,
+> > > > > Yureka Lilian <yureka@cyberchaos.dev> wrote:
+> > > > > > Integrate the PCI pwrctrl framework into the Apple PCIe host driver to
+> > > > > > provide standardized power management for PCI devices.
+> > > > > > 
+> > > > > > Notably, this allows enabling powering on the WiFi, SD card reader on
+> > > > > > various Macs by means of the pwrctrl framework before probing the ports.
+> > > > > > 
+> > > > > > Previously, a custom solution for powering on the WiFi and SD card
+> > > > > > reader was proposed[1], but we can now use the new pci-pwrctrl-generic
+> > > > > > driver for this purpose.
+> > > > > > 
+> > > > > > Link[1]: https://lore.kernel.org/lkml/20220502093832.32778-4-marcan@marcan.st/
+> > > > > > 
+> > > > > nit: this paragraph and the accompanying link don't belong in the
+> > > > > commit message and should be moved below the --- mark or even better,
+> > > > > to the cover letter.
+> > > > ack, will leave it out of the commit message of the individual commit in v2
+> > > > > > Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
+> > > > > > ---
+> > > > > >    drivers/pci/controller/Kconfig      |  1 +
+> > > > > >    drivers/pci/controller/pcie-apple.c | 16 ++++++++++++++++
+> > > > > >    2 files changed, 17 insertions(+)
+> > > > > > 
+> > > > > > diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
+> > > > > > index 2247709ef6d6..af64630d28fa 100644
+> > > > > > --- a/drivers/pci/controller/Kconfig
+> > > > > > +++ b/drivers/pci/controller/Kconfig
+> > > > > > @@ -46,6 +46,7 @@ config PCIE_APPLE
+> > > > > >    	depends on OF
+> > > > > >    	depends on PCI_MSI
+> > > > > >    	select PCI_HOST_COMMON
+> > > > > > +	select PCI_PWRCTRL_GENERIC
+> > > > > >    	select IRQ_MSI_LIB
+> > > > > >    	help
+> > > > > >    	  Say Y here if you want to enable PCIe controller support on Apple
+> > > > > > diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller/pcie-apple.c
+> > > > > > index c2cffc0659f4..db038a9d4831 100644
+> > > > > > --- a/drivers/pci/controller/pcie-apple.c
+> > > > > > +++ b/drivers/pci/controller/pcie-apple.c
+> > > > > > @@ -30,6 +30,7 @@
+> > > > > >    #include <linux/msi.h>
+> > > > > >    #include <linux/of_irq.h>
+> > > > > >    #include <linux/pci-ecam.h>
+> > > > > > +#include <linux/pci-pwrctrl.h>
+> > > > > >      #include "pci-host-common.h"
+> > > > > >    @@ -825,6 +826,21 @@ static int apple_pcie_init(struct
+> > > > > > pci_config_window *cfg)
+> > > > > >    	if (WARN_ON(!pcie))
+> > > > > >    		return -ENOENT;
+> > > > > >    +	ret = pci_pwrctrl_create_devices(pcie->dev);
+> > > > > > +	if (ret) {
+> > > > > > +		dev_err(pcie->dev, "Failed to create pwrctrl devices: %pe\n", ret);
+> > > > > > +		return ret;
+> > > > > > +	}
+> > > > > > +
+> > > > > > +	ret = pci_pwrctrl_power_on_devices(pcie->dev);
+> > > > > > +	if (ret) {
+> > > > > > +		if (ret != -EPROBE_DEFER) {
+> > > > > > +			dev_err(pcie->dev, "Failed to power on devices: %pe\n", ret);
+> > > > > > +			pci_pwrctrl_destroy_devices(pcie->dev);
+> > > > > > +		}
+> > > > > > +		return ret;
+> > > > > > +	}
+> > > > > > +
+> > > > > Why is this done globally while the whole driver works on a per-port
+> > > > > basis, and that the proposed DT updates are also per port?
+> > > > pci_pwrctrl_power_on_devices takes a struct device as parameter, but
+> > > > pcie-apple does not allocate device structs for the individual ports.
+> > > > This could be changed of course. But since pci_pwrctrl_* operate on
+> > > > the subnodes recursively, it works just fine this way.
+> > > Works fine is one thing. Being consistent with the way the rest of the
+> > > driver works is another. pci_pwrctrl_create_device() and
+> > > pci_pwrctrl_power_on_device() appear to do exactly what would be
+> > > required for a single port. They just needs to be exported made
+> > > global/exported.
+> > > 
+> > I'm fine with exporting pci_pwrctrl_create_device() and
+> > pci_pwrctrl_power_on_device() and calling them with per-port np.
+> > 
+> > - Mani
 > 
-> [...]
+> In theory I do agree this would work to power on the slots, and I can send a
+> v2 of the patch doing it that way, but I don't quite understand yet how this
+> fits better with the existing driver code: If this is the case, what is the
+> difference between pcie-apple and pcie-qcom and why should pcie-qcom use the
+> recursive function but pcie-apple not?
+> 
 
-Applied, thanks!
+For pcie-qcom, it needs to iterate through all PCI child nodes, not just the RP
+as we have multiple nodes due to PCIe switch (and switches in some design). So
+this per-port API wouldn't work there.
 
-[1/1] arm64: dts: add tqma9596la-mba95xxca
-      commit: 4185d10a60d617c5ba7dae4cc56498621c11cd00
+- Mani
 
-Best regards,
 -- 
-Frank Li <Frank.Li@nxp.com>
+மணிவண்ணன் சதாசிவம்
 
