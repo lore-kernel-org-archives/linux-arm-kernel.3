@@ -4,93 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 136E5C44512
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 17:16:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46398C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 17:17:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xJwiCDrlmg+xI/8tWZm2lh9SPM1vAF34dRBr5lBrTYc=; b=YLj+gWCL9615+TB9+fJ3jnV4nX
-	YzcVK06b5C1R5UILRyeFlF78Vbwk7u+IveflEwuHfCzL5UWUjPJNMj0mGnqaPhbWckf7WHNkWF4D2
-	pumxX9ASPs2HoPOHZZTwvxPmm2LwDZulqndwDj7qy+ytqDQXvC5MAP4/OEDc1Fgu5aaXdFV8zIMKj
-	CppNU0mLUgLkNmBf0l6mPKsNsazKWJhP8Sz5vPgSbnv+nw2efdELBWyJZkl9yQTiCeS6gXnSEn1ax
-	r49NHXK4vWQpLVzsbJ/JAt5Y9aQWOO2CkoAxg81Ra0SNWMrzMXd/OlZuFD0DUe6DXOjU+VyRpFdxl
-	RvY/JK1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X5T6vjUnZEGkfh7p8EYMb5spCHpvD3u5TAywfhhCzxk=; b=ODHIzSVDYxUFFAsrqCq+0khITw
+	aQCVtvCkdx6WFDJvxk0DiSt/cIZU30yWZVzi8m6xALBY8NEF0RA2ZLi22zJpWQccma5Y+f0GGSOGM
+	wJdMIeT5/w8ZId2Fgcqft0iXTI3NCgnWFxu1dPcWKFpL5Ej5MYmgW3M5NuwXSSnbDu8aQjRNPjEgL
+	ZTqSkMc8is02Ig2Dagfk+lcJgaxiAD5iACs2VlqQAOuyEk+8v00EiC2LNRsn0PyAXo8Mp7Jzs79DA
+	D2GnfbRga39HHpUWKdsBbVoesnRXil9UCYSm9HD9RqucMRTqUwAJNVlrSt+7DsAI5JOB+P8/r13Nb
+	zXX+9m1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkPhU-00000000FVr-2cgc;
-	Thu, 16 Jul 2026 17:16:44 +0000
-Received: from relay.yourmailgateway.de ([188.68.63.102])
+	id 1wkPhe-00000000FXp-3mXw;
+	Thu, 16 Jul 2026 17:16:54 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkPhR-00000000FUp-3R4O
+	id 1wkPhd-00000000FXV-2eiQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 17:16:44 +0000
-Received: from mors-relay-2502.netcup.net (localhost [127.0.0.1])
-	by mors-relay-2502.netcup.net (Postfix) with ESMTPS id 4h1KTH4HhZz6GgT;
-	Thu, 16 Jul 2026 19:16:35 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=leemhuis.info;
-	s=key2; t=1784222195;
-	bh=SfxmVh82JeVUiMIg5Ix7ybdUy/Tn1k/6+Lx1CoaHy70=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=G132+HNdtECgWKcjhHjwuaGtsqmseHspOikRY9VyE1aiQCfmTJa0willMAgVXrxIV
-	 itS7y32weNk5fdNWrqgcit3cmeWjZv4bj7PSy4hk2i8T9+gI1ke+JyNduEkB4QkjeQ
-	 jGN6ip2rDgTvtBDCTB0Q1MB2hrWrUo3sEGsYfpta2zSoHO5SORIFMY7YAc8TxeRLZ7
-	 CYt7JllK6Nr18WviThNdBXpK3cZsyy6qj7CsFsjt41P6eCdh6kO12J/iDQmPDBUjtP
-	 38FTtXgx7ygXh7yjic/2zm84qXODtJZZfTdnbt735Sz79iLGW/9pdrnlv3ME4cbpXw
-	 XztOELzlZ1xvQ==
-Received: from policy02-mors.netcup.net (unknown [46.38.225.35])
-	by mors-relay-2502.netcup.net (Postfix) with ESMTPS id 4h1KTH3YCLz4xrb;
-	Thu, 16 Jul 2026 19:16:35 +0200 (CEST)
-Received: from mxe9fb.netcup.net (unknown [10.243.12.53])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by policy02-mors.netcup.net (Postfix) with ESMTPS id 4h1KTG3VXfz8sZw;
-	Thu, 16 Jul 2026 19:16:34 +0200 (CEST)
-Received: from [IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f] (unknown [IPv6:2a02:8108:8984:1d00:a0cf:1912:4be:477f])
-	by mxe9fb.netcup.net (Postfix) with ESMTPSA id 481645FA12;
-	Thu, 16 Jul 2026 19:16:33 +0200 (CEST)
-Authentication-Results: mxe9fb;
-        spf=pass (sender IP is 2a02:8108:8984:1d00:a0cf:1912:4be:477f) smtp.mailfrom=regressions@leemhuis.info smtp.helo=[IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f]
-Received-SPF: pass (mxe9fb: connection is authenticated)
-Message-ID: <eb92c269-efa2-4f39-bd47-4d1ee36169ee@leemhuis.info>
-Date: Thu, 16 Jul 2026 19:16:31 +0200
+	Thu, 16 Jul 2026 17:16:53 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E4CA960A63;
+	Thu, 16 Jul 2026 17:16:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F16B1F00A3A;
+	Thu, 16 Jul 2026 17:16:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784222212;
+	bh=X5T6vjUnZEGkfh7p8EYMb5spCHpvD3u5TAywfhhCzxk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=KsjJzu5q/l8YOsiqw9QDXUK0Dn2Xbx101CLaKU1xRtyXoDs10oAw2ObACVOR0CaiS
+	 pkA8hZIIASn1E+Zs/f+1rbhduvU1y+tR14oYiAEODGeDsUUjH9LlkQPvnJrwtL999+
+	 V7I6Jq4T5EUkoc6dGKzIhpPvjBDzelLfYVDfBw7f5a3B+MYTkaHdeBd6Gct651J5Z3
+	 JFG2DvBSs1tbqMInmEW+w7VwGu7o9aIhv36JKhYNnrO59xspxfsIkbExVMkHpZkRFK
+	 O54uzW1EMPH+bxhFtvld08ZcqiSFxerYbrd7tOwuv7FmsiY+HY4Hpu0dy6LMAm25AC
+	 6FilX8lqLukEw==
+Date: Thu, 16 Jul 2026 10:16:51 -0700
+From: Oliver Upton <oupton@kernel.org>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>,
+	Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Itaru Kitayama <itaru.kitayama@fujitsu.com>,
+	Sebastian Ene <sebastianene@google.com>
+Subject: Re: [PATCH v4 2/6] KVM: arm64: nv: Avoid full shadow s2 unmap
+Message-ID: <alkSAyfhI4n_VAok@kernel.org>
+References: <20260714115926.2044757-1-weilin.chang@arm.com>
+ <20260714115926.2044757-3-weilin.chang@arm.com>
+ <aliCuX3ZIvxWlFE-@kernel.org>
+ <upkq27f2mo3fy27ubkxxgfwkgn2oamnbxom2o6gce5ocfyauo5@6tfu3ppaw7o6>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [REGRESSION] mainline/master: Apalis iMX6 no longer boots
-To: Bjorn Helgaas <helgaas@kernel.org>,
- "Hongxing Zhu (OSS)" <hongxing.zhu@oss.nxp.com>
-Cc: Leonardo Costa <leoreis.costa@gmail.com>,
- "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
- <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
- Frank Li <frank.li@nxp.com>, "s.hauer@pengutronix.de"
- <s.hauer@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>,
- "festevam@gmail.com" <festevam@gmail.com>,
- "leonardo.costa@toradex.com" <leonardo.costa@toradex.com>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "imx@lists.linux.dev" <imx@lists.linux.dev>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "regressions@lists.linux.dev" <regressions@lists.linux.dev>,
- Sherry Sun <sherry.sun@nxp.com>, Manivannan Sadhasivam <mani@kernel.org>,
- Hongxing Zhu <hongxing.zhu@nxp.com>,
- "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>
-References: <20260716164058.GA16414@bhelgaas>
-From: Thorsten Leemhuis <regressions@leemhuis.info>
-Content-Language: de-DE, en-US
-In-Reply-To: <20260716164058.GA16414@bhelgaas>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-PPP-Message-ID: <178422219399.2284195.6020549002013928240@mxe9fb.netcup.net>
-X-Rspamd-Server: rspamd-worker-8404
-X-Rspamd-Queue-Id: 481645FA12
-X-NC-CID: Vs77JiHUJeQSI/GM5fLBjJeVYsLXfvjY38tVOy8NioWSC4JmvkE=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_101642_449308_2DA9BCAB 
-X-CRM114-Status: GOOD (  14.73  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <upkq27f2mo3fy27ubkxxgfwkgn2oamnbxom2o6gce5ocfyauo5@6tfu3ppaw7o6>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,38 +79,205 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 7/16/26 18:40, Bjorn Helgaas wrote:
-> On Thu, Jul 16, 2026 at 02:15:42AM +0000, Hongxing Zhu (OSS) wrote:
->>> On Mon, Jun 29, 2026 at 11:34:32AM -0300, Leonardo Costa wrote:
->>>> We are seeing a regression on Apalis iMX6 where the kernel
->>>> doesn't boot in the newest v7.2-rc1 (it was working before, in
->>>> v7.1). The device tree being used is the imx6q-apalis-eval.dtb.
->>>> The kernel configuration
->>>> used is the one shown below:
->> ...
+On Thu, Jul 16, 2026 at 05:14:46PM +0100, Wei-Lin Chang wrote:
+> On Thu, Jul 16, 2026 at 12:05:29AM -0700, Oliver Upton wrote:
+> > Hey,
+> > 
+> > On Tue, Jul 14, 2026 at 12:59:21PM +0100, Wei-Lin Chang wrote:
+> > > +static bool valid_entry(unsigned long entry)
+> > > +{
+> > > +	WARN_ON(entry & VALID_ENTRY && entry & UNKNOWN_IPA);
+> > > +	return entry & VALID_ENTRY;
+> > > +}
+> > > +
+> > > +static bool unknown_ipa_entry(unsigned long entry)
+> > > +{
+> > > +	WARN_ON(entry & VALID_ENTRY && entry & UNKNOWN_IPA);
+> > > +	return entry & UNKNOWN_IPA;
+> > > +}
+> > 
+> > These should be WARN_ON_ONCE(), but I find the condition you're
+> > asserting to be a bit confusing. An aliased reverse map entry is still a
+> > valid entry, would you not set the valid bit?
 > 
->>> Can somebody confirm that reverting 610fa91d9863 fixes this
->>> regression, or at least that 610fa91d9863^ works and 610fa91d9863
->>> fails?
->>
->> Sorry for this severe regression. I have posted a fix that has been
->> tested on my i.MX6Q SabreSD board:
->>
->> https://lore.kernel.org/imx/20260708035928.580236-2-hongxing.zhu@oss.nxp.com/
+> Sorry, VALID_ENTRY might not be the best name for this flag. I used it
+> to mean entries in the maple tree, that are not UNKNOWN_IPA, meaning the
+> canonical IPA <-> nested IPA relation is one-to-one.
 > 
-> My question was whether somebody had actually bisected to 610fa91d9863
-> ("PCI: imx6: Assert PERST# before enabling regulators").  I don't see
-> anything specific on the mailing list, so I don't know how
-> 610fa91d9863 got blamed for the regression.
+> So by definition UNKNOWN_IPA and "VALID_ENTRY" should not be set at the
+> same time. Unfortunately they can't be a single flag, as the stored
+> address can be 0, this can make the whole value 0 when being stored if
+> the single flag is also 0, effectively not doing the store.
+> 
+> Maybe it's better with just "KNOWN_IPA"?
 
-That was me and might have been a stupid idea. I normally wouldn't have
-added this, but a earlier message from Hongxing Zhu sounded a pretty
-convincingly like something along the lines of  "this is the problem I
-already have a fix for there" -- and then I took the commit-id from there.
+Does anything break with:
 
-Sorry.
+state			{VALID, UNKNOWN}
 
-Ciao, Thorsten
+invalid entry (NULL)	{0, 0}
+valid IPA		{1, 0}
+aliased IPA		{1, 1}
+
+It's just the assertion that the bits are mutually exclusive that I find
+confusing, agree that we need to have two bits of state.
+
+> > 
+> > > +void kvm_record_nested_revmap(gpa_t canonical_ipa, struct kvm_s2_mmu *mmu,
+> > > +			      gpa_t nested_ipa, size_t map_size)
+> > > +{
+> > > +	struct maple_tree *revmap_mt = &mmu->nested_revmap_mt;
+> > > +	gpa_t canonical_ipa_end;
+> > > +	u64 entry, new_entry = 0;
+> > > +
+> > > +	lockdep_assert_held_read(&kvm_s2_mmu_to_kvm(mmu)->mmu_lock);
+> > > +
+> > > +	if (mmu->nested_revmap_broken)
+> > > +		return;
+> > > +
+> > > +	if (WARN_ON(!IS_ALIGNED(canonical_ipa, map_size)))
+> > > +		canonical_ipa = ALIGN_DOWN(canonical_ipa, map_size);
+> > > +
+> > > +	canonical_ipa_end = canonical_ipa + map_size - 1;
+> > > +	MA_STATE(mas_rmap, revmap_mt, canonical_ipa, canonical_ipa_end);
+> > > +
+> > > +	mtree_lock(revmap_mt);
+> > > +	entry = xa_to_value(mas_find(&mas_rmap, canonical_ipa_end));
+> > > +
+> > > +	if (entry) {
+> > > +		/* parallel faults can be adding the same mapping */
+> > > +		if (valid_entry(entry) &&
+> > > +		    mas_rmap.index == canonical_ipa &&
+> > > +		    mas_rmap.last == canonical_ipa_end &&
+> > > +		    nested_ipa == (entry & ADDR_MASK))
+> > > +			goto unlock;
+> > > +		/*
+> > > +		 * Create a "UNKNOWN_IPA" range that spans all the overlapping
+> > > +		 * ranges and store it.
+> > > +		 */
+> > > +		while (entry && mas_rmap.index <= canonical_ipa_end) {
+> > > +			canonical_ipa = min(mas_rmap.index, canonical_ipa);
+> > > +			canonical_ipa_end = max(mas_rmap.last, canonical_ipa_end);
+> > > +			entry = xa_to_value(mas_find(&mas_rmap, canonical_ipa_end));
+> > > +		}
+> > > +		new_entry |= UNKNOWN_IPA;
+> > > +	} else {
+> > > +		new_entry |= nested_ipa;
+> > > +		new_entry |= VALID_ENTRY;
+> > > +	}
+> > > +
+> > > +	mas_set_range(&mas_rmap, canonical_ipa, canonical_ipa_end);
+> > > +	if (mas_store_gfp(&mas_rmap, xa_mk_value(new_entry),
+> > > +			  GFP_NOWAIT | __GFP_ACCOUNT))
+> > 
+> > The general pattern for handling this situation would be to preallocate
+> > nodes prior to acquiring the lock. If we can preallocate then we can
+> > just outright refuse to create a shadow stage-2 mapping if the update to
+> > the reverse map fails.
+> 
+> Preallocation was thought about, but it was found to be impractical in
+> this case [*], mainly because we must hold the lock in order to know
+> what range to store.
+
+Could we perform an RCU-protected walk to predict the range we intend to
+store and preallocate based off of that? And if we're not able to
+preallocate from a sleepable context then bailing to userspace seems
+appropriate.
+
+> However, we can make this function return an error when storing to the
+> maple tree fails, and just not do the shadow mapping. This ties the
+> wellness of the maple tree to guest progress. For repeated failure I
+> think of these possibilities:
+> 
+>  - The maple tree code is somehow broken that stores never succeed.
+>  - We have so little available memory that maple tree stores don't
+>    succeed.
+> 
+> These cause the guest fault repeatedly, but do we still care about the
+> guest when these happen? Probably not for the OOM case, and it solves
+> itself when the kernel gets back memory. For the first case I'm not so
+> sure, and I might have missed some other important possibilities.
+
+So there's two failure modes that we need to handle.
+
+The most common case would be a race to update the maple tree, where the
+preallocation we did outside of the MMU lock is insufficient for the actual
+operation we perform. Typically in the event of a race we restart the faulting
+instruction and re-attempt the fault. So long as you pass gfp=0 to the
+store, you can reinterpret -ENOMEM as -EAGAIN and refault.
+
+At that point, any non ENOMEM failure to store in the maple tree can be
+treated as fatal for the VM, KVM_BUG_ON() and out to userspace.
+
+> > > +static void unmap_mmu_cipa_range(struct kvm_s2_mmu *mmu, gpa_t canonical_ipa,
+> > > +				  size_t unmap_size, bool may_block)
+> > > +{
+> > > +	struct maple_tree *revmap_mt = &mmu->nested_revmap_mt;
+> > > +	gpa_t canonical_ipa_end = canonical_ipa + unmap_size - 1;
+> > > +	size_t entry_size;
+> > > +	gpa_t next_addr;
+> > > +	u64 entry;
+> > > +	MA_STATE(mas_rmap, revmap_mt, canonical_ipa, canonical_ipa_end);
+> > > +
+> > > +	lockdep_assert_held_write(&kvm_s2_mmu_to_kvm(mmu)->mmu_lock);
+> > > +
+> > > +	if (mmu->nested_revmap_broken) {
+> > > +		reset_revmap_and_unmap(mmu, may_block);
+> > > +		return;
+> > > +	}
+> > > +
+> > > +	if (!mmu->nested_stage2_enabled) {
+> > > +		kvm_stage2_unmap_range(mmu, canonical_ipa, unmap_size, may_block);
+> > > +		return;
+> > > +	}
+> > > +
+> > > +	mtree_lock(revmap_mt);
+> > > +	entry = xa_to_value(mas_find(&mas_rmap, canonical_ipa_end));
+> > > +
+> > > +	while (entry && mas_rmap.index <= canonical_ipa_end) {
+> > > +		entry_size = mas_rmap.last - mas_rmap.index + 1;
+> > > +		next_addr = mas_rmap.index + entry_size;
+> > > +		/*
+> > > +		 * Give up and invalidate this s2 mmu if the unmap range
+> > > +		 * touches any UNKNOWN_IPA range.
+> > > +		 */
+> > > +		if (unknown_ipa_entry(entry)) {
+> > > +			mtree_unlock(revmap_mt);
+> > > +			reset_revmap_and_unmap(mmu, may_block);
+> > > +			return;
+> > > +		}
+> > > +
+> > > +		/*
+> > > +		 * Ignore result, it is okay if a reverse mapping erase
+> > > +		 * fails.
+> > > +		 */
+> > > +		mas_store_gfp(&mas_rmap, NULL, GFP_NOWAIT | __GFP_ACCOUNT);
+> > 
+> > I wonder if we can handle this a bit more gracefully.
+> > 
+> > Ideally we'd be able to place a search mark on the entry flagging it as
+> > stale which could be used to avoid attempting to overinvalidate the
+> > shadow stage-2.
+> > 
+> > Interestingly enough, Liam recently gave the suggestion [*] of storing
+> > XA_ZERO_ENTRY for a similar use case where erasure happens in an atomic
+> > context. We should be able to do the exact same thing here and push the
+> > cleanup to the next insertion.
+> 
+> I see. Not saying I have a better idea, but this is relying on the fact
+> that replacing an existing range with another value does not require
+> memory allocation. I would say this is an obvious assumption and I don't
+> see it becoming false in the future, but still it's an implementation
+> detail and relying on it as a user feels strange...
+> 
+> What do you think?
+
+I believe there's value in such an approach because it reduces the
+likelihood of a false positive. Since we could be updating the maple
+tree as part of reclaim I think it's safe to assume the system is under
+some amount of memory pressure (and GFP_NOWAIT could fail). Although I
+agree, it'd be good to document this behavior explicitly.
+
+Thanks,
+Oliver
 
