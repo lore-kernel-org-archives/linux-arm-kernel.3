@@ -4,130 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BEA2C44511
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 15:19:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBC09C44512
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 15:20:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XokQrfMF6zAUhbROxE+ZUpCq7eoabTlLvVf2YrOd0BI=; b=g781AQYqOcJ5Ulavn6CZWtqTts
-	Y/1MFfAQdwQSyHFVxRoSIyD/uXexvjZt5F5gNxnWt6hUtvUkHM/UJ6J36GdF3RE2yoBhfwBNk1NAk
-	/IZqN6TIdTQPhz4Xl9RbmFk0aNiOTUPV/qFQ0X4QswOiQPSV8Lke+m9mNC5XoaXM3Ud2Y5/PVE+rY
-	7vTaWlvm2VMHQbWZK8OW7ZdpmUVPnZN3dKaOUZwe/eZZC8gohT55EYq8iKEnOXcmw5XYU8s2OYNfw
-	XqX+ZibvNmZbVkb4jzcKSRgqZ1RL/jfJJjG0tXVKyw33oX3WbT7yCj0zZMoIuyxyauPL9CcrYjiud
-	rV3I9CSw==;
+	bh=xqEkOfqemOuBq7MfK7NLzkx6aModADt/bX/v6BBIpLk=; b=eJ99qhzFaw9Un66mO7ddUF8zUg
+	314lSjlDdeyMFweQ6j5QtZLxmBXQN43TWsrmdVy0yc7FxVH9Z9x3ehFmZqVRBai60Nn6i1MSTE8yo
+	X//+kmLlgPcj63YPHuBm9W1Y0k3t2ArRAko4wjFav2gpt4SYVkqYDL5W2gTh5ei6xAyBj6edOtD00
+	dC8N2ujWTAfL7+SNzA3z+l6g9nlo3Yw6k4+gOk0xykUbAZK0iwU9+w07cjUXr+6hXqZGhSr3YZHzB
+	Wy7A/bWntjstVNuT84xQE2m9N+x396pr9/h3RVzQGxKGgE7jdEHA2ByssgNIeMfyzcdM0KT83uYje
+	rs0RaFmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkNrV-000000001m1-0F58;
-	Thu, 16 Jul 2026 15:18:57 +0000
-Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1wkNt6-000000001vX-1Pg0;
+	Thu, 16 Jul 2026 15:20:36 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkNrS-000000001lc-39Md
+	id 1wkNt4-000000001vK-3KQM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 15:18:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UqzoSfaJBStZslUZsOeLsmf+gqcMS5u6YxCfqdhr9Kx7dVlX00hMjZJtTyTnzcsF4wyRaC2sbDw0huBbv9osutTukDElAJCdSZ/Fdq93H9SBAQKr8OJAel2f8esgEC9FvemBeLsE14w7/qtNuW9YpKywwmVh7u7aOZw2oWelkiZnQFUyx74Op8UzlgwYv7k9SSDH4VyieOJNVqgu+9O5VlXo2XeNueUrl+fkGpXF/YpNCz6CO7Gz8+LxrscYo1S/MZsc66U4P/Rk3Te0z4eoVx6Q4kcC0XFZ6M9q4pI6xbte6mJR3NDtYGlLQKPIsRuyexjYeJCrCC5/Qhe+zusMAw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XokQrfMF6zAUhbROxE+ZUpCq7eoabTlLvVf2YrOd0BI=;
- b=JyaGKna4qOxm4KojgQz3f8KrQsHS4hYkib98Y+A+Pm55yV6EO8vR8ckUktijRjPi4pFZi29YTSn5WZe4Npt6KjxtmSXKGbsSm4ikXYw1OvnF+Z3qdNk5TO4OTi+N4w4XYYaVP8qTibiQM2LAcHMTsbA4aqlIkwnykVF/irMoTTWSfhJmFz3fDkStmEXqzJ+H9eBAl2QVXZrm0y2EuzyssMOWoW082tbdd1aOixj1h1sP7edEmEv2b6/e6qWkyUnM+D7KDmAinTBlaWtNJPvnBb9Rrn7GjJuyGQkNchn5o3PycBeD/gV1SzFv7aXnCgT51qucxXpJUe18dXO3qto15w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XokQrfMF6zAUhbROxE+ZUpCq7eoabTlLvVf2YrOd0BI=;
- b=Kwj4lKCzaZTsWYmv0QOJodWyImMVWl4zksyL/LO9Gh2j+bnFr1nArWQC3mVEkzY8g7EHq0YOOuJy5zxieI4UfIX2SzAOxGtIsqxZ0ZRGHWXgoO6aD9q6IPNt2Ej/rMkXdYdDDAt7UNKRwhXNrzC1eMvb4Uudn4aP7Xre33T3YaN0T6x02dAfN9kO7iPiqZ9DheJFjygfSre/CiqYg7qFiDQxgXyLsc54VW5ujetOIpcDdd2mMYveEYDuR6CouBb0zsW4Wcjgn8FNST+nBZSZmZQu8D6lDGqMA8DPLhEItHNawTtB7vWzUB6WUv8cj87fwjWGTJj8SUBqxsHa2zooVQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by DM6PR12MB4316.namprd12.prod.outlook.com (2603:10b6:5:21a::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.12; Thu, 16 Jul
- 2026 15:18:46 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0202.014; Thu, 16 Jul 2026
- 15:18:46 +0000
-Date: Thu, 16 Jul 2026 12:18:45 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Will Deacon <will@kernel.org>, Kevin Tian <kevin.tian@intel.com>,
-	Robin Murphy <robin.murphy@arm.com>, joro@8bytes.org,
-	David Woodhouse <dwmw2@infradead.org>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Pranjal Shrivastava <praan@google.com>
-Subject: Re: [PATCH v4 0/6] iommufd: Iterate the cache invalidation array in
- the core
-Message-ID: <20260716151845.GO3775915@nvidia.com>
-References: <cover.1784054606.git.nicolinc@nvidia.com>
- <20260715201521.GL3775915@nvidia.com>
- <alft3llhZ79t17j8@nvidia.com>
+	Thu, 16 Jul 2026 15:20:34 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id D550860A63;
+	Thu, 16 Jul 2026 15:20:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 440B71F000E9;
+	Thu, 16 Jul 2026 15:20:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784215233;
+	bh=xqEkOfqemOuBq7MfK7NLzkx6aModADt/bX/v6BBIpLk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=NxWAbXAfxER1bDsr9+Ry25MKcWs9G8aOuDSXUXXyyWEJhIVKOXhlhYe8L3E1790PK
+	 tlz3IoqgzPulnjUjJlJZmJEIM8+PDVMAuKWrlJ80ZsNa0hg9RD6m/UQwFUOM9vTIPD
+	 PsXIoumb7pNF+9G2N+JjYBfD5CU+OsQ+apSRBW0jvEfXcocsiXp+AVNwAfmRL/RJ6+
+	 oASNnepTWd6neQb47wlJUENGA5sLnSs51kSAT2vPwaLw1wANe0N2e25/JK/YdsCfIl
+	 zChHic5ALc47Ql0oWQgpHO8eeSNpTx/wZ9YqIdo5qbVhXyJvGxSH2Tu4Z+NQsQIMIx
+	 c6OjcT39f6LEQ==
+Date: Thu, 16 Jul 2026 16:20:27 +0100
+From: Will Deacon <will@kernel.org>
+To: Pu Hu <hupu@transsion.com>
+Subject: Re: [RFC v3 2/2] arm64: kprobes: Allow reentering kprobes while
+ single-stepping
+Message-ID: <alj2uxE1M8mcMBhA@willie-the-truck>
+References: <20260710063242.228714-1-hupu@transsion.com>
+ <20260710063242.228714-3-hupu@transsion.com>
+ <aljbf_RmOd9U2KDT@willie-the-truck>
+ <0f049d38-b7f6-47f0-a410-95ad2aee7fd4@transsion.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <alft3llhZ79t17j8@nvidia.com>
-X-ClientProxiedBy: BL1PR13CA0421.namprd13.prod.outlook.com
- (2603:10b6:208:2c3::6) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|DM6PR12MB4316:EE_
-X-MS-Office365-Filtering-Correlation-Id: dc3bdced-687f-412c-db78-08dee34d879c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|376014|7416014|11063799006|4143699003|56012099006|10067099003|18002099003|3023799007|22082099003;
-X-Microsoft-Antispam-Message-Info: mjfTRxba0WRAM54CyAlcm6G9Vu6Lip+/jbhcL6P+ymRqsLa0nYLWJXEfZj36ZVkFESCiPiRU4SxNdnfaE2VNII3O6f0EhR29D9y3NUQR6k69EFcn7JStCyz7GMwO7VDFBVpnBWji7OVnXeJYiK8IvCOmPB5eRJ5NtEX/5xn+n5Z6nlxOMjw0Ljix2F+LlLDw8K3J6T1xcW2bADs9pRf5me4vmUOyCjAmrQ2wkeIEM4fJ1XGy0cqYQSP/aGqZsHzFAS23fBCPRZ2+NDv2x4zVLVh9JAMtkHCUDac6Mu8dxlugQNw5RZStIv3yPvZE8gudO6pvuNrxCG+g+QV4ZKifcRC0aTdDaFeU1VzG7AbwMGwi1KJJI0uQVRL98XjkWZXbL8ThtpsjEKHSfSRv6hZUhwQxGZ2Qyb3WCvWat8c3tLOelkaoDyS8Z38EcfM3krD1wb980IJLLQnsa4duv2jm7Ji/DnGHBIaKy0VjwVnWyezC5pek8nswmVfL8nRYnhDqgGv+/kaIsyMKR/nmGgUS+QpAXZEo0FE821+27yZBzN3fQZ+BxM+TbLLpYI9f1U7Ihb4fzdrQqqOTyCmo9A+rAhYRMnrThHFB/p3FvD79s27zMX4tLUtR/26u/0gSD3cKYIlCmtm1igG4eV2LKuHNJbuDh5gC2+dthwy0V0+x2eo=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(376014)(7416014)(11063799006)(4143699003)(56012099006)(10067099003)(18002099003)(3023799007)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?g6KQ4g/aEke3greBEqmoD4JDmaoNX9SH/VvH31Eb2GmXLl6lCbgcyElMqsk/?=
- =?us-ascii?Q?vDwAGvOD6o9ZEofomZxt2f1P4By/sfKLjo9qZAoQ29dyVLE2s0HwQ99dbBTq?=
- =?us-ascii?Q?yb9oPvgEMfK9KwZDtCVIWvQD6JPwLJ7nSeIdKbAsVn0NujSXiEG5v5Ll9+ha?=
- =?us-ascii?Q?Zc3xkOaAw9DJN7Xu3tminrV6UPw1knxvw/1TAXVZXjUiD9uaMi5zEeAf2ZAA?=
- =?us-ascii?Q?OIwnourOR4XDOIZ6T7NhiYtQfIRvaYOP2/raSuktYjRMLsPNsMA8yA8mSuyb?=
- =?us-ascii?Q?DKM6FIha83DyPYg9AIz48ClF7jjrwILbQCrl4Zscb+Z64YPKJTi5jDUmF6Ax?=
- =?us-ascii?Q?MQlTuUN8uzYpKozjhmZYQmvAHFpHXQRF3zJc96K/j29KUmynFWejaEfCkkcu?=
- =?us-ascii?Q?cixn5m6R5osTB3Co87TDhDEpTWrSZOqklw+fsoRdva75+SwQy5p3y+rMUab9?=
- =?us-ascii?Q?NX1dhwrpYZczhlZF4bpwTwp8wDMBiDcfNX88FLf1xZxE9yTH72L40tHb23+A?=
- =?us-ascii?Q?P+1JkRjyhjjpA4eGlPcdd0l7z4emQfFDg5NRbmVoolG7kjZAOKfXwXp0rFUc?=
- =?us-ascii?Q?hnMAOXYBARZyqz4vDXPwzccVmtrGdUvlHXr9/ZF+YUCKd52JentR1W23i//2?=
- =?us-ascii?Q?XhDuylFmxcmbOqP1d+CWF5sAK1a1jd7p4EscnCQhMCTNTqFnK5mvSlt4erBg?=
- =?us-ascii?Q?/JGRWr1EXbNsDXhJgryXiyzVs3pNrmaBq8yYrhB7RqZoN0xlmCobDj7LXysu?=
- =?us-ascii?Q?qqvYhVKIKgNpWflgInIq2QoKnpiObDAvv97HqqYKpKpWWQX89kKefGdCA0Cz?=
- =?us-ascii?Q?FPQfEyNcEvpotfSMAdeyoDSCOkG0181BTtUrXeJIofJkPUH+Vns1tWqwzfJR?=
- =?us-ascii?Q?aQPnz3VdLeUo8lz1FLUD2ivx/KX4Jjza+1pttIaTX4k4ZEDz2PHcVoXvOZ9N?=
- =?us-ascii?Q?h+Rxn7Vj4ieXYEVgPWImAAa3sNcVLXiG9Ys03HQu1KuNGHYUg6tBIsNMdxJK?=
- =?us-ascii?Q?GFPic3KvPES/ZyAaXxyVdrZ8BviCaVp6KKNsibbsesC6zkv6JCLblvlIFs9D?=
- =?us-ascii?Q?0w6l5k/LtdYjQkeSgpbCyrK57YTMHwFFavKJ1BSpNfe8KQzvGYnuMddMi+D7?=
- =?us-ascii?Q?71buMPvP0qvOUt928Kbo4XIcyxUWAgOnLgj845fA6WBWK1Tz2NZtkPjM2Uli?=
- =?us-ascii?Q?XyEXspQYVAU4oTWE+X5gt9XDF94rlpYCTF5BVgC0dudwv9hvHpvfD4zOPN1v?=
- =?us-ascii?Q?GXJMSA1jKAI667eeYqkwsNmpUjraB/jQ7qdYRA4WPC1imT6RYRGAWcuXWsNy?=
- =?us-ascii?Q?Nf+NHbMyTwmuCYzfoNp53dcLKCY+pHOK28waB+LpOe3zOBq+gD4S+m94/4go?=
- =?us-ascii?Q?6dR392qOrYJavsoz7jXQiZOzFB25SAAMFaL2N3rzJfkpnGhbc2adq+mEN8lE?=
- =?us-ascii?Q?PHZ1hbxvgz2SpbuP+PPmwZwkUDJpCyD0gDnWPo70YTC2A3uzYo1WwFxj9zON?=
- =?us-ascii?Q?BuMRg6ArsNYrSr7ez8zRk8qtGexYwk7GaF/hjI+FZNdnoYUlDRBwPd1RgbXB?=
- =?us-ascii?Q?Dhi//hX0dE8x+a4sg3lN4oZlrCK70buYUfk62p2JEMasgdxtBWOegUe0FOLt?=
- =?us-ascii?Q?mrnvOB2QX2Kiod6q5gIpoMmL1e3Iusm2HEHjkHPbC9lcepUN1DOtnSXR4S0f?=
- =?us-ascii?Q?NueLiCm5U2lXVX4iPYkgibgtnTRuEPqe5zIEBUZq86WiPxNl?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dc3bdced-687f-412c-db78-08dee34d879c
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jul 2026 15:18:46.2314
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: as5QRYlpyFVYGmPA6U9RQvyayvWRTlvfiZmzVPIQORHUUhjLdPQQ3zPLtNELwoaj
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4316
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_081854_792403_40409EED 
-X-CRM114-Status: GOOD (  15.47  )
+In-Reply-To: <0f049d38-b7f6-47f0-a410-95ad2aee7fd4@transsion.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,36 +67,59 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Hongyan Xia <hongyan.xia@transsion.com>, Jiazi Li <jiazi.li@transsion.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "naveen@kernel.org" <naveen@kernel.org>, "mhiramat@kernel.org" <mhiramat@kernel.org>, "yang@os.amperecomputing.com" <yang@os.amperecomputing.com>, "davem@davemloft.net" <davem@davemloft.net>, "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-trace-kernel@vger.kernel.org" <linux-trace-kernel@vger.kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 15, 2026 at 01:30:22PM -0700, Nicolin Chen wrote:
-> On Wed, Jul 15, 2026 at 05:15:21PM -0300, Jason Gunthorpe wrote:
-> > On Tue, Jul 14, 2026 at 11:48:46AM -0700, Nicolin Chen wrote:
-> > > Nicolin Chen (6):
-> > >   iommu/arm-smmu-v3: Support IDR5.DS and widen the TLBI SCALE field
-> > >   iommu/arm-smmu-v3-iommufd: Reject unsupported bits in invalidation
-> > >     commands
-> > >   iommufd: Iterate the cache invalidation array in the core
-> > >   iommufd/selftest: Convert cache invalidation mocks to the core array
-> > >     loop
-> > >   iommu/arm-smmu-v3-iommufd: Convert cache invalidation to the core
-> > >     array loop
-> > >   iommu/vt-d: Convert nested cache invalidation to the core array loop
+On Thu, Jul 16, 2026 at 02:38:58PM +0000, Pu Hu wrote:
+> On 7/16/2026 9:24 PM, Will Deacon wrote:
+> > On Fri, Jul 10, 2026 at 06:32:55AM +0000, Pu Hu wrote:
+> >> From: Pu Hu <hupu@transsion.com>
+> >>
+> >> A kprobe can be hit while another kprobe is in KPROBE_HIT_SS state. This
+> >> can happen when tracing or perf code runs from the debug exception path
+> >> while the first kprobe is preparing or executing its out-of-line
+> >> single-step instruction.
 > > 
-> > I was tempted to take this through the iommufd tree, but Will, I think
-> > the first two ought to go to -stable through iommu ?
-> > 
-> > If you do that then maybe I'll pick up the rest
+> > I don't understand this part. The single-step runs with debug exceptions
+> > disabled (kprobes_save_local_irqflag() sets PSTATE.D) so how do we end
+> > up taking one?
+>
+> You are right that the single-step runs with debug exceptions disabled.
+> However, the case I was referring to is not a hardware breakpoint or a
+> software-step exception, but another Breakpoint Instruction exception
+> generated by executing a BRK instruction. A BRK instruction exception is 
+> not masked by PSTATE.D, so it can still be taken while handling a kprobe.
 > 
-> PATCH-5 touches arm-smmu-v3-iommufd. Merging via the iommufd tree
-> will conflict with the PATCH-2 in Ashish's series (via iommu):
-> https://lore.kernel.org/all/20260714104202.1664187-1-amhetre@nvidia.com/
+> As far as I understand the architecture, there are two different cases here:
 > 
-> Maybe it needs a shared branch; and then, Ashish can rebase?
+>    - Breakpoint Instruction exceptions, generated by executing a BRK
+>      instruction.
+>    - Breakpoint exceptions, generated by the debug logic, for example by
+>      programmed breakpoint registers.
+> 
+> PSTATE.D masks debug exceptions such as hardware breakpoints, 
+> watchpoints and software-step exceptions, but it does not mask 
+> Breakpoint Instruction exceptions generated by BRK. This also seems 
+> consistent with the pseudocode for BRK, 
+> Arch64.SoftwareBreakpoint(imm16), which does not appear to check 
+> PSTATE.D before taking the exception.
+> 
+> Therefore, even if kprobes_save_local_irqflag() sets PSTATE.D while 
+> handling the first kprobe, if the code executed from that path reaches 
+> another instruction patched with BRK, it can still take a Breakpoint 
+> Instruction exception. In other words, the nested case I mentioned is 
+> another kprobe BRK being hit, not a hardware debug exception or a 
+> software-step exception.
 
-Urk this is a pain. I think Ashish's errata fix should go first so it
-is easier to backport.
+Yes, that's correct, but if we're doing the out-of-line step, how do we
+end up executing a BRK? Or are you saying that it's the kprobes
+BRK64_OPCODE_KPROBES_SS instruction that we use to implement the
+single-step that is the problem? If so, how does taking that exception
+result in us executing tracing or perf code?
 
-Jason
+Sorry for all the questions, I just haven't understood what's going on
+here from the commit message.
+
+Will
 
