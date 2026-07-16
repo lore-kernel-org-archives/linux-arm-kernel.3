@@ -4,110 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 812A8C44516
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 18:10:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF775C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 18:12:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZTNk+mRSaobE7bwGj9PaTvAUpa6/FCcQUxD4xSxPefg=; b=mk31NZMxrZpKqYWTfLYNRjDsuT
-	mhZW+R07cqDtzBlWxPCwcRXyid1w8XjfHUpAWFx9p6iunSfvoZo9PDvtDBp1bYACjq8pFuSoVV8A5
-	0ZPJqteUYusFTneLu8k4V9GPP1rVSs3m/kihyapBABxfZ6m02H/zi8PIognpWxydjw+xbk6hWDbKd
-	PH2wuQfLlhja4Ufnpwhwn1vYDi79GASO3jCbkxP0POCA9LJVUoAEbv9itVKY+S7fWi50BBd62AzhN
-	Ki65/CQbExIvSNLHf7kwUiQabZm0Nly9jEY44fxjCYPJDoZ0Ic15ffGxpsWMBhtDAQlbNYnEOptKA
-	FI/eFWDg==;
+	bh=T1Kjd75GrDknuJfskGJbtCjuUzudFkj+B+wHx6EHO08=; b=ank2puQ74Xp6edFsvA6UNGq1EW
+	OFpnOBdjHDN2/9llwaGqjTeg6PY3Eb2giqMrSmQjE48ZJdwJvrticRkifsJz+UtPccT0so8dOUY/W
+	ng4xRbBTl1Mk3Lg5V3W7luyzVfHjw63CxlcGfWTBG5KwQnNZH18rDZutqP/Pb0vVu/ygvPrJYsVnx
+	xsQXVaw9Dcy5lgGhGzDB2fAiZoRxL1BN5SotGjpMo49bJpuwcEmTvNDl90sxb7MqbR22/MoREVkUz
+	zuO5kM0iolR24EWznKcDT+nMxFK99+le4HwivYh7vSyqZWOFgn1I5mLBgcfrwUACcs86pFPecfqzI
+	vX7comjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkQX3-00000000Lb4-2SyV;
-	Thu, 16 Jul 2026 18:10:01 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1wkQZB-00000000Lpl-3qjt;
+	Thu, 16 Jul 2026 18:12:13 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkQX0-00000000LaK-27OP;
-	Thu, 16 Jul 2026 18:09:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1784225398; x=1815761398;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=Okw3RFWG7FVuL2+E+b2U06t94SSVvQwqXkAr8OEAKqU=;
-  b=LqB1Xcew+XZigMwi0Wv0DkAML53EpLQGeVWrNAk5Bs+fO/X9BRUFytpH
-   b4HnJddrPhcopOYfO9U5QRPyJw+/4IVxW6PrFUS3udFtJNJB1Dj+I4kX9
-   M7RgWdVX9eEQTnIZOUhjiw/1yyJbcAp7r7BBgbjNzZUOaGcytF8omPF5N
-   yYR6nxJUTnXDvv0+XbUkPegM/8qsUGyJyG8BhLe4QbM1z9yjPFq74pSQ8
-   E91FOl7VUiFcj13q2BZca61hEplpxsc3Pm/0/U49SmGQgOSgUG0QSmKDT
-   JPnXMy7lEeZ6xV2eJLefOha39n3BqLFm1TrpfGBoE2pCcvD4aA18ixEdf
-   g==;
-X-CSE-ConnectionGUID: coWayIuASLiHZkPOF1UepQ==
-X-CSE-MsgGUID: JZcS/03XSAWsj4ZtADvR7g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11848"; a="72428741"
-X-IronPort-AV: E=Sophos;i="6.25,167,1779174000"; 
-   d="scan'208";a="72428741"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jul 2026 11:09:57 -0700
-X-CSE-ConnectionGUID: QdmQqkseSuO0mjX2xbzbJA==
-X-CSE-MsgGUID: f2U++eSsRAqSyMQQF+RlRQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,167,1779174000"; 
-   d="scan'208";a="286635995"
-Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.26])
-  by orviesa002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jul 2026 11:09:48 -0700
-Date: Thu, 16 Jul 2026 21:09:45 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Link Mauve <linkmauve@linkmauve.fr>
-Cc: Srinivas Kandagatla <srini@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Vladimir Zapolskiy <vz@mleia.com>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Kalyani Akula <kalyani.akula@amd.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
-	Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Tamir Duberstein <tamird@kernel.org>,
-	Alexandre Courbot <acourbot@nvidia.com>,
-	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
-	Johan Hovold <johan@kernel.org>,
-	Ronald Claveau <linux-kernel-dev@aliel.fr>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev, imx@lists.linux.dev,
-	linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	rust-for-linux@vger.kernel.org
-Subject: Re: [PATCH v3 0/4] nvmem: fix a const-unsoundness in reg_write
-Message-ID: <alkeaYNKHZO5Tb3p@ashevche-desk.local>
-References: <20260716142415.28718-1-linkmauve@linkmauve.fr>
+	id 1wkQZ9-00000000LoW-2qOu;
+	Thu, 16 Jul 2026 18:12:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=T1Kjd75GrDknuJfskGJbtCjuUzudFkj+B+wHx6EHO08=; b=0Djob2ueamTLt489wqKmvosaF1
+	Hj6Jaqc32ygFK5l+ehoF1u77JMiTTSAggjjpJC8ZNhl1DoQGC7D/nIk6IOBkN2QbUC3sngUo6D42f
+	BcIDgGfDLop1wndv7451eyRNpPXC75ZWYKhAJfZceYcjPuPNUP6eJ8bMEcENsNJfX8F+T/31e6Pz4
+	SDAVeLXD+u3cqeKVbx/tZ7gEEfy+0umjhVh0/U/MlTkUnzY7+Di1a7Jk/CUQ/WzOW3p8KskBjKfuy
+	YB7F6a/FAchPtlub2JPic1Q8E64vqty7+wxm58iy0NnF9IdVraYV3LJ98RbBDJPruxaAdu2+nDrpW
+	gZfbiDyw==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Hrushiraj Gandhi <hrushirajg23@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v7 0/2] arm64: dts: rockchip: add Vicharak Axon board support
+Date: Thu, 16 Jul 2026 20:12:04 +0200
+Message-ID: <14508147.RDIVbhacDa@phil>
+In-Reply-To: <kzl6ykopmcj7nl6jnf4uav75cdn2znd3jb4vjlrde364homti6@2y2zfyvwni4x>
+References: <20260608060940.52549-1-hrushirajg23@gmail.com> <14045151.uLZWGnKmhe@phil>
+ <kzl6ykopmcj7nl6jnf4uav75cdn2znd3jb4vjlrde364homti6@2y2zfyvwni4x>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260716142415.28718-1-linkmauve@linkmauve.fr>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_110958_578160_526697FC 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20260716_111211_740859_590E5B37 
+X-CRM114-Status: GOOD (  22.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,30 +67,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 16, 2026 at 04:24:07PM +0200, Link Mauve wrote:
-> This callback used to take a mutable void * for no reason, which causes
-> the compiler to be unaware that the val buffer should never be modified
-> by the callback.
-> 
-> This was found while drafting the nvmem-provider Rust abstraction.
-> 
-> Thanks to the guidance of Andy Shevchenko, this now introduces a new
-> callback and deprecates the existing one, with the goal of renaming the
-> new one into the old one once no user remains in the kernel.
+Am Mittwoch, 8. Juli 2026, 12:21:30 Mitteleurop=C3=A4ische Sommerzeit schri=
+eb Hrushiraj Gandhi:
+> On Tue, Jul 07, 2026 at 08:23:47PM +0200, Heiko Stuebner wrote:
+> > Am Dienstag, 7. Juli 2026, 18:03:54 Mitteleurop=C3=A4ische Sommerzeit s=
+chrieb Rob Herring:
+> > > On Thu, Jul 02, 2026 at 09:04:55PM +0200, Heiko Stuebner wrote:
+> > > >=20
+> > > > On Mon, 08 Jun 2026 11:39:38 +0530, Hrushiraj Gandhi wrote:
+> > > > > This series adds initial device tree support for the Vicharak Axon
+> > > > > single-board computer, which is based on the Rockchip RK3588 SoC.
+> > > > >=20
+> > > > > The Vicharak Axon is a feature-rich SBC targeting developer and e=
+mbedded
+> > > > > use cases. It ships with:
+> > > > >=20
+> > > > >   - Rockchip RK3588 (4x Cortex-A76 + 4x Cortex-A55)
+> > > > >   - RK806 PMIC providing all SoC power domains
+> > > > >   - eMMC 5.1 (on-board) and microSD slot
+> > > > >   - Gigabit Ethernet via RGMII (RTL8211F)
+> > > > >   - Dual HDMI 2.1 output and one HDMI 2.0 input (receiver)
+> > > > >   - PCIe 3.0 x4 and two PCIe 2.0 slots
+> > > > >   - SATA 3.0
+> > > > >   - USB 2.0 host ports (EHCI/OHCI)
+> > > > >   - NXP PCA9554 I/O expander for status LEDs
+> > > > >   - Haoyu HYM8563 RTC
+> > > > >=20
+> > > > > [...]
+> > > >=20
+> > > > Applied, thanks!
+> > > >=20
+> > > > [1/2] dt-bindings: arm: rockchip: add Vicharak Axon board
+> > > >       commit: e0008b108aaf8c5aa22930b2ceadf8f894562acb
+> > > > [2/2] arm64: dts: rockchip: add Vicharak Axon board
+> > > >       commit: e08c3389c78dbefd31a57df8807cf57ef6f3c9b1
+> > >=20
+> > > Both have issues and should be dropped.
+> >=20
+> > I've dropped both the Axon as well as the Vaaman2 board from the
+> > same vendor now.
+> >=20
+> > The whole thing is confusing.
+> >=20
+> > I should've caught the pinctrl issue, and do remember running a dtbsche=
+ck
+> > on at least one Vcharak board - but that must have been the Vaaman2 boa=
+rd
+> > because there the pmic fullfills the binding (and general setup of other
+> > rk3588 boards).
+> >=20
+> > The vendor-prefix is missing indeed. I found earlier versions of the
+> > version-avalanche had it, up until v6 [0] . Though I haven't figured out
+> > yet why it was lost.
+>=20
+> Regarding the missing vendor prefix 'vicharak' that was noted: the prefix=
+=20
+> was already submitted separately upstream by my team in a different patch=
+ [1].=20
+> Because it was already submitted, Krzysztof asked us to drop it from our=
+=20
+> own series to avoid duplicates [2].=20
 
-...
+Looks like that series with the vendor-prefix was applied last
+saturday [3], so I'll continue with your newly sent board versions :-)
 
-> - Actually test with COMPILE_TEST, which I forgot to enable before…
 
-Hint, you may use folder as a target in `make`. To avoid this just run
+Heiko
 
-	make ... allyesconfig drivers/nvmem/
 
-(In the similar way for any other folder and its subfolders.)
-
--- 
-With Best Regards,
-Andy Shevchenko
+> [1] https://lkml.org/lkml/2026/6/24/929
+> [2] https://lore.kernel.org/linux-rockchip/96c9b1eb-9f8e-430d-9c38-eb4d48=
+9d7d24@kernel.org/
+[3] https://lore.kernel.org/all/178378800443.138068.8763713563230008567.b4-=
+ty@kernel.org/
 
 
 
