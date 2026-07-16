@@ -4,65 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95CBFC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 07:05:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA964C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 07:10:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YopDoBUX3VUuGxZ98wWXcclxYcbXiMdcqqK+dQPjMV0=; b=M67DsAqJ8L6KcgTIKsgdHvgbAO
-	tFdtEL983SoNXiIqDHo1f3j5uUHTk9kYzJvshI6wpePtdoq2KvZUHwDwrdG4BI4dgWTISYhLZntYV
-	UQu9hb4mw8gRVIVTCzZBH4EFlWzSZaXYwh6PrnkPYV05/NqVtFIbZxP7dIbAvXJlbR0lBdUFD07e5
-	rz9Q6KL/40KRmnFY3Fe6faeNIKLQcDk7H+Xhw6qsyymgCvnHSc6puPVk68mp0wtmT0ecWOGkKS2WK
-	Kx5TzJuB1hjzAy0oTzLsl2aWyKrZ8x41pY0zE8jomiS1vb9KmMa9WXAeLQjaQF0hj4RPz0b2RA1nE
-	ntjL5uew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3nJY02tEr49NOhAWpmUYEjwEHuGItqphomvwL9h8gvE=; b=X/XKrAKds50uxJMCiUmjBNv6Tq
+	IgQG+0//ZJUQ5Uih2lsnnDulVpFd+iPZV+NObAEXPz5wEmSXwyTNayIyEYZD98pGYSVLaaSmgLQAG
+	SiSTOOaTiKtLsigc9iVyzzQUceLG7zfthRNDC+TtUWI+rKSMUJuRVb3m5WUcSrqfmL5aOqTDIhvl9
+	kAXFSHfzz0vRdA7jsahAwvWJvddAapqZ+PDIrqcpBIUH4qKNOBrgiWZnKjn2Yk5VpX47/X9xqHT+J
+	iOcxiySavJC9ba111EGOBREN/weIBx0I0a8zQlW1cxFZAHEpQBe8FgXQpiC1Zx3SErYhsMw+BHwGW
+	p4IWVOdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkGA1-0000000GcAW-25oj;
-	Thu, 16 Jul 2026 07:05:33 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wkGEm-0000000GcPj-0JxR;
+	Thu, 16 Jul 2026 07:10:28 +0000
+Received: from mail-francecentralazon11013056.outbound.protection.outlook.com ([40.107.162.56] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkG9z-0000000GcAO-3t6R
+	id 1wkGEh-0000000GcPC-3GJr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 07:05:31 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6B213410C6;
-	Thu, 16 Jul 2026 07:05:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23AC21F000E9;
-	Thu, 16 Jul 2026 07:05:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784185531;
-	bh=YopDoBUX3VUuGxZ98wWXcclxYcbXiMdcqqK+dQPjMV0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=PSjg/wj8XxdKXdQE3lrWqGi6vaA347qT/KZX2t3fM6cUrLFi8YTAij6RJ+XRsEUrl
-	 32WckwFWrDHhE9FALOpwwtJUk+GeqryMmfYEEoVhi9NyNwB3k1PX8vmyYTJwRiNU9z
-	 1Uo5XR+vmgwHkJnl95XrN1XdUalNVmEDhm/CR05hsJ/vchr53rIpFsWbG2lzVO3/L2
-	 FHbYhufVVPDIqPaZysIhWPW2fOfIuLIjTafjQyWzSBKtfQ80iYb6UoA4MazUyb05LT
-	 kbHRs7i9jamucUEZBbpNgMKirqOHqHxVyYZnOhN1XQqC+vAuiVGIjsmbNMpzMguY/3
-	 KCh9sAVnCgfWA==
-Date: Thu, 16 Jul 2026 00:05:29 -0700
-From: Oliver Upton <oupton@kernel.org>
-To: Wei-Lin Chang <weilin.chang@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>,
-	Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Itaru Kitayama <itaru.kitayama@fujitsu.com>,
-	Sebastian Ene <sebastianene@google.com>
-Subject: Re: [PATCH v4 2/6] KVM: arm64: nv: Avoid full shadow s2 unmap
-Message-ID: <aliCuX3ZIvxWlFE-@kernel.org>
-References: <20260714115926.2044757-1-weilin.chang@arm.com>
- <20260714115926.2044757-3-weilin.chang@arm.com>
+	Thu, 16 Jul 2026 07:10:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gMM//7YtyhiAiPYEBgSmb2/Ws6jfC4p8Zg35/Di19RVKZEt/YEPo2+Et8zl4W3PAGXR2bWXHa3T7H3DXykdchLJVhdn0qs7XbnrVPg3hkgvSyz3eTYk+tGkfMUT5Faux1lP4lgPZFoFLUt4UkG+r8glilgE+xQ129gAXDvqlCNE99+6PtY1f9NfLZa7RJmxgSGjnze5cnwnVnv+p2wyKxvCtCkRa+gNQfAhaQeVv8zEVfaYrCGD+FyT2jxYXCjXNgAUiJK3BkuF9Jxc16JL3EyyYlkfnpFllhK0RlaMcuGdvUdtGlX/B5wt9D58ujQsKFB3L26JbK8yg9vSkn4q0fg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3nJY02tEr49NOhAWpmUYEjwEHuGItqphomvwL9h8gvE=;
+ b=DQUy2Mb2z6ZaIKylDqKNhDiT0of+4ufnUARLYbnhYMSHSD8ounLAWNapHryHB6flRCGLvpI/EczSkS3Aj9boUC/KP63fmBq7vznbxy1qt4S10i/f/hKWW0Vz7srQrmDYhbW+p5SHGott6ABN7oddJ+0f2m3z+GtcnEEgTX6jHPnqEXcdOIjDITIXYIILGcdaz7mNqhstUulrDgAGXSk4MMBhNU6N7hJirzTB+kIXOFWYeMmuLv4dS2QPhzqNKEhVq/lxxIQe/tJBofnUkduaEZzZzjEBj+vT8npIH+piH4XN5Sl/eeIkDY9nN2bIvDtmnqXyfbw/bD02yVXukYdiEQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3nJY02tEr49NOhAWpmUYEjwEHuGItqphomvwL9h8gvE=;
+ b=DCU3GXvA20/oXcoIK4FX/bUpO38cAcoA6L5DQlqfMzheVR/JMJ1IMhUamDqKMYDlMPJpiNGdmPNtRSxlyb1ifS6/1W2ZpOBPDG9RSkeFv81bDSw3A45lgrHabQHlECgPW53eiUJiy0Ipaomg+wV0Bvu1M2myZUZwVrDMOnFB3jr4I3TSY9yL9HgckYHTYU+cteV9SwndGcq5gQ2AeSUC49RSdJWj86o2sdxtJLzcOzltpi6hk7QybUY8AghTyQJiTIlplusfQmHfmaFcj3HGbG2hJp1aL7odTZhIInyACbCwTJlYRhrMegz9kTXt4umsLFm5zB8lw5sCaYlrgCunIw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV1PR04MB11513.eurprd04.prod.outlook.com (2603:10a6:150:284::9)
+ by MI3PR04MB12440.eurprd04.prod.outlook.com (2603:10a6:290:75::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.20; Thu, 16 Jul
+ 2026 07:10:17 +0000
+Received: from GV1PR04MB11513.eurprd04.prod.outlook.com
+ ([fe80::29e0:98a1:4577:2cc7]) by GV1PR04MB11513.eurprd04.prod.outlook.com
+ ([fe80::29e0:98a1:4577:2cc7%3]) with mapi id 15.21.0223.011; Thu, 16 Jul 2026
+ 07:10:17 +0000
+From: guoniu.zhou@oss.nxp.com
+Subject: [PATCH v12 0/3] media: nxp: Add CSI Pixel Formatter support
+Date: Thu, 16 Jul 2026 15:13:48 +0800
+Message-Id: <20260716-csi_formatter-v12-0-2601d17fc4af@oss.nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAKyEWGoC/23S22rDMAwG4FcZuV6KJMeyvau+xxjDB3nNRZuSl
+ NBR+u5zOkZz2KUF3y9L9q0apG9lqN5eblUvYzu03akckF5fqnjwpy+p21QKFQFpRNJ1HNrP3PV
+ Hf7lIXwsncgo5ReGqmHMvub0+At8/yvnQDpeu/37kjzhVf5MI1CppxBpqCU4QGxMaJ/vT9byL3
+ bGackaaWTRrS8UyIVufLRDC0qq5dWurirVsIXGyBhwubfNnGZBobZupb+YcfcKolF9aPbebeXW
+ xSQcLKls2IS8tP23Z+9pysYBAVhSSUNh3w7BbeDP3du1N8ZopGA1aG1Fbb2d+8+qjneYO3DCV/
+ tT809/NPa+9Kz56lWxZWhOV23qEZwBvB8Ayf51JWQXlBsHrfxJwlrBdP07/zRtHWVxEDbRMuN/
+ vPy+FK7MdAwAA
+To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Frank Li <frank.li@nxp.com>, Abel Vesa <abelvesa@kernel.org>, 
+ Peng Fan <peng.fan@nxp.com>, Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>
+Cc: imx@lists.linux.dev, linux-media@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
+ Guoniu Zhou <guoniu.zhou@nxp.com>, Frank Li <Frank.Li@nxp.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.14.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784186031; l=12348;
+ i=guoniu.zhou@oss.nxp.com; s=20250815; h=from:subject:message-id;
+ bh=yWXcKWDwzjGqFqA8nNA76jy/e4qk5NXKxRtj2CdSAcs=;
+ b=nxjx8ygmuYTq6uM3MGR9RBr/kQ/rIcw8mcuGujj8/shnyc/JNClGAqzfx7UjYf0AfUF441KiY
+ plno2k7Sfl3Ba1PhaP45ehHM9fdE2UL1/eqAcLU2cgAI6NBd11puaWc
+X-Developer-Key: i=guoniu.zhou@oss.nxp.com; a=ed25519;
+ pk=MM+/XICg5S78/gs+f9wtGP6yIvkyjTdZwfaxXeu5rlo=
+X-ClientProxiedBy: MA5P287CA0268.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:1f2::6) To GV1PR04MB11513.eurprd04.prod.outlook.com
+ (2603:10a6:150:284::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260714115926.2044757-3-weilin.chang@arm.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV1PR04MB11513:EE_|MI3PR04MB12440:EE_
+X-MS-Office365-Filtering-Correlation-Id: 14763885-5b29-4759-19af-08dee3094a59
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|19092799006|1800799024|366016|7136999003|5023799004|11063799006|3023799007|18002099003|56012099006|6133799003|10067099003|921020;
+X-Microsoft-Antispam-Message-Info: DlUHjF7VTAjPxO04qWEVeqZLEBPjY5sZCT7dBtBtSVTeNdp6sesvm+zNq1FVo+M7BRWUFJv5j6z47EVhsDS4a6gh+BmRLOd7LMs+/Zq3215WwzzjBLvT6lYFOp5KWN1JKeJNRop1o5UhMngoQ60oWT4lbxgKWw/yhQ9X6m0tq5HT5w4BPKpuIQJ3eGdIp3Yoi9OO1p8w4CQZQmAr5WGM1XzQ/A4n1XEYKRaUB/T29fxydaQgK6wW41RlFHFUGsH5mkJu7YPX4gJDkJJtwbm1eswt3K0U1owAHo+g35JrFdovqU5907O3Wjip1QpdBFuHCVtLzL3v63hP0BPl5AkLNl9V8Qa5F/VeCT88hZzRFHHTih12xz9He68UWuoGeK3trqXu0/TcstckMiy5SxZTVX1mNOk4JoWBNx48wTf/TQNXLt708l7eUMzF65jOOqYgXULDH2NJ6v6wCarGDDS+F+TLOwbzCF1I/vz1+Gies8Bbns7UQyi9/wqw1yMIDa6HHs34GRf3zCyoAHN6JHJ9nX/pj70JV95iXPYOFE+ofg3yQ7PVkzYEr86V57l3y6KIN90TE17Dez3gWkd9W396UhgyFu1i51WDBQMhoQTvPK7h/X1iMP0NK7PnhRJz3ohPzbIuB6jn9CEVgRxlmyg0ApRA/fxjhn92AFQcFnkdizU=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR04MB11513.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(19092799006)(1800799024)(366016)(7136999003)(5023799004)(11063799006)(3023799007)(18002099003)(56012099006)(6133799003)(10067099003)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ejdHOTFqWXpTNlArVStlc0E0bkdUTEgrVWpnODNQVUNPMHVBNmpGSTFzOVVE?=
+ =?utf-8?B?ZldXZFhHSTRrMnhBTWRZQ1czVmhITXZtK0Fld2hVanB3UmdhNTV1T2ZEa3Ru?=
+ =?utf-8?B?ZXkrUUcxZE5iMnE1czg5RnBZYTlCWHhTeC9BU0lTd3B2K1czVkQ5cWo2L2ty?=
+ =?utf-8?B?Tk5UMFN5VE1rUFp2eE1oR3ExMGVjRWhaV2Fhc0VJQ2pQTXJ4OUdEUFpINjZx?=
+ =?utf-8?B?Sm9Ib1ROc3A0azhia0VBZHZNVFhDL29KeUk3U21Vd1pIaGNJbWxXdHRiVVN6?=
+ =?utf-8?B?MzdFNWQ2ZmpJUkVPUkIxcFViMVExeVpGVyttSCsweFBDSlpOckp1RkNqZHpt?=
+ =?utf-8?B?c2prc0cxY0wrQy9pR0p5SzFweUdxdWgxUnJmazlLZWZsd0IrM1Q0MllpWWdW?=
+ =?utf-8?B?TWdIQlpEb2krWU9qMXZzeFlwazh3eEh2dVdBM21PdXhRRVl1TlZ5Q1dpN3gy?=
+ =?utf-8?B?K1FFbXhuY0xweEhHbDhVWDMvVm5uK1h2bXpKV1U5cGxKOCs4QzlWTzVqZ3FV?=
+ =?utf-8?B?RCt1akRvdXZLR2VZVUs4OHJPVUFCQWpqSlNGZ1M0cUQrNXY2cDlOZFlpeEU1?=
+ =?utf-8?B?QmRMQ1IzRm5wTjQ4RTJoV0Z1Vk1YRmVobEw2ampvUUtyT3dZeDZQTGc4VEhY?=
+ =?utf-8?B?MStmN2xyUHFEVXZmSkV5NjBOSlMwczg4UVkwSVhaU284TWhWb294eEtWUUs2?=
+ =?utf-8?B?SGhJdmZUOFI1SHYrZURJVTJkTzB0b1JoYXF0UFpHc2ttNzlDdzFsV2FKRjNn?=
+ =?utf-8?B?TStVeDZMSEE1RmJiaHRDV0RDbzFibnE0UTJuMXJLNG5OL2ZtRnI2UGtrM1ps?=
+ =?utf-8?B?b2pFaHJwRWpQVDFQVWhNNzhNT0hGMkNYVUNudEV0WkhHYm1TOHB2QkNMbTZK?=
+ =?utf-8?B?V0d5SlVlZWRrUENsNytJSFBkZ2xGUGZUb1FPWDRIRVVQcWZ3VlVVNmtsOXNK?=
+ =?utf-8?B?Mm02V25yRDhTSUF4ckRtNkpqVzFYOWxNQ1BJaHNtOGJ1U2F4ZTEvNXFYc0ll?=
+ =?utf-8?B?R05uL0FzNUp4d1U0VWlIYkpqUENsMjFyWERqUFk1S0xGMlp0RlhBN2FBa3Jz?=
+ =?utf-8?B?d05vZXd6RVdGLzNCa2xzQWFWRGtWb1puV2FaYklSZnJ4dGFyaEllcUpBZVl1?=
+ =?utf-8?B?OXRVdk9IM2N5aFVsY0toUkx0Y0xib21wTTYxcTZ6aVNVbXF4RE9zc0l5U3Fo?=
+ =?utf-8?B?WDQ2cERKem9xM0pZTHluaUlSc1Y4TzZHejZvT3V5TmxIVWJaVDd1SFUzZHVm?=
+ =?utf-8?B?RkdYWjdKSllvZlUyV1FwS0JhZ0liTUYzWk5EUVlNK09ZVG1jSEpEMll1NTRJ?=
+ =?utf-8?B?WDBMVEdSay9rUFhVdHZYM2EwY3l5aERSWjZ2U1lWWnBPZGV5d1ZpZDVyTTZu?=
+ =?utf-8?B?SDRRNVFqRjF6aEYrQ3FPYkE3QXVRN3RsSmdJS29OdE9OMzljTlNoWHQ2d0Uv?=
+ =?utf-8?B?V1UrNXMvYWlSMXFTaktqeFVuVE5DeGN2Q1E3N2l6RU1qdktibGhPV2w0L1B1?=
+ =?utf-8?B?MFl5ZlNMVjFZeDNFNGs5NUF2TmJ3ejZwYTNBejNYVFNuekhqYzl3eklQSzZr?=
+ =?utf-8?B?elhjOGx0TkJQR1F3ZEsySERaZ3dBRlVnM1MySnJ5SG9mcGZZVzlNbkdhK3BT?=
+ =?utf-8?B?MjlybkNNZENONFpXdG9jQmdvbzM4QTVybzhjNkxJNEw0bnljS0tNY0QwRDBR?=
+ =?utf-8?B?TDFOdkVDQk4vc1lXaXZOM1F1eklEV1UxMEM1SEMyS1c0Ymt0Rm9jdHJQbzlv?=
+ =?utf-8?B?N0dSMHJsejU5Y0o5eGpyZTE4akdQRUg3U05YbzBURmkwbU0xdnBWMXRzZzNu?=
+ =?utf-8?B?OUJQbFpwVFlqVDNKbitqeDU2dFVRUVk4dHJCYmgvMEduQkFoZHBwdjFUZG9z?=
+ =?utf-8?B?YmwraEhuRTFWZEx4VGh6Z0tEcDJVYjl5dXdsNmZTZVhlak96aFBVbDdlQnFM?=
+ =?utf-8?B?aHQwV0wxZ3NyZEc2MW1wT1A2TFU4ZlVnSmpyeVpyQlFrTnpxblp3bWFuQkp1?=
+ =?utf-8?B?SFF3WVI5KzJSNXFZMWJhMFBzdThsbGlUSjdBZ0FSY2l2Z00vSmNCckViNHE4?=
+ =?utf-8?B?UFY5ODA5cWxScXE0ZVdXdUFhQWNwZktxLzVkLzFwZlJQMXkrZFI0ZHFQUU02?=
+ =?utf-8?B?bTJ0WC92eEtsWVFGKzFDUzVXU01Qb3lpUzlhTm91eTh0azRKdjYvd1R6QVlP?=
+ =?utf-8?B?eEN6QlFha1RGTzhxT0pNTVJ4czd5dlc5TE9QRUZJaTVYc2pRSm84Qzd5VWhR?=
+ =?utf-8?B?WG85bnF3L0tCRExRQ3VvOGh5OU9RcXlOamVLUHprd1pRU1MzOUl1ZnNLdDNS?=
+ =?utf-8?B?UVBRYm55OTVXNFB2MGhLZ0VnU1dDbStsbTY1bUZ6NkNjUkhTN1pvN25sV2Va?=
+ =?utf-8?Q?I4+n3y7jY43r0bb+grsV4NdslrGZtxj4LDQjg?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 14763885-5b29-4759-19af-08dee3094a59
+X-MS-Exchange-CrossTenant-AuthSource: GV1PR04MB11513.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jul 2026 07:10:17.6400
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: KKUjLfO7iHw4/SN/5Dy1S+XQy5l8Wr/Qv40HAW+DwuwLvyTpvMeZQFNABbGaJ9NB71gcrHcUPLJe+ku9KxlxUnq9L475eQ/4KswMUONxv0R3Jz67OsN6m4nyGG5ur9Nh
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MI3PR04MB12440
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260716_001023_994764_2B91D89E 
+X-CRM114-Status: GOOD (  10.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,161 +171,282 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey,
+CSI Pixel Formatter is a module found on i.MX95. It could unpack the
+pixels received by the formatter and reformat them to meet the pixel
+link format requirement.
 
-On Tue, Jul 14, 2026 at 12:59:21PM +0100, Wei-Lin Chang wrote:
-> +static bool valid_entry(unsigned long entry)
-> +{
-> +	WARN_ON(entry & VALID_ENTRY && entry & UNKNOWN_IPA);
-> +	return entry & VALID_ENTRY;
-> +}
-> +
-> +static bool unknown_ipa_entry(unsigned long entry)
-> +{
-> +	WARN_ON(entry & VALID_ENTRY && entry & UNKNOWN_IPA);
-> +	return entry & UNKNOWN_IPA;
-> +}
+This patch series adds a new V4L2 driver for CSI Pixel Formatter.
 
-These should be WARN_ON_ONCE(), but I find the condition you're
-asserting to be a bit confusing. An aliased reverse map entry is still a
-valid entry, would you not set the valid bit?
+Background
+----------
+The Camera CSR binding was upstreamed during the pre-silicon phase when
+the hardware integration details were not fully finalized. At that time,
+the syscon binding focused on the CSR's primary role as a shared register
+provider for clock gating, QoS, and error handling across Camera domain IPs.
 
-> +void kvm_record_nested_revmap(gpa_t canonical_ipa, struct kvm_s2_mmu *mmu,
-> +			      gpa_t nested_ipa, size_t map_size)
-> +{
-> +	struct maple_tree *revmap_mt = &mmu->nested_revmap_mt;
-> +	gpa_t canonical_ipa_end;
-> +	u64 entry, new_entry = 0;
-> +
-> +	lockdep_assert_held_read(&kvm_s2_mmu_to_kvm(mmu)->mmu_lock);
-> +
-> +	if (mmu->nested_revmap_broken)
-> +		return;
-> +
-> +	if (WARN_ON(!IS_ALIGNED(canonical_ipa, map_size)))
-> +		canonical_ipa = ALIGN_DOWN(canonical_ipa, map_size);
-> +
-> +	canonical_ipa_end = canonical_ipa + map_size - 1;
-> +	MA_STATE(mas_rmap, revmap_mt, canonical_ipa, canonical_ipa_end);
-> +
-> +	mtree_lock(revmap_mt);
-> +	entry = xa_to_value(mas_find(&mas_rmap, canonical_ipa_end));
-> +
-> +	if (entry) {
-> +		/* parallel faults can be adding the same mapping */
-> +		if (valid_entry(entry) &&
-> +		    mas_rmap.index == canonical_ipa &&
-> +		    mas_rmap.last == canonical_ipa_end &&
-> +		    nested_ipa == (entry & ADDR_MASK))
-> +			goto unlock;
-> +		/*
-> +		 * Create a "UNKNOWN_IPA" range that spans all the overlapping
-> +		 * ranges and store it.
-> +		 */
-> +		while (entry && mas_rmap.index <= canonical_ipa_end) {
-> +			canonical_ipa = min(mas_rmap.index, canonical_ipa);
-> +			canonical_ipa_end = max(mas_rmap.last, canonical_ipa_end);
-> +			entry = xa_to_value(mas_find(&mas_rmap, canonical_ipa_end));
-> +		}
-> +		new_entry |= UNKNOWN_IPA;
-> +	} else {
-> +		new_entry |= nested_ipa;
-> +		new_entry |= VALID_ENTRY;
-> +	}
-> +
-> +	mas_set_range(&mas_rmap, canonical_ipa, canonical_ipa_end);
-> +	if (mas_store_gfp(&mas_rmap, xa_mk_value(new_entry),
-> +			  GFP_NOWAIT | __GFP_ACCOUNT))
+However, the Camera CSR hardware is actually a mixed-function register
+container with varying control levels over different IP blocks:
+- ISP/CSI: Clock gating only
+- ISI: QoS configuration
+- CSI: Buffer overflow handling
+- LPCAC: Error handling only
+- ISP: Pixel link selection
+- Formatter: Complete IP control (full register set)
 
-The general pattern for handling this situation would be to preallocate
-nodes prior to acquiring the lock. If we can preallocate then we can
-just outright refuse to create a shadow stage-2 mapping if the update to
-the reverse map fails.
+Why Child Nodes Now
+-------------------
+The CSI formatter is unique among these IPs - it's an independent hardware
+block whose complete control registers reside within the CSR address
+space, not just a few configuration bits. This architectural detail was
+not reflected in the original binding because:
 
-> +		mmu->nested_revmap_broken = true;
-> +unlock:
-> +	mtree_unlock(revmap_mt);
-> +}
-> +
->  void kvm_init_nested_s2_mmu(struct kvm_s2_mmu *mmu)
->  {
->  	/* CnP being set denotes an invalid entry */
->  	mmu->tlb_vttbr = VTTBR_CNP_BIT;
->  	mmu->nested_stage2_enabled = false;
->  	atomic_set(&mmu->refcnt, 0);
-> +	mt_init(&mmu->nested_revmap_mt);
-> +	mmu->nested_revmap_broken = false;
->  }
->  
->  void kvm_vcpu_load_hw_mmu(struct kvm_vcpu *vcpu)
-> @@ -1225,6 +1305,89 @@ void kvm_nested_s2_wp(struct kvm *kvm)
->  	kvm_invalidate_vncr_ipa(kvm, 0, BIT(kvm->arch.mmu.pgt->ia_bits));
->  }
->  
-> +static void reset_revmap_and_unmap(struct kvm_s2_mmu *mmu, bool may_block)
-> +{
-> +	mtree_destroy(&mmu->nested_revmap_mt);
-> +	mmu->nested_revmap_broken = false;
-> +	kvm_stage2_unmap_range(mmu, 0, kvm_phys_size(mmu), may_block);
-> +}
-> +
-> +static void unmap_mmu_cipa_range(struct kvm_s2_mmu *mmu, gpa_t canonical_ipa,
-> +				  size_t unmap_size, bool may_block)
-> +{
-> +	struct maple_tree *revmap_mt = &mmu->nested_revmap_mt;
-> +	gpa_t canonical_ipa_end = canonical_ipa + unmap_size - 1;
-> +	size_t entry_size;
-> +	gpa_t next_addr;
-> +	u64 entry;
-> +	MA_STATE(mas_rmap, revmap_mt, canonical_ipa, canonical_ipa_end);
-> +
-> +	lockdep_assert_held_write(&kvm_s2_mmu_to_kvm(mmu)->mmu_lock);
-> +
-> +	if (mmu->nested_revmap_broken) {
-> +		reset_revmap_and_unmap(mmu, may_block);
-> +		return;
-> +	}
-> +
-> +	if (!mmu->nested_stage2_enabled) {
-> +		kvm_stage2_unmap_range(mmu, canonical_ipa, unmap_size, may_block);
-> +		return;
-> +	}
-> +
-> +	mtree_lock(revmap_mt);
-> +	entry = xa_to_value(mas_find(&mas_rmap, canonical_ipa_end));
-> +
-> +	while (entry && mas_rmap.index <= canonical_ipa_end) {
-> +		entry_size = mas_rmap.last - mas_rmap.index + 1;
-> +		next_addr = mas_rmap.index + entry_size;
-> +		/*
-> +		 * Give up and invalidate this s2 mmu if the unmap range
-> +		 * touches any UNKNOWN_IPA range.
-> +		 */
-> +		if (unknown_ipa_entry(entry)) {
-> +			mtree_unlock(revmap_mt);
-> +			reset_revmap_and_unmap(mmu, may_block);
-> +			return;
-> +		}
-> +
-> +		/*
-> +		 * Ignore result, it is okay if a reverse mapping erase
-> +		 * fails.
-> +		 */
-> +		mas_store_gfp(&mas_rmap, NULL, GFP_NOWAIT | __GFP_ACCOUNT);
+1. The pre-silicon binding focused on simple register-level controls
+2. The syscon pattern for complete IP control was not initially considered
 
-I wonder if we can handle this a bit more gracefully.
+Discussion with original CSR author(Peng Fan) confirmed this reflects the
+intended hardware design that wasn't fully captured during pre-silicon
+upstreaming.
 
-Ideally we'd be able to place a search mark on the entry flagging it as
-stale which could be used to avoid attempting to overinvalidate the
-shadow stage-2.
+v4l2-compliance 1.28.1-5233, 64 bits, 64-bit time_t
+v4l2-compliance SHA: fc15e229d9d3 2024-07-23 19:22:15
 
-Interestingly enough, Liam recently gave the suggestion [*] of storing
-XA_ZERO_ENTRY for a similar use case where erasure happens in an atomic
-context. We should be able to do the exact same thing here and push the
-cleanup to the next insertion.
+Compliance test for device /dev/v4l-subdev9:
 
-[*] https://lore.kernel.org/all/iv7sxqezzz42xieytbf3lskutricz7ltkr3wii3w4jbnbzto7f@2tz5hwa43l37/
+Driver Info:
+	Driver version   : 7.1.0
+	Capabilities     : 0x00000002
+		Streams Support
+	Client Capabilities: 0x0000000000000003
+streams interval-uses-which
+Required ioctls:
+	test VIDIOC_SUDBEV_QUERYCAP: OK
+	test invalid ioctls: OK
 
-Thanks,
-Oliver
+Allow for multiple opens:
+	test second /dev/v4l-subdev9 open: OK
+	test VIDIOC_SUBDEV_QUERYCAP: OK
+	test for unlimited opens: OK
+
+Debug ioctls:
+	test VIDIOC_LOG_STATUS: OK (Not Supported)
+
+Input ioctls:
+	test VIDIOC_G/S_TUNER/ENUM_FREQ_BANDS: OK (Not Supported)
+	test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+	test VIDIOC_S_HW_FREQ_SEEK: OK (Not Supported)
+	test VIDIOC_ENUMAUDIO: OK (Not Supported)
+	test VIDIOC_G/S/ENUMINPUT: OK (Not Supported)
+	test VIDIOC_G/S_AUDIO: OK (Not Supported)
+	Inputs: 0 Audio Inputs: 0 Tuners: 0
+
+Output ioctls:
+	test VIDIOC_G/S_MODULATOR: OK (Not Supported)
+	test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+	test VIDIOC_ENUMAUDOUT: OK (Not Supported)
+	test VIDIOC_G/S/ENUMOUTPUT: OK (Not Supported)
+	test VIDIOC_G/S_AUDOUT: OK (Not Supported)
+	Outputs: 0 Audio Outputs: 0 Modulators: 0
+
+Input/Output configuration ioctls:
+	test VIDIOC_ENUM/G/S/QUERY_STD: OK (Not Supported)
+	test VIDIOC_ENUM/G/S/QUERY_DV_TIMINGS: OK (Not Supported)
+	test VIDIOC_DV_TIMINGS_CAP: OK (Not Supported)
+	test VIDIOC_G/S_EDID: OK (Not Supported)
+
+Sub-Device routing ioctls:
+	test Try VIDIOC_SUBDEV_G_ROUTING/VIDIOC_SUBDEV_S_ROUTING: OK
+	test Active VIDIOC_SUBDEV_G_ROUTING/VIDIOC_SUBDEV_S_ROUTING: OK
+
+Control ioctls:
+	test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK (Not Supported)
+	test VIDIOC_QUERYCTRL: OK (Not Supported)
+	test VIDIOC_G/S_CTRL: OK (Not Supported)
+	test VIDIOC_G/S/TRY_EXT_CTRLS: OK (Not Supported)
+	test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK (Not Supported)
+	test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
+	Standard Controls: 0 Private Controls: 0
+
+Format ioctls:
+	test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK (Not Supported)
+	test VIDIOC_G/S_PARM: OK (Not Supported)
+	test VIDIOC_G_FBUF: OK (Not Supported)
+	test VIDIOC_G_FMT: OK (Not Supported)
+	test VIDIOC_TRY_FMT: OK (Not Supported)
+	test VIDIOC_S_FMT: OK (Not Supported)
+	test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
+	test Cropping: OK (Not Supported)
+	test Composing: OK (Not Supported)
+	test Scaling: OK (Not Supported)
+
+Codec ioctls:
+	test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
+	test VIDIOC_G_ENC_INDEX: OK (Not Supported)
+	test VIDIOC_(TRY_)DECODER_CMD: OK (Not Supported)
+
+Buffer ioctls:
+	test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK (Not Supported)
+	test CREATE_BUFS maximum buffers: OK
+	test VIDIOC_REMOVE_BUFS: OK
+	test VIDIOC_EXPBUF: OK (Not Supported)
+	test Requests: OK (Not Supported)
+
+Total for device /dev/v4l-subdev9: 47, Succeeded: 47, Failed: 0, Warnings: 0
+
+Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+---
+Changes in v12:
+- Fix stream ID handling: iterate routing table instead of assuming
+  stream ID equals loop index (0-7)
+- Remove stream_to_vc[] array: derive VC from routing table and frame
+  descriptor on each start/stop operation
+- Remove V4L2_SUBDEV_FL_HAS_EVENTS flag since driver does not generate events
+- Support stream IDs 0-63 by using BIT_ULL() for stream masks
+- Add get_frame_desc call in stop_stream with proper error handling
+- Add csi_formatter_read() helper function for register reads
+- Use read-modify-write for CSI_VC_PIXEL_DATA_TYPE register to support
+  multiplexed streams sharing the same virtual channel
+- Use route->sink_pad instead of hardcoded CSI_FORMATTER_PAD_SINK
+- Write back coerced format in set_fmt before propagating to source stream
+- Drop Frank's Reviewed-by tag due to significant changes, requesting re-review
+- Link to v11: https://lore.kernel.org/r/20260623-csi_formatter-v11-0-a792fe9c1502@oss.nxp.com
+
+Changes in v11:
+- Drop [PATCH v10 1/4] dt-bindings: clock: imx95-blk-ctl: Use single quotes consistently (Krzysztof)
+- Move properties to top-level and use if:then:else (Krzysztof/Frank)
+- Link to v10: https://lore.kernel.org/r/20260618-csi_formatter-v10-0-f23830312ba5@oss.nxp.com
+
+Changes in v10:
+- Rebase to latest media/next
+- [NEW PATCH] Use single quotes consistently (Krzysztof Kozlowski)
+- Drop syscon parent node from example
+- Drop Reviewed-by tags from Frank and Krzysztof due to binding changes,
+  requesting re-review
+- Add description for reg property
+- Add space after formatter@20 before opening brace in example
+- Enhance the port description with more detailed information
+- Delete the blank line immediately following the endpoint in example
+- Use single quotes for regex pattern to be consistent (Krzysztof Kozlowski)
+- Add formatter subnode binding and camera-csr syscon example
+- Update commit title and message
+- Use u8 for vc in csi_formatter_get_vc() and drop vc < 0 check
+- Add MFD_SYSCON dependency to Kconfig
+- Fix stream/VC mapping potential mismatch in start/stop_stream functions
+- Link to v9: https://lore.kernel.org/r/20260526-csi_formatter-v9-0-ca3d8c334c39@oss.nxp.com
+
+Changes in v9:
+- [NEW PATCH] Fix formatter as syscon child node issue
+- Link to v8: https://lore.kernel.org/r/20260525-csi_formatter-v8-0-6b646231224b@oss.nxp.com
+
+Changes in v8:
+- Rebase to latest media/next
+- Use standard port reference instead of video-interfaces.yaml
+- Add parent syscon node in example to show device integration
+- Remove fmt field and look up format from subdev state instead
+- Unify function and structure naming to use csi_formatter_ prefix
+- Remove misleading alignment comment from set_fmt function
+- Optimize get_frame_desc to call once per start_stream
+- Replace V4L2_FRAME_DESC_ENTRY_MAX with CSI_FORMATTER_VC_NUM in loops
+- Remove redundant debug message in enable_streams
+- Use MEDIA_PAD_FL_MUST_CONNECT flag instead of manual link check
+- Link to v7: https://lore.kernel.org/r/20260518-csi_formatter-v7-0-562b750557e3@oss.nxp.com
+
+Changes in v7:
+- Change compatible to imx95-csi-formatter as IP is i.MX95 specific per Marco's suggestion
+  Link: https://lore.kernel.org/linux-media/20260511-csi_formatter-v6-0-01028e312e2b@oss.nxp.com/T/#mcd135b3de179b3cb69daa1fd6e0e8e27c85b3332
+- Update references from imx9 to imx95 for consistency with dt-bindings
+- Enable PM runtime before async registration
+- Link to v6: https://lore.kernel.org/r/20260511-csi_formatter-v6-0-01028e312e2b@oss.nxp.com
+
+Changes in v6:
+- Rebase to latest media/next
+- Update v4l2-compliace test
+- Remove unused header includes
+- Unify macro naming: VCx/VCX -> VC and parameter x -> vc
+- Remove unused format field from csi_formatter struct
+- Use compact initialization for formats array
+- Make find_csi_format() return NULL instead of default format
+- Use unsigned int for array index in find_csi_format()
+- Add err_ prefix to error handling labels
+- Add v4l2_subdev_cleanup() and reorder cleanup sequence
+- Update enable_streams debug output format
+- Rename VC_MAX to VC_NUM and fix boundary check
+- Update CSI formatter Kconfig description
+- Use v4l2_subdev_get_frame_desc_passthrough() helper
+- Fix error paths in async registration and probe
+- Add mutex to protect enabled_streams
+- Switch to devm_pm_runtime_enable()
+- Remove redundant num_routes check in set_routing
+- Optimize get_index_by_dt() and add warning for unsupported type
+- csi_formatter_start/stop_stream: Process all streams in mask
+- Link to v5: https://lore.kernel.org/r/20260123-csi_formatter-v5-0-d5b803f867bf@nxp.com
+
+Changes in v5:
+- Remove CSI_FORMATTER_DRV_NAME macro since only use once.
+- Remove sd->owner = THIS_MODULE;
+- Simplify code by using DEFINE_RUNTIME_DEV_PM_OPS macro.
+- Link to v4: https://lore.kernel.org/r/20260122-csi_formatter-v4-0-6f6fcad1c33a@nxp.com
+
+Changes in v4:
+- Rebase to latest media/next.
+- Add comments to describe the index field in formatter_dt_to_index_map array.
+- Link to v3: https://lore.kernel.org/r/20251219-csi_formatter-v3-0-8680d6d87091@nxp.com
+
+Changes in v3:
+- Rename nxp,imx9-csi-formatter.yaml to fsl,imx9-csi-formatter.yaml.
+- Drop clock-names property.
+- Drop macro IMX95_PD_CAMERA definition and use a constant directly.
+  [PATCH 1/2] media: dt-bindings: Add CSI Pixel Formatter DT bindings
+- Remove the assignment driver.owner = THIS_MODULE.
+- Assign struct fwnode_handle *ep __free(fwnode_handle) when definition.
+- Update yaml file name for csi formatter in MAINTAINERS.
+  [PATCH 2/2] media: nxp: Add i.MX9 CSI pixel formatter v4l2 driver
+- Link to v2: https://lore.kernel.org/r/20251217-csi_formatter-v2-0-62168af80210@nxp.com
+
+Changes in v2:
+- Delete "|" for description key. 
+- Add empty line between child node and property.
+- Delete labels for endpoint of child nodes.
+  [PATCH 1/2] media: dt-bindings: Add CSI Pixel Formatter DT bindings
+
+- Update commit message.
+- Use the value defined by bellow macros directly since they are used only once.
+  #define CSI_FORMATTER_DEF_MBUS_CODE	MEDIA_BUS_FMT_UYVY8_1X16
+  #define CSI_FORMATTER_DEF_PIX_WIDTH	1920U
+  #define CSI_FORMATTER_DEF_PIX_HEIGHT	1080U
+  #define CSI_FORMATTER_MAX_PIX_WIDTH	0xffff
+  #define CSI_FORMATTER_MAX_PIX_HEIGHT	0xffff
+- Use macro pm_ptr() to fix build warning when CONFIG_PM is disabled. 
+- Finish route loop by break statement, instead of goto.
+- Return dev_err_probe() when meet errors in probe() function instead of dev_err().
+- Remove MODULE_ALIAS().
+- Refine .enable(.dsable)_stream callback implementation, include bellow changes:
+  Add stream checking.
+  Fix potential pm runtime count unbalance issue.
+  Add stop stream error handling when enabling remote subdev stream.
+- Use __free(fwnode_handle) to drop reference to a device node automatically.
+  [PATCH 2/2] media: nxp: Add i.MX9 CSI pixel formatter v4l2 driver
+
+- Link to v1: https://lore.kernel.org/r/20251203-csi_formatter-v1-0-eb9e1147b49e@nxp.com
+
+---
+Guoniu Zhou (3):
+      media: dt-bindings: Add CSI Pixel Formatter DT bindings
+      dt-bindings: clock: imx95-blk-ctl: Define formatter child node schema
+      media: nxp: Add i.MX95 CSI pixel formatter v4l2 driver
+
+ .../bindings/clock/nxp,imx95-blk-ctl.yaml          |  71 ++
+ .../bindings/media/fsl,imx95-csi-formatter.yaml    |  88 +++
+ MAINTAINERS                                        |   8 +
+ drivers/media/platform/nxp/Kconfig                 |  15 +
+ drivers/media/platform/nxp/Makefile                |   1 +
+ drivers/media/platform/nxp/imx95-csi-formatter.c   | 808 +++++++++++++++++++++
+ 6 files changed, 991 insertions(+)
+---
+base-commit: 06cb687a5132fcffe624c0070576ab852ac6b568
+change-id: 20251125-csi_formatter-e6d29316dce6
+
+Best regards,
+-- 
+Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+
 
