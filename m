@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6C08C44514
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 21:04:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F79CC44512
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 21:04:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mt6w3nNPt5eTEjxALSsmFV2SIS6f1GIhUdZmSb1EESA=; b=n+FvwXh28/5RISg6DL6uvl0DiO
-	aJKl2EUChPqf6tqN+v2JhAkts5kNnoHXcKkDQQ0ZiXV72976pN65/OegR5KNo29ONH2QYhHTkw7XR
-	NDJOi8jayRQIZ5g3TVC/SA5waKCvhRcoMbxICAKIpaxfutMzLWu2QhBRe+n+D0ti24MI7+pqLhkb1
-	mwKgACPryzb/KzV7oKXWkXPig9Fdbiu3BnAaEXSFFOwi3PJXxzG5vx5byNWANhc7DewS6L7a5x6+/
-	aux21x4L1hDkIJ+0JeK9Sc6BhHRJjtAXEAAVnkA8vFvr5EVynMSARN94pI4yXxuIePrjPQ5hdBJaE
-	sNs6syMA==;
+	bh=hDCoD9gopMkw6squa+UCEijXUtZb8e4n69AggqiNbiE=; b=K3T2IVLRujNsvMi440Us/nlQTL
+	F0zKvq2HzFB7/1BnfiDWZV8Pushphd1jR2jzpgaWjM4/6oxkXJFT8N4wIYTzo3RIZVDYxkl8UVd5O
+	00Smf39Q/xJF3Mn5lH6vqhDMtrLlu8EuD2OKWNalGcUaZ7NVuv+sYjlnKpcZeqZ1yxZtAcI0lsD8L
+	JnugtcB3c4OKJpbDZ9dcl8ZgeOEOveVsUHeN95khInrti/n70TruawTz/EcoR3KRJhmIOzXgbiyf4
+	VSuWS6U+qVN/LP7B8rBGh+9AKyqL84HbiMSZ7HVk0RSSQAKAfqg7tZul+fC+uuEzdyfDP7N4c4ezy
+	ji3cKEhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkTFT-00000000YGa-0W4X;
-	Thu, 16 Jul 2026 21:04:03 +0000
+	id 1wkTFU-00000000YJN-3PaE;
+	Thu, 16 Jul 2026 21:04:04 +0000
 Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkTFE-00000000Y2O-3SGg
+	id 1wkTFL-00000000Y2O-2uAc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 21:03:50 +0000
+	Thu, 16 Jul 2026 21:03:56 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=liH/KQ3mnql+9NPhADZaVoxJk12HkhaTvYfpZsQpdOPlRU9Ax8kjDBAR+8giDt4T79bTTnwsijPCHQq5qIDWaO0b93U18rXHYnDRYM1Uv4+5ClpEvfY4cNaxd0AeW2cow/o63JHEVq8Lb/1pZieyqlgOK9vO3AWYOnCdKfUH4zeCl6J9FKXT+tjDugoYsHBGWD3UgDhv1Wr7hHhJVGaK3UUQ7aD/R6FTEpVBSxDbogkyfKo0jWcw4KpDLPDw964oWzN1xS3Y+GR6lZeiMlhDAxg8hJHFz0eS1zo3FMt6JjfCqzcNxb7SfSGMui95B00prfUw6W5Dc51FryHVAH/aWQ==
+ b=kQkeY7ZWqk1BIm/9doWzrgC76ijCErta9Ds7NDhpMUXoVag+73dQw+rIOqBnYeNYLQL69S4jt+O9jqv/pxmRrLxtobA/Rkq34dTsXjOuF32QhdxRjZWNmx70ONaIAFNpEMbIX16xy/bCW6n113G3Uocdv2swrubHkoOoGJL+2pSVP+dfnoP7TQ2IeHqDUnRm8/V5JFwcsGYGvfwCPIzBQgGCg/RRPZY3SQ+7fyF0g/FVXzxUZKn5wHyjrf/PjRnKzmPK83yQ3dNTeWLIsFUSR30RvD0xsfCfLkMm8k1vb7BVXWDvphJoOF8lGJDI1t77dXjiv2Ua8Rdq6QhFvwwYkQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mt6w3nNPt5eTEjxALSsmFV2SIS6f1GIhUdZmSb1EESA=;
- b=fEcLkNrks2DhA5z/toSLnQMxJRWiW321Cna1+lBEepbNmJ0fp0N+/ChV3kV2RrtpVvVKRV8VElMFgGENSSVy8x69eWpXWE8VVT6amU1wDaCYRhiVXMTQNDuO5b26ik/QEjKmY5ejxepULi6LLw+L6tb1VElHzLlcUnpyJ2UNW626ZdV/koOfAoBsxIQGJtGZpW4u5AvtLL8/HH+NScVc4/dy2+IY8qxQw1h8FkinS9Ile6K3dDPgqMzR2gtuwOI/dkdnvUbLAHPzxc1RbWdpKHF7pjp5FX9axnGOt1ZlDWL3PhGVs6CQGfGz19xEsD6pstHM1acjOKX8zXW3XOayag==
+ bh=hDCoD9gopMkw6squa+UCEijXUtZb8e4n69AggqiNbiE=;
+ b=XnDDk2F6fxZ8DBYocZ8P8HqvEZrypWX9zJ7V2XX6dAow1XEqn0KUYjRGWsnGy35hL+y2D+X/+1GIy0HCTvAysZVR1qqBlhnHl6lD5rHaiAjrajSCR2MiDqANJwcI9fUPI0BFnMyoyL9inl4YdlNZpyMhl4Ag7xKnPCO4b0+QLeVB2mxvJXtuKhrplCP8cDA7PKMo4OJSZh6LJ/pFdLOcaYUR1etDnVD73UFtLUrQCe7+J1mATxmN72lOI0r2xJCekCtPw/hsRIkxvei2i+VLW+U6pXjFMK4zjelPmPlLX/9LSFP3GdQedvLhyQINTY8tyZ959D8bdcuLnbsNGGv3dA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mt6w3nNPt5eTEjxALSsmFV2SIS6f1GIhUdZmSb1EESA=;
- b=qnoC0+BcPvTPAo9r2SqtnkYEOfYA5aFSVr66iOIyCk+tE/IvLSYLbo1Aj3Rsbbnj8ZNOo11b4u6Rcp4anT5QoIkUgIRg+4AXzCPBE0T20CsgoDffkthku/xKeTD50VyniKbjf4ov9IHW0LjWYR01zL5Tn79E24NO3Tp3GZLGD6TvN/NIuUOLVNvK17Ew5+LUcvh2FnfAiLhLrGayxr0eLh0qhtgpoSqdtNvdk2rIEtVbQcUOelp9EfFCPNYNytc0284kJwUun2PKakj91qwwrX+oZMVZ9LAxAOaKgmzsuPq2Dla+aGS/kDTFF03UMVxh6EvahQx5s28/5Cuttc5ZeA==
+ bh=hDCoD9gopMkw6squa+UCEijXUtZb8e4n69AggqiNbiE=;
+ b=T5W6vieFhBB2XUsdwAETUcTX7KaB5ofV5UPG71XeNyXB30gLc85MsGr1ZyyWl4uL1YFoKlH/65CIoEww+P80z7apOA3q4K4kjC6O1dEs4/fRosWfxzkVzOkYU2P2ubzXS1MsJx16JbndwmL0Po+6zBcU5JASRVIY9dlWAwXHy5BvjWRouikz8IMtp4a2e02KM586Z71n/5lRNMlCUjAvqxnNxXyVLUcmRv46Tq1ihQOuQiuhC7igUqALFiM62xvQ47ou/RhURVApSwrIlp00gdb9kfVfPOdie4N/cjGwiBgny1GG63/+BKgVY5aELv8IAqgd5InUnI03XkLSQjm9VQ==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from DM4PR12MB5230.namprd12.prod.outlook.com (2603:10b6:5:399::11)
  by DS7PR12MB8081.namprd12.prod.outlook.com (2603:10b6:8:e6::17) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.12; Thu, 16 Jul
- 2026 21:03:37 +0000
+ 2026 21:03:43 +0000
 Received: from DM4PR12MB5230.namprd12.prod.outlook.com
  ([fe80::6e87:1bde:1853:3b73]) by DM4PR12MB5230.namprd12.prod.outlook.com
  ([fe80::6e87:1bde:1853:3b73%5]) with mapi id 15.21.0223.011; Thu, 16 Jul 2026
- 21:03:37 +0000
+ 21:03:43 +0000
 From: Fenghua Yu <fenghuay@nvidia.com>
 To: Reinette Chatre <reinette.chatre@intel.com>,
 	Tony Luck <tony.luck@intel.com>,
@@ -70,71 +70,71 @@ To: Reinette Chatre <reinette.chatre@intel.com>,
 Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	Fenghua Yu <fenghuay@nvidia.com>
-Subject: [PATCH 06/23] resctrl: Mirror schemata for controls without MBW hardware
-Date: Thu, 16 Jul 2026 14:02:56 -0700
-Message-ID: <20260716210329.2914625-6-fenghuay@nvidia.com>
+Subject: [PATCH 10/23] resctrl: Expose MBA MBM counter assignment sysfs
+Date: Thu, 16 Jul 2026 14:03:00 -0700
+Message-ID: <20260716210329.2914625-10-fenghuay@nvidia.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1784217438.git.fenghuay@nvidia.com>
 References: <cover.1784217438.git.fenghuay@nvidia.com>
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: SJ2P221CA0007.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:a03:5db::18) To DM4PR12MB5230.namprd12.prod.outlook.com
+X-ClientProxiedBy: SJ0PR03CA0071.namprd03.prod.outlook.com
+ (2603:10b6:a03:331::16) To DM4PR12MB5230.namprd12.prod.outlook.com
  (2603:10b6:5:399::11)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: DM4PR12MB5230:EE_|DS7PR12MB8081:EE_
-X-MS-Office365-Filtering-Correlation-Id: bbdb1fe1-a82a-4956-58c7-08dee37db4cb
+X-MS-Office365-Filtering-Correlation-Id: 0b9accd6-7d46-4062-e73c-08dee37db7f2
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|366016|6133799003|3023799007|5023799004|11063799006|56012099006|18002099003|22082099003|10067099003|921020;
-X-Microsoft-Antispam-Message-Info: zimudT7u0z/EYJBkKqT7b+3FuO9RBmUiUmYs4cex3SFh7etNPd/ToSHzRp1SwoE9aNfDoSkDwg4w00uQB8VkkMcim6GUarkkOlZdVud4ihgvoJQC15w/1v1x2ihMxA/mMiBeOsms0w1820eNJUz8lygJiVuDK0U4C/voFv4R+1yXXpoB0RADyAswrlCwDEXVFfxCslW2ECLcmfRGplXKlkLxxEFfAXZjmfsMtCMQhY4tPickP0Y7AID9zISNpKLhLZWaY8FNL3JyH7118kpaZAcuCJ+rRV4qqxSj8V1dqilPq+kL3mY7TbbPFbNkkUCvHNmKIhLEOWtaTWstGWAQjfDi23rqgrkEpRCfk+HKVUzJ+UbhQdml/yI+NGXXFEOwdxVftoMhFVFCxd150LxVAAAHHRF7xJOXCDMITNyGBEyZIVnWBbeFPBzXkN5KV6Z+trW/YuH/9k/LyZmjPX4qqXXM4ezp4GhC+xFiIpQRhtj2abrNuf0owE97MtvGxN6+oyICLgCJXH1UGK0M83z3HISD51/21SGXGPyucOISXgCK7DVjufvbHQahJPDJY972PSESgVDY9K1AEnUon2x4JKmprvRr1UX9TD0XMxE5V/ecG3k/aLYI1989jOPO0lSfCgqbGpPTK0OirI7w6mZlw5ExWan7ODQ5vW4/vts1c5Dv67tLZg+rmHEqtYKI7ETjnBKMDkiEqiFMMjGnKe3DHw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB5230.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(366016)(6133799003)(3023799007)(5023799004)(11063799006)(56012099006)(18002099003)(22082099003)(10067099003)(921020);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|366016|6133799003|5023799004|11063799006|56012099006|18002099003|22082099003|10067099003|921020;
+X-Microsoft-Antispam-Message-Info: c4k3lKxPM6+ZS1frROxptPlpKGu3/3oUlHOWi3+qizRM2YKmo5SFQl/asN5Gfgygyi7DvHK2K0f34XDhmui1pN26z4gQTrtVv1odYJxiKyjSLu4Vrp3/rSyEXN30ukk4/r0qLGfEc8Kd22GPBsZghuuxampHeo3yTOvKHcyQSMS7IaudfB4J1YkC4v3R2tJWCnEzT7JtGp1ajJ+mZ3AxCxkuksniWx48ID0zWgu2rh6c3aSTbpyr4Xp5p5obz1EW/OAqsTSJmR8U1xy8+urpxhFBGaR2Mg07e7OzhaFt3PcR9jV1VPi/2Gkg7KDdhtfuHHCvoBieeXszjjnbBgrM2RaREGC9Ri1//Gyj01ykc9BPsh2EOmIvfQB98lAXPsTzSVoanVATvYSVRjaflfP9Q1YELY0sgLL/cIJ9OQ1Utb+sTTBGW5ssyy1OhEjfn4L56qoLbLhGPMAg/Xp6HeblYwXZWcQ0tXv+PcJSpuT/epPMx9ig+vwAEU05k5rneue//zWWZzmTUY/OoFWFIcf4R/LTgJiVBLPnolqemPGbHFzi0UVLmoD4f4Pt9Fu27Bxu+U290eIIA++W/cPn/1S4PzsoRxjbgT0ddzNs6y/UDeBErSasM/oS0B+jDWwWtHD5gi0vAsFiYrBuZ8TsHgYUAq7LYl27nmzzeUIPsyQFrbZz2B9t+yQSOV3uRMToTQMwZbj3+LfbshYArklP/k6nZA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB5230.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(366016)(6133799003)(5023799004)(11063799006)(56012099006)(18002099003)(22082099003)(10067099003)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?iYeGrKsZC4+/sKY6tCsWHArXBPeo4luFE5F3yYRDqoftehyB8VIv4nc85/Ud?=
- =?us-ascii?Q?S+fljNOPAqfX84Hu0YXphMmxBoPHTR8/e+zXPYmAft7xy25lLfC1oXviJclv?=
- =?us-ascii?Q?sx6pd8W6dvQIpOMUV6hrYak6TSyINpNCTCkUqNW+JuFn0UuSpXBPoMoOrXAu?=
- =?us-ascii?Q?3bBPscpQ7eFXQEBRyHzKpiqEZK+TFVSjMqWkkeS8etKyZbl476BKZMOnTnwJ?=
- =?us-ascii?Q?rk9nEn1uM/rIksXkrda9TjDcbeKhISvvrH9sMFPAwtz7SYl0zZ1abg55dVw8?=
- =?us-ascii?Q?J/MzjZQ5rqa1wXbwSYG8UwfdWBvcWozeaCGt1dhTWJepoLu3HV3P5qFH/Ze3?=
- =?us-ascii?Q?7CzZQTQHD6jd/4kNMkM0OHCch5Xgh420ABenMVG6Z7CmqoEF17cJzPrt7UQX?=
- =?us-ascii?Q?ptR91FylRO6p4t3Z/23Br3zSwLboFwHMfkmG79MAhqnlKDTNHVquFkVmteLx?=
- =?us-ascii?Q?pCEmL5X/ZquO1HwjruYpZBgmQx/nycfMheki+lx5vGZb5ZyC+y++yFF7X1MW?=
- =?us-ascii?Q?fv5xkeelbQxyknTlLaXzy5j9XLcbtzqiXG9O2rR3E0Sv3CPVIFgR9xbndSu/?=
- =?us-ascii?Q?rFvP4yR9HIwS+Ug4SGKhdTh23SMwYc+3DW2qCZNdWnB3/YA5lFbzd0L7cZmQ?=
- =?us-ascii?Q?mv2DCzJlGuNEFSIz0OfNGU2NrIIWPzlPkddcF9xywCadb8OfJmVK3VhXxzBE?=
- =?us-ascii?Q?gngfPsyv3wGcyL1GxQI12r2ngOKt38pSzcUIt2uj2IKfV6FccGZvpy2Qm+XF?=
- =?us-ascii?Q?VDQnHIIZ/2HMoX+OJnflcvSgW1ASv021e/hgoeMwAK6mUMMT7qD3JSjxE6qH?=
- =?us-ascii?Q?8kQqxrn1TWMGq7tN/C6aOxXjjtMY954Boxid7KM/O9RJR+iRr2+79RDSJ+3H?=
- =?us-ascii?Q?B9H7l5qHBvx1IP+Q2hXBYmY44xkBXcjyB0oLGOZpFqzs3X7xpw/nNrmmqCMl?=
- =?us-ascii?Q?Bds6nOv43iwKFVfLjapc27CWZ/VTmZSmCN/xYWm1GWLMqG7XAxFH/vL53pcZ?=
- =?us-ascii?Q?2S/M//BF9b6atxg5rbxhRtV1qhDzBVXb1YpSZbbyo1zMluxqDHJ02ikiziys?=
- =?us-ascii?Q?PwNYJGJplkiUxSRiY4IKC0VEaGOlDF21xEBE56A44NlAoMmlxczoZMs1gDTQ?=
- =?us-ascii?Q?y8YllzaRudwtzMF05YnGafMYIxGgH4zhYJQahbguhjCNjSTb4Tte2HkEcniJ?=
- =?us-ascii?Q?h7ZECsW9b71phCSRlhRXBwVCZLvXNAZorRSDTarzr7YwwE938j9PoA7yd0KU?=
- =?us-ascii?Q?YJfrDBunUEZreUqgXcWruN3EomB9+XDmNNofr3u4oorD9dBO+zDf8xcXNEmX?=
- =?us-ascii?Q?0q0EMykKsWP3aC74CU9NajVRur6vyPoYrCHLYXEttr3ONxunSVrJkHs1TnKS?=
- =?us-ascii?Q?lAB2xNXMMx+9MgCQGHgZZ8Y3Ku2cwhcten8lFzv1VIv9KX43swpqlWrIPBoN?=
- =?us-ascii?Q?y/IxjsSTupbOQLTIkFm9C70xkqeZZp5rCfutvpPvrF6kPl8i6px4MUSnFsap?=
- =?us-ascii?Q?XvkYxV1/TSZHjjaCCCkQDGD65WqV2+8jSNLAG/v2fbQ9bgyU/wvk2POx8Rna?=
- =?us-ascii?Q?RqaDAkZCt2/4l3SqAYGm4NqShiitYP4zOGXOhOgmhVlyHdV/uQgQD67XoMb/?=
- =?us-ascii?Q?9O5SefAegMYtQyyUbbvz7t9aEpVTPepFLpG89wlSvKwu3r4LSFSdxJmG119/?=
- =?us-ascii?Q?e6fMk3LKJDbKhA6YSDxsVIxeJ8cBGxsEr9U1AZ3jlKll+DodOmtvnV07FfM1?=
- =?us-ascii?Q?aqM3RWRDew=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bfDWt5rGG2TYhtEWUCt9JXO6xW2fuW8EiI2o51GMJGQeGdkD9U7aBk5j1/Bo?=
+ =?us-ascii?Q?Vtw4AkJqcltdB7mXqPH+TUDqB+KLTaNBM2nc9x2e8dg9DAtjYddFFYzB88DP?=
+ =?us-ascii?Q?giBBzS5Kn00JUHF+pnYLEpSa3MLuB2K8m3QFVK06K9mwqoekh6tqoTLoV165?=
+ =?us-ascii?Q?cN2K6Vmi6FsCwT5elEGBifxE6PlT+aqSX3EXp1v+RogQ6L3j0mwURjz0YKx+?=
+ =?us-ascii?Q?HpbhqtfjfXI6U+1hVBCUajGiuEhto3TBhoQGaFM9GRhAG0D1Cchttzh+miES?=
+ =?us-ascii?Q?iiME+DcO4TC7k4VpXZlKx796HNaM09KUFZQSOlsPP97sF8E8fEmM/RKtXTwR?=
+ =?us-ascii?Q?luPW6MVFuBKCs3Q7PxOKykfi6Q7E6G5/+M/kyrdmj8zLclAxXPuv2FPe+/VD?=
+ =?us-ascii?Q?Jl7jdqtGHzif7VlawoVAndKCtxBKUwXPd3gOrsuKmp3plMkSIn+kant7Lhan?=
+ =?us-ascii?Q?67TKGUc/VVi7CV0ylydXWsRWQeALrsG7ERUD3AkHDSQ4emzlpxRyaaknbkQd?=
+ =?us-ascii?Q?MlBBea7IdtiqCijzCgrE1V6LwDChle8fuUR1U9stnd32y076f4U3enh1y2mT?=
+ =?us-ascii?Q?mvS3ZmEAyKmBdYm3zWNv9Toixb93wHuiXnvMFbwHtCcfoheXd89Fa8gGs2+5?=
+ =?us-ascii?Q?mMhqLP3OgQ81PsQaD0Yq5YpmQA+x/QbuDTr0h0wHjlVdsxWSLxGPEpyPP2zA?=
+ =?us-ascii?Q?+obxfXlKRGZ39D01NYjrCDGBRyCB41emmWv53pNPBl9Vx5GTHE3LVYca5lTn?=
+ =?us-ascii?Q?SS1+TRHmp9HhP5F6yIhtKXRP5P14h+dcrX0m7P8Klq7RdzpnMtSJBGxC/p0F?=
+ =?us-ascii?Q?tv9yD0OQf//4RkHMB36m/04gbwsJXqOnTBzDsrjG107cV3IR5C3Zg3pXV5Wm?=
+ =?us-ascii?Q?CZzAFUL2xCFQH4l7ASA0LnLmj8jQPqCovJ8CSLZ6d31h3rS+UGEM+b34cL2Q?=
+ =?us-ascii?Q?BgDFAb6FfxPNP9o3bS1pa/MeVB9W1g30ZdM7oWv3d+uzmFnDCaTx+8quPsgu?=
+ =?us-ascii?Q?xSEScDmwR9ocb7pQUNxp9Oe1RLMQxrYzUK80ZA7UNxBUlEVLz5xiv7DDG8hk?=
+ =?us-ascii?Q?vmKfLN5UqOsKeq6KwC1nvVB6bA3lug2n2h8H/T4eoXLyUCwAxEMcAXKMavEs?=
+ =?us-ascii?Q?u6yDSG0HI2Gg/FvULkALjz9EgBIwQYb7KQJGII8DRKVdK5oFzMaYb52XsAUH?=
+ =?us-ascii?Q?fpClysUk0ubyRqJJoR/avoDgOm8Qd+NDKUQqg47HMa0CByzipGrncswO87Jp?=
+ =?us-ascii?Q?fmunDh0lcuIxdZzFfXen0M2gxXhGasSWH98/mmJHLmfm4CM3D5FQT19Byz2v?=
+ =?us-ascii?Q?838vrd3WthnqaHIgg4+ly0eegrlku0OKJ/7vZlcvp8wTl3iHRiUWI1uRT6vA?=
+ =?us-ascii?Q?1dcr4J7g/EuHUBgey/h8njQNj0GvfHyJDnEFVfnUjnVEvoUDL1/hRBlh4zdC?=
+ =?us-ascii?Q?AY4THs875urC6sXHDhOdC4W98EEyRprmrteN1uartPGJa5b6VMj6wagGcbCE?=
+ =?us-ascii?Q?5xqoRLS+CvngQklEJ1JcVqsM90P/wxaMSV8WOK/fww8K8AstOktosJPfNbdN?=
+ =?us-ascii?Q?yHmTIxcLQmmFB3BIKbm/T+fvy+a4FA4I4CY6luKnLAeU/T7CeReqJrSgaVNA?=
+ =?us-ascii?Q?eaV+uUl/Cqb5Jbt1LR9wYO1v7HNNh62AunYyHJoeDhUgYDUGJt7H/Fog8gg4?=
+ =?us-ascii?Q?wLrHhKnlJeHXncLi0RiCjfJSZbsv7mvpqpOZigg+9plnMUx9BuCzX8pTScwS?=
+ =?us-ascii?Q?PcbouZ8rcg=3D=3D?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bbdb1fe1-a82a-4956-58c7-08dee37db4cb
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0b9accd6-7d46-4062-e73c-08dee37db7f2
 X-MS-Exchange-CrossTenant-AuthSource: DM4PR12MB5230.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jul 2026 21:03:37.8599
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jul 2026 21:03:43.1142
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: pgzI3Ew+Z/0lOH+AxOoseuIfUdyZYBi5f75X2Blgk9IFvorhE/JsjeRefrPs1JuW7LtknNqTem7xyFwd+6JoBA==
+X-MS-Exchange-CrossTenant-UserPrincipalName: suNH5iwle+EnDxZFu4Te25lcNJnYPK+QZOdTNw+PcCB+t3L3O/xmUQpjW0g0W6VRtW3x3XXr0RSb7vxyL03QWQ==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB8081
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_140348_930360_E2F11E67 
-X-CRM114-Status: GOOD (  20.66  )
+X-CRM114-CacheID: sfid-20260716_140355_752387_5937A888 
+X-CRM114-Status: GOOD (  16.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,264 +149,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When an emulated control has no MBW hardware of its own, redirect
-schemata reads and writes to the backing control so both lines show
-and update the same value.
+When MBWU monitoring is backed by an MBA resource, userspace still
+needs the same counter-assignment interface as on L3, but keyed to MBA
+domains and exposed as mbm_MB_assignments rather than
+mbm_L3_assignments.
 
+Add the MBA-side sysfs hooks and initialise MBA monitor metadata during
+resctrl_mon_init() so mbm_* file visibility follows the resource being
+configured.
+
+Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
 Signed-off-by: Fenghua Yu <fenghuay@nvidia.com>
 ---
- fs/resctrl/ctrlmondata.c | 93 ++++++++++++++++++++++++++++++++++++----
- fs/resctrl/rdtgroup.c    |  1 +
- include/linux/resctrl.h  |  6 +++
- 3 files changed, 91 insertions(+), 9 deletions(-)
+ fs/resctrl/internal.h |  5 +++++
+ fs/resctrl/monitor.c  | 27 +++++++++++++++++++++++++--
+ fs/resctrl/rdtgroup.c | 11 ++++++++---
+ 3 files changed, 38 insertions(+), 5 deletions(-)
 
-diff --git a/fs/resctrl/ctrlmondata.c b/fs/resctrl/ctrlmondata.c
-index 1f832a838115..ee7823cf9493 100644
---- a/fs/resctrl/ctrlmondata.c
-+++ b/fs/resctrl/ctrlmondata.c
-@@ -28,6 +28,13 @@ struct rdt_parse_data {
- 	u32			closid;
- 	enum rdtgrp_mode	mode;
- 	char			*buf;
-+	/*
-+	 * The control whose schemata line is being parsed, before any
-+	 * redirection to a backing control. Used to distinguish a real
-+	 * duplicate domain from the mirrored write of an emulated control and
-+	 * the control that backs it.
-+	 */
-+	struct resctrl_ctrl	*line_ctrl;
- };
+diff --git a/fs/resctrl/internal.h b/fs/resctrl/internal.h
+index 1cca9b147fdb..3bf512bf2d9f 100644
+--- a/fs/resctrl/internal.h
++++ b/fs/resctrl/internal.h
+@@ -478,6 +478,11 @@ struct resctrl_ctrl *resctrl_resource_ctrl_get_default(struct rdt_resource *r);
+ const char *resctrl_ctrl_name_str(enum resctrl_ctrl_name name);
+ bool resctrl_ctrl_is_default(struct resctrl_ctrl *ctrl);
  
- typedef int (ctrlval_parser_t)(struct rdt_parse_data *data,
-@@ -105,7 +112,7 @@ static int parse_bw(struct rdt_parse_data *data, struct rdt_resource_final *f,
- 	u32 bw_val;
++int mbm_MB_assignments_show(struct kernfs_open_file *of, struct seq_file *s, void *v);
++
++ssize_t mbm_MB_assignments_write(struct kernfs_open_file *of, char *buf, size_t nbytes,
++				 loff_t off);
++
+ #ifdef CONFIG_RESCTRL_FS_PSEUDO_LOCK
+ int rdtgroup_locksetup_enter(struct rdtgroup *rdtgrp);
  
- 	cfg = &d->staged_config[f->conf_type];
--	if (cfg->have_new_ctrl) {
-+	if (cfg->have_new_ctrl && cfg->staged_ctrl == data->line_ctrl) {
- 		rdt_last_cmd_printf("Duplicate domain %d\n", d->hdr.id);
- 		return -EINVAL;
+diff --git a/fs/resctrl/monitor.c b/fs/resctrl/monitor.c
+index 742429e18b8a..db19e5eac1f9 100644
+--- a/fs/resctrl/monitor.c
++++ b/fs/resctrl/monitor.c
+@@ -528,6 +528,7 @@ static int __mon_event_count(struct rdtgroup *rdtgrp, struct rmid_read *rr)
+ {
+ 	switch (rr->r->rid) {
+ 	case RDT_RESOURCE_L3:
++	case RDT_RESOURCE_MBA:
+ 		WARN_ON_ONCE(rr->evt->any_cpu);
+ 		if (rr->hdr)
+ 			return __l3_mon_event_count(rdtgrp, rr);
+@@ -1691,6 +1692,12 @@ int mbm_L3_assignments_show(struct kernfs_open_file *of, struct seq_file *s, voi
+ 				    resctrl_arch_get_resource(RDT_RESOURCE_L3));
+ }
+ 
++int mbm_MB_assignments_show(struct kernfs_open_file *of, struct seq_file *s, void *v)
++{
++	return mbm_assignments_show(of, s, v,
++				    resctrl_arch_get_resource(RDT_RESOURCE_MBA));
++}
++
+ /*
+  * mbm_get_mon_event_by_name() - Return the mon_evt entry for the matching
+  * event name.
+@@ -1840,6 +1847,13 @@ ssize_t mbm_L3_assignments_write(struct kernfs_open_file *of, char *buf,
+ 			resctrl_arch_get_resource(RDT_RESOURCE_L3));
+ }
+ 
++ssize_t mbm_MB_assignments_write(struct kernfs_open_file *of, char *buf,
++				 size_t nbytes, loff_t off)
++{
++	return mbm_assignments_write(of, buf, nbytes, off,
++			resctrl_arch_get_resource(RDT_RESOURCE_MBA));
++}
++
+ static int closid_num_dirty_rmid_alloc(struct rdt_resource *r)
+ {
+ 	if (IS_ENABLED(CONFIG_RESCTRL_RMID_DEPENDS_ON_CLOSID)) {
+@@ -1883,7 +1897,7 @@ static void resctrl_mon_resource_init(struct rdt_resource *r)
+ {
+ 	unsigned long fflags;
+ 
+-	fflags = RFTYPE_RES_CACHE;
++	fflags = (r->rid == RDT_RESOURCE_MBA) ? RFTYPE_RES_MB : RFTYPE_RES_CACHE;
+ 
+ 	if (resctrl_arch_is_evt_configurable(QOS_L3_MBM_TOTAL_EVENT_ID)) {
+ 		mon_event_all[QOS_L3_MBM_TOTAL_EVENT_ID].configurable = true;
+@@ -1919,7 +1933,10 @@ static void resctrl_mon_resource_init(struct rdt_resource *r)
+ 			resctrl_file_mode_init("event_filter", 0644);
+ 		resctrl_file_fflags_init("mbm_assign_on_mkdir", RFTYPE_MON_INFO |
+ 					 fflags);
+-		resctrl_file_fflags_init("mbm_L3_assignments", RFTYPE_MON_BASE);
++		if (r->rid == RDT_RESOURCE_MBA)
++			resctrl_file_fflags_init("mbm_MB_assignments", RFTYPE_MON_BASE);
++		else
++			resctrl_file_fflags_init("mbm_L3_assignments", RFTYPE_MON_BASE);
+ 		resctrl_file_fflags_init("mbm_assign_mode", RFTYPE_MON_INFO |
+ 					 fflags);
  	}
-@@ -118,8 +125,18 @@ static int parse_bw(struct rdt_parse_data *data, struct rdt_resource_final *f,
- 		return 0;
- 	}
+@@ -1952,6 +1969,12 @@ int resctrl_mon_init(void)
  
-+	if (cfg->have_new_ctrl) {
-+		if (cfg->new_ctrl != bw_val) {
-+			rdt_last_cmd_printf("Conflicting values for domain %d\n",
-+					    d->hdr.id);
-+			return -EINVAL;
-+		}
+ 	resctrl_mon_resource_init(r);
+ 
++	r = resctrl_arch_get_resource(RDT_RESOURCE_MBA);
++	if (!r->mon_capable)
 +		return 0;
-+	}
 +
- 	cfg->new_ctrl = bw_val;
- 	cfg->have_new_ctrl = true;
-+	cfg->staged_ctrl = data->line_ctrl;
- 
++	resctrl_mon_resource_init(r);
++
  	return 0;
  }
-@@ -185,7 +202,7 @@ static int parse_cbm(struct rdt_parse_data *data, struct rdt_resource_final *f,
- 	u32 cbm_val;
  
- 	cfg = &d->staged_config[f->conf_type];
--	if (cfg->have_new_ctrl) {
-+	if (cfg->have_new_ctrl && cfg->staged_ctrl == data->line_ctrl) {
- 		rdt_last_cmd_printf("Duplicate domain %d\n", d->hdr.id);
- 		return -EINVAL;
- 	}
-@@ -228,6 +245,7 @@ static int parse_cbm(struct rdt_parse_data *data, struct rdt_resource_final *f,
- 
- 	cfg->new_ctrl = cbm_val;
- 	cfg->have_new_ctrl = true;
-+	cfg->staged_ctrl = data->line_ctrl;
- 
- 	return 0;
- }
-@@ -238,11 +256,50 @@ static int parse_cbm(struct rdt_parse_data *data, struct rdt_resource_final *f,
-  * separated by ";". The "id" is in decimal, and must match one of
-  * the "id"s for this resource.
-  */
-+/*
-+ * A control can be emulated by another control (for example the legacy,
-+ * resource-wide MB control emulated by a node-scoped bandwidth control). When
-+ * the control has no MBW hardware of its own (membw.no_mbw_hw), reads and writes
-+ * are redirected to the control that emulates it (emulated_by) so both schemata
-+ * lines show and update the same value.
-+ *
-+ * Emulation is only performed in legacy mode. In native mode
-+ * (RESCTRL_CTRL_NATIVE) a control without hardware is left as-is, so a
-+ * disabled control is not emulated by another control.
-+ */
-+static struct resctrl_ctrl *resctrl_ctrl_backing(struct rdt_resource *r,
-+						 struct resctrl_ctrl *ctrl)
-+{
-+	if (r->mode == RESCTRL_CTRL_LEGACY &&
-+	    ctrl->type == RESCTRL_CTRL_SCALAR &&
-+	    ctrl->emulated_by && ctrl->membw.no_mbw_hw)
-+		return ctrl->emulated_by;
-+
-+	return ctrl;
-+}
-+
-+/*
-+ * A control emulated by another control has no MBW hardware of its own, so it
-+ * only has a schemata line while emulation is active. Emulation is performed
-+ * in legacy mode only, so in native mode such a control is hidden from
-+ * schemata rather than showing an empty or meaningless line.
-+ */
-+static bool resctrl_ctrl_schemata_hidden(struct rdt_resource *r,
-+					 struct resctrl_ctrl *ctrl)
-+{
-+	if (ctrl->type != RESCTRL_CTRL_SCALAR ||
-+	    !ctrl->emulated_by || !ctrl->membw.no_mbw_hw)
-+		return false;
-+
-+	return r->mode != RESCTRL_CTRL_LEGACY;
-+}
-+
- static int parse_line(char *line, struct rdt_resource_final *f,
- 		      struct resctrl_ctrl *ctrl, struct rdtgroup *rdtgrp)
- {
- 	enum resctrl_conf_type t = f->conf_type;
- 	ctrlval_parser_t *parse_ctrlval = NULL;
-+	struct resctrl_ctrl *line_ctrl = ctrl;
- 	struct resctrl_staged_config *cfg;
- 	struct rdt_resource *r = f->res;
- 	struct rdt_parse_data data;
-@@ -253,6 +310,9 @@ static int parse_line(char *line, struct rdt_resource_final *f,
- 	/* Walking r->domains, ensure it can't race with cpuhp */
- 	lockdep_assert_cpus_held();
- 
-+	/* A control without MBW hardware mirrors the control that emulates it. */
-+	ctrl = resctrl_ctrl_backing(r, ctrl);
-+
- 	parse_ctrlval = resctrl_ctrl_priv_all[ctrl->type].parser;
- 
- 	if (rdtgrp->mode == RDT_MODE_PSEUDO_LOCKSETUP &&
-@@ -276,6 +336,7 @@ static int parse_line(char *line, struct rdt_resource_final *f,
- 			data.buf = dom;
- 			data.closid = rdtgrp->closid;
- 			data.mode = rdtgrp->mode;
-+			data.line_ctrl = line_ctrl;
- 			if (parse_ctrlval(&data, f, d, ctrl))
- 				return -EINVAL;
- 			if (rdtgrp->mode ==  RDT_MODE_PSEUDO_LOCKSETUP) {
-@@ -418,7 +479,7 @@ static int rdtgroup_parse_ctrl(char *ctrlname, char *tok,
- 	list_for_each_entry(f, &rdt_resource_final_all, list) {
- 		if (!strcmp(resname, f->name) && rdtgrp->closid < f->num_closid) {
- 			ctrl = resctrl_resource_ctrl_get(f->res, ctrlname);
--			if (ctrl)
-+			if (ctrl && !resctrl_ctrl_schemata_hidden(f->res, ctrl))
- 				return parse_line(tok, f, ctrl, rdtgrp);
- 			else
- 				break;
-@@ -511,6 +572,7 @@ static void show_doms(struct seq_file *s, struct rdt_resource_final *f,
- 		      bool print_ctrl, int closid, struct resctrl_ctrl *ctrl)
- {
- 	struct rdt_resource *r = f->res;
-+	struct resctrl_ctrl *vctrl;
- 	struct rdt_ctrl_domain *dom;
- 	bool sep = false;
- 	u32 ctrl_val;
-@@ -523,17 +585,23 @@ static void show_doms(struct seq_file *s, struct rdt_resource_final *f,
- 				resctrl_ctrl_is_default(ctrl) ? "" : "_",
- 				resctrl_ctrl_is_default(ctrl) ?
- 				 "" : resctrl_ctrl_name_str(ctrl->name));
--	list_for_each_entry(dom, &ctrl->domains, hdr.list) {
-+
-+	/*
-+	 * A control without MBW hardware has no values of its own; show the
-+	 * values of the control that emulates it so both schemata lines match.
-+	 */
-+	vctrl = resctrl_ctrl_backing(r, ctrl);
-+	list_for_each_entry(dom, &vctrl->domains, hdr.list) {
- 		if (sep)
- 			seq_puts(s, ";");
- 
--		if (is_mba_sc(r, ctrl))
-+		if (is_mba_sc(r, vctrl))
- 			ctrl_val = dom->mbps_val[closid];
- 		else
--			ctrl_val = resctrl_arch_get_config(r, ctrl, dom, closid,
-+			ctrl_val = resctrl_arch_get_config(r, vctrl, dom, closid,
- 							   f->conf_type);
- 
--		seq_printf(s, resctrl_ctrl_priv_all[ctrl->type].fmt_str,
-+		seq_printf(s, resctrl_ctrl_priv_all[vctrl->type].fmt_str,
- 			   dom->hdr.id, ctrl_val);
- 		sep = true;
- 	}
-@@ -553,11 +621,14 @@ int rdtgroup_schemata_show(struct kernfs_open_file *of,
- 	if (rdtgrp) {
- 		if (rdtgrp->mode == RDT_MODE_PSEUDO_LOCKSETUP) {
- 			list_for_each_entry(f, &rdt_resource_final_all, list) {
--				for_each_resource_ctrl(ctrl, f->res)
-+				for_each_resource_ctrl(ctrl, f->res) {
-+					if (resctrl_ctrl_schemata_hidden(f->res, ctrl))
-+						continue;
- 					seq_printf(s, "%s%s%s:uninitialized\n", f->name,
- 						   resctrl_ctrl_is_default(ctrl) ? "" : "_",
- 						   resctrl_ctrl_is_default(ctrl) ?
- 						    "" : resctrl_ctrl_name_str(ctrl->name));
-+				}
- 			}
- 		} else if (rdtgrp->mode == RDT_MODE_PSEUDO_LOCKED) {
- 			if (!rdtgrp->plr->d) {
-@@ -574,8 +645,11 @@ int rdtgroup_schemata_show(struct kernfs_open_file *of,
- 			list_for_each_entry(f, &rdt_resource_final_all, list) {
- 				if (closid >= f->num_closid)
- 					continue;
--				for_each_resource_ctrl(ctrl, f->res)
-+				for_each_resource_ctrl(ctrl, f->res) {
-+					if (resctrl_ctrl_schemata_hidden(f->res, ctrl))
-+						continue;
- 					show_doms(s, f, true, closid, ctrl);
-+				}
- 			}
- 		}
- 	} else {
-@@ -1147,6 +1221,7 @@ static int resctrl_io_alloc_parse_line(char *line, struct rdt_resource_final *f,
- 			data.buf = dom;
- 			data.mode = RDT_MODE_SHAREABLE;
- 			data.closid = closid;
-+			data.line_ctrl = ctrl;
- 			if (parse_cbm(&data, f, d, ctrl))
- 				return -EINVAL;
- 			/*
 diff --git a/fs/resctrl/rdtgroup.c b/fs/resctrl/rdtgroup.c
-index 3bec23728847..a34c7ed8f874 100644
+index d9876bbc6365..0bdcf6dd935c 100644
 --- a/fs/resctrl/rdtgroup.c
 +++ b/fs/resctrl/rdtgroup.c
-@@ -4147,6 +4147,7 @@ static void rdtgroup_init_mba(struct rdt_resource *r, struct resctrl_ctrl *ctrl,
- 		cfg = &d->staged_config[CDP_NONE];
- 		cfg->new_ctrl = resctrl_get_default_ctrlval(ctrl);
- 		cfg->have_new_ctrl = true;
-+		cfg->staged_ctrl = ctrl;
- 	}
- }
+@@ -2133,6 +2133,13 @@ static struct rftype res_common_files[] = {
+ 		.seq_show	= mbm_L3_assignments_show,
+ 		.write		= mbm_L3_assignments_write,
+ 	},
++	{
++		.name		= "mbm_MB_assignments",
++		.mode		= 0644,
++		.kf_ops		= &rdtgroup_kf_single_ops,
++		.seq_show	= mbm_MB_assignments_show,
++		.write		= mbm_MB_assignments_write,
++	},
+ 	{
+ 		.name		= "mbm_assign_mode",
+ 		.mode		= 0644,
+@@ -5132,10 +5139,8 @@ int resctrl_online_ctrl_domain(struct rdt_resource *r, struct resctrl_ctrl *ctrl
  
-diff --git a/include/linux/resctrl.h b/include/linux/resctrl.h
-index 06482e766087..cfb4c17bcb53 100644
---- a/include/linux/resctrl.h
-+++ b/include/linux/resctrl.h
-@@ -121,10 +121,16 @@ struct pseudo_lock_region {
-  * struct resctrl_staged_config - parsed configuration to be applied
-  * @new_ctrl:		new ctrl value to be loaded
-  * @have_new_ctrl:	whether the user provided new_ctrl is valid
-+ * @staged_ctrl:	the control whose schemata line staged this config.
-+ *			Used to tell a real duplicate domain in one schemata
-+ *			line from the mirrored write of an emulated control
-+ *			and the control that backs it, which share the same
-+ *			staged config.
-  */
- struct resctrl_staged_config {
- 	u32			new_ctrl;
- 	bool			have_new_ctrl;
-+	struct resctrl_ctrl	*staged_ctrl;
- };
+ 	mutex_lock(&rdtgroup_mutex);
  
- enum resctrl_domain_type {
+-	if (supports_mba_mbps(ctrl) && r->rid == RDT_RESOURCE_MBA) {
+-		/* RDT_RESOURCE_MBA is never mon_capable */
++	if (supports_mba_mbps(ctrl) && r->rid == RDT_RESOURCE_MBA)
+ 		err = mba_sc_domain_allocate(r, d);
+-	}
+ 
+ 	mutex_unlock(&rdtgroup_mutex);
+ 
 -- 
 2.43.0
 
