@@ -4,72 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7337FC4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 07:03:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95CBFC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 07:05:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FFNUu0XXRGHNtH40B1tomItE0NdjZli+GhoQ7HxIkQY=; b=I/Q7151zNrqKlsWqwoyJ2Rd3w7
-	3x1SMCPfHzn7yLcLZtbwRO6p4NHY3ifDObd7gMihuTmoCLe4kZZkWvCuqEZNwI7s76aQ6i6pPYdKd
-	FWcouHyQLQqC4Va2GUFQ4b06ecfsR6M02x0aEoGE+wPyGN3DBDDJhUpLOFqEajz4YQNExGotUIgpD
-	86rm0nc1VkTuDXR8hvDNHOfEhf7AReCnDhYNzAfcr8B+J8fGQapidepnRo5UPXwWvRe2Jl9IkbZiR
-	dpOt7Pm6ex/TEx3yXUVGiaoIkaWiMiYihptvMOiPXT/8urqfcKSbBLGfr+XZMq7wyEnOlRoN6LRV/
-	qdmR95zA==;
+	bh=YopDoBUX3VUuGxZ98wWXcclxYcbXiMdcqqK+dQPjMV0=; b=M67DsAqJ8L6KcgTIKsgdHvgbAO
+	tFdtEL983SoNXiIqDHo1f3j5uUHTk9kYzJvshI6wpePtdoq2KvZUHwDwrdG4BI4dgWTISYhLZntYV
+	UQu9hb4mw8gRVIVTCzZBH4EFlWzSZaXYwh6PrnkPYV05/NqVtFIbZxP7dIbAvXJlbR0lBdUFD07e5
+	rz9Q6KL/40KRmnFY3Fe6faeNIKLQcDk7H+Xhw6qsyymgCvnHSc6puPVk68mp0wtmT0ecWOGkKS2WK
+	Kx5TzJuB1hjzAy0oTzLsl2aWyKrZ8x41pY0zE8jomiS1vb9KmMa9WXAeLQjaQF0hj4RPz0b2RA1nE
+	ntjL5uew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkG7c-0000000Gbtz-0Fcp;
-	Thu, 16 Jul 2026 07:03:04 +0000
+	id 1wkGA1-0000000GcAW-25oj;
+	Thu, 16 Jul 2026 07:05:33 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkG7a-0000000Gbtl-2hNr
+	id 1wkG9z-0000000GcAO-3t6R
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 07:03:02 +0000
+	Thu, 16 Jul 2026 07:05:31 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4C6E0435B0;
-	Thu, 16 Jul 2026 07:03:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DC6E1F000E9;
-	Thu, 16 Jul 2026 07:02:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6B213410C6;
+	Thu, 16 Jul 2026 07:05:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23AC21F000E9;
+	Thu, 16 Jul 2026 07:05:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784185382;
-	bh=FFNUu0XXRGHNtH40B1tomItE0NdjZli+GhoQ7HxIkQY=;
+	s=k20260515; t=1784185531;
+	bh=YopDoBUX3VUuGxZ98wWXcclxYcbXiMdcqqK+dQPjMV0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=MNtlpbDGcyUioUCN12h0sq/BaPNYcp3CTPfrl3k4yclHMwUiT0FKbToKL0v1p9GF1
-	 A4Qe73qDyOWUrWqlxv7XeaAa/kMufIqD9W/sXZ1Dya/gML2/ABdtcyc+5qyVQlTY+u
-	 KWt3XeJQ9HdwS2PpOiQefYOHtLvffdn6FUKXu3Yz32FhClnnzX8EIXgVkvHC6vKXJn
-	 hO/AnRBwTqRxsg//fzq68A0dksQpiNHhMxys6I7ANN2swVPTyc52dmGqUe0h6VMgMu
-	 1ms+hEojgD+9pEYegFTWYOyWVxG2xI9egyHr+D5WPU66s1QzzHVzejah5of6iifxWz
-	 4KgTCPF6Rhbbw==
-Date: Thu, 16 Jul 2026 09:02:39 +0200
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Alex Elder <elder@riscstar.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com, 
-	kuba@kernel.org, pabeni@redhat.com, maxime.chevallier@bootlin.com, 
-	rmk+kernel@armlinux.org.uk, andersson@kernel.org, konradybcio@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, linusw@kernel.org, brgl@kernel.org, 
-	arnd@arndb.de, gregkh@linuxfoundation.org, daniel@riscstar.com, 
-	mohd.anwar@oss.qualcomm.com, a0987203069@gmail.com, alexandre.torgue@foss.st.com, 
-	ast@kernel.org, boon.khai.ng@altera.com, chenchuangyu@xiaomi.com, 
-	chenhuacai@kernel.org, daniel@iogearbox.net, hawk@kernel.org, hkallweit1@gmail.com, 
-	inochiama@gmail.com, john.fastabend@gmail.com, julianbraha@gmail.com, 
-	livelycarpet87@gmail.com, mcoquelin.stm32@gmail.com, me@ziyao.cc, 
-	prabhakar.mahadev-lad.rj@bp.renesas.com, richardcochran@gmail.com, rohan.g.thomas@altera.com, 
-	sdf@fomichev.me, siyanteng@cqsoftware.com.cn, weishangjuan@eswincomputing.com, 
-	wens@kernel.org, netdev@vger.kernel.org, bpf@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v2 12/14] gpio: tc956x: add TC956x/QPS615 support
-Message-ID: <dhnylud7o5dhaaq6kvbes4vkml3ppa5ev542j2lyxdijibknzg@pfcy22wz6jav>
-References: <20260605010022.968612-1-elder@riscstar.com>
- <20260605010022.968612-13-elder@riscstar.com>
+	b=PSjg/wj8XxdKXdQE3lrWqGi6vaA347qT/KZX2t3fM6cUrLFi8YTAij6RJ+XRsEUrl
+	 32WckwFWrDHhE9FALOpwwtJUk+GeqryMmfYEEoVhi9NyNwB3k1PX8vmyYTJwRiNU9z
+	 1Uo5XR+vmgwHkJnl95XrN1XdUalNVmEDhm/CR05hsJ/vchr53rIpFsWbG2lzVO3/L2
+	 FHbYhufVVPDIqPaZysIhWPW2fOfIuLIjTafjQyWzSBKtfQ80iYb6UoA4MazUyb05LT
+	 kbHRs7i9jamucUEZBbpNgMKirqOHqHxVyYZnOhN1XQqC+vAuiVGIjsmbNMpzMguY/3
+	 KCh9sAVnCgfWA==
+Date: Thu, 16 Jul 2026 00:05:29 -0700
+From: Oliver Upton <oupton@kernel.org>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>,
+	Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Itaru Kitayama <itaru.kitayama@fujitsu.com>,
+	Sebastian Ene <sebastianene@google.com>
+Subject: Re: [PATCH v4 2/6] KVM: arm64: nv: Avoid full shadow s2 unmap
+Message-ID: <aliCuX3ZIvxWlFE-@kernel.org>
+References: <20260714115926.2044757-1-weilin.chang@arm.com>
+ <20260714115926.2044757-3-weilin.chang@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260605010022.968612-13-elder@riscstar.com>
+In-Reply-To: <20260714115926.2044757-3-weilin.chang@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,280 +77,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 04, 2026 at 08:00:19PM -0500, Alex Elder wrote:
-> Toshiba TC956x is an Ethernet-AVB/TSN bridge and is essentially
-> a small and highly-specialized SoC.  TC956x includes a GPIO block that
-> can be accessed, alongside several other peripherals, via two PCIe
-> endpoint functions.  The PCIe function driver creates an auxiliary
-> device for the GPIO block, and that device gets bound to this auxiliary
-> device driver.
-> 
-> This driver is implemented using the generic regmap-based GPIO driver.
-> 
+Hey,
 
-While the regmap over the switch BAR works for GPIO access post-enumeration,
-there is a blocker in using these GPIOs to control the power to endpoints.
-
-We have a design [1] where the GPIOs from the switch are used to control power
-and PERST# signals to the EP. With this current design, during the initial PCI
-bus scan, the switch will get enumerated, but the EP will not. Because, power to
-the EP depends on the GPIO Aux driver that will get probed only after the switch
-enumeration.
-
-But this creates a chicken-and-egg problem with the PCI Pwrctrl design.
-pcie-qcom driver uses the Pwrctrl framework to power on the PCI endpoints before
-the initial PCI bus scan. It calls pci_pwrctrl_create_devices() and
-pci_pwrctrl_power_on_devices() APIs to create the platform device for all PCI
-devices defined in DT (that require pwrctrl support), waits for their respective
-pwrctrl drivers to get probed and then power ON all of them. This step is
-required because in DT platforms, many Root Ports are not hotplug capable and
-also BIOS doesn't assign bridge windows during boot. So all the devices has to
-appear during the initial PCI bus scan so that the PCI core can allocate the
-resources properly.
-
-Now the issue with this Aux driver design is that, if an EP makes use of the
-switch GPIO for PERST# or power, like:
-
-	tc9563: pcie@0,0 {
-		compatible = "pci1179,0623";
-		reg = <0x10000 0x0 0x0 0x0 0x0>;
-		...
-
-		pcie@1,0 {
-			compatible = "pciclass,0604";
-			reg = <0x20800 0x0 0x0 0x0 0x0>;
-			#address-cells = <3>;
-			#size-cells = <2>;
-
-			device_type = "pci";
-			ranges;
-			bus-range = <0x3 0xff>;
-
-			reset-gpios = <&tc9563 5 GPIO_ACTIVE_LOW>;
-		};
-	...
-
-	};
-
-Then the pwrctrl driver (pci/pwrctrl/generic.c) will try to acquire the GPIO
-controller during its probe, but will fail with -EPROBE_DEFER as the GPIO
-controller won't be available at that time. So the whole PCIe instance will
-probe defer as the driver requires all pwrctrl drivers to be probed before
-starting the initial bus scan.
-
-So we need to make sure that the GPIO controller driver is available before
-enumerating the switch device. One way to achieve is by creating the GPIO Aux
-device in the pci/pwrctrl/pci-pwrctrl-tc9563.c driver and let the GPIO
-controller driver use I2C communication for setting up the GPIOs. Thankfully,
-the switch allows both I2C and BAR MMIO configurations for internal GPIOs.
-
-With this change, the GPIO driver will get probed by the time the pwrctrl
-generic driver acquires the 'reset-gpios' and will turn ON the EP.
-
-Let me know your thoughts!
-
-- Mani
-
-[1] https://lore.kernel.org/linux-pci/e2inl7k5gsjj6oomv2k5ximuzpb3gfiz66ufet3b4hvov7zqt4@qz4pifbos7yf/
-
-> Co-developed-by: Daniel Thompson <daniel@riscstar.com>
-> Signed-off-by: Daniel Thompson <daniel@riscstar.com>
-> Signed-off-by: Alex Elder <elder@riscstar.com>
-> ---
->  MAINTAINERS                |   1 +
->  drivers/gpio/Kconfig       |  12 ++++
->  drivers/gpio/Makefile      |   1 +
->  drivers/gpio/gpio-tc956x.c | 130 +++++++++++++++++++++++++++++++++++++
->  4 files changed, 144 insertions(+)
->  create mode 100644 drivers/gpio/gpio-tc956x.c
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 0924f7ec43cb0..0439607d1155f 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -27057,6 +27057,7 @@ M:	Alex Elder <elder@kernel.org>
->  M:	Daniel Thompson <danielt@kernel.org>
->  S:	Maintained
->  F:	Documentation/devicetree/bindings/net/toshiba,tc956x-dwmac.yaml
-> +F:	drivers/gpio/gpio-tc956x.c
->  F:	drivers/misc/tc956x_pci.c
->  
->  TOSHIBA WMI HOTKEYS DRIVER
-> diff --git a/drivers/gpio/Kconfig b/drivers/gpio/Kconfig
-> index 020e51e30317a..36631ca722fa3 100644
-> --- a/drivers/gpio/Kconfig
-> +++ b/drivers/gpio/Kconfig
-> @@ -743,6 +743,18 @@ config GPIO_TB10X
->  	select GPIO_GENERIC
->  	select GENERIC_IRQ_CHIP
->  
-> +config GPIO_TC956X
-> +	tristate "Toshiba TC956X GPIO support"
-> +	depends on TOSHIBA_TC956X_PCI
-> +	select GPIO_REGMAP
-> +	default m
-> +	help
-> +	  This enables support for the GPIO controller embedded in the Toshiba
-> +	  TC956X (and Qualcomm QPS615).  This device connects to the host
-> +	  via PCIe port, which is the upstream port on an internal PCIe
-> +	  switch.  On some platforms, a few of the GPIO lines are used to
-> +	  manage external resets.
-> +
->  config GPIO_TEGRA
->  	tristate "NVIDIA Tegra GPIO support"
->  	default ARCH_TEGRA
-> diff --git a/drivers/gpio/Makefile b/drivers/gpio/Makefile
-> index b267598b517de..c3584e7cba9b4 100644
-> --- a/drivers/gpio/Makefile
-> +++ b/drivers/gpio/Makefile
-> @@ -178,6 +178,7 @@ obj-$(CONFIG_GPIO_SYSCON)		+= gpio-syscon.o
->  obj-$(CONFIG_GPIO_TANGIER)		+= gpio-tangier.o
->  obj-$(CONFIG_GPIO_TB10X)		+= gpio-tb10x.o
->  obj-$(CONFIG_GPIO_TC3589X)		+= gpio-tc3589x.o
-> +obj-$(CONFIG_GPIO_TC956X)		+= gpio-tc956x.o
->  obj-$(CONFIG_GPIO_TEGRA186)		+= gpio-tegra186.o
->  obj-$(CONFIG_GPIO_TEGRA)		+= gpio-tegra.o
->  obj-$(CONFIG_GPIO_THUNDERX)		+= gpio-thunderx.o
-> diff --git a/drivers/gpio/gpio-tc956x.c b/drivers/gpio/gpio-tc956x.c
-> new file mode 100644
-> index 0000000000000..0dc6b1028d970
-> --- /dev/null
-> +++ b/drivers/gpio/gpio-tc956x.c
-> @@ -0,0 +1,130 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +
-> +/*
-> + * Copyright (C) 2026 by RISCstar Solutions Corporation.  All rights reserved.
-> + */
-> +
-> +/*
-> + * The Toshiba TC956X implements a PCIe Gen 3 switch that connects an
-> + * upstream x4 port to two downstream PCIe x2 ports.  It incorporates
-> + * an internal endpoint on a internal PCIe port that implements two
-> + * Synopsys XGMAC Ethernet interfaces.
-> + *
-> + * 35 GPIOs are also implemented by an embedded GPIO controller.  Three
-> + * registers control the first 32 GPIOs (other than 20 and 21, which are
-> + * reserved).  Three other registers control GPIOs 32 through 36. GPIOs
-> + * 22-24, 27-28, 31, and 34 are treated as "input only".
-> + *
-> + * There is a TC956X PCI power controller driver that accesses the
-> + * direction and output value registers for GPIOs 2 and 3.  These
-> + * GPIOs control the reset signal for the two downstream PCIe ports.
-> + * Their values will never change during operation of this driver, and
-> + * this driver reserves these two GPIOS.
-> + */
-> +
-> +#include <linux/auxiliary_bus.h>
-> +#include <linux/gpio/driver.h>
-> +#include <linux/module.h>
-> +#include <linux/regmap.h>
-> +#include <linux/gpio/regmap.h>
-> +
-> +#define DRIVER_NAME		"tc956x-gpio"
-> +
-> +#define TC956X_GPIO_COUNT	37	/* Number of GPIOs (20-21 reserved) */
-> +
-> +/* The GPIO offsets are relative to 0x1200 in TC956X SFR space. */
-> +#define GPIO_IN0_OFFSET		0x00		/* Input value (0-31) */
-> +#define GPIO_EN0_OFFSET		0x08		/* 0: out; 1: in (0-31) */
-> +#define GPIO_OUT0_OFFSET	0x10		/* Output value (0-31) */
-> +
-> +/*
-> + * There are two sets of registers, each representing (up to) 32 GPIOs with a
-> + * stride of 4 bytes (IN1 is 4 bytes past IN0, EN1 is 4 bytes past EN0, etc.).
-> + */
-> +#define GPIO_PER_REG		32
-> +#define GPIO_REG_STRIDE		4
-> +
-> +static int tc956x_gpio_init_valid_mask(struct gpio_chip *gc,
-> +				       unsigned long *valid_mask,
-> +				       unsigned int ngpios)
+On Tue, Jul 14, 2026 at 12:59:21PM +0100, Wei-Lin Chang wrote:
+> +static bool valid_entry(unsigned long entry)
 > +{
-> +	/*
-> +	 * GPIOs 2 and 3 are used by the PCI power control driver, and
-> +	 * we don't allow them to be used.  GPIOs 20 and 21 are reserved
-> +	 * (and not usable).
-> +	 */
-> +	bitmap_fill(valid_mask, ngpios);
-> +	bitmap_clear(valid_mask, 2, 2);
-> +	bitmap_clear(valid_mask, 20, 2);
-> +
-> +	return 0;
+> +	WARN_ON(entry & VALID_ENTRY && entry & UNKNOWN_IPA);
+> +	return entry & VALID_ENTRY;
 > +}
 > +
-> +static int tc956x_gpio_probe(struct auxiliary_device *adev,
-> +			     const struct auxiliary_device_id *id)
+> +static bool unknown_ipa_entry(unsigned long entry)
 > +{
-> +	DECLARE_BITMAP(zeroes, TC956X_GPIO_COUNT);
-> +	DECLARE_BITMAP(fixed, TC956X_GPIO_COUNT);
-> +	struct gpio_regmap_config config = { };
-> +	struct gpio_regmap *gpio_regmap;
-> +	struct device *dev = &adev->dev;
+> +	WARN_ON(entry & VALID_ENTRY && entry & UNKNOWN_IPA);
+> +	return entry & UNKNOWN_IPA;
+> +}
+
+These should be WARN_ON_ONCE(), but I find the condition you're
+asserting to be a bit confusing. An aliased reverse map entry is still a
+valid entry, would you not set the valid bit?
+
+> +void kvm_record_nested_revmap(gpa_t canonical_ipa, struct kvm_s2_mmu *mmu,
+> +			      gpa_t nested_ipa, size_t map_size)
+> +{
+> +	struct maple_tree *revmap_mt = &mmu->nested_revmap_mt;
+> +	gpa_t canonical_ipa_end;
+> +	u64 entry, new_entry = 0;
 > +
-> +	/* We need the regmap pointer, stored in our platform data */
-> +	if (!dev->platform_data)
-> +		return -EINVAL;
+> +	lockdep_assert_held_read(&kvm_s2_mmu_to_kvm(mmu)->mmu_lock);
 > +
-> +	/*
-> +	 * Only some of our GPIOs are fixed direction:
-> +	 *	22, 23, 24, 27, 28, 31, and 34	(all input-only)
-> +	 * Set up the fixed bitmap to indicate which are fixed.
-> +	 */
-> +	bitmap_zero(fixed, TC956X_GPIO_COUNT);
-> +	bitmap_set(fixed, 22, 3);
-> +	bitmap_set(fixed, 27, 2);
-> +	set_bit(31, fixed);
-> +	set_bit(34, fixed);
+> +	if (mmu->nested_revmap_broken)
+> +		return;
 > +
-> +	/* All fixed GPIOs are input; the zeroes bitmap indicates that. */
-> +	bitmap_zero(zeroes, TC956X_GPIO_COUNT);
+> +	if (WARN_ON(!IS_ALIGNED(canonical_ipa, map_size)))
+> +		canonical_ipa = ALIGN_DOWN(canonical_ipa, map_size);
 > +
-> +	config.parent = dev;
-> +	config.regmap = dev->platform_data;
-> +	config.label = DRIVER_NAME;
-> +	config.ngpio = TC956X_GPIO_COUNT;
-> +	config.reg_dat_base = GPIO_REGMAP_ADDR(GPIO_IN0_OFFSET);
-> +	config.reg_set_base = GPIO_REGMAP_ADDR(GPIO_OUT0_OFFSET);
-> +	config.reg_dir_in_base = GPIO_REGMAP_ADDR(GPIO_EN0_OFFSET);
-> +	config.reg_stride = GPIO_REG_STRIDE;
-> +	config.ngpio_per_reg = GPIO_PER_REG;
-> +	config.init_valid_mask = tc956x_gpio_init_valid_mask;
-> +	config.fixed_direction_mask = fixed;
-> +	config.fixed_direction_output = zeroes;
+> +	canonical_ipa_end = canonical_ipa + map_size - 1;
+> +	MA_STATE(mas_rmap, revmap_mt, canonical_ipa, canonical_ipa_end);
 > +
-> +	gpio_regmap = devm_gpio_regmap_register(dev, &config);
-> +	if (IS_ERR(gpio_regmap))
-> +		return PTR_ERR(gpio_regmap);
+> +	mtree_lock(revmap_mt);
+> +	entry = xa_to_value(mas_find(&mas_rmap, canonical_ipa_end));
 > +
-> +	return 0;
+> +	if (entry) {
+> +		/* parallel faults can be adding the same mapping */
+> +		if (valid_entry(entry) &&
+> +		    mas_rmap.index == canonical_ipa &&
+> +		    mas_rmap.last == canonical_ipa_end &&
+> +		    nested_ipa == (entry & ADDR_MASK))
+> +			goto unlock;
+> +		/*
+> +		 * Create a "UNKNOWN_IPA" range that spans all the overlapping
+> +		 * ranges and store it.
+> +		 */
+> +		while (entry && mas_rmap.index <= canonical_ipa_end) {
+> +			canonical_ipa = min(mas_rmap.index, canonical_ipa);
+> +			canonical_ipa_end = max(mas_rmap.last, canonical_ipa_end);
+> +			entry = xa_to_value(mas_find(&mas_rmap, canonical_ipa_end));
+> +		}
+> +		new_entry |= UNKNOWN_IPA;
+> +	} else {
+> +		new_entry |= nested_ipa;
+> +		new_entry |= VALID_ENTRY;
+> +	}
+> +
+> +	mas_set_range(&mas_rmap, canonical_ipa, canonical_ipa_end);
+> +	if (mas_store_gfp(&mas_rmap, xa_mk_value(new_entry),
+> +			  GFP_NOWAIT | __GFP_ACCOUNT))
+
+The general pattern for handling this situation would be to preallocate
+nodes prior to acquiring the lock. If we can preallocate then we can
+just outright refuse to create a shadow stage-2 mapping if the update to
+the reverse map fails.
+
+> +		mmu->nested_revmap_broken = true;
+> +unlock:
+> +	mtree_unlock(revmap_mt);
 > +}
 > +
-> +static const struct auxiliary_device_id tc956x_gpio_ids[] = {
-> +	{ .name = "tc956x_pci.tc9564-gpio", },
-> +	{ }
-> +};
-> +MODULE_DEVICE_TABLE(auxiliary, tc956x_gpio_ids);
+>  void kvm_init_nested_s2_mmu(struct kvm_s2_mmu *mmu)
+>  {
+>  	/* CnP being set denotes an invalid entry */
+>  	mmu->tlb_vttbr = VTTBR_CNP_BIT;
+>  	mmu->nested_stage2_enabled = false;
+>  	atomic_set(&mmu->refcnt, 0);
+> +	mt_init(&mmu->nested_revmap_mt);
+> +	mmu->nested_revmap_broken = false;
+>  }
+>  
+>  void kvm_vcpu_load_hw_mmu(struct kvm_vcpu *vcpu)
+> @@ -1225,6 +1305,89 @@ void kvm_nested_s2_wp(struct kvm *kvm)
+>  	kvm_invalidate_vncr_ipa(kvm, 0, BIT(kvm->arch.mmu.pgt->ia_bits));
+>  }
+>  
+> +static void reset_revmap_and_unmap(struct kvm_s2_mmu *mmu, bool may_block)
+> +{
+> +	mtree_destroy(&mmu->nested_revmap_mt);
+> +	mmu->nested_revmap_broken = false;
+> +	kvm_stage2_unmap_range(mmu, 0, kvm_phys_size(mmu), may_block);
+> +}
 > +
-> +static struct auxiliary_driver tc956x_gpio_driver = {
-> +	.name		= DRIVER_NAME,
-> +	.probe          = tc956x_gpio_probe,
-> +	.id_table       = tc956x_gpio_ids,
-> +	.driver = {
-> +		.name		= DRIVER_NAME,
-> +		.owner		= THIS_MODULE,
-> +		.probe_type	= PROBE_PREFER_ASYNCHRONOUS,
-> +	},
-> +};
-> +module_auxiliary_driver(tc956x_gpio_driver);
+> +static void unmap_mmu_cipa_range(struct kvm_s2_mmu *mmu, gpa_t canonical_ipa,
+> +				  size_t unmap_size, bool may_block)
+> +{
+> +	struct maple_tree *revmap_mt = &mmu->nested_revmap_mt;
+> +	gpa_t canonical_ipa_end = canonical_ipa + unmap_size - 1;
+> +	size_t entry_size;
+> +	gpa_t next_addr;
+> +	u64 entry;
+> +	MA_STATE(mas_rmap, revmap_mt, canonical_ipa, canonical_ipa_end);
 > +
-> +MODULE_DESCRIPTION("Toshiba TC956X PCIe GPIO Driver");
-> +MODULE_LICENSE("GPL");
-> +MODULE_ALIAS("auxiliary:" DRIVER_NAME);
-> -- 
-> 2.51.0
-> 
+> +	lockdep_assert_held_write(&kvm_s2_mmu_to_kvm(mmu)->mmu_lock);
+> +
+> +	if (mmu->nested_revmap_broken) {
+> +		reset_revmap_and_unmap(mmu, may_block);
+> +		return;
+> +	}
+> +
+> +	if (!mmu->nested_stage2_enabled) {
+> +		kvm_stage2_unmap_range(mmu, canonical_ipa, unmap_size, may_block);
+> +		return;
+> +	}
+> +
+> +	mtree_lock(revmap_mt);
+> +	entry = xa_to_value(mas_find(&mas_rmap, canonical_ipa_end));
+> +
+> +	while (entry && mas_rmap.index <= canonical_ipa_end) {
+> +		entry_size = mas_rmap.last - mas_rmap.index + 1;
+> +		next_addr = mas_rmap.index + entry_size;
+> +		/*
+> +		 * Give up and invalidate this s2 mmu if the unmap range
+> +		 * touches any UNKNOWN_IPA range.
+> +		 */
+> +		if (unknown_ipa_entry(entry)) {
+> +			mtree_unlock(revmap_mt);
+> +			reset_revmap_and_unmap(mmu, may_block);
+> +			return;
+> +		}
+> +
+> +		/*
+> +		 * Ignore result, it is okay if a reverse mapping erase
+> +		 * fails.
+> +		 */
+> +		mas_store_gfp(&mas_rmap, NULL, GFP_NOWAIT | __GFP_ACCOUNT);
 
--- 
-மணிவண்ணன் சதாசிவம்
+I wonder if we can handle this a bit more gracefully.
+
+Ideally we'd be able to place a search mark on the entry flagging it as
+stale which could be used to avoid attempting to overinvalidate the
+shadow stage-2.
+
+Interestingly enough, Liam recently gave the suggestion [*] of storing
+XA_ZERO_ENTRY for a similar use case where erasure happens in an atomic
+context. We should be able to do the exact same thing here and push the
+cleanup to the next insertion.
+
+[*] https://lore.kernel.org/all/iv7sxqezzz42xieytbf3lskutricz7ltkr3wii3w4jbnbzto7f@2tz5hwa43l37/
+
+Thanks,
+Oliver
 
