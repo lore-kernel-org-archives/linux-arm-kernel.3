@@ -4,97 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14B3AC44512
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 17:09:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43DF2C44512
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 17:15:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=519dNdxGkZChACNROtarKLrXjiSKkCZfa7q39zzxKTI=; b=DbYGlHWA9laGFfPvEFAeisZ8S6
-	6jwd98cmrDE430tXTvfisYIruxVpzpsKHq6QI98MFskzJKHpnJdSykEejlFUECWTnwEyBYlI/WBKU
-	D+0zA3wQHpBa8Ya6Ic8tWfIu6MyeFhJ9aDK8INat6Fgm4qbDrBPmLQYdPj7bqjK+yoUBKii/5uLU7
-	J3JSPm8K/yRTTutXpvqSBdSlrNufKo881HNi0fW2Rf6w3oNXQAVexzs54sEnfElunmtWNZNTx4lPq
-	nLB0QMKwdQshyYU6FPE7iYkga57LiNmMsgxYeUI8UYFpNA9dkBgjql9QOYH9KHYjGWUXczu6Sybqx
-	0Yz82YkA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GDsWWLqPUfRptpzO3WEzv9fzJP/iNkk0NFEAozFtSgI=; b=fk9R/0m34nhqJur0ojd6w3RvlV
+	b3e7SXss5mfSXXbnm6JqzSl//FLj5OlXJayMcI6CYQO7w4XfgMRsMvA98iGYnjYm4YSF23h2vVyl4
+	RUQUCEBXDyh50Ic7FrI7Ras8U2hU2WI09jcoyOUtjj5HIeFFyznkC2FbF7Z0SHCZ4z1RTMNE9rcck
+	mRYKlQU10367hr2tGmbFGlHLTpcCnAbGOsSt7AH576mRAbrGMXad+fSvaBEBbLjwcu0q4nLvaSqJR
+	G7fWvRaTWEAxsn+CufCMbarkULC1/e7BsUPl9iZ9K8cyPRud5Zu9TCAJQ5xHRNx/bPHUbHVlHR/jK
+	v9cgaXUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkPaK-00000000Ec2-01VF;
-	Thu, 16 Jul 2026 17:09:20 +0000
-Received: from mail-yw1-x1133.google.com ([2607:f8b0:4864:20::1133])
+	id 1wkPfu-00000000F5G-3FqL;
+	Thu, 16 Jul 2026 17:15:06 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkPaH-00000000EbP-3A3O
+	id 1wkPft-00000000F4P-2Eu2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 17:09:18 +0000
-Received: by mail-yw1-x1133.google.com with SMTP id 00721157ae682-80a123ef90aso16517947b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 10:09:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784221756; x=1784826556; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=519dNdxGkZChACNROtarKLrXjiSKkCZfa7q39zzxKTI=;
-        b=NM05SXShp5gmx/74c04Q93nFld+UWl4D3pIwx3FOJomuHwXcea1K+nWF+ej/b4UKZP
-         T0TC/yxrUGNumWn/jlLjYH7ab2A7uSl5fDIRfxoy8UE9VxmOsRhJfTfUxEJAm2U5FX2E
-         1leGM5xY6R3Mzld/DuaSLpRp14y3prm83cI/PVn7SAJLpCg3TOgM+3k9wdY5aYStVQ9p
-         RMTitT0Ev5bBHTxgAy3IHkOTl20j5RnH8tB4UNXSNghO177E7d3/HBqgCVelI7A4vz2T
-         nBBBGpoZECaK2MNE1udN81Aby4GaaExKbi3SUVXQBdSkiLPYLcsk9D7ghuTTNuDDtpJo
-         mVcA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784221756; x=1784826556;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=519dNdxGkZChACNROtarKLrXjiSKkCZfa7q39zzxKTI=;
-        b=SHsXSJsEEetNjejWKiIxoQKbXjPzpVOWKnBPakEFk3JGbkyi59qXeH86w9HcGUZIev
-         FF2NjnvfF/nzJNwDWgZIHwSB1O8BQhjLoGHAUTnQoL9rc4kc5fUvy34/tehMbv70zqL8
-         ki2qj84bMmkPJjJ6y+GzD1zvj6P8i4teJlfLFsmMJ6P1gB33cZzB43haCG3vJn8JWMga
-         vMOye4huRe5VbdVd+8Ft1cw9btgLvlvFpMubO24BcfwAl84bIBbvVQwCPY6aA0yLvTDH
-         SPNqmR/hx5I1+OzR+/nt62pQtu0hLa39asHf/vq0gtGQv2+hbC+FCyQXXkiqSYJNIL6r
-         Z2ag==
-X-Forwarded-Encrypted: i=1; AHgh+RoILAHuRb9NOoXbpQVM2v0oC3O/I1vY0aDSGg/sm0/9O2uWAjqlK57obnkJzFrGq8QTx8dGC/qAL9dzkh/MeMYf@lists.infradead.org
-X-Gm-Message-State: AOJu0Yydj2vQFzTC4eoMDR0GB/idJJRTD9fdazn6vrGnrbvI9OLE/9xY
-	kHAuriuGQrL2hqWSG5d2Uen+6aD9i3eywpZ2P/20KLe3ycH8n/F0SjEJ
-X-Gm-Gg: AfdE7ck9Sb36JmQgVDCU+fbbco0py2POMYIGVPPfd8nDO66kQhh3wW0y/WJdseQ7c/3
-	cVRp0+KCS+Mig1oVhvKNGOk0B6ig+PjuWRZgwqeBIzuGoUBb6ll6OaBSYDJXmND6uAMN+vA8KJb
-	b9aAV1Og6DleUmUgPOfrkx95ZUhcmhTu2qTN3ptNkWWZZNPjPAnAWrqd8FvnSphWcgw9iv9Aomq
-	GxnlLx+16V3CDN0uFI/3YRM2j75/KHt/T/F7Wc9Vhnab3hhCBlS8LAEXOKrFR2lFqnw+X+L8D5a
-	qQuy3SBuZUM13eQ252L4Ne8uI1GIeGUhS0fXchJS12Dirxa6enpgX1d9g5pxelXhwI4CWouajYa
-	O/9DhwImdM4oWAujRvp36vv5rQFYW0lrjt5QxJLN6Tu7uWyrFUbB3n1TsCDC88rOHXHCoDt4cBr
-	q7T9cS7GPoMkgXmjY+jY1dIOv5nJs5t3PLKkuwq4ePNKzk4HBdaxiTtHK4iVf2zHmhO4hvvQ==
-X-Received: by 2002:a05:690c:6983:b0:81e:429f:24ba with SMTP id 00721157ae682-81ee298087bmr22881717b3.36.1784221756342;
-        Thu, 16 Jul 2026 10:09:16 -0700 (PDT)
-Received: from leonardoc-nb ([67.159.246.222])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-81e6c249b87sm199484877b3.49.2026.07.16.10.09.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 16 Jul 2026 10:09:15 -0700 (PDT)
-Date: Thu, 16 Jul 2026 14:09:08 -0300
-From: Leonardo Costa <leoreis.costa@gmail.com>
-To: "Hongxing Zhu (OSS)" <hongxing.zhu@oss.nxp.com>
-Cc: Bjorn Helgaas <helgaas@kernel.org>, 
-	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>, 
-	"conor+dt@kernel.org" <conor+dt@kernel.org>, Frank Li <frank.li@nxp.com>, 
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>, 
-	"festevam@gmail.com" <festevam@gmail.com>, "leonardo.costa@toradex.com" <leonardo.costa@toradex.com>, 
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"regressions@lists.linux.dev" <regressions@lists.linux.dev>, Sherry Sun <sherry.sun@nxp.com>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Hongxing Zhu <hongxing.zhu@nxp.com>, 
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>
-Subject: Re: [REGRESSION] mainline/master: Apalis iMX6 no longer boots
-Message-ID: <i6x6wpua7wlwmdq3hitoo53wkptgp62tvegmkabcru3d54eqg3@yk4eehwaarn2>
-References: <20260629143439.361560-1-leoreis.costa@gmail.com>
- <20260715234736.GA288957@bhelgaas>
- <VI0PR04MB1200862BE9B7C137EC7C18AF18CC72@VI0PR04MB12008.eurprd04.prod.outlook.com>
+	Thu, 16 Jul 2026 17:15:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id EEA5341FBA;
+	Thu, 16 Jul 2026 17:15:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id C2E81C2BCB9;
+	Thu, 16 Jul 2026 17:15:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1784222104;
+	bh=xgTRU9NV8KIK7EesLO8Tv+TyYxZkVzU2UTJ6xlZVF6s=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=eLHDdwfgr5dknIUm1yMt+S08IKZ0HA5mxHIR6WakAvgCHB5Z+hqVMHmxx4n7um/4B
+	 w327w3AQonOg2oXjYowClacTtE5DGvQp+3JfnBJjDJWpCHEI7q/KimEDyZ8+8GbOMv
+	 9iDFynGsSC2UfCGOGl7pK9zxqveZNJILrjAuDzSoQ2UeAQSB9Prf7Uu3iNK8+oOkas
+	 mtwniDw1eTFz9eqPL1qPAH9yfRsLrlSjiqrtsUORBnWZ2+xTl/W8JOrT33zQzLHlDF
+	 50Y0jQFkubpLedkEv/oclvrzYB6zeryj3/+RWOVbsphcD2GqLn/EtUH7dxnUr9GYZ0
+	 mAevjdJJ8FEGg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A5373C44511;
+	Thu, 16 Jul 2026 17:15:04 +0000 (UTC)
+From: Alexandru Chimac via B4 Relay <devnull+alex.chimac.ro@kernel.org>
+Date: Thu, 16 Jul 2026 20:14:56 +0300
+Subject: [PATCH v2 2/5] dt-bindings: soc: exynos-sysreg: Add Exynos9610
+ SYSREG bindings
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <VI0PR04MB1200862BE9B7C137EC7C18AF18CC72@VI0PR04MB12008.eurprd04.prod.outlook.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_100917_818343_A50D029F 
-X-CRM114-Status: GOOD (  11.51  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260716-exynos9610-clocks-v2-2-c13ce8ef1861@chimac.ro>
+References: <20260716-exynos9610-clocks-v2-0-c13ce8ef1861@chimac.ro>
+In-Reply-To: <20260716-exynos9610-clocks-v2-0-c13ce8ef1861@chimac.ro>
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Chanwoo Choi <cw00.choi@samsung.com>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+ Alexandru Chimac <alex@chimac.ro>, Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784222102; l=2259;
+ i=alex@chimac.ro; s=20250914; h=from:subject:message-id;
+ bh=nBnT0ILRGS71445iQQ/k8sTjno21gC0qcL7Lqu3ZheI=;
+ b=eyJL+lvCIrT580llncY2lwuOiTuof9OLLqoKgpcwuIhWUyYPMVEpNiQeXWhVgcCQ5ZEtKHO3Y
+ bCDkkfALh/vDE1+A8ws2ga5PCimKgrlxi8lO0hU6xOz9WMyTVG7W4Pn
+X-Developer-Key: i=alex@chimac.ro; a=ed25519;
+ pk=OKD+X09b7uEsyw05zyuqq14SLGg8B/X4xey5tJeYCig=
+X-Endpoint-Received: by B4 Relay for alex@chimac.ro/20250914 with
+ auth_id=877
+X-Original-From: Alexandru Chimac <alex@chimac.ro>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,25 +89,61 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: alex@chimac.ro
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 16, 2026 at 02:15:42AM +0000, Hongxing Zhu (OSS) wrote:
-> Hi Leonardo,
-> 
-> Would you be able to test this patch on your affected boards? Your testing
-> would help expedite the merge process and ensure the fix resolves the boot
-> issue you're experiencing.
-> 
-> Best Regards
-> Richard Zhu
+From: Alexandru Chimac <alex@chimac.ro>
 
-Hi Richard,
+Add bindings for SYSREG nodes (required for ACG), compatible with the
+standard syscon driver.
 
-Sorry for taking long to respond, I was caught up with something. I
-tested the patch and it solved the issue. I sent a Tested-by tag there.
-Thanks for looking into this!
+Signed-off-by: Alexandru Chimac <alex@chimac.ro>
+---
+ .../bindings/soc/samsung/samsung,exynos-sysreg.yaml  | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
 
-Best Regards
-Leonardo
+diff --git a/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
+index fcdb9ffd2644..eb4194cadcd7 100644
+--- a/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
++++ b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
+@@ -35,6 +35,16 @@ properties:
+               - samsung,exynos8895-fsys1-sysreg
+               - samsung,exynos8895-peric0-sysreg
+               - samsung,exynos8895-peric1-sysreg
++              - samsung,exynos9610-apm-sysreg
++              - samsung,exynos9610-cam-sysreg
++              - samsung,exynos9610-core-sysreg
++              - samsung,exynos9610-cpucl0-sysreg
++              - samsung,exynos9610-dispaud-sysreg
++              - samsung,exynos9610-fsys-sysreg
++              - samsung,exynos9610-g2d-sysreg
++              - samsung,exynos9610-g3d-sysreg
++              - samsung,exynos9610-peri-sysreg
++              - samsung,exynos9610-usb-sysreg
+               - samsung,exynos990-peric0-sysreg
+               - samsung,exynos990-peric1-sysreg
+               - samsung,exynosautov920-hsi0-sysreg
+@@ -107,6 +117,16 @@ allOf:
+               - samsung,exynos8895-fsys1-sysreg
+               - samsung,exynos8895-peric0-sysreg
+               - samsung,exynos8895-peric1-sysreg
++              - samsung,exynos9610-apm-sysreg
++              - samsung,exynos9610-cam-sysreg
++              - samsung,exynos9610-core-sysreg
++              - samsung,exynos9610-cpucl0-sysreg
++              - samsung,exynos9610-dispaud-sysreg
++              - samsung,exynos9610-fsys-sysreg
++              - samsung,exynos9610-g2d-sysreg
++              - samsung,exynos9610-g3d-sysreg
++              - samsung,exynos9610-peri-sysreg
++              - samsung,exynos9610-usb-sysreg
+               - samsung,exynos990-peric0-sysreg
+               - samsung,exynos990-peric1-sysreg
+     then:
+
+-- 
+2.54.0
+
+
 
