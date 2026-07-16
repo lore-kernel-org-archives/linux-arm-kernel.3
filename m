@@ -4,72 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69F33C44515
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 17:29:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66FE0C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 17:29:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=DfTFlvTuJ9NehD+xuHhlkvJ5W5X3RAJvY9aSf5a6Rik=; b=M6yUvxId4ueanu
-	fHrbjb2Gm8vnQLdn4wFfxRB9e9j/xrQVSMXq0a178FzncHJHcvP7tu/Nwi2wq4tWndKbV+DWvcXeS
-	I962TOwyamLkjNsu1osx/8pMuRj0aosLqAl0QH2RWXy/jZWnggpNT6KoNFJXDM4t/qde3p5WbbuYp
-	xh0ku6p62Dx5wlW4OGkTcotrhYXsRZy8YdHnNPN0upAAdS8N3cowfvRi0BokODf1z0COBVZeDtN2n
-	Ks82zQJ1NxXXGNjcazsUet9B5x7dgEE+e5I4AeB7A3CX3XfpXjYRCSWRa2sLlS7UjbVHzoEoEHixX
-	+kAjhEuiHKALloUwGxqg==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Oy7KDCiie69MUnyvy/2/gWtYYCH4ZMop/RN1w+cqgro=; b=J4xz4nE2oyWA1uDp/hbB2KAvOp
+	o/snaVntKVpOn6KJpt5QwZXodVRN2DO03B19WhcRJK9oiNuKMIUeBcQOnwNn++iv44ier+3w7aadc
+	Q7jiUmvC3dvBaBPvboTbGRd9e66DzxGLFY0ufEqPqL2yM59rHjEMv2LCVb8P8EfldsnmNiIBcLpDF
+	fW6ltD24FUGDbl1B4ANNmjxUyAD6PSCEFx7K5Y7uRvI7snUbtTO8lxOSel5PC3VVDSjriEF2PA6Vv
+	AR0VHY+iAiDjTCIAKnTHxwikDWn7rK9l7YBDT5RgAycHL1vWebOCyQpCtxGMSpomwiCAkyIOIXLVh
+	UjEKlbsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkPtN-00000000HHT-17C4;
-	Thu, 16 Jul 2026 17:29:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wkPtu-00000000HPF-23bK;
+	Thu, 16 Jul 2026 17:29:34 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkPtM-00000000HHM-08BW
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 17:29:00 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C582942390;
-	Thu, 16 Jul 2026 17:28:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85F411F000E9;
-	Thu, 16 Jul 2026 17:28:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784222939;
-	bh=DfTFlvTuJ9NehD+xuHhlkvJ5W5X3RAJvY9aSf5a6Rik=;
-	h=Date:From:To:Cc:Subject:In-Reply-To;
-	b=aEitLXbMPF+ZDmNzgzoeO2ISIaNS2tPrWwnLNqK8ednlZh1BFUnWStIW8u4B0nKBj
-	 5DudZuSLRPdkENxkGz99NrkGQp/tgvpXWlOqP4HT2p0dHQr9xABISKJdOrfKWjgPN3
-	 lh2/GE38DWMY7oVEtIknNPklQTVqmZf2DFvoqjwY2yJbqtKPNJEz6oWV8KWY8Z/LDP
-	 5d0vO7bLRd7pGsSlzxHtcig3H+Bk5PxNnfYtudQR1J1Z4pj3LQ2qv03vf14m6d95lJ
-	 rC53fTeCKYe5utGbr6GKS76/cdxmGjUKSIU814FPBcsVINFDSYVaZz2KPyBArCglEh
-	 +dAxPGR80lyvg==
-Date: Thu, 16 Jul 2026 12:28:58 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Thorsten Leemhuis <regressions@leemhuis.info>
-Cc: "Hongxing Zhu (OSS)" <hongxing.zhu@oss.nxp.com>,
-	Leonardo Costa <leoreis.costa@gmail.com>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	Frank Li <frank.li@nxp.com>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>,
-	"leonardo.costa@toradex.com" <leonardo.costa@toradex.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"regressions@lists.linux.dev" <regressions@lists.linux.dev>,
-	Sherry Sun <sherry.sun@nxp.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Hongxing Zhu <hongxing.zhu@nxp.com>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>
-Subject: Re: [REGRESSION] mainline/master: Apalis iMX6 no longer boots
-Message-ID: <20260716172858.GA111215@bhelgaas>
+	id 1wkPtr-00000000HNF-1j6Q;
+	Thu, 16 Jul 2026 17:29:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=Oy7KDCiie69MUnyvy/2/gWtYYCH4ZMop/RN1w+cqgro=; b=RFXip3c57PRC16yRHWVjGWfcBO
+	WPr112RJloTjAizRsaTVqHYYmC7h1NFbF36WOOwCEfevN7aoGix2wmY94uuWQqwP6xBEAWaTKCtCD
+	9IjH4eLUWqS+T2b8uDwiPP0xN6hBz+63Se42ItF4DN50zNnus+nJTX0Mtm1RohYZLgIE=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1wkPtj-00Cb53-9i; Thu, 16 Jul 2026 19:29:23 +0200
+Date: Thu, 16 Jul 2026 19:29:23 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Pufan Jin <2254650260@qq.com>
+Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/2] arm64: dts: rockchip: Add EmbedFire LubanCat 4
+ board
+Message-ID: <b648a0b0-2b78-4256-8a30-ab4f9a1b40f1@lunn.ch>
+References: <20260705135014.1004166-1-2254650260@qq.com>
+ <tencent_D22A164B3AEEA50562C1EC988862BA827A09@qq.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <eb92c269-efa2-4f39-bd47-4d1ee36169ee@leemhuis.info>
+In-Reply-To: <tencent_D22A164B3AEEA50562C1EC988862BA827A09@qq.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260716_102931_448831_260C982D 
+X-CRM114-Status: UNSURE (   9.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,36 +73,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 16, 2026 at 07:16:31PM +0200, Thorsten Leemhuis wrote:
-> On 7/16/26 18:40, Bjorn Helgaas wrote:
-> > On Thu, Jul 16, 2026 at 02:15:42AM +0000, Hongxing Zhu (OSS) wrote:
-> >>> On Mon, Jun 29, 2026 at 11:34:32AM -0300, Leonardo Costa wrote:
-> >>>> We are seeing a regression on Apalis iMX6 where the kernel
-> >>>> doesn't boot in the newest v7.2-rc1 (it was working before, in
-> >>>> v7.1). The device tree being used is the imx6q-apalis-eval.dtb.
-> >>>> The kernel configuration
-> >>>> used is the one shown below:
-> >> ...
-> > 
-> >>> Can somebody confirm that reverting 610fa91d9863 fixes this
-> >>> regression, or at least that 610fa91d9863^ works and 610fa91d9863
-> >>> fails?
-> >>
-> >> Sorry for this severe regression. I have posted a fix that has been
-> >> tested on my i.MX6Q SabreSD board:
-> >>
-> >> https://lore.kernel.org/imx/20260708035928.580236-2-hongxing.zhu@oss.nxp.com/
-> > 
-> > My question was whether somebody had actually bisected to 610fa91d9863
-> > ("PCI: imx6: Assert PERST# before enabling regulators").  I don't see
-> > anything specific on the mailing list, so I don't know how
-> > 610fa91d9863 got blamed for the regression.
-> 
-> That was me and might have been a stupid idea. I normally wouldn't have
-> added this, but a earlier message from Hongxing Zhu sounded a pretty
-> convincingly like something along the lines of  "this is the problem I
-> already have a fix for there" -- and then I took the commit-id from there.
+> +&gmac1 {
+> +	clock_in_out = "output";
+> +	phy-handle = <&rgmii_phy1>;
+> +	/*
+> +	 * The PCB adds ~2ns of trace delay on both TXC and RXC, so the
+> +	 * required RGMII clock skew is provided by the board itself.
+> +	 * Neither the MAC nor the PHY should add any internal delay,
+> +	 * hence "rgmii" (not "rgmii-id") is correct here.
+> +	 */
+> +	phy-mode = "rgmii";
+> +	pinctrl-0 = <&gmac1_miim
+> +		     &gmac1_tx_bus2
+> +		     &gmac1_rx_bus2
+> +		     &gmac1_rgmii_clk
+> +		     &gmac1_rgmii_bus>;
+> +	pinctrl-names = "default";
+> +	status = "okay";
+> +};
 
-Ah, ok, that explains it, thanks!  Hopefully we can get some clear
-connection in the patch that eventually gets merged.
+> +&mdio1 {
+> +	rgmii_phy1: ethernet-phy@1 {
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reg = <0x1>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&gmac1_phy_rst>;
+> +		reset-assert-us = <20000>;
+> +		reset-deassert-us = <100000>;
+> +		reset-gpios = <&gpio3 RK_PB2 GPIO_ACTIVE_LOW>;
+> +	};
+
+For these nodes only:
+
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+
+    Andrew
 
