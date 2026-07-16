@@ -4,131 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F899C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 12:41:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 152AFC4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 12:41:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7Mk9nHBF6Z9TtDEi1xPdJ5l57Ah17ET6dQN4vhkdut4=; b=OyJQA3NlzFTgy3A+avFs7pSH4t
-	QBSXH25U8eGoj0B2NpLklykvj5WoPC6/8F7cF5zgIno3GHrvsrfo1MFJcPwS4cM7wA0kfzYspssys
-	ZHa9RGd7IRP4Ax5ZHy914l4Druxr+SrZMvHb/bca7vdueYMfpeTrvJittBZTQ8gq9XS7YG0KEy+F7
-	H7qcUFjOEyXJbtW6B9LozrJCn5rh1wSQw81LLAdcJAZ2XebtrAk37Moo+MKhwAMZsNJ69MOn++ah6
-	zAh6N0Eq15PX/UEvyJDZJCLYwMJXW+tb23iH20o0kVunvdw5M7+/M3GOjuMT3s3b0ZfL25pLKaJTT
-	InV01xxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5ASEg+LPUNythxyPQgR2kNgKdj/Y2CNNfzUmoJBF8q4=; b=1SAPeMT/I1Cdy7u2TLWEJry93n
+	oN9/9XYDkAUxW+Alf6vl4ZIHLFbwre8joADNJf15Fnft7/yt3W0hpQObQirx5zKx/ybCwlJ09y/wX
+	sCCGgh8CFFbUIReurLss1l0Q1N+PU/ikb1/eESrhWcOgLjAGqZUP68mh2qYoW/4YbyL4nymWg2AsL
+	vGUCzDDvZECiHL5K9qJjsmYoGlrk9BJSN3qjLprNZKuDewuIAsEXLxzSv1EiI5qfDEkJq163BOJfK
+	h8gSLNcCHjCDGkmc+m0JiaTNEnbBX1z5+YXmc+U9JVgKn40ku+eo/1abIFM/L+TaTAM7Bp+Aaff1o
+	36CYDumg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkLOv-0000000HHXx-2Ec6;
-	Thu, 16 Jul 2026 12:41:17 +0000
-Received: from mail-westeuropeazon11013044.outbound.protection.outlook.com ([52.101.72.44] helo=AM0PR02CU008.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkLOt-0000000HHXE-0wzQ;
-	Thu, 16 Jul 2026 12:41:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AueHn5FmKcF2CqXa96RWzJ7b5pGTQnom20pCXWZBxK4vjBfIKSqa9u95MGAKoWuogEFVGWVxws1BEGlatsjizR5kYTO4oS26x1se5QTo82NKilrHec2mPVGk9CGRkTyxA1OL53YGE5eHQZZ1aSATEvHIEO4qvcoNU2Y3o30LaMktDmXla7Be0tFnDma89y3SYhRhJvyRrOSF/taJ87wv5F73qlYZhtV75HmTmX+wHi20LTqYvhq5cRgP2XKZz3QaV6VBIGvOe7rOcFoKKDCyYUYlvZbNMBF7zJ7nfzVp1e4k/1s0gNnm/dd9IFe5scWcxObcq0PXoCzCfU44cwswmA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7Mk9nHBF6Z9TtDEi1xPdJ5l57Ah17ET6dQN4vhkdut4=;
- b=LrtRCJcKZXhWR5nmvHXIaajRZjfYTSYX2f9H1BtXmhTOEaYzmZV5AtqMeAvft1Rv1XQ4eBfQ53EmQt7h2PtxkVAUyW2l3679LbqD5qs0YmQMn33V7GybV2IGfK8YIdA+ZVeFtT/IY9oLFpGI7uJpGyHZHvwi8JZDoit0Lh0G+1oWVapRrgDXJ8g89roTGWVbGjAUStycBHX7Ftb8VL7K6BvbZ/nzAIQ/eSnhNVIolgcHboQvRBDUaGGHmS0mfzN8GJoAdOOUGx0lr43NPEPkqIQ/Hhwotvs4PQoz4pNfCJQR9TCL3/a5QAGWQ5gBGepPq/lCXef/5juhS4oX3WDOuQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7Mk9nHBF6Z9TtDEi1xPdJ5l57Ah17ET6dQN4vhkdut4=;
- b=ihs2atTaHIRrKmupvcFVpoV6xVcpg9Sy5bRVZJGlLgeIgkLOqkb461hWM73UWooE2m7eOoSCoSO5BGxMpHI4Eln66GgMaH8pXnioOoKjE0b+UgiluGowxs+WOF0Z7MPukbu1jWUeRZr4+VsZm681yOTsyT/zLn411FGz8rTBvPwKLSBj3fjIAz8g64HC2VfxtNqEzQW8ZtIoH1XQx7wDH8KXTIEpV0vHoww5m/wZ5sTH35JI1uw9/QLBdKvN+GJ9OjsygzsS8JlPmhrDdiyx8z3Br1hj27TKlFmOTHL7TNUOw37FeBafJkupophYOPKy2WEg8547F/3Qs38PmziqXg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AS5PR04MB11345.eurprd04.prod.outlook.com (2603:10a6:20b:6c3::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.18; Thu, 16 Jul
- 2026 12:41:09 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0223.011; Thu, 16 Jul 2026
- 12:41:09 +0000
-Date: Thu, 16 Jul 2026 07:41:00 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Xu Yang <xu.yang_2@oss.nxp.com>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Jun Li <jun.li@nxp.com>,
-	linux-phy@lists.infradead.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Xu Yang <xu.yang_2@nxp.com>
-Subject: Re: [PATCH v6 3/6] phy: fsl-imx8mq-usb: add runtime PM support
-Message-ID: <aljRXBXtv_TjJECe@SMW015318>
-References: <20260715-imx8mp-usb-phy-improvement-v6-0-00d95e270e4c@nxp.com>
- <20260715-imx8mp-usb-phy-improvement-v6-3-00d95e270e4c@nxp.com>
- <alenBaMOTSPo7DJV@SMW015318>
- <omitpksxmr657vlmjs3ybzhiq6zj4znrsp2tereofqees27z36@m3lhmrbufqay>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <omitpksxmr657vlmjs3ybzhiq6zj4znrsp2tereofqees27z36@m3lhmrbufqay>
-X-ClientProxiedBy: SA1P222CA0099.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:806:35e::13) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	id 1wkLP7-0000000HHaR-2jRG;
+	Thu, 16 Jul 2026 12:41:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkLP4-0000000HHZR-3reY
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 16 Jul 2026 12:41:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0840B1476;
+	Thu, 16 Jul 2026 05:41:19 -0700 (PDT)
+Received: from [10.2.197.99] (ewhatever.cambridge.arm.com [10.2.197.99])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8C6003F7B4;
+	Thu, 16 Jul 2026 05:41:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784205683; bh=Y3aM/kQqvp++lv0mc4QE+i4DL7rm5D/JWaR3nRML3zI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=qlVTQLJGnpvRinTtJ4NWwCfIhzmffxp11KxgrK0NTEaJMtM4Reo3kYV51OHiMKJc7
+	 IEyNzUjXeLXO/sNY4CrPhGN23/73KwC89/+b+HyLPbh62C64kN3rHWgy2RlKTiBkKh
+	 6IR1YMRL4qxLGWz14Kmko2cB7UUemkSebOa8J6Kg=
+Message-ID: <2005044a-ff4d-4585-963b-1c346d661a35@arm.com>
+Date: Thu, 16 Jul 2026 13:41:19 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS5PR04MB11345:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4f6bfd30-5e64-4591-d0df-08dee3378284
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|19092799006|1800799024|366016|56012099006|11063799006|4143699003|18002099003|22082099003|10067099003|3023799007;
-X-Microsoft-Antispam-Message-Info: TD9cETcVRVlzMr4Uv5zi7ishU3OnWkF8wuJlzGzao2LCTLbvb7AbgdSkRJdEk0LeeuhTQAzBWiJ0umtyhWsjtwBM1vZ6WFrpV23Zcu7j0wWD72Ja/nGDBPmQL1IaPwZdnAsj1f/WrcQP+tN82P/KDzOSQjXtpR4bIcVkHTa0g43NQGoPvMGcWgCK6Motc6PrA1OTuaQHaUu0bDafd9Im1p7lLum85Q/Sk8BhYnqdqNqrQX3YuLkIaxUr7+gtpKm5xHW5HQH+2lXvnzNBfLbCQpkm/983OItOzP1Pa553uRv24B8I2o6ckIzVlAgkQcNCnBu4dR+u0p4nkSughEcxSjU4sGNkhgNIqXvu8iXhqTnOAYP5HKRwMUa26dsoX+Goa3FsHwK/bpDDezo+WfhXTrsu02wu5nTWBkgDZWn3wlvBlsq0Lb2MHH4yfGN2/Vye4jCTYOgOGqbbKGfXca+bcQC/y2CAauZO5LgYfgIhIm7J38dNBaAQRDftanK0CXarGNgJ9z5dvjG19fTkQx8Xf701RGeaDWUbvkkLFoTvR/KE2tFExuxUw064AqCjX7OfZvH6IvugqcdI8M3pXMUTJQ18IRtgQ3bkdxvQfn6O1cFDMHkKY0Tdy4zYlhAJs5w3UhJei1peNeGJQcnZO8ZYTZQpkEGQRcrBke6pHNLq27Y=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(19092799006)(1800799024)(366016)(56012099006)(11063799006)(4143699003)(18002099003)(22082099003)(10067099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?AQCyeNJcNZvJUkRbnDj76xTGAT7zID5y/Lprs0vKgIJ0ayevmJ4zol4ZhLh4?=
- =?us-ascii?Q?KjOv1az4Qayc1n1Gpj0DJo8zizKaYHJphBgdE10/zOkQEM2V2zGFMbc757hG?=
- =?us-ascii?Q?zaIoQWkVRA8WxYT6AO/SP5936GgUtHmla7iGYjmA7P8W64q9Vi1228Y4VjSY?=
- =?us-ascii?Q?gk9WRhXq+oEdVmvt3kn3CIL9QfLNTcbif2/M0t7dgpcPPnJ6gBcPa0HhBStN?=
- =?us-ascii?Q?B3NvOyZf1XIDRPMjst+f0U0LFIQgYhs3jWQzaVLoPd5q1de+IPuZIcRPZWkG?=
- =?us-ascii?Q?noG0TZAoGmeDiQ7VCse0Sji3uVofi6iqnCcCUet47hn+405sm5QF2WylcduW?=
- =?us-ascii?Q?+rgYtvLRalYOFpqhm9jY5LIkJe070JY/EODLYcmUVVp8QfFcLKtPeGGhuiug?=
- =?us-ascii?Q?QF+1psJYRzcbvOGTrXTwJT7/y73+3aSOYAMKViERSB3eruUbaQ4GE83222+h?=
- =?us-ascii?Q?1EK5qKIe4afbQp68AoSrNOUzFf7mYMeXxAvY6k96VQ10Wrk2HOmFXBE71npq?=
- =?us-ascii?Q?dp6jpcYuNvXgxWMmMdc3llnvtY37yq9Cgb2GaDPA/tgs8TVKMiWNSntffdME?=
- =?us-ascii?Q?DPAEIMU4fmNi5WaDKCCXME+Su6PuPHoORU41nfY+TyeQxWg+rbWOTUW/glks?=
- =?us-ascii?Q?Fp613sKHSqubJvhyPLBtABfFGvSVI2kc52xQWZqBYUIOntsBIpMBjjIvCFcb?=
- =?us-ascii?Q?qH0+iDuwJeHElWfkqmIDPOIagwmJy1jXI0a7RdWxbRPHig8Bi48IqI2M9axZ?=
- =?us-ascii?Q?X2FRr90Cnn0erQxO9kBjDVFVqamOkB/eoGlWslAqlbrEYYueW/QhqjOUFuKa?=
- =?us-ascii?Q?OQs4ICAkZWQD7P4VxAfQ+1aesswVKvTD1lQ/8mpKWMYK7LCv45XWep2lI2km?=
- =?us-ascii?Q?gQmsHIQkaaVZuz5KQF/vqLXGPrZ4ZzUHq14QejL7a4+2RqcN+q1MoWGxAiH1?=
- =?us-ascii?Q?lz4mbAV5nondug+otvSSuN89soE+D+xn8of169Xvw/is/rcsU9sWbPatNff1?=
- =?us-ascii?Q?JI9PDaYHyU4amnQt/w6/19KCu+mEuZdgFIvflvBgzJcCV4lUxq/JtTCMBZHq?=
- =?us-ascii?Q?YUqJhACZnfr44ewG7oKJZcRWaOhr6Q30ulgamsPDDsViPIfQoKA+Az63YZyI?=
- =?us-ascii?Q?ugPyW8i2il3YCWIvm6i0GRVq56Yq35/dywOFGMok1NE9W8afOnbZ4WCNXs/u?=
- =?us-ascii?Q?NenXl9vH2preeAndT2xivHn2gV0/qIrM2o+5eGtQWOKbekgqZHMxMLZPiffV?=
- =?us-ascii?Q?1hvak7JxhJcEFx7Y4loHFXXbtxBacKDEsOwtgYWWf56JQcZQfywUTQmgV4JH?=
- =?us-ascii?Q?VV6S5TfOZJt1t5cxMRGsJuGxe61dsTrtbgas8JoIMEB5FkJjO5fb9a59aA5a?=
- =?us-ascii?Q?IJO3SeVEttso0jewElhMdvZYHrHxL4BnKgLEaAADSa97RmZ+ZhIZeAL5Lskz?=
- =?us-ascii?Q?IkuNPCkeVREL1CPMnfvrxNYsV/vZnhoCxFAC02D911MZQkrBNjDHH6U4lArl?=
- =?us-ascii?Q?qzT09s5b8OE6e8fD8MMqBkoDOakF7ORhyka4AEb0ChejmGOCEJYFIa4zLDW1?=
- =?us-ascii?Q?YbuPgT6z+Th/L9vi6c5SDuDA3/aG58ZGQJhKAX2fAGnyYwBLQhjSMz/IvSky?=
- =?us-ascii?Q?olPXJD1JTajKiYaP/elZ79x07LEhcDyKLcNKKnIkvwzM3KtINGxt6OeTsYOK?=
- =?us-ascii?Q?D2dth3fj6nsxpvchjhKqMm+/HEto79jdkRNGBcHMjsVwoJEgEBYVBeJQWY7o?=
- =?us-ascii?Q?wH37koNyvOMpHmDINu2Wjcv0LhpvhF4L1Nu6Jt5ZDSBrTu6Cto84?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4f6bfd30-5e64-4591-d0df-08dee3378284
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jul 2026 12:41:09.1073
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 14rH0BLuIhiCOF4ydI6zckUXk8nMXIcqYVE7x2I6cg+ri64AQhjFX2mqLmD/CUhJgH7+hwjLXlNbqrOaymVT89MFbYinvrVhHoE+ULEUKbc9ZPMmUsp+yhc5gE6th80X
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB11345
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 08/13] coresight: etm4x: fix inconsistencies with sysfs
+ configuration
+To: Leo Yan <leo.yan@arm.com>, Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, mike.leach@arm.com, james.clark@linaro.org,
+ alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
+References: <20260629090007.1718746-1-yeoreum.yun@arm.com>
+ <20260629090007.1718746-9-yeoreum.yun@arm.com>
+ <20260706173940.GB1024232@e132581.arm.com>
+Content-Language: en-US
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20260706173940.GB1024232@e132581.arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_054115_298485_3A56A895 
-X-CRM114-Status: GOOD (  30.63  )
+X-CRM114-CacheID: sfid-20260716_054127_058197_3102C581 
+X-CRM114-Status: GOOD (  16.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,156 +74,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 16, 2026 at 07:32:59PM +0800, Xu Yang wrote:
-> On Wed, Jul 15, 2026 at 10:28:05AM -0500, Frank Li wrote:
-> > On Wed, Jul 15, 2026 at 07:33:58PM +0800, Xu Yang wrote:
-> > > From: Xu Yang <xu.yang_2@nxp.com>
-> > >
-> > > Add runtime PM to ensure the PHY is properly powered and clocked during
-> > > register access, preventing potential system hangs.
-> > >
-> > > It guards register access in the following scenarios:
-> > > - PHY operations: init() and power_on/off() callbacks are guarded by
-> > >   phy core
-> > > - Type-C orientation switching when PHY/Controller are suspended which
-> > >   needs explicitly care
-> > > - Future PHY control port register regmap debugfs access
-> > >
-> > > Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
-> > >
-> > > ---
-> > > Changes in v6:
-> > >  - use devm_pm_runtime_enable() to disable runtime PM when probe fails
-> > >  - simply pm_runtime_get_sync/disable/put_noidle() to pm_runtime_resume()
-> > > Changes in v5:
-> > >  - use non-devm PM runtime callback to correctly enable/disable clocks
-> > >    when unbind the device
-> > > Changes in v4:
-> > >  - replace guard() with PM_RUNTIME_ACQUIRE()
-> > > Changes in v3:
-> > >  - new patch
-> > > ---
-> > >  drivers/phy/freescale/phy-fsl-imx8mq-usb.c | 67 +++++++++++++++++++++---------
-> > >  1 file changed, 48 insertions(+), 19 deletions(-)
-> > >
-> > > diff --git a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> > > index 3a5788c609e1..bc804d2b5aee 100644
-> > > --- a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> > > +++ b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> > > @@ -9,6 +9,7 @@
-> > >  #include <linux/of.h>
-> > >  #include <linux/phy/phy.h>
-> > >  #include <linux/platform_device.h>
-> > > +#include <linux/pm_runtime.h>
-> > >  #include <linux/regulator/consumer.h>
-> > >  #include <linux/usb/typec_mux.h>
-> > >
-> > > @@ -136,17 +137,15 @@ static int tca_blk_typec_switch_set(struct typec_switch_dev *sw,
-> > >  {
-> > >  	struct imx8mq_usb_phy *imx_phy = typec_switch_get_drvdata(sw);
-> > >  	struct tca_blk *tca = imx_phy->tca;
-> > > -	int ret;
-> > >
-> > >  	if (tca->orientation == orientation)
-> > >  		return 0;
-> > >
-> > > -	ret = clk_prepare_enable(imx_phy->clk);
-> > > -	if (ret)
-> > > -		return ret;
-> > > +	PM_RUNTIME_ACQUIRE(&imx_phy->phy->dev, pm);
-> > > +	if (PM_RUNTIME_ACQUIRE_ERR(&pm))
-> > > +		return -ENXIO;
-> > >
-> > >  	tca_blk_orientation_set(tca, orientation);
-> > > -	clk_disable_unprepare(imx_phy->clk);
-> > >
-> > >  	return 0;
-> > >  }
-> > > @@ -620,16 +619,6 @@ static int imx8mq_phy_power_on(struct phy *phy)
-> > >  	if (ret)
-> > >  		return ret;
-> > >
-> > > -	ret = clk_prepare_enable(imx_phy->clk);
-> > > -	if (ret)
-> > > -		return ret;
-> > > -
-> > > -	ret = clk_prepare_enable(imx_phy->alt_clk);
-> > > -	if (ret) {
-> > > -		clk_disable_unprepare(imx_phy->clk);
-> > > -		return ret;
-> > > -	}
-> > > -
-> > >  	/* Disable rx term override */
-> > >  	value = readl(imx_phy->base + PHY_CTRL6);
-> > >  	value &= ~PHY_CTRL6_RXTERM_OVERRIDE_SEL;
-> > > @@ -648,8 +637,6 @@ static int imx8mq_phy_power_off(struct phy *phy)
-> > >  	value |= PHY_CTRL6_RXTERM_OVERRIDE_SEL;
-> > >  	writel(value, imx_phy->base + PHY_CTRL6);
-> > >
-> > > -	clk_disable_unprepare(imx_phy->alt_clk);
-> > > -	clk_disable_unprepare(imx_phy->clk);
-> > >  	regulator_disable(imx_phy->vbus);
-> > >
-> > >  	return 0;
-> > > @@ -686,6 +673,7 @@ static int imx8mq_usb_phy_probe(struct platform_device *pdev)
-> > >  	struct device *dev = &pdev->dev;
-> > >  	struct imx8mq_usb_phy *imx_phy;
-> > >  	const struct phy_ops *phy_ops;
-> > > +	int ret;
-> > >
-> > >  	imx_phy = devm_kzalloc(dev, sizeof(*imx_phy), GFP_KERNEL);
-> > >  	if (!imx_phy)
-> > > @@ -693,13 +681,13 @@ static int imx8mq_usb_phy_probe(struct platform_device *pdev)
-> > >
-> > >  	platform_set_drvdata(pdev, imx_phy);
-> > >
-> > > -	imx_phy->clk = devm_clk_get(dev, "phy");
-> > > +	imx_phy->clk = devm_clk_get_enabled(dev, "phy");
-> > >  	if (IS_ERR(imx_phy->clk)) {
-> > >  		dev_err(dev, "failed to get imx8mq usb phy clock\n");
-> > >  		return PTR_ERR(imx_phy->clk);
-> > >  	}
-> > >
-> > > -	imx_phy->alt_clk = devm_clk_get_optional(dev, "alt");
-> > > +	imx_phy->alt_clk = devm_clk_get_optional_enabled(dev, "alt");
-> > >  	if (IS_ERR(imx_phy->alt_clk))
-> > >  		return dev_err_probe(dev, PTR_ERR(imx_phy->alt_clk),
-> > >  				    "Failed to get alt clk\n");
-> > > @@ -708,6 +696,11 @@ static int imx8mq_usb_phy_probe(struct platform_device *pdev)
-> > >  	if (IS_ERR(imx_phy->base))
-> > >  		return PTR_ERR(imx_phy->base);
-> > >
-> > > +	pm_runtime_set_active(dev);
-> > > +	ret = devm_pm_runtime_enable(dev);
-> > > +	if (ret)
-> > > +		return dev_err_probe(dev, ret, "failed to enable runtime PM\n");
-> > > +
-> >
-> > no place to call pm runtime suspend, so whole driver's life cycle runtime
-> > pm is on, is it expected?
->
-> First, at the end of __driver_probe_device(), it will call pm_request_idle()
-> for the device. So runtime_suspend() will run.
-> Second, this platform device is the parent of created phy device, the runtime status
-> of phy device is managed by phy core, so this platform device will be managed by phy
-> core indirectly.
->
-> Just found it's not suitable to call devm_pm_runtime_enable() here. Because
->
-> pm_runtime_disable_action()
->   pm_runtime_dont_use_autosuspend()
->     update_autosuspend()
->       rpm_idle()
->
-> then after remove(), runtime suspend func will still be called. Clocks may be
-> disabled twice. I will use non-devm version pm_runtime_enable() in next version.
+On 06/07/2026 18:39, Leo Yan wrote:
+> On Mon, Jun 29, 2026 at 10:00:01AM +0100, Yeoreum Yun wrote:
+> 
+> [...]
+> 
+>> @@ -922,25 +950,7 @@ static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_pa
+>>   {
+>>   	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+>>   	struct etm4_enable_arg arg = { };
+>> -	unsigned long cfg_hash;
+>> -	int ret, preset;
+>> -
+>> -	/* enable any config activated by configfs */
+>> -	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
+>> -	if (cfg_hash) {
+>> -		ret = cscfg_csdev_enable_active_config(csdev, cfg_hash, preset);
+>> -		if (ret) {
+>> -			etm4_release_trace_id(drvdata);
+>> -			return ret;
+>> -		}
+>> -	}
+>> -
+>> -	raw_spin_lock(&drvdata->spinlock);
+>> -
+>> -	drvdata->trcid = path->trace_id;
+>> -
+>> -	/* Tracer will never be paused in sysfs mode */
+>> -	drvdata->paused = false;
+>> +	int ret;
+>>   
+>>   	/*
+>>   	 * Executing etm4_enable_hw on the cpu whose ETM is being enabled
+>> @@ -948,20 +958,20 @@ static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_pa
+>>   	 */
+>>   	arg.drvdata = drvdata;
+>>   	arg.path = path;
+>> +
+>> +	raw_spin_lock(&drvdata->spinlock);
+>> +	arg.config = drvdata->config;
+>> +	raw_spin_unlock(&drvdata->spinlock);
+>> +
+>>   	ret = smp_call_function_single(drvdata->cpu,
+>>   				       etm4_enable_sysfs_smp_call, &arg, 1);
+>>   	if (!ret)
+>>   		ret = arg.rc;
+>>   	if (!ret)
+>> -		drvdata->sticky_enable = true;
+>> -
+>> -	if (ret)
+>> +		dev_dbg(&csdev->dev, "ETM tracing enabled\n");
+>> +	else
+>>   		etm4_release_trace_id(drvdata);
+>>   
+>> -	raw_spin_unlock(&drvdata->spinlock);
+>> -
+>> -	if (!ret)
+>> -		dev_dbg(&csdev->dev, "ETM tracing enabled\n");
+>>   	return ret;
+>>   }
+> 
+> This is most valuable change for me, as now we will have much clear
+> scope for what is protected ("drvdata->config").
+> 
+> However, a corner case was mentioned by Sashiko:
+> 
+>   | It appears etm4_enable_hw() modifies drvdata->ss_status while executing
+>   | via IPI, but sshot_ctrl_store() can modify the same array concurrently
 
-This should be common problem. Your case should be typical one.
-try devm_pm_runtime_set_active_enabled().
+Could we stop modifying the drvdata->ss_status in enable_hw() ? We moved
+it outside the config claiming that the status is not used(or useful). #
+Then why not remove the updating from enable_hw()
 
-Frank
+Suzuki
 
->
+
+>   | from process context since the lock is no longer held across the
+>   | smp_call_function_single() call.
+> 
+> "drvdata->ss_status" is a race condition between SMP call and sysfs
+> knobs. Should we change to spinlock_irqsave/irqrestore when access
+> drvdata->ss_status?
+> 
 > Thanks,
-> Xu Yang
+> Leo
+
 
