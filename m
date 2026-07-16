@@ -4,70 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A13AC4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 09:37:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66ECAC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 09:39:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EPFwJ3WEuBcm2rx9cZEvteDwo2+iijOpn/63IcGELo4=; b=mV0fbLxyU6B0VTo3rJ5HNX2lpD
-	c42ZcAc6jz4w5nfnR9/ybfPd/IPB39ILbaU79sjSKz3qa+OI1YPlQjdxDUxFcA+lJIBh0uwENf7qr
-	+WNy0SP1mgGpfHHJ50QZgjSTGGS2kWRBpRTLmHn1Hv2ym0oucY+qPKGUjIwBX9vKlYpixn9U3BWLA
-	8AiGXz1eFjN+rOD2lFqgEV10/hGfJj1WLUVYkvbEW5apuk2v7whE9OgukN3lFrZ2VO3ISRxgIBiRY
-	vdzSxDEEWopBm7wIWaUAGVGpRi0LJw0PDIyq1gNxnY6cDJItqkl8wAtsUZshfDin8MfvLhuSXnao/
-	hDC7gJzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0CHRQwxG2g8NAYPuVqgPl5XkBCDxSDwrk5H6G4V1gVk=; b=ejquKBMPJPfLoxXZQli1KrPFdx
+	Aqk1qS87WxJ62K8euqGt24cvX2CDMjkQ08z96jGI0vLNFEtQjRywgoSh0dA3MjOouWhM1ciJepB+j
+	Z8KZqiiOEnA1bWtugNBQ1uGVWwqBYk+gVlmOwBWAaHehCn2srsQF2kcST/0aUL/guxc/x3581nWY3
+	rjxT3+fBMHPVAmCwThZHm8FwnsfdnRHtYpuHvnUy8eSJ3lhQmR5TzgXawsmfx2bVTJOemSdxw7sTN
+	VuY31jArTnggO7r9dGiQcay4Tn55ZeVQ2vHCKaOaif+1o2GdcmBWGXjA5GjuPhOyiKAdpFOjxBBuo
+	bDk4GvAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkIX6-0000000Gtsy-1YFd;
-	Thu, 16 Jul 2026 09:37:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wkIZ4-0000000GuCc-2qRT;
+	Thu, 16 Jul 2026 09:39:34 +0000
+Received: from mail-yx1-xb136.google.com ([2607:f8b0:4864:20::b136])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkIX4-0000000Gtsg-3k03
+	id 1wkIZ2-0000000GuBj-0bzB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 09:37:31 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5605C60054;
-	Thu, 16 Jul 2026 09:37:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 000121F000E9;
-	Thu, 16 Jul 2026 09:37:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784194650;
-	bh=EPFwJ3WEuBcm2rx9cZEvteDwo2+iijOpn/63IcGELo4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=bLOfCpshJI9arPQk13D/3FzzjPN5KW7Lwe2sFGx9PbCCHlW5Nwh+GGSY1Y8/Vz+f/
-	 /aWunZGjzog0ejKw+sqk4c7Da/L/uOGrjrJKvnzNItOUdk3U7WAB0zSw2AD1q0IBu6
-	 s2Zr2R6l3yo9DPObKM5TmY18oKkz8dp3xEM/w3QK8V0Pw2I4ccPA4gtSHmnzXOzvoI
-	 0hZlaif37EuuKP/s4boMscRXhDaFJYMVCordJwTO2dLdiUaCTXoC9YUCE3bM83zM3S
-	 7MAlPtOKNqvPzT6t7jJf3NHdxPAmk0W8SMTiREEDaU/MzyiXlpVVDFSpn/u5v+dp2m
-	 OMeccACFs6rYA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wkIX1-00000005ccs-1RQq;
-	Thu, 16 Jul 2026 09:37:27 +0000
-Date: Thu, 16 Jul 2026 10:37:21 +0100
-Message-ID: <86fr1jff72.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org,	kvmarm@lists.linux.dev,	Catalin Marinas <catalin.marinas@arm.com>,	Will Deacon <will@kernel.org>,	James Morse <james.morse@arm.com>,	Oliver Upton <oliver.upton@linux.dev>,	Suzuki K Poulose <suzuki.poulose@arm.com>,	Zenghui Yu <yuzenghui@huawei.com>,	linux-arm-kernel@lists.infradead.org,	linux-kernel@vger.kernel.org,	Joey Gouly <joey.gouly@arm.com>,	Alexandru Elisei <alexandru.elisei@arm.com>,	Christoffer Dall <christoffer.dall@arm.com>,	Fuad Tabba <tabba@google.com>,	linux-coco@lists.linux.dev,	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,	Gavin Shan <gshan@redhat.com>,	Shanker Donthineni <sdonthineni@nvidia.com>,	Alper Gun <alpergun@google.com>,	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,	Emi Kisanuki <fj0570is@fujitsu.com>,	Vishal Annapurve <vannapurve@google.com>,	WeiLin.Chang@arm.com,	Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: Re: [PATCH v15 09/37] KVM: arm64: CCA: Allow passing the machine type in KVM creation
-In-Reply-To: <9eb4e4c0-f1f6-4ab9-956a-0b233d1656c9@arm.com>
-References: <20260715142841.80544-1-steven.price@arm.com>
-	<20260715142841.80544-10-steven.price@arm.com>
-	<87zezs44cf.wl-maz@kernel.org>
-	<9eb4e4c0-f1f6-4ab9-956a-0b233d1656c9@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Thu, 16 Jul 2026 09:39:33 +0000
+Received: by mail-yx1-xb136.google.com with SMTP id 956f58d0204a3-6682b598e77so289102d50.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 02:39:31 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1784194770; cv=none;
+        d=google.com; s=arc-20260327;
+        b=qxHLsw7e4tBrykXCFa/OIslgM3ftLHJe77V/tX8nrOKbb0+9cNwbT5IGAUMhVZSUnm
+         wSNdcwAVNlOa9W5cexVhKtXCJoy6VyJlGzRYMhsrvXPWFk93HgiQwvTPj28sUg/Ka5mW
+         VTCAev7R6ygzR/xy4BFeNsEvn4QACKc/wfQfHOboIb3v3XmVVH0AUhMX7yOnHtdMe6qx
+         dDqUxOMkFBvbcinZvmTKWDpuqBkPvHR+x2KioD4nWFTlR4+BQO62RIeiQOivcOtbom9w
+         g5XmPUpdURDoBkLqe1Fs1Dt+dXGUL/6s0eQ5UBv9FCv2ecA6MnBP0o3V3JYbSEdCw85D
+         oKpg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=0CHRQwxG2g8NAYPuVqgPl5XkBCDxSDwrk5H6G4V1gVk=;
+        fh=YVOwq0r1Rx2PtSRYe9rwIwlHCY1+f82t5T1/o2fWjLo=;
+        b=aPkwihlcbJCU6ge5GBnhZI7xlRjhg8R4l3TJ6DJJmL9ks4eW7XnBWFMhDKgirR87F+
+         ghuyln1sDBQsHz2G9fFO80ASqrC+iWzEmOJynzjTV6n5y0yC6JDgeVJO+8s9Lj/ibt2Z
+         pQV/Ya0Kh9O3B98L0J2/rmLt3UZF3tTcgiCVD7kajyji/QK1p4Aq3Z63eJlKqwe3ZOyk
+         8z8ErEAVkEQ/2f5WPaVWJQyYwynMHbVFW/KloOy4bjcSPCivhdfdbhPzmcDfjfWzSKKE
+         L/HDVBWOxWqaqvZsYpjIuuHvGknPemn7Qc65+g48IuJaQLL9IW/5c8t1RI2XyVfjXCSC
+         WWyA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1784194770; x=1784799570; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=0CHRQwxG2g8NAYPuVqgPl5XkBCDxSDwrk5H6G4V1gVk=;
+        b=IpIVooidAb0YzfYdzQAGVQHAy9TSUXNzMmD9aJGpXRUHzePkhkm8bCPcOUgO+uqqzW
+         pbJmvuWSu5juEGScWIjXIw7sYqw+mMSPJv7FbvVlNJ+E9tAdjYlWyofPee6jwPZl5Ztp
+         M/9GgBaR+7bd+MgyIZWqiGYqJZh2xS6ANdt2s=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784194770; x=1784799570;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=0CHRQwxG2g8NAYPuVqgPl5XkBCDxSDwrk5H6G4V1gVk=;
+        b=TcHQHAAptX1lJ0mG1IeNRUVijh7x3AGw6hNtqa63VrgIiPeW+KVEW4K55bvtSrDaNK
+         2TR4t7RlRT7xUEKPpEtYAjrbfWfHYXwh+hqo9+hY8Mc3VhOuHPb3NbXbIUiBHWckih30
+         9vL9JYUZieZwLTs8DIDqiXTvNOfEIfQsRMqWqzqB61UjUAnUvuzt78Gw7f7a0D4wY8/5
+         24/3xcb897ujerQ/ZiSBxQsmu1HatttLz5ifNMkdSU4xP/0iMSQMIm1kOlKF3Ni2oBC6
+         8vMem9WUJLzUnIeii6pVAxdwPsdvA6Ws4oz9HdXgSlhAMVT+FHysCWrtRgtCiW/OuAcT
+         nb4Q==
+X-Forwarded-Encrypted: i=1; AHgh+RposyfIh6AeIAhB3SwqO6B27Mn7uiwl8JIYsgqx9ULQosL4aun68VXyCfjA/SLBw/1Tz6CRc21CEY6mN6f1hpIw@lists.infradead.org
+X-Gm-Message-State: AOJu0YxIMpgCqf9Wou7Ob7SdKnxvidJUZSEj1nXOC4DBsKKjRJR24rhO
+	XMeoEY/EIqFY4GrJpW5TaQXEGeuYgStq8cStE+4j6f7l5+b7SeL94DtunLD6odxpyNkiU/Dfq8Y
+	DC7Jy21AgHKBnYTGw8zg//0Z+vCHR1Vq1Gjw2K3JP
+X-Gm-Gg: AfdE7cmy45NoAJhVnEwT7qoXDKZucqgal+HHIRq6T2aRmGqR7oZ/F3s4FxEtYxc7FMT
+	cOGRe9jMHoxHnkN6SyXdN3yp2RO6hF8EyBdXLPyos7yiZ7qGr4I27UZVtxoPhFG00REKS9uAflZ
+	qpLCiJrkX3Ygh4C3CnDXPtQ3ZXl+lxKtlimRZpzMdsARx+lqdVSGIu/ikkyy8rx7aj+Jj31ggiw
+	/AtdRidQF4pGRabFJGjGdW8EJakt3AHcD0f7dxfbqTb1HN44b03FR1/dczNPq8dn15Ga/QNzsnq
+	a1vRJOjx/bDLTrZG
+X-Received: by 2002:a53:c80e:0:b0:667:bb38:d969 with SMTP id
+ 956f58d0204a3-667d7b0060amr9599454d50.16.1784194770410; Thu, 16 Jul 2026
+ 02:39:30 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260715085348.3457359-1-wenst@chromium.org> <20260715085348.3457359-4-wenst@chromium.org>
+ <aldS3qTympJuVXYj@ashevche-desk.local> <CAMRc=MfHmejks83bPfe3fKzAzFySGXk2GHMA9oZdMQj0f44eTA@mail.gmail.com>
+ <CAGXv+5HGjGTrqqzJrpiQhLrCn3C6H20LXq3niPnoujQLOwgqPw@mail.gmail.com> <CAMRc=Mefxn81d0VUwmQgwFtffkL1=Er_1VQZCbC1Sa-Qph4t1w@mail.gmail.com>
+In-Reply-To: <CAMRc=Mefxn81d0VUwmQgwFtffkL1=Er_1VQZCbC1Sa-Qph4t1w@mail.gmail.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Thu, 16 Jul 2026 17:39:19 +0800
+X-Gm-Features: AUfX_mzbe7WMgo0cPdR-Yi-m3qfqJETc7DH9Y1NWKQqSMqgCgHS_ReKsQ1v2DI0
+Message-ID: <CAGXv+5G0Ffrh-8UohJuGPQ0e7KGpy11=X7t1JtDYLTJ_tZgMCA@mail.gmail.com>
+Subject: Re: [PATCH v5 03/16] power: sequencing: Add pwrseq_power_is_on()
+To: Bartosz Golaszewski <brgl@kernel.org>
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Daniel Scally <djrscally@gmail.com>, 
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Wei Deng <wei.deng@oss.qualcomm.com>, linux-acpi@vger.kernel.org, 
+	driver-core@lists.linux.dev, linux-pm@vger.kernel.org, 
+	linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Manivannan Sadhasivam <mani@kernel.org>, 
+	Alan Stern <stern@rowland.harvard.edu>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260716_023932_238792_F3944500 
+X-CRM114-Status: GOOD (  40.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,81 +129,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 16 Jul 2026 10:17:21 +0100,
-Steven Price <steven.price@arm.com> wrote:
-> 
-> On 15/07/2026 17:14, Marc Zyngier wrote:
-> > On Wed, 15 Jul 2026 15:28:11 +0100,
-> > Steven Price <steven.price@arm.com> wrote:
+On Thu, Jul 16, 2026 at 4:14=E2=80=AFPM Bartosz Golaszewski <brgl@kernel.or=
+g> wrote:
+>
+> On Thu, 16 Jul 2026 06:59:01 +0200, Chen-Yu Tsai <wenst@chromium.org> sai=
+d:
+> > On Wed, Jul 15, 2026 at 8:10=E2=80=AFPM Bartosz Golaszewski <brgl@kerne=
+l.org> wrote:
 > >>
-> >> Previously machine type was used purely for specifying the physical
-> >> address size of the guest. Reserve the higher bits to specify an ARM
-> >> specific machine type and declare a new type 'KVM_VM_TYPE_ARM_REALM'
-> >> used to create a realm guest.
+> >> On Wed, 15 Jul 2026 11:29:02 +0200, Andy Shevchenko
+> >> <andriy.shevchenko@linux.intel.com> said:
+> >> > On Wed, Jul 15, 2026 at 04:53:33PM +0800, Chen-Yu Tsai wrote:
+> >> >> The power sequencing consumer API already does power on state track=
+ing
+> >> >> internally. Expose the state to consumers through pwrseq_power_is_o=
+n()
+> >> >> so that they don't have to reimplement it locally.
+> >> >
+> >> > Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+> >> >
+> >> > ...
+> >> >
+> >> >> +/**
+> >> >> + * pwrseq_power_is_on() - Queries the last requested state of the =
+power sequencer.
+> >> >> + * @desc: Descriptor referencing the power sequencer.
+> >> >> + *
+> >> >> + * This returns the last requested state of the power sequencer.
+> >> >> + *
+> >> >> + * Returns:
+> >> >> + * On success, 1 for on or desc is NULL (optional) and 0 for off;
+> >> >> + * negative error number on failure.
+> >> >
+> >> > I would rephrase it a bit.
+> >> >
+> >> >  * On success, 1 for on and 0 for off; negative error number on fail=
+ure.
+> >> >  * If desc is NULL (means optional) return 1.
+> >> >
+> >> > And this rises a question: why 1? Shouldn't it be some "unknown" sta=
+te?
+> >> > (But since Bart Acked this, this doesn't prevent the patch to go, yo=
+u
+> >> >  got my tag above.)
+> >> >
 > >>
-> >> Signed-off-by: Steven Price <steven.price@arm.com>
-> >> ---
-> >> Changes since v13:
-> >>  * Rework to use the two top bits for the machine type now that pKVM has
-> >>    merged and used the top bit for KVM_VM_TYPE_ARM_PROTECTED.
-> >>  * Update the documentation to include KVM_VM_TYPE_ARM_PROTECTED as
-> >>    well.
-> >> Changes since v9:
-> >>  * Explictly set realm.state to REALM_STATE_NONE rather than rely on the
-> >>    zeroing of the structure.
-> >> Changes since v7:
-> >>  * Add some documentation explaining the new machine type.
-> >> Changes since v6:
-> >>  * Make the check for kvm_rme_is_available more visible and report an
-> >>    error code of -EPERM (instead of -EINVAL) to make it explicit that
-> >>    the kernel supports RME, but the platform doesn't.
-> >> ---
-> >>  Documentation/virt/kvm/api.rst | 18 ++++++++++++++++--
-> >>  arch/arm64/kvm/arm.c           | 11 +++++++++++
-> >>  include/uapi/linux/kvm.h       |  7 ++++++-
-> >>  3 files changed, 33 insertions(+), 3 deletions(-)
+> >> No, this is good feedback. Maybe we should prefer an enum like so:
 > >>
-> >> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-> >> index b38e090ad95d..e39d146b34a3 100644
-> >> --- a/Documentation/virt/kvm/api.rst
-> >> +++ b/Documentation/virt/kvm/api.rst
-> >> @@ -181,8 +181,22 @@ flag KVM_VM_MIPS_VZ.
-> >>  ARM64:
-> >>  ^^^^^^
-> >>  
-> >> -On arm64, the physical address size for a VM (IPA Size limit) is limited
-> >> -to 40bits by default. The limit can be configured if the host supports the
-> >> +On arm64, the machine type identifier is used to encode a type and the
-> >> +physical address size for the VM. The lower byte (bits[7-0]) encode the
-> >> +address size and the upper bits[30-31] encode a machine type. The machine
-> >> +types that might be available are:
-> >> +
-> >> + =========================   ============================================
-> >> + KVM_VM_TYPE_ARM_NORMAL      A standard VM
-> >> + KVM_VM_TYPE_ARM_REALM       A "Realm" VM using the Arm Confidential
-> >> +                             Compute extensions, the VM's memory is
-> >> +                             protected from the host.
-> >> + KVM_VM_TYPE_ARM_PROTECTED   A "protected" VM using pKVM to isolate the
-> >> +                             VM from the host.
-> >> + =========================   ============================================
-> >> +
-> > 
-> > Probably worth mentioning that REALM+PROTECTED is an illegal
-> > combination.
-> 
-> The original intention was that these were enum values not separate bit
-> fields. Having to adapt to the pKVM changes when they were merged has
-> somewhat messed this up. I'll add a clarification, but hopefully we
-> haven't actually burnt the combination in case we have a 4th type in the
-> future.
+> >> enum pwrseq_state {
+> >>         PWRSEQ_POWER_UNKNOWN,
+> >>         PWRSEQ_POWER_ON,
+> >>         PWRSEQ_POWER_OFF
+> >> };
+> >
+> > Well I think the crux of it is whether the API considers the descriptor
+> > optional. The power on/off functions suggest that is the case.
+> >
+>
+> True. That may be an inconsistency of the API contract on my part. There'=
+s no
+> such thing as an optional variant of pwrseq_get() so perhaps pwrseq_power=
+_on()
+> and pwrseq_power_off() should be converted to returning -EINVAL on NULL
+> descriptor.
 
-A good way to avoid ambiguity would be to list the actual values for
-the [31:30] field (0b00, 0b01, 0b10).
+OK. I guess the other resource subsystems allowed it more as a convenience
+to consumers.
 
-Thanks,
+> > I modeled this on reset_control_status(). I believe the rationale is th=
+at
+> > if the reset control or pwrseq is optional, then either there is some
+> > other mechanism to deal with the reset (GPIO) or pwrseq (GPIO + regulat=
+or),
+> > or it's always on and operational.
+> >
+> > In such cases and the rare case where one has to query the state, the
+> > queries are possibly chained together and I think it makes sense to
+> > assume the "operational" state as the fallback.
+> >
+> > If this returns an enum, then I think the previous approach of returnin=
+g
+> > an error value for an invalid descriptor is better. One doesn't need to
+> > learn a new set of return values.
+> >
+> > I'm fine either way. I would just move the checks over to the consumer
+> > side. But I think the principles guiding the overall API design is
+> > something you need to provide:
+> >
+> >   - Is the descriptor optional? What should the action functions
+> >     (power on / off , or query status) return when NULL is given?
+> >   - Is the subsystem optional? Should the stub functions besides
+> >     pwrseq_get() return 0 instead of -ENOSYS?
+> >
+> > Right now the API feels like the descriptor is optional but the
+> > subsystem is not. One has to add IS_ENABLED(CONFIG_POWER_SEQUENCING)
+> > around the consumer API to make it an optional feature.
+> >
+>
+> There's one more use-case where the power state trully can be *unknown*.
+> Please look at the proposed new function from Loic[1]. Here we deal with
+> targets over which linux has no direct power control even though it may s=
+till
+> control some of its dependencies. This is where an UNKNOWN state may make
+> sense.
+>
+> This is where I also floated an idea of renaming pwrseq_power_on/off() to
+> pwrseq_vote_on/off() for better clarity of their purpose.
 
-	M.
+OK. Would it make sense to revert to returning -EINVAL if the descriptor
+is NULL now, and then add a different error return value if !controllable
+in the future?
 
--- 
-Without deviation from the norm, progress is not possible.
+
+Thanks
+ChenYu
+
+> Thanks,
+> Bartosz
+>
+> [1] https://lore.kernel.org/all/20260710-monza-wireless-v3-3-46253587af64=
+@oss.qualcomm.com/
 
