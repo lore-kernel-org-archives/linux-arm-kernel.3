@@ -4,61 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1746C4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 12:46:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E2A0C4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 12:46:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LHiv8cgOY+XLBDgbN2+DQcRWyejDZR3R3rPpBP0f7Ow=; b=Y3AxC/W9W8UiuIeK9fmIJyU5Hs
-	TsLHCW9WhEwLk/OyLs9fZoPVD430zaJE0Bd+7s8z+fcYQJzk3aPlY3eIMmF3QkjJW0GCim3kuvIu2
-	jxuAUHlIrZ4sxcSuByvb5x12UlGjjxXXZfvN1qkhmzECteqbuNHguAPGQnYoEc1bt4TeweC5e0e5n
-	98KIdG+/nul14LyZ1hBd7E35II9e2l4eMz0oLNe9BgdIZenAoFmDYQaOMLyAhCYPaoNXrdPzOABDh
-	9Kx5/utC3LEPLsKbo2aNuxSOoY95aWasotMvvxhnlt+JATDPEl7+zL7Zn3Zs9BeP3TS5ueehGC5gD
-	X8qk8JLA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0PjP79q3s+ptBA1TNA/wMMy2FKxZZvdgtZioY7TXIFA=; b=3TFj8K8T6Ym5A5cIGj/P4+uFKx
+	v7zn7BC4MhXR9V/m6eEEcRh7p9K9xwdtVh2DlmdxM1LkfhddXF5FdQbcjtLOZkiVhKbWrFSinZETt
+	1A/tY9cA382cxE2z4vExL3kBDLvtGk6DDMCfaYvwS+TgGN0+lwLIuOEizVNPtA9z6Y4sDABb0pFLq
+	Dy1KN9rX0gsGflAi5gI19Pf3CK0M+sWqNOzIn3BrQqPkbkwSKPs5u9FjK6JB8p9XtqXDAFURPwW3p
+	P9EeSCWdIMg3vfLPa7JcjUPUwfMg7MR7FPvVhGUoJzcYkqDWPLYCdAMLmpHgHQZIIVGZHieZmrF2S
+	w9WlXUkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkLTy-0000000HL1p-2MES;
-	Thu, 16 Jul 2026 12:46:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkLTw-0000000HL1O-0Dun
+	id 1wkLUC-0000000HL3l-2sZn;
+	Thu, 16 Jul 2026 12:46:44 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkLU9-0000000HL37-3sSC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 12:46:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 60F1D1476;
-	Thu, 16 Jul 2026 05:46:22 -0700 (PDT)
-Received: from [10.2.197.99] (ewhatever.cambridge.arm.com [10.2.197.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 17ED83F7B4;
-	Thu, 16 Jul 2026 05:46:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784205986; bh=L7PRKcdUcyY9cZtK+oiBNUUw0ecplgqCo37pv1o1gqY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=B80jlc4CGpyBtAUHsSwtYUiu+85yw7d6NxC/de4RtGH9lGe+2kdVb2h7GtBJTsRu9
-	 j03LZ2dE0+NlalEfzzFyKRolk1mpJnqKtWyVsyxrf3CblBeRO3h7DJL3c65s+bnJVf
-	 Z7YRsSuxAR4JPWziBF5WVDi9MBFJnnJQLeBhOLKI=
-Message-ID: <78a81992-6beb-4caf-b7bd-5cab635a6de1@arm.com>
-Date: Thu, 16 Jul 2026 13:46:23 +0100
+	Thu, 16 Jul 2026 12:46:43 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66GBiMt22637093
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 12:46:41 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=0PjP79q3s+ptBA1TNA/wMMy2FKxZZvdgtZi
+	oY7TXIFA=; b=Bl9KMvIZ8VetlpS7N0qpux8TqdeFYagH5584HTBM6ANLQxMH5TT
+	AGJ5kBzxH2ZgSf0HKfIA2g8V/kyrLlN3a3ahFp5qZmFDi4KIA3DVHIa+B19FwSIb
+	q4lCYRogsFmJOBfgYaA1qF0Aeqfo/TxMq6Ho3HUsH3YJK3kPgOCvqhZKlm0UHSgx
+	nqqQBjUt5NP+FMOHVMy8IWL16I4QP3VvJYp2S0QTndVZR8F7BlDZopAaZbhMS2v7
+	Xg11D+PaNsLLMN38hOJyigZRX4mIxqFLpHASvBfVDhkqbmUUs3CdKWRtLgQYgRop
+	CoMM2m1h6PWrJZ7w5EwWBl9D1aL2k5S4RTQ==
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4feuex14m4-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 12:46:40 +0000 (GMT)
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-51c1a97644aso149198581cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 05:46:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1784205999; x=1784810799; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=0PjP79q3s+ptBA1TNA/wMMy2FKxZZvdgtZioY7TXIFA=;
+        b=Zi0vXpQhg+KDIGPy7h5rOG4d3qRTdIyPHp6lFsOc0cnQsoFOspgC1DlmZmrrJ4a0Wb
+         5NSLNdhMBd5vOd9PBKhEmfCFI8mkjMVQ327vB5mQCjvOITQatjBBKzPu3QSRgZ+ao6d3
+         jLUKeq3nAcppMIT3Fr2XoLfbCSoBpPgOUFOvoVnLZYHo4dQnax5hPpwgdcqI97ZtIfyN
+         SMeLE81l+xZdX5m1bIMlMmxiYNgBusMd7aakNrBkSnjqmOjXPQ+14ramoJcNXglK5dNG
+         mJ2NJZ4JZujjatESUdh3oZuHcVaqQH6/mMJn2jCPJArf/fCV+lpRkEKsjJI4Jm33D14T
+         oRGg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784205999; x=1784810799;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=0PjP79q3s+ptBA1TNA/wMMy2FKxZZvdgtZioY7TXIFA=;
+        b=ImKt4XfYkV5QXxaeoS8rKrA37M2sov+ldbt0A+z6A8HJwNoR9UOWj8IL+aTh4sPGxc
+         zf2SERz6rJ1nOco/xF22/YRNJiQCjrtLdP6FW0KRvvNsmJzsCPK55ZwJlf5UhdMYBXVS
+         FcObDT8pd6GvNsobSHp0KToFOy2F9OPUpoOT0c65n1eXneUBDZxYKR361kN2K1OOyH0C
+         E3iQLxDQ85N3DcfW56pJQeh6H0C9QL6ToIJRLB7GPtAxVHBrEpFY9U8C8McktZKZN5gf
+         XQixLzaGUZ3Q7SSEMvH30PfdzdPY2+oEivF6j9acQoa/+yqbeFbqKh/NS+LW7f6XetQ8
+         Botg==
+X-Forwarded-Encrypted: i=1; AHgh+Rqd5xLpC3jo40QTYInLzsaEzfJ20s072y//ObSKJCrbnOPxCVqYGGyU0oWS03ydjFjSd9gf6ovBstub+Q2x9PwG@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyvfz+JN/NiQ9ZGRCqfaZpwNHCHQuhtaarSz7NuJom8nKG9dtw0
+	JX7hQYLPh++TQffwZuLqReux7RR6dRQKxaa7qFbWWfnpuQXDThXA2jFNhyJeTzVgwiXOtVfTrta
+	MlrZp+iABXJvXfQHt33uNmFIAmRd0A4w8hEk3+ZDXvEnzyUCOak8KbhYWtDNNyWxTq9npetV7nF
+	w/iMl73/DPRQ==
+X-Gm-Gg: AfdE7clErWPACTtd2QhwgkwAco7nxVWGj+qL8El4OJ7yuxlSH81tGpR1drzzvQrkZps
+	cAp62G/kZAXam+WiR6QXCOyIPA2aTcslWpMjqQaSkccqQONduyyH4PzkXDi25Y72o9C15sKNTkA
+	RKaiYezdav3dmlEkdr5okI/Wn5uuXUk1Ndx6o5FyFK2MdxolIz4NPLbwXXA6JMFBx9fi2Y/2v/c
+	trQ9DEJQeEIjv7mRGXhMq4G0S3cfj7vEZghyuv8X4iR5LUKJKfNzCwiBl3q4dQMRm4DZTHSC2iP
+	ESHUFYaNOvfr+IzASrDH+f5z/2/bqmwxvTgvpgbuE2RnggLL5Kr2PFJvWx6g6bFQmp4QPG2orAW
+	l5kSuTwjeorXWhxfddGNKYtj6Z6n2f7OSNfCViuwp26c5XsXggWYaCuMKXg==
+X-Received: by 2002:ac8:7f92:0:b0:51a:8c9c:7f3e with SMTP id d75a77b69052e-51e424dc615mr112099021cf.65.1784205999111;
+        Thu, 16 Jul 2026 05:46:39 -0700 (PDT)
+X-Received: by 2002:ac8:7f92:0:b0:51a:8c9c:7f3e with SMTP id d75a77b69052e-51e424dc615mr112098701cf.65.1784205998665;
+        Thu, 16 Jul 2026 05:46:38 -0700 (PDT)
+Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-39c84b9382esm44428681fa.29.2026.07.16.05.46.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 16 Jul 2026 05:46:37 -0700 (PDT)
+From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+To: Linus <torvalds@linux-foundation.org>, linux-pm@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+Cc: Ulf Hansson <ulf.hansson@oss.qualcomm.com>,
+        linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] pmdomain fixes for v7.2-rc4
+Date: Thu, 16 Jul 2026 14:46:35 +0200
+Message-ID: <20260716124635.45302-1-ulf.hansson@oss.qualcomm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 08/13] coresight: etm4x: fix inconsistencies with sysfs
- configuration
-To: Yeoreum Yun <yeoreum.yun@arm.com>, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: mike.leach@arm.com, james.clark@linaro.org,
- alexander.shishkin@linux.intel.com, leo.yan@arm.com, jie.gan@oss.qualcomm.com
-References: <20260629090007.1718746-1-yeoreum.yun@arm.com>
- <20260629090007.1718746-9-yeoreum.yun@arm.com>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260629090007.1718746-9-yeoreum.yun@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=JeeMa0KV c=1 sm=1 tr=0 ts=6a58d2b0 cx=c_pps
+ a=WeENfcodrlLV9YRTxbY/uA==:117 a=h7aNHqOhPKB91FvYUefsSA==:17
+ a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22 a=VwQbUJbxAAAA:8
+ a=Yz0eIgJFi14MpISRoE8A:9 a=kacYvNCVWA4VmyqE58fU:22
+X-Proofpoint-ORIG-GUID: K9ZqccsaAkS4JYK6RALcFOYeUwi2dKxY
+X-Proofpoint-GUID: K9ZqccsaAkS4JYK6RALcFOYeUwi2dKxY
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzE2MDEzMSBTYWx0ZWRfX2u2HyrlhOeUZ
+ pgK7wEvUih3i/yr0bbmZO0WCnUyY8QTWdk6S208MkFxmRYMOgadG73xabZXAUPnRrmkzud3XKPn
+ 24G3Lma3z3jhQs3y2ESp/VkVkL3LJsY=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzE2MDEzMSBTYWx0ZWRfXwkZTooOEpEm6
+ 2X1nsL6a7DqwOGtJ2bcEzc2jldyaz4P5DobqSw/bNN7A36LpnHOSYN81J8GI768aOYNipXjTbVK
+ XmGDAkmgmm/zjSrVkXgUOXaDNbZI0VYE1WHicrM+SU8LpVtdd1rQaMqu+h7pZmR/6KEIK3t1bJi
+ pkUx49TrZrL0Rtc9DMPfqkqq4Uuhn1DuGY8xZyTDn4P3C+/ij1hAeUgdNSZ0wzJYjXJEfn+KtNB
+ W2a4j1TYG5teSpMmANOZi3pEXOHYia7Wxw73EpZmHru8gqd9fN/q72iVKAolLzjyJIJNW74TMC7
+ u8/bqOO5yxLu9L23zJbKKJ+869VRFQg0UkIhC0qbVC3wM8HvtJVpDDsoSLAuKWCW3tBrSAjk32U
+ FuRDvOm+z7KUv+x5xhs7rEnX6tka+HmhhHvriWJNxjJ816FcQXJcEpZ5BtivTN/RSWeyVe77DId
+ YA4ANvQGl++8vEQP32w==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-16_04,2026-07-15_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 adultscore=0 clxscore=1015 suspectscore=0 lowpriorityscore=0
+ priorityscore=1501 impostorscore=0 phishscore=0 malwarescore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607160131
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_054628_210765_DEAD106C 
-X-CRM114-Status: GOOD (  32.63  )
+X-CRM114-CacheID: sfid-20260716_054642_079223_8755BC8E 
+X-CRM114-Status: GOOD (  11.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,212 +141,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/06/2026 10:00, Yeoreum Yun wrote:
-> The current ETM4x configuration via sysfs can lead to
-> several inconsistencies:
-> 
->    - If the configuration is modified via sysfs while a perf session is
->      active, the running configuration may differ before a sched-out and
->      after a subsequent sched-in.
-> 
->    - If a perf session and a sysfs session enable tracing concurrently,
->      the configuration from configfs may become corrupted.
-> 
->    - There is a risk of corrupting drvdata->config if a perf session enables
->      tracing while cscfg_csdev_disable_active_config() is being handled in
->      etm4_disable_sysfs().
-> 
-> To resolve these issues, separate the configuration into:
-> 
->    - active_config: the configuration applied to the current session
->    - config: the configuration set via sysfs
-> 
-> Additionally:
-> 
->    - Apply the configuration from configfs after taking the appropriate mode.
-> 
->    - Since active_config and related fields are accessed only by the local CPU
->      in etm4_enable/disable_sysfs_smp_call() (similar to perf enable/disable),
->      remove the lock/unlock from the sysfs enable/disable path and
->      startup/dying_cpu except when to access config fields.
-> 
-> Fixes: 54ff892b76c6 ("coresight: etm4x: splitting struct etmv4_drvdata")
-> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> ---
->   .../hwtracing/coresight/coresight-etm4x-cfg.c |   2 +-
->   .../coresight/coresight-etm4x-core.c          | 103 ++++++++++--------
->   drivers/hwtracing/coresight/coresight-etm4x.h |   2 +
->   3 files changed, 58 insertions(+), 49 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> index 9b4947d75fde..9d56e17e09b1 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-cfg.c
-> @@ -47,7 +47,7 @@ static int etm4_cfg_map_reg_offset(struct etmv4_drvdata *drvdata,
->   				   struct cscfg_regval_csdev *reg_csdev, u32 offset)
->   {
->   	int err = -EINVAL, idx;
-> -	struct etmv4_config *drvcfg = &drvdata->config;
-> +	struct etmv4_config *drvcfg = &drvdata->active_config;
->   	u32 off_mask;
->   
->   	if (((offset >= TRCEVENTCTL0R) && (offset <= TRCVIPCSSCTLR)) ||
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> index 2798604943ed..31ac7783fdb8 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> @@ -245,6 +245,7 @@ void etm4_release_trace_id(struct etmv4_drvdata *drvdata)
->   struct etm4_enable_arg {
->   	struct etmv4_drvdata *drvdata;
->   	struct coresight_path *path;
-> +	struct etmv4_config config;
->   	int rc;
->   };
->   
-> @@ -270,10 +271,11 @@ static void etm4x_prohibit_trace(struct etmv4_drvdata *drvdata)
->   static u64 etm4x_get_kern_user_filter(struct etmv4_drvdata *drvdata)
->   {
->   	u64 trfcr = drvdata->trfcr;
-> +	struct etmv4_config *config = &drvdata->active_config;
->   
-> -	if (drvdata->config.mode & ETM_MODE_EXCL_KERN)
-> +	if (config->mode & ETM_MODE_EXCL_KERN)
->   		trfcr &= ~TRFCR_EL1_ExTRE;
-> -	if (drvdata->config.mode & ETM_MODE_EXCL_USER)
-> +	if (config->mode & ETM_MODE_EXCL_USER)
->   		trfcr &= ~TRFCR_EL1_E0TRE;
->   
->   	return trfcr;
-> @@ -281,7 +283,7 @@ static u64 etm4x_get_kern_user_filter(struct etmv4_drvdata *drvdata)
->   
->   /*
->    * etm4x_allow_trace - Allow CPU tracing in the respective ELs,
-> - * as configured by the drvdata->config.mode for the current
-> + * as configured by the drvdata->active_config.mode for the current
->    * session. Even though we have TRCVICTLR bits to filter the
->    * trace in the ELs, it doesn't prevent the ETM from generating
->    * a packet (e.g, TraceInfo) that might contain the addresses from
-> @@ -292,12 +294,13 @@ static u64 etm4x_get_kern_user_filter(struct etmv4_drvdata *drvdata)
->   static void etm4x_allow_trace(struct etmv4_drvdata *drvdata)
->   {
->   	u64 trfcr, guest_trfcr;
-> +	struct etmv4_config *config = &drvdata->active_config;
->   
->   	/* If the CPU doesn't support FEAT_TRF, nothing to do */
->   	if (!drvdata->trfcr)
->   		return;
->   
-> -	if (drvdata->config.mode & ETM_MODE_EXCL_HOST)
-> +	if (config->mode & ETM_MODE_EXCL_HOST)
->   		trfcr = drvdata->trfcr & ~(TRFCR_EL1_ExTRE | TRFCR_EL1_E0TRE);
->   	else
->   		trfcr = etm4x_get_kern_user_filter(drvdata);
-> @@ -305,7 +308,7 @@ static void etm4x_allow_trace(struct etmv4_drvdata *drvdata)
->   	write_trfcr(trfcr);
->   
->   	/* Set filters for guests and pass to KVM */
-> -	if (drvdata->config.mode & ETM_MODE_EXCL_GUEST)
-> +	if (config->mode & ETM_MODE_EXCL_GUEST)
->   		guest_trfcr = drvdata->trfcr & ~(TRFCR_EL1_ExTRE | TRFCR_EL1_E0TRE);
->   	else
->   		guest_trfcr = etm4x_get_kern_user_filter(drvdata);
-> @@ -499,7 +502,7 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
->   {
->   	int i, rc;
->   	const struct etmv4_caps *caps = &drvdata->caps;
-> -	struct etmv4_config *config = &drvdata->config;
-> +	struct etmv4_config *config = &drvdata->active_config;
->   	struct coresight_device *csdev = drvdata->csdev;
->   	struct device *etm_dev = &csdev->dev;
->   	struct csdev_access *csa = &csdev->access;
-> @@ -619,27 +622,52 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
->   static void etm4_enable_sysfs_smp_call(void *info)
->   {
->   	struct etm4_enable_arg *arg = info;
-> +	struct etmv4_drvdata *drvdata;
->   	struct coresight_device *csdev;
-> +	unsigned long cfg_hash;
-> +	int preset;
->   
->   	if (WARN_ON(!arg))
->   		return;
->   
-> -	csdev = arg->drvdata->csdev;
-> +	drvdata = arg->drvdata;
-> +	csdev = drvdata->csdev;
->   	if (!coresight_take_mode(csdev, CS_MODE_SYSFS)) {
->   		/* Someone is already using the tracer */
->   		arg->rc = -EBUSY;
->   		return;
->   	}
->   
-> -	arg->rc = etm4_enable_hw(arg->drvdata);
-> +	drvdata->active_config = arg->config;
+Hi Linus,
 
-I see, we copy the sysfs config to init_arg and then apply it here.
+Here's a pull-request with a couple of pmdomain fixes intended for v7.2-rc4.
+Details about the highlights are as usual found in the signed tag.
 
->   
-> -	/* The tracer didn't start */
-> +	/* enable any config activated by configfs */
-> +	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
-> +	if (cfg_hash) {
-> +		arg->rc = cscfg_csdev_enable_active_config(csdev,
-> +							   cfg_hash,
-> +							   preset);
-> +		if (arg->rc)
-> +			goto err;
-> +	}
-> +
-> +	drvdata->trcid = arg->path->trace_id;
-> +
-> +	/* Tracer will never be paused in sysfs mode */
-> +	drvdata->paused = false;
-> +
-> +	arg->rc = etm4_enable_hw(drvdata);
->   	if (arg->rc) {
-> -		coresight_set_mode(csdev, CS_MODE_DISABLED);
-> -		return;
-> +		cscfg_csdev_disable_active_config(csdev);
-> +		goto err;
->   	}
->   
-> +	drvdata->sticky_enable = true;
->   	csdev->path = arg->path;
-> +
-> +	return;
-> +err:
-> +	/* The tracer didn't start */
-> +	coresight_set_mode(csdev, CS_MODE_DISABLED);
+Please pull this in!
 
-Do we need to reset the active_config ?
+Kind regards
+Ulf Hansson
 
 
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
-> index c0f7da17a186..a974e4d05838 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x.h
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x.h
-> @@ -1068,6 +1068,7 @@ struct etmv4_save_state {
->    *		allows tracing at all ELs. We don't want to compute this
->    *		at runtime, due to the additional setting of TRFCR_CX when
->    *		in EL2. Otherwise, 0.
-> + * @active_config:	structure holding current applied configuration parameters.
->    * @config:	structure holding configuration parameters.
+The following changes since commit 8cdeaa50eae8dad34885515f62559ee83e7e8dda:
 
-Please could you update the documentation for "config" -> holding sysfs 
-mode configuration.
+  Linux 7.2-rc2 (2026-07-05 14:44:06 -1000)
 
-Suzuki
+are available in the Git repository at:
 
+  git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v7.2-rc2
 
->    * @save_state:	State to be preserved across power loss
->    * @paused:	Indicates if the trace unit is paused.
-> @@ -1089,6 +1090,7 @@ struct etmv4_drvdata {
->   	bool				os_unlock : 1;
->   	bool				paused : 1;
->   	u64				trfcr;
-> +	struct etmv4_config		active_config;
->   	struct etmv4_config		config;
->   	struct etmv4_save_state		*save_state;
->   	u32				ss_status[ETM_MAX_SS_CMP];
+for you to fetch changes up to a4876f11aa1d076802676e23f8af500706e780e3:
 
+  pmdomain: mediatek: Fix possible nullptr KP in HWV cleanup/on-check (2026-07-13 12:42:17 +0200)
+
+----------------------------------------------------------------
+pmdomain providers:
+ - imx: Assign child domains for imx93 to prevent power off when in use
+ - imx: Fix i.MX8MP power up sequences
+ - mediatek: Fix possible nullptr in HWV cleanup/on-check
+
+----------------------------------------------------------------
+AngeloGioacchino Del Regno (1):
+      pmdomain: mediatek: Fix possible nullptr KP in HWV cleanup/on-check
+
+Guoniu Zhou (2):
+      dt-bindings: power: imx93: Add MIPI PHY power domain
+      pmdomain: imx93-blk-ctrl: Extract PHY as shared domain for DSI/CSI
+
+Peng Fan (2):
+      pmdomain: imx: Fix i.MX8MP power notifier
+      pmdomain: imx: Fix i.MX8MP VC8000E power up sequence
+
+ drivers/pmdomain/imx/imx8m-blk-ctrl.c       | 46 +++++++++++++++++++++-
+ drivers/pmdomain/imx/imx93-blk-ctrl.c       | 60 ++++++++++++++++++++++++++++-
+ drivers/pmdomain/mediatek/mtk-pm-domains.c  | 40 +++++++++++++++----
+ include/dt-bindings/power/fsl,imx93-power.h |  1 +
+ 4 files changed, 136 insertions(+), 11 deletions(-)
 
