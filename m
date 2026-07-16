@@ -4,94 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1811DC4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 12:43:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F021C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 12:43:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qpVNfPM2loki1/2WSjY19UJOAg4x0MrZ4b63t+Pbr9Q=; b=bZu2BdmSZI0JDBUTfvtzM8wSwC
-	T3E7V2Ymy/8Jdk8EgW1K/FCj4UPOMudPKIFUCtThvPW2I4TvM9mUIAjPzjKQgep47LyE48x7YQnI1
-	e005wGN6/y4ED8AdTs/0fDijmRF4vfldbkw2YQk1ZLD2tPFQxpaRM8m2ah8bQoFFLp37JqSjFwQFJ
-	lSzIUW22njJ91skU8Qz91A4ESj/HNUufLp8Jfj+UuFVgJdIUAM/IV8bGBZmfF8OaUHaUd/EoFrSd8
-	srGHW1hLMa9C+Kz0OB39pGvMJhSlYzGnMoUHSGU3bQMOyi3wZtX5Gbuv9VC4lg+BAdAfZ7w39r+1K
-	roiG4Q5w==;
+	bh=u1+I9oAT2GKmfFvO1KGrOu3B12dW4RJJI8mhhbyQJI4=; b=vA+zNF48F8tQ1R78XYcZXq/hMv
+	KqHfwdq6FZ6TGNjVqELGho6ljpnhMXrW6LL4b2B8v+aU0AXX7GNS4CrB7zuYcsWQsRx2bTTHr2Dq7
+	Az3xUnzCOIIn7vpsY3eMRO01w+4fd+2iOACeOJrF1ja7Big6YZcD08kzvl2kdZf0iOdsIRlSTUgk8
+	d4nWTRWZVEppNNzjlbByvMsGVlbDfpf9GlwqZvh7sXUoGCgFZkKsH3m9f9887OIa+Bfwxjg7xa1I3
+	VNquUtjH+bUnkHTwh8TsEAdmvh8r70/5hLMxUxKm19g4oQ+1CAzoXUVGW5ZZCI00ZSGXK9L8dYA2R
+	aoeuvHqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkLRP-0000000HIrP-2YPM;
-	Thu, 16 Jul 2026 12:43:51 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1wkLCj-0000000HG4I-1b7V;
+	Thu, 16 Jul 2026 12:28:41 +0000
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkLRL-0000000HIlY-1gV8
+	id 1wkLCe-0000000HG0o-3VRR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 12:43:49 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-84830c774a0so2549235b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 05:43:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1784205826; x=1784810626; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=qpVNfPM2loki1/2WSjY19UJOAg4x0MrZ4b63t+Pbr9Q=;
-        b=lyuLzvXdRLLhuj3d0zlhHMLxj0HW8DPPBBF7R6Jeh8ri+hWUfH1q8kX3WET4DPz3dV
-         WR4beW/y/8pWRtKc06E6QMASC2Z8tkgtCnwBllF25jevxhBm4/prqmNA1bva/Lo2pop/
-         GFePlMjjEbY1QgFlUEUcx1yEgcYK8hiboTnrtJC1WSXhl4kEHXPFd3/H+ODoDk6u4Nhp
-         umHphZ93fZysNQctOji8wG3nijRUlkhk1pI5O6jYV2ur17pdTGaJnlhYsLRgowT+Nlx7
-         wY7umP1QNrXF1agpFU76NpqI6IxvlFf/rmt1mb+GgykEfFyBFemCK7l+ZT+GdB0Q0mOU
-         lFmQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784205826; x=1784810626;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=qpVNfPM2loki1/2WSjY19UJOAg4x0MrZ4b63t+Pbr9Q=;
-        b=tU/foQzOfLSO3gTRN1Fl2gP6GxF47/7vM+0nVszqV4Dg3GjH78EHZUXmyENbvijkS6
-         AL1BGtdEzghtpdeLG+BuWmdCkzK+Yhtm3YXJ+Ae43X8APATY4VBD+Kt68iJ1Cn+5W+EU
-         YOP3DueQb8dQj+VBdMUmWYyky9inr7ZJCfm/dEq2gwsmsf76hgvaelJblm49O30ZDI12
-         dLU4xM1P8sPv8HTTorSk0I9R2I8TpfE3z2F3zcibK+2Kt7Ir/+6qgLZpr4KecW5HkxaQ
-         bgzBB5W5lnvcz8AFo3QsnByw/D6oPvNMJASw7tiK6E0++p7Dovfg2KbUDSEZA+fWc5h5
-         6Wtg==
-X-Forwarded-Encrypted: i=1; AHgh+Roj9ZmUeCEvLPRXRWlXTXQaMzON2F2ulTEHtPiWd7MExg2L3hIbf1EZARG1NpGb7ZfwyhP5eYN0wJY1+UDjF28k@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxx1qkT7zFgjC9DLw1iqu+EYUCeXQTpVTQydSYmgjHanmSJsLfL
-	K+RsXGbincQXq2K+IEoovO3BJx5gLUQF3/y1RMrivuSfc+Dv9YdIzvqIt997QPUnqsI=
-X-Gm-Gg: AfdE7clYuCrL1iSEhuptoJQZLrdww8/KMv4DZ4em6weBcvr8h2RyWNGKVNEFNmfoPtH
-	1UtDTXlUTgimARjVjNHptQN3OSgY/+pSom0J9lAci6bXAhdwCLoUHxFCRsz4rPEnoI8GaL1yYxv
-	1S4cmgrlO7DMKMq0LVe+NpCWhv67ixgjbb/wf6DkThg/NTtns+mSdJk25ymA1aa8vuvT46npKL6
-	Wqxt/nQaGm/560kNY8UwBdBakQmm2xLiS9B+ZTOmhY6X3CKlCL5/a6VQ6ZLdroDhZMlV0E/3yN3
-	cY0zgDukZKYEXAvNT9ngk0GBSosTwARqRKh05HJSSa269ynuY0+rhxWAlGzW0888E2RzPmM2Yg9
-	YY9ig28jKa80Bv5Ky83B0T2suIyd1wcrTskPCqceJQ8yLfdYwBheZX8n1MlDth/O3TonQ0zGIJ8
-	KHQn7N27m7dvRl7/YAohn6v3s=
-X-Received: by 2002:a05:6a00:451c:b0:848:2f74:d8d8 with SMTP id d2e1a72fcca58-8488986dd0bmr19929855b3a.73.1784205826475;
-        Thu, 16 Jul 2026 05:43:46 -0700 (PDT)
-Received: from L6YN4KR4K9.bytedance.net ([2408:8606:1800:501::2:f])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cb258eeaba2sm1730793a12.12.2026.07.16.05.43.38
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 16 Jul 2026 05:43:45 -0700 (PDT)
-From: Yunhui Cui <cuiyunhui@bytedance.com>
-To: linux-riscv@lists.infradead.org,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org
-Cc: linux-arch@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-efi@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	kasan-dev@googlegroups.com,
-	Yunhui Cui <cuiyunhui@bytedance.com>
-Subject: [PATCH v2 07/15] riscv/mm: preserve Svnapot leaf-size semantics for page-table consumers
-Date: Thu, 16 Jul 2026 20:41:42 +0800
-Message-Id: <180084b20de76f7ad61641e9b7abe6d103caf5f3.1784201104.git.cuiyunhui@bytedance.com>
-X-Mailer: git-send-email 2.39.2 (Apple Git-143)
-In-Reply-To: <cover.1784201104.git.cuiyunhui@bytedance.com>
-References: <cover.1784201104.git.cuiyunhui@bytedance.com>
+	Thu, 16 Jul 2026 12:28:40 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=u1+I9oAT2GKmfFvO1KGrOu3B12dW4RJJI8mhhbyQJI4=;
+	b=6ZTP5tGWLe0WcsF+pN221kNiLcHSPmfSkv99Gcbcj2t9RoTV1f5MACEwp3EqNr8pqwZ+p2SrA
+	ixmKd8bwGfGvB2im7+ZxDesMOEhQxyAeQRAE6z8Hn3YOLx9LGnjYmDtuDXYr+LD/h4nCPEvYbUc
+	S/j6bXR6eeHZNhYzdJT4sYk=
+Received: from mail.maildlp.com (unknown [172.19.163.0])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4h1Bt31yCCz1prKd;
+	Thu, 16 Jul 2026 20:19:07 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 5D75540537;
+	Thu, 16 Jul 2026 20:28:28 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 16 Jul 2026 20:28:27 +0800
+Message-ID: <da9c9d13-f23d-4e93-b4cc-9aae56fc678a@huawei.com>
+Date: Thu, 16 Jul 2026 20:28:26 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: syscall: Ensure saved x0 is kept in-sync with
+ tracer updates
+To: Will Deacon <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>
+CC: <linux-kernel@vger.kernel.org>, Kees Cook <kees@kernel.org>, Mark Rutland
+	<mark.rutland@arm.com>, Yiqi Sun <sunyiqixm@gmail.com>, Catalin Marinas
+	<catalin.marinas@arm.com>
+References: <20260716120640.6590-1-will@kernel.org>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260716120640.6590-1-will@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_054347_442925_776274E6 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20260716_052837_536826_29664ABF 
+X-CRM114-Status: GOOD (  29.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,43 +79,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Svnapot keeps a folded 64KB mapping encoded in the page table, while the
-public PTE helpers may expose a logical per-page sub-PTE view to generic
-MM users. That logical view is suitable for leaf-style PTE consumers, but
-it must not change the effective leaf size reported for the mapping.
 
-Use the original page-table entry for leaf-size queries, so page-table
-consumers continue to observe the Svnapot leaf size instead of incorrectly
-treating a folded mapping as PAGE_SIZE entries.
 
-Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
----
- arch/riscv/include/asm/pgtable.h | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+On 7/16/2026 8:06 PM, Will Deacon wrote:
+> When seccomp support was originally added to arm64 in a1ae65b21941
+> ("arm64: add seccomp support"), seccomp was erroneously called _before_
+> the ptrace syscall-enter-stop and therefore the tracer could trivially
+> manipulate the syscall register state after the seccomp check had
+> passed. This was subsequently fixed in a5cd110cb836 ("arm64/ptrace: run
+> seccomp after ptrace") by moving the seccomp check after the tracer has
+> run. Unfortunately, a decade later, that fix has been reported to be
+> incomplete.
+> 
+> On arm64, both the first argument to a syscall and its eventual return
+> value are allocated to register x0. In order to facilitate syscall
+> restarting and querying of syscall arguments on the syscall exit path,
+> the original value of x0 is stashed in 'struct pt_regs::orig_x0' early
+> during the syscall entry path and is returned for the first argument by
+> syscall_get_arguments(). Unlike 32-bit Arm, this stashed value is not
+> directly exposed via ptrace() and so changes to register x0 made by the
+> tracer on a syscall-enter-stop are not reflected in 'orig_x0'. This
+> means that seccomp, syscall tracepoints and audit can observe a stale
+> value for the register compared to the argument that will be observed by
+> the actual syscall.
+> 
+> Re-sync 'orig_x0' from x0 on the syscall entry path following a
+> potential ptrace stop (i.e. PTRACE_EVENTMSG_SYSCALL_ENTRY or
+> SECCOMP_RET_TRACE). This behaviour is limited to native tasks (because
+> compat tasks expose 'orig_r0' to ptrace) where the syscall is not being
+> skipped (because x0 is updated to hold the return value of -ENOSYS in
+> that case).
+> 
+> Cc: Kees Cook <kees@kernel.org>
+> Cc: Jinjie Ruan <ruanjinjie@huawei.com>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Reported-by: Yiqi Sun <sunyiqixm@gmail.com>
+> Link: https://lore.kernel.org/all/20260529065444.1336608-1-sunyiqixm@gmail.com/
+> Suggested-by: Catalin Marinas <catalin.marinas@arm.com>
+> Fixes: a5cd110cb836 ("arm64/ptrace: run seccomp after ptrace")
+> Signed-off-by: Will Deacon <will@kernel.org>
+> ---
+> 
+> Changes since v1 (https://lore.kernel.org/r/20260714143600.23853-1-will@kernel.org):
+>   * Reworded and expanded comments and commit message per Jinjie's
+>     feedback
+> 
+>  arch/arm64/kernel/ptrace.c | 29 +++++++++++++++++++++++++++++
+>  1 file changed, 29 insertions(+)
+> 
+> diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
+> index 4d08598e2891..390c9b2bd966 100644
+> --- a/arch/arm64/kernel/ptrace.c
+> +++ b/arch/arm64/kernel/ptrace.c
+> @@ -2408,6 +2408,21 @@ static void report_syscall_exit(struct pt_regs *regs)
+>  	}
+>  }
+>  
+> +static void update_syscall_orig_x0_after_ptrace(struct pt_regs *regs)
+> +{
+> +	/*
+> +	 * Keep orig_x0 authoritative so that seccomp (via
+> +	 * syscall_get_arguments()), audit and the restart path all see the same
+> +	 * first argument the syscall is dispatched with, even if it has been
+> +	 * updated by a tracer. Skip this for NO_SYSCALL (set either by the user
+> +	 * or the tracer), as regs[0] holds the return value (see the comment in
+> +	 * el0_svc_common()) and can be unwound using syscall_rollback().
+> +	 * For compat tasks, orig_r0 is provided directly through GPR index 17.
+> +	 */
+> +	if (!is_compat_task() && regs->syscallno != NO_SYSCALL)
+> +		regs->orig_x0 = regs->regs[0];
+> +}
+> +
+>  int syscall_trace_enter(struct pt_regs *regs)
+>  {
+>  	unsigned long flags = read_thread_flags();
+> @@ -2417,12 +2432,26 @@ int syscall_trace_enter(struct pt_regs *regs)
+>  		ret = report_syscall_entry(regs);
+>  		if (ret || (flags & _TIF_SYSCALL_EMU))
+>  			return NO_SYSCALL;
+> +
+> +		/*
+> +		 * Ensure ptrace changes to x0 during a regular
+> +		 * syscall-enter-stop (PTRACE_SYSCALL) are visible to
+> +		 * subsequent seccomp checks, tracepoints and audit.
+> +		 */
+> +		update_syscall_orig_x0_after_ptrace(regs);
+>  	}
+>  
+>  	/* Do the secure computing after ptrace; failures should be fast. */
+>  	if (secure_computing() == -1)
+>  		return NO_SYSCALL;
+>  
+> +	/*
+> +	 * Ensure tracer changes to x0 during seccomp ptrace exit
+> +	 * processing (SECCOMP_RET_TRACE) are visible to tracepoints and
+> +	 * audit.
+> +	 */
+> +	update_syscall_orig_x0_after_ptrace(regs);
 
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index da7ffea0dcd98..e4b9c05014c00 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -580,6 +580,17 @@ static inline pte_t pte_swp_clear_soft_dirty(pte_t pte)
- 					napot_cont_size(napot_cont_order(pte)) :\
- 					PAGE_SIZE)
- 
-+#define __ptep_leaf_size __ptep_leaf_size
-+static inline unsigned long __ptep_leaf_size(pmd_t pmd, pte_t *ptep, pte_t pte)
-+{
-+	pte_t raw_pte = READ_ONCE(*ptep);
-+
-+	if (pte_present_napot(raw_pte))
-+		return pte_leaf_size(raw_pte);
-+
-+	return PAGE_SIZE;
-+}
-+
- void __napotpte_try_fold(struct mm_struct *mm, unsigned long addr,
- 			 pte_t *ptep, pte_t pte);
- void __napotpte_try_unfold(struct mm_struct *mm, unsigned long addr,
--- 
-2.39.5
+LGTM
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+Tested-by: Jinjie Ruan <ruanjinjie@huawei.com>
+
+> +
+>  	if (test_thread_flag(TIF_SYSCALL_TRACEPOINT))
+>  		trace_sys_enter(regs, regs->syscallno);
+>  
 
 
