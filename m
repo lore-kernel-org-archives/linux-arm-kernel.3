@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A287DC44512
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 19:58:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93889C44512
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 20:10:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4IDKOqlLeq7gny2neb1RjYhAbO2ajrqWnhJTQdhcvO4=; b=UTl/lGed9P3Q0/LtaSUHs8llhR
-	vVsyTnFhfAy7oFhZFMUx7scjeRc7QEl6fQnbWzO0N84KIwY+PfOkOSvcB7s5kiPNx47lSJ+cNvqtd
-	/KSDbqXZKmN95ARfWfOQLvcu2YoSrmuEfNFZCssI5vIiJOAln+OQvBVezt1WNtjBB/KqiLjFIPn8+
-	AhI86d5q1LfudrfSLFXq8Pgi7GtAdZPPFqRIFIFl7gOmONb0jUwdNOgOAC/91gGV/3vtBLhCn0WaW
-	HRWe709spL9dNx5vxHkks2nFjBNIv+ruzho2syizhNUHfA+DRGN3+Lw9GYb6Ye2cfWIjqUpR2BG8d
-	gCAYfNNg==;
+	bh=Nm05lwPwjgUmfp2RmwUicO1Tz2HynEjchc9nZj/wEXY=; b=l0fhkFQqvLy2QbnVKpy/kIYFkl
+	3owhs+2tF2RbxZtLmKT5Aewzksy5GQN32mogycvHrLyamDjv3e/S5hMoUeuMZoI1WDis+Cm55CQ1I
+	RjKhcMFdaRLZ8YZil14L/AAaGwDqakcwvuFp3//6p1Eo5Gj4cOYp012UvL9TTnd6XowgLrixnrPpj
+	PXq+9aQK6sa+bcxE1hPCL0z883ZcievutHNnuV/lTbl6ONRyq2YQWtAW8K9d9ERIO5KK5XvGKn+QF
+	1vYTiuRzbQ4f6LIPXalRyKjBR1eWfPkU3mDbJEgFgr5OQ+50yl7+fIUWERzHeRnjigBEJm9o5zneG
+	TDLXaw5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkSDe-00000000UR8-4BxD;
-	Thu, 16 Jul 2026 19:58:07 +0000
+	id 1wkSP4-00000000VBa-2PWq;
+	Thu, 16 Jul 2026 20:09:54 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkSDc-00000000UQi-2pKq
+	id 1wkSP1-00000000VBA-2ojs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 19:58:05 +0000
+	Thu, 16 Jul 2026 20:09:53 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DB76B1476;
-	Thu, 16 Jul 2026 12:57:57 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4BF211476;
+	Thu, 16 Jul 2026 13:09:46 -0700 (PDT)
 Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D3E103F66F;
-	Thu, 16 Jul 2026 12:58:00 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 45CB83F7D8;
+	Thu, 16 Jul 2026 13:09:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784231882; bh=pPrRe+Xjk6CAM0WQ2SNb/SkAx8gLxSfCcN3TUqvO0mY=;
+	t=1784232590; bh=h2Sg3AMrAkxMgPDUQPLthDdOBIKTGic4NQaONzFMGC4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sBbc69aGjZ/0dD77ieu+b3FTgMg0b8ogmR2jh+ASoV0ALIbP+4by5mWy9TbJYmy8I
-	 2tQTDrGOxgsNC6gBA+1KDluM+ZJ/co9w4LGoZnrEkJFuFPfKN5ZMIEtpw0WhZA2se6
-	 KZcFfLU9866W4alXTZtJfcNzKrK1SkdJy4fS1UAQ=
-Date: Thu, 16 Jul 2026 20:57:58 +0100
+	b=nkc6jJbnaFUH1ADGBEOtNKwBManVrNy0YMdvzxRGivNnUtJrLQPbuiQxRADEmXgM6
+	 rBud3VQHkJftLK6tmVrwAAQiRuPkHZwrer5XSaTa+dYbNhB9nE3nnV54sY4BdArzcz
+	 8sJiy7ZZMvRVynngj3jri+p5+Jd3d7TREltgcoqw=
+Date: Thu, 16 Jul 2026 21:09:47 +0100
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	mike.leach@arm.com, james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com, leo.yan@arm.com,
+Cc: Leo Yan <leo.yan@arm.com>, Yeoreum Yun <yeoreum.yun@arm.com>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, mike.leach@arm.com,
+	james.clark@linaro.org, alexander.shishkin@linux.intel.com,
 	jie.gan@oss.qualcomm.com
 Subject: Re: [PATCH v8 08/13] coresight: etm4x: fix inconsistencies with
  sysfs configuration
-Message-ID: <alk3xhoECdrVJ-3M@e129823.arm.com>
+Message-ID: <alk6iwJNcnJHDxas@e129823.arm.com>
 References: <20260629090007.1718746-1-yeoreum.yun@arm.com>
  <20260629090007.1718746-9-yeoreum.yun@arm.com>
- <78a81992-6beb-4caf-b7bd-5cab635a6de1@arm.com>
+ <20260706173940.GB1024232@e132581.arm.com>
+ <2005044a-ff4d-4585-963b-1c346d661a35@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <78a81992-6beb-4caf-b7bd-5cab635a6de1@arm.com>
+In-Reply-To: <2005044a-ff4d-4585-963b-1c346d661a35@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_125804_818990_7954FF25 
-X-CRM114-Status: GOOD (  21.32  )
+X-CRM114-CacheID: sfid-20260716_130951_817515_7324325F 
+X-CRM114-Status: GOOD (  19.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,94 +75,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[...]
-
-> >   static void etm4_enable_sysfs_smp_call(void *info)
-> >   {
-> >   	struct etm4_enable_arg *arg = info;
-> > +	struct etmv4_drvdata *drvdata;
-> >   	struct coresight_device *csdev;
-> > +	unsigned long cfg_hash;
-> > +	int preset;
-> >   	if (WARN_ON(!arg))
-> >   		return;
-> > -	csdev = arg->drvdata->csdev;
-> > +	drvdata = arg->drvdata;
-> > +	csdev = drvdata->csdev;
-> >   	if (!coresight_take_mode(csdev, CS_MODE_SYSFS)) {
-> >   		/* Someone is already using the tracer */
-> >   		arg->rc = -EBUSY;
-> >   		return;
-> >   	}
-> > -	arg->rc = etm4_enable_hw(arg->drvdata);
-> > +	drvdata->active_config = arg->config;
+> On 06/07/2026 18:39, Leo Yan wrote:
+> > On Mon, Jun 29, 2026 at 10:00:01AM +0100, Yeoreum Yun wrote:
+> > 
+> > [...]
+> > 
+> > > @@ -922,25 +950,7 @@ static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_pa
+> > >   {
+> > >   	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+> > >   	struct etm4_enable_arg arg = { };
+> > > -	unsigned long cfg_hash;
+> > > -	int ret, preset;
+> > > -
+> > > -	/* enable any config activated by configfs */
+> > > -	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
+> > > -	if (cfg_hash) {
+> > > -		ret = cscfg_csdev_enable_active_config(csdev, cfg_hash, preset);
+> > > -		if (ret) {
+> > > -			etm4_release_trace_id(drvdata);
+> > > -			return ret;
+> > > -		}
+> > > -	}
+> > > -
+> > > -	raw_spin_lock(&drvdata->spinlock);
+> > > -
+> > > -	drvdata->trcid = path->trace_id;
+> > > -
+> > > -	/* Tracer will never be paused in sysfs mode */
+> > > -	drvdata->paused = false;
+> > > +	int ret;
+> > >   	/*
+> > >   	 * Executing etm4_enable_hw on the cpu whose ETM is being enabled
+> > > @@ -948,20 +958,20 @@ static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_pa
+> > >   	 */
+> > >   	arg.drvdata = drvdata;
+> > >   	arg.path = path;
+> > > +
+> > > +	raw_spin_lock(&drvdata->spinlock);
+> > > +	arg.config = drvdata->config;
+> > > +	raw_spin_unlock(&drvdata->spinlock);
+> > > +
+> > >   	ret = smp_call_function_single(drvdata->cpu,
+> > >   				       etm4_enable_sysfs_smp_call, &arg, 1);
+> > >   	if (!ret)
+> > >   		ret = arg.rc;
+> > >   	if (!ret)
+> > > -		drvdata->sticky_enable = true;
+> > > -
+> > > -	if (ret)
+> > > +		dev_dbg(&csdev->dev, "ETM tracing enabled\n");
+> > > +	else
+> > >   		etm4_release_trace_id(drvdata);
+> > > -	raw_spin_unlock(&drvdata->spinlock);
+> > > -
+> > > -	if (!ret)
+> > > -		dev_dbg(&csdev->dev, "ETM tracing enabled\n");
+> > >   	return ret;
+> > >   }
+> > 
+> > This is most valuable change for me, as now we will have much clear
+> > scope for what is protected ("drvdata->config").
+> > 
+> > However, a corner case was mentioned by Sashiko:
+> > 
+> >   | It appears etm4_enable_hw() modifies drvdata->ss_status while executing
+> >   | via IPI, but sshot_ctrl_store() can modify the same array concurrently
 > 
-> I see, we copy the sysfs config to init_arg and then apply it here.
+> Could we stop modifying the drvdata->ss_status in enable_hw() ? We moved
+> it outside the config claiming that the status is not used(or useful). #
+> Then why not remove the updating from enable_hw()
 
-Yes it is. Thanks!
+This is because of the consistency with the former.
+If we remove those parts in the etm4x_enbale_hw(), the PENDING and STATUS
+bits will be never cleared according to the case.
 
-> 
-> > -	/* The tracer didn't start */
-> > +	/* enable any config activated by configfs */
-> > +	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
-> > +	if (cfg_hash) {
-> > +		arg->rc = cscfg_csdev_enable_active_config(csdev,
-> > +							   cfg_hash,
-> > +							   preset);
-> > +		if (arg->rc)
-> > +			goto err;
-> > +	}
-> > +
-> > +	drvdata->trcid = arg->path->trace_id;
-> > +
-> > +	/* Tracer will never be paused in sysfs mode */
-> > +	drvdata->paused = false;
-> > +
-> > +	arg->rc = etm4_enable_hw(drvdata);
-> >   	if (arg->rc) {
-> > -		coresight_set_mode(csdev, CS_MODE_DISABLED);
-> > -		return;
-> > +		cscfg_csdev_disable_active_config(csdev);
-> > +		goto err;
-> >   	}
-> > +	drvdata->sticky_enable = true;
-> >   	csdev->path = arg->path;
-> > +
-> > +	return;
-> > +err:
-> > +	/* The tracer didn't start */
-> > +	coresight_set_mode(csdev, CS_MODE_DISABLED);
-> 
-> Do we need to reset the active_config ?
-
-I don't think we don't need to reset active_config since
-it's a failure path and at the next time, the active_config will
-be initialised with the drvdata->config again if next trial is via
-sysfs.
-
-If the next trial is perf, it clears active_config in
-etm4_parse_event_config().
-
-Therefore, we wouldn't need to reset the active_config before
-relasing mode.
-
-> 
-> 
-> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
-> > index c0f7da17a186..a974e4d05838 100644
-> > --- a/drivers/hwtracing/coresight/coresight-etm4x.h
-> > +++ b/drivers/hwtracing/coresight/coresight-etm4x.h
-> > @@ -1068,6 +1068,7 @@ struct etmv4_save_state {
-> >    *		allows tracing at all ELs. We don't want to compute this
-> >    *		at runtime, due to the additional setting of TRFCR_CX when
-> >    *		in EL2. Otherwise, 0.
-> > + * @active_config:	structure holding current applied configuration parameters.
-> >    * @config:	structure holding configuration parameters.
-> 
-> Please could you update the documentation for "config" -> holding sysfs mode
-> configuration.
-
-Thanks I'll update accordingly.
+This will be handled in the future for the PENDING and STATUS bit
+hanlding in the perf session and sysfs accordingly
+before that, to keep the old behavior, remain as-is.
 
 -- 
 Sincerely,
