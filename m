@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73061C44514
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2D13C44512
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 21:04:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,47 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QASWqqWTuEsVM+OwhLywMjqv9YzzNDcby31IXS/H5Dc=; b=xsRR9VxIp99JRPRoW+NryRcc3b
-	zqj7RPrq55Qz1w5lq3Kru1YoOMHRWJFBlev3iBm6VDCr+bK67G5YuRKeeaLlu8Eev8mTpaHGosFG4
-	uz4Uv2zg/tNIw2T6lN9dd+Sn6BIkPJ9soA2++Lm/FkYEeqBPisDNq4V9GWJBh6dxisIYZNHAQdrmb
-	HwGkqBn+jHvQBpBGWksl25nrkL+6w9KTY74D8MZ1DHIKGgLFhRyMEvnKJhsaF591v1Fl45rOpAOd2
-	qaS9xegq3fnkNRhAx9QOijW4tFBIFt/qlwRDYlNtNqNaIl+O5g/Y6QhYXV2nJiwVHRigrG6WZ/dnV
-	oRbwzBHg==;
+	bh=P5jJNRqp4zHRBgEPqw5fFP85ovozwiKDxZXNCw4hc4I=; b=f74wTsTmn1zkPY7uBsWn2zz4Du
+	A/pTR4Ru3F68AQSszowQN6D4XiBv4jD5+aWoOHL7axH41aoUJ1bR8fL39Egqp4tBVi180c3qYl+Ga
+	ejSK754mKDwOQsfXZhsT4rEmTpha7QapZmOo1RYWnpFciSI3IEmCm7OCP46f+9NSrMxMxNpltv6xf
+	eQb89rqiNhZIadtYkFbv1eOyPryxZ08CW84NJ8uFu1CJ4ify45ZrR4tnrKWlOQReeK4tJE7ppn/PE
+	jdye0vtH35y5FFYNxh3oUiX2MXxmB9uIEP6R08G1sEwFKT6NTwZ1xeaRYTusdD2DumrXLV+weZZbb
+	DcQ+V/eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkTFU-00000000YIM-1EOu;
-	Thu, 16 Jul 2026 21:04:04 +0000
+	id 1wkTFV-00000000YK4-1c5v;
+	Thu, 16 Jul 2026 21:04:05 +0000
 Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkTFK-00000000Y2O-0Utd
+	id 1wkTFN-00000000Y2O-0OrI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 21:03:55 +0000
+	Thu, 16 Jul 2026 21:03:58 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iyXUc+T7rw/DLO0UHikwQQg6A1xg+aPd5Y09eqWOpgx97g6oZhWfgHhELktjvw36p1V2DPLX2ZRnkohpKCBHXFjJwyf2R8+ItNrdNB4gKukrcIDm7HcRZwJ/CE2siDeOsz2YLLL6yTzf8IHCRMoB+DVMGvOOfG5Ix8EF24h6Pbz2k0gpnNgdt9kPsh11VIdewfMpIUD20dsok+uquChZHddjkmldEKqRAWpqYXv3yHn9lWlDmvwpLyDyQMQO2kDWQtfBl/FXGnl3kks07VYvs4AvZK5D8d9S0SltJe5Tn6uFAagFzf2K1ONATIXWCs8g/IXCg6amyz04x7UkPV722A==
+ b=Hnv/J0+LsS4bvuDhmPOLbNEEtPUuzxHgcjFztbWZoElBmq3XcX5SEq7GXePXq6PzTdJbAWEsrwo1xQv+0a6JT+db2ckP11hqzqRU7uQ1NtsFbYyqMTLsLGKDC8pl6VJP5eAhAYZSMxGqnS0iiAJKOFhOG7e8Por2amAbR8OB/iqeyHneiLpUclmBo+i3trynWf+vYjKyFvuWJlDF7OkMTZwnHAFYTQAyCm1lmLXo2Rq1X9kXGY2eWmmAOh7Yw44K4jFTkjETCoJ3TnmZu1P8gvREBxmXwGndJUwz9jAkmjU+XCws4m8GjBMEocLywlOVG2K30jBIWdEUEMoxXR1WnQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QASWqqWTuEsVM+OwhLywMjqv9YzzNDcby31IXS/H5Dc=;
- b=UTjZy4WeR3Ngj+LiX4nfOaJuPwLD6H/nXxpDBO3j7CywaSY5qkzK90WuZzyG5Ly40yDotg+CrK7Yt7xHIIwlPGpr4HUgtZzGaZbaECCpRTKcvmSxynat18A9YC+2bH/OSmks2S5f66aBa6GXH3kUeYds35JL71iDdjbdt4rHBUpSXF85lYpIQhxvH4IIbP+GGm63nPL2qrQHK6IZF1kMH7QcJEt0vEmC18AQQwFj73izsw88sx+l4o9vD2fcAhDZPO+koXakkcE93zPLR9sg+wvXOQoYN09TKy5oJxZugEL+MxX8PPdJiTt/xMb7QUrI5KARE7zxrYe0+Lpaqr7Rqg==
+ bh=P5jJNRqp4zHRBgEPqw5fFP85ovozwiKDxZXNCw4hc4I=;
+ b=J0JCV8LIRDifTK8/X+SRvP2VFd7ZEmbjCkB8z5OhjkYywmLfyImpEG+JEf5q+uPgZ+jCzVdJmyQ8Egd4+SxFqcu9fjEjJBYykqydm3R1XOEpNDoni6MA89VYmeb5H+yAmuGbuMXZumQ0aEmD+d44GY1Bj+7uL3CUb++UE5T2E/48m708/JGWNi6Yp40ctSJ5ZOzc2b89rWZw2UrqWl8mXJsf1FS4IOSMBI3kGFVnVd4JRorHBRp+xIeXeyTuyNMieKJGEeSIBZwr3A5HlpwMtodh2VF9hET970/lVbUC62inzXteh+7cJWoMB5BctMisOn4ZCYbrVDLHtMsDALczHQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QASWqqWTuEsVM+OwhLywMjqv9YzzNDcby31IXS/H5Dc=;
- b=MBmcZ7GrbyDuhw7N2WexDAHwkeRnBwyDPDwVBZJEGsYd7dx58IW+BjeEWO7bOFNV4NNMhEcKtpcEPlstw13jtfqksVVee5/A+1KzGQiT8Sp0rq01qT+n0Ll8Z07dg2pcziIHIibQGcixp4VuyFwi3eQE7DnO2W+Ypnn1DzliHFNZ1hiTpCRBNhcMlsvAonMyjJyyGXCTTSYQASVZ2heqGkZMSvYKjTbopLyghi18DnSCzbk15y57ET6pw5wkfQqKMxIOAxfuYEJ1U2h2fm3EekuavroFiffLFQXuRNx4kZV+Pq8Ofkc88GnI0sWAYj+7viYzAK9a3m0FA6/xpau4Tw==
+ bh=P5jJNRqp4zHRBgEPqw5fFP85ovozwiKDxZXNCw4hc4I=;
+ b=bQxNPT186OUKlST/3gIrx5aSt7itZLYjC6Y21bEtCXS/U0NAXgi30qrG+6fjBE6JQ7jBP1MO8prY3jcM4wqCzDWX1/vzP7Z2F0f8B9047ZO06Pbr2k06OMu2XcRDaxUoIchUS5vI8yRfMCmxN6fDCnE9qBD3GTE6175krWEOpw1aPFDuxdSxJZDgRQQwb/YeUM6qnWxtExKZbGMYHaLHH4VhZL2+5rnS4W/Xl08gZ+fK6HIjLrp5SKLryskaf5NVBC4+BlKpwk1avfL00ttMHYfaAdsMkKc72Y0N9rNT+vYNaprdVSNJA2fRNSlDKn2bDr/44oHvTqcdq56jZqVxfg==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from DM4PR12MB5230.namprd12.prod.outlook.com (2603:10b6:5:399::11)
  by DS7PR12MB8081.namprd12.prod.outlook.com (2603:10b6:8:e6::17) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.12; Thu, 16 Jul
- 2026 21:03:40 +0000
+ 2026 21:03:44 +0000
 Received: from DM4PR12MB5230.namprd12.prod.outlook.com
  ([fe80::6e87:1bde:1853:3b73]) by DM4PR12MB5230.namprd12.prod.outlook.com
  ([fe80::6e87:1bde:1853:3b73%5]) with mapi id 15.21.0223.011; Thu, 16 Jul 2026
- 21:03:40 +0000
+ 21:03:44 +0000
 From: Fenghua Yu <fenghuay@nvidia.com>
 To: Reinette Chatre <reinette.chatre@intel.com>,
 	Tony Luck <tony.luck@intel.com>,
@@ -70,71 +70,71 @@ To: Reinette Chatre <reinette.chatre@intel.com>,
 Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	Fenghua Yu <fenghuay@nvidia.com>
-Subject: [PATCH 07/23] resctrl: Rebuild resource_schemata subdirs on MBA mode change
-Date: Thu, 16 Jul 2026 14:02:57 -0700
-Message-ID: <20260716210329.2914625-7-fenghuay@nvidia.com>
+Subject: [PATCH 11/23] resctrl: name node-scoped monitor domains mon_NODE_<id>
+Date: Thu, 16 Jul 2026 14:03:01 -0700
+Message-ID: <20260716210329.2914625-11-fenghuay@nvidia.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1784217438.git.fenghuay@nvidia.com>
 References: <cover.1784217438.git.fenghuay@nvidia.com>
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: SJ0PR13CA0117.namprd13.prod.outlook.com
- (2603:10b6:a03:2c5::32) To DM4PR12MB5230.namprd12.prod.outlook.com
+X-ClientProxiedBy: SJ2P221CA0005.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:a03:5db::17) To DM4PR12MB5230.namprd12.prod.outlook.com
  (2603:10b6:5:399::11)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: DM4PR12MB5230:EE_|DS7PR12MB8081:EE_
-X-MS-Office365-Filtering-Correlation-Id: 06461669-57d9-4601-4d7e-08dee37db59b
+X-MS-Office365-Filtering-Correlation-Id: eeb34500-103c-4ac4-99c8-08dee37db8b3
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|366016|6133799003|3023799007|11063799006|56012099006|18002099003|22082099003|10067099003|921020;
-X-Microsoft-Antispam-Message-Info: ASCtjE25cKAAysL98DkydZ1s87ojRRWZbOooiMNSo5t3sB8apS0Kvl0q/Po6xElWXJdMS0cjsTiVcTnPwyo9ZXBH0D1LutOVcunJGfNvAhTGLvtpm8Xt/CpWjhT1C4U+1MKLkOeeZb9QMncyD2smZwS0w+q9LFXJQWyHRHgWJRoftnXjAv+npBio0NtTK16Tcum9K4HJQBcAqdwA2ulf3sQdPpJDEd/HYzuEHKzNwBSPO6lf1MbOqH4tMe9ne2aHAmiSKu2/qKO9p0IDYuWFIbix052MRMOMzaL8fA0q+qYAit91KPFOVTb6tMnvCasm+06rl9Qz62jNoH1SF2aImDTZJvZ9cDFmmknWaoxyihXsq+cQCWoRqRFjrH0xYlbllQu2X/SO9nq6D80KoS+ohmU6a01TnwuPtHS0SqjIO6DWHv0hOeJCBZritmaF9AQgX9vjfXolWAMCkw48rxzgq6WJP8cEysijY+6Jt01w3Zn+ednH5ph9ok4PZQPXmylhL2DGXsnj7InBCblgoIoKum/+fHQedCtXnhU9diOl7uVV2cwVwsDrrwz2ImFgCpuFHSakkKUrk05sdQZodaJpSCiCeH/g6bJr2sf2Y5wAnkBiu6hFXpRLHEa8vB2IMvtvwuwtz2t5jkDxX2UCUsfWTmTswNGYZuOlOnjx6BLqC2V0M/hzVRt05Uz85qcUL2SQ/6HtMOW3b96neaa3c3gtAw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB5230.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(366016)(6133799003)(3023799007)(11063799006)(56012099006)(18002099003)(22082099003)(10067099003)(921020);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|366016|11063799006|56012099006|18002099003|22082099003|10067099003|921020;
+X-Microsoft-Antispam-Message-Info: rs5hpaSuUuEQWqmbbCEG1BrrHLcAbLExN+UydK4zWWBGOmiShqAiBO4iB7d14BAeDxPrTM5DYiWhuz8UKJ8XhuhoU/Su1KFPUyPJHJ3fCw7bdGCLmUpkFPI5/K7iChme9OunAmPaqMSXl08J0NkKv3yIJi3SjGP02BCOK0bvQR6kxaqMZRlqlSVDPiIE5tO+zFrf4dcR8/EEBlDm6LVMaNNWn8wb/OYBAMa5bKvwPXNWqJjbHkhIGrwCeoJKxD1m6zkDoF6+QFaJi1P06scqEqMwSApKX1Ef2mFUolXRu77olagc4VxPP9SVhANiyij0fmHNEVXK0GpTIL5HtnORJdZsxbJL9CYWmnIK5QLoQM9ijzfOEzdnI8a1xkJ8pivPGiN8hhA1DYtJLaNJxh0qY+6+RbRajIVTDdInGasy/701tH27W2eD5QSYW/JxUy6Vl6KC/vBQOYksvYbFttQX93L/z7jIv2xvdTN8xOpBsJapfJrbKk/iDokmjrd5Bcf5E83PEPHqel2emaM0KnGKtHub+GPVf7GYTQ5Po5A5u18nGYIY7gkJVOhjiXr+kYId3pV5Z+VOalqWCjRpl09U/AMv70T3CKclWeCucF3FsoKrxEPhdC1nTruBTjkxWL/f9IrSGq2xfkC6lPHzdEaWZw10Ry8S0oYiUDMVv6GvAcV2Q0fJ4s7+fw97vVoMmkUtJ3INEVaeIfk39AlFuphP7g==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB5230.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(366016)(11063799006)(56012099006)(18002099003)(22082099003)(10067099003)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ac0aUrOPpHXdJkWQ8fe55kNxyxcAMC8kFw9ukqyUQlUYRcKK9fpSiFnbOQKn?=
- =?us-ascii?Q?k/SphF9Gyw91xEvKvqLO2AdHgMC/K1FtNiJhdvUQIq2o/XvjhZQA37hDfeCJ?=
- =?us-ascii?Q?TimQI+yMgysHGivQJfwGEStipthvhfdfwYpk8YMCM0xw4UXhc03pln69rREb?=
- =?us-ascii?Q?wznXu+pvtK4Y0iLYzSdUao61p7P1lrYfTx6zoHe9z6l6CZLgV0hj47Ybt5fV?=
- =?us-ascii?Q?4PVGTwnlSH7LRYRIDMFGw0oPstp6bSH+9rLEVVaWOsu9yzCJPeTTiAAhqYCo?=
- =?us-ascii?Q?vRnseQiYP/roASA4d3WB09nLrvkZsym8kFNoX6ZcV/uU0YeWQDg97NoVODlV?=
- =?us-ascii?Q?kEgFL6Jmt2b3A19ZftYiTsGARuz/naYRQG7iYRSOof6Jw/rIuz6R/ZbbAQAv?=
- =?us-ascii?Q?4awM+vhjUtXEh5pjjN7ORfQkdk8+Bwq7bXRA0JZ12G4v6aBiOMowzQbXTrTL?=
- =?us-ascii?Q?C3c/hgvCjiOVMnYD6UIBh51zbMzF3JsYB+ACc86wMQbkbnhlN7KGoPa4DjID?=
- =?us-ascii?Q?Fa3qMXgskRPE+vQN1OjExd+5Z6NaLrzffJzzuwfR7MtZK2WvBrncEEjPB8Op?=
- =?us-ascii?Q?Il+/ns6Nm0r5hPePFq9mcXYQYXNP/IQSjlpdICeY8hwIKLgVNhcN/oddWUGd?=
- =?us-ascii?Q?kVlScqH3CJLesxNytKmwcKJZSVZYqSh0IpVablFkJBONs3QOvn6hpIFmZa7J?=
- =?us-ascii?Q?NJ7ZAYYRcDSAtW1QWl/mIFWkpjrVfPilRiaLtiLh8IBtWTVKNICaT7HNeM3q?=
- =?us-ascii?Q?KFHDu17+hN8BHim8I+hIjSYYUbr+5OenWF0ZVMFQAEVzXRdqoyovA1RJKVgh?=
- =?us-ascii?Q?TheXrUMRr3xi08K92tuhoXyAVFHfhryhpQ5y7XhzVOpUR1Z8eDHSt9ufj6Uf?=
- =?us-ascii?Q?eyoorsmh+flmGvsmiRru46EUlxkIuXbkgZlTVGYrxPn2KkXE754sKkBjDPhK?=
- =?us-ascii?Q?vzw60q/9781hQ6pEW4ZObdv6UQxf48wVQg1nMweH+uPMXTRwJGBpeN7PjEqP?=
- =?us-ascii?Q?T5065O54ho8z8QcbnluZqjT4IzEaNYRo7UlsdUC+BaV7SLPMmj1T/SHEE98C?=
- =?us-ascii?Q?mQ2DeTjyaW4tTnrRfR6mxWCYIFLvMdcj+ZXT1mJ/ic8X3fdpud1677U9hZZo?=
- =?us-ascii?Q?t0TIbE1XZqJMANqChjGNLbziHpWnKgOyyIWbc2piEidEs4aG8l24UNrrQ0a4?=
- =?us-ascii?Q?WYTzq8PkrFWGKaqkzkDNs8fDMq3iTo4qTCNIRVjxt2dsSRkb/PJWFrg6L2fL?=
- =?us-ascii?Q?OJGO9DMMrlzas7/V0mgdCL5EO28f4snLkCQwh/Yte7vZW4QyAAisJU4dHVuH?=
- =?us-ascii?Q?gVCuxngdslXGGR5tSTnULr6a1L5nNMcGwFx3zQVoy5CQDfL1ST50cnbILcw3?=
- =?us-ascii?Q?rv7VL3QrUf8BGZuWGK16OJzI5UUPtdd9G9VPt9K9D7yywi7j4HAZ+hdvTHjW?=
- =?us-ascii?Q?6RBPF8tDsZqmPbrZzHIxLDmmV43lE/gkBm9mrVV+cBvnl8XBkLNxtuxh+s8g?=
- =?us-ascii?Q?/y8W0VpILFXREAFyQml5eGB6Su2rZkZCfNn4qQkAPvpsJrxZZ8GiwZDCNIen?=
- =?us-ascii?Q?rT97mo+dxHhTWQkKIdZ9qJ50NrG87R4Vxodor4db82Mc2CgTJY43EFU1g14c?=
- =?us-ascii?Q?2pA7se5SOUWF4I0RILSm34TXuQYcUEQqADxCwUMOuEXE5PhVG9gOrz/ZEN6w?=
- =?us-ascii?Q?iwsAft4PgRaMIIXZW647SXqtztsKX7x9TwNkl184O2Mcws4RhoGztWew4xxa?=
- =?us-ascii?Q?Gz4kI9XCgA=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?dsxB3WBtg7pHBUSOf0wmkQV5ZYogWJwTydIE3inh40R37UT1IYCvRqgxp/hB?=
+ =?us-ascii?Q?/+WfQQQ/HXcLJ1BNSPcl9OwDDXp31v0YuJSz2GSLbwx5NynN5xT241b6Tv2h?=
+ =?us-ascii?Q?LzvjQmxcL9CzIqUTKPItAd5U7MBh0mQ558llTTb1uPfX20kKQnLjrHfZciSN?=
+ =?us-ascii?Q?acFi0zcELtl+LKRSLDxU0xaLBq0wVlc5FRpDLDy1hBBj9bTApDx9Lza5lO+h?=
+ =?us-ascii?Q?qJUcZVryNnMcEeEfNM/X85bLAmAiilW21TY+Cbu9q4fjcnPcBKLVqE8YcO5w?=
+ =?us-ascii?Q?dIsZD2JlW1mV4NuiKkwqHsJaRydMG1ZVbY2Kkt57CVTxhKlCasegg4TF6Y5x?=
+ =?us-ascii?Q?PCS/7vk4r2PiisWb2zsL2Bfn2W4VUAO2n7km6sksV9LOvBjgY4HvpSsaV5zk?=
+ =?us-ascii?Q?YMnFfkJ2+xTh/VN9YUkF+4r0sloGogcegn0J+eg8660o7wioXP67TodxRcnq?=
+ =?us-ascii?Q?VQN9ogg320GKbDFzrq94DkMUMRztXiLMckRAjV25eRC38nzfbc96DIFE38QD?=
+ =?us-ascii?Q?GhGSj+8Af6nQ4mB4HSLXjcoOaYGPkX6RhxDh99DphgtrHkz/z/RVpONh4wxE?=
+ =?us-ascii?Q?xCxbppHqP8MR2w4rSfKXZSRhui4sXS0p4lhGhq8xVgIInqMhd8v7qEhmex0X?=
+ =?us-ascii?Q?ijadIxnoveZ4lfzVUPpl2CxEwzKmcoqgv2XzPkfXPbEEvxqygZrsS0TxXxMa?=
+ =?us-ascii?Q?7ENgd3cSTcw6SJUx7n7g187itst4BTjql3gbw2NGIUK1NVyj+KqHkmzwtWSj?=
+ =?us-ascii?Q?WgXhtemgvaBVZLTV1ahgTWkw8UM48igzRiH8W4rf3p+Tf56JXuTeXMJxGtdv?=
+ =?us-ascii?Q?aEYXxnYgodYAIjpY9ySxv6ii/+atwZa/DdRxh0YsmWcoLoaxEDCpnsuviKCE?=
+ =?us-ascii?Q?cqeo+WBeKoZhDaQXi7YY9+aBT6m/s0pVb2Cz2PbUxi8gzYu31t5NKbM0pRSc?=
+ =?us-ascii?Q?AqKmzl34ByDnwofTyLPR3AuIOhLMkSoLS0Vk5Se9KuTbl5quWTn85y9dtpsy?=
+ =?us-ascii?Q?eDoMCkG+HfIbLr2k5XipkU9xbQ9mCRT2+k1239Tp3If1uYiHwT+FAAD6DFhF?=
+ =?us-ascii?Q?O0xDYp+dnhL1+/CY+b7rZLZGjN/6hxE9N7anSy7QP08KdVOUE2vHbJOYQNX6?=
+ =?us-ascii?Q?gfKqzphC0h3a+kLPtdP27XJGOTLHzjuAWHDKeDX1yUhGaTogIfATM21oVFEL?=
+ =?us-ascii?Q?5SWBNbupG/c/AG7DlF5C25ebkX2/hFgTBQQtGF4ZccySKP4inO3oTDd0wHrR?=
+ =?us-ascii?Q?GDO9MsWsk4SIzpWdSqFX0Ij9LlUpVCS+8KZd718I3Y8kkx9AZZTsoQgDe1YW?=
+ =?us-ascii?Q?tMonEmBJJfDL0wLYf3WrAuhLv6z9Kmmm9o9naB1SuRbVageKleMNJlHjCu/H?=
+ =?us-ascii?Q?i3QQWVOYoWt1hEysJ8IaxzqCiL2Oua4Hm3S7zlEv3cMp5/Erf4UatcIMDJAr?=
+ =?us-ascii?Q?tEl05v0EUiWaw5yiVrehRTEZwzDdd+shLseJhbvYx9qGmfIVC2D8a+xhJZvw?=
+ =?us-ascii?Q?ylMCNTB2qRauaxHL+h9HYztsoyplLVBZzwRa7iBJ0H1OPUnbcby2QLcrm0+R?=
+ =?us-ascii?Q?VKMj84b9P3hz9tMeFDa+txiVUwD0qOohhiG4Eo9ghhM5o8NDNDxHiKok6+FB?=
+ =?us-ascii?Q?1zzb54Wh2iRdYGIJFaHn6CqJZh5NlZyaZRBjviRYjMK/MTtqe/AxVICCtugY?=
+ =?us-ascii?Q?afeBi6Va35wPA4IQMDLBWq1IAh/Wuoe0O0dLvJusez41X5+zZCyEEhy95U4y?=
+ =?us-ascii?Q?RGqCfebQ0g=3D=3D?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 06461669-57d9-4601-4d7e-08dee37db59b
+X-MS-Exchange-CrossTenant-Network-Message-Id: eeb34500-103c-4ac4-99c8-08dee37db8b3
 X-MS-Exchange-CrossTenant-AuthSource: DM4PR12MB5230.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jul 2026 21:03:39.1704
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jul 2026 21:03:44.3718
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: mo72oLGBf+CR+Uqm266yxnsCxtKMef+izh7/wIwzNSKQOBjDgcXT82eu8MB7wh38mnG49TOzWtUUlHrsPqPfSw==
+X-MS-Exchange-CrossTenant-UserPrincipalName: a3Nz9yvtfWHREDWbhBFGHhGx0cX7bUmc7++uvBzoZR1BDUXOaOLki0ZnECeW3NSOFdXODkkixmmJAGdbVcNl8w==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB8081
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_140354_171427_FEE8D722 
-X-CRM114-Status: GOOD (  24.92  )
+X-CRM114-CacheID: sfid-20260716_140357_150421_06B97DEA 
+X-CRM114-Status: GOOD (  14.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,419 +149,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The resource_schemata directory layout is mode dependent: in legacy mode
-an emulated control (one without MBW hardware) is nested under the default
-control that emulates it, while in native mode every control sits directly
-under resource_schemata. The mode file added earlier is read-only, so the
-layout is built once at mount time and can never change.
+Monitor domain directories under mon_data are named mon_<name>_<id>,
+using the resource name as the label. For memory bandwidth monitoring on
+a memory-side MSC the domain id is a NUMA node id, so labelling those
+directories with the resource name ("MB") is misleading about what the
+id means.
 
-Make the mode file writable and rebuild the control subdirectories when
-the mode changes, so the tree stays consistent with the new mode and with
-the schemata file contents. Add resctrl_ctrl_mb_mode_write() and register
-it on the mode file (switching it from 0444 to 0644). Factor the
-per-control directory creation out of resctrl_mkdir_schemata_dir() into
-resctrl_ctrl_create_subdirs(), add resctrl_ctrl_remove_subdirs() to tear
-the control directories down, and drive both from
-resctrl_ctrl_rebuild_subdirs(), which is called from
-resctrl_ctrl_mb_mode_write() whenever the mode actually changes.
+Add the RESCTRL_NODE monitor scope and a mon_domain_name() helper that
+returns "NODE" for node-scoped resources (and the resource name for all
+other scopes), then use it when building and removing monitor domain
+directories. Node-scoped monitor domains are now named mon_NODE_<id>,
+making it clear the id is a NUMA node id. L3 and telemetry naming
+(mon_L3_<id>, mon_PERF_PKG_<id>) is unchanged.
 
 Signed-off-by: Fenghua Yu <fenghuay@nvidia.com>
 ---
- fs/resctrl/rdtgroup.c | 334 ++++++++++++++++++++++++++++++++----------
- 1 file changed, 260 insertions(+), 74 deletions(-)
+ fs/resctrl/rdtgroup.c   | 25 +++++++++++++++++++++----
+ include/linux/resctrl.h |  1 +
+ 2 files changed, 22 insertions(+), 4 deletions(-)
 
 diff --git a/fs/resctrl/rdtgroup.c b/fs/resctrl/rdtgroup.c
-index a34c7ed8f874..d81877a5cd72 100644
+index 0bdcf6dd935c..db0255951f0e 100644
 --- a/fs/resctrl/rdtgroup.c
 +++ b/fs/resctrl/rdtgroup.c
-@@ -995,6 +995,15 @@ void *rdt_kn_parent_priv(struct kernfs_node *kn)
- 	return rcu_dereference(kn->__parent)->priv;
- }
- 
-+static struct kernfs_node *rdt_kn_parent(struct kernfs_node *kn)
-+{
-+	/*
-+	 * Valid within the RCU section it was obtained or while rdtgroup_mutex
-+	 * is held.
-+	 */
-+	return rcu_dereference_check(kn->__parent, lockdep_is_held(&rdtgroup_mutex));
-+}
-+
- static int rdt_num_closids_show(struct kernfs_open_file *of,
- 				struct seq_file *seq, void *v)
- {
-@@ -2713,6 +2722,173 @@ static unsigned long fflags_from_resource(struct rdt_resource *r)
- 	return WARN_ON_ONCE(1);
+@@ -3947,6 +3947,20 @@ static void mon_rmdir_one_subdir(struct kernfs_node *pkn, char *name, char *subn
+ 		kernfs_remove_by_name(kn, subname);
  }
  
 +/*
-+ * Format the sysfs directory name of @ctrl (for example "MB" or "MB_NODE")
-+ * into @buf. Returns -ENOSPC if the name would be truncated.
++ * Label used in the mon_<label>_<id> monitor domain directory names. Node
++ * scoped monitoring (for example MB on a memory MSC) uses "NODE" so the id
++ * is understood as a NUMA node id; other scopes keep the resource name
++ * (L3 -> "L3", telemetry -> "PERF_PKG").
 + */
-+static int resctrl_ctrl_full_name(struct rdt_resource_final *f,
-+				  struct resctrl_ctrl *ctrl, char *buf, size_t size)
++static const char *mon_domain_name(struct rdt_resource *r)
 +{
-+	int ret;
++	if (r->mon_scope == RESCTRL_NODE)
++		return "NODE";
 +
-+	ret = snprintf(buf, size, "%s%s%s",
-+		       f->name, resctrl_ctrl_is_default(ctrl) ? "" : "_",
-+		       resctrl_ctrl_is_default(ctrl) ? "" : resctrl_ctrl_name_str(ctrl->name));
-+	if (ret >= size)
-+		return -ENOSPC;
-+
-+	return 0;
++	return r->name;
 +}
 +
-+static int resctrl_ctrl_create_subdir(struct kernfs_node *kn_dir,
-+				      struct rdt_resource_final *f,
-+				      struct resctrl_ctrl *ctrl, struct kernfs_node **kn_ctrl)
-+{
-+	char ctrl_full_name[20];
-+	int ret;
-+
-+	ret = resctrl_ctrl_full_name(f, ctrl, ctrl_full_name, sizeof(ctrl_full_name));
-+	if (ret)
-+		return ret;
-+
-+	*kn_ctrl = kernfs_create_dir(kn_dir, ctrl_full_name, kn_dir->mode, ctrl);
-+	if (IS_ERR(*kn_ctrl))
-+		return PTR_ERR(*kn_ctrl);
-+
-+	return rdtgroup_kn_set_ugid(*kn_ctrl);
-+}
-+
-+/*
-+ * Create a control subdirectory for each control under the
-+ * resource_schemata directory @kn_subdir.
-+ *
-+ * No need to cleanup on exit - caller removes the created directories on
-+ * failure (either via the recursive kernfs_remove() of an ancestor or by
-+ * rebuilding the subdirectories).
-+ */
-+static int resctrl_ctrl_create_subdirs(struct kernfs_node *kn_subdir,
-+				       struct rdt_resource_final *f)
-+{
-+	struct kernfs_node *kn_ctrl, *kn_ctrl_def = NULL;
-+	struct resctrl_ctrl *ctrl, *ctrl_def = NULL;
-+	struct rdt_resource *r = f->res;
-+	int ret;
-+
-+	lockdep_assert_held(&rdtgroup_mutex);
-+
-+	/*
-+	 * Create the default control sub-dir first. Emulated controls are
-+	 * nested underneath it and may be iterated before it, so it has to
-+	 * exist before the rest of the controls are created.
-+	 */
-+	for_each_resource_ctrl(ctrl, f->res) {
-+		if (ctrl->name != RESCTRL_CTRL_NAME_DEF)
-+			continue;
-+
-+		ret = resctrl_ctrl_create_subdir(kn_subdir, f, ctrl, &kn_ctrl_def);
-+		if (ret)
-+			return ret;
-+		ret = resctrl_add_ctrl_files(kn_ctrl_def, ctrl);
-+		if (ret)
-+			return ret;
-+		ctrl_def = ctrl;
-+		break;
-+	}
-+
-+	for_each_resource_ctrl(ctrl, f->res) {
-+		if (ctrl->name == RESCTRL_CTRL_NAME_DEF)
-+			continue;
-+
-+		/*
-+		 * In legacy mode the emulating control is nested under the
-+		 * default control it emulates (the default control's
-+		 * emulated_by points at it). In native mode there is no
-+		 * emulation, so every control sits directly under
-+		 * resource_schemata.
-+		 */
-+		if (r->mode == RESCTRL_CTRL_LEGACY &&
-+		    ctrl_def && ctrl_def->emulated_by == ctrl)
-+			ret = resctrl_ctrl_create_subdir(kn_ctrl_def, f, ctrl, &kn_ctrl);
-+		else
-+			ret = resctrl_ctrl_create_subdir(kn_subdir, f, ctrl, &kn_ctrl);
-+		if (ret)
-+			return ret;
-+
-+		ret = resctrl_add_ctrl_files(kn_ctrl, ctrl);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+/*
-+ * Remove every control subdirectory under the resource_schemata directory
-+ * @kn_subdir, leaving the directory itself and its own files (for example
-+ * "mode") in place. The default control directory is removed recursively so
-+ * any control nested underneath it is removed too; removing a control that is
-+ * not a direct child is a no-op.
-+ */
-+static void resctrl_ctrl_remove_subdirs(struct kernfs_node *kn_subdir,
-+					struct rdt_resource_final *f)
-+{
-+	char ctrl_full_name[20];
-+	struct resctrl_ctrl *ctrl;
-+
-+	lockdep_assert_held(&rdtgroup_mutex);
-+
-+	for_each_resource_ctrl(ctrl, f->res) {
-+		if (resctrl_ctrl_full_name(f, ctrl, ctrl_full_name, sizeof(ctrl_full_name)))
-+			continue;
-+		kernfs_remove_by_name(kn_subdir, ctrl_full_name);
-+	}
-+}
-+
-+/*
-+ * Rebuild the control subdirectories under resource_schemata to match the
-+ * current mode. Used when the mode changes at runtime.
-+ *
-+ * The control directories have the same names in both modes (only their
-+ * nesting differs), so the old directories must be removed before the new
-+ * ones can be created - kernfs_create_dir() would otherwise fail with
-+ * -EEXIST. Between the removal and the following kernfs_activate() there is
-+ * a brief window in which resource_schemata contains only its own files (for
-+ * example "mode") and no control subdirectories. This is acceptable: the
-+ * rebuild only happens on an explicit mode write, runs under rdtgroup_mutex,
-+ * and the control subdirectories are purely informational (scope, type,
-+ * status) - the actual bandwidth configuration lives in each group's
-+ * "schemata" file and is unaffected.
-+ *
-+ * On failure any partially created subdirectories are removed, so
-+ * resource_schemata is left with no control subdirectories at all (its own
-+ * files such as "mode" remain). The caller is expected to restore a
-+ * consistent layout, typically by reverting the change that triggered the
-+ * rebuild and calling this function again. If that second rebuild also
-+ * fails there is no further automatic recovery and the control
-+ * subdirectories stay missing until the next successful rebuild or a
-+ * remount; the caller should report this to user space.
-+ */
-+static int resctrl_ctrl_rebuild_subdirs(struct kernfs_node *kn_subdir,
-+					struct rdt_resource_final *f)
-+{
-+	int ret;
-+
-+	lockdep_assert_held(&rdtgroup_mutex);
-+
-+	resctrl_ctrl_remove_subdirs(kn_subdir, f);
-+
-+	ret = resctrl_ctrl_create_subdirs(kn_subdir, f);
-+	if (ret) {
-+		/* Drop any partially created subdirectories. */
-+		resctrl_ctrl_remove_subdirs(kn_subdir, f);
-+		return ret;
-+	}
-+
-+	kernfs_activate(kn_subdir);
-+
-+	return 0;
-+}
-+
- static int resctrl_ctrl_mb_mode_show(struct kernfs_open_file *of,
- 				     struct seq_file *seq, void *v)
- {
-@@ -2738,12 +2914,91 @@ static int resctrl_ctrl_mb_mode_show(struct kernfs_open_file *of,
- 	return 0;
- }
- 
-+static ssize_t resctrl_ctrl_mb_mode_write(struct kernfs_open_file *of,
-+					  char *buf, size_t nbytes, loff_t off)
-+{
-+	struct rdt_resource_final *f = rdt_kn_parent_priv(of->kn);
-+	struct rdt_resource *r = f->res;
-+	enum resctrl_ctrl_mode mode;
-+	int ret = 0;
-+
-+	guard(mutex)(&rdtgroup_mutex);
-+	rdt_last_cmd_clear();
-+
-+	/* Valid input requires a trailing newline */
-+	if (nbytes == 0 || buf[nbytes - 1] != '\n') {
-+		rdt_last_cmd_puts("Invalid input\n");
-+		return -EINVAL;
-+	}
-+
-+	buf[nbytes - 1] = '\0';
-+
-+	if (!strcmp(buf, "native")) {
-+		mode = RESCTRL_CTRL_NATIVE;
-+	} else if (!strcmp(buf, "legacy")) {
-+		mode = RESCTRL_CTRL_LEGACY;
-+	} else {
-+		rdt_last_cmd_puts("Invalid input\n");
-+		return -EINVAL;
-+	}
-+
-+	if (mode != r->mode) {
-+		enum resctrl_ctrl_mode old_mode = r->mode;
-+
-+		r->mode = mode;
-+
-+		/*
-+		 * The resource_schemata directory layout depends on the mode
-+		 * (emulated controls are nested in legacy mode only), so rebuild
-+		 * the control subdirectories to match the new mode.
-+		 */
-+		ret = resctrl_ctrl_rebuild_subdirs(rdt_kn_parent(of->kn), f);
-+		if (ret) {
-+			int rollback_ret;
-+
-+			/*
-+			 * Roll back to the previous mode and rebuild so the
-+			 * mode reported by this file stays consistent with the
-+			 * directory layout.
-+			 */
-+			r->mode = old_mode;
-+			rollback_ret = resctrl_ctrl_rebuild_subdirs(rdt_kn_parent(of->kn), f);
-+			if (rollback_ret) {
-+				/*
-+				 * The rollback rebuild also failed:
-+				 * resource_schemata may now be missing control
-+				 * subdirectories. Report the inconsistency to the
-+				 * kernel log and to last_cmd_status, and return
-+				 * -EIO so user space can tell from the write()
-+				 * error that the filesystem state is unreliable
-+				 * rather than just that the mode switch failed.
-+				 */
-+				pr_err("%s: failed to restore resource_schemata (mode change error %d, restore error %d), control subdirectories may be missing\n",
-+				       f->name, ret, rollback_ret);
-+				rdt_last_cmd_puts("resource_schemata rebuild failed\n");
-+				ret = -EIO;
-+			} else {
-+				/*
-+				 * The requested mode change failed but the
-+				 * previous mode and its directory layout were
-+				 * restored, so the filesystem is consistent. Keep
-+				 * the original error from the forward rebuild.
-+				 */
-+				rdt_last_cmd_puts("Failed to switch mode, reverted\n");
-+			}
-+		}
-+	}
-+
-+	return ret ?: nbytes;
-+}
-+
- static struct rftype resctrl_ctrl_mb_files[] = {
- 	{
- 		.name		= "mode",
--		.mode		= 0444,
-+		.mode		= 0644,
- 		.kf_ops		= &rdtgroup_kf_single_ops,
- 		.seq_show	= resctrl_ctrl_mb_mode_show,
-+		.write		= resctrl_ctrl_mb_mode_write,
- 		/*
- 		 * Directory-level file, not per-control: fflags is only a
- 		 * presence flag here, not the BIT(ctrl->type) type filter used
-@@ -2781,26 +3036,6 @@ static int resctrl_ctrl_add_files(struct kernfs_node *kn)
- 	return ret;
- }
- 
--static int resctrl_ctrl_create_subdir(struct kernfs_node *kn_dir,
--				      struct rdt_resource_final *f,
--				      struct resctrl_ctrl *ctrl, struct kernfs_node **kn_ctrl)
--{
--	char ctrl_full_name[20];
--	int ret;
--
--	ret = snprintf(ctrl_full_name, sizeof(ctrl_full_name), "%s%s%s",
--		       f->name, resctrl_ctrl_is_default(ctrl) ? "" : "_",
--		       resctrl_ctrl_is_default(ctrl) ? "" : resctrl_ctrl_name_str(ctrl->name));
--	if (ret >= sizeof(ctrl_full_name))
--		return -ENOSPC;
--
--	*kn_ctrl = kernfs_create_dir(kn_dir, ctrl_full_name, kn_dir->mode, ctrl);
--	if (IS_ERR(*kn_ctrl))
--		return PTR_ERR(*kn_ctrl);
--
--	return rdtgroup_kn_set_ugid(*kn_ctrl);
--}
--
  /*
-  * No need to cleanup on exit - caller calls the recursive kernfs_remove()
-  * on failure.
-@@ -2808,8 +3043,7 @@ static int resctrl_ctrl_create_subdir(struct kernfs_node *kn_dir,
- static int resctrl_mkdir_schemata_dir(struct kernfs_node *kn,
- 				      struct rdt_resource_final *f)
- {
--	struct kernfs_node *kn_subdir, *kn_ctrl, *kn_ctrl_def = NULL;
--	struct resctrl_ctrl *ctrl, *ctrl_def = NULL;
-+	struct kernfs_node *kn_subdir;
- 	struct rdt_resource *r = f->res;
- 	int ret;
- 
-@@ -2827,48 +3061,9 @@ static int resctrl_mkdir_schemata_dir(struct kernfs_node *kn,
- 			return ret;
+  * Remove files and directories for one SNC node. If it is the last node
+  * sharing an L3 cache, then remove the upper level directory containing
+@@ -3990,7 +4004,7 @@ static void rmdir_mondata_subdir_allrdtgrp(struct rdt_resource *r,
+ 		return;
  	}
  
--	/*
--	 * Create the default control sub-dir first. Emulated controls are
--	 * nested underneath it and may be iterated before it, so it has to
--	 * exist before the rest of the controls are created.
--	 */
--	for_each_resource_ctrl(ctrl, f->res) {
--		if (ctrl->name != RESCTRL_CTRL_NAME_DEF)
--			continue;
--
--		ret = resctrl_ctrl_create_subdir(kn_subdir, f, ctrl, &kn_ctrl_def);
--		if (ret)
--			return ret;
--		ret = resctrl_add_ctrl_files(kn_ctrl_def, ctrl);
--		if (ret)
--			return ret;
--		ctrl_def = ctrl;
--		break;
--	}
--
--	for_each_resource_ctrl(ctrl, f->res) {
--		if (ctrl->name == RESCTRL_CTRL_NAME_DEF)
--			continue;
--
--		/*
--		 * In legacy mode the emulating control is nested under the
--		 * default control it emulates (the default control's
--		 * emulated_by points at it). In native mode there is no
--		 * emulation, so every control sits directly under
--		 * resource_schemata.
--		 */
--		if (r->mode == RESCTRL_CTRL_LEGACY &&
--		    ctrl_def && ctrl_def->emulated_by == ctrl)
--			ret = resctrl_ctrl_create_subdir(kn_ctrl_def, f, ctrl, &kn_ctrl);
--		else
--			ret = resctrl_ctrl_create_subdir(kn_subdir, f, ctrl, &kn_ctrl);
--		if (ret)
--			return ret;
--
--		ret = resctrl_add_ctrl_files(kn_ctrl, ctrl);
--		if (ret)
--			return ret;
--	}
-+	ret = resctrl_ctrl_create_subdirs(kn_subdir, f);
-+	if (ret)
-+		return ret;
+-	sprintf(name, "mon_%s_%02d", r->name, hdr->id);
++	sprintf(name, "mon_%s_%02d", mon_domain_name(r), hdr->id);
+ 	list_for_each_entry(prgrp, &rdt_all_groups, rdtgroup_list) {
+ 		kernfs_remove_by_name(prgrp->mon.mon_data_kn, name);
  
- 	kernfs_activate(kn_subdir);
+@@ -4094,7 +4108,7 @@ static int mkdir_mondata_subdir(struct kernfs_node *parent_kn,
+ 	if (r->rid == RDT_RESOURCE_L3 && r->mon_scope == RESCTRL_L3_NODE)
+ 		return mkdir_mondata_subdir_snc(parent_kn, hdr, r, prgrp);
  
-@@ -4566,15 +4761,6 @@ static int rdtgroup_rmdir_ctrl(struct rdtgroup *rdtgrp, cpumask_var_t tmpmask)
- 	return 0;
- }
+-	sprintf(name, "mon_%s_%02d", r->name, hdr->id);
++	sprintf(name, "mon_%s_%02d", mon_domain_name(r), hdr->id);
+ 	kn = _mkdir_mondata_subdir(parent_kn, name, hdr, r, prgrp, hdr->id);
+ 	if (IS_ERR(kn))
+ 		return PTR_ERR(kn);
+@@ -4149,8 +4163,11 @@ static int mkdir_mondata_subdir_alldom(struct kernfs_node *parent_kn,
+  * This creates a directory mon_data which contains the monitored data.
+  *
+  * mon_data has one directory for each domain which are named
+- * in the format mon_<domain_name>_<domain_id>. For ex: A mon_data
+- * with L3 domain looks as below:
++ * in the format mon_<domain_name>_<domain_id>. The domain name is the
++ * resource name for cache and telemetry scopes (for example "L3") and
++ * "NODE" for node scoped monitoring (for example MB on a memory MSC,
++ * where <domain_id> is a NUMA node id). For ex: A mon_data with L3 domain
++ * looks as below:
+  * ./mon_data:
+  * mon_L3_00
+  * mon_L3_01
+diff --git a/include/linux/resctrl.h b/include/linux/resctrl.h
+index cfb4c17bcb53..307803ea1b09 100644
+--- a/include/linux/resctrl.h
++++ b/include/linux/resctrl.h
+@@ -320,6 +320,7 @@ enum resctrl_scope {
+ 	RESCTRL_L3_CACHE = 3,
+ 	RESCTRL_L3_NODE,
+ 	RESCTRL_PACKAGE,
++	RESCTRL_NODE,
+ };
  
--static struct kernfs_node *rdt_kn_parent(struct kernfs_node *kn)
--{
--	/*
--	 * Valid within the RCU section it was obtained or while rdtgroup_mutex
--	 * is held.
--	 */
--	return rcu_dereference_check(kn->__parent, lockdep_is_held(&rdtgroup_mutex));
--}
--
- static int rdtgroup_rmdir(struct kernfs_node *kn)
- {
- 	struct kernfs_node *parent_kn;
+ /**
 -- 
 2.43.0
 
