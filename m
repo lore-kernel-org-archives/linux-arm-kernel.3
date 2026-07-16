@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAB3BC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 02:58:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B98AC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 02:58:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VuPR9aZ9EMCP69qBZUmwLdtl89KnBsZtxeYc0mX84iM=; b=icj35UZKTQus9WbHFICjQCHat3
-	lth+3fpsr32dmTmxjeuieIdQzwRpqk1dJh6NKnC7h/cxh8qB5Ewj35pTqzTK+pW94hmAoWpSNAPvp
-	6fJj9RPe5/WP/vrtbisjNCoCoIK3iAhV3kw11hMzdQvKNwCNsOSUQXS5/yqOAW3D6EDSqz8Jausp0
-	Uv+//vl9HDD+29aer6EWYt2zg0melOTlYfu0YJ2ZRTMs8aw8RBqHltN09qPk7Nip8gKKSxpaoGvuy
-	0sJtcQMH8ziFrZt8RMjBV7lU4QyjkoB4nZu6AYrWeYTsfr1IlBSix0n06VdEHwl04koO0h8NaLc20
-	p6KESzNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sYJYkpmPWBm2UEadDEqqqCCn9lOdCM3GXz4jIuzRZLk=; b=jyaZBIb6DuxrxYbpfNz9clGYkT
+	DQqOeBkRJNlJwiyFObwxXs4uSHORvMFNSw8qRWEU856CROYUoGy1SrTKaaGSmp7ik3njWW3v4Sy5s
+	bMa0BwwWPzDfQnZ9O885fEgBgPYzwSbAT/RwoCOXA8e5ZvOg8rCryOhS7RVEIe2WBIwuAO+MnsfRz
+	JMzGjI7sHkmuw16lBR3CXKABqM+LLakt2fyiPwYeW+fIWExvX0r762nX/JZfBM8Px+wyrfMumlqB6
+	f2Y8jm/kjLG+PcoqDhRspHowA0hdzgBU6dJI/Hzh8sSXijQh0xb4puaBO1qYV//Qv3m0VgjWZMBg0
+	uYn8f5/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkCIU-0000000GJKt-1Q2F;
-	Thu, 16 Jul 2026 02:58:02 +0000
-Received: from [113.46.200.227] (helo=canpmsgout12.his.huawei.com)
+	id 1wkCJG-0000000GJPj-25qi;
+	Thu, 16 Jul 2026 02:58:50 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkCIQ-0000000GJK9-1ZAq
+	id 1wkCJE-0000000GJPA-02kQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 02:58:00 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=VuPR9aZ9EMCP69qBZUmwLdtl89KnBsZtxeYc0mX84iM=;
-	b=1/xTPQ6yU9kBDaIvVW33ysd/DtlcvEGtVDaQFfo/pkx1FpGFriI5vYjRddJrmkvxCzsis8ex4
-	D3b9j7aQihAwVVJJ4AoC43L3QzD2uRA1flkfTcmLdb8CKa2jIW5leQeGCvUO1WdTZgVAJ6tGjAb
-	8Xsph/PaBK+xy9V5Ggh/FDQ=
-Received: from mail.maildlp.com (unknown [172.19.163.200])
-	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4h0yC60YmhznTVd;
-	Thu, 16 Jul 2026 10:48:02 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id DD3EA4055B;
-	Thu, 16 Jul 2026 10:57:36 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 16 Jul 2026 10:57:35 +0800
-Message-ID: <ac39d21e-8800-4c4e-885e-4baf7af2a106@huawei.com>
-Date: Thu, 16 Jul 2026 10:57:34 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: syscall: Ensure saved x0 is kept in-sync with
- tracer updates
-To: Will Deacon <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>
-CC: <linux-kernel@vger.kernel.org>, Kees Cook <kees@kernel.org>, Mark Rutland
-	<mark.rutland@arm.com>, Yiqi Sun <sunyiqixm@gmail.com>, Catalin Marinas
-	<catalin.marinas@arm.com>
-References: <20260714143600.23853-1-will@kernel.org>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260714143600.23853-1-will@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+	Thu, 16 Jul 2026 02:58:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1784170728; x=1815706728;
+  h=date:from:to:cc:subject:message-id;
+  bh=ZB/bCEdYpnwBe/qxuDIC6CGMx23DPelnjLLSgpG/c7k=;
+  b=kUXMZJp6Y4ojzoKTGU9FZi1ZdZ/WZY9+EAXO4FskOYTQUn3q5l7429VK
+   N8qHymiVPRnbb3OoVOc1ouHmavYR+vBARmcR+zrICbDpuObxprd54NAy6
+   gMqaW+5QjQYABzaHM8eJ+RETnpWNY9ahRhE7TciPT6hdHDI+r+yY7iPi7
+   g5HnxW6iHkVQ1r0mhBq+EsoTJ3+3hVpS3sx5cZuU2EZRvVx3b/T9vfeTr
+   0KmEYiEAN5ZJSOY2rQl/IvnQP0BIeT3F8w9eqSiLaYPqPcLbnOxEapb2N
+   kwmpsGLtz3jprXfu9davvilZj6OPevCJhPPI2sT7q0fFpG6iRaGO6IEl/
+   g==;
+X-CSE-ConnectionGUID: H6uvaKBpTXS6ZEBUJpufhQ==
+X-CSE-MsgGUID: x9TLj/nXSYqPmyZr8aAXag==
+X-IronPort-AV: E=McAfee;i="6800,10657,11847"; a="84704385"
+X-IronPort-AV: E=Sophos;i="6.25,166,1779174000"; 
+   d="scan'208";a="84704385"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jul 2026 19:58:46 -0700
+X-CSE-ConnectionGUID: bUKzCJufRrauAAbYSEGbXQ==
+X-CSE-MsgGUID: AE+tnE6fRBieZjOF8uRprA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,166,1779174000"; 
+   d="scan'208";a="252958925"
+Received: from lkp-server02.sh.intel.com (HELO ea128546eb3d) ([10.239.97.151])
+  by fmviesa007.fm.intel.com with ESMTP; 15 Jul 2026 19:58:45 -0700
+Received: from kbuild by ea128546eb3d with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wkCJ8-00000000OFW-1URJ;
+	Thu, 16 Jul 2026 02:58:42 +0000
+Date: Thu, 16 Jul 2026 10:58:37 +0800
+From: kernel test robot <lkp@intel.com>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:soc/arm] BUILD SUCCESS
+ 809177dbf32e3c649abcd027334dbcfe34720446
+Message-ID: <202607161026.fYBwQEiN-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_195759_063320_08A858BF 
-X-CRM114-Status: GOOD (  39.11  )
+X-CRM114-CacheID: sfid-20260715_195848_109571_2040D9E7 
+X-CRM114-Status: UNSURE (   4.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,220 +83,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/arm
+branch HEAD: 809177dbf32e3c649abcd027334dbcfe34720446  Merge tag 'arm-feature-deprecation-for-7.3' of https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc into soc/arm
 
+elapsed time: 722m
 
-On 7/14/2026 10:35 PM, Will Deacon wrote:
-> When seccomp support was originally added to arm64 in a1ae65b21941
-> ("arm64: add seccomp support"), seccomp was erroneously called _before_
-> the ptrace syscall-enter-stop and therefore the tracer could trivially
-> manipulate the syscall register state after the seccomp check had
-> passed. This was subsequently fixed in a5cd110cb836 ("arm64/ptrace: run
-> seccomp after ptrace") by moving the seccomp check after the tracer has
-> run. Unfortunately, a decade later, that fix has been reported to be
-> incomplete.
-> 
-> On arm64, both the first argument to a syscall and its eventual return
-> value are allocated to register x0. In order to facilitate syscall
-> restarting and querying of syscall arguments on the syscall exit path,
-> the original value of x0 is stashed in 'struct pt_regs::orig_x0' early
-> during the syscall entry path and is returned for the first argument by
-> syscall_get_arguments(). Unlike 32-bit Arm, this stashed value is not
-> directly exposed via ptrace() and so changes to register x0 made by the
-> tracer on a syscall-enter-stop are not reflected in 'orig_x0'. This
-> means that seccomp and audit can observe a stale value for the register
-> compared to the argument that will be observed by the actual syscall.
-> 
-> Re-sync 'orig_x0' from x0 on the syscall entry path following a
-> potential ptrace stop (i.e. PTRACE_EVENTMSG_SYSCALL_ENTRY or
-> SECCOMP_RET_TRACE). This behaviour is limited to native tasks (because
-> compat tasks expose 'orig_r0' to ptrace) where the syscall is not being
-> skipped (because x0 is updated to hold the return value of -ENOSYS in
-> that case).
-> 
-> Cc: Kees Cook <kees@kernel.org>
-> Cc: Jinjie Ruan <ruanjinjie@huawei.com>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Reported-by: Yiqi Sun <sunyiqixm@gmail.com>
-> Link: https://lore.kernel.org/all/20260529065444.1336608-1-sunyiqixm@gmail.com/
-> Suggested-by: Catalin Marinas <catalin.marinas@arm.com>
-> Fixes: a5cd110cb836 ("arm64/ptrace: run seccomp after ptrace")
-> Signed-off-by: Will Deacon <will@kernel.org>
-> ---
->  arch/arm64/kernel/ptrace.c | 24 ++++++++++++++++++++++++
->  1 file changed, 24 insertions(+)
-> 
-> diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
-> index 4d08598e2891..57e8c6714d44 100644
-> --- a/arch/arm64/kernel/ptrace.c
-> +++ b/arch/arm64/kernel/ptrace.c
-> @@ -2408,6 +2408,21 @@ static void report_syscall_exit(struct pt_regs *regs)
->  	}
->  }
->  
-> +static void update_syscall_orig_x0_after_ptrace(struct pt_regs *regs)
-> +{
-> +	/*
-> +	 * Keep orig_x0 authoritative so that seccomp (via
-> +	 * syscall_get_arguments()), audit and the restart path all see the same
-> +	 * first argument the syscall is dispatched with, even if it has been
-> +	 * updated by a tracer. Skip this for NO_SYSCALL (set either by the user
-> +	 * or the tracer), as regs[0] holds the return value (see the comment in
-> +	 * el0_svc_common()) and can be unwound using syscall_rollback().
-> +	 * For compat tasks, orig_r0 is provided directly through GPR index 17.
-> +	 */
-> +	if (!is_compat_task() && regs->syscallno != NO_SYSCALL)
-> +		regs->orig_x0 = regs->regs[0];
-> +}
-> +
->  int syscall_trace_enter(struct pt_regs *regs)
->  {
->  	unsigned long flags = read_thread_flags();
-> @@ -2417,12 +2432,21 @@ int syscall_trace_enter(struct pt_regs *regs)
->  		ret = report_syscall_entry(regs);
->  		if (ret || (flags & _TIF_SYSCALL_EMU))
->  			return NO_SYSCALL;
-> +
-> +		/*
-> +		 * Ensure ptrace changes to x0 are visible to seccomp
-> +		 * ptrace exits (SECCOMP_RET_TRACE).
-> +		 */
-> +		update_syscall_orig_x0_after_ptrace(regs);
->  	}
->  
->  	/* Do the secure computing after ptrace; failures should be fast. */
->  	if (secure_computing() == -1)
->  		return NO_SYSCALL;
->  
-> +	/* Ensure seccomp updates to x0 are visible to audit. */
-> +	update_syscall_orig_x0_after_ptrace(regs);
+configs tested: 140
+configs skipped: 210
 
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-Hi, will
+tested configs:
+alpha                             allnoconfig    gcc-16.1.0
+alpha                            allyesconfig    gcc-16.1.0
+alpha                               defconfig    gcc-16.1.0
+arc                              allmodconfig    clang-23
+arc                               allnoconfig    gcc-16.1.0
+arc                              allyesconfig    clang-23
+arc                                 defconfig    gcc-16.1.0
+arc                   randconfig-001-20260716    clang-23
+arc                   randconfig-002-20260716    clang-23
+arm                               allnoconfig    gcc-16.1.0
+arm                              allyesconfig    clang-23
+arm                              allyesconfig    gcc-16.1.0
+arm                                 defconfig    gcc-16.1.0
+arm                   randconfig-001-20260716    clang-23
+arm                   randconfig-002-20260716    clang-23
+arm                   randconfig-003-20260716    clang-23
+arm                   randconfig-004-20260716    clang-23
+arm64                            allmodconfig    clang-23
+arm64                             allnoconfig    gcc-16.1.0
+arm64                               defconfig    gcc-16.1.0
+arm64                 randconfig-001-20260716    gcc-12.5.0
+arm64                 randconfig-002-20260716    gcc-12.5.0
+arm64                 randconfig-003-20260716    gcc-12.5.0
+arm64                 randconfig-004-20260716    gcc-12.5.0
+csky                             allmodconfig    gcc-16.1.0
+csky                              allnoconfig    gcc-16.1.0
+csky                                defconfig    gcc-16.1.0
+csky                  randconfig-001-20260716    gcc-12.5.0
+csky                  randconfig-002-20260716    gcc-12.5.0
+hexagon                          allmodconfig    gcc-16.1.0
+hexagon                           allnoconfig    gcc-16.1.0
+hexagon                             defconfig    gcc-16.1.0
+hexagon               randconfig-001-20260716    clang-20
+hexagon               randconfig-002-20260716    clang-20
+i386                             allmodconfig    gcc-14
+i386                              allnoconfig    gcc-16.1.0
+i386                             allyesconfig    gcc-14
+i386                                defconfig    gcc-16.1.0
+i386                  randconfig-001-20260716    clang-22
+i386                  randconfig-002-20260716    clang-22
+i386                  randconfig-003-20260716    clang-22
+i386                  randconfig-004-20260716    clang-22
+i386                  randconfig-005-20260716    clang-22
+i386                  randconfig-006-20260716    clang-22
+i386                  randconfig-007-20260716    clang-22
+i386                  randconfig-011-20260716    clang-22
+i386                  randconfig-012-20260716    clang-22
+i386                  randconfig-013-20260716    clang-22
+i386                  randconfig-014-20260716    clang-22
+i386                  randconfig-015-20260716    clang-22
+i386                  randconfig-016-20260716    clang-22
+i386                  randconfig-017-20260716    clang-22
+loongarch                        allmodconfig    clang-23
+loongarch                         allnoconfig    gcc-16.1.0
+loongarch                           defconfig    clang-23
+loongarch             randconfig-001-20260716    clang-20
+loongarch             randconfig-002-20260716    clang-20
+m68k                             allmodconfig    gcc-16.1.0
+m68k                              allnoconfig    gcc-16.1.0
+m68k                             allyesconfig    clang-23
+m68k                                defconfig    clang-23
+microblaze                        allnoconfig    gcc-16.1.0
+microblaze                       allyesconfig    gcc-16.1.0
+microblaze                          defconfig    clang-23
+mips                             allmodconfig    gcc-16.1.0
+mips                              allnoconfig    gcc-16.1.0
+mips                             allyesconfig    gcc-16.1.0
+nios2                            allmodconfig    clang-20
+nios2                             allnoconfig    clang-23
+nios2                               defconfig    clang-23
+nios2                 randconfig-001-20260716    clang-20
+nios2                 randconfig-002-20260716    clang-20
+openrisc                         allmodconfig    clang-20
+openrisc                          allnoconfig    clang-23
+parisc                           allmodconfig    gcc-16.1.0
+parisc                            allnoconfig    clang-23
+parisc                           allyesconfig    clang-17
+parisc                randconfig-001-20260716    clang-19
+parisc                randconfig-002-20260716    clang-19
+parisc64                            defconfig    clang-23
+powerpc                          allmodconfig    gcc-16.1.0
+powerpc                           allnoconfig    clang-23
+powerpc               randconfig-001-20260716    clang-19
+powerpc               randconfig-002-20260716    clang-19
+powerpc64             randconfig-001-20260716    clang-19
+powerpc64             randconfig-002-20260716    clang-19
+riscv                            allmodconfig    clang-23
+riscv                             allnoconfig    clang-23
+riscv                            allyesconfig    clang-23
+riscv                 randconfig-001-20260716    clang-17
+riscv                 randconfig-002-20260716    clang-17
+s390                             allmodconfig    clang-17
+s390                              allnoconfig    clang-23
+s390                             allyesconfig    gcc-16.1.0
+s390                  randconfig-001-20260716    clang-17
+s390                  randconfig-002-20260716    clang-17
+sh                               allmodconfig    gcc-16.1.0
+sh                                allnoconfig    clang-23
+sh                               allyesconfig    clang-17
+sh                    randconfig-001-20260716    clang-17
+sh                    randconfig-002-20260716    clang-17
+sparc                             allnoconfig    clang-23
+sparc                 randconfig-001-20260716    gcc-13.4.0
+sparc                 randconfig-002-20260716    gcc-13.4.0
+sparc64                          allmodconfig    clang-20
+sparc64               randconfig-001-20260716    gcc-13.4.0
+sparc64               randconfig-002-20260716    gcc-13.4.0
+um                               allmodconfig    clang-17
+um                                allnoconfig    clang-23
+um                               allyesconfig    gcc-16.1.0
+um                    randconfig-001-20260716    gcc-13.4.0
+um                    randconfig-002-20260716    gcc-13.4.0
+x86_64                            allnoconfig    clang-23
+x86_64      buildonly-randconfig-001-20260716    gcc-14
+x86_64      buildonly-randconfig-002-20260716    gcc-14
+x86_64      buildonly-randconfig-003-20260716    gcc-14
+x86_64      buildonly-randconfig-004-20260716    gcc-14
+x86_64      buildonly-randconfig-005-20260716    gcc-14
+x86_64      buildonly-randconfig-006-20260716    gcc-14
+x86_64                                  kexec    clang-22
+x86_64                randconfig-001-20260716    clang-22
+x86_64                randconfig-002-20260716    clang-22
+x86_64                randconfig-003-20260716    clang-22
+x86_64                randconfig-004-20260716    clang-22
+x86_64                randconfig-005-20260716    clang-22
+x86_64                randconfig-006-20260716    clang-22
+x86_64                randconfig-013-20260716    gcc-14
+x86_64                randconfig-016-20260716    gcc-14
+x86_64                randconfig-074-20260716    gcc-14
+x86_64                randconfig-076-20260716    gcc-14
+x86_64                               rhel-9.4    clang-22
+x86_64                           rhel-9.4-bpf    gcc-14
+x86_64                          rhel-9.4-func    clang-22
+x86_64                    rhel-9.4-kselftests    clang-22
+x86_64                         rhel-9.4-kunit    gcc-14
+x86_64                           rhel-9.4-ltp    gcc-14
+xtensa                            allnoconfig    clang-23
+xtensa                           allyesconfig    clang-20
+xtensa                randconfig-001-20260716    gcc-13.4.0
+xtensa                randconfig-002-20260716    gcc-13.4.0
 
-I think unconditionally updating orig_x0 here is unnecessary, we could
-Expand seccomp check in place as below the same as generic entry.
-
-In this way, in most cases where seccomp is not used, the overhead of
-updating orig_x0 is eliminated. Moreover, we only need to define an
-architecture-specific version of the seccomp function, thus avoiding the
-pain of switching from arm64 to the generic entry.
-
-So this patch can be like below.
-
-int syscall_trace_enter(struct pt_regs *regs)
- {
-        unsigned long flags = read_thread_flags();
-@@ -2420,12 +2435,24 @@ int syscall_trace_enter(struct pt_regs *regs)
-
-                /* ptrace might have changed work flags */
-                flags = read_thread_flags();
-+               /*
-+                * Ensure ptrace changes to x0 during a regular
-syscall-enter-stop
-+                * (PTRACE_SYSCALL) are visible to subsequent seccomp trace
-+                * and audit checking.
-+                */
-+               update_syscall_orig_x0_after_ptrace(regs);
-        }
-
-        /* Do the secure computing after ptrace; failures should be fast. */
-        if (unlikely(flags & _TIF_SECCOMP)) {
-                if (!__seccomp_permit_syscall())
-                        return NO_SYSCALL;
-+
-+               /*
-+                * Ensure tracer changes to x0 during seccomp ptrace
-exit processing
-+                * (SECCOMP_RET_TRACE) are visible to audit.
-+                */
-+               update_syscall_orig_x0_after_ptrace(regs);
-        }
-
-
-Author: Jinjie Ruan <ruanjinjie@huawei.com>
-Date:   Tue Oct 29 19:08:03 2024 +0800
-
-    arm64: ptrace: Expand seccomp check in place
-
-    Refactor syscall_trace_enter() by open-coding the seccomp check
-    to align with the generic entry framework. While the original call to
-    seccomp_permit_syscall() internally re-reads the thread flags and is
-    therefore safe against flag changes during ptrace stops, the new
-    open-coded version must explicitly re-read the flags after ptrace
-    handling to preserve that safety.
-
-    [Background]
-    The generic entry implementation expands the seccomp check in-place
-    instead of using the seccomp_permit_syscall() wrapper. It directly
-    tests SYSCALL_WORK_SECCOMP and calls the underlying
-    __seccomp_permit_syscall() function to handle syscall filtering.
-
-    [Changes]
-    1. After ptrace handling, re-read thread flags:
-       This ensures that any _TIF_SECCOMP set during the ptrace stop is
-       observed before the seccomp check.
-
-    2. Open-code seccomp check:
-       - Instead of calling the seccomp_permit_syscall() wrapper, explicitly
-         check the updated 'flags' parameter for _TIF_SECCOMP.
-       - Call __seccomp_permit_syscall() directly if the flag is set.
-
-    [Why this matters]
-    - Aligns the arm64 syscall path with the generic entry implementation,
-      simplifying future migration to the generic entry framework.
-
-    - No functional changes are intended; seccomp behavior remains
-identical.
-      The explicit re-read ensures the open-coded version retains the same
-      safety as the original wrapper, preventing the race condition
-described
-      in the generic entry fix.
-
-    - Performance: Non-ptrace fast path avoids atomic test_bit overhead via
-      cached flags.
-
-    Cc: Mark Rutland <mark.rutland@arm.com>
-    Cc: Will Deacon <will@kernel.org>
-    Cc: Catalin Marinas <catalin.marinas@arm.com>
-    Link:
-https://lore.kernel.org/all/20260713025712.416366-1-ruanjinjie@huawei.com/
-    Reviewed-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-    Reviewed-by: Linus Walleij <linusw@kernel.org>
-    Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-    Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
-    Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-
-diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
-index 5709e9d3c321..941752656ea6 100644
---- a/arch/arm64/kernel/ptrace.c
-+++ b/arch/arm64/kernel/ptrace.c
-@@ -2417,11 +2417,16 @@ int syscall_trace_enter(struct pt_regs *regs)
-                ret = report_syscall_entry(regs);
-                if (ret || (flags & _TIF_SYSCALL_EMU))
-                        return NO_SYSCALL;
-+
-+               /* ptrace might have changed the flags */
-+               flags = read_thread_flags();
-        }
-
-        /* Do the secure computing after ptrace; failures should be fast. */
--       if (!seccomp_permit_syscall())
--               return NO_SYSCALL;
-+       if (unlikely(flags & _TIF_SECCOMP)) {
-+               if (!__seccomp_permit_syscall())
-+                       return NO_SYSCALL;
-+       }
-
-        if (test_thread_flag(TIF_SYSCALL_TRACEPOINT))
-                trace_sys_enter(regs, regs->syscallno);
-
-Best regards,
-Jinjie
-
-
-> +
->  	if (test_thread_flag(TIF_SYSCALL_TRACEPOINT))
->  		trace_sys_enter(regs, regs->syscallno);
->  
-
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
