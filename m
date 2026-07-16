@@ -4,68 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30FE9C4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 09:34:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AD57C4450E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 09:34:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/yzyjJfJJ35ZrPl/8R6qcfhZ6LLlXQeeE3uto34jM3c=; b=g6Aoz8TEbgBfqPTfPIYHk2Telt
-	S1Scf+XKKTS/ktWxn/ii5ZTz2MXb0MUIQ7mI7+zaa2PTAfnrsBpKPk9t6uSVJsjjVosW1AkugHArq
-	6HbIUQ3Iugsa9SiF8baW6hF936c9Sg1hi0kN9p48CQ8NtfI5Ns6VJ27zap2kEv2Ehbp9xevqNd71R
-	T89sIf/YNaOK41mbYE7iy9zYaeJXzTqNdTmDZjeHyTqGEkeJJTEV5ykxaKkut+YTR2h6LKmv9epdT
-	GbUQpazC6OEUkGKiVXZ0UEtqkzFj6NwvJ3pp24L/rPgn+ULg674LxMgJJ1CzTpLQ1/sGxBiWraiZf
-	gUKnVkzg==;
+	bh=5bOJ7hXck+yEwAc/J40tVbAfmzpN55nMr/sXBYljno0=; b=ORlvVjkLfn5TcfbdZf169il4Mz
+	MBTh0DQxBsxL9IeK2xyZKYjc/yaoupPhP31XFy4MfkNbxaacGJCBphFRJjcwr/7J//L1n1Taqg4Ye
+	vjsMChF/uwoLOwbH9kKXbTjGzkYWv6j3nbssHKkRoPU1TBKstNHmL+kkIyvnMjy8div1b82Fybrtx
+	dm977fVnGpk/hnf2+SWBcQanVy6DZOpIrkHWOMbUg7VbX+klh4XD/Va3SpVC/yVjILb2lMZ1qXBaP
+	5KNO5rbQ0iagg8CKu+d+vULawZnkxROEssNev/oLhF7tiv5N8dadd3CHonT2EneAuTvsX0NQTU02X
+	bChD8jxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkIU6-0000000Gsqi-0UUG;
+	id 1wkIU6-0000000Gsqy-0uKV;
 	Thu, 16 Jul 2026 09:34:26 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkITw-0000000GslM-2DwB
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 09:34:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 919301477;
-	Thu, 16 Jul 2026 02:34:11 -0700 (PDT)
-Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AC28A3F905;
-	Thu, 16 Jul 2026 02:34:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784194455; bh=L3G9pEGnDef+XM1NJskG1lgqT4AANyJCxj8DHi3YY0o=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=kkA3xNDlwVXFsQq1qzebhPlVPNp9oIdaYNTkwk326RvWEWhzgNNm/7CkwJxJTfoQC
-	 2dVJWo3Y3rM6vBWv/avgrblw7yi7ZcvLZhA7RPGZeIXcY2vPUAw0rTRYx0wPCEgJ3d
-	 4gZq7Wisequ+me/e+HKyMfron/ua0UIRIkX6AIUo=
-Message-ID: <aa0d9daf-95c8-4479-91a7-87eefa86f2b4@arm.com>
-Date: Thu, 16 Jul 2026 10:34:13 +0100
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkIU2-0000000GsoZ-0RPN;
+	Thu, 16 Jul 2026 09:34:22 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B5B4F43C21;
+	Thu, 16 Jul 2026 09:34:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A1BA1F00AC4;
+	Thu, 16 Jul 2026 09:34:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784194461;
+	bh=5bOJ7hXck+yEwAc/J40tVbAfmzpN55nMr/sXBYljno0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=A4F8p16YXER5QUkvm4GJ2IvIV9M3NzajEkDWkjfcUHo3dsTKIMcZ5WdyfVFrDIwcZ
+	 YuwKEKsvBNGIOyDDYcQkkuVVU1klOD1PKic5TErOv95OdK2LfcfquuPb1rqaoOM8TB
+	 AzIrV+CQ149NBPv0kY8ltPrtY4VOBNtN8hw4FwRmIWunlXg3Ff4NYdgqAeRGPTpD7R
+	 QMPPd6PtaxMe+FMpGWdexpJknC1ZgBMZ9P5SbR/W0RXgbR29MVPWHDIg2Vyff3w9QQ
+	 tP2/2deagBbBHNpaclw1cHjAi9r6diOXCfW1xu+3SM7amzJggMVFNo3G2CnjjCsi8w
+	 /Qtw6YIf8N3qA==
+From: Simon Horman <horms@kernel.org>
+To: jackbb_wu@compal.com
+Cc: Simon Horman <horms@kernel.org>,
+	loic.poulain@oss.qualcomm.com,
+	ryazanov.s.a@gmail.com,
+	johannes@sipsolutions.net,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	wen-zhi.huang@mediatek.com,
+	shi-wei.yeh@mediatek.com,
+	Minano.tseng@mediatek.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	corbet@lwn.net,
+	skhan@linuxfoundation.org,
+	linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v4 4/7] net: wwan: t9xx: Add control port
+Date: Thu, 16 Jul 2026 10:34:14 +0100
+Message-ID: <20260716093414.231093-1-horms@kernel.org>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260709-t9xx_driver_v1-v4-4-a8c009d509c5@compal.com>
+References: <20260709-t9xx_driver_v1-v4-4-a8c009d509c5@compal.com>
 MIME-Version: 1.0
-User-Agent: Thunderbird Daily
-Subject: Re: [PATCH v1 05/11] arm_mpam: Ensure MBWU counters are reset on
- restore
-To: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
-Cc: "james.morse@arm.com" <james.morse@arm.com>,
- "reinette.chatre@intel.com" <reinette.chatre@intel.com>,
- "fenghuay@nvidia.com" <fenghuay@nvidia.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "dave.martin@arm.com" <dave.martin@arm.com>,
- "andre.przywara@arm.com" <andre.przywara@arm.com>
-References: <20260710115546.29644-6-ben.horgan@arm.com>
- <OS9PR01MB16920A90EC44010A30A79A4728BF82@OS9PR01MB16920.jpnprd01.prod.outlook.com>
- <0e4246f2-bcfc-4b08-9361-e87872c23672@arm.com>
- <TY4PR01MB16930674F986639651CEE6C4A8BC72@TY4PR01MB16930.jpnprd01.prod.outlook.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <TY4PR01MB16930674F986639651CEE6C4A8BC72@TY4PR01MB16930.jpnprd01.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_023416_655603_9828BBFF 
-X-CRM114-Status: GOOD (  17.83  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,115 +86,436 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Shaopeng,
+This is an AI-generated review of your patch. The human sending this
+email has considered the AI review valid, or at least plausible.
+Full review at: https://sashiko.dev
+---
+--- Patch [4]: [PATCH v4 4/7] net: wwan: t9xx: Add control port ---
+commit 8d0ed42502a8e2e3fe15beabcf8bda318350f746
+Author: Jack Wu <jackbb_wu@compal.com>
+Date:   Thu Jul 9 10:53:26 2026 +0000
 
-On 7/16/26 01:26, Shaopeng Tan (Fujitsu) wrote:
-> Hello Ben,
-> 
->>>> When an MSC becomes inaccessible due to cpu offline CFG_MBWU_CTL is set to
->>>> zero in mpam_save_mbwu_state(). This is very likely to mean that the config
->>>> will mismatch when restoring and so the monitor will be reset. However, the
->>>> state may have been lost and so there are no guarantees. Ensure the reset
->>>> happens by setting the reset_on_next_read and remove the unnecessary writes
->>> >from mpam_save_mbwu_state().
->>>>
->>>> Fixes: 41e8a14950e1 ("arm_mpam: Track bandwidth counter state for power management")
->>>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
->>>> ---
->>>>  drivers/resctrl/mpam_devices.c | 13 +++++++------
->>>>  1 file changed, 7 insertions(+), 6 deletions(-)
->>>>
->>>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
->>>> index b34e2a368516..222fc248067e 100644
->>>> --- a/drivers/resctrl/mpam_devices.c
->>>> +++ b/drivers/resctrl/mpam_devices.c
->>>> @@ -1648,10 +1648,13 @@ static int mpam_restore_mbwu_state(void *_ris)
->>>>          u64 val;
->>>>          struct mon_read mwbu_arg;
->>>>          struct mpam_msc_ris *ris = _ris;
->>>> +       struct msmon_mbwu_state *mbwu_state;
->>>>          struct mpam_msc *msc = ris->vmsc->msc;
->>>>          struct mpam_class *class = ris->vmsc->comp->class;
->>>>  
->>>>          for (i = 0; i < ris->props.num_mbwu_mon; i++) {
->>>> +               mbwu_state = &ris->mbwu_state[i];
->>>> +
->>>>                  if (WARN_ON_ONCE(!mpam_mon_sel_lock(msc)))
->>>>                          return -EIO;
->>>>  
->>>> @@ -1661,6 +1664,8 @@ static int mpam_restore_mbwu_state(void *_ris)
->>>>                          mwbu_arg.type = mpam_msmon_choose_counter(class);
->>>>                          mwbu_arg.val = &val;
->>>>  
->>>> +                       mbwu_state->reset_on_next_read = true;
->>>> +
->>>>                          mpam_mon_sel_unlock(msc);
->>>
->>>         for (i = 0; i < ris->props.num_mbwu_mon; i++) {
->>> +               mbwu_state = &ris->mbwu_state[i];
->>> +
->>>                 if (WARN_ON_ONCE(!mpam_mon_sel_lock(msc)))
->>>                         return -EIO;
->>>
->>> -               if (ris->mbwu_state[i].enabled) {
->>> +               if (mbwu_state->enabled) {  //this line might need refactoring
->>
->> I'm unclear on what you are trying to point out in this email. Please can you explain.
->>
->> Thanks,
->>
->> Ben
-> 
-> Inside the for loop, you introduced `mbwu_state = &ris->mbwu_state[i];` a few lines earlier, 
-> and then used `mbwu_state->reset_on_next_read = true;` shortly after.
-> Therefore, using mbwu_state->enabled and mbwu_state->cfg keeps 
-> the whole block consistent and avoids repeating ris->mbwu_state[i] multiple times. 
+    net: wwan: t9xx: Add control port
+    
+    The control port consists of port I/O and port manager.
+    Port I/O provides a common operation as defined by "struct port_ops",
+    and the operation is managed by the "port manager". It provides
+    interfaces to internal users, the implemented internal interfaces are
+    open, close, write and recv_register.
 
-Thanks for explaining. Indeed, continuing to use the ris->mbwu_state[i] once it's assigned to a
-local variable does make this a bit messy.
+> diff --git a/drivers/net/wwan/t9xx/mtk_port.c b/drivers/net/wwan/t9xx/mtk_port.c
+> new file mode 100644
+> index 0000000000000..06436422133ba
+> --- /dev/null
+> +++ b/drivers/net/wwan/t9xx/mtk_port.c
+> @@ -0,0 +1,875 @@
+[ ... ]
+> +static void mtk_port_free_or_backup(struct mtk_port_mngr *port_mngr,
+> +				    struct mtk_port *port, struct mtk_stale_list *s_list)
+> +{
+> +	mutex_lock(&port_mngr_grp_mtx);
+> +	mtk_port_tbl_del(port_mngr, port);
+> +	if (port->info.type != PORT_TYPE_INTERNAL) {
+> +		if (test_bit(PORT_S_OPEN, &port->status)) {
+> +			list_add_tail(&port->stale_entry, &s_list->ports);
+> +			set_bit(PORT_S_ON_STALE_LIST, &port->status);
+> +			memcpy(port->dev_str, port_mngr->ctrl_blk->mdev->dev_str,
+> +			       MTK_DEV_STR_LEN);
+> +			port->port_mngr = NULL;
+> +		}
+> +		kref_put(&port->kref, mtk_port_release);
+> +	} else {
+> +		mtk_port_release(&port->kref);
 
-Ben
+[Severity: High]
+Does this directly bypass the kref API? By explicitly calling
+mtk_port_release() rather than kref_put(), this forces the port to be freed
+immediately, ignoring any active references internal clients might still hold.
+Could this lead to a use-after-free during device removal or module unload?
 
-> 
-> Best regards,
-> Shaopeng TAN
-> 
->>>                         mwbu_arg.ris = ris;
->>> -                       mwbu_arg.ctx = &ris->mbwu_state[i].cfg;
->>> +                       mwbu_arg.ctx = &mbwu_state->cfg;  //and this line
->>>                         mwbu_arg.type = mpam_msmon_choose_counter(class);
->>>                         mwbu_arg.val = &val;
->>>
->>> +                       mbwu_state->reset_on_next_read = true;
->>> +
->>>                         mpam_mon_sel_unlock(msc);
->>>
->>>
->>> Best regards,
->>> Shaopeng TAN
->>>
->>>>                          __ris_msmon_read(&mwbu_arg);
->>>> @@ -1696,15 +1701,11 @@ static int mpam_save_mbwu_state(void *arg)
->>>>  
->>>>                  cur_flt = mpam_read_monsel_reg(msc, CFG_MBWU_FLT);
->>>>                  cur_ctl = mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
->>>> -               mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
->>>>  
->>>> -               if (mpam_ris_has_mbwu_long_counter(ris)) {
->>>> +               if (mpam_ris_has_mbwu_long_counter(ris))
->>>>                          val = mpam_msc_read_mbwu_l(msc);
->>>> -                       mpam_msc_zero_mbwu_l(msc);
->>>> -               } else {
->>>> +               else
->>>>                          val = mpam_read_monsel_reg(msc, MBWU);
->>>> -                       mpam_write_monsel_reg(msc, MBWU, 0);
->>>> -               }
->>>>  
->>>>                  cfg->mon = i;
->>>>                  cfg->pmg = FIELD_GET(MSMON_CFG_x_FLT_PMG, cur_flt);
->>>> --
->>>> 2.43.0
->>
->>
+> +	}
+> +	mutex_unlock(&port_mngr_grp_mtx);
+> +}
+> +
+> +static struct mtk_port *mtk_port_search_by_id(struct mtk_port_mngr *port_mngr, int rx_ch)
+> +{
+> +	int tbl_type = MTK_PORT_TBL_TYPE(rx_ch);
+> +
+> +	if (tbl_type < PORT_TBL_SAP || tbl_type >= PORT_TBL_MAX)
+> +		return NULL;
+> +
+> +	return radix_tree_lookup(&port_mngr->port_tbl[tbl_type], MTK_CH_ID(rx_ch));
 
+[Severity: High]
+Is it safe to perform radix tree lookups without an RCU read-side critical
+section?
+
+Since mtk_port_release() uses a synchronous kfree() instead of kfree_rcu(),
+if a port closure or device removal occurs concurrently, the traversal here
+might access freed radix tree nodes or port structures.
+
+> +}
+> +
+> +struct mtk_port *mtk_port_search_by_name(struct mtk_port_mngr *port_mngr, char *name)
+> +{
+> +	int tbl_type = PORT_TBL_SAP;
+> +	struct radix_tree_iter iter;
+> +	struct mtk_port *port;
+> +	void __rcu **slot;
+> +
+> +	do {
+> +		radix_tree_for_each_slot(slot, &port_mngr->port_tbl[tbl_type], &iter, 0) {
+
+[Severity: High]
+Similarly, does this radix tree iteration require rcu_read_lock() protection
+to prevent traversing into memory that has been concurrently freed?
+
+> +			MTK_PORT_SEARCH_FROM_RADIX_TREE(port, slot);
+> +			MTK_PORT_INTERNAL_NODE_CHECK(port, slot, iter);
+> +			if (!strncmp(port->info.name, name, MTK_DFLT_PORT_NAME_LEN))
+> +				return port;
+> +		}
+> +		tbl_type++;
+> +	} while (tbl_type < PORT_TBL_MAX);
+> +
+> +	return NULL;
+> +}
+[ ... ]
+> +void mtk_port_stale_list_grp_cleanup(void)
+> +{
+> +	struct mtk_stale_list *s_list, *next_s_list;
+> +	struct mtk_port *port, *next_port;
+> +
+> +	mutex_lock(&port_mngr_grp_mtx);
+> +	list_for_each_entry_safe(s_list, next_s_list, &stale_list_grp, entry) {
+> +		list_del(&s_list->entry);
+> +
+> +		list_for_each_entry_safe(port, next_port, &s_list->ports, stale_entry) {
+> +			clear_bit(PORT_S_ON_STALE_LIST, &port->status);
+> +			mtk_port_release(&port->kref);
+
+[Severity: High]
+This appears to be another instance of bypassing the kref API by calling
+mtk_port_release() directly instead of kref_put().
+
+> +		}
+> +
+> +		kfree(s_list);
+
+[Severity: Medium]
+Does this leak the s_list->dev_id? The list entries are freed here during
+module unload, but there doesn't appear to be a corresponding call to
+ida_free() to return the dev_id to the allocator.
+
+> +	}
+> +	mutex_unlock(&port_mngr_grp_mtx);
+> +}
+[ ... ]
+> +void mtk_port_trb_init(struct mtk_port *port, struct trb *trb, enum mtk_trb_cmd_type cmd,
+> +		       int (*trb_complete)(struct sk_buff *skb))
+> +{
+> +	kref_init(&trb->kref);
+> +	trb->channel_id = port->info.rx_ch;
+> +	trb->status = MTK_DFLT_TRB_STATUS;
+> +	trb->priv = port;
+
+[Severity: High]
+Does this assignment need to take a reference to the port with kref_get()?
+
+If a non-blocking transmission is submitted, the port could be closed and
+freed while the TRB is still in the hardware DMA ring. When the DMA
+interrupt finally fires, the async completion handler mtk_port_tx_complete()
+will access trb->priv, potentially dereferencing a freed port pointer.
+
+> +	trb->cmd = cmd;
+> +	trb->trb_complete = trb_complete;
+> +}
+[ ... ]
+> +int mtk_port_send_data(struct mtk_port *port, void *data)
+> +{
+> +	struct mtk_port_mngr *port_mngr;
+> +	struct sk_buff *skb = data;
+> +	bool force_send;
+> +	struct trb *trb;
+> +	int ret, len;
+> +
+> +	port_mngr = port->port_mngr;
+> +
+> +	force_send = !!(port->info.flags & (PORT_F_BLOCKING | PORT_F_FORCE_SEND));
+> +	trb = (struct trb *)skb->cb;
+> +	mtk_port_trb_init(port, trb, TRB_CMD_TX, mtk_port_tx_complete);
+> +	len = skb->len;
+> +	kref_get(&trb->kref); /* kref count 1->2 */
+> +
+> +	/* add ccci header */
+> +	mtk_port_add_header(skb);
+> +	ret = mtk_port_status_check(port);
+> +	if (!ret)
+> +		ret = port_mngr->ctrl_blk->ops->submit_skb(port_mngr->ctrl_blk->mdev,
+> +							   skb, force_send);
+> +
+> +	if (ret < 0) {
+> +		kref_put(&trb->kref, mtk_port_trb_free); /* kref count 2->1 */
+> +		kref_put(&trb->kref, mtk_port_trb_free); /* kref count 1->0 */
+> +		port->tx_seq--;
+
+[Severity: Medium]
+Can concurrent writers corrupt the tx_seq variable?
+
+Because the mtk_port_internal_write() API doesn't seem to enforce locking,
+multiple threads transmitting on the same port can induce a read-modify-write
+race on this variable here and in mtk_port_add_header(). This could result in
+duplicate or out-of-order sequence numbers being sent to the WWAN modem.
+
+> +		goto out;
+> +	}
+[ ... ]
+> +static int mtk_port_rx_dispatch_frag_skb(struct mtk_port *port, struct sk_buff *skb)
+> +{
+> +	struct sk_buff *frag_skb, *frag_next;
+> +	int ret;
+> +
+> +	frag_skb = skb_shinfo(skb)->frag_list;
+> +	skb->len -= skb->data_len;
+> +	skb->data_len = 0;
+> +	skb_shinfo(skb)->frag_list = NULL;
+> +
+> +	ret = ports_ops[port->info.type]->recv(port, skb);
+> +	if (ret < 0) {
+> +		skb_shinfo(skb)->frag_list = frag_skb;
+
+[Severity: High]
+Can this lead to a use-after-free and a double-free on the skb?
+
+If the port is not in an open state, mtk_port_internal_recv() explicitly calls
+dev_kfree_skb_any(skb) and returns -ENXIO:
+
+mtk_port_internal_recv() {
+    if (!test_bit(PORT_S_OPEN, &port->status))
+        goto drop_data;
+    ...
+drop_data:
+    dev_kfree_skb_any(skb);
+    return ret;
+}
+
+When the error returns here to mtk_port_rx_dispatch_frag_skb(), it accesses
+the freed skb to update frag_list. It then propagates the error up to
+mtk_port_rx_dispatch(), which jumps to the drop_data label and frees the skb
+a second time.
+
+> +		return ret;
+> +	}
+[ ... ]
+> +static int mtk_port_rx_dispatch(struct sk_buff *skb, void *priv, bool force_recv)
+> +{
+[ ... ]
+> +	/* Support scatter gather transmission */
+> +	if (port->rx_mtu > port->rx_frag_size) {
+> +		ret = mtk_port_rx_dispatch_frag_skb(port, skb);
+> +		/* -EIO means partial data dispatch complete, does not goto drop flow */
+> +		if (ret < 0 && ret != -EIO)
+> +			goto drop_frag_skb;
+> +	} else {
+> +		ret = ports_ops[port->info.type]->recv(port, skb);
+> +		if (ret < 0)
+> +			goto drop_data;
+> +	}
+> +
+> +	return ret;
+> +
+> +drop_frag_skb:
+> +	{
+> +		struct sk_buff *frag_skb, *tmp;
+> +
+> +		frag_skb = skb_shinfo(skb)->frag_list;
+> +		while (frag_skb) {
+> +			tmp = frag_skb->next;
+> +			frag_skb->next = NULL;
+> +			dev_kfree_skb_any(frag_skb);
+> +			frag_skb = tmp;
+> +		}
+> +		skb_shinfo(skb)->frag_list = NULL;
+> +	}
+> +drop_data:
+> +	dev_kfree_skb_any(skb);
+
+[Severity: High]
+This is where the second free of the skb occurs when propagating the error
+from the recv callback.
+
+> +	return ret;
+> +}
+> +
+> +int mtk_port_add_header(struct sk_buff *skb)
+> +{
+[ ... ]
+> +	ccci_h->packet_header = cpu_to_le32(0);
+> +	ccci_h->packet_len = cpu_to_le32(skb->len);
+> +	ccci_h->ex_msg = cpu_to_le32(0);
+> +	ccci_h->status = cpu_to_le32(FIELD_PREP(MTK_HDR_FLD_CHN, port->info.tx_ch) |
+> +				     FIELD_PREP(MTK_HDR_FLD_SEQ, port->tx_seq++) |
+
+[Severity: Medium]
+This is the other side of the tx_seq data race where concurrent writers will
+corrupt the sequence tracking.
+
+> +				     FIELD_PREP(MTK_HDR_FLD_AST, 1));
+> +
+> +	trb->status = MTK_TRB_HEADER_ADDED;
+> +
+> +	return 0;
+> +}
+[ ... ]
+> +int mtk_port_status_update(struct mtk_md_dev *mdev, void *data)
+> +{
+> +	struct mtk_port_enum_msg *msg = data;
+> +	struct mtk_port_info *port_info;
+> +	struct mtk_port_mngr *port_mngr;
+> +	struct mtk_ctrl_blk *ctrl_blk;
+> +	struct mtk_port *port;
+> +	int port_id;
+> +	u16 ch_id;
+> +
+> +	if (unlikely(!mdev || !msg))
+> +		return -EINVAL;
+> +
+> +	ctrl_blk = mdev->ctrl_blk;
+> +	port_mngr = ctrl_blk->port_mngr;
+> +	if (le16_to_cpu(msg->version) != MTK_PORT_ENUM_VER ||
+> +	    le32_to_cpu(msg->head_pattern) != MTK_PORT_ENUM_HEAD_PATTERN ||
+> +	    le32_to_cpu(msg->tail_pattern) != MTK_PORT_ENUM_TAIL_PATTERN)
+> +		return -EPROTO;
+> +
+> +	for (port_id = 0; port_id < le16_to_cpu(msg->port_cnt); port_id++) {
+
+[Severity: High]
+Is there a missing bounds check on msg->port_cnt here?
+
+This loop relies strictly on the device-provided port_cnt value without
+validating it against the actual size of the received msg->data payload.
+A malformed or maliciously large count from the WWAN firmware could cause an
+out-of-bounds memory read.
+
+> +		port_info = (struct mtk_port_info *)(msg->data +
+> +						   (sizeof(*port_info) * port_id));
+> +		ch_id = FIELD_GET(MTK_INFO_FLD_CHID, le16_to_cpu(port_info->channel));
+> +		port = mtk_port_search_by_id(port_mngr, ch_id);
+> +		if (!port)
+> +			continue;
+> +		port->enable = FIELD_GET(MTK_INFO_FLD_EN, le16_to_cpu(port_info->channel));
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +int mtk_port_ch_enable(struct mtk_port *port)
+> +{
+[ ... ]
+> +start_wait:
+> +	ret = wait_event_interruptible_timeout(port->trb_wq, trb->status <= 0,
+> +					       MTK_DFLT_TRB_TIMEOUT);
+> +	if (ret == -ERESTARTSYS)
+> +		goto start_wait;
+
+[Severity: High]
+Could this create an infinite loop in kernel space?
+
+If a process executing this function has a pending signal (such as being
+killed), wait_event_interruptible_timeout() returns -ERESTARTSYS immediately
+without sleeping. The unconditional goto forces a tight loop that never
+returns to userspace to process the signal.
+
+> +	else if (!ret)
+> +		ret = -ETIMEDOUT;
+> +	else
+> +		ret = trb->status;
+> +
+> +	kref_put(&trb->kref, mtk_port_trb_free);
+> +
+> +	return ret;
+> +}
+> +
+> +int mtk_port_ch_disable(struct mtk_port *port)
+> +{
+[ ... ]
+> +start_wait:
+> +	ret = wait_event_interruptible_timeout(port->trb_wq, trb->status <= 0,
+> +					       MTK_DFLT_TRB_TIMEOUT);
+> +	if (ret == -ERESTARTSYS)
+> +		goto start_wait;
+
+[Severity: High]
+This appears to have the same infinite loop risk as mtk_port_ch_enable() when
+a signal is pending.
+
+> +	else if (!ret)
+> +		ret = -ETIMEDOUT;
+> +	else
+> +		ret = trb->status;
+> +
+> +	kref_put(&trb->kref, mtk_port_trb_free);
+> +
+> +	return ret;
+> +}
+
+> diff --git a/drivers/net/wwan/t9xx/mtk_port_io.c b/drivers/net/wwan/t9xx/mtk_port_io.c
+> new file mode 100644
+> index 0000000000000..e3a2de6d2f297
+> --- /dev/null
+> +++ b/drivers/net/wwan/t9xx/mtk_port_io.c
+> @@ -0,0 +1,239 @@
+[ ... ]
+> +static int mtk_port_internal_recv(struct mtk_port *port, struct sk_buff *skb)
+> +{
+> +	struct mtk_internal_port *priv;
+> +	int ret = -ENXIO;
+> +
+> +	if (!test_bit(PORT_S_OPEN, &port->status))
+> +		goto drop_data;
+> +
+> +	priv = &port->i_priv;
+> +	if (!priv->recv_cb || !priv->arg)
+> +		goto drop_data;
+> +
+> +	ret = priv->recv_cb(priv->arg, skb);
+> +	return ret;
+> +
+> +drop_data:
+> +	dev_kfree_skb_any(skb);
+
+[Severity: High]
+This is where the skb is freed on the error path before returning -ENXIO,
+leading to the use-after-free and double-free in the caller.
+
+> +	return ret;
+> +}
+> +
+> +static int mtk_port_common_open(struct mtk_port *port)
+> +{
+> +	int ret = 0;
+> +
+> +	if (!test_bit(PORT_S_ENABLE, &port->status))
+> +		return -ENODEV;
+> +
+> +	if (test_bit(PORT_S_OPEN, &port->status))
+> +		return -EBUSY;
+> +
+> +	skb_queue_purge(&port->rx_skb_list);
+> +	set_bit(PORT_S_OPEN, &port->status);
+
+[Severity: High]
+Is this test_bit() and set_bit() sequence intended to provide mutual
+exclusion?
+
+Since this is not an atomic test-and-set operation, two threads could
+concurrently observe PORT_S_OPEN as unset, simultaneously execute
+skb_queue_purge() which corrupts the queue, and both proceed believing
+they have successfully opened the port.
+
+> +	clear_bit(PORT_S_FLUSH, &port->status);
+> +
+> +	return ret;
+> +}
+[ ... ]
 
