@@ -4,86 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F7CEC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 12:44:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95633C4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 12:45:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s0haKjxFEA+XqfWLiPeMGRklJhvkZG2bsdABvuKjaV0=; b=JRQC3Gls2zhAqB4OLgbxvrH6ul
-	WbKAAoqpkqvHqIa5ZyyPoto7hiHlIKlRwwa1Eyq/qoEbe+zhNb+b4CnOjERmHL2UYiDHYqThDERIC
-	xPGvr2zWZcj3PAxPzSKsHDsmONImBFVOo7aq0j70Y4xnvPNbCZTHjAgssMXGRPu/0c89Eyi55ieUY
-	AL/p+jGy5BZiqFAGp+uTi3Wq+u0rmFbm8tnxU8VKE6x7mmmU5YlT3vwarm7XQoPmxFBvNcdtgGWi6
-	rWjgzhOOZdT5bXzFMmLneulilX5gEoCAJm4y93g+Qg8zJGOw5AiLjG3fCdynpkzoEB5UmvrQ391uJ
-	M2Nz/O8A==;
+	bh=P62EVeZeD6Lr+EK73ByExkJlzskm2POoZpW1kwtVtAQ=; b=bmzanpuGViLTX/9+ZnM4QSOSCp
+	HzU3DbvwJcyR1AQSPhD334MewX+RIBoqBMRU5ZkS9+pTyWgFr8HEYr5Y3TgL7g8hHdQM/+nqsZKBt
+	PDBRXy+YFBv3rBxFxB/DuSYLLmllzQ2s/nznJt+jTzot0dDnoa9rch2ezlYExye89HeUlVfNQxEtw
+	MzGJV0zDxmnBF1wQNp+kaM390/XfVACLjDxp4ab2gMPuR1JsPN9OqfnJKK+yqgsgWCKYr9XjL4U2V
+	lLpIOuIgfOTgcNuVQ7jp0ejOLkb1JBqSD7gH47XXyqcF+/LNCd1gN/xiABH03rAQUgMHg+pQwOEAh
+	L3zRcGUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkLSF-0000000HJxI-0WgX;
-	Thu, 16 Jul 2026 12:44:43 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wkLSP-0000000HKC1-45pq;
+	Thu, 16 Jul 2026 12:44:54 +0000
+Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkLSD-0000000HJti-04eF
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 16 Jul 2026 12:44:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=s0haKjxFEA+XqfWLiPeMGRklJhvkZG2bsdABvuKjaV0=; b=BnowcMcnbk1gDaqz7jikTxFaIP
-	jP9pD+e4n1x/4V0aOZhX3vK9uFMQKTGMMsflgwunFSkPJyMepYxIL1T1dEy9sxbcxoCSa9r3ckAEK
-	l8Z7VhsbEq6U+AAkEwizrsr6mRjcWvcHGFgWQnJctpv7Q7JWqnX9gH91sMaJyg2q3kfEEppWzzJie
-	Su7tGg3nQcBqgyJhKKYutdLgAhaNCpqoODXTKdUwgFkaS6X00Gq63tv8Vo5uBfl/3aJSe0DbXSS3q
-	nIoQBsAxtJFWJ9GpBRZJ/Jcy8C4MVZ6dnKhC68ljAoZCF4ctjbUiHN2WRo+2irvnfrvgEul/uCocj
-	cFIVebcQ==;
-Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wkLSA-0000000E37L-0Q4v
+	id 1wkLSL-0000000HK7S-45fc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 12:44:39 +0000
-Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-ca97d139d5fso4725074a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 05:44:33 -0700 (PDT)
+	Thu, 16 Jul 2026 12:44:53 +0000
+Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-c9e7391839cso2950894a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 05:44:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1784205872; x=1784810672; darn=lists.infradead.org;
+        d=bytedance.com; s=google; t=1784205889; x=1784810689; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=s0haKjxFEA+XqfWLiPeMGRklJhvkZG2bsdABvuKjaV0=;
-        b=bNzOVh7I4KaEO+bBuo529tYKucrzCStv4ETdl9vE4rKZgwVkg0B2iqUd5ulFShjcNV
-         CrcGmE4ACoXM+COE4QQU0UD0CzR55uT0zyt7zhiMLPHMVwZnH53C+9dSdySO14QgM3vG
-         kMMpduIiHTgBdWCYi+KSRwWiV24nke872fqgsl9hxaapP5IviXlB+JD8IW8JFvRhFxHH
-         R18BUOxMvBhjh/d4SsMJ/NhYZSnKvtfnFA56zVEb6VrYZC2r8dxG4Sx9/eRvvVT9afe0
-         k6kA4SFAp9VljycYPQKeySYoKD4p8Q0XykmpBqWdiXb81YWYm3yyXuVWYlUZkcYznOE6
-         hxfg==
+        bh=P62EVeZeD6Lr+EK73ByExkJlzskm2POoZpW1kwtVtAQ=;
+        b=KKPb15WMnCnTyW5QBnp4ufHS6cR8ccx+A+zqF9/Y0NBpZf0vudrOAkyveQGYkQpQpR
+         ZMBCTUhgEluIK7+LeQNvl4gUMpilnRO54kkMTYfZVrenbWCbAFZ+PQwPWm0mVL1Zz39M
+         BKLrtQwctSp4c12a+ATSW7071vbNEYYROHw29Ra5vSJQW3FJPO+ZhYHoxMVV4tg10QyG
+         ilprh/LPCSFApTJdNnIGXazOjhstb5QIG2Bt+8fv/txqy+8kP8ZAPkyrrwaA6gmrbA+T
+         tAaGD3oimvEO9NabUtFlgdbRmRobh6CJR4R+eiQ4cY6+xsAW2l9vZT9xO8UUJpa6obxH
+         PDwQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784205872; x=1784810672;
+        d=1e100.net; s=20251104; t=1784205889; x=1784810689;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=s0haKjxFEA+XqfWLiPeMGRklJhvkZG2bsdABvuKjaV0=;
-        b=I9PXJjaeh1UjED7Hskq6GJgAO06fqyRkcYBMcU7pdkhDuqeLL1g5Q4AZFMEd2RD9T7
-         2/15Bt74vkAvPSSAeDBDJfGa40nEL/Vd5E4xS0ABp82j1bayUvoYBGgKjJsTcnZjAUt2
-         RdJIhmJvKSL1XshJcB9Qp0wOoFrS9gRrydB2dfVKGB2HL503TiIbCymWt7wW6uZgutSm
-         ZNjPsBfjNQmlDpo19Myce3xbT4ZoDacgoKq3EBj5hKQTFPM90PyB74yuxXKwbLzLrNHE
-         KBgH8oXTCvsyW756TYm9QHVROusSnbTX+6MgKF0khdoYVnsU+B2D+78r25vzPC14kz53
-         yxxg==
-X-Forwarded-Encrypted: i=1; AHgh+RovgZXqeiGbfees2wHlqdXVQsvMKvfEDl/5OTDIowclm0dQ+vWCEZNffC8XJ/qNF5oAWLirQNNIiHGpNImvOVct@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy7mnfhVd8OQXKDrtTG4hbTIOJm1Uki/M06ciJIn4b2p/5aUXbj
-	QFf9eLrKFQIY3fsyHQp3S6xS+5GA8YuSfKBYKdWUnlHhjkqTQ36iW0uSsCphJqIttOE=
-X-Gm-Gg: AfdE7cmv+G8GrfiE+Z8jLs/KwcGspgqJfbm6QWCrtVBPoU5KbnCAngaGwLzclFZaoYw
-	iPMfY+hADAu0Av+hWZvvF8Z34pkNJYycrT3E0w9djBDyl1GPKVKwWXCzL2U0jiTIW2lsB3vIl8N
-	igK4tefJqq0dblkyiihSRnWCoqM3AWKPJsCqKcAPJHA5NuA+AjDCVWk4Lr86P/n56IsmVDKTmdF
-	qR0LhFsScmkNFCnJ5OfMm9CTWOuz/H/nY4dY84qLHr3fVXl8TPGx75h+q4LGgmkw70ocoCxiwOC
-	1g8+ZCbfCsav0Q5axRWI3d97sa8qHoVxY+ft/C4VuTbyZHgmSj2s54kiJ8ucv3syE2Mn8KqCfUv
-	eLHuY4FI9U0R1JeZhFVM9EEsacs2QVlTzNjoYjh5ioC0tly8U5j4WWQsh8twlKFzEKhI2B0IKpv
-	NJpadEbnSzYdNFxJJHP+iQD1RpiFvaOZ3llw==
-X-Received: by 2002:a05:6a20:e615:b0:3c0:9c19:6590 with SMTP id adf61e73a8af0-3c3576c37f6mr12235735637.74.1784205871769;
-        Thu, 16 Jul 2026 05:44:31 -0700 (PDT)
+        bh=P62EVeZeD6Lr+EK73ByExkJlzskm2POoZpW1kwtVtAQ=;
+        b=k3s/cTUWwx6d4mx8Tz8AAP6qJzbDNmZEsf/nFPmDAfM78+Hc3naz24jncEULITO5kD
+         Uj8Qm11z27iL2SsGJM1afCkHgHrtwU6uAT0O1oclmGA2GfK8XA6NKRID48BmseS4KHEO
+         mgtV7qXCOsVg6HAPZMQFXuBkt+KOOGfJtToKjzAwZTkC8tuEGK0FqzjYgBg+dJDaJWcp
+         ajH3uLiiLv6yNO4k2mgx7eJU/34/gWigjt73t6CjtQ1j3ZSB+Wzc/6SxRlPanP5fz/Bf
+         dHptZaDhTM0l6dz+ggMMO0SSZqtSqs1a3eHrmShpe/+xLf8kzJeCspF3zZYRBy29EhxL
+         PLTg==
+X-Forwarded-Encrypted: i=1; AHgh+RolDBak0bk7LZNmnEGk3ha4YfMOqskue0AR5Sl6q5yypVToDHnbrzeOTK1kb0oxQfkvbo/XAzcjsFrpiEO/EELY@lists.infradead.org
+X-Gm-Message-State: AOJu0YwmrCiiL5Zkeqq4Yyta9ZMK0PkZYHPjf2N7az3Cm0kRYwwmpWUo
+	CDSozXcZ4EH9eICKG2ShG38XytDqFtJU+GBTrg5BvsQZKoSCmkv+LSxj1YvJ7P8RTPU=
+X-Gm-Gg: AfdE7cmn2cFdfcfMvIolG8ZRalIaVsUE6xUSXGS3CBdhKGpSAGaV5SgmG1l6Q4FpJL5
+	ihoRIP6I+cMpVMbugo76YG11II9/C+AbEXD3eJ4fXuBv3yWrxAdotvBrc7h56ytWBHICRrAwgqy
+	DN72U4s+YLLKzdpCCo7WVn7D/K0s1SKZKiVoL2r7lIl7cO9GrznWR2TdTQcnJLSMXLCyyoo3kdW
+	cpWOiiSdV/6frWNOc7YZaqqBcVJAMxTxfTfxsUlpCQHlfsTI+G84WNc2hI1B+Vd8qRc7BJq4uu5
+	1jLll9RoL+oHMNIpCmOpksTgGIXbkOixyeSYhmieTNCbu3fXkcrTnI/SFs5ph1ckmlRd6o4DAvA
+	ZLnHFbDWlL/dGxeWSnllhfx+It2+4pWhDKCA0Ck8P2d1kI4tS3LmoWJB2YdK+hZirREHaflblN6
+	BXXzfcTzZ/cOHPJhfPiElLIYM=
+X-Received: by 2002:a05:6a21:7117:b0:3c3:89ce:b5bc with SMTP id adf61e73a8af0-3c389ced5b6mr3647677637.15.1784205889298;
+        Thu, 16 Jul 2026 05:44:49 -0700 (PDT)
 Received: from L6YN4KR4K9.bytedance.net ([2408:8606:1800:501::2:f])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cb258eeaba2sm1730793a12.12.2026.07.16.05.44.23
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cb258eeaba2sm1730793a12.12.2026.07.16.05.44.41
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 16 Jul 2026 05:44:31 -0700 (PDT)
+        Thu, 16 Jul 2026 05:44:48 -0700 (PDT)
 From: Yunhui Cui <cuiyunhui@bytedance.com>
 To: linux-riscv@lists.infradead.org,
 	linux-mm@kvack.org,
@@ -96,18 +81,17 @@ Cc: linux-arch@vger.kernel.org,
 	linux-perf-users@vger.kernel.org,
 	kasan-dev@googlegroups.com,
 	Yunhui Cui <cuiyunhui@bytedance.com>
-Subject: [PATCH v2 12/15] arm64: mm: avoid contpte A/D aggregation in fast-GUP
-Date: Thu, 16 Jul 2026 20:41:47 +0800
-Message-Id: <92fbae3247b4bf0d7989ba20a8763ecb836d0279.1784201104.git.cuiyunhui@bytedance.com>
+Subject: [PATCH v2 14/15] riscv/mm: optimize mprotect for Svnapot mappings
+Date: Thu, 16 Jul 2026 20:41:49 +0800
+Message-Id: <8b79ddc3311e1dc32b150b7efbaed5a187ee5ccd.1784201104.git.cuiyunhui@bytedance.com>
 X-Mailer: git-send-email 2.39.2 (Apple Git-143)
 In-Reply-To: <cover.1784201104.git.cuiyunhui@bytedance.com>
 References: <cover.1784201104.git.cuiyunhui@bytedance.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_134438_312882_95E74416 
-X-CRM114-Status: UNSURE (   9.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260716_054450_039867_7B97DF80 
+X-CRM114-Status: GOOD (  12.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,47 +106,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-fast-GUP only needs the PTE state for the current virtual address and
-revalidates the raw PTE after pinning the page. It does not consume the
-contpte block-wide accessed/dirty aggregation provided by the public
-lockless getter.
+Svnapot represents a naturally aligned range as a block of base PTEs, but
+generic mprotect() still processes a full block one base PTE at a time.
+For a full-block permission change, that repeatedly clears and reinstalls
+the same logical mapping and then has to reconstruct the folded Svnapot
+block afterwards, making the operation unnecessarily expensive.
 
-Override the fast-GUP PTE helpers to use the raw PTE for the current
-entry and raw revalidation. Keep the public ptep_get_lockless() semantics
-unchanged for other lockless users.
+Use the batched protection transaction hooks to handle a full Svnapot
+block as one operation. The fast path is restricted to user mappings
+where hardware Svnapot is supported, the range is exactly one aligned
+Svnapot block, and every sub-PTE is consistent with the block PTE. The
+generic per-PTE fallback remains in place for partial, unaligned, special,
+non-user, or otherwise inconsistent mappings.
+
+libMicro mprotect median latency improves on the full-block cases:
+
+  mprot_tw4m   (-l 4m   -w -t -f /dev/zero): 40.4 us -> 4.3 us
+  mprot_tw128k (-l 128k -w -t -f /dev/zero): about 15-16% faster
 
 Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
 ---
- arch/arm64/include/asm/pgtable.h | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ arch/riscv/include/asm/pgtable.h |  8 ++++
+ arch/riscv/mm/contpte.c          | 76 ++++++++++++++++++++++++++++++++
+ 2 files changed, 84 insertions(+)
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 018781a1fcbee..d1e08dce9f7c5 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -1760,6 +1760,22 @@ static inline pte_t ptep_get_lockless(pte_t *ptep)
- 	return contpte_ptep_get_lockless(ptep);
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 3727c148fa0fc..b546e6614c558 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -619,6 +619,14 @@ int napotpte_ptep_test_and_clear_young(struct vm_area_struct *vma,
+ 				       unsigned long address, pte_t *ptep);
+ int napotpte_ptep_clear_flush_young(struct vm_area_struct *vma,
+ 				    unsigned long address, pte_t *ptep);
++#define modify_prot_start_ptes modify_prot_start_ptes
++pte_t modify_prot_start_ptes(struct vm_area_struct *vma,
++			     unsigned long addr, pte_t *ptep,
++			     unsigned int nr);
++#define modify_prot_commit_ptes modify_prot_commit_ptes
++void modify_prot_commit_ptes(struct vm_area_struct *vma, unsigned long addr,
++			     pte_t *ptep, pte_t old_pte, pte_t pte,
++			     unsigned int nr);
+ #endif
+ 
+ #ifdef CONFIG_ARCH_HAS_PTE_PROTNONE
+diff --git a/arch/riscv/mm/contpte.c b/arch/riscv/mm/contpte.c
+index 8289f39d6e188..6a1156629d115 100644
+--- a/arch/riscv/mm/contpte.c
++++ b/arch/riscv/mm/contpte.c
+@@ -190,6 +190,82 @@ napotpte_is_batch_consistent(pte_t pte, pte_t batch_pte, fpb_t flags)
+ 	       pte_val(batch_pte);
  }
  
-+#define gup_ptep_get_lockless gup_ptep_get_lockless
-+static inline pte_t gup_ptep_get_lockless(pte_t *ptep, pte_t *rawp)
++static bool napotpte_can_modify_prot_block(struct mm_struct *mm,
++					   unsigned long addr, pte_t *ptep,
++					   unsigned int nr, pte_t *raw_pte)
 +{
-+	pte_t pte = __ptep_get(ptep);
++	pte_t raw, pte;
++	unsigned int i;
 +
-+	*rawp = pte;
++	if (!napot_hw_supported() || !mm_is_user(mm))
++		return false;
++
++	if (nr != napotpte_pte_num())
++		return false;
++
++	if (addr != napot_align_addr(addr) || ptep != napot_align_ptep(ptep))
++		return false;
++
++	raw = READ_ONCE(*ptep);
++	if (!pte_present_napot(raw) || pte_special(raw))
++		return false;
++
++	for (i = 0; i < nr; i++) {
++		pte = READ_ONCE(ptep[i]);
++		if (!napotpte_is_consistent(pte, raw))
++			return false;
++	}
++
++	*raw_pte = raw;
++	return true;
++}
++
++pte_t modify_prot_start_ptes(struct vm_area_struct *vma, unsigned long addr,
++			     pte_t *ptep, unsigned int nr)
++{
++	struct mm_struct *mm = vma->vm_mm;
++	unsigned long ptent_addr;
++	pte_t raw, pte, ptent;
++	unsigned int i;
++
++	if (napotpte_can_modify_prot_block(mm, addr, ptep, nr, &raw)) {
++		pte = pte_mknonnapot(raw, addr);
++
++		for (i = 0; i < nr; i++) {
++			ptent_addr = addr + i * PAGE_SIZE;
++			ptent = __ptep_get_and_clear_noptc(ptep + i);
++			page_table_check_pte_clear(mm, ptent_addr,
++						   pte_mknonnapot(ptent, ptent_addr));
++			if (pte_dirty(ptent))
++				pte = riscv_pte_mkhwdirty(pte);
++			if (pte_young(ptent))
++				pte = pte_mkyoung(pte);
++		}
++
++		return pte;
++	}
++
++	pte = __ptep_modify_prot_start(vma, addr, ptep);
++	while (--nr) {
++		ptep++;
++		addr += PAGE_SIZE;
++		ptent = __ptep_modify_prot_start(vma, addr, ptep);
++		if (pte_dirty(ptent))
++			pte = pte_mkdirty(pte);
++		if (pte_young(ptent))
++			pte = pte_mkyoung(pte);
++	}
 +
 +	return pte;
 +}
 +
-+#define gup_ptep_revalidate gup_ptep_revalidate
-+static inline bool gup_ptep_revalidate(pte_t *ptep, pte_t raw_pte)
++void modify_prot_commit_ptes(struct vm_area_struct *vma, unsigned long addr,
++			     pte_t *ptep, pte_t old_pte, pte_t pte,
++			     unsigned int nr)
 +{
-+	return pte_val(raw_pte) == pte_val(__ptep_get(ptep));
++	set_ptes(vma->vm_mm, addr, ptep, pte, nr);
 +}
 +
- static inline void set_pte(pte_t *ptep, pte_t pte)
+ static inline pte_t
+ napotpte_normalize_batch_pte(pte_t *ptep, pte_t orig_pte, fpb_t flags)
  {
- 	/*
 -- 
 2.39.5
 
