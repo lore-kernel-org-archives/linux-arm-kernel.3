@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06215C44512
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FC76C44514
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 21:03:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,47 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AW9TjGSatVvWSZ0TGUUwybfwE1IN6Gx5okMhDPZ0LH8=; b=Oj0Dc1cxrn1u1AhRKSW4mftRVj
-	/JjU97lQ0u5x8gd88KY+gDOAYHOYL2TkDxsyiqAvsQjcabkfu8/2Oq82rMzCyPZvttz9ItA5jbuER
-	PjB7lFPu9pYMCT/r+VcZBCdSyVWZAG9bQsaKW/ph0xh9hDPRPuV2NH43O9msxmMhjIzw2hAxgHq8f
-	ek2u/W9Mv3zIvGTo0Dgu6di5Q1MoO8UGVyXzaw30tMmuCPXwXYVOkHM5SvdbPI7aGTcggjwi2KSLs
-	FWka/XXSFtJtXtw2F+zTwIj95v1/Nuagt9JqRodgCGQQkT3gAmbi8cwU9h57FnQPJfck9mfE53GV2
-	mG796N7w==;
+	bh=hBoVEZK1tAF557hq3+NYQ5YymsrdRFixE8MyNhgKL+c=; b=r5vAylqWtSB7zIS1GW2c0FKxSG
+	WOnK5C2uFtdUNUcjNi1CPI9SdgKmKwnUv+bAam75uyDdWRniaWxdhx94Rk0xlkrK0gFjKraWrKnF3
+	irtCRVz2sQP8UGFXMFlWzuGIoRHSWZ8yMsGAshkxA0camXKpxQ7FSaJzoX/t1Ngbx4Db4BtVOl5XU
+	w8e06YEzXISEtouYlJBn3dhchzyIjwkoNY8sYwoBG6ePC6HiVVNZcIFR9nkl7k6GpF7N72R8+wKV+
+	P/QEG+JLR2n0QdANesmQ1kTXqBfJV2KhtB0dhwc6L7eyzQzg1ubFoArewCao1nRKYERy6ddRW4VO8
+	9qT4OaHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkTFG-00000000Y3Y-0xUN;
+	id 1wkTFG-00000000Y43-1z9J;
 	Thu, 16 Jul 2026 21:03:50 +0000
 Received: from mail-eastusazlp170120007.outbound.protection.outlook.com ([2a01:111:f403:c101::7] helo=BL0PR03CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkTFA-00000000Xx9-3WnT
+	id 1wkTFE-00000000Xx9-0DB5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 21:03:45 +0000
+	Thu, 16 Jul 2026 21:03:49 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eCoB642FuSE91q7af0l8FwTtQOoyYBwoOAGRAA+PVT4H4pJd7b2WoK7uDegzAuDvY5kErdfXDQtgfHCMjuuKOYIsW2rHiip6gOvVmQquZzsOl6P4KDjeGzxQcPpgxt9pOoi9E22ef0hRYhLhUPSp4YZjcDNnZ6rj0RmymdwS6kVKCNPMYwCUrxfriXi51GkeLep3zSPNdSpivzvMVpTLB0Rr2pkrWoOTH1OV9xdVWm4PyKRlQk9WlPP16uQVrw4RbJ7udUwGAVhoH2vrjAEDDDW2Jl42+03Y0KQOvQGvlaQ49S/VJ8tSYFtaHTOoLf+vB1WRbL3niHKT103331aLRA==
+ b=AKpT/ePsPjz2lT8v+qduTgFn4oHHHDoRVRk8A5ZjEkhcXHfAUgJMb13kfW5Ta0qKqewe1S+VvJGYra+a0cWBm0939Od4i+KPiWDfq71Y9HxSzyHxXmjMNmIrQbH9IiKePHY59ByF5Ls1zzJwi9lBW9fb/fwkrZsjhC6vAn0tr+htd3+SSWpNdTJnvNcP5f+hPfszjll8zATrYJtw62NYDvKjQSEz/HRFEUSluP1mxM5icK/vvkCyCFR+yy2QA2wkt7dn/BRVpWNA7poUJ0hxzJX42sE8PI/vvxP/wvjIRAt5xS/cahx1gR5YgCDL9WJ5GumPmEqLNeaBFbhjqWytbw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AW9TjGSatVvWSZ0TGUUwybfwE1IN6Gx5okMhDPZ0LH8=;
- b=sqkMXOHuAkLkueM62PkHcBsC4nzIoai58zlx+EVu5EY77hcmpjYFXHvifh1M6yywbTRabUzdvX0JL3NEGyou7JtTLNq5hMj05FHzbxS4aUd1oEMcYHe8RX16icmuEsweBtg1xBl2K5BUCp3UoJXcuYai/ltorpa/yUSsQiQ+LNoK8iXw6xteesxo2tW9MmscCQFbb2ydVprmSn3zr9PL5KETg9QawkCD1MLGhtrSaiIeHdJ+engjjzAzca4404JsfYjK03hGcIHQU2vXpnZqHLvm+9DpgArBpOGafOu4UwmAO7d6HBY3vLpwrir/0cDGlFdl+kG9bGlzWIlnW/eQAg==
+ bh=hBoVEZK1tAF557hq3+NYQ5YymsrdRFixE8MyNhgKL+c=;
+ b=Y7JsGurwJwqfJwkNrKgXsKKZQ6neuIS8kYIzOTqsg8lDMAW+uaIjtMaQA575zz0uOYndywAOSGHEohhqfKbSpBmc5u1nJ12PNU3OXvbbyRNzBiR4sg0A+/FKWMKKzv8FcpLh7ujKSsbaIkySxy6Jc3VhJuIuUm1dIkMWwRFfJotfUSiM/Hej8NOKRvC5HGHKV8DNMmowKvE74Qf/RjQP8x0KU+O1+v3Bc6OVFFai6x/Ey8ttmnnOHPnSN7J8jf9E30mxkVYoNdQ7JLYZ6m90VlC9Xvo0rGiImUlaG4zqwfMbUPFdUchIgn5nYY2ChK5qVABUiRL6juJTM2tTRBPo1A==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AW9TjGSatVvWSZ0TGUUwybfwE1IN6Gx5okMhDPZ0LH8=;
- b=Knwelo65ZSxyedw5IMa5+NlxhYHDm/8EA5zx1ij7Uz/jce+tyIXhScI0yYxpzVOl1wZASlEmJQ/fMm2SamAaGa2/taDgGyyViY0tgdarSWVJrlfLYKKOvQsFuPW3m/aHGnRpsaTunXKdOKh5cRZHNLE0PpQx95KmYGLyr6la7TH5dZpa3q2dO8GNc+fMXsD+r97iLkkalclUJJc0zvGDTWRr2wVaNIbGDEa80TFN+TZMfksSlkFBOuVuHmfZ1Q3OZ7TVMoHTBHu9dKU5YcgFQJcd9rvAtIwMa8jfVKRheZBXXiJD4QZxHABQTxWAJ7dlI65OZJJqUJ8OmoX9l0mOUA==
+ bh=hBoVEZK1tAF557hq3+NYQ5YymsrdRFixE8MyNhgKL+c=;
+ b=Sb32vLEQ+yZNGz3danLZhwbe3vW05wDGZeBlvo8YqY/RpJ0F9colmii7eJH4SI/6Jozxtt5z4rLIftzb6V3p+BLDqByRiwjWXLNorAY0JMEhr6kYfKKyD34XmUhIYqSIoihqLfTl2Y0Mf+WIzXhS4T4ncl/WY2pviCgehzPqYoXGxKUMwKaj6neXkyCDZR0EDKDD4aSDRuSWt50OeF2N1TP0uCieXccHsqwYNZ64xE3rem3UCkSsabH6QMdGvQxkizC1Ii4+DDK8cnHvQXOSnidX0iIRze8UIxMwPWRoVcDgp/mzZO5IC7QgpkMe7UDza/RmAfC9xgXsZsb/UPEVAA==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from DM4PR12MB5230.namprd12.prod.outlook.com (2603:10b6:5:399::11)
  by PH0PR12MB7485.namprd12.prod.outlook.com (2603:10b6:510:1e9::19) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.12; Thu, 16 Jul
- 2026 21:03:32 +0000
+ 2026 21:03:35 +0000
 Received: from DM4PR12MB5230.namprd12.prod.outlook.com
  ([fe80::6e87:1bde:1853:3b73]) by DM4PR12MB5230.namprd12.prod.outlook.com
  ([fe80::6e87:1bde:1853:3b73%5]) with mapi id 15.21.0223.011; Thu, 16 Jul 2026
- 21:03:32 +0000
+ 21:03:35 +0000
 From: Fenghua Yu <fenghuay@nvidia.com>
 To: Reinette Chatre <reinette.chatre@intel.com>,
 	Tony Luck <tony.luck@intel.com>,
@@ -70,72 +70,71 @@ To: Reinette Chatre <reinette.chatre@intel.com>,
 Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	Fenghua Yu <fenghuay@nvidia.com>
-Subject: [PATCH 02/23] arm_mpam: Fix NULL address access issue
-Date: Thu, 16 Jul 2026 14:02:52 -0700
-Message-ID: <20260716210329.2914625-2-fenghuay@nvidia.com>
+Subject: [PATCH 04/23] resctrl: Expose per-control status in resource_schemata
+Date: Thu, 16 Jul 2026 14:02:54 -0700
+Message-ID: <20260716210329.2914625-4-fenghuay@nvidia.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1784217438.git.fenghuay@nvidia.com>
 References: <cover.1784217438.git.fenghuay@nvidia.com>
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: SJ0PR03CA0089.namprd03.prod.outlook.com
- (2603:10b6:a03:331::34) To DM4PR12MB5230.namprd12.prod.outlook.com
+X-ClientProxiedBy: SJ0PR03CA0070.namprd03.prod.outlook.com
+ (2603:10b6:a03:331::15) To DM4PR12MB5230.namprd12.prod.outlook.com
  (2603:10b6:5:399::11)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: DM4PR12MB5230:EE_|PH0PR12MB7485:EE_
-X-MS-Office365-Filtering-Correlation-Id: da4fd157-02ee-4e02-c3ff-08dee37db192
+X-MS-Office365-Filtering-Correlation-Id: 04bb160f-8604-475f-d665-08dee37db326
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|7416014|376014|1800799024|921020|22082099003|18002099003|56012099006|11063799006|10067099003|6133799003;
-X-Microsoft-Antispam-Message-Info: CL9ERHL0TpcHdqgc4Frt54aDuMd/XMopPMkP+7U2zfX603XsRVk8IUfOb/NyPttRAsFopW5jH4asrPpIXMet08xqOEPimtW4v9fFCpKtj50qjTThd0Q2CGutaMiFp8esefdrT/Q7/OsFgGa8jtZ4JJZb3QKSOpiVQvov9MejwpmEe9UwC+MCmul+GxlKiQE2Q3+myJJCkTqN0RgPta2H6EqcsYrraZVRvggZGS7aza1wbZ5xiyWCnnkFwvqsnU8G8cmppRwwCUqRGJrfe777IqdE6oD9u8phD/QkoOYIrycDmoyhbBAdWO7rDbqxLNr6NId8azAyxzmDY0NAkKj/r1CyPDoBtm7VRbK4THOrLiyyAVMOKOIBdYTto6ss8KaS8TAMU1gVjOfw+cw7CR0jmS+yt+UPR+isHbgIapXbBLpGtaLinUhMkXKru23MmYy7Gs9Iti6dafI5ajgBOpnb8KXWHw97CZdMC8H0ngQKkqnnSVCf3seIPIorh8At/azQVpRBgKNcJgZQ23nevxCm6GWOkvOLSwZpZVXqEVP1OhA+Ako15O89WUylc5WvEbmDV/izASMK5dkezRg8+IbPCKNt940sPCCXx6DkZaCR7pkiqEoeQPTCb2PZPZjCrdnZALZQlcMvca5YdQ+uP7hUYB4BBM/A7Q3zS2XsVyRIa2EWAx+D/DFqdxK4FafKdWkIGxk28foL9oJyptCAT34emQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB5230.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(7416014)(376014)(1800799024)(921020)(22082099003)(18002099003)(56012099006)(11063799006)(10067099003)(6133799003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|7416014|376014|1800799024|921020|22082099003|18002099003|56012099006|11063799006|10067099003|3023799007|6133799003;
+X-Microsoft-Antispam-Message-Info: MZB5+GWNkuYFgNYEO9KIxFwpVXKrH51KcOzg8C4cVv/9JIEDcTDxROwzYOyJoBHvHKutw9cA2Az6XHJCC/1/uhZwN8iDpBx1swNU0G2RE+bHm39vdaKU8Qd7p37gHYkQt8/puXQ1N54Q1zBXXPU3sHAkLZ2LJ71uPH4fFqfN4ay5RZIKjoNTx73B53G6nXnC9h8NDCE18JTT7ijDhg4DPt+tmVAQAU3d2zGmw4FVbDvcx332z+a8T1n9eslIkcODIISQxzH7REYwxf/x74MmSGP01JKt0OEzUdGVk4igQZWNOgNdCibQhuWE1cic0oT926/GzoGqiV5WA6Xq9cUS2Zub8/2ihdj44KPPnlBS8nVtq+w05PVkYuoVxXEYT3hFMMjLUew46Yfbb5Q2uFwfj9x3EfpbxS5DwwAXrMi0f1r9SZMFeAoPdeUPtygb4A3qGnA4uZZ35QMcqBAAsgMTW660HEzmoLHs4ktEgNycR+LEexntYSXtwMQM0c1gPzXDOKA5w0yI72xFCdjtog3nuzxKYcJfihSQCPUrL4uHvhmZz9hCqQxWSwEYZr137+CHvcArzHTDraMpdqV45ogd/miE4nDa6UaUfjFjScz9LVBQtfZEwzctxxhd328qLcYlZfNqe2LZY/5hzIC8tdLDGQSBdvUFQgkPa+FNvAM9NOibq5ORU/BMfcNz1Wbn3qWS+3Tm2mb4o7T9zghiNF0M1g==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB5230.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(7416014)(376014)(1800799024)(921020)(22082099003)(18002099003)(56012099006)(11063799006)(10067099003)(3023799007)(6133799003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?EF5+SPvUf23Vrd+RU/uExN0WdhS52MkTO6CoPs2qFnp+gTnVln0SicFABRJz?=
- =?us-ascii?Q?NDdmrjAq6QCmkyGYU7Qtbf0ud1Muh2S/4LOETNXXSbak6cZn4/DtyslN6551?=
- =?us-ascii?Q?eXhZRlqRZJy5uQSvWMledS+oAD7PRqSYJkiH+Qnk68C0fj1Jq0f51JR0QVYK?=
- =?us-ascii?Q?XipA13o/5F9JS2cxtDfcdrB9hvfPMQcADGPZ95FtVn/jKb5OKxzMC3z+X56P?=
- =?us-ascii?Q?QLItO3AxSf2b4mm14s0And9vNI/IZ7Yj79nEg01EbINunoOpon0nQ/jhP22w?=
- =?us-ascii?Q?McprR1uoApv4ptAd1kXDw5y5d9UuM9RmNEBIOsfcBISq0/YZZwpcmfmiDl7N?=
- =?us-ascii?Q?KiumTQ2LzhxJ6tiG5fGHGtbnDKbGE4rwIU4DOx3V+Hpkh8THHqbCb7T3d4cZ?=
- =?us-ascii?Q?OSWWHWaynN3jmv4HMGNhoxXFKKryc9VVLltXfZjNlYCIepWdRjUuMaNJJ32a?=
- =?us-ascii?Q?0vR0Uiffyr1nEiDMyK0pUHXP+OSL1fAQYVDm5P30B22YCJscuMOH3rJ+AmwT?=
- =?us-ascii?Q?Cr6e9mmBmT2l9bB1EW3XwdUVt4xMouBtrQwWUOwG8KHuN5z+V7mZNeb/YF88?=
- =?us-ascii?Q?LqnPGq6y8ygXUaqr4TI7GgRzkohxCPx7oV/6stNAh8763kx02dtB6YXhxn3R?=
- =?us-ascii?Q?XHaqo4gIkH4IZWqrmsVCGjGIzFinsCy+1Bxq+sheB5GN1IVyh3mn5zhfQQkw?=
- =?us-ascii?Q?YDmYpQmvivEu+lap5Aep5bSCujrx/pqyUvNQ18WTxzw3CJjqWLNQ6GPk7IPk?=
- =?us-ascii?Q?QsZ97FazMEvRJz1VYrWGb6ykdkBOdkWyn3ntmR1OF7o7J6O1RFzYVYp3w0h/?=
- =?us-ascii?Q?/Lp4XiGc0FRutPe03rpq5bfNLkvjVyxI+Hdp0koVnJAmQBKSIO+pGY+nJNhd?=
- =?us-ascii?Q?XIp+pP/oVs8incSejyZabxEk7AXyQBz5fDB7r2SuUDT/su+CpGZfLAxKCqBf?=
- =?us-ascii?Q?j3+VGgwTDaRbcwzs7Zmw4YGbNbqzmoQu4w5hZI+e4HE/9Z06sqmXg6nH6rav?=
- =?us-ascii?Q?fMOBAL4zEVvNgH4klnYeURDJrVo5lXz3ntWhQbBtiLUmRtGfPhlaSwuuLir1?=
- =?us-ascii?Q?8J09yEYXFONKJJi8vdcupW1YnVZzY5VDenEIl1yHO3jlizJ95uG6PdVF2QvE?=
- =?us-ascii?Q?5Ft8WrsTwKC9c+f0BuDvLpgR1/KI7esDm/Otj3kaFWGuOqjAW+HYzprc2D1l?=
- =?us-ascii?Q?/hBoYWoQ+SlTual+RKfbbkspt5vHEG8TZJP9lPLTW9pMquHoTWXTLCpEwxoM?=
- =?us-ascii?Q?IkvkIUsXERAub+jHiHhuEQ2zyodJBgizH+yicQNXz3fogKc09YhS2rDED6Vw?=
- =?us-ascii?Q?OAe51L6d0sFLVP7/fS+LOYPp3H+vAimBfhQe1JjjQ7AmBdWjefSeTFGNvJV6?=
- =?us-ascii?Q?SnPmAD4+TxS/NC9o3gD/POzK98VArScqc2MFGGK13Mzna0A4WW1yUJecKrck?=
- =?us-ascii?Q?mifVAsZt8+AqPuq92UUJehxbn/EzCu31pzDO4k4ScX1uI0F2RDlB+4iAT5Xf?=
- =?us-ascii?Q?KxOWX1YtBlBa4xaqRqEBsDwzns6mc4GsOsrDUkQE47bGSOgPZ5iDhTZkIRV4?=
- =?us-ascii?Q?twnM7DVjh2UXnA56wWqCSu5t2QeSPxTJL+gVr3SDADW8fVY9IbFli/J9IV96?=
- =?us-ascii?Q?AIYzACeEEghwn8qiXOm++ORjq5QIrp/U36SrD4NtgzHaPdHD3CsdX01xj3To?=
- =?us-ascii?Q?ST9+OjT/k3HCgLUHfJ6SHwy5z5WMhjtSTaCYR2CFluyM8wyS3zvU4deOQyxM?=
- =?us-ascii?Q?N0OKrNHDFA=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?sqbN74YA32haP2ug9EZpu671ogna0fTY4Fv+mXpRSTw4S2yK1pIqUMLclEsk?=
+ =?us-ascii?Q?vX4EnK7AdD4P3lKj/M8+GhPGMQnO7RgyYpyfl75YiuJrUX4ehWq2pws2vx/q?=
+ =?us-ascii?Q?bgnDZXjFilllnkFOozHY73GfYYiIFXryGvyJscPP4uRJRWfQtjubVVjfefXi?=
+ =?us-ascii?Q?OyzHexZocdM/ZekXeX7ZF3PY/FO/eRNdrhuZwybjGJl+d30WETeI+Y/fwV+s?=
+ =?us-ascii?Q?rxgz3RvS9IqrHxcoWLQmPQyz8q9EJ51DYk1uTQDZsl1DjlZhgwor7XxIsCwi?=
+ =?us-ascii?Q?qHkF2SRwA9Jfk007FMVUX0IQizElaMvjTSHQzd8aNjihsYxxCtySKIUxL6CP?=
+ =?us-ascii?Q?FbKmgDpTCIt2ccWhz6T2rhXDYwa6aGh03GwaowuADTmgMq4b4OCmRHjrcMBy?=
+ =?us-ascii?Q?AG0IPS3P3DBgTRyeS2CPEa8hGhxACSZvAAMFU6yG8T7/2eBUdD2dm7m5IzFo?=
+ =?us-ascii?Q?PFn2KmkiH/y2eWGdSNgeQTRfbY7aXDZW4bd2GlZE/fWNmuUPL/g57lXTlG8D?=
+ =?us-ascii?Q?mE1xbU8VV85uQaHpoEgqkhU2SMkDYejBT8/AItA1Aa5fP++tfT8W9qGJ7rp3?=
+ =?us-ascii?Q?KyYV3T+DTLARNMPUoAII99F27FjA/w1go3+xaEqldGZCLoQMhQyShecxbaui?=
+ =?us-ascii?Q?UoQjmo/DzhFLVh92LQiOj0Lj6Dr+ivYXtXnkULmX7lVupfheFJFN5r9w+nKv?=
+ =?us-ascii?Q?xL8S9DvwDyMDJ996Nyoco8ZypBIrRpPuBk6usjEFBHGQ5V+o0jQi9mCqa5Zg?=
+ =?us-ascii?Q?ssImPgxtrIwu9wEhVEsNu1lvtY+et5rJyAo2AfbeTwOPdq0cF+Kg1Nrfgodo?=
+ =?us-ascii?Q?CWyNTWmLvxX6QN/6Bt/Eksu4en0J2ElXlLBTmlU+aOTFdnqTsaLm1e+Il5sR?=
+ =?us-ascii?Q?nNqS/H2kJHzcUUIZCo5x5/Tx+OIo5lzod5ir0ZSmWd4QlJdPJ4Ch/BJr4uPr?=
+ =?us-ascii?Q?kh60kQgZMbWFVIgJhYNj2A0PuWmImvf/4/zIQV7PpzQEcDMlwhlGj9BQhZRy?=
+ =?us-ascii?Q?etVVKN7GAiFjcnzD2xv2y4phcBD4FYRmqXqDXTylmpu1TD4Xw5xcQP7qlhwo?=
+ =?us-ascii?Q?iQm6CNC6q60mB6uY4avgQqWapgc1xZBXxXPmpj+0XVclBNvOIcH55fp8S116?=
+ =?us-ascii?Q?b3U5BsmS4vddZlLEqJGZvR+zploEAWbHXG71feq50LeZBSzJqjPgqjDtSTHE?=
+ =?us-ascii?Q?F2YMljVk8g9n82D/dooJ522by5gkWIjbYXWoRPYaCKWaGyRrCUfQRT5e37wx?=
+ =?us-ascii?Q?KZCV/JFCd9ZH21Fu9xtrWTjBdivw7mNN/VONI+Tl3w4XAhMCpxzzi0Z/mszP?=
+ =?us-ascii?Q?djiD4Afy0YLLnFidROxfs+yih/ba8A947SSoEGPS24geXFIRm9QhMl8cUH+6?=
+ =?us-ascii?Q?zN26O/tQy/OL9Bndn22V0f3JMTIWn9aFbITOv3afYZkNk+Tjr/9zUqSG5DfK?=
+ =?us-ascii?Q?dZu7j6eKt8a/mZb4un2CzVMAOQf0NUxYM9zeHZkSVwB9fK4OAV5sKBEaoNpp?=
+ =?us-ascii?Q?+Qz8Zpa8gPRZMeRejdW0+PhWS33aGuTncA0VdBW1JH7r/iWpeWxfShCZu2L4?=
+ =?us-ascii?Q?fWGICYCCiDtFyk/fYDilwxAQGQkFinC/7rsiCUcw2bxrsGxzfRpTzat+Jaau?=
+ =?us-ascii?Q?egW/EWsdFIAGkHlTA+/uRMQsTKM+4FTwtWklDUjWMkVNavm6jw2rcUhs29QT?=
+ =?us-ascii?Q?UrQ3VYZ/Wgmzgigw5n4jtDW7FdPSadfg+lPubgegss/LsBdHWe8t3Ma2XzJq?=
+ =?us-ascii?Q?2VKLQ7QKEQ=3D=3D?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: da4fd157-02ee-4e02-c3ff-08dee37db192
+X-MS-Exchange-CrossTenant-Network-Message-Id: 04bb160f-8604-475f-d665-08dee37db326
 X-MS-Exchange-CrossTenant-AuthSource: DM4PR12MB5230.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jul 2026 21:03:32.4568
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jul 2026 21:03:35.0417
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 5kUhf8gMqwB7fO6tRvyE4Hpbc7zc5F4bynnCSFEtIoCAXR7mFV6AX/Z8U85RTOGFdvck1eSVCAcQ3OFKoJJYJg==
+X-MS-Exchange-CrossTenant-UserPrincipalName: iH/jo1ampseQzrrOBoYZBwe9zN8wi1AwOKYPanHxFkHZNkqJdAMe/JeeEf6S6OY9a3Aye1ed4lAw6DB9c/ESJA==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB7485
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_140344_883227_E24A6A49 
-X-CRM114-Status: UNSURE (   9.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260716_140348_092484_7D047F33 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,35 +149,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mpam_resctrl_setup() initializes each resource's mon_domains list but
-not controls. mpam_resctrl_controls[] is statically allocated, so the
-controls list heads are zero-initialized rather than empty lists.
-Generic resctrl walks controls with for_each_resource_ctrl(), which
-dereferences through the list head's next pointer and can hit NULL on
-resources that have no controls yet (for example dummy resources whose
-class is unset).
+Emulated MB controls can be individually present or absent depending on
+what the underlying MSC advertises, but user space has no way to tell
+which controls under resource_schemata are actually backed by hardware.
 
-Match the existing mon_domains initialization and initialize controls
-with INIT_LIST_HEAD() before any resctrl setup path can walk the list.
-x86 resctrl uses LIST_HEAD_INIT() at compile time for the same reason.
+Track this per control and expose it as a read-only "status" file for
+scalar controls, reporting "enabled" or "disabled". The state is stored
+as resctrl_membw::no_mbw_hw, which defaults to false so every control is
+reported "enabled" (hardware-backed) unless an architecture explicitly
+marks it as lacking MBW hardware of its own. This keeps the common case
+correct on all architectures with no per-arch initialization code.
+
+This commit only adds the generic field, the "status" file, and the
+default (hardware-backed) reporting. No architecture writes no_mbw_hw
+yet, so every control reports "enabled" until a backend sets it. On
+MPAM the field is assigned for the emulated, hardware-less MB control in
+a later patch that adds the node-scoped MB_NODE control.
 
 Signed-off-by: Fenghua Yu <fenghuay@nvidia.com>
 ---
- drivers/resctrl/mpam_resctrl.c | 1 +
- 1 file changed, 1 insertion(+)
+ fs/resctrl/rdtgroup.c   | 17 +++++++++++++++++
+ include/linux/resctrl.h |  4 ++++
+ 2 files changed, 21 insertions(+)
 
-diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-index 68b94008d38e..e2cb3384820a 100644
---- a/drivers/resctrl/mpam_resctrl.c
-+++ b/drivers/resctrl/mpam_resctrl.c
-@@ -1942,6 +1942,7 @@ int mpam_resctrl_setup(void)
+diff --git a/fs/resctrl/rdtgroup.c b/fs/resctrl/rdtgroup.c
+index 6b1f24c6a1f2..a3aad9b1ff6e 100644
+--- a/fs/resctrl/rdtgroup.c
++++ b/fs/resctrl/rdtgroup.c
+@@ -2318,6 +2318,16 @@ static int resctrl_ctrl_unit_show(struct kernfs_open_file *of,
+ 	return 0;
+ }
  
- 	cpus_read_lock();
- 	for_each_mpam_resctrl_control(res, rid) {
-+		INIT_LIST_HEAD(&res->resctrl_res.controls);
- 		INIT_LIST_HEAD_RCU(&res->resctrl_res.mon_domains);
- 		res->resctrl_res.rid = rid;
- 	}
++static int resctrl_ctrl_status_show(struct kernfs_open_file *of,
++				    struct seq_file *seq, void *v)
++{
++	struct resctrl_ctrl *ctrl = rdt_kn_parent_priv(of->kn);
++
++	seq_printf(seq, "%s\n", ctrl->membw.no_mbw_hw ? "disabled" : "enabled");
++
++	return 0;
++}
++
+ static struct rftype ctrl_files[] = {
+ 	{
+ 		.name		= "scope",
+@@ -2375,6 +2385,13 @@ static struct rftype ctrl_files[] = {
+ 		.seq_show	= resctrl_ctrl_unit_show,
+ 		.fflags		= BIT(RESCTRL_CTRL_SCALAR),
+ 	},
++	{
++		.name		= "status",
++		.mode		= 0444,
++		.kf_ops		= &rdtgroup_kf_single_ops,
++		.seq_show	= resctrl_ctrl_status_show,
++		.fflags		= BIT(RESCTRL_CTRL_SCALAR),
++	},
+ };
+ 
+ static int resctrl_add_ctrl_files(struct kernfs_node *kn, struct resctrl_ctrl *ctrl)
+diff --git a/include/linux/resctrl.h b/include/linux/resctrl.h
+index 4fc41e269d0b..5d8ea12ae16b 100644
+--- a/include/linux/resctrl.h
++++ b/include/linux/resctrl.h
+@@ -289,6 +289,9 @@ enum resctrl_ctrl_mode {
+  *			"all" for a proportional schema. Base unit of an
+  *			absolute control, for example "GBps".
+  * @mba_sc:		True if MBA software controller(mba_sc) is enabled
++ * @no_mbw_hw:		True if the control has no MBW (mbw_max) hardware of its
++ *			own. Defaults to false (hardware-backed); architectures
++ *			set this for emulated controls that lack hardware.
+  *
+  * With a control value "C" written to the schemata file, min_bw <= C <= max_bw,
+  * the amount of resource allocated by this control is:
+@@ -303,6 +306,7 @@ struct resctrl_membw {
+ 	u32				scale;
+ 	enum resctrl_ctrl_unit		unit;
+ 	bool				mba_sc;
++	bool				no_mbw_hw;
+ };
+ 
+ enum resctrl_scope {
 -- 
 2.43.0
 
