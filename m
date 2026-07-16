@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DE91C44516
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 18:07:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 812A8C44516
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 18:10:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ixzMkuT2wsK+6EL9PnWaaXjCqguB1YXG4PuWxLjqF5Y=; b=YKWh6I6v8v1vGrqL3hQ/Lkl/qm
-	FZfyisy2CgVv+m3PdfqGv8hpLtht0axlhCwIOK/CkmO/MLEp/1c9ksc4dHAKyWvjjGAMUU7Q72/0O
-	JEVlgJCKC+Lm6eVn3k+7KCzDy3wViT9P0WPz2B12soMJXBBRNL15XpMNYJYZ+qSw+FWOWHQinw6eH
-	xhCw2fcsNmDWPNsGeKX/m9AWPyRosrfAZ3/u4vwKGwL1euPqGgnasv4+78zKAYJBKSaUBTXhzcFid
-	puUpo3uNUKE1AohyWcvZ36JhpNG76DU+OTbP6oYzejsjS3jH8VmD+TVJ0PlFA7g1HQGuGG7hhhHJw
-	MH/LF9lw==;
+	bh=ZTNk+mRSaobE7bwGj9PaTvAUpa6/FCcQUxD4xSxPefg=; b=mk31NZMxrZpKqYWTfLYNRjDsuT
+	mhZW+R07cqDtzBlWxPCwcRXyid1w8XjfHUpAWFx9p6iunSfvoZo9PDvtDBp1bYACjq8pFuSoVV8A5
+	0ZPJqteUYusFTneLu8k4V9GPP1rVSs3m/kihyapBABxfZ6m02H/zi8PIognpWxydjw+xbk6hWDbKd
+	PH2wuQfLlhja4Ufnpwhwn1vYDi79GASO3jCbkxP0POCA9LJVUoAEbv9itVKY+S7fWi50BBd62AzhN
+	Ki65/CQbExIvSNLHf7kwUiQabZm0Nly9jEY44fxjCYPJDoZ0Ic15ffGxpsWMBhtDAQlbNYnEOptKA
+	FI/eFWDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkQUb-00000000LIP-0Wxd;
-	Thu, 16 Jul 2026 18:07:29 +0000
-Received: from mgamail.intel.com ([198.175.65.11])
+	id 1wkQX3-00000000Lb4-2SyV;
+	Thu, 16 Jul 2026 18:10:01 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkQUY-00000000LHU-0S1c;
-	Thu, 16 Jul 2026 18:07:27 +0000
+	id 1wkQX0-00000000LaK-27OP;
+	Thu, 16 Jul 2026 18:09:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1784225247; x=1815761247;
+  t=1784225398; x=1815761398;
   h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=3zU61iR89W7q/QfMisKJJhMrwLX8REl16SCm0WWEqt0=;
-  b=fhg61Dh3Wd46gWKL9ZC1SP3bEprBgu6gMBlF4qsHadRjVhOy3FVWlwNN
-   SYezHP5o2yzSK8CYU4/0+E4u7a0DCKY+fm+6/0g+Z6DUs8XkpHDdl9qCb
-   H4ex7rOtKin9S58jl2YGJ99mnoKO6pN4RChFqocYgfutGOaOVPl1m6Gii
-   b8DFSKjTIMLM3XIX3SdPndxx9xqQ3Fm7e9I/dbamc0PRJt3XkU1GQolJd
-   fSObOsTDU8VUB9qk8Q1Oojy9jHAzlkzz46+UwKa3Am2axznHfUYF1ux6o
-   T2BVJCzYQJv6Wf/nRa5FK5OhN6DTpldeLr3CNwYJ8ObN128OTMGINV0ho
-   Q==;
-X-CSE-ConnectionGUID: rYbMLO5SQ9iWc5gvj/Kl/g==
-X-CSE-MsgGUID: WalfNqL2TLuKMzl/N+G2Qw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11848"; a="95250927"
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=Okw3RFWG7FVuL2+E+b2U06t94SSVvQwqXkAr8OEAKqU=;
+  b=LqB1Xcew+XZigMwi0Wv0DkAML53EpLQGeVWrNAk5Bs+fO/X9BRUFytpH
+   b4HnJddrPhcopOYfO9U5QRPyJw+/4IVxW6PrFUS3udFtJNJB1Dj+I4kX9
+   M7RgWdVX9eEQTnIZOUhjiw/1yyJbcAp7r7BBgbjNzZUOaGcytF8omPF5N
+   yYR6nxJUTnXDvv0+XbUkPegM/8qsUGyJyG8BhLe4QbM1z9yjPFq74pSQ8
+   E91FOl7VUiFcj13q2BZca61hEplpxsc3Pm/0/U49SmGQgOSgUG0QSmKDT
+   JPnXMy7lEeZ6xV2eJLefOha39n3BqLFm1TrpfGBoE2pCcvD4aA18ixEdf
+   g==;
+X-CSE-ConnectionGUID: coWayIuASLiHZkPOF1UepQ==
+X-CSE-MsgGUID: JZcS/03XSAWsj4ZtADvR7g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11848"; a="72428741"
 X-IronPort-AV: E=Sophos;i="6.25,167,1779174000"; 
-   d="scan'208";a="95250927"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jul 2026 11:07:26 -0700
-X-CSE-ConnectionGUID: APJCwIcNR12AYNk0i8vioQ==
-X-CSE-MsgGUID: qNYSOzF+SJGatiaUqRLDtg==
+   d="scan'208";a="72428741"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jul 2026 11:09:57 -0700
+X-CSE-ConnectionGUID: QdmQqkseSuO0mjX2xbzbJA==
+X-CSE-MsgGUID: f2U++eSsRAqSyMQQF+RlRQ==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.25,167,1779174000"; 
-   d="scan'208";a="253929056"
+   d="scan'208";a="286635995"
 Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.26])
-  by fmviesa008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jul 2026 11:07:16 -0700
-Date: Thu, 16 Jul 2026 21:07:13 +0300
+  by orviesa002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jul 2026 11:09:48 -0700
+Date: Thu, 16 Jul 2026 21:09:45 +0300
 From: Andy Shevchenko <andriy.shevchenko@intel.com>
 To: Link Mauve <linkmauve@linkmauve.fr>
 Cc: Srinivas Kandagatla <srini@kernel.org>,
@@ -95,20 +95,19 @@ Cc: Srinivas Kandagatla <srini@kernel.org>,
 	linux-arm-msm@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	rust-for-linux@vger.kernel.org
-Subject: Re: [PATCH v3 3/4] nvmem: apple-spmi: improve calling safety with
- wrapper functions
-Message-ID: <alkd0WWr3KX7MS5O@ashevche-desk.local>
+Subject: Re: [PATCH v3 0/4] nvmem: fix a const-unsoundness in reg_write
+Message-ID: <alkeaYNKHZO5Tb3p@ashevche-desk.local>
 References: <20260716142415.28718-1-linkmauve@linkmauve.fr>
- <20260716142415.28718-4-linkmauve@linkmauve.fr>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260716142415.28718-4-linkmauve@linkmauve.fr>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260716142415.28718-1-linkmauve@linkmauve.fr>
 Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
  krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_110726_190471_D02A8DA0 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20260716_110958_578160_526697FC 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,58 +122,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 16, 2026 at 04:24:10PM +0200, Link Mauve wrote:
-> This driver used to cast the regmap_bulk_*() functions to void *,
-> bypassing any compiler safety around incompatible function pointers.
+On Thu, Jul 16, 2026 at 04:24:07PM +0200, Link Mauve wrote:
+> This callback used to take a mutable void * for no reason, which causes
+> the compiler to be unaware that the val buffer should never be modified
+> by the callback.
 > 
-> With two small wrappers, which just convert the void * priv parameter
-> into the wanted struct regmap *, we can remove the void * cast
-> altogether.
-
-Reported-by: ?
-
-> Signed-off-by: Link Mauve <linkmauve@linkmauve.fr>
+> This was found while drafting the nvmem-provider Rust abstraction.
+> 
+> Thanks to the guidance of Andy Shevchenko, this now introduces a new
+> callback and deprecates the existing one, with the goal of renaming the
+> new one into the old one once no user remains in the kernel.
 
 ...
 
-> +static int apple_spmi_nvmem_read(void *priv, unsigned int offset,
-> +				 void *val, size_t bytes)
-> +{
+> - Actually test with COMPILE_TEST, which I forgot to enable before…
 
-> +	struct regmap *regmap = priv;
+Hint, you may use folder as a target in `make`. To avoid this just run
 
-No need :-)
+	make ... allyesconfig drivers/nvmem/
 
-> +	return regmap_bulk_read(regmap, offset, val, bytes);
-> +}
-
-static int apple_spmi_nvmem_read(void *map, unsigned int offset,
-				 void *val, size_t bytes)
-{
-	return regmap_bulk_read(map, offset, val, bytes);
-}
-
-...
-
-> +static int apple_spmi_nvmem_write(void *priv, unsigned int offset,
-> +				  const void *val, size_t bytes)
-> +{
-> +	struct regmap *regmap = priv;
-> +	return regmap_bulk_write(regmap, offset, val, bytes);
-> +}
-
-In the similar way as above.
-
-...
-
-> -		.reg_read = (void *)regmap_bulk_read,
-> -		.reg_write_const = (void *)regmap_bulk_write,
-> +		.reg_read = apple_spmi_nvmem_read,
-> +		.reg_write_const = apple_spmi_nvmem_write,
-
-I think the proper ordering is to address this first (before your main change)
-and update later with const argument. Yes, it will be a bit more changes, but
-it will be cleaner.
+(In the similar way for any other folder and its subfolders.)
 
 -- 
 With Best Regards,
