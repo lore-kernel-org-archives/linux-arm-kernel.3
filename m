@@ -4,59 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DF83C44512
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 15:29:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF072C44512
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 15:53:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kyrnJ2HVNlROAH9IfoAcIDk9irdu02X3VrWYVuptvgM=; b=aS84H3pDQ45b8q7EbXe1yf1d+6
-	2QEPmv4uLJBOQQFbtrj0tF8YwNE6+tCcWesq77TyQe8qsVcRPrZKE2bmDgjmpE9q6H69UotsEKDIg
-	zg7SPJigW/rG3fQ1+gmvrBbL22BTUFG+mHUe8bjmPEipjsN2zhdXddGxFk1bwSfDY3sO3aOuzw9h3
-	eesgucgIir1VWm4Q+nFHagaS5PvHP10fUcO4mLWx5j1/DclpzmcejFa986ZcBND1HATDExJhmKj/K
-	c5Ln0jg7Iuw1fcz9alBPo1uzgHFBQNUOOcMmvNe+cdAjOUojTeqawqFAKAOtP3xyDlKhbLBXZs94F
-	Wsr+shvg==;
+	bh=610vcd2ONEcjkXFZg+eI0At7uTF43lyNmlLxQtd66Lk=; b=OjOcCSg3rxMH0MC6GXzlaSGD7Q
+	46KHIMRSgujtjwhnXA4VWg9xEv5GpsZf25F0QqnqpTvEijpFpRcHGHL73nfrJMH1dxEI73xrLktrh
+	KWlSIIS4dRVes3MPV0XY1c3UkK3CHBFXjLPRKeCWfoX9ox/hTwIc+8mE8Hb+0E3kZZSQafHkW/VTH
+	zZ3D0/uDMYzT9iscfg4kBUTmeqXJR6HKXeeOo5DHn6Nj2QViFziSR4IjibCJRg7sSOIuOwTOepWRh
+	e7kCTAEMGPQTILWNGkyl8ulIGXp+KCiSJx1/0ZwspBu9mfTKGph7WvIFrkLqH6hqyofeJ6OLWxMf8
+	bH0Qiw+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkO1t-000000003RH-3Su0;
-	Thu, 16 Jul 2026 15:29:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wkOOQ-000000005Yf-3XEe;
+	Thu, 16 Jul 2026 15:52:58 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkO1r-000000003QU-3Lh0
+	id 1wkOON-000000005Xa-04TV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 15:29:39 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with UTF8SMTP id 7EF0E42A95;
-	Thu, 16 Jul 2026 15:29:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id D48871F000E9;
-	Thu, 16 Jul 2026 15:29:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784215779;
-	bh=kyrnJ2HVNlROAH9IfoAcIDk9irdu02X3VrWYVuptvgM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=TzEcp0g4579s4xbXT2Rx/tV0OU5tUuMTvLn/8CYkJtvCTa6RRp5KkMNKul2lX9T6u
-	 lKA42fE6/hN7AJ6KxvWcgl7kr0dNbXmIEiZVyp8vr6gKzZwWglICVXvcuZ5q4LdDRt
-	 x6dtBYKBQhrqQvqs0CHWyeOqIoH459G3IBFjmmJge5mflzXtT9GKJxJSzbrjpPz3Xz
-	 vF00+v3WJNn8E0j72TGIkGxedS8BlXuo9DmGO/RO5Bvhe9J/ZTNvupzN/OvDHBRghx
-	 2xnHRtZt4LmeofU8LT1l30VuYy5OMwlIY1uvnjhdhCL3Mxb/8QKRHSTPGxLy/3DOCS
-	 JvOWgqpkNzp+g==
-Date: Thu, 16 Jul 2026 17:29:37 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Chi-Wen Weng <cwweng.linux@gmail.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, cwweng@nuvoton.com, Trevor Gamblin <tgamblin@baylibre.com>
-Subject: Re: [PATCH v4 2/2] pwm: Add Nuvoton MA35D1 PWM controller support
-Message-ID: <alj1UapHAq9f_MiF@monoceros>
-References: <20260617025925.2539334-1-cwweng.linux@gmail.com>
- <20260617025925.2539334-3-cwweng.linux@gmail.com>
+	Thu, 16 Jul 2026 15:52:57 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-493bfe9f886so37411975e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 08:52:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1784217173; x=1784821973; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=610vcd2ONEcjkXFZg+eI0At7uTF43lyNmlLxQtd66Lk=;
+        b=baQ8OSYLhiHXePsRMQ6811QV4dplSEaeUrm3b6/4+4DucS57nZQRy+x9cRP82HPyTx
+         IOZNTvHLjYqZmd3oZAJgHmjSRZAmN1SdrUxlh+F1JBJP2etfGNsMrv5vXlslLvl2f82o
+         27FFB1vjwS2e4MugRcjPfk7bzV113wm6Wc7E/j/dpKRO54NptPX7GQy0uHwQORLQAndG
+         bJgPopnpr2dRyFbOYI+6K6LQ8U8IYVpY/8krunmpNMhzE6dsNXq3PB6TDZj/XLzhGITq
+         WfbiCwH0i6tfYeB/GZ7r+4G6WDmcf6g6URjv/++CsSayvFvnu3YmgmTLGOweYzPt5xRS
+         fUUA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784217173; x=1784821973;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=610vcd2ONEcjkXFZg+eI0At7uTF43lyNmlLxQtd66Lk=;
+        b=YysTKWFoMx2Uzk18WCP+FhkyEuRQHGCYHAaAIl9DDi0PSZyhheXIOakpeCp05FrqED
+         z7tLgNe8jgCmPhvDNRRRIjKJbmTi0aJGbMRpq8LNEyr7eE/gQ2AA8si6/ptcjnqM9Fg+
+         raoyU/5N8YQCVf8kaqbCLBEwseuKbIEiC8DHaspJbDBviE0U3XFwVU0VHxbaw4eedPCZ
+         bOuF1IJHseKESXifYW/Ku+HYEMd81S3BeG10XHC8eABctKkJPaWz41w72mW5WVVCZ5SF
+         nU6NKoILX6A+PZX3PJngdnJCQk7uiO4WRxTGLbbSUbS1UeEDWghRtimHszwz8TsBu8c3
+         3EcQ==
+X-Forwarded-Encrypted: i=1; AHgh+RreZpXuXlApdqS27MzoaNCLaZEMWtuVrhhPVBVXgiCr1j/PyqQNv9HvJgjAWFaMAGp4eiLGoYmCygh8HApnw9eH@lists.infradead.org
+X-Gm-Message-State: AOJu0YxmBs5SYEF0yWhM0iuf2FRSbb7a8yH+6W3T+lDmGLWFGRjb8zTl
+	aU0VF+OdRb/0F3OcZLiCtClCNtcIq0T4NPQpAn5Ki9Xa1JcEr/r1D+AIzq9503g9Fz8=
+X-Gm-Gg: AfdE7cl6mTeKuxYwKSZxWyL/SYSyQhTYCk98osFBeokI/tkbpoW7NnvD4ynw/kZ9FdB
+	jrb2eTEXX3C2vai42Un0Mw025iJSv4FLxBzgFh9g9U/qtbyW2waHtLA4g3L1bF074fzH1xkeFjy
+	pH4GCZvKnzCNofUTbk0AlPbWde4maggfI7wmX5ympmirJ05szDBSRyQPX8qaOC7GepN1fI+wukA
+	k5numbENACJCiRicny4yAh1bd8bqsHCcQhrefiNTfr5vniYU4V1PETovce9JEVEb9BYzpANQa/1
+	MzoQSIouHBveHZ5aK5Z8W/x2ungPun+IqoMpsx3E9GvD91PqH3dQHLadVBmy2ZIOxN7lo0Hw6DI
+	JDp03CrXuD9HRyDQQEDFnnLJFajJB3EIhmeuxvFvH2UDF8x1qbItt4JvESANuIEVMUUg933S9cx
+	x+Z5Hy9tbdtEhNGWg=
+X-Received: by 2002:a05:600c:3e15:b0:495:409e:bc80 with SMTP id 5b1f17b1804b1-495409ebcfcmr47429445e9.37.1784217173152;
+        Thu, 16 Jul 2026 08:52:53 -0700 (PDT)
+Received: from pathway.suse.cz ([176.114.240.130])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49541eb7372sm90863465e9.13.2026.07.16.08.52.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 16 Jul 2026 08:52:52 -0700 (PDT)
+Date: Thu, 16 Jul 2026 17:52:50 +0200
+From: Petr Mladek <pmladek@suse.com>
+To: Andrew Murray <amurray@thegoodpenguin.co.uk>
+Cc: Steven Rostedt <rostedt@goodmis.org>,
+	John Ogness <john.ogness@linutronix.de>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Clark Williams <clrkwllms@kernel.org>, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-rt-devel@lists.linux.dev
+Subject: Re: [PATCH v3 5/6] printk: nbcon: move printk_delay to console
+ emiting code
+Message-ID: <alj-UsDwB_vQ6nJ_@pathway.suse.cz>
+References: <20260712-printkcleanup-v3-0-574547b8f71b@thegoodpenguin.co.uk>
+ <20260712-printkcleanup-v3-5-574547b8f71b@thegoodpenguin.co.uk>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="vnwt4hsu7dtmhebl"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260617025925.2539334-3-cwweng.linux@gmail.com>
+In-Reply-To: <20260712-printkcleanup-v3-5-574547b8f71b@thegoodpenguin.co.uk>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260716_085255_110882_B32706AE 
+X-CRM114-Status: GOOD (  39.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,111 +115,206 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sun 2026-07-12 11:20:36, Andrew Murray wrote:
+> The printk_delay and boot_delay features are helpful for debugging
+> as kernel output can be slowed down during boot allowing messages to
+> be seen before scrolling off the screen, or to correlate timing between
+> some physical event and console output.
+> 
+> However, since the introduction of nbcon and the legacy printer thread
+> for PREEMPT_RT kernels, printk records are now emited to the console
+> asynchronously to the caller of printk. Thus, any printk delay added by
+> boot_delay/printk_delay continues to slow down the calling process but
+> may not have any impact to the rate in which records are emited to the
+> console.
+> 
+> Let's address this by moving the printk delay from the calling code
+> to the console emiting code instead. Whilst this ensures that delays
+> are still observed (especially for slower consoles), it doesn't improve
+> the use-case of using boot_delay/printk_delay to correlate timings
+> between physical events and console output.
+> 
+> Behavior change:
+> 
+> Please note that printk delays now occur after messages are emitted
+> rather than before.
+> 
+> Please also note that the printk delays occur within the printk_safe
+> (irqs off) context.
+> 
+> --- a/include/linux/console.h
+> +++ b/include/linux/console.h
+> @@ -266,6 +266,8 @@ struct printk_buffers;
+>   *				might cause a system freeze when the console
+>   *				is used later.
+>   * @backlog:			Ringbuffer has pending records
+> + * @emitted:			The context attempted to emit the message. Might
+> + *				be incomplete.
+>   * @pbufs:			Pointer to the text buffer for this context
+>   * @seq:			The sequence number to print for this context
+>   */
+> @@ -278,6 +280,7 @@ struct nbcon_context {
+>  
+>  	/* members set by emit */
+>  	unsigned int		backlog			: 1;
+> +	unsigned char		emitted			: 1;
 
---vnwt4hsu7dtmhebl
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Subject: Re: [PATCH v4 2/2] pwm: Add Nuvoton MA35D1 PWM controller support
-MIME-Version: 1.0
+We should be consistent. Note that there is one more
+"allow_unsafe_takeover" bit defined above.
 
-Hello,
+Maybe, the "unsigned int" was a waste of space. I do not see any
+technical reason to keep it. But we should switch the existing
+members in a separate patch. It might help bisecting eventual
+problems, ...
 
-On Wed, Jun 17, 2026 at 10:59:25AM +0800, Chi-Wen Weng wrote:
-> +#include <linux/bits.h>
-> +#include <linux/clk.h>
-> +#include <linux/io.h>
-> +#include <linux/math64.h>
-> +#include <linux/mod_devicetable.h>
+>  	/* members set by acquire */
+>  	struct printk_buffers	*pbufs;
+> @@ -298,7 +301,7 @@ struct nbcon_write_context {
+>  	struct nbcon_context	__private ctxt;
+>  	char			*outbuf;
+>  	unsigned int		len;
+> -	bool			unsafe_takeover;
+> +	unsigned char		unsafe_takeover : 1;
 
-Please don't include that file, <linux/platform_device.h> should pull in
-the things you need from that file.
+Makes perfect sense. But it should be done in a separate patch. We
+should not hide this in complex patches. It will most likely
+just work. But there is always a tiny risk that such changes
+might cause regression or unveil an existing problem which was
+hidded before.
 
-> +#include <linux/module.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/pwm.h>
+>  #ifdef CONFIG_PRINTK_EXECUTION_CTX
+>  	int			cpu;
+>  	pid_t			pid;
+> --- a/kernel/printk/nbcon.c
+> +++ b/kernel/printk/nbcon.c
+> @@ -1267,11 +1269,16 @@ static int nbcon_kthread_func(void *__console)
+>  
+>  		con_flags = console_srcu_read_flags(con);
+>  
+> +		ctxt->emitted = 0;
 > +
-> +#define MA35D1_REG_PWM_CTL0			0x00
-> +#define MA35D1_REG_PWM_CTL1			0x04
-> +#define MA35D1_REG_PWM_CNTEN			0x20
-> +#define MA35D1_REG_PWM_PERIOD(ch)		(0x30 + 4 * (ch))
-> +#define MA35D1_REG_PWM_CMPDAT(ch)		(0x50 + 4 * (ch))
-> +#define MA35D1_REG_PWM_WGCTL0			0xb0
-> +#define MA35D1_REG_PWM_WGCTL1			0xb4
-> +#define MA35D1_REG_PWM_POLCTL			0xd4
-> +#define MA35D1_REG_PWM_POEN			0xd8
-> +
-> +#define MA35D1_PWM_CTL1_CNTMODE_MASK(ch)	BIT(16 + (ch))
-> +#define MA35D1_PWM_CTL1_OUTMODE_MASK(ch)	BIT(24 + ((ch) / 2))
-> +
-> +#define MA35D1_PWM_WGCTL_ACTION_MASK		0x3
-> +#define MA35D1_PWM_WGCTL_ACTION_LOW		1
-> +#define MA35D1_PWM_WGCTL_ACTION_HIGH		2
+>  		if (console_is_usable(con, con_flags, false))
+>  			backlog = nbcon_emit_one(&wctxt, false);
+>  
+>  		console_srcu_read_unlock(cookie);
+>  
+> +		if (backlog && ctxt->emitted)
+> +			printk_delay(false);
 
-If you make this:
+This should be:
 
-	#define MA35D1_PWM_WGCTL_ACTION(ch)		GENMASK(2 * (ch) + 2, 2 * (ch))
-	#define MA35D1_PWM_WGCTL_ACTION_LOW		1
-	#define MA35D1_PWM_WGCTL_ACTION_HIGH		2
+		/*
+		 * This is a compromise between reliability and	effectiveness.
+		 * A less intrusive sleeping wait might be used	here. But
+		 * the released nbcon context allows to print one more message
+		 * in an emergency or panic context immediately. But
+		 * next	messages in these contexts will have its own delay.
+		 */
+		if (ctxt->emitted)
+			printk_delay(false);
 
-you can drop the static inlines below.
-
-> +
-> +#define MA35D1_PWM_WGCTL_ZERO_HIGH(ch)		\
-> +	(MA35D1_PWM_WGCTL_ACTION_HIGH << (2 * (ch)))
-> +#define MA35D1_PWM_WGCTL_CMP_UP_LOW(ch)		\
-> +	(MA35D1_PWM_WGCTL_ACTION_LOW << (2 * (ch)))
-> +
-> +#define MA35D1_PWM_CNTEN_EN(ch)			BIT(ch)
-> +#define MA35D1_PWM_POEN_EN(ch)			BIT(ch)
-> +#define MA35D1_PWM_POLCTL_INV(ch)		BIT(ch)
-> +
-> +#define MA35D1_PWM_MAX_CMPDAT			0xffff
-> +#define MA35D1_PWM_MAX_PERIOD			0xfffe
-> +#define MA35D1_PWM_MAX_PERIOD_CYCLES		(MA35D1_PWM_MAX_PERIOD + 1)
-
-This is irritating with similar names and different values/semantic.
-
-> +#define MA35D1_PWM_NUM_CHANNELS			6
-> +
-> [...]
-> +static int nuvoton_pwm_probe(struct platform_device *pdev)
-> +{
-> [...]
-> +	nuvoton_pwm_init(nvtpwm);
-
-This clobbers what the hardware is doing. The idea here is to not modify
-the hardware settings at probe time to keep e.g. a backlight configured
-as it was setup by the bootloader and only modify on explicit calls to
-.apply().
+We need to check only ctxt->emitted. Otherwise, the delay would be
+skipped for the last message. It would be bad when messages are added
+slow-enough so that the kthread can emit them immediately and
+the delay is always skipped. But it still might be too fast for a
+human reader.
 
 > +
-> +	chip->ops = &nuvoton_pwm_ops;
-> +	chip->atomic = true;
+>  		cond_resched();
+>  
+>  	} while (backlog);
+> @@ -1525,6 +1532,8 @@ bool nbcon_legacy_emit_next_record(struct console *con, bool *handover,
+>  	}
+>  
+>  	progress = nbcon_emit_one(&wctxt, use_atomic);
+> +	if (progress && ctxt->emitted)
+> +		printk_delay(use_atomic);
+
+Same here:
+
+	if (ctxt->emitted)
+		printk_delay(use_atomic);
+>  
+>  	if (use_atomic) {
+>  		start_critical_timings();
+> @@ -1584,6 +1593,8 @@ static int __nbcon_atomic_flush_pending_con(struct console *con, u64 stop_seq)
+>  			if (!nbcon_context_try_acquire(ctxt, false))
+>  				return -EPERM;
+>  
+> +			ctxt->emitted = 0;
 > +
-> +	ret = devm_pwmchip_add(dev, chip);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "Unable to add PWM chip\n");
-> +
-> +	return 0;
-> +}
+>  			/*
+>  			 * nbcon_emit_next_record() returns false when
+>  			 * the console was handed over or taken over.
+> @@ -1600,6 +1611,8 @@ static int __nbcon_atomic_flush_pending_con(struct console *con, u64 stop_seq)
+>  			if (nbcon_seq_read(con) < stop_seq)
+>  				err = -ENOENT;
+>  			break;
+> +		} else if (ctxt->emitted) {
+> +			printk_delay(true);
 
-Best regards
-Uwe
+Similar here. We need something like:
 
---vnwt4hsu7dtmhebl
-Content-Type: application/pgp-signature; name="signature.asc"
+		if (ctxt->emitted) {
+			printk_delay(true);
 
------BEGIN PGP SIGNATURE-----
+		if (!ctxt->backlog) {
+			/* Are there reserved but not yet finalized records? */
+			if (nbcon_seq_read(con) < stop_seq)
+				err = -ENOENT;
+			break;
+		}
 
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmpY+N4ACgkQj4D7WH0S
-/k6t2ggAheUc/ihnKZtwZNGhIC3uzj83mpSYNAZepbhHbkXa31Mzdnt+h/tT4sn1
-mpELBZ65mL0V6g2fFCU7ADnE4B08y6LY0Joa7gnhwJvomVpCHGaxuUz9xrz2n8Be
-77CF/uiA1qFQIJPNOSitR4XR1kUwRTJPdBCQhHbBL36a+RnLlV5+bTTQ5AEYwq5k
-ELPBKwALXAnGQE1djJ9B0o/mTAeDHtuBJTN7UTp6bOcw23cq76rjPV/PfwhhTDg8
-c63oZ/aobLfuqE/7FuSibebXh/fdI/J+IJVk5YhN7RZlwK0cLlW95CFY5zT7PtT5
-QdlmEEpZ3RU6ip0h1KUyJNiu3J4Qjg==
-=nrGB
------END PGP SIGNATURE-----
+>  	}
+>  
+> diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
+> index 4517266e9ca112e0dcb0163a99dd0e8d50931848..5df09e56cf8abc2d0555b6950eed4e483ba56d4b 100644
+> --- a/kernel/printk/printk.c
+> +++ b/kernel/printk/printk.c
+> @@ -3206,6 +3205,7 @@ static bool console_emit_next_record(struct console *con, bool *handover, int co
+>  		printk_legacy_allow_spinlock_enter();
+>  		con->write(con, outbuf, pmsg.outbuf_len);
+>  		printk_legacy_allow_spinlock_exit();
+> +		printk_delay(true);
+>  
+>  		start_critical_timings();
+>  
 
---vnwt4hsu7dtmhebl--
+The rest looks good to me.
+
+Well, the bool parameters are always hard to follow. I would prefer to
+create two wrappers. They might be defined in kernel/printk/internal.h
+
+static inline void printk_delay_atomic(void)
+{
+	printk_delay(true);
+}
+
+static inline void printk_delay_thread(void)
+{
+	printk_delay(false);
+}
+
+Or maybe rename the original printk_delay() to __printk_delay().
+And use:
+
+static inline void printk_delay_atomic(void)
+{
+	printk_delay(true);
+}
+
+static inline void printk_delay(void)
+{
+	printk_delay(false);
+}
+
+
+Finally, Sashiko AI pointed out that the delay is newly done while
+holding console_sem and might trigger lockup detector warning, see
+https://sashiko.dev/#/patchset/20260712-printkcleanup-v3-0-574547b8f71b%40thegoodpenguin.co.uk
+I would ignore it until we see real-life problems.
+
+Best Regards,
+Petr
+
 
