@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D466C44516
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 14:09:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60AA9C4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 14:09:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9/I42L0S4Ff6OUC3jayFxyXKCczhQUleKAYju5c3wos=; b=O+Q2Ew+Oz3F10ULM/WCE+bHRs+
-	rQqup4PY37BXg3RO1vmtSQXNcGomxRevdHN12BPxjia5dBvU5clPydG+axSPzCOL6j/z0g19Cj1i/
-	wLy7YPl7P8oP8WLMKKvmKy2tlh8siD6IrP+XHTmFNBBZPfjtLaXyUvz5fbkwj36gObGJnQnoRkjWe
-	IVFF6vo0+E8L8WlV276PNNl2BWDrPOzHrrZN6+qXZUdRJlHWleGhzGJL7NKp61LFJ1/u7uGUFC+Wn
-	I83GHdKufPlWPWtIF0N1oKafAeyfNQRcSf7CDgVld7sorrV5HD6iJqMH9xCkythx4hkjPn7y7E6mI
-	P1e6e0EQ==;
+	bh=9/I42L0S4Ff6OUC3jayFxyXKCczhQUleKAYju5c3wos=; b=l8DRruhsJ+D2yCy9/vlMThkGmK
+	dOycTG0etVWr5Nkc3nODn0xuIQMytYlAbS04nxU1xwJTRBhuzWXFjoaDWNh2Dvv+2ytZH7IlJ6CAV
+	wPY8MIv/sYvsgkAkDI6EDXVRMpZP4KKu3wNaakktZbdqIIGlc1wlI6MzQF8w909d2EOI7lMoBCJg/
+	alCN+E5al1I4vBaaxsC/VWq6guGarQEK5Ew/QsKopsM9BFngafU8O78C1HNJPy0284l6XxXKsdpRp
+	VMA1S9JxUJdzg6LkqGQKK/GHKhj1QHuxh1x7sGdZKQxK15eNNDErz1HnLrMf8TqJO4hJIP7L3++4A
+	Gkk+6n2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkMlo-0000000HR8z-1IuP;
+	id 1wkMlo-0000000HR8T-0OIl;
 	Thu, 16 Jul 2026 14:09:00 +0000
 Received: from fout-a1-smtp.messagingengine.com ([103.168.172.144])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkMlY-0000000HQzZ-0jHi;
+	id 1wkMlY-0000000HQzc-0l4u;
 	Thu, 16 Jul 2026 14:08:47 +0000
-Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
-	by mailfout.phl.internal (Postfix) with ESMTP id DEA25EC0190;
-	Thu, 16 Jul 2026 05:51:18 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-02.internal (MEProxy); Thu, 16 Jul 2026 05:51:18 -0400
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfout.phl.internal (Postfix) with ESMTP id 6D1F6EC00CF;
+	Thu, 16 Jul 2026 04:17:28 -0400 (EDT)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-05.internal (MEProxy); Thu, 16 Jul 2026 04:17:28 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
 	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
 	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm1; t=1784195478; x=
-	1785059478; bh=9/I42L0S4Ff6OUC3jayFxyXKCczhQUleKAYju5c3wos=; b=r
-	a6vOgs302ZOIeCAKg8doKuundp0mmyRngR9ZDWK1AlPXaFQCFocl/5XLY+/zQOhc
-	9mpXkf9RKJobpeDpeARW2GnZGUsVPnVLyp3nM4NkQ/N3dNTlnwXFcpB01nvBUyTG
-	Cko5NgrbCCcaHtLldfsZSBYsT0wwEySEOWCVem1hvaSmrza7Kjyj8f/bM++yxt8i
-	axuUeR1wm+Nxn87UbbH0wIdReLxYlKPRXeacXfLzC00rBGyKmZfommXjKJKmJ1iI
-	mTPjkwXIM40zaWDSm8KvO2FSLYMnG7Yh3M5/cVatcsNhj3Hbz0c4wrp7/JSiBWpk
-	eIzjHHn+c3UoyVJg4V+uw==
+	:reply-to:subject:subject:to:to; s=fm1; t=1784189848; x=
+	1785053848; bh=9/I42L0S4Ff6OUC3jayFxyXKCczhQUleKAYju5c3wos=; b=B
+	tQNda9tVkxJM7/hrkbDOLk1buyfndtpX0EXsTRHQLZUcCyVauZ5P6dfoce2KQSZ1
+	+UuDn8uEASxTU+emrIwN5Lv4nU+29PnI9KDNCy4PtpVU6hIKdUigmNtAnZ2+wpWT
+	bLP45JqnwAV69eZ2sf2mJdiIYzsxAacI4HaPT+fvbccAthXpFACF14Lj+GrZOB6e
+	wx3rJ32FYo1uYurwJ8gAkL0/LmiiuSWqbBHXLbLstQ+fPS5EP0M+5PV8m1y+0vVh
+	/5WayTdoepMcRBSDkEo9Pm94EL7qvUvVNFWu9yaiJKWrvw4pBaezSf4eu5ztEZbu
+	SizzHbcvOyFxuBb5RapPg==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:date:date:feedback-id:feedback-id:from:from
 	:in-reply-to:in-reply-to:message-id:mime-version:references
 	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm2; t=1784195478; x=1785059478; bh=9
-	/I42L0S4Ff6OUC3jayFxyXKCczhQUleKAYju5c3wos=; b=RVc/Ml1pdEqwoSDRU
-	8yfwB3YsvvkspAM7kO02OZtbjYXB/VKFZCAsa7RLa6eoQJEDFHTWSAwiF6ufqROz
-	TB4dCuKf8dCuONMh5IoCLxpBRevnh1Q6LtPylA/roeyp+gx7ynBJfa98G59LHFQX
-	kSLB3zcNIWnHJBJQEzCLAfiW/a5cNLO+2Gq4sOIeFvJGM5OAk73JALLBQU7ANaqp
-	Amuw5t9nGCSamTbdCAnlDKqy35N69unv1cSXJsEU92G4dO1Ni5CdPfxIU+SXiaM/
-	PZxJG6GZRY3NtBZr9HfcHhDcqbxZyXYGfHn+Ynx/0hU144rruIr3ul+fIDtb2qi0
-	qgn/A==
-X-ME-Sender: <xms:lqlYauwdYbh3iaAsIDiOIGtgqkGyj1naGdAr6kCzicxv3foMk5KftA>
-    <xme:lqlYam2sl3d_zaf6hEBPKD8Z33Ur2cuzQ472xjx4bDyW1POBpGiLxKui1WASe-VT0
-    eHW-no5QPkMuIDBDqcCaCQjo-bK_O4epYMdn2ADQYB2KQAvsPX1Ez4>
-X-ME-Received: <xmr:lqlYakyRoB6SP-y-gH0cyaqCuuvGUXI_z7o_rGshWDxlZjQHa5Rmb-NnWk6kQbgjKI9BUdNZNwBxVbj9l8U>
-X-ME-Proxy-Cause: dmFkZTFtkfwBXGbjNhgB32WMYlB2XgiV2xHyv9jbIJVWSbfe42+jzIVfbqxKpU5QvSVpo3
-    PBLx8xg55SAzlgcodrAk1vlxBYB90Laa2ngMmN+0xfGtmuMF0d51TutWehRsNDmKzFqALi
-    kkG7KpDNEZFAyNoydgJ9QBX+t8qiyMzWIJidfPG8pEGPQmwwq4BKUHsCIMEwEz+KRhhA5s
-    Y0kbvaxGuUSs62QwMxcMV7+DYBqY22T6GlHwzwlE6+PmZQ6XP0XgeLhAuhne1w/oavMmc0
-    TjHFtqyZJgCJ2hp9fKjvDDtlLp1i/cg7mgsJJaoi4cEYUb0vq0FKGvleJikVfAyUBYjdmc
-    vWUjx0OKwVphRrMU4Gql3OZMmZsMslKxCIpgr2e5JdXyyrF4sFiJwYS/TkBNT8E7ZF8IOm
-    0Fjhmuj9qqXtyjaJ1V0gRqhYEUK+7vwBOj9dBbjooTIUr7iUPCwUFdEArVM36XaiqU0URn
-    cZgqHKWsEO2+VH6egO741tM2/jFDLwh6vtOQSOW6TLrE4Pa6A5qWWUIIPK5pE6RZUknsgP
-    Y3cTTblr+J//qXWuBsdCT3FR2Ku1ZYe09xinoqR4ns49Zo8kF1aazaOtly+m74GV78jjhj
-    caz7Iuo/r1g8fD7d/vnB+aYADcXyxWacepDjHVvWQz0NmZa0dssHuJ24MNkA
-X-ME-Proxy: <xmx:lqlYarUmbVcOBd8xu21WoNE3UWdEceQSPUVzHn9urbCGtcxOX0RAIg>
-    <xmx:lqlYag_xOUu2Txn-_kupAW-Cz74j9vPn3VOYwfYrCmBlwAYi4sJvtg>
-    <xmx:lqlYauuUFStcr5BawkZ5jFXs5-z8INYENWyjMAZTE2KVEMhvvP9JJw>
-    <xmx:lqlYag3zX2K4qXDoXXWuUIjjpBvkgRkinQ2DLUdV7ixIYi_1zZ1HQQ>
-    <xmx:lqlYauDbE8VXpU_QB1Ua5G6LuADtzkym7kGtx4jVwMhJh7Fs8XL5LJWR>
+	:x-me-sender:x-sasl-enc; s=fm2; t=1784189848; x=1785053848; bh=9
+	/I42L0S4Ff6OUC3jayFxyXKCczhQUleKAYju5c3wos=; b=HQNG1Y20wtcLUSxe0
+	FsHpOfscvAFGEFQj1awBmquxEbXrMfZuSSOeJ77Uhj9wnVGbl7+Ibs3rm2Aaq+X4
+	ODuGWiuFrGB5aIv5SFrV79GT01McgXx8oaxbz5wjQGiRGW1l7DsRFltMdE8T9bLw
+	BCaMvkRbX5uVzE9CLQVOVlvG+UTsAuVD/H51k/qr4n6usXQcEwck6QuQRqRU3w3i
+	9Fs6T4P3p+g5MJBAyRhNLtedvXlJJx9l7fM4O1EhfqlXNzG8FeqjmwVBWdVStGzz
+	ClSAEEwywrBvd8qVUhAWcI+k8livXwlM1PauLzA/y0a/w77ySjwoCEZ4WhlpqW6I
+	+wYvA==
+X-ME-Sender: <xms:l5NYao9AwXuQSeWJpXIaF7tJKdY7MydqQYCcIvA-N35TCG0SSL2f1w>
+    <xme:l5NYasv01LfjY43a2MtUibzDqBzEmS6yt3L1UgWtf1g_4ro0cViqND7K5nrJyJtV_
+    38_emA8KJsfft1foibmEaZHb9hN_NXa25cJY5obo4L5IXIfpcqp13h3>
+X-ME-Received: <xmr:l5NYagPtgdFl-f1bYNE9BJeUO35LTlLyUc8phpkW6SmCkbRfGCmknuHuOTEwTM4zGl-cn_cHIfJl3NWrUpw>
+X-ME-Proxy-Cause: dmFkZTGff87KyJVsaA4Nwam3GLMG9AaBBVlnv4sxHhbrcd5Efg0u3vhWAQ8HAJC9ou+zN6
+    yqjtL5Q/btILL8UVaic175ypKBK7QiVpJ+nYeUDoRCcYjJmMWO86jZaIQOpvG7E5ZnWH8O
+    S7a2W9hHrLWtHSySmGohQNWP/5OVCtatIbcogeU9IU3M1wzUBGA8HlDB/ARFeJEDIKXVlb
+    9cXXtCxee/RtGwt3D0vs7/KZXLf/9kFOm8DAETgAwNUU9TP3HxEv31y6XDAaORjKNsWzp7
+    Xcg0eiWz8UQyebfxan3Jh2BAXreInhIN4w0uORtmPxSgEs5oboe4t6qh8Jy0oUkidVCwWy
+    SPrzDZfqVNqXubasGXu2x48OrIfnlL2p4U1fQN8I/bKm/wpBSMTSXEwfqvkbleRtzpOKHi
+    D2U/J9Y67xMT6CVXMv64aEFFW9u1o+t1l4koVkijm+oyZnw7BQzJUoxZ1bC/C60/eNQRuN
+    cmMOW4jqDfw/DYkRGx976EB4Xvex1fFtwZ9yz0N4p/AzkkjTe5BvRK6lPUpXuxrhePeAdN
+    Hrcd99ANbq6rZqC1hi9oY6fqibPoyJ7DhFPwxnZTxAfCqc52JXASYC8UIOoLY5w+Ksrhy7
+    1knY9IRiPCUSqCA4xlA7pBJYX9VGDDrLpihEHV5eLmQnsVYCuwV8JwTFC8fA
+X-ME-Proxy: <xmx:l5NYaph8ujq1G3HZZV_yVKy3KkAQQt3SWdRyHFOmFiLC5B2CC6H_hQ>
+    <xmx:l5NYaq5xlcBBD8_Cj0nqz0V4eYOZg_sKgy_pMOJ_yrMUdLGuWiOgTg>
+    <xmx:l5NYao1wuAH9xJ62piFux18nELCvagMk1lNNxLEZbSLke8fBUqqyXg>
+    <xmx:l5NYatvJIvqhRP_ij8tBkaaV_crAKa5o4EtTYWltnOMkIqegenno1w>
+    <xmx:mJNYatZHJHRS0DZTUWggF7pzpgF5E9bgxv4o8G8NXRW5uXdckYQJy2L_>
 Feedback-ID: i7a5e4b5f:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 16 Jul 2026 05:51:15 -0400 (EDT)
+ 16 Jul 2026 04:17:24 -0400 (EDT)
 From: Jiaxing Hu <gahing@gahingwoo.com>
 To: heiko@sntech.de,
 	robh@kernel.org,
@@ -85,19 +85,18 @@ To: heiko@sntech.de,
 Cc: devicetree@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
 	Jiaxing Hu <gahing@gahingwoo.com>
 Subject: [PATCH v3 2/2] arm64: dts: rockchip: Add ArmSoM CM5 and CM5-IO
-Date: Thu, 16 Jul 2026 21:51:01 +1200
-Message-ID: <20260716095101.2498464-3-gahing@gahingwoo.com>
+Date: Thu, 16 Jul 2026 20:17:11 +1200
+Message-ID: <20260716081711.2482259-3-gahing@gahingwoo.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260716095101.2498464-1-gahing@gahingwoo.com>
-References: <20260716095101.2498464-1-gahing@gahingwoo.com>
+In-Reply-To: <20260716081711.2482259-1-gahing@gahingwoo.com>
+References: <20260716081711.2482259-1-gahing@gahingwoo.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_070844_482153_B268CA6A 
-X-CRM114-Status: GOOD (  15.03  )
+X-CRM114-CacheID: sfid-20260716_070844_478659_AE811F40 
+X-CRM114-Status: GOOD (  14.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
