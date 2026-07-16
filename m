@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F79CC44512
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 21:04:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94BF2C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 21:04:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hDCoD9gopMkw6squa+UCEijXUtZb8e4n69AggqiNbiE=; b=K3T2IVLRujNsvMi440Us/nlQTL
-	F0zKvq2HzFB7/1BnfiDWZV8Pushphd1jR2jzpgaWjM4/6oxkXJFT8N4wIYTzo3RIZVDYxkl8UVd5O
-	00Smf39Q/xJF3Mn5lH6vqhDMtrLlu8EuD2OKWNalGcUaZ7NVuv+sYjlnKpcZeqZ1yxZtAcI0lsD8L
-	JnugtcB3c4OKJpbDZ9dcl8ZgeOEOveVsUHeN95khInrti/n70TruawTz/EcoR3KRJhmIOzXgbiyf4
-	VSuWS6U+qVN/LP7B8rBGh+9AKyqL84HbiMSZ7HVk0RSSQAKAfqg7tZul+fC+uuEzdyfDP7N4c4ezy
-	ji3cKEhw==;
+	bh=tnt05k0RnEHXUOMHxXtlf3FeqQ7AA6fhOcspVS5Ukfk=; b=5E0VzhztcrwxIwMEdTMiHB6pKh
+	b//2ZCVVtYO10B7TB2X0e0Mla4VWRgLdTPMgbgRkmg15KTuR4Hl4PIVUbUwG1bW2VUYys9806S3iE
+	YSrvjdLoepD0vpxwtVDCcepQM4pQVwKHBoX5TQihXovUb1bOj+ugIaQR9ElXkx9VfKcEFC+U+v/X2
+	mNhiJflv86NxMKCqG9Epf81cH5Jha/V20p9LtpmFkv4OyeIv+dvsGK8hj3VwxSSMhxlv5uzq2gxLo
+	nG2TKvWmQl2POeh2VCO30JZ+8YLQKiz4ZSuv/cvuUFaNWNDpceRp52sB0TJWB2goP11LWK7rdvZ/p
+	0+0cjSeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkTFU-00000000YJN-3PaE;
-	Thu, 16 Jul 2026 21:04:04 +0000
-Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	id 1wkTFZ-00000000YQs-25Wo;
+	Thu, 16 Jul 2026 21:04:09 +0000
+Received: from mail-southcentralusazon11013054.outbound.protection.outlook.com ([40.93.196.54] helo=SA9PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkTFL-00000000Y2O-2uAc
+	id 1wkTFR-00000000YAB-2N1f
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 21:03:56 +0000
+	Thu, 16 Jul 2026 21:04:02 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kQkeY7ZWqk1BIm/9doWzrgC76ijCErta9Ds7NDhpMUXoVag+73dQw+rIOqBnYeNYLQL69S4jt+O9jqv/pxmRrLxtobA/Rkq34dTsXjOuF32QhdxRjZWNmx70ONaIAFNpEMbIX16xy/bCW6n113G3Uocdv2swrubHkoOoGJL+2pSVP+dfnoP7TQ2IeHqDUnRm8/V5JFwcsGYGvfwCPIzBQgGCg/RRPZY3SQ+7fyF0g/FVXzxUZKn5wHyjrf/PjRnKzmPK83yQ3dNTeWLIsFUSR30RvD0xsfCfLkMm8k1vb7BVXWDvphJoOF8lGJDI1t77dXjiv2Ua8Rdq6QhFvwwYkQ==
+ b=AAlPPaEFHWeRCdpnP0QoNcWJtXI2dPVxJ+6PToUG4KGWodg1kwa6/7s7G/hDQf9+H7jA5QOzpnoGGrEUi1A/lCz04O6EOjf/cxsT2uBAmrSuT98ob8yHgffVbnhaNjjGWbZEsBlxmKt4Mz96armwqH2bCJbRd3TpkrFNTFLRX6q2MsS2emCbdweOImqpK0WFKJjU2IZUfKNHQBNgl6tHpNMY5aAwzfvBWqIXuqkhkQZ4tzvyixgnLj3YQSRapMSpHAc+21jo9jZgWEae8m7fBtGuYUpJ/0aaHh5Z8/oTcaf9JAosiaqvUJNdGjWcdpkSaJOXsftkgJvxeP7Hhr2n7Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hDCoD9gopMkw6squa+UCEijXUtZb8e4n69AggqiNbiE=;
- b=XnDDk2F6fxZ8DBYocZ8P8HqvEZrypWX9zJ7V2XX6dAow1XEqn0KUYjRGWsnGy35hL+y2D+X/+1GIy0HCTvAysZVR1qqBlhnHl6lD5rHaiAjrajSCR2MiDqANJwcI9fUPI0BFnMyoyL9inl4YdlNZpyMhl4Ag7xKnPCO4b0+QLeVB2mxvJXtuKhrplCP8cDA7PKMo4OJSZh6LJ/pFdLOcaYUR1etDnVD73UFtLUrQCe7+J1mATxmN72lOI0r2xJCekCtPw/hsRIkxvei2i+VLW+U6pXjFMK4zjelPmPlLX/9LSFP3GdQedvLhyQINTY8tyZ959D8bdcuLnbsNGGv3dA==
+ bh=tnt05k0RnEHXUOMHxXtlf3FeqQ7AA6fhOcspVS5Ukfk=;
+ b=TpxC2DzTixpjep4yqo1kt4mzyvMZAP5VPC+KCoWm3NOSvP2+j6hK37Je2zj2HtAqBTVJTKflss7VdDejnXYpcVRoYyhZPBLg5PBfQsYUx0gZECb3fJ8Oi1JYmS66cDohAtNPoMJ598T5cIdZYQ+x0MN4znxVusb1zRd3qmmx9mTpObxb3gToAS3BRj774A7k1vwqxJKjE94IFG+gdA3RhYL6xB8gTT26lqu3NesLRqj9mfb5OHBZ+o1vhPG2g0U7t1EXxpUV8vYkoBTwrVxso43U5/5qni35dcoJdRBcVup9CEJzxOdumvEY6889Jj/k/FOd5tcYfiT/1fuunyoypg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hDCoD9gopMkw6squa+UCEijXUtZb8e4n69AggqiNbiE=;
- b=T5W6vieFhBB2XUsdwAETUcTX7KaB5ofV5UPG71XeNyXB30gLc85MsGr1ZyyWl4uL1YFoKlH/65CIoEww+P80z7apOA3q4K4kjC6O1dEs4/fRosWfxzkVzOkYU2P2ubzXS1MsJx16JbndwmL0Po+6zBcU5JASRVIY9dlWAwXHy5BvjWRouikz8IMtp4a2e02KM586Z71n/5lRNMlCUjAvqxnNxXyVLUcmRv46Tq1ihQOuQiuhC7igUqALFiM62xvQ47ou/RhURVApSwrIlp00gdb9kfVfPOdie4N/cjGwiBgny1GG63/+BKgVY5aELv8IAqgd5InUnI03XkLSQjm9VQ==
+ bh=tnt05k0RnEHXUOMHxXtlf3FeqQ7AA6fhOcspVS5Ukfk=;
+ b=NTwYFHslyyi2/LuTSH7RN6REHjiMfOWtn0XI9RguY6oI7HgeadvUrccXfsOkgE/hKFtDLAyhujWcHPHSuwCWn/6ui7VMhgAv3UiLZWCsvRCA4AsaY6BR2eYiqhDpAsUFemCKpuKk6ZUSHU6bQ/jCsXrqurL1l4It9NGJ+o6xsANj+tlz8w/mSNs4fqu/hawJCb2nmff655Zz27dKFWVtLthQa4LDK8MgPXexGDhVnTx2bxbxGzRuQTZ+ltHHvLHZ8dGgj6mrsNXde+uZPeLBACEbafBNIN+5nWx8h28xnTawsLPVRY8jk1+Noi4F4G5NJjsDvmD+p/X9KNoViIjk6A==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from DM4PR12MB5230.namprd12.prod.outlook.com (2603:10b6:5:399::11)
  by DS7PR12MB8081.namprd12.prod.outlook.com (2603:10b6:8:e6::17) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.12; Thu, 16 Jul
- 2026 21:03:43 +0000
+ 2026 21:03:49 +0000
 Received: from DM4PR12MB5230.namprd12.prod.outlook.com
  ([fe80::6e87:1bde:1853:3b73]) by DM4PR12MB5230.namprd12.prod.outlook.com
  ([fe80::6e87:1bde:1853:3b73%5]) with mapi id 15.21.0223.011; Thu, 16 Jul 2026
- 21:03:43 +0000
+ 21:03:49 +0000
 From: Fenghua Yu <fenghuay@nvidia.com>
 To: Reinette Chatre <reinette.chatre@intel.com>,
 	Tony Luck <tony.luck@intel.com>,
@@ -70,71 +70,71 @@ To: Reinette Chatre <reinette.chatre@intel.com>,
 Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	Fenghua Yu <fenghuay@nvidia.com>
-Subject: [PATCH 10/23] resctrl: Expose MBA MBM counter assignment sysfs
-Date: Thu, 16 Jul 2026 14:03:00 -0700
-Message-ID: <20260716210329.2914625-10-fenghuay@nvidia.com>
+Subject: [PATCH 15/23] arm_mpam: Refine L3 topology and class selection
+Date: Thu, 16 Jul 2026 14:03:05 -0700
+Message-ID: <20260716210329.2914625-15-fenghuay@nvidia.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1784217438.git.fenghuay@nvidia.com>
 References: <cover.1784217438.git.fenghuay@nvidia.com>
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: SJ0PR03CA0071.namprd03.prod.outlook.com
- (2603:10b6:a03:331::16) To DM4PR12MB5230.namprd12.prod.outlook.com
+X-ClientProxiedBy: SJ0PR03CA0078.namprd03.prod.outlook.com
+ (2603:10b6:a03:331::23) To DM4PR12MB5230.namprd12.prod.outlook.com
  (2603:10b6:5:399::11)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: DM4PR12MB5230:EE_|DS7PR12MB8081:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0b9accd6-7d46-4062-e73c-08dee37db7f2
+X-MS-Office365-Filtering-Correlation-Id: 72013cdf-d700-4ff0-cf31-08dee37dbbc8
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|366016|6133799003|5023799004|11063799006|56012099006|18002099003|22082099003|10067099003|921020;
-X-Microsoft-Antispam-Message-Info: c4k3lKxPM6+ZS1frROxptPlpKGu3/3oUlHOWi3+qizRM2YKmo5SFQl/asN5Gfgygyi7DvHK2K0f34XDhmui1pN26z4gQTrtVv1odYJxiKyjSLu4Vrp3/rSyEXN30ukk4/r0qLGfEc8Kd22GPBsZghuuxampHeo3yTOvKHcyQSMS7IaudfB4J1YkC4v3R2tJWCnEzT7JtGp1ajJ+mZ3AxCxkuksniWx48ID0zWgu2rh6c3aSTbpyr4Xp5p5obz1EW/OAqsTSJmR8U1xy8+urpxhFBGaR2Mg07e7OzhaFt3PcR9jV1VPi/2Gkg7KDdhtfuHHCvoBieeXszjjnbBgrM2RaREGC9Ri1//Gyj01ykc9BPsh2EOmIvfQB98lAXPsTzSVoanVATvYSVRjaflfP9Q1YELY0sgLL/cIJ9OQ1Utb+sTTBGW5ssyy1OhEjfn4L56qoLbLhGPMAg/Xp6HeblYwXZWcQ0tXv+PcJSpuT/epPMx9ig+vwAEU05k5rneue//zWWZzmTUY/OoFWFIcf4R/LTgJiVBLPnolqemPGbHFzi0UVLmoD4f4Pt9Fu27Bxu+U290eIIA++W/cPn/1S4PzsoRxjbgT0ddzNs6y/UDeBErSasM/oS0B+jDWwWtHD5gi0vAsFiYrBuZ8TsHgYUAq7LYl27nmzzeUIPsyQFrbZz2B9t+yQSOV3uRMToTQMwZbj3+LfbshYArklP/k6nZA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB5230.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(366016)(6133799003)(5023799004)(11063799006)(56012099006)(18002099003)(22082099003)(10067099003)(921020);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|366016|11063799006|56012099006|18002099003|22082099003|10067099003|921020;
+X-Microsoft-Antispam-Message-Info: zN8LAi93NdRhJQsWzL5+xxxxrpLPv4f4XcsCbQRHxIomezgYrown3/g2wh8ik5sKvczUBocJ1PWpKl1DuSTqsyBz71wrgS0VSDKw20IY+hEil1JU7sJ86sR8BHvvdCCoH0QJTauX1GfvzfQQAePRxMl865t22B7vAazeLjBUfN16C2Nh5lWR7a0ggKnJh8qNFfx60tzNLmBvSK/wg3du3eb+5ufqCUx06gxauCK4ZQ8QyMYg2WuBdTFkW1p05/uspPGX9Q0zW/mSjVon2PmCWg1qa4NmCNquptKEwARPFm2W7AKnL+2cOoojjpcyTeXIsz6nkIs4zl0CZqHr7WIpf2FLdOddwFgNq6SVU36nVN8iMEse4CYwmqt1mJtOZqt2frcVt0pVTtusp7I2Jrup+wUCQXN30/JJR/Bp2y5DjYfdz5IKcEkarJtd1B6JYmI3Zmzx5rUSx7Qj5l/iTzhfRlk3BrRR5XSCKDieLf9SeRNszWP2DdBH4MSJnBTmiPr/itW4tvTGETYnAq0Ae87FcWDcEaMhcRjSWuK4gqz98Vk8aRUkLaN9TYuDZMPOK4i9IGS6vbKeI0rcC2DVXRizhGF1b9i4ctuBsMio0FKrGS1bDXZ6RLUtW1xMYtydYLJlmTwpdzWHd5JfeFfLSBqbJmYao9veQ16oecKT+G41JoTZ8tNnBdMU3Bqa0qbgK/cjqEVX7K3LcrGIHzcPANygtQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB5230.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(366016)(11063799006)(56012099006)(18002099003)(22082099003)(10067099003)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bfDWt5rGG2TYhtEWUCt9JXO6xW2fuW8EiI2o51GMJGQeGdkD9U7aBk5j1/Bo?=
- =?us-ascii?Q?Vtw4AkJqcltdB7mXqPH+TUDqB+KLTaNBM2nc9x2e8dg9DAtjYddFFYzB88DP?=
- =?us-ascii?Q?giBBzS5Kn00JUHF+pnYLEpSa3MLuB2K8m3QFVK06K9mwqoekh6tqoTLoV165?=
- =?us-ascii?Q?cN2K6Vmi6FsCwT5elEGBifxE6PlT+aqSX3EXp1v+RogQ6L3j0mwURjz0YKx+?=
- =?us-ascii?Q?HpbhqtfjfXI6U+1hVBCUajGiuEhto3TBhoQGaFM9GRhAG0D1Cchttzh+miES?=
- =?us-ascii?Q?iiME+DcO4TC7k4VpXZlKx796HNaM09KUFZQSOlsPP97sF8E8fEmM/RKtXTwR?=
- =?us-ascii?Q?luPW6MVFuBKCs3Q7PxOKykfi6Q7E6G5/+M/kyrdmj8zLclAxXPuv2FPe+/VD?=
- =?us-ascii?Q?Jl7jdqtGHzif7VlawoVAndKCtxBKUwXPd3gOrsuKmp3plMkSIn+kant7Lhan?=
- =?us-ascii?Q?67TKGUc/VVi7CV0ylydXWsRWQeALrsG7ERUD3AkHDSQ4emzlpxRyaaknbkQd?=
- =?us-ascii?Q?MlBBea7IdtiqCijzCgrE1V6LwDChle8fuUR1U9stnd32y076f4U3enh1y2mT?=
- =?us-ascii?Q?mvS3ZmEAyKmBdYm3zWNv9Toixb93wHuiXnvMFbwHtCcfoheXd89Fa8gGs2+5?=
- =?us-ascii?Q?mMhqLP3OgQ81PsQaD0Yq5YpmQA+x/QbuDTr0h0wHjlVdsxWSLxGPEpyPP2zA?=
- =?us-ascii?Q?+obxfXlKRGZ39D01NYjrCDGBRyCB41emmWv53pNPBl9Vx5GTHE3LVYca5lTn?=
- =?us-ascii?Q?SS1+TRHmp9HhP5F6yIhtKXRP5P14h+dcrX0m7P8Klq7RdzpnMtSJBGxC/p0F?=
- =?us-ascii?Q?tv9yD0OQf//4RkHMB36m/04gbwsJXqOnTBzDsrjG107cV3IR5C3Zg3pXV5Wm?=
- =?us-ascii?Q?CZzAFUL2xCFQH4l7ASA0LnLmj8jQPqCovJ8CSLZ6d31h3rS+UGEM+b34cL2Q?=
- =?us-ascii?Q?BgDFAb6FfxPNP9o3bS1pa/MeVB9W1g30ZdM7oWv3d+uzmFnDCaTx+8quPsgu?=
- =?us-ascii?Q?xSEScDmwR9ocb7pQUNxp9Oe1RLMQxrYzUK80ZA7UNxBUlEVLz5xiv7DDG8hk?=
- =?us-ascii?Q?vmKfLN5UqOsKeq6KwC1nvVB6bA3lug2n2h8H/T4eoXLyUCwAxEMcAXKMavEs?=
- =?us-ascii?Q?u6yDSG0HI2Gg/FvULkALjz9EgBIwQYb7KQJGII8DRKVdK5oFzMaYb52XsAUH?=
- =?us-ascii?Q?fpClysUk0ubyRqJJoR/avoDgOm8Qd+NDKUQqg47HMa0CByzipGrncswO87Jp?=
- =?us-ascii?Q?fmunDh0lcuIxdZzFfXen0M2gxXhGasSWH98/mmJHLmfm4CM3D5FQT19Byz2v?=
- =?us-ascii?Q?838vrd3WthnqaHIgg4+ly0eegrlku0OKJ/7vZlcvp8wTl3iHRiUWI1uRT6vA?=
- =?us-ascii?Q?1dcr4J7g/EuHUBgey/h8njQNj0GvfHyJDnEFVfnUjnVEvoUDL1/hRBlh4zdC?=
- =?us-ascii?Q?AY4THs875urC6sXHDhOdC4W98EEyRprmrteN1uartPGJa5b6VMj6wagGcbCE?=
- =?us-ascii?Q?5xqoRLS+CvngQklEJ1JcVqsM90P/wxaMSV8WOK/fww8K8AstOktosJPfNbdN?=
- =?us-ascii?Q?yHmTIxcLQmmFB3BIKbm/T+fvy+a4FA4I4CY6luKnLAeU/T7CeReqJrSgaVNA?=
- =?us-ascii?Q?eaV+uUl/Cqb5Jbt1LR9wYO1v7HNNh62AunYyHJoeDhUgYDUGJt7H/Fog8gg4?=
- =?us-ascii?Q?wLrHhKnlJeHXncLi0RiCjfJSZbsv7mvpqpOZigg+9plnMUx9BuCzX8pTScwS?=
- =?us-ascii?Q?PcbouZ8rcg=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?eLf6r7JNXzWHQjKlyjz/DzqwAyQpLXimCuQMhVEXKkD78RA4uA4/YBQ9xaNf?=
+ =?us-ascii?Q?r+rwGByMWRATeBbfN+NRG2B/z+xkMcn7OUXEKdAcqOux8f6T5Kq2cNw3W8oV?=
+ =?us-ascii?Q?T/3vngAphW9/fxhi2S9ZbaDBmtKp9KvG5kHadrkvT7HmSrK6hZT4UHvbSuKu?=
+ =?us-ascii?Q?+QrwihKG8HUqpkaXCytM65ie+rfGmchUdiT3yK7r5vnmh/Rsc+w9gwskzZ6/?=
+ =?us-ascii?Q?bayHoKV+kJLNFvQlE3AU6VA9y8GvUBJSVlYYaRj8AB8UTnA0YSzNsc7JTQNs?=
+ =?us-ascii?Q?znsqABwA76vkVVqjQ/2x73bqLnemz6jgNjklkHwc3lV+eRQWuYRQ2fq618qX?=
+ =?us-ascii?Q?mA7r6QuKZbaqRqRMDX3Q3t5IIJ4r2Xcg1+dcSVpTAu8fymJN0dG+uzfjCSZ2?=
+ =?us-ascii?Q?gqiypbiV/gIC/VbfzZafODWi+1TKzwB/GyyOwFNXSiqc0CBFa1m4zcgcfkS6?=
+ =?us-ascii?Q?I3BkYugfR4FfDmjkzDdTTA3YSwtztn1oVYl0uvInbxpOc0aKjyHvMVcywhar?=
+ =?us-ascii?Q?0saZYx3Y+WVJWa3lHyA45xzkvUotT8Yw4fL/UoRWW5zMZHN7KK46EWWjQQGT?=
+ =?us-ascii?Q?wU4y9FGZuYuVbOaj1kLE0ZUqYHrI4pjF8lYAQYVmrmMQ9RljCKj6RwAs8PYd?=
+ =?us-ascii?Q?UW+h7+A3LTWoLxnRdmSUxXJ/LeDa9XCW3RavLDXbIiJ1vqHveCjFEC6WL+tf?=
+ =?us-ascii?Q?yLk1yq2drbhx5q15DtfSd6sslaKeFBJfsslM4YtffgXEbs7yuXQhYIFzAqI0?=
+ =?us-ascii?Q?RQ7OLjj0AhcL6mn86hstgbbE9RQyvNH8r/gHBqFB4Oi7GapYNMMtMcZmMwH/?=
+ =?us-ascii?Q?BDNXyBMH0WiaJwJ8GJ3pMkO4MNHxUxx5CfbMDCd6GMfEXReOOWHOzFho1WrZ?=
+ =?us-ascii?Q?DhTNwhiEBO1GvxzrykotSMiGU7A6dzibuwC7/ye2m0hxAX/dMsyg9Ppw1j7/?=
+ =?us-ascii?Q?ivsPbcSfr7nmDOd9ip+kXTLNB5MjmB9Hv6TN1qS2dDlqKZ4VoUNxocWlRpaz?=
+ =?us-ascii?Q?Ve+cbmzaSQMieklDTb+kPosmYBvJjTKmNoVT0joviO5f2PF1rGwxHQy1z4t3?=
+ =?us-ascii?Q?Ryp6s40ivXQoQ/sMyTeZ7PLT3oee2W9ow7Uc2i2cCreQM0NGMM9WFYEHuG1c?=
+ =?us-ascii?Q?OHLhrNB9ew3LE+Ds8qEWUkeqxjJJFsNEKE0PKvcE4ZOtJuQC57Wd76OifcI7?=
+ =?us-ascii?Q?z5XWjuDaS/Ov2Nzu6IDak3Iw2jxf41zDlw8a//UppYh8v4q5KYbcNO2aioDK?=
+ =?us-ascii?Q?J1yjvw/lsFIkJvSrfqVf4utMzPcdRQhEAQCxTOLnor80xuji7UH99FWO3ZAR?=
+ =?us-ascii?Q?1lY80oDz6MfOtD7ROhP8oOFIfB5AGEOyMXNG+NnlEmsUYyxm2AX81zaKzUQ5?=
+ =?us-ascii?Q?o/HQTdKOHh+spa7V/eumMQPhh7gZ6OWbzFs6lwfkcrlrNHiB3I7BBsurN7BF?=
+ =?us-ascii?Q?0iE4ONyowM2DNlm8faQC8Eq0SaPViJkl8gSHEAARAB/XP+ktsJR+XUtCe1/N?=
+ =?us-ascii?Q?SkFj5pOc4xkScDPy9gdJH1JMHdQZGtU1BawjdXVxl3+OZyvvDZ7v65GJzmt3?=
+ =?us-ascii?Q?akkDk4RrGk09M0GVsuDd7gemItHnxxx6Y4fU+1tdNLiZHD45Sm+kWZ+R1yW+?=
+ =?us-ascii?Q?h+5Id7EvoWkTAbFAg6Nh204cPnxLSz6qYtP3yEGkcQpsA8F2sp+jLG24CqjG?=
+ =?us-ascii?Q?3Kpsj6uYACtN9q+uPdCi27GLREaQYITTzAJ+lQYu3SHCk3FHa6/B0x5xhGDM?=
+ =?us-ascii?Q?HDadVfLj+g=3D=3D?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0b9accd6-7d46-4062-e73c-08dee37db7f2
+X-MS-Exchange-CrossTenant-Network-Message-Id: 72013cdf-d700-4ff0-cf31-08dee37dbbc8
 X-MS-Exchange-CrossTenant-AuthSource: DM4PR12MB5230.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jul 2026 21:03:43.1142
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jul 2026 21:03:49.5632
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: suNH5iwle+EnDxZFu4Te25lcNJnYPK+QZOdTNw+PcCB+t3L3O/xmUQpjW0g0W6VRtW3x3XXr0RSb7vxyL03QWQ==
+X-MS-Exchange-CrossTenant-UserPrincipalName: Y5yNkZl2L3nTv6GS+nRAPzz7zYPHXy/0gHAiMh3Tlcz2EhLvWV/UFU+s0P1FpZY7w4azYzrwOXMRhgeqWLonwQ==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB8081
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_140355_752387_5937A888 
-X-CRM114-Status: GOOD (  16.73  )
+X-CRM114-CacheID: sfid-20260716_140401_608896_E87FB7E6 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,142 +149,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When MBWU monitoring is backed by an MBA resource, userspace still
-needs the same counter-assignment interface as on L3, but keyed to MBA
-domains and exposed as mbm_MB_assignments rather than
-mbm_L3_assignments.
+After enabling memory-level MSCs, the existing class-picking heuristics
+still treat every candidate like an L3 cache MSC. That rejects valid
+memory classes for MBWU counters and applies L3 egress checks to MBA
+classes on CPU-less or system-wide affinities, leaving no monitor or
+control class selected on affected platforms.
 
-Add the MBA-side sysfs hooks and initialise MBA monitor metadata during
-resctrl_mon_init() so mbm_* file visibility follows the resource being
-configured.
+Adjust the heuristics so memory classes can back MBWU directly, L3
+topology matching is only required for level-3 MBA candidates, and
+traffic matching is skipped when the class already spans all CPUs.
+Also tolerate components with no online CPUs once at least one
+component has matched.
 
 Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
 Signed-off-by: Fenghua Yu <fenghuay@nvidia.com>
 ---
- fs/resctrl/internal.h |  5 +++++
- fs/resctrl/monitor.c  | 27 +++++++++++++++++++++++++--
- fs/resctrl/rdtgroup.c | 11 ++++++++---
- 3 files changed, 38 insertions(+), 5 deletions(-)
+ drivers/resctrl/mpam_resctrl.c | 22 +++++++++++++++++-----
+ 1 file changed, 17 insertions(+), 5 deletions(-)
 
-diff --git a/fs/resctrl/internal.h b/fs/resctrl/internal.h
-index 1cca9b147fdb..3bf512bf2d9f 100644
---- a/fs/resctrl/internal.h
-+++ b/fs/resctrl/internal.h
-@@ -478,6 +478,11 @@ struct resctrl_ctrl *resctrl_resource_ctrl_get_default(struct rdt_resource *r);
- const char *resctrl_ctrl_name_str(enum resctrl_ctrl_name name);
- bool resctrl_ctrl_is_default(struct resctrl_ctrl *ctrl);
- 
-+int mbm_MB_assignments_show(struct kernfs_open_file *of, struct seq_file *s, void *v);
-+
-+ssize_t mbm_MB_assignments_write(struct kernfs_open_file *of, char *buf, size_t nbytes,
-+				 loff_t off);
-+
- #ifdef CONFIG_RESCTRL_FS_PSEUDO_LOCK
- int rdtgroup_locksetup_enter(struct rdtgroup *rdtgrp);
- 
-diff --git a/fs/resctrl/monitor.c b/fs/resctrl/monitor.c
-index 742429e18b8a..db19e5eac1f9 100644
---- a/fs/resctrl/monitor.c
-+++ b/fs/resctrl/monitor.c
-@@ -528,6 +528,7 @@ static int __mon_event_count(struct rdtgroup *rdtgrp, struct rmid_read *rr)
+diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+index 953412f11995..86458a56a526 100644
+--- a/drivers/resctrl/mpam_resctrl.c
++++ b/drivers/resctrl/mpam_resctrl.c
+@@ -854,10 +854,12 @@ static bool topology_matches_l3(struct mpam_class *victim)
  {
- 	switch (rr->r->rid) {
- 	case RDT_RESOURCE_L3:
-+	case RDT_RESOURCE_MBA:
- 		WARN_ON_ONCE(rr->evt->any_cpu);
- 		if (rr->hdr)
- 			return __l3_mon_event_count(rdtgrp, rr);
-@@ -1691,6 +1692,12 @@ int mbm_L3_assignments_show(struct kernfs_open_file *of, struct seq_file *s, voi
- 				    resctrl_arch_get_resource(RDT_RESOURCE_L3));
- }
+ 	int cpu, err;
+ 	struct mpam_component *victim_iter;
++	bool matched_once = false;
  
-+int mbm_MB_assignments_show(struct kernfs_open_file *of, struct seq_file *s, void *v)
-+{
-+	return mbm_assignments_show(of, s, v,
-+				    resctrl_arch_get_resource(RDT_RESOURCE_MBA));
-+}
+ 	lockdep_assert_cpus_held();
+ 
+ 	cpumask_var_t __free(free_cpumask_var) tmp_cpumask = CPUMASK_VAR_NULL;
 +
- /*
-  * mbm_get_mon_event_by_name() - Return the mon_evt entry for the matching
-  * event name.
-@@ -1840,6 +1847,13 @@ ssize_t mbm_L3_assignments_write(struct kernfs_open_file *of, char *buf,
- 			resctrl_arch_get_resource(RDT_RESOURCE_L3));
- }
+ 	if (!alloc_cpumask_var(&tmp_cpumask, GFP_KERNEL))
+ 		return false;
  
-+ssize_t mbm_MB_assignments_write(struct kernfs_open_file *of, char *buf,
-+				 size_t nbytes, loff_t off)
-+{
-+	return mbm_assignments_write(of, buf, nbytes, off,
-+			resctrl_arch_get_resource(RDT_RESOURCE_MBA));
-+}
-+
- static int closid_num_dirty_rmid_alloc(struct rdt_resource *r)
- {
- 	if (IS_ENABLED(CONFIG_RESCTRL_RMID_DEPENDS_ON_CLOSID)) {
-@@ -1883,7 +1897,7 @@ static void resctrl_mon_resource_init(struct rdt_resource *r)
- {
- 	unsigned long fflags;
+@@ -871,8 +873,11 @@ static bool topology_matches_l3(struct mpam_class *victim)
+ 		}
  
--	fflags = RFTYPE_RES_CACHE;
-+	fflags = (r->rid == RDT_RESOURCE_MBA) ? RFTYPE_RES_MB : RFTYPE_RES_CACHE;
+ 		cpu = cpumask_any_and(&victim_iter->affinity, cpu_online_mask);
+-		if (WARN_ON_ONCE(cpu >= nr_cpu_ids))
++		if (WARN_ON_ONCE(cpu >= nr_cpu_ids)) {
++			if (matched_once)
++				continue;
+ 			return false;
++		}
  
- 	if (resctrl_arch_is_evt_configurable(QOS_L3_MBM_TOTAL_EVENT_ID)) {
- 		mon_event_all[QOS_L3_MBM_TOTAL_EVENT_ID].configurable = true;
-@@ -1919,7 +1933,10 @@ static void resctrl_mon_resource_init(struct rdt_resource *r)
- 			resctrl_file_mode_init("event_filter", 0644);
- 		resctrl_file_fflags_init("mbm_assign_on_mkdir", RFTYPE_MON_INFO |
- 					 fflags);
--		resctrl_file_fflags_init("mbm_L3_assignments", RFTYPE_MON_BASE);
-+		if (r->rid == RDT_RESOURCE_MBA)
-+			resctrl_file_fflags_init("mbm_MB_assignments", RFTYPE_MON_BASE);
-+		else
-+			resctrl_file_fflags_init("mbm_L3_assignments", RFTYPE_MON_BASE);
- 		resctrl_file_fflags_init("mbm_assign_mode", RFTYPE_MON_INFO |
- 					 fflags);
+ 		cpumask_clear(tmp_cpumask);
+ 		err = find_l3_equivalent_bitmask(cpu, tmp_cpumask);
+@@ -892,6 +897,7 @@ static bool topology_matches_l3(struct mpam_class *victim)
+ 
+ 			return false;
+ 		}
++		matched_once = true;
  	}
-@@ -1952,6 +1969,12 @@ int resctrl_mon_init(void)
  
- 	resctrl_mon_resource_init(r);
+ 	return true;
+@@ -1030,13 +1036,15 @@ static void mpam_resctrl_pick_mba(void)
+ 			continue;
+ 		}
  
-+	r = resctrl_arch_get_resource(RDT_RESOURCE_MBA);
-+	if (!r->mon_capable)
-+		return 0;
+-		if (!topology_matches_l3(class)) {
++		if (class->level == 3 && !topology_matches_l3(class)) {
+ 			pr_debug("class %u topology doesn't match L3\n",
+ 				 class->level);
+ 			continue;
+ 		}
+ 
+-		if (!traffic_matches_l3(class)) {
++		/* Check memory at egress from L3 for MSC with L3 */
++		if (!cpumask_equal(&class->affinity, cpu_possible_mask) &&
++		    !traffic_matches_l3(class)) {
+ 			pr_debug("class %u traffic doesn't match L3 egress\n",
+ 				 class->level);
+ 			continue;
+@@ -1164,8 +1172,9 @@ static void mpam_resctrl_pick_counters(void)
+ 		}
+ 
+ 		if (class_has_usable_mbwu(class) &&
+-		    topology_matches_l3(class) &&
+-		    traffic_matches_l3(class)) {
++		    ((class->type == MPAM_CLASS_MEMORY) ||
++		    (topology_matches_l3(class) &&
++		    traffic_matches_l3(class)))) {
+ 			pr_debug("class %u has usable MBWU, and matches L3 topology and traffic\n",
+ 				 class->level);
+ 
+@@ -1302,6 +1311,9 @@ static int mpam_resctrl_pick_domain_id(int cpu, struct mpam_component *comp)
+ 	if (class->type == MPAM_CLASS_CACHE)
+ 		return comp->comp_id;
+ 
++	if (mpam_class_memory(class))
++		return comp->comp_id;
 +
-+	resctrl_mon_resource_init(r);
-+
- 	return 0;
- }
- 
-diff --git a/fs/resctrl/rdtgroup.c b/fs/resctrl/rdtgroup.c
-index d9876bbc6365..0bdcf6dd935c 100644
---- a/fs/resctrl/rdtgroup.c
-+++ b/fs/resctrl/rdtgroup.c
-@@ -2133,6 +2133,13 @@ static struct rftype res_common_files[] = {
- 		.seq_show	= mbm_L3_assignments_show,
- 		.write		= mbm_L3_assignments_write,
- 	},
-+	{
-+		.name		= "mbm_MB_assignments",
-+		.mode		= 0644,
-+		.kf_ops		= &rdtgroup_kf_single_ops,
-+		.seq_show	= mbm_MB_assignments_show,
-+		.write		= mbm_MB_assignments_write,
-+	},
- 	{
- 		.name		= "mbm_assign_mode",
- 		.mode		= 0644,
-@@ -5132,10 +5139,8 @@ int resctrl_online_ctrl_domain(struct rdt_resource *r, struct resctrl_ctrl *ctrl
- 
- 	mutex_lock(&rdtgroup_mutex);
- 
--	if (supports_mba_mbps(ctrl) && r->rid == RDT_RESOURCE_MBA) {
--		/* RDT_RESOURCE_MBA is never mon_capable */
-+	if (supports_mba_mbps(ctrl) && r->rid == RDT_RESOURCE_MBA)
- 		err = mba_sc_domain_allocate(r, d);
--	}
- 
- 	mutex_unlock(&rdtgroup_mutex);
- 
+ 	if (topology_matches_l3(class)) {
+ 		/* Use the corresponding L3 component ID as the domain ID */
+ 		int id = get_cpu_cacheinfo_id(cpu, 3);
 -- 
 2.43.0
 
