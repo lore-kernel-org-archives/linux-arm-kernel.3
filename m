@@ -4,66 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ED5EC4450E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 11:43:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E7EBC4450E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 11:50:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BcE4MP3DMzpQ02s3zmeid9c8qa5MwekrIFi5BEUqWKE=; b=z6IhJemHuEuykQqJ4l79PXsJzy
-	rT6uaUSyzSiotDoxufbahW4PG4FATLN0vq0CS807U1pHCTFYmi+AjiKGnMOWYI/MeyA4mBi40w0/P
-	mMvGq0MW+lQbYOb4jgtIW75wFpk92NJENnenzyhJRryWe/7vCfEXfMTpU6Q1UwaFayaeRjHlZfTvH
-	S77Vx1yXmmCk9AhfsvpTxPIRTMDlWTAQLH/xgfe1nMhpxureW+ueTRKu46cXLAoFbO/pDRYYj8xKC
-	vndNq+jAy4B21shvxGYzrlo4gahw7LdndpkFE9m5UyPamyEOYVEpLIpaxfwdTgrOYNVhTPtIQ/rAG
-	IaU7bDIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EF4KzUV/2FAr70joIgarXoXHvvFOUNtQosvbixQmtNs=; b=ZSAhvQxpszXN6fbLibeufj642i
+	tEVravyiOhCYDLOGdgFS1j5YFgwQRRQrQ5R+VS17fNzhA1jzN48y26es5j2HaiJL6kRAXrEzY0tBt
+	T7dNLPETYIKpDNab40ZHiDeC/7DtbAADnuIOhm30mpi9263p2ruHtdogAdleTOZ7Y6PoRbhLr3+OK
+	9Q5fOaNwo6BwUqICBGgF2Ri7DPKuOCpcUOMOl13GH19b0xoPJlrk6EBvuRsPPaMdhrqphr7GyLUbh
+	W6qZtidBiAfYBUKKYy+KHyEZPjuPmj9G4+dMRCrEAH7fUJqUyL8GUDXU4fh49klbBZYWJ55hX363j
+	ISi4+h7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkKUU-0000000HAFi-1d8N;
-	Thu, 16 Jul 2026 11:42:58 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wkKbu-0000000HBBF-3VOX;
+	Thu, 16 Jul 2026 11:50:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkKUQ-0000000HAED-0yfB;
-	Thu, 16 Jul 2026 11:42:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1784202170;
-	bh=mDnKGAlL+LyE5R2P+uLw2Xcb/nVKH7esWgNaCjxqEXE=;
-	h=From:To:Cc:Subject:Date:From;
-	b=H5luRTYKA8DwTVT/KRQElee5w8BfA74MIde6ben8ccwdFKeqAuzIkjhsu6yILAFI7
-	 lInog16e69UDbCH1+uzEUBq2ujGgZF3REytxZwsvYFNbLP2bEoIFN9ZS6Uc3NY86Xj
-	 6wzD11eUVHrlHgUKyyhmNMTg+mi6/uWkOOIf2bwkxpYF6LKW439pHQiznRFlhyccYK
-	 J7rwET4l+FZoMhEpGZcd8jcxzaRZgoYDRbgPqz13YdAIUnfGDhWJGIKxItOsktrWgZ
-	 quM/qj383iDR3/aKyv/gz6n2Ynb5yuAauOl3WxN75/cCuG8iLDbVnvXZ549KS11wPE
-	 SHJlGJjQXT92Q==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id EAE7817E019E;
-	Thu, 16 Jul 2026 13:42:49 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: ulfh@kernel.org
-Cc: matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	nfraprado@collabora.com,
-	macpaul.lin@mediatek.com,
-	irving-ch.lin@mediatek.com,
-	linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	kernel@collabora.com
-Subject: [PATCH] pmdomains: mediatek: Avoid setting RTFF's CLK_DIS before NRESTORE
-Date: Thu, 16 Jul 2026 13:42:47 +0200
-Message-ID: <20260716114247.49685-1-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.54.0
+	id 1wkKbt-0000000HBAd-1QCr
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 16 Jul 2026 11:50:37 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B2576419E7;
+	Thu, 16 Jul 2026 11:50:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32C921F000E9;
+	Thu, 16 Jul 2026 11:50:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784202636;
+	bh=EF4KzUV/2FAr70joIgarXoXHvvFOUNtQosvbixQmtNs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ldlTyjQ6WsIg8OGKTIpcmJc71vKK414FhmTm7yBG5rkbKfYduF3AQtGLAp/qPQN5B
+	 oB+AXVmgph4kCKhQI2ApbsXP14xZPrtPHy8nUQIhNfwho2PIqlZDpPlwWnCu52r3o8
+	 mEeYiOYzcGB6xOOfjD40M9O+qjssV9Y2Fo9PX6vNcK38+m4OUO1Mq2PO/bd2DukzQR
+	 CQ+lMGw5RFgOftLoaqm7FToeFCeR0IG0uSD7zKldNqH4r9yqxitb9/HTQnDCwdeovr
+	 Q3EA25GaEpYe7ae0A9LQzho6ZSKAuU0+6EPHq9wDvV2RVAmHPyAdagV0AFySG1Wmup
+	 +rHCr6MKLK02g==
+Date: Thu, 16 Jul 2026 12:50:31 +0100
+From: Will Deacon <will@kernel.org>
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Kees Cook <kees@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Yiqi Sun <sunyiqixm@gmail.com>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: Re: [PATCH] arm64: syscall: Ensure saved x0 is kept in-sync with
+ tracer updates
+Message-ID: <aljFh-mSqQKh2o57@willie-the-truck>
+References: <20260714143600.23853-1-will@kernel.org>
+ <55b6734e-39b9-40bb-93ae-b869f17476d5@huawei.com>
+ <aleILaiTXssk066q@willie-the-truck>
+ <d95814b4-511c-4210-85c3-f4f922838140@huawei.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_044254_468404_8D71B5F9 
-X-CRM114-Status: GOOD (  11.08  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <d95814b4-511c-4210-85c3-f4f922838140@huawei.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,51 +74,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For the PCIE_PHY (also called PEXTP_PHY) type of RTFF hardware,
-there is special handling setting CLK_DIS before performing the
-NRESTORE sequence for resetting the RTFF and start sequencing
-from a clean state.
+On Thu, Jul 16, 2026 at 10:09:55AM +0800, Jinjie Ruan wrote:
+> On 7/15/2026 9:16 PM, Will Deacon wrote:
+> >> /*
+> >>  * Ensure tracer changes to x0 during SECCOMP_RET_TRACE processing
+> >>  * are visible to later trace and audit.
+> >> */
+> > 
+> > I'll tweak that, as I don't think the tracing part matters (it doesn't
+> > see orig_x0 afaict) and I'd like to be very clear that this is down
+> > to the secure_computing() call. So it becomes:
+> 
+> I do not think so, I think the trace part also matters, because the
+> tracepoint also reads orig_x0 through syscall_get_arguments().
+> 
+>  18 TRACE_EVENT_SYSCALL(sys_enter,
+>  19
+>  20 >-------TP_PROTO(struct pt_regs *regs, long id),
+>  21
+>  22 >-------TP_ARGS(regs, id),
+>  23
+>  24 >-------TP_STRUCT__entry(
+>  25 >------->-------__field(>-------long,>-->-------id>----->-------)
+>  26 >------->-------__array(>-------unsigned long,>-args,>--6>------)
+>  27 >-------),
+>  28
+>  29 >-------TP_fast_assign(
+>  30 >------->-------__entry->id>----= id;
+>  31 >------->-------syscall_get_arguments(current, regs, __entry->args);
+> ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 
+>  32 >-------),
+>  33
+>  34 >-------TP_printk("NR %ld (%lx, %lx, %lx, %lx, %lx, %lx)",
+>  35 >------->-------  __entry->id,
+>  36 >------->-------  __entry->args[0], __entry->args[1], __entry->args[2],
+>  37 >------->-------  __entry->args[3], __entry->args[4], __entry->args[5]),
+>  38
+>  39 >-------syscall_regfunc, syscall_unregfunc
+>  40 );
 
-That special handling, though, poses an issue in case the machine
-specific bootchain (bootloader in particular) ends up booting the
-kernel with both PCIe MAC and PHY enabled (not just power domains)
-as doing so will partially corrupt the PCIe MAC/PHY registers in
-an unpredictable manner, producing either an initialization fail
-in the PCI-Express drivers, or even a hard lockup!
+Well spotted, I was looking for "orig_x0" when I initially looked at the
+tracing code but it's hidden behind that call to syscall_get_arguments().
 
-Resolve this by simply removing the special handling: in this case
-the bootchain, or remote processors, setting is getting honored by
-the later check for PWR_RTFF_SAVE_FLAG presence in the RTFF ctl
-register.
-
-Fixes: 9d02c94342b3 ("pmdomain: mediatek: Add support for RTFF Hardware in MT8196/MT6991")
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- drivers/pmdomain/mediatek/mtk-pm-domains.c | 8 --------
- 1 file changed, 8 deletions(-)
-
-diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.c b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-index f69cf69ba0f6..df8e93638e08 100644
---- a/drivers/pmdomain/mediatek/mtk-pm-domains.c
-+++ b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-@@ -480,16 +480,8 @@ static int scpsys_ctl_pwrseq_on(struct scpsys_domain *pd)
- 	if (ret < 0)
- 		return ret;
- 
--	if (pd->data->rtff_type == SCPSYS_RTFF_TYPE_PCIE_PHY)
--		regmap_set_bits(scpsys->base, pd->data->ctl_offs, PWR_RTFF_CLK_DIS);
--
- 	regmap_clear_bits(scpsys->base, pd->data->ctl_offs, PWR_CLK_DIS_BIT);
- 	regmap_clear_bits(scpsys->base, pd->data->ctl_offs, PWR_ISO_BIT);
--
--	/* Wait for RTFF HW to sync buck isolation state if this is PCIe PHY RTFF */
--	if (pd->data->rtff_type == SCPSYS_RTFF_TYPE_PCIE_PHY)
--		udelay(5);
--
- 	regmap_set_bits(scpsys->base, pd->data->ctl_offs, PWR_RST_B_BIT);
- 
- 	/*
--- 
-2.54.0
-
+Will
 
