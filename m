@@ -4,62 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91D7BC4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 09:37:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A13AC4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 09:37:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G42ZJjxq1cwFm5e4ues0EYOOR8QEvzxrhIVmMTC7tZE=; b=m+9HhTIuHePAdwgt4fr1E9K5vM
-	Jnf+m59mreXJW4L1kSCs0a38GYvF2ZlmfievTQZHYjJCftXbMrsKr8s4HN5ST0RHgNYPAifjMFnN+
-	VzJ+saVJqZyxLQ8lv44xO63zP/s02rjek1jAnrFD8MHtdjCcGDMrk9JJSUYFbcDaStuCZ5J+Cq4iE
-	AD8TyEJ6dP2ZuljMHjwiLD2H0uoxBU71XI6hiN6JzRKy2rPBCNroy14Ny/ltzsX2AKgKb5ObhCPZA
-	zU/8Ylz0avgfCm7MQl012iWwR+rkGatTr381dQJd+KpQPwdE+9Fip1rfD+o4iV5EHSnDd2bPQWT8W
-	VCO7RSCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EPFwJ3WEuBcm2rx9cZEvteDwo2+iijOpn/63IcGELo4=; b=mV0fbLxyU6B0VTo3rJ5HNX2lpD
+	c42ZcAc6jz4w5nfnR9/ybfPd/IPB39ILbaU79sjSKz3qa+OI1YPlQjdxDUxFcA+lJIBh0uwENf7qr
+	+WNy0SP1mgGpfHHJ50QZgjSTGGS2kWRBpRTLmHn1Hv2ym0oucY+qPKGUjIwBX9vKlYpixn9U3BWLA
+	8AiGXz1eFjN+rOD2lFqgEV10/hGfJj1WLUVYkvbEW5apuk2v7whE9OgukN3lFrZ2VO3ISRxgIBiRY
+	vdzSxDEEWopBm7wIWaUAGVGpRi0LJw0PDIyq1gNxnY6cDJItqkl8wAtsUZshfDin8MfvLhuSXnao/
+	hDC7gJzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkIWk-0000000Gtp6-0vt0;
-	Thu, 16 Jul 2026 09:37:10 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkIWi-0000000Gtoh-0f7a
+	id 1wkIX6-0000000Gtsy-1YFd;
+	Thu, 16 Jul 2026 09:37:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkIX4-0000000Gtsg-3k03
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 09:37:09 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 06CC62F;
-	Thu, 16 Jul 2026 02:37:03 -0700 (PDT)
-Received: from [10.1.34.162] (e121487-lin.cambridge.arm.com [10.1.34.162])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9A2293F905;
-	Thu, 16 Jul 2026 02:37:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784194627; bh=M4R71i24bJwwDZxhEnUUpI/n4qOrLNP84dEiTcS6kKM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=JrMJ/ErBmL7UV1MGDzab//wfq5W6Dt9boak9uYozf1wE5hP7rtNN/SjT3v3VO7ekC
-	 R1ug9QGtkoENaUQJH7S+Mx3Crw1oJk174UeGtOvYNkhoL1sqwi+knwFpn1XwRT0fYy
-	 xSSGzE6Dia2ASWhFGsE0e5uBtL8cNEFIPqcrlLcI=
-Message-ID: <31e2fdb7-063e-44a3-b667-766213839992@arm.com>
-Date: Thu, 16 Jul 2026 10:37:03 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 14/36] arm64: interrupts: introduce generic interrupt
- masking helpers
-To: "Liao, Chang" <liaochang1@huawei.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: mark.rutland@arm.com, maz@kernel.org, ruanjinjie@huawei.com,
- catalin.marinas@arm.com, will@kernel.org
-References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-15-vladimir.murzin@arm.com>
- <03dbefa5-6828-4b62-8f43-45b631c49289@huawei.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <03dbefa5-6828-4b62-8f43-45b631c49289@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_023708_274501_0E1734AC 
-X-CRM114-Status: GOOD (  24.45  )
+	Thu, 16 Jul 2026 09:37:31 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5605C60054;
+	Thu, 16 Jul 2026 09:37:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 000121F000E9;
+	Thu, 16 Jul 2026 09:37:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784194650;
+	bh=EPFwJ3WEuBcm2rx9cZEvteDwo2+iijOpn/63IcGELo4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=bLOfCpshJI9arPQk13D/3FzzjPN5KW7Lwe2sFGx9PbCCHlW5Nwh+GGSY1Y8/Vz+f/
+	 /aWunZGjzog0ejKw+sqk4c7Da/L/uOGrjrJKvnzNItOUdk3U7WAB0zSw2AD1q0IBu6
+	 s2Zr2R6l3yo9DPObKM5TmY18oKkz8dp3xEM/w3QK8V0Pw2I4ccPA4gtSHmnzXOzvoI
+	 0hZlaif37EuuKP/s4boMscRXhDaFJYMVCordJwTO2dLdiUaCTXoC9YUCE3bM83zM3S
+	 7MAlPtOKNqvPzT6t7jJf3NHdxPAmk0W8SMTiREEDaU/MzyiXlpVVDFSpn/u5v+dp2m
+	 OMeccACFs6rYA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wkIX1-00000005ccs-1RQq;
+	Thu, 16 Jul 2026 09:37:27 +0000
+Date: Thu, 16 Jul 2026 10:37:21 +0100
+Message-ID: <86fr1jff72.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org,	kvmarm@lists.linux.dev,	Catalin Marinas <catalin.marinas@arm.com>,	Will Deacon <will@kernel.org>,	James Morse <james.morse@arm.com>,	Oliver Upton <oliver.upton@linux.dev>,	Suzuki K Poulose <suzuki.poulose@arm.com>,	Zenghui Yu <yuzenghui@huawei.com>,	linux-arm-kernel@lists.infradead.org,	linux-kernel@vger.kernel.org,	Joey Gouly <joey.gouly@arm.com>,	Alexandru Elisei <alexandru.elisei@arm.com>,	Christoffer Dall <christoffer.dall@arm.com>,	Fuad Tabba <tabba@google.com>,	linux-coco@lists.linux.dev,	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,	Gavin Shan <gshan@redhat.com>,	Shanker Donthineni <sdonthineni@nvidia.com>,	Alper Gun <alpergun@google.com>,	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,	Emi Kisanuki <fj0570is@fujitsu.com>,	Vishal Annapurve <vannapurve@google.com>,	WeiLin.Chang@arm.com,	Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: Re: [PATCH v15 09/37] KVM: arm64: CCA: Allow passing the machine type in KVM creation
+In-Reply-To: <9eb4e4c0-f1f6-4ab9-956a-0b233d1656c9@arm.com>
+References: <20260715142841.80544-1-steven.price@arm.com>
+	<20260715142841.80544-10-steven.price@arm.com>
+	<87zezs44cf.wl-maz@kernel.org>
+	<9eb4e4c0-f1f6-4ab9-956a-0b233d1656c9@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,174 +82,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/15/26 10:30, Liao, Chang wrote:
-> 在 2026/7/9 20:13, Vladimir Murzin 写道:
->> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
->>
->> As for the entry code, we want to replace `local_daif_...` helpers
->> so that they can properly handle both DAIF and PMR, as well controlling
->> their use more strongly.
->>
->> Introduce new `local_all_irqs_...` helpers to replace them, which should
->> only be called in save/restore pairs.
->>
->> Save the requested interrupt state as well, so we can check for
->> inconsistent interrupt masking in between save and restore.
->>
->> There are two exceptions where it does not make sense to force
->> save/restore pairs for modifying the interrupt masks:
->>  - when initializing a CPU or
->>  - preparing to turn it off.
->>
->> As we otherwise want to force save/restore pairs, those cases are
->> handled with specific helpers, making clear that they should not be
->> used outside of those cases, enforced with `CONFIG_DEBUG_IRQFLAGS`
->> enabled.
->>
->> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
->> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
->> ---
->>  arch/arm64/include/asm/interrupts/masking.h | 101 ++++++++++++++++++++
->>  1 file changed, 101 insertions(+)
->>  create mode 100644 arch/arm64/include/asm/interrupts/masking.h
->>
->> diff --git a/arch/arm64/include/asm/interrupts/masking.h b/arch/arm64/include/asm/interrupts/masking.h
->> new file mode 100644
->> index 000000000000..66ee03f7ab68
->> --- /dev/null
->> +++ b/arch/arm64/include/asm/interrupts/masking.h
->> @@ -0,0 +1,101 @@
->> +/* SPDX-License-Identifier: GPL-2.0-only */
->> +/*
->> + * Copyright (C) 2025 Arm Ltd.
->> + */
->> +#ifndef __ASM_INTERRUPTS_MASKING_H
->> +#define __ASM_INTERRUPTS_MASKING_H
->> +
->> +#include <asm/arch_gicv3.h>
->> +#include <asm/bug.h>
->> +#include <asm/cpufeature.h>
->> +#include <asm/interrupts/common_flags.h>
->> +#include <asm/ptrace.h>
->> +
->> +typedef struct arm64_exc_hwstates {
->> +	arm64_exc_hwstate_t saved;
->> +	arm64_exc_hwstate_t expected;
->> +} arm64_exc_hwstates_t;
->> +
->> +#ifdef CONFIG_DEBUG_IRQFLAGS
->> +/* Make sure the CPU init/tear down masking functions are only used once. */
->> +static DEFINE_PER_CPU(bool, irqs_masks_cpu_init_done);
->> +static DEFINE_PER_CPU(bool, irqs_masks_cpu_final_done);
->> +#endif
->> +
->> +static inline
->> +arm64_exc_hwstates_t local_all_irqs_save_mask(arm64_exc_context_t new)
->> +{
->> +	arm64_exc_hwstate_t state = arm64_exc_hwstate_of_context(new);
->> +	arm64_exc_hwstate_t actual = {.flags = arch_local_save_flags()};
->> +
->> +	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
->> +		bool pnmi = system_uses_irq_prio_masking();
->> +
->> +		WARN_ON_ONCE(new < CRITICAL_CONTEXT &&
->> +			     actual.daif == DAIF_MASK);
->> +
->> +		WARN_ON_ONCE(new < ERROR_CONTEXT &&
->> +			     actual.daif == DAIF_ERRCTX);
->> +
->> +		WARN_ON_ONCE(new < NONMI_CONTEXT &&
->> +			     pnmi && actual.daif == DAIF_PROCCTX_NOIRQ);
->> +
->> +		WARN_ON_ONCE(new < NOIRQ_CONTEXT &&
->> +			     ((pnmi && actual.pmr == GIC_PRIO_IRQOFF) ||
->> +			      (!pnmi && actual.daif == DAIF_PROCCTX_NOIRQ)));
->> +	}
->> +
->> +	arm64_update_exc_hwstate(state, actual.pmr != state.pmr);
-> Is it necessary to compare pmr field unconditionally here, does this function's
-> usage imply a strict dependency on pseudo NMI？If this function moves forward to
-> support FEAT_NMI, checking PMR seems unneccesary.
+On Thu, 16 Jul 2026 10:17:21 +0100,
+Steven Price <steven.price@arm.com> wrote:
 > 
-
-Yes, it is not necessary, but it is cheap. :) However, I think I need
-to revisit this approach. More on that below...
-
->> +
->> +	if (!arch_irqs_disabled_flags(actual.flags))
->> +		trace_hardirqs_off();
->> +
->> +	return (arm64_exc_hwstates_t){.saved = actual, .expected = state};
->> +}
->> +
->> +static inline void local_all_irqs_restore(arm64_exc_hwstates_t states)
->> +{
->> +	arm64_debug_exc_hwstate(states.expected);
->> +
->> +	if (!arch_irqs_disabled_flags(states.saved.flags))
->> +		trace_hardirqs_on();
->> +
->> +	arm64_update_exc_hwstate(states.saved, true);
-> I'm curious why it forces update_pmr to true for this specific path?
+> On 15/07/2026 17:14, Marc Zyngier wrote:
+> > On Wed, 15 Jul 2026 15:28:11 +0100,
+> > Steven Price <steven.price@arm.com> wrote:
+> >>
+> >> Previously machine type was used purely for specifying the physical
+> >> address size of the guest. Reserve the higher bits to specify an ARM
+> >> specific machine type and declare a new type 'KVM_VM_TYPE_ARM_REALM'
+> >> used to create a realm guest.
+> >>
+> >> Signed-off-by: Steven Price <steven.price@arm.com>
+> >> ---
+> >> Changes since v13:
+> >>  * Rework to use the two top bits for the machine type now that pKVM has
+> >>    merged and used the top bit for KVM_VM_TYPE_ARM_PROTECTED.
+> >>  * Update the documentation to include KVM_VM_TYPE_ARM_PROTECTED as
+> >>    well.
+> >> Changes since v9:
+> >>  * Explictly set realm.state to REALM_STATE_NONE rather than rely on the
+> >>    zeroing of the structure.
+> >> Changes since v7:
+> >>  * Add some documentation explaining the new machine type.
+> >> Changes since v6:
+> >>  * Make the check for kvm_rme_is_available more visible and report an
+> >>    error code of -EPERM (instead of -EINVAL) to make it explicit that
+> >>    the kernel supports RME, but the platform doesn't.
+> >> ---
+> >>  Documentation/virt/kvm/api.rst | 18 ++++++++++++++++--
+> >>  arch/arm64/kvm/arm.c           | 11 +++++++++++
+> >>  include/uapi/linux/kvm.h       |  7 ++++++-
+> >>  3 files changed, 33 insertions(+), 3 deletions(-)
+> >>
+> >> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+> >> index b38e090ad95d..e39d146b34a3 100644
+> >> --- a/Documentation/virt/kvm/api.rst
+> >> +++ b/Documentation/virt/kvm/api.rst
+> >> @@ -181,8 +181,22 @@ flag KVM_VM_MIPS_VZ.
+> >>  ARM64:
+> >>  ^^^^^^
+> >>  
+> >> -On arm64, the physical address size for a VM (IPA Size limit) is limited
+> >> -to 40bits by default. The limit can be configured if the host supports the
+> >> +On arm64, the machine type identifier is used to encode a type and the
+> >> +physical address size for the VM. The lower byte (bits[7-0]) encode the
+> >> +address size and the upper bits[30-31] encode a machine type. The machine
+> >> +types that might be available are:
+> >> +
+> >> + =========================   ============================================
+> >> + KVM_VM_TYPE_ARM_NORMAL      A standard VM
+> >> + KVM_VM_TYPE_ARM_REALM       A "Realm" VM using the Arm Confidential
+> >> +                             Compute extensions, the VM's memory is
+> >> +                             protected from the host.
+> >> + KVM_VM_TYPE_ARM_PROTECTED   A "protected" VM using pKVM to isolate the
+> >> +                             VM from the host.
+> >> + =========================   ============================================
+> >> +
+> > 
+> > Probably worth mentioning that REALM+PROTECTED is an illegal
+> > combination.
 > 
+> The original intention was that these were enum values not separate bit
+> fields. Having to adapt to the pKVM changes when they were merged has
+> somewhat messed this up. I'll add a clarification, but hopefully we
+> haven't actually burnt the combination in case we have a 4th type in the
+> future.
 
-We force an update because we cannot fully trust that the HW state
-matches the expected state. The expected state exists for debug
-purposes only.
+A good way to avoid ambiguity would be to list the actual values for
+the [31:30] field (0b00, 0b01, 0b10).
 
-In the local_all_irqs_save_mask() case above, we have just read the HW
-state, so we can use that information to avoid some unnecessary HW
-updates.
+Thanks,
 
-I think it would be better to provide two versions of
-arm64_update_exc_hwstate(): a strong version and a relaxed version,
-with the strong version being the default. That would let us limit the
-relaxed version to places where we know it is safe to skip redundant
-HW updates.
+	M.
 
-
->> +}
->> +
->> +#ifdef CONFIG_DEBUG_IRQFLAGS
->> +static inline
->> +void local_all_irqs_cpu_init_mask(arm64_exc_context_t context)
->> +{
->> +	WARN_ON(__this_cpu_read(irqs_masks_cpu_init_done));
->> +	if (context == PROCESS_CONTEXT)
->> +		trace_hardirqs_on();
->> +	arm64_update_exc_context(context, true);
->> +	__this_cpu_write(irqs_masks_cpu_init_done, true);
->> +	__this_cpu_write(irqs_masks_cpu_final_done, false);
->> +}
->> +
->> +static inline void local_all_irqs_final_mask(void)
->> +{
->> +	WARN_ON(__this_cpu_read(irqs_masks_cpu_final_done));
->> +	arm64_update_exc_context(CRITICAL_CONTEXT, true);
->> +	trace_hardirqs_off();
->> +	__this_cpu_write(irqs_masks_cpu_final_done, true);
->> +	__this_cpu_write(irqs_masks_cpu_init_done, false);
->> +}
->> +#else /* CONFIG_DEBUG_IRQFLAGS */
->> +static inline
->> +void local_all_irqs_cpu_init_mask(arm64_exc_context_t context)
->> +{
->> +	if (context == PROCESS_CONTEXT)
->> +		trace_hardirqs_on();
->> +	arm64_update_exc_context(context, true);
->> +}
->> +
->> +static inline void local_all_irqs_final_mask(void)
->> +{
->> +	arm64_update_exc_context(CRITICAL_CONTEXT, true);
->> +	trace_hardirqs_off();
->> +}
->> +#endif /* CONFIG_DEBUG_IRQFLAGS */
->> +#endif /* __ASM_INTERRUPTS_MASKING_H */
-> 
-> -- BR Liao, Chang
-> 
-
-Cheers
-Vladimir
+-- 
+Without deviation from the norm, progress is not possible.
 
