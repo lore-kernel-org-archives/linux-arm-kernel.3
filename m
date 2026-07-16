@@ -4,74 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EC44C4451A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 21:41:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23B2AC44512
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 21:42:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8yF4WllWvs9Iw8iHl81Wlx3j0QzQ0MziWfuhUjP2AqQ=; b=BWfvOuy/loN+DSGzOjDEH7bGIG
-	8ho8yI9AZ+59o6mG5JnfQyT7jqSy/+W81MlnNfYd1Al3ZvWM3ZtNDHnE+iyY1zlIjqKG8eCuBDLub
-	ust391eP1SmkJoqqSiuai5DWwMb/N9U+oFsLGAVVrJWFZ0bpXGWQcShsdgHDifNmsAzcaIssGAMqR
-	yj3Vf3fJqFej7ocb8rFrZveoT+PoA1fnSOUybTCTNSbhijfW+o3cbGyNwdphhpSEC2+gqGMBhXQ+T
-	QgYd0ackwIhCNJqRyuZAimER8xdAwVab01wpytAAh157e/KN5h0BMD44Bo85Rb2jVw4UhjlqJfj67
-	kd8lmkog==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eyGPsVw0MJSV96XCp7cxneDUGR8CvSyWL+Po087qX1c=; b=DRTVInCr/AbM6efJchUubQVw2/
+	/IVOuCFE6on8K34N/VtV5/6yBWjL7P/DoAsV5ctH/5StImQUOlhJO0D9v2OtIkaEGFakAM4F4kQp1
+	uXylpJ0Iz/4mfEwxNNyrePpTM4sdc7Z75Vy12wWaj67ayyMOKSN9FEsiVHgeQhD/6G1m/foKnBUtp
+	YCiVKtTgJUKR8c9qXFElGvu2C8nKYAQTgtSZwvPyrxaABlMpygIeAM+yhw1kvbNyU/ElGhaBdUSVw
+	LtQC3B+bRe6oq8m4XHG8bGqJ7VW1gmwNJz32ss3ecClGgSvxceeu/EIja7xO8GO3cbGtTPun+UXez
+	w5iX+NjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkTpk-00000000fZh-3kv7;
-	Thu, 16 Jul 2026 21:41:32 +0000
-Received: from mout.web.de ([212.227.17.11])
+	id 1wkTqz-00000000flW-0QWi;
+	Thu, 16 Jul 2026 21:42:49 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkTpi-00000000fYd-0Vhs
+	id 1wkTqw-00000000fko-0zxb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 21:41:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1784238081; x=1784842881; i=smoch@web.de;
-	bh=8yF4WllWvs9Iw8iHl81Wlx3j0QzQ0MziWfuhUjP2AqQ=;
-	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:
-	 MIME-Version:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=iF7dA3HLIm3DnCt1zbbqrldSx2qZzx6SYGNmilO37PkpG5FDSzOg8sO9EA4onmaG
-	 VYtPewG2nAUwhaOhIMaoIiDOd+DNiVXTPABl0oKY82yamQDrvg+Vs17ik3quSHb0K
-	 V900OqR2nocrgbp8J51f0qTnaIhrFoK7Wbq/7SYnsXN4rQfLcbW1rqg0YGI5p7SfC
-	 mFlwGPq2zUuH9HcKkZDoq18xiPwy0df/k6W0rU12k7iBbxBgIPsmllsa70LV4/9yE
-	 wPJNXF/gMwzHJKqmlogkNcvfjlWbRrPUwPP4Zjkrjev8zk9P1ON93ACFl8cbqkkQA
-	 97fj1MkkpnOb1i3EGQ==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb105
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1MS17h-1wZjYJ3nNj-00HpYs; Thu, 16
- Jul 2026 23:41:21 +0200
-From: Soeren Moch <smoch@web.de>
-To: Bjorn Helgaas <bhelgaas@google.com>
-Cc: Soeren Moch <smoch@web.de>,
-	stable@vger.kernel.org,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] PCI: imx6: Keep Root Port MSI capability also for i.MX6Q
-Date: Thu, 16 Jul 2026 23:40:54 +0200
-Message-ID: <20260716214054.47372-1-smoch@web.de>
-X-Mailer: git-send-email 2.43.0
+	Thu, 16 Jul 2026 21:42:47 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-493f4638f4aso32042855e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 14:42:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784238164; x=1784842964; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=eyGPsVw0MJSV96XCp7cxneDUGR8CvSyWL+Po087qX1c=;
+        b=GPLhXfYmKN0XFlKustle396iPXUW5PyMqmmN02oe4plNtOago09T7aljzkKlZKxwhj
+         OmrXYK5DmIK1Fdicc9pypbty625FP77YqiIhTJ+5gSsXn8psduwn/hndC4V1Kt1Fc6HD
+         XltcSvG6RZus3yRaZuW5Y8C2+fKZe91XfDYlvsL66w8+glmIwxFGmm/TNrIkMcLAAPFT
+         fo7xvgIglc8+FGfu8kB4qlA53aU/gLS5IZnnxmsbp8Del+/xV+Y5JLmvPMFMjMyGfSMW
+         bvJ/H4mEYCuIlYfP8RTfcbqgh6zK53t5qnnSxhzGrVpmgyEMTpbVQanreGV0crQtKRDO
+         a9gw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784238164; x=1784842964;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=eyGPsVw0MJSV96XCp7cxneDUGR8CvSyWL+Po087qX1c=;
+        b=IxTNPcuMe7/tJkhjQG9a108Mk/X/OuH1nuVyGEmUiZAhVFbJAtJOZ0HKLleKiybpSk
+         YLglkckpI/C7Pd15MliLwVUoMXho9VSQD3/RgnM4RjbXuxnTAelpzsFDuzsIm8fDzGCT
+         To6iRMe00P6wVdWKQz6d6hUDfrWA8aZfp+q3j/JrgDLRIWy3fOmRhRvIkNfxEXMDOe2K
+         Mw2HSFnPRDxYEYFDK3EmGYgutYxsS5c33djJkoNwjgZfqV6PjEmjb8wJStr8tLuNOMAq
+         YLsxIVuBeLLsaIv0/FTHav9/YcXHdQYVwG0zkXHkzzM5PfaO0P3340QyDmEH/6r1XojT
+         Fwzg==
+X-Forwarded-Encrypted: i=1; AHgh+RoSHjpQvViFQCSEapFjxp01dl5UO/CZy29+Ok30WcDF4oLNmulnNTNZjngohq0kkBNOSf8WNysoxFa2fmZxJpF2@lists.infradead.org
+X-Gm-Message-State: AOJu0YwKiWjo/jyUEAkMEp/rq1TmnOwMVS0AoOTzK4OH7REqk73mPH4J
+	dAn+kCA7gpMCGR019GdOrZUQDtAJfBJ5Wp+tVMVCc3+caHW7FmCz7V3C
+X-Gm-Gg: AfdE7ckMykcFzYvZBwP9z1CH2kq7EdsnazNL4DQQFXJ7sktuNqmksGOdqa3/JfrxoWN
+	ZCVdHDmGpc0BFY7R2ugDWB+z0QzS5wq3RnFYnxSvZgmqmTpcP2KnGSa8ThN58csISyn2Gr7xbHF
+	QO6fBLjK2x0t9qVIYhUWstMKgZISFbZp8gDxsPmuVvl48NKRpvoV0X1pcHVIREJyDmjOQo7Exny
+	8GgDbUPdJz0nTQu8f8O9VTGjyZ2uhx4GKFXb3VDxtEf+Md9n78fge79mBPSc55jWSEz0/A2ABjb
+	JT1GA8gLw+BGQw+LfthPoUC1bbK7QyIDE7GujEL8iAh5af+N3ckeUjH7Qz0VM7xFvlVZTTAB9aR
+	YfDfT4hR3lHmCqAqWIt75coiZtdf0JPRK/vvv8rPw1hofHQ/p1LOyktFd5J8Ky1sJBEMDT1LJMk
+	RkLtyFxipLH2Z6WPqlH4wxMIjZ4k0VBewmiE9IV/KQDxmUr+mqhzi3Iedaer8Brfk=
+X-Received: by 2002:a05:600c:b8d:b0:493:bcef:565c with SMTP id 5b1f17b1804b1-49548391e68mr12720315e9.1.1784238164132;
+        Thu, 16 Jul 2026 14:42:44 -0700 (PDT)
+Received: from localhost.localdomain ([102.184.143.235])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49549a47de7sm2280035e9.7.2026.07.16.14.42.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 16 Jul 2026 14:42:43 -0700 (PDT)
+From: Mohamed Ayman <mohamedaymanworkspace@gmail.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Leo Yan <leo.yan@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	coresight@lists.linaro.org (moderated list:ARM/CORESIGHT FRAMEWORK AND DRIVERS),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/CORESIGHT FRAMEWORK AND DRIVERS),
+	linux-kernel@vger.kernel.org (open list),
+	linux-rt-devel@lists.linux.dev (open list:Real-time Linux (PREEMPT_RT):Keyword:PREEMPT_RT)
+Cc: Mohamed Ayman <mohamedaymanworkspace@gmail.com>,
+	coresight@lists.linaro.org (moderated list:ARM/CORESIGHT FRAMEWORK AND DRIVERS),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/CORESIGHT FRAMEWORK AND DRIVERS),
+	linux-kernel@vger.kernel.org (open list),
+	linux-rt-devel@lists.linux.dev (open list:Real-time Linux (PREEMPT_RT):Keyword:PREEMPT_RT)
+Subject: [PATCH v3] coresight: Fix scheduling while atomic in coresight_cpu_pm_notify()
+Date: Fri, 17 Jul 2026 00:41:54 +0300
+Message-Id: <20260716214155.2049564-1-mohamedaymanworkspace@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260712210446.14290-1-mohamedaymanworkspace@gmail.com>
+References: <20260712210446.14290-1-mohamedaymanworkspace@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:wuMJ5Q9l/R81+6rIGhVsO12/EYdE7EMrGyKSOr7MoALu/MjQ+lX
- FP9IkmKiePO//uD5tcp5Ddtj9IAFK3PqwGdmZbMk8XL8Hquc159g/uflD1Ie/VlfMhXBi3l
- isgZDJkoaJ8fvJUv7oNOlQfnjFMBESGZkeCz//70vknZZ6lYhkA4ygMlFIuV/e4tvmX48Q4
- DGxV8sy4VAzgDulUF2aVQ==
-UI-OutboundReport: notjunk:1;M01:P0:vXDL+/9DMNs=;nQ/O1rgyPbGKxsEiQHq9tUokA/F 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 qCFtsVqejJn3x5nwaHM0+S+S+wB8Mh8jMw==
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_144130_518314_3DB217A2 
-X-CRM114-Status: GOOD (  13.20  )
+X-CRM114-CacheID: sfid-20260716_144246_292769_2353787F 
+X-CRM114-Status: GOOD (  18.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,73 +112,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On the NXP i.MX6Q chipset MSIs from the endpoints won't be received by
-the iMSI-RX MSI controller if the Root Port MSI capability is disabled.
+Dropping the last reference to a coresight_device can trigger a kernel
+panic on PREEMPT_RT builds due to a "scheduling while atomic" violation.
 
-Even though the Root Port MSIs won't be received by the iMSI-RX controller
-due to design, this chipset has some weird hardware bug that prevents
-the endpoint MSIs from reaching when the Root Port MSI capability is
-disabled.
+When the CPU enters an idle state, coresight_cpu_pm_notify() is invoked
+with local interrupts disabled. It calls coresight_cpu_get_active_path(),
+which currently uses coresight_get_percpu_source_ref() to get a kobject
+reference, and then immediately drops it with coresight_put_percpu_source_ref().
 
-Hence, always keep the Root Port MSI capability for this chipset.
+If this put_device() call drops the very last reference (e.g., due to a
+concurrent device unregistration), it synchronously triggers the release
+cascade. On PREEMPT_RT, free_percpu() takes a sleeping rt-mutex.
+Furthermore, any parent device in the release chain might also acquire
+sleeping locks, causing a system crash in the atomic PM context.
 
-Note that by keeping Root Port MSI capability, Root Port MSIs such as AER,
-PME and others won't be received by default. So users need to use
-workarounds such as passing 'pcie_pme=3Dnomsi' cmdline param.
+Fix this by eliminating the get/put dance entirely in the PM notifier path.
+Since coresight_cpu_pm_notify() runs with IRQs disabled, it is safe to
+read the per-cpu source pointer directly under the coresight_dev_lock,
+check the mode, and return the path without unnecessarily manipulating the
+kobject refcount.
 
-Fixes: f5cd8a929c825 ("PCI: dwc: Remove MSI/MSIX capability for Root Port =
-if iMSI-RX is used as MSI controller")
-Cc: <stable@vger.kernel.org> # 7.0+
-Signed-off-by: Soeren Moch <smoch@web.de>
-Acked-by: Richard Zhu <hongxing.zhu@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
-=2D--
-Cc: Manivannan Sadhasivam <mani@kernel.org>
-Cc: Richard Zhu <hongxing.zhu@nxp.com>
-Cc: Lucas Stach <l.stach@pengutronix.de>
-Cc: Bjorn Helgaas <bhelgaas@google.com>
-Cc: Frank Li <Frank.Li@nxp.com>
-Cc: Fabio Estevam <festevam@gmail.com>
-Cc: linux-pci@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: imx@lists.linux.dev
-Cc: linux-kernel@vger.kernel.org
+Suggested-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Signed-off-by: Mohamed Ayman <mohamedaymanworkspace@gmail.com>
+---
+ drivers/hwtracing/coresight/coresight-core.c | 22 ++++++--------------
+ 1 file changed, 6 insertions(+), 16 deletions(-)
 
-This patch is similar to
-3a4e8302e72f ("PCI: imx6: Keep Root Port MSI capability with iMSI-RX to wo=
-rk around hardware bug")
-
-Tested on a tbs2910 board [1]
-[1] arch/arm/boot/dts/nxp/imx/imx6q-tbs2910.dts
-
-changes in v2:
-- collect a-b and r-b tags
-- use correct fixes tag (Manivannan)
-  (reference commit that introduced the bug, not the incomplete fix)
-
-Since this is a fix for a regression in linux-7.0+, can this still be merg=
-ed for 7.2-rcS ?
-=2D--
- drivers/pci/controller/dwc/pci-imx6.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controlle=
-r/dwc/pci-imx6.c
-index 98e1db751132..8130cf93c2bb 100644
-=2D-- a/drivers/pci/controller/dwc/pci-imx6.c
-+++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -1995,7 +1995,8 @@ static const struct imx_pcie_drvdata drvdata[] =3D {
- 		.flags =3D IMX_PCIE_FLAG_IMX_PHY |
- 			 IMX_PCIE_FLAG_SPEED_CHANGE_WORKAROUND |
- 			 IMX_PCIE_FLAG_BROKEN_SUSPEND |
--			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
-+			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND |
-+			 IMX_PCIE_FLAG_KEEP_MSI_CAP,
- 		.dbi_length =3D 0x200,
- 		.gpr =3D "fsl,imx6q-iomuxc-gpr",
- 		.ltssm_off =3D IOMUXC_GPR12,
-=2D-=20
-2.43.0
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index 6d65c43d5..713bcff53 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -1850,25 +1850,15 @@ static void coresight_release_device_list(void)
+ static struct coresight_path *coresight_cpu_get_active_path(enum cs_mode mode)
+ {
+ 	struct coresight_device *source;
+-	bool is_active = false;
++	struct coresight_path *path = NULL;
+ 
+-	source = coresight_get_percpu_source_ref(smp_processor_id());
+-	if (!source)
+-		return NULL;
+-
+-	if (coresight_get_mode(source) & mode)
+-		is_active = true;
++	guard(raw_spinlock_irqsave)(&coresight_dev_lock);
+ 
+-	coresight_put_percpu_source_ref(source);
++	source = per_cpu(csdev_source, smp_processor_id());
++	if (source && (coresight_get_mode(source) & mode))
++		path = source->path;
+ 
+-	/*
+-	 * It is expected to run in atomic context or with the CPU lock held for
+-	 * sysfs mode, so it cannot be preempted to disable the path. Here
+-	 * returns the active path pointer without concern that its state may
+-	 * change. Since the build path has taken a reference on the component,
+-	 * the path can be safely used by the caller.
+-	 */
+-	return is_active ? source->path : NULL;
++	return path;
+ }
+ 
+ /* Return: 1 if PM is required, 0 if skip, or a negative error */
+-- 
+2.34.1
 
 
