@@ -4,77 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98677C4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 23:01:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E9C9C4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 23:12:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d2H3RYbOqTn3GnxjVlxKF7EKAbQAcVfPEnLj66ekv7I=; b=pQN1lob91HUpP91+ZWWhDBngqp
-	1Wpmh/0X6b8zMcfK3uVRZ8PaIjGRE1ifG/Cf9SSIc4RmKqOGhzAtVGYJx/9qk6XCbupuPfnyCfF8k
-	kgofI8FPpAfeiOGFKVU9ALfE7RngI2i4spoGAF+p4+BDufLSzqUuDbpDlS3INd7aFFv6cTmW0iDFw
-	LT9l+PBRB8QYL6HB/edOiVhBPsJjuUtS/dXaTlhiJU7I0rP+eLYJbS61vSEFqO3BXHJ7ygRc0zzku
-	mKzBM/mCC51sfJDDcNFwSHIeMDsHO8jg73RQiwRf8oPmpfqoewXTutqHKxmJGuR7aiYz4XU0sE4Fq
-	1UqLKfFg==;
+	bh=m/QuFRSQM6jGskvpikRuPMQOLWa3drDNhXx6nuoLZqg=; b=sMx/4SWgyQ1Bwe6uTVCyYZEvtZ
+	rsiUbIa18y20ek+8zXbHPjiOftpyAB/+btA+i2ODsBCnlDD1p2gJ0t24ehEuYhHWoAawl1oVbr+kC
+	aU+uBbgnHqimmlZ8CV4vIMUA3psipkmHB4kpAO2mFugEUjlQZpiFi182ejJB8pyrayOwNTs5KR9Cy
+	2P8gukFtyM6sFL8FJ2B1kPyCgeA8BQ69cCdqomnJypKx3v+8pJ6tQSyA0+M/10ddZcl17GVmf8VPB
+	JktIIYdYhEVfn8WqG4/i1cOVi6XZPUKM0j7MNXndZ4hUWNFtCHiO9YeebsMyJ/tjJiJaLHyVPoCKM
+	rXb64E9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkV4n-00000000lpf-1yZL;
-	Thu, 16 Jul 2026 23:01:09 +0000
-Received: from mleia.com ([178.79.152.223] helo=mail.mleia.com)
+	id 1wkVFw-00000000mi1-3sTT;
+	Thu, 16 Jul 2026 23:12:40 +0000
+Received: from fout-a8-smtp.messagingengine.com ([103.168.172.151])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkV4k-00000000lpD-3mrG
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 23:01:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
-	t=1784242862; bh=g0m8OeU/oxDIig8AJ61M96aO+0JSbbAlonoasTJgSVM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lE9qywpoyVqk2OB9ZWXf8ryCZ5PaKNDJmFhewyKtyCPE2tc6Bdh0rmNk3/spc0R1i
-	 pSR8ca2hJZhqziYkmjrBFrfSPllh0//fAt7vMUeP4QRQFwUFFE1ul5oN+0KYMSlRIy
-	 8Jd31oICysUv6S/9/60VoCXoCn9O3W7sXHFb/08QP8kA38/F8H7zwt+zHJdpgINY+4
-	 bhrU/xy8IY2kECVf54CHroZuotdXpVPKxaXGVojeZElmETYa/Z9VJ5NZDslcQD6N4A
-	 7fOd8F3nBVYt7H0XkrTvuw9K5kNzRqMgm+X39cNjw4y7UeBJntKzmuYY7GF6Lso1hD
-	 Rt0O9i/ZPAl1w==
-Received: from mail.mleia.com (localhost [127.0.0.1])
-	by mail.mleia.com (Postfix) with ESMTP id C2F96398DAB;
-	Thu, 16 Jul 2026 23:01:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
-	t=1784242862; bh=g0m8OeU/oxDIig8AJ61M96aO+0JSbbAlonoasTJgSVM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lE9qywpoyVqk2OB9ZWXf8ryCZ5PaKNDJmFhewyKtyCPE2tc6Bdh0rmNk3/spc0R1i
-	 pSR8ca2hJZhqziYkmjrBFrfSPllh0//fAt7vMUeP4QRQFwUFFE1ul5oN+0KYMSlRIy
-	 8Jd31oICysUv6S/9/60VoCXoCn9O3W7sXHFb/08QP8kA38/F8H7zwt+zHJdpgINY+4
-	 bhrU/xy8IY2kECVf54CHroZuotdXpVPKxaXGVojeZElmETYa/Z9VJ5NZDslcQD6N4A
-	 7fOd8F3nBVYt7H0XkrTvuw9K5kNzRqMgm+X39cNjw4y7UeBJntKzmuYY7GF6Lso1hD
-	 Rt0O9i/ZPAl1w==
-Received: from [192.168.0.53] (109-184-53-136.dynamic.mts-nn.ru [109.184.53.136])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.mleia.com (Postfix) with ESMTPSA id 12538398A39;
-	Thu, 16 Jul 2026 23:01:01 +0000 (UTC)
-Message-ID: <25ec77c8-f1ad-484a-b3ff-ee16cc4f0cbd@mleia.com>
-Date: Fri, 17 Jul 2026 02:00:55 +0300
+	id 1wkVFo-00000000mfy-2YlA;
+	Thu, 16 Jul 2026 23:12:34 +0000
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfout.phl.internal (Postfix) with ESMTP id 3F95BEC0089;
+	Thu, 16 Jul 2026 18:51:49 -0400 (EDT)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-05.internal (MEProxy); Thu, 16 Jul 2026 18:51:49 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
+	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
+	:from:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=fm1; t=1784242309; x=
+	1785106309; bh=m/QuFRSQM6jGskvpikRuPMQOLWa3drDNhXx6nuoLZqg=; b=I
+	9Z+S1Jbh8fSe11k4PFZ1HDPDPCV0jeQvIHeODEQntFh2PR6SG7a7QK6ymJ9VPbMW
+	3ejOoCW3JamQjg/Sb88Am0vhSrBmxNGoUDFOhFj/YHgtUFz9r7HqKcmtT7F6l23j
+	/RoYsEvOcEpSzH2sr4/Uo38M7B4Sada1SIScA0G53MMUDwFQQBQAUyN9m0yV5oFq
+	1cWmnvFus0IEMnFX3g5DpGF/3tbaD+zUiNXDfJrtgSGh+SwRtCsDeTKBJsxn4vFI
+	39xpXHUq6/jq5JxMh59WR8d0diMKAw3BZY9BlCEyebJxiEm5xO9Jz2iU/m6mazbT
+	XrtCHUAPgDKroPIxvsxgg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
+	:x-me-sender:x-sasl-enc; s=fm2; t=1784242309; x=1785106309; bh=m
+	/QuFRSQM6jGskvpikRuPMQOLWa3drDNhXx6nuoLZqg=; b=PWI9MLRrWAKH8LvwY
+	MD0XzwrD/Q3MYlT0+Uzgyw3a6h4hEt11K2rqu2ePK73hDGuNjsM/hc84hXr11+od
+	HInC6JqXt+9TPUcqeqzcOmVQ8XVecL3gRAvgtC7Yn41z0WV0lwMZa1ohMcnvxeVj
+	89ascf0fRAZviF4Pf6aS6q1Tx2c9c2p5O7/PqtdI4eP52CTgowS9jtpzPy18NZ03
+	Ei1uTXm9JIVsSpTC70B0d+LnrN/b9knOib9O/NtWIJzTbfUKjE/hPEgVgFZ4E87E
+	k5HFZdj+v86q2f1M/tbdUjGbTBbJ1eplp63Nv/i/ZeDERl47L/6npw1Z3WaR0tRv
+	XuXgQ==
+X-ME-Sender: <xms:hWBZal699OaAIKlm46-GGbZcmGDka6KMPMXj6q1jHowQbcd9uskp_A>
+    <xme:hWBZarElcRE88ESna4uy1rxzxRz8hinGA5i_MsVR8hk-vWYKdAfMMGDMIqZSEndsz
+    zobPjEYrAwMxzlgmK9pn-UTd_qhzTKKyV5gHeLKwn7Pe0gysYqHjUo>
+X-ME-Received: <xmr:hWBZaoDUsNttMKk3UGHiPx9_-uW75OYeUS89xU2OhaR_VnBFKHxs8pw5w8jXWqEnDoFMCvVT2jAG9KKl38g>
+X-ME-Proxy-Cause: dmFkZTG0kLL2r3BGP8LXEPxN2Zb6VvSqQ9uCR8eBin4CWjH1opqEBzK+o7HzQhPMU+8DaU
+    Hg6S5aSkKo2oLZ6tFycACl68psHaw+rt60gPT+fiE16kWsg5izpHh5k+kicW2vIjZlcypa
+    ckL1HKlP/PKtzdDCLGSg5ZG1R2AuPb3zfsqqh+cOgQ5JCjK7unJu2iCeXsP8flBJGK3Lzj
+    ki6Cj8SbJN8jf9b/dETi4UJdSOAzfE8vmZ2WIfwJTICY+5sDmt37/UaeEIquZwIu7z5hsl
+    ohrQyrU78XzMUxpofzdCqnp7o9RJjyG1PHP1BrzoTHTwRuQDuyPkP/u+qlRLqfQSXyszgG
+    tSZES5+oVmhrA6az+Mu6Nx3/2xBwZCpmM8igfHOSLPO+YgEE53MV1+g4Brz0OunsfOEPwR
+    RYXfcfgOpz/6I9jTL5wMS6WkUkChGZYs5If19MKZVGQV6pTQrOtciuFq6JNaqdcgkY3CP5
+    yMYLOSuV88bjAPNGt31BOqdjVhWHiXegjMUDMzLLnuh5V2fD+WE+c+N+FCP5tkGVHEJmUj
+    NY4wCKa9XaKVRGzjgAzO1JyisGqjpRVjR+VuAY+ktuwporWwnxgFt80HUv3giIpuHlzXHE
+    WIB3AEy3DWt5n67h+5r9fEvKfTPRDTJXfipZcL8jNi+qUra7bNVcLDB0QrSw
+X-ME-Proxy: <xmx:hWBZaowArrFhmUm3w3LhNEbfCsa1hLvZKRwjhc8jJL1stbVGhm9D6A>
+    <xmx:hWBZak5H8tt95k4mgQt9isxVxBlfPsbXcw1WjklYVgcaVNyIDBH86Q>
+    <xmx:hWBZahxDBamjrXe3PPC0L2umTL5PAohPVw2qxHS7uLScgGgrZgX0Qw>
+    <xmx:hWBZagfWI6cZK9BRPnCHsjb5YMU3wl6OIfbVZiX61f-jTO0kirzrUA>
+    <xmx:hWBZatwddIYE4_Vh0kdLZfYYdvPs5k9xWgeddlhYXGF2Us3c1gxxioz0>
+Feedback-ID: i7a5e4b5f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 16 Jul 2026 18:51:45 -0400 (EDT)
+From: Jiaxing Hu <gahing@gahingwoo.com>
+To: heiko@sntech.de
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	andrew@lunn.ch,
+	devicetree@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/2] arm64: dts: rockchip: Add ArmSoM CM5 and CM5-IO
+Date: Fri, 17 Jul 2026 10:51:43 +1200
+Message-ID: <20260716225143.2544913-1-gahing@gahingwoo.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <40552860.10thIPus4b@phil>
+References: <20260716095101.2498464-1-gahing@gahingwoo.com> <40552860.10thIPus4b@phil>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] ARM: lpc32xx: only run SoC init on LPC32xx hardware
-To: Arnd Bergmann <arnd@arndb.de>, Karl Mehltretter <kmehltretter@gmail.com>,
- Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260713192506.7782-1-kmehltretter@gmail.com>
- <8b04868e-1676-4c70-b14b-21609e01d791@app.fastmail.com>
-From: Vladimir Zapolskiy <vz@mleia.com>
-In-Reply-To: <8b04868e-1676-4c70-b14b-21609e01d791@app.fastmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-49551924 
-X-CRM114-CacheID: sfid-20260716_230102_815394_D3398519 
-X-CRM114-Status: GOOD (  10.14  )
-ln: failed to access 'reaver_cache/texts/20260716_230102_815394_D3398519': No such file or directory
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_230102_815394_D3398519 
-X-CRM114-Status: GOOD (  14.46  )
+X-CRM114-CacheID: sfid-20260716_161232_840257_9A914077 
+X-CRM114-Status: UNSURE (   6.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,37 +113,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/14/26 09:12, Arnd Bergmann wrote:
-> On Mon, Jul 13, 2026, at 21:25, Karl Mehltretter wrote:
->> lpc32xx_check_uid() and lpc32xx_pm_init() are arch_initcalls that poke
->> LPC32xx-only registers. Since the multiplatform conversion they also
->> run on other ARCH_MULTI_V5 boards where access faults e.g. on versatile:
->>
->>    Unable to handle kernel paging request at virtual address f4004130
->>    PC is at lpc32xx_check_uid+0x2c/0x9c
->>
->> Drop the arch_initcall() registrations and call both functions directly
->> from lpc3250_machine_init(), the machine's .init_machine hook.
->> The calls are placed in link order (common.c, pm.c, phy3250.c) to
->> keep their previous relative ordering.
->>
->> Fixes: 75bf1bd7d2f9 ("ARM: lpc32xx: allow multiplatform build")
->> Suggested-by: Arnd Bergmann <arnd@arndb.de>
->> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
-> 
-> Looks good to me,
-> 
-> Reviewed-by: Arnd Bergmann <arnd@arndb.de>
-> 
-> Vladimir, I assume you'll pick this up and forward it to
-> soc@lists.linux.dev. Let us know if you prefer Karl to send it
-> there directly and save you the extra pull request.
+> As Rob said in the v2 bindings, please slow down.
+> Additionally that is the 2nd "v3" today?
 
-Will do it next week, if it's not too late.
+Sorry, both for the pace and for the double v3. The second v3 was not
+intentional: my mail provider accepted the first one with SMTP 250 but
+then held it without delivering, so when nothing appeared on the list I
+resent it. The provider released both copies hours later, so two v3
+threads showed up. I have moved off that provider.
 
-Many thanks for the change and for the review!
+I will stop respinning and collect review first. The next version will
+wait, will fold in Andrew's rgmii-id feedback after a board re-test, and
+will be marked and explained in the cover letter.
 
--- 
-Best wishes,
-Vladimir
+Sorry for the noise,
+Jiaxing
 
