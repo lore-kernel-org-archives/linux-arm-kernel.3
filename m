@@ -4,184 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D80CC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 01:41:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 391ABC4450E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 01:43:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7UNjUHE/j8n6PrtgWvZsWGeXaj9PGwPOJA2CZcCsLe8=; b=EP/nvdsqA/FCxEmULhMnwAhYuh
-	RnoTzIjeyfRtFzN9NwleBV/DL+4GwNlWAaDAIVTG0Q8QAuZJJf/6jcb3Ci3p3K0kY8jwR3dZDsP5B
-	1EskeVgU2tMBpajusZxt7lH5IQoqRA5P/tB3zNDANosEulWAJU8iJbybuaJvG4EceyHdxPKf2ZRbJ
-	bhajkgqwttZNVpolkb3BhrbaJZ8nqBiZm7cI4yV6meLZLrEhdANWpxaA6Nhkz9PaSMZa54q7IUv+F
-	RQZEjmKYjomV+G3STGdWZg9T1GlpV9OKNd5DzrguwvX7NT+3FYTO7RjixmOUWR1JyvilOtkPVYO2y
-	YSQgXzWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0YLltPeizTaHD27Fn9ffDythfCLu2l1zT8h2w1jiMvo=; b=jS0b2xgRvCCLYnmBhyn56FRZGp
+	/5M1TXY+p/5Jqox8oynQMCvl/fGBQXk3zBd/IIFMIZdG4TOvS5MZw+uCZlDpovonWdqqzm1IOeN+3
+	nlfih+wiRayCTg3dZKNrb7j/AyjF+V9zXcm6VFSR+EYv+XBzDC64lSRCVcBDI9Sylw9r2844j58c9
+	Z2nLJGVcKBmGcRwHUmwJiGLtnNfes83VsM/cWHvhBK96KrGGZvY+pyeXAZQ2MuUxaGuq2cGOvqd8u
+	lJ8W7VQRQj/WfbSB6Pw8vTc7S5bVdCry9xf7+Fwv9G2cvrvlm9xu/jdymje/AthniGN5DfgGnF6X+
+	YqC/KyXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkB6N-0000000GDB8-0O3M;
-	Thu, 16 Jul 2026 01:41:27 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1wkB7t-0000000GDMd-2CD9;
+	Thu, 16 Jul 2026 01:43:01 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkB6K-0000000GDAU-1gRS;
-	Thu, 16 Jul 2026 01:41:25 +0000
-X-UUID: 70ba2dfe80b711f1acbe4559397dec65-20260715
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=7UNjUHE/j8n6PrtgWvZsWGeXaj9PGwPOJA2CZcCsLe8=;
-	b=ttyDfKsLpBEbecj6eUR3ykbMkGijYv8OR/IQb2+VTQc0d5JIrBtIz70IUA1OdMzn6UU4KL2VdCLJMAya13t5kLo+m4DgbDH7K7XShmSjgsuEBewoSqZjgsWpBO1lMhEFDIjmI+xVt4Wtz6UHXEZqUBfb8qti5MwoQQ+vGqlu0co=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.17,REQID:b06f3885-1b6f-4ae0-a49e-85900118e787,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:d497b38,CLOUDID:6a40513f-46cf-453a-bd84-ad9fc7cb0e8c,B
-	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|110|111|836|865|888|898,TC:-5,
-	Content:0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-
-	1,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 70ba2dfe80b711f1acbe4559397dec65-20260715
-Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw02.mediatek.com
-	(envelope-from <shiming.cheng@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1895939023; Wed, 15 Jul 2026 18:41:18 -0700
-Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+	id 1wkB7p-0000000GDLW-01at
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 16 Jul 2026 01:42:59 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=0YLltPeizTaHD27Fn9ffDythfCLu2l1zT8h2w1jiMvo=;
+	b=ftree1watZKga8gU6wNb3X37dDAZx5DBaRpXyIo8dK0PIG+r09OhTLrWbAP+EFMyiLl/mhOg9
+	wvg47lyIbLvIW25CzZlR/ByYnfIQdNM0i837uVWZP+z0naeGcDqad6oLoyLkpVWq/iwXfJUX62J
+	QYVKNY6oWx7GuSbjyXwVDFc=
+Received: from mail.maildlp.com (unknown [172.19.163.127])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4h0wXv2KqQzLlXT;
+	Thu, 16 Jul 2026 09:33:19 +0800 (CST)
+Received: from kwepemj100009.china.huawei.com (unknown [7.202.194.3])
+	by mail.maildlp.com (Postfix) with ESMTPS id 14F3940572;
+	Thu, 16 Jul 2026 09:42:38 +0800 (CST)
+Received: from DESKTOP-A37P9LK.huawei.com (10.67.109.17) by
+ kwepemj100009.china.huawei.com (7.202.194.3) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Thu, 16 Jul 2026 09:41:16 +0800
-Received: from SG2PR04CU009.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Thu, 16 Jul 2026 09:41:15 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cGj38DVOHn3llMQ6sZO8Cj9PxAo/YBP0X+G2dg38Qy0C3gjsMSqHzWDLIbCJLwVDKqsEaH0kfQUiKzBXo8lvwg4cAuJVwd83JBkT11t6I3V/Ty/qSHNHq7fBrm3kytK5mRANqCj9oWJmxwm36nw+rU9DGjN7dcv1mUr/FC/7aSySPRq2HSAP68VszDzo6aL6V+lGIZw42hgyKtQrmxGAB4rbHCJ6ImExqNnBDN1CCoHVua+UQnLRzIT7ZTqygw8fj/SYhU8FOL+5ksD9MSnwUigve83Bd5Sfc35Na/LcsdbU9oY/oBplZz38WsCWA8qS5bJX0HSoMX/+5C26FxMSQg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7UNjUHE/j8n6PrtgWvZsWGeXaj9PGwPOJA2CZcCsLe8=;
- b=t1S3NmU6Wpl0EeGciWrNG79/3ak/iUEFPbgKT825IhlKw7h1hI1EqfA/Tnx5lFoYs0QpU0kOiP83Bqyc+STMYqC223xaBjfWWfwZyrsSyLggzqfh9UczdQdi9H3B4xFTY+MjHsEIm4jLlKAwKxQ5mwEDQXh9SlGKSRi2INQ0LLpS2Mcp5Fdn/3oCNF1ElS/RaUM/PG9fkaafr+SVYgrKRk/JFZCUqFjoD5yk+ndwggJopp50HAegc4mGjFA+mAQo30nqDuxtDsuRYk/tZjp/fFzyV7TKn5wSkrNJnTWMzl85esfDXBdPxLDwyw4uGriExhqhZTCpbOKnYXP5dhao9A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7UNjUHE/j8n6PrtgWvZsWGeXaj9PGwPOJA2CZcCsLe8=;
- b=uu0bIBHh9HdaB8ducX5talM3F8HMMJqcfDghcj859axo7pjFqEUUo8cjm9L9w7qXd1AgCeSjNHnF4F6L1c9k4nOocSbDhJE3De8QQYjl+cHsHf11nkAtzPo3vB95qHtz+79kfw0KdKuVltQ/tCzU9KOVVo158CIisRQ95VTq5co=
-Received: from PSAPR03MB5622.apcprd03.prod.outlook.com (2603:1096:301:62::11)
- by SG2PR03MB6802.apcprd03.prod.outlook.com (2603:1096:4:1bb::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.11; Thu, 16 Jul
- 2026 01:41:12 +0000
-Received: from PSAPR03MB5622.apcprd03.prod.outlook.com
- ([fe80::b639:3572:f154:28d0]) by PSAPR03MB5622.apcprd03.prod.outlook.com
- ([fe80::b639:3572:f154:28d0%4]) with mapi id 15.21.0202.018; Thu, 16 Jul 2026
- 01:41:12 +0000
-From: =?utf-8?B?U2hpbWluZyBDaGVuZyAo5oiQ6K+X5piOKQ==?=
-	<Shiming.Cheng@mediatek.com>
-To: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"dsahern@kernel.org" <dsahern@kernel.org>, "imv4bel@gmail.com"
-	<imv4bel@gmail.com>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>, "alice@isovalent.com"
-	<alice@isovalent.com>, "daniel.zahka@gmail.com" <daniel.zahka@gmail.com>,
-	"eilaimemedsnaimel@gmail.com" <eilaimemedsnaimel@gmail.com>, "nbd@nbd.name"
-	<nbd@nbd.name>, "horms@kernel.org" <horms@kernel.org>, "kuba@kernel.org"
-	<kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
-	"edumazet@google.com" <edumazet@google.com>,
-	"willemdebruijn.kernel@gmail.com" <willemdebruijn.kernel@gmail.com>,
-	"willemb@google.com" <willemb@google.com>, "netdev@vger.kernel.org"
-	<netdev@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>, "davem@davemloft.net" <davem@davemloft.net>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"sd@queasysnail.net" <sd@queasysnail.net>
-CC: "steffen.klassert@secunet.com" <steffen.klassert@secunet.com>,
-	"stable@vger.kernel.org" <stable@vger.kernel.org>,
-	=?utf-8?B?TGVuYSBXYW5nICjnjovlqJwp?= <Lena.Wang@mediatek.com>
-Subject: Re: [PATCH v7] net: gro: fix double aggregation of flush-marked skbs
-Thread-Topic: [PATCH v7] net: gro: fix double aggregation of flush-marked skbs
-Thread-Index: AQHdD0TntH9WuC0S/UGU0iIvT5fURbZkcMuAgAr5BgA=
-Date: Thu, 16 Jul 2026 01:41:12 +0000
-Message-ID: <99ce187af1495ffac592bfcf7ef97fc61a7f780b.camel@mediatek.com>
-References: <20260709014704.3625-1-shiming.cheng@mediatek.com>
-	 <willemdebruijn.kernel.2801a1401793d@gmail.com>
-In-Reply-To: <willemdebruijn.kernel.2801a1401793d@gmail.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PSAPR03MB5622:EE_|SG2PR03MB6802:EE_
-x-ms-office365-filtering-correlation-id: 6034bf08-703a-458f-96eb-08dee2db5167
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|23010399003|11063799006|4143699003|6133799003|56012099006|18002099003|22082099003|38070700021|10067099003|921020;
-x-microsoft-antispam-message-info: GuaQGzatyb44/yQ4lFQ8cKiM942362L+57WPsZ5fcHSSCDwSDH0dOzLbJ3ZZKlYg6Y661bgoxc+XQG5Mvh9CGIN4p+jTmTNIJCwlIbIml+d/NClATk5gJxStAYaZH8FLHu8rnMSWBY9EzWz+sESMzTdos7NLg0R49fUx80PPueAwU2YDV8DsJ+WnxPzNYJAagmLSERBmtGJcR+jki3/86Z//jrHq5ZNQcIOErO+kfNABL6gJGlkiAoDKk3tOH2NPhhMkt5vb7vlRNqsAI4XXf+MQ1MrEAp7GpaTSQPgGYjHIQxvMu2UOhoe10WuqoEaS/nlTNAqTKfiQqXHycf7VTx1BRj4m94to9j8dxXz2wibBSl34aknhHBRWaWCarcMTzqN0WRbKWvAKJkxfjBcQ+TqtZ5DKYl4CO9uXzLtmdwH/3MKNUOAOq4lc29sVnMkgDxxqmcRy7lbxmgZpKPvTVWl5Spd1EjqflffICpKY+8rIvDaOIrI1NuRH3FZUqslbc7qRV8PypwzEWHz7Wt2U7juvm2nYt+hQoVOAzRKlEBhBJ2t0W0SQd7CDbBBwkY1pvmqxZxDCj8h//c8eGgeKCjnCQ5HPzVjcyCWTQpxi822vziBkXoPlHGf99jBc3EpD7u4uLQZMJnC61hZtPC5ee6c/zNByQPuKwJCdDNOBSwtC5weFuyW4RVHiUqcPF4iw6OOQsEALd11k0E5BjmgkBMK4q0Jl7cW504Oqhnv5k8Y=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PSAPR03MB5622.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(23010399003)(11063799006)(4143699003)(6133799003)(56012099006)(18002099003)(22082099003)(38070700021)(10067099003)(921020);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?MTJVOEdSSG9CVnNrSGMzb2RIOEpPVWRDUmc5dHcrVjZJajFsT1lGTlpqcExZ?=
- =?utf-8?B?WGgzR2MrMVdtdU5Qc044QUxzdzFkamVKaDlleTBQL213QTgvNXpYU0loYmdz?=
- =?utf-8?B?bGVKNlU2dkVQNmdYaElYZ3VzVmNyZkREbUlJVkxTeUhyWUxQbHhNdmIxRFJr?=
- =?utf-8?B?cVBPb3ZQWS9tMTZCWFdTcVpEZjFiS3V6bGdRY1hjMUhwRklsN2J3QnZiZzlG?=
- =?utf-8?B?MGU3dTh4N2Vpd2JkV2ZLVHEyTjZzM1pBeGkybzhXb09rOTFGRFZVU0ZsUXMz?=
- =?utf-8?B?emJaV2w2bVQybXpoU3puNWZyTmU0OVowZlFBWEd2L0JOa0FOZGhGSUJqcTdC?=
- =?utf-8?B?dTJHdE8yZHNUaUtuaEIyY1p6RkRzdlQwTzd0bDVxd205UWxKaUZNY2pzSERv?=
- =?utf-8?B?Tk45SjNFWmYvS3pzQk40Qyt1eHoxZ3UwZXFHeWNldDcxZWlaNk4yYkVZU0d3?=
- =?utf-8?B?ajI2VlBSRWFCb1p2aUx5dVRsQWtPNHIwZ3loRVBvTkxEaVZRalpETDF0NDE1?=
- =?utf-8?B?WnN5MWFXa3Rtbk9zMnpOZ3JLOWVKbU44VDZPbmE0amhaa01YclY3Skl2NTVK?=
- =?utf-8?B?NU5aZnprUU1YUzlLWDRWVHBlTDdYYkFMR0JyNnBwNU1sQW5NYkxCd2N6RFYv?=
- =?utf-8?B?WDZWRGU1R3JpZkdLc3NUWjZjR0UwUGgxdXFtUERnOWtLR0xDYlBGT1Q2QXQ3?=
- =?utf-8?B?T2E5K3dBZVR1aGxXNzF0V3VzN01jY3lKN1BTUnhBUWxHcVdEZW15d2d5c3BQ?=
- =?utf-8?B?M2RnOUlqVnhBUVJFYkpGa2VQT2FtRG5YVmQvM3BCK2FPMFR6cjJGaS9VMkpK?=
- =?utf-8?B?RzJpSmg2YTVVSkpYUitYZVl6ME5OM2FmeGxpMFkvV0xRNUtVOWN3NzNQeXA2?=
- =?utf-8?B?TExFUThRT0I2SXBOYlNFTWpMVW9PQXdMcmtZdG1sOVdyKzA5TnU4eSs2SDdy?=
- =?utf-8?B?T2ErQ3FSMVE1VlNIbGMwK000SG52d1FESzhtbDNIaUxmbmk4aUV2a3NvZlBY?=
- =?utf-8?B?WUZERVdJMlNsc0NGbFdaMG0rdi84eW0rQ2RwSFY0K3BLdWZ3YWZFWXg0SDNN?=
- =?utf-8?B?dVcwYWdraGVYU0xNdmQ4dHd1MHFrZzBwVzJxTzd1b3BjMUZnTVZGaEpKZ005?=
- =?utf-8?B?OGQvbVFraVAyZUg5L3VxM0FKMGYrMXJNNzVQK0tPYkJHOTZTaURnN1pPNUdT?=
- =?utf-8?B?QWtzMmc2bmhRdUtaenlSRGxScXdheVY3MGNobFphc3VOb2ZoNTVPb3h2WHlB?=
- =?utf-8?B?Wm1neHlRdXpiS0g1aXBhaVNhV2QxSm8xR0RicW5JMEVmWVp4QWtJN1VHQXp3?=
- =?utf-8?B?OVNkVXpDVjYxeGNsVGZNeUQzRlRZZ3BScXpFaWdYNjRoVmxlVjdoWWl4REp1?=
- =?utf-8?B?UEpQZVkzLzIzd2pycERhR3Byd2JsK1NUS2o3R3JXRmlEM0szOGtNTVA2T3li?=
- =?utf-8?B?LzNsenZVYm5MeXBJK0pPV0NUSUpIRk1OQVFWWGdCdDdwaHl6RWpMTk96cHY2?=
- =?utf-8?B?TEkrNVZEUTQyL2NWZWkrMnZoSmFGeFUrd01FNFBMVkF3OW1qMWRPeUpRQndR?=
- =?utf-8?B?T1FlYXl0enpRQjFOY1V5cTRRN0ZiYmpnYkpUbW9pTkludE05d25Id2lUUGo5?=
- =?utf-8?B?a1lFSmNCTlFqZ0oyYzlZSVc5SldnT0RoMFBtdnhaNGZKS1dkejVJVy9Qa0NX?=
- =?utf-8?B?QllVZTBoWkoyTldMVll2a1RSRDJyMVZKK2txRzZNU1J0SEpjY3k2SFNTODBz?=
- =?utf-8?B?eXpuTUlJU0FXdDN4ZGMvZzk4bldTRFdCRmhIcEUzSng0UWJSdThCSi95ZnQz?=
- =?utf-8?B?d0xGNDJzQUd0aEcwYWdVVHJZZExua0J4eHNpeFV3RmR0UlJxS0xxYWEzYk11?=
- =?utf-8?B?Y2pDbXBBcVhDTk5CRGFBbkxEMDJPdWFmYkV2ZTZXUThzT3ZLdnh6VUFYV1lU?=
- =?utf-8?B?ZjUzcXkvMllJNnRBTTBNdEcxbHV5STN2UzhaVU9BbDNNSWkvUHgxd0ZycHdj?=
- =?utf-8?B?cm9sSGZhZi9wdGJxRXM1cEppRkU0UnpybVMzNlJNZ0JudTZuZkx5YVg0SWtX?=
- =?utf-8?B?V3gvVFYzZWRxUndKelU3cFJQS0VuaEFBTEIvTDVqZ1Qwc2ZtTDFJS2xEV241?=
- =?utf-8?B?RXVrVmVzSTZZYzBjUk1RaU1scE5WMDQvcFJVVkk3NS90ODdjQzg0MjduSDRx?=
- =?utf-8?B?ajhxSEVwTlpoVDRudG5VTTA3V0lmMmIwUzJwT0FKMzVPVDVXVG9aQ3hBWFZR?=
- =?utf-8?B?dmJ2OE9TNHFBa1BVVnRVU0VGUVNkaUNHVjVkd3IzYlFXOG4vTzhSelk1dHhT?=
- =?utf-8?B?eXAyeUtzYzRXaXpodHNlWnFXYmdtY1hPQTJJUlRzR3VHUGt0Z1hMZ21qM2t6?=
- =?utf-8?Q?BlwpkCEwrUfLSboo=3D?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <0E7D0DE8F2F69F4F9DE9BB50AE0180E7@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+ 15.2.1544.36; Thu, 16 Jul 2026 09:42:37 +0800
+From: Xie Yuanbin <xieyuanbin1@huawei.com>
+To: <linux@armlinux.org.uk>, <ljs@kernel.org>, <akpm@linux-foundation.org>,
+	<xiqi2@huawei.com>, <david@kernel.org>, <linusw@kernel.org>,
+	<liam@infradead.org>, <vbabka@kernel.org>, <rppt@kernel.org>,
+	<surenb@google.com>, <mhocko@suse.com>, <will@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-mm@kvack.org>,
+	<linux-kernel@vger.kernel.org>, <liaohua4@huawei.com>,
+	<lilinjie8@huawei.com>, <sunnanyong@huawei.com>, Xie Yuanbin
+	<xieyuanbin1@huawei.com>
+Subject: [PATCH v4] ARM: mm: acquire mmap write lock around show_pte() for user faults
+Date: Thu, 16 Jul 2026 09:40:22 +0800
+Message-ID: <20260716014022.2823-1-xieyuanbin1@huawei.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: QQCgJO341eimU9PynRDc+GeLAEYaMw6JDIb1/Qe+cVCatceR7HflzfPjIvqtzhz5H9leP3gO+shtSoOLZqqBBsxsHGWTPMzFePdjTfV9YHyVavk8XessXPQfcXmj3pqy7P/oB4lfPXGMY9BNt4uR3+UklGJKQKWaHyKO0wXxXGcYeZzdZiAo3pDZe2E66hzSIop8g6oQLIb95Gjm6T8LqmpceLL1tIQcAKwJtlYITy8TGQbrKFjHhTrOwP2lcwztGlzGBjSrgK4ym+l+Dkjg2G7dbpf8yMf8L5k6hLVl45HQKnC7FPoNIQjYTbF5D18gNlWuzIL/F3VmkES2kf/Tpg==
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PSAPR03MB5622.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6034bf08-703a-458f-96eb-08dee2db5167
-X-MS-Exchange-CrossTenant-originalarrivaltime: 16 Jul 2026 01:41:12.4321
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: uQfxEDwfNQUF+Cu4X/xPk2Z3ibFe1md8Ee28Y/jxyx9NsKNYe/uxSqUegBDN0ctAH6AwOOLZ0f86Vs/itTm4D3hE1gXSipoi0VGZcJx2fi8=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SG2PR03MB6802
-X-MTK: N
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.67.109.17]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemj100009.china.huawei.com (7.202.194.3)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_184124_465398_B87E76AB 
-X-CRM114-Status: GOOD (  22.95  )
+X-CRM114-CacheID: sfid-20260715_184257_675632_3C7B6BCC 
+X-CRM114-Status: GOOD (  20.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -196,52 +80,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGVsbG8gZXZlcnlvbmUsIA0KDQppdCBsb29rcyBsaWtlIHRoaXMgaGFzIGJlZW4gcGVlZGluZyBm
-b3IgYSB3aGlsZS4NCklzIHRoZXJlIGFueXRoaW5nIGVsc2UgSSBuZWVkIHRvIGRvIG9yIGZvbGxv
-dyB1cCBvbiA/DQoNClRoYW5rcw0KDQoNCg0KT24gV2VkLCAyMDI2LTA3LTA4IGF0IDIyOjA3IC0w
-NDAwLCBXaWxsZW0gZGUgQnJ1aWpuIHdyb3RlOg0KPiBFeHRlcm5hbCBlbWFpbCA6IFBsZWFzZSBk
-byBub3QgY2xpY2sgbGlua3Mgb3Igb3BlbiBhdHRhY2htZW50cyB1bnRpbA0KPiB5b3UgaGF2ZSB2
-ZXJpZmllZCB0aGUgc2VuZGVyIG9yIHRoZSBjb250ZW50Lg0KPiANCj4gDQo+IFJlbWluZGVyIHRv
-IG1hcmsgcGF0Y2hlcyBbUEFUQ0ggbmV0IHY3XQ0KPiANCj4gKG9yIFBBVENIIG5ldC1uZXh0IHdo
-ZW4gdGFyZ2V0aW5nIHRoYXQgdHJlZSkNCj4gDQo+IFNoaW1pbmcgQ2hlbmcgd3JvdGU6DQo+ID4g
-Q29tbWl0IDBhYjAzZjM1M2QzNiAoIm5ldC1ncm86IEZpeCBHUk8gZmx1c2ggd2hlbiByZWNlaXZp
-bmcgYSBHU08NCj4gPiBwYWNrZXQuIikgYWRkZWQgYSBmbHVzaCBjaGVjayB0byBza2JfZ3JvX3Jl
-Y2VpdmUoKSwgYnV0DQo+ID4gc2tiX2dyb19yZWNlaXZlX2xpc3QoKSBsYWNrcyB0aGUgc2FtZSB2
-YWxpZGF0aW9uLg0KPiA+IA0KPiA+IEFzIGEgcmVzdWx0LCBwYWNrZXRzIG1hcmtlZCB3aXRoIE5B
-UElfR1JPX0NCKHNrYiktPmZsdXNoIG1heSBzdGlsbA0KPiA+IGJlDQo+ID4gcmUtYWdncmVnYXRl
-ZC4NCj4gPiANCj4gPiBUaGlzIGFsbG93cyBhbHJlYWR5LUdSTydkIHBhY2tldHMgd2l0aCBleGlz
-dGluZyBmcmFnX2xpc3QgdG8gYmUNCj4gPiByZS1hZ2dyZWdhdGVkIGludG8gYSBuZXcgR1JPIHNl
-c3Npb24sIGNvcnJ1cHRpbmcgdGhlIGZyYWdfbGlzdA0KPiA+IGNoYWluDQo+ID4gc3RydWN0dXJl
-LiBXaGVuIHNrYl9zZWdtZW50KCkgYXR0ZW1wdHMgdG8gdW5wYWNrIHRoZXNlIG1hbGZvcm1lZA0K
-PiA+IHBhY2tldHMsDQo+ID4gaXQgZW5jb3VudGVycyBpbnZhbGlkIHN0YXRlIGFuZCB0cmlnZ2Vy
-cyBhIGtlcm5lbCBwYW5pYy4NCj4gPiANCj4gPiBTY2VuYXJpbyAoVGV0aGVyaW5nL0RldmljZSBm
-b3J3YXJkaW5nKToNCj4gPiAgIDEuIERyaXZlcjogR2VuZXJhdGVkIGFnZ3JlZ2F0ZWQgcGFja2V0
-IFAxIHZpYSBMUk8gd2l0aCBmcmFnX2xpc3QNCj4gPiAgIDIuIERldiBBOiBSZWNlaXZlcyBhZ2dy
-ZWdhdGVkIGZyYWdsaXN0IHBhY2tldCBhbmQgZmx1c2ggZmxhZyBzZXQNCj4gPiAgIDMuIERldiBB
-OiBSZS1lbnRlcnMgR1JPLCBza2JfZ3JvX3JlY2VpdmVfbGlzdCgpIGlzIGNhbGxlZA0KPiA+ICAg
-NC4gTWlzc2luZyBmbHVzaCBjaGVjayBhbGxvd3MgcmUtYWdncmVnYXRpb24gZGVzcGl0ZSBmbHVz
-aCBmbGFnDQo+ID4gICA1LiBGcmFnX2xpc3QgY2hhaW4gYmVjb21lcyBjb3JydXB0ZWQgKGxvb3Bz
-IG9yIGRhbmdsaW5nIHJlZnMpDQo+ID4gICA2LiBEZXYgQjogVFggcGF0aCBjYWxscyBza2Jfc2Vn
-bWVudCgpLCBjcmFzaGVzIG9uIGNvcnJ1cHRlZA0KPiA+IGZyYWdfbGlzdA0KPiA+IA0KPiA+IFJv
-b3QgY2F1c2UgaW4gc2tiX3NlZ21lbnQoKToNCj4gPiAgIFRoZSBjaGVjayBhdCBsaW5lIH40ODkx
-Og0KPiA+ICAgICBpZiAoaHNpemUgPD0gMCAmJiBpID49IG5mcmFncyAmJiBza2JfaGVhZGxlbihs
-aXN0X3NrYikgJiYNCj4gPiAgICAgICAgIChza2JfaGVhZGxlbihsaXN0X3NrYikgPT0gbGVuIHx8
-IHNnKSkgew0KPiA+IA0KPiA+ICAgV2hlbiBmcmFnX2xpc3QgaXMgY29ycnVwdGVkIGJ5IGRvdWJs
-ZSBhZ2dyZWdhdGlvbiwgd2hlbiBsaXN0X3NrYg0KPiA+IGlzDQo+ID4gICBhIE5VTEwgcG9pbnRl
-ciBmcm9tIHNrYi0+bmV4dCwgc2tiX2hlYWRsZW4obGlzdF9za2IpIGRlcmVmZXJlbmNlDQo+ID4g
-ICBOVUxML2NvcnJ1cHRlZCBwb2ludGVycyBvY2N1cnMuDQo+ID4gDQo+ID4gQ2FsbCBUcmFjZToN
-Cj4gPiAgc2tiX2hlYWRsZW4oTlVMTCBza2IpDQo+ID4gIHNrYl9zZWdtZW50DQo+ID4gIHRjcF9n
-c29fc2VnbWVudA0KPiA+ICB0Y3A0X2dzb19zZWdtZW50DQo+ID4gIGluZXRfZ3NvX3NlZ21lbnQN
-Cj4gPiAgc2tiX21hY19nc29fc2VnbWVudA0KPiA+ICBfX3NrYl9nc29fc2VnbWVudA0KPiA+ICBz
-a2JfZ3NvX3NlZ21lbnQNCj4gPiAgdmFsaWRhdGVfeG1pdF9za2INCj4gPiAgdmFsaWRhdGVfeG1p
-dF9za2JfbGlzdA0KPiA+ICBzY2hfZGlyZWN0X3htaXQNCj4gPiAgcWRpc2NfcmVzdGFydA0KPiA+
-ICBfX3FkaXNjX3J1bg0KPiA+ICBxZGlzY19ydW4NCj4gPiAgbmV0X3R4X2FjdGlvbg0KPiA+IA0K
-PiA+IEZpeDogQWRkIE5BUElfR1JPX0NCKHNrYiktPmZsdXNoIHZhbGlkYXRpb24gdG8gdGhlIGVh
-cmx5LXJldHVybg0KPiA+IGNoZWNrIGluDQo+ID4gc2tiX2dyb19yZWNlaXZlX2xpc3QoKSwgbWF0
-Y2hpbmcgdGhlIGRlZmVuc2l2ZSBwcm9ncmFtbWluZyBwYXR0ZXJuDQo+ID4gb2YNCj4gPiBza2Jf
-Z3JvX3JlY2VpdmUoKS4NCj4gPiANCj4gPiBGaXhlczogM2ExMjk2YTM4ZDBjICgibmV0OiBTdXBw
-b3J0IEdSTy9HU08gZnJhZ2xpc3QgY2hhaW5pbmcuIikNCj4gPiBDYzogc3RhYmxlQHZnZXIua2Vy
-bmVsLm9yZw0KPiA+IFNpZ25lZC1vZmYtYnk6IFNoaW1pbmcgQ2hlbmcgPHNoaW1pbmcuY2hlbmdA
-bWVkaWF0ZWsuY29tPg0KPiANCj4gUmV2aWV3ZWQtYnk6IFdpbGxlbSBkZSBCcnVpam4gPHdpbGxl
-bWJAZ29vZ2xlLmNvbT4NCg==
+When CONFIG_DEBUG_USER=y, and cmdline "user_debug=31" is set,
+a user fault may trigger show_pte() without any lock.
+If another thread in the same process concurrently calls munmap(),
+the page table pages may be freed while show_pte() is still traversing
+them, causing a use-after-free in show_pte().
+
+If CONFIG_ARM_LPAE=y, this may cause a kernel panic if the pages table
+of PMD are freed when show_pte() is running.
+
+Acquire mmap_write_lock() around show_pte() for user faults to fix the
+contention.
+
+For user faults, additionally restrict that show_pte() is called only
+when the addr is a user-space address (addr < TASK_SIZE). This is because
+the lock of tsk->mm only protects the virtual memory of user address space,
+furthermore, dumping the page tables of a kernel-space address for user
+faults is unnecessary and may have security implications.
+
+Keep everything unchanged for kernel faults, because the kernel is
+already in the "oops" state, acquiring a lock may risk a deadlock.
+
+Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+Fixes: 6d021b724481 ("ARM: dump pgd, pmd and pte states on unhandled data abort faults")
+Depends-on: <20260629123349.134224-1-xieyuanbin1@huawei.com>
+Depends-on: 59e4f3b45b96 ("ARM: ensure interrupts are enabled in __do_user_fault()")
+
+Cc: Russell King <linux@armlinux.org.uk>
+Suggested-by: Lorenzo Stoakes <ljs@kernel.org>
+Co-developed-by: Qi Xi <xiqi2@huawei.com>
+Signed-off-by: Qi Xi <xiqi2@huawei.com>
+Signed-off-by: Xie Yuanbin <xieyuanbin1@huawei.com>
+---
+For __do_user_fault(), it must be a user fault, so the
+judgement of user_mode(regs) can be omitted.
+
+For do_DataAbort(), it may be a user fault or a kernel fault. If it is
+a kernel fault, it must be a kernel oops, the kernel will die soon.
+Also, a user program may be constructed to trigger
+do_DataAbort()->show_pte(), as described in this mail:
+Link: https://lore.kernel.org/20260625100031.25088-1-xieyuanbin1@huawei.com
+
+For user faults, it is safe to acquire mmap_write_lock(), because
+we never return to user with mmap lock held or pagefault disabled.
+
+Note that, due to the lack of ARMv4T for testing, this patch does not
+fix the issue in baddataabort()->show_pte().
+
+V3->V4:
+  - Keep nothing change for kernel faults.
+  - Change mmap read lock to write lock.
+  - Restrict that show_pte() is called only when the addr
+    is a user-space address (addr < TASK_SIZE).
+
+ arch/arm/mm/fault.c | 16 ++++++++++++++--
+ 1 file changed, 14 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
+index c68677503532..0a09d4ff7718 100644
+--- a/arch/arm/mm/fault.c
++++ b/arch/arm/mm/fault.c
+@@ -174,21 +174,25 @@ __do_user_fault(unsigned long addr, unsigned int fsr, unsigned int sig,
+ 	struct task_struct *tsk = current;
+ 
+ 	local_irq_enable();
+ 
+ #ifdef CONFIG_DEBUG_USER
+ 	if (((user_debug & UDBG_SEGV) && (sig == SIGSEGV)) ||
+ 	    ((user_debug & UDBG_BUS)  && (sig == SIGBUS))) {
+ 		pr_err("8<--- cut here ---\n");
+ 		pr_err("%s: unhandled page fault (%d) at 0x%08lx, code 0x%03x\n",
+ 		       tsk->comm, sig, addr, fsr);
+-		show_pte(KERN_ERR, tsk->mm, addr);
++		if (likely(addr < TASK_SIZE)) {
++			mmap_write_lock(tsk->mm);
++			show_pte(KERN_ERR, tsk->mm, addr);
++			mmap_write_unlock(tsk->mm);
++		}
+ 		show_regs(regs);
+ 	}
+ #endif
+ #ifndef CONFIG_KUSER_HELPERS
+ 	if ((sig == SIGSEGV) && ((addr & PAGE_MASK) == 0xffff0000))
+ 		printk_ratelimited(KERN_DEBUG
+ 				   "%s: CONFIG_KUSER_HELPERS disabled at 0x%08lx\n",
+ 				   tsk->comm, addr);
+ #endif
+ 
+@@ -632,21 +636,29 @@ do_DataAbort(unsigned long addr, unsigned int fsr, struct pt_regs *regs)
+ 
+ 	if (!inf->fn(addr, fsr & ~FSR_LNX_PF, regs))
+ 		return;
+ 
+ 	if (likely(user_mode(regs)))
+ 		local_irq_enable();
+ 
+ 	pr_alert("8<--- cut here ---\n");
+ 	pr_alert("Unhandled fault: %s (0x%03x) at 0x%08lx\n",
+ 		inf->name, fsr, addr);
+-	show_pte(KERN_ALERT, current->mm, addr);
++	if (likely(user_mode(regs))) {
++		if (addr < TASK_SIZE) {
++			mmap_write_lock(current->mm);
++			show_pte(KERN_ALERT, current->mm, addr);
++			mmap_write_unlock(current->mm);
++		}
++	} else {
++		show_pte(KERN_ALERT, current->mm, addr);
++	}
+ 
+ 	arm_notify_die("", regs, inf->sig, inf->code, (void __user *)addr,
+ 		       fsr, 0);
+ }
+ 
+ void __init
+ hook_ifault_code(int nr, int (*fn)(unsigned long, unsigned int, struct pt_regs *),
+ 		 int sig, int code, const char *name)
+ {
+ 	if (nr < 0 || nr >= ARRAY_SIZE(ifsr_info))
+-- 
+2.53.0
+
 
