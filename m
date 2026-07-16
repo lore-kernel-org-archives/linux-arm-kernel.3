@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE3A4C44512
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 16:20:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F6C0C44512
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 16:20:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M0OTlWMyIHhFgUGrQUvQVfi6lsrfSqB/SXlDo2R7iDY=; b=FYWLQ3FjuiGxcriuhwtIqLv0OD
-	zVxM9rYPchA0IusKd+0CeG1HAF4a+owYm5VFLi9YfnJDAD4xPJ3lyoKUKwtj7Ol5gemZs10C2t1hY
-	uKjwkmOCelixjFZ+7Ra5/P/XY0qmpd+dS1bs5fPtow7egbweoeVAdPNjvzJrsVfz4LIMeN3T5jD/J
-	PxKsDVowIEPNSw2QV/ADTPgbeGxhe5/caT1tdbBnmYO3XNK4bZihfJIEr4g2S69IATwis+nn8YhRc
-	b5v7VSYmLB7S6uY4R0T5F8iqeaoZG1Mm/niUOqUi9ewKWsKQCdoLFNxUYcv67LmC3gqubYgkzjPyO
-	/+sTMS+Q==;
+	bh=DbVIpIkuseKM9YQeH51Wa+r2dL8obTD2M1N0wW92ZT0=; b=ZGNA9Uh5fzjmY81WA+aXiUIGSt
+	m6Hedem6uIi67Frqq9cb4WZl1odiFDCjvxTvAub0xsMrQqXWzXYbi8hIVPbCZ7sTYaKzA0OF8H0HU
+	4lEJ2KVhkKfq9164vfDeY19wbN+FP+0YeqUQr/yozYU61Nledt9Va4mvYu94Ofs5UxBYXnMG+g6+F
+	aZrqJNiI+ZRGxNm/dWmTjAlEV8zuta2vlnnIcOubWm6qp3uebMiK9MBrv4yc4uA0CRoFNBqr47gin
+	//IAl7aOeeZoQuKHpH4YO+m2/4TMk4xBlrM4NNCZYjdDyOiGkwZHh93sz7EbU5HpSG1EAl2YESFNT
+	K+cNtT9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkOod-0000000089o-1tnN;
-	Thu, 16 Jul 2026 16:20:03 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1wkOoi-000000008EY-3MOM;
+	Thu, 16 Jul 2026 16:20:08 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkOoT-00000000803-1hnN
+	id 1wkOoV-0000000081z-3RV0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 16:19:54 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-848882fdb18so3759933b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 09:19:53 -0700 (PDT)
+	Thu, 16 Jul 2026 16:19:56 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-84a2dcec51cso5473258b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 09:19:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784218792; x=1784823592; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1784218795; x=1784823595; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=M0OTlWMyIHhFgUGrQUvQVfi6lsrfSqB/SXlDo2R7iDY=;
-        b=UkwABaLMwQY4uNUkXojIUyq0LPrTMpxyWCJPyACssfdj9wFmM32yMWSuqEjOhmm7H4
-         C5aOjEuRZxBpb9Xryhm8scmIjXinWysIsSczJKMB/PqNfwsm/Xb5g3l+Urx9XM1SJ51X
-         HUTliYAsnv8U3BVtWcyeJkk/cE8zIoXgeWmKszTl1UToSDsrLbiVu5ZmR5cYM8Z7wrAj
-         /ly/Pe1F/GeZI28zi1mLfaoL5X27gIz42vS/nLnEtT2/f4hteLzBh1Ew1VOwlLXeH1yG
-         dGxTm7ZZ2rwBAr50nZcDrMDfo9lXGSaZSpMDk5XHAvTZz1L6V+NDuqtVvXH2UTKtTjy2
-         4mpg==
+        bh=DbVIpIkuseKM9YQeH51Wa+r2dL8obTD2M1N0wW92ZT0=;
+        b=g51SQfuOAWtj1L+/YpdGerBCdEdyaklV8dG+5ToGPsstpTtXjDE4Ndu73O6PNQ/gXS
+         0YKL8OZzwkEwrzow9LyfrmBC8AubFGlRqsnG/IEYaIIQEsQVMzaoEwAuqjRjAb96GlnN
+         0Chsroh9BBNzZCaPrw/dQflQ7v7thtkFq7aH+f9AFHbKcSCbQJeju4Y2U0/UogEI43o3
+         umP54McToig4LyOhx3+NfBL6TIIE2lba35zYa9DNcAYoinMffO2X53uDncd+8eG35rHc
+         pNqPntb/CyE24/jEKJwvj0yOXUZRw5zrm20mFeTBa9nBZUgDi41x+Hn159l/7jBo1jNs
+         94mg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784218792; x=1784823592;
+        d=1e100.net; s=20251104; t=1784218795; x=1784823595;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=M0OTlWMyIHhFgUGrQUvQVfi6lsrfSqB/SXlDo2R7iDY=;
-        b=YeOC2kpPlRODtefpADJGVed+SkjUJpzHrZ8HhAhArCGHFculZeSeTenyLjH6OI+e8d
-         NsMkAP8nhy1A3PxqDSmn0i99qZcv8ivz8JFGBCjeMQ1o6HiqNOK0Wzk2GrfyF3kntn1G
-         xmAPu20EU8Rnh5DbLHO/bnhPsXFQ/OsT5390lmlP0+9kqta3DFyZ6XRG9reCWoMqIlQP
-         C6dLgnAr4NY/MDbZR8b52og9D8zTiX0XGbfpnSOF5iIheZDlVvbizh1Ke/AeeIXKvdtR
-         2xNdE9WzBbcpaAwoBDi+KqDrEnswkFCOERCxOtDobqLdVEGcIDgdkg5lBMc+hA1lmdT3
-         BwHQ==
-X-Forwarded-Encrypted: i=1; AHgh+RotJcUs57cp8K0fJhYtEJPKWspTHm157ikYvD0WyilRj5+DQWpn3oalWcSV3GsTF25Wc6Z8PPIyo6HLmPAAXLb6@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVIWUyQoBHZbl256CINnEhF08wnfTMh79jOdPf6QfNaEUzjd+J
-	PuF1hl1K8RaSH3t0qGr37oYUU06uyKTjyikpmR20VMR5RUUpZkj/aJ1Z
-X-Gm-Gg: AfdE7clEExWI7k/miVZdouJhBNfa6XZ/RsLLlaJEJO4Iv3Cy/jnDLuxNdFX8RFM2dHz
-	5FlbLzBe9Yn9EDSB/l5fgYT/UMDprVwKSQa6pfer6XyCHQJwJ6C/4iqDJLabOD07e9LMdbIJ1Xz
-	MuH9z1ukaQequt/Q+ad8G3srZhnJ+h7mUJmAIGOGudAgJLBGaQRbt8l/rIriWkOaaRkl1de4yd7
-	AWVK5tpJLBv+sB+ZYeeqL/OHXo8pf64D7QJTB1ktx4O2KRrWeIHx/cBCke2tRuQYuN+Xd2+tgBj
-	ELm3ee1MtfQs8EUpHR3vM5v37XLAroz9oFnJgHa9d3j4NE47Jq6pR/neOB4P6MJAipMDboHW4Y6
-	y6KlDlfMp/pwHzBuUnU8EuLvh6LsafgqhNKGRCODg3F+FjBjX2muc/OrDxvXTnSAu5WJuXkEGme
-	JIcq/bdf+4DWJTQMJqIaqVqkivkIrLXTobxDMTxteJqW8I
-X-Received: by 2002:a05:6a00:240b:b0:847:973b:3d04 with SMTP id d2e1a72fcca58-84a6723fbc9mr7209157b3a.10.1784218792451;
-        Thu, 16 Jul 2026 09:19:52 -0700 (PDT)
+        bh=DbVIpIkuseKM9YQeH51Wa+r2dL8obTD2M1N0wW92ZT0=;
+        b=Zny20Ek0Bl0q/W7wce7u3n6hvjFr5ZWYdyKPWqq8WkO8v6ycXv2j/TgDgEGMfC0QFA
+         Nl2mBxpESOwVamrEIy9KukzAOAGfSgEW6ejDVImPnTXcgxlTYMuujn0XZlcga11NBSmc
+         fPGx/NTD0rxn/6YVEJI2WTXMpBMGoDFFV78f/YJVKYrTM30vz6CkTr8foW8VUzen/pbd
+         uxbc0PR2kTzHu5PvJE3jVWJRHDZ1ILTdwEEileQii0qUJR2N9rQfub/B2mPZJnbvJIPT
+         zrT/kVU2JgcbBXRY3d+RatyYkaP3v0SuegAx5gbZFer9d8PWCMYfVovT5j9nZJbNxVOf
+         odJQ==
+X-Forwarded-Encrypted: i=1; AHgh+Ro9lpOz1SJl1/MzNcvUbDJaQ9asd98mhoCyX+MO4j1LxjPkr3yhBg4WpplgYBe1z4WJHGE/xu1S1Y/9OlPKaatL@lists.infradead.org
+X-Gm-Message-State: AOJu0YyWILXDhZa58/BfiOzuAMyx47i8KQpuu1qTz+GUAiLeke3Rczqy
+	1+K8gzgetxj3zPuEJR59RiN+l0AKwYgNTW/QyJPOjDdoVLG4kE8O3cNp
+X-Gm-Gg: AfdE7cnq8kLuO+KkISEtQZHZM6/qlGjjqoCFJ1gAbmLtvraY371vifYXgBXvq/KJQ1Z
+	8d6WEhq75Yk3Z/tmTkL+vHsENYMaEwo2Q7djcYn1DwR3ri9/s8mirU23oTqa0GjYgQRYfRJIK4X
+	JbJi2Ur6C5cRtMlclwdNcYnL9oUCRxtQzw1tQu31ry4eEbUV/3R9hWe8gkhfPLywhRHjhndAD/p
+	nHDqGYSZE3HxXUhwqh3wVC7wU5vq4pTdSYP4TR9lxO0ysm/6/Abw8GnfDsGROIfca2j8fcXOj2P
+	XddHfzjSP49JcPKs+P9KTvmdJyKYF0NNM+eGgPWZxQSJREtR+4vXvysQ8DUNOK7FNjd99GJeTZD
+	dy5y2A2xdstykSPb7n9EdEtZsw7nNXVIGQK2YPj6pKCEL+OKMU+Estnnk1l44rv0IzSQDaB6FKI
+	rFfylB0h6qryHmS0gDJx7tjsu6YIHTG9u6ew==
+X-Received: by 2002:a05:6a00:22c8:b0:848:2f84:733 with SMTP id d2e1a72fcca58-84a559dd085mr10999832b3a.70.1784218794877;
+        Thu, 16 Jul 2026 09:19:54 -0700 (PDT)
 Received: from buffalo-ssd (M014013071096.v4.enabler.ne.jp. [14.13.71.96])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84a4f23a600sm5092661b3a.6.2026.07.16.09.19.50
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84a4f23a600sm5092661b3a.6.2026.07.16.09.19.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 16 Jul 2026 09:19:52 -0700 (PDT)
+        Thu, 16 Jul 2026 09:19:54 -0700 (PDT)
 From: Akari Tsuyukusa <akkun11.open@gmail.com>
 To: Wim Van Sebroeck <wim@linux-watchdog.org>,
 	Guenter Roeck <linux@roeck-us.net>,
@@ -85,17 +85,18 @@ Cc: linux-watchdog@vger.kernel.org (open list:WATCHDOG DEVICE DRIVERS),
 	linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
 	Roman Vivchar <rva333@protonmail.com>,
 	Akari Tsuyukusa <akkun11.open@gmail.com>
-Subject: [PATCH 3/7] arm/arm64: dts: mediatek: drop mt6589 fallback from watchdog
-Date: Fri, 17 Jul 2026 01:19:19 +0900
-Message-ID: <20260716161923.266315-4-akkun11.open@gmail.com>
+Subject: [PATCH 4/7] dt-bindings: watchdog: mediatek,mtk-wdt: remove mt6589 fallback items
+Date: Fri, 17 Jul 2026 01:19:20 +0900
+Message-ID: <20260716161923.266315-5-akkun11.open@gmail.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260716161923.266315-1-akkun11.open@gmail.com>
 References: <20260716161923.266315-1-akkun11.open@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_091953_453853_AFEBF4F8 
-X-CRM114-Status: GOOD (  11.02  )
+X-CRM114-CacheID: sfid-20260716_091955_858605_C79CBD23 
+X-CRM114-Status: UNSURE (   8.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,163 +111,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove the "mediatek,mt6589-wdt" fallback string from all in-tree
-device trees. Use only the SoC-specific compatible.
-
-No functional change.
-Affected SoCs: mt2701, mt6572, mt6582, mt6797, mt7622, mt7623,
-mt7629, mt8173, mt8365, mt8516.
+All DTS have been converted to standalone compatibles.
+Remove the items block that allowed the "mediatek,mt6589-wdt" fallback,
+keeping only the flat enum.
 
 Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
 ---
- arch/arm/boot/dts/mediatek/mt2701.dtsi   | 3 +--
- arch/arm/boot/dts/mediatek/mt6572.dtsi   | 2 +-
- arch/arm/boot/dts/mediatek/mt6582.dtsi   | 2 +-
- arch/arm/boot/dts/mediatek/mt7623.dtsi   | 3 +--
- arch/arm/boot/dts/mediatek/mt7629.dtsi   | 3 +--
- arch/arm64/boot/dts/mediatek/mt6797.dtsi | 2 +-
- arch/arm64/boot/dts/mediatek/mt7622.dtsi | 3 +--
- arch/arm64/boot/dts/mediatek/mt8173.dtsi | 3 +--
- arch/arm64/boot/dts/mediatek/mt8365.dtsi | 2 +-
- arch/arm64/boot/dts/mediatek/mt8516.dtsi | 3 +--
- 10 files changed, 10 insertions(+), 16 deletions(-)
+ .../bindings/watchdog/mediatek,mtk-wdt.yaml       | 15 ---------------
+ 1 file changed, 15 deletions(-)
 
-diff --git a/arch/arm/boot/dts/mediatek/mt2701.dtsi b/arch/arm/boot/dts/mediatek/mt2701.dtsi
-index 128b87229f3d..f23a6d860a53 100644
---- a/arch/arm/boot/dts/mediatek/mt2701.dtsi
-+++ b/arch/arm/boot/dts/mediatek/mt2701.dtsi
-@@ -160,8 +160,7 @@ scpsys: power-controller@10006000 {
- 	};
+diff --git a/Documentation/devicetree/bindings/watchdog/mediatek,mtk-wdt.yaml b/Documentation/devicetree/bindings/watchdog/mediatek,mtk-wdt.yaml
+index f4eaa5f7c5bc..2411c02f1cb0 100644
+--- a/Documentation/devicetree/bindings/watchdog/mediatek,mtk-wdt.yaml
++++ b/Documentation/devicetree/bindings/watchdog/mediatek,mtk-wdt.yaml
+@@ -42,21 +42,6 @@ properties:
+           - mediatek,mt8195-wdt
+           - mediatek,mt8365-wdt
+           - mediatek,mt8516-wdt
+-      - items:
+-          - enum:
+-              - mediatek,mt2701-wdt
+-              - mediatek,mt6572-wdt
+-              - mediatek,mt6582-wdt
+-              - mediatek,mt6797-wdt
+-              - mediatek,mt7622-wdt
+-              - mediatek,mt7623-wdt
+-              - mediatek,mt7629-wdt
+-              - mediatek,mt8173-wdt
+-              - mediatek,mt8188-wdt
+-              - mediatek,mt8189-wdt
+-              - mediatek,mt8365-wdt
+-              - mediatek,mt8516-wdt
+-          - const: mediatek,mt6589-wdt
  
- 	watchdog: watchdog@10007000 {
--		compatible = "mediatek,mt2701-wdt",
--			     "mediatek,mt6589-wdt";
-+		compatible = "mediatek,mt2701-wdt";
- 		reg = <0 0x10007000 0 0x100>;
- 	};
- 
-diff --git a/arch/arm/boot/dts/mediatek/mt6572.dtsi b/arch/arm/boot/dts/mediatek/mt6572.dtsi
-index ac70f266d698..5a6c9763bd6c 100644
---- a/arch/arm/boot/dts/mediatek/mt6572.dtsi
-+++ b/arch/arm/boot/dts/mediatek/mt6572.dtsi
-@@ -53,7 +53,7 @@ soc {
- 		ranges;
- 
- 		watchdog: watchdog@10007000 {
--			compatible = "mediatek,mt6572-wdt", "mediatek,mt6589-wdt";
-+			compatible = "mediatek,mt6572-wdt";
- 			reg = <0x10007000 0x100>;
- 			interrupts = <GIC_SPI 126 IRQ_TYPE_LEVEL_LOW>;
- 			timeout-sec = <15>;
-diff --git a/arch/arm/boot/dts/mediatek/mt6582.dtsi b/arch/arm/boot/dts/mediatek/mt6582.dtsi
-index f941ea44898a..501aeb3a2848 100644
---- a/arch/arm/boot/dts/mediatek/mt6582.dtsi
-+++ b/arch/arm/boot/dts/mediatek/mt6582.dtsi
-@@ -63,7 +63,7 @@ soc {
- 		ranges;
- 
- 		watchdog: watchdog@10007000 {
--			compatible = "mediatek,mt6582-wdt", "mediatek,mt6589-wdt";
-+			compatible = "mediatek,mt6582-wdt";
- 			reg = <0x10007000 0x100>;
- 		};
- 
-diff --git a/arch/arm/boot/dts/mediatek/mt7623.dtsi b/arch/arm/boot/dts/mediatek/mt7623.dtsi
-index aa42377b47da..48d6c348f667 100644
---- a/arch/arm/boot/dts/mediatek/mt7623.dtsi
-+++ b/arch/arm/boot/dts/mediatek/mt7623.dtsi
-@@ -281,8 +281,7 @@ scpsys: power-controller@10006000 {
- 	};
- 
- 	watchdog: watchdog@10007000 {
--		compatible = "mediatek,mt7623-wdt",
--			     "mediatek,mt6589-wdt";
-+		compatible = "mediatek,mt7623-wdt";
- 		reg = <0 0x10007000 0 0x100>;
- 	};
- 
-diff --git a/arch/arm/boot/dts/mediatek/mt7629.dtsi b/arch/arm/boot/dts/mediatek/mt7629.dtsi
-index acab0883a3bb..b034e9ab5af1 100644
---- a/arch/arm/boot/dts/mediatek/mt7629.dtsi
-+++ b/arch/arm/boot/dts/mediatek/mt7629.dtsi
-@@ -141,8 +141,7 @@ topckgen: syscon@10210000 {
- 		};
- 
- 		watchdog: watchdog@10212000 {
--			compatible = "mediatek,mt7629-wdt",
--				     "mediatek,mt6589-wdt";
-+			compatible = "mediatek,mt7629-wdt";
- 			reg = <0x10212000 0x100>;
- 		};
- 
-diff --git a/arch/arm64/boot/dts/mediatek/mt6797.dtsi b/arch/arm64/boot/dts/mediatek/mt6797.dtsi
-index 8ac98a378fd6..fe81faee0b0c 100644
---- a/arch/arm64/boot/dts/mediatek/mt6797.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt6797.dtsi
-@@ -218,7 +218,7 @@ scpsys: power-controller@10006000 {
- 	};
- 
- 	watchdog: watchdog@10007000 {
--		compatible = "mediatek,mt6797-wdt", "mediatek,mt6589-wdt";
-+		compatible = "mediatek,mt6797-wdt";
- 		reg = <0 0x10007000 0 0x100>;
- 	};
- 
-diff --git a/arch/arm64/boot/dts/mediatek/mt7622.dtsi b/arch/arm64/boot/dts/mediatek/mt7622.dtsi
-index 158bd9a305d7..0b5ffe9fa806 100644
---- a/arch/arm64/boot/dts/mediatek/mt7622.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt7622.dtsi
-@@ -322,8 +322,7 @@ pio: pinctrl@10211000 {
- 	};
- 
- 	watchdog: watchdog@10212000 {
--		compatible = "mediatek,mt7622-wdt",
--			     "mediatek,mt6589-wdt";
-+		compatible = "mediatek,mt7622-wdt";
- 		reg = <0 0x10212000 0 0x800>;
- 	};
- 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8173.dtsi b/arch/arm64/boot/dts/mediatek/mt8173.dtsi
-index 78c2ccd5be13..04b91b751853 100644
---- a/arch/arm64/boot/dts/mediatek/mt8173.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8173.dtsi
-@@ -528,8 +528,7 @@ power-domain@MT8173_POWER_DOMAIN_MFG {
- 		};
- 
- 		watchdog: watchdog@10007000 {
--			compatible = "mediatek,mt8173-wdt",
--				     "mediatek,mt6589-wdt";
-+			compatible = "mediatek,mt8173-wdt";
- 			reg = <0 0x10007000 0 0x100>;
- 		};
- 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8365.dtsi b/arch/arm64/boot/dts/mediatek/mt8365.dtsi
-index 2e782558fb77..2b5b761b92c8 100644
---- a/arch/arm64/boot/dts/mediatek/mt8365.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8365.dtsi
-@@ -469,7 +469,7 @@ power-domain@MT8365_POWER_DOMAIN_DSP {
- 		};
- 
- 		watchdog: watchdog@10007000 {
--			compatible = "mediatek,mt8365-wdt", "mediatek,mt6589-wdt";
-+			compatible = "mediatek,mt8365-wdt";
- 			reg = <0 0x10007000 0 0x100>;
- 			#reset-cells = <1>;
- 		};
-diff --git a/arch/arm64/boot/dts/mediatek/mt8516.dtsi b/arch/arm64/boot/dts/mediatek/mt8516.dtsi
-index b5e753759465..515eed0bee21 100644
---- a/arch/arm64/boot/dts/mediatek/mt8516.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8516.dtsi
-@@ -203,8 +203,7 @@ apmixedsys: apmixedsys@10018000 {
- 		};
- 
- 		watchdog@10007000 {
--			compatible = "mediatek,mt8516-wdt",
--				     "mediatek,mt6589-wdt";
-+			compatible = "mediatek,mt8516-wdt";
- 			reg = <0 0x10007000 0 0x1000>;
- 			interrupts = <GIC_SPI 198 IRQ_TYPE_LEVEL_LOW>;
- 			#reset-cells = <1>;
+   reg:
+     maxItems: 1
 -- 
 2.54.0
 
