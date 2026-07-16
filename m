@@ -4,78 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A801C4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 13:22:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75CBFC4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 13:23:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J1RcUzFubrLSPOJNAhV5g/NysrNzTE7RrFaLaVTbccY=; b=nRsZq+XVot2b1SCcQHqOICGrwr
-	FNsKogTEGWm2VrXF/Z5cg/jWEPakMznCvAU76uUpXOWjyXcienHaDn2bTb+ArsFMy3eV7RVx6rhpt
-	C0dKjxSv9ixEVxlo7hAhTMMI737IZ0Ol7vTGxy5rO7OcC/mSqcidfDmDNawbRBYSCbyYIzpL0S6ko
-	kjPu6be9mNrpad3abSU84cEP2Gio34m4ZT9oE0CSARHziYN00MeyFaCOTKnDtnE37wlppT3vWBM6N
-	nAXAWHNO8pAsEWTamqvOKLIWjdwpGECjfl23fLEE6eWb4uRTdSEwcqw4hRTjsR5zKP4dyMza1APxE
-	BdhzIMcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CrvuIFYY2f4D2HEiJ9xQ8WRFx52lb1g37g+jTqeDy40=; b=JgKeDilvYm+w27XZNGCRs/1BSg
+	MnzhugcS5MUW7QP0e25mSdtAkUIFW3t2gPEUjjdvwe0L4IuofFG/PrlEbWOuJcBNWgsOtG/UI4osk
+	xzb4S5dMyOfON95Zw7gLS5NyOnc6RrFG9GVPys/pFBy2qHqBcUmbYQUYVqqA2v89iISVuD+WG7M/h
+	Dkwy1Fnqi6VyM7t3Z/Yu6GdiE5V1CfbCNsx7za2BNNlso54W6Z8l7+8D+uYEdFdxJDqm0slCz9jwh
+	jp4Esvh+PmcSkQ2OU8NyxZLfKuZ1Ab2AY4HNhFTrwrKE1y6wrR9L9DZrR0wBnF3m1PTDpbT6xedL5
+	5YvOGFkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkM33-0000000HNRH-2k0q;
-	Thu, 16 Jul 2026 13:22:45 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkM32-0000000HNR8-1I9q
+	id 1wkM3x-0000000HNd7-3okg;
+	Thu, 16 Jul 2026 13:23:41 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkM3v-0000000HNcX-30gM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 13:22:44 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B7ED743768;
-	Thu, 16 Jul 2026 13:22:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BE8F1F000E9;
-	Thu, 16 Jul 2026 13:22:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784208163;
-	bh=J1RcUzFubrLSPOJNAhV5g/NysrNzTE7RrFaLaVTbccY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=e3jU/vXLz1kCVPN9lk57N/39U6sesNTekwEhhOhKLCJpwWQeRRkvy85ApYKpAbHr7
-	 OHbvhz2KSV8mgXOlnjzugYt1f0B0lj2c8fjKuzxe4P4ekCdmrOKTtGmMKDZJjD9Oi+
-	 pkIC2Ub5uINhYp7N27YXS3MtVPn2lfeb6bUArRfW1pR+l0/g3UI+UKbodoubFHdYJd
-	 uCLqVTxT/2ZUzWHbZpsffXcIiRHfFGPkLaq/WukCsLFBtqfC/1jLrkdnSucx7W+6Xt
-	 +8RHcpBDa2cownZYwQP+9CqmbTuaJtcqAkyAFqEWKdw0K3VADVqJOSXDd6Jg6bAxsH
-	 l3c7SMtzsOzMA==
-Date: Thu, 16 Jul 2026 15:22:41 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Robert Foss <rfoss@kernel.org>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Inki Dae <inki.dae@samsung.com>, 
-	Jagan Teki <jagan@amarulasolutions.com>, Marek Szyprowski <m.szyprowski@samsung.com>, 
-	Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Hui Pu <Hui.Pu@gehealthcare.com>, 
-	Ian Ray <ian.ray@gehealthcare.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 05/37] drm/display: bridge-connector: split code creating
- the connector to a subfunction
-Message-ID: <20260716-stoic-muskox-from-asgard-c12b65@houat>
-References: <DJ735MTNMYD1.3LPNV404V8PIU@bootlin.com>
- <20260624-proud-unbiased-pony-ecc3c3@houat>
- <DJHEAWSEZR79.19UFIKS8QJBQ7@bootlin.com>
- <20260626-polite-hairy-perch-25e1aa@houat>
- <DJJ1MPCEJGZD.UZM9183V6ZE5@bootlin.com>
- <20260626-classy-nightingale-of-romance-1cacad@houat>
- <DJJ4X22CJ3FG.5EYF84LVRNOG@bootlin.com>
- <20260707-warping-goshawk-of-swiftness-beea4a@penduick>
- <20260707123205.GB211515@killaraus.ideasonboard.com>
- <DJZUXUBO8DI4.2J2NI3S0KYNUE@bootlin.com>
+	Thu, 16 Jul 2026 13:23:41 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1B4021476;
+	Thu, 16 Jul 2026 06:23:33 -0700 (PDT)
+Received: from [10.57.84.219] (unknown [10.57.84.219])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3E0C13F905;
+	Thu, 16 Jul 2026 06:23:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784208217; bh=RHa8B7+Au2MNq9YT4sMqtFQA1xDYfuoVtvK0/lpica8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=YmA+a8I8JDrDfOgtVcZ5AUcyhiYuVhXaY9HD+zLLHsWXcEuDJoxNa4jUSaGV3N3EL
+	 JRN50FhcyQBbnlVd2RNJeLH7TKRN89i3f+ZU5LcmQme7+xpSsnioux90mIp9N8IQ8P
+	 yR13N0030qGl5SVkIshYmmiH0JjguX/WZ6m0T+9c=
+Message-ID: <0344c559-1959-4531-9265-d5a5180eb7cd@arm.com>
+Date: Thu, 16 Jul 2026 14:23:33 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="hy4gwehtz7opgsid"
-Content-Disposition: inline
-In-Reply-To: <DJZUXUBO8DI4.2J2NI3S0KYNUE@bootlin.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC v2 PATCH 0/16] Optimize this_cpu_*() ops for non-x86 (ARM64
+ for this series)
+Content-Language: en-GB
+To: Yang Shi <yang@os.amperecomputing.com>, cl@gentwo.org, dennis@kernel.org,
+ tj@kernel.org, urezki@gmail.com, catalin.marinas@arm.com, will@kernel.org,
+ david@kernel.org, akpm@linux-foundation.org, hca@linux.ibm.com,
+ gor@linux.ibm.com, agordeev@linux.ibm.com
+Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260715180455.515692-1-yang@os.amperecomputing.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20260715180455.515692-1-yang@os.amperecomputing.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260716_062339_835396_5EECD0A8 
+X-CRM114-Status: GOOD (  60.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,69 +74,303 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 15/07/2026 19:04, Yang Shi wrote:
+> 
+> Hi,
+> 
+> This is v2 RFC. In v2 a lot problems found out by Sashiko were fixed and more
+> feature gaps were closed (please see the below changelog for the details).
+> Although there are still some open issues, for example, it just can support
+> 48 bits VA (for 4K and 64K) and 47 bits VA (for 16K), KPTI support has not
+> been solved yet, etc, but I think the delta should be big enough and worth
+> a new RFC to gather comments in order to make sure I'm on the right track.
+> 
+> Some more benchmarks were done, for example, some latency related benchmarks
+> that I mentioned at LSFMM because I thought responsiveness should be improved
+> due to the removal of preempt_disable. Collected more PMU counters as well.
+> Please refer to the benchmark section for more details. 
 
---hy4gwehtz7opgsid
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 05/37] drm/display: bridge-connector: split code creating
- the connector to a subfunction
-MIME-Version: 1.0
+Hi Yang,
 
-On Thu, Jul 16, 2026 at 10:37:24AM +0200, Luca Ceresoli wrote:
-> >> > Now if the bridges start doing it themselves we should go back to
-> >> > those encoder drivers and ditch all the drm_bridge_connector from
-> >> > there?
-> >> >
-> >> > I must be missing something. Can you elaborate on this?
-> >>
-> >> drm_bridge_connectors bring together a (complete) bridge chain and a
-> >> connector. If you don't have either anymore, then we shouldn't keep it
-> >> around.
-> >>
-> >> What I was suggesting before was only a suggestion. I guess we could
-> >> also make the encoder own the hotplug handling code and create the
-> >> drm_bridge_connector when the chain is complete, and remove it when it=
-'s
-> >> no longer the case.
-> >
-> > That's an interesting option. We don't have to keep drm_bridge_connector
-> > in its current form, but I don't think we should go back to individual
-> > bridge driver creating connectors, especially now that we have bridge
-> > chains where the connector ops are implemented collectively by multiple
-> > bridges.
->=20
-> I definitely agree we don't want to add burden back on the encoder.
+When we spoke about this at LSFMM, I said I would take the series for a spin on
+other hardware to see if the performance gains generalise. I did make a start on
+that but the kernel wouldn't even boot and I never found time to debug. Sorry
+that I didn't let you know sooner.
 
-I don't think Laurent mentioned the encoder anywhere.
+But I think that there are other issues with this concept that likely block it
+from being accepted upstream; see below...
 
-> >> We can discuss alternatives too. But either way, we shouldn't have it
-> >> stick around.
->=20
-> Bottom line, I roughly see three ideas mentioned:
->=20
->  1. (this series) extend the drm_bridge_connector to create the
->     drm_connector based on bridge hotplug events [+rename it]
->  2. - keep the drm_bridge_connector (mostly) as is
->     - let each encoder driver add/remove it based on bridge hotplug events
->     =3D> more burden on encoder drivers -> no
+> 
+> Look forward to comments.
+> 
+> 
+> Changelog
+> v2: * Added 3-level and 2-level page table support.
+>     * Tested with 16K and 64K page size. But we just support 48 bits VA (4K
+>       and 64K) and 47 bits VA with 16K for now.  Please refer to the below
+>       "known issue" section for the detail reason.
+>     * Added support for memory hotplug.
+>     * Added support for KASAN (generic).
+>     * Treated percpu and local percpu area address as vmalloc address.
+>     * Fixed build failure for x86.
+>     * Fixed build failure for !CONFIG_NUMA.
+>     * Added KASAN support for local percpu area.
+>     * Some other misc bug fixes found out by Sashiko.
+>     * More code refactor and cleanup.
+>     * Regorganized the patches.
+>     * More benchmarks, refer to benchmark section for more details.
+>     * Rebased to v7.2-rc1.
+> 
+> 
+> Introduction
+> ============
+> This patch series implemented the LSFMM 2026 proposal for optimizing
+> this_cpu_*() ops on ARM64. For the details of the proposal, Please refer to:
+> https://lore.kernel.org/linux-mm/CAHbLzkpcN-T8MH6=W3jCxcFj1gVZp8fRqe231yzZT-rV_E_org@mail.gmail.com/
+> I didn't repeat it in the cover letter because there is no change to the
+> proposal.
+> 
+> The series is based on 7.1-rc1. It is basically minimum viable patches.
+> There are still a few hacks in this series and it may break something,
+> for example, KPTI, SMT machines which shared TLB, etc. But it shoule be
+> good enough for now to demonstrate the core idea. The main purpose of the
+> RFC is to gather feedback, figure out missing parts and risks, and make sure
+> we are on the right track, as well as hopefully it can help the discussion
+> for the upcoming LSFMM.
+> 
+> I broke the patches down to arch-dependent and arch-independent parts so that
+> hopefully the interested persons can do experiments on other architectures,
+> for example, S390, easier.
+> 
+> A new kernel config is introduced, HAVE_LOCAL_PER_CPU_MAP. The architectures
+> which can support this feature will select it. Allocating and freeing percpu
+> local mapping is protected by this config so that others won't pay the cost.
 
-Can you motivate that with *any* reason? Because I really feel like it's
-the best solution going forward.
+I think this approach is a bit of a sledge hammer to crack a nut. If the problem
+is the cost this_cpu_* ops on arm64 due to the need to disable/enable
+preemption, I think we can solve that much more simply with [1], which
+introduces in-kernel restartable sequences. Using this, the operation no longer
+needs to disable preemption but can instead just detect when it is preempted and
+retry.
 
-Maxime
+[1]
+https://lore.kernel.org/all/20260223163843.GR1282955@noisy.programming.kicks-ass.net/
 
---hy4gwehtz7opgsid
-Content-Type: application/pgp-signature; name="signature.asc"
+We have observed a few performance regressions recently, for which the root
+cause is increased use of this_cpu_*. We have somebody at Arm about to start an
+investigation into whether in-kernel rseq can solve the problem.
 
------BEGIN PGP SIGNATURE-----
+> 
+>  
+> Known Issues
+> ============
+> 1. KPTI
+> -------
+> We need determine what CPU we are on, then switch to the right page table.
+> Currently arm64 kernel fetches tramp_pg_dir via swapper_pg_dir - fixed_offset,
+> and fetches swapper_pg_dir from ttbr1. But ttbr1 may not hold swapper_pg_dir
+> anymore except CPU #0. So we need to figure out the other way to handle it.
+> Switching to tramp_pg_dir should be easy, but the reverse seems harder because
+> tramp_pg_dir just maps the trampoline vectors.
+> Maybe we can do two steps switch. Switch to swapper_pg_dir at the first step,
+> then switch to per cpu page table (for entry) or tramp page table (for exit).
+> Nobody should call this_cpu_*() at either userspace -> kernel entry stage or
+> kernel -> userspace exit stage.
+> 
+> 2. SW PAN
+> ---------
+> Has the similar issue as KPTI. It installs reserved_pg_dir to TTBR0 when running
+> in kernel space, but fetching reserved_pg_dir via swapper_pg_dir - fixed_offset.
+> Maybe we can save the physical address of swapper_pg_dir in a variable, then load
+> it from that variable instead of ttbr1.
+> 
+> 3. Shared TLB machines
+> ----------------------
+> Some machines may share TLB between CPUs, for example, SMT machines may share
+> TLB between the two hardware threads in one core.
+> The per cpu page table just can't work with it. Maybe we need a new
+> cpufeature to indicate whether per cpu page table is allowed or not. Then
+> just enable it for not-shared-TLB machines.
 
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaljbHAAKCRAnX84Zoj2+
-dqTdAX929rSvBRbObFUgBFSbAjeGJKAihEQm5mwvUemnQR8RPQTHUpIFoxoU64cT
-+ncZYoIBf2oprQXmliswkjFLbOXkrIghOFzxcuJlTTV7xnm4UrAXDjJgcRCFFbs8
-Equ80zFtIg==
-=nsi0
------END PGP SIGNATURE-----
+The architectural feature you're referring to here is FEAT_TTCNP (common not
+private). There are many CPUs out there that use this feature (not just those
+that support SMT).
 
---hy4gwehtz7opgsid--
+FEAT_TTCNP is mandatory from Armv8.2 and the presence of the feature only tells
+you whether you can legally set the CnP bit - it doesn't actually tell you if
+the HW does any sharing - there is no way to detect this. So making per-cpu
+pgtables mutually exclusive with CNP is a non-starter as all CPUs from v8.2
+onwards advertise CNP.
+
+Even ignoring the CNP problem, you'll end up installing the per-cpu TLB entries
+tagged with whatever user ASID happens to be installed at the time. Which means
+you could end up with lots of duplicated TLB entries all differing only by ASID.
+It's probably not the end of the world, but it seems... inefficient.
+
+The only way I can see to make this work fully is to rely on FEAT_ASID2, which
+allows specifying separate ASIDs for TTBR0 and TTBR1. Then each CPU can have
+it's own (permanently installed) ASID for local mappings in TTBR1. That would
+solve the CNP issue. FEAT_ASID2 is optional from v9.4 and mandatory from v9.5.
+
+
+> 
+> 4. Don't support all VA bits
+> ----------------------------
+> We just support 48 bits VA (4K and 64K) and 47 bits VA (16K) for now. For 4K
+> and 64K, supporting other VA bits is not hard, we just need to determine the
+> size for percpu and local percpu area.
+> But it is harder for supporting 48 bits VA + 16K page size. We just have two
+> top level kernel page table entries with this configuration, but we assume we
+> just need to sync up kernel page table at the top level for now. We need to
+> sync up kernel page table at the second level in order to support it. I'm not
+> sure whether it is worth it or not.
+
+If your proposal is to only support per-cpu pgtables for certain VA
+combinations, I don't think that will fly. We'd have too much of a test burden
+for these different configs.
+
+> 
+> 
+> Benchmark
+> =========
+> The benchmarks are done on 160 core AmpereOne machine. The baseline is
+> v7.2-rc1 kernel.
+> 
+> 1. Reduction of kernel text size
+> --------------------------------
+> The patchset can reduce at least 11 instructions for this_cpu_*() ops. Both
+> preempt_disable() and preempt_enable() need 4 instructions to manipulate
+> the preempt count, and preempt_enable() needs more instructions (compare +
+> READ + compare) to determine whether reschedule is needed or not.
+> Because this_cpu_*() ops are inlined and called in a lot of places so we
+> can save a lot of instructions.
+> 
+> The size of kernel text is reduced by ~184KB with default Fedora kernel
+> config. This also helps reduce kernel icache miss rate and stalled frontend
+> cycles as kernel build benchmark result showed.
+> 
+> 2. Kernel Build
+> ---------------
+> Run kernel build (make -j160) with the default Fedora kernel config in a
+> memcg.
+> 13% - 18% sys time improvment
+> 3% - 7% wall time improvement
+> 
+> 5% fewer kernel icache miss, 5% fewer executed kernel instructions and
+> 15% fewer stalled frontend cycles for kernel.
+> 
+> 3. stress-ng vm ops
+> -------------------
+> stress-ng --vm 160 --vm-bytes 128M --vm-ops 100000000
+> 8.5% improvement
+> 
+> 4. stress-ng vm ops + fork
+> --------------------------
+> stress-ng --mmapfork 160 --mmapfork-bytes 128M --mmapfork-ops 500
+> 15% improvement
+> 
+> 5. Specjbb
+> ----------
+> The specjbb test latency curves showed the patched kernel has consistently
+> lower p99 latency (the lower the better) than the baseline.
+> 
+> 2.5% improvement on max-jOPS and 4% - 5% improvement on critical-jOPS.
+> The specjbb benchmark is quite sensitive to latency and responsiveness, 
+> particularly critical-jOPS result. The patches are supposed to improve the
+> responsiveness due to the reduction of preempt-disabled critical sections.
+> 
+> 6. MySQL
+> --------
+> 1% - 2% gains on read-only test, 2% - 4% gains on write-only test. Also see
+> 15% decrease on frontend cache stall.
+
+These gains all look great but I expect we will see similar gains using the rseq
+approach, which is simpler and can be applied universally.
+
+Thanks,
+Ryan
+
+> 
+> 
+> Regression test
+> ===============
+> 1. memcg creation
+> -----------------
+> Create 10K memcgs. Each memcg creation needs to allocate multiple percpu
+> variables, for example, percpu refcnt, rstat and objcg percpu refcnt.
+> 
+> Consumed 2112K more virtual memory for percpu “local mapping” and a few
+> more mega bytes consumed by per cpu page tables.
+> No noticeable regression was found for elapsed time.
+> 
+> 2. fork test
+> ------------
+> stress-ng --fork 160 --fork-ops 10000000
+> fork() needs to allocate multiple percpu variables, for example, rss
+> counters and mm_cid_cpu.
+> 
+> Roughly 1% regression was found. However stress-ng fork test has quites
+> small address space, the real life workloads typically have much larger
+> address space and do more complicated works. The stress-ng mmapfork
+> benchmark saw 15% improvement.
+> 
+> 
+> The organization of patches
+> ===========================
+> The refactor and prepatory patches (patch 1 - patch 4)
+> Percpu page table support patches (patch 5 - patch 8)
+> Local percpu area support patches (patch 7 - patch 15)
+> Use local percpu area for this_cpu ops (patch 16)
+> 
+> 
+> Yang Shi (16):
+>       drivers: arch_numa: move percpu set up code to arch
+>       arm64: kconfig: make percpu related configs not depend on NUMA
+>       mm: pgalloc: introduce {pud|pmd}_populate_sync()
+>       vmalloc: pass in pgd pointer for vmap{__vunmap}_range_noflush()
+>       arm64: mm: enable percpu kernel page table
+>       arm64: mm: defined {pud|pmd}_populate_sync()
+>       arm64: mm: sync percpu page table for memory hotplug/unplug
+>       arm64: kasan: sync up kasan shadow area page table
+>       arm64: mm: define percpu virtual space area
+>       mm: percpu: prepare to use dedicated percpu area
+>       arm64: mm: map local percpu first chunk
+>       mm: percpu: set up first chunk and reserve chunk
+>       arm64: mm: introduce __per_cpu_local_off
+>       mm: percpu: allocate and free local percpu vm area
+>       arm64: kconfig: select HAVE_LOCAL_PER_CPU_MAP
+>       arm64: percpu: use local percpu for this_cpu_*() APIs
+> 
+>  arch/arm64/Kconfig                   |  12 +++++++---
+>  arch/arm64/include/asm/mmu.h         |   5 ++++
+>  arch/arm64/include/asm/mmu_context.h |   9 +++++++-
+>  arch/arm64/include/asm/percpu.h      |  37 ++++++++++++++++++++++++++++-
+>  arch/arm64/include/asm/pgalloc.h     |  24 +++++++++++++++++++
+>  arch/arm64/include/asm/pgtable.h     |  37 ++++++++++++++++++++++++++---
+>  arch/arm64/kernel/setup.c            |   3 +++
+>  arch/arm64/kernel/smp.c              |  44 +++++++++++++++++++++++++++++++++++
+>  arch/arm64/mm/kasan_init.c           |  47 +++++++++++++++++++++++--------------
+>  arch/arm64/mm/mmu.c                  | 165 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++----------------------
+>  arch/arm64/mm/ptdump.c               |   4 ++++
+>  arch/riscv/kernel/smp.c              |  51 ++++++++++++++++++++++++++++++++++++++++
+>  drivers/base/arch_numa.c             |  51 +---------------------------------------
+>  include/linux/mm.h                   |  11 +++++++++
+>  include/linux/percpu.h               |   4 +++-
+>  include/linux/pgalloc.h              |  13 +++++++++++
+>  include/linux/vmalloc.h              |   3 +++
+>  mm/Kconfig                           |   9 ++++++++
+>  mm/internal.h                        |   5 +++-
+>  mm/kmsan/hooks.c                     |  14 +++++------
+>  mm/percpu-internal.h                 |  14 +++++++++++
+>  mm/percpu-vm.c                       |  94 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+>  mm/percpu.c                          |  58 +++++++++++++++++++++++++++++++++++++---------
+>  mm/sparse-vmemmap.c                  |   4 ++--
+>  mm/vmalloc.c                         | 138 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++---------------
+>  25 files changed, 712 insertions(+), 144 deletions(-)
+> 
+> 
+> Thanks,
+> Yang
+> 
+
 
