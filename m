@@ -4,88 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69952C44512
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 17:56:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DE91C44516
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 18:07:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=toxy2jG5k8rsmVjBC6umRfCjIF/9rl6IYwmcJggg3gc=; b=ANw1KJ0vv67PvlqghQsnDKIrbQ
-	UN+vgdHFhqwvOk9zhMUpNik5rO84x0YSjbnvhD447Me0bIYRbKOSkWre4ZyLyZCraGwXcFt99EVMR
-	WhV0pHeYtyLhvjMJWBY9tTdAkDOtdKhaV51KaITsjTBP+DkZ38KX913FLDXl9KS7eXj6FAdRytZZF
-	JNJk37i3oi+eIHVuYeX+faFYBOCu/dZYBgtEmcm43PJjIgshsL3md7hEAwoya6vdZNw7VOBgXyTzl
-	Okri62hXn4RLhYyAO/zImN3FZc1Mu+4rz+ZH9bnH0KDyEgFl17tS/zVw9bdCYOwFwKr4aRoRpgmC2
-	jWTPONtw==;
+	bh=ixzMkuT2wsK+6EL9PnWaaXjCqguB1YXG4PuWxLjqF5Y=; b=YKWh6I6v8v1vGrqL3hQ/Lkl/qm
+	FZfyisy2CgVv+m3PdfqGv8hpLtht0axlhCwIOK/CkmO/MLEp/1c9ksc4dHAKyWvjjGAMUU7Q72/0O
+	JEVlgJCKC+Lm6eVn3k+7KCzDy3wViT9P0WPz2B12soMJXBBRNL15XpMNYJYZ+qSw+FWOWHQinw6eH
+	xhCw2fcsNmDWPNsGeKX/m9AWPyRosrfAZ3/u4vwKGwL1euPqGgnasv4+78zKAYJBKSaUBTXhzcFid
+	puUpo3uNUKE1AohyWcvZ36JhpNG76DU+OTbP6oYzejsjS3jH8VmD+TVJ0PlFA7g1HQGuGG7hhhHJw
+	MH/LF9lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkQKH-00000000KG9-3WX0;
-	Thu, 16 Jul 2026 17:56:49 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1wkQUb-00000000LIP-0Wxd;
+	Thu, 16 Jul 2026 18:07:29 +0000
+Received: from mgamail.intel.com ([198.175.65.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkQKF-00000000KFY-1Piy;
-	Thu, 16 Jul 2026 17:56:48 +0000
+	id 1wkQUY-00000000LHU-0S1c;
+	Thu, 16 Jul 2026 18:07:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1784224608; x=1815760608;
+  t=1784225247; x=1815761247;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=JOhrs1OFvboDcLOeh8gPY/kmKk14v0E8LAeuat6Eybc=;
-  b=N4XXRmqaeMNBUYUpyup/U/uYwhgjmDYWtA8kJGbF/irR7oBsdx4olCLr
-   IXTgpI9wAhf5OpptkxAvPUIZnGkB8GTxwDLFwbWyrB6vYsl3q2ZEEFqlH
-   WPNp5tC5p/pBkecJmdVwqDhERuObN4KTBePOdZzksnv/XKSLDCld8lmFo
-   ZdusP1BRvBv4JyxLjASA72vUmYq4gy0Dl2W1LgVgIfkeN628iNjj/DNuA
-   d70VATMJBOB1DpqufEcmjGdgTJmGDImJJ3wBFM4QoFNR4TdvpKYrqhwpW
-   SuiF4BKo1c93vU2WzkaPF+FO/+QSPDJyu/JALaBETp+AAZH2+AwrzxeDf
-   g==;
-X-CSE-ConnectionGUID: bV/Xezj3RYyChRatmuKahA==
-X-CSE-MsgGUID: uwMXjpKZQRaHhLZBsAHfMg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11848"; a="96029972"
+  bh=3zU61iR89W7q/QfMisKJJhMrwLX8REl16SCm0WWEqt0=;
+  b=fhg61Dh3Wd46gWKL9ZC1SP3bEprBgu6gMBlF4qsHadRjVhOy3FVWlwNN
+   SYezHP5o2yzSK8CYU4/0+E4u7a0DCKY+fm+6/0g+Z6DUs8XkpHDdl9qCb
+   H4ex7rOtKin9S58jl2YGJ99mnoKO6pN4RChFqocYgfutGOaOVPl1m6Gii
+   b8DFSKjTIMLM3XIX3SdPndxx9xqQ3Fm7e9I/dbamc0PRJt3XkU1GQolJd
+   fSObOsTDU8VUB9qk8Q1Oojy9jHAzlkzz46+UwKa3Am2axznHfUYF1ux6o
+   T2BVJCzYQJv6Wf/nRa5FK5OhN6DTpldeLr3CNwYJ8ObN128OTMGINV0ho
+   Q==;
+X-CSE-ConnectionGUID: rYbMLO5SQ9iWc5gvj/Kl/g==
+X-CSE-MsgGUID: WalfNqL2TLuKMzl/N+G2Qw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11848"; a="95250927"
 X-IronPort-AV: E=Sophos;i="6.25,167,1779174000"; 
-   d="scan'208";a="96029972"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jul 2026 10:56:47 -0700
-X-CSE-ConnectionGUID: o44G+L4dSBaDIU9Jshoh0g==
-X-CSE-MsgGUID: dUnJTDUlRJ2uULcA2u/yFw==
+   d="scan'208";a="95250927"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jul 2026 11:07:26 -0700
+X-CSE-ConnectionGUID: APJCwIcNR12AYNk0i8vioQ==
+X-CSE-MsgGUID: qNYSOzF+SJGatiaUqRLDtg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.25,167,1779174000"; 
-   d="scan'208";a="260160330"
+   d="scan'208";a="253929056"
 Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.26])
-  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jul 2026 10:56:40 -0700
-Date: Thu, 16 Jul 2026 20:56:38 +0300
+  by fmviesa008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jul 2026 11:07:16 -0700
+Date: Thu, 16 Jul 2026 21:07:13 +0300
 From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Michael Walle <mwalle@kernel.org>
-Cc: Yu-Chun Lin <eleanor.lin@realtek.com>, Michael.Hennerich@analog.com,
-	afaerber@suse.com, andy@kernel.org, brgl@kernel.org,
-	conor+dt@kernel.org, cy.huang@realtek.com,
-	devicetree@vger.kernel.org, dlechner@baylibre.com,
-	james.tai@realtek.com, jic23@kernel.org, krzk+dt@kernel.org,
-	lars@metafoo.de, linus.walleij@linaro.org, linusw@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
-	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-realtek-soc@lists.infradead.org,
-	mathieu.dubois-briand@bootlin.com, nuno.sa@analog.com,
-	robh@kernel.org, stanley_chang@realtek.com, tychang@realtek.com,
-	wbg@kernel.org
-Subject: Re: [PATCH v3 3/7] gpio: regmap: Add gpio_regmap_operation and
- write-enable support
-Message-ID: <alkbVkB5KNNR7ffN@ashevche-desk.local>
-References: <d301ba0cd45d49d59e6a014188306ec9@realtek.com>
- <20260716062614.1507243-1-eleanor.lin@realtek.com>
- <aliV4u6_xzx9D9Aq@ashevche-desk.local>
- <DJZVLZ4LLD9E.3MPLYYXT1VQ9R@kernel.org>
- <alim_HGTD5RCupav@ashevche-desk.local>
- <DJZXVOGZ3ZTH.20P8NY7DON0X7@kernel.org>
+To: Link Mauve <linkmauve@linkmauve.fr>
+Cc: Srinivas Kandagatla <srini@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+	Neal Gompa <neal@gompa.dev>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Vladimir Zapolskiy <vz@mleia.com>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Kalyani Akula <kalyani.akula@amd.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
+	Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Tamir Duberstein <tamird@kernel.org>,
+	Alexandre Courbot <acourbot@nvidia.com>,
+	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
+	Johan Hovold <johan@kernel.org>,
+	Ronald Claveau <linux-kernel-dev@aliel.fr>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
+	asahi@lists.linux.dev, imx@lists.linux.dev,
+	linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	rust-for-linux@vger.kernel.org
+Subject: Re: [PATCH v3 3/4] nvmem: apple-spmi: improve calling safety with
+ wrapper functions
+Message-ID: <alkd0WWr3KX7MS5O@ashevche-desk.local>
+References: <20260716142415.28718-1-linkmauve@linkmauve.fr>
+ <20260716142415.28718-4-linkmauve@linkmauve.fr>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <DJZXVOGZ3ZTH.20P8NY7DON0X7@kernel.org>
+In-Reply-To: <20260716142415.28718-4-linkmauve@linkmauve.fr>
 Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
  krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_105647_439799_3EF349C6 
-X-CRM114-Status: GOOD (  33.17  )
+X-CRM114-CacheID: sfid-20260716_110726_190471_D02A8DA0 
+X-CRM114-Status: GOOD (  12.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,64 +123,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 16, 2026 at 12:55:37PM +0200, Michael Walle wrote:
-> On Thu Jul 16, 2026 at 11:40 AM CEST, Andy Shevchenko wrote:
-> > On Thu, Jul 16, 2026 at 11:08:55AM +0200, Michael Walle wrote:
-> >> On Thu Jul 16, 2026 at 10:27 AM CEST, Andy Shevchenko wrote:
-> >> > On Thu, Jul 16, 2026 at 02:26:14PM +0800, Yu-Chun Lin wrote:
+On Thu, Jul 16, 2026 at 04:24:10PM +0200, Link Mauve wrote:
+> This driver used to cast the regmap_bulk_*() functions to void *,
+> bypassing any compiler safety around incompatible function pointers.
+> 
+> With two small wrappers, which just convert the void * priv parameter
+> into the wanted struct regmap *, we can remove the void * cast
+> altogether.
+
+Reported-by: ?
+
+> Signed-off-by: Link Mauve <linkmauve@linkmauve.fr>
 
 ...
 
-> >> > From the above list I tend to the approach 2, but this might require to have
-> >> > GPIO regmap level of locking. I'm a bit lost in the context, though. I assume
-> >> > we need a fresh start, id est issue a v6 with approach 2 or 3 in place and
-> >> > summarize the choices in the cover letter, so we can understand what has been
-> >> > considered.
-> >> 
-> >> I don't really like approach 3. You'd need to check if the regs of
-> >> both xlate calls are the same. With the sample code above, you
-> >> silently drop the first xlate'd reg.
-> >
-> > If I rank the proposals, the worst is #1, the best is #2.
-> >
-> >> And honestly, it really seems like a one-off. What controllers, are
-> >> there that need a write enable bit. The real problem seems to be
-> >> the assumption that we operate on just one bit. IOW we either set
-> >> mask or don't set mask in gpio_regmap_set().
-> >
-> > Yes, we should KISS.
-> 
-> But IMHO #2 and #3 are not KISS. Approach 2 is just a way of adding
-> some kind of pre op to a gpio set. Just tying it to a write enable
-> feature. That kinda bothers me. It might also be useful for other
-> things, too. So don't tie it to just write enable. And who is doing
-> a write disable if it's not self clearing for example. Probably Some
-> kind of post op :)
-> 
-> Approach 3 is a way to change the value of the written value - in
-> a restricted way, as is is just doing a OR with both values.
-> 
-> Also approach 2 might not even work if the hardware requires the
-> write enable bit set in the *same* write as the gpio set bit. Thus,
-> we might need both anyway in the future.
-> 
-> >> For a more generic solution, we should be able to control the
-> >> written value. We could add another .value_xlate().
-> >
-> > Maybe not now?
-> 
-> But if not now, then when? I wouldn't add the write enable feature
-> and later a more generic solution which also covers the write enable
-> feature.
+> +static int apple_spmi_nvmem_read(void *priv, unsigned int offset,
+> +				 void *val, size_t bytes)
+> +{
 
-Taking into account how it's done in HW, I think the whole approach can
-be folded to just a boolean flag  (or a simply bit shift) in the config.
-Wouldn't it work?
+> +	struct regmap *regmap = priv;
 
-> > As per IPs, Synopsys IPs (not exactly GPIO) likes to
-> > have that kind of "protection". So, from HW perspective it's kinda
-> > pattern, and it might be possible to see more IPs (including GPIO)
-> > that follow it in some cases.
+No need :-)
+
+> +	return regmap_bulk_read(regmap, offset, val, bytes);
+> +}
+
+static int apple_spmi_nvmem_read(void *map, unsigned int offset,
+				 void *val, size_t bytes)
+{
+	return regmap_bulk_read(map, offset, val, bytes);
+}
+
+...
+
+> +static int apple_spmi_nvmem_write(void *priv, unsigned int offset,
+> +				  const void *val, size_t bytes)
+> +{
+> +	struct regmap *regmap = priv;
+> +	return regmap_bulk_write(regmap, offset, val, bytes);
+> +}
+
+In the similar way as above.
+
+...
+
+> -		.reg_read = (void *)regmap_bulk_read,
+> -		.reg_write_const = (void *)regmap_bulk_write,
+> +		.reg_read = apple_spmi_nvmem_read,
+> +		.reg_write_const = apple_spmi_nvmem_write,
+
+I think the proper ordering is to address this first (before your main change)
+and update later with const argument. Yes, it will be a bit more changes, but
+it will be cleaner.
 
 -- 
 With Best Regards,
