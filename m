@@ -4,109 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0B88C44512
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 21:19:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69DEEC44512
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 21:20:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3mfs6TPohHB4ptVhWPd7wCfPWGeW/kT+9UO9C9aZwuc=; b=jxanh4tZtE4rjaZltVUhPrVMa8
-	7CtgsGH+4akniWut+MEL1y9VbOe3mlmR3njIIbVA2Pw9T6fO024ceWNTJaBmn82UH7bCONjT1L9uH
-	m/b5XnnbKy9KgNdkSrxyu/LFh1I5g/2hGvaXha/UKTUEf3Q8ifb0bE4reX1DNivsyR4uEKONH34jv
-	oMNMUOhZ3kXRNkYosaQ7XhVRYKc3xYKodWYPottfHWBKCDITbt/QJy9z/iUY/HwrUA+YGnjOzG0bV
-	MaDYCDIsOkV6aLilZ+/Rc4XVY8cw/9CkIluY1cQ5h/fp+qfVxGWmRjiODS5Dwv6o5qsiQCtAlhmTl
-	SBMrBnuw==;
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B1MuZdJSNWtnXTh2sShXeQNDuWfEmXZTJqNmfxJYjMI=; b=B2YuNUCXTL0IDkTHz3T6VOqli1
+	UQ/QRjMC0sMa+P17idmrrvxwdBTcbSjboySEVEprck34DYrxLGQ6S/7OFqMRMLvyppBRIILmdYqrn
+	6mFA9rw6h6IZCXLmNVriGvqJA3PZOUsT8a2yTi1FgNG051St2zOY2j9Tk3R92rc4NQNdqZ/3BggSz
+	gimXUnoTyYkIj3n58Y2OXE67vg802kaAhCUkS8CD+Uutoa/6c+EYZ25WLUVWjEv2QWatBCjckJRRn
+	pgRK+tz6tiPwE+ZYya4EE6mdWW+mgzMgrS6I0B8fAXwBWK55B78UH39lbNNsKZKlbC30CpcsYim48
+	Z52Htbmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkTTv-00000000ayQ-2vXy;
-	Thu, 16 Jul 2026 21:18:59 +0000
-Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
+	id 1wkTGH-00000000Z75-1zpy;
+	Thu, 16 Jul 2026 21:04:53 +0000
+Received: from mail-southcentralusazon11013054.outbound.protection.outlook.com ([40.93.196.54] helo=SA9PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkTTt-00000000ax0-0LZ6
+	id 1wkTFS-00000000YAB-3wVr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 21:18:58 +0000
-Received: by mail-qt1-x835.google.com with SMTP id d75a77b69052e-51bfbe05683so60610891cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 14:18:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20251104.gappssmtp.com; s=20251104; t=1784236736; x=1784841536; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:to:from:subject:message-id:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=3mfs6TPohHB4ptVhWPd7wCfPWGeW/kT+9UO9C9aZwuc=;
-        b=z4j7KRD99myzH+WMn+TsvaGKdJUo4RZ7eI/wWXWNiDymIVkpGyEC1KqrjNe+94bxGO
-         kMi6mZ/U8gFDHWUNUaMtBZkDyTcUB0GtWNqxMI/4EK/UxHJQTRVy/MNowRcnhzixL0hr
-         3O6SHTPKdHBuwQLtQK/xq9952DNVAfEBgN8JQNjSqK3A0t6MyWRC+AORFqJPIEO6X4GV
-         bTgS/wHkuhtB5xJ+4iiG14ieaPoaFSohdmtQD/xZTcyh11kOjHqrnm3BcuZfD+FX18fB
-         v+QKLRthoHZmW3JQ1m+gSVFs5+bTyVbxQqMQu7E4J4Qdn54ciYHvw/zaZMEaYo2vKR46
-         hTxA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784236736; x=1784841536;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=3mfs6TPohHB4ptVhWPd7wCfPWGeW/kT+9UO9C9aZwuc=;
-        b=pE5aC8tD/ubMgO5BLP+fI28J56SbMosNeHGeGM0dAwO2Wqyomfkpgsi5L8YJ+QEKVr
-         y/6Iq45CzayP/QWvuuwHruDjXDCZp9qd/22OgjZkV4syKKNrfepCzoq9mCc2Dn+YPG/f
-         JZcvAMtBhndDtlG1NvrnJM6WFd9x2vi0rnzL+pURQiDsjxKQWOlT0eo9Gmx0+iOGXphW
-         59WNmSpFfFhxz5C7DHiHTg/OgHsNbjyaPb/B624tBOHu42N8QI3rjj5m1WLXgoK25QP8
-         Xx8Qmbd2BhrZ27IiS0Fcllgea2bDIRFLCJPtyd9zTmbGRYFu8MfUVuFvy3beF5/Ef6L4
-         Gwqg==
-X-Forwarded-Encrypted: i=1; AHgh+Rp9qcGe5H2UxZs2+cKEb4swNTJXGUl8j+mLeSlhFoFfpMpqOr2DnFdV+zK0uCFXYqtArOlk4/02GfKsY81xtDD8@lists.infradead.org
-X-Gm-Message-State: AOJu0YwDG/MNRcoypi/7lhzO14ZGXkDf4l+U3hPr5FBNj/qXN7j1ahJq
-	Spxu/fIMOdkOZb1jgGfWpK5MrP/+jLYm4bWwG0yqvl/QKjZc/aUlbHvhhTSn10T6Y2A=
-X-Gm-Gg: AfdE7cn4SmgQxfDSDIVkcr61yekHhA5Nb05hJhBXMJoRvQsn224CLEG40KaltaER7wz
-	q/24SXFTbF+LmNlt5wSWbm2TNz9k7TLQJlxy/99tRNf/6HHd4TIn+C4etVAa+vwjzJOh8PG3u2e
-	NloPqe3N8jUlutEv5d/KBFY9VHfEYFPKWO98/H27r/e8fXvyJ2GDmQqAA7UDSsK7t0mFqk4zKGa
-	VNP9+dPI7wZDmu4G58GR6rzIluO7SSN/7Moj0pY1FJpmJ5tQtnxW0N2BactCkvAPVwRHxdi4HDt
-	N8dTZXT1B8QU2WLb4/YULl+ipmET3tNZTG4IaO3vMEqd/kNjWLfJ33TcBVtOCKN7XxLyCuuQuox
-	4600SfsS74B3COHblbbg4jCXosOpNwicRbvyDgGLF4fYvVLMwqKel8s7Il5l41y4bZ043pwYCn/
-	pfCKGbIlA=
-X-Received: by 2002:ac8:5915:0:b0:51a:8c9c:7f52 with SMTP id d75a77b69052e-51e3c340859mr149029421cf.69.1784236735471;
-        Thu, 16 Jul 2026 14:18:55 -0700 (PDT)
-Received: from ?IPv6:2606:6d00:15:e06b::c41? ([2606:6d00:15:e06b::c41])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-51caaf671e2sm162519051cf.25.2026.07.16.14.18.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 16 Jul 2026 14:18:54 -0700 (PDT)
-Message-ID: <723eb4c02c01e2af19394b715413c198baef687e.camel@ndufresne.ca>
-Subject: Re: [PATCH] media: mtk-mdp: unregister VPU watchdog handler
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Guangshuo Li <lgs201920130244@gmail.com>, Minghsiu Tsai	
- <minghsiu.tsai@mediatek.com>, Houlong Wei <houlong.wei@mediatek.com>, 
- Andrew-CT Chen <andrew-ct.chen@mediatek.com>, Mauro Carvalho Chehab
- <mchehab@kernel.org>, Matthias Brugger	 <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno	 <angelogioacchino.delregno@collabora.com>,
- Tiffany Lin	 <tiffany.lin@mediatek.com>, Yunfei Dong
- <yunfei.dong@mediatek.com>, Hans Verkuil <hverkuil@kernel.org>, Eizan
- Miyamoto <eizan@chromium.org>, Enric Balletbo i Serra	
- <eballetbo@kernel.org>, linux-media@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org
-Date: Thu, 16 Jul 2026 17:18:53 -0400
-In-Reply-To: <20260708121910.758166-1-lgs201920130244@gmail.com>
-References: <20260708121910.758166-1-lgs201920130244@gmail.com>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-crHtUZ7+2c5Ajf8qSv7r"
-User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
+	Thu, 16 Jul 2026 21:04:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=r/QcID6hF0qmN4P2ndtLQ2XogSLG5sUF7f9OjJuWy2rBufeU3/86Hlq4TxEXbS6MozbBXw+0FAJN5l4EfmusT5xbd7Ea5vWvurGwnKhteCmJh6vBK3r7e8QoJtny5w0wcZicVfSE/6IFPEEIc0E9ns2L+HC0wTb9a2kX/d/Br9E0nZYntJBA+Bi1e9AI3gZqDD7+xnp4m31G1sM7aSmH40X9FFpzw1DUNiK0ESAbKeshed0FuWjDeqPbzQb77JiO64TeWkcl0L7L3p20mTTnQkEZ2Ztsw7QNFi1nJ6H+NuF2BBIwSdgwuEA5Abd7rUIGiB02OuLYOqpDrNHhfS1cWg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=B1MuZdJSNWtnXTh2sShXeQNDuWfEmXZTJqNmfxJYjMI=;
+ b=okC6/w7jVgWga1Q4RVdGBPFFxId3PtzaFGryAAqyFI9DGsU4C+oCn8y7MxozaME09rTK+933WGObSc2c1+ElGSlZAT/4VgVoRbKrUcP0Yh7nFEJIPMYySmVxg3tM3nwjY/iZfE69FQB6kkHSy+K+mRilV0R0Tk1mD4KxKJQre7OA8GbuBTF1zwsBOfyDyHNiXVqkzv2AHFOtfVvynWeRNnFvyHHYMgORQ/uHsZjue7Ok00ryCb37eSlwI9V5cy/N15bhC9ssifFoYy4DojhcuvGRAAwA7ye93rRMawNb392bHIZanzIpO5P9pUI+KOR67ZSGRumEVLBkzUvQTwGVqw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=B1MuZdJSNWtnXTh2sShXeQNDuWfEmXZTJqNmfxJYjMI=;
+ b=ERfFnft4/zWGWuiVmUO3aH2uWb6fZxaPZ52ZDMDDjeycJWD9eQ8wtCu8c2B7T2Z/nAZQA+rFoJ39tbkDUSEow3IDdEl0PPw6bvu4oAMulCBxHaNYWHhZtimX6R0j5XkBW+AeseZqzdcppyLfmJ885CbXSocifHJhkbLDkRzuLJGRIchwpu4hdMERqoPwtHckkJXzF2mcMv72XQMn0XaXeO3+YWUElNa01FDG4a4Q9v+YfeA4WOzONurirubEkBA2q30sVqc0auD4CIr4XGmUnLD8+RZiUGNiGE/4fwnG9hLyeyHNr2Ut8DkxWMSKmo/+ie+o1Dxrr8Y8Q3gDX0CvHQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM4PR12MB5230.namprd12.prod.outlook.com (2603:10b6:5:399::11)
+ by DS7PR12MB8081.namprd12.prod.outlook.com (2603:10b6:8:e6::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.12; Thu, 16 Jul
+ 2026 21:03:53 +0000
+Received: from DM4PR12MB5230.namprd12.prod.outlook.com
+ ([fe80::6e87:1bde:1853:3b73]) by DM4PR12MB5230.namprd12.prod.outlook.com
+ ([fe80::6e87:1bde:1853:3b73%5]) with mapi id 15.21.0223.011; Thu, 16 Jul 2026
+ 21:03:52 +0000
+From: Fenghua Yu <fenghuay@nvidia.com>
+To: Reinette Chatre <reinette.chatre@intel.com>,
+	Tony Luck <tony.luck@intel.com>,
+	Ben Horgan <ben.horgan@arm.com>,
+	James Morse <james.morse@arm.com>,
+	Dave Martin <Dave.Martin@arm.com>,
+	Shaopeng Tan <tan.shaopeng@fujitsu.com>,
+	Chen Yu <yu.c.chen@intel.com>,
+	Babu Moger <babu.moger@amd.com>,
+	Drew Fustini <fustini@kernel.org>,
+	Vikram Sethi <vsethi@nvidia.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Newton Liu <newtonl@nvidia.com>,
+	Gavin Shan <gshan@redhat.com>
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Fenghua Yu <fenghuay@nvidia.com>
+Subject: [PATCH 17/23] arm_mpam: Handle CPU-less numa nodes
+Date: Thu, 16 Jul 2026 14:03:07 -0700
+Message-ID: <20260716210329.2914625-17-fenghuay@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1784217438.git.fenghuay@nvidia.com>
+References: <cover.1784217438.git.fenghuay@nvidia.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SJ0PR05CA0028.namprd05.prod.outlook.com
+ (2603:10b6:a03:33b::33) To DM4PR12MB5230.namprd12.prod.outlook.com
+ (2603:10b6:5:399::11)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM4PR12MB5230:EE_|DS7PR12MB8081:EE_
+X-MS-Office365-Filtering-Correlation-Id: 439fc4f8-eb23-4135-3884-08dee37dbd39
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|366016|6133799003|5023799004|11063799006|56012099006|18002099003|22082099003|10067099003|921020;
+X-Microsoft-Antispam-Message-Info: YMEgktTQ2vNbcukxBRgy/CnzisiL3/yEd6XZVUkPojDpZddz5K9ERJ0C78nDkt5ehH8ma31zkMk5M1aES4q4J6eEySf9csVlnM/N5w6ju3oOckbNEkvxWV9U1Q1slqABewwputWCajMJepLTKkHZ2TbnN99w/CWCImK1u3xoLFG9ALmq9Qv5wk4OdXFWgocnj9cy422cCgsbzdDtSDLQSG1TI7Rs0KlBm7vLo6d2IiZwCNDHv+Y93zKQDz6HvYxSeVWrFekpVwCagbBeQREzO2ZeRnbh4QL5SJEB1cmiwjJRH4I66JPUclEgvAeHzZGh+O1BSbEid5J3o6fggEZdBi6B83NlmhQ52Ohd0POwfhpkpUuAkycBp07rNys1K9KxpcyKb/V7j0fYQZZTnA+o4WrkNF+YXjnnaWX3sTWJVwTzLL4iajueM/R27uW38pcrZu/JeA8y/CtDWCmMbm22YzS8laR7IYJFdh1DFzwLxmlRqXARmcyiXpZBZKj4WpYPKYLJVQrxfrIS/MlBhxrOi8Q9Dl89iN7gVF+8eMTW870I8X+RwuXCxjEICx4+lkj+4vmu/AwEzS8FXDKRCHy1iGK7Broeh+G694dA1BIPlgE5vFkBZDYQ/YGe7YM7j44PB2tjAXD6U4pS8Y2U/vMZxUOq9a4SeL3r3gNxJRxjKSDmTK6b+IfzB54ziIfnsv5YeER+ArxpIfBuNJ5HybY3FA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB5230.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(366016)(6133799003)(5023799004)(11063799006)(56012099006)(18002099003)(22082099003)(10067099003)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ig32+sPsx20LvMu8SPIIBMRuTHNZq7Ma8Mi7NmD70ctaM24GuoOknzObxEeZ?=
+ =?us-ascii?Q?9ngfapFYMi1JFaA6kB7P8cxoyoJZ4e9C5TK+QOs5jYhBj7H8E04wkbFlAsYz?=
+ =?us-ascii?Q?VDqEuBx7EVfsQF0oIDzW6NAGuoiZNsxaCnqt07GY/nZf76JRLOyFJtGIHEAY?=
+ =?us-ascii?Q?PR5B21o6zhJaGuXXeoefbi2OZfut0Hl/JxbU0FfgXHXirY/pv4dSt/JRJFuN?=
+ =?us-ascii?Q?WQzVJ86EXdwJVGKfH2W2nkSB2k7eCIDGXYDlBl6sxFlMdQpCl1vAaT1I5rwl?=
+ =?us-ascii?Q?HZRdIzPGIYDywt9HGqrxp9NrN6D1ISGW6GNCBPrHPjpyTl7nN3Dq9YsVU1EY?=
+ =?us-ascii?Q?fhgL14xtqeNCZ2eslFFx8S9SiG87HK22hjdA9FEITOux87cvgWP/U95WBleh?=
+ =?us-ascii?Q?oORQuPeuVLU1lhpkrD5vp/bUGaKq9+YTuJ5JFSkqPqq+8sH9hBL1z2eplZED?=
+ =?us-ascii?Q?2TtNbX0Um5V+bgVowXbsBke09H5OCWv4TQpCzhEFmZFjcj/m6o5f1SpkAClj?=
+ =?us-ascii?Q?k7SOv5sADPz6QxlUyZkyFr/4xyGAJ+d8ifIC1dS0eQ0dQL0HWxZoZbvYc2aa?=
+ =?us-ascii?Q?Q+wpjimfJoTQYlhbpUnSiFbxJtVhnidkMosljLLfub61bmaos6eOoDU2hR6Y?=
+ =?us-ascii?Q?s006jg23VRwcjn17N29CFUsP35wzlhi5CCRB1u7fUyDzaFS6Jw8QOvgs/Opu?=
+ =?us-ascii?Q?WYtQIUhtgwT0qUrt3ZCUs1axoM3fkyfFyFwEqB0zRp6tn4FE/iPnEZOW5ahN?=
+ =?us-ascii?Q?FlN1BO2TJ6MgiJFMdozQUd6r+6/5zpGySbNQxsCLNd7swiAHjUqLXSsYmHar?=
+ =?us-ascii?Q?OlJkKBnzJ1pIFdCzjhHWAoCbRc2brf+QWEidxiTcMIMVB2mpiPQcFHAAABXj?=
+ =?us-ascii?Q?g97SQLsz/dvYmeFafVAM47z55aZSwNfejc7IB6YoA7dX8yHHgR6but+B/NVU?=
+ =?us-ascii?Q?gRs00jGYnr0AVe2nnFz7nKpKAh744pNJJA83XH0uGRIOj7gvlogJDbGoefIM?=
+ =?us-ascii?Q?n4NJZevZvnVUNbo6e10UdTTmfe5ChHRk/6qZGDHArCxXNdPr1SXHAU1zqMPA?=
+ =?us-ascii?Q?DYf5qjfCmAPDe3NjJkJyKr6J8pNGXFYGHnMogx2eJce92N7LC2ra4u0bAAyn?=
+ =?us-ascii?Q?gO+Rkk6Lc75AXq3iBzXEAG+dvA8AMMPILesieZhCHTFle5H9Oh7FARRDQTM3?=
+ =?us-ascii?Q?869rVKMOLOac84YM0HPF809N3GR6zUM3G2DIKaT0z3lORdo4vMVQMokEpXY7?=
+ =?us-ascii?Q?0KrMrfqUfuXmwawybeHUzGHMHnhN613euUL1SIoNpn1mipwt3EDBA61doz1f?=
+ =?us-ascii?Q?6xi0wHmTuXO5ad7XLtySqlAJFjrt1WKBcUt2BD2j6t7ITXBEOexqwOOAzAtj?=
+ =?us-ascii?Q?Oiqw+y4tgDvwYIfJNn2VN/XBsqw5t+WbWD/uaGR4dJZeA9eMEdawZCMN8PX9?=
+ =?us-ascii?Q?4lQwSHz3nQZer9koUvOAd7h09zGHi7mXSZ5GNE3R7ZI5dhQG24vOGVcqIZhG?=
+ =?us-ascii?Q?gQOBSRj98wfFxxbK1aNvOCqbhoCHwFySGEJcilsNZxgc+/Tk1uM0aqYFBvGy?=
+ =?us-ascii?Q?jNHlPAyNjhS/JypIhIETTc0lhcxhGyjfBeNYau6TzAprEwAZq8TccOxdp6sv?=
+ =?us-ascii?Q?LssBqkRsbQ9h60WzI5RatgF0toPDPIYdGFXEIl3m6/p+ohXGK+/bpGqoL6/N?=
+ =?us-ascii?Q?xDH/x50AmYYKTgW2l9PK6oEOVAbg7/wbR5TUqeuaQ1w1Pd2xt/36sbqFY6Gd?=
+ =?us-ascii?Q?x6iIlbUJ/A=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 439fc4f8-eb23-4135-3884-08dee37dbd39
+X-MS-Exchange-CrossTenant-AuthSource: DM4PR12MB5230.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jul 2026 21:03:51.9376
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: sExdIw0P2yjSB+dPP/pDUgemdrN6Tg64XzPorv/Ph4Yh5fg4IU31DXKLcX79Ivm79XXRmXu50djL8qPnJm5ulg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB8081
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_141857_144341_0D7F0955 
-X-CRM114-Status: GOOD (  20.58  )
+X-CRM114-CacheID: sfid-20260716_140402_994958_A56B1D20 
+X-CRM114-Status: GOOD (  18.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,129 +149,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On some ARM servers a NUMA node can expose a memory MPAM MSC without
+any local CPUs (for example, a memory-only node that still participates
+in bandwidth control). mpam_ris_get_affinity() derives affinity from
+the component's NUMA node ID, so these MSCs end up with an empty CPU
+mask and are never registered. Without a fallback, resctrl cannot see
+or control bandwidth on those nodes.
 
---=-crHtUZ7+2c5Ajf8qSv7r
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+When the derived cpumask is empty, fall back to cpu_possible_mask so
+the MSC can be managed and traffic from remote CPUs is still accounted
+for. Track the borrowed case with ris->cpu_less and keep that mask out
+of class->affinity on create and destroy: those CPUs already contribute
+through CPU-ful nodes in the class, and subtracting the borrowed mask
+later would remove CPUs other live nodes still depend on. Emit an
+informational message reporting each CPU-less node when this happens.
 
-Le mercredi 08 juillet 2026 =C3=A0 20:19 +0800, Guangshuo Li a =C3=A9crit=
-=C2=A0:
-> mtk_mdp_probe() registers the MDP reset handler with the VPU watchdog
-> code and passes the MDP device as the private data.
->=20
-> The handler is stored in the VPU device and can outlive the MDP probe or
-> remove path. If probe fails after the handler has been registered, or if
-> the MDP device is removed, the VPU watchdog table can keep a pointer to
-> an MDP object that is about to be released. A later VPU watchdog reset ca=
-n
-> then call mtk_mdp_reset_handler() with a stale pointer and dereference
-> freed memory while queuing the MDP watchdog work.
->=20
-> Add a VPU watchdog unregister helper and clear the MDP watchdog handler
-> from both the probe error path and the remove path before dropping the VP=
-U
-> device reference.
->=20
-> Fixes: ee18fc7b0b95 ("media: mtk-mdp: handle vpu_wdt_reg_handler() errors=
- during probe")
-> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
-> ---
-> =C2=A0.../media/platform/mediatek/mdp/mtk_mdp_core.c=C2=A0=C2=A0=C2=A0 |=
-=C2=A0 2 ++
-> =C2=A0drivers/media/platform/mediatek/vpu/mtk_vpu.c=C2=A0=C2=A0=C2=A0=C2=
-=A0 | 15 +++++++++++++++
-> =C2=A0drivers/media/platform/mediatek/vpu/mtk_vpu.h=C2=A0=C2=A0=C2=A0=C2=
-=A0 |=C2=A0 2 ++
-> =C2=A03 files changed, 19 insertions(+)
->=20
-> diff --git a/drivers/media/platform/mediatek/mdp/mtk_mdp_core.c b/drivers=
-/media/platform/mediatek/mdp/mtk_mdp_core.c
-> index 8432833814f3..5ccb7aa925d9 100644
-> --- a/drivers/media/platform/mediatek/mdp/mtk_mdp_core.c
-> +++ b/drivers/media/platform/mediatek/mdp/mtk_mdp_core.c
-> @@ -221,6 +221,7 @@ static int mtk_mdp_probe(struct platform_device *pdev=
-)
-> =C2=A0	return 0;
-> =C2=A0
-> =C2=A0err_reg_handler:
-> +	vpu_wdt_unreg_handler(mdp->vpu_dev, VPU_RST_MDP);
-> =C2=A0	platform_device_put(mdp->vpu_dev);
-> =C2=A0
-> =C2=A0err_vpu_get_dev:
-> @@ -254,6 +255,7 @@ static void mtk_mdp_remove(struct platform_device *pd=
-ev)
-> =C2=A0
-> =C2=A0	pm_runtime_disable(&pdev->dev);
-> =C2=A0	vb2_dma_contig_clear_max_seg_size(&pdev->dev);
-> +	vpu_wdt_unreg_handler(mdp->vpu_dev, VPU_RST_MDP);
-> =C2=A0	platform_device_put(mdp->vpu_dev);
-> =C2=A0	mtk_mdp_unregister_m2m_device(mdp);
-> =C2=A0	v4l2_device_unregister(&mdp->v4l2_dev);
-> diff --git a/drivers/media/platform/mediatek/vpu/mtk_vpu.c b/drivers/medi=
-a/platform/mediatek/vpu/mtk_vpu.c
-> index 8d8319f0cd22..5dc50a658c2b 100644
-> --- a/drivers/media/platform/mediatek/vpu/mtk_vpu.c
-> +++ b/drivers/media/platform/mediatek/vpu/mtk_vpu.c
-> @@ -437,6 +437,21 @@ int vpu_wdt_reg_handler(struct platform_device *pdev=
-,
-> =C2=A0}
-> =C2=A0EXPORT_SYMBOL_GPL(vpu_wdt_reg_handler);
-> =C2=A0
-> +void vpu_wdt_unreg_handler(struct platform_device *pdev, enum rst_id id)
-> +{
-> +	struct mtk_vpu *vpu =3D platform_get_drvdata(pdev);
-> +
-> +	if (!vpu || id >=3D VPU_RST_MAX)
-> +		return;
-> +
-> +	mutex_lock(&vpu->vpu_mutex);
-> +	vpu->wdt.handler[id].reset_func =3D NULL;
-> +	vpu->wdt.handler[id].priv =3D NULL;
-> +	mutex_unlock(&vpu->vpu_mutex);
-> +}
-> +EXPORT_SYMBOL_GPL(vpu_wdt_unreg_handler);
-> +
-> +
+Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
+Signed-off-by: Fenghua Yu <fenghuay@nvidia.com>
+---
+ drivers/resctrl/mpam_devices.c  | 59 ++++++++++++++++++++++++++++-----
+ drivers/resctrl/mpam_internal.h |  8 +++++
+ 2 files changed, 59 insertions(+), 8 deletions(-)
 
-This extra blank makes checkpatch sad :-\ Since I see nothing else to comme=
-nt
-about, I'll simply apply this fix on my end.
+diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+index b69f99488111..cb6096e9d2cf 100644
+--- a/drivers/resctrl/mpam_devices.c
++++ b/drivers/resctrl/mpam_devices.c
+@@ -508,10 +508,13 @@ static void get_cpumask_from_node_id(u32 node_id, cpumask_t *affinity)
+ static int mpam_ris_get_affinity(struct mpam_msc *msc, cpumask_t *affinity,
+ 				 enum mpam_class_types type,
+ 				 struct mpam_class *class,
+-				 struct mpam_component *comp)
++				 struct mpam_component *comp,
++				 bool *cpu_less)
+ {
+ 	int err;
+ 
++	*cpu_less = false;
++
+ 	switch (type) {
+ 	case MPAM_CLASS_CACHE:
+ 		err = mpam_get_cpumask_from_cache_id(comp->comp_id, class->level,
+@@ -528,7 +531,17 @@ static int mpam_ris_get_affinity(struct mpam_msc *msc, cpumask_t *affinity,
+ 		break;
+ 	case MPAM_CLASS_MEMORY:
+ 		get_cpumask_from_node_id(comp->comp_id, affinity);
+-		/* affinity may be empty for CPU-less memory nodes */
++		/*
++		 * A CPU-less memory node has no local CPUs. Borrow the CPUs that
++		 * can reach the MSC so the node still gets a resctrl domain, and
++		 * flag it so the borrowed mask is kept out of class->affinity.
++		 */
++		if (cpumask_empty(affinity)) {
++			dev_info(&msc->pdev->dev,
++				 "CPU-less numa node %u\n", comp->comp_id);
++			cpumask_copy(affinity, cpu_possible_mask);
++			*cpu_less = true;
++		}
+ 		break;
+ 	case MPAM_CLASS_UNKNOWN:
+ 		return 0;
+@@ -582,7 +595,8 @@ static int mpam_ris_create_locked(struct mpam_msc *msc, u8 ris_idx,
+ 		return PTR_ERR(vmsc);
+ 	}
+ 
+-	err = mpam_ris_get_affinity(msc, &ris->affinity, type, class, comp);
++	err = mpam_ris_get_affinity(msc, &ris->affinity, type, class, comp,
++				    &ris->cpu_less);
+ 	if (err) {
+ 		if (list_empty(&vmsc->ris))
+ 			mpam_vmsc_destroy(vmsc);
+@@ -594,8 +608,24 @@ static int mpam_ris_create_locked(struct mpam_msc *msc, u8 ris_idx,
+ 	INIT_LIST_HEAD_RCU(&ris->vmsc_list);
+ 	ris->vmsc = vmsc;
+ 
++	/*
++	 * comp->affinity must include the borrowed mask for CPU-less nodes:
++	 * mpam_resctrl_online_cpu() matches CPUs against comp->affinity to
++	 * create per-component domains. Overlap between CPU-less and CPU-ful
++	 * components is expected; each match gets its own domain keyed by
++	 * comp->comp_id, not by first-match lookup.
++	 *
++	 * class->affinity is different: it tracks CPUs with a local MSC in
++	 * this class. A CPU-less node borrows the CPUs that can reach its MSC
++	 * (see mpam_ris_get_affinity()) only so that it gets a per-component
++	 * resctrl domain. Those CPUs already contribute to class->affinity
++	 * through their own CPU-ful node, so folding the borrowed mask in here
++	 * would let mpam_ris_destroy() later subtract CPUs that other live
++	 * nodes in the class still depend on.
++	 */
+ 	cpumask_or(&comp->affinity, &comp->affinity, &ris->affinity);
+-	cpumask_or(&class->affinity, &class->affinity, &ris->affinity);
++	if (!ris->cpu_less)
++		cpumask_or(&class->affinity, &class->affinity, &ris->affinity);
+ 	list_add_rcu(&ris->vmsc_list, &vmsc->ris);
+ 	list_add_rcu(&ris->msc_list, &msc->ris);
+ 
+@@ -612,11 +642,24 @@ static void mpam_ris_destroy(struct mpam_msc_ris *ris)
+ 	lockdep_assert_held(&mpam_list_lock);
+ 
+ 	/*
+-	 * It is assumed affinities don't overlap. If they do the class becomes
+-	 * unusable immediately.
++	 * A CPU-less node's borrowed affinity was deliberately never folded into
++	 * class->affinity (see mpam_ris_create_locked()), so it must not be
++	 * subtracted here: doing so would remove CPUs that other live nodes in
++	 * the class still rely on.
++	 *
++	 * Every RIS of a CPU-less component borrowed cpu_possible_mask masked by
++	 * its own msc->accessibility (see mpam_ris_get_affinity()), so these
++	 * borrowed masks overlap across sibling RIS. Such a mask must not be
++	 * subtracted from comp->affinity either: a component backed by more than
++	 * one MSC keeps a live sibling RIS after this one is destroyed, and
++	 * subtracting the overlapping mask would wrongly empty comp->affinity
++	 * while that sibling still needs it. The borrowed affinity is released
++	 * when the component itself is torn down.
+ 	 */
+-	cpumask_andnot(&class->affinity, &class->affinity, &ris->affinity);
+-	cpumask_andnot(&comp->affinity, &comp->affinity, &ris->affinity);
++	if (!ris->cpu_less) {
++		cpumask_andnot(&class->affinity, &class->affinity, &ris->affinity);
++		cpumask_andnot(&comp->affinity, &comp->affinity, &ris->affinity);
++	}
+ 	clear_bit(ris->ris_idx, &msc->ris_idxs);
+ 	list_del_rcu(&ris->msc_list);
+ 	list_del_rcu(&ris->vmsc_list);
+diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+index dfa3ceb734d4..1c9e0e8b78a9 100644
+--- a/drivers/resctrl/mpam_internal.h
++++ b/drivers/resctrl/mpam_internal.h
+@@ -369,6 +369,14 @@ struct mpam_msc_ris {
+ 	struct mpam_props	props;
+ 	bool			in_reset_state;
+ 
++	/*
++	 * A CPU-less memory node has no CPUs of its own, so this RIS borrows the
++	 * CPUs that can reach its MSC (see mpam_ris_get_affinity()) purely so
++	 * the node still gets a resctrl domain. When set, the borrowed mask in
++	 * @affinity must not be folded into the owning class's affinity.
++	 */
++	bool			cpu_less;
++
+ 	cpumask_t		affinity;
+ 
+ 	/* member of mpam_vmsc:ris */
+-- 
+2.43.0
 
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-
-regards,
-Nicolas
-
-> =C2=A0unsigned int vpu_get_vdec_hw_capa(struct platform_device *pdev)
-> =C2=A0{
-> =C2=A0	struct mtk_vpu *vpu =3D platform_get_drvdata(pdev);
-> diff --git a/drivers/media/platform/mediatek/vpu/mtk_vpu.h b/drivers/medi=
-a/platform/mediatek/vpu/mtk_vpu.h
-> index 3951547e9ec5..2ccb481a04cf 100644
-> --- a/drivers/media/platform/mediatek/vpu/mtk_vpu.h
-> +++ b/drivers/media/platform/mediatek/vpu/mtk_vpu.h
-> @@ -141,6 +141,8 @@ int vpu_wdt_reg_handler(struct platform_device *pdev,
-> =C2=A0			void vpu_wdt_reset_func(void *priv),
-> =C2=A0			void *priv, enum rst_id id);
-> =C2=A0
-> +void vpu_wdt_unreg_handler(struct platform_device *pdev, enum rst_id id)=
-;
-> +
-> =C2=A0/**
-> =C2=A0 * vpu_get_vdec_hw_capa - get video decoder hardware capability
-> =C2=A0 *
-
---=-crHtUZ7+2c5Ajf8qSv7r
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCallKvQAKCRDZQZRRKWBy
-9IGdAQCpnzqE1azFjuacoNMcIeisgg6SaEx51b5TkFJe6O4jWgEA32oGJzf58ofO
-+IbTOnKXkPrL4p5Lp8+f60gxG2qdQAY=
-=4s28
------END PGP SIGNATURE-----
-
---=-crHtUZ7+2c5Ajf8qSv7r--
 
