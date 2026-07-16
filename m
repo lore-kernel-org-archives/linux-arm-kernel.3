@@ -4,125 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62E30C44512
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 21:13:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01AD2C44512
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 21:13:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XQhQndfAjCCW41vmT/buRxfVcInkS0CvR5/XJnbPAXc=; b=PaN9LjoXrjk+4eFXgnXA1CaZ4G
-	5hS5n2C0zThpWxjPTzmS/ZjLCFVRGPTQz0W98jCMmiLH8oztT1gmpZ27pWiKovAcHBw0n0i8jNaXV
-	0p+3yk7Tm/J+bxldEknjcEnZNx/Pqcg3tEWYDR7l+3JSKi8C7ksbKTtfAfTRLyAlDMAIL3as/4102
-	TJZqrBf5Y4elvwqKf/JczggAWM5NJGOF0zRdNa+HOyLnDmRx4LdcVec2r5jlOi1qj+eSG2Hf/P+7b
-	zoV9nHTTJ/WPuey7StIQkkET1nFMgQ5Fb5ddVQyCxXG6rxhSbUpBcq34yEH7t/BnNfJhwTa2KqUzw
-	JGJuW47Q==;
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1sSUlg5zoDJCca+wr6NHpayGmCTObicVg/Sxg26I8Xg=; b=G05xi1inYLc2z9tatjDQzKKlD7
+	OUhRMjUqM5gWzoYmSF6u/frWR+4W7cydT6uT27+66L6bCcULD8K7EHORmbCdvsTjNK8Rj4DJgfb1n
+	dTFaM4iIh0aU+Ec5qQ2yV5iMLcL2fhJ3TD/3NhVFPLixBuqtmRiPQTPeO9H2KaFgz9rW2VO/IOId6
+	+/WcH7L6VZAicJKU6HrLv4Org4tnY474bDN3rXRacOyVO1T63PMfZEC5wI5s0JgypefxhGjt+z2DZ
+	am6r79PD3f6zY2H9AKnSlkYbucI3IVbY5a95/QV/7tC4pkzdFWBtbcS82ZF9wgqLV20X/nQFSw/+P
+	Acv/3oJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkTOr-00000000aRV-0CFH;
-	Thu, 16 Jul 2026 21:13:45 +0000
-Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1wkTFT-00000000YHA-2ZTv;
+	Thu, 16 Jul 2026 21:04:03 +0000
+Received: from mail-eastusazlp170120007.outbound.protection.outlook.com ([2a01:111:f403:c101::7] helo=BL0PR03CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkTOo-00000000aQv-26Vz
+	id 1wkTFF-00000000Xx9-2bEp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 21:13:43 +0000
+	Thu, 16 Jul 2026 21:03:50 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mbGFyEqUIW3q5pWwwc68Qm1mHuPUX1EManeJ4Xavp16WMi4F1ZROWt3TrX9aZcd3fWi2FoJjjj7C7tWBzMTShcqQhggjVa3ANyPZJfFamMhj57xqJKh92GgnbJfF8OxQdAiVRs7v9Yf4HhSyjrcEw7CA7VowtBsye2/FLwuYGNIibSp0xKkiFy+TJwhovh7D9HXw94pPaA5rUWpf8KveIcTGZjOKhcm7J6EwoH6bFjaq0Od9tWqNV7K3kjzxVmAWHC1/5bGkIx2Uihh5IcaWGCES+cVMzWbrDMl0qg3gVVFcU/cVe4cUGCek9uZI9y0E6/fbmSzvftOwazEHk7aQ0Q==
+ b=o+hvWWcZ8OnSq+6EUmlviCjJEFaicNLQ0Waabq3NVF9VNDEylHHR7mLbwyCQnmycETkHAj5zb029gzcf4pNeJzkwngX1dF7J14w4hPMbZyXleHf4e2eI+43hVzLovD7N9CkpzK4o/v4Q+6M6xnXpvnVLInI0IRhdSt+xoLOdtH4Sq+L+e51Ba5pb5BRLwTX+31JolpJORHd5pAyuTtHI+tEMjzSM42hPulUhMJyAO0Fdznv6Vl9TeGhRQO+8cHC6V3ghaGbLqT9HXB+s8KhYiey5bjUJY6x+IfubLStjXvkCwLJQqgU92qLVp9uH2nGioSy07jvMH/xheZ1zjkBJgw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XQhQndfAjCCW41vmT/buRxfVcInkS0CvR5/XJnbPAXc=;
- b=T3odd4UIauLQ1fwMnMfL3Fx2p5V+BbD7SvFPyFIu8QppMY1VuHVZ3KwyjnnHmprziusiBETtXjXMjwUUljwQFqpfiT+azSEWMZkBDKrqs01RO5lgfr88o1vKlwDsciX8btjXh/2Dm+BXTcVmEi7/ltAaKsyP/Bif9N4J9Ke+8rNectnyfNw+BYKHiThCK1SoC8YRCtZkm2339lAnK6jeKnU2OmFUH55ogHUHBWQWmWnAjF22rbjX5z+OGdSYg84dzymNSRnS4C6PE3VknN0IC+lxtli/UXFXnk8BDc95Q2B47HyW4bfJFzSzteZFw/v1Ho4S1MRclNyoXyNoIG+dbA==
+ bh=1sSUlg5zoDJCca+wr6NHpayGmCTObicVg/Sxg26I8Xg=;
+ b=BwSLIILZkc4Koy/KecSM/sTNm/zW4Lmsiq1zBMXjF4BhGUzpXtEX+z5jAXN5ndRoHztmIhPtoN0w8jQ6M4zrMsCutU3PppRJzhikfd7emuhQTAOjDbcoXNRi0fOGowcIjXM9pCk8mu9g1Q0yhSwHznuPSJaCvwzPw/IKKHFr4nOlLgcnS67zBfkoDq3lmTZdINSScrGcRLWDHHG5cFxmoLWhwuLid+wJXzI8tfD8il3zNvHp5z9HRTSO3OIXivTmN/bFiNN5qmqzRn5mTAQEOromcTTp24Ue5Zz29/NsGfYdvnqz+QT/Ic3uwgXNLyFb6T6grnE9bNzyKhcVDaeGDg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XQhQndfAjCCW41vmT/buRxfVcInkS0CvR5/XJnbPAXc=;
- b=k9251eDqK6w9nGNkUW/YxefZ9cq3OyC+y3NHuwGo94o3dBMBZTMFSznQn3ozT/gHP1F2/uwUAotF7TCRcUMyoa0TY4is3lAQqYwNhhFvES/BtNHON75wTiOudvjm4K1RqTZnSpKQQ21SvIQOsIck2FoofHBI+Ioy87Ew3jNk3pg=
+ bh=1sSUlg5zoDJCca+wr6NHpayGmCTObicVg/Sxg26I8Xg=;
+ b=J41R0Q9CZ3E2On/PaKRJMjH9Oz6ZdxmjYBKScW4v3s6h3f+1OgRziKZgRpn69M1Ttu1mzbCXM/mzCing27+FuXlaFvXo0tHzllRce4jot/72hWcdHxOSKuFR/uHZg87hVxsGnM8/AdAwpbK5SFFuMajs44/6IbtfTHXw9KWVMEWthQDCgrHLY0pAtbx4Rez6QAKele4swl8C/KTqLxKouc1G6wh7imJbPiMNfGbLH7ZO3ITXCjSBzgknd8GquCXtjJn5ECTvZqQcAUFqPyxGdDsBvAm2ZuCAH7hczpO/CLoQxR0rAgOpXL0vIQxCUe+EU3h2UwTwySPc/bO6ucAgMA==
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from MN2PR01MB5615.prod.exchangelabs.com (2603:10b6:208:11c::29) by
- DS3PR01MB994655.prod.exchangelabs.com (2603:10b6:8:38f::22) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.14; Thu, 16 Jul 2026 21:13:35 +0000
-Received: from MN2PR01MB5615.prod.exchangelabs.com
- ([fe80::996f:e4f2:dbd8:120e]) by MN2PR01MB5615.prod.exchangelabs.com
- ([fe80::996f:e4f2:dbd8:120e%4]) with mapi id 15.21.0223.011; Thu, 16 Jul 2026
- 21:13:34 +0000
-Date: Thu, 16 Jul 2026 14:13:30 -0700 (PDT)
-From: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-To: Robin Murphy <robin.murphy@arm.com>
-cc: will@kernel.org, mark.rutland@arm.com, catalin.marinas@arm.com, 
-    ilkka@os.amperecomputing.com, bwicaksono@nvidia.com, 
-    linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-    linux-perf-users@vger.kernel.org
-Subject: Re: [PATCH v2 2/4] perf/arm_cspmu: Improve APMT-based PMU naming
-In-Reply-To: <8f260d150da4fd8acbe0a070033c9b9e045fced2.1784213435.git.robin.murphy@arm.com>
-Message-ID: <8954907b-9ec0-8a58-8cff-c7c3fc1f6aa6@os.amperecomputing.com>
-References: <cover.1784213435.git.robin.murphy@arm.com> <8f260d150da4fd8acbe0a070033c9b9e045fced2.1784213435.git.robin.murphy@arm.com>
-Content-Type: text/plain; format=flowed; charset=US-ASCII
-X-ClientProxiedBy: MW4PR03CA0225.namprd03.prod.outlook.com
- (2603:10b6:303:b9::20) To MN2PR01MB5615.prod.exchangelabs.com
- (2603:10b6:208:11c::29)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM4PR12MB5230.namprd12.prod.outlook.com (2603:10b6:5:399::11)
+ by PH0PR12MB7485.namprd12.prod.outlook.com (2603:10b6:510:1e9::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.12; Thu, 16 Jul
+ 2026 21:03:36 +0000
+Received: from DM4PR12MB5230.namprd12.prod.outlook.com
+ ([fe80::6e87:1bde:1853:3b73]) by DM4PR12MB5230.namprd12.prod.outlook.com
+ ([fe80::6e87:1bde:1853:3b73%5]) with mapi id 15.21.0223.011; Thu, 16 Jul 2026
+ 21:03:36 +0000
+From: Fenghua Yu <fenghuay@nvidia.com>
+To: Reinette Chatre <reinette.chatre@intel.com>,
+	Tony Luck <tony.luck@intel.com>,
+	Ben Horgan <ben.horgan@arm.com>,
+	James Morse <james.morse@arm.com>,
+	Dave Martin <Dave.Martin@arm.com>,
+	Shaopeng Tan <tan.shaopeng@fujitsu.com>,
+	Chen Yu <yu.c.chen@intel.com>,
+	Babu Moger <babu.moger@amd.com>,
+	Drew Fustini <fustini@kernel.org>,
+	Vikram Sethi <vsethi@nvidia.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Newton Liu <newtonl@nvidia.com>,
+	Gavin Shan <gshan@redhat.com>
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Fenghua Yu <fenghuay@nvidia.com>
+Subject: [PATCH 05/23] resctrl: Add nested resource_schemata support for emulated controls
+Date: Thu, 16 Jul 2026 14:02:55 -0700
+Message-ID: <20260716210329.2914625-5-fenghuay@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1784217438.git.fenghuay@nvidia.com>
+References: <cover.1784217438.git.fenghuay@nvidia.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SJ0PR13CA0103.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c5::18) To DM4PR12MB5230.namprd12.prod.outlook.com
+ (2603:10b6:5:399::11)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN2PR01MB5615:EE_|DS3PR01MB994655:EE_
-X-MS-Office365-Filtering-Correlation-Id: b39b5da0-17c6-4644-dd47-08dee37f1881
-X-MS-Exchange-AtpMessageProperties: SA
+X-MS-TrafficTypeDiagnostic: DM4PR12MB5230:EE_|PH0PR12MB7485:EE_
+X-MS-Office365-Filtering-Correlation-Id: fc30905c-27d3-418e-a9c5-08dee37db3ea
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|23010399003|18002099003|22082099003|10067099003|55112099003|56012099006|11063799006|4143699003;
-X-Microsoft-Antispam-Message-Info: YeI23aHpgSh6FYjS0JIOgcmakKZBsPzbdvTQp9sdusFQrBbXWFI3JlvtP77kjxUvFltcjkF0+TiaqfM5B0Z4tIEddw+oCTrxqwbdNeXg69PfLtHwbVuWasj5nTbWD/kh51YvptJhWWICbZuo4irabSBrM+vNwF1sAW3MoTjGH5WM4ng64xk/3QgliMtOc2A6odiN6HGr9M0pEamu7apHEWOstUqu3SNH3k1ozuN6uxB2TVXrdTaz/TX2i8HEY4XHirtj+PQXQ5p0ldoaPPUzGA5dIZxRLDyLGAl/lOAyEGWbSXMf0VVNwmBk0cnNLj/5dzuNso9h1vYSliWW4u5uvyOHnBlvqo/4h1zC56nTJIuDikEwhJuJ1uOL2fduGD4bUK7xq3tgZK0jVF/kIdpczWpH9CTqYNN/C5Uegh20ZYzKvknPBslEH7vysQdjFlAh+plCk9ABQCNNQ2+BOueoPnugOy9zuuyxXGQRLk5rp48/CfDA1Ez8J83qsO1HZAUzOaCZDubxnoSYhcFxicMPF6DKoPikJvXq6NpqKJyS1bwZV0otOs0cvHazEN2/PZjg84QdQiYj0pDXBuLVbFyhKaPbVV0TaVjony5umdUUTVHvnTNgEb8dSU/sW4kP0P9R2RsnGZhwDXF7HaDVQxZORTqAYkIBLL/clRo2IayNr2U=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR01MB5615.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(23010399003)(18002099003)(22082099003)(10067099003)(55112099003)(56012099006)(11063799006)(4143699003);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|7416014|376014|1800799024|921020|22082099003|18002099003|56012099006|11063799006|10067099003|3023799007|6133799003;
+X-Microsoft-Antispam-Message-Info: zbIyUWXOKA2J61VoeY2J5SBEh61frk8LgX2Cynq6GzGBrsgw1R+kkdnrxAjQuN2W0OQZPtK5/5kHuvY1HoT+M7gt6JPn/gBUzBk6c2p/PphI2a5e9cvDqXJ6w3MjwClHX+CYhtx+hEq8k3b8KC9YNenR3tAgZPDUBhMYFy1osebScbb64mG91zeTRLeH9rKMj6iyrEO+gZh1WsmynEVO0OXglEAPkox3fTDdYsQK+ZzHvlAE01O52DosYxIdHyT/c+be1uE8QtVzOGtQHkk0BmJsi57ERH+oErQ2xxhuK+EPXMgKRTkcMiDHECFNFxNHUptPwd/t4KBZp5ADeqD54yLwR63jlDz5Yxx4G3HaamC3S2y9oLGySLHJ7jZ8T6zlY9fnofMmp1K8gQbqwX2/i22dIuT7/N+n6YfYqbSC/cC6y2sHvPLS1si9kz/5eGRe/fBbfOOijYlWZiJKlyAvV/KixCP+1cUl7u3f9/e9ut0dspugrIaMqfrg1ZeLeA5yuoyh0qvBb2sCQ6rJQvS/xE5ifcZcVY5O3JGpBQiZMlLK9vvgo++BsA32XTkkU3B4FbXne+gvlJKdu6+alkzm1K+u3X6InEd/14BDMi325Ho7QgTc3YClKdkG15JyOX1ERJ1E0RPUrjSA04DnGV7XxVZL53eSZZnmT0wao96rvTOJUSng6NRj58TbwPTMrVvrtE0BYECFerYSKnhq8J3k2Q==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB5230.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(7416014)(376014)(1800799024)(921020)(22082099003)(18002099003)(56012099006)(11063799006)(10067099003)(3023799007)(6133799003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cQ5q/qQkSoYrjBmP8eFRLm4fMi4xBrvEYBApwrWZ816w7/heU8uDbE7RBWwM?=
- =?us-ascii?Q?uftHt7/rilfXGWQlj+tkWteUCgWR+BFdYTZquoFJWim4y+MM0wnVBw8rlkf+?=
- =?us-ascii?Q?AwmByWaKzhj9k1NT+9zzxvbFiwjDfzij0UJukOO8fvjd3d5/x22M7vGngjAa?=
- =?us-ascii?Q?9IGfLMhtvKgwc82DjJcQc+PfF8vpL0ZoaoL9VkbRgGz8gL7jHXQHpKXmj12+?=
- =?us-ascii?Q?uz1kzSM++daC6NQW4siBwWk22DQicd07387jzSxbCZeN9QIGOg7w8aO73Sik?=
- =?us-ascii?Q?XV4pYGrPheiBkAon/o4r0GRt8urDdcgmwXld3k6+elFbVrdfzVbpBYRyOiKu?=
- =?us-ascii?Q?J0OzyWmo/E9lnLGikz+KXP8gXIVhkF87m3QsIm16PJa4v5p0j0ZCJusVAdcH?=
- =?us-ascii?Q?ijZ8Lv+dseMubewQ/p9BR8X98sbwWARC3UWRBtiBlNa78m3gRhsGZKWXWtsG?=
- =?us-ascii?Q?pt3n4EbHkF0GrNbqlx+vxzEthr6M/g4lxcZvgjwJhX9Wdo7eF6AHS/8RFXBu?=
- =?us-ascii?Q?QuLwiC0Op+nFLe/u/3CXO3DSklnlbfyug9u480KPR/dHUyNhWC10o/dsRvT0?=
- =?us-ascii?Q?ecTl8LJs8m97aiLcZbBtcFPFghrNwQ3kZX5opapgGysJh8oMCY+JeOA0vaVk?=
- =?us-ascii?Q?RRNjRMR/mI0m+bIL36xCL2pb1jQ8kC2RalXoJjqf7p0CHf0iSAy4JtpQBkeO?=
- =?us-ascii?Q?x91GJkd5D7TwN9OkX+38pCCaSlYpkhJuSPfR7OB8VKZbVCWMMCDYrJzsHygJ?=
- =?us-ascii?Q?NcFPeOGCx68/WREo1j9tsGDkHRfkL1rw1M+uVjt9tWz+f+nkiGX8+YuUD5Rd?=
- =?us-ascii?Q?YU/rtiMfpTvAfizx+Ebqn1WVqLGkcBC0WtZFeekROS0cMXesMKqjMxciL7mT?=
- =?us-ascii?Q?2FjnKGWi5E51OeIgcjymisH6d+VDRMCvczkfMzBTLVv+PB83QHBfjX5mpkHx?=
- =?us-ascii?Q?QaKEZGHLiTGT+wGnnCdhHY9tNawnPmwNFhn2co6j2oQn5GLEp46z8Odf5NFO?=
- =?us-ascii?Q?tLk8MR76tTBTd4LjEBb30uYrFKwoMVOWmFcN79cunQXr3fbo1GIjuoQA+Wca?=
- =?us-ascii?Q?RmLJ37+c3roG1zJqj2kmb1ul2qM9QJWUqEL7weFGGESrp8WSRShqlB79EFtA?=
- =?us-ascii?Q?YrbonDlfgNmEJsl+H9ijffNnnU+py3tj9CLfiAWmujVsPliQqGCSyZeA7wzf?=
- =?us-ascii?Q?IwSmt/I+Gm4BaLHJ8pMWWL8LMxUhARr5n6jIztAgFziSbqm6Lf5MbzZMqjXY?=
- =?us-ascii?Q?t2CAk8YmaVkAxUVNQBlNnG4CbpRfGxpUezLCi22i55yEhhTSJfsptxEMpFRo?=
- =?us-ascii?Q?JlCdvJBYJS5TtqW38+kxGlTDU0mJjp9y7r4Txhy2iGtmGqg8cN04mV9nmt4d?=
- =?us-ascii?Q?t+m95DvJvzljRsK/8uAN9DEYnhABPdZew1ZFI/nzjoyPVq+tYQvYM/zStZhW?=
- =?us-ascii?Q?3K81/MFT67qDq18L9Wa1FCioDkkumg8tzutBal4hfLPfK3ML0iCsm4awATO9?=
- =?us-ascii?Q?QylLr863Qbjm1o8J6KcA5CwQPhA22Szg1M6oEPzHLxNvk15MGCWl3cn+jkob?=
- =?us-ascii?Q?QpkgDwsZa4y4mvOrxAClwQxz+NaPGr5TX3qwdi9tHJSNkVs+F3dDaZ4xbzN+?=
- =?us-ascii?Q?P8tZKylHhsi1rCXFfh3SaprzmxdMuytTEXMMyJPvb8siqKZlgr8K9+t3ccCf?=
- =?us-ascii?Q?ARxCx4VJdeLqT3TXaV2z+9TZXADwfaTDIwDlRU2xrDCVodonC+3CKjcNGnYn?=
- =?us-ascii?Q?xJ2HizudMIi1rdFBXQrwGtygMkDAxrA=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b39b5da0-17c6-4644-dd47-08dee37f1881
-X-MS-Exchange-CrossTenant-AuthSource: MN2PR01MB5615.prod.exchangelabs.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?GXLaCbkpCRApx+3+MMyIpt6uF00p5EGxAft6C6+uQy2srubBB4PpE6VdnWSS?=
+ =?us-ascii?Q?tzNCqnpNijbaDLzco7BbwuibGNv/lbdaN6cyYdG3gdy+eQVVkUjXZHmzM8Ob?=
+ =?us-ascii?Q?VxC6/PS6Q8udZRZIHKZ1aq5K4iThX3PhobBKT8/QdupZNNmoHJkKwD0iiGKO?=
+ =?us-ascii?Q?TkQzTLNUPN03YyNtDXSbh3SkBYOS4SC03s/hsRPXoeRLd8n+zd1fSx0Ec37j?=
+ =?us-ascii?Q?DV4IbrgUlrhz5acAfeMFQZBN5Q4OohrQUZ2We+E61fmxO8adrFpws3hUFGU1?=
+ =?us-ascii?Q?QDZgirTuuE7TeGzh7V923yJAsc/8wB9ioXi3Ey0XBdSYOGo3s7jIswBTbQp3?=
+ =?us-ascii?Q?PFSk0nGCHUtksLny0OiKjpIPHnnflTwMk7/JjkJF7pLaCuo8HoRWengj2cTj?=
+ =?us-ascii?Q?C3NIsKsMdrE6NCQ6i2C4F8iuFz7Nulx8bEJ0YCDT6ZAGPzHih649yGkAQp4q?=
+ =?us-ascii?Q?sS8SII+xJkt2gFbyZjrxl9DImrPCIW/oseK8mQ1YTMFp9bma/wioXfKlDMa7?=
+ =?us-ascii?Q?GBdbcxPPwDh8ELCuXVorrLI6t+ReSdF65n/LrX9ZMUUOwPMiDCRCSw4xYZRB?=
+ =?us-ascii?Q?CUn0b872JwKf3cY9mmMzcSiHVChmCuUAzcgSNBnZrtaHraxSupqEBM/mPQXP?=
+ =?us-ascii?Q?JPqZp2WNjkV5mts8zsaOeSGzXNlJ5RlhDwgzR6P605ECfjcLqvbVpfBwhM9l?=
+ =?us-ascii?Q?/CHjHS7xwT+AHbyJctoZ4NtPB7VoIdCMsSG1b+1FtrlvPI83RYJfUB7iXCj6?=
+ =?us-ascii?Q?rSr0jzfQ3DLYSHP2o74xHlJOXDkS/dMNmQ5F9hXCT5xxPWV84sJN6tOOEbNI?=
+ =?us-ascii?Q?d6ovCeayWW6ABcluktpDcdgnAaVuAyo6qxiplZct6EYTPuKx8rmIwx1cSnrW?=
+ =?us-ascii?Q?GkYkJW4SgPNzRkCaaLPD2FZ0IDcnr2T6ARCxfDGJUrJdaF65ZTCOgdTAZTP+?=
+ =?us-ascii?Q?KeBb4K6VvqhEfa3gZ9/KnPs8APeJAZp4LZmDmI26UyomU3j9JVX1Ss6A4wXp?=
+ =?us-ascii?Q?ALc4uQyKf9EJ0Dc7ih7rCB8RD1lcZ+oVfGeCmZ7stkWvAN1n25hNLIzwZRse?=
+ =?us-ascii?Q?i7cgQKx+gM7xb65+aUq1eItrC8FpXDO9ZMxLhWr6scvRpiRJeDELN6C/S+MQ?=
+ =?us-ascii?Q?ZDMn1ZY/ERuYn+H1FpP0QpM1iXI6Gp4fgxu1We9UurvIEnb98cj0LO1LcehL?=
+ =?us-ascii?Q?255zDyOTGqQ5esUMmHW1dY5xgy0p2bKOWw0daa43jaAhsLasRD/ljtgWwpGF?=
+ =?us-ascii?Q?rVY+P1EgzE/U81hsfMfeNQVOEIXaWrt0Xg64obDwS4Ug7iUh4eMbmom7eUsm?=
+ =?us-ascii?Q?jXbr1WbpsyM8eH48vHN/fYV0m09gxpbhhIHpqIWqNZR7KVPP6g8CUaO1soIw?=
+ =?us-ascii?Q?iftfzBUbot8mg26DF7ICaORtIRryilANf774K2j2Hrh5v3Z3Y+1QLA3NC0Vm?=
+ =?us-ascii?Q?LYDYjvofsSkNFOjFtmRmVvub+U1mlx7W5bBiyoVygavKvFiEOZ5LqBBO9WOn?=
+ =?us-ascii?Q?QCJ/w19C2aLwx23159ZveeMhuc/xcPiikB1e1t5XvreerXgQxzZHqpvqzMbq?=
+ =?us-ascii?Q?G/kybkXR9Qo8qDTbHyX2d2PK4FiclQhVESGEJLtZIOUjEADDoKWdVphM8EyQ?=
+ =?us-ascii?Q?3m6C6o+SmKm+WY391Q0m3a+c18ODGWLt8OLMn357jJyHdyFfwm4TUHRevIYb?=
+ =?us-ascii?Q?8frTyQa6CBueQoyrI4uUaPvWuhXEByLOdhwH5HH9tGf1W0vHH3hsGOpSucYQ?=
+ =?us-ascii?Q?pLDwoyCq1Q=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fc30905c-27d3-418e-a9c5-08dee37db3ea
+X-MS-Exchange-CrossTenant-AuthSource: DM4PR12MB5230.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jul 2026 21:13:34.8956
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jul 2026 21:03:36.3906
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 39/Y6/pR00b0YJ6rdBmZKAoYWor/vkroJm/0ZPYsuGMqqdSF4pTS+0jhRpvB/ZIeAdEiPHgzVr/edRc6HfhEPvzOnSBoAyV/U2TiPqGXgU0AXEUQwJ4h3PB49XEtbCoy
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS3PR01MB994655
+X-MS-Exchange-CrossTenant-UserPrincipalName: /ghVzkNUkEpIvlMR0PO2yq2qz9Pnul6OjhZaHYJzohwujVETKGOXvAh/g4pVYYyQRSF600SjFO9GGacNIO9xig==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB7485
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_141342_598288_E2829935 
-X-CRM114-Status: GOOD (  21.25  )
+X-CRM114-CacheID: sfid-20260716_140349_662229_57330E8C 
+X-CRM114-Status: GOOD (  21.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,105 +149,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Some architectures expose an alternate, hardware-native control that
+emulates a legacy control (for example a node-scoped bandwidth control
+emulating the L3-shaped MB control). Represent this relationship with a
+new resctrl_ctrl::emulated_by pointer stored on the emulated (default)
+control, pointing at the control that emulates it, and add a
+RESCTRL_CTRL_NAME_NODE control name for the node-scoped variant.
 
+Build the resource_schemata tree accordingly: create the default control
+directory first, then nest each emulating control beneath the default
+control it emulates, while non-emulated controls remain directly under
+resource_schemata. Creating the default directory up front makes the
+layout independent of the order controls appear in the list.
 
-On Thu, 16 Jul 2026, Robin Murphy wrote:
-> On ACPI systems, it has not actually been possible for userspace to
-> reliably tell which PMU corresponds to which APMT entry for types
-> other than "ACPI device" - the evidence trail only leads from the
-> arbitrarily-numbered PMU device to its arbitrarily-numbered parent
-> platform device that has no distinguishing features either.
->
-> While we've now improved the platform device creation to associate the
-> actual APMT unique ID, we may as well also tweak the PMU devices to
-> substitute the arbitrary number with a different arbitrary number that
-> might be more directly meaningful based on the APMT definitions.
->
-> We don't have an equivalent for Devicetree, but in that case the
-> platform devices are at least identifiable via their sysfs-visible
-> of_node.
->
-> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
->
-> ---
-> v2: Actually use the instance-based ID where different from node->id
+Architecture backends set emulated_by during control init; until then the
+nesting branch is never taken and all controls remain directly under
+resource_schemata.
 
+Factor the per-control directory creation into
+resctrl_ctrl_create_subdir() and fix its error and ownership handling so
+the newly created directory (not its parent) is validated and gets its
+uid/gid applied.
 
-Looks good to me now,
+Signed-off-by: Fenghua Yu <fenghuay@nvidia.com>
+---
+ arch/x86/kernel/cpu/resctrl/core.c |  2 +
+ fs/resctrl/ctrlmondata.c           |  1 +
+ fs/resctrl/rdtgroup.c              | 67 ++++++++++++++++++++++++------
+ include/linux/resctrl.h            |  7 +++-
+ 4 files changed, 63 insertions(+), 14 deletions(-)
 
-Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+diff --git a/arch/x86/kernel/cpu/resctrl/core.c b/arch/x86/kernel/cpu/resctrl/core.c
+index 07c6ebb7fc43..5575a16caeab 100644
+--- a/arch/x86/kernel/cpu/resctrl/core.c
++++ b/arch/x86/kernel/cpu/resctrl/core.c
+@@ -214,6 +214,8 @@ static __init bool __temporary_multiple_mba_intel_controls(struct rdt_resource *
+ 	case RESCTRL_CTRL_NAME_MAX:
+ 		hw_ctrl->msr_update = update_temporary_max;
+ 		break;
++	default:
++		break;
+ 	}
+ 
+ 	return true;
+diff --git a/fs/resctrl/ctrlmondata.c b/fs/resctrl/ctrlmondata.c
+index d95ab8ad36e2..1f832a838115 100644
+--- a/fs/resctrl/ctrlmondata.c
++++ b/fs/resctrl/ctrlmondata.c
+@@ -304,6 +304,7 @@ static const char * const resctrl_ctrl_name[] = {
+ 	[RESCTRL_CTRL_NAME_DEF]		= "",
+ 	[RESCTRL_CTRL_NAME_MIN]		= "MIN",
+ 	[RESCTRL_CTRL_NAME_MAX]		= "MAX",
++	[RESCTRL_CTRL_NAME_NODE]	= "NODE",
+ };
+ 
+ const char *resctrl_ctrl_name_str(enum resctrl_ctrl_name name)
+diff --git a/fs/resctrl/rdtgroup.c b/fs/resctrl/rdtgroup.c
+index a3aad9b1ff6e..3bec23728847 100644
+--- a/fs/resctrl/rdtgroup.c
++++ b/fs/resctrl/rdtgroup.c
+@@ -2781,6 +2781,26 @@ static int resctrl_ctrl_add_files(struct kernfs_node *kn)
+ 	return ret;
+ }
+ 
++static int resctrl_ctrl_create_subdir(struct kernfs_node *kn_dir,
++				      struct rdt_resource_final *f,
++				      struct resctrl_ctrl *ctrl, struct kernfs_node **kn_ctrl)
++{
++	char ctrl_full_name[20];
++	int ret;
++
++	ret = snprintf(ctrl_full_name, sizeof(ctrl_full_name), "%s%s%s",
++		       f->name, resctrl_ctrl_is_default(ctrl) ? "" : "_",
++		       resctrl_ctrl_is_default(ctrl) ? "" : resctrl_ctrl_name_str(ctrl->name));
++	if (ret >= sizeof(ctrl_full_name))
++		return -ENOSPC;
++
++	*kn_ctrl = kernfs_create_dir(kn_dir, ctrl_full_name, kn_dir->mode, ctrl);
++	if (IS_ERR(*kn_ctrl))
++		return PTR_ERR(*kn_ctrl);
++
++	return rdtgroup_kn_set_ugid(*kn_ctrl);
++}
++
+ /*
+  * No need to cleanup on exit - caller calls the recursive kernfs_remove()
+  * on failure.
+@@ -2788,10 +2808,9 @@ static int resctrl_ctrl_add_files(struct kernfs_node *kn)
+ static int resctrl_mkdir_schemata_dir(struct kernfs_node *kn,
+ 				      struct rdt_resource_final *f)
+ {
+-	struct kernfs_node *kn_subdir, *kn_ctrl;
++	struct kernfs_node *kn_subdir, *kn_ctrl, *kn_ctrl_def = NULL;
++	struct resctrl_ctrl *ctrl, *ctrl_def = NULL;
+ 	struct rdt_resource *r = f->res;
+-	struct resctrl_ctrl *ctrl;
+-	char ctrl_full_name[20];
+ 	int ret;
+ 
+ 	kn_subdir = kernfs_create_dir(kn, "resource_schemata", kn->mode, f);
+@@ -2808,19 +2827,41 @@ static int resctrl_mkdir_schemata_dir(struct kernfs_node *kn,
+ 			return ret;
+ 	}
+ 
++	/*
++	 * Create the default control sub-dir first. Emulated controls are
++	 * nested underneath it and may be iterated before it, so it has to
++	 * exist before the rest of the controls are created.
++	 */
+ 	for_each_resource_ctrl(ctrl, f->res) {
+-		ret = snprintf(ctrl_full_name, sizeof(ctrl_full_name), "%s%s%s",
+-			       f->name, resctrl_ctrl_is_default(ctrl) ? "" : "_",
+-			       resctrl_ctrl_is_default(ctrl) ? "" : resctrl_ctrl_name_str(ctrl->name));
+-		if (ret >= sizeof(ctrl_full_name))
+-			return -ENOSPC;
++		if (ctrl->name != RESCTRL_CTRL_NAME_DEF)
++			continue;
+ 
+-		kn_ctrl = kernfs_create_dir(kn_subdir, ctrl_full_name, kn_subdir->mode,
+-					    ctrl);
+-		if (IS_ERR(kn_ctrl))
+-			return PTR_ERR(kn_ctrl);
++		ret = resctrl_ctrl_create_subdir(kn_subdir, f, ctrl, &kn_ctrl_def);
++		if (ret)
++			return ret;
++		ret = resctrl_add_ctrl_files(kn_ctrl_def, ctrl);
++		if (ret)
++			return ret;
++		ctrl_def = ctrl;
++		break;
++	}
+ 
+-		ret = rdtgroup_kn_set_ugid(kn_ctrl);
++	for_each_resource_ctrl(ctrl, f->res) {
++		if (ctrl->name == RESCTRL_CTRL_NAME_DEF)
++			continue;
++
++		/*
++		 * In legacy mode the emulating control is nested under the
++		 * default control it emulates (the default control's
++		 * emulated_by points at it). In native mode there is no
++		 * emulation, so every control sits directly under
++		 * resource_schemata.
++		 */
++		if (r->mode == RESCTRL_CTRL_LEGACY &&
++		    ctrl_def && ctrl_def->emulated_by == ctrl)
++			ret = resctrl_ctrl_create_subdir(kn_ctrl_def, f, ctrl, &kn_ctrl);
++		else
++			ret = resctrl_ctrl_create_subdir(kn_subdir, f, ctrl, &kn_ctrl);
+ 		if (ret)
+ 			return ret;
+ 
+diff --git a/include/linux/resctrl.h b/include/linux/resctrl.h
+index 5d8ea12ae16b..06482e766087 100644
+--- a/include/linux/resctrl.h
++++ b/include/linux/resctrl.h
+@@ -362,12 +362,14 @@ struct resctrl_mon {
+  *				has the same name as the resource.
+  * @RESCTRL_CTRL_NAME_MIN:	"MIN"
+  * @RESCTRL_CTRL_NAME_MAX:	"MAX"
++ * @RESCTRL_CTRL_NAME_NODE:	"NODE"
+  */
+ enum resctrl_ctrl_name {
+ 	RESCTRL_CTRL_NAME_DEF,
+ 	RESCTRL_CTRL_NAME_MIN,
+ 	RESCTRL_CTRL_NAME_MAX,
+-	RESCTRL_CTRL_NAME_LAST = RESCTRL_CTRL_NAME_MAX
++	RESCTRL_CTRL_NAME_NODE,
++	RESCTRL_CTRL_NAME_LAST = RESCTRL_CTRL_NAME_NODE
+ };
+ 
+ /**
+@@ -383,6 +385,8 @@ enum resctrl_ctrl_name {
+  *		Specifically, "rdt_resource_final::name"_"resctrl_ctrl::name".
+  *		For example, with resource name "MB" and control name "MAX" the
+  *		schema entry will be "MB_MAX".
++ * @emulated_by: For an emulated control, points at the control that emulates
++ *		it; NULL if this control is not emulated.
+  * @cache:	Cache allocation control properties.
+  * @membw:	Bandwidth control properties.
+  */
+@@ -392,6 +396,7 @@ struct resctrl_ctrl {
+ 	struct list_head	domains;
+ 	enum resctrl_ctrl_type	type;
+ 	enum resctrl_ctrl_name	name;
++	struct resctrl_ctrl	*emulated_by;
+ 	union {
+ 		struct resctrl_cache	cache;
+ 		struct resctrl_membw	membw;
+-- 
+2.43.0
 
-Cheers, Ilkka
-
-> ---
-> drivers/perf/arm_cspmu/arm_cspmu.c | 35 +++++++++++++++++-------------
-> 1 file changed, 20 insertions(+), 15 deletions(-)
->
-> diff --git a/drivers/perf/arm_cspmu/arm_cspmu.c b/drivers/perf/arm_cspmu/arm_cspmu.c
-> index 80fb314d5135..8c2dda17d73e 100644
-> --- a/drivers/perf/arm_cspmu/arm_cspmu.c
-> +++ b/drivers/perf/arm_cspmu/arm_cspmu.c
-> @@ -250,38 +250,43 @@ static const char *arm_cspmu_get_name(const struct arm_cspmu *cspmu)
-> 	struct device *dev;
-> 	struct acpi_apmt_node *apmt_node;
-> 	u8 pmu_type;
-> -	char *name;
-> 	char acpi_hid_string[ACPI_ID_LEN] = { 0 };
-> -	static atomic_t pmu_idx[ACPI_APMT_NODE_TYPE_COUNT] = { 0 };
-> +	static atomic_t pmu_idx;
-> +	u32 id;
->
-> 	dev = cspmu->dev;
-> 	apmt_node = arm_cspmu_apmt_node(dev);
-> 	if (!apmt_node)
-> 		return devm_kasprintf(dev, GFP_KERNEL, PMUNAME "_%u",
-> -				      atomic_fetch_inc(&pmu_idx[0]));
-> +				      atomic_fetch_inc(&pmu_idx));
->
-> 	pmu_type = apmt_node->type;
-> -
-> -	if (pmu_type >= ACPI_APMT_NODE_TYPE_COUNT) {
-> +	switch (pmu_type) {
-> +	default:
-> 		dev_err(dev, "unsupported PMU type-%u\n", pmu_type);
-> 		return NULL;
-> -	}
-> -
-> -	if (pmu_type == ACPI_APMT_NODE_TYPE_ACPI) {
-> +	case ACPI_APMT_NODE_TYPE_ACPI:
-> 		memcpy(acpi_hid_string,
-> 			&apmt_node->inst_primary,
-> 			sizeof(apmt_node->inst_primary));
-> -		name = devm_kasprintf(dev, GFP_KERNEL, "%s_%s_%s_%u", PMUNAME,
-> +		return devm_kasprintf(dev, GFP_KERNEL, "%s_%s_%s_%u", PMUNAME,
-> 				      arm_cspmu_type_str[pmu_type],
-> 				      acpi_hid_string,
-> 				      apmt_node->inst_secondary);
-> -	} else {
-> -		name = devm_kasprintf(dev, GFP_KERNEL, "%s_%s_%d", PMUNAME,
-> -				      arm_cspmu_type_str[pmu_type],
-> -				      atomic_fetch_inc(&pmu_idx[pmu_type]));
-> -	}
-> +	case ACPI_APMT_NODE_TYPE_MC:
-> +		id = apmt_node->id;
-> +		break;
-> +	case ACPI_APMT_NODE_TYPE_SMMU:
-> +	case ACPI_APMT_NODE_TYPE_PCIE_ROOT:
-> +		id = apmt_node->inst_primary;
-> +		break;
-> +	case ACPI_APMT_NODE_TYPE_CACHE:
-> +		id = apmt_node->inst_secondary;
-> +		break;
-> +	};
->
-> -	return name;
-> +	return devm_kasprintf(dev, GFP_KERNEL, "%s_%s_%u", PMUNAME,
-> +			      arm_cspmu_type_str[pmu_type], id);
-> }
->
-> static ssize_t arm_cspmu_cpumask_show(struct device *dev,
-> -- 
-> 2.54.0.dirty
->
->
 
