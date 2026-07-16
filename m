@@ -4,101 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B61FC4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 23:19:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB3F3C44512
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 23:46:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s3cXULbKCIHVZXaBSZwWm05rlQZf/t8tj2PxjsvmhEk=; b=xcSOUwcaVNLBpZKZVTBIiZxIfS
-	zDjMIOdpUwrl1HJJ4lPBrzpRdwRPUB2tcbMRDC7HhgIMfDb4oZkgaee1GXoHtZDKGF3qsdTDnGlOI
-	OjCVoEgRlwpvgb6MoYwCRQewJUDQ8TMkQrn7bCzFFtnIoT7KTFuHYWl5z8WRECXyZso8WBAQU4P4P
-	0ay08FBEgmrWDdwyi4rqsm4qGu818aqzMBDYGmmYnOKsmPAhqWrJNRIRsl1JxwYOisajcAp3z3hr6
-	goxQb5ANuSdC9E29O2tf33SlIS+4+5Hh5Y95Eod/V7jHqC8cw6uPLm4SfLt2GjtFCSIphEBYBkOwH
-	xgrB5dyA==;
+	bh=S/howEIvgndH8o3pTfe48AeTP4vfYaSSQLtkWDw5tX8=; b=0DjpmXNNr7+8huf15Akot4q69L
+	/XztRrIiyLGdgovSdIXfQA/ySLe96rIkqNN5X2laWDAQjWcxAoa2sIoYN7s6PgjfBm+yM3tPM8k0o
+	YqyP/1HgkgLE0Md7vqbKMhpYOZOQThF18Eva0FwMBIb3WMcWkissc+PkBEsZ1B0f1g0Bf94cYRyN6
+	Ndn2m5LlsNW0CbLp0QZcr9CJon8hw4VISCH/S21jDdTv8iozUtQfaZ6LrkVoP3dE+mxjDXvzlTrgT
+	SMCTBDGjnz0D3GSzYpIHTbFVVCbyiLfcBITsG+8Q3FA0uOPsNRS2QWZ8bjuGb1Ys1NzJ9ntN3xyz9
+	FKabmO7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkVFr-00000000mgn-34cz;
-	Thu, 16 Jul 2026 23:12:35 +0000
-Received: from fout-a8-smtp.messagingengine.com ([103.168.172.151])
+	id 1wkVi4-00000000oJs-0XLt;
+	Thu, 16 Jul 2026 23:41:44 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkVFo-00000000mfx-2Ylt;
-	Thu, 16 Jul 2026 23:12:33 +0000
-Received: from phl-compute-11.internal (phl-compute-11.internal [10.202.2.51])
-	by mailfout.phl.internal (Postfix) with ESMTP id F2DD9EC003C;
-	Thu, 16 Jul 2026 18:51:42 -0400 (EDT)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-11.internal (MEProxy); Thu, 16 Jul 2026 18:51:42 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
-	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm1; t=1784242302; x=
-	1785106302; bh=s3cXULbKCIHVZXaBSZwWm05rlQZf/t8tj2PxjsvmhEk=; b=V
-	McHBbSMI62JlGYzwu6OQy/xohl/s/66EkzaYYt/+QFhwFKpR9hTorD97T/SxIkLx
-	wc7gswCXBv96l4Zp+bWS07cdUi0oXx961dtCuAsOsImrjqeYu4HBpQE7pppOpdmG
-	NnSHICYxriHahKapvOjbHZHbOO5HcBfxBhNryuMDt/ZLOrnpXubnJJmyuBoC/sTP
-	0HsoaiSbp9nxgqhiJcHSu8QqFxxhnDToB58qEaqXibC08+KAc6L8ZIOUzMCyGaa4
-	20puS+fTh76geGgjcTbWIlr7nHewXZmaZy5GK+UDyHPPboQ8VdH07/+tnarjgA5u
-	dHK+bkIERCbr2RE297j/w==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm2; t=1784242302; x=1785106302; bh=s
-	3cXULbKCIHVZXaBSZwWm05rlQZf/t8tj2PxjsvmhEk=; b=WOmjHf8WmOGFH7u/5
-	L7KG+EQypcB5G42/Rqx6uUKCfaHl0RiJrCvrtUItKrm940+vQwerGJZs1AIFUowr
-	DobYD/fsgwMKXQ8AALcgBxGwArEi55LGos2e91uyDfvAeLjd93TbPUppq78kGUdq
-	QNPWmYRdmi641TVddzNYIEuKsKBnNcgXJrDrl3w73C1xeTDN5RWKqhGMfbLBkYDZ
-	V3hWMVKT/DDwh07l4DXeuwmb5X5HF0ynPXfi060qVHNny5FQUe0Y7v/ktAjmbQ/h
-	wCrae8gaNkgznYreArvpzXUEE9ADXnhmsbmKrRuwjub+ugn9b0b2fN6gKcbFZfa/
-	gRITw==
-X-ME-Sender: <xms:fmBZaglz8jEM8AgvPj2b53QieZXxJfVYcmjbUmfAyQE4cbUOJlV32g>
-    <xme:fmBZaoAhU7T2YiS1xuqm5HFkAxyo7au_rc949u7XAkvuH509qdAxUt0YYzb0wiCtj
-    Enc4ZWh43v0qqrfm4DxIkPCPtTVLk-a0rYyeFzN4qrFDdtDXtvvekA>
-X-ME-Received: <xmr:fmBZaqMF-eIdE_7gdJ673U55LCokpNtl7fJxE_X3Ne--nTjxQhWeYyCc2u7-Sz0cbNhIfzBTJkfjR5f-obE>
-X-ME-Proxy-Cause: dmFkZTG0kLL2r3BGP8LXEPxN2Zb6VvSqQ9uCR8eBin4CWjH1opqEBzK+o7HzQhPMU+8DaU
-    Hg6S5aSkKo2oLZ6tFycACl68psHaw+rt60gPT+fiE16kWsg5izpHh5k+kicW2vIjZlcypa
-    ckL1HKlP/PKtzdDCLGSg5ZG1R2AuPb3zfsqqh+cOgQ5JCjK7unJu2iCeXsP8flBJGK3Lzj
-    ki6Cj8SbJN8jf9b/dETi4UJdSOAzfE8vmZ2WIfwJTICY+5sDmt37/UaeEIquZwIu7z5hsl
-    ohrQyrU78XzMUxpofzdCqnp7o9RJjyG1PHP1BrzoTHTwRuQDuyPkP/u+qlRLqfQSXyszYb
-    M6u+rVADxavm/d2ADd/sB2sCXFteBCu7xVCKoiKCcJlCzu+gaPYbubx1Y9dmk5EbatunIA
-    7ESQDJIo//iAdO+Md3Kum9jCvcrtu3MKCIupVEz5cTXMwiWwg39qyGqn5eqld0oBBcGht2
-    8fvANe7UgHnxhHCqgRKll1tXeRA4o6S3XgeAhxnmZYuk2T199NQqVDTZ4QwJ0MY74e7zo6
-    Z1Q2pIwdoJCbalMlM9/EebybbJNTcC04kbfa6ZAl5QBzIzxJuznhyr34F6vEMjVeDrYxTa
-    znu1oKvKab13D0y80udLUwzgLs/FC3Alljzrr1aXhuoTXW7CglaEGdItlxRQ
-X-ME-Proxy: <xmx:fmBZanNe1E38J-zpkw3OagtFH7E6suGZL4y_fsUSUO3RHNjLDHAGIQ>
-    <xmx:fmBZaqnMmbMDe1vouBW7QRbwCaKV3kp7ZrG_m9ia4bHdo5z4xLQU0A>
-    <xmx:fmBZatvMDNdDqUYHVyRZ6d_5IRXSSML9Vd2QAc2VYukpP6XC0BS94A>
-    <xmx:fmBZaloWL6TbWwnRs3O_BEVVntV8FbXQXjoUSYK2smxb0h6cO0FIUQ>
-    <xmx:fmBZavOFncnRBa5ZiakygoOTQs2Dn5odbta26JuGj9JHeg57HCCqDb0b>
-Feedback-ID: i7a5e4b5f:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 16 Jul 2026 18:51:39 -0400 (EDT)
-From: Jiaxing Hu <gahing@gahingwoo.com>
-To: andrew@lunn.ch
-Cc: heiko@sntech.de,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] arm64: dts: rockchip: Add ArmSoM CM5 and CM5-IO
-Date: Fri, 17 Jul 2026 10:51:37 +1200
-Message-ID: <20260716225137.2544880-1-gahing@gahingwoo.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <e99f752a-da1f-498d-9305-089b9d736e70@lunn.ch>
-References: <20260716081711.2482259-3-gahing@gahingwoo.com> <e99f752a-da1f-498d-9305-089b9d736e70@lunn.ch>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_161232_840516_C141F7B3 
-X-CRM114-Status: UNSURE (   6.31  )
-X-CRM114-Notice: Please train this message.
+	id 1wkVi2-00000000oJk-2HD6
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 16 Jul 2026 23:41:43 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2478740A64;
+	Thu, 16 Jul 2026 23:41:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05ED01F000E9;
+	Thu, 16 Jul 2026 23:41:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux-foundation.org; s=korg; t=1784245300;
+	bh=S/howEIvgndH8o3pTfe48AeTP4vfYaSSQLtkWDw5tX8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=GWrE81XllWQl5SeoAjAivl6b6wYYesCrb3N/mzexAllJ4UnlAwuaaRX7GYBfNhYIr
+	 rUzjVX8SFgudmVpquJg4CpGAaGpYbm4V4SpJVtnrB0p3D/HJCveyAZSGNKLNPTz3Qn
+	 +RaTiHE7dRlrCVuMrmUyMzGB6SBYcoddUR9tNrCE=
+Date: Thu, 16 Jul 2026 16:41:39 -0700
+From: Andrew Morton <akpm@linux-foundation.org>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Suren Baghdasaryan <surenb@google.com>, "Liam R. Howlett"
+ <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, Shakeel Butt
+ <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, Mike
+ Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, Uladzislau
+ Rezki <urezki@gmail.com>, Toshi Kani <toshi.kani@hpe.com>, Dave Hansen
+ <dave.hansen@linux.intel.com>, Andy Lutomirski <luto@kernel.org>, Peter
+ Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, Ingo
+ Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, Kiryl Shutsemau <kas@kernel.org>, Catalin
+ Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Dev Jain
+ <dev.jain@arm.com>, Ryan Roberts <ryan.roberts@arm.com>, David Carlier
+ <devnexen@gmail.com>, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, "Denis V. Lunev"
+ <den@virtuozzo.com>, stable@vger.kernel.org,
+ syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com
+Subject: Re: [PATCH mm-hotfixes v4 0/4] mm: fix UAF caused by race between
+ ptdump and vmap pgtable freeing
+Message-Id: <20260716164139.0b447152db49db857cc73037@linux-foundation.org>
+In-Reply-To: <20260716-series-vmap-race-fix-v4-0-8c108c4317df@kernel.org>
+References: <20260716-series-vmap-race-fix-v4-0-8c108c4317df@kernel.org>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,17 +80,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Try setting phy-mode to rgmii-id, and these delays to 0, or removing
-> them.
+On Thu, 16 Jul 2026 22:31:11 +0100 "Lorenzo Stoakes (ARM)" <ljs@kernel.org> wrote:
 
-You are right. The PCB does not use long clock lines, so rgmii-id is the
-correct description and the delays should not be in the DT. Most rk3576
-boards upstream already use rgmii-id with no tx_delay/rx_delay.
+> Kernel page table walkers fall into two broad categories - those ranges
+> where no exclusion is required via walk_kernel_page_table_range_lockless()
+> and those where exclusion is required via walk_kernel_page_table_range()
+> or walk_page_range_debug().
+> 
+> ...
+> 
+> This series works around this by #ifndef CONFIG_ARM64'ing the mmap read
+> lock in vmap logic, then partially reverting commit fa93b45fd397 ("arm64:
+> Enable vmalloc-huge with ptdump"), keeping the enablement of huge vmap
+> support, and removing the ifdeffery with the partial revert patch.
 
-I will switch to rgmii-id, let the YT8531 add both delays internally, drop
-tx_delay/rx_delay, and re-test the 1000 Mbit/s link on the board before I
-send v4.
+Thanks, I've updated mm.git's mm-hotfixes-unstable branch to this
+version.
 
-Thanks,
-Jiaxing
+> v4:
+> * Rebased on latest master of Linus's tree.
+> * Accumulated tags, thanks everybody!
+> * Updated commit messages further as per Kiryl.
+> * Took the mmap write lock across the whole CPA operation as per Will.
+
+Here's how v4 altered mm.git:
+
+
+ arch/x86/mm/pat/set_memory.c |   25 +++++++++++++++----------
+ include/linux/mmap_lock.h    |    2 ++
+ mm/vmalloc.c                 |    8 ++++----
+ 3 files changed, 21 insertions(+), 14 deletions(-)
+
+--- a/arch/x86/mm/pat/set_memory.c~b
++++ a/arch/x86/mm/pat/set_memory.c
+@@ -411,7 +411,7 @@ static void __cpa_flush_tlb(void *data)
+ 
+ static int collapse_large_pages(unsigned long addr, struct list_head *pgtables);
+ 
+-static void cpa_collapse_large_pages(struct cpa_data *cpa)
++static void __cpa_collapse_large_pages(struct cpa_data *cpa)
+ {
+ 	unsigned long start, addr, end;
+ 	struct ptdesc *ptdesc, *tmp;
+@@ -437,17 +437,22 @@ static void cpa_collapse_large_pages(str
+ 
+ 	flush_tlb_all();
+ 
++	list_for_each_entry_safe(ptdesc, tmp, &pgtables, pt_list) {
++		list_del(&ptdesc->pt_list);
++		pagetable_free(ptdesc);
++	}
++}
++
++static void cpa_collapse_large_pages(struct cpa_data *cpa)
++{
+ 	/*
+-	 * ptdump might read these page tables, so avoid a use-after-free by
+-	 * acquiring the mmap read lock on init_mm (ptdump acquires the mmap
+-	 * write lock).
++	 * Take the mmap write lock on init_mm to:
++	 * - Avoid a use-after-free if raced by ptdump (which takes its own
++	 *   write lock on init_mm).
++	 * - Serialise concurrent CPA walkers.
+ 	 */
+-	scoped_guard(mmap_read_lock, &init_mm) {
+-		list_for_each_entry_safe(ptdesc, tmp, &pgtables, pt_list) {
+-			list_del(&ptdesc->pt_list);
+-			pagetable_free(ptdesc);
+-		}
+-	}
++	scoped_guard(mmap_write_lock, &init_mm)
++		__cpa_collapse_large_pages(cpa);
+ }
+ 
+ static void cpa_flush(struct cpa_data *cpa, int cache)
+--- a/include/linux/mmap_lock.h~b
++++ a/include/linux/mmap_lock.h
+@@ -621,6 +621,8 @@ static inline void mmap_read_unlock(stru
+ 
+ DEFINE_GUARD(mmap_read_lock, struct mm_struct *,
+ 	     mmap_read_lock(_T), mmap_read_unlock(_T))
++DEFINE_GUARD(mmap_write_lock, struct mm_struct *,
++	     mmap_write_lock(_T), mmap_write_unlock(_T))
+ DEFINE_GUARD_COND(mmap_read_lock, _try, mmap_read_trylock(_T))
+ 
+ static inline void mmap_read_unlock_non_owner(struct mm_struct *mm)
+--- a/mm/vmalloc.c~b
++++ a/mm/vmalloc.c
+@@ -163,11 +163,11 @@ static int vmap_try_huge_pmd(pmd_t *pmd,
+ 		return pmd_set_huge(pmd, phys_addr, prot);
+ 
+ 	/*
+-	 * Acquire the mmap read lock to exclude ptdump, which walks kernel
+-	 * page tables it does not own under the mmap write lock.
++	 * Acquire the mmap read lock to exclude ptdump, which walks
++	 * kernel page tables it does not own under the mmap write lock.
+ 	 *
+-	 * Concurrent read lock holders are safe: each exclusively owns the
+-	 * range it operates on and cannot reach this page table.
++	 * Concurrent read lock holders are safe: each exclusively owns
++	 * the range it operates on and cannot reach this page table.
+ 	 */
+ 	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm) {
+ 		if (!pmd_free_pte_page(pmd, addr))
+_
+
 
