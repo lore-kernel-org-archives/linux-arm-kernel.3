@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93399C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 09:55:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3348C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 09:59:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FtjZcYXVqOPy+pGcC//VCQlTCf7Gm3WNDB/0GFt4lvA=; b=ny0PrlIVBcW/UiV7SNnBICuv63
-	FJlRKf8zyFfwtBI4ez7JvA870BbPqONDuijLFMuCwKvL+RMEEaB8bE5uBuldXCUXH0RVGoUJ5Gx3i
-	31DH6tVLP8l9dbwYDAtIDwsLL/mSmw5VJhInq+HIAGOB+qUUpwzhMTYF9UnqOMHgt4eKU5RnF0xXz
-	kZ3RH6XZx0K6Mm5Lr4BGE9WQd6nZdqb/bIJlLrXaX1mDV1obkUCnYuAxQsFWMSkHe9Zz1Nce6NZ9F
-	5frFEIVCmciocnF55lBKcnakqNEbW4sCihxoMFmUuudlKE7oBHPDATmuB/IGpJTFpO8IhWgpG4MG/
-	LX+y5muA==;
+	bh=40RDzxBLPZLG4s+zCNW0yAczdYUPfSS5EmHAfRZ6BKs=; b=lniBrWWxXmqy36lE07TIGRmSQ3
+	zOETVUFiOjpi/N333BJqxntbKIrqQefhcjISXNMCDu8QFxsGkCmhIdmlK0GyyG8lJfzCbABy4Ak2H
+	6+VDOaw6OgFWYdqSCQYX1ZbWxxg1qzuWuPjedlNYTQAjEAzwH1c43qSjZXjteUoCuOMcoccnDk5Zr
+	vAlsFDtNGC6P1ifYQBPZK+BVFlZzXqisUZw43S5/nbEmWnMF/5AkbrI9NMj9tDsBD/wnT//9wom+M
+	EE73lhZ/ipBqvnRsOvuvQsvsIZ5UM8K5aaiKXV4b7dHX342AeA8qaPLhWOxvyGn/J273AyXZxoSbD
+	wxnLI4oA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkIoH-0000000GwAt-3cfc;
-	Thu, 16 Jul 2026 09:55:17 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wkIsE-0000000Gwgu-0yrV;
+	Thu, 16 Jul 2026 09:59:22 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkIoH-0000000GwAN-0fLH
+	id 1wkIsC-0000000Gwgh-2r6A
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 09:55:17 +0000
+	Thu, 16 Jul 2026 09:59:20 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 78785600AF;
-	Thu, 16 Jul 2026 09:55:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C7481F000E9;
-	Thu, 16 Jul 2026 09:55:11 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2854D412B8;
+	Thu, 16 Jul 2026 09:59:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81D171F000E9;
+	Thu, 16 Jul 2026 09:59:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784195716;
-	bh=FtjZcYXVqOPy+pGcC//VCQlTCf7Gm3WNDB/0GFt4lvA=;
+	s=k20260515; t=1784195960;
+	bh=40RDzxBLPZLG4s+zCNW0yAczdYUPfSS5EmHAfRZ6BKs=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=L/CGDwNngPNsVXsmLBoGJyUx1nuJtAny4etr9ncxVaWMJYPzMtrXlycBRRbZ31KFu
-	 9E/UPo7rM9KGJYmD2Z6ZcNBFNtfq3LjWaEq4d/TsTy7qnc8WpTE6FxriKKXex/+aqN
-	 F4avz6oKuLb4Pp/o7kNMhFQPl6+zqcCl67TdmqqhNr91NX0muTgfQ3HYAsj4tti4KP
-	 Ks8Wx4Us22QPATJAxoRfvWWyg1vbnziU5Rn8RiuwmlYBDvTztOR97XoP/2RDWMXu6I
-	 wRZW4uoGOkeYjy8y2jfQpIOWYnzWnQYoLAEcHVb8TFEIoLek3T2MgE4ZteOS1/SNQ1
-	 +k65sEPsBkfKA==
-Message-ID: <bd30fe3e-519d-417f-97bf-8aa0a368a4c3@kernel.org>
-Date: Thu, 16 Jul 2026 11:55:10 +0200
+	b=G8eu0hFmVtMKSxK76aiM92Dgx7HxClVkSGA0Dpqbwu8GwWEgY6QOUvxu2PKesN74C
+	 suUeiDho4917jBr7cIl4jSg30AMHviaD52wU6XX5Q1YzEg7zAa/p06LIQSD//romgZ
+	 SmONNgxqYBVWbJaKdWx9hwzni5AdCdkLSrRHgOmGssgEOA3fAKGw2Iu9TeUEPaBnvB
+	 B+rPwA7XgEU40hhWJpztZTYrcAWyjU4sAcmoJfWPrL9o78I/n+UG5SuvzWy5LBKkIR
+	 cRau4K5Tcqm3sFusD9FuWaZRyLQAzX/ZyewlUrY89KMpcqcsr+/081DWb/hPncpzTL
+	 1i2GKqIQ2c2sA==
+Message-ID: <e634c6bc-1c6f-4457-af99-5eddc2b4d648@kernel.org>
+Date: Thu, 16 Jul 2026 11:59:14 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH mm-hotfixes v3 2/4] x86/mm/pat: acquire mmap lock on page
- table free to avoid ptdump UAF
+Subject: Re: [PATCH mm-hotfixes v3 3/4] mm/ptdump: always stabilise against
+ page table freeing using init_mm
 To: Lorenzo Stoakes <ljs@kernel.org>,
  Andrew Morton <akpm@linux-foundation.org>,
  Suren Baghdasaryan <surenb@google.com>, "Liam R. Howlett"
@@ -65,7 +65,7 @@ Cc: David Carlier <devnexen@gmail.com>, linux-mm@kvack.org,
  linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
 References: <20260714-series-vmap-race-fix-v3-0-b812eccfa0f9@kernel.org>
- <20260714-series-vmap-race-fix-v3-2-b812eccfa0f9@kernel.org>
+ <20260714-series-vmap-race-fix-v3-3-b812eccfa0f9@kernel.org>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -112,7 +112,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260714-series-vmap-race-fix-v3-2-b812eccfa0f9@kernel.org>
+In-Reply-To: <20260714-series-vmap-race-fix-v3-3-b812eccfa0f9@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -130,87 +130,41 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 7/14/26 19:24, Lorenzo Stoakes wrote:
-> x86 implements page attribute modification using its Change Page
-> Attributes (CPA) mechanism.
+> Previous commits have established the invariant that kernel page table
+> freeing is performed while an mmap read lock on init_mm is held, which
+> fixes races between ptdump and kernel page table freeing over init_mm.
 > 
-> This tracks properties of ranges such as cache mode through x86 page
-> attributes, and as part of that logic manipulates kernel page tables.
+> However, x86 and arm64 can perform a ptdump over an mm other than init_mm
+> via ptdump_walk_pgd() and since kernel memory ranges are shared across
+> non-kernel mm's, this means that the race still exists for these cases.
 > 
-> Since commit 41d88484c71c ("x86/mm/pat: restore large ROX pages after
-> fragmentation") ranges of kernel page table entries can be collapsed into
-> huge page table entries as part of this logic.
+> Fix this by acquiring a nested mmap write lock for init_mm in
+> ptdump_walk_pgd().
 > 
-> As part of this collapse, it frees the page tables which the collapsed
-> entries previously pointed to, and it does so without any relevant locks
-> being held to preclude concurrent kernel page table walkers.
+> This is safe as we take this after mmap write locking the mm, and nothing
+> acquires the init_mm lock first before locking an arbitrary mm, so no
+> deadlock is possible.
 > 
-> The only way this code can be reached is if CPA_COLLAPSE is specified, and
-> this is only set in set_memory_rox() via:
+> Also update walk_page_range_debug() to assert that init_mm is write locked,
+> add a comment explaining why and remove some redundant code, and eliminate
+> the unnecessary and confusing invocation of walk_kernel_page_table_range().
 > 
-> set_memory_rox()
-> -> change_page_attr_set_clr()
-> -> cpa_flush()
-> -> cpa_collapse_large_pages()
+> We can safely remove the non-NULL check for walk.mm, as the mmap lock
+> asserts would NULL pointer deref if it was (and of course no callers do
+> this).
 > 
-> Notable users of this are execmem and bpf when manipulating executable
-> mappings.
+> The first point at which ptdump can race kernel page table freeing is
+> commit b6bdb7517c3d ("mm/vmalloc: add interfaces to free unmapped page
+> table"), so we target this in the Fixes tag.
 > 
-> However, this is problematic for ptdump as it walks ranges it does not own
-> and thus runs the risk of a use-after-free on page tables freed underneath
-> it.
-> 
-> Resolve the issue by acquiring the mmap read lock on init_mm which prevents
-> a concurrent ptdump as it acquires the write lock.
-> 
-> It is safe to acquire a sleeping lock as all the callers invoke
-> set_memory_rox() from process context and in any case,
-> change_page_attr_set_clr() calls vm_unmap_alias() which ultimately takes a
-> mutex, disallowing atomic context here.
-> 
-> Fixes: 41d88484c71c ("x86/mm/pat: restore large ROX pages after fragmentation")
+> Fixes: b6bdb7517c3d ("mm/vmalloc: add interfaces to free unmapped page table")
 > Cc: stable@vger.kernel.org
 > Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> Reviewed-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
 > Signed-off-by: Lorenzo Stoakes <ljs@kernel.org>
-> ---
->  arch/x86/mm/pat/set_memory.c | 14 +++++++++++---
->  1 file changed, 11 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-> index d023a40a1e03..4c4b8244502f 100644
-> --- a/arch/x86/mm/pat/set_memory.c
-> +++ b/arch/x86/mm/pat/set_memory.c
-> @@ -22,6 +22,7 @@
->  #include <linux/cc_platform.h>
->  #include <linux/set_memory.h>
->  #include <linux/memregion.h>
-> +#include <linux/cleanup.h>
->  
->  #include <asm/e820/api.h>
->  #include <asm/processor.h>
-> @@ -436,9 +437,16 @@ static void cpa_collapse_large_pages(struct cpa_data *cpa)
->  
->  	flush_tlb_all();
->  
-> -	list_for_each_entry_safe(ptdesc, tmp, &pgtables, pt_list) {
-> -		list_del(&ptdesc->pt_list);
-> -		pagetable_free(ptdesc);
-> +	/*
-> +	 * ptdump might read these page tables, so avoid a use-after-free by
-> +	 * acquiring the mmap read lock on init_mm (ptdump acquires the mmap
-> +	 * write lock).
-> +	 */
-> +	scoped_guard(mmap_read_lock, &init_mm) {
-> +		list_for_each_entry_safe(ptdesc, tmp, &pgtables, pt_list) {
-> +			list_del(&ptdesc->pt_list);
-> +			pagetable_free(ptdesc);
-> +		}
->  	}
->  }
->  
-> 
 
-Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+All that complexity for a debug feature :)
+
+Acked-by: David Hildenbrand (Arm) <david@kernel.org>
 
 -- 
 Cheers,
