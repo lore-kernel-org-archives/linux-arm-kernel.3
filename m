@@ -4,80 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AFD4C44515
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 17:15:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 136E5C44512
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 17:16:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YfhFMt0coWheZSGR6hX1nylc/FQ786qzeTqpaQM120c=; b=dLLtmMkTPqb8E2P3t1b1GDatdv
-	CMKJDF1M0Z6UxKGDKVOBU4546K8S1hCJT13mTZcqwx7oB2+ZBJN0VjvBHnXPgL8swwEKAz8tiaU5Q
-	VZCpf5Fn0KqwKXXcId3h8FH/51iLnB32ZgdHAjqylTreIpxTsapErpTmG3odLsj8Z0YGbTEncbvyF
-	rSMpoyykwUPn/9LbeFik/1lzPn7UXvMQd7MmjfBiznT3wyFwnOaI3lMgVrC43Ys1BIAwPXEXC7H4f
-	Tz7eH9ylU6+/raf7TpflkVHqejaI13JTAOv3++Eir//9ZZ9LIjIO6HxbqxZlLnpvQWE13K5MwkHl4
-	w6C5tlrw==;
+	bh=xJwiCDrlmg+xI/8tWZm2lh9SPM1vAF34dRBr5lBrTYc=; b=YLj+gWCL9615+TB9+fJ3jnV4nX
+	YzcVK06b5C1R5UILRyeFlF78Vbwk7u+IveflEwuHfCzL5UWUjPJNMj0mGnqaPhbWckf7WHNkWF4D2
+	pumxX9ASPs2HoPOHZZTwvxPmm2LwDZulqndwDj7qy+ytqDQXvC5MAP4/OEDc1Fgu5aaXdFV8zIMKj
+	CppNU0mLUgLkNmBf0l6mPKsNsazKWJhP8Sz5vPgSbnv+nw2efdELBWyJZkl9yQTiCeS6gXnSEn1ax
+	r49NHXK4vWQpLVzsbJ/JAt5Y9aQWOO2CkoAxg81Ra0SNWMrzMXd/OlZuFD0DUe6DXOjU+VyRpFdxl
+	RvY/JK1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkPfu-00000000F5Y-3hm3;
-	Thu, 16 Jul 2026 17:15:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wkPhU-00000000FVr-2cgc;
+	Thu, 16 Jul 2026 17:16:44 +0000
+Received: from relay.yourmailgateway.de ([188.68.63.102])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkPft-00000000F4O-2Etw
+	id 1wkPhR-00000000FUp-3R4O
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 17:15:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E1E1841FAF;
-	Thu, 16 Jul 2026 17:15:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id B7472C2BCC9;
-	Thu, 16 Jul 2026 17:15:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1784222104;
-	bh=EpzkF524STCxFHuEzgvhAkpYUKtBxhXm6mn4ASJSAwY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=SVeeb9Ym4tGbwaHgmbMfPq4imQ11vEbSR9DkISTLdcvuwxbNw4UuU7fvLhbCpbnkb
-	 1ysZVInrkPfTjX7+5f3SbW8BC2rY0K+rEE5VQTHO3TpzF+XzhyWKLVYt/jzavgvj21
-	 5qHiPOjbd0FOxgL/Jys0tu+ufanQxIkIhJobr8RR2qGLe5XAzjT5yNpxX7FmJjiJq/
-	 1W3Q4h+AJJYY8eOpWy844/pmm7ib9QudT6JR4kOuz8ndK/NQv/r4ralKWBhJ8XeKff
-	 1CMQf7MDEoGrABMdHWjxwgMRtTNy2NoDSpQY2861qblNvmrNNcRN05CIK6M0cx8TIc
-	 CIezc4ASm5e8A==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9634EC44512;
-	Thu, 16 Jul 2026 17:15:04 +0000 (UTC)
-From: Alexandru Chimac via B4 Relay <devnull+alex.chimac.ro@kernel.org>
-Date: Thu, 16 Jul 2026 20:14:55 +0300
-Subject: [PATCH v2 1/5] dt-bindings: clock: samsung: Add Exynos9610 CMU
- bindings
+	Thu, 16 Jul 2026 17:16:44 +0000
+Received: from mors-relay-2502.netcup.net (localhost [127.0.0.1])
+	by mors-relay-2502.netcup.net (Postfix) with ESMTPS id 4h1KTH4HhZz6GgT;
+	Thu, 16 Jul 2026 19:16:35 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=leemhuis.info;
+	s=key2; t=1784222195;
+	bh=SfxmVh82JeVUiMIg5Ix7ybdUy/Tn1k/6+Lx1CoaHy70=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=G132+HNdtECgWKcjhHjwuaGtsqmseHspOikRY9VyE1aiQCfmTJa0willMAgVXrxIV
+	 itS7y32weNk5fdNWrqgcit3cmeWjZv4bj7PSy4hk2i8T9+gI1ke+JyNduEkB4QkjeQ
+	 jGN6ip2rDgTvtBDCTB0Q1MB2hrWrUo3sEGsYfpta2zSoHO5SORIFMY7YAc8TxeRLZ7
+	 CYt7JllK6Nr18WviThNdBXpK3cZsyy6qj7CsFsjt41P6eCdh6kO12J/iDQmPDBUjtP
+	 38FTtXgx7ygXh7yjic/2zm84qXODtJZZfTdnbt735Sz79iLGW/9pdrnlv3ME4cbpXw
+	 XztOELzlZ1xvQ==
+Received: from policy02-mors.netcup.net (unknown [46.38.225.35])
+	by mors-relay-2502.netcup.net (Postfix) with ESMTPS id 4h1KTH3YCLz4xrb;
+	Thu, 16 Jul 2026 19:16:35 +0200 (CEST)
+Received: from mxe9fb.netcup.net (unknown [10.243.12.53])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by policy02-mors.netcup.net (Postfix) with ESMTPS id 4h1KTG3VXfz8sZw;
+	Thu, 16 Jul 2026 19:16:34 +0200 (CEST)
+Received: from [IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f] (unknown [IPv6:2a02:8108:8984:1d00:a0cf:1912:4be:477f])
+	by mxe9fb.netcup.net (Postfix) with ESMTPSA id 481645FA12;
+	Thu, 16 Jul 2026 19:16:33 +0200 (CEST)
+Authentication-Results: mxe9fb;
+        spf=pass (sender IP is 2a02:8108:8984:1d00:a0cf:1912:4be:477f) smtp.mailfrom=regressions@leemhuis.info smtp.helo=[IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f]
+Received-SPF: pass (mxe9fb: connection is authenticated)
+Message-ID: <eb92c269-efa2-4f39-bd47-4d1ee36169ee@leemhuis.info>
+Date: Thu, 16 Jul 2026 19:16:31 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [REGRESSION] mainline/master: Apalis iMX6 no longer boots
+To: Bjorn Helgaas <helgaas@kernel.org>,
+ "Hongxing Zhu (OSS)" <hongxing.zhu@oss.nxp.com>
+Cc: Leonardo Costa <leoreis.costa@gmail.com>,
+ "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+ <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ Frank Li <frank.li@nxp.com>, "s.hauer@pengutronix.de"
+ <s.hauer@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>,
+ "festevam@gmail.com" <festevam@gmail.com>,
+ "leonardo.costa@toradex.com" <leonardo.costa@toradex.com>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "regressions@lists.linux.dev" <regressions@lists.linux.dev>,
+ Sherry Sun <sherry.sun@nxp.com>, Manivannan Sadhasivam <mani@kernel.org>,
+ Hongxing Zhu <hongxing.zhu@nxp.com>,
+ "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>
+References: <20260716164058.GA16414@bhelgaas>
+From: Thorsten Leemhuis <regressions@leemhuis.info>
+Content-Language: de-DE, en-US
+In-Reply-To: <20260716164058.GA16414@bhelgaas>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260716-exynos9610-clocks-v2-1-c13ce8ef1861@chimac.ro>
-References: <20260716-exynos9610-clocks-v2-0-c13ce8ef1861@chimac.ro>
-In-Reply-To: <20260716-exynos9610-clocks-v2-0-c13ce8ef1861@chimac.ro>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
- Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
- Alexandru Chimac <alex@chimac.ro>, Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784222102; l=38751;
- i=alex@chimac.ro; s=20250914; h=from:subject:message-id;
- bh=QbppSk4Q8m0LmwvPD9q8kWP1liEu1m+VqbCegaw85uw=;
- b=nph6Uqn4IGpe8ZTbhqsWauLpbCls7OAGbkYM+qknkReVYPE3OTmzuJBHT1afDMKRvZGw+RTy0
- pyT4Izz0iCEB11sbQ0eDk4Xe2+JZVDKqEA7Q24zijCiQS4cNY+FMUtb
-X-Developer-Key: i=alex@chimac.ro; a=ed25519;
- pk=OKD+X09b7uEsyw05zyuqq14SLGg8B/X4xey5tJeYCig=
-X-Endpoint-Received: by B4 Relay for alex@chimac.ro/20250914 with
- auth_id=877
-X-Original-From: Alexandru Chimac <alex@chimac.ro>
+X-PPP-Message-ID: <178422219399.2284195.6020549002013928240@mxe9fb.netcup.net>
+X-Rspamd-Server: rspamd-worker-8404
+X-Rspamd-Queue-Id: 481645FA12
+X-NC-CID: Vs77JiHUJeQSI/GM5fLBjJeVYsLXfvjY38tVOy8NioWSC4JmvkE=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260716_101642_449308_2DA9BCAB 
+X-CRM114-Status: GOOD (  14.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,1094 +102,41 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: alex@chimac.ro
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alexandru Chimac <alex@chimac.ro>
-
-This clock management unit has a topmost block (CMU_TOP)
-that generates top clocks for other blocks, alongside 20
-other blocks, out of which 11 are currently implemented.
-
-Signed-off-by: Alexandru Chimac <alex@chimac.ro>
----
- .../bindings/clock/samsung,exynos9610-cmu.yaml     | 335 ++++++++++
- include/dt-bindings/clock/samsung,exynos9610-cmu.h | 722 +++++++++++++++++++++
- 2 files changed, 1057 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/clock/samsung,exynos9610-cmu.yaml b/Documentation/devicetree/bindings/clock/samsung,exynos9610-cmu.yaml
-new file mode 100644
-index 000000000000..4406c2554522
---- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/samsung,exynos9610-cmu.yaml
-@@ -0,0 +1,335 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/clock/samsung,exynos9610-cmu.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Samsung Exynos9610 SoC clock controller
-+
-+maintainers:
-+  - Alexandru Chimac <alex@chimac.ro>
-+  - Chanwoo Choi <cw00.choi@samsung.com>
-+  - Krzysztof Kozlowski <krzk@kernel.org>
-+
-+description: |
-+  Exynos9610 clock controller is comprised of several CMU units, generating
-+  clocks for different domains. Those CMU units are modeled as separate device
-+  tree nodes, and might depend on each other. The root clock in that root tree
-+  is an external clock: OSCCLK (26MHz). This external clock must be defined
-+  as a fixed-rate clock in the device tree.
-+
-+  CMU_TOP is a top-level CMU, where all base clocks are prepared using PLLs and
-+  dividers; all other clocks of function blocks (other CMUs) are usually
-+  derived from CMU_TOP.
-+
-+  Each clock is assigned an identifier and client nodes can use this identifier
-+  to specify the clock which they consume. All clocks available for usage
-+  in clock consumer nodes are defined as preprocessor macros in
-+  'include/dt-bindings/clock/samsung,exynos9610.h'.
-+
-+properties:
-+  compatible:
-+    enum:
-+      - samsung,exynos9610-cmu-top
-+      - samsung,exynos9610-cmu-apm
-+      - samsung,exynos9610-cmu-cam
-+      - samsung,exynos9610-cmu-cmgp
-+      - samsung,exynos9610-cmu-core
-+      - samsung,exynos9610-cmu-cpucl0
-+      - samsung,exynos9610-cmu-dispaud
-+      - samsung,exynos9610-cmu-fsys
-+      - samsung,exynos9610-cmu-g2d
-+      - samsung,exynos9610-cmu-g3d
-+      - samsung,exynos9610-cmu-peri
-+      - samsung,exynos9610-cmu-usb
-+
-+  clocks:
-+    minItems: 1
-+    maxItems: 5
-+
-+  clock-names:
-+    minItems: 1
-+    maxItems: 5
-+
-+  "#clock-cells":
-+    const: 1
-+
-+  reg:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - "#clock-cells"
-+  - clocks
-+  - clock-names
-+  - reg
-+
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: samsung,exynos9610-cmu-top
-+
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (26MHz)
-+
-+        clock-names:
-+          items:
-+            - const: oscclk
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: samsung,exynos9610-cmu-apm
-+
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (26MHz)
-+            - description: CMU_APM bus clock (from CMU_TOP)
-+
-+        clock-names:
-+          items:
-+            - const: oscclk
-+            - const: dout_cmu_apm_bus
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: samsung,exynos9610-cmu-cam
-+
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (26MHz)
-+            - description: CMU_CAM bus clock (from CMU_TOP)
-+
-+        clock-names:
-+          items:
-+            - const: oscclk
-+            - const: dout_cmu_cam_bus
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: samsung,exynos9610-cmu-cmgp
-+
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (26MHz)
-+            - description: CMU_CMGP bus clock (from CMU_APM)
-+
-+        clock-names:
-+          items:
-+            - const: oscclk
-+            - const: gout_cmu_cmgp_bus
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: samsung,exynos9610-cmu-core
-+
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (26MHz)
-+            - description: CMU_CORE bus clock (from CMU_TOP)
-+            - description: CMU_CORE CCI clock (from CMU_TOP)
-+            - description: CMU_CORE G3D clock (from CMU_TOP)
-+
-+        clock-names:
-+          items:
-+            - const: oscclk
-+            - const: gout_cmu_core_bus
-+            - const: gout_cmu_core_cci
-+            - const: gout_cmu_core_g3d
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: samsung,exynos9610-cmu-cpucl0
-+
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (26MHz)
-+            - description: CMU_CPUCL0 debug clock (from CMU_TOP)
-+            - description: CMU_CPUCL0 switch clock (from CMU_TOP)
-+            - description: HPM clock (from CMU_TOP)
-+
-+        clock-names:
-+          items:
-+            - const: oscclk
-+            - const: dout_cmu_cpucl0_dbg
-+            - const: dout_cmu_cpucl0_switch
-+            - const: dout_cmu_hpm
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: samsung,exynos9610-cmu-dispaud
-+
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (26MHz)
-+            - description: CMU_DISPAUD audio clock (from CMU_TOP)
-+            - description: CMU_DISPAUD CPU clock (from CMU_TOP)
-+            - description: CMU_DISPAUD display clock (from CMU_TOP)
-+
-+        clock-names:
-+          items:
-+            - const: oscclk
-+            - const: dout_cmu_dispaud_aud
-+            - const: dout_cmu_dispaud_cpu
-+            - const: dout_cmu_dispaud_disp
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: samsung,exynos9610-cmu-fsys
-+
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (26MHz)
-+            - description: CMU_FSYS bus clock (from CMU_TOP)
-+            - description: CMU_FSYS external MMC clock (from CMU_TOP)
-+            - description: CMU_FSYS embedded MMC clock (from CMU_TOP)
-+            - description: CMU_FSYS embedded UFS clock (from CMU_TOP)
-+
-+        clock-names:
-+          items:
-+            - const: oscclk
-+            - const: dout_cmu_fsys_bus
-+            - const: dout_cmu_fsys_mmc_card
-+            - const: dout_cmu_fsys_mmc_embd
-+            - const: dout_cmu_fsys_ufs_embd
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: samsung,exynos9610-cmu-g2d
-+
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (26MHz)
-+            - description: CMU_G2D G2D clock (from CMU_TOP)
-+            - description: CMU_G2D MSCL clock (from CMU_TOP)
-+
-+        clock-names:
-+          items:
-+            - const: oscclk
-+            - const: dout_cmu_g2d_g2d
-+            - const: dout_cmu_g2d_mscl
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: samsung,exynos9610-cmu-g3d
-+
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (26MHz)
-+            - description: CMU_G3D switch clock (from CMU_TOP)
-+            - description: HPM clock (from CMU_TOP)
-+
-+        clock-names:
-+          items:
-+            - const: oscclk
-+            - const: dout_cmu_g3d_switch
-+            - const: dout_cmu_hpm
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: samsung,exynos9610-cmu-peri
-+
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (26MHz)
-+            - description: CMU_PERI bus clock (from CMU_TOP)
-+            - description: CMU_PERI IP clock (from CMU_TOP)
-+            - description: CMU_PERI UART clock (from CMU_TOP)
-+
-+        clock-names:
-+          items:
-+            - const: oscclk
-+            - const: dout_cmu_peri_bus
-+            - const: dout_cmu_peri_ip
-+            - const: dout_cmu_peri_uart
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: samsung,exynos9610-cmu-usb
-+
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (26MHz)
-+            - description: CMU_USB bus clock (from CMU_TOP)
-+            - description: CMU_USB DPGTC clock (from CMU_TOP)
-+            - description: CMU_USB DRD clock (from CMU_TOP)
-+
-+        clock-names:
-+          items:
-+            - const: oscclk
-+            - const: dout_cmu_usb_bus
-+            - const: dout_cmu_usb_dpgtc
-+            - const: dout_cmu_usb_usb30drd
-+
-+additionalProperties: false
-+
-+examples:
-+  # Clock controller node for CMU_FSYS
-+  - |
-+    #include <dt-bindings/clock/samsung,exynos9610-cmu.h>
-+
-+    cmu_fsys: clock-controller@13400000 {
-+        compatible = "samsung,exynos9610-cmu-fsys";
-+        reg = <0x13400000 0x8000>;
-+        #clock-cells = <1>;
-+
-+        clocks = <&oscclk>,
-+                 <&cmu_top CLK_DOUT_CMU_FSYS_BUS>,
-+                 <&cmu_top CLK_DOUT_CMU_FSYS_MMC_CARD>,
-+                 <&cmu_top CLK_DOUT_CMU_FSYS_MMC_EMBD>,
-+                 <&cmu_top CLK_DOUT_CMU_FSYS_UFS_EMBD>;
-+        clock-names = "oscclk",
-+                      "dout_cmu_fsys_bus",
-+                      "dout_cmu_fsys_mmc_card",
-+                      "dout_cmu_fsys_mmc_embd",
-+                      "dout_cmu_fsys_ufs_embd";
-+    };
-+...
-diff --git a/include/dt-bindings/clock/samsung,exynos9610-cmu.h b/include/dt-bindings/clock/samsung,exynos9610-cmu.h
-new file mode 100644
-index 000000000000..c07093bae253
---- /dev/null
-+++ b/include/dt-bindings/clock/samsung,exynos9610-cmu.h
-@@ -0,0 +1,722 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+/*
-+ * Device tree binding constants for Exynos9610 clocks
-+ *
-+ * Copyright (c) 2026, Alexandru Chimac <alex@chimac.ro>
-+ */
-+
-+#ifndef _DT_BINDINGS_CLOCK_EXYNOS9610_CMU_H
-+#define _DT_BINDINGS_CLOCK_EXYNOS9610_CMU_H
-+
-+/* CMU_TOP PLLs */
-+#define CLK_FOUT_SHARED0_PLL		1
-+#define CLK_FOUT_SHARED1_PLL		2
-+#define CLK_FOUT_MMC_PLL		3
-+
-+/* CMU_TOP muxes */
-+#define CLK_MOUT_PLL_SHARED0		4
-+#define CLK_MOUT_PLL_SHARED1		5
-+#define CLK_MOUT_PLL_MMC		6
-+#define CLK_MOUT_CMU_APM_BUS		7
-+#define CLK_MOUT_CMU_CAM_BUS		8
-+#define CLK_MOUT_CMU_CIS_CLK0		9
-+#define CLK_MOUT_CMU_CIS_CLK1		10
-+#define CLK_MOUT_CMU_CIS_CLK2		11
-+#define CLK_MOUT_CMU_CIS_CLK3		12
-+#define CLK_MOUT_CMU_CORE_BUS		13
-+#define CLK_MOUT_CMU_CORE_CCI		14
-+#define CLK_MOUT_CMU_CORE_G3D		15
-+#define CLK_MOUT_CMU_CPUCL0_DBG		16
-+#define CLK_MOUT_CMU_CPUCL0_SWITCH	17
-+#define CLK_MOUT_CMU_CPUCL1_SWITCH	18
-+#define CLK_MOUT_CMU_DISPAUD_AUD	19
-+#define CLK_MOUT_CMU_DISPAUD_CPU	20
-+#define CLK_MOUT_CMU_DISPAUD_DISP	21
-+#define CLK_MOUT_CMU_FSYS_BUS		22
-+#define CLK_MOUT_CMU_FSYS_MMC_CARD	23
-+#define CLK_MOUT_CMU_FSYS_MMC_EMBD	24
-+#define CLK_MOUT_CMU_FSYS_UFS_EMBD	25
-+#define CLK_MOUT_CMU_G2D_G2D		26
-+#define CLK_MOUT_CMU_G2D_MSCL		27
-+#define CLK_MOUT_CMU_G3D_SWITCH		28
-+#define CLK_MOUT_CMU_HPM		29
-+#define CLK_MOUT_CMU_ISP_BUS		30
-+#define CLK_MOUT_CMU_ISP_GDC		31
-+#define CLK_MOUT_CMU_ISP_VRA		32
-+#define CLK_MOUT_CMU_MFC_MFC		33
-+#define CLK_MOUT_CMU_MFC_WFD		34
-+#define CLK_MOUT_CMU_MIF_BUSP		35
-+#define CLK_MOUT_CMU_MIF_SWITCH		36
-+#define CLK_MOUT_CMU_PERI_BUS		37
-+#define CLK_MOUT_CMU_PERI_IP		38
-+#define CLK_MOUT_CMU_PERI_UART		39
-+#define CLK_MOUT_CMU_USB_BUS		40
-+#define CLK_MOUT_CMU_USB_DPGTC		41
-+#define CLK_MOUT_CMU_USB_USB30DRD	42
-+#define CLK_MOUT_CMU_VIPX1_BUS		43
-+#define CLK_MOUT_CMU_VIPX2_BUS		44
-+#define CLK_MOUT_CLK_CMU_CMUREF		45
-+#define CLK_MOUT_CMU_CMUREF		46
-+
-+/* CMU_TOP dividers */
-+#define CLK_DOUT_CMU_SHARED0_DIV2	47
-+#define CLK_DOUT_CMU_SHARED0_DIV3	48
-+#define CLK_DOUT_CMU_SHARED0_DIV4	49
-+#define CLK_DOUT_CMU_SHARED1_DIV2	50
-+#define CLK_DOUT_CMU_SHARED1_DIV3	51
-+#define CLK_DOUT_CMU_SHARED1_DIV4	52
-+#define CLK_DOUT_CMU_MMC_DIV2		53
-+#define CLK_DOUT_AP2CP_SHARED0_PLL_CLK	54
-+#define CLK_DOUT_AP2CP_SHARED1_PLL_CLK	55
-+#define CLK_DOUT_CMU_APM_BUS		56
-+#define CLK_DOUT_CMU_CAM_BUS		57
-+#define CLK_DOUT_CMU_CIS_CLK0		58
-+#define CLK_DOUT_CMU_CIS_CLK1		59
-+#define CLK_DOUT_CMU_CIS_CLK2		60
-+#define CLK_DOUT_CMU_CIS_CLK3		61
-+#define CLK_DOUT_CMU_CORE_BUS		62
-+#define CLK_DOUT_CMU_CORE_CCI		63
-+#define CLK_DOUT_CMU_CORE_G3D		64
-+#define CLK_DOUT_CMU_CPUCL0_DBG		65
-+#define CLK_DOUT_CMU_CPUCL0_SWITCH	66
-+#define CLK_DOUT_CMU_CPUCL1_SWITCH	67
-+#define CLK_DOUT_CMU_DISPAUD_AUD	68
-+#define CLK_DOUT_CMU_DISPAUD_CPU	69
-+#define CLK_DOUT_CMU_DISPAUD_DISP	70
-+#define CLK_DOUT_CMU_FSYS_BUS		71
-+#define CLK_DOUT_CMU_FSYS_MMC_CARD	72
-+#define CLK_DOUT_CMU_FSYS_MMC_EMBD	73
-+#define CLK_DOUT_CMU_FSYS_UFS_EMBD	74
-+#define CLK_DOUT_CMU_G2D_G2D		75
-+#define CLK_DOUT_CMU_G2D_MSCL		76
-+#define CLK_DOUT_CMU_G3D_SWITCH		77
-+#define CLK_DOUT_CMU_HPM		78
-+#define CLK_DOUT_CMU_ISP_BUS		79
-+#define CLK_DOUT_CMU_ISP_GDC		80
-+#define CLK_DOUT_CMU_ISP_VRA		81
-+#define CLK_DOUT_CMU_MFD_MFC		82
-+#define CLK_DOUT_CMU_MFD_WFD		83
-+#define CLK_DOUT_CMU_MIF_BUSP		84
-+#define CLK_DOUT_CMU_PERI_BUS		85
-+#define CLK_DOUT_CMU_PERI_IP		86
-+#define CLK_DOUT_CMU_PERI_UART		87
-+#define CLK_DOUT_CMU_USB_BUS		88
-+#define CLK_DOUT_CMU_USB_DPGTC		89
-+#define CLK_DOUT_CMU_USB_USB30DRD	90
-+#define CLK_DOUT_CMU_VIPX1_BUS		91
-+#define CLK_DOUT_CMU_VIPX2_BUS		92
-+#define CLK_DOUT_CLK_CMU_CMUREF		93
-+#define CLK_DOUT_CMU_OTP		94
-+
-+/* CMU_TOP gates */
-+#define CLK_GOUT_CMU_MIF_SWITCH		95
-+#define CLK_GOUT_CLK_CMU_OTP_CLK	96
-+#define CLK_GOUT_CMU_APM_BUS		97
-+#define CLK_GOUT_CMU_CAM_BUS		98
-+#define CLK_GOUT_CMU_CIS_CLK0		99
-+#define CLK_GOUT_CMU_CIS_CLK1		100
-+#define CLK_GOUT_CMU_CIS_CLK2		101
-+#define CLK_GOUT_CMU_CIS_CLK3		102
-+#define CLK_GOUT_CMU_CORE_BUS		103
-+#define CLK_GOUT_CMU_CORE_CCI		104
-+#define CLK_GOUT_CMU_CORE_G3D		105
-+#define CLK_GOUT_CMU_CPUCL0_DBG		106
-+#define CLK_GOUT_CMU_CPUCL0_SWITCH	107
-+#define CLK_GOUT_CMU_CPUCL1_SWITCH	108
-+#define CLK_GOUT_CMU_DISPAUD_AUD	109
-+#define CLK_GOUT_CMU_DISPAUD_CPU	110
-+#define CLK_GOUT_CMU_DISPAUD_DISP	111
-+#define CLK_GOUT_CMU_FSYS_BUS		112
-+#define CLK_GOUT_CMU_FSYS_MMC_CARD	113
-+#define CLK_GOUT_CMU_FSYS_MMC_EMBD	114
-+#define CLK_GOUT_CMU_FSYS_UFS_EMBD	115
-+#define CLK_GOUT_CMU_G2D_G2D		116
-+#define CLK_GOUT_CMU_G2D_MSCL		117
-+#define CLK_GOUT_CMU_G3D_SWITCH		118
-+#define CLK_GOUT_CMU_HPM		119
-+#define CLK_GOUT_CMU_ISP_BUS		120
-+#define CLK_GOUT_CMU_ISP_GDC		121
-+#define CLK_GOUT_CMU_ISP_VRA		122
-+#define CLK_GOUT_CMU_MFC_MFC		123
-+#define CLK_GOUT_CMU_MFC_WFD		124
-+#define CLK_GOUT_CMU_MIF_BUSP		125
-+#define CLK_GOUT_CMU_MODEM_SHARED0	126
-+#define CLK_GOUT_CMU_MODEM_SHARED1	127
-+#define CLK_GOUT_CMU_PERI_BUS		128
-+#define CLK_GOUT_CMU_PERI_IP		129
-+#define CLK_GOUT_CMU_PERI_UART		130
-+#define CLK_GOUT_CMU_USB_BUS		131
-+#define CLK_GOUT_CMU_USB_DPGTC		132
-+#define CLK_GOUT_CMU_USB_USB30DRD	133
-+#define CLK_GOUT_CMU_VIPX1_BUS		134
-+#define CLK_GOUT_CMU_VIPX2_BUS		135
-+
-+/* CMU_APM muxes */
-+#define CLK_MOUT_PLL_APM_BUS_USER		1
-+#define CLK_MOUT_PLL_DLL_USER			2
-+#define CLK_MOUT_CMU_SHUB_BUS			3
-+#define CLK_MOUT_CLK_APM_BUS			4
-+
-+/* CMU_APM dividers */
-+#define CLK_DOUT_CMU_SHUB_BUS			5
-+#define CLK_DOUT_CLK_APM_BUS			6
-+
-+/* CPU_APM gates */
-+#define CLK_GOUT_CMU_CMGP_BUS			7
-+#define CLK_GOUT_CLK_APM_CMU_PCLK		8
-+#define CLK_GOUT_CLK_APM_OSCCLK_CLK		9
-+#define CLK_GOUT_CLK_APM_OSCCLK_RCO_CLK		10
-+#define CLK_GOUT_APM_APBIF_GPIO_ALIVE_PCLK	11
-+#define CLK_GOUT_APM_APBIF_PMU_ALIVE_PCLK	12
-+#define CLK_GOUT_APM_APBIF_RTC_ALIVE_PCLK	13
-+#define CLK_GOUT_APM_APBIF_TOP_RTC_ALIVE_PCLK	14
-+#define CLK_GOUT_APM_GREBEINTEGRATION_HCLK	15
-+#define CLK_GOUT_APM_INTMEM_ACLK		16
-+#define CLK_GOUT_APM_INTMEM_PCLK		17
-+#define CLK_GOUT_APM_LHM_AXI_P_GNSS_CLK		18
-+#define CLK_GOUT_APM_LHM_AXI_P_CLK		19
-+#define CLK_GOUT_APM_LHM_AXI_P_MODEM_CLK	20
-+#define CLK_GOUT_APM_LHM_AXI_P_SHUB_CLK		21
-+#define CLK_GOUT_APM_LHM_AXI_P_WLBT_CLK		22
-+#define CLK_GOUT_APM_LHS_AXI_D_CLK		23
-+#define CLK_GOUT_APM_LHS_AXI_LP_SHUB_CLK	24
-+#define CLK_GOUT_APM_MAILBOX_AP2CP_PCLK		25
-+#define CLK_GOUT_APM_MAILBOX_AP2CP_S_PCLK	26
-+#define CLK_GOUT_APM_MAILBOX_AP2GNSS_PCLK	27
-+#define CLK_GOUT_APM_MAILBOX_AP2SHUB_PCLK	28
-+#define CLK_GOUT_APM_MAILBOX_AP2WLBT_PCLK	29
-+#define CLK_GOUT_APM_MAILBOX_APM2AP_PCLK	30
-+#define CLK_GOUT_APM_MAILBOX_APM2CP_PCLK	31
-+#define CLK_GOUT_APM_MAILBOX_APM2GNSS_PCLK	32
-+#define CLK_GOUT_APM_MAILBOX_APM2SHUB_PCLK	33
-+#define CLK_GOUT_APM_MAILBOX_APM2WLBT_PCLK	34
-+#define CLK_GOUT_APM_MAILBOX_CP2GNSS_PCLK	35
-+#define CLK_GOUT_APM_MAILBOX_CP2SHUB_PCLK	36
-+#define CLK_GOUT_APM_MAILBOX_CP2WLBT_PCLK	37
-+#define CLK_GOUT_APM_MAILBOX_SHUB2GNSS_PCLK	38
-+#define CLK_GOUT_APM_MAILBOX_SHUB2WLBT_PCLK	39
-+#define CLK_GOUT_APM_MAILBOX_WLBT2ABOX_PCLK	40
-+#define CLK_GOUT_APM_MAILBOX_WLBT2GNSS_PCLK	41
-+#define CLK_GOUT_APM_PEM_CLK			42
-+#define CLK_GOUT_APM_PGEN_LITE_CLK		43
-+#define CLK_GOUT_APM_PMU_INTR_GEN_PCLK		44
-+#define CLK_GOUT_APM_BUS_CLK			45
-+#define CLK_GOUT_APM_GREBE_CLK			46
-+#define CLK_GOUT_APM_SPEEDY_PCLK		47
-+#define CLK_GOUT_APM_SYSREG_PCLK		48
-+#define CLK_GOUT_APM_WDT_PCLK			49
-+#define CLK_GOUT_APM_XIU_DP_ACLK		50
-+
-+/* CMU_CAM muxes */
-+#define CLK_MOUT_PLL_CAM_BUS_USER			1
-+
-+/* CMU_CAM dividers */
-+#define CLK_DIV_CLK_CAM_BUSP				2
-+
-+/* CMU_CAM gates */
-+#define CLK_GAT_CLK_CAM_CMU_PCLK			3
-+#define CLK_GAT_CLK_CAM_OSCCLK_CLK			4
-+#define CLK_GOUT_CAM_BUSD				5
-+#define CLK_GOUT_CAM_BTM_ACLK				6
-+#define CLK_GOUT_CAM_BTM_PCLK				7
-+#define CLK_GOUT_CAM_LHS_ATB_CAMISP_CLK			8
-+#define CLK_GOUT_CAM_IS6P10P0_ACLK_3AA			9
-+#define CLK_GOUT_CAM_IS6P10P0_ACLK_CSIS0		10
-+#define CLK_GOUT_CAM_IS6P10P0_ACLK_CSIS1		11
-+#define CLK_GOUT_CAM_IS6P10P0_ACLK_CSIS2		12
-+#define CLK_GOUT_CAM_IS6P10P0_ACLK_CSIS3		13
-+#define CLK_GOUT_CAM_IS6P10P0_ACLK_RDMA			14
-+#define CLK_GOUT_CAM_IS6P10P0_ACLK_GLUE_CSIS0		15
-+#define CLK_GOUT_CAM_IS6P10P0_ACLK_GLUE_CSIS1		16
-+#define CLK_GOUT_CAM_IS6P10P0_ACLK_GLUE_CSIS2		17
-+#define CLK_GOUT_CAM_IS6P10P0_ACLK_GLUE_CSIS3		18
-+#define CLK_GOUT_CAM_IS6P10P0_ACLK_PAFSTAT_CORE		19
-+#define CLK_GOUT_CAM_IS6P10P0_ACLK_PPMU_CAM		20
-+#define CLK_GOUT_CAM_IS6P10P0_ACLK_DMA			21
-+#define CLK_GOUT_CAM_IS6P10P0_ACLK_SMMU_CAM		22
-+#define CLK_GOUT_CAM_IS6P10P0_ACLK_XIU_D_CAM		23
-+#define CLK_GOUT_CAM_IS6P10P0_PCLK_PGEN_LITE_CAM0	24
-+#define CLK_GOUT_CAM_IS6P10P0_PCLK_PGEN_LITE_CAM1	25
-+#define CLK_GOUT_CAM_IS6P10P0_PCLK_PPMU_CAM		26
-+#define CLK_GOUT_CAM_LHM_AXI_P_CLK			27
-+#define CLK_GOUT_CAM_LHS_ACEL_D_CLK			28
-+#define CLK_GOUT_CAM_BUSD_CLK				29
-+#define CLK_GOUT_CAM_BUSP_CLK				30
-+#define CLK_GOUT_CAM_SYSREG_PCLK			31
-+
-+/* CMU_CMGP muxes */
-+#define CLK_MOUT_CLK_CMGP_ADC			0
-+#define CLK_MOUT_CLK_CMGP_I2C			1
-+#define CLK_MOUT_CLK_CMGP_USI00			2
-+#define CLK_MOUT_CLK_CMGP_USI01			3
-+#define CLK_MOUT_CLK_CMGP_USI02			4
-+#define CLK_MOUT_CLK_CMGP_USI03			5
-+#define CLK_MOUT_CLK_CMGP_USI04			6
-+
-+/* CMU_CMGP dividers */
-+#define CLK_DOUT_CLK_CMGP_ADC			0
-+#define CLK_DOUT_CLK_CMGP_I2C			1
-+#define CLK_DOUT_CLK_CMGP_USI00			2
-+#define CLK_DOUT_CLK_CMGP_USI01			3
-+#define CLK_DOUT_CLK_CMGP_USI02			4
-+#define CLK_DOUT_CLK_CMGP_USI03			5
-+#define CLK_DOUT_CLK_CMGP_USI04			6
-+
-+/* CMU_CMGP gates */
-+#define CLK_GOUT_CMGP_CMU_PCLK			7
-+#define CLK_GOUT_CLK_CMGP_OSCCLK_RCO_CLK	8
-+#define CLK_GOUT_CMGP_ADC_PCLK_S0		9
-+#define CLK_GOUT_CMGP_ADC_PCLK_S1		10
-+#define CLK_GOUT_CMGP_GPIO_PCLK			11
-+#define CLK_GOUT_CMGP_I2C_CMGP00_IPCLK		12
-+#define CLK_GOUT_CMGP_I2C_CMGP00_PCLK		13
-+#define CLK_GOUT_CMGP_I2C_CMGP01_IPCLK		14
-+#define CLK_GOUT_CMGP_I2C_CMGP01_PCLK		15
-+#define CLK_GOUT_CMGP_I2C_CMGP02_IPCLK		16
-+#define CLK_GOUT_CMGP_I2C_CMGP02_PCLK		17
-+#define CLK_GOUT_CMGP_I2C_CMGP03_IPCLK		18
-+#define CLK_GOUT_CMGP_I2C_CMGP03_PCLK		19
-+#define CLK_GOUT_CMGP_I2C_CMGP04_IPCLK		20
-+#define CLK_GOUT_CMGP_I2C_CMGP04_PCLK		21
-+#define CLK_GOUT_CMGP_BUS_CLK			22
-+#define CLK_GOUT_CMGP_I2C_CLK			23
-+#define CLK_GOUT_CMGP_USI00_CLK			24
-+#define CLK_GOUT_CMGP_USI01_CLK			25
-+#define CLK_GOUT_CMGP_USI02_CLK			26
-+#define CLK_GOUT_CMGP_USI03_CLK			27
-+#define CLK_GOUT_CMGP_USI04_CLK			28
-+#define CLK_GOUT_CMGP_SYSREG_CMGP2CP_PCLK	29
-+#define CLK_GOUT_CMGP_SYSREG_CMGP2GNSS_PCLK	30
-+#define CLK_GOUT_CMGP_SYSREG_CMGP2PMU_AP_PCLK	31
-+#define CLK_GOUT_CMGP_SYSREG_CMGP2PMU_SHUB_PCLK	32
-+#define CLK_GOUT_CMGP_SYSREG_CMGP2SHUB_PCLK	33
-+#define CLK_GOUT_CMGP_SYSREG_CMGP2WLBT_PCLK	34
-+#define CLK_GOUT_CMGP_SYSREG_PCLK		35
-+#define CLK_GOUT_CMGP_USI_CMGP00_IPCLK		36
-+#define CLK_GOUT_CMGP_USI_CMGP00_PCLK		37
-+#define CLK_GOUT_CMGP_USI_CMGP01_IPCLK		38
-+#define CLK_GOUT_CMGP_USI_CMGP01_PCLK		39
-+#define CLK_GOUT_CMGP_USI_CMGP02_IPCLK		40
-+#define CLK_GOUT_CMGP_USI_CMGP02_PCLK		41
-+#define CLK_GOUT_CMGP_USI_CMGP03_IPCLK		42
-+#define CLK_GOUT_CMGP_USI_CMGP03_PCLK		43
-+#define CLK_GOUT_CMGP_USI_CMGP04_IPCLK		44
-+#define CLK_GOUT_CMGP_USI_CMGP04_PCLK		45
-+
-+/* CMU_CORE muxes */
-+#define CLK_MOUT_PLL_CORE_BUS_USER			1
-+#define CLK_MOUT_PLL_CORE_CCI_USER			2
-+#define CLK_MOUT_PLL_CORE_G3D_USER			3
-+#define CLK_MOUT_CLK_CORE_GIC				4
-+
-+/* CMU_CORE dividers */
-+#define CLK_DOUT_CLK_CORE_BUSP				5
-+
-+/* CMU_CORE gates */
-+#define CLK_GOUT_CLK_CORE_CMU_PCLK			6
-+#define CLK_GOUT_CORE_AD_APB_CCI_550_PCLKM		7
-+#define CLK_GOUT_CORE_AD_APB_DIT_PCLKM			8
-+#define CLK_GOUT_CORE_AD_APB_PDMA0_PCLKM		9
-+#define CLK_GOUT_CORE_AD_APB_PGEN_PDMA_PCLKM		10
-+#define CLK_GOUT_CORE_AD_APB_PPFW_MEM0_PCLKM		11
-+#define CLK_GOUT_CORE_AD_APB_PPFW_MEM1_PCLKM		12
-+#define CLK_GOUT_CORE_AD_APB_PPFW_PERI_PCLKM		13
-+#define CLK_GOUT_CORE_AD_APB_SPDMA_PCLKM		14
-+#define CLK_GOUT_CORE_AD_AXI_GIC_ACLKM			15
-+#define CLK_GOUT_CORE_ASYNCSFR_WR_DMC0_PCLK		16
-+#define CLK_GOUT_CORE_ASYNCSFR_WR_DMC1_PCLK		17
-+#define CLK_GOUT_CORE_AXI_US_A40_64TO128_DIT_ACLK	18
-+#define CLK_GOUT_CORE_BAAW_P_GNSS_PCLK			19
-+#define CLK_GOUT_CORE_BAAW_P_MODEM_PCLK			20
-+#define CLK_GOUT_CORE_BAAW_P_SHUB_PCLK			21
-+#define CLK_GOUT_CORE_BAAW_P_WLBT_PCLK			22
-+#define CLK_GOUT_CORE_CCI_550_ACLK			23
-+#define CLK_GOUT_CORE_DIT_ICLKL2A			24
-+#define CLK_GOUT_CORE_GIC400_AIHWACG_CLK		25
-+#define CLK_GOUT_CORE_LHM_ACEL_D0_ISP_CLK		26
-+#define CLK_GOUT_CORE_LHM_ACEL_D0_MFC_CLK		27
-+#define CLK_GOUT_CORE_LHM_ACEL_D1_ISP_CLK		28
-+#define CLK_GOUT_CORE_LHM_ACEL_D1_MFC_CLK		29
-+#define CLK_GOUT_CORE_LHM_ACEL_D_CAM_CLK		30
-+#define CLK_GOUT_CORE_LHM_ACEL_D_DPU_CLK		31
-+#define CLK_GOUT_CORE_LHM_ACEL_D_FSYS_CLK		32
-+#define CLK_GOUT_CORE_LHM_ACEL_D_G2D_CLK		33
-+#define CLK_GOUT_CORE_LHM_ACEL_D_USB_CLK		34
-+#define CLK_GOUT_CORE_LHM_ACEL_D_VIPX1_CLK		35
-+#define CLK_GOUT_CORE_LHM_ACEL_D_VIPX2_CLK		36
-+#define CLK_GOUT_CORE_LHM_ACE_D_CPUCL0_CLK		37
-+#define CLK_GOUT_CORE_LHM_ACE_D_CPUCL1_CLK		38
-+#define CLK_GOUT_CORE_LHM_AXI_D0_MODEM_CLK		39
-+#define CLK_GOUT_CORE_LHM_AXI_D1_MODEM_CLK		40
-+#define CLK_GOUT_CORE_LHM_AXI_D_ABOX_CLK		41
-+#define CLK_GOUT_CORE_LHM_AXI_D_APM_CLK			42
-+#define CLK_GOUT_CORE_LHM_AXI_D_CSSYS_CLK		43
-+#define CLK_GOUT_CORE_LHM_AXI_D_G3D_CLK			44
-+#define CLK_GOUT_CORE_LHM_AXI_D_GNSS_CLK		45
-+#define CLK_GOUT_CORE_LHM_AXI_D_SHUB_CLK		46
-+#define CLK_GOUT_CORE_LHM_AXI_D_WLBT_CLK		47
-+#define CLK_GOUT_CORE_LHS_AXI_D0_MIF_CPU_CLK		48
-+#define CLK_GOUT_CORE_LHS_AXI_D0_MIF_CP_CLK		49
-+#define CLK_GOUT_CORE_LHS_AXI_D0_MIF_NRT_CLK		50
-+#define CLK_GOUT_CORE_LHS_AXI_D0_MIF_RT_CLK		51
-+#define CLK_GOUT_CORE_LHS_AXI_D1_MIF_CPU_CLK		52
-+#define CLK_GOUT_CORE_LHS_AXI_D1_MIF_CP_CLK		53
-+#define CLK_GOUT_CORE_LHS_AXI_D1_MIF_NRT_CLK		54
-+#define CLK_GOUT_CORE_LHS_AXI_D1_MIF_RT_CLK		55
-+#define CLK_GOUT_CORE_LHS_AXI_P_APM_CLK			56
-+#define CLK_GOUT_CORE_LHS_AXI_P_CAM_CLK			57
-+#define CLK_GOUT_CORE_LHS_AXI_P_CPUCL0_CLK		58
-+#define CLK_GOUT_CORE_LHS_AXI_P_CPUCL1_CLK		59
-+#define CLK_GOUT_CORE_LHS_AXI_P_DISPAUD_CLK		60
-+#define CLK_GOUT_CORE_LHS_AXI_P_FSYS_CLK		61
-+#define CLK_GOUT_CORE_LHS_AXI_P_G2D_CLK			62
-+#define CLK_GOUT_CORE_LHS_AXI_P_G3D_CLK			63
-+#define CLK_GOUT_CORE_LHS_AXI_P_GNSS_CLK		64
-+#define CLK_GOUT_CORE_LHS_AXI_P_ISP_CLK			65
-+#define CLK_GOUT_CORE_LHS_AXI_P_MFC_CLK			66
-+#define CLK_GOUT_CORE_LHS_AXI_P_MIF0_CLK		67
-+#define CLK_GOUT_CORE_LHS_AXI_P_MIF1_CLK		68
-+#define CLK_GOUT_CORE_LHS_AXI_P_MODEM_CLK		69
-+#define CLK_GOUT_CORE_LHS_AXI_P_PERI_CLK		70
-+#define CLK_GOUT_CORE_LHS_AXI_P_SHUB_CLK		71
-+#define CLK_GOUT_CORE_LHS_AXI_P_USB_CLK			72
-+#define CLK_GOUT_CORE_LHS_AXI_P_VIPX1_CLK		73
-+#define CLK_GOUT_CORE_LHS_AXI_P_VIPX2_CLK		74
-+#define CLK_GOUT_CORE_LHS_AXI_P_WLBT_CLK		75
-+#define CLK_GOUT_CORE_PDMA_CORE_ACLK_PDMA0		76
-+#define CLK_GOUT_CORE_PGEN_LITE_SIREX_CLK		77
-+#define CLK_GOUT_CORE_PGEN_PDMA_CLK			78
-+#define CLK_GOUT_CORE_PPCFW_G3D_ACLK			79
-+#define CLK_GOUT_CORE_PPCFW_G3D_PCLK			80
-+#define CLK_GOUT_CORE_PPFW_CORE_MEM0_CLK		81
-+#define CLK_GOUT_CORE_PPFW_CORE_MEM1_CLK		82
-+#define CLK_GOUT_CORE_PPFW_CORE_PERI_CLK		83
-+#define CLK_GOUT_CORE_PPMU_ACE_CPUCL0_ACLK		84
-+#define CLK_GOUT_CORE_PPMU_ACE_CPUCL0_PCLK		85
-+#define CLK_GOUT_CORE_PPMU_ACE_CPUCL1_ACLK		86
-+#define CLK_GOUT_CORE_PPMU_ACE_CPUCL1_PCLK		87
-+#define CLK_GOUT_CORE_BUSD_CLK				88
-+#define CLK_GOUT_CORE_BUSP_G3D_OCC_CLK			89
-+#define CLK_GOUT_CORE_BUSP_CLK				90
-+#define CLK_GOUT_CORE_BUSP_OCC_CLK			91
-+#define CLK_GOUT_CORE_CCI_CLK				92
-+#define CLK_GOUT_CORE_CCI_OCC_CLK			93
-+#define CLK_GOUT_CORE_G3D_CLK				94
-+#define CLK_GOUT_CORE_G3D_OCC_CLK			95
-+#define CLK_GOUT_CORE_GIC_CLK				96
-+#define CLK_GOUT_CORE_OSCCLK_CLK			97
-+#define CLK_GOUT_CORE_SFR_APBIF_CMU_TOPC_PCLK		98
-+#define CLK_GOUT_CORE_SIREX_ACLK			99
-+#define CLK_GOUT_CORE_SIREX_PCLK			100
-+#define CLK_GOUT_CORE_SPDMA_CORE_ACLK_PDMA1		101
-+#define CLK_GOUT_CORE_SYSREG_PCLK			102
-+#define CLK_GOUT_CORE_TREX_D_ACLK			103
-+#define CLK_GOUT_CORE_TREX_D_CCLK			104
-+#define CLK_GOUT_CORE_TREX_D_GCLK			105
-+#define CLK_GOUT_CORE_TREX_D_PCLK			106
-+#define CLK_GOUT_CORE_TREX_D_NRT_ACLK			107
-+#define CLK_GOUT_CORE_TREX_D_NRT_PCLK			108
-+#define CLK_GOUT_CORE_TREX_P_ACLK_P_CORE		109
-+#define CLK_GOUT_CORE_TREX_P_CCLK_P_CORE		110
-+#define CLK_GOUT_CORE_TREX_P_PCLK			111
-+#define CLK_GOUT_CORE_TREX_P_PCLK_P_CORE		112
-+#define CLK_GOUT_CORE_XIU_D_ACLK			113
-+
-+/* CMU_CPUCL0 PLLs */
-+#define CLK_FOUT_CPUCL0_PLL				1
-+
-+/* CMU_CPUCL0 muxes */
-+#define CLK_MOUT_PLL_CPUCL0_DBG_USER			2
-+#define CLK_MOUT_PLL_CPUCL0_SWITCH_USER			3
-+#define CLK_MOUT_CLK_CPUCL0_PLL				4
-+
-+/* CMU_CPUCL0 dividers */
-+#define CLK_DOUT_CLK_CLUSTER0_ACLK			5
-+#define CLK_DOUT_CLK_CLUSTER0_CNTCLK			6
-+#define CLK_DOUT_CLK_CLUSTER0_PCLKDBG			7
-+#define CLK_DOUT_CLK_CPUCL0_CMUREF			8
-+#define CLK_DOUT_CLK_CPUCL0_CPU				9
-+#define CLK_DOUT_CLK_CPUCL0_PCLK			10
-+
-+/* CMU_CPUCL0 gates */
-+#define CLK_GOUT_CLK_CPUCL0_CMU_PCLK			11
-+#define CLK_GOUT_CLK_CPUCL0_HPM_TARGETCLK_C		12
-+#define CLK_GOUT_CLK_CPUCL0_OSCCLK_CLK			13
-+#define CLK_GOUT_CLK_CLUSTER0_CPU			14
-+#define CLK_GOUT_CPUCL0_ADM_APB_G_CSSYS_CORE_PCLKM	15
-+#define CLK_GOUT_CPUCL0_ADS_AHB_G_CSSYS_FSYS_HCLKS	16
-+#define CLK_GOUT_CPUCL0_ADS_APB_G_CSSYS_CPUCL1_PCLKS	17
-+#define CLK_GOUT_CPUCL0_ADS_APB_G_P8Q_PCLKS		18
-+#define CLK_GOUT_CPUCL0_AD_APB_P_DUMP_PC_CPUCL0_PCLKM	19
-+#define CLK_GOUT_CPUCL0_AD_APB_P_DUMP_PC_CPUCL1_PCLKM	20
-+#define CLK_GOUT_CPUCL0_BUSIF_HPMCPUCL0_PCLK		21
-+#define CLK_GOUT_CPUCL0_CSSYS_DBG_PCLKDBG		22
-+#define CLK_GOUT_CPUCL0_DUMP_PC_CPUCL0_PCLK		23
-+#define CLK_GOUT_CPUCL0_DUMP_PC_CPUCL1_PCLK		24
-+#define CLK_GOUT_CPUCL0_LHM_AXI_P_CPUCL0_CLK		25
-+#define CLK_GOUT_CPUCL0_LHS_AXI_D_CSSYS_CLK		26
-+#define CLK_GOUT_CPUCL0_DBG_CLK				27
-+#define CLK_GOUT_CPUCL0_PCLK_CLK			28
-+#define CLK_GOUT_CPUCL0_SECJTAG_CLK			29
-+#define CLK_GOUT_CPUCL0_SYSREG_PCLK			30
-+
-+/* CMU_DISPAUD PLLs */
-+#define CLK_FOUT_AUD_PLL				1
-+
-+/* CMU_DISPAUD muxes */
-+#define CLK_MOUT_PLL_DISPAUD_AUD_USER			2
-+#define CLK_MOUT_PLL_DISPAUD_CPU_USER			3
-+#define CLK_MOUT_PLL_DISPAUD_DISP_USER			4
-+#define CLK_MOUT_CLK_AUD_BUS				5
-+#define CLK_MOUT_CLK_AUD_CPU				6
-+#define CLK_MOUT_CLK_AUD_CPU_HCH			7
-+#define CLK_MOUT_CLK_AUD_FM				8
-+#define CLK_MOUT_CLK_AUD_UAIF0				9
-+#define CLK_MOUT_CLK_AUD_UAIF1				10
-+#define CLK_MOUT_CLK_AUD_UAIF2				11
-+
-+/* CMU_DISPAUD dividers */
-+#define CLK_DOUT_CLK_AUD_AUDIF				12
-+#define CLK_DOUT_CLK_AUD_BUS				13
-+#define CLK_DOUT_CLK_AUD_CPU				14
-+#define CLK_DOUT_CLK_AUD_CPU_ACLK			15
-+#define CLK_DOUT_CLK_AUD_CPU_PCLKDBG			16
-+#define CLK_DOUT_CLK_AUD_DSIF				17
-+#define CLK_DOUT_CLK_AUD_FM				18
-+#define CLK_DOUT_CLK_AUD_FM_SPDY			19
-+#define CLK_DOUT_CLK_AUD_UAIF0				20
-+#define CLK_DOUT_CLK_AUD_UAIF1				21
-+#define CLK_DOUT_CLK_AUD_UAIF2				22
-+#define CLK_DOUT_CLK_DISPAUD_BUSP			23
-+
-+/* CMU_DISPAUD gates */
-+#define CLK_GOUT_CLK_DISPAUD_ABOX_BCLK_UAIF0		24
-+#define CLK_GOUT_CLK_DISPAUD_ABOX_BCLK_UAIF1		25
-+#define CLK_GOUT_CLK_DISPAUD_ABOX_BCLK_UAIF2		26
-+#define CLK_GOUT_CLK_DISPAUD_CMU_PCLK			27
-+#define CLK_GOUT_CLK_DISPAUD_CLK_AUD_UAIF0_CLK		28
-+#define CLK_GOUT_CLK_DISPAUD_CLK_AUD_UAIF1_CLK		29
-+#define CLK_GOUT_CLK_DISPAUD_CLK_AUD_UAIF2_CLK		30
-+#define CLK_GOUT_CLK_DISPAUD_OSCCLK_CLK			31
-+#define CLK_GOUT_DISPAUD_ABOX_ACLK			32
-+#define CLK_GOUT_DISPAUD_ABOX_BCLK_DSIF			33
-+#define CLK_GOUT_DISPAUD_ABOX_BCLK_SPDY			34
-+#define CLK_GOUT_DISPAUD_ABOX_CCLK_ASB			35
-+#define CLK_GOUT_DISPAUD_ABOX_CCLK_CA7			36
-+#define CLK_GOUT_DISPAUD_ABOX_CCLK_DBG			37
-+#define CLK_GOUT_DISPAUD_ABOX_OSC_SPDY			38
-+#define CLK_GOUT_DISPAUD_AXI_US_32TO128_ACLK		39
-+#define CLK_GOUT_DISPAUD_CLK_DISPAUD_AUD		40
-+#define CLK_GOUT_DISPAUD_CLK_DISPAUD_DISP		41
-+#define CLK_GOUT_DISPAUD_BTM_ABOX_ACLK			42
-+#define CLK_GOUT_DISPAUD_BTM_ABOX_PCLK			43
-+#define CLK_GOUT_DISPAUD_BTM_DPU_ACLK			44
-+#define CLK_GOUT_DISPAUD_BTM_DPU_PCLK			45
-+#define CLK_GOUT_DISPAUD_DFTMUX_AUD_CODEC_MCLK		46
-+#define CLK_GOUT_DISPAUD_DPU_ACLK_DECON			47
-+#define CLK_GOUT_DISPAUD_DPU_ACLK_DMA			48
-+#define CLK_GOUT_DISPAUD_DPU_ACLK_DPP			49
-+#define CLK_GOUT_DISPAUD_GPIO_DISPAUD_PCLK		50
-+#define CLK_GOUT_DISPAUD_LHM_AXI_P_DISPAUD_CLK		51
-+#define CLK_GOUT_DISPAUD_LHS_ACEL_D_DPU_CLK		52
-+#define CLK_GOUT_DISPAUD_LHS_AXI_D_ABOX_CLK		53
-+#define CLK_GOUT_DISPAUD_PERI_AXI_ASB_ACLKM		54
-+#define CLK_GOUT_DISPAUD_PERI_AXI_ASB_PCLK		55
-+#define CLK_GOUT_DISPAUD_PPMU_ABOX_ACLK			56
-+#define CLK_GOUT_DISPAUD_PPMU_ABOX_PCLK			57
-+#define CLK_GOUT_DISPAUD_PPMU_DPU_ACLK			58
-+#define CLK_GOUT_DISPAUD_PPMU_DPU_PCLK			59
-+#define CLK_GOUT_DISPAUD_CLK_AUD_CPU_ACLK_CLK		60
-+#define CLK_GOUT_DISPAUD_CLK_AUD_CPU_CLKIN_CLK		61
-+#define CLK_GOUT_DISPAUD_CLK_AUD_CPU_PCLKDBG_CLK	62
-+#define CLK_GOUT_DISPAUD_CLK_AUD_DSIF_CLK		63
-+#define CLK_GOUT_DISPAUD_CLK_AUD_CLK			64
-+#define CLK_GOUT_DISPAUD_CLK_BUSP_CLK			65
-+#define CLK_GOUT_DISPAUD_CLK_DISP_CLK			66
-+#define CLK_GOUT_DISPAUD_SMMU_ABOX_CLK			67
-+#define CLK_GOUT_DISPAUD_SMMU_DPU_CLK			68
-+#define CLK_GOUT_DISPAUD_SYSREG_PCLK			69
-+#define CLK_GOUT_DISPAUD_WDT_AUD_PCLK			70
-+
-+/* CMU_FSYS muxes */
-+#define CLK_MOUT_PLL_FSYS_BUS_USER		1
-+#define CLK_MOUT_PLL_FSYS_MMC_CARD_USER		2
-+#define CLK_MOUT_PLL_FSYS_MMC_EMBD_USER		3
-+#define CLK_MOUT_PLL_FSYS_UFS_EMBD_USER		4
-+
-+/* CMU_FSYS gates */
-+#define CLK_GOUT_FSYS_CMU_PCLK			5
-+#define CLK_GOUT_FSYS_OSCCLK_CLK		6
-+#define CLK_GOUT_FSYS_ADM_AHB_SSS_HCLKM		7
-+#define CLK_GOUT_FSYS_BTM_ACLK			8
-+#define CLK_GOUT_FSYS_BTM_PCLK			9
-+#define CLK_GOUT_FSYS_GPIO_PCLK			10
-+#define CLK_GOUT_FSYS_LHM_AXI_P_CLK		11
-+#define CLK_GOUT_FSYS_LHS_ACEL_D_CLK		12
-+#define CLK_GOUT_FSYS_MMC_CARD_ACLK		13
-+#define CLK_GOUT_FSYS_MMC_CARD_SDCLKIN		14
-+#define CLK_GOUT_FSYS_MMC_EMBD_ACLK		15
-+#define CLK_GOUT_FSYS_MMC_EMBD_SDCLKIN		16
-+#define CLK_GOUT_FSYS_PGEN_LITE_CLK		17
-+#define CLK_GOUT_FSYS_PPMU_ACLK			18
-+#define CLK_GOUT_FSYS_PPMU_PCLK			19
-+#define CLK_GOUT_FSYS_BUS_CLK			20
-+#define CLK_GOUT_FSYS_SYSREG_PCLK		21
-+#define CLK_GOUT_FSYS_UFS_EMBD_ACLK		22
-+#define CLK_GOUT_FSYS_UFS_EMBD_CLK_UNIPRO	23
-+#define CLK_GOUT_FSYS_UFS_EMBD_FMP_CLK		24
-+#define CLK_GOUT_FSYS_XIU_D_ACLK		25
-+
-+/* CMU_G2D muxes */
-+#define CLK_MOUT_PLL_G2D_G2D_USER	1
-+#define CLK_MOUT_PLL_G2D_MSCL_USER	2
-+
-+/* CMU_G2D dividers */
-+#define CLK_DOUT_CLK_G2D_BUSP		3
-+
-+/* CMU_G2D gates */
-+#define CLK_GOUT_CLK_G2D_CMU_PCLK	4
-+#define CLK_GOUT_CLK_G2D_OSCCLK_CLK	5
-+#define CLK_GOUT_G2D_AS_AXI_JPEG_ACLKM	6
-+#define CLK_GOUT_G2D_AS_AXI_JPEG_ACLKS	7
-+#define CLK_GOUT_G2D_AS_AXI_MSCL_ACLKM	8
-+#define CLK_GOUT_G2D_AS_AXI_MSCL_ACLKS	9
-+#define CLK_GOUT_G2D_CLK_G2D_G2D	10
-+#define CLK_GOUT_G2D_CLK_G2D_MSCL	11
-+#define CLK_GOUT_G2D_BTM_ACLK		12
-+#define CLK_GOUT_G2D_BTM_PCLK		13
-+#define CLK_GOUT_G2D_G2D_ACLK		14
-+#define CLK_GOUT_G2D_JPEG_FIMP_CLK	15
-+#define CLK_GOUT_G2D_LHM_AXI_P_CLK	16
-+#define CLK_GOUT_G2D_LHS_ACEL_D_CLK	17
-+#define CLK_GOUT_G2D_MSCL_ACLK		18
-+#define CLK_GOUT_G2D_PGEN100_LITE_CLK	19
-+#define CLK_GOUT_G2D_PPMU_ACLK		20
-+#define CLK_GOUT_G2D_PPMU_PCLK		21
-+#define CLK_GOUT_G2D_BUSP_CLK		22
-+#define CLK_GOUT_G2D_SYSMMU_CLK		23
-+#define CLK_GOUT_G2D_SYSREG_PCLK	24
-+#define CLK_GOUT_G2D_XIU_D_MSCL_ACLK	25
-+
-+/* CMU_G3D PLLs */
-+#define CLK_FOUT_G3D_PLL			1
-+
-+/* CMU_G3D muxes */
-+#define CLK_MOUT_G3D_SWITCH_USER		2
-+#define CLK_MOUT_CLK_G3D_BUSD			3
-+
-+/* CMU_G3D dividers */
-+#define CLK_DOUT_CLK_G3D_BUSD			4
-+#define CLK_DOUT_CLK_G3D_BUSP			5
-+
-+/* CMU_G3D gates */
-+#define CLK_GOUT_CLK_G3D_CMU_PCLK		6
-+#define CLK_GOUT_CLK_G3D_G3D_CLK		7
-+#define CLK_GOUT_CLK_G3D_HPM_TARGETCLK_C	8
-+#define CLK_GOUT_CLK_G3D_OSCCLK_CLK		9
-+#define CLK_GOUT_G3D_BTM_ACLK			10
-+#define CLK_GOUT_G3D_BTM_PCLK			11
-+#define CLK_GOUT_G3D_BUSIF_HPMG3D_PCLK		12
-+#define CLK_GOUT_G3D_GRAY2BIN_CLK		13
-+#define CLK_GOUT_G3D_LHM_AXI_G3DSFR_CLK		14
-+#define CLK_GOUT_G3D_LHM_AXI_P_CLK		15
-+#define CLK_GOUT_G3D_LHS_AXI_D_CLK		16
-+#define CLK_GOUT_G3D_LHS_AXI_G3DSFR_CLK		17
-+#define CLK_GOUT_G3D_PGEN_LITE_CLK		18
-+#define CLK_GOUT_G3D_BUSD_CLK			19
-+#define CLK_GOUT_G3D_BUSP_CLK			20
-+#define CLK_GOUT_G3D_SYSREG_PCLK		21
-+
-+/* CMU_PERI muxes */
-+#define CLK_MOUT_PLL_PERI_BUS_USER		1
-+#define CLK_MOUT_PLL_PERI_IP_USER		2
-+#define CLK_MOUT_PLL_PERI_UART_USER		3
-+
-+/* CMU_PERI dividers */
-+#define CLK_DOUT_CLK_PERI_I2C			4
-+#define CLK_DOUT_CLK_PERI_SPI0			5
-+#define CLK_DOUT_CLK_PERI_SPI1			6
-+#define CLK_DOUT_CLK_PERI_SPI2			7
-+#define CLK_DOUT_CLK_PERI_USI_I2C		8
-+#define CLK_DOUT_CLK_PERI_USI_USI		9
-+
-+/* CMU_PERI gates */
-+#define CLK_GOUT_CLK_PERI_I2C			10
-+#define CLK_GOUT_CLK_PERI_SPI0			11
-+#define CLK_GOUT_CLK_PERI_SPI1			12
-+#define CLK_GOUT_CLK_PERI_SPI2			13
-+#define CLK_GOUT_CLK_PERI_USI_I2C		14
-+#define CLK_GOUT_CLK_PERI_USI_USI		15
-+#define CLK_GOUT_PERI_AXI2AHB_MSD32_ACLK	16
-+#define CLK_GOUT_PERI_BUSIF_TMU_PCLK		17
-+#define CLK_GOUT_PERI_CAMI2C_0_IPCLK		18
-+#define CLK_GOUT_PERI_CAMI2C_0_PCLK		19
-+#define CLK_GOUT_PERI_CAMI2C_1_IPCLK		20
-+#define CLK_GOUT_PERI_CAMI2C_1_PCLK		21
-+#define CLK_GOUT_PERI_CAMI2C_2_IPCLK		22
-+#define CLK_GOUT_PERI_CAMI2C_2_PCLK		23
-+#define CLK_GOUT_PERI_CAMI2C_3_IPCLK		24
-+#define CLK_GOUT_PERI_CAMI2C_3_PCLK		25
-+#define CLK_GOUT_PERI_I2C_0_PCLK		26
-+#define CLK_GOUT_PERI_I2C_1_PCLK		27
-+#define CLK_GOUT_PERI_I2C_2_PCLK		28
-+#define CLK_GOUT_PERI_I2C_3_PCLK		29
-+#define CLK_GOUT_PERI_I2C_4_PCLK		30
-+#define CLK_GOUT_PERI_I2C_5_PCLK		31
-+#define CLK_GOUT_PERI_I2C_6_PCLK		32
-+#define CLK_GOUT_PERI_GPIO_PCLK			33
-+#define CLK_GOUT_PERI_LHM_AXI_P_CLK		34
-+#define CLK_GOUT_PERI_MCT_PCLK			35
-+#define CLK_GOUT_PERI_OTP_CON_TOP_PCLK		36
-+#define CLK_GOUT_PERI_PWM_MOTOR_PCLK_S0		37
-+#define CLK_GOUT_PERI_BUS_CLK			38
-+#define CLK_GOUT_PERI_I2C_CLK			39
-+#define CLK_GOUT_PERI_SPI_0_CLK			40
-+#define CLK_GOUT_PERI_SPI_1_CLK			41
-+#define CLK_GOUT_PERI_SPI_2_CLK			42
-+#define CLK_GOUT_PERI_UART_CLK			43
-+#define CLK_GOUT_PERI_USI00_I2C_CLK		44
-+#define CLK_GOUT_PERI_USI00_USI_CLK		45
-+#define CLK_GOUT_PERI_SPI_0_PCLK		46
-+#define CLK_GOUT_PERI_SPI_0_IPCLK		47
-+#define CLK_GOUT_PERI_SPI_1_PCLK		48
-+#define CLK_GOUT_PERI_SPI_1_IPCLK		49
-+#define CLK_GOUT_PERI_SPI_2_PCLK		50
-+#define CLK_GOUT_PERI_SPI_2_IPCLK		51
-+#define CLK_GOUT_PERI_SYSREG_PCLK		52
-+#define CLK_GOUT_PERI_UART_IPCLK		53
-+#define CLK_GOUT_PERI_UART_PCLK			54
-+#define CLK_GOUT_PERI_USI00_I2C_IPCLK		55
-+#define CLK_GOUT_PERI_USI00_I2C_PCLK		56
-+#define CLK_GOUT_PERI_USI00_USI_IPCLK		57
-+#define CLK_GOUT_PERI_USI00_USI_PCLK		58
-+#define CLK_GOUT_PERI_WDT_CLUSTER0_PCLK		59
-+#define CLK_GOUT_PERI_WDT_CLUSTER1_PCLK		60
-+
-+/* CMU_USB muxes */
-+#define CLK_MOUT_USB_BUS_USER				1
-+#define CLK_MOUT_USB_DPGTC_USER				2
-+#define CLK_MOUT_USB_USB30DRD_USER			3
-+
-+/* CMU_USB gates */
-+#define CLK_GOUT_CLK_USB_OSCCLK_CLK			4
-+#define CLK_GOUT_CLK_USB_CMU_PCLK			5
-+#define CLK_GOUT_USB_BTM_ACLK				6
-+#define CLK_GOUT_USB_BTM_PCLK				7
-+#define CLK_GOUT_USB_DP_LINK_DPTX_LINK_DT_GTC_CLK	8
-+#define CLK_GOUT_USB_DP_LINK_DPTX_LINK_PCLK		9
-+#define CLK_GOUT_USB_LHM_AXI_P_CLK			10
-+#define CLK_GOUT_USB_LHS_ACEL_D_CLK			11
-+#define CLK_GOUT_USB_PGEN_LITE_CLK			12
-+#define CLK_GOUT_USB_PPMU_ACLK				13
-+#define CLK_GOUT_USB_PPMU_PCLK				14
-+#define CLK_GOUT_USB_BUS_CLK				15
-+#define CLK_GOUT_USB_SYSREG_PCLK			16
-+#define CLK_GOUT_USB_USB30DRD_ACLK_PHYCTRL_20		17
-+#define CLK_GOUT_USB_USB30DRD_ACLK_PHYCTRL_30_0		18
-+#define CLK_GOUT_USB_USB30DRD_ACLK_PHYCTRL_30_1		19
-+#define CLK_GOUT_USB_USB30DRD_BUS_CLK_EARLY		20
-+#define CLK_GOUT_USB_USB30DRD_REF_CLK			21
-+#define CLK_GOUT_USB_US_D_ACLK				22
-+
-+#endif
-
--- 
-2.54.0
 
 
+On 7/16/26 18:40, Bjorn Helgaas wrote:
+> On Thu, Jul 16, 2026 at 02:15:42AM +0000, Hongxing Zhu (OSS) wrote:
+>>> On Mon, Jun 29, 2026 at 11:34:32AM -0300, Leonardo Costa wrote:
+>>>> We are seeing a regression on Apalis iMX6 where the kernel
+>>>> doesn't boot in the newest v7.2-rc1 (it was working before, in
+>>>> v7.1). The device tree being used is the imx6q-apalis-eval.dtb.
+>>>> The kernel configuration
+>>>> used is the one shown below:
+>> ...
+> 
+>>> Can somebody confirm that reverting 610fa91d9863 fixes this
+>>> regression, or at least that 610fa91d9863^ works and 610fa91d9863
+>>> fails?
+>>
+>> Sorry for this severe regression. I have posted a fix that has been
+>> tested on my i.MX6Q SabreSD board:
+>>
+>> https://lore.kernel.org/imx/20260708035928.580236-2-hongxing.zhu@oss.nxp.com/
+> 
+> My question was whether somebody had actually bisected to 610fa91d9863
+> ("PCI: imx6: Assert PERST# before enabling regulators").  I don't see
+> anything specific on the mailing list, so I don't know how
+> 610fa91d9863 got blamed for the regression.
+
+That was me and might have been a stupid idea. I normally wouldn't have
+added this, but a earlier message from Hongxing Zhu sounded a pretty
+convincingly like something along the lines of  "this is the problem I
+already have a fix for there" -- and then I took the commit-id from there.
+
+Sorry.
+
+Ciao, Thorsten
 
