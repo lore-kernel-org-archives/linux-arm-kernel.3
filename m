@@ -4,71 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09F1FC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 09:40:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A40DC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 09:40:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nGx21BXiGpWZfkxD1LmVu0bwV/CnueI+U0Cim2ZRA5Q=; b=dxeccXOmw0yOT+4B97qH0EqZPz
-	ppwizLubPrOhMYKTtve6cAuelD1pp3sHsEUaMB+Vd7R8m9/Gb4UWVXFLBEMb/NbUCjYxHK2dZKNQf
-	I6SjeDshJk9VqmecwAtuSMtnMTLEABam3SW/pLBrlymCwcCwh0Ku0H4CMyb5d9E+eL9zFZG+4yuJB
-	+DgrBDEiI0ri7uDTPaS15bGO6NjwQeDuBHlquP7zczqL9LwO+XlmWHZaXz3gJeceztdppdAgcIZ0j
-	rtgI35GxllhBo9pluyXuCZoYRH+lB/uZwjmRcdm5Z0TP+rS1QqAps8tAo+ypLA/r/Gxjz6m/80vOi
-	CICkcYrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WfW1a9sdNG5oVmmekRHeZX1WU4IqAbblME+A4meJQW4=; b=u27dyBQjA6M5LEQVWaHs08EtEJ
+	cgwz8tpltlc7qqLy2RxPJ8vPw3ftfjcjHARyWpZ6wWxC3YjpNrbQKFyt6QeF0967GS6M8LND5AWsf
+	bSHUakWqu/ha2GVd48eAqPcbr8SR+/i8GhIZWj6fmYLgWKYOHtTK2XV11mFIt9ffOD+EIoKYlUgvh
+	xVQQVtYBygKsT+YAmCSszPStGgYsDbWtpngnnEbyMX6ejyGGEwz03jA6YD5X8L5hhIdJGFl+YLvOe
+	nQSR6roZdLZuRzhaclMgaOXob8abck1UECuhrfTH7o1Ve9vMEFD5b11QTsFJujLX/S9Rde/SyLGf2
+	xZ9hICqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkIZd-0000000GuLy-3u5b;
-	Thu, 16 Jul 2026 09:40:09 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkIZa-0000000GuLC-2kQP
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 09:40:07 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9B1EA2F;
-	Thu, 16 Jul 2026 02:40:01 -0700 (PDT)
-Received: from [10.2.197.99] (ewhatever.cambridge.arm.com [10.2.197.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 84A553F905;
-	Thu, 16 Jul 2026 02:40:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784194805; bh=Vi6PaAstGdOIpufYh/LJ8ZAHKFeYxPSyuWcCmxj80tU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=YBADHSsaLQTJSLSfd9CnTRcz+PoCO0RyrYniil6H8Rrh4JnQa/qEd6pDSAOMGNWbK
-	 Rw9rWq+8ds7LsR+7L6M1XYCIhcbl/5la+JrM2c6sOzPxyyEwoxQ87T7nYSCJz4T/8C
-	 ch9M0uKM18j0jD87hhmO6CAcMsS/h2AkBvtNYoME=
-Message-ID: <807a34c3-6c29-473c-bcb2-0546c3df85a7@arm.com>
-Date: Thu, 16 Jul 2026 10:40:00 +0100
+	id 1wkIZr-0000000GuQD-0EEa;
+	Thu, 16 Jul 2026 09:40:23 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkIZp-0000000GuPG-1LIH;
+	Thu, 16 Jul 2026 09:40:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1784194821; x=1815730821;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=AjNabPt8KbtTKqTuT9NoOhSbqcJ/OKIChvyCnG26SUc=;
+  b=Tl38FiyxDzGGVDSIQGKoHR+WEtesjrsmMDYU8o7pvdETmiUgwmxhQcAD
+   mDA+DH22I30AU0f4ABU/dD5hcVzn2pug3Q1j9AgxlakRINdD0nbEQvfeC
+   Z7PnThRBTiz1qU23+DOtrJbeoomYDWkHLWHxXahU/4maqQPGw8iut4aRO
+   WHC/HQyCH1vWzhp2dP+2tNrFMnbk198ybEp9Ii3fPPsmIl9uCDtX2SC7x
+   l/xJ3FDWSdqOToNkrTO8FM2QeVkGPnQ4ewT+hZytfJDQntottGc6jwZh/
+   dXizACqYuBkcP63oYjg/4nXcuK37gBl8dSXurN1LsBTAaNYc3EauKJaSL
+   A==;
+X-CSE-ConnectionGUID: 71qjWqtQQ42lV7Xx6ffdcw==
+X-CSE-MsgGUID: TYnTGK58QOePxe1HL2zEsQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11847"; a="84963040"
+X-IronPort-AV: E=Sophos;i="6.25,167,1779174000"; 
+   d="scan'208";a="84963040"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jul 2026 02:40:20 -0700
+X-CSE-ConnectionGUID: IbA0Hh1qRaKPeq90gKjMig==
+X-CSE-MsgGUID: bmffYRkeTyaR1Xcw/JN6WQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,167,1779174000"; 
+   d="scan'208";a="254696847"
+Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.26])
+  by orviesa006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jul 2026 02:40:15 -0700
+Date: Thu, 16 Jul 2026 12:40:12 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Michael Walle <mwalle@kernel.org>
+Cc: Yu-Chun Lin <eleanor.lin@realtek.com>, Michael.Hennerich@analog.com,
+	afaerber@suse.com, andy@kernel.org, brgl@kernel.org,
+	conor+dt@kernel.org, cy.huang@realtek.com,
+	devicetree@vger.kernel.org, dlechner@baylibre.com,
+	james.tai@realtek.com, jic23@kernel.org, krzk+dt@kernel.org,
+	lars@metafoo.de, linus.walleij@linaro.org, linusw@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
+	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-realtek-soc@lists.infradead.org,
+	mathieu.dubois-briand@bootlin.com, nuno.sa@analog.com,
+	robh@kernel.org, stanley_chang@realtek.com, tychang@realtek.com,
+	wbg@kernel.org
+Subject: Re: [PATCH v3 3/7] gpio: regmap: Add gpio_regmap_operation and
+ write-enable support
+Message-ID: <alim_HGTD5RCupav@ashevche-desk.local>
+References: <d301ba0cd45d49d59e6a014188306ec9@realtek.com>
+ <20260716062614.1507243-1-eleanor.lin@realtek.com>
+ <aliV4u6_xzx9D9Aq@ashevche-desk.local>
+ <DJZVLZ4LLD9E.3MPLYYXT1VQ9R@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v15 06/37] KVM: arm64: CCA: Define the user ABI
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
- Lorenzo Pieralisi <lpieralisi@kernel.org>
-References: <20260715142841.80544-1-steven.price@arm.com>
- <20260715142841.80544-7-steven.price@arm.com>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260715142841.80544-7-steven.price@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <DJZVLZ4LLD9E.3MPLYYXT1VQ9R@kernel.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_024006_785597_2604E764 
-X-CRM114-Status: GOOD (  34.29  )
+X-CRM114-CacheID: sfid-20260716_024021_372284_EF119FF4 
+X-CRM114-Status: GOOD (  18.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,174 +98,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/07/2026 15:28, Steven Price wrote:
-> There is one CAP (KVM_CAP_ARM_RMI) which identifies the presence of CCA,
-> and one ioctl.  The ioctl (KVM_ARM_RMI_POPULATE) is used to populate
-> memory during creation of the realm as this requires the RMM to copy
-> data from an unprotected address to the protected memory - CCA does not
-> support shared <-> private memory conversion where the memory contents
-> is preserved as this is incompatible with memory encryption.
+On Thu, Jul 16, 2026 at 11:08:55AM +0200, Michael Walle wrote:
+> On Thu Jul 16, 2026 at 10:27 AM CEST, Andy Shevchenko wrote:
+> > On Thu, Jul 16, 2026 at 02:26:14PM +0800, Yu-Chun Lin wrote:
 
-May be we could add the above constraint to the Documentation to make it
-clear from the source. The code later adds this restriction and it would
-be good to reflect in the Documentation, given other CC architectures
-seem to provide it.
+...
 
-
-Please see below.
-
+> > From the above list I tend to the approach 2, but this might require to have
+> > GPIO regmap level of locking. I'm a bit lost in the context, though. I assume
+> > we need a fresh start, id est issue a v6 with approach 2 or 3 in place and
+> > summarize the choices in the cover letter, so we can understand what has been
+> > considered.
 > 
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
-> Changes since v13:
->   * KVM_ARM_VCPU_RMI_PSCI_COMPLETE removed.
->   * KVM_ARM_RMI_POPULATE documentation updated to reflect that the
->     structure is written by the kernel.
->   * CAP number bumped.
-> Changes since v12:
->   * Change KVM_ARM_RMI_POPULATE to update the structure with the amount
->     that has been progressed rather than return the number of bytes
->     populated.
->   * Describe the flag KVM_ARM_RMI_POPULATE_FLAGS_MEASURE.
->   * CAP number is bumped.
->   * NOTE: The PSCI ioctl may be removed in a future spec release.
-> Changes since v11:
->   * Completely reworked to be more implicit. Rather than having explicit
->     CAP operations to progress the realm construction these operations
->     are done when needed (on populating and on first vCPU run).
->   * Populate and PSCI complete are promoted to proper ioctls.
-> Changes since v10:
->   * Rename symbols from RME to RMI.
-> Changes since v9:
->   * Improvements to documentation.
->   * Bump the magic number for KVM_CAP_ARM_RME to avoid conflicts.
-> Changes since v8:
->   * Minor improvements to documentation following review.
->   * Bump the magic numbers to avoid conflicts.
-> Changes since v7:
->   * Add documentation of new ioctls
->   * Bump the magic numbers to avoid conflicts
-> Changes since v6:
->   * Rename some of the symbols to make their usage clearer and avoid
->     repetition.
-> Changes from v5:
->   * Actually expose the new VCPU capability (KVM_ARM_VCPU_REC) by bumping
->     KVM_VCPU_MAX_FEATURES - note this also exposes KVM_ARM_VCPU_HAS_EL2!
-> ---
->   Documentation/virt/kvm/api.rst | 41 ++++++++++++++++++++++++++++++++++
->   include/uapi/linux/kvm.h       | 13 +++++++++++
->   2 files changed, 54 insertions(+)
-> 
-> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-> index 304b9c3209ae..b38e090ad95d 100644
-> --- a/Documentation/virt/kvm/api.rst
-> +++ b/Documentation/virt/kvm/api.rst
-> @@ -6642,6 +6642,38 @@ if the guest_memfd memory was pinned in IOMMU page tables.
->   
->   See also: :ref: `KVM_SET_MEMORY_ATTRIBUTES`.
->   
-> +4.146 KVM_ARM_RMI_POPULATE
-> +--------------------------
-> +
-> +:Capability: KVM_CAP_ARM_RMI
-> +:Architectures: arm64
-> +:Type: vm ioctl
-> +:Parameters: struct kvm_arm_rmi_populate (in/out)
-> +:Returns: 0 on success, < 0 on error
-> +
-> +::
-> +
-> +  struct kvm_arm_rmi_populate {
-> +	__u64 base;
-> +	__u64 size;
-> +	__u64 source_uaddr;
-> +	__u32 flags;
-> +	__u32 reserved;
-> +  };
-> +
-> +Populate a region of protected address space by copying the data from the
-> +(non-protected) user space pointer provided into a protected region (backed by
-> +guestmem_fd). It implicitly sets the destination region to RIPAS RAM. This is
+> I don't really like approach 3. You'd need to check if the regs of
+> both xlate calls are the same. With the sample code above, you
+> silently drop the first xlate'd reg.
 
-minor nit: RIPAS_RAM for the sake of completeness. Also, I am wondering 
-if this could confuse the reader to imply that the UABI implicitly
-converts the region in guest_memfd to "PRIVATE". May be we could rewrite
-this to make all the preconditions explicit ? Something like:
+If I rank the proposals, the worst is #1, the best is #2.
 
-"
-Populate the guest address region described by @base and @size, with the
-data pointed to by the userspace pointer @source_uaddr. The guest_memfd
-region backing the memory region must be PRIVATE. Arm CCA cannot
-do in-place conversion, preserving the contents. Thus @source_uaddr must
-be a valid pointer. This operation maps to RMI_RTT_DATA_INIT which also
-converts the region to RIPAS_RAM.
+> And honestly, it really seems like a one-off. What controllers, are
+> there that need a write enable bit. The real problem seems to be
+> the assumption that we operate on just one bit. IOW we either set
+> mask or don't set mask in gpio_regmap_set().
 
-"
+Yes, we should KISS.
 
+> For a more generic solution, we should be able to control the
+> written value. We could add another .value_xlate().
 
-Suzuki
+Maybe not now? As per IPs, Synopsys IPs (not exactly GPIO) likes to
+have that kind of "protection". So, from HW perspective it's kinda
+pattern, and it might be possible to see more IPs (including GPIO)
+that follow it in some cases.
 
+-- 
+With Best Regards,
+Andy Shevchenko
 
-> +only valid before any VCPUs have been run. The ioctl might not populate the
-> +entire region and in this case the kernel updates the fields `base`, `size` and
-> +`source_uaddr`. User space may have to repeatedly call it until `size` is 0 to
-> +populate the entire region.
-
-
-
-> +
-> +`flags` can be set to `KVM_ARM_RMI_POPULATE_FLAGS_MEASURE` to request that the
-> +populated data is hashed and added to the guest's Realm Initial Measurement
-> +(RIM) stored by the RMM. This can then be retrieved by the guest (using the RSI
-> +interface) to present to an attestation server.
-> +
->   .. _kvm_run:
->   
->   5. The kvm_run structure
-> @@ -9025,6 +9057,15 @@ enabled, cmma can't be enabled anymore and pfmfi and the storage key
->   interpretation are disabled. If cmma has already been enabled or the
->   hpage_2g module parameter is not set to 1, -EINVAL is returned.
->   
-> +7.48 KVM_CAP_ARM_RMI
-> +--------------------
-> +
-> +:Architectures: arm64
-> +:Target: VM
-> +:Parameters: None
-> +
-> +This capability indicates that support for CCA realms is available.
-> +
->   8. Other capabilities.
->   ======================
->   
-> diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-> index 129d6f630325..0231ff174a50 100644
-> --- a/include/uapi/linux/kvm.h
-> +++ b/include/uapi/linux/kvm.h
-> @@ -998,6 +998,7 @@ struct kvm_enable_cap {
->   #define KVM_CAP_S390_VSIE_ESAMODE 248
->   #define KVM_CAP_S390_HPAGE_2G 249
->   #define KVM_CAP_GUEST_MEMFD_MEMORY_ATTRIBUTES 250
-> +#define KVM_CAP_ARM_RMI 251
->   
->   struct kvm_irq_routing_irqchip {
->   	__u32 irqchip;
-> @@ -1686,4 +1687,16 @@ struct kvm_pre_fault_memory {
->   	__u64 padding[5];
->   };
->   
-> +/* Available with KVM_CAP_ARM_RMI, only for VMs with KVM_VM_TYPE_ARM_REALM */
-> +#define KVM_ARM_RMI_POPULATE	_IOWR(KVMIO, 0xd7, struct kvm_arm_rmi_populate)
-> +#define KVM_ARM_RMI_POPULATE_FLAGS_MEASURE	(1 << 0)
-> +
-> +struct kvm_arm_rmi_populate {
-> +	__u64 base;
-> +	__u64 size;
-> +	__u64 source_uaddr;
-> +	__u32 flags;
-> +	__u32 reserved;
-> +};
-> +
->   #endif /* __LINUX_KVM_H */
 
 
