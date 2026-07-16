@@ -4,69 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46F57C4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 10:53:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6292EC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 10:55:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7c9S+XfXFHekghRYsroyi2AadNyG2kJzmWUtdDG5ivY=; b=C5dIKyiq9sVckbIqEny0lfrcv3
-	Q5/9uTNyUrU4A2JEUg0hNIUDHmwIs+5GP3iu9wL+CT6FTAY6fTl045lcViqCTsnaDeVwIEMr1QCno
-	rIJC4VkmKn245omFscGDtnlF587E4dzo/v1nXl3ujTNyx0trvboqB4f3i8xL9YWCH+bYZwAg4Kn5B
-	3KVSWY8zhUPJ/oroFbfbAQtHK6DqZHzguXfDRamucsEHpf4Tvxdv7l453E18bXr4BBju8VJzBWlyU
-	ATr3xXVMXDfKjGJQj2f/CYyaIBnTglMwbp0Q2AGpTc50BNlUdbLLoVJ+Kk5Kn9fia1cDMlzDnETKt
-	wBDWBBUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:To:From:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O9lLRvJ/wjIB0DYv9S6+NqKhCxo+SrIThkz2G4CTw9k=; b=d0zAhNtAvkkPLn2bfQw9rT47cs
+	GV0XHnChmnUeUt3BBP4GP0sivCUY0X5ZYffcQmTQUS+MZW8YhF91lIEizd/fri8htEWP/FcFpepNy
+	PkBUVlcxGrlmbcc/wRGKjBTaXVo4B4UXgytD7PTMkW073isuhBhMDsyPVjCilAtUIovwkv+GzePMN
+	9tJohDwRR80jWF+psoErWoHXHHaf99Zi7wPijWsRoVG9dqvXIUdNkjIn3QQ7RJA/rK4y3j44rEuhg
+	isAIMu66D+GUWdVxiRBj7SiEV9jkkI/ikDOz47iRZmljuRUqjoNGgZHDVssGj2OOQaTqJloME12++
+	eDvARsxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkJi1-0000000H4BR-3C9e;
-	Thu, 16 Jul 2026 10:52:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkJhy-0000000H4A7-3zLn
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 10:52:52 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B7611339;
-	Thu, 16 Jul 2026 03:52:43 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F40A03F7B4;
-	Thu, 16 Jul 2026 03:52:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784199167; bh=TAfcUCm/FJRtFHstBcSY6HRJHtBTxuvxYMJlg5wYuG4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Z0TP9OOwkIMvZ272QpmYDzD1w0Nl8JaKp06EN5WyxC32thIqsC52Kl6jN+Xgz/J/u
-	 x5JXf7MEvPzmEYmCDg0XNLboWyUvHAHHLOFySWD3jodc56mMpJwDcjMjBNVUGaqunj
-	 vHEmwagoZtmUJTKjAsCiKdQDKtR6gAgaZBZt6bwA=
-Date: Thu, 16 Jul 2026 11:52:36 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>,
-	Fuad Tabba <tabba@google.com>, Ben Horgan <ben.horgan@arm.com>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Eric Auger <eric.auger@redhat.com>
-Subject: Re: [PATCH v12 02/29] arm64/fpsimd: Update FA64 and ZT0 enables when
- loading SME state
-Message-ID: <ali39DG6qie7XTuD@J2N7QTR9R3.cambridge.arm.com>
-References: <20260709-kvm-arm64-sme-v12-0-d0301d79ef58@kernel.org>
- <20260709-kvm-arm64-sme-v12-2-d0301d79ef58@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260709-kvm-arm64-sme-v12-2-d0301d79ef58@kernel.org>
+	id 1wkJkn-0000000H4ZU-0bE0;
+	Thu, 16 Jul 2026 10:55:45 +0000
+Received: from 0001.3ffe.de ([159.69.201.130] helo=mail.3ffe.de)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkJkk-0000000H4Yi-1vvK;
+	Thu, 16 Jul 2026 10:55:43 +0000
+Received: from localhost (unknown [IPv6:2a02:810b:4320:1000:4685:ff:fe12:5967])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.3ffe.de (Postfix) with ESMTPSA id 6AE6A2AA;
+	Thu, 16 Jul 2026 12:55:38 +0200 (CEST)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 16 Jul 2026 12:55:37 +0200
+Message-Id: <DJZXVOGZ3ZTH.20P8NY7DON0X7@kernel.org>
+Cc: "Yu-Chun Lin" <eleanor.lin@realtek.com>, <Michael.Hennerich@analog.com>,
+ <afaerber@suse.com>, <andy@kernel.org>, <brgl@kernel.org>,
+ <conor+dt@kernel.org>, <cy.huang@realtek.com>,
+ <devicetree@vger.kernel.org>, <dlechner@baylibre.com>,
+ <james.tai@realtek.com>, <jic23@kernel.org>, <krzk+dt@kernel.org>,
+ <lars@metafoo.de>, <linus.walleij@linaro.org>, <linusw@kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-gpio@vger.kernel.org>,
+ <linux-iio@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-realtek-soc@lists.infradead.org>,
+ <mathieu.dubois-briand@bootlin.com>, <nuno.sa@analog.com>,
+ <robh@kernel.org>, <stanley_chang@realtek.com>, <tychang@realtek.com>,
+ <wbg@kernel.org>
+From: "Michael Walle" <mwalle@kernel.org>
+To: "Andy Shevchenko" <andriy.shevchenko@intel.com>
+Subject: Re: [PATCH v3 3/7] gpio: regmap: Add gpio_regmap_operation and
+ write-enable support
+X-Mailer: aerc 0.20.0
+References: <d301ba0cd45d49d59e6a014188306ec9@realtek.com>
+ <20260716062614.1507243-1-eleanor.lin@realtek.com>
+ <aliV4u6_xzx9D9Aq@ashevche-desk.local>
+ <DJZVLZ4LLD9E.3MPLYYXT1VQ9R@kernel.org>
+ <alim_HGTD5RCupav@ashevche-desk.local>
+In-Reply-To: <alim_HGTD5RCupav@ashevche-desk.local>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_035251_321374_61850A02 
-X-CRM114-Status: GOOD (  33.25  )
+X-CRM114-CacheID: sfid-20260716_035542_651550_A834DCD8 
+X-CRM114-Status: GOOD (  21.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,123 +77,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark,
+On Thu Jul 16, 2026 at 11:40 AM CEST, Andy Shevchenko wrote:
+> On Thu, Jul 16, 2026 at 11:08:55AM +0200, Michael Walle wrote:
+>> On Thu Jul 16, 2026 at 10:27 AM CEST, Andy Shevchenko wrote:
+>> > On Thu, Jul 16, 2026 at 02:26:14PM +0800, Yu-Chun Lin wrote:
+>
+> ...
+>
+>> > From the above list I tend to the approach 2, but this might require t=
+o have
+>> > GPIO regmap level of locking. I'm a bit lost in the context, though. I=
+ assume
+>> > we need a fresh start, id est issue a v6 with approach 2 or 3 in place=
+ and
+>> > summarize the choices in the cover letter, so we can understand what h=
+as been
+>> > considered.
+>>=20
+>> I don't really like approach 3. You'd need to check if the regs of
+>> both xlate calls are the same. With the sample code above, you
+>> silently drop the first xlate'd reg.
+>
+> If I rank the proposals, the worst is #1, the best is #2.
+>
+>> And honestly, it really seems like a one-off. What controllers, are
+>> there that need a write enable bit. The real problem seems to be
+>> the assumption that we operate on just one bit. IOW we either set
+>> mask or don't set mask in gpio_regmap_set().
+>
+> Yes, we should KISS.
 
-This generally looks good, but I have a few thoughts below. The key
-things are:
+But IMHO #2 and #3 are not KISS. Approach 2 is just a way of adding
+some kind of pre op to a gpio set. Just tying it to a write enable
+feature. That kinda bothers me. It might also be useful for other
+things, too. So don't tie it to just write enable. And who is doing
+a write disable if it's not self clearing for example. Probably Some
+kind of post op :)
 
-(1) I think the commit message could be clearer. I've provided some
-    suggested wording below.
+Approach 3 is a way to change the value of the written value - in
+a restricted way, as is is just doing a OR with both values.
 
-(2) There are a couple of trivial bits to change in the code, commented
-    below.
+Also approach 2 might not even work if the hardware requires the
+write enable bit set in the *same* write as the gpio set bit. Thus,
+we might need both anyway in the future.
 
-(3) AFAICT there's a latent bug where ZCR_ELx[63:4] aren't always reset
-    before returning to userspace when we have a return from idle. We
-    get away with that because those bits haven't been allocated yet,
-    but given that they're RES0, we should reset them to avoid
-    unexpected behaviour once they are allocated a meaning in future.
-    
-    This patch happens to fix that, but for the sake of stable I think
-    we should have a preparatory patch to reset ZCR_ELx when returning
-    from idle. For example, rename sme_suspend_exit() to
-    fpsimd_suspend_exit(), and add the appropriate logic there.
+>> For a more generic solution, we should be able to control the
+>> written value. We could add another .value_xlate().
+>
+> Maybe not now?
 
-On Thu, Jul 09, 2026 at 07:27:23PM +0100, Mark Brown wrote:
-> Currently we enable EL0 and EL1 access to FA64 and ZT0 at boot and leave
-> them enabled throughout the runtime of the system. When we add KVM support
-> we will need to make this configuration dynamic, these features may be
-> disabled for some KVM guests. Since the host kernel saves the floating
-> point state for non-protected guests and we wish to avoid KVM having to
-> reload the floating point state needlessly on guest reentry let's move the
-> configuration of these enables to the floating point state reload.
+But if not now, then when? I wouldn't add the write enable feature
+and later a more generic solution which also covers the write enable
+feature.
 
-This description is hard to follow.
+> As per IPs, Synopsys IPs (not exactly GPIO) likes to
+> have that kind of "protection". So, from HW perspective it's kinda
+> pattern, and it might be possible to see more IPs (including GPIO)
+> that follow it in some cases.
 
-How about:
-
-| arm64/fpsimd: Configure all ZCR/SMCR bits when loading task state
-|
-| Currently, when loading a task's SVE and/or SME state, we configure
-| ZCR_ELx.LEN and/or SMCR_ELx.LEN with read-modify-write sequences,
-| preserving all other bits of the registers (e.g. SMCR_ELx.{FA64,ZT0}).
-| This relies on all the other bits already holding the expected value
-| for the task.
-|
-| It would be simpler and more robust to configure all the bits without
-| a read-modify-write sequence:
-|
-| * Doing so will remove the need to configure these registers during
-|   feature detection and when returning from idle, simplifying the code
-|   and removing some redundant writes to the registers.
-|
-| * Doing so will permit KVM to clobber other bits of the registers when
-|   no task state is bound. Along with other changes (e.g. when saving
-|   state), this will make it possible for KVM to expose a different
-|   configuration to guests (e.g. disabling ZT0 for vCPUs, even if ZT0
-|   is exposed to userspace).
-|
-| When SVE and/or SME is not exposed to userspace (and userspace access
-| it prevented by CPACR_ELx.{ZEN,SMEN}), the values of ZCR_ELx and
-| SMCR_ELx are immaterial, as all functionality affected by those
-| registers will be trapped. Thus there is no need to reset those
-| registers to ensure correct behaviour when SVE and/or SME is not used
-| by a task.
-
-I've deliberately avoided detail on how KVM saves or relaods state,
-because there are a large number of interacting pieces there, and I
-don't think it's material beyond "this change is a step towards allowing
-KVM to expose a different configuration to vCPUs".
-
-> Provide a helper task_smcr() which generates the value of SMCR_EL1 to
-> use based on the task struct and use it when we set the vector length
-> SMCR_EL1, currently while handling SME access traps or FP state load.
-> 
-> For consistency handle ZCR_EL1 the same way, currently the only field it
-> has is the LEN so the change is less meaningful there.
-
-I think we can drop this part of the description.
-
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> ---
->  arch/arm64/include/asm/fpsimd.h |  2 --
->  arch/arm64/kernel/cpufeature.c  |  2 --
->  arch/arm64/kernel/fpsimd.c      | 72 ++++++++++++++++++-----------------------
->  3 files changed, 31 insertions(+), 45 deletions(-)
-
-[...]
-
-> @@ -402,12 +421,13 @@ static void task_fpsimd_load(void)
->  
->  	/* Restore SME, override SVE register configuration if needed */
->  	if (system_supports_sme()) {
-> -		unsigned long sme_vl = task_get_sme_vl(current);
-> -
-> -		/* Ensure VL is set up for restoring data */
-> +		/*
-> +		 * Ensure VL is set up for restoring data.  KVM might
-> +		 * disable subfeatures so we reset them each time.
-> +		 */
-
-Let's delete the comment.
-
-The existing principle that we must restore the length before the data
-also applies to ZCR_ELx (which has no similar comment), and the general
-principle that KVM might clobber the register is common to all the
-FPSIMD/SVE/SME registers.
-
->  		if (test_thread_flag(TIF_SME)) {
-> -			unsigned long vq = sve_vq_from_vl(sme_vl);
-> -			sysreg_clear_set_s(SYS_SMCR_EL1, SMCR_ELx_LEN, vq - 1);
-> +			sysreg_cond_update_s(SYS_SMCR_EL1, task_smcr(current));
-> +			isb();
->  		}
-
-What's the ISB for? That mysteriously appeared in v11 without
-explanation. It wasn't in the original code, prior versions of the
-series, or my suggested rework with the task_smcr() helper.
-
-I don't believe it's necessary to add an ISB here.
-
-Mark.
+-michael
 
