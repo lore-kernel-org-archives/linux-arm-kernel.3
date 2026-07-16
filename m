@@ -4,134 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 032F0C4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 14:32:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D2CBC4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 14:36:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4HW8V3I+UGmB0Vuvp5Lv2WM4xuUM+UbgCUuQhoBp6xg=; b=eIb11sqMszEFYq1Ho5+WS/MGRA
-	2j1GsiprIN5iGo3sDyBRu0cZrOQmbsHl0DAvKGYDqP/jzL9T6KfaN2hDImgVab3IpYqFDssY4h9Bd
-	wYd61QgbaCv7pi8DgfD/ytjB6HwylcHU2kLt+faNRDBXYzgadErZtIRcTvd9PeNceZ667r4kQd9B7
-	Ng/ne3YnKBTl0vuMIYbXp/SZVYjjwq7+o2heqJs1HSimamKJy0ZJVkOt23MrtJ6sJAkAB3e+4Bv45
-	yHe4CKwmeFWTGGYsCxCqHRgGuRNKTNPuaPfqMgDacw2wqgUqux13OIiZwhKrRKYdMt4dghMr4+vAe
-	wNQdgSSw==;
+	bh=KZ2Jay0loDqW4iEYRBZiTsQd8X5ZUn23JYIMxwnq18M=; b=Hl0BYCwovUv3FWpWiixA9pkqxI
+	nhy0mcWhllJrwab1AoEpxSscCqRn1pgfxGBUU/LpWPyqxh0lqePNfy8OQwCeGKjn+IinBK9Wzgq6O
+	vXn4vQl7bKs7LuttPacBA1txA8qmgsSfB0KihmeF8hZsnbr/9RboAo2q1Qg1rqDphIzdja83kcgVV
+	NkTLx+ifnpd1l+oQM+vwnw0joVizxoB14oXalkmLMlfe3Puo9VHk5b1c4Z3BsGmkyNJC4EIscl6fZ
+	acHzfga81ZoyllAVXv6XlP1U38VgOikwcOR9e8njUbgeowdIO/vP2cED8M7o7KdhauEb7lC2S5HfJ
+	9boZko8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkN8E-0000000HV7s-2UK6;
-	Thu, 16 Jul 2026 14:32:10 +0000
-Received: from mail-westeuropeazon11010030.outbound.protection.outlook.com ([52.101.69.30] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wkNBr-0000000HVgC-16me;
+	Thu, 16 Jul 2026 14:35:55 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkN8C-0000000HV7F-1OzK
+	id 1wkNBp-0000000HVfp-3k5F
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 14:32:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HYwmYOzD86GCtyMNbud53g62XM+GM6/8P7x0JGto9WREDuOqOqGjVWrRh71lxuHkVU6ztmdNuq8pTiEw4Lwq8CbvTyGrXgWPCeB/WSqt6JudVLdGGjhKOC/vs57/BprlSXAbceUotI4xe/f6gZge8M6hAbLFBuAQ9y3CZaBc4jfDJcwZyqW2wNsbvttsnqEVWRRm07ubzE7Ed7zvncdn5LbYQOcKC1lLA4T9SODI/oN+/ciuNBL7PWegtrYSYzujCxm8M+hSW1M5XhlH2zuVjfDCxb5B/wCr3PmBU2uCrZ3oHZi6Rn8o3gvx3bn2p4g+h7Usrg07S99kEL1SU6TUpA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4HW8V3I+UGmB0Vuvp5Lv2WM4xuUM+UbgCUuQhoBp6xg=;
- b=jF/FgUZ9dHKpYM/FkhQiIJ47a18XkQbOTA3JNSzFwqVfajT5zofVbI7OxGGOiycA10AbI2thZ7Kkc8ToQhQjtCI3+bJ3dRxq6xBiT7y2zH6SK1ilb5A4dy3lwioqmobCajNjU9UQJcNTvNnnmXdmeIbDktEynBZUTOOMI3GDEKwKGNYAP6SlfOTuLs7ew8Dk0PoGpFFm80MicRPA1WCwrVM9Uf5/MlDaGyf0yhHCDdt6HyXXIqRn/KXs/eCoYWk76PLS+nvgG2x7NiMQUTwv48TZK6y5FnbTgKihnVHarHlg9N00AgxV26sgHq45xrMXwEjuePanMa4LKhob3iqeKA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4HW8V3I+UGmB0Vuvp5Lv2WM4xuUM+UbgCUuQhoBp6xg=;
- b=Ux+S5DtoUm0zTdyTH+Xok9UJbfJ2iJCCF/qh07s14MFGBPKutvO4u2jm4xMMCgiZX9BetUtHInzJ9c8gTY+qvdx3iD6+vEmOmBTRcSQGyPY718htJVhHP1EQW116oTloefaTmRhhbWpOkIX2ja+yNhHBiiT4SVTDe0uDfnDqc3YXHGN0sOMahJFL32TGCvQvUf8r3u725y5n5O+q8wQidao4xWo55bzqhSzk1txy+fibvyBMu0xwN9NV1aRbFbB3GevidpbyeLQeSDFxypDsozdXOzpRw/Lxn8DueBZUV4EQWkPGl5m4ZO3tBLAWJR/0Ar8a9a4KwkY6LvEtfXrFmg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DBBPR04MB7961.eurprd04.prod.outlook.com (2603:10a6:10:1ee::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.12; Thu, 16 Jul
- 2026 14:32:02 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0223.011; Thu, 16 Jul 2026
- 14:32:02 +0000
-Date: Thu, 16 Jul 2026 09:31:53 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Joy Zou <joy.zou@oss.nxp.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Ye Li <ye.li@nxp.com>,
-	Jacky Bai <ping.bai@nxp.com>, Peng Fan <peng.fan@nxp.com>,
-	Dong Aisheng <aisheng.dong@nxp.com>, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 3/3] arm64: dts: imx8mq-evk: add regulator-off-in-suspend
- for VGEN1/VGEN6
-Message-ID: <aljrWQc4HEpOSOKu@SMW015318>
-References: <20260716-b4-regulator-pf01-v1-0-8c1519d54bd4@oss.nxp.com>
- <20260716-b4-regulator-pf01-v1-3-8c1519d54bd4@oss.nxp.com>
+	Thu, 16 Jul 2026 14:35:53 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 95CF560A5A;
+	Thu, 16 Jul 2026 14:35:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5973D1F000E9;
+	Thu, 16 Jul 2026 14:35:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784212552;
+	bh=KZ2Jay0loDqW4iEYRBZiTsQd8X5ZUn23JYIMxwnq18M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=KFC5xmL2MtWypHwbA6buxOKY9HEtSEdHzfu24pmWP6h2HrFLPf2lujKqpqGXA96Np
+	 T/kolpeW9AOmW1xCzEYHweRfAgFaQ9IjJkl9KxLL3F8XftO/irqT2zrrC/oF7Qoc0l
+	 pv3AFbU/u9h8ILqaXbivkxE8x8siaxLgdcQVl9UkPEDG84DWHkSlz/fbSYH45FLHvR
+	 iebXW+jO5AqRaPMBgf45KKs5/bs3cXtHLOkx2Lafp9ly1V57X2848bFu0BQMuTiDu5
+	 YJqnVKSu2l79w2+CPNN1h0gj2S9GpIVkva7duBNqiw5xbbFvF2fepFp1NhfCbXMen+
+	 qqL7ABdWr+0xg==
+Date: Thu, 16 Jul 2026 15:35:48 +0100
+From: Will Deacon <will@kernel.org>
+To: Bradley Morgan <include@grrlz.net>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] arm64: sleep: dedup the sleep_save_stash slot lookup
+Message-ID: <aljsRBIEzeNVdzvn@willie-the-truck>
+References: <20260705192331.23150-1-include@grrlz.net>
+ <20260705192331.23150-3-include@grrlz.net>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260716-b4-regulator-pf01-v1-3-8c1519d54bd4@oss.nxp.com>
-X-ClientProxiedBy: SA1PR02CA0017.namprd02.prod.outlook.com
- (2603:10b6:806:2cf::23) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DBBPR04MB7961:EE_
-X-MS-Office365-Filtering-Correlation-Id: 318f6202-b73a-4a3b-8cde-08dee3470080
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|23010399003|19092799006|1800799024|366016|56012099006|10067099003|11063799006|4143699003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: tblAqDjFAn8keYKFkn3jodmgC3aB8AsoUkpkwgklQtcXxmyJncmDk6slENBlXfOufLiH8Hu2nWwmReHeBEoPNzporIVX5lM7kGah61pKHjToKDxaatr5VJkrY3TLnFSy5L/C2jzHHEcoHcoJ+91/TNoxTfvgAgc8BJyiz7P3bg3l6KhhKMVpz+x1PMywPb6lsp4zCwryF85H8x6+S5q+RM4Moez492lTVJlUz286EDrNAr82NQhCBnAs0o5wAO8CsRdNdAYbGcUkI4O7E1ll197aZZpr3L3WZTlJQcKyQmERIwvUSEPc+EhUNI+tfIWGLIGU9NvlfGy/H6bnAqyZWndcOzDvodqrJlqk8srz/b3K9gRLxJcrwZ4UwjxvmUdgGPLBNDTZ7EXNoYiSh76YKc3IMM0DAjvGWhGoxTrB7LGhoB6DHMI++lWQHI3PuMbQCCpWGT93WZk9XwpGa+FqceZEAJCWjSdfYqRenoaR/zQGXbFWQtytMt96mag+SnjRtKJs1O+C3CU2hpOLOQVO/NTR2Hgi0oaCiITnVHVoICwx+vMSY7LLcJEUePeqjbcPtni2DskVjwOM7/fTD7DrWAZ5qHSv1cvjXbJR7utUQPljh2FsyOa9n5r5FwQXs/zb55uTsLvSdkn1N6b9bTAXqcZ3KcatA/LEsHRIYbDqo/4=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(19092799006)(1800799024)(366016)(56012099006)(10067099003)(11063799006)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?YwWQTpFM2DIvLciia824QM7XcteydB9+T07nrmElKsBBCORYve/+pyeewRGi?=
- =?us-ascii?Q?QMXHkQQvdqz02UzwLRX8B49PDZ/5uUQLGUnR6aaaWHCohkV5BxtlQ2WY/GNo?=
- =?us-ascii?Q?7qfqqbqJOk1xRwxDe721psbSxi8OZ0XyVuGEoc+Jot+7iHPX3vQQkeRAD2Hz?=
- =?us-ascii?Q?DngWGAcplQ8iKZX9ZS6mNx0r03/XJycLB11NZmB67qR0PJ/kRT+CbL7z2J+2?=
- =?us-ascii?Q?/WITA/7foxU9RjBpyUjlt1Ym6nNzXybmblU0Z+mj5NHpS5ViGcZ6stqJ+07x?=
- =?us-ascii?Q?kRNoNJtOxh1qesiUlX9ZMoR6VYAsR71qhePJhRtw6/33ChMRBeBnevxqn5Mq?=
- =?us-ascii?Q?jQ0GaiVvlcQx5lYTYEqQieNq8+CGOwgMrnj5mLmKKgst8wyWedXcymyuJNfm?=
- =?us-ascii?Q?cuq7BcIQdUG3D6BD6EMtMnyHnSt09afbXkEqd8L327YN9pE2JbLtNUv77qFk?=
- =?us-ascii?Q?OW5Pjs5p5I+toKGGYH5aR6XOBBPXs9h4pU+8NK6aiK9TiHQQZWejyCBLIV/l?=
- =?us-ascii?Q?HTQLxU44eSCX4KfbWRgAbItjieOxQ4SikUk9TPN72kwJVe2Gpa2+j1ZNb9IK?=
- =?us-ascii?Q?cvv33DFFhJmmMeeWqYMkTWBdKqJN0pRtoc8jQxLWl93NB5EShKtyinFn8Y1t?=
- =?us-ascii?Q?HTB8QhkAJzBBQTchnGTGfOLCxaznsFrmQSyitj2nJ9M7SqQllnbxv1Xqy7w5?=
- =?us-ascii?Q?67QS1gU/XC9jWp93cbKYZO0f5S78+/lY5AytR1c+MhHjSyVduA0l+KIolzxx?=
- =?us-ascii?Q?dEaHwpGNxw6/rawPlE/mQ7i4cXVlhtkGlJ03Yj0Bnw7M5v4+KSkajPa+/0K8?=
- =?us-ascii?Q?3iHcOmOpNCXFQRVkz24ZZwuNlKCyHc5gvQPEd9iL1TmTNeLb11B5QsWMc9tJ?=
- =?us-ascii?Q?TOoNS9BU2rKDGnYgtUtvU+SC2g+ermj/IVE/OaRkm/83e4C8/F60eQ9KJM04?=
- =?us-ascii?Q?Jih+CT0CRQsKI3wpz9uA/DoT0e11CQ8PXoCr4irbFjaRCroU2QP9MHwQ21pq?=
- =?us-ascii?Q?l6v16C662n5Qt5RaFD1s13iHoLx7CSBAEIhikNboc6+BOThgk0Wap999EcBG?=
- =?us-ascii?Q?omnGXBsbvjZBD5twq56RnTBFkVlqMy/7hK9LDSvCHzvARGkhMmPuaIPJIkix?=
- =?us-ascii?Q?bwr4MZr7oe6UjjyZ1sU6fyG4Vn9zfN4RbsJ54ylB30zfiFpkXG2YEv+PZNFI?=
- =?us-ascii?Q?8ECxLCgptHzWjpYWTmGmGtB5duVjC8s3q766Ib0OIVSw9Ot3Z4rV0PZTQMYL?=
- =?us-ascii?Q?wLXZl8tlUhp2GytIMLswqWJVJqd50crxqkg+DH/DW3pFJ09aSHPRHyYImDIB?=
- =?us-ascii?Q?jXR1aZDlFDlKLpKyBe7RN6KnQkiALB6pWHk0OntV1Ye++YnT5j1elfiSAiXN?=
- =?us-ascii?Q?d3cO/MmNb5SFCPaOK9upZEu1Fi77YWY2UCI8bUybjvwBcuOK2MVtnrHzbyac?=
- =?us-ascii?Q?o/4um5BWNB3pgwAcWe2nDcHCntn2qQrMsESq0DFzMQn5ssNiruxhJvjPys18?=
- =?us-ascii?Q?w30iGEEvWGVFLqQ2D+fMD2ccPwpYAZrS1cXVIgzhF0z2fSVH6BhiFhND8AtX?=
- =?us-ascii?Q?UesORs72fcaCpcCcTwCJWLYyMzrELL3065Q2uUC8vSisqQlN8x2alO5hlqBe?=
- =?us-ascii?Q?ulBS5BFCcnSZMEFGZMsP2ubweHGi/euuMfikdE8MNdekRwo/Woq2aCinwZwI?=
- =?us-ascii?Q?scUp8wXnNrXzxZFQjkOIaUlI1spIENVTXyVd0KbKXd3KYrllPDd9FbqfbQqt?=
- =?us-ascii?Q?VJl5cmRYVAC7CVGEAtl1xVGRvIz8v6Bfi8nRxCUmZH6sgo/YWYwZ?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 318f6202-b73a-4a3b-8cde-08dee3470080
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jul 2026 14:32:02.7487
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: v74uJu8RqF69dMdPvw2/lEqC9tcNyisxi+OE9knqnOXloVkF7ZfuMm+liPnlbzc70DIgq9j6czGtPpcm/IgxsraYHMWYzZvpMKKf4x+SvkDektjovWOEXmPKoyysWKUA
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7961
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_073208_376680_17F01CB3 
-X-CRM114-Status: GOOD (  16.51  )
+In-Reply-To: <20260705192331.23150-3-include@grrlz.net>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,50 +69,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 16, 2026 at 11:50:55AM +0800, Joy Zou wrote:
-> VGEN1 and VGEN6 have no consumers and are not always-on, causing the
-> regulator cleanup work to race with PM suspend.
-
-why cause race? You first patch set workqueue to system_freezable_wq
-
-Frank
-
-> Mark them as
-> regulator-off-in-suspend to disable them properly during suspend and
-> reduce power consumption.
->
-> Signed-off-by: Joy Zou <joy.zou@oss.nxp.com>
+On Sun, Jul 05, 2026 at 07:23:31PM +0000, Bradley Morgan wrote:
+> Both __cpu_suspend_enter() and _cpu_resume() open code the same MPIDR
+> hash lookup. Factor it into a get_sleep_stash_slot macro.
+> 
+> Signed-off-by: Bradley Morgan <include@grrlz.net>
 > ---
->  arch/arm64/boot/dts/freescale/imx8mq-evk.dts | 6 ++++++
->  1 file changed, 6 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mq-evk.dts b/arch/arm64/boot/dts/freescale/imx8mq-evk.dts
-> index 5ea04703ddd7..fc0303e44433 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mq-evk.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx8mq-evk.dts
-> @@ -299,6 +299,9 @@ vref_reg: vrefddr {
->  			vgen1_reg: vgen1 {
->  				regulator-min-microvolt = <800000>;
->  				regulator-max-microvolt = <1550000>;
-> +				regulator-state-mem {
-> +					regulator-off-in-suspend;
-> +				};
->  			};
->
->  			vgen2_reg: vgen2 {
-> @@ -328,6 +331,9 @@ vgen5_reg: vgen5 {
->  			vgen6_reg: vgen6 {
->  				regulator-min-microvolt = <1800000>;
->  				regulator-max-microvolt = <3300000>;
-> +				regulator-state-mem {
-> +					regulator-off-in-suspend;
-> +				};
->  			};
->  		};
->  	};
->
-> --
-> 2.34.1
->
->
+>  arch/arm64/kernel/sleep.S | 55 +++++++++++++++++++++------------------
+>  1 file changed, 30 insertions(+), 25 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/sleep.S b/arch/arm64/kernel/sleep.S
+> index e112b8537f10..8820a131aef7 100644
+> --- a/arch/arm64/kernel/sleep.S
+> +++ b/arch/arm64/kernel/sleep.S
+> @@ -64,6 +64,31 @@
+>  	lsr	\mask ,\mask, \rs3
+>  	orr	\dst, \dst, \mask		// dst|=(aff3>>rs3)
+>  	.endm
+> +
+> +/*
+> + * Compute the address of the current CPU's entry in sleep_save_stash,
+> + * i.e. &sleep_save_stash[hash(MPIDR_EL1)].
+> + *
+> + * @slot: output register
+> + *
+> + * Clobbers: x2 - x8
+> + */
+> +	.macro get_sleep_stash_slot slot
+> +	mpidr_hash_assert_distinct \slot, x2
+> +	mrs	x3, mpidr_el1
+> +	adr_l	x2, mpidr_hash
+> +	ldr	x8, [x2, #MPIDR_HASH_MASK]
+> +	/*
+> +	 * Following code relies on the struct mpidr_hash
+> +	 * members size.
+> +	 */
+> +	ldp	w4, w5, [x2, #MPIDR_HASH_SHIFTS]
+> +	ldp	w6, w7, [x2, #(MPIDR_HASH_SHIFTS + 8)]
+> +	compute_mpidr_hash x2, x4, x5, x6, x7, x3, x8
+> +	ldr_l	\slot, sleep_save_stash
+> +	add	\slot, \slot, x2, lsl #3
+> +	.endm
+
+I think this would now be the only user of compute_mpidr_hash, so it's
+probably better to inline that macro here and then we don't need to
+bother with mpidr_hash_assert_distinct at all (i.e. your first patch
+isn't needed).
+
+Will
 
