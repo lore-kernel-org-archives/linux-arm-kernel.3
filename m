@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5616C4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 12:43:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1811DC4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 12:43:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z21FwdUtYh7DDT6q0cWRgWwFAJ8AfleqYSoyR88c720=; b=D2h45q/+eJjc+vD2XvX8/2Ab7T
-	FiqhF6yY1JXJ9H/KRQQQTpMrMvyLtup1rfA5YsuCrsWYh9kBOXlhojAZ/ILw7r7k6FkfaeVdiE8fo
-	yXbzyUeLCvwrRNpil42pKIZrRPw3YyctH8IWoVCOCoMso6TebNo4rKsnrAg5u8kR8TKlGPAp06xzG
-	fHCXp8AD0aO6Sr4MQ9hHEqB8bBu3sFl0IgBo/DU4oPxZfP2ymvtTUgYm3o3cR6Kp7cnG+FH7QTQ4c
-	OtTjjqtm3Rm1jfVMq4MeC4MNlLfQSgA+GdWN6DNNM8AE9rTdEgH79W8mvu3Xzf2GrOJm34g5qT2YX
-	4UY+CbUA==;
+	bh=qpVNfPM2loki1/2WSjY19UJOAg4x0MrZ4b63t+Pbr9Q=; b=bZu2BdmSZI0JDBUTfvtzM8wSwC
+	T3E7V2Ymy/8Jdk8EgW1K/FCj4UPOMudPKIFUCtThvPW2I4TvM9mUIAjPzjKQgep47LyE48x7YQnI1
+	e005wGN6/y4ED8AdTs/0fDijmRF4vfldbkw2YQk1ZLD2tPFQxpaRM8m2ah8bQoFFLp37JqSjFwQFJ
+	lSzIUW22njJ91skU8Qz91A4ESj/HNUufLp8Jfj+UuFVgJdIUAM/IV8bGBZmfF8OaUHaUd/EoFrSd8
+	srGHW1hLMa9C+Kz0OB39pGvMJhSlYzGnMoUHSGU3bQMOyi3wZtX5Gbuv9VC4lg+BAdAfZ7w39r+1K
+	roiG4Q5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkLRG-0000000HIfk-0f8s;
-	Thu, 16 Jul 2026 12:43:42 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	id 1wkLRP-0000000HIrP-2YPM;
+	Thu, 16 Jul 2026 12:43:51 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkLRC-0000000HIam-2STZ
+	id 1wkLRL-0000000HIlY-1gV8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 12:43:40 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-ca2fad0ae38so5145478a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 05:43:38 -0700 (PDT)
+	Thu, 16 Jul 2026 12:43:49 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-84830c774a0so2549235b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 05:43:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1784205818; x=1784810618; darn=lists.infradead.org;
+        d=bytedance.com; s=google; t=1784205826; x=1784810626; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Z21FwdUtYh7DDT6q0cWRgWwFAJ8AfleqYSoyR88c720=;
-        b=QBtI25eaiM1h0bMr1kuwbzPR33qhw51Iv3p6XkoZlDCQjutMzvRSVWNVh6bUqiBhaR
-         7E2EJ3Bkdeiwq1DkxDxryMATouz7eMMspHO91Fa8qEESLcO7zsqVefQHiXEdIZznp6L/
-         k2Yaa3MRfmrTQV0UzpKThe+bVUZwAQMeaar8vvLD1ogv9zOb7WIxlCOJblqw3le4JrFJ
-         vnmL4BrD9SjOLw/6i3srDrnk/rRiBX7RfhgdvZxWADpEk8EtM4Rg/k+fbx8ybtP6YnZq
-         6vv3QanbWoBMiEdw/rJuPBMAtuIUR5xef0TPp0Sqau3J/popHhzLQW+ycmyAl8MgFLAf
-         iILg==
+        bh=qpVNfPM2loki1/2WSjY19UJOAg4x0MrZ4b63t+Pbr9Q=;
+        b=lyuLzvXdRLLhuj3d0zlhHMLxj0HW8DPPBBF7R6Jeh8ri+hWUfH1q8kX3WET4DPz3dV
+         WR4beW/y/8pWRtKc06E6QMASC2Z8tkgtCnwBllF25jevxhBm4/prqmNA1bva/Lo2pop/
+         GFePlMjjEbY1QgFlUEUcx1yEgcYK8hiboTnrtJC1WSXhl4kEHXPFd3/H+ODoDk6u4Nhp
+         umHphZ93fZysNQctOji8wG3nijRUlkhk1pI5O6jYV2ur17pdTGaJnlhYsLRgowT+Nlx7
+         wY7umP1QNrXF1agpFU76NpqI6IxvlFf/rmt1mb+GgykEfFyBFemCK7l+ZT+GdB0Q0mOU
+         lFmQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784205818; x=1784810618;
+        d=1e100.net; s=20251104; t=1784205826; x=1784810626;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Z21FwdUtYh7DDT6q0cWRgWwFAJ8AfleqYSoyR88c720=;
-        b=VyuWsXSqhp9fN8tkVe4SlnQM/loulJXoxzdBvziyeaNIfzwzYn+Ig8AyenNPixdZjE
-         G7XMjtHPx9DuBXBeFrb1/yilSyWKXQ1ZSikG387QjwthOFmkPJ3PGrQ1HRWqyS5o8zvN
-         gfqW2LLOq81q22iDhK5QzdC0eeS6u/1qJq8e+i28gHy0Htuky3MNA7h7NRAcPrZhBOvh
-         ZjUNeoESUPBxIUy5sbLYJv7JxFR3AcmRAJdxXCeiEK3Wy/6DS1ArJhLF/DDj3DI81fPT
-         TXbps59KaOCbA+Kycw25Z3o+ZX4T9OQ4bo4bFkDQrs74t4JYuIuv2/b0KTgIwr9oKEUS
-         Cv4w==
-X-Forwarded-Encrypted: i=1; AHgh+RqkpWkbKBMANpBJG93rFVwvkLLMHHaPphHA3tzpbLkDPt08XgPNMC31PEP+3j7/ZZ5JSiN2FO2TcjTEuKd/2hBi@lists.infradead.org
-X-Gm-Message-State: AOJu0YyFvS7U0nIVQBUn/TQ9AUPtp+mBL/4sfDO/2YJWlWDIs6OKtl13
-	PnLQruPjVW4Pney7m6Gj7XCh+suDjCniSe/93VaeuqxR1lTiBZO7ghHeUKTThejANgo=
-X-Gm-Gg: AfdE7cn8OQlPafJ8jBpM3q/krQDsHUBYwgUlTt1h+Srw81xq0m2k26KmL8+CsFHcRrv
-	X3IhEYoeUVjoQgYYLW9fokxatlpVIRupihvxkHB3JZX6Xr5iqpTgdnO5OpJbX9YnHJfGG87NwxR
-	n50lUtRc1CB1GSyDBPjY8Wr3X3HVfiNODZm4zX5sLLTasF102jUoGyX2/n1fpLtCIekl/dTghkJ
-	FEOoSKBwqNGPKKpK00h1VpPWNheKEMm/xG4b3E9FlQ/4av8blnV4n+zQXqqabZmPIPbaer2xG+/
-	WDpxdLkH9kSFsrcKcYV5X/45lREm/Kwvpq7gaddXk035tYhRtbh6T3qAxHIM2I/TNjCcte/s0L2
-	dnHmSMZ480ZdKfzCu3VrEZSEG3sWvCoSZgsflCy8uMnYTMWvjfYrFL0IXi+R/aRUWA3cl/HY6yO
-	9WCTkuw9qT4CGR1EkEFd6eyNA=
-X-Received: by 2002:a05:6a21:a98:b0:3bf:6c08:fb88 with SMTP id adf61e73a8af0-3c36c3e7638mr7532060637.56.1784205817786;
-        Thu, 16 Jul 2026 05:43:37 -0700 (PDT)
+        bh=qpVNfPM2loki1/2WSjY19UJOAg4x0MrZ4b63t+Pbr9Q=;
+        b=tU/foQzOfLSO3gTRN1Fl2gP6GxF47/7vM+0nVszqV4Dg3GjH78EHZUXmyENbvijkS6
+         AL1BGtdEzghtpdeLG+BuWmdCkzK+Yhtm3YXJ+Ae43X8APATY4VBD+Kt68iJ1Cn+5W+EU
+         YOP3DueQb8dQj+VBdMUmWYyky9inr7ZJCfm/dEq2gwsmsf76hgvaelJblm49O30ZDI12
+         dLU4xM1P8sPv8HTTorSk0I9R2I8TpfE3z2F3zcibK+2Kt7Ir/+6qgLZpr4KecW5HkxaQ
+         bgzBB5W5lnvcz8AFo3QsnByw/D6oPvNMJASw7tiK6E0++p7Dovfg2KbUDSEZA+fWc5h5
+         6Wtg==
+X-Forwarded-Encrypted: i=1; AHgh+Roj9ZmUeCEvLPRXRWlXTXQaMzON2F2ulTEHtPiWd7MExg2L3hIbf1EZARG1NpGb7ZfwyhP5eYN0wJY1+UDjF28k@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxx1qkT7zFgjC9DLw1iqu+EYUCeXQTpVTQydSYmgjHanmSJsLfL
+	K+RsXGbincQXq2K+IEoovO3BJx5gLUQF3/y1RMrivuSfc+Dv9YdIzvqIt997QPUnqsI=
+X-Gm-Gg: AfdE7clYuCrL1iSEhuptoJQZLrdww8/KMv4DZ4em6weBcvr8h2RyWNGKVNEFNmfoPtH
+	1UtDTXlUTgimARjVjNHptQN3OSgY/+pSom0J9lAci6bXAhdwCLoUHxFCRsz4rPEnoI8GaL1yYxv
+	1S4cmgrlO7DMKMq0LVe+NpCWhv67ixgjbb/wf6DkThg/NTtns+mSdJk25ymA1aa8vuvT46npKL6
+	Wqxt/nQaGm/560kNY8UwBdBakQmm2xLiS9B+ZTOmhY6X3CKlCL5/a6VQ6ZLdroDhZMlV0E/3yN3
+	cY0zgDukZKYEXAvNT9ngk0GBSosTwARqRKh05HJSSa269ynuY0+rhxWAlGzW0888E2RzPmM2Yg9
+	YY9ig28jKa80Bv5Ky83B0T2suIyd1wcrTskPCqceJQ8yLfdYwBheZX8n1MlDth/O3TonQ0zGIJ8
+	KHQn7N27m7dvRl7/YAohn6v3s=
+X-Received: by 2002:a05:6a00:451c:b0:848:2f74:d8d8 with SMTP id d2e1a72fcca58-8488986dd0bmr19929855b3a.73.1784205826475;
+        Thu, 16 Jul 2026 05:43:46 -0700 (PDT)
 Received: from L6YN4KR4K9.bytedance.net ([2408:8606:1800:501::2:f])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cb258eeaba2sm1730793a12.12.2026.07.16.05.43.29
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cb258eeaba2sm1730793a12.12.2026.07.16.05.43.38
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 16 Jul 2026 05:43:37 -0700 (PDT)
+        Thu, 16 Jul 2026 05:43:45 -0700 (PDT)
 From: Yunhui Cui <cuiyunhui@bytedance.com>
 To: linux-riscv@lists.infradead.org,
 	linux-mm@kvack.org,
@@ -81,17 +81,17 @@ Cc: linux-arch@vger.kernel.org,
 	linux-perf-users@vger.kernel.org,
 	kasan-dev@googlegroups.com,
 	Yunhui Cui <cuiyunhui@bytedance.com>
-Subject: [PATCH v2 06/15] riscv: make pte_batch_hint() honor folio batch flags
-Date: Thu, 16 Jul 2026 20:41:41 +0800
-Message-Id: <40bc1db57d1fdad482a32ca6aa95031f7d5676e1.1784201104.git.cuiyunhui@bytedance.com>
+Subject: [PATCH v2 07/15] riscv/mm: preserve Svnapot leaf-size semantics for page-table consumers
+Date: Thu, 16 Jul 2026 20:41:42 +0800
+Message-Id: <180084b20de76f7ad61641e9b7abe6d103caf5f3.1784201104.git.cuiyunhui@bytedance.com>
 X-Mailer: git-send-email 2.39.2 (Apple Git-143)
 In-Reply-To: <cover.1784201104.git.cuiyunhui@bytedance.com>
 References: <cover.1784201104.git.cuiyunhui@bytedance.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_054338_649758_4D6F5F9E 
-X-CRM114-Status: GOOD (  15.31  )
+X-CRM114-CacheID: sfid-20260716_054347_442925_776274E6 
+X-CRM114-Status: GOOD (  10.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,167 +106,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Svnapot folded mappings may be exposed through a logical per-page PTE
-view instead of the raw encoded block entry. Generic folio batching code
-already defines which PTE bits are ignored when comparing entries, and
-folded mappings need to use the same comparison rules. Otherwise RISC-V
-can reject a batch that generic MM would consider equivalent simply
-because the hint path compared a different view of the same mapping.
+Svnapot keeps a folded 64KB mapping encoded in the page table, while the
+public PTE helpers may expose a logical per-page sub-PTE view to generic
+MM users. That logical view is suitable for leaf-style PTE consumers, but
+it must not change the effective leaf size reported for the mapping.
 
-Install a Svnapot-aware pte_batch_hint() implementation. If the caller
-passes a logical sub-PTE instead of a raw NAPOT entry, rebuild the
-corresponding block PTE first, apply the same folio batch flags as the
-generic batching code, and only return a multi-entry hint if the
-remaining raw PTEs in the folded block still match.
+Use the original page-table entry for leaf-size queries, so page-table
+consumers continue to observe the Svnapot leaf size instead of incorrectly
+treating a folded mapping as PAGE_SIZE entries.
 
 Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
 ---
- arch/riscv/include/asm/pgtable.h | 26 +++++++++++++
- arch/riscv/mm/contpte.c          | 66 ++++++++++++++++++++++++++++++++
- 2 files changed, 92 insertions(+)
+ arch/riscv/include/asm/pgtable.h | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
 diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 771faabb2b00b..da7ffea0dcd98 100644
+index da7ffea0dcd98..e4b9c05014c00 100644
 --- a/arch/riscv/include/asm/pgtable.h
 +++ b/arch/riscv/include/asm/pgtable.h
-@@ -6,6 +6,13 @@
- #ifndef _ASM_RISCV_PGTABLE_H
- #define _ASM_RISCV_PGTABLE_H
+@@ -580,6 +580,17 @@ static inline pte_t pte_swp_clear_soft_dirty(pte_t pte)
+ 					napot_cont_size(napot_cont_order(pte)) :\
+ 					PAGE_SIZE)
  
-+#ifndef __ASSEMBLY__
-+#ifndef __LINUX_FPB_T
-+#define __LINUX_FPB_T
-+typedef int __bitwise fpb_t;
-+#endif
-+#endif
-+
- #include <linux/mmzone.h>
- #include <linux/sizes.h>
- 
-@@ -591,6 +598,8 @@ void napotpte_clear_young_dirty_ptes(struct vm_area_struct *vma,
- 				     unsigned int nr, cydp_t flags);
- void napotpte_wrprotect_ptes(struct mm_struct *mm, unsigned long addr,
- 			     pte_t *ptep, unsigned int nr);
-+unsigned int napotpte_pte_batch_hint_from_pte(pte_t *ptep, pte_t orig_pte,
-+					      fpb_t flags);
- int napotpte_ptep_set_access_flags(struct vm_area_struct *vma,
- 				   unsigned long address, pte_t *ptep,
- 				   pte_t entry, int dirty);
-@@ -1033,6 +1042,16 @@ static inline int ptep_clear_flush_young(struct vm_area_struct *vma,
- 	return napotpte_ptep_clear_flush_young(vma, address, ptep);
- }
- 
-+#define pte_batch_hint pte_batch_hint
-+static inline unsigned int
-+pte_batch_hint(pte_t *ptep, pte_t pte, fpb_t flags)
++#define __ptep_leaf_size __ptep_leaf_size
++static inline unsigned long __ptep_leaf_size(pmd_t pmd, pte_t *ptep, pte_t pte)
 +{
-+	if (!pte_present(pte))
-+		return 1;
++	pte_t raw_pte = READ_ONCE(*ptep);
 +
-+	return napotpte_pte_batch_hint_from_pte(ptep, pte, flags);
++	if (pte_present_napot(raw_pte))
++		return pte_leaf_size(raw_pte);
++
++	return PAGE_SIZE;
 +}
 +
- #else /* CONFIG_RISCV_ISA_SVNAPOT */
- 
- #define napotpte_ptep_set_access_flags(vma, address, ptep, entry, dirty) \
-@@ -1095,6 +1114,13 @@ static inline pte_t __get_and_clear_full_ptes(struct mm_struct *mm,
- #define __HAVE_ARCH_PTEP_CLEAR_YOUNG_FLUSH
- #define ptep_clear_flush_young __ptep_clear_flush_young
- 
-+#define pte_batch_hint pte_batch_hint
-+static inline unsigned int
-+pte_batch_hint(pte_t *ptep, pte_t pte, fpb_t flags)
-+{
-+	return 1;
-+}
-+
- #endif /* CONFIG_RISCV_ISA_SVNAPOT */
- 
- #define set_pte __set_pte
-diff --git a/arch/riscv/mm/contpte.c b/arch/riscv/mm/contpte.c
-index 3f8a0a2970afb..9ffdffdc2b0c0 100644
---- a/arch/riscv/mm/contpte.c
-+++ b/arch/riscv/mm/contpte.c
-@@ -176,6 +176,32 @@ static inline bool napotpte_is_consistent(pte_t pte, pte_t orig_pte)
- 	       pte_val(pte_mask_ad(pte)) == pte_val(pte_mask_ad(orig_pte));
- }
- 
-+static inline bool
-+napotpte_is_batch_consistent(pte_t pte, pte_t batch_pte, fpb_t flags)
-+{
-+	return pte_present_napot(pte) &&
-+	       pte_val(__pte_batch_clear_ignored(pte, flags)) ==
-+	       pte_val(batch_pte);
-+}
-+
-+static inline pte_t
-+napotpte_normalize_batch_pte(pte_t *ptep, pte_t orig_pte, fpb_t flags)
-+{
-+	unsigned long pfn;
-+	pgprot_t prot;
-+	unsigned int off;
-+
-+	if (pte_present_napot(orig_pte))
-+		return __pte_batch_clear_ignored(orig_pte, flags);
-+
-+	off = ptep - napot_align_ptep(ptep);
-+	pfn = pte_pfn(orig_pte) - off;
-+	prot = __pgprot(pte_protval_no_pfn_no_napot(orig_pte));
-+
-+	return __pte_batch_clear_ignored(pte_mknapot(pfn_pte(pfn, prot),
-+					     napotpte_order()), flags);
-+}
-+
- static bool napotpte_all_subptes_same(pte_t *ptep, pte_t expected_pte)
- {
- 	pte_t *start;
-@@ -328,6 +354,46 @@ pte_t napotpte_ptep_get_lockless(pte_t *orig_ptep)
- }
- EXPORT_SYMBOL(napotpte_ptep_get_lockless);
- 
-+unsigned int napotpte_pte_batch_hint_from_pte(pte_t *ptep, pte_t orig_pte,
-+					      fpb_t flags)
-+{
-+	pte_t batch_pte, pte;
-+	pte_t *start;
-+	unsigned int i, nr, off;
-+
-+	if (!napot_hw_supported())
-+		return 1;
-+
-+	if (!pte_present_napot(orig_pte) && !pte_present_napot(READ_ONCE(*ptep)))
-+		return 1;
-+
-+	/*
-+	 * @orig_pte may be either the raw NAPOT entry read from the page
-+	 * table or the logical sub-PTE returned by ptep_get(). In the latter
-+	 * case, the public view has the NAPOT bit stripped and the PFN adjusted
-+	 * by the slot offset within the folded block.
-+	 *
-+	 * If the caller passes a logical sub-PTE, rebuild the corresponding
-+	 * block PTE first. Then apply the same folio batch flags as the generic
-+	 * batching code, and only return a multi-entry hint if every remaining
-+	 * raw PTE in the folded block still matches.
-+	 */
-+	batch_pte = napotpte_normalize_batch_pte(ptep, orig_pte, flags);
-+
-+	start = napot_align_ptep(ptep);
-+	nr = napotpte_pte_num();
-+	off = ptep - start;
-+
-+	for (i = off; i < nr; i++) {
-+		pte = READ_ONCE(start[i]);
-+		if (!napotpte_is_batch_consistent(pte, batch_pte, flags))
-+			return 1;
-+	}
-+
-+	return nr - off;
-+}
-+EXPORT_SYMBOL(napotpte_pte_batch_hint_from_pte);
-+
- static void napotpte_try_unfold_range(struct mm_struct *mm,
- 				      unsigned long addr, pte_t *ptep,
- 				      unsigned int nr)
+ void __napotpte_try_fold(struct mm_struct *mm, unsigned long addr,
+ 			 pte_t *ptep, pte_t pte);
+ void __napotpte_try_unfold(struct mm_struct *mm, unsigned long addr,
 -- 
 2.39.5
 
