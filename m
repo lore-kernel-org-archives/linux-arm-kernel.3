@@ -4,134 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7C7DC44511
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 06:48:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB9BCC44511
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 06:55:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hb8ujkKNmLMS6DUcb8LWEka1QX1Hu4x7yARFIs8nkQ0=; b=OL1TfwWXgGQ0LAdEIBL8Th/hQT
-	JP3nnY/TA0RLkxZLdAfP9xS2BLO13NLJZhVjfASGwLjAcge2ucPFg3PEFq7DonaDquVJR78F2bryk
-	FOTy4S0YMz9jUR32gchjm2GX2a+WD+eW7C2+vaG2CkuA6l7EQjBIPBQrDisU92sNgFW+HNEX1vZZ2
-	/FHrXplrJ/mT2sbFRoojCqREA7203fo3he/RLCtM7IumpvXEd4Wp3OOYyxfPYnNfvC2SoZNRPGNZs
-	EhEYCyueU55n+uUhYCgAzazUd4MXPSMVz0eO52Cc5IAlmJm3996GzuN37zSMyz6C2FcD5zmt22/KJ
-	dMF+8ztQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Mime-Version:References:Date:To:Message-Id:Cc:
+	Subject:From:Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7x6aERVipVHaG0xRD6KC0RgCFBCYOOqTbyO/Xpmab5Y=; b=qn29vzHW+s+w6YhgBomOUTX3gm
+	IRkexVnsc9Gris/IVP4NpwegWFANW1eN3Z4655QqvrjNWXhZ85lERNiBqwZ7jCGoryWb8VvkIdKyU
+	KSqtEHXZZMILlqwlt/pLzXgpedtjMXsBO6ww42+euBVcx4y8Xh+H6/7Boia7oSsg9nGq3vuhBaYm6
+	TFvu5Z6mq+2kWDjjBTQzKsmm26uJeTi745JVuejPM/CUtSlJQ2ecdA7dHl1r+c5jP6WP/e/fxdihH
+	WiXP/b00Mx0HDsIhu9ykCUiLiQ4lCuD2YWtRt9uyz+t2jXMWaw9CGIVRwfjkqJcEU39xKbW3vJk4M
+	PZ7Bzkvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkFsy-0000000GZV2-234U;
-	Thu, 16 Jul 2026 06:47:56 +0000
-Received: from mail-francecentralazon11013071.outbound.protection.outlook.com ([40.107.162.71] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1wkG0d-0000000GaQJ-3DPe;
+	Thu, 16 Jul 2026 06:55:51 +0000
+Received: from gy.d.sender-sib.com ([77.32.148.25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkFsv-0000000GZTR-04LR;
-	Thu, 16 Jul 2026 06:47:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=u108f1N/8HqliQ9rXwVjG5bvW85K+B6Huxi0hQ3/LIm0a+EqnymcJ96HAnoG3hnRo/Wk5M5JpeetLpFJ4VsIqCfn3lzMiuz99fYuSSIEuiplPtCO//tYeAEGAzJLP9knOjDDm3SMxfj6Utrwom9WkYIZG4PDMlRXH+ciL/rne+lne5C02ixkJWtjHPajmrkTqfNMn8nmaTJTn+tInzcxeSfkkAVgCXPZ1ozPr9LYCwSVeLZgNPJt051TjEJ06j+KSkr1675feaipLAe/8ZlDzW08H6c1DuzBoPYU5gEkhBbBPiWYERxA/0mpe9WsnludOHq1b3BHVl2gzAplMwdP4A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hb8ujkKNmLMS6DUcb8LWEka1QX1Hu4x7yARFIs8nkQ0=;
- b=eLdoa8YjJ7dm+6aaEhZq2hLCbKrMKhhNl0DPVAXUOjPkOPuOGqJu42+hwtTSL0r+9Du6vbLZH2zYzYmojwuWkx/IOrPdaeZNDOTaZE5OXaAS8wkpdEO9bKGSj9rDGvMTVzSIhYvFxgK/DpEejvAvcceVZ5QrpU/2px6MEOanTAjwbgxJfevacL+Z9LidwMNPW1VizWKbH38zhOuSr03k19JJBtqTWhqaJQfUDpTWdG0HjOPbuV1+kT2jjiRy0AgVco2Hr6BoozQYiTUXamG4/i3f6191Ux1neIBoUPFbipa4mdI/1fbWxkjVin+Wl4MPu6oe6PeLij5CPfnx+yiyUQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hb8ujkKNmLMS6DUcb8LWEka1QX1Hu4x7yARFIs8nkQ0=;
- b=JAHj2y0jLgyLMnSJQ9QKWMkZqd1z2AoK++kB2rX9eWAAx19im8vXY1Gt3vcVt0LO7Cwtl0rjTxtmJzJ6C6XaFm1ozKhkq3oUjRGL1jXvW2WrqkV9YJ1n1lYkegSkgeQZkcMG6VaqpPfNfh7tsvkknYzqUvI/+xGS1uvY8kfnv7r8TZCTXX/1YiC5KK0LQWqc1B0LsvsxUWZGKg/Z9gzngafr/qq1VHk1X4bfoqjjKHukqXBArF2ksO0dkr0oj9VHqV6cQcgI3JSmdAqpcBRS6+sYLKaa+GkbQIsMgg5PzVV61lvsVXkU5B7ZGjbIH0pzbBOaqEyuDSYJeLXD0HuDcQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS1PR04MB9287.eurprd04.prod.outlook.com (2603:10a6:20b:4dd::8)
- by PA4PR04MB9568.eurprd04.prod.outlook.com (2603:10a6:102:26e::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.11; Thu, 16 Jul
- 2026 06:47:46 +0000
-Received: from AS1PR04MB9287.eurprd04.prod.outlook.com
- ([fe80::6f30:763d:17d2:b79c]) by AS1PR04MB9287.eurprd04.prod.outlook.com
- ([fe80::6f30:763d:17d2:b79c%3]) with mapi id 15.21.0223.008; Thu, 16 Jul 2026
- 06:47:46 +0000
-Date: Thu, 16 Jul 2026 14:49:14 +0800
-From: Liu Ying <victor.liu@nxp.com>
-To: Francesco Dolcini <francesco@dolcini.it>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
-	p.zabel@pengutronix.de, airlied@gmail.com, simona@ffwll.ch,
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
-	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com, tglx@linutronix.de,
-	vkoul@kernel.org, kishon@kernel.org, Frank.Li@nxp.com,
-	lumag@kernel.org, aisheng.dong@nxp.com, agx@sigxcpu.org,
-	u.kleine-koenig@baylibre.com, marek.vasut@mailbox.org
-Subject: Re: [PATCH v9 00/19] Add Freescale i.MX8qxp Display Controller
- support
-Message-ID: <alh-6sI4J7vq2drz@raspi>
-References: <20250414035028.1561475-1-victor.liu@nxp.com>
- <20260714193627.GA9616@francesco-nb>
- <alh4a66fEro05ShA@raspi>
- <20260716062612.GC9973@francesco-nb>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260716062612.GC9973@francesco-nb>
-X-ClientProxiedBy: SI1PR02CA0015.apcprd02.prod.outlook.com
- (2603:1096:4:1f7::18) To AS1PR04MB9287.eurprd04.prod.outlook.com
- (2603:10a6:20b:4dd::8)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS1PR04MB9287:EE_|PA4PR04MB9568:EE_
-X-MS-Office365-Filtering-Correlation-Id: 45a124c8-2533-461d-c887-08dee30624ab
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|376014|23010399003|7416014|22082099003|18002099003|11063799006|56012099006|4143699003|3023799007|10067099003;
-X-Microsoft-Antispam-Message-Info: gQbzj12p5cIWd+YECzJY6KA1dl1gz24aGk8mw8GtVT0hkOYAaKi6Xu6/0oHs3QdIE1NLz9IPAYIQ4930kVB7RNB6oTEhbpZJMdsTnHbMS3bcmjtUXcjpJB2ZECj7rGuuoPz6KtYeEJrQSBcvehkUuGTIKd8PQG67TVM3ytadJw/l6pSOi6RJkh0wIpvWMtqL6j4HYzd9xRLvO/56BFzHNrw2k2d+bXhOsJmzRC6XgCkg+HIt+xiUlQKCwmA1MD7tdi4f2kQixf86jTPiZJuRv4lmvm47MtwfG3n6emC0A04eqL7QvOtbniQfYS/RZO+7ryAibN4nL2S+Lp8Tmp8hNU+Psrz2qBihTmf8o8ylbPNbYxj4SKPPcyh9QQLf6whsHyCV4n9LtkgSWrKiI6Bl5hpmO3vgLlD4sc6aJXjtE9H9HNAv/E17BunMoHmTQv3B9LTcbOhjBdmxADFMSIU7rWC/1GvoLrKtxojtsi7Y0jhqHBp/5Vt0dJQKqnlFoCk19VSeRaz48c04x28s7R5PAjQHuPdCx+gFGgJ45ozLGxZrBoNWBo5KdtcDuIGWow/SXvRpzPF8LoRnCqZFfSJarTupcLbknghv/phHta1SufHXtdJdbAV5WYyU7VwEQFlU+kJ5so4kCopUNcoO3iHsORms+gfmn3BkwNdVm5WDl84=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS1PR04MB9287.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(376014)(23010399003)(7416014)(22082099003)(18002099003)(11063799006)(56012099006)(4143699003)(3023799007)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ikUGTUMfr4+Nu51LQcYrm3TobJyOHPjx3LPNHrKO/n6KHKdWzvx57qiMBNlg?=
- =?us-ascii?Q?yMqhPSnVKUmgojEuvPGMatOq1aLiiV22rMyvuGTbO6o4ZmKsDXd+isUkH+fB?=
- =?us-ascii?Q?qZtFv1LeVCysYTWQcuElpLaA0uVXTrT6uadjQF59pV1Rn/An1GWXracODe9J?=
- =?us-ascii?Q?5LQBPZ/18W7oul60gQEQ3eJr+OeELvKXVP1YSiwWwWA3IWdDxqoapQjAyMR1?=
- =?us-ascii?Q?aOLzZlsJiv9ilR8kHSZNtsOV+bUMUB4hX2rYlnJ5qVqaqqPUVeA3UhjfLsHg?=
- =?us-ascii?Q?ZfBfH9zx+EIIY1OWlgTkAxa9aZjnIAUqRJmZKiF23Y4Cy8qR2EsEb888H6/e?=
- =?us-ascii?Q?HEKNyoNJUjC+XQNcAPqmTTGJMu8ucTElTbWSd093dHDj6vVG8fBv9NXYlyVs?=
- =?us-ascii?Q?hGl8GH3QIh9xCdt5degOEka9OBtRYWsVnOJ5SEYFHnzS6xP9gPprSgd32yeY?=
- =?us-ascii?Q?zueBduif4QeR/5BdbBN14RhuRWMQf3CrqUfc/A66nNf38u4lu7gOvCeXmci7?=
- =?us-ascii?Q?4URgTmMO6z7qGeINFlG9I18xAyVadlj5kTkUqVUt5x8zQnOSkXS40ul0F3R6?=
- =?us-ascii?Q?Ty4eZhAAwqdzvHEbFDDQLajr0+pNod9FR1eQ/mVH9IukisoCLAGfCAHZw4b8?=
- =?us-ascii?Q?72Hhwojfm2Ezpdit4/ImDVR9WjbRBcW1+vBFGlhawg1aSmSyS5FDV/QG+oMQ?=
- =?us-ascii?Q?YTPBf9nsNciV+AWJvHo3cfDvH+T8mjVnuLTv8zAPHvn0prYC/tHTKhOmlmzd?=
- =?us-ascii?Q?ULMWZFRYPAx02mAtypDy+7z/HaG1cxaR6YMGOF3xtqeOEQ7oDxbqfFE8S0uQ?=
- =?us-ascii?Q?ujUetJ2YZcyaHsDkEP+kNnhv4oiXISfbxi6Iv5vqAQ5B3O6DtZnGpScg8Iui?=
- =?us-ascii?Q?U6q5eo2UXJVfG8tq4r8dBthH4WEsv/+pbiKAu4dH5RwKxwmhVLXQ0oiNDSmy?=
- =?us-ascii?Q?QnBNqt3f0/zhhwW98+aztnUoFDaiJqO+pYjUslw1sTO6krqP0syyPNxX0A7V?=
- =?us-ascii?Q?RFD1m5fhnO2keWw6Wtz02V4ex2Hqje2qmeATKVRa4F++hHqw9qcXmrMqa8PM?=
- =?us-ascii?Q?nsyUqwUzqfnf77LVMnlc6j3laOsVrU+Y4Rxm1XPJdfylpJNK3l4fUx9dGos7?=
- =?us-ascii?Q?UtdR6FgzHvCC5HfUFxUmWOK7NoVfESjVM7o77n/pVbgiMXih6ik6A8zV2H/b?=
- =?us-ascii?Q?aBWyjL3bPgfX8o7FEva+Qg0peSBsum77P9wb3exOmu3wz70F8elpgYrP9Kxj?=
- =?us-ascii?Q?QQ02PMJnzezm5cYISTjRocQqcluFJzE6nAc9G4hRoriNuQgfjgRd2zeQ5tLw?=
- =?us-ascii?Q?irXex1dtNKrbBVdcQCVBxAqkhFwREI85QQirq3iZJWnD1eUVgBqbDqq5kx7u?=
- =?us-ascii?Q?365kgbvkxK5u3ZoVzqDprg/3HkwlwGVOauQU9bnZKFwERg3P7ScpV1O4134P?=
- =?us-ascii?Q?TBqaU43EMAU+sSGGLG1aP95udwILB9OE9Ofy3ziEUV2kfMOUVa5U3GEJLBfC?=
- =?us-ascii?Q?qU8CqTB+G6rkdtNp6P3dyirkwOkHbz4UCCXK+e671nfG19+JBSGO0zliBWH0?=
- =?us-ascii?Q?ZFqqs9PUtf1BnfeyeyALDCFEY6aWmDGOY0jwHsAxST1U9H6ylSC5LfMuluuY?=
- =?us-ascii?Q?Qhutp9V9KK3ytmQRsogc8CYxIKdVxBI3QZqiu6350kuXw23SRmCfZUhKIBSB?=
- =?us-ascii?Q?NfaFQ0cX57lh+ruC11ctrzhR8XiQPT3OO9C2DZqMVrS8WlvZ7vBF/h0/o72K?=
- =?us-ascii?Q?0pe3PHMTOA=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 45a124c8-2533-461d-c887-08dee30624ab
-X-MS-Exchange-CrossTenant-AuthSource: AS1PR04MB9287.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jul 2026 06:47:46.0902
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: j6FCEcHSnDPH60GDtz9mLwo9HmvVO9K2+I6hxZ/II1QcmsxwkI8kyrXkaij2zdQH9owrZ9sdKtxmkv+2pnIb1A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9568
+	id 1wkG0a-0000000GaP2-3HV5
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 16 Jul 2026 06:55:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
+ q=dns/txt; s=brevo2; bh=7x6aERVipVHaG0xRD6KC0RgCFBCYOOqTbyO/Xpmab5Y=;
+ h=from:subject:date:to:cc:mime-version:content-transfer-encoding:in-reply-to:references:list-unsubscribe:x-csa-complaints:list-unsubscribe-post:message-id:x-sib-id:feedback-id;
+        b=Td/T9xQl/LneR6wLTV3srYvldTsgyfdcbL+4j969/XiWckpgPfMYCuIOyVE+s72HLdW/bo3+oMBa
+        jkZzHS8ccH8B9q1KoamhhO8XUwuEzjCnYe7UrLaIJAhacrXGFBovUTO3zZsiBrb+M8t2rdnm99i7
+        uqNqowYZU2ScbEiQNWb3EmgVEpTUZ7eudrBq6mx2UmE0Qit2Sup3EH/RSkrJK89JBp+yzrYNXwHl
+        rj6zI+g8KbTYt3wys1pczmzmYpzPBoWxUmbnUBrTPja6ZN/+PbtEBMUcUWnNcEfEXcZpc3kXrZ5i
+        +xtXuouMTX2yd81NnA6atSlK2M4GTWdHU/0GKA==
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+From: "Jiaxing Hu" <gahing@gahingwoo.com>
+X-Mailin-EID: NDg1NjE3NDAyfmxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZ348MjAyNjA3MTYwNjU1MzcuMjQ2NjE1MS0xLWdhaGluZ0BnYWhpbmd3b28uY29tPn5neS5kLnNlbmRlci1zaWIuY29t
+Subject: Re: [PATCH 2/2] arm64: dts: rockchip: Add ArmSoM CM5 and CM5-IO
+X-sib-id: TAyBYJ-z8VPZsuT03-bxvgsLUJgTYRFiWrS6Et31f3FanO-1OsqTrDSW2aUmCZr8qNazQs2ko0_e9Wn9wN0GSpo5lR26Qx1JunBGkpN1jzmZEHJkBLrrH7DO-zPFTRl15bjudx6RDmpnTcHZ5A7Ponh0TKp4u3minrnYLxG7OKAI6y28pEc7zKkHhCTJdQfyMH-N
+Cc: <heiko@sntech.de>,  <robh@kernel.org>,  <krzk+dt@kernel.org>,  <conor+dt@kernel.org>,  <devicetree@vger.kernel.org>,  <linux-rockchip@lists.infradead.org>,  <linux-arm-kernel@lists.infradead.org>,  <linux-kernel@vger.kernel.org>
+Message-Id: <faf9554a-38cd-4544-8e25-1214adba7a80@smtp-relay.sendinblue.com>
+Origin-messageId: <20260716065537.2466151-1-gahing@gahingwoo.com>
+Feedback-ID: 77.32.148.25:11677070_-1:11677070:Sendinblue
+X-CSA-Complaints: csa-complaints@eco.de
+To: <sashiko-bot@kernel.org>
+Date: Thu, 16 Jul 2026 18:55:37 +1200
+References: <20260716012838.2353939-1-huhuvmb88@gmail.com> <20260716012838.2353939-3-huhuvmb88@gmail.com> <20260716014059.1966E1F000E9@smtp.kernel.org>
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.43.0
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20260716014059.1966E1F000E9@smtp.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_234753_067027_8FA64458 
-X-CRM114-Status: GOOD (  30.38  )
+X-CRM114-CacheID: sfid-20260715_235548_987828_3F2208BD 
+X-CRM114-Status: UNSURE (   9.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,66 +70,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 16, 2026 at 08:26:12AM +0200, Francesco Dolcini wrote:
-> On Thu, Jul 16, 2026 at 02:21:31PM +0800, Liu Ying wrote:
-> > On Tue, Jul 14, 2026 at 09:36:27PM +0200, Francesco Dolcini wrote:
-> > > On Mon, Apr 14, 2025 at 11:50:09AM +0800, Liu Ying wrote:
-> > > > Hi,
-> > > > 
-> > > > This patch series aims to add Freescale i.MX8qxp Display Controller support.
-> > > > 
-> > > > The controller is comprised of three main components that include a blit
-> > > > engine for 2D graphics accelerations, display controller for display output
-> > > > processing, as well as a command sequencer.
-> > > 
-> > > ...
-> > > 
-> > > > 
-> > > > To follow up i.MX8qxp TRM, I changed the controller name to "Display Controller"
-> > > > instead of the previous "DPU".  "DPU" is only mentioned in the SoC block
-> > > > diagram and represents the whole display subsystem which includes the display
-> > > > controller and prefech engines, etc.
-> > > > 
-> > > > With an additional patch[1] for simple-pm-bus.c, this series facilitates
-> > > > testing a LVDS panel on i.MX8qxp MEK.
-> > > > 
-> > > > Please do NOT merge patch 14-19.  They are only used to facilitate testing
-> > > > the LVDS panel.
-> > > 
-> > > What's the plan to conclude this work? What's the latest status?
-> > > I am looking forward to have a way to use the i.MX8QXP display with
-> > > mainline, but to my understanding some required changes on the SOC dtsi
-> > > are not merged.
-> > > 
-> > > Can you help?
-> > 
-> > I planned to add display controller DT node after prefetch engine support [1]
-> > is picked up so that the prefetch engine could be enabled together with the
-> > display controller.  Just want to avoid a DT that only enables the display
-> > controller or bypasses the prefetch engine.  It makes the display controller
-> > driver simpler.
-> > 
-> > [1] https://lore.kernel.org/all/20251027-imx8-dc-prefetch-v5-0-4ecb6c6d4941@nxp.com/
-> 
-> That series is from October 2025, is there anything blocking to move it
-> forward?
 
-It lacks a Reviewed-by tag(at least a Acked-by tag) from a drm-misc committer
-for every driver patch in that series.  Also, it seems that Marek(Cc'ed) is
-not a big fan of [1](See i.MX95 display support discussion[2]).
+(Replying from my own domain; v1 went out as huhuvmb88@gmail.com. Same
+person, I will use this address from v2 on.)
 
-[2] https://lore.kernel.org/dri-devel/aiZzxhljfyYQ68Gl@raspi/
+Thanks. Most of this is valid, v2 coming. I ran dtbs_check too; it agrees
+and finds more.
 
-> 
-> Francesco
-> 
-> 
-> -- 
-> linux-phy mailing list
-> linux-phy@lists.infradead.org
-> https://lists.infradead.org/mailman/listinfo/linux-phy
+> [High] Type-C DP Altmode configuration errors (SVID format, missing
+> mode-switch, and misplaced SVID)
 
--- 
-Regards,
-Liu Ying
+Correct, and worse. dtbs_check rejects the node: the altmodes child must be
+named "displayport", not altmode@0 with a reg, and svid must be /bits/ 16.
+The svid I put on &usbdp_phy is not in that binding at all (it has
+additionalProperties: false), and mode-switch is missing.
+
+> [High] Wireless (SYN43752 WiFi/BT) missing child nodes and unreferenced
+> pinctrls
+> [Low] The gmac0_rst pinctrl is defined but omitted from &gmac0
+
+Correct. bt_reg_on, wifi_host_wake_irq and gmac0_rst are all unreferenced.
+I will drop them rather than guess at wifi/bt child nodes, and drop the
+WiFi/BT claim from the commit message.
+
+> [Medium] ES8388 audio is advertised in the commit message but
+> functionally missing
+
+Correct. The node is disabled and its compatible is wrong too (the binding
+wants everest,es8328). Dropping the node and the claim.
+
+> [Medium] Missing vmmc-supply and vqmmc-supply for the eMMC
+
+This one I do not think holds. Every rk3576 board upstream (sige5,
+evb1/evb2, roc-pc, nanopi-r76s, dshanpi-a1) uses full-pwr-cycle-in-suspend
+without supplies, and dtbs_check does not flag it.
+
+Not in the report, but also fixed in v2: the fusb302 port node is not
+allowed by its binding (the role-switch endpoint belongs in the
+connector's ports), and the wifi-poweren-gpio pinctrl node name collides
+with gpio-consumer.
+
+Also the PHY reset. I had it as snps,reset-gpios, which is both misspelled
+(the schema property is singular) and deprecated. v2 describes it on the
+MDIO bus instead:
+
+	&mdio0 {
+		reset-gpios =3D <&gpio2 RK_PB3 GPIO_ACTIVE_LOW>;
+		reset-delay-us =3D <20000>;
+		reset-post-delay-us =3D <100000>;
+		rgmii_phy0: phy@1 { ... };
+	};
+
+That is the only spelling that works here. __mdiobus_register() releases a
+bus level reset before mdiobus_scan_bus_c22(), whereas a per-PHY
+reset-gpios is applied by phylib only after the PHY has been found, which
+never happens for a PHY that boots held in reset. Checked all three on
+hardware: per-PHY reset leaves the PHY dark, the bus level reset brings it
+up and the link comes up at 1000 Mbit/s.
+
+dtbs_check is clean on v2, with no deprecated properties left.
+
+Jiaxing
+
+
 
