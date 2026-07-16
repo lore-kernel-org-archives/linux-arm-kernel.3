@@ -4,73 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC288C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 09:17:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CAB7C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 09:18:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PhhmdamtR5Zd/RtGvy1VS91tfInJwf6freCO2MEEseY=; b=wcesMQPs81VkNd9DkKZcBfxA+w
-	pgfZoZxer0MhouRKd0Rshw5rX5oPb3Sh2wduZRO/209ojRkVHE3suUgLgJmYwxnzrO72S0Vbb5YiZ
-	JCZF+g63i5Lm5/PBv50euGDD+oxBwDkpHst4GoUYesnTzS0DcLGI7VWPyeeiwy1X6AlCY3Yuq2SNG
-	bVWQqNGsAPVE10yoTgmmhuO0bDnjrVrJFsS1GiMoqKF8ViYwd5j3f3KADt7zSYaveiuCn66CPtR4V
-	GgucJqDj6uVgzcPDOUUIu/jONet2ybPcgaRz8gf4JXpc3ahG+FY6iq8Uzx3HLZnZ9K2LiQeoexOua
-	CtKyjWlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PufDVCHDfk+K2XGfK3RL33FCeDZYB4LV2HI5pP5tT8A=; b=GvD9ZT7cPuH9ew7mKWlvoZArz1
+	pZ1dZE4ZZ2xbAOqmG4UCTe/Bz/Koi3piuTuh5gZBokI6uGm/cj4yA3i+wwY8s7EZerxPABL94zOKF
+	Al8rgK6DyPbs3uay8dgooY5VAXMWQUn/Jn2dSodAEK0H4EYflwIcY2iyT/rnjmJd3vrgr6f+1nrGT
+	8wL+tyR+XokF8Jm9r2sFdJzmvVFzia2vdfkgC3dzZ7y75mrZAAFTsOEOl9o9KCmXVBYQ6wbuvljrr
+	wCm6hpgNno/ukruv6aceSQkgBZubyyHcUCCup1UvFbRAWPk6+uuH1FKGItc0DO+DtyxNRD7/yjDuq
+	iDvSYDcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkIDq-0000000Gpzr-3HR3;
-	Thu, 16 Jul 2026 09:17:38 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkIDn-0000000GpyJ-1GTm
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 09:17:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E56AE1477;
-	Thu, 16 Jul 2026 02:17:29 -0700 (PDT)
-Received: from [10.1.25.27] (e122027.cambridge.arm.com [10.1.25.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 746CA3F905;
-	Thu, 16 Jul 2026 02:17:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784193454; bh=tCEy7iD7MZ+3FGuXj/M08G4NU2HDUW0nKEXLgA8KTkM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=soLPUHJZLQvXa7OkOv1/AEoaPaptD9CpFTjVFUeFEx1FPj2Dg5bXzUIYUu4lin+06
-	 h5AijQ/22lRO1N5KUkrvXbYXnhFytcxWaVMzlZQYN7N2HAuVQc9mRflRxK+vfKoIJW
-	 seQtYK3S7FjBKbk2yQqjl9/6dNmn/Z33cUnGeNDc=
-Message-ID: <9eb4e4c0-f1f6-4ab9-956a-0b233d1656c9@arm.com>
-Date: Thu, 16 Jul 2026 10:17:21 +0100
+	id 1wkIEw-0000000GqCg-09p6;
+	Thu, 16 Jul 2026 09:18:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkIEu-0000000GqCS-3zMX;
+	Thu, 16 Jul 2026 09:18:45 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with UTF8SMTP id 0CC756001A;
+	Thu, 16 Jul 2026 09:18:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 34DD01F000E9;
+	Thu, 16 Jul 2026 09:18:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784193523;
+	bh=PufDVCHDfk+K2XGfK3RL33FCeDZYB4LV2HI5pP5tT8A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Nv3cAleCx3IDxvdag8QA1Z2zrUSvBPmi0uKvEtaOpcqBsze7ySsz0Jl43z9pwWZDq
+	 LYdH8yRyYO9Vs4RM6ZtHm0rlHClP1nmSMBAlZcViYagwAuqrQqF7KwIY0wGaoJAED4
+	 h+J3sIajho+9TyRKa+OrZIJtJVoS/liO0MuNiFXeN50IidhMCC5IryS/erOQH6rDHE
+	 ilYerjy+f2rXQUleXUttyCPUkZIaQD+hckikDfAxoIwL3QL308zrXJjBc5rjSl6sQw
+	 PlRzoN4S9O+VZSs5aSSWNcXdxvbpBTS0zsgQ0Q6f9ZQ/jCiGNqenKsYtgaRvqChu8O
+	 Kng61h6AT4puA==
+Date: Thu, 16 Jul 2026 11:18:41 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Andrea della Porta <andrea.porta@suse.com>
+Cc: linux-pwm@vger.kernel.org, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Naushir Patuck <naush@raspberrypi.com>, Stanimir Varbanov <svarbanov@suse.de>, mbrugger@suse.com, 
+	Sean Young <sean@mess.org>, Julian Braha <julianbraha@gmail.com>
+Subject: Re: [PATCH v6 2/3] pwm: rp1: Add RP1 PWM controller driver
+Message-ID: <alibzwe9Mjf3GxJo@monoceros>
+References: <cover.1783097764.git.andrea.porta@suse.com>
+ <5171610d8bebdd10eea44bff5236502d765b5918.1783097764.git.andrea.porta@suse.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v15 09/37] KVM: arm64: CCA: Allow passing the machine type
- in KVM creation
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
- Lorenzo Pieralisi <lpieralisi@kernel.org>
-References: <20260715142841.80544-1-steven.price@arm.com>
- <20260715142841.80544-10-steven.price@arm.com> <87zezs44cf.wl-maz@kernel.org>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <87zezs44cf.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_021735_440668_D5E4CCBD 
-X-CRM114-Status: GOOD (  21.08  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="zxlx2zmpzeyxgeid"
+Content-Disposition: inline
+In-Reply-To: <5171610d8bebdd10eea44bff5236502d765b5918.1783097764.git.andrea.porta@suse.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,72 +74,241 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/07/2026 17:14, Marc Zyngier wrote:
-> On Wed, 15 Jul 2026 15:28:11 +0100,
-> Steven Price <steven.price@arm.com> wrote:
->>
->> Previously machine type was used purely for specifying the physical
->> address size of the guest. Reserve the higher bits to specify an ARM
->> specific machine type and declare a new type 'KVM_VM_TYPE_ARM_REALM'
->> used to create a realm guest.
->>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> ---
->> Changes since v13:
->>  * Rework to use the two top bits for the machine type now that pKVM has
->>    merged and used the top bit for KVM_VM_TYPE_ARM_PROTECTED.
->>  * Update the documentation to include KVM_VM_TYPE_ARM_PROTECTED as
->>    well.
->> Changes since v9:
->>  * Explictly set realm.state to REALM_STATE_NONE rather than rely on the
->>    zeroing of the structure.
->> Changes since v7:
->>  * Add some documentation explaining the new machine type.
->> Changes since v6:
->>  * Make the check for kvm_rme_is_available more visible and report an
->>    error code of -EPERM (instead of -EINVAL) to make it explicit that
->>    the kernel supports RME, but the platform doesn't.
->> ---
->>  Documentation/virt/kvm/api.rst | 18 ++++++++++++++++--
->>  arch/arm64/kvm/arm.c           | 11 +++++++++++
->>  include/uapi/linux/kvm.h       |  7 ++++++-
->>  3 files changed, 33 insertions(+), 3 deletions(-)
->>
->> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
->> index b38e090ad95d..e39d146b34a3 100644
->> --- a/Documentation/virt/kvm/api.rst
->> +++ b/Documentation/virt/kvm/api.rst
->> @@ -181,8 +181,22 @@ flag KVM_VM_MIPS_VZ.
->>  ARM64:
->>  ^^^^^^
->>  
->> -On arm64, the physical address size for a VM (IPA Size limit) is limited
->> -to 40bits by default. The limit can be configured if the host supports the
->> +On arm64, the machine type identifier is used to encode a type and the
->> +physical address size for the VM. The lower byte (bits[7-0]) encode the
->> +address size and the upper bits[30-31] encode a machine type. The machine
->> +types that might be available are:
->> +
->> + =========================   ============================================
->> + KVM_VM_TYPE_ARM_NORMAL      A standard VM
->> + KVM_VM_TYPE_ARM_REALM       A "Realm" VM using the Arm Confidential
->> +                             Compute extensions, the VM's memory is
->> +                             protected from the host.
->> + KVM_VM_TYPE_ARM_PROTECTED   A "protected" VM using pKVM to isolate the
->> +                             VM from the host.
->> + =========================   ============================================
->> +
-> 
-> Probably worth mentioning that REALM+PROTECTED is an illegal
-> combination.
 
-The original intention was that these were enum values not separate bit
-fields. Having to adapt to the pKVM changes when they were merged has
-somewhat messed this up. I'll add a clarification, but hopefully we
-haven't actually burnt the combination in case we have a 4th type in the
-future.
+--zxlx2zmpzeyxgeid
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Subject: Re: [PATCH v6 2/3] pwm: rp1: Add RP1 PWM controller driver
+MIME-Version: 1.0
 
-Thanks,
-Steve
+Hello,
 
+On Fri, Jul 03, 2026 at 07:05:25PM +0200, Andrea della Porta wrote:
+> +static int rp1_pwm_round_waveform_tohw(struct pwm_chip *chip,
+> +				       struct pwm_device *pwm,
+> +				       const struct pwm_waveform *wf,
+> +				       void *_wfhw)
+> +{
+> +	struct rp1_pwm *rp1 = pwmchip_get_drvdata(chip);
+> +	u64 period_ticks, duty_ticks, offset_ticks;
+> +	struct rp1_pwm_waveform *wfhw = _wfhw;
+> +	u64 clk_rate = rp1->clk_rate;
+> +	int ret = 0;
+> +
+> +	if (!wf->period_length_ns) {
+> +		wfhw->enabled = false;
+> +		wfhw->inverted_polarity = (pwm_get_polarity(pwm) == PWM_POLARITY_INVERSED);
+
+pwm_get_polarity(pwm) looks wrong here for several reasons. 1st the
+polarity is defined in *wf and should not depend on the current state,
+2nd for a disabled hardware the polarity doesn't matter anyhow, and 3rd
+you should not call pwm API functions from the lowlevel driver (which
+might interfere with subsystem locking).
+
+Also please initialize the whole structure, best done using:
+
+	*wfhw = (typeof(*wfhw)){
+		.enabled = false,
+	}
+
+> +		return 0;
+> +	}
+> +
+> +	period_ticks = mul_u64_u64_div_u64(wf->period_length_ns, clk_rate, NSEC_PER_SEC);
+> +
+> +	/*
+> +	 * The period is limited to U32_MAX, and it will be decremented by one later
+> +	 * to allow 100% duty cycle.
+> +	 */
+> +	if (period_ticks > U32_MAX) {
+> +		period_ticks = U32_MAX;
+> +	} else if (period_ticks < 2) {
+> +		period_ticks = 2;
+> +		ret = 1;
+> +	}
+> +
+> +	duty_ticks = mul_u64_u64_div_u64(wf->duty_length_ns, clk_rate, NSEC_PER_SEC);
+> +	duty_ticks = min(duty_ticks, period_ticks);
+> +	offset_ticks = mul_u64_u64_div_u64(wf->duty_offset_ns, clk_rate, NSEC_PER_SEC);
+> +	if (offset_ticks >= period_ticks) {
+> +		u64 remainder;
+> +
+> +		div64_u64_rem(offset_ticks, period_ticks, &remainder);
+> +		offset_ticks = remainder;
+
+		offset_ticks = period_ticks - 1;
+
+> +	}
+> +	if (duty_ticks && offset_ticks &&
+> +	    duty_ticks + offset_ticks >= period_ticks) {
+> +		wfhw->duty_ticks = period_ticks - duty_ticks;
+> +		wfhw->inverted_polarity = true;
+> +	} else {
+> +		wfhw->duty_ticks = duty_ticks;
+> +		wfhw->inverted_polarity = false;
+> +	}
+> +	/* Account for the extra tick at the end of the period */
+> +	wfhw->period_ticks = period_ticks - 1;
+> +
+> +	wfhw->enabled = true;
+> +
+> +	return ret;
+> +}
+> +
+> +static int rp1_pwm_round_waveform_fromhw(struct pwm_chip *chip,
+> +					 struct pwm_device *pwm,
+> +					 const void *_wfhw,
+> +					 struct pwm_waveform *wf)
+> +{
+> +	struct rp1_pwm *rp1 = pwmchip_get_drvdata(chip);
+> +	const struct rp1_pwm_waveform *wfhw = _wfhw;
+> +	u64 clk_rate = rp1->clk_rate;
+> +	u64 ticks;
+> +
+> +	*wf = (struct pwm_waveform){ };
+> +
+> +	if (!wfhw->enabled)
+> +		return 0;
+> +
+> +	wf->period_length_ns = DIV_ROUND_UP_ULL(((u64)wfhw->period_ticks + 1) * NSEC_PER_SEC,
+> +						clk_rate);
+> +
+> +	if (!wfhw->inverted_polarity) {
+> +		wf->duty_length_ns = DIV_ROUND_UP_ULL((u64)wfhw->duty_ticks * NSEC_PER_SEC,
+> +						      (u32)clk_rate);
+> +	} else {
+> +		if (wfhw->duty_ticks > (u64)wfhw->period_ticks + 1) {
+> +			/* 100% duty cycle case */
+> +			ticks = 0;
+> +		} else {
+> +			ticks = (u64)wfhw->period_ticks + 1 - wfhw->duty_ticks;
+> +		}
+> +		wf->duty_length_ns = DIV_ROUND_UP_ULL(ticks * NSEC_PER_SEC, clk_rate);
+> +		wf->duty_offset_ns = wf->period_length_ns - wf->duty_length_ns;
+
+The duty_offset_ns calculation is wrong.
+
+Consider clk_rate = 3000000, period_ticks = 8, inverted_polarity = true and
+duty_ticks = 4.
+
+Then you have:
+
+	.period_length_ns = 2666.6666666666666 ns ~> 2667
+	.duty_length_ns = 1333.3333333333333 ns -> 1334
+	.duty_offset_ns = 1333.3333333333333 ns -> 1334
+
+but .period_length_ns - .duty_length_ns is 1333.
+
+To get this right, you have to calculate
+
+	wf->duty_offset_ns = DIV_ROUND_UP_ULL((u64)(wfhw->period_ticks + 1 - ticks) * NSEC_PER_SEC, clk_rate);
+
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int rp1_pwm_write_waveform(struct pwm_chip *chip,
+> +				  struct pwm_device *pwm,
+> +				  const void *_wfhw)
+> +{
+> +	struct rp1_pwm *rp1 = pwmchip_get_drvdata(chip);
+> +	const struct rp1_pwm_waveform *wfhw = _wfhw;
+> +	u32 value, ctrl;
+> +
+> +	/* set polarity */
+> +	regmap_read(rp1->regmap, RP1_PWM_CHAN_CTRL(pwm->hwpwm), &value);
+> +	if (!wfhw->inverted_polarity)
+> +		value &= ~RP1_PWM_CHAN_CTRL_POLARITY;
+> +	else
+> +		value |= RP1_PWM_CHAN_CTRL_POLARITY;
+> +	regmap_write(rp1->regmap, RP1_PWM_CHAN_CTRL(pwm->hwpwm), value);
+> +
+> +	/* early exit if disabled */
+> +	regmap_read(rp1->regmap, RP1_PWM_GLB_CTRL, &ctrl);
+> +	if (!wfhw->enabled) {
+> +		ctrl &= ~RP1_PWM_GLB_CTRL_CHANNEL_ENABLE(pwm->hwpwm);
+> +		goto exit_disable;
+
+Please don't use goto unless for error handling.
+
+> +	}
+> +
+> +	/* set period and duty cycle */
+> +	regmap_write(rp1->regmap,
+> +		     RP1_PWM_RANGE(pwm->hwpwm), wfhw->period_ticks);
+> +	regmap_write(rp1->regmap,
+> +		     RP1_PWM_DUTY(pwm->hwpwm), wfhw->duty_ticks);
+> +
+> +	/* enable the channel */
+> +	ctrl |= RP1_PWM_GLB_CTRL_CHANNEL_ENABLE(pwm->hwpwm);
+> +exit_disable:
+> +	regmap_write(rp1->regmap, RP1_PWM_GLB_CTRL, ctrl);
+> +
+> +	rp1_pwm_apply_config(chip, pwm);
+> +
+> +	return 0;
+> +}
+> +
+> +static int rp1_pwm_read_waveform(struct pwm_chip *chip,
+> +				 struct pwm_device *pwm,
+> +				 void *_wfhw)
+> +{
+> +	struct rp1_pwm *rp1 = pwmchip_get_drvdata(chip);
+> +	struct rp1_pwm_waveform *wfhw = _wfhw;
+> +	u32 value;
+> +
+> +	regmap_read(rp1->regmap, RP1_PWM_GLB_CTRL, &value);
+> +	wfhw->enabled = !!(value & RP1_PWM_GLB_CTRL_CHANNEL_ENABLE(pwm->hwpwm));
+> +
+> +	regmap_read(rp1->regmap, RP1_PWM_CHAN_CTRL(pwm->hwpwm), &value);
+> +	wfhw->inverted_polarity = !!(value & RP1_PWM_CHAN_CTRL_POLARITY);
+> +
+> +	if (wfhw->enabled) {
+> +		regmap_read(rp1->regmap, RP1_PWM_RANGE(pwm->hwpwm), &wfhw->period_ticks);
+> +		regmap_read(rp1->regmap, RP1_PWM_DUTY(pwm->hwpwm), &wfhw->duty_ticks);
+> +	} else {
+> +		wfhw->period_ticks = 0;
+> +		wfhw->duty_ticks = 0;
+> +	}
+
+Ideally use *wfhw = (typeof(*wfhw)){ ... } here, too, to make it obvious
+that the complete struct is initialized.
+
+> +
+> +	return 0;
+> +}
+> [...]
+> +static struct platform_driver rp1_pwm_driver = {
+> +	.probe = rp1_pwm_probe,
+> +	.remove = rp1_pwm_remove,
+> +	.driver = {
+> +		.name = "rp1-pwm",
+> +		.of_match_table = rp1_pwm_of_match,
+> +		.pm = pm_ptr(&rp1_pwm_pm_ops),
+> +		.suppress_bind_attrs = true,
+
+If the driver cannot be removed, .remove() is just dead code. Drop it
+and note in a comment that this is needed because a syscon cannot be
+removed.
+
+Best regards
+Uwe
+
+--zxlx2zmpzeyxgeid
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmpYoe4ACgkQj4D7WH0S
+/k50FQf/QwRdC9Xs5xWKlewjS+C+Q1ErIf4QMfE3jUVIH3RvwgpNeuZEX2XdGVzq
+TCPID7ykFKhk9QEw0fSa5wZozhBU57L9RVTtiBcq61WNwGykd7230xF4G7nr0PDn
+1MU+bRA2qMAYcZd8aplWPtnI8aqb6LrlFVVuSd9vfxjqq5YIi5wA6NDcpbnGYNYg
+oeqe2gsh8/qn5571U7qtq0VMdaEhUfhxn1ihGhUiiy/NC9m5TQMPtgNjqXM0lV+3
+fY9B13NzhzdtCfR81x/zCr67w6s6f+EXJ8Iodzx5Un2XzXdp84MCqhkir53ZsEiS
+Mrp8wr7vpEaeHyHIMIV3PUAWYuwvBg==
+=Bc65
+-----END PGP SIGNATURE-----
+
+--zxlx2zmpzeyxgeid--
 
