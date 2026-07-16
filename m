@@ -4,100 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B73A2C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 04:58:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B76B2C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 04:59:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B7oZHOBdSLZmv8DzC8nUn2BhOLEhw/y+oCq0Qrz3pQg=; b=2WUjfdhc1zAJCpH9cJnfItzbVc
-	x2U52oWCA07OhxhvWimXp1Gv40dgZlhHUbWeB104B1kDhasSaUS/KCfK/LmwJeKn3LhksTYwc864q
-	qYkZPJ9tyblgLfJ1niHQsnXEa2yl7AQHWMSD30eutV40mJtRce1RYAKMpc1oAYB0DvqUNLfdjDJ9T
-	/V/ue0ni5+pUbuGF3+gNAawjPxmfqqtSSTl1uYWsaAuiAjjFJA4pMICwEEuynNxSUnnxBI/MDLNRa
-	fTEEwt9MbvDxmtHR0M/RpZuOPbWQvwYKFA/zBwhYF5+bKH5bHFA8egJFvj1CTi9vWVEiVjKIbg0r8
-	+cTViITQ==;
+	bh=Z8dI52NQd5mdA4AuWKzP1mtoK+n7nzP2uY77NXwFDCM=; b=vD9VEJaqyKADlPNf8Mf8QMjJOa
+	QjW26Z/9QZAfCah9r6JyxbaT6gyz9XuVMPRzCWfITu1ZnmhwNeSsz3I3eVVzlvtTnLc3NhrUOLCoo
+	GKcYU+oD5wjob1kLSbOFbAW0VmHkxs2u4DMYoCqUb2Ugwxi/7Nyg6qjMknU5MrTJ5KDVhM7IpNnLe
+	1w4cxAptvjemIeWdrUy4eIjdUy/QHXSlZkA3Hm7nJE+ZXTsNPVdau6csCKva1BEiRWSaiLdOWLMZI
+	AjvIV4kNMzKE53prH8KJqKJb1YwAzHWn8DXy4NoMY0ORfUcKTS8tPXpwPfNd0T1PAKiovgybnny5b
+	h1eEN0Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkEAo-0000000GRRq-4BwA;
-	Thu, 16 Jul 2026 04:58:15 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wkEBo-0000000GRYw-0raj;
+	Thu, 16 Jul 2026 04:59:16 +0000
+Received: from mail-yx1-xb136.google.com ([2607:f8b0:4864:20::b136])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkEAm-0000000GRRJ-2MPR
+	id 1wkEBl-0000000GRXq-0qhA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 04:58:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1784177891;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=B7oZHOBdSLZmv8DzC8nUn2BhOLEhw/y+oCq0Qrz3pQg=;
-	b=J8Q2KYKxT3VSfLG8bN9i4EVbIrKmq00RacNtSdh6RVNCPogD+75piIFM3LnoRSalhaZaDs
-	3ORblcIKAu+QGrmjtPgvlaroUBKyJPaH92cBkwskvSFLhYRFKX5uYIuSNiZK/Qr5m3rQTM
-	+9LGByPyNtOSVNGWIZegcVKpx/Nqj0g=
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com
- [209.85.214.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-213-ouVIKBC_Pg6D64-rPls3Fw-1; Thu, 16 Jul 2026 00:58:09 -0400
-X-MC-Unique: ouVIKBC_Pg6D64-rPls3Fw-1
-X-Mimecast-MFC-AGG-ID: ouVIKBC_Pg6D64-rPls3Fw_1784177888
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2cee1ec30f2so41679045ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 21:58:09 -0700 (PDT)
+	Thu, 16 Jul 2026 04:59:15 +0000
+Received: by mail-yx1-xb136.google.com with SMTP id 956f58d0204a3-667923d86a7so361971d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 21:59:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1784177952; cv=none;
+        d=google.com; s=arc-20260327;
+        b=BFvYyZMNnejZXhkyKwRBYNFtkLQV69zmRv5IkcoULPg9wi3ETh+736MXgDi7ril06o
+         jp3AHue6nhLHOAE7S5lp2E0MjjnPrTwti/Nds6YAjL2djJ9w5uXmiAihjoSoUkSUun07
+         627RdlNEN1Lf8plxjA6QHrp0Y4ph36ThqA42GP0HF9oT9Y1SedxWhLUNnhJWlX3xQLjZ
+         yCOCStcmHYWN0gWQ8eryhdOKSnf73J01//uKwyIm2iRkiEwp91BLLbe1LTcxjrCW8d2I
+         6Bai4I5ntUYzBRGDF0nwebnSe+QMo3LywS6AJfJiJzm2RkmDUlxyCexNooygte7VSXdA
+         V6bw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Z8dI52NQd5mdA4AuWKzP1mtoK+n7nzP2uY77NXwFDCM=;
+        fh=ylFZ/tGjaXxdRPF1BQR3TLvq9PnMDuyqXrWxRGIuGdQ=;
+        b=c1x9qxFbBxxQ5Q9luLwPsu4BuVOdHiQIB6d9T4HexhzHWyyQtoYxsIcepx9ztK+yQE
+         +NZKtDzLbWylTo+C7aqhVv7MSiqZBOZfEN7VpRP9JyGr7QkzUqY1f6gU0394Pit2JHRW
+         sSE8rkqNKvOi4cZTXT3TVY6c8AzYxFaWQPkqb7UHhTpVAEW4Uq3FQg2a5blCOV5RDS9t
+         +oKQg0x1mPexiY8xBwvd4wAPV7Ai4VvAw6gygjuLeg5fmXU5KNAaI7a9EbO1gtYqV9A8
+         aWcl9QTB3wE0kplcQxRETf3OpoIInyMm5y6lF0x3fTJ09X9beTrnisoF/Oex+92cv3CH
+         GuhA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1784177952; x=1784782752; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Z8dI52NQd5mdA4AuWKzP1mtoK+n7nzP2uY77NXwFDCM=;
+        b=BuL+MWhIxqj2V1fbCmYLtGQhHBgaIVANdkSfqCPFxvk4DaYHBFMHK1Xzg8trCnus1d
+         Jk3WrZzklDZjOjqQnwqb4ivowRKE8xBzKmf0nrx2dV16q4XUBp2QSHB99ZVvkEOx+9Ro
+         ns/8d+favxQnIhdCBfJoptXRrRcOOWmD76WWI=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784177888; x=1784782688;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=B7oZHOBdSLZmv8DzC8nUn2BhOLEhw/y+oCq0Qrz3pQg=;
-        b=p0eR1IIRY4eBofee2wQh1WHv2QE95bbkoYaOmEg5zaCEKwodEyS4Qsb+IgpscWAo5I
-         3vCF2kO53UvW16wxaLYFFlmIvt0JwX/U3Zf1TL/o9tgHQWIhm1LAh4VJoR3VsO+j/K5s
-         dI+8j/xNbK5HORZfsKRR6OpHkrMQhIJJ+yAZQOcJLMuCd0HXZbpLUeK6sKxwweY2uPeY
-         UHo9MF5DVpdlmC7KHszfwxdQwPCO6/ZBVuoX09ywOOyDGPFHeEmQ0HrsSn8aE+C2/egT
-         0aYgnn+f5940xxY3z5bJgd60T5Kj1DgqssP1TIJi95dPMrRG3SDPY0WiTzUJ3QbseNJc
-         KBGw==
-X-Forwarded-Encrypted: i=1; AHgh+Rree+TCynBiRzjLHlmbqw9rGICcmwbYyTiNZfrRevObUjr+5Mo6UNx7V2Q3uyQbJr+Bxnod1IM/5KF+YwwradXm@lists.infradead.org
-X-Gm-Message-State: AOJu0YwrrcrvCgbNWnZ6F81VR7r8zA3oKfHCPgGXvd26Mi/yBSo2E/Bd
-	RLriPBAtUdDYwbpp92Y4C6A0BMMlUCjx3ZfT54zqwo0aUc2JvRul5q31yLwSZcjTwioXKzZH8Bg
-	4ZB//3SRS8UbuPevZGEHgw7Vg4FFVNp7qTpZZao7nSh5tg/apLmubE5N/wYXeLPui5gsCtkvULu
-	Gj
-X-Gm-Gg: AfdE7clAw/11tSsDP3BPNZ/Fz0uCGHWhXXQYnf77UEfaT1Qy4hxfBSacy452NvKUnOA
-	AZgM2k7AhGKya005ZZtnPdeu+jgmfgRgQUGp9csINYebNpGGvxb+I4ZRtvC9QwYSD5jNrvcepIk
-	T3+lOktSPpjPKQE6dFcV+Lz9DBDVVJKqtSeygRWNLiOo/z4yZ2X0rS86B/0RUoheeTmMmlTfT3q
-	ReSQs/srTsx4FoOJIalg2pmuk54PG75nDIYJS6FF3fkOXACKAvPbHEzD0j22laBOwzZSdd5/6HR
-	rRNgMQQSvdCUZsXgNuk2WGCicQLfpJg7reC0b3Ax0tkB1rYzjZ6My5uk8jzC4Yh5dnD+kNSV6Kz
-	POs81t9XB7qRuYsRMa12u4GMfO7cQ1zd6X50MPIr3fKU=
-X-Received: by 2002:a17:902:da2d:b0:2ca:be8:62d with SMTP id d9443c01a7336-2ce9f3a0083mr182851165ad.32.1784177888399;
-        Wed, 15 Jul 2026 21:58:08 -0700 (PDT)
-X-Received: by 2002:a17:902:da2d:b0:2ca:be8:62d with SMTP id d9443c01a7336-2ce9f3a0083mr182850885ad.32.1784177887771;
-        Wed, 15 Jul 2026 21:58:07 -0700 (PDT)
-Received: from [192.168.68.51] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf1072eacbsm13239025ad.80.2026.07.15.21.58.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 15 Jul 2026 21:58:06 -0700 (PDT)
-Message-ID: <75394e50-45da-4b53-b0d9-80d57395b1ab@redhat.com>
-Date: Thu, 16 Jul 2026 14:58:02 +1000
+        d=1e100.net; s=20251104; t=1784177952; x=1784782752;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Z8dI52NQd5mdA4AuWKzP1mtoK+n7nzP2uY77NXwFDCM=;
+        b=YnTFoa0OXOMjKM+Z+ywsMFpAN7KhKgviOtGj1pF1WKwYQfR5TbqWtBjkz40HrloFx/
+         panKJE9/dvDCgMf1O0k5k+6td2OUcwr9r4vGcsnWdUgi+qzaUUBBkVIXVeG7SXBCruR6
+         LqdcHhhVJScNCHCN8DY3yF+mMERYI1ljOFCNxlX9t4QUDiF2tXc5cT5uz2/ln0D55UQk
+         23uZHbD9N9tts2ZmSH7HAfuwc0lXjntyWClXhphrm3QdIHla40LKcS+Tjw8YZdVp2Vi+
+         b5Nti1ArLvsUHOLlvaWlIpbqIVgqPfYogERW1Z2qmYNeQU1ZRSAfIddrLiyIU0fJ5pC1
+         wMYg==
+X-Forwarded-Encrypted: i=1; AHgh+RqbzzxkBasuSudisDx3oVnbSoF14WgTIi3ZQmRsM4GTAcJDr43qh1SDgA0fgOJMN+zBOKMQf9D10IPHBi+MFoge@lists.infradead.org
+X-Gm-Message-State: AOJu0YwGAwDIl4xn3eCs8vtx96BX31QIQRAkZwiOlSVW3VC6WTvEQxDA
+	2s7TguG45esMQoGStpRsa/hCpe1oRYE6wSkPQM4eTzF3aYXgd3bzVXB7DwgiRpzvC1mlORLFpay
+	dBjmPfvAPNmRSVktwSAzdUsAnP8v+J/B12v+aNU7X
+X-Gm-Gg: AfdE7ckvsE9YnCU/H9vaGLoDW56Pw6YKC8Q1wVYKENYbxlMM3v8yE5dGG6bDR+BCIoL
+	0IIBSleOAytw58rNFJFRvM24NsSfs6DJmLqH4WQmb+gAGWpypaXlwaaJpuv5753L5kB7AwQiIcy
+	wAl6DjW1c/PJb0U5G962txNak3HWYvR2DNNXUg4AuNiEUBpPsu8oqs8MF0O2bvBqfmZ1wiCo6Q0
+	iCOn6d5wUj0f/OlRQDtnBe0RocpOec6qXNe7f2I4eBpc3auJgzSCaFSJRNiR/3dZQ5lDGjn35eG
+	taDXBY5YCr2gEjck
+X-Received: by 2002:a53:b784:0:b0:664:b559:d524 with SMTP id
+ 956f58d0204a3-66829f39e58mr611543d50.4.1784177951944; Wed, 15 Jul 2026
+ 21:59:11 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 00/11] arm_mpam: minor fixes at v7.2
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: james.morse@arm.com, reinette.chatre@intel.com, fenghuay@nvidia.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- dave.martin@arm.com, andre.przywara@arm.com
-References: <20260710115546.29644-1-ben.horgan@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20260710115546.29644-1-ben.horgan@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: DAk4knw5eP_YqHL2XtzmGrNXUfM6aSMrPkjrGqJoOrw_1784177888
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20260715085348.3457359-1-wenst@chromium.org> <20260715085348.3457359-4-wenst@chromium.org>
+ <aldS3qTympJuVXYj@ashevche-desk.local> <CAMRc=MfHmejks83bPfe3fKzAzFySGXk2GHMA9oZdMQj0f44eTA@mail.gmail.com>
+In-Reply-To: <CAMRc=MfHmejks83bPfe3fKzAzFySGXk2GHMA9oZdMQj0f44eTA@mail.gmail.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Thu, 16 Jul 2026 12:59:01 +0800
+X-Gm-Features: AUfX_myfMUyRbxWwYQRsbuThILT6idiwmNtqsd830qG3sUgPLjemD-RPoobAiuo
+Message-ID: <CAGXv+5HGjGTrqqzJrpiQhLrCn3C6H20LXq3niPnoujQLOwgqPw@mail.gmail.com>
+Subject: Re: [PATCH v5 03/16] power: sequencing: Add pwrseq_power_is_on()
+To: Bartosz Golaszewski <brgl@kernel.org>
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Daniel Scally <djrscally@gmail.com>, 
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Wei Deng <wei.deng@oss.qualcomm.com>, linux-acpi@vger.kernel.org, 
+	driver-core@lists.linux.dev, linux-pm@vger.kernel.org, 
+	linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Manivannan Sadhasivam <mani@kernel.org>, 
+	Alan Stern <stern@rowland.harvard.edu>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_215812_678544_212F115C 
-X-CRM114-Status: GOOD (  19.53  )
+X-CRM114-CacheID: sfid-20260715_215913_288274_E27921B5 
+X-CRM114-Status: GOOD (  27.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,51 +128,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/10/26 9:55 PM, Ben Horgan wrote:
-> This is a bunch of small fixes for hypothetical problems in the driver. They
-> were found by a mixture of messing around with a software model, inspection and
-> llm review.
-> 
-> The first two patches ensure the error interrupt isn't accidentally disabled
-> when register state is lost. Patch 3 keeps the feature accounting correct but
-> has no functional change. Patches 4 to 7 fix mbwu save/restore but this is not
-> relied on as we plan to just use resctrl assigned counters and these are
-> unassigned when a domain goes offline. Also, MSC afffinity of a region smaller
-> than a resctrl domain has not been seen. Patch 8 makes read_mon_cdp_safe()
-> behaviour the same for cdp_enabled and not. Patch 9 fixes an infinite loop in
-> a system using all the PARTIDs which is much bigger than anything than anything
-> I've seen. Patch 10 stops some allocations failing on similiarly big systems.
-> 
-> Based on v7.2-rc2
-> 
-> Ben Horgan (11):
->    arm_mpam: Move MPAMF_ECR write helpers to allow reuse
->    arm_mpam: Restore the error interrupt enable from mpam_cpu_online()
->    arm_mpam: Set mpam_feat_msmon_mbwu_31counter when there are bandwidth
->      counters
->    arm_mpam: Add missing mon_sel locking in MBWU restore
->    arm_mpam: Ensure MBWU counters are reset on restore
->    arm_mpam: Use __ris_msmon_read() for saving MBWU state
->    arm_mpam: Initialize all of struct mon_read in
->      mpam_restore_mbwu_state()
->    arm_mpam: resctrl: Correct check that existing class is L3
->    arm_mpam: resctrl: Make read_mon_cdp_safe() self consistent
->    arm_mpam: Don't loop forever if there is the maximum possible amount
->      of PARTIDs
->    arm_mpam: Switch to kvzmalloc_objs() for allocation of component cfg
-> 
->   drivers/resctrl/mpam_devices.c | 124 ++++++++++++++++++++-------------
->   drivers/resctrl/mpam_resctrl.c |   4 +-
->   2 files changed, 76 insertions(+), 52 deletions(-)
-> 
+On Wed, Jul 15, 2026 at 8:10=E2=80=AFPM Bartosz Golaszewski <brgl@kernel.or=
+g> wrote:
+>
+> On Wed, 15 Jul 2026 11:29:02 +0200, Andy Shevchenko
+> <andriy.shevchenko@linux.intel.com> said:
+> > On Wed, Jul 15, 2026 at 04:53:33PM +0800, Chen-Yu Tsai wrote:
+> >> The power sequencing consumer API already does power on state tracking
+> >> internally. Expose the state to consumers through pwrseq_power_is_on()
+> >> so that they don't have to reimplement it locally.
+> >
+> > Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+> >
+> > ...
+> >
+> >> +/**
+> >> + * pwrseq_power_is_on() - Queries the last requested state of the pow=
+er sequencer.
+> >> + * @desc: Descriptor referencing the power sequencer.
+> >> + *
+> >> + * This returns the last requested state of the power sequencer.
+> >> + *
+> >> + * Returns:
+> >> + * On success, 1 for on or desc is NULL (optional) and 0 for off;
+> >> + * negative error number on failure.
+> >
+> > I would rephrase it a bit.
+> >
+> >  * On success, 1 for on and 0 for off; negative error number on failure=
+.
+> >  * If desc is NULL (means optional) return 1.
+> >
+> > And this rises a question: why 1? Shouldn't it be some "unknown" state?
+> > (But since Bart Acked this, this doesn't prevent the patch to go, you
+> >  got my tag above.)
+> >
+>
+> No, this is good feedback. Maybe we should prefer an enum like so:
+>
+> enum pwrseq_state {
+>         PWRSEQ_POWER_UNKNOWN,
+>         PWRSEQ_POWER_ON,
+>         PWRSEQ_POWER_OFF
+> };
 
-Tested on NVidia's grace-hopper machine and looks good: (a) kunit_tests passed;
-(b) l3 cache partitioning and MBW (soft) limiting work as expected; (c) llc_occupancy
-monitor counter alters when workload is attached and running.
+Well I think the crux of it is whether the API considers the descriptor
+optional. The power on/off functions suggest that is the case.
 
-Tested-by: Gavin Shan <gshan@redhat.com>
+I modeled this on reset_control_status(). I believe the rationale is that
+if the reset control or pwrseq is optional, then either there is some
+other mechanism to deal with the reset (GPIO) or pwrseq (GPIO + regulator),
+or it's always on and operational.
 
-Thanks,
-Gavin
+In such cases and the rare case where one has to query the state, the
+queries are possibly chained together and I think it makes sense to
+assume the "operational" state as the fallback.
 
+If this returns an enum, then I think the previous approach of returning
+an error value for an invalid descriptor is better. One doesn't need to
+learn a new set of return values.
+
+I'm fine either way. I would just move the checks over to the consumer
+side. But I think the principles guiding the overall API design is
+something you need to provide:
+
+  - Is the descriptor optional? What should the action functions
+    (power on / off , or query status) return when NULL is given?
+  - Is the subsystem optional? Should the stub functions besides
+    pwrseq_get() return 0 instead of -ENOSYS?
+
+Right now the API feels like the descriptor is optional but the
+subsystem is not. One has to add IS_ENABLED(CONFIG_POWER_SEQUENCING)
+around the consumer API to make it an optional feature.
+
+
+Thanks
+ChenYu
 
