@@ -4,75 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83BD5C44512
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 14:10:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06D31C4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 14:11:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uMht40QLzWVG/mfdw3LVM0kTmUTUuw/6X42aBPd68yA=; b=xlWJw/KtEMf82vDF8k17S1GAnm
-	35UhFgqzu7PRytX8CxXznPKrAhBx6dnB99YiheCOeoKqpUR5GrfrHBWn4Y0tIyho3JfKb08914nfd
-	aCAMlsxV5jLqKqS/6hQF9Tn3aOMBru2y2z8saMjBRt8dep662+/OokEKB8vjJ1U/LJXoYYkd38TKR
-	y5jgfrMUtqZWujld8LJPiTUSG5+Dttlk/dbxZtwVUoYg8WXj8KaxoTo/m2FVyeeKOTkWdkPRTIYJ6
-	4NWJC+hZf+/xf7pctSGu+hvEVzQAYMNepsV7Zj8Ll5n75r1H6yvzt8AMp9TS91QtgMhRtmyRYsRp+
-	el+m/56w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CZdgZ+SmZAxcEBsvdWcylMjJhDP5IqCr+bQC4oGAA5I=; b=QRQucEblnYt3HGJF80yTkjc0FL
+	YPXW9/60XFgyHC9gMUeDeW+5+i4DCg+2JC/bErj+ckz78eYnYR8ZBzU579nNipMzzuC1GPiJNHKpX
+	qHlc8DjwCCPslr/O0jJF3r7Oj/hGUquNSEDhhr2cJO9q/wOszYN5ZGiUpaNJ3XG/XzRVO8pz2qe5w
+	/ZPw3f4dDNT+s//5qr69955Q0CzBplyepo4EYQSa8A8nKxliTvT3gHU+iC4fXXTEtGYJELRLoze1o
+	ZKSlbnBNb6DwcJnpxeOwPqZeiFsl3vXevjTKNmsHR6Zx0LD/3NI+VzkwRb7uLPxF2rdIanbkHZIZe
+	8uCXru/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkMOV-0000000HPG6-0Nvc;
-	Thu, 16 Jul 2026 13:44:55 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wkMoO-0000000HSHy-278R;
+	Thu, 16 Jul 2026 14:11:40 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkMOT-0000000HPFq-3WX9;
-	Thu, 16 Jul 2026 13:44:53 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3D9F940A57;
-	Thu, 16 Jul 2026 13:44:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A16B21F00A3F;
-	Thu, 16 Jul 2026 13:44:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784209493;
-	bh=uMht40QLzWVG/mfdw3LVM0kTmUTUuw/6X42aBPd68yA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=HxipJ+JEjk52tLpQHoWT5d8XKmpp6nxOOcKEjdJwaqSTGMwCkPZAGpq9B49xNs8Yi
-	 FYkrGpWBxfFgl6QsxP/FM0mS0n8iR9NCtoznTmW8aNYABcOVXf+uz/StvXUvSfW0yM
-	 BVXWTm/eypaG6n0cI06euAXXuqCqj9592PNRXJlwvaFhQk0fR52TMSNcBn2vD59EhR
-	 FLuKbiEHH9WBgnSvhUuorYV+hvW/sWWZL7oKf9EYFiVAwBgf7jrjegj1Q3iiSg9Oqp
-	 9J3WTM+XJMuSKa4va5LPnzSWQLJHSjaROfOlfd3/cHxq5mv0An4kZIAn9XkZEptfMa
-	 cmV4Yqb/RNyeA==
-Date: Thu, 16 Jul 2026 15:44:50 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
-	Daniel Stone <daniels@collabora.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
-	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
-	kernel@collabora.com, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v8 02/39] drm/connector: Add caps-based HDMI connector
- init helper
-Message-ID: <20260716-mega-ocelot-of-foundation-e3bcf6@houat>
-References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
- <20260702-dw-hdmi-qp-scramb-v8-2-d79890d00b6a@collabora.com>
- <i4tjtsf5rsckfcayo5nuhlger5wqxn3ujeaubm4g2fgrwvhzb2@hf4uhgq3ja5p>
- <ad75cf26-9437-47d0-864d-d71263401615@collabora.com>
- <20260707-illegal-tuna-of-force-1c06e3@houat>
- <737678ab-f082-4a0e-b453-f403ba141437@collabora.com>
- <80374deb-3246-413f-a043-66bcdb438ab1@collabora.com>
- <20260715-fair-opalescent-rhino-c6407b@houat>
- <45113534-94ad-4a0f-8014-c04e9ab67a26@collabora.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="vbfjhkjchwklmxe6"
+	id 1wkMoM-0000000HSHW-2yVK
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 16 Jul 2026 14:11:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vyK0P4r6LX+LPn0JfbCpzfwfiXmhEGvQC06vYNw/qEieb4yyeucljSTHTZ8+xcKdcodXMAWqRtQATEVJVgLRsU9GcQhoSyTpYADdpjDIGltYjegfAzN4NodHfjx3EqUsqmvjjSyj78VuMqgvo2M+xx6lsNHi33yngGpspYsyWtPpDosxfeLWLNF3oKQoopOFDJKgDZlNQumfQmbo03B+HzjnLd2/NNqGGQtGlB+pDW/+1UNRVzGtosQ31xoG5AiNL8/+FC2vpZ9gPxe8mAuszQOLzMtVrHBLQYrNjULI111gsiQ+n5igBlETzN1A2jzm9ELIydskG9csxlCVgoOVjA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RKzLSsOH9tQWd94OZAEJI1s5d32RAM4zheBnSGKawSU=;
+ b=Sd9ezOaLXquwCpuy7IymHsPg2V7AkRRCSM0xOAAQx/+9A/73xSlwQFZa+G2EcQtIuMBvTFrmp+OTG397K02i3N9KYF3aik7X+Vvd+Q2UvPIksO63pi/S05rWxdhDZJQVA4OFLh3yJNs4FI6/j2xZfwysHU4fJ8qCWNSZiCRdO88v0q4IvjPsBvHwBZkUGJNrwnGCwJdjJ+N3BLV/QKwmzUEF6sVAVyhEsJwThR5W6Tjya0vXq5vGldnCX+7snNv4/dmVLbyMiYNgg9GJPmS3CrpW61QSFAhy9b0fGkgn6ZhVmV+1iwRYD4d2XkzHznPd71465/3ZJ8MGHzKTrQe9ZQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RKzLSsOH9tQWd94OZAEJI1s5d32RAM4zheBnSGKawSU=;
+ b=uWkmBW8uvJHyUkCUxPPfCarC4gOxx3pcj87oT0Kh75tog6pibDOs7bVMI5vjJ/k2uiH4YmdAMSPNQ5jDwFwR6tgKBqIoBFiLHCfR7U+f/GYT8CaSnzsM6Ytzdrrn9Ozd99xMAx7JAUts18F4UZSPaxiPj1gEnc2Ilpoh9sFN8/rXt1pCuwTokSRvWa44HLwd79aM0lmoeH5hhh39cBy0rbtncKYBPIJLZngwjcA4UTL1UJfUr52UPDuFQ2GuJmoeczT8umSIh8QP7vKrPqdDoGnNT2S7STFoZBEEV7ycgsKgi2eji7YBwKDJKAFW6Tn/R/0XDhA4nNp0jwA9e0Ycgw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by VI2PR04MB10689.eurprd04.prod.outlook.com (2603:10a6:800:26f::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.10; Thu, 16 Jul
+ 2026 14:11:33 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0223.011; Thu, 16 Jul 2026
+ 14:11:33 +0000
+Date: Thu, 16 Jul 2026 09:11:24 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>
+Cc: Ulf Hansson <ulfh@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	Xu Yang <xu.yang_2@nxp.com>, Ming Qian <ming.qian@oss.nxp.com>,
+	Jacky Bai <ping.bai@nxp.com>, linux-pm@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] pmdomain: imx8m{p,}-blk-ctrl: Add MODULE_DESCRIPTION
+Message-ID: <aljmjGXpbTOvdvvg@SMW015318>
+References: <20260716132603.2327847-2-u.kleine-koenig@baylibre.com>
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <45113534-94ad-4a0f-8014-c04e9ab67a26@collabora.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260716132603.2327847-2-u.kleine-koenig@baylibre.com>
+X-ClientProxiedBy: PH8P222CA0014.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:510:2d7::20) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI2PR04MB10689:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1aadd16c-7c63-49bc-0c11-08dee34423f3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|376014|366016|19092799006|56012099006|11063799006|6133799003|22082099003|18002099003|10067099003;
+X-Microsoft-Antispam-Message-Info: dR2ARhXUe+fIeua4rNee1+bNhvJOoEujqH+8waj+BVaHzzAQ5MbXEK+FY20K4NrO3Sntj1HopY2VCMBiOBGZm0m8ouUtw4BbanJQErGZkiHK/twvKSIFngheQiGJuPDsWcGnerEtXg3Vft0JrISE5IQQHhNn8ZNppzaEyw7voKv82LGbP0d+AHXqu2O1bTGE3g3fOawZjtttOgjDd1WjJnMAeLCtILoZLrmftYXy+U1e8QZrw3NSEPS0HE8z0Way3h9fnVQzE+6+1v/ABXrqQXsNqWrRC9oMSeywzUOTmmpTHPrCJ5tYWnHu5pOoKX9lZKC2ghRhrkHPG1wp8WeN86U9ogOxqZL3n4em+6JlSaNdnv23FeqJnlBk33iZifCTnlehXIsOekb5VJLqsJRobMxSK3A0TkQ4JCTEuBCv30XgeQIwLUWQKDZ+Yr/fHX8OJNFazbbdEbdceK1i3xk+DweYg0UK0hKpIaRT1jx/DnIEnUQ3aNTgXbWqZgHcZlfr46l1pM3NSWtp2rH/Yv2EAiBqWjTA3iBNJs/otjw+40kaD3+FqOjC3qMTDH4O0sPBuCYPYn76wHNChL/W0YhZ23etdAaw740TgliPiDwhYB9TFeaG2K4lh9mR3Y0/tKIHW8th+TbZKTyQFrMRFK3dnrr34RG2LCC3IWAlReZbaB0=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(366016)(19092799006)(56012099006)(11063799006)(6133799003)(22082099003)(18002099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?+XRqxNhWFacUgw/kQpxofPiYv47MTBjDw9pEmF9iS72I7QepW8/Wb2UxHg?=
+ =?iso-8859-1?Q?RLOjZLfMcTPC7ZYBs9WLaGm0L3dxum+jkmmDizws9/dR8helnuPzNahcbH?=
+ =?iso-8859-1?Q?1caBwcpyVj3hNGCRKd/nfpHUW2VuxtTPrWNOGnVfvEXGySDfXOf6uS2U+G?=
+ =?iso-8859-1?Q?BBbRA7WqS09KRrxIXscuJ9Nqyh8j4g9d7MBAg0HBkPgKX6lhuzsjT77h6A?=
+ =?iso-8859-1?Q?DrsCjmiOmBCn0zI9/l1lVEu2A8f5AuCLOqKqfFPQn0dl1J8C+bQp2EL5mc?=
+ =?iso-8859-1?Q?72W7tHPh3yxw8fJiAccv90dIYLuahBw4LnbyC0D9ZHvQ2mf4H1l5WQO33q?=
+ =?iso-8859-1?Q?19T6afrzvyWGTVS0vDgsfk0WTUISpwtlbHyJkeH0KexQb5ZfdoLPQnOHox?=
+ =?iso-8859-1?Q?1AoIWVJKUNF7iJrnmxTL9XJMvxPXI48cNtMwGmSv5pN1QlA7xelgeLvxRG?=
+ =?iso-8859-1?Q?snC372dZpUSfFvKwS9HLP/vUn4WXiv5rZ0VM/mB3Edo9duIlC99Xa2RHGw?=
+ =?iso-8859-1?Q?gYTqab1Q0+qD5KJfW8B2jkno65UpdAx2BriK2wKyRxxnLBCnarGTFiVn8e?=
+ =?iso-8859-1?Q?XklagVCF75dvsUOkpfLw7Ag1q9UlilLpyFv10OQjIo7hEzGO/cZxa8HdPD?=
+ =?iso-8859-1?Q?cijueA2CrozI+3JF/NblskCAMg2sXd6eUqUnDQ0SagxURJy58zsdcfM2Yx?=
+ =?iso-8859-1?Q?zVZQmXIUAvVGhXKvL+s1Vs2e4H258R14wEie++6fQcWVMjph+Z4N+lD79o?=
+ =?iso-8859-1?Q?dYzpnB/Ge5D5gyIj2APip0iLe9xVVuU6x8VmYD9JqiBa2haKbjmGZVn+H4?=
+ =?iso-8859-1?Q?T/z3sUOyQY59vug2KtbMGei4GM9CROITmgMjzrY/gvvzC8GGqjDvEZLydd?=
+ =?iso-8859-1?Q?2kj2HqbhfR/5ThbLZSyoaoISHi67ummoInCeI82lwGstwueLSytPY48WT+?=
+ =?iso-8859-1?Q?lhpIPEwxMWygHRwkLxdRRJzkCXhkmG7sAdusbfXYRCTGF0CZSZMKxQToYl?=
+ =?iso-8859-1?Q?QD6u+oBiCuUzgTmcUCIv9ne+QAniHeS8fpbQRKmxPemK5cw/tZbVmsxz7n?=
+ =?iso-8859-1?Q?GzZnE7TTU204M6An4m5mwvAMYkcDzdb14d4qIS8Hd6SecD+rTkw1AscFaN?=
+ =?iso-8859-1?Q?bFWX6I4hd7nimXElj7EMTEW630eaVPFV3bwSZ9+jO+5BuHZsTqAwnG+MFN?=
+ =?iso-8859-1?Q?KLzwvam/C0QoyFv9w7T8FRKrRyvwoJHKIJMGoSstfg6T8NQ/u5pvUuWmGx?=
+ =?iso-8859-1?Q?t8SLuF9KBLB4WdhR4b7iLExVqIfVeF84JEHJXXLqgdRyc7ZacEixha/o/G?=
+ =?iso-8859-1?Q?NZ5cmoxHZ7cqvsKsO7Q4k467OYKGURTH8FqNDQ3RI730uWkc/pmFQZQY3z?=
+ =?iso-8859-1?Q?Ajkk83Fx5ANzc8yLOakMX4gH67SiUwAlzp4FGB+KksW7sH8eR/B6rLgdvV?=
+ =?iso-8859-1?Q?6Y0PqKoqDbWe1FGJ5zdnNbD6M03hSBy4mLYepmyYRHyQwf0pnpK/QAhG45?=
+ =?iso-8859-1?Q?IfL4VE6UcNxFC/RrB59lMnq57ZSXWoV3UlRyIXRqcLsXJjBlLYxOQuQZDe?=
+ =?iso-8859-1?Q?c/LxbYYfsh2nB9A8u7lR144Equy/17vuRLr8wjbc/ZQD6V/UyaXGKRKeRG?=
+ =?iso-8859-1?Q?n6X6m2KZRFqudjpTYgIMDHTC+ZK4LTwsfAwCdZqNfkCUoOVl/sUxeRS1c7?=
+ =?iso-8859-1?Q?pfNMVmTVwN8qGk3AcpzgaOUjZC+NJcT+HKZyOszBS3jS1widYgbm0hW4D2?=
+ =?iso-8859-1?Q?qsX/MzpXryJm4JrkK0i9wfRZ90IJFM2IAdUqulQAhKF9zKwt0aIwXq338B?=
+ =?iso-8859-1?Q?0rXEd3DDTmlT92ldkDQM9EzpiVYKatqfbAPiNPL9zk1UXYg2n8H8?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1aadd16c-7c63-49bc-0c11-08dee34423f3
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jul 2026 14:11:33.7232
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: T8/UYRfi40oAcJvXLUiwnJFPa6gqwteK0lVP6TT6ZQcJF53bhKSuF8Yc8A9PPJdbhL/NCwE4msGBJDqKk1xHJ9hlpB93eXRLwL8Fm1TpGDA8JRak9mmdPlLlTtOkEZ6h
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10689
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260716_071138_759134_F96F505C 
+X-CRM114-Status: GOOD (  15.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,159 +143,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jul 16, 2026 at 03:26:03PM +0200, Uwe Kleine-König wrote:
+> Without a module description modpost emits a build warning:
+>
+> 	WARNING: modpost: missing MODULE_DESCRIPTION() in drivers/pmdomain/imx/imx8m-blk-ctrl.o
+> 	WARNING: modpost: missing MODULE_DESCRIPTION() in drivers/pmdomain/imx/imx8mp-blk-ctrl.o
+>
+> So add the required string to these two drivers.
+>
+> Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
+> ---
 
---vbfjhkjchwklmxe6
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v8 02/39] drm/connector: Add caps-based HDMI connector
- init helper
-MIME-Version: 1.0
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-On Wed, Jul 15, 2026 at 01:34:19PM +0300, Cristian Ciocaltea wrote:
-> On 7/15/26 11:50 AM, Maxime Ripard wrote:
-> > On Fri, Jul 10, 2026 at 01:27:37PM +0300, Cristian Ciocaltea wrote:
-> >> On 7/8/26 1:11 PM, Cristian Ciocaltea wrote:
-> >>> Hi Maxime,
-> >>>
-> >>> On 7/7/26 7:10 PM, Maxime Ripard wrote:
-> >>>> On Fri, Jul 03, 2026 at 10:31:55PM +0300, Cristian Ciocaltea wrote:
-> >>>>> Hi Dmitry,
-> >>>>>
-> >>>>> Thanks for your quick review!
-> >>>>>
-> >>>>> On 7/3/26 5:05 PM, Dmitry Baryshkov wrote:
-> >>>>>> On Thu, Jul 02, 2026 at 05:46:15PM +0300, Cristian Ciocaltea wrote:
-> >>>>>>> In preparation for adding HDMI 2.x source capabilities, introduce=
- struct
-> >>>>>>> drm_connector_hdmi_caps and a new drmm_connector_hdmi_init_with_c=
-aps()
-> >>>>>>> helper.
-> >>>>>>>
-> >>>>>>> The existing drmm_connector_hdmi_init() helper currently takes
-> >>>>>>> individual capability arguments such as supported_formats and max=
-_bpc.
-> >>>>>>> Adding more HDMI-specific arguments to that function would not sc=
-ale
-> >>>>>>> well, so move those values into a dedicated capabilities structur=
-e and
-> >>>>>>> implement the existing helper as a wrapper around the new caps-ba=
-sed
-> >>>>>>> interface.
-> >>>>>>
-> >>>>>> I think, it was an intention of Maxime: make sure that every drive=
-r is
-> >>>>>> forced to provide some values here. With the struct-based init it =
-is
-> >>>>>> easy to overlook or to ommit a value.
-> >>>>>
-> >>>>> Agreed that the struct-based init loses the compile-time guarantee =
-that every
-> >>>>> argument is explicitly provided - that's a real downside. =20
-> >>>>>
-> >>>>> I'd argue it's recoverable, though: the init helper validates the m=
-andatory
-> >>>>> fields, so a driver that omits a required value gets rejected at in=
-it time
-> >>>>> rather than silently misconfigured.  The "you must provide sane val=
-ues" property
-> >>>>> is expected to be preserved, just enforced at runtime instead of by=
- the
-> >>>>> compiler.=20
-> >>>>
-> >>>> Yeah, I don't think we can win with C here. Rust might, but we're
-> >>>> probably a long way from that.
-> >>>>
-> >>>>> The main motivation for the struct is scalability/maintainability a=
-s we add HDMI
-> >>>>> 2.x capabilities: new fields go into the struct rather than growing=
- the helper's
-> >>>>> argument list, so existing callers don't need churny signature upda=
-tes on every
-> >>>>> extension.
-> >>>>>
-> >>>>> FWIW, in the previous revision we discussed addressing the concern =
-with a
-> >>>>> callback instead.  Sadly, I had to discard that approach, as it pro=
-ved not
-> >>>>> flexible enough, e.g. drm_bridge_connector_init() computes caps dyn=
-amically, and
-> >>>>> would have required either stateful callbacks, or storing redundant=
-/temporary
-> >>>>> cap data in driver-private structures just to satisfy the callback.
-> >>>>
-> >>>> I just realized something reviewing your patch: we don't necessarily
-> >>>> need an extra argument or a callback, we can just put these fields i=
-nto
-> >>>> drm_hdmi_connector_funcs directly, and then validate them in init.
-> >>>
-> >>> If I understand correctly, we should drop the drm_connector_hdmi_caps=
- struct
-> >>> introduced by this patch and move all its fields into drm_hdmi_connec=
-tor_funcs.
-> >>>
-> >>> In that case, how should we proceed with drmm_connector_hdmi_init()?=
-=20
-> >>
-> >> Actually, this brings us to the callback issue: we cannot compute caps
-> >> dynamically, as it only works with static data, since funcs is suppose=
-d to be
-> >> immutable.
-> >=20
-> > Does it? The core and helpers must consider it immutable but it doesn't
-> > have to. drm_bridge_connector for example could totally allocate it and
-> > dynamically create it based on the bridge capabilities.
->=20
-> If we take the VC4 case, is it fine to drop the const from the static
-> drm_connector_hdmi_funcs to allow dynamically setting up supported_hdmi_v=
-er and
-> max_bpc in vc4_hdmi_connector_init()?
->=20
-> static struct drm_connector_hdmi_funcs vc4_hdmi_hdmi_connector_funcs =3D {
-> 	.tmds_char_rate_valid	 =3D vc4_hdmi_connector_clock_valid,
-> 	...
-> }
->=20
-> static int vc4_hdmi_connector_init()=20
-> {
-> 	...
->    =20
-> 	if (vc4_hdmi->variant->supports_hdr)
-> 		vc4_hdmi_hdmi_connector_funcs.max_bpc =3D 12;
->=20
-> 	if (vc4_hdmi->variant->max_pixel_clock >=3D HDMI_2_0_TMDS_CHAR_RATE_MAX_=
-HZ)
-> 		vc4_hdmi_hdmi_connector_funcs.supported_hdmi_ver =3D HDMI_VERSION_2_0;
-> 	else if (vc4_hdmi->variant->max_pixel_clock >=3D HDMI_1_3_TMDS_CHAR_RATE=
-_MAX_HZ)
-> 		vc4_hdmi_hdmi_connector_funcs.supported_hdmi_ver =3D HDMI_VERSION_1_3;
-> 	...
-> }
-
-No, but you don't have to do that either.
-
-You have three cases:
- - Rpi < 4 has max_bpc =3D 8, HDMI 1.4
- - RPI 4 HDMI 0 and RPI 5 has max_bpc =3D 12, HDMI 2.0
- - RPI 4 HDMI 1 has max_bpc =3D 12, HDMI 1.4
-
-Just create three different structures, and put a pointer to the right
-one in the vc4_hdmi_variant structure. There's no need to be dynamic
-there.
-
-Maxime
-
---vbfjhkjchwklmxe6
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaljgUgAKCRAnX84Zoj2+
-djxIAYDPtQoVb/W6EH/U9Qki8Z7ALhZ58LpPruuVYz3nKWBeFXKtHYgc/rrgstSx
-zNA3la8BfAj5ec7Ciys5lGuBT3lBFyLefqiagAgWNQ5tt8CSNfJDFQHWwheV8qKz
-JW8wiSpEZw==
-=cm7W
------END PGP SIGNATURE-----
-
---vbfjhkjchwklmxe6--
+>  drivers/pmdomain/imx/imx8m-blk-ctrl.c  | 1 +
+>  drivers/pmdomain/imx/imx8mp-blk-ctrl.c | 1 +
+>  2 files changed, 2 insertions(+)
+>
+> diff --git a/drivers/pmdomain/imx/imx8m-blk-ctrl.c b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
+> index 99d100e1d923..479789009c7f 100644
+> --- a/drivers/pmdomain/imx/imx8m-blk-ctrl.c
+> +++ b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
+> @@ -953,4 +953,5 @@ static struct platform_driver imx8m_blk_ctrl_driver = {
+>  	},
+>  };
+>  module_platform_driver(imx8m_blk_ctrl_driver);
+> +MODULE_DESCRIPTION("NXP i.MX8M power domain driver");
+>  MODULE_LICENSE("GPL");
+> diff --git a/drivers/pmdomain/imx/imx8mp-blk-ctrl.c b/drivers/pmdomain/imx/imx8mp-blk-ctrl.c
+> index 3f5b9499d30a..d255c20f58e2 100644
+> --- a/drivers/pmdomain/imx/imx8mp-blk-ctrl.c
+> +++ b/drivers/pmdomain/imx/imx8mp-blk-ctrl.c
+> @@ -890,4 +890,5 @@ static struct platform_driver imx8mp_blk_ctrl_driver = {
+>  	},
+>  };
+>  module_platform_driver(imx8mp_blk_ctrl_driver);
+> +MODULE_DESCRIPTION("NXP i.MX8MP power domain driver");
+>  MODULE_LICENSE("GPL");
+>
+> base-commit: b8809969e1d7a591e0f49dd464a5d04b3cf02ab1
+> --
+> 2.55.0.11.g153666a7d9bb
+>
+>
 
