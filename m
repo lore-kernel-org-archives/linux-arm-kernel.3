@@ -4,109 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8D21C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 09:24:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31B4EC4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 09:26:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D5AXjA9Tcy5dG64KZLElqY/MzuwlW4GyobQ/vNPe094=; b=wg90TclP1y5C0gUS7x+QqlZaCY
-	WU9RQcgv6lMfn+xxDXSecp8tj97zXPH2bWBriowT0HF7XcJhk7GSNusTNIFuHmYByAYad/Ix0sa+M
-	C69rinKheKwhJDEJ/YGY5MYLib1hXYHlJe3tuNq4FkmD/D9ya1+4e9L52VdWBnv0t28EWIbey77aN
-	jHWyUo5+WJDebb/wZOCT+OJWWOz6CO8EB1ruTLBaq1/q8HlVwYqeVDPK7D4I/q6oqIL8IDBc63Fxm
-	7vCRN8RDjMqgwT+FI9t6K/jkL7G5/ePvrgz7LChYyDlGx4FGAi99JqVpeN4U774puRrfwTzBVR531
-	G2Hxaxsg==;
+	bh=H+cczMLpY88mG8MFjd1DeZWToo+wsNi4SiXf/VGUzcU=; b=WsPDK6tacKvIWh6Px5CGB15xjl
+	0m/C3O2z+sLbKA1nUqF0yXu+D7BI2LjGCarSesCdZmiZMt/p1bpWvrzMfDbR5DfquAtDrOl+KRi97
+	qRnq09gpsIdPr2U+mY0Z8E4LNZMMzngG0v85vaOyiPKIl4oE//KIQK+9bnfCPv/EciWhLo71SNXU0
+	f6yjk9IwE76ZvBZsVMg+Nc3502hawv4z4BXw2rG2ulN6djyWsoLmcxgj800bzXfV/5S+Ok2i8lqCp
+	X0AAvgoiVuDA23L8MdzvbHLjwYH6PQAj7w+iARyecjmX5vyRFcVf2nvMTaBS34Qs3pvOJRK5FfDdk
+	AmHulJQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkIKZ-0000000GqyQ-1tCZ;
-	Thu, 16 Jul 2026 09:24:35 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkIKW-0000000GqxW-3iVo
+	id 1wkIMF-0000000GrCt-3If1;
+	Thu, 16 Jul 2026 09:26:19 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkIMD-0000000GrCU-43SP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 09:24:34 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-848882fdb18so3284753b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 02:24:32 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1784193872; cv=none;
-        d=google.com; s=arc-20260327;
-        b=TYReVOZERXaQPEevt4qF69zeOpvRE9bTnvq48Xs4reMRJqkrdITuzUnk2mleiK3x9r
-         Pmcy69PT/63UfQyRyAfTUXQ49Z2Mp27C9UMrnYvnmKseHhfAntXiH1U8ygBatrzKLE0P
-         jXW+t8Canxc5Qglyl4onMih49X9/0E7PZMFktFj6XDK0eyhRwWbShczR5nDHX7JCsO/s
-         RE+7FZMBeMBwe9MN4qdQJL5zzxB4p/os4eklLHEHjCyW759iH+xU3dxA2SOuUa9PMNur
-         sRxMmyCFTJuNGLpKOKLkeSzrLwYyTxS5F6UHUbkCT0yrVNEMm/scb+VWUHPIEe+vfpzi
-         ivCA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=D5AXjA9Tcy5dG64KZLElqY/MzuwlW4GyobQ/vNPe094=;
-        fh=nVuhWUz735NxdrowA7XdLbgtUJSzxIOOvmD2hmKENIw=;
-        b=UAc25BD7YkH2FYXIloEEFPprqSnguutu1BVBH8qIBB7HRMYL/fYstPT0SzC9n4ZIUO
-         lCkjTuz4JxjxdynKFrLUzjuw2lRPNjZIDme6kpIaV5xg4ZHO1b9zFf2ViXwiHka0gzun
-         Hx6RX1Zjhb3kuyn75wtHlc/qiV8hsZRP4LkXuO2VOaNOJFOPgacUQHforE5dT8oBgJoJ
-         xDWDwbQ2qX6DsGSbQdovZZxkiHlulLD6l9C08W4x1PQcQGvBs8AO7Eiej7kxM0MLrVAl
-         ER9yq8bgBnVDyrK7vrr8OiAhcNDshqByYbaywOB1hqggu/B8YXdYnFX+JxhmIcanlSTT
-         7KKw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784193872; x=1784798672; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=D5AXjA9Tcy5dG64KZLElqY/MzuwlW4GyobQ/vNPe094=;
-        b=TQ+SWxfvv/D+8UZKHloSrncTRRyNdw2TXKWN9bKh5WC0LEg4lxrWo57q1RASAPgWxD
-         DOrmXOEJU7TzErUOSuPkuuC3Lyk3MH66kp8xrqcc0I4tw/ggChQF0benGNBZRUZ1R+73
-         KAvIAF/V19Dd5QyXcV8i8H8iPy2/+ufctkNZmk9jLfugR1YTfHc5jjd52ZnCiiPndgyJ
-         bY1Dwt8SrLq1WJs6C3xzADQB7cfms4xloxM0w0TzotCRSBDtJEbG3/5DY7wjZ4+F/V55
-         3f9IDCplltGTr+74bE1kfjsNZ5F++oGdfAHI1iF/5XrSwd3yMpYxl3Cu7u88n8c7A6C6
-         9FfQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784193872; x=1784798672;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=D5AXjA9Tcy5dG64KZLElqY/MzuwlW4GyobQ/vNPe094=;
-        b=TXaKuwJw12tJhK875/1zpjjGZ3WH7N7hraIJZSoaQPbvKrNQI0DrvG92nLZzxQdGrK
-         BMcOwzMY4oa+gsWJ8kiyGbi+MgZWzeMBPACDi9LBZGiqW3GHC+JRae+gLban2sGijHyR
-         hmE9d6mkQSnRXeqLSloLzzPdGxZArg2gFfVq5D7ASWrOMbSMa4FvK5bkCugsx5iXglGF
-         WVKyvVAyJe6mqD/XgZbb4PdtUT3mZ4ta8QRiZISDA4DIDQxc2JAdPtGJPF2aUUXR2Khe
-         K8DJRBO903M0yannVOCdrYcp0xUPyjI7sWleoMNbV6hzU69JWNBmm6MdwL9La+MzrMxV
-         c0vA==
-X-Forwarded-Encrypted: i=1; AHgh+RqQRHXp0qoXqR3jEpcdjGw9Z0V0jkbj4fnfGV/SQOtS1kX3/ix7zxGMzj7vallKNqbh04ARI/+Yfyz2E7JKwLBJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwZ/HB5e0csDNtIScHZ/piIx2T1efN01beDDnmg9c9lQLDydv6z
-	2/5sna/mzvU+7U426F+1a/uLfd9UQ2bA2Zl0tMKI6OvBOEOgK5zKK8TIk4kq3AHh3GUzpQEYnAK
-	9qDsxmIiSnrQ3OtSf2ce3Ul+V4EUUz3s=
-X-Gm-Gg: AfdE7cnQngUvYywT0d6GdZWIOQirKLkU074vmgtHjFmxYTV1LCWkgk9XmPqLs6fapDG
-	8AGB4PZ7K2OV5Z1cDsnalXVgQGwdJIf2EngcCxX1YPjxBvCotCVPXtWO8TVIxcTz0cNRFhhuhbE
-	PZmAsNS0jeXlF//njMi/j/lPgxBDxsAWx7/nQinZfo9w7eMfNHGHNP/QKKMBjl/fZF0/jp93YMR
-	nKe/xNZQr3f6pXMLDDgixS/5hUrvirqjMGcAA84y7iUfdt3un5hT+8skwCcjiElWT7UIduAusq/
-	2UoUQF6tna+55QQmYq49NqbqIf/LbCoji2kyxhQJqvk=
-X-Received: by 2002:a05:6a00:f08:b0:847:8504:9946 with SMTP id
- d2e1a72fcca58-84a6726b83dmr5832591b3a.25.1784193872009; Thu, 16 Jul 2026
- 02:24:32 -0700 (PDT)
+	Thu, 16 Jul 2026 09:26:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8B66F2F;
+	Thu, 16 Jul 2026 02:26:12 -0700 (PDT)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7A7ED3F905;
+	Thu, 16 Jul 2026 02:26:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784193976; bh=ZtPnSwo7MEweEjCJFRSjXBLUgg5EG2tGwDYYo5xzWrE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=XgEgcsddapIx7BHBU8Tuo1eHy/AGRxAkL+kQTAZPe+BFZsrwxMQgXhsMbeDI2wzdv
+	 esSqC1MLtWzAYwCbbT51ohi2jQSns577+iZVhsLTNfpCHMRCnnG+Znqyoo/nB4woMw
+	 DMaedLLAU3yptAwMcVt0idWCMPqInplom8e+FnQ0=
+Message-ID: <45d93047-9f11-468a-bee9-777089fd4bb8@arm.com>
+Date: Thu, 16 Jul 2026 10:26:13 +0100
 MIME-Version: 1.0
-References: <20260713-nanopi-m6-v3-0-227567ffc5dc@gmail.com>
- <20260713-nanopi-m6-v3-11-227567ffc5dc@gmail.com> <20260713204131.C58091F000E9@smtp.kernel.org>
-In-Reply-To: <20260713204131.C58091F000E9@smtp.kernel.org>
-From: Joachim Eastwood <joachim.eastwood@gmail.com>
-Date: Thu, 16 Jul 2026 11:24:20 +0200
-X-Gm-Features: AUfX_myLtG8XdKEHnucqiDRzCNz_tCXXHKJzmB4U4Ch-HDmXpuQEg3jOwAHCgo8
-Message-ID: <CAPSPb=v=ZDGJ41auxGgSOpKo69MycE=FtMyHf9sG9a3ju9PAaQ@mail.gmail.com>
-Subject: Re: [PATCH v3 11/12] arm64: dts: rockchip: rk3588s-nanopi-r6:
- refactor to support M6 boards
-To: sashiko-reviews@lists.linux.dev
-Cc: conor+dt@kernel.org, devicetree@vger.kernel.org, robh@kernel.org, 
-	Heiko Stuebner <heiko@sntech.de>, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, 
-	Diederik de Haas <diederik@cknow-tech.com>, Jonas Karlman <jonas@kwiboo.se>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Thunderbird Daily
+Subject: Re: [PATCH v1 03/11] arm_mpam: Set mpam_feat_msmon_mbwu_31counter
+ when there are bandwidth counters
+To: Gavin Shan <gshan@redhat.com>
+Cc: james.morse@arm.com, reinette.chatre@intel.com, fenghuay@nvidia.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ dave.martin@arm.com, andre.przywara@arm.com
+References: <20260710115546.29644-1-ben.horgan@arm.com>
+ <20260710115546.29644-4-ben.horgan@arm.com>
+ <c1779945-2ad1-48c7-9b13-1eea8afed687@redhat.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <c1779945-2ad1-48c7-9b13-1eea8afed687@redhat.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_022432_933715_86A72772 
-X-CRM114-Status: GOOD (  20.62  )
+X-CRM114-CacheID: sfid-20260716_022618_046301_5448F8A6 
+X-CRM114-Status: GOOD (  17.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,97 +74,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Gavin,
 
-On Mon, 13 Jul 2026 at 22:41, <sashiko-bot@kernel.org> wrote:
->
-> Thank you for your contribution! Sashiko AI review found 2 potential issu=
-e(s) to consider:
-> - [Medium] Unintentional restoration of `regulator-boot-on` for `vdd_npu_=
-s0` during refactoring.
-> - [Low] Dangling phandle reference `&vcc5v0_usb_otg0` in the common `.dts=
-i` file.
-> --
->
-> --- Patch [11]: [PATCH v3 11/12] arm64: dts: rockchip: rk3588s-nanopi-r6:=
- refactor to support M6 boards ---
-> commit 056adff75ec08989b96f09adc0efff6c3a5d662f
-> Author: Joachim Eastwood <joachim.eastwood@gmail.com>
->
-> arm64: dts: rockchip: rk3588s-nanopi-r6: refactor to support M6 boards
->
-> FriendlyElec NanoPi6 series consists of four distinct boards; R6S, R6C,
-> M6 and M6V2. Refactor FriendlyElec NanoPi R6 base dtsi in preparation
-> for adding NanoPi M6 support.
->
-> > diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi b/arch/ar=
-m64/boot/dts/rockchip/rk3588s-nanopi.dtsi
-> > new file mode 100644
-> > index 0000000000000..a8e532ad8b7a8
-> > --- /dev/null
-> > +++ b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi
->
-> [ ... ]
->
-> > +&i2c2 {
-> > +     status =3D "okay";
-> > +
-> > +     vdd_npu_s0: regulator@42 {
-> > +             compatible =3D "rockchip,rk8602";
-> > +             reg =3D <0x42>;
-> > +             fcs,suspend-voltage-selector =3D <1>;
-> > +             regulator-name =3D "vdd_npu_s0";
-> > +             regulator-min-microvolt =3D <550000>;
-> > +             regulator-max-microvolt =3D <950000>;
-> > +             regulator-ramp-delay =3D <2300>;
-> > +             regulator-boot-on;
->
-> [Severity: Medium]
-> Is the addition of regulator-boot-on here intentional?
+On 7/16/26 05:18, Gavin Shan wrote:
+> On 7/10/26 9:55 PM, Ben Horgan wrote:
+>> If there are memory bandwidth counters then there are 31 bit counters even
+>> if there are also 44 bit counters or 63 bit counters.
+>>
+>> Set the 31 bit bandwidth counter feature bit whenever there are bandwidth
+>> counters.
+>>
+>> Fixes: fdc29a141d63 ("arm_mpam: Probe for long/lwd mbwu counters")
+>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+>> ---
+>>   drivers/resctrl/mpam_devices.c | 4 ++--
+>>   1 file changed, 2 insertions(+), 2 deletions(-)
+>>
+> 
+> It might be worthwhile to put some context in the commit log helping readers
+> to correlate to the specification. What I found is something like below in
+> section 8.2.1.2 Long MBWU counter and capture of ARM IHI 0099A.a:
+> 
+> In MSMON_MBWU, the VALUE field is always 31 bits. If MSMON_MBWU_L is implemented,
+> the length of the VALUE field is either 63 or 44 bits as set by MPAMF_MBWUMON_IDR.LWD.
 
-Seems like I screwed up the refactoring of the code, and Sashiko caught me.
-I will fix it and send out a new patch set later.
+How about?
 
-> This appears to accidentally revert a prior fix that removed the boot-on
-> property for vdd_npu_s0 to save power during early boot.
->
-> > +             vin-supply =3D <&vcc5v0_sys>;
-> > +
-> > +             regulator-state-mem {
-> > +                     regulator-off-in-suspend;
-> > +             };
-> > +     };
-> > +};
->
-> [ ... ]
->
-> > +&u2phy0_otg {
-> > +     phy-supply =3D <&vcc5v0_usb_otg0>;
->
-> [Severity: Low]
-> Does this create a dangling phandle reference in the common dtsi file?
->
-> Since the vcc5v0_usb_otg0 regulator was left in the board-specific
-> rk3588s-nanopi-r6.dtsi file, it looks like compiling a new board (like th=
-e M6)
-> that includes this common dtsi will fail to build if it doesn't also defi=
-ne a
-> regulator with this exact label.
+When MPAMF_MSMON_IDR.MSMON_MBWU is 1, MSMON_MBWU is present and has a VALUE field of 31 bits. If
+additionally, MPAMF_MBWUMON_IDR.HAS_LONG is 1, then MSMON_MBWU_L is also present and has a VALUE
+field of 44 or 63 bits as indicated by MPAMF_MBWUMON_IDR.LWD.
 
-I don't think this is really an issue. Both nanopi-r6.dtsi and nanopi-m6.dt=
-si
-will have those regulators defined.
+Thanks,
 
-Unless someone tells me this is bad practice I will keep this as it is.
+Ben
 
+> 
+>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>> index acfa9a4dc2fc..11b10c3bc334 100644
+>> --- a/drivers/resctrl/mpam_devices.c
+>> +++ b/drivers/resctrl/mpam_devices.c
+>> @@ -930,9 +930,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+>>                           mpam_set_feature(mpam_feat_msmon_mbwu_63counter, props);
+>>                       else
+>>                           mpam_set_feature(mpam_feat_msmon_mbwu_44counter, props);
+>> -                } else {
+>> -                    mpam_set_feature(mpam_feat_msmon_mbwu_31counter, props);
+>>                   }
+>> +
+>> +                mpam_set_feature(mpam_feat_msmon_mbwu_31counter, props);
+>>               }
+>>           }
+>>       }
+> 
+> Thanks,
+> Gavin
+> 
 
-best regards,
-Joachim Eastwood
-
-> > +     status =3D "okay";
-> > +};
->
-> --
-> Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/20260713-nanopi-m=
-6-v3-0-227567ffc5dc@gmail.com?part=3D11
 
