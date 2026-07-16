@@ -4,58 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A5C1C44512
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 14:01:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 563EAC44512
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 14:08:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xHxBcaT+E/DCwf1hXM+vR64jW2mqPlUKi1FRji6ZfJg=; b=q6RJzzikZvSLKfprMjp1P2F33v
-	WcWJnhtVatmDvTP9HuJJUEeptCM9RVJoPrQkFJW2JuQ73nkaxfHWKhUFBJR9cqwmtCzx9oLhfG02G
-	+IKvx3Et+R2yGn9i+TUmtzF33CUN9HgjNv3+rHUJNl2yX4k7KTMsNMTuVtqEeht+MAFyul6nY4VnI
-	7tWrGdsL4/V3rDbmUFcSz4mFaXVqo5e4QlPJEuDk/UrhNLtCrmYH/bGOvLh77hRxqUPx+/WDo6WwT
-	ShuZ+HqLwPyxScIl4oSfX1psfcm7QtW4mjnyb1O0AoVEocAWME7AHN9bE1wIMeGgqOs4GMpyJxxBM
-	wT8AMu4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=F+tW2ndMU5DRPy5DazRWgny4gJkDTfDW7JUkLAAbhzI=; b=SR/gKVwLerqxVhPSHSnNsZMK3r
+	xcxgSPH8ln1oNT704/lcGkkOYM3BSfpVa24gnrodYBDmSBUj+nDnybyCD6AiiCMMTNmPpeXS0B1xT
+	AEgDh46uFx96Ksw49SDPxI9PG5OCcKOiKnvx+7x+Ej9dND8sVhGBr/BeIYerrjVIFxFeLPTMYUFGf
+	dV5WvUZhUAolfbyHDrKM6mgowXiqjkhA7vTw52i81Sh/o8fN8Dw4Oj5DkmSWOeACHaSY5MYUUjngD
+	ezTf0R8XR2VoYoB4DIUYT2Nc2J7z/Ozo1xafDFgsaSsM8jdz6FXlvOtrRaWfJJ2CjAugzijXfWStK
+	vdEBMcIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkMeU-0000000HQVn-3IEp;
-	Thu, 16 Jul 2026 14:01:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wkMla-0000000HR18-1jLZ;
+	Thu, 16 Jul 2026 14:08:46 +0000
+Received: from fout-a1-smtp.messagingengine.com ([103.168.172.144])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkMeQ-0000000HQUA-1msu
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 14:01:22 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9B112600BC;
-	Thu, 16 Jul 2026 14:01:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09BFC1F00A3A;
-	Thu, 16 Jul 2026 14:01:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784210481;
-	bh=xHxBcaT+E/DCwf1hXM+vR64jW2mqPlUKi1FRji6ZfJg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=jEqOoKBg9/LL9mp6utQwe8HtDiiRDdYQ1D9x2HpJGEETCbxjFHZDg/6ehbwgoC5x1
-	 YRgtOxUQBvwF36yaLFbvrKvMsCd2zyk8yxccyZQgh456v2DoAFMg6FAQFI9ssXooTy
-	 Tv4ZnV4r3lsSlmEwvkv7QcZE5IuY3Lipyzl0KP2ote0ttp/aGtvdr0gnCbDpPZVmNt
-	 95lWhigYClA2/zbOmjdqcpibc6wSHPKaE9JMO1+Jia+p0t4LVmBeVcO4Wyz8JTL7DK
-	 CTZYptBUjY4mkP3umvmxLvww/Sj+6/ApyeXxTPuqavtL4F0v6FfCbqocmFwlClPqGe
-	 ZIF4ztpZu5XcA==
-Date: Thu, 16 Jul 2026 15:01:16 +0100
-From: Will Deacon <will@kernel.org>
-To: liulhong617@163.comm, ardb@kernel.org
-Cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, liulhong617 <liulhong617@gmail.com>
-Subject: Re: [PATCH] arm64: mm: fix accidental linear mapping of no-map
- reserved memory
-Message-ID: <aljkLPTfyAbPaT98@willie-the-truck>
-References: <20260513010255.3764038-1-liulhong617@163.com>
+	id 1wkMlY-0000000HQzd-0bSm;
+	Thu, 16 Jul 2026 14:08:45 +0000
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfout.phl.internal (Postfix) with ESMTP id 680C4EC019C;
+	Thu, 16 Jul 2026 05:51:07 -0400 (EDT)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-05.internal (MEProxy); Thu, 16 Jul 2026 05:51:07 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
+	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
+	:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to; s=fm1; t=1784195467; x=1785059467; bh=F+tW2ndMU5
+	DRPy5DazRWgny4gJkDTfDW7JUkLAAbhzI=; b=x7Zlrs/do96LS4cLSvz821tuW/
+	ZBeTyhJnPrullKcOJM0zTnSJWE3OWs9takCPcHfMGwtcEN6ey4VML76pbnszX6Le
+	6vCk7VzJzC/VOrNAcvQLbkqzUWHJ4lUu7Xoq99Wt3oozVMmJAAVXUiQR1PCdPguN
+	RIkWarFlsipgSriyTpR/ZzHcP7RSUQNSEa76qhGGHKtqlmoWWF3uWjCznDTuZDYf
+	8DNxJ68xaNEpYbJtoFEm72UPJ5vQrcBg2dfuzAJzUi6q/QxM+cGeDpgDDF740SP9
+	ntjQHUJsVqbNbl9+jvgMzsRMyx8njqOLjAoOFYYBSFaZlkV2jOGWYrNTXcbw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=
+	1784195467; x=1785059467; bh=F+tW2ndMU5DRPy5DazRWgny4gJkDTfDW7JU
+	kLAAbhzI=; b=io0DZeIsdt4rvy4atPFYMZKpRfJWcXbQ6FoML9nUoJFMq9P80eG
+	uCXsZaJKzsWMstwORf94Yt1xGOtMmbdzXuSVgP304HqSDcrpR5TP9l1Yb+cMW/A2
+	NbW7Zw6aYTI2LFYHHEESZL8qSdq6KGEK+JObA+lRGHTBE0UZ79Ld6S8YaoXxpJ1M
+	5FozYhiV68rnRADPzHNbDAZYx6hSzE3p+0o6DkUoOoqCL2x9JyuIjnYV3Z1u1xPx
+	H8qMULeiMcBWPmumjJ1bPa802+tXT2r1JbU2mCfIOCDSD5a7zUt1e+z1vfHTPV2p
+	K0UjfJbCGUaRgU2v48lwzmHidQppbRYD5hw==
+X-ME-Sender: <xms:iqlYarjkF16nqEtPt7Z4tDNmsv03S10s-_z0z1Wwbd9F-fNYG6oZvA>
+    <xme:iqlYajvr72Th9kDA0Z_F_8m6fstzCI9DG1IvFzm7jYR-Cxhh4dmojaORb4aMY5rdX
+    4MW6panZgtzdYMIXvdqCHXwzb0vD2mYimgP0dL3QMWcPsYUJ1vsf-U>
+X-ME-Received: <xmr:iqlYangrV7ylcn3WZJ0bsmQHFYNo7WWOZ6NDItaDYLhrkpTnlk4_B2SlonHTUkRfAOYMNgFv5UqfxtK_ixc>
+X-ME-Proxy-Cause: dmFkZTEprbmmi/VnjSGn8v756j53UYBAUHLnE+fClBXqjTH9wnE3qC5kJuRhMqU8OnfiTK
+    pH39h7WuYgsjmZsB15MnneJ10NOjCAMQttfrIGKj1JvUJtfQyghZj7SV7TUaZuhG/9eqJW
+    TmTECvy5H8buG3dTy8a5OxrJTT/w4m+LRz6MIxHKnJ9FM305nnYQyxJRpvk9RnFNdqS4N3
+    KlU7dtOhheT+mvUtEnoAg9eGnbZwk8UfCOQjvadOR6438qtPNCtuVYJJkoRzJ8MB5Od98l
+    PHM+acvMpTY+EyFgAU/1okSdWXRBChiVZsp5+CcRwwxhhJLP+4g8dby++BXYqnVQdMYdX0
+    KzmeQBDd4Yh3iA8sNB0ZuoyGH0dDWxZxLTOybR/FldGCAbPJstNDPwpTtEEchhTSR2Azjr
+    n3SpA6a9muBAbg2wDEAk+fdadw/9W1qWIY/sfBryN0ZJmedKnBp2zGiZuvrvxxz82cu6WR
+    zKq9xfqXf3vMX6XZqC4T9IedKRSkUqRUL+M9BehfvwvUdc5MTccEsqduWfFnBKkXHOHyI/
+    W929yRVnG9A4ml0FDfPZksUx+F8w+QMbp41JEtov04n4I1g3yEVNy5MYYiHtEFcuInmmIz
+    bIvwqh4AgoTSdEltYdo5R8tdIKCD5D//wDK5FmHg/QRLSrX/PN1xRTr5aHIw
+X-ME-Proxy: <xmx:iqlYahYq6QDMv9vBwW9rE4b1WPH5ASCWMU1inDJz_h8mTC4yaI2DbQ>
+    <xmx:iqlYauYmYZgepdQPFHf2mZxLYIUU4udJnnGIFdvkin23w5DnfUun_w>
+    <xmx:iqlYauycGA58Ommh77oeiI6eWqP1mAwcM_Ef-maCA0RcWP3v1k1m3g>
+    <xmx:iqlYaifpeDEFNmIYDrTS-7X88hAzItcvHY0SnrekWtWC4bA5Xl4l4g>
+    <xmx:i6lYamaZaqDNQ31rD1HzhXrNJCpN-oMQdyaLRnjDtIrKtHxY1scM6k_T>
+Feedback-ID: i7a5e4b5f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 16 Jul 2026 05:51:04 -0400 (EDT)
+From: Jiaxing Hu <gahing@gahingwoo.com>
+To: heiko@sntech.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: devicetree@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jiaxing Hu <gahing@gahingwoo.com>
+Subject: [PATCH v3 0/2] arm64: dts: rockchip: Add ArmSoM CM5 and CM5-IO
+Date: Thu, 16 Jul 2026 21:50:59 +1200
+Message-ID: <20260716095101.2498464-1-gahing@gahingwoo.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260513010255.3764038-1-liulhong617@163.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260716_070844_485581_ECA16F9E 
+X-CRM114-Status: GOOD (  15.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,93 +108,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[+Ard]
+Add mainline support for the ArmSoM CM5, an RK3576 compute module, and
+its CM5-IO carrier board.
 
-On Wed, May 13, 2026 at 09:02:55AM +0800, liulhong617@163.com wrote:
-> From: liulhong617 <liulhong617@gmail.com>
-> 
-> When reserved-memory regions with the "no-map" property are not
-> page-aligned, the kernel may accidentally map them into the linear
-> mapping, contradicting the no-map semantics.
+Patch 1 adds the binding, patch 2 the module dtsi and the carrier dts.
 
-Crikey, I wonder what the semantics are for "no-map" if the region isn't
-page aligned? If the remaining part of the page is advertised as memory
-but doesn't have the "no-map" property, then we can't really satisfy
-what we're being asked to do.
+The on-module YT8531 PHY has no crystal and needs the SoC 25 MHz
+reference clock (clk_mac_refout). Ungating it for RGMII needs a small
+dwmac-rk change sent separately to netdev [1]; the clock is optional so
+this DTS applies without it.
 
-> The root cause is a mismatch between /proc/iomem's address boundaries
-> and the actual page table mapping boundaries:
-> 
-> 1. /proc/iomem derives its ranges from memblock via
->    memblock_region_reserved_base_pfn/memblock_region_reserved_end_pfn,
->    which perform PFN rounding so the displayed boundaries are
->    page-aligned. This gives the impression that the no-map region
->    occupies whole pages.
-> 
-> 2. However, memblock_mark_nomap() splits memblock.memory regions at
->    exact byte boundaries (memblock_isolate_range preserves raw DT
->    base/size with no alignment). When for_each_mem_range iterates the
->    non-NOMAP regions adjacent to a no-map region, it returns start/end
->    values that are NOT page-aligned — they are the precise byte
->    boundaries from the memblock split.
-> 
-> 3. These sub-page-aligned values are passed to
->    __create_pgd_mapping_locked(), which does:
->      phys &= PAGE_MASK;
->      addr = virt & PAGE_MASK;
->      end = PAGE_ALIGN(virt + size);
->    The downward rounding of phys via PAGE_MASK extends the mapped
->    range backward into the adjacent no-map region, effectively
->    including no-map memory in the linear mapping.
-> 
-> For example, with 64K pages, reserved_region@A2000000 (base=0xA2000000,
-> size=0x8000, no-map) causes for_each_mem_range to return
-> start=0xA2008000 for the next mappable region. After phys &= PAGE_MASK,
-> the actual mapping starts at 0xA2000000 — the entire no-map region is
-> incorrectly mapped.
-> 
-> Fix this by rounding the mappable range inward to PAGE_SIZE boundaries
-> before passing it to __map_memblock: start is rounded UP and end is
-> rounded DOWN. This ensures the mapped area never overlaps with adjacent
-> no-map regions. The cost is at most one page of unmapped gap at each
-> boundary, which is preferable to violating no-map semantics.
-> 
-> Signed-off-by: liulhong617 <liulhong617@gmail.com>
-> ---
->  arch/arm64/mm/mmu.c | 14 ++++++++++++++
->  1 file changed, 14 insertions(+)
-> 
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index dd85e093f..bc8ac7622 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -1175,6 +1175,20 @@ static void __init map_mem(pgd_t *pgdp)
->  	for_each_mem_range(i, &start, &end) {
->  		if (start >= end)
->  			break;
-> +		/*
-> +		 * for_each_mem_range may return sub-page-aligned boundaries
-> +		 * after memblock_mark_nomap() splits regions at byte precision.
-> +		 * __create_pgd_mapping_locked aligns phys down to PAGE_MASK,
-> +		 * which could accidentally map no-map memory on the boundary.
-> +		 * Round the mappable range inward: start UP, end DOWN, so
-> +		 * that the mapped area never overlaps with adjacent no-map
-> +		 * regions. The cost is at most one page of unmapped gap at
-> +		 * each boundary.
-> +		 */
-> +		start = PAGE_ALIGN(start);
-> +		end = end & PAGE_MASK;
-> +		if (start >= end)
-> +			continue;
+Tested on a CM5-IO: the YT8531 is probed by the motorcomm driver and the
+link comes up at 1000 Mbit/s; RK806, HYM8563, eMMC, microSD, the USB3
+hub and the PCIe root complex all probe. dtbs_check is clean.
 
-Maybe I'm over-worrying here, but I've seen firmware describe parts of
-memory as lots of small, adjacent regions in some cases and so I'm
-worried we'd fail to map the pages with this change.
+Changes in v3:
+- Remove the ES8388 codec from the file header and the i2c0 block
+  comment. The node was dropped in v2 but the comments still named it
+  (sashiko-bot on v2).
+- Use gpios instead of gpio in the vcc_3v3_pcie fixed regulator, to
+  match the other regulators in the file.
+- Pick up Krzysztof's Acked-by on patch 1.
+- The other v2 review notes need no change: the always-on plus
+  off-in-suspend state on vdd_cpu_lit_s0 and vdd_gpu_s0 matches every
+  rk3576 board upstream, and the eMMC full-pwr-cycle-in-suspend with no
+  vmmc-supply is the same pattern used across rk3576. dtbs_check stays
+  clean.
 
-I'd be more in favour of detecting sub-page sized "no-map" regions that
-are adjacent to normal memory regions, emitting a warning/firmware taint
-and then doing... precisely nothing about it. What practical issues are
-you seeing on your system?
+Changes in v2:
+- Type-C DP alt-mode: name the altmodes child "displayport" and make
+  svid a /bits/ 16 value; drop the undocumented svid from &usbdp_phy and
+  add the missing mode-switch.
+- Move the FUSB302 role-switch endpoint into the connector's ports; the
+  fusb302 binding does not allow a port on the device node. Rename the
+  node to usb-typec@22.
+- Drop the ES8388 node (disabled, wrong compatible) and the unreferenced
+  gmac0_rst, bt_reg_on and wifi_host_wake_irq pinctrls.
+- Rename the wifi-poweren-gpio pinctrl node, it collided with
+  gpio-consumer.yaml.
+- Describe the PHY reset at the MDIO bus level rather than with the
+  deprecated snps,reset-gpios; a per-PHY reset-gpios is applied only
+  after the ID scan, too late for a PHY that boots held in reset.
 
-Will
+[1] net: stmmac: dwmac-rk: enable the reference clock for output mode
+
+Jiaxing Hu (2):
+  dt-bindings: arm: rockchip: Add ArmSoM CM5 and CM5-IO
+  arm64: dts: rockchip: Add ArmSoM CM5 and CM5-IO
+
+ .../devicetree/bindings/arm/rockchip.yaml     |   7 +
+ arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+ .../dts/rockchip/rk3576-armsom-cm5-io.dts     | 397 ++++++++++++
+ .../boot/dts/rockchip/rk3576-armsom-cm5.dtsi  | 564 ++++++++++++++++++
+ 4 files changed, 969 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-armsom-cm5-io.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-armsom-cm5.dtsi
+
+-- 
+2.43.0
+
 
