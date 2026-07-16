@@ -4,102 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D63BAC44512
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 16:32:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5055CC44512
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 16:35:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=APiwPwxrp0Nqxoas85A4o7DfSgVInEX2Y+304zRUNvg=; b=1BYpMi/0tw6yvqRnIQArhY0k0B
-	nZdR+dqKGAgB3KlNmVLtkHJJDZWhQcw5e7oTvNKhvLETjjjVx27sm4thKGFsvS2bIbNMqnuvISZ5U
-	nc913ge5gG8Fj53W43rnlhpTokjOYsZ/SXU1RGPEmtrRD9TjXDLkmZPDKv2+IlrAW3Mq0SfvNVpr7
-	86RULujvRN5eY3yg10xM/IqA/QJ736eVd9nL0PoUiIlG/QVbqEyqXHVXdGm9jfnMdl2710e1GE+sT
-	ovkDlaZ0XI2rNt90ALDbt+yeK7F4yD6oCL846E+dfJXghGl5eQG5v39XbkT4E25wwH1RJVGO+X5DN
-	17fg9Fpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tCDBpM2pxxYPqmtXE+cmuwq5digT5TckD0bD8zDphms=; b=iagv5oWh/bdsF8zTft2jZ8m2jM
+	tId7KPxg3tBriJ4Rjmpkp4sw/9QOqZaQQSO3+OWdDmy2tQqAhAFI6tdKkWfrfrsQCRAAZZic2Ls3K
+	tqdyqgBZMxd2K5y7dzVfdr3NmHHKTa0/Sg7dJTw/yygcoLFZ9e7C8A70g6ZMo+Xq1HIl9zRtOnedG
+	TeqfX65LlVmQ9y1t4w3uPkA3JGUKD5p3Ix6oBusiNiJAebB44xXiR+Uup7SmKmzcJnfDt9DeYnY6D
+	X6OG0/LvmcDdnnmCtyi56kC1vgbOPtcFcKCApV5S7vKvuR4ffoR+EZqpCu8RHppxNP1gEG149qeyJ
+	0MiZVL3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkP0J-00000000AVb-1BEq;
-	Thu, 16 Jul 2026 16:32:07 +0000
-Received: from mail-ua1-x92f.google.com ([2607:f8b0:4864:20::92f])
+	id 1wkP3t-00000000BCR-07JY;
+	Thu, 16 Jul 2026 16:35:49 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkP0H-00000000AUe-0Chp
+	id 1wkP3r-00000000BCD-0VYe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 16:32:06 +0000
-Received: by mail-ua1-x92f.google.com with SMTP id a1e0cc1a2514c-9696369925aso2237659241.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 09:32:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1784219523; x=1784824323; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=APiwPwxrp0Nqxoas85A4o7DfSgVInEX2Y+304zRUNvg=;
-        b=MRF6m+xF5ump3E5SeWtctr+W8fG60xWvN19iYXlqWu7GMgA1l0tf0uQQP/NF7sGex6
-         am75VxxKMi38fsmeOMmHt1Vh9Nj7+0aeqZEj7BQBPTU2toqTfVolxNIK+8J49ZIKJLHF
-         1sQ09L34EqPoCPvDbr5JvN4LNu9CTx0iKJcDg=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784219523; x=1784824323;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=APiwPwxrp0Nqxoas85A4o7DfSgVInEX2Y+304zRUNvg=;
-        b=cGSXQfQZ4PzNQbq+Bui3xWSCRNd2TuNBBaZhEq+5NajwqImOQ0vPkG8L64cXGU1AiO
-         tN7gKxBr28kqBt0knl9h5D60gIcLsKxAg1VXP+di5gHyKpwQ+rAExULBPX1XI3jmhMJ9
-         seRBPFirgrYykkvGAiYeq2cNYYvbNa2GG39fns9O6EOeLcY5IIutHIuMXWWp4q/Q49De
-         oaey4mRk0jtDzyS8FG7dywWPvZCOKWVm0SiG2hAC6qwr0vANnsiELtLUTwmuXLlsPGQQ
-         iHZWIaRNYA2iXttyh6TjrcWhfmU4g5mGfB08hCbRFBh1Ms1pHmGayBAkejIbwbtCBy6X
-         CMKg==
-X-Forwarded-Encrypted: i=1; AHgh+RrCV4IbWzZ+F23MwxuARr2L9TM3hZIDJ34GiYyBOdeG392RFy20w0c6pF2Gql87tYD8Jq3PRLXzMhCf6HuIS2ZG@lists.infradead.org
-X-Gm-Message-State: AOJu0YwF8/DMFAzwKPjfEhGZDCHpyek5XdT09segFVZiP0itE/G35Y+q
-	UuW973H2tIVmDCw+WmrTV2bNnc4IcGUU4JHNxiJrdmqgDLpfpCYo+q6ut7TxoAJuhQQA7TC0SH1
-	CyBk=
-X-Gm-Gg: AfdE7ckgiLhoZy61run7VJd80AThIdBlvjbeocrM02fOA8NPD8kmwi6B5XXJwR4du2S
-	+TDPPQh5hgMqhYX+j+l6RjgeqFuAS4Ka4wT8DU762KJEpfDl8KOURgA0E97YieeYKaHbglRWQE3
-	ZgvwxejLe3CHTcZpRhOSrOdvCccpXWOnOSwGwurW0sLS6wQUjFpZJgfEZ+gBwuz7MevLJL/X0YE
-	vayqDXaS9+1uE7HeMYG0z1wD/eojfzxLhNqWT72Zpkf5KFRbdy1mtSKMAjfS9BmEkTv2LfYbt76
-	HtGyLAJRkXnqwC0Z7LyMYwAVrLktKu7pvzLhDY3lPg8v1Ov4iptP2bj2Q68LgXankjYOYF3RShA
-	jDjS2ZDLCaC6s+V4C4qZ0VVQFKa3iGX5VadoeN0Q4FEl1IlR/jAu6mctwgqlpRVEPVHz/zG2Tku
-	NTbu2I7YpBV8zidZ/mEZbp9RDpvoBnq72FR3r2OJJmXLqebDorOEk=
-X-Received: by 2002:a05:6102:e10:b0:73e:c6a0:331 with SMTP id ada2fe7eead31-7457e72d5admr7259432137.10.1784219522808;
-        Thu, 16 Jul 2026 09:32:02 -0700 (PDT)
-Received: from mail-ua1-f42.google.com (mail-ua1-f42.google.com. [209.85.222.42])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-96ed3868749sm12480615241.7.2026.07.16.09.31.59
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 16 Jul 2026 09:31:59 -0700 (PDT)
-Received: by mail-ua1-f42.google.com with SMTP id a1e0cc1a2514c-967327a0c7dso1454574241.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 09:31:59 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Rqx3mHzlPbc4PDqhMiSAohhxrJ5c9vX6eKQoQRPDHorFBypQ3tzdKnYLh6e38OKsoH1tL5lwVXXKgLA89R6ekLj@lists.infradead.org
-X-Received: by 2002:a05:6122:208c:b0:5bf:8fdf:89d with SMTP id
- 71dfb90a1353d-5c10eddf329mr6674207e0c.9.1784219518543; Thu, 16 Jul 2026
- 09:31:58 -0700 (PDT)
+	Thu, 16 Jul 2026 16:35:47 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B41534067C;
+	Thu, 16 Jul 2026 16:35:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FAF61F000E9;
+	Thu, 16 Jul 2026 16:35:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784219745;
+	bh=tCDBpM2pxxYPqmtXE+cmuwq5digT5TckD0bD8zDphms=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=I/pHE01+zdOY3q1W2i+xz50QzXIAaRgLB3kol79iC9rBehwWm+hJObG89HvR2XCug
+	 8PyHl6tfTaZPeL/KRpY/RuKOZeX2UK4n4CiynVWymrR4Kpq3xzbdUuUNZ4hga1p/8N
+	 ObR/s+2mdqZbZ3b15eoKwGMGFQSfapfC3Ypc0nM4k94dwazLogQDx8ulA5FhpJ3wdB
+	 hzTF+96NshnBfdI7cY0sr3m698hmIAmAzh+AJFojNv2yqS99W9WeNAe851245oI/Ud
+	 dIx3kzT/DbJejo+s4rKRraNZ8jaiAiNSzNEmTEydApwdjNdSl90a7V1GMizA0VOc1C
+	 FJvzepiVes6Nw==
+Date: Thu, 16 Jul 2026 18:35:27 +0200
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: hongxing.zhu@oss.nxp.com
+Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org, 
+	kwilczynski@kernel.org, robh@kernel.org, bhelgaas@google.com, s.hauer@pengutronix.de, 
+	kernel@pengutronix.de, festevam@gmail.com, linux-pci@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Richard Zhu <hongxing.zhu@nxp.com>
+Subject: Re: [PATCH v2] PCI: imx6: Fix i.MX6Q/DL boot hang by separating PHY
+ power and reference clock control
+Message-ID: <afwyhy7npuvtecdbuzaytazbifu2ytb6admq4xbzbmxwx47vpq@wrc5dp62mtng>
+References: <20260708035928.580236-1-hongxing.zhu@oss.nxp.com>
+ <20260708035928.580236-2-hongxing.zhu@oss.nxp.com>
 MIME-Version: 1.0
-References: <20260714222338.2965707-1-dianders@chromium.org>
- <20260714152138.6.Ia186a29119b4b5c409815b755e0c2c3965b0495f@changeid>
- <8e3025c5-16a0-40d7-affa-098ca37699c7@kernel.org> <CAD=FV=Vrd9AxO-NY_CP2h+f21qt4uGY2pOoFgacV+G5bnfd32Q@mail.gmail.com>
- <208b12fb-8f6f-4cc4-9517-bc59180aa094@kernel.org>
-In-Reply-To: <208b12fb-8f6f-4cc4-9517-bc59180aa094@kernel.org>
-From: Doug Anderson <dianders@chromium.org>
-Date: Thu, 16 Jul 2026 09:31:46 -0700
-X-Gmail-Original-Message-ID: <CAD=FV=XOGjLUF-1qOY=zCYJYq85MzkJ_56WbhraTcyAjU_z+RA@mail.gmail.com>
-X-Gm-Features: AUfX_my0b9oOkbCP3pS_I5q2w-6_jGf9HQ5lScUiSPnwh5yrj8idkqJOr-EqJaY
-Message-ID: <CAD=FV=XOGjLUF-1qOY=zCYJYq85MzkJ_56WbhraTcyAjU_z+RA@mail.gmail.com>
-Subject: Re: [PATCH 6/7] dt-bindings: mailbox: goog-mba: Add goog-mba mailbox bindings
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Jassi Brar <jassisinghbrar@gmail.com>, Joonwon Kang <joonwonkang@google.com>, 
-	Subhash Jadavani <sjadavani@google.com>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
-	Lucas Wei <lucaswei@google.com>, Brian Norris <briannorris@chromium.org>, 
-	Peter Griffin <peter.griffin@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_093205_142912_F4EE354E 
-X-CRM114-Status: GOOD (  58.42  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260708035928.580236-2-hongxing.zhu@oss.nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,223 +74,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Wed, Jul 08, 2026 at 11:59:27AM +0800, hongxing.zhu@oss.nxp.com wrote:
+> From: Richard Zhu <hongxing.zhu@nxp.com>
+> 
+> Commit 610fa91d9863 ("PCI: imx6: Assert PERST# before enabling regulators")
+> introduced a boot hang on i.MX6Q/DL variants by changing the initialization
+> sequence.
+> 
+> The issue stems from coupling PHY power (TEST_PD) and reference clock
+> (REF_CLK_EN) control in imx6q_pcie_enable_ref_clk(). When these are
+> managed together, the timing between PHY power-up and reference clock
+> enablement cannot be properly controlled, leading to initialization
+> failures.
+> 
 
-On Wed, Jul 15, 2026 at 10:47=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.o=
-rg> wrote:
->
-> > I don't suppose I can change your mind here? If we take
-> > "google,lga-mailbox-array" as the generic, then going foward a few
-> > generations we end up with:
-> >
-> > properties:
-> >   compatible:
-> >     oneOf:
-> >       - const: google,lga-mailbox-array
-> >       - items:
-> >           - enum:
-> >               - google,next-mailbox-array
-> >               - google,nextnext-mailbox-array
-> >               - google,another-mailbox-array
-> >           - const: google,lga-mailbox-array
->
-> This is the expected appriach.
->
-> >
-> > If we keep "google,mailbox-array" as the generic, then going forward a
-> > few generations we end up with this, which seems nicer / less
-> > confusing:
-> >
-> > properties:
-> >   compatible:
-> >     items:
-> >       - enum:
-> >           - google,lga-mailbox-array
-> >           - google,next-mailbox-array
-> >           - google,nextnext-mailbox-array
-> >           - google,another-mailbox-array
-> >       - const: google,mailbox-array
->
-> It is the discouraged approach. I already have a few real examples for
-> Qualcomm when people added such generic mailbox and after some time it
-> turned out not generic. So people wanted to add an another generic one...
+What is the timing requirement here?
 
-OK, I'll change it to use "google,lga-mailbox-array" as the generic.
+> Fix this by separating the two concerns:
+> 
+> - Move PHY power control (TEST_PD) to imx6q_pcie_core_reset() where it
+>   logically belongs with reset operations. This ensures PHY power state
+>   is managed as part of the core reset sequence.
+> 
+> - Update imx6qp_pcie_core_reset() to call imx6q_pcie_core_reset() for
+>   shared PHY power management, avoiding code duplication.
+> 
+> - Make imx6q_pcie_enable_ref_clk() responsible only for reference clock
+>   (REF_CLK_EN) control, simplifying its purpose.
+> 
+> - Remove the 10us delay workaround from imx6q_pcie_enable_ref_clk() as
+>   proper sequencing is now handled by the core_reset functions.
+> 
+> This refactoring ensures PHY power is controlled during reset
+> operations, fixing the boot hang while improving code maintainability.
+> 
 
+This patch does too many things at once. Can't you split it and keep the minimal
+fix in one patch?
 
-> >>> +  reg:
-> >>> +    minItems: 1
-> >>> +    items:
-> >>> +      - description: Host registers (not accessible to client)
-> >>> +      - description: Global registers (not present on newer IP block=
-s)
-> >>
-> >> You have only one SoC. One SoC has only one IP block, no?
-> >
-> > Nope! There are several instances of the MBA IP block per SoC. I tried
-> > to explain the situation exhaustively, but there's always the tradeoff
-> > between explaining thoroughly and providing too much text.
->
-> That's ok, the "newer" is confusing.
->
-> >
-> > To answer this specific question concretely, there is one MBA per
-> > remote processor. Looking at the downstream DTS, I see at least these
-> > MBA instances:
-> > * AOC (Always On Compute)
-> > * GSA (Google Security Anchor)
-> > * GDMC (Google Debug Monitor Core)
-> > * CPM (Central Power Manager)
-> >
-> > Each of these 4 MBA instances has its own "global" registers.
-> >
-> > To provide more context, each MBA instance can support communication
-> > beyond just the AP (Apps Processor). For instance, the AOC's MBA
-> > instance could be used to talk between the AOC and AP and also between
-> > the AOC and CPM. Let's take this as an example. In this case:
-> >
-> > * The AOC is the "host" of this MBA.
-> > * The AP is a "client" of this MBA.
-> > * The CPM is another "client" of this MBA.
-> >
-> > The AOC is the only one with access to the "host" registers.
-> >
-> > Everyone (AOC, AP, CPM in this case) has access to the read-only
-> > "global" registers describing the MBA instance.
-> >
-> > The clients have access to several banks of client registers, one per
-> > mailbox they can access. The host (AOC in this case) also has access
-> > to the client register spaces since that's where the shared message
-> > memory is located.
-> >
-> > The overall MBA instance is best identified by the address of the host
-> > registers, even if the client (the AP in this case) can't access those
-> > registers.
-> >
-> > On newer versions of the IP block the "global" register bank was
-> > removed and the read-only registers that were part of it were simply
-> > copied to each client instance.
-> >
-> > Does that clarify?
->
-> Yeah, just s/on newer/on all/ ?
+- Mani
 
-No. Although this driver only supports the "laguna" version of the
-mailbox array, I tried to look forward to what was coming in the
-future. On "laguna", the "global" register bank is needed. On SoCs
-past "laguna" (AKA "newer" ones) there is no global register bank.
-This is why the global register bank needs to be optional.
+> Fixes: 610fa91d9863 ("PCI: imx6: Assert PERST# before enabling regulators")
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> ---
+> Changes in v2:
+> Regarding sashiko's reivew, invoke imx_pcie_assert_core_reset() explicitly
+> in error path of imx_pcie_host_init() and imx_pcie_host_exit().
+> ---
+>  drivers/pci/controller/dwc/pci-imx6.c | 45 ++++++++++++---------------
+>  1 file changed, 20 insertions(+), 25 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> index 9406bba36953f..53f3da6ab30d5 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -680,21 +680,12 @@ static int imx_pcie_attach_pd(struct device *dev)
+>  
+>  static int imx6q_pcie_enable_ref_clk(struct imx_pcie *imx_pcie, bool enable)
+>  {
+> -	if (enable) {
+> -		/* power up core phy and enable ref clock */
+> -		regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_TEST_PD);
+> -		/*
+> -		 * The async reset input need ref clock to sync internally,
+> -		 * when the ref clock comes after reset, internal synced
+> -		 * reset time is too short, cannot meet the requirement.
+> -		 * Add a ~10us delay here.
+> -		 */
+> -		usleep_range(10, 100);
+> -		regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_REF_CLK_EN);
+> -	} else {
+> -		regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_REF_CLK_EN);
+> -		regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_TEST_PD);
+> -	}
+> +	if (enable)
+> +		regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
+> +				IMX6Q_GPR1_PCIE_REF_CLK_EN);
+> +	else
+> +		regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
+> +				  IMX6Q_GPR1_PCIE_REF_CLK_EN);
+>  
+>  	return 0;
+>  }
+> @@ -823,23 +814,25 @@ static int imx6sx_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
+>  	return 0;
+>  }
+>  
+> -static int imx6qp_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
+> +static int imx6q_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
+>  {
+> -	regmap_update_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_SW_RST,
+> -			   assert ? IMX6Q_GPR1_PCIE_SW_RST : 0);
+> -	if (!assert)
+> -		usleep_range(200, 500);
+> +	if (assert)
+> +		regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
+> +				IMX6Q_GPR1_PCIE_TEST_PD);
+> +	else
+> +		regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
+> +				  IMX6Q_GPR1_PCIE_TEST_PD);
+>  
+>  	return 0;
+>  }
+>  
+> -static int imx6q_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
+> +static int imx6qp_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
+>  {
+> +	imx6q_pcie_core_reset(imx_pcie, assert);
+> +	regmap_update_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_SW_RST,
+> +			   assert ? IMX6Q_GPR1_PCIE_SW_RST : 0);
+>  	if (!assert)
+> -		return 0;
+> -
+> -	regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_TEST_PD);
+> -	regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_REF_CLK_EN);
+> +		usleep_range(200, 500);
+>  
+>  	return 0;
+>  }
+> @@ -1445,6 +1438,7 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
+>  	return 0;
+>  
+>  err_phy_off:
+> +	imx_pcie_assert_core_reset(imx_pcie);
+>  	phy_power_off(imx_pcie->phy);
+>  err_phy_exit:
+>  	phy_exit(imx_pcie->phy);
+> @@ -1471,6 +1465,7 @@ static void imx_pcie_host_exit(struct dw_pcie_rp *pp)
+>  			dev_err(pci->dev, "unable to power off PHY\n");
+>  		phy_exit(imx_pcie->phy);
+>  	}
+> +	imx_pcie_assert_core_reset(imx_pcie);
+>  	imx_pcie_clk_disable(imx_pcie);
+>  
+>  	pci_pwrctrl_power_off_devices(pci->dev);
+> -- 
+> 2.34.1
+> 
 
-Yes, I could add some validation to tie it to a specific SoC version,
-but that doesn't really buy anything. It's just as easy to say that if
-the global register bank is defined in the device tree that it exists.
-If the global register bank isn't defined, the info must be in the
-per-client banks.
-
-If you insist, I can make the "global" register space non-optional for
-now and we can re-litigate when official support for newer SoCs is
-proposed.
-
-
-> >>> +patternProperties:
-> >>> +  "^mailbox@[0-9a-f]+$":
-> >>> +    type: object
-> >>> +    description:
-> >>> +      Each sub-node is a single-channel mailbox.
-> >>
-> >> This does not look like correct representation. You have one mailbox
-> >> controller with multiple mailboxes, not multiple mailbox controllers o=
-f
-> >> single channel boxes.
-> >
-> > I spent quite a bit of time debating this when rewriting the driver.
-> > While we could certainly hack things into the existing "mailbox with a
-> > bunch of channels", IMO it would be a worse representation of the
-> > hardware.
-> >
-> > I discussed this in the wall of text in this patch series, but
-> > re-hashing it here:
-> >
-> > Each "mailbox" in the mailbox array is more like a full-fledged
-> > mailbox than a channel within a mailbox. Each (single-channel)
-> > mailbox:
-> > * Has its own client register space.
->
-> That's nothing special yet. Many providers of multiple resources have
-> these resources in dedicated registers. Arguing this, each GPIO in a
-> GPIO controller as well has its own register space so is basically a
-> GPIO controller on its own.
->
-> > * Has its own interrupt.
->
-> Just like GPIOs...
-
-Sure, having a giant list of interrupts and register offsets isn't the
-end of the world.
-
-
-> > * Can have a different amount of memory for messages.
-> > * Can have its own conventions for communication.
-
-I notice you didn't respond to the above bullets. How would I deal
-with different mailboxes in the array having different communication
-conventions? Different mailboxes in the array might have different
-"payload" sizes. Some mailboxes in the array might use "queue" mode
-conventions and some might not. Do I need to devise some complex
-scheme for describing which mailboxes in the array use which
-convention?
-
-
-> Well, this could be. But you still have one child per channel (cells=3D0)
-> and all children address space is in parent's space, so that's clear
-> indication. It's one controller with multiple, although some different,
-> channels.
-
-Sure, it's definitely one IP block and I'm not arguing against that.
-
-
-> > If we tried to represent the mailbox array as a single mailbox with a
-> > bunch of channels, each instance would have a different number of
-> > "reg" entries and a different number of interrupts. We would also need
->
-> No, you would have only one device node. Very clean solution instead of
-> 100 children for each individual mailbox.
-
-There are definitely not anywhere near 100 children. At most a given
-instance of an MBA IP block could have 32 mailboxes. In practice, most
-have fewer.
-
-
-> It's the same with clocks (TI) - you do not get device node per clock,
-> even if TI did it 10 years ago. You do not get here device node per chann=
-el.
-
-Sure, the clock history is one thing to look at here. IMO, this is not
-the right comparison, though. Trying to describe all of the complexity
-of a clock tree in device tree is an exercise in futility. It's just
-too complex to get it right, and there really are hundreds of clocks.
-The mailbox array, on the other hand, is a much simpler beast.
-
-I think regulators and PMICs are a better comparison here. When we
-describe a PMIC in the device tree, do we have a single PMIC node and
-then have clients refer to a "regulator ID" to index into which
-specific regulator in the PMIC they want? No, we don't. We use
-sub-nodes for each specific regulator. This gives us a nice place in
-the device tree to put information about each individual regulator,
-since each regulator in a PMIC is different.
-
-Certainly if we had a mailbox controller with a bunch of identical
-channels then describing them as sub-nodes wouldn't make sense.
-Existing in-tree mailbox controllers have a bunch of homogenous
-channels, and thus the existing solution of using a channel ID works
-well. Here, the sub-nodes buy us something and provide for a cleaner
-solution.
-
-I don't understand the downside of my current proposal. It represents
-the hardware better (both the HW designers' intentions and the reality
-of its structure), avoids adding complexity to the device tree, and
-feels clean.
-
-
--Doug
+-- 
+மணிவண்ணன் சதாசிவம்
 
