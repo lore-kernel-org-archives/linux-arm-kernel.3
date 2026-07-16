@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B2E7C4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 09:09:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95302C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 09:15:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jk1r854S9ZoIs2vz1/MKeHN0VQeUblse5HF3B2JwC1s=; b=RbgijxBi6aU6nuUXoZF13mnqR8
-	PXb8J8rjYGGqZyXa0jDO8naW+/nOdSdWf9CCXdZgunb7SCo7SZ/OfFFh+qUPgALaG4qYEUnQGi6ke
-	lC+j71jNQpFHDG4KzjsoJQ21U3UMC/lmb7Aq+jHQ2Bgp7VV1S+g4MjYqjga0lX6EAbt+vBAmSSeed
-	mNIO6xmLvsqyAfU1NIcyb5+7Vz4CEQfwBpCb3s3O+Wjk5wqxPFlas3TWzb1n36q2IaWeZeQArDWsw
-	rW3M+736jBNPdKsNjceeR36gGy3EuUiOChBWAaQRfoASCiCQzFSz+EhHy6Uo1b8S9ffxkqWTSsteI
-	qqOyPkXg==;
+	bh=PbRYsnn+/zjqq+REUWo4CpCiXVkS9oTzAhCRoe3BOmQ=; b=W5Mn6SlQslEzXFDyBOXu4kxTT5
+	5I2w+rlkORtKkl4gePev0dm3ZbT5wji4nplvsRINJhq7hcJYb4+Fb8sL95EiCfGfOuSHfysAdXGYM
+	Ty3idSZnsJmgXjgiGq2NQ0QgNOGMoiChIvTShNRptjppTeVGu4ZSLyu7naBsbUgVaG92+NIImzsbM
+	FB8cfW7LZOmS019O0mU/sCobjuJ9A4YgLM4ZBNRnZgVXkHtueLPzNyOM3QcjJCsKJSt66MnKsssQM
+	251ueweqsbSGRsJJytpnIlY/wseeB1jy1+XQzZm1niWJ0UABhLn4btKojKx1ikff+a36YcLeu3NcO
+	EFDNnlHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkI5U-0000000Gp0x-2pig;
-	Thu, 16 Jul 2026 09:09:00 +0000
-Received: from 0001.3ffe.de ([2a01:4f8:c0c:9d57::1] helo=mail.3ffe.de)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkI5S-0000000Gp0T-2nTm;
-	Thu, 16 Jul 2026 09:08:59 +0000
-Received: from localhost (unknown [IPv6:2a02:810b:4320:1000:4685:ff:fe12:5967])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.3ffe.de (Postfix) with ESMTPSA id B2247179;
-	Thu, 16 Jul 2026 11:08:55 +0200 (CEST)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+	id 1wkIBv-0000000Gpg6-1RC0;
+	Thu, 16 Jul 2026 09:15:39 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkIBs-0000000GpfP-1hh3
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 16 Jul 2026 09:15:37 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 93EAD2B;
+	Thu, 16 Jul 2026 02:15:30 -0700 (PDT)
+Received: from [10.1.34.162] (e121487-lin.cambridge.arm.com [10.1.34.162])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3B49B3F905;
+	Thu, 16 Jul 2026 02:15:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784193334; bh=7anBZ6OTIpWSYxgyESTtKVaHR7bYEWhaSqqDb5JYirc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=fO+xBjQUYJt0icGfFgcYY9v5oS0N5QeP2oHRuyx22gghS5orEVA26k/D12G2atmU0
+	 Ilyniy9a1Z7V5Z4O4fboWA9o8a/YgZXSlVb4I6dDd4XiSVgqY/Dapqhhdnsj+SfEJs
+	 LWtecgW6SQmgV1adGC1RNh5HQ5iWB91hrxekM9BA=
+Message-ID: <ce08c8f8-1cb8-4c35-8973-a242c1360184@arm.com>
+Date: Thu, 16 Jul 2026 10:15:31 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5] arm64: errata: work around NVIDIA Olympus device
+ store/load ordering
+To: Shanker Donthineni <sdonthineni@nvidia.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: Jason Gunthorpe <jgg@nvidia.com>, linux-arm-kernel@lists.infradead.org,
+ Mark Rutland <mark.rutland@arm.com>, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org, Vikram Sethi <vsethi@nvidia.com>,
+ Jason Sequeira <jsequeira@nvidia.com>
+References: <20260715204856.3707449-1-sdonthineni@nvidia.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <20260715204856.3707449-1-sdonthineni@nvidia.com>
 Content-Type: text/plain; charset=UTF-8
-Date: Thu, 16 Jul 2026 11:08:55 +0200
-Message-Id: <DJZVLZ4LLD9E.3MPLYYXT1VQ9R@kernel.org>
-Subject: Re: [PATCH v3 3/7] gpio: regmap: Add gpio_regmap_operation and
- write-enable support
-Cc: <Michael.Hennerich@analog.com>, <afaerber@suse.com>, <andy@kernel.org>,
- <brgl@kernel.org>, <conor+dt@kernel.org>, <cy.huang@realtek.com>,
- <devicetree@vger.kernel.org>, <dlechner@baylibre.com>,
- <james.tai@realtek.com>, <jic23@kernel.org>, <krzk+dt@kernel.org>,
- <lars@metafoo.de>, <linus.walleij@linaro.org>, <linusw@kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-gpio@vger.kernel.org>,
- <linux-iio@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-realtek-soc@lists.infradead.org>,
- <mathieu.dubois-briand@bootlin.com>, <nuno.sa@analog.com>,
- <robh@kernel.org>, <stanley_chang@realtek.com>, <tychang@realtek.com>,
- <wbg@kernel.org>
-From: "Michael Walle" <mwalle@kernel.org>
-To: "Andy Shevchenko" <andriy.shevchenko@intel.com>, "Yu-Chun Lin"
- <eleanor.lin@realtek.com>
-X-Mailer: aerc 0.20.0
-References: <d301ba0cd45d49d59e6a014188306ec9@realtek.com>
- <20260716062614.1507243-1-eleanor.lin@realtek.com>
- <aliV4u6_xzx9D9Aq@ashevche-desk.local>
-In-Reply-To: <aliV4u6_xzx9D9Aq@ashevche-desk.local>
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_020858_866726_C2BEF78C 
-X-CRM114-Status: GOOD (  26.71  )
+X-CRM114-CacheID: sfid-20260716_021536_541743_A4BAFCD0 
+X-CRM114-Status: GOOD (  36.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,184 +74,218 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu Jul 16, 2026 at 10:27 AM CEST, Andy Shevchenko wrote:
-> On Thu, Jul 16, 2026 at 02:26:14PM +0800, Yu-Chun Lin wrote:
->
-> ...
->
->> >> > -     ret =3D gpio->reg_mask_xlate(gpio, base, offset, &reg, &mask)=
-;
->> >> > +     ret =3D gpio->reg_mask_xlate(gpio, GPIO_REGMAP_SET_DIR_OP, ba=
-se,
->> >> offset, &reg, &mask);
->> >> > +     if (ret)
->> >> > +             return ret;
->> >> > +
->> >> > +     ret =3D gpio->reg_mask_xlate(gpio, GPIO_REGMAP_SET_DIR_WREN_O=
-P,
->> >> base, offset, &reg,
->> >> > +                                &wren_mask);
->> >>=20
->> >> What constrains these two to provide the same value back for reg?
->> >> To me it seems like the write enable might well be in a different reg=
-ister.
->> >>=20
->> >> >       if (ret)
->> >> >               return ret;
->
-> ...
->
->> >> > -     return regmap_update_bits(gpio->regmap, reg, mask, val);
->> >> > +     return regmap_update_bits(gpio->regmap, reg, mask | wren_mask=
-,
->> >> > + val | wren_mask);
->> >> >  }
->> >> >
->> >> >  static int gpio_regmap_direction_input(struct gpio_chip *chip,
->> >
->> > My initial design indeed assumed that the WREN mask and Data mask resi=
-de in
->> > the same register.
->> > =20
->> > Regarding WREN support, especially if WREN and Data use separate regis=
-ters, I
->> > came up with three ideas. Which direction do you prefer?
->> > =20
->> > Approach 1: Provide Custom Callbacks in config (Let consumer driver ha=
-ndle it)
->> > We can add '.set' and '.set_direction' function pointers in
->> > 'struct gpio_regmap_config'. If a driver requires WREN, it can impleme=
-nt these
->> > callbacks itself.
->> >=20
->> > static void gpio_regmap_set(struct gpio_chip *chip, unsigned int offse=
-t, int val)
->> > {
->> >         struct gpio_regmap *gpio =3D gpiochip_get_data(chip);
->> > =20
->> >         /* If the driver provides a custom set (to handle WREN), deleg=
-ate to it */
->> >         if (gpio->set) {
->> >                 gpio->set(chip, offset, val);
->> >                 return;
->> >         }
->> >         /* ... existing generic regmap logic ... */
->> > }
->> >
->> > Pros: Clean core, no need to touch existing drivers' xlate signature. =
-The consumer
->> > driver handles its own locking for different registers.
->> > Cons: It feels a bit strange and inconsistent to expose only '.set' an=
-d
->> > '.set_direction' overrides while keeping other operations entirely abs=
-tracted.
->> > =20
->> > Approach 2: Handle separate WREN register in the core (with locking co=
-ncerns)
->> > We keep the 'XX_WREN_OP' in 'xlate'. If someone needs WREN and 'wren_r=
-eg !=3D reg',
->> > we write to both.
->> > =20
->> > static int gpio_regmap_set(struct gpio_chip *chip, unsigned int offset=
-,
->> >                            int val)
->> > {
->> >         /* skip */
->> >         ret =3D gpio->reg_mask_xlate(gpio, GPIO_REGMAP_SET_WREN_OP, ba=
-se, offset, &wren_reg,
->> >                                    &wren_mask);
->> >         if (ret =3D=3D -ENOTSUPP)
->> >                 has_wren =3D false;
->> >         else if (ret)
->> >                 return ret;
->> >=20
->> >        ret =3D gpio->reg_mask_xlate(gpio, GPIO_REGMAP_SET_OP, base, of=
-fset, &reg, &mask);
->> >=20
->> >        if (has_wren && reg =3D=3D wren_reg) {
->> >                mask |=3D wren_mask;
->> >                mask_val |=3D wren_mask;
->> >                has_wren =3D false;
->> >        }
->> >=20
->> >        if (has_wren)
->> >                ret =3D regmap_set_bits(gpio->regmap, wren_reg, wren_ma=
-sk);=20
->> >=20
->> >         /* ignore input values which shadow the old output value */
->> >         if (gpio->reg_dat_base =3D=3D gpio->reg_set_base)
->> >                 ret =3D regmap_write_bits(gpio->regmap, reg, mask, mas=
-k_val);
->> >         else
->> >                 ret =3D regmap_update_bits(gpio->regmap, reg, mask, ma=
-sk_val);
->> > =20
->> >         return ret;
->> > }
->> > =20
->> > Pros: Keeps all WREN logic unified inside the core framework.
->> > Cons: Introduces a locking issue. writing to 'wren_reg' and then 'reg'=
- requires an
->> > external lock to be atomic, which seems to defeat the purpose of relyi=
-ng on regmap's
->> > internal lock.=20
->> >=20
->> > Approach 3: Assume WREN and Data always share the same register
->> >=20
->> > static int gpio_regmap_set(struct gpio_chip *chip, unsigned int offset=
-, int val)
->> > {
->> >         /* ... */
->> >         ret =3D gpio->reg_mask_xlate(gpio, GPIO_REGMAP_SET_WREN_OP, ba=
-se, offset, &reg, &wren_mask);
->> >         if (ret =3D=3D -ENOTSUPP)
->> >                 wren_mask =3D 0;
->> >         else if (ret)
->> >                 return ret;
->> > =20
->> >         ret =3D gpio->reg_mask_xlate(gpio, GPIO_REGMAP_SET_OP, base, o=
-ffset, &reg, &mask);
->> > =20
->> >         ret =3D regmap_update_bits(gpio->regmap, reg, mask | wren_mask=
-, mask_val | wren_mask);
->> >         return ret;
->> > }
->> > =20
->> > Regarding this approach, I would like to ask from your experience: Is =
-it
->> > actually common for hardware designs to place WREN and Data bits in co=
-mpletely
->> > different registers for GPIO operations?
->> >=20
->> > If they practically always share the same register, this simpler appro=
-ach might
->> > suffice.
->>=20
->> If there are no further concerns, I will proceed with the third approach=
- and
->> send out v6.
->
-> From the above list I tend to the approach 2, but this might require to h=
-ave
-> GPIO regmap level of locking. I'm a bit lost in the context, though. I as=
-sume
-> we need a fresh start, id est issue a v6 with approach 2 or 3 in place an=
-d
-> summarize the choices in the cover letter, so we can understand what has =
-been
-> considered.
+On 7/15/26 21:48, Shanker Donthineni wrote:
+> On systems with NVIDIA Olympus cores, a Device-nGnR* load can be
+> observed by a peripheral before an older, non-overlapping Device-nGnR*
+> store to the same peripheral. This breaks the program-order guarantee
+> that software expects for Device-nGnR* accesses and can leave a
+> peripheral in an incorrect state.
+> 
+> The erratum can occur only when all of the following apply:
+> 
+>   - A PE executes a Device-nGnR* store followed by a younger
+>     Device-nGnR* load.
+>   - The store is not a store-release.
+>   - The accesses target the same peripheral and do not overlap in bytes.
+>   - There is at most one intervening Device-nGnR* store in program
+>     order, and there are no intervening Device-nGnR* loads.
+>   - There is no DSB or full DMB between the store and the load.
+>   - Specific microarchitectural and timing conditions occur.
+> 
+> Insert a DMB OSH immediately before each raw MMIO load on affected CPUs.
+> As a full barrier, DMB OSH orders the older Device store before the
+> younger Device load and prevents the erroneous observation.
+> 
+> Add the barrier directly to the __raw_read*() helpers, independently of
+> the existing device-load-acquire alternative. On affected CPUs this adds
+> one DMB OSH per raw MMIO load, including each load used by
+> memcpy_fromio(). On unaffected CPUs the alternative remains a NOP.
+> 
+> Co-developed-by: Vikram Sethi <vsethi@nvidia.com>
+> Signed-off-by: Vikram Sethi <vsethi@nvidia.com>
+> Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
+> Link: https://lore.kernel.org/all/akPQ8F3OgER621UP@willie-the-truck/
+> ---
+> Changes since v4:
+>   - Reworked the workaround following Will Deacon's review: leave the raw
+>     MMIO write helpers unchanged and insert a DMB OSH before raw MMIO loads.
+>   - Use DMB OSH after hardware confirmation that it fixes T410-OLY-1027.
+>   - Dropped the separate memcpy_fromio() optimization patch because the
+>     benchmark showed no noticeable benefit over the per-load workaround.
+>   - Updated the cpucap, Kconfig help text, and commit messages for the
+>     load-side workaround.
+> 
+> Changes since v3:
+>   - Split the workaround into two patches: the erratum fix (1/2) and the
+>     arm64 memset_io()/memcpy_toio() block writers (2/2).
+>   - Reworked the raw MMIO write helpers to use a direct base-register
+>     str*/stlr* alternative sequence instead of a per-write static branch.
+>   - Covered the write-combining __iowrite{32,64}_copy() path by patching
+>     dgh() to dmb osh on affected CPUs, keeping the contiguous STR groups
+>     and the ordering barrier outside the copy loop; the single-element
+>     case now uses a plain str* as well.
+>   - Added arm64 memset_io()/memcpy_toio() so the byte/word block writers
+>     take one trailing dmb osh instead of a per-store store-release.
+>   - Updated the commit messages to describe the offset-addressing
+>     trade-off.
+> 
+> Changes since v2:
+>   - Reworked the raw MMIO write helpers so unaffected CPUs keep the
+>     existing offset-addressed STR sequence, while affected CPUs use the
+>     base-register STLR path.
+>   - Updated the commit message to match the code changes.
+>   - Rebased on top of the arm64 for-next/errata branch:
+>     https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git/log/?h=for-next/errata
+> 
+> Changes since v1:
+>   - Updated the commit message based on feedback from Vladimir Murzin.
+> 
+> ---
+>  Documentation/arch/arm64/silicon-errata.rst |  2 ++
+>  arch/arm64/Kconfig                          | 22 +++++++++++++++++++++
+>  arch/arm64/include/asm/io.h                 | 16 ++++++++++++----
+>  arch/arm64/kernel/cpu_errata.c              |  8 ++++++++
+>  arch/arm64/tools/cpucaps                    |  1 +
+>  5 files changed, 45 insertions(+), 4 deletions(-)
+> 
+> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+> index ad04d1cdc0f0..c4137f89acef 100644
+> --- a/Documentation/arch/arm64/silicon-errata.rst
+> +++ b/Documentation/arch/arm64/silicon-errata.rst
+> @@ -298,6 +298,8 @@ stable kernels.
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | NVIDIA         | Carmel Core     | N/A             | NVIDIA_CARMEL_CNP_ERRATUM   |
+>  +----------------+-----------------+-----------------+-----------------------------+
+> +| NVIDIA         | Olympus core    | T410-OLY-1027   | NVIDIA_OLYMPUS_1027_ERRATUM |
+> ++----------------+-----------------+-----------------+-----------------------------+
+>  | NVIDIA         | Olympus core    | T410-OLY-1029   | ARM64_ERRATUM_4118414       |
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | NVIDIA         | T241 GICv3/4.x  | T241-FABRIC-4   | N/A                         |
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 10c69474f276..73e3e68db161 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -1363,6 +1363,28 @@ config NVIDIA_CARMEL_CNP_ERRATUM
+>  
+>  	  If unsure, say Y.
+>  
+> +config NVIDIA_OLYMPUS_1027_ERRATUM
+> +	bool "NVIDIA Olympus: device store/load ordering erratum"
+> +	default y
+> +	help
+> +	  This option adds an alternative code sequence to work around an
+> +	  NVIDIA Olympus core erratum where a Device-nGnR* store can be
+> +	  observed by a peripheral after a younger Device-nGnR* load to the
+> +	  same peripheral. This breaks the program order that drivers rely
+> +	  on for MMIO and can leave a device in an incorrect state.
+> +
+> +	  The workaround inserts a DMB OSH immediately before raw MMIO loads.
+> +	  The erratum cannot occur when a DMB that orders loads appears
+> +	  between the store and load, preventing the younger load from being
+> +	  observed before the older store.
+> +
+> +	  The alternatives framework patches in DMB OSH only when an affected
+> +	  CPU is detected. Other CPUs execute a NOP in its place. Disabling
+> +	  this option leaves the original MMIO read instruction stream
+> +	  unchanged.
+> +
+> +	  If unsure, say Y.
+> +
+>  config ROCKCHIP_ERRATUM_3568002
+>  	bool "Rockchip 3568002: GIC600 can not access physical addresses higher than 4GB"
+>  	default y
+> diff --git a/arch/arm64/include/asm/io.h b/arch/arm64/include/asm/io.h
+> index 8cbd1e96fd50..6d6d54c1b74c 100644
+> --- a/arch/arm64/include/asm/io.h
+> +++ b/arch/arm64/include/asm/io.h
+> @@ -54,7 +54,9 @@ static __always_inline void __raw_writeq(u64 val, volatile void __iomem *addr)
+>  static __always_inline u8 __raw_readb(const volatile void __iomem *addr)
+>  {
+>  	u8 val;
+> -	asm volatile(ALTERNATIVE("ldrb %w0, [%1]",
+> +	asm volatile(ALTERNATIVE("nop", "dmb osh",
+> +				 ARM64_WORKAROUND_NVIDIA_OLYMPUS_1027)
+> +		     ALTERNATIVE("ldrb %w0, [%1]",
+>  				 "ldarb %w0, [%1]",
+>  				 ARM64_WORKAROUND_DEVICE_LOAD_ACQUIRE)
+>  		     : "=r" (val) : "r" (addr));
+> @@ -66,7 +68,9 @@ static __always_inline u16 __raw_readw(const volatile void __iomem *addr)
+>  {
+>  	u16 val;
+>  
+> -	asm volatile(ALTERNATIVE("ldrh %w0, [%1]",
+> +	asm volatile(ALTERNATIVE("nop", "dmb osh",
+> +				 ARM64_WORKAROUND_NVIDIA_OLYMPUS_1027)
+> +		     ALTERNATIVE("ldrh %w0, [%1]",
+>  				 "ldarh %w0, [%1]",
+>  				 ARM64_WORKAROUND_DEVICE_LOAD_ACQUIRE)
+>  		     : "=r" (val) : "r" (addr));
+> @@ -77,7 +81,9 @@ static __always_inline u16 __raw_readw(const volatile void __iomem *addr)
+>  static __always_inline u32 __raw_readl(const volatile void __iomem *addr)
+>  {
+>  	u32 val;
+> -	asm volatile(ALTERNATIVE("ldr %w0, [%1]",
+> +	asm volatile(ALTERNATIVE("nop", "dmb osh",
+> +				 ARM64_WORKAROUND_NVIDIA_OLYMPUS_1027)
+> +		     ALTERNATIVE("ldr %w0, [%1]",
+>  				 "ldar %w0, [%1]",
+>  				 ARM64_WORKAROUND_DEVICE_LOAD_ACQUIRE)
+>  		     : "=r" (val) : "r" (addr));
+> @@ -88,7 +94,9 @@ static __always_inline u32 __raw_readl(const volatile void __iomem *addr)
+>  static __always_inline u64 __raw_readq(const volatile void __iomem *addr)
+>  {
+>  	u64 val;
+> -	asm volatile(ALTERNATIVE("ldr %0, [%1]",
+> +	asm volatile(ALTERNATIVE("nop", "dmb osh",
+> +				 ARM64_WORKAROUND_NVIDIA_OLYMPUS_1027)
+> +		     ALTERNATIVE("ldr %0, [%1]",
+>  				 "ldar %0, [%1]",
+>  				 ARM64_WORKAROUND_DEVICE_LOAD_ACQUIRE)
+>  		     : "=r" (val) : "r" (addr));
+> diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
+> index 4b0d5d932897..740ba3d51e30 100644
+> --- a/arch/arm64/kernel/cpu_errata.c
+> +++ b/arch/arm64/kernel/cpu_errata.c
+> @@ -839,6 +839,14 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
+>  		ERRATA_MIDR_ALL_VERSIONS(MIDR_NVIDIA_CARMEL),
+>  	},
+>  #endif
+> +#ifdef CONFIG_NVIDIA_OLYMPUS_1027_ERRATUM
+> +	{
+> +		/* NVIDIA Olympus core */
+> +		.desc = "NVIDIA Olympus device store/load ordering erratum",
+> +		.capability = ARM64_WORKAROUND_NVIDIA_OLYMPUS_1027,
+> +		ERRATA_MIDR_ALL_VERSIONS(MIDR_NVIDIA_OLYMPUS),
+> +	},
+> +#endif
+>  #ifdef CONFIG_ARM64_WORKAROUND_TRBE_OVERWRITE_FILL_MODE
+>  	{
+>  		/*
+> diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+> index 811c2479e82d..8d919b6699f0 100644
+> --- a/arch/arm64/tools/cpucaps
+> +++ b/arch/arm64/tools/cpucaps
+> @@ -121,6 +121,7 @@ WORKAROUND_CAVIUM_TX2_219_TVM
+>  WORKAROUND_CLEAN_CACHE
+>  WORKAROUND_DEVICE_LOAD_ACQUIRE
+>  WORKAROUND_NVIDIA_CARMEL_CNP
 
-I don't really like approach 3. You'd need to check if the regs of
-both xlate calls are the same. With the sample code above, you
-silently drop the first xlate'd reg.
+Nitpick: this ^ line has changed recently, so patch might not apply
 
-And honestly, it really seems like a one-off. What controllers, are
-there that need a write enable bit. The real problem seems to be
-the assumption that we operate on just one bit. IOW we either set
-mask or don't set mask in gpio_regmap_set().
+> +WORKAROUND_NVIDIA_OLYMPUS_1027
+>  WORKAROUND_PMUV3_IMPDEF_TRAPS
+>  WORKAROUND_QCOM_FALKOR_E1003
+>  WORKAROUND_QCOM_ORYON_CNTVOFF
+> -- 2.54.0.windows.1
+> 
 
-For a more generic solution, we should be able to control the
-written value. We could add another .value_xlate().
+FWIW,
 
--michael
+Reviewed-by: Vladimir Murzin <vladimir.murzin@arm.com>
+
+
+Thanks
+Vladimir
+
+
 
