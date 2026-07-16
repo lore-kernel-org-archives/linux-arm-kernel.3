@@ -4,68 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFA8AC44512
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 15:11:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58A19C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 15:12:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bVtSUM22Plu56d+Hb0W2FSEGvxdgjVgxuQGtCapC4fQ=; b=ZlQv8DtSHdnsntyS0LxNVvq5WV
-	lb90G1epZ49F4YpK/VkaM1qHSmtgaYjZmSkgwUCeCXjWcAl2/3CDwWHsdsac5BOolHXQIQStLWIf8
-	4oOfd/xZhtFQDkAKyv38QMswNwtS6dTdIkY7JQYum6EILXwHb0WrbPfqyVBqz2alNLpACECiMx+QF
-	3pXss85VGDYRUpRN/jlGZBj/Z/1EHST86QYjU1fWGr8INaZC+SsbAblUXBRlzamDJnh9Z5T1QEL5B
-	2tMx980aE1LkTBmHZhCkIRh/y/JJu5mCEOjWSDOOlOfFqbfhaAHMdp0UwGM5eAZlDkW2aHGYTsY5X
-	CP8/BMKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0GJ+WQOsBm0PgevzAY/fXGyrYkWmJ95vbTAUW144ysA=; b=vpxK8C/fgby1/uMGxNKUelDaBA
+	IHnbxiZGWTtSGZM4pqyaEg0FfsMZZ36szaqEMyI76JQjRvHu3FZnKzVC0exPViVvnMx+Ir99fd8ZB
+	XbgDu2by6y8tnZp9fm3FaBAKaHMOuEHJeRpRWTZnmWCyU/kiW3eSuGvA4lzGlKKQoa5W1vpqXMHbV
+	pfkd+wBF0v88IWdHqQvmEKZ05L/P5u8qln/ZjaqO6DB7dJGLZW/Up4opmY81aXhOdLolFBw22eYnk
+	9rRHOyrGui6wrN1RlU++qTP8LSGZXSdkrqnmaLxR4/K+QsivYAPbpabw8FzbpzUV+sXtYiOBzmqhN
+	0zAdiq5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkNkP-0000000Hb6O-2yzK;
-	Thu, 16 Jul 2026 15:11:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkNkO-0000000Hb6E-3IEX
+	id 1wkNlb-000000000Ji-49Jm;
+	Thu, 16 Jul 2026 15:12:51 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkNlY-000000000Hb-3su9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 15:11:36 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with UTF8SMTP id 8AEF443F3A;
-	Thu, 16 Jul 2026 15:11:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id E17C11F000E9;
-	Thu, 16 Jul 2026 15:11:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784214694;
-	bh=bVtSUM22Plu56d+Hb0W2FSEGvxdgjVgxuQGtCapC4fQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=E00k9pQrY2EPdIVi3Vzlc6FdgbeQZxlehIu7+5cwAhes6/cUXhJiyniUFbLcrxLL7
-	 0xxBQdroUg4YZ72l1b/38/rLLWUDb9eMbdOvCWavtv87rybDdW/6NLSI7zdVzzGI/E
-	 nI4ufCMmHKr3VJitjfLgy43uRWonL40dtOa4N1EEBlInmDeSTpWMInAwfBb9D/WXID
-	 B4TUZkRAAyuiVGfQbQt3JN+kRrZ1JU6K3qjV+wbIguEj3mtqfXoIeeMEy9PYKJgCzV
-	 JCU2PflegFYnCZUQCG1AxoP/tphmd8tEtfpi8Wt+QSI3p52FeWf8G+R31bc04BbG5c
-	 p1jITJ1+DjYIg==
-Date: Thu, 16 Jul 2026 17:11:31 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Yureka Lilian <yureka@cyberchaos.dev>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
-	Neal Gompa <neal@gompa.dev>, Thomas Gleixner <tglx@kernel.org>, 
-	Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>, 
-	Hector Martin <marcan@marcan.st>, Linus Walleij <linusw@kernel.org>, 
-	Mark Kettenis <kettenis@openbsd.org>, Andi Shyti <andi.shyti@kernel.org>, 
-	Sasha Finkelstein <k@chaosmail.tech>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-watchdog@vger.kernel.org, linux-gpio@vger.kernel.org, linux-i2c@vger.kernel.org, 
-	linux-pwm@vger.kernel.org
-Subject: Re: [PATCH 08/10] dt-bindings: pwm: apple,s5l-fpwm: Add t8132
- compatible
-Message-ID: <alj0EbuIzZUa48di@monoceros>
-References: <20260705-apple-m4-initial-devicetrees-v1-0-e5655ee56523@cyberchaos.dev>
- <20260705-apple-m4-initial-devicetrees-v1-8-e5655ee56523@cyberchaos.dev>
+	Thu, 16 Jul 2026 15:12:50 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3419E1476;
+	Thu, 16 Jul 2026 08:12:43 -0700 (PDT)
+Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 8A8933F66F;
+	Thu, 16 Jul 2026 08:12:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784214767; bh=riNgHQn3hQVJcEeEO/u7syMJef1+ZO+8QXz6OJzfZO0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=uJAM+XmYcM21K0hI8+6LuZWyxmhvSCMpYMdH/LKunRHvJF5idzMDKBU9Rf8JSpStq
+	 fpuapCdtMhX4QruFEOR8P8qNdS1mOy6EPiQPsK9OTcdbCOw/lAgG6aC5PxyyVgjrMm
+	 6G2f8yjiBcbUB3W/0/FMECKf2muMYTsR30SAVfZU=
+From: Robin Murphy <robin.murphy@arm.com>
+To: will@kernel.org,
+	mark.rutland@arm.com
+Cc: devicetree@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v2 0/3] perf: Support Arm Bus Monitor Unit
+Date: Thu, 16 Jul 2026 16:12:38 +0100
+Message-ID: <cover.1784214112.git.robin.murphy@arm.com>
+X-Mailer: git-send-email 2.54.0.dirty
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="hqzcajh75jsx3u4o"
-Content-Disposition: inline
-In-Reply-To: <20260705-apple-m4-initial-devicetrees-v1-8-e5655ee56523@cyberchaos.dev>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260716_081249_003750_187C8654 
+X-CRM114-Status: GOOD (  11.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,63 +68,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi all,
 
---hqzcajh75jsx3u4o
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 08/10] dt-bindings: pwm: apple,s5l-fpwm: Add t8132
- compatible
-MIME-Version: 1.0
+Here we have the delight of another new PMU driver. While not am Arm
+product in its own right, the BMU is found in the latest Neoverse
+Compute Subsystems, including the recently-announced AGI CPU.
 
-Hello,
+For now it is expected that BMU users will be ACPI-based (binding in
+the latest "ACPI for Arm Components" release[1]), so the token DT
+binding is more for completeness and maybe very early bringup hacking.
+I've kept it here for the sake of discussion, but the only requirement
+on me for now is to get patch #1 landed.
 
-On Sun, Jul 05, 2026 at 03:17:27PM +0200, Yureka Lilian wrote:
-> The PWM controller on the Apple silicon t8132 (M4) SoC is compatible
-> with the existing driver. Add "apple,t8132-fpwm" as SoC specific
-> compatible under "apple,s5l-fpwm" used by the driver.
->=20
-> Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
-> ---
->  Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml | 1 +
->  1 file changed, 1 insertion(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml b/=
-Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml
-> index 25ef04b60ca1..c85a2b85a66a 100644
-> --- a/Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml
-> +++ b/Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml
-> @@ -19,6 +19,7 @@ properties:
->            - apple,t8103-fpwm
->            - apple,t8112-fpwm
->            - apple,t8122-fpwm
-> +          - apple,t8132-fpwm
->            - apple,t6000-fpwm
->            - apple,t6020-fpwm
->        - const: apple,s5l-fpwm
+And yes, I did initially look at trying to factor out the PMU register
+accesses that functionally overlap the existing arm_cspmu code, but it
+very quickly became clear that that would end up far bigger and more
+complex. This is not a big driver, even with a few dozen lines of
+nominally-duplicate (but also simplified since the counter size etc.
+is fixed and known) code, so this way it went.
 
-There is no merge plan specified in the cover letter, but I assume this
-should go via arm-soc? In that case:
+v1: https://lore.kernel.org/linux-perf-users/cover.1783439341.git.robin.murphy@arm.com/
+v2: Fix valid Sashiko nits, separate DT support
 
-Acked-by: Uwe Kleine-K=F6nig <ukleinek@kernel.org>
+Thanks,
+Robin.
 
-Best regards
-Uwe
+[1] https://developer.arm.com/documentation/den0093/latest/
 
---hqzcajh75jsx3u4o
-Content-Type: application/pgp-signature; name="signature.asc"
+Robin Murphy (3):
+  perf: Add Arm Bus Monitor Unit driver
+  dt-bindings: perf: Add Arm Bus Monitor Unit
+  perf/arm-bmu: Add Devicetree support
 
------BEGIN PGP SIGNATURE-----
+ .../bindings/perf/arm,bus-monitor-unit.yaml   |  41 ++
+ drivers/perf/arm_cspmu/Kconfig                |   6 +
+ drivers/perf/arm_cspmu/Makefile               |   2 +
+ drivers/perf/arm_cspmu/arm-bmu.c              | 538 ++++++++++++++++++
+ 4 files changed, 587 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/perf/arm,bus-monitor-unit.yaml
+ create mode 100644 drivers/perf/arm_cspmu/arm-bmu.c
 
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmpY9KEACgkQj4D7WH0S
-/k4f2Qf/ejt+g4KhqmWnrNTPNMUcRtIQo1/q4Nj9sbE1bUT4MmNf6hqmRzkKK4Gj
-YSZ3gk42eykehjK/cA+UvtNNu7sZa3aNPodcEwo5vN6Y2a5gDfRJDRb4yxwGKeEv
-iEMFjStlA5uRrmk8gpLff0v8Q8pfkP4dqCgkeSdJWIdPR7bmDkYVQxMrKWpNxzZA
-hndISXV63bd/4yidL0BHKqV/koZkVknTh6R7GhOSa9rp6NoJlT1MTgcLf8LxgvtF
-1qi3MOXA9ZULItOGW+4MVhIt7xNLLecgGxHnNm6KAplOg1Cf1QLd3hQResk/x0N1
-4Ow858dzNiSoNIZ6UorB/403BKV8Ow==
-=z50O
------END PGP SIGNATURE-----
+-- 
+2.54.0.dirty
 
---hqzcajh75jsx3u4o--
 
