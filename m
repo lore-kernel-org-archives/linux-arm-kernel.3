@@ -4,160 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29D1CC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 05:20:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16E12C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 05:47:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tMZATvcieI+jey0EZMGR+VZBj7ajNOX+MCFIugsOB+k=; b=nI4C6SOe/0P//lUkca9ZPapkVM
-	U46ph0YRBHtua5mrU7ehOkiLZXj196Zzyx1eVYFPpiEiNElut5wH2AuP87ALsyuq43k4/IL6wp3ff
-	R1H+fCdgDKpqy20LOidjYJHI0dC2EN9RdJw+W+uUDL5c8kDDJTMf6U0f2Qa7HrJPe13nhPb2ISifd
-	HlXSBzzv8IBSgypBiDE0hTUusURBM9raYxPzTM2aKtQW8xYDhldQ2i6HVR9VcJCyg/EX2Jvx6Okrp
-	QuqmHd2m391dEcOL0XWQV8hYMwQQmKov0OoRoQnx5grpZ70HXonv+k9x7U9Yg4rDrhE26QBNc+q8Z
-	LK+oOunA==;
+	bh=D6ELJI/afA3hLpcYoUVARScHqI5khKHQg/6o2iZZYjk=; b=Dod6g4lanjDtr9IkQLEk44AI69
+	lomALGmzYakggioaraYO/SQC1m7WQR5OUzprMPFUeskjasvkFoJ6lIO1HRrm48xSOGqg/qPV191/4
+	HRko4zBGohfClE/150hWFG9IoOFAHIjlM67Gh5HoWc5NyhpA1SFtzipyj55di9RlLa8yfJVCtnRbv
+	Tj2OVHmoZIo4ffMivs2oQtf/lixwZJbmrtQEXiaKfMVCuqof+pYhcXUPjHvivfhGyvo0rr9/p920b
+	axF9OrJslpV+CeCXt7yY1/iLc4PQMrSc/5RtMl7yh56Dl1Jxps43EM+Ybzv2pdvd7Kbc4nCAk/Rpn
+	3wgeWZqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkEWM-0000000GSRV-41Xw;
-	Thu, 16 Jul 2026 05:20:30 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wkEw5-0000000GUI5-2mRo;
+	Thu, 16 Jul 2026 05:47:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkEWK-0000000GSR6-0SMo
+	id 1wkEw3-0000000GUHw-28IK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 05:20:29 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66G3wIuv1451566
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 05:20:26 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	tMZATvcieI+jey0EZMGR+VZBj7ajNOX+MCFIugsOB+k=; b=FE1B6bDXCuo+U2C+
-	5PO2tZX74zZx29UHWHvilD3Wy2kPQscA97d77bTF3ZZt38AorzSUArCk3JRcTseK
-	pEQsAeRl/Y1kXu+3kBVL2Bpr9QNLBBW8gp+Dr3VGI2HRrpMk0nebQA+nsQnqiSr7
-	f9yjBZgqIhzNUMHufaY/mwT4Lj18xYd06w0x/1+XA/WYdPldGGftZJx9MdhXiulJ
-	fu1DQTZHqoozAvfaTGF0xxZWNclruyWecK12HAecbzeWN1wHf4yQvdVeTwJlst4d
-	cN60soCiI+L9nmGlvR7AuMzcZT40T3eEh2zy8j3mD54qjQ3JHCiTbjNH4/WBFMHT
-	XU+2Fg==
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fecnyar4h-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 05:20:26 +0000 (GMT)
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2cc6dd43737so120396265ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Jul 2026 22:20:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1784179225; x=1784784025; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=tMZATvcieI+jey0EZMGR+VZBj7ajNOX+MCFIugsOB+k=;
-        b=KhfhQzZoGSFMx63KaPuPo5PpsfjvwaNwiOV/HyxUVifoCXweqhL7ZlasKuEW6PVDsv
-         U7c++j4gYUnzZbbKNB0oBTi/UYNaTXIcvOC1eKcPUxUqSM2cOol/5/OjxEVTkZZrDiDI
-         w/fJvuYv91iAV8XP3q3Dytwv93h3Lems4lX0zMCbGGm3cE4dfIlIJIrvqn9fGVPRYA0z
-         PYnprb3nN+eCVxKzCbjjDeCrPBA/wEAgD14OJILmj57JOiQ+uLRAyIyYg1YcuI56VbzB
-         ZAPdZYZcdn8rBTiVHJWOQ++tYMk6hrI6pbDME32Rv7DImHgDwI5HU5L9vYdKwRVRWkxi
-         8YEQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784179225; x=1784784025;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=tMZATvcieI+jey0EZMGR+VZBj7ajNOX+MCFIugsOB+k=;
-        b=DNkwN+Fu9fY7DZapOgA7AKDJAur56wTZngoEcUDMn6HVQ+ffdNEX5Vuomi21U2kyWU
-         ZgXb2UKUB4idxOT0H/oiwojymFQk40aHKS7B5VufGeWVFsGdofa9bOzOxMohYYpUv3w7
-         7xYhsSdfNckmJyI+NJ418SvNr+DFK/n3f8O3r1dmzx3y8Tp4uXaOifiQplWvJyGN4E43
-         vIsi3MUOdMO05TzT4d3yRB2Rbv0LfDeXfxbne7uaJncnrLh68QuWCoHms1Ll/x4zF7WE
-         fldou7DIslShk5fWHPV2FtVBth68vDyCueRXAuXZS5tUVagJXMdawQw+P0uYPO6xFSrG
-         MLlA==
-X-Forwarded-Encrypted: i=1; AHgh+RpOS4VIOMwi4iapZmmVk97DOhZhkYX668fGH9flySEPJwploHmkIYOFmLh1O9UkAmlSmyDUr+eUpL5vTGBIn5ZT@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyy0jY6QiQGoFbDa1Bwx7wLiSfu0NeBp5ZUMkIIwMv86buDS3df
-	x1Q6eesvr8wxCcY9hfonNc2bEeogcLvOZ9CI/HNCZBIBGOdCI1XpmAVegyUVrhdOYe4PG8I5YUB
-	v5rfvCGge9p8oVAUQeAS8SClwVOWaRrhUz5WxX/Ki17EKvavKy1kdZfkAbrE3Y3O5Q0/hEBSOyP
-	mBkA==
-X-Gm-Gg: AfdE7clu7sghjh/58nCfpzv2sa9nTxlcAz9bwek4QcT8tGdMcGYdPIUKYhZ70r9Wl5X
-	7jlHYkv1vkbc2TwCgoI7e1K5E6e31Pt52DfTQDQ6l3rL4jpn9ORywnItJPQhFaLR9Kd97DIXC3L
-	slpSeQlBMYQPHVVWZneDxi++VF6EaZhSLfMsCxJTwO5pNPfVp/+UHssze9C0T6uIQChjYZ6OXPM
-	ydeJyNEv9wCYoSx4xea8XQz0uRsKn1KkkIMz9XXjRFREIA4CzdAEBH+nPIwfOEIIVlHSZd4NQPo
-	D5j5LCV9a2VJ8VMWzrRmVrCVv8G8uimoJDPLKX3OoVUy3QsGeiWwouEPxXTLw7RMYL9KKQXZZNj
-	hN2ybyYhQaUAa4lsHF0uI4irYE7A=
-X-Received: by 2002:a17:903:9ce:b0:2cc:9e99:55c9 with SMTP id d9443c01a7336-2cee9b590demr113452275ad.26.1784179225229;
-        Wed, 15 Jul 2026 22:20:25 -0700 (PDT)
-X-Received: by 2002:a17:903:9ce:b0:2cc:9e99:55c9 with SMTP id d9443c01a7336-2cee9b590demr113451855ad.26.1784179224793;
-        Wed, 15 Jul 2026 22:20:24 -0700 (PDT)
-Received: from [10.217.216.90] ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf1072eacbsm13535555ad.80.2026.07.15.22.20.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 15 Jul 2026 22:20:24 -0700 (PDT)
-Message-ID: <cf144d43-907f-42b9-a877-3f54d1da088a@oss.qualcomm.com>
-Date: Thu, 16 Jul 2026 10:50:15 +0530
+	Thu, 16 Jul 2026 05:47:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5FB5943982;
+	Thu, 16 Jul 2026 05:47:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D4D81F000E9;
+	Thu, 16 Jul 2026 05:46:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784180821;
+	bh=D6ELJI/afA3hLpcYoUVARScHqI5khKHQg/6o2iZZYjk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=AlMNZLZTLtZAYOkt8TqyoNEZkjDaIyMpyb8Fu9q9m9pogq/1flWDmWX8QeIYZsQJl
+	 ShgTI0QK4bkcp1JIWeGR9uT5jm3lRqnge4qdbWO25Krm4e5mWW8tyL0kkjmHz4NxVx
+	 XiqNxBB7irSJ/HNFTjMAH1ucYjwzEb3m0Qlq1nzJNRBetG1LFlK5WImNai6EFKcK94
+	 B11xMwnqobDM2vuKOq69mWEFHu0LQDBKugABXBjgMP/m3MId509Dd5cVhNu0SWrSOV
+	 yhktcoVK1Tvfk5sivkypaY8e0GtxoCPqn9TJlKd4aymGyqYJWsgvIYJ8G3kEpfMd/3
+	 uS2zkH2pzggWA==
+Message-ID: <208b12fb-8f6f-4cc4-9517-bc59180aa094@kernel.org>
+Date: Thu, 16 Jul 2026 07:46:54 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 07/10] clk: qcom: videocc: Add video clock controller
- driver for Eliza
-To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd
- <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Luca Weiss <luca.weiss@fairphone.com>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
-        Imran Shaik <imran.shaik@oss.qualcomm.com>,
-        Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
-        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-References: <20260713-b4-eliza_mm_cc_v6-v7-0-4d91bcef50eb@oss.qualcomm.com>
- <20260713-b4-eliza_mm_cc_v6-v7-7-4d91bcef50eb@oss.qualcomm.com>
- <alYq2J6hd06g9XyC@monoceros>
+Subject: Re: [PATCH 6/7] dt-bindings: mailbox: goog-mba: Add goog-mba mailbox
+ bindings
+To: Doug Anderson <dianders@chromium.org>
+Cc: Jassi Brar <jassisinghbrar@gmail.com>,
+ Joonwon Kang <joonwonkang@google.com>,
+ Subhash Jadavani <sjadavani@google.com>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>, Lucas Wei <lucaswei@google.com>,
+ Brian Norris <briannorris@chromium.org>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org
+References: <20260714222338.2965707-1-dianders@chromium.org>
+ <20260714152138.6.Ia186a29119b4b5c409815b755e0c2c3965b0495f@changeid>
+ <8e3025c5-16a0-40d7-affa-098ca37699c7@kernel.org>
+ <CAD=FV=Vrd9AxO-NY_CP2h+f21qt4uGY2pOoFgacV+G5bnfd32Q@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Taniya Das <taniya.das@oss.qualcomm.com>
-In-Reply-To: <alYq2J6hd06g9XyC@monoceros>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <CAD=FV=Vrd9AxO-NY_CP2h+f21qt4uGY2pOoFgacV+G5bnfd32Q@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzE2MDA1MiBTYWx0ZWRfX+g5HFAfhVdJ9
- sVs2WdYLmQx3z3I+qTLZi0mBCdiQyKQB9QqxCnJ4AefyuxeOrQ4yOPgugiEUkjgVGHsCLCnFGE/
- PBCYgiGxcy7JqjGfTwycYpSxvlKvae8=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzE2MDA1MiBTYWx0ZWRfX98ML8c6ZdlD9
- iyJoeErqdxCJaodrjPNZ+mdCy7oLOjC/Sj0kIXnsmoMq1VRc0NKedbNtTHBvS8PAhF6588sSTeW
- gIfMvsvKCmXC4xMWerRkL71FFNvHGIvDi6Tq5Zq5euRfZN0ft90WEKx6MnJJPie39+C/CM+Hjn3
- ACYc819RsQ8pg32NjRk+anPPMylPFRVADpxuij6mUdbuoR2mXuo839u3LXTfI85UAJs955X8P/3
- aLqXrx7Srom+RYeV5j2fNMb6OpwkvFtvxLWBDZypO/xH40Pg8bN3ML53SjOubPPrR+h9BA4cCSo
- x+czRoMfxBBImXyAOS43pNTSCLWBdyolHZTtWYo6A5mURZfS8WYsdKd3EXRQZHMYNuXgLIMK003
- QA/ImxCKFulMJ6yVMVDtAZgUmQrUhDN+Y06g7tgRnbGfn9IDETVk579NenZh9QGN1W/aCZRKsM+
- avNq2t2FRs0cb6wdQaw==
-X-Proofpoint-ORIG-GUID: b1KUbiW1Pm4NWD5WoOxAk_xAUEbrI_DM
-X-Authority-Analysis: v=2.4 cv=Lt2iDHdc c=1 sm=1 tr=0 ts=6a586a1a cx=c_pps
- a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
- a=GXRrvyA9IJ52Cl4LVy4A:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=GvdueXVYPmCkWapjIL-Q:22
-X-Proofpoint-GUID: b1KUbiW1Pm4NWD5WoOxAk_xAUEbrI_DM
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-16_02,2026-07-15_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 impostorscore=0 lowpriorityscore=0 priorityscore=1501
- malwarescore=0 adultscore=0 spamscore=0 suspectscore=0 clxscore=1015
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2607160052
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_222028_296012_AEBEA49E 
-X-CRM114-Status: GOOD (  10.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,21 +126,217 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 15/07/2026 18:49, Doug Anderson wrote:
+> Hi,
+> 
+> On Tue, Jul 14, 2026 at 9:51 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>>
+>> On 15/07/2026 00:21, Douglas Anderson wrote:
+>>> Introduce bindings for the MailBox Array IP block present in Laguna
+>>> SoCs (AKA "lga", AKA "Google Tensor G5").
+>>>
+>>> Signed-off-by: Douglas Anderson <dianders@chromium.org>
+>>> ---
+>>>
+>>>  .../bindings/mailbox/google,mba.yaml          | 216 ++++++++++++++++++
+>>
+>> Filename must match compatible.
+> 
+> Whoops! Will fix in v2.
+> 
+> 
+>>> +properties:
+>>> +  compatible:
+>>> +    items:
+>>> +      - enum:
+>>> +          - google,lga-mailbox-array
+>>> +      - const: google,mailbox-array
+>>
+>> Don't use generic fallback. Just the SoCs.
+> 
+> Sure, if you insist.
+> 
+> In general the "mba" hardware is designed with enough identification
+> registers that we should be able to autodetect which variant we're on.
+> Thus, my hope is to not ever need to reference the SoC-specific
+> variant in the driver itself. It's not the end of the world to use the
+> "google,lga-mailbox-array" as the generic, I guess...
+> 
+> I don't suppose I can change your mind here? If we take
+> "google,lga-mailbox-array" as the generic, then going foward a few
+> generations we end up with:
+> 
+> properties:
+>   compatible:
+>     oneOf:
+>       - const: google,lga-mailbox-array
+>       - items:
+>           - enum:
+>               - google,next-mailbox-array
+>               - google,nextnext-mailbox-array
+>               - google,another-mailbox-array
+>           - const: google,lga-mailbox-array
 
+This is the expected appriach.
 
-On 7/14/2026 5:57 PM, Uwe Kleine-König wrote:
->> +#include <linux/mod_devicetable.h>
->> [...]
->> +#include <linux/platform_device.h>
-> Please rely on <linux/platform_device.h> to provide of_device_id and
-> drop the include for <linux/mod_devicetable.h>. The latter header is
-> going away soon.
+> 
+> If we keep "google,mailbox-array" as the generic, then going forward a
+> few generations we end up with this, which seems nicer / less
+> confusing:
+> 
+> properties:
+>   compatible:
+>     items:
+>       - enum:
+>           - google,lga-mailbox-array
+>           - google,next-mailbox-array
+>           - google,nextnext-mailbox-array
+>           - google,another-mailbox-array
+>       - const: google,mailbox-array
 
+It is the discouraged approach. I already have a few real examples for
+Qualcomm when people added such generic mailbox and after some time it
+turned out not generic. So people wanted to add an another generic one...
 
-Yeah, it was missed cleaning up.
+> 
+> Sure, it means that if someone unexpectedly makes a new Google
+> mailbox-array that's totally incompatible then the
+> "google,mailbox-array" sounds too generic, but that doesn't feel like
+> the end of the world. You could call the new mailbox array designed in
 
--- 
-Thanks,
-Taniya Das
+And there is simple solution, just use SoC compatibles. Everything is
+elegant, simple and accurate.
 
+> the year 2037 the "google,2037-mailbox-array" and things would overall
+> be less confusing than using the "google,lga-mailbox-array" as the
+> generic.
+> 
+> 
+>>> +  reg:
+>>> +    minItems: 1
+>>> +    items:
+>>> +      - description: Host registers (not accessible to client)
+>>> +      - description: Global registers (not present on newer IP blocks)
+>>
+>> You have only one SoC. One SoC has only one IP block, no?
+> 
+> Nope! There are several instances of the MBA IP block per SoC. I tried
+> to explain the situation exhaustively, but there's always the tradeoff
+> between explaining thoroughly and providing too much text.
+
+That's ok, the "newer" is confusing.
+
+> 
+> To answer this specific question concretely, there is one MBA per
+> remote processor. Looking at the downstream DTS, I see at least these
+> MBA instances:
+> * AOC (Always On Compute)
+> * GSA (Google Security Anchor)
+> * GDMC (Google Debug Monitor Core)
+> * CPM (Central Power Manager)
+> 
+> Each of these 4 MBA instances has its own "global" registers.
+> 
+> To provide more context, each MBA instance can support communication
+> beyond just the AP (Apps Processor). For instance, the AOC's MBA
+> instance could be used to talk between the AOC and AP and also between
+> the AOC and CPM. Let's take this as an example. In this case:
+> 
+> * The AOC is the "host" of this MBA.
+> * The AP is a "client" of this MBA.
+> * The CPM is another "client" of this MBA.
+> 
+> The AOC is the only one with access to the "host" registers.
+> 
+> Everyone (AOC, AP, CPM in this case) has access to the read-only
+> "global" registers describing the MBA instance.
+> 
+> The clients have access to several banks of client registers, one per
+> mailbox they can access. The host (AOC in this case) also has access
+> to the client register spaces since that's where the shared message
+> memory is located.
+> 
+> The overall MBA instance is best identified by the address of the host
+> registers, even if the client (the AP in this case) can't access those
+> registers.
+> 
+> On newer versions of the IP block the "global" register bank was
+> removed and the read-only registers that were part of it were simply
+> copied to each client instance.
+> 
+> Does that clarify?
+
+Yeah, just s/on newer/on all/ ?
+
+> 
+
+> 
+>>> +
+>>> +  ranges: true
+>>> +
+>>> +  "#address-cells":
+>>> +    const: 1
+>>> +
+>>> +  "#size-cells":
+>>> +    const: 1
+>>> +
+>>> +patternProperties:
+>>> +  "^mailbox@[0-9a-f]+$":
+>>> +    type: object
+>>> +    description:
+>>> +      Each sub-node is a single-channel mailbox.
+>>
+>> This does not look like correct representation. You have one mailbox
+>> controller with multiple mailboxes, not multiple mailbox controllers of
+>> single channel boxes.
+> 
+> I spent quite a bit of time debating this when rewriting the driver.
+> While we could certainly hack things into the existing "mailbox with a
+> bunch of channels", IMO it would be a worse representation of the
+> hardware.
+> 
+> I discussed this in the wall of text in this patch series, but
+> re-hashing it here:
+> 
+> Each "mailbox" in the mailbox array is more like a full-fledged
+> mailbox than a channel within a mailbox. Each (single-channel)
+> mailbox:
+> * Has its own client register space.
+
+That's nothing special yet. Many providers of multiple resources have
+these resources in dedicated registers. Arguing this, each GPIO in a
+GPIO controller as well has its own register space so is basically a
+GPIO controller on its own.
+
+> * Has its own interrupt.
+
+Just like GPIOs...
+
+> * Can have a different amount of memory for messages.
+> * Can have its own conventions for communication.
+
+Well, this could be. But you still have one child per channel (cells=0)
+and all children address space is in parent's space, so that's clear
+indication. It's one controller with multiple, although some different,
+channels.
+
+> 
+> If we tried to represent the mailbox array as a single mailbox with a
+> bunch of channels, each instance would have a different number of
+> "reg" entries and a different number of interrupts. We would also need
+
+No, you would have only one device node. Very clean solution instead of
+100 children for each individual mailbox.
+
+It's the same with clocks (TI) - you do not get device node per clock,
+even if TI did it 10 years ago. You do not get here device node per channel.
+
+> an array describing the communication conventions for each channel.
+> Can it be done? Yes. Is it ugly? Also, yes.
+> 
+> Further evidence that the hardware design intended "a bunch of
+> mailboxes" rather than "a mailbox with channels" is that the IP block
+> is called a "mailbox array". ;-)
+Best regards,
+Krzysztof
 
