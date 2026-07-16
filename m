@@ -4,57 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 589B8C44518
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 18:35:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF6AAC44512
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 18:35:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UJktQKwDINGWhgoCZrW13rzuESCYOEOcpy7Vb2JHQ8M=; b=i0VNP2/xjJqyErCqWX+C6zCzq0
-	WQRSSzBAnxDKxp2kQRk0yP9O5qVXKFxIL5D8pFgs79mpihzzAgKJwAQw0Tixwe8RkqYhjUvZpHncn
-	9YNZuyqN8SCBR150OKe3MFP3kTX6HQugaaedLFVvgMfPPHGqID2HgRKOnRCxhFIopAzMdqEDt7CFP
-	a+LrXb5eeBkcArzaTnh0omLo2Vo63W3mt86oSFPhvByh0PwSwUjp4MPjp8gbh4LlBVbq794nKSaWn
-	Bjag4qLGROFsyvVe9ez8NvMnlhbjsuEBMN2vXHnOioZCGtbnGR5zeAtHn4kJ5tXuiW6EKnedqslG5
-	f9EqogCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CBtsWFuTDIg8IgjUhvZKzlGaiQ5mUGATekYrAmZco2A=; b=0/s7lUpWDeLMTU8khoFQH5569p
+	BGapBCZq7f0SirM96DxvbvyOcvFjYxJi7QmnSrhcioMNZ5rCC5L83FSPOw+J3umUf42wZidZAkmq+
+	24XnClRR1TzxuVBM7AyvMTuQ+l7S50hu+kl8VXnYFB4Sa3xRPhUApOTwxzPKYwFIizY4/eFT9Yoc/
+	DRoWWH2RcbL8pKvQSo89r1ZzQxbruH4Th/LOQnuHVW99g2a2HXKWOMs9H3hfTe8YQuh/Ha/hJea7/
+	VcuAuRdtYkgGA5ASR3T9NcW9KTKUztzhHqoGQL+fVOo8hJlim90WMmLjvF6bYDZeDbqnUy0dGkFy8
+	OZ9tMZ2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkQvd-00000000P7X-3ZHn;
-	Thu, 16 Jul 2026 18:35:25 +0000
-Received: from mail-10698.protonmail.ch ([79.135.106.98])
+	id 1wkQvk-00000000PAK-01ZS;
+	Thu, 16 Jul 2026 18:35:32 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkQvb-00000000P6H-3TI2
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 18:35:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1784226919; x=1784486119;
-	bh=UJktQKwDINGWhgoCZrW13rzuESCYOEOcpy7Vb2JHQ8M=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=Bto5Xw4NMOSoVu7Klhcpu7jiy5R5ZJO4/gClmbLW+F3q+imQ7KMvR5Xs66IlVZZw7
-	 dArHX+iq55Yy5/QmEXBNK66asyqKaOsbvYd0Cg60VpJobgWJ9DZMMrqAsmE70uxmu/
-	 /G46OQ/5vQAfm1bu/VdYroQmZziKD2219agDu/o98gZr5s7xHxvHF4QIxEA1FRcxj7
-	 bMdYCOQjx1hIvIz0w/8/H+3sd+atWIQ8nbuaddVgOz2IR6Rb54tmf66L1oijWzfrhp
-	 khvt7Oed07SBDMsJq6Eshz8lkZv9//kNgEMFEQROQ2WayJR2d6OuxraPz4JlmFl8cY
-	 U1KSSKYfJZ1Pg==
-Date: Thu, 16 Jul 2026 18:35:11 +0000
-To: Akari Tsuyukusa <akkun11.open@gmail.com>
-From: Roman Vivchar <rva333@protonmail.com>
-Cc: Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Philipp Zabel <p.zabel@pengutronix.de>, linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 3/7] arm/arm64: dts: mediatek: drop mt6589 fallback from watchdog
-Message-ID: <W7fWZU3pu6akI_HMTAWPGnnErv60QtTz-LaPb6OtGvU5Bx0Iekl4SxWB6mxBPx8cBo9q9Lg7t8dDzcyfti-5fTirEACcwCLhNAh8e5xoHus=@protonmail.com>
-In-Reply-To: <20260716161923.266315-4-akkun11.open@gmail.com>
-References: <20260716161923.266315-1-akkun11.open@gmail.com> <20260716161923.266315-4-akkun11.open@gmail.com>
-Feedback-ID: 173184497:user:proton
-X-Pm-Message-ID: 73c7f91ec5bf7bbb8e204416070046f2990eb4d0
+	id 1wkQvd-00000000P6Y-0bSb;
+	Thu, 16 Jul 2026 18:35:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=CBtsWFuTDIg8IgjUhvZKzlGaiQ5mUGATekYrAmZco2A=; b=bHTiI4AuiFVT/lUiAEyL+dLyiO
+	m7Y/rR1V0NP3iudbLx2AwYJ8g9Y1pdeTx3FjP63JHwB57cYyXFKIHZnEZu/eY36AsmHuumzxS0os8
+	PXppavuiY0OX3jfZjXFUw4uvFlIQpvDx3k2WzSvWtSnXc84CEDxnCNY82ILl2CWp1zHYvU8BvXO54
+	Ag39vN59yZ56ibhHr/TrxGKxFWSi0Ie6HfVf3K80J3sWmuI+muf/RqYvHFcO0z45rV+sbo1EfuEJh
+	oXMheo6QY8HHbNrvxJH+qcsNRsJSxqdv8NadWJXMJIC5E5SiYXGnopyqiU0KV5zM3VSiL21RRN5ay
+	WoOBqWCg==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ Jiaxing Hu <gahing@gahingwoo.com>
+Cc: devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Jiaxing Hu <gahing@gahingwoo.com>
+Subject: Re: [PATCH v3 0/2] arm64: dts: rockchip: Add ArmSoM CM5 and CM5-IO
+Date: Thu, 16 Jul 2026 20:35:21 +0200
+Message-ID: <40552860.10thIPus4b@phil>
+In-Reply-To: <20260716095101.2498464-1-gahing@gahingwoo.com>
+References: <20260716095101.2498464-1-gahing@gahingwoo.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_113524_019722_63E370D9 
-X-CRM114-Status: GOOD (  10.33  )
+X-CRM114-CacheID: sfid-20260716_113525_182592_FEC9F11C 
+X-CRM114-Status: GOOD (  21.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,57 +66,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On Thursday, July 16th, 2026 at 7:19 PM, Akari Tsuyukusa <akkun11.open@gmai=
-l.com> wrote:
-
-> Remove the "mediatek,mt6589-wdt" fallback string from all in-tree
-> device trees. Use only the SoC-specific compatible.
->
-> No functional change.
-> Affected SoCs: mt2701, mt6572, mt6582, mt6797, mt7622, mt7623,
-> mt7629, mt8173, mt8365, mt8516.
+Am Donnerstag, 16. Juli 2026, 11:50:59 Mitteleurop=C3=A4ische Sommerzeit sc=
+hrieb Jiaxing Hu:
+> Add mainline support for the ArmSoM CM5, an RK3576 compute module, and
+> its CM5-IO carrier board.
 >=20
-> Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
-
-...
-
-> diff --git a/arch/arm/boot/dts/mediatek/mt6572.dtsi b/arch/arm/boot/dts/m=
-ediatek/mt6572.dtsi
-> index ac70f266d698..5a6c9763bd6c 100644
-> --- a/arch/arm/boot/dts/mediatek/mt6572.dtsi
-> +++ b/arch/arm/boot/dts/mediatek/mt6572.dtsi
-> @@ -53,7 +53,7 @@ soc {
->  =09=09ranges;
+> Patch 1 adds the binding, patch 2 the module dtsi and the carrier dts.
 >=20
->  =09=09watchdog: watchdog@10007000 {
-> -=09=09=09compatible =3D "mediatek,mt6572-wdt", "mediatek,mt6589-wdt";
-> +=09=09=09compatible =3D "mediatek,mt6572-wdt";
->  =09=09=09reg =3D <0x10007000 0x100>;
->  =09=09=09interrupts =3D <GIC_SPI 126 IRQ_TYPE_LEVEL_LOW>;
->  =09=09=09timeout-sec =3D <15>;
+> The on-module YT8531 PHY has no crystal and needs the SoC 25 MHz
+> reference clock (clk_mac_refout). Ungating it for RGMII needs a small
+> dwmac-rk change sent separately to netdev [1]; the clock is optional so
+> this DTS applies without it.
+>=20
+> Tested on a CM5-IO: the YT8531 is probed by the motorcomm driver and the
+> link comes up at 1000 Mbit/s; RK806, HYM8563, eMMC, microSD, the USB3
+> hub and the PCIe root complex all probe. dtbs_check is clean.
+>=20
+> Changes in v3:
+> - Remove the ES8388 codec from the file header and the i2c0 block
+>   comment. The node was dropped in v2 but the comments still named it
+>   (sashiko-bot on v2).
+> - Use gpios instead of gpio in the vcc_3v3_pcie fixed regulator, to
+>   match the other regulators in the file.
+> - Pick up Krzysztof's Acked-by on patch 1.
+> - The other v2 review notes need no change: the always-on plus
+>   off-in-suspend state on vdd_cpu_lit_s0 and vdd_gpu_s0 matches every
+>   rk3576 board upstream, and the eMMC full-pwr-cycle-in-suspend with no
+>   vmmc-supply is the same pattern used across rk3576. dtbs_check stays
+>   clean.
+>=20
+> Changes in v2:
+> - Type-C DP alt-mode: name the altmodes child "displayport" and make
+>   svid a /bits/ 16 value; drop the undocumented svid from &usbdp_phy and
+>   add the missing mode-switch.
+> - Move the FUSB302 role-switch endpoint into the connector's ports; the
+>   fusb302 binding does not allow a port on the device node. Rename the
+>   node to usb-typec@22.
+> - Drop the ES8388 node (disabled, wrong compatible) and the unreferenced
+>   gmac0_rst, bt_reg_on and wifi_host_wake_irq pinctrls.
+> - Rename the wifi-poweren-gpio pinctrl node, it collided with
+>   gpio-consumer.yaml.
+> - Describe the PHY reset at the MDIO bus level rather than with the
+>   deprecated snps,reset-gpios; a per-PHY reset-gpios is applied only
+>   after the ID scan, too late for a PHY that boots held in reset.
+>=20
+> [1] net: stmmac: dwmac-rk: enable the reference clock for output mode
+>=20
+> Jiaxing Hu (2):
+>   dt-bindings: arm: rockchip: Add ArmSoM CM5 and CM5-IO
+>   arm64: dts: rockchip: Add ArmSoM CM5 and CM5-IO
 
-mt6572 downstream kernel shows the same layout as 6589, but only
-pwrap, md lite and md are explicitly referenced and used.
+As Rob said in the v2 bindings, please slow down.
+Additionally that is the 2nd "v3" today?
 
-I tried poking some unused bits like DDR PHY or INFRA AO, though
-that appears to be no-op. Only MMSYS and APMIXED resets from
-the 6589 worked for me so far.
+If something is a resend ... please mark it as such, i.e.
+[PATCH RESENT x/y] ... and provide an explanation what went
+wrong in the cover-letter.
 
-=3D> mw.l 0x10007018 0x88000001 # infra
-=3D> mw.l 0x10007018 0x88000002 # mm
-* display died *=20
-=3D> mw.l 0x10007018 0x88000004 # mfg
-=3D> mw.l 0x10007018 0x88000040 # ddrphy
-=3D> mw.l 0x10007018 0x88000100 # infra_ao
-=3D> mw.l 0x10007018 0x88000400 # apmixed
-* hang *
 
-I assume others are reserved on mt6572, so
+Thanks
+Heiko
 
-Acked-by: Roman Vivchar <rva333@protonmail.com> # for mt6572
 
-Best regards,
-Roman
 
