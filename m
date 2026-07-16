@@ -4,118 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95496C4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 09:54:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5683C4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 09:55:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
+	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n5CfasO0ETUI94CdcqzUm6T818X9OnbwiUpuYudmGo4=; b=vFJtWAgNqGUiOD7YsbUh6lHlSa
-	8E4BEA0mGYVBrPVknVht7TYhhnXoxIyJ860bkMyx908xngAdC9PFueYNCFiXav0RUmI9PWoVVtSfB
-	Q3yuq1Ne/DYNny80xRU8oPXxFAz91dpB5C3E0pkm7R1mg131NYLubcr4y6To7MRytBWme+REMSXY2
-	/605x80FURhR0rJEi2V8vsms0oIFYwOpoyZSd8VWCZVLegXtR/S3oeT8a5opTgQIR7PCA/xwZhbDp
-	U0PDwXmr0WWc2n1NFLOrgTEJ6tGpTX7cdibpG3KU617kGRHEFVP+6TOvJ/tCirgDyatgCF+6ZTxYF
-	agFEhZbQ==;
+	bh=0/SyxMPIaPUuP8evJ5FrQ+d3a/rGOBD7f2mYFAW4BZY=; b=YjefltLuG1uL1i6WzQq1qMnBFN
+	3JD30OD38ClVYUjcFdoVCJMBRZm5VsHggR97c7mkxlccodLP6i+v7pjp2UtiNZFe9Zle8rjxpgPC7
+	YwPOcvZj14zoX5VfufKbzwZthUCsgMUL/hiknO3m1sNL4Wv4icbX8OayAqdHNE45umm9Z/Vn54LIX
+	eJFwGVg1+galGuG3N0llgO5PNy7oLqSIewE6SapTrouivHqf4Ueqo6OLtv9qt3Z3s/6lGSzABp2RZ
+	AROhFcE4DHKD+R+p3kmEVeH6axfPOkS9OUUJTXMAP1AUCjRBSE4O2ABu0vuh3vRU88gHKIQcsr1a1
+	2jQXBcnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkImz-0000000Gvvi-28bm;
-	Thu, 16 Jul 2026 09:53:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wkIo4-0000000Gw7V-37zm;
+	Thu, 16 Jul 2026 09:55:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkImy-0000000GvvY-3QZH
+	id 1wkIo3-0000000Gw6t-1x8R
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 09:53:56 +0000
+	Thu, 16 Jul 2026 09:55:03 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1F46F6001A;
-	Thu, 16 Jul 2026 09:53:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C82D1F000E9;
-	Thu, 16 Jul 2026 09:53:51 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0893943AF3;
+	Thu, 16 Jul 2026 09:55:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9905A1F000E9;
+	Thu, 16 Jul 2026 09:54:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784195635;
-	bh=n5CfasO0ETUI94CdcqzUm6T818X9OnbwiUpuYudmGo4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=K3XW/P6jR69B+V3zWrDch4hnyiDtsUokJ3l9UXrsgWNKDm2q3udtHcv9YpJsc90Xh
-	 BafM3EAgQNOyRBedUMQGJ7hTMB38nVj0T01CciUd6GTl0dyDAgaP0ya8fhmstt2/65
-	 CYyaUZccojmQeQmVreMz5ZXzvqQy8nWhtAArnB35+kGfXw9DyXDmcukdISl+p0fhwW
-	 uo5J1K+o2oeydrd1H3HMpDt8X8jTuXi1ypTDfozGLJfW4uAW+wApocjL4EWnyMAtUe
-	 w8grc7uuqCwT+40ph/zUBfuAmqd/5mYy5jOrE1uk4pOwoYbJID+lX4W4dJpo3zyta/
-	 n1e/VyPBzAM/w==
-Message-ID: <d3b07e20-fa35-41c7-ac40-11614f7a3b2e@kernel.org>
-Date: Thu, 16 Jul 2026 11:53:50 +0200
+	s=k20260515; t=1784195702;
+	bh=0/SyxMPIaPUuP8evJ5FrQ+d3a/rGOBD7f2mYFAW4BZY=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=ox/bS8GOAiz3ddOEb5s6tXfBT47YKSkPHImeTD5McWUIQJirA93UP+YdQ+CCxYrK2
+	 XadnBH1n9BEZu6pLviso5nDeoDyb5gOcCHLglh0iALbqqZIJtRIXhjeom4dIyqFJ/y
+	 lXBichlZN0LXLt4LEVvE03cOWN2fcl+R6f2M6pvJpiXppA9EjknjVsmlbEfngNR8YR
+	 p3GPYWk11s9QCNhy6RyoZ0mxvIYPsRbrdczK9NJJ1XeUHWBjKGIt8nfaBNo6wM6T+T
+	 YCBfEGG+CUxhcq/+psTJ5H3Nc0rnt60cd8gRWf1EdOLExy4mkNiuxOEimRxbP3sPXz
+	 k8iCp344bixkg==
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 Subject: Re: [PATCH mm-hotfixes v3 1/4] mm/vmalloc: acquire init_mm lock on
  huge vmap to avoid ptdump UAF
-To: Lorenzo Stoakes <ljs@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Suren Baghdasaryan <surenb@google.com>, "Liam R. Howlett"
- <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
- Shakeel Butt <shakeel.butt@linux.dev>, Mike Rapoport <rppt@kernel.org>,
- Michal Hocko <mhocko@suse.com>, Uladzislau Rezki <urezki@gmail.com>,
- Toshi Kani <toshi.kani@hpe.com>, Dave Hansen <dave.hansen@linux.intel.com>,
- Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, Kiryl Shutsemau <kas@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Dev Jain <dev.jain@arm.com>, Ryan Roberts <ryan.roberts@arm.com>
-Cc: David Carlier <devnexen@gmail.com>, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org,
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, 
+ Kiryl Shutsemau <kas@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+ Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, 
+ Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
+ Uladzislau Rezki <urezki@gmail.com>, Toshi Kani <toshi.kani@hpe.com>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, 
+ Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, x86@kernel.org, 
+ "H. Peter Anvin" <hpa@zytor.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Dev Jain <dev.jain@arm.com>, 
+ Ryan Roberts <ryan.roberts@arm.com>, David Carlier <devnexen@gmail.com>, 
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org, bpf@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org, 
  syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com
+In-Reply-To: <20260715121452.3e8047663eeaaa3048f80985@linux-foundation.org>
 References: <20260714-series-vmap-race-fix-v3-0-b812eccfa0f9@kernel.org>
  <20260714-series-vmap-race-fix-v3-1-b812eccfa0f9@kernel.org>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20260714-series-vmap-race-fix-v3-1-b812eccfa0f9@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+ <aldhVdwj9oMRN1Lk@thinkstation>
+ <178412496800.59347.11482869717348078349.b4-reply@b4>
+ <20260715121452.3e8047663eeaaa3048f80985@linux-foundation.org>
+Date: Thu, 16 Jul 2026 10:54:42 +0100
+Message-Id: <178419568212.59347.281101439296944826.b4-reply@b4>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3870; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=a3CCqUij9CeairDpkpveB5vWdZj6OHQzdpzaVSurYpQ=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLIiViXLzvfdvWpHXm8JowZLd/gCGQaViuLTDDPKU/ksu
+ sW/7D/XUcrCIMbFICumyPL8i/j+IJGweZ0X/N1g5rAygQxh4OIUgIvsZWSYO3PrIh6mG7LObzIv
+ HPh0fdN9HnOOArWtLj9q3VIWL7rTwMhwm88zw6rY416zv/DxR1f+PW27sGV/znlhyxOv5CXOWpW
+ xAgA=
+X-Developer-Key: i=ljs@kernel.org; a=openpgp;
+ fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,33 +96,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 2026-07-15 12:14 -0700, Andrew Morton wrote:
+> On Wed, 15 Jul 2026 15:16:08 +0100 "Lorenzo Stoakes (ARM)" <ljs@kernel.org> wrote:
+>
+> > On 2026-07-15 11:34 +0100, Kiryl Shutsemau wrote:
+> > > On Tue, Jul 14, 2026 at 06:24:23PM +0100, Lorenzo Stoakes wrote:
+> > > > Currently there is a nasty race between ptdump and vmap when attempting to
+> > > > map a huge P4D, PMD or PUD entry:
+> > >
+> > > Nit: that's a strange order of levels :P
+> >
+> > Ha, seems I couldn't decide on ordering so went with something random :P
+> >
+> > Let's try 'P4D, PUD or PMD' instead :))
+> >
+> > >
+> > > > Fix this by holding the mmap read lock in vmap_try_huge_*() when freeing
+> > > > page tables.
+> > >
+> > > How about adding here something like:
+> > >
+> > >   The read lock is sufficient: ptdump is the only walker that must be
+> > >   excluded and it holds the mmap write lock. Other holders of the read
+> > >   lock may run concurrently, but each exclusively owns the range it
+> > >   operates on and cannot reach the page tables freed here.
+> >
+> > You mean maybe I put the commit message on _too_ much of a diet? :)
+> >
+> > Yeah sure, sounds good.
+>
+> I made this changelog alteration:
+>
+> --- a/txt/mm-vmalloc-acquire-init_mm-lock-on-huge-vmap-to-avoid-ptdump-uaf.txt
+> +++ b/txt/mm-vmalloc-acquire-init_mm-lock-on-huge-vmap-to-avoid-ptdump-uaf.txt
+> @@ -103,6 +103,11 @@ walk_page_range_debug(), vmap takes no relevant locks at all.
+>  Fix this by holding the mmap read lock in vmap_try_huge_*() when freeing
+>  page tables.
+>
+> +The read lock is sufficient: ptdump is the only walker that must be
+> +excluded and it holds the mmap write lock.  Other holders of the read lock
+> +may run concurrently, but each exclusively owns the range it operates on
+> +and cannot reach the page tables freed here.
+> +
+>  We also hold the lock while assigning the huge page table entry, which
+>  means page table walkers observe only the huge or non-huge page table
+>  entry.
 
->  
->  #define CREATE_TRACE_POINTS
->  #include <trace/events/vmalloc.h>
-> @@ -158,10 +159,25 @@ static int vmap_try_huge_pmd(pmd_t *pmd, unsigned long addr, unsigned long end,
->  	if (!IS_ALIGNED(phys_addr, PMD_SIZE))
->  		return 0;
->  
-> -	if (pmd_present(*pmd) && !pmd_free_pte_page(pmd, addr))
-> -		return 0;
-> +	if (!pmd_present(*pmd))
-> +		return pmd_set_huge(pmd, phys_addr, prot);
->  
-> -	return pmd_set_huge(pmd, phys_addr, prot);
-> +	/*
-> +	 * Kernel page table walkers either walk ranges they own exclusively or
-> +	 * hold the mmap write lock on init_mm (ptdump being the motivating
-> +	 * case).
-> +	 *
-> +	 * Therefore, acquire the mmap read lock to prevent use-after-free when
-> +	 * freeing page tables.
-> +	 */
+Perfect, thanks!
 
-Can you spell out here why arm64 is special?
+>
+> > >
+> > > > +	/*
+> > > > +	 * Kernel page table walkers either walk ranges they own exclusively or
+> > > > +	 * hold the mmap write lock on init_mm (ptdump being the motivating
+> > > > +	 * case).
+> > > > +	 *
+> > > > +	 * Therefore, acquire the mmap read lock to prevent use-after-free when
+> > > > +	 * freeing page tables.
+> > > > +	 */
+> > >
+> > > Same for the comment, maybe:
+> > >
+> > >       /*
+> > >        * Acquire the mmap read lock to exclude ptdump, which walks
+> > >        * kernel page tables it does not own under the mmap write lock.
+> > +	 *
+> > >        * Concurrent read lock holders are safe: each exclusively owns
+> > >        * the range it operates on and cannot reach this page table.
+> > >        */
+> >
+> > Yeah that's better agreed.
+> >
+> > Let's replace it, but I think (being super nitty) with an extra blank line as
+> > above.
+>
+> This?
+>
+> --- a/mm/vmalloc.c~mm-vmalloc-acquire-init_mm-lock-on-huge-vmap-to-avoid-ptdump-uaf-fix
+> +++ a/mm/vmalloc.c
+> @@ -163,12 +163,11 @@ static int vmap_try_huge_pmd(pmd_t *pmd,
+>  		return pmd_set_huge(pmd, phys_addr, prot);
+>
+>  	/*
+> -	 * Kernel page table walkers either walk ranges they own exclusively or
+> -	 * hold the mmap write lock on init_mm (ptdump being the motivating
+> -	 * case).
+> +	 * Acquire the mmap read lock to exclude ptdump, which walks kernel
+> +	 * page tables it does not own under the mmap write lock.
+>  	 *
+> -	 * Therefore, acquire the mmap read lock to prevent use-after-free when
+> -	 * freeing page tables.
+> +	 * Concurrent read lock holders are safe: each exclusively owns the
+> +	 * range it operates on and cannot reach this page table.
+>  	 */
 
--- 
-Cheers,
+Yes that's great thanks!
 
-David
+>  #ifndef CONFIG_ARM64
+>  	scoped_cond_guard(mmap_read_lock_try, return 0, &init_mm)
+> _
+>
+>
+>
+
+Cheers, Lorenzo
+
 
