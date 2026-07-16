@@ -4,110 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E31AC4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 14:19:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD053C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 14:24:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kS+alGnsif5zPcgusNl6KrEfFeDFZl8IkaD1XdPSRXw=; b=I+j7qZV9DBdLAWtylMbfCLs8op
-	w61ir8c/P+fNanD2p+lTx3rJ8gVLhBMtM7VQcxhz2hKJu7FmUiEs5e3YYzWCV+2kv6ZQftD7J9fdy
-	UChPd1MAtFzonygdNF06qhThbBr3+U1wiaHJ5/e/H3zFYvA6f2VtkmVfWfoF8iSlkPzNa9mHKlC7p
-	wApXevAlaEsG3RVKKtrkYxbeXzWjquK4dmPx4pCqIrBFhRO6Dz9lYJwZJswrnbewDkrF/tEEcF2fk
-	1bQ6yTBdCU26huJR6U0N1bQyifLCe9cP1xB/Nw40EzrtYzEchPqjU2Co3S0N3ZHvjCWnTwO/aJplA
-	EblHVI1w==;
+	bh=fPvGHuIRGYn8Z8C7HBjWzIb5fkNNJe+keY0J3TLkMO8=; b=dvY/ICiuVEFhuN9/nrQO6XGjaM
+	hKLVvLt/UJMggcd3rAJtnd90fDWdNoDvMRD8BYLwurwzXNYHEji1uF6tSA5Vt5zIzejV2aSVWwj1B
+	X3UEUHk0pGByVXBynrAiLG0pA9n3qI27baII/B5l7Tt5rJixvG5YaSM+RwLin2ZUaWXr8K8OnDnYW
+	8wvZtKRVZ36aAKqeoTHh5G31FBSgmtly4vtK9lBf1Fi6CZlVRrW+GN+gf9Db4cu1LBc5NQSlCtoHs
+	kqc4E365L2NRwsGVFP0wt+kX4cJgsTQlZA6gwZ7+gL2NP02dVE0bbXudSDhG/iykUN46GYidvlDkw
+	CjNSyxhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkMwH-0000000HT1L-20EH;
-	Thu, 16 Jul 2026 14:19:49 +0000
-Received: from mail-qk1-x730.google.com ([2607:f8b0:4864:20::730])
+	id 1wkN10-0000000HTVz-10Hp;
+	Thu, 16 Jul 2026 14:24:42 +0000
+Received: from [2a01:e0a:1040:9780:49:5ff:fe41:d261] (helo=luna.linkmauve.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkMwE-0000000HT0N-49RN
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 14:19:48 +0000
-Received: by mail-qk1-x730.google.com with SMTP id af79cd13be357-92e512a9a6bso348952885a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 07:19:45 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1784211584; cv=none;
-        d=google.com; s=arc-20260327;
-        b=eOISNzbyIhIGXU3yA6pjvlwuXXkze4ecrFTRl51rBOq8AHUgAqiMARR67OI/zQ67iP
-         1dupmfTLKayjWZHpJOf+OaAy6esuQBm0MK5Ljj2tB5d3k7vzvGv/xFlwcGT8FGmoW15t
-         dpVzGT9nehqMhnGXg+zXyXyxV4DNPry09O1UsBBe5ZEU7lHThOsy8laWg1Z5j9gmQ9Et
-         nfBFMjS2FI7/ewAfvjMvlPpM/kPKJTA3dgnE5YNW06SDLLN1U2m7B9SJbAyIAe3luI4t
-         COCYvZVeBxEJn5R17Nohz1DSvLtUW2AhNWGfK5FTLGLeDyM8N8WwJ1F6U4QvJCxsjybW
-         U2fQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=kS+alGnsif5zPcgusNl6KrEfFeDFZl8IkaD1XdPSRXw=;
-        fh=+jOn+k6LyUnh2cKQcZCoXiybP1cuTnn9OOc90FqlF6k=;
-        b=lnd32Dnc73awoOZiPUz0NbvFyt1a5BVGvnxBoXhbox11jPsscfa+D9JFNVCpkw0vRB
-         eM43kP/+u+0GMTuoeubYC2s7DLrGi8r7/AHkVVH4GMi1uw8X6oTNTof0fEtYL4woLTyj
-         Zs+vSpkd2l7TlvjoCjQVistVFDbSKr7pkAElluWrb21TDpDZ2b683D1gUbrI8QRVkEzh
-         bQ74toP33oU3utD6mBabu0aUn4Qsal82J+sIkOPpElsnyIgZElF+qpT1oMeYMItHtKRA
-         7sZQF96OQ8GC/7D2ts34PNVoeECAOO52FGeTi0X0qYzXCH5mgot83+1I4Z9gdwDVnvOF
-         Znog==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ausil.us; s=google; t=1784211584; x=1784816384; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=kS+alGnsif5zPcgusNl6KrEfFeDFZl8IkaD1XdPSRXw=;
-        b=JBKyciQLD4RN+eW/j5Y6m86D+A5sYakIKv9AvFCZUOR/uDE+uaAoB+2yc7ANHxnxLM
-         Tx4WUYyF7OACoGLnc9zconjkApW/mGo9J18NDzgOTMyOYXI+5SdcAzVPx+XqFwJVlHUo
-         eYgZRi+QdTvS3zFD0RJ+ezbghCXly5DV++gPSBKs9JZ0vnbLHcQOT5K/b8/idkTm3Ojk
-         9RFXwNJ9HKs1JYC7A+OgHZ3qf/nxnvmBD7hlz6xJfXJeOAopMXCkkODvyY3YwecgjrOV
-         6JNQkPWegQWiODim8SDnYD414HbYzIu0WnQhv0vumPoetHoDaWHcCfHF+DEW+actcaiF
-         LaEQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784211584; x=1784816384;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=kS+alGnsif5zPcgusNl6KrEfFeDFZl8IkaD1XdPSRXw=;
-        b=Kca2Fmtgzm7q09CxWD4mvmCfV1rPfoTnWToVP2/IAjj4YyF/BIq5dFy7NyEH0bo90E
-         PUuXxSJo8zvuG6Tt+xxPIojVDlnu6/D3R5LRByW44A33EgArNPFQphOopiLzzZT2jiHI
-         13gySWACq7ivX1QAo93QuQiwE0W1rLOQGpluFj3yQPgbn4LeS1s7x+DZ++H3lOV8kFu0
-         1S9eg51tnmybXEgmPVyZmSMx9S2O/gNh+m67bB/ZV9gzu8csL+IgiF39jlAU+ChUCSqC
-         yIbxxUS9LTux0I+QmhN9czNMExSc1MtHduSPERLC7GRjMuDS2FI2V2DoMArMnfUblMhy
-         hTYQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpjfQ1qahcjCu2B0v1lO7PHGR6/NsTS2A/j7ilij8ZM//7EPEd1GOSfLeNZwBxjJ3Z6PE0FSaoPTjIq8s2fD6CC@lists.infradead.org
-X-Gm-Message-State: AOJu0YyveXlDbq18YYtPh/g9xRxh8yIQ/GCwyU6skvAp1BercGkF4rsi
-	aYY0DPIjeITVg8pkAYj1u3pXAbx+W9bNM9cOq4Sz++EhC7gTqffr1yrieu8S4LUUfTOsti7GAVN
-	hQWc5HZxEaI241fz4vg7vll6QY8P+dAeB+wdJtvrAtw==
-X-Gm-Gg: AfdE7clNER5kpXiiTf+cf3jAKMBYoFCKJewuE9L7uob5f6CJPaZgyq6ZdNOfEc/UPdO
-	gaufdnRjLvuprSdLLMS6QJzK54AdeErYReMD5jY/NtgOERNZRTmjOgl2ascqzb6rRxc5biScUBd
-	dx8kNHXhCBCfkgmmOPRAELjSTDKg0tQUwjCikues9u+tbvMKmkW3xMW4CvMtTgYd/jjzDtN1kn0
-	qLKKbTn8phrZTHbx0uWMeWN626xxX1hhH9eoVCPI4q+mevN6g4lfs+8h8L9NCOYnojj5reMcb4v
-	QVxPkBVDgfIVnZmw7GIuxEv+ab4MmvBOWxpGo0H7v7ZKystwGNjyUVmMIKugqnyX5OB1K0P2mWK
-	uULxVNA==
-X-Received: by 2002:a05:620a:6982:b0:92e:5c0b:a6a0 with SMTP id
- af79cd13be357-93086a54171mr1198167185a.26.1784211584260; Thu, 16 Jul 2026
- 07:19:44 -0700 (PDT)
+	id 1wkN0x-0000000HTU8-1Xda;
+	Thu, 16 Jul 2026 14:24:40 +0000
+Received: by luna.linkmauve.fr (Postfix, from userid 1000)
+	id 5C42CF40D32; Thu, 16 Jul 2026 16:24:25 +0200 (CEST)
+From: Link Mauve <linkmauve@linkmauve.fr>
+To: Srinivas Kandagatla <srini@kernel.org>
+Cc: Link Mauve <linkmauve@linkmauve.fr>,
+	Andy Shevchenko <andriy.shevchenko@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Sven Peter <sven@kernel.org>,
+	Janne Grunau <j@jannau.net>,
+	Neal Gompa <neal@gompa.dev>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Vladimir Zapolskiy <vz@mleia.com>,
+	=?UTF-8?q?Andr=C3=A9=20Draszik?= <andre.draszik@linaro.org>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Kalyani Akula <kalyani.akula@amd.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Boqun Feng <boqun@kernel.org>,
+	Gary Guo <gary@garyguo.net>,
+	=?UTF-8?q?Bj=C3=B6rn=20Roy=20Baron?= <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>,
+	Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Tamir Duberstein <tamird@kernel.org>,
+	Alexandre Courbot <acourbot@nvidia.com>,
+	=?UTF-8?q?Onur=20=C3=96zkan?= <work@onurozkan.dev>,
+	Johan Hovold <johan@kernel.org>,
+	Ronald Claveau <linux-kernel-dev@aliel.fr>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	asahi@lists.linux.dev,
+	imx@lists.linux.dev,
+	linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	rust-for-linux@vger.kernel.org
+Subject: [PATCH v3 1/4] nvmem: core: deprecate reg_write callback and add reg_write_const
+Date: Thu, 16 Jul 2026 16:24:08 +0200
+Message-ID: <20260716142415.28718-2-linkmauve@linkmauve.fr>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260716142415.28718-1-linkmauve@linkmauve.fr>
+References: <20260716142415.28718-1-linkmauve@linkmauve.fr>
 MIME-Version: 1.0
-References: <20260511025352.106126-1-dennis@ausil.us> <CAABkxwvWNvZbGNRYGQVnrORr0ycXFY=SdUTD9Oe9tkPcdPSUEA@mail.gmail.com>
-In-Reply-To: <CAABkxwvWNvZbGNRYGQVnrORr0ycXFY=SdUTD9Oe9tkPcdPSUEA@mail.gmail.com>
-From: Dennis Gilmore <dennis@ausil.us>
-Date: Thu, 16 Jul 2026 09:19:32 -0500
-X-Gm-Features: AUfX_myQKtrnP7-Wv8qJa1bMcngAWvoeQ8OxtsztRgnJdHO4XZo93xGlFfZgBk4
-Message-ID: <CAABkxwuHdNUDvLbDhVTcDeBB4mzAE6XYq+TD47iHzcEpXH6yDA@mail.gmail.com>
-Subject: Re: [PATCH v10 0/4] Add support for Orange Pi 5 Pro
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Jonas Karlman <jonas@kwiboo.se>, 
-	Alexey Charkov <alchark@gmail.com>, Quentin Schulz <quentin.schulz@cherry.de>, 
-	FUKAUMI Naoki <naoki@radxa.com>, Peter Robinson <pbrobinson@gmail.com>, devicetree@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_071947_055160_32B0409A 
-X-CRM114-Status: GOOD (  40.05  )
+X-CRM114-CacheID: sfid-20260716_072439_701514_9E11BF73 
+X-CRM114-Status: GOOD (  18.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,194 +101,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Just pinging again to see if anything more is needed?
+This callback used to take a mutable void * for no reason, which causes
+the compiler to be unaware that the val buffer should never be modified
+by the callback.
 
-Dennis
+This was found while drafting the nvmem-provider Rust abstraction.
 
-On Wed, Jun 3, 2026 at 9:49=E2=80=AFPM Dennis Gilmore <dennis@ausil.us> wro=
-te:
->
-> Hi,
->
-> Just checking if anything else is needed.
->
-> Dennis
->
-> On Sun, May 10, 2026 at 9:53=E2=80=AFPM Dennis Gilmore <dennis@ausil.us> =
-wrote:
-> >
-> > This series adds initial support for the Xunlong Orange Pi 5 Pro, based=
- on
-> > the Rockchip RK3588S SoC. The board features eMMC, SD card, NVMe (PCIe)=
-,
-> > a Motorcomm YT6801 NIC (PCIe), WiFi/BT (BCM43456), HDMI connected to So=
-C
-> > (Second port is disabled in this patch), and a 40-pin expansion header.
-> >
-> > The series was tested against Linux 7.0
-> >
-> > Please take a look.
-> >
-> > Thank you,
-> >
-> > Dennis Gilmore
-> >
-> > Changes in v10:
-> > - rename rk806_single to rk806
-> > - link to v9: https://lore.kernel.org/linux-devicetree/20260429024737.5=
-44813-5-dennis@ausil.us/
-> >
-> > Changes in v9:
-> > - removed support for the dp-to-HDMI bridge, will send in a second patc=
-h
-> >   set to enable discusion to finish on how to handle its two operating
-> >   modes
-> > - link to v8: https://lore.kernel.org/linux-devicetree/20260425031011.2=
-529364-1-dennis@ausil.us/
-> >
-> > Changes in v8:
-> > - Bridge node: renamed label from lt8711uxd to hdmi-bridge
-> > - Bridge node: added vdd-supply =3D <&vcc3v3_dp>. The vcc3v3_dp regulat=
-or
-> >   gates power to the LT8711UXD. regulator-always-on is kept because
-> >   drm_simple_bridge only enables vdd-supply with HPD which does not
-> >   happen without power on
-> > - GPIO output pinctrl groups (bt_wake_gpio, dp_bridge_en, ethernet_en,
-> >   vcc5v0_otg_en, wifi_enable_h) changed from pcfg_pull_none to
-> >   pcfg_pull_down to match the RK3588S power-on-reset default state
-> > - pcie2x1l1 (NVMe): switched from GPIO-mode reset to hardware sideband =
-pins
-> >   using pinctrl-0 =3D <&pcie30x1m1_1_perstn>, <&pcie30x1m1_1_clkreqn>,
-> >   <&pcie30x1m1_1_waken>. Note: despite the "pcie30" prefix in the DTSI
-> >   group names, the SoC pin-mux table confirms these alt-function 4 pads
-> >   physically route to pcie2x1l1's native PERST#/CLKREQ#/WAKE# inputs.
-> >   reset-gpios is retained alongside the pinctrl entry for U-Boot
-> >   compatibility (pcie_dw_rockchip in U-Boot requires reset-gpios).
-> > - pcie2x1l2 (NIC): added &pcie20x1m0_clkreqn and &pcie20x1m0_waken to
-> >   pinctrl-0
-> > - Renamed pinctrl group vcc3v3_phy1_en to ethernet_en to match the
-> >   schematic signal name (Ethernet_EN)
-> > - link to v7: https://lore.kernel.org/linux-devicetree/20260414214104.1=
-363987-1-dennis@ausil.us/
-> >
-> > Changes in v7:
-> > - Fix up whitespace issues identified by checkpatch.pl --strict in
-> >   rk3588s-orangepi-5-5b.dtsi
-> > - checkpatch gave a warning for WARNING: phy-mode "rgmii-rxid" without
-> >   comment, as this was moved over I left it untouched
-> > - Added lontium,lt8711uxd to the compatible enum in the simple-bridge
-> >   binding
-> > - Added lontium,lt8711uxd match entry with DRM_MODE_CONNECTOR_HDMIA to
-> >   the simple-bridge driver
-> > - New patch to rename the regulator labels for the es8388 supplies to
-> >   match the schematics and they all use vcca_*
-> > - Fixed ES8388 PVDD-supply =E2=80=94 vcca_3v3_s0 =E2=86=92 vcca_1v8_s0,=
- 5 Pro is
-> >   different to 5 and 5b.
-> > - analog-sound: use CPU-as-clock-master on the Pro. The ES8388 is wired=
- to
-> >   i2s2_2ch (the only I2S block physically routed to the codec pins on t=
-his
-> >   board), which uses the legacy rockchip_i2s driver. That driver's
-> >   slave-mode trigger path hangs for 200 =C2=B5s polling I2S_CLR and bai=
-ls with
-> >   -ETIMEDOUT ("lrclk update failed"). The TDM-capable i2s0/i2s1/i2s5
-> >   blocks served by rockchip_i2s_tdm don't have this issue, which is why
-> >   other mainline ES8388 boards get away with bitclock-master =3D master=
-dai.
-> >   Drop bitclock-master/frame-master and the masterdai label to let the =
-I2S
-> >   block generate BCLK/LRCK itself
-> > - Removed regulator-always-on/regulator-boot-on from vcc3v3_dp
-> > - Added pinctrl entries for all GPIO pins (dp_bridge_en, vcc3v3_phy1_en=
-,
-> >   wifi_enable_h, pcie2x1l1_rst, pcie2x1l2_rst)
-> > - DP bridge rework =E2=80=94 replaced dp-connector node with proper cha=
-in:
-> >     - lt8711uxd bridge node (compatible lontium,lt8711uxd, with port@0/=
-port@1
-> >       endpoints). Bridge power is gated by the vcc3v3_dp regulator, who=
-se
-> >       enable GPIO (GPIO3_PC2) is driven via the dp_bridge_en pinctrl gr=
-oup;
-> >       no enable-gpios/vdd-supply on the bridge node itself.
-> >     - hdmi1-con connector node (compatible hdmi-connector, type a)
-> >     - dp0_out endpoint now points to bridge input instead of old connec=
-tor
-> > - remove accidentally included unnecessary changes
-> > - link to v6: https://lore.kernel.org/linux-devicetree/20260411024743.1=
-95385-1-dennis@ausil.us/
-> >
-> > Changes in v6:
-> > - Move the shared configs for the Orange Pi 5 and Orange Pi 5b from eac=
-h
-> >   devices dts to a shared rk3588s-orangepi-5-5b.dtsi to avoid duplicati=
-on
-> > - Remove empty ports subnodeis from typea_con
-> > - Move i2s2m1_mclk pinctrl from &i2s2 to the es8388 codec node
-> > - Add dp-con, dp0_out, dp0_in, and vp1 nodes, plus the vcc3v3_dp regula=
-tor
-> >   in order to get the second HDMI port working via its transparent
-> >   LT8711UXD DP to HDMI bridge
-> > - link to v5: https://lore.kernel.org/linux-devicetree/20260401010707.2=
-584962-1-dennis@ausil.us/
-> >
-> > Changes in v5:
-> > - define a connector node for Type-A port, and list the regulator as it=
-s VBUS supply explicitly.
-> > - Requires https://lore.kernel.org/all/20260217-typea-vbus-v1-1-657b4e5=
-5a4c2@flipper.net/
-> > - link to v4: https://lore.kernel.org/linux-devicetree/20260310031002.3=
-921234-1-dennis@ausil.us/
-> >
-> > Changes in v4:
-> > - rename vcc3v3_pcie20 copied from rk3588s-orangepi-5.dts to vcc3v3_phy=
-1 to match the schematic
-> > - use vcc_3v3_s3 as the supply not vcc5v0_sys for PCIe
-> > - remove the definition for vcc3v3_pcie_m2 as it does not really exist
-> >   as a regulator
-> > - link to v3: https://lore.kernel.org/linux-devicetree/20260306024634.2=
-39614-1-dennis@ausil.us/
-> >
-> > Changes in v3:
-> > - moved leds from gpio-leds to pwm-leds
-> > - remove disable-wp from sdio
-> > - rename vcc3v3_pcie_eth regulator to vcc3v3_pcie_m2 to reflect the
-> >   purpose
-> > - actually clean up the delete lines and comments missed in v2
-> > - link to v2: https://lore.kernel.org/linux-devicetree/20260304025521.2=
-10377-1-dennis@ausil.us/
-> >
-> > Changes in v2:
-> > - moved items not shared by orangepi 5/5b/5 Pro from dtsi to 5 and 5b
-> >   dts files
-> > - removed all the comments and deleted properties from 5 Pro dts
-> > - link to v1: https://lore.kernel.org/linux-devicetree/20260228205418.2=
-944620-1-dennis@ausil.us/
-> >
-> > Dennis Gilmore (4):
-> >   dt-bindings: arm: rockchip: Add Orange Pi 5 Pro
-> >   arm64: dts: rockchip: rk3588s-orangepi-5: rename PLDO regulator label=
-s
-> >     to match schematic
-> >   arm64: dts: rockchip: refactor items from Orange Pi 5/b to prep for
-> >     Pro
-> >   arm64: dts: rockchip: Add Orange Pi 5 Pro board support
-> >
-> >  .../devicetree/bindings/arm/rockchip.yaml     |   1 +
-> >  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
-> >  .../dts/rockchip/rk3588s-orangepi-5-5b.dtsi   | 256 +++++++++++++
-> >  .../dts/rockchip/rk3588s-orangepi-5-pro.dts   | 358 ++++++++++++++++++
-> >  .../boot/dts/rockchip/rk3588s-orangepi-5.dts  |   6 +-
-> >  .../boot/dts/rockchip/rk3588s-orangepi-5.dtsi | 263 +------------
-> >  .../boot/dts/rockchip/rk3588s-orangepi-5b.dts |   2 +-
-> >  7 files changed, 637 insertions(+), 250 deletions(-)
-> >  create mode 100644 arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-5b.=
-dtsi
-> >  create mode 100644 arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-pro=
-.dts
-> >
-> > --
-> > 2.54.0
-> >
+Signed-off-by: Link Mauve <linkmauve@linkmauve.fr>
+---
+ drivers/nvmem/core.c           | 28 ++++++++++++++++------------
+ drivers/nvmem/internals.h      |  1 +
+ include/linux/nvmem-provider.h |  6 +++++-
+ 3 files changed, 22 insertions(+), 13 deletions(-)
+
+diff --git a/drivers/nvmem/core.c b/drivers/nvmem/core.c
+index 73be55cfa203..9dafe63e4ef9 100644
+--- a/drivers/nvmem/core.c
++++ b/drivers/nvmem/core.c
+@@ -71,7 +71,7 @@ static int __nvmem_reg_read(struct nvmem_device *nvmem, unsigned int offset,
+ }
+ 
+ static int __nvmem_reg_write(struct nvmem_device *nvmem, unsigned int offset,
+-			     void *val, size_t bytes)
++			     const void *val, size_t bytes)
+ {
+ 	struct nvmem_operations *ops;
+ 	int ret, wr_ok;
+@@ -81,14 +81,17 @@ static int __nvmem_reg_write(struct nvmem_device *nvmem, unsigned int offset,
+ 	if (!ops)
+ 		return -ENODEV;
+ 
+-	if (!ops->reg_write)
++	if (!ops->reg_write && !ops->reg_write_const)
+ 		return -EOPNOTSUPP;
+ 
+ 	ret = gpiod_set_value_cansleep(nvmem->wp_gpio, 0);
+ 	if (ret)
+ 		return ret;
+ 
+-	wr_ok = ops->reg_write(nvmem->priv, offset, val, bytes);
++	if (ops->reg_write_const)
++		wr_ok = ops->reg_write_const(nvmem->priv, offset, val, bytes);
++	else
++		wr_ok = ops->reg_write(nvmem->priv, offset, (void *)val, bytes);
+ 
+ 	ret = gpiod_set_value_cansleep(nvmem->wp_gpio, 1);
+ 	if (ret)
+@@ -121,7 +124,7 @@ static int nvmem_access_with_keepouts(struct nvmem_device *nvmem,
+ 			kend = min(end, keepout->start);
+ 			ksize = kend - offset;
+ 			if (write)
+-				rc = __nvmem_reg_write(nvmem, offset, val, ksize);
++				rc = __nvmem_reg_write(nvmem, offset, (const void *)val, ksize);
+ 			else
+ 				rc = __nvmem_reg_read(nvmem, offset, val, ksize);
+ 
+@@ -153,7 +156,7 @@ static int nvmem_access_with_keepouts(struct nvmem_device *nvmem,
+ 	if (offset < end) {
+ 		ksize = end - offset;
+ 		if (write)
+-			return __nvmem_reg_write(nvmem, offset, val, ksize);
++			return __nvmem_reg_write(nvmem, offset, (const void *)val, ksize);
+ 		else
+ 			return __nvmem_reg_read(nvmem, offset, val, ksize);
+ 	}
+@@ -174,7 +177,7 @@ static int nvmem_reg_write(struct nvmem_device *nvmem, unsigned int offset,
+ 			   void *val, size_t bytes)
+ {
+ 	if (!nvmem->nkeepout)
+-		return __nvmem_reg_write(nvmem, offset, val, bytes);
++		return __nvmem_reg_write(nvmem, offset, (const void *)val, bytes);
+ 
+ 	return nvmem_access_with_keepouts(nvmem, offset, val, bytes, true);
+ }
+@@ -309,7 +312,7 @@ static umode_t nvmem_bin_attr_get_umode(struct nvmem_device *nvmem)
+ 	if (!nvmem->read_only)
+ 		mode |= 0200;
+ 
+-	if (!ops->reg_write)
++	if (!ops->reg_write && !ops->reg_write_const)
+ 		mode &= ~0200;
+ 
+ 	if (!ops->reg_read)
+@@ -346,13 +349,13 @@ static umode_t nvmem_attr_is_visible(struct kobject *kobj,
+ 	struct nvmem_operations *ops = rcu_dereference_raw(nvmem->ops);
+ 
+ 	/*
+-	 * If the device has no .reg_write operation, do not allow
+-	 * configuration as read-write.
++	 * If the device has no .reg_write or .reg_write_const operation, do
++	 * not allow configuration as read-write.
+ 	 * If the device is set as read-only by configuration, it
+ 	 * can be forced into read-write mode using the 'force_ro'
+ 	 * attribute.
+ 	 */
+-	if (attr == &dev_attr_force_ro.attr && !ops->reg_write)
++	if (attr == &dev_attr_force_ro.attr && !ops->reg_write && !ops->reg_write_const)
+ 		return 0;	/* Attribute not visible */
+ 
+ 	return attr->mode;
+@@ -920,7 +923,7 @@ struct nvmem_device *nvmem_register(const struct nvmem_config *config)
+ 	if (!config->dev)
+ 		return ERR_PTR(-EINVAL);
+ 
+-	if (!config->reg_read && !config->reg_write)
++	if (!config->reg_read && !config->reg_write && !config->reg_write_const)
+ 		return ERR_PTR(-EINVAL);
+ 
+ 	nvmem = kzalloc_obj(*nvmem);
+@@ -976,6 +979,7 @@ struct nvmem_device *nvmem_register(const struct nvmem_config *config)
+ 
+ 	ops->reg_read = config->reg_read;
+ 	ops->reg_write = config->reg_write;
++	ops->reg_write_const = config->reg_write_const;
+ 
+ 	nvmem->owner = config->owner;
+ 	if (!nvmem->owner && config->dev->driver)
+@@ -1011,7 +1015,7 @@ struct nvmem_device *nvmem_register(const struct nvmem_config *config)
+ 		goto err_put_device;
+ 
+ 	nvmem->read_only = device_property_present(config->dev, "read-only") ||
+-			   config->read_only || !ops->reg_write;
++			   config->read_only || (!ops->reg_write && !ops->reg_write_const);
+ 
+ #ifdef CONFIG_NVMEM_SYSFS
+ 	nvmem->dev.groups = nvmem_dev_groups;
+diff --git a/drivers/nvmem/internals.h b/drivers/nvmem/internals.h
+index 17418fd0dcc9..41d22f5f2534 100644
+--- a/drivers/nvmem/internals.h
++++ b/drivers/nvmem/internals.h
+@@ -12,6 +12,7 @@
+ struct nvmem_operations {
+ 	nvmem_reg_read_t	reg_read;
+ 	nvmem_reg_write_t	reg_write;
++	nvmem_reg_write_const_t	reg_write_const;
+ };
+ 
+ struct nvmem_device {
+diff --git a/include/linux/nvmem-provider.h b/include/linux/nvmem-provider.h
+index f3b13da78aac..c6e77ba1a8c1 100644
+--- a/include/linux/nvmem-provider.h
++++ b/include/linux/nvmem-provider.h
+@@ -20,6 +20,8 @@ typedef int (*nvmem_reg_read_t)(void *priv, unsigned int offset,
+ 				void *val, size_t bytes);
+ typedef int (*nvmem_reg_write_t)(void *priv, unsigned int offset,
+ 				 void *val, size_t bytes);
++typedef int (*nvmem_reg_write_const_t)(void *priv, unsigned int offset,
++				       const void *val, size_t bytes);
+ /* used for vendor specific post processing of cell data */
+ typedef int (*nvmem_cell_post_process_t)(void *priv, const char *id, int index,
+ 					 unsigned int offset, void *buf,
+@@ -93,7 +95,8 @@ struct nvmem_cell_info {
+  * @root_only:	Device is accessibly to root only.
+  * @of_node:	If given, this will be used instead of the parent's of_node.
+  * @reg_read:	Callback to read data; return zero if successful.
+- * @reg_write:	Callback to write data; return zero if successful.
++ * @reg_write:	**DEPRECATED** - please use reg_write_const instead.
++ * @reg_write_const:	Callback to write data; return zero if successful.
+  * @size:	Device size.
+  * @word_size:	Minimum read/write access granularity.
+  * @stride:	Minimum read/write access stride.
+@@ -128,6 +131,7 @@ struct nvmem_config {
+ 	struct device_node	*of_node;
+ 	nvmem_reg_read_t	reg_read;
+ 	nvmem_reg_write_t	reg_write;
++	nvmem_reg_write_const_t	reg_write_const;
+ 	int	size;
+ 	int	word_size;
+ 	int	stride;
+-- 
+2.55.0
+
 
