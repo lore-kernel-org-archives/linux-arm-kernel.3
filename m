@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43DF2C44512
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB337C44515
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 17:15:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,47 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GDsWWLqPUfRptpzO3WEzv9fzJP/iNkk0NFEAozFtSgI=; b=fk9R/0m34nhqJur0ojd6w3RvlV
-	b3e7SXss5mfSXXbnm6JqzSl//FLj5OlXJayMcI6CYQO7w4XfgMRsMvA98iGYnjYm4YSF23h2vVyl4
-	RUQUCEBXDyh50Ic7FrI7Ras8U2hU2WI09jcoyOUtjj5HIeFFyznkC2FbF7Z0SHCZ4z1RTMNE9rcck
-	mRYKlQU10367hr2tGmbFGlHLTpcCnAbGOsSt7AH576mRAbrGMXad+fSvaBEBbLjwcu0q4nLvaSqJR
-	G7fWvRaTWEAxsn+CufCMbarkULC1/e7BsUPl9iZ9K8cyPRud5Zu9TCAJQ5xHRNx/bPHUbHVlHR/jK
-	v9cgaXUw==;
+	bh=2wHI8D3AQdgeUIfX1tr++jUnxgZm2eV7uAfOq8Yrg2c=; b=XGkZ0P59OQJcYlnSISS4/w59au
+	wRp0c9HNba38nwjLhZhNi4R5fx0jIblAZPs/k8H0ESxH3p9X9eeNeF8E9iRhyy8YMHD6ywtXV5Wi3
+	NdO4xO1i2QuKU8to/1o0AlNf7t5fio4AkywgJO74HOWfpI+/MNXUIP5B8uofH4tE7mu+tQqkVTgl4
+	9JAriebXHmeJ/655mVRBcdsn0IpsuEsj0kSfKBP3fClgDWoywQXAy2McsgpgcsGZCpjbVtfNDCdbA
+	t7x0qzZXQ7MIN+2xRPlCs68hlJzYVGny2O6oYR0Xvv36dleIAhIIrUl0rEBPushR/vtkZOd2kbUNz
+	Bc4RCr+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkPfu-00000000F5G-3FqL;
-	Thu, 16 Jul 2026 17:15:06 +0000
+	id 1wkPfu-00000000F5l-4BB7;
+	Thu, 16 Jul 2026 17:15:07 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkPft-00000000F4P-2Eu2
+	id 1wkPft-00000000F4U-2jkp
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 16 Jul 2026 17:15:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EEA5341FBA;
-	Thu, 16 Jul 2026 17:15:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id C2E81C2BCB9;
+	by sea.source.kernel.org (Postfix) with ESMTP id 0EA6341FDF;
+	Thu, 16 Jul 2026 17:15:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id D6B8AC2BCFB;
 	Thu, 16 Jul 2026 17:15:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1784222104;
-	bh=xgTRU9NV8KIK7EesLO8Tv+TyYxZkVzU2UTJ6xlZVF6s=;
+	bh=rQHGNu66WLj3qMAdputSH02cPVxAB/2D8RcwzPrPGfo=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=eLHDdwfgr5dknIUm1yMt+S08IKZ0HA5mxHIR6WakAvgCHB5Z+hqVMHmxx4n7um/4B
-	 w327w3AQonOg2oXjYowClacTtE5DGvQp+3JfnBJjDJWpCHEI7q/KimEDyZ8+8GbOMv
-	 9iDFynGsSC2UfCGOGl7pK9zxqveZNJILrjAuDzSoQ2UeAQSB9Prf7Uu3iNK8+oOkas
-	 mtwniDw1eTFz9eqPL1qPAH9yfRsLrlSjiqrtsUORBnWZ2+xTl/W8JOrT33zQzLHlDF
-	 50Y0jQFkubpLedkEv/oclvrzYB6zeryj3/+RWOVbsphcD2GqLn/EtUH7dxnUr9GYZ0
-	 mAevjdJJ8FEGg==
+	b=k2vdd7cXgTmCpIIfCuedC08pj7oR4z5naYbtzShBYJX4UgTO+VKtwYPIAeZrE8BmF
+	 jVWQishjDci7cCYJKfPIF33gxeMWa7goeLwNsTvTqpuRAzQIk47jbeSSVb2Oz1RIJ1
+	 VsxAHai7dBgXqmvjpdbHG3oLoZvVfU0kUgBLagSdmCYQQ2xKU8gWks6p4ZwhENHlyE
+	 tji4N7BIND4gyhKkp+6VVcEB3r5SlbOi6quynDS6kVac1j79lJPhWcLMySuzKzPIB2
+	 PeV6OzmndIkySNhA/+HC8NNL4q7wDyU9IMxmw8z2PRlIXwvn0a2swLGXcJy56+lvnc
+	 JaM6XPSWfICEQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A5373C44511;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BF4B6C44516;
 	Thu, 16 Jul 2026 17:15:04 +0000 (UTC)
 From: Alexandru Chimac via B4 Relay <devnull+alex.chimac.ro@kernel.org>
-Date: Thu, 16 Jul 2026 20:14:56 +0300
-Subject: [PATCH v2 2/5] dt-bindings: soc: exynos-sysreg: Add Exynos9610
- SYSREG bindings
+Date: Thu, 16 Jul 2026 20:14:57 +0300
+Subject: [PATCH v2 3/5] clk: samsung: clk-pll: Add support for pll_1061x
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260716-exynos9610-clocks-v2-2-c13ce8ef1861@chimac.ro>
+Message-Id: <20260716-exynos9610-clocks-v2-3-c13ce8ef1861@chimac.ro>
 References: <20260716-exynos9610-clocks-v2-0-c13ce8ef1861@chimac.ro>
 In-Reply-To: <20260716-exynos9610-clocks-v2-0-c13ce8ef1861@chimac.ro>
 To: Krzysztof Kozlowski <krzk@kernel.org>, 
@@ -68,11 +67,11 @@ Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784222102; l=2259;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784222102; l=4101;
  i=alex@chimac.ro; s=20250914; h=from:subject:message-id;
- bh=nBnT0ILRGS71445iQQ/k8sTjno21gC0qcL7Lqu3ZheI=;
- b=eyJL+lvCIrT580llncY2lwuOiTuof9OLLqoKgpcwuIhWUyYPMVEpNiQeXWhVgcCQ5ZEtKHO3Y
- bCDkkfALh/vDE1+A8ws2ga5PCimKgrlxi8lO0hU6xOz9WMyTVG7W4Pn
+ bh=ODGsgpJOf8c8DBGqrueSP4LxQrliVu1HTxoqn/yCzcY=;
+ b=vKkm9xPZXynFemrr5/pLaJeUtWXRI6krVoiiqw6O1KlUWDd8v5WTIBLuE9bJWnpX9Ra5m6BNT
+ q6ia8iZLru1DW3aYKTHN0qOF0K/1P8Fd7rAis31ugE8MpFHqhD4Pona
 X-Developer-Key: i=alex@chimac.ro; a=ed25519;
  pk=OKD+X09b7uEsyw05zyuqq14SLGg8B/X4xey5tJeYCig=
 X-Endpoint-Received: by B4 Relay for alex@chimac.ro/20250914 with
@@ -95,52 +94,109 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Alexandru Chimac <alex@chimac.ro>
 
-Add bindings for SYSREG nodes (required for ACG), compatible with the
-standard syscon driver.
+These PLLs are found in the Exynos9610 and Exynos9810 SoCs, and
+are similar to pll_1460x (using CON3 instead of CON1), so the code
+for that can handle this PLL with a few small adaptations.
 
 Signed-off-by: Alexandru Chimac <alex@chimac.ro>
 ---
- .../bindings/soc/samsung/samsung,exynos-sysreg.yaml  | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+ drivers/clk/samsung/clk-pll.c | 29 ++++++++++++++++++++++-------
+ drivers/clk/samsung/clk-pll.h |  1 +
+ 2 files changed, 23 insertions(+), 7 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
-index fcdb9ffd2644..eb4194cadcd7 100644
---- a/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
-+++ b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
-@@ -35,6 +35,16 @@ properties:
-               - samsung,exynos8895-fsys1-sysreg
-               - samsung,exynos8895-peric0-sysreg
-               - samsung,exynos8895-peric1-sysreg
-+              - samsung,exynos9610-apm-sysreg
-+              - samsung,exynos9610-cam-sysreg
-+              - samsung,exynos9610-core-sysreg
-+              - samsung,exynos9610-cpucl0-sysreg
-+              - samsung,exynos9610-dispaud-sysreg
-+              - samsung,exynos9610-fsys-sysreg
-+              - samsung,exynos9610-g2d-sysreg
-+              - samsung,exynos9610-g3d-sysreg
-+              - samsung,exynos9610-peri-sysreg
-+              - samsung,exynos9610-usb-sysreg
-               - samsung,exynos990-peric0-sysreg
-               - samsung,exynos990-peric1-sysreg
-               - samsung,exynosautov920-hsi0-sysreg
-@@ -107,6 +117,16 @@ allOf:
-               - samsung,exynos8895-fsys1-sysreg
-               - samsung,exynos8895-peric0-sysreg
-               - samsung,exynos8895-peric1-sysreg
-+              - samsung,exynos9610-apm-sysreg
-+              - samsung,exynos9610-cam-sysreg
-+              - samsung,exynos9610-core-sysreg
-+              - samsung,exynos9610-cpucl0-sysreg
-+              - samsung,exynos9610-dispaud-sysreg
-+              - samsung,exynos9610-fsys-sysreg
-+              - samsung,exynos9610-g2d-sysreg
-+              - samsung,exynos9610-g3d-sysreg
-+              - samsung,exynos9610-peri-sysreg
-+              - samsung,exynos9610-usb-sysreg
-               - samsung,exynos990-peric0-sysreg
-               - samsung,exynos990-peric1-sysreg
-     then:
+diff --git a/drivers/clk/samsung/clk-pll.c b/drivers/clk/samsung/clk-pll.c
+index fdb84bcec912..5ec9423009c7 100644
+--- a/drivers/clk/samsung/clk-pll.c
++++ b/drivers/clk/samsung/clk-pll.c
+@@ -781,15 +781,20 @@ static unsigned long samsung_pll46xx_recalc_rate(struct clk_hw *hw,
+ 	u64 fvco = parent_rate;
+ 
+ 	pll_con0 = readl_relaxed(pll->con_reg);
+-	pll_con1 = readl_relaxed(pll->con_reg + 4);
+-	mdiv = (pll_con0 >> PLL46XX_MDIV_SHIFT) & ((pll->type == pll_1460x) ?
++	if (pll->type == pll_1061x)
++		pll_con1 = readl_relaxed(pll->con_reg + 0xc);
++	else
++		pll_con1 = readl_relaxed(pll->con_reg + 0x4);
++	mdiv = (pll_con0 >> PLL46XX_MDIV_SHIFT) & (((pll->type == pll_1460x)
++				|| (pll->type == pll_1061x)) ?
+ 				PLL1460X_MDIV_MASK : PLL46XX_MDIV_MASK);
+ 	pdiv = (pll_con0 >> PLL46XX_PDIV_SHIFT) & PLL46XX_PDIV_MASK;
+ 	sdiv = (pll_con0 >> PLL46XX_SDIV_SHIFT) & PLL46XX_SDIV_MASK;
+ 	kdiv = pll->type == pll_4650c ? pll_con1 & PLL4650C_KDIV_MASK :
+ 					pll_con1 & PLL46XX_KDIV_MASK;
+ 
+-	shift = ((pll->type == pll_4600) || (pll->type == pll_1460x)) ? 16 : 10;
++	shift = ((pll->type == pll_4600) || (pll->type == pll_1460x)
++		 || (pll->type == pll_1061x)) ? 16 : 10;
+ 
+ 	fvco *= (mdiv << shift) + kdiv;
+ 	do_div(fvco, (pdiv << sdiv));
+@@ -827,7 +832,10 @@ static int samsung_pll46xx_set_rate(struct clk_hw *hw, unsigned long drate,
+ 	}
+ 
+ 	con0 = readl_relaxed(pll->con_reg);
+-	con1 = readl_relaxed(pll->con_reg + 0x4);
++	if (pll->type == pll_1061x)
++		con1 = readl_relaxed(pll->con_reg + 0xc);
++	else
++		con1 = readl_relaxed(pll->con_reg + 0x4);
+ 
+ 	if (!(samsung_pll46xx_mpk_change(con0, con1, rate))) {
+ 		/* If only s change, change just s value only*/
+@@ -845,7 +853,7 @@ static int samsung_pll46xx_set_rate(struct clk_hw *hw, unsigned long drate,
+ 		lock = 0xffff;
+ 
+ 	/* Set PLL PMS and VSEL values. */
+-	if (pll->type == pll_1460x) {
++	if ((pll->type == pll_1460x) || (pll->type == pll_1061x)) {
+ 		con0 &= ~((PLL1460X_MDIV_MASK << PLL46XX_MDIV_SHIFT) |
+ 			(PLL46XX_PDIV_MASK << PLL46XX_PDIV_SHIFT) |
+ 			(PLL46XX_SDIV_MASK << PLL46XX_SDIV_SHIFT));
+@@ -862,7 +870,10 @@ static int samsung_pll46xx_set_rate(struct clk_hw *hw, unsigned long drate,
+ 			(rate->sdiv << PLL46XX_SDIV_SHIFT);
+ 
+ 	/* Set PLL K, MFR and MRR values. */
+-	con1 = readl_relaxed(pll->con_reg + 0x4);
++	if (pll->type == pll_1061x)
++		con1 = readl_relaxed(pll->con_reg + 0xc);
++	else
++		con1 = readl_relaxed(pll->con_reg + 0x4);
+ 	con1 &= ~((PLL46XX_KDIV_MASK << PLL46XX_KDIV_SHIFT) |
+ 			(PLL46XX_MFR_MASK << PLL46XX_MFR_SHIFT) |
+ 			(PLL46XX_MRR_MASK << PLL46XX_MRR_SHIFT));
+@@ -873,7 +884,10 @@ static int samsung_pll46xx_set_rate(struct clk_hw *hw, unsigned long drate,
+ 	/* Write configuration to PLL */
+ 	writel_relaxed(lock, pll->lock_reg);
+ 	writel_relaxed(con0, pll->con_reg);
+-	writel_relaxed(con1, pll->con_reg + 0x4);
++	if (pll->type == pll_1061x)
++		writel_relaxed(con1, pll->con_reg + 0xc);
++	else
++		writel_relaxed(con1, pll->con_reg + 0x4);
+ 
+ 	/* Wait for PLL lock */
+ 	return samsung_pll_lock_wait(pll, PLL46XX_LOCKED);
+@@ -1703,6 +1717,7 @@ static void __init _samsung_clk_register_pll(struct samsung_clk_provider *ctx,
+ 	case pll_4650:
+ 	case pll_4650c:
+ 	case pll_1460x:
++	case pll_1061x:
+ 		if (!pll->rate_table)
+ 			init.ops = &samsung_pll46xx_clk_min_ops;
+ 		else
+diff --git a/drivers/clk/samsung/clk-pll.h b/drivers/clk/samsung/clk-pll.h
+index d6eb3246611b..44f5e99d303d 100644
+--- a/drivers/clk/samsung/clk-pll.h
++++ b/drivers/clk/samsung/clk-pll.h
+@@ -45,6 +45,7 @@ enum samsung_pll_type {
+ 	pll_531x,
+ 	pll_1051x,
+ 	pll_1052x,
++	pll_1061x,
+ 	pll_0717x,
+ 	pll_0718x,
+ 	pll_0732x,
 
 -- 
 2.54.0
