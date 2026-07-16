@@ -4,114 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18F7CC44512
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 18:48:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98A2FC44518
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 19:24:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k90VREcyUMcR/OGuKj3U3g7OaZ/zXu0WG1tLumtRQ8E=; b=cZ3pPlSZs2IFXCbKTCIaGuEYTD
-	nIbZJqrMrckntvX9ORiDuS/EOINrf81BYolbtaCIVNeZwTqkpAP/o8SbpjyIMaEg0oESAPylxd00r
-	C9mlkkhEy1uLGOeb7csRbD7uYSarXfWDtdA/Dkyq+N2rhLIoVu8uFmmeRZp/9DTRRN8c8tC4Ve8df
-	7sOyD22S4VJUindiGMwPCkVkgvb9h2boQfbdlB+f9UNVXvMpdOzgnrw4PJ7xEwD7VIIlgGTgnWUfO
-	lRLR4sx17JHx94NVc1UqhRRXJ1qkJHgt8m2TmI9QqZJx4B+cxChHkmQvYGaVHGoMrF2sZNQeSdflc
-	lNmEq3DQ==;
+	bh=NguD8WM1Um8VLPr5hiy0be8hoTzUMPdiSF6agQWqPvc=; b=j47tr1zyicD5tt+3X5gSJ5UjCJ
+	nKOcvvFAJftS80ABAXZgQGETCcKuNfZLOLsgewLtVEuCIUXO/sCgk4IZA6651grKGeqWg2tMVvJwq
+	b/A0QABko4MW06LOZkNCcNvN6Z5uXu2rsn47cC8KIzeT0c/f6C56YFNeO1YeWZKvaCmTDYo2T2S5H
+	hgcohWKPCGt6KKHFP52ZfyMFor4l79ca8u5eqJamk0JAbYqbm4/YbKoH4/uTegzOn/k4OtkqrJyuX
+	oSsXVQn6+pDDUg9iepgze0C/RwLbXhsh7KCxuu4GpDue5/aC0kWk0ibNWMe9hU+wVPNxje0vF9O90
+	K47ZC7Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkR8Y-00000000QVU-295v;
-	Thu, 16 Jul 2026 18:48:46 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkR8V-00000000QUi-3OT4
+	id 1wkRhJ-00000000Scr-29lc;
+	Thu, 16 Jul 2026 19:24:41 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkRhG-00000000ScS-3O96
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 18:48:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1784227722;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=k90VREcyUMcR/OGuKj3U3g7OaZ/zXu0WG1tLumtRQ8E=;
-	b=WxuWjJ0G4EKXtHEM0S5925dJEeneFsNy/EEreYYwAQGpXRbQURY6V7kpBMk/8Ya6KbBSo2
-	ZS3L7snwivR8vadnHX3BZkIiCyEVFBLyGQA9UTnqrC3NkbcV2kKcpzqHeyknQYAaLNtSm7
-	uRqTfPggtBLRjXylHgCjZ2g27+BQlfQ=
-Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com
- [209.85.219.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-195-hS14IuVJMB2oZwZ33cr--w-1; Thu, 16 Jul 2026 14:48:40 -0400
-X-MC-Unique: hS14IuVJMB2oZwZ33cr--w-1
-X-Mimecast-MFC-AGG-ID: hS14IuVJMB2oZwZ33cr--w_1784227720
-Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-8ec3314f65fso121153166d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 11:48:40 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784227720; x=1784832520;
-        h=user-agent:in-reply-to:content-disposition:content-type
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=k90VREcyUMcR/OGuKj3U3g7OaZ/zXu0WG1tLumtRQ8E=;
-        b=MZEYxdbDDtjFUGtdug/VJJDdjz1bKQuG4VMEyUS3f7La3j7lLvrLZv37PeuzgXb6pi
-         jqftZkQVjMDBtT9dYsDEpdfM3BFszs/Stz1jR5aaBzBtUfDwMGwXUoVuPhetTmBgTWTn
-         LEr6FIBTqkKGocWBjmPjgvMo52CCWFF/THSHdQUlKTKAK8uOq98JqdNUE5+D2DqA35cL
-         gdnFPlTojblNCOZ+uIeN/H1zOB95og0RJduiBhoqxLiI/3Xk3KtwxvaMpo9NDBZmVA5J
-         CuOQJrnPV7eJkTMfUomSSwlTclSm7M9Q0Ul3t5Mpn7yhKzi6BC2f6e8gP0FDWQ61i5Kg
-         n/6A==
-X-Forwarded-Encrypted: i=1; AHgh+RqmKH8nX2QNAG4FjvRGO/yMz+RcpDAre6oQt+Otu/vgTeuNCw3iR6U4evk22pfkBvZiU9+rMvS9rqevZvu+QlxR@lists.infradead.org
-X-Gm-Message-State: AOJu0YxNfPsowWoCpP0lM23P3g4bTCbYwmf1KfU+it3MdYH8tsU1Du7j
-	xbx0ozaDU41C0PH2E9Ju1gSk2QLuKmpTq/V9evQVMx2dLiV1g70L8+2cAWWJEkrC0SEGJmnKWw3
-	w3MaQjRsa6yDnyBiHi2heW6OImZyjVlKFm5WxKRAfltd1XoXyCoGk4/vMYVUsXWwiJDfBRY0xRb
-	H+
-X-Gm-Gg: AfdE7cnzZqL4Km8BHwOq2I4A0y4vIkuyLHevs3X985a0MheB0zFTmcCNM5XkR3/QhA/
-	tQzAPGVhyFQ+CPPl2dmBzWB8BzVhw2dM3HxcTkA2QJSY6NfS+HDSrxYN3JYLfyRlpAd1CRSbHTE
-	rnaN/rtBw15A034/XQurHEsvwSmC/WyOQZQlW2aATfAm9XYprjoeE56bQeT+WnzXZ0fxOlx3A99
-	LIFejpXicRKxX5l/m9XHi+g8+MF2Y03/I6DWMRb5dGtHb4E1fdB7MHLkxaOXZNau+UJQcui6Il+
-	Ncwjvw8T0sEdSyv7KjsK1jFLJ6vKZyfDs63TWv5zNrapj7CZrAEikHTvHfvzVPL0ywyP40FAeMP
-	ILYsogPKHOHZVmAcFXv+QXNTibV2Y6jFMzmc=
-X-Received: by 2002:a05:620a:1a14:b0:92e:e569:dc20 with SMTP id af79cd13be357-930962abddbmr924062085a.78.1784227720199;
-        Thu, 16 Jul 2026 11:48:40 -0700 (PDT)
-X-Received: by 2002:a05:620a:1a14:b0:92e:e569:dc20 with SMTP id af79cd13be357-930962abddbmr924057085a.78.1784227719524;
-        Thu, 16 Jul 2026 11:48:39 -0700 (PDT)
-Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-92ee5cf9d9bsm2074490485a.28.2026.07.16.11.48.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 16 Jul 2026 11:48:38 -0700 (PDT)
-Date: Thu, 16 Jul 2026 14:48:35 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Jianjun Wang <jianjun.wang@mediatek.com>, linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org, linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 2/4] clk: en7523: add support for dedicated PCIe
- PERSTOUT reset
-Message-ID: <alkng6IIkInZjxqA@redhat.com>
-References: <20260714115848.8537-1-ansuelsmth@gmail.com>
- <20260714115848.8537-3-ansuelsmth@gmail.com>
+	Thu, 16 Jul 2026 19:24:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 81BB61476;
+	Thu, 16 Jul 2026 12:24:32 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3EDDA3F66F;
+	Thu, 16 Jul 2026 12:24:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784229876; bh=tLfQE+sovK0Rmbekq3ZnIEFvDEsmscpFTa2E4Nbf7os=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=loOZX1A8xLHWRCLnA/im6N5qEKtTapWA61zE2fE7IATydD7VG8XSL8p72dpXwbJMN
+	 prgKHdss8m33hnU8INM7lAzTJBbV5QCw53TvyJKjCjdGwIQgsGH2aKXr0DA+Y69i13
+	 3/NRFOB61fufzftfVJodf05N70kpmV2j+cvjAiik=
+Date: Thu, 16 Jul 2026 20:24:32 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	mike.leach@arm.com, james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com, leo.yan@arm.com,
+	jie.gan@oss.qualcomm.com
+Subject: Re: [PATCH v8 00/13] fix several inconsistencies with sysfs
+ configuration in etmX
+Message-ID: <alkv8JHDgylPBeSE@e129823.arm.com>
+References: <20260629090007.1718746-1-yeoreum.yun@arm.com>
+ <6ec5e456-fdf9-4953-9a0f-6231b48df07a@arm.com>
 MIME-Version: 1.0
-In-Reply-To: <20260714115848.8537-3-ansuelsmth@gmail.com>
-User-Agent: Mutt/2.4.0 (2026-06-19)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: pYk5rhlyFRatnQf7BmqbnfQitjC1ERxPwyn5r6YBCkE_1784227720
-X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <6ec5e456-fdf9-4953-9a0f-6231b48df07a@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_114843_926717_3DB9F6C6 
-X-CRM114-Status: GOOD (  26.08  )
+X-CRM114-CacheID: sfid-20260716_122438_938174_72CDDFD0 
+X-CRM114-Status: GOOD (  29.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,127 +73,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Christian,
-
-On Tue, Jul 14, 2026 at 01:58:44PM +0200, Christian Marangi wrote:
-> Add support for resetting the PCIe lines with the PERSTOUT reset. These
-> special reset are controlled by the PCIC register and are specific to each
-> of the 3 PCIe lines.
+On Thu, Jul 16, 2026 at 01:48:15PM +0100, Suzuki K Poulose wrote:
+> On 29/06/2026 09:59, Yeoreum Yun wrote:
+> > The current ETMx configuration via sysfs can lead to the following
+> > inconsistencies:
+> > 
+> >    - If a configuration is modified via sysfs while a perf session is
+> >      active, the running configuration may differ between before
+> >      a sched-out and after a subsequent sched-in.
+> > 
+> >    - If a perf session and sysfs session tries to enable concurrently,
+> >      configuration from configfs could be corrupted (etm4).
+> > 
+> >    - There is chance to corrupt drvdata->config if perf session tries
+> >      to enabled among handling cscfg_csdev_disable_active_config()
+> >      in etm4_disable_sysfs() (etm4).
+> > 
+> > To resolve these inconsistencies, the configuration should be separated into:
+> > 
+> >    - active_config, which is applied configuration for the current session
+> >    - config, which stores the settings configured via sysfs.
+> > 
+> > and apply configuration from configfs after taking a mode.
+> > 
+> > Also, This patch set includes some small fixes:
+> >    - missing trace id release in etm4x.
+> >    - underflow issue for nrseqstate.
+> >    - wrong check in etm4x_sspcicrn_present().
+> >    - missing call of cscfg_csdev_disable_active_config()
+> > 
+> > This patch based on coresight tree's next
 > 
-> Notice that reset logic is inverted for these bit where 0 is assert and 1
-> deassert. This is intenrally handled in the reset function.
+> 
+> Please could you move all the "Fixes" to the top of the series, that way
+> it is cleaner to backport for the stable kernels
 
-s/intenrally/internally/
+Okay. but the fix which based on the cleanup wouldn't be top of it.
+I'll deploy below patches first:
 
-The "these bit" above is awkward as well. Sorry I don't have a
-suggestion offhand, but I see what you mean below based on the code.
+  coresight: etm3x: change drvdata->spinlock type to raw_spin_lock_t
+  coresight: etm4x: fix leaked trace id
+  coresight: etm4x: fix underflow for usage of (nrseqstate - 1)
+  coresight: etm4x: fix wrong check of etm4x_sspcicrn_present()
 
 > 
-> PCI enable/disable are updated to drop PERSTOUT bits in favor dedicated
-> reset handling.
+> I have some minor comments, please could you address them. Otherwise,
+> looks good to me. Thanks for the cleanup
+
+Thanks for your review!
+
 > 
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> ---
->  drivers/clk/clk-en7523.c | 39 ++++++++++++++++++++++++++++-----------
->  1 file changed, 28 insertions(+), 11 deletions(-)
 > 
-> diff --git a/drivers/clk/clk-en7523.c b/drivers/clk/clk-en7523.c
-> index 1ab0e2eca5d3..c9b21d9bf2f3 100644
-> --- a/drivers/clk/clk-en7523.c
-> +++ b/drivers/clk/clk-en7523.c
-> @@ -338,6 +338,7 @@ static const struct en_clk_desc en7581_base_clks[] = {
->  static const u16 en7581_rst_ofs[] = {
->  	REG_RST_CTRL2,
->  	REG_RST_CTRL1,
-> +	REG_NP_SCU_PCIC,
->  };
->  
->  static const u16 en751221_rst_ofs[] = {
-> @@ -450,6 +451,11 @@ static const u16 en7581_rst_map[] = {
->  	[EN7581_CPU_TIMER_RST]		= RST_NR_PER_BANK + 28,
->  	[EN7581_PCIE_HB_RST]		= RST_NR_PER_BANK + 29,
->  	[EN7581_XPON_MAC_RST]		= RST_NR_PER_BANK + 31,
-> +
-> +	/* RST_PCIC */
-> +	[EN7581_PCIC_PERSTOUT0_RST]	= 2 * RST_NR_PER_BANK + 29,
-> +	[EN7581_PCIC_PERSTOUT1_RST]	= 2 * RST_NR_PER_BANK + 26,
-> +	[EN7581_PCIC_PERSTOUT2_RST]	= 2 * RST_NR_PER_BANK + 16,
->  };
->  
->  static const u16 en751221_rst_map[] = {
-> @@ -635,9 +641,7 @@ static int en7581_pci_enable(struct clk_hw *hw)
->  	void __iomem *np_base = cg->base;
->  	u32 val, mask;
->  
-> -	mask = REG_PCI_CONTROL_REFCLK_EN0 | REG_PCI_CONTROL_REFCLK_EN1 |
-> -	       REG_PCI_CONTROL_PERSTOUT1 | REG_PCI_CONTROL_PERSTOUT2 |
-> -	       REG_PCI_CONTROL_PERSTOUT;
-> +	mask = REG_PCI_CONTROL_REFCLK_EN0 | REG_PCI_CONTROL_REFCLK_EN1;
->  	val = readl(np_base + REG_PCI_CONTROL);
->  	writel(val | mask, np_base + REG_PCI_CONTROL);
->  
-> @@ -650,9 +654,7 @@ static void en7581_pci_disable(struct clk_hw *hw)
->  	void __iomem *np_base = cg->base;
->  	u32 val, mask;
->  
-> -	mask = REG_PCI_CONTROL_REFCLK_EN0 | REG_PCI_CONTROL_REFCLK_EN1 |
-> -	       REG_PCI_CONTROL_PERSTOUT1 | REG_PCI_CONTROL_PERSTOUT2 |
-> -	       REG_PCI_CONTROL_PERSTOUT;
-> +	mask = REG_PCI_CONTROL_REFCLK_EN0 | REG_PCI_CONTROL_REFCLK_EN1;
->  	val = readl(np_base + REG_PCI_CONTROL);
->  	writel(val & ~mask, np_base + REG_PCI_CONTROL);
->  	usleep_range(1000, 2000);
-> @@ -754,14 +756,21 @@ static int en7523_reset_update(struct reset_controller_dev *rcdev,
->  			       unsigned long id, bool assert)
->  {
->  	struct en_rst_data *rst_data = container_of(rcdev, struct en_rst_data, rcdev);
-> -	void __iomem *addr = rst_data->base + rst_data->bank_ofs[id / RST_NR_PER_BANK];
-> +	u32 offset = rst_data->bank_ofs[id / RST_NR_PER_BANK];
-> +	void __iomem *addr = rst_data->base + offset;
-> +	bool inverted = false;
->  	u32 val;
->  
-> +	/* For PCIC reset logic is inverted, 0:assert 1:deassert*/
+> > 
+> > Patch History
+> > =============
+> > from v7 to v8:
+> >    - accept @Leo Yan' suggestion to handle error.
+> >    - small minor fixes following @Suzuki' suggestion.
+> >    - https://lore.kernel.org/all/20260519154812.254884-1-yeoreum.yun@arm.com/
+> > 
+> > from v6 to v7:
+> >    - rebase on coresight/next
+> >    - add ETM_MAX_SEQ_TRANSITIONS define
+> >    - remove redundant patch relavent cpu-hotplug as coresight-pm patch
+> >      merged.
+> >    - https://lore.kernel.org/all/20260422132203.977549-1-yeoreum.yun@arm.com/
+> > 
+> > from v5 to v6:
+> >    - fix missing of calling cscfg_csdev_disable_active_config()
+> >    - add rb & fixes tags.
+> >    - add ss_status field in etm4x_drvdata to expose STATUS and PENDING bits.
+> >    - https://lore.kernel.org/all/20260415165528.3369607-1-yeoreum.yun@arm.com/
+> > 
+> > from v4 to v5:
+> >    - add rb-tag.
+> >    - fix underflow issue for nrseqstate.
+> >    - fix wrong check in etm4_sspcicrn_present().
+> >    - remove redundant fields on etmv4_save_state.
+> >    - rename caps->ss_status to ss_cmp.
+> >    - fix wrong location of etm4_release_trace_id.
+> >    - https://lore.kernel.org/all/20260413142003.3549310-1-yeoreum.yun@arm.com/
+> > 
+> > from v3 to v4:
+> >    - change etm_drvdata->spinlock type to raw_spin_lock_t
+> >    - remove redundant call etmX_enable_hw() with starting_cpu() callsback.
+> >    - fix missing trace id release.
+> >    - add missing docs.
+> >    - https://lore.kernel.org/all/20260412175506.412301-1-yeoreum.yun@arm.com/
+> > 
+> > from v2 to v3:
+> >    - fix build error for etm3x.
+> >    - fix checkpatch warning.
+> >    - https://lore.kernel.org/all/20260410074310.2693385-1-yeoreum.yun@arm.com/
+> > 
+> > from v1 to v2
+> >    - rebased to v7.0-rc7.
+> >    - introduce etmX_caps structure to save etmX's capabilities.
+> >    - remove ss_status from etmv4_config.
+> >    - modify active_config after taking a mode (perf/sysfs).
+> >    - https://lore.kernel.org/all/20260317181705.2456271-1-yeoreum.yun@arm.com/
+> > 
+> > 
+> > Yeoreum Yun (13):
+> >    coresight: etm4x: fix wrong check of etm4x_sspcicrn_present()
+> >    coresight: etm4x: fix underflow for usage of (nrseqstate - 1)
+> >    coresight: etm4x: introduce struct etm4_caps
+> >    coresight: etm4x: exclude ss_status from drvdata->config
+> >    coresight: etm4x: remove s_ex_level from config
+> >    coresight: etm4x: remove redundant fields in etmv4_save_state
+> >    coresight: etm4x: fix leaked trace id
+> >    coresight: etm4x: fix inconsistencies with sysfs configuration
+> >    coresight: etm4x: missing cscfg_csdev_disable_active_config() in perf
+> >      enable
+> >    coresight: etm3x: change drvdata->spinlock type to raw_spin_lock_t
+> >    coresight: etm3x: introduce struct etm_caps
+> >    coresight: etm3x: fix inconsistencies with sysfs configuration
+> >    coresight: etm3x: remove redundant cpu online check on
+> >      etm_enable_sysfs()
+> > 
+> >   drivers/hwtracing/coresight/coresight-etm.h   |  46 +-
+> >   .../coresight/coresight-etm3x-core.c          |  96 ++--
+> >   .../coresight/coresight-etm3x-sysfs.c         | 159 +++---
+> >   .../hwtracing/coresight/coresight-etm4x-cfg.c |   5 +-
+> >   .../coresight/coresight-etm4x-core.c          | 454 ++++++++++--------
+> >   .../coresight/coresight-etm4x-sysfs.c         | 204 ++++----
+> >   drivers/hwtracing/coresight/coresight-etm4x.h | 202 ++++----
+> >   7 files changed, 639 insertions(+), 527 deletions(-)
+> > 
+> 
 
-Add space before end of comment.
-
-> +	if (offset == REG_NP_SCU_PCIC)
-> +		inverted = true;
-> +
->  	val = readl(addr);
-> +	val &= ~BIT(id % RST_NR_PER_BANK);
->  	if (assert)
-> -		val |= BIT(id % RST_NR_PER_BANK);
-> +		val |= inverted ? 0 : BIT(id % RST_NR_PER_BANK);
->  	else
-> -		val &= ~BIT(id % RST_NR_PER_BANK);
-> +		val |= inverted ? BIT(id % RST_NR_PER_BANK) : 0;
-
-Could you do:
-
-    if (assert ^ inverted)
-
-Then keep the existing logic for val inside the if/else?
-
-
-
->  	writel(val, addr);
->  
->  	return 0;
-> @@ -783,9 +792,17 @@ static int en7523_reset_status(struct reset_controller_dev *rcdev,
->  			       unsigned long id)
->  {
->  	struct en_rst_data *rst_data = container_of(rcdev, struct en_rst_data, rcdev);
-> -	void __iomem *addr = rst_data->base + rst_data->bank_ofs[id / RST_NR_PER_BANK];
-> +	u32 offset = rst_data->bank_ofs[id / RST_NR_PER_BANK];
-> +	void __iomem *addr = rst_data->base + offset;
-> +	bool inverted = false;
-> +	u32 val;
-> +
-> +	/* For PCIC reset logic is inverted, 0:assert 1:deassert*/
-
-Add space before */
-
-Brian
-
+-- 
+Sincerely,
+Yeoreum Yun
 
