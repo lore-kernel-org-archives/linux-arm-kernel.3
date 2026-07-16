@@ -4,88 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19970C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 12:40:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F899C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 12:41:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:References:MIME-Version:
-	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OxlN32iU+dZZDeFlRrMUjrZz0IkcNsY0YbDQ0qDA3v0=; b=XkmNVOZ7IgX9TMJeGeX2iRpzl6
-	Gg9I3Zu0w2+vKGInA3XAg0oTXNEby5wW4WlXfW4lA2orTu7pJWZovhJQW11kK+A1kg6znpy5CQ4Zf
-	r3iuJDH9jw84E8HJNUyD7QHw7y9W4cjUxt4WDR/N5qRsWgPOrR/5i51EiIm0He76ILFAC/mAHmMyT
-	7aNTz8BlRaTRY8301uXhvqgBmj/VXBjMSReISVU7k/zqTAkBXLJFuWvLnBYoajCTtv6geHZTu9+UD
-	t8Jht3iDAsEtAfSB7Wrx7DjTmFQYBA0jRSo09LNYIT+LEItOzgG9/yOspCCiTFsrq+97fcpM5niD6
-	XfacysGw==;
+	bh=7Mk9nHBF6Z9TtDEi1xPdJ5l57Ah17ET6dQN4vhkdut4=; b=OyJQA3NlzFTgy3A+avFs7pSH4t
+	QBSXH25U8eGoj0B2NpLklykvj5WoPC6/8F7cF5zgIno3GHrvsrfo1MFJcPwS4cM7wA0kfzYspssys
+	ZHa9RGd7IRP4Ax5ZHy914l4Druxr+SrZMvHb/bca7vdueYMfpeTrvJittBZTQ8gq9XS7YG0KEy+F7
+	H7qcUFjOEyXJbtW6B9LozrJCn5rh1wSQw81LLAdcJAZ2XebtrAk37Moo+MKhwAMZsNJ69MOn++ah6
+	zAh6N0Eq15PX/UEvyJDZJCLYwMJXW+tb23iH20o0kVunvdw5M7+/M3GOjuMT3s3b0ZfL25pLKaJTT
+	InV01xxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkLNg-0000000HHLD-0O9c;
-	Thu, 16 Jul 2026 12:40:00 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wkLOv-0000000HHXx-2Ec6;
+	Thu, 16 Jul 2026 12:41:17 +0000
+Received: from mail-westeuropeazon11013044.outbound.protection.outlook.com ([52.101.72.44] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkLNf-0000000HHKp-0wwr
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 12:39:59 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A8CEC43821
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 12:39:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C6C21F00ADE
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 12:39:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784205598;
-	bh=OxlN32iU+dZZDeFlRrMUjrZz0IkcNsY0YbDQ0qDA3v0=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=WqpCPouGxXPy6ueFZIiDKndTIcSseLdOW8zJnpgFBSNSoDdKIk/7PbT66hpvii8lF
-	 xpGFkHf70LHbzODC2JX/8bknW9AW6hST0M5fCOTn22Ej91WlStU4IXndhEeMkjZpiS
-	 FuzbYk7mi+RMgrPZJDIL+OOZfj6dhWIPtZW/Bw3DIguFX3YILXjlr/Om6RgxEe0+5g
-	 OvRqs4AzBAP4e4J4WGePbTy/doO1ETuJXTc3TJDSwkcxYHhoOYotCja1Rjwwj2npSn
-	 eieU4XXRFGXQiZnP2TA5NVDbGO824HC76MjX7lmsIRls38P0dfhkCaGZfjVgAgftPm
-	 g6IOG5Nv4SVbw==
-Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-5b015532f7bso7021139e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 05:39:58 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RqBLV3chSrlCIbe0CMbWiCfd5j8hGD23iBfPLtf4FLjZ6FM2Fe/Y6w0bO5HhbqpMSnw8UWjvflfeUDNca7ty9wj@lists.infradead.org
-X-Gm-Message-State: AOJu0YyGlAY/OlJqYhAs2zSwAMOeS9L4Sm4Sb3T+J/exP9E0SaZLYebC
-	I9pQ9h7FSdRwOtKjx70PqNozGvkkgb2yBaVP4dlTiw2b8DEuxtjs8NIMOVhigooC+RA8c93H5es
-	pLIJOF7Jys9hu4vj2wKaeGAjQ/kcu9VED2m6bcYssdw==
-X-Received: by 2002:a05:6512:4045:20b0:5b0:2176:69f6 with SMTP id
- 2adb3069b0e04-5b15d7a50b0mr1154487e87.37.1784205597254; Thu, 16 Jul 2026
- 05:39:57 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 16 Jul 2026 05:39:55 -0700
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 16 Jul 2026 05:39:55 -0700
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <CAGXv+5G0Ffrh-8UohJuGPQ0e7KGpy11=X7t1JtDYLTJ_tZgMCA@mail.gmail.com>
+	id 1wkLOt-0000000HHXE-0wzQ;
+	Thu, 16 Jul 2026 12:41:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AueHn5FmKcF2CqXa96RWzJ7b5pGTQnom20pCXWZBxK4vjBfIKSqa9u95MGAKoWuogEFVGWVxws1BEGlatsjizR5kYTO4oS26x1se5QTo82NKilrHec2mPVGk9CGRkTyxA1OL53YGE5eHQZZ1aSATEvHIEO4qvcoNU2Y3o30LaMktDmXla7Be0tFnDma89y3SYhRhJvyRrOSF/taJ87wv5F73qlYZhtV75HmTmX+wHi20LTqYvhq5cRgP2XKZz3QaV6VBIGvOe7rOcFoKKDCyYUYlvZbNMBF7zJ7nfzVp1e4k/1s0gNnm/dd9IFe5scWcxObcq0PXoCzCfU44cwswmA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7Mk9nHBF6Z9TtDEi1xPdJ5l57Ah17ET6dQN4vhkdut4=;
+ b=LrtRCJcKZXhWR5nmvHXIaajRZjfYTSYX2f9H1BtXmhTOEaYzmZV5AtqMeAvft1Rv1XQ4eBfQ53EmQt7h2PtxkVAUyW2l3679LbqD5qs0YmQMn33V7GybV2IGfK8YIdA+ZVeFtT/IY9oLFpGI7uJpGyHZHvwi8JZDoit0Lh0G+1oWVapRrgDXJ8g89roTGWVbGjAUStycBHX7Ftb8VL7K6BvbZ/nzAIQ/eSnhNVIolgcHboQvRBDUaGGHmS0mfzN8GJoAdOOUGx0lr43NPEPkqIQ/Hhwotvs4PQoz4pNfCJQR9TCL3/a5QAGWQ5gBGepPq/lCXef/5juhS4oX3WDOuQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7Mk9nHBF6Z9TtDEi1xPdJ5l57Ah17ET6dQN4vhkdut4=;
+ b=ihs2atTaHIRrKmupvcFVpoV6xVcpg9Sy5bRVZJGlLgeIgkLOqkb461hWM73UWooE2m7eOoSCoSO5BGxMpHI4Eln66GgMaH8pXnioOoKjE0b+UgiluGowxs+WOF0Z7MPukbu1jWUeRZr4+VsZm681yOTsyT/zLn411FGz8rTBvPwKLSBj3fjIAz8g64HC2VfxtNqEzQW8ZtIoH1XQx7wDH8KXTIEpV0vHoww5m/wZ5sTH35JI1uw9/QLBdKvN+GJ9OjsygzsS8JlPmhrDdiyx8z3Br1hj27TKlFmOTHL7TNUOw37FeBafJkupophYOPKy2WEg8547F/3Qs38PmziqXg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AS5PR04MB11345.eurprd04.prod.outlook.com (2603:10a6:20b:6c3::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.18; Thu, 16 Jul
+ 2026 12:41:09 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0223.011; Thu, 16 Jul 2026
+ 12:41:09 +0000
+Date: Thu, 16 Jul 2026 07:41:00 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Xu Yang <xu.yang_2@oss.nxp.com>
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Jun Li <jun.li@nxp.com>,
+	linux-phy@lists.infradead.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Xu Yang <xu.yang_2@nxp.com>
+Subject: Re: [PATCH v6 3/6] phy: fsl-imx8mq-usb: add runtime PM support
+Message-ID: <aljRXBXtv_TjJECe@SMW015318>
+References: <20260715-imx8mp-usb-phy-improvement-v6-0-00d95e270e4c@nxp.com>
+ <20260715-imx8mp-usb-phy-improvement-v6-3-00d95e270e4c@nxp.com>
+ <alenBaMOTSPo7DJV@SMW015318>
+ <omitpksxmr657vlmjs3ybzhiq6zj4znrsp2tereofqees27z36@m3lhmrbufqay>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <omitpksxmr657vlmjs3ybzhiq6zj4znrsp2tereofqees27z36@m3lhmrbufqay>
+X-ClientProxiedBy: SA1P222CA0099.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:806:35e::13) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-References: <20260715085348.3457359-1-wenst@chromium.org> <20260715085348.3457359-4-wenst@chromium.org>
- <aldS3qTympJuVXYj@ashevche-desk.local> <CAMRc=MfHmejks83bPfe3fKzAzFySGXk2GHMA9oZdMQj0f44eTA@mail.gmail.com>
- <CAGXv+5HGjGTrqqzJrpiQhLrCn3C6H20LXq3niPnoujQLOwgqPw@mail.gmail.com>
- <CAMRc=Mefxn81d0VUwmQgwFtffkL1=Er_1VQZCbC1Sa-Qph4t1w@mail.gmail.com> <CAGXv+5G0Ffrh-8UohJuGPQ0e7KGpy11=X7t1JtDYLTJ_tZgMCA@mail.gmail.com>
-Date: Thu, 16 Jul 2026 05:39:55 -0700
-X-Gmail-Original-Message-ID: <CAMRc=Mcpu+k-zbY0bDf8q3_9o3qNsrt6uNCao5j3qQLnbjHYAQ@mail.gmail.com>
-X-Gm-Features: AUfX_mzb6SG6AJl8tXyuIguJLZaf_DB4m_xujG-Tq3VPuMJuPnQWayz1ClA2bP8
-Message-ID: <CAMRc=Mcpu+k-zbY0bDf8q3_9o3qNsrt6uNCao5j3qQLnbjHYAQ@mail.gmail.com>
-Subject: Re: [PATCH v5 03/16] power: sequencing: Add pwrseq_power_is_on()
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Daniel Scally <djrscally@gmail.com>, 
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Wei Deng <wei.deng@oss.qualcomm.com>, linux-acpi@vger.kernel.org, 
-	driver-core@lists.linux.dev, linux-pm@vger.kernel.org, 
-	linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Manivannan Sadhasivam <mani@kernel.org>, 
-	Alan Stern <stern@rowland.harvard.edu>, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
-	Bartosz Golaszewski <brgl@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS5PR04MB11345:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4f6bfd30-5e64-4591-d0df-08dee3378284
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|19092799006|1800799024|366016|56012099006|11063799006|4143699003|18002099003|22082099003|10067099003|3023799007;
+X-Microsoft-Antispam-Message-Info: TD9cETcVRVlzMr4Uv5zi7ishU3OnWkF8wuJlzGzao2LCTLbvb7AbgdSkRJdEk0LeeuhTQAzBWiJ0umtyhWsjtwBM1vZ6WFrpV23Zcu7j0wWD72Ja/nGDBPmQL1IaPwZdnAsj1f/WrcQP+tN82P/KDzOSQjXtpR4bIcVkHTa0g43NQGoPvMGcWgCK6Motc6PrA1OTuaQHaUu0bDafd9Im1p7lLum85Q/Sk8BhYnqdqNqrQX3YuLkIaxUr7+gtpKm5xHW5HQH+2lXvnzNBfLbCQpkm/983OItOzP1Pa553uRv24B8I2o6ckIzVlAgkQcNCnBu4dR+u0p4nkSughEcxSjU4sGNkhgNIqXvu8iXhqTnOAYP5HKRwMUa26dsoX+Goa3FsHwK/bpDDezo+WfhXTrsu02wu5nTWBkgDZWn3wlvBlsq0Lb2MHH4yfGN2/Vye4jCTYOgOGqbbKGfXca+bcQC/y2CAauZO5LgYfgIhIm7J38dNBaAQRDftanK0CXarGNgJ9z5dvjG19fTkQx8Xf701RGeaDWUbvkkLFoTvR/KE2tFExuxUw064AqCjX7OfZvH6IvugqcdI8M3pXMUTJQ18IRtgQ3bkdxvQfn6O1cFDMHkKY0Tdy4zYlhAJs5w3UhJei1peNeGJQcnZO8ZYTZQpkEGQRcrBke6pHNLq27Y=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(19092799006)(1800799024)(366016)(56012099006)(11063799006)(4143699003)(18002099003)(22082099003)(10067099003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?AQCyeNJcNZvJUkRbnDj76xTGAT7zID5y/Lprs0vKgIJ0ayevmJ4zol4ZhLh4?=
+ =?us-ascii?Q?KjOv1az4Qayc1n1Gpj0DJo8zizKaYHJphBgdE10/zOkQEM2V2zGFMbc757hG?=
+ =?us-ascii?Q?zaIoQWkVRA8WxYT6AO/SP5936GgUtHmla7iGYjmA7P8W64q9Vi1228Y4VjSY?=
+ =?us-ascii?Q?gk9WRhXq+oEdVmvt3kn3CIL9QfLNTcbif2/M0t7dgpcPPnJ6gBcPa0HhBStN?=
+ =?us-ascii?Q?B3NvOyZf1XIDRPMjst+f0U0LFIQgYhs3jWQzaVLoPd5q1de+IPuZIcRPZWkG?=
+ =?us-ascii?Q?noG0TZAoGmeDiQ7VCse0Sji3uVofi6iqnCcCUet47hn+405sm5QF2WylcduW?=
+ =?us-ascii?Q?+rgYtvLRalYOFpqhm9jY5LIkJe070JY/EODLYcmUVVp8QfFcLKtPeGGhuiug?=
+ =?us-ascii?Q?QF+1psJYRzcbvOGTrXTwJT7/y73+3aSOYAMKViERSB3eruUbaQ4GE83222+h?=
+ =?us-ascii?Q?1EK5qKIe4afbQp68AoSrNOUzFf7mYMeXxAvY6k96VQ10Wrk2HOmFXBE71npq?=
+ =?us-ascii?Q?dp6jpcYuNvXgxWMmMdc3llnvtY37yq9Cgb2GaDPA/tgs8TVKMiWNSntffdME?=
+ =?us-ascii?Q?DPAEIMU4fmNi5WaDKCCXME+Su6PuPHoORU41nfY+TyeQxWg+rbWOTUW/glks?=
+ =?us-ascii?Q?Fp613sKHSqubJvhyPLBtABfFGvSVI2kc52xQWZqBYUIOntsBIpMBjjIvCFcb?=
+ =?us-ascii?Q?qH0+iDuwJeHElWfkqmIDPOIagwmJy1jXI0a7RdWxbRPHig8Bi48IqI2M9axZ?=
+ =?us-ascii?Q?X2FRr90Cnn0erQxO9kBjDVFVqamOkB/eoGlWslAqlbrEYYueW/QhqjOUFuKa?=
+ =?us-ascii?Q?OQs4ICAkZWQD7P4VxAfQ+1aesswVKvTD1lQ/8mpKWMYK7LCv45XWep2lI2km?=
+ =?us-ascii?Q?gQmsHIQkaaVZuz5KQF/vqLXGPrZ4ZzUHq14QejL7a4+2RqcN+q1MoWGxAiH1?=
+ =?us-ascii?Q?lz4mbAV5nondug+otvSSuN89soE+D+xn8of169Xvw/is/rcsU9sWbPatNff1?=
+ =?us-ascii?Q?JI9PDaYHyU4amnQt/w6/19KCu+mEuZdgFIvflvBgzJcCV4lUxq/JtTCMBZHq?=
+ =?us-ascii?Q?YUqJhACZnfr44ewG7oKJZcRWaOhr6Q30ulgamsPDDsViPIfQoKA+Az63YZyI?=
+ =?us-ascii?Q?ugPyW8i2il3YCWIvm6i0GRVq56Yq35/dywOFGMok1NE9W8afOnbZ4WCNXs/u?=
+ =?us-ascii?Q?NenXl9vH2preeAndT2xivHn2gV0/qIrM2o+5eGtQWOKbekgqZHMxMLZPiffV?=
+ =?us-ascii?Q?1hvak7JxhJcEFx7Y4loHFXXbtxBacKDEsOwtgYWWf56JQcZQfywUTQmgV4JH?=
+ =?us-ascii?Q?VV6S5TfOZJt1t5cxMRGsJuGxe61dsTrtbgas8JoIMEB5FkJjO5fb9a59aA5a?=
+ =?us-ascii?Q?IJO3SeVEttso0jewElhMdvZYHrHxL4BnKgLEaAADSa97RmZ+ZhIZeAL5Lskz?=
+ =?us-ascii?Q?IkuNPCkeVREL1CPMnfvrxNYsV/vZnhoCxFAC02D911MZQkrBNjDHH6U4lArl?=
+ =?us-ascii?Q?qzT09s5b8OE6e8fD8MMqBkoDOakF7ORhyka4AEb0ChejmGOCEJYFIa4zLDW1?=
+ =?us-ascii?Q?YbuPgT6z+Th/L9vi6c5SDuDA3/aG58ZGQJhKAX2fAGnyYwBLQhjSMz/IvSky?=
+ =?us-ascii?Q?olPXJD1JTajKiYaP/elZ79x07LEhcDyKLcNKKnIkvwzM3KtINGxt6OeTsYOK?=
+ =?us-ascii?Q?D2dth3fj6nsxpvchjhKqMm+/HEto79jdkRNGBcHMjsVwoJEgEBYVBeJQWY7o?=
+ =?us-ascii?Q?wH37koNyvOMpHmDINu2Wjcv0LhpvhF4L1Nu6Jt5ZDSBrTu6Cto84?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4f6bfd30-5e64-4591-d0df-08dee3378284
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jul 2026 12:41:09.1073
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 14rH0BLuIhiCOF4ydI6zckUXk8nMXIcqYVE7x2I6cg+ri64AQhjFX2mqLmD/CUhJgH7+hwjLXlNbqrOaymVT89MFbYinvrVhHoE+ULEUKbc9ZPMmUsp+yhc5gE6th80X
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB11345
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260716_054115_298485_3A56A895 
+X-CRM114-Status: GOOD (  30.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,36 +143,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 16 Jul 2026 11:39:19 +0200, Chen-Yu Tsai <wenst@chromium.org> said:
-> On Thu, Jul 16, 2026 at 4:14=E2=80=AFPM Bartosz Golaszewski <brgl@kernel.=
-org> wrote:
->>
-
-...
-
->>
->> There's one more use-case where the power state trully can be *unknown*.
->> Please look at the proposed new function from Loic[1]. Here we deal with
->> targets over which linux has no direct power control even though it may =
-still
->> control some of its dependencies. This is where an UNKNOWN state may mak=
-e
->> sense.
->>
->> This is where I also floated an idea of renaming pwrseq_power_on/off() t=
-o
->> pwrseq_vote_on/off() for better clarity of their purpose.
+On Thu, Jul 16, 2026 at 07:32:59PM +0800, Xu Yang wrote:
+> On Wed, Jul 15, 2026 at 10:28:05AM -0500, Frank Li wrote:
+> > On Wed, Jul 15, 2026 at 07:33:58PM +0800, Xu Yang wrote:
+> > > From: Xu Yang <xu.yang_2@nxp.com>
+> > >
+> > > Add runtime PM to ensure the PHY is properly powered and clocked during
+> > > register access, preventing potential system hangs.
+> > >
+> > > It guards register access in the following scenarios:
+> > > - PHY operations: init() and power_on/off() callbacks are guarded by
+> > >   phy core
+> > > - Type-C orientation switching when PHY/Controller are suspended which
+> > >   needs explicitly care
+> > > - Future PHY control port register regmap debugfs access
+> > >
+> > > Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+> > >
+> > > ---
+> > > Changes in v6:
+> > >  - use devm_pm_runtime_enable() to disable runtime PM when probe fails
+> > >  - simply pm_runtime_get_sync/disable/put_noidle() to pm_runtime_resume()
+> > > Changes in v5:
+> > >  - use non-devm PM runtime callback to correctly enable/disable clocks
+> > >    when unbind the device
+> > > Changes in v4:
+> > >  - replace guard() with PM_RUNTIME_ACQUIRE()
+> > > Changes in v3:
+> > >  - new patch
+> > > ---
+> > >  drivers/phy/freescale/phy-fsl-imx8mq-usb.c | 67 +++++++++++++++++++++---------
+> > >  1 file changed, 48 insertions(+), 19 deletions(-)
+> > >
+> > > diff --git a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
+> > > index 3a5788c609e1..bc804d2b5aee 100644
+> > > --- a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
+> > > +++ b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
+> > > @@ -9,6 +9,7 @@
+> > >  #include <linux/of.h>
+> > >  #include <linux/phy/phy.h>
+> > >  #include <linux/platform_device.h>
+> > > +#include <linux/pm_runtime.h>
+> > >  #include <linux/regulator/consumer.h>
+> > >  #include <linux/usb/typec_mux.h>
+> > >
+> > > @@ -136,17 +137,15 @@ static int tca_blk_typec_switch_set(struct typec_switch_dev *sw,
+> > >  {
+> > >  	struct imx8mq_usb_phy *imx_phy = typec_switch_get_drvdata(sw);
+> > >  	struct tca_blk *tca = imx_phy->tca;
+> > > -	int ret;
+> > >
+> > >  	if (tca->orientation == orientation)
+> > >  		return 0;
+> > >
+> > > -	ret = clk_prepare_enable(imx_phy->clk);
+> > > -	if (ret)
+> > > -		return ret;
+> > > +	PM_RUNTIME_ACQUIRE(&imx_phy->phy->dev, pm);
+> > > +	if (PM_RUNTIME_ACQUIRE_ERR(&pm))
+> > > +		return -ENXIO;
+> > >
+> > >  	tca_blk_orientation_set(tca, orientation);
+> > > -	clk_disable_unprepare(imx_phy->clk);
+> > >
+> > >  	return 0;
+> > >  }
+> > > @@ -620,16 +619,6 @@ static int imx8mq_phy_power_on(struct phy *phy)
+> > >  	if (ret)
+> > >  		return ret;
+> > >
+> > > -	ret = clk_prepare_enable(imx_phy->clk);
+> > > -	if (ret)
+> > > -		return ret;
+> > > -
+> > > -	ret = clk_prepare_enable(imx_phy->alt_clk);
+> > > -	if (ret) {
+> > > -		clk_disable_unprepare(imx_phy->clk);
+> > > -		return ret;
+> > > -	}
+> > > -
+> > >  	/* Disable rx term override */
+> > >  	value = readl(imx_phy->base + PHY_CTRL6);
+> > >  	value &= ~PHY_CTRL6_RXTERM_OVERRIDE_SEL;
+> > > @@ -648,8 +637,6 @@ static int imx8mq_phy_power_off(struct phy *phy)
+> > >  	value |= PHY_CTRL6_RXTERM_OVERRIDE_SEL;
+> > >  	writel(value, imx_phy->base + PHY_CTRL6);
+> > >
+> > > -	clk_disable_unprepare(imx_phy->alt_clk);
+> > > -	clk_disable_unprepare(imx_phy->clk);
+> > >  	regulator_disable(imx_phy->vbus);
+> > >
+> > >  	return 0;
+> > > @@ -686,6 +673,7 @@ static int imx8mq_usb_phy_probe(struct platform_device *pdev)
+> > >  	struct device *dev = &pdev->dev;
+> > >  	struct imx8mq_usb_phy *imx_phy;
+> > >  	const struct phy_ops *phy_ops;
+> > > +	int ret;
+> > >
+> > >  	imx_phy = devm_kzalloc(dev, sizeof(*imx_phy), GFP_KERNEL);
+> > >  	if (!imx_phy)
+> > > @@ -693,13 +681,13 @@ static int imx8mq_usb_phy_probe(struct platform_device *pdev)
+> > >
+> > >  	platform_set_drvdata(pdev, imx_phy);
+> > >
+> > > -	imx_phy->clk = devm_clk_get(dev, "phy");
+> > > +	imx_phy->clk = devm_clk_get_enabled(dev, "phy");
+> > >  	if (IS_ERR(imx_phy->clk)) {
+> > >  		dev_err(dev, "failed to get imx8mq usb phy clock\n");
+> > >  		return PTR_ERR(imx_phy->clk);
+> > >  	}
+> > >
+> > > -	imx_phy->alt_clk = devm_clk_get_optional(dev, "alt");
+> > > +	imx_phy->alt_clk = devm_clk_get_optional_enabled(dev, "alt");
+> > >  	if (IS_ERR(imx_phy->alt_clk))
+> > >  		return dev_err_probe(dev, PTR_ERR(imx_phy->alt_clk),
+> > >  				    "Failed to get alt clk\n");
+> > > @@ -708,6 +696,11 @@ static int imx8mq_usb_phy_probe(struct platform_device *pdev)
+> > >  	if (IS_ERR(imx_phy->base))
+> > >  		return PTR_ERR(imx_phy->base);
+> > >
+> > > +	pm_runtime_set_active(dev);
+> > > +	ret = devm_pm_runtime_enable(dev);
+> > > +	if (ret)
+> > > +		return dev_err_probe(dev, ret, "failed to enable runtime PM\n");
+> > > +
+> >
+> > no place to call pm runtime suspend, so whole driver's life cycle runtime
+> > pm is on, is it expected?
 >
-> OK. Would it make sense to revert to returning -EINVAL if the descriptor
-> is NULL now, and then add a different error return value if !controllable
-> in the future?
+> First, at the end of __driver_probe_device(), it will call pm_request_idle()
+> for the device. So runtime_suspend() will run.
+> Second, this platform device is the parent of created phy device, the runtime status
+> of phy device is managed by phy core, so this platform device will be managed by phy
+> core indirectly.
 >
+> Just found it's not suitable to call devm_pm_runtime_enable() here. Because
+>
+> pm_runtime_disable_action()
+>   pm_runtime_dont_use_autosuspend()
+>     update_autosuspend()
+>       rpm_idle()
+>
+> then after remove(), runtime suspend func will still be called. Clocks may be
+> disabled twice. I will use non-devm version pm_runtime_enable() in next version.
 
-I don't think the latter part is needed. A non-controllable pwrseq descript=
-or
-is still a valid object and has an address pointing to it. Returning -EINVA=
-L
-on NULL descriptors is probably all we need.
+This should be common problem. Your case should be typical one.
+try devm_pm_runtime_set_active_enabled().
 
-Bart
+Frank
+
+>
+> Thanks,
+> Xu Yang
 
