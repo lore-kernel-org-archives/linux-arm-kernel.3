@@ -4,104 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 714D4C4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 10:09:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1B01C4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 10:10:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RZF8J3EVWRTD4m8geaWRGNcSfY2UjAL6ypi6vxz1ZiM=; b=HIcUVTe41QkVvPlGYw8wiTJNY0
-	aV35vtDs0l2NrXSsRZbxwOHwB4qX85JySQn/lmgIBZKQWPApjgw6Zxwsq757OicUuUNllqqX6IQbk
-	fHgJAvqRhu/SPzs2QAeDYBRcHKrAcxnMXV8CcaT2RGV0OhLjCyzB3wFyMK/RGqf5wEO3K+oeha/QB
-	Qo2GTUvdmEODLSZVW3WZV/wER/rlzlnic2vMGCU5KPmrknD0nMfLzMnXJeVUIyWaF5vYW4mjVPpUW
-	x8QK62x2yn86z7o171mtWfoTIxqbWsImj3QUEKO9ayTkK1qSTN1x3pCuEe9ebX25JbDhI8fV6wSYP
-	LmQHxIAw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9QODSxvF+R46IKNiNj9Fe2/45UFhQcx4/GxKexQL75g=; b=NnkP45K3DpL8QsWSqCmxAEyLHF
+	QKbdycU0cdr1wUW/U2T0+YxPIPbEsMn3FbF6Yss2O/ZiLWtVlwvlH4ytZYR4hBdAkLBem9MIQTwKb
+	V9dw8jEf/KRXc1oIGRW1+zjfVvw8at+xtezB1eQJXJkN3X1yWJf/NCRLMzTUjflqmj1hpCvqriHKF
+	jehj+J8l0VW0EDZMJ5h4dAP3iuX1QuA/oUf4BaRFpHBo4poIAK4Fa26lD08THiLqX2ocHulDa+HVG
+	iGxNBIJKo4AdQ8yEvPp7y2pYF7Cqak4C7iWNSfUwASFYqzeQLYlfl+jbibKgMGx8xj32RJh9vHfDu
+	oo0BpyyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkJ2C-0000000GyVy-0C4y;
-	Thu, 16 Jul 2026 10:09:40 +0000
-Received: from [162.240.164.96] (helo=server.couthit.com)
+	id 1wkJ2V-0000000GyZC-1Sq4;
+	Thu, 16 Jul 2026 10:09:59 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkJ29-0000000GyVa-2xHi
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 10:09:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
-	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=RZF8J3EVWRTD4m8geaWRGNcSfY2UjAL6ypi6vxz1ZiM=; b=si4OSZjVuV3aO1+Bf5Kg9CiEPo
-	SbrxmmulHEijVPrF3cCaxLBoXxjgOupitdUUOxucP51SXWC5QRDmahRjrAvAzPpOMX+RiQLMvb/k9
-	u/ISFkfaM/C+cRpgOoWhMq2gddc4+uTlvz44VM54wEaDzVh3rtTE0DN7YrqI6WFXpqgfDoHaQ3bq0
-	/nL/NOKD1CEYqc4R3aOITFTuw+kA/HEVMchadkZUZE5h2NqcrErOSBUbhKskef486rzdPr+xvqXVb
-	L3I87URz8DKVZtQ77GyEhgI8hAQ49mtYKX35NGiDBYFqIkYSyoFmGAaa01vUs/scy+6ax0ptd7WVc
-	3kOlDjhQ==;
-Received: from [115.246.246.98] (port=53693 helo=zimbra.couthit.local)
-	by server.couthit.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.99.4)
-	(envelope-from <parvathi@couthit.com>)
-	id 1wkJ26-00000004Z2G-21xZ;
-	Thu, 16 Jul 2026 06:09:34 -0400
-Received: from localhost (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTP id 2A2621AE3058;
-	Thu, 16 Jul 2026 15:39:26 +0530 (IST)
-Received: from zimbra.couthit.local ([127.0.0.1])
- by localhost (zimbra.couthit.local [127.0.0.1]) (amavis, port 10032)
- with ESMTP id JCZ0B0y1mChg; Thu, 16 Jul 2026 15:39:22 +0530 (IST)
-Received: from localhost (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTP id CCBC61AE6C11;
-	Thu, 16 Jul 2026 15:39:22 +0530 (IST)
-X-Virus-Scanned: amavis at couthit.local
-Received: from zimbra.couthit.local ([127.0.0.1])
- by localhost (zimbra.couthit.local [127.0.0.1]) (amavis, port 10026)
- with ESMTP id aaHAZZhn33uX; Thu, 16 Jul 2026 15:39:22 +0530 (IST)
-Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
-	by zimbra.couthit.local (Postfix) with ESMTP id A6D771AE3058;
-	Thu, 16 Jul 2026 15:39:22 +0530 (IST)
-Date: Thu, 16 Jul 2026 15:39:22 +0530 (IST)
-From: Parvathi Pudi <parvathi@couthit.com>
-To: Paolo Abeni <pabeni@redhat.com>
-Cc: parvathi <parvathi@couthit.com>, andrew+netdev <andrew+netdev@lunn.ch>, 
-	davem <davem@davemloft.net>, edumazet <edumazet@google.com>, 
-	kuba <kuba@kernel.org>, danishanwar <danishanwar@ti.com>, 
-	rogerq <rogerq@kernel.org>, pmohan <pmohan@couthit.com>, 
-	afd <afd@ti.com>, basharath <basharath@couthit.com>, 
-	arnd <arnd@arndb.de>, linux-kernel <linux-kernel@vger.kernel.org>, 
-	netdev <netdev@vger.kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	pratheesh <pratheesh@ti.com>, j-rameshbabu <j-rameshbabu@ti.com>, 
-	Vignesh Raghavendra <vigneshr@ti.com>, praneeth <praneeth@ti.com>, 
-	srk <srk@ti.com>, rogerq <rogerq@ti.com>, 
-	m-malladi <m-malladi@ti.com>, krishna <krishna@couthit.com>, 
-	mohan <mohan@couthit.com>
-Message-ID: <902430959.1662289.1784196562619.JavaMail.zimbra@couthit.local>
-In-Reply-To: <20260706091328.134740-1-pabeni@redhat.com>
-References: <20260630124958.894360-3-parvathi@couthit.com> <20260706091328.134740-1-pabeni@redhat.com>
-Subject: Re: [PATCH net-next v2 2/3] net: ti: icssm-prueth: Add priority
- based RX IRQ handlers
+	id 1wkJ2R-0000000GyX8-3pQZ;
+	Thu, 16 Jul 2026 10:09:57 +0000
+X-UUID: 77ac20b280fe11f1aa26b74ffac11d73-20260716
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:d3711d46-4afc-4338-ac37-b0cb538df76f,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:e7bac3a,CLOUDID:cd41769162fe44a8f4903991eaa13158,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:102|136|850|865|898,TC:nil,Content:0|15|
+	50,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
+	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 77ac20b280fe11f1aa26b74ffac11d73-20260716
+X-User: lilinmao@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <lilinmao@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 220007818; Thu, 16 Jul 2026 18:09:44 +0800
+From: Linmao Li <lilinmao@kylinos.cn>
+To: Jerome Brunet <jbrunet@baylibre.com>,
+	Mark Brown <broonie@kernel.org>
+Cc: Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Linmao Li <lilinmao@kylinos.cn>
+Subject: [PATCH] ASoC: meson: Keep link pointers valid on realloc failure
+Date: Thu, 16 Jul 2026 18:09:39 +0800
+Message-Id: <20260716100939.1381759-1-lilinmao@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.10.10.233]
-X-Mailer: Zimbra 9.0.0_ZEXTRAS_20240927 (ZimbraWebClient - GC150 (Linux)/9.0.0_ZEXTRAS_20240927)
-Thread-Topic: icssm-prueth: Add priority based RX IRQ handlers
-Thread-Index: q3fiJzThNFJaNfpR71Y/scOAQ6P02g==
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.couthit.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: smtp@couthit.com
-X-Authenticated-Sender: server.couthit.com: smtp@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_030937_844891_6318B0C6 
-X-CRM114-Status: GOOD (  42.86  )
+X-CRM114-CacheID: sfid-20260716_030956_252347_D22567BA 
+X-CRM114-Status: GOOD (  10.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,228 +82,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+meson_card_reallocate_links() grows the DAI link and private data
+arrays with two consecutive krealloc() calls and updates the owner
+pointers only after both calls have succeeded.
 
-> From: AI Reviewer <ai@example.com>
-> 
-> This is an AI-generated review of your patch. The human sending this
-> email has considered the AI review valid, or at least plausible.
-> Full review at: https://sashiko.dev/
-> ---
-> net: ti: icssm-prueth: Add priority based RX IRQ handlers
-> 
-> This patch adds support for priority based interrupt handling for the STP/
-> RSTP Switch, HSR and PRP protocols along with extra logic to address first
-> come first served to avoid port dominance. The driver will read the RX HW
-> timestamp from the frame to achieve wire-arrival ordering.
-> 
->> diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
->> b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
->> --- a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
->> +++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-> [ ... ]
->> @@ -1188,26 +1188,26 @@ static int icssm_emac_ndo_stop(struct net_device *ndev)
->>  	/* disable the mac port */
->>  	icssm_prueth_port_enable(emac, false);
->>  
->> +	netif_stop_queue(ndev);
->> +
->>  	/* stop PHY */
->>  	phy_stop(emac->phydev);
->>  
->> -	napi_disable(&emac->napi);
->>  	hrtimer_cancel(&emac->tx_hrtimer);
->>  
-> [ ... ]
->>  	/* stop the PRU */
->>  	if (!PRUETH_IS_EMAC(prueth))
->>  		icssm_prueth_sw_shutdown_prus(emac, ndev);
->>  
->>  	if (prueth_is_lre(prueth))
->>  		icssm_prueth_lre_cleanup(prueth);
-> 
-> [Severity: High]
-> This is a pre-existing issue, but is the LRE duplicate detection timer
-> prematurely canceled when a single port goes down?
-> 
-> In icssm_emac_ndo_stop, icssm_prueth_lre_cleanup is called unconditionally
-> when any interface is brought down.
-> 
-> If one port in the HSR/PRP bridge goes down while the other remains active,
-> this cancels the shared tbl_check_timer, potentially causing duplicate
-> frames to stop being detected and dropped by the hardware.
-> 
+A successful krealloc() may move the data: it frees the old block and
+returns a new one. When that happens for the link array and the second
+krealloc() then fails, card->dai_link still points to the block that
+krealloc() already freed, and the error path frees the new block too.
+The probe error path then calls meson_card_clean_references(), which
+dereferences card->dai_link and kfree()s it again, resulting in a
+use-after-free and a double free.
 
-We will address this in the next version.
+Set card->dai_link right after the first krealloc() succeeds and keep
+the resized array when the second call fails, so the pointer always
+refers to a valid allocation that the normal cleanup path can free.
+card->num_links is still updated only on full success, which keeps the
+cleanup limited to initialized links.
 
->> diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth_common.c
->> b/drivers/net/ethernet/ti/icssm/icssm_prueth_common.c
->> new file mode 100644
->> --- /dev/null
->> +++ b/drivers/net/ethernet/ti/icssm/icssm_prueth_common.c
->> @@ -0,0 +1,286 @@
-> [ ... ]
->> +static int icssm_prueth_common_emac_rx_packets(struct prueth_emac *emac,
->> +					       int quota, u8 qid1, u8 qid2)
->> +{
-> [ ... ]
->> +		if ((*pkt_info_p).length < EMAC_MIN_PKTLEN) {
->> +			/* Undersized frame: firmware should have filtered
->> +			 * these before they reach the host queue. Advance
->> +			 * the read pointer to skip it.
->> +			 */
->> +			update_rd_ptr = *bd_wr_ptr_p;
->> +			ndevstats_p->rx_length_errors++;
-> 
-> [Severity: High]
-> This is a pre-existing issue, but does this error path flush the entire
-> pending RX queue?
-> 
-> When the driver detects an undersized or oversized packet, it attempts to
-> skip it by updating the read pointer. However, setting update_rd_ptr to
-> *bd_wr_ptr_p appears to assign the hardware's write pointer (the very end of
-> the queue), rather than advancing by one descriptor.
-> 
-> Could this discard all pending descriptors instead of just the malformed one?
-> 
+Fixes: 7864a79f37b5 ("ASoC: meson: add axg sound card support")
+Signed-off-by: Linmao Li <lilinmao@kylinos.cn>
+---
+ sound/soc/meson/meson-card-utils.c | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
 
-Yes, it flushes the pending queue. This behavior is pre-existing for the plain
-EMAC RX path. Since it's not something introduced by these patches, we'd like
-to evaluate it and fix it separately rather than bundle it into this series.
-
-> [Severity: High]
-> Does this introduce a race condition on the network statistics?
-> 
-> This patch introduces split NAPI polling with separate priority threads
-> (napi_hpq and napi_lpq) that process the high and low priority queues across
-> both physical ports. These NAPI instances can be scheduled on different CPUs
-> concurrently.
-> 
-> Both instances invoke icssm_prueth_common_emac_rx_packets, which updates raw
-> unsigned long statistics like ndevstats_p->rx_length_errors (and 64-bit
-> stats like emac->stats.rx_bytes in icssm_emac_rx_packet) using += without
-> atomic instructions or locks.
-> 
-> On 32-bit platforms, could this cause lost updates for concurrent writers, or
-> torn reads when read by ndo_get_stats64?
-> 
-
-We are in the process of reviewing this comment and checking the statistics update
-path with the split NAPI polling changes. We will incorporate any necessary updates
-in the next version of the patch series.
-
->> +		} else if ((*pkt_info_p).length > EMAC_MAX_FRM_SUPPORT) {
->> +			/* Oversized frame: firmware should have filtered
->> +			 * these before they reach the host queue. Advance
->> +			 * the read pointer to skip it.
->> +			 */
->> +			update_rd_ptr = *bd_wr_ptr_p;
->> +			ndevstats_p->rx_length_errors++;
->> +		} else {
->> +			update_rd_ptr = *bd_rd_ptr_p;
->> +			ret = icssm_emac_rx_packet(emac_p, &update_rd_ptr,
->> +						   pkt_info_p, rxqueue_p);
->> +			if (ret)
->> +				return used;
-> 
-> [Severity: High]
-> This is a pre-existing issue, but does a memory allocation failure in this RX
-> path cause a permanent RX queue stall?
-> 
-> If icssm_emac_rx_packet fails to allocate an SKB, it returns -ENOMEM. The
-> driver immediately aborts the NAPI polling loop without updating the hardware
-> read pointer or consuming the packet.
-> 
-> Because it returns used (which is less than budget), it triggers
-> napi_complete_done() which re-enables the RX interrupt. Since the packet is
-> still pending in the hardware queue, the interrupt fires again immediately in
-> an infinite loop.
-> 
-
-This appears to be a pre-existing issue in the RX path and is not introduced by
-this patch series. We'll investigate the reported behavior separately and address
-it in a dedicated patch series if changes are required.
-
->> diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth_lre.c
->> b/drivers/net/ethernet/ti/icssm/icssm_prueth_lre.c
->> --- a/drivers/net/ethernet/ti/icssm/icssm_prueth_lre.c
->> +++ b/drivers/net/ethernet/ti/icssm/icssm_prueth_lre.c
->> @@ -152,6 +152,14 @@ static void icssm_prueth_lre_protocol_init(struct prueth
->> *prueth)
->>  	       dram1 + ICSS_LRE_SUP_ADDR_LOW);
->>  }
->>  
->> +static void icssm_prueth_lre_config_packet_timestamping(struct prueth *prueth)
->> +{
->> +	void __iomem *sram = prueth->mem[PRUETH_MEM_SHARED_RAM].va;
->> +
->> +	writeb(1, sram + ICSS_LRE_PRIORITY_INTRS_STATUS_OFFSET);
->> +	writeb(1, sram + ICSS_LRE_TIMESTAMP_PKTS_STATUS_OFFSET);
->> +}
->> +
-> [ ... ]
->> @@ -202,6 +210,11 @@ void icssm_prueth_lre_config(struct prueth *prueth)
->>  	icssm_prueth_lre_init(prueth);
->>  	icssm_prueth_lre_dbg_init(prueth);
->>  	icssm_prueth_lre_protocol_init(prueth);
->> +	/* Enable per-packet timestamping so the driver can order
->> +	 * received frames by arrival time across the two slave ports.
->> +	 */
->> +	icssm_prueth_lre_config_packet_timestamping(prueth);
->> +
->>  }
-> 
-> [Severity: High]
-> Does this fail to enable hardware timestamping in Switch mode?
-> 
-> The patch introduces timestamp-based packet ordering for Switch, HSR, and PRP
-> modes, requiring configuration via ICSS_LRE_PRIORITY_INTRS_STATUS_OFFSET and
-> ICSS_LRE_TIMESTAMP_PKTS_STATUS_OFFSET.
-> 
-> However, icssm_prueth_lre_config_packet_timestamping is only called from
-> icssm_prueth_lre_config, which is gated by prueth_is_lre() (only true for HSR
-> and PRP).
-> 
-> In Switch mode, these registers appear to never be written, potentially
-> leaving timestamps disabled in firmware and breaking the wire-arrival
-> ordering logic.
-> 
-
-We will address this in the next version.
-
-> [Severity: High]
-> This is a pre-existing issue, but are the dynamically allocated FDB learning
-> work items tracked for cleanup?
-> 
-> When learning a new source MAC address in icssm_prueth_sw_learn_fdb()
-> (drivers/net/ethernet/ti/icssm/icssm_prueth_switch.c), the driver dynamically
-> allocates a struct icssm_prueth_sw_fdb_work and queues it.
-> 
-> If these are not tracked in a list, unloading the module could leave pending
-> work items that execute unmapped memory, potentially causing a kernel panic.
-> 
-
-As this is a pre-existing issue related to the FDB implementation, we'll address
-it as a separate patch series rather than merging it into this series. This avoids
-expanding the scope of the current patch series.
-
-> [Severity: High]
-> This is a pre-existing issue, but can the unbounded GFP_ATOMIC allocations
-> for FDB learning lead to memory exhaustion?
-> 
-> Every received frame with an unlearned source MAC address triggers
-> icssm_prueth_sw_learn_fdb(), which uses kzalloc_obj(..., GFP_ATOMIC) without
-> rate limiting.
-> 
-> A continuous flood of frames with randomized source MAC addresses could
-> trigger thousands of allocations per second, potentially exhausting the
-> kernel's atomic memory pools.
-> --
-
-As this is a pre-existing issue related to the FDB implementation, we'll address
-it as a separate patch series rather than merging it into this series. This avoids
-expanding the scope of the current patch series.
-
-Thanks and Regards,
-Parvathi.
+diff --git a/sound/soc/meson/meson-card-utils.c b/sound/soc/meson/meson-card-utils.c
+index cdb759b466ad..38c1b2ae227f 100644
+--- a/sound/soc/meson/meson-card-utils.c
++++ b/sound/soc/meson/meson-card-utils.c
+@@ -52,19 +52,18 @@ int meson_card_reallocate_links(struct snd_soc_card *card,
+ 	if (!links)
+ 		goto err_links;
+ 
++	priv->card.dai_link = links;
++
+ 	ldata = krealloc(priv->link_data,
+ 			 num_links * sizeof(*priv->link_data),
+ 			 GFP_KERNEL | __GFP_ZERO);
+ 	if (!ldata)
+-		goto err_ldata;
++		goto err_links;
+ 
+-	priv->card.dai_link = links;
+ 	priv->link_data = ldata;
+ 	priv->card.num_links = num_links;
+ 	return 0;
+ 
+-err_ldata:
+-	kfree(links);
+ err_links:
+ 	dev_err(priv->card.dev, "failed to allocate links\n");
+ 	return -ENOMEM;
 
