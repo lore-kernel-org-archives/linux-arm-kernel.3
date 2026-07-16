@@ -4,67 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F021C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 12:43:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CE51C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 12:44:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u1+I9oAT2GKmfFvO1KGrOu3B12dW4RJJI8mhhbyQJI4=; b=vA+zNF48F8tQ1R78XYcZXq/hMv
-	KqHfwdq6FZ6TGNjVqELGho6ljpnhMXrW6LL4b2B8v+aU0AXX7GNS4CrB7zuYcsWQsRx2bTTHr2Dq7
-	Az3xUnzCOIIn7vpsY3eMRO01w+4fd+2iOACeOJrF1ja7Big6YZcD08kzvl2kdZf0iOdsIRlSTUgk8
-	d4nWTRWZVEppNNzjlbByvMsGVlbDfpf9GlwqZvh7sXUoGCgFZkKsH3m9f9887OIa+Bfwxjg7xa1I3
-	VNquUtjH+bUnkHTwh8TsEAdmvh8r70/5hLMxUxKm19g4oQ+1CAzoXUVGW5ZZCI00ZSGXK9L8dYA2R
-	aoeuvHqg==;
+	bh=wO7rgHUMjvOOREbomqim3hRFXtwbnBvZKsCnDiin3lw=; b=jrsENBNDNMvtOBHioBGvzSk2aw
+	2TlDkF/jb40b7CS9OLRNpelrCWurrjpZak54h+M+iXMLOjx5aOkCCfPsF0dfstHqwZjM0amcy1dxd
+	J/qMZ5wUk9OoL5Qt5CDDZZQ+vfj3NB61agdBHujhIV5MNIaw0yctGuK+svNnIMnkpuiUG+wNDIc5s
+	llCcRHGx8epGPtaJPS1Wz5oS2sVN9TM3DtMV7H5HJcQEJqrSlv7zSJASIkqMqasWE77EmfbardYLQ
+	ucNK7kpGJ4vrgAwpysvzVyj18iqvw2SjGV3Z9Q0hR4C9nnZRiEwYpn6NMJcmas97oYAUTtO9aq91w
+	3TQE5cmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkLCj-0000000HG4I-1b7V;
-	Thu, 16 Jul 2026 12:28:41 +0000
-Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
+	id 1wkLRY-0000000HJ4D-2L8E;
+	Thu, 16 Jul 2026 12:44:00 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkLCe-0000000HG0o-3VRR
+	id 1wkLRU-0000000HIwQ-15o3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 12:28:40 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=u1+I9oAT2GKmfFvO1KGrOu3B12dW4RJJI8mhhbyQJI4=;
-	b=6ZTP5tGWLe0WcsF+pN221kNiLcHSPmfSkv99Gcbcj2t9RoTV1f5MACEwp3EqNr8pqwZ+p2SrA
-	ixmKd8bwGfGvB2im7+ZxDesMOEhQxyAeQRAE6z8Hn3YOLx9LGnjYmDtuDXYr+LD/h4nCPEvYbUc
-	S/j6bXR6eeHZNhYzdJT4sYk=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4h1Bt31yCCz1prKd;
-	Thu, 16 Jul 2026 20:19:07 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 5D75540537;
-	Thu, 16 Jul 2026 20:28:28 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 16 Jul 2026 20:28:27 +0800
-Message-ID: <da9c9d13-f23d-4e93-b4cc-9aae56fc678a@huawei.com>
-Date: Thu, 16 Jul 2026 20:28:26 +0800
+	Thu, 16 Jul 2026 12:43:58 +0000
+Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-c95d0a54ea5so4856431a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 05:43:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1784205835; x=1784810635; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=wO7rgHUMjvOOREbomqim3hRFXtwbnBvZKsCnDiin3lw=;
+        b=GG4rnxIudgMhaFvwjZN6dyoWgmgwTUiDZcbBpCKKgfAaNN19d6K3A04gIrdqnrepee
+         hRpw1YDLCZFXQp7zs290LCz/bNEaEuWLUu6oTz9zCgXZzbl9lXI6N7cxSQHoeZzrZYhx
+         pzPegydmB2JdPXwhEhmp5/uXrgsN+VvjRVDWZy5i+Wtza+GN5ZV8k5C7Hcv0pIqYsJ3z
+         TKjbFkI3UPy95Mj3IAJZwtwitPrC2QeO/B56t336GtqJ1AQ9aYEpTJjBP95NJuHaCVPw
+         XoKxz5lC5oQaWTDClVBMtDril6aqjsHo61+q5YmEkrHClB88ruXgqdxHM1VqGkOzBm3N
+         egeA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784205835; x=1784810635;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=wO7rgHUMjvOOREbomqim3hRFXtwbnBvZKsCnDiin3lw=;
+        b=HvlMKMO8y07Tl5hn+RBzLdqUtvZT2e2XQhgA0OVntEZiK4QKjidQy3fqQEvuWVHq1O
+         3f7LkQnJmD0Z2wBfOPV/f05tQcpg8IkPtqD/IdX8GrpoK6Sk/y8I45N4mXw2EJjoyknu
+         GHj1wlAo699oQGAzGMZuQHGvEFWQmUKAeYNF6HEpjDitDSp0g2In0FsTqZGqoKBPa1v+
+         JiMTpbaeDPvgWBAkgMgQDHRTnxYfDoOcJqOIxAVZ35wZT98Enl5WWnNiFdsIF6Hnxd6J
+         ahzMwvsZqyeA8rJI28cwcJTh6QvslHOJ10ZwgJxN/SM2wRGuZLkrHFO0p5f5UQG5BnVm
+         eHDA==
+X-Forwarded-Encrypted: i=1; AHgh+Rp2yOlhnDW/hqJkZCnudOc9BHqq/44a748+8xcLVh/9b16k6hrZsEp/79wuGdqjrjMaf8i/b3U97MRudNZbguty@lists.infradead.org
+X-Gm-Message-State: AOJu0YxrgiiOz8zT1+++xdF7t/DL6RtBejE135A0rBdBRLQ4QjmMHwqq
+	QMQXK5PcsjwRd/DsGYO2+DFWlI6HrOPUho6b5Foua94jtPBsW2PXUnw/lq25yrIWIYc=
+X-Gm-Gg: AfdE7cm+9DbgtyrK2IzWrHjlnrrfJr2GYaM3i5wo3IQEz4wTJMQNiq6fa+w9Wyry/CB
+	dxVIaqTHBC5SubSWAVU65DC2oJ3KqMJiomskSMSmi/DWaJ7+WDTRQIaChLLVUhGLT8rXkXYAOAD
+	pS1NITcFJPdLYTRbrc92OWm0my5+NW4tOBASgXxO6rVJhY4arIqPgZgSe5dEcNFcNRy3xfNUKuE
+	7oz63LF8XzMRmv1AJlbJRZDikkZo1+SP1D9EP6jcTm5nk+4SroMnMI7fjsXQz6cKLbB2rwoHUoX
+	iwJeECw8jRHCjXIfWY8Fcy4DqHlRo2a4Vm2euHWqavLDQiW/82E3aoqhvi+6mVu8T0VW8z5knKp
+	BCiTKMKMpl0NIhq5qhLlsg+WI9rAmPlksGB72praqcPt2WK6rBPvp5gb/xDzM5p2QVkVc/YPbL4
+	tQUusSeDuV/aWKul5zZAFD7z6WbKvR4AviGQ==
+X-Received: by 2002:a05:6a20:20c3:b0:3c3:859b:c20c with SMTP id adf61e73a8af0-3c3859be277mr3653741637.15.1784205835267;
+        Thu, 16 Jul 2026 05:43:55 -0700 (PDT)
+Received: from L6YN4KR4K9.bytedance.net ([2408:8606:1800:501::2:f])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cb258eeaba2sm1730793a12.12.2026.07.16.05.43.47
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 16 Jul 2026 05:43:54 -0700 (PDT)
+From: Yunhui Cui <cuiyunhui@bytedance.com>
+To: linux-riscv@lists.infradead.org,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org
+Cc: linux-arch@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-efi@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	kasan-dev@googlegroups.com,
+	Yunhui Cui <cuiyunhui@bytedance.com>
+Subject: [PATCH v2 08/15] riscv/mm: avoid redundant Svnapot A/D aggregation
+Date: Thu, 16 Jul 2026 20:41:43 +0800
+Message-Id: <66e43057442a0f37e0c7348016ccef382387898d.1784201104.git.cuiyunhui@bytedance.com>
+X-Mailer: git-send-email 2.39.2 (Apple Git-143)
+In-Reply-To: <cover.1784201104.git.cuiyunhui@bytedance.com>
+References: <cover.1784201104.git.cuiyunhui@bytedance.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: syscall: Ensure saved x0 is kept in-sync with
- tracer updates
-To: Will Deacon <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>
-CC: <linux-kernel@vger.kernel.org>, Kees Cook <kees@kernel.org>, Mark Rutland
-	<mark.rutland@arm.com>, Yiqi Sun <sunyiqixm@gmail.com>, Catalin Marinas
-	<catalin.marinas@arm.com>
-References: <20260716120640.6590-1-will@kernel.org>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260716120640.6590-1-will@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_052837_536826_29664ABF 
-X-CRM114-Status: GOOD (  29.23  )
+X-CRM114-CacheID: sfid-20260716_054356_349362_76626A0A 
+X-CRM114-Status: GOOD (  13.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,111 +106,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Svnapot mappings encode a 64KB range as a NAPOT PTE block, while the
+public getter returns a logical base-page PTE. To preserve that PTE view,
+the getter folds accessed and dirty information from the whole NAPOT block
+into the returned PTE.
 
+This aggregation is an OR-style operation. Once the returned PTE has both
+accessed and dirty state set, later entries in the block cannot change the
+result. Avoid reading the rest of the block in that case.
 
-On 7/16/2026 8:06 PM, Will Deacon wrote:
-> When seccomp support was originally added to arm64 in a1ae65b21941
-> ("arm64: add seccomp support"), seccomp was erroneously called _before_
-> the ptrace syscall-enter-stop and therefore the tracer could trivially
-> manipulate the syscall register state after the seccomp check had
-> passed. This was subsequently fixed in a5cd110cb836 ("arm64/ptrace: run
-> seccomp after ptrace") by moving the seccomp check after the tracer has
-> run. Unfortunately, a decade later, that fix has been reported to be
-> incomplete.
-> 
-> On arm64, both the first argument to a syscall and its eventual return
-> value are allocated to register x0. In order to facilitate syscall
-> restarting and querying of syscall arguments on the syscall exit path,
-> the original value of x0 is stashed in 'struct pt_regs::orig_x0' early
-> during the syscall entry path and is returned for the first argument by
-> syscall_get_arguments(). Unlike 32-bit Arm, this stashed value is not
-> directly exposed via ptrace() and so changes to register x0 made by the
-> tracer on a syscall-enter-stop are not reflected in 'orig_x0'. This
-> means that seccomp, syscall tracepoints and audit can observe a stale
-> value for the register compared to the argument that will be observed by
-> the actual syscall.
-> 
-> Re-sync 'orig_x0' from x0 on the syscall entry path following a
-> potential ptrace stop (i.e. PTRACE_EVENTMSG_SYSCALL_ENTRY or
-> SECCOMP_RET_TRACE). This behaviour is limited to native tasks (because
-> compat tasks expose 'orig_r0' to ptrace) where the syscall is not being
-> skipped (because x0 is updated to hold the return value of -ENOSYS in
-> that case).
-> 
-> Cc: Kees Cook <kees@kernel.org>
-> Cc: Jinjie Ruan <ruanjinjie@huawei.com>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Reported-by: Yiqi Sun <sunyiqixm@gmail.com>
-> Link: https://lore.kernel.org/all/20260529065444.1336608-1-sunyiqixm@gmail.com/
-> Suggested-by: Catalin Marinas <catalin.marinas@arm.com>
-> Fixes: a5cd110cb836 ("arm64/ptrace: run seccomp after ptrace")
-> Signed-off-by: Will Deacon <will@kernel.org>
-> ---
-> 
-> Changes since v1 (https://lore.kernel.org/r/20260714143600.23853-1-will@kernel.org):
->   * Reworded and expanded comments and commit message per Jinjie's
->     feedback
-> 
->  arch/arm64/kernel/ptrace.c | 29 +++++++++++++++++++++++++++++
->  1 file changed, 29 insertions(+)
-> 
-> diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
-> index 4d08598e2891..390c9b2bd966 100644
-> --- a/arch/arm64/kernel/ptrace.c
-> +++ b/arch/arm64/kernel/ptrace.c
-> @@ -2408,6 +2408,21 @@ static void report_syscall_exit(struct pt_regs *regs)
->  	}
->  }
->  
-> +static void update_syscall_orig_x0_after_ptrace(struct pt_regs *regs)
-> +{
-> +	/*
-> +	 * Keep orig_x0 authoritative so that seccomp (via
-> +	 * syscall_get_arguments()), audit and the restart path all see the same
-> +	 * first argument the syscall is dispatched with, even if it has been
-> +	 * updated by a tracer. Skip this for NO_SYSCALL (set either by the user
-> +	 * or the tracer), as regs[0] holds the return value (see the comment in
-> +	 * el0_svc_common()) and can be unwound using syscall_rollback().
-> +	 * For compat tasks, orig_r0 is provided directly through GPR index 17.
-> +	 */
-> +	if (!is_compat_task() && regs->syscallno != NO_SYSCALL)
-> +		regs->orig_x0 = regs->regs[0];
-> +}
-> +
->  int syscall_trace_enter(struct pt_regs *regs)
->  {
->  	unsigned long flags = read_thread_flags();
-> @@ -2417,12 +2432,26 @@ int syscall_trace_enter(struct pt_regs *regs)
->  		ret = report_syscall_entry(regs);
->  		if (ret || (flags & _TIF_SYSCALL_EMU))
->  			return NO_SYSCALL;
-> +
-> +		/*
-> +		 * Ensure ptrace changes to x0 during a regular
-> +		 * syscall-enter-stop (PTRACE_SYSCALL) are visible to
-> +		 * subsequent seccomp checks, tracepoints and audit.
-> +		 */
-> +		update_syscall_orig_x0_after_ptrace(regs);
->  	}
->  
->  	/* Do the secure computing after ptrace; failures should be fast. */
->  	if (secure_computing() == -1)
->  		return NO_SYSCALL;
->  
-> +	/*
-> +	 * Ensure tracer changes to x0 during seccomp ptrace exit
-> +	 * processing (SECCOMP_RET_TRACE) are visible to tracepoints and
-> +	 * audit.
-> +	 */
-> +	update_syscall_orig_x0_after_ptrace(regs);
+The lockless getter still validates each entry before consuming its A/D
+state, so it preserves the self-consistent range requirement while also
+avoiding reads that cannot affect the returned PTE.
 
-LGTM
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
-Tested-by: Jinjie Ruan <ruanjinjie@huawei.com>
+Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+---
+ arch/riscv/mm/contpte.c | 60 ++++++++++++++++++++++++++++++++++++++---
+ 1 file changed, 56 insertions(+), 4 deletions(-)
 
-> +
->  	if (test_thread_flag(TIF_SYSCALL_TRACEPOINT))
->  		trace_sys_enter(regs, regs->syscallno);
->  
+diff --git a/arch/riscv/mm/contpte.c b/arch/riscv/mm/contpte.c
+index 9ffdffdc2b0c0..70f9a0668b50c 100644
+--- a/arch/riscv/mm/contpte.c
++++ b/arch/riscv/mm/contpte.c
+@@ -309,10 +309,34 @@ pte_t napotpte_ptep_get(pte_t *ptep, pte_t orig_pte)
+ 		cur = READ_ONCE(start[i]);
+ 		if (!napotpte_is_consistent(cur, orig_pte))
+ 			return napotpte_subpte(ptep, orig_pte);
+-		if (pte_dirty(cur))
++		if (pte_dirty(cur)) {
+ 			pte = riscv_pte_mkhwdirty(pte);
+-		if (pte_young(cur))
++			for (; i < nr; i++) {
++				cur = READ_ONCE(start[i]);
++				if (!napotpte_is_consistent(cur, orig_pte))
++					return napotpte_subpte(ptep, orig_pte);
++				if (pte_young(cur)) {
++					pte = pte_mkyoung(pte);
++					break;
++				}
++			}
++			break;
++		}
++
++		if (pte_young(cur)) {
+ 			pte = pte_mkyoung(pte);
++			i++;
++			for (; i < nr; i++) {
++				cur = READ_ONCE(start[i]);
++				if (!napotpte_is_consistent(cur, orig_pte))
++					return napotpte_subpte(ptep, orig_pte);
++				if (pte_dirty(cur)) {
++					pte = riscv_pte_mkhwdirty(pte);
++					break;
++				}
++			}
++			break;
++		}
+ 	}
+ 
+ 	return napotpte_subpte(ptep, pte);
+@@ -343,11 +367,39 @@ pte_t napotpte_ptep_get_lockless(pte_t *orig_ptep)
+ 		if (!napotpte_is_consistent(pte, orig_pte))
+ 			goto retry;
+ 
+-		if (pte_dirty(pte))
++		if (pte_dirty(pte)) {
+ 			orig_pte = riscv_pte_mkhwdirty(orig_pte);
++			for (; i < nr; i++, ptep++) {
++				pte = READ_ONCE(*ptep);
++
++				if (!napotpte_is_consistent(pte, orig_pte))
++					goto retry;
+ 
+-		if (pte_young(pte))
++				if (pte_young(pte)) {
++					orig_pte = pte_mkyoung(orig_pte);
++					break;
++				}
++			}
++			break;
++		}
++
++		if (pte_young(pte)) {
+ 			orig_pte = pte_mkyoung(orig_pte);
++			i++;
++			ptep++;
++			for (; i < nr; i++, ptep++) {
++				pte = READ_ONCE(*ptep);
++
++				if (!napotpte_is_consistent(pte, orig_pte))
++					goto retry;
++
++				if (pte_dirty(pte)) {
++					orig_pte = riscv_pte_mkhwdirty(orig_pte);
++					break;
++				}
++			}
++			break;
++		}
+ 	}
+ 
+ 	return napotpte_subpte(orig_ptep, orig_pte);
+-- 
+2.39.5
 
 
