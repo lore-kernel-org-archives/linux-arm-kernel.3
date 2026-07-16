@@ -4,239 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6159CC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 00:39:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD06CC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 00:50:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I52ybeN3pyBdDPLLwu5TLglFdrNKMCUqBW+ZApG63RE=; b=n/AksTlxXLQFAnItz5AndzHFHd
-	8C7l9kZgbMbnhp98Bu8lkpupLhnj/ElThwSy/c8q+y04YWWTKTwZ3diG84Erim4rXlAbHgur7/Fu2
-	EKXiDUqS3BS+lTtCGI1oXBbDg9MTgrCsNRTBqtIL5mKA5L+vPOtzLnhI0kbgefVQFxx3e1wRWCsnM
-	k/Pa99H11UtlcfWaOM07XT6RhpVynjJCMOjv7rt2Mr1eypGqjwmgGxGLcFqf7wQHGhjIeQeWzkrwu
-	MnuFM+lTa60cjOeXQVaI3JQ2OBmya2Wt3UjHnS5S1BmQr/uZreRrSmFmnwH6vwChZbrJS3K786oj1
-	LODU26sA==;
+	bh=Smd+ecRUG2gbXZX2w3V4m6C9IgIOK73PeS9WUA+QzEU=; b=XyFbhsQOPtjtVw4l3IDwQKJqym
+	2zQTDg1c4qEW8CYq/RDT7yS3pSuOl7GxbAhPxQSjhyY4QgrvZsi5T0pTZo+iw5yTIR16VxptWUNbX
+	MwKdvFNqsYZqZpReIRtYeKB7CVl55qozLypZJmvxB/EF6KK6dA2f5EASaEiECFUWlnOug5qxhd8Qi
+	rTzx1Ox3p8xWUEzAJ0eMVG5WQvXxJrYMZh9e0agfXFVMDINU348HCwcSaNDbYeCQ6FmybTpEqFrJ7
+	Ul/Ss1n3eZaSQjHep9zaElJhVOwtbxdAuvrGmwT5dGxZS1n6nXg6YB4GVhZZkygK/Pu1MHQe5b1qM
+	H83R1tsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkA87-0000000G92U-3fTU;
-	Thu, 16 Jul 2026 00:39:11 +0000
-Received: from mx0b-00230701.pphosted.com ([148.163.158.9])
+	id 1wkAJB-0000000G9ab-3VDv;
+	Thu, 16 Jul 2026 00:50:37 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkA84-0000000G91W-2wzC;
-	Thu, 16 Jul 2026 00:39:10 +0000
-Received: from pps.filterd (m0098572.ppops.net [127.0.0.1])
-	by mx0b-00230701.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66G0RfGT3264537;
-	Wed, 15 Jul 2026 17:38:59 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=synopsys.com; h=
-	cc:content-id:content-transfer-encoding:content-type:date:from
-	:in-reply-to:message-id:mime-version:references:subject:to; s=
-	pfptdkimsnps; bh=I52ybeN3pyBdDPLLwu5TLglFdrNKMCUqBW+ZApG63RE=; b=
-	Qji3stj3x/NS6VXeDPE0zPoMKsAYT5z1HApmv60BMfT9KKV0omSxfm/NtBIhC8H+
-	Dj35+Vyd+jUEop+Y4w6Bm4Dw5rFVbU8Iyi0LUUViGc6Nc3E2m6nGo/XVpa9lchpe
-	WzJ86HLT+bLH8yPJIl0rVsiWNVMA+vdzWdwWG6uKruASbujgyY25k+DaaNDZbyy3
-	IWRrHyrcxl3vQ09+Ahm6L+3FXpwavux7SCmYwd8x3KLOFzPCJOJLiIksXgkzYmxt
-	mi9BodU9s5jCZK4mdakeCNDQdt1LCsqSteUiDxYuxXeYldmEK99kG+C380fOgGAG
-	w+N1+Z46Hp6YGRkmLMD5jQ==
-Received: from smtprelay-out1.synopsys.com (smtprelay-out1.synopsys.com [149.117.87.133])
-	by mx0b-00230701.pphosted.com (PPS) with ESMTPS id 4feddwushq-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 15 Jul 2026 17:38:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=synopsys.com; s=mail;
-	t=1784162338; bh=I52ybeN3pyBdDPLLwu5TLglFdrNKMCUqBW+ZApG63RE=;
-	h=From:To:CC:Subject:Date:References:In-Reply-To:From;
-	b=EQCIYEOuvxQa1Su6Wifvl9+Os1WnXA4YyaXNHKlYD+4Thly0krAb1sDlGfYmK/rij
-	 2Jo4Hb2pe70iRWPSXhWni0fWX2NXOR6sZdv8pjXgiQ5sl6jhOx4FfvQYCGJfdTE/Bb
-	 zYSly4/jD0bfXbYm+ENkB8ki9C36mHlkt8MC6exONB0vhtDvFWvURAWe9KLlGk2+ce
-	 Ud04MCAauJiC5Tp9guiruoZ71Ydf26rPjUeKNfMLIM4bmwXWtOSvdVeeNpn2g2flm0
-	 ssJMscwBMNpjsclutLTFD5uzJlsMSYMFf2vhhgCQ4JUkNalitONt76wz++nN1tW87y
-	 UQS0lHbFd4yXQ==
-Received: from mailhost.synopsys.com (sv1-mailhost1.synopsys.com [10.205.2.131])
+	id 1wkAJ7-0000000G9a5-1gKo;
+	Thu, 16 Jul 2026 00:50:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1784163029;
+	bh=i3wzK/2CZLjfYK0dabcw+O15PTqu0KXSSvMhDzqhSG0=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=I7YWmMzhFn7OsYKprSKoQ/RrRHnYOIM4/KohDFsFeTqI66lvNL1qKXh/N+QTCuLle
+	 nBMGYxNoyZWHFjdWc9trM/MOQLQ2FTjfVluogBbYWvOUt0obz57rDdlTVioiiC6lBJ
+	 onpZWqrBr4uOPSBZ+s6ORM6ehAfHp6nIoXxTZBnqbuSjYdFmXyEMbOdZYxAOwZ8xCF
+	 mTNwk16bsvuxK68JDfk/4Ms1Qk9tnNiXAAVorpklL6BM34fSHTeTt6508HjkhY1PFF
+	 bp3m/TwNoMtOsnPpjYxDwi5aFt3YWpT4IYic4oil/YKbD+/sZtLVxUD1jC1VOeADi5
+	 jew1tHOqyvRcA==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits)
-	 client-signature RSA-PSS (2048 bits))
-	(Client CN "mailhost.synopsys.com", Issuer "SNPSica2" (verified OK))
-	by smtprelay-out1.synopsys.com (Postfix) with ESMTPS id 268F240351;
-	Thu, 16 Jul 2026 00:38:56 +0000 (UTC)
-Received: from o365relay-in.synopsys.com (us03-o365relay3.synopsys.com [10.4.161.139])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits)
-	 client-signature RSA-PSS (2048 bits))
-	(Client CN "o365relay-in.synopsys.com", Issuer "Sectigo Public Server Authentication CA OV R36" (not verified))
-	by mailhost.synopsys.com (Postfix) with ESMTPS id 4FFB5A1095;
-	Thu, 16 Jul 2026 00:38:55 +0000 (UTC)
-Authentication-Results: o365relay-in.synopsys.com; dmarc=pass (p=reject dis=none) header.from=synopsys.com
-Authentication-Results: o365relay-in.synopsys.com; spf=pass smtp.mailfrom=synopsys.com
-Authentication-Results: o365relay-in.synopsys.com;
-	dkim=pass (1024-bit key; unprotected) header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=selector1 header.b=u/a26Y1h;
-	dkim-atps=neutral
-Received: from BL0PR07CU001.outbound.protection.outlook.com (mail-bl0pr07cu00100.outbound.protection.outlook.com [40.93.4.0])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-384) server-signature RSA-PSS (2048 bits) server-digest SHA256
-	 client-signature RSA-PSS (2048 bits) client-digest SHA256)
-	(Client CN "mail.protection.outlook.com", Issuer "DigiCert SHA2 Secure Server CA" (verified OK))
-	by o365relay-in.synopsys.com (Postfix) with ESMTPS id 406044011C;
-	Thu, 16 Jul 2026 00:38:52 +0000 (UTC)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=as3RKdQE6ft181fiTyvqzZezKtfjzSdX26xUFD7KEaYN1mb64Pw2I02OnW0034rKeoWyJs/GVHa+0O5ygSjJZkC7rYbaBzZouIzMfCH5AHw0quR1X+MeZCkK+clckQS4DMRYIJX/QgGK0tzG7aXlqo/s1pipp73YQt43zic6Z3qzMNXvRsIr4tXVYz2S30wL1hCI4zI2plxOKScqyoseRcV3coVEVcdlqfKUvzhoL0nNKwtcfRGsV24cxCuz5w2VVlKOVl9CAWDlEVtT2pzfIx1L3ey4Bza0Isk9RGEYdDwnOkI1H/QjuaFPne20jQTYjKEqmhkBWTU+8Yl9H59dkg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=I52ybeN3pyBdDPLLwu5TLglFdrNKMCUqBW+ZApG63RE=;
- b=qVXSdViNQIJZHvsJBFAtmeRkGIZ98Z/s4s2Kkpb0KD6C/jCoLbmZnBQV9sbugaB7J/1/49kgWr/6Yj4E322SwU9/b7MqAoyiGv3ueTucvfv9HtcOH0PV6yXnlylWroWuZRmUIR3d6Fvzwd6vvW2ewd3xZ8GP63Dz64oli0+YqP6xzx+eIhxCeLhm3VMO8S2sFcWzpG3z0oLXfJKV1oO2a1OZCsqvLEgzAVrfmLpsMnT7Z6QmVG7eAYlyDYaOn6B9Pi/VPzNmv+y+24aO5PRYotM6HiKFdSpQLurtcYR4/buLFsCSRzc5Yip+96y0Hp0VOnF5tZ7KmVi6qyGX3y89lQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=synopsys.com; dmarc=pass action=none header.from=synopsys.com;
- dkim=pass header.d=synopsys.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=synopsys.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=I52ybeN3pyBdDPLLwu5TLglFdrNKMCUqBW+ZApG63RE=;
- b=u/a26Y1hT3k6yUDZtZIUcXkmUf0z+wAFs4chPT1WGG8dri/rUXLCK+aes+3CEdnXMZnFX4Ky8aQOyemKbbtKGTumhFONiUOJ4Qei3ONFiLU6s8vlKWWcItUJhxtYXfPCGD8hlfYZuF0o0J1fXOCftK67pOfF1IFF8r9lcrkJAHs=
-Received: from PH0PR12MB7486.namprd12.prod.outlook.com (2603:10b6:510:1e9::6)
- by CY8PR12MB8196.namprd12.prod.outlook.com (2603:10b6:930:78::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.10; Thu, 16 Jul
- 2026 00:38:40 +0000
-Received: from PH0PR12MB7486.namprd12.prod.outlook.com
- ([fe80::7df9:b25e:9216:f109]) by PH0PR12MB7486.namprd12.prod.outlook.com
- ([fe80::7df9:b25e:9216:f109%6]) with mapi id 15.21.0223.008; Thu, 16 Jul 2026
- 00:38:37 +0000
-X-SNPS-Relay: synopsys.com
-From: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-CC: Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
-        Heiko Stuebner <heiko@sntech.de>,
-        Frank Wang <frank.wang@rock-chips.com>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Philipp Zabel <p.zabel@pengutronix.de>,
-        Andy Yan <andy.yan@rock-chips.com>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Yubing Zhang <yubing.zhang@rock-chips.com>,
-        Alexey Charkov <alchark@flipper.net>,
-        "linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>,
-        "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-        "linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>,
-        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-        "kernel@collabora.com" <kernel@collabora.com>,
-        "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-        "linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>
-Subject: Re: [PATCH v13 29/35] usb: dwc3: core: support PHY reset
- notifications
-Thread-Topic: [PATCH v13 29/35] usb: dwc3: core: support PHY reset
- notifications
-Thread-Index: AQHdE8arRneswr7xUEajxvR7GSrovLZvT1IA
-Date: Thu, 16 Jul 2026 00:38:37 +0000
-Message-ID: <algnRWVX9g8XranY@vbox>
-References: <20260714-rockchip-usbdp-cleanup-v13-0-6cb3e769d4c5@collabora.com>
- <20260714-rockchip-usbdp-cleanup-v13-29-6cb3e769d4c5@collabora.com>
-In-Reply-To: <20260714-rockchip-usbdp-cleanup-v13-29-6cb3e769d4c5@collabora.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PH0PR12MB7486:EE_|CY8PR12MB8196:EE_
-x-ms-office365-filtering-correlation-id: 35c22163-986d-4cd9-973b-08dee2d29377
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|23010399003|38070700021|18002099003|10067099003|22082099003|56012099006|4143699003|11063799006;
-x-microsoft-antispam-message-info: 9e8GZ2Yock7UobWKaZAoXcLV1WX9r6aLJ2Ly+xsKQo6XmSGmhTyhKPtUZK9twg8JK4dS41n3PhYVx+6ZyGJvk1ifKkTLwCfwb9scbINJM97aSncsqNMONuYBFZfxbvyPsAw89JSMp398ZEzgyopCS2gRF/EgN5EcdoS7pauZ0a4TQslQ/aRgfFHVztGXUVNxogQRApT6XhLn/kY6e7+jubKJwQErphNVKyJAxK8QCc7X6ZzEO9cG1G8yW+up/FANmOj4IomBi9dJ1DLtqLiCsnV5C689Oafzn7Nj8a0ZvgCXmwYonSlsw5YQevLBp3BBAMmIlhZ4u+9b1PPnUWMD69Cf6m09kT6wU0ZLm7Ef9uzfLGYEJGavt+PiO0TYaJx2r1ptHf1Q4OANyY486qQUe2UAVcJEUv0DgeB7VMYQMBSKVBICEXuminFPBkpTVJ1zcNEl3vXbOsJx3WdFUDGP5vkWWFEatTygbniyRDppe6IfMuHUqvGxv4aaYdxeV3Fha5limtzQGxG1wdb6vorC15od8b/WC8U95t5R1ryV1fZ4zFGgwkKgtDjhXQIGRxvZfv1p3IeEcUFHYDJTwsvW9gq2OJ/pES1GGGEd9FRl5Diff7FMSYmNPCLnp8xNgav7TU3g/irpE3fLBcM4ru0gShM9fRTaB5IX2wQkYoXjqTo4PVcT3cfv9F1RIhQp40uRYHnVQb90k9h0MGUdbR9jPw==
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR12MB7486.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(23010399003)(38070700021)(18002099003)(10067099003)(22082099003)(56012099006)(4143699003)(11063799006);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?YmdZUDhqU0txR3NpUENIRmpKRTEwQWNsRkRra1dxRUgrOU5kVVFLSVZtYTVD?=
- =?utf-8?B?ekl0NVlzZWFqcWhOaUtVTHNTaktkZjBlZ3h1MmtxL09PTDBUMU1ZNU5HUUZ5?=
- =?utf-8?B?eTVZOTQ2ZHFrZStKZ1BIdkU3NGh0UDh1ckM0WEVRU2RHUFlmQWJna2JsTTl4?=
- =?utf-8?B?Q3dFNGpEMzZOVXZYNVJlNGhZMy9VbTJPV0RXU2xVTlRwM09rL0s0eWcvN2lJ?=
- =?utf-8?B?MXlXUGJLZWMwMUE0U1QwZUFZSm9oRCtleVR1TG01bmZxQmFpaUxTdW5OeDNW?=
- =?utf-8?B?US9vYi9hSlZHTjkvd1QxRFRrZXNLNmN0NEt1TGdKRnlxOTQvQ1VBbkREczBO?=
- =?utf-8?B?MTNMRXJHLzdxVXY2bk1aL2JPaEtkTWNSeG0zZVJGdjRXbjVTeis1cW9yTVAy?=
- =?utf-8?B?blNDcjI0alNpaFU1bWxVUEZVbWdkZ1gwTkxZVkhHVGdZemV6NjJZbjVIL1o1?=
- =?utf-8?B?bVRFZXVKbW1oaUxSS1lCMER0WXpoeGYvK2ZWc1Z0bVJwRi9iVDFWQytYOFYy?=
- =?utf-8?B?enFPcjVrNTN2NVFnK2xsUm11WjQ1Y21rbnVXSmlVdnJLMktQRzRSR0JISWdM?=
- =?utf-8?B?d3RkZWFObmRUVFcvRkw4YlYyWWJabjY2Y3FrNWFuNllwUmt4dWtGT29JNmIv?=
- =?utf-8?B?M1d6VHcvV1pBQTEwV0JUVFdKNlJ2Q21JMU1PYjlEcnBNM3N5dmRFZWRVbTZp?=
- =?utf-8?B?cEMybVZYdWNVME9hYWI0MHhvVmhqdEtHcW92YUhQVmtpQkZYenhYT2xUSEs3?=
- =?utf-8?B?eVNXWWRKeFhPenF2QUVtQ0tVekpIZ09oTXByRW1YY3VZMktmeUNQWDVqM2RN?=
- =?utf-8?B?M3ZiTWVCeUJ6L2NTaXljWWxWU2lJb3MvQW94UnR0eGtFV08yZEMyTjBlYUlz?=
- =?utf-8?B?YzVNdTUvNitYVnQ3dXMwekdpYk8vVThIcWhhNkZNZzNaZThVUDBsSnVmR29n?=
- =?utf-8?B?aDdrK3M0dkIzUjJkb2tVSkRUaW1RYlFMcXpQOFJCTk5nOW1Xa0V0M2g2Y3dm?=
- =?utf-8?B?OEpqWVNhdjZ4dXdYb2l1Q3QxQzV5K2NFOE9BRElwdFM0bGkxRG1pTHlCcFh3?=
- =?utf-8?B?dWIrRHk3OVUwTGh1Q1ZhODRDRm1VSnBlMUcxRkxJVFo4OSszVVRiQ0lIaHBS?=
- =?utf-8?B?OE1LWmxuRHZQcytEajlHUlNyOWhCOEE3QWgrWjdmRzcwRE54blowUXRPWEVV?=
- =?utf-8?B?RXl0dE53QVkwWm1PZkpuaDB4REVqQ0lyc1RvdjNyaW4vZFEzM2xETmhjME5v?=
- =?utf-8?B?MVk5V0xOSnA2S084Y0FYTU1XUWxCQVVVVkY5b3AyNWxqeXhmZVIwaHpPVk5r?=
- =?utf-8?B?QTFrOXhiT3VvY1FlYjcxVlFhalZtUm1ZemRmV2N1dXFBWEVCYUJScjIxSjVY?=
- =?utf-8?B?eDJEWkhBZkNpZ3U3R3lXSkdJc2VocDdPeWsxMWxjYWJJNzNUV2hhbU1mem1M?=
- =?utf-8?B?NVZtcHNmYXlrWktGaVZaT0pXU2pxTVBDclN5MUdhT3dSNisvWDc2SUd6ZUtD?=
- =?utf-8?B?VFBqVndraXFYT2NtSVFVbHR1a1FPUStZc0prYkUyTE5Ed3NJVWpvak4wZXBl?=
- =?utf-8?B?ZSt0MDhnZDBYRXo4TVhQeWtmQ0RUSkV1Yk8ySE5RZmx5L1k4SzBDT2hwaHMy?=
- =?utf-8?B?VmZGTEVwSThvWGNvNGJhK0JjZjczRUdhRXREL2lua0tPRWpxTHlCd09xNDVD?=
- =?utf-8?B?L2ZLeUlWMXArNkd4WVN2bXR0NG5JZFIyT2pwRG5IR0Q2SUFqb2NJZDFGWU91?=
- =?utf-8?B?dXZ3N1pGc3BSRjN4dkRGdkpFQXpkclNZVEdLK3RNaWtmQVk4UFg4R1llMTl1?=
- =?utf-8?B?aUVnK1JxallxRXZwb25PUkVCSUFSbnMxWWZlTU5qL1JGQVhGRkZXYUhYcmlE?=
- =?utf-8?B?OTA1QlB2VlBHa0lxd3IzZ1Q2cWsybTh6aWFTRzIvOHBidUthNi95S2xTRHBn?=
- =?utf-8?B?OFpHRlNqdm1XTVRiRTBLUytmQmE1dmNSSk5pSlEwMWJOVjMvUXl6SGFoTk9h?=
- =?utf-8?B?QXUrOTJRQXJFWW0zcllzTlYrT3FseGFhQW5McldhTlF1ZkhJSllSNHBjdmFv?=
- =?utf-8?B?ZTNEZG9aOXpYaktVekN1UW5JN1dBWDB3L1pEVkcwSjZ2cmZIUjRDWWRzbXZF?=
- =?utf-8?B?N3BrcHVDUVVGMDlxUEJLQ3JWanpGelZhVTM4K3Bhb3lLbXdmQm5iMVVqQW84?=
- =?utf-8?B?ZXpqS1pGTVJXSHNuTDhqSTBNMUZGWXhCd3pSRUQ4c0t6UWF6a0J2NllYVHVs?=
- =?utf-8?B?QUZOQ0dDMzlaZzJFMmZWa1Y4TlJKdmoxUXhlSWlyZWhIOFFSYkdRdEIvaUp4?=
- =?utf-8?B?UTAyMSsrbFFDa1RLZ0pLbEJmdXVCWDNJR2x4YzJDbTFXV1kzZWdSdz09?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <2447101137758046B50DE7A104BDFCE5@namprd12.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6159117E087B;
+	Thu, 16 Jul 2026 02:50:25 +0200 (CEST)
+Message-ID: <2dad1d32f59b271e9cf53f0da71b584e2e04a889.camel@collabora.com>
+Subject: Re: [PATCH v5 02/14] media: mediatek: vcodec: add driver to support
+ vcp
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Kyrie Wu <kyrie.wu@mediatek.com>, Tiffany Lin
+ <tiffany.lin@mediatek.com>,  Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
+ Yunfei Dong <yunfei.dong@mediatek.com>, Mauro Carvalho Chehab	
+ <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski	
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger	
+ <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
+ <angelogioacchino.delregno@collabora.com>, Ricardo Ribalda	
+ <ribalda@chromium.org>, Kees Cook <kees@kernel.org>, Hans Verkuil	
+ <hverkuil+cisco@kernel.org>, Haoxiang Li <haoxiang_li2024@163.com>, Fei
+ Shao	 <fshao@chromium.org>, Chen-Yu Tsai <wenst@chromium.org>, Laurent
+ Pinchart	 <laurent.pinchart+renesas@ideasonboard.com>, Sebastian Fricke	
+ <sebastian.fricke@collabora.com>, Benjamin Gaignard	
+ <benjamin.gaignard@collabora.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ Qianfeng Rong <rongqianfeng@vivo.com>, Jacopo Mondi
+ <jacopo.mondi@ideasonboard.com>, Irui Wang	 <irui.wang@mediatek.com>, Fan
+ Wu <fanwu01@zju.edu.cn>, 	linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, 	linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, 	linux-mediatek@lists.infradead.org
+Cc: Sakari Ailus <sakari.ailus@linux.intel.com>, Tzung-Bi Shih
+	 <tzungbi@kernel.org>, Tomasz Figa <tfiga@chromium.org>
+Date: Wed, 15 Jul 2026 20:50:23 -0400
+In-Reply-To: <20260603084045.17488-3-kyrie.wu@mediatek.com>
+References: <20260603084045.17488-1-kyrie.wu@mediatek.com>
+	 <20260603084045.17488-3-kyrie.wu@mediatek.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-GogitkVNMOTwu37Eb8w7"
+User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: PAIIZqAqdkuCyjinJdsqeJxxb1q+OF/M01RNMUNCfUxcFbzYE+LH1IqOeRkBamGLy5sS0qeTNMlRzBCLLh+XwWib85DOwLC513al4koYVB0UsvyRx4hq1OiYaf01mJQDFf62VSgXhw6kiJX/z7AXoyKX0TnE6oYc/3ICdycA+oloqvRODOblZd/+8FQMFU0lM5wfpVPEzCIbaMnP8PhCXlgDBXIVyJP5fKYS82diWjbmDESJOunz7PL/txGOuieV2/o8eBST8aZ5+t7Crur3Mldql6IebdBvrTdj/u76iUg6ScCTOaDf1f7J69xCCFFzp71eo9stGdJ1nFfQGOeytw==
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: +h8RxahIDrtEpzJJ3CBkz/s3mOxqvJV+gBw7O187adrinNnwuMJzheFDW3GNvB6P2aPQffS5q+i8PYOLK/n+LlxDZQdK9Bd5DX9rNhnu9i9G6FTqRjIsAj52txc+yvlM+iKbvWGWktZP4VLSXvACiGK+UKGUKeMWeaCk7PRnmr9pOvNs7gwoBI+Fpm1rbbeY3s9xLso3OxicOVy2rtrir2l2XerPJ3Gn+Lh59mlI8nRD01tb1liRqGckexh2TbQ+qIMRVa7bZy4eLDyXfT25AjqJaSrf77kKgfjpdkpn9d1dp7GuhBQHzo2P+4lTVfixPIAvyQFaXJvCZ9zX0ZI9YTCPsYBud7QqtJAc4vYqtCOHamkYxMT8+O/RPIid9lTFYERM8/rS2ZaoCHMfiH8c0UkZsBzMK4CCqYb7PsbL9k4thTLRJP+yIVvEmRoV32Yg6a/8ThokFcuoyyWtRYX6OPrbAZBJfvxvQoBTLvLkC6VPIrBNcaPQ4m1eT6HnFYUvpgem4kn/DQrZwkFuDManV9tqZEeSwRAgsP4QMSFwIiSGY4jiy2TqQCmi9C9tVlWGGSb61pS5f/eac9Q33U4/5q4qvAkJQLWzWzhidqnFvdBi+0JWJtM29kkdJv76qyBOdk/WFNl0LDso+fVicN1LAw==
-X-OriginatorOrg: synopsys.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PH0PR12MB7486.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 35c22163-986d-4cd9-973b-08dee2d29377
-X-MS-Exchange-CrossTenant-originalarrivaltime: 16 Jul 2026 00:38:37.7824
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: c33c9f88-1eb7-4099-9700-16013fd9e8aa
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 9C12zffRkngooTXDnvzSQwp4pUEYPpgKzcK9Mif+AikIkwJj9m7gpHIZOjY3O0ZS+3qAG9n7K01vxHExCYvQ1A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB8196
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzE2MDAwMiBTYWx0ZWRfX2FvxH3JH4v06
- Ad/ngP8wXdE8ORgUY7KR5aVvtaIO63PSiac4Z6Qm82nFbPC/QIXOFhH06VtISPK9Tu0Y+8+mn11
- O6wm3ee8k/p+kvJ77NoXbpQJO0+tcbNmuYf2tJlfXDz3gP5ACy8gELD+PH/vW7LTwYwm4nU3RH9
- nkVv4Typzp/oME15TvqeGAEniOqZ8OjpIFNP9idMF6rYx1nmVUg6eITyiIcaawzfxKd88IaUi5u
- UnT9tp8W5bCjEH6jPObT/LR5DgsSQkKscM68SDmfR5/DptLf/tvV/J8rIpxSxhNvrt/vZLRpmd7
- ZT4IhtSutAk7YToVq/iF0JMnYaQ5raCsHF1lgvVUlKNljDqeunhgRCAnytN0KcZWBO1xiVbC4qM
- Ufef8LPgh+VBLWcxdsObVUdDVc7sYxoTdMGJTiukExZExrZidxvv2TOu8GBFmJ0eCXQUuXju31j
- wlZ8kbBRqBwOL5AYBNg==
-X-Proofpoint-ORIG-GUID: rltciFRxq8JauzK-PM5l1gZFpLhXar63
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzE2MDAwMiBTYWx0ZWRfX3p63ANGyyivD
- 7DCud+pAOra6SOg4MTVXuCL6inNXFXQGA/OnScxP793zVfmT0cpW8p4xXhL+GdoUh6U+SdR+2LU
- I71hHKt4pMH4qahQweVMEVzgj9CE6XE=
-X-Proofpoint-GUID: rltciFRxq8JauzK-PM5l1gZFpLhXar63
-X-Authority-Analysis: v=2.4 cv=K8oS2SWI c=1 sm=1 tr=0 ts=6a582823 cx=c_pps
- a=t4gDRyhI9k+KZ5gXRQysFQ==:117 a=t4gDRyhI9k+KZ5gXRQysFQ==:17
- a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19
- a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=qPHU084jO2kA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=tU_645BZ7FZt8VqRJtHG:22 a=jSPayVjLy6xbsuKauFBc:22
- a=QX4gbG5DAAAA:8 a=LmSbGtMdET2yByI-T-0A:9 a=QEXdDO2ut3YA:10
- a=AbAUZ8qAyYyZVLSsDulk:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-16_01,2026-07-15_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_active_cloned_notspam
- policy=outbound_active_cloned score=0 malwarescore=0 spamscore=0
- clxscore=1011 impostorscore=0 suspectscore=0 priorityscore=1501 adultscore=0
- lowpriorityscore=0 phishscore=0 bulkscore=0 classifier=typeunknown
- authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.22.0-2606150000 definitions=main-2607160002
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_173908_891589_90550D85 
-X-CRM114-Status: UNSURE (   8.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260715_175033_944778_E0D032E1 
+X-CRM114-Status: GOOD (  24.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -251,24 +106,1024 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBKdWwgMTQsIDIwMjYsIFNlYmFzdGlhbiBSZWljaGVsIHdyb3RlOg0KPiBPbiByZWNl
-bnQgUm9ja2NoaXAgcGxhdGZvcm1zIChhdCBsZWFzdCBSSzM1ODggJiBSSzM1NzYpLCBEV0MzIElQ
-IGlzIHVzZWQNCj4gd2l0aCBhIFVTQkRQIFBIWSBwcm92aWRpbmcgVVNCMyBhbmQgRFAuIFRoaXMg
-UEhZIG5lZWRzIHRvIGJlIHJlc2V0IHdoZW4NCj4gdGhlIG1vZGUgY2hhbmdlcywgd2hpY2ggbWF5
-IGhhcHBlbiB3aGVuIHBsdWdnaW5nIGluIGRpZmZlcmVudCBVU0ItQw0KPiBkZXZpY2VzLg0KPiAN
-Cj4gSWYgdGhlIFVTQkRQIFBIWSByZXNldHMgd2l0aCB0aGUgRFdDMyBJUCBydW5uaW5nLCBpdHMg
-aW50ZXJuYWwgc3RhdGUNCj4gY29ycnVwdHMgcmVzdWx0aW5nIGluIHRoZSBVU0JEUCBQSFkgbm90
-IGJlaW5nIGFibGUgdG8gbG9jayBzb21lIFBMTA0KPiBjbG9ja3MsIHdoaWNoIGVmZmVjdGl2ZWx5
-IHJlbmRlcnMgVVNCMyB1bnVzYWJsZS4NCj4gDQo+IFRvIGZpeCB0aGUgaXNzdWUgdGhpcyBhZGRz
-IGhhbmRsaW5nIGZvciB0aGUgbmV3IFBIWSBmcmFtZXdvcmsgcmVzZXQNCj4gbm90aWZpY2F0aW9u
-cywgd2hpY2ggd2lsbCBhc3NlcnQgUEhZU09GVFJTVCBiZWZvcmUgdGhlIGFjdHVhbCBQSFkNCj4g
-aXMgZGlzYWJsZWQgYW5kIHdpbGwgZGVhc3NlcnQgaXQgb25jZSB0aGUgUEhZIHJldHVybnMuDQo+
-IA0KPiBTaWduZWQtb2ZmLWJ5OiBTZWJhc3RpYW4gUmVpY2hlbCA8c2ViYXN0aWFuLnJlaWNoZWxA
-Y29sbGFib3JhLmNvbT4NCj4gLS0tDQo+ICBkcml2ZXJzL3VzYi9kd2MzL2NvcmUuYyB8IDEwMSAr
-KysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysNCj4gIGRyaXZl
-cnMvdXNiL2R3YzMvY29yZS5oIHwgIDE4ICsrKysrKysrKw0KPiAgMiBmaWxlcyBjaGFuZ2VkLCAx
-MTkgaW5zZXJ0aW9ucygrKQ0KPiANCg0KVGhlc2UgY2hhbmdlcyBzaG91bGQgbm90IGJlIGluIHRo
-ZSBjb3JlLiBUaGlzIGlzIHNwZWNpZmljIHRvIFJvY2tjaGlwDQphbmQgbm90IGV2ZXJ5IHBoeSBu
-ZWVkcyB0aGlzLiBQZXJoYXBzIHlvdSBjYW4gY3JlYXRlIGEgbmV3IGdsdWUgZHJpdmVyDQpmb3Ig
-dGhpcy4NCg0KVGhhbmtzLA0KVGhpbmg=
+
+--=-GogitkVNMOTwu37Eb8w7
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Le mercredi 03 juin 2026 =C3=A0 16:40 +0800, Kyrie Wu a =C3=A9crit=C2=A0:
+> From: Yunfei Dong <yunfei.dong@mediatek.com>
+>=20
+> The processor is changed from scp to vcp in mt8196 platform.
+> Adding new firmware interface to communicate kernel with vcp
+> for the communication method is changed.
+>=20
+> Signed-off-by: Yunfei Dong <yunfei.dong@mediatek.com>
+> ---
+> =C2=A0.../media/platform/mediatek/vcodec/Kconfig=C2=A0=C2=A0=C2=A0 |=C2=
+=A0=C2=A0 4 +
+> =C2=A0.../platform/mediatek/vcodec/common/Makefile=C2=A0 |=C2=A0=C2=A0 4 =
++
+> =C2=A0.../mediatek/vcodec/common/mtk_vcodec_fw.c=C2=A0=C2=A0=C2=A0 |=C2=
+=A0 26 +-
+> =C2=A0.../vcodec/common/mtk_vcodec_fw_priv.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 |=C2=A0 12 +
+> =C2=A0.../vcodec/common/mtk_vcodec_fw_scp.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 1 +
+> =C2=A0.../vcodec/common/mtk_vcodec_fw_vcp.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 | 505 ++++++++++++++++++
+> =C2=A0.../vcodec/common/mtk_vcodec_fw_vcp.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 | 142 +++++
+> =C2=A0.../vcodec/common/mtk_vcodec_fw_vpu.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 1 +
+> =C2=A0.../vcodec/decoder/mtk_vcodec_dec_drv.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 |=C2=A0=C2=A0 3 +
+> =C2=A0.../vcodec/decoder/mtk_vcodec_dec_drv.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 |=C2=A0=C2=A0 2 +
+> =C2=A0.../vcodec/encoder/mtk_vcodec_enc_drv.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 |=C2=A0=C2=A0 2 +
+> =C2=A0.../vcodec/encoder/mtk_vcodec_enc_drv.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 |=C2=A0=C2=A0 2 +
+> =C2=A012 files changed, 691 insertions(+), 13 deletions(-)
+> =C2=A0create mode 100644 drivers/media/platform/mediatek/vcodec/common/mt=
+k_vcodec_fw_vcp.c
+> =C2=A0create mode 100644 drivers/media/platform/mediatek/vcodec/common/mt=
+k_vcodec_fw_vcp.h
+>=20
+> diff --git a/drivers/media/platform/mediatek/vcodec/Kconfig b/drivers/med=
+ia/platform/mediatek/vcodec/Kconfig
+> index bc8292232530..d23dad5c78ce 100644
+> --- a/drivers/media/platform/mediatek/vcodec/Kconfig
+> +++ b/drivers/media/platform/mediatek/vcodec/Kconfig
+> @@ -1,4 +1,7 @@
+> =C2=A0# SPDX-License-Identifier: GPL-2.0-only
+> +config VIDEO_MEDIATEK_VCODEC_VCP
+> +	bool
+> +
+> =C2=A0config VIDEO_MEDIATEK_VCODEC_SCP
+> =C2=A0	bool
+> =C2=A0
+> @@ -21,6 +24,7 @@ config VIDEO_MEDIATEK_VCODEC
+> =C2=A0	select V4L2_MEM2MEM_DEV
+> =C2=A0	select VIDEO_MEDIATEK_VCODEC_VPU if VIDEO_MEDIATEK_VPU
+> =C2=A0	select VIDEO_MEDIATEK_VCODEC_SCP if MTK_SCP
+> +	select VIDEO_MEDIATEK_VCODEC_VCP if MTK_VCP_RPROC
+> =C2=A0	select V4L2_H264
+> =C2=A0	select V4L2_VP9
+> =C2=A0	select MEDIA_CONTROLLER
+> diff --git a/drivers/media/platform/mediatek/vcodec/common/Makefile b/dri=
+vers/media/platform/mediatek/vcodec/common/Makefile
+> index d0479914dfb3..2f68692e8c98 100644
+> --- a/drivers/media/platform/mediatek/vcodec/common/Makefile
+> +++ b/drivers/media/platform/mediatek/vcodec/common/Makefile
+> @@ -14,6 +14,10 @@ ifneq ($(CONFIG_VIDEO_MEDIATEK_VCODEC_SCP),)
+> =C2=A0mtk-vcodec-common-y +=3D mtk_vcodec_fw_scp.o
+> =C2=A0endif
+> =C2=A0
+> +ifneq ($(CONFIG_VIDEO_MEDIATEK_VCODEC_VCP),)
+> +mtk-vcodec-common-y +=3D mtk_vcodec_fw_vcp.o
+> +endif
+> +
+> =C2=A0ifneq ($(CONFIG_DEBUG_FS),)
+> =C2=A0obj-$(CONFIG_VIDEO_MEDIATEK_VCODEC) +=3D mtk-vcodec-dbgfs.o
+> =C2=A0
+> diff --git a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.=
+c b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.c
+> index 08949b08fbc6..64977bcd6abd 100644
+> --- a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.c
+> +++ b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw.c
+> @@ -3,26 +3,26 @@
+> =C2=A0#include "../decoder/mtk_vcodec_dec_drv.h"
+> =C2=A0#include "../encoder/mtk_vcodec_enc_drv.h"
+> =C2=A0#include "mtk_vcodec_fw_priv.h"
+> +#include "mtk_vcodec_fw_vcp.h"
+> =C2=A0
+> =C2=A0struct mtk_vcodec_fw *mtk_vcodec_fw_select(void *priv, enum mtk_vco=
+dec_fw_type type,
+> =C2=A0					=C2=A0=C2=A0 enum mtk_vcodec_fw_use fw_use)
+> =C2=A0{
+> -	struct platform_device *plat_dev;
+> +	if (fw_use =3D=3D ENCODER) {
+> +		struct mtk_vcodec_enc_dev *enc_dev =3D priv;
+> =C2=A0
+> -	if (fw_use =3D=3D ENCODER)
+> -		plat_dev =3D ((struct mtk_vcodec_enc_dev *)priv)->plat_dev;
+> -	else
+> -		plat_dev =3D ((struct mtk_vcodec_dec_dev *)priv)->plat_dev;
+> +		return enc_dev->fw_init(priv, fw_use);
+> +	}
+> +
+> +	if (fw_use =3D=3D DECODER) {
+
+Should we construct this a little safer and use some if/else if/else with s=
+ome
+bug_on in the last entry, or same with a switch ?
+
+> +		struct mtk_vcodec_dec_dev *dec_dev =3D priv;
+> =C2=A0
+> -	switch (type) {
+> -	case VPU:
+> -		return mtk_vcodec_fw_vpu_init(priv, fw_use);
+> -	case SCP:
+> -		return mtk_vcodec_fw_scp_init(priv, fw_use);
+> -	default:
+> -		dev_err(&plat_dev->dev, "Invalid vcodec fw type");
+> -		return ERR_PTR(-EINVAL);
+> +		return dec_dev->fw_init(priv, fw_use);
+> =C2=A0	}
+> +
+> +	pr_err("Error in selecting firmware, fw_use is not set");
+> +
+> +	return ERR_PTR(-EINVAL);
+> =C2=A0}
+> =C2=A0EXPORT_SYMBOL_GPL(mtk_vcodec_fw_select);
+> =C2=A0
+> diff --git a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_=
+priv.h b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_priv.h
+> index 99603accd82e..0a2a9b010244 100644
+> --- a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_priv.h
+> +++ b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_priv.h
+> @@ -4,6 +4,7 @@
+> =C2=A0#define _MTK_VCODEC_FW_PRIV_H_
+> =C2=A0
+> =C2=A0#include "mtk_vcodec_fw.h"
+> +#include "mtk_vcodec_fw_vcp.h"
+> =C2=A0
+> =C2=A0struct mtk_vcodec_dec_dev;
+> =C2=A0struct mtk_vcodec_enc_dev;
+> @@ -13,6 +14,7 @@ struct mtk_vcodec_fw {
+> =C2=A0	const struct mtk_vcodec_fw_ops *ops;
+> =C2=A0	struct platform_device *pdev;
+> =C2=A0	struct mtk_scp *scp;
+> +	struct mtk_vcp *vcp;
+> =C2=A0	enum mtk_vcodec_fw_use fw_use;
+> =C2=A0};
+> =C2=A0
+> @@ -49,4 +51,14 @@ mtk_vcodec_fw_scp_init(void *priv, enum mtk_vcodec_fw_=
+use fw_use)
+> =C2=A0}
+> =C2=A0#endif /* CONFIG_VIDEO_MEDIATEK_VCODEC_SCP */
+> =C2=A0
+> +#if IS_ENABLED(CONFIG_VIDEO_MEDIATEK_VCODEC_VCP)
+> +struct mtk_vcodec_fw *mtk_vcodec_fw_vcp_init(void *priv, enum mtk_vcodec=
+_fw_use fw_use);
+> +#else
+> +static inline struct mtk_vcodec_fw *
+> +mtk_vcodec_fw_vcp_init(void *priv, enum mtk_vcodec_fw_use fw_use)
+> +{
+> +	return ERR_PTR(-ENODEV);
+> +}
+> +#endif /* CONFIG_VIDEO_MEDIATEK_VCODEC_VCP */
+> +
+> =C2=A0#endif /* _MTK_VCODEC_FW_PRIV_H_ */
+> diff --git a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_=
+scp.c b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_scp.c
+> index 1b0bc47355c0..1aad5c3ef990 100644
+> --- a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_scp.c
+> +++ b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_scp.c
+> @@ -90,3 +90,4 @@ struct mtk_vcodec_fw *mtk_vcodec_fw_scp_init(void *priv=
+, enum mtk_vcodec_fw_use
+> =C2=A0
+> =C2=A0	return fw;
+> =C2=A0}
+> +EXPORT_SYMBOL_GPL(mtk_vcodec_fw_scp_init);
+> diff --git a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_=
+vcp.c b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vcp.c
+> new file mode 100644
+> index 000000000000..2f3bfcd97958
+> --- /dev/null
+> +++ b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vcp.c
+> @@ -0,0 +1,505 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (c) 2025 MediaTek Inc.
+> + * Author: Yunfei Dong <yunfei.dong@mediatek.com>
+> + */
+> +
+> +#include <linux/delay.h>
+> +#include <linux/dma-direction.h>
+> +#include <linux/dma-mapping.h>
+> +#include <linux/iommu.h>
+> +#include <linux/remoteproc/mtk_vcp_public.h>
+> +#include <linux/firmware/mediatek/mtk-vcp-ipc.h>
+> +
+> +#include "../decoder/mtk_vcodec_dec_drv.h"
+> +#include "../decoder/vdec_ipi_msg.h"
+> +#include "mtk_vcodec_fw_priv.h"
+> +
+> +#define IPI_SEND_TIMEOUT_MS=C2=A0 100U
+> +#define IPI_TIMEOUT_MS=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 100U
+> +
+> +#define VCP_IPI_HEADER_SIZE (sizeof(u32) * 2)
+> +#define VCP_IPI_ALIGN (4)
+> +
+> +static struct mutex *mtk_vcodec_vcp_get_ipi_lock(struct mtk_vcp *vcp, u3=
+2 ipi_id)
+> +{
+> +	return &vcp->ipi_desc[ipi_id].lock;
+
+Maybe add sound bound checks ?
+
+> +}
+> +
+> +static void mtk_vcodec_vcp_ipi_lock(struct mtk_vcp *vcp, u32 ipi_id)
+> +{
+> +	struct mutex *lock =3D mtk_vcodec_vcp_get_ipi_lock(vcp, ipi_id);
+> +
+> +	if (!lock)
+> +		return;
+
+mtk_vcodec_vcp_get_ipi_lock() nevers return null at the minute.
+
+> +
+> +	mutex_lock(lock);
+> +}
+> +
+> +static void mtk_vcodec_vcp_ipi_unlock(struct mtk_vcp *vcp, u32 ipi_id)
+> +{
+> +	struct mutex *lock =3D mtk_vcodec_vcp_get_ipi_lock(vcp, ipi_id);
+> +
+> +	if (!lock)
+> +		return;
+> +
+> +	lockdep_assert_held(lock);
+> +	mutex_unlock(lock);
+> +}
+> +
+> +static spinlock_t *mtk_vcodec_vcp_get_msg_queue_lock(struct mtk_vcodec_f=
+w *fw)
+> +{
+> +	return &fw->vcp->msg_queue.lock;
+> +}
+> +
+> +static void mtk_vcodec_vcp_msq_queue_lock(struct mtk_vcodec_fw *fw, unsi=
+gned long *flags)
+> +{
+> +	spinlock_t *lock =3D mtk_vcodec_vcp_get_msg_queue_lock(fw);
+> +
+> +	if (!lock)
+> +		return;
+
+mtk_vcodec_vcp_get_msg_queue_lock() never returns null.
+
+> +
+> +	spin_lock_irqsave(lock, *flags);
+> +}
+> +
+> +static void mtk_vcodec_vcp_msq_queue_unlock(struct mtk_vcodec_fw *fw, un=
+signed long *flags)
+> +{
+> +	spinlock_t *lock =3D mtk_vcodec_vcp_get_msg_queue_lock(fw);
+> +
+> +	if (!lock)
+> +		return;
+> +
+> +	spin_unlock_irqrestore(lock, *flags);
+> +}
+> +
+> +static int mtk_vcodec_vcp_notifier(struct notifier_block *nb, unsigned l=
+ong event, void *ptr)
+> +{
+> +	struct mtk_vcp *vcp =3D container_of(nb, struct mtk_vcp, vcp_notify);
+> +
+> +	switch (event) {
+> +	case VCP_EVENT_SUSPEND:
+> +	case VCP_EVENT_STOP:
+> +		dev_dbg(&vcp->pdev->dev, "vcp notifier suspend");
+> +		break;
+> +	case VCP_EVENT_READY:
+> +	case VCP_EVENT_RESUME:
+> +		dev_dbg(&vcp->pdev->dev, "vcp notifier ready");
+> +		break;
+> +	}
+> +
+> +	return NOTIFY_DONE;
+> +}
+> +
+> +static void mtk_vcodec_vcp_free_msg_node(struct mtk_vcodec_fw *fw,
+> +					 struct mtk_vcp_msg_node *msg_node)
+> +{
+> +	unsigned long flags;
+> +
+> +	mtk_vcodec_vcp_msq_queue_lock(fw, &flags);
+> +	list_add(&msg_node->list, &fw->vcp->msg_queue.node_list);
+> +	mtk_vcodec_vcp_msq_queue_unlock(fw, &flags);
+> +}
+> +
+> +static int mtk_vcodec_vcp_ipi_register(struct mtk_vcp *vcp, u32 ipi_id, =
+vcp_ipi_handler_t handler,
+> +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 void *priv)
+> +{
+> +	if (!vcp)
+> +		return -EPROBE_DEFER;
+> +
+> +	if (WARN_ON(ipi_id >=3D VCP_IPI_MAX) || WARN_ON(!handler))
+> +		return -EINVAL;
+
+Ok, fair enough as a bound check I guess, thought the get/null-check constr=
+uct
+still make no sense.
+
+Stopping there, I'm on a time crunch, but considering the dependencies aren=
+'t
+met, feel free to ping me again for more reviews.
+
+Nicolas
+
+> +
+> +	mtk_vcodec_vcp_ipi_lock(vcp, ipi_id);
+> +	vcp->ipi_desc[ipi_id].handler =3D handler;
+> +	vcp->ipi_desc[ipi_id].priv =3D priv;
+> +	mtk_vcodec_vcp_ipi_unlock(vcp, ipi_id);
+> +
+> +	return 0;
+> +}
+> +
+> +static int mtk_vcodec_vcp_msg_process_thread(void *arg)
+> +{
+> +	struct mtk_vcodec_fw *fw =3D arg;
+> +	struct vdec_vpu_ipi_ack *msg =3D NULL;
+> +	struct mtk_vcp_share_obj *obj;
+> +	struct mtk_vcp_msg_node *msg_node;
+> +	vcp_ipi_handler_t handler;
+> +	unsigned long flags;
+> +	int ret =3D 0;
+> +
+> +	do {
+> +		ret =3D wait_event_interruptible(fw->vcp->msg_queue.wq,
+> +					=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 atomic_read(&fw->vcp->msg_queu=
+e.cnt) > 0);
+> +		if (ret < 0) {
+> +			dev_err(&fw->pdev->dev, "wait msg queue ack timeout %d %d\n",
+> +				ret, atomic_read(&fw->vcp->msg_queue.cnt));
+> +			continue;
+> +		}
+> +
+> +		mtk_vcodec_vcp_msq_queue_lock(fw, &flags);
+> +		msg_node =3D list_entry(fw->vcp->msg_queue.msg_list.next,
+> +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct mtk_vcp_msg_node, list);
+> +		list_del(&msg_node->list);
+> +		atomic_dec(&fw->vcp->msg_queue.cnt);
+> +		mtk_vcodec_vcp_msq_queue_unlock(fw, &flags);
+> +
+> +		obj =3D &msg_node->ipi_data;
+> +		msg =3D (struct vdec_vpu_ipi_ack *)obj->share_buf;
+> +
+> +		if (!msg->ap_inst_addr) {
+> +			dev_err(&fw->pdev->dev, "invalid message address\n");
+> +			mtk_vcodec_vcp_free_msg_node(fw, msg_node);
+> +			continue;
+> +		}
+> +
+> +		dev_dbg(&fw->pdev->dev, "msg ack id %d len %d msg_id 0x%x\n", obj->id,=
+ obj->len,
+> +			msg->msg_id);
+> +
+> +		mtk_vcodec_vcp_ipi_lock(fw->vcp, obj->id);
+> +		handler =3D fw->vcp->ipi_desc[obj->id].handler;
+> +		if (!handler) {
+> +			dev_err(&fw->pdev->dev, "invalid ack ipi handler id =3D %d\n", obj->i=
+d);
+> +			mtk_vcodec_vcp_ipi_unlock(fw->vcp, obj->id);
+> +			mtk_vcodec_vcp_free_msg_node(fw, msg_node);
+> +			return -EINVAL;
+> +		}
+> +
+> +		handler(msg, obj->len, fw->vcp->ipi_desc[obj->id].priv);
+> +		mtk_vcodec_vcp_ipi_unlock(fw->vcp, obj->id);
+> +
+> +		fw->vcp->msg_signaled[obj->id] =3D true;
+> +		wake_up(&fw->vcp->msg_wq[obj->id]);
+> +
+> +		mtk_vcodec_vcp_free_msg_node(fw, msg_node);
+> +	} while (!kthread_should_stop());
+> +
+> +	return ret;
+> +}
+> +
+> +static int mtk_vcodec_vcp_msg_ack_isr(unsigned int id, void *prdata, voi=
+d *data, unsigned int len)
+> +{
+> +	struct mtk_vcodec_fw *fw =3D prdata;
+> +	struct mtk_vcp_msg_queue *msg_queue =3D &fw->vcp->msg_queue;
+> +	struct mtk_vcp_msg_node *msg_node;
+> +	struct vdec_vpu_ipi_ack *msg =3D NULL;
+> +	struct mtk_vcp_share_obj *obj =3D data;
+> +	unsigned long flags;
+> +
+> +	msg =3D (struct vdec_vpu_ipi_ack *)obj->share_buf;
+> +
+> +	mtk_vcodec_vcp_msq_queue_lock(fw, &flags);
+> +	if (!list_empty(&msg_queue->node_list)) {
+> +		msg_node =3D list_entry(msg_queue->node_list.next, struct mtk_vcp_msg_=
+node, list);
+> +
+> +		memcpy(&msg_node->ipi_data, obj, sizeof(*obj));
+> +		list_move_tail(&msg_node->list, &msg_queue->msg_list);
+> +		atomic_inc(&msg_queue->cnt);
+> +		mtk_vcodec_vcp_msq_queue_unlock(fw, &flags);
+> +
+> +		dev_dbg(&fw->pdev->dev, "push ipi_id %x msg_id %x, msg cnt %d\n",
+> +			obj->id, msg->msg_id, atomic_read(&msg_queue->cnt));
+> +
+> +		wake_up(&msg_queue->wq);
+> +	} else {
+> +		mtk_vcodec_vcp_msq_queue_unlock(fw, &flags);
+> +		dev_err(&fw->pdev->dev, "no free nodes in msg queue\n");
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int mtk_vcodec_vcp_msg_ipi_send(struct mtk_vcodec_fw *fw, int id,=
+ void *buf,
+> +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 unsigned int len, unsigned int =
+wait)
+> +{
+> +	struct mtk_vcp *vcp =3D fw->vcp;
+> +	struct mtk_vcp_device *vcp_device =3D vcp->vcp_device;
+> +	bool *msg_signaled =3D &vcp->msg_signaled[id];
+> +	wait_queue_head_t *msg_wq =3D &vcp->msg_wq[id];
+> +	int ret, ipi_size, feature_id, mailbox_id, retry_cnt =3D 0;
+> +	unsigned long timeout_jiffies =3D 0;
+> +	struct mtk_vcp_share_obj obj =3D {0};
+> +	unsigned int *data;
+> +
+> +	if (!vcp_device) {
+> +		dev_dbg(&fw->pdev->dev, "vcp device is null\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	mutex_lock(&vcp->ipi_mutex);
+> +	feature_id =3D VDEC_FEATURE_ID;
+> +	mailbox_id =3D IPI_OUT_VDEC_1;
+> +
+> +	timeout_jiffies =3D jiffies + msecs_to_jiffies(VCP_SYNC_TIMEOUT_MS);
+> +	while (!vcp_device->ops->vcp_is_ready(feature_id)) {
+> +		if (time_after(jiffies, timeout_jiffies)) {
+> +			vcp->ipi_id_ack[id] =3D -EINVAL;
+> +			ret =3D -EINVAL;
+> +			goto error;
+> +		}
+> +		mdelay(1);
+> +	}
+> +
+> +	if (len > VCP_SHARE_BUF_SIZE) {
+> +		vcp->ipi_id_ack[id] =3D -EINVAL;
+> +		ret =3D -EINVAL;
+> +		goto error;
+> +	}
+> +
+> +	obj.id =3D id;
+> +	obj.len =3D len;
+> +	memcpy(obj.share_buf, buf, len);
+> +
+> +	ipi_size =3D round_up(VCP_IPI_HEADER_SIZE + len, VCP_IPI_ALIGN);
+> +	data =3D (unsigned int *)obj.share_buf;
+> +	dev_dbg(&fw->pdev->dev, "vcp send message: id %d len %d data 0x%x\n",
+> +		obj.id, obj.len, data[0]);
+> +
+> +	ret =3D mtk_vcp_ipc_send(vcp_get_ipidev(vcp_device), mailbox_id, &obj, =
+ipi_size);
+> +	if (ret !=3D IPI_ACTION_DONE) {
+> +		vcp->ipi_id_ack[id] =3D -EIO;
+> +		ret =3D -EIO;
+> +		goto error;
+> +	}
+> +
+> +wait_ack:
+> +	/* wait for VCP's ACK */
+> +	ret =3D wait_event_timeout(*msg_wq, *msg_signaled, msecs_to_jiffies(IPI=
+_TIMEOUT_MS));
+> +	if (!ret || retry_cnt > 5) {
+> +		vcp->ipi_id_ack[id] =3D VCODEC_IPI_MSG_STATUS_FAIL;
+> +		dev_err(&fw->pdev->dev, "wait ipi ack timeout! %d %d\n", ret, vcp->ipi=
+_id_ack[id]);
+> +	} else if (ret =3D=3D -ERESTARTSYS) {
+> +		dev_err(&fw->pdev->dev, "wait ipi ack err (%d)\n", vcp->ipi_id_ack[id]=
+);
+> +		retry_cnt++;
+> +		goto wait_ack;
+> +	} else if (ret < 0) {
+> +		dev_err(&fw->pdev->dev, "wait ipi ack fail ret %d %d\n", ret, vcp->ipi=
+_id_ack[id]);
+> +		vcp->ipi_id_ack[id] =3D VCODEC_IPI_MSG_STATUS_FAIL;
+> +	}
+> +
+> +	dev_dbg(&fw->pdev->dev, "receive message: id %d len %d data 0x%x\n",
+> +		obj.id, obj.len, data[0]);
+> +
+> +	*msg_signaled =3D false;
+> +	mutex_unlock(&vcp->ipi_mutex);
+> +
+> +	return vcp->ipi_id_ack[id];
+> +
+> +error:
+> +	mutex_unlock(&vcp->ipi_mutex);
+> +	dev_err(&fw->pdev->dev, "send msg error type:%d msg:%d > %d ret:%d\n", =
+fw->type, len,
+> +		VCP_SHARE_BUF_SIZE, ret);
+> +
+> +	return ret;
+> +}
+> +
+> +static int check_vcp_loaded(struct mtk_vcodec_fw *fw)
+> +{
+> +	struct device *dev =3D &fw->pdev->dev;
+> +	struct device_driver *drv;
+> +
+> +	drv =3D driver_find("mtk-vcp", &platform_bus_type);
+> +	if (!drv) {
+> +		dev_err(dev, "find mtk-vcp driver failed, need to reload.");
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int mtk_vcodec_vcp_get_vcp_device(struct mtk_vcodec_fw *fw)
+> +{
+> +	struct device *dev =3D &fw->pdev->dev;
+> +	int retry =3D 0, retry_cnt =3D 10000;
+> +	phandle vcp_phandle;
+> +
+> +	while (try_then_request_module(check_vcp_loaded(fw), "mtk-vcp")) {
+> +		if (++retry > retry_cnt) {
+> +			dev_err(dev, "failed to load mtk-vcp module");
+> +			return -EPROBE_DEFER;
+> +		}
+> +		usleep_range(1000, 2000);
+> +	}
+> +
+> +	if (of_property_read_u32(dev->of_node, "mediatek,vcp", &vcp_phandle)) {
+> +		dev_err(dev, "can't get vcp handle.\n");
+> +		return -ENODEV;
+> +	}
+> +
+> +	fw->vcp->vcp_device =3D mtk_vcp_get_by_phandle(vcp_phandle);
+> +	if (!fw->vcp->vcp_device) {
+> +		dev_err(dev, "get vcp device failed\n");
+> +		return -ENODEV;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int mtk_vcodec_vcp_load_firmware(struct mtk_vcodec_fw *fw)
+> +{
+> +	struct mtk_vcp_device *vcp_device;
+> +	int ret, feature_id, mem_id, mailbox_id, ipi_id;
+> +
+> +	if (fw->vcp->is_init_done) {
+> +		dev_dbg(&fw->pdev->dev, "vcp has already been initialized done.\n");
+> +		return 0;
+> +	}
+> +
+> +	if (mtk_vcodec_vcp_get_vcp_device(fw) < 0) {
+> +		dev_err(&fw->pdev->dev, "vcp device is null.\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	vcp_device =3D fw->vcp->vcp_device;
+> +
+> +	feature_id =3D VDEC_FEATURE_ID;
+> +	mem_id =3D VDEC_MEM_ID;
+> +	mailbox_id =3D IPI_IN_VDEC_1;
+> +	ipi_id =3D VCP_IPI_LAT_DECODER;
+> +
+> +	ret =3D mtk_vcp_mbox_ipc_register(vcp_get_ipidev(vcp_device), mailbox_i=
+d,
+> +					mtk_vcodec_vcp_msg_ack_isr, fw, &fw->vcp->share_data);
+> +	if (ret) {
+> +		dev_dbg(&fw->pdev->dev, "ipi register fail %d %d %d %d\n", ret, featur=
+e_id,
+> +			mem_id, mailbox_id);
+> +		return -EINVAL;
+> +	}
+> +
+> +	fw->vcp->vcp_notify.notifier_call =3D mtk_vcodec_vcp_notifier;
+> +	fw->vcp->vcp_notify.priority =3D 1;
+> +	vcp_device->ops->vcp_register_notify(feature_id, &fw->vcp->vcp_notify);
+> +
+> +	if (!fw->vcp->is_register_done) {
+> +		ret =3D vcp_device->ops->vcp_register_feature(vcp_device, feature_id);
+> +		if (ret < 0) {
+> +			dev_err(&fw->pdev->dev, "%d register to vcp fail(%d)\n", feature_id, =
+ret);
+> +			return -EINVAL;
+> +		}
+> +
+> +		fw->vcp->is_register_done =3D true;
+> +	}
+> +
+> +	fw->vcp->is_init_done =3D true;
+> +
+> +	mutex_init(&fw->vcp->ipi_desc[ipi_id].lock);
+> +	mutex_init(&fw->vcp->ipi_mutex);
+> +
+> +	kthread_run(mtk_vcodec_vcp_msg_process_thread, fw, "vcp_vdec_msq_thread=
+");
+> +
+> +	fw->vcp->vsi_addr =3D vcp_device->ops->vcp_get_mem_virt(mem_id);
+> +	fw->vcp->vsi_core_addr =3D fw->vcp->vsi_addr + VCODEC_VSI_LEN;
+> +	fw->vcp->vsi_size =3D vcp_device->ops->vcp_get_mem_size(mem_id);
+> +	fw->vcp->iova_addr =3D vcp_device->ops->vcp_get_mem_iova(mem_id);
+> +
+> +	init_waitqueue_head(&fw->vcp->msg_wq[VCP_IPI_LAT_DECODER]);
+> +	init_waitqueue_head(&fw->vcp->msg_wq[VCP_IPI_CORE_DECODER]);
+> +
+> +	dev_dbg(&fw->pdev->dev, "vdec vcp init done =3D> va: %p size:0x%x iova:=
+%p.\n",
+> +		fw->vcp->vsi_addr, fw->vcp->vsi_size, &fw->vcp->iova_addr);
+> +
+> +	return 0;
+> +}
+> +
+> +static unsigned int mtk_vcodec_vcp_get_vdec_capa(struct mtk_vcodec_fw *f=
+w)
+> +{
+> +	return MTK_VDEC_FORMAT_MM21 | MTK_VDEC_FORMAT_H264_SLICE | MTK_VDEC_FOR=
+MAT_VP9_FRAME |
+> +	=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MTK_VDEC_FORMAT_AV1_FRAME | MTK_VD=
+EC_FORMAT_HEVC_FRAME |
+> +	=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MTK_VDEC_IS_SUPPORT_10BIT | MTK_VD=
+EC_IS_SUPPORT_EXT;
+> +}
+> +
+> +static void *mtk_vcodec_vcp_dm_addr(struct mtk_vcodec_fw *fw, u32 dtcm_d=
+mem_addr)
+> +{
+> +	return NULL;
+> +}
+> +
+> +static int mtk_vcodec_vcp_set_ipi_register(struct mtk_vcodec_fw *fw, int=
+ id,
+> +					=C2=A0=C2=A0 mtk_vcodec_ipi_handler handler,
+> +					=C2=A0=C2=A0 const char *name, void *priv)
+> +{
+> +	return mtk_vcodec_vcp_ipi_register(fw->vcp, id, handler, priv);
+> +}
+> +
+> +static int mtk_vcodec_vcp_ipi_send(struct mtk_vcodec_fw *fw, int id, voi=
+d *buf,
+> +				=C2=A0=C2=A0 unsigned int len, unsigned int wait)
+> +{
+> +	return mtk_vcodec_vcp_msg_ipi_send(fw, id, buf, len, wait);
+> +}
+> +
+> +static void mtk_vcodec_vcp_release(struct mtk_vcodec_fw *fw)
+> +{
+> +	struct mtk_vcp_device *vcp_device =3D fw->vcp->vcp_device;
+> +	struct device *dev =3D &fw->pdev->dev;
+> +	int ret, feature_id;
+> +
+> +	if (!fw->vcp->vcp_device) {
+> +		dev_err(dev, "vcp device is null\n");
+> +		return;
+> +	}
+> +
+> +	if (!fw->vcp->is_register_done)
+> +		return;
+> +
+> +	feature_id =3D VDEC_FEATURE_ID;
+> +	ret =3D vcp_device->ops->vcp_deregister_feature(vcp_device, VDEC_FEATUR=
+E_ID);
+> +	if (ret < 0) {
+> +		dev_err(dev, "deregister feature_id(%d) fail(%d)\n", feature_id, ret);
+> +		return;
+> +	}
+> +
+> +	fw->vcp->is_register_done =3D false;
+> +}
+> +
+> +static const struct mtk_vcodec_fw_ops mtk_vcodec_vcp_msg =3D {
+> +	.load_firmware =3D mtk_vcodec_vcp_load_firmware,
+> +	.get_vdec_capa =3D mtk_vcodec_vcp_get_vdec_capa,
+> +	.map_dm_addr =3D mtk_vcodec_vcp_dm_addr,
+> +	.ipi_register =3D mtk_vcodec_vcp_set_ipi_register,
+> +	.ipi_send =3D mtk_vcodec_vcp_ipi_send,
+> +	.release =3D mtk_vcodec_vcp_release,
+> +};
+> +
+> +struct mtk_vcodec_fw *mtk_vcodec_fw_vcp_init(void *priv, enum mtk_vcodec=
+_fw_use fw_use)
+> +{
+> +	struct mtk_vcp_msg_node *msg_node;
+> +	struct platform_device *plat_dev;
+> +	struct mtk_vcodec_fw *fw;
+> +	int i;
+> +
+> +	if (fw_use =3D=3D DECODER) {
+> +		struct mtk_vcodec_dec_dev *dec_dev =3D priv;
+> +
+> +		plat_dev =3D dec_dev->plat_dev;
+> +	} else {
+> +		pr_err("Invalid fw_use %d (use a reasonable fw id here)\n", fw_use);
+> +		return ERR_PTR(-EINVAL);
+> +	}
+> +
+> +	fw =3D devm_kzalloc(&plat_dev->dev, sizeof(*fw), GFP_KERNEL);
+> +	if (!fw)
+> +		return ERR_PTR(-ENOMEM);
+> +
+> +	fw->type =3D VCP;
+> +	fw->pdev =3D plat_dev;
+> +	fw->fw_use =3D fw_use;
+> +	fw->ops =3D &mtk_vcodec_vcp_msg;
+> +	fw->vcp =3D devm_kzalloc(&plat_dev->dev, sizeof(*fw->vcp), GFP_KERNEL);
+> +	if (!fw->vcp)
+> +		return ERR_PTR(-ENOMEM);
+> +
+> +	INIT_LIST_HEAD(&fw->vcp->msg_queue.msg_list);
+> +	INIT_LIST_HEAD(&fw->vcp->msg_queue.node_list);
+> +	spin_lock_init(&fw->vcp->msg_queue.lock);
+> +	init_waitqueue_head(&fw->vcp->msg_queue.wq);
+> +	atomic_set(&fw->vcp->msg_queue.cnt, 0);
+> +	fw->vcp->pdev =3D plat_dev;
+> +
+> +	for (i =3D 0; i < VCP_MAX_MQ_NODE_CNT; i++) {
+> +		msg_node =3D devm_kzalloc(&plat_dev->dev, sizeof(*msg_node), GFP_KERNE=
+L);
+> +		if (!msg_node)
+> +			return ERR_PTR(-ENOMEM);
+> +
+> +		list_add(&msg_node->list, &fw->vcp->msg_queue.node_list);
+> +	}
+> +
+> +	return fw;
+> +}
+> +EXPORT_SYMBOL_GPL(mtk_vcodec_fw_vcp_init);
+> diff --git a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_=
+vcp.h b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vcp.h
+> new file mode 100644
+> index 000000000000..1072c37078f4
+> --- /dev/null
+> +++ b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vcp.h
+> @@ -0,0 +1,142 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * Copyright (c) 2025 MediaTek Inc.
+> + * Author: Yunfei Dong <yunfei.dong@mediatek.com>
+> + */
+> +
+> +#ifndef _MTK_VCODEC_FW_VCP_H_
+> +#define _MTK_VCODEC_FW_VCP_H_
+> +
+> +typedef void (*vcp_ipi_handler_t) (void *data, unsigned int len, void *p=
+riv);
+> +
+> +#define VCP_MAX_MQ_NODE_CNT=C2=A0 6
+> +#define VCP_SHARE_BUF_SIZE 64
+> +
+> +#define VCODEC_VSI_LEN (0x2000)
+> +
+> +/* enum mtk_vcp_ipi_index - index used to separate different hardware */
+> +enum mtk_vcp_ipi_index {
+> +	VCP_IPI_LAT_DECODER,
+> +	VCP_IPI_CORE_DECODER,
+> +	VCP_IPI_MAX,
+> +};
+> +
+> +/**
+> + * struct mtk_vcp_msg_queue - process the vcp message between kernel wit=
+h vcp
+> + *
+> + * @msg_list:=C2=A0 store share buffer list which from vcp to kernel
+> + * @wq:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 waitqueue that can be =
+used to wait for vcp message
+> + * @lock:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 protect msg list
+> + * @cnt:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 the count of share obj in m=
+sg list
+> + * @node_list: share obj list
+> + */
+> +struct mtk_vcp_msg_queue {
+> +	struct list_head msg_list;
+> +	wait_queue_head_t wq;
+> +	/* protect msg_list and node_list */
+> +	spinlock_t lock;
+> +	atomic_t cnt;
+> +	struct list_head node_list;
+> +};
+> +
+> +/**
+> + * struct mtk_vcp_ipi_desc - store the ack handler
+> + *
+> + * @lock:=C2=A0=C2=A0=C2=A0 protect ack handler data
+> + * @handler: calling this handler when kernel receive ack
+> + * @priv:=C2=A0=C2=A0=C2=A0 private data when calling handler to process
+> + */
+> +struct mtk_vcp_ipi_desc {
+> +	/* protect handler and priv */
+> +	struct mutex lock;
+> +	vcp_ipi_handler_t handler;
+> +	void *priv;
+> +};
+> +
+> +/**
+> + * struct mtk_vcp_share_obj - share buffer used to send data to vcp
+> + *
+> + * @id:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 message index
+> + * @len:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 message size
+> + * @share_buf: message data
+> + */
+> +struct mtk_vcp_share_obj {
+> +	unsigned int id;
+> +	unsigned int len;
+> +	unsigned char share_buf[VCP_SHARE_BUF_SIZE];
+> +};
+> +
+> +/* enum mtk_vcp_ipi_msg_status - the status when send message to vcp */
+> +enum mtk_vcp_ipi_msg_status {
+> +	VCODEC_IPI_MSG_STATUS_OK=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 =3D 0,
+> +	VCODEC_IPI_MSG_STATUS_FAIL=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 =3D -1,
+> +	VCODEC_IPI_MSG_STATUS_MAX_INST=C2=A0=C2=A0 =3D -2,
+> +	VCODEC_IPI_MSG_STATUS_ILSEQ=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 =3D -3,
+> +	VCODEC_IPI_MSG_STATUS_INVALID_ID =3D -4,
+> +	VCODEC_IPI_MSG_STATUS_DMA_FAIL=C2=A0=C2=A0 =3D -5,
+> +};
+> +
+> +/**
+> + * struct mtk_vcp_msg_node - share buffer used to send data to vcp
+> + *
+> + * @ipi_data: share obj data
+> + * @list:=C2=A0=C2=A0=C2=A0=C2=A0 list to store msg node
+> + */
+> +struct mtk_vcp_msg_node {
+> +	struct mtk_vcp_share_obj ipi_data;
+> +	struct list_head list;
+> +};
+> +
+> +/**
+> + * struct mtk_vcp - vcp firmware private data
+> + *
+> + * @is_init_done:=C2=A0 vcp is ready to use
+> + *
+> + * @ipi_mutex:=C2=A0=C2=A0=C2=A0=C2=A0 used to protect ipi data
+> + * @msg_signaled:=C2=A0 whether receive ack from vcp
+> + * @msg_wq:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 wake message queue
+> + *
+> + * @ipi_desc:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 store ack handler
+> + * @ipi_id_ack:=C2=A0=C2=A0=C2=A0 the ack handler status
+> + *
+> + * @msg_queue:=C2=A0=C2=A0=C2=A0=C2=A0 process vcp message
+> + * @share_data:=C2=A0=C2=A0=C2=A0 temp share obj data
+> + *
+> + * @vcp_notify:=C2=A0=C2=A0=C2=A0 register notifier to vcp
+> + *
+> + * @vsi_addr:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 vsi virtual data address
+> + * @vsi_core_addr: vsi core virtual data address
+> + * @iova_addr:=C2=A0=C2=A0=C2=A0=C2=A0 vsi iova address
+> + * @vsi_size:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 vsi size
+> + *
+> + * @pdev:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 platform=
+ device
+> + * @vcp_device:=C2=A0=C2=A0=C2=A0 vcp private data
+> + * @is_register_done: register vcodec to vcp
+> + */
+> +struct mtk_vcp {
+> +	bool is_init_done;
+> +
+> +	/* serialize ipi message send/receive */
+> +	struct mutex ipi_mutex;
+> +	bool msg_signaled[VCP_IPI_MAX];
+> +	wait_queue_head_t msg_wq[VCP_IPI_MAX];
+> +
+> +	struct mtk_vcp_ipi_desc ipi_desc[VCP_IPI_MAX];
+> +	bool ipi_id_ack[VCP_IPI_MAX];
+> +
+> +	struct mtk_vcp_msg_queue msg_queue;
+> +	struct mtk_vcp_share_obj share_data;
+> +
+> +	struct notifier_block vcp_notify;
+> +
+> +	void *vsi_addr;
+> +	void *vsi_core_addr;
+> +	dma_addr_t iova_addr;
+> +	int vsi_size;
+> +
+> +	struct platform_device *pdev;
+> +	struct mtk_vcp_device *vcp_device;
+> +	bool is_register_done;
+> +};
+> +
+> +#endif
+> diff --git a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_=
+vpu.c b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vpu.c
+> index 3632037f78f5..41643db9f4eb 100644
+> --- a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vpu.c
+> +++ b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_vpu.c
+> @@ -130,3 +130,4 @@ struct mtk_vcodec_fw *mtk_vcodec_fw_vpu_init(void *pr=
+iv, enum mtk_vcodec_fw_use
+> =C2=A0
+> =C2=A0	return fw;
+> =C2=A0}
+> +EXPORT_SYMBOL_GPL(mtk_vcodec_fw_vpu_init);
+> diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_de=
+c_drv.c b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv=
+.c
+> index d220b645e455..ce17b649022f 100644
+> --- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c
+> +++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c
+> @@ -376,12 +376,15 @@ static int mtk_vcodec_probe(struct platform_device =
+*pdev)
+> =C2=A0	if (!of_property_read_u32(pdev->dev.of_node, "mediatek,vpu",
+> =C2=A0				=C2=A0 &rproc_phandle)) {
+> =C2=A0		fw_type =3D VPU;
+> +		dev->fw_init =3D mtk_vcodec_fw_vpu_init;
+> =C2=A0	} else if (!of_property_read_u32(pdev->dev.of_node, "mediatek,scp"=
+,
+> =C2=A0					 &rproc_phandle)) {
+> =C2=A0		fw_type =3D SCP;
+> +		dev->fw_init =3D mtk_vcodec_fw_scp_init;
+> =C2=A0	} else if (!of_property_read_u32(pdev->dev.of_node, "mediatek,vcp"=
+,
+> =C2=A0					 &rproc_phandle)) {
+> =C2=A0		fw_type =3D VCP;
+> +		dev->fw_init =3D mtk_vcodec_fw_vcp_init;
+> =C2=A0	} else {
+> =C2=A0		dev_dbg(&pdev->dev, "Could not get vdec IPI device");
+> =C2=A0		return -ENODEV;
+> diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_de=
+c_drv.h b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv=
+.h
+> index c9d27534c63e..15e437323af5 100644
+> --- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h
+> +++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h
+> @@ -251,6 +251,7 @@ struct mtk_vcodec_dec_ctx {
+> =C2=A0 * @vdecsys_regmap: VDEC_SYS register space passed through syscon
+> =C2=A0 *
+> =C2=A0 * @fw_handler: used to communicate with the firmware.
+> + * @fw_init: firmware-specific init callback selected at probe time
+> =C2=A0 * @id_counter: used to identify current opened instance
+> =C2=A0 *
+> =C2=A0 * @dec_mutex: decoder hardware lock
+> @@ -292,6 +293,7 @@ struct mtk_vcodec_dec_dev {
+> =C2=A0	struct regmap *vdecsys_regmap;
+> =C2=A0
+> =C2=A0	struct mtk_vcodec_fw *fw_handler;
+> +	struct mtk_vcodec_fw *(*fw_init)(void *priv, enum mtk_vcodec_fw_use fw_=
+use);
+> =C2=A0	u64 id_counter;
+> =C2=A0
+> =C2=A0	/* decoder hardware mutex lock */
+> diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_en=
+c_drv.c b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv=
+.c
+> index 4e4541b2fc8e..dc54d445d98d 100644
+> --- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
+> +++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
+> @@ -259,9 +259,11 @@ static int mtk_vcodec_probe(struct platform_device *=
+pdev)
+> =C2=A0	if (!of_property_read_u32(pdev->dev.of_node, "mediatek,vpu",
+> =C2=A0				=C2=A0 &rproc_phandle)) {
+> =C2=A0		fw_type =3D VPU;
+> +		dev->fw_init =3D mtk_vcodec_fw_vpu_init;
+> =C2=A0	} else if (!of_property_read_u32(pdev->dev.of_node, "mediatek,scp"=
+,
+> =C2=A0					 &rproc_phandle)) {
+> =C2=A0		fw_type =3D SCP;
+> +		dev->fw_init =3D mtk_vcodec_fw_scp_init;
+> =C2=A0	} else {
+> =C2=A0		dev_err(&pdev->dev, "[MTK VCODEC] Could not get venc IPI device")=
+;
+> =C2=A0		return -ENODEV;
+> diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_en=
+c_drv.h b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv=
+.h
+> index 0cddfa13594f..934ff648125d 100644
+> --- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.h
+> +++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.h
+> @@ -174,6 +174,7 @@ struct mtk_vcodec_enc_ctx {
+> =C2=A0 * @venc_pdata: encoder IC-specific data
+> =C2=A0 *
+> =C2=A0 * @fw_handler: used to communicate with the firmware.
+> + * @fw_init: firmware-specific init callback selected at probe time
+> =C2=A0 * @id_counter: used to identify current opened instance
+> =C2=A0 *
+> =C2=A0 * @enc_mutex: encoder hardware lock.
+> @@ -201,6 +202,7 @@ struct mtk_vcodec_enc_dev {
+> =C2=A0	const struct mtk_vcodec_enc_pdata *venc_pdata;
+> =C2=A0
+> =C2=A0	struct mtk_vcodec_fw *fw_handler;
+> +	struct mtk_vcodec_fw *(*fw_init)(void *priv, enum mtk_vcodec_fw_use fw_=
+use);
+> =C2=A0	u64 id_counter;
+> =C2=A0
+> =C2=A0	/* encoder hardware mutex lock */
+
+--=-GogitkVNMOTwu37Eb8w7
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCalgqzwAKCRDZQZRRKWBy
+9OKMAQCmZ1Cg4nTcVaLKTTCezIh0jhod29i3O+EYWyIqaqkFagEAhyGELes/4K35
+Sng1L3Rb1M+gMmwmjq3+dxacL93a+AY=
+=kiuV
+-----END PGP SIGNATURE-----
+
+--=-GogitkVNMOTwu37Eb8w7--
 
