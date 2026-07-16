@@ -4,90 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 683ABC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 08:36:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0C2CC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 08:37:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V8QPTigTcCC4UZr+acj1ZYLdorlKdGn8i+G4wCG9sso=; b=HdXTBvZ7yUtmTcEFejFYnmWjFW
-	AuSwDCetj60kUIHA2a5NsY0zdH8UNw3Z8RpHnwsMjtkTCJOsJMxX8bnmLXk06wuVu3fKZc7PWM26g
-	iOU4v15+vab1cb+IMOiqPLH4YbiIlffaiXF+LxAqzt6EfiiCbDvEpFNjDlfvCeo8LydqqkKPIkwFt
-	fNKS9cROtiuj26MZSJM+bsJmJU/3Wq+UNH1S4f8Mh4/2D4yRSB0mROSxrx09g5Bdii2GsTVw6s+S/
-	y/K1e96xLv7PgyVuz5cLPjduizsdNH9kp0+Rxm+tvtaRsBpDLf6YaHdfvCFgBw5v2aRW/+hLKa1pX
-	QUNnAyVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=51Grhzs4J/AFDPyUowVuD4CPAJKfF+m68stnN1IxSsQ=; b=eGBIELdNrhn5MWcFXotWyv8XuE
+	Vg9GsEpo9MJeHFmQNhNaojd/x2ZpPK8fYwuKiufOwgOVbNBXLGaiTlThxm0iIZYCoTJNsw4oacE3W
+	x2lZNdJT3C7vNRYL42G5hSH5LXTki53q0P37F8AVa9AwaOT7QZuKGhJUE3CRNq9zvH1RIf0Mwvrzr
+	xqI9/793z+nDz0MsPpOvFvVzc8KOD68/HZL3wam20ElnORA3bnADLzgIwJU+u4uuthKKIMtu+C+ma
+	vZ1yCApnWSB4NDFHRrWCNDrXTrJE23A3TeljodJr1zInqWawocNb8+12377cBxmxYDFD0AzlTwQ2N
+	Z+Ubkgbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkHaA-0000000Glb4-0IiW;
-	Thu, 16 Jul 2026 08:36:38 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wkHbF-0000000Glil-0wX1;
+	Thu, 16 Jul 2026 08:37:45 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkHa9-0000000Glav-0QXQ
+	id 1wkHbC-0000000Glhb-0um9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 08:36:37 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 956026001A;
-	Thu, 16 Jul 2026 08:36:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4717F1F000E9;
-	Thu, 16 Jul 2026 08:36:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784190995;
-	bh=V8QPTigTcCC4UZr+acj1ZYLdorlKdGn8i+G4wCG9sso=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=Au26i0us2sYQaroQUjDyPJSDZsHl32dMOiqnb0Hpy4twDI32a+hp96+lQuL83G8SM
-	 IHAHRZSA3LPXHf4AUAe118dY/cuOpJiSSXMCHnX7DN1vG9ojE++4zSjp8/7OlzwwUU
-	 f/X2wF2tbLy90a8noT7WM/DRJZqR1F3eYBH9SdoTu76IOhUCnTjTncNZQ8NLvTQahx
-	 B4qVoEFHdoOdKAy2e+MqPdizZndaDGGXk6dUiDxIP1jWwux/pqZO90KMWgXiY3qJaO
-	 xsi5NAJDLFQmk7FoH7ZR9OYl+xokh8+zPNt33+Muo02oODb5lSAE4XZEkRTJpWH8L7
-	 vaeQARGCzhx1g==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wkHa4-00000005b7P-3HoW;
-	Thu, 16 Jul 2026 08:36:32 +0000
-Date: Thu, 16 Jul 2026 09:36:32 +0100
-Message-ID: <868q7bnxf3.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>,
-	WeiLin.Chang@arm.com,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: Re: [PATCH v15 00/37] arm64: Support for Arm CCA in KVM
-In-Reply-To: <20260715142841.80544-1-steven.price@arm.com>
-References: <20260715142841.80544-1-steven.price@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Thu, 16 Jul 2026 08:37:44 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 3500E4E40E02;
+	Thu, 16 Jul 2026 08:37:37 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 04800602B8;
+	Thu, 16 Jul 2026 08:37:37 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E2A5311BD39FC;
+	Thu, 16 Jul 2026 10:37:26 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1784191055; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=51Grhzs4J/AFDPyUowVuD4CPAJKfF+m68stnN1IxSsQ=;
+	b=umlSJpL4AIbsgAirTydRVbGpf5107Ii+GVjOI8QitEF2dkyJuaiECJesJxtJG20O7h1k47
+	AZzwstqTauowTH+yizoGHwCmb3eBPK+0U7ld637Jw+ewzd9sdJllgbj6qcSqnCqbS2s4Lz
+	e6eW6TvGnxPbW+kxe8J8Ic72akzbbqhgxWdgMSydSDeWWharfscuamENZrXsXX89bL02Xy
+	I6bWtB2YJ158MZfbdVGtg5bpVY09ySZeqEJoeVj30xpJ8+xR2qhD8qd0xENz0DUVo/pSf3
+	o4bIEOLmEFGmqTin47ONTWv74aSUZ4IrDqIU5H83+MwBQaNyDu19idYFAYk7pw==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 16 Jul 2026 10:37:24 +0200
+Message-Id: <DJZUXUBO8DI4.2J2NI3S0KYNUE@bootlin.com>
+Subject: Re: [PATCH 05/37] drm/display: bridge-connector: split code
+ creating the connector to a subfunction
+Cc: "Luca Ceresoli" <luca.ceresoli@bootlin.com>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Thomas Zimmermann"
+ <tzimmermann@suse.de>, "David Airlie" <airlied@gmail.com>, "Simona Vetter"
+ <simona@ffwll.ch>, "Andrzej Hajda" <andrzej.hajda@intel.com>, "Neil
+ Armstrong" <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>,
+ "Jonas Karlman" <jonas@kwiboo.se>, "Jernej Skrabec"
+ <jernej.skrabec@gmail.com>, "Inki Dae" <inki.dae@samsung.com>, "Jagan Teki"
+ <jagan@amarulasolutions.com>, "Marek Szyprowski"
+ <m.szyprowski@samsung.com>, "Marek Vasut" <marex@denx.de>, "Stefan Agner"
+ <stefan@agner.ch>, "Frank Li" <Frank.Li@nxp.com>, "Sascha Hauer"
+ <s.hauer@pengutronix.de>, "Pengutronix Kernel Team"
+ <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>, "Hui Pu"
+ <Hui.Pu@gehealthcare.com>, "Ian Ray" <ian.ray@gehealthcare.com>, "Thomas
+ Petazzoni" <thomas.petazzoni@bootlin.com>,
+ <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
+ <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>
+To: "Laurent Pinchart" <laurent.pinchart@ideasonboard.com>, "Maxime Ripard"
+ <mripard@kernel.org>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+X-Mailer: aerc 0.21.0
+References: <20260519-drm-bridge-hotplug-v1-5-45e2bdb3dfb4@bootlin.com>
+ <20260608-mindful-heavy-frigatebird-be9faf@houat>
+ <DJ735MTNMYD1.3LPNV404V8PIU@bootlin.com>
+ <20260624-proud-unbiased-pony-ecc3c3@houat>
+ <DJHEAWSEZR79.19UFIKS8QJBQ7@bootlin.com>
+ <20260626-polite-hairy-perch-25e1aa@houat>
+ <DJJ1MPCEJGZD.UZM9183V6ZE5@bootlin.com>
+ <20260626-classy-nightingale-of-romance-1cacad@houat>
+ <DJJ4X22CJ3FG.5EYF84LVRNOG@bootlin.com>
+ <20260707-warping-goshawk-of-swiftness-beea4a@penduick>
+ <20260707123205.GB211515@killaraus.ideasonboard.com>
+In-Reply-To: <20260707123205.GB211515@killaraus.ideasonboard.com>
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260716_013742_546944_32C0C79E 
+X-CRM114-Status: GOOD (  47.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,30 +101,226 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 15 Jul 2026 15:28:02 +0100,
-Steven Price <steven.price@arm.com> wrote:
-> 
-> This series adds support for running protected VMs using KVM under the
-> Arm Confidential Compute Architecture (CCA).
-> 
-> It is the second part of the Arm CCA host support that was previously
-> posted as a single 44-patch series. The generic firmware/RMM support has
-> now been split into a separate 6-patch base series[0] so that it can also be
-> used by other work (and hopefully make reviewing a little easier). This
-> series applies on top of that base.
+Hi Maxime, Laurent,
 
-Splitting the series this way means that no Sashiko review can occur,
-as nothing applies on its own:
+On Tue Jul 7, 2026 at 2:32 PM CEST, Laurent Pinchart wrote:
+> On Tue, Jul 07, 2026 at 11:55:54AM +0200, Maxime Ripard wrote:
+>> On Fri, Jun 26, 2026 at 06:51:14PM +0200, Luca Ceresoli wrote:
+>> > On Fri Jun 26, 2026 at 4:38 PM CEST, Maxime Ripard wrote:
+>> > > On Fri, Jun 26, 2026 at 04:16:39PM +0200, Luca Ceresoli wrote:
+>> > >> On Fri Jun 26, 2026 at 12:09 PM CEST, Maxime Ripard wrote:
+>> > >> > On Wed, Jun 24, 2026 at 05:47:10PM +0200, Luca Ceresoli wrote:
+>> > >> >> On Wed Jun 24, 2026 at 1:41 PM CEST, Maxime Ripard wrote:
+>> > >> >> > Hi,x
+>> > >> >> >
+>> > >> >> > On Fri, Jun 12, 2026 at 02:56:24PM +0200, Luca Ceresoli wrote:
+>> > >> >> >> On Mon Jun 8, 2026 at 1:40 PM CEST, Maxime Ripard wrote:
+>> > >> >> >> > On Tue, May 19, 2026 at 12:37:22PM +0200, Luca Ceresoli wro=
+te:
+>> > >> >> >> >> In preparation to introduce bridge hotplug, split out from
+>> > >> >> >> >> drm_bridge_connector_init() the code adding the drm_connec=
+tor into a
+>> > >> >> >> >> dedicated function. This will be needed to be able to add =
+(and re-add) the
+>> > >> >> >> >> connector from different code paths.
+>> > >> >> >> >
+>> > >> >> >> > Same story here, explaining what you need later on that cal=
+ls for that
+>> > >> >> >> > change would be nice.
+>> > >> >> >>
+>> > >> >> >> Here's a more verbose version:
+>> > >> >> >>
+>> > >> >> >>     Currently drm_bridge_connector_init() does two things:
+>> > >> >> >>
+>> > >> >> >>      * allocate and initialize the drm_bridge_connector
+>> > >> >> >>        (which embeds a drm_connector)
+>> > >> >> >>      * initialize and register the embedded drm_connector
+>> > >> >> >>
+>> > >> >> >>     For bridge hotplug we need to separate these two actions:
+>> > >> >> >>
+>> > >> >> >>      * the drm_connector needs to be added and removed at any=
+ time based on
+>> > >> >> >>        hotplug events
+>> > >> >> >>      * the drm_bridge_connector is designated to create and r=
+emove the
+>> > >> >> >>        drm_connector, so it must be persistent for the card l=
+ifetime
+>> > >> >> >>
+>> > >> >> >>     As the lifetimes of drm_bridge_connector and drm_connecto=
+r become
+>> > >> >> >>     different, we need to create them in different moments.
+>> > >> >> >>
+>> > >> >> >>     In preparation to support that, split out from
+>> > >> >> >>     drm_bridge_connector_init() the code adding the drm_conne=
+ctor into a
+>> > >> >> >>     dedicated function. No functional changes, just moving co=
+de around for
+>> > >> >> >>     now. A future commit will make the drm_connector be creat=
+ed based on
+>> > >> >> >>     hotplug events.
+>> > >> >> >>
+>> > >> >> >> Looks good?
+>> > >> >> >
+>> > >> >> > The message itself, yes, thanks.
+>> > >> >> >
+>> > >> >> > However, I have questions now :)
+>> > >> >> >
+>> > >> >> > Do we really expect drm_bridge_connector to stick around when =
+a bridge
+>> > >> >> > gets unplugged? If so, how does it cope with having, say, an H=
+DMI
+>> > >> >> > connector, and then swapping out the hotplugged part for an LV=
+DS one?
+>> > >> >> > Does the HDMI connector sticks around indefinitely?
+>> > >> >>
+>> > >> >> In your example, the HDMI drm_connector would be unregistered an=
+d put on
+>> > >> >> hotunplug. Its allocation will stick around until the last put b=
+ut that's
+>> > >> >> quite irrelevant. Then, on plugging the LVDS addon, a new LVDS
+>> > >> >> drm_connector will be created and registered.
+>> > >> >>
+>> > >> >> > *Especially* if we're using overlays for this, I'd expect ever=
+ything
+>> > >> >> >  after the first hotplugged bridge to be destroyed, no?
+>> > >> >>
+>> > >> >> As said, it would be unregistered immediately but might be freed=
+ later on
+>> > >> >> if still refcounted.
+>> > >> >>
+>> > >> >> This is visible in patches 36+15, the path to follow is:
+>> > >> >>
+>> > >> >>  drm_bridge_connector_handle_event(event =3D DRM_BRIDGE_DETACHED=
+) [patch 36]
+>> > >> >>  -> drm_bridge_connector_dynconn_release()                      =
+[patch 15]
+>> > >> >>
+>> > >> >> Does this solve your concern?
+>> > >> >
+>> > >> > Not really, I'm talking about drm_bridge_connector. The fact that
+>> > >> > bridges are destroyed make sense to me. The fact that
+>> > >> > drm_bridge_connector sticks around doesn't. It's supposed to be a
+>> > >> > connector for bridges. If you don't have bridges because they got
+>> > >> > destroyed, and connector, drm_bridge_connector doesn't have a rea=
+son to
+>> > >> > exist anymore, unless it's drm_bridge_hotplug in a trench coat :)
+>> > >>
+>> > >> It is not a hotplug-bridge in a trench coat, no :) The code is clea=
+r about
+>> > >> this.
+>> > >>
+>> > >> I'd say with this series a "drm_bridge_connector" is just becoming
+>> > >> something more (perhaps something else too). Somewhat as "a drm_bri=
+dge is
+>> > >> either a bridge or something else". :)
+>> > >>
+>> > >>
+>> > >> But let's leave names aside for a moment. If just looking at the cu=
+rrent
+>> > >> code, the drm_bridge_connector is "a handler, owned by the card/enc=
+oder and
+>> > >> having the same lifetime, which takes care of drm_connector
+>> > >> creation/destruction at card probe/removal".
+>> > >>
+>> > >> What we need now is just the same plug " and on hotplug events" app=
+ended.
+>> > >>
+>> > >> So in both cases there needs to be "a handler persitent with the ca=
+rd".
+>> > >>
+>> > >> Do we agree so far?
+>> > >
+>> > > Ish. If we go for that, then we need to update the name.
+>> >
+>> > drm_connector_manager?
+>> > drm_bridge_connector_manager?
+>> >
+>> > > drm_bridge_connector for something that is neither a bridge or a
+>> > > connector is not great.
+>> > >
+>> > > But even then, I'm not even sure why we need to have that "manager" =
+in
+>> > > the first place. You want to make bridges be aware if they are the l=
+ast
+>> > > in the chain or not. Use that property in attach to either create a
+>> > > drm_bridge_connector instance if you're last, or attach the next bri=
+dge
+>> > > if you aren't.
+>> >
+>> > What? o_O
+>> >
+>> > Several encoder drivers have been painfully converted to create a
+>> > drm_bridge_connector.
+>>
+>> I mean, it was done at a time where bridge hotplug wasn't a thing and
+>> the assumption was that the bridge chain is static. You're now breaking
+>> that assumption, it shouldn't come as a surprise that it might break
+>> other things.
 
-https://sashiko.dev/#/patchset/20260715142841.80544-1-steven.price%40arm.com
+Sure adding a new requirement (hotplug) breaks the existing design. Still,
+this can be solved either by adding a new software component or by
+extending the existing software component (drm_bridge_connector) as this
+series proposes. None of the two ideas is wrong, so let's discuss which is
+best.
 
-In the future, please post this with the relevant patches as an
-integral prefix, so that we can make use of the tooling.
+>> And I know that you have experienced it already, which makes your
+>> reaction even more surprising to me :)
 
-Thanks,
+Sure, the drm_bridge allocation was not refcounted and needed to be. And we
+didn't ditch the drm_bridge to create a new thing, we instead extended the
+existing software component (drm_bridge) to also be refcounted.
 
-	M.
+>> > Now if the bridges start doing it themselves we should go back to
+>> > those encoder drivers and ditch all the drm_bridge_connector from
+>> > there?
+>> >
+>> > I must be missing something. Can you elaborate on this?
+>>
+>> drm_bridge_connectors bring together a (complete) bridge chain and a
+>> connector. If you don't have either anymore, then we shouldn't keep it
+>> around.
+>>
+>> What I was suggesting before was only a suggestion. I guess we could
+>> also make the encoder own the hotplug handling code and create the
+>> drm_bridge_connector when the chain is complete, and remove it when it's
+>> no longer the case.
+>
+> That's an interesting option. We don't have to keep drm_bridge_connector
+> in its current form, but I don't think we should go back to individual
+> bridge driver creating connectors, especially now that we have bridge
+> chains where the connector ops are implemented collectively by multiple
+> bridges.
 
--- 
-Without deviation from the norm, progress is not possible.
+I definitely agree we don't want to add burden back on the encoder.
+
+>> We can discuss alternatives too. But either way, we shouldn't have it
+>> stick around.
+
+Bottom line, I roughly see three ideas mentioned:
+
+ 1. (this series) extend the drm_bridge_connector to create the
+    drm_connector based on bridge hotplug events [+rename it]
+ 2. - keep the drm_bridge_connector (mostly) as is
+    - let each encoder driver add/remove it based on bridge hotplug events
+    =3D> more burden on encoder drivers -> no
+ 3. - keep the drm_bridge_connector (mostly) as is
+    - add a new component (what name?) that will receive bridge hotplug
+      events and react to them by adding/creating a drm_bridge_connector
+    - modify encoder drivers to create this new object instead of the
+      drm_bridge_connector
+
+In principle option 3 is the same as option 1, except it is split in two
+components.
+
+I _think_ you both are discussing option 3. Correct?
+
+If that's correct: any name suggested for the new component?
+drm_hotplug_manager? drm_connector_manager? drm_bridge_connector_manager?
+
+Luca
+
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
