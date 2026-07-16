@@ -4,70 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAC41C4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 11:31:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC06BC4450E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 11:32:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XKhSlt0qsyEnD/G6yVUTv/NpNy9ZRLC+ZACUq8SGN4o=; b=pros0faA0yWCRE47Jnmzzdl0IU
-	nKxPvpThsk8pyHjHys0a/GV+EDNPmR1aL+GHaavKlDIl/MQQsrXA4vLpC4ZM3uMH1QI0a6n79D9w+
-	J3whpwlyvMO/xmCPlnKS9BY8wkYSox12EZGXLxWBZaTj58HyQHJ074HDOhYxaiFZ1vqUEq7FuROY7
-	p73v17s9jxLSc2U8Qk+Cp4IREoNDjNKtt4yTnxSO2AF+rVfRJUTQzPrJvX+vcSUafl1aUQ4tJg4FZ
-	ndJySXP96J2NXuH6YpyRcvIIkgKcRZsazDw2Zoaj/UDcZdOl1+AuH+Vuk1xbKe5RJFvi4fEA2TAZ1
-	Lzz3mLzg==;
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZS4OV7y9NIUYJFnBVEIYqaeTmerirCK1BiprcWcFGEQ=; b=dQ6Lln3YwAwwMG+PA8n6F0kC0i
+	qCgdxQbA8eW4ZCkcjZX6+BpfFButbYKcTIkC/jiYdSn4lq6lyE9jZ/ZY8TYRYXqz3Pp7UqRzoC/OO
+	+QLYE3ijNe3XScFF4GZlVSBgpRByYztvYoXQ9Yg5mOi+t+V8QSftL3/e/BLEdSRquX7PqSUc58TeS
+	I/swswKvqfC7AzO+wF8NVGhUJFTMznFs8CBpgJrzSLT6ywFD+6Q16Wj5ukJhhDyEOTnDGgf9LNYpK
+	+Qu24HAPG0lB8o+XQQiEWynWMP6LXfLcj60uQ4mC/cCFoL/fzdHDAztv4iUfDC50KIKl6z4uKvq6a
+	/8wH72OA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkKJk-0000000H8UN-3o9c;
-	Thu, 16 Jul 2026 11:31:52 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wkKJt-0000000H8ZT-2kwA;
+	Thu, 16 Jul 2026 11:32:01 +0000
+Received: from fout-b4-smtp.messagingengine.com ([202.12.124.147])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkKJh-0000000H8Ro-2nkU;
-	Thu, 16 Jul 2026 11:31:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1784201506;
-	bh=WM02DUzdy4HabgJXR75yvultM4DgXC9/b7Dv8gui5Ks=;
-	h=From:To:Cc:Subject:Date:From;
-	b=KJiRJ4JnoUuVCKAe8iph6AMfb4k42Y2/Tr17o3sLhSsjqvpZ3hVJG7p0m0kRmPccO
-	 1yJbo8RVSnIuw6RX5WAwuXt5NUo7DENh/HWbOnRTkrmeit5ekPofCNMwatnkLCa5L9
-	 QfMdfhFB+b7Eelg4vq2lWbssMKRupp2RDz4ZKs/jYT1ryagqKAPMZAZg+CR03fOTCQ
-	 hikKUkeIx6VbNX/2ZWJqdsLnNxKSTuEitcZJFgigQHSEWrtZkUyS5sSdkoriUAiGu9
-	 5PjuZKE5CeOytemEQQBjV+KI3MJsQhfvtlHKzg7ply88D7opevfawK5YZATPNDVJ+3
-	 eSK2CziPIye/A==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9FC8E17E0177;
-	Thu, 16 Jul 2026 13:31:45 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: linux-pci@vger.kernel.org
-Cc: ryder.lee@mediatek.com,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	robh@kernel.org,
-	bhelgaas@google.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	bartosz.golaszewski@oss.qualcomm.com,
-	wenst@chromium.org,
-	linux-mediatek@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com
-Subject: [PATCH] PCI: mediatek-gen3: Initialize all resources before installing ISR
-Date: Thu, 16 Jul 2026 13:31:42 +0200
-Message-ID: <20260716113142.46742-1-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.54.0
+	id 1wkKJr-0000000H8Wy-1U3L
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 16 Jul 2026 11:32:01 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.stl.internal (Postfix) with ESMTP id E24F11D00140;
+	Thu, 16 Jul 2026 07:31:55 -0400 (EDT)
+Received: from phl-imap-05 ([10.202.2.95])
+  by phl-compute-04.internal (MEProxy); Thu, 16 Jul 2026 07:31:56 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1784201515;
+	 x=1784287915; bh=ZS4OV7y9NIUYJFnBVEIYqaeTmerirCK1BiprcWcFGEQ=; b=
+	mNBj7gqdERkp7Bdh/UESryg7RcG4QAWOnyGrlGpQ1RGAiEYdfnvMFYeWvLuCB+zf
+	fqxv9L9wcYaTlacPRTmYD3mS6P9JK38DCj6h95GvQhUXPyFWHCZ4PgdWyZ4xdmwP
+	n0fEKiM12XQnwOFMu7zhGv90AUBBuBy6dsXZgmopmAXalENnOO5ZZJm3wIE5bjcM
+	YuakBB+v1M4osjepcC0Melyd9UCGPTLHKG/37weJX04E3pYugw/vd43DIGDgmVQk
+	GJEpQchWcOcJF/ILMUzIbVDLjWtabMExwW28SNGW0x82Gry9SYsO03LGaXMhbytC
+	SWqLUiZE8VVlSAuTe+vqqg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1784201515; x=
+	1784287915; bh=ZS4OV7y9NIUYJFnBVEIYqaeTmerirCK1BiprcWcFGEQ=; b=V
+	JjFuKZbiVU5mB4Gq1RKZ+QPu4srOWZRaYQtf0pS6tNcaqZzb8/nXraVL/RaZuWnK
+	lKxa1svk7OgSQJXTaf6TRCPR37I4vD0wbub1KhxY+4vQrFD5Ke89iafkIPSKnmIJ
+	jKqO0U7vwNORt9d1Ldza8ZGdb2zGkZtUfvty5GpN8tJtQ96TVuAFNzbr/keuvPCu
+	9qv7g1rlRJNmwqfWKch/fWqUAXmyihwpolMd5Yt/cZPin/PZwRD054KyjuEWGVnY
+	fAUgHklVYjFljvhkUWp24iuuB/XB+2/HEaEhGkKmKHITdHBOTB+UkC+kAi/ifLWh
+	uK2eM+xDTXgZg4rjWTCMw==
+X-ME-Sender: <xms:K8FYalDYU8fxbZQk5gDYve2MIpMY4FmwywFAXsGv7Vfrcrxltr0TMQ>
+    <xme:K8FYauXNWdjoszEmkCTTxxPwQSu1CN6H88uJaKvlhjsRN9ARaqPCZjepLgxVjO3dv
+    wcUZGLoAUuZ_dLHs8c0AqKSipz1YDa_bXl4iGzCPrXxOq-guohYZKA>
+X-ME-Proxy-Cause: dmFkZTEYozy+JV8WngqgKmZY6dkU/0PoKBXIq/3nQoC0jhRzf8//0LCZ1+KG7Jpc9sb1Iv
+    HOyGLKW7W5+qSWkpoSWvR233YBuu8c9vRSgQ5/T3lVbRjFGUkBvxTupNsdYI/e5mbTnHhE
+    6SDCCRuULBU6OEdSYDxFA/LLzxRU0B+UnDuK9DFqTJyJu5ecPFf/I9gOd5++1YPo5jb80q
+    sBuvzpvnZjpXCrIgLsSNVCraft1O7G73ovt/d8zeRp0/ha/solJOVU0rq7d10u4iXHCGZu
+    40/lG2brskfqYufESt1IjseaObNzlFyKxK89IMdB9QwzW1xs7UxUgQ7ObNql7vkmAIegEV
+    LsA+5TbJg3jrHOPJCiLzsCVDktU3NSMauN+asUDddBzDB4JaynWVyipo1tAEwC3F4j8wit
+    5t3KR3FI6ntqFWfvL6M46b0UDzE03lVe29VunJVH6v8TLCcd2/j4tC33ivcRTykSKCVZzU
+    Z3KkVkn5DjJ0V70Grf3RLzPZrJMt9AXZd55YDLPM/yotIxP99eVGPxs0bXKRD0JkKchnlm
+    2swK1Vv9wsi5DD1VGEoQhPQxcr2a/8nAyYPDJFow0R6ULX6nOlKkNVGf9aNTWpfZgk6sT0
+    fMvsrmaAp66l2u7rbDtgRtblMbrsIDzjBeQ7roWE38Xqcq1p6a5gj7EYl0AQ
+X-ME-Proxy: <xmx:K8FYavFJbqEx2LC4UNn9PkQ0Ujn0w6xfDsrMdWJlmZGNY0rvokuxpA>
+    <xmx:K8FYarb8-Ig31ZWaTyANR4EcVJXI3NzlQ0tWyMvD40GQlKffgA0RkA>
+    <xmx:K8FYanXbY2S2OIlr0AcfNmnSFx2mbenToHKDH8sQuUQP11mq2Ssy3A>
+    <xmx:K8FYapmsdLDWzx2rl6qblyQE3K0vvlSvV53jVD12aOqEGvzYDM3fQA>
+    <xmx:K8FYal9mVLI0xCnv3-4J7rJ8NgwJpcVVk-vuNh_9muXBiiwsRS9q2V9m>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 7AEE5182007E; Thu, 16 Jul 2026 07:31:55 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-ThreadId: AnORdmDlkYiw
+Date: Thu, 16 Jul 2026 13:31:17 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Krzysztof Kozlowski" <krzysztof.kozlowski@oss.qualcomm.com>,
+ "Anshuman Khandual" <anshuman.khandual@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: "Eric Biggers" <ebiggers@kernel.org>, "Linus Walleij" <linusw@kernel.org>,
+ "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
+ linux-kernel@vger.kernel.org
+Message-Id: <cd8cc649-c4e9-4868-b68a-6a9de72b32fe@app.fastmail.com>
+In-Reply-To: <2fae9ef8-2ec1-48ed-9b25-8526db625732@oss.qualcomm.com>
+References: <20260716100243.1604526-1-anshuman.khandual@arm.com>
+ <2fae9ef8-2ec1-48ed-9b25-8526db625732@oss.qualcomm.com>
+Subject: Re: [PATCH] arm64/defconfig: Restore built-in 9P rootfs support
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_043149_969835_A52C7AFF 
-X-CRM114-Status: GOOD (  21.11  )
+X-CRM114-CacheID: sfid-20260716_043159_831510_E656DCC2 
+X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,211 +112,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If the bootloader leaves the PCI-Express MAC+PHY enabled before
-booting the kernel, an interrupt may be pending while probing
-this driver, which means that the chained interrupt handler is
-called as soon as the irq is enabled and handler is installed.
+On Thu, Jul 16, 2026, at 13:01, Krzysztof Kozlowski wrote:
+> On 16/07/2026 12:02, Anshuman Khandual wrote:
+>> Commit d521c4ca039f ("arm64: defconfig: Switch Ethernet drivers to modules")
+>> had changed 9P and virtio-9P support from built-in to modular instead. This
+>> breaks simple kvmtool boots using a 9P root filesystem without an initramfs
+>> , because the kernel must mount root filesystem before it can load the 9P
+>
+>
+> And that commit explained you must use initramfs. Nothing got broken,
+> because there was never a promise that a recent, virtualized environment
+> must work on defconfig without initramfs.
+>
+> You fully control your software, so just build initramfs which is
+> absolutely trivial and we all moved on to that for arm64 long time ago.
 
-Since the mtk_gen3_pcie structure gets fully initialized only
-after installing the handler, that condition results in a NULL
-pointer kernel panic (mostly due to pcie->base being NULL, but
-other members will be uninitialized as well).
+I still regularly boot KVM guests on arm64 without an initramfs,
+but I just use 'make kvm_guest.config', which turns on all the
+commonly used virtio drivers as built-in. I wouldn't call
+9pfs root trivial without initramfs, configuring 9p built-in
+is already complicated enough.
 
-In order to resolve this, disgregate the mtk_pcie_setup_irq()
-function and partially do the same to mtk_pcie_setup(), so that
-all of the required resources are initialized before installing
-and enabling the interrupt handler.
+So I agree we don't need this patch, but there is a trivial
+workaround for Anshuman in case he wants to avoid doing this.
 
-Also, install the ISR after deasserting resets and powering up
-the PCI-Express MAC and PHY, by moving the call to the function
-irq_set_chained_handler_and_data() to the appropriate place in
-mtk_pcie_setup(), as hardware registers cannot be modified if
-the hardware is powered down and could result in a SError.
-
-This makes sure that all resources are actually available and
-hardware is powered on before any registers operation is done.
-
-Fixes: eddbac092e5f ("PCI: mediatek-gen3: Move mtk_pcie_setup_irq() out of mtk_pcie_setup()")
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
-
-The real issue starts with commit eddbac092e5f but this still goes
-a bit further by reordering things a bit, enabling the interrupt
-after powerup and but before port startup, along with getting the
-irq in mtk_pcie_parse_port(), where a bunch of other devicetree
-resources retrieval is done, grouping them in one place.
-
-This actually resolves the following issue:
-
-<6>[    6.877824] mtk-pcie-gen3 16910000.pcie: host bridge /soc/pcie@16910000 ranges:
-<6>[    6.877854] mtk-pcie-gen3 16910000.pcie:      MEM 0x0050000000..0x0057ffffff -> 0x0050000000
-<1>[    6.877972] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000184
-<1>[    6.877978] Mem abort info:
-<1>[    6.877980]   ESR = 0x0000000096000004
-<1>[    6.877983]   EC = 0x25: DABT (current EL), IL = 32 bits
-<1>[    6.877988]   SET = 0, FnV = 0
-<1>[    6.877991]   EA = 0, S1PTW = 0
-<1>[    6.877993]   FSC = 0x04: level 0 translation fault
-<1>[    6.877996] Data abort info:
-<1>[    6.877998]   ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
-<1>[    6.878001]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
-<1>[    6.878005]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-<1>[    6.878008] [0000000000000184] user address but active_mm is swapper
-<0>[    6.878012] Internal error: Oops: 0000000096000004 [#1]  SMP
-<4>[    6.878018] Modules linked in:
-<4>[    6.878027] CPU: 0 UID: 0 PID: 82 Comm: kworker/u32:3 Tainted: G        W           7.1.0-rc5-next-20260525+ #1700 PREEMPT(full) 
-<4>[    6.878037] Tainted: [W]=WARN
-<4>[    6.878040] Hardware name: Google Hylia SKU1/2/4/5 board (DT)
-<4>[    6.878044] Workqueue: async async_run_entry_fn
-<4>[    6.878060] pstate: 034000c9 (nzcv daIF +PAN -UAO +TCO +DIT -SSBS BTYPE=--)
-<4>[    6.878068] pc : mtk_pcie_irq_handler+0x40/0x1f0
-<4>[    6.878082] lr : handle_irq_desc+0x3c/0x68
-<4>[    6.878095] sp : ffff800080003f50
-<4>[    6.878098] x29: ffff800080003f50 x28: ffff000080b7d3c0 x27: 0000000000000000
-<4>[    6.878109] x26: ffffcc9bfd8ca990 x25: 0000000000000000 x24: ffff000080204a05
-<4>[    6.878117] x23: 0000000043400009 x22: ffffcc9bfb60793c x21: 0000000000000000
-<4>[    6.878125] x20: 0000000000000000 x19: 0000000000000184 x18: 00000000ffffffff
-<4>[    6.878133] x17: ffff3367f0734000 x16: ffff800080000000 x15: 00000000ffffffff
-<4>[    6.878140] x14: ffff000081866bd3 x13: ffff000081866bd5 x12: 0000000000000020
-<4>[    6.878147] x11: 0000000000000040 x10: ffff0000802136a8 x9 : ffffcc9bf9da34c4
-<4>[    6.878155] x8 : ffff000083149020 x7 : 0000000000000000 x6 : 0000000000000000
-<4>[    6.878162] x5 : ffff000083148ff8 x4 : ffff0000831491a8 x3 : 0000000000000000
-<4>[    6.878169] x2 : 0000000000000000 x1 : ffffcc9bfa594188 x0 : ffff000080b4c830
-<4>[    6.878177] Call trace:
-<4>[    6.878180]  mtk_pcie_irq_handler+0x40/0x1f0 (P)
-<4>[    6.878192]  handle_irq_desc+0x3c/0x68
-<4>[    6.878204]  generic_handle_domain_irq+0x20/0x40
-<4>[    6.878217]  gic_handle_irq+0x144/0x2c0
-<4>[    6.878224]  call_on_irq_stack+0x30/0x48
-<4>[    6.878231]  do_interrupt_handler+0x88/0x98
-<4>[    6.878239]  el1_interrupt+0x48/0xb0
-<4>[    6.878252]  el1h_64_irq_handler+0x18/0x28
-<4>[    6.878264]  el1h_64_irq+0x84/0x88
-<4>[    6.878271]  _raw_spin_unlock_irqrestore+0x14/0x68 (P)
-<4>[    6.878283]  irq_set_chained_handler_and_data+0xc8/0xe0
-<4>[    6.878294]  mtk_pcie_probe+0x98/0x4b0
-<4>[    6.878304]  platform_probe+0x64/0xc0
-<4>[    6.878317]  really_probe+0xc8/0x3f0
-<4>[    6.878327]  __driver_probe_device+0x168/0x1d8
-<4>[    6.878337]  driver_probe_device+0x44/0x128
-<4>[    6.878347]  __device_attach_driver+0xc4/0x198
-<4>[    6.878357]  bus_for_each_drv+0x8c/0xf8
-<4>[    6.878365]  __device_attach_async_helper+0xbc/0x148
-<4>[    6.878375]  async_run_entry_fn+0x3c/0x188
-<4>[    6.878385]  process_one_work+0x164/0x4f0
-<4>[    6.878391]  worker_thread+0x19c/0x320
-<4>[    6.878396]  kthread+0x138/0x150
-<4>[    6.878407]  ret_from_fork+0x10/0x20
-<0>[    6.878416] Code: 9100c000 f90037e0 f9400793 91061273 (b9400273) 
-<4>[    6.878421] ---[ end trace 0000000000000000 ]---
-<0>[    6.891047] Kernel panic - not syncing: Oops: Fatal exception in interrupt
-<2>[    6.891051] SMP: stopping secondary CPUs
-<0>[    6.893869] Kernel Offset: 0x4c9b79c00000 from 0xffff800080000000
-<0>[    6.893873] PHYS_OFFSET: 0x80000000
-<0>[    6.893874] CPU features: 0x08000000,003c018b,a6c605a1,357e7663
-<0>[    6.893879] Memory Limit: none
-<0>[    7.258223] ---[ end Kernel panic - not syncing: Oops: Fatal exception in interrupt ]---
-
-
- drivers/pci/controller/pcie-mediatek-gen3.c | 44 ++++++++-------------
- 1 file changed, 16 insertions(+), 28 deletions(-)
-
-diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
-index 66c33a09dd95..2c28b8e983c3 100644
---- a/drivers/pci/controller/pcie-mediatek-gen3.c
-+++ b/drivers/pci/controller/pcie-mediatek-gen3.c
-@@ -903,25 +903,6 @@ static void mtk_pcie_irq_handler(struct irq_desc *desc)
- 	chained_irq_exit(irqchip, desc);
- }
- 
--static int mtk_pcie_setup_irq(struct mtk_gen3_pcie *pcie)
--{
--	struct device *dev = pcie->dev;
--	struct platform_device *pdev = to_platform_device(dev);
--	int err;
--
--	pcie->irq = platform_get_irq(pdev, 0);
--	if (pcie->irq < 0)
--		return pcie->irq;
--
--	err = mtk_pcie_init_irq_domains(pcie);
--	if (err)
--		return err;
--
--	irq_set_chained_handler_and_data(pcie->irq, mtk_pcie_irq_handler, pcie);
--
--	return 0;
--}
--
- static int mtk_pcie_parse_port(struct mtk_gen3_pcie *pcie)
- {
- 	int i, ret, num_resets = pcie->soc->phy_resets.num_resets;
-@@ -939,6 +920,10 @@ static int mtk_pcie_parse_port(struct mtk_gen3_pcie *pcie)
- 
- 	pcie->reg_base = regs->start;
- 
-+	pcie->irq = platform_get_irq(pdev, 0);
-+	if (pcie->irq < 0)
-+		return pcie->irq;
-+
- 	for (i = 0; i < num_resets; i++)
- 		pcie->phy_resets[i].id = pcie->soc->phy_resets.id[i];
- 
-@@ -1175,10 +1160,6 @@ static int mtk_pcie_setup(struct mtk_gen3_pcie *pcie)
- {
- 	int err, max_speed;
- 
--	err = mtk_pcie_parse_port(pcie);
--	if (err)
--		return err;
--
- 	/*
- 	 * Deassert the line in order to avoid unbalance in deassert_count
- 	 * counter since the bulk is shared.
-@@ -1205,6 +1186,9 @@ static int mtk_pcie_setup(struct mtk_gen3_pcie *pcie)
- 		}
- 	}
- 
-+	/* All resources are now available: install the chained handler */
-+	irq_set_chained_handler_and_data(pcie->irq, mtk_pcie_irq_handler, pcie);
-+
- 	/* Try link up */
- 	err = mtk_pcie_startup_port(pcie);
- 	if (err)
-@@ -1233,9 +1217,12 @@ static int mtk_pcie_probe(struct platform_device *pdev)
- 
- 	pcie->dev = dev;
- 	pcie->soc = device_get_match_data(dev);
--	platform_set_drvdata(pdev, pcie);
- 
--	err = mtk_pcie_setup_irq(pcie);
-+	err = mtk_pcie_parse_port(pcie);
-+	if (err)
-+		return err;
-+
-+	err = mtk_pcie_init_irq_domains(pcie);
- 	if (err)
- 		return dev_err_probe(dev, err, "Failed to setup IRQ domains\n");
- 
-@@ -1245,13 +1232,14 @@ static int mtk_pcie_probe(struct platform_device *pdev)
- 		goto err_tear_down_irq;
- 	}
- 
-+	host->ops = &mtk_pcie_ops;
-+	host->sysdata = pcie;
-+	platform_set_drvdata(pdev, pcie);
-+
- 	err = mtk_pcie_setup(pcie);
- 	if (err)
- 		goto err_destroy_pwrctrl;
- 
--	host->ops = &mtk_pcie_ops;
--	host->sysdata = pcie;
--
- 	err = pci_host_probe(host);
- 	if (err)
- 		goto err_power_down_pcie;
--- 
-2.54.0
-
+      Arnd
 
