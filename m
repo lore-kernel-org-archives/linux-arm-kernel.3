@@ -4,68 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 391ABC4450E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 01:43:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1970BC44507
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 01:55:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0YLltPeizTaHD27Fn9ffDythfCLu2l1zT8h2w1jiMvo=; b=jS0b2xgRvCCLYnmBhyn56FRZGp
-	/5M1TXY+p/5Jqox8oynQMCvl/fGBQXk3zBd/IIFMIZdG4TOvS5MZw+uCZlDpovonWdqqzm1IOeN+3
-	nlfih+wiRayCTg3dZKNrb7j/AyjF+V9zXcm6VFSR+EYv+XBzDC64lSRCVcBDI9Sylw9r2844j58c9
-	Z2nLJGVcKBmGcRwHUmwJiGLtnNfes83VsM/cWHvhBK96KrGGZvY+pyeXAZQ2MuUxaGuq2cGOvqd8u
-	lJ8W7VQRQj/WfbSB6Pw8vTc7S5bVdCry9xf7+Fwv9G2cvrvlm9xu/jdymje/AthniGN5DfgGnF6X+
-	YqC/KyXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+/nm4eBTeryvdummOUlc9sparb30fgg4Vsv5lLPFgO8=; b=YFQnv4XBX9SKzJyL8VhiWsI47/
+	4qLLh3yawdtjwGQQnhmx6BBo54bAIYrU6JLVS2JqCqS4QYazGP+bLnJGalvfNhxvt6uX/ooaqCQVg
+	SXTQGkH2JGWwTIJWB32nVznov/c99KHHNsmPLiHcQ0P7QIhHGKNwh7WHkDrKJzkxPqE31Aq2gnPb6
+	AOhMi/TBIyZTN8slItotCSObhQMbD95v94RQ5TJmuJe+i+Hj3V6dF0W9qykOzX5Ne9demn8iRZK3q
+	9Ywo62AJH9gmpOCuXt3yjX2P+4RtuOPF28zUqS4hoEQ2uPr9mx7+0n+V0lzOSjb71wobf1fhgCgK1
+	kFo4u8kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkB7t-0000000GDMd-2CD9;
-	Thu, 16 Jul 2026 01:43:01 +0000
-Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
+	id 1wkBKC-0000000GE8z-3vUZ;
+	Thu, 16 Jul 2026 01:55:44 +0000
+Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkB7p-0000000GDLW-01at
+	id 1wkBK9-0000000GE8U-1Kro
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 01:42:59 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=0YLltPeizTaHD27Fn9ffDythfCLu2l1zT8h2w1jiMvo=;
-	b=ftree1watZKga8gU6wNb3X37dDAZx5DBaRpXyIo8dK0PIG+r09OhTLrWbAP+EFMyiLl/mhOg9
-	wvg47lyIbLvIW25CzZlR/ByYnfIQdNM0i837uVWZP+z0naeGcDqad6oLoyLkpVWq/iwXfJUX62J
-	QYVKNY6oWx7GuSbjyXwVDFc=
-Received: from mail.maildlp.com (unknown [172.19.163.127])
-	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4h0wXv2KqQzLlXT;
-	Thu, 16 Jul 2026 09:33:19 +0800 (CST)
-Received: from kwepemj100009.china.huawei.com (unknown [7.202.194.3])
-	by mail.maildlp.com (Postfix) with ESMTPS id 14F3940572;
-	Thu, 16 Jul 2026 09:42:38 +0800 (CST)
-Received: from DESKTOP-A37P9LK.huawei.com (10.67.109.17) by
- kwepemj100009.china.huawei.com (7.202.194.3) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Thu, 16 Jul 2026 09:42:37 +0800
-From: Xie Yuanbin <xieyuanbin1@huawei.com>
-To: <linux@armlinux.org.uk>, <ljs@kernel.org>, <akpm@linux-foundation.org>,
-	<xiqi2@huawei.com>, <david@kernel.org>, <linusw@kernel.org>,
-	<liam@infradead.org>, <vbabka@kernel.org>, <rppt@kernel.org>,
-	<surenb@google.com>, <mhocko@suse.com>, <will@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-mm@kvack.org>,
-	<linux-kernel@vger.kernel.org>, <liaohua4@huawei.com>,
-	<lilinjie8@huawei.com>, <sunnanyong@huawei.com>, Xie Yuanbin
-	<xieyuanbin1@huawei.com>
-Subject: [PATCH v4] ARM: mm: acquire mmap write lock around show_pte() for user faults
-Date: Thu, 16 Jul 2026 09:40:22 +0800
-Message-ID: <20260716014022.2823-1-xieyuanbin1@huawei.com>
-X-Mailer: git-send-email 2.53.0
+	Thu, 16 Jul 2026 01:55:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XJGCzjVhW8V8zendMo67b56lWFWHiAfdaUJqmG2xoVlfeKfj0vrK/uBCsLUznY60fI8lnT0LyF3g+yM60rcSWpWApL7dwolGr+s7hjwMkpCbLHwwZqcuquUjlv10Smpq9HK06c6jUb99SF6K6ZyjRrWfaoKWhp32yOCFhYZUKn9mnDRtBfRcX3YKSbEzOjIFLiKDKDIhfK4rVUXLCPWGQN8ATNT+RPJLBRRVdIbIMkVNnapGtXHCsXhmaS1/yEyJtFJsor0j5EINpkyb4kRwHbDHHIlazBsHSEyM5402dSrYauFKQYYKVbB6+eAlEwooLs3HoxUanqg4RYSeFlHDcw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+/nm4eBTeryvdummOUlc9sparb30fgg4Vsv5lLPFgO8=;
+ b=oxl8fPtD6VbZN5H562GTWZWZqsMW/rpFNHEG6N9QBnN0/tikHW6AzK/lbk4CnV/50z4IIqr0CaaAflpfr2nGxrPnSSURNklwvn4p/M4PtEHe34oY5sePC+ZT88HGwivVpu2WihlzrZaESS8wY5JVF6v1hy6uN16RGVR/0U9fXYoZi2PjsvFobUoVy9HbV9oonALBoRC7yXzBl2xLdMDdOejoCseVGI7JYUMnd4VnqYcjZWN7b/VAmYLtS+IUblWkf0wMcJuc0TMu7aWgH3gpEsP3lM/rCxB0cgGszxANKHYdUvDgfkgSQfZNsYZlrZ/gX9ee1c5y0kHfzOfNz8YpMw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+/nm4eBTeryvdummOUlc9sparb30fgg4Vsv5lLPFgO8=;
+ b=KcGX72NGwop+JAvjIIpxxzb2cTgbUhu08TZW6o9eHuMFCT9in3wsxdOwA698R00LhRSE/ZHdjgSZ1z8ilR+VTSjj0TqZSoEcL04g8VJYuHcRxOBB8wTlP2mExCxu7wDBY1cD7rDZxIZf0q4lPZR1ihDL0ISKdV2s+TrO+Uwd0S4=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from SA1PR12MB999228.namprd12.prod.outlook.com
+ (2603:10b6:806:4db::10) by CYXPR12MB9442.namprd12.prod.outlook.com
+ (2603:10b6:930:e3::22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.12; Thu, 16 Jul
+ 2026 01:55:34 +0000
+Received: from SA1PR12MB999228.namprd12.prod.outlook.com
+ ([fe80::4dba:119e:8e7c:37b3]) by SA1PR12MB999228.namprd12.prod.outlook.com
+ ([fe80::4dba:119e:8e7c:37b3%4]) with mapi id 15.21.0223.008; Thu, 16 Jul 2026
+ 01:55:34 +0000
+Message-ID: <9d83ec13-3b1e-4c1b-8bab-16ea057cfba0@amd.com>
+Date: Thu, 16 Jul 2026 11:55:20 +1000
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 16/22] dma-direct: make dma_direct_map_phys() honor
+ DMA_ATTR_CC_SHARED
+To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
+ Robin Murphy <robin.murphy@arm.com>,
+ Marek Szyprowski <m.szyprowski@samsung.com>, Will Deacon <will@kernel.org>,
+ Marc Zyngier <maz@kernel.org>, Steven Price <steven.price@arm.com>,
+ Suzuki K Poulose <Suzuki.Poulose@arm.com>, Jiri Pirko <jiri@resnulli.us>,
+ Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>,
+ Petr Tesarik <ptesarik@suse.com>, Dan Williams <dan.j.williams@intel.com>,
+ Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+ linux-s390@vger.kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
+ Jiri Pirko <jiri@nvidia.com>, Michael Kelley <mhklinux@outlook.com>
+References: <20260701054926.825925-1-aneesh.kumar@kernel.org>
+ <20260701054926.825925-17-aneesh.kumar@kernel.org> <ak42F240d-53QeFN@arm.com>
+ <yq5apl0xgy89.fsf@kernel.org>
+Content-Language: en-US
+From: Alexey Kardashevskiy <aik@amd.com>
+In-Reply-To: <yq5apl0xgy89.fsf@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SY5P282CA0051.AUSP282.PROD.OUTLOOK.COM
+ (2603:10c6:10:20a::14) To SA1PR12MB999228.namprd12.prod.outlook.com
+ (2603:10b6:806:4db::10)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.67.109.17]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- kwepemj100009.china.huawei.com (7.202.194.3)
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA1PR12MB999228:EE_|CYXPR12MB9442:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1cdefcaa-7381-4e34-8787-08dee2dd532c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|1800799024|366016|56012099006|4143699003|11063799006|5023799004|10067099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: LDI9dnkp/bF59M2uVsgk+p1VyUnj+a0ovCMfeGxDu8kn8ISn2bHyaqKWKcoYtCkMtOWVQqpWGQg1LKK66LO8lbIGd4vvli32OrN5L8Vdj+aWo8ZEudTBOcYdGcacai0RZFvd+Vp/59oWBMtrIaAP53ciwxNPgTCDfTw/8UTnID9/+yH726IHDIlV6tLTuE6cHWIkMVY9/33Wg0DsPhfuqbdwbcv1ad/2HpZoxqwDmH5sUkLOZrMxNq8pwUv3nej6p61h6Hpdw1lwaytpPXaU5SNVafEIKzxGxDeKeMbkDiH3O0t9X0UFzQegSRFi2hxRgOEgY+dKT8OOjb8JtdiiOj/N5bJXXvQPZpmDehEXvRIHHKWfR13yriInWfDxi4pg965kwJ0BR6ACX5uKoRp+kJCN9ZXfeWx9VV/AI0NmKShCFZ2iJbrRfu9VFgVqew633KFDYMNHEPhbhOFqKD6AhUsYdjTTALFBZQ5KY3dEBOD0oQ0T2Dgkbh08XX0Mw3Zrdq4AOwsDK9YgJS/zNVvE7SVHq/S8mVrejx4Iyz2nNZpx9+GrMBLFrWAUfzESUkNP/SO1TYZmBGyOt9v5wac+sx0j61cJZ8i39PNr+sPik8v1PPNVf/ghGEekUhUrENW+WyRDG+24mcP9AMue18gejScPQFCvCJfjreSs+7gf1dY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB999228.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(1800799024)(366016)(56012099006)(4143699003)(11063799006)(5023799004)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SzFVSE1DWXRLSVozWXNDR0lKRWdTOFhLY3NIbkZNZ2JvRzRSdnVVQ0xQOS9m?=
+ =?utf-8?B?eDJtMmEra1VhdVdkUzJhT3d3NG9EaGZKYXNycnBJUWl0YUxmMmlpUlZVM04y?=
+ =?utf-8?B?R1YvTTg4WlRMbHA4cnlOSXpqUVlsczBnWTRjY1JVaU0xUGdZVlhndW9qSzJo?=
+ =?utf-8?B?QldNRHptb2Q3SU9RSDdRT0tkb09oK3VRVGN2Z1JIKytuYWtQbjdGRDJOdzhU?=
+ =?utf-8?B?aXVrdHRCdzI1My93UGZHMDBNMlE2NWYvMitQLzVQLzR2Q1dQMjFDQkdvYU1z?=
+ =?utf-8?B?d2VlSVB1V25vWXVXZWdWNmdVZ00wREw5VHA4aTdCWmRvQ1ZUNm1PYUhNRCt6?=
+ =?utf-8?B?Yi9sS1kySkVvOWhlVytIVEU0bnJVTE9uQk5xdnZQcWdjMVFJbk0rTmJXSld5?=
+ =?utf-8?B?enNnUC92ZnBURHhCc0sweWt0YzFSY1BuTDJHMjB3UTNpblBERDlHYk9SYXVa?=
+ =?utf-8?B?Z1grMkRDNk5kWFBaWm0vVGE5RGlVTXZlMXkwZGxlZ01GTjZwVUcrZzJtMXZZ?=
+ =?utf-8?B?eEpPa3UrS1NUUTlidW1oK3h2Y3Y1ZVlERVY4eWVpVDZDSDlGcUM1eU5VQ2po?=
+ =?utf-8?B?VDg5eUs1aGszd2w1RWltQmwzc01XcTZ6QWxEa2dKTjhQU0VVQnZyNzFtQXpw?=
+ =?utf-8?B?Rk1SM1o2TlRKNWQxY2FqZ0ZuVllGcmxnNlczU3kzR0UvTkRBcG9zSGdNeUpm?=
+ =?utf-8?B?VHpHRDZUd09RdFJVRC9NUkNQbVpvK0YxV0Z4WExNQVpFNThuNjVSTzcrT1c3?=
+ =?utf-8?B?aWl2aURDbkFFNVdiZEJlaFhRK0VmT3Z1bzE1em95QlhWa05HNTExVFVjVkF3?=
+ =?utf-8?B?QnN5b1FFL1hkVkppL3g2V24wdyswUlF6RkZKVEhQam14SCtZdUFJNzF3WFJ6?=
+ =?utf-8?B?VG1pTkVvWUxkancrbElXWlpnY25SbFNPNDVtTHN0eEZaWkhBZFczVmoycXZC?=
+ =?utf-8?B?M0U2VW1yUVUwejdHTWhlR2Y1aUdzL1AzLzZnRXlUMm5QbWQyeHFvQjJIK0ky?=
+ =?utf-8?B?TWEwYWZPWitOOC9kY3hHVjJQYkwyZXF5RXdCYlVUdVh1elJIbWpodnQ4V3N2?=
+ =?utf-8?B?YmZFdmd2V3o0TUczQU9EaGtRY2NYdkM5ejl4UGluaUpUZXhDR1dOTnZ5VnJa?=
+ =?utf-8?B?K3BpZnQzai95VW5jOFA2SHQ4NHQydnF0ME5YNFJTWVJ3eHkrWlpDNGtmMS91?=
+ =?utf-8?B?Um1vbUNRRE5lWnY0SXB5S3NBcWRJMFVwZGVmUHNZTW1GNHhtenYxR1RZd0U4?=
+ =?utf-8?B?c25YUXIvYzhWblJKejlVWTdCTUJ1M3g2S3ZQek1PRXpNS004V1lLM2JZLzFR?=
+ =?utf-8?B?QTh4U3cwdWtqQU9yazBOWjlmNmN5bFFPdmUyZ1YwZ0tTczIyWm1ETGxRL2Iz?=
+ =?utf-8?B?bTE2VkNrUHBseEY0U1RQRGZpN0tYa0NVT0poYTRaSzBYL28wOFhvbTlublh0?=
+ =?utf-8?B?YTZ2TndrQ200UEY4L2N1QUVRN0M4TUlzWnpVRFR3WGdEbmp4MlErcHduLyts?=
+ =?utf-8?B?NVU0cG1VNDJIL1hwM1gzaDIwTFVBR1hTeldyK3V2Tm5aY1QrSjVSYzZtRHpJ?=
+ =?utf-8?B?K0RFejZvTzllSEgyOEU1T1BxZ3RXdndWVXArSDkvaTExZGNTcWMxSDBqZkR2?=
+ =?utf-8?B?T09CNXVMUkkrWmNqM3p4VE8zVVRYUzhhcGp3ZzV2UExwSHBtS2QwSWI0ZTB0?=
+ =?utf-8?B?Q0NmbmF3YldzNnpYRVJhZ2ZRUjZHUzNiQkQ4QmdiYTVWbzV0S0tCTEpNbXJh?=
+ =?utf-8?B?TmNWMmwwN1Nqd2NCSDM2TjVzZ1huZEZRNDVZNy9QdFQ3c1NrQjJ6d2ZOeWRl?=
+ =?utf-8?B?bFZYRHFlTUViL000YmNLQnRybm1PWnF3Z0R4ZzhvQzJKMnJsYzZMdDgwUE43?=
+ =?utf-8?B?RWFEZHVWa1paRjJZVjNYUjh5ZTVtNGZWL2V0YTNGSS9BYjZHUnZtdWdQR1Qx?=
+ =?utf-8?B?RDY4RFhQcEhCanhQbG9Xd2JRVGZtdFhGQWN4Um5ra2xOa1dsbjBZUis0YUlT?=
+ =?utf-8?B?UkM2UENkTWkrUC9RM2FTM2d0ODJpcVlBSStraXZUNG5TcGd1U05HS0hWbE9V?=
+ =?utf-8?B?clFsNm9pZTVwL2lNZXQxeXYxalFDWWhiTThzZ2FJM2JBY280dXpXcXlnWWRL?=
+ =?utf-8?B?NEdTa2hGYmRQU3MxUVg4anF2VnNPYi9FMFlUVHlvbWhWbnZDSGVvaUxXTHhG?=
+ =?utf-8?B?dTYxWTM5dUd3eVFnRHBMQTgrOE81UVFTOUE2cFRjK1FsTTc4dXRPSWhzN3Ft?=
+ =?utf-8?B?S2RWc3lsRFk2b3daS1QrOEhpSWw0ZllRem1oYklTeFVVWTMrbzViT1krVEs3?=
+ =?utf-8?B?VkNSRXdNb2dIVW9rYVZQS2RvTDVmeUZ4MnZVWHNCVENSb1VjVHk2UT09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1cdefcaa-7381-4e34-8787-08dee2dd532c
+X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB999228.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jul 2026 01:55:34.5049
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 0n5fry6jt8DThgczWTNwKlzhtrsb0/6iVovs4Qy5f5Y4ikDmhsqRfq5HVp0yi31ijwYyR/astGrc8zioZRpeAA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYXPR12MB9442
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_184257_675632_3C7B6BCC 
-X-CRM114-Status: GOOD (  20.38  )
+X-CRM114-CacheID: sfid-20260715_185541_541570_C6BA4E52 
+X-CRM114-Status: GOOD (  21.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,125 +165,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When CONFIG_DEBUG_USER=y, and cmdline "user_debug=31" is set,
-a user fault may trigger show_pte() without any lock.
-If another thread in the same process concurrently calls munmap(),
-the page table pages may be freed while show_pte() is still traversing
-them, causing a use-after-free in show_pte().
+On 9/7/26 03:58, Aneesh Kumar K.V wrote:
+> Catalin Marinas <catalin.marinas@arm.com> writes:
+> 
+>> On Wed, Jul 01, 2026 at 11:19:20AM +0530, Aneesh Kumar K.V (Arm) wrote:
+>>> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+>>> index 97987f850a33..acf67c7064db 100644
+>>> --- a/arch/arm64/mm/init.c
+>>> +++ b/arch/arm64/mm/init.c
+>>> @@ -338,10 +338,8 @@ void __init arch_mm_preinit(void)
+>>>   	unsigned int flags = SWIOTLB_VERBOSE;
+>>>   	bool swiotlb = max_pfn > PFN_DOWN(arm64_dma_phys_limit);
+>>>   
+>>> -	if (is_realm_world()) {
+>>> +	if (is_realm_world())
+>>>   		swiotlb = true;
+>>> -		flags |= SWIOTLB_FORCE;
+>>> -	}
+>>
+>> For this part:
+>>
+>> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+>>
+>>> diff --git a/kernel/dma/direct.h b/kernel/dma/direct.h
+>>> index e05dc7649366..f3fc28f352ba 100644
+>>> --- a/kernel/dma/direct.h
+>>> +++ b/kernel/dma/direct.h
+>>> @@ -88,37 +88,40 @@ static inline dma_addr_t dma_direct_map_phys(struct device *dev,
+>>>   {
+>>>   	dma_addr_t dma_addr;
+>>>   
+>>> +	/*
+>>> +	 * For a device requiring unencrypted DMA, MMIO memory is treated
+>>> +	 * as shared by default.
+>>> +	 */
+>>> +	if (force_dma_unencrypted(dev) && (attrs & DMA_ATTR_MMIO))
+>>> +		attrs |= DMA_ATTR_CC_SHARED;
+>>> +
+>>>   	if (is_swiotlb_force_bounce(dev)) {
+>>> -		if (!(attrs & DMA_ATTR_CC_SHARED)) {
+>>> -			if (attrs & (DMA_ATTR_MMIO | DMA_ATTR_REQUIRE_COHERENT))
+>>> -				return DMA_MAPPING_ERROR;
+>>> +		if (attrs & (DMA_ATTR_MMIO | DMA_ATTR_REQUIRE_COHERENT))
+>>> +			return DMA_MAPPING_ERROR;
+>>>   
+>>> -			return swiotlb_map(dev, phys, size, dir, attrs);
+>>> -		}
+>>> -	} else if (attrs & DMA_ATTR_CC_SHARED) {
+>>> -		return DMA_MAPPING_ERROR;
+>>> +		return swiotlb_map(dev, phys, size, dir, attrs);
+>>>   	}
+>>>   
+>>> -	if (attrs & DMA_ATTR_MMIO) {
+>>> -		dma_addr = phys;
+>>> -		if (unlikely(!dma_capable(dev, dma_addr, size, false, attrs)))
+>>> -			goto err_overflow;
+>>> -	} else if (attrs & DMA_ATTR_CC_SHARED) {
+>>> +	if (attrs & DMA_ATTR_CC_SHARED)
+>>>   		dma_addr = phys_to_dma_unencrypted(dev, phys);
+>>> +	else
+>>> +		dma_addr = phys_to_dma_encrypted(dev, phys);
+>>
+>> For AMD/SME, on host with memory encryption we now end up setting the C
+>> bit for DMA_ATTR_MMIO. This is fine for RAM but not sure whether
+>> some other MMIO bus understands this attribute. Maybe we should stick to
+>> something like __phys_to_dma() for the !CC_SHARED && MMIO path. Or,
+>> since this is not universally defined, just use the old dma_addr = phys
+>> if MMIO and ignore any unlikely DMA offsets.
+>>
+> 
+> Considering for AMD/SME system an unencrypted dma addr is one without C
+> bit, will this be good?
 
-If CONFIG_ARM_LPAE=y, this may cause a kernel panic if the pages table
-of PMD are freed when show_pte() is running.
 
-Acquire mmap_write_lock() around show_pte() for user faults to fix the
-contention.
+Normally both encrypted and unencrypted DMA addresses do not have Cbit, with the only exception of "iommu=pt" (which is not the default afaik). And in this case, having Cbit in DMA handles only makes sense if p2p trafic goes via the root port (== IOMMU in passthrough mode, and I am not sure even about if the root port will convert this Cbit to T=1 MMIO in this mode) but if it goes via some PCI bridge - then Cbit won't mean encryption for sure. But I do not know much about p2p (never touched). But in any case force_dma_unencrypted() seems to make no sense here.
 
-For user faults, additionally restrict that show_pte() is called only
-when the addr is a user-space address (addr < TASK_SIZE). This is because
-the lock of tsk->mm only protects the virtual memory of user address space,
-furthermore, dumping the page tables of a kernel-space address for user
-faults is unnecessary and may have security implications.
 
-Keep everything unchanged for kernel faults, because the kernel is
-already in the "oops" state, acquiring a lock may risk a deadlock.
+> 
+> 	/*
+> 	 * For host memory encryption and device requiring unencrypted DMA,
+> 	 * MMIO memory is treated as shared by default.
+> 	 */
+> 	if (attrs & DMA_ATTR_MMIO) {
+> 		if (cc_platform_has(CC_ATTR_HOST_MEM_ENCRYPT) || force_dma_unencrypted(dev))
+> 			attrs |= DMA_ATTR_CC_SHARED;
+> 	}
+> 
+> 
+>>
+>> In the other case, for an arm CCA guest, if the MMIO is shared we end up
+>> setting the shared attribute but that's fine, it's only an IPA address.
 
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Fixes: 6d021b724481 ("ARM: dump pgd, pmd and pte states on unhandled data abort faults")
-Depends-on: <20260629123349.134224-1-xieyuanbin1@huawei.com>
-Depends-on: 59e4f3b45b96 ("ARM: ensure interrupts are enabled in __do_user_fault()")
+IPA == guest physical address? Thanks,
 
-Cc: Russell King <linux@armlinux.org.uk>
-Suggested-by: Lorenzo Stoakes <ljs@kernel.org>
-Co-developed-by: Qi Xi <xiqi2@huawei.com>
-Signed-off-by: Qi Xi <xiqi2@huawei.com>
-Signed-off-by: Xie Yuanbin <xieyuanbin1@huawei.com>
----
-For __do_user_fault(), it must be a user fault, so the
-judgement of user_mode(regs) can be omitted.
 
-For do_DataAbort(), it may be a user fault or a kernel fault. If it is
-a kernel fault, it must be a kernel oops, the kernel will die soon.
-Also, a user program may be constructed to trigger
-do_DataAbort()->show_pte(), as described in this mail:
-Link: https://lore.kernel.org/20260625100031.25088-1-xieyuanbin1@huawei.com
+>>
+>> -- 
+>> Catalin
+> 
+> -aneesh
 
-For user faults, it is safe to acquire mmap_write_lock(), because
-we never return to user with mmap lock held or pagefault disabled.
-
-Note that, due to the lack of ARMv4T for testing, this patch does not
-fix the issue in baddataabort()->show_pte().
-
-V3->V4:
-  - Keep nothing change for kernel faults.
-  - Change mmap read lock to write lock.
-  - Restrict that show_pte() is called only when the addr
-    is a user-space address (addr < TASK_SIZE).
-
- arch/arm/mm/fault.c | 16 ++++++++++++++--
- 1 file changed, 14 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
-index c68677503532..0a09d4ff7718 100644
---- a/arch/arm/mm/fault.c
-+++ b/arch/arm/mm/fault.c
-@@ -174,21 +174,25 @@ __do_user_fault(unsigned long addr, unsigned int fsr, unsigned int sig,
- 	struct task_struct *tsk = current;
- 
- 	local_irq_enable();
- 
- #ifdef CONFIG_DEBUG_USER
- 	if (((user_debug & UDBG_SEGV) && (sig == SIGSEGV)) ||
- 	    ((user_debug & UDBG_BUS)  && (sig == SIGBUS))) {
- 		pr_err("8<--- cut here ---\n");
- 		pr_err("%s: unhandled page fault (%d) at 0x%08lx, code 0x%03x\n",
- 		       tsk->comm, sig, addr, fsr);
--		show_pte(KERN_ERR, tsk->mm, addr);
-+		if (likely(addr < TASK_SIZE)) {
-+			mmap_write_lock(tsk->mm);
-+			show_pte(KERN_ERR, tsk->mm, addr);
-+			mmap_write_unlock(tsk->mm);
-+		}
- 		show_regs(regs);
- 	}
- #endif
- #ifndef CONFIG_KUSER_HELPERS
- 	if ((sig == SIGSEGV) && ((addr & PAGE_MASK) == 0xffff0000))
- 		printk_ratelimited(KERN_DEBUG
- 				   "%s: CONFIG_KUSER_HELPERS disabled at 0x%08lx\n",
- 				   tsk->comm, addr);
- #endif
- 
-@@ -632,21 +636,29 @@ do_DataAbort(unsigned long addr, unsigned int fsr, struct pt_regs *regs)
- 
- 	if (!inf->fn(addr, fsr & ~FSR_LNX_PF, regs))
- 		return;
- 
- 	if (likely(user_mode(regs)))
- 		local_irq_enable();
- 
- 	pr_alert("8<--- cut here ---\n");
- 	pr_alert("Unhandled fault: %s (0x%03x) at 0x%08lx\n",
- 		inf->name, fsr, addr);
--	show_pte(KERN_ALERT, current->mm, addr);
-+	if (likely(user_mode(regs))) {
-+		if (addr < TASK_SIZE) {
-+			mmap_write_lock(current->mm);
-+			show_pte(KERN_ALERT, current->mm, addr);
-+			mmap_write_unlock(current->mm);
-+		}
-+	} else {
-+		show_pte(KERN_ALERT, current->mm, addr);
-+	}
- 
- 	arm_notify_die("", regs, inf->sig, inf->code, (void __user *)addr,
- 		       fsr, 0);
- }
- 
- void __init
- hook_ifault_code(int nr, int (*fn)(unsigned long, unsigned int, struct pt_regs *),
- 		 int sig, int code, const char *name)
- {
- 	if (nr < 0 || nr >= ARRAY_SIZE(ifsr_info))
 -- 
-2.53.0
+Alexey
 
 
