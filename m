@@ -4,50 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 007ACC4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 10:00:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23487C4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 10:01:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eUkl12tYXc68HT6B6jkk0ph9Y24lWQnR5gw0uUTHbXY=; b=M8z7m4480VCSqcZcdpzD+6DgYI
-	UhJi+ZVUNg2+GDBbV5zFhU2LDewq29uWmxXA2lqalQ6XXdoZuUjZiQw6wUs8KcsbDeMIdGawfnpIm
-	aS2I4zFJQ77+XELvFm6kKN+xi4/aZDZpxJ4Vx3hZZDftGNFP+pfrv+s2ggpeSMa2UFG0/cMufb4DY
-	geJkWyAaVk7q/FONNgcujFqre51PCDCeiF/L6FLE8aXegybTnvScLOWDi4Dgk6fa0Jj0LGaHnVd0Q
-	v7M+Jl/Rx+gWhwDu6OqAn1yG51wlQGL1W143FCQMfLS3EgTIiKDOJE5o91R6N/PE0tDxs4HMXaMY0
-	I2MnBRTw==;
+	bh=G1Rtwo7AR3vooWpatDHHIpaguB7l772vxl1xFraBRGU=; b=Y37MBYpeeY1yZh5yUUYxA4Xf+j
+	svurGct19uD6GG8ObYNtcyN88uDxez5gm9yaBfo2JT61C07PCU1K5cukC3pVBHp2pocS5HT/fWy27
+	rioL83lwZEjlta1zupYLHjJbbzBIT+FZlYnhxS5I0RoKpvlshNqKn65lRkiVJeA9ixI4L+n/jWc8t
+	46JTk91Hb0dnuRj4/BysPNMyo5y5J3DjRc+f77K2StuXZ3NFW1AYP+fALlYQZaD7IuFrnTdoFvoVz
+	zi6c3HKQToyySFH+X9jkC+112th2+YfsxI5TsCXQzgAuTLB0P9UQZYmAPu881ogS20PBVHZOse4Mb
+	AG7VwVVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkItJ-0000000Gws9-2SiJ;
-	Thu, 16 Jul 2026 10:00:29 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wkItq-0000000GwxB-38ra;
+	Thu, 16 Jul 2026 10:01:02 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkItH-0000000Gws1-3URm
+	id 1wkItp-0000000GwwW-0jAw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 10:00:27 +0000
+	Thu, 16 Jul 2026 10:01:01 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9495141FAF;
-	Thu, 16 Jul 2026 10:00:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19A231F000E9;
-	Thu, 16 Jul 2026 10:00:22 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8B7724067E;
+	Thu, 16 Jul 2026 10:01:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFE591F000E9;
+	Thu, 16 Jul 2026 10:00:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784196027;
-	bh=eUkl12tYXc68HT6B6jkk0ph9Y24lWQnR5gw0uUTHbXY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=eHjK6gI12qlrgtxnxiyKQwWLfI2f5VWylwYf7aUrRc1PGkm+W0BEzI47+uLO4oArG
-	 WGa5Vq4gMgWMlMe43/K5YIhs4zY8aXACnDrbcAun7R0o7JbAI/zmx+pmAcEmPIYeGo
-	 p5wuAv1DTQNyyYpPpLSvTNufY0LfaQsTznX+jdiB8M+Ywv8v3fV4CbACnPCMgN3bjI
-	 co0gDEyTCRHyi2o697zvXF4ZTk8Bs4pp6Mx8b1d16sY4dL9Fvq9z4XU4AkfF343blQ
-	 Nu6IEXLAekPzx2Gr97uTQlyOk/FKttNPH23OJ4ia0IX0EROIsok8GsfsEdGk+V8ZK+
-	 NGFUMWDR3Ju0A==
-Message-ID: <75f22aba-69ed-4979-8589-b38462e8e03a@kernel.org>
-Date: Thu, 16 Jul 2026 12:00:22 +0200
+	s=k20260515; t=1784196060;
+	bh=G1Rtwo7AR3vooWpatDHHIpaguB7l772vxl1xFraBRGU=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To;
+	b=QCqYvIaJMvrMkrJT/ikKtezfjy6r/HUA/srewO1a24t6+jS0FZ9Ea6y3zFM9s5/Qt
+	 jfBsFbO5vWk8leRPqUZUKVrJ6aEqVNhxrv0MM8ugYU5Af7heYn/uiDgLKqzn/4uXGO
+	 xi61ntv3INlLOARZalY30V5rZWvrJ8Aai8UaWNd8Fq159ujGq0plB3kF/BT+NUWC0o
+	 0BMoEfYp4b87kqcLz4czjyMMqcZkb3p0d0GAzMNkP86SuQ/6fHOhzdiGKcgjqy82cY
+	 ezMbq3kavQiTTDAMyujdYI1TKxgmd7CzV2ERMckrYV/Kq3iM6bntIwTKAsuvvHAo07
+	 WdIXzQbTDj/+A==
+Message-ID: <45c4a73b-d0a1-4f66-8bfc-da1e78cdc50a@kernel.org>
+Date: Thu, 16 Jul 2026 12:00:54 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH mm-hotfixes v3 4/4] arm64: remove redundant concurrent
- ptdump UAF mitigation
+Subject: Re: [PATCH mm-hotfixes v3 1/4] mm/vmalloc: acquire init_mm lock on
+ huge vmap to avoid ptdump UAF
+From: "David Hildenbrand (Arm)" <david@kernel.org>
 To: Lorenzo Stoakes <ljs@kernel.org>,
  Andrew Morton <akpm@linux-foundation.org>,
  Suren Baghdasaryan <surenb@google.com>, "Liam R. Howlett"
@@ -63,10 +64,11 @@ To: Lorenzo Stoakes <ljs@kernel.org>,
  Dev Jain <dev.jain@arm.com>, Ryan Roberts <ryan.roberts@arm.com>
 Cc: David Carlier <devnexen@gmail.com>, linux-mm@kvack.org,
  linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
+ linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org,
+ syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com
 References: <20260714-series-vmap-race-fix-v3-0-b812eccfa0f9@kernel.org>
- <20260714-series-vmap-race-fix-v3-4-b812eccfa0f9@kernel.org>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
+ <20260714-series-vmap-race-fix-v3-1-b812eccfa0f9@kernel.org>
+ <d3b07e20-fa35-41c7-ac40-11614f7a3b2e@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -112,7 +114,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260714-series-vmap-race-fix-v3-4-b812eccfa0f9@kernel.org>
+In-Reply-To: <d3b07e20-fa35-41c7-ac40-11614f7a3b2e@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -129,28 +131,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/14/26 19:24, Lorenzo Stoakes wrote:
-> This partially reverts commit fa93b45fd397 ("arm64: Enable vmalloc-huge
-> with ptdump"), retaining vmalloc-huge support but eliminating the now
-> redundant mitigation against a race between huge vmap page table freeing
-> and ptdump, as this issue has now been fixed at core.
+On 7/16/26 11:53, David Hildenbrand (Arm) wrote:
 > 
-> We also simultaneously remove the arm64 if-deffery when acquiring the mmap
-> read lock upon vmap huge page table promotion as it is no longer required.
+>>  
+>>  #define CREATE_TRACE_POINTS
+>>  #include <trace/events/vmalloc.h>
+>> @@ -158,10 +159,25 @@ static int vmap_try_huge_pmd(pmd_t *pmd, unsigned long addr, unsigned long end,
+>>  	if (!IS_ALIGNED(phys_addr, PMD_SIZE))
+>>  		return 0;
+>>  
+>> -	if (pmd_present(*pmd) && !pmd_free_pte_page(pmd, addr))
+>> -		return 0;
+>> +	if (!pmd_present(*pmd))
+>> +		return pmd_set_huge(pmd, phys_addr, prot);
+>>  
+>> -	return pmd_set_huge(pmd, phys_addr, prot);
+>> +	/*
+>> +	 * Kernel page table walkers either walk ranges they own exclusively or
+>> +	 * hold the mmap write lock on init_mm (ptdump being the motivating
+>> +	 * case).
+>> +	 *
+>> +	 * Therefore, acquire the mmap read lock to prevent use-after-free when
+>> +	 * freeing page tables.
+>> +	 */
 > 
-> Note that this patch relies on the preceding vmalloc patch, and should not
-> be backported alone.
+> Can you spell out here why arm64 is special?
 > 
-> Fixes: fa93b45fd397 ("arm64: Enable vmalloc-huge with ptdump")
-> Cc: stable@vger.kernel.org
-> Reviewed-by: Dev Jain <dev.jain@arm.com>
-> Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> Signed-off-by: Lorenzo Stoakes <ljs@kernel.org>
-> Acked-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
-> Acked-by: Will Deacon <will@kernel.org>
-> ---
 
-Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+Nevermind, I spotted #4.
+
+Thanks!
+
+Acked-by: David Hildenbrand (Arm) <david@kernel.org>
 
 -- 
 Cheers,
