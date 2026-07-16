@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F907C44515
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 18:31:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 589B8C44518
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 18:35:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Dw3v8YNqvr+JafReR5Z5Q1bvgBUca6l2zWI8zP4bBuI=; b=VnqKWdafxuTQ6Tx8t1rpf1/jAc
-	3GCm03bA1dU3Rf47PFQ/n+LNeUsbGUYw8mztxpMeYucuAaA+kGaBpa/nSfWrK7KIJI1636hLy3caI
-	bJtCRQsskSTY2UnNet8XBpm4gb2zew1oxLeH4Idst5DcbYGVQaRtWv0L4OB11zCwOVeqjUaQ+x0PG
-	04Fqu4KrEM6lmYkvoWwG1cBevbxitvbdIlrLXyFwAr09IEbhA1hcpCALMC4pJma+voaeSaw1CFK3y
-	9jNoWCRVsbQlbc0oBeM9fzgiJ/0jpSGqRls+w7MRzWi3hIAyGlNL9hBiM8I2O0/H8HzeqkYG3ZsHg
-	JD5bA/hw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
+	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UJktQKwDINGWhgoCZrW13rzuESCYOEOcpy7Vb2JHQ8M=; b=i0VNP2/xjJqyErCqWX+C6zCzq0
+	WQRSSzBAnxDKxp2kQRk0yP9O5qVXKFxIL5D8pFgs79mpihzzAgKJwAQw0Tixwe8RkqYhjUvZpHncn
+	9YNZuyqN8SCBR150OKe3MFP3kTX6HQugaaedLFVvgMfPPHGqID2HgRKOnRCxhFIopAzMdqEDt7CFP
+	a+LrXb5eeBkcArzaTnh0omLo2Vo63W3mt86oSFPhvByh0PwSwUjp4MPjp8gbh4LlBVbq794nKSaWn
+	Bjag4qLGROFsyvVe9ez8NvMnlhbjsuEBMN2vXHnOioZCGtbnGR5zeAtHn4kJ5tXuiW6EKnedqslG5
+	f9EqogCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkQs9-00000000Oku-0nNC;
-	Thu, 16 Jul 2026 18:31:49 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1wkQvd-00000000P7X-3ZHn;
+	Thu, 16 Jul 2026 18:35:25 +0000
+Received: from mail-10698.protonmail.ch ([79.135.106.98])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkQs7-00000000Ok9-0wHf;
-	Thu, 16 Jul 2026 18:31:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=Dw3v8YNqvr+JafReR5Z5Q1bvgBUca6l2zWI8zP4bBuI=; b=HDq4JOfUdqiH4joBS0lJcZlMYa
-	VABto7cXTjoKVWfwsWbgMymrXvMVXLi7ZVdcBZyp1EryW6hyaDTYuvDV1p4hhLNvXkMIxDsFXXD/6
-	xHBPeDOkVNqZ/fmjcnb94YDg7O5K50IXaqXS8oS4pVbIWw8TJZF2x7BesSwnIY24mPagQQ2EApzkZ
-	cf5q/WVDrB54xvMi+jCBAoq8qEpz2cXYI3v8/6JRfcrHfF0Nx31SX3rK3MIKah2vh0XrOiObKh+Q3
-	QpAMP+RWPl+6PIoqaeShlMffHVv/yxbNN68VgtKAunk6k8wXM1VIiFPeix91nUihaPsbHurO7ysFt
-	qM7tl9jA==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: sashiko-reviews@lists.linux.dev,
- Joachim Eastwood <joachim.eastwood@gmail.com>
-Cc: conor+dt@kernel.org, devicetree@vger.kernel.org, robh@kernel.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- Diederik de Haas <diederik@cknow-tech.com>, Jonas Karlman <jonas@kwiboo.se>
-Subject: Re: [PATCH v3 11/12] arm64: dts: rockchip: rk3588s-nanopi-r6: refactor to
- support M6 boards
-Date: Thu, 16 Jul 2026 20:31:38 +0200
-Message-ID: <3413772.oiGErgHkdL@phil>
-In-Reply-To: <CAPSPb=v=ZDGJ41auxGgSOpKo69MycE=FtMyHf9sG9a3ju9PAaQ@mail.gmail.com>
-References: <20260713-nanopi-m6-v3-0-227567ffc5dc@gmail.com>
- <20260713204131.C58091F000E9@smtp.kernel.org>
- <CAPSPb=v=ZDGJ41auxGgSOpKo69MycE=FtMyHf9sG9a3ju9PAaQ@mail.gmail.com>
+	id 1wkQvb-00000000P6H-3TI2
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 16 Jul 2026 18:35:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1784226919; x=1784486119;
+	bh=UJktQKwDINGWhgoCZrW13rzuESCYOEOcpy7Vb2JHQ8M=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=Bto5Xw4NMOSoVu7Klhcpu7jiy5R5ZJO4/gClmbLW+F3q+imQ7KMvR5Xs66IlVZZw7
+	 dArHX+iq55Yy5/QmEXBNK66asyqKaOsbvYd0Cg60VpJobgWJ9DZMMrqAsmE70uxmu/
+	 /G46OQ/5vQAfm1bu/VdYroQmZziKD2219agDu/o98gZr5s7xHxvHF4QIxEA1FRcxj7
+	 bMdYCOQjx1hIvIz0w/8/H+3sd+atWIQ8nbuaddVgOz2IR6Rb54tmf66L1oijWzfrhp
+	 khvt7Oed07SBDMsJq6Eshz8lkZv9//kNgEMFEQROQ2WayJR2d6OuxraPz4JlmFl8cY
+	 U1KSSKYfJZ1Pg==
+Date: Thu, 16 Jul 2026 18:35:11 +0000
+To: Akari Tsuyukusa <akkun11.open@gmail.com>
+From: Roman Vivchar <rva333@protonmail.com>
+Cc: Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Philipp Zabel <p.zabel@pengutronix.de>, linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH 3/7] arm/arm64: dts: mediatek: drop mt6589 fallback from watchdog
+Message-ID: <W7fWZU3pu6akI_HMTAWPGnnErv60QtTz-LaPb6OtGvU5Bx0Iekl4SxWB6mxBPx8cBo9q9Lg7t8dDzcyfti-5fTirEACcwCLhNAh8e5xoHus=@protonmail.com>
+In-Reply-To: <20260716161923.266315-4-akkun11.open@gmail.com>
+References: <20260716161923.266315-1-akkun11.open@gmail.com> <20260716161923.266315-4-akkun11.open@gmail.com>
+Feedback-ID: 173184497:user:proton
+X-Pm-Message-ID: 73c7f91ec5bf7bbb8e204416070046f2990eb4d0
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_113147_263665_C39CA3B5 
-X-CRM114-Status: GOOD (  24.31  )
+X-CRM114-CacheID: sfid-20260716_113524_019722_63E370D9 
+X-CRM114-Status: GOOD (  10.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,100 +69,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Joachim,
+Hi,
 
-Am Donnerstag, 16. Juli 2026, 11:24:20 Mitteleurop=C3=A4ische Sommerzeit sc=
-hrieb Joachim Eastwood:
-> On Mon, 13 Jul 2026 at 22:41, <sashiko-bot@kernel.org> wrote:
-> >
-> > Thank you for your contribution! Sashiko AI review found 2 potential is=
-sue(s) to consider:
-> > - [Medium] Unintentional restoration of `regulator-boot-on` for `vdd_np=
-u_s0` during refactoring.
-> > - [Low] Dangling phandle reference `&vcc5v0_usb_otg0` in the common `.d=
-tsi` file.
-> > --
-> >
-> > --- Patch [11]: [PATCH v3 11/12] arm64: dts: rockchip: rk3588s-nanopi-r=
-6: refactor to support M6 boards ---
-> > commit 056adff75ec08989b96f09adc0efff6c3a5d662f
-> > Author: Joachim Eastwood <joachim.eastwood@gmail.com>
-> >
-> > arm64: dts: rockchip: rk3588s-nanopi-r6: refactor to support M6 boards
-> >
-> > FriendlyElec NanoPi6 series consists of four distinct boards; R6S, R6C,
-> > M6 and M6V2. Refactor FriendlyElec NanoPi R6 base dtsi in preparation
-> > for adding NanoPi M6 support.
-> >
-> > > diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi b/arch/=
-arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi
-> > > new file mode 100644
-> > > index 0000000000000..a8e532ad8b7a8
-> > > --- /dev/null
-> > > +++ b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi
-> >
-> > [ ... ]
-> >
-> > > +&i2c2 {
-> > > +     status =3D "okay";
-> > > +
-> > > +     vdd_npu_s0: regulator@42 {
-> > > +             compatible =3D "rockchip,rk8602";
-> > > +             reg =3D <0x42>;
-> > > +             fcs,suspend-voltage-selector =3D <1>;
-> > > +             regulator-name =3D "vdd_npu_s0";
-> > > +             regulator-min-microvolt =3D <550000>;
-> > > +             regulator-max-microvolt =3D <950000>;
-> > > +             regulator-ramp-delay =3D <2300>;
-> > > +             regulator-boot-on;
-> >
-> > [Severity: Medium]
-> > Is the addition of regulator-boot-on here intentional?
+On Thursday, July 16th, 2026 at 7:19 PM, Akari Tsuyukusa <akkun11.open@gmai=
+l.com> wrote:
+
+> Remove the "mediatek,mt6589-wdt" fallback string from all in-tree
+> device trees. Use only the SoC-specific compatible.
+>
+> No functional change.
+> Affected SoCs: mt2701, mt6572, mt6582, mt6797, mt7622, mt7623,
+> mt7629, mt8173, mt8365, mt8516.
 >=20
-> Seems like I screwed up the refactoring of the code, and Sashiko caught m=
-e.
-> I will fix it and send out a new patch set later.
+> Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
+
+...
+
+> diff --git a/arch/arm/boot/dts/mediatek/mt6572.dtsi b/arch/arm/boot/dts/m=
+ediatek/mt6572.dtsi
+> index ac70f266d698..5a6c9763bd6c 100644
+> --- a/arch/arm/boot/dts/mediatek/mt6572.dtsi
+> +++ b/arch/arm/boot/dts/mediatek/mt6572.dtsi
+> @@ -53,7 +53,7 @@ soc {
+>  =09=09ranges;
 >=20
-> > This appears to accidentally revert a prior fix that removed the boot-on
-> > property for vdd_npu_s0 to save power during early boot.
-> >
-> > > +             vin-supply =3D <&vcc5v0_sys>;
-> > > +
-> > > +             regulator-state-mem {
-> > > +                     regulator-off-in-suspend;
-> > > +             };
-> > > +     };
-> > > +};
-> >
-> > [ ... ]
-> >
-> > > +&u2phy0_otg {
-> > > +     phy-supply =3D <&vcc5v0_usb_otg0>;
-> >
-> > [Severity: Low]
-> > Does this create a dangling phandle reference in the common dtsi file?
-> >
-> > Since the vcc5v0_usb_otg0 regulator was left in the board-specific
-> > rk3588s-nanopi-r6.dtsi file, it looks like compiling a new board (like =
-the M6)
-> > that includes this common dtsi will fail to build if it doesn't also de=
-fine a
-> > regulator with this exact label.
->=20
-> I don't think this is really an issue. Both nanopi-r6.dtsi and nanopi-m6.=
-dtsi
-> will have those regulators defined.
->=20
-> Unless someone tells me this is bad practice I will keep this as it is.
+>  =09=09watchdog: watchdog@10007000 {
+> -=09=09=09compatible =3D "mediatek,mt6572-wdt", "mediatek,mt6589-wdt";
+> +=09=09=09compatible =3D "mediatek,mt6572-wdt";
+>  =09=09=09reg =3D <0x10007000 0x100>;
+>  =09=09=09interrupts =3D <GIC_SPI 126 IRQ_TYPE_LEVEL_LOW>;
+>  =09=09=09timeout-sec =3D <15>;
 
-I think this is ok. Like as you said, the regulator will be defined by
-boards - just with a different gpio I guess.
-And nobody expects to build the core dtsi and if another new board
-materializes that does not have the otg port (and thus regulator), we'll
-need to move more stuff anyway :-)
+mt6572 downstream kernel shows the same layout as 6589, but only
+pwrap, md lite and md are explicitly referenced and used.
 
+I tried poking some unused bits like DDR PHY or INFRA AO, though
+that appears to be no-op. Only MMSYS and APMIXED resets from
+the 6589 worked for me so far.
 
-Heiko
+=3D> mw.l 0x10007018 0x88000001 # infra
+=3D> mw.l 0x10007018 0x88000002 # mm
+* display died *=20
+=3D> mw.l 0x10007018 0x88000004 # mfg
+=3D> mw.l 0x10007018 0x88000040 # ddrphy
+=3D> mw.l 0x10007018 0x88000100 # infra_ao
+=3D> mw.l 0x10007018 0x88000400 # apmixed
+* hang *
 
+I assume others are reserved on mt6572, so
 
+Acked-by: Roman Vivchar <rva333@protonmail.com> # for mt6572
+
+Best regards,
+Roman
 
