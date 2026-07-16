@@ -4,89 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0C2CC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 08:37:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FF48C44511
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 08:38:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=51Grhzs4J/AFDPyUowVuD4CPAJKfF+m68stnN1IxSsQ=; b=eGBIELdNrhn5MWcFXotWyv8XuE
-	Vg9GsEpo9MJeHFmQNhNaojd/x2ZpPK8fYwuKiufOwgOVbNBXLGaiTlThxm0iIZYCoTJNsw4oacE3W
-	x2lZNdJT3C7vNRYL42G5hSH5LXTki53q0P37F8AVa9AwaOT7QZuKGhJUE3CRNq9zvH1RIf0Mwvrzr
-	xqI9/793z+nDz0MsPpOvFvVzc8KOD68/HZL3wam20ElnORA3bnADLzgIwJU+u4uuthKKIMtu+C+ma
-	vZ1yCApnWSB4NDFHRrWCNDrXTrJE23A3TeljodJr1zInqWawocNb8+12377cBxmxYDFD0AzlTwQ2N
-	Z+Ubkgbw==;
+	bh=aeGZoeo01jSdH8+d6eZ0dPXL2iZs70G6aUYS+EUohpg=; b=Ocfex9ymLIBHsdSSLcEV/JqWy8
+	e9Oh05wQ8+zh3GBhG1seCy6miFbtHE/tn66gG/IXdGMnpGmR+R80zIDBatLcZAikCS/T7VqgpXVMX
+	CMauJ4X+GGiFDvzS60traOVG8HjmgCCH9mLqUp3Hgwi60ljnZgvsSua0ZWOx1mZ86LENnIJwPDMdH
+	+672/KnE9FJWkeVXFMOPcOZGIIpj+JeYC4Wr5/KugzPmWQYAjHWI7+IdTcwgKsand0BNXQz8KXSA2
+	Rb1kZiVDgqfJQpAoDoRbvXb9g1w02pCIjZPsOdTXP1xMHZB2xICzITGGW3dxCY17EDda+XxFUWibo
+	3uVF47XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkHbF-0000000Glil-0wX1;
-	Thu, 16 Jul 2026 08:37:45 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wkHbc-0000000GlpF-1woD;
+	Thu, 16 Jul 2026 08:38:08 +0000
+Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkHbC-0000000Glhb-0um9
+	id 1wkHbY-0000000Gln2-0ijB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 08:37:44 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 3500E4E40E02;
-	Thu, 16 Jul 2026 08:37:37 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 04800602B8;
-	Thu, 16 Jul 2026 08:37:37 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E2A5311BD39FC;
-	Thu, 16 Jul 2026 10:37:26 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1784191055; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=51Grhzs4J/AFDPyUowVuD4CPAJKfF+m68stnN1IxSsQ=;
-	b=umlSJpL4AIbsgAirTydRVbGpf5107Ii+GVjOI8QitEF2dkyJuaiECJesJxtJG20O7h1k47
-	AZzwstqTauowTH+yizoGHwCmb3eBPK+0U7ld637Jw+ewzd9sdJllgbj6qcSqnCqbS2s4Lz
-	e6eW6TvGnxPbW+kxe8J8Ic72akzbbqhgxWdgMSydSDeWWharfscuamENZrXsXX89bL02Xy
-	I6bWtB2YJ158MZfbdVGtg5bpVY09ySZeqEJoeVj30xpJ8+xR2qhD8qd0xENz0DUVo/pSf3
-	o4bIEOLmEFGmqTin47ONTWv74aSUZ4IrDqIU5H83+MwBQaNyDu19idYFAYk7pw==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 16 Jul 2026 10:37:24 +0200
-Message-Id: <DJZUXUBO8DI4.2J2NI3S0KYNUE@bootlin.com>
-Subject: Re: [PATCH 05/37] drm/display: bridge-connector: split code
- creating the connector to a subfunction
-Cc: "Luca Ceresoli" <luca.ceresoli@bootlin.com>, "Maarten Lankhorst"
- <maarten.lankhorst@linux.intel.com>, "Thomas Zimmermann"
- <tzimmermann@suse.de>, "David Airlie" <airlied@gmail.com>, "Simona Vetter"
- <simona@ffwll.ch>, "Andrzej Hajda" <andrzej.hajda@intel.com>, "Neil
- Armstrong" <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>,
- "Jonas Karlman" <jonas@kwiboo.se>, "Jernej Skrabec"
- <jernej.skrabec@gmail.com>, "Inki Dae" <inki.dae@samsung.com>, "Jagan Teki"
- <jagan@amarulasolutions.com>, "Marek Szyprowski"
- <m.szyprowski@samsung.com>, "Marek Vasut" <marex@denx.de>, "Stefan Agner"
- <stefan@agner.ch>, "Frank Li" <Frank.Li@nxp.com>, "Sascha Hauer"
- <s.hauer@pengutronix.de>, "Pengutronix Kernel Team"
- <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>, "Hui Pu"
- <Hui.Pu@gehealthcare.com>, "Ian Ray" <ian.ray@gehealthcare.com>, "Thomas
- Petazzoni" <thomas.petazzoni@bootlin.com>,
- <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
- <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>
-To: "Laurent Pinchart" <laurent.pinchart@ideasonboard.com>, "Maxime Ripard"
- <mripard@kernel.org>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-X-Mailer: aerc 0.21.0
-References: <20260519-drm-bridge-hotplug-v1-5-45e2bdb3dfb4@bootlin.com>
- <20260608-mindful-heavy-frigatebird-be9faf@houat>
- <DJ735MTNMYD1.3LPNV404V8PIU@bootlin.com>
- <20260624-proud-unbiased-pony-ecc3c3@houat>
- <DJHEAWSEZR79.19UFIKS8QJBQ7@bootlin.com>
- <20260626-polite-hairy-perch-25e1aa@houat>
- <DJJ1MPCEJGZD.UZM9183V6ZE5@bootlin.com>
- <20260626-classy-nightingale-of-romance-1cacad@houat>
- <DJJ4X22CJ3FG.5EYF84LVRNOG@bootlin.com>
- <20260707-warping-goshawk-of-swiftness-beea4a@penduick>
- <20260707123205.GB211515@killaraus.ideasonboard.com>
-In-Reply-To: <20260707123205.GB211515@killaraus.ideasonboard.com>
-X-Last-TLS-Session-Version: TLSv1.3
+	Thu, 16 Jul 2026 08:38:06 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=aeGZoeo01jSdH8+d6eZ0dPXL2iZs70G6aUYS+EUohpg=;
+	b=StAT0lSNbvpMzz7IHRFPqjC0mAoZXxcgDQ9O19JMD8SGVB9L4AvOO/V9suF9jZVgSTMjNbdP0
+	CLsdsGO/ISob5RFjlBEIP5OKYc8Tr8yGQf5AYY9Wd/PrN9YCEWUnNC4I3BT5znHGoea7HvP3giq
+	Ha/OxENcnjYBuPSCx/DmpeY=
+Received: from mail.maildlp.com (unknown [172.19.163.214])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4h15m64fwGzmVX8;
+	Thu, 16 Jul 2026 16:28:38 +0800 (CST)
+Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
+	by mail.maildlp.com (Postfix) with ESMTPS id B9F294057C;
+	Thu, 16 Jul 2026 16:37:57 +0800 (CST)
+Received: from [10.67.120.103] (10.67.120.103) by
+ kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.36; Thu, 16 Jul 2026 16:37:56 +0800
+Message-ID: <87237e6d-8c56-4ff2-9450-41fe2a6bf219@huawei.com>
+Date: Thu, 16 Jul 2026 16:37:57 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 6/6] KVM: arm64: Add auto HDBSS enable/disable on dirty
+ logging change
+To: Leonardo Bras <leo.bras@arm.com>
+CC: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>,
+	<yangjinqian1@huawei.com>, <caijian11@h-partners.com>,
+	<liuyonglong@huawei.com>, <yezhenyu2@huawei.com>, <yubihong@huawei.com>,
+	<linuxarm@huawei.com>, <joey.gouly@arm.com>, <kvmarm@lists.linux.dev>,
+	<kvm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <seiden@linux.ibm.com>,
+	<suzuki.poulose@arm.com>
+References: <20260709104026.2612599-1-zhengtian10@huawei.com>
+ <20260709104026.2612599-7-zhengtian10@huawei.com>
+ <alT7MeK_1ofOhIuv@LeoBrasDK>
+ <6e8b23bc-d420-4f5a-a921-5a5d64d84200@huawei.com>
+ <alYamq9BL5CTaAX7@LeoBrasDK> <alZI1rwmeYJHUFut@LeoBrasDK>
+From: Tian Zheng <zhengtian10@huawei.com>
+In-Reply-To: <alZI1rwmeYJHUFut@LeoBrasDK>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.120.103]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemr100010.china.huawei.com (7.202.195.125)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_013742_546944_32C0C79E 
-X-CRM114-Status: GOOD (  47.51  )
+X-CRM114-CacheID: sfid-20260716_013804_970022_26C8B2D1 
+X-CRM114-Status: GOOD (  44.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,226 +88,392 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Maxime, Laurent,
 
-On Tue Jul 7, 2026 at 2:32 PM CEST, Laurent Pinchart wrote:
-> On Tue, Jul 07, 2026 at 11:55:54AM +0200, Maxime Ripard wrote:
->> On Fri, Jun 26, 2026 at 06:51:14PM +0200, Luca Ceresoli wrote:
->> > On Fri Jun 26, 2026 at 4:38 PM CEST, Maxime Ripard wrote:
->> > > On Fri, Jun 26, 2026 at 04:16:39PM +0200, Luca Ceresoli wrote:
->> > >> On Fri Jun 26, 2026 at 12:09 PM CEST, Maxime Ripard wrote:
->> > >> > On Wed, Jun 24, 2026 at 05:47:10PM +0200, Luca Ceresoli wrote:
->> > >> >> On Wed Jun 24, 2026 at 1:41 PM CEST, Maxime Ripard wrote:
->> > >> >> > Hi,x
->> > >> >> >
->> > >> >> > On Fri, Jun 12, 2026 at 02:56:24PM +0200, Luca Ceresoli wrote:
->> > >> >> >> On Mon Jun 8, 2026 at 1:40 PM CEST, Maxime Ripard wrote:
->> > >> >> >> > On Tue, May 19, 2026 at 12:37:22PM +0200, Luca Ceresoli wro=
-te:
->> > >> >> >> >> In preparation to introduce bridge hotplug, split out from
->> > >> >> >> >> drm_bridge_connector_init() the code adding the drm_connec=
-tor into a
->> > >> >> >> >> dedicated function. This will be needed to be able to add =
-(and re-add) the
->> > >> >> >> >> connector from different code paths.
->> > >> >> >> >
->> > >> >> >> > Same story here, explaining what you need later on that cal=
-ls for that
->> > >> >> >> > change would be nice.
->> > >> >> >>
->> > >> >> >> Here's a more verbose version:
->> > >> >> >>
->> > >> >> >>     Currently drm_bridge_connector_init() does two things:
->> > >> >> >>
->> > >> >> >>      * allocate and initialize the drm_bridge_connector
->> > >> >> >>        (which embeds a drm_connector)
->> > >> >> >>      * initialize and register the embedded drm_connector
->> > >> >> >>
->> > >> >> >>     For bridge hotplug we need to separate these two actions:
->> > >> >> >>
->> > >> >> >>      * the drm_connector needs to be added and removed at any=
- time based on
->> > >> >> >>        hotplug events
->> > >> >> >>      * the drm_bridge_connector is designated to create and r=
-emove the
->> > >> >> >>        drm_connector, so it must be persistent for the card l=
-ifetime
->> > >> >> >>
->> > >> >> >>     As the lifetimes of drm_bridge_connector and drm_connecto=
-r become
->> > >> >> >>     different, we need to create them in different moments.
->> > >> >> >>
->> > >> >> >>     In preparation to support that, split out from
->> > >> >> >>     drm_bridge_connector_init() the code adding the drm_conne=
-ctor into a
->> > >> >> >>     dedicated function. No functional changes, just moving co=
-de around for
->> > >> >> >>     now. A future commit will make the drm_connector be creat=
-ed based on
->> > >> >> >>     hotplug events.
->> > >> >> >>
->> > >> >> >> Looks good?
->> > >> >> >
->> > >> >> > The message itself, yes, thanks.
->> > >> >> >
->> > >> >> > However, I have questions now :)
->> > >> >> >
->> > >> >> > Do we really expect drm_bridge_connector to stick around when =
-a bridge
->> > >> >> > gets unplugged? If so, how does it cope with having, say, an H=
-DMI
->> > >> >> > connector, and then swapping out the hotplugged part for an LV=
-DS one?
->> > >> >> > Does the HDMI connector sticks around indefinitely?
->> > >> >>
->> > >> >> In your example, the HDMI drm_connector would be unregistered an=
-d put on
->> > >> >> hotunplug. Its allocation will stick around until the last put b=
-ut that's
->> > >> >> quite irrelevant. Then, on plugging the LVDS addon, a new LVDS
->> > >> >> drm_connector will be created and registered.
->> > >> >>
->> > >> >> > *Especially* if we're using overlays for this, I'd expect ever=
-ything
->> > >> >> >  after the first hotplugged bridge to be destroyed, no?
->> > >> >>
->> > >> >> As said, it would be unregistered immediately but might be freed=
- later on
->> > >> >> if still refcounted.
->> > >> >>
->> > >> >> This is visible in patches 36+15, the path to follow is:
->> > >> >>
->> > >> >>  drm_bridge_connector_handle_event(event =3D DRM_BRIDGE_DETACHED=
-) [patch 36]
->> > >> >>  -> drm_bridge_connector_dynconn_release()                      =
-[patch 15]
->> > >> >>
->> > >> >> Does this solve your concern?
->> > >> >
->> > >> > Not really, I'm talking about drm_bridge_connector. The fact that
->> > >> > bridges are destroyed make sense to me. The fact that
->> > >> > drm_bridge_connector sticks around doesn't. It's supposed to be a
->> > >> > connector for bridges. If you don't have bridges because they got
->> > >> > destroyed, and connector, drm_bridge_connector doesn't have a rea=
-son to
->> > >> > exist anymore, unless it's drm_bridge_hotplug in a trench coat :)
->> > >>
->> > >> It is not a hotplug-bridge in a trench coat, no :) The code is clea=
-r about
->> > >> this.
->> > >>
->> > >> I'd say with this series a "drm_bridge_connector" is just becoming
->> > >> something more (perhaps something else too). Somewhat as "a drm_bri=
-dge is
->> > >> either a bridge or something else". :)
->> > >>
->> > >>
->> > >> But let's leave names aside for a moment. If just looking at the cu=
-rrent
->> > >> code, the drm_bridge_connector is "a handler, owned by the card/enc=
-oder and
->> > >> having the same lifetime, which takes care of drm_connector
->> > >> creation/destruction at card probe/removal".
->> > >>
->> > >> What we need now is just the same plug " and on hotplug events" app=
-ended.
->> > >>
->> > >> So in both cases there needs to be "a handler persitent with the ca=
-rd".
->> > >>
->> > >> Do we agree so far?
->> > >
->> > > Ish. If we go for that, then we need to update the name.
->> >
->> > drm_connector_manager?
->> > drm_bridge_connector_manager?
->> >
->> > > drm_bridge_connector for something that is neither a bridge or a
->> > > connector is not great.
->> > >
->> > > But even then, I'm not even sure why we need to have that "manager" =
-in
->> > > the first place. You want to make bridges be aware if they are the l=
-ast
->> > > in the chain or not. Use that property in attach to either create a
->> > > drm_bridge_connector instance if you're last, or attach the next bri=
-dge
->> > > if you aren't.
->> >
->> > What? o_O
->> >
->> > Several encoder drivers have been painfully converted to create a
->> > drm_bridge_connector.
+On 7/14/2026 10:33 PM, Leonardo Bras wrote:
+> On Tue, Jul 14, 2026 at 12:16:42PM +0100, Leonardo Bras wrote:
+>> On Tue, Jul 14, 2026 at 04:58:37PM +0800, Tian Zheng wrote:
+>>> On 7/13/2026 10:50 PM, Leonardo Bras wrote:
+>>>> On Thu, Jul 09, 2026 at 06:40:26PM +0800, Tian Zheng wrote:
+>>>>> From: eillon <yezhenyu2@huawei.com>
+>>>>>
+>>>>> HDBSS buffers store per-page dirty state after the stage-2 page tables
+>>>>> have been split down to page granularity (chunk_size == PAGE_SIZE).
+>>>> chunk_size != PAGE_SIZE now, but that should change as well :)
+>>>
+>>> Thanks, I'll clarify the comment in v5.
+>> By the discussion we are having in the HACDBS patchset, I think we can't
+>> assume the pages are split in the future. :\
 >>
->> I mean, it was done at a time where bridge hotplug wasn't a thing and
->> the assumption was that the bridge chain is static. You're now breaking
->> that assumption, it shouldn't come as a surprise that it might break
->> other things.
-
-Sure adding a new requirement (hotplug) breaks the existing design. Still,
-this can be solved either by adding a new software component or by
-extending the existing software component (drm_bridge_connector) as this
-series proposes. None of the two ideas is wrong, so let's discuss which is
-best.
-
->> And I know that you have experienced it already, which makes your
->> reaction even more surprising to me :)
-
-Sure, the drm_bridge allocation was not refcounted and needed to be. And we
-didn't ditch the drm_bridge to create a new thing, we instead extended the
-existing software component (drm_bridge) to also be refcounted.
-
->> > Now if the bridges start doing it themselves we should go back to
->> > those encoder drivers and ditch all the drm_bridge_connector from
->> > there?
->> >
->> > I must be missing something. Can you elaborate on this?
+>>>
+>>>>> When chunk_size == 0 the kernel may lazily skip splitting block mappings,
+>>>>> leaving the page table coarser than what HDBSS expects. Therefore,
+>>>>> enabling HDBSS requires disabling lazy split so that all block mappings
+>>>>> are eagerly broken down before the buffer starts recording.
+>>>> (See cover letter reply)
+>>>>
+>>>>> Add VM-level HDBSS enable/disable support. When dirty logging is
+>>>>> enabled on any memslot, HDBSS is automatically enabled. When dirty
+>>>>> logging is disabled on all memslots, HDBSS is automatically disabled.
+>>>>>
+>>>>> This includes:
+>>>>> - kvm_arm_enable_hdbss_global() to enable HDBSS for all vCPUs
+>>>>> - kvm_arm_disable_hdbss_global() to disable and free HDBSS buffers
+>>>>> - kvm_arm_hdbss_on_dirty_logging_change() for auto enable/disable
+>>>>> - kvm_arch_destroy_vm() cleanup path
+>>>>> - kvm_arch_commit_memory_region() integration
+>>>>>
+>>>>> Signed-off-by: Eillon <yezhenyu2@huawei.com>
+>>>>> Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
+>>>>> ---
+>>>>>    arch/arm64/include/asm/kvm_dirty_bit.h |   2 +
+>>>>>    arch/arm64/kvm/arm.c                   |   8 ++
+>>>>>    arch/arm64/kvm/dirty_bit.c             | 105 +++++++++++++++++++++++++
+>>>>>    arch/arm64/kvm/mmu.c                   |   3 +
+>>>>>    4 files changed, 118 insertions(+)
+>>>>>
+>>>>> diff --git a/arch/arm64/include/asm/kvm_dirty_bit.h b/arch/arm64/include/asm/kvm_dirty_bit.h
+>>>>> index 4b28000e972f..a4cda8cdab24 100644
+>>>>> --- a/arch/arm64/include/asm/kvm_dirty_bit.h
+>>>>> +++ b/arch/arm64/include/asm/kvm_dirty_bit.h
+>>>>> @@ -23,5 +23,7 @@ int kvm_arm_vcpu_alloc_hdbss(struct kvm_vcpu *vcpu, unsigned int order);
+>>>>>    void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu);
+>>>>>    void kvm_flush_hdbss_buffer(struct kvm_vcpu *vcpu);
+>>>>>    int kvm_handle_hdbss_fault(struct kvm_vcpu *vcpu);
+>>>>> +void kvm_arm_hdbss_on_dirty_logging_change(struct kvm *kvm, int nr_memslots_logging);
+>>>>> +void kvm_arm_disable_hdbss_global(struct kvm *kvm);
+>>>>>
+>>>>>    #endif /* __ARM64_KVM_DIRTY_BIT_H__ */
+>>>>> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+>>>>> index 566953a4e23a..536d94799ba8 100644
+>>>>> --- a/arch/arm64/kvm/arm.c
+>>>>> +++ b/arch/arm64/kvm/arm.c
+>>>>> @@ -317,6 +317,14 @@ void kvm_arch_destroy_vm(struct kvm *kvm)
+>>>>>    	if (is_protected_kvm_enabled())
+>>>>>    		pkvm_destroy_hyp_vm(kvm);
+>>>>>
+>>>>> +	/*
+>>>>> +	 * Userspace may destroy the VM without disabling dirty logging,
+>>>>> +	 * so the auto-disable path is never reached. Force disable HDBSS
+>>>>> +	 * here to ensure vCPU buffers are freed and prevent memory leaks.
+>>>>> +	 */
+>>>>> +	if (kvm->arch.enable_hdbss)
+>>>>> +		kvm_arm_disable_hdbss_global(kvm);
+>>>>> +
+>>>>>    	kvm_uninit_stage2_mmu(kvm);
+>>>>>    	kvm_destroy_mpidr_data(kvm);
+>>>>>
+>>>>> diff --git a/arch/arm64/kvm/dirty_bit.c b/arch/arm64/kvm/dirty_bit.c
+>>>>> index 002366337637..c5bf866c23ef 100644
+>>>>> --- a/arch/arm64/kvm/dirty_bit.c
+>>>>> +++ b/arch/arm64/kvm/dirty_bit.c
+>>>>> @@ -112,3 +112,108 @@ int kvm_handle_hdbss_fault(struct kvm_vcpu *vcpu)
+>>>>>    		return -EFAULT;
+>>>>>    	}
+>>>>>    }
+>>>>> +
+>>>>> +static unsigned int hdbss_auto_select_order(struct kvm *kvm)
+>>>>> +{
+>>>>> +	unsigned long npages = 0;
+>>>>> +	struct kvm_memory_slot *memslot;
+>>>>> +	int bkt;
+>>>>> +
+>>>>> +	kvm_for_each_memslot(memslot, bkt, kvm_memslots(kvm))
+>>>>> +		npages += memslot->npages;
+>>>>> +
+>>>>> +	if (npages <= 16384)
+>>>>> +		return 0;
+>>>>> +	else if (npages <= 262144)
+>>>>> +		return 3;
+>>>>> +	else if (npages <= 4194304)
+>>>>> +		return 6;
+>>>>> +	else
+>>>>> +		return 9;
+>>>>> +}
+>>>> IIUC you are counting the amount of pages the VM has, and based on that
+>>>> allocating a size for the HDBSS buffer.
+>>>>
+>>>> A few notes here:
+>>>> - It's not really nice to use magic numbers around like this. If you
+>>>>     actually want to use it, then use stuff like SZ_16K, SZ_256K, SZ_4M and
+>>>>     so on.
+>>>> - You are returning magic numbers as well, why is it 0, 3, 6, or 9 here?
+>>>>     It only makes sense if the person is reading HDBSSBR_EL2 documentation,
+>>>>     which should not be necessary at this point. That's one reason I
+>>>>     recommended to using sizes. If that was really the best way to use it,
+>>>>     I would recommend using the defines that we get from sysreg, and you
+>>>>     actually used before to set the maximum order on a previous patch.
+>>>> - Also, if you can return only valid values here, why do you check against
+>>>>     the maximum value in that previous patch?
+>>>> - Also, are you using some undisclosed rule here? On 'order 0' the
+>>>>     meanining is 4KB, which translate to 512 HDBSS entries. Why are you using
+>>>>     it for any value under 16K? Same for 3-32KB-4kEntries you use for under
+>>>>     256K pages (and so on). If you are assuming a logical rule such as
+>>>>     'N pages would be ok with N/32 entries' it has to be described here at
+>>>>     least.
+>>>> - Not sure VM size is the best way of doing that, since it will depend
+>>>>     more on the dirtying rate than the actual size, and most VMs would just
+>>>>     use the biggest size (4M x 4K pages is just 16GB). For instance with
+>>>>     dirty_ring we can use the dirty_ring.size as a better option.
+>>>>     (I know this is a hard one to estimate when using dirty-bitmap, though)
+>>>
+>>> I'll replace the magic numbers and also add a comment in the next version
+>>> explaining
+>>>
+>>> the mapping between the thresholds and the order values.
+>>>
+>>>
+>>> On auto-choosing the size: VM memory size is a simple starting point, but I
+>>> agree it's
+>>>
+>>> not ideal. For dirty-ring mode we could use dirty_ring_size as a reference;
+>>> for dirty-bitmap
+>>>
+>>> mode there's no equivalent, so I don't have a good answer yet. I'd really
+>>> appreciate any
+>>>
+>>> suggestions from the community on a better idea for the dirty-bitmap case.
+>> I am thinking that we could use a default value (say 1 PAGESIZE/vcpu) and
+>> add an ioctl to optionally increase this value. This way we don't require
+>> a new interface to benefit from HDBSS, but allow users to tune it.
 >>
->> drm_bridge_connectors bring together a (complete) bridge chain and a
->> connector. If you don't have either anymore, then we shouldn't keep it
->> around.
+>>> Also, since we automatically enable HDBSS in the kernel, the check against
+>>> HDBSS_MAX_ORDER is redundant. I'll remove it.
+>>>
+>>>
+>>>>> +
+>>>>> +/*
+>>>>> + * Enable HDBSS for all vCPUs in the VM.
+>>>>> + *
+>>>>> + * Called from kvm_arm_hdbss_on_dirty_logging_change() which is invoked
+>>>>> + * by kvm_arch_commit_memory_region() under kvm->slots_lock.
+>>>>> + *
+>>>>> + * If buffer allocation fails, HDBSS remains disabled and dirty tracking
+>>>>> + * falls back to the traditional software-based approach (PTE write-protect
+>>>>> + * + software dirty marking). This does not affect correctness; dirty
+>>>>> + * logging remains functional without HDBSS.
+>>>>> + */
+>>>>> +static int kvm_arm_enable_hdbss_global(struct kvm *kvm)
+>>>>> +{
+>>>>> +	int err;
+>>>>> +	unsigned long i;
+>>>>> +	unsigned int order;
+>>>>> +	struct kvm_vcpu *vcpu;
+>>>>> +
+>>>>> +	if (!system_supports_hdbss())
+>>>>> +		return 0;
+>>>>> +
+>>>>> +	if (kvm->dirty_ring_size) /* Don't support HDBSS in dirty ring mode */
+>>>>> +		return 0;
+>>>>> +
+>>>>> +	if (kvm->arch.enable_hdbss) /* Already On */
+>>>>> +		return 0;
+>>>>> +
+>>>>> +	/* Turn it on */
+>>>>> +	order = hdbss_auto_select_order(kvm);
+>>>>> +	kvm_for_each_vcpu(i, vcpu, kvm) {
+>>>>> +		err = kvm_arm_vcpu_alloc_hdbss(vcpu, order);
+>>>>> +		if (err)
+>>>>> +			goto error_alloc;
+>>>>> +	}
+>>>>> +
+>>>>> +	kvm->arch.enable_hdbss = true;
+>>>>> +	kvm->arch.mmu.vtcr |= VTCR_EL2_HD | VTCR_EL2_HDBSS | VTCR_EL2_HA;
+>>>>> +
+>>>>> +	/*
+>>>>> +	 * We should kick vcpus out of guest mode here to load new
+>>>>> +	 * vtcr value to vtcr_el2 register when re-enter guest mode.
+>>>>> +	 */
+>>>>> +	kvm_for_each_vcpu(i, vcpu, kvm)
+>>>>> +		kvm_vcpu_kick(vcpu);
+>>>>> +
+>>>>> +	return 0;
+>>>>> +
+>>>>> +error_alloc:
+>>>>> +	kvm_for_each_vcpu(i, vcpu, kvm)
+>>>>> +		if (vcpu->arch.hdbss.base_phys)
+>>>>> +			kvm_arm_vcpu_free_hdbss(vcpu);
+>>>>> +
+>>>>> +	pr_warn_once("kvm: failed to allocate HDBSS buffers (order=%u), "
+>>>>> +		     "falling back to software dirty tracking\n", order);
+>>>>> +	return -ENOMEM;
+>>>>> +}
+>>>>> +
+>>>>> +void kvm_arm_disable_hdbss_global(struct kvm *kvm)
+>>>>> +{
+>>>>> +	unsigned long i;
+>>>>> +	struct kvm_vcpu *vcpu;
+>>>>> +
+>>>>> +	if (!kvm->arch.enable_hdbss) /* Already Off */
+>>>>> +		return;
+>>>>> +
+>>>>> +	/* Turn it off */
+>>>>> +	kvm->arch.mmu.vtcr &= ~(VTCR_EL2_HD | VTCR_EL2_HDBSS | VTCR_EL2_HA);
+>>>>> +
+>>>>> +	kvm_for_each_vcpu(i, vcpu, kvm)
+>>>>> +		kvm_arm_vcpu_free_hdbss(vcpu);
+>>>>> +
+>>>>> +	kvm->arch.enable_hdbss = false;
+>>>>> +}
+>>>>> +
+>>>> Okay, say the user requested it to be disabled, you change the global vtcr,
+>>>> then free the hdbss on every vcpu.
+>>>>
+>>>> But the vcpus are still running, and since they will only disable this when
+>>>> they go out of the guest, then in again, HDBSS will still be running,
+>>>> right?
+>>>>
+>>>> If some page gets dirty in the between, would not the HDBSS try to write to
+>>>> the already loaded buffer adress, and write to memory that have already
+>>>> been freed here?
+>>>>
+>>> You're right — this is a race condition. I'll fix this in v5 by clearing
+>>> VTCR_EL2_HDBSS from
+>>>
+>>> kvm->arch.mmu.vtcr first, then kicking all vCPUs to force them to exit guest
+>>> mode and reload the config.
+>>>
+>>> Once all vCPUs are out of guest mode, it will be safe to free the HDBSS
+>>> buffers.
+>>>
+>> That would be safer, indeed.
+>>   
+>>>>> +void kvm_arm_hdbss_on_dirty_logging_change(struct kvm *kvm, int nr_memslots_logging)
+>>>>> +{
+>>>>> +	/*
+>>>>> +	 * Called from kvm_arch_commit_memory_region() under kvm->slots_lock.
+>>>>> +	 * All state transitions are serialized by slots_lock.
+>>>>> +	 */
+>>>>> +	if (nr_memslots_logging > 0 && !kvm->arch.enable_hdbss)
+>>>>> +		kvm_arm_enable_hdbss_global(kvm);
+>>>>> +	else if (nr_memslots_logging == 0 && kvm->arch.enable_hdbss)
+>>>>> +		kvm_arm_disable_hdbss_global(kvm);
+>>>>> +}
+>>>>> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+>>>>> index 949fb895add6..484f48dae000 100644
+>>>>> --- a/arch/arm64/kvm/mmu.c
+>>>>> +++ b/arch/arm64/kvm/mmu.c
+>>>>> @@ -2588,6 +2588,9 @@ void kvm_arch_commit_memory_region(struct kvm *kvm,
+>>>>>    {
+>>>>>    	bool log_dirty_pages = new && new->flags & KVM_MEM_LOG_DIRTY_PAGES;
+>>>>>
+>>>>> +	kvm_arm_hdbss_on_dirty_logging_change(kvm,
+>>>>> +		atomic_read(&kvm->nr_memslots_dirty_logging));
+>>>>> +
+>>>>>    	/*
+>>>>>    	 * At this point memslot has been committed and there is an
+>>>>>    	 * allocated dirty_bitmap[], dirty pages will be tracked while the
+>>>>> --
+>>>>> 2.33.0
+>>>>>
+>>>> Okay, reading the above I remembered something really complicated:
+>>>> We can't really enable HDBSS partially if we start with DBM set for all
+>>>> pages. Once we enable HDBSS wit will track changes for all memslots.
+>>>>
+>>>> The only way to enable it partially would be to set DBM during the
+>>>> dirty-bit tracking, which I recall being complicated for some reasons.
+>>>>
+>>>> Well, we have to think about the overall strategy before a next version.
+>>>>
+>>>> Thanks!
+>>>> Leo
+>>>
+>>> Yes, I did consider this when I switched to global DBM injection in v4.
+>>> There are
+>>>
+>>> indeed some scenarios that are harder to control:
+>>>
+>>>
+>>>
+>>> Firstly, for lazy split, if we add the DBM tag lazily during live migration
+>>> dirty tracking (like v3 did),
+>>>
+>>> the first write to each page would trap. That trap serves two purposes: it
+>>> gives us a chance to split
+>>>
+>>> hugepages on demand (lazy split), and it ensures the DBM addition happens at
+>>> a safer, more controlled point.
+>> It also allows us to do the dirty-tracking by slot, which is not possible
+>> with the v4 approach.
 >>
->> What I was suggesting before was only a suggestion. I guess we could
->> also make the encoder own the hotplug handling code and create the
->> drm_bridge_connector when the chain is complete, and remove it when it's
->> no longer the case.
+>>> However, because v4 enables HDBSS and DBM upfront, we lose that initial
+>>> trap. That's exactly why we
+>>>
+>>> now rely on your eager hugepage splitting patch as a mandatory dependency.
+>>>
+>> Correct.
+>>
+>>>
+>>> Secondly, I'm also concerned about whether global DBM injection could
+>>> accidentally mark pages
+>>>
+>>> that shouldn't be tracked — for example, pages with special mappings.
+>> Well, if we want to not track those pages, we have just to make sure we can
+>> detect them and not mark them with the DBM bit.
+>>
+>>> If
+>>> that's possible, then the
+>>>
+>>> lazy approach (only adding DBM on the first write fault) would be safer
+>>> because it only touches pages
+>>>
+>>> that are actually written to.
+>>>
+>>>
+>>>
+>>> So I'd like to ask: is avoiding the first-trap overhead worth the potential
+>>> risks of global DBM injection?
+>>>
+>>> Or do you think the lazy approach is actually safer overall? I'd appreciate
+>>> your thoughts on this trade-off.
+>>>
+>> Well, even though performance is important, the decision to set DBM bits
+>> for all writtable pages at their mapping time was not driven by
+>> performance, but instead by an issue with setting DBM while the VCPUs were
+>> running. I have to rework what that was, and check if that is still an
+>> issue, before we can even discuss what to do next :(
+>>
+>> But the fact that the 'eager DBM setting' makes dirty-bit tracking start
+>> global, instead of per-memslot, is something we have to consider as well.
+>>
+> Actually, I though more about that part, and we can achieve per-memslot
+> dirty-bit tracking with the eager DBM setting.
+> - On first fault,
+>    - Read fault: we mark the writable PTE as writable-clean
+>    - Write fault: we mark the writable PTE as writable-dirty
+> - In dirty-track enable, we clean the pages that are starting being tracked
+>    - Only when pages go from writable-clean to writable-dirty they log HDBSS
 >
-> That's an interesting option. We don't have to keep drm_bridge_connector
-> in its current form, but I don't think we should go back to individual
-> bridge driver creating connectors, especially now that we have bridge
-> chains where the connector ops are implemented collectively by multiple
-> bridges.
+> The only obvious case, which should not happen that often, it that a
+> writable-clean page on a mesmslot that is not being tracked goes to
+> writable-dirty state. It will make to the HDBSS buffer, but we can just
+> check if the memslot is dirty-tracking before registering it to either the
+> dirty-bitmap or the dirty-ring.
+>
+> While it will be using a entry that could be used for an actual tracking,
+> it is not supposed to happen that often in a real scenario, so it should
+> not impact performance that much.
+>
+> So we only have to worry about the eager vs lazy splitting scenarios for
+> now.
+>
+> Thanks!
+> Leo
 
-I definitely agree we don't want to add burden back on the encoder.
 
->> We can discuss alternatives too. But either way, we shouldn't have it
->> stick around.
+Exactly — that's how PML works. It sets D bit globally, records everything,
 
-Bottom line, I roughly see three ideas mentioned:
+and filters at flush time: kvm_flush_hdbss_buffer() -> 
+mark_page_dirty_in_slot()
 
- 1. (this series) extend the drm_bridge_connector to create the
-    drm_connector based on bridge hotplug events [+rename it]
- 2. - keep the drm_bridge_connector (mostly) as is
-    - let each encoder driver add/remove it based on bridge hotplug events
-    =3D> more burden on encoder drivers -> no
- 3. - keep the drm_bridge_connector (mostly) as is
-    - add a new component (what name?) that will receive bridge hotplug
-      events and react to them by adding/creating a drm_bridge_connector
-    - modify encoder drivers to create this new object instead of the
-      drm_bridge_connector
+-> kvm_slot_dirty_track_enabled() discards non-tracked memslots. Extra 
+buffer entries
 
-In principle option 3 is the same as option 1, except it is split in two
-components.
+from non-tracked memslots are minimal and acceptable.
 
-I _think_ you both are discussing option 3. Correct?
 
-If that's correct: any name suggested for the new component?
-drm_hotplug_manager? drm_connector_manager? drm_bridge_connector_manager?
+So we're aligned — eager DBM is fine, software filtering works. For v5, 
+I think we just
 
-Luca
+need to focus on how to correctly handle DBM for huge pages.
 
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
 
