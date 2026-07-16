@@ -4,82 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96537C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 00:11:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C5ADC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 00:27:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+tJ/LGm3zCfGJYAHdJASmu5UYMKzr02LeQDnrI/CL8g=; b=DEu9tLD+hDlE2vlks/DtZFzvBJ
-	rHfOnoxm8Zidd/Ibtt/c7b8r1Xw3/rXcTuctHJIIAj5i9vqOm6g0XCVfi5VLqJGoew53Bl4uDD+ZP
-	CeDiwXomCJg73w7oLLmcRVVqT3zfino3OVphe2CTeWvO/D/GVVSVaJK9hFQLdzAz+j/hZutoHd5lK
-	CFB1SSkAWl5oQSnMrb009iFNrbIUcB9gx+nhYqIjzY95pKI+i0oXnZDyNPB2pAArPyjh6YYxdkugF
-	Kj0N5s4bTT3jhwsBGGQi7PRQIScoztRD6NuoGGDxBfiCUam+Og9sdbF1T9EhCkZ6mjPm2APFLtX+T
-	h5uWQjyg==;
+	bh=Ch7xP+slovwM+pcB0H+k2l/ZUQs1hqqOWEvQHIJh2Ig=; b=dDlzSEiddZKhCYPFjkr7sgEy5U
+	YvAFXqC9IPgbfmjS4HoKq8aRYlVwOe6gUVciZBmtEWtndo9wb4TJupYk4JdE3HgwLyKspq6yx1CtT
+	t3IoD607w/tGm/T0JIoTpyX5pQJ6OD+RNe54lvPrahAAZAQ/EwVpxuaGj/7EtjYZ4pXeQc3REVJPH
+	8JQwFX+8u090Xp2tsZSrkYX3lrru2cyhXIkGUnPiyAwAzVDVqSJUDVcgPON1BgTZT74f2oCJw8QRs
+	a/H0vd57Br970Ga/ZioKWRD06sibkBP+I0xdJDuawemvMKOG+EUJIEyJhmt9kOquyTpnpvIzH73uW
+	wchpojwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk9gr-0000000G7Fz-1Pno;
-	Thu, 16 Jul 2026 00:11:01 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wk9wj-0000000G8Qw-2c7m;
+	Thu, 16 Jul 2026 00:27:25 +0000
+Received: from mail-japanwestazlp170100003.outbound.protection.outlook.com ([2a01:111:f403:c407::3] helo=OS0P286CU011.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wk9gn-0000000G7FC-1kRk;
-	Thu, 16 Jul 2026 00:10:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1784160651;
-	bh=L6wzWtyvgyok8KVvz9Zy5mkqvkgLWLzGSf4BynH8hsA=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=qej1PAxXwUEHHwB2sL10F5Sk0AxcW/t6ZkTX+1ZWRNw44sbZaLF7zVlgWxlvFI3aB
-	 0XjSSxu6aWkYFRbBWLPDBNTDiY6VAPejanoggfArp4UTaJLIEdzyzPJFBogLDDKqAD
-	 vUesX3/OkQ7aP5tMThMrCdAlBaAIH9WTnU/Tfijzr5ex8gqViZyWnjLZfAiA9oFiVS
-	 NVrCuUWNpOJ1Gf1RHK8seDoi65iawP4uwT1nhQeoI+7CMzQeQj057weCH+QJ20eucZ
-	 xfuFzhnTBkVsI7LMT5MY2kpQznkEXpgHddc6iDFKf7AWnOeT/NQgnqIheQFCKHdOZg
-	 zwbLgy64vdycA==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 19CF517E0D7E;
-	Thu, 16 Jul 2026 02:10:49 +0200 (CEST)
-Message-ID: <c0aa1f673f13704e05fd564904c5cf28a2dba9e6.camel@collabora.com>
-Subject: Re: [PATCH] media: mtk-jpeg: only init/cancel work for multi-core
- variants
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Icenowy Zheng <zhengxingda@iscas.ac.cn>, Bin Liu <bin.liu@mediatek.com>,
-  Mauro Carvalho Chehab	 <mchehab@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>,  AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, Fan Wu <fanwu01@zju.edu.cn>,
- Hans Verkuil	 <hverkuil+cisco@kernel.org>, irui wang
- <irui.wang@mediatek.com>, kyrie wu	 <kyrie.wu@mediatek.com>
-Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	stable@vger.kernel.org
-Date: Wed, 15 Jul 2026 20:10:47 -0400
-In-Reply-To: <20260601073218.1281840-1-zhengxingda@iscas.ac.cn>
-References: <20260601073218.1281840-1-zhengxingda@iscas.ac.cn>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-WdvxyDtEJGKYSORbsIFW"
-User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
+	id 1wk9wb-0000000G8Pa-1mzC
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 16 Jul 2026 00:27:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=opm2DgkKA0EAeMSYwVDcNu0LON1Qy1WmryW6/Hcbh97cdY+5Or2YOtRpTJ1Kft3C9s3ixmVoS9+XEbe609NGzgF4+uTvOhPt4sgv7bHvAUjSyd2sQT9mcOnysG5vPydJYMhW3fte8fBAhMLbVHTxErLbTeTm3fomcr4/DisM3VnO/VL7sAkwR19hSUOe1UFEDsF959vKyOT2mIrR+d177zMh+Szg4V5B1ZBp6fWvBR9SJdvELswJzJ7w+WcLqKKVPLGeEW9Nr1kxFUfenZmi3Mm3L2Q5uthMywDLr7SNRcLMnKilZG3fGsRsqDAqLJ4Sn0oU19xKwRMXDHQ6LsR3zg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ch7xP+slovwM+pcB0H+k2l/ZUQs1hqqOWEvQHIJh2Ig=;
+ b=TJwmUj5oXEZ4iLCiWuPR1U+TmqcP5Co4C5sZM2WvUXboXI5u0vw+oengkACueTULfuXVf+xzWWwlTXyA8CKwwbALSYdRwEQscxhi7azgWbprSaW8YIdhLcjRNyLaZ+SZ+mZhiGd7aqsBz3lM3LGRS9ZH8CBsYArcD6M754jiKtvvAVbhpPl9iYBcOLNlSI5f1W5TiXgG6xXOSf4Wz0Tk982WpHt4MStpFQXI7Us814h4UL50YbyjBBl35tQOeCHI9LUV543Y3JPm29JWyYR3dErFXgQfXN6u8t0HmVm9RBEE5AgLtRmTt69roiREa3+xX+4Xb8m+hEWFGURMC2Pt+A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=fujitsu.com; dmarc=pass action=none header.from=fujitsu.com;
+ dkim=pass header.d=fujitsu.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fujitsu.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Ch7xP+slovwM+pcB0H+k2l/ZUQs1hqqOWEvQHIJh2Ig=;
+ b=n+74UGuxrO7NXtTotCBPbEMD0Jx8fV7AbDR/IRuU83oW20Oy28yeSSzwTgDe/vFkRX4e+K1taBWfoJgDEEpZCMuUK77cRDHTiaIBH2vHYzIkX15kak+dqbwJD2fRtVfVJKanUP1yquHlEiabQdSkDOClYPVwl0MtefPXAMTsSvQ5qyuOcOSUdNdRtC5YZUrfd9AcrwgjWy0lZJbbbDJ5ygPmRJl1etmXHHDC6/SCj1tc4tRYsmeWsxPRKIsE2b6Sh7trfrdwG/zWpuRSFVljHtkWGHKmGtnSldza0uD0F/w/1zw685b87ICRZsraSdUJec38BFpHXoAu0qUW89xW8w==
+Received: from TY4PR01MB16930.jpnprd01.prod.outlook.com
+ (2603:1096:405:338::19) by TYCPR01MB11121.jpnprd01.prod.outlook.com
+ (2603:1096:400:362::14) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.12; Thu, 16 Jul
+ 2026 00:26:46 +0000
+Received: from TY4PR01MB16930.jpnprd01.prod.outlook.com
+ ([fe80::38bc:7870:6f23:a957]) by TY4PR01MB16930.jpnprd01.prod.outlook.com
+ ([fe80::38bc:7870:6f23:a957%4]) with mapi id 15.21.0223.008; Thu, 16 Jul 2026
+ 00:26:46 +0000
+From: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
+To: Ben Horgan <ben.horgan@arm.com>
+CC: "james.morse@arm.com" <james.morse@arm.com>, "reinette.chatre@intel.com"
+	<reinette.chatre@intel.com>, "fenghuay@nvidia.com" <fenghuay@nvidia.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "dave.martin@arm.com"
+	<dave.martin@arm.com>, "andre.przywara@arm.com" <andre.przywara@arm.com>
+Subject: Re: [PATCH v1 05/11] arm_mpam: Ensure MBWU counters are reset on
+ restore
+Thread-Topic: [PATCH v1 05/11] arm_mpam: Ensure MBWU counters are reset on
+ restore
+Thread-Index: AQHdFCDOGgMsxs/p9kaDstfIk2tWIbZuMPrKgAATNQCAAQaeag==
+Date: Thu, 16 Jul 2026 00:26:46 +0000
+Message-ID: <TY4PR01MB16930674F986639651CEE6C4A8BC72@TY4PR01MB16930.jpnprd01.prod.outlook.com>
+References: <20260710115546.29644-6-ben.horgan@arm.com>
+ <OS9PR01MB16920A90EC44010A30A79A4728BF82@OS9PR01MB16920.jpnprd01.prod.outlook.com>
+ <0e4246f2-bcfc-4b08-9361-e87872c23672@arm.com>
+In-Reply-To: <0e4246f2-bcfc-4b08-9361-e87872c23672@arm.com>
+Accept-Language: ja-JP, en-US
+Content-Language: ja-JP
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Enabled=True;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SiteId=a19f121d-81e1-4858-a9d8-736e267fd4c7;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SetDate=2026-07-16T00:26:46.007Z;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Name=FUJITSU-RESTRICTED;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_ContentBits=1;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Method=Standard;
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=fujitsu.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TY4PR01MB16930:EE_|TYCPR01MB11121:EE_
+x-ms-office365-filtering-correlation-id: 3f665d9e-a1a0-485e-bf9c-08dee2d0eb95
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|1800799024|376014|366016|56012099006|11063799006|4143699003|22082099003|18002099003|1580799027|10067099003|38070700021;
+x-microsoft-antispam-message-info: LFBVNnbcYpmblVBp0HmRTWeyREaTjc9+zf2+DLmOozwMUo4hFChONynAK76llpZDX1JH853O56aRfEEXz5UJeDvqHpwYpexrvCXcsMocptwcvzDQwXRE735FJNuIpRWuIoOFlMFt8X4PWGnlksfbBBuORgz7+OqFiLZXAq/gT4QokRLkUU0Jv1UGtY9ofGGLMLu3fpW/9Rph4Oevetn7DI8ni2mwJEhk8kTzwPOeHcGNRZMl6zM+Et3U3f1JnwhOHgAyb9y2J8UbNDyCHONaPNB3UUX92LpRXgj4dT6EbUs3mwlhx7glhsXhEqLa+SNUJbak8NnM9/o2n0Zj0yBS/l+lbZiaLN3DWTETit43hZR+c+8cKen269sii0JnN5gZekGxQDbFHItyhzbERSn8Lo1EycJBIuJvhgP288nj5GIVaugwLn5I2tmTEp8naznguZpht1LQBBnaKDA4rcSGw6cn9uH3zdJPxz66mhas0Ni5RAHYeDF3Gv6fH7f/VepyLnYsFq6W05XzKJNTz9Q8Nj1IN0D/s4wsDM3VQhJhGWCcO62QDdR67M8u54116c3qPWvuwH0ecXp6x5Id8nTxRs+EsHL3W4PFhNYhxtDzTn6abNRiq3pgJLtJlFdYjh20uH5RySr6sOLyhLwo+IBxSyRgHVeLysp57yMxBbYWNyUPt9suh+fIRE3jM7skk6QNErCEANkuCnfihXTFcWfFdlUNG56ZRkD3c66jh3P7wraEo4agCMmc0FT4SQyweBLA
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY4PR01MB16930.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(366016)(56012099006)(11063799006)(4143699003)(22082099003)(18002099003)(1580799027)(10067099003)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-2022-jp?B?RnR0ak9IRHMwSnhEREZZTEV1YVZQQnN0TTZqMGNaUklkVlgwWkYzVDVm?=
+ =?iso-2022-jp?B?LzFhRU1SQzI0T2UxTGZwZXZSRDJLVHZHNWZ5SFROV0YxQWVwVXlWL3I3?=
+ =?iso-2022-jp?B?VEF2V1VvdDlmSHd1Q1dmL2dlR0x2Umh2NEpLQkdFTUpRVENzVUtyWnd6?=
+ =?iso-2022-jp?B?NjhXczFwcmFqbGdBaDB0bFNlR2d2cFlza0VwbngvRkdoYURab3UreFRr?=
+ =?iso-2022-jp?B?QS9OZlhwRFM5RWhJWDBIQkk3QWRDaHVoZnFlQXJ4a1g0RFBhUllrOThD?=
+ =?iso-2022-jp?B?M0tiSGhPS21xNVRhL1BucThLWS9ZaVJiTE5YMzFJL2Y1UFlKYnNPSnNu?=
+ =?iso-2022-jp?B?NjR3djNhejljakxzYk1ERVBqeWJYMVFTU2laeC84cGErbjJGUFViQlp0?=
+ =?iso-2022-jp?B?V0RPUUZvRkh3ZitxWFhYMG1GQ2p0RVZJemIvb3V0WW03REFsOFNGYXkz?=
+ =?iso-2022-jp?B?M2lwMjZ2N2ZvR2FrTlRMUzRCMklsck5KcWp1N0pVVHArQm15WkFTWlZw?=
+ =?iso-2022-jp?B?TEVMWHV1V3FoK3llcFVlRkhMQVlUa01CSFdrQlpSNkhCaUVUUTBlRHpU?=
+ =?iso-2022-jp?B?OEUzd1VMRWhpUzZvMkFHYWJLRHY4NWJCTkRqa3k1RDU2ZmVDbWc2UU51?=
+ =?iso-2022-jp?B?b1YxTUZ1Ni9LK2wwOURDbW4yS2hleEZmRjJrc0xtaDI1bmVvdHk4RDJn?=
+ =?iso-2022-jp?B?QTBBemNNekR3dUlaL2VUSDZ3aTVDOW95RkhOZEUxUFhsQVQyNTNYbE5k?=
+ =?iso-2022-jp?B?SjZGZDc0blhtS3VOUkYyVFpIc0U1QmcxcDh5RFE1aitESDhpSXdOUTMv?=
+ =?iso-2022-jp?B?SFJWVFZKYWc5VXVEOXViODJVMXZnbW9lOG41VWZtMTRGMmxXZmZ4UWJo?=
+ =?iso-2022-jp?B?ejVOcko1dG1PazNleEljK2NsYURoN1BFM0xabExTTjQvczk4ZVhCRmk2?=
+ =?iso-2022-jp?B?T0ZFcVhYTC9EUmh6Z1pMNFovSm4rd0NMa0RoSzIrcG9kZGVDSVdUdjQ4?=
+ =?iso-2022-jp?B?YnQ1K2h3amVTRzliWW8wU0xZUDJGQW5jdTkyMUZkbTBwbzJWWitNZ3lS?=
+ =?iso-2022-jp?B?ZkdFZTRnbnpmKzZGdWhEd241TFd0RStucjd6WG1kTG8zM3pqWW9va05P?=
+ =?iso-2022-jp?B?b1hKU1lvTmQwWnB5ZUgzWm5nTGt3YUV6WDVCblJZU28vQUlDU0JuaWVO?=
+ =?iso-2022-jp?B?aCsreDk0dUd6b1ErNHh4TUJEMVgrY1B4Ri9RRmlNUWhsWmZXQ0pxbHM1?=
+ =?iso-2022-jp?B?TkdRWnVxMjd2TW9aQjRIaGxwbEUyTW95MU1NUGhGREpveWlPUndIc0V1?=
+ =?iso-2022-jp?B?RldMQU1Ock0vZkJSVE0vcFJEVitTanh6Ujk2YUdYM21ia0V1UE1NVjZ3?=
+ =?iso-2022-jp?B?U1FtZGJFd0hnRDBpaS9TekJHVTUveDhXWlJIUFNKOXRraWxnTitkMEFj?=
+ =?iso-2022-jp?B?M2diVXM5cExEaXU3Z1I0ZnZtZzRGQysyTk1hUlBuY01XaGVyQ0hYSlMx?=
+ =?iso-2022-jp?B?YlVEalMrbnhwVitXdGJXVlJLOXMrQkZvVndlL3VaVDU4TlV4dktOejI2?=
+ =?iso-2022-jp?B?SmpsUUxSanE4cmJVL1NHYWVQQXA3dkxZODczL1U3NU5LWm5zT1J5T1FN?=
+ =?iso-2022-jp?B?d1lVaHMxYzg3amVmYXBGck5MYmRHYXloMVEwK2tCZ1dmbi9ySkFHeTE2?=
+ =?iso-2022-jp?B?T09HcnpWbDN6TmlsVDNrQTFaNEE4a3Z1eDN6VU4zVmZQQ1VjR0N1SC9T?=
+ =?iso-2022-jp?B?MU1CLzcvRmE5WkRwNENLRjJLQU1kYzc3ZnBYTHdOTjFGTU1La0YvWDMv?=
+ =?iso-2022-jp?B?dVlpQzdWTEFpdU55bUlUUzcvTmhzbks5WFQ1R0dmU3ZiaThxZ05sVDZ1?=
+ =?iso-2022-jp?B?NjNRNk5pTCtZL1ZEaVc1WXhnSmpZSUdGNWZ6VGR3QWs4Wk1TMVRGa0Nh?=
+ =?iso-2022-jp?B?cEtkK1BtRmUxckFjTWhSYjVNczA3bHBqeEQ4V1lVWmw2VkFWRlFvVzNH?=
+ =?iso-2022-jp?B?L1U3UkJFbThwdEsrVUlKODdsMjFUbVQrODZybzFVelBQRFB5TDdjbkp4?=
+ =?iso-2022-jp?B?M2FCUndySzZuQ09rUmM2d0xqbkxyOWJPNzRQL1hyeXJoNnlMSC9OcHRa?=
+ =?iso-2022-jp?B?L1pRTUdoc3J3c3FVN1NsMHFJclorQjVRT0h5YVRTS3pmbTRtNGhkQUQx?=
+ =?iso-2022-jp?B?N1VIRlY2bFg1RVRid1FJdkpCUTlWUndGNStkQlBEMW8xTGhJVy92akxs?=
+ =?iso-2022-jp?B?dHNCdHZaa2RoMEIwY3pnZEdTMWxsVzROL016WDlvbTR4czQ3c0RaWGZO?=
+ =?iso-2022-jp?B?OTRJZFRKeTB6SVhla255MEJlYnFJL2JieGl6bUYyTG5kWHNOTXFkUE5W?=
+ =?iso-2022-jp?B?SkNoTnVkUVNsRmNVT3dmcWROeXN6ZTlkYXZrZFdubGtlV0hYOTQ0NVFK?=
+ =?iso-2022-jp?B?UFowV29IWTlpcUdZN0FBQWpXK1Q1ZEF4YWt0MzJ2VWtFQW4rNno4SXRw?=
+ =?iso-2022-jp?B?MTV4TkE0TmFNMmZKS2hoU2ZXbW9mZTJEL0Rydz09?=
+Content-Type: text/plain; charset="iso-2022-jp"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
+X-Exchange-RoutingPolicyChecked: Q7y6kFHDX2RByJSe8AqX8B8VAxoYciEaCRUxWLJJZieCMXpstVs6bRoWnXTfJsyJFeZWiXn+LqJY/t7U1rboBAhQWnvXAqZdk12T8ntSp0PUbjs2NKEOZTSPP8PqnzmjHBW5h2yEevGxrqgeQt+gIvbcgbNUKsvmWiOA+OkXVTwtek9wElPVG9imyzdjftsOiTlhhbPrWS3iSQKijiXwS+5xDHx5jtbL0lbVKxhoa+Um+2xewrfwMikAezTF+DMOHZPeGGn9NTMoDXejnEJUjasIs/qGGtwpGDonhLdFitIeciVhJOQuOy5T3ZhJfWy7nlj5xVw6BsDFqtB6WXVeFg==
+X-OriginatorOrg: fujitsu.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TY4PR01MB16930.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3f665d9e-a1a0-485e-bf9c-08dee2d0eb95
+X-MS-Exchange-CrossTenant-originalarrivaltime: 16 Jul 2026 00:26:46.6377
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a19f121d-81e1-4858-a9d8-736e267fd4c7
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 3oX5OEktMZ6TTvAuLVlHGfDMPV2kBFnIUJSVp2roQ2+ODckwoVEsXP3QobBX3fo4GFd0XPMcZpkDzqS35qXbeqBkppJ1owS7PpYwo/18HmU=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYCPR01MB11121
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260715_171058_057548_CAE83482 
-X-CRM114-Status: GOOD (  17.27  )
+X-CRM114-CacheID: sfid-20260715_172717_782612_839CA5CF 
+X-CRM114-Status: GOOD (  11.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,77 +160,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---=-WdvxyDtEJGKYSORbsIFW
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-Hi,
-
-Le lundi 01 juin 2026 =C3=A0 15:32 +0800, Icenowy Zheng a =C3=A9crit=C2=A0:
-> Single-core variants of this hardware do not use the work at all, and
-> the worker function is set to NULL, which leads to warnings when
-> cancelling the work in release callback.
->=20
-> Skip the work init/cancel code when the JPEG hardware isn't multi-core.
-
-Thanks for sending this patch, thought this specific issue has alrady been =
-fixed
-upstream, see commit b1845a227fda37b2fe5327df3ca0015d7e290235
-
-Nicolas
-
->=20
-> Cc: stable@vger.kernel.org
-> Fixes: 34c519feef3e ("media: mtk-jpeg: fix use-after-free in release path=
- due
-> to uncancelled work")
-> Fixes: d40e95274925 ("media: mtk-jpeg: reconstructs the initialization mo=
-de of
-> worker")
-> Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-> ---
-> =C2=A0drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c | 6 ++++--
-> =C2=A01 file changed, 4 insertions(+), 2 deletions(-)
->=20
-> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> index 8c684756d5fc2..83e54a7ef49c0 100644
-> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> @@ -1160,7 +1160,8 @@ static int mtk_jpeg_open(struct file *file)
-> =C2=A0		goto free;
-> =C2=A0	}
-> =C2=A0
-> -	INIT_WORK(&ctx->jpeg_work, jpeg->variant->jpeg_worker);
-> +	if (jpeg->variant->multi_core)
-> +		INIT_WORK(&ctx->jpeg_work, jpeg->variant->jpeg_worker);
-> =C2=A0	INIT_LIST_HEAD(&ctx->dst_done_queue);
-> =C2=A0	spin_lock_init(&ctx->done_queue_lock);
-> =C2=A0	v4l2_fh_init(&ctx->fh, vfd);
-> @@ -1202,7 +1203,8 @@ static int mtk_jpeg_release(struct file *file)
-> =C2=A0	struct mtk_jpeg_dev *jpeg =3D video_drvdata(file);
-> =C2=A0	struct mtk_jpeg_ctx *ctx =3D mtk_jpeg_file_to_ctx(file);
-> =C2=A0
-> -	cancel_work_sync(&ctx->jpeg_work);
-> +	if (jpeg->variant->multi_core)
-> +		cancel_work_sync(&ctx->jpeg_work);
-> =C2=A0	mutex_lock(&jpeg->lock);
-> =C2=A0	v4l2_m2m_ctx_release(ctx->fh.m2m_ctx);
-> =C2=A0	v4l2_ctrl_handler_free(&ctx->ctrl_hdl);
-
---=-WdvxyDtEJGKYSORbsIFW
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCalghiAAKCRDZQZRRKWBy
-9Ho1AQCHwVea3BvJBHkB/HKCykfk5eoLVVPni4hAFnB/JkpttQEAsS7hLarWfHxC
-6c0nnvMsKvuEjLpd/7icUUQYJzRJKAA=
-=/DUp
------END PGP SIGNATURE-----
-
---=-WdvxyDtEJGKYSORbsIFW--
+Hello Ben,=0A=
+=0A=
+>>> When an MSC becomes inaccessible due to cpu offline CFG_MBWU_CTL is set=
+ to=0A=
+>>> zero in mpam_save_mbwu_state(). This is very likely to mean that the co=
+nfig=0A=
+>>> will mismatch when restoring and so the monitor will be reset. However,=
+ the=0A=
+>>> state may have been lost and so there are no guarantees. Ensure the res=
+et=0A=
+>>> happens by setting the reset_on_next_read and remove the unnecessary wr=
+ites=0A=
+>>>from mpam_save_mbwu_state().=0A=
+>>>=0A=
+>>> Fixes: 41e8a14950e1 ("arm_mpam: Track bandwidth counter state for power=
+ management")=0A=
+>>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>=0A=
+>>> ---=0A=
+>>>  drivers/resctrl/mpam_devices.c | 13 +++++++------=0A=
+>>>  1 file changed, 7 insertions(+), 6 deletions(-)=0A=
+>>>=0A=
+>>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devi=
+ces.c=0A=
+>>> index b34e2a368516..222fc248067e 100644=0A=
+>>> --- a/drivers/resctrl/mpam_devices.c=0A=
+>>> +++ b/drivers/resctrl/mpam_devices.c=0A=
+>>> @@ -1648,10 +1648,13 @@ static int mpam_restore_mbwu_state(void *_ris)=
+=0A=
+>>>          u64 val;=0A=
+>>>          struct mon_read mwbu_arg;=0A=
+>>>          struct mpam_msc_ris *ris =3D _ris;=0A=
+>>> +       struct msmon_mbwu_state *mbwu_state;=0A=
+>>>          struct mpam_msc *msc =3D ris->vmsc->msc;=0A=
+>>>          struct mpam_class *class =3D ris->vmsc->comp->class;=0A=
+>>>  =0A=
+>>>          for (i =3D 0; i < ris->props.num_mbwu_mon; i++) {=0A=
+>>> +               mbwu_state =3D &ris->mbwu_state[i];=0A=
+>>> +=0A=
+>>>                  if (WARN_ON_ONCE(!mpam_mon_sel_lock(msc)))=0A=
+>>>                          return -EIO;=0A=
+>>>  =0A=
+>>> @@ -1661,6 +1664,8 @@ static int mpam_restore_mbwu_state(void *_ris)=0A=
+>>>                          mwbu_arg.type =3D mpam_msmon_choose_counter(cl=
+ass);=0A=
+>>>                          mwbu_arg.val =3D &val;=0A=
+>>>  =0A=
+>>> +                       mbwu_state->reset_on_next_read =3D true;=0A=
+>>> +=0A=
+>>>                          mpam_mon_sel_unlock(msc);=0A=
+>>=0A=
+>>         for (i =3D 0; i < ris->props.num_mbwu_mon; i++) {=0A=
+>> +               mbwu_state =3D &ris->mbwu_state[i];=0A=
+>> +=0A=
+>>                 if (WARN_ON_ONCE(!mpam_mon_sel_lock(msc)))=0A=
+>>                         return -EIO;=0A=
+>>=0A=
+>> -               if (ris->mbwu_state[i].enabled) {=0A=
+>> +               if (mbwu_state->enabled) {  //this line might need refac=
+toring=0A=
+>=0A=
+>I'm unclear on what you are trying to point out in this email. Please can =
+you explain.=0A=
+>=0A=
+>Thanks,=0A=
+>=0A=
+>Ben=0A=
+=0A=
+Inside the for loop, you introduced `mbwu_state =3D &ris->mbwu_state[i];` a=
+ few lines earlier, =0A=
+and then used `mbwu_state->reset_on_next_read =3D true;` shortly after.=0A=
+Therefore, using mbwu_state->enabled and mbwu_state->cfg keeps =0A=
+the whole block consistent and avoids repeating ris->mbwu_state[i] multiple=
+ times. =0A=
+=0A=
+Best regards,=0A=
+Shaopeng TAN=0A=
+=0A=
+>>                         mwbu_arg.ris =3D ris;=0A=
+>> -                       mwbu_arg.ctx =3D &ris->mbwu_state[i].cfg;=0A=
+>> +                       mwbu_arg.ctx =3D &mbwu_state->cfg;  //and this l=
+ine=0A=
+>>                         mwbu_arg.type =3D mpam_msmon_choose_counter(clas=
+s);=0A=
+>>                         mwbu_arg.val =3D &val;=0A=
+>> =0A=
+>> +                       mbwu_state->reset_on_next_read =3D true;=0A=
+>> +=0A=
+>>                         mpam_mon_sel_unlock(msc);=0A=
+>>=0A=
+>>=0A=
+>> Best regards,=0A=
+>> Shaopeng TAN=0A=
+>>=0A=
+>>>                          __ris_msmon_read(&mwbu_arg);=0A=
+>>> @@ -1696,15 +1701,11 @@ static int mpam_save_mbwu_state(void *arg)=0A=
+>>>  =0A=
+>>>                  cur_flt =3D mpam_read_monsel_reg(msc, CFG_MBWU_FLT);=
+=0A=
+>>>                  cur_ctl =3D mpam_read_monsel_reg(msc, CFG_MBWU_CTL);=
+=0A=
+>>> -               mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);=0A=
+>>>  =0A=
+>>> -               if (mpam_ris_has_mbwu_long_counter(ris)) {=0A=
+>>> +               if (mpam_ris_has_mbwu_long_counter(ris))=0A=
+>>>                          val =3D mpam_msc_read_mbwu_l(msc);=0A=
+>>> -                       mpam_msc_zero_mbwu_l(msc);=0A=
+>>> -               } else {=0A=
+>>> +               else=0A=
+>>>                          val =3D mpam_read_monsel_reg(msc, MBWU);=0A=
+>>> -                       mpam_write_monsel_reg(msc, MBWU, 0);=0A=
+>>> -               }=0A=
+>>>  =0A=
+>>>                  cfg->mon =3D i;=0A=
+>>>                  cfg->pmg =3D FIELD_GET(MSMON_CFG_x_FLT_PMG, cur_flt);=
+=0A=
+>>> --=0A=
+>>> 2.43.0=0A=
+>=0A=
+>=0A=
 
