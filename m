@@ -4,62 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A211C44511
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 16:15:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EA77C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 16:19:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ln+zwa1+MaOwv3nXSuWvxjJBrdvM0Hk3iOScwUU3ZG8=; b=XEVheZJHSA5aNqETeMdbfO69jS
-	/W1OEhq25PzkhR95EWsQ1jkJ4s2p4q2cZajbDbjbhx4l1ycguB/GPYjKgloNt2guTG7Y0/MhYX6YW
-	8a0RDD28gA6OkOO5DtcY6UwSe3xJzqvLhDCdYtzJ1iXqLRLe9rnshB/tGPc7H2Uf+sgog5oaOtKcl
-	mo2F3gjDJaGetbcWPmNs359RRxK8yJmn5feanjmXd2H0aMG+7JRfzaRyAPBy2U0AV2qRM35XGJAQz
-	llxfrU7o00cVXOUyZLLGiJdaR+xRJdM9jnakSRC4rOKeaa7rHkQoUkmryUpdcwTtLtZb55yXrGVBs
-	zdUBh+IQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CpV/surFpPC4mt4ppalNgv6Fp6w6RgS0HjdjNc272JE=; b=yU/surTPLpSPf2zJ/j9PlsDIGG
+	IsUNb2h2yUVhO4+0hJcYtDqrRMJ5vBo9rHDXXLhzZQWBk3/RMfRkWic5BlFDe3VgQiVa1gV2HDotK
+	iv4+HMSSD0LwzAfK7AjL/ozKY3ZlSp0Ub1DDN5C1hzuFT7Op4FGaq6+tbrjD29bC38WUDfZOZgZ49
+	YAfvqAKXQwwhcYVf3dwNnyicENDfIDTVOEene5nYQbs4RcUJZOqieOHWj0kiYaBRY4cN9nwozKzWA
+	tnGdo7SMVV5hd/94VhzmdM1RSrxq5mbVLSuGlIbmdMEy6U554vi2OApPCFavTPnOtb3p4tz4uOIuE
+	itdSe74A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkOjs-000000007L0-0cWE;
-	Thu, 16 Jul 2026 16:15:08 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkOjo-000000007JU-2tdW
+	id 1wkOoP-000000007xv-3Al4;
+	Thu, 16 Jul 2026 16:19:49 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkOoM-000000007wc-2qHa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 16:15:06 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C471C2F;
-	Thu, 16 Jul 2026 09:14:55 -0700 (PDT)
-Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EB4FA3F7B4;
-	Thu, 16 Jul 2026 09:14:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784218500; bh=zQ7EW/DiYP7ct8mHMC81LF+qTsnzd6OWO+eVwdHzyOY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Vj3wK4wkYP+VHIMDqaQwR53oqkvcVu/gwVCkzmT0Jayp5iJGZcwxGnEUJuCeYt7xt
-	 Ur+BsX+mAvEN5kY4Vw9NGmFXzZPXZeByGayKHAKOSBlBZYTeHAD59k960pHsdC0ixw
-	 5joMwiEHE5jASc7wY48EALmiNo3H2nI1VumiBYFk=
-Date: Thu, 16 Jul 2026 17:14:46 +0100
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: Oliver Upton <oupton@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>, Fuad Tabba <tabba@google.com>, 
-	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Itaru Kitayama <itaru.kitayama@fujitsu.com>, Sebastian Ene <sebastianene@google.com>
-Subject: Re: [PATCH v4 2/6] KVM: arm64: nv: Avoid full shadow s2 unmap
-Message-ID: <upkq27f2mo3fy27ubkxxgfwkgn2oamnbxom2o6gce5ocfyauo5@6tfu3ppaw7o6>
-References: <20260714115926.2044757-1-weilin.chang@arm.com>
- <20260714115926.2044757-3-weilin.chang@arm.com>
- <aliCuX3ZIvxWlFE-@kernel.org>
+	Thu, 16 Jul 2026 16:19:47 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-84830c774a0so2819514b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 09:19:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784218785; x=1784823585; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=CpV/surFpPC4mt4ppalNgv6Fp6w6RgS0HjdjNc272JE=;
+        b=k1zQLyVnik1mjhOzSCy5OBDmntrI/kPcEmUfoCIgPrpOXLbJvtT9rcBSk5poZlG5WF
+         eCTUpytx9ahvp+PildtaUXlW+X4ZaNTM+kSBBDMR6conWAGLI2pA0MinXRffrSeVNMgo
+         WjmbyxFShn1saa5Q8xIXG7j/K7VoXajnxSp0fZGUCZsY5RdHTlKlLe+26gnhw0/kty1G
+         vGEeEm4izc0JH6hoVF3mzmuen0ewESzRSCEsHV7AjpntL5gtjC5oNJPy85TNCHEMc32U
+         qb2mp92XyRU6twIKLPDH4y8Pj8LIHfNIiZFRkNKbpw6YvCp5e1ITYdq3Tz0jwTRA/wUv
+         sLJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784218785; x=1784823585;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=CpV/surFpPC4mt4ppalNgv6Fp6w6RgS0HjdjNc272JE=;
+        b=rTo/vZt63wxTQ1L63Nr656aQvEVDqGctRGSqrhRd2qKT7e6+l83zwL1PKgf018wdjk
+         iq2hgMliCmR/1gvTBvgDwHHOG9Fnb0woRNJtxfRmeFQEMgpQ4TriF2E13pJBYdamLt2w
+         SIyH2kTSqRBCFmueaqT8H0iDWefl9uVIi5IA5vZhIu42Ap5g5ttM8sc7PvnR5fYTyGbi
+         Ae9tpIgEYZeHimCrZ9HUGWPEx5OSj+JBa8Gdsgtk+mWGy8zTpBn+5VV/4ssqvAFImjD+
+         WUWNRASnBp0BRZuQ0/cIumQ4kAqJfzU9HfMM3Xu5l2b3W2vUDnTqc33pHOwDF7X2zaqW
+         M8HQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rq+luNI6zVRiRVy0WbdzEfVNnl/PjGL6wx/QKQOGK4iUcpOyoWtICOcxnDwFlsG7Krg15VTrWpmZV1pnfjLUyJL@lists.infradead.org
+X-Gm-Message-State: AOJu0YxlxPg2Az7h6MpoW75Xvt4Uan5e9VakKlG64vEHbhthIFp9ivih
+	dICYqv+AEv5x5Z4JAxAPHH28to3pYuof6PlZWg524vjV7KfCZOlNTNki
+X-Gm-Gg: AfdE7clswL26EIyvZ6khTrzx6igjSmp8UU+srAcMjeuiGIoUrlaaCPfq7ezAWb2UFYF
+	CQkHK2ukE3XQdma3u2UjCMJcjxemIvI+eB1dYM2dEZtjJkuk6I4ANBfN89GXwDl1LqCL03IUT+1
+	mybuAZO5Q+6cfx+/ipFYTOyGbTrVbTgyTMZZq7gThJen9u4sTWXzYwyrDnDcYOcISeNaxhqPDNK
+	r+LoNhNS4VK6mHaFXrq9Tx118M+sm7pqypffXJLTT8R1sUPEUetkmZZ1vtRReyynbulDJRTkuhr
+	pea7+XB0R6GRmP0N5x3/30OUK2Ae/d08UTd1AOrh8eSX0yawe76QdHZzz7HT+LiYCkETtfwJnhA
+	5Q1nGIxLwCAo310cN2fo93f0CCkwzzp8+VQdzaWBth9mNjXWBRr1GD/MWPgA/c0KnOoPs5KX45L
+	c8hM+I4rQxmoPZ9V34anrEfAH9VUQfWuJFcw==
+X-Received: by 2002:a05:6a00:2d25:b0:848:425a:4e31 with SMTP id d2e1a72fcca58-8488971545amr21155827b3a.24.1784218785118;
+        Thu, 16 Jul 2026 09:19:45 -0700 (PDT)
+Received: from buffalo-ssd (M014013071096.v4.enabler.ne.jp. [14.13.71.96])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84a4f23a600sm5092661b3a.6.2026.07.16.09.19.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 16 Jul 2026 09:19:44 -0700 (PDT)
+From: Akari Tsuyukusa <akkun11.open@gmail.com>
+To: Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-watchdog@vger.kernel.org (open list:WATCHDOG DEVICE DRIVERS),
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	linux-kernel@vger.kernel.org (open list:ARM/Mediatek SoC support),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
+	linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
+	Roman Vivchar <rva333@protonmail.com>,
+	Akari Tsuyukusa <akkun11.open@gmail.com>
+Subject: [PATCH 0/7] Add reset support to MT6589 wdt and remove fallback compatibles
+Date: Fri, 17 Jul 2026 01:19:16 +0900
+Message-ID: <20260716161923.266315-1-akkun11.open@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aliCuX3ZIvxWlFE-@kernel.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_091504_903760_67A934FF 
-X-CRM114-Status: GOOD (  38.95  )
+X-CRM114-CacheID: sfid-20260716_091946_770434_8446B648 
+X-CRM114-Status: GOOD (  13.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,207 +107,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 16, 2026 at 12:05:29AM -0700, Oliver Upton wrote:
-> Hey,
-> 
-> On Tue, Jul 14, 2026 at 12:59:21PM +0100, Wei-Lin Chang wrote:
-> > +static bool valid_entry(unsigned long entry)
-> > +{
-> > +	WARN_ON(entry & VALID_ENTRY && entry & UNKNOWN_IPA);
-> > +	return entry & VALID_ENTRY;
-> > +}
-> > +
-> > +static bool unknown_ipa_entry(unsigned long entry)
-> > +{
-> > +	WARN_ON(entry & VALID_ENTRY && entry & UNKNOWN_IPA);
-> > +	return entry & UNKNOWN_IPA;
-> > +}
-> 
-> These should be WARN_ON_ONCE(), but I find the condition you're
-> asserting to be a bit confusing. An aliased reverse map entry is still a
-> valid entry, would you not set the valid bit?
+This series adds TOPRGU reset controller support to the MT6589 watchdog
+and removes the use of "mediatek,mt6589-wdt" as the fallback compatible
+from many other MediaTek SoCs.
 
-Sorry, VALID_ENTRY might not be the best name for this flag. I used it
-to mean entries in the maple tree, that are not UNKNOWN_IPA, meaning the
-canonical IPA <-> nested IPA relation is one-to-one.
+Many SoCs have been using "mediatek,mt6589-wdt" as the fallback.
+However, they are not compatible with the MT6589's reset register.
 
-So by definition UNKNOWN_IPA and "VALID_ENTRY" should not be set at the
-same time. Unfortunately they can't be a single flag, as the stored
-address can be 0, this can make the whole value 0 when being stored if
-the single flag is also 0, effectively not doing the store.
+To add reset support to MT6589 wdt and resolve this problem safely,
+the series proceeds step by step:
 
-Maybe it's better with just "KNOWN_IPA"?
+ 1. Add explicit driver entries for the affected SoCs,
+    so they can be matched directly.
+ 2. Extend the dt-binding to accept the SoC-specific compatibles while
+    still allowing the old fallback form.
+ 3. Drop the mt6589 fallback from all in-tree DTS.
+ 4. Remove the fallback from the dt-binding.
+ 5. Add the MT6589 reset dt-binding header.
+ 6. Assign reset data exclusively to the mt6589-wdt entry.
+ 7. Add #reset-cells to the MT6589 to enable TOPRGU reset controller.
 
-> 
-> > +void kvm_record_nested_revmap(gpa_t canonical_ipa, struct kvm_s2_mmu *mmu,
-> > +			      gpa_t nested_ipa, size_t map_size)
-> > +{
-> > +	struct maple_tree *revmap_mt = &mmu->nested_revmap_mt;
-> > +	gpa_t canonical_ipa_end;
-> > +	u64 entry, new_entry = 0;
-> > +
-> > +	lockdep_assert_held_read(&kvm_s2_mmu_to_kvm(mmu)->mmu_lock);
-> > +
-> > +	if (mmu->nested_revmap_broken)
-> > +		return;
-> > +
-> > +	if (WARN_ON(!IS_ALIGNED(canonical_ipa, map_size)))
-> > +		canonical_ipa = ALIGN_DOWN(canonical_ipa, map_size);
-> > +
-> > +	canonical_ipa_end = canonical_ipa + map_size - 1;
-> > +	MA_STATE(mas_rmap, revmap_mt, canonical_ipa, canonical_ipa_end);
-> > +
-> > +	mtree_lock(revmap_mt);
-> > +	entry = xa_to_value(mas_find(&mas_rmap, canonical_ipa_end));
-> > +
-> > +	if (entry) {
-> > +		/* parallel faults can be adding the same mapping */
-> > +		if (valid_entry(entry) &&
-> > +		    mas_rmap.index == canonical_ipa &&
-> > +		    mas_rmap.last == canonical_ipa_end &&
-> > +		    nested_ipa == (entry & ADDR_MASK))
-> > +			goto unlock;
-> > +		/*
-> > +		 * Create a "UNKNOWN_IPA" range that spans all the overlapping
-> > +		 * ranges and store it.
-> > +		 */
-> > +		while (entry && mas_rmap.index <= canonical_ipa_end) {
-> > +			canonical_ipa = min(mas_rmap.index, canonical_ipa);
-> > +			canonical_ipa_end = max(mas_rmap.last, canonical_ipa_end);
-> > +			entry = xa_to_value(mas_find(&mas_rmap, canonical_ipa_end));
-> > +		}
-> > +		new_entry |= UNKNOWN_IPA;
-> > +	} else {
-> > +		new_entry |= nested_ipa;
-> > +		new_entry |= VALID_ENTRY;
-> > +	}
-> > +
-> > +	mas_set_range(&mas_rmap, canonical_ipa, canonical_ipa_end);
-> > +	if (mas_store_gfp(&mas_rmap, xa_mk_value(new_entry),
-> > +			  GFP_NOWAIT | __GFP_ACCOUNT))
-> 
-> The general pattern for handling this situation would be to preallocate
-> nodes prior to acquiring the lock. If we can preallocate then we can
-> just outright refuse to create a shadow stage-2 mapping if the update to
-> the reverse map fails.
 
-Preallocation was thought about, but it was found to be impractical in
-this case [*], mainly because we must hold the lock in order to know
-what range to store.
+Akari Tsuyukusa (7):
+  watchdog: mtk_wdt: add explicit compatibles for SoCs using mt6589
+    fallback
+  dt-bindings: watchdog: mediatek,mtk-wdt: add compatibles for all SoCs
+  arm/arm64: dts: mediatek: drop mt6589 fallback from watchdog
+  dt-bindings: watchdog: mediatek,mtk-wdt: remove mt6589 fallback items
+  dt-bindings: reset: Add bindings for MediaTek MT6589 reset controller
+  watchdog: mtk_wdt: add reset controller support for MT6589
+  arm: dts: mediatek: mt6589: add reset support for wdt
 
-However, we can make this function return an error when storing to the
-maple tree fails, and just not do the shadow mapping. This ties the
-wellness of the maple tree to guest progress. For repeated failure I
-think of these possibilities:
+ .../bindings/watchdog/mediatek,mtk-wdt.yaml   | 26 ++++++++-----------
+ arch/arm/boot/dts/mediatek/mt2701.dtsi        |  3 +--
+ arch/arm/boot/dts/mediatek/mt6572.dtsi        |  2 +-
+ arch/arm/boot/dts/mediatek/mt6582.dtsi        |  2 +-
+ arch/arm/boot/dts/mediatek/mt6589.dtsi        |  1 +
+ arch/arm/boot/dts/mediatek/mt7623.dtsi        |  3 +--
+ arch/arm/boot/dts/mediatek/mt7629.dtsi        |  3 +--
+ arch/arm64/boot/dts/mediatek/mt6797.dtsi      |  2 +-
+ arch/arm64/boot/dts/mediatek/mt7622.dtsi      |  3 +--
+ arch/arm64/boot/dts/mediatek/mt8173.dtsi      |  3 +--
+ arch/arm64/boot/dts/mediatek/mt8365.dtsi      |  2 +-
+ arch/arm64/boot/dts/mediatek/mt8516.dtsi      |  3 +--
+ drivers/watchdog/mtk_wdt.c                    | 18 ++++++++++++-
+ include/dt-bindings/reset/mt6589-resets.h     | 25 ++++++++++++++++++
+ 14 files changed, 64 insertions(+), 32 deletions(-)
+ create mode 100644 include/dt-bindings/reset/mt6589-resets.h
 
- - The maple tree code is somehow broken that stores never succeed.
- - We have so little available memory that maple tree stores don't
-   succeed.
+-- 
+2.54.0
 
-These cause the guest fault repeatedly, but do we still care about the
-guest when these happen? Probably not for the OOM case, and it solves
-itself when the kernel gets back memory. For the first case I'm not so
-sure, and I might have missed some other important possibilities.
-
-[*]: https://lore.kernel.org/kvmarm/867bq72n7l.wl-maz@kernel.org/
-
-> 
-> > +		mmu->nested_revmap_broken = true;
-> > +unlock:
-> > +	mtree_unlock(revmap_mt);
-> > +}
-> > +
-> >  void kvm_init_nested_s2_mmu(struct kvm_s2_mmu *mmu)
-> >  {
-> >  	/* CnP being set denotes an invalid entry */
-> >  	mmu->tlb_vttbr = VTTBR_CNP_BIT;
-> >  	mmu->nested_stage2_enabled = false;
-> >  	atomic_set(&mmu->refcnt, 0);
-> > +	mt_init(&mmu->nested_revmap_mt);
-> > +	mmu->nested_revmap_broken = false;
-> >  }
-> >  
-> >  void kvm_vcpu_load_hw_mmu(struct kvm_vcpu *vcpu)
-> > @@ -1225,6 +1305,89 @@ void kvm_nested_s2_wp(struct kvm *kvm)
-> >  	kvm_invalidate_vncr_ipa(kvm, 0, BIT(kvm->arch.mmu.pgt->ia_bits));
-> >  }
-> >  
-> > +static void reset_revmap_and_unmap(struct kvm_s2_mmu *mmu, bool may_block)
-> > +{
-> > +	mtree_destroy(&mmu->nested_revmap_mt);
-> > +	mmu->nested_revmap_broken = false;
-> > +	kvm_stage2_unmap_range(mmu, 0, kvm_phys_size(mmu), may_block);
-> > +}
-> > +
-> > +static void unmap_mmu_cipa_range(struct kvm_s2_mmu *mmu, gpa_t canonical_ipa,
-> > +				  size_t unmap_size, bool may_block)
-> > +{
-> > +	struct maple_tree *revmap_mt = &mmu->nested_revmap_mt;
-> > +	gpa_t canonical_ipa_end = canonical_ipa + unmap_size - 1;
-> > +	size_t entry_size;
-> > +	gpa_t next_addr;
-> > +	u64 entry;
-> > +	MA_STATE(mas_rmap, revmap_mt, canonical_ipa, canonical_ipa_end);
-> > +
-> > +	lockdep_assert_held_write(&kvm_s2_mmu_to_kvm(mmu)->mmu_lock);
-> > +
-> > +	if (mmu->nested_revmap_broken) {
-> > +		reset_revmap_and_unmap(mmu, may_block);
-> > +		return;
-> > +	}
-> > +
-> > +	if (!mmu->nested_stage2_enabled) {
-> > +		kvm_stage2_unmap_range(mmu, canonical_ipa, unmap_size, may_block);
-> > +		return;
-> > +	}
-> > +
-> > +	mtree_lock(revmap_mt);
-> > +	entry = xa_to_value(mas_find(&mas_rmap, canonical_ipa_end));
-> > +
-> > +	while (entry && mas_rmap.index <= canonical_ipa_end) {
-> > +		entry_size = mas_rmap.last - mas_rmap.index + 1;
-> > +		next_addr = mas_rmap.index + entry_size;
-> > +		/*
-> > +		 * Give up and invalidate this s2 mmu if the unmap range
-> > +		 * touches any UNKNOWN_IPA range.
-> > +		 */
-> > +		if (unknown_ipa_entry(entry)) {
-> > +			mtree_unlock(revmap_mt);
-> > +			reset_revmap_and_unmap(mmu, may_block);
-> > +			return;
-> > +		}
-> > +
-> > +		/*
-> > +		 * Ignore result, it is okay if a reverse mapping erase
-> > +		 * fails.
-> > +		 */
-> > +		mas_store_gfp(&mas_rmap, NULL, GFP_NOWAIT | __GFP_ACCOUNT);
-> 
-> I wonder if we can handle this a bit more gracefully.
-> 
-> Ideally we'd be able to place a search mark on the entry flagging it as
-> stale which could be used to avoid attempting to overinvalidate the
-> shadow stage-2.
-> 
-> Interestingly enough, Liam recently gave the suggestion [*] of storing
-> XA_ZERO_ENTRY for a similar use case where erasure happens in an atomic
-> context. We should be able to do the exact same thing here and push the
-> cleanup to the next insertion.
-
-I see. Not saying I have a better idea, but this is relying on the fact
-that replacing an existing range with another value does not require
-memory allocation. I would say this is an obvious assumption and I don't
-see it becoming false in the future, but still it's an implementation
-detail and relying on it as a user feels strange...
-
-What do you think?
-
-Thanks,
-Wei-Lin Chang
-
-> 
-> [*] https://lore.kernel.org/all/iv7sxqezzz42xieytbf3lskutricz7ltkr3wii3w4jbnbzto7f@2tz5hwa43l37/
-> 
-> Thanks,
-> Oliver
 
