@@ -4,68 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 455ECC4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 14:50:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92B1FC44516
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 14:53:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zqNK14fvUgJPkPKSw3F2wEzBp6SPYyPXK1qyOUdckgI=; b=OgSEDYGTPXWrgIh5HBB3Zwv3GY
-	sNeSysvdQxyQ19RCvqUQd3bMypQ+U/ZOHpGBcl/qpRmTqvMQFlkA/We4rIij+vOMhAm1P1HLLxqzo
-	ieq138vDTodqDIWfzpxGvWGja+Sij4+bXv4Mrg58ZJlXFVyG5J9md+fdwKLOMR1s8W8SyL8p+ZhSv
-	tMGVs8FEvBIaY0dbk9pgU6MTZ/5eK1BENdsqZSeXHEtyz5PRjEh3r+1bf5HnF7nuG+xulRcHatUtK
-	6sprVDhdqKNvU3JqFGVgdjo/hYkQq6k+onUGXNZeTnAvBNtJOrmjKi/Kq5VySgZBstE+zI/La9uIb
-	x4ieZPOw==;
+	bh=M86Ir7wes1y7r8ERYu4z2fhecNCYpHaDZuovfA+lIDI=; b=ELTeWwt0JXzIQJZZ/O/TBZMPHY
+	AqrC1TJOGcCqa99tOqevsNw6JDNoq1C37smqDV30mC0F+saTGxgZnelRtjuutDQCLQtzY50l7r2dv
+	9k9dVmtsIQdOKcFZmTp4YPulWUFUQGXJ4jCmMaE76FAnOi3WweiA5ujMPb1/Gm9aHibKCdBHJtuVD
+	aUXvxCH5UayOBnq04Qg3E8ZxAxd9P0kD+p0R97mMnaU6AHNl5Epa4tYiKErbhChwRcEHQqdh0k9vf
+	4664xT5686aKKAauvl9nk8u+iWuYJ41BqaY/khhbAxUc3HkHSJ6jiBfEpnWHg/0HkJrPEWNmw2LHz
+	eN1mlkLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkNPX-0000000HXOW-3JGm;
-	Thu, 16 Jul 2026 14:50:03 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wkNSL-0000000HXrR-0ctY;
+	Thu, 16 Jul 2026 14:52:57 +0000
+Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkNPF-0000000HXKC-0JTe
+	id 1wkNSI-0000000HXqd-1rpY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 14:49:47 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4758C60A5C;
-	Thu, 16 Jul 2026 14:49:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30D7B1F000E9;
-	Thu, 16 Jul 2026 14:49:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784213384;
-	bh=zqNK14fvUgJPkPKSw3F2wEzBp6SPYyPXK1qyOUdckgI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=K3esabGfmFIKjOLPgAKaolLSygDxiOrWrwG/Ry2KPI0YTB50PTTslkIhpdBVK24PH
-	 eqPi1gcalpvP/P65xerJArZDH03ErvYW+Ls2wOb98Y7u5DcbUsk/tJtRVludwWgps0
-	 scZvArB+O9fDEE+uh+OlV0FCHOqxjFMxycWqbf1/JDOIgziKpP+JiejFIUc3SOEsBI
-	 QVLc3HhonSLz2/9j0TJl/+98YUfTDlqhYNgi9nosmAWXQpfgvrcbVDV1ArAKx5OHJc
-	 4serm5zFAq3uG1kEn3yWDECkW50gOHrGA0TsdONZQfTErTY9kPNOSvR6RORaWJAQjQ
-	 bJJ1PUEbjZmCQ==
-Date: Thu, 16 Jul 2026 16:49:29 +0200
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Yureka Lilian <yureka@cyberchaos.dev>
-Cc: Marc Zyngier <maz@kernel.org>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-pci@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH 1/2] PCI: apple: Integrate pwrctrl API
-Message-ID: <pbxefv7wotwcaavoas347htdx22rdupfqn6cbuyjf4y2kjlv4p@7xdael6h7d57>
-References: <20260707-apple-pcie-pwren-v1-0-5a281b182fe2@cyberchaos.dev>
- <20260707-apple-pcie-pwren-v1-1-5a281b182fe2@cyberchaos.dev>
- <86a4s3p2vy.wl-maz@kernel.org>
- <8a80a170-a508-4a9e-8090-27cfcedb1cd4@cyberchaos.dev>
- <865x2qq4ts.wl-maz@kernel.org>
- <jqaxvdaxfpm5g3tdwdqpuk2ubkwim6ckmlblocvakloqishvmm@c5ofbdbdj7lf>
- <76243051-e391-45d2-b47a-d4a904f0a36f@cyberchaos.dev>
+	Thu, 16 Jul 2026 14:52:55 +0000
+Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-51c1805b8a7so69016741cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 07:52:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1784213573; x=1784818373; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=M86Ir7wes1y7r8ERYu4z2fhecNCYpHaDZuovfA+lIDI=;
+        b=I1q1EP1wR8ur6Bh3XNMrfEJzgODZPwnMGh+Fs5JuXGgKlrZ/hMT2wLu2l9iStjohTl
+         pnUToeprqauydj5AElq49ArPdT6hPqP53G22bJKeS6pMgus6eQxw0K31xDsq0KkNtdNT
+         6xxWOnKHX3fkScS99wWgv47SHTqLhSTwP66/RxVLpwiQT9Q15ZcPIfnMf3NuNnHqyH7n
+         gnRezx0kXUTjoDxB6aOxgQq9HXmPpPxd/fBhFllePO7V9Bltb5LR8iDFhBHLrnFUpfIn
+         vxQF5XJ+RkCynRTtnAG4YMME2RWUuYWV8P0W8360jNoVasXw/Ti5bGPAc9cDCHppeGrq
+         CHyA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784213573; x=1784818373;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=M86Ir7wes1y7r8ERYu4z2fhecNCYpHaDZuovfA+lIDI=;
+        b=qPUh5gVjZvTCsSjY+SiMAaGUbg3ipMY5PV0vALWidRLhQhDoANU6vyv6KLI+b/H2xd
+         l7G6yAifM9bYnv29pMhPEDcqQGyoxEifjftvE6Ad7e5SBCezXDpsyyfjVMejKddzRAvF
+         sCrF/rhznsOgr7GUobSCzBUiwE/LCk6ysC9D8Uo+j2PYgmJPqjdho+xobmjVq4/gqqqa
+         lmnFi1DOooACGcI/vzo74qKsQb3sPXvbj5OOYViVHMNlXvU2RAHXGCl1jxs1PGoALjNo
+         vFItRH2aXl/QisZ/lvvZEr58ShxV3powUgz8l9Bpy0M8d6anCYBYxmJQISvqdBmddCZh
+         7voQ==
+X-Forwarded-Encrypted: i=1; AHgh+RpjsUey28TYjxGUA/DVd33rfheRG6vdZGFCAWuK1uMqN94d4WZ7YHQeY8vNbpg+81TP6W2bco7oukt2Cef3A7Io@lists.infradead.org
+X-Gm-Message-State: AOJu0YwNMDf5MUT7J9ylljOrNLrrdvcn35hLH9Xstrxx+8oVpOFvs1VE
+	LgBoVihTnxVz6gVaI+8vYE7Fo7mwXu4EsSYfuEFU76Ohqgfwkc0AJhHte0cklho3Mwo=
+X-Gm-Gg: AfdE7cla0K65HCJrLvFR22dGf9ya0HfxoJ9JtcGN0pDEfamS6VcEoyTZ5uvOc8Uw/lq
+	psHWiKQ5ef30/CtZP6pyMTrQCA/F3K9h5uahtiBOEC0CwLtjoUOHB0ZFI21d1hQPySFgCmEh1ii
+	+clr4fSrLTdowwVXyw+dw6T6V35robM6rokvWNRP9BOQQhFaRFLt0oOBmp7W0pUZFyy0zkIy2S0
+	4wPfWFHtE4InbelxdAPu2KC61POjBZ6IgBhKKpY6gMH66m4/aLk+w6Ab++Z3so1nD0QK+vbF2rm
+	KquigxT33C6Fm6vowyIui24xpBhWml3QnX/nMEwg0gXtn6dJ23cMHL9psiDJirxhGbei6N7Sp/s
+	BUz2/9e0449VTSMdSggfCIRjvXNc4pr8BEv6EEkPRzjzu9XsADQ==
+X-Received: by 2002:a05:622a:1b88:b0:51c:1811:6eae with SMTP id d75a77b69052e-51e4f0a757dmr78823321cf.47.1784213572745;
+        Thu, 16 Jul 2026 07:52:52 -0700 (PDT)
+Received: from ziepe.ca ([159.2.72.92])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-51ec9fef211sm28849141cf.0.2026.07.16.07.52.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 16 Jul 2026 07:52:51 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1wkNSF-00000002ZDm-0DPq;
+	Thu, 16 Jul 2026 11:52:51 -0300
+Date: Thu, 16 Jul 2026 11:52:51 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Alexey Kardashevskiy <aik@amd.com>
+Cc: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-coco@lists.linux.dev, Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>, Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
+	Jiri Pirko <jiri@nvidia.com>, Michael Kelley <mhklinux@outlook.com>
+Subject: Re: [PATCH v7 16/22] dma-direct: make dma_direct_map_phys() honor
+ DMA_ATTR_CC_SHARED
+Message-ID: <20260716145251.GE210048@ziepe.ca>
+References: <20260701054926.825925-1-aneesh.kumar@kernel.org>
+ <20260701054926.825925-17-aneesh.kumar@kernel.org>
+ <ak42F240d-53QeFN@arm.com>
+ <yq5apl0xgy89.fsf@kernel.org>
+ <9d83ec13-3b1e-4c1b-8bab-16ea057cfba0@amd.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <76243051-e391-45d2-b47a-d4a904f0a36f@cyberchaos.dev>
+In-Reply-To: <9d83ec13-3b1e-4c1b-8bab-16ea057cfba0@amd.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260716_075254_497981_96B22272 
+X-CRM114-Status: GOOD (  20.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,108 +129,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2026 at 06:57:11PM +0200, Yureka Lilian wrote:
-> 
-> On 7/9/26 14:29, Manivannan Sadhasivam wrote:
-> > On Tue, Jul 07, 2026 at 02:58:39PM +0100, Marc Zyngier wrote:
-> > > On Tue, 07 Jul 2026 13:04:21 +0100,
-> > > Yureka Lilian <yureka@cyberchaos.dev> wrote:
-> > > > On 7/7/26 11:25, Marc Zyngier wrote:
-> > > > > On Mon, 06 Jul 2026 23:38:27 +0100,
-> > > > > Yureka Lilian <yureka@cyberchaos.dev> wrote:
-> > > > > > Integrate the PCI pwrctrl framework into the Apple PCIe host driver to
-> > > > > > provide standardized power management for PCI devices.
-> > > > > > 
-> > > > > > Notably, this allows enabling powering on the WiFi, SD card reader on
-> > > > > > various Macs by means of the pwrctrl framework before probing the ports.
-> > > > > > 
-> > > > > > Previously, a custom solution for powering on the WiFi and SD card
-> > > > > > reader was proposed[1], but we can now use the new pci-pwrctrl-generic
-> > > > > > driver for this purpose.
-> > > > > > 
-> > > > > > Link[1]: https://lore.kernel.org/lkml/20220502093832.32778-4-marcan@marcan.st/
-> > > > > > 
-> > > > > nit: this paragraph and the accompanying link don't belong in the
-> > > > > commit message and should be moved below the --- mark or even better,
-> > > > > to the cover letter.
-> > > > ack, will leave it out of the commit message of the individual commit in v2
-> > > > > > Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
-> > > > > > ---
-> > > > > >    drivers/pci/controller/Kconfig      |  1 +
-> > > > > >    drivers/pci/controller/pcie-apple.c | 16 ++++++++++++++++
-> > > > > >    2 files changed, 17 insertions(+)
-> > > > > > 
-> > > > > > diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
-> > > > > > index 2247709ef6d6..af64630d28fa 100644
-> > > > > > --- a/drivers/pci/controller/Kconfig
-> > > > > > +++ b/drivers/pci/controller/Kconfig
-> > > > > > @@ -46,6 +46,7 @@ config PCIE_APPLE
-> > > > > >    	depends on OF
-> > > > > >    	depends on PCI_MSI
-> > > > > >    	select PCI_HOST_COMMON
-> > > > > > +	select PCI_PWRCTRL_GENERIC
-> > > > > >    	select IRQ_MSI_LIB
-> > > > > >    	help
-> > > > > >    	  Say Y here if you want to enable PCIe controller support on Apple
-> > > > > > diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller/pcie-apple.c
-> > > > > > index c2cffc0659f4..db038a9d4831 100644
-> > > > > > --- a/drivers/pci/controller/pcie-apple.c
-> > > > > > +++ b/drivers/pci/controller/pcie-apple.c
-> > > > > > @@ -30,6 +30,7 @@
-> > > > > >    #include <linux/msi.h>
-> > > > > >    #include <linux/of_irq.h>
-> > > > > >    #include <linux/pci-ecam.h>
-> > > > > > +#include <linux/pci-pwrctrl.h>
-> > > > > >      #include "pci-host-common.h"
-> > > > > >    @@ -825,6 +826,21 @@ static int apple_pcie_init(struct
-> > > > > > pci_config_window *cfg)
-> > > > > >    	if (WARN_ON(!pcie))
-> > > > > >    		return -ENOENT;
-> > > > > >    +	ret = pci_pwrctrl_create_devices(pcie->dev);
-> > > > > > +	if (ret) {
-> > > > > > +		dev_err(pcie->dev, "Failed to create pwrctrl devices: %pe\n", ret);
-> > > > > > +		return ret;
-> > > > > > +	}
-> > > > > > +
-> > > > > > +	ret = pci_pwrctrl_power_on_devices(pcie->dev);
-> > > > > > +	if (ret) {
-> > > > > > +		if (ret != -EPROBE_DEFER) {
-> > > > > > +			dev_err(pcie->dev, "Failed to power on devices: %pe\n", ret);
-> > > > > > +			pci_pwrctrl_destroy_devices(pcie->dev);
-> > > > > > +		}
-> > > > > > +		return ret;
-> > > > > > +	}
-> > > > > > +
-> > > > > Why is this done globally while the whole driver works on a per-port
-> > > > > basis, and that the proposed DT updates are also per port?
-> > > > pci_pwrctrl_power_on_devices takes a struct device as parameter, but
-> > > > pcie-apple does not allocate device structs for the individual ports.
-> > > > This could be changed of course. But since pci_pwrctrl_* operate on
-> > > > the subnodes recursively, it works just fine this way.
-> > > Works fine is one thing. Being consistent with the way the rest of the
-> > > driver works is another. pci_pwrctrl_create_device() and
-> > > pci_pwrctrl_power_on_device() appear to do exactly what would be
-> > > required for a single port. They just needs to be exported made
-> > > global/exported.
+On Thu, Jul 16, 2026 at 11:55:20AM +1000, Alexey Kardashevskiy wrote:
+> > > For AMD/SME, on host with memory encryption we now end up setting the C
+> > > bit for DMA_ATTR_MMIO. This is fine for RAM but not sure whether
+> > > some other MMIO bus understands this attribute. Maybe we should stick to
+> > > something like __phys_to_dma() for the !CC_SHARED && MMIO path. Or,
+> > > since this is not universally defined, just use the old dma_addr = phys
+> > > if MMIO and ignore any unlikely DMA offsets.
 > > > 
-> > I'm fine with exporting pci_pwrctrl_create_device() and
-> > pci_pwrctrl_power_on_device() and calling them with per-port np.
 > > 
-> > - Mani
+> > Considering for AMD/SME system an unencrypted dma addr is one without C
+> > bit, will this be good?
 > 
-> In theory I do agree this would work to power on the slots, and I can send a
-> v2 of the patch doing it that way, but I don't quite understand yet how this
-> fits better with the existing driver code: If this is the case, what is the
-> difference between pcie-apple and pcie-qcom and why should pcie-qcom use the
-> recursive function but pcie-apple not?
-> 
+> Normally both encrypted and unencrypted DMA addresses do not have
+> Cbit, with the only exception of "iommu=pt" (which is not the
+> default afaik). And in this case, having Cbit in DMA handles only
+> makes sense if p2p trafic goes via the root port (== IOMMU in
+> passthrough mode, and I am not sure even about if the root port will
+> convert this Cbit to T=1 MMIO in this mode) but if it goes via some
+> PCI bridge - then Cbit won't mean encryption for sure. But I do not
+> know much about p2p (never touched). But in any case
+> force_dma_unencrypted() seems to make no sense here.
 
-For pcie-qcom, it needs to iterate through all PCI child nodes, not just the RP
-as we have multiple nodes due to PCIe switch (and switches in some design). So
-this per-port API wouldn't work there.
+True p2p through a switch does not call the DMA API at all, it
+directly stuffs the physical MMIO BAR address of the target into the
+dma_addr_t - which won't have a C bit.
 
-- Mani
+The DMA API is only involved if the p2p will transit through the root
+port, so adding the C bit is correct.
 
--- 
-மணிவண்ணன் சதாசிவம்
+AFAICT it is iommu=!pt that doesn't work at all since the AMD IOMMU
+driver always does __sme_set() even for MMIO when forming the IOPTE,
+which I guess is wrong for MMIO.
+
+Jason
 
