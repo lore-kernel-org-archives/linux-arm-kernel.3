@@ -4,66 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15644C44512
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 19:48:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A287DC44512
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 19:58:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3hhyWssp07/ZGm2jj07OWH53BPbjC4C4wZgRggSv8zQ=; b=tiUYqG8L0DlKMr9uFubEjVoqqm
-	+oNtKNu/1zrSvbbAO7jmp1ZIK+nvmWFHiNlVvPcUFto0FxoiXahR9rQoYKdI6fj4buMSa8eNCO7YA
-	OVFEYfznwdNoLMEVzXvJgXzFQOMTt9b+HALCuxw7Y03yxawZsKVeWwglhtVMVEi9pK0RUtwtK/PR9
-	yIY5IKaOYMPB3gneJuweuQy1CKdcYk8sbP/lR9lccHpb/G6V4eKNhsMua60vE6jLxd5xolmXuNqBJ
-	3wtDu7NAcxr9NzsuM66nGBynyZLSvlm9HTowBUth9P0WRoOxDxL3DxDTfrv8LH9jbKMRE+CsYtAI3
-	dR6Z+67Q==;
+	bh=4IDKOqlLeq7gny2neb1RjYhAbO2ajrqWnhJTQdhcvO4=; b=UTl/lGed9P3Q0/LtaSUHs8llhR
+	vVsyTnFhfAy7oFhZFMUx7scjeRc7QEl6fQnbWzO0N84KIwY+PfOkOSvcB7s5kiPNx47lSJ+cNvqtd
+	/KSDbqXZKmN95ARfWfOQLvcu2YoSrmuEfNFZCssI5vIiJOAln+OQvBVezt1WNtjBB/KqiLjFIPn8+
+	AhI86d5q1LfudrfSLFXq8Pgi7GtAdZPPFqRIFIFl7gOmONb0jUwdNOgOAC/91gGV/3vtBLhCn0WaW
+	HRWe709spL9dNx5vxHkks2nFjBNIv+ruzho2syizhNUHfA+DRGN3+Lw9GYb6Ye2cfWIjqUpR2BG8d
+	gCAYfNNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkS42-00000000Txe-0S0K;
-	Thu, 16 Jul 2026 19:48:10 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkS40-00000000TxV-38ZH
+	id 1wkSDe-00000000UR8-4BxD;
+	Thu, 16 Jul 2026 19:58:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkSDc-00000000UQi-2pKq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 19:48:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7991F60A6D;
-	Thu, 16 Jul 2026 19:48:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BD891F000E9;
-	Thu, 16 Jul 2026 19:48:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784231287;
-	bh=3hhyWssp07/ZGm2jj07OWH53BPbjC4C4wZgRggSv8zQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=OWvezLmh8IpOIQJUxbAuOnrKQsiVynhZzqrFMr83q4sRZ8wHNC0UZA/jpqcVEVMTT
-	 GydXWvDua5aNX+XLkSCgK2xOcsCBZLccMaURql4LbAreu7MEnYy099QbeZ0qzNlRW0
-	 yQ3u0whE/1vo3rND97O8vjNOnj7EAaJGpKiv85DqDoh1cZlgN9kq9J6pEB/FWG2Rzw
-	 q/4zgvsbrTQwyvCeZFa3au66pcVI3CGGxL49r73+tB68YE4HRbTOhit/8IcOWK0cJm
-	 0uvXZy266TgLv18ytV332cq0+bu5cuQ4nuspFgzubXr+oBFPVAKWkIGvVVoZXstIN+
-	 868u333PzLL2Q==
-Date: Thu, 16 Jul 2026 14:48:06 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: "Richard Genoud (TI)" <richard.genoud@bootlin.com>
-Cc: Tero Kristo <kristo@kernel.org>, Beleswar Padhi <b-padhi@ti.com>,
-	Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>,
-	Abhash Kumar <a-kumar2@ti.com>, Udit Kumar <u-kumar1@ti.com>,
-	Thomas Richard <thomas.richard@bootlin.com>,
-	Gregory CLEMENT <gregory.clement@bootlin.com>,
+	Thu, 16 Jul 2026 19:58:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DB76B1476;
+	Thu, 16 Jul 2026 12:57:57 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D3E103F66F;
+	Thu, 16 Jul 2026 12:58:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784231882; bh=pPrRe+Xjk6CAM0WQ2SNb/SkAx8gLxSfCcN3TUqvO0mY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=sBbc69aGjZ/0dD77ieu+b3FTgMg0b8ogmR2jh+ASoV0ALIbP+4by5mWy9TbJYmy8I
+	 2tQTDrGOxgsNC6gBA+1KDluM+ZJ/co9w4LGoZnrEkJFuFPfKN5ZMIEtpw0WhZA2se6
+	 KZcFfLU9866W4alXTZtJfcNzKrK1SkdJy4fS1UAQ=
+Date: Thu, 16 Jul 2026 20:57:58 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>, coresight@lists.linaro.org,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: Re: [PATCH v3 1/6] dt-bindings: remoteproc: k3-r5f: Add Jacinto LPM
- memory region
-Message-ID: <178423118332.1182230.16969278384286286126.robh@kernel.org>
-References: <20260703143717.177362-1-richard.genoud@bootlin.com>
- <20260703143717.177362-2-richard.genoud@bootlin.com>
+	mike.leach@arm.com, james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com, leo.yan@arm.com,
+	jie.gan@oss.qualcomm.com
+Subject: Re: [PATCH v8 08/13] coresight: etm4x: fix inconsistencies with
+ sysfs configuration
+Message-ID: <alk3xhoECdrVJ-3M@e129823.arm.com>
+References: <20260629090007.1718746-1-yeoreum.yun@arm.com>
+ <20260629090007.1718746-9-yeoreum.yun@arm.com>
+ <78a81992-6beb-4caf-b7bd-5cab635a6de1@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260703143717.177362-2-richard.genoud@bootlin.com>
+In-Reply-To: <78a81992-6beb-4caf-b7bd-5cab635a6de1@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260716_125804_818990_7954FF25 
+X-CRM114-Status: GOOD (  21.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,46 +74,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+[...]
 
-On Fri, 03 Jul 2026 16:37:12 +0200, Richard Genoud (TI) wrote:
-> Declare a carveout memory region to store LPM metadata on Jacinto
-> devices.
+> >   static void etm4_enable_sysfs_smp_call(void *info)
+> >   {
+> >   	struct etm4_enable_arg *arg = info;
+> > +	struct etmv4_drvdata *drvdata;
+> >   	struct coresight_device *csdev;
+> > +	unsigned long cfg_hash;
+> > +	int preset;
+> >   	if (WARN_ON(!arg))
+> >   		return;
+> > -	csdev = arg->drvdata->csdev;
+> > +	drvdata = arg->drvdata;
+> > +	csdev = drvdata->csdev;
+> >   	if (!coresight_take_mode(csdev, CS_MODE_SYSFS)) {
+> >   		/* Someone is already using the tracer */
+> >   		arg->rc = -EBUSY;
+> >   		return;
+> >   	}
+> > -	arg->rc = etm4_enable_hw(arg->drvdata);
+> > +	drvdata->active_config = arg->config;
 > 
-> For Jacinto devices, this memory region is needed for saving ATF context
-> and the certificate information of ATF and OPTEE and DM image. This LPM
-> metadata area is firewalled to be accessed only by TIFS.
-> 
-> U-Boot R5 SPL/TIFS will use this area to save and restore:
-> - ATF context
-> - ATF certificate information
-> - OPTEE certificate information
-> - DM image (which has been copied in memory at boot time by U-Boot
-> R5-SPL)
-> 
-> At resume, U-Boot R5 SPL is executed and detects that the board is
-> resuming (with a flag set in the PMIC), then it:
-> - brings out of retention the DDR
-> - retrieves the LPM memory region from DTS
-> - authenticates certificates from LPM memory region and applies firewalls
-> - asks TIFS to restore TFA and its own minimal context
-> - starts TFA on remote proc
-> - loads back DM image from memory and jumps to DM
-> 
-> https://software-dl.ti.com/tisci/esd/latest/2_tisci_msgs/pm/lpm.html#lpm-msg-lpm-save-addr
-> 
-> NB: This memory region is not part of DM memory (which is not retained
-> at suspend)
-> 
-> Signed-off-by: Richard Genoud (TI) <richard.genoud@bootlin.com>
-> ---
->  .../bindings/remoteproc/ti,k3-r5f-rproc.yaml   | 18 +++++++++++++++---
->  1 file changed, 15 insertions(+), 3 deletions(-)
-> 
+> I see, we copy the sysfs config to init_arg and then apply it here.
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Yes it is. Thanks!
 
-Seems like sashiko raises a legit issue, but that's a kernel issue and 
-not my problem if your board crashes.
+> 
+> > -	/* The tracer didn't start */
+> > +	/* enable any config activated by configfs */
+> > +	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
+> > +	if (cfg_hash) {
+> > +		arg->rc = cscfg_csdev_enable_active_config(csdev,
+> > +							   cfg_hash,
+> > +							   preset);
+> > +		if (arg->rc)
+> > +			goto err;
+> > +	}
+> > +
+> > +	drvdata->trcid = arg->path->trace_id;
+> > +
+> > +	/* Tracer will never be paused in sysfs mode */
+> > +	drvdata->paused = false;
+> > +
+> > +	arg->rc = etm4_enable_hw(drvdata);
+> >   	if (arg->rc) {
+> > -		coresight_set_mode(csdev, CS_MODE_DISABLED);
+> > -		return;
+> > +		cscfg_csdev_disable_active_config(csdev);
+> > +		goto err;
+> >   	}
+> > +	drvdata->sticky_enable = true;
+> >   	csdev->path = arg->path;
+> > +
+> > +	return;
+> > +err:
+> > +	/* The tracer didn't start */
+> > +	coresight_set_mode(csdev, CS_MODE_DISABLED);
+> 
+> Do we need to reset the active_config ?
 
-Rob
+I don't think we don't need to reset active_config since
+it's a failure path and at the next time, the active_config will
+be initialised with the drvdata->config again if next trial is via
+sysfs.
+
+If the next trial is perf, it clears active_config in
+etm4_parse_event_config().
+
+Therefore, we wouldn't need to reset the active_config before
+relasing mode.
+
+> 
+> 
+> > diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
+> > index c0f7da17a186..a974e4d05838 100644
+> > --- a/drivers/hwtracing/coresight/coresight-etm4x.h
+> > +++ b/drivers/hwtracing/coresight/coresight-etm4x.h
+> > @@ -1068,6 +1068,7 @@ struct etmv4_save_state {
+> >    *		allows tracing at all ELs. We don't want to compute this
+> >    *		at runtime, due to the additional setting of TRFCR_CX when
+> >    *		in EL2. Otherwise, 0.
+> > + * @active_config:	structure holding current applied configuration parameters.
+> >    * @config:	structure holding configuration parameters.
+> 
+> Please could you update the documentation for "config" -> holding sysfs mode
+> configuration.
+
+Thanks I'll update accordingly.
+
+-- 
+Sincerely,
+Yeoreum Yun
 
