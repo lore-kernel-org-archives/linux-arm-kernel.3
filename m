@@ -4,99 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 173EEC44515
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 17:49:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70B08C44512
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 17:54:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h8dMwf2MXhdAxkhcE0UScQxJ/befx1264d3qYo6rnCY=; b=Hq8hy3FpxxAX3lFbXzsqtbEere
-	u44OXPaZBwYHVczGfvdCE9e66uonhQ1HfIBenwzGY/9+FN3SHAIro/aC4SV+pESkobYu1J9KA2aYl
-	N5uqZSHY0Ce3nmL3us03YVWA54+5UZcK4RtLNG+t2YeRTw8zxunNZqrWNhIB1TwNdZ3f552Wd+89f
-	IzCgVhH+a6rrG+9Fj8SUDjeC/IdGBE53wxLeZbIjDndGQSecYyYElr8Zvt0k6IbmX/Owl28QUjP0+
-	l7R/qZsfyN7arutZMvhR6kQ2ZyAhiL9lGSwY8sSH1SjeoDpaoc5Zkwmxs2zgcl/rp8+qQvTwPiost
-	O27ata4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L1G7GykcMQWGRr19wFyKPBZfMLl/UhOujkQZmeGJk/g=; b=rjFf7eZ5M3LMm3xh8JKwEd0zns
+	2PTwjb0ZQs2iRiclLzrKPcyazQwrMkXRC120saJWE/GEqPdbx+4UlE8SumqWJTRxpz11MoQWJDhNe
+	CX9OzibFFouCV1arvfNgWUVBs3BcoW2r+5uBAbbXa6lHgdL/AkN3WmhTVN2fDdR+PtQdNj44mUiCc
+	iipwl4IkW3PG6Ub+aCvxOS8r2CVJ4c3ZsAPyTk0ZGpvWrd4iFcrZnr/Jcek//khQC3KgILxLbmlz4
+	HRWUlpGy5httnEJR0ik+5wVRF5Kws6Xfk2giPFwKPmCnGH+7l2NNTw5Hoh7rSgG1ipqSIlXHz2oAN
+	F4GoYXew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkQDS-00000000JdZ-0IvM;
-	Thu, 16 Jul 2026 17:49:46 +0000
-Received: from mail-yw1-x112e.google.com ([2607:f8b0:4864:20::112e])
+	id 1wkQI6-00000000Jwj-2K2i;
+	Thu, 16 Jul 2026 17:54:34 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkQDP-00000000Jcn-3oBr
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 17:49:45 +0000
-Received: by mail-yw1-x112e.google.com with SMTP id 00721157ae682-81e9f7491ffso87020097b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 10:49:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784224183; x=1784828983; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=h8dMwf2MXhdAxkhcE0UScQxJ/befx1264d3qYo6rnCY=;
-        b=LVsHpy3ZMVPRnHGhcFvfVUYZrCl9rPmj1emP9EpvDhIiASC7nFI+Na5RkLNfwNhHjb
-         bxUFcNUWdFT2k5Ph6VRwkt0KRdWe+sFlVROJrN9kdyIXs81eyUuoxCapV3/eYUtnmx6o
-         QFjvhe8+7YYZjh3jT0sAvBz4oYRBZhnhX5/hrv9nL3q0WcG/QA5SquRd3tLtZVGB/Sax
-         rTaGeNWrj3+t6tIY5zhNFvC0y86+ZaiWqfGFGSCn7qHyOmikg/aRvH6irI5qys5FBq9+
-         seqSwt3i5MsNlZ5OrZ3m7vXxmTKZPQYL6BuHoVANlVqGPOtHKIaeF9fpFxKOW1DTi8pc
-         A0dw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784224183; x=1784828983;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=h8dMwf2MXhdAxkhcE0UScQxJ/befx1264d3qYo6rnCY=;
-        b=nW7yYS0lCL0Mi1cW55ElXvNL0ntj5SC0XsfUBqBTfAOpDr/MI6gVPT+7mWvYcjpM/9
-         30vwTkayON55axX5NP/GeIxtTT3wq7IxfNHOJQgMSB8yPUSq1VIdXAf9J4IdP5y3H/eU
-         ML6aPf3T/MIT4+mJFF5t+wOFhJUgmBRpcH/ouQlokJjYhbWlmYYMqQc/F0XKF9DEaxZw
-         hHlTnVJWWk3JmUT8QteJehnm2Uxfs2bDmil9KWze/t8pkXW+jTCX3tnmxJWAgu3QUxt9
-         2dWsvpUDBQD6vJ9TlSKyMmxVF3sj4BocS7yjP0UcWNZPr6sjuwIj/pSmAKJ43ItJLehY
-         6gQw==
-X-Forwarded-Encrypted: i=1; AHgh+RrvZTZAm9RbRXcA1n4deg9ynjRbWdNHCY1ci0hRRgkQp1y2vBaIVnChJVXX73THbMukausqh8ur+Frq7FUw3Sfe@lists.infradead.org
-X-Gm-Message-State: AOJu0YzK92Vsx1bHD1kzUappEAOsVb8SdCFH0u5VZV1yecNcq8EyBX1z
-	NOhBwg3mMyzdvpeX+gIWkxEpyHcqIsDcIgA51rEQwc4KD5J6VsXk49Kp
-X-Gm-Gg: AfdE7cksMbYvyZnSjYt45pWQVrZh6ZvxgFZC+OR3NWV6LPPGDiONET2BsbC2fLklq/R
-	k6VyXSiziqor5AAmJT+TpTjFwC6Zoyh/q0REwtEUoMiuAdyE2vcCKXqfetuoAhL42doDEkEUDxB
-	zAao7yTzKCm9boNFD8L5x3AFyU2swvor64BLXHeYqDQGJAPfI6/eNG5tEWwcRENEY4gAWrNuNZV
-	DFKPe4XCz/vaTdH7jQctioTkUY3PL8IJnL6xs3eWdsJy6YJf4s3OoYTqBPaJcQ6KP6z9DnM5WrC
-	p9+UowKwiwZdWZUMmVa/mZw6b+J8t+w+qSK995sS1XKOa1Iu7GQ1D1w88ZP8/mKKEkE3y9dIjH1
-	YhOd9QLj7MjVBi21pMRvEAhgNMR1lSAQ78c6T6kCVdbCL0tqqjMqHj8Cs3izvSbxQyvArU3Wzk3
-	kaC7awFH6VhTn15qptNVhHqA97GMsdCJ3dHZzU8PjM1d9sSf1eF0X+cViJabIW4Oo07yHkdrrSi
-	ow79um3baZ2o6o=
-X-Received: by 2002:a05:690c:6c12:b0:80b:dc35:6a2 with SMTP id 00721157ae682-81ebfe0453cmr90014527b3.18.1784224182692;
-        Thu, 16 Jul 2026 10:49:42 -0700 (PDT)
-Received: from ?IPV6:2600:1700:566e:ba00:93df:11a7:3aae:a53c? ([2600:1700:566e:ba00:93df:11a7:3aae:a53c])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-81e6c1ee792sm201943927b3.38.2026.07.16.10.49.41
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 16 Jul 2026 10:49:42 -0700 (PDT)
-Message-ID: <9688c5bd-db01-4234-b9da-809747e8cdd8@gmail.com>
-Date: Thu, 16 Jul 2026 18:49:41 +0100
+	id 1wkQI4-00000000Jk2-14mp;
+	Thu, 16 Jul 2026 17:54:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1784224473; x=1815760473;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=xxOjee7glhv2bbNIZZyyAk70a5eC9HP+MBjlGBfZqNA=;
+  b=QsaWTJmd3rOE6TFNtRHlsumFLT7nr2txQhjVuOllbEb4twhhUaU3MHv7
+   g69r2pFjOBEpn3SRy0bZ3GOgGgokcc/tLddiqe4rb1KQm2dvlfHu+5hYJ
+   yTNhd7UmekevgKM3tyqqdz+9mVzfae/tOaEcP85BEuIl8cY1sNa48jfX6
+   LOPNiVinF7c4/9hv5kUtpz5bCzEXHhsnnpzSRjhQOyhotpHhdo6eqNgOZ
+   dA/aGMX06Zcz10Jkw0JCRl3Hj2vwbWS7Lc1hMus+9ddipflgmLCTthVoM
+   C+cyCjTKSczF7GkTr8xDCvlIWLmdA+ZfzXMPAmwMTUGfGSl2O15q7ZWhN
+   w==;
+X-CSE-ConnectionGUID: q0nd2Q8ESG6RjccRkLuy+g==
+X-CSE-MsgGUID: 4kJ6lOBYTy+oYswWJLjWuQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11848"; a="88569125"
+X-IronPort-AV: E=Sophos;i="6.25,167,1779174000"; 
+   d="scan'208";a="88569125"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jul 2026 10:50:35 -0700
+X-CSE-ConnectionGUID: KSXdeNBXTx+whu28zmJl9Q==
+X-CSE-MsgGUID: ISrJSJNIRJu4vj7xXuRo5w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,167,1779174000"; 
+   d="scan'208";a="260854065"
+Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.26])
+  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jul 2026 10:50:25 -0700
+Date: Thu, 16 Jul 2026 20:50:22 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Link Mauve <linkmauve@linkmauve.fr>
+Cc: Srinivas Kandagatla <srini@kernel.org>,
+	Andy Shevchenko <andy@kernel.org>, Sven Peter <sven@kernel.org>,
+	Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Vladimir Zapolskiy <vz@mleia.com>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Kalyani Akula <kalyani.akula@amd.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
+	Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Tamir Duberstein <tamird@kernel.org>,
+	Alexandre Courbot <acourbot@nvidia.com>,
+	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-amlogic@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	rust-for-linux@vger.kernel.org
+Subject: Re: [PATCH v2 0/2] nvmem: fix a const-unsoundness in reg_write
+Message-ID: <alkZ3tVY0y31RYUz@ashevche-desk.local>
+References: <20260715195520.25410-1-linkmauve@linkmauve.fr>
+ <alieVR1cOtOySi4_@ashevche-desk.local>
+ <aljAqBNVXV1aVJqx@luna>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/5] soc: qcom: Hide all drivers behind selectable menu
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, "Rafael J. Wysocki"
- <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>,
- Christian Loehle <christian.loehle@arm.com>
-Cc: linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org
-References: <20260711-qcom-soc-kconfig-v2-0-4a907e064281@oss.qualcomm.com>
- <20260711-qcom-soc-kconfig-v2-1-4a907e064281@oss.qualcomm.com>
- <9bb44840-c3fe-4bcd-af2d-149dbc2c7c8c@gmail.com>
- <5a69bb8e-8a06-4678-bf20-f0dbf76f47c4@oss.qualcomm.com>
-Content-Language: en-US
-From: Julian Braha <julianbraha@gmail.com>
-In-Reply-To: <5a69bb8e-8a06-4678-bf20-f0dbf76f47c4@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aljAqBNVXV1aVJqx@luna>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_104943_976300_D90A6E88 
-X-CRM114-Status: UNSURE (   8.00  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260716_105432_334998_700333C8 
+X-CRM114-Status: GOOD (  13.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,23 +120,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On Thu, Jul 16, 2026 at 01:29:44PM +0200, Link Mauve wrote:
+> On Thu, Jul 16, 2026 at 12:03:17PM +0300, Andy Shevchenko wrote:
 
-On 7/16/26 06:48, Krzysztof Kozlowski wrote:
-> Can you share the options leading to that? or config? Without
-> reproduction steps that's really incomplete report.
+[…]
 
-Sorry, I spend a lot of time looking at unmet dependencies. I forget
-sometimes that these are actually pretty rare and not obvious to
-resolve.
+> > TL;DR: you should fix the Apple driver (and might more if any of them
+> > use that dirty trick).
+> 
+> It was the only one of the drivers/nvmem/ to do that.  Three other
+> drivers use a pattern where they merge read and write operations into a
+> single access function with a type=read/write parameter, so const safety
+> can’t work there and I’ll continue casting from const void * to void *
+> in the write function to keep that pattern working.
 
-To replicate, enable QCOM_PDR_HELPERS without QCOM_SOC.
+I meant all the driver in the kernel that are going to be affected by this
+change.
 
-The problem is that QCOM_PDR_MSG depends on QCOM_SOC because of an
-'if QCOM_SOC', but QCOM_PDR_HELPERS selects QCOM_PDR_MSG without also
-selecting or depending on QCOM_SOC.
+-- 
+With Best Regards,
+Andy Shevchenko
 
-I'll send a patch to resolve this.
 
-- Julian Braha
 
