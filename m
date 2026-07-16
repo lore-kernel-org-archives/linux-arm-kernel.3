@@ -4,57 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85330C44512
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 16:56:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22F3EC44511
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 17:07:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BX2UaWCHKnZlnRlGbciXGlVJIQ6Ou97PMfyffmMqTaI=; b=ek6qSDIhE67l0X/moXrxOvcWL4
-	0OWLLWQyFjaueft5Z+FSM276bTBjx3kNjKxND2Lmt3y/hPoHCT9mfyshnmq1D9i5lfiaezAQHHfBL
-	uq/VPzbVWx3jWrPKmya5h0H4ZsT86NQvy96jcumZ7UyrsKXwOH90xAIdyNMu4O1nfD/CigKx/HlZs
-	vUEvnGdP87fxTrLlTom18PoABSQoqeRfi3ppqeInIgM9qlEkG8Y4f27xCLnDYsaEuOPosH2aOU+vp
-	Py+qlJuoal0S9pf4RGBuFMMaHu0BQsjGSSdplA+3/B/hdcum+BAojyldlHxJxm2Pmgv34dUh8HcxW
-	Kr7EkRGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=19O6VUT4dIdHRfQhthVazuY+ztgGA71mvvyc749iEmM=; b=Wr40IY+9EQAjX5
+	BpWwQ0LmHbUkOjH+ZI48ZpfRwebpdaDpKPjYTkkVK7RanDjZ2uDYMLZr5OpLnAH9iXYTvtAS+wMtY
+	tDsf8CkZCPo0CwCqBtq6mGntGraCaus0+awKLJr8nL+wcHVW1MNXNLyEyzlxLBL/ZzLpw7fEbALyq
+	tV2T4ptjz5tkUTB/neYOMPltsS/w2hZNKAYIIkF4TZ9TklnrOeZA53NmlR69EQGcI/rcyRB5ZczaH
+	URFE1OV/Mva40ObqgO4UhkcqjZ0Tboe/nmUFXcub/4GSppANESGVPJIji0poB3Oiff0P1jwu/xsQP
+	eBAryvUOJixDWgFdlgwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkPNE-00000000DKR-2zpP;
-	Thu, 16 Jul 2026 16:55:48 +0000
-Received: from latitanza.investici.org ([185.218.207.228])
+	id 1wkPYb-00000000DzT-3kgB;
+	Thu, 16 Jul 2026 17:07:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkPNB-00000000DJn-2WGk
+	id 1wkPYa-00000000DzA-1Ab4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 16:55:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=grrlz.net;
-	s=stigmate; t=1784220939;
-	bh=BX2UaWCHKnZlnRlGbciXGlVJIQ6Ou97PMfyffmMqTaI=;
-	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
-	b=c+Uw6flDgEdX81nuFbZo7jhYPItSVzJoaD9lFGwMXKbW0Vmuo8Za8RKf0guBLC0zm
-	 SujJcU/Qmu6Nt6KJaR0c6wUtuabT/DpYfA5g2dtm58HLCGD3ndTinQor1EHALDNB2z
-	 TAcF0YQ/ojyg4zz7yM9/TqmHjioR2+87EvVvmOe8=
-Received: from mx3.investici.org (unknown [127.0.0.1])
-	by latitanza.investici.org (Postfix) with ESMTP id 4h1K170g5gzGpMM;
-	Thu, 16 Jul 2026 16:55:39 +0000 (UTC)
-Received: by mx3.investici.org (Postfix) id 4h1K163LYSzGpM9;
-	Thu, 16 Jul 2026 16:55:38 +0000 (UTC)
-Date: Thu, 16 Jul 2026 17:55:38 +0100
-From: Bradley Morgan <include@grrlz.net>
-To: Will Deacon <will@kernel.org>
-CC: Catalin Marinas <catalin.marinas@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] arm64: sleep: dedup the sleep_save_stash slot lookup
-In-Reply-To: <aljsRBIEzeNVdzvn@willie-the-truck>
-References: <20260705192331.23150-1-include@grrlz.net> <20260705192331.23150-3-include@grrlz.net> <aljsRBIEzeNVdzvn@willie-the-truck>
-Message-ID: <EFA466A8-F9E9-422D-B10D-BC1B324050AC@grrlz.net>
+	Thu, 16 Jul 2026 17:07:32 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9F4CF411DD;
+	Thu, 16 Jul 2026 17:07:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F39AF1F000E9;
+	Thu, 16 Jul 2026 17:07:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784221651;
+	bh=19O6VUT4dIdHRfQhthVazuY+ztgGA71mvvyc749iEmM=;
+	h=From:Subject:Date:To:Cc;
+	b=jZHNQmaQWZslgs34iA+FheFGclWMOPjgOMMWMpJHCu13n83SHxXyCf/XBnDRNwmXi
+	 9I9UaQICeaL/AQNv09NJVZ4To9XSnd2Y2E4RuYa9T1Eeh2e5h+T8QJzl2rOiwL5Xm8
+	 LJVuUiv9p47KrWGOnCZraxPx96gcNVyOP89t4eQXesCL6HZTJ4FOZl5rmaOVePswKn
+	 b7ZaycNJtqlhU9PJfRjOOasjoPU+OcySthwXNyk1VuaF7AxR6G3goc9qRhDh5Z41r0
+	 Vc73OowM/tQm3O3J7CMjxk/oMbINjlrK9vpqLC5k3Xnh2Mzbzo03Ok+Iz3/bYaruYg
+	 HFRP7fQnZno4w==
+From: Thierry Reding <thierry.reding@kernel.org>
+Subject: [PATCH v8 0/6] PCI: tegra: Add Tegra264 support
+Date: Thu, 16 Jul 2026 19:07:11 +0200
+Message-Id: <20260716-tegra264-pcie-v8-0-23e51589229b@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_095545_807095_E2B1E8CE 
-X-CRM114-Status: GOOD (  21.78  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4XSzY7CIBAH8FcxnJeGb4on32Oz2dB2Wlm1rUC7G
+ uO7L20PuvbghTCE33+SgRsK4B0EtN3ckIfRBde1qcg/Nqjc27YB7KpUI0aYIoIwHKHxlimB+9I
+ BBk5sAYxXlmiUTO+hdpc57/NrqcNQ/EAZp5Dpxt6F2Pnr3HCk070lm1NDFaGUZIymvRSY4rh34
+ P0181C5ttkdwLdwzDrfoCl7ZE86rUwKwTMmNTWMvNf8WSvKZS5lxrSRVJj3Wjz0eiqjwAQzCgy
+ oMbmGfNeOrnI2K7vTwuWDS6ZeuUw8FzanvDDaVHrF1YOrdXeVOFRFWVttdV7DiusnTvUr1xO3o
+ C0YJRQz//h9eVQP5yH9lbi8NDpBCHb+K9vNHKuJxr/2AM6fv8PQ952PeKQszbUQQvJaFmVp9K4
+ LITsP9piiT3N+Si9sADwduLjdtHCJeEmkInW//wFPjHltsQIAAA==
+X-Change-ID: 20260402-tegra264-pcie-e30abe23da07
+To: Bjorn Helgaas <bhelgaas@google.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Thierry Reding <thierry.reding@gmail.com>, 
+ Jonathan Hunter <jonathanh@nvidia.com>, 
+ Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>, 
+ Hou Zhiqiang <Zhiqiang.Hou@nxp.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ =?utf-8?q?Pali_Roh=C3=A1r?= <pali@kernel.org>, 
+ Michal Simek <michal.simek@amd.com>, Kevin Xie <kevin.xie@starfivetech.com>, 
+ Thierry Reding <thierry.reding@kernel.org>, Aksh Garg <a-garg7@ti.com>
+Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Thierry Reding <treding@nvidia.com>, 
+ Manikanta Maddireddy <mmaddireddy@nvidia.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4557; i=treding@nvidia.com;
+ h=from:subject:message-id; bh=MKLOjubL6nDaFDSV3NchtODcXNby/V7rdDE6XtMCiYk=;
+ b=owEBbQKS/ZANAwAKAd0jrNd/PrOhAcsmYgBqWQ/QeOxEroN7gWqauk4euVDQFWMe4DqDpU8XV
+ OB/eFdiIxqJAjMEAAEKAB0WIQSI6sMIAUnM98CNyJ/dI6zXfz6zoQUCalkP0AAKCRDdI6zXfz6z
+ oVskEACQaUuNw/atvcSi5GvU7Y3Ryjzgr2itAl2Npf3mk71EszQeGf2+y5wcVhGjUmUHIad/L4n
+ ciXQLONSFEVFnMkaNQHGjfuXK3zIGlAEhCml1KJjjVteM5aWorMs6U1L4T8eVOY07Z7a4HnV1fi
+ oKYo61+wIbFiYCAFqvC5TvLJTPpKO/Px0ON18Bprwnes+G8ZtTIavNR29Fkb73QfDaJl0R8ETjX
+ XvZPcmp/yTOB12zJvxpe4PuKqh6fep1oTMxJ01Hy7gRRNicv/aE4cJySZnkvIzgG28xNf70QQnH
+ FbGra7/2cr3SOqhVl4IPUFe4i9jHhB1ll+nYYBMQKDXeYhsBJoN5wuM0x3FhxYORqf+0tF6rlMW
+ icig74kksobonR7W/W4mxxRmYZWUGDji34B1zWM1HSVw2Ts6VU6O+xk3nJ5ctFtSOfr8cuyk8Cl
+ PPi8ZdAbvbdVKZd7S12DnDfNWU7Ov8sgScsfTS9RTRUZBIoFDlzgSR/rTzpjPQjBvDePxQLOUGR
+ jV/DC71WU3DyC4YXVVlBcZiQj0DW6wvQODUyG0I2hQ3SfVRmGVcY0YPbievn3Vh58eFtTGRJpTA
+ Eh3sKTnjnBkfUCRZNDQ9EMSC+/LqKBFFj7wPaui1LEyg7b6GGF0fMz4D/O0ZfnCbpiMEkvLEfNn
+ zAKu7nt7VuXMBsw==
+X-Developer-Key: i=treding@nvidia.com; a=openpgp;
+ fpr=88EAC3080149CCF7C08DC89FDD23ACD77F3EB3A1
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,187 +106,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On July 16, 2026 3:35:48 PM GMT+01:00, Will Deacon <will@kernel.org> wrote:
->On Sun, Jul 05, 2026 at 07:23:31PM +0000, Bradley Morgan wrote:
->> Both __cpu_suspend_enter() and _cpu_resume() open code the same MPIDR
->> hash lookup. Factor it into a get_sleep_stash_slot macro.
->> 
->> Signed-off-by: Bradley Morgan <include@grrlz.net>
->> ---
->>  arch/arm64/kernel/sleep.S | 55 +++++++++++++++++++++------------------
->>  1 file changed, 30 insertions(+), 25 deletions(-)
->> 
->> diff --git a/arch/arm64/kernel/sleep.S b/arch/arm64/kernel/sleep.S
->> index e112b8537f10..8820a131aef7 100644
->> --- a/arch/arm64/kernel/sleep.S
->> +++ b/arch/arm64/kernel/sleep.S
->> @@ -64,6 +64,31 @@
->>  	lsr	\mask ,\mask, \rs3
->>  	orr	\dst, \dst, \mask		// dst|=(aff3>>rs3)
->>  	.endm
->> +
->> +/*
->> + * Compute the address of the current CPU's entry in sleep_save_stash,
->> + * i.e. &sleep_save_stash[hash(MPIDR_EL1)].
->> + *
->> + * @slot: output register
->> + *
->> + * Clobbers: x2 - x8
->> + */
->> +	.macro get_sleep_stash_slot slot
->> +	mpidr_hash_assert_distinct \slot, x2
->> +	mrs	x3, mpidr_el1
->> +	adr_l	x2, mpidr_hash
->> +	ldr	x8, [x2, #MPIDR_HASH_MASK]
->> +	/*
->> +	 * Following code relies on the struct mpidr_hash
->> +	 * members size.
->> +	 */
->> +	ldp	w4, w5, [x2, #MPIDR_HASH_SHIFTS]
->> +	ldp	w6, w7, [x2, #(MPIDR_HASH_SHIFTS + 8)]
->> +	compute_mpidr_hash x2, x4, x5, x6, x7, x3, x8
->> +	ldr_l	\slot, sleep_save_stash
->> +	add	\slot, \slot, x2, lsl #3
->> +	.endm
->
->I think this would now be the only user of compute_mpidr_hash, so it's
->probably better to inline that macro here and then we don't need to
->bother with mpidr_hash_assert_distinct at all (i.e. your first patch
->isn't needed).
->
->Will
->
+Hi,
 
+this series adds support for the PCIe controllers found on the Tegra264
+SoC. There are six instances, one of which is for internal purposes only
+and the other five are general purpose.
 
-Will! What do you think of this?
+The first patch tweaks the DT bindings slightly to avoid new DT compiler
+warnings that slipped through because they are now disabled by default
+(-Wno-unit_address_vs_reg). The second patch references PCIe root port
+bindings from the controller bindings, which will allow using the
+standard WAKE# handling, among other things.
 
-Subject: [PATCH v2] arm64: suspend: factor sleep_save_stash slot lookup into a macro
+Before adding the driver in patch 4, patch 3 introduces some new common
+wait times for PCIe and unifies the way that drivers use them. Finally,
+patch 5 reorders the reg and reg-names property entries to match the
+bindings changes from patch 1 and patch 6 
 
-Both __cpu_suspend_enter() and _cpu_resume() open code the same
-MPIDR_EL1 hash lookup to find the current CPU's slot in
-sleep_save_stash. Let's just factor it into a get_sleep_stash_slot macro.
+There's a new dependency on the PCIe WAKE# interrupt support from
+Krishna here:
 
-Since that macro would be the only remaining user of
-compute_mpidr_hash, inline the hash computation into
-get_sleep_stash_slot and remove compute_mpidr_hash altogether.
+    https://lore.kernel.org/all/20260707-wakeirq_support-v12-1-b4453f5bcc97@oss.qualcomm.com/
 
-No functional change intended.
+Since it is only a runtime dependency, the series can be applied
+independently, though.
 
-Signed-off-by: Bradley Morgan <include@grrlz.net>
+I can pick up patches 5 and 6 into the Tegra tree, but there should be
+no conflicts, so they should be fine to go in with the rest of the
+patches. Either way works fine for me.
+
+Thanks,
+Thierry
+
+Changes in v8:
+- track hotplug support separately from link up state for clarity
+- remove unneeded controller deinitialization, done by firmware
+- fail probe if the link is down and not hotplug-capable
+- select pinctrl sleep state on suspend for symmetry
+- switch to PCIe root port bindings (new patches)
+- add Reviewed-by and Acked-by tags
+- add err_ prefix to goto labels
+- use generic WAKE# IRQ support
+- Link to v7: https://patch.msgid.link/20260617-tegra264-pcie-v7-0-eae7ae964629@nvidia.com
+
+Changes in v7:
+- fix build dependency on PCI_ECAM
+- remove pre-silicon support code
+- Link to v6: https://patch.msgid.link/20260602-tegra264-pcie-v6-0-edbcfa7a78fe@nvidia.com
+
+Changes in v6:
+- address review comments from Sashiko
+- rebase onto v7.1-rc1, adjust DT bindings patch accordingly
+- Link to v5: https://patch.msgid.link/20260526-tegra264-pcie-v5-0-84a813b979d7@nvidia.com
+
+Changes in v5:
+- address review comments for the PCI driver patch
+- Link to v4: https://patch.msgid.link/20260402-tegra264-pcie-v4-0-21e2e19987e8@nvidia.com
+
+Changes in v4:
+- strip out dependencies that are going in through the ARM SoC tree
+- revert bindings to oneOf construct so that we don't produce new DTC
+  warnings
+- Link to v3: https://patch.msgid.link/20260326135855.2795149-1-thierry.reding@kernel.org
+
+Changes in v3:
+- integrate PCI standard wait times patch into the series to maintain
+  bisectability
+- fix review comments from Mikko
+- Link to v2: https://patch.msgid.link/20260320225443.2571920-1-thierry.reding@kernel.org
+
+Changes in v2:
+- fix an issue with sanity-checking disabled BARs
+- address review comments
+- Link to v1: https://patch.msgid.link/20260319160110.2131954-1-thierry.reding@kernel.org
+
+Thanks,
+Thierry
+
 ---
-Changes in v2 (suggested by Will):
- - inline compute_mpidr_hash into get_sleep_stash_slot and drop it
- - drop former patch 1, it's not needed.
+Thierry Reding (6):
+      dt-bindings: pci: tegra264: Strictly distinguish C0 from C1-C5
+      dt-bindings: pci: tegra264: Switch to PCIe root port bindings
+      PCI: Use standard wait times for PCIe link monitoring
+      PCI: tegra: Add Tegra264 support
+      arm64: tegra: Reorder reg and reg-names to match bindings
+      arm64: tegra: Add PCIe root ports on Tegra264
 
- arch/arm64/kernel/sleep.S | 62 +++++++++++++--------------------   1 file changed, 41 insertions(+), 62 deletions(-)
+ .../bindings/pci/nvidia,tegra264-pcie.yaml         | 109 +++--
+ arch/arm64/boot/dts/nvidia/tegra264.dtsi           | 114 +++--
+ drivers/pci/controller/Kconfig                     |  10 +-
+ drivers/pci/controller/Makefile                    |   1 +
+ .../controller/cadence/pcie-cadence-host-common.c  |   6 +-
+ .../pci/controller/cadence/pcie-cadence-lga-regs.h |   5 -
+ drivers/pci/controller/mobiveil/pcie-mobiveil.c    |   4 +-
+ drivers/pci/controller/mobiveil/pcie-mobiveil.h    |   5 -
+ drivers/pci/controller/pci-aardvark.c              |   7 +-
+ drivers/pci/controller/pcie-tegra264.c             | 485 +++++++++++++++++++++
+ drivers/pci/controller/pcie-xilinx-nwl.c           |   9 +-
+ drivers/pci/controller/plda/pcie-starfive.c        |   9 +-
+ 12 files changed, 670 insertions(+), 94 deletions(-)
+---
+base-commit: 8306754e0e226390edafb50b0f2c85f7e703077d
+change-id: 20260402-tegra264-pcie-e30abe23da07
+prerequisite-message-id: 20260707-wakeirq_support-v12-1-b4453f5bcc97@oss.qualcomm.com
+prerequisite-patch-id: 0f984d1bf11850bb8f833a26f6945ecf18a9a816
 
---- a/arch/arm64/kernel/sleep.S
-+++ b/arch/arm64/kernel/sleep.S
-@@ -7,48 +7,48 @@
+Best regards,
+--  
+Thierry Reding <treding@nvidia.com>
 
-        .text                                                       /*
-- * Implementation of MPIDR_EL1 hash algorithm through shifting
-+ * Compute the address of the current CPU's entry in sleep_save_stash,
-+ * i.e. &sleep_save_stash[hash(MPIDR_EL1)], where the hash is an
-+ * implementation of the MPIDR_EL1 hash algorithm through shifting
-  * and OR'ing.
-  *
-- * @dst: register containing hash result
-- * @rs0: register containing affinity level 0 bit shift
-- * @rs1: register containing affinity level 1 bit shift
-- * @rs2: register containing affinity level 2 bit shift           - * @rs3: register containing affinity level 3 bit shift
-- * @mpidr: register containing MPIDR_EL1 value                    - * @mask: register containing MPIDR mask                          - *
-  * Pseudo C-code:                                                   *
-- *u32 dst;
-+ *     u64 mpidr = MPIDR_EL1 & mpidr_hash.mask;                   + *     u32 hash = ((mpidr & 0xff) >> mpidr_hash.shift_aff[0]) |   + *                ((mpidr & 0xff00) >> mpidr_hash.shift_aff[1]) | + *                ((mpidr & 0xff0000) >> mpidr_hash.shift_aff[2]) |                                                                  + *                ((mpidr & 0xff00000000) >> mpidr_hash.shift_aff[3]);                                                               + *     slot = &sleep_save_stash[hash];
-+ *
-+ * @slot: output register
-  *
-- *compute_mpidr_hash(u32 rs0, u32 rs1, u32 rs2, u32 rs3, u64 mpidr, u64 mask) {                                                      - *     u32 aff0, aff1, aff2, aff3;                                - *     u64 mpidr_masked = mpidr & mask;                           - *     aff0 = mpidr_masked & 0xff;
-- *     aff1 = mpidr_masked & 0xff00;
-- *     aff2 = mpidr_masked & 0xff0000;
-- *     aff3 = mpidr_masked & 0xff00000000;                        - *     dst = (aff0 >> rs0 | aff1 >> rs1 | aff2 >> rs2 | aff3 >> rs3);
-- *}
-- * Input registers: rs0, rs1, rs2, rs3, mpidr, mask
-- * Output register: dst
-- * Note: input and output registers must be disjoint register sets
--         (eg: a macro instance with mpidr = x1 and dst = x1 is invalid)
-+ * Clobbers: x2 - x8
-  */                                                               -       .macro compute_mpidr_hash dst, rs0, rs1, rs2, rs3, mpidr, mask
--       and     \mpidr, \mpidr, \mask           // mask out MPIDR bits
--       and     \dst, \mpidr, #0xff             // mask=aff0
--       lsr     \dst ,\dst, \rs0                // dst=aff0>>rs0
--       and     \mask, \mpidr, #0xff00          // mask = aff1     -       lsr     \mask ,\mask, \rs1
--       orr     \dst, \dst, \mask               // dst|=(aff1>>rs1)
--       and     \mask, \mpidr, #0xff0000        // mask = aff2
--       lsr     \mask ,\mask, \rs2
--       orr     \dst, \dst, \mask               // dst|=(aff2>>rs2)
--       and     \mask, \mpidr, #0xff00000000    // mask = aff3
--       lsr     \mask ,\mask, \rs3
--       orr     \dst, \dst, \mask               // dst|=(aff3>>rs3)
-+       .macro get_sleep_stash_slot slot
-+       mrs     x3, mpidr_el1
-+       adr_l   x2, mpidr_hash
-+       ldr     x8, [x2, #MPIDR_HASH_MASK]
-+       /*
-+        * Following code relies on the struct mpidr_hash
-+        * members size.
-+        */
-+       ldp     w4, w5, [x2, #MPIDR_HASH_SHIFTS]
-+       ldp     w6, w7, [x2, #(MPIDR_HASH_SHIFTS + 8)]
-+       and     x3, x3, x8                      // mask out MPIDR bits
-+       and     x2, x3, #0xff                   // aff0
-+       lsr     x2, x2, x4                      // hash = aff0 >> rs0
-+       and     x8, x3, #0xff00                 // aff1
-+       lsr     x8, x8, x5
-+       orr     x2, x2, x8                      // hash |= aff1 >> rs1                                                                +       and     x8, x3, #0xff0000               // aff2
-+       lsr     x8, x8, x6
-+       orr     x2, x2, x8                      // hash |= aff2 >> rs2
-+       and     x8, x3, #0xff00000000           // aff3
-+       lsr     x8, x8, x7
-+       orr     x2, x2, x8                      // hash |= aff3 >> rs3                                                                +       ldr_l   \slot, sleep_save_stash
-+       add     \slot, \slot, x2, lsl #3        // slot = &sleep_save_stash[hash]                                                             .endm
- /*
-  * Save CPU state in the provided sleep_stack_data area, and publish its                                                             @@ -74,20 +74,8 @@
-        mov     x2, sp
-        str     x2, [x0, #SLEEP_STACK_DATA_SYSTEM_REGS + CPU_CTX_SP]
-
--       /* find the mpidr_hash */
--       ldr_l   x1, sleep_save_stash
--       mrs     x7, mpidr_el1
--       adr_l   x9, mpidr_hash
--       ldr     x10, [x9, #MPIDR_HASH_MASK]
--       /*                                                         -        * Following code relies on the struct mpidr_hash
--        * members size.
--        */
--       ldp     w3, w4, [x9, #MPIDR_HASH_SHIFTS]                   -       ldp     w5, w6, [x9, #(MPIDR_HASH_SHIFTS + 8)]
--       compute_mpidr_hash x8, x3, x4, x5, x6, x7, x10
--       add     x1, x1, x8, lsl #3                                 -
-+       /* publish this CPU's sleep_stack_data area in its stash slot */
-+       get_sleep_stash_slot x1
-        str     x0, [x1]
-        add     x0, x0, #SLEEP_STACK_DATA_SYSTEM_REGS
-        stp     x29, lr, [sp, #-16]!
-@@ -117,18 +105,9 @@
-        mov     x0, x19
-        bl      finalise_el2
-
--       mrs     x1, mpidr_el1                                      -       adr_l   x8, mpidr_hash          // x8 = struct mpidr_hash virt address                                                        -
--       /* retrieve mpidr_hash members to compute the hash */
--       ldr     x2, [x8, #MPIDR_HASH_MASK]                         -       ldp     w3, w4, [x8, #MPIDR_HASH_SHIFTS]
--       ldp     w5, w6, [x8, #(MPIDR_HASH_SHIFTS + 8)]
--       compute_mpidr_hash x7, x3, x4, x5, x6, x1, x2
--
--       /* x7 contains hash index, let's use it to grab context pointer */
--       ldr_l   x0, sleep_save_stash
--       ldr     x0, [x0, x7, lsl #3]                               +       /* retrieve this CPU's context pointer from its stash slot */
-+       get_sleep_stash_slot x1
-+       ldr     x0, [x1]
-        add     x29, x0, #SLEEP_STACK_DATA_CALLEE_REGS
-        add     x0, x0, #SLEEP_STACK_DATA_SYSTEM_REGS
-        /* load sp from context */
---
-2.53.0
-
-Thanks!
 
