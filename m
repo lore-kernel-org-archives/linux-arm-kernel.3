@@ -4,105 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5706FC44512
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 17:40:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6933C44512
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 17:49:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=chN8aLVvFGWQ+JrcCF2Cd3o3W+9FD6vs9BxYNNUH/BE=; b=LbwOmidD6Z7w0w4ZY4/WA4Rt39
-	YvI5ozSaATJ/cbVmYOQ5DEXpGvrse3pAxfHHZ/Qs/B2HD5nYcgj/BjMuPk5uZkTp879c3/0KUAmEH
-	nMqmDhcdl1xJlOpBXIfyZlempUuX6lJwziuVE8kjlWp4JPeJ7IVPKxBzNF/eHI56H5P9Ux497NlB3
-	ETnfxaakZZ3hwMSyqbRmZk59Sp07nYDItcdrxjQ1+KxZIrVhUB7lQIiGCFqKnzagzUXeXSzusi0bL
-	2oGEGL05sCGEB42JbZgmZq/3xMP8aT7+wnhoSq3X50N+QfxjeXaxoIMG18uzeOektrcbSKmP5Bs6b
-	4SBsckCg==;
+	bh=jk72+uoz623NXAbav4t0C7sMjm9XbHy4jVsF35tgyig=; b=wAHc9CH/hGkbiwXHd5oMaNpSkM
+	qVAkxIzSPe04sGcAAaSKYqo4f66HB465/CK3KA7o+4n2kSD5Pg4g4bIeLQkgvGRcZwH64n4kk28HU
+	hRqHjQHZB+ka9xSjVOUhr1FnkLAgRHCg9hxzg5uUyeT+IU6YcIOuY8OzQVyLRtf/fQY60hAStH3p4
+	S5dynfLzxnPGiVKDhRYoZZpWE+NxvW25ON6MYlL8xtRVB04TltFe0MuRi1hOJ5nQdJhaWjqZ7+ouK
+	AVtK+cylxuqwTxu/LL6lNiq5fukYtrDKYsmnDkESIbZX1QiteDt4r85QKR6ouYcb40tkvQRKna37+
+	/hWZf6eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkQ40-00000000ISk-3MsH;
-	Thu, 16 Jul 2026 17:40:00 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1wkQCu-00000000JVF-3iP9;
+	Thu, 16 Jul 2026 17:49:12 +0000
+Received: from mgamail.intel.com ([198.175.65.19])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkQ3x-00000000IRo-24p3
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 17:39:58 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-38e3617ba36so1426072a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 10:39:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1784223596; x=1784828396; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=chN8aLVvFGWQ+JrcCF2Cd3o3W+9FD6vs9BxYNNUH/BE=;
-        b=FjuDHtGmT8SqbBkPAlsq980d9d9RlBKggPUd/CIyWFPGRGdsg8N+BxWERYF5FpmCzh
-         9h8aGAFyMAxrZalgJdcUlOgU1wXW1/4033CU5EzEVtCQuxG/WELekMiK6NnpQftuwh0y
-         OTJtNItBx3Br4sjxqciBOvff8QqwcJXJgUfWg=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784223596; x=1784828396;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=chN8aLVvFGWQ+JrcCF2Cd3o3W+9FD6vs9BxYNNUH/BE=;
-        b=EdsbV/xSFlmelOv5B+Lk7Kiq9xfLfiI+3p/p16lU7I7oaqE3u8c9x9BHLnhuE4z8z/
-         ABYBoZkE8AbP48GBTjYTsaFHmuJ6I3dQhX/bcCBpATlrgvynTphLXx8Qd4NryFDSJN7g
-         WI8PhPJKzSoecVWXOYwtzFLAfX0Rt8rXaY0yZmvweb0r2ai0FXVSXUyQ9oJ5+bpO29Xj
-         /LMEDrB6sADQseDJoL5ZWbNt2Mr9ZHa7hTPPKn1uJvd2KudvWbc3r9UA4CQLzFcI86Xy
-         GAY6rD6jRULn6fHU7QCJuiTnw3RlTDuP9HbngfbZeKan4kYnlW9VqtsDooHiHxVgEb8d
-         KFkQ==
-X-Forwarded-Encrypted: i=1; AHgh+RoBeJJ6AZdDXO3eNcL9hLBHYHJAeIM1X92U9MvuM97nW9U4Vq3Zg5B1985MMbZOjiwD9aqi97mmIR5QDwHrQ40n@lists.infradead.org
-X-Gm-Message-State: AOJu0YwIj7OB1OCjeM2kSQa1edXQA9VfPKb3B156gsz8iXx21hJItR82
-	P6FyEstR5IlR67F1u0fDyCcET29JeQIc81ftQipOoespOu3SoESVOQlEpEklGtPJ5w==
-X-Gm-Gg: AfdE7cnw6cr7T4JKc14VqcYC7i4XVdFAXfTbF8Wp6f+gQqEo+/UCqXD6ZMw/S58R1ct
-	YvEGnwFM083g7JtdZj0g/1Wqf2VHwO9BGr4RabASx+n4AaurcDc/fECRntewLcjYaMbFp9wSdFc
-	oKCxtE4grOD0r2xIeeCxzB6q1TuHtbIlHGer+Aeo+IGOA1XyMRV5KFcYYGJky+v8Av17t4grbhH
-	2AChJz61wyvaC4AHZbE6U4RgE4x6pwg7y3GiCvP7tyMDUBZSq9ePWXnUZ1KueIf1cFz+Tbp6BoQ
-	FtrqeqmYg9v/28pJziFi9oH8uEtC4Bx+/jyM0U2Zm9ny3aImsbohXrhmV487SLBeYIIHrPegkRU
-	R0RjrJ63tuNvYVZCSWiSq7oQotA7cM413+ngCNeinILt+q3gMgILXjwlKkKcgojI1RhxB1f+c7X
-	UHerlWj63Zjz/6fjS5JUfQqWbRqwOw0mvRH4AyRbTr
-X-Received: by 2002:a17:90b:1a89:b0:36d:9e0b:3801 with SMTP id 98e67ed59e1d1-38e1add8ec6mr9675333a91.8.1784223596017;
-        Thu, 16 Jul 2026 10:39:56 -0700 (PDT)
-Received: from localhost ([2a00:79e0:2e7c:8:53a1:1e69:10ef:bc65])
-        by smtp.gmail.com with UTF8SMTPSA id 5a478bee46e88-3140e5647aasm13360547eec.13.2026.07.16.10.39.54
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 16 Jul 2026 10:39:55 -0700 (PDT)
-Date: Thu, 16 Jul 2026 10:39:52 -0700
-From: Brian Norris <briannorris@chromium.org>
-To: Jens Remus <jremus@linux.ibm.com>
-Cc: Indu Bhagat <ibhagatgnu@gmail.com>,
-	Dylan Hatch <dylanbhatch@google.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Weinan Liu <wnliu@google.com>, Will Deacon <will@kernel.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Kosina <jikos@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
-	Puranjay Mohan <puranjay@kernel.org>, Song Liu <song@kernel.org>,
-	joe.lawrence@redhat.com, linux-toolchains@vger.kernel.org,
-	linux-kernel@vger.kernel.org, live-patching@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Randy Dunlap <rdunlap@infradead.org>
-Subject: Re: [PATCH v5 0/8] unwind, arm64: add sframe unwinder for kernel
-Message-ID: <alkXaGJpP5BhU1a_@google.com>
-References: <20260428183643.3796063-1-dylanbhatch@google.com>
- <agcEMEl-QR0g6DgF@google.com>
- <CADBMgpx38SUUuYYCm612STqh01jqv817WnJeeXYTD7Uc1r-fug@mail.gmail.com>
- <4f429a50-df5d-411f-b40e-048d3cad5133@linux.ibm.com>
- <alWCuAA7r1otvROg@google.com>
- <6e0d0afc-8a54-4763-b25d-dea122c4cd12@linux.ibm.com>
- <alezZ6tDIXSBY-v9@google.com>
- <f2be839a-07c0-4884-9cc2-afd37d025f9e@linux.ibm.com>
+	id 1wkQCs-00000000JUl-1LSr;
+	Thu, 16 Jul 2026 17:49:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1784224151; x=1815760151;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=WDOpxcwFle75xJgV45Y3mz4ze1wpcOya2GSWIlnO6Qg=;
+  b=R4Yk3PzuyFeKLBvJFyfCwhVDmVZ7VkMyPd0nDX7Hpq7VMA/fRhp3xnvr
+   PlyzWb+EdYfoihASSrQRtO+N6CMyifbw4bQa+S+Z9FyHoiSk0gMN5co6D
+   jxFiiIBOS/hZ9HRuhiehKdx/ek2ZiqqT1K/u66MDvq3dNFtjmEbFgGXJn
+   m0eRfjL7OXo9z8eGZpSPUaQCq8YZm5m3OsojfAQwztmLB9QfyhfKg4dDQ
+   WVWEGpg0zmtfRvwIKo6vF75kmSb5ZKJVuRHeQNJ4/SxCPAg9uXcsUexq2
+   IJuMXF79j7V/Xr6Y+VGrEIUnEsOD3dVqNAnr1JXL3LnF7NINUCF1kzXYE
+   Q==;
+X-CSE-ConnectionGUID: wuelDJ7rRV6YDb8pWsK/Nw==
+X-CSE-MsgGUID: G9L+Y94eRGSOH1VdhAYWHA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11848"; a="84853703"
+X-IronPort-AV: E=Sophos;i="6.25,167,1779174000"; 
+   d="scan'208";a="84853703"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jul 2026 10:49:10 -0700
+X-CSE-ConnectionGUID: XfGCLMq2TIOWPCEFC2xIgw==
+X-CSE-MsgGUID: kOYF/zaMQF25P48lYMtL6A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,167,1779174000"; 
+   d="scan'208";a="255415130"
+Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.26])
+  by orviesa010-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jul 2026 10:49:00 -0700
+Date: Thu, 16 Jul 2026 20:48:58 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Link Mauve <linkmauve@linkmauve.fr>
+Cc: Srinivas Kandagatla <srini@kernel.org>,
+	Andy Shevchenko <andy@kernel.org>, Sven Peter <sven@kernel.org>,
+	Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Vladimir Zapolskiy <vz@mleia.com>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Kalyani Akula <kalyani.akula@amd.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
+	Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Tamir Duberstein <tamird@kernel.org>,
+	Alexandre Courbot <acourbot@nvidia.com>,
+	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-amlogic@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	rust-for-linux@vger.kernel.org
+Subject: Re: [PATCH v2 0/2] nvmem: fix a const-unsoundness in reg_write
+Message-ID: <alkZiozKVGlAYVUb@ashevche-desk.local>
+References: <20260715195520.25410-1-linkmauve@linkmauve.fr>
+ <alieVR1cOtOySi4_@ashevche-desk.local>
+ <ali7bki3jqpd8ckE@luna>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <f2be839a-07c0-4884-9cc2-afd37d025f9e@linux.ibm.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <ali7bki3jqpd8ckE@luna>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_103957_574059_F85FE978 
-X-CRM114-Status: GOOD (  13.05  )
+X-CRM114-CacheID: sfid-20260716_104910_404297_4BFC71FD 
+X-CRM114-Status: GOOD (  13.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,41 +120,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jens,
+On Thu, Jul 16, 2026 at 01:07:26PM +0200, Link Mauve wrote:
+> On Thu, Jul 16, 2026 at 12:03:17PM +0300, Andy Shevchenko wrote:
+> > On Wed, Jul 15, 2026 at 09:55:16PM +0200, Link Mauve wrote:
 
-On Thu, Jul 16, 2026 at 01:03:35PM +0200, Jens Remus wrote:
-> This proves thet assembler option --gsframe did not originate from the
-> kernel Makefile, but was supplied by GCC for the assembly step.  I guess
-> it gets injected by some GCC .specs file.  Please review the output of:
-> for "sframe":
-> 
-> $ aarch64-linux-gnu-gcc -dumpspecs
+...
 
-Thanks for all the pointers!
+> I’ve attached a patch fixing this particular issue, I will include it in
+> my v3 if that’s ok with you (or it could go as a different series, I
+> don’t care much).
 
-$ aarch64-linux-gnu-gcc -dumpspecs | grep -B 1 sframe
-*asm_options:
-%{-target-help:%:print-asm-header()} %{v} %{w:-W} %{I*}  %{!m16:%{!m32:%{!mx32:%{!ffreestanding:--gsframe}}}}%(asm_debug_option) %{gz|gz=zlib:--compress-debug-sections=zlib} %{gz=none:--compress-debug-sections=none} %{gz=zstd:--compress-debug-sections=zstd} %{gz=zlib-gnu:}%a %Y %{c:%W{o*}%{!o*:-o %w%b%O}}%{!c:-o %d%w%u%O}
---
-*distro_defaults_asm:
- %{!m16:%{!m32:%{!mx32:%{!ffreestanding:--gsframe}}}}
+Works for me.
 
-I looked further into the bug trackers here, and I see that:
+> I think I’ve found another bug in that driver, it says .max_register =
+> 0xffff but .size = 0xffff, one or the other is probably off-by-one, and
+> I suspect .size should be 0x10000 instead.
 
-(1) it seems Debian testing(?) and Ubuntu may have enabled sframe by
-    default
+Yeah, max_register means offset of the last _accessible_ register.
+So, 0xffff sounds about right there. As for size being 0xffff, I weakly
+remember that there was a discussion about these values. Can you dig the
+lore archive?
 
-(2) my distro is Debian-testing-based
+-- 
+With Best Regards,
+Andy Shevchenko
 
-(3) other people have already requested my distro disable sframe, due to
-    issues like the following:
 
-      https://github.com/rust-lang/rust/issues/155704
-      https://salsa.debian.org/toolchain-team/gcc/-/commit/bd33f862a3f93c3d3b1fbc8dfb6b0366905d7ab4
-
-I'll follow up with these to make sure #3 is fully resolved. Hopefully
-that resolves this problem too.
-
-Thanks again,
-Brian
 
