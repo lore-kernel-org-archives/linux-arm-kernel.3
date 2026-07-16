@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82D0BC4450A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 960C3C44512
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 14:57:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,33 +12,33 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7Wr462XtGgX1my4l1561xtJMdx+4bahO1ClQS2sks7U=; b=tT9lYWY/CB1ZFW62O9zqZ0jx2+
-	g635aOrTQve10b24Cl99rD25RQ0sxs1mqfXveMBCVy7khPD8p4Danz1bgWhISCedC8VAWUVVlykmV
-	O6aU0/MlB6if3uYjSmGqGM8Q/98ttEv5qNlbAUKOZZtfIkkzOnC/WqfkiIIThsTjSpcV9pxaVX+Ev
-	qxFKTKU83xUeGKfQAGlHZx5LXU1G6QxGrtBsNwJ0AcsqLoaGaH+QHr2PrVQL6OtjFACEGWd8SHhCN
-	09xxn35fZrbTD/nXx2WZDGVpZaCyfe1YQ/0JECgA44QxyhguwiCMwe39PZ0P9x4PySOsTaf0ahFTe
-	HooziVyw==;
+	bh=YqtYO4KlCLrGmWVbxC/0USob6y7QFzL2Qo/ZzvJQALQ=; b=ofsGorS6V1ITwftuyNh/lGXAAJ
+	bR2GSY1mOI3TdjrGN8TYy7HBMHY+JsaFN8LkLZhkpTtXcVK+CQZiECS5Cejbyzvt0jQRgrnW784gc
+	PWxwgFqYZyowrBAPTOdNW9BrDsTvozkSWtu+gUB0rPLlasshRwiUfbq1sOo/wKQZ17ROMT7aBp4Kh
+	W34O65pQ8PeGk6a95GUrhvBAXYK5/GjmiHpXiwlYRqd+nwF8Ha0RVnU7fMqpAOI/v+9FoXcHCTiie
+	9C3UbXzgInT5pIFder5CIzBL8G1LYyZoTBTcJe74k0jn8h/bIacMNMR/C2HhPTZyfq1Hm5l6L8vzV
+	3COMUM2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkNWI-0000000HYa9-1LeZ;
+	id 1wkNWI-0000000HYaS-1p8w;
 	Thu, 16 Jul 2026 14:57:02 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkNW8-0000000HYVp-0tT3
+	id 1wkNWA-0000000HYX4-1JJ2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 14:56:53 +0000
+	Thu, 16 Jul 2026 14:56:55 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CA32C168F;
-	Thu, 16 Jul 2026 07:56:46 -0700 (PDT)
-Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 0329B3F7B4;
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0BACB1477;
 	Thu, 16 Jul 2026 07:56:49 -0700 (PDT)
+Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 3234A3F7B4;
+	Thu, 16 Jul 2026 07:56:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784213811; bh=Q9arXXauN4GVB8Ak/vT3fe4bjkQnGWjRmuD+Jz/T9SI=;
+	t=1784213813; bh=Pb+f5I38gSvwwEGMdj5XYd+7gcuHmWuq0P/BWHFGhGM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fI7mf3kzLxo6w/1wD0KoNeQan67ZPRAiUGDDosXpRUMREtCx+/NR+427pYecT3IG0
-	 5hhgicBKmi3QclxCy9dziihQOw3Ibtymhibbgs2vOGiUB5Z9prmCqRfwNKoAfGDbz0
-	 z51BKp+X/3cCe3wSCy4Kl7NIN5gVt8G+x3JElL0w=
+	b=AdmolQK6QIRNo6fNFz8nMa5Jv2S3JcWc+yfp3PwlFnWwcMmg37AE/S6ttE0YLTWGm
+	 45e2YRimiRj3T51D+HVX3wzAwh3Q1SJQvauOfk5qSrltjOLO5OGYQ/OrxayCIRqk8U
+	 EfS0HW3nHdVN30xO6X8s3Bb4gDpr9bO++ZenAook=
 From: Robin Murphy <robin.murphy@arm.com>
 To: will@kernel.org,
 	mark.rutland@arm.com,
@@ -48,17 +48,17 @@ Cc: ilkka@os.amperecomputing.com,
 	linux-acpi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-perf-users@vger.kernel.org
-Subject: [PATCH v2 3/4] perf/arm_cspmu: Improve sub-module error reporting
-Date: Thu, 16 Jul 2026 15:56:36 +0100
-Message-ID: <256bcb4c8c98dc95bfdf295adb66b917545c919b.1784213435.git.robin.murphy@arm.com>
+Subject: [PATCH v2 4/4] perf/arm_cspmu: Make IRQ more optional
+Date: Thu, 16 Jul 2026 15:56:37 +0100
+Message-ID: <a6bb2c54e91712e91f95d21051d2b4b173cebc93.1784213435.git.robin.murphy@arm.com>
 X-Mailer: git-send-email 2.54.0.dirty
 In-Reply-To: <cover.1784213435.git.robin.murphy@arm.com>
 References: <cover.1784213435.git.robin.murphy@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_075652_298656_9D1CFC1C 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20260716_075654_394332_ECE4B178 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,18 +73,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When waiting for a sub-module to register, we return a bare
--EPROBE_DEFER that ends up showing the end user:
-
-  platform arm-cs-arch-pmu.1: deferred probe pending (no reason)
-
-wherein it's not necessarily clear that they might need to take some
-action to ensure the appropriate module is available to load. Let's use
-dev_err_probe() here so we can show exactly what we're waiting for.
-
-Similarly, in the case where something's gone horribly wrong with an
-already-registered module, we can use dev_WARN() to standardise the
-device/driver attribution rather than just open-coding "arm_cspmu".
+If we have 64-bit counters, we can reasonably assume we'll never have to
+handle an overflow before the end of the universe (since we're a system
+PMU with no sampling). Thus even if firmware does specify an IRQ, we can
+still continue in the event of being unable to request it. This can help
+systems where IRQs cannot be claimed exclusively, or are broken in other
+ways.
 
 Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
 Signed-off-by: Robin Murphy <robin.murphy@arm.com>
@@ -92,31 +86,27 @@ Signed-off-by: Robin Murphy <robin.murphy@arm.com>
 ---
 v2: No change
 ---
- drivers/perf/arm_cspmu/arm_cspmu.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+ drivers/perf/arm_cspmu/arm_cspmu.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/perf/arm_cspmu/arm_cspmu.c b/drivers/perf/arm_cspmu/arm_cspmu.c
-index 8c2dda17d73e..caad9a36651d 100644
+index caad9a36651d..ad82de166dd1 100644
 --- a/drivers/perf/arm_cspmu/arm_cspmu.c
 +++ b/drivers/perf/arm_cspmu/arm_cspmu.c
-@@ -437,13 +437,15 @@ static int arm_cspmu_init_impl_ops(struct arm_cspmu *cspmu)
- 				if (ret)
- 					module_put(match->module);
- 			} else {
--				WARN(1, "arm_cspmu failed to get module: %s\n",
-+				dev_WARN(cspmu->dev, "Failed to get module: %s\n",
- 					match->module_name);
- 				ret = -EINVAL;
- 			}
- 		} else {
- 			request_module_nowait(match->module_name);
--			ret = -EPROBE_DEFER;
-+			ret = dev_err_probe(cspmu->dev, -EPROBE_DEFER,
-+					    "Waiting for module %s to load\n",
-+					    match->module_name);
- 		}
+@@ -1256,8 +1256,11 @@ static int arm_cspmu_device_probe(struct platform_device *pdev)
+ 		return ret;
  
- 		mutex_unlock(&arm_cspmu_lock);
+ 	ret = arm_cspmu_request_irq(cspmu);
+-	if (ret)
+-		return ret;
++	if (ret) {
++		if (counter_size(cspmu) < 64)
++			return ret;
++		dev_info(cspmu->dev, "Continuing without IRQ\n");
++	}
+ 
+ 	ret = arm_cspmu_get_cpus(cspmu);
+ 	if (ret)
 -- 
 2.54.0.dirty
 
