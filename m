@@ -4,80 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C98D2C4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 11:31:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAC41C4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 11:31:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZhTPrG3YQEfBVn0yyzrLN6C3o96SAGlfQ2/4r1lWCWQ=; b=tTw4zLce7d7CCUuzW3+VqXRPjY
-	iod4sJXNoQKEp3Bt6pAArE2sSK62kkngoZvxMIuC247JD++vfkICgpcJLRbCtJU4vr9QgrCoC94uR
-	c6u9sqjEFNUTVu8942FuWgGjx536ZxOP5I7TmTeNgetgUP5zEpxZFhopevi9XibssjpXG+3QdhkWg
-	y32E4lx3x0dvXeC4E3ZDrHphNXGuQ3H7Kkp5BfVGNC9p3Rupqa7l9/wRGQ39YHWBHZlfZJvLwcmAr
-	BEWqHnXTRBDbmlbU9cA2c/mgCg8MwjVE7Z5Vw7/f88Bo98AylHTwS7aLGL4s2qqSSl+AOXeQ8UjYZ
-	JoJZSvzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XKhSlt0qsyEnD/G6yVUTv/NpNy9ZRLC+ZACUq8SGN4o=; b=pros0faA0yWCRE47Jnmzzdl0IU
+	nKxPvpThsk8pyHjHys0a/GV+EDNPmR1aL+GHaavKlDIl/MQQsrXA4vLpC4ZM3uMH1QI0a6n79D9w+
+	J3whpwlyvMO/xmCPlnKS9BY8wkYSox12EZGXLxWBZaTj58HyQHJ074HDOhYxaiFZ1vqUEq7FuROY7
+	p73v17s9jxLSc2U8Qk+Cp4IREoNDjNKtt4yTnxSO2AF+rVfRJUTQzPrJvX+vcSUafl1aUQ4tJg4FZ
+	ndJySXP96J2NXuH6YpyRcvIIkgKcRZsazDw2Zoaj/UDcZdOl1+AuH+Vuk1xbKe5RJFvi4fEA2TAZ1
+	Lzz3mLzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkKJd-0000000H8Qo-3FHI;
-	Thu, 16 Jul 2026 11:31:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wkKJk-0000000H8UN-3o9c;
+	Thu, 16 Jul 2026 11:31:52 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkKJc-0000000H8QJ-18DE
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 11:31:44 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E6FC84186F;
-	Thu, 16 Jul 2026 11:31:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AECA71F00A3A;
-	Thu, 16 Jul 2026 11:31:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784201503;
-	bh=ZhTPrG3YQEfBVn0yyzrLN6C3o96SAGlfQ2/4r1lWCWQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=CU8PyQnpbvCRE3vUmMHtzieTpGX2UBTMwb0mi88LgLxkSs8B/ksftCcM5iz3NUd7A
-	 fb8sHvnwCl7Rr4+CQEHwLGQjWOD3HXM5jPd5Cc8rCwwABcs8eQ+BKe0BjntQ/EVekx
-	 dCYd2NVN2TxTIh+bleHc9Mrq3zRtYkVxaE0UqGfb4CkNFltxw8JAppM9iqDmYpCTt0
-	 gr4x6uAHVmNLV4MlaNFHizKmi/tvmxJdDgxQqcFCa06FzxAgCNdY51pKLaGwJPAlOY
-	 1KPwHyfp5KJywmQSfRSQ0QHUlhb6Srefcz+e9NxqkaeYr/Q75MW2N2bjgJnsxF9rfo
-	 ndpfdliuZ0loQ==
-Date: Thu, 16 Jul 2026 12:31:35 +0100
-From: Will Deacon <will@kernel.org>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Mike Rapoport <rppt@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	David Hildenbrand <david@kernel.org>,
-	Michal Hocko <mhocko@suse.com>, Uladzislau Rezki <urezki@gmail.com>,
-	Toshi Kani <toshi.kani@hpe.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>, Kiryl Shutsemau <kas@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dev Jain <dev.jain@arm.com>, Ryan Roberts <ryan.roberts@arm.com>,
-	David Carlier <devnexen@gmail.com>, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org,
-	abarnas@google.com
-Subject: Re: [PATCH mm-hotfixes v3 2/4] x86/mm/pat: acquire mmap lock on page
- table free to avoid ptdump UAF
-Message-ID: <aljBF-am7dqqG8Gd@willie-the-truck>
-References: <20260714-series-vmap-race-fix-v3-0-b812eccfa0f9@kernel.org>
- <20260714-series-vmap-race-fix-v3-2-b812eccfa0f9@kernel.org>
- <alemS7vxeRB7NcBO@willie-the-truck>
- <alesCtwXdIqH6bOP@kernel.org>
- <178419641178.59347.17339330762419756196.b4-reply@b4>
+	id 1wkKJh-0000000H8Ro-2nkU;
+	Thu, 16 Jul 2026 11:31:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1784201506;
+	bh=WM02DUzdy4HabgJXR75yvultM4DgXC9/b7Dv8gui5Ks=;
+	h=From:To:Cc:Subject:Date:From;
+	b=KJiRJ4JnoUuVCKAe8iph6AMfb4k42Y2/Tr17o3sLhSsjqvpZ3hVJG7p0m0kRmPccO
+	 1yJbo8RVSnIuw6RX5WAwuXt5NUo7DENh/HWbOnRTkrmeit5ekPofCNMwatnkLCa5L9
+	 QfMdfhFB+b7Eelg4vq2lWbssMKRupp2RDz4ZKs/jYT1ryagqKAPMZAZg+CR03fOTCQ
+	 hikKUkeIx6VbNX/2ZWJqdsLnNxKSTuEitcZJFgigQHSEWrtZkUyS5sSdkoriUAiGu9
+	 5PjuZKE5CeOytemEQQBjV+KI3MJsQhfvtlHKzg7ply88D7opevfawK5YZATPNDVJ+3
+	 eSK2CziPIye/A==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9FC8E17E0177;
+	Thu, 16 Jul 2026 13:31:45 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: linux-pci@vger.kernel.org
+Cc: ryder.lee@mediatek.com,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	robh@kernel.org,
+	bhelgaas@google.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	bartosz.golaszewski@oss.qualcomm.com,
+	wenst@chromium.org,
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kernel@collabora.com
+Subject: [PATCH] PCI: mediatek-gen3: Initialize all resources before installing ISR
+Date: Thu, 16 Jul 2026 13:31:42 +0200
+Message-ID: <20260716113142.46742-1-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <178419641178.59347.17339330762419756196.b4-reply@b4>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260716_043149_969835_A52C7AFF 
+X-CRM114-Status: GOOD (  21.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,94 +82,211 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 16, 2026 at 11:06:51AM +0100, Lorenzo Stoakes (ARM) wrote:
-> On 2026-07-15 18:49 +0300, Mike Rapoport wrote:
-> > On Wed, Jul 15, 2026 at 04:24:59PM +0100, Will Deacon wrote:
-> > > > diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-> > > > index d023a40a1e03..4c4b8244502f 100644
-> > > > --- a/arch/x86/mm/pat/set_memory.c
-> > > > +++ b/arch/x86/mm/pat/set_memory.c
-> > > > @@ -22,6 +22,7 @@
-> > > >  #include <linux/cc_platform.h>
-> > > >  #include <linux/set_memory.h>
-> > > >  #include <linux/memregion.h>
-> > > > +#include <linux/cleanup.h>
-> > > >
-> > > >  #include <asm/e820/api.h>
-> > > >  #include <asm/processor.h>
-> > > > @@ -436,9 +437,16 @@ static void cpa_collapse_large_pages(struct cpa_data *cpa)
-> > > >
-> > > >  	flush_tlb_all();
-> > > >
-> > > > -	list_for_each_entry_safe(ptdesc, tmp, &pgtables, pt_list) {
-> > > > -		list_del(&ptdesc->pt_list);
-> > > > -		pagetable_free(ptdesc);
-> > > > +	/*
-> > > > +	 * ptdump might read these page tables, so avoid a use-after-free by
-> > > > +	 * acquiring the mmap read lock on init_mm (ptdump acquires the mmap
-> > > > +	 * write lock).
-> > > > +	 */
-> > > > +	scoped_guard(mmap_read_lock, &init_mm) {
-> > > > +		list_for_each_entry_safe(ptdesc, tmp, &pgtables, pt_list) {
-> > > > +			list_del(&ptdesc->pt_list);
-> > > > +			pagetable_free(ptdesc);
-> > > > +		}
-> > >
-> > > As I understand it, the argument for taking the read lock is that we're
-> > > operating on a region that we "wholly own" and therefore we can happily
-> > > run concurrently with CPUs walking distinct parts of the page-table.
-> > > However, from what I can tell, the CPA collapse logic will operate on
-> > > regions outside of the address range being manipulated by its caller
-> > > because it rounds up to the PMD size.
-> > >
-> > > As a made-up example, imagine I have a 2MiB aligned region where the
-> > > first 1MiB is read-only and the second 1MiB is in the default r/w state.
-> > > If one CPU calls set_memory_rw() on the first 1MiB while another CPU is
-> > > walking the second 1MiB (via some other API that doesn't take cpa_lock),
-> > > it looks to me like the first CPU can collapse the page-table and free
-> > > the unused pages under the feet of the other CPU. What prevents that
-> > > from happening?
-> >
-> > Nothing, and there's a patch to fix that that synchronizes
-> > cpa_collapse_large_pages() using cpa_lock:
-> >
-> > https://lore.kernel.org/all/20260626163213.2284080-1-den@openvz.org
+If the bootloader leaves the PCI-Express MAC+PHY enabled before
+booting the kernel, an interrupt may be pending while probing
+this driver, which means that the chained interrupt handler is
+called as soon as the irq is enabled and handler is installed.
 
-Hmm, but that relies on all concurrent walkers taking cpa_lock, no? Surely
-that's not generally the case.
+Since the mtk_gen3_pcie structure gets fully initialized only
+after installing the handler, that condition results in a NULL
+pointer kernel panic (mostly due to pcie->base being NULL, but
+other members will be uninitialized as well).
 
-> Thanks Mike!
-> 
-> >
-> > This still won't be enough to sync with ptdump though.
-> 
-> Yeah, so this patch is still necessary.
-> 
-> But that patch conflicts with this one as it holds a spin lock over the page
-> table freeing, which prevents taking an rwsem... :/
-> 
-> Anyway I think this one is still fine as it seems there's not a consensus over
-> there as there was discussion about just removing the locking anyway ([0])?
-> 
-> So can kick that can down the road and just get these ptdump bugs fixed :)
-> 
-> >
-> > > If all concurrent walkers have interrupts disabled, I guess the TLB
-> > > invalidation logic would do it, but it would be good to call this out in
-> > > the commit message because it's not clear to me why the read_lock is
-> > > sufficient for the collapsing case.
-> 
-> Yeah, so this patch is _only_ fixing the ptdump case. Any existing bug must be
-> addressed separately.
+In order to resolve this, disgregate the mtk_pcie_setup_irq()
+function and partially do the same to mtk_pcie_setup(), so that
+all of the required resources are initialized before installing
+and enabling the interrupt handler.
 
-Up to you folks, but if you took the write lock during collapse wouldn't
-that fix it for all concurrent walkers and we wouldn't need another patch?
+Also, install the ISR after deasserting resets and powering up
+the PCI-Express MAC and PHY, by moving the call to the function
+irq_set_chained_handler_and_data() to the appropriate place in
+mtk_pcie_setup(), as hardware registers cannot be modified if
+the hardware is powered down and could result in a SError.
 
-I would argue that using the read lock here directly contradicts the
-rationale for why this is safe, because this is an occurence of code
-that operates on a range that it doesn't wholly own. It seems bizarre
-to me to go to the effort of adding locking, but then not adding
-sufficient locking for all concurrent walkers.
+This makes sure that all resources are actually available and
+hardware is powered on before any registers operation is done.
 
-Will
+Fixes: eddbac092e5f ("PCI: mediatek-gen3: Move mtk_pcie_setup_irq() out of mtk_pcie_setup()")
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+
+The real issue starts with commit eddbac092e5f but this still goes
+a bit further by reordering things a bit, enabling the interrupt
+after powerup and but before port startup, along with getting the
+irq in mtk_pcie_parse_port(), where a bunch of other devicetree
+resources retrieval is done, grouping them in one place.
+
+This actually resolves the following issue:
+
+<6>[    6.877824] mtk-pcie-gen3 16910000.pcie: host bridge /soc/pcie@16910000 ranges:
+<6>[    6.877854] mtk-pcie-gen3 16910000.pcie:      MEM 0x0050000000..0x0057ffffff -> 0x0050000000
+<1>[    6.877972] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000184
+<1>[    6.877978] Mem abort info:
+<1>[    6.877980]   ESR = 0x0000000096000004
+<1>[    6.877983]   EC = 0x25: DABT (current EL), IL = 32 bits
+<1>[    6.877988]   SET = 0, FnV = 0
+<1>[    6.877991]   EA = 0, S1PTW = 0
+<1>[    6.877993]   FSC = 0x04: level 0 translation fault
+<1>[    6.877996] Data abort info:
+<1>[    6.877998]   ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
+<1>[    6.878001]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+<1>[    6.878005]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+<1>[    6.878008] [0000000000000184] user address but active_mm is swapper
+<0>[    6.878012] Internal error: Oops: 0000000096000004 [#1]  SMP
+<4>[    6.878018] Modules linked in:
+<4>[    6.878027] CPU: 0 UID: 0 PID: 82 Comm: kworker/u32:3 Tainted: G        W           7.1.0-rc5-next-20260525+ #1700 PREEMPT(full) 
+<4>[    6.878037] Tainted: [W]=WARN
+<4>[    6.878040] Hardware name: Google Hylia SKU1/2/4/5 board (DT)
+<4>[    6.878044] Workqueue: async async_run_entry_fn
+<4>[    6.878060] pstate: 034000c9 (nzcv daIF +PAN -UAO +TCO +DIT -SSBS BTYPE=--)
+<4>[    6.878068] pc : mtk_pcie_irq_handler+0x40/0x1f0
+<4>[    6.878082] lr : handle_irq_desc+0x3c/0x68
+<4>[    6.878095] sp : ffff800080003f50
+<4>[    6.878098] x29: ffff800080003f50 x28: ffff000080b7d3c0 x27: 0000000000000000
+<4>[    6.878109] x26: ffffcc9bfd8ca990 x25: 0000000000000000 x24: ffff000080204a05
+<4>[    6.878117] x23: 0000000043400009 x22: ffffcc9bfb60793c x21: 0000000000000000
+<4>[    6.878125] x20: 0000000000000000 x19: 0000000000000184 x18: 00000000ffffffff
+<4>[    6.878133] x17: ffff3367f0734000 x16: ffff800080000000 x15: 00000000ffffffff
+<4>[    6.878140] x14: ffff000081866bd3 x13: ffff000081866bd5 x12: 0000000000000020
+<4>[    6.878147] x11: 0000000000000040 x10: ffff0000802136a8 x9 : ffffcc9bf9da34c4
+<4>[    6.878155] x8 : ffff000083149020 x7 : 0000000000000000 x6 : 0000000000000000
+<4>[    6.878162] x5 : ffff000083148ff8 x4 : ffff0000831491a8 x3 : 0000000000000000
+<4>[    6.878169] x2 : 0000000000000000 x1 : ffffcc9bfa594188 x0 : ffff000080b4c830
+<4>[    6.878177] Call trace:
+<4>[    6.878180]  mtk_pcie_irq_handler+0x40/0x1f0 (P)
+<4>[    6.878192]  handle_irq_desc+0x3c/0x68
+<4>[    6.878204]  generic_handle_domain_irq+0x20/0x40
+<4>[    6.878217]  gic_handle_irq+0x144/0x2c0
+<4>[    6.878224]  call_on_irq_stack+0x30/0x48
+<4>[    6.878231]  do_interrupt_handler+0x88/0x98
+<4>[    6.878239]  el1_interrupt+0x48/0xb0
+<4>[    6.878252]  el1h_64_irq_handler+0x18/0x28
+<4>[    6.878264]  el1h_64_irq+0x84/0x88
+<4>[    6.878271]  _raw_spin_unlock_irqrestore+0x14/0x68 (P)
+<4>[    6.878283]  irq_set_chained_handler_and_data+0xc8/0xe0
+<4>[    6.878294]  mtk_pcie_probe+0x98/0x4b0
+<4>[    6.878304]  platform_probe+0x64/0xc0
+<4>[    6.878317]  really_probe+0xc8/0x3f0
+<4>[    6.878327]  __driver_probe_device+0x168/0x1d8
+<4>[    6.878337]  driver_probe_device+0x44/0x128
+<4>[    6.878347]  __device_attach_driver+0xc4/0x198
+<4>[    6.878357]  bus_for_each_drv+0x8c/0xf8
+<4>[    6.878365]  __device_attach_async_helper+0xbc/0x148
+<4>[    6.878375]  async_run_entry_fn+0x3c/0x188
+<4>[    6.878385]  process_one_work+0x164/0x4f0
+<4>[    6.878391]  worker_thread+0x19c/0x320
+<4>[    6.878396]  kthread+0x138/0x150
+<4>[    6.878407]  ret_from_fork+0x10/0x20
+<0>[    6.878416] Code: 9100c000 f90037e0 f9400793 91061273 (b9400273) 
+<4>[    6.878421] ---[ end trace 0000000000000000 ]---
+<0>[    6.891047] Kernel panic - not syncing: Oops: Fatal exception in interrupt
+<2>[    6.891051] SMP: stopping secondary CPUs
+<0>[    6.893869] Kernel Offset: 0x4c9b79c00000 from 0xffff800080000000
+<0>[    6.893873] PHYS_OFFSET: 0x80000000
+<0>[    6.893874] CPU features: 0x08000000,003c018b,a6c605a1,357e7663
+<0>[    6.893879] Memory Limit: none
+<0>[    7.258223] ---[ end Kernel panic - not syncing: Oops: Fatal exception in interrupt ]---
+
+
+ drivers/pci/controller/pcie-mediatek-gen3.c | 44 ++++++++-------------
+ 1 file changed, 16 insertions(+), 28 deletions(-)
+
+diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
+index 66c33a09dd95..2c28b8e983c3 100644
+--- a/drivers/pci/controller/pcie-mediatek-gen3.c
++++ b/drivers/pci/controller/pcie-mediatek-gen3.c
+@@ -903,25 +903,6 @@ static void mtk_pcie_irq_handler(struct irq_desc *desc)
+ 	chained_irq_exit(irqchip, desc);
+ }
+ 
+-static int mtk_pcie_setup_irq(struct mtk_gen3_pcie *pcie)
+-{
+-	struct device *dev = pcie->dev;
+-	struct platform_device *pdev = to_platform_device(dev);
+-	int err;
+-
+-	pcie->irq = platform_get_irq(pdev, 0);
+-	if (pcie->irq < 0)
+-		return pcie->irq;
+-
+-	err = mtk_pcie_init_irq_domains(pcie);
+-	if (err)
+-		return err;
+-
+-	irq_set_chained_handler_and_data(pcie->irq, mtk_pcie_irq_handler, pcie);
+-
+-	return 0;
+-}
+-
+ static int mtk_pcie_parse_port(struct mtk_gen3_pcie *pcie)
+ {
+ 	int i, ret, num_resets = pcie->soc->phy_resets.num_resets;
+@@ -939,6 +920,10 @@ static int mtk_pcie_parse_port(struct mtk_gen3_pcie *pcie)
+ 
+ 	pcie->reg_base = regs->start;
+ 
++	pcie->irq = platform_get_irq(pdev, 0);
++	if (pcie->irq < 0)
++		return pcie->irq;
++
+ 	for (i = 0; i < num_resets; i++)
+ 		pcie->phy_resets[i].id = pcie->soc->phy_resets.id[i];
+ 
+@@ -1175,10 +1160,6 @@ static int mtk_pcie_setup(struct mtk_gen3_pcie *pcie)
+ {
+ 	int err, max_speed;
+ 
+-	err = mtk_pcie_parse_port(pcie);
+-	if (err)
+-		return err;
+-
+ 	/*
+ 	 * Deassert the line in order to avoid unbalance in deassert_count
+ 	 * counter since the bulk is shared.
+@@ -1205,6 +1186,9 @@ static int mtk_pcie_setup(struct mtk_gen3_pcie *pcie)
+ 		}
+ 	}
+ 
++	/* All resources are now available: install the chained handler */
++	irq_set_chained_handler_and_data(pcie->irq, mtk_pcie_irq_handler, pcie);
++
+ 	/* Try link up */
+ 	err = mtk_pcie_startup_port(pcie);
+ 	if (err)
+@@ -1233,9 +1217,12 @@ static int mtk_pcie_probe(struct platform_device *pdev)
+ 
+ 	pcie->dev = dev;
+ 	pcie->soc = device_get_match_data(dev);
+-	platform_set_drvdata(pdev, pcie);
+ 
+-	err = mtk_pcie_setup_irq(pcie);
++	err = mtk_pcie_parse_port(pcie);
++	if (err)
++		return err;
++
++	err = mtk_pcie_init_irq_domains(pcie);
+ 	if (err)
+ 		return dev_err_probe(dev, err, "Failed to setup IRQ domains\n");
+ 
+@@ -1245,13 +1232,14 @@ static int mtk_pcie_probe(struct platform_device *pdev)
+ 		goto err_tear_down_irq;
+ 	}
+ 
++	host->ops = &mtk_pcie_ops;
++	host->sysdata = pcie;
++	platform_set_drvdata(pdev, pcie);
++
+ 	err = mtk_pcie_setup(pcie);
+ 	if (err)
+ 		goto err_destroy_pwrctrl;
+ 
+-	host->ops = &mtk_pcie_ops;
+-	host->sysdata = pcie;
+-
+ 	err = pci_host_probe(host);
+ 	if (err)
+ 		goto err_power_down_pcie;
+-- 
+2.54.0
+
 
