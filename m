@@ -4,86 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADB9CC44515
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 14:27:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3980C44512
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 14:27:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+ERGbrPzFPaYP0e6/gDjw6faxA0FAelXxygeWl7v5mI=; b=XDwM1GCgsdD5dHIl9tFzveqtA9
-	jWPEOrp7+IVUAvHiSKhWNYgDFy4/UWFOtte+C95bXtHrvwStFduqxf6TxdS2afb5LgdOnXRJWe0oN
-	j29NDvNId5nYP+m8ZMXuemu7bFs0Ki3962vStY1Hb8WA9UVYht2+jLWDwTIMzwYGBEm8illaC0RN1
-	i8TqPxYmaVKD41SJ1WwFjtTmBW487j9Eo6LGJtzKCO3+59qRdiZvr+6rjEn6XgrzF5Sb66+drj9x3
-	AjOSkIeGBr0hegiUUXyx58l90TmNKVpEY95xSDsnpvOqMFRmXGDHEBB7OOqO/ynIb7dRifqvGp5ft
-	9XEsf57Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NmPXYIgXudJdk7ilCxuMA28BkeiLmN6JDPGWMpU9QJ8=; b=xeeCiIQVxAv6+NH2EFsvLpit4K
+	ufS5wGa6nlsTXuZQ2q19rQ2ghZA+N+FsdQoLWT5KhAb8lCDSsSL42upJJRtV3kqZPfJIVZXArO2uZ
+	GCTB1uipvEHH5HxdBOVsdyyBjQ9BmZeXcry57CBWVYLMsVo0yGQlLre2EpX8EBOkPc74+ic/z73yP
+	pve+oA8FrWLUPB4ksuJmNTugdAoxJ3pd1eEPCaWtl++FvAgDA5cZJo6BkPwQuB1WPfb+OfSXbFLtd
+	gk8nbfX1M05Zyw92H45OwgDs0RuLdFhy8CDiDdLyhYq8+/73wBPqf7x7geeRuj6KxVmIFmnPVQouC
+	E80qkM3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkN3X-0000000HUSs-1FwH;
-	Thu, 16 Jul 2026 14:27:19 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wkN3t-0000000HUYk-2J2r;
+	Thu, 16 Jul 2026 14:27:41 +0000
+Received: from mail-westeuropeazon11010067.outbound.protection.outlook.com ([52.101.69.67] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkN3V-0000000HURt-0U4p;
-	Thu, 16 Jul 2026 14:27:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1784212033;
-	bh=uBIk09xBbnHw14aNehfnGLINBkgGT0M+ApnJKNl4TE0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=B90xVPcPxOpZCfBS0lJfINdFlIfxyDxXfV5D+E3f1GOHbUhdHIPNVT0o8KP2fVxwi
-	 GOYs0VcdhVmMv9oZd70Oqv+ZSkHtZD3zd/kxJqVd/UMGTvkEkSJMCzA6vIpVoY6kLc
-	 +fifVvix/WFSiNItdH1gdxMbRy1VqYtcKdfg/mNnBdUvp5pHNnzHVlQ8LEGH2MPE6d
-	 poUlW5mRlddrD4cH0psPMucSKgujFTZbk5hoPwOofQQjoSmwDd7DbGl1AJl+XjcXUQ
-	 10F4QkjFzxk21v5Ab5TtQ5M9nYabbwDSNXfWy5tuE9fz6tpdYDq0oVGIJK5d98bnob
-	 Y9Ghzyr33bS8Q==
-Received: from [100.64.0.241] (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 66F8017E023C;
-	Thu, 16 Jul 2026 16:27:12 +0200 (CEST)
-Message-ID: <fb2c3414-f011-4ea0-af9d-1e3c65d769e3@collabora.com>
-Date: Thu, 16 Jul 2026 17:27:11 +0300
+	id 1wkN3r-0000000HUY0-0ikr
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 16 Jul 2026 14:27:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JPEDlxDDR/LRt0snYO544C9wnMXUiY2fivW+hsWGbXO3cZpMLu9nw2pXgTz66D2WOKsApzodwQbbkeql+AL51rKsXMMpIimqnpIQtC9AC1dVdd29ERDaBNQUqUtMukCug0rKtrC4GnADfs7U3STbBe0bPaFGQLHLYL/3QhxmOqf3gDF8IbCTFk166h0m762SvsdXg1quIPCrDON1NzjrOXt1twQ3fESiLgMJpFFruwqhPsWMyz58Owve8RrJpNXwjjOxy0iSDASi2kQmfBD5GRUDHUMSLNBgbsMSfYo+sqFMSOsxTwkFofTRomhXB1Y2YTtdIx9UTYZuBE44beCZrA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NmPXYIgXudJdk7ilCxuMA28BkeiLmN6JDPGWMpU9QJ8=;
+ b=YWJoA5SHlcsN1tLuH1uqnIxZdFbCkAsqoa3EQoxQUtnmR/7TT0b/8gEFrDYUe4W5KPKWB82SWoZHoTPL2KuudqX270rtjlPqJJhD7xofvgGjJ6Tnn1RPSKb+E22HOuhL33VrOSUaTKUDXKa7fP61EJShABa3FRiquJcfaTcUysp6VRj+fdtNXk0TICqhmWQyO+YYnhbaqnOOVpZraq4E8zQ+Vu4H0OvFJXf5WP1TXcKuvM7MSHBaHFYX5LLzxo9dqs+dLPDfEFKNrd2ule2ifoiZbo1h9xv8SDZsdpA6fsw+xne+AC+IjcmIIxVLt5Vtv6eoFgRuR3dL2lXT2HxiVA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NmPXYIgXudJdk7ilCxuMA28BkeiLmN6JDPGWMpU9QJ8=;
+ b=iAQa0TbBsKhSopoZm5kxwGFkECvQgmzBcAfS0YEL5rHnw0FzmPMkkBHuvYzlE9gqYOof31oujJx/QUgQHlEhmtk4SPK0YwEW3wJEDLyt3Akui+8iiKHTzIGTEIbGobzt94In32Qtgp4jjU4KX79/51uGFlFm3dN2konW8F3yPQsDh6l7WdY10JyhBPfl4fvsnDjjs1PSHZSwEcA6R3+lZKyhP2GsY4SqlyzM1mbFuevmWuLLe4nIf3X289wsmJWcjh2Rl7qM/2OviXFdkkI6P1mX1HzespOgF8ExLrESohHxIPFD5wPE+tEGoefgBNIrleQ+6j+aGHH/LiARMmaXlg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by DU2PR04MB9148.eurprd04.prod.outlook.com (2603:10a6:10:2f7::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.12; Thu, 16 Jul
+ 2026 14:27:34 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0223.011; Thu, 16 Jul 2026
+ 14:27:33 +0000
+Date: Thu, 16 Jul 2026 09:27:25 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Joy Zou <joy.zou@oss.nxp.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Ye Li <ye.li@nxp.com>,
+	Jacky Bai <ping.bai@nxp.com>, Peng Fan <peng.fan@nxp.com>,
+	Dong Aisheng <aisheng.dong@nxp.com>, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/3] regulator: core: use system_freezable_wq for init
+ complete work
+Message-ID: <aljqTb1SGP487wJz@SMW015318>
+References: <20260716-b4-regulator-pf01-v1-0-8c1519d54bd4@oss.nxp.com>
+ <20260716-b4-regulator-pf01-v1-1-8c1519d54bd4@oss.nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260716-b4-regulator-pf01-v1-1-8c1519d54bd4@oss.nxp.com>
+X-ClientProxiedBy: SA0PR11CA0051.namprd11.prod.outlook.com
+ (2603:10b6:806:d0::26) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 02/39] drm/connector: Add caps-based HDMI connector
- init helper
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>,
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
- kernel@collabora.com, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
- <20260702-dw-hdmi-qp-scramb-v8-2-d79890d00b6a@collabora.com>
- <i4tjtsf5rsckfcayo5nuhlger5wqxn3ujeaubm4g2fgrwvhzb2@hf4uhgq3ja5p>
- <ad75cf26-9437-47d0-864d-d71263401615@collabora.com>
- <20260707-illegal-tuna-of-force-1c06e3@houat>
- <737678ab-f082-4a0e-b453-f403ba141437@collabora.com>
- <80374deb-3246-413f-a043-66bcdb438ab1@collabora.com>
- <20260715-fair-opalescent-rhino-c6407b@houat>
- <45113534-94ad-4a0f-8014-c04e9ab67a26@collabora.com>
- <20260716-mega-ocelot-of-foundation-e3bcf6@houat>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <20260716-mega-ocelot-of-foundation-e3bcf6@houat>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DU2PR04MB9148:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0fc0a1ce-a08d-4b5e-3046-08dee346602d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|19092799006|366016|1800799024|6133799003|56012099006|11063799006|10067099003|4143699003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: mWnTIangnnGCa0NryFPD0uaP//BMo0jfG7by9ZlbK4YWBDmlGSWTANPErmZoqrEEn+bvoAi5cnWdikUo8msduJpl+lDh1FMknNJ/p6SKMTPN3Q69I1VQitjsRLoceo/r88CVW0J62tpj5dyJqU2kIUWrXACKic/Ya1xt7aLWOUeFD9vjaUXGxoMTrovbq9IzUdAbBC+MB+5z80ErI0FxuL7h6qVJY9qTJiKfcv465cPQ7eCasPkMPx6eT8CvwDKLzYh6urwwhzpAWhoy9bozIfZgvB+glZugqL4SzZL+cZVyef5Wt3PZ5gXRBBEY8wPDZWRL37MN9oURgo5O6YCHiWLJOuLmyazayIzL9xjrRBCWej4ACGBXwsleQPdEu8wI4e+hoohizcLVdJgY1X87UIx/sPFAgiajyoXsoy8QHCt330rt+dly4C9ADj8TyaqfwFBleyqT1nDZ5/Y7rOdHeO7HfoH7znQdWmtSFh507WhcJMoFwRCS+ByjX8BzoO9mN6bPWC+RSumBNvcFjUxd3qNYYRZBW/F9rJpiYdc9R8Uo9s8P7vnQj0PmvSSwf1H07i+sSsb2QsSB7lfnwBwVY5O4Eye3GuU6cBwJVM3CLwvuz7eCWVtd4a8ARR50EZ/rtyAclTdjQvV34E2K1WuI6GQQSBMsw4g/PYd3E4yQtkM=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(19092799006)(366016)(1800799024)(6133799003)(56012099006)(11063799006)(10067099003)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?c0ucm4i0vpumJ7WFRHJcSYU4uQtiKFN4zTZ688vLR6AnG5Q4E3shqDvEsJsR?=
+ =?us-ascii?Q?xKb3tpxZ7WKiMR2h5+CfpPfjwI69lI+DZCHtrywsq7wEPM0hKCs+Q40EPr7f?=
+ =?us-ascii?Q?RFa2/QOmZEqFOJ9BwL/1bllClDqLjvecAFCi25LfXHk19NojuYPabIPXTidj?=
+ =?us-ascii?Q?IYqfRH3lDw0E9DVIypLGGITQHV8MHso58kRgqPsXaQC7yqLWz5yXVa7Xahob?=
+ =?us-ascii?Q?gioOpPTVbx0e4zoxzTKvCaOFakBOwuAS/8TdtxEDssUQCzkRstwbqt/JeKpf?=
+ =?us-ascii?Q?gQEzdy2lczg+4L6lVYD34t+a0eN4+8xhiogwS1pB5r/fmYOg5aYNwpgn3iwF?=
+ =?us-ascii?Q?rY7oMVU259S/Hoc7oNhJPuC1jRjTICg0tDjZn+rxqVpJIKM20zvNJfnrRMLc?=
+ =?us-ascii?Q?QPBMaC8kloV3sVtBu/zlC94RCNC1aeevq3BbmL8TqNFQU4YNQzKxkWfjWfFN?=
+ =?us-ascii?Q?1MA2THRWj9lyE1vUa2LhU6PKQv9+ktL7IiQ+0KrQ7prBXytJGcUf5ukHlyUG?=
+ =?us-ascii?Q?CNi9Z0OK6otlnWxzuWZ0juetPVj3m/Q9/bgCFhQtpIZC36QwXRE3SCMrCwjV?=
+ =?us-ascii?Q?EDNRoCGN/t0vy4QnFTBdyTzgP0hQlSHKqFmsO4XI/vp7Ojb53YQkuVd3QvwS?=
+ =?us-ascii?Q?LWgliBCMgLmvY/T32bLgmSSb5D/LgpGLhmfVxQO/tpfTS5QUEfblpBtv/CoA?=
+ =?us-ascii?Q?X2Q74niqQ/9RlS+t4yXI9tohw/3dFyn1WDGS1C51ksZF2OohjKOQQfKUKPV8?=
+ =?us-ascii?Q?OqYJa+v2qvAkP6ksh2F+I0lmT1OhxdwaCWgkVJkFN1MIF2UhgcT9d2MjH1jz?=
+ =?us-ascii?Q?o9gLjEV2zZ6HbM/dx8mGZIfKeuHbjOT87zjBlJOFCWp2kQDmGeVP7iyEN9FL?=
+ =?us-ascii?Q?gGYl4PLBG1304IAvAx/bCa12xnBbLNbFOzqXu3AToffdOcPFgh4qKqOFd+5E?=
+ =?us-ascii?Q?H8v7h1knPIsUUmwBy639eORqF+HQl74A+r+AtNTTNUBC6TBuFtYEkTWfYyb3?=
+ =?us-ascii?Q?Lls9ftDo9I7Bee3tNXblzLYHMJBUvbovcJd5Axm+uauksGteRN7rTZ8NmWGq?=
+ =?us-ascii?Q?0k2Uma/XNUjVUQJMPrCKU0H7vdN9uIaPk7J7grow9s/+4aNOqMlS4UxM7JPu?=
+ =?us-ascii?Q?7qPuz+A+oaVku1Bqf5csHNlLTtwTI6SvZadkXhbQLnCg1FViL8+w7QcNjJHn?=
+ =?us-ascii?Q?dP+5fwXPs2hU79lwbm6wonEDDSYz4VoT7puj4b4Op5UVMnDGaXLSf1BLnDJk?=
+ =?us-ascii?Q?5LCwmlEPpaipz0fpyp8Nj6elreGW/IVWnnqXVDOQ6sM6Y14GgTgtmtGY6+wx?=
+ =?us-ascii?Q?TJAlgnAokbWPs90Qou52mxYU8Xm4gcDV7IcpvtrCli9nuwSiJ4Id6LJwL0aq?=
+ =?us-ascii?Q?hAjNq7wzGSJexMw/NmhejlIOvWaxUH5ID1/6NL8yJgObJ/galXqvhooyhbKE?=
+ =?us-ascii?Q?dJ0zdCnRIENSCLJPBAcOHzq+j9Ys9IAlmxqKuQU4QY0qyDbb0FJ97mpN2dJK?=
+ =?us-ascii?Q?q26+rRwYTcw2O4jtzshEDVr/9biGJtskpJCtcon/u4MZ18tXn5l1fkWOiNhX?=
+ =?us-ascii?Q?zhJi9WGkX/czrioVGVAhc6bkI+3OkUFY3vQY/FnS7lDxyzbRfWoEjAfUVB3j?=
+ =?us-ascii?Q?NAqbPL0yKWAETVoye1OmZ7dEGJ8BaY2oNxywv3xKgOo3x7XxBembFhz2JMBH?=
+ =?us-ascii?Q?QN/AtOK9qTsjM6WAERQsvuXjmgf+MeqSqVpdXGr3v/oyGjpfpuqKfypeEaHQ?=
+ =?us-ascii?Q?YSqRLMJNesR9QKuYCH5GuI0PcKQ961mLfep39SVeBGTMMSwfEFdl?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0fc0a1ce-a08d-4b5e-3046-08dee346602d
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jul 2026 14:27:33.8287
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: NfZFXNnwBwqUM3q2BToP5UJTlYbYqXusbcre1+rwyD1XsE5w46TiAEnv957rqaxXNt+2Q2Q783+DXJ9smTITismesIAwbEQd+BCopJDICGLw/TidTuCX1a2duQxGXGAA
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB9148
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_072717_326993_B72CE9B5 
-X-CRM114-Status: GOOD (  23.75  )
+X-CRM114-CacheID: sfid-20260716_072739_213677_39856E09 
+X-CRM114-Status: GOOD (  19.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,112 +146,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/16/26 4:44 PM, Maxime Ripard wrote:
-> On Wed, Jul 15, 2026 at 01:34:19PM +0300, Cristian Ciocaltea wrote:
->> On 7/15/26 11:50 AM, Maxime Ripard wrote:
->>> On Fri, Jul 10, 2026 at 01:27:37PM +0300, Cristian Ciocaltea wrote:
->>>> On 7/8/26 1:11 PM, Cristian Ciocaltea wrote:
->>>>> Hi Maxime,
->>>>>
->>>>> On 7/7/26 7:10 PM, Maxime Ripard wrote:
->>>>>> On Fri, Jul 03, 2026 at 10:31:55PM +0300, Cristian Ciocaltea wrote:
->>>>>>> Hi Dmitry,
->>>>>>>
->>>>>>> Thanks for your quick review!
->>>>>>>
->>>>>>> On 7/3/26 5:05 PM, Dmitry Baryshkov wrote:
->>>>>>>> On Thu, Jul 02, 2026 at 05:46:15PM +0300, Cristian Ciocaltea wrote:
->>>>>>>>> In preparation for adding HDMI 2.x source capabilities, introduce struct
->>>>>>>>> drm_connector_hdmi_caps and a new drmm_connector_hdmi_init_with_caps()
->>>>>>>>> helper.
->>>>>>>>>
->>>>>>>>> The existing drmm_connector_hdmi_init() helper currently takes
->>>>>>>>> individual capability arguments such as supported_formats and max_bpc.
->>>>>>>>> Adding more HDMI-specific arguments to that function would not scale
->>>>>>>>> well, so move those values into a dedicated capabilities structure and
->>>>>>>>> implement the existing helper as a wrapper around the new caps-based
->>>>>>>>> interface.
->>>>>>>>
->>>>>>>> I think, it was an intention of Maxime: make sure that every driver is
->>>>>>>> forced to provide some values here. With the struct-based init it is
->>>>>>>> easy to overlook or to ommit a value.
->>>>>>>
->>>>>>> Agreed that the struct-based init loses the compile-time guarantee that every
->>>>>>> argument is explicitly provided - that's a real downside.  
->>>>>>>
->>>>>>> I'd argue it's recoverable, though: the init helper validates the mandatory
->>>>>>> fields, so a driver that omits a required value gets rejected at init time
->>>>>>> rather than silently misconfigured.  The "you must provide sane values" property
->>>>>>> is expected to be preserved, just enforced at runtime instead of by the
->>>>>>> compiler. 
->>>>>>
->>>>>> Yeah, I don't think we can win with C here. Rust might, but we're
->>>>>> probably a long way from that.
->>>>>>
->>>>>>> The main motivation for the struct is scalability/maintainability as we add HDMI
->>>>>>> 2.x capabilities: new fields go into the struct rather than growing the helper's
->>>>>>> argument list, so existing callers don't need churny signature updates on every
->>>>>>> extension.
->>>>>>>
->>>>>>> FWIW, in the previous revision we discussed addressing the concern with a
->>>>>>> callback instead.  Sadly, I had to discard that approach, as it proved not
->>>>>>> flexible enough, e.g. drm_bridge_connector_init() computes caps dynamically, and
->>>>>>> would have required either stateful callbacks, or storing redundant/temporary
->>>>>>> cap data in driver-private structures just to satisfy the callback.
->>>>>>
->>>>>> I just realized something reviewing your patch: we don't necessarily
->>>>>> need an extra argument or a callback, we can just put these fields into
->>>>>> drm_hdmi_connector_funcs directly, and then validate them in init.
->>>>>
->>>>> If I understand correctly, we should drop the drm_connector_hdmi_caps struct
->>>>> introduced by this patch and move all its fields into drm_hdmi_connector_funcs.
->>>>>
->>>>> In that case, how should we proceed with drmm_connector_hdmi_init()? 
->>>>
->>>> Actually, this brings us to the callback issue: we cannot compute caps
->>>> dynamically, as it only works with static data, since funcs is supposed to be
->>>> immutable.
->>>
->>> Does it? The core and helpers must consider it immutable but it doesn't
->>> have to. drm_bridge_connector for example could totally allocate it and
->>> dynamically create it based on the bridge capabilities.
->>
->> If we take the VC4 case, is it fine to drop the const from the static
->> drm_connector_hdmi_funcs to allow dynamically setting up supported_hdmi_ver and
->> max_bpc in vc4_hdmi_connector_init()?
->>
->> static struct drm_connector_hdmi_funcs vc4_hdmi_hdmi_connector_funcs = {
->> 	.tmds_char_rate_valid	 = vc4_hdmi_connector_clock_valid,
->> 	...
->> }
->>
->> static int vc4_hdmi_connector_init() 
->> {
->> 	...
->>     
->> 	if (vc4_hdmi->variant->supports_hdr)
->> 		vc4_hdmi_hdmi_connector_funcs.max_bpc = 12;
->>
->> 	if (vc4_hdmi->variant->max_pixel_clock >= HDMI_2_0_TMDS_CHAR_RATE_MAX_HZ)
->> 		vc4_hdmi_hdmi_connector_funcs.supported_hdmi_ver = HDMI_VERSION_2_0;
->> 	else if (vc4_hdmi->variant->max_pixel_clock >= HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ)
->> 		vc4_hdmi_hdmi_connector_funcs.supported_hdmi_ver = HDMI_VERSION_1_3;
->> 	...
->> }
-> 
-> No, but you don't have to do that either.
-> 
-> You have three cases:
->  - Rpi < 4 has max_bpc = 8, HDMI 1.4
->  - RPI 4 HDMI 0 and RPI 5 has max_bpc = 12, HDMI 2.0
->  - RPI 4 HDMI 1 has max_bpc = 12, HDMI 1.4
-> 
-> Just create three different structures, and put a pointer to the right
-> one in the vc4_hdmi_variant structure. There's no need to be dynamic
-> there.
+On Thu, Jul 16, 2026 at 11:50:53AM +0800, Joy Zou wrote:
+> schedule_delayed_work() uses system_wq, which is non-freezable, allowing
+> regulator_init_complete_work to run concurrently with system suspend. This
+> work fires ~30s after boot to disable unused regulators via I2C. When it
+> races with PM suspend, the I2C adapter may already be suspended, triggering
+> a -ESHUTDOWN warning dump.
+>
+> [   33.707233] pc : __i2c_transfer+0x36c/0x3c8
+> [   33.707240] lr : __i2c_transfer+0x36c/0x3c8
+> [   33.707246] sp : ffff80008239ba50
+> [   33.707249] x29: ffff80008239ba50 x28: 0000000000000001 x27: 0000000000000000
+> [   33.707259] x26: 0000000000000000 x25: 0000000000000001 x24: ffff0000c025c0e0
+> [   33.707268] x23: 0000000000000000 x22: ffff0000c025c0e1 x21: 0000000000000001
+> [   33.707277] x20: ffff80008239bae8 x19: ffff0000c0f54880 x18: fffffffffffeb320
+> [   33.707287] x17: 000000040044ffff x16: 0000000000000000 x15: ffff800082086fd8
+> [   33.707296] x14: 0000000000000000 x13: 0a6465646e657073 x12: 757320656c696877
+> [   33.707305] x11: 0000000000000058 x10: 0000000000000018 x9 : ffff800082087060
+> [   33.707314] x8 : 0000000000057fa8 x7 : 000000000000027d x6 : 0000000000000000
+> [   33.707323] x5 : 0000000000000000 x4 : 0000000000000000 x3 : 00000000ffffffff
+> [   33.707333] x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffff0000c0123480
+> [   33.707343] Call trace:
+> [   33.707346]  __i2c_transfer+0x36c/0x3c8 (P)
+> [   33.707356]  i2c_transfer+0x6c/0xf8
+> [   33.707364]  i2c_transfer_buffer_flags+0x5c/0xa0
+> [   33.707372]  regmap_i2c_write+0x20/0x60
+> [   33.707382]  _regmap_raw_write_impl+0x5cc/0x660
+> [   33.707389]  _regmap_bus_raw_write+0x60/0x80
+> [   33.707396]  _regmap_write+0x58/0xc0
+> [   33.707403]  _regmap_update_bits+0x11c/0x140
+> [   33.707409]  regmap_update_bits_base+0x54/0x80
+> [   33.707416]  regulator_disable_regmap+0x40/0x5c
+> [   33.707424]  _regulator_do_disable+0x94/0xbc
+> [   33.707435] CPU2 is up
+> [   33.707433]  regulator_late_cleanup+0xe0/0x1e8
+> [   33.707442]  class_for_each_device+0x104/0x13c
+> [   33.707450]  regulator_init_complete_work_function+0x54/0x80
+> [   33.707458]  process_one_work+0x150/0x290
+> [   33.707467]  worker_thread+0x180/0x2f4
+> [   33.707473]  kthread+0x12c/0x204
+> [   33.707484]  ret_from_fork+0x10/0x20
+> [   33.707493] ---[ end trace 0000000000000000 ]---
+>
+> Switch to system_freezable_wq so the work is frozen before any device
+> is suspended, eliminating the race.
+>
+> Fixes: 55576cf18537 ("regulator: Defer init completion for a while after late_initcall")
+> Signed-off-by: Joy Zou <joy.zou@oss.nxp.com>
+> ---
 
-Ack, will do!
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Thanks,
-Cristian
+>  drivers/regulator/core.c | 6 ++++--
+>  1 file changed, 4 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/regulator/core.c b/drivers/regulator/core.c
+> index 1797929dfe56..d5d24a940f31 100644
+> --- a/drivers/regulator/core.c
+> +++ b/drivers/regulator/core.c
+> @@ -27,6 +27,7 @@
+>  #include <linux/regulator/driver.h>
+>  #include <linux/regulator/machine.h>
+>  #include <linux/module.h>
+> +#include <linux/workqueue.h>
+>
+>  #define CREATE_TRACE_POINTS
+>  #include <trace/events/regulator.h>
+> @@ -6882,8 +6883,9 @@ static int __init regulator_init_complete(void)
+>  	 * we'd only do this on systems that need it, and a kernel
+>  	 * command line option might be useful.
+>  	 */
+> -	schedule_delayed_work(&regulator_init_complete_work,
+> -			      msecs_to_jiffies(30000));
+> +	queue_delayed_work(system_freezable_wq,
+> +			   &regulator_init_complete_work,
+> +			   msecs_to_jiffies(30000));
+>
+>  	return 0;
+>  }
+>
+> --
+> 2.34.1
+>
+>
 
