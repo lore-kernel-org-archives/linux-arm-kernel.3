@@ -4,92 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0B64C44518
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 18:43:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18F7CC44512
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Jul 2026 18:48:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+owPLS3W62V7LASlKWJAuonWiR0ofRaVkRMdZyo+/Oc=; b=N7mfMDkyyvoANH80iG3wHAcdqW
-	PoAUWvdg5Kd+d22Fri+ganji53Wh3veFPUslAXokzcVb1IxAJtIARCisL0eB96dfHL8+is8+528Uw
-	bFxMYMnoSVcsznYzBwflOOO7eyK5+zTUDzP7ASDkb+hY6iHbz+M0VtmwrL1ebUnjKWO4oJxKOsHQm
-	ZR1QCf5OQxtijcoYh64SIgkrCsZTjmDlQTmjEYdNsZI2imkS39HLMLWN062CRajy0VC2vL0MDca6n
-	UJKBlKhVMUS6OOHc003iP3RakQX6xaLe9+nBfalSrFUU/bkEAYtusJZEYo1DVGB1ogfM/MVQHX4E3
-	oNjzKBbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k90VREcyUMcR/OGuKj3U3g7OaZ/zXu0WG1tLumtRQ8E=; b=cZ3pPlSZs2IFXCbKTCIaGuEYTD
+	nIbZJqrMrckntvX9ORiDuS/EOINrf81BYolbtaCIVNeZwTqkpAP/o8SbpjyIMaEg0oESAPylxd00r
+	C9mlkkhEy1uLGOeb7csRbD7uYSarXfWDtdA/Dkyq+N2rhLIoVu8uFmmeRZp/9DTRRN8c8tC4Ve8df
+	7sOyD22S4VJUindiGMwPCkVkgvb9h2boQfbdlB+f9UNVXvMpdOzgnrw4PJ7xEwD7VIIlgGTgnWUfO
+	lRLR4sx17JHx94NVc1UqhRRXJ1qkJHgt8m2TmI9QqZJx4B+cxChHkmQvYGaVHGoMrF2sZNQeSdflc
+	lNmEq3DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkR3M-00000000Pvt-2tOW;
-	Thu, 16 Jul 2026 18:43:24 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1wkR8Y-00000000QVU-295v;
+	Thu, 16 Jul 2026 18:48:46 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkR3I-00000000Psq-0Zcy
+	id 1wkR8V-00000000QUi-3OT4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Jul 2026 18:43:21 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-493bb510ce4so47904335e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 11:43:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784227398; x=1784832198; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=+owPLS3W62V7LASlKWJAuonWiR0ofRaVkRMdZyo+/Oc=;
-        b=QfOYuzp6GsrIcaGgFcWIDthYWnMG4X66AZA2hpj9ygOcVDpahBHyf6e0mXJUFoy4yV
-         Ycn319WR+zTw9dnKYBPn6D5OghyO8IA3RQ4yk/+EtBOzbeIX0yZadEG0t7oo2b8bbBag
-         8d0vZYF7jsA1OcYAcwdmd1oy5faAr7o7A7MpPuhF4q2KOK0sOY0me4woK9Ghmxrs+TUX
-         svaGTgdNFBkm0w/BW7l1zYATjjHp63PGOSy2TgNDrt/QydluhHnHo4x8uVO4LgW/sBSY
-         qE86qc/q471eAMmI8dEATgdRfyLkwHMYtEOl1B5E98VQOzZybBZuNkzjANFZF74y5ygO
-         0siw==
+	Thu, 16 Jul 2026 18:48:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1784227722;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=k90VREcyUMcR/OGuKj3U3g7OaZ/zXu0WG1tLumtRQ8E=;
+	b=WxuWjJ0G4EKXtHEM0S5925dJEeneFsNy/EEreYYwAQGpXRbQURY6V7kpBMk/8Ya6KbBSo2
+	ZS3L7snwivR8vadnHX3BZkIiCyEVFBLyGQA9UTnqrC3NkbcV2kKcpzqHeyknQYAaLNtSm7
+	uRqTfPggtBLRjXylHgCjZ2g27+BQlfQ=
+Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com
+ [209.85.219.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-195-hS14IuVJMB2oZwZ33cr--w-1; Thu, 16 Jul 2026 14:48:40 -0400
+X-MC-Unique: hS14IuVJMB2oZwZ33cr--w-1
+X-Mimecast-MFC-AGG-ID: hS14IuVJMB2oZwZ33cr--w_1784227720
+Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-8ec3314f65fso121153166d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 11:48:40 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784227398; x=1784832198;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=+owPLS3W62V7LASlKWJAuonWiR0ofRaVkRMdZyo+/Oc=;
-        b=iAIeCIGWbQkstocbNA814H/SPkouLb2yGIPGEShiKPwTvzwwFQmAfM+ytwNuQ5IFK7
-         Cq7g8zwNEnOmTzV6yOkZzakfexx1V0imrAba0x8JL9CzrDZISJn62wQTmuNuHKoHy43w
-         MtSDMjEmHL2L0/1k6m8xVXnMo1ep4JpZiwgRqlqpihG1SoHmHKTecA0XG5BffvN3SRNs
-         RnsEo5SHeW2o91OR2tZc8mzRbJa/3sRR4ph0HQz9haghFIxdcSvV2DxrjRnDZ+4w/bR+
-         s7JhWcd1CgJ1lnBS5C85bLBnOFLtjFwJOdUfoeyjXTta2R6iE8Rv6lN6c2icsUaomESb
-         P2KA==
-X-Forwarded-Encrypted: i=1; AHgh+RoU1R1Zq5NMHQFCEaP+DZPTGyei0l8o6wjJqhQVLz4SjQe+pNhJVEYvhoVY2lgnjSwugNUCwvjn6g/TQY2QBBQi@lists.infradead.org
-X-Gm-Message-State: AOJu0YzKV2Q21YCuigwwS9JASRlbqLWTRaq0P6lNq9plI+uWzaAy+gSN
-	TPtKWzAHaUYw6yRYFKANbi8A9uxWO0ByHERr7EcVLxUKBfbBt6JgyGzg
-X-Gm-Gg: AfdE7ckVu+ezRggeL6LikIabtzUzw/mbCh/iEzw/EH1qlEb6NIvTcg4UU6zNDxpWt01
-	lzMNwvqL1hp6j5MQx2U1zwK6m4s7Rq0MmICxCfGEUgQbAhDbyGHxLmEmby3SwXlOqZ6CoUx9sA3
-	2zP9Xqhg6OeLljjmVhXpJlLiVXQJV2WM+l4Ev1nf84b6yvBkVy2i4aPPxx+O3QhqbJZUacBt3px
-	f9kfN7pe5CnpKcD9/rbbg/4gw5jniExfNY3rjXUGYMd0HN1vplSdi6M6vHxARFAzMClfGoDIIvj
-	d0iwCVrJ4rCKAwsOjT8vk6Q5qNjHpCWQSEDARG7Cj5pDRPhglQflvvnUxnWdWgVcnA3Azg+H+x7
-	mCB8ZIdJUSFxUx16o6sMT5a1tWLgBwMUwQxv64EQx7xgwu4AZqCeFgFFK8VQ12fqM0DLysg==
-X-Received: by 2002:a05:600c:4614:b0:493:cc25:9c0e with SMTP id 5b1f17b1804b1-49538999453mr94144035e9.14.1784227398284;
-        Thu, 16 Jul 2026 11:43:18 -0700 (PDT)
-Received: from vitor-nb ([2001:8a0:c4c6:f00:b22c:3845:cef5:c42f])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49541e7d799sm72404615e9.3.2026.07.16.11.43.16
+        d=1e100.net; s=20251104; t=1784227720; x=1784832520;
+        h=user-agent:in-reply-to:content-disposition:content-type
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=k90VREcyUMcR/OGuKj3U3g7OaZ/zXu0WG1tLumtRQ8E=;
+        b=MZEYxdbDDtjFUGtdug/VJJDdjz1bKQuG4VMEyUS3f7La3j7lLvrLZv37PeuzgXb6pi
+         jqftZkQVjMDBtT9dYsDEpdfM3BFszs/Stz1jR5aaBzBtUfDwMGwXUoVuPhetTmBgTWTn
+         LEr6FIBTqkKGocWBjmPjgvMo52CCWFF/THSHdQUlKTKAK8uOq98JqdNUE5+D2DqA35cL
+         gdnFPlTojblNCOZ+uIeN/H1zOB95og0RJduiBhoqxLiI/3Xk3KtwxvaMpo9NDBZmVA5J
+         CuOQJrnPV7eJkTMfUomSSwlTclSm7M9Q0Ul3t5Mpn7yhKzi6BC2f6e8gP0FDWQ61i5Kg
+         n/6A==
+X-Forwarded-Encrypted: i=1; AHgh+RqmKH8nX2QNAG4FjvRGO/yMz+RcpDAre6oQt+Otu/vgTeuNCw3iR6U4evk22pfkBvZiU9+rMvS9rqevZvu+QlxR@lists.infradead.org
+X-Gm-Message-State: AOJu0YxNfPsowWoCpP0lM23P3g4bTCbYwmf1KfU+it3MdYH8tsU1Du7j
+	xbx0ozaDU41C0PH2E9Ju1gSk2QLuKmpTq/V9evQVMx2dLiV1g70L8+2cAWWJEkrC0SEGJmnKWw3
+	w3MaQjRsa6yDnyBiHi2heW6OImZyjVlKFm5WxKRAfltd1XoXyCoGk4/vMYVUsXWwiJDfBRY0xRb
+	H+
+X-Gm-Gg: AfdE7cnzZqL4Km8BHwOq2I4A0y4vIkuyLHevs3X985a0MheB0zFTmcCNM5XkR3/QhA/
+	tQzAPGVhyFQ+CPPl2dmBzWB8BzVhw2dM3HxcTkA2QJSY6NfS+HDSrxYN3JYLfyRlpAd1CRSbHTE
+	rnaN/rtBw15A034/XQurHEsvwSmC/WyOQZQlW2aATfAm9XYprjoeE56bQeT+WnzXZ0fxOlx3A99
+	LIFejpXicRKxX5l/m9XHi+g8+MF2Y03/I6DWMRb5dGtHb4E1fdB7MHLkxaOXZNau+UJQcui6Il+
+	Ncwjvw8T0sEdSyv7KjsK1jFLJ6vKZyfDs63TWv5zNrapj7CZrAEikHTvHfvzVPL0ywyP40FAeMP
+	ILYsogPKHOHZVmAcFXv+QXNTibV2Y6jFMzmc=
+X-Received: by 2002:a05:620a:1a14:b0:92e:e569:dc20 with SMTP id af79cd13be357-930962abddbmr924062085a.78.1784227720199;
+        Thu, 16 Jul 2026 11:48:40 -0700 (PDT)
+X-Received: by 2002:a05:620a:1a14:b0:92e:e569:dc20 with SMTP id af79cd13be357-930962abddbmr924057085a.78.1784227719524;
+        Thu, 16 Jul 2026 11:48:39 -0700 (PDT)
+Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-92ee5cf9d9bsm2074490485a.28.2026.07.16.11.48.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 16 Jul 2026 11:43:17 -0700 (PDT)
-From: Vitor Soares <ivitro@gmail.com>
-To: Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>,
+        Thu, 16 Jul 2026 11:48:38 -0700 (PDT)
+Date: Thu, 16 Jul 2026 14:48:35 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Vitor Soares <vitor.soares@toradex.com>,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 3/3] arm64: dts: ti: k3-am62x-verdin: Share UART_4 MCU reservation overlay
-Date: Thu, 16 Jul 2026 19:43:02 +0100
-Message-ID: <20260716184300.85413-8-ivitro@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260716184300.85413-5-ivitro@gmail.com>
-References: <20260716184300.85413-5-ivitro@gmail.com>
+	Conor Dooley <conor+dt@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>, linux-pci@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org, linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4 2/4] clk: en7523: add support for dedicated PCIe
+ PERSTOUT reset
+Message-ID: <alkng6IIkInZjxqA@redhat.com>
+References: <20260714115848.8537-1-ansuelsmth@gmail.com>
+ <20260714115848.8537-3-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260714115848.8537-3-ansuelsmth@gmail.com>
+User-Agent: Mutt/2.4.0 (2026-06-19)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: pYk5rhlyFRatnQf7BmqbnfQitjC1ERxPwyn5r6YBCkE_1784227720
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_114320_238475_B3943415 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20260716_114843_926717_3DB9F6C6 
+X-CRM114-Status: GOOD (  26.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,90 +126,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Vitor Soares <vitor.soares@toradex.com>
+Hi Christian,
 
-Verdin AM62 and AM62P both expose mcu_uart0 as Verdin UART_4, and the
-reservation needed when this UART is used by the MCU firmware is
-identical on both SoMs.
+On Tue, Jul 14, 2026 at 01:58:44PM +0200, Christian Marangi wrote:
+> Add support for resetting the PCIe lines with the PERSTOUT reset. These
+> special reset are controlled by the PCIC register and are specific to each
+> of the 3 PCIe lines.
+> 
+> Notice that reset logic is inverted for these bit where 0 is assert and 1
+> deassert. This is intenrally handled in the reset function.
 
-Rename the AM625-specific overlay added in commit ca61bcec3e8a ("arm64:
-dts: ti: k3-am62-verdin: Reserve UART_4 for Cortex-M4F") to a common
-k3-am62x-verdin overlay and use it for both AM625 and AM62P5 Verdin
-combined DTBs. This avoids carrying identical SoC-specific overlays for
-each remoteproc firmware/peripheral combination.
+s/intenrally/internally/
 
-Signed-off-by: Vitor Soares <vitor.soares@toradex.com>
----
- arch/arm64/boot/dts/ti/Makefile                          | 9 +++++++--
- ...din-uart4-mcu.dtso => k3-am62x-verdin-uart4-mcu.dtso} | 2 +-
- 2 files changed, 8 insertions(+), 3 deletions(-)
- rename arch/arm64/boot/dts/ti/{k3-am625-verdin-uart4-mcu.dtso => k3-am62x-verdin-uart4-mcu.dtso} (69%)
+The "these bit" above is awkward as well. Sorry I don't have a
+suggestion offhand, but I see what you mean below based on the code.
 
-diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-index 8541e43d24b7..874577298d6c 100644
---- a/arch/arm64/boot/dts/ti/Makefile
-+++ b/arch/arm64/boot/dts/ti/Makefile
-@@ -48,7 +48,6 @@ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-ov5640.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-panel-cap-touch-10inch-dsi.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-panel-cap-touch-10inch-lvds.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-panel-cap-touch-7inch-dsi.dtbo
--dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-uart4-mcu.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-wifi-dahlia-dsi-to-hdmi.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-wifi-dahlia-panel-cap-touch-10inch-dsi.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-wifi-dahlia.dtb
-@@ -98,6 +97,9 @@ dtb-$(CONFIG_ARCH_K3) += k3-am62x-sk-csi2-tevi-ov5640.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am62x-sk-csi2-imx219.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am62x-sk-hdmi-audio.dtbo
- 
-+# Common overlays for Verdin AM62 and AM62P family of boards
-+dtb-$(CONFIG_ARCH_K3) += k3-am62x-verdin-uart4-mcu.dtbo
-+
- # Boards with AM64x SoC
- dtb-$(CONFIG_ARCH_K3) += k3-am642-evm.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am642-evm-icssg0.dtbo
-@@ -248,7 +250,7 @@ k3-am625-verdin-wifi-dev-panel-cap-touch-7inch-dsi-dtbs := \
- 	k3-am625-verdin-wifi-dev.dtb \
- 	k3-am625-verdin-panel-cap-touch-7inch-dsi.dtbo
- k3-am625-verdin-wifi-dev-uart4-mcu-dtbs := k3-am625-verdin-wifi-dev.dtb \
--	k3-am625-verdin-uart4-mcu.dtbo
-+	k3-am62x-verdin-uart4-mcu.dtbo
- k3-am625-verdin-wifi-mallow-panel-cap-touch-10inch-lvds-dtbs := \
- 	k3-am625-verdin-wifi-mallow.dtb \
- 	k3-am625-verdin-panel-cap-touch-10inch-lvds.dtbo
-@@ -283,6 +285,8 @@ k3-am62p5-verdin-wifi-dev-ov5640-24mhz-dtbs := k3-am62p5-verdin-wifi-dev.dtb \
- 	k3-am62p5-verdin-ov5640-24mhz.dtbo
- k3-am62p5-verdin-wifi-dev-ov5640-dtbs := k3-am62p5-verdin-wifi-dev.dtb \
- 	k3-am62p5-verdin-ov5640.dtbo
-+k3-am62p5-verdin-wifi-dev-uart4-mcu-dtbs := k3-am62p5-verdin-wifi-dev.dtb \
-+	k3-am62x-verdin-uart4-mcu.dtbo
- k3-am642-evm-icssg0-dtbs := \
- 	k3-am642-evm.dtb k3-am642-evm-icssg0.dtbo
- k3-am642-evm-icssg1-dualemac-dtbs := \
-@@ -384,6 +388,7 @@ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
- 	k3-am62p5-verdin-wifi-dev-nau8822-btl.dtb \
- 	k3-am62p5-verdin-wifi-dev-ov5640-24mhz.dtb \
- 	k3-am62p5-verdin-wifi-dev-ov5640.dtb \
-+	k3-am62p5-verdin-wifi-dev-uart4-mcu.dtb \
- 	k3-am642-evm-icssg0.dtb \
- 	k3-am642-evm-icssg1-dualemac.dtb \
- 	k3-am642-evm-icssg1-dualemac-mii.dtb \
-diff --git a/arch/arm64/boot/dts/ti/k3-am625-verdin-uart4-mcu.dtso b/arch/arm64/boot/dts/ti/k3-am62x-verdin-uart4-mcu.dtso
-similarity index 69%
-rename from arch/arm64/boot/dts/ti/k3-am625-verdin-uart4-mcu.dtso
-rename to arch/arm64/boot/dts/ti/k3-am62x-verdin-uart4-mcu.dtso
-index e263809cdf74..a3b50efbe52b 100644
---- a/arch/arm64/boot/dts/ti/k3-am625-verdin-uart4-mcu.dtso
-+++ b/arch/arm64/boot/dts/ti/k3-am62x-verdin-uart4-mcu.dtso
-@@ -2,7 +2,7 @@
- /*
-  * Copyright (c) Toradex
-  *
-- * Verdin AM62 Cortex-M4F debug UART
-+ * Verdin AM62 and AM62P UART_4 reserved for the MCU co-processor
-  */
- 
- /dts-v1/;
--- 
-2.54.0
+> 
+> PCI enable/disable are updated to drop PERSTOUT bits in favor dedicated
+> reset handling.
+> 
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> ---
+>  drivers/clk/clk-en7523.c | 39 ++++++++++++++++++++++++++++-----------
+>  1 file changed, 28 insertions(+), 11 deletions(-)
+> 
+> diff --git a/drivers/clk/clk-en7523.c b/drivers/clk/clk-en7523.c
+> index 1ab0e2eca5d3..c9b21d9bf2f3 100644
+> --- a/drivers/clk/clk-en7523.c
+> +++ b/drivers/clk/clk-en7523.c
+> @@ -338,6 +338,7 @@ static const struct en_clk_desc en7581_base_clks[] = {
+>  static const u16 en7581_rst_ofs[] = {
+>  	REG_RST_CTRL2,
+>  	REG_RST_CTRL1,
+> +	REG_NP_SCU_PCIC,
+>  };
+>  
+>  static const u16 en751221_rst_ofs[] = {
+> @@ -450,6 +451,11 @@ static const u16 en7581_rst_map[] = {
+>  	[EN7581_CPU_TIMER_RST]		= RST_NR_PER_BANK + 28,
+>  	[EN7581_PCIE_HB_RST]		= RST_NR_PER_BANK + 29,
+>  	[EN7581_XPON_MAC_RST]		= RST_NR_PER_BANK + 31,
+> +
+> +	/* RST_PCIC */
+> +	[EN7581_PCIC_PERSTOUT0_RST]	= 2 * RST_NR_PER_BANK + 29,
+> +	[EN7581_PCIC_PERSTOUT1_RST]	= 2 * RST_NR_PER_BANK + 26,
+> +	[EN7581_PCIC_PERSTOUT2_RST]	= 2 * RST_NR_PER_BANK + 16,
+>  };
+>  
+>  static const u16 en751221_rst_map[] = {
+> @@ -635,9 +641,7 @@ static int en7581_pci_enable(struct clk_hw *hw)
+>  	void __iomem *np_base = cg->base;
+>  	u32 val, mask;
+>  
+> -	mask = REG_PCI_CONTROL_REFCLK_EN0 | REG_PCI_CONTROL_REFCLK_EN1 |
+> -	       REG_PCI_CONTROL_PERSTOUT1 | REG_PCI_CONTROL_PERSTOUT2 |
+> -	       REG_PCI_CONTROL_PERSTOUT;
+> +	mask = REG_PCI_CONTROL_REFCLK_EN0 | REG_PCI_CONTROL_REFCLK_EN1;
+>  	val = readl(np_base + REG_PCI_CONTROL);
+>  	writel(val | mask, np_base + REG_PCI_CONTROL);
+>  
+> @@ -650,9 +654,7 @@ static void en7581_pci_disable(struct clk_hw *hw)
+>  	void __iomem *np_base = cg->base;
+>  	u32 val, mask;
+>  
+> -	mask = REG_PCI_CONTROL_REFCLK_EN0 | REG_PCI_CONTROL_REFCLK_EN1 |
+> -	       REG_PCI_CONTROL_PERSTOUT1 | REG_PCI_CONTROL_PERSTOUT2 |
+> -	       REG_PCI_CONTROL_PERSTOUT;
+> +	mask = REG_PCI_CONTROL_REFCLK_EN0 | REG_PCI_CONTROL_REFCLK_EN1;
+>  	val = readl(np_base + REG_PCI_CONTROL);
+>  	writel(val & ~mask, np_base + REG_PCI_CONTROL);
+>  	usleep_range(1000, 2000);
+> @@ -754,14 +756,21 @@ static int en7523_reset_update(struct reset_controller_dev *rcdev,
+>  			       unsigned long id, bool assert)
+>  {
+>  	struct en_rst_data *rst_data = container_of(rcdev, struct en_rst_data, rcdev);
+> -	void __iomem *addr = rst_data->base + rst_data->bank_ofs[id / RST_NR_PER_BANK];
+> +	u32 offset = rst_data->bank_ofs[id / RST_NR_PER_BANK];
+> +	void __iomem *addr = rst_data->base + offset;
+> +	bool inverted = false;
+>  	u32 val;
+>  
+> +	/* For PCIC reset logic is inverted, 0:assert 1:deassert*/
+
+Add space before end of comment.
+
+> +	if (offset == REG_NP_SCU_PCIC)
+> +		inverted = true;
+> +
+>  	val = readl(addr);
+> +	val &= ~BIT(id % RST_NR_PER_BANK);
+>  	if (assert)
+> -		val |= BIT(id % RST_NR_PER_BANK);
+> +		val |= inverted ? 0 : BIT(id % RST_NR_PER_BANK);
+>  	else
+> -		val &= ~BIT(id % RST_NR_PER_BANK);
+> +		val |= inverted ? BIT(id % RST_NR_PER_BANK) : 0;
+
+Could you do:
+
+    if (assert ^ inverted)
+
+Then keep the existing logic for val inside the if/else?
+
+
+
+>  	writel(val, addr);
+>  
+>  	return 0;
+> @@ -783,9 +792,17 @@ static int en7523_reset_status(struct reset_controller_dev *rcdev,
+>  			       unsigned long id)
+>  {
+>  	struct en_rst_data *rst_data = container_of(rcdev, struct en_rst_data, rcdev);
+> -	void __iomem *addr = rst_data->base + rst_data->bank_ofs[id / RST_NR_PER_BANK];
+> +	u32 offset = rst_data->bank_ofs[id / RST_NR_PER_BANK];
+> +	void __iomem *addr = rst_data->base + offset;
+> +	bool inverted = false;
+> +	u32 val;
+> +
+> +	/* For PCIC reset logic is inverted, 0:assert 1:deassert*/
+
+Add space before */
+
+Brian
 
 
