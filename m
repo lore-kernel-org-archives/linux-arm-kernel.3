@@ -4,74 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89984C4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 12:02:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B56C3C4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 12:03:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M6dliTL3upPz3AWTcFuW/Bf8sQHGqFSf/FvFJ52AEJY=; b=2hgnROCp3mszL+FzpuChsT9yw9
-	VCeEeX3axt26eBkv9Shawz/VKSTPxZ2Y6EM3u/012LATzr2T9ILOEckfEi8LizDJgEJ/h7l4yhDBT
-	h8i6G4leroxx8iovCL2a/vPIXfX9Q11fuq3hIv18SKWL43O39jfdmLGIW+hQRq0Vi2AxbeSWEVl+X
-	MVLsBHhVwKmUUGI4j4MktMScK6bnTx4Mr/6z6nzxlI51AhRjK9L19ZAzlFDyQyZFGp5x3mPSlSZCf
-	peDmd13/x3Glo5JVaSXcrZWVqQcap7ZwVl7L2PZgPlRyeaXckEZXt1Kjn3DDd0Ej7+S1eu4Jy6ywj
-	710KpmTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RBJ3oWAx1e/a//9kxC1kTkea2ayAvAwMRn9rFZJTNNk=; b=zkcc5GKToWV7cauC6p/EmLWf+m
+	kTncrL0Y+WspPV/wAmNEJxXY5awL/ludnSCCUU7JRufUrrukbsImVcHG9o/yV3OPew/e4NfW9+Bjg
+	Ij40fn6VgX5YXTy7nhF47+40goS0U90KQApVy0Pirz7cj4MXMrqiusTTQNFhgRWh9abMBZQyu8mcf
+	kr41npREr4bvEQCBuUwdX331eurSNZ9S/+F2pts+dA8nafvp9VO86JTnPO5ftqzxX7RgaPv/U9rgu
+	OlaJcbmZfFvQUl3RC1QWxudook5OI2EQHKUkHzOhSIhG25TConI4egW6a6BVi61lc3fMsJTjvFt0z
+	cIK/mzjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkhHE-00000002D6N-3a5K;
-	Fri, 17 Jul 2026 12:02:48 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wkhHR-00000002DCu-0DyY;
+	Fri, 17 Jul 2026 12:03:01 +0000
+Received: from th8-a.mail-neoserv.si ([152.89.234.173])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkhHA-00000002D3c-3fXJ;
-	Fri, 17 Jul 2026 12:02:44 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B3F1460A6F;
-	Fri, 17 Jul 2026 12:02:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03A1A1F000E9;
-	Fri, 17 Jul 2026 12:02:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784289763;
-	bh=M6dliTL3upPz3AWTcFuW/Bf8sQHGqFSf/FvFJ52AEJY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=afG26BD5DJqcY9jFPHWwLoeF+nbY3GkVgbzmYISsj7xeZVCukUAa6Tdq4RdHOi1kv
-	 VhO0c4wlgnq8/uJ4G1UyEHvTyxI9wOPKKaqgViGb19EFGyS0cg19B9qoWfDnJR0YZm
-	 xD7VopeVKolG7iP9adxYqAQAtLV8auh9YJx/PsTDMa4HNn8peJiYCom6ppiEpBE6Ri
-	 O5VPY2KO8x4IepP8GFuNG7upUnYOFwAgzIaIiRLTvysiIiBbNcvkYDfO9/wew8cRsb
-	 l3JKPUr7GFFU/UKQZM1P948sh1G9gBvmTEg4KhGcT678i50OfZ6MBUBq9hVbqmsveD
-	 3Nyo9BqNTTjfQ==
-Date: Fri, 17 Jul 2026 13:02:35 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Swark Yang <syang@axiado.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>, Jan Kotas <jank@cadence.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	=?utf-8?Q?Przemys=C5=82aw?= Gaj <pgaj@cadence.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Boris Brezillon <bbrezillon@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Mathias Nyman <mathias.nyman@intel.com>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org, linux-i2c@vger.kernel.org,
-	linux-i3c@lists.infradead.org, linux-serial@vger.kernel.org,
-	linux-spi@vger.kernel.org, linux-usb@vger.kernel.org
-Subject: Re: [PATCH v3 6/8] dt-bindings: spi: dw-apb-ssi: add Axiado AX3005
- SPI variant
-Message-ID: <6d69cfd0-5f3b-4324-8d64-b4695cbb3e92@sirena.org.uk>
-References: <20260716-upstream-axiado-ax3005-upstream-v3-0-c429095143ec@axiado.com>
- <20260716-upstream-axiado-ax3005-upstream-v3-6-c429095143ec@axiado.com>
+	id 1wkhHO-00000002DAn-2uio;
+	Fri, 17 Jul 2026 12:02:59 +0000
+ARC-Seal: i=1; cv=none; a=rsa-sha256; d=th8.neoserv.si; s=default;
+	 b=RQZQFsFTuaENy+b64YWG98CGAz/AOTIn/cFAsb9lKZYOcSeGIHvDuddGXMLrTMNv6VQqCeY78R
+	  2zEOiatf0Neidu3hSBuvNZJu8gSHdX72/9IH/UObuD78+pXe8CTR1aVoI1yoDyNp44HylMevrs
+	  8wmUULwN4rSgvK7TbP5Kx9wjo5r+CUeemrJrmvK/V688ByMdlyNn1p3bXM9H+XjEWtneT/yFnf
+	  c4q8h74zRtKNrId+Ye7XrUw8M6s7mWLUQAivV4/XxfwbhBbzpq3a7MkQ9h0jkvvPoCi6wHva9g
+	  3Dw3CPTu7O5db4SsDWL4XCRdRd4b+PbKNqlcKYdmz/u93g==;
+ARC-Authentication-Results: i=1; th8.neoserv.si; smtp.remote-ip=193.77.36.193;
+	auth=pass (PLAIN) smtp.auth=rok@kanardia.eu
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=th8.neoserv.si; s=default;
+	bh=QUsbUbN2uJ14EC3NitGndSP4UKklyfCcit+hJS7Mnfs=;
+	h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:
+	  Date:Subject:Cc:To:From:DKIM-Signature;
+	b=DAWeOkWDYlaOqsJNagG/IvxSoxrwTcIObCVBB3XaIP2DPbmGSF4W38Rpq0PCgdtOkccF5wcleR
+	  xqcBv+7HYt+YB07sa6aYtoKsqbmXdJjHUhUIsZrqZwbUkNPbtER7Y2olsdbyg9gASBBvJXZcYG
+	  DOaUmIdrbsYeXcwC1gJ8jDGVaAq/dwm1oYHxv6fpyM2pfx3eLw8ehhRX0zh200x0F/pl2iyecd
+	  Sm9TqaAWAWNjvaIdPYoLnsWYNvUJtKEVug1ihiT9Mv5t7GsVUN4oAB68TMQFFlppchvzvtGTA8
+	  TB7xNZIbiNb0yzgxXaLi36r5EooXMF2WFUh+wUjoMyJN7g==;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=kanardia.eu
+	; s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=RBJ3oWAx1e/a//9kxC1kTkea2ayAvAwMRn9rFZJTNNk=; b=H1Ra45U+5i5qAegxYtcNZUh6Nx
+	qe0nsgRm5Wk7qQH8WM0SCGKZ0b3ToPqOBTkCMrZYuzGO0LAURMsd8r1byYybcHM9a9372c+EuVvuj
+	hlHNPbpwsARu+8D/kkzYfnRlI5E+B0fwt/iZcLYbS5q96vs+hVO9Q1skmLYqu2VlVbcScd4vF6lsb
+	RVNJU0M3KjXUIeMKjhYCJK1+CVGejPjIglqgiAfA2+9Ukw9n4jSNVodyH6dIfP6G8EqsOzCj/iGcY
+	0pYMulpJPUPPJ3Bk2eB2liizebflwxS5X4kghO93dLoQlndgwYFc6oEO+i0jqcCnBhF9+puS5bNzz
+	iqJzqM3w==;
+Received: from [193.77.36.193] (port=54788 helo=rok-trip.kanardia.eu)
+	by th8.neoserv.si with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.99.4)
+	(envelope-from <rok@kanardia.eu>)
+	id 1wkhHH-00000001fP1-2qlb;
+	Fri, 17 Jul 2026 14:02:51 +0200
+From: Rok Markovic <rok@kanardia.eu>
+To: Heiko Stuebner <heiko@sntech.de>,
+	Sandy Huang <hjc@rock-chips.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Alibek Omarov <a1ba.omarov@gmail.com>,
+	Rok Markovic <rok@kanardia.eu>
+Subject: [PATCH 2/4] dt-bindings: display: rockchip,lvds: add RK3568
+Date: Fri, 17 Jul 2026 14:00:03 +0200
+Message-ID: <20260717120005.2087386-3-rok@kanardia.eu>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260717120005.2087386-1-rok@kanardia.eu>
+References: <20260717120005.2087386-1-rok@kanardia.eu>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="70M3+S0UoM/WolbI"
-Content-Disposition: inline
-In-Reply-To: <20260716-upstream-axiado-ax3005-upstream-v3-6-c429095143ec@axiado.com>
-X-Cookie: Enjoy yourself while you're still old.
+Content-Transfer-Encoding: 8bit
+Authentication-Results: th8.neoserv.si;
+	auth=pass (PLAIN) smtp.auth=rok@kanardia.eu
+X-NEOSERV-MailScanner-Information: Please contact the ISP for more information
+X-NEOSERV-MailScanner-ID: 1wkhHH-00000001fP1-2qlb
+X-NEOSERV-MailScanner: Found to be clean
+X-NEOSERV-MailScanner-SpamCheck: not spam, SpamAssassin (not cached,
+	score=1.31, required 7, ALL_TRUSTED -1.00, BAYES_50 0.80,
+	KAM_DMARC_QUARANTINE 1.50, KAM_DMARC_STATUS 0.01)
+X-NEOSERV-MailScanner-SpamScore: s
+X-NEOSERV-MailScanner-From: rok@kanardia.eu
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - th8.neoserv.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - kanardia.eu
+X-Get-Message-Sender-Via: th8.neoserv.si: authenticated_id: rok@kanardia.eu
+X-Authenticated-Sender: th8.neoserv.si: rok@kanardia.eu
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260717_050258_900780_D824A08C 
+X-CRM114-Status: UNSURE (   6.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,40 +123,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The RK3568 LVDS transmitter has no register block of its own: it is
+programmed entirely through the GRF and re-uses the MIPI DSI0 D-PHY
+(rockchip,rk3568-dsi-dphy) in LVDS mode. It therefore needs
+phys/phy-names like px30, but unlike px30 it does take a pclk
+(PCLK_DSITX_0, shared with the DSI controller the D-PHY belongs to).
 
---70M3+S0UoM/WolbI
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+It has no analog supplies of its own and no pinctrl: the lanes are
+dedicated D-PHY pins, not muxable GPIOs.
 
-On Thu, Jul 16, 2026 at 08:51:13PM -0700, Swark Yang wrote:
-> Add binding for Axiado AX3005 SPI controller. So far, no changes
-> are known, so it can fall back to the snps,dwc-ssi-1.01a compatible.
+Signed-off-by: Rok Markovic <rok@kanardia.eu>
+Assisted-by: Claude:claude-opus-4-8
+---
+ .../display/rockchip/rockchip,lvds.yaml       | 22 +++++++++++++++++++
+ 1 file changed, 22 insertions(+)
 
-Please include human readable descriptions of things like commits and
-issues being discussed in e-mail in your mails, this makes them much
-easier for humans to read especially when they have no internet access.
-I do frequently catch up on my mail on flights or while otherwise
-travelling so this is even more pressing for me than just being about
-making things a bit easier to read.
+diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,lvds.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,lvds.yaml
+index 03b002a..6280f7e 100644
+--- a/Documentation/devicetree/bindings/display/rockchip/rockchip,lvds.yaml
++++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,lvds.yaml
+@@ -15,6 +15,7 @@ properties:
+     enum:
+       - rockchip,px30-lvds
+       - rockchip,rk3288-lvds
++      - rockchip,rk3568-lvds
+ 
+   reg:
+     maxItems: 1
+@@ -121,6 +122,27 @@ allOf:
+         - avdd1v8-supply
+         - avdd3v3-supply
+ 
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: rockchip,rk3568-lvds
++
++    then:
++      properties:
++        reg: false
++        avdd1v0-supply: false
++        avdd1v8-supply: false
++        avdd3v3-supply: false
++        pinctrl-names: false
++        pinctrl-0: false
++
++      required:
++        - clocks
++        - clock-names
++        - phys
++        - phy-names
++
+ additionalProperties: false
+ 
+ examples:
+-- 
+2.43.0
 
-If there is no need for things to be part of a multi-subsystem series
-(eg, dependencies) it's normally better to send each subsystem
-separately.
-
---70M3+S0UoM/WolbI
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmpaGdoACgkQJNaLcl1U
-h9CYYgf/a6ZXfaJE/jmFwdCosDxknw75RDj7nPAqr8ZtQ6OEKCVRSIVBgwrMG1B6
-7TPPAIzIrDPqOWeb/BZihDW7BKUj2aDsl7pZivADMe0txrRhev2UcBUZUMxW1sXn
-DgyCTELlXBzkCAltV41zPIZTn6Rwcy8lHkkDXAfh0JGD5azOUiDxKAusCY9IhML1
-YtCaED6Zm325NAZ+cUqXIKy177WK3d4XQrt4N/qPahtGnlsER6BwUocE9HGNpNLh
-l3iTBw5h+slXmMR6H40Ax4/E64jiKe5RpDEW3MeDQgZLROX+xs5G+fp3eE5NGFPQ
-Z9zQeNxaiqK3XtZlukPgm9tW3O9UDA==
-=i8XU
------END PGP SIGNATURE-----
-
---70M3+S0UoM/WolbI--
 
