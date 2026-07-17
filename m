@@ -4,66 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 160C1C4451B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 14:00:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88272C4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 14:17:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Iu1fYMemoRzsLaUDl+FpewPLFgJ5kKqgw36YQDXyJEo=; b=gc3GvE12GwFRrB8uabFo1j96lK
-	4MTQH3IsyJlSQM1LQXCsKMf3Ak/pj62XZQ/NViSc4hTodiK2uzyLaHew6IrD9klRMUWTduPQUt+3R
-	Qoybchw9opThbf0ZSnpN9jl+Dax0VsJ3p48nDe56rHmoCqP58JohEAjIEDI3BYuyD3cDGy8HMNseg
-	BRPCKEkusq9i4owrjh2/EJqmierOKgIgKHCKoVW6ZzwvLFbvcJvntI8HvZIC48T6Haf20nR/FRJ2r
-	SQTtzhMeE0IUk65iISUD1zwjvuXqCwJAQ2BvtDpKasomX8wbrqsjoGcypKJ/KlTkxik3MPsgtR8/7
-	ni3r0BEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=epmNXjS7d94Ny0G3QrInR/+5Mb0BLlrxlvJkC02EnzE=; b=2S445f5zuJmA1q8j0w/lLifLQN
+	7KvOOQawMp+dNMzwhtf3msJpoMvOzkAIm27E1WyFNibpp5YtHvYOv1nDdXnqQ7L/ItVOwhPrtPQMI
+	wKmq730UpwYOdPkrvE+FGyg+NOHiqGmXR3Lto208zpB7VvExXAGP5OgV/MjB9TM/vstLNo0T4/08G
+	aaulYi69+0rNu7/C+F5MHfTSqN/IUseviqLiQp3Asf4I/KRKHktDYyhAK/AG/3MgrXlIeMam4m20r
+	NGp1ChunC1w+QLoNjDOKnqDxcMcGXDHCGp1QC1ol4MCGb/xgFb/gAzaHK4EwN4f20o2psj3fwbjnO
+	6P+r99Bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkj6X-00000002Ruj-12Qk;
-	Fri, 17 Jul 2026 13:59:53 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wkjNV-00000002T4Z-2ILS;
+	Fri, 17 Jul 2026 14:17:25 +0000
+Received: from sender4-op-o11.zoho.com ([136.143.188.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkj6V-00000002Ruc-2n6Z
+	id 1wkjNS-00000002T3n-0ZYO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 13:59:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D2ED360A59;
-	Fri, 17 Jul 2026 13:59:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 686751F000E9;
-	Fri, 17 Jul 2026 13:59:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784296790;
-	bh=Iu1fYMemoRzsLaUDl+FpewPLFgJ5kKqgw36YQDXyJEo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=VaziPRFN8QO4BZ1W9/a5ZtmZBroMmzgtfSeNF2GAyhSPqpTXYewMZBgR+1uasZZfM
-	 Z/z3KRSCLHFuVf8xiRUCazJHd5VvMwX/3AGFCurqBATvSapSBizoAkStbF4qNeNTXn
-	 tqPgzTKvuLwKmaJCNTtvo8/AJxBDU4xLMl+ZEDmVsiPm7HviaDusPTY4VfReO8WiQs
-	 2+f0bZrp1hm8wtngFhaKLeccUuB6bIEKnfQ3R6GVu3EGxqH9Nx/0eH7UCpW24JbDWF
-	 v7cOUH130ViIYeZoOCpQzg5L66SPahvmVTm9/XWu1nYwJwuIy55u0HHM3r9j0kWDL1
-	 5l+pyf6Yv9S6Q==
-Date: Fri, 17 Jul 2026 08:59:49 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Frank.Li@oss.nxp.com
-Cc: linux-kernel@vger.kernel.org,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>, Linus Walleij <linusw@kernel.org>,
-	imx@lists.linux.dev, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Fri, 17 Jul 2026 14:17:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1784297826; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=CDkMTTxuUuk7SF1KddlgIXqNWa+X+ryUZ6W7ZBjtxo2+tVrR8KCgP9NZPYzos+A7cA7MVkWBHliKgNl1v2IL3m+8NWaAH1CJ0Nm1fSJMP3fMugyZ1HtCUyGuB161uveZoGaRcrkaziS2TMdHTJi4/Cqi8fBjvEDmZ5emCh2GTy8=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1784297826; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=epmNXjS7d94Ny0G3QrInR/+5Mb0BLlrxlvJkC02EnzE=; 
+	b=lxVfX2xUkWcVskpBJpSlIB/adeVtQFT4Q/gi1No48Zvh2n4F2/PtLd905EcLQV0qeSQPzM9Kb1nHAOGn5qKOeGJu4E/VrK2VAI40GaUcieNPecHI9CO8Cqsh77Ga1wMnsUNNhi6y3p+R1dfrF30U6Dbm3Sj861nCoGV5Sq0/X9c=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=yoavmoshe.com;
+	spf=pass  smtp.mailfrom=linux@yoavmoshe.com;
+	dmarc=pass header.from=<linux@yoavmoshe.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1784297826;
+	s=zoho; d=yoavmoshe.com; i=linux@yoavmoshe.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=epmNXjS7d94Ny0G3QrInR/+5Mb0BLlrxlvJkC02EnzE=;
+	b=IovFTTOdduyuOxDCRlNJ6SZVMU99gB64Zo1SoVFAAIsF7eiDSryxPaP9nNl/sjpl
+	SUsYKCICECArOdFUQdKF3wUYlI2WO2xKACFSd2KkW+Ysf6eiWwVSQRmTHKN+KEUbhBg
+	k9RjqdlDBdQKK7p0oVVV8V40jCbL0UOaFp3cP0JI=
+Received: by mx.zohomail.com with SMTPS id 1784297824078494.6809075628678;
+	Fri, 17 Jul 2026 07:17:04 -0700 (PDT)
+From: Yo'av Moshe <linux@yoavmoshe.com>
+To: Frank Li <Frank.Li@nxp.com>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Lee Jones <lee@kernel.org>, Fabio Estevam <festevam@gmail.com>
-Subject: Re: [PATCH 1/3] dt-bindings: mfd: st,stmpe: add deprecated properties
-Message-ID: <178429678856.574428.4894136808352380805.robh@kernel.org>
-References: <20260708-dts-stmpe-v1-0-1f51d15bb358@nxp.com>
- <20260708-dts-stmpe-v1-1-1f51d15bb358@nxp.com>
+	Russell King <linux@armlinux.org.uk>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	llvm@lists.linux.dev,
+	stable@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Yo'av Moshe <linux@yoavmoshe.com>
+Subject: [PATCH] ARM: imx: Fix suspend/resume crash with Clang CFI
+Date: Fri, 17 Jul 2026 16:16:48 +0200
+Message-ID: <20260717141648.1007059-1-linux@yoavmoshe.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260708-dts-stmpe-v1-1-1f51d15bb358@nxp.com>
+Content-Transfer-Encoding: 8bit
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260717_071722_236650_8582BABD 
+X-CRM114-Status: UNSURE (   9.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,27 +88,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Relocated suspend code in OCRAM lacks compiler-generated CFI type
+signatures. When CONFIG_CFI=y is active, the indirect call to
+imx6_suspend_in_ocram_fn triggers a strict CFI violation panic.
 
-On Wed, 08 Jul 2026 15:48:56 -0400, Frank.Li@oss.nxp.com wrote:
-> From: Frank Li <Frank.Li@nxp.com>
-> 
-> Add deprecated properties st,sample-time, st,sample-time, st,mod-12b and
-> st,ref-sel. The both driver drivers/mfd/stmpe.c and
-> drivers/input/touchscreen/stmpe-ts.c parse these information. Some dts
-> put these properties under mfd, but some put these under child node
-> sample_ts.
-> 
-> Allow these properties put under sample_ts and mark as deprecated to fix
-> below CHECK_DTBS warnings:
->   arch/arm/boot/dts/nxp/imx/imx6q-novena.dtb: stmpe811@44 (st,stmpe811): touchscreen: Unevaluated properties are not allowed ('st,adc-freq', 'st,mod-12b', 'st,ref-sel', 'st,sample-time' were unexpected)
->         from schema $id: http://devicetree.org/schemas/mfd/st,stmpe.yaml
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
->  .../devicetree/bindings/mfd/st,stmpe.yaml          | 24 ++++++++++++++++++++++
->  1 file changed, 24 insertions(+)
-> 
+Annotate imx6q_suspend_finish with __nocfi to bypass CFI checking
+for this specific indirect call.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Cc: stable@vger.kernel.org
+Signed-off-by: Yo'av Moshe <linux@yoavmoshe.com>
+---
+Tested on a Kobo Clara HD (i.MX6SLL SoC) running postmarketOS edge. 
+Before this patch, suspending the device caused an immediate silent 
+hang requiring a hard-reboot. With this patch applied, suspend and 
+resume work successfully.
+
+ arch/arm/mach-imx/pm-imx6.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm/mach-imx/pm-imx6.c b/arch/arm/mach-imx/pm-imx6.c
+index a671ca498..d9b0c1803 100644
+--- a/arch/arm/mach-imx/pm-imx6.c
++++ b/arch/arm/mach-imx/pm-imx6.c
+@@ -360,7 +360,7 @@ int imx6_set_lpm(enum mxc_cpu_pwr_mode mode)
+ 	return 0;
+ }
+ 
+-static int imx6q_suspend_finish(unsigned long val)
++static int __nocfi imx6q_suspend_finish(unsigned long val)
+ {
+ 	if (!imx6_suspend_in_ocram_fn) {
+ 		cpu_do_idle();
+-- 
+2.55.0
 
 
