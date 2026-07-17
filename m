@@ -4,134 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B9C0C44517
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 07:39:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23E71C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 07:47:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4d43EokkNjI1qd7X23lr1D9DfJ43ezHxQgUyPX7zrs4=; b=boo+wsYr35L1WoXtaPEs/HOUxe
-	9MfiN0PSe0bAO0Wjt8eGuboFiXT5MV3MXoACGkLSnGO35dSs1PHtsWz5wq6HXXumSFBlc7H7lDMvE
-	OsvFgzDhxAroY9vUTqA6teMZU3Izv0Dv6+CguG/P2rQiZkdCLY4rDVCTVlYXV01o6REh02dvaXH3K
-	0E9Kasr0XeQi8xK2dh97S3BjjFHB0L0XCl6q3RWOtB3IGCYWpurhGEL/kFgxDF7iJACY3n1ekQxvX
-	gQfWfPddbzZF2cONvRdZpHW8EBpUctD64zErQxGhGNsVhx4OtEIp7TPQ+T5MsdCYJwumqLVYK9rko
-	q03NdpWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9hiA0Nvs7SZjkToqTmBfbByfCZW64BLBuQHvofzknVQ=; b=jJUHXZBXk27lflRtE6tuo9sn06
+	fX+nlEg4XeEnMrQrQ3J1FVGhhEFyaGTakdqw+BVMqeKUfc5Qj1EVl8l3fYMSWyK8A9fOMXxOukfcw
+	a79SAeLbF7NTZPtW8eMIqtweOSsANmHa6NDV2AFNFgdpJ2swjC7SFvdfB+b6+jbcNFHvidHaL5k13
+	NSRzKsa8Jtir71p/bYDHZU9i6IE+7WZSRArIAQR+zej8avt5RzG3hystDYdCFi16UXYzuCBq62q+I
+	eVQEkkkC/iMNwKjn4pRgT++xj043pxwHrBs5nyT5C45ph7AvsFyZzWan4Fxb8sZQE5ibFJiEo/Zm8
+	I5ej5emQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkdAc-00000001U9X-0GhY;
-	Fri, 17 Jul 2026 07:39:42 +0000
-Received: from mail-northeuropeazon11010060.outbound.protection.outlook.com ([52.101.84.60] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wkdI8-00000001VL6-0FPb;
+	Fri, 17 Jul 2026 07:47:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkdAa-00000001U8q-0Jgj
+	id 1wkdI6-00000001VKw-3QVh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 07:39:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=i0OPhx/FqDcdrYBvHxmCKUBYQr4VX3WtqlKfkRHvcPCCUknuuWxgeDvfekeRp8yC04QU9+GIibNOHVQIM9c0YMMm6/VIkHZr73ybEoGG8R/61CDz0vMxzDTFIzQgE9SiU5M+TaiLrRIt5Vs4FNpKieDRfHZ/Ee409TU4hUFnGNyUoTQMqOyHKIxyOLZDKIsW7iOPwzcnu75RcvmwOm77zu4+7eVuGZeqsA2guO1th5VPzADqC+GzEe8n8wry1HWjtaew/tli2un44p+4v95/NJihVi9BI5pswBK1CiXlpzG2fn09B4Tx0aKc6cODhhqgf4eqN1YYFE43znsXnPkVQQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4d43EokkNjI1qd7X23lr1D9DfJ43ezHxQgUyPX7zrs4=;
- b=Ur6bym8ZZQd/2muZ3Oe7eYd27aOd6g6zXUSwY3v6CoNY8pIj5tjmxVH9NKkDL7MAS2jgy1uqtOMrJhmRer6MFLrS6BY9r3p+lPhOptGBmarl5Wq4rJrKCZ00nLQvF5AIso2ys/9cC5OoC4u0SgM6k1BBRkonfMhb1B95JzYnPylQk9C/fuwJCZ0Rqm/6QYXJHGuGEv0i33bOHo2KZptCjrT439TYeTXhfRTWni2S1WfQropu4+1X8wqiuSGBSSIIArHO7mESJKC8k0YIKHM84rxHEym/j2G28u7QlUCroskQLowGidwU2SM6zGjY6yBnVLYjuQYj2zgzcZwg+wsY0Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4d43EokkNjI1qd7X23lr1D9DfJ43ezHxQgUyPX7zrs4=;
- b=HyBwWClbpKQAG/BAQBEhAMXPpMtpW9kzaOtQ1g5YDAcduvuHXxA2UrdwRutYWq/Ldu4UnVCVfjqy7RBQNdccxfVJ2PNQ37InkTpVJtTFdn9r6VodMGb8UEZQiFiDGTyIniEQSuGKsfEXssaIJdhMgX9xYmbhg+gLLEDjw5IJcUZYfMOLfLW0ZFKlKgR5MhI1fICet3d8MddCLGyikwGOc3M5B2fmr4b8ppwJM04YhZnYABQF1PKcORZD6MjDTvYAGhJ8BMXzylDJ9ATt/cmK+TJnax/yuvY0/E9KMh27ujUZ/HJqeS31VCEqcQN2liIS06ygiq63PdZ2/pDwvoeInQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8096.eurprd04.prod.outlook.com (2603:10a6:102:1c7::19)
- by AM9PR04MB8699.eurprd04.prod.outlook.com (2603:10a6:20b:43e::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.13; Fri, 17 Jul
- 2026 07:39:35 +0000
-Received: from PAXPR04MB8096.eurprd04.prod.outlook.com
- ([fe80::68be:f721:5000:3f2d]) by PAXPR04MB8096.eurprd04.prod.outlook.com
- ([fe80::68be:f721:5000:3f2d%5]) with mapi id 15.21.0223.011; Fri, 17 Jul 2026
- 07:39:35 +0000
-From: hongxing.zhu@oss.nxp.com
-To: frank.li@nxp.com,
-	l.stach@pengutronix.de,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	robh@kernel.org,
-	bhelgaas@google.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Richard Zhu <hongxing.zhu@nxp.com>
-Subject: [PATCH v2] PCI: dwc: Add suspend_poweroff flag for platforms with RC power loss
-Date: Fri, 17 Jul 2026 15:41:21 +0800
-Message-Id: <20260717074121.3214222-1-hongxing.zhu@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR02CA0125.apcprd02.prod.outlook.com
- (2603:1096:4:188::13) To PAXPR04MB8096.eurprd04.prod.outlook.com
- (2603:10a6:102:1c7::19)
+	Fri, 17 Jul 2026 07:47:26 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 33B38409DE;
+	Fri, 17 Jul 2026 07:47:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61A7E1F000E9;
+	Fri, 17 Jul 2026 07:47:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784274446;
+	bh=9hiA0Nvs7SZjkToqTmBfbByfCZW64BLBuQHvofzknVQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=LjBMjEIXSxIAzaXmZVlqMebDOu0N7XOoLMLdJ5k++qx1DnjeTN5QHpsw//d4ub+eK
+	 tK9wceQemxMVm0Bai/jUU+Aw8fO2mkDIAgHpz41+cyBIAT1RWgpuXazO0Io46Nr5UB
+	 zCnN1TtdRw1/ndvTbD93AIIm1jj2K6eZCHD5J0wMM6ot8BaMMVm49EjWGWlU8txwL9
+	 gzWDnmhoEh29x7qUD8Qp+RQYwlo/W5cZ40x6Qvpsjqi6nPBPXKqT+wLdLKAsKZ/56J
+	 H5vU22uN8TR/M2wMOBmcAtqNXOVRi3RcyPakZRnn0/WDZsleVmMqGipaLetAM4W2dD
+	 mePpN+mGUILPw==
+Date: Fri, 17 Jul 2026 08:47:06 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: David CARLIER <devnexen@gmail.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	Suren Baghdasaryan <surenb@google.com>, "Liam R. Howlett" <liam@infradead.org>, 
+	Vlastimil Babka <vbabka@kernel.org>, Shakeel Butt <shakeel.butt@linux.dev>, 
+	David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
+	Uladzislau Rezki <urezki@gmail.com>, Toshi Kani <toshi.kani@hpe.com>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, Andy Lutomirski <luto@kernel.org>, 
+	Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, 
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Kiryl Shutsemau <kas@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Dev Jain <dev.jain@arm.com>, 
+	Ryan Roberts <ryan.roberts@arm.com>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+	bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	"Denis V. Lunev" <den@virtuozzo.com>, stable@vger.kernel.org
+Subject: Re: [PATCH mm-hotfixes v4 2/4] x86/mm/pat: acquire init_mm write
+ lock to avoid UAF
+Message-ID: <alnLFGkfJdWIV42P@lucifer>
+References: <20260716-series-vmap-race-fix-v4-0-8c108c4317df@kernel.org>
+ <20260716-series-vmap-race-fix-v4-2-8c108c4317df@kernel.org>
+ <CA+XhMqzUO49FiC-Oa6VYUt7Wm9RZLH30DhUH2kVn_PBodyZ6dg@mail.gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8096:EE_|AM9PR04MB8699:EE_
-X-MS-Office365-Filtering-Correlation-Id: a8ce6161-35e5-4624-d44f-08dee3d68c94
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|19092799006|23010399003|1800799024|366016|10067099003|6133799003|5023799004|11063799006|56012099006|18002099003|921020;
-X-Microsoft-Antispam-Message-Info: MXalwu+9usaBLDYhfVjPaOje5agM0vV6D8Rnh2yvdEHgIT9KARCMt+AOmkUAB3xrZQ5VLZsEo1+F6qBKDuweOzlwZmvdMVicmJ1DNN2aO0kQG27NhASiOYEoGug/vKzeQi0/5pOG00IRt11/0B/tC0TF+Gom5qpfeFDdkMZIGocKxsQKUh/L0c3lGWv4GHf7sP9ljgX/2FPjfGmx02uZ05rzzsq0y9unLKejNRiGJkGN41c00WVvjF5MVaGuhsN9uUMoEl2cRln1fjyi/1sbAHSHSFRmd3+FubH03Veuw9ui27r5q7SUkCcJVAcUZoRYIb8sR0bF1v3duvjWJUH3ZAawSEoZ7nuXcsktnywYN8VaPkASFEvPu/3rchA3fwsJn9qE73Ed84eykg2R4yr7iQnKchL9m+olKjjPTcHed/O+LPx+q5mupnR3msOxvNMYm46Sfb7RdEF1dhmhPlIpaJRE0F5PYFCCVT95IQV7W3pvVQJ+C7iMzKGEbw1s5Sm1X4fNQ9DlGUYNqtRfxEQuDqoNKft4iBMDjch31JvdNO9gioX/ihkqMIr3xiH97QyyOQTdye9Z9OJ4g2mAXMMXbgi41EM73qwaGvnF7JfGmauqx6hmiGp4ovYuc0I4+UvNWmtFrdr1WYWY1x4Ff2fHXzMFcgKxAUvRJx8wNjib2mar5ECJbDanwsOrz9Nw/IyT2gzX2qiI7Du54zkpU9oS9w==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8096.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(19092799006)(23010399003)(1800799024)(366016)(10067099003)(6133799003)(5023799004)(11063799006)(56012099006)(18002099003)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?mm1G1FhadUnSLI/588ODxkqpuXcddgc0lS03vjucZWH1Ks8qYV0byrGW/RBI?=
- =?us-ascii?Q?TeXD8pvO4fQ+Uuyf+eWBmpgkIYbeW8LAfdfv7bn7cYq4EDaO3aUinmXgDVtG?=
- =?us-ascii?Q?enykj0L6ZV51PnmmfyMtn02NW5fz2qwDgNsq1YXn7PjTtRWW3o1PTW6vj7LE?=
- =?us-ascii?Q?GvPYJE84Vc9r90yXEhSzIlhpvJl30Q1kT82fjCA3G/bLc0BUhJn5VqxKG3tY?=
- =?us-ascii?Q?iZHLI2JTFdrAeeqEUXaJZScVldTvEl6LTzgHzQACBZL6x5NaX0oS2sbT0ihW?=
- =?us-ascii?Q?mP2nJTDGHXtL2dHky2772rbVTGMU+RFKXpoLQWrcCyKgJZ+qhRE7MW6dPsb5?=
- =?us-ascii?Q?jS5ZWmxGXEwl666gxYnHT9RzSxRKbhEV4zKFGLSqXEexVVa4usRPfjDCMVjJ?=
- =?us-ascii?Q?YS+U4c6vLptJlRrvnAOPp671dn450h9jp5dYd1k5xmsmwXdzEnR0fgFc03dg?=
- =?us-ascii?Q?zMtwoJde4CmJcSc9C6uWlLFr7SFBtnhGyjtTOZ8kkEUcCoGF3a3SJ9aZ+5FM?=
- =?us-ascii?Q?RwXVVmmOehLNh/RObva6cKwih5QjyukGIJxliFPWQvoYDNzy+/SdkEbZgHhT?=
- =?us-ascii?Q?0I30Cy8wAXZKakVUUex8AqnIopqtIzYRObTn/k5gIb9tuWC84YnGWDwHtQwD?=
- =?us-ascii?Q?tqGgbMzAsKofCzTAjEoeLPIstUlqFO4G23l1/kJz4UZpO/0r1RycZAg8UV3s?=
- =?us-ascii?Q?1AivnQdCUhrXtbxRcaN27/2zjKEFDywyWdK/90nqAJxE+LnJ3r7KLGK5q7Rd?=
- =?us-ascii?Q?9LcidtaIK2fmTTlXz+8kUeQkOQQG9Myxfp8riRdCUdORcvp8uZtKHIcUrYWK?=
- =?us-ascii?Q?3OwUWwUTsI50zyN1eaf2mtdf539ypyzo3kTSyMLkp3Nj830xrfECLt6y0Crf?=
- =?us-ascii?Q?Fx0uL3z4sA1d/hyJt6HD9MNFQFEVMbQfqAsBAKV3fJ74QJV+ftZSowbtoWkb?=
- =?us-ascii?Q?1AMEZz/kYcGR+7iVGQnL87+m0RiLmUy2/JYQT67DauofrxIalT8QIlt0/N+3?=
- =?us-ascii?Q?kC64fzd3x68lsMbupiZiEZ1vtWlISLj3FH0UtFlEifGubMLNc2uFLySlOciu?=
- =?us-ascii?Q?MULgeDLd/kH1BHS/WwH05ofJsglc9+ORjGMgj7Qp9yvQcfpeAgeAokX2ljnM?=
- =?us-ascii?Q?XEJwtY0QGDKSJ+dB7fIJHnY7a/UIviyx17c5nE4Ifejx1UB+RGtar1fNuKyx?=
- =?us-ascii?Q?ucT10u7YXx1FrwIs4gdT4j/BNIHciueMT7crdV0tCfC3HkYC4ZLd7jHYCozX?=
- =?us-ascii?Q?Jv79mhGJoKHZ+UfLq706jtKQb46u5meov94G3RTKrhJLIBaQdRSGZqYuovgh?=
- =?us-ascii?Q?NPQjxkVPGsIO56whS5nVObolfNFZL2dOSU7kxrhyDgegw5vn9Kjig5FPrR2K?=
- =?us-ascii?Q?bpB7e//0LzCLlqwCwDke/q+bFZuXl/tAS5byalKygswJf2g3DzCje5NE8B0n?=
- =?us-ascii?Q?Hgn2u2jRfEDFlqsSbHNYmRGGZyzJs1vmoq7/OOZNneyQBsdH2ut/OI0NsV/M?=
- =?us-ascii?Q?HtG2Fu8UY/3sZF9VbQ3F1TC6l8ymHOSEg8Ou8qMtD+k3AErW6HvjaZcvTtFK?=
- =?us-ascii?Q?2YBWVLW8vFofsA/VHEKk5bS9mZ0AgCLM8OlxvoX+x27AyjohGRneg1ahEwZu?=
- =?us-ascii?Q?n4Yyf1xpFGX2acRY9nNYtI4dlCLp6V5NrUxXatpu8syjQu+tzo4fg69ESBiS?=
- =?us-ascii?Q?EpMgRg3yQUr+S/CuaI2pdJnwvfpSHXciXG1oiT0GjRicXkWcBAFPGB+RAlEj?=
- =?us-ascii?Q?Ljv8+gavihWAWo8lWX3u4cxiVaWmr8u24zB2ZWn6u4Ejx/06uPsB?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a8ce6161-35e5-4624-d44f-08dee3d68c94
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8096.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2026 07:39:35.7080
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ne0SwALoeb/3RO/+m2eGp5RDKCNBjF4BbD2rwKC/eKQ7zi3YQCV7IQDoKAwg43cAwfguMJTM9gAYWbGCRI91rKGFeu/faeBwz9iuad0IMFv+pWdgnv3tl4PAvVrayQN3
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8699
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_003940_134088_32E6D517 
-X-CRM114-Status: GOOD (  18.99  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CA+XhMqzUO49FiC-Oa6VYUt7Wm9RZLH30DhUH2kVn_PBodyZ6dg@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,109 +82,207 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Richard Zhu <hongxing.zhu@nxp.com>
+On Fri, Jul 17, 2026 at 04:46:42AM +0100, David CARLIER wrote:
+> On Thu, 16 Jul 2026 at 22:31, Lorenzo Stoakes (ARM) <ljs@kernel.org> wrote:
+> >
+> > x86 implements page attribute modification using its Change Page
+> > Attributes (CPA) mechanism.
+> >
+> > This tracks properties of ranges such as cache mode through x86 page
+> > attributes, and as part of that logic manipulates kernel page tables.
+> >
+> > Since commit 41d88484c71c ("x86/mm/pat: restore large ROX pages after
+> > fragmentation") ranges of kernel page table entries can be collapsed into
+> > huge page table entries as part of this logic.
+> >
+> > As part of this collapse, it frees the page tables which the collapsed
+> > entries previously pointed to, and it does so without any relevant locks
+> > being held to preclude concurrent kernel page table walkers.
+> >
+> > The only way this code can be reached is if CPA_COLLAPSE is specified, and
+> > this is only set in set_memory_rox() via:
+> >
+> > set_memory_rox()
+> > -> change_page_attr_set_clr()
+> > -> cpa_flush()
+> > -> cpa_collapse_large_pages()
+> >
+> > Notable users of this are execmem and bpf when manipulating executable
+> > mappings.
+> >
+> > However, this is problematic for ptdump as it walks ranges it does not own
+> > and thus runs the risk of a use-after-free on page tables freed underneath
+> > it.
+> >
+> > In addition, concurrent CPA collapse operations are possible which can also
+> > cause races.
+> >
+> > Resolve the issue by acquiring the mmap write lock on init_mm across the
+> > whole operation.
+> >
+> > It is safe to acquire a sleeping lock as all the callers invoke
+> > set_memory_rox() from process context and in any case,
+> > change_page_attr_set_clr() calls vm_unmap_alias() which ultimately takes a
+> > mutex, disallowing atomic context here.
+> >
+> > Fixes: 41d88484c71c ("x86/mm/pat: restore large ROX pages after fragmentation")
+> > Cc: stable@vger.kernel.org
+> > Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> > Reviewed-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+> > Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+> > Reviewed-by: Dave Hansen <dave.hansen@linux.intel.com>
+> > Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+> > ---
+> >  arch/x86/mm/pat/set_memory.c | 15 ++++++++++++++-
+> >  include/linux/mmap_lock.h    |  2 ++
+> >  2 files changed, 16 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
+> > index d023a40a1e03..d1e63f7d267f 100644
+> > --- a/arch/x86/mm/pat/set_memory.c
+> > +++ b/arch/x86/mm/pat/set_memory.c
+> > @@ -22,6 +22,7 @@
+> >  #include <linux/cc_platform.h>
+> >  #include <linux/set_memory.h>
+> >  #include <linux/memregion.h>
+> > +#include <linux/cleanup.h>
+> >
+> >  #include <asm/e820/api.h>
+> >  #include <asm/processor.h>
+> > @@ -410,7 +411,7 @@ static void __cpa_flush_tlb(void *data)
+> >
+> >  static int collapse_large_pages(unsigned long addr, struct list_head *pgtables);
+> >
+> > -static void cpa_collapse_large_pages(struct cpa_data *cpa)
+> > +static void __cpa_collapse_large_pages(struct cpa_data *cpa)
+> >  {
+> >         unsigned long start, addr, end;
+> >         struct ptdesc *ptdesc, *tmp;
+> > @@ -442,6 +443,18 @@ static void cpa_collapse_large_pages(struct cpa_data *cpa)
+> >         }
+> >  }
+> >
+> > +static void cpa_collapse_large_pages(struct cpa_data *cpa)
+> > +{
+> > +       /*
+> > +        * Take the mmap write lock on init_mm to:
+> > +        * - Avoid a use-after-free if raced by ptdump (which takes its own
+> > +        *   write lock on init_mm).
+> > +        * - Serialise concurrent CPA walkers.
+> > +        */
+> > +       scoped_guard(mmap_write_lock, &init_mm)
+> > +               __cpa_collapse_large_pages(cpa);
+> > +}
+> > +
+> >  static void cpa_flush(struct cpa_data *cpa, int cache)
+> >  {
+> >         unsigned int i;
+> > diff --git a/include/linux/mmap_lock.h b/include/linux/mmap_lock.h
+> > index 6b5c2390cc30..047f5f5e2c34 100644
+> > --- a/include/linux/mmap_lock.h
+> > +++ b/include/linux/mmap_lock.h
+> > @@ -621,6 +621,8 @@ static inline void mmap_read_unlock(struct mm_struct *mm)
+> >
+> >  DEFINE_GUARD(mmap_read_lock, struct mm_struct *,
+> >              mmap_read_lock(_T), mmap_read_unlock(_T))
+> > +DEFINE_GUARD(mmap_write_lock, struct mm_struct *,
+> > +            mmap_write_lock(_T), mmap_write_unlock(_T))
+> >  DEFINE_GUARD_COND(mmap_read_lock, _try, mmap_read_trylock(_T))
+> >
+> >  static inline void mmap_read_unlock_non_owner(struct mm_struct *mm)
+> >
+> > --
+> > 2.55.0
+> >
+>
+> Hi,
+>
+> This bullet confuses me. __change_page_attr() and friends are serialised by
 
-Some platforms like i.MX power off their PCIe RC controllers during
-system suspend, requiring full re-initialization on resume. These
-platforms need to enter L2 state to properly notify endpoints before
-power loss.
+Which bullet? You're quoting the whole mail?
 
-According to PCIe base spec r7.0, sec 5.2, the system software should
-transition the device into D3Hot before broadcasting the PME_Turn_Off
-message to initiate L2 entry. However, some endpoint devices fail the
-D3cold capability check in pci_host_common_d3cold_possible(), which
-would normally prevent L2 entry.
+Presumably "- Serialise concurrent CPA walkers".
 
-For platforms where the RC loses power during suspend, L2 entry is
-essential regardless of D3cold support, as the link will be lost anyway.
-Add a suspend_poweroff flag to force L2 entry in such cases, and enable
-it for i.MX PCIe controllers.
+> cpa_lock/pgd_lock and never take init_mm's mmap lock, so this doesn't
+> exclude them.
+>
+> Collapse vs collapse looks covered already: collapse_large_pages() holds
 
-Note: This violates the spec requirement that devices be in D3Hot before
-PME_Turn_Off, but is necessary for proper operation on platforms with RC
-power loss during suspend.
+cpa_collapse_large_pages() has 3 stages:
 
-Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
----
-Changes in v2:
-- Rename the new added flag.
-- Update commit description and comments.
+- walk + gather
+- flush tlb
+- free page tables
 
----
- drivers/pci/controller/dwc/pci-imx6.c             | 11 +++++++++++
- drivers/pci/controller/dwc/pcie-designware-host.c | 10 ++++++++--
- drivers/pci/controller/dwc/pcie-designware.h      |  8 ++++++++
- 3 files changed, 27 insertions(+), 2 deletions(-)
+Holding a lock then releasing it across stages doesn't serialise the whole
+operation.
 
-diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-index 98e1db751132a..5a43bf396521b 100644
---- a/drivers/pci/controller/dwc/pci-imx6.c
-+++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -1957,6 +1957,17 @@ static int imx_pcie_probe(struct platform_device *pdev)
- 		 */
- 		imx_pcie_add_lut_by_rid(imx_pcie, 0);
- 	} else {
-+		/*
-+		 * i.MX RC is powered off during suspend, requiring L2 entry
-+		 * to notify endpoints before power loss. Some endpoints fail
-+		 * the D3cold capability check, which would normally prevent
-+		 * L2 entry. Force L2 entry anyway since the link will be lost
-+		 * when RC powers off.
-+		 *
-+		 * Note: Per PCIe spec r7.0 sec 5.2, devices should be in D3Hot
-+		 * before PME_Turn_Off. This may not be guaranteed here.
-+		 */
-+		pci->pp.suspend_poweroff = true;
- 		if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_SKIP_L23_READY))
- 			pci->pp.skip_l23_ready = true;
- 		if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_KEEP_MSI_CAP))
-diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-index 06722259d2e37..95a31d65e1ca9 100644
---- a/drivers/pci/controller/dwc/pcie-designware-host.c
-+++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-@@ -1222,14 +1222,20 @@ static int dw_pcie_pme_turn_off(struct dw_pcie *pci)
- 
- int dw_pcie_suspend_noirq(struct dw_pcie *pci)
- {
--	bool pme_capable = false;
-+	bool d3cold, pme_capable = false;
- 	int ret = 0;
- 	u32 val;
- 
- 	if (!dw_pcie_link_up(pci))
- 		goto stop_link;
- 
--	if (!pci_host_common_d3cold_possible(pci->pp.bridge, &pme_capable))
-+	d3cold = pci_host_common_d3cold_possible(pci->pp.bridge, &pme_capable);
-+	/*
-+	 * Enter L2 if D3cold is possible, or if the platform loses RC power
-+	 * during suspend (in which case L2 entry is required to notify
-+	 * endpoints before power loss, regardless of D3cold support).
-+	 */
-+	if (!d3cold && !pci->pp.suspend_poweroff)
- 		return 0;
- 
- 	if (pci->pp.ops->pme_turn_off) {
-diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
-index de4b245b1758c..3ce7d30d9a4d5 100644
---- a/drivers/pci/controller/dwc/pcie-designware.h
-+++ b/drivers/pci/controller/dwc/pcie-designware.h
-@@ -471,6 +471,14 @@ struct dw_pcie_rp {
- 	bool			native_ecam;
- 	bool                    skip_l23_ready;
- 	bool			skip_pwrctrl_off;
-+	/*
-+	 * suspend_poweroff: Force L2 entry during suspend even when D3cold
-+	 * capability check fails. Used on platforms where RC loses power
-+	 * during suspend and must notify endpoints via L2 entry before
-+	 * power loss. May not meet PCIe spec requirement for devices to be
-+	 * in D3Hot before PME_Turn_Off.
-+	 */
-+	bool                    suspend_poweroff;
- };
- 
- struct dw_pcie_ep_ops {
--- 
-2.34.1
+Thus concurrent collapse can occur.
 
+> pgd_lock across the walk and both collapse_pmd_page()/collapse_pud_page()
+> calls, and the pmd_leaf()/pud_leaf() early-outs stop a second CPU
+> re-queueing a collapsed table. I couldn't build the interleaving behind the
+> cover letter's "could result in memory corruption". Can you spell it out?
+
+"Build the interleaving" is an odd turn of phrase :)
+
+>
+> If the reason is really Will's v3 point - collapse rounds up to PMD/PUD and
+> frees tables outside its caller's range, so it has to exclude
+> walk_kernel_page_table_range() walkers holding the read lock - then say
+> that. It's a UAF independent of ptdump, and it's why v3's read lock wasn't
+> enough.
+
+"Then say that" could be rephrased into something a little more polite :)
+
+>
+> Also: patch 1 justifies the trylock fallback on ptdump being rare, but this
+> takes the write lock on every set_memory_rox() (BPF JIT, module load,
+> execmem), even when nothing collapsed. vmap_try_huge_*() then loses the
+
+Locks work by excluding the critical section.
+
+> trylock and quietly falls back to PTEs on every BPF load. No counter, no
+
+Entirely false. You don't have concurrent writers on every load.
+
+> trace. Not a blocker and I've no better idea, but fa93b45fd397 was about
+> getting vmalloc-huge on by default, so it's worth calling out.
+
+I have no idea why you're referencing Dev's arm64 fix?
+
+Anyway as to the 'costly' stuff - you're doing costly operations on this code
+path anyway.
+
+BPF JIT, module load + execmem allocation are not hot path operations nor do
+they seem likely to be problematic in terms of lock contention.
+
+>
+> Rest looks right. 4/4 restores pud_free_pmd_page() exactly as it was before
+> fa93b45fd397, and 3/4 builds the same walk init_mm got via
+> walk_kernel_page_table_range_lockless().
+
+??? I didn't change any of those in this revision? Let's keep review of a
+specific patch to review of a specific patch, please :)
+
+>
+> Reviewed-by: David Carlier <devnexen@gmail.com>
+
+Thanks.
+
+>
+> Cheers !
+
+This reply reads like it was... assisted shall we say. Let me gently push back
+on doing that please ;)
+
+I don't think there are actually any other readers that could be problematic
+here, so this a bit of a half-fix, really we need to do the same thing or take a
+read lock on the split path too.
+
+Let me think about it some more.
+
+Thanks, Lorenzo
+
+Assisted-by: Caffeine (Vimto energy with real fruit juice)
 
