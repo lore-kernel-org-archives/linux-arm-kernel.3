@@ -4,63 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9F85C44514
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 10:44:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD690C44507
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 10:44:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wQ0NxpDcsJi+Mf5VNx57sNCOj7v89pGrLJBMGSgunk8=; b=IrBcikBP/ED6GNCHhTlGhmVURF
-	fkJPmsBKfeNUDW47MfZ1qfvYEI03XpehUSg+c+OKF1PB3fUFaYOFCgwCzM/9I74zpL6n3xB3xRoQP
-	wMGS0AYAr7NMx+ImgKO9lRqlNYkAsgRkl4gOi30ZfjY01aaWHWbNQMWAeicxtue7HeJw1aiR2StF4
-	SQ7Wd8jgK+z8E+00RjhUqlDI8lP+BPNXpncJiUVH6h4o9FFDkIAvOB8v+VVuFXP9gys7zO+BtkWSP
-	Fwd+8ePXcflDeap2XpKMq0M+ugLCt32Speslzq9OIURXsvg4oZ31VdqEI5OHd/4baquyPOwDB3ygv
-	nT/R8HYQ==;
+	bh=EyyU/Qc9UyahVBWmmJxyG2aqScYM6OzoucwPCiZaUtg=; b=s6+1EvVZ+7hr5dUXrfjYV7uM8r
+	UQ2TKCUKbh4CXt1G3cMT7fDMXFYxqtClzxVYjVXMt2rARpcc5rZi/1YKwGk6dOzsF1K1jT+HfaKaJ
+	2WC7t5i13tNdsga9cXfKOxRan+kauYgebC/QKlgQ0puFC5niP7udDZ9r+Pd8jW4xAu/LpDwoh8OlW
+	BE/fNoqdpQqitDzlOa7Rdce6gbSwHZwLsgPQYfSiX/J9DpvgtUhZxqtnK6YaxMX0vedC9kDRapdii
+	J4bncw+MBeqNbfckYAef0jTuQ/p4cFUPaaGzfG6kISjDVvFz4vTYtOzycuyQG0RR+osbGQ/cUezO7
+	wmQ8tfIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkfp2-00000001y3v-402T;
-	Fri, 17 Jul 2026 10:29:36 +0000
-Received: from mail-m20521016472.xmail.ntesmail.com ([205.210.164.72])
+	id 1wkg3l-000000021IS-30oG;
+	Fri, 17 Jul 2026 10:44:49 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkfoz-00000001y1c-2m21;
-	Fri, 17 Jul 2026 10:29:35 +0000
-Received: from [172.16.12.90] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4696dc272;
-	Fri, 17 Jul 2026 18:29:28 +0800 (GMT+08:00)
-Message-ID: <0ef1cfc3-1c7d-4dd4-bb5a-cbf5f29c475a@rock-chips.com>
-Date: Fri, 17 Jul 2026 18:29:27 +0800
+	id 1wkg3i-000000021Hp-1cg3
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Jul 2026 10:44:48 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66HASiRS1515699
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 10:44:45 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	EyyU/Qc9UyahVBWmmJxyG2aqScYM6OzoucwPCiZaUtg=; b=CL9HPBVufsgj7Mf+
+	oBxm9fcpuQr6aXOSmJCIb9wyxDI5P4YYG5ojVIQpyPEMdVHXMCu4i/gMAGEc4CDM
+	CwRPVO2lxBjMTbfXQB6BFCF06vIzOXlCg9A8WnDS/JJmQIHlVXrOiCsDu8806lFZ
+	mv8fJqMwSnXBde+0FE4E1coba4YNJ63FXbxFHGLC9OdnlXwgOcXwv8qnI7n4eUMt
+	NA57JsHJtNX6k3NZJ9BynNgVn3EG/3BtRGwC1dsTdyX98TfRc7OMTAH3tg/F8hNg
+	Dxp1vaHMaAgt6G0nfIlcLyRF9NrjnoAV3+IlJthSQvfIqvfY6j4mabzGVaTWM5vs
+	KR68aQ==
+Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fff9grx8h-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 10:44:44 +0000 (GMT)
+Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-8488ac68185so14145986b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 03:44:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1784285084; x=1784889884; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:references:cc:to
+         :from:subject:user-agent:mime-version:date:message-id:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=EyyU/Qc9UyahVBWmmJxyG2aqScYM6OzoucwPCiZaUtg=;
+        b=Vn9xdeL2XTkCi9I2hdZZ1oOpVLmCD+Z2q398xUH723XzvUgCC1PpqwmeL4LO0DbTcC
+         Bl1olL17wuLxT/0eMPK+HId9J+ypqERa+vCZfqdYzFDuTDXM1HSMingH4cCtJftfJJsT
+         mTqM9gL+76l/TQ/4vFvnHjYl/NfezQa9Bb6OZ+NHf+jZ+kcTt/ymChSYqEal0ZoFVIk3
+         TOx9fiuUquaxfJv1EVylFPVUXnqgOcZ1TDxvyAlR4kCHSUPNRgJ5nTuGPfgp6npO6w0o
+         /kHUVNAVNNO4t2r1ohALmIJyjq9cvcTpSXLtfLdIlzIV1ff0cdgW7UQxNca5VCBdQNKP
+         4ocw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784285084; x=1784889884;
+        h=content-transfer-encoding:content-type:in-reply-to:references:cc:to
+         :from:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=EyyU/Qc9UyahVBWmmJxyG2aqScYM6OzoucwPCiZaUtg=;
+        b=Y486lJTrI3UClVI6K/MjHKJFDuS5bHMUIWT1oFrTek4P7ZyfF7GtgtGw65UcEkT5De
+         ar0eY2B3WQntqdNkUFNFbcSuTiarUJbCjLZf2t/+ZA84kPH64n4Hf8x5297ffdAtGMWw
+         CwqjdCHcWNkdiC3RTNu0Tk1eqO3kQXaJ5lRj6KGb9J4AgRa3/2pyQ5ZQboCwgjngf9Zx
+         F8NHa/AYw+hEPcTUv3viqDE6dypSfoUa0RvDptBj5EgAuBzdD1smYYMU/rOcxO/+qGD6
+         UHr2ZmQhCUi6Xuuzb0qnp2iKoxEe1QDcnwy+ufew+pdZh2Ho0FL7JkFN4G98+84bMvEb
+         NsPg==
+X-Forwarded-Encrypted: i=1; AHgh+RpIFxYWi7NR8vf0WWZjI1wubaoXzGDc0tbwgvNofqQgylsQVmp/t+XeYpsrkmkQ8nRsx3lJTJ8tguitIclBzC+r@lists.infradead.org
+X-Gm-Message-State: AOJu0YyaOj3OyQkbGGKXwlNPhtjwkMCtu6lA2k8StjBKV9d/rhg6kJw1
+	YBoT8E6bw8cSvnCik8LSKovCCVUftZCcVFTR+5ozacIGhKqke2+agNTFrxBCa1sKVarN5vk9DXM
+	AjeKd/vu5EIfjvINPoynZw796VhOGs7yF6SasFdDiMAtlDfMbEdarX1FZ4Wlassmj387KCz7ySG
+	TvlrjhmQCmPQ==
+X-Gm-Gg: AfdE7ckirZ6tt6RadQjX6x92OjQkVc7LEScrInLLrktQhH15piW4FdRL4gQ8Pe3dyKQ
+	3JVG+efGY1v17x7gGnfYKH6S1nFdSENrjgeIMEJ+WE+hOUY8RbH3o7/CSn8fjK1Gk0lM9fXHE0X
+	ASMtYX2cRBG3Fy+aSdBQHAr5L+bmyz/7zZ7siac895PV8XMay+qZ+lj3TB3NCeXZ/wRQfhQuvwe
+	h3IhMO0dD7WPrF+0cJr9AWyx4esPKxNH/5P5kt2OccrG0/mGVkpMRRGAkT4Iug+hFK4JYQbvZUe
+	bMXO41BzWpQiEJ/Il8HVun0HiBQwdssIaDKg9yooNYQkGKI4TgDb/fb6xiQTxmdDvA4/mCJcpg+
+	q1LaKQIzWjJIEL7iDEqNiD/mITXOValNb+/olOrjAYX5lFVGiWqu3u/rMCL85UJlA2U9OUc33vV
+	4=
+X-Received: by 2002:a05:6a00:4603:b0:848:4810:2b70 with SMTP id d2e1a72fcca58-84c294d4154mr2047682b3a.68.1784285083731;
+        Fri, 17 Jul 2026 03:44:43 -0700 (PDT)
+X-Received: by 2002:a05:6a00:4603:b0:848:4810:2b70 with SMTP id d2e1a72fcca58-84c294d4154mr2047634b3a.68.1784285083114;
+        Fri, 17 Jul 2026 03:44:43 -0700 (PDT)
+Received: from [10.133.33.143] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84c2af6e3e0sm806712b3a.43.2026.07.17.03.44.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 17 Jul 2026 03:44:42 -0700 (PDT)
+Message-ID: <a25a09c6-30fe-41de-9e6d-49e07934f263@oss.qualcomm.com>
+Date: Fri, 17 Jul 2026 18:44:36 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 7/9] accel/rocket: add RK3576 NPU (RKNN) support
-To: Jiaxing Hu <gahing@gahingwoo.com>, tomeu@tomeuvizoso.net,
- heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, ulfh@kernel.org,
- p.zabel@pengutronix.de, ogabbay@kernel.org
-Cc: dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
- iommu@lists.linux.dev, linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260717085220.3212274-1-gahing@gahingwoo.com>
- <20260717085220.3212274-8-gahing@gahingwoo.com>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <20260717085220.3212274-8-gahing@gahingwoo.com>
+Subject: Re: [PATCH v2 00/12] coresight: Add CPU cluster funnel/replicator/tmc
+ support
+From: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
+To: "Maulik Shah (mkshah)" <maulik.shah@oss.qualcomm.com>,
+        Sudeep Holla <sudeep.holla@arm.com>, ulfh@kernel.org,
+        Suzuki K Poulose <suzuki.poulose@arm.com>, Leo Yan <leo.yan@linux.dev>
+Cc: Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Mathieu Poirier <mathieu.poirier@linaro.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, kernel@oss.qualcomm.com,
+        coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org, Jie Gan <jie.gan@oss.qualcomm.com>
+References: <20251218-cpu_cluster_component_pm-v2-0-2335a6ae62a0@oss.qualcomm.com>
+ <20251218-careful-ruby-wildebeest-a8babd@sudeepholla>
+ <d0ce8306-84e0-4940-98aa-dbc356d87593@oss.qualcomm.com>
+ <20251219-hysterical-sparkling-meerkat-59c5eb@sudeepholla>
+ <11a01108-63da-4317-a547-5977a469a7dc@oss.qualcomm.com>
+ <1714ad84-18cf-48d4-973d-b5e454d27c6c@oss.qualcomm.com>
+In-Reply-To: <1714ad84-18cf-48d4-973d-b5e454d27c6c@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9f6f9fc07803a7kunm8fda5c1f8f1b8
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaSk0dVkIeSR9PGEweHhpPHlYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
-	9PT0hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=VBK/Hss6Odr0xl2H62NbweykUOkBXv0DqfxV2qfXTmuD5q87M2iUM8nNLcaJIksVWI4zpsrhPudaiIKPldThkeI2gn+dkOSUAf19GU6Thybf60SaVy2tVAeud5ntGjvXPn6ZANyT6r84W6dkwecvG0/sNf8fDV/UAxG4kePYk4w=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=wQ0NxpDcsJi+Mf5VNx57sNCOj7v89pGrLJBMGSgunk8=;
-	h=date:mime-version:subject:message-id:from;
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzE3MDEwNyBTYWx0ZWRfX8Z3GIsL2tB3i
+ RDuL37SDnPkMzZ4jvbAPv3xLIBYsvtnrUmklfJpNS9/kIC5GigbGwKl+W00+9cFb0ViTRtaSEk4
+ 1RHQdlQiREYYAa5ZhMHrLJyrgoMd6QA=
+X-Proofpoint-ORIG-GUID: -WKP5iVfJ_IJ9nVoDaddzgB2w2kgGwo2
+X-Proofpoint-GUID: -WKP5iVfJ_IJ9nVoDaddzgB2w2kgGwo2
+X-Authority-Analysis: v=2.4 cv=TaumcxQh c=1 sm=1 tr=0 ts=6a5a079c cx=c_pps
+ a=m5Vt/hrsBiPMCU0y4gIsQw==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
+ a=7CQSdrXTAAAA:8 a=ynM2Uctx98uadF1GduAA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=IoOABgeZipijB_acs4fv:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzE3MDEwNyBTYWx0ZWRfX/lvsvpTl3fQd
+ ZLhtkPpQfWMHA+Dbn3GCxi3Hg13HV7REuds6gMCqds+xr7eeBhlTN3N5Napea4wcj07Pbdy9uYc
+ LxfD2+S4KHg+AfU7OUTejppnotSkGmwsUvbYNY9/TSSV4CN1nwV/wH4VvNCIwm0x5k7qvzydX2Z
+ /0zCuPwD9dDVuG/JVmI6Lva5znHqn9jix13BzFNLrDiuys7FhwLNb8XJr1nnoDRZlbvIOJQC2a5
+ aAYuIzbxetA9ADVzMGlgHmNVhGG5DrzxezkEtnFyWnVg6wR2+m6x+paW3W5wRjZQ55zyOf0h34x
+ FycXNjjocH38pJ1Zpl6unST4SKf7GimU7PIhYiDoo02nH6SliDRw1PwPMmRRC4DqNyi1EJwrF7F
+ Yz7Jl95wbrW90/3W/CWec4ABKPgPiPgJGpDPA01+wYKzCK2YkQSnSvQRA41BdpX8cOaYYzvG+tW
+ UStdtf7zuwM2t9XvKcg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-17_03,2026-07-15_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 impostorscore=0 clxscore=1015 adultscore=0 phishscore=0
+ spamscore=0 bulkscore=0 malwarescore=0 suspectscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607170107
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_032934_083504_318660DF 
-X-CRM114-Status: GOOD (  35.35  )
+X-CRM114-CacheID: sfid-20260717_034446_548305_E1CC806A 
+X-CRM114-Status: GOOD (  40.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,455 +165,182 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Jiaxing,
+Hi Sudeep & Suzuki,
 
-On 7/17/2026 4:50 PM, Jiaxing Hu wrote:
-> Add RK3576 support to the rocket DRM accelerator driver (used with the
-> Mesa Teflon TFLite delegate).
+Gentle reminder on this patch series. Please let me know if you have any concerns or suggestions.
+
+Thanks, Yuanfang
+
+On 6/29/2026 1:55 PM, Yuanfang Zhang wrote:
+> Hi Sudeep & Suzuki,
 > 
->   - match rockchip,rk3576-rknn-core; iterate its nodes at probe
->   - add named clock IDs (aclk/hclk/npu/pclk) and the CBUF clock domain
->     (ACLK/HCLK_RKNN_CBUF); the CNA fills the CBUF and CORE reads from it,
->     so the compute path stalls if those clocks are not held for a job
->   - guard rocket_job_timedout() MMIO behind pm_runtime_active()
->   - hrtimer completion poll: OP_EN never clears on RK3576 (unlike
->     RK3588), so poll INTERRUPT_RAW_STATUS PC_DONE bits instead
-
-This doesn't look like a correct implementation.
-
->   - map the DPU (0x4000) and DPU_RDMA (0x5000) blocks and pre-arm them
->   - attach both NPU power domains (PD_NPU0 + PD_NPU1): the CBUF->CMAC
->     read path is only fully powered with NPU1 up
+> Gentle reminder on this patch. Any feedback would be appreciated.
 > 
-> Tested on a Radxa ROCK 4D: the NPU probes, powers on, brings up its
-> IOMMUs and runs submitted jobs to completion. Full multi-layer inference
-> is not yet correct on this SoC (only the first operation per power
-> session produces valid output); see the cover letter.
+> Thanks,
+> Yuanfang.
 > 
-> Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
-> ---
->  drivers/accel/rocket/rocket_core.c   |  43 +++++++-
->  drivers/accel/rocket/rocket_core.h   |  22 +++-
->  drivers/accel/rocket/rocket_device.c |   4 +
->  drivers/accel/rocket/rocket_drv.c    |   1 +
->  drivers/accel/rocket/rocket_job.c    | 154 +++++++++++++++++++++------
->  5 files changed, 187 insertions(+), 37 deletions(-)
+> On 5/25/2026 9:17 PM, Maulik Shah (mkshah) wrote:
+>>
+>>
+>> On 12/19/2025 3:51 PM, Sudeep Holla wrote:
+>>> On Fri, Dec 19, 2025 at 10:13:14AM +0800, yuanfang zhang wrote:
+>>>>
+>>>>
+>>>> On 12/18/2025 7:33 PM, Sudeep Holla wrote:
+>>>>> On Thu, Dec 18, 2025 at 12:09:40AM -0800, Yuanfang Zhang wrote:
+>>>>>> This patch series adds support for CoreSight components local to CPU clusters,
+>>>>>> including funnel, replicator, and TMC, which reside within CPU cluster power
+>>>>>> domains. These components require special handling due to power domain
+>>>>>> constraints.
+>>>>>>
+>>>>>
+>>>>> Could you clarify why PSCI-based power domains associated with clusters in
+>>>>> domain-idle-states cannot address these requirements, given that PSCI CPU-idle
+>>>>> OSI mode was originally intended to support them? My understanding of this
+>>>>> patch series is that OSI mode is unable to do so, which, if accurate, appears
+>>>>> to be a flaw that should be corrected.
+>>>>
+>>>> It is due to the particular characteristics of the CPU cluster power
+>>>> domain.Runtime PM for CPU devices works little different, it is mostly used
+>>>> to manage hierarchicalCPU topology (PSCI OSI mode) to talk with genpd
+>>>> framework to manage the last CPU handling in cluster.
+>>>
+>>> That is indeed the intended design. Could you clarify which specific
+>>> characteristics differentiate it here?
+>>
+>> Sorry for coming very late on this.
+>>
+>> This series is intended to handle coresight components which resides within CPU cluster.
+>> For the cases where cluster is in deepest idle low power mode or all CPUs belonging to cluster
+>> are hotplugged off, access to coresight components can not be done.
+>>
+>> The implementation tried to address in two parts,
+>> 1. Using cluster power-domain to know which coresight component belongs to which cluster/CPUs
+>> 2. Schedule the task on intended cluster's CPU to make sure the CPU (and cluster) power is
+>> ON while coresight component of the cluster is being accessed (using smp_call_function_single()).
+>>
+>> The use of power-domains in (1) will limit this to PSCI OS-Initiated mode,
+>> to have this support on PSCI Platform-Coordinated mode too, probably instead of power-domains,
+>> cpu-maps (which also defines the clusters) from device tree is a better choice which will give
+>> the information on which CPU belongs to which cluster.
+>>
+>> (2) ensured that scheduling happened on intended CPU and while the access is in progress, CPU (and
+>> cluster) will not enter power down in between.
+>>
+>>>
+>>>> It doesn’t really send IPI to wakeup CPU device (It don’t have
+>>>> .power_on/.power_off) callback implemented which gets invoked from
+>>>> .runtime_resume callback. This behavior is aligned with the upstream Kernel.
+>>>>
+>>>
+>>> I am quite lost here. Why is it necessary to wake up the CPU? If I understand
+>>> correctly, all of this complexity is meant to ensure that the cluster power
+>>> domain is enabled before any of the funnel registers are accessed. Is that
+>>> correct?
+>>
+>> Yes, This is to ensure that CPU (and cluster) power is ON while coresight components
+>> for same cluster are being accessed.
+>>
+>>>
+>>> If so, and if the cluster domains are already defined as the power domains for
+>>> these funnel devices, then they should be requested to power on automatically
+>>> before any register access occurs. Is that not the case?
+>>
+>> Cluster power-domains will be only available for PSCI OS-initiated mode but also
+>> will not help for cases where all CPUs in cluster are hotplugged off as hotplugs are
+>> platform coordinated.
+>>
+>> After discussion with our HW team to automatically request power on for coresight
+>> component GPR [1] can be used but they seems not working as intended on the existing
+>> SoCs and will be available on next generation SoC.
+>>
+>> [1] https://developer.arm.com/documentation/ddi0480/d/Functional-Overview/Granular-Power-Requestor
+>>
+>>>
+>>> What am I missing in this reasoning?
+>>>
+>>> The only explanation I can see is that the firmware does not properly honor
+>>> power-domain requests coming directly from the OS. I believe that may be the
+>>> case, but I would be glad to be proven wrong.
+>>>
+>>
+>> please see below comment for more details, This seems not a firmware issue.
+>>
+>>>>>
+>>>>>> Unlike system-level CoreSight devices, these components share the CPU cluster's
+>>>>>> power domain. When the cluster enters low-power mode (LPM), their registers
+>>>>>> become inaccessible. Notably, `pm_runtime_get` alone cannot bring the cluster
+>>>>>> out of LPM, making standard register access unreliable.
+>>>>>>
+>>>>>
+>>>>> Are these devices the only ones on the system that are uniquely bound to
+>>>>> cluster-level power domains? If not, what additional devices share this
+>>>>> dependency so that we can understand how they are managed in comparison?
+>>>>>
+>>>>
+>>>> Yes, devices like ETM and TRBE also share this power domain and access constraint.
+>>>> Their drivers naturally handle enablement/disablement on the specific CPU they
+>>>> belong to (e.g., via hotplug callbacks or existing smp_call_function paths).
+>>>
+>>> I understand many things are possible to implement, but the key question
+>>> remains: why doesn’t the existing OSI mechanism - added specifically to cover
+>>> cases like this solve the problem today?
+>>>
+>>> Especially on platforms with OSI enabled, what concrete limitation forces us
+>>> into this additional “wake-up” path instead of relying on OSI to manage the
+>>> dependency/power sequencing?
+>>
+>> + Ulf in loop.
+>>
+>> Current platforms with OSI enabled, Linux PSCI do not implement the power_on/power_off
+>> requests, as far as i know, runtime PM was never meant to implement this part and
+>> pm_runtime_get_sync() (from drivers/cpuidle/cpuidle-psci.c) call is only used to convey
+>> to cluster power domains about a child CPU/ sub domain being on after it has already
+>> been landed in Linux.
+>>
+>> The standalone invoke of pm_runtime_get_sync() from another CPU do not really turn on/get
+>> the CPU (and cluster), as the CPUs either use CPUidle / CPU hotplug paths to enter/exit
+>> low power mode.
+>>
+>> To put it other way,
+>> For a hot-plugged off CPU, invoking a pm_runtime_get_sync() won't get the CPU (and make
+>> its cluster power domain) ON. In order to turn on the CPU, one has to still request
+>> the online of the CPU, say via sysfs command echo 1 > /sys/devices/system/cpu/cpuX/online
+>> which would invoke PSCI CPU_ON function and the power domain for CPU gets marked as ON
+>> only after CPU already landed in Linux via psci_idle_cpuhp_up() invoking pm_runtime_get_sync().
+>>
+>> I used specific hotplug example but same applies to idle powered down CPU (or Cluster) too.
+>>
+>>>
+>>>>>> To address this, the series introduces:
+>>>>>> - Identifying cluster-bound devices via a new `qcom,cpu-bound-components`
+>>>>>>   device tree property.
+>>>>>
+>>>>> Really, no please.
+>>>>>
+>>>>
+>>>> Our objective is to determine which CoreSight components are physically locate
+>>>> within the CPU cluster power domain.
+>>>>
+>>>> Would it be acceptable to derive this relationship from the existing
+>>>> power-domains binding?
+>>>
+>>> In my opinion, this is not merely a possibility but an explicit expectation.
+>>>
+>>>> For example, if a Funnel or Replicator node is linked to a power-domains
+>>>> entry that specifies a cpumask, the driver could recognize this shared
+>>>> dependency and automatically apply the appropriate cluster-aware behavior.
+>>>>
+>>>
+>>> Sure, but for the driver to use that information, we need clear explanation
+>>> for all the questions above. In short, why it is not working with the existing
+>>> PSCI domain idle support.
+>>>
+>>
+>> Explained above.
+>>
+>> Thanks,
+>> Maulik
 > 
-> diff --git a/drivers/accel/rocket/rocket_core.c b/drivers/accel/rocket/rocket_core.c
-> index b3b2fa9ba..7b0c48e4d 100644
-> --- a/drivers/accel/rocket/rocket_core.c
-> +++ b/drivers/accel/rocket/rocket_core.c
-> @@ -8,6 +8,7 @@
->  #include <linux/err.h>
->  #include <linux/iommu.h>
->  #include <linux/platform_device.h>
-> +#include <linux/pm_domain.h>
->  #include <linux/pm_runtime.h>
->  #include <linux/reset.h>
->  
-> @@ -22,12 +23,23 @@ int rocket_core_init(struct rocket_core *core)
->  	int err = 0;
->  
->  	core->resets[0].id = "srst_a";
-> -	core->resets[1].id = "srst_h";
->  	err = devm_reset_control_bulk_get_exclusive(&pdev->dev, ARRAY_SIZE(core->resets),
->  						    core->resets);
->  	if (err)
->  		return dev_err_probe(dev, err, "failed to get resets for core %d\n", core->index);
->  
-> +	core->clks[0].id = "aclk";
-> +	core->clks[1].id = "hclk";
-> +	core->clks[2].id = "npu";
-> +	core->clks[3].id = "pclk";
-> +	/*
-> +	 * RK3576: the CBUF (convolution buffer) has its own clock domain. The CNA
-> +	 * fills the CBUF and CORE reads from it; without these the compute path
-> +	 * stalls after loading one slice (RDMA, which bypasses the CBUF, still
-> +	 * runs). The vendor keeps all NPU clocks on whenever powered.
-> +	 */
-> +	core->clks[4].id = "aclk_cbuf";
-> +	core->clks[5].id = "hclk_cbuf";
->  	err = devm_clk_bulk_get(dev, ARRAY_SIZE(core->clks), core->clks);
->  	if (err)
->  		return dev_err_probe(dev, err, "failed to get clocks for core %d\n", core->index);
-> @@ -50,6 +62,18 @@ int rocket_core_init(struct rocket_core *core)
->  		return PTR_ERR(core->core_iomem);
->  	}
->  
-> +	core->dpu_iomem = devm_platform_ioremap_resource_byname(pdev, "dpu");
-> +	if (IS_ERR(core->dpu_iomem)) {
-> +		dev_warn(dev, "no DPU registers; DPU S_POINTER won't be pre-armed\n");
-> +		core->dpu_iomem = NULL;
-> +	}
-> +
-> +	core->dpu_rdma_iomem = devm_platform_ioremap_resource_byname(pdev, "dpu_rdma");
-> +	if (IS_ERR(core->dpu_rdma_iomem)) {
-> +		dev_warn(dev, "no DPU_RDMA registers; DPU_RDMA S_POINTER won't be pre-armed\n");
-> +		core->dpu_rdma_iomem = NULL;
-> +	}
-> +
->  	dma_set_max_seg_size(dev, UINT_MAX);
->  
->  	err = dma_set_mask_and_coherent(dev, DMA_BIT_MASK(40));
-> @@ -65,6 +89,23 @@ int rocket_core_init(struct rocket_core *core)
->  		return err;
->  	}
->  
-> +	/*
-> +	 * RK3576: the NPU spans TWO power domains (PD_NPU0 + PD_NPU1). The vendor
-> +	 * powers BOTH from its single NPU node even when computing on one core --
-> +	 * the CBUF->CMAC read path only works fully with NPU1 powered. The board DT
-> +	 * lists both power-domains on rknn_core_0; a multi-PD device skips the
-> +	 * driver-core single-PD auto-attach, so attach the list explicitly. With
-> +	 * one PD in DT this is a no-op (returns 1) and behaves as before.
-> +	 */
-> +	{
-> +		struct dev_pm_domain_list *pd_list;
-> +
-> +		err = devm_pm_domain_attach_list(dev, NULL, &pd_list);
-> +		if (err < 0)
-> +			return dev_err_probe(dev, err,
-> +					     "failed to attach NPU power domains\n");
-> +	}
-> +
->  	pm_runtime_use_autosuspend(dev);
->  
->  	/*
-> diff --git a/drivers/accel/rocket/rocket_core.h b/drivers/accel/rocket/rocket_core.h
-> index f6d738285..e959b26dd 100644
-> --- a/drivers/accel/rocket/rocket_core.h
-> +++ b/drivers/accel/rocket/rocket_core.h
-> @@ -6,6 +6,7 @@
->  
->  #include <drm/gpu_scheduler.h>
->  #include <linux/clk.h>
-> +#include <linux/hrtimer.h>
->  #include <linux/io.h>
->  #include <linux/mutex_types.h>
->  #include <linux/reset.h>
-> @@ -27,6 +28,16 @@
->  #define rocket_core_writel(core, reg, value) \
->  	writel(value, (core)->core_iomem + (REG_CORE_##reg) - REG_CORE_S_STATUS)
->  
-> +#define rocket_dpu_readl(core, reg) \
-> +	readl((core)->dpu_iomem + (REG_DPU_##reg) - REG_DPU_S_STATUS)
-> +#define rocket_dpu_writel(core, reg, value) \
-> +	writel(value, (core)->dpu_iomem + (REG_DPU_##reg) - REG_DPU_S_STATUS)
-> +
-> +#define rocket_dpu_rdma_readl(core, reg) \
-> +	readl((core)->dpu_rdma_iomem + (REG_DPU_RDMA_##reg) - REG_DPU_RDMA_RDMA_S_STATUS)
-> +#define rocket_dpu_rdma_writel(core, reg, value) \
-> +	writel(value, (core)->dpu_rdma_iomem + (REG_DPU_RDMA_##reg) - REG_DPU_RDMA_RDMA_S_STATUS)
-> +
 
-Where are these macros used?
-
->  struct rocket_core {
->  	struct device *dev;
->  	struct rocket_device *rdev;
-> @@ -36,8 +47,10 @@ struct rocket_core {
->  	void __iomem *pc_iomem;
->  	void __iomem *cna_iomem;
->  	void __iomem *core_iomem;
-> -	struct clk_bulk_data clks[4];
-> -	struct reset_control_bulk_data resets[2];
-> +	void __iomem *dpu_iomem;
-> +	void __iomem *dpu_rdma_iomem;
-> +	struct clk_bulk_data clks[6];
-> +	struct reset_control_bulk_data resets[1];
->  
->  	struct iommu_group *iommu_group;
->  
-> @@ -52,6 +65,11 @@ struct rocket_core {
->  		atomic_t pending;
->  	} reset;
->  
-> +	/* RK3576 has no completion IRQ; poll for PC_DONE via hrtimer. */
-> +	struct hrtimer poll_timer;
-> +	struct work_struct poll_work;
-> +	atomic_t poll_active;
-> +
->  	struct drm_gpu_scheduler sched;
->  	u64 fence_context;
->  	u64 emit_seqno;
-> diff --git a/drivers/accel/rocket/rocket_device.c b/drivers/accel/rocket/rocket_device.c
-> index 46e6ee1e7..bfb00f967 100644
-> --- a/drivers/accel/rocket/rocket_device.c
-> +++ b/drivers/accel/rocket/rocket_device.c
-> @@ -31,6 +31,10 @@ struct rocket_device *rocket_device_init(struct platform_device *pdev,
->  		if (of_device_is_available(core_node))
->  			num_cores++;
->  
-> +	for_each_compatible_node(core_node, NULL, "rockchip,rk3576-rknn-core")
-> +		if (of_device_is_available(core_node))
-> +			num_cores++;
-> +
->  	rdev->cores = devm_kcalloc(dev, num_cores, sizeof(*rdev->cores), GFP_KERNEL);
->  	if (!rdev->cores)
->  		return ERR_PTR(-ENOMEM);
-> diff --git a/drivers/accel/rocket/rocket_drv.c b/drivers/accel/rocket/rocket_drv.c
-> index 8bbbce594..8f6a02d50 100644
-> --- a/drivers/accel/rocket/rocket_drv.c
-> +++ b/drivers/accel/rocket/rocket_drv.c
-> @@ -215,6 +215,7 @@ static void rocket_remove(struct platform_device *pdev)
->  
->  static const struct of_device_id dt_match[] = {
->  	{ .compatible = "rockchip,rk3588-rknn-core" },
-> +	{ .compatible = "rockchip,rk3576-rknn-core" },
->  	{}
->  };
->  MODULE_DEVICE_TABLE(of, dt_match);
-> diff --git a/drivers/accel/rocket/rocket_job.c b/drivers/accel/rocket/rocket_job.c
-> index 2f1861f96..94461bf71 100644
-> --- a/drivers/accel/rocket/rocket_job.c
-> +++ b/drivers/accel/rocket/rocket_job.c
-> @@ -7,6 +7,7 @@
->  #include <drm/drm_file.h>
->  #include <drm/drm_gem.h>
->  #include <drm/rocket_accel.h>
-> +#include <linux/hrtimer.h>
->  #include <linux/interrupt.h>
->  #include <linux/iommu.h>
->  #include <linux/platform_device.h>
-> @@ -20,6 +21,16 @@
->  
->  #define JOB_TIMEOUT_MS 500
->  
-> +/*
-> + * RK3576: INTERRUPT_MASK bits 28-29 are read-only (hardware rejects the write),
-> + * so the PC_DONE completion signal cannot be routed to the GIC via the normal
-> + * interrupt-mask path.  We poll OPERATION_ENABLE every RK3576_POLL_INTERVAL_NS
-> + * instead of waiting for a completion IRQ.
-> + */
-> +#define PC_INTERRUPT_MASK_RK3576_PC_DONE_0  0x10000000u
-> +#define PC_INTERRUPT_MASK_RK3576_PC_DONE_1  0x20000000u
-> +#define RK3576_POLL_INTERVAL_NS  1000000LL  /* 1 ms */
-> +
->  static struct rocket_job *
->  to_rocket_job(struct drm_sched_job *sched_job)
->  {
-> @@ -137,8 +148,21 @@ static void rocket_job_hw_submit(struct rocket_core *core, struct rocket_job *jo
->  	rocket_pc_writel(core, REGISTER_AMOUNTS,
->  			 PC_REGISTER_AMOUNTS_PC_DATA_AMOUNT((task->regcmd_count + 1) / 2 - 1));
->  
-> -	rocket_pc_writel(core, INTERRUPT_MASK, PC_INTERRUPT_MASK_DPU_0 | PC_INTERRUPT_MASK_DPU_1);
-> -	rocket_pc_writel(core, INTERRUPT_CLEAR, PC_INTERRUPT_CLEAR_DPU_0 | PC_INTERRUPT_CLEAR_DPU_1);
-> +	/* Enable DMA-error interrupts; PC_DONE (bits 28-29) is polled, see above. */
-> +	rocket_pc_writel(core, INTERRUPT_MASK,
-> +			 PC_INTERRUPT_MASK_DPU_0    | PC_INTERRUPT_MASK_DPU_1    |
-> +			 PC_INTERRUPT_MASK_CORE_0   | PC_INTERRUPT_MASK_CORE_1   |
-> +			 PC_INTERRUPT_MASK_PPU_0    | PC_INTERRUPT_MASK_PPU_1    |
-> +			 PC_INTERRUPT_MASK_CNA_CSC_0 | PC_INTERRUPT_MASK_CNA_CSC_1 |
-> +			 PC_INTERRUPT_MASK_DMA_READ_ERROR |
-> +			 PC_INTERRUPT_MASK_DMA_WRITE_ERROR);
-> +	rocket_pc_writel(core, INTERRUPT_CLEAR,
-> +			 PC_INTERRUPT_CLEAR_DPU_0    | PC_INTERRUPT_CLEAR_DPU_1    |
-> +			 PC_INTERRUPT_CLEAR_CORE_0   | PC_INTERRUPT_CLEAR_CORE_1   |
-> +			 PC_INTERRUPT_CLEAR_PPU_0    | PC_INTERRUPT_CLEAR_PPU_1    |
-> +			 PC_INTERRUPT_CLEAR_CNA_CSC_0 | PC_INTERRUPT_CLEAR_CNA_CSC_1 |
-> +			 PC_INTERRUPT_MASK_RK3576_PC_DONE_0 |
-> +			 PC_INTERRUPT_MASK_RK3576_PC_DONE_1);
->  
->  	rocket_pc_writel(core, TASK_CON, PC_TASK_CON_RESERVED_0(1) |
->  					 PC_TASK_CON_TASK_COUNT_CLEAR(1) |
-> @@ -149,7 +173,9 @@ static void rocket_job_hw_submit(struct rocket_core *core, struct rocket_job *jo
->  
->  	rocket_pc_writel(core, OPERATION_ENABLE, PC_OPERATION_ENABLE_OP_EN(1));
->  
-> -	dev_dbg(core->dev, "Submitted regcmd at 0x%llx to core %d", task->regcmd, core->index);
-> +	atomic_set(&core->poll_active, 1);
-> +	hrtimer_start(&core->poll_timer, ns_to_ktime(RK3576_POLL_INTERVAL_NS),
-> +		      HRTIMER_MODE_REL);
->  }
->  
->  static int rocket_acquire_object_fences(struct drm_gem_object **bos,
-> @@ -326,56 +352,99 @@ static struct dma_fence *rocket_job_run(struct drm_sched_job *sched_job)
->  	return fence;
->  }
->  
-> +static void rocket_job_handle_irq(struct rocket_core *core);
-> +
-> +static enum hrtimer_restart rocket_poll_timer_fn(struct hrtimer *timer)
-> +{
-> +	struct rocket_core *core = container_of(timer, struct rocket_core, poll_timer);
-> +
-> +	if (!atomic_read(&core->poll_active))
-> +		return HRTIMER_NORESTART;
-> +
-> +	/*
-> +	 * On RK3576, OPERATION_ENABLE is not cleared by hardware on completion;
-> +	 * check INTERRUPT_RAW_STATUS bits 28-29 (PC_DONE_0/1) instead.
-> +	 */
-> +	if (rocket_pc_readl(core, OPERATION_ENABLE) == 0 ||
-> +	    (rocket_pc_readl(core, INTERRUPT_RAW_STATUS) &
-> +	     (PC_INTERRUPT_MASK_RK3576_PC_DONE_0 |
-> +	      PC_INTERRUPT_MASK_RK3576_PC_DONE_1))) {
-> +		atomic_set(&core->poll_active, 0);
-> +		schedule_work(&core->poll_work);
-> +		return HRTIMER_NORESTART;
-> +	}
-> +
-> +	hrtimer_forward_now(timer, ns_to_ktime(RK3576_POLL_INTERVAL_NS));
-> +	return HRTIMER_RESTART;
-> +}
-> +
-> +static void rocket_poll_work_fn(struct work_struct *work)
-> +{
-> +	struct rocket_core *core = container_of(work, struct rocket_core, poll_work);
-> +
-> +	rocket_job_handle_irq(core);
-> +}
-> +
->  static void rocket_job_handle_irq(struct rocket_core *core)
->  {
-> +	struct rocket_job *job;
-> +
-> +	/* Stop the completion poll — we're handling it now. */
-> +	atomic_set(&core->poll_active, 0);
-> +	hrtimer_cancel(&core->poll_timer);
-> +
->  	pm_runtime_mark_last_busy(core->dev);
->  
->  	rocket_pc_writel(core, OPERATION_ENABLE, 0x0);
-> -	rocket_pc_writel(core, INTERRUPT_CLEAR, 0x1ffff);
-> -
-> -	scoped_guard(mutex, &core->job_lock)
-> -		if (core->in_flight_job) {
-> -			if (core->in_flight_job->next_task_idx < core->in_flight_job->task_count) {
-> -				rocket_job_hw_submit(core, core->in_flight_job);
-> -				return;
-> -			}
-> -
-> -			iommu_detach_group(NULL, iommu_group_get(core->dev));
-> -			dma_fence_signal(core->in_flight_job->done_fence);
-> -			pm_runtime_put_autosuspend(core->dev);
-> -			core->in_flight_job = NULL;
-> +	rocket_pc_writel(core, INTERRUPT_CLEAR,
-> +			 0x1ffff |
-> +			 PC_INTERRUPT_MASK_RK3576_PC_DONE_0 |
-> +			 PC_INTERRUPT_MASK_RK3576_PC_DONE_1);
-> +
-> +	scoped_guard(mutex, &core->job_lock) {
-> +		job = core->in_flight_job;
-> +		if (!job)
-> +			return;
-> +
-> +		if (job->next_task_idx < job->task_count) {
-> +			rocket_job_hw_submit(core, job);
-> +			return;
->  		}
-> +
-> +		iommu_detach_group(job->domain->domain, core->iommu_group);
-> +		dma_fence_signal(job->done_fence);
-> +		pm_runtime_put_autosuspend(core->dev);
-> +		core->in_flight_job = NULL;
-> +	}
->  }
->  
->  static void
->  rocket_reset(struct rocket_core *core, struct drm_sched_job *bad)
->  {
-> +	struct rocket_job *job;
-> +
->  	if (!atomic_read(&core->reset.pending))
->  		return;
->  
-> +	atomic_set(&core->poll_active, 0);
-> +	hrtimer_cancel(&core->poll_timer);
-> +	cancel_work(&core->poll_work);
-> +
->  	drm_sched_stop(&core->sched, bad);
->  
-> -	/*
-> -	 * Remaining interrupts have been handled, but we might still have
-> -	 * stuck jobs. Let's make sure the PM counters stay balanced by
-> -	 * manually calling pm_runtime_put_noidle().
-> -	 */
->  	scoped_guard(mutex, &core->job_lock) {
-> -		if (core->in_flight_job)
-> +		job = core->in_flight_job;
-> +		if (job) {
->  			pm_runtime_put_noidle(core->dev);
-> -
-> -		iommu_detach_group(NULL, core->iommu_group);
-> -
-> -		core->in_flight_job = NULL;
-> +			iommu_detach_group(job->domain->domain, core->iommu_group);
-> +			core->in_flight_job = NULL;
-> +		}
->  	}
->  
-> -	/* Proceed with reset now. */
->  	rocket_core_reset(core);
->  
-> -	/* NPU has been reset, we can clear the reset pending bit. */
->  	atomic_set(&core->reset.pending, 0);
->  
-> -	/* Restart the scheduler */
->  	drm_sched_start(&core->sched, 0);
->  }
->  
-> @@ -385,7 +454,14 @@ static enum drm_gpu_sched_stat rocket_job_timedout(struct drm_sched_job *sched_j
->  	struct rocket_device *rdev = job->rdev;
->  	struct rocket_core *core = sched_to_core(rdev, sched_job->sched);
->  
-> -	dev_err(core->dev, "NPU job timed out");
-> +	if (pm_runtime_active(core->dev))
-> +		dev_err(core->dev,
-> +			"NPU job timed out: RAW_STATUS=0x%08x MASK=0x%08x OP_EN=0x%08x\n",
-> +			rocket_pc_readl(core, INTERRUPT_RAW_STATUS),
-> +			rocket_pc_readl(core, INTERRUPT_MASK),
-> +			rocket_pc_readl(core, OPERATION_ENABLE));
-> +	else
-> +		dev_err(core->dev, "NPU job timed out (device not active)\n");
->  
->  	atomic_set(&core->reset.pending, 1);
->  	rocket_reset(core, sched_job);
-> @@ -420,14 +496,16 @@ static irqreturn_t rocket_job_irq_handler(int irq, void *data)
->  {
->  	struct rocket_core *core = data;
->  	u32 raw_status = rocket_pc_readl(core, INTERRUPT_RAW_STATUS);
-> +	/* Only bits 0-13 (DMA errors) can raise this IRQ; PC_DONE is polled. */
-> +	u32 active = raw_status & 0x3fff;
-> +
-> +	if (!active)
-> +		return IRQ_NONE;
->  
->  	WARN_ON(raw_status & PC_INTERRUPT_RAW_STATUS_DMA_READ_ERROR);
->  	WARN_ON(raw_status & PC_INTERRUPT_RAW_STATUS_DMA_WRITE_ERROR);
->  
-> -	if (!(raw_status & PC_INTERRUPT_RAW_STATUS_DPU_0 ||
-> -	      raw_status & PC_INTERRUPT_RAW_STATUS_DPU_1))
-> -		return IRQ_NONE;
-> -
-> +	rocket_pc_writel(core, INTERRUPT_CLEAR, active);
->  	rocket_pc_writel(core, INTERRUPT_MASK, 0x0);
->  
->  	return IRQ_WAKE_THREAD;
-> @@ -445,6 +523,10 @@ int rocket_job_init(struct rocket_core *core)
->  	int ret;
->  
->  	INIT_WORK(&core->reset.work, rocket_reset_work);
-> +	INIT_WORK(&core->poll_work, rocket_poll_work_fn);
-> +	hrtimer_setup(&core->poll_timer, rocket_poll_timer_fn, CLOCK_MONOTONIC,
-> +		      HRTIMER_MODE_REL);
-> +	atomic_set(&core->poll_active, 0);
->  	spin_lock_init(&core->fence_lock);
->  	mutex_init(&core->job_lock);
->  
-> @@ -486,6 +568,10 @@ int rocket_job_init(struct rocket_core *core)
->  
->  void rocket_job_fini(struct rocket_core *core)
->  {
-> +	atomic_set(&core->poll_active, 0);
-> +	hrtimer_cancel(&core->poll_timer);
-> +	cancel_work_sync(&core->poll_work);
-> +
->  	drm_sched_fini(&core->sched);
->  
->  	cancel_work_sync(&core->reset.work);
-
--- 
-Best, 
-Chaoyi
 
