@@ -4,72 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4D4CC44507
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 08:02:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 042FDC44515
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 08:02:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ACko2jIklcEFLtPjiqT0xhlckaB5B7kVy6Xt9x8cUms=; b=BFEsND5kmYSvZ3CDaO6KyyMtfq
-	lD2mBiotBklC5t6nPdXOWlz86Xd2bvAJd9okdMXKLr9DgP4nCFpnQpmzk04CQDtFgrxJwNS4QMiBy
-	64UuFEDtmi0PvK9fltMLuX5XfHBn3OzjHKvHWXGd6qLk36zuDk60IEFrUOZOrgL6x3Xh6B+cy7A5I
-	bmT4/y1fXr2iS5HhhrtTKYuVhaVeHe/1848w3grf6Zqjw4KdjDWHcXoEUVn9bwOjbk+bm9RKk7FxF
-	GDsEmYacuB4ncSrGllvoIHHm2gBo3NmTJWW4N1RPoBfb4edWnyM4zfr1T4L5tzhhaJlGQm2y+hwx8
-	tTUIqIbw==;
+	bh=xO7fISC+DNqyKtVpz3gqMWIFDB/tG4UkU0exXu4TwFE=; b=FBWCsMywZyrUXgjvkC1TdczhcI
+	+4Neh3ZMEBN5vQFFylqPuZtOJX4OA2jDUE84+E6TsLkSinSOOfd3Ow56ewM0sjf00yHW7kHbAtgrU
+	nKQNo4Ksp5Kbxfiy6p/fX0J3yvMvUhs9rfjrEN5uJqt+NY+Mvh2wwM36tGXiK1HAAa83fNbFpXj1K
+	Ojqe9ZW6gycpDz4+BmnOBXcl2wGstLxkRyxqB6cuIwILYenmyuSlnWcyU/aLutWECyzNxwSELO00p
+	R6Ltc/54n4c9bE+M32fAOex0v0EkOjz3f2RD8rxVvsCg/AL/QupgeglwG4eOFY7vZMX+xXPIkQLWp
+	tsZqnAqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkdWE-00000001XqH-0WeO;
-	Fri, 17 Jul 2026 08:02:02 +0000
-Received: from mail-japaneastazon11013047.outbound.protection.outlook.com ([52.101.127.47] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1wkdWK-00000001XvM-1OsJ;
+	Fri, 17 Jul 2026 08:02:08 +0000
+Received: from mail-japaneastazon11013037.outbound.protection.outlook.com ([52.101.127.37] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkdW7-00000001XmZ-1SYR
+	id 1wkdWF-00000001Xqu-2Joh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 08:01:56 +0000
+	Fri, 17 Jul 2026 08:02:04 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qcUZ8xvwpImov5GgFnp3soMYtWfH4+gR+DOBM1Dob6P83dDkoqk/7so1QhUPQpx53FkNmKSG6FmM0SvpN6XmR/bZ/8htAnPSA6DWnD60QHOULAEgx02l/j+9x+T9zNjUy6NhX3sPMqplZvpUjrQIhR7w5/dswXcJu3KuNZlHfD8ZUZP5p02dUo6SggIiRqX3t1EPOZdywPC1S+jh04cgfO9hocgG9FSqZeuukP6mSNTKrMraVfRfofp9P6hvI8Gw9EelPq+Siyc+wdYl0b4oIXFlAcx4plMnsl8QLqj/ld3fgHs06OSnyBBYArN9l0kFo/SrmuW3GBHOud0ga9UIqQ==
+ b=LvObJBvANz2xbxlTH5wqHytVL54wlJ0rbakYE+vwYa42xatZMQr380xtiMDWeIm+Zl8WTVSxHFINttkCovjImbZP19LDR1cGqJrJbTlo/v6G1Iob7O9WxUV8Do9xsxrSzYID7jRYHEbrol1HSwLH1kDep1GdFj/sJsb8d8RmwcglH1dxFxXZyPT2s8MN1mjyEBHS/fGW0x6rsQuSHmezHcDL38yfOIBhgQO6t3Q3S2Oy2OePG8uq1OKeGdvmnAshi+3JdKfSQ7g3DaqeROzXYsxiea7J8sVVymATWrDJUrFVkKjJej9oH7yVWmJbdO3YF8t5kwk4G0MWGKfgJ6QOJA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ACko2jIklcEFLtPjiqT0xhlckaB5B7kVy6Xt9x8cUms=;
- b=Y0mWPBXv2o4n4Bo2xCmwVE2IwzcWRFhFKWCbNlnFVzv/ncNw6HR+oPxrl7lKtoV+/pqqzUzWovD+dlVw8L86SCInwMQWeU44P9cQ5ySqVuBJioaOcf3N7f/yEn7bAa+XORNdVrdAH8KoA6kDKRuYNG0dmVgO6biRp2G4bIPmS3PbNdn+ErHp3auOc+RjDeMjTktuhW0Gqb4VOHg+h8MZF1lrhNtNkuAKvFsNZYy94xsGoBplk3JPVXUM3FtcCyciDuy/zQwUrKMTrrnnGhCYn9mCCz6TAIIDsmpWV8lzprYjs9QjDB93SeOMCliFrRkWPoYFP7i5hXWzw9B+FDw2zg==
+ bh=xO7fISC+DNqyKtVpz3gqMWIFDB/tG4UkU0exXu4TwFE=;
+ b=HsSRPPyC9g2RQX72K/MVQ9DjvcI/qL3KZLD+7ZKVBrSPRbdCEmxWUzGsglvp8IbXPwQR88XQiqC49dPAau5kKvemBTmCrusWt/DRlhZJI+1IANPB9ekAeNpdgXskgaS7r1ucllEtpwukLCLP6txcGj2j2JKREFEQFnhiDjvGKLqRX2qCmwQsAdneYNAqbknxiTNt24jTS3JNIMlpN2eSy8ARF/KWkze6YJHTvZxBqXBY1vrcVNnWf8h+94Rv/5xAIxiKO7xUoO57OfSXIw2m3xf9LFNDVchcIQwaJTGmzMpE7Noru5XKOSZlPeCKvBVTu/qvkoaxLjLhvnEnKEzAKQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
  dkim=pass header.d=vivo.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ACko2jIklcEFLtPjiqT0xhlckaB5B7kVy6Xt9x8cUms=;
- b=Zo8fuOnzBq5dUTDbEAnJvbtHiuxDDfKU3nLMHR2+x1vzxp6iZza+Uo2XTS2zx6euLMNhu6jCwqzuj5jd+NSy5SdeRETWPNmXNGZu9KHUJG+rWLPTm+sDhh0jfVu9fW95TlHJVCTARTdMvfbNwpJuSirdS5LsOS+Cc9gtcW0P6gO1oQ/59+mMECqTUF+AnLUQcTviwev//2icWVb64I9Q6Fv0hQIthyOy4rArHi5cdLEjY5gr3YLbNZgS8UjdtcxTQWfFAN6sxwl1lU2jY67731ojSThxltmcISsuh3dS2FschDiCOmzMVK3AV95PhQdAir4mzsaAMCMFvkRFtNploA==
+ bh=xO7fISC+DNqyKtVpz3gqMWIFDB/tG4UkU0exXu4TwFE=;
+ b=jGENGwEs1qqOKiO5Qnw2bbmDanznuL9gFsz6DQEp0ROem8Z0a/sCA/IP2T7SNAu2/DFJ8BB5Om/GDcX61bxKOOxXPDC2UBZl3ryr4UzOhZZWUgJaCtUIb6VDn4By17NYae/GDXDKnqH73mKWU+/TIPRgjJyWkhJPt/CqMCEoq8FQ5zPeE/9411j1dZtTMFJmHhOk3JyHFcGOVI8sJQLFUOBoI+NfdXeubt4Rd81+GSGu8WE9HcAKr/toWhXoi98IW/vb1FryMT0oEHRghmVpWq3QaTE5qxs667ncAGdhGRjzrpoOcIqDn9Ns2EtRuUB5YyTaUA3rigsm96rWaqyvJA==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=vivo.com;
 Received: from SEZPR06MB5832.apcprd06.prod.outlook.com (2603:1096:101:c8::12)
  by TY0PR06MB5104.apcprd06.prod.outlook.com (2603:1096:400:1b8::5) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.12; Fri, 17 Jul
- 2026 08:01:51 +0000
+ 2026 08:02:01 +0000
 Received: from SEZPR06MB5832.apcprd06.prod.outlook.com
  ([fe80::f98:5e32:4ccb:d07b]) by SEZPR06MB5832.apcprd06.prod.outlook.com
  ([fe80::f98:5e32:4ccb:d07b%6]) with mapi id 15.21.0223.011; Fri, 17 Jul 2026
- 08:01:51 +0000
+ 08:02:00 +0000
 From: Pan Chuang <panchuang@vivo.com>
-To: Herbert Xu <herbert@gondor.apana.org.au>,
+To: Hans Ulli Kroll <ulli.kroll@googlemail.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Corentin Labbe <clabbe@baylibre.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
 	"David S. Miller" <davem@davemloft.net>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-crypto@vger.kernel.org (open list:CRYPTO API),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Microchip (AT91) SoC support),
-	linux-kernel@vger.kernel.org (open list),
-	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE)
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/CORTINA SYSTEMS GEMINI ARM ARCHITECTURE),
+	linux-crypto@vger.kernel.org (open list:GEMINI CRYPTO DRIVER),
+	linux-kernel@vger.kernel.org (open list)
 Cc: Pan Chuang <panchuang@vivo.com>
-Subject: [PATCH 04/12] crypto: Remove redundant dev_err()/dev_err_probe()
-Date: Fri, 17 Jul 2026 16:00:18 +0800
-Message-Id: <20260717080045.191538-5-panchuang@vivo.com>
+Subject: [PATCH 07/12] crypto: sl3516 - Remove redundant dev_err()
+Date: Fri, 17 Jul 2026 16:00:21 +0800
+Message-Id: <20260717080045.191538-8-panchuang@vivo.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260717080045.191538-1-panchuang@vivo.com>
 References: <20260717080045.191538-1-panchuang@vivo.com>
@@ -81,57 +76,58 @@ X-ClientProxiedBy: TP0P295CA0054.TWNP295.PROD.OUTLOOK.COM
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: SEZPR06MB5832:EE_|TY0PR06MB5104:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5b7a9b7a-1334-42ef-fdf2-08dee3d9a8ce
+X-MS-Office365-Filtering-Correlation-Id: bf310b14-4a27-4229-e5ea-08dee3d9ae72
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|376014|7416014|52116014|1800799024|921020|6133799003|38350700014|18002099003|22082099003|56012099006|11063799006|10067099003;
-X-Microsoft-Antispam-Message-Info: W94MYB1Vdz6yEJ01V0QZ49LJ82bjuDS55gLCNYUzK/ix4+o7jLDT8w8xdtZX/eusYXlMYHF82ZgVrUSPdSSCKgSIf4jmrwgkKP0V2570QFaom177zx+9m3bu7Nss/Ce5s7gvu5obFE0tIckG3pMf8jto3jagHQCvyyzKDlVDJ6xEdA+z7oCFqqCJXRXULgn/fuUuU7LqM3FDumZMWsnPHwAIINzSqVrq5xg90Cr/f1urAvpx1a/8ui335CZVlBfr4CoIJpDBcz8fU5mruBVRFvv+x4e4ueUkBk+lLB/rfyENjMqpv27yq6asVL1Am7GNnjj5uv4brogxeWssxOMf32jnRaoW9r/CVomODMauKaQYKzxNKbPrq0bIF1EPHQUUHpHbGIjE67+ZUbtU75D6ueuY5lgnsHdJRwGqkMBuELASLbFdBHujSsrSMkwG4rO0UQedswzCvTctRb/cPL8rUE/bvgAkyPNkyJSXxRP6pz3cBiT6zOLuRuxCsf+cK+7jgeYK5MT27beJbuEMt9UwXQvrzL09SO+n5YMA/aFMur90B3Cjh4BEGoxXIBHVJlQRL9tIyxXhFz695G8lTjiEUOEGnpY2woMDKfi7DwPtV/2jwkSICNyTz/NV87J6We6LhYfIQBFWV/iqEBiqCRDizRO3bAYEB5droy7Cu61L6sRaQfghl0n+YR3R+DtAHksFzn1ByFDn+NZxVkmO2wWHEni9AY4ny8L/xYh7y3jLKwHpLbWfV02c6nZeyHdUT1oj
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR06MB5832.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(7416014)(52116014)(1800799024)(921020)(6133799003)(38350700014)(18002099003)(22082099003)(56012099006)(11063799006)(10067099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|376014|52116014|1800799024|6133799003|38350700014|18002099003|22082099003|56012099006|11063799006|10067099003;
+X-Microsoft-Antispam-Message-Info: NWngOLiV4OuZK2KXo10NYXCqdXHwN80jl/+3HyvakzI35p9BI3GZb0U8ipWLxXvBaOjDzhu6qnuIE4GUc0t7wB8JBXotbzYR5qrGXHdgcFXqxlZi3Nt4R8c4qex2h0o61kH07wD95CQJ2+ViycJV9PJfIk/eS2jvECAzqp1T0GuJkFS2pBAZvWbkTYKKv7vrK9SGh2g/t98xmO+KHoteYHlCSyU/7+k76AABZhcq0UhTpJLM1qvTA7Qi3wWcXM9gPnpweKWbkvVIt5J7l/T+dzM68YCQfpQ/ystp9juLe/MAZjdSISaPnT0lrkxSlhlF5kvqOKnd6gbaK17O6b6E/8zKtc+j7ZCqX8bEJetTIrGXDcTPThPzgjciN+Q4ncSDtbD78ixdBMMPU7ahgb4LfbPlgpsciRRyOlUprvZouNAn12VMAg78w8t3ZWCGzKMtqx0I9Sq/PXIyjJrcnuHRj1e3d9SPrENuLSmzjeFlCVKh8FSCVGnf/jcxsXOwYTnFiX3x/mRqc/ACoJR46HEjqI3NarVmA82EsnMMMRo8shG4i3x1zNGLDtd/uAkSrdxJ+Q7bfFkMKY/vR1kWm/+jKNenFW6P/6g+pUgnPV9D3GlFJJj2q8an0brMcvB+PyOQ04Lag9C63cuc3Gfgn74JpHpmLLsZZxDJapiidLofmdECgM0kD1h4UScWHUbooLtbfX8I+hA8dvAr0u7tA3jTribX7eJeTY/5hxTOWIJvH1w=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR06MB5832.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(52116014)(1800799024)(6133799003)(38350700014)(18002099003)(22082099003)(56012099006)(11063799006)(10067099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LbVJxforEz4ARKNHD4u/8WEcnYYIBhHGnD4bV4eeNGyaj88p67Vqdxu92yy8?=
- =?us-ascii?Q?Rn6QZ0PC6GLVlKlTFVJ653/FWf8ictE5ZjA7IuTud6gom4kzIoSUsBrHeYmE?=
- =?us-ascii?Q?/VOo+dNJ53VgFpirA8HiLnyr+17ukPzbjd1TAunklNWL/nzpP57b2UvTv1Is?=
- =?us-ascii?Q?rKwTOyioIXZFZje6j+O2hfhYDkZNib3hmPaNKK3niata3TZZlN6QJJfBebDs?=
- =?us-ascii?Q?sRau/VPLE1VdfsphxGhMQmcnT2gkZEtBrXcox1ZrSOVUOAwPvSNQmA5Uua1H?=
- =?us-ascii?Q?Mq7Gphs0gVQv2pqFbiq8fZkuDm1EPdJrBhtium8mSt2X57cFl0Uv3wjAi+LA?=
- =?us-ascii?Q?bHbuSZWnY0KV+f4ng978jfBJCEaS/5Uo+mSPeUbfoaV3bSgVd1o0+dH4P7pA?=
- =?us-ascii?Q?7oGAoTs8n4SgDMFfgEC9fNMdJlC6hdjIisrt/jR+u7/g2l7sD/7F3lA0YWCZ?=
- =?us-ascii?Q?3J/OGDDhDg0ZVRn6QLDRMtNIJDVdqiKxwYdA1+YLHW+16sIRBjRGDcTa3eCj?=
- =?us-ascii?Q?HV1WFlHxYbEa+cMORDeYx06l8EuWtknv8vGAU21lYj+wcZhJ11p/n83kga7V?=
- =?us-ascii?Q?bhrwWCOFs22U8E0AT5SJHaIMPYToA87PRvbXpzeguGSjtKcb3z2Dj9J6zKDb?=
- =?us-ascii?Q?AB9ahfQjvjfqY1uskHt1/Gdas5e4Xu8DVhH32kuvmZYhz3QeGaqfLAKugVrr?=
- =?us-ascii?Q?zFu6zgrBB2cARATvw/KMFzz3TyBhBhHVSDRQiSms1KV6GiFGd4QKYzmxBDQO?=
- =?us-ascii?Q?IQEqmNgdQI5hI1LFSJeGW+LEZZmSYWAXf+FON6f57Cnl7RBChP9LFdrGfBv/?=
- =?us-ascii?Q?Xwj4bF3HGKokyOTGBzC/KVUptfF9G2xlcUKg1vOXActEwsSMSG8NbaIEs2VO?=
- =?us-ascii?Q?TqpHXhqRC56eGjfy/VpOvgNuqOZGY8lJGthwU1e9LSU1xk6dikW4wNPOnCOJ?=
- =?us-ascii?Q?lSeZrl+UxcGVX2WnPnBnTv0ecstgO6WI+EOLk5XOfcDJu3R2KHiBFQKpil6l?=
- =?us-ascii?Q?KEodLz4dOLU+J6mntkCxw5/O4qoM9mXTUneprebf1bbNzQvmbA8XNuLTO8QA?=
- =?us-ascii?Q?oytRo71bvVpPDlE6i0pRflxadYBfNEYisXMSUZCWoEVigor71YFb55sjddzg?=
- =?us-ascii?Q?nCNM3b2G3h1ip9q8kaOtHczXZzz8rFkFE53Fr0rtFyOzoHoTS/VBYDqV+mHN?=
- =?us-ascii?Q?GOswDXpGW0r3vq4bOVyTDAZC454Jp3zZ0fk+4srcc7jd29rfPL+3vkIpeJin?=
- =?us-ascii?Q?KSc9100weJLyTlSDGeLJjKuwUZYTDjTNdpDYiyklLlkcspp0tVt9xdpa9D5f?=
- =?us-ascii?Q?1nEJnHWBM2RUz7EKu2vSOSujs8in3YLRvPg7AASf8qkBRKlCRw6j+rEXkm8H?=
- =?us-ascii?Q?kMCcD7u07OmwB/R3Fg55JiC1wAYgRgNwVU6Kq6RNorX8D4GOHHm1D8gEqgvr?=
- =?us-ascii?Q?0DeXuqy+ileku2mlXQ27TeGC8hbTeZ3gphYrg6DipBrCH73/R5ZpgP9jtVEJ?=
- =?us-ascii?Q?hZS3ShbN+z5yTsdiuenSuU/w/iGTfyV6Cc3seC3kMlWGFEY8Te4jP1/sO8wc?=
- =?us-ascii?Q?PdoNlp/t9DrSl88r6vEtYOfO5lX4XS1HiggZ/YbgMKaxfsVeKYPwo6kp7vxF?=
- =?us-ascii?Q?AEMOxArZJm8Lppq/9VOvtUJXaR+IZEZBREZ4vkit3Z3DFe6QfE980XGR7kZs?=
- =?us-ascii?Q?aRC6LrSBNg5oHvVpbynv8FZEWmIcBrb7cohdPUwzXFgnGx45AaykSOkEcSI2?=
- =?us-ascii?Q?ZLJpIkeS5A=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?kWE3Nrex5SOz6bL/NidMvte1+MdWNwUH+W2JGTBv3Pg7r+cXuxzpxVdM0aP3?=
+ =?us-ascii?Q?/IydGaIsg2qMPCaE53Pm23vrBnIL6B6eQTs515Ai7ysSzvm7yXu5+9LTPF5y?=
+ =?us-ascii?Q?xcSj49OKqxzB4VqR2VNGDnigBslrQ1J+oILhqc5UqRqcS77QApDvEkQkCD+N?=
+ =?us-ascii?Q?axg18lzojzHq6msvBY1a0gf/tSY5ihkHbL+Ag+JI1ENsarCqQrjsZ6lmbaql?=
+ =?us-ascii?Q?7sLWtZwp1fuin+FMQMN7tuF5e33FU28dEX6NyeSUS2A0At2Lwtzlay329e5W?=
+ =?us-ascii?Q?eO1bZVaiX9zK9AaONRKtsMNPPszIimdrPKdVJ0DsiEmlXfZ5Sh+dYY6NnvlD?=
+ =?us-ascii?Q?TlO9mORV5L99K2dTb0RADrGqGRNT8pkMaG1Cx6+4Dx4sFGm99kCHE0Q1Mdyu?=
+ =?us-ascii?Q?YK9BaB7nMdbIgI0UA5HlGQoOxgINaZ8US7oWNFqZTw7bx9ZFa47qFiVhenwc?=
+ =?us-ascii?Q?JhPuYPj9qjkg7LgBXSjX3Z0TXNtsecJME65c8n2haKBKZ9Y9UZPgPTc3veKI?=
+ =?us-ascii?Q?xRLBf29GHOn4Z1JRPxxJCPc0mXZ3fruYq+AOJtB0nppTUKE96LB0inKXvcIq?=
+ =?us-ascii?Q?1XNarWn1UGjb/Piqm5qn83/t8Lk3LxWzwGct5EDouB2qFti+gchkTAY1iQVu?=
+ =?us-ascii?Q?ej6ufq00ceP0PNCChso2xXK+4Iss9Zs1muVYFrcDlfUFYhkYbEser8Y+4Z9W?=
+ =?us-ascii?Q?YCcDWlse++LobT1qZoSE4zoAaZITyz2OZapscDJInkf/qy7FShENUfYqFJa3?=
+ =?us-ascii?Q?WXlao/cKLggRdjiH2bwt8ToV6hVWGDB0w3Ps5EJ47caYwhRpNJgkKq1CNXP9?=
+ =?us-ascii?Q?tNZTpn2UzAC5atiLQfe/Tqdb61FCPvCPHl4/JtKX3kNry0Pli3pOqiSX1Frr?=
+ =?us-ascii?Q?GV3Cn8tvmUgyTtQG9f0QyT0iIWFx+z5QPNrAryzz9AtxPPLsfDmbic0yoxxC?=
+ =?us-ascii?Q?9MSOlZQjQzxcAm4qAavqVL8IO54vG+JpvcfaepbN5WmGEmk7CwCi9LuKhdn7?=
+ =?us-ascii?Q?o96qcNLVtxfuudUgNiLhLq3KXwhdawsiGfnEoWquhAkydiTcpyFRYt1cs77A?=
+ =?us-ascii?Q?gmXhY9ZF7dl4Xv5iSvrLivZqwFnn54xhChCDu2cT82mS6FfCJmrYcn+FbBeP?=
+ =?us-ascii?Q?oEuzKH5p+KzaJkefyDkV/9HBZQNYz7aAJ0L5G142gs+U5JkyLE8/2Fabka76?=
+ =?us-ascii?Q?tRPfwaqgKDei6T7P1oo2zliJTg6trpcQr1TAkGI7UWXBWbM4iZNRI3vIlmVg?=
+ =?us-ascii?Q?MISOFFhR2zDoVa5UkRcFfmMZbo2YsDjYEiR2F2j+Xo2wGj84vWLY4+SwaplD?=
+ =?us-ascii?Q?Z4OroIPrLWxtUGmpxUQS43Qed9KxHmC6T8VA1zLbebDjX3Rl8y3falXhPRRw?=
+ =?us-ascii?Q?ZHzCfKdoxym/6GI53U3U3XtowqbbkDrGhQ9QNUH46UGKDFR6X0W4BSrX0Csa?=
+ =?us-ascii?Q?TD7PlGQYo2u/7vDHMOErmYjIY2hlLZtXvH8z2qRZJEMVqiPTULe22QKxJHMt?=
+ =?us-ascii?Q?vhT6XNHh7JW+Knx+ZXUc9xOvmqbaItzve6++KOUNAzHN0H1oIGE/3yohspe6?=
+ =?us-ascii?Q?BfIGdFCXgwuGAr6sx22dXfOZmvSAuhTo1h3XAaYkj3gcWNIPXvNp53rEKx7u?=
+ =?us-ascii?Q?rB7HMVbdjhVVr/f95kHzSxj72m8+krqNi/C+V1uUoJqXAa9YwCFy5o9VQler?=
+ =?us-ascii?Q?YJIb7tQqzu7SVRcRyJZ5R4lKASZsBuycagV8xoVz9QsojyRih39gB9MN0jf6?=
+ =?us-ascii?Q?Uietl89FDA=3D=3D?=
 X-OriginatorOrg: vivo.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5b7a9b7a-1334-42ef-fdf2-08dee3d9a8ce
+X-MS-Exchange-CrossTenant-Network-Message-Id: bf310b14-4a27-4229-e5ea-08dee3d9ae72
 X-MS-Exchange-CrossTenant-AuthSource: SEZPR06MB5832.apcprd06.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2026 08:01:51.4668
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2026 08:02:00.9178
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: iCtefbXODrXzqKrQjyPIvozNuMxJ6FSHQRcjTdC30Zg37z7us22XcUA+HY2w0lEXrQobrnjUizSjnIkA6zM3aQ==
+X-MS-Exchange-CrossTenant-UserPrincipalName: OiHBU2TJf4LIYjMqpzRxR/0JJEiJ1YyjQ3dpvOSknNvRmO+LXIK+ZOsFacu7QSg7FAQbgY1SP7XI+lS/ilLQ3w==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR06MB5104
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_010155_393636_443A5026 
-X-CRM114-Status: GOOD (  11.60  )
+X-CRM114-CacheID: sfid-20260717_010203_602029_5C373307 
+X-CRM114-Status: UNSURE (   9.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,172 +145,29 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Since commit 55b48e23f5c4 ("genirq/devres: Add error handling in
 devm_request_*_irq()"), devm_request_irq() automatically logs
 detailed error messages on failure. Remove the now-redundant
-driver-specific dev_err() and dev_err_probe() calls.
+driver-specific dev_err() calls.
 
 Signed-off-by: Pan Chuang <panchuang@vivo.com>
 ---
- drivers/crypto/atmel-aes.c  | 4 +---
- drivers/crypto/atmel-sha.c  | 4 +---
- drivers/crypto/atmel-tdes.c | 4 +---
- drivers/crypto/img-hash.c   | 4 +---
- drivers/crypto/mxs-dcp.c    | 8 ++------
- drivers/crypto/omap-aes.c   | 4 +---
- drivers/crypto/omap-des.c   | 4 +---
- drivers/crypto/omap-sham.c  | 5 +----
- drivers/crypto/sahara.c     | 3 +--
- 9 files changed, 10 insertions(+), 30 deletions(-)
+ drivers/crypto/gemini/sl3516-ce-core.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
-diff --git a/drivers/crypto/atmel-aes.c b/drivers/crypto/atmel-aes.c
-index 30acfd937d54..50d97cef75b8 100644
---- a/drivers/crypto/atmel-aes.c
-+++ b/drivers/crypto/atmel-aes.c
-@@ -2364,10 +2364,8 @@ static int atmel_aes_probe(struct platform_device *pdev)
+diff --git a/drivers/crypto/gemini/sl3516-ce-core.c b/drivers/crypto/gemini/sl3516-ce-core.c
+index f7e0e3fea15c..c1df5f96ea42 100644
+--- a/drivers/crypto/gemini/sl3516-ce-core.c
++++ b/drivers/crypto/gemini/sl3516-ce-core.c
+@@ -414,10 +414,8 @@ static int sl3516_ce_probe(struct platform_device *pdev)
+ 		return irq;
  
- 	err = devm_request_irq(&pdev->dev, aes_dd->irq, atmel_aes_irq,
- 			       IRQF_SHARED, "atmel-aes", aes_dd);
+ 	err = devm_request_irq(&pdev->dev, irq, ce_irq_handler, 0, "crypto", ce);
 -	if (err) {
--		dev_err(dev, "unable to request aes irq.\n");
+-		dev_err(ce->dev, "Cannot request Crypto Engine IRQ (err=%d)\n", err);
 +	if (err)
- 		goto err_tasklet_kill;
+ 		return err;
 -	}
  
- 	/* Initializing the clock */
- 	aes_dd->iclk = devm_clk_get_prepared(&pdev->dev, "aes_clk");
-diff --git a/drivers/crypto/atmel-sha.c b/drivers/crypto/atmel-sha.c
-index 66323ac63406..48f54b615504 100644
---- a/drivers/crypto/atmel-sha.c
-+++ b/drivers/crypto/atmel-sha.c
-@@ -2604,10 +2604,8 @@ static int atmel_sha_probe(struct platform_device *pdev)
- 
- 	err = devm_request_irq(&pdev->dev, sha_dd->irq, atmel_sha_irq,
- 			       IRQF_SHARED, "atmel-sha", sha_dd);
--	if (err) {
--		dev_err(dev, "unable to request sha irq.\n");
-+	if (err)
- 		goto err_tasklet_kill;
--	}
- 
- 	/* Initializing the clock */
- 	sha_dd->iclk = devm_clk_get_prepared(&pdev->dev, "sha_clk");
-diff --git a/drivers/crypto/atmel-tdes.c b/drivers/crypto/atmel-tdes.c
-index 48cd537f001e..4511166fd74d 100644
---- a/drivers/crypto/atmel-tdes.c
-+++ b/drivers/crypto/atmel-tdes.c
-@@ -978,10 +978,8 @@ static int atmel_tdes_probe(struct platform_device *pdev)
- 
- 	err = devm_request_irq(&pdev->dev, tdes_dd->irq, atmel_tdes_irq,
- 			       IRQF_SHARED, "atmel-tdes", tdes_dd);
--	if (err) {
--		dev_err(dev, "unable to request tdes irq.\n");
-+	if (err)
- 		goto err_tasklet_kill;
--	}
- 
- 	/* Initializing the clock */
- 	tdes_dd->iclk = devm_clk_get(&pdev->dev, "tdes_clk");
-diff --git a/drivers/crypto/img-hash.c b/drivers/crypto/img-hash.c
-index 0f19dcc2f388..1ccfc0eccc73 100644
---- a/drivers/crypto/img-hash.c
-+++ b/drivers/crypto/img-hash.c
-@@ -966,10 +966,8 @@ static int img_hash_probe(struct platform_device *pdev)
- 
- 	err = devm_request_irq(dev, irq, img_irq_handler, 0,
- 			       dev_name(dev), hdev);
--	if (err) {
--		dev_err(dev, "unable to request irq\n");
-+	if (err)
- 		goto res_err;
--	}
- 	dev_dbg(dev, "using IRQ channel %d\n", irq);
- 
- 	hdev->hash_clk = devm_clk_get_enabled(&pdev->dev, "hash");
-diff --git a/drivers/crypto/mxs-dcp.c b/drivers/crypto/mxs-dcp.c
-index 595b2fd84667..c75a06999787 100644
---- a/drivers/crypto/mxs-dcp.c
-+++ b/drivers/crypto/mxs-dcp.c
-@@ -1085,17 +1085,13 @@ static int mxs_dcp_probe(struct platform_device *pdev)
- 
- 	ret = devm_request_irq(dev, dcp_vmi_irq, mxs_dcp_irq, 0,
- 			       "dcp-vmi-irq", sdcp);
--	if (ret) {
--		dev_err(dev, "Failed to claim DCP VMI IRQ!\n");
-+	if (ret)
- 		return ret;
--	}
- 
- 	ret = devm_request_irq(dev, dcp_irq, mxs_dcp_irq, 0,
- 			       "dcp-irq", sdcp);
--	if (ret) {
--		dev_err(dev, "Failed to claim DCP IRQ!\n");
-+	if (ret)
- 		return ret;
--	}
- 
- 	/* Allocate coherent helper block. */
- 	sdcp->coh = devm_kzalloc(dev, sizeof(*sdcp->coh) + DCP_ALIGNMENT,
-diff --git a/drivers/crypto/omap-aes.c b/drivers/crypto/omap-aes.c
-index f31555c0d715..711909de2013 100644
---- a/drivers/crypto/omap-aes.c
-+++ b/drivers/crypto/omap-aes.c
-@@ -1172,10 +1172,8 @@ static int omap_aes_probe(struct platform_device *pdev)
- 
- 		err = devm_request_irq(dev, irq, omap_aes_irq, 0,
- 				dev_name(dev), dd);
--		if (err) {
--			dev_err(dev, "Unable to grab omap-aes IRQ\n");
-+		if (err)
- 			goto err_irq;
--		}
- 	}
- 
- 	spin_lock_init(&dd->lock);
-diff --git a/drivers/crypto/omap-des.c b/drivers/crypto/omap-des.c
-index dfaf831dd8ec..3b7104cb4487 100644
---- a/drivers/crypto/omap-des.c
-+++ b/drivers/crypto/omap-des.c
-@@ -1017,10 +1017,8 @@ static int omap_des_probe(struct platform_device *pdev)
- 
- 		err = devm_request_irq(dev, irq, omap_des_irq, 0,
- 				dev_name(dev), dd);
--		if (err) {
--			dev_err(dev, "Unable to grab omap-des IRQ\n");
-+		if (err)
- 			goto err_irq;
--		}
- 	}
- 
- 
-diff --git a/drivers/crypto/omap-sham.c b/drivers/crypto/omap-sham.c
-index be1ac640ee59..8f95c381f4c8 100644
---- a/drivers/crypto/omap-sham.c
-+++ b/drivers/crypto/omap-sham.c
-@@ -2092,11 +2092,8 @@ static int omap_sham_probe(struct platform_device *pdev)
- 
- 	err = devm_request_irq(dev, dd->irq, dd->pdata->intr_hdlr,
- 			       IRQF_TRIGGER_NONE, dev_name(dev), dd);
--	if (err) {
--		dev_err(dev, "unable to request irq %d, err = %d\n",
--			dd->irq, err);
-+	if (err)
- 		goto data_err;
--	}
- 
- 	dma_cap_zero(mask);
- 	dma_cap_set(DMA_SLAVE, mask);
-diff --git a/drivers/crypto/sahara.c b/drivers/crypto/sahara.c
-index 533080b0cddc..d586f1315de1 100644
---- a/drivers/crypto/sahara.c
-+++ b/drivers/crypto/sahara.c
-@@ -1305,8 +1305,7 @@ static int sahara_probe(struct platform_device *pdev)
- 	err = devm_request_irq(&pdev->dev, irq, sahara_irq_handler,
- 			       0, dev_name(&pdev->dev), dev);
- 	if (err)
--		return dev_err_probe(&pdev->dev, err,
--				     "failed to request irq\n");
-+		return err;
- 
- 	/* clocks */
- 	dev->clk_ipg = devm_clk_get_enabled(&pdev->dev, "ipg");
+ 	ce->reset = devm_reset_control_get(&pdev->dev, NULL);
+ 	if (IS_ERR(ce->reset))
 -- 
 2.34.1
 
