@@ -4,102 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 655FBC4451B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 13:50:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E5CFC4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 13:57:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=scOaW8T/6xUJRRlim9gHWFq1a9XkSY2vJK+xeZy0trI=; b=tPi74Y8wU6HPq11uE9eolONRqY
-	xbmntCCdQPOLajB0K/686bYdb10W4mVdJmuYhDOc3fkVW7ol1wwsib4ho/leTO9cHdaxg+q2lT3CX
-	3rOFbwNyUZe9lejqkW9ojVixt+zuUmNhtsIjjE0F6bLKJZ+BJM65bebzNjVGNT+zxlaOoe6c9Gy+n
-	mIr+CM6AexqtLdlN8rkpIdtso9EEqssbDfBpHAdfbCJVm+rnUudZT/dglsPdRrxXMlsvVRjHXfsnt
-	vJKNbK0LCkXlGlpf3aGRZbZRo/b8cZ14u1k4vJkUmt1Bqw+xFU/yTqjyxlbcBAOox84uvQYgmYFDV
-	JASkOgHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FlVXC7W3Skpm9RYAW4sywASWkvrDuQ/ggS7YvWhRR1M=; b=w6A+auUX/ExKLpkNnzZYRI7Ya1
+	ri3plxg1WttiXg8FF35Z48ACaW5RH1EfTJF3SkkraDuQ3cq9ATIQfPrHsRdjejVFK7VF6G7EX8eck
+	qad5rrTd0zOwtNmBZJOfLsr78sjMHjoz9Nx1HoeexSJDfznL45wfmoUCL8BWs90d1/vlTtzu8pXz+
+	yZRmStKJsBo2kiO0b6hzcZuAahPe+XfoKWrYtkrFaDswZuiCqTnkL5p5PDP/cABkgsE85OvUrSNoI
+	Ke45RwVJ42ib9TdX7MoAZ/7kQK0Y1MP4rn2zz4L39vrszIdJljTBrauEbWo7aPykwRyZ4g7EG1kD0
+	lZaVBoLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkixH-00000002RBd-0Ule;
-	Fri, 17 Jul 2026 13:50:19 +0000
-Received: from fhigh-a1-smtp.messagingengine.com ([103.168.172.152])
+	id 1wkj3r-00000002RfW-3INA;
+	Fri, 17 Jul 2026 13:57:07 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkixE-00000002RBC-12A1
+	id 1wkj3q-00000002RfG-12tq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 13:50:18 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id D5EFA140007F;
-	Fri, 17 Jul 2026 09:50:14 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Fri, 17 Jul 2026 09:50:14 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1784296214;
-	 x=1784382614; bh=scOaW8T/6xUJRRlim9gHWFq1a9XkSY2vJK+xeZy0trI=; b=
-	r/um21kch8ow3J1TlPz7DsYLRS5x/5p+ifQZVJb9KcCwMZG++e09REtPBx2lRI6m
-	oOrXnn2WlvAo6FcDCI2/ZtofNF17kTP0ybWPeU8tdFKyKhsSGQI1CHd5yZDU+8QO
-	lxDxYmfSW/TUSq5IRHRfkcvYvkoFSNUFyTZ4N5TbNlgrl8pQfRVU9xLuhvqrIN7D
-	xrQs044u2cqEat4+gOkhxLlZc86nzfaXxrKDHStBjFsqCzrZLKhppLnAn6l18YUM
-	YGSHZHBocWfiEtJrMyIRhfAuNCF2aYXce8CtE9TaNwgbIU9ggWE/JWYCquIFCL0/
-	Qhu/y+hnfzNu+mws1iiLTA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1784296214; x=
-	1784382614; bh=scOaW8T/6xUJRRlim9gHWFq1a9XkSY2vJK+xeZy0trI=; b=D
-	oydIq9wkbVOPVWiKqSHMiUUJ4G+ySIrB2H2FYAMoYIXXo5c61sliw/TTlXDy1EFP
-	GvrlyvK+EJ1stS99PkkysyqQWkhucJMiP3Bx/0NSOLTiB0YKE0c+P04aOwh4vocF
-	TynxJVlqje3pzToEJSuSTgC8FPoNYjyeEpOT29JKkx8sTweRQmXB5oy6QpbBOLqg
-	vTKKg+tPJtnlLjvlIyjo1eR16WwPFEjCg0t4pAQ0zJz1NC7VZuqgtZveMZVbPXly
-	uIEPbrL4DD0e2sXqG0bfuXFAWVKXtBOW5akDfINzNJ5Xwff6FVmB++l09vA/rylF
-	tkc0iUtiKZUxaweCjyH1w==
-X-ME-Sender: <xms:FjNaalM_FGYe6x43Rb5xf9-Xv3B4lGttCwUJST8D3LJlIzQQzGVOvw>
-    <xme:FjNaaixclt27LGU_DnpycOWrK19gJpv-lQLWtTT-XdkmlEnbWize9SlvB3PDFbRLT
-    K8AqG3Ny4WDczSKHXYVsCFG8Fftk0omkVmOxBBPoqenZApd0S06kXA>
-X-ME-Proxy-Cause: dmFkZTERJCEXhIMrlS3slC0kmihwzJcFh0B4FXxdorq9T1Q0T0Mxl29TLDsJr5PeZzGWpe
-    UbsORXZHVsIFCXvn0fDDgnTxiwceDhvaxWSAKiGO3RO78ePsJ557lq0IMb4ArG7EdMLnrj
-    ZL3WEQ+Qp24tDiqurw4OiSagfB4DUNROb0h59g66fvn2eDLm/mX/B6tFPaqc1vG8cGEMPm
-    b4w+u8YJHg/gWEczMsrNlQavLyVKsZ/mLrIZFqlZ2MMLunTExVR0vGBTjO9qpVxP+JpJG4
-    W8SaW5cmC9Ohkhw1t691Tt+5oN2Hp1oDsnEsLpo68Hcdm7NBmWzO6m44nEjLuchtJA34EB
-    Tfhl9ZZbodA7mkTtwZdAEls37TCYJrc3EWJHEBBdA9G+XO1BPyHnDBko//x9eCv+MsjKla
-    EU5Eu/77IejqxFtmojaZ6Tc4RwGf/02oejE3Fn27NwJH36Tla5N/GrPl9Q1XC3hh2bENT3
-    kaoNT+A1/rbt0EyikRLkoxiIOuXXEs5yeglbceonlVkgQ9qxZEQYvofR1zAqRoGjMpsAue
-    at3qpm34p43g3dgSDNyOAaAgUyv+fl4EczPjEHSWLg7tra71EzXDh3UWeY2b7TgtQC1Ul+
-    3sATV7/B7x7GKIGuBSK/Ss7vgZLdrAuzj/c46hkU6rRrkjXuhk2P3jDbE19A
-X-ME-Proxy: <xmx:FjNaap9TJUaoTtgF3nBlyvC724B9DzcZU-H5ngyHTB8sc5zzrUom6w>
-    <xmx:FjNaakMUB8W__6BUCuLsbEQ1MxFgaC5U5iR47kpOH50DYLzV07PRXQ>
-    <xmx:FjNaalDd5aAdEW4FEffL78C5yzp5pFGOkfAl8GloX0rQpYauNMLHzA>
-    <xmx:FjNaagNnH3rgajyUv8Wo41Nt42gfB-JH_xMvZa03p659IFbO6xhgUA>
-    <xmx:FjNaaiSqUESq2TOdRHcQNoLt08u6EyXWR9qPDMzWvqCKc9KFYoO5drv5>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 653CB1820086; Fri, 17 Jul 2026 09:50:14 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 17 Jul 2026 13:57:06 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id BC446416B8;
+	Fri, 17 Jul 2026 13:57:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E7781F000E9;
+	Fri, 17 Jul 2026 13:57:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784296625;
+	bh=FlVXC7W3Skpm9RYAW4sywASWkvrDuQ/ggS7YvWhRR1M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=DpXp5xnvOcGSK/b59TJd3pGVfNvqEa33XLlHCMM5tXbEJzi5jlLVuUYm0wPqAwVd7
+	 Hq9lJjV4HVhyMaR/PGmEQaWskAQTqr8jWXaPl5KAw+xLKB+OCNh/zevrb1mUY4h+MO
+	 8Nk/hzVwZ7FPx4MokAZn2CrpZS4ZIQLKVt1brZxC7nUDdZDnctRfm7x29CtbFL1/c3
+	 iWbyfKIjK5z/eHkH5zxJXYQDZFUqc8YpoMMydLExEXqDGgBbVrcg3Q3Ce5va2p7a5O
+	 yg2qdWick+4YI3M5aAwSHDjz1t5ch3o8nGaeOprYG0gYxVaqKwKw5Fre6h6sh7F/Lz
+	 QoQ4OZt8Mu7EQ==
+Date: Fri, 17 Jul 2026 08:57:04 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Frank.Li@oss.nxp.com
+Cc: imx@lists.linux.dev, Conor Dooley <conor+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	vladimir.oltean@nxp.com, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Ioana Ciornei <ioana.ciornei@nxp.com>
+Subject: Re: [PATCH 1/2] dt-bindings: fsl,fpga-qixis: Add fsl,ls1021aqds-fpga
+ compatible string
+Message-ID: <178429662426.549410.11088440756266736676.robh@kernel.org>
+References: <20260708-ls-fpga-v1-0-06c8a099b2a5@nxp.com>
+ <20260708-ls-fpga-v1-1-06c8a099b2a5@nxp.com>
 MIME-Version: 1.0
-X-ThreadId: AIcAXbcH1-lN
-Date: Fri, 17 Jul 2026 15:49:54 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Ryan Roberts" <ryan.roberts@arm.com>,
- "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
- "Mark Rutland" <mark.rutland@arm.com>,
- "Jean-Philippe Brucker" <jpb@kernel.org>, "Oded Gabbay" <ogabbay@kernel.org>,
- "Jonathan Corbet" <corbet@lwn.net>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org
-Message-Id: <1e561b1a-2c87-4a23-b4da-126b333de8ba@app.fastmail.com>
-In-Reply-To: <20260717104759.123203-2-ryan.roberts@arm.com>
-References: <20260717104759.123203-1-ryan.roberts@arm.com>
- <20260717104759.123203-2-ryan.roberts@arm.com>
-Subject: Re: [RFC PATCH v1 1/8] misc/arm-cla: Add driver skeleton and documentation
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_065016_753609_04E91152 
-X-CRM114-Status: GOOD (  31.93  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260708-ls-fpga-v1-1-06c8a099b2a5@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,125 +75,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 17, 2026, at 12:47, Ryan Roberts wrote:
-> From: Jean-Philippe Brucker <jpb@kernel.org>
->
-> Add the initial Kconfig and build-system plumbing for the Arm Core Local
-> Accelerator driver.
->
-> Introduce the common driver header and register definitions used by
-> later CLA support. The definitions cover the CLA MMIO frame, launch
-> response and status fields, standard accelerator registers, launch
-> opcodes, error codes and memory translation context state.
->
-> Add documentation describing the CLA programming model, its CPU-local
-> MMIO access rules, userspace assignment model, domain grouping and
-> expected boot state.
 
-I have a few more questions here. Most of the description and
-the design decisions make perfect sense to me, but there are
-a few things I don't understand from your current document.
+On Wed, 08 Jul 2026 14:55:13 -0400, Frank.Li@oss.nxp.com wrote:
+> From: Frank Li <Frank.Li@nxp.com>
+> 
+> Add fsl,ls1021aqds-fpga compatible string for ls1021a qds's FPGA on board
+> controller chips, which connect CFI interface.
+> 
+> With following patches to fix below CHECK_DTBS warnings:
+> arch/arm/boot/dts/nxp/ls/ls1021a-qds.dtb: memory-controller@1530000 (fsl,ifc): board-control@3,0: 'oneOf' conditional failed, one must be fixed:
+>         'bank-width', 'device-width' do not match any of the regexes: '^gpio@[0-9a-f]+$', '^mdio-mux@[a-f0-9,]+$', '^pinctrl-[0-9]+$'
+>         /home/lizhi/source/linux-upstream-pci-ep-arm/arch/arm/boot/dts/nxp/ls/ls1021a-qds.dtb: memory-controller@1530000 (fsl,ifc): board-control@3,0:compatible: 'oneOf' conditional failed, one must be fixed:
+>                 ['simple-mfd'] is too short
+> 
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  Documentation/devicetree/bindings/board/fsl,fpga-qixis.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+> 
 
-> +The CLA supports up to 8 attached accelerators, which are accessed by
-> +programming the CLA's MMIO registers. Operations are launched to an 
-> accelerator
-> +and are polled for completion. CLA does not raise interrupts.
-> +
-> +            CPU                     CLA              Accel
-> +             |--- write DATA[7:0] -->|                 |
-> +             |--- write LAUNCH ----->|---- launch ---->|
-> +             |<--- poll LRESP -------|                 |
-> +             |                       |                 |
-> +             |<--- poll STATUS ------|<--- complete ---|
-> +
-> +Each operation can take a 512-bit payload in the DATA registers. After handling
-> +a LAUNCH write, CLA indicates the launch status in the LRESP register. A further
-> +operation can only be launched after LRESP indicates completion of the previous
-> +launch.
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
-This sounds a lot like st64bv or st64bv0, passing an 8-word payload and returning
-a single word per accelerator operation with shared addressing.
-
-Why are there now two interfaces to do the same thing?
-
-Can a user process use st64bv to do the four steps in a
-single instruction?
-
-> +Some operations continue to run asynchronously on the accelerator after launch
-> +completion. In this case progress is tracked by polling the STATUS register.
-> +When the CLA updates the STATUS register, it also raises an event which will
-> +wake an in-progress WFE (wait for event) instruction on the local CPU.
-
-The asynchronous interface seems very confusing.
-
-How are page faults from the SVA master resolved during an
-asynchronous operation?
-
-Can a CPU start multiple asynchronous operations concurrently?
-
-Do these continue to run if the starting process is scheduled out
-and another process also tries to use CLA?
-
-> +Faults during address translation are reported by the accelerator in its
-> +registers and in STATUS. While polling for work completion, software fixes up
-> +the faults and notifies the accelerator with RESOLVE operations.
-
-I would like to understand the faulting part better. Which instruction
-specifically causes the fault, is that the poll STATUS read?
-
-> +Inter-Accelerator Communication
-> +-------------------------------
-> +
-> +On some platforms, multiple accelerators, each attached to a separate CLA within
-> +a cluster, are also directly connected to each other via a shared bus to
-> +accelerate cooperation between accelerators. The accelerators sharing a bus
-> +cannot be isolated from each other. When collaborative operations are launched
-> +on each of the participating accelerators, they synchronize over the bus,
-> +stalling until all are ready.
-
-Could you give an example what this model might be good for?
-
-Does this mean a user may have to start one operation on each CPU
-from a thread of the same process in order to get a result efficiently
-across a shared accelerator?
-
-I assume this will become clearer once you can show an example userspace
-application that uses this type of accelerator.
-
-> +Intended SW Usage Model
-> +=======================
-> +
-> +CLA is designed for its PL0 MMIO frame to be mapped into user space  and for user
-> +space to directly launch accelerator operations and poll for completion. It has
-> +been observed that for some use cases, the operation execution time is small and
-> +a trip through the kernel would consume a significant amount of the CPU budget
-> +for preparing the next operation leading to a significant reduction in bandwidth
-> +through the accelerator.
-
-Do you have any plans for in-kernel usage of the accelerators?
-I would assume that for things like cryptographic features, these
-make sense to be exposed to the kernel itself.
-
-> +User space software is expected to create a thread to drive each CLA it is
-> +using, and for each thread to be pinned to the CLA's local CPU.
-
-What happens if multiple processes have the same chardev open and
-each mmap() that, e.g. after a fork()? Does each process see its
-own virtual instance of the accelerator and interact with it through
-the same physical MMIO register range but its own process address space,
-or do you have to rely on the registers being mapped only into a
-single mm_struct to prevent a process from messing with another process
-data?
-
-> +Saving and restoring the internal state of the accelerator is an optional
-> +feature. Current platforms only support it when the accelerator is idle, so
-> +preempting an accelerator causes work cancellation. Software must carefully
-> +consider how to balance forward-progress guarantees with preemption 
-> latency.
-
-I'm not sure I understand this point. Do you mean any async operation
-that was started on an accelerator may fail due to preemption, so user
-space must be able to restart it?
-
-     Arnd
 
