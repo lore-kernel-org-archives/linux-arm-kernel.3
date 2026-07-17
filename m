@@ -4,77 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 186B6C44516
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 11:30:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BFE1C44516
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 11:31:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z77F8t8gGlaXLq5H5fqhrXWlygcKdmYBzV6kxoIyf9k=; b=jZ35X6TGX5y9W6DYalY2Q09frJ
-	3cahnU0IT0oIxaI41BKHvA3cBxcUYd6sJn8pwnMXoMfyHmq9qim90tccsbIhlk98qgv5zJdIDU3l9
-	4IivbFLwe8kOX7NbT2IOwj7b+0fC5AQe0/lVhIwg3hUeo2+t8hxh2x0OdJlwRBJnurTLjPKJ7y1GP
-	GgF6KhQ5coP3LaeMJ0va6sxamEhy2q/dSuBgJ9Yks54YwliA9q6T3jMyKQDx1XIjwY/od9ETIlSex
-	ghJq2wbwfe08t22kQo59bjqa8NaFVQi/SNfnGOwJH9RP0MlU9WIaV0nBbjuiA29DpVLaRsYTV522k
-	GwO6FOJw==;
+	bh=s/h7AFpYYjfr4QRK5vZ0HEp1r6v/217c+9SOII2nfXY=; b=s0trS1Uz7eRyzrbc7kdD71n/Zs
+	UL+cL4huQGcW3qRUGqxJyNqt5UnF7y5LfIaAuVVgCovZSSFna5vK6Zo4gI9Uj5H0/s2AItPVxMYIr
+	iLpvYUxwSrY6jgMU+Q2svwoa+q8oFMRgPDzLUbsC4pWKVwEHypvhzahr639zaI/pnnGTA4QDzKc0a
+	BsR1PykMjo35WyGF+NwxUnnq7oXzRZ1CGtsBnDumS4oWmlbfUy7UVXMwZfNRJish4JNZblgb9ty/j
+	3YmI7817AbNVioZjZsLINtbpQNNqqM1K/7XTv+/WdWvw99148i6fuRfHr/mW+cVrTTi2HosXe9iyv
+	5f6mYLAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkgmH-000000029y8-0rtC;
-	Fri, 17 Jul 2026 11:30:49 +0000
+	id 1wkgmb-00000002A0b-1NkD;
+	Fri, 17 Jul 2026 11:31:09 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkgmF-000000029xo-4C8q
+	id 1wkgmZ-00000002A0G-3Ua4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 11:30:48 +0000
+	Fri, 17 Jul 2026 11:31:07 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 81A1C4051E;
-	Fri, 17 Jul 2026 11:30:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A6D01F000E9;
-	Fri, 17 Jul 2026 11:30:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8FE3142D97;
+	Fri, 17 Jul 2026 11:31:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A3EA1F000E9;
+	Fri, 17 Jul 2026 11:31:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784287847;
-	bh=Z77F8t8gGlaXLq5H5fqhrXWlygcKdmYBzV6kxoIyf9k=;
+	s=k20260515; t=1784287867;
+	bh=s/h7AFpYYjfr4QRK5vZ0HEp1r6v/217c+9SOII2nfXY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Mm6Mjx2WdJ6T9LFLOqOCy1chNn5Dfw9PYBRptQkrjobxEd6vdKZLFyWmyExSV/IXO
-	 kAoVHmBEWIKVYOz94aV4seSn830RCuIjBT/xQg4Cr0LJVahJuc1ntlKVjPNrzVVdaV
-	 thsnBEOE0IROso9ahcOE1hw75IA/w37iZJgWnJlqe3JM8tW0cGt33sGZdDndeu0nlq
-	 req+4/lVTHvqtyAkvbM4J5acpd9z8LGvG4KD+v8A1sy9uFscqtEM7ZDXAgqAm+8YGh
-	 HLj+sAwlRqvIpc+VPdGp7LfESROOJknoQznqamj40WF3XjNkWbqbqHyDI64Nzvgbmu
-	 Hm+KJoBMLN7Bw==
-Date: Fri, 17 Jul 2026 12:30:38 +0100
+	b=RJ6waE8J5De7CGz3kfzL1GYaHOVqcIMu9z2HzrtrB4BDaZe3CBznCa6qekPUT52BG
+	 q59cTRh0FkDXzqk05NB/RNFR5hrRIglXq1KOBY480Jqp53WBwTH/+M/I7gez29PtF5
+	 FcBtgZAMKqqTSnH/wIHCb3JbwRWsSG+m/ZR8uRgFIlKoUBdSY1A5mDw9L1iTytNqj8
+	 9ItG8frbfB/5CtyqMOj1P5+Z9PYVYqB3C8OdNeA2i7GdgpLnT9AHtwKk0fdw0oSKUD
+	 bOgebkta91WA+pWyAqnoW4HZfDd+0GcrEAMhuuwPci17UO6sqbZQwL8SXf+nrJt1tK
+	 bDGgbyIGuN+Qg==
+Date: Fri, 17 Jul 2026 12:31:03 +0100
 From: Will Deacon <will@kernel.org>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	David Hildenbrand <david@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Toshi Kani <toshi.kani@hpe.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>, Kiryl Shutsemau <kas@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dev Jain <dev.jain@arm.com>, Ryan Roberts <ryan.roberts@arm.com>,
-	David Carlier <devnexen@gmail.com>, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	"Denis V. Lunev" <den@virtuozzo.com>, stable@vger.kernel.org
-Subject: Re: [PATCH mm-hotfixes v4 2/4] x86/mm/pat: acquire init_mm write
- lock to avoid UAF
-Message-ID: <aloSXsTLOSepa5fA@willie-the-truck>
-References: <20260716-series-vmap-race-fix-v4-0-8c108c4317df@kernel.org>
- <20260716-series-vmap-race-fix-v4-2-8c108c4317df@kernel.org>
+To: Bradley Morgan <include@grrlz.net>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] arm64: sleep: dedup the sleep_save_stash slot lookup
+Message-ID: <aloSd8AwZQPoh4ev@willie-the-truck>
+References: <20260705192331.23150-1-include@grrlz.net>
+ <20260705192331.23150-3-include@grrlz.net>
+ <aljsRBIEzeNVdzvn@willie-the-truck>
+ <EFA466A8-F9E9-422D-B10D-BC1B324050AC@grrlz.net>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260716-series-vmap-race-fix-v4-2-8c108c4317df@kernel.org>
+In-Reply-To: <EFA466A8-F9E9-422D-B10D-BC1B324050AC@grrlz.net>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,90 +71,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 16, 2026 at 10:31:13PM +0100, Lorenzo Stoakes (ARM) wrote:
-> x86 implements page attribute modification using its Change Page
-> Attributes (CPA) mechanism.
+On Thu, Jul 16, 2026 at 05:55:38PM +0100, Bradley Morgan wrote:
+> On July 16, 2026 3:35:48 PM GMT+01:00, Will Deacon <will@kernel.org> wrote:
+> >On Sun, Jul 05, 2026 at 07:23:31PM +0000, Bradley Morgan wrote:
+> >> Both __cpu_suspend_enter() and _cpu_resume() open code the same MPIDR
+> >> hash lookup. Factor it into a get_sleep_stash_slot macro.
+> >> 
+> >> Signed-off-by: Bradley Morgan <include@grrlz.net>
+> >> ---
+> >>  arch/arm64/kernel/sleep.S | 55 +++++++++++++++++++++------------------
+> >>  1 file changed, 30 insertions(+), 25 deletions(-)
+> >> 
+> >> diff --git a/arch/arm64/kernel/sleep.S b/arch/arm64/kernel/sleep.S
+> >> index e112b8537f10..8820a131aef7 100644
+> >> --- a/arch/arm64/kernel/sleep.S
+> >> +++ b/arch/arm64/kernel/sleep.S
+> >> @@ -64,6 +64,31 @@
+> >>  	lsr	\mask ,\mask, \rs3
+> >>  	orr	\dst, \dst, \mask		// dst|=(aff3>>rs3)
+> >>  	.endm
+> >> +
+> >> +/*
+> >> + * Compute the address of the current CPU's entry in sleep_save_stash,
+> >> + * i.e. &sleep_save_stash[hash(MPIDR_EL1)].
+> >> + *
+> >> + * @slot: output register
+> >> + *
+> >> + * Clobbers: x2 - x8
+> >> + */
+> >> +	.macro get_sleep_stash_slot slot
+> >> +	mpidr_hash_assert_distinct \slot, x2
+> >> +	mrs	x3, mpidr_el1
+> >> +	adr_l	x2, mpidr_hash
+> >> +	ldr	x8, [x2, #MPIDR_HASH_MASK]
+> >> +	/*
+> >> +	 * Following code relies on the struct mpidr_hash
+> >> +	 * members size.
+> >> +	 */
+> >> +	ldp	w4, w5, [x2, #MPIDR_HASH_SHIFTS]
+> >> +	ldp	w6, w7, [x2, #(MPIDR_HASH_SHIFTS + 8)]
+> >> +	compute_mpidr_hash x2, x4, x5, x6, x7, x3, x8
+> >> +	ldr_l	\slot, sleep_save_stash
+> >> +	add	\slot, \slot, x2, lsl #3
+> >> +	.endm
+> >
+> >I think this would now be the only user of compute_mpidr_hash, so it's
+> >probably better to inline that macro here and then we don't need to
+> >bother with mpidr_hash_assert_distinct at all (i.e. your first patch
+> >isn't needed).
+> >
+> >Will
+> >
 > 
-> This tracks properties of ranges such as cache mode through x86 page
-> attributes, and as part of that logic manipulates kernel page tables.
 > 
-> Since commit 41d88484c71c ("x86/mm/pat: restore large ROX pages after
-> fragmentation") ranges of kernel page table entries can be collapsed into
-> huge page table entries as part of this logic.
-> 
-> As part of this collapse, it frees the page tables which the collapsed
-> entries previously pointed to, and it does so without any relevant locks
-> being held to preclude concurrent kernel page table walkers.
-> 
-> The only way this code can be reached is if CPA_COLLAPSE is specified, and
-> this is only set in set_memory_rox() via:
-> 
-> set_memory_rox()
-> -> change_page_attr_set_clr()
-> -> cpa_flush()
-> -> cpa_collapse_large_pages()
-> 
-> Notable users of this are execmem and bpf when manipulating executable
-> mappings.
-> 
-> However, this is problematic for ptdump as it walks ranges it does not own
-> and thus runs the risk of a use-after-free on page tables freed underneath
-> it.
-> 
-> In addition, concurrent CPA collapse operations are possible which can also
-> cause races.
-> 
-> Resolve the issue by acquiring the mmap write lock on init_mm across the
-> whole operation.
+> Will! What do you think of this?
 
-Thanks, Lorenzo.
-
-This ain't worth much here, but all the same:
-
-Reviewed-by: Will Deacon <will@kernel.org>
-
-with one nit below:
-
-> diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-> index d023a40a1e03..d1e63f7d267f 100644
-> --- a/arch/x86/mm/pat/set_memory.c
-> +++ b/arch/x86/mm/pat/set_memory.c
-> @@ -22,6 +22,7 @@
->  #include <linux/cc_platform.h>
->  #include <linux/set_memory.h>
->  #include <linux/memregion.h>
-> +#include <linux/cleanup.h>
->  
->  #include <asm/e820/api.h>
->  #include <asm/processor.h>
-> @@ -410,7 +411,7 @@ static void __cpa_flush_tlb(void *data)
->  
->  static int collapse_large_pages(unsigned long addr, struct list_head *pgtables);
->  
-> -static void cpa_collapse_large_pages(struct cpa_data *cpa)
-> +static void __cpa_collapse_large_pages(struct cpa_data *cpa)
->  {
->  	unsigned long start, addr, end;
->  	struct ptdesc *ptdesc, *tmp;
-> @@ -442,6 +443,18 @@ static void cpa_collapse_large_pages(struct cpa_data *cpa)
->  	}
->  }
->  
-> +static void cpa_collapse_large_pages(struct cpa_data *cpa)
-> +{
-> +	/*
-> +	 * Take the mmap write lock on init_mm to:
-> +	 * - Avoid a use-after-free if raced by ptdump (which takes its own
-> +	 *   write lock on init_mm).
-> +	 * - Serialise concurrent CPA walkers.
-
-The CPA lock should handle those, so I think it's the non-CPA walkers
-that are problematic. Looks like Sashiko reckons it's found some that
-don't take the mmap_lock at all [1], but this is still a big step in the
-right direction, fixes the ptdump case and we're not trying to boil the
-ocean.
+I think it's been mangled by your mail client. Please just send a v2 and
+I'll get to it on the next pass through my inbox (which is an unholy mess
+right now).
 
 Will
-
-[1] https://lore.kernel.org/all/20260716215307.14A6E1F000E9@smtp.kernel.org/#t
 
