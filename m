@@ -4,100 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C73BC44520
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 11:53:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1D29C44521
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 11:55:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8IQ4rZYCXmoKGNhUGfrKCmINcJDQqtVyHwlnRNnG6X4=; b=xmLEUe8UVodcgikVpWiwWMQoSF
-	iY1NjqDdZGx5BVfpdIFQU9NoOcO2S5ddhR16QlVZbFr9SlmIr7HX0cSOTo5IvqQ9gE89xMp5NfEPC
-	wjpe989RU6W3Z4bCvl8kdpOJ7WLuIdWkE/QP/ECNOIaP3X0ZffMQwYXwWhW2Y6tAJVJvejjhPlZQY
-	xSQWGaN22ZQ6NBGLtboDuE0mMWiKD7P1Kiv21gCFr2kq3COLJzlxBecGbb2yAD5ZaTPLRZzAS188b
-	vu/TIBS2trN3U41KFzQpVgqAl7ijtityg+aYoMm5MMJ6eDGNICvTrJkrA1aspV1v6umUQy5i6OGqF
-	zblMKuBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=olb07j+R4KRuYDDsVWwKXD1OEB5dTfTfM1jnrVire4o=; b=tGWXoIKBCrJrRpkmyt339fO3sV
+	+bLskliWukWDQKx5WYtrF4vVisPCkYCW4UAZJ6vxlPNP0BXa9TVa03tWqY882niyEE/K+X1LaKIG7
+	KJr0NaditVyKl7/swZheeTF1/6l/Edpe1ZvpMuUs9ESXX8Yy90Lx/IjEkJZN8q6zJ0oOKowApxQ32
+	IQq6mulQ9FquYiz1zZ1PJxwEq3LhBuDMTOSflwzqJujJmol/BdUX9YmWJywjAI56u4nxbj9LSfx/A
+	kNplve8rJAL9Gh+Tm0RFPhjiumaGmLSIY1o/C/aWep7wuCjD9pbwjecKZpYmGrjaK1OWKHUOojM+s
+	tnKqagXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkh7u-00000002C4u-0N31;
-	Fri, 17 Jul 2026 11:53:10 +0000
-Received: from mail-oo1-xc34.google.com ([2607:f8b0:4864:20::c34])
+	id 1wkhAL-00000002CMY-1bBB;
+	Fri, 17 Jul 2026 11:55:41 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkh7r-00000002C4S-2Ewr
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 11:53:08 +0000
-Received: by mail-oo1-xc34.google.com with SMTP id 006d021491bc7-6a116bd18ebso2361464eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 04:53:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784289186; x=1784893986; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=8IQ4rZYCXmoKGNhUGfrKCmINcJDQqtVyHwlnRNnG6X4=;
-        b=PZdq85QqYwQdZHqGB7m34T3iz/8C48BKOGffctAU/AkGuMZYv8DUGBbPkhWKqS+cNO
-         tlgbDcA1rG/IRktHzLD6bcMYqgQc+9Fw3ll/rsVFz+Zl1JY7n7fRs95j69D7n7Gz5KH4
-         UXoLn9z9SO4L5wqGia5kvQXmrhOCq+Ax15tWWxStZqvaJoi+TUh6MCYUjnmdo8+QU5u4
-         BxPMPzrCePm28YW1oBWXXQAALVUaldcJFT12Co3D1dbaFRoqhU9PXo0R92LO2GBWeU7d
-         mG5NTsabb96uxOoEVC9UIIoDaqTrDJKhV3MoBzdDdFeJm4tZkQmzvoXqTteEbeuz4iFe
-         SyMg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784289186; x=1784893986;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=8IQ4rZYCXmoKGNhUGfrKCmINcJDQqtVyHwlnRNnG6X4=;
-        b=W8TfqUFRTtXbrDsRxa2lupyFCNCcf27L7uqb8r0GcNfeuKoGDX4ANbs5pt9VW6bLAd
-         kl1GR5GYPlYODHfHBMxKH6qY2HMx9V7DYOlYUE5+ChXDS7NPodtsoI1AF2sPKlst8Ckm
-         wIAJR708LsmCJ6VdkJAKxwvCBRVBfBI0aVM0oFiZo00xEuVUCFmHMDHff+DA5JTlJZ9V
-         qf2eM5khbor18xInyTA4lS2J3vw+KxvY8J4vpMYuFGrePjsNyktzI7lcBfTR2oGKqL0a
-         dg2OWX0zUIcUGfX2Z3pzcirxxKJlPO5B1V1LclWZePoCPUu5aoEUne2r6UQn/U4GKWsY
-         1dXQ==
-X-Forwarded-Encrypted: i=1; AHgh+RoyIBtCFWuxkjbv0NbPqPxc6/tzzsur2Ugq0U2VRF9wDwhqtKJFsgQSASuL/xH0EbPsLUvpi51jNAr+3VxDeHjg@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzf7EBTXKipBHXZjq0TnlLYEJb2yyijFJpjoG4aBe0OmDdVNn5o
-	Vrpmza+4v1Za10lOqdQI1o15+OazJwHwrK1u06MKixyyVLeENDcCd1hS
-X-Gm-Gg: AfdE7cmLXb1bjTNvSjXZGRSykOdiuUJuOiYIa87n5B2AQz337f7eFLmY/cMqewiWIjq
-	SpD5tatwAj5AbRFb654+1zOXj5v7uM8VypXw9lU7lK9Y1vbPN1AR50XilFMocwo6AAseuMbkvKe
-	4ffn75EwoUxWNg0fx5fq4cat5KmHZqKR8A0xg6sn8/N44/ER9Fi2Jr86vlczTxqcRh78Ffi/3jG
-	eWogEllAW1XsES5KEFSlGDvLX/ty6+lpPlId1IsN9YzPaBOdkhtr/6SZGKIxc1njTb9IkPHQp5e
-	0wDO+uCIjL1wmx6bfjfv6KHfwU0btQbzbsh6X/wImvhVG5jpgY4aQ898OVTfgKNfEBdujtlLER2
-	A55S0CL7OjusOfJZBmcrEnH58MAxc8pfeJZmgE1Ae1+e4a2WAtcrWoL8O1Ae25sfCvuNgnA==
-X-Received: by 2002:a05:6820:1621:b0:6a1:805b:5288 with SMTP id 006d021491bc7-6a53688627amr895125eaf.33.1784289186437;
-        Fri, 17 Jul 2026 04:53:06 -0700 (PDT)
-Received: from localhost ([74.80.182.90])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6a516bb70c0sm1151776eaf.3.2026.07.17.04.53.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 Jul 2026 04:53:04 -0700 (PDT)
-Date: Fri, 17 Jul 2026 14:52:58 +0300
-From: Dan Carpenter <error27@gmail.com>
-To: "Luke Wang (OSS)" <ziniu.wang_1@oss.nxp.com>
-Cc: "adrian.hunter@intel.com" <adrian.hunter@intel.com>,
-	"ulfh@kernel.org" <ulfh@kernel.org>,
-	Bough Chen <haibo.chen@nxp.com>, Frank Li <frank.li@nxp.com>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-mmc@vger.kernel.org" <linux-mmc@vger.kernel.org>,
-	dl-S32 <S32@nxp.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"harshit.m.mogalapalli@oracle.com" <harshit.m.mogalapalli@oracle.com>
-Subject: Re: [PATCH v7 8/8] mmc: sdhci-esdhc-imx: fix resume error handling
-Message-ID: <aloXmhWN5QsqNcxM@stanley.mountain>
-References: <20260715071818.272318-1-ziniu.wang_1@oss.nxp.com>
- <20260715071818.272318-9-ziniu.wang_1@oss.nxp.com>
- <aln_pFNqL8495Y_a@stanley.mountain>
- <AM7PR04MB6870A9E6138EC8F7C8B23E53EDC62@AM7PR04MB6870.eurprd04.prod.outlook.com>
+	id 1wkhAH-00000002CLu-2XQC;
+	Fri, 17 Jul 2026 11:55:39 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 9A8E5C2B9F9;
+	Fri, 17 Jul 2026 11:55:51 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id B542860361;
+	Fri, 17 Jul 2026 11:55:33 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D107811BD013E;
+	Fri, 17 Jul 2026 13:55:29 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1784289332; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=olb07j+R4KRuYDDsVWwKXD1OEB5dTfTfM1jnrVire4o=;
+	b=yXXP7Pval4WDA/Rcwb+NuWA918Ql9SeQC53coAvcqFKI2q+nVCeCIPdGvZXsQK/cgmJwXu
+	rxnEETip2qaGBb3miTiLJf4GlRcxIEarrHbRcUe6Wg7JqOuvahWSb/9V5GpX/fUkgky0Mj
+	v49VDKAKy5ybZzFxAZTCgNTpj0kSz60ad2VmLEmVRMo+bN2pNuwl2RVKyLZ6QNfW9t3ZB7
+	OqAOjpLEkOCC+pE1qDa4MSZbEtOzaYyUutJQVVflfgOtkrDedwXov4HTmK70CLjiXbDRH7
+	llX5muQWl4ULLMzwqT/e0OaHceTR2WyHA2sd9kosxCUBYJi04OTD724YsF0LEQ==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: linux-mtd@lists.infradead.org,  linux-sunxi@lists.linux.dev,  Richard
+ Weinberger <richard@nod.at>,  Vignesh Raghavendra <vigneshr@ti.com>,
+  Chen-Yu Tsai <wens@kernel.org>,  Jernej Skrabec
+ <jernej.skrabec@gmail.com>,  Samuel Holland <samuel@sholland.org>,
+  Richard Genoud <richard.genoud@bootlin.com>,  Geert Uytterhoeven
+ <geert+renesas@glider.be>,  linux-arm-kernel@lists.infradead.org,
+  linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] mtd: rawnand: sunxi: fix H6/H616 controller timings
+In-Reply-To: <20260715013142.640977-1-james.hilliard1@gmail.com> (James
+	Hilliard's message of "Tue, 14 Jul 2026 19:31:38 -0600")
+References: <20260715013142.640977-1-james.hilliard1@gmail.com>
+User-Agent: mu4e 1.12.7; emacs 30.2
+Date: Fri, 17 Jul 2026 13:55:29 +0200
+Message-ID: <87a4rpkez2.fsf@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <AM7PR04MB6870A9E6138EC8F7C8B23E53EDC62@AM7PR04MB6870.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_045307_574191_56808042 
-X-CRM114-Status: UNSURE (   8.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260717_045537_816024_330FC8D9 
+X-CRM114-Status: GOOD (  15.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,25 +80,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Oh, heh.  I missed the entire point of the patch...  It should have
-just been:
+Hello James,
 
-	ret = pm_runtime_force_resume(dev);
-+	if (ret)
-+		return ret;
+On 14/07/2026 at 19:31:38 -06, James Hilliard <james.hilliard1@gmail.com> w=
+rote:
 
-Another way to silence the Sashiko warning about missing cleanup if
-mmc_gpio_set_cd_wake() failed would be to add a comment.
+> The NAND timing calculation was written for the original A10 NDFC. It
+> assumes command and address setup and hold intervals T1-T4, T7 and T11
+> are one controller clock and uses the A10 timing-register encodings.
+>
+> The H6/H616 NDFC instead defines those intervals as two internal clock
+> cycles and uses different encodings for tWB, tADL, tWHR and tRHW, as
+> documented in the H616 User Manual.
+>
+> Describe the timing characteristics in the controller capability data
+> so the clock solver can select a rate permitted by the NAND SDR timings
+> and program valid delay fields. Keep the legacy A10 behavior unchanged.
+>
+> Fixes: 88fd4e4deae8 ("mtd: rawnand: sunxi: Add support for H616 nand cont=
+roller")
 
-	ret = mmc_gpio_set_cd_wake(host->mmc, false);
-	if (ret) {
-		/* Just leak. It's fine. This path is impossible in 2026. */
-		return ret;
-	}
+Cc: stable missing here
 
-The other change was unrelated.
+> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 
-regards,
-dan carpenter
+...
 
+> @@ -1667,16 +1681,35 @@ static int sunxi_nfc_hw_ecc_write_oob(struct nand=
+_chip *nand, int page)
+>  	return nand_prog_page_end_op(nand);
+>  }
+>=20=20
+> -static const s32 tWB_lut[] =3D {6, 12, 16, 20};
+> -static const s32 tRHW_lut[] =3D {4, 8, 12, 20};
+> +static const struct sunxi_nfc_timings sun4i_a10_nfc_timings =3D {
+> +	.setup_cycles =3D 1,
+> +	.tWB =3D { 6, 12, 16, 20 },
+> +	.tADL =3D { 7, 15, 23, 31 },
+> +	.tWHR =3D { 7, 15, 23, 31 },
+> +	.tRHW =3D { 4, 8, 12, 20 },
+> +};
+
+This patch looks overall correct but must be split. For instance, the
+fact that you drop the LUT in favour of you own timing array shall be
+done in a preparation patch, without adding new timings, nor adding the
+new controller timings.
+
+Then in a second time you could add tADL and tWHR support, etc.
+
+> +
+> +static const struct sunxi_nfc_timings sun50i_h6_nfc_timings =3D {
+> +	.setup_cycles =3D 2,
+> +	.tWB =3D { 28, 44, 60, 76 },
+> +	.tADL =3D { 0, 12, 28, 44 },
+> +	.tWHR =3D { 0, 12, 28, 44 },
+> +	.tRHW =3D { 8, 24, 40, 56 },
+> +};
+> +
+> +static void sunxi_nand_update_min_period(u32 *min_period, u32 duration,
+> +					 unsigned int cycles)
+> +{
+> +	*min_period =3D max(*min_period, DIV_ROUND_UP(duration, cycles));
+> +}
+>=20=20
+> -static int _sunxi_nand_lookup_timing(const s32 *lut, int lut_size, u32 d=
+uration,
+> -		u32 clk_period)
+> +static int sunxi_nand_lookup_timing(const u8 *lut, u32 duration,
+> +				    u32 clk_period)
+
+This change is fine but likely also unrelated and should (maybe) be moved i=
+n its
+own commit.
+
+>  {
+>  	u32 clk_cycles =3D DIV_ROUND_UP(duration, clk_period);
+>  	int i;
+>=20=20
+> -	for (i =3D 0; i < lut_size; i++) {
+> +	for (i =3D 0; i < SUNXI_NFC_TIMING_STEPS; i++) {
+>  		if (clk_cycles <=3D lut[i])
+>  			return i;
+>  	}
+
+...
+
+> @@ -1703,77 +1734,65 @@ static int sunxi_nfc_setup_interface(struct nand_=
+chip *nand, int csline,
+>  		return -ENOTSUPP;
+>=20=20
+>  	/* T1 <=3D> tCLS */
+> -	if (timings->tCLS_min > min_clk_period)
+> -		min_clk_period =3D timings->tCLS_min;
+> +	sunxi_nand_update_min_period(&min_clk_period, timings->tCLS_min,
+> +				     nfc_timings->setup_cycles);
+
+I am not sure I get the added value of this helper?
+
+>=20=20
+>  	/* T2 <=3D> tCLH */
+> -	if (timings->tCLH_min > min_clk_period)
+> -		min_clk_period =3D timings->tCLH_min;
+> +	sunxi_nand_update_min_period(&min_clk_period, timings->tCLH_min,
+> +				     nfc_timings->setup_cycles);
+>=20=20
+
+...
+
+>=20=20
+>  static const struct sunxi_nfc_caps sunxi_nfc_h616_caps =3D {
+> @@ -2641,6 +2664,7 @@ static const struct sunxi_nfc_caps sunxi_nfc_h616_c=
+aps =3D {
+>  	.nuser_data_tab =3D ARRAY_SIZE(sunxi_user_data_len_h6),
+>  	.max_ecc_steps =3D 32,
+>  	.sram_size =3D 8192,
+> +	.timings =3D &sun50i_h6_nfc_timings,
+
+And this should be the last change in your series.
+
+BTW would it be relevant to align the various names ? (h6 timings in the
+h616 structure).
+
+Thanks,
+Miqu=C3=A8l
 
