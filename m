@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E371C44514
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 10:59:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47B0DC44507
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 10:59:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7d4qJ+T8ver1Wxgr9oYxe2ulrXqphYcvsiqipcUS47g=; b=IqBNNxFO+1lhh6am9qdbswR0cq
-	U4EDtywXZOz0IhRKiu3Sd9vm13icUcDSqMs0jAZ+x4m+X/ONjX2mjmzeaQtjYHsq/yKsORrGA8i7v
-	z+Nha7ujLAQ1Wk+BYk6Gg+pZbDYlDWyIgMGGCR1rdlTga9O+SSASYpRVvjVcIGTrTtQb6EJ8najBA
-	DkbPWA2RJSH/WBERLfG3GNxUaxqYp8zxicjcLSnEsBRcbLoPLJgeetwp/VHqeiXPr0R4XARjrojYr
-	kPXr6xG4aFJUprEFiqlVVqEhlU1hLIuhSIP7FlyH2dfv3Hz/23DH0CcSzc8wNrCiJ2bt+7g47aIzp
-	JcndzNsg==;
+	bh=lWNNBSIoyWBOFSNOhQeKfEHHIbciltHRFCNlpYq3ZL4=; b=1VVOKoJKHnrjP/9e0iczzZpqyb
+	9cP8ncv2j7bKjvIPaII+e/y0pQjqSinGm7+XcNRqDSWhsPVUD4KdTyuo4z1HjtkzpNPYbz0EKG8uG
+	9siSbf7wJ5JbAkZWZJ7rXkTAR5NBcgICUMPFlwpAx2OqNtFzwIcLDYgQlLLjEg22wavgMVCbYz+L9
+	CKABWLY6IQ6UORXD5UeIv9NGevi58aKs37SSzr/iybIgbnuBGNvc30SGtBN3qcm+hCWl3ih1YCyLc
+	g6KdDvVGNK82MX0b4UgIaw9iSi0u0ZfQztgf8d3Q2u/uJfgZzutvuVeuRNI0+UIm/i/dj4H7Lj60D
+	tAa0O72w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkgCZ-000000023SH-30Q4;
-	Fri, 17 Jul 2026 10:53:55 +0000
-Received: from exmail3.compal.com ([59.120.207.196] helo=tpecef22.compal.com)
+	id 1wkgHh-000000024r7-0rMK;
+	Fri, 17 Jul 2026 10:59:13 +0000
+Received: from exmail3.compal.com ([59.120.207.196] helo=tpecef21.compal.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkgCW-000000023RU-29gN;
-	Fri, 17 Jul 2026 10:53:54 +0000
-X-UUID: c7b693ec81cd11f1a87c2323a98e90a4-20260717
+	id 1wkgHe-000000024qE-1vXR;
+	Fri, 17 Jul 2026 10:59:11 +0000
+X-UUID: 634dafca81ce11f1b2470fb4f881575f-20260717
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.17,REQID:391a7171-17cc-4888-ad05-e57d16321c59,IP:0,U
-	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-5
-X-CID-META: VersionHash:d497b38,CLOUDID:f1f83c19-ab14-4403-9336-76696324c5a8,B
-	ulkID:nil,BulkQuantity:0,SF:81|82|83|102|110|111|836|865|888|898,TC:-5,Con
-	tent:0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,
-	COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-O-INFO: VERSION:1.3.17,REQID:8e71cb28-9db0-40ad-a1c8-8629bd771d4a,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:d497b38,CLOUDID:3342613f-46cf-453a-bd84-ad9fc7cb0e8c,B
+	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|110|111|836|865|888|898,TC:-5,
+	Content:0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:n
+	il,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 2,SSN|SDN
 X-CID-BAS: 2,SSN|SDN,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: c7b693ec81cd11f1a87c2323a98e90a4-20260717
-Received: from sdmg12.sdbg.compal.com [(10.113.168.10)] by tpecef22.compal.com
+X-UUID: 634dafca81ce11f1b2470fb4f881575f-20260717
+Received: from sdmg12.sdbg.compal.com [(10.113.168.10)] by tpecef21.compal.com
 	(envelope-from <jackbb_wu@compal.com>)
 	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1917883768; Fri, 17 Jul 2026 18:53:44 +0800
-X-UUID: c4e776ea81cd11f1a9f9c99e036204b4-20260717
+	with ESMTP id 1040670399; Fri, 17 Jul 2026 18:58:05 +0800
+X-UUID: 60eeb05881ce11f1a9f9c99e036204b4-20260717
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.15,REQID:8f60a7f5-c765-41cc-8bf9-c82a64e37990,IP:0,U
-	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-5
-X-CID-META: VersionHash:e276073,CLOUDID:bbf83c19-ab14-4403-9336-76696324c5a8,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|83|102|110|111|836|865|888|898
-	,TC:-5,Content:0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:ni
-	l,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:
-	0
+X-CID-O-INFO: VERSION:1.3.15,REQID:6ec2cd01-364f-4a82-a583-bffed7df6d45,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:e276073,CLOUDID:1242613f-46cf-453a-bd84-ad9fc7cb0e8c,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|865|888|
+	898,TC:-5,Content:0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS
+	:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,A
+	RC:0
 X-CID-BVR: 2,SSN|SDN
 X-CID-BAS: 2,SSN|SDN,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: c4e776ea81cd11f1a9f9c99e036204b4-20260717
+X-UUID: 60eeb05881ce11f1a9f9c99e036204b4-20260717
 Received: from sdbmbx11.tpe.compalcomm.com [(10.113.2.135)] by sdmg12.sdbg.compal.com
 	(envelope-from <jackbb_wu@compal.com>)
 	(Compal Mail Service with TLSv1.2 ECDHE-RSA-AES128-SHA 128/128)
-	with ESMTP id 393036499; Fri, 17 Jul 2026 18:53:39 +0800
+	with ESMTP id 251997475; Fri, 17 Jul 2026 18:58:01 +0800
 Received: from SDBMBX13.tpe.compalcomm.com (10.113.2.137) by
  SDBMBX11.tpe.compalcomm.com (10.113.2.135) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.43;
- Fri, 17 Jul 2026 18:53:37 +0800
+ Fri, 17 Jul 2026 18:57:59 +0800
 Received: from SDBMBX13.tpe.compalcomm.com ([fe80::2b98:6c2c:37df:2a86]) by
  SDBMBX13.tpe.compalcomm.com ([fe80::2b98:6c2c:37df:2a86%11]) with mapi id
- 15.02.2562.043; Fri, 17 Jul 2026 18:53:37 +0800
+ 15.02.2562.043; Fri, 17 Jul 2026 18:57:59 +0800
 From: "Wu. JackBB (GSM)" <JackBB_Wu@compal.com>
 To: Simon Horman <horms@kernel.org>
 CC: "loic.poulain@oss.qualcomm.com" <loic.poulain@oss.qualcomm.com>,
@@ -91,38 +91,40 @@ CC: "loic.poulain@oss.qualcomm.com" <loic.poulain@oss.qualcomm.com>,
 	<linux-arm-kernel@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
 	<linux-mediatek@lists.infradead.org>, "linux-doc@vger.kernel.org"
 	<linux-doc@vger.kernel.org>
-Subject: RE: [External Mail] Re: [PATCH v4 2/7] net: wwan: t9xx: Add control
- plane transaction layer
-Thread-Topic: [External Mail] Re: [PATCH v4 2/7] net: wwan: t9xx: Add control
- plane transaction layer
-Thread-Index: AQHdFQZLXFhkpHGHwk+0HowAeOhgTrZxQAIhgABKmI8=
-Date: Fri, 17 Jul 2026 10:53:36 +0000
-Message-ID: <e4c414ee18a0428f8388ee8c847b3ad5@compal.com>
-References: <20260709-t9xx_driver_v1-v4-2-a8c009d509c5@compal.com>,<20260716093355.231047-1-horms@kernel.org>,<47002e869f5b4f0985316669d2769c19@compal.com>
-In-Reply-To: <47002e869f5b4f0985316669d2769c19@compal.com>
+Subject: RE: [External Mail] Re: [PATCH v4 3/7] net: wwan: t9xx: Add control
+ DMA interface
+Thread-Topic: [External Mail] Re: [PATCH v4 3/7] net: wwan: t9xx: Add control
+ DMA interface
+Thread-Index: AQHdFQZPlE9Zcx29j0SOvF2f5GB/ubZxQQT+gABKArw=
+Date: Fri, 17 Jul 2026 10:57:59 +0000
+Message-ID: <b1bc657dfd584ebfbe126ed7b1c25aa2@compal.com>
+References: <20260709-t9xx_driver_v1-v4-3-a8c009d509c5@compal.com>,<20260716093406.231071-1-horms@kernel.org>,<cacde4a05d6a48afbac6425425fe180c@compal.com>
+In-Reply-To: <cacde4a05d6a48afbac6425425fe180c@compal.com>
 Accept-Language: zh-TW, en-US
 Content-Language: zh-TW
 X-MS-Has-Attach: 
 X-MS-TNEF-Correlator: 
 x-originating-ip: [10.113.2.241]
 x-tm-as-product-ver: SMEX-14.0.0.3239-9.1.2019-30074.006
-x-tm-as-result: No-10--6.899800-8.000000
-x-tmase-matchedrid: T+XxcFniPGwuv++HU7VXryRFbfQbCufdN0X64jGy2dZJTOxleK2tZnw0
-	UcwaiWo2Fz8NwhmlWx4y7EpJodRIQMz74oElhNRBJfg23t68rFm+UXZnp3CKAPQOK2Gf/k+ts/y
-	bVOXU6piLzhmh6kfDWhg0mD5ur2qoJGhCEy7RQMEk+VN5SeE/Ck04j7+oEbb9WjsaYI4lh3U7nR
-	P0DvgcK7YURQHAp3zKSNJOcVup57cdMK1D9OMWjF3tbFMDIsdT+t7DQ0cGcYxMJBDuBaOWuw==
+x-tm-as-result: No-10--8.503600-8.000000
+x-tmase-matchedrid: SIzKuw2hzSsuv++HU7VXryRFbfQbCufdN0X64jGy2dZJTOxleK2tZpNz
+	D6YMRvgW4TxIMIx6VwqygWex5mZjoExpKNdX3ZAHGG92L3YEEC7+i5C4lXMwGpkRPHajPHqahHb
+	hMYBfXh6xz2XsYPh81PcsiAWLTUtcNAvg4f4NA3aKXsEnE1HIgafbQvH9vxEz+MTGGiOqPZP4da
+	Hf+FKvHnbtoQgg+kKD9jr8sjt9AcxsWCg8ogcRFiTsj2fBdH5+Nv2nLihwToOO46CtGFNzgOhNL
+	/hId+0VYRnTRjcZm2nek37/UTxQNvXP9L7jSlOynRTJpY7VAKcZ8/pDtedih3JUlKqEwVP1lOaZ
+	ty5Hsz/VUxjVwQBhA0pXXeHBy+72qIpjxEoeciERLjqoJJt/9fmA1kk/6T8voli4ZoiOHT8g4pZ
+	YxslhbbNkeEYGbJYucluCMzRoLUAP3l5YT8MEJx4HREEROjbp2okVpnRrZa3q2PB1ITCgWA==
 x-tm-as-user-approved-sender: No
 x-tm-as-user-blocked-sender: No
-x-tmase-result: 10--6.899800-8.000000
+x-tmase-result: 10--8.503600-8.000000
 x-tmase-version: SMEX-14.0.0.3239-9.1.2019-30074.006
-x-tm-snts-smtp: D535A7E008353EB58D5883760F67864E65A4896D13E2587800F8A8BFB77112F32000:8
+x-tm-snts-smtp: B4FB75A9AA0D6DCDF4555A3E0CF07F4D01E975591359C026887BC5B1C645B58F2000:8
 Content-Type: text/plain; charset="big5"
 Content-Transfer-Encoding: base64
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_035352_898253_6FF382A5 
-X-CRM114-Status: UNSURE (   5.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260717_035910_839380_411DFFF5 
+X-CRM114-Status: GOOD (  12.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,14 +139,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-DQpIaSBTaW1vbiwNCg0KQWZ0ZXIgZnVydGhlciBpbnRlcm5hbCByZXZpZXcsIHdlIGFncmVlIHRo
-aXMgbmVlZHMgdG8gYmUgZml4ZWQuDQoNCk9uIEphY2sgV3Ugd3JvdGU6DQoNCj4+IFtTZXZlcml0
-eTogSGlnaF0NCj4+IERvZXMgdGhpcyBjb2RlIGFwcGx5IGEgZG91YmxlIGJ5dGUtc3dhcCBvbiBi
-aWctZW5kaWFuIGFyY2hpdGVjdHVyZXM/DQoNCj5UOVhYIGN1cnJlbnRseSBvbmx5IHRhcmdldHMg
-eDg2IChsaXR0bGUtZW5kaWFuKSBwbGF0Zm9ybXMgd2hlcmUNCj5jcHVfdG9fbGUzMigpIGlzIGEg
-bm8tb3AuIFRoZSBLY29uZmlnIGVuZm9yY2VzICJkZXBlbmRzIG9uIFBDSSAmJg0KDQpJbiB2NSB3
-ZSB3aWxsIHJlbW92ZSBMRTMyX1RPX1UzMihjcHVfdG9fbGUzMiguLi4pKSBhbmQgcmV0dXJuDQpo
-d19iaXRzIGRpcmVjdGx5IGluIGJvdGggbXRrX3BjaV9leHRfZDJoX2V2dF9od19iaXRzKCkgYW5k
-DQptdGtfcGNpX2V4dF9oMmRfZXZ0X2h3X2JpdHMoKS4gVGhlIGN1c3RvbSBMRTMyX1RPX1UzMiBt
-YWNybw0Kd2lsbCBhbHNvIGJlIHJlbW92ZWQuDQoNClRoYW5rcy4NCg0KSmFjayBXdQ0K
+SGkgU2ltb24sDQoNCkFmdGVyIGZ1cnRoZXIgaW50ZXJuYWwgcmV2aWV3LCB3ZSBhcmUgY29ycmVj
+dGluZyBzZXZlcmFsDQpyZXNwb25zZXMgZnJvbSBvdXIgcHJldmlvdXMgcmVwbHkuIFRoZSBmb2xs
+b3dpbmcgaXRlbXMgd2lsbA0KYmUgZml4ZWQgaW4gdjUuDQoNCk9uIFtkYXRlXSBKYWNrIFd1IHdy
+b3RlOg0KDQo+PiBbU2V2ZXJpdHk6IEhpZ2hdDQo+PiBJcyBhIGRtYV9ybWIoKSBuZWVkZWQgYWZ0
+ZXIgY2hlY2tpbmcgdGhlIGhhcmR3YXJlIG93bmVyc2hpcCBmbGFnPw0KDQo+IFRoZSBHUEQgZGVz
+Y3JpcHRvcnMgYXJlIGFsbG9jYXRlZCBmcm9tIGEgY29oZXJlbnQgRE1BIHBvb2wNCj4gKGRtYV9w
+b29sX3phbGxvYyksIHNvIENQVSBjYWNoZSBjb2hlcmVuY3kgaXMgZ3VhcmFudGVlZCBieSB0aGUg
+RE1BDQo+IG1hcHBpbmcuIEEgZG1hX3JtYigpIGlzIG5vdCBuZWVkZWQgYmVjYXVzZSBjb2hlcmVu
+dCBtZW1vcnkgZW5zdXJlcw0KPiB0aGUgQ1BVIGFsd2F5cyBvYnNlcnZlcyB0aGUgbGF0ZXN0IHZh
+bHVlcyB3cml0dGVuIGJ5IHRoZSBkZXZpY2UuDQoNCldlIFdpbGwgcmVtb3ZlIHRoZSBybWIoKSBh
+bmQgYWRkIGRtYV9ybWIoKSBhZnRlciB0aGUgSFdPIGNoZWNrIGluDQpib3RoIFRYIGFuZCBSWCBk
+b25lIHBhdGhzOg0KDQogIC8qIFRYIGRvbmUgKi8NCiAgaWYgKCFyZXEtPmRhdGFfdm1fYWRkciB8
+fA0KICAgICAgKHJlcS0+Z3BkLT50eF9ncGQuZ3BkX2ZsYWdzICYgQ0xETUFfR1BEX0ZMQUdfSFdP
+KSkNCiAgICAgIGJyZWFrOw0KICBkbWFfcm1iKCk7DQoNCiAgLyogUlggZG9uZSAqLw0KICBpZiAo
+cmVxLT5ncGQtPnJ4X2dwZC5ncGRfZmxhZ3MgJiBDTERNQV9HUERfRkxBR19IV08pDQogICAgICBi
+cmVhazsNCiAgZG1hX3JtYigpOw0KICBtdGtfY2xkbWFfcnhfc2tiX2FkanVzdChtZGV2LCByeHEs
+IHJlcSk7DQoNCj4+IFtTZXZlcml0eTogSGlnaF0NCj4+IElmIG10a19jbGRtYV9yZWxvYWRfcnhf
+c2tiIGZhaWxzIGR1ZSB0byBtZW1vcnkgcHJlc3N1cmUsIGl0IGp1bXBzDQo+PiB0byBvdXQgd2l0
+aG91dCBhZHZhbmNpbmcgcnhxLT5mcmVlX2lkeC4NCg0KPiBJZiBtdGtfY2xkbWFfcmVsb2FkX3J4
+X3NrYigpIGZhaWxzLCB0aGUgY29kZSBqdW1wcyB0byAib3V0IiB3aGljaA0KPiB1bm1hc2tzIHRo
+ZSBpbnRlcnJ1cHQuIE9uIHRoZSBuZXh0IGhhcmR3YXJlIGludGVycnVwdCwgcnhfZG9uZV93b3Jr
+DQo+IHJ1bnMgYWdhaW4gYW5kIHJldHJpZXMgZnJvbSB0aGUgc2FtZSBmcmVlX2lkeC4NCg0KV2ls
+bCBjaGFuZ2UgdGhlIGZhaWx1cmUgcGF0aCB0byByZWN5Y2xlIHRoZSBvbGQgYnVmZmVyIGFuZCBy
+ZXR1cm4NCnRoZSBkZXNjcmlwdG9yIHRvIGhhcmR3YXJlLCBkcm9wcGluZyB0aGUgY3VycmVudCBw
+YWNrZXQgdG8NCmd1YXJhbnRlZSBmb3J3YXJkIHByb2dyZXNzLg0KDQo+PiBbU2V2ZXJpdHk6IEhp
+Z2hdDQo+PiBEb2VzIHRoaXMgY29kZSBzYWZlbHkgaGFuZGxlIG5vbi1saW5lYXIgU0tCcz8NCg0K
+PiBXaGVuIG5yX2JkcyA9PSAwLCB0aGUgU0tCIGlzIGFsd2F5cyBsaW5lYXIgoVggaXQgaXMgYWxs
+b2NhdGVkDQo+IGludGVybmFsbHkgdmlhIF9fZGV2X2FsbG9jX3NrYigpIHdpdGggZGF0YSBjb3Bp
+ZWQgdmlhIHNrYl9wdXQoKS4NCg0KV2lsbCBjaGFuZ2Ugc2tiLT5sZW4gdG8gc2tiX2hlYWRsZW4o
+c2tiKS4NCg0KPj4gW1NldmVyaXR5OiBIaWdoXQ0KPj4gQ291bGQgdGhlcmUgYmUgYSByYWNlIGNv
+bmRpdGlvbiBoZXJlIHdpdGggbXRrX2NsZG1hX3R4X2RvbmVfd29yaz8NCg0KPiBObyByYWNlIGV4
+aXN0cy4gdHhfZG9uZV93b3JrIHNlZXMgSFdPIHN0aWxsIHNldC4NCg0KV2lsbCBhZGQgYSBmcmVl
+X2lkeCA9PSB3cl9pZHggYm91bmRhcnkgY2hlY2sgYXQgdGhlIHRvcCBvZiB0aGUNCmRvbmVfd29y
+ayBsb29wICh1c2luZyBSRUFEX09OQ0UvV1JJVEVfT05DRSkgdG8gcHJldmVudCBkb25lX3dvcmsN
+CmZyb20gY3Jvc3NpbmcgaW50byBzdWJtaXQgdGVycml0b3J5IG9uIGRlc2NyaXB0b3IgcmV1c2Uu
+DQoNClRoYW5rcw==
 
