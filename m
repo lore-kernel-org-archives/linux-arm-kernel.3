@@ -4,87 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5CFFC4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 17:01:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 186F0C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 17:05:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PpNZRbQ47/WqGdrrUHhpvYqGIuM8bItP00+DgG6LDXo=; b=GBq2T/Lx2CcFLaDe3a1W5oZFyL
-	uhG+zikyYGd+zrD/SuXjXhaORova4zDfobLRGsWjIC888beRHw/7KuulRS7rdu0roHVAbh/ZHiWIq
-	cUYsCTR7R9iZ+5GeEe9I04sJEuVxm0Yj+b0KJ9vvVAGMHn+xmbMwc3ISy81KgIqlSrsHOaI/E7Hh2
-	xxoznJ3Wa4gpQdZImVe2FmQpNvINOd4PvdN+gNF3/4PusnSZDmMTb70p+c4TR7Wu5lrNC19HGDoR4
-	Kdb9tpoGT8jOVjIkyyBPodTSM81vBjjn7459KBUYLnLRKx7M8UhUIJZtHcafMOSZu4qgQGZEtdriE
-	AQMpqy+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=43Rqns9o7zuxB8Q2tRjk8vnUv6HyspLxI1P0dak7QN8=; b=bgNEIHEAyYYlpgRYJDPVLtPPTQ
+	S3JFqidmngfz4t8pJG5Ol++BQ5P1wBSPwgvhsl1uHPsaQ+QYdEwS65VKGRFRSYhXKtpk1U6V4STTv
+	u2Io62267nL75Uw+V3/GQiys72IsR+jtwtvLArVUe11Fwu2kYXXoT1DuJhoGD0yIxdO44yqsU3BsE
+	dawjSvyvhy8ceT46zl/ERr0Oaizq14ENM3ldGX3X0J3q+ik/nmF+vxVizCQSsbARqSjEKeR7+5CA3
+	SW65+Xr8h2Jyx7pT/HaFfeaAjXEPDDWnQZFrCtbn3vR5ZwopQbZKZAciTtrpZzv+11c9n7I9Mvzey
+	jm0KtUsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wklwR-00000002niy-0Xtb;
-	Fri, 17 Jul 2026 17:01:39 +0000
-Received: from shelob.surriel.com ([96.67.55.147])
+	id 1wkm0F-00000002o9o-2y2k;
+	Fri, 17 Jul 2026 17:05:35 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wklwN-00000002nhz-2xvm
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 17:01:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=surriel.com
-	; s=mail; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=PpNZRbQ47/WqGdrrUHhpvYqGIuM8bItP00+DgG6LDXo=; b=eg8ad3RiFa8lAL5pChcMMgF1Si
-	LEbP5CZ1dBogtdyeKd+q0TUhTbit02LiVOpp6m6hBnGvr3J9MKzB6Gabf/w1RkeB/xjPyNSXCmw5n
-	9x33pv/WFy+Cz5on5MbJSN3T/Z45sBaO10W/t8w9GivVYQG03zc6Xa/DNv1fDl/uDl2quDe+ASJIr
-	08PV+2sy2+JnkIATDRgGx/E0LfZjXBGhUyOBCM4nxowH0d9AumHwwizfilLbnOyXaZdXf/Rwm9Mkf
-	puhrOFc1ywQuSWaJpvYYHdbml9Y+yFXm6E4fQBHczEfQ91zkLtR2xjQlUqzJwkLH0P84hz83lyxP/
-	etyWm5xg==;
-Received: from fangorn.home.surriel.com ([10.0.13.7])
-	by shelob.surriel.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.97.1)
-	(envelope-from <riel@surriel.com>)
-	id 1wklvS-000000001w4-0RAd;
-	Fri, 17 Jul 2026 13:00:38 -0400
-From: Rik van Riel <riel@surriel.com>
-To: linux-kernel@vger.kernel.org,
-	Andrew Morton <akpm@linux-foundation.org>
-Cc: kernel-team@meta.com,
-	Rik van Riel <riel@surriel.com>,
-	David Hildenbrand <david@kernel.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>,
-	linux-mm@kvack.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Harry Yoo <harry@kernel.org>,
-	Jann Horn <jannh@google.com>,
-	Lance Yang <lance.yang@linux.dev>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org
-Subject: [PATCH RFC v3 3/6] mm: rename get_user_page_vma_remote() to get_user_page_lookup_vma()
-Date: Fri, 17 Jul 2026 13:00:33 -0400
-Message-ID: <20260717170036.743149-4-riel@surriel.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260717170036.743149-1-riel@surriel.com>
-References: <20260717170036.743149-1-riel@surriel.com>
+	id 1wkm0D-00000002o8v-0PCy;
+	Fri, 17 Jul 2026 17:05:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1784307934; x=1815843934;
+  h=date:from:to:cc:subject:message-id:mime-version;
+  bh=kO8aFzuGHwtDypuu15ShB7rQhwfq0S6rbdCVU3OLqX4=;
+  b=jzOMK7b0RKuvANlc+Sa3dflYgJq2EzuHVHTPWE4WcZx3RCaUwI1mQdrR
+   YVY4iuflJ7mwK9askuPd9/ccoWI5JBKs/KbvSm8PUA1jUOhJrjk930JJN
+   cSnr74/e+hvG83Xbzbu2Y2QjiCX/E2w+nkFgY4L6CXktETdg8I4KfF+83
+   urHJNBsDVg7vN4oYmbmEaCjUh1ICqi4N9Nr6fCe/xrB2Pv5oPH3uI0VMf
+   QQzI0/cbTiwc0vjzWtb2zBG5IcR10MXHqQSfWBUKIOItVoVSxlpLCllFD
+   bxD+Y5S70jgeH0arr+4XYkWjLfDX5GpxUqDTrvtDetzL+S1wPZLZdAnMT
+   g==;
+X-CSE-ConnectionGUID: qCuJ2L4QSNiLJopqBeBZwQ==
+X-CSE-MsgGUID: MX3rge3OTkWgW7ojrcN6WA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11849"; a="88660697"
+X-IronPort-AV: E=Sophos;i="6.25,169,1779174000"; 
+   d="scan'208";a="88660697"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jul 2026 10:05:31 -0700
+X-CSE-ConnectionGUID: eUr5wEqQRASVPpk+SZIHHw==
+X-CSE-MsgGUID: KJ60gS9dSwGhwnT/tiyPxQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,169,1779174000"; 
+   d="scan'208";a="295027652"
+Received: from guptapa-desk.jf.intel.com (HELO desk) ([10.165.239.46])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jul 2026 10:05:31 -0700
+Date: Fri, 17 Jul 2026 10:05:30 -0700
+From: Pawan Gupta <pawan.kumar.gupta@linux.intel.com>
+To: stable@vger.kernel.org, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Sasha Levin <sashal@kernel.org>
+Cc: bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
+	x86@kernel.org, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Dave Hansen <dave.hansen@linux.intel.com>
+Subject: [PATCH 6.6.y 0/6] cBPF JIT spray hardening
+Message-ID: <20260717-cbpf-jit-spray-hardening-6-6-y-v1-0-e04f1b2893de@linux.intel.com>
+X-B4-Tracking: v=1; b=H4sIANleWmoC/yWNMQvCMBCF/0q52SttlAu4iYujg5s4pMmlvQ4xJ
+ FUspf/dVHnT9x68b4HMSTjDsVog8VuyPEOBdleBHUzoGcUVBtUoanRLaLvocZQJc0xmxsEkx0F
+ Cj1Qyo7FErP1B7bWDchITe/n8BHe4nm7ny9ZSTfUMj/+eX93IdtossK5fuD+rQZIAAAA=
+X-Change-ID: 20260716-cbpf-jit-spray-hardening-6-6-y-ac66e7f4237d
+X-Mailer: b4 0.16-dev
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_100135_750322_604C9E56 
-X-CRM114-Status: GOOD (  14.83  )
+X-CRM114-CacheID: sfid-20260717_100533_180362_FB5F2C9A 
+X-CRM114-Status: UNSURE (   6.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,97 +88,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-get_user_page_vma_remote() faults in the page at @addr in a remote mm and
-also looks up the VMA that covers it, handing both back to the caller.
+Hi,
 
-This cleans up the name space for adding a get_user_page_vma() variant
-where the caller already has the vma.
+These backports harden BPF JIT against spectre-v2 class of attacks. Without
+a predictor flush, execution of new BPF program may use stale prediction
+left behind by the freed one.
 
-Assisted-by: Claude:claude-opus-4.8
-Signed-off-by: Rik van Riel <riel@surriel.com>
+To avoid this, issue an IBPB flush on all CPUs on JIT program allocation.
+The flush is conditional to spectre-v2 mitigation applied.
+
+Patch 1-2: Adds the predictor flush hook and enables it on x86 via IBPB.
+
+	  bpf: Support for hardening against JIT spraying
+	  x86/bugs: Enable IBPB flush on BPF JIT allocation
+
+Patch 3-6: Narrow the flush to only unprivileged JIT allocations
+	   to avoid redundant flushes. Also adds pack-selection changes
+	   that minimizes flushes.
+
+	  bpf: Restrict JIT predictor flush to cBPF
+	  bpf: Skip redundant IBPB in pack allocator
+	  bpf: Prefer packs that won't trigger an IBPB flush on allocation
+	  bpf: Prefer dirty packs for eBPF allocations
+
 ---
- arch/arm64/kernel/mte.c   | 2 +-
- arch/x86/kernel/uprobes.c | 2 +-
- include/linux/mm.h        | 2 +-
- mm/memory.c               | 4 ++--
- mm/rmap.c                 | 2 +-
- 5 files changed, 6 insertions(+), 6 deletions(-)
+Pawan Gupta (6):
+      bpf: Support for hardening against JIT spraying
+      x86/bugs: Enable IBPB flush on BPF JIT allocation
+      bpf: Restrict JIT predictor flush to cBPF
+      bpf: Skip redundant IBPB in pack allocator
+      bpf: Prefer packs that won't trigger an IBPB flush on allocation
+      bpf: Prefer dirty packs for eBPF allocations
 
-diff --git a/arch/arm64/kernel/mte.c b/arch/arm64/kernel/mte.c
-index 1a9aad6ef22a..7a6ecc3d9294 100644
---- a/arch/arm64/kernel/mte.c
-+++ b/arch/arm64/kernel/mte.c
-@@ -459,7 +459,7 @@ static int __access_remote_tags(struct mm_struct *mm, unsigned long addr,
- 		struct vm_area_struct *vma;
- 		unsigned long tags, offset;
- 		void *maddr;
--		struct page *page = get_user_page_vma_remote(mm, addr,
-+		struct page *page = get_user_page_lookup_vma(mm, addr,
- 							     gup_flags, &vma);
- 		struct folio *folio;
- 
-diff --git a/arch/x86/kernel/uprobes.c b/arch/x86/kernel/uprobes.c
-index 3af979fb41d3..329efac0cfb3 100644
---- a/arch/x86/kernel/uprobes.c
-+++ b/arch/x86/kernel/uprobes.c
-@@ -1036,7 +1036,7 @@ static int copy_from_vaddr(struct mm_struct *mm, unsigned long vaddr, void *dst,
- 	struct vm_area_struct *vma;
- 	struct page *page;
- 
--	page = get_user_page_vma_remote(mm, vaddr, gup_flags, &vma);
-+	page = get_user_page_lookup_vma(mm, vaddr, gup_flags, &vma);
- 	if (IS_ERR(page))
- 		return PTR_ERR(page);
- 	uprobe_copy_from_page(page, vaddr, dst, len);
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 485df9c2dbdd..24ead14b4790 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -3238,7 +3238,7 @@ long pin_user_pages_remote(struct mm_struct *mm,
- /*
-  * Retrieves a single page alongside its VMA. Does not support FOLL_NOWAIT.
-  */
--static inline struct page *get_user_page_vma_remote(struct mm_struct *mm,
-+static inline struct page *get_user_page_lookup_vma(struct mm_struct *mm,
- 						    unsigned long addr,
- 						    int gup_flags,
- 						    struct vm_area_struct **vmap)
-diff --git a/mm/memory.c b/mm/memory.c
-index ff338c2abe92..3b86eeaf084f 100644
---- a/mm/memory.c
-+++ b/mm/memory.c
-@@ -7039,7 +7039,7 @@ static int __access_remote_vm(struct mm_struct *mm, unsigned long addr,
- 		void *maddr;
- 		struct folio *folio;
- 		struct vm_area_struct *vma = NULL;
--		struct page *page = get_user_page_vma_remote(mm, addr,
-+		struct page *page = get_user_page_lookup_vma(mm, addr,
- 							     gup_flags, &vma);
- 
- 		if (IS_ERR(page)) {
-@@ -7167,7 +7167,7 @@ static int __copy_remote_vm_str(struct mm_struct *mm, unsigned long addr,
- 		struct page *page;
- 		struct vm_area_struct *vma = NULL;
- 
--		page = get_user_page_vma_remote(mm, addr, gup_flags, &vma);
-+		page = get_user_page_lookup_vma(mm, addr, gup_flags, &vma);
- 		if (IS_ERR(page)) {
- 			/*
- 			 * Treat as a total failure for now until we decide how
-diff --git a/mm/rmap.c b/mm/rmap.c
-index 1c77d5dc06e9..b36f2e219b8f 100644
---- a/mm/rmap.c
-+++ b/mm/rmap.c
-@@ -2838,7 +2838,7 @@ struct page *make_device_exclusive(struct mm_struct *mm, unsigned long addr,
- 	 * (non-device-exclusive) PTE and issue a MMU_NOTIFY_EXCLUSIVE.
- 	 */
- retry:
--	page = get_user_page_vma_remote(mm, addr,
-+	page = get_user_page_lookup_vma(mm, addr,
- 					FOLL_GET | FOLL_WRITE | FOLL_SPLIT_PMD,
- 					&vma);
- 	if (IS_ERR(page))
--- 
-2.53.0-Meta
+ arch/riscv/net/bpf_jit_core.c        |  3 +-
+ arch/x86/include/asm/nospec-branch.h |  4 +++
+ arch/x86/kernel/cpu/bugs.c           | 50 +++++++++++++++++++++++---
+ arch/x86/net/bpf_jit_comp.c          |  3 +-
+ include/linux/filter.h               | 15 ++++++--
+ kernel/bpf/core.c                    | 68 ++++++++++++++++++++++++++++++++----
+ kernel/bpf/dispatcher.c              |  2 +-
+ 7 files changed, 129 insertions(+), 16 deletions(-)
+---
+base-commit: da47cbc254661aa66d61ef061485a7080305c4be
+change-id: 20260716-cbpf-jit-spray-hardening-6-6-y-ac66e7f4237d
+
+Best regards,
+--  
+Pawan
+
 
 
