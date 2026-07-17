@@ -4,104 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B408C4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 00:52:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2DC0C44512
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 00:54:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A77kqTT6RG06qU9VfBbjIwsnkZcXnKT3rnXPGJRMQPg=; b=c/Mz5X9Q3xaDBqpwmpOgx8ijhc
-	L7DLTgoLoQVp8SDOjPvqskCHcXYBJgvc6OrMWsZ6R+7QUA+PXe2RIOQIvwDMr1OQg7MdEXaJZyvOR
-	nSI3p5As2XbkwaplzMYDoYgAjV1DppyCCLl2Ysg7s1ELxY7bH7dPpPQXsY4AyK1RXBVA6l/NaC+/0
-	Zdb0M5MfOwq3tJsa8A6wVu394TYzhWdiSsnfZvsJXN9jzcKU2+XGfBstqP0sFS2VZoXPRZg/mYmzr
-	qo9sJiuJU5NIvyBYeTgnIeReHxB+oiYZfF1J+yWiEAZVmnu7mORtpZxcHClJfCh43bT0JrFQKWy5P
-	HcOgnabw==;
+	bh=YBnKDSvOueTAUhAzYLfByVoitz0I+gaL8EouTfwU7Tk=; b=b+C68UR8HEL+gVpluLUJHp0/IJ
+	it3V5PIK+6i8BieGqzjioRKcnXzg10Ar6F4PMnqm1+RZvFhtyh/4D9JDAoiUEUDJXQLAmayrVAjnu
+	a6rHzPImcCD2vsN9gu+mARWCZg0DYhWyLn4fVdMdFYHOKzs14ml520fKD1mpDHQTqSdcDhRWqZMgp
+	3Ts2qj97kWvGMoUvjBNK9gIldvPRBnW+M0tnipbYvx1SA++t9iTyoO1sqr6+bNC5/Wj+aZfQRYEn1
+	Jkb8XqSmMmxvma7nQkBtKOUIXcu1sdEPIOVY+LTPuiN4If8Pbvf+9SIZOGGzm5soWJaQ073mMp5rF
+	4T0tIuYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkWoo-00000000rHy-37NI;
-	Fri, 17 Jul 2026 00:52:46 +0000
+	id 1wkWpw-00000000rVV-46yo;
+	Fri, 17 Jul 2026 00:53:56 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkWom-00000000rH6-1NQW
+	id 1wkWpv-00000000rUx-0IEu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 00:52:45 +0000
+	Fri, 17 Jul 2026 00:53:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1784249563;
+	s=mimecast20190719; t=1784249634;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=A77kqTT6RG06qU9VfBbjIwsnkZcXnKT3rnXPGJRMQPg=;
-	b=SKxceqcMmw4AHiusTj7jU0WpnMXSrg07hrYBl8I0D362JgR7y5vjGRZi+JgbbIbiHymnjo
-	nOlhoFBg4VBoFfWl2u+nsTaMk+6bnbym1VAJqhaGWIIUKvcx4eMV7NGkgNd1laaeCJ22Xm
-	W8TZgIj4pYo6Q5RMlb94ds4lJuDZvTc=
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com
- [209.85.216.70]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=YBnKDSvOueTAUhAzYLfByVoitz0I+gaL8EouTfwU7Tk=;
+	b=BdQ275wXjkVg1BID34rjKhCQEkDfUolx/VNOfucrVDJZgPe3WGMOfu7AqZ/LfAT7MWhHVY
+	P2DpsCs/jO+n7wladExWy+sS/CFxZXW9hwtpuL3rO+jZFc/oJd5RPg8lVZOd7+jyoI/Hlo
+	9kmNrDAVxhYArADDzFTBaUhdrkTYSAw=
+Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com
+ [209.85.215.199]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-439-nAsWjAzOMaOW4X_RRXTJBg-1; Thu, 16 Jul 2026 20:52:40 -0400
-X-MC-Unique: nAsWjAzOMaOW4X_RRXTJBg-1
-X-Mimecast-MFC-AGG-ID: nAsWjAzOMaOW4X_RRXTJBg_1784249559
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-38dc101287aso8359809a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 17:52:40 -0700 (PDT)
+ us-mta-483-qzZrkTjXNI2F1RA1cK9JXw-1; Thu, 16 Jul 2026 20:53:52 -0400
+X-MC-Unique: qzZrkTjXNI2F1RA1cK9JXw-1
+X-Mimecast-MFC-AGG-ID: qzZrkTjXNI2F1RA1cK9JXw_1784249632
+Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-cab3e9cd922so3251964a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 17:53:52 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784249559; x=1784854359;
+        d=1e100.net; s=20251104; t=1784249632; x=1784854432;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=A77kqTT6RG06qU9VfBbjIwsnkZcXnKT3rnXPGJRMQPg=;
-        b=Mne5OgYA5tHNKSzdTV4XDKq1ehInhQdXqQ61rf0oP7n2wjOYK3JQVk0glEkWHDorxd
-         tCbN2kFLFJk/vmkwQyzVBcE7/L9d9dS5gjiHY9jAc098dy3kfByPvHp78HfxGJILmpwt
-         R5OUK8oE+W3g2SV+DzhZm3hsyHgP9uFMJxcJV8Jn+90THjv7KYm7F0qlVED7kF+iDWTe
-         BwNWpe7/TnWq30YdMeLq9BVW3hsjJs2iXwBdm7PtxanNSr2neYcxRyQ3xV3z2HEJm8dh
-         Anl2cStX06tEvju35+x3gMH3tY9GfkfP8nZHLOCXSLbKuxOBcR03+mXkzqbZhhZTwkRC
-         wogw==
-X-Forwarded-Encrypted: i=1; AHgh+RoAE6GgJdZiIhLM1haQcdpy7xIsguSEOd+zZVgtdyTq9JNTP+q0IOeljRcyTHnflZCj5b4w3UmDrKI6bgDkDcqV@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzxo6Lo9NZr2Y7P5RO7+FX2/RYn2VQZ2DrGoBe8BehSmvhEmviI
-	4AzH5Qq1OGAnqoJFsutrOFZ37ALAK1yJ6CjnbGFSwBNwxHOA7sMQ0KzWZ1w+JWjhp6Luztt4WHv
-	eNR23HVv6LYj87CFEiFDJocFWXY5YEH/LI+z6ylQAlJXQ8YkxIyCPcWIf5ToGQgRqkVx1nS0ae3
-	P4
-X-Gm-Gg: AfdE7cl6HeywDZjfYgBKZxHGB+quqSBntiU87zrtxZzcJYW3mjNJqRtylY3FxmI15AZ
-	2S53lIXLM6gB5roxTMVDrXoGQo4PsBUdSQzIgv93ENLkIif04UyNMMcbQ5pNr7XL+sCXiSpbdE3
-	tr76jPNn+WNKzz6H4uJjwxxbLdMFMg97AqHeTL8oRw8bVA7gGg7uqMChT5IHMTHGo4R1fC3u7WI
-	UEd+7Osdf7vgZlmZykapKZ+DtWUWCmSi3QP4EPW73FGj4mqYspSOEdSHbHgE8Febq1fZBEpP7Yy
-	akQIO2RbXNaZMfNe/C7py/IirCnf400UPLN4eirARnq40tEhYcMHCiJ6OZVIDvw0kgqhHXHya/z
-	MlvsCQoVG2528yLLcLKD4OkOxn5KnNMhjKIQ8kKhBUyI=
-X-Received: by 2002:a17:90b:4fc3:b0:38d:dfd1:7c1 with SMTP id 98e67ed59e1d1-38e4b418a20mr419359a91.2.1784249559036;
-        Thu, 16 Jul 2026 17:52:39 -0700 (PDT)
-X-Received: by 2002:a17:90b:4fc3:b0:38d:dfd1:7c1 with SMTP id 98e67ed59e1d1-38e4b418a20mr419337a91.2.1784249558530;
-        Thu, 16 Jul 2026 17:52:38 -0700 (PDT)
+        bh=YBnKDSvOueTAUhAzYLfByVoitz0I+gaL8EouTfwU7Tk=;
+        b=ib5+1slbnVhRQexCyZZ0VusG/61NVc2C7Lhl2qT7tDEfpX/3Px8igZ0UnV77R6XsLy
+         zEHDbBhNeFzGlxPuZSYH5L4RWGvLNXdTDv0HUE/YROYPFLM1zZ6uVHkUxNOT32pMi9kQ
+         EwVtsb7/yYQlTM7EMalU8mmnZLlpBTEvh3WR7ncBsj/ttm7wmE1gFGSV61ScFHaPwmHU
+         TZaXYfCv2w9f3sBo/WHqQuRaHSatE/p9IiIitmFU1j/oCFJS3wumWmd+cFm29JunKQMD
+         5O59lW1zkMaqINf/0Q4i4bPQLF3p2y1PwkimSNua3Goc70gR7eBOsgXIDOANBN83DSk3
+         DR3Q==
+X-Forwarded-Encrypted: i=1; AHgh+RqLP/T8tlk4S1WmwebffMQMnO3N7VRDAYDHrF8chbOLpP9uSBrkwoCygDqSsZpJ4qC0w6zAW+3k9c+HP7dM8Gyp@lists.infradead.org
+X-Gm-Message-State: AOJu0YyvViIawhDa/x4xhSmO72DRP+vfIXhvCNbIaCdm67zUoYTuuGFY
+	B/JSvIq3rCfFJrK/HQauPivRUyuAVnnEl+yRB+dkRECT33RHmA5kyJ6i6+e1nuNE0pQ/lGpfczO
+	8PrN+d9kpu06M4efB3n6Whbik9q2VgXr0X+XrJFqnCsnqcWGyzrn7Tmf5crNl9i3lp3/tajVX8W
+	Od
+X-Gm-Gg: AfdE7ckKQ2BFI8mIuON6vs75Hg6ENWABNzUCgWfIa98NW6K2YkBf6DolghZfmXGQs6d
+	THpv7B2EWl1YNWpimHhmslV0NMtW1hk42kzD+JVGpsW51efEeukleM/47KdBusxxEfkY4Kz4J0d
+	YXFQ0uJkrmoId4/oDTuy+UqL5jIyVmbNLBYp1wNbDtchFbiaodVx6lpm7ldUW/bzR+5yjcHlT2t
+	yqE2R3BfW+BFKBeymb/IsmzuMOnyS5K8fxUij8PL8Dgzbizn1CJHZjAx+Tevr+C1EFo+ROtWace
+	r0sKh0YcBGxvxldCJzqOmQSZbRTHn8Lo4t7qSPCPWfjnhdmAskQp8XMknHIB7ESCixFzpnhn6mZ
+	JDBIxFROTQBh+y/1vZeVHzBvGtCqROamtKi0H4W2v3A0=
+X-Received: by 2002:a05:6a21:1404:b0:3c3:76a8:c0f with SMTP id adf61e73a8af0-3c3ad665b6fmr322303637.4.1784249631579;
+        Thu, 16 Jul 2026 17:53:51 -0700 (PDT)
+X-Received: by 2002:a05:6a21:1404:b0:3c3:76a8:c0f with SMTP id adf61e73a8af0-3c3ad665b6fmr322270637.4.1784249631085;
+        Thu, 16 Jul 2026 17:53:51 -0700 (PDT)
 Received: from [192.168.68.51] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3142a20bf96sm637961eec.28.2026.07.16.17.52.34
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13cdc4accf4sm6125716c88.10.2026.07.16.17.53.47
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 16 Jul 2026 17:52:37 -0700 (PDT)
-Message-ID: <6f5ac6c5-1779-496a-ac3d-c5f7a23c55ca@redhat.com>
-Date: Fri, 17 Jul 2026 10:52:32 +1000
+        Thu, 16 Jul 2026 17:53:50 -0700 (PDT)
+Message-ID: <98303800-ff10-4bef-ab2e-7f48b0f6584f@redhat.com>
+Date: Fri, 17 Jul 2026 10:53:44 +1000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 03/11] arm_mpam: Set mpam_feat_msmon_mbwu_31counter
- when there are bandwidth counters
+Subject: Re: [PATCH v1 04/11] arm_mpam: Add missing mon_sel locking in MBWU
+ restore
 To: Ben Horgan <ben.horgan@arm.com>
 Cc: james.morse@arm.com, reinette.chatre@intel.com, fenghuay@nvidia.com,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  dave.martin@arm.com, andre.przywara@arm.com
 References: <20260710115546.29644-1-ben.horgan@arm.com>
- <20260710115546.29644-4-ben.horgan@arm.com>
- <c1779945-2ad1-48c7-9b13-1eea8afed687@redhat.com>
- <45d93047-9f11-468a-bee9-777089fd4bb8@arm.com>
+ <20260710115546.29644-5-ben.horgan@arm.com>
+ <8e7f992c-db87-4b79-8d92-d9a44295a0a6@redhat.com>
+ <33654cc4-9b36-4255-b761-3249174a97d9@arm.com>
 From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <45d93047-9f11-468a-bee9-777089fd4bb8@arm.com>
+In-Reply-To: <33654cc4-9b36-4255-b761-3249174a97d9@arm.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: Xf0xpYBlvLVtzGY9CFmcG3848On6BKFs7qIo3vdc78Y_1784249559
+X-Mimecast-MFC-PROC-ID: SoHRDgEAhmtZmhHxm47Hbvwuj3O-B8JYSaY-6c8ar_0_1784249632
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_175244_443841_FC544214 
-X-CRM114-Status: GOOD (  17.32  )
+X-CRM114-CacheID: sfid-20260716_175355_179551_B65797C0 
+X-CRM114-Status: GOOD (  17.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,37 +118,72 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Ben,
 
-On 7/16/26 7:26 PM, Ben Horgan wrote:
-> On 7/16/26 05:18, Gavin Shan wrote:
+On 7/16/26 7:31 PM, Ben Horgan wrote:
+> On 7/16/26 05:29, Gavin Shan wrote:
 >> On 7/10/26 9:55 PM, Ben Horgan wrote:
->>> If there are memory bandwidth counters then there are 31 bit counters even
->>> if there are also 44 bit counters or 63 bit counters.
+>>> The mon_sel_lock is used to protect the mbwu_state, as well as h/w accesses
+>>> that use MPAMCFG_MON_SEL. However, in mpam_restore_mbwu_state() mbwu_state
+>>> is accessed without holding the mon_sel_lock.
 >>>
->>> Set the 31 bit bandwidth counter feature bit whenever there are bandwidth
->>> counters.
+>>> Add the missing locking.
 >>>
->>> Fixes: fdc29a141d63 ("arm_mpam: Probe for long/lwd mbwu counters")
+>>> Fixes: 41e8a14950e1 ("arm_mpam: Track bandwidth counter state for power management")
 >>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 >>> ---
->>>    drivers/resctrl/mpam_devices.c | 4 ++--
->>>    1 file changed, 2 insertions(+), 2 deletions(-)
+>>>    drivers/resctrl/mpam_devices.c | 8 ++++++++
+>>>    1 file changed, 8 insertions(+)
 >>>
+>>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>>> index 11b10c3bc334..b34e2a368516 100644
+>>> --- a/drivers/resctrl/mpam_devices.c
+>>> +++ b/drivers/resctrl/mpam_devices.c
+>>> @@ -1648,16 +1648,24 @@ static int mpam_restore_mbwu_state(void *_ris)
+>>>        u64 val;
+>>>        struct mon_read mwbu_arg;
+>>>        struct mpam_msc_ris *ris = _ris;
+>>> +    struct mpam_msc *msc = ris->vmsc->msc;
+>>>        struct mpam_class *class = ris->vmsc->comp->class;
+>>>          for (i = 0; i < ris->props.num_mbwu_mon; i++) {
+>>> +        if (WARN_ON_ONCE(!mpam_mon_sel_lock(msc)))
+>>> +            return -EIO;
+>>> +
 >>
->> It might be worthwhile to put some context in the commit log helping readers
->> to correlate to the specification. What I found is something like below in
->> section 8.2.1.2 Long MBWU counter and capture of ARM IHI 0099A.a:
+>> The code can be simplified by avoiding the unnecessary nested conditional statement,
+>> something like below:
 >>
->> In MSMON_MBWU, the VALUE field is always 31 bits. If MSMON_MBWU_L is implemented,
->> the length of the VALUE field is either 63 or 44 bits as set by MPAMF_MBWUMON_IDR.LWD.
+>>          if (!ris->mbwu_state[i].enabled) {
+>>              mpam_mon_sel_unlock(msc);
+>>              continue;
+>>          }
+>>
+>>          mwbu_arg.ris = ris;
+>>                  mwbu_arg.ctx = &ris->mbwu_state[i].cfg;
+>>          mwbu_arg.type = mpam_msmon_choose_counter(class);
+>>          mwbu_arg.val = &val;
+>>
+>>                  mpam_mon_sel_unlock(msc);
+>>
+>>                  __ris_msmon_read(&mwbu_arg);
+>>
+>>>            if (ris->mbwu_state[i].enabled) {
+>>>                mwbu_arg.ris = ris;
+>>>                mwbu_arg.ctx = &ris->mbwu_state[i].cfg;
+>>>                mwbu_arg.type = mpam_msmon_choose_counter(class);
+>>>                mwbu_arg.val = &val;
+>>>    +            mpam_mon_sel_unlock(msc);
+>>> +
+>>>                __ris_msmon_read(&mwbu_arg);
+>>> +        } else {
+>>> +            mpam_mon_sel_unlock(msc);
+>>>            }
+>>>        }
+>>>    
 > 
-> How about?
-> 
-> When MPAMF_MSMON_IDR.MSMON_MBWU is 1, MSMON_MBWU is present and has a VALUE field of 31 bits. If
-> additionally, MPAMF_MBWUMON_IDR.HAS_LONG is 1, then MSMON_MBWU_L is also present and has a VALUE
-> field of 44 or 63 bits as indicated by MPAMF_MBWUMON_IDR.LWD.
+> Ok. I think it will be clearer what's best here once Andre's error propagation in his MPAM-Fb series
+> has crystalized.
 > 
 
-Looks good to me, thanks!
+Yeah, we can clean this up after that.
 
 > Thanks,
 > 
@@ -157,28 +192,5 @@ Looks good to me, thanks!
 
 Thanks,
 Gavin
-
->>
->>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
->>> index acfa9a4dc2fc..11b10c3bc334 100644
->>> --- a/drivers/resctrl/mpam_devices.c
->>> +++ b/drivers/resctrl/mpam_devices.c
->>> @@ -930,9 +930,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
->>>                            mpam_set_feature(mpam_feat_msmon_mbwu_63counter, props);
->>>                        else
->>>                            mpam_set_feature(mpam_feat_msmon_mbwu_44counter, props);
->>> -                } else {
->>> -                    mpam_set_feature(mpam_feat_msmon_mbwu_31counter, props);
->>>                    }
->>> +
->>> +                mpam_set_feature(mpam_feat_msmon_mbwu_31counter, props);
->>>                }
->>>            }
->>>        }
->>
->> Thanks,
->> Gavin
->>
-> 
 
 
