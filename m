@@ -4,63 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 238ACC4451B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 18:44:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89AC6C4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 18:44:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P1b9DeYrFDNJXSmhHkvkSVwxA9oSUUdj93hOLCrfhtk=; b=E5Epmqr4mkSJw9mB0G4mL23Vhz
-	Z+5e2VevdsYI8YV3mgFOo0ViDz+miGnrKhHQ6DJSv58rg7SywlcVzFYhwCbov1j4AF/m6LN5EhfvD
-	+A+m9wBdZFi7Iq1w8ucw7ZKQ3EMpxX2SHFPCqnghKcubn8lHDEYSpj/WikwfseW/PHGFvZnH37fKG
-	SMrEMdfl+Yq7ZSUyM42hmKNIxQmDgEyJGsIFBMK8+GRsNSvyOb/oVE25NC8MnLUWGD7eab92Df+gW
-	XPqjF8uitkutX6V1KD6iCYjiVZzMbn736LCmeJTemMQdQ4+qh5q337cpyUieLGmSdKNaRd5sV73v2
-	AdoRwvrw==;
+	bh=GDf0SHTCTXzajyFneAnVkXteY4zVvuU8fcfR6nj7tFI=; b=cd/EeH503kY3eeR5pdg3ofv9cy
+	6usDWG1CUXbeg054rWh6I5NJXq2n8JTUe+i5oPSEP/a8JSV8E3NAejbR8BCEBOV+ncyakfIHBbWei
+	74oViTNtQkxKZ7dxO26Y1hZmSS+cU+SM7Y25pDGKvjp60nkxwkhRvKKf220qikMLA1KzYHYoMuVE1
+	LqSsz4halsYQYonP3La7nqJtj8ymQhuvgaL9e9tL/d/eyb5+TwErWhi2n9S4CYKttWWh6MH/RmpqA
+	DUHuNc7ntisxBL11eC8Xk3lcRbxHUBUk0xeuNkz+RRFQmrXFslWmzWCBUaBK4tZmTJXulP5eQ7rFi
+	d2/259tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wknXW-000000032Sl-0kGH;
-	Fri, 17 Jul 2026 18:44:02 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wknYI-000000032bG-1S4v;
+	Fri, 17 Jul 2026 18:44:50 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wknXU-000000032SD-2lRf
+	id 1wknYH-000000032b1-3V0c
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 18:44:00 +0000
+	Fri, 17 Jul 2026 18:44:49 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id BD43B600DA;
-	Fri, 17 Jul 2026 18:43:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52B051F000E9;
-	Fri, 17 Jul 2026 18:43:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4E28543727;
+	Fri, 17 Jul 2026 18:44:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 180351F000E9;
+	Fri, 17 Jul 2026 18:44:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784313839;
-	bh=P1b9DeYrFDNJXSmhHkvkSVwxA9oSUUdj93hOLCrfhtk=;
+	s=k20260515; t=1784313889;
+	bh=GDf0SHTCTXzajyFneAnVkXteY4zVvuU8fcfR6nj7tFI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=MbJV9CL39vRQMy2v/CN3jcpLY6clKVcc/kJEtuwRWFP5I6XZWtmd0F374u+m0u0LP
-	 Z8aSfnF6sBxzl9bNULI/oiKqnkmBZVMxLhQjV72/+84dDvvUAw+1eHq/LN5OqR1EOV
-	 EOnDSqwZytgo1rXC2lnnrfPKOralZwgqYCb3jVbR40l2nfZWFPpri/Oc6CQqMay2Im
-	 Ub6NfcUc0ehh9cqiA2a41ayCfi0/61486Qik2KE+VcxaKX4RGW3rc+u+2Z9FTCNUT3
-	 tQqJZDgP7wS0kMUizFUS8PhNnhNo5vLFmSq+Mc3Ox45WkgQuOmKIA6rqXB08WBP7gz
-	 tx4OqaF8o+u8Q==
-Date: Fri, 17 Jul 2026 13:43:58 -0500
+	b=Z36jQ+nxUJfkvV9idRAd2w0tSjY+NJGePRRNPqyp+IDVeGeJG/EX/8CtX+CPfGAAG
+	 DmSFUaF0YhEtKkItXGVn433F6SJQYsAW0Cd6lQQZ/ZWe8b1qr90c5OZCmdTlWtdT9d
+	 LhumZWncdKSvi3J0BEInpl42oTIFfwHpDOIjpdKmiuoAk/5vbxH837ZweYRSrQcoDA
+	 9NgmfhV1a3MaLX6S4Lp+sqPThmNgTFTDao15RQ2S0YHmWl6duMzSHhajxK7u3buv0f
+	 pqOWkgbhkc+9MZZ8iFYbDJ2Rh1AbcH32SK6inzi1vOCWy9G0rkV7MoiS3sU4Yjtyqc
+	 0qvWP8uJ0foxg==
+Date: Fri, 17 Jul 2026 13:44:48 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Frank.Li@oss.nxp.com
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
+Cc: linux-kernel@vger.kernel.org,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org,
+	Stefan Agner <stefan@agner.ch>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	David Airlie <airlied@gmail.com>, Frank Li <Frank.Li@nxp.com>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Fabio Estevam <festevam@gmail.com>,
-	Conor Dooley <conor+dt@kernel.org>, imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] dt-bindings: soc: imx: Add fsl,eim-bus
-Message-ID: <178431383816.1803857.6272472582726116965.robh@kernel.org>
-References: <20260708-imx53-eim-v1-0-913b4559e5b5@nxp.com>
- <20260708-imx53-eim-v1-1-913b4559e5b5@nxp.com>
+	imx@lists.linux.dev, devicetree@vger.kernel.org,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Peng Fan <peng.fan@nxp.com>, linux-arm-kernel@lists.infradead.org,
+	Sascha Hauer <s.hauer@pengutronix.de>, Marek Vasut <marex@denx.de>,
+	Conor Dooley <conor+dt@kernel.org>, Simona Vetter <simona@ffwll.ch>
+Subject: Re: [PATCH 1/4] dt-bindings: display: bridge: ldb: allow a single
+ reg for fsl,imx6sx-ldb
+Message-ID: <178431388818.1805043.6740193643637538952.robh@kernel.org>
+References: <20260708-arm_dts_ldb-v1-0-4f5579b85797@nxp.com>
+ <20260708-arm_dts_ldb-v1-1-4f5579b85797@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260708-imx53-eim-v1-1-913b4559e5b5@nxp.com>
+In-Reply-To: <20260708-arm_dts_ldb-v1-1-4f5579b85797@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,21 +82,30 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 08 Jul 2026 16:00:44 -0400, Frank.Li@oss.nxp.com wrote:
+On Wed, 08 Jul 2026 16:29:02 -0400, Frank.Li@oss.nxp.com wrote:
 > From: Frank Li <Frank.Li@nxp.com>
 > 
-> Add the fsl,eim-bus compatible strings for i.MX51 variants.
+> The i.MX6SX LDB only provides a single register region for the LDB block,
+> while other supported LDB variants require two register regions.
 > 
-> These compatibles are only intended for existing legacy chips (more than 15
-> years old) and will not be used for new device trees.
+> Update the binding schema to allow a single reg entry for
+> fsl,imx6sx-ldb while keeping the existing constraints unchanged for the
+> other compatible strings.
 > 
-> Fix below CHECK_DTBS warnings
-> arch/arm/boot/dts/nxp/imx/imx53-ard.dtb: /eim-cs1@f4000000: failed to match any schema with compatible: ['fsl,eim-bus', 'simple-bus']
+> Fix below DTB_CHECK warings:
+>   arch/arm/boot/dts/nxp/imx/imx6sx-nitrogen6sx.dtb: bridge@18 (fsl,imx6sx-ldb): reg: [[24, 4]] is too short
 > 
 > Signed-off-by: Frank Li <Frank.Li@nxp.com>
 > ---
->  Documentation/devicetree/bindings/bus/fsl,spba-bus.yaml | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
+> Related two theads:
+> - https://lore.kernel.org/imx/178154922879.1630652.11500293336634076421.robh@kernel.org/
+> 
+> Mixing the addressable and non-addressable child nodes is allowed according to discussion [1].
+> 
+> Link: https://lore.kernel.org/all/n6akxiayi3g6gxcqhreb4iaohmeokoalnqup6h5r2fwdt4zijt@u2wyps55ayqm/ [1]
+> ---
+>  .../bindings/display/bridge/fsl,ldb.yaml           | 23 +++++++++++++---------
+>  1 file changed, 14 insertions(+), 9 deletions(-)
 > 
 
 Acked-by: Rob Herring (Arm) <robh@kernel.org>
