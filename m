@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F849C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 06:15:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDB06C44507
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 06:15:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mzzp3V1NULRIcEaysPzAb8Zz8VZI2+Qui09INH6ftAA=; b=Tjc9/k5dZw7QHztGmJZT0i70+u
-	++xDlnytv98fHWSHBdNUOl2vuul84DsuL75VHFnYMPfIzhTjv+hqrC0VxezNaia+r8HLRSb3H2f3V
-	4Zilc94uxfcnTyzc8cXoL1ikH2RzZ8Q2ZPC5C+MRjqMLgNhm94z5+6etMSyhznA3ZralMHCmFDvEl
-	/FPCAryMLBpjRdB6aRGdKzHCrXH5fcLYj/jsPl/5kcv6tFG2qt5j09yetol8wIF3jaTnvnHlUxVYb
-	10ewJXGwunZXuoClrZBykgCHLw1aQN/x3MpdPzfk+89jcbz6IGXToTlD6vz8t2/R8IzXCm2GlHbxo
-	ee2oy2uA==;
+	bh=HNMoDfSuSxJw6SemBX4XpeIAZF6FAMIZenhTrRJVbbc=; b=RFdWYdkpmFs3MqVTXZ67prDxoy
+	gu2Wc+9hRoS2bX+T34/YYALuGqNXwhW6/JLd5t9zyV3svZEZATlJCmSkYseTtA/+pTXE8m+1kGBUA
+	3Xf/NIoNkrOLFGhv2w2mJr1w0WHOetgPY43Xb3mHFfkNlECd8lZxEFcEugsAoevvUacxMUTikFMUC
+	jiWQAZgsoYbA64dhdHIg8GYlycYbCyEYfGklzxj2azwIqZyd+By2BlTcm35QBoEzxZ2CbZfk05G5n
+	w1SPquJkEykTvBrLdlZ1lTTod5xuuVKBZlC1hJx5IBmzpk0cNlbqvANOavSb95NFqCWeRMEVynNr2
+	4uFfOl3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkbrH-00000001E9M-2N30;
-	Fri, 17 Jul 2026 06:15:39 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1wkbrM-00000001EF5-3Hv5;
+	Fri, 17 Jul 2026 06:15:44 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkbqx-00000001Dtk-16TL;
-	Fri, 17 Jul 2026 06:15:22 +0000
+	id 1wkbr0-00000001Dwx-0mJB;
+	Fri, 17 Jul 2026 06:15:23 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1784268900;
+	s=2020; t=1784268902;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=mzzp3V1NULRIcEaysPzAb8Zz8VZI2+Qui09INH6ftAA=;
-	b=KoPu31+M7DEJiGuxQyx87dja2+v/0wKUI3+h9/FKeCZtg7vu6/6k3IHnT/lggBxuTpdntR
-	qTpibhqKNZZw4BM7V52gSHPIGAqwL01HRWaLAY/CyVENRBuihCsSSoLSONe4mcshGUSF0q
-	x1egn4G9nU4Hq1ziCP8cszabnt8j66MU9765uVx4IdSoMa22sfMqIA+1+kBJv7pHbty77r
-	8JL852FBeOqGeuCgQlR+rI6tA5JxuVRA5fMCYTeBp3VVSIgQW6lvCbl4Ge+/vvfZwApTkL
-	SXuRIo71QG8c+aOrHL1qvrYYeRQ3v/5VKqsuZ7FB3n2oZ8FEeiaD0wUiCV5mHg==
+	bh=HNMoDfSuSxJw6SemBX4XpeIAZF6FAMIZenhTrRJVbbc=;
+	b=kwP+ZcbEqDHqXFtctAmbUthHdgfiiuFcN2xHVOYaUW7PDhIR6C289v7UXiK1eBtTmNxrMm
+	rz8dTIO+98UVlTaDRsll2yY0JCSK1xmhZ8fcr/LSwUsPRvFjXdZx3BSQdpZcczfEDs59du
+	ljx+O0aVL+oPKU/5/haP59Ds0Zhelsb8dYL8uQOqCPVlt2kjUEifhVhKVZqgti+d1LDZjW
+	Yni/3nNOvYDSiJc3WCS8I1bvDfZqJxeK/QjSlWPkZVGeRqJ39ZRrVnnHjcYYtmTBNj8Q8y
+	9kDdXJ8R+z70lvDEPB2ZcU5dZsoZyS9m7S80ob9ywiDoH2FPQ00pcdQOjYr6OA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1784268900;
+	s=2020e; t=1784268902;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=mzzp3V1NULRIcEaysPzAb8Zz8VZI2+Qui09INH6ftAA=;
-	b=wa74C2r4MpFvkqyig9S12yVatlxVHvwGiDm9hCwn4Aa/EXwi5mYVrVLxO3FkXBDRxqcDTt
-	gqEJT59qxV7O5zCg==
-Date: Fri, 17 Jul 2026 08:14:45 +0200
-Subject: [PATCH v2 1/7] kbuild: support generated asm-headers in
- subdirectories
+	bh=HNMoDfSuSxJw6SemBX4XpeIAZF6FAMIZenhTrRJVbbc=;
+	b=zjvF0lrKY5L8Q5gp78MHGd7S8u1KObPwa73KgVbSZReQycUp5yzr9zhhZcUqRJcMuSV3XD
+	+41pq1V3hc4uGiDw==
+Date: Fri, 17 Jul 2026 08:14:49 +0200
+Subject: [PATCH v2 5/7] clocksource/drivers/arm_arch_timer: Remove
+ CONFIG_GENERIC_GETTIMEOFDAY ifdeffery
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260717-vdso-arch-clockmodes-v2-1-756f5a5d1467@linutronix.de>
+Message-Id: <20260717-vdso-arch-clockmodes-v2-5-756f5a5d1467@linutronix.de>
 References: <20260717-vdso-arch-clockmodes-v2-0-756f5a5d1467@linutronix.de>
 In-Reply-To: <20260717-vdso-arch-clockmodes-v2-0-756f5a5d1467@linutronix.de>
 To: Arnd Bergmann <arnd@arndb.de>, Andy Lutomirski <luto@kernel.org>, 
@@ -72,16 +72,16 @@ Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
  loongarch@lists.linux.dev, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784268894; l=1604;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784268894; l=1164;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=KQ1WIDNBrUDk8ykSofgmkt90oehDLy0q9zMVnaVz/hY=;
- b=FAa52uWU8Xpsj6/KnjDGFaQteDoJ46kN18BOC30sIzWBVPkX7m8aVVcepzXZCGIf/pCAK73n6
- Px23A0W+U/IDAGHdf9QdjcpyUWd3nX+GH5AVWxgvfVFA8ghJZ3TLpQJ
+ bh=lW6xuPaawuRjNMiAq3NjJ0vYClBA5grQp8KXYE1QcYY=;
+ b=eXGwaK8fUQKZ2qgKSwMeVNdT1BL4zzlDIrGbovIZgFnCvBWvLcRXwdi1C341Kpq1ckzLl7AP7
+ MaEHx4ncMWxAJmsA/+HulnDegxAfFq0oPXuQT/WwGPJdnlJvdSM7+yr
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_231519_454893_BEEEBE0C 
-X-CRM114-Status: UNSURE (   7.62  )
+X-CRM114-CacheID: sfid-20260716_231522_386686_922F0D8A 
+X-CRM114-Status: UNSURE (   7.49  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,47 +97,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Extend the asm-header stub generation to also handle subdirectories.
-An upcoming vdso/ header refactoring requires this.
+Now that there is a definition of VDSO_CLOCKMODE_ARCHTIMER
+even if no vDSO is built, the ugly ifdeffery can be removed.
 
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
- scripts/Makefile.asm-headers | 11 +++++------
- 1 file changed, 5 insertions(+), 6 deletions(-)
+ drivers/clocksource/arm_arch_timer.c | 4 ----
+ 1 file changed, 4 deletions(-)
 
-diff --git a/scripts/Makefile.asm-headers b/scripts/Makefile.asm-headers
-index 8a4856e74180..772b53ffdeb4 100644
---- a/scripts/Makefile.asm-headers
-+++ b/scripts/Makefile.asm-headers
-@@ -48,14 +48,13 @@ syscall-y   := $(addprefix $(obj)/, $(syscall-y))
- generated-y := $(addprefix $(obj)/, $(generated-y))
+diff --git a/drivers/clocksource/arm_arch_timer.c b/drivers/clocksource/arm_arch_timer.c
+index 4adf756423de..a5157d8a8a13 100644
+--- a/drivers/clocksource/arm_arch_timer.c
++++ b/drivers/clocksource/arm_arch_timer.c
+@@ -56,11 +56,7 @@ static struct clock_event_device __percpu *arch_timer_evt;
+ static enum arch_timer_ppi_nr arch_timer_uses_ppi __ro_after_init = ARCH_TIMER_VIRT_PPI;
+ static bool arch_timer_c3stop __ro_after_init;
+ static bool arch_counter_suspend_stop __ro_after_init;
+-#ifdef CONFIG_GENERIC_GETTIMEOFDAY
+ static enum vdso_clock_mode vdso_default = VDSO_CLOCKMODE_ARCHTIMER;
+-#else
+-static enum vdso_clock_mode vdso_default = VDSO_CLOCKMODE_NONE;
+-#endif /* CONFIG_GENERIC_GETTIMEOFDAY */
  
- # Remove stale wrappers when the corresponding files are removed from generic-y
--old-headers := $(wildcard $(obj)/*.h)
-+old-headers := $(shell test -d $(obj) && find $(obj) -name *.h)
- unwanted    := $(filter-out $(generic-y) $(generated-y) $(syscall-y),$(old-headers))
- 
--quiet_cmd_wrap = WRAP    $@
--      cmd_wrap = echo "\#include <asm-generic/$*.h>" > $@
-+filechk_wrap = echo "\#include <asm-generic/$*.h>"
- 
- quiet_cmd_remove = REMOVE  $(unwanted)
--      cmd_remove = rm -f $(unwanted)
-+      cmd_remove = rm -f $(unwanted); find $(obj) -type -d -empty -delete
- 
- quiet_cmd_syshdr = SYSHDR  $@
-       cmd_syshdr = $(CONFIG_SHELL) $(syshdr) \
-@@ -74,8 +73,8 @@ all: $(generic-y) $(syscall-y)
- 	$(if $(unwanted),$(call cmd,remove))
- 	@:
- 
--$(obj)/%.h: $(srctree)/$(generic)/%.h
--	$(call cmd,wrap)
-+$(obj)/%.h: $(srctree)/$(generic)/%.h FORCE
-+	$(call filechk,wrap)
- 
- $(obj)/unistd_%.h: $(syscalltbl) $(syshdr) FORCE
- 	$(call if_changed,syshdr)
+ static cpumask_t evtstrm_available = CPU_MASK_NONE;
+ static bool evtstrm_enable __ro_after_init = IS_ENABLED(CONFIG_ARM_ARCH_TIMER_EVTSTREAM);
 
 -- 
 2.55.0
