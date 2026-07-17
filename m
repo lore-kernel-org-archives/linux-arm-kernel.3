@@ -4,65 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D454CC4451B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 17:14:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5DAEC4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 17:20:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ShA8ha2RsOTrblPpWwY1VDb8OkXyTZdwulAiu6ek85M=; b=yXOn7Y/vbnfhqclUVQhngQ9nw+
-	qW/ToaqpJaLLRteXWhglUED45Hd/yTBMdROcE9qwVSVfDSOdf1AzdyUHe8xFEHyLU1mhZiLeOn/Qh
-	vW2jCGG2UBvRzhN0tFQIXVcH6E3UEPnVh/DuXQYVZz0JgzuQvY5rRLYmPYEtEE+RJ5mJ3vjDiZdne
-	tlUjlTRiBQ0psTLf181DSlaZFpZs+cqxHeJ+2wTvy4VYtAySmroYwxZLTj4efxjhmvpkfJS27xWVV
-	6Le9P0LRBFvjyyZXUsxc0EpFV/T/sO13vc/bElCHsyQdYLTHK3qeL++nGPzCeJtcGVesDSCWgGy96
-	tzHUct+Q==;
+	bh=ogRVHXmQ7ZTJHboM5CyugXRM1/jtS4o3Av3SvfnT0jM=; b=iJFcl/SVkPcmd2sn407FtJ9EBk
+	eOOeTZBj5xPWcNjI8bygCSg2rPxuQMRuinNRNz6Q0FQ7iGSqB/N9SEmMnln7mZhtJIpJwTJmoDLPF
+	dmiUnVrQ+PsowPCtxgcY97fn/HQp8S7Fg1JSuvV0OyplpfJRczTej76cydjIsPd8Pnm8ORFJx86LE
+	e5jPrDlXDvDKSj3rd9yu29AxNekWgiobaJagontVWKurorDcNPEgdXgsGxZTxvcguaTRJPx0DOHRO
+	EPYFBv+whYz76yIBdft5wFxMLNKxxPbEjyntdv15ILvlblu307mqBs6JiZM7rrExnviMqfxcW6EvV
+	EfFjDdpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkm92-00000002qOw-09CM;
-	Fri, 17 Jul 2026 17:14:40 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wkmEa-00000002rJy-3cT8;
+	Fri, 17 Jul 2026 17:20:24 +0000
+Received: from sender4-op-o11.zoho.com ([136.143.188.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkm90-00000002qOX-1Mwa
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 17:14:38 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 84F9660A6D;
-	Fri, 17 Jul 2026 17:14:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B6AF1F000E9;
-	Fri, 17 Jul 2026 17:14:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784308477;
-	bh=ShA8ha2RsOTrblPpWwY1VDb8OkXyTZdwulAiu6ek85M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Jka5/NwdvOlxJIwP2LdUA6w2WBo7YHmE+elR9r2+FEtwniYjcyJexTiVOxphX2jXe
-	 gUa/ESM7HrtkpAeNqPGjg3W7XNJ/H9jE7yF1uSg0DkforttUjHNGLBwL72DdXHTUAM
-	 HfojhPSmoZ9G81oM4qyyF+MAktY47TgHcPlUeIYRWLEEYGTDZ+gbW4ay4HeAEDEnJg
-	 pA70r2uBcPgbnUkMk1w3OFecWpAmMAvasVjQtjWVQquE400P34qUVsewnoLEkO3Rwd
-	 MnICcWAr3ed2w8npV4EKjtcDDnceQ/iwm7vfbQVl4DlV0QayHsQlYHyNeyN45GVJXJ
-	 xuIcc0RJ12BnQ==
-Date: Fri, 17 Jul 2026 18:14:32 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Eric Biggers <ebiggers@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64/defconfig: Restore built-in 9P rootfs support
-Message-ID: <feec0cf1-2d9c-4074-a56c-ee91bee9080f@sirena.org.uk>
-References: <20260716100243.1604526-1-anshuman.khandual@arm.com>
- <2fae9ef8-2ec1-48ed-9b25-8526db625732@oss.qualcomm.com>
- <cd8cc649-c4e9-4868-b68a-6a9de72b32fe@app.fastmail.com>
+	id 1wkmEY-00000002rJ4-0PWm;
+	Fri, 17 Jul 2026 17:20:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1784308778; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=H4pcaiyWw5sNUEJZbm9eM14QxzQ3Fs5J/zfbyV0gtqk2u2v4xJDuHRHpJrMW4yt/U89AweWnlDnKJVWJ9EJh2HDtzg3qoDhYlz9QeCZgEupMPqCn8FsN5Fef2I9+RNV5PQvDSgZagf80bsYu6HdpvxEIL+5lpEckH+axrSLiKFA=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1784308778; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=ogRVHXmQ7ZTJHboM5CyugXRM1/jtS4o3Av3SvfnT0jM=; 
+	b=Rb7JV/PRuKjmFm0CH5WxKJ4Mj6i1P7r5AKeRg2rN3MsSwrNkfq/sXt5U/JHt16WU2YBz6hxJpwguBbEqDQceav8DUK63eoyiRWGOR1BPn45vOY2wFBfpyDLrt0KTqUcoNkWwn9bjiskzT/ZRZ/FonO9dcLRF4H245+ZSLIgc1tc=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1784308777;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=ogRVHXmQ7ZTJHboM5CyugXRM1/jtS4o3Av3SvfnT0jM=;
+	b=Kt6hXTUPPH6CFVs5HGy+sK42o+r4NCkzV6Q9KDzVFjAQW/qbb1HX75xBc8USxQgx
+	RexIGKLGYtbvejBVzCeDDvxU/hevu/BjXDIhBq48yYc0cn0fZjxN7Wjiv0+aYjBEVgt
+	YAda0f9SiK99bk32KBOvI3qSvslKA4kIskVrC6RI=
+Received: by mx.zohomail.com with SMTPS id 178430877525932.612933366387324;
+	Fri, 17 Jul 2026 10:19:35 -0700 (PDT)
+Received: by venus (Postfix, from userid 1000)
+	id 1F724181CD9; Fri, 17 Jul 2026 19:19:29 +0200 (CEST)
+Date: Fri, 17 Jul 2026 19:19:29 +0200
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Chaoyi Chen <kernel@airkyi.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Vinod Koul <vkoul@kernel.org>, Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-phy@lists.infradead.org
+Subject: Re: [PATCH v3 1/5] drm/bridge: Implement generic USB Type-C DP HPD
+ bridge
+Message-ID: <alpeAqKo72pwOEnX@venus>
+References: <20260717072323.96-1-kernel@airkyi.com>
+ <20260717072323.96-2-kernel@airkyi.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="wsbshrmdiP+ZxJyY"
+	protocol="application/pgp-signature"; boundary="jbdw5cv6ljemwd7w"
 Content-Disposition: inline
-In-Reply-To: <cd8cc649-c4e9-4868-b68a-6a9de72b32fe@app.fastmail.com>
-X-Cookie: Be cautious in your daily affairs.
+In-Reply-To: <20260717072323.96-2-kernel@airkyi.com>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.10.1.5.2/284.287.57
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260717_102022_196158_F8190B22 
+X-CRM114-Status: GOOD (  34.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,43 +94,211 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---wsbshrmdiP+ZxJyY
-Content-Type: text/plain; charset=us-ascii
+--jbdw5cv6ljemwd7w
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 1/5] drm/bridge: Implement generic USB Type-C DP HPD
+ bridge
+MIME-Version: 1.0
 
-On Thu, Jul 16, 2026 at 01:31:17PM +0200, Arnd Bergmann wrote:
-> On Thu, Jul 16, 2026, at 13:01, Krzysztof Kozlowski wrote:
+Hello,
 
-> > You fully control your software, so just build initramfs which is
-> > absolutely trivial and we all moved on to that for arm64 long time ago.
+On Fri, Jul 17, 2026 at 03:23:19PM +0800, Chaoyi Chen wrote:
+> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>=20
+> The HPD function of Type-C DP is implemented through
+> drm_connector_oob_hotplug_event(). For embedded DP, it is required
+> that the DRM connector fwnode corresponds to the Type-C port fwnode.
+>=20
+> To describe the relationship between the DP controller and the Type-C
+> port device, we usually using drm_bridge to build a bridge chain.
+>=20
+> Now several USB-C controller drivers have already implemented the DP
+> HPD bridge function provided by aux-hpd-bridge.c, it will build a DP
+> HPD bridge on USB-C connector port device.
+>=20
+> But this requires the USB-C controller driver to manually register the
+> HPD bridge. If the driver does not implement this feature, the bridge
+> will not be create.
+>=20
+> So this patch implements a generic DP HPD bridge based on
+> aux-hpd-bridge.c. It will monitor Type-C bus events, and when a
+> Type-C port device containing the DP svid is registered, it will
+> create an HPD bridge for it without the need for the USB-C controller
+> driver to implement it.
+>=20
+> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> Reviewed-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+> Reviewed-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> ---
 
-> I still regularly boot KVM guests on arm64 without an initramfs,
-> but I just use 'make kvm_guest.config', which turns on all the
-> commonly used virtio drivers as built-in. I wouldn't call
-> 9pfs root trivial without initramfs, configuring 9p built-in
-> is already complicated enough.
+Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+Tested-by: Sebastian Reichel <sebastian.reichel@collabora.com> # ArmSom Sig=
+e5
 
-> So I agree we don't need this patch, but there is a trivial
-> workaround for Anshuman in case he wants to avoid doing this.
+I gave this a test together with the RK3588/RK3576 USB-C DP AltMode
+patches I'm working on. As the fusb302 does a manual registration
+for the DRM bridge in its probe function, the bridge is registered
+twice:
 
-Though watch out for the fact that this currently disables KVM which
-isn't so helpful on the multiple architectures that have nested guest
-support.  I'll send a patch for that.
+root@sige5 # cat /sys/kernel/debug/dri/bridges
+=2E..
+bridge[1]: drm_aux_hpd_bridge_funcs
+	refcount: 4
+	type: [10] DP
+	OF: /soc/i2c@2ac50000/typec-portc@22/connector:usb-c-connector
+	ops: [0x4] hpd
+bridge[2]: drm_aux_hpd_bridge_funcs
+	refcount: 2
+	type: [10] DP
+	OF: /soc/i2c@2ac50000/typec-portc@22/connector:usb-c-connector
+	ops: [0x4] hpd
+=2E..
 
---wsbshrmdiP+ZxJyY
+Apparently the USB-C DP AltMode keeps working, so this just wastes
+a few CPU cycles and some memory. So this can land and then we can
+remove the manual code from the driver as a follow-up step. I also
+gave that a try and things keep working. I won't send the fusb302
+patch for now to ensure its not applied before this patch lands.
+
+Greetings,
+
+-- Sebastian
+
+> (no changes since v3)
+>=20
+> Changes in v2:
+> - Add copyright text.
+> - Remove useless goto.
+>=20
+> ---
+>  drivers/gpu/drm/bridge/Kconfig                | 10 ++++
+>  drivers/gpu/drm/bridge/Makefile               |  1 +
+>  .../gpu/drm/bridge/aux-hpd-typec-dp-bridge.c  | 54 +++++++++++++++++++
+>  3 files changed, 65 insertions(+)
+>  create mode 100644 drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c
+>=20
+> diff --git a/drivers/gpu/drm/bridge/Kconfig b/drivers/gpu/drm/bridge/Kcon=
+fig
+> index 4a57d49b4c6d..9739b2a19758 100644
+> --- a/drivers/gpu/drm/bridge/Kconfig
+> +++ b/drivers/gpu/drm/bridge/Kconfig
+> @@ -30,6 +30,16 @@ config DRM_AUX_HPD_BRIDGE
+>  	  Simple bridge that terminates the bridge chain and provides HPD
+>  	  support.
+> =20
+> +if DRM_AUX_HPD_BRIDGE
+> +config DRM_AUX_HPD_TYPEC_BRIDGE
+> +	tristate
+> +	depends on TYPEC || !TYPEC
+> +	default TYPEC
+> +	help
+> +	  Simple bridge that terminates the bridge chain and provides HPD
+> +	  support. It build bridge on each USB-C connector device node.
+> +endif
+> +
+>  menu "Display Interface Bridges"
+>  	depends on DRM && DRM_BRIDGE
+> =20
+> diff --git a/drivers/gpu/drm/bridge/Makefile b/drivers/gpu/drm/bridge/Mak=
+efile
+> index 15cc821d85b7..d88a9e1ccc9a 100644
+> --- a/drivers/gpu/drm/bridge/Makefile
+> +++ b/drivers/gpu/drm/bridge/Makefile
+> @@ -1,6 +1,7 @@
+>  # SPDX-License-Identifier: GPL-2.0
+>  obj-$(CONFIG_DRM_AUX_BRIDGE) +=3D aux-bridge.o
+>  obj-$(CONFIG_DRM_AUX_HPD_BRIDGE) +=3D aux-hpd-bridge.o
+> +obj-$(CONFIG_DRM_AUX_HPD_TYPEC_BRIDGE) +=3D aux-hpd-typec-dp-bridge.o
+>  obj-$(CONFIG_DRM_CHIPONE_ICN6211) +=3D chipone-icn6211.o
+>  obj-$(CONFIG_DRM_CHRONTEL_CH7033) +=3D chrontel-ch7033.o
+>  obj-$(CONFIG_DRM_CROS_EC_ANX7688) +=3D cros-ec-anx7688.o
+> diff --git a/drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c b/drivers/g=
+pu/drm/bridge/aux-hpd-typec-dp-bridge.c
+> new file mode 100644
+> index 000000000000..c09579ff7ab9
+> --- /dev/null
+> +++ b/drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c
+> @@ -0,0 +1,54 @@
+> +// SPDX-License-Identifier: GPL-2.0+
+> +/*
+> + * Copyright (C) 2026 Rockchip Electronics Co., Ltd.
+> + *
+> + * Author: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> + */
+> +#include <linux/of.h>
+> +#include <linux/usb/typec_altmode.h>
+> +#include <linux/usb/typec_dp.h>
+> +
+> +#include <drm/bridge/aux-bridge.h>
+> +
+> +static int drm_typec_bus_event(struct notifier_block *nb,
+> +			       unsigned long action, void *data)
+> +{
+> +	struct device *dev =3D (struct device *)data;
+> +	struct typec_altmode *alt =3D to_typec_altmode(dev);
+> +
+> +	if (action !=3D BUS_NOTIFY_ADD_DEVICE)
+> +		return NOTIFY_OK;
+> +
+> +	/*
+> +	 * alt->dev.parent->parent : USB-C controller device
+> +	 * alt->dev.parent         : USB-C connector device
+> +	 */
+> +	if (is_typec_port_altmode(&alt->dev) && alt->svid =3D=3D USB_TYPEC_DP_S=
+ID)
+> +		drm_dp_hpd_bridge_register(alt->dev.parent->parent,
+> +					   to_of_node(alt->dev.parent->fwnode));
+> +
+> +	return NOTIFY_OK;
+> +}
+> +
+> +static struct notifier_block drm_typec_event_nb =3D {
+> +	.notifier_call =3D drm_typec_bus_event,
+> +};
+> +
+> +static void drm_aux_hpd_typec_dp_bridge_module_exit(void)
+> +{
+> +	bus_unregister_notifier(&typec_bus, &drm_typec_event_nb);
+> +}
+> +
+> +static int __init drm_aux_hpd_typec_dp_bridge_module_init(void)
+> +{
+> +	bus_register_notifier(&typec_bus, &drm_typec_event_nb);
+> +
+> +	return 0;
+> +}
+> +
+> +module_init(drm_aux_hpd_typec_dp_bridge_module_init);
+> +module_exit(drm_aux_hpd_typec_dp_bridge_module_exit);
+> +
+> +MODULE_AUTHOR("Chaoyi Chen <chaoyi.chen@rock-chips.com>");
+> +MODULE_DESCRIPTION("DRM TYPEC DP HPD BRIDGE");
+> +MODULE_LICENSE("GPL");
+> --=20
+> 2.53.0
+>=20
+
+--jbdw5cv6ljemwd7w
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmpaYvcACgkQJNaLcl1U
-h9CRDQf+K1s1ACZMwVyZfy/tOmgrX1oNtzuiOrBuA2wF3OxkPirIIC6kBmbeQmvV
-8gtU+Qpe9AlP8/8lfVQOG8VW70sQ1XtxHInm5a7UnbG+C4uuX5Qr9Pws/cfY6qUn
-pG3FSY5dnI6/eIvWjCKK4ExeWywWJ12gihEmqrTq+/ast9Va38iU7eVsygsLFxpj
-a8IqeYs4OqhFYsQeQg1C+LoNFGSfW0e1rXwLBekN/KC7CapvBUY9i4iHMbMHf9/P
-RKqdmFCMYYhVW1hCzQomIFGD7eb62S1unrgr76HvAQ7RXBmmZgRD9G8CKRV1Sfqs
-HGbmhzO/nEUeJQprCXIVu+ue0K4OYw==
-=82O0
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmpaZBQACgkQ2O7X88g7
++po4qA/+IBHGDueFgcm82WUb8KlcPZXHjJIodD4gCNh2En34PfHdv2tgAZk8FNoa
+130uQsjBUVejRARr4hgsqrKrisG/t/JfzHqg1DZpeok3j+sqCCDjuOYg3HBRrpjx
+WgTnxT7RWYqUjKE1bNX957wGBqggHx53///8/q2wwk4lCg99GEkoEqbbCgL4nQtb
+qwaQxOzI012LR46Q1c7lfSYYtjIAJEP2ojNbQUyUSuP58zZs2LsgdR0x8QVHx8h+
+PdwS92uTNQ5iMEWZh/jkB3xUaS3Rr9avZSwdaRgL0nGYnsuC5gBDBuVQtgFztnJl
+gK80/W5U61uXnj4IY1i61+V5jwNvBbqnSG0VXaN85zbMEhH6IwWPFb4SFm2NduwN
+ba93B+wOyFXoTZ+xPy1PLjQ3jwaHG91tw2gQLurisvb9+eAbGdFKbG2t6pkvCuD2
+LcwFHTSTD/gpsWMRiz4Lbz0I49jSRgW5x0wB4HOsOMDrFVDR8+MqNKMKHdErPqRp
+ZUeligeDaPclFpvT/ea7ChBipXN6/T6DvnwWe+Rsrn663mE3Y+GgOHiCYyfZZcRc
+SZk1gwoEskqaR6tguKoHT5hJwH30MVTmQDLL5I8AFij9LVl7MehM+DPjS+kRTE35
+FnmtXnvKOa19o/QDH4N/zq1C+ayxbN+IQKCaJ2g3irXGVpl4q38=
+=wii+
 -----END PGP SIGNATURE-----
 
---wsbshrmdiP+ZxJyY--
+--jbdw5cv6ljemwd7w--
 
