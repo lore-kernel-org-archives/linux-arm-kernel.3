@@ -4,97 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80A0DC44517
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 07:26:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E41FC44515
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 07:26:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E2l8SC5Yz3l3RQ8kfLiWXU6wvt0RqrCjSGXwLiFhpCg=; b=ersbvFaC8TXkBtvN9hO6+B6STL
-	qZ0ipX6sKwFhN7vfwvbKfiNLkR1jGU4/GY242Qbr1gh3D4oXgCYO94x7XmYrrcHTP7yTZMWeXxGM/
-	HcKvBSwaeYJDW0O91hd+MZlmintkJR7MHbUFQcliVQvKFlmSDYLGqdfucHjHJGtM2+g1anZ0yVda1
-	+sVW19yCW12YjnPe+0sMrsoK7ywdeW1VjoHR+bqvG4bwTgdoZDfS8IiUJXA013V5HLEfntK3ELlcw
-	npuJ/dT6kowE+CRFiW7STkoh3nShLN2S6wDot3guHct0pgo2VzHv3wQlntFOJNUvJHaXUlVehDEJh
-	7OMmOlWg==;
+	bh=vpf7Ez7EdE1Vq+sym35CgM4C5nXj0FZvUFGxud5ge6Q=; b=qD46tEpTXk7kpj3z9X9RPD9w1B
+	IFCs8CWUq+bt9FXrSCzSWuwp5DZB7aCoUrdO3InJDCvrBm0QjBUkyIHb5vBcYcsoS0EMfdcreHHva
+	mFHfbGLi2ZTfrGaO8wo9bsSqBohNWmShGywrTPJxW3ls7mXLTlgyw//6vqx7x6FC8i+bEYU1ClxmR
+	HskKok/o7WJ/joEvVxpLrGM/AJC8SxRxQ18RxBFoMesoSbd69chAQl3POnWvhgP9n8RDlT7CCqEQI
+	MJ/5seVJuTicvFDnSLC7SYzGXgcXjNX1EVQWMd3WUB46pbWIM1ZWrbVyl10N0+Tywl8twEZldAXp/
+	JpnnpEjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkcxz-00000001RC6-1ewF;
-	Fri, 17 Jul 2026 07:26:39 +0000
-Received: from smtpbgau2.qq.com ([54.206.34.216])
+	id 1wkcyB-00000001RI5-3g7L;
+	Fri, 17 Jul 2026 07:26:51 +0000
+Received: from exmail3.compal.com ([59.120.207.196] helo=tpecef21.compal.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkcxw-00000001R7p-1UFv;
-	Fri, 17 Jul 2026 07:26:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
-	s=altu2504; t=1784273027;
-	bh=E2l8SC5Yz3l3RQ8kfLiWXU6wvt0RqrCjSGXwLiFhpCg=;
-	h=From:To:Subject:Date:Message-Id;
-	b=OsCyxxBo8/is5WFmzs280ZyS3PKB1If6TwSQ7fNAd1xFIwm1keiHuZfCsYo0vMvCm
-	 z8rvmVRkdKkW/yu09DlTsKU8kMQlkFxqrnf+R+KBOmhSlqb7vLotw8RmIRWqaM2TE9
-	 XsMKxo3RfxGgz2nsNF81Xvjfbxr1SGzOh3AuAgHc=
-X-QQ-mid: esmtpsz21t1784273025t3c480ea3
-X-QQ-Originating-IP: NunsL3AmaX5/YohLrjzcmQgzMxqBfZtsaBbae5D+VuY=
-Received: from DESKTOP-8BT1A2O.localdomain ( [61.154.14.86])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 17 Jul 2026 15:23:41 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 13698718535468355926
-From: Chaoyi Chen <kernel@airkyi.com>
-To: Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Sandy Huang <hjc@rock-chips.com>,
-	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-phy@lists.infradead.org
-Subject: [PATCH v3 3/5] phy: rockchip: phy-rockchip-typec: Add DRM AUX bridge
-Date: Fri, 17 Jul 2026 15:23:21 +0800
-Message-Id: <20260717072323.96-4-kernel@airkyi.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20260717072323.96-1-kernel@airkyi.com>
-References: <20260717072323.96-1-kernel@airkyi.com>
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: MB78LT3tbKTe20unaeEpA7bJ2qdDKCKD901Y4i5OgIl90Q8sVdUpGscb
-	KTn8rVYIwJTwvYh2zKsPIBpoXTH/PCLNjSpb72jRH7wZ55wr84Ncd3lt+fA4VA1eOo4rdJ/
-	IN1zc7Y8XunKsfePJKqlxfu0ApeBH9CCrJ5wR6rcgCHiD3gnoJTHdvF2sz/OwZuT3nC/X+P
-	6ZDndd697scH/Cq+U8s05etGYIEvk65p5QgwbeU3TDWB5Zr3l++owD3lQmshWlLoRKJFt08
-	oWlIxfEfp3zCe/IUT0lR1EDcG5/Q067q4UMGtgvy4qV3iOlnzRmCXHmrDhYPq6Nt5fs3Aih
-	dPAbeNIynNR0elLnvoCj5My5EvfIe9vLu9ZTgSQ7gw146s96s0LZ/sutAoN6rpPo3Nc0aiB
-	Py6oLzbtVcTY0wwum5B/zm6mMmO03CZMyrpln5MRHuwjefBzvkkpvUtzPmNV9GgGgE4Cgyu
-	LtGMYIz3VLOMdNJ/RfL2TG0xrei2YmIHIqU6bw497niDp5OKMMVYV6y52o/5O8JDbV6by9k
-	Fmo278Lpb6JZgm2emEAp5fX59EqwZ14IZ8AqC4x+2BD3hazqeoahsIRALzzBlRVrXByP2tq
-	2Xyrb6WHBN5WyUs5m3dpivA3OjfAJBeHw/NH6O31Ldbonkb1Qy2iEKCMDRf3IYEDD3jDLpO
-	HGIETrnYO8DgGHCZtVKJGNt3WiA+SyLR4lBxiZnDmEO6+TCIMH8+txIXEgIg0MVyE0MaXUa
-	p1xTtCZ57Zsz7CqDCbiZfFCrvPl8wuCyDFndcQ/tFqNOckIxxrwKedmm4kbBh7Af3JvFsLB
-	sAZpDKEQWGyXUOI2144y+x7Ci7RgBPgTp3eiyxvGmCwVaL8TebMaVhl7FiAvId2gFKfYWIG
-	lfWdzlb/Zj2BUbrLDP7M1AqmwKbjpS75q0ZffZLdvHfTYNDC7ZpYw2H5FVzhLGImEgBDOsi
-	QrExCp8HT01K7fsVlUiptYWvaS6tW69HK4MZ0UCT3go6oEMvzOUW+Ahd+WOP8jO2YZKijRG
-	TZf4tD1qiMiQohPn0K
-X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
-X-QQ-RECHKSPAM: 0
+	id 1wkcy7-00000001RF0-2fQE;
+	Fri, 17 Jul 2026 07:26:50 +0000
+X-UUID: dad18f4481b011f1b2470fb4f881575f-20260717
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.17,REQID:111355a2-2480-4131-8d44-035b674b9e32,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:d497b38,CLOUDID:ab293b19-ab14-4403-9336-76696324c5a8,B
+	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|110|111|836|865|888|898,TC:-5,
+	Content:0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:n
+	il,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: dad18f4481b011f1b2470fb4f881575f-20260717
+Received: from sdmg12.sdbg.compal.com [(10.113.168.10)] by tpecef21.compal.com
+	(envelope-from <jackbb_wu@compal.com>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 1926054230; Fri, 17 Jul 2026 15:26:41 +0800
+X-UUID: d8b4070081b011f1a9f9c99e036204b4-20260717
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.15,REQID:68120410-0751-41c4-ae7e-f9a985aa4f58,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:e276073,CLOUDID:94ca12d7-d84b-4e52-b801-314e13fb1691,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|865|888|
+	898,TC:-5,Content:0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS
+	:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,A
+	RC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: d8b4070081b011f1a9f9c99e036204b4-20260717
+Received: from sdbmbx11.tpe.compalcomm.com [(10.113.2.135)] by sdmg12.sdbg.compal.com
+	(envelope-from <jackbb_wu@compal.com>)
+	(Compal Mail Service with TLSv1.2 ECDHE-RSA-AES128-SHA 128/128)
+	with ESMTP id 847746305; Fri, 17 Jul 2026 15:26:37 +0800
+Received: from SDBMBX13.tpe.compalcomm.com (10.113.2.137) by
+ SDBMBX11.tpe.compalcomm.com (10.113.2.135) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.43;
+ Fri, 17 Jul 2026 15:26:35 +0800
+Received: from SDBMBX13.tpe.compalcomm.com ([fe80::2b98:6c2c:37df:2a86]) by
+ SDBMBX13.tpe.compalcomm.com ([fe80::2b98:6c2c:37df:2a86%11]) with mapi id
+ 15.02.2562.043; Fri, 17 Jul 2026 15:26:35 +0800
+From: "Wu. JackBB (GSM)" <JackBB_Wu@compal.com>
+To: Simon Horman <horms@kernel.org>
+CC: "loic.poulain@oss.qualcomm.com" <loic.poulain@oss.qualcomm.com>,
+	"ryazanov.s.a@gmail.com" <ryazanov.s.a@gmail.com>,
+	"johannes@sipsolutions.net" <johannes@sipsolutions.net>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
+	<davem@davemloft.net>, "edumazet@google.com" <edumazet@google.com>,
+	"kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
+	"wen-zhi.huang@mediatek.com" <wen-zhi.huang@mediatek.com>,
+	"shi-wei.yeh@mediatek.com" <shi-wei.yeh@mediatek.com>,
+	"Minano.tseng@mediatek.com" <Minano.tseng@mediatek.com>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	"angelogioacchino.delregno@collabora.com"
+	<angelogioacchino.delregno@collabora.com>, "corbet@lwn.net" <corbet@lwn.net>,
+	"skhan@linuxfoundation.org" <skhan@linuxfoundation.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>
+Subject: RE: [External Mail] Re: [PATCH v4 6/7] net: wwan: t9xx: Add AT & MBIM
+ WWAN ports
+Thread-Topic: [External Mail] Re: [PATCH v4 6/7] net: wwan: t9xx: Add AT &
+ MBIM WWAN ports
+Thread-Index: AQHdFQZbJYK1bUK1WEaDXhVMUHB9n7ZxULXN
+Date: Fri, 17 Jul 2026 07:26:35 +0000
+Message-ID: <7348d8ecabef42f892503ae6910c0e75@compal.com>
+References: <20260709-t9xx_driver_v1-v4-6-a8c009d509c5@compal.com>,<20260716093429.231132-1-horms@kernel.org>
+In-Reply-To: <20260716093429.231132-1-horms@kernel.org>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.113.2.241]
+x-tm-as-product-ver: SMEX-14.0.0.3239-9.1.2019-30074.005
+x-tm-as-result: No-10--10.227100-8.000000
+x-tmase-matchedrid: k7uoLACGqMouv++HU7VXryRFbfQbCufdN0X64jGy2dZAvBJVRgtcsjny
+	lHiK0ou/0wNjG7j2lpdbGNsZDOUGQtDVjrCAjJafJfg23t68rFm+UXZnp3CKAKMhPVMnoUqMFZF
+	fhayav43p+gp7hDwK8qIWjMM1LlCVlP8tEM0fMQ95JTDogbV4hPJDp0CY93MSHyNEnetUnYKO9o
+	XZJdq+a1LCyrCU73d8bZ0ZmXZM5yZ4KjjH0UCbNQ53Bh+4sUi8wBLtKYu8bEtpbszOEp41ydil2
+	pkoOjM8c7UkjmkQhyoNh194vDCrLCRoQhMu0UDBJPlTeUnhPwo58Sarp97J8xfqd/DJ3Zya7rEb
+	Qf2fdE7jTz65t1IJFMi17oTzQKhWJZ8EOwoK47yY3+hmZP9IU931j9zwRXOC
+x-tm-as-user-approved-sender: No
+x-tm-as-user-blocked-sender: No
+x-tmase-result: 10--10.227100-8.000000
+x-tmase-version: SMEX-14.0.0.3239-9.1.2019-30074.005
+x-tm-snts-smtp: 03905B1A35D55303C1E0973AC004C0DEE4B03304099A1CAEE825BBD116093C1A2000:8
+Content-Type: text/plain; charset="big5"
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_002636_894385_C9457BAB 
-X-CRM114-Status: GOOD (  11.38  )
+X-CRM114-CacheID: sfid-20260717_002648_027123_FF881C34 
+X-CRM114-Status: GOOD (  13.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,76 +138,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-
-Using the DRM_AUX_BRIDGE helper to create the transparent DRM bridge
-device.
-
-Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
-Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
-
-(no changes since v1)
-
----
- drivers/phy/rockchip/Kconfig              |  2 ++
- drivers/phy/rockchip/phy-rockchip-typec.c | 13 +++++++++++--
- 2 files changed, 13 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/phy/rockchip/Kconfig b/drivers/phy/rockchip/Kconfig
-index 14698571b607..9173d3b4fef4 100644
---- a/drivers/phy/rockchip/Kconfig
-+++ b/drivers/phy/rockchip/Kconfig
-@@ -119,6 +119,8 @@ config PHY_ROCKCHIP_SNPS_PCIE3
- config PHY_ROCKCHIP_TYPEC
- 	tristate "Rockchip TYPEC PHY Driver"
- 	depends on OF && (ARCH_ROCKCHIP || COMPILE_TEST)
-+	depends on DRM || DRM=n
-+	select DRM_AUX_BRIDGE if DRM_BRIDGE
- 	select EXTCON
- 	select GENERIC_PHY
- 	select RESET_CONTROLLER
-diff --git a/drivers/phy/rockchip/phy-rockchip-typec.c b/drivers/phy/rockchip/phy-rockchip-typec.c
-index d9701b6106d5..48070b50416e 100644
---- a/drivers/phy/rockchip/phy-rockchip-typec.c
-+++ b/drivers/phy/rockchip/phy-rockchip-typec.c
-@@ -54,6 +54,7 @@
- 
- #include <linux/mfd/syscon.h>
- #include <linux/phy/phy.h>
-+#include <drm/bridge/aux-bridge.h>
- 
- #define CMN_SSM_BANDGAP			(0x21 << 2)
- #define CMN_SSM_BIAS			(0x22 << 2)
-@@ -1162,16 +1163,24 @@ static int rockchip_typec_phy_probe(struct platform_device *pdev)
- 
- 	for_each_available_child_of_node(np, child_np) {
- 		struct phy *phy;
-+		ret = 0;
- 
--		if (of_node_name_eq(child_np, "dp-port"))
-+		if (of_node_name_eq(child_np, "dp-port")) {
- 			phy = devm_phy_create(dev, child_np,
- 					      &rockchip_dp_phy_ops);
--		else if (of_node_name_eq(child_np, "usb3-port"))
-+			ret = drm_aux_bridge_register_from_node(dev, child_np);
-+		} else if (of_node_name_eq(child_np, "usb3-port"))
- 			phy = devm_phy_create(dev, child_np,
- 					      &rockchip_usb3_phy_ops);
- 		else
- 			continue;
- 
-+		if (ret) {
-+			pm_runtime_disable(dev);
-+			of_node_put(child_np);
-+			return ret;
-+		}
-+
- 		if (IS_ERR(phy)) {
- 			dev_err(dev, "failed to create phy: %pOFn\n",
- 				child_np);
--- 
-2.53.0
-
+SGkgU2ltb24sDQoNCk9uIC4uLiBzYXNoaWtvIHdyb3RlOg0KPiA+ICtzdGF0aWMgaW50IG10a19w
+b3J0X3d3YW5fd3JpdGUoLi4uKQ0KPiA+ICsJaWYgKHJldCA8IDApDQo+ID4gKwkJcmV0dXJuIHJl
+dDsNCj4gPiArDQo+ID4gKwljb25zdW1lX3NrYihza2IpOw0KPiA+ICsJcmV0dXJuIDA7DQo+DQo+
+IFtTZXZlcml0eTogSGlnaF0NCj4gSWYgbXRrX3BvcnRfY29tbW9uX3dyaXRlKCkgc3VjY2Vzc2Z1
+bGx5IHNlbmRzIHRoZSBmaXJzdCBmZXcgZnJhZ21lbnRzDQo+IGJ1dCBmYWlscyBvbiBzdWJzZXF1
+ZW50IG9uZXMgLi4uIGRvZXMgdGhpcyBjb2RlIHNpbGVudGx5IGRyb3AgdGhlDQo+IHJlbWFpbmlu
+ZyBkYXRhPw0KDQpUaGlzIGlzIGEgZGVzaWduIGxpbWl0YXRpb24gb2YgdGhlIFdXQU4gcG9ydCBB
+UEk6DQp3d2FuX3BvcnRfb3BfdHggcmV0dXJucyAwIGZvciBzdWNjZXNzIG9yIG5lZ2F0aXZlIGZv
+ciBlcnJvciChWA0KdGhlcmUgaXMgbm8gbWVjaGFuaXNtIHRvIHJlcG9ydCBwYXJ0aWFsIHdyaXRl
+cyBiYWNrIHRvIHRoZSBXV0FODQpjb3JlLiBUaGUgYWxyZWFkeS1zdWJtaXR0ZWQgZnJhZ21lbnRz
+IGNhbm5vdCBiZSByZWNhbGxlZCBmcm9tDQp0aGUgRE1BIGVuZ2luZS4gRm9yIHRoZSBBVC9NQklN
+IGNvbnRyb2wgcG9ydHMsIG1lc3NhZ2VzIGFyZQ0Kc21hbGwgKHR5cGljYWxseSB1bmRlciAxS0Is
+IHdpdGhpbiBhIHNpbmdsZSBNVFUpLiBUaGUNCm11bHRpLWZyYWdtZW50IHBhdGggaXMgcmFyZWx5
+IGV4ZXJjaXNlZCBmb3IgY29udHJvbCBwbGFuZQ0KdHJhZmZpYy4NCg0KPiA+ICtzdGF0aWMgaW50
+IG10a19wb3J0X3d3YW5fd3JpdGVfYmxvY2tpbmcoLi4uKQ0KPiA+ICsJaWYgKHJldCA8IDApDQo+
+ID4gKwkJcmV0dXJuIHJldDsNCj4gPiArDQo+ID4gKwljb25zdW1lX3NrYihza2IpOw0KPiA+ICsJ
+cmV0dXJuIDA7DQo+DQo+IFtTZXZlcml0eTogSGlnaF0NCj4gQ2FuIHRoZSBzYW1lIHNpbGVudCBk
+cm9wIG9mIHBhcnRpYWxseSB3cml0dGVuIFNLQnMgaGFwcGVuIGhlcmU/DQoNClNhbWUgcmVhc29u
+aW5nIGFzIGFib3ZlLiBUaGUgV1dBTiBwb3J0IEFQSSBkb2VzIG5vdCBzdXBwb3J0DQpwYXJ0aWFs
+IHdyaXRlIHJlcG9ydGluZywgYW5kIGNvbnRyb2wgcGxhbmUgbWVzc2FnZXMgYXJlDQp0eXBpY2Fs
+bHkgd2l0aGluIGEgc2luZ2xlIE1UVS4NCg0KPiA+ICtzdGF0aWMgaW50IG10a19wb3J0X3d3YW5f
+ZW5hYmxlKC4uLikNCj4gPiArCXBvcnQtPndfcHJpdi53X3BvcnQgPSB3d2FuX2NyZWF0ZV9wb3J0
+KC4uLik7DQo+ID4gKwlpZiAoSVNfRVJSKHBvcnQtPndfcHJpdi53X3BvcnQpKSB7DQo+DQo+IFtT
+ZXZlcml0eTogSGlnaF0NCj4gQ2FuIGEgcmFjZSBjb25kaXRpb24gb2NjdXIgaGVyZSBpZiB3d2Fu
+X2NyZWF0ZV9wb3J0KCkgZmFpbHM/DQoNCm10a19wb3J0X3d3YW5fZW5hYmxlKCkgaXMgY2FsbGVk
+IGZyb20gdGhlIEZTTSB0aHJlYWQgZHVyaW5nDQp0aGUgaGFuZHNoYWtlIHNlcXVlbmNlLCBiZWZv
+cmUgdGhlIHBvcnQgc3RhcnRzIHJlY2VpdmluZyBkYXRhLg0KVGhlIENMRE1BIFJYIHF1ZXVlIGZv
+ciB0aGlzIHBvcnQgaGFzIG5vdCBiZWVuIG9wZW5lZCBhdCB0aGlzDQpwb2ludCChWCBSWCBkYXRh
+IG9ubHkgYXJyaXZlcyBhZnRlciB0aGUgbW9kZW0gY29tcGxldGVzIGl0cw0KaGFuZHNoYWtlLiBU
+aGUgUlggcGF0aCBjYW5ub3Qgb2JzZXJ2ZSB0aGUgZXJyb3IgcG9pbnRlci4NCg0KRHVyaW5nIHRl
+YXJkb3duLCBtdGtfcG9ydF93d2FuX2Rpc2FibGUoKSBob2xkcyB3X2xvY2sgd2hlbg0KY2xlYXJp
+bmcgd19wb3J0LCBhbmQgbXRrX3BvcnRfd3dhbl9yZWN2KCkgY2hlY2tzIHdfcG9ydCB1bmRlcg0K
+dGhlIHNhbWUgbG9jaywgc28gdGhlIFJYIHBhdGggaXMgcHJvcGVybHkgc3luY2hyb25pemVkLg0K
+DQpUaGFua3MuDQoNCkphY2sgV3U=
 
