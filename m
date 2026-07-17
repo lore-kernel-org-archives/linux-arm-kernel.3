@@ -4,102 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2469FC4450F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 07:00:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2C35C4450F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 07:01:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qntGnCl+gT6W1uiVWS/FnTVD+JK4eRGvEYcVVrmUZCA=; b=Q45hj//o73ZOUNbF8xLWI39KYG
-	W6KIBSukoeBGj+MMCT7JkCJvraqtpCnZ5HUnpzqVPrQgWzQK+jsflDPVLkXJGfADVGT0My8XVQM2H
-	VH+uKYPoLl1O7Q6lheEdcVgQzmeN3+cKG82hV0uab7sxSZL8lEkR2GFpPXvUa1O+5a6ews/LeBa5M
-	2u1zo38M2FnEh37WVEhP8IwRRJdcnxg55z6BudlqGKIhogUmZp89ACyf5uRXaC1/yQZOvkYbpeekL
-	mEeGfrQ44nW7y+cS3iwOXrwkuE/c/QNS9JIyp93mBeCinyc0nzNcA5ir6Ea3GgMizmXqSITBNkg/L
-	i9hAkVDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RwJxTFnJ5CXL7SNwJ3FzpgAg/ebATche5LLJ2ldkVUg=; b=dfgD6w5wIae6NYexcE47hdSRre
+	6Z0T6GhHI6HwqdjgpEMPtJIsy+GBn9+ntCdBo490QI0j8Q7M1d7oGkl8WuucFNqokMjwLZ2CqY29q
+	ffL5hosXiWg9ae4ya+9AoCyoNI2snBCe30pnzGjdRgBCSJp2VHb/JE+QNGROyHOILZjZEJsC5mDBG
+	J5SgrzrewHVchTnjPDDGIjFis89npwCmKSeVVNLWLuXFZiOcV6ICTiLOb76c09G/u9UrhTu8NGne0
+	yKM4jviGWufnBgJKpXecUFVcm5ZzFGZrd/94vQbNH+FehL7Hl8oB+VvyRufvEmwqQnl4LbVkbf7vR
+	8zVmNvrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkcYa-00000001LbA-3PWF;
-	Fri, 17 Jul 2026 07:00:24 +0000
-Received: from flow-b4-smtp.messagingengine.com ([202.12.124.139])
+	id 1wkca1-00000001M3u-2cH7;
+	Fri, 17 Jul 2026 07:01:53 +0000
+Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkcYY-00000001LZz-14CI;
-	Fri, 17 Jul 2026 07:00:23 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailflow.stl.internal (Postfix) with ESMTP id 1B85A13002E3;
-	Fri, 17 Jul 2026 03:00:21 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-05.internal (MEProxy); Fri, 17 Jul 2026 03:00:21 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
-	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm1; t=1784271620; x=
-	1784275220; bh=qntGnCl+gT6W1uiVWS/FnTVD+JK4eRGvEYcVVrmUZCA=; b=J
-	BLoI68myrgucyxqyHvUUdXgtieHcXz6tu4wfoJJr2vUYTU1wcHa4IsfaSsWkYnMB
-	qQ7IW6BVmmgV0twuWgVCzyUwcbpL854/sxUEGPSVHjNvl2WdCTjBcrn/vYXIO/7F
-	7YzxYvFPUL/RVlGiieEOXwNNBYX4nEYiilUSREz5fxIAfnIedzJV4uOeml+IITYr
-	SMYuuIxtpNufRh5OyI/Zqudrq7z1gW4Egq7yiWDzRXTAXTZl99XbOP3b/FUaJsh5
-	2dVId5QOQQpROv1UBnrBZqxuu5kZnegorJGZiA4syg+Gd0vxBCWPoAkIk3aqGsdm
-	ocyL38M6smBzxlKfXbZ0w==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm2; t=1784271620; x=1784275220; bh=q
-	ntGnCl+gT6W1uiVWS/FnTVD+JK4eRGvEYcVVrmUZCA=; b=edUlfFzg8xaRSO3ok
-	qaeoF3EWpZWNEbeOtVZhOjjHx0w9iWdpfsrDKm0agPyytxd6SosiX7/kioapKxm1
-	O+/9W7puo0J2hyZ4EAOuPyFWFfFqPZMPBotBgC1m5xF8Abvy4wmkkSA++FjDdL/u
-	gWPLD4sfeN941iW8WoibpN5TVOuH8mx/hy/XLD2R/wWywghT9MTSGNo16EvjkbrQ
-	CV0HGCsUqycnil098QP4vax2JwCGwgfVWaVv6fQZpXzsOR0IUYWIxwESeYN9Caio
-	L19vdTlKteMmiTjq/f211NFQvUp4tRGAlN0fHipGX8+615qLalYh7hE51+e1JQ6R
-	/FHVw==
-X-ME-Sender: <xms:BNNZan7DxMjDq0XYrs2VqehlWq_P0WU7_3KVBgyH--2cz3tNZ8cTcw>
-    <xme:BNNZajTv_BFl1eZsu4lLdNd1NV9h1QmtyVpgyX5k5bF6uscDhiaLtzmn3vx0-Icsi
-    A313bE_skJyvn5sbXwUNRpr8Mw3h33RUqb5RbALFzx_WfaswfzI8Q>
-X-ME-Received: <xmr:BNNZaquyegBDlwx0TIMWmHRr3v1xEVsWumJfZ_sfTT5TXW3E9yMg0Opp8sh59ObFYnDTePMWiLZnHcretCM>
-X-ME-Proxy-Cause: dmFkZTEHWYijIVn5Hjmw1gGNs4YgontCXsF2NkmQQZU9ftMEh542K23DBiPfFKZ1WNd+jZ
-    y2yluKGWQV5yyoYOo69k1CpzzNQKPcTniEC5PSYE2qnBokqhAOpAo1V3aURJV8OdOYq23r
-    PArI03veB1OMjIaAJ/XHKxXS2Q0Sn2Bm5Cc+S5BchXxm8Ht+sv8f8F474Nlm7o9mS0TI+E
-    ETLnOv/kO8+zlZUhl5+8mYNDBFsstvrHyTn9JsHO5glGo+E62uUi8cmkfsltXhwLeV+VYd
-    4YeC6Biz74FTqzFaf3nkXE8lJmdInDvAnSWCB65oeY0T5VoiGlL5IAX0AbrH6vTIj1O0iR
-    /j52j+0d7oi0juD1E2unAh2pJW4REKxwGJeovXyQF2RZZwcJDvdc0nWne7KR7fYLmc9nKi
-    DS2NgAVTv4qwdC+u/+A1R5mk3i+0vTdjs7N/7w6BNjP9+I1X+fumeSlrUBzxVst7jrbe1e
-    pAyRfre6lPCt2VZ36zyCbiuBBIAcYHHI3411vgQeAHDSsR9hSbCsueNWnEDKmasicXtr1P
-    58LcrHgGItRLS3Ln8LpxH9S0NVqMrrvcVa/Ttwi8M6qy5Gy/DDVQMqKPR7PL5mZNgtqRDZ
-    YMdWBiScyT+cbqau43e8mpPrYd6Lkm64diNqlhxVxGnk37lSyhBqnw5FlqZg
-X-ME-Proxy: <xmx:BNNZal9U1dV78LlbLnUyEmvfNN3UqKb1A0C0Rf3idjaWNGGZgCS_Jg>
-    <xmx:BNNZajxRIHiL5zFXH7qKiSqqlYqIAzolQLH0qK7weGHdA_Oe_lSsLw>
-    <xmx:BNNZan_KuCdqf-yNdYecaj_qn4_Lye5L-yeBr366_1rZY_0Fme9tLw>
-    <xmx:BNNZahM1njhAl-DW8ItLr9HgUx0i5ymQSoxuASNODF4IhhjNP8m_aQ>
-    <xmx:BNNZajpzzrU09M2IdHDIOWE5syTrehpp-M2UDdwQs0p9xrrGhNgrK4zn>
-Feedback-ID: i7a5e4b5f:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 17 Jul 2026 03:00:13 -0400 (EDT)
-From: Jiaxing Hu <gahing@gahingwoo.com>
-To: maxime.chevallier@bootlin.com
-Cc: andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	heiko@sntech.de,
-	netdev@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next] net: stmmac: dwmac-rk: enable the reference clock for output mode
-Date: Fri, 17 Jul 2026 19:00:11 +1200
-Message-ID: <20260717070011.2629800-1-gahing@gahingwoo.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <a1e6cf0a-a243-4739-8563-be385add37b2@bootlin.com>
-References: <a1e6cf0a-a243-4739-8563-be385add37b2@bootlin.com>
+	id 1wkcZy-00000001M2h-0c0z
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Jul 2026 07:01:51 +0000
+Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-51c2b2c9eccso55329611cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 00:01:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1784271709; cv=none;
+        d=google.com; s=arc-20260327;
+        b=VC+y5/bcGFw1KCKnFseyOw6eCWahFHQCWX1IIjNqMDnd9JnO2qwMIdPZGBP1yvLKqs
+         8xGvcW+gj2/dPyYe5Sj5YU3+3UrUbgK7Cl2vAR1jtxxCPex9UF/cKoZZAbNisw8oyhQj
+         hDcM7PkgW1bwJsUHpVR1XuKfp5Ioa0DMZTjPezln1CUAxtf6dyyXRFevuHwtbC411wO1
+         Qo0TS83nkpStUQ8DXvEj1SUf4ccS4KScBLgwjys5IRcVync+vxccaqxightB8/2W7BTC
+         3i3D3xkAhVz94eRve3kGSu/v/ebzYp4S7Y7QUZ3k4g+zeuuqLCoxwXAsefgfH8XxGFnV
+         v1lA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=RwJxTFnJ5CXL7SNwJ3FzpgAg/ebATche5LLJ2ldkVUg=;
+        fh=L0vQzhMXaoFmDi6yn6fRLshA8xAvoSpYHz96K2sR2nQ=;
+        b=FvEun814Rmdxmd11vlHUbbRNAWN/Z7ReOXG5mXylEhjUicIaOsx2Z0Rxr/RGNSzBhq
+         Q+tSB4LNFkgvdX/FbLskSMHrpAFWMXNzkIimuZYuiF/ivWs/muXDVjtaKDRHVH8NsqEV
+         gNBA1UdvaIVoazd1WeBtl23rFMbElk7lCBgUQHLM+tQVA9XWpRtSUueWPgO6J5HFcLN8
+         Fg7ilabwpsw2JtA0zhJv3JeB70TcwVIXfM+Cyj4/f99PNNPq4tjlQQ6vjFc086E1LtMF
+         OyazGkONS6N9y7QgZvsFh34+cmbLBr6WeFm4gMGQUdDVjj15ZBt+Bot/3ytQM5xnR4nX
+         wuiA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784271709; x=1784876509; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=RwJxTFnJ5CXL7SNwJ3FzpgAg/ebATche5LLJ2ldkVUg=;
+        b=mbtPmDy/wQlY/399zTot5WpBM09xF/LvIyBxgnSYtJw7M4ANMz6jxId7mLdlc0tEov
+         z/m4vlMleOczOCf0VqCtn88kWo7foUDFyy3fY4oRR69ocyKH/0KIAH/uxgKp9/8pAArc
+         EHobTx8nuWFHyfAEjEJhJxT3hTNBNBsZ4SH7l6XMsNXMoYrjzJHAFFl8uKI+bvyHwP1Q
+         f6VNcGF7rKgxZLezYV/r/R8rBg5jbubecjrIMVj99Pw+vWY/gBy1WBmT6kBZxyeANQ2e
+         PSGMiQFv5fWk+dxmISX5wCEKG1UuTc9fVJh7U0xCddTdJ+q7F76jnR0tQjrlkJSnluI5
+         sBCw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784271709; x=1784876509;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=RwJxTFnJ5CXL7SNwJ3FzpgAg/ebATche5LLJ2ldkVUg=;
+        b=OmJ9bxMPbD1USb113RfqPYKjKG98ou1JiyB3sJYvIYvoCUUwQCbScmEMnKKlEH900x
+         pxCmu/4cPoltT2WFEDFWmtAIaAlgfEJLxR/6VSCofBDaWK1sPE3HCMQRb8SVIbxp30Nu
+         T/46ty1tHR+Rr6HPT8euF0iELJoL6h82E77k+u8miYNULHOHGbH4uXOY5kJsSX5rcKcH
+         w7wYp3sPkLIGFyGfLO1MLnKj5mYcFnZZajuS1+ut2IX2ckSoq1LOzeM2+lTnogHqPPYy
+         Okv99tni120f8spOpQxfOHsRECpNiTZyThhm23Xd22I9qb8uidCrLV+MTmA/obwkMJyA
+         Ge/Q==
+X-Forwarded-Encrypted: i=1; AHgh+RpZ6t11IWGExkzh10bcjUZasIatl4nMpdqxPffOw4yBWkYN+qL6IZLmyg1ze4++KPwU8dtxMl8fZlLEyecySCy8@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywn0y1tso+5z2Y0EF4AWcD8N4N4edTlaR9up80GqN2DftnyuGqf
+	ApjAwbG4+xbBTIxmLJJOmAkPKdGkJGiygs7qHBpA34WJBVfu/9ZPWGYkLgDxNLL4YsScWvImyt8
+	JJx6sA6xAVC9QSnxiE9VQpZOPPBz8+Qg=
+X-Gm-Gg: AfdE7clsQmsyMxSNqwHg6xwR65KyC7j24/tCmb8k0N+SyH3MMGhY/iCEdLSqE6YXo1F
+	CGd6XdKUKpC5+CEPgT/wxujRFjgUDrZk9fHjT7Ul5QBTucYw0WruV0rFBxcEDxWT2Fj6zZsxQAq
+	7IPZMi0fpWxLAcWJ3lvX8e5xOuJmlyEWMD6LHwa8pAsLnFgLUcWEu/KNofBkVkJZeG414MDAK3z
+	sO+JWT2cGALT22heua2Jr0sSkCdE6P1T7SS5elBdCEjzJGBWBJGQ10afAhNtffc
+X-Received: by 2002:a05:622a:1307:b0:51c:73f:e3a7 with SMTP id
+ d75a77b69052e-5213c9db3f6mr11147141cf.26.1784271708847; Fri, 17 Jul 2026
+ 00:01:48 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260716171733.300885-1-akkun11.open@gmail.com>
+In-Reply-To: <20260716171733.300885-1-akkun11.open@gmail.com>
+From: Akari Tsuyukusa <akkun11.open@gmail.com>
+Date: Fri, 17 Jul 2026 16:01:36 +0900
+X-Gm-Features: AUfX_mxBhDopugmTygQCr_ewrvNPScsxhXpSrlqnE3VeMGuqzfUam913liCneCI
+Message-ID: <CAKr_iV4=TAKGb829nXWBBiPkQHo7dFyhT41K7+Twv=VjaEypyA@mail.gmail.com>
+Subject: Re: [PATCH 0/3] soc: mediatek: pwrap: MT6589 + MT6320 support
+To: Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+	Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Akari Tsuyukusa <akkun11.open@gmail.com>, Flora Fu <flora.fu@mediatek.com>, 
+	Alexandre Mergnat <amergnat@baylibre.com>
+Cc: "open list:MEDIATEK BOARD LEVEL SHUTDOWN DRIVERS" <linux-pm@vger.kernel.org>, 
+	"open list:MULTIFUNCTION DEVICES (MFD)" <mfd@lists.linux.dev>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
+	"open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>, 
+	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_000022_335722_F7679923 
-X-CRM114-Status: UNSURE (   9.47  )
+X-CRM114-CacheID: sfid-20260717_000150_192654_CFA24164 
+X-CRM114-Status: UNSURE (   6.00  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -115,22 +125,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Maxime,
+[PATCH 3/3] has a bug, I'll fix in v2.
+Please ignore this series for now.
 
-> So the statement "For RGMII, it must be input [...]" is now incorrect :
->  - it can be output for RGMII
->  - it will be 25Hz if set to output, from what I get from the commit log.
->
-> Can you update it ?
-
-Done in v2, added as patch 1:
-
-  https://lore.kernel.org/all/20260717065933.2629501-1-gahing@gahingwoo.com/
-
-It rewords clock_in_out so that for RGMII, "output" means the SoC drives
-a 25 MHz reference out to a crystal-less PHY. The driver change is now
-patch 2 of the same series.
-
-Thanks,
-Jiaxing
+Link: https://sashiko.dev/#/patchset/20260716171733.300885-1-akkun11.open@gmail.com?part=3
 
