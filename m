@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56FF6C44516
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD785C44524
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 13:04:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,32 +12,32 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CI1v8eeCBLFTdJ/DMxS17nabZVLaO47wNFZpGWZf8b4=; b=p258kPhUFDDG1bmm5KBGHowxFy
-	rXSm2Dkx2J8qb1Cq/Fiqb4pi53WXw2qdoV7lR5kGV2moFAlQu4pDp7eSGuHAI+qKD8Xrdq4SMe8hf
-	F6hcJgIHjZXHsL1X567/V3OMuYVWHWarHSFYc1MwHAYEIROrAsqPdlnY7SOh64DAUrIsVsvh4+DUF
-	7OLvTfAYI0X/dFCPl3ClcCQ6Qx9ppXk71QGxQYYTbbdULJIiTyHTgCgOaKuAOIxMywBuj7lHvNgi4
-	HrBl6d7YJgSUvXqGyqjj1OotDK/yNv3MlDH5qaRYha+fy4v6vAFxryrOvGIwTpnULDuTxtc2vthRF
-	lIgxJ6XA==;
+	bh=w6Awn3Cip6WinOaXp4OqAmFuhAYE4A4acDGbfEewbog=; b=NHYR6i44DezH5YGvoxqc1PYigs
+	ZYuT5NQ5r736HroEJ3fDmp7cDb2taETLRJbg6RLPlyf1IV26vrznUoQVRzYJ54fniGZXv7c/K3W2B
+	e3sy/frJpAWrNEDcLMqYWTxOXsa2fOtrERTJjOAoCUsG1r2sn+uO1HPpugHvbN+A2Qpvs2Tc5B7kY
+	dJym04O2QvPBIKb8fO6rCVD1rSEg0ZgUanXRVy1ijdEBcCIl1j8VHohZ839JJ2WbaawA1eQqCbjRF
+	tutpbdqLWO/pj07oa+wLtHtjUrMGbXP+98oXCMZqZvWdrRhL3MM++Opmf/tnS6Gc5YirbZtJqkhRS
+	VuElSp6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkiEi-00000002Lmn-2gKP;
-	Fri, 17 Jul 2026 13:04:16 +0000
-Received: from out-178.mta1.migadu.com ([95.215.58.178])
+	id 1wkiEj-00000002Lne-036H;
+	Fri, 17 Jul 2026 13:04:17 +0000
+Received: from out-174.mta1.migadu.com ([95.215.58.174])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkiEc-00000002Lj5-0uv2
+	id 1wkiEg-00000002Lki-0jaf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 13:04:11 +0000
+	Fri, 17 Jul 2026 13:04:15 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1784293447;
+	t=1784293451;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=CI1v8eeCBLFTdJ/DMxS17nabZVLaO47wNFZpGWZf8b4=;
-	b=vqChw9zcOPNplCIkodaAthFKhF9/qHUGIO8HHLx9F8lVMbcLi5gYPYL/7We5a26SbrUd9h
-	qAD/apqCdmgb68x8+zjhhYHf2IA+T/cKcQv/4eXY6msQu4tBdxb8n0OLSvgtVZUBeLurIJ
-	PMoBYcZ8Qpet0gmuNcGgEz7kh/BL75Q=
+	bh=w6Awn3Cip6WinOaXp4OqAmFuhAYE4A4acDGbfEewbog=;
+	b=vTqZQVcvnbqTera6vR3ctDXJn/somZz5PfLLM0khrASOMvrxrDjGa+jgm1rPclTNFJ9VHZ
+	W4pJeIuM2LskrdT4zeBAcXZHQUPnlN5eiS2bHHkWZJaBd/S03Nu+a9kOjG2hURa0tnI5vo
+	3fnSaxpDtapXRTv/t+dkvxH3HOBBF4I=
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
 	Oliver Upton <oupton@kernel.org>
@@ -58,17 +58,17 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v5 4/7] KVM: arm64: Skip pKVM stage-2 flush when FWB is enabled
-Date: Fri, 17 Jul 2026 14:03:14 +0100
-Message-Id: <20260717130317.1953574-5-fuad.tabba@linux.dev>
+Subject: [PATCH v5 6/7] KVM: arm64: Don't advertise eager page splitting under pKVM
+Date: Fri, 17 Jul 2026 14:03:16 +0100
+Message-Id: <20260717130317.1953574-7-fuad.tabba@linux.dev>
 In-Reply-To: <20260717130317.1953574-1-fuad.tabba@linux.dev>
 References: <20260717130317.1953574-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_060410_404759_0D644E15 
-X-CRM114-Status: UNSURE (   8.92  )
+X-CRM114-CacheID: sfid-20260717_060414_358618_FDA271BF 
+X-CRM114-Status: UNSURE (   8.78  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,36 +84,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-pkvm_pgtable_stage2_flush() cleans the D-cache for every mapping in the
-range even on hardware with stage-2 Force Write-Back, where FWB keeps
-guest memory coherent to the PoC and the maintenance is unnecessary. The
-generic kvm_pgtable_stage2_flush() returns early in that case, but the
-pKVM MMU does not, so it needlessly cleans the whole range on, e.g.,
-every set/way trap.
+Under pKVM the stage-2 walker resolves to pkvm_pgtable_stage2_split(), a
+WARN_ON_ONCE(1) stub, yet KVM_CAP_ARM_EAGER_SPLIT_CHUNK_SIZE is still
+enabled and reported for non-protected guests: the capability check keys
+on the per-VM protected state while the walker dispatch keys on the
+host-global mode. Enabling the cap and then dirty-logging the guest
+reaches the stub, splatting a userspace-reachable WARN.
 
-Return early when FWB is enabled, matching the generic walker.
+Reject the capability, and stop reporting a chunk size and the
+supported block sizes, for every VM once pKVM is enabled, keyed on the
+host-global mode like the split dispatch. Gating only protected VMs
+would leave the non-protected guests that reach the stub still able to
+enable it. Userspace decides whether eager splitting is available from
+the block-size bitmap (QEMU falls back to no eager splitting when it
+reads 0), so leaving it advertised steers an explicit request into the
+enable failure instead of the fallback.
 
 Fixes: e912efed485a ("KVM: arm64: Introduce the EL1 pKVM MMU")
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- arch/arm64/kvm/pkvm.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ arch/arm64/include/asm/kvm_pkvm.h | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-index f70c601dcf4c..ba6570e37545 100644
---- a/arch/arm64/kvm/pkvm.c
-+++ b/arch/arm64/kvm/pkvm.c
-@@ -518,6 +518,10 @@ int pkvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size)
- 	struct pkvm_mapping *mapping;
- 
- 	lockdep_assert_held(&kvm->mmu_lock);
-+
-+	if (cpus_have_final_cap(ARM64_HAS_STAGE2_FWB))
-+		return 0;
-+
- 	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
- 		if (!mapping->nc)
- 			__clean_dcache_guest_page(pfn_to_kaddr(mapping->pfn),
+diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+index 57afb07d6b13..beea00e693a0 100644
+--- a/arch/arm64/include/asm/kvm_pkvm.h
++++ b/arch/arm64/include/asm/kvm_pkvm.h
+@@ -45,6 +45,9 @@ static inline bool kvm_pkvm_ext_allowed(struct kvm *kvm, long ext)
+ 		return true;
+ 	case KVM_CAP_ARM_MTE:
+ 		return false;
++	case KVM_CAP_ARM_EAGER_SPLIT_CHUNK_SIZE:
++	case KVM_CAP_ARM_SUPPORTED_BLOCK_SIZES:
++		return false;
+ 	default:
+ 		return !kvm || !kvm_vm_is_protected(kvm);
+ 	}
 -- 
 2.39.5
 
