@@ -4,81 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5DAEC4451B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 17:20:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0485C4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 17:30:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ogRVHXmQ7ZTJHboM5CyugXRM1/jtS4o3Av3SvfnT0jM=; b=iJFcl/SVkPcmd2sn407FtJ9EBk
-	eOOeTZBj5xPWcNjI8bygCSg2rPxuQMRuinNRNz6Q0FQ7iGSqB/N9SEmMnln7mZhtJIpJwTJmoDLPF
-	dmiUnVrQ+PsowPCtxgcY97fn/HQp8S7Fg1JSuvV0OyplpfJRczTej76cydjIsPd8Pnm8ORFJx86LE
-	e5jPrDlXDvDKSj3rd9yu29AxNekWgiobaJagontVWKurorDcNPEgdXgsGxZTxvcguaTRJPx0DOHRO
-	EPYFBv+whYz76yIBdft5wFxMLNKxxPbEjyntdv15ILvlblu307mqBs6JiZM7rrExnviMqfxcW6EvV
-	EfFjDdpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=wY6QUhrQhDzSQAZjxHyiyWnuSRVxpYdGoInIwaX4suY=; b=02F73ODzsc25CJ
+	YBuA/iT047GpJrSgb3OaLy75A/lJriG2Vrvy3C+/pTn/LRDi0PMQ+xtCbrRpJiOyBNuM1DZreIAvQ
+	rTnANwbY1Yc18QRI95bL1D/Vuh8d4eHopOtLi58mJA2L2VlcZgKYNPmeEG23xv2byU8q038wB1TVV
+	PLW1kzZ7YY3aBKfxfSGf1H0Hfl8GrWyFqsBUnJ/6KRyChp+/aOwpX+D3m+L4YOzH1hJoVO0r1iEME
+	j3Reg89VSKykmqAjZkuzGyx10QlSWNK+R6VGaNJi35DYbiqTzKV+qZl/cHS+t0zV3z2JIxGOPYqKo
+	PTbizDAqfcQq0y9uCBQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkmEa-00000002rJy-3cT8;
-	Fri, 17 Jul 2026 17:20:24 +0000
-Received: from sender4-op-o11.zoho.com ([136.143.188.11])
+	id 1wkmOh-00000002sfl-0tMu;
+	Fri, 17 Jul 2026 17:30:51 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkmEY-00000002rJ4-0PWm;
-	Fri, 17 Jul 2026 17:20:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1784308778; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=H4pcaiyWw5sNUEJZbm9eM14QxzQ3Fs5J/zfbyV0gtqk2u2v4xJDuHRHpJrMW4yt/U89AweWnlDnKJVWJ9EJh2HDtzg3qoDhYlz9QeCZgEupMPqCn8FsN5Fef2I9+RNV5PQvDSgZagf80bsYu6HdpvxEIL+5lpEckH+axrSLiKFA=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1784308778; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=ogRVHXmQ7ZTJHboM5CyugXRM1/jtS4o3Av3SvfnT0jM=; 
-	b=Rb7JV/PRuKjmFm0CH5WxKJ4Mj6i1P7r5AKeRg2rN3MsSwrNkfq/sXt5U/JHt16WU2YBz6hxJpwguBbEqDQceav8DUK63eoyiRWGOR1BPn45vOY2wFBfpyDLrt0KTqUcoNkWwn9bjiskzT/ZRZ/FonO9dcLRF4H245+ZSLIgc1tc=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1784308777;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=ogRVHXmQ7ZTJHboM5CyugXRM1/jtS4o3Av3SvfnT0jM=;
-	b=Kt6hXTUPPH6CFVs5HGy+sK42o+r4NCkzV6Q9KDzVFjAQW/qbb1HX75xBc8USxQgx
-	RexIGKLGYtbvejBVzCeDDvxU/hevu/BjXDIhBq48yYc0cn0fZjxN7Wjiv0+aYjBEVgt
-	YAda0f9SiK99bk32KBOvI3qSvslKA4kIskVrC6RI=
-Received: by mx.zohomail.com with SMTPS id 178430877525932.612933366387324;
-	Fri, 17 Jul 2026 10:19:35 -0700 (PDT)
-Received: by venus (Postfix, from userid 1000)
-	id 1F724181CD9; Fri, 17 Jul 2026 19:19:29 +0200 (CEST)
-Date: Fri, 17 Jul 2026 19:19:29 +0200
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Chaoyi Chen <kernel@airkyi.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
-	Vinod Koul <vkoul@kernel.org>, Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-phy@lists.infradead.org
-Subject: Re: [PATCH v3 1/5] drm/bridge: Implement generic USB Type-C DP HPD
- bridge
-Message-ID: <alpeAqKo72pwOEnX@venus>
-References: <20260717072323.96-1-kernel@airkyi.com>
- <20260717072323.96-2-kernel@airkyi.com>
+	id 1wkmOf-00000002sf6-43th
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Jul 2026 17:30:50 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id AE1DE600DA;
+	Fri, 17 Jul 2026 17:30:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A57CA1F000E9;
+	Fri, 17 Jul 2026 17:30:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784309448;
+	bh=wY6QUhrQhDzSQAZjxHyiyWnuSRVxpYdGoInIwaX4suY=;
+	h=From:Subject:Date:To:Cc;
+	b=P+fatTfHkyZ8PVMn/q11PVhx2HWXrgHBgF4rveGi8OulKI91SS3YVOvax+FdVKIYl
+	 aInNlOHz7DoTZoB6XbdZ/VRwEqOsRoQIpPhpWN9LnRveZYIG4hu7slEsbwyUrYw1Eu
+	 EzrDedDY55w0YQQPFGFIcdm7R8QNVYTzxyTkVFeBvBb87BwnM5wkB573z//+XDQaXJ
+	 QbaKU8GzZ37Rj4Ab4YP3h3SH6nk/qQ08rJQQwWeNwwKv7NX99E5MvHExUGTygMX4OY
+	 xW8RDZlJDaRdfaHwKAgac6MfZ2ymwo7njiI1ajw8ZBijEVTrkjTttyPNf7ol5oTcnc
+	 DjDdFIK2JSsGA==
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Subject: [PATCH mm-hotfixes v5 0/5] mm: fix UAF caused by race between
+ ptdump and vmap pgtable freeing
+Date: Fri, 17 Jul 2026 18:30:06 +0100
+Message-Id: <20260717-series-vmap-race-fix-v5-0-606a0ac6d3e5@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="jbdw5cv6ljemwd7w"
-Content-Disposition: inline
-In-Reply-To: <20260717072323.96-2-kernel@airkyi.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.10.1.5.2/284.287.57
-X-ZohoMailClient: External
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_102022_196158_F8190B22 
-X-CRM114-Status: GOOD (  34.79  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAJ5mWmoC/33OzU7DMAwH8FeZcsYoTrI13Yn3QBxS11kDtJ2SE
+ oGmvjtZeymayvHvj599E4lj4CTOh5uInEMK41DC8ekgqHPDhSG0JQsl1UlWKGGdh9y7K0RHDD5
+ 8g3KGHNXW1tqKsnqNXMoL+yr6HrpxWvPb2kxfzTvTdIfv411I0xh/licyLkv/38sIEo6NrmpDi
+ NrzywfHgT+fx3hZbmS1VdSOooriWtSGSDtU7kHRW8XsKLoojUXFRN5JXz8oZqucdhRTFEsoLRm
+ NVev/KPM8/wKVvrqqqgEAAA==
+X-Change-ID: 20260710-series-vmap-race-fix-2a4cac988938
+To: Andrew Morton <akpm@linux-foundation.org>, 
+ Suren Baghdasaryan <surenb@google.com>, 
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+ Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, 
+ Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
+ Uladzislau Rezki <urezki@gmail.com>, Toshi Kani <toshi.kani@hpe.com>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, 
+ Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, x86@kernel.org, 
+ "H. Peter Anvin" <hpa@zytor.com>, Kiryl Shutsemau <kas@kernel.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Dev Jain <dev.jain@arm.com>, Ryan Roberts <ryan.roberts@arm.com>
+Cc: David Carlier <devnexen@gmail.com>, ljs@kernel.org, linux-mm@kvack.org, 
+ linux-kernel@vger.kernel.org, bpf@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, "Denis V. Lunev" <den@virtuozzo.com>, 
+ stable@vger.kernel.org, 
+ syzbot+fd95a72470f5a44e464c@syzkaller.appspotmail.com
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=8612; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=Vl2DeNmZvUsPifcDZmp2eUptrFlUVAtjBOFjjxW83Yw=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLKi0ra5BannFLw1emnFoVDWJHH//MdN1buuzmO3zl6yw
+ /frAn/ujlIWBjEuBlkxRZbnX8T3B4mEzeu84O8GM4eVCWQIAxenAExkgiojw/ssnjf3fzT3GfnN
+ vqZwf7Zt+bcLfQtm/jx/ivX4jqgHJzQZGZYfbTVLUM3dbi2jt+rH47gqDT+xdL17gREKWSvzO/g
+ 9mAE=
+X-Developer-Key: i=ljs@kernel.org; a=openpgp;
+ fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,212 +97,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Kernel page table walkers fall into two broad categories - those ranges
+where no exclusion is required via walk_kernel_page_table_range_lockless()
+and those where exclusion is required via walk_kernel_page_table_range()
+or walk_page_range_debug().
 
---jbdw5cv6ljemwd7w
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v3 1/5] drm/bridge: Implement generic USB Type-C DP HPD
- bridge
-MIME-Version: 1.0
+The former category is used only by arm64 arch code operating on ranges it
+both wholly owns and does not concurrently write.
 
-Hello,
+The latter category consists of kernel page table walkers operating on
+ranges that are wholly owned (but which need exclusion against concurrent
+writers).
 
-On Fri, Jul 17, 2026 at 03:23:19PM +0800, Chaoyi Chen wrote:
-> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->=20
-> The HPD function of Type-C DP is implemented through
-> drm_connector_oob_hotplug_event(). For embedded DP, it is required
-> that the DRM connector fwnode corresponds to the Type-C port fwnode.
->=20
-> To describe the relationship between the DP controller and the Type-C
-> port device, we usually using drm_bridge to build a bridge chain.
->=20
-> Now several USB-C controller drivers have already implemented the DP
-> HPD bridge function provided by aux-hpd-bridge.c, it will build a DP
-> HPD bridge on USB-C connector port device.
->=20
-> But this requires the USB-C controller driver to manually register the
-> HPD bridge. If the driver does not implement this feature, the bridge
-> will not be create.
->=20
-> So this patch implements a generic DP HPD bridge based on
-> aux-hpd-bridge.c. It will monitor Type-C bus events, and when a
-> Type-C port device containing the DP svid is registered, it will
-> create an HPD bridge for it without the need for the USB-C controller
-> driver to implement it.
->=20
-> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> Reviewed-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-> Reviewed-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> ---
+The lock used for exclusion is the mmap lock, and for kernel ranges this
+the mmap lock on init_mm.
 
-Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-Tested-by: Sebastian Reichel <sebastian.reichel@collabora.com> # ArmSom Sig=
-e5
+ptdump is a special case being both the only user of
+walk_page_range_debug(), and the only case in which it walks ranges it does
+not own.
 
-I gave this a test together with the RK3588/RK3576 USB-C DP AltMode
-patches I'm working on. As the fusb302 does a manual registration
-for the DRM bridge in its probe function, the bridge is registered
-twice:
+This presents a problem, as page tables may be freed under ptdump. And
+indeed there is a use-after-free bug in the kernel as a result, which this
+series addresses.
 
-root@sige5 # cat /sys/kernel/debug/dri/bridges
-=2E..
-bridge[1]: drm_aux_hpd_bridge_funcs
-	refcount: 4
-	type: [10] DP
-	OF: /soc/i2c@2ac50000/typec-portc@22/connector:usb-c-connector
-	ops: [0x4] hpd
-bridge[2]: drm_aux_hpd_bridge_funcs
-	refcount: 2
-	type: [10] DP
-	OF: /soc/i2c@2ac50000/typec-portc@22/connector:usb-c-connector
-	ops: [0x4] hpd
-=2E..
+vmap promotes page tables to huge leaf entries where possible, freeing the
+lower page table when it does. It does this with no meaningful locks held
+against concurrent ptdump walks.
 
-Apparently the USB-C DP AltMode keeps working, so this just wastes
-a few CPU cycles and some memory. So this can land and then we can
-remove the manual code from the driver as a follow-up step. I also
-gave that a try and things keep working. I won't send the fusb302
-patch for now to ensure its not applied before this patch lands.
+As a result, use-after-free can currently occur. This series addresses the
+issue by having the vmap huge promotion logic acquire the mmap read lock
+while both setting the huge page table entry and freeing the prior leaf
+page table.
 
-Greetings,
+The ptdump code already acquires the mmap write lock, so by doing so we
+ensure that the ptdump walker only ever observes either the huge page table
+entry or the existing page table entry, and nothing is freed underneath it.
 
--- Sebastian
+A mitigation for this issue was already applied for arm64 in commit
+fa93b45fd397 ("arm64: Enable vmalloc-huge with ptdump"), which this series
+has to deal with carefully.
 
-> (no changes since v3)
->=20
-> Changes in v2:
-> - Add copyright text.
-> - Remove useless goto.
->=20
-> ---
->  drivers/gpu/drm/bridge/Kconfig                | 10 ++++
->  drivers/gpu/drm/bridge/Makefile               |  1 +
->  .../gpu/drm/bridge/aux-hpd-typec-dp-bridge.c  | 54 +++++++++++++++++++
->  3 files changed, 65 insertions(+)
->  create mode 100644 drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c
->=20
-> diff --git a/drivers/gpu/drm/bridge/Kconfig b/drivers/gpu/drm/bridge/Kcon=
-fig
-> index 4a57d49b4c6d..9739b2a19758 100644
-> --- a/drivers/gpu/drm/bridge/Kconfig
-> +++ b/drivers/gpu/drm/bridge/Kconfig
-> @@ -30,6 +30,16 @@ config DRM_AUX_HPD_BRIDGE
->  	  Simple bridge that terminates the bridge chain and provides HPD
->  	  support.
-> =20
-> +if DRM_AUX_HPD_BRIDGE
-> +config DRM_AUX_HPD_TYPEC_BRIDGE
-> +	tristate
-> +	depends on TYPEC || !TYPEC
-> +	default TYPEC
-> +	help
-> +	  Simple bridge that terminates the bridge chain and provides HPD
-> +	  support. It build bridge on each USB-C connector device node.
-> +endif
-> +
->  menu "Display Interface Bridges"
->  	depends on DRM && DRM_BRIDGE
-> =20
-> diff --git a/drivers/gpu/drm/bridge/Makefile b/drivers/gpu/drm/bridge/Mak=
-efile
-> index 15cc821d85b7..d88a9e1ccc9a 100644
-> --- a/drivers/gpu/drm/bridge/Makefile
-> +++ b/drivers/gpu/drm/bridge/Makefile
-> @@ -1,6 +1,7 @@
->  # SPDX-License-Identifier: GPL-2.0
->  obj-$(CONFIG_DRM_AUX_BRIDGE) +=3D aux-bridge.o
->  obj-$(CONFIG_DRM_AUX_HPD_BRIDGE) +=3D aux-hpd-bridge.o
-> +obj-$(CONFIG_DRM_AUX_HPD_TYPEC_BRIDGE) +=3D aux-hpd-typec-dp-bridge.o
->  obj-$(CONFIG_DRM_CHIPONE_ICN6211) +=3D chipone-icn6211.o
->  obj-$(CONFIG_DRM_CHRONTEL_CH7033) +=3D chrontel-ch7033.o
->  obj-$(CONFIG_DRM_CROS_EC_ANX7688) +=3D cros-ec-anx7688.o
-> diff --git a/drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c b/drivers/g=
-pu/drm/bridge/aux-hpd-typec-dp-bridge.c
-> new file mode 100644
-> index 000000000000..c09579ff7ab9
-> --- /dev/null
-> +++ b/drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c
-> @@ -0,0 +1,54 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +/*
-> + * Copyright (C) 2026 Rockchip Electronics Co., Ltd.
-> + *
-> + * Author: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> + */
-> +#include <linux/of.h>
-> +#include <linux/usb/typec_altmode.h>
-> +#include <linux/usb/typec_dp.h>
-> +
-> +#include <drm/bridge/aux-bridge.h>
-> +
-> +static int drm_typec_bus_event(struct notifier_block *nb,
-> +			       unsigned long action, void *data)
-> +{
-> +	struct device *dev =3D (struct device *)data;
-> +	struct typec_altmode *alt =3D to_typec_altmode(dev);
-> +
-> +	if (action !=3D BUS_NOTIFY_ADD_DEVICE)
-> +		return NOTIFY_OK;
-> +
-> +	/*
-> +	 * alt->dev.parent->parent : USB-C controller device
-> +	 * alt->dev.parent         : USB-C connector device
-> +	 */
-> +	if (is_typec_port_altmode(&alt->dev) && alt->svid =3D=3D USB_TYPEC_DP_S=
-ID)
-> +		drm_dp_hpd_bridge_register(alt->dev.parent->parent,
-> +					   to_of_node(alt->dev.parent->fwnode));
-> +
-> +	return NOTIFY_OK;
-> +}
-> +
-> +static struct notifier_block drm_typec_event_nb =3D {
-> +	.notifier_call =3D drm_typec_bus_event,
-> +};
-> +
-> +static void drm_aux_hpd_typec_dp_bridge_module_exit(void)
-> +{
-> +	bus_unregister_notifier(&typec_bus, &drm_typec_event_nb);
-> +}
-> +
-> +static int __init drm_aux_hpd_typec_dp_bridge_module_init(void)
-> +{
-> +	bus_register_notifier(&typec_bus, &drm_typec_event_nb);
-> +
-> +	return 0;
-> +}
-> +
-> +module_init(drm_aux_hpd_typec_dp_bridge_module_init);
-> +module_exit(drm_aux_hpd_typec_dp_bridge_module_exit);
-> +
-> +MODULE_AUTHOR("Chaoyi Chen <chaoyi.chen@rock-chips.com>");
-> +MODULE_DESCRIPTION("DRM TYPEC DP HPD BRIDGE");
-> +MODULE_LICENSE("GPL");
-> --=20
-> 2.53.0
->=20
+This mitigation resolves the issue by acquiring the mmap read lock on
+init_mm on vmap page table free if a ptdump is in progress.
 
---jbdw5cv6ljemwd7w
-Content-Type: application/pgp-signature; name="signature.asc"
+However the fix in this series would cause a deadlock if we were to simply
+apply it for arm64 without also reverting the change.
 
------BEGIN PGP SIGNATURE-----
+This is because vmap may acquire the read lock before ptdump attempts to
+acquire the write lock, which then gets queued, and rwsem starvation rules
+mean that the (unacknowledged) nested mmap read lock in the arm64 code
+would also block, meaning the original read lock is never released and thus
+deadlock.
 
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmpaZBQACgkQ2O7X88g7
-+po4qA/+IBHGDueFgcm82WUb8KlcPZXHjJIodD4gCNh2En34PfHdv2tgAZk8FNoa
-130uQsjBUVejRARr4hgsqrKrisG/t/JfzHqg1DZpeok3j+sqCCDjuOYg3HBRrpjx
-WgTnxT7RWYqUjKE1bNX957wGBqggHx53///8/q2wwk4lCg99GEkoEqbbCgL4nQtb
-qwaQxOzI012LR46Q1c7lfSYYtjIAJEP2ojNbQUyUSuP58zZs2LsgdR0x8QVHx8h+
-PdwS92uTNQ5iMEWZh/jkB3xUaS3Rr9avZSwdaRgL0nGYnsuC5gBDBuVQtgFztnJl
-gK80/W5U61uXnj4IY1i61+V5jwNvBbqnSG0VXaN85zbMEhH6IwWPFb4SFm2NduwN
-ba93B+wOyFXoTZ+xPy1PLjQ3jwaHG91tw2gQLurisvb9+eAbGdFKbG2t6pkvCuD2
-LcwFHTSTD/gpsWMRiz4Lbz0I49jSRgW5x0wB4HOsOMDrFVDR8+MqNKMKHdErPqRp
-ZUeligeDaPclFpvT/ea7ChBipXN6/T6DvnwWe+Rsrn663mE3Y+GgOHiCYyfZZcRc
-SZk1gwoEskqaR6tguKoHT5hJwH30MVTmQDLL5I8AFij9LVl7MehM+DPjS+kRTE35
-FnmtXnvKOa19o/QDH4N/zq1C+ayxbN+IQKCaJ2g3irXGVpl4q38=
-=wii+
------END PGP SIGNATURE-----
+This series works around this by #ifndef CONFIG_ARM64'ing the mmap read
+lock in vmap logic, then partially reverting commit fa93b45fd397 ("arm64:
+Enable vmalloc-huge with ptdump"), keeping the enablement of huge vmap
+support, and removing the ifdeffery with the partial revert patch.
 
---jbdw5cv6ljemwd7w--
+There are related issues that we also address in this series:
+
+* x86 page attribute logic, specifically Change Page Attributes (CPA),
+  implements a feature whereby huge ranges can be collapsed into huge leaf
+  entries. This can similarly cause a UAF when done in parallel with a
+  ptdump walk, so similarly acquire the init_mm mmap lock to avoid this.
+
+* The CPA logic allows concurrent page table manipulation and CPA
+  collapse, meaning the former risks accessing a page table the latter
+  frees. Fix this by acquiring mmap write lock on init_mm across the
+  whole CPA collapse operation and read lock on the page table
+  manipulation.
+
+* x86 and arm64 permit walks of non-kernel mm's (both allowing efi mm
+  walks, and in intel's case arbitrary mm's), so we ensure kernel mappings
+  remain stable by locking the init_mm as well as the mm being walked.
+
+The ordering of patches is established for both strict dependencies (the
+arm64 partial revert in particular has to be done after the vmap changes)
+and logical ones (the non-kernel mm fix only makes sense once the vmap/CPA
+fixes are in place).
+
+---
+v5:
+* Rebased on latest master of Linus's tree.
+* Accumulated tags, thanks everybody!
+* Added additional commit to fix race between CPA collapse/attribute set.
+* Slight commit message tweaks.
+
+v4:
+* Rebased on latest master of Linus's tree.
+* Accumulated tags, thanks everybody!
+* Updated commit messages further as per Kiryl.
+* Took the mmap write lock across the whole CPA operation as per Will.
+https://patch.msgid.link/20260716-series-vmap-race-fix-v4-0-8c108c4317df@kernel.org
+
+v3:
+* Rebased on latest master of Linus's tree.
+* Accumulated tags, thanks everybody!
+* Reworded commit messages as per Kiryl and Boris.
+https://patch.msgid.link/20260714-series-vmap-race-fix-v3-0-b812eccfa0f9@kernel.org
+
+v2:
+* Rebased on latest master of Linus's tree.
+* Accumulated tags, thanks everybody!
+* Fixed cover letter reference to arm64 partial revert as per David C.
+* Combined all patches into a 4 patch series for ease of tracking/review
+  and updated cover letter to reflect.
+* Reordered patches in series logically - fix vmap, fix CPA issue, handle
+  mm vs. init_mm then revert arm64 mitigation.
+* Reworded first patch to be consistent with x86 wording to clearly
+  indicate the intent of the fix is to fix ptdump UAF.
+* Reworded arm64 revert patch subject as per Mike, Dev to make clear this
+  is only reverting the ptdump mitigation not the vmap huge support.
+* Added Fixes: tag to arm64 revert patch so we backport this also for
+  neatness. Not strictly necessary, but is a better fix overall applied.
+* Added note about stable dependency to arm64 revert patch.
+* Updated walk_page_range_debug() to remove pointless !walk.mm check - if
+  NULL mm then the mmap lock asserts would NULL pointer deref, and of
+  course no caller does this anyway.
+* Updated walk_page_range_debug() to always assert init_mm mmap write lock
+  is held.
+* Updated walk_page_range_debug() to always check for start >= end and that
+  it has safe walk ops, and remove the unnecessary
+  walk_kernel_page_table_range() invocation which ultimately does the same
+  thing.
+* Typo fixups as per Mike.
+* Some small commit message/comment wording fixups.
+https://patch.msgid.link/20260712-series-vmap-race-fix-v2-0-ad134cc3a12a@kernel.org
+
+v1:
+* vmap/arm64 partial revert series:
+  https://patch.msgid.link/20260710-series-vmap-race-fix-v1-0-5b3794c113fe@kernel.org
+* CPA patch:
+  https://patch.msgid.link/20260710-fix-cpa-ptdump-race-v1-1-d898699a7417@kernel.org
+* non-init_mm patch:
+  https://patch.msgid.link/20260710-b4-fix-non-init_mm-ptdump-v1-1-2d40982c98ec@kernel.org
+
+To: Andrew Morton <akpm@linux-foundation.org>
+To: Suren Baghdasaryan <surenb@google.com>
+To: "Liam R. Howlett" <liam@infradead.org>
+To: Vlastimil Babka <vbabka@kernel.org>
+To: Shakeel Butt <shakeel.butt@linux.dev>
+To: David Hildenbrand <david@kernel.org>
+To: Mike Rapoport <rppt@kernel.org>
+To: Michal Hocko <mhocko@suse.com>
+To: Uladzislau Rezki <urezki@gmail.com>
+To: Toshi Kani <toshi.kani@hpe.com>
+To: Dave Hansen <dave.hansen@linux.intel.com>
+To: Andy Lutomirski <luto@kernel.org>
+To: Peter Zijlstra <peterz@infradead.org>
+To: Thomas Gleixner <tglx@kernel.org>
+To: Ingo Molnar <mingo@redhat.com>
+To: Borislav Petkov <bp@alien8.de>
+To: x86@kernel.org
+To: "H. Peter Anvin" <hpa@zytor.com>
+To: Kiryl Shutsemau <kas@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>
+To: Dev Jain <dev.jain@arm.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: David Carlier <devnexen@gmail.com>
+Cc: ljs@kernel.org
+Cc: linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org
+Cc: bpf@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc:  "Denis V. Lunev" <den@virtuozzo.com>
+
+---
+Lorenzo Stoakes (ARM) (5):
+      mm/vmalloc: acquire init_mm lock on huge vmap to avoid ptdump UAF
+      x86/mm/pat: acquire init_mm write lock on collapse to avoid UAF
+      x86/mm/pat: acquire init_mm read lock on attribute change to avoid UAF
+      mm/ptdump: always stabilise against page table freeing using init_mm
+      arm64: remove redundant concurrent ptdump UAF mitigation
+
+ arch/arm64/include/asm/ptdump.h |  2 --
+ arch/arm64/mm/mmu.c             | 43 ++++-------------------------------------
+ arch/arm64/mm/ptdump.c          | 11 ++---------
+ arch/x86/mm/pat/set_memory.c    | 19 ++++++++++++++++--
+ include/linux/mmap_lock.h       |  3 +++
+ mm/pagewalk.c                   | 36 ++++++++++++++++++++--------------
+ mm/ptdump.c                     |  7 +++++++
+ mm/vmalloc.c                    | 40 +++++++++++++++++++++++++++++---------
+ 8 files changed, 85 insertions(+), 76 deletions(-)
+---
+base-commit: fce2dfa773ced15f27dd27cd0b482a7473cdcf2a
+change-id: 20260710-series-vmap-race-fix-2a4cac988938
+
+Cheers,
+-- 
+Lorenzo Stoakes (ARM) <ljs@kernel.org>
+
 
