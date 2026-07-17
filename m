@@ -4,77 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90F33C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 06:59:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87C05C4450F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 06:59:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lCAqR5Rm8mCHZXxgZtqL7lCVFwer/yTf69BDAsGWbmk=; b=4wHdYLPAn0sgxELD8OMxlrwLE9
-	Orl0sN+ftRSx1fq1GTU+8qQPfqZM6NXmFH+tCU2wIQwIKtjnFbimbMay3LJEjiTy+3domVzNu5d/G
-	bIRhRmncJraxqMijYUfCM6JdCoT+NXDRYIm4nepsNbL81wYVqCRW9XlVLFsv9mZ5Ug4zMRggKvgKX
-	klb00N5g0JpqJoRJuo5wrtfVhaYs46G2sXZIiXs98d/ZAP8P70JcLg4JWTgW4c5YmI+hk6I9DHnku
-	1q9+Tybl6tNW+AeGrocVNn6JOiT4a2kXUltwIveVFlSrZzY0sfUrOI0qFuDQcCFmvqIsRx6jGVDGX
-	oQY/K5yg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bB0hJT3PmFV6VVnpy+wEn02P0C7IyJ+v1DOMySWTkaM=; b=Lx/bHDZQVbzthZa3cFOVgdBorX
+	jOxIsP6b1R+DvEu9bk1GHqF8R0CyyOnC6QSwKDlwZZREBgCLvFLneK6xSqdpuylnX9JZpd3ZuGRKY
+	LDElPln/NpXYYvVlgCzKCUpBfcj1MGuR/6rUkyYEV9Zk7UxHDECEGMZGVWGjvykfb1BWv4cMiZ0oJ
+	tRRCX8TDqB5d2WmLqp+KcWPtMB9+GqcJPZ20wi+zOtVcmL3w5fxVUrEeyIUCKqi2pVZZaUlHCB3YI
+	F4mTcp5tn7vJsLDMuMf9/wwuOqlTHl4+eaEQR2I1tc1qSYNvCgz82AXjDKH74IDUGFiUZVXXiTrR0
+	SrtHa1tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkcXw-00000001LFp-0hEF;
-	Fri, 17 Jul 2026 06:59:44 +0000
+	id 1wkcY3-00000001LK0-1SUX;
+	Fri, 17 Jul 2026 06:59:51 +0000
 Received: from flow-b4-smtp.messagingengine.com ([202.12.124.139])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkcXt-00000001LE7-1KbG;
-	Fri, 17 Jul 2026 06:59:42 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailflow.stl.internal (Postfix) with ESMTP id 5B42A13002DA;
-	Fri, 17 Jul 2026 02:59:40 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-04.internal (MEProxy); Fri, 17 Jul 2026 02:59:40 -0400
+	id 1wkcY0-00000001LI9-1H6a;
+	Fri, 17 Jul 2026 06:59:49 +0000
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailflow.stl.internal (Postfix) with ESMTP id 5D9F813002DE;
+	Fri, 17 Jul 2026 02:59:47 -0400 (EDT)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-05.internal (MEProxy); Fri, 17 Jul 2026 02:59:47 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
 	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to; s=fm1; t=1784271580; x=1784275180; bh=lCAqR5Rm8m
-	CHZXxgZtqL7lCVFwer/yTf69BDAsGWbmk=; b=sPTd/WCMEguV5tFjMjkFQMucCe
-	cGiss7/ZLaeg57FQzf7r/G9FW7JYQmc2LxHUMIvgmJibARu9Wu0wbvgB8K8fmOYi
-	xQK6cxc4+V2wqaA70g+u9L3qFjGLtQ7SxVXS7TJd0rFZjst68MZ6VWiTPAloYFZ2
-	87UtxAbRU0zg7KfTd0gxo2dCoV4bdbjtl+qoBtydq5dL9IMbgCvR6YjH3orIswFb
-	pEZc5ugHBbzloAIXjOhzOBl9M4QAeoflK9JSKUYpq5M6pLeEjX6wCK6i5hYnjvRi
-	AVkgfDdoPZ6fV1uF/qxrTnFbLa9RZKlTfb8H1zOPnXnKRiepJwdqRCVoKY5A==
+	:from:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=fm1; t=1784271587; x=
+	1784275187; bh=bB0hJT3PmFV6VVnpy+wEn02P0C7IyJ+v1DOMySWTkaM=; b=m
+	nNopGWtRx/TZ3ipyS7ZgadLWztrAY88a9a9t9bP5NNNakIIaKlRrisvr4IfshX1N
+	rtkkYeSxJL/blDwfHo4kLbZrNGNNExHLg8meez0V1UqmryqsP5SejSH+Rnlcnr0h
+	jf1l/v3FNy0iXEe0eSwFYsISdFJCiUVmlwL9A/jav5h2mxBiUi+KyQMXiCVTc1d1
+	lNFRPurLvYseJTgfNcZccP8icpAMyps1IFOoMcvKZjTj19Dva3aY204HBXfRYRpk
+	jABXhaAguliYopWjACTl9ee8jFgmJ9renRRSsEyLeX144AegPXKr29erNxKYFdGQ
+	3AsukKMrsi3RFsSKfKkWQ==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=
-	1784271580; x=1784275180; bh=lCAqR5Rm8mCHZXxgZtqL7lCVFwer/yTf69B
-	DAsGWbmk=; b=JeDtUBHJWKqoVLc8VesPQb2ZouA8BwxAu/VcURNo30Aw9fllaN4
-	bYlXsA+By6XbFuJKSFKZ/it5JHvhJWwJ5hZffK6b/+nYsbiEV53ENUmBIHK1PfPk
-	UtOLo1V4hA4wLD6osQqxI+OYLTY0i3aXNi1KGEwofT3SGFf1mh+d6KyJcVPsRjQ7
-	inRA09Cim8uIuKlspnOdN0Ni/SnS2X8ktIUvfzAo8NNjo884GoydqahohOfjW9bw
-	4OLe/pqVj6JIivRWQPgMWQum17x2woG73swW6wSFCMhq4rIigWr3eReZqnZngo5N
-	BYKdu2GtS1d7rllVQIGgPHTGhQSA68HSBTA==
-X-ME-Sender: <xms:29JZajqQ4YUJ5HUrpA-cUo5nkDHFyzrnaX8I0vkmDviVp-JVNyKWuQ>
-    <xme:29JZajPkyZ0GfBY9p7PMxUyEOWzPfr__xZgMhtkhXMcAoM92I8DgwJEruRUVhGhd0
-    tkuJsaaFMOItuQBtHGKCpcy3M--Em7u6b3iocvcmmxBncmkGcwHZcI>
-X-ME-Received: <xmr:29JZapyDUT8QGEwiFpUWt4GjI-5JgjratEh69CgPuBTTZuwKEDY1zcVOmwWURWjw3ywJ5WcsH9llJiQQR94>
-X-ME-Proxy-Cause: dmFkZTEUu7ubCZdFG+9LubXLsp86if4bodrZshBKnCfrABtors2cOYlwAKNp6YTEUn7W2y
-    16ODixgVH3WyMn5+5i/ROK3Cw4KoZfEYGFEiBLLyaSnL9oYxaeN8JqubIdHRClJC3tFVJy
-    Ok9Y2dcCDIrkfnLSQkloR8z/iGuXq3cLm20dyQX5NugQZIpze9fJr8ffIAj/ys5Hs8D0Zr
-    yixqLQcyQIIj7q/heInJz9o5gu5LGLWXzZoLylLWWkliLTo+eOqtmflPJJKjNvWrQX5Avb
-    HU0Orn3QK+fJsaDaG9EYIxhEkCtNpfM6NWA/LupGw1iMkBeWeitxIlkR+xqz79wsk91lZR
-    EFCjRB9nnizcAUBZ9LVHHW7dMrKSS5gd6UmmWnwXJ5IUNC30MNB7IHnKpn/WEvhFDca1Sd
-    vmWkkW86ky7MIujO60uKZNrjUWClCKJ44FLGuKTppZhH+10v+NwBGYg7dK18RAvxbYbgBS
-    NYD7vbPnr8KQJJk76UOKO0VC1Wz1hdaP95hV3Mzi3Irxv0nlTPkhQ1ksg4O9UwazdFbLo9
-    G/+LYe6zY1j4Ro8iD8NH5yavKCVfaUukyv2nncy7CjtguKwtkCebX4uBcB6ipzs74xbQWf
-    B86jnTLpRtpu5XZryQ2vTaCPc7kegVh459SqzzqYxA+0oxFTQMOkSnLc5RiA
-X-ME-Proxy: <xmx:29JZanxvSa3Ew2OIR4FDXppNlxd3ye4Lh_z8lNG-0ai5dEg5l2JMlQ>
-    <xmx:29JZaqL7uYadSm75tHJNQrweIiZE_6lwBQq28MFeN8f28a0hmg0UQg>
-    <xmx:29JZarj7AbxreEIQvRGZ4UCzyCx72mEp505GmnFxrRmpgk2pEcvm1g>
-    <xmx:29JZajO7nkKmycDFDMOyLCk9-8aqKZ9vCgCPKd5AZcLs0qWZvdpbcw>
-    <xmx:3NJZarsdTq16kN-lSDuyAPch-XBm36fVVVXFO23poEoX2aUVpTY0ZElQ>
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
+	:x-me-sender:x-sasl-enc; s=fm2; t=1784271587; x=1784275187; bh=b
+	B0hJT3PmFV6VVnpy+wEn02P0C7IyJ+v1DOMySWTkaM=; b=DNp8sgxOisMqXWP0d
+	gh2o5DqMVCCpuCG19v+Psr6hDgBpObq2UgYBGItf8+ZxAJEVhyfWqPxYZXink3rO
+	He7OGIzmH6/vdsXhfilfBdT0ipzJ+PxnttsfiImAGWAOn004ss37UjgrK8VvpMtv
+	ycKjBc3+3wZjH2mB94UKIgLqN9kDKY3DOCv/E7Or/k+rvPcCS8cy8IeLC24xNoX6
+	Z8/GmwygtMbC1fkVjx8+/At6sm6McKp7KPr6EZQSAYM9p8OonoTdvC2vVx16PXIO
+	hSXCO+OTGO0u4E4TjhrlFImuJCXgW1Liwb/zjM5QYswb5bVf3l/97dHYNEC5wIIE
+	JxKxw==
+X-ME-Sender: <xms:49JZav7m4g3e5ZGmJvp6KRmLFuquZLJhiBQAtUbYdH0na_ym0VzZEQ>
+    <xme:49JZaqft_66k2PJxS63uNWEgj97vuFOLdL8tgp_4isX1oAWNAjcYHvn9r5Xsjw9Gi
+    4TDOmQvYxSc0RQ0FqiG37qshGGYQJuuGGS66HnCqP0Thg35suxt1Q>
+X-ME-Received: <xmr:49JZagDCwW4bZ3WwmpC9JoaVNQcoCHmUjVcuVhRldtbQw-Jbr6mMyM4GqgthYv3bNzKA1-bu0afOxN6g2WA>
+X-ME-Proxy-Cause: dmFkZTGLHoAYSuSv1o2npO99y2j4JkxLBJgWvGtMoWzVR091WtPJ1Xci9p6O9uorqIXytS
+    qgiXLBX5pDi0cPzeDICNt6t/BjVh6mt6bhnC1C9CdJS3gO9mNnV/Rt+6btcqroSenMILop
+    voSGMzPtXFidDk7Dp2YoPeT50jUo5Q3onDmNotbFDoLJF/D3BCYCo8e2eP7pyPHIz2TSZC
+    jsi6aJHydnCg5nKTF+BekS20EeckpNO8KO0n0tfCCCM8qMgu4tlj8ReyNRU5j9Oz6Mh4EJ
+    V2sIjpMsj8gCmoVqK3xuHwBHpYYmhbaxejpxfiWeEKyUfqC8zJxs1qeJl6zVpKllXpKBtI
+    qpGNbwJnO1qGqSrA8cjy5YTlpfntk5Bff0d6uANOd1uTii2R5XMaX+zeWLVdmK2sAm8TAS
+    nQtymLeDn3c7CBER+Y09MMwqH0AdHriOebrd29I/pq+Irx6vQ/YrjxkaGLxKiHMxWfpHaA
+    OK3alGrWTqf1HEqn0BFAZxd+egDlqNdLpXTtc2Gbt0KRHnFdmRvG+C6QvNIzyJfw4+hJQA
+    5NrBvqBwUQkghcIMkhk7TecGYFy9UqcRQcqCuNyP/LCw78WJ5tuqKDO4DomS00JDL1YPB5
+    XahK/0QBsJD5Ik9toHV7UTVmNLFO+9yunbU00FbnwCjRRniGRLRVdi14ka/A
+X-ME-Proxy: <xmx:49JZahDYUfS3YTJ5aEefE_os4bitQ1k7-wFFJFK0Om8pBLpPFBxSeQ>
+    <xmx:49JZaqZ6sxN18_wxsdz2PfPv8PKCld6Loo4uKixvkRGUGoxoGqPW4A>
+    <xmx:49JZamyoCnruzwiX68UjtNkHQAuWSUMNxv3tlk-tMsLGBymE6xBRHw>
+    <xmx:49JZatf7aUVExbWcxVSLJzosEjlJMz0PaVMh8ZcQ4AJn6xVHAS1jTA>
+    <xmx:49JZav-0Isxq22KmnceO-B_5iyATWYwqsp5AfdSKOc8umf1C5V9oQsLh>
 Feedback-ID: i7a5e4b5f:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 17 Jul 2026 02:59:35 -0400 (EDT)
+ 17 Jul 2026 02:59:42 -0400 (EDT)
 From: Jiaxing Hu <gahing@gahingwoo.com>
 To: andrew+netdev@lunn.ch,
 	davem@davemloft.net,
@@ -91,15 +93,17 @@ Cc: netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	maxime.chevallier@bootlin.com,
 	Jiaxing Hu <gahing@gahingwoo.com>
-Subject: [PATCH net-next v2 0/2] net: stmmac: dwmac-rk: refclk for crystal-less RGMII PHY
-Date: Fri, 17 Jul 2026 18:59:31 +1200
-Message-ID: <20260717065933.2629501-1-gahing@gahingwoo.com>
+Subject: [PATCH net-next v2 1/2] dt-bindings: net: rockchip-dwmac: allow output clock_in_out for RGMII
+Date: Fri, 17 Jul 2026 18:59:32 +1200
+Message-ID: <20260717065933.2629501-2-gahing@gahingwoo.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260717065933.2629501-1-gahing@gahingwoo.com>
+References: <20260717065933.2629501-1-gahing@gahingwoo.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_235941_414019_9E555970 
-X-CRM114-Status: UNSURE (   6.66  )
+X-CRM114-CacheID: sfid-20260716_235948_387232_27B68169 
+X-CRM114-Status: UNSURE (   8.81  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -115,28 +119,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ArmSoM CM5 has an on-module MotorComm YT8531 RGMII PHY with no
-crystal. It takes its 25 MHz reference from the SoC (clk_mac_refout /
-REFCLKO25M), but rk_gmac_clk_init() only requests that clock group for
-RMII, so in RGMII the clock stayed off and the PHY did not answer on
-MDIO.
+The clock_in_out description said RGMII must use "input". That is no
+longer true: an RGMII PHY with no crystal can take its 25 MHz reference
+from the SoC, in which case clock_in_out is "output". Document it.
 
-Patch 2 requests the group whenever the SoC drives the clock
-(clock_in_out = "output"). Patch 1 updates the binding, since RGMII with
-clock_in_out = "output" is now valid.
-
-Changes in v2:
-- Add patch 1 documenting clock_in_out = "output" for RGMII in the
-  rockchip-dwmac binding (Maxime Chevallier).
-
-Jiaxing Hu (2):
-  dt-bindings: net: rockchip-dwmac: allow output clock_in_out for RGMII
-  net: stmmac: dwmac-rk: enable the reference clock for output mode
-
+Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
+---
  Documentation/devicetree/bindings/net/rockchip-dwmac.yaml | 5 +++--
- drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c            | 4 ++--
- 2 files changed, 5 insertions(+), 4 deletions(-)
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
+diff --git a/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml b/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
+index 80c252845..d5816d6dc 100644
+--- a/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
+@@ -89,8 +89,9 @@ properties:
+ 
+   clock_in_out:
+     description:
+-      For RGMII, it must be "input", means main clock(125MHz)
+-      is not sourced from SoC's PLL, but input from PHY.
++      For RGMII, "input" means the 125MHz main clock is input from the
++      PHY, not sourced from the SoC PLL; "output" means the SoC provides
++      a 25MHz reference clock out to a crystal-less PHY.
+       For RMII, "input" means PHY provides the reference clock(50MHz),
+       "output" means GMAC provides the reference clock.
+     $ref: /schemas/types.yaml#/definitions/string
 -- 
 2.43.0
 
