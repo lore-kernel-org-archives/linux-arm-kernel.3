@@ -4,134 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2D46C44515
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 20:15:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F793C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 20:18:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=FpCBY9qMOgSc4ot+3Sr+jcSMl9z7SuZ/W3zPkot+flw=; b=xhzpYJPryRZziq+7B/o5KKpc7e
-	r8sbtDfSlPlcR8mYYICftReQ5rZOxkX59FgXwSrpYUyTV34xScxAZ8pQxG03Bt43U9AdAiLxHVqZT
-	H8mqpe4Ja1DJm++8eLcg97Q6Wqvq1HW7klUmTieU8vOLBNU6RCKpScmnqIUCYB8v0f56jIGvrRcC4
-	1oF3Lut1avbuUkGG9rBYPtS6/tORVOpuRmQ22L/FBu9KTtsdE0NusVQPCvtS5uw95XkJWzl7fpP9K
-	6vQ+RiqHAGK7VsurqC/CzDTlrMKWX/wCT1i1yntGSv0LkrH6FYXONxS7GP0iITsEBYRbHMtRMvKz8
-	JEm3kZpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OyZcoDYsLDOa3jljtF+USnQN0n2vX9UR7xfVNnqT1/U=; b=17BP2iYM4qxCWBOj8hswPbnsPR
+	ADM4VxaVnYhYg4xSzitXuZMsUpnVPdWPdTjqiIwcvu/odIWE5mUrD3BSaRF2UDEVIfsMQDeAFhu9e
+	2PgWAKoxjKpmAp8zQVixzC4PLNjPEXy73TCybMbYxwwhULf2uK7U5xcnuhi8LEo7/+NlUYroSK50J
+	9VAU7k0gSbpJKArjbZ8GmchbcO0y6KdIdEqeQVLUZxWdarmaB4IEM1VKdPPRcn/FOy4NgDJxfQkJy
+	iFoyyG+7lcWKWIuuoQueJu4WzQ/oTu4etJomHbwpRIL1w+oOcXZgukQ1GrAQU3e199NMOEQMsBEMX
+	C6b986Mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkoy8-00000003BWE-3fE8;
-	Fri, 17 Jul 2026 20:15:36 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1wkp1C-00000003Bop-1htP;
+	Fri, 17 Jul 2026 20:18:46 +0000
+Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkoy6-00000003BVk-13yy
+	id 1wkp1A-00000003BoP-1vHn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 20:15:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JtKpcZK+ZiUo2sEO0HIftTzT0zEzPThAUu7Ids9DFShUTu2VXgvJhTGA2omRqT8kkKPqpnokgIfDUGb+p4l+SMPaizV+nKV4+uwRfI4X/Y5z79VvkaKlZaHnRlZU3y3kMZBia/lxRfIUQNrjoXE7wyF3ppflGYQpXpd1OWCUnUIsmRqZFUS5oCZ4qiI9aLGq4xcm/1riFXTseT3HIotbeZj+SJ0T9gtZw7vBJSfOjvIh9HgqficDrr9zmMvymT9F5ZKPhbUPuDnX70bo/hmToFwY0BwLIqbKDlggsyT+QlSF6Rtu60fM603UDSAZth+ewXAn7tH1E7ObJbbLVP/APA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=FpCBY9qMOgSc4ot+3Sr+jcSMl9z7SuZ/W3zPkot+flw=;
- b=D+agDQNFZ9G7o/t7Kqfbo3Zz26qkmhe0jHjmoHdZkNLCdxbrNZDAtKy1x4cS6NMk8nSI5P0BySS8Ijd2hDP5Lu31aJDs/HjBMM36d0QVoIWzJg58vayRGv9xtRz9QQNPWLlmTwLUT+VWdDbzdiD35WPb93pwNvi/M2BLxYFfNOmg/Q+vrqGSARTw+pwsQruLcEvPiXkWYhIdHF/9uAbAKQ2GuRowP79iKL1qfIt9+geHUGlP2KnJfcQnElwTHDnZhClgEKu8ScEQFIPozWF2smoT1u79/Rp4YGwAR9QV1DxQFtf4KzDlM/lm+1WTew2F3OMgZZoCjInh2yJnFp9EQw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=FpCBY9qMOgSc4ot+3Sr+jcSMl9z7SuZ/W3zPkot+flw=;
- b=qtTXJxTZj6ahCExR8E0PUbqxkef/tytxwPlrkNgiVBaabveg72sTLUmTgHO7Cm8lujOYoLADyQsPTXtqQS8UDRwGXXuQHzxLIyGY2biZMP2N203e9KH4NG+WWS2ieljgRGJvLVNcRcjCqsut8iZCNPLJIv+2lTZfDL3/ESkPwLyDmLdvJDKZ+xJIXH8vFFRQSKCt/eYfCWUBTtdv1e1lCbAxdUF+jE1T48MMiDbIGMC34mpGfGXAbtSFtLp7PFzKeNnNu6LLk9v9+ISayhuyLbtudQEgff/yjTxhmp6gKonKdIPF1gdvl5ygGePz1aTu1PepiLserEAl9zRYB5EjMA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AM9PR04MB8588.eurprd04.prod.outlook.com (2603:10a6:20b:43b::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.13; Fri, 17 Jul
- 2026 20:15:29 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0223.012; Fri, 17 Jul 2026
- 20:15:29 +0000
-From: Frank.Li@oss.nxp.com
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>,
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Cc: imx@lists.linux.dev
-Subject: [PATCH v2 1/1] dt-bindings: soc: imx-iomuxc-gpr: allow bridge@18 as child node
-Date: Fri, 17 Jul 2026 16:15:17 -0400
-Message-ID: <20260717201519.844259-1-Frank.Li@oss.nxp.com>
-X-Mailer: git-send-email 2.43.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SA1P222CA0007.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:806:22c::22) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Fri, 17 Jul 2026 20:18:45 +0000
+Received: by mail-qt1-x836.google.com with SMTP id d75a77b69052e-51c0c68aa31so49984861cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 13:18:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1784319523; x=1784924323; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=OyZcoDYsLDOa3jljtF+USnQN0n2vX9UR7xfVNnqT1/U=;
+        b=X+8tIHkCrfpD1FflVAh3HJrBeTcCMVOABZ4SUo4YpSk92vaTb+YtBWAwDvhUAZt4/8
+         KCF+LVCb7jiWSZXq+KMrtde+P57hbI7umlNmh9oXu42e1zMg/XoQImJcereMsMXIiJbZ
+         /zViCSQUu6kxeX2BKg8ri0JVgI77l3VnPvvLVbH7bYVYwQ02oRu+BYWIQwL8m/3TKmwX
+         4fO3/IPmqi4Bzpsm5dZ/0T7IEru7BTgx/y2VIg9JXjJYHRcMeRBrpGCIlOV4fuFo3tUO
+         2MFWTWwgVUqCcsW/odCzDuj+pqgKR1g3y8uiCYvT9w5bK+r/KY8MT6s46lT2Nqrb5M/t
+         u8eQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784319523; x=1784924323;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=OyZcoDYsLDOa3jljtF+USnQN0n2vX9UR7xfVNnqT1/U=;
+        b=cOzDeBBE/SNqSbTq2Uezvuhd5u7PRLISPFx6Ie3+GIQcr3EN4GHs5UGbnaDxnw+LS/
+         6Pj1dQowX7RL3lLdGFVCYOL7P/NcV2hXX+BT/K3nJ5QU7GXVcv4wDAe5yS9c4I7+ylAP
+         ioNB6U5mutm2iYml0UAlc/HClIj3ekn4aLRamJDzj7sCATuvlBHRYO4dg+b2DR1K14l/
+         Yah5wUE5cNy+e0/02gS3opK6Rryq+6ytqskWvad+Y3PQd/a7jeOy+OVidmgZV76BIvVM
+         LZGFlQBe0Xd48lIxysCFg3ghfwSYO2c284vnsUzOnunSmFvZmkdVTcyYxFf/QTmhsSxO
+         5MMA==
+X-Forwarded-Encrypted: i=1; AHgh+Rp5Bf9y9n0hXwVRcX7nIcX0esrmZ1SU60KNDRrR4TZ/baJZTAZEjKlZdnBNX1mhSo+dKLQUcUXKbDZKfRN5CGBC@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywt5MdDBSHRSVjh7Mi3QjaleqKA0rSePHq/yy5vGFsY2hDCjHNj
+	9bmr+uvOw7W7dbb6dJHkW+c1T6AWObLII7w1Tk1MaDQYny65YiU0BbX4H8fGCeyhjRs=
+X-Gm-Gg: AfdE7ckZQWcEBG8JIU/osyB5E+Cro2OX9ZEKo7O9+ZcKTV0QQRYCCOapGrXg6LJXF53
+	XFV6tdYRwuBKAVWB4SIIqpM+gBhAg5CiAJ4Jr4pUv9zfU8OLfT50Bxk1Lmgt1a/e15ZXohvivhj
+	BlbZzqdXTHF1A1ng6wlsTe0Cc30xY3b3MqEuJLzNOljUsvoO/BF8TDgTEPlVtyQwLQAmxHBrnCv
+	sDrcWP2eQuUl9aP0A8ytBkcRcjP0EvcAZ3r4IiXkBZOmsRYhs625maVgEzjHNIO/lIw+/LWHfc6
+	eo9y6JRvsy+rcnzR1+PlGRC5XYxWvkA3Ljn3u15jSgws0pmqxun6J9qz/REMxXRMxPsJedNj4/7
+	tziyDeOKYIdiB8sPirYvgbWXE82HdMo1txSwR52IOhsLLZC0njg==
+X-Received: by 2002:a05:622a:249:b0:51a:8a47:b578 with SMTP id d75a77b69052e-5213b72b769mr40771701cf.38.1784319523028;
+        Fri, 17 Jul 2026 13:18:43 -0700 (PDT)
+Received: from ziepe.ca ([159.2.72.92])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-521502b9d5bsm19993871cf.31.2026.07.17.13.18.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 17 Jul 2026 13:18:42 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1wkp17-000000052o2-3RvD;
+	Fri, 17 Jul 2026 17:18:41 -0300
+Date: Fri, 17 Jul 2026 17:18:41 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Ashish Mhetre <amhetre@nvidia.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net,
+	skhan@linuxfoundation.org, robin.murphy@arm.com, joro@8bytes.org,
+	nicolinc@nvidia.com, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev, linux-tegra@vger.kernel.org
+Subject: Re: [PATCH v7 2/3] iommu/arm-smmu-v3: Introduce CFGI/TLBI-repeat
+ workaround infrastructure
+Message-ID: <20260717201841.GC701389@ziepe.ca>
+References: <20260714104202.1664187-1-amhetre@nvidia.com>
+ <20260714104202.1664187-3-amhetre@nvidia.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM9PR04MB8588:EE_
-X-MS-Office365-Filtering-Correlation-Id: e08f7181-e8fc-4651-3671-08dee440253c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|23010399003|1800799024|366016|921020|11063799006|56012099006|10067099003|18002099003|3023799007;
-X-Microsoft-Antispam-Message-Info: LZd7q7HqKYcJe8sDV5r+zzJkBTZL//i78NJLfpvPJvu6yB2siTiV2lbSA1nikd1y7hj4pAc8dYDzatgpA6GAYDejqBikoYpUmSxOz5nyMPUeA61Kj82K0DQBDuMk7tgY9MMlwDHmM0xekSxyHXp66w7N9oAJ4nyh5ZimcxIycv3T095yN1FSHeVeyUHRjMlQzkcGSNjHPcMolE+crAZSkl7fRpbYdSBRbp80jQ7kkJ/tgEOEsrxnNHdCpaMD0fCDkiu1m+UcaIDq9gRkSYTc/dGTXp3mHcK14ni72WWw4iThIzg/h5JmFz6ZywYkvlQt29BtO/RpF9BQLpzCcdm/rSlKXHxmwRNViJU9cqAkEI1+tbfWlVVpsB7TP1dH3Re+a1FNqB2v/gGUFTVU6J4TxCegqLS3N5csBscIOiZsCq+HAwYjFjiQK4pyBAY5tgs9op7JG4I4v9/Rr27G4iL9Ij3CWP6ko8kAt+fnypBz+zjK8ff6mzcco4apLotup6kSlad3xxNjZF4qX1ypWstAtYaQmV3Mze0LdD9SYCIisHN8otl6JB8qUWQmA0SFxz8Nw+fUN17+OEbKk2m4YTVrat/ODZyNPjbDVsEnlnBxZ+GUupZsZAqdLNsdWdH7cPFdcmZpX8a/d02fX0kQeb7hFgU8+Pcy2nZQ5bVdOHJyZOEFBTAXzt33yaqhczWmIztnJPREl5SN2kuudLzoEO14KQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(23010399003)(1800799024)(366016)(921020)(11063799006)(56012099006)(10067099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?gGyWwkrP3w9W/BmCiMAgHkqBT1ylPti4SC/9+2TqhhrSj4AobhPWPaWcYzYV?=
- =?us-ascii?Q?QspW2zr/AYQvFpex11PWEQVMuNAeuZ4qPd9ALnyE+8Y8chS8Ljt3Ugz66+eX?=
- =?us-ascii?Q?jrGW2spL1wVPZXE9R3izl9bLULD3CL4k6fnFPz1Q4msEIlHiqBOdnc8WUfwd?=
- =?us-ascii?Q?LoQLZysFLXn21yKhuD+maoICl57RFXFm1jROQ5VG+bj6lMv8f2024xcWKye+?=
- =?us-ascii?Q?A9ZhUf9NwIUH4WHC+ZVVrtphkn+DAMESyT6+plnjBQ+DlBxlWp/RXWnxtX5w?=
- =?us-ascii?Q?TIFCL7foewe/LPGPFS+GT4xQ3Cg9x+cbYNmkCZtS6YW897vNgQJ1rD7kuFGE?=
- =?us-ascii?Q?xgLVYAehvAC45sUEkFwErDP5x3coZKCgd5s1xnvXEByKXFSHaBrdEQVwjVjh?=
- =?us-ascii?Q?r/k8pMNB1Nr8KaJU5/c/e799d60kUKdWuQ68V7e14E0g+KpwXUF6iIa9dSy+?=
- =?us-ascii?Q?YPLjSIOeMTvCwT85S8VTR+QDkejkP3sIZ0uRhfpl2FX4mxRn+kJcNp49XMZf?=
- =?us-ascii?Q?lsixnwl3EP2IZRaGTyWaeFOi6yr01mmPdMbK9y707aloSWysyNozwXhCCrcK?=
- =?us-ascii?Q?w+uhi1Mebt5zncsdkaOFylAIPK9JkcxNgAdtZ+mKMMNbvnRYKESyE26w2zjg?=
- =?us-ascii?Q?Fk96LODF00vF3fr7tT0YOE6QbVxz8/V/7cbVtTALo/6ySgXJgPvMI4fsAKxS?=
- =?us-ascii?Q?KFY2KgZWAeY5A5bqzDWnxKVqEahy3IpRbHrb854uJ8I5Ytg3McqBhfuy7zUf?=
- =?us-ascii?Q?5HcmCJ1lrQHFlmyOgLCcwXgPChB4jIXcW7mDgtFqwMAut+HfxeSaQ1NqBZ8F?=
- =?us-ascii?Q?Oy/sB+ZbMD8THXFoV8Jt03qhXWP2KU3uBstMeMerTbtZ9wIzR+jZjtNaPEyp?=
- =?us-ascii?Q?Hz4kDQ4BsiV/GwrlMlwGc/Oe7Ky45sLRMup/R+WmPmngSVoz88BjfP815IzR?=
- =?us-ascii?Q?Xv9DmCWQjd0YfNzlktwcQ2HDne8nQyZq2/Jkuyqcr2pIbRkd/37DgjsW05y8?=
- =?us-ascii?Q?xWGKWmZ9HeQHHyTYQLY0OOrflKWO/8FyP1kgJOEwBWzvfSNEYg+GJTchTix2?=
- =?us-ascii?Q?jtDuQcJPB1Cv5KFu0ki6PbMVKgns3xJ7D5ZjNgAslS5qMfbLLrRPoupNn4xX?=
- =?us-ascii?Q?MTHBkQyM+Nmh167EPlR+G5r6sJdYNHU4T7Yfrt7FbUZpNVNojZcrAShsnQMS?=
- =?us-ascii?Q?uHMayO5eSTPLlrq2lQzVpdh3ouHUAny/QfGNxSfNBjMRy3WsnfZ4IJfOxNyJ?=
- =?us-ascii?Q?mJXxdACTYhbGyrGokPIFJOBJWMrrtX50n0G2+xQ4MTM8G7K7p78hb+s/5hf5?=
- =?us-ascii?Q?ryM4vk4E5VwaOXwYxnOgD1PPcn6Ic5ee/Tr7H24unrNIdwic9knCjX1DJy2F?=
- =?us-ascii?Q?V0vJIKIMDf4F5pRWCRYNwi94suNhUyeWScO1GRKFJzKDyn7CdYQ+1WWs10ce?=
- =?us-ascii?Q?r9dTr57UB1QY1Jj3uHV+P7wRrsj+3vmUqVoRvkmE4zM+zwkWRAswemOlGNve?=
- =?us-ascii?Q?Eo+yHU/k5oBN2Hl2peDIiGXZBTreAgmcgGfRg9pI5QPKnNM/OzRb9339cu2W?=
- =?us-ascii?Q?f7U+PSS1w749K6zf33ZStxkv5aOp3LYHqgNSW+nFjRraSivo6t42G4Ex/EUw?=
- =?us-ascii?Q?c9gBPEqVVMHzyRcQ5Gf6OQV8M5GpNe5QmIkJzd/yJEgNZGaNtnLJjbFMqI0v?=
- =?us-ascii?Q?EfPkkTL0rLKR62Gi67f6P9RF7F1sZ7WLXjAl0qJ+7NyjG5ZOD/xcWjylzzOv?=
- =?us-ascii?Q?TjoRU7lE/+JBOcmjIRU8d6K0fW8rBfK9lTFLn3kgb3YJMahTSMZi?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e08f7181-e8fc-4651-3671-08dee440253c
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2026 20:15:29.0252
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: viipSo2bELwDexx2UqHI3MNfuO+r4Y92eZ43gxHkI74Kxx6Xr2PSnfqeBGsq/PbCv+mtnFNgFK0JLrDM5iQf5zvBLAvZnTS4UH6Wuhp0cdlePot7WxQlY7CGUR+vT34p
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8588
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260714104202.1664187-3-amhetre@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_131534_325459_50B9BDE9 
-X-CRM114-Status: UNSURE (   8.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260717_131844_591670_6E3344CD 
+X-CRM114-Status: GOOD (  22.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,109 +107,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+On Tue, Jul 14, 2026 at 10:42:01AM +0000, Ashish Mhetre wrote:
+> Tegra264 SMMU instances need every CFGI/TLBI command sequence issued
+> twice, with the second issue executing only after the first issue's
+> CMD_SYNC has completed:
+> 
+>     TLBI/CFGI ... CMD_SYNC TLBI/CFGI ... CMD_SYNC
+> 
+> ATC_INV is not affected and must never be doubled.
+> 
+> Add arm_smmu_erratum_repeat_tlbi_cfgi_key and an
+> arm_smmu_erratum_cmd_needs_repeating() helper that gates on the static
+> key first and then range-checks the opcode (CFGI_STE .. ATC_INV), so
+> subsequent changes wiring the workaround into the CMDQ submission and
+> iommufd batching paths can share a single predicate.
+> 
+> Rename the existing arm_smmu_cmdq_issue_cmdlist() to
+> __arm_smmu_cmdq_issue_cmdlist() and add a thin wrapper that re-issues
+> the same cmdlist a second time when the predicate fires. Register the
+> new condition with arm_smmu_cmdq_batch_force_sync() and add
+> arm_vsmmu_can_batch_cmd() so iommufd batches split at every "needs
+> repeating" transition.
+> 
+> No callers enable the static key yet, so there is no functional change.
+> A subsequent change will enable the key on affected instances.
+> 
+> Suggested-by: Nicolin Chen <nicolinc@nvidia.com>
+> Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
+> Signed-off-by: Ashish Mhetre <amhetre@nvidia.com>
+> ---
+>  .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     | 14 ++++-
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 57 +++++++++++++++++--
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  1 +
+>  3 files changed, 67 insertions(+), 5 deletions(-)
 
-The legacy i.MX6SX (>15 year) SoC imx-iomuxc-gpr contains one LDB_CTRL
-register. Allow the LVDS Display Bridge(LDB) child node under
-imx-iomuxc-gpr.
+Because the VM has access to VCMDQ/etc it can issue commands directly
+(maybe not on this chip, but as a general comment), thus invalidation
+errata need to be made visible to the VM and we need to expect the VM
+will generate invalidations to properly deal with any errata.
 
-Fix below CHECK_DTBS warnings:
-  arch/arm/boot/dts/nxp/imx/imx6sx-nitrogen6sx.dtb: syscon@20e4000 (fsl,imx6sx-iomuxc-gpr): '#address-cells', '#size-cells', 'bridge@18' do not match any of the regexes: '^ipu[12]_csi[01]_mux$', '^pinctrl-[0-9]+$
+Ie I'd expect the VM to see a "nvidia,tegra264-smmu" compatible string
+to activate the errata fix.
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
-change in v2
-- remove status = "disabled" at example
----
- .../bindings/soc/imx/fsl,imx-iomuxc-gpr.yaml  | 58 +++++++++++++++++++
- 1 file changed, 58 insertions(+)
+If so then we will already get duplicated invalidations here and then
+we will duplicate them again. That's not great.
 
-diff --git a/Documentation/devicetree/bindings/soc/imx/fsl,imx-iomuxc-gpr.yaml b/Documentation/devicetree/bindings/soc/imx/fsl,imx-iomuxc-gpr.yaml
-index 721a67e84c137..e1fbdc7e4e057 100644
---- a/Documentation/devicetree/bindings/soc/imx/fsl,imx-iomuxc-gpr.yaml
-+++ b/Documentation/devicetree/bindings/soc/imx/fsl,imx-iomuxc-gpr.yaml
-@@ -47,10 +47,21 @@ properties:
-   reg:
-     maxItems: 1
- 
-+  '#address-cells':
-+    const: 1
-+
-+  '#size-cells':
-+    const: 1
-+
-   mux-controller:
-     type: object
-     $ref: /schemas/mux/reg-mux.yaml
- 
-+  bridge@18:
-+    type: object
-+    $ref: /schemas/display/bridge/fsl,ldb.yaml#
-+    unevaluatedProperties: false
-+
- patternProperties:
-   "^ipu[12]_csi[01]_mux$":
-     type: object
-@@ -67,6 +78,18 @@ allOf:
-       patternProperties:
-         '^ipu[12]_csi[01]_mux$': false
- 
-+  - if:
-+      properties:
-+        compatible:
-+          not:
-+            contains:
-+              const: fsl,imx6sx-iomuxc-gpr
-+    then:
-+      properties:
-+        bridge@18: false
-+        '#address-cells': false
-+        '#size-cells': false
-+
- additionalProperties: false
- 
- required:
-@@ -87,4 +110,39 @@ examples:
-         };
-     };
- 
-+  - |
-+    #include <dt-bindings/clock/imx6sx-clock.h>
-+
-+    syscon@20e4000 {
-+        compatible = "fsl,imx6sx-iomuxc-gpr", "fsl,imx6q-iomuxc-gpr", "syscon", "simple-mfd";
-+        #address-cells = <1>;
-+        #size-cells = <1>;
-+        reg = <0x020e4000 0x4000>;
-+
-+        bridge@18 {
-+            compatible = "fsl,imx6sx-ldb";
-+            reg = <0x18 0x4>;
-+            clocks = <&clks IMX6SX_CLK_LDB_DI0>;
-+            clock-names = "ldb";
-+
-+            ports {
-+                #address-cells = <1>;
-+                #size-cells = <0>;
-+
-+                port@0 {
-+                    reg = <0>;
-+
-+                    endpoint {
-+                    };
-+                };
-+
-+                port@1 {
-+                    reg = <1>;
-+
-+                    endpoint {
-+                    };
-+                };
-+            };
-+        };
-+    };
- ...
--- 
-2.43.0
+On the other hand if you want to emulate a generic and actually
+functional SMMU device that has nothing like VCMDQ/etc then you must
+do something like this in this patch.
 
+I was imagining a general direction that we would expose the errata
+information to the guest and the guest would have to deal with it.
+
+Given this is the opposite I wonder if we want to do it. It does make
+sense for a chip that probably doesn't have vCMDQ and I don't think
+qemu can even create a DT description to trigger the errata anyhow.
+
+But it starts to become confusing down the road if we decide other
+invalidation errata (like the CONT must be RIL thing) must be delt
+with by the guest.
+
+So.. Maybe add a comment why this one is different, or maybe just
+disable FEAT_NESTING if there isn't a use case?
+
+Otherwise the rest is fine
+
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+
+Jason
 
