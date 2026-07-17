@@ -4,113 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2C35C4450F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 07:01:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B85E6C4450F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 07:04:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RwJxTFnJ5CXL7SNwJ3FzpgAg/ebATche5LLJ2ldkVUg=; b=dfgD6w5wIae6NYexcE47hdSRre
-	6Z0T6GhHI6HwqdjgpEMPtJIsy+GBn9+ntCdBo490QI0j8Q7M1d7oGkl8WuucFNqokMjwLZ2CqY29q
-	ffL5hosXiWg9ae4ya+9AoCyoNI2snBCe30pnzGjdRgBCSJp2VHb/JE+QNGROyHOILZjZEJsC5mDBG
-	J5SgrzrewHVchTnjPDDGIjFis89npwCmKSeVVNLWLuXFZiOcV6ICTiLOb76c09G/u9UrhTu8NGne0
-	yKM4jviGWufnBgJKpXecUFVcm5ZzFGZrd/94vQbNH+FehL7Hl8oB+VvyRufvEmwqQnl4LbVkbf7vR
-	8zVmNvrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:In-Reply-To:References:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PZNCB3y05F686D69JrfQ7ZBJEShWYW8C8+vWCP3cW6w=; b=kOPFG3XDOvBlL/LdA/+9iC07QU
+	b8E7WMvJFPfZAjtRTXGG4Kl68chlLL8WxfbBBejAfOZeLAjA7zP95gEYeBrKkxXTHu/XJKQQprmNL
+	DRRQ5A/YpAXXqgFcA31QUYtxzEOhmVRrmowEdy9Q6jtuM1uMevdjVdPUwKfsE5AdlbsFx3QmBawJp
+	qM9cYPAyqggeSwBpedamAnRizchnAyFwcoQq1kRCoLJ/Gh4JHOHhsmh0mXXb8RdA3so+k5JexYEkj
+	mXifprqbfI1AS4RT23Dwum46sTOo7xTLyVUl+PbhM0G+bt8pXUQ9Yu/PEzn0eimXRRegONXWaox2a
+	vPRLC2Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkca1-00000001M3u-2cH7;
-	Fri, 17 Jul 2026 07:01:53 +0000
-Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
+	id 1wkccG-00000001MJm-0HkM;
+	Fri, 17 Jul 2026 07:04:12 +0000
+Received: from smtpbgbr1.qq.com ([54.207.19.206])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkcZy-00000001M2h-0c0z
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 07:01:51 +0000
-Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-51c2b2c9eccso55329611cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 00:01:49 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1784271709; cv=none;
-        d=google.com; s=arc-20260327;
-        b=VC+y5/bcGFw1KCKnFseyOw6eCWahFHQCWX1IIjNqMDnd9JnO2qwMIdPZGBP1yvLKqs
-         8xGvcW+gj2/dPyYe5Sj5YU3+3UrUbgK7Cl2vAR1jtxxCPex9UF/cKoZZAbNisw8oyhQj
-         hDcM7PkgW1bwJsUHpVR1XuKfp5Ioa0DMZTjPezln1CUAxtf6dyyXRFevuHwtbC411wO1
-         Qo0TS83nkpStUQ8DXvEj1SUf4ccS4KScBLgwjys5IRcVync+vxccaqxightB8/2W7BTC
-         3i3D3xkAhVz94eRve3kGSu/v/ebzYp4S7Y7QUZ3k4g+zeuuqLCoxwXAsefgfH8XxGFnV
-         v1lA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=RwJxTFnJ5CXL7SNwJ3FzpgAg/ebATche5LLJ2ldkVUg=;
-        fh=L0vQzhMXaoFmDi6yn6fRLshA8xAvoSpYHz96K2sR2nQ=;
-        b=FvEun814Rmdxmd11vlHUbbRNAWN/Z7ReOXG5mXylEhjUicIaOsx2Z0Rxr/RGNSzBhq
-         Q+tSB4LNFkgvdX/FbLskSMHrpAFWMXNzkIimuZYuiF/ivWs/muXDVjtaKDRHVH8NsqEV
-         gNBA1UdvaIVoazd1WeBtl23rFMbElk7lCBgUQHLM+tQVA9XWpRtSUueWPgO6J5HFcLN8
-         Fg7ilabwpsw2JtA0zhJv3JeB70TcwVIXfM+Cyj4/f99PNNPq4tjlQQ6vjFc086E1LtMF
-         OyazGkONS6N9y7QgZvsFh34+cmbLBr6WeFm4gMGQUdDVjj15ZBt+Bot/3ytQM5xnR4nX
-         wuiA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784271709; x=1784876509; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=RwJxTFnJ5CXL7SNwJ3FzpgAg/ebATche5LLJ2ldkVUg=;
-        b=mbtPmDy/wQlY/399zTot5WpBM09xF/LvIyBxgnSYtJw7M4ANMz6jxId7mLdlc0tEov
-         z/m4vlMleOczOCf0VqCtn88kWo7foUDFyy3fY4oRR69ocyKH/0KIAH/uxgKp9/8pAArc
-         EHobTx8nuWFHyfAEjEJhJxT3hTNBNBsZ4SH7l6XMsNXMoYrjzJHAFFl8uKI+bvyHwP1Q
-         f6VNcGF7rKgxZLezYV/r/R8rBg5jbubecjrIMVj99Pw+vWY/gBy1WBmT6kBZxyeANQ2e
-         PSGMiQFv5fWk+dxmISX5wCEKG1UuTc9fVJh7U0xCddTdJ+q7F76jnR0tQjrlkJSnluI5
-         sBCw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784271709; x=1784876509;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=RwJxTFnJ5CXL7SNwJ3FzpgAg/ebATche5LLJ2ldkVUg=;
-        b=OmJ9bxMPbD1USb113RfqPYKjKG98ou1JiyB3sJYvIYvoCUUwQCbScmEMnKKlEH900x
-         pxCmu/4cPoltT2WFEDFWmtAIaAlgfEJLxR/6VSCofBDaWK1sPE3HCMQRb8SVIbxp30Nu
-         T/46ty1tHR+Rr6HPT8euF0iELJoL6h82E77k+u8miYNULHOHGbH4uXOY5kJsSX5rcKcH
-         w7wYp3sPkLIGFyGfLO1MLnKj5mYcFnZZajuS1+ut2IX2ckSoq1LOzeM2+lTnogHqPPYy
-         Okv99tni120f8spOpQxfOHsRECpNiTZyThhm23Xd22I9qb8uidCrLV+MTmA/obwkMJyA
-         Ge/Q==
-X-Forwarded-Encrypted: i=1; AHgh+RpZ6t11IWGExkzh10bcjUZasIatl4nMpdqxPffOw4yBWkYN+qL6IZLmyg1ze4++KPwU8dtxMl8fZlLEyecySCy8@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywn0y1tso+5z2Y0EF4AWcD8N4N4edTlaR9up80GqN2DftnyuGqf
-	ApjAwbG4+xbBTIxmLJJOmAkPKdGkJGiygs7qHBpA34WJBVfu/9ZPWGYkLgDxNLL4YsScWvImyt8
-	JJx6sA6xAVC9QSnxiE9VQpZOPPBz8+Qg=
-X-Gm-Gg: AfdE7clsQmsyMxSNqwHg6xwR65KyC7j24/tCmb8k0N+SyH3MMGhY/iCEdLSqE6YXo1F
-	CGd6XdKUKpC5+CEPgT/wxujRFjgUDrZk9fHjT7Ul5QBTucYw0WruV0rFBxcEDxWT2Fj6zZsxQAq
-	7IPZMi0fpWxLAcWJ3lvX8e5xOuJmlyEWMD6LHwa8pAsLnFgLUcWEu/KNofBkVkJZeG414MDAK3z
-	sO+JWT2cGALT22heua2Jr0sSkCdE6P1T7SS5elBdCEjzJGBWBJGQ10afAhNtffc
-X-Received: by 2002:a05:622a:1307:b0:51c:73f:e3a7 with SMTP id
- d75a77b69052e-5213c9db3f6mr11147141cf.26.1784271708847; Fri, 17 Jul 2026
- 00:01:48 -0700 (PDT)
+	id 1wkccC-00000001MGH-3ZGL;
+	Fri, 17 Jul 2026 07:04:11 +0000
+X-QQ-mid: ivesync10t1784271797t5fd06b67
+Received: from 3DB253DBDE8942B29385B9DFB0B7E889 (jiawenwu@trustnetic.com [115.200.247.46])
+X-QQ-SSF: 0000000000000000000000000000000
+From: =?utf-8?b?Smlhd2VuIFd1?= <jiawenwu@trustnetic.com>
+X-BIZMAIL-ID: 4188014338873093882
+To: "'Coia Prant'" <coiaprant@gmail.com>
+Cc: "'Andrew Lunn'" <andrew@lunn.ch>,
+	<kuba@kernel.org>,
+	<davem@davemloft.net>,
+	<edumazet@google.com>,
+	<pabeni@redhat.com>,
+	<andrew+netdev@lunn.ch>,
+	<robh@kernel.org>,
+	<krzk+dt@kernel.org>,
+	<heiko@sntech.de>,
+	<netdev@vger.kernel.org>,
+	<linux-rockchip@lists.infradead.org>,
+	<devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-phy@lists.infradead.org>,
+	"'Mengyuan Lou'" <mengyuanlou@net-swift.com>
+References: <20260714191341.690906-1-coiaprant@gmail.com> <20260714191341.690906-7-coiaprant@gmail.com> <464cbdf3-2e9e-43ea-b30a-75b3d1b8a188@lunn.ch> <CALj3r0jdkDEjpO+7NOTGs+wgukKvD=fzFn4ewpurxxPswCE5GA@mail.gmail.com> <000c01dd1593$2ac0b0f0$804212d0$@trustnetic.com> <CALj3r0hH=mF+8oVbisoECYo6HRuSdfSt_nuhFunHowyPsw2srQ@mail.gmail.com>
+In-Reply-To: <CALj3r0hH=mF+8oVbisoECYo6HRuSdfSt_nuhFunHowyPsw2srQ@mail.gmail.com>
+Subject: RE: [RFC PATCH 06/10] net: pcs: xpcs: improve SGMII AN state handling for Rockchip RK3568
+Date: Fri, 17 Jul 2026 15:03:16 +0800
+Message-ID: <000d01dd15ba$574a4b50$05dee1f0$@trustnetic.com>
 MIME-Version: 1.0
-References: <20260716171733.300885-1-akkun11.open@gmail.com>
-In-Reply-To: <20260716171733.300885-1-akkun11.open@gmail.com>
-From: Akari Tsuyukusa <akkun11.open@gmail.com>
-Date: Fri, 17 Jul 2026 16:01:36 +0900
-X-Gm-Features: AUfX_mxBhDopugmTygQCr_ewrvNPScsxhXpSrlqnE3VeMGuqzfUam913liCneCI
-Message-ID: <CAKr_iV4=TAKGb829nXWBBiPkQHo7dFyhT41K7+Twv=VjaEypyA@mail.gmail.com>
-Subject: Re: [PATCH 0/3] soc: mediatek: pwrap: MT6589 + MT6320 support
-To: Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
-	Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Akari Tsuyukusa <akkun11.open@gmail.com>, Flora Fu <flora.fu@mediatek.com>, 
-	Alexandre Mergnat <amergnat@baylibre.com>
-Cc: "open list:MEDIATEK BOARD LEVEL SHUTDOWN DRIVERS" <linux-pm@vger.kernel.org>, 
-	"open list:MULTIFUNCTION DEVICES (MFD)" <mfd@lists.linux.dev>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
-	"open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>, 
-	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Content-Language: zh-cn
+Thread-Index: AQLtuIytmYACIt0zp727MFXQnXwl3AG2MkWBAlDURYICTkKn3QKRc164Ap6/3qmz89AeoA==
+X-QQ-SENDSIZE: 520
+Feedback-ID: ivesync:trustnetic.com:qybglogicsvrgz:qybglogicsvrgz6b-0
+X-QQ-XMAILINFO: NPoj0uw5JpnxntbZJX9gsDcTXDlzIBuDXxSu1uSICFWFCIpWNzrlh6LF
+	tvW1sG3w8VGEqZ3dtgzpFHL01aVDQHMP/V/+6Aw2Ht7mPzdvJm/rr9iqsAVdi8+fBujcPbs
+	H/r4o26fjNBHcHnh2SNpe6FnSjii/d9cMA/ZqKZhF2F0U8MsIK8wHnqDNcpJnQJW/OclYkR
+	0iwVsl1bA5zgiOrCQNj4Y6c0fybD2DLU2yz2jrgY2cpwY9motJE30Dphs+fWC2T7pZdz127
+	ts9rZsr9VA6NBGdCYD1hL00Rm6oalhh4RRMqhfaI3PwnPiWeNQQMldqiZPTbVEufNhHMNJ3
+	xRbmlwA7ydgRfU5Lz7cp0nY1T4rpDxNYuSEVwoUFRYkvj2LhRR8iAET8oAclpnNXfj/HwjR
+	eP5k200eYqICvnVV4QWOBza42UliaJl5R56JSC/p1ObKTGWCOo9f+JqQsSlnAGqxIS5hcS9
+	t8TNnklrto2RPuoYLxECaaO+KIuh9gtVK+yBKe3facXI9SuXh9i7krDfGtFqGmQIv0b0jy4
+	5AC8aPxlHwZj36BWnVA54L4jsOJ1DDG6tuIiUnt0aPObblpCKPg6KMQR1TF4GJoZXPvazs2
+	FnHN2+qb0g1DLQZkf1teneaU+Fts8pz+6oeQmayn2S+M7tZpDnKI0Gifg8tJ3/lWjL/aqPV
+	DTITrrYFz/0SefqO3XJ+d8hDZuVnJfZlsGJgU/Gb6LDEGn82xnKfRG7DAMPnncdEeh8Uxji
+	FEtlYeBGbrGIu5Ty2QAN4r+MBUsNuQ70OCffAHcceh+NeFYvU+7gMxOxjK99rlvotk60Pe1
+	/JYYmteiwS4fLX9P4XJitIS+Og1gxKjUFgZTCk/VJaDe9qZTn7DtsoAlgqSeH1BwQu3mF13
+	bo35UfOrMAep+rCJrQbf3q8BTet1+sOPtHLaNkVAyDRMsvRR5TNZJSborty74TMR+RAs+Yw
+	Qe05C4XbjG2h3SXk2JFBxkHIGTof2OTyzxXRXgEI0RAcqCfwL8FzMLUvcYQMXFYIPI5oidG
+	AKLd7Yy5m4+drbL9rvaOePSxmUXbr+14sS087rRbmaSGEYxQi9J1uGfmsgwSwOGUHwPmajc
+	SCPQIfDSvUjeVK/wPvcryLcaXqkklnXKj21EGTyyDXOefXIqiai92ceWmq75ZP1/NFW+DdS
+	B/1V
+X-QQ-XMRINFO: Nq+8W0+stu50sE7OtKTvKJq3Dewzic457g==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_000150_192654_CFA24164 
-X-CRM114-Status: UNSURE (   6.00  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260717_000409_760886_10CDA409 
+X-CRM114-Status: GOOD (  51.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,8 +98,192 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[PATCH 3/3] has a bug, I'll fix in v2.
-Please ignore this series for now.
+On Fri, Jul 17, 2026 2:29 PM, Coia Prant wrote:
+> Jiawen Wu <jiawenwu@trustnetic.com> =
+=E4=BA=8E2026=E5=B9=B47=E6=9C=8817=E6=97=A5=E5=91=A8=E4=BA=94 =
+10:23=E5=86=99=E9=81=93=EF=BC=9A
+> >
+> > On Wed, Jul 15, 2026 7:05 AM, Coia Prant wrote:
+> > > Andrew Lunn <andrew@lunn.ch> =
+=E4=BA=8E2026=E5=B9=B47=E6=9C=8815=E6=97=A5=E5=91=A8=E4=B8=89 =
+06:44=E5=86=99=E9=81=93=EF=BC=9A
+> > > >
+> > > > On Wed, Jul 15, 2026 at 03:08:34AM +0800, Coia Prant wrote:
+> > > > > Commit 2a22b7ae2fa3 ("net: pcs: xpcs: adapt Wangxun NICs for =
+SGMII mode")
+> > > >
+> > > > You do not appear to Cc: the Wangxun NIC people. It would be =
+good to
+> > > > have there comments on this change.
+> > >
+> > > I apologize; the output from get_maintainer.pl is very long. =
+I=E2=80=99ve
+> > > heard that having too many recipients can cause the PATCH to be
+> > > rejected by the LKML mail server.
+> > >
+> > > I have added Wangxun maintainer (Jiawen Wu =
+<jiawenwu@trustnetic.com>
+> > > and Mengyuan Lou <mengyuanlou@net-swift.com>) to the CC list.
+> > >
+> > > > > Fixes: 2a22b7ae2fa3 ("net: pcs: xpcs: adapt Wangxun NICs for =
+SGMII mode")
+> > > > > Signed-off-by: Coia Prant <coiaprant@gmail.com>
+> > > >
+> > > > Please don't mix fixed and new code. Is this a real fix? Should =
+it be
+> > > > back ported to stable?
+> > >
+> > > I am not sure if this is a specific characteristic of Wangxun =
+NICs, as
+> > > I do not have any available for testing.
+> > >
+> > > The behavior of the Rockchip DW XPCS IP core matches what is =
+described
+> > > in the commit message (even though phylink brings the link to down
+> > > based on the phydev link status).
+> > >
+> > > This appears to be a bug (at least on Rockchip platforms) or =
+Wangxun
+> > > NICs features.
+> > >
+> > > However, I cannot confirm whether Wangxun NICs behave the same =
+way.
+> > > Therefore, I have kept their code as is for now.
+> > >
+> > > Could a Wangxun NICs maintainer provide some feedback based on =
+testing?
+> > >
+> > > If we can confirm that this is indeed a bug, I can submit a =
+separate fix.
+> > >
+> > > I would greatly appreciate it.
+> > >
+> > > Thanks.
+> >
+> > Hi Coia,
+> >
+> > I have tested this patch and it works on Wangxun NICs, thanks.
+> >
+> > The commit 2a22b7ae2fa3 ("net: pcs: xpcs: adapt Wangxun NICs for =
+SGMII mode")
+> > is too long ago for me to recall exactly what that thought was.
+> >
+> > The log shows:
+> >
+> > "On this device, CL37_ANSGM_STS (bit[4:1] of VR_MII_AN_INTR_STS) =
+indicates
+> > the status received from remote link during the auto-negotiation, =
+and
+> > self-clear after the auto-negotiation is complete.
+> > Meanwhile, CL37_ANCMPLT_INTR will be set to 1, to indicate CL37 AN =
+is
+> > complete. So add another way to get the state for CL37 SGMII."
+> >
+> > I tried to reproduce this issue, but it didn't seem to exist.
+> > In the current logic:
+> >
+> > link up -> read status from CL37_ANSGM_STS -> CL37_ANCMPLT_INTR not =
+clear
+> > link down -> read status from BMCR -> CL37_ANCMPLT_INTR clear
+> >
+> > It also works, although CL37_ANCMPLT_INTR is not cleared every time, =
+and AN
+> > restart is absent. But BMCR looks like it only wants to be return as =
+0, it is
+> > weird.
+> >
+> > So I think Wangxun NICs also can be applied to general code as well, =
+for
+> > getting state in C37 SGMII mode.
+>=20
+> Hi Jiawen,
+>=20
+> Thanks so much for testing and confirming that the patch works on =
+Wangxun
+> NICs. That's a huge relief.
+>=20
+> You're right to ask about the CL37_ANCMPLT_INTR clear and ANRESTART. =
+Let
+> me explain what I observed on RK3568.
+>=20
+> The key difference is that on RK3568's XPCS, we're working in the MAC
+> side (TX_CONFIG =3D 0), whereas on Wangxun it seems you're in the PHY =
+side
+> (TX_CONFIG =3D 1). This is based on the commit 2a22b7ae2fa3 where you =
+set
+> TX_CONFIG =3D 1.
 
-Link: https://sashiko.dev/#/patchset/20260716171733.300885-1-akkun11.open@gmail.com?part=3
+Get it.
+
+>=20
+> > However, I am wondering whether CL37_ANCMPLT_INTR clear and =
+ANRESTART are
+> > necessary.
+>=20
+> On the RK3568 (MAC side), according to the DesignWare XPCS TRM, the
+> hardware behavior is as follows:
+>=20
+> - After a software reset (BMCR_RESET), ANENABLE is automatically set =
+to 1
+>   (the hardware reset value). So auto-negotiation starts =
+automatically.
+>=20
+> - When the link is up, CL37_ANSGM_STS contains the negotiated =
+speed/duplex
+>   and the link status.
+>=20
+> - When the link goes down, CL37_ANSGM_STS becomes all zero, but
+>   CL37_ANCMPLT_INTR remains set to 1.
+>=20
+> - Crucially, the PCS does **not** automatically restart AN when the =
+link
+>   comes back up. Without an explicit ANRESTART, the link stays down
+>   forever.
+>=20
+> So on RK3568, the ANRESTART is mandatory to recover from a link-down
+> event. Without it, the link never comes back up after a cable =
+disconnect.
+>=20
+> In my current logic:
+>=20
+> 1. If CL37_ANSGM_STS has valid speed/duplex bits, report the link as =
+up
+>    and return.
+>=20
+> 2. If CL37_ANSGM_STS is zero but CL37_ANCMPLT_INTR is set, the link is
+>    down. We clear the interrupt and issue an ANRESTART to start a new
+>    negotiation.
+>=20
+> This works reliably on RK3568 in SGMII MAC side mode.
+>=20
+> Since you confirmed that the general code path also works on Wangxun, =
+I
+> wonder: does the ANRESTART also work on your side? If yes, perhaps we =
+can
+> make this the common path for all hardware, not just RK3568.
+>=20
+> If you can test the ANRESTART logic on Wangxun and it works, I'd be =
+happy
+> to submit a standalone fix that makes this the common code path.
+
+I've test this patch with removing the restriction on Wangxun PMA. At =
+least
+ANRESTART logic does not have a negative impact.
+
+>=20
+> Otherwise, the current approach (skipping the ANRESTART trigger on
+> Wangxun NICs in c37_sgmii_get_state) remains safe.
+>=20
+> If you're comfortable with the change, I'd appreciate it if you could =
+add
+> your Tested-by tag to the commit. I'll also make sure to include you =
+on
+> the CC list for any future revisions or related fixes.
+>=20
+> Thanks again for testing!
+
+Thanks for the improvements.
+Tested-by: Jiawen Wu <jiawenwu@trustnetic.com>
+
+
 
