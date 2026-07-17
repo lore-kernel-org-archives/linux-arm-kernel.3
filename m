@@ -4,82 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17EC5C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 08:35:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3820AC44514
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 08:35:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=25cH1BW+FaDPaERZ3fmLA984FCva2frbXJ0SM/WshKE=; b=HSpjJB/ZFTZfS7g0qHaDdFot5V
-	Pq5w9+MclzSmqFiWUdv0TyZoD2WocXY4qdc26vjaOQWXK29SCFVt332UgKNDBl701ySs8uboev1DP
-	eKzFosx0UuitvZl59GnBf/crSkWHfLwkplDPauy/8qyTJDec+OM5lJ+NW9fYZkOrs8gWAnwGj1Iz/
-	CJToqOPCemllcrS1uJ1T1oxAKBcyMfGKyKN5ZfBjZCbN64IjaUDIngWwpf/zw9gQd22a0QqrgFRfX
-	ORSVGcLjgPc3GVoonxD6RVhHYYX+ITv3LfQ5zF+FXglVGFig7MII1kc4z99lKZfYSm01FMwucgEN9
-	9lNfhZTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lj/LdecJGkdnEp9E39eWbzlwzKRfUs4kS5Xdo19d2aU=; b=sVgy6838h03BJvOVFd6mYBj2NV
+	5LRmvO4IBegTPoq7blBmi6QaLADBUGTDcDMQ9VZ/sOdZ62Bz5o+qzVNpnEANwenv8D5SPokQ/ujhM
+	m5b8E6gI6yVFNwjHMJdYWoaXRV+Xc0kYFOeqsfjgsTWlDEVi5NhG15GplPtALMtSv4pnNMxdfW+LD
+	sLLkZwHMPj9RV1fs0Bn7Kplt83wwtQdL6JlQlIrdwJkSjdGxBDgmuwzKVdkbX4iWHGNMjSutlgqtA
+	W+rbl+gFFariiEJ5kVNbhYOVFW3NrJUYfIXwEVfPM85rCevWsjG3Kbfvzsm9MJ0b1P8iiEJvcepX+
+	OQEQSENg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wke2G-00000001fMC-2fLB;
-	Fri, 17 Jul 2026 08:35:08 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1wke2n-00000001fWk-3GzE;
+	Fri, 17 Jul 2026 08:35:41 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wke2A-00000001fJV-39Ml
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 08:35:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1784277303; x=1815813303;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=IkFJVO7mUypK8q7u3LdpcVVXXuRqY7GTWedgAL8Kptc=;
-  b=QgcIBokmy8JJEM4Lv9bKKOrRJpCC4L/CTWQhxLUju63ICJK+oe6GjkTD
-   VRWJl/piJ7cZXYIeFMPla3dOCucDehO83FL6UIyRjPvwL3Xpv3Zpgu86+
-   uU2jalz1R+Ud1GXYr3hn9wOiTNpHohA/nOfivDAq8U1hMI2ob6Y0y7OSV
-   Nd0Tr8CnpVaEy+WSXsYqg1g1jOTnaOHdvx8xTxh0u+1+YLHYyVrc/QWyD
-   ubIVNHQmTQMDch+FNJLjPOq5JePVH5BgokUvZWhIJJaZdqjOQ1vFyVzs/
-   iqZBjJjTlqMyCQ9R/hk/Egmvg5EoW6x0ruHG98K6kzbCfzi2zeqlT5AF8
-   g==;
-X-CSE-ConnectionGUID: 5qb6Hez/SkqzaVr5amBwTA==
-X-CSE-MsgGUID: zZBs2eS3SsCyFrseWLeRHQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11848"; a="102372070"
-X-IronPort-AV: E=Sophos;i="6.25,169,1779174000"; 
-   d="scan'208";a="102372070"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jul 2026 01:35:02 -0700
-X-CSE-ConnectionGUID: 8XcibiwkSCSXzaTIHV0fjg==
-X-CSE-MsgGUID: egDqgIkdROupWIS94OQv9Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,169,1779174000"; 
-   d="scan'208";a="258725561"
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.143])
-  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jul 2026 01:34:58 -0700
-Date: Fri, 17 Jul 2026 11:34:56 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Petar Stepanovic <pstepanovic@axiado.com>
-Cc: Akhila Kavi <akavi@axiado.com>,
-	Prasad Bolisetty <pbolisetty@axiado.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>,
-	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 2/2] iio: adc: add Axiado SARADC driver
-Message-ID: <alnpMFK6_ZkdWlLi@ashevche-desk.local>
-References: <20260716-axiado-ax3000-ax3005-saradc-v4-0-810527a9d27f@axiado.com>
- <20260716-axiado-ax3000-ax3005-saradc-v4-2-810527a9d27f@axiado.com>
+	id 1wke2m-00000001fWI-3GeV;
+	Fri, 17 Jul 2026 08:35:40 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 23A6D60A61;
+	Fri, 17 Jul 2026 08:35:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19F571F000E9;
+	Fri, 17 Jul 2026 08:35:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784277339;
+	bh=lj/LdecJGkdnEp9E39eWbzlwzKRfUs4kS5Xdo19d2aU=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To;
+	b=bgJ+lZjBWeE9SOnxZpF+jGXtrU9bvJUPDQIHh8jr66hm0ZOqCaRtAB/iM9mpsIlCY
+	 9s5gJaal6IHyQEplIYJttGqR9ruLV8Fj5c0qeV1Rr95om6HwEJlqoeit8M9dveNN3l
+	 n47wR6wDRcU1kZdxFA/ny6Iq9uwr+v7EspXHyxl1KipMUjnAocwA6uz5lFErqEB1oW
+	 SaVkypl4AQwrj5er5m1Gkzw+nilwznrfYaPFIqs1t1QQXgUrX6LauXoSPD4iz+Z6aC
+	 cnUBQpYS5ewxqfjPg/aqvn6sxdMHHLe7taX9+yMuXQeanom+TtcUHTM5RHKBiPtk+P
+	 ReBP03YTVexbg==
+Message-ID: <ab77201d-9401-4bda-8a1e-e3b209dceab9@kernel.org>
+Date: Fri, 17 Jul 2026 10:35:28 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260716-axiado-ax3000-ax3005-saradc-v4-2-810527a9d27f@axiado.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_013502_860185_61954C82 
-X-CRM114-Status: GOOD (  25.83  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 6/8] dt-bindings: spi: dw-apb-ssi: add Axiado AX3005
+ SPI variant
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Swark Yang <syang@axiado.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>,
+ Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
+ Jan Kotas <jank@cadence.com>, Michal Simek <michal.simek@amd.com>,
+ Andi Shyti <andi.shyti@kernel.org>, =?UTF-8?Q?Przemys=C5=82aw_Gaj?=
+ <pgaj@cadence.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Frank Li <Frank.Li@nxp.com>, Boris Brezillon <bbrezillon@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>, Mark Brown <broonie@kernel.org>,
+ Mathias Nyman <mathias.nyman@intel.com>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linux-i2c@vger.kernel.org,
+ linux-i3c@lists.infradead.org, linux-serial@vger.kernel.org,
+ linux-spi@vger.kernel.org, linux-usb@vger.kernel.org
+References: <20260716-upstream-axiado-ax3005-upstream-v3-0-c429095143ec@axiado.com>
+ <20260716-upstream-axiado-ax3005-upstream-v3-6-c429095143ec@axiado.com>
+ <20260717-admirable-robust-adder-7aad70@quoll>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20260717-admirable-robust-adder-7aad70@quoll>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,229 +127,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 16, 2026 at 10:53:02PM -0700, Petar Stepanovic wrote:
-> Add support for the SARADC controller found on Axiado AX3000 and
-> AX3005 SoCs.
+On 17/07/2026 10:34, Krzysztof Kozlowski wrote:
+> On Thu, Jul 16, 2026 at 08:51:13PM -0700, Swark Yang wrote:
+>> Add binding for Axiado AX3005 SPI controller. So far, no changes
+>> are known, so it can fall back to the snps,dwc-ssi-1.01a compatible.
+>>
+>> Signed-off-by: Swark Yang <syang@axiado.com>
+>> ---
+>>  Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml | 4 ++++
+>>  1 file changed, 4 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml b/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
+>> index 8ebebcebca16..7b16053d2244 100644
+>> --- a/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
+>> +++ b/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
+>> @@ -41,6 +41,10 @@ properties:
+>>          enum:
+>>            - snps,dw-apb-ssi
+>>            - snps,dwc-ssi-1.01a
+>> +      - description: Axiado AX3005 SPI Controller
 > 
-> The driver supports single-shot voltage reads through the IIO
-> subsystem. The number of available input channels is selected from
-> the SoC match data, allowing AX3000 and AX3005 variants to use the
-> same driver.
+> Rather: Vendor controllers compatible with v1.01a
+> 
+> and then place it after the group with "description: Vendor controllers which
+> use snps,dw-apb-ssi as fallback".
+> 
 
-...
+Ah, and first entry should be enum, not const, so this list can grow.
 
-Please, follow IWYU principle.
-
-> +#include <linux/bitfield.h>
-> +#include <linux/bits.h>
-> +#include <linux/clk.h>
-> +#include <linux/cleanup.h>
-> +#include <linux/delay.h>
-
-> +#include <linux/device.h>
-
-You can omit this since you have platform_device.h.
-
-> +#include <linux/err.h>
-> +#include <linux/io.h>
-
-+ math.h
-
-> +#include <linux/mod_devicetable.h>
-
-No to this header in a new code, Uwe did some rework recently.
-
-> +#include <linux/module.h>
-> +#include <linux/mutex.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/property.h>
-> +#include <linux/regmap.h>
-> +#include <linux/regulator/consumer.h>
-
-+ types.h // uXX
-
-> +#include <linux/units.h>
-
-...
-
-> +/* Register offsets */
-> +#define AX_SARADC_GLOBAL_CTRL_REG 0x0004
-> +#define AX_SARADC_MANUAL_CTRL_REG 0x0008
-> +#define AX_SARADC_DOUT_REG 0x001C
-
-Be consistent, use tabs to indent values of the offsets.
-
-...
-
-> +/* GLOBAL_CTRL register values */
-> +#define AX_SARADC_GLOBAL_CTRL_SAMPLE_16	\
-> +	FIELD_PREP(AX_SARADC_GLOBAL_CTRL_SAMPLE_MASK, 0)
-> +
-> +#define AX_SARADC_GLOBAL_CTRL_MODE_MANUAL	\
-> +	FIELD_PREP(AX_SARADC_GLOBAL_CTRL_MODE_MASK, 1)
-
-FIELD_PREP_CONST() in both cases.
-
-...
-
-> +#define AX_SARADC_MANUAL_CTRL_EN(ch)	\
-> +	(AX_SARADC_MANUAL_CTRL_ENABLE |	\
-> +	FIELD_PREP(AX_SARADC_MANUAL_CTRL_CH_SEL_MASK, ch))
-
-Missing parentheses for ch. Also wrong indentation of the second line, missing
-one space.
-
-...
-
-> +#define AX_RESOLUTION_BITS 10
-> +#define AX_SARADC_CONV_CYCLES 13
-> +#define AX_SARADC_CONV_DELAY_MARGIN_US 10
-
-Again, be consistent, use tabs to indent values.
-
-...
-
-> +struct axiado_saradc {
-> +	struct regmap *regmap;
-> +	struct clk *clk;
-
-Makes no sense to keep it here, your code takes the rate and uses that,
-I do not see how clk is being used right now. Perhaps you have plans
-for power management? But then add it when it's needed and being used.
-
-> +	struct mutex lock; /* Serializes ADC conversions. */
-> +	unsigned long clk_rate;
-> +	int vref_uV;
-> +};
-> +
-> +static const struct regmap_config axiado_saradc_regmap_config = {
-> +	.reg_bits = 32,
-> +	.val_bits = 32,
-> +	.reg_stride = 4,
-> +	.max_register = AX_SARADC_DOUT_REG,
-
-No cache?
-
-> +};
-> +
-> +
-
-Single blank line is enough.
-
-...
-
-> +static int axiado_saradc_conversion(struct axiado_saradc *info,
-> +				    struct iio_chan_spec const *chan, int *val)
-> +{
-> +	unsigned long usecs;
-> +	unsigned int regval;
-> +	int stop_ret;
-> +	int ret;
-> +
-> +	guard(mutex)(&info->lock);
-> +
-> +	/* Select the channel to be used and trigger conversion */
-> +	ret = regmap_write(info->regmap, AX_SARADC_MANUAL_CTRL_REG,
-> +			   AX_SARADC_MANUAL_CTRL_EN(chan->channel));
-> +	if (ret)
-> +		return ret;
-> +
-> +
-
-Ditto.
-
-> +	/* Hardware requires 13 conversion cycles at clk_rate */
-> +	usecs = DIV_ROUND_UP(AX_SARADC_CONV_CYCLES * USEC_PER_SEC,
-> +			     info->clk_rate);
-> +	fsleep(usecs + AX_SARADC_CONV_DELAY_MARGIN_US);
-
-> +	ret = regmap_read(info->regmap, AX_SARADC_DOUT_REG, &regval);
-> +
-> +	/* Stop manual conversion */
-> +	stop_ret = regmap_write(info->regmap, AX_SARADC_MANUAL_CTRL_REG, 0);
-> +
-> +	if (ret)
-> +		return ret;
-> +	if (stop_ret)
-> +		return stop_ret;
-
-Why do we care about stop error? Isn't it the best effort we can do?
-
-> +	*val = regval & GENMASK(AX_RESOLUTION_BITS - 1, 0);
-
-Is device responding always in native endianess?
-
-> +	return 0;
-> +}
-
-...
-
-> +static int axiado_saradc_read_raw(struct iio_dev *indio_dev,
-> +				  struct iio_chan_spec const *chan, int *val,
-> +				  int *val2, long mask)
-
-Split logically:
-
-static int axiado_saradc_read_raw(struct iio_dev *indio_dev,
-				  struct iio_chan_spec const *chan,
-				  int *val, int *val2, long mask)
-
-...
-
-> +static void axiado_saradc_disable(void *data)
-> +{
-> +	struct axiado_saradc *info = data;
-> +
-> +	regmap_write(info->regmap, AX_SARADC_GLOBAL_CTRL_REG,
-> +		     AX_SARADC_GLOBAL_CTRL_PD);
-> +}
-
-Supply regmap instead of info and make this simpler
-
-static void axiado_saradc_disable(void *map)
-{
-	regmap_write(map, AX_SARADC_GLOBAL_CTRL_REG, AX_SARADC_GLOBAL_CTRL_PD);
-}
-
-...
-
-> +	regval = FIELD_PREP(AX_SARADC_GLOBAL_CTRL_CH_EN_MASK,
-> +			    GENMASK(soc_data->num_channels - 1, 0)) |
-> +		 AX_SARADC_GLOBAL_CTRL_SAMPLE_16 |
-> +		 AX_SARADC_GLOBAL_CTRL_MODE_MANUAL |
-> +		 AX_SARADC_GLOBAL_CTRL_ENABLE;
-
-This is not used in the below call, move it closer to its user.
-
-> +	ret = regmap_write(info->regmap, AX_SARADC_GLOBAL_CTRL_REG,
-> +			   AX_SARADC_GLOBAL_CTRL_PD);
-
-With
-
-	struct regmap *map;
-
-at the top, this and other will be shorter and easier to follow.
-And I would dare to use a single line:
-
-	ret = regmap_write(map, AX_SARADC_GLOBAL_CTRL_REG, AX_SARADC_GLOBAL_CTRL_PD);
-
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = regmap_write(info->regmap, AX_SARADC_GLOBAL_CTRL_REG, regval);
-> +	if (ret)
-> +		return ret;
-
-> +	ret = devm_add_action_or_reset(dev, axiado_saradc_disable, info);
-
-	ret = devm_add_action_or_reset(dev, axiado_saradc_disable, map);
-
-> +	if (ret)
-> +		return ret;
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+Best regards,
+Krzysztof
 
