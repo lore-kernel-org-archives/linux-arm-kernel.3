@@ -4,121 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9944BC4451B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 22:17:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B09E1C4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 23:13:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1CT0EbR6A+J8pw2YOPlSdewjShPvq9O9oTH0IwGZ6kg=; b=fU2Z5G8fXg8r04OORt/8LxH84i
-	vmqphMauHSTFgrlhHAeARLsRYG7o9xmbrUqf5O8YMW14DaX2j6uCLNz4wupVKLcmW2FRpULZgo1UP
-	tcMc9hkIiErNhsobps70JXxUORt+d+0LF3kxwTQTDmFxgAVAHWAti4zI2swEMceceSWg+9lQKsUC9
-	fAxT/3Ee3fqfCQimdGljqhaPxgKQncmTh+VGglbDmSWkK8F4YFh/CbASYjQEucbyK6i5WuJ8/+zaA
-	ybZfEOFlAqiPXIgmjdpoN3PLk1Dby1NU7xrD46f67gNtE6NVzEKs6Ep6dBo7GsGjvnUYzOIhSAaki
-	FuJxNPag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SPnC5WVTIHOnEj+RAA+nTpokEosy532PowuwrEoM/KU=; b=boxj7Og6u+lPs9W5g9NA2m4SqI
+	dgSoLQ7z0LyBx7PsCR6mK7FCmewXxivdMqlrmWSZbkWVEUju1+HcUTia+XiVd/CATSPHVErXi0nBP
+	C1K6yYRTtK54YP+Kp3YaVUVXu91kZITkhwzUbakCBFvuzHUICJ2rDSajO1QLW6/+wuZfoa9PN4dcg
+	xPWo4Mm3tE5iIVn//TmlzZV7d7vg/hjZwsnmkeCYG3IkhSb6jiwnkcAkRLe/bOIlKCWN284gZMYXj
+	Xqs6V7+QEgsJJBsoPbylQgiAO5QK3W/XXYeTcBLggzxusnI/Vk8t3HTYK0xUDTyaK4wOY/gXNMiCi
+	4IdCOceA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkpvo-00000003GM1-3tsR;
-	Fri, 17 Jul 2026 21:17:17 +0000
-Received: from mail-westus2azon11010052.outbound.protection.outlook.com ([52.101.46.52] helo=CO1PR03CU002.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkpvm-00000003GLV-15CK
+	id 1wkrkD-00000003NqC-1uly;
+	Fri, 17 Jul 2026 23:13:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkrkA-00000003NpX-0Knn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 21:17:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=T6IyvfebBC2/VfVbiaPMUIwhNOLnm33zrVNgnc/GYJx+huzkbm3VX+eM8OjHXC6qpDBIrpQuMXuj7+Z2MoRbyeXg4owOraQMG5o6o+ZqRBwRSeS18V4/OlU859j9uawYAm5+EhqJkyvSrtQkg/9AVXZ+Xd4aF74pROSrNIImdVqzstQ3oRmC/uxBPVCLwij47MYTgPxrH4QPsSHQpwtofdJGx2iSnnReEQua4VLDKTKxrS3QaTR4ZPXJo1hxZVkSdFLfT3LnpRrtRIwpidKIcRpwr629ArQP9rb06qUj18Zg8bKFDHwPicPgJ54eveo/tWDJoaLpdqyqa1WaL0VqqQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1CT0EbR6A+J8pw2YOPlSdewjShPvq9O9oTH0IwGZ6kg=;
- b=IpElM/hnTO0pzXc9Js9r28Yingl/kHK4mRCfpj5IVosloJIB9AMwzAQH04BUwHwgQ54Zxe6V0PXoFTESqRtMwSKmNiLLqCFdQ4hh68DWpiYeYCr8MK9dZMp/MkXmUrpKraxKaTRXLvZ8CP/IHIV/8c1insmnIpkBkv2EdEBUMxBkfjIM8aOB461Q2QbX0/wE+w0POc3c4FfBu6rGqBPqXPGhpHJpFBArJelLIvP1N6rUbmUs4j/sY5z7F8IrSwIV0zSBN76UCyt+ctZE9RwZnm12PN0DMDqEoyvlmMWLh0v63BHgOe24d2RDX3ln8iMwOjpmJL9wtkr9dwPT2w3/uQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=ziepe.ca smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1CT0EbR6A+J8pw2YOPlSdewjShPvq9O9oTH0IwGZ6kg=;
- b=VjJyuEgt5BJS5a6zepbkZSd/Fsjs11Jt558lQg+QeBI2O4eF7AH0P5nW7afk183yHvY1j6/fbdVKLwM7LP/tHXFVOGQe1Pq/uXCLdyrPVrxI4fcMcDApULE3M3W3ZBiJTW0/sN7ppPkUt8LH08uy1NyiFM2veVBq1XQ2y3S4rPW5b24GcbARbq7kGGmwt43wqgeNa1G+qncXY/jmgcPKHT1L0G1WK61z79Oy6urFnO6Fz1DMZ3jP0TrBkS57XIyXN3uPFrqOZUTjz4WRIKIY9A8xIOezcKSGpSWKLEPOp6yfByPXuxc4xecBpZ1CGINj2LmI4lvChctk6j+csiG9VQ==
-Received: from CH0P223CA0008.NAMP223.PROD.OUTLOOK.COM (2603:10b6:610:116::19)
- by BN7PPF0D942FA9A.namprd12.prod.outlook.com (2603:10b6:40f:fc02::6c7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.13; Fri, 17 Jul
- 2026 21:17:07 +0000
-Received: from CH2PEPF0000009F.namprd02.prod.outlook.com
- (2603:10b6:610:116:cafe::5c) by CH0P223CA0008.outlook.office365.com
- (2603:10b6:610:116::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.223.13 via Frontend Transport; Fri,
- 17 Jul 2026 21:17:06 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- CH2PEPF0000009F.mail.protection.outlook.com (10.167.244.21) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.245.5 via Frontend Transport; Fri, 17 Jul 2026 21:17:06 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Fri, 17 Jul
- 2026 14:16:58 -0700
-Received: from drhqmail201.nvidia.com (10.126.190.180) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Fri, 17 Jul 2026 14:16:57 -0700
-Received: from nvidia.com (10.127.8.12) by mail.nvidia.com (10.126.190.180)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 17 Jul 2026 14:16:55 -0700
-Date: Fri, 17 Jul 2026 14:16:53 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@ziepe.ca>
-CC: Ashish Mhetre <amhetre@nvidia.com>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <corbet@lwn.net>, <skhan@linuxfoundation.org>,
-	<robin.murphy@arm.com>, <joro@8bytes.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
-	<linux-tegra@vger.kernel.org>
-Subject: Re: [PATCH v7 2/3] iommu/arm-smmu-v3: Introduce CFGI/TLBI-repeat
- workaround infrastructure
-Message-ID: <alqbxaKVYFX1BZR5@nvidia.com>
-References: <20260714104202.1664187-1-amhetre@nvidia.com>
- <20260714104202.1664187-3-amhetre@nvidia.com>
- <20260717201841.GC701389@ziepe.ca>
+	Fri, 17 Jul 2026 23:13:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 861851476;
+	Fri, 17 Jul 2026 16:13:13 -0700 (PDT)
+Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EDF783F66F;
+	Fri, 17 Jul 2026 16:13:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784329997; bh=3BlVjgmV5uha5Hv39vi3jBRXCmFZY73SrcLqw6/9YjM=;
+	h=From:To:Cc:Subject:Date:From;
+	b=MrG2RBy/Fb9HTHfDKyEJEEWtqIgzwZwHsP2O0U+aMZ70wHOhQdusEBocp3HC1ZIDn
+	 2Uv0rWgc/CndtB/MaFd/d6FaXjhyP4lt7QBFsmdREZtL2ztY86WIEzi+3ye7n+HkJM
+	 SM96L9nvLBq35DJrPUDZ0YWZvqwEPKc5j+CWqRcQ=
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Cc: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Dev Jain <dev.jain@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Wei-Lin Chang <weilin.chang@arm.com>
+Subject: [PATCH] KVM: arm64: ptdump: Flush the last region
+Date: Sat, 18 Jul 2026 00:12:33 +0100
+Message-ID: <20260717231233.2299068-1-weilin.chang@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260717201841.GC701389@ziepe.ca>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PEPF0000009F:EE_|BN7PPF0D942FA9A:EE_
-X-MS-Office365-Filtering-Correlation-Id: 442c223d-dea6-4aac-a97e-08dee448c178
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|1800799024|7416014|376014|23010399003|6133799003|3023799007|5023799004|4143699003|11063799006|56012099006|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: j1KL3XNOyAPaS9KtfVJCeR8lJ7NbrNuDBqsp9PSTBAxS3fNLp+xdhQQpiIzOaW0jWH2bxSsgRJTMDnvIkXYz+KXSWMicUM9MfIWORTf+DuaBkh/NutyRkhJq6zJLjwBjBjPJvy8v3JyVkrmiO8GmGZc+O26YbtdKX5Z2iVgDjfu0FU+tDmhYOVK9SfzqPIO0lrYpvEd0N8R1WBvJM4BjmrLH5UfV+OC/6bxBTKo6b077MmMNwdr9M5J7rO/6/3ZWisdHN4GtFPWhf7/PjJ6VKLr6t1HP0oOWlSOSFxyn16dbDkGFSwCTv6JSGq4U8NsR5DxcXZqFev+AgRxb0RjS5RD1twxM10Z7d0bp/ufT1LZXrYsYDvHGpxoosB7oqNt+mdqpMjhc8g3Zqt0Arxq9G6opXIuhS8ubnchccJm/yZeUCouzY6W9/xDEqGKXbhAcDNDvzChNVzHexSouye8UxBlbrjvvZk0PGjgEZMcb4j719LL3PNeoqkSfoRud8UaWRNBHYQlNZPvbnvyMYhFRbehkadOrnDIIUuLrZ9zLsQsTeRccjYPBiG6szteKktQGB08HiFsYm1nhV0hVOqhU6VgWlf55W0lwzlNOiL2DCMBGbPdfm5EXfJ4SYTN6L5FLaJjHuw4xdMHzGftdfyy+Y3P4DBsQ4CervfHN0LVusMAwSSzP1pDFoA1J7w+17wLqkJ0jwwl982JxFDH1/AN7vQ==
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(1800799024)(7416014)(376014)(23010399003)(6133799003)(3023799007)(5023799004)(4143699003)(11063799006)(56012099006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: WF+oZbWQYg/Q+tdWeeC/9EYKxMlsbs2T2ZIlxl8PrzIrZsOpjAIfK9xyzUaZ3yzFn77yeF96Y18VIv5yjxGcL1QZOblssUXXAqmLev01PFy0dPKahEkTFcOgdBGJxfNt0sGGkE/pZ6hFj2PXL/Q7vbHuLhdDBT7JbpE6cYprk5Q+ktUOKVYFE89jMtY6kQYiwBQd3SWIY9Pi80RdFi8UUdqcJoiJk+svZTA9pOPkTK/7NlkuWURnxIQGMzEtXT8z93JQl3ARwcGKqc4E0FGhdZUBjLfHdTbirv0nUhGKwAgD4P+uSJ7aRGQNIZ3kD/DbFXF1oPUnSIsutXXGnBm4FJTHCXF5vnfvqP2vTHj3e/PskxDQLs9zhpA7ypIQ6upO/FoYOxRPQXg/7xCBCjvfJ4QHVzVFSCTGJurrOaHqocDlbdB6ZY460zlxtFi0D5XO
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2026 21:17:06.6581
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 442c223d-dea6-4aac-a97e-08dee448c178
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000009F.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN7PPF0D942FA9A
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_141714_314150_E82293ED 
-X-CRM114-Status: GOOD (  22.81  )
+X-CRM114-CacheID: sfid-20260717_161322_285109_4489BF3E 
+X-CRM114-Status: GOOD (  14.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,57 +80,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 17, 2026 at 05:18:41PM -0300, Jason Gunthorpe wrote:
-> On Tue, Jul 14, 2026 at 10:42:01AM +0000, Ashish Mhetre wrote:
-> Because the VM has access to VCMDQ/etc it can issue commands directly
-> (maybe not on this chip, but as a general comment), thus invalidation
-> errata need to be made visible to the VM and we need to expect the VM
-> will generate invalidations to properly deal with any errata.
-> 
-> Ie I'd expect the VM to see a "nvidia,tegra264-smmu" compatible string
-> to activate the errata fix.
-> 
-> If so then we will already get duplicated invalidations here and then
-> we will duplicate them again. That's not great.
+Currently the stage-2 ptdump calls note_page() at each leaf entry visit.
+This simply misses the output of the last region, because note_page()
+only dumps output when it detects a change in level/prot, or when the
+walk enters a next marker section. The last region in the guest IPA
+space with the same level/prot is not dumped since there is no change
+after it.
 
-Oh, that's a good point.
+To dump the final region, manually issue a note_page() call with address
+BIT(ia_bits) (end of guest IPA space) and level == -1 to trigger a level
+change after the last region. Additionally treat level == -1 as a last
+flushing note_page() call and avoid dumping the name of the next marker
+for this case.
 
-> On the other hand if you want to emulate a generic and actually
-> functional SMMU device that has nothing like VCMDQ/etc then you must
-> do something like this in this patch.
+Fixes: 7c4f73548ed1 ("KVM: arm64: Register ptdump with debugfs on guest creation")
+Reported-by: Sashiko AI <sashiko-bot@kernel.org>
+Closes: https://lore.kernel.org/kvmarm/20260630122758.891011F00A3A@smtp.kernel.org/
+Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+---
+ arch/arm64/kvm/ptdump.c | 8 +++++---
+ arch/arm64/mm/ptdump.c  | 5 +++--
+ 2 files changed, 8 insertions(+), 5 deletions(-)
 
-Tegra264 has virtualization use case. And It's built with VCMDQ,
-which should be the default case than the generic vSMMU case.
+diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
+index c9140e22abcf..4096e4a92fae 100644
+--- a/arch/arm64/kvm/ptdump.c
++++ b/arch/arm64/kvm/ptdump.c
+@@ -155,11 +155,13 @@ static int kvm_ptdump_guest_show(struct seq_file *m, void *unused)
+ 		.seq		= m,
+ 	};
+ 
+-	write_lock(&kvm->mmu_lock);
++	guard(write_lock)(&kvm->mmu_lock);
+ 	ret = kvm_pgtable_walk(mmu->pgt, 0, BIT(mmu->pgt->ia_bits), &walker);
+-	write_unlock(&kvm->mmu_lock);
++	if (ret)
++		return ret;
++	note_page(&st->parser_state.ptdump, BIT(mmu->pgt->ia_bits), -1, 0);
+ 
+-	return ret;
++	return 0;
+ }
+ 
+ static int kvm_ptdump_guest_open(struct inode *m, struct file *file)
+diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
+index ab9899ca1e5f..fed4e4407e0e 100644
+--- a/arch/arm64/mm/ptdump.c
++++ b/arch/arm64/mm/ptdump.c
+@@ -194,6 +194,7 @@ void note_page(struct ptdump_state *pt_st, unsigned long addr, int level,
+ 	struct ptdump_pg_state *st = container_of(pt_st, struct ptdump_pg_state, ptdump);
+ 	struct ptdump_pg_level *pg_level = st->pg_level;
+ 	static const char units[] = "KMGTPE";
++	bool flush = level == -1;
+ 	ptdesc_t prot = 0;
+ 
+ 	/* check if the current level has been folded dynamically */
+@@ -234,7 +235,7 @@ void note_page(struct ptdump_state *pt_st, unsigned long addr, int level,
+ 				  pg_level[st->level].num);
+ 		pt_dump_seq_puts(st->seq, "\n");
+ 
+-		if (addr >= st->marker[1].start_address) {
++		if (addr >= st->marker[1].start_address && !flush) {
+ 			st->marker++;
+ 			pt_dump_seq_printf(st->seq, "---[ %s ]---\n", st->marker->name);
+ 		}
+@@ -244,7 +245,7 @@ void note_page(struct ptdump_state *pt_st, unsigned long addr, int level,
+ 		st->level = level;
+ 	}
+ 
+-	if (addr >= st->marker[1].start_address) {
++	if (addr >= st->marker[1].start_address && !flush) {
+ 		st->marker++;
+ 		pt_dump_seq_printf(st->seq, "---[ %s ]---\n", st->marker->name);
+ 	}
+-- 
+2.43.0
 
-> I was imagining a general direction that we would expose the errata
-> information to the guest and the guest would have to deal with it.
-> 
-> Given this is the opposite I wonder if we want to do it. It does make
-> sense for a chip that probably doesn't have vCMDQ and I don't think
-> qemu can even create a DT description to trigger the errata anyhow.
-
-I don't have the source code of the VMM used on Tegra264, but I
-believe the guest kernel can be the same copy of kernel as the
-host. So, its VMM is likely to use the "nvidia,tegra264-smmu" DT
-compatible string, to trigger the errata at the guest level.
-
-> But it starts to become confusing down the road if we decide other
-> invalidation errata (like the CONT must be RIL thing) must be delt
-> with by the guest.
->
-> So.. Maybe add a comment why this one is different, or maybe just
-> disable FEAT_NESTING if there isn't a use case?
-
-Given the use cases on Tegra264, instead of patching the iommufd
-path as this patch does, perhaps we should simply spit a WARN in
-arm_vsmmu_init():
-
-	if (static_branch_unlikely(&arm_smmu_erratum_repeat_tlbi_cfgi_key))
-		dev_warn(smmu->dev,
-			 "guest must WAR the repeat_tlbi_cfgi erratum\n");
-
-?
-
-Thanks
-Nicolin
 
