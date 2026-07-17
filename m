@@ -4,72 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDD66C4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 13:06:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C7E0C44516
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 13:09:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mamoyFKjWvwAuu0GxO6oNdptahRz0WsLGovVsb1KAic=; b=hT00I0kcJsMQg4Qh/2oCmphOMG
-	+rKTUTSsEd7Xk6oMx7gDJqfrN5cd6Cr6YC+kjQjTNIIucIkGCzwTEjm7P1HldYQTYUJfasFIhrSzU
-	4BN+CGvmNnzoCjNUt0o/kX3sRdf0ckp63dPI8bJiunG1V/0AWbhuRsXLplYCfHveDBXBBQKQvxExC
-	xmOmu8mv3Ae4yUZ/RTVvUl+aJpfHQT0Adyv+K4lzn2GLZRnF3UiyRSKAxJhjX450A3SVUTELNXS7D
-	Tfr2AKOQLipgaTvA9s2iPG5hKXhe+NMVZMZmqzLY92/0voNXnPObxJWDP4aaRyRIaXtrz3t06Nq61
-	Uau8Ngqw==;
+	Content-Type:Cc:To:From:Subject:Message-ID:Mime-Version:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=S08p5kQZpXbD9KawmMzLPf/sCiQ1d3STxcaWnwOPLP0=; b=GbZLJ8xIc8eMBnPXHhmcVA4SAb
+	og3pYUQ/dHNzqOSu079guMJOWYI17t1g96dlATuRJ/2nAjK6oHKb0obV3Yfbwym8txYD9kCtB7hiI
+	RAmc//D86t/iazL9vbjQcZmQGLbuSy91zigcCbseZXlE/ZVgBl8lCUJUkBmmPRqmdo3l24PBlSdzl
+	MfYFPS/Xb5BQv05PEcw4fL3Dg+9LYfr+rCRTi/2yMShdwkB3uFqY8gZowNIMG4hpSMP/btt5pt0P7
+	u7gsMSQsrOhVxdBQfaX5S+zoK8igo/Gzo9AnHbtLSTmPIm9/dtIxcZ6d9CsK4NTCih/RAfddMFvIV
+	IhAKkF2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkiH1-00000002MXj-33WZ;
-	Fri, 17 Jul 2026 13:06:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wkiJS-00000002MvG-0Lyw;
+	Fri, 17 Jul 2026 13:09:10 +0000
+Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkiH0-00000002MXL-1XO5
+	id 1wkiJP-00000002Mtm-0mU0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 13:06:38 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CFEE642E50
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 13:06:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8AAC1F00ADE
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 13:06:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784293597;
-	bh=mamoyFKjWvwAuu0GxO6oNdptahRz0WsLGovVsb1KAic=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=RCShuLEoeLiLiieUuzg3cC0Ahs9bSguy1LIoYnrIkaUhnloavxbkEmnUcLdHDcXtn
-	 TFY/BJ8mu5wbSKaNwlnWcCYOEKU66/yzUJCJNHk85YJIeMJD/IyiOaAfAQPuJcP7XH
-	 em0fFXG69aqY53k3a85wUf/y7/byv43YRYh6ptW//iTMkmk1LclbTzOpU7N//hhzvT
-	 323dUYxRht7EOlhCmtpNfXtinxe/7HdNwNWR76pDec8KwOVWqZt1bKm7XuNfQwv9FP
-	 WFMmVx0E0m7BfjTVmTKBd/Hr5X5nnRogGjJBfA2ftKe2oZ3HGSWBvcU7juS8ham3Wr
-	 iUgZi/PV6I4NQ==
-Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-c15e03c2763so352603166b.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 06:06:37 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RqbbbidWHVqEsqT7qINhC2S9P0ZDuBpkC3ZQuywbXcmtpVmKamypPQbGP+cW91tDBl4+x0kbtgjZgOz7Wal59L7@lists.infradead.org
-X-Gm-Message-State: AOJu0YzE+FjM8g4PXYHiAok96SCxTMyD3ZtD3X3S9H5+AXnos1Y5PuBe
-	RYCXyHiyf4J3mN2muSDjg7OZfNCMqExjW/yqeApkFYq2uULVCaI3huODQm+CeixJbe9r1g9+3LW
-	yNOZc+DsqCJ5PDv/Ufn7azSdk+sBAEA==
-X-Received: by 2002:a17:906:6a1a:b0:c16:ab18:55bf with SMTP id
- a640c23a62f3a-c16b417051dmr138404466b.31.1784293596209; Fri, 17 Jul 2026
- 06:06:36 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260713081127.115197-1-cwweng.linux@gmail.com>
- <20260713081127.115197-2-cwweng.linux@gmail.com> <20260716174237.00004b79@oss.qualcomm.com>
- <8d757505-ea93-4dd4-a374-79f143f6f949@gmail.com>
-In-Reply-To: <8d757505-ea93-4dd4-a374-79f143f6f949@gmail.com>
-From: Rob Herring <robh@kernel.org>
-Date: Fri, 17 Jul 2026 08:06:24 -0500
-X-Gmail-Original-Message-ID: <CAL_Jsq+5N9AvzQ0cxUVY97Ad+CasR29Fan7sUuprDYjgqzWjMQ@mail.gmail.com>
-X-Gm-Features: AUfX_mw6LJXrxe2IQurrdLfm7PIOYMWKcR5ywCkgwLq8okgu2522Hbb9oiRx92U
-Message-ID: <CAL_Jsq+5N9AvzQ0cxUVY97Ad+CasR29Fan7sUuprDYjgqzWjMQ@mail.gmail.com>
-Subject: Re: [PATCH v2 1/2] dt-bindings: iio: adc: Add Nuvoton MA35D1 EADC
-To: Chi-Wen Weng <cwweng.linux@gmail.com>
-Cc: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>, jic23@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com, 
-	andy@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, cwweng@nuvoton.com
+	Fri, 17 Jul 2026 13:09:08 +0000
+Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-47bbe3b9705so6909575f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 06:09:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1784293745; x=1784898545; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:from:subject
+         :message-id:mime-version:date:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=S08p5kQZpXbD9KawmMzLPf/sCiQ1d3STxcaWnwOPLP0=;
+        b=R6yGheUYUOV9qa3Vw+w7joB2tIuP3Vzk/amFlVJM1i68l0jzjBERfpMJomk6xKWV82
+         I3A4abwYoe3JSgaBF5BIxNSFP/1/978dEG1OeLtnp90bgk449L1I24yDKrGNu2R4biGW
+         ZMBg+vN4FTLLe5V0fMIehwCftW3yTaqD4vTpqqOy2gRTe+hSG1clYF2z0wI8+eyGfpyb
+         19rAAjmy7a6CzEjArgr1CVjjUovLtYm3HNJoQ3IeiZq+2pMFoDChbtwidHjbjeAlJNPB
+         aGSPkEBvIvVJW1zIpjt7dLC1eYWJa/voUM9+nA8l1k4OfdeRBxsEXlDzsFePI6tnXqMK
+         wBcw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784293745; x=1784898545;
+        h=content-transfer-encoding:content-type:cc:to:from:subject
+         :message-id:mime-version:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=S08p5kQZpXbD9KawmMzLPf/sCiQ1d3STxcaWnwOPLP0=;
+        b=aWTUlKpN5iR+hrQQCF6LBszqflR5LWzpbge049qmEW4RDh3FpausRl5Ep/34Bqxx5N
+         VIKA6M4uVHQUrRyS4KEmsWiMQpViD5YtX2GvZbSndHP92ZdT5HF8W7eNzwtP9nCzM4xx
+         ll8wg5yf5faW1zPZBiJTEghuixv/N/YHtUjRybpjwMaUCrEBDsA+IlYf6VeQKYZQJ1Vs
+         oEjMA4XuNnaKTy2BbieJjedcQ8I2IXOcISsoOzMRG+YH+tcSJ+rMVgWB6ZOr1JAHSwgz
+         8XujGQHqpAjFISYl4RV1bB7wCKMIlKwo0FFdwKoMYGgElKnZ9RDcBDgGjpAglRoFaiox
+         7H0g==
+X-Forwarded-Encrypted: i=1; AHgh+Rqayj+x4w3djOhlJzsTHPgkgp8meTTebABd3Vflm7kNqJfiWud1YVZ2FHavFezaI8HrcTrjISf7VelnBIs3uelZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzPRUQZtoFsMLXta+f44zGHF7XpW+ZvQwm1pDwvQoGN7SOSxN6f
+	ENzWBBmpzTJ8wQGzIsu7YaZ4lYIUk3YJgOmU6AHXMTveVV/+uWEJpGVnUjcVsTq8BvkTTS75VbI
+	nMMNCvrpuPE53mQ==
+X-Received: from wmco24.prod.google.com ([2002:a05:600c:a318:b0:493:c42c:7e97])
+ (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:190d:b0:495:3da0:3f52 with SMTP id 5b1f17b1804b1-4954a40e0efmr29494085e9.19.1784293744623;
+ Fri, 17 Jul 2026 06:09:04 -0700 (PDT)
+Date: Fri, 17 Jul 2026 13:08:58 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.55.0.229.g6434b31f56-goog
+Message-ID: <20260717130901.2239134-1-smostafa@google.com>
+Subject: [RFC PATCH 0/2] KVM: arm64: Support BBM level 3
+From: Mostafa Saleh <smostafa@google.com>
+To: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Cc: maz@kernel.org, oupton@kernel.org, seiden@linux.ibm.com, 
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, will@kernel.org, vdonnefort@google.com, 
+	tabba@google.com, Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260717_060907_275840_48C9344D 
+X-CRM114-Status: GOOD (  22.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,35 +92,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 16, 2026 at 7:59=E2=80=AFPM Chi-Wen Weng <cwweng.linux@gmail.co=
-m> wrote:
->
-> Hi Jonathan,
->
-> Thank you for the review.
->
->  > Not sure this doc helps. What are these interrupts for?
->  > The driver only uses one of them so why are there 4?
->  >
->  > May well need interrupt-names to allow gaps in the list to
->  > work but hard to tell without more information.
->
-> The hardware has four EADC interrupt outputs, ADINT0 to ADINT3. The
-> conversion-complete source for each interrupt can be selected through
-> the EADC interrupt source registers.
->
-> However, this initial driver only uses sample module 0 and routes its
-> end-of-conversion event to ADINT0. So the binding does not need to
-> describe the unused interrupt outputs at this stage.
->
-> I will simplify this in v3 and document only one interrupt entry for
-> ADINT0. If support for the other ADINT lines is added later, the binding
-> can be extended with interrupt-names at that point.
+This patch series adds support for BBM level 3 to KVM pgtable, it
+depends on [1]
 
-No, document what the h/w has, not what a driver currently uses. The
-only exception I can think of here would be if only 1 interrupt pin is
-usable on a given system. Then it would be just 1 interrupt with
-interrupt-names to define which one is used.
+Motivation
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+I have been looking into this for the context of:
+- Page table sharing between the host CPU stage-2 and the SMMUv3 for
+  protected KVM.
+- Use the pagtable code to populate SMMUv3 stage-2 shadowed
+  page table [2]
 
-Rob
+However, BBM level 3 is still useful for CPU only operations as it
+avoids intermediately breaking translation.
+
+Design
+=3D=3D=3D=3D=3D=3D
+Some of the conditions that BBM level 3 will be useful in (RWHZWS):
+1) A change to a PTE memory type, shareability, cacheability or OA
+2) Changing from block to table
+3) Changing from table to block
+
+At the moment in the hyp page table code:
+- For #1) stage2_map_walker_try_leaf(): Replaces a leaf with another
+  one which does not match the same OA/perms/attrs.
+
+- For #2) Switch block to table is used from:
+  - kvm_pgtable_stage2_split(): Explicitly splitting a block (used
+    for dirty logging), where a block is replaced by a table with
+    the same attributes.
+  - stage2_map_walk_leaf(): Updating a mapping that is partially
+    part of an existing block.
+
+- #3) Does not exist in the code at the moment as coalescing is not
+  supported.
+
+The first patch is a preparation to be able to clean up the old pte
+for BBML3, the second patch adds the main logic.
+
+Initially, I encapsulated the full logic of BBM in one function,
+which was not readable, due to different ordering and dealing with
+CMO, TLBI.
+
+Instead, I kept the logic into 2 functions, where BBML3 is added in
+the make step.
+
+One interesting case, as BBML3 will update the PTE atomically, it
+can only know it raced with another core at the point of the cmpxchg
+failing, unlike the SW implementation which locks the PTE first.
+And as we must issue CMOs to the new mapped page before the update,
+that means with BBML3 racing cores will issue redundant CMOs, to
+improve this:
+- We only use BBML3 if the old PTE was live
+- To reduce the window of the race an early check is added before
+  the CMO to exit early, but that does not eliminate the race.
+
+Testing
+=3D=3D=3D=3D=3D=3D=3D
+This was tested:
+- C1-Pro cores, unfortunately the version I have does not run
+  upstream, I backported the patches to Android kernel (6.18).
+
+- mainline(7.2-rc3) kernel on a Qualcomm X1 with a hacked cpufeature
+  as it does not support BBM, I did not see conflict aborts or TLB
+  corruption.
+
+I tested with VHE and protected (hvhe) modes, running VMs
+(and protected), and running some selftests, that might exercise and
+stress this path tools/testing/selftests/kvm:
+- demand_paging_test
+- memslot_perf_test
+- memslot_modification_stress_test
+- dirty_log_test
+
+Future work
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+Some other changes that would be useful for the SMMUv3:
+- Eagerly install table on block split, we can now replace a block
+  with a fully populated table atomically when we unmap a partial
+  part of the block.
+
+There is more to support page table sharing (such as dealing with
+TLB invalidation, coherency=E2=80=A6), I submitted a talk to LPC to discuss
+this further.
+
+[1] https://lore.kernel.org/linux-arm-kernel/20260715053408.1950475-1-linu.=
+cherian@arm.com/
+[2] https://lore.kernel.org/linux-iommu/20260715115906.2664882-1-smostafa@g=
+oogle.com/
+
+Mostafa Saleh (2):
+  KVM: arm64: Add stage2_clean_old_pte()
+  KVM: arm64: Support BBM level 3
+
+ arch/arm64/kvm/hyp/pgtable.c | 118 ++++++++++++++++++++++++-----------
+ 1 file changed, 82 insertions(+), 36 deletions(-)
+
+--=20
+2.55.0.229.g6434b31f56-goog
+
 
