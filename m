@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDA9DC44515
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 18:06:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F30EC4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 18:06:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9dRlfhm2GJvO0NKET2nomIv2slIBL0lQ9SwCkEKvtM0=; b=erX/sOHzBADMLvEqmKJacx943H
-	Ef85V46cpU7A+uoMUn0rvYLDqCLgqc7/ZeFsZjs6tAqrPTfBFKpiocNGHqbQhkc/RI81yyMS/D1hk
-	z1cWArJvIVfSBrbGnzQQEW5U6WtvBnkxW8w6onmBm38ssyZg+rJ1yryWs6iJ8AQW7KSS7dvknE9dM
-	fjI6AnIq9bq22f0GMWuunpY0rQVKL7+UTao8Y85MQ7zE62fIQNTnKHIw14tWZ9elCnZroyFfOtTW9
-	EHnVY24nm8TOxoiV5nrWzxAzf3KTGWIDEEwAEk6/Bp1Ai4+AWq9UI0DUFJB7q1EK9NIYznt3Ib/7H
-	0/uXTRNg==;
+	bh=+jYpPT4yoOmUsd5LmqpXbLSNFTvE7U1R4IX5MV5qOnI=; b=gzSse0cO6RJ6vTvMhE3Wur1/M3
+	f4bRiTtqy7baRnhtsebB2hszkXSLAByC4KqrDw2ypEOO36FMcYVfbWhK3NOd3IK1uO+N2LPCHW//x
+	fSK4M0cQXrKSB51GyxfQv2kQ/M/Dy4203MbaO+R2T97NxW9wJClushH2dceaa8Zc0BfL2Hk1qRFoW
+	3upclvnjJEEd8mWdMB4nz7s1STZ49Cfeh/ugr8SXWckExRH7Q5EJ089Mw0y6IiqWm6SAvjxHPZcVi
+	oTqgkfBlaAZ5UdzpzMSslj/XCWchcwjX9LLPrCIumUt6b4gd2qqZVqUSKQyz05v6UqddTIZNL93Dq
+	UBaZdDHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkmxI-00000002xCd-07bM;
-	Fri, 17 Jul 2026 18:06:36 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wkmxU-00000002xI1-0bAq;
+	Fri, 17 Jul 2026 18:06:48 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkmxG-00000002xCA-1UKo
+	id 1wkmxS-00000002xHZ-3zpe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 18:06:34 +0000
+	Fri, 17 Jul 2026 18:06:47 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1EE4F43CFD;
+	by tor.source.kernel.org (Postfix) with ESMTP id 8D22B60A6D;
+	Fri, 17 Jul 2026 18:06:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC53D1F00A3A;
 	Fri, 17 Jul 2026 18:06:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E00181F000E9;
-	Fri, 17 Jul 2026 18:06:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784311594;
-	bh=9dRlfhm2GJvO0NKET2nomIv2slIBL0lQ9SwCkEKvtM0=;
+	s=k20260515; t=1784311605;
+	bh=+jYpPT4yoOmUsd5LmqpXbLSNFTvE7U1R4IX5MV5qOnI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=W4D94t/wneRBeRYLAxxxPKoeAyp9CDNhgy+7bpaY5yTYbVT8ophnINPXzQyM9OHYN
-	 uagA6UPpU0Lgd0flDoEB5rlssvKZ3tyRPfFbpPV2sf4zB7a3+52/Uwmoy4G5i14rxU
-	 R6qttKEJdgr3zR0OdDRKEWhPzw3UvFgaBhsrJTAssxanyZ8F5+nRj1wmIDiSTDvFfT
-	 C9XrJ8Uks6+0EVkTEMzI/n52dg18W/W/0DljfnwfNv/RbZ5MkYOz1a6E2e7S53d5Rv
-	 /7mUns0bXxC78eCQaFFkVK6EawRz39RdB16ufoyCKINyYamNITiKhCj3jV2gzhZkpL
-	 a4YscX7FQeceg==
+	b=lKWnTwZkBJNfcxr3yoDEkHJjczN3UyUzlyushdGlL83xmNsEfAsye+3iSTLFWqXxn
+	 ztR40aAk0Ouu7NhezKGDg8Yq/ZKbkImDSf7CjwI5Faed67v3qLop+8qv/RtesJx3dH
+	 5KcFGx8I8rLW5vCkTVp22N/WPJhUXtQ6ucnhEX0yvmX/ANam6WaHYPXw9Y4ktnNGVN
+	 an1FQEwPkTP2UaTyK7zboDbZXDXqZe/JGi4LaRUxWH5w7hCUgw+hrNHbgWMzwHa1IX
+	 qRe7IykVDvj00+/8wQAsJdKZ9mz9aHH37o+m3erTp0QnML1B5sOqtNISiGwUxk2sqW
+	 qOTGbKgbYOisQ==
 From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
 To: iommu@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -74,10 +74,11 @@ Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
 	Vasily Gorbik <gor@linux.ibm.com>,
 	Christian Borntraeger <borntraeger@linux.ibm.com>,
 	Sven Schnelle <svens@linux.ibm.com>,
-	x86@kernel.org
-Subject: [PATCH v8 08/23] coco: arm64: s390: powerpc: Mark secure guests with CC_ATTR_GUEST_MEM_ENCRYPT
-Date: Fri, 17 Jul 2026 23:34:26 +0530
-Message-ID: <20260717180442.110954-9-aneesh.kumar@kernel.org>
+	x86@kernel.org,
+	Jason Gunthorpe <jgg@nvidia.com>
+Subject: [PATCH v8 09/23] dma-mapping: Add internal shared allocation attribute
+Date: Fri, 17 Jul 2026 23:34:27 +0530
+Message-ID: <20260717180442.110954-10-aneesh.kumar@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260717180442.110954-1-aneesh.kumar@kernel.org>
 References: <20260717180442.110954-1-aneesh.kumar@kernel.org>
@@ -97,60 +98,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-arm64 Realms, powerpc secure guests and s390 protected virtualization
-guests currently report CC_ATTR_MEM_ENCRYPT, but not
-CC_ATTR_GUEST_MEM_ENCRYPT.
+DMA_ATTR_CC_SHARED describes an existing DMA mapping whose backing memory
+is already shared, or decrypted, for confidential computing. It is a
+mapping attribute: callers use it to request a shared DMA address encoding
+for memory that has already been prepared for shared DMA.
 
-These environments are all secure guest configurations. Their
-force_dma_unencrypted() implementations also treat the same secure guest
-state as requiring unencrypted DMA. Report CC_ATTR_GUEST_MEM_ENCRYPT for
-the same condition so generic confidential-computing code can distinguish
-guest memory encryption from host memory encryption instead of relying only
-on CC_ATTR_MEM_ENCRYPT.
+Allocation paths need a related but different state. Once the DMA core
+decides that an allocation must use shared backing pages, the lower-level
+allocation helpers need to select shared pools, decrypt newly allocated
+pages, derive the DMA address with the shared-memory translation and
+restore encryption on free. That state is internal to the DMA-mapping
+implementation and should not be passed by drivers to dma_alloc_attrs().
 
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 ---
- arch/arm64/mm/init.c                         | 1 +
- arch/powerpc/platforms/pseries/cc_platform.c | 1 +
- arch/s390/mm/init.c                          | 1 +
- 3 files changed, 3 insertions(+)
+ Documentation/core-api/dma-attributes.rst | 29 +++++++++++++++++++++++
+ include/linux/dma-mapping.h               |  8 +++++++
+ include/trace/events/dma.h                |  3 ++-
+ 3 files changed, 39 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-index edcc305ec883..48d69e390158 100644
---- a/arch/arm64/mm/init.c
-+++ b/arch/arm64/mm/init.c
-@@ -419,6 +419,7 @@ bool cc_platform_has(enum cc_attr attr)
- {
- 	switch (attr) {
- 	case CC_ATTR_MEM_ENCRYPT:
-+	case CC_ATTR_GUEST_MEM_ENCRYPT:
- 		return is_realm_world() || is_protected_kvm_guest();
- 	default:
- 		return false;
-diff --git a/arch/powerpc/platforms/pseries/cc_platform.c b/arch/powerpc/platforms/pseries/cc_platform.c
-index e8021af83a19..46e110a5a717 100644
---- a/arch/powerpc/platforms/pseries/cc_platform.c
-+++ b/arch/powerpc/platforms/pseries/cc_platform.c
-@@ -17,6 +17,7 @@ bool cc_platform_has(enum cc_attr attr)
- {
- 	switch (attr) {
- 	case CC_ATTR_MEM_ENCRYPT:
-+	case CC_ATTR_GUEST_MEM_ENCRYPT:
- 		return is_secure_guest();
+diff --git a/Documentation/core-api/dma-attributes.rst b/Documentation/core-api/dma-attributes.rst
+index 123c8468d58f..eee743184acd 100644
+--- a/Documentation/core-api/dma-attributes.rst
++++ b/Documentation/core-api/dma-attributes.rst
+@@ -179,3 +179,32 @@ interface when building their uAPIs, when possible.
  
- 	default:
-diff --git a/arch/s390/mm/init.c b/arch/s390/mm/init.c
-index c29326c44af0..6b1c5a4fa9ce 100644
---- a/arch/s390/mm/init.c
-+++ b/arch/s390/mm/init.c
-@@ -148,6 +148,7 @@ bool cc_platform_has(enum cc_attr attr)
- {
- 	switch (attr) {
- 	case CC_ATTR_MEM_ENCRYPT:
-+	case CC_ATTR_GUEST_MEM_ENCRYPT:
- 		return is_prot_virt_guest();
+ It must never be used in an in-kernel driver that only works with
+ kernel memory.
++
++DMA_ATTR_CC_SHARED
++------------------
++
++This attribute indicates that a DMA mapping is shared, or decrypted, for
++confidential computing guests. For normal system memory, the caller must
++already have marked the memory decrypted with set_memory_decrypted(). CPU
++PTEs for the mapping must use pgprot_decrypted(), and the same shared
++semantic may be passed to a vIOMMU when it sets up the IOPTE.
++
++This attribute describes an existing mapping. It does not allocate shared
++backing pages and must not be passed to dma_alloc_attrs(). For MMIO, use
++this together with DMA_ATTR_MMIO to indicate shared MMIO. Unless
++DMA_ATTR_MMIO is provided, the mapping requires a struct page.
++
++__DMA_ATTR_ALLOC_CC_SHARED
++--------------------------
++
++This is an internal DMA-mapping attribute for confidential computing guests.
++It is used by allocation paths after the DMA core has determined that the
++backing pages must be shared, or decrypted. For example, the direct DMA and
++SWIOTLB allocation paths use it to select shared DMA pools, decrypt newly
++allocated pages, derive DMA addresses using the shared-memory translation, and
++restore encryption on free.
++
++__DMA_ATTR_ALLOC_CC_SHARED differs from DMA_ATTR_CC_SHARED in that it is not
++a caller-visible DMA API attribute. DMA_ATTR_CC_SHARED describes an
++already-shared mapping and requires the caller to have prepared normal
++system memory before mapping it.
+diff --git a/include/linux/dma-mapping.h b/include/linux/dma-mapping.h
+index cc0823a99cfd..a3e880649fa4 100644
+--- a/include/linux/dma-mapping.h
++++ b/include/linux/dma-mapping.h
+@@ -103,6 +103,14 @@
+  */
+ #define DMA_ATTR_CC_SHARED	(1UL << 13)
  
- 	default:
++/*
++ * __DMA_ATTR_ALLOC_CC_SHARED: Internal DMA-mapping attribute used by
++ * allocation paths that create shared (decrypted) backing pages for
++ * confidential computing guests. Drivers must not pass this attribute to
++ * dma_alloc_attrs().
++ */
++#define __DMA_ATTR_ALLOC_CC_SHARED	(1UL << 14)
++
+ /*
+  * A dma_addr_t can hold any valid DMA or bus address for the platform.  It can
+  * be given to a device to use as a DMA source or target.  It is specific to a
+diff --git a/include/trace/events/dma.h b/include/trace/events/dma.h
+index 31c9ddf72c9d..9df02c1511de 100644
+--- a/include/trace/events/dma.h
++++ b/include/trace/events/dma.h
+@@ -35,7 +35,8 @@ TRACE_DEFINE_ENUM(DMA_NONE);
+ 		{ DMA_ATTR_MMIO, "MMIO" }, \
+ 		{ DMA_ATTR_DEBUGGING_IGNORE_CACHELINES, "CACHELINES_OVERLAP" }, \
+ 		{ DMA_ATTR_REQUIRE_COHERENT, "REQUIRE_COHERENT" }, \
+-		{ DMA_ATTR_CC_SHARED, "CC_SHARED" })
++		{ DMA_ATTR_CC_SHARED, "CC_SHARED" }, \
++		{ __DMA_ATTR_ALLOC_CC_SHARED, "ALLOC_CC_SHARED" })
+ 
+ DECLARE_EVENT_CLASS(dma_map,
+ 	TP_PROTO(struct device *dev, phys_addr_t phys_addr, dma_addr_t dma_addr,
 -- 
 2.43.0
 
