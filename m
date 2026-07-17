@@ -4,110 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 399C9C44514
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 08:16:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C762AC44507
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 08:16:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+7Nd67iiHmSuvw06r7sfnoXomVEtuqgSBnJLlAkF+OM=; b=m1pK70IRkq16pSR1Q8o7O+w9gj
-	7VhNX1LO62R3iO1GgZZamJKjOUyWKU4jUAkDX1OQKJHmxoHnXUi5KEtu5JJoWbutUMQhs7p2E0aPX
-	DEv4v40D3T5vZPO9wPrKJuG+lcX3A9JaojHJFLHM8G964YZMuYJbfm0d/gDtmCUgXEPb5oxXXMuZh
-	lvtg0yUrI+vlANODRQGKLLha74DOTP1wNS8SctdZDPR2xRBJZpQJW8TkGOlh8rzBqZWCIINhWMdkj
-	gUZVhHlBhcwlKqpwxHRaDvTuY6MSZSwtyqSQdgBEtBjC0PDLaKSwuotxKNARvO6A0wgGWGn9hHuQe
-	nEy2Cu3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=06AYYIYfgRAXIqAMErr4O0bh0kIsqo27jJLndxJScq0=; b=g6zFcp9XqtB5dvly/Vzmyj56k8
+	JhecQ7IxuWSk3GzIb3TtNIsYwdcXfQv4hgImJaK1gZTv4J6nuADWq2vfWOx68oDmWg0KiwNv6KcHR
+	os4PQEYyKWF7+/W8uiXsNVn+bMXtDYhDluMrXVZjpmaCNLb7hiakv1i/XhQqovrUDK/1QkOWHGO+s
+	yM/xRqZaRDQrp/x9CL8t3ywvpjL365XEGlyg3JqM0DiHTh/ZS4hyLnbgdQkQJC2pwGHKiQrvuKaLh
+	tS/SMq/giFRvCUQxJe3uqdVXjubQPkAAsZ97hL58dimygE+Es0zKVfv9SM3xEJHkmAlnHYHqDGi3i
+	INeMT68A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkdjr-00000001bDo-2X9K;
-	Fri, 17 Jul 2026 08:16:09 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wkdkU-00000001bRO-0XY7;
+	Fri, 17 Jul 2026 08:16:46 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkdjq-00000001bD2-17eS;
-	Fri, 17 Jul 2026 08:16:06 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C881D42AA3;
-	Fri, 17 Jul 2026 08:16:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76CCE1F000E9;
-	Fri, 17 Jul 2026 08:16:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784276165;
-	bh=+7Nd67iiHmSuvw06r7sfnoXomVEtuqgSBnJLlAkF+OM=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To;
-	b=YdjTJtqqKbr0M2+vL9qCSGhbjH5UJGKkh1WBT/5dtMdEX5la1sEkalWpBl4F9Q4dI
-	 Xqo128VG+Cp+P91gLl9NyVGJk+IEd1nqGKJHgKJdP5/9Cg/a1IzWXUYLZVQVDKh5NP
-	 frYVaKMm3l5ARDYdSIACu2mISee2U622Do1WU3Mh0VhxGdfb4iIlvXEJ6qko01T2kt
-	 JpZxTnKSP3+Vq4Ix7x5DsLkEs3hYcb2v0MRqRR66H8ThTG3Wlaikq6IwCYKvU6FQNv
-	 fQ6A8boXWOvo+mnKec/SUPgEQXTIWjxzHMM2/y6qG2Zyb66er1siBQP6sRw/Jf2X9k
-	 afPD33eS2DctQ==
-Message-ID: <06d11879-b305-422c-bef1-982c968ce899@kernel.org>
-Date: Fri, 17 Jul 2026 10:15:58 +0200
+	id 1wkdkS-00000001bR2-34wr
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 17 Jul 2026 08:16:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=06AYYIYfgRAXIqAMErr4O0bh0kIsqo27jJLndxJScq0=; b=SG8v/GOMbbkRK1n4umrI+qmGot
+	HuJBxPsmLo5WH5408t9zlBJNq/bdBf15BSvMHVPvRSaenp83VztWp9s5mVqlJdr0XI+fcqvPCwhFr
+	DJkMQ/e7VXlZS5+B12xIih/CmGuUVVWln3PI86F3eWdwDNZcshUQSoke2Klo2QdyLT8stcNBCao8L
+	FtM/sycD8CycUeAKSMcs1hycOU0dANec8Ae+V2HSq44UfMYb/aEg7MrFCz66G8Be5qhTLY48Y6G9M
+	ax7x2UX/WJNUc2tEXjFbo4PG5J7G92C3qcZXCTFTEY0TUO1SwpLP7PfG9dxRaAgWssLlZOYD7IyFS
+	rTq7PkYA==;
+Received: from abb.hmeau.com ([180.181.231.80])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wkdkP-0000000Eels-043M
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Jul 2026 08:16:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
+	from:content-type:reply-to; bh=06AYYIYfgRAXIqAMErr4O0bh0kIsqo27jJLndxJScq0=; 
+	b=qwv1uubYnn5HVAX5NmCa3w77qfOE0pk8utDvVjgVwU/vYqhOZ24NNiwPuzvybUDBiLupar9Sxk0
+	6kxZR4hE4cWl24N9QTmnBSkpwP+7SuP/e60jyOPM0Oh/zuHQNKUJGIEv2fyxcIM8R8rIogm3Yf6OM
+	B2d+QKT9qEJKiszdMjH4Bo7ZhTPRwqQmwdHKCF799nX2OLtVSFbuGoxy0Uhnh9iEg1/k3zAZz4NmH
+	LI9e7DJWE+bS9T1rGrso4+pOIJ+NsjQetSwlt8QiX+UFeSvNzUqAAQVV6Z4qXoEq+TB+ifx8hdsQS
+	Ozk5UhO9t8mdzM0YN3Bv09P3xPDTluTEtPKg==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.98.2 #2 (Debian))
+	id 1wkdkH-0000000EOAj-0Rzq;
+	Fri, 17 Jul 2026 16:16:34 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 17 Jul 2026 18:16:33 +1000
+Date: Fri, 17 Jul 2026 18:16:33 +1000
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Thorsten Blum <thorsten.blum@linux.dev>
+Cc: Corentin Labbe <clabbe@baylibre.com>,
+	Hans Ulli Kroll <ulli.kroll@googlemail.com>,
+	Linus Walleij <linusw@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] crypto: sl3516 - drop invalid sg_dma_len checks before
+ DMA mapping
+Message-ID: <alnk4X5dsPBoDfTH@gondor.apana.org.au>
+References: <20260710074216.734849-2-thorsten.blum@linux.dev>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 02/13] dt-bindings: clk: zte: Add zx297520v3 top clock
- and reset controller
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: =?UTF-8?Q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- Brian Masney <bmasney@redhat.com>, Vinod Koul <vkoul@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Russell King <linux@armlinux.org.uk>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org
-References: <20260717-zx29clk-v7-0-408411cfcf36@gmail.com>
- <20260717-zx29clk-v7-2-408411cfcf36@gmail.com>
- <20260717-berserk-faithful-cat-a34ad8@quoll>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260717-berserk-faithful-cat-a34ad8@quoll>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260710074216.734849-2-thorsten.blum@linux.dev>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260717_091641_296372_D89646B6 
+X-CRM114-Status: GOOD (  11.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,34 +90,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/07/2026 08:36, Krzysztof Kozlowski wrote:
-> On Fri, Jul 17, 2026 at 12:35:38AM +0300, Stefan Dösinger wrote:
->> diff --git a/MAINTAINERS b/MAINTAINERS
->> index cb50c2e3b4ea..5f962b9947ab 100644
->> --- a/MAINTAINERS
->> +++ b/MAINTAINERS
->> @@ -3878,10 +3878,13 @@ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
->>  S:	Odd fixes
->>  F:	Documentation/arch/arm/zte/
->>  F:	Documentation/devicetree/bindings/arm/zte.yaml
->> +F:	Documentation/devicetree/bindings/clock/zte,zx297520v3-topcrm.yaml
->>  F:	Documentation/devicetree/bindings/phy/zte,zx297520v3-usb-phy.yaml
->>  F:	arch/arm/boot/dts/zte/
->>  F:	arch/arm/mach-zte/
->> +F:	include/dt-bindings/clock/zte,zx297520v3-clk.h
->>  F:	include/dt-bindings/phy/phy-zte-zx297520v3-usb.h
->> +F:	include/dt-bindings/reset/zte,zx297520v3-reset.h
->>  
->>  ARM/ZYNQ ARCHITECTURE
->>  M:	Michal Simek <michal.simek@amd.com>
->> diff --git a/include/dt-bindings/clock/zte,zx297520v3-clk.h b/include/dt-bindings/clock/zte,zx297520v3-clk.h
+On Fri, Jul 10, 2026 at 09:42:17AM +0200, Thorsten Blum wrote:
+> sg_dma_len() is only valid after mapping the scatterlist with
+> dma_map_sg(). However, sl3516_ce_need_fallback() checks it before the
+> source and destination scatterlists are mapped. Thus, a stale DMA length
+> that is not a multiple of 16 could incorrectly force a software fallback
+> when CONFIG_NEED_SG_DMA_LENGTH=y.
 > 
-> Same mistake. Filename MUST match the compatible.
+> Remove the invalid checks; the existing scatterlist length checks are
+> sufficient.
+> 
+> Fixes: 46c5338db7bd ("crypto: sl3516 - Add sl3516 crypto engine")
+> Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+> ---
+>  drivers/crypto/gemini/sl3516-ce-cipher.c | 8 --------
+>  1 file changed, 8 deletions(-)
 
-I did not notice that you combine here all the clock IDs from other
-clock controllers. The header filename is therefore fine (also reset fine).
-
-
-Best regards,
-Krzysztof
+Patch applied.  Thanks.
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
