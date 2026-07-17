@@ -4,79 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2C46C44514
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 08:14:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99089C44507
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 08:15:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9z91ILlxQtYqvnBQwnktbnN3/Hw+eSYMXdhvRXnuXjA=; b=S8yQndofrTPZsO62bPe9y0/SdG
-	5Dya6OYCMsHQWchJj5orQ23pvglfnjScSWpasma+fw5S1gVUhp5GLah/EHQy5fNP5Ej5rWVgsT9PP
-	kfunhcyBAChWAOr2smFEHBpNz43ivRTm0Td6hx3FbHrSGkHVwzwTH2QaYkTnH3D43rTL3zfdRtPf3
-	VETNgyAY44FXY1v3yDYaGUBagV5m+X692yNEuXonjbHBthI1Nzn3hM0saZw6Rkb4cec2nKnIEP7is
-	MInFh4BoQoI2neUB523k9chGXH8eSFnx3dvXpKb8FlWy9iw75vA0CPJ0vzN4A1tiNxXhjBC44v8j8
-	N85gxlgA==;
+	bh=aJAuqZuWQqzjYYp+EEQS1LZ8rOxNC7QZm9D+4rKS8Uw=; b=aqrapDZj2i8XcPnNnXJqbXhC4p
+	vChEGAbhjFE7Qq0dCTVnFAc7FTsKUd0vtug3heucrihUPiQfyZNr+rp/W+E5I9bTsuZVjsYjx8L1Y
+	h1Ng4/Na2vZaU27hdR4dmGuYzVJee2OvBzTpCMhuhZJ0rY/8BMOf3PH/eTZzn9u3f2AkAiRymnmRb
+	GjGJTZmnAElfVX6A9LHvTqSztHJati3ksjw6+t50pPhqh28pNFwMr1+kbwxtSDnDaahASd+vBmLbt
+	xC/aibSlv3mcBC706cn7YXa0ZKeFhUGXC3Z7cYwUvX+GTAP1n65zlvgem8hMmCknY/RvjPQ8YS4XY
+	imj1wdWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkdiK-00000001alw-1E3y;
-	Fri, 17 Jul 2026 08:14:32 +0000
+	id 1wkdin-00000001asW-1iZx;
+	Fri, 17 Jul 2026 08:15:01 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkdiI-00000001alf-33Y2
+	id 1wkdim-00000001arZ-10mm
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 17 Jul 2026 08:14:30 +0000
+	Fri, 17 Jul 2026 08:15:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=9z91ILlxQtYqvnBQwnktbnN3/Hw+eSYMXdhvRXnuXjA=; b=o54Q2DztDWYRqKwcTKRBQw9dOb
-	NWj3a/v38ghYUUfGVCeHSyVb2iyT/nDIiNJUdbI47An1vrX28BrnTUqUcPaMVLHJoIKqMZW0K7ouu
-	VetVMxV1iY8kReEjxPO5veZc/bU9Aw4702R3YGNXMiX/AC96GpJeHdUEaqXuDLVhQXOQrwh/yYbxx
-	Z4uFmXDzUkmY1dKrlq8P27ESFJDVjGyC4VeueMCMepXTNtQE1yAnSTa+DI/HIffxWRpZX6JRJmLQU
-	GDMo3lBDi1euD/yNPV7G99/N1unbc7vSll2RJP6zUwjOXYgckyt9zdhAc76YvD9d9mU3A80oIyJbi
-	71AOvJ9g==;
-Received: from abb.hmeau.com ([180.181.231.80])
+	bh=aJAuqZuWQqzjYYp+EEQS1LZ8rOxNC7QZm9D+4rKS8Uw=; b=mXwTedHCTPBwG4wlGdV424mR7k
+	+wlVqaOVC7m1h0GUIbuYe13cwy338r7DoMNXp1MfOeAZSab6oZ9bm7Nn0udrJ5Runw7k2VFCntbg5
+	xouVvMXG3N4Edo7l/oq7mp8WHB4rGhpNCl2n22YkueV93hktfsqhJqh7UUoP1m+ISlgZnt5b3qBgm
+	LHYTkfwdpKBaVmTlRTIROjzOmVwpIAbDlCMQWISfWRe899ash5gLP4GeQWeB6A9tPrKMvvOl0/aol
+	4iWIzP8u875aU7UzYYEUXc+hCXof6rP0Z89XG6PJVxbq55MV4pJtdX4yw2H8vGQordt95/f39JoUF
+	988IS3+g==;
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wkdiE-0000000EeaK-1SRg
+	id 1wkdii-0000000EecD-2tbv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 08:14:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
-	from:content-type:reply-to; bh=9z91ILlxQtYqvnBQwnktbnN3/Hw+eSYMXdhvRXnuXjA=; 
-	b=Jo5JwX5ttm1a0aFE3FRT6/R0B+5PjG/lrzmg6hihJWuEVMo7fGAGK15Gf65LKg+C+4Eh/LtS655
-	tIfI7qhJztpt/2bRt2Qc7hTLYbsmVIFWNP3ufhsU5QDN8gF6XVBx2hg8+l3l8PDtkcFmTtd+0Xu44
-	MCHNAgwZSuwnRMOqEG5UjPkLAiMfEhw1aka87gXmuMRpc3WLqNte4qjIq6CVFrStBMy0FtdDU5KMl
-	p4kT0BMN7XI4NVBx/APLqsiqa5vGet6QryBPjj1S6i3ftuWcq8j2MkFoABzYj8MeeKVtRd37F7BUK
-	wgo1n0qMeD1IhybUCHvelRVwcwrFKF/f9FeQ==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.98.2 #2 (Debian))
-	id 1wkdhq-0000000EO72-1uu9;
-	Fri, 17 Jul 2026 16:14:03 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 17 Jul 2026 18:14:02 +1000
-Date: Fri, 17 Jul 2026 18:14:02 +1000
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Thorsten Blum <thorsten.blum@linux.dev>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/4] crypto: atmel-tdes - simplify fast path in
- crypt_start
-Message-ID: <alnkSoU0swZzyh-i@gondor.apana.org.au>
-References: <20260706150404.382209-5-thorsten.blum@linux.dev>
+	Fri, 17 Jul 2026 08:14:58 +0000
+Date: Fri, 17 Jul 2026 10:14:53 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1784276095;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=aJAuqZuWQqzjYYp+EEQS1LZ8rOxNC7QZm9D+4rKS8Uw=;
+	b=FGYbIEjWVYSKMk9LPgj3WdJkaZXfoQTZ3KsZ0JQwFf4EveNoIU7dGfwNfi5pZ2Gc1fbT6+
+	uvZ8pubJzbEoHzT24DjA/9gpZm/JimXqKF94fhuSn/5RBhYZF/Z30Ncxa1/m2jWB6aPHCu
+	zu5RXqS9qJbXilhl0vrJ6Y59n1fP6jiR4WDPad4jigx7GfoT94yYPptUcX3YkuJVFkHHxT
+	LpaUtotPtoSpBJlLO9CGAf0RqI07QlRdTxXWIi88DmySGwXKqYqwe6ZahWa/S3yQ8x3SWY
+	4QNa7HNN/uaHEgAk58o74rJWEEGTHpRQG+Rs3GoJiVJqSNCLSlLvXbZdDEeznw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1784276095;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=aJAuqZuWQqzjYYp+EEQS1LZ8rOxNC7QZm9D+4rKS8Uw=;
+	b=HUXqyjTzEg/UiDmkB4ctIsHB/e4PAgam+gL2OJUCKEPgyApAMtmlOxcA9CrposubCIt4+E
+	l8aBk+0yBp4xpNBA==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Mohamed Ayman <mohamedaymanworkspace@gmail.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@arm.com>,
+	James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	"moderated list:ARM/CORESIGHT FRAMEWORK AND DRIVERS" <coresight@lists.linaro.org>,
+	"moderated list:ARM/CORESIGHT FRAMEWORK AND DRIVERS" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	"open list:Real-time Linux (PREEMPT_RT):Keyword:PREEMPT_RT" <linux-rt-devel@lists.linux.dev>
+Subject: Re: [PATCH v3] coresight: Fix scheduling while atomic in
+ coresight_cpu_pm_notify()
+Message-ID: <20260717081453.pSDTUQQW@linutronix.de>
+References: <20260712210446.14290-1-mohamedaymanworkspace@gmail.com>
+ <20260716214155.2049564-1-mohamedaymanworkspace@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260706150404.382209-5-thorsten.blum@linux.dev>
+In-Reply-To: <20260716214155.2049564-1-mohamedaymanworkspace@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_091426_858752_13D0C2F8 
-X-CRM114-Status: UNSURE (   9.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260717_091457_124762_B2C24C98 
+X-CRM114-Status: GOOD (  13.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,18 +100,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 06, 2026 at 05:04:05PM +0200, Thorsten Blum wrote:
-> Fold all fast path conditions into a single boolean expression and drop
-> any redundant checks.
-> 
-> Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
-> ---
->  drivers/crypto/atmel-tdes.c | 24 +++++++++---------------
->  1 file changed, 9 insertions(+), 15 deletions(-)
+On 2026-07-17 00:41:54 [+0300], Mohamed Ayman wrote:
+> Dropping the last reference to a coresight_device can trigger a kernel
+> panic on PREEMPT_RT builds due to a "scheduling while atomic" violation.
 
-All applied.  Thanks.
--- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+It is not a panic, it is a warning. A panic is after panic() is invoked.
+[ Or a warning with /proc/sys/kernel/panic_on_warn=1 but in this case I
+wouldn't count this a panic but as warning followed by consequences of
+your own action ]
+
+> When the CPU enters an idle state, coresight_cpu_pm_notify() is invoked
+> with local interrupts disabled. It calls coresight_cpu_get_active_path(),
+> which currently uses coresight_get_percpu_source_ref() to get a kobject
+> reference, and then immediately drops it with coresight_put_percpu_source_ref().
+> 
+> If this put_device() call drops the very last reference (e.g., due to a
+> concurrent device unregistration), it synchronously triggers the release
+> cascade. On PREEMPT_RT, free_percpu() takes a sleeping rt-mutex.
+
+Again, spinlock_t which becomes a sleeping lock on PREEMPT_RT.
+
+> Furthermore, any parent device in the release chain might also acquire
+> sleeping locks, causing a system crash in the atomic PM context.
+> 
+> Fix this by eliminating the get/put dance entirely in the PM notifier path.
+> Since coresight_cpu_pm_notify() runs with IRQs disabled, it is safe to
+> read the per-cpu source pointer directly under the coresight_dev_lock,
+> check the mode, and return the path without unnecessarily manipulating the
+> kobject refcount.
+
+Right.
+
+Reviewed-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+
+> Suggested-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+> Signed-off-by: Mohamed Ayman <mohamedaymanworkspace@gmail.com>
+
+There is coresight_put_percpu_source_ref() with holds coresight_dev_lock
+during a put_cpu. I don't know why the lock is held, it is not obvious
+to me. But it will lead to a similar problem if the put actually invokes
+the release callback.
+
+Sebastian
 
