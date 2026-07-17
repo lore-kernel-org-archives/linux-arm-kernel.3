@@ -4,58 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C45A9C4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 12:35:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6748FC44520
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 12:35:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eQBV55pjnPQzDP+7XLl0sT2CKxbeF7SyKYEGPiZVinQ=; b=F1uDziyYBW/oSgALjZst0ByHw2
-	GKUjoFEZz6YU71ST2wn4/rwMXIOPGe5rUECVmCWCFFJErsO/ZXEtbrsyZ6+YSAfteDyVF0vFOQ2z/
-	FaLwH06kAQX5qCveobAyrMW/RL7exfKkjfC72/w2VBS1r2VmsBSsE6kYF8370KIkzbT+0ahESzUBC
-	aIakPHD20xWT4kMN6mBTqxbjktc7hAXLuLgTpGZvOZe6roan1HsfZX0xJ57M9c/6rbRVR66VLHdEN
-	/epNDtKdC6xCaqu5lB5NIcDzBOZrTfJ2iJGS6roXNWxVdTSgcubS75pQvUbilyALEBNmPjry+iZ7R
-	fukhJq/g==;
+	bh=vW8pWm8rsdK9m5Q0HotqdfGr5xc15Rx6xUUgGdCCdJQ=; b=zV6wP1UuFG/s/rTsJsPWqZAhs2
+	0KX0+01G/7frUiYDwvVc/9nAAVJ+U8gnhtcYvGxO2PyPn98WjgwqvjwCiFsL2C9PmY/kCWU7l8KFi
+	w+ii3gxXEqFVt94mS1evi/YnmTQZBPtF703/pTDHGwmtTdQYfe+qKfF7nTAT3VvqA4hvQrfik++O+
+	q2tXMahQwgg+extJMAiiOcXeEPuq9gBz3/08zWnb2hKo9xPqKGg0Zqom96W1mcV++Fj6A4OKTCxSv
+	7HvRH6iFRdwKBCoz3UU2Ya9wpCVVEu+Ng/cryw98EWDHwqDEnA1rt6BSZG1lEB7Un7tEdoO2VD6wT
+	PWuSEcIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkhn3-00000002IdI-0B8b;
-	Fri, 17 Jul 2026 12:35:41 +0000
+	id 1wkhnE-00000002Iey-0kbU;
+	Fri, 17 Jul 2026 12:35:52 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkhn2-00000002IdB-2Edk
+	id 1wkhnD-00000002Ier-33r8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 12:35:40 +0000
+	Fri, 17 Jul 2026 12:35:51 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E2816418EB;
-	Fri, 17 Jul 2026 12:35:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF6C91F000E9;
-	Fri, 17 Jul 2026 12:35:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7E7CA40ABD;
+	Fri, 17 Jul 2026 12:35:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 995F31F00A3F;
+	Fri, 17 Jul 2026 12:35:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784291739;
-	bh=eQBV55pjnPQzDP+7XLl0sT2CKxbeF7SyKYEGPiZVinQ=;
+	s=k20260515; t=1784291751;
+	bh=vW8pWm8rsdK9m5Q0HotqdfGr5xc15Rx6xUUgGdCCdJQ=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=NzxcOn7E2r9Xy1DDG2MutRPBR1JRlm+9Wd6wqR0bviRX5uhKgenCqXRxOyllvSOBH
-	 4D4hbAJqEGGRY2n/W9gC6YKLzNGswuU12ocXS4xynXmjdGikdMpfduSYHjS62H76gA
-	 OAGOfqWEPY3HmPzpYKVrlI3iJZEXtPDeOMCZZ8QByoXzrC3tyEUx9NVXoyINGNMZO/
-	 0U1G8ZxreuM5HwiUDuONVFnnBrK/UaL4qd/WTS8LmfcNw9YPaDXP3xJwXmhmaFq6v9
-	 jWT3T/HKGIuJK3RLFXRp/W+6h0HG5Wkasxi9JRmrzfFLIqh+d6qC9DW/rEFXwJS/rc
-	 rcrj+ddlt//bg==
+	b=GCJAeN3usxOsQR1vVrty384kmMqGCBnPsuNew07uH5FHKnERjy4JwrlUR2XVV4ZO5
+	 QbtidVqVs0OVOgQEz0hUZdC0A/mc/1Do6N+jDt+nzq5k/LarE3d7SaBp/k6XTxNEix
+	 W1jdXKT51c1n1BY1qjjhk250vIRPi4zg3iQBNY5hNVXeemWigzwAQPi7zB52OyB4Va
+	 y6Laq7Vddnmb9FvLOtVuIKkPT/uNjl+L0WKqRfjGjeMPQCxOTr6MyCVGnBIiG7KMYx
+	 iUZZ94hpnRpNUksVVTJpMjaqY7wGfjf94l3NMDoUzj9SMPOlgH0jGKhqcoAJCxxzMa
+	 /sHZ4FOzm99CQ==
 From: Vinod Koul <vkoul@kernel.org>
-To: peter.chen@cixtech.com, fugang.duan@cixtech.com, robh@kernel.org, 
- krzk+dt@kernel.org, conor+dt@kernel.org, ychuang3@nuvoton.com, 
- schung@nuvoton.com, robin.murphy@arm.com, Frank.Li@kernel.org, 
- Jun Guo <jun.guo@cixtech.com>
-Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com, 
- linux-arm-kernel@lists.infradead.org
-In-Reply-To: <20260521072924.3000282-1-jun.guo@cixtech.com>
-References: <20260521072924.3000282-1-jun.guo@cixtech.com>
-Subject: Re: (subset) [PATCH v7 0/2] dmaengine: arm-dma350: handle shared
- channel IRQ wiring on sky1
-Message-Id: <178429173437.1176696.17881383591434929640.b4-ty@kernel.org>
-Date: Fri, 17 Jul 2026 18:05:34 +0530
+To: Vignesh Raghavendra <vigneshr@ti.com>, Frank Li <Frank.Li@kernel.org>, 
+ Michal Simek <michal.simek@amd.com>, 
+ Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+Cc: linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org, 
+ dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+In-Reply-To: <b0a22171f3ed68e156a2fa84383e99c23ec6b2ff.1784037977.git.christophe.jaillet@wanadoo.fr>
+References: <b0a22171f3ed68e156a2fa84383e99c23ec6b2ff.1784037977.git.christophe.jaillet@wanadoo.fr>
+Subject: Re: [PATCH] dmaengine: Constify struct dma_descriptor_metadata_ops
+Message-Id: <178429174814.1176696.13776361509358729486.b4-ty@kernel.org>
+Date: Fri, 17 Jul 2026 18:05:48 +0530
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
@@ -75,22 +72,25 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 21 May 2026 15:29:22 +0800, Jun Guo wrote:
-> This series updates DMA-350 support for the SKY1 integration where all
-> DMA
-> channel interrupt outputs are wired to the same GIC SPI.
+On Tue, 14 Jul 2026 16:06:33 +0200, Christophe JAILLET wrote:
+> 'struct dma_descriptor_metadata_ops' in not modified in these drivers.
 > 
-> Patch 1 enables DMANSECCTRL.INTREN_ANYCHINTR in the driver so
-> per-channel
-> interrupt status is propagated even when channels share one parent IRQ
-> line.
+> Constifying these structures moves some data to a read-only section, so
+> increases overall security, especially when the structure holds some
+> function pointers.
+> 
+> On a x86_64, with allmodconfig, as an example:
+> Before:
+> ======
+>    text	   data	    bss	    dec	    hex	filename
+>  120635	  21584	     64	 142283	  22bcb	drivers/dma/xilinx/xilinx_dma.o
 > 
 > [...]
 
 Applied, thanks!
 
-[1/2] dmaengine: arm-dma350: enable ANYCH interrupt for shared IRQ wiring
-      commit: 643c1e1ae3eb3cd9be31e83c2240e41849a6cb56
+[1/1] dmaengine: Constify struct dma_descriptor_metadata_ops
+      commit: 338c853b7c3b422fefda195b9b8010e40611c96f
 
 Best regards,
 -- 
