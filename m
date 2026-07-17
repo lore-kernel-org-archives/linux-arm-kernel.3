@@ -4,87 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 828B8C4451B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 18:05:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BB93C4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 18:05:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ss9PM/006K6SV5h+g0Mm+5y5zthxbL2BqyOfIndeCeE=; b=Wy0sToCIRt3l0Hlz1v3FDsnUvW
-	qjqBvExwQbq4mLKMQ9K3lbBCXcj67UAUQ2nvG+aIxQMTZNuUFY8HiTaillMPvj2GvJ//HikB0tQ1d
-	gwAoyL24wFMVCk8ryJHjQoDxzr4DiZQByQo2vVxE/FuWTv/jqMdaa7KWm6B0kCt1310T5YAcuvsYd
-	7RMapt9Rlp5VsbloFtEwQTlIN9TEY1IG8kO6GG8d9lhVs/ChXEY8OGXUKkYvFbUDblryOhcvIa5UD
-	OcIafiDPIl1cJ9BqLeIKMA8QZ/gwHKm4bXQ92ruSeUHVAIWVASjlya6ZbEyM+/5OqsixQEoRYFQSg
-	yCabJaIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5SA9SIAduLhuj/OUOELdaIO4jj3xYtwQM8Hc0Zc99Ss=; b=aGr4vQRy2IaGSrS+QueXQQG4y1
+	n9b/g2oXAGDaS9SAuo5caPmpt1hqVMcma6KHS+QrphoiehynnJryRqyzfeBbaR8HlD5gMvPTvYm1q
+	sm7uieRPg6wLO2fxhqR/KwTot6yLL1L9etHrnImJW+K466Tl4zbr3RLTuxya7yW4P8Ana+nkYZDjk
+	QmjCz2gEzUjCvALWdwlAqhl6SbsxO9+P03I0kEYcevuI5moYVS4IaTLvV3+42dnxXAaJsYhmJRoQ5
+	WKvRX1563HeexBSSIzfWg8+6HT3Jgrog0qSx1jSCBkbh7Eh9H9SmDh4jkYbdGIDgBlsY4dMaLmoPf
+	0rjfB8XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkmwA-00000002wZB-43zF;
-	Fri, 17 Jul 2026 18:05:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkmw9-00000002wYR-1CXD
+	id 1wkmwF-00000002wc4-0Kh6;
+	Fri, 17 Jul 2026 18:05:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkmwA-00000002wYo-1bZI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 18:05:25 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BC0D641953;
-	Fri, 17 Jul 2026 18:05:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A20961F000E9;
-	Fri, 17 Jul 2026 18:05:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784311524;
-	bh=Ss9PM/006K6SV5h+g0Mm+5y5zthxbL2BqyOfIndeCeE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=TuVQu0MdtCse0JkcTEXH2Lq3N8GnmxJYSHQ6CoRTHDltevRiIULT5pnqPM4+8+BAQ
-	 /JYVDAwN6m05+4yZnuZwY+K+Uvh7axJ4AmMsAJCMR7dGUeQuyQp75bJT0fW4GwPxsr
-	 r2m0krA+7xFAwrpSKW3D1wGN0ak4798EK1c2pnF1nE1AxAqM5JU7p2Y+uwKAtlzr/3
-	 0SP8yoL0OntLzCWzdi5O4R036tEdejgeaZDyzHmy7KzUiLH+vr0e7bLicKBgrzgUFT
-	 QWcdjpVZw+U9E+w0lbFwqX/3IGUvZJvLJDX+7Ctr3NP0ikMrI2SChaP0sOzNHVVMfQ
-	 j3ClE0BUZz12A==
-From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-To: iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-coco@lists.linux.dev
-Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	x86@kernel.org,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Michael Kelley <mhklinux@outlook.com>
-Subject: [PATCH v8 02/23] dma-pool: fix page leak in atomic_pool_expand() cleanup
-Date: Fri, 17 Jul 2026 23:34:20 +0530
-Message-ID: <20260717180442.110954-3-aneesh.kumar@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260717180442.110954-1-aneesh.kumar@kernel.org>
-References: <20260717180442.110954-1-aneesh.kumar@kernel.org>
+	Fri, 17 Jul 2026 18:05:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1CD8B1476;
+	Fri, 17 Jul 2026 11:05:20 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 72A7A3F905;
+	Fri, 17 Jul 2026 11:05:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784311524; bh=3cwl4ifFjBgo6FPuzW0/twAl0OunmfLripziCFm2lCk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Yup8Qa8yYUlKCLIrDPdJmdDtINkGZzVaaJS6/HVRI7O7r2dgfBKP60YMTux8+f8SC
+	 J3corhTbJb2XKXv4GBTf2L+wmrqL8TtfaEA6OVC77tgVzhvcSsvE7W6LBu07PRE3nC
+	 dtNr6m9guZbdn+MaeQleQkL4BR4O4pjtgBoyZsg0=
+Date: Fri, 17 Jul 2026 19:05:14 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: =?utf-8?B?QW5kcsOp?= Almeida <andrealmeid@igalia.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Carlos O'Donell <carlos@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Florian Weimer <fweimer@redhat.com>,
+	Rich Felker <dalias@aerifal.cx>,
+	Torvald Riegel <triegel@redhat.com>,
+	Darren Hart <dvhart@infradead.org>, Ingo Molnar <mingo@kernel.org>,
+	Davidlohr Bueso <dave@stgolabs.net>, Arnd Bergmann <arnd@arndb.de>,
+	Uros Bizjak <ubizjak@gmail.com>,
+	Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org, kernel-dev@igalia.com
+Subject: Re: [PATCH v5 1/4] arm64: vdso: Prepare for robust futex unlock
+ support
+Message-ID: <alpu2j7gcrgd70Xk@J2N7QTR9R3>
+References: <20260717-tonyk-robust_arm-v5-0-ffd1ad318d17@igalia.com>
+ <20260717-tonyk-robust_arm-v5-1-ffd1ad318d17@igalia.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260717-tonyk-robust_arm-v5-1-ffd1ad318d17@igalia.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260717_110526_526623_6780976B 
+X-CRM114-Status: GOOD (  36.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,67 +85,190 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-atomic_pool_expand() frees the allocated pages from the remove_mapping
-error path only when CONFIG_DMA_DIRECT_REMAP is enabled.
+Hi Andre,
+On Fri, Jul 17, 2026 at 11:41:40AM -0300, André Almeida wrote:
+> There will be a VDSO function to unlock non-contended robust futexes in
+> user space. The unlock sequence is racy vs. clearing the list_pending_op
+> pointer in the task's robust list head. To plug this race the kernel needs
+> to know the critical section window so it can clear the pointer when the
+> task is interrupted within that race window. The window is determined by
+> labels in the inline assembly.
+> 
+> Signed-off-by: André Almeida <andrealmeid@igalia.com>
 
-When CONFIG_DMA_DIRECT_REMAP is disabled, failures after page allocation,
-such as gen_pool_add_virt(), jump to remove_mapping and return without
-freeing the pages.
+I think this patch is confusing, because half of the additions are
+tightly coupled with the AArch64-specific changes in the second patch.
 
-Move __free_pages(page, order) out of the CONFIG_DMA_DIRECT_REMAP block so
-that cleanup paths always release the allocation.
+I think it would be better to have preparatory patches which:
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-Tested-by: Michael Kelley <mhklinux@outlook.com>
-Tested-by: Mostafa Saleh <smostafa@google.com>
-Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
----
- kernel/dma/pool.c | 10 +++++++---
- 1 file changed, 7 insertions(+), 3 deletions(-)
+(1) Split vdso_mremap() into vdso_mremap(), and aarch32_mremap(). No
+    functional change, no other additions. Possibly have a common
+    __vdso_mremap() helper.
 
-diff --git a/kernel/dma/pool.c b/kernel/dma/pool.c
-index 2b2fbb709242..b0303efbc153 100644
---- a/kernel/dma/pool.c
-+++ b/kernel/dma/pool.c
-@@ -81,6 +81,7 @@ static int atomic_pool_expand(struct gen_pool *pool, size_t pool_size,
- {
- 	unsigned int order;
- 	struct page *page = NULL;
-+	bool leak_pages = false;
- 	void *addr;
- 	int ret = -ENOMEM;
- 
-@@ -115,8 +116,10 @@ static int atomic_pool_expand(struct gen_pool *pool, size_t pool_size,
- 	 */
- 	ret = set_memory_decrypted((unsigned long)page_to_virt(page),
- 				   1 << order);
--	if (ret)
-+	if (ret) {
-+		leak_pages = true;
- 		goto remove_mapping;
-+	}
- 	ret = gen_pool_add_virt(pool, (unsigned long)addr, page_to_phys(page),
- 				pool_size, NUMA_NO_NODE);
- 	if (ret)
-@@ -130,14 +133,15 @@ static int atomic_pool_expand(struct gen_pool *pool, size_t pool_size,
- 				   1 << order);
- 	if (WARN_ON_ONCE(ret)) {
- 		/* Decrypt succeeded but encrypt failed, purposely leak */
--		goto out;
-+		leak_pages = true;
- 	}
- remove_mapping:
- #ifdef CONFIG_DMA_DIRECT_REMAP
- 	dma_common_free_remap(addr, pool_size);
- free_page:
--	__free_pages(page, order);
- #endif
-+	if (!leak_pages)
-+		__free_pages(page, order);
- out:
- 	return ret;
- }
--- 
-2.43.0
+(2) If necessary, add only the common helper function(s) here, no native
+    symbols, etc. anything specific to the native vDSO should be in the
+    next patch, which adds the assembly etc.
 
+See below for more on that.
+
+> ---
+> v4:
+> - Guard symbols from vdso.lds.S with ifdef
+> - drop update_ips() from sigpage remap function
+> 
+> v3:
+>  - Fix adding vdso base addr twice
+>  - Call vdso_futex_robust_unlock_update_ips() on remap as well
+> v2:
+>  - Fixed linker not finding VDSO symbols
+> ---
+>  arch/arm64/kernel/vdso.c          | 35 ++++++++++++++++++++++++++++++++++-
+>  arch/arm64/kernel/vdso/vdso.lds.S |  9 +++++++++
+>  2 files changed, 43 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kernel/vdso.c b/arch/arm64/kernel/vdso.c
+> index 592dd8668de4..ff43b74e514e 100644
+> --- a/arch/arm64/kernel/vdso.c
+> +++ b/arch/arm64/kernel/vdso.c
+> @@ -11,6 +11,7 @@
+>  #include <linux/clocksource.h>
+>  #include <linux/elf.h>
+>  #include <linux/err.h>
+> +#include <linux/futex.h>
+>  #include <linux/errno.h>
+>  #include <linux/gfp.h>
+>  #include <linux/kernel.h>
+> @@ -57,11 +58,41 @@ static struct vdso_abi_info vdso_info[] __ro_after_init = {
+>  #endif /* CONFIG_COMPAT_VDSO */
+>  };
+>  
+> +#ifdef CONFIG_FUTEX_ROBUST_UNLOCK
+> +static void vdso_futex_robust_unlock_update_ips(enum vdso_abi abi, struct mm_struct *mm)
+> +{
+> +	unsigned long vdso = (unsigned long) mm->context.vdso;
+> +	struct futex_mm_data *fd = &mm->futex;
+> +	uintptr_t success, end;
+> +
+> +	if (abi == VDSO_ABI_AA64) {
+> +		success = (uintptr_t) VDSO_SYMBOL(vdso, futex_list64_try_unlock_cs_start);
+> +		end = (uintptr_t) VDSO_SYMBOL(vdso, futex_list64_try_unlock_cs_end);
+
+Is this supposed to be the success label, or the start label?
+
+I see x86 uses 'start', so I assume s/success/start/ here.
+
+> +
+> +		futex_set_vdso_cs_range(fd, 0, success, end, false);
+> +	}
+> +}
+
+I think it would be better to have a structure of functions along the
+lines of a common helper:
+
+| static inline void __vdso_futex_update_ips(struct mm_struct *mm, bool is_32bit,
+| 					   void *startp,
+| 					   void *endp)
+| {
+| 	unsigned long start = (unsigned long)startp;
+| 	unsigned long end = (unsigned long)endp;
+| 
+| 	struct futex_mm_data *fd = &mm->futex;
+| 	futex_set_vdso_cs_range(fd, 0, start, end, is_32bit);
+| }
+
+... and then subsequent patches can add the native/compat cases as
+callers of that common helper:
+
+| static inline void vdso_futex_update_ips(struct mm_struct *mm)
+| {
+| 	unsigned long vdso = (unsigned long)mm->context.vdso;
+| 	__vdso_futex_update_ips(mm, false,
+| 				VDSO_SYMBOL(vdso, futex_list64_try_unlock_cs_start),
+| 				VDSO_SYMBOL(vdso, futex_list64_try_unlock_cs_end));
+| 
+| }
+| 
+| static inline void aarch32_vdso_futex_update_ips(struct mm_struct *mm)
+| {
+| 	unsigned long vdso = (unsigned long)mm->context.vdso;
+| 	__vdso_futex_update_ips(mm, true,
+| 				VDSO_SYMBOL(vdso, futex_list32_try_unlock_cs_start),
+| 				VDSO_SYMBOL(vdso, futex_list32_try_unlock_cs_end));
+| 
+| }
+
+> +#else
+> +static inline void vdso_futex_robust_unlock_update_ips(enum vdso_abi abi, struct mm_struct *mm) { }
+> +#endif /* CONFIG_FUTEX_ROBUST_UNLOCK */
+> +
+>  static int vdso_mremap(const struct vm_special_mapping *sm,
+>  		struct vm_area_struct *new_vma)
+>  {
+>  	current->mm->context.vdso = (void *)new_vma->vm_start;
+>  
+> +	vdso_futex_robust_unlock_update_ips(VDSO_ABI_AA64, current->mm);
+> +
+> +	return 0;
+> +}
+> +
+> +static int vdso32_mremap(const struct vm_special_mapping *sm,
+> +		struct vm_area_struct *new_vma)
+> +{
+> +	current->mm->context.vdso = (void *)new_vma->vm_start;
+> +
+> +	vdso_futex_robust_unlock_update_ips(VDSO_ABI_AA32, current->mm);
+> +
+>  	return 0;
+>  }
+
+As above, I think we should introduce this as a separate patch, and for
+consistency with other parts of this file, the prefix should be
+'aarch32_' rather than 'vdso32_'
+
+>  
+> @@ -134,6 +165,8 @@ static int __setup_additional_pages(enum vdso_abi abi,
+>  	if (IS_ERR(ret))
+>  		goto up_fail;
+>  
+> +	vdso_futex_robust_unlock_update_ips(abi, mm);
+> +
+
+As above, I think this shouldn't be called here.
+
+The call for the native vdso should be added to
+arch_setup_additional_pages() along with the other additions for the
+native vdso. The call for the compat vdso should be added to
+aarch32_setup_additional_pages().
+
+[...]  
+
+> diff --git a/arch/arm64/kernel/vdso/vdso.lds.S b/arch/arm64/kernel/vdso/vdso.lds.S
+> index 52314be29191..225f59bb81d1 100644
+> --- a/arch/arm64/kernel/vdso/vdso.lds.S
+> +++ b/arch/arm64/kernel/vdso/vdso.lds.S
+> @@ -104,6 +104,9 @@ VERSION
+>  		__kernel_clock_gettime;
+>  		__kernel_clock_getres;
+>  		__kernel_getrandom;
+> +#ifdef CONFIG_FUTEX_ROBUST_UNLOCK
+> +		__vdso_futex_robust_list64_try_unlock;
+> +#endif
+>  	local: *;
+>  	};
+>  }
+> @@ -112,3 +115,9 @@ VERSION
+>   * Make the sigreturn code visible to the kernel.
+>   */
+>  VDSO_sigtramp		= __kernel_rt_sigreturn;
+> +
+> +#ifdef CONFIG_FUTEX_ROBUST_UNLOCK
+> +VDSO_futex_list64_try_unlock_cs_start = __futex_list64_try_unlock_cs_start;
+> +VDSO_futex_list64_try_unlock_cs_success = __futex_list64_try_unlock_cs_success;
+> +VDSO_futex_list64_try_unlock_cs_end = __futex_list64_try_unlock_cs_end;
+> +#endif
+
+These additions should all be in the next patch which actually adds the
+native implementation.
+
+Mark.
 
