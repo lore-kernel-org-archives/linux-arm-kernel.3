@@ -4,75 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FCCFC44507
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 07:54:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E247EC44507
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 07:59:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MigHTOds7D7N1IpWdhIGfmpNkDbNAMOil7JP4NziY8o=; b=fvKLDzG0XdHQ19VKYn2aZQHLrM
-	L9ioyudATojG6VcQ2VZgjPTr4XqbwYsEeHzmyeOb/R26Nws/UXZjYiJHVJpBRb2SPlhgPDDrv5E2w
-	lM3p+1hGNuFG8vg+RT6yrQr7/ib1SF1RqmBE17aGh4T6m87lTZNWjpntaz8E3z1/c/MQKywQ0pLUW
-	GyyhwBpddeTDKZzLpFATvCK7yURaomc+eTG8k20AHel2LhzU6PcZrBevPSo7JIqcmrw0Kc4Bokne6
-	9PXofQqzB3MA7GRMaWzw1lplj+QPedeTg/l5E8qpxNODa5881WrfD6ESkiSBzqv+cZ1S6Yibq1nnW
-	KNF+WHsg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GMflJCfpssRM4YJJC+Tlv3Nh5omjZh8nOynqqpt+YI4=; b=h36E/B1bkwXytgfOeVsUQZHwrv
+	/tLnC39da/TIR85Y33Acfv+vY2WtMxlIq7D+kj4wyv5W/6QgBs++mGp0Fffp5Lgg1zAeSG1/Zjnkx
+	f89nowxKNq49JKwT7XV4tZ8+ZzQcFwMkZl1zkffARsmhLvVsc7I8fjop43Txqu5NyiU5RsMN7AGkT
+	062ST2g/onVfQPy0D850RROk2Yx4QJNgtu3ZabNa3NMSXG1Xl5qo7nIUF05s1sUnkNtnmeinz2k6D
+	7X3+eQbWyp6d/kBr3ZgTkCOV3iFcBfIqTxck3Fx1XaW+feOyDozaTP/Dqk9J8ECHHLPKeapXrpVBO
+	7GCj8Kjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkdP9-00000001WAw-03tj;
-	Fri, 17 Jul 2026 07:54:43 +0000
-Received: from mout.web.de ([212.227.17.11])
+	id 1wkdU0-00000001X2Z-05md;
+	Fri, 17 Jul 2026 07:59:44 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkdP6-00000001WAH-18za
+	id 1wkdTw-00000001Wzt-14pn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 07:54:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1784274862; x=1784879662; i=smoch@web.de;
-	bh=MigHTOds7D7N1IpWdhIGfmpNkDbNAMOil7JP4NziY8o=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=nQF9XBBrciKoTqgtiPeMp8GbC+zF+psJLIeNFPvmDc7OfJq9UbFluCSo+qtYzXXh
-	 Qq5xtX2VaiWXLZZg/u1TXvGghk3xFNU64HBbJgZ6Tow3xbgcgrww4Af+iVijdbtZm
-	 AFLcwTSdnvKrtJSrSGxP2m9KVZCHNQKQlFHhhOmG5TFmPYMidvCxBjEx4I3JlWqNV
-	 l6+9UnRK1UhO0HM1hWzRsLH79TnZJt6i80u2whmNgGNRUct5rRcvSdu0LW+IFVcpo
-	 YACdqSFeo8FsJ6o2K+ztLhNk2rjibeLOnhTRL2uw2wQrNyfydgVzLEF/x/frf9g4S
-	 9qb+Jjku34tJjncHWQ==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb106
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1MP3CA-1wNRBJ3b3c-00WalI; Fri, 17
- Jul 2026 09:54:21 +0200
-Message-ID: <12e68e09-d123-467a-8058-2ff02ae24880@web.de>
-Date: Fri, 17 Jul 2026 09:54:20 +0200
+	Fri, 17 Jul 2026 07:59:42 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-49546c690ffso6944755e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 00:59:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ahdrone.com; s=google; t=1784275177; x=1784879977; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=GMflJCfpssRM4YJJC+Tlv3Nh5omjZh8nOynqqpt+YI4=;
+        b=fhGUWiHvOjr5bbQoaKxbZJG4ZfKPxO/GKKLfTy3uQlVL0ZRdu0GSvD5dGhbd+Tzu1n
+         AuYs6LFy7soJQGUZh1VtbGFUm9C6HhW2yw5prpWArGmn7cLq4RNbDzjZ4sSLW0Ev+K4x
+         fjO1orHahTBQhdl2KdIniWTnrR4DXDVP57PIb7PkOWoxXbXHjRPUNrmPnkjRaYmbIStW
+         dJz4Xj8d2kJ10N2fJpyQoMfeicEPgSfzRRgiwNGalSfLtGnqGZomAAuLM+iYNazvuola
+         96CmnzkZX7bNpAIHWs0tHSUSUAtrzo9s2dnuEIpi7zwQoDjcNLmPLoXNBJYFwzmDxu54
+         0OHw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784275177; x=1784879977;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=GMflJCfpssRM4YJJC+Tlv3Nh5omjZh8nOynqqpt+YI4=;
+        b=SLzX6kAJmby9qEta5rgXJMXu2UwbPekTe7mrPxOs22eLN5UcW0gGWtwGG/m14MeXSQ
+         s96knX9VQR98fMBhfQoj4cSe+0gAm1EMuwoEZo8m4ixVtMTeDrZRlnFIVy9PmFoYtkOr
+         uzbxgRs5kef6bXCzHVwYGqiQmTRK9UOsOVvNUcU1iyd1GIw3hMFdYCEerV7idj1VWyyX
+         iLiQ8uZGXBGav63c7wyiE0irxPflhfJO8ClY9ywqoqyT05/b7wjV6uRom1nJgeSm2k1W
+         FcQ21sB3gOO/gITqfX7KKRJX00oTxO+FLFPY7/fwq2O1VOM2aj0acM3zg4XZcN5tfQQI
+         5moA==
+X-Forwarded-Encrypted: i=1; AHgh+Rp18ir3rpPsgmwaGhL14ZNsq3rEQIzmjfl2+tm/lz8xiaVtWaEzrhHKG8bs0ZfaCkJFzESEz/47sloRgPKdcqWK@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRRFSHr/zrxuJuwUZUg1s5iDUbMh6rYo884MtV3kyk8PGDrl6R
+	I2OQFE3GF8AXdyWhbgJYdZnGx6SUGu/eyp8l9E6j+42UNY7Qqp9B5nYYpkgFXnjsCg==
+X-Gm-Gg: AfdE7ckRNFdW60wvIxKoI0aOnSPbxKz/cWuJO8yNSv5NCOUwjQ3+FS2kB4PVefLqn8k
+	xl0sKokA3tp/wehgc3LiyLN5V65MWH4ACE2xvgWWdXKdcgOJDXRGfAlHSrso5FrVb2bc8T1g9Nz
+	EXJ3NHzMpDrgC75dii+5R5KoNxvXwaf3+1H0rySQSnFiyUxJe21G2iWbaFcq8zSVaxUSdgg6BEp
+	2OZCHBC6F4OL54V5SuV6kynrdMOzfMlLhRYGVzlPyBGKezPsBHKQxHR6CkvM3HlZ2uTKg690Re+
+	aoWbWTLMO8VFLin+GvbRJcKob8xzOXm01ZQBD1ITIG/ZxHNvXPJ8WgfNBJQ9tPUU7+Kv2G3vGa8
+	mcXnTy3FqP4Xi003V7rU1D6YSO9+mLDM6/JWHKo2DR6LMclzvWYuUj55HIyV0JMC2vjzvgxIonD
+	hMfG6nOls1g9k2P76Shb5/xenb1g==
+X-Received: by 2002:a05:600c:c04b:20b0:493:d078:796 with SMTP id 5b1f17b1804b1-4954a3f397fmr12203065e9.17.1784275177348;
+        Fri, 17 Jul 2026 00:59:37 -0700 (PDT)
+Received: from rikus ([2a01:e0a:edb:6330:cc2f:bd70:58a:fcfb])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49549a3e2a9sm31709045e9.4.2026.07.17.00.59.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 17 Jul 2026 00:59:37 -0700 (PDT)
+From: Hugo VALTIER <hugo@ahdrone.com>
+To: Linus Walleij <linusw@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: Hugo VALTIER <hugo@ahdrone.com>,
+	linux-gpio@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Dmitry Yashin <dmt.yashin@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Jonas Karlman <jonas@kwiboo.se>
+Subject: [PATCH 0/3] pinctrl: rockchip: add support for RK3308B SoC
+Date: Fri, 17 Jul 2026 09:59:13 +0200
+Message-ID: <20260717075918.1869879-1-hugo@ahdrone.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] PCI: imx6: Keep Root Port MSI capability also for
- i.MX6Q
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Bjorn Helgaas <bhelgaas@google.com>, stable@vger.kernel.org,
- Richard Zhu <hongxing.zhu@nxp.com>, Frank Li <Frank.Li@nxp.com>,
- Manivannan Sadhasivam <mani@kernel.org>, Lucas Stach
- <l.stach@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- imx@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20260716222704.GA240248@bhelgaas>
-Content-Language: en-US, de-DE
-From: Soeren Moch <smoch@web.de>
-In-Reply-To: <20260716222704.GA240248@bhelgaas>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:gcQA79xf+XIhmEg2GzU17lTN4hc4sofqw9NvP3Mb79oOkV+yWmK
- wkDnUfa+QzADfkPP0JenW5lHGUgnuFr/s/fZ13BfbI47NZWBpPC3nm7fjt3ntU7IKvlUrUe
- Zs8u3qJajewKY5Z1BM+3Qke/JB7+5x0+UaAOeDwwUcOQbkdOs7x/+8fzoiOpX0whPuJIEmn
- JReFgVbJdZgNelL2qS3QQ==
-UI-OutboundReport: notjunk:1;M01:P0:VvT2jkzoaBE=;RscoxlYH/5jS9LelJ2xLHV/+nrL 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 DaXDNfXFIsJU
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_005440_707791_4F303FDA 
-X-CRM114-Status: GOOD (  24.83  )
+X-CRM114-CacheID: sfid-20260717_005940_615035_59C0E2E7 
+X-CRM114-Status: UNSURE (   9.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,119 +103,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The RK3308B is a silicon revision of the RK3308 with a different iomux
+register layout: several pins (GPIO2_A2, GPIO2_A3, GPIO2_C0, GPIO3_B2,
+GPIO3_B3) gained 3-bit mux fields in new GRF registers that override
+the original 2-bit fields. I believe the bootloader enables the new
+registers via the sel_src_ctrl bits, after which the kernel's writes
+to the old iomux registers are silently ignored. Whatever the exact
+mechanism, on RK3308B boards (e.g. current Radxa ROCK Pi S revisions)
+SPI1, I2C3 and other peripherals on the affected pins are
+non-functional without this series.
+
+This is a continuation of Dmitry Yashin's series from 2024 [1], which
+was never resubmitted after review and got dropped. Following the
+reviewers' feedback on that series:
+
+- the separate "rockchip,rk3308b-pinctrl" DT compatible is gone;
+  the variant is detected at runtime from the GRF chip_id register,
+  as suggested by Luca Ceresoli and Heiko Stuebner and prototyped by
+  Jonas Karlman [2], so the same DT works on both variants (boards
+  ship with either chip)
+- the mux_recalced/mux_route tables are constified (patch 1)
+
+Patch 2 is a small refactor so the SoC-specific init can swap the mux
+tables before the per-bank masks are computed.
+
+Tested on ROCK Pi S boards with RK3308B silicon, where this fixes
+previously dead SPI1. I don't have original-RK3308 hardware, so that
+path is compile-tested only; the tables used for RK3308 are unchanged.
+
+[1] https://lore.kernel.org/all/20240515121634.23945-1-dmt.yashin@gmail.com/
+[2] https://lore.kernel.org/all/20240604141020.21725-1-dmt.yashin@gmail.com/
+
+Hugo VALTIER (3):
+  pinctrl: rockchip: constify mux recalced and route data arrays
+  pinctrl: rockchip: extract iomux_recalced_routes_init()
+  pinctrl: rockchip: add support for RK3308B SoC
+
+ drivers/pinctrl/pinctrl-rockchip.c | 266 ++++++++++++++++++++++++++---
+ drivers/pinctrl/pinctrl-rockchip.h |   5 +-
+ 2 files changed, 250 insertions(+), 21 deletions(-)
 
 
-On 17.07.26 00:27, Bjorn Helgaas wrote:
-> On Thu, Jul 16, 2026 at 11:40:54PM +0200, Soeren Moch wrote:
->> On the NXP i.MX6Q chipset MSIs from the endpoints won't be received by
->> the iMSI-RX MSI controller if the Root Port MSI capability is disabled.
->>
->> Even though the Root Port MSIs won't be received by the iMSI-RX control=
-ler
->> due to design, this chipset has some weird hardware bug that prevents
->> the endpoint MSIs from reaching when the Root Port MSI capability is
->> disabled.
->>
->> Hence, always keep the Root Port MSI capability for this chipset.
->>
->> Note that by keeping Root Port MSI capability, Root Port MSIs such as A=
-ER,
->> PME and others won't be received by default. So users need to use
->> workarounds such as passing 'pcie_pme=3Dnomsi' cmdline param.
-> I'd like to align the subject a little more with 3a4e8302e72f and
-> avoid repeating the ".. from reaching when the Root Port MSI ..." part
-> of the commit log, which seems to be missing a word.  So I propose the
-> following (if you think it's accurate):
-Your proposed new patch subject and commit message is totally fine for me.
-
-Thanks,
-Soeren
->
->    PCI: imx6: Keep i.MX6Q Root Port MSI capability with iMSI-RX to work =
-around hardware bug
->
->    On some NXP chipsets, disabling Root Port MSI/MSI-X Capabilities bloc=
-ks
->    MSIs originating from Endpoints from reaching the iMSI-RX controller.
->
->    To address this hardware bug, 3a4e8302e72f ("PCI: imx6: Keep Root Por=
-t MSI
->    capability with iMSI-RX to work around hardware bug") preserves Root =
-Port
->    MSI and MSI-X Capabilities on i.MX7D, i.MX8MM, and i.MX8MQ when iMSI-=
-RX is
->    in use.
->
->    The same applies to i.MX6Q, so preserve Root Port MSI/MSI-X Capabilit=
-ies
->    there as well.
->
->    Note that preserving these Capabilities means Root Port-originated MS=
-Is
->    such as AER and PME won't be received due to separate hardware limita=
-tions.
->    Users may need to use workarounds such as passing the 'pcie_pme=3Dnom=
-si'
->    command-line parameter.
->
-> Also, we need to resolve the Sashiko question about whether IMX6QP and
-> IMX6SX also need this.  NXP folks, can you verify?
->
->> Fixes: f5cd8a929c825 ("PCI: dwc: Remove MSI/MSIX capability for Root Po=
-rt if iMSI-RX is used as MSI controller")
->> Cc: <stable@vger.kernel.org> # 7.0+
->> Signed-off-by: Soeren Moch <smoch@web.de>
->> Acked-by: Richard Zhu <hongxing.zhu@nxp.com>
->> Reviewed-by: Frank Li <Frank.Li@nxp.com>
->> Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
->> ---
->> Cc: Manivannan Sadhasivam <mani@kernel.org>
->> Cc: Richard Zhu <hongxing.zhu@nxp.com>
->> Cc: Lucas Stach <l.stach@pengutronix.de>
->> Cc: Bjorn Helgaas <bhelgaas@google.com>
->> Cc: Frank Li <Frank.Li@nxp.com>
->> Cc: Fabio Estevam <festevam@gmail.com>
->> Cc: linux-pci@vger.kernel.org
->> Cc: linux-arm-kernel@lists.infradead.org
->> Cc: imx@lists.linux.dev
->> Cc: linux-kernel@vger.kernel.org
->>
->> This patch is similar to
->> 3a4e8302e72f ("PCI: imx6: Keep Root Port MSI capability with iMSI-RX to=
- work around hardware bug")
->>
->> Tested on a tbs2910 board [1]
->> [1] arch/arm/boot/dts/nxp/imx/imx6q-tbs2910.dts
->>
->> changes in v2:
->> - collect a-b and r-b tags
->> - use correct fixes tag (Manivannan)
->>    (reference commit that introduced the bug, not the incomplete fix)
->>
->> Since this is a fix for a regression in linux-7.0+, can this still be m=
-erged for 7.2-rcS ?
->> ---
->>   drivers/pci/controller/dwc/pci-imx6.c | 3 ++-
->>   1 file changed, 2 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/contro=
-ller/dwc/pci-imx6.c
->> index 98e1db751132..8130cf93c2bb 100644
->> --- a/drivers/pci/controller/dwc/pci-imx6.c
->> +++ b/drivers/pci/controller/dwc/pci-imx6.c
->> @@ -1995,7 +1995,8 @@ static const struct imx_pcie_drvdata drvdata[] =
-=3D {
->>   		.flags =3D IMX_PCIE_FLAG_IMX_PHY |
->>   			 IMX_PCIE_FLAG_SPEED_CHANGE_WORKAROUND |
->>   			 IMX_PCIE_FLAG_BROKEN_SUSPEND |
->> -			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
->> +			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND |
->> +			 IMX_PCIE_FLAG_KEEP_MSI_CAP,
->>   		.dbi_length =3D 0x200,
->>   		.gpr =3D "fsl,imx6q-iomuxc-gpr",
->>   		.ltssm_off =3D IOMUXC_GPR12,
->> --=20
->> 2.43.0
->>
+base-commit: a13c140cc289c0b7b3770bce5b3ad42ab35074aa
+-- 
+2.55.0
 
 
