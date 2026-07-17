@@ -4,66 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F0DBC44515
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 08:57:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32129C44507
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 08:57:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6Kb3DwHOJRoxaCruQM++shG+RbOi01rLJ7Tldla4u9Q=; b=aAQG5cXnN90zswzWeybfh0H89E
-	JpTmXxt4IjGZ5BKbtELJ6RxOVBLl8FWLJnq+viId7oJ4vTYfHc4y4dwYLfqewMTD6ipQFWyOhmDVN
-	kPsSGGXRkGQgk4CcXoLak8SPVodNqwWQH+gF9KgtFdxb4NDCfv+QHrKoHxu33L9ae/Ul30XiIyBhk
-	PbT2tot+DKFxwc44OR1BTdjxOXjkPiEDcYk1sAR0OcObgY5XIgfgonBh5N55jTcksJZRcVdxR68HV
-	5oEh8dEO9cIVyoyCGL/UkUFp71JBxyEv1MS4R8erwmy4D41dDCIiE5vLYfLVieyh1dXe6/hLLDCH8
-	929z6GJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kmxPHUudr1CIr5GjKmhMywcOwQDXLzEBVfZ3Gsy77A0=; b=bWBtBmAJROpV9/zmsO8qaAeOkA
+	49jFiEqb42p5QCfzlDnyUf2UOkFZEwo2fIn3Vg772kwrNFIZC415mlqYoFOKMY8qqJ9E5e37TbbSx
+	PHXDe9IIiJVsY7nmthqIc1Xs+VxZ5VolvN/McyWf/VI+gkf1b9LN8qI19Xyh2D5EiJ2oilFyOhYsa
+	H3tUnAKD+HXQX7/9sV/5fwA1Pr5DzfYEpwyHaU3O3ahg2gCBj3cxUmCqXBp7kdyc+rFEF8xVJOq52
+	1YRwzPE392zsfrhiFBvca4pHkDW7PzG0jJSwnEOPqBREr3oA0gnIpxkcPp3FvtE+K43e2jCILf0qJ
+	dj/eMKnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkeNb-00000001khs-1ofz;
-	Fri, 17 Jul 2026 08:57:11 +0000
-Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
+	id 1wkeNk-00000001kmR-2KBM;
+	Fri, 17 Jul 2026 08:57:20 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkeNV-00000001kes-2qYT
+	id 1wkeNc-00000001khU-1I5l
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 08:57:07 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=6Kb3DwHOJRoxaCruQM++shG+RbOi01rLJ7Tldla4u9Q=;
-	b=1fATCpot+TPP1h7BtwzkOxn+bToPVszOnjNK5ds/nJcYqmqWshjXRkPV5/RyyO8Tf/F4nqGxm
-	tge8QqKo7+dOld62Nd8Wx5I6DaAiNuM7IzkC4addw8ZJ0djB8ZQQPE4CbrKvdWxpX8NlPnPJsu/
-	l6pnxdfsa9/27p5QoYZh5MA=
-Received: from mail.maildlp.com (unknown [172.19.163.127])
-	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4h1k7R6YXBz1cyR3;
-	Fri, 17 Jul 2026 16:47:31 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 1574440572;
-	Fri, 17 Jul 2026 16:56:50 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
- (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 17 Jul
- 2026 16:56:49 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <shuah@kernel.org>,
-	<kees@kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>
-CC: <ruanjinjie@huawei.com>
-Subject: [PATCH 1/2] kselftest/arm64: Add seccomp ptrace x0 bypass test
-Date: Fri, 17 Jul 2026 16:56:56 +0800
-Message-ID: <20260717085657.3600248-2-ruanjinjie@huawei.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260717085657.3600248-1-ruanjinjie@huawei.com>
-References: <20260717085657.3600248-1-ruanjinjie@huawei.com>
+	Fri, 17 Jul 2026 08:57:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JGABmc5hgriN/vBp8jiijY5Kmfui/pJUUUWPsd2ra5lMN7CHqpkCl9bzj7WkOJQtMz8qvIx+Rk32EpxnGJ4bM0r5Eh9/n6Rrznt8/n5C3xRdUinU9/jIDpibQ92qcrrL6na53p8/Snjkfz0qnQW0A7jyRW3WU7zmYCL4cLYufcA56HQrDKAQMzHEV1V+igprJFPcaR8RYHv0IhWLJgRJ9hjw+W/KyaHmT+r7B+Sx/7XvWNiXS0oi1gwporoG0mxPG+1bAzZbeqvG7ohDLHzdSvKP4ZVV7TTbstLSRzBaRm6y3QDCRc+UF0cIKR0xAxdVQcXAZW1HM96NB0VTx1lzgw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=kmxPHUudr1CIr5GjKmhMywcOwQDXLzEBVfZ3Gsy77A0=;
+ b=Z25oD3T31Lm4vD03rc0ZHhpg+sqo7KT4udpz+kr1Ud9Z6VqIyiF+zrojUFCwOQ0cK3GLMy0jYAl1QyxqDmWZlk8MHlxFc6Ib1iwAHb1524wA+BHJM3nZEchPtkpfeXfTOr2QSYevW4kUvC6Zuj6XC3poyldxXt8yEIWOJjRB0FPQMRG9YdQ/xhzkDuGMvTyYllWD2QTtRzt4e5GnSFjRQ4KoHqbfKan7tXChXgna+QsHVqfF7mjsjO98rN+fzrKP/NneVVHOLqdI7n8Bj4rMH3CkUH+lu+AiWK1CFeZJapwI/bNGebXTYnTtoxfFsposqAKdZ2WkKM2zZUA9tqe+8w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=kmxPHUudr1CIr5GjKmhMywcOwQDXLzEBVfZ3Gsy77A0=;
+ b=V0qpM+lh1N549z6pLTkUejgv+/l/9y5o8ncW4SkldyRJj3hJcvCoQxg9r723ot8heXRNHcknSF3J12bzRyUXmlOG1mKblPUBX6u/MMaAyyrz7zySifcOdq58dm1wSxERuvGgAeKxeRS6EIn5KdDUlj4JKTYuUQHIxGoM9wL5dNqVBzaLOWG1biC/FlflHC5VbRvo7Dg4WdCThjYhmVCxVEYEknJ6RYSc6FWneEBP/sl51BTp5Dkv1uiWDMQfezkmpfF9MdQ/nuLLvNPFWaWv+pdSRUmAgKrfrSlnyLKHOqT2Z4SxtChKhmJymzHRXxHFjkuEFlfrg2BOQ8C39G/3sA==
+Received: from GV2PR04MB12019.eurprd04.prod.outlook.com
+ (2603:10a6:150:30c::14) by VI0PR04MB10370.eurprd04.prod.outlook.com
+ (2603:10a6:800:214::21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.12; Fri, 17 Jul
+ 2026 08:57:05 +0000
+Received: from GV2PR04MB12019.eurprd04.prod.outlook.com
+ ([fe80::ed75:bac1:2554:5cbe]) by GV2PR04MB12019.eurprd04.prod.outlook.com
+ ([fe80::ed75:bac1:2554:5cbe%4]) with mapi id 15.21.0223.011; Fri, 17 Jul 2026
+ 08:57:04 +0000
+From: "Hongxing Zhu (OSS)" <hongxing.zhu@oss.nxp.com>
+To: Manivannan Sadhasivam <mani@kernel.org>, "Hongxing Zhu (OSS)"
+	<hongxing.zhu@oss.nxp.com>
+CC: Frank Li <frank.li@nxp.com>, "l.stach@pengutronix.de"
+	<l.stach@pengutronix.de>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"kwilczynski@kernel.org" <kwilczynski@kernel.org>, "robh@kernel.org"
+	<robh@kernel.org>, "bhelgaas@google.com" <bhelgaas@google.com>,
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "kernel@pengutronix.de"
+	<kernel@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, Hongxing Zhu <hongxing.zhu@nxp.com>
+Subject: RE: [PATCH v2] PCI: imx6: Fix i.MX6Q/DL boot hang by separating PHY
+ power and reference clock control
+Thread-Topic: [PATCH v2] PCI: imx6: Fix i.MX6Q/DL boot hang by separating PHY
+ power and reference clock control
+Thread-Index: AQHdDo25W26RGvcpZ0Gq9kNHQoJzyLZwZRuAgAESImA=
+Date: Fri, 17 Jul 2026 08:57:04 +0000
+Message-ID: <GV2PR04MB1201914A80BB2BF78A10465748CC62@GV2PR04MB12019.eurprd04.prod.outlook.com>
+References: <20260708035928.580236-1-hongxing.zhu@oss.nxp.com>
+ <20260708035928.580236-2-hongxing.zhu@oss.nxp.com>
+ <afwyhy7npuvtecdbuzaytazbifu2ytb6admq4xbzbmxwx47vpq@wrc5dp62mtng>
+In-Reply-To: <afwyhy7npuvtecdbuzaytazbifu2ytb6admq4xbzbmxwx47vpq@wrc5dp62mtng>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+x-ms-exchange-messagesentrepresentingtype: 1
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: GV2PR04MB12019:EE_|VI0PR04MB10370:EE_
+x-ms-office365-filtering-correlation-id: 274a8b85-b76a-49a1-c10d-08dee3e15fda
+x-ms-exchange-sharedmailbox-routingagent-processed: True
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|7416014|376014|23010399003|1800799024|19092799006|38070700021|18002099003|6133799003|22082099003|56012099006|11063799006|5023799004|4143699003|10067099003;
+x-microsoft-antispam-message-info: FZYcwKz3Nd4rbESVsfxzSFjClCtlssqhvRKKqm4UdysJ93ga1qXh3ZfjhaR8rYeuCeH0P4ogKEEyJC1Y80ebT/p8h69k6NMpLAO53eXtyuYmcGXMsGOJBNwHrLTzkBmZWpbNc3f5faA/R/sE0ClGJJfa6oJVG5+S1YELDQDki4A7r5LzSw5bJeXwAP7nSLpwRexWWFDbUrjxsYzkuYCI+4tyx5r7INyJadD3oP0pSMdhr/jh2gs9vJkMOtmkrawNGE/PBaC0f0o/mkZ/mjQaZ4qdafNUYrwQmebOTy5Y+38GjKCXepCi5NFv7721wVv6yjlZ3B5UjN6USqcw7dOhqpwGUmGWfL5xY4sHucCLJk5/GAFAlcZ5kjtCy7bQpmkISwIWKaCh4Mu9IquaV3ta98uoV/Bu99wHs2W7KkznEtz2iNWZwiK7mgh1TaaWjOiTk1/KQapbjBfhaWoa3rhvWwYYDct7subc5uumuxOn7ltMQmHLFesFyKDnmS4pw7v+cGfHIkx+so7PpX2dBNO9BqwYIImnQbUy2SgDFBoXfnTobRMiNicq75JJ7oyo8Gk3RLgrhoCe1eL8kedCU+iGq5Nsa6t0Qm5iSV6lJM5AE0gIAYXOyrnkD9J/OpAurZnGkNUKlR5KXasuIYwatezbVN2Zih9xT4NnFUa5jSmZzfpRBBkSEcM2rqZGLGv1fOuhqaFNqkbnGRQeI6DSDlj/tyufvDw9bAXyjo27rxKvAwo=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12019.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(23010399003)(1800799024)(19092799006)(38070700021)(18002099003)(6133799003)(22082099003)(56012099006)(11063799006)(5023799004)(4143699003)(10067099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?aHV1MmlQRDIyOW5lUFk1UXkvazdCM0RhQXQ4ZGdsQVBjQlNtc1NSK3IrMmIz?=
+ =?utf-8?B?TmlPQzJ4UnFJSlJ4UC9xQ1ZnNHAxK3FpcHZkbUYwbG53d2hEOUlOelVEMVFM?=
+ =?utf-8?B?VmRaWjhkTENTaWxabkZrM3FrRjJuN1JSMC8reVpTdGNaNlNGeVRzWWkwQlV4?=
+ =?utf-8?B?TDBaQndDZWJMejRSbnhORWFrUVc3aWgzVk8vendzWnZBcW1ZZlorcGszT3k0?=
+ =?utf-8?B?ZjhGSkh3OWViRWtsY1FIR1pqcTNmK0ExZXhNTjFYYUVmOC9mWDZqWHo4ajJp?=
+ =?utf-8?B?YUpDTGFnbjcrclZiVjBEM3VBa3hOM1pTc251UWMxKzVkbjdVYkdWSEZZdTFR?=
+ =?utf-8?B?Tys3U1g2VjNkVkZpa1g1ODdBYmJ0U1J0UGgyMDBXOWRTTDA2V002OEhib0ov?=
+ =?utf-8?B?ZGZVZnBHR3RtdUhpRG1GdnlzNHJjM3pwa1ZzVTZkVmJTMytzeldiUXBkWWZ1?=
+ =?utf-8?B?VGtwaUFjMW9oMW85K0lwUzc3bk5pOXhsSWFKMlVzL0VzRkpWTEpYRjZDR1lk?=
+ =?utf-8?B?WFUzSGlIcmR1VlhySzRXWGVoRWNTN0xWQlNZUzdvNXZXRU42ZGU1cy9RWjVZ?=
+ =?utf-8?B?cFRoNlg4ODc0WTkzRnVIMDhnYkM1cUFmejhwbU1zSExlNGhUS09BRmtjcjhT?=
+ =?utf-8?B?OFZ2bmR0NXVzK09HMXJDclFLSWUzNDgzSTBtblIxVWM2RFdVQ1hMNlhSSE1u?=
+ =?utf-8?B?UEJVY0xESE9Ma2czT3o1Z3lYOXJIQ1NHRTB3dDFiRjhkZ0hKS0hybDhiSHdo?=
+ =?utf-8?B?dkV6NlVNNE9EMHVKTDZQSHlPeG1MZ3RmbWtYaTViT3VyOTN1Rlk5RDNFQjJj?=
+ =?utf-8?B?RTFjSTl0NnRkNDRzb2g2cnIwMTdXT3RvM3R3RnhreUxWbjNTSWZoVTIyT0U2?=
+ =?utf-8?B?TUIxb2VIVlJtcTRQMFdSUmhudTJqcVRsMk5KSFVHZUxTZGpwYXRNZ2VtS0tU?=
+ =?utf-8?B?ZllDUnhKZStaSURlWWJCWExIc2dUMjZmR2ptWmFVUmNIMDlNTWtGem1sOWZT?=
+ =?utf-8?B?d2lIUXJYa1ZqdndFeFM0SlZIbG9weENTNy94bVpzYkhOQzVMYjZQZXlBbmNS?=
+ =?utf-8?B?a0RER0NIejh0cHJmeEhCUWNEZWd4VklhSDRFSWxldHJxcDQxeWE0Tit2WkJR?=
+ =?utf-8?B?TEhtaERXVDE1MmI0R01mQ0RmdE5IZ2VBTzI4NW9rWlZjb0l3TDdiY3g2ZThy?=
+ =?utf-8?B?YktWaGtRakpNSjE5aHE4T0kvdzRQWjUvNURMZmxtZkdRR21JYzhCZWUwbnpk?=
+ =?utf-8?B?dUZFM2VhUXduUjVhUElCOHJ5UWFpdzBGVm9UUEVnZWdCbUJsSEFOOVhySlhl?=
+ =?utf-8?B?V2E0OXFvZDJBaDBzd2hZWW5xdk1EbUpxSmh3SE81T0VVa01UTzN2ejFsZEds?=
+ =?utf-8?B?c2FBUklGNnhoSGpoQ3pyRG0xWUFwWUQwbTdiNzFWWDMxb0ZWamFpMGxQQndM?=
+ =?utf-8?B?QmgrQlZMaDZQdS9ZV1g1QVpBOThweUxWSmVkTjhaSVRsUUlGZm5SdnNLSk92?=
+ =?utf-8?B?WXhrT3llS0hURFpWckZJdEZOeHdiMWVNNHpHbWFyeGFDWmx5MS9lck9ZV1lP?=
+ =?utf-8?B?WG1UVVpVQXYxaDUzVndyMU1ILzJqdG52cUNxcVZlMDNWV1lCS01YM2JsK2xt?=
+ =?utf-8?B?SmFNUEh0RGtrZ2toUDFld3M3eENaQXc0REVqL2Q2NUUrWjR5VStNZFRTa0dp?=
+ =?utf-8?B?QkwrOWRKOEdLOHJxb3k1bDJLZmlYU1A3M1k4Tjlpb3NVN05xeFJ6dVJ6Um1Z?=
+ =?utf-8?B?THk0NTQ4QkJPMmwyVUh5QUlLWjFJcGRWOWlGTlovREdwR1JDVTkrR1lQYkJp?=
+ =?utf-8?B?OHhSaC9lWHJyTUlZd0l4dzh5dUU2UnRpNFJWaUs0bVFKUU5zT24rdnkyV0RF?=
+ =?utf-8?B?b21FenBNZVl1UFNmZlh6alJwRFZINFRxM1ArNEdsYXV4UllpbUhaSlNnNERq?=
+ =?utf-8?B?STBEYkhDYi9FSS9zVFM4U0RUclNybnk3K3BXVm1yS0ltbTRycDBZc01CSUZP?=
+ =?utf-8?B?alRYZ1JNL1NtdDhXZG9XUUFFeU50RTlzZGdoQ29ib0JvUXZBc0hsaXp0elly?=
+ =?utf-8?B?VWppSTBwZkRWSGwwd2JnWHZUR0VRMHcxTkxnbHZYOCttYVd6NnVPMWxXZzVr?=
+ =?utf-8?B?NjBkeHEzakpucjJPMGdvclkySGgzejVCSmtDMTcrTHVIN0RnTVd0blZlSEts?=
+ =?utf-8?B?RXd5TGhxcm9TWUkzLzVNRHFsRmpXbjdEd2ZrOEMzYml5cFA3eVlxQzVLSFpl?=
+ =?utf-8?B?VlZUL2lVMVBpdUhmQ2hlSnRkWHdkSXZIYnJycXIvSDlBUnFNTjZ5N1NKRXp2?=
+ =?utf-8?B?M0poZEgxM0ZEN0tBR0M1clo1MWZCRVQ1K1Bzd3JacWE4VG9Wd05iZz09?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.90.53.73]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12019.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 274a8b85-b76a-49a1-c10d-08dee3e15fda
+X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Jul 2026 08:57:04.8364
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: i8Fe+XlazdcwE+w80HKmMTYAHfCpNGr+AVBEKRGQsG4TX5ltbyFpV3DN2027Q62oseYS5Ng7l3bE5HfcLNxRTQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10370
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_015706_076680_5D6F3367 
-X-CRM114-Status: GOOD (  26.12  )
+X-CRM114-CacheID: sfid-20260717_015712_525811_FD7CB057 
+X-CRM114-Status: GOOD (  29.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,264 +163,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As Kees suggested, add a test that verifies that seccomp observes the
-correct first argument after a ptracer modifies x0 at a syscall-enter-stop
-on arm64.
-
-The first syscall argument and the return value share register x0.
-The original value is saved in orig_x0 on entry and used by
-syscall_get_arguments(), but ptrace changes to x0 were not
-automatically reflected there.  This test checks the kernel re-syncs
-orig_x0 after a ptrace stop so that seccomp sees the modified
-argument.
-
-A seccomp filter allows write(2,...) and kills the task for any other
-fd.  The tracer changes fd from 2 to 1 at entry.  If orig_x0 remains
-stale, the child exits normally (bypass, test fails).  If orig_x0 is
-correctly updated, the child is killed by SIGSYS (test passes).
-
-Before the fix:
-	 ./seccomp_ptrace_x0_bypass
-	TAP version 13
-	1..1
-	not ok 1 seccomp_ptrace_x0_bypass
-	# Totals: pass:0 fail:1 xfail:0 xpass:0 skip:0 error:0
-
-After the fix:
-	# ./seccomp_ptrace_x0_bypass
-	TAP version 13
-	1..1
-	[   19.475951] audit: type=1326 audit(1784254846.284:2): auid=4294967295 uid=0 gid=0 ses=4294967295 pid=227 comm="seccomp_ptrace_" exe="/mnt/seccomp0
-	[   19.477852] audit: type=1701 audit(1784254846.284:3): auid=4294967295 uid=0 gid=0 ses=4294967295 pid=227 comm="seccomp_ptrace_" exe="/mnt/seccomp1
-	ok 1 seccomp_ptrace_x0_bypass
-	# Totals: pass:1 fail:0 xfail:0 xpass:0 skip:0 error:0
-
-Cc: Kees Cook <kees@kernel.org>
-Cc: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Link: https://lore.kernel.org/all/20260716120640.6590-1-will@kernel.org/
-Link: https://lore.kernel.org/all/202607152004.DEA95D63@keescook/
-Suggested-by: Kees Cook <kees@kernel.org>
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
----
- tools/testing/selftests/arm64/abi/.gitignore  |   1 +
- tools/testing/selftests/arm64/abi/Makefile    |   2 +-
- .../arm64/abi/seccomp_ptrace_x0_bypass.c      | 181 ++++++++++++++++++
- 3 files changed, 183 insertions(+), 1 deletion(-)
- create mode 100644 tools/testing/selftests/arm64/abi/seccomp_ptrace_x0_bypass.c
-
-diff --git a/tools/testing/selftests/arm64/abi/.gitignore b/tools/testing/selftests/arm64/abi/.gitignore
-index 44f8b80f37e3..39129a9907c7 100644
---- a/tools/testing/selftests/arm64/abi/.gitignore
-+++ b/tools/testing/selftests/arm64/abi/.gitignore
-@@ -1,4 +1,5 @@
- hwcap
- ptrace
-+seccomp_ptrace_x0_bypass
- syscall-abi
- tpidr2
-diff --git a/tools/testing/selftests/arm64/abi/Makefile b/tools/testing/selftests/arm64/abi/Makefile
-index 483488f8c2ad..5a16db379bd4 100644
---- a/tools/testing/selftests/arm64/abi/Makefile
-+++ b/tools/testing/selftests/arm64/abi/Makefile
-@@ -1,7 +1,7 @@
- # SPDX-License-Identifier: GPL-2.0
- # Copyright (C) 2021 ARM Limited
- 
--TEST_GEN_PROGS := hwcap ptrace syscall-abi tpidr2
-+TEST_GEN_PROGS := hwcap ptrace syscall-abi tpidr2 seccomp_ptrace_x0_bypass
- 
- include ../../lib.mk
- 
-diff --git a/tools/testing/selftests/arm64/abi/seccomp_ptrace_x0_bypass.c b/tools/testing/selftests/arm64/abi/seccomp_ptrace_x0_bypass.c
-new file mode 100644
-index 000000000000..718d3dcb3264
---- /dev/null
-+++ b/tools/testing/selftests/arm64/abi/seccomp_ptrace_x0_bypass.c
-@@ -0,0 +1,181 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Test that seccomp, tracepoints and audit observe the correct syscall
-+ * arguments after a ptracer has modified them at syscall-enter-stop.
-+ *
-+ * On arm64, both the first argument and the return value of a syscall
-+ * are passed in register x0.  The original x0 is saved in
-+ * pt_regs::orig_x0 during syscall entry and returned as the first
-+ * argument by syscall_get_arguments().  Because ptrace modifications
-+ * to x0 are not automatically reflected in orig_x0, seccomp, tracepoints
-+ * and audit may see a stale value unless orig_x0 is explicitly
-+ * re-synchronised after a ptrace stop.
-+ *
-+ * This test sets up a seccomp filter that allows write(2, ...) but kills
-+ * the task for any other fd.  A ptracer changes the fd argument from 2
-+ * to 1 at the syscall-enter stop.  If the orig_x0 re-sync works, seccomp
-+ * sees the modified argument (fd=1) and kills the child with SIGSYS
-+ * (test passes).  If orig_x0 is not re-synced, seccomp sees the original
-+ * fd=2, the write succeeds and the child exits normally (test fails,
-+ * vulnerability present).
-+ */
-+#include <errno.h>
-+#include <stdbool.h>
-+#include <stddef.h>
-+#include <stdio.h>
-+#include <stdlib.h>
-+#include <string.h>
-+#include <unistd.h>
-+#include <sys/prctl.h>
-+#include <sys/ptrace.h>
-+#include <sys/uio.h>
-+#include <sys/wait.h>
-+#include <asm/ptrace.h>
-+#include <linux/elf.h>
-+#include <linux/filter.h>
-+#include <linux/seccomp.h>
-+
-+#include "kselftest.h"
-+
-+#ifndef __NR_write
-+#define __NR_write 64
-+#endif
-+
-+#define EXPECTED_TESTS 1
-+
-+static int do_child(void)
-+{
-+	if (ptrace(PTRACE_TRACEME, 0, NULL, NULL))
-+		ksft_exit_fail_perror("PTRACE_TRACEME");
-+
-+	if (raise(SIGSTOP))
-+		ksft_exit_fail_perror("raise(SIGSTOP)");
-+
-+	/*
-+	 * Seccomp filter:
-+	 *    If syscall is not write -> ALLOW
-+	 *    If syscall is write:
-+	 *	- If args[0] (fd) == 2 -> ALLOW
-+	 *	- Otherwise -> KILL
-+	 */
-+	struct sock_filter filter[] = {
-+		BPF_STMT(BPF_LD | BPF_W | BPF_ABS, 0),			/* nr */
-+		BPF_JUMP(BPF_JMP | BPF_JEQ | BPF_K, __NR_write, 0, 3),
-+		BPF_STMT(BPF_LD | BPF_W | BPF_ABS, 16),			/* args[0] */
-+		BPF_JUMP(BPF_JMP | BPF_JEQ | BPF_K, 2, 1, 0),
-+		BPF_STMT(BPF_RET | BPF_K, SECCOMP_RET_KILL),
-+		BPF_STMT(BPF_RET | BPF_K, SECCOMP_RET_ALLOW),
-+	};
-+	struct sock_fprog prog = {
-+		.len = ARRAY_SIZE(filter),
-+		.filter = filter,
-+	};
-+
-+	if (prctl(PR_SET_NO_NEW_PRIVS, 1, 0, 0, 0))
-+		ksft_exit_fail_perror("prctl NO_NEW_PRIVS");
-+
-+	if (prctl(PR_SET_SECCOMP, SECCOMP_MODE_FILTER, &prog))
-+		ksft_exit_fail_perror("prctl SECCOMP");
-+
-+	/*
-+	 * Invoke write(2, ...) while the tracer will change the first
-+	 * argument (fd) from 2 to 1 at syscall entry.
-+	 */
-+	syscall(__NR_write, 2, NULL, 0);
-+	_exit(0);
-+}
-+
-+static int do_parent(pid_t child)
-+{
-+	bool bypass = false;
-+	int status;
-+
-+	/* Wait for the initial SIGSTOP */
-+	if (waitpid(child, &status, 0) != child)
-+		ksft_exit_fail_msg("waitpid failed");
-+
-+	if (!WIFSTOPPED(status) || WSTOPSIG(status) != SIGSTOP)
-+		ksft_exit_fail_msg("unexpected stop status");
-+
-+	if (ptrace(PTRACE_SETOPTIONS, child, 0, PTRACE_O_TRACESYSGOOD))
-+		ksft_exit_fail_perror("PTRACE_SETOPTIONS");
-+
-+	if (ptrace(PTRACE_SYSCALL, child, 0, 0))
-+		ksft_exit_fail_perror("PTRACE_SYSCALL");
-+
-+	while (1) {
-+		int sig;
-+
-+		if (waitpid(child, &status, 0) != child)
-+			ksft_exit_fail_msg("waitpid lost child");
-+
-+		if (WIFEXITED(status)) {
-+			/* Child exited normally – bypass succeeded */
-+			bypass = true;
-+			break;
-+		}
-+
-+		if (WIFSIGNALED(status))
-+			break;
-+
-+		if (!WIFSTOPPED(status))
-+			ksft_exit_fail_msg("unexpected wait status");
-+
-+		sig = WSTOPSIG(status);
-+
-+		if (sig == (SIGTRAP | 0x80)) {
-+			struct user_regs_struct regs;
-+			struct iovec iov = {
-+				.iov_base = &regs,
-+				.iov_len = sizeof(regs),
-+			};
-+
-+			if (ptrace(PTRACE_GETREGSET, child, NT_PRSTATUS, &iov))
-+				ksft_exit_fail_perror("PTRACE_GETREGSET");
-+
-+			unsigned long syscall_nr = regs.regs[8];
-+			unsigned long x0 = regs.regs[0];
-+
-+			/* Modify fd from 2 to 1 at write entry */
-+			if (syscall_nr == __NR_write && x0 == 2) {
-+				regs.regs[0] = 1;
-+				if (ptrace(PTRACE_SETREGSET, child, NT_PRSTATUS, &iov))
-+					ksft_exit_fail_perror("PTRACE_SETREGSET");
-+			}
-+
-+			if (ptrace(PTRACE_SYSCALL, child, 0, 0))
-+				ksft_exit_fail_perror("PTRACE_SYSCALL");
-+		} else {
-+			/* Forward other signals */
-+			if (ptrace(PTRACE_SYSCALL, child, 0, sig))
-+				ksft_exit_fail_perror("PTRACE_SYSCALL");
-+		}
-+	}
-+
-+	/* bypass == true means vulnerability exists -> test fails */
-+	return bypass ? EXIT_FAILURE : EXIT_SUCCESS;
-+}
-+
-+int main(void)
-+{
-+	pid_t child;
-+
-+	ksft_print_header();
-+	ksft_set_plan(EXPECTED_TESTS);
-+
-+	child = fork();
-+	if (!child)
-+		return do_child();
-+
-+	/*
-+	 * do_parent() returns EXIT_SUCCESS if the child was killed by
-+	 * SIGSYS (i.e. seccomp correctly saw the modified argument),
-+	 * and EXIT_FAILURE if the child exited normally (bypass).
-+	 */
-+	int result = do_parent(child);
-+
-+	ksft_test_result(result == EXIT_SUCCESS, "seccomp_ptrace_x0_bypass\n");
-+
-+	ksft_print_cnts();
-+	return result;
-+}
--- 
-2.34.1
-
+PiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBNYW5pdmFubmFuIFNhZGhhc2l2
+YW0gPG1hbmlAa2VybmVsLm9yZz4NCj4gU2VudDogRnJpZGF5LCBKdWx5IDE3LCAyMDI2IDEyOjM1
+IEFNDQo+IFRvOiBIb25neGluZyBaaHUgKE9TUykgPGhvbmd4aW5nLnpodUBvc3MubnhwLmNvbT4N
+Cj4gQ2M6IEZyYW5rIExpIDxmcmFuay5saUBueHAuY29tPjsgbC5zdGFjaEBwZW5ndXRyb25peC5k
+ZTsgbHBpZXJhbGlzaUBrZXJuZWwub3JnOw0KPiBrd2lsY3p5bnNraUBrZXJuZWwub3JnOyByb2Jo
+QGtlcm5lbC5vcmc7IGJoZWxnYWFzQGdvb2dsZS5jb207DQo+IHMuaGF1ZXJAcGVuZ3V0cm9uaXgu
+ZGU7IGtlcm5lbEBwZW5ndXRyb25peC5kZTsgZmVzdGV2YW1AZ21haWwuY29tOyBsaW51eC0NCj4g
+cGNpQHZnZXIua2VybmVsLm9yZzsgbGludXgtYXJtLWtlcm5lbEBsaXN0cy5pbmZyYWRlYWQub3Jn
+OyBpbXhAbGlzdHMubGludXguZGV2Ow0KPiBsaW51eC1rZXJuZWxAdmdlci5rZXJuZWwub3JnOyBI
+b25neGluZyBaaHUgPGhvbmd4aW5nLnpodUBueHAuY29tPg0KPiBTdWJqZWN0OiBSZTogW1BBVENI
+IHYyXSBQQ0k6IGlteDY6IEZpeCBpLk1YNlEvREwgYm9vdCBoYW5nIGJ5IHNlcGFyYXRpbmcgUEhZ
+DQo+IHBvd2VyIGFuZCByZWZlcmVuY2UgY2xvY2sgY29udHJvbA0KPiANCj4gT24gV2VkLCBKdWwg
+MDgsIDIwMjYgYXQgMTE6NTk6MjdBTSArMDgwMCwgaG9uZ3hpbmcuemh1QG9zcy5ueHAuY29tIHdy
+b3RlOg0KPiA+IEZyb206IFJpY2hhcmQgWmh1IDxob25neGluZy56aHVAbnhwLmNvbT4NCj4gPg0K
+PiA+IENvbW1pdCA2MTBmYTkxZDk4NjMgKCJQQ0k6IGlteDY6IEFzc2VydCBQRVJTVCMgYmVmb3Jl
+IGVuYWJsaW5nDQo+ID4gcmVndWxhdG9ycyIpIGludHJvZHVjZWQgYSBib290IGhhbmcgb24gaS5N
+WDZRL0RMIHZhcmlhbnRzIGJ5IGNoYW5naW5nDQo+ID4gdGhlIGluaXRpYWxpemF0aW9uIHNlcXVl
+bmNlLg0KPiA+DQo+ID4gVGhlIGlzc3VlIHN0ZW1zIGZyb20gY291cGxpbmcgUEhZIHBvd2VyIChU
+RVNUX1BEKSBhbmQgcmVmZXJlbmNlIGNsb2NrDQo+ID4gKFJFRl9DTEtfRU4pIGNvbnRyb2wgaW4g
+aW14NnFfcGNpZV9lbmFibGVfcmVmX2NsaygpLiBXaGVuIHRoZXNlIGFyZQ0KPiA+IG1hbmFnZWQg
+dG9nZXRoZXIsIHRoZSB0aW1pbmcgYmV0d2VlbiBQSFkgcG93ZXItdXAgYW5kIHJlZmVyZW5jZSBj
+bG9jaw0KPiA+IGVuYWJsZW1lbnQgY2Fubm90IGJlIHByb3Blcmx5IGNvbnRyb2xsZWQsIGxlYWRp
+bmcgdG8gaW5pdGlhbGl6YXRpb24NCj4gPiBmYWlsdXJlcy4NCj4gPg0KPiANCj4gV2hhdCBpcyB0
+aGUgdGltaW5nIHJlcXVpcmVtZW50IGhlcmU/DQpUaGUgdGltaW5nIHJlcXVpcmVtZW50IGlzIHRo
+YXQgVEVTVF9QRCBtdXN0IGJlIGRlYXNzZXJ0ZWQgKGNsZWFyZWQpIGJlZm9yZQ0KbGluayB0cmFp
+bmluZyBzdGFydHMuDQoNCkJlZm9yZSBjb21taXQgNjEwZmE5MWQ5ODYzOg0KLSBpbXhfcGNpZV9h
+c3NlcnRfY29yZV9yZXNldCgpOiBBc3NlcnQgVEVTVF9QRCBhbmQgUkVGX0NMS19FTg0KLSBpbXhf
+cGNpZV9jbGtfZW5hYmxlKCk6IERlYXNzZXJ0IFRFU1RfUEQgYW5kIGFzc2VydCBSRUZfQ0xLX0VO
+DQotIExpbmsgdHJhaW5pbmcgc3RhcnRzIHdpdGggVEVTVF9QRCBwcm9wZXJseSBjbGVhcmVkDQoN
+CkFmdGVyIGNvbW1pdCA2MTBmYTkxZDk4NjM6DQotIGlteF9wY2llX2Nsa19lbmFibGUoKTogRGVh
+c3NlcnQgVEVTVF9QRCBhbmQgYXNzZXJ0IFJFRl9DTEtfRU4NCi0gaW14X3BjaWVfYXNzZXJ0X2Nv
+cmVfcmVzZXQoKTogQXNzZXJ0IFRFU1RfUEQgYW5kIGFzc2VydCBSRUZfQ0xLX0VOIGFnYWluDQot
+IExpbmsgdHJhaW5pbmcgc3RhcnRzIHdpdGggVEVTVF9QRCBzdGlsbCBhc3NlcnRlZCAobmV2ZXIg
+Y2xlYXJlZCBhZ2FpbikNCg0KVGhpcyBjb21taXQgY29ycmVjdHMgdGhlIHNlcXVlbmNlLCBhbmQg
+bWFrZXMgc3VyZSB0aGUgVEVTVF9QRCBpcyBjbGVhcmVkDQpiZWZvcmUgbGluayB0cmFpbmluZyBz
+dGFydHMuDQo+IA0KPiA+IEZpeCB0aGlzIGJ5IHNlcGFyYXRpbmcgdGhlIHR3byBjb25jZXJuczoN
+Cj4gPg0KPiA+IC0gTW92ZSBQSFkgcG93ZXIgY29udHJvbCAoVEVTVF9QRCkgdG8gaW14NnFfcGNp
+ZV9jb3JlX3Jlc2V0KCkgd2hlcmUgaXQNCj4gPiAgIGxvZ2ljYWxseSBiZWxvbmdzIHdpdGggcmVz
+ZXQgb3BlcmF0aW9ucy4gVGhpcyBlbnN1cmVzIFBIWSBwb3dlciBzdGF0ZQ0KPiA+ICAgaXMgbWFu
+YWdlZCBhcyBwYXJ0IG9mIHRoZSBjb3JlIHJlc2V0IHNlcXVlbmNlLg0KPiA+DQo+ID4gLSBVcGRh
+dGUgaW14NnFwX3BjaWVfY29yZV9yZXNldCgpIHRvIGNhbGwgaW14NnFfcGNpZV9jb3JlX3Jlc2V0
+KCkgZm9yDQo+ID4gICBzaGFyZWQgUEhZIHBvd2VyIG1hbmFnZW1lbnQsIGF2b2lkaW5nIGNvZGUg
+ZHVwbGljYXRpb24uDQo+ID4NCj4gPiAtIE1ha2UgaW14NnFfcGNpZV9lbmFibGVfcmVmX2Nsaygp
+IHJlc3BvbnNpYmxlIG9ubHkgZm9yIHJlZmVyZW5jZSBjbG9jaw0KPiA+ICAgKFJFRl9DTEtfRU4p
+IGNvbnRyb2wsIHNpbXBsaWZ5aW5nIGl0cyBwdXJwb3NlLg0KPiA+DQo+ID4gLSBSZW1vdmUgdGhl
+IDEwdXMgZGVsYXkgd29ya2Fyb3VuZCBmcm9tIGlteDZxX3BjaWVfZW5hYmxlX3JlZl9jbGsoKSBh
+cw0KPiA+ICAgcHJvcGVyIHNlcXVlbmNpbmcgaXMgbm93IGhhbmRsZWQgYnkgdGhlIGNvcmVfcmVz
+ZXQgZnVuY3Rpb25zLg0KPiA+DQo+ID4gVGhpcyByZWZhY3RvcmluZyBlbnN1cmVzIFBIWSBwb3dl
+ciBpcyBjb250cm9sbGVkIGR1cmluZyByZXNldA0KPiA+IG9wZXJhdGlvbnMsIGZpeGluZyB0aGUg
+Ym9vdCBoYW5nIHdoaWxlIGltcHJvdmluZyBjb2RlIG1haW50YWluYWJpbGl0eS4NCj4gPg0KPiAN
+Cj4gVGhpcyBwYXRjaCBkb2VzIHRvbyBtYW55IHRoaW5ncyBhdCBvbmNlLiBDYW4ndCB5b3Ugc3Bs
+aXQgaXQgYW5kIGtlZXAgdGhlIG1pbmltYWwNCj4gZml4IGluIG9uZSBwYXRjaD8NCk9rYXksIEkn
+bGwgc3BsaXQgdGhpcyBpbnRvIGEgcGF0Y2ggc2VyaWVzIGluIHYzLg0KVGhhbmtzLg0KDQpCZXN0
+IFJlZ2FyZHMNClJpY2hhcmQgWmh1DQo+IA0KPiAtIE1hbmkNCj4gDQo+ID4gRml4ZXM6IDYxMGZh
+OTFkOTg2MyAoIlBDSTogaW14NjogQXNzZXJ0IFBFUlNUIyBiZWZvcmUgZW5hYmxpbmcNCj4gPiBy
+ZWd1bGF0b3JzIikNCj4gPiBTaWduZWQtb2ZmLWJ5OiBSaWNoYXJkIFpodSA8aG9uZ3hpbmcuemh1
+QG54cC5jb20+DQo+ID4gLS0tDQo+ID4gQ2hhbmdlcyBpbiB2MjoNCj4gPiBSZWdhcmRpbmcgc2Fz
+aGlrbydzIHJlaXZldywgaW52b2tlIGlteF9wY2llX2Fzc2VydF9jb3JlX3Jlc2V0KCkNCj4gPiBl
+eHBsaWNpdGx5IGluIGVycm9yIHBhdGggb2YgaW14X3BjaWVfaG9zdF9pbml0KCkgYW5kIGlteF9w
+Y2llX2hvc3RfZXhpdCgpLg0KPiA+IC0tLQ0KPiA+ICBkcml2ZXJzL3BjaS9jb250cm9sbGVyL2R3
+Yy9wY2ktaW14Ni5jIHwgNDUNCj4gPiArKysrKysrKysrKystLS0tLS0tLS0tLS0tLS0NCj4gPiAg
+MSBmaWxlIGNoYW5nZWQsIDIwIGluc2VydGlvbnMoKyksIDI1IGRlbGV0aW9ucygtKQ0KPiA+DQo+
+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvcGNpL2NvbnRyb2xsZXIvZHdjL3BjaS1pbXg2LmMNCj4g
+PiBiL2RyaXZlcnMvcGNpL2NvbnRyb2xsZXIvZHdjL3BjaS1pbXg2LmMNCj4gPiBpbmRleCA5NDA2
+YmJhMzY5NTNmLi41M2YzZGE2YWIzMGQ1IDEwMDY0NA0KPiA+IC0tLSBhL2RyaXZlcnMvcGNpL2Nv
+bnRyb2xsZXIvZHdjL3BjaS1pbXg2LmMNCj4gPiArKysgYi9kcml2ZXJzL3BjaS9jb250cm9sbGVy
+L2R3Yy9wY2ktaW14Ni5jDQo+ID4gQEAgLTY4MCwyMSArNjgwLDEyIEBAIHN0YXRpYyBpbnQgaW14
+X3BjaWVfYXR0YWNoX3BkKHN0cnVjdCBkZXZpY2UNCj4gPiAqZGV2KQ0KPiA+DQo+ID4gIHN0YXRp
+YyBpbnQgaW14NnFfcGNpZV9lbmFibGVfcmVmX2NsayhzdHJ1Y3QgaW14X3BjaWUgKmlteF9wY2ll
+LCBib29sDQo+ID4gZW5hYmxlKSAgew0KPiA+IC0JaWYgKGVuYWJsZSkgew0KPiA+IC0JCS8qIHBv
+d2VyIHVwIGNvcmUgcGh5IGFuZCBlbmFibGUgcmVmIGNsb2NrICovDQo+ID4gLQkJcmVnbWFwX2Ns
+ZWFyX2JpdHMoaW14X3BjaWUtPmlvbXV4Y19ncHIsIElPTVVYQ19HUFIxLA0KPiBJTVg2UV9HUFIx
+X1BDSUVfVEVTVF9QRCk7DQo+ID4gLQkJLyoNCj4gPiAtCQkgKiBUaGUgYXN5bmMgcmVzZXQgaW5w
+dXQgbmVlZCByZWYgY2xvY2sgdG8gc3luYyBpbnRlcm5hbGx5LA0KPiA+IC0JCSAqIHdoZW4gdGhl
+IHJlZiBjbG9jayBjb21lcyBhZnRlciByZXNldCwgaW50ZXJuYWwgc3luY2VkDQo+ID4gLQkJICog
+cmVzZXQgdGltZSBpcyB0b28gc2hvcnQsIGNhbm5vdCBtZWV0IHRoZSByZXF1aXJlbWVudC4NCj4g
+PiAtCQkgKiBBZGQgYSB+MTB1cyBkZWxheSBoZXJlLg0KPiA+IC0JCSAqLw0KPiA+IC0JCXVzbGVl
+cF9yYW5nZSgxMCwgMTAwKTsNCj4gPiAtCQlyZWdtYXBfc2V0X2JpdHMoaW14X3BjaWUtPmlvbXV4
+Y19ncHIsIElPTVVYQ19HUFIxLA0KPiBJTVg2UV9HUFIxX1BDSUVfUkVGX0NMS19FTik7DQo+ID4g
+LQl9IGVsc2Ugew0KPiA+IC0JCXJlZ21hcF9jbGVhcl9iaXRzKGlteF9wY2llLT5pb211eGNfZ3By
+LCBJT01VWENfR1BSMSwNCj4gSU1YNlFfR1BSMV9QQ0lFX1JFRl9DTEtfRU4pOw0KPiA+IC0JCXJl
+Z21hcF9zZXRfYml0cyhpbXhfcGNpZS0+aW9tdXhjX2dwciwgSU9NVVhDX0dQUjEsDQo+IElNWDZR
+X0dQUjFfUENJRV9URVNUX1BEKTsNCj4gPiAtCX0NCj4gPiArCWlmIChlbmFibGUpDQo+ID4gKwkJ
+cmVnbWFwX3NldF9iaXRzKGlteF9wY2llLT5pb211eGNfZ3ByLCBJT01VWENfR1BSMSwNCj4gPiAr
+CQkJCUlNWDZRX0dQUjFfUENJRV9SRUZfQ0xLX0VOKTsNCj4gPiArCWVsc2UNCj4gPiArCQlyZWdt
+YXBfY2xlYXJfYml0cyhpbXhfcGNpZS0+aW9tdXhjX2dwciwgSU9NVVhDX0dQUjEsDQo+ID4gKwkJ
+CQkgIElNWDZRX0dQUjFfUENJRV9SRUZfQ0xLX0VOKTsNCj4gPg0KPiA+ICAJcmV0dXJuIDA7DQo+
+ID4gIH0NCj4gPiBAQCAtODIzLDIzICs4MTQsMjUgQEAgc3RhdGljIGludCBpbXg2c3hfcGNpZV9j
+b3JlX3Jlc2V0KHN0cnVjdCBpbXhfcGNpZQ0KPiAqaW14X3BjaWUsIGJvb2wgYXNzZXJ0KQ0KPiA+
+ICAJcmV0dXJuIDA7DQo+ID4gIH0NCj4gPg0KPiA+IC1zdGF0aWMgaW50IGlteDZxcF9wY2llX2Nv
+cmVfcmVzZXQoc3RydWN0IGlteF9wY2llICppbXhfcGNpZSwgYm9vbA0KPiA+IGFzc2VydCkNCj4g
+PiArc3RhdGljIGludCBpbXg2cV9wY2llX2NvcmVfcmVzZXQoc3RydWN0IGlteF9wY2llICppbXhf
+cGNpZSwgYm9vbA0KPiA+ICthc3NlcnQpDQo+ID4gIHsNCj4gPiAtCXJlZ21hcF91cGRhdGVfYml0
+cyhpbXhfcGNpZS0+aW9tdXhjX2dwciwgSU9NVVhDX0dQUjEsDQo+IElNWDZRX0dQUjFfUENJRV9T
+V19SU1QsDQo+ID4gLQkJCSAgIGFzc2VydCA/IElNWDZRX0dQUjFfUENJRV9TV19SU1QgOiAwKTsN
+Cj4gPiAtCWlmICghYXNzZXJ0KQ0KPiA+IC0JCXVzbGVlcF9yYW5nZSgyMDAsIDUwMCk7DQo+ID4g
+KwlpZiAoYXNzZXJ0KQ0KPiA+ICsJCXJlZ21hcF9zZXRfYml0cyhpbXhfcGNpZS0+aW9tdXhjX2dw
+ciwgSU9NVVhDX0dQUjEsDQo+ID4gKwkJCQlJTVg2UV9HUFIxX1BDSUVfVEVTVF9QRCk7DQo+ID4g
+KwllbHNlDQo+ID4gKwkJcmVnbWFwX2NsZWFyX2JpdHMoaW14X3BjaWUtPmlvbXV4Y19ncHIsIElP
+TVVYQ19HUFIxLA0KPiA+ICsJCQkJICBJTVg2UV9HUFIxX1BDSUVfVEVTVF9QRCk7DQo+ID4NCj4g
+PiAgCXJldHVybiAwOw0KPiA+ICB9DQo+ID4NCj4gPiAtc3RhdGljIGludCBpbXg2cV9wY2llX2Nv
+cmVfcmVzZXQoc3RydWN0IGlteF9wY2llICppbXhfcGNpZSwgYm9vbA0KPiA+IGFzc2VydCkNCj4g
+PiArc3RhdGljIGludCBpbXg2cXBfcGNpZV9jb3JlX3Jlc2V0KHN0cnVjdCBpbXhfcGNpZSAqaW14
+X3BjaWUsIGJvb2wNCj4gPiArYXNzZXJ0KQ0KPiA+ICB7DQo+ID4gKwlpbXg2cV9wY2llX2NvcmVf
+cmVzZXQoaW14X3BjaWUsIGFzc2VydCk7DQo+ID4gKwlyZWdtYXBfdXBkYXRlX2JpdHMoaW14X3Bj
+aWUtPmlvbXV4Y19ncHIsIElPTVVYQ19HUFIxLA0KPiBJTVg2UV9HUFIxX1BDSUVfU1dfUlNULA0K
+PiA+ICsJCQkgICBhc3NlcnQgPyBJTVg2UV9HUFIxX1BDSUVfU1dfUlNUIDogMCk7DQo+ID4gIAlp
+ZiAoIWFzc2VydCkNCj4gPiAtCQlyZXR1cm4gMDsNCj4gPiAtDQo+ID4gLQlyZWdtYXBfc2V0X2Jp
+dHMoaW14X3BjaWUtPmlvbXV4Y19ncHIsIElPTVVYQ19HUFIxLA0KPiBJTVg2UV9HUFIxX1BDSUVf
+VEVTVF9QRCk7DQo+ID4gLQlyZWdtYXBfc2V0X2JpdHMoaW14X3BjaWUtPmlvbXV4Y19ncHIsIElP
+TVVYQ19HUFIxLA0KPiBJTVg2UV9HUFIxX1BDSUVfUkVGX0NMS19FTik7DQo+ID4gKwkJdXNsZWVw
+X3JhbmdlKDIwMCwgNTAwKTsNCj4gPg0KPiA+ICAJcmV0dXJuIDA7DQo+ID4gIH0NCj4gPiBAQCAt
+MTQ0NSw2ICsxNDM4LDcgQEAgc3RhdGljIGludCBpbXhfcGNpZV9ob3N0X2luaXQoc3RydWN0IGR3
+X3BjaWVfcnAgKnBwKQ0KPiA+ICAJcmV0dXJuIDA7DQo+ID4NCj4gPiAgZXJyX3BoeV9vZmY6DQo+
+ID4gKwlpbXhfcGNpZV9hc3NlcnRfY29yZV9yZXNldChpbXhfcGNpZSk7DQo+ID4gIAlwaHlfcG93
+ZXJfb2ZmKGlteF9wY2llLT5waHkpOw0KPiA+ICBlcnJfcGh5X2V4aXQ6DQo+ID4gIAlwaHlfZXhp
+dChpbXhfcGNpZS0+cGh5KTsNCj4gPiBAQCAtMTQ3MSw2ICsxNDY1LDcgQEAgc3RhdGljIHZvaWQg
+aW14X3BjaWVfaG9zdF9leGl0KHN0cnVjdCBkd19wY2llX3JwDQo+ICpwcCkNCj4gPiAgCQkJZGV2
+X2VycihwY2ktPmRldiwgInVuYWJsZSB0byBwb3dlciBvZmYgUEhZXG4iKTsNCj4gPiAgCQlwaHlf
+ZXhpdChpbXhfcGNpZS0+cGh5KTsNCj4gPiAgCX0NCj4gPiArCWlteF9wY2llX2Fzc2VydF9jb3Jl
+X3Jlc2V0KGlteF9wY2llKTsNCj4gPiAgCWlteF9wY2llX2Nsa19kaXNhYmxlKGlteF9wY2llKTsN
+Cj4gPg0KPiA+ICAJcGNpX3B3cmN0cmxfcG93ZXJfb2ZmX2RldmljZXMocGNpLT5kZXYpOw0KPiA+
+IC0tDQo+ID4gMi4zNC4xDQo+ID4NCj4gDQo+IC0tDQo+IOCuruCuo+Cuv+CuteCuo+CvjeCuo+Cu
+qeCvjSDgrprgrqTgrr7grprgrr/grrXgrq7gr40NCg==
 
