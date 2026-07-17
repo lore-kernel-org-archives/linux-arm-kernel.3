@@ -4,108 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C114DC44514
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 07:35:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B9C0C44517
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 07:39:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=USxuj5cdXcSxjhj0RWDyCY2SPnAhuicY80xMgRrTLdI=; b=br23KO0Pnv6E8kZjgt6BDNataB
-	MBo9pvU/UpNU9jxZD155wlEqiaJVx9me5xgNfQrTgm9gwGJH4zajnre+Wd5tIQTuJFuiZoaLm6yq5
-	/Hkk6pOEFo1vYFlxeNHKckbN8x/FxWOTwIciHAT6hkgDVkH1o00+PZKG19AQypY2c7jS2oVQLq+lc
-	rm6ptc0coa+FvHXbP0mFhZ6LMnts0y+4pXvwvSm2NIeFdN1awk8JB6zvY771jVEIkoyUj90+PCzC7
-	pqsFLhlkWfL+p77GeYqJRvibHHnDT2U9TWZWCmAejGtEmaY1nMWxmaGiNUJRMbBNoaLflk7EHztEU
-	qX0R4aZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4d43EokkNjI1qd7X23lr1D9DfJ43ezHxQgUyPX7zrs4=; b=boo+wsYr35L1WoXtaPEs/HOUxe
+	9MfiN0PSe0bAO0Wjt8eGuboFiXT5MV3MXoACGkLSnGO35dSs1PHtsWz5wq6HXXumSFBlc7H7lDMvE
+	OsvFgzDhxAroY9vUTqA6teMZU3Izv0Dv6+CguG/P2rQiZkdCLY4rDVCTVlYXV01o6REh02dvaXH3K
+	0E9Kasr0XeQi8xK2dh97S3BjjFHB0L0XCl6q3RWOtB3IGCYWpurhGEL/kFgxDF7iJACY3n1ekQxvX
+	gQfWfPddbzZF2cONvRdZpHW8EBpUctD64zErQxGhGNsVhx4OtEIp7TPQ+T5MsdCYJwumqLVYK9rko
+	q03NdpWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkcTy-00000001K3o-47bx;
-	Fri, 17 Jul 2026 06:55:38 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1wkdAc-00000001U9X-0GhY;
+	Fri, 17 Jul 2026 07:39:42 +0000
+Received: from mail-northeuropeazon11010060.outbound.protection.outlook.com ([52.101.84.60] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkcTn-00000001Jeq-0ARX
+	id 1wkdAa-00000001U8q-0Jgj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 06:55:28 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-49548e01d02so1926955e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 23:55:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784271325; x=1784876125; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=USxuj5cdXcSxjhj0RWDyCY2SPnAhuicY80xMgRrTLdI=;
-        b=H6TebN0BXy1jy8eHKSEP3Pghjic06fofBOBrlHCk9ITG6JmH4iVLz6NIwNk2X0EZD+
-         bn13aF+nNccVtFkorhG/dzB1ay9PImb44W+eELaA2KKiSydkPFzIwW8+YuogGzNbnm8J
-         QmoEDX3etlJ9eC3qIYAPSo2KnTHA3ocNXXtKDcrFxGz2xamtBz6KGaJkWV6ROm2xL7Ex
-         4Ez4buPey+qWdUYi4PmkILxhmUDbtxD3ypd0IayNcPUh7LlDYk0vqWSiLt+tS1qng/Zd
-         QVSNTswwMN8qaCqvEHlLBVDEQw0RDp5gZJavf3mccGMShPsuWtKgIUXm4sYcU9d94/f+
-         ndLw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784271325; x=1784876125;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=USxuj5cdXcSxjhj0RWDyCY2SPnAhuicY80xMgRrTLdI=;
-        b=EoL6/KTPcykuO7Xk0QQnH7opAgHtmgyDQxP4VDhUbr4PFudM0hQKIQWM7MA46dtSYg
-         hYSsS3punW0LOm/Mp6y0b5NZEq10/tS6DNlItQWEad4xeY/MEBqNeD6rjZvnXXKI4rKh
-         +7hizlrCFVWBzLjMhQzk/b7Jy2K0L9+ebU3uQGGpEsx6W6lgTtjMRNAGLI8xp1KHgkif
-         VONqK0DELZNARgNOSNgy4rSz5u3O9oZ4zxl5e/Xvin3LQWo923kObu9uHcLUCELen17r
-         RmcuOryAS1WXrM9gzo5G3hCwbG4tGU1OckQe/E7GJX+WrvgKuINBYsdDIXrANCBGw2g7
-         077Q==
-X-Forwarded-Encrypted: i=1; AHgh+RpQ+2YWu7zYa7wQj7wv/DL7B1PmVqLQbWkWc2x9T1u6BjTHzA7aYLFBBewPjowgqRe9c8Y3ei85beoaGPqVSmfe@lists.infradead.org
-X-Gm-Message-State: AOJu0YxsEFXssZw9PUa4kFyztHpmdnwuylIYkRDLINc7H2kNRq/uMq7F
-	HWuEomJnRFsRFY1vyuKMjKkaa8+JXsmJf1xm/IKvrH4+OnmsBm1Nnh08
-X-Gm-Gg: AfdE7cll1hLqo/znkFWyB1I44fIS6cDPveGzJF/+SiA3wK37XOUZX86avRRIERQZ9YR
-	MG2IC4lxmd9nmrRYFdRiZx3X+jzyZlaRVH1gGUo+ohogghgxS76SL6FnGykppmwDGfNH282OScd
-	LqApY76EZvtzsis4h+fKVRzxVN+PaBTYylZcARSKWrl1pfx7/3pDd7aD9Lr+5QIfeIZAQj9ADpn
-	nyVQhz59AAu8zsjudw92KM4rwUxu7hJ9l+gfAjd5HKKBtGY25MZobfySEVBE2bJ9mfmlC5mjCGb
-	4mMhi5uM5pRm7uYjx0RMMJf6VMIXE3LiYLwNXCE7RPvqnubR26tYNh7mUJ/uAOrkEePoE2iVZWU
-	gEx+vCZGNXPovPMbqejKPbj1ZzHR7fNi41AfOoThI/7XKzBl5PsprZYkWQJOIYWIWWGDErE31g4
-	mWWywD4a/dc66M/aVv8igAmO3b34Tpmu4g5WqQueubblVfEWQPOFP8cLpuM8gESHn3RLdoBkMS0
-	tqdz9k6
-X-Received: by 2002:a05:600c:3b05:b0:493:bb23:152a with SMTP id 5b1f17b1804b1-4954a508804mr12738645e9.34.1784271325219;
-        Thu, 16 Jul 2026 23:55:25 -0700 (PDT)
-Received: from Ansuel-XPS24.localdomain (host-95-248-227-210.retail.telecomitalia.it. [95.248.227.210])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-495499f3f99sm24260835e9.0.2026.07.16.23.55.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 16 Jul 2026 23:55:24 -0700 (PDT)
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Simon Horman <horms@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Christian Marangi <ansuelsmth@gmail.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Saravana Kannan <saravanak@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org,
+	Fri, 17 Jul 2026 07:39:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=i0OPhx/FqDcdrYBvHxmCKUBYQr4VX3WtqlKfkRHvcPCCUknuuWxgeDvfekeRp8yC04QU9+GIibNOHVQIM9c0YMMm6/VIkHZr73ybEoGG8R/61CDz0vMxzDTFIzQgE9SiU5M+TaiLrRIt5Vs4FNpKieDRfHZ/Ee409TU4hUFnGNyUoTQMqOyHKIxyOLZDKIsW7iOPwzcnu75RcvmwOm77zu4+7eVuGZeqsA2guO1th5VPzADqC+GzEe8n8wry1HWjtaew/tli2un44p+4v95/NJihVi9BI5pswBK1CiXlpzG2fn09B4Tx0aKc6cODhhqgf4eqN1YYFE43znsXnPkVQQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=4d43EokkNjI1qd7X23lr1D9DfJ43ezHxQgUyPX7zrs4=;
+ b=Ur6bym8ZZQd/2muZ3Oe7eYd27aOd6g6zXUSwY3v6CoNY8pIj5tjmxVH9NKkDL7MAS2jgy1uqtOMrJhmRer6MFLrS6BY9r3p+lPhOptGBmarl5Wq4rJrKCZ00nLQvF5AIso2ys/9cC5OoC4u0SgM6k1BBRkonfMhb1B95JzYnPylQk9C/fuwJCZ0Rqm/6QYXJHGuGEv0i33bOHo2KZptCjrT439TYeTXhfRTWni2S1WfQropu4+1X8wqiuSGBSSIIArHO7mESJKC8k0YIKHM84rxHEym/j2G28u7QlUCroskQLowGidwU2SM6zGjY6yBnVLYjuQYj2zgzcZwg+wsY0Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4d43EokkNjI1qd7X23lr1D9DfJ43ezHxQgUyPX7zrs4=;
+ b=HyBwWClbpKQAG/BAQBEhAMXPpMtpW9kzaOtQ1g5YDAcduvuHXxA2UrdwRutYWq/Ldu4UnVCVfjqy7RBQNdccxfVJ2PNQ37InkTpVJtTFdn9r6VodMGb8UEZQiFiDGTyIniEQSuGKsfEXssaIJdhMgX9xYmbhg+gLLEDjw5IJcUZYfMOLfLW0ZFKlKgR5MhI1fICet3d8MddCLGyikwGOc3M5B2fmr4b8ppwJM04YhZnYABQF1PKcORZD6MjDTvYAGhJ8BMXzylDJ9ATt/cmK+TJnax/yuvY0/E9KMh27ujUZ/HJqeS31VCEqcQN2liIS06ygiq63PdZ2/pDwvoeInQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8096.eurprd04.prod.outlook.com (2603:10a6:102:1c7::19)
+ by AM9PR04MB8699.eurprd04.prod.outlook.com (2603:10a6:20b:43e::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.13; Fri, 17 Jul
+ 2026 07:39:35 +0000
+Received: from PAXPR04MB8096.eurprd04.prod.outlook.com
+ ([fe80::68be:f721:5000:3f2d]) by PAXPR04MB8096.eurprd04.prod.outlook.com
+ ([fe80::68be:f721:5000:3f2d%5]) with mapi id 15.21.0223.011; Fri, 17 Jul 2026
+ 07:39:35 +0000
+From: hongxing.zhu@oss.nxp.com
+To: frank.li@nxp.com,
+	l.stach@pengutronix.de,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	robh@kernel.org,
+	bhelgaas@google.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: linux-pci@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>
-Subject: [PATCH net-next v9 09/12] net: phylink: add .pcs_link_down PCS OP
-Date: Fri, 17 Jul 2026 08:54:09 +0200
-Message-ID: <20260717065448.1498335-10-ansuelsmth@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260717065448.1498335-1-ansuelsmth@gmail.com>
-References: <20260717065448.1498335-1-ansuelsmth@gmail.com>
-MIME-Version: 1.0
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Richard Zhu <hongxing.zhu@nxp.com>
+Subject: [PATCH v2] PCI: dwc: Add suspend_poweroff flag for platforms with RC power loss
+Date: Fri, 17 Jul 2026 15:41:21 +0800
+Message-Id: <20260717074121.3214222-1-hongxing.zhu@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SG2PR02CA0125.apcprd02.prod.outlook.com
+ (2603:1096:4:188::13) To PAXPR04MB8096.eurprd04.prod.outlook.com
+ (2603:10a6:102:1c7::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8096:EE_|AM9PR04MB8699:EE_
+X-MS-Office365-Filtering-Correlation-Id: a8ce6161-35e5-4624-d44f-08dee3d68c94
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|19092799006|23010399003|1800799024|366016|10067099003|6133799003|5023799004|11063799006|56012099006|18002099003|921020;
+X-Microsoft-Antispam-Message-Info: MXalwu+9usaBLDYhfVjPaOje5agM0vV6D8Rnh2yvdEHgIT9KARCMt+AOmkUAB3xrZQ5VLZsEo1+F6qBKDuweOzlwZmvdMVicmJ1DNN2aO0kQG27NhASiOYEoGug/vKzeQi0/5pOG00IRt11/0B/tC0TF+Gom5qpfeFDdkMZIGocKxsQKUh/L0c3lGWv4GHf7sP9ljgX/2FPjfGmx02uZ05rzzsq0y9unLKejNRiGJkGN41c00WVvjF5MVaGuhsN9uUMoEl2cRln1fjyi/1sbAHSHSFRmd3+FubH03Veuw9ui27r5q7SUkCcJVAcUZoRYIb8sR0bF1v3duvjWJUH3ZAawSEoZ7nuXcsktnywYN8VaPkASFEvPu/3rchA3fwsJn9qE73Ed84eykg2R4yr7iQnKchL9m+olKjjPTcHed/O+LPx+q5mupnR3msOxvNMYm46Sfb7RdEF1dhmhPlIpaJRE0F5PYFCCVT95IQV7W3pvVQJ+C7iMzKGEbw1s5Sm1X4fNQ9DlGUYNqtRfxEQuDqoNKft4iBMDjch31JvdNO9gioX/ihkqMIr3xiH97QyyOQTdye9Z9OJ4g2mAXMMXbgi41EM73qwaGvnF7JfGmauqx6hmiGp4ovYuc0I4+UvNWmtFrdr1WYWY1x4Ff2fHXzMFcgKxAUvRJx8wNjib2mar5ECJbDanwsOrz9Nw/IyT2gzX2qiI7Du54zkpU9oS9w==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8096.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(19092799006)(23010399003)(1800799024)(366016)(10067099003)(6133799003)(5023799004)(11063799006)(56012099006)(18002099003)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?mm1G1FhadUnSLI/588ODxkqpuXcddgc0lS03vjucZWH1Ks8qYV0byrGW/RBI?=
+ =?us-ascii?Q?TeXD8pvO4fQ+Uuyf+eWBmpgkIYbeW8LAfdfv7bn7cYq4EDaO3aUinmXgDVtG?=
+ =?us-ascii?Q?enykj0L6ZV51PnmmfyMtn02NW5fz2qwDgNsq1YXn7PjTtRWW3o1PTW6vj7LE?=
+ =?us-ascii?Q?GvPYJE84Vc9r90yXEhSzIlhpvJl30Q1kT82fjCA3G/bLc0BUhJn5VqxKG3tY?=
+ =?us-ascii?Q?iZHLI2JTFdrAeeqEUXaJZScVldTvEl6LTzgHzQACBZL6x5NaX0oS2sbT0ihW?=
+ =?us-ascii?Q?mP2nJTDGHXtL2dHky2772rbVTGMU+RFKXpoLQWrcCyKgJZ+qhRE7MW6dPsb5?=
+ =?us-ascii?Q?jS5ZWmxGXEwl666gxYnHT9RzSxRKbhEV4zKFGLSqXEexVVa4usRPfjDCMVjJ?=
+ =?us-ascii?Q?YS+U4c6vLptJlRrvnAOPp671dn450h9jp5dYd1k5xmsmwXdzEnR0fgFc03dg?=
+ =?us-ascii?Q?zMtwoJde4CmJcSc9C6uWlLFr7SFBtnhGyjtTOZ8kkEUcCoGF3a3SJ9aZ+5FM?=
+ =?us-ascii?Q?RwXVVmmOehLNh/RObva6cKwih5QjyukGIJxliFPWQvoYDNzy+/SdkEbZgHhT?=
+ =?us-ascii?Q?0I30Cy8wAXZKakVUUex8AqnIopqtIzYRObTn/k5gIb9tuWC84YnGWDwHtQwD?=
+ =?us-ascii?Q?tqGgbMzAsKofCzTAjEoeLPIstUlqFO4G23l1/kJz4UZpO/0r1RycZAg8UV3s?=
+ =?us-ascii?Q?1AivnQdCUhrXtbxRcaN27/2zjKEFDywyWdK/90nqAJxE+LnJ3r7KLGK5q7Rd?=
+ =?us-ascii?Q?9LcidtaIK2fmTTlXz+8kUeQkOQQG9Myxfp8riRdCUdORcvp8uZtKHIcUrYWK?=
+ =?us-ascii?Q?3OwUWwUTsI50zyN1eaf2mtdf539ypyzo3kTSyMLkp3Nj830xrfECLt6y0Crf?=
+ =?us-ascii?Q?Fx0uL3z4sA1d/hyJt6HD9MNFQFEVMbQfqAsBAKV3fJ74QJV+ftZSowbtoWkb?=
+ =?us-ascii?Q?1AMEZz/kYcGR+7iVGQnL87+m0RiLmUy2/JYQT67DauofrxIalT8QIlt0/N+3?=
+ =?us-ascii?Q?kC64fzd3x68lsMbupiZiEZ1vtWlISLj3FH0UtFlEifGubMLNc2uFLySlOciu?=
+ =?us-ascii?Q?MULgeDLd/kH1BHS/WwH05ofJsglc9+ORjGMgj7Qp9yvQcfpeAgeAokX2ljnM?=
+ =?us-ascii?Q?XEJwtY0QGDKSJ+dB7fIJHnY7a/UIviyx17c5nE4Ifejx1UB+RGtar1fNuKyx?=
+ =?us-ascii?Q?ucT10u7YXx1FrwIs4gdT4j/BNIHciueMT7crdV0tCfC3HkYC4ZLd7jHYCozX?=
+ =?us-ascii?Q?Jv79mhGJoKHZ+UfLq706jtKQb46u5meov94G3RTKrhJLIBaQdRSGZqYuovgh?=
+ =?us-ascii?Q?NPQjxkVPGsIO56whS5nVObolfNFZL2dOSU7kxrhyDgegw5vn9Kjig5FPrR2K?=
+ =?us-ascii?Q?bpB7e//0LzCLlqwCwDke/q+bFZuXl/tAS5byalKygswJf2g3DzCje5NE8B0n?=
+ =?us-ascii?Q?Hgn2u2jRfEDFlqsSbHNYmRGGZyzJs1vmoq7/OOZNneyQBsdH2ut/OI0NsV/M?=
+ =?us-ascii?Q?HtG2Fu8UY/3sZF9VbQ3F1TC6l8ymHOSEg8Ou8qMtD+k3AErW6HvjaZcvTtFK?=
+ =?us-ascii?Q?2YBWVLW8vFofsA/VHEKk5bS9mZ0AgCLM8OlxvoX+x27AyjohGRneg1ahEwZu?=
+ =?us-ascii?Q?n4Yyf1xpFGX2acRY9nNYtI4dlCLp6V5NrUxXatpu8syjQu+tzo4fg69ESBiS?=
+ =?us-ascii?Q?EpMgRg3yQUr+S/CuaI2pdJnwvfpSHXciXG1oiT0GjRicXkWcBAFPGB+RAlEj?=
+ =?us-ascii?Q?Ljv8+gavihWAWo8lWX3u4cxiVaWmr8u24zB2ZWn6u4Ejx/06uPsB?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a8ce6161-35e5-4624-d44f-08dee3d68c94
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8096.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2026 07:39:35.7080
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ne0SwALoeb/3RO/+m2eGp5RDKCNBjF4BbD2rwKC/eKQ7zi3YQCV7IQDoKAwg43cAwfguMJTM9gAYWbGCRI91rKGFeu/faeBwz9iuad0IMFv+pWdgnv3tl4PAvVrayQN3
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8699
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_235527_105484_F53F4BA1 
-X-CRM114-Status: GOOD (  14.92  )
+X-CRM114-CacheID: sfid-20260717_003940_134088_32E6D517 
+X-CRM114-Status: GOOD (  18.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,88 +146,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Permit for PCS driver to define specific operation to tear down the link
-between the MAC and the PCS.
+From: Richard Zhu <hongxing.zhu@nxp.com>
 
-This might be needed for some PCS that reset counter or require special
-reset to correctly work if the link needs to be restored later.
+Some platforms like i.MX power off their PCIe RC controllers during
+system suspend, requiring full re-initialization on resume. These
+platforms need to enter L2 state to properly notify endpoints before
+power loss.
 
-On phylink_link_down() call, the additional phylink_pcs_link_down() will
-be called after .mac_link_down to tear down the link.
+According to PCIe base spec r7.0, sec 5.2, the system software should
+transition the device into D3Hot before broadcasting the PME_Turn_Off
+message to initiate L2 entry. However, some endpoint devices fail the
+D3cold capability check in pci_host_common_d3cold_possible(), which
+would normally prevent L2 entry.
 
-PCS driver will need to define .pcs_link_down to make use of this.
+For platforms where the RC loses power during suspend, L2 entry is
+essential regardless of D3cold support, as the link will be lost anyway.
+Add a suspend_poweroff flag to force L2 entry in such cases, and enable
+it for i.MX PCIe controllers.
 
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+Note: This violates the spec requirement that devices be in D3Hot before
+PME_Turn_Off, but is necessary for proper operation on platforms with RC
+power loss during suspend.
+
+Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
 ---
- drivers/net/phy/phylink.c |  9 +++++++++
- include/linux/phylink.h   | 12 ++++++++++++
- 2 files changed, 21 insertions(+)
+Changes in v2:
+- Rename the new added flag.
+- Update commit description and comments.
 
-diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
-index 1d83b31874fb..e36a6647d7e8 100644
---- a/drivers/net/phy/phylink.c
-+++ b/drivers/net/phy/phylink.c
-@@ -1037,6 +1037,12 @@ static void phylink_pcs_link_up(struct phylink_pcs *pcs, unsigned int neg_mode,
- 		pcs->ops->pcs_link_up(pcs, neg_mode, interface, speed, duplex);
- }
+---
+ drivers/pci/controller/dwc/pci-imx6.c             | 11 +++++++++++
+ drivers/pci/controller/dwc/pcie-designware-host.c | 10 ++++++++--
+ drivers/pci/controller/dwc/pcie-designware.h      |  8 ++++++++
+ 3 files changed, 27 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+index 98e1db751132a..5a43bf396521b 100644
+--- a/drivers/pci/controller/dwc/pci-imx6.c
++++ b/drivers/pci/controller/dwc/pci-imx6.c
+@@ -1957,6 +1957,17 @@ static int imx_pcie_probe(struct platform_device *pdev)
+ 		 */
+ 		imx_pcie_add_lut_by_rid(imx_pcie, 0);
+ 	} else {
++		/*
++		 * i.MX RC is powered off during suspend, requiring L2 entry
++		 * to notify endpoints before power loss. Some endpoints fail
++		 * the D3cold capability check, which would normally prevent
++		 * L2 entry. Force L2 entry anyway since the link will be lost
++		 * when RC powers off.
++		 *
++		 * Note: Per PCIe spec r7.0 sec 5.2, devices should be in D3Hot
++		 * before PME_Turn_Off. This may not be guaranteed here.
++		 */
++		pci->pp.suspend_poweroff = true;
+ 		if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_SKIP_L23_READY))
+ 			pci->pp.skip_l23_ready = true;
+ 		if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_KEEP_MSI_CAP))
+diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
+index 06722259d2e37..95a31d65e1ca9 100644
+--- a/drivers/pci/controller/dwc/pcie-designware-host.c
++++ b/drivers/pci/controller/dwc/pcie-designware-host.c
+@@ -1222,14 +1222,20 @@ static int dw_pcie_pme_turn_off(struct dw_pcie *pci)
  
-+static void phylink_pcs_link_down(struct phylink_pcs *pcs)
-+{
-+	if (pcs && pcs->ops->pcs_link_down)
-+		pcs->ops->pcs_link_down(pcs);
-+}
-+
- static void phylink_pcs_disable_eee(struct phylink_pcs *pcs)
+ int dw_pcie_suspend_noirq(struct dw_pcie *pci)
  {
- 	if (pcs && pcs->ops->pcs_disable_eee)
-@@ -1738,6 +1744,9 @@ static void phylink_link_down(struct phylink *pl)
+-	bool pme_capable = false;
++	bool d3cold, pme_capable = false;
+ 	int ret = 0;
+ 	u32 val;
  
- 	pl->mac_ops->mac_link_down(pl->config, pl->act_link_an_mode,
- 				   pl->cur_interface);
-+
-+	phylink_pcs_link_down(pl->pcs);
-+
- 	phylink_info(pl, "Link is Down\n");
- }
+ 	if (!dw_pcie_link_up(pci))
+ 		goto stop_link;
  
-diff --git a/include/linux/phylink.h b/include/linux/phylink.h
-index 15e6b1a39dfe..ecf4c384fd31 100644
---- a/include/linux/phylink.h
-+++ b/include/linux/phylink.h
-@@ -528,6 +528,7 @@ struct phylink_pcs {
-  * @pcs_an_restart: restart 802.3z BaseX autonegotiation.
-  * @pcs_link_up: program the PCS for the resolved link configuration
-  *               (where necessary).
-+ * @pcs_link_down: tear down link between MAC and PCS.
-  * @pcs_disable_eee: optional notification to PCS that EEE has been disabled
-  *		     at the MAC.
-  * @pcs_enable_eee: optional notification to PCS that EEE will be enabled at
-@@ -555,6 +556,7 @@ struct phylink_pcs_ops {
- 	void (*pcs_an_restart)(struct phylink_pcs *pcs);
- 	void (*pcs_link_up)(struct phylink_pcs *pcs, unsigned int neg_mode,
- 			    phy_interface_t interface, int speed, int duplex);
-+	void (*pcs_link_down)(struct phylink_pcs *pcs);
- 	void (*pcs_disable_eee)(struct phylink_pcs *pcs);
- 	void (*pcs_enable_eee)(struct phylink_pcs *pcs);
- 	int (*pcs_pre_init)(struct phylink_pcs *pcs);
-@@ -690,6 +692,16 @@ void pcs_an_restart(struct phylink_pcs *pcs);
- void pcs_link_up(struct phylink_pcs *pcs, unsigned int neg_mode,
- 		 phy_interface_t interface, int speed, int duplex);
+-	if (!pci_host_common_d3cold_possible(pci->pp.bridge, &pme_capable))
++	d3cold = pci_host_common_d3cold_possible(pci->pp.bridge, &pme_capable);
++	/*
++	 * Enter L2 if D3cold is possible, or if the platform loses RC power
++	 * during suspend (in which case L2 entry is required to notify
++	 * endpoints before power loss, regardless of D3cold support).
++	 */
++	if (!d3cold && !pci->pp.suspend_poweroff)
+ 		return 0;
  
-+/**
-+ * pcs_link_up() - tear down link between MAC and PCS
-+ * @pcs: a pointer to a &struct phylink_pcs.
-+ *
-+ * This call will be made just after mac_link_down() to inform the PCS the
-+ * link has gone down. PCS should be configured to stop processing packets
-+ * for transmission and reception.
-+ */
-+void pcs_link_down(struct phylink_pcs *pcs);
-+
- /**
-  * pcs_disable_eee() - Disable EEE at the PCS
-  * @pcs: a pointer to a &struct phylink_pcs
+ 	if (pci->pp.ops->pme_turn_off) {
+diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
+index de4b245b1758c..3ce7d30d9a4d5 100644
+--- a/drivers/pci/controller/dwc/pcie-designware.h
++++ b/drivers/pci/controller/dwc/pcie-designware.h
+@@ -471,6 +471,14 @@ struct dw_pcie_rp {
+ 	bool			native_ecam;
+ 	bool                    skip_l23_ready;
+ 	bool			skip_pwrctrl_off;
++	/*
++	 * suspend_poweroff: Force L2 entry during suspend even when D3cold
++	 * capability check fails. Used on platforms where RC loses power
++	 * during suspend and must notify endpoints via L2 entry before
++	 * power loss. May not meet PCIe spec requirement for devices to be
++	 * in D3Hot before PME_Turn_Off.
++	 */
++	bool                    suspend_poweroff;
+ };
+ 
+ struct dw_pcie_ep_ops {
 -- 
-2.53.0
+2.34.1
 
 
