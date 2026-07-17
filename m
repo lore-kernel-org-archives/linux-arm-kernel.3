@@ -4,130 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A3F4C44520
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 12:12:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87843C44520
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 12:17:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=esadwtDRqjPvzbK6oeJ7VNhxcfXPaLoA0qMrKXOsIn4=; b=jnZRwPhL3on7Ww9Rbb8ZFXyj3r
-	vZHkXV2GBz4wnP0wnOZ9DOHJMVuIMYYk2oHD3ikF3K9jQulM8NZsyEGWJkpPJNH0K3UPgMfcCHRHd
-	jednvroQ1YDae9oeRsx1Om4kEKASY3MOOUTREk2kcx8KuecRFyVkv/XNVG1zh2GtMJ4IXpF5rcT95
-	V8iRxKsXeIWY7LrZe6h2+pJt2mc+QMm03x/NHDO5BcRjmCF7I3cCLuF69OlpWWKzuW5o6v4ok7m8c
-	9w2Pzaawb8Vty3UEsA5osX1Gn9Fm0fOH9UuyYeiMOQaT4Wn7EUpQzqJ04DoTJrz8BZMdYEGSenMbr
-	JLSpawlA==;
+	bh=qwffd+MK4v483+LcaFb6T74cP0UlMdAs+/sPit+FeJg=; b=upMrTpoz1HlmAfv3W2Mo8SWxMU
+	3YMx9zmN1G/eNqa/dQDG3oD1PH5mt5o2SNHOZ+nmQK3y7yitStCBeCQPZSqH4pKI98wx2+NlQ5PFO
+	k9fzchP/JB0lKuvyiJyTEgOU4zoEQAnkbhyDaubCgWcBOPBM+6hXrWvcmG0KZ8c2eYzT2x3pq1Z9h
+	7OankNStSn6Fh6Vglsjb/ZvAj7f3HFrnnL6vifNJ4SDx2E53C58C40h4TKBjmcdDeanLbCM566U+P
+	Kv8tFft2Mbezfh5L52OB/SJxpaHVL8DtFwolUkenS1TuJ5DSTUWoDntur/NW8XRCN9SInrSSdgL3Q
+	o/cvt/KQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkhLI-00000002Dxl-2OXg;
-	Fri, 17 Jul 2026 12:07:00 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1wkhVL-00000002GHs-370S;
+	Fri, 17 Jul 2026 12:17:23 +0000
+Received: from fout-a8-smtp.messagingengine.com ([103.168.172.151])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkhLE-00000002Dur-0B4i
+	id 1wkhVI-00000002GGQ-2JbR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 12:06:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HsXFPZXqjd9d9o4PwFv5lRKR9k/mJ3A6Va8j3SdzXU+2d8itf3SKfF0T9Oo1BSVe4tUPUUoD5aPm09+NzLg32vfyqayH5YsLGdvk+GymBtb4vozqYC76hNCau/WTSciLB2U4D0gKWBqEdm+tEAvX5Lkp+7d+B7dUwJFvxLNY8+EBKeS3WSWWxfQYtxDC7A3W98mJKte7JlJZrK4LNjBS/aAkHHEinZjkEH0y4bEhmWawk+4jIy6zOMIgFWrK8u+PBHpSSZdQgv+BSPfdTRFZJEQ7uWJhSjR2Y+TSjEQVTPQT7LzJ72POet/BXilESn9zR4/F3EhYTtwRp9NIrAB8rQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=esadwtDRqjPvzbK6oeJ7VNhxcfXPaLoA0qMrKXOsIn4=;
- b=f9WQdDA0UC8mXXMTsyeLlTniYN5wwX/gwMepCg7Y0pYACgbPl2H6GZJXv6HqG4erS7yebyoUSOZsqs0mBVTwjmFJKlGiMuVpNXMqtSClTHp0WtbDeXzLUSFPe7AbnvWnWFqxGajxOyR049agFANB6dOLXMfEeaRf6ghtDlN0Un4x1+uRFdF9ivNvT5ao78OAUdmI2Q8YtY/sPt3t8bPtXO6uFZuN9aUUHi8C+NU3Os9wOe4t897Rpk3TuUodkWixHKIEKKWuRQOcpglojRvpZHBf4I+niYRUJHuYzMGWiJH/mB6qOJz52JjRMUCJVrt2L/tHzuCKWHRuC+Gkfgd0Wg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=esadwtDRqjPvzbK6oeJ7VNhxcfXPaLoA0qMrKXOsIn4=;
- b=UogNj0zrq3uv+2dfW/vFEPbxW91PkyC8G/FVuDJD1y/0eYbOffA6TwtqNoH6IkIiIiFnQyXvIV69C4QWFcgF+5h51cKLguIX7muvbZO+HaoRXuLNwyTKvUWSaAieulw6Ew/AzAk7QaOh2P3RTXeSHL3h3OuTJWdVC08fRtamEHndwvRa++L3tFfB8ZSqmtTZuD3K3GgnZHykw1M/BRpTM+vxdLTaAjxoqQGAsNsqPcn/RDO+hkEnrgQlt/YV7OZEwglKP11lvmd7d7TPxEeOLnPZRCF7i/tpFBTBVKot+Pv1b850UO7tuT0Poov/D7e4OKeEGl8PpDGxB+i7ySbzng==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from GVXPR04MB12290.eurprd04.prod.outlook.com
- (2603:10a6:150:319::13) by PA4PR04MB7645.eurprd04.prod.outlook.com
- (2603:10a6:102:eb::14) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.12; Fri, 17 Jul
- 2026 12:06:51 +0000
-Received: from GVXPR04MB12290.eurprd04.prod.outlook.com
- ([fe80::1739:3404:2175:33dd]) by GVXPR04MB12290.eurprd04.prod.outlook.com
- ([fe80::1739:3404:2175:33dd%6]) with mapi id 15.21.0223.011; Fri, 17 Jul 2026
- 12:06:51 +0000
-From: Ioana Ciornei <ioana.ciornei@nxp.com>
-To: Frank.Li@nxp.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org
-Cc: vladimir.oltean@nxp.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux@ew.tq-group.com
-Subject: [PATCH v3 02/11] arm64: dts: lx2160a: extract the PCIe nodes into a separate dtsi
-Date: Fri, 17 Jul 2026 15:06:26 +0300
-Message-Id: <20260717120635.2118610-3-ioana.ciornei@nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260717120635.2118610-1-ioana.ciornei@nxp.com>
-References: <20260717120635.2118610-1-ioana.ciornei@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: FR4P281CA0097.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:cb::8) To GVXPR04MB12290.eurprd04.prod.outlook.com
- (2603:10a6:150:319::13)
+	Fri, 17 Jul 2026 12:17:23 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.phl.internal (Postfix) with ESMTP id 6CA04EC016D;
+	Fri, 17 Jul 2026 08:17:17 -0400 (EDT)
+Received: from phl-imap-05 ([10.202.2.95])
+  by phl-compute-04.internal (MEProxy); Fri, 17 Jul 2026 08:17:17 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1784290637;
+	 x=1784377037; bh=qwffd+MK4v483+LcaFb6T74cP0UlMdAs+/sPit+FeJg=; b=
+	CkEEHK7/KRIW2r3ZYNZx/CS6/X4GxmPFA90cPBJlDvb01bHYpjCQ0QQ/SF04lBjM
+	DpkRhrBWzdn0GVP/59Xgh5KiCYLTj/adksJ9D+YublAzHiXKqydCVz5F2MHqKTNm
+	Y/YntNbmSaGOmZ3UkAnmfRsriVVl2J4fITYyxB1P64Zzl8ePe1y0yB+BKAY2vECW
+	G2rGhhxqGojiCrZhX6m+DVR9mSgUziAKdnAqcux7UAjdEeDpHqWCrFJf1o/bVhPZ
+	372S8VOtD3WgdEs4HsknmguJpIldB1BbwbSh95UwqTRs02qPWeTw0TMVSwkY+B+u
+	YStt008MHHpRPc1nbKJUeQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1784290637; x=
+	1784377037; bh=qwffd+MK4v483+LcaFb6T74cP0UlMdAs+/sPit+FeJg=; b=g
+	A8I+JsXLlJE2XJgz7nfW9MKgN0RxDW4HvBL7TGLlPlGGUfezGjRybepzB76bIS4d
+	DRuCzT/MqP3+xpyB/CChnqq/1s8JUm0c+G5eCU13gjrH0UD9d/EpXOdQSJZctV+/
+	FppK5GPt1P4TualkrLJ4h+Au/V9TVM88hepfDpjHixayMVRqyiihITGJPW9Kso43
+	+ou0iubCJGTbMN2Fd58B0tdblpOs/oc666GDCZz0Y0Q+sAJqUFcNIlPsp1DG+jj0
+	o2XcFj7wEJa6JkHW9Z7FcIKeOJVBJ95AxTH/4SlfFvEftl0tCFTLAUoKkRZbcmP7
+	fFcDEIftqfBlBbA03yZfg==
+X-ME-Sender: <xms:TR1aalFvKlcaERW_GkQ2wUMN0F-g3FI1VTPgyBywRwrv0iWIOaElcg>
+    <xme:TR1aalL_TvVM5jxQiK6hwr08OO4jSvjr3YoEx4j2yUbUqjrovtrnfdDZQ2Z8FgJsV
+    _qxfZ2USH15vwhxl7WKCVwXy_4DfNMsI7UQTkmj2pH6GtYfRzyD_f0>
+X-ME-Proxy-Cause: dmFkZTGZYN2MueblxAGDt1BtTf+5AWiWQBKayHhh9hPnnR/CTpcYP+VyeqU8xamWs0xUUr
+    30icLZzf2xcnlPupU1aMcgK2oeMMOTE4d1oeXnPTwKPy9zzFlUNOp1tXHHsxoPEKK8gt3i
+    i9FRqHqG0ujD2olFXKmdrxJTMtz/v0vw+rpCxVhYh6UODdqiXNzJKA+4Pc89XKa+17dlqp
+    VVELzkDE+1J4X0oH55DuIUetvVVor+TYOQLdqXOwHXJJEBQgf7TSWMpIlMfAYyQDyzkYq5
+    gNpdHIo/34zpBHodGZ+sjVmxNclc6JzUlWFCjwpJWsrbnF7xuD6ktqe142QTVOwOpSqEgX
+    Bzs6bICjk+sETAZAF3+rxL66tuRwu/VAUSxbqOISOsdg+gKEY1tBuUQsPpdiEzcKZzPKA7
+    ZRNymw2DVCcQHTQ/Uv9IJNexYbDRL7JDcZ2PlvzRtX0Q1uKVhl1u7hP2iXtjE85t9vmAc6
+    ykgIoFpn5bthGxWnVMvnh6g7Hx1B+zciNgH76MZFoC7bp0l+wCzcdMfbjaog58TjRZD63x
+    jow6AIWiJgSjwW2FXeiE1lCiB8p6zDxy738KB19JScpQe5GA47THc0PpIY+2BvQI9GOJ5Z
+    vpVmczjbzp22d1kpMveky64WroJfQgN7wq1A5w4M06EZ9lKkQdrg/c7pcn7g
+X-ME-Proxy: <xmx:TR1aak10URcDeLFeSlwiCSJBHJb62rJqKaejbt6DxFWnfdzxJPLfgQ>
+    <xmx:TR1aallSlX6lpRbAQuxuH8sUjj-l7Pw5deup2c-s2tLiqPpq1fX2DQ>
+    <xmx:TR1aaq4Qhr6WMG5ZCZ2vc1pslCLthllJ_Yok_GZge9ch4YrkRnCdjg>
+    <xmx:TR1aagm6I-Rg2J4sXytv2WLfrAvCTKTzd0CzW3tEhYG6grVgRW2uHA>
+    <xmx:TR1aamrLsFxz-9CqXGjPUdxEWWSkcul0RF7PnPtM69e5hRKmkP3MIkZe>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 1D22B182007E; Fri, 17 Jul 2026 08:17:17 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GVXPR04MB12290:EE_|PA4PR04MB7645:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5cdf7b5d-3102-4bf0-99f3-08dee3fbe2b8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|23010399003|19092799006|10067099003|6133799003|11063799006|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 6d1auUTvtCyyxnscsG5cG/ebMBKvhr3yls+Vv4BpCIkyHBg+iimznAQSVSRgvc+YFiw4mIEdlQqCRLEvkvcK02Z1nANt2kYq8wYkz9azvhBbD0SNoPMbnjegfemaEMr7fFJfotcjG1619hPWtS4QLn/eY+K3tf5es9vD7kXvqXVfR4tml9OUsJG4+iltPs0NXec0rpz1oromQ4QxbXkVz5XRIMGOtwjdTTwNxQn0+xjFiQxNPk4X6QTAnnkHPzmnyrcEY4T1FLKY5RXaCR4ZkJLq+molky7rBV8ySIxG1CLM+2c0HoFVv2vjKplw8FYaSMYvgRMB5J7ulPuAPdGR5bwQ2dzqOh5Or8Q58n1AC9+K22jH6AIvMfjGrfyjPtBKcDl1Z3fmtfF2725l7GXcyFmQDCmZWbxroK5E9WxlGZfz8g05WjS02WigP2BX/7KPzrmZwjuthsaoMspv9dgGwo1gRiGAppssXgJPgxqX8JSyvUrxVtt/f8pMWWFpkbD5pkmjZi/5jt57J3BU1PrUzn8tXwYHzRPpknBnU69FSH5ElRLDx422Da0q8hn5FqK9SfHIomwCHFp3Q2f2dbBgdCmB0sdsdXIMjpxXPyQSHflZhEcxgQsr/X/PoQ1OeC72InQAI2CEdTdtlW9NY8Sy8wL1aPSfoKa0aXMBIrf/MRc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12290.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(23010399003)(19092799006)(10067099003)(6133799003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9jog7Gj+638aYJ+fSBERt7JHJGpXtDcIdE7NTYZcmY+MNjvDFiCIhl5Ywiep?=
- =?us-ascii?Q?Sei+M+Hhcz6SskKTB6RbtIGj03kWUeHEfYWPWzarTybDNXySYUIEKw+90tz7?=
- =?us-ascii?Q?XtKqMNz6zB3zhJDmXuM3lZ2P7FOuyiX1gYhhPZ4OxpYOwfxrd0SpCYR7dBE0?=
- =?us-ascii?Q?ihPaNUWA8kuKvZj3OlD5joRuXRuf8ttqffECu0XN76/pO3xnXTlVQ3OCallW?=
- =?us-ascii?Q?xkVkd+o7vhWW6cFN+ZWwu/hQ7n2P/QVkT/u2OA4IAUZTy0PHhvfEkmg0cbE8?=
- =?us-ascii?Q?2cTn39MACHDi7fDg9AzpKjbUlM46HJVdbOC7+2vPwnRch3Y53Xu6qZa9pEjE?=
- =?us-ascii?Q?DjBaA2wZdwrymyKP8JdgmsUaoGzri9K2ox7Yu2564xMxgDVZQus384tpsWgU?=
- =?us-ascii?Q?G0fo3qz98rkZFLSrIhFDaEgrp1j4maFgPlgbLsB/0Dk9YT/YhzPIAqC4lsND?=
- =?us-ascii?Q?HLQqVbHt+aEe7ljnJ7n6c8oIoGzJWZnu5A2iVyiih+GE3goHxSba52av9WKG?=
- =?us-ascii?Q?dzdKsMBupXov4NWCWHtoW02TdNMsWTK4Q4df6Ih6uFav6033Zjhifnd/GeSz?=
- =?us-ascii?Q?W7j1hHXFHdnwB/hblj59hPr2yo9WdebtbJCX5DkThD7FcZJkOwfO2eQ+RBqW?=
- =?us-ascii?Q?64lcm/C+ffrfy3gaQ1ED0lSonn2+ctsytORhcq360WNC5i1DHolWJmezD8Rl?=
- =?us-ascii?Q?LEDR7uZTymDT5C1e8q2CCxxzWsIwPC3g7vRBghLmBI5aRU36EyuFF4CLsSU8?=
- =?us-ascii?Q?FniB02g4VsnT0NcbR/FKg97rgxJJ6x92NthoUMpkodIv6C8F5fmRpGrj5Mlq?=
- =?us-ascii?Q?H0srNzNQaLTKoJep13eRH5tmPRIrI1Bcq8fEwrQUkHXjmX+CeyNdQC2sErD9?=
- =?us-ascii?Q?GeGHLFbleLHOAi1H8YhTIC+xArojZQjPEN/mp0H0APR2C/+MT1zu7xDvLzj9?=
- =?us-ascii?Q?OAijwMeipW860OkXvgn+c9zfS/4etU4f2UmgFEvL5LBMD49UAIfihZ8nQXm8?=
- =?us-ascii?Q?OhyVrQGLE1Iv4WaUnOC1+XoYhIeIw7gV2rPSa0Rb1M/BRuLJEFScNBE8nlC/?=
- =?us-ascii?Q?GManh//D2npZqAvjtt01zwJWdOJ8mzqn4UgKG70REEJkvioLP4/ndHRlQoaC?=
- =?us-ascii?Q?/ja7IwxH3WdGVvaYPEghuFnGzsclJhnIH08VVtB8/k8XCRqcxoZ549tibNlY?=
- =?us-ascii?Q?OFIQFXy53ySVw3fJTXWuMqKrK+mFoJNt6GvNNFzBTR+19y4jCDFAIZSwu1xG?=
- =?us-ascii?Q?gIw8lTdMDJpT3oheRIMhT43nBPX1G9E0QsrvB/37cdaKNkNJATaAJz0Ibzkc?=
- =?us-ascii?Q?nM3S1iic1slmGtuG0wV36s/Dk6dSvDOZ6rx1IOazLDIvVlBjjIteV+VRS0CG?=
- =?us-ascii?Q?xxIxmawpn0cGlIkfDFc2eS9IFt7X7y3bhPAH/3RVCcSIpAkpwQOR3Dxwvsls?=
- =?us-ascii?Q?2zzxJz6hZFaTH0nwyfBcXvUWey/WR28F0OX6EmdELSmcN89wS3bFZB9yNvJE?=
- =?us-ascii?Q?aZ5ZGOzvVuNZdqQc7uXQh2lsE5xRg3kMtZAQTa/xVCIJA8G65qvsdONZDNO9?=
- =?us-ascii?Q?vb2mMHqnM9EyoRbgRfhex8FZKS9xdyn4+T/2HRz7HiNe0u21rLPrqW//HINB?=
- =?us-ascii?Q?cneiEfwpogkoojOvCNyVFrOJt+9Ei4sqjkF89ixdrO+Usqsp/CFnjVTHqOQo?=
- =?us-ascii?Q?wULCm/x64crUTWWdOTuLPCbXOjpD4DXwsegYTcxp82MgdduTFvHO6ct6vhVd?=
- =?us-ascii?Q?T0hVev8bow=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5cdf7b5d-3102-4bf0-99f3-08dee3fbe2b8
-X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12290.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2026 12:06:51.4806
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 0MtyVDo7vNXrC99V9i4zwdd39nSujUXmgueNxwi368SZEcy5e/v9LBm1uwjnDWJhLxPiJNDaTGRGt7STScmgQg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7645
+X-ThreadId: A5D9awIj4ZLo
+Date: Fri, 17 Jul 2026 14:16:36 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Ryan Roberts" <ryan.roberts@arm.com>,
+ "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+ "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
+ "Mark Rutland" <mark.rutland@arm.com>,
+ "Jean-Philippe Brucker" <jpb@kernel.org>, "Oded Gabbay" <ogabbay@kernel.org>,
+ "Jonathan Corbet" <corbet@lwn.net>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org
+Message-Id: <5049af19-47c4-4ab5-bb4d-6b3cd54ad75c@app.fastmail.com>
+In-Reply-To: <20260717104759.123203-3-ryan.roberts@arm.com>
+References: <20260717104759.123203-1-ryan.roberts@arm.com>
+ <20260717104759.123203-3-ryan.roberts@arm.com>
+Subject: Re: [RFC PATCH v1 2/8] misc/arm-cla: Add launch operation helpers
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_050656_090254_E9C79714 
-X-CRM114-Status: GOOD (  14.17  )
+X-CRM114-CacheID: sfid-20260717_051721_093668_5A6BB8FE 
+X-CRM114-Status: GOOD (  21.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,394 +114,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-One of the major differences between LX2160A Rev1 and Rev2 is the PCIe
-controller used. With the final goal of removing any usage of
-delete-node or delete-property from the current LX2160A related dts
-files, move the PCIe nodes found on the LX2160A Rev1 into a separate
-dtsi file. This will make it easier to include the appropriate dtsi
-file describing the PCIe controller depending on the SoC revision in a
-follow-up patch.
+On Fri, Jul 17, 2026, at 12:47, Ryan Roberts wrote:
+> From: Jean-Philippe Brucker <jpb@kernel.org>
+>
+> CLA commands are issued by writing optional payload registers,
+> programming the LAUNCH register and polling LRESP until the hardware
+> accepts or rejects the operation.
+>
+> Add a common launch helper that performs this sequence on the CLA's
+> local CPU, waits for LRESP completion and translates launch response
+> codes into Linux errors.
+>
+> Build accelerator reset and register read and write support on top of
+> it. The register read and write helpers split larger accesses into
+> multiple launch operations when an access crosses an eight-register
+> window.
 
-No actual change in the DT nodes found in the final DTBs is intended.
+I'm a bit confused by the MMIO register access ordering, if this is
+not a normal AXI attached device with a DMA master, I think it
+would make sense to better document what it is.
 
-Signed-off-by: Ioana Ciornei <ioana.ciornei@nxp.com>
----
-Changes in v3:
-- New patch
----
- .../dts/freescale/fsl-lx2160a-pcie-mbvl.dtsi  | 176 ++++++++++++++++++
- .../arm64/boot/dts/freescale/fsl-lx2160a.dtsi | 170 +----------------
- 2 files changed, 178 insertions(+), 168 deletions(-)
- create mode 100644 arch/arm64/boot/dts/freescale/fsl-lx2160a-pcie-mbvl.dtsi
+> +static inline u64 cla_reg_read(struct cla_dev *dev, off_t reg)
+> +{
+> +	return readq_relaxed(dev->regs + reg);
+> +}
+> +
+> +static inline void cla_reg_write(struct cla_dev *dev, off_t reg, u64=20
+> val)
+> +{
+> +	return writeq_relaxed(val, dev->regs + reg);
+> +}
 
-diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a-pcie-mbvl.dtsi b/arch/arm64/boot/dts/freescale/fsl-lx2160a-pcie-mbvl.dtsi
-new file mode 100644
-index 000000000000..871f5d5d8f75
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a-pcie-mbvl.dtsi
-@@ -0,0 +1,176 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+//
-+// Device Tree file describing the PCIe Mobiveil's GPEX 4.0 IP
-+// found on LX2160A Rev1
-+//
-+// Copyright 2026 NXP
-+
-+&soc {
-+	pcie1: pcie@3400000 {
-+		compatible = "fsl,lx2160a-pcie";
-+		reg = <0x00 0x03400000 0x0 0x00100000>, /* controller registers */
-+		      <0x80 0x00000000 0x0 0x00002000>; /* configuration space */
-+		reg-names = "csr_axi_slave", "config_axi_slave";
-+		interrupts = <GIC_SPI 108 IRQ_TYPE_LEVEL_HIGH>, /* AER interrupt */
-+			     <GIC_SPI 108 IRQ_TYPE_LEVEL_HIGH>, /* PME interrupt */
-+			     <GIC_SPI 108 IRQ_TYPE_LEVEL_HIGH>; /* controller interrupt */
-+		interrupt-names = "aer", "pme", "intr";
-+		#address-cells = <3>;
-+		#size-cells = <2>;
-+		device_type = "pci";
-+		dma-coherent;
-+		apio-wins = <8>;
-+		ppio-wins = <8>;
-+		bus-range = <0x0 0xff>;
-+		ranges = <0x82000000 0x0 0x40000000 0x80 0x40000000 0x0 0x40000000>; /* non-prefetchable memory */
-+		msi-parent = <&its 0>;
-+		#interrupt-cells = <1>;
-+		interrupt-map-mask = <0 0 0 7>;
-+		interrupt-map = <0000 0 0 1 &gic 0 0 GIC_SPI 109 IRQ_TYPE_LEVEL_HIGH>,
-+				<0000 0 0 2 &gic 0 0 GIC_SPI 110 IRQ_TYPE_LEVEL_HIGH>,
-+				<0000 0 0 3 &gic 0 0 GIC_SPI 111 IRQ_TYPE_LEVEL_HIGH>,
-+				<0000 0 0 4 &gic 0 0 GIC_SPI 112 IRQ_TYPE_LEVEL_HIGH>;
-+		iommu-map = <0 &smmu 0 1>; /* Fixed-up by bootloader */
-+		status = "disabled";
-+	};
-+
-+	pcie2: pcie@3500000 {
-+		compatible = "fsl,lx2160a-pcie";
-+		reg = <0x00 0x03500000 0x0 0x00100000>, /* controller registers */
-+		      <0x88 0x00000000 0x0 0x00002000>; /* configuration space */
-+		reg-names = "csr_axi_slave", "config_axi_slave";
-+		interrupts = <GIC_SPI 113 IRQ_TYPE_LEVEL_HIGH>, /* AER interrupt */
-+			     <GIC_SPI 113 IRQ_TYPE_LEVEL_HIGH>, /* PME interrupt */
-+			     <GIC_SPI 113 IRQ_TYPE_LEVEL_HIGH>; /* controller interrupt */
-+		interrupt-names = "aer", "pme", "intr";
-+		#address-cells = <3>;
-+		#size-cells = <2>;
-+		device_type = "pci";
-+		dma-coherent;
-+		apio-wins = <8>;
-+		ppio-wins = <8>;
-+		bus-range = <0x0 0xff>;
-+		ranges = <0x82000000 0x0 0x40000000 0x88 0x40000000 0x0 0x40000000>; /* non-prefetchable memory */
-+		msi-parent = <&its 0>;
-+		#interrupt-cells = <1>;
-+		interrupt-map-mask = <0 0 0 7>;
-+		interrupt-map = <0000 0 0 1 &gic 0 0 GIC_SPI 114 IRQ_TYPE_LEVEL_HIGH>,
-+				<0000 0 0 2 &gic 0 0 GIC_SPI 115 IRQ_TYPE_LEVEL_HIGH>,
-+				<0000 0 0 3 &gic 0 0 GIC_SPI 116 IRQ_TYPE_LEVEL_HIGH>,
-+				<0000 0 0 4 &gic 0 0 GIC_SPI 117 IRQ_TYPE_LEVEL_HIGH>;
-+		iommu-map = <0 &smmu 0 1>; /* Fixed-up by bootloader */
-+		status = "disabled";
-+	};
-+
-+	pcie3: pcie@3600000 {
-+		compatible = "fsl,lx2160a-pcie";
-+		reg = <0x00 0x03600000 0x0 0x00100000>, /* controller registers */
-+		      <0x90 0x00000000 0x0 0x00002000>; /* configuration space */
-+		reg-names = "csr_axi_slave", "config_axi_slave";
-+		interrupts = <GIC_SPI 118 IRQ_TYPE_LEVEL_HIGH>, /* AER interrupt */
-+			     <GIC_SPI 118 IRQ_TYPE_LEVEL_HIGH>, /* PME interrupt */
-+			     <GIC_SPI 118 IRQ_TYPE_LEVEL_HIGH>; /* controller interrupt */
-+		interrupt-names = "aer", "pme", "intr";
-+		#address-cells = <3>;
-+		#size-cells = <2>;
-+		device_type = "pci";
-+		dma-coherent;
-+		apio-wins = <256>;
-+		ppio-wins = <24>;
-+		bus-range = <0x0 0xff>;
-+		ranges = <0x82000000 0x0 0x40000000 0x90 0x40000000 0x0 0x40000000>; /* non-prefetchable memory */
-+		msi-parent = <&its 0>;
-+		#interrupt-cells = <1>;
-+		interrupt-map-mask = <0 0 0 7>;
-+		interrupt-map = <0000 0 0 1 &gic 0 0 GIC_SPI 119 IRQ_TYPE_LEVEL_HIGH>,
-+				<0000 0 0 2 &gic 0 0 GIC_SPI 120 IRQ_TYPE_LEVEL_HIGH>,
-+				<0000 0 0 3 &gic 0 0 GIC_SPI 121 IRQ_TYPE_LEVEL_HIGH>,
-+				<0000 0 0 4 &gic 0 0 GIC_SPI 122 IRQ_TYPE_LEVEL_HIGH>;
-+		iommu-map = <0 &smmu 0 1>; /* Fixed-up by bootloader */
-+		status = "disabled";
-+	};
-+
-+	pcie4: pcie@3700000 {
-+		compatible = "fsl,lx2160a-pcie";
-+		reg = <0x00 0x03700000 0x0 0x00100000>, /* controller registers */
-+		      <0x98 0x00000000 0x0 0x00002000>; /* configuration space */
-+		reg-names = "csr_axi_slave", "config_axi_slave";
-+		interrupts = <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>, /* AER interrupt */
-+			     <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>, /* PME interrupt */
-+			     <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>; /* controller interrupt */
-+		interrupt-names = "aer", "pme", "intr";
-+		#address-cells = <3>;
-+		#size-cells = <2>;
-+		device_type = "pci";
-+		dma-coherent;
-+		apio-wins = <8>;
-+		ppio-wins = <8>;
-+		bus-range = <0x0 0xff>;
-+		ranges = <0x82000000 0x0 0x40000000 0x98 0x40000000 0x0 0x40000000>; /* non-prefetchable memory */
-+		msi-parent = <&its 0>;
-+		#interrupt-cells = <1>;
-+		interrupt-map-mask = <0 0 0 7>;
-+		interrupt-map = <0000 0 0 1 &gic 0 0 GIC_SPI 124 IRQ_TYPE_LEVEL_HIGH>,
-+				<0000 0 0 2 &gic 0 0 GIC_SPI 125 IRQ_TYPE_LEVEL_HIGH>,
-+				<0000 0 0 3 &gic 0 0 GIC_SPI 126 IRQ_TYPE_LEVEL_HIGH>,
-+				<0000 0 0 4 &gic 0 0 GIC_SPI 127 IRQ_TYPE_LEVEL_HIGH>;
-+		iommu-map = <0 &smmu 0 1>; /* Fixed-up by bootloader */
-+		status = "disabled";
-+	};
-+
-+	pcie5: pcie@3800000 {
-+		compatible = "fsl,lx2160a-pcie";
-+		reg = <0x00 0x03800000 0x0 0x00100000>, /* controller registers */
-+		      <0xa0 0x00000000 0x0 0x00002000>; /* configuration space */
-+		reg-names = "csr_axi_slave", "config_axi_slave";
-+		interrupts = <GIC_SPI 128 IRQ_TYPE_LEVEL_HIGH>, /* AER interrupt */
-+			     <GIC_SPI 128 IRQ_TYPE_LEVEL_HIGH>, /* PME interrupt */
-+			     <GIC_SPI 128 IRQ_TYPE_LEVEL_HIGH>; /* controller interrupt */
-+		interrupt-names = "aer", "pme", "intr";
-+		#address-cells = <3>;
-+		#size-cells = <2>;
-+		device_type = "pci";
-+		dma-coherent;
-+		apio-wins = <256>;
-+		ppio-wins = <24>;
-+		bus-range = <0x0 0xff>;
-+		ranges = <0x82000000 0x0 0x40000000 0xa0 0x40000000 0x0 0x40000000>; /* non-prefetchable memory */
-+		msi-parent = <&its 0>;
-+		#interrupt-cells = <1>;
-+		interrupt-map-mask = <0 0 0 7>;
-+		interrupt-map = <0000 0 0 1 &gic 0 0 GIC_SPI 129 IRQ_TYPE_LEVEL_HIGH>,
-+				<0000 0 0 2 &gic 0 0 GIC_SPI 130 IRQ_TYPE_LEVEL_HIGH>,
-+				<0000 0 0 3 &gic 0 0 GIC_SPI 131 IRQ_TYPE_LEVEL_HIGH>,
-+				<0000 0 0 4 &gic 0 0 GIC_SPI 132 IRQ_TYPE_LEVEL_HIGH>;
-+		iommu-map = <0 &smmu 0 1>; /* Fixed-up by bootloader */
-+		status = "disabled";
-+	};
-+
-+	pcie6: pcie@3900000 {
-+		compatible = "fsl,lx2160a-pcie";
-+		reg = <0x00 0x03900000 0x0 0x00100000>, /* controller registers */
-+		      <0xa8 0x00000000 0x0 0x00002000>; /* configuration space */
-+		reg-names = "csr_axi_slave", "config_axi_slave";
-+		interrupts = <GIC_SPI 103 IRQ_TYPE_LEVEL_HIGH>, /* AER interrupt */
-+			     <GIC_SPI 103 IRQ_TYPE_LEVEL_HIGH>, /* PME interrupt */
-+			     <GIC_SPI 103 IRQ_TYPE_LEVEL_HIGH>; /* controller interrupt */
-+		interrupt-names = "aer", "pme", "intr";
-+		#address-cells = <3>;
-+		#size-cells = <2>;
-+		device_type = "pci";
-+		dma-coherent;
-+		apio-wins = <8>;
-+		ppio-wins = <8>;
-+		bus-range = <0x0 0xff>;
-+		ranges = <0x82000000 0x0 0x40000000 0xa8 0x40000000 0x0 0x40000000>; /* non-prefetchable memory */
-+		msi-parent = <&its 0>;
-+		#interrupt-cells = <1>;
-+		interrupt-map-mask = <0 0 0 7>;
-+		interrupt-map = <0000 0 0 1 &gic 0 0 GIC_SPI 104 IRQ_TYPE_LEVEL_HIGH>,
-+				<0000 0 0 2 &gic 0 0 GIC_SPI 105 IRQ_TYPE_LEVEL_HIGH>,
-+				<0000 0 0 3 &gic 0 0 GIC_SPI 106 IRQ_TYPE_LEVEL_HIGH>,
-+				<0000 0 0 4 &gic 0 0 GIC_SPI 107 IRQ_TYPE_LEVEL_HIGH>;
-+		iommu-map = <0 &smmu 0 1>; /* Fixed-up by bootloader */
-+		status = "disabled";
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi b/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
-index 1d73abffa6b7..387cd677cdc7 100644
---- a/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
-+++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
-@@ -1177,174 +1177,6 @@ sata3: sata@3230000 {
- 			status = "disabled";
- 		};
- 
--		pcie1: pcie@3400000 {
--			compatible = "fsl,lx2160a-pcie";
--			reg = <0x00 0x03400000 0x0 0x00100000>, /* controller registers */
--			      <0x80 0x00000000 0x0 0x00002000>; /* configuration space */
--			reg-names = "csr_axi_slave", "config_axi_slave";
--			interrupts = <GIC_SPI 108 IRQ_TYPE_LEVEL_HIGH>, /* AER interrupt */
--				     <GIC_SPI 108 IRQ_TYPE_LEVEL_HIGH>, /* PME interrupt */
--				     <GIC_SPI 108 IRQ_TYPE_LEVEL_HIGH>; /* controller interrupt */
--			interrupt-names = "aer", "pme", "intr";
--			#address-cells = <3>;
--			#size-cells = <2>;
--			device_type = "pci";
--			dma-coherent;
--			apio-wins = <8>;
--			ppio-wins = <8>;
--			bus-range = <0x0 0xff>;
--			ranges = <0x82000000 0x0 0x40000000 0x80 0x40000000 0x0 0x40000000>; /* non-prefetchable memory */
--			msi-parent = <&its 0>;
--			#interrupt-cells = <1>;
--			interrupt-map-mask = <0 0 0 7>;
--			interrupt-map = <0000 0 0 1 &gic 0 0 GIC_SPI 109 IRQ_TYPE_LEVEL_HIGH>,
--					<0000 0 0 2 &gic 0 0 GIC_SPI 110 IRQ_TYPE_LEVEL_HIGH>,
--					<0000 0 0 3 &gic 0 0 GIC_SPI 111 IRQ_TYPE_LEVEL_HIGH>,
--					<0000 0 0 4 &gic 0 0 GIC_SPI 112 IRQ_TYPE_LEVEL_HIGH>;
--			iommu-map = <0 &smmu 0 1>; /* Fixed-up by bootloader */
--			status = "disabled";
--		};
--
--		pcie2: pcie@3500000 {
--			compatible = "fsl,lx2160a-pcie";
--			reg = <0x00 0x03500000 0x0 0x00100000>, /* controller registers */
--			      <0x88 0x00000000 0x0 0x00002000>; /* configuration space */
--			reg-names = "csr_axi_slave", "config_axi_slave";
--			interrupts = <GIC_SPI 113 IRQ_TYPE_LEVEL_HIGH>, /* AER interrupt */
--				     <GIC_SPI 113 IRQ_TYPE_LEVEL_HIGH>, /* PME interrupt */
--				     <GIC_SPI 113 IRQ_TYPE_LEVEL_HIGH>; /* controller interrupt */
--			interrupt-names = "aer", "pme", "intr";
--			#address-cells = <3>;
--			#size-cells = <2>;
--			device_type = "pci";
--			dma-coherent;
--			apio-wins = <8>;
--			ppio-wins = <8>;
--			bus-range = <0x0 0xff>;
--			ranges = <0x82000000 0x0 0x40000000 0x88 0x40000000 0x0 0x40000000>; /* non-prefetchable memory */
--			msi-parent = <&its 0>;
--			#interrupt-cells = <1>;
--			interrupt-map-mask = <0 0 0 7>;
--			interrupt-map = <0000 0 0 1 &gic 0 0 GIC_SPI 114 IRQ_TYPE_LEVEL_HIGH>,
--					<0000 0 0 2 &gic 0 0 GIC_SPI 115 IRQ_TYPE_LEVEL_HIGH>,
--					<0000 0 0 3 &gic 0 0 GIC_SPI 116 IRQ_TYPE_LEVEL_HIGH>,
--					<0000 0 0 4 &gic 0 0 GIC_SPI 117 IRQ_TYPE_LEVEL_HIGH>;
--			iommu-map = <0 &smmu 0 1>; /* Fixed-up by bootloader */
--			status = "disabled";
--		};
--
--		pcie3: pcie@3600000 {
--			compatible = "fsl,lx2160a-pcie";
--			reg = <0x00 0x03600000 0x0 0x00100000>, /* controller registers */
--			      <0x90 0x00000000 0x0 0x00002000>; /* configuration space */
--			reg-names = "csr_axi_slave", "config_axi_slave";
--			interrupts = <GIC_SPI 118 IRQ_TYPE_LEVEL_HIGH>, /* AER interrupt */
--				     <GIC_SPI 118 IRQ_TYPE_LEVEL_HIGH>, /* PME interrupt */
--				     <GIC_SPI 118 IRQ_TYPE_LEVEL_HIGH>; /* controller interrupt */
--			interrupt-names = "aer", "pme", "intr";
--			#address-cells = <3>;
--			#size-cells = <2>;
--			device_type = "pci";
--			dma-coherent;
--			apio-wins = <256>;
--			ppio-wins = <24>;
--			bus-range = <0x0 0xff>;
--			ranges = <0x82000000 0x0 0x40000000 0x90 0x40000000 0x0 0x40000000>; /* non-prefetchable memory */
--			msi-parent = <&its 0>;
--			#interrupt-cells = <1>;
--			interrupt-map-mask = <0 0 0 7>;
--			interrupt-map = <0000 0 0 1 &gic 0 0 GIC_SPI 119 IRQ_TYPE_LEVEL_HIGH>,
--					<0000 0 0 2 &gic 0 0 GIC_SPI 120 IRQ_TYPE_LEVEL_HIGH>,
--					<0000 0 0 3 &gic 0 0 GIC_SPI 121 IRQ_TYPE_LEVEL_HIGH>,
--					<0000 0 0 4 &gic 0 0 GIC_SPI 122 IRQ_TYPE_LEVEL_HIGH>;
--			iommu-map = <0 &smmu 0 1>; /* Fixed-up by bootloader */
--			status = "disabled";
--		};
--
--		pcie4: pcie@3700000 {
--			compatible = "fsl,lx2160a-pcie";
--			reg = <0x00 0x03700000 0x0 0x00100000>, /* controller registers */
--			      <0x98 0x00000000 0x0 0x00002000>; /* configuration space */
--			reg-names = "csr_axi_slave", "config_axi_slave";
--			interrupts = <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>, /* AER interrupt */
--				     <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>, /* PME interrupt */
--				     <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>; /* controller interrupt */
--			interrupt-names = "aer", "pme", "intr";
--			#address-cells = <3>;
--			#size-cells = <2>;
--			device_type = "pci";
--			dma-coherent;
--			apio-wins = <8>;
--			ppio-wins = <8>;
--			bus-range = <0x0 0xff>;
--			ranges = <0x82000000 0x0 0x40000000 0x98 0x40000000 0x0 0x40000000>; /* non-prefetchable memory */
--			msi-parent = <&its 0>;
--			#interrupt-cells = <1>;
--			interrupt-map-mask = <0 0 0 7>;
--			interrupt-map = <0000 0 0 1 &gic 0 0 GIC_SPI 124 IRQ_TYPE_LEVEL_HIGH>,
--					<0000 0 0 2 &gic 0 0 GIC_SPI 125 IRQ_TYPE_LEVEL_HIGH>,
--					<0000 0 0 3 &gic 0 0 GIC_SPI 126 IRQ_TYPE_LEVEL_HIGH>,
--					<0000 0 0 4 &gic 0 0 GIC_SPI 127 IRQ_TYPE_LEVEL_HIGH>;
--			iommu-map = <0 &smmu 0 1>; /* Fixed-up by bootloader */
--			status = "disabled";
--		};
--
--		pcie5: pcie@3800000 {
--			compatible = "fsl,lx2160a-pcie";
--			reg = <0x00 0x03800000 0x0 0x00100000>, /* controller registers */
--			      <0xa0 0x00000000 0x0 0x00002000>; /* configuration space */
--			reg-names = "csr_axi_slave", "config_axi_slave";
--			interrupts = <GIC_SPI 128 IRQ_TYPE_LEVEL_HIGH>, /* AER interrupt */
--				     <GIC_SPI 128 IRQ_TYPE_LEVEL_HIGH>, /* PME interrupt */
--				     <GIC_SPI 128 IRQ_TYPE_LEVEL_HIGH>; /* controller interrupt */
--			interrupt-names = "aer", "pme", "intr";
--			#address-cells = <3>;
--			#size-cells = <2>;
--			device_type = "pci";
--			dma-coherent;
--			apio-wins = <256>;
--			ppio-wins = <24>;
--			bus-range = <0x0 0xff>;
--			ranges = <0x82000000 0x0 0x40000000 0xa0 0x40000000 0x0 0x40000000>; /* non-prefetchable memory */
--			msi-parent = <&its 0>;
--			#interrupt-cells = <1>;
--			interrupt-map-mask = <0 0 0 7>;
--			interrupt-map = <0000 0 0 1 &gic 0 0 GIC_SPI 129 IRQ_TYPE_LEVEL_HIGH>,
--					<0000 0 0 2 &gic 0 0 GIC_SPI 130 IRQ_TYPE_LEVEL_HIGH>,
--					<0000 0 0 3 &gic 0 0 GIC_SPI 131 IRQ_TYPE_LEVEL_HIGH>,
--					<0000 0 0 4 &gic 0 0 GIC_SPI 132 IRQ_TYPE_LEVEL_HIGH>;
--			iommu-map = <0 &smmu 0 1>; /* Fixed-up by bootloader */
--			status = "disabled";
--		};
--
--		pcie6: pcie@3900000 {
--			compatible = "fsl,lx2160a-pcie";
--			reg = <0x00 0x03900000 0x0 0x00100000>, /* controller registers */
--			      <0xa8 0x00000000 0x0 0x00002000>; /* configuration space */
--			reg-names = "csr_axi_slave", "config_axi_slave";
--			interrupts = <GIC_SPI 103 IRQ_TYPE_LEVEL_HIGH>, /* AER interrupt */
--				     <GIC_SPI 103 IRQ_TYPE_LEVEL_HIGH>, /* PME interrupt */
--				     <GIC_SPI 103 IRQ_TYPE_LEVEL_HIGH>; /* controller interrupt */
--			interrupt-names = "aer", "pme", "intr";
--			#address-cells = <3>;
--			#size-cells = <2>;
--			device_type = "pci";
--			dma-coherent;
--			apio-wins = <8>;
--			ppio-wins = <8>;
--			bus-range = <0x0 0xff>;
--			ranges = <0x82000000 0x0 0x40000000 0xa8 0x40000000 0x0 0x40000000>; /* non-prefetchable memory */
--			msi-parent = <&its 0>;
--			#interrupt-cells = <1>;
--			interrupt-map-mask = <0 0 0 7>;
--			interrupt-map = <0000 0 0 1 &gic 0 0 GIC_SPI 104 IRQ_TYPE_LEVEL_HIGH>,
--					<0000 0 0 2 &gic 0 0 GIC_SPI 105 IRQ_TYPE_LEVEL_HIGH>,
--					<0000 0 0 3 &gic 0 0 GIC_SPI 106 IRQ_TYPE_LEVEL_HIGH>,
--					<0000 0 0 4 &gic 0 0 GIC_SPI 107 IRQ_TYPE_LEVEL_HIGH>;
--			iommu-map = <0 &smmu 0 1>; /* Fixed-up by bootloader */
--			status = "disabled";
--		};
--
- 		smmu: iommu@5000000 {
- 			compatible = "arm,mmu-500";
- 			reg = <0 0x5000000 0 0x800000>;
-@@ -2021,3 +1853,5 @@ optee: optee {
- 		};
- 	};
- };
-+
-+#include "fsl-lx2160a-pcie-mbvl.dtsi"
--- 
-2.25.1
+For regular devices that have a DMA master, you cannot use
+the relaxed operations by default since they do not serialize
+against DMA transfers.
 
+To do this properly, you'd have to define separate cla_reg_read()
+and cla_reg_read_relaxed() helpers and then use them as needed,
+ideally with a comment for each relaxed instance to explain why
+that one is both performance critical and safe.
+
+If for some reason this accelerator is not a DMA master (e.g.
+because it is implemented through CPU microcode and accesses
+the memory through the CPU's own load/store unit), that should
+be documented here to explain that you are relying on
+implementation defined behavior outside of the normal driver
+and memory model.
+
+> +	/*
+> +	 * No barrier needed because accesses use Device-nGnRE, within the=20
+> same
+> +	 * memory-mapped peripheral, so accesses arrive at the endpoint in
+> +	 * program order.
+> +	 */
+
+This comment in turn looks completely useless, as that is true
+for any MMIO device. The only barriers that you'd normally need
+here on sane architectures (not Alpha) are to serialize MMIO
+against DMA.
+
+> +
+> +	if (launch->data_mode =3D=3D CLA_DATA_OUT)
+> +		for (i =3D 0; i < launch->ndata_m1 + 1; i++)
+> +			launch->data[i] =3D cla_reg_read(dev, CLA_REG_DATA(i));
+
+Instead of the open-coded loop, maybe this can be built
+on top of __iowrite32_copy()
+
+> +/**
+> + * cla_op_wait_lresp - Wait for any LAUNCH op to complete.
+> +int cla_op_wait_lresp(struct cla_dev *dev, u64 *lresp)
+> +{
+> +	return readq_relaxed_poll_timeout_atomic(dev->regs + CLA_REG_LRESP,
+> +			*lresp, FIELD_GET(CLA_LRESP_PENDING, *lresp) =3D=3D 0,
+> +			CLA_LRESP_DELAY_US, CLA_LRESP_TIMEOUT_US);
+
+Similarly, the readq_relaxed_poll_timeout_atomic() specifically
+does not wait for DMA, so you may need separate helpers for
+devices that can do DMA and readq_poll_timeout_atomic() vs devices
+that never access memory and can use the relaxed version.
+
+You may also need a non-atomic version, as blocking the CPU
+for 100=C2=B5s is not great for realtime workloads.
+
+    Arnd
 
