@@ -4,161 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6749FC44515
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 20:43:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33AFCC4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 20:51:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6+db1P5RhSgKDmUAmXoiZyavEFVSigUv3Np7w9qQeMU=; b=cso8DkNDCPcQ5YnP2fNUKPmD6F
-	sYcYwFp+kssewD1k+TYBo/vFA/xJKqr+tf9Y2Br6DtWMYLJR7OKh2StMxwwCeLziywFA+MMyitqJV
-	V6zeq5sJcAxFtEt2cVjdOvAf1WULQoaGPDTqnDDVVZEj0PTZ+nW/8pqOHXzYpcndd2yXzkoUBS1xV
-	64Bd8cDyj2gRO86VdcFt1AWALNK7pVCJAH2oMkXE7e/VMXUBlZbCIAqANJzJhRnoGQnA1XUsl8aoi
-	rWwygyCbmMDcJcUK4FjR9/4xoDP6nWE1MNjuCfKIY1m3g9I3zRovj7NJ4/oEe5dA3XE98IZMp5FKk
-	JSMkOY2g==;
+	bh=PxLLYNa6RAENhKM3OF2t55M5ReroSFj/K6F97XXmPn4=; b=WXhuUVnU4+SHkw8sk2x/qm4dz6
+	UKFXRtG0k6SIY60J9syttcCI+y9HLpKAHyShXqQydeIrEFwNP3+lxD67ghe6xNaEWujvUNOLv5N/3
+	4PEDWpq+0B4kLI06m0M0dYe8v+7z9U9oBczi3frqXhBVJg0nrz1/ae79Jk2T2fWQ83o6cjR8pwygf
+	q3hbu/zXrREh1eIVJbnDLlgS2XLIaZA+RxZ8lM2QKeT/ZFSQkPuYlNX0lBvBPeB6+tLjOGuYWsOjd
+	l59VD15tlbPdXwwnqk1mw/Nb3pKxdy+pn9kH3GJpbVwhxuonUYJi/B1m2qEcOZcUYu96gV1YGk9Er
+	uUCW9kcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkpOr-00000003Dtp-3Ktb;
-	Fri, 17 Jul 2026 20:43:13 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wkpX3-00000003Efa-2oWu;
+	Fri, 17 Jul 2026 20:51:41 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkpOp-00000003DsV-0p2Z
+	id 1wkpX1-00000003EfO-2JN0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 20:43:12 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66HJtY1v2780252
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 20:43:10 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	6+db1P5RhSgKDmUAmXoiZyavEFVSigUv3Np7w9qQeMU=; b=pjPVSzfULLlVIqYC
-	KHI/PHlLgb+u7+xOpdqVecyBd6IinheCrfAlxjs8juOuAZhmn8PhDTF8i9ugZw+X
-	BRPfy6/PSJhwhGZ+zfTBRWW8WlMQum9U0u5lYfcZ49UkRf+JvTSKs8Cna6kG6ZZC
-	EMIW5Yd7nYCnutt2+odxbkgiJaWEsPGjv0IpbjGCIh0gtSFLPfpYRw8ieNAoGKhu
-	+cCnT8Bv6cf0JiZ9k3GM6nFxD+WkMyJm+6ZTbZk/8Hb4q3Yovv/a8zeFbwM1M8go
-	Os4bxaLk3C2xqaLBfHgjGtfTIlFSs/m4aarMT6+FyEpnNMrjJ3GFqmAHIfp03Voy
-	s5xNRw==
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fff9gu9b2-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 20:43:10 +0000 (GMT)
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-38d7fcd1f66so12255263a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 13:43:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1784320989; x=1784925789; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=6+db1P5RhSgKDmUAmXoiZyavEFVSigUv3Np7w9qQeMU=;
-        b=dcjFvwxpQmwZqp6uTDMDd/iNUa/nTxU7weDEfjtLRTiH9775ajdrsOT3o6dGudsBUv
-         7++y4srWFDWnNxjqU8TzTHI05MK0EPJsltc3L2/lUfyMX/NQoz5UqyB6841/ITVUroQq
-         nDXlGG7s2V00ZRiF3+wX+DAIrHNgbRIS9PU8cNu+RIQ8UCSjBwOxrj6zN4XhXtjijnp4
-         P5M4uHp67b2ycz1YwU1eePNmbbWCf6sdQdKUr3zuj18mukRW2iBGCbBmgASR7nvg8LXu
-         NR7Wo8kz/8RnutuH3SF2Na4QJHw8rGkvzUVJ2yGPu4bU8a1BCH1jNRsP8v3iYpmHFoWM
-         kLOw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784320989; x=1784925789;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=6+db1P5RhSgKDmUAmXoiZyavEFVSigUv3Np7w9qQeMU=;
-        b=KLM8VWoSENCOHaZ/0iPX46ixOTOzgHinz/ErKih3lQBxoGQm4IZs+44tOefXl7/VIQ
-         i0Ne1JuXludxOGSfKUKb2JsvwD281FQOjZ0IJRFl13jp1ghGBCSXcvFzdx9B89P9LQFS
-         9QfTYloHot0Qf2cAE0l2waZ6Cqz6cdzgVOqfv6Ak7P6g/0dihoFJVdAhcFC+HGVDjIHn
-         DYVz59bLEKYBdMXPg85LzRNaGx5oQONc8GS0h+TY83GzA7XmbUZ2s4pUVXRNKdDH36Rz
-         1E3U9Lrwir9ZeVL7uAffA4I6heXS8yOWcXwilOrPQqyJJ/fTjDaQdrpR9sTCQlO4cEwX
-         Swhg==
-X-Forwarded-Encrypted: i=1; AHgh+RpJzENkfc0lu7DrKm7RrI42Xi8Lw9QnKeXPhnBM0BO4GA6GskxbKrHv4mfUyEZJp6b+TBYGfG/u9cMno/2sA9Hn@lists.infradead.org
-X-Gm-Message-State: AOJu0YwN5FdtIT5FwVqFVDxXrWZRgO9MqpNGnXLfMBr4gQxGfoGQhvEn
-	GOoRj+/UCa/MF5tU4N/22s3qWn5Z76ebDyVgaI3y3xT74rhQ6tGAE3LQf6XtB2Fnuhb1rW4Gjpj
-	HacdMeE9s3JMxvAkZQSJS73eQDf446ee4nx5hs4X2ZvrrcOND4HAryUWgNn8bl1sxZd9eYhbZzO
-	7hYw==
-X-Gm-Gg: AfdE7clpx8nMQwIUMhQOEtifZeoN0wCF40rOIEBSZFl3xdtjLwiJcuiIvX5NUSDd/1A
-	/1gbOf+p4hpPcAhnt4WiVWcBkVtrJ+YGjfQZUypibxq9vZxKL8PDVWcX+A58yPZvfXwPSQBDzbI
-	HZJ/kl6G/eJh8ZrFhc9g6RKLRLi3TM3Kvo7cdwiVZklECGdH1aaMjzKHnBPJ4aOddzgUGcMoDg6
-	q3WFnNYCip4Vg3JnMgRN0QmY4hx04wpWfVran3dMRuCowB0Ry/m9QpFTA9QvFp1UKfVf4mTuzKe
-	bBMcnY+7c1n4F66938e3rWp0yxYgaxR63UHGp9cMbRnj4M4LaRfUZvf7HRz0nfbvpdABVYodsGk
-	B2m/qAPKFC4hqlzzi18E8h+cY
-X-Received: by 2002:a17:90b:4ccb:b0:387:e0bb:57f5 with SMTP id 98e67ed59e1d1-38e4b57c2edmr4367660a91.38.1784320989062;
-        Fri, 17 Jul 2026 13:43:09 -0700 (PDT)
-X-Received: by 2002:a17:90b:4ccb:b0:387:e0bb:57f5 with SMTP id 98e67ed59e1d1-38e4b57c2edmr4367589a91.38.1784320988324;
-        Fri, 17 Jul 2026 13:43:08 -0700 (PDT)
-Received: from hu-akhilpo-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3142a1e348bsm11322997eec.25.2026.07.17.13.42.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 Jul 2026 13:43:07 -0700 (PDT)
-From: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-Date: Sat, 18 Jul 2026 02:11:34 +0530
-Subject: [PATCH v2 9/9] arm64: dts: qcom: eliza-mtp: Enable Adreno A722 GPU
+	Fri, 17 Jul 2026 20:51:39 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id E2E4641090;
+	Fri, 17 Jul 2026 20:51:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 434DC1F000E9;
+	Fri, 17 Jul 2026 20:51:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784321498;
+	bh=PxLLYNa6RAENhKM3OF2t55M5ReroSFj/K6F97XXmPn4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=NRg7MiSztadctgc6UDz5CLWAA5sMOYg19GkDABTzWkykkf4MOqn3Ck68JxrXl1/uL
+	 Sa0drK2Lvp2lczg8m1bPy0kH1cyU7swwTKBTtKfWwaMa7+cBOeTmd4WFj77eZ1GSgJ
+	 pRXDJgKOwnVlDGYH1CDX2QSdsPjGX1JzoLLg5AEBqzr6Fp5iEeae3LMoCYXySMROCB
+	 38iFoC0xtk3ISafqY50uW6LgnFBs89wZgSVld1Lyu196N/9BOV4bEnWrA503W0zhaa
+	 TCdGhaB/FtIL/UbOWvDQu0hCFlt3KgKtVaVz7ubxArFU/6yRyAOaN8jxAjmPUwpQ7D
+	 lSfBLlKxnJIIw==
+Message-ID: <dc27e64d-bc50-4294-83eb-8f9c1f6dfa68@kernel.org>
+Date: Fri, 17 Jul 2026 22:51:29 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7] arm64: dts: s32g: Add GPR syscon region
+To: Jared Kangas <jkangas@redhat.com>, Chester Lin <chester62515@gmail.com>,
+ Matthias Brugger <mbrugger@suse.com>,
+ Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+ NXP S32 Linux Team <s32@nxp.com>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Dan Carpenter <error27@gmail.com>
+References: <20260717-upstream-s32g-gpr-syscon-v7-1-ee198f287682@redhat.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20260717-upstream-s32g-gpr-syscon-v7-1-ee198f287682@redhat.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260718-eliza-gpu-v2-9-64379dbebd7a@oss.qualcomm.com>
-References: <20260718-eliza-gpu-v2-0-64379dbebd7a@oss.qualcomm.com>
-In-Reply-To: <20260718-eliza-gpu-v2-0-64379dbebd7a@oss.qualcomm.com>
-To: Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>, Will Deacon <will@kernel.org>,
-        Robin Murphy <robin.murphy@arm.com>,
-        "Joerg Roedel (AMD)" <joro@8bytes.org>
-Cc: Puranam V G Tejaswi <puranam.tejaswi@oss.qualcomm.com>,
-        Abel Vesa <abel.vesa@oss.qualcomm.com>, linux-arm-msm@vger.kernel.org,
-        dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
-        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-        Akhil P Oommen <akhilpo@oss.qualcomm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784320899; l=826;
- i=akhilpo@oss.qualcomm.com; s=20240726; h=from:subject:message-id;
- bh=X8RDXfBHklja5EB34gmFlxaH7HzFaYeX4Z1IBHMoit8=;
- b=9Q8iDnAw0MhJOK5ZVzp6qxDBJ1QRxddOheLScWmDbidXJrIMQnonMmlM6v+PtlCEEzK/dtESK
- DatlP1RAZO2COPGL6D6h9BFfbWY7fTmJpoXiY4tftEFy1+oli76Z++j
-X-Developer-Key: i=akhilpo@oss.qualcomm.com; a=ed25519;
- pk=lmVtttSHmAUYFnJsQHX80IIRmYmXA4+CzpGcWOOsfKA=
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzE3MDIxMyBTYWx0ZWRfX8VE5QFfdcdJO
- LlBhy+Dw2eA74IHB+GU3jPqS38knJPt6ESRvEHKhWZrnRiPJaR5qgRbwtxoe7XCjoeWKPAWEP4U
- /PMiBS9dBSvC3QMy0C7t5kK/83THxDY=
-X-Proofpoint-ORIG-GUID: WSN2xzaXhtkYUAP2gc4djcGfRO_Pi9QF
-X-Proofpoint-GUID: WSN2xzaXhtkYUAP2gc4djcGfRO_Pi9QF
-X-Authority-Analysis: v=2.4 cv=TaumcxQh c=1 sm=1 tr=0 ts=6a5a93de cx=c_pps
- a=0uOsjrqzRL749jD1oC5vDA==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
- a=EUspDBNiAAAA:8 a=Xl3f10jGzgz6Ja07nhwA:9 a=QEXdDO2ut3YA:10
- a=mQ_c8vxmzFEMiUWkPHU9:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzE3MDIxMyBTYWx0ZWRfX8Oz70ZFp7gZk
- oWqfFGx2aFNFhf7mGsBNfbavCmFReD/z6HbyyWg5dPn6Dq1ZRx1L2i/zTn0CnsCv2l+8FOPUCSE
- MbrF4HAhnPqDhbyXOOpcW1XN+9vfEQBM/Xeu3agX37nwzi84fMxPNhLatNA3nF71T9cyRoQ+DQ/
- rCQe6ZCURntBLOgB7Z7fekam32i+31Sh5dl9PD3k2Qg47rglmzB+ugwCrUp4bDvgkdTR2EZz9DZ
- 4E3HDGdfxJT49HcQwNA67bPXyoV/BnMU2MquN/kjrrloRLNf5SHm48mMVPxVbDih8iLWzxlR8Cn
- 4P9icLoRpilFp2Ml8/y/GhRnqJRxji1KvpI18QmwwnkdESi8fIHVOAkFQYtZNczBED7LI3Q7S34
- 9zT1Jw8LMQOMqDrV1pdOIbXjCoYE0JQWzpJvt3cWMKRydF6DBT3H3jzX93+VZ4uZqZNa5/w0BpE
- oCjVWOzW+7nRAovGcQQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-17_06,2026-07-17_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 impostorscore=0 clxscore=1015 adultscore=0 phishscore=0
- spamscore=0 bulkscore=0 malwarescore=0 suspectscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607170213
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_134311_357970_084B83FB 
-X-CRM114-Status: GOOD (  11.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,39 +121,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Puranam V G Tejaswi <puranam.tejaswi@oss.qualcomm.com>
+On 17/07/2026 22:33, Jared Kangas wrote:
+> From: Dan Carpenter <error27@gmail.com>
+> 
+> Add the GPR syscon region for the s32 chipset.
+> 
+> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+> [jkangas@redhat.com: GPR syscon resized from 0x3000 to 0x100]
+> Tested-by: Jared Kangas <jkangas@redhat.com>
 
-Enable the Adreno A722 GPU on the Eliza MTP board and provide the zap
-shader firmware path.
+Your SoB implies that. We do not add Tb tags to own work. Otherwise, why
+would you send code which you did not test? Same for Rb tag.
 
-Signed-off-by: Puranam V G Tejaswi <puranam.tejaswi@oss.qualcomm.com>
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
----
- arch/arm64/boot/dts/qcom/eliza-mtp.dts | 8 ++++++++
- 1 file changed, 8 insertions(+)
+> Signed-off-by: Jared Kangas <jkangas@redhat.com>
 
-diff --git a/arch/arm64/boot/dts/qcom/eliza-mtp.dts b/arch/arm64/boot/dts/qcom/eliza-mtp.dts
-index 1374afd9d14e..a6e24d2e3b42 100644
---- a/arch/arm64/boot/dts/qcom/eliza-mtp.dts
-+++ b/arch/arm64/boot/dts/qcom/eliza-mtp.dts
-@@ -417,6 +417,14 @@ vreg_l7k: ldo7 {
- 	};
- };
- 
-+&gpu {
-+	status = "okay";
-+};
-+
-+&gpu_zap_shader {
-+	firmware-name = "qcom/eliza/gen71700_zap.mbn";
-+};
-+
- &mdss {
- 	status = "okay";
- };
-
--- 
-2.54.0
-
+Best regards,
+Krzysztof
 
