@@ -4,81 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E92BAC44521
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 13:09:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 314BCC44516
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 13:09:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+n0quTBKTLkuwq9QawKwspQRW3gBb6Rua2VTww6C7Lw=; b=cUiPhk10qsD2Fo0DpfWLMJG4iv
-	cRVoZYJFEDBb9JlZb7tCSyEcFZF5ES+Q27Tr+Gb7vc2rqpvmdUTlg7kwHKEW7wJV6rwYzz2+DUi1x
-	k0bcjTuJPq3iEAfi7V3nh+OZ6YcO2kGpxz4dXT3JPNh+yOF2imtr6sVcliwZ670TGjCmSZSfLOU/f
-	qOi5jck+cPB84PiKCFHdon3PUgYpOMlKe82zjzHOibwEkyTqgIKGtg/ZvkIO6THpuJCFRfB0NGvuM
-	fwwawO8AOLaf3qRg+xuN5DQsXeJv0AEz3Y7Y0FrzoWPKDNvXotSWxgK8axaZU2Xqp9jME9DeMHoy2
-	CdTa1lKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Cn1pFl0mrxmZ5O9Dm58NQlDdGx8NzY2f6Z+2/X5Kfqo=; b=k+dsF4SJmlB7Ssf724D+8khq2m
+	uRjq4aRJ6WxcsUnq6jXNn/C1GW/WK2G2yUSNUkcvQdJ73QaCGhuDUYYOrI0dneYQjJY8SRL+8WYyc
+	wq3t9hEulkhoN2Yj88jwvDkVF3v/RJDc2YQzu/QtoBqDGhXt5j2uWQdsa1rxlasLzEQ2GhSW/rvo3
+	eaGgliATPkMlYtNKicKbNLGwNqCj3wMJxmzjSOBaSwetBgpYCFdko3zq4q3CqUZ4bjd5UgTBFkJor
+	xoPqlJjc+Ns8WU/oUOUuohX/Oi5vcoUHLjbKAKwgpuVLuFUR0mPMZ7LhbfncIM54vuCPtUHQnecxz
+	HSG2KEmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkiJX-00000002MyC-24Ru;
+	id 1wkiJX-00000002Myb-2fwt;
 	Fri, 17 Jul 2026 13:09:15 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkiJS-00000002MuV-17dC
+	id 1wkiJS-00000002Muq-3rva
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 13:09:11 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-4953c5d6d87so31914965e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 06:09:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784293748; x=1784898548; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=+n0quTBKTLkuwq9QawKwspQRW3gBb6Rua2VTww6C7Lw=;
-        b=s11aYA9J0dF9SSa9cOwLceTdpjL69ftakTzuWhcxrxL7fBpC10+DHzTG3Ud5OwRCOs
-         FnX0tJrywvsYZEQEiF/2bpjV8PjBP+E52WRZC6CyDALaCIGApCRrb8Cv/XMkcRz8HgPS
-         p5aXkTcSc9I99wR/WTfXJU0A+ctTrZF5N1JSK1JzXsQZTeGCgqxNioANrHfaxBnjU60V
-         2NMdJ050c3Ng2nDwx0veJ7vlI0svTxWwHy8UyL/hpRBo1bv+RzCBGT8mP3GlbeCq5PRD
-         N63VQ7ea/dR3yrG+qL2i5I/0VLz4Y3ETj0Hstra0PADENCcbjkdWR8dk7ZoDWCaFyvmS
-         C2KQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784293748; x=1784898548;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=+n0quTBKTLkuwq9QawKwspQRW3gBb6Rua2VTww6C7Lw=;
-        b=Keh1Ro8P7sHWfT427JejQWZX45smZg6XLAmNwcCGxLNNl5Kpz7hlQiFe5v9uqkBRWu
-         bOLW2Noe+N1VEmMHDx6sUz25SlUoiUaSo/94rDfGfl7setVsEMyO2R4OX6HnmP658QLH
-         KUDPcdhHywhgtjkX0HSi1g2qkwOQs/XAkZ0nObop79VedxDgyto193HOVa+ooP70dFhI
-         kZv3wD3TcLQ2tEOlv+N5RmVWpxsJ+3AUgGhXgKzIGdJ1GgB7ZJWM8cz6VWcyHsaMJMwX
-         StzThaPGuuo0n0fwBSN2sHsTciNkmh82hQJjtZYhqyCgJkoR1BqtJ7z/6fQYcNP8gxvh
-         /Saw==
-X-Forwarded-Encrypted: i=1; AHgh+Rq8H/Bj5OlkQ8g/k/k1X1/KQxzA2KmAKafPYN3f/vhbQcJnFddpgl7GwS3PnFVtJ1PHMkcTN4zYJF5PmXXydTZP@lists.infradead.org
-X-Gm-Message-State: AOJu0YzGjvqe4xAsxv8DIAZRRXrrqwuFNyqe5S+7+jz3F/uUH9YjTQ9C
-	AigGIA0EdRs/EmlMvFqu4NZP4osueRQsMiHYUOLtiffnF9FG8FJ7lBZw8ggaDvjTxlVcjSmaJ67
-	PLsBbkLzbKJWPiQ==
-X-Received: from wrbcg5.prod.google.com ([2002:a5d:5cc5:0:b0:47f:4f99:b306])
- (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:154e:b0:495:49eb:1ccc with SMTP id 5b1f17b1804b1-4954a3eff56mr32478345e9.13.1784293747452;
- Fri, 17 Jul 2026 06:09:07 -0700 (PDT)
-Date: Fri, 17 Jul 2026 13:09:00 +0000
-In-Reply-To: <20260717130901.2239134-1-smostafa@google.com>
-Mime-Version: 1.0
-References: <20260717130901.2239134-1-smostafa@google.com>
-X-Mailer: git-send-email 2.55.0.229.g6434b31f56-goog
-Message-ID: <20260717130901.2239134-3-smostafa@google.com>
-Subject: [RFC PATCH 2/2] KVM: arm64: Support BBM level 3
-From: Mostafa Saleh <smostafa@google.com>
-To: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Cc: maz@kernel.org, oupton@kernel.org, seiden@linux.ibm.com, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, will@kernel.org, vdonnefort@google.com, 
-	tabba@google.com, Mostafa Saleh <smostafa@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Fri, 17 Jul 2026 13:09:13 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 91B921A104C;
+	Fri, 17 Jul 2026 13:09:07 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 604E360361;
+	Fri, 17 Jul 2026 13:09:07 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 78D5A11BD0158;
+	Fri, 17 Jul 2026 15:09:03 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1784293746; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=Cn1pFl0mrxmZ5O9Dm58NQlDdGx8NzY2f6Z+2/X5Kfqo=;
+	b=jWW7QdQ9WgtCFeBDx7anwxwxvIRt/ADCZj39QvGO/0PSwpXBSjOChomR3Dr5GmZiM+/BMZ
+	CoQUHGqv3tTqeUcpCL6AAMytPZMvKel27zuWzPgJnrOdzkT+PTN6dt0wExcDB1bXK21M5i
+	Ro11bNmhblT5MsF7zRzrpM5kNacc4trRWe7k3V7f9M72j81j5X26hxNDhD3CcJvRfJE6jF
+	ctUgVwn7ObdGvIgOy2b3oomyQd5dEAJ4oM+drStkfghEA6qAGsLeRzbFrA5gJZRysMffBa
+	ekOZx/SqXN6fQeO6Xm83cVO9SphTKN9QEfd+27thoqz5hfikpKZBBCmxeXrYBw==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: linux-mtd@lists.infradead.org,  linux-sunxi@lists.linux.dev,  Richard
+ Weinberger <richard@nod.at>,  Vignesh Raghavendra <vigneshr@ti.com>,
+  Chen-Yu Tsai <wens@kernel.org>,  Jernej Skrabec
+ <jernej.skrabec@gmail.com>,  Samuel Holland <samuel@sholland.org>,
+  Richard Genoud <richard.genoud@bootlin.com>,  Geert Uytterhoeven
+ <geert+renesas@glider.be>,  linux-arm-kernel@lists.infradead.org,
+  linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] mtd: rawnand: sunxi: add H616 MBUS DMA support
+In-Reply-To: <20260715162444.789303-1-james.hilliard1@gmail.com> (James
+	Hilliard's message of "Wed, 15 Jul 2026 10:24:40 -0600")
+References: <20260715162444.789303-1-james.hilliard1@gmail.com>
+User-Agent: mu4e 1.12.7; emacs 30.2
+Date: Fri, 17 Jul 2026 15:09:02 +0200
+Message-ID: <87v7adix01.fsf@bootlin.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_060910_331994_B36CA515 
-X-CRM114-Status: GOOD (  18.11  )
+X-CRM114-CacheID: sfid-20260717_060911_245845_5BF7CEE8 
+X-CRM114-Status: GOOD (  36.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,137 +81,249 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If the system supports hardware Break-Before-Make (BBM) level 3, use it
-to replace stage-2 PTEs directly instead of falling back to the software
-break-before-make sequence.
+Hi James,
 
-1) Get a reference count on the containing table for the new PTE.
-2) Atomically update the PTE with the new valid descriptor.
-3) Invalidate the TLB for the old PTE.
-4) Drop the reference count holding the old PTE.
+On 15/07/2026 at 10:24:40 -06, James Hilliard <james.hilliard1@gmail.com> w=
+rote:
 
-One interesting case, as BBML3 will update the PTE atomically, it
-can only know it raced with another core at the point of the cmpxchg
-failing, unlike the SW implementation which locks the PTE first.
-And as we must issue CMOs to the new mapped page before the update,
-that means with BBML3 racing cores will issue redundant CMOs,
-to improve this:
-- We only use BBML3 if the old PTE was live.
-- To reduce the window of the race, an early check is added before
-  the CMO to exit early, but that does not eliminate the race.
+> The H616 NAND controller uses a descriptor-based internal MBUS DMA
+> engine instead of the direct address and count registers used by the
+> A23/A33 controller. Since the driver does not support these descriptors,
+> it currently attempts to request an external rxtx DMA channel and falls
+> back to PIO when none is provided.
+>
+> Add a single-descriptor backend to the existing ECC page DMA paths.
+> Allocate the descriptor coherently, constrain data mappings to the
+> controller's 32-bit address range, program the H6-style data block mask,
+> and request an interrupt for both command and DMA completion. Keep the
+> existing external DMA and legacy MBUS DMA paths unchanged, and fall back
+> to PIO if the descriptor cannot be allocated.
+>
+> Hardware testing on an H616 board with 2 KiB-page SLC NAND
+> confirmed that the descriptor path improves sustained read throughput.
 
-Signed-off-by: Mostafa Saleh <smostafa@google.com>
----
- arch/arm64/kvm/hyp/pgtable.c | 53 +++++++++++++++++++++++++++++++-----
- 1 file changed, 46 insertions(+), 7 deletions(-)
+I would be nice to show the output of a flash_speed -dc100 /dev/mtdX
+before and after.
 
-diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-index 127b7f9541b1..69d52308236f 100644
---- a/arch/arm64/kvm/hyp/pgtable.c
-+++ b/arch/arm64/kvm/hyp/pgtable.c
-@@ -838,7 +838,8 @@ static void stage2_clean_old_pte(const struct kvm_pgtable_visit_ctx *ctx,
- /**
-  * stage2_try_break_pte() - Invalidates a pte according to the
-  *			    'break-before-make' requirements of the
-- *			    architecture.
-+ *			    architecture, if BMML3 is supported it
-+ *			    will be used, otherwise fallback to SW.
-  *
-  * @ctx: context of the visited pte.
-  * @mmu: stage-2 mmu
-@@ -854,6 +855,18 @@ static bool stage2_try_break_pte(const struct kvm_pgtable_visit_ctx *ctx,
- {
- 	kvm_pte_t locked_pte;
- 
-+	if (system_supports_bbml3() && kvm_pte_valid(ctx->old)) {
-+		kvm_pte_t curr_pte = READ_ONCE(*ctx->ptep);
-+
-+		/*
-+		 * All handled in stage2_make_pte(). However exit early if we already
-+		 * lost the race to avoid extra CMOs.
-+		 */
-+		 if (curr_pte != ctx->old)
-+			return false;
-+		 return true;
-+	}
-+
- 	if (stage2_pte_is_locked(ctx->old)) {
- 		/*
- 		 * Should never occur if this walker has exclusive access to the
-@@ -873,16 +886,35 @@ static bool stage2_try_break_pte(const struct kvm_pgtable_visit_ctx *ctx,
- 	return true;
- }
- 
--static void stage2_make_pte(const struct kvm_pgtable_visit_ctx *ctx, kvm_pte_t new)
-+/* Must be paired with stage2_try_break_pte() */
-+static bool stage2_make_pte(const struct kvm_pgtable_visit_ctx *ctx, struct kvm_s2_mmu *mmu,
-+			    kvm_pte_t new)
- {
- 	struct kvm_pgtable_mm_ops *mm_ops = ctx->mm_ops;
- 
--	WARN_ON(!stage2_pte_is_locked(*ctx->ptep));
--
- 	if (stage2_pte_is_counted(new))
- 		mm_ops->get_page(ctx->ptep);
- 
-+	if (system_supports_bbml3() && kvm_pte_valid(ctx->old)) {
-+		/*
-+		 * Barrier is required because stage2_try_set_pte() uses
-+		 * WRITE_ONCE for non-shared walks, lacking release semantics
-+		 * used in the software BBM case.
-+		 */
-+		smp_wmb();
-+		if (!stage2_try_set_pte(ctx, new)) {
-+			if (stage2_pte_is_counted(new))
-+				mm_ops->put_page(ctx->ptep);
-+			return false;
-+		}
-+
-+		stage2_clean_old_pte(ctx, mmu);
-+		return true;
-+	}
-+
-+	WARN_ON(!stage2_pte_is_locked(*ctx->ptep));
- 	smp_store_release(ctx->ptep, new);
-+	return true;
- }
- 
- static bool stage2_unmap_defer_tlb_flush(struct kvm_pgtable *pgt)
-@@ -1014,7 +1046,8 @@ static int stage2_map_walker_try_leaf(const struct kvm_pgtable_visit_ctx *ctx,
- 	    stage2_pte_executable(new))
- 		mm_ops->icache_inval_pou(kvm_pte_follow(new, mm_ops), granule);
- 
--	stage2_make_pte(ctx, new);
-+	if (!stage2_make_pte(ctx, data->mmu, new))
-+		return -EAGAIN;
- 
- 	return 0;
- }
-@@ -1069,7 +1102,10 @@ static int stage2_map_walk_leaf(const struct kvm_pgtable_visit_ctx *ctx,
- 	 * will be mapped lazily.
- 	 */
- 	new = kvm_init_table_pte(childp, mm_ops);
--	stage2_make_pte(ctx, new);
-+	if (!stage2_make_pte(ctx, data->mmu, new)) {
-+		mm_ops->put_page(childp);
-+		return -EAGAIN;
-+	}
- 
- 	return 0;
- }
-@@ -1557,7 +1593,10 @@ static int stage2_split_walker(const struct kvm_pgtable_visit_ctx *ctx,
- 	 * writes the PTE using smp_store_release().
- 	 */
- 	new = kvm_init_table_pte(childp, mm_ops);
--	stage2_make_pte(ctx, new);
-+	if (!stage2_make_pte(ctx, mmu, new)) {
-+		kvm_pgtable_stage2_free_unlinked(mm_ops, childp, level);
-+		return -EAGAIN;
-+	}
- 	return 0;
- }
- 
--- 
-2.55.0.229.g6434b31f56-goog
+> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+> ---
+>  drivers/mtd/nand/raw/sunxi_nand.c | 110 ++++++++++++++++++++++++++----
+>  1 file changed, 95 insertions(+), 15 deletions(-)
+>
+> diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/sun=
+xi_nand.c
+> index 02647565c8ba..8a136b9fa7cc 100644
+> --- a/drivers/mtd/nand/raw/sunxi_nand.c
+> +++ b/drivers/mtd/nand/raw/sunxi_nand.c
+> @@ -79,6 +79,10 @@
+>  #define NFC_REG_H6_MDMA_BUF_ADDR 0x0210
+>  #define NFC_REG_H6_MDMA_CNT	0x0214
+>=20=20
+> +#define NFC_MDMA_DESC_LAST	BIT(2)
+> +#define NFC_MDMA_DESC_FIRST	BIT(3)
+> +#define NFC_MDMA_DESC_SIZE_MASK	GENMASK(15, 0)
+> +
+>  #define NFC_RAM0_BASE		0x0400
+>  #define NFC_RAM1_BASE		0x0800
+>=20=20
+> @@ -267,12 +271,19 @@ static inline struct sunxi_nand_chip *to_sunxi_nand=
+(struct nand_chip *nand)
+>  	return container_of(nand, struct sunxi_nand_chip, nand);
+>  }
+>=20=20
+> +struct sunxi_nfc_mdma_desc {
+> +	__le32 config;
+> +	__le32 size;
+> +	__le32 buf;
+> +	__le32 next;
+> +};
 
+Shouldn't this be declared __packed and possibly even __aligned?
+
+>  /*
+>   * NAND Controller capabilities structure: stores NAND controller capabi=
+lities
+>   * for distinction between compatible strings.
+>   *
+> - * @has_mdma:		Use mbus dma mode, otherwise general dma
+> - *			through MBUS on A23/A33 needs extra configuration.
+> + * @has_mdma:		Use A23/A33-style MBUS DMA registers
+> + * @has_mdma_desc:	MBUS DMA uses H6-style descriptors
+>   * @has_ecc_block_512:	If the ECC can handle 512B or only 1024B chunks
+>   * @has_ecc_clk:	If the controller needs an ECC clock.
+>   * @has_mbus_clk:	If the controller needs a mbus clock.
+> @@ -304,6 +315,7 @@ static inline struct sunxi_nand_chip *to_sunxi_nand(s=
+truct nand_chip *nand)
+>   */
+>  struct sunxi_nfc_caps {
+>  	bool has_mdma;
+> +	bool has_mdma_desc;
+>  	bool has_ecc_block_512;
+>  	bool has_ecc_clk;
+>  	bool has_mbus_clk;
+> @@ -346,6 +358,8 @@ struct sunxi_nfc_caps {
+>   *	   controller
+>   * @complete: a completion object used to wait for NAND controller events
+>   * @dmac: the DMA channel attached to the NAND controller
+> + * @mdma_desc: H6-style MBUS DMA descriptor
+> + * @mdma_desc_dma: DMA address of @mdma_desc
+>   * @caps: NAND Controller capabilities
+>   */
+>  struct sunxi_nfc {
+> @@ -362,6 +376,8 @@ struct sunxi_nfc {
+>  	struct list_head chips;
+>  	struct completion complete;
+>  	struct dma_chan *dmac;
+> +	struct sunxi_nfc_mdma_desc *mdma_desc;
+> +	dma_addr_t mdma_desc_dma;
+>  	const struct sunxi_nfc_caps *caps;
+>  };
+>=20=20
+> @@ -370,6 +386,11 @@ static inline struct sunxi_nfc *to_sunxi_nfc(struct =
+nand_controller *ctrl)
+>  	return container_of(ctrl, struct sunxi_nfc, controller);
+>  }
+>=20=20
+> +static bool sunxi_nfc_uses_mdma(const struct sunxi_nfc *nfc)
+
+may I suggest sunxi_nfc_use_mdma?
+
+> +{
+> +	return nfc->caps->has_mdma || nfc->mdma_desc;
+
+I don't get the || there? What are you trying to check exactly?
+
+> +}
+> +
+>  static irqreturn_t sunxi_nfc_interrupt(int irq, void *dev_id)
+>  {
+>  	struct sunxi_nfc *nfc =3D dev_id;
+> @@ -466,7 +487,9 @@ static int sunxi_nfc_dma_op_prepare(struct sunxi_nfc =
+*nfc, const void *buf,
+>  {
+>  	struct dma_async_tx_descriptor *dmad;
+>  	enum dma_transfer_direction tdir;
+> +	dma_addr_t buf_dma;
+>  	dma_cookie_t dmat;
+> +	int len =3D chunksize * nchunks;
+>  	int ret;
+>=20=20
+>  	if (ddir =3D=3D DMA_FROM_DEVICE)
+> @@ -474,12 +497,21 @@ static int sunxi_nfc_dma_op_prepare(struct sunxi_nf=
+c *nfc, const void *buf,
+>  	else
+>  		tdir =3D DMA_MEM_TO_DEV;
+>=20=20
+> -	sg_init_one(sg, buf, nchunks * chunksize);
+> +	sg_init_one(sg, buf, len);
+>  	ret =3D dma_map_sg(nfc->dev, sg, 1, ddir);
+>  	if (!ret)
+>  		return -ENOMEM;
+>=20=20
+> -	if (!nfc->caps->has_mdma) {
+> +	buf_dma =3D sg_dma_address(sg);
+> +
+> +	if (nfc->mdma_desc &&
+> +	    (len > NFC_MDMA_DESC_SIZE_MASK || !IS_ALIGNED(len, 8) ||
+> +	     !IS_ALIGNED(buf_dma, 4) || upper_32_bits(buf_dma))) {
+> +		ret =3D -EINVAL;
+> +		goto err_unmap_buf;
+> +	}
+> +
+> +	if (!sunxi_nfc_uses_mdma(nfc)) {
+>  		dmad =3D dmaengine_prep_slave_sg(nfc->dmac, sg, 1, tdir, DMA_CTRL_ACK);
+>  		if (!dmad) {
+>  			ret =3D -EINVAL;
+> @@ -489,14 +521,30 @@ static int sunxi_nfc_dma_op_prepare(struct sunxi_nf=
+c *nfc, const void *buf,
+>=20=20
+>  	writel(readl(nfc->regs + NFC_REG_CTL) | NFC_RAM_METHOD,
+>  	       nfc->regs + NFC_REG_CTL);
+> -	writel(nchunks, nfc->regs + NFC_REG_SECTOR_NUM);
+> +	writel(nfc->mdma_desc ? GENMASK(nchunks - 1, 0) : nchunks,
+
+Very unclear, can this be simplified or at least explained?
+
+> +	       nfc->regs + NFC_REG_SECTOR_NUM);
+>  	writel(chunksize, nfc->regs + NFC_REG_CNT);
+>=20=20
+> -	if (nfc->caps->has_mdma) {
+> +	if (sunxi_nfc_uses_mdma(nfc))
+>  		writel(readl(nfc->regs + NFC_REG_CTL) & ~NFC_DMA_TYPE_NORMAL,
+>  		       nfc->regs + NFC_REG_CTL);
+> -		writel(chunksize * nchunks, nfc->regs + NFC_REG_MDMA_CNT);
+> -		writel(sg_dma_address(sg), nfc->regs + NFC_REG_MDMA_ADDR);
+> +
+> +	if (nfc->mdma_desc) {
+> +		struct sunxi_nfc_mdma_desc *desc =3D nfc->mdma_desc;
+> +
+> +		desc->config =3D cpu_to_le32(NFC_MDMA_DESC_FIRST |
+> +					   NFC_MDMA_DESC_LAST);
+> +		desc->size =3D cpu_to_le32(len);
+> +		desc->buf =3D cpu_to_le32(lower_32_bits(buf_dma));
+
+Does lower_32_bits() mean anything here since you already check for the
+upper bits before? This check may even be redundant given the fact that
+the addressing capability has already been set to 32 bits, so the
+dma_map* call would catch this anyway.
+
+> +		desc->next =3D cpu_to_le32(lower_32_bits(nfc->mdma_desc_dma));
+
+Ditto
+
+Plus, the endianness of the controller is little endian, so writel
+already does the endianness conversion if need be. cpu_to_le32() here
+seems irrelevant.
+
+> +
+> +		writel(BIT(0), nfc->regs + NFC_REG_H6_MDMA_STA);
+
+BIT(0) should be #define'd
+
+> +		dma_wmb();
+> +		writel(lower_32_bits(nfc->mdma_desc_dma),
+> +		       nfc->regs + NFC_REG_H6_MDMA_DLBA_REG);
+> +	} else if (nfc->caps->has_mdma) {
+> +		writel(len, nfc->regs + NFC_REG_MDMA_CNT);
+> +		writel(buf_dma, nfc->regs + NFC_REG_MDMA_ADDR);
+>  	} else {
+>  		dmat =3D dmaengine_submit(dmad);
+>=20=20
+> @@ -525,6 +573,14 @@ static void sunxi_nfc_dma_op_cleanup(struct sunxi_nf=
+c *nfc,
+>  	       nfc->regs + NFC_REG_CTL);
+>  }
+>=20=20
+> +static void sunxi_nfc_dma_op_abort(struct sunxi_nfc *nfc)
+> +{
+> +	if (nfc->mdma_desc)
+
+I would prefer to stick to the same condition all the time whether we
+are using peripheral dma (MDMA) or not.
+
+> +		sunxi_nfc_rst(nfc);
+> +	else if (!nfc->caps->has_mdma)
+
+Shouldn't this be a "else" here?
+
+> +		dmaengine_terminate_all(nfc->dmac);
+> +}
+> +
+>  static void sunxi_nfc_select_chip(struct nand_chip *nand, unsigned int c=
+s)
+>  {
+>  	struct mtd_info *mtd =3D nand_to_mtd(nand);
+> @@ -1202,7 +1258,7 @@ static int sunxi_nfc_hw_ecc_read_chunks_dma(struct =
+nand_chip *nand, uint8_t *buf
+>=20=20
+>  	wait =3D NFC_CMD_INT_FLAG;
+>=20=20
+> -	if (nfc->caps->has_mdma)
+> +	if (sunxi_nfc_uses_mdma(nfc))
+>  		wait |=3D NFC_DMA_INT_FLAG;
+>  	else
+>  		dma_async_issue_pending(nfc->dmac);
+
+Thanks,
+Miqu=C3=A8l
 
