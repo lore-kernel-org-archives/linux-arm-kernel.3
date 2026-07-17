@@ -4,78 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 110D5C4450F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 06:51:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C98DDC44507
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 06:53:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y+pTr1GF5oCrWiw/EduYNgwy8M8mssLlqIc69r0gSWQ=; b=VWqmyVB4DHUfLijocBcb9ypNFH
-	BHPqq1tY256ZgXYVFMO3T/FhON0+skZfbyYJuy6LVVEb7UUHHD69ZmGHYzOKqeDBs6RlL5NyTxlhR
-	8ICZ12FygNpBdkuTR2hkOVNAIyXW/rg8eNpmzYI/wVnicqAuDL7LBWK/WrtII0gGnVBUqEPO4icDb
-	VQyjuofMy1zCLNCc8gTisCS71OYtVXHI89I07QIcJegySwHBHFjQDtnfKPg3aB935FdpuaMrrkOqO
-	Z780azdK+2gJ/VpfXijSyQnJ4YpMz9qV8I2FomZxwOxshWlrmIwDO1Ve98oaMQuKstDVPw/YICc1j
-	sksFuevQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OwSPbj6bHus/PVje4mHauNVjyk5PMc2+vdtb3EqrvNA=; b=De1cQHW7HQN7NhD9RKUGbcIcAy
+	pT/6r8QdLV1s3paRlbNBGbeZ9HkAQXrjxNYotZdr+Uqdm6YD7cpVAcnicemVW5OcXlOYQP3Ep6LTi
+	a5eeH2vswtmgdHp9F7YgS0nrvLqg9UwmbE7LHA0FgbmD71PJeALu5SNeVlV6ypvCzpbfWqejto0/K
+	uaj1xQ77BZE9CV9NWYUYwxkrlbku6XhHKe2QzxLU7u5fSsErPj0Nn9taqc7YegfhkWMXtL9WHw70m
+	4FTgQbOEZcQQGzlpZ+1Y3P3f2aCYqz8j8QqdIbuAjvuRrZMrTkSCymJp52poL4mvbuCiUer7v2sZ2
+	QFSUeajA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkcPw-00000001Iwj-11J8;
-	Fri, 17 Jul 2026 06:51:28 +0000
-Received: from canpmsgout12.his.huawei.com ([113.46.200.227])
+	id 1wkcRK-00000001JB8-2VlF;
+	Fri, 17 Jul 2026 06:52:54 +0000
+Received: from mail-japaneastazon11012032.outbound.protection.outlook.com ([52.101.126.32] helo=TYPPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkcPt-00000001Ivo-0MkI
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 06:51:26 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=y+pTr1GF5oCrWiw/EduYNgwy8M8mssLlqIc69r0gSWQ=;
-	b=TOBVP6wA49XYyUqW5X3onFnQZEKtw4MUSPLDom+Nnl4IQxy/SrCaiozwaaM/FySRT2zKoD2uD
-	bD4c2NeY3KedyUy3Scs20kQjIVPWY/SFxGUiruj4x4+H5gBndVUkKpoSvTkZoKcb6IjhBYjcSOy
-	wPs8s/w6ZpB7+FL6Dm36tko=
-Received: from mail.maildlp.com (unknown [172.19.163.127])
-	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4h1gLB5XByznTtT;
-	Fri, 17 Jul 2026 14:41:38 +0800 (CST)
-Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
-	by mail.maildlp.com (Postfix) with ESMTPS id E343C40572;
-	Fri, 17 Jul 2026 14:51:12 +0800 (CST)
-Received: from [10.67.120.103] (10.67.120.103) by
- kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Fri, 17 Jul 2026 14:51:11 +0800
-Message-ID: <3fb4b33e-4618-4523-b140-955e15fd9a8c@huawei.com>
-Date: Fri, 17 Jul 2026 14:51:12 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 5/6] KVM: arm64: Add HDBSS fault handling and buffer
- flush
-To: Leonardo Bras <leo.bras@arm.com>
-CC: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>,
-	<yangjinqian1@huawei.com>, <caijian11@h-partners.com>,
-	<liuyonglong@huawei.com>, <yezhenyu2@huawei.com>, <yubihong@huawei.com>,
-	<linuxarm@huawei.com>, <joey.gouly@arm.com>, <kvmarm@lists.linux.dev>,
-	<kvm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <seiden@linux.ibm.com>,
-	<suzuki.poulose@arm.com>
-References: <20260709104026.2612599-1-zhengtian10@huawei.com>
- <20260709104026.2612599-6-zhengtian10@huawei.com>
- <alTw0nwiBDWoFrjB@LeoBrasDK>
- <9340fa94-6f26-4053-a4ca-0803af725936@huawei.com>
- <alYUXkub43YxkeH1@LeoBrasDK>
- <fa0839f9-7d83-4ad1-80e2-7e7dd0280222@huawei.com>
- <alZFVPkS3lgGdruc@LeoBrasDK>
-From: Tian Zheng <zhengtian10@huawei.com>
-In-Reply-To: <alZFVPkS3lgGdruc@LeoBrasDK>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+	id 1wkcRH-00000001JAT-3w0v;
+	Fri, 17 Jul 2026 06:52:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JtLbpPrKjWcMFsszDSW3svAIJF2TG2kunDbT68whJzn4H3JOQv/FOHa8tjcHrLXMLOkFWN8wbKDXI2bS/zJyVgO3ij0NnsG27fjg2YmLyWFsHnoZBwVsma9zlJEVGv2Yg+zq/UZzDoZ/z13vJp03zGjhc/UV0u7K07MtXxDR9w6EaNOL793O/kXSuYP4keBjOIQHwusYOk93UZrJeFKu3GwOXsBZwzgB5WWFj6JjamyIliU8KOFCivZ3BmMXyUqc1tG4MtCzlXqJICGLhyIcmXs9SK9I3+1SHNz3mMnYuiRYQDa5LCDhW3eJsW+5K5xh62tNQN/ct/QsVfn5gaAvfg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=OwSPbj6bHus/PVje4mHauNVjyk5PMc2+vdtb3EqrvNA=;
+ b=xifRvttdX+EVzFBuFgCwjEYqDhklFEChFyda90tMpuurY24WfYGd5m23EON5Rc4PY9Ezydbpa7RGDIW/gIoJIxLRwzodGGle8OafivjEuOCW+gH63s8pBbk7pFdBffeVeINbSafuqKA6T6ROYuzyj/HrZhClGWf7GKL//BM+8rVVLltOlBKRVooZujR7L7lS4eCsrVgjsLpKkbZviGi33gWaXk2H7cPJoXQOELQF/FftT8wAUS+wcaRQA/LrvbABNQRl/rQNsgL4KGX/BO5KSuWC3YLLQtkK9qF18usJMTpG1alhOgwRbqWmFGWZ9Q7qSt9Oae/Cn+rNLMWdCIA46A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
+ dkim=pass header.d=vivo.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=OwSPbj6bHus/PVje4mHauNVjyk5PMc2+vdtb3EqrvNA=;
+ b=j07O2XSSYyod2ElAVJNAaSmz7NLcwHVSXqPYQUftNLMjsIShCO2dJff/YQ9DkZsf9xG71iYEsjJ2Emfl2z3nPnCRi4x7cwInOrL1nE4JBLhUuH2TRmPIyv3J2rSkX89mUdyx79FslS47hNj0H1O6P4qloCgVInLkQWMhZ+xkH4wknrXm63V9dP46BsyGt5qGCeynAuGI2ISWsZELuYJI2WD8RZjiJ9ljYJ1cKdHENJzijY1Y1i4CBmLB9acdCqAJtWOqsXZNyW4jzsZfW3CSMC05IBikUVs1f9OtLdtcij+Io94Nn6rJVeswL52c5rrNESHf8ONrfhh67QbU1Q8xCg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=vivo.com;
+Received: from SEZPR06MB5832.apcprd06.prod.outlook.com (2603:1096:101:c8::12)
+ by KUXPR06MB9155.apcprd06.prod.outlook.com (2603:1096:d10:68::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.11; Fri, 17 Jul
+ 2026 06:52:36 +0000
+Received: from SEZPR06MB5832.apcprd06.prod.outlook.com
+ ([fe80::f98:5e32:4ccb:d07b]) by SEZPR06MB5832.apcprd06.prod.outlook.com
+ ([fe80::f98:5e32:4ccb:d07b%6]) with mapi id 15.21.0223.011; Fri, 17 Jul 2026
+ 06:52:36 +0000
+From: Pan Chuang <panchuang@vivo.com>
+To: Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Paul Cercueil <paul@crapouillou.net>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-remoteproc@vger.kernel.org (open list:REMOTE PROCESSOR (REMOTEPROC) SUBSYSTEM),
+	linux-kernel@vger.kernel.org (open list),
+	linux-mips@vger.kernel.org (open list:INGENIC JZ47xx SoCs),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
+	linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
+	linux-arm-msm@vger.kernel.org (open list:ARM/QUALCOMM MAILING LIST),
+	linux-stm32@st-md-mailman.stormreply.com (moderated list:ARM/STM32 ARCHITECTURE)
+Cc: Pan Chuang <panchuang@vivo.com>
+Subject: [PATCH] remoteproc: Remove redundant dev_err()/dev_err_probe()
+Date: Fri, 17 Jul 2026 14:52:23 +0800
+Message-Id: <20260717065224.600593-1-panchuang@vivo.com>
+X-Mailer: git-send-email 2.34.1
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.120.103]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- kwepemr100010.china.huawei.com (7.202.195.125)
+Content-Type: text/plain
+X-ClientProxiedBy: TP0P295CA0013.TWNP295.PROD.OUTLOOK.COM
+ (2603:1096:910:2::18) To SEZPR06MB5832.apcprd06.prod.outlook.com
+ (2603:1096:101:c8::12)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SEZPR06MB5832:EE_|KUXPR06MB9155:EE_
+X-MS-Office365-Filtering-Correlation-Id: 19dfb515-8789-4359-fb7c-08dee3cffbf4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|23010399003|52116014|56012099006|11063799006|6133799003|18002099003|921020|10067099003|38350700014;
+X-Microsoft-Antispam-Message-Info: +jj+22Zq9fSwJ35DWs/NRlp0kgZJFGx/nB5ER1Y2aZWljreNKVES9wbTCTh4N6ReebpG9wIe36iUqOxHC8IPLck0v46FUxzTNDWyk+OdC+VhuUGWh6nYZfE3AzU8d8PW3ARPhYSl787nH8l3T4NOmbyArUrZgd3WJ1l/O6XkHu3SpAmLRlhyAxbYQpr/8zyTp28433GCe8/FMA/HHzq30cP+M6YJv2pZoZqum7YK8l99JCgCnSdgu4IvSjsHGB4Do0/i1mjG30Dn495nQXZX8qK/EnpJMTsk1SkJ7nh4/jMIt8xkW5pbeNRsB4JGIVckIcUAQP+Y7G6sg59ai8PryI7c4dvIirIWtu4/N1LQY5BQIiQcgvdb4OIaE6A+IPD5ByEeouEkYXjWOxbMaIjRDv/AG1pOcMpFFmRAvvrLKDYpzofQXoGs1+mQwm1myE8UtV3XCu87pgSL0ECRQ1F4LY2moSAN57/PNEsL8nvsQ8txSeXOM8Nk7ab8vImsXH975EaCfc2qkDBFzz8YNLcvk0nFTCq31rWrO0lVzmAjdb7VfXS/ZQ7lNvi4s4r2AB0AGuzyatESC7em+mkdX1JKmtD1IMeayL1iNbhl5k5YU+WD0fW1orUQgM3YqFF9B+rKEzPwVww+/46Ql4WG0r5jqb8+imSP+DrxpXMYYfSINP5mSt6HmMductDYRDjPxUF8VNXJ9uc93IqZ6NaIfL2kvpXRA3OES+Bj6BbGJhLjIB8=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR06MB5832.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(23010399003)(52116014)(56012099006)(11063799006)(6133799003)(18002099003)(921020)(10067099003)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?wakMZhJ0Ge0AcXm8yvmqUz+e7mx6CEf6iE/F1TsgxVUkJo3VQphKmMaJJmHt?=
+ =?us-ascii?Q?6w+ri1aMcW+5Q+GXB8TsHUB6uE3+K0kTIAQeik6ioci2DvGt0o0EDNTGx6U5?=
+ =?us-ascii?Q?8zz6zGc/71h/5hBjMX1X+Bq2TjlxigrGcF2SkOR5qU36hgdcylozhecJMwwk?=
+ =?us-ascii?Q?fgPp/kdoyhGmo7KbFbkdqR/SkZTTzAEfX6tFnqTlv0YBXh5ZT95nyIBmABpB?=
+ =?us-ascii?Q?xi7XoWjkanen1JQqOXJz0BLWaKNtAlJfUrOiTJ5e4v2gBm/f4C/Wi+Da/5jH?=
+ =?us-ascii?Q?GLmaBrwEE2wgD5wmudRFv6Ms4nwMw4BbJqWzM5SkRC9MNx2slGkUHbavmG75?=
+ =?us-ascii?Q?mRqSH1aU20hK6HVodXjtYGH09FjnLVSJGP3sL+ILHykYPtxGeQHrgcAIrSZ3?=
+ =?us-ascii?Q?Z/jFZGixBRWCbf3W7wtcAqxahIH0rkKQ07rIiUtwniwt0JamkOjK4XGXtezC?=
+ =?us-ascii?Q?/Td4LTNbt5baQeiejlAtUcN1NF3x+F2RKBzI71i1NsSOgVyhyL5IltcNTHc+?=
+ =?us-ascii?Q?U5P122pz/mE6J4o2VUSyFpAXJ7jk5d6hyt0FPeMuHeLysA9PNkrOEj7wI+Mg?=
+ =?us-ascii?Q?KsNHNpkskg9HE3IWkXK5iRQDJ3wx5FXCFK7jQw+hsnQfRS3KvooQ0rsw8Geg?=
+ =?us-ascii?Q?mLEu93g6OR7Jko+7uiW1Wt9L2dFkzyj1fOnsU8TdLF64DLyBTTIcnMT61CJr?=
+ =?us-ascii?Q?KGpaoKuaDiOZlRkbbkN+5jpe3+lbyztumaT9psm1M6P6bdLYXuPvb3J0gL9X?=
+ =?us-ascii?Q?kwnO2Z//xyXzm5FluyBnb3bQ6+ueoAo7/yX8hV2aEdum98gChZgE+jnCx75k?=
+ =?us-ascii?Q?BLKLSeE8atVznMJKKuCYYaxTCEn00lCz9vsHIDQRJinvGaOid0dYURjMNEUm?=
+ =?us-ascii?Q?DSxfIVo+LLZtLoYDLVHvOOBKO48IABJ1CTZw8rE550vTQkr/5gmSxs90W766?=
+ =?us-ascii?Q?dNF9rcsgalqVq4aM/2FJ0Raoqn4DFQw4oacQ74fTbbcAkXom9F1C9ynV7mcE?=
+ =?us-ascii?Q?tqV4Gm1WMf+VOhnObQaBq9zfMaGMfbOrdt3wfukhPi6D/ObdX//xqGWyhFiU?=
+ =?us-ascii?Q?6Tk7wcx5hEj6+q5adR6Nf6Grdj9c37zJ3eVKPtleB1aKy7co/wgRJ0rZShEt?=
+ =?us-ascii?Q?XgEwa9EGKlnyFcf2TaHHayLC6z5hLcDNXqR/kHZyFSghLHaUWGXKKaXCJ4V3?=
+ =?us-ascii?Q?H6FaR4SkQFis/p/r5fRa+NDd6Dw+FuWtm6nZEt5TgURlgQgBsb6//aON4sVZ?=
+ =?us-ascii?Q?Ckci8brpND0Jo+6EAH/tX+WD3CPKNQAuPFhHG8ntQ0T95qgYhTP/pj6EeqcS?=
+ =?us-ascii?Q?KW6TusA/6xTi2QFstelSL0f0aYxyjZBVBas027YEtzsKyg7knvt3yHGvHts5?=
+ =?us-ascii?Q?NgsalfLDeTxMCZuPjsfixlQjSbkO/AZzksJwKADhghTlaSC3eublPERdHoFX?=
+ =?us-ascii?Q?TIYUdRRA/Kxf68V6f7N8SHzphfBTsAVbrEkFcQgiL8zxO2GW6ZOrPk0nnJDn?=
+ =?us-ascii?Q?XQUwAoWZEMRKOSn2zvoP6zrs5repTLefRGTVEj1xR7tG8FHF6td/sgQMHSAs?=
+ =?us-ascii?Q?C3VMisfW+FQ2oKW4jiPyqEzdZRmONF9+GREloEGM0CiwMoHsLv2VndUQyZ/P?=
+ =?us-ascii?Q?6RUtQciVuYsoVQxj4+TxJ10dhYvL6P3M0bH+lXYQoeCs+6ck3WiLHIF+F5Zm?=
+ =?us-ascii?Q?zEPhD1a5zT5Vsug5TgcsGs68w9D8vdjah582QDBsR6Cl8cSUWDSZ84op56tT?=
+ =?us-ascii?Q?RY3LLRLmyQ=3D=3D?=
+X-OriginatorOrg: vivo.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 19dfb515-8789-4359-fb7c-08dee3cffbf4
+X-MS-Exchange-CrossTenant-AuthSource: SEZPR06MB5832.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2026 06:52:36.0752
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 2oF8UeBL/8/0q0/DLe6uKSvBvys4lIyujK6MDurR+hbt0ujMnmGhae0zaVdrWbppYYNsKVvqG6I6IKRCDUcCAw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KUXPR06MB9155
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_235125_452792_8FDBB64A 
-X-CRM114-Status: GOOD (  30.77  )
+X-CRM114-CacheID: sfid-20260716_235252_289666_62A0DBD9 
+X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,311 +144,198 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Since commit 55b48e23f5c4 ("genirq/devres: Add error handling in
+devm_request_*_irq()"), devm_request_irq() and devm_request_threaded_irq()
+automatically log detailed error messages on failure. Remove the
+now-redundant driver-specific dev_err() and dev_err_probe() calls.
 
-On 7/14/2026 10:19 PM, Leonardo Bras wrote:
-> On Tue, Jul 14, 2026 at 09:27:15PM +0800, Tian Zheng wrote:
->> On 7/14/2026 6:50 PM, Leonardo Bras wrote:
->>> On Tue, Jul 14, 2026 at 03:38:39PM +0800, Tian Zheng wrote:
->>>> On 7/13/2026 10:06 PM, Leonardo Bras wrote:
->>>>> On Thu, Jul 09, 2026 at 06:40:25PM +0800, Tian Zheng wrote:
->>>>>> From: eillon <yezhenyu2@huawei.com>
->>>>>>
->>>>>> Add HDBSS fault handling for buffer full, external abort, and general
->>>>>> protection fault (GPF) events. When the HDBSS buffer becomes full,
->>>>>> the hardware traps to EL2 with an HDBSSF event, which is handled by
->>>>>> setting a flush request.
->>>>>>
->>>>>> Add kvm_flush_hdbss_buffer() to consume HDBSS buffer entries and
->>>>>> propagate dirty information into the userspace-visible dirty bitmap.
->>>>>> Flush is triggered on vcpu_put, check_vcpu_requests, and
->>>>>> sync_dirty_log.
->>>>>>
->>>>>> Add esr_iss2_is_hdbssf() helper for HDBSS fault detection in guest
->>>>>> abort handling.
->>>>>>
->>>>>> Signed-off-by: Eillon <yezhenyu2@huawei.com>
->>>>>> Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
->>>>>> ---
->>>>>>     arch/arm64/include/asm/esr.h           |  5 +++
->>>>>>     arch/arm64/include/asm/kvm_dirty_bit.h | 11 +++++
->>>>>>     arch/arm64/include/asm/kvm_host.h      |  1 +
->>>>>>     arch/arm64/kvm/arm.c                   | 14 ++++++
->>>>>>     arch/arm64/kvm/dirty_bit.c             | 62 ++++++++++++++++++++++++++
->>>>>>     arch/arm64/kvm/mmu.c                   |  4 ++
->>>>>>     6 files changed, 97 insertions(+)
->>>>>>
->>>>>> diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
->>>>>> index 81c17320a588..2e6b679b5908 100644
->>>>>> --- a/arch/arm64/include/asm/esr.h
->>>>>> +++ b/arch/arm64/include/asm/esr.h
->>>>>> @@ -437,6 +437,11 @@
->>>>>>     #ifndef __ASSEMBLER__
->>>>>>     #include <asm/types.h>
->>>>>>
->>>>>> +static inline bool esr_iss2_is_hdbssf(unsigned long esr)
->>>>>> +{
->>>>>> +	return ESR_ELx_ISS2(esr) & ESR_ELx_HDBSSF;
->>>>> This will return a long, which will be casted as bool.
->>>>> In general, what I see in the kernel is something like:
->>>>>
->>>>> 	return !!(ESR_ELx_ISS2(esr) & ESR_ELx_HDBSSF)
->>>> ok!
->>>>
->>>>
->>>>>> +}
->>>>>> +
->>>>>>     static inline unsigned long esr_brk_comment(unsigned long esr)
->>>>>>     {
->>>>>>     	return esr & ESR_ELx_BRK64_ISS_COMMENT_MASK;
->>>>>> diff --git a/arch/arm64/include/asm/kvm_dirty_bit.h b/arch/arm64/include/asm/kvm_dirty_bit.h
->>>>>> index 84b12f0a10af..4b28000e972f 100644
->>>>>> --- a/arch/arm64/include/asm/kvm_dirty_bit.h
->>>>>> +++ b/arch/arm64/include/asm/kvm_dirty_bit.h
->>>>>> @@ -10,7 +10,18 @@
->>>>>>     #include <asm/kvm_pgtable.h>
->>>>>>     #include <asm/sysreg.h>
->>>>>>
->>>>>> +/* HDBSS entry field definitions */
->>>>>> +#define HDBSS_ENTRY_VALID	BIT(0)
->>>>>> +#define HDBSS_ENTRY_TTWL_SHIFT (1)
->>>>>> +#define HDBSS_ENTRY_TTWL_MASK (GENMASK(3, 1))
->>>>>> +#define HDBSS_ENTRY_TTWL(x) \
->>>>>> +	(((x) << HDBSS_ENTRY_TTWL_SHIFT) & HDBSS_ENTRY_TTWL_MASK)
->>>>>> +#define HDBSS_ENTRY_TTWL_RESV HDBSS_ENTRY_TTWL(-4)
->>>>>> +#define HDBSS_ENTRY_IPA	GENMASK_ULL(55, 12)
->>>>>> +
->>>>>>     int kvm_arm_vcpu_alloc_hdbss(struct kvm_vcpu *vcpu, unsigned int order);
->>>>>>     void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu);
->>>>>> +void kvm_flush_hdbss_buffer(struct kvm_vcpu *vcpu);
->>>>>> +int kvm_handle_hdbss_fault(struct kvm_vcpu *vcpu);
->>>>>>
->>>>>>     #endif /* __ARM64_KVM_DIRTY_BIT_H__ */
->>>>>> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
->>>>>> index c41ec6d9c45a..cecfb884a64f 100644
->>>>>> --- a/arch/arm64/include/asm/kvm_host.h
->>>>>> +++ b/arch/arm64/include/asm/kvm_host.h
->>>>>> @@ -55,6 +55,7 @@
->>>>>>     #define KVM_REQ_GUEST_HYP_IRQ_PENDING	KVM_ARCH_REQ(9)
->>>>>>     #define KVM_REQ_MAP_L1_VNCR_EL2		KVM_ARCH_REQ(10)
->>>>>>     #define KVM_REQ_VGIC_PROCESS_UPDATE	KVM_ARCH_REQ(11)
->>>>>> +#define KVM_REQ_FLUSH_HDBSS			KVM_ARCH_REQ(12)
->>>>>>
->>>>>>     #define KVM_DIRTY_LOG_MANUAL_CAPS   (KVM_DIRTY_LOG_MANUAL_PROTECT_ENABLE | \
->>>>>>     				     KVM_DIRTY_LOG_INITIALLY_SET)
->>>>>> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
->>>>>> index bf6688245d83..566953a4e23a 100644
->>>>>> --- a/arch/arm64/kvm/arm.c
->>>>>> +++ b/arch/arm64/kvm/arm.c
->>>>>> @@ -755,6 +755,9 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
->>>>>>     		kvm_vcpu_put_hw_mmu(vcpu);
->>>>>>     	kvm_arm_vmid_clear_active();
->>>>>>
->>>>>> +	if (vcpu->kvm->arch.enable_hdbss)
->>>>>> +		kvm_flush_hdbss_buffer(vcpu);
->>>>>> +
->>>>>>     	vcpu_clear_on_unsupported_cpu(vcpu);
->>>>>>     	vcpu->cpu = -1;
->>>>>>     }
->>>>>> @@ -1157,6 +1160,9 @@ static int check_vcpu_requests(struct kvm_vcpu *vcpu)
->>>>>>     		if (kvm_dirty_ring_check_request(vcpu))
->>>>>>     			return 0;
->>>>>>
->>>>>> +		if (kvm_check_request(KVM_REQ_FLUSH_HDBSS, vcpu))
->>>>>> +			kvm_flush_hdbss_buffer(vcpu);
->>>>>> +
->>>>>>     		check_nested_vcpu_requests(vcpu);
->>>>>>     	}
->>>>>>
->>>>>> @@ -1971,7 +1977,15 @@ long kvm_arch_vcpu_unlocked_ioctl(struct file *filp, unsigned int ioctl,
->>>>>>
->>>>>>     void kvm_arch_sync_dirty_log(struct kvm *kvm, struct kvm_memory_slot *memslot)
->>>>>>     {
->>>>>> +	/*
->>>>>> +	 * Flush all CPUs' dirty log buffers to the dirty_bitmap.  Called
->>>>>> +	 * before reporting dirty_bitmap to userspace. Send a request with
->>>>>> +	 * KVM_REQUEST_WAIT to flush buffer synchronously.
->>>>>> +	 */
->>>>>> +	if (!kvm->arch.enable_hdbss)
->>>>>> +		return;
->>>>>>
->>>>>> +	kvm_make_all_cpus_request(kvm, KVM_REQ_FLUSH_HDBSS | KVM_REQUEST_WAIT);
->>>>>>     }
->>>>>>
->>>>>>     static int kvm_vm_ioctl_set_device_addr(struct kvm *kvm,
->>>>>> diff --git a/arch/arm64/kvm/dirty_bit.c b/arch/arm64/kvm/dirty_bit.c
->>>>>> index 6c7a6ef66b5a..002366337637 100644
->>>>>> --- a/arch/arm64/kvm/dirty_bit.c
->>>>>> +++ b/arch/arm64/kvm/dirty_bit.c
->>>>>> @@ -50,3 +50,65 @@ void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu)
->>>>>>
->>>>>>     	vcpu->arch.hdbss.hdbssbr_el2 = 0;
->>>>>>     }
->>>>>> +
->>>>>> +void kvm_flush_hdbss_buffer(struct kvm_vcpu *vcpu)
->>>>>> +{
->>>>>> +	int idx, curr_idx;
->>>>>> +	u64 *hdbss_buf;
->>>>>> +	struct kvm *kvm = vcpu->kvm;
->>>>>> +
->>>>>> +	if (!kvm->arch.enable_hdbss)
->>>>>> +		return;
->>>>>> +
->>>>>> +	curr_idx = HDBSSPROD_IDX(read_sysreg_s(SYS_HDBSSPROD_EL2));
->>>>>> +
->>>>>> +	/* Do nothing if HDBSS buffer is empty or br_el2 is NULL */
->>>>>> +	if (curr_idx == 0 || vcpu->arch.hdbss.hdbssbr_el2 == 0)
->>>>>> +		return;
->>>>>> +
->>>>>> +	hdbss_buf = page_address(phys_to_page(vcpu->arch.hdbss.base_phys));
->>>>>> +	if (!hdbss_buf)
->>>>>> +		return;
->>>>>> +
->>>>>> +	guard(write_lock_irqsave)(&vcpu->kvm->mmu_lock);
->>>>>> +	for (idx = 0; idx < curr_idx; idx++) {
->>>>>> +		u64 gpa;
->>>>>> +
->>>>>> +		gpa = hdbss_buf[idx];
->>>>>> +		if (!(gpa & HDBSS_ENTRY_VALID))
->>>>>> +			continue;
->>>>>> +
->>>>>> +		gpa &= HDBSS_ENTRY_IPA;
->>>>>> +		kvm_vcpu_mark_page_dirty(vcpu, gpa >> PAGE_SHIFT);
->>>>> You mention that it does not support dirty-ring, but above function will
->>>>> mark the page as dirty in the dirty-ring :/
->>>>>
->>>> In kvm_arm_enable_hdbss_global(), we explicitly check and reject HDBSS
->>>> enablement if dirty-ring is active:
->>>>
->>>> ```
->>>> if (kvm->dirty_ring_size)
->>>>       return 0;
->>>> ```
->>>>
->>>> So when kvm_flush_hdbss_buffer() runs (which requires enable_hdbss = true),
->>>> we know for certain that
->>>>
->>>> kvm->dirty_ring_size == 0. Therefore, kvm_vcpu_mark_page_dirty() will always
->>>> take the dirty_bitmap path,
->>>>
->>>> never the dirty-ring path.
->>>>
->>>> That said, I'll add a comment in kvm_flush_hdbss_buffer() before dirty ring
->>>> mode is supported, to make this explicit:
->>>>
->>>> ```
->>>> /*
->>>>    * HDBSS is mutually exclusive with dirty-ring mode (see
->>>>    * kvm_arm_enable_hdbss_global()), so kvm_vcpu_mark_page_dirty()
->>>>    * will update the dirty_bitmap, not the dirty-ring.
->>>>    */
->>>> ```
->>>>
->>> Got it :)
->>>
->>> Out of curiosity: which issues have you found on supporting dirty-ring at
->>> this point?
->>>
->>> Thanks!
->>> Leo
->>
->> I haven't looked deeply into dirty-ring yet — my main concern is that if
->> both the dirty
->>
->> ring and HDBSS buffer fill up, the flush path might get blocked or
->> complicated.
->>
->> For now, I'm planning to match the HDBSS buffer size to the dirty ring size
->> in v5 and test it.
->>
->> Ideally, the two buffers would be the same size, and the entire dirty
->> tracking path would use
->>
-> Ah, I see the point.
->
-> IIRC, when dirty-ring gets full, the kernel returns to userspace with
-> run->exit_reason == KVM_EXIT_DIRTY_RING_FULL, which will warn the VMM to
-> drain the dirty-ring, and that makes space for us draining HDBSS to the
-> dirty-ring again.
->
-> The best way to achieve that, as I remember, is to always drain
-> HDBSS as much as possible at guest_exitting. That will make more space to
-> newer HDBSS entries, and we can get userspace to drain the dirty-ring
-> earlier.
->
-> I would say to even make HDBSS buffer half (entries) the dirty-ring. Then
-> we can generally fully drain to the dirty-ring and even report ring full
-> if the ring is above a given threshold percentage full.
->   
->> HDBSS exclusively — no fallback to the legacy dirty bitmap path. If that
->> works, I think this approach should be fine.
->>
->> Let me know if you have any insights on dirty ring's full-buffer behavior —
->> that would be helpful.
->>
->>
-> Will do!
->
-> Thanks!
-> Leo
+Signed-off-by: Pan Chuang <panchuang@vivo.com>
+---
+ drivers/remoteproc/da8xx_remoteproc.c    |  2 +-
+ drivers/remoteproc/ingenic_rproc.c       |  4 +---
+ drivers/remoteproc/keystone_remoteproc.c |  4 ++--
+ drivers/remoteproc/mtk_scp.c             |  4 +---
+ drivers/remoteproc/qcom_q6v5.c           | 20 +++++---------------
+ drivers/remoteproc/qcom_sysmon.c         |  2 --
+ drivers/remoteproc/qcom_wcnss.c          |  4 +---
+ drivers/remoteproc/stm32_rproc.c         |  3 +--
+ 8 files changed, 12 insertions(+), 31 deletions(-)
 
-
-Thanks for the insights — reusing PML's reservation mechanism makes sense.
-
-I think we can*keep the HDBSS buffer at 512 entries* (matching 
-PML_LOG_NR_ENTRIES)
-
-for now, and *not expose any ioctl for userspace to configure it*. Since 
-the kernel
-
-auto-enables HDBSS, a userspace size knob would be confusing.
-
-
-The reservation logic would be:
-
-- Implement kvm_cpu_dirty_log_size() on arm64 to return the HDBSS buffer 
-entry
-
-count (512, or 0 if HDBSS is not enabled)
-
-- Reuse kvm_dirty_ring_get_rsvd_entries() to reserve space for one full 
-flush:
-
-KVM_DIRTY_RING_RSVD_ENTRIES + hdbss_entries
-
-- So soft_limit = dirty_ring_size - (KVM_DIRTY_RING_RSVD_ENTRIES + 
-hdbss_entries),
-
-guaranteeing a full flush always fits
-
-kvm_flush_hdbss_buffer() at guest_exit pushes via 
-mark_page_dirty_in_slot() ->
-
-kvm_dirty_ring_push() -> kvm_dirty_ring_soft_full, which triggers
-
-KVM_EXIT_DIRTY_RING_FULL when needed.
-
-If soft_limit is hit, KVM_REQ_DIRTY_RING_FULL is set and the next 
-vcpu_run exits
-
-to userspace for QEMU to drain the ring.
-
-*One more thing: *when userspace sets the dirty ring size via
-
-KVM_VM_IOCTL_ENABLE_DIRTY_LOG_RING, we already enforce that
-
-size >= kvm_dirty_ring_get_rsvd_entries(kvm) * sizeof(struct kvm_dirty_gfn)
-
-or size < PAGE_SIZE. With HDBSS, kvm_dirty_ring_get_rsvd_entries() will 
-include the
-
-HDBSS entries via kvm_cpu_dirty_log_size(), so the same check will 
-automatically guarantee
-
-the ring is large enough to accommodate the HDBSS buffer. No additional 
-validation is needed.
-
-Thanks,
-Tian
-
+diff --git a/drivers/remoteproc/da8xx_remoteproc.c b/drivers/remoteproc/da8xx_remoteproc.c
+index 23fca7176539..006fa7b56727 100644
+--- a/drivers/remoteproc/da8xx_remoteproc.c
++++ b/drivers/remoteproc/da8xx_remoteproc.c
+@@ -298,7 +298,7 @@ static int da8xx_rproc_probe(struct platform_device *pdev)
+ 					handle_event, 0, "da8xx-remoteproc",
+ 					rproc);
+ 	if (ret)
+-		return dev_err_probe(dev, ret, "devm_request_threaded_irq error\n");
++		return ret;
+ 
+ 	/*
+ 	 * rproc_add() can end up enabling the DSP's clk with the DSP
+diff --git a/drivers/remoteproc/ingenic_rproc.c b/drivers/remoteproc/ingenic_rproc.c
+index 1b78d8ddeacf..252519f48964 100644
+--- a/drivers/remoteproc/ingenic_rproc.c
++++ b/drivers/remoteproc/ingenic_rproc.c
+@@ -219,10 +219,8 @@ static int ingenic_rproc_probe(struct platform_device *pdev)
+ 
+ 	ret = devm_request_irq(dev, vpu->irq, vpu_interrupt, IRQF_NO_AUTOEN,
+ 			       "VPU", rproc);
+-	if (ret < 0) {
+-		dev_err(dev, "Failed to request IRQ\n");
++	if (ret < 0)
+ 		return ret;
+-	}
+ 
+ 	ret = devm_rproc_add(dev, rproc);
+ 	if (ret) {
+diff --git a/drivers/remoteproc/keystone_remoteproc.c b/drivers/remoteproc/keystone_remoteproc.c
+index 83763d640c4e..407d6034f748 100644
+--- a/drivers/remoteproc/keystone_remoteproc.c
++++ b/drivers/remoteproc/keystone_remoteproc.c
+@@ -411,7 +411,7 @@ static int keystone_rproc_probe(struct platform_device *pdev)
+ 	ret = devm_request_irq(dev, ksproc->irq_ring, keystone_rproc_vring_interrupt,
+ 			       IRQF_NO_AUTOEN, dev_name(dev), ksproc);
+ 	if (ret)
+-		return dev_err_probe(dev, ret, "failed to request vring interrupt\n");
++		return ret;
+ 
+ 	ksproc->irq_fault = platform_get_irq_byname(pdev, "exception");
+ 	if (ksproc->irq_fault < 0)
+@@ -419,7 +419,7 @@ static int keystone_rproc_probe(struct platform_device *pdev)
+ 	ret = devm_request_irq(dev, ksproc->irq_fault, keystone_rproc_exception_interrupt,
+ 			       IRQF_NO_AUTOEN, dev_name(dev), ksproc);
+ 	if (ret)
+-		return dev_err_probe(dev, ret, "failed to enable exception interrupt\n");
++		return ret;
+ 
+ 	ksproc->kick_gpio = devm_gpiod_get(dev, "kick", GPIOD_ASIS);
+ 	ret = PTR_ERR_OR_ZERO(ksproc->kick_gpio);
+diff --git a/drivers/remoteproc/mtk_scp.c b/drivers/remoteproc/mtk_scp.c
+index 436656bdfa8b..9751acc2bf83 100644
+--- a/drivers/remoteproc/mtk_scp.c
++++ b/drivers/remoteproc/mtk_scp.c
+@@ -1246,10 +1246,8 @@ static struct mtk_scp *scp_rproc_init(struct platform_device *pdev,
+ 					scp_irq_handler, IRQF_ONESHOT,
+ 					pdev->name, scp);
+ 
+-	if (ret) {
+-		dev_err(dev, "failed to request irq\n");
++	if (ret)
+ 		goto remove_subdev;
+-	}
+ 
+ 	return scp;
+ 
+diff --git a/drivers/remoteproc/qcom_q6v5.c b/drivers/remoteproc/qcom_q6v5.c
+index 0206a4a19254..1075ef4027b7 100644
+--- a/drivers/remoteproc/qcom_q6v5.c
++++ b/drivers/remoteproc/qcom_q6v5.c
+@@ -302,10 +302,8 @@ int qcom_q6v5_init(struct qcom_q6v5 *q6v5, struct platform_device *pdev,
+ 					NULL, q6v5_wdog_interrupt,
+ 					IRQF_TRIGGER_RISING | IRQF_ONESHOT,
+ 					"q6v5 wdog", q6v5);
+-	if (ret) {
+-		dev_err(&pdev->dev, "failed to acquire wdog IRQ\n");
++	if (ret)
+ 		return ret;
+-	}
+ 
+ 	q6v5->fatal_irq = platform_get_irq_byname(pdev, "fatal");
+ 	if (q6v5->fatal_irq < 0)
+@@ -315,10 +313,8 @@ int qcom_q6v5_init(struct qcom_q6v5 *q6v5, struct platform_device *pdev,
+ 					NULL, q6v5_fatal_interrupt,
+ 					IRQF_TRIGGER_RISING | IRQF_ONESHOT,
+ 					"q6v5 fatal", q6v5);
+-	if (ret) {
+-		dev_err(&pdev->dev, "failed to acquire fatal IRQ\n");
++	if (ret)
+ 		return ret;
+-	}
+ 
+ 	q6v5->ready_irq = platform_get_irq_byname(pdev, "ready");
+ 	if (q6v5->ready_irq < 0)
+@@ -328,10 +324,8 @@ int qcom_q6v5_init(struct qcom_q6v5 *q6v5, struct platform_device *pdev,
+ 					NULL, q6v5_ready_interrupt,
+ 					IRQF_TRIGGER_RISING | IRQF_ONESHOT,
+ 					"q6v5 ready", q6v5);
+-	if (ret) {
+-		dev_err(&pdev->dev, "failed to acquire ready IRQ\n");
++	if (ret)
+ 		return ret;
+-	}
+ 
+ 	q6v5->handover_irq = platform_get_irq_byname(pdev, "handover");
+ 	if (q6v5->handover_irq < 0)
+@@ -342,10 +336,8 @@ int qcom_q6v5_init(struct qcom_q6v5 *q6v5, struct platform_device *pdev,
+ 					IRQF_TRIGGER_RISING | IRQF_ONESHOT |
+ 					IRQF_NO_AUTOEN,
+ 					"q6v5 handover", q6v5);
+-	if (ret) {
+-		dev_err(&pdev->dev, "failed to acquire handover IRQ\n");
++	if (ret)
+ 		return ret;
+-	}
+ 
+ 	q6v5->stop_irq = platform_get_irq_byname(pdev, "stop-ack");
+ 	if (q6v5->stop_irq < 0)
+@@ -355,10 +347,8 @@ int qcom_q6v5_init(struct qcom_q6v5 *q6v5, struct platform_device *pdev,
+ 					NULL, q6v5_stop_interrupt,
+ 					IRQF_TRIGGER_RISING | IRQF_ONESHOT,
+ 					"q6v5 stop", q6v5);
+-	if (ret) {
+-		dev_err(&pdev->dev, "failed to acquire stop-ack IRQ\n");
++	if (ret)
+ 		return ret;
+-	}
+ 
+ 	q6v5->state = devm_qcom_smem_state_get(&pdev->dev, "stop", &q6v5->stop_bit);
+ 	if (IS_ERR(q6v5->state)) {
+diff --git a/drivers/remoteproc/qcom_sysmon.c b/drivers/remoteproc/qcom_sysmon.c
+index a0830a48b1f4..61e1038328e8 100644
+--- a/drivers/remoteproc/qcom_sysmon.c
++++ b/drivers/remoteproc/qcom_sysmon.c
+@@ -662,8 +662,6 @@ struct qcom_sysmon *qcom_add_sysmon_subdev(struct rproc *rproc,
+ 						IRQF_TRIGGER_RISING | IRQF_ONESHOT,
+ 						"q6v5 shutdown-ack", sysmon);
+ 		if (ret) {
+-			dev_err(sysmon->dev,
+-				"failed to acquire shutdown-ack IRQ\n");
+ 			kfree(sysmon);
+ 			return ERR_PTR(ret);
+ 		}
+diff --git a/drivers/remoteproc/qcom_wcnss.c b/drivers/remoteproc/qcom_wcnss.c
+index 3392c9380202..e9a00efe97f6 100644
+--- a/drivers/remoteproc/qcom_wcnss.c
++++ b/drivers/remoteproc/qcom_wcnss.c
+@@ -521,10 +521,8 @@ static int wcnss_request_irq(struct qcom_wcnss *wcnss,
+ 					NULL, thread_fn,
+ 					IRQF_TRIGGER_RISING | IRQF_ONESHOT,
+ 					"wcnss", wcnss);
+-	if (ret) {
+-		dev_err(&pdev->dev, "request %s IRQ failed\n", name);
++	if (ret)
+ 		return ret;
+-	}
+ 
+ 	/* Return the IRQ number if the IRQ was successfully acquired */
+ 	return irq_number;
+diff --git a/drivers/remoteproc/stm32_rproc.c b/drivers/remoteproc/stm32_rproc.c
+index 0e5d64fbe52c..1fe4cdc0a13a 100644
+--- a/drivers/remoteproc/stm32_rproc.c
++++ b/drivers/remoteproc/stm32_rproc.c
+@@ -682,8 +682,7 @@ static int stm32_rproc_parse_dt(struct platform_device *pdev,
+ 		err = devm_request_irq(dev, irq, stm32_rproc_wdg, 0,
+ 				       dev_name(dev), pdev);
+ 		if (err)
+-			return dev_err_probe(dev, err,
+-					     "failed to request wdg irq\n");
++			return err;
+ 
+ 		ddata->wdg_irq = irq;
+ 
+-- 
+2.34.1
 
 
