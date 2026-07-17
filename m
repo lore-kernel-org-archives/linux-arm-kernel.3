@@ -4,82 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65A79C44514
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 08:09:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2C46C44514
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 08:14:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dIadBkIMfc92d1GDfpRAdnJ2I4MVADdry9Rz78wXpcI=; b=b+lu8v5jJlL0i20e0oRABzkD3g
-	jmuJD4CUtxdMW9neM4otHlbQ63tcURtk5bCPj6O8Re64QPCeKAXvyuYtqPo/F+HEscSxqPpeR5Itz
-	2Fs9tbGNugUz6MC8YFOdNMrurKYgTwKLVyzNYO7b2PK/iPhrCTyonHhy4ZvYWTsUrNZzTcaC8bV8O
-	vTnYKb6sQMPO6Jgozt7jtHLgSmE6Y2i8HDOTgO7RwXz6V5Xv6MrkbGafT+IlkfTjNXxFx5kKRBOob
-	4B773V8gXaHwkY3xWz+UyaDCeXnozvjuuDQLt3apKLnCIcDH1iJ0iO+Zi05ocwMu62RzTx2+/3bcy
-	I3QQ8KAw==;
+	bh=9z91ILlxQtYqvnBQwnktbnN3/Hw+eSYMXdhvRXnuXjA=; b=S8yQndofrTPZsO62bPe9y0/SdG
+	5Dya6OYCMsHQWchJj5orQ23pvglfnjScSWpasma+fw5S1gVUhp5GLah/EHQy5fNP5Ej5rWVgsT9PP
+	kfunhcyBAChWAOr2smFEHBpNz43ivRTm0Td6hx3FbHrSGkHVwzwTH2QaYkTnH3D43rTL3zfdRtPf3
+	VETNgyAY44FXY1v3yDYaGUBagV5m+X692yNEuXonjbHBthI1Nzn3hM0saZw6Rkb4cec2nKnIEP7is
+	MInFh4BoQoI2neUB523k9chGXH8eSFnx3dvXpKb8FlWy9iw75vA0CPJ0vzN4A1tiNxXhjBC44v8j8
+	N85gxlgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkdcy-00000001Zmo-16Zw;
-	Fri, 17 Jul 2026 08:09:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wkdiK-00000001alw-1E3y;
+	Fri, 17 Jul 2026 08:14:32 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkdcx-00000001Zmh-1LWV
+	id 1wkdiI-00000001alf-33Y2
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 17 Jul 2026 08:14:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=9z91ILlxQtYqvnBQwnktbnN3/Hw+eSYMXdhvRXnuXjA=; b=o54Q2DztDWYRqKwcTKRBQw9dOb
+	NWj3a/v38ghYUUfGVCeHSyVb2iyT/nDIiNJUdbI47An1vrX28BrnTUqUcPaMVLHJoIKqMZW0K7ouu
+	VetVMxV1iY8kReEjxPO5veZc/bU9Aw4702R3YGNXMiX/AC96GpJeHdUEaqXuDLVhQXOQrwh/yYbxx
+	Z4uFmXDzUkmY1dKrlq8P27ESFJDVjGyC4VeueMCMepXTNtQE1yAnSTa+DI/HIffxWRpZX6JRJmLQU
+	GDMo3lBDi1euD/yNPV7G99/N1unbc7vSll2RJP6zUwjOXYgckyt9zdhAc76YvD9d9mU3A80oIyJbi
+	71AOvJ9g==;
+Received: from abb.hmeau.com ([180.181.231.80])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wkdiE-0000000EeaK-1SRg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 08:08:59 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E236343D30
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 08:08:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9FB51F00ACA
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 08:08:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784275738;
-	bh=dIadBkIMfc92d1GDfpRAdnJ2I4MVADdry9Rz78wXpcI=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=SJMJFMal+Qz/rARkuCF+DZhrZzvT9aEH2zlfAfunhCtri3omP3VMqQcqXZArWx5dk
-	 FQ4hrHxmR6iSCoIBL5QUbMaXVqRkGZDCMGjEv2toykAa201dMPjp6vVvRmLo2ouonT
-	 PQBSXd3WZJCyYzEQOOmfDQ1akkfrXQxbTS4EaRka3dPnP8mfp7Tezb2GHHgh1Eji3T
-	 V8oTgLjkF1p/uW23CR10ZjXD20Ml0fw8L4OblvIy0oZLE/2F9RYqiMqfa2ul+ZU8fF
-	 Alq83hx0i/bpN7q27cPgT8oFfCZcR1MvJmZLOfOMiGyQDJnqgJJZor3OUdWneyD02c
-	 FLO2aGpeCCWKg==
-Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-5b15c6fb864so2479879e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 01:08:58 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Rrmwb+84E3LNgNKdkIQiilA9ACCG37HxFVIifUlj5nzuu0tS1zFIxB/GzNXlU44mPQ+4rj/OisGzUIbKmBFdHr0@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxm1NVON/v5duFBNhfc0thHNOq+LKOiNMi/rCVH/teoVOm4zofP
-	BDK4UU/wE8/hKHttfP+tFYzFX91r5a0iKwUaeIBWcBBF7Tg3piQ6h1AvyDjpjodaofvao5I46/2
-	WkVCxXy9CFuHqve9P+xNghN3rvMhO3+52YQjiMZBBkw==
-X-Received: by 2002:a05:6512:2524:b0:5ae:baa7:5ed2 with SMTP id
- 2adb3069b0e04-5b28fabc53fmr376905e87.63.1784275737391; Fri, 17 Jul 2026
- 01:08:57 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 17 Jul 2026 01:08:54 -0700
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 17 Jul 2026 01:08:54 -0700
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <alYGGu7_3G6mJAzQ@linaro.org>
+	Fri, 17 Jul 2026 08:14:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
+	from:content-type:reply-to; bh=9z91ILlxQtYqvnBQwnktbnN3/Hw+eSYMXdhvRXnuXjA=; 
+	b=Jo5JwX5ttm1a0aFE3FRT6/R0B+5PjG/lrzmg6hihJWuEVMo7fGAGK15Gf65LKg+C+4Eh/LtS655
+	tIfI7qhJztpt/2bRt2Qc7hTLYbsmVIFWNP3ufhsU5QDN8gF6XVBx2hg8+l3l8PDtkcFmTtd+0Xu44
+	MCHNAgwZSuwnRMOqEG5UjPkLAiMfEhw1aka87gXmuMRpc3WLqNte4qjIq6CVFrStBMy0FtdDU5KMl
+	p4kT0BMN7XI4NVBx/APLqsiqa5vGet6QryBPjj1S6i3ftuWcq8j2MkFoABzYj8MeeKVtRd37F7BUK
+	wgo1n0qMeD1IhybUCHvelRVwcwrFKF/f9FeQ==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.98.2 #2 (Debian))
+	id 1wkdhq-0000000EO72-1uu9;
+	Fri, 17 Jul 2026 16:14:03 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 17 Jul 2026 18:14:02 +1000
+Date: Fri, 17 Jul 2026 18:14:02 +1000
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Thorsten Blum <thorsten.blum@linux.dev>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/4] crypto: atmel-tdes - simplify fast path in
+ crypt_start
+Message-ID: <alnkSoU0swZzyh-i@gondor.apana.org.au>
+References: <20260706150404.382209-5-thorsten.blum@linux.dev>
 MIME-Version: 1.0
-References: <20260713-qcom-qce-cmd-descr-v21-0-bc2583e18475@oss.qualcomm.com>
- <20260713-qcom-qce-cmd-descr-v21-6-bc2583e18475@oss.qualcomm.com> <alYGGu7_3G6mJAzQ@linaro.org>
-Date: Fri, 17 Jul 2026 01:08:54 -0700
-X-Gmail-Original-Message-ID: <CAMRc=Mdj4n_EodNvdNK31wmiF=av6eqSNuVouPc8d+LFmQHi+w@mail.gmail.com>
-X-Gm-Features: AUfX_mx9FEOhptFi_3CRTp4Yaa7L94thQb83JpWfCNZjqAXnfBqalAbWqZfnado
-Message-ID: <CAMRc=Mdj4n_EodNvdNK31wmiF=av6eqSNuVouPc8d+LFmQHi+w@mail.gmail.com>
-Subject: Re: [PATCH v21 06/14] dmaengine: qcom: bam_dma: add support for BAM locking
-To: Stephan Gerhold <stephan.gerhold@linaro.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Thara Gopinath <thara.gopinath@gmail.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
-	"David S. Miller" <davem@davemloft.net>, Udit Tiwari <quic_utiwari@quicinc.com>, 
-	Md Sadre Alam <mdalam@qti.qualcomm.com>, Dmitry Baryshkov <lumag@kernel.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Peter Ujfalusi <peter.ujfalusi@gmail.com>, Michal Simek <michal.simek@amd.com>, 
-	Frank Li <Frank.Li@kernel.org>, Andy Gross <agross@codeaurora.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, dmaengine@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, linux-crypto@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, brgl@kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260706150404.382209-5-thorsten.blum@linux.dev>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260717_091426_858752_13D0C2F8 
+X-CRM114-Status: UNSURE (   9.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,30 +91,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 14 Jul 2026 11:49:14 +0200, Stephan Gerhold
-<stephan.gerhold@linaro.org> said:
->
->> +
->>  /**
->>   * bam_prep_slave_sg - Prep slave sg transaction
->>   *
->> [...]
->> @@ -802,6 +851,7 @@ static int bam_dma_terminate_all(struct dma_chan *chan)
->>  		}
->>
->>  		vchan_get_all_descriptors(&bchan->vc, &head);
->> +		bchan->bam_locked = false;
->
-> I wonder about the implications of this. If the LOCK descriptor was
-> already processed, will we cause a deadlock if we never submit the
-> UNLOCK descriptor? Or I guess bam_reset_channel() might reset the lock
-> as well?
->
+On Mon, Jul 06, 2026 at 05:04:05PM +0200, Thorsten Blum wrote:
+> Fold all fast path conditions into a single boolean expression and drop
+> any redundant checks.
+> 
+> Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+> ---
+>  drivers/crypto/atmel-tdes.c | 24 +++++++++---------------
+>  1 file changed, 9 insertions(+), 15 deletions(-)
 
-There's nothing in the HPG that would imply it but I instrumented a test where
-I excercised this situation and QCE was not locked up in any way. If there
-were more execution environments doing the same, I'm not sure but this series
-was tested by the NAND team and they didn't notice anything.
-
-Bart
+All applied.  Thanks.
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
