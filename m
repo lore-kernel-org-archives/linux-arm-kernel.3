@@ -4,58 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3E4DC44507
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 10:29:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93ED0C44514
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 10:29:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PvD5qzugNa/+9F2N07ZM+JzfXI5/FOEBgI8hFqaVygI=; b=4tIf+0qp4SzPqW
-	V7fHXZ/x2fe4ruKZhkP/WYRd7JgP+mpm0Rnjp/cD2BEJKgStaXwWkGzquiqYHCT+bLhKEgMn04QUH
-	yvlIRyYl8yBkq5N6NL4Xcx1N70fT2uZICtKzcLc4u89k/+iKxdstZjhe39yrw6/EE1SK9WOT8nno6
-	fHJZdeDIwFS7NSs6xtPcVjMkY6By/jVTfGBgu2qc1ZZSYYA1s2/Pk8bxEgX2wtEEFHR0vYFFFqyug
-	PEWRSv1RssYO6X+AebQWb/Z4e3ZsthsQ8cJsa2ZNcbjPaNN3xjKEyuXpUY1MXYs4AiogFhZ1l2rjI
-	axr3LFFYJEE5Jmh2Fj6g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=U6hKrX+f54qW1llsOGRsC3hsxY9DfQDweyuPaxBt6U0=; b=TWz+EuOP78xIYNGi6B37Vy3RuA
+	pfyuPOsRGIUYQlM3AKEhcJTREgi3CJcyZrQv7cXwuv+gWA0XIVOMz7V74XwkKFbk1hzRTznyHQiE2
+	HSqWN9zWQs2tUD4XV7cbPXURj9ZVNpVr/q8AVrnl3B+JdwgmihTGHPLzeNlNDNeQ6saTSoSx1GoaI
+	oSISaQsxXIJozUw8qVlrKdyje8u1Iag6mknVGnRi5GaE4zQpg1OFCe0EJtoBT8osyjwmOgNgXe65W
+	wtSwM3h0UlHAnGYg/AFRuz5RS9kPiJY5icheLY3IyES1pWci5SdFsmfwylhLd7lTGfpUJC8FtJ0IN
+	oIJQ6mTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkfoa-00000001xva-3BCF;
-	Fri, 17 Jul 2026 10:29:08 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkfoY-00000001xtq-05OW
+	id 1wkfpG-00000001yCf-1TDI;
+	Fri, 17 Jul 2026 10:29:50 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkfpD-00000001y9M-00D5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 10:29:07 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CE2F51476;
-	Fri, 17 Jul 2026 03:28:58 -0700 (PDT)
-Received: from [10.1.34.162] (e121487-lin.cambridge.arm.com [10.1.34.162])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 42FE53F7D8;
-	Fri, 17 Jul 2026 03:29:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784284142; bh=FKjheZSmV4oiNq3J45v9YMynJqhfh3BCT1jXo+vh9Xw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=anzKG6ySObGODkjpZUZ8+17/EiSf8zJ6HvFrQpzrh8IbFpQDkcLGzIstAYBNpZBPd
-	 rZr8j2bu/Rn2XabLHjRFE0a+BTVmV/ihojOyj9pZVttsUkWUWhhQ3Y4bbiRfKkglNo
-	 /BqdELwJ1XTgTIfjZYNAL+w1fqKZIFk0Z1UAn2to=
-Message-ID: <fedf2b3e-14ed-4483-8cdf-d31f1ac97b84@arm.com>
-Date: Fri, 17 Jul 2026 11:28:59 +0100
+	Fri, 17 Jul 2026 10:29:49 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-47640541585so3822349f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 03:29:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784284185; x=1784888985; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=U6hKrX+f54qW1llsOGRsC3hsxY9DfQDweyuPaxBt6U0=;
+        b=e4ZiYaF01wURQEryUT/ig53UV/j5Pb4Du4+9vjnKMUwDEuACI+nfB/ZBfVz5pXz+xN
+         UWlrGDVca+Fer2oV+Jok0Cwf+qQXP63XcOYh5Q2Y033Ve6OqDKOqQsxIa5Xcnie0Ay08
+         J7tiF2ZbjtBq2RthlhnGtwR2Nzp8yHXVNJXgKG5sV+wmJYRNMMy2DAlsrwFHh2JutPP0
+         r5DIgSucPOuBi+zb/u90vYjRz508jan4CLtQMKgdMmy22uKI/usfd5kGKW+N9JtJYnE2
+         DxN1WEmdS2tC/zN+T8csmT9r3yxAp6pWLFcVGI5RbzXwmvN8PoTVBdsAumf6BhAo20sO
+         1LPA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784284185; x=1784888985;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=U6hKrX+f54qW1llsOGRsC3hsxY9DfQDweyuPaxBt6U0=;
+        b=c5HbVWTAhDCzegT33vhl4AB3X10bH5hnh5H1yb6Z1rivQDlMm97YKfoGAm2BtwjiLz
+         +5AGha6OWSnUa2Q6kzN0V9kBo27yPLx9a5SlPvAui+ROwzHKfIYoqgxkPYxRjn0kDFD8
+         rxTsQN/wD9IbW6UTOpOcyhBAIQTuk9g+OzyycZjn4a956b4c0a1gt9lDLBIkTudmrziX
+         dNS3LoV1JkXgykyV6sblQEnFL6gju670e9zqunfQBtRHoKdzz7XO4OiCKSgAejVU6nhe
+         8eY5tDSMzeMWNT/cdHOwT07cj+89DHLTv8BuNMkyYiOQaJwYhxs77qzQUBzZn3GEJej0
+         j0aA==
+X-Forwarded-Encrypted: i=1; AHgh+RqYqvTGcYyqiW+IxZesPcXPiYg+jaBD10GLjZtDfbb5UrUO/VJOXRvQtUkb0C48tTo+4flc/lUSqPSg9lgldK6h@lists.infradead.org
+X-Gm-Message-State: AOJu0YzDy6MZ6Uh0JToAztkmeIuZV9fYONTD8tQ5HHB7cbsGkQITUIW7
+	NEN0tq1YnPRvSRLT7cP76Y1e3YoI+KBRd2cANSG/Rh5zHDcsoNDJk0FE
+X-Gm-Gg: AfdE7cl/COcT+K+zCeYpzLMGnra9sTUUE92TT0TEXAWunQFaxclhicNRQJOjjc3Flwb
+	XW+KKTJgQzlTqpjajMyEDKL8pIo0NLXR2ITCtR9HLVVCGgLaN1zu+BgJi/Cqqy16o8saYhN7qCw
+	HPdJKVHHgHV6OHpbIeDRZxWmuykbJAASQpcblzZ8WXfbuSN4lESpy8OqI3yiNr/2WYp9C7st8t8
+	QvlsNF5VNCa1A6XCJV6VIAAWA821Jf2IG3MjitFj+LPY0DpGwTYxcECmrniXvywm0qUC03++JoH
+	EcpMk7m1f7cM3mJZBb7Sn1+d3YvZvrjoVo7GE+eY+q2ZGUaQa9Zh2f5JvgDmomxXJWL2wbT+kSp
+	XQ2WtnzGEgZmd//dQ5NNObV/JhQUK+cmgzy99P+gnS8HYH2Slo/XPe+PNfOmpSpTtVazdsHdqwu
+	Fm2oxTCg+01m4W/TqUtaIOK28fL31YjUSIq3Dj9xyrWUGURynfFURckCoN2XBAUZp8tfplEAGnT
+	MyJQRoolknFiQU=
+X-Received: by 2002:a05:600c:46d0:b0:495:3e81:770f with SMTP id 5b1f17b1804b1-4954a3f398amr21164725e9.15.1784284184783;
+        Fri, 17 Jul 2026 03:29:44 -0700 (PDT)
+Received: from Lord-Beerus.station (net-93-144-65-248.cust.dsl.teletu.it. [93.144.65.248])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49549a3f07esm39931735e9.6.2026.07.17.03.29.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 17 Jul 2026 03:29:44 -0700 (PDT)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
+To: linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Josua Mayer <josua@solid-run.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
+	Maud Spierings <maudspierings@gocontroll.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>
+Subject: [PATCH v6 0/3] Add support for Variscite VAR-SOM-MX8QM and Symphony board
+Date: Fri, 17 Jul 2026 12:29:36 +0200
+Message-ID: <cover.1784284092.git.stefano.r@variscite.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 10/36] arm64: irqflags: save and use both DAIF and PMR
-To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
-References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-11-vladimir.murzin@arm.com>
- <793f5269-783c-46b6-847e-b943cf3e2a70@huawei.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <793f5269-783c-46b6-847e-b943cf3e2a70@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_032906_147505_15C3C9A8 
-X-CRM114-Status: GOOD (  25.09  )
+X-CRM114-CacheID: sfid-20260717_032947_071729_E7774C6C 
+X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,272 +112,70 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org, catalin.marinas@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/10/26 10:02, Jinjie Ruan wrote:
-> 
-> On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
->> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
->>
->> With pseudo-NMIs enabled, both DAIF and the PMR affect interrupt masking.
->> Now that we have a type which can track both of them at the same time,
->> update our irqflags implementation to use it.
->>
->> Save DAIF flags in all cases, as they can be manipulated directly by other
->> code, and the PMR if it is in use.
->>
->> When checking if IRQs are disabled, now that we always save DAIF we can
->> check that the I flag is set and bypass checking the PMR if it is.
->> We can also properly check if PMR masks interrupts (PMR < GIC_PRIO_IRQON),
->> now that we don't need to rely on the GIC_PRIO_PSR_I_SET bit being set in
->> the PMR to know if DAIF is already masking interrupts.
->> Update `irqs_priority_unmasked()` to align with this change.
->>
->> This allows us to remove the `__daif_...` and `__pmr_...` versions
->> of the save and check functions, as they are now unified.
->>
->> We can reasonably merge the two `__{daif,pmr}_irq_restore()` functions
->> in the main one, as the DAIF and PMR values are properly split now.
->>
->> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
->> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
->> ---
->>  arch/arm64/include/asm/irqflags.h | 110 ++++++------------------------
->>  arch/arm64/include/asm/ptrace.h   |   2 +-
->>  2 files changed, 23 insertions(+), 89 deletions(-)
->>
->> diff --git a/arch/arm64/include/asm/irqflags.h b/arch/arm64/include/asm/irqflags.h
->> index 7775904ba6a9..62f047702493 100644
->> --- a/arch/arm64/include/asm/irqflags.h
->> +++ b/arch/arm64/include/asm/irqflags.h
->> @@ -95,117 +95,48 @@ static __always_inline void arch_local_irq_disable(void)
->>  	}
->>  }
->>  
->> -static __always_inline arm64_exc_hwstate_t __daif_local_save_flags(void)
->> -{
->> -	return (arm64_exc_hwstate_t){ .daif = read_sysreg(daif) };
->> -}
->> -
->> -static __always_inline arm64_exc_hwstate_t __pmr_local_save_flags(void)
->> -{
->> -	return (arm64_exc_hwstate_t){ .pmr = read_sysreg_s(SYS_ICC_PMR_EL1) };
->> -}
->> -
->>  /*
->>   * Save the current interrupt enable state.
->>   */
->>  static __always_inline unsigned long arch_local_save_flags(void)
->>  {
->> -	if (system_uses_irq_prio_masking()) {
->> -		return __pmr_local_save_flags().flags;
->> -	} else {
->> -		return __daif_local_save_flags().flags;
->> -	}
->> -}
->> +	arm64_exc_hwstate_t hwstate = { .daif = read_sysreg(daif) };
->>  
->> -static __always_inline
->> -bool __daif_irqs_disabled_flags(arm64_exc_hwstate_t hwstate)
->> -{
->> -	return hwstate.daif & PSR_I_BIT;
->> -}
->> +	if (system_uses_irq_prio_masking())
->> +		hwstate.pmr = read_sysreg_s(SYS_ICC_PMR_EL1);
->>  
->> -static __always_inline
->> -bool __pmr_irqs_disabled_flags(arm64_exc_hwstate_t hwstate)
->> -{
->> -	return hwstate.pmr != GIC_PRIO_IRQON;
->> +	return hwstate.flags;
->>  }
->>  
->>  static __always_inline bool arch_irqs_disabled_flags(unsigned long flags)
->>  {
->>  	arm64_exc_hwstate_t hwstate = { .flags = flags };
->>  
->> -	if (system_uses_irq_prio_masking()) {
->> -		return __pmr_irqs_disabled_flags(hwstate);
->> -	} else {
->> -		return __daif_irqs_disabled_flags(hwstate);
->> -	}
->> -}
->> +	/* If I is set, the PMR doesn't matter: interrupts will not be taken. */
->> +	if (hwstate.daif & PSR_I_BIT)
->> +		return true;
->>  
->> -static __always_inline bool __daif_irqs_disabled(void)
->> -{
->> -	return __daif_irqs_disabled_flags(__daif_local_save_flags());
->> -}
->> +	if (system_uses_irq_prio_masking() && hwstate.pmr < GIC_PRIO_IRQON)
-> I think "hwstate.pmr == GIC_PRIO_IRQOFF" is fine, Besides DAIF.I bit set
-> and pmr is GIC_PRIO_IRQOFF, are there any other possible cases?
-> 
+This patch series adds support for the Variscite VAR-SOM-MX8 QuadMax
+system on module and the Symphony carrier board.
 
-Numerically, PMR can hold values ordered as:
+The series includes:
+- SOM device tree with on-module peripherals
+- Symphony carrier board device tree with board-specific features
 
-  IRQOFF < IRQON < IRQON | GIC_PRIO_PSR_I_SET
+The implementation follows the standard SOM + carrier board pattern
+where the SOM dtsi contains only peripherals mounted on the module,
+while carrier-specific interfaces are enabled in the board dts.
 
-So hwstate.pmr < GIC_PRIO_IRQON is indeed IRQOFF.
+v5->v6:
+ - Fix regulator typo
 
-The only other possibility would be a buggy case with the DAIF.I bit
-clear and PMR set to IRQON | GIC_PRIO_PSR_I_SET.
+v4->v5:
+ - Fix sai7 clock
+ - Fix codec regulator voltage
 
-So I think we can temporarily add a debug check for that, which would
-disappear together with GIC_PRIO_PSR_I_SET. Something like:
+v3->v4:
+ - Fix sai peripherals clocks
+ - Add comment to clarify 1GB variant
 
-static __always_inline bool arch_irqs_disabled_flags(unsigned long flags)
-{
-	arm64_exc_hwstate_t hwstate = { .flags = flags };
+v2->v3:
+ - Fix led typo
+ - Moved reset-gpios in pciea_port0
+ - Removed wrong captouch pinctrl gpio
 
-	if (hwstate.daif & PSR_I_BIT)
-		return true;
+v1->v2:
+ - Added non-removable property to usdhc3
+ - Removed unused fec gpio pinctrl
+ - Fix ptn5150 interrupt
+ - Fix ecspi1 cs gpio
 
-	if (system_uses_irq_prio_masking()) {
-		WARN_ON_ONCE(IS_ENABLED(CONFIG_DEBUG_IRQFLAGS) &&
-			     hwstate.pmr == GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET);
+Stefano Radaelli (3):
+  dt-bindings: arm: fsl: add Variscite VAR-SOM-MX8 QuadMax Boards
+  arm64: dts: freescale: Add support for Variscite VAR-SOM-MX8 QuadMax
+  arm64: dts: imx8qm-var-som: Add support for Variscite Symphony board
 
-		return hwstate.pmr != GIC_PRIO_IRQON;
-	}
+ .../devicetree/bindings/arm/fsl.yaml          |   6 +
+ arch/arm64/boot/dts/freescale/Makefile        |   1 +
+ .../dts/freescale/imx8qm-var-som-symphony.dts | 490 ++++++++++++++++
+ .../boot/dts/freescale/imx8qm-var-som.dtsi    | 531 ++++++++++++++++++
+ 4 files changed, 1028 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8qm-var-som-symphony.dts
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8qm-var-som.dtsi
 
-	return false;
-}
 
->> +		return true;
->>  
->> -static __always_inline bool __pmr_irqs_disabled(void)
->> -{
->> -	return __pmr_irqs_disabled_flags(__pmr_local_save_flags());
->> +	return false;
->>  }
->>  
->>  static __always_inline bool arch_irqs_disabled(void)
->>  {
->> -	if (system_uses_irq_prio_masking()) {
->> -		return __pmr_irqs_disabled();
->> -	} else {
->> -		return __daif_irqs_disabled();
->> -	}
->> -}
->> -
->> -static __always_inline arm64_exc_hwstate_t __daif_local_irq_save(void)
->> -{
->> -	arm64_exc_hwstate_t hwstate = __daif_local_save_flags();
->> -
->> -	__daif_local_irq_disable();
->> -
->> -	return hwstate;
->> -}
->> -
->> -static __always_inline arm64_exc_hwstate_t __pmr_local_irq_save(void)
->> -{
->> -	arm64_exc_hwstate_t hwstate = __pmr_local_save_flags();
->> -
->> -	/*
->> -	 * There are too many states with IRQs disabled, just keep the current
->> -	 * state if interrupts are already disabled/masked.
->> -	 */
->> -	if (!__pmr_irqs_disabled_flags(hwstate))
->> -		__pmr_local_irq_disable();
->> -
->> -	return hwstate;
->> +	return arch_irqs_disabled_flags(arch_local_save_flags());
->>  }
->>  
->>  static __always_inline unsigned long arch_local_irq_save(void)
->>  {
->> -	if (system_uses_irq_prio_masking()) {
->> -		return __pmr_local_irq_save().flags;
->> -	} else {
->> -		return __daif_local_irq_save().flags;
->> -	}
->> -}
->> +	unsigned long flags = arch_local_save_flags();
->>  
->> -static __always_inline
->> -void __daif_local_irq_restore(arm64_exc_hwstate_t hwstate)
->> -{
->> -	barrier();
->> -	write_sysreg(hwstate.daif, daif);
->> -	barrier();
->> -}
->> +	if (system_uses_irq_prio_masking())
->> +		__pmr_local_irq_disable();
->> +	else
->> +		__daif_local_irq_disable();
->>  
->> -static __always_inline
->> -void __pmr_local_irq_restore(arm64_exc_hwstate_t hwstate)
->> -{
->> -	barrier();
->> -	write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
->> -	pmr_sync();
->> -	barrier();
->> +	return flags;
->>  }
->>  
->>  /*
->> @@ -215,11 +146,14 @@ static __always_inline void arch_local_irq_restore(unsigned long flags)
->>  {
->>  	arm64_exc_hwstate_t hwstate = { .flags = flags };
->>  
->> +	barrier();
->>  	if (system_uses_irq_prio_masking()) {
->> -		__pmr_local_irq_restore(hwstate);
->> +		write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
->> +		pmr_sync();
->>  	} else {
->> -		__daif_local_irq_restore(hwstate);
->> +		write_sysreg(hwstate.daif, daif);
->>  	}
->> +	barrier();
->>  }
->>  
->>  #endif /* __ASM_IRQFLAGS_H */
->> diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
->> index f7dc5fb9427d..192eb97cd50b 100644
->> --- a/arch/arm64/include/asm/ptrace.h
->> +++ b/arch/arm64/include/asm/ptrace.h
->> @@ -205,7 +205,7 @@ static inline void forget_syscall(struct pt_regs *regs)
->>  
->>  #define irqs_priority_unmasked(regs)					\
->>  	(system_uses_irq_prio_masking() ?				\
->> -		(regs)->pmr == GIC_PRIO_IRQON :				\
->> +		(regs)->pmr >= GIC_PRIO_IRQON :				\
-> I think "=== GIC_PRIO_IRQON" is fine.
-> 
+base-commit: d089adef10f380cbdf65cbb87a59a9aab86cb0d2
+prerequisite-patch-id: 0996915f031a1d899202c5fba75a969d6ce2a53d
+prerequisite-patch-id: dbed47ecb907f6b7f7e284c5c1a3c325566eafd7
+prerequisite-patch-id: c758aa296e6effc94c30449cc7e4773f0ae02914
+prerequisite-patch-id: 31784fa7a3ee5c178b2f1ffa97c1dd7c1d3d898a
+prerequisite-patch-id: 5810f43cde9c24ee318d680c1852b3ded18f3aa0
+prerequisite-patch-id: 012c9c8ba4e290532a1b7f8642274b7c5f252e03
+prerequisite-patch-id: a57d576be42d5061bba453f0d5960132be55a1ff
+prerequisite-patch-id: e34a75fb6f7e01455dd5ca734dacad66b12de06c
+prerequisite-patch-id: cc7abadd0354d14bad0cac1fbacda14ab9d4e02b
+prerequisite-patch-id: c0276686c0247cb2385c56b96cbfd6de5128415c
+prerequisite-patch-id: 100c47538870af63194b407fae06183fee85fc09
+prerequisite-patch-id: 3a3b3e40f5fba785857091dda909d22bfc5e2d0e
+-- 
+2.47.3
 
-Agree. This can be aligned to arch_irqs_disabled_flags() (maybe as a separate
-patch):
-
-static __always_inline bool regs_irqs_disabled(const struct pt_regs *regs)
-{
-	if (regs->pstate & PSR_I_BIT)
-		return true;
-
-	if (system_uses_irq_prio_masking()) {
-		WARN_ON_ONCE(IS_ENABLED(CONFIG_DEBUG_IRQFLAGS) &&
-			     regs->pmr == GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET);
-
-		return regs->pmr != GIC_PRIO_IRQON;
-	}
-
-	return false;
-}
-
-What do you reckon?
-
-> otherwise, LGTM
-> Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> 
->>  		true)
->>  
->>  static __always_inline bool regs_irqs_disabled(const struct pt_regs *regs)
-> 
-
-Cheers
-Vladimir
 
