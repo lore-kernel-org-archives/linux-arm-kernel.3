@@ -4,109 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33AFCC4451B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 20:51:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E917C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 20:56:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PxLLYNa6RAENhKM3OF2t55M5ReroSFj/K6F97XXmPn4=; b=WXhuUVnU4+SHkw8sk2x/qm4dz6
-	UKFXRtG0k6SIY60J9syttcCI+y9HLpKAHyShXqQydeIrEFwNP3+lxD67ghe6xNaEWujvUNOLv5N/3
-	4PEDWpq+0B4kLI06m0M0dYe8v+7z9U9oBczi3frqXhBVJg0nrz1/ae79Jk2T2fWQ83o6cjR8pwygf
-	q3hbu/zXrREh1eIVJbnDLlgS2XLIaZA+RxZ8lM2QKeT/ZFSQkPuYlNX0lBvBPeB6+tLjOGuYWsOjd
-	l59VD15tlbPdXwwnqk1mw/Nb3pKxdy+pn9kH3GJpbVwhxuonUYJi/B1m2qEcOZcUYu96gV1YGk9Er
-	uUCW9kcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W4ktFL4oH9ldaHz/Q/tS5unjDRgWUUYeFG95R6a98rM=; b=2l3Sbca1WaA79YI9OP6POGHnK+
+	cySKcWspx1CpMaKlXOJWZPSbSXVTvh7JHF0kjqikEud8laUR9Mzw5aXf1HCkRFFW8RANdToF9lv98
+	IhiHQTTIgrYy1VB3cIW4WAtC/zh2nq1wlNFeba7qBDIjz/rT9DZ/LCrZ2HfxxwtDTn+k2V4QqugaD
+	mAPK+qTuOe37En1SQq6TBSqpUkMuyDO0bmWhghc8L8BmhJ1K5yrYZ6FdeOzMs02tosu7iJlYbzh7K
+	i0e3ZHjWcP2YUMNG1o+ByKaabYy6X18sFIYkvnlyNQDwc3Tf5qoTauilbdRILSN1YjjqXrJZzMH3e
+	JoloW2pQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkpX3-00000003Efa-2oWu;
-	Fri, 17 Jul 2026 20:51:41 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wkpbM-00000003EzA-0Sq3;
+	Fri, 17 Jul 2026 20:56:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkpX1-00000003EfO-2JN0
+	id 1wkpbK-00000003Eyv-3p5p
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 20:51:39 +0000
+	Fri, 17 Jul 2026 20:56:07 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E2E4641090;
-	Fri, 17 Jul 2026 20:51:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 434DC1F000E9;
-	Fri, 17 Jul 2026 20:51:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C85D6601ED;
+	Fri, 17 Jul 2026 20:56:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A4F21F000E9;
+	Fri, 17 Jul 2026 20:56:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784321498;
-	bh=PxLLYNa6RAENhKM3OF2t55M5ReroSFj/K6F97XXmPn4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=NRg7MiSztadctgc6UDz5CLWAA5sMOYg19GkDABTzWkykkf4MOqn3Ck68JxrXl1/uL
-	 Sa0drK2Lvp2lczg8m1bPy0kH1cyU7swwTKBTtKfWwaMa7+cBOeTmd4WFj77eZ1GSgJ
-	 pRXDJgKOwnVlDGYH1CDX2QSdsPjGX1JzoLLg5AEBqzr6Fp5iEeae3LMoCYXySMROCB
-	 38iFoC0xtk3ISafqY50uW6LgnFBs89wZgSVld1Lyu196N/9BOV4bEnWrA503W0zhaa
-	 TCdGhaB/FtIL/UbOWvDQu0hCFlt3KgKtVaVz7ubxArFU/6yRyAOaN8jxAjmPUwpQ7D
-	 lSfBLlKxnJIIw==
-Message-ID: <dc27e64d-bc50-4294-83eb-8f9c1f6dfa68@kernel.org>
-Date: Fri, 17 Jul 2026 22:51:29 +0200
+	s=k20260515; t=1784321765;
+	bh=W4ktFL4oH9ldaHz/Q/tS5unjDRgWUUYeFG95R6a98rM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=DpUbxi5wsgZ1+KTYV8FHVj1DoWv4MLJLX0K1+N4yOp8CVIO6WhaJ4dSywKYIFlscs
+	 hxJjPFG4A7Vy2CqMETl6XVxWLEE7HbBVDVnUYJm7CT6T71fGq/eB/15kNRB6Dp6JwO
+	 +Ctt4RwYHxDbswtcTLzP8ZQK8I73x5P6mPIiGizTYJ4ZBf2CN6VabxeqmYj/nc4iaN
+	 LCLWKJNU+pLwve8RMBQARYpwZsfSraoXHvmfPxb8FscpUyMLem12Ib/0SOsbpq8goQ
+	 PyywC89m2Z7xt8ASOWVIli+dBmpk4e583kHO51PqdGP21FQtNfKRaFxFbG7BdyU2Nz
+	 arT+AhV4bbvPg==
+Date: Fri, 17 Jul 2026 13:56:03 -0700
+From: Oliver Upton <oupton@kernel.org>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, maz@kernel.org,
+	seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org,
+	vdonnefort@google.com, tabba@google.com
+Subject: Re: [RFC PATCH 2/2] KVM: arm64: Support BBM level 3
+Message-ID: <alqW49CH7eViDpAZ@kernel.org>
+References: <20260717130901.2239134-1-smostafa@google.com>
+ <20260717130901.2239134-3-smostafa@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7] arm64: dts: s32g: Add GPR syscon region
-To: Jared Kangas <jkangas@redhat.com>, Chester Lin <chester62515@gmail.com>,
- Matthias Brugger <mbrugger@suse.com>,
- Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
- NXP S32 Linux Team <s32@nxp.com>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Dan Carpenter <error27@gmail.com>
-References: <20260717-upstream-s32g-gpr-syscon-v7-1-ee198f287682@redhat.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260717-upstream-s32g-gpr-syscon-v7-1-ee198f287682@redhat.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260717130901.2239134-3-smostafa@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,20 +72,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/07/2026 22:33, Jared Kangas wrote:
-> From: Dan Carpenter <error27@gmail.com>
+Hi Mostafa,
+
+On Fri, Jul 17, 2026 at 01:09:00PM +0000, Mostafa Saleh wrote:
+> If the system supports hardware Break-Before-Make (BBM) level 3, use it
+> to replace stage-2 PTEs directly instead of falling back to the software
+> break-before-make sequence.
 > 
-> Add the GPR syscon region for the s32 chipset.
+> 1) Get a reference count on the containing table for the new PTE.
+> 2) Atomically update the PTE with the new valid descriptor.
+> 3) Invalidate the TLB for the old PTE.
+> 4) Drop the reference count holding the old PTE.
 > 
-> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
-> [jkangas@redhat.com: GPR syscon resized from 0x3000 to 0x100]
-> Tested-by: Jared Kangas <jkangas@redhat.com>
+> One interesting case, as BBML3 will update the PTE atomically, it
+> can only know it raced with another core at the point of the cmpxchg
+> failing, unlike the SW implementation which locks the PTE first.
+> And as we must issue CMOs to the new mapped page before the update,
+> that means with BBML3 racing cores will issue redundant CMOs,
 
-Your SoB implies that. We do not add Tb tags to own work. Otherwise, why
-would you send code which you did not test? Same for Rb tag.
+I'd rather we just predicate BBML3-style transformations on an
+implementation having FEAT_S2FWB and DIC. You can definitely come along
+later and enable it when using a stage-2 in an SMMU makes this
+mandatory, possibly at the expense of some extra CMOs.
 
-> Signed-off-by: Jared Kangas <jkangas@redhat.com>
+There's also an extremely subtle detail that BBML3 enablement relies on,
+which is that KVM will never change the OA of active translation. IOW,
+if the host is moving the PFN we expect an invalidation before
+re-mapping it.
 
-Best regards,
-Krzysztof
+I have no issue with relying on that behavior but we should make that
+assumption abundantly clear.
+
+One of the things on my wish list for a while has been rebuilding
+hugepages after dirty logging is disabled on a memslot. That seems like
+like a very good optimization to do when BBML3 is present.
+
+> to improve this:
+> - We only use BBML3 if the old PTE was live.
+> - To reduce the window of the race, an early check is added before
+>   the CMO to exit early, but that does not eliminate the race.
+> 
+> Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> ---
+>  arch/arm64/kvm/hyp/pgtable.c | 53 +++++++++++++++++++++++++++++++-----
+>  1 file changed, 46 insertions(+), 7 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+> index 127b7f9541b1..69d52308236f 100644
+> --- a/arch/arm64/kvm/hyp/pgtable.c
+> +++ b/arch/arm64/kvm/hyp/pgtable.c
+> @@ -838,7 +838,8 @@ static void stage2_clean_old_pte(const struct kvm_pgtable_visit_ctx *ctx,
+>  /**
+>   * stage2_try_break_pte() - Invalidates a pte according to the
+>   *			    'break-before-make' requirements of the
+> - *			    architecture.
+> + *			    architecture, if BMML3 is supported it
+> + *			    will be used, otherwise fallback to SW.
+>   *
+>   * @ctx: context of the visited pte.
+>   * @mmu: stage-2 mmu
+> @@ -854,6 +855,18 @@ static bool stage2_try_break_pte(const struct kvm_pgtable_visit_ctx *ctx,
+>  {
+>  	kvm_pte_t locked_pte;
+>  
+> +	if (system_supports_bbml3() && kvm_pte_valid(ctx->old)) {
+> +		kvm_pte_t curr_pte = READ_ONCE(*ctx->ptep);
+> +
+> +		/*
+> +		 * All handled in stage2_make_pte(). However exit early if we already
+> +		 * lost the race to avoid extra CMOs.
+> +		 */
+> +		 if (curr_pte != ctx->old)
+> +			return false;
+
+Does this race detection actually move the needle? We haven't gotten
+very far from the read in __kvm_pgtable_visit().
+
+Thanks,
+Oliver
 
