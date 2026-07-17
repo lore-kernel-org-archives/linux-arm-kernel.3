@@ -4,156 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7E4CC44507
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 10:04:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D090BC44507
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 10:06:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=anIBn74AomYL3LvVUUMgs2E/qq+99IUZOlzTnnvEbFM=; b=xtnFA2P9d1P25XtlT1MOEE5/Xz
-	DmyQTKtd++yNNg7amM40s33cPaFps6SUVDc1Majrr+Fb8vjQSvKpgsgNzbg4zuSdpVnE20Rv2BBO4
-	1L7Cf4wLIDBMo0mfsKxE0IO/xZgteWdm+qMR/5q1TVXdSvUjZgrPB1zSoU58udblQhTbYeZUrbq5C
-	VLjhqMv8mCzwVEwdSUitjb7G++Hl6y+m0G5Xc9PLZTRFiXDzGAUUrJcSSoPXwFttbBpEYqscmEsdc
-	z8x9BhMmgdngnzwOwtUDuLg+j1or/7RoDSaKFkOZ8Q+8TdnszcSFcbM9N7kQ0xkUb0h0HaU+g1bhp
-	uHYsCDkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=v2MRv4culIsa2bXRmpNcWw+iI8lxtL+i0PKMVTAUUMA=; b=TdXlLseEDUx9253Y+6+1/bXgRl
+	2T6PJNFYJ+wTXPcr2y8+XRuRtlyQBpBrcvcSld+l9uLOznqpaQyta2+88qkIxdC1iXuqenIuevAfa
+	Ivzpss6zKrRytEA9nCSG1wSqUvkDtUsEvXzcJtMChHIaybErOfVyb9eWoHZ/QqvpUJgvBU1ePLP5Y
+	odpowLiRkOilj6PctTQVVdeZ//lhDzcbvfhitNJe7MLsgdY7S1Ns3QGBNRaBw7LoNHDsAm3Y4TZuS
+	nGqREmq0I4BbxklXs1WDbbu+wAq/1f+vZLaj3yraHFlZURlzFMlkvFslK66OQ4aE2DCSvsi2+qtrO
+	CW6Oeo0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkfQa-00000001uZG-15Vg;
-	Fri, 17 Jul 2026 10:04:20 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wkfSE-00000001uql-23ri;
+	Fri, 17 Jul 2026 10:06:02 +0000
+Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkfQX-00000001uYr-3IMX
+	id 1wkfSB-00000001upv-0azc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 10:04:18 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66H9vCTs1121113
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 10:04:17 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	anIBn74AomYL3LvVUUMgs2E/qq+99IUZOlzTnnvEbFM=; b=MRg1oEUb4Ni+i2BO
-	85OR+1wFl0TJaLyWh6kTHFHLaUjOj02Cx1mtmUilXdPxNcb0DnnWBJ4skh/mCkA1
-	b9KmpzUt8yVzFY74+PuBChac/gqyBCLx4yJSJuUtjQRhswQiicgCzK7dF0qiqqfQ
-	ZTDxKD4gxoGhuD7/cErPwg0+vk0CNPQrRZwg0/gWe3f1970scNms3dAHTOvc7KTv
-	ufs39S7hoqiVvu9aqfM5PZtTG2D/LXlUwgVqL+nYmT/VPOdL9aSNkMxEspzoN5H6
-	I7VeS0QMmRCoU3UZxipET5FLKH06WNTwwJX4p8qPvCkSqGNLywbVhAM++An3KYPh
-	qeuKDw==
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ffj78r0uu-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 10:04:16 +0000 (GMT)
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-51c9e97b626so15640851cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 03:04:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1784282656; x=1784887456; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=anIBn74AomYL3LvVUUMgs2E/qq+99IUZOlzTnnvEbFM=;
-        b=FCX7Ft2JQaWOYnqDgXrnJlVdYjo7V+NKOZ3WtIJZRsm/Sdvb9yhly7FPznmN03WFVJ
-         KvaP/zQZjpF2cdySA+LATsI87l+M/JinXDFcEqBZsxdGvAr6BrtxnANlkpYDrKEvTgnv
-         xPbdjjTf+O2bj7UtEIzo6tz+JT9g7kmT5xb8XIObhJEn59YP1VgfMAq7Iqtw6xgJg7ia
-         qLKWFPYnL3TFJUQTHqwYn+FqtJkjGpNp8U0dZi1hFQxDqeZNRiGAUN5mPNv4jz1VHyXc
-         mPIl9PmGI1Py6JqMqSs3ZbQK2H+asH4h5Wjx5uRPeDMOggfk7ioTGmN7XUwOhmYrx5Ac
-         jI6w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784282656; x=1784887456;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=anIBn74AomYL3LvVUUMgs2E/qq+99IUZOlzTnnvEbFM=;
-        b=VpzWk+hZoyOAxeWgNT12UbIAoStco8L+vdhoBX1TPNDKPjRk6Gh3qA+rWgtvhxYGaj
-         QHvi0roLemBC+bDPCHF+PjQMUC9SOC1vw5yEx/GP3qhWFg6mU95cvxSBxjSHbB3skVrN
-         GSSPp0IuwRS8jajZi5OLIrt9AAL0hkQXUalnU+cUq7mtFnDga+7wY4CsP3ODAJvC0BrQ
-         v1lohX0aJFlFTgz1Hfo5LnfLAJ75e8uJ1xoPwM4+OqC5ysyPm9+7Im6mW82yJL8LcbKe
-         ICqK+k+pDjwbvxtGgcIT3DAbWPo1KAytBWWQKVaQIEsRd7d1r7gdfC2SctnQa2FS4FNv
-         NPAQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpzRRchrCiQyi4tQYxms/SERP71kkUcW77ZBpMnVFm/Zl5+Ra1GqcvbO+OA8MjdWyseKFkS7ksp1waYSykUrDPA@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6/HUtyopm2nDYjaHOMB5/Q6qdiUFh2vDxBaaY4NlXLgbU9w+m
-	TNUl739Eg5jntVaTeJp6eMG+d0TMg2iNa4rsrjaowJ5LdLUnunBeddxthjOn2JNcpm+Msu4N9JW
-	PEKz3VoaBNC7qIBNbVWHVnqGp89RqcNLDQEdISg/ccYQMQgZ8nI7lUCQJ5ZZu2WyL0Z8Wxqe+cx
-	PFKg==
-X-Gm-Gg: AfdE7ckPAUBJ++pWxOKgZxD08Q5iwC02+hIU7PURs8YSdwzdYmDiNJJr/JD/DUmQMW0
-	Yn6eFLWBu7E0VOiZeYVyw+QYzuU77f9YFj6GjgsLLptH/WB8EmQEciZ/cBd8e3faEvLL9VMr9pU
-	R2AWXNb4qtNmgzW7qIXPdGioBJ1b7rOumVC4gymH2zAFCUJ6ZWR1ZKLpyQ3FVZbgxto2lmwy6ky
-	8lNxCOdKbBYW6FsXIDsDXKl7m1WVuLTkIUTlz8lthGbe1l5LPLiotfmnn2M75chxdXvc0n+BDH/
-	TILDcZVA2ehOZBQGPsjbxrB0+sspkyKnWlkGKkc6Iag2ImzX4NvtOM1QWuscz67mDp5wcXy7uPN
-	EW3cJiRGxJiBXCHKEAVhwCefV
-X-Received: by 2002:a05:622a:1c15:b0:517:5e32:f3ac with SMTP id d75a77b69052e-521382dd29cmr12698031cf.0.1784282655969;
-        Fri, 17 Jul 2026 03:04:15 -0700 (PDT)
-X-Received: by 2002:a05:622a:1c15:b0:517:5e32:f3ac with SMTP id d75a77b69052e-521382dd29cmr12697701cf.0.1784282655380;
-        Fri, 17 Jul 2026 03:04:15 -0700 (PDT)
-Received: from [192.168.120.193] ([178.235.128.140])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c17127358e1sm51516866b.25.2026.07.17.03.04.11
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 17 Jul 2026 03:04:14 -0700 (PDT)
-Message-ID: <2c6b3958-696b-46d9-ab70-87081610524d@oss.qualcomm.com>
-Date: Fri, 17 Jul 2026 12:04:10 +0200
+	Fri, 17 Jul 2026 10:06:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tF6XrG5mUn0m/PRAdchFSbd36fuNGZP44hje8OWcSI2EUo7fKr/BHoJ5OLd8PP6ak49CqCUud3qw3z0bsoV2US6g/sCaUw2ZO3uxkddKxokf7qFwctM/SF/dc2b1TOzT2QdN+Hugr2WwtK2i7OKoNFh+FzcFDlnU/yaSxpYESYxvH1YE1Z0JHYm45+ccvo3GK0NP8egdwDBhgrHVIMzl85Tj2SfRQ32Qbae/Z+938WXUvDl1DREjQAI5PJYRPPaxVSL78aBvhGRaj9WcesJI1Oqdm1Qz1Jorqji/BcHuXhQ7L4O7Rtdjn9ednfIhWMhtjix+wxoexcnlQ8ZE64v9Tw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=v2MRv4culIsa2bXRmpNcWw+iI8lxtL+i0PKMVTAUUMA=;
+ b=DV29btHCwzGL419fsXC67RguxADlMNAwPNN8SmYIFoGabR/FqjPG9nFR3PzJ394rNcQjolFLRWeYHDAirrVOdAVZNnYpfeYvJsAR66zvg8pqMjmkqbXiV48JdV/PhKsTcMd3zB3hh+oSZzgFp/uulIuSYp+/EgklWux68ep86557A8mQ9EYtkEsUCHWKoqSZKsvypGCtKhOuC2hjQu+RtLn6YfY0531VzCuhgn0zo0doUXShCKLqOBt8g2HU/jOHluaDDic1Bi4khpRPKhyaNlSCNkI8o5+N5kmDHQZP5flLTWSI9qYcUPs7tuUhb6BU/vY0GDiHG6wlL10U5zE/5w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
+ dkim=pass header.d=vivo.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=v2MRv4culIsa2bXRmpNcWw+iI8lxtL+i0PKMVTAUUMA=;
+ b=foShODZ909sexqfQvyFiff2So841Yoi65Y0Ln5cXFmJMvhodL4iPxtjEL7cel56Dy3AHYgSvX3i4WsX9dhtRvh2DjeXb7XGMD4keof2D7Kbxwg0W3TUDrQEnHwgMDMSDfiMIHxjj7Usfxr5Ja3D4xdcNssgsIec6YlQHtvClpBzpMr1Fi34Hlyb5+Zi1nHSWBdVaRQINNJe1FNHODDXhF5UyDdvwALpxQ+85t/yN1D4Nk2y3+7HtiTe9iSsLRdgCcZFPJpr5RgO+dCnL9lrcbeD5Q8IOJgmeMZmr/MDyAXX5HpnI5A84Swop0ZI0qTDTLPdXaarb9UoUhqCyb11uBg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=vivo.com;
+Received: from SEZPR06MB5832.apcprd06.prod.outlook.com (2603:1096:101:c8::12)
+ by KU2PPFBE3986883.apcprd06.prod.outlook.com (2603:1096:d18::4ac) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.12; Fri, 17 Jul
+ 2026 10:05:45 +0000
+Received: from SEZPR06MB5832.apcprd06.prod.outlook.com
+ ([fe80::f98:5e32:4ccb:d07b]) by SEZPR06MB5832.apcprd06.prod.outlook.com
+ ([fe80::f98:5e32:4ccb:d07b%6]) with mapi id 15.21.0223.011; Fri, 17 Jul 2026
+ 10:05:44 +0000
+From: Pan Chuang <panchuang@vivo.com>
+To: Scott Branden <scott.branden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Alexander Usyskin <alexander.usyskin@intel.com>,
+	Vamsi Attunuru <vattunuru@marvell.com>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Michal Simek <michal.simek@amd.com>,
+	linux-kernel@vger.kernel.org (open list),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/ZYNQ ARCHITECTURE)
+Cc: Pan Chuang <panchuang@vivo.com>
+Subject: [PATCH 0/3] misc: Remove redundant error messages on IRQ request failure
+Date: Fri, 17 Jul 2026 18:05:29 +0800
+Message-Id: <20260717100533.601899-1-panchuang@vivo.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: TY6PR01CA0015.jpnprd01.prod.outlook.com
+ (2603:1096:405:3bb::11) To SEZPR06MB5832.apcprd06.prod.outlook.com
+ (2603:1096:101:c8::12)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 7/8] arm64: dts: qcom: eliza: Add GPU nodes
-To: Akhil P Oommen <akhilpo@oss.qualcomm.com>,
-        Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>, Will Deacon <will@kernel.org>,
-        Robin Murphy <robin.murphy@arm.com>,
-        "Joerg Roedel (AMD)" <joro@8bytes.org>
-Cc: Puranam V G Tejaswi <puranam.tejaswi@oss.qualcomm.com>,
-        Abel Vesa <abel.vesa@oss.qualcomm.com>, linux-arm-msm@vger.kernel.org,
-        dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
-        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev
-References: <20260705-eliza-gpu-v1-0-c9f1354dbd29@oss.qualcomm.com>
- <20260705-eliza-gpu-v1-7-c9f1354dbd29@oss.qualcomm.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20260705-eliza-gpu-v1-7-c9f1354dbd29@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzE3MDEwMCBTYWx0ZWRfX8REfEFlwzGTn
- F8ebbKhrp8ScwIB/gfqXlOKhgST4Y14jQDA+J5JDwKLpM2nv+9A8Joo7FyzAjH5xC8kznT63PWU
- 614Vsb9U9LsgSjI6ajAfOqT8T8KLXyH4E3rrBqq93QmnwPT4TgRvTygJQCMA6wftrl41W5krt7v
- SIFqPjkNy4gK3usZPheNIVL1xwHXCSQENRCsPzJCEZuHCSkDH3ANj/QhSLGzsBIQxMSne2Na1Vg
- XCOhMgtz1L3mq4tfcy6OR1iAMpjhh18ikn4pjbXx4Gy3du9YaNbDa4C0/zCKn5y+CStm6ZoGWn/
- a6/wSUckTVzij7XnEsyOn7+jTqHMTStT3zBPVH54qIlWa54qJl4Xtljo+cJuVLI7F7tzK9UNkK5
- bUSeMOT2MXCmMOtYtWkiGXbW9I+GdMVh8ij9KxCnJoktifG2mtOCExFsykPoX1arS8Y7KzwpAGS
- SWXIVUEv4TM4hWEsxvQ==
-X-Proofpoint-ORIG-GUID: 7FlyK4T5W6iTY-PoAcoOW3qNjIjZQcmc
-X-Authority-Analysis: v=2.4 cv=U9Ciy+ru c=1 sm=1 tr=0 ts=6a59fe20 cx=c_pps
- a=WeENfcodrlLV9YRTxbY/uA==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=EUspDBNiAAAA:8 a=LzKdWfoJb4QxxMUDPeAA:9 a=QEXdDO2ut3YA:10
- a=kacYvNCVWA4VmyqE58fU:22
-X-Proofpoint-GUID: 7FlyK4T5W6iTY-PoAcoOW3qNjIjZQcmc
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzE3MDEwMCBTYWx0ZWRfX3rG2j1rO0NhT
- RlXNx8cJCivYBWNykfrWYrTYlrfuKJrRdgrofukU1IuoIu+DyZ3zwiES0aX9cO81iv4otecuy3N
- tLqlpu/mhyaHHeF16KWSA8GarQdpxhE=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-17_02,2026-07-15_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 suspectscore=0 phishscore=0 spamscore=0 lowpriorityscore=0
- clxscore=1015 priorityscore=1501 malwarescore=0 impostorscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607170100
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SEZPR06MB5832:EE_|KU2PPFBE3986883:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5b9e3780-d67b-4e8f-6216-08dee3eaf76f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|52116014|366016|23010399003|11063799006|56012099006|6133799003|18002099003|10067099003|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: SaunmIxeguDl8Cp6ZO3OIEJuoFBfJqa9TIP8QeNTPFy/Qc9kJBOgJ+1yAGBRr3r19LFhEuD03P2ClXlRKY3WV5fMIIwrdLHoY6rSpfCSt4kLnxiTn0ft6QhOzsIO4JxhK/dNWrbT4EOCuU7CCzLQP7WUnwv4OY4q6I860N5U4F/HUvcx299FSUzi15ZdYVMKyozFELPBCxFVzuP7nIhq3lwrnbQPnQDcoJDHmHzIBCFK36N3e/9h2D6uhj3Ahx+/FRPiLbi0L9xLbJ5qWciQFxGk3aVrR+CeWTk3Esk1jSgVajROyHAPozP6trqdipoosoYdB8pOms0JG2dyNd5uM69CsBNQRSQZcEfgv0T+MpgV2uCqd55Iuhwv7frl41EI3X/r7x3bmZDy1Yvem4kqghZTmywumdzJO7vVNuPUC0MpviRDYNJHcxlAMgDlxjx0Xt3/NLorZWfCHXqr0nsnOnl06BvVQFY9boItJWi5kx+EB4aJS0/v1+zcjgkS7/2U9ECmReXjIj0525hzmpU+FCLLvauq5FVGTHBEz7qu9aTG8FZuPde7Zqvct4tqHBbfS4zvVxb+jOI8mG/+gJ/599ozejcymfzSL2ECLWIE5FWl4HwbtTKftc2APF2CzXV1a96wNgN43GcBKkkCDdTurg9tURVU18YOaIpwUyflmWGv1pphqlwpeVkGRoJuiXVNj3yWSQ/N1JS146PUzt7mr1VqV1pkUWEAsm0Yj986VoKRoAuHACs94l94BIj2dKY/
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR06MB5832.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(52116014)(366016)(23010399003)(11063799006)(56012099006)(6133799003)(18002099003)(10067099003)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?KKRCNbfR+U+2UQ7jEIhf9Eb8kGA0sGRbeRvq9LLFsNcZ4QPbA6W1OVGvrHvF?=
+ =?us-ascii?Q?S7fiAkZzmS4/8zdDJj0fuTzrAR6o5wSKgg3cPtpppeLEJJFcmLMdeR/XEX66?=
+ =?us-ascii?Q?DkGHUSIfEAeX2bvDQpqC3TR9JsXBe7CxqLIDy6B25PuVwemMr5aauS59PA1u?=
+ =?us-ascii?Q?iRQs7BOUOxfV/DfpLMwN7BBgAj8isEZg/dhBfecPGFwFP78DtHrIPGZuywYX?=
+ =?us-ascii?Q?kWpYK7SeySUYKDxVc4ZnZ4WHQG2yMOPYHJm5A2/IW5gDrc6g+NkvPRVHlGvK?=
+ =?us-ascii?Q?XJeCQx92UX49CLzS7N9QPxYnjxeMu/zcJiPO+g5TF1rYYRU53ZOMFG1D1Xm1?=
+ =?us-ascii?Q?noK4qrUKP4hNztwkepH/s+mDH8Av1EeL1KpGeNb+9pweasD6nj5KFU19c2+M?=
+ =?us-ascii?Q?bIsgycT1ktCoh2mq9Wpo6l7Z5qmAbVXbWvEFGtCbsTqFq6HRy3p7O4T7omDU?=
+ =?us-ascii?Q?oKChTh//00PLghu1xNZtwV2ZvwBPiaC6ItfSU53EI9JE/YdNnvYMeXpFiWzx?=
+ =?us-ascii?Q?FCdfoWpQsw5/bgsU7H+YYDIt8+nJomUOouvf15S+6I9PCSmG2i4C9opwQXxf?=
+ =?us-ascii?Q?D/IiM3AVTqot6Ycf4TvSU+0TRtPm/XRMQBDxUmZF+n4l+VwBA7nFTZFRx0cA?=
+ =?us-ascii?Q?BH7KvCY9Mqir7/Jq5SscRq1O/B1Ng8K50OIq/24XK2jddrZkp7ys808+5nro?=
+ =?us-ascii?Q?jjOpXTWF/ny4G4oUsBqhgnvWmBylzLZdwuhK8sVqDd6aq6E8PgmOwJ+mK/Qk?=
+ =?us-ascii?Q?djCDALGYlqievJoxJ5aNm+0GyM2vTeqGg8JJTT7gz09O9OkS7u0FBOHK6/IH?=
+ =?us-ascii?Q?rkiHn74y8Hv/+/Z76oFVWBRcdWtVL80m6g7s3nHrwmUX5fa0qQ1jtHhKCFIQ?=
+ =?us-ascii?Q?a/LWm/7sFxLsfYjimEHG0oU3DfRfKgVUIOTFdkz4g5FeBUk2ha9vWutYfzwe?=
+ =?us-ascii?Q?4jCIBjh8bXFj+O7DshdkVU3NBXqQPktRuUwVgs5jVZR3utXWmThfyJHkdat4?=
+ =?us-ascii?Q?u/k8iHH7QqhRGg72OqcBAootwhLO8HMBWwb8/GdGTtv8M8iXrUC7+I3/ELpm?=
+ =?us-ascii?Q?tJvLbCI1zBXMzhQoIeKlcNyCY92frj6Nk2sM/fEeCTSacORqk4H2jRePor+e?=
+ =?us-ascii?Q?n7SA2tBNbtxOyekgSJNSJye6f5Fce26ndY6Yg8UjB37f4AFy5/3PIGx9c8XJ?=
+ =?us-ascii?Q?ZFwlaxlNVyG+UATQLdVuniNREJEh85b8w1tP4QNjippwIp9d++ClwOYsKcYt?=
+ =?us-ascii?Q?SilHy7xEsAGhY1j8IcY9Zegkcjg9wm7wRbTr8pnccDMyoILhTtEiIvmRei1C?=
+ =?us-ascii?Q?So12h/ey6k6J8ws/laxFYaYt3pJl4DlZ1Ft+2pFm7askTqhFQiH3GAuDhTIh?=
+ =?us-ascii?Q?BskaTHmaI/Wq1l9aL4vo4BOi0UjUkO475iBV6eHPrWCRd5CO0QCcMPpaC3dU?=
+ =?us-ascii?Q?cwO/HZDsllH3vCnz1Fl7QJaFwIpy157J96bTUooXgXk3I/0sp2t0GjVcHnAG?=
+ =?us-ascii?Q?jPcf8jIGhHxUAENyXRN2tieDqkK/HmAWQihJzZsBT0bl3hZMmAnymD/nG7fR?=
+ =?us-ascii?Q?ZzAcJUWQeipZkk9wMusuf2/OAFRWfM+EeSGx3dJGGcL+Wxqbt0INtVrDsZn/?=
+ =?us-ascii?Q?RAJqtJJXhsTloSxe+MN2anUDW/ThxD68W/xxmaF2zvrcx1X7NTw/7ttXQb0g?=
+ =?us-ascii?Q?ypgPTvegGNHR/qMT1pFV9kSr3IQkVxETtdyyfa4UPVbOB6DDNaG+c2ksPBaG?=
+ =?us-ascii?Q?9Z8OmjXXIg=3D=3D?=
+X-OriginatorOrg: vivo.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5b9e3780-d67b-4e8f-6216-08dee3eaf76f
+X-MS-Exchange-CrossTenant-AuthSource: SEZPR06MB5832.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2026 10:05:44.8617
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: XcXS/0xiZA1MbdkEdaE0DW1u4CGa2nlFE1D4oI/j9D83b2jOQAY2g3RM7WkAAV1mJBLxVRcYHcLyyOcCOCBbTg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KU2PPFBE3986883
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_030417_831649_4FFE5407 
-X-CRM114-Status: UNSURE (   9.93  )
+X-CRM114-CacheID: sfid-20260717_030559_182748_F40D56B3 
+X-CRM114-Status: UNSURE (   7.68  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -169,24 +143,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/5/26 10:14 AM, Akhil P Oommen wrote:
-> From: Puranam V G Tejaswi <puranam.tejaswi@oss.qualcomm.com>
-> 
-> Adreno 722 found in Eliza chipset belongs to the A7x GEN1 family. It is
-> derived from A730 and shares the same IP-level configurations: HWCG
-> registers, protected registers, GBIF CX registers and gmu_cgc_mode.
-> Major differences include lower cache/core counts, 1MB GMEM, no
-> Concurrent Binning & LPAC support. Some of the peripheral blocks like
-> RSCC are from A740 that resulted in updates to RSC layout.
-> 
-> Add the necessary devicetree nodes to describe this GPU.
-> 
-> Signed-off-by: Puranam V G Tejaswi <puranam.tejaswi@oss.qualcomm.com>
-> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-> ---
+devm_request_threaded_irq() and devm_request_any_context_irq()
+automatically log detailed error messages on failure via
+the devm_request_result() helper, which prints device
+name, IRQ number, handler functions, and error code.
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Since devm_request_irq() is a static inline wrapper around
+devm_request_threaded_irq(), it also benefits from this
+automatic logging.
 
-Konrad
+Remove the now-redundant dev_err() and dev_err_probe() calls
+in misc drivers that follow these devm_request_*_irq()
+functions, as the core now provides more detailed diagnostic
+information on failure.
+
+Pan Chuang (3):
+  misc: bcm-vk: Remove redundant dev_err()
+  misc: Remove redundant dev_err()/dev_err_probe()
+  mei: Remove redundant dev_err()
+
+ drivers/misc/bcm-vk/bcm_vk_dev.c | 15 +++------------
+ drivers/misc/hi6421v600-irq.c    |  5 +----
+ drivers/misc/mei/gsc-me.c        |  4 +---
+ drivers/misc/mrvl_cn10k_dpi.c    |  4 +---
+ drivers/misc/tps6594-esm.c       |  2 +-
+ drivers/misc/tps6594-pfsm.c      |  2 +-
+ drivers/misc/xilinx_sdfec.c      |  4 +---
+ 7 files changed, 9 insertions(+), 27 deletions(-)
+
+-- 
+2.34.1
 
 
