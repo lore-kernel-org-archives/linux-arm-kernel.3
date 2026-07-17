@@ -4,145 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BA77C44516
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 12:58:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 769D6C4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 13:04:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6LWAQXZu1AkRXVRD3WAzJkcpKIpNh+GvLZvBxraoa6s=; b=eRayUbsrpU9Eq/psXAR93HL6nc
-	+bCBLpko2vUxq1zb6J6w77QowHD4vrsutc1q+AoVcLfKURTuJy9IEQ+caL+D1eipDXIJsy9qHeK9D
-	Gg5p6as083WzenAIcNTH1Er5yYbPKUechpIzfzdXO9DcJ/8FEo2UCaNP0sNB6jow9EDN5ByCs8+xp
-	yYfr/sTX0NhQRPql0bmEpeZUqlH+4aMfQys4vLWvQVPvmpDW/KLDamIl1ks/yi7atiIlBg1V/h0qx
-	E3nVpt6dOfUHJ0/943ywwTDQiUbxfCwjeASopKRBxJqffsWYXaoSgyrq6cJD9DCGwh6OQTQOfR5Ov
-	+6LvZ+hQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nGVeKTTWAc9E9IUshZYvJfmhVmD43mhNRriYPRWPSws=; b=EQmZTTkZS210M2AJzmYvLMTkOg
+	Xej4u65DK1hFPYkhbvmtJjv31RY6u3evaJvLjJsFPSh7upnnoTq5zsiaD+NOLi4/FAOZPMmEhZOEB
+	lg7Pwpkp4xHpv16BnMa0hv0SAl0TfxwPXmRby0nIp6QDIrdXJ8Ayvt1j7y404/xozu19In7ReFaAR
+	FDezbSgXTc7gakPKOqRcQR7v7A+7Uzx3W/TMY2+AA1l6lssAtFnkmkX2NVNppuhLY/cV+2NBSrxGv
+	MGVKCWX6FXQ4fYWzQOcAqHL7TT2whbD+EgfJy1W2fmE3G7Y3rSvY505/D6fmLzWEV30ItJoOXt9kB
+	AfMqI6yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkgba-000000028JH-0JH7;
-	Fri, 17 Jul 2026 11:19:46 +0000
-Received: from mail-westus2azon11010058.outbound.protection.outlook.com ([52.101.46.58] helo=CO1PR03CU002.outbound.protection.outlook.com)
+	id 1wkiEY-00000002LhF-0kJt;
+	Fri, 17 Jul 2026 13:04:06 +0000
+Received: from out-187.mta1.migadu.com ([95.215.58.187])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkgbW-000000028Id-3Lbj
+	id 1wkiEW-00000002LgB-1Lam
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 11:19:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nIr0EydVpYRQ3gwAWMvHIaFBlstZdbYjCexPSuryiWy+mVs1i2pl84jvwQWBpxb5p7kUJZVWjDJ0L1JSJVsFiJxpaqIWCJAfr80NZiiEUMIzZsLbkbAhCqWAW+HRenctN6KOY7lCYjs1oW1xJWEeYJHyyfC1Xob5/ThaGp7I0sLbBU2j6nyXbPJwsjq43EFTjH6bsCmEMdFvNz8F3DGOrIAAldIqMXgYQHmFKwnvNk9HysMsqFH64pH2coNQPCXMcaDXpfg7N2CYsAqUtUmanvrLPbSCWzqlejQb3kVJVxgivoIA/3nv0f34sHsWQi5VnSh1o7IPBEVQdAgqmS87yw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6LWAQXZu1AkRXVRD3WAzJkcpKIpNh+GvLZvBxraoa6s=;
- b=wsEeE4Tr125y2tVm5OV1A+IQPP4kig986qH8vIhlDf3JVETa4MmvXGYzn18g83wnQOxgh+VtbEuLXhFRpr+fw2A4BJa53aYRMPs3gGRFsswhxeh3IaNEgxhuyWQi/wwBdoZixNB+MrkMconTQqGCj//LGFv98cisTLTlToHhVO/2p6S09cBxZ7Z57jJ2j1nWQtLCUuHgdzqD3zyCk3QLZ6hNdOyXi1iOg+5QXrwVtFOrsnbVfrSj7e/mkFoek4rdSZBK9M2Zdq/LbKdd6sowmV6nj5FufGbJGKWuMnSgvbbk7AtPtUY3K1jgokHRQGaVjzw8+ByTmUcQ9c/7Oh2Unw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6LWAQXZu1AkRXVRD3WAzJkcpKIpNh+GvLZvBxraoa6s=;
- b=zkv0a4s7o0L/YLxR2VyJDLpnFkV2Knc3x73Hfo4BYgqaojW7xDI67L/Xb7IJt4zSTj9a2/IHioFSq+NqBcy7TzcElENu+NzLwcC28LP1ssW3XJ4B72fBSB/ID3TWsDPZhaWJCycdB+di7Xneau96cSGjq5HHCFWA1GsNJmPzqr4=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from CY1PR12MB9697.namprd12.prod.outlook.com (2603:10b6:930:107::6)
- by SJ1PR12MB6172.namprd12.prod.outlook.com (2603:10b6:a03:459::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.12; Fri, 17 Jul
- 2026 11:19:33 +0000
-Received: from CY1PR12MB9697.namprd12.prod.outlook.com
- ([fe80::3a41:55a0:8203:596d]) by CY1PR12MB9697.namprd12.prod.outlook.com
- ([fe80::3a41:55a0:8203:596d%6]) with mapi id 15.21.0223.011; Fri, 17 Jul 2026
- 11:19:32 +0000
-Message-ID: <22f1a796-0aaa-4a46-bfd1-dcb680d742b1@amd.com>
-Date: Fri, 17 Jul 2026 16:49:23 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 4/4] dmaengine: xilinx_dma: Extend metadata handling
- for AXI DMA and MCDMA
-To: Srinivas Neeli <srinivas.neeli@amd.com>, Vinod Koul <vkoul@kernel.org>,
- Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-Cc: Frank Li <Frank.Li@kernel.org>, Michal Simek <michal.simek@amd.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Suraj Gupta <suraj.gupta2@amd.com>, Marek Vasut <marex@nabladev.com>,
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- Alex Bereza <alex@bereza.email>,
- Folker Schwesinger <dev@folker-schwesinger.de>, dmaengine@vger.kernel.org,
- netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, git@amd.com
-References: <20260717090824.2364230-1-srinivas.neeli@amd.com>
- <20260717090824.2364230-5-srinivas.neeli@amd.com>
-Content-Language: en-US
-From: "Pandey, Radhey Shyam" <radheys@amd.com>
-In-Reply-To: <20260717090824.2364230-5-srinivas.neeli@amd.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SI2PR01CA0014.apcprd01.prod.exchangelabs.com
- (2603:1096:4:191::17) To CY1PR12MB9697.namprd12.prod.outlook.com
- (2603:10b6:930:107::6)
+	Fri, 17 Jul 2026 13:04:05 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1784293440;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nGVeKTTWAc9E9IUshZYvJfmhVmD43mhNRriYPRWPSws=;
+	b=bTt1bC3tHPWxJo2efKJyKDuIt3XSi86C7GZICKn3qXE5I7cB/GAaA8VjpnZFgwl6xjOAZV
+	uRDQ2pj768cQ0u8loDjVpiWbLRxhY9pu8D90pYSXaPs34u49hU7AY2tb5I4gW/zMuCATcB
+	IvUxUdpzsAJoVi65gSAKgaNOobkCcfg=
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Quentin Perret <qperret@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Dev Jain <dev.jain@arm.com>,
+	Bradley Morgan <include@grrlz.net>,
+	Fuad Tabba <tabba@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v5 1/7] KVM: arm64: Skip cache maintenance for non-cacheable pKVM mappings
+Date: Fri, 17 Jul 2026 14:03:11 +0100
+Message-Id: <20260717130317.1953574-2-fuad.tabba@linux.dev>
+In-Reply-To: <20260717130317.1953574-1-fuad.tabba@linux.dev>
+References: <20260717130317.1953574-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY1PR12MB9697:EE_|SJ1PR12MB6172:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1cace94e-0806-4b81-2b39-08dee3f54662
-X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|376014|7416014|22082099003|18002099003|6133799003|11063799006|4143699003|10067099003|56012099006;
-X-Microsoft-Antispam-Message-Info: l2ilJzUEKaLIpw+mVtqK+V4/O/qO94Z8kiBBCWjI2gc2pfVXbKBeVmtnEILBzGn6OrAN4aQiwRPbd4I58cnU47Vcy4NhhHjClEW4JGoHnbbemml3blP9ZJxcBO0yMM854mWTWBWWBzNhh7H8KYnCTFqtPhmfFicfAyOF+ZEUs/JagYAqXWGPMI3r1F5brYvWJREv8fUVB1WloLJwGo50oFIIXKjfQz7luSHPOlgfXsqlf8l8lfEZ953MOLU1HlyCwzkusGjWvCIwnPuecpkToxFllZeSVNnMWDnF0cvExwRZr33O8Irpge9VflT5Xg8REELptzTufEaPxPZVAdXrNQGoKZbd8ZiL93yolpyJ45Otv1X57Yj1mgmaKf7PHsyvgP1sIrIvBKjGXhf9Bd/Thrl0U7tb4cYJSINuhEw1EvTBcw4t+UWaL/289krIn/tJMyON6nDa7Kf+xIbUbuMM6eTmhcIDDZsjg86tuIJSo7ztxPkV+v+B9bEc9ZkuIL/GbTjZEPxIs/L8xCra0H3SDjPIJoFBZA4pe1++R7lCiZ7CZgolMo0jnjI3N0dPrLteNpoFb3RK5w8A9JI/V4s68IxeOmnHxjOB02RQX9DnloX3dV88sOPrLfg2LOuDJoEP9NRvNK9c1S3Ovw0EPdgka2YwxKSIU4LOeY7AmZMohyU=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY1PR12MB9697.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(376014)(7416014)(22082099003)(18002099003)(6133799003)(11063799006)(4143699003)(10067099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Qm5UdUdRd05NRkg3YUVmYXdkK0xWWEdwRnl2Y0Rocm4zUzFtWGlyU29MYklt?=
- =?utf-8?B?aGQrVzlSTWZmUWpRT3NPcFNqZzd5SnFRTmJCejRuSTIwV01LSHVhSmk2dStC?=
- =?utf-8?B?SU56bjNNcFMwQzdVRXJzT2lCS0JLWU41bzdQVVlLYTFkOUJWRXJVcnZrZnZH?=
- =?utf-8?B?YUdndmV5RTJMQ2VRVDNJMFdqSktVR3RXRTUxelNEUmxKWFVHMUorZDlncUVu?=
- =?utf-8?B?ZitMWXErcVhNVDlXZSt6ZUlSU2xvaGVzbU02T1h4VjMvWGxWY2tyc1NrRmRE?=
- =?utf-8?B?U3lLNGs2dlBuVTdsK2hDQlFkOXBwNW0yZ2NSZENLbkZsMmVaeEJQUW9RemtJ?=
- =?utf-8?B?R21XQVkvZXpMSkFJaDNFZk5OdDNoNExtUHFwUE81clBlUTFsRExFY205TTZE?=
- =?utf-8?B?cEQ4RVJMTzdFc0t4LzhEWlFnU0VYUE1pYW5DYnFXMFc3TUl5VFVvSGRZQWky?=
- =?utf-8?B?OFc5Yy9xKzZ6UGNqQVFRK0ZpUlhPaWhTeTA1bzVrM1VLck5SSzFNekZMTjVz?=
- =?utf-8?B?TUphaVpmbG9FRkxOK3ZPa0FYSU9xajNwaGVleVVOSmNLYVlIRWxId0o4ZHVv?=
- =?utf-8?B?MVFqQlExR0tlTlIyZVdWUDBxbUhYQXVBSnoxb3E4NjlXaU8rNHFvSFRjWDls?=
- =?utf-8?B?UkdlaDdTdHpRc1pIY1lmVUhoakZ3bGtHS0l0bnFCeU0vTEIwRmFieVg5dUc1?=
- =?utf-8?B?RDV0N0NRb2ZEWTJ6ZVczdVBnaTlYai83ZVdpeWdpeGxmcjRRS3BpeHNucVBK?=
- =?utf-8?B?MW5Temp5MExpeWVvV1MyUnJLbW1hVnQ0RFVMV2NVditWUTVEcG92TmJFK3Fi?=
- =?utf-8?B?Nk43M2czRUV4QVluRDY4ZkxVT2FTVzVPMmxlY3hIbmVaNDhpRmwxZ3I5dFlr?=
- =?utf-8?B?U3F5OE9vTWNKZ1Z6Y1ZOdVlVUEpySHVuQXdRWXVPUFEwZEVZRmYxc3BiZGJW?=
- =?utf-8?B?bGxsN3NPKy9pOEdZTC80SWx5LzVOa09CL0o3UE1HMGc5Nmx5UmV6bVpuQjd1?=
- =?utf-8?B?VFFuYmUyd2M2RjNLMXhISFA2NnhXblQyNFNUd3BjTG1aZW54OGpnTEtWNncy?=
- =?utf-8?B?cUw2ajZSWkRTRHBMUkQreTVmdC92V2pSMnRlS2pGc0RvVnAxeFIzMkU5Y3Rk?=
- =?utf-8?B?bHFSWVNFQ2Z5OGRQNGZkU2czWnZFTWpJbXlJeURCaEFQeER1eFFETlFWU1Jz?=
- =?utf-8?B?WU9hQUc1VHRrREw1eVlBbzVObHNNVlBvb1duRUZxTW1wY2hVYmlOVDM5cjFZ?=
- =?utf-8?B?eTNYRzFqMXhtZDhQSkI3WU5uTXVBczhCdE5XN1M5Y3NWS2V5S2pTeU9veFJ0?=
- =?utf-8?B?enVTbmNST1AvSnhuMzZJbFRVQlhtYUJZS2kxKzU5ZHhYY3MydUt5b3FieTFj?=
- =?utf-8?B?ZkhtQS9QVXBHRVNRVGpVU0NNLzNqMFNRcHlPc1RUSVZtbWg2dDVTYlMwOVZO?=
- =?utf-8?B?cXZLZFJvKytmM1pMUEx3NEU2T2xBcEJqQnBtakNoTWNUWUJOQmtLc1V0TVZa?=
- =?utf-8?B?Rktpb0Y0RmNQRk9kdk80a3VTdWRYZXNBeFBEMnlYTVczbUExUUhtMmNQN1NF?=
- =?utf-8?B?TzVIbjZMcndJYzFnYjJURkFXR0I4dUhBYkdqOVd4cVA0SEZkcUVvUG04dHEv?=
- =?utf-8?B?K0ZBOXRVSHdqVVhhWDNzZXdtOE9ieC9MOWUvMnhELzJTSjAwOU02R28xQ3Vt?=
- =?utf-8?B?cHkzbCtwU2o3d3JjbDNLbUFBSnFiSTNpWmJCaHoyKzlhek13N1lmU29kNmR4?=
- =?utf-8?B?RU10aHErM2JzVUtFVzJ0eFN5UDd6L2kvM1ZXaUhWMkJia3pjdVZOSUppTUF2?=
- =?utf-8?B?azRZcnRzSEp3NEltYmFVVjhValJNZEd5RSsrcFh2L0RpZDJ4YUxCdG5aOHhT?=
- =?utf-8?B?ZmxrUWRSaE5JTDlmUHZwWkpTT0lpczExRi9BeVo2d1gwZ1AvQ2N2MU1Icjc4?=
- =?utf-8?B?K1paYWc1YW0yS0JiREJ2VzdKRFI5RXJwbkxGd3dwQXViSEdTc1R0VTRJZjNG?=
- =?utf-8?B?cStOcVhLdnhBeTB4a3pPQ0swbXc2NzRWZ3IvUFRNYzk0blRCZ0g0VkptNWw0?=
- =?utf-8?B?ZWZUMjV5T1dIQjJhYkF6aDU2RGJFYzlCeVY4MXBOaWtSTzM2WG82OWtsTkJt?=
- =?utf-8?B?b1pNZWVmUmxjUlByK0djbWRFd0hPYUNQRWpFTkFTalJrdUpCUWdWYlFuRTFB?=
- =?utf-8?B?bXczK01hV0g5MnJnN1pPalgzTDl6Z1p5ZTdkVWpyaG0rbnRnWG94bUZGemlI?=
- =?utf-8?B?OHJjQVFycnFISFI2SDFUV1dZQUNDSVFXOEFDaEZNeHFWVlRhdjBDcWhIOG5N?=
- =?utf-8?B?NEgwS0FZam1SWHpnTFRORUtiYmc1RFBBNUdKeGNGbm9ZWWhWNFEwdz09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1cace94e-0806-4b81-2b39-08dee3f54662
-X-MS-Exchange-CrossTenant-AuthSource: CY1PR12MB9697.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2026 11:19:32.3624
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: KFTtbspRQ+5wBrFumBk42B1m7914APXoLG0SEJWe2bqx9cB/uobR8C2CtezUm6w3
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ1PR12MB6172
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_041942_872809_D2B1DD8C 
-X-CRM114-Status: GOOD (  31.49  )
+X-CRM114-CacheID: sfid-20260717_060404_503544_1335EFE0 
+X-CRM114-Status: GOOD (  10.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,158 +83,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/17/2026 2:38 PM, Srinivas Neeli wrote:
-> From: Suraj Gupta <suraj.gupta2@amd.com>
-> 
-> xilinx_dma_get_metadata_ptr() returns the AXI DMA APP words from the SOP
-> descriptor in both directions. This is wrong for RX, where the hardware
-> writes the APP words into the EOF descriptor. It also leaves AXI MCDMA
-> without metadata support.
-> 
-> Return the metadata from the SOP descriptor for TX and from the EOF
-> descriptor for RX, matching where the hardware reads and writes the
-> fields. For AXI DMA, expose the APP words (20 bytes). For AXI MCDMA,
-> expose the control sideband, status, and APP fields (28 bytes). On TX
-> the control sideband holds TID and TUSER configuration for the outgoing
-> stream. On RX the sideband status holds the received TID, TDEST and TUSER
-> from the incoming stream. The field layout differs between MM2S and S2MM,
-> and the wider payload lets a consumer distinguish the two controllers.
-> No in-tree consumer is affected.
-> 
-> Read xlnx,axistream-connected for AXI MCDMA. Attach metadata_ops in
-> xilinx_mcdma_prep_slave_sg() when an AXI4-Stream interface is present,
-> so MCDMA clients use the metadata API the same way as AXI DMA clients.
-> 
-> Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
-> Co-developed-by: Srinivas Neeli <srinivas.neeli@amd.com>
-> Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
-> ---
+From: Bradley Morgan <include@grrlz.net>
 
-Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-Thanks!
+The pKVM flush path walks its own pkvm_mappings list and cleans the
+data cache for every mapping, unlike the generic stage-2 walker it
+shadows, which skips non-cacheable leaves. Cleaning the cacheable
+alias of a non-cacheable mapping is pointless and can corrupt a
+device endpoint. Record whether a mapping is non-cacheable in spare
+bits of nr_pages and skip cache maintenance for it.
 
-> Changes in V5:
->   - Take the metadata pointer from the SOP descriptor for TX and the EOF
->     descriptor for RX, matching where the hardware reads and writes the
->     fields (TX previously used the EOF descriptor).
->   - AXI DMA now exposes only the APP words (20 bytes) in both directions,
->     instead of the status word followed by APP (24 bytes).
->   - AXI MCDMA exposes the control sideband, status and APP fields
->     (28 bytes), with the sideband position differing between MM2S and S2MM.
->   - Reworked the kernel-doc index table and commit message accordingly.
-> 
-> Changes in V4:
->   - Restructured xilinx_dma_get_metadata_ptr(): AXIDMA is now the
->     fall-through path instead of a separate branch guarded by
->     WARN_ON_ONCE()/ERR_PTR().
->   - Rewrote the kernel-doc as an index table covering AXI DMA, MCDMA S2MM
->     and MCDMA MM2S, and documented that the pointer and payload length are
->     the same for both MCDMA directions.
->   - Added an inline comment explaining the union aliasing.
->   - Condensed the commit message.
-> 
-> Changes in V3:
->   - Renamed subject to include "AXI DMA and MCDMA" (was "AXI MCDMA" only).
->   - Complete rewrite of commit message and implementation.
->   - Metadata pointer now returns status field at index 0 instead of APP
->     fields, exposing status and sideband information to clients.
->   - Changed from list_first_entry to list_last_entry to return the EOF
->     descriptor where hardware writes status and APP fields.
->   - Added explicit handling for both AXIDMA and MCDMA types with proper
->     payload length calculation.
->   - Added WARN_ON_ONCE for unsupported DMA types.
->   - Removed the 'chan' field from struct xilinx_dma_tx_descriptor (was
->     added in V2) as it's no longer needed; channel is obtained from
->     tx->chan instead.
->   - Dropped V2 patches 4/5 (dt-bindings xlnx,include-stscntrl-strm) and
->     5/5 (xferred_bytes support) as the approach changed to use residue.
-> 
-> Changes in V2:
->   - Added support for MCDMA metadata handling alongside AXIDMA.
->   - Added 'chan' field to struct xilinx_dma_tx_descriptor.
-> ---
->   drivers/dma/xilinx/xilinx_dma.c | 48 +++++++++++++++++++++++++++++----
->   1 file changed, 43 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
-> index 1b5b00f08c5f..6bf509d33e7c 100644
-> --- a/drivers/dma/xilinx/xilinx_dma.c
-> +++ b/drivers/dma/xilinx/xilinx_dma.c
-> @@ -651,17 +651,51 @@ static inline void xilinx_aximcdma_buf(struct xilinx_dma_chan *chan,
->    * @tx: async transaction descriptor
->    * @payload_len: metadata payload length
->    * @max_len: metadata max length
-> - * Return: The app field pointer.
-> + *
-> + * The metadata lives in the SOP descriptor for TX and the EOF descriptor for RX.
-> + * Field order depends on dmatype and direction:
-> + *
-> + *   AXI DMA:         [0..] app
-> + *   AXI MCDMA (TX):  [0] ctrl_sideband, [1] status, [2..] app
-> + *   AXI MCDMA (RX):  [0] status, [1] sideband, [2..] app
-> + *
-> + * Return: Pointer to the first metadata word.
->    */
->   static void *xilinx_dma_get_metadata_ptr(struct dma_async_tx_descriptor *tx,
->   					 size_t *payload_len, size_t *max_len)
->   {
->   	struct xilinx_dma_tx_descriptor *desc = to_dma_tx_descriptor(tx);
-> +	struct xilinx_dma_chan *chan = to_xilinx_chan(tx->chan);
-> +
-> +	if (chan->xdev->dma_config->dmatype == XDMA_TYPE_AXIMCDMA) {
-> +		struct xilinx_aximcdma_tx_segment *seg;
-> +
-> +		if (chan->direction == DMA_DEV_TO_MEM) {
-> +			seg = list_last_entry(&desc->segments,
-> +					      struct xilinx_aximcdma_tx_segment, node);
-> +			*max_len = *payload_len = sizeof(seg->hw.s2mm_status) +
-> +						  sizeof(seg->hw.s2mm_sideband_status) +
-> +						  sizeof(seg->hw.app);
-> +			return &seg->hw.s2mm_status;
-> +		}
-> +		seg = list_first_entry(&desc->segments,
-> +				       struct xilinx_aximcdma_tx_segment, node);
-> +		*max_len = *payload_len = sizeof(seg->hw.mm2s_ctrl_sideband) +
-> +					  sizeof(seg->hw.mm2s_status) +
-> +					  sizeof(seg->hw.app);
-> +		return &seg->hw.mm2s_ctrl_sideband;
-> +	}
-> +
->   	struct xilinx_axidma_tx_segment *seg;
->   
-> -	*max_len = *payload_len = sizeof(u32) * XILINX_DMA_NUM_APP_WORDS;
-> -	seg = list_first_entry(&desc->segments,
-> -			       struct xilinx_axidma_tx_segment, node);
-> +	if (chan->direction == DMA_DEV_TO_MEM)
-> +		seg = list_last_entry(&desc->segments,
-> +				      struct xilinx_axidma_tx_segment, node);
-> +	else
-> +		seg = list_first_entry(&desc->segments,
-> +				       struct xilinx_axidma_tx_segment, node);
-> +
-> +	*max_len = *payload_len = sizeof(seg->hw.app);
->   	return seg->hw.app;
->   }
->   
-> @@ -2639,6 +2673,9 @@ xilinx_mcdma_prep_slave_sg(struct dma_chan *dchan, struct scatterlist *sgl,
->   		segment->hw.control |= XILINX_MCDMA_BD_EOP;
->   	}
->   
-> +	if (chan->xdev->has_axistream_connected)
-> +		desc->async_tx.metadata_ops = &xilinx_dma_metadata_ops;
-> +
->   	return &desc->async_tx;
->   
->   error:
-> @@ -3287,7 +3324,8 @@ static int xilinx_dma_probe(struct platform_device *pdev)
->   
->   	dma_set_max_seg_size(xdev->dev, xdev->max_buffer_len);
->   
-> -	if (xdev->dma_config->dmatype == XDMA_TYPE_AXIDMA) {
-> +	if (xdev->dma_config->dmatype == XDMA_TYPE_AXIDMA ||
-> +	    xdev->dma_config->dmatype == XDMA_TYPE_AXIMCDMA) {
->   		xdev->has_axistream_connected =
->   			of_property_read_bool(node, "xlnx,axistream-connected");
->   	}
+Fixes: e912efed485a ("KVM: arm64: Introduce the EL1 pKVM MMU")
+Suggested-by: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Bradley Morgan <include@grrlz.net>
+[tabba: use Marc's anonymous bitfield in place of the open-coded mask and helpers]
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+---
+ arch/arm64/include/asm/kvm_pkvm.h |  5 ++++-
+ arch/arm64/kvm/pkvm.c             | 15 +++++++++------
+ 2 files changed, 13 insertions(+), 7 deletions(-)
+
+diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+index 74fedd9c5ff0..57afb07d6b13 100644
+--- a/arch/arm64/include/asm/kvm_pkvm.h
++++ b/arch/arm64/include/asm/kvm_pkvm.h
+@@ -195,7 +195,10 @@ struct pkvm_mapping {
+ 	struct rb_node node;
+ 	u64 gfn;
+ 	u64 pfn;
+-	u64 nr_pages;
++	struct {
++		u64 nr_pages:48;
++		u64 nc:1;
++	};
+ 	u64 __subtree_last;	/* Internal member for interval tree */
+ };
+ 
+diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+index 053e4f733e4b..f70c601dcf4c 100644
+--- a/arch/arm64/kvm/pkvm.c
++++ b/arch/arm64/kvm/pkvm.c
+@@ -369,7 +369,7 @@ static int __pkvm_pgtable_stage2_unshare(struct kvm_pgtable *pgt, u64 start, u64
+ 
+ 	for_each_mapping_in_range_safe(pgt, start, end, mapping) {
+ 		ret = kvm_call_hyp_nvhe(__pkvm_host_unshare_guest, handle, mapping->gfn,
+-					mapping->nr_pages);
++					(u64)mapping->nr_pages);
+ 		if (WARN_ON(ret))
+ 			return ret;
+ 		pkvm_mapping_remove(mapping, &pgt->pkvm_mappings);
+@@ -473,6 +473,7 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
+ 	mapping->gfn = gfn;
+ 	mapping->pfn = pfn;
+ 	mapping->nr_pages = size / PAGE_SIZE;
++	mapping->nc = !!(prot & (KVM_PGTABLE_PROT_DEVICE | KVM_PGTABLE_PROT_NORMAL_NC));
+ 	pkvm_mapping_insert(mapping, &pgt->pkvm_mappings);
+ 
+ 	return ret;
+@@ -503,7 +504,7 @@ int pkvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size)
+ 	lockdep_assert_held(&kvm->mmu_lock);
+ 	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
+ 		ret = kvm_call_hyp_nvhe(__pkvm_host_wrprotect_guest, handle, mapping->gfn,
+-					mapping->nr_pages);
++					(u64)mapping->nr_pages);
+ 		if (WARN_ON(ret))
+ 			break;
+ 	}
+@@ -517,9 +518,11 @@ int pkvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size)
+ 	struct pkvm_mapping *mapping;
+ 
+ 	lockdep_assert_held(&kvm->mmu_lock);
+-	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping)
+-		__clean_dcache_guest_page(pfn_to_kaddr(mapping->pfn),
+-					  PAGE_SIZE * mapping->nr_pages);
++	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
++		if (!mapping->nc)
++			__clean_dcache_guest_page(pfn_to_kaddr(mapping->pfn),
++						  PAGE_SIZE * mapping->nr_pages);
++	}
+ 
+ 	return 0;
+ }
+@@ -537,7 +540,7 @@ bool pkvm_pgtable_stage2_test_clear_young(struct kvm_pgtable *pgt, u64 addr, u64
+ 	lockdep_assert_held(&kvm->mmu_lock);
+ 	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping)
+ 		young |= kvm_call_hyp_nvhe(__pkvm_host_test_clear_young_guest, handle, mapping->gfn,
+-					   mapping->nr_pages, mkold);
++					   (u64)mapping->nr_pages, mkold);
+ 
+ 	return young;
+ }
+-- 
+2.39.5
 
 
