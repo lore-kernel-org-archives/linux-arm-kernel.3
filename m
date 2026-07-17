@@ -4,70 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A7C3C44520
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 11:45:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B4F8C44520
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 11:48:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H0iH+iLx4WpWMlR/UNqi4frhPXGJpdzII4B/mC2Dvak=; b=gXJcQ0SnUH+HjphdgTJJQxnXn5
-	vUQ/QexNgA0j8ZZBOecYfHm3iVaA6UVm7kBFYZa9D2qz8uw7+hn6L/n4FI+wTde4b3cATQgzexUUI
-	MuYj5m1VcgAT8HILAS7vnX7n8inhrGxeN+AMMBfiwCqU8A9ImbvymMZx28gpvlvPyZUJsEfolNbOD
-	rhXGWwuv2cyeMJI5ZwTatQ0SFC3cq7Npe/BJpel5uPxRRqt4j0S750TrEiIleV1DyvuL8/6htpeO9
-	dbJxuqYgLPke9Y+ykB2nzTXrSE1oJy7OZ2FxBNMwMXb2J1Xwxz4J1UU6yEOlEcRU7oAypxM0/wmBa
-	l0E57Jnw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UuNCZ/AlfnTLbXwSf9IRvKCeJDW/6x4U6WFFHiQkOD0=; b=BJ1oI/Nmtt2Ym2AfE5cBk4Ecf9
+	DK9XBE9m/H8HpEJd8hNb9MRt95A/AImOUp2GhTXw9IBZl/Y8veC6pI5ktwj+mX19jz9gni77afGVY
+	4Huaddf4VgSmToLlXRk2028AigQvEsiUG+XNUUqDVAyfh4QNzhcGuDarPk8S/U/w0ZzDzY+tORrJf
+	RsF9NoIMgXjtxAUDqk0pTC/IyBhYayzCr2jI3Eujyt/9mSCHJPN5tEai58E7KV/330nV+1sD7jjCh
+	Y7xoTSw97UrZ/ADU4ghwcnODu6iFx7ZTnPWLGJ4qlg63wPoYmWgHu2/Ep2aGIHeMRq85YAnWQRZpq
+	FOAjEdkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkh0L-00000002BGQ-1x2A;
-	Fri, 17 Jul 2026 11:45:21 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wkh2p-00000002BXe-2P1p;
+	Fri, 17 Jul 2026 11:47:55 +0000
+Received: from confino.investici.org ([2a11:7980:1::2:0])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkh0J-00000002BGI-3M7h
+	id 1wkh2m-00000002BWZ-47WZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 11:45:19 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 79EFB40EFA;
-	Fri, 17 Jul 2026 11:45:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D93521F000E9;
-	Fri, 17 Jul 2026 11:45:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784288719;
-	bh=H0iH+iLx4WpWMlR/UNqi4frhPXGJpdzII4B/mC2Dvak=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=WRNVSRptWK6XYa4Qx4ycFwy+YSZ0sh256CyMtcxwLqRGQnZnv20dPjhLgDnYR5hO+
-	 wYBKKKgRCGTBm7davcd2HvN/ei6UTurGSSe0PiUsyoeJCpKX0q/1NdQNS2bbbtU0Pi
-	 7zs92fuSaLV/9lgBGyXrGWWymB42knidq/161vuAenO+Rv1iS4lh+BKmGuBxar03BR
-	 pVz9eNecpKtEVX03Hz/BRdsr0oog3dfvAPuKjXXSEZPD/miCvmhOK4u9mylALq73W7
-	 GSg4C7H7YIv6cJbF5hkYfJ4g9DFLFUhHZov1hso1Q3pyOLXxBpTj+7z0UenW1/pORw
-	 yd0PhSue8nB0A==
-Date: Fri, 17 Jul 2026 12:45:00 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Will Deacon <will@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, 
-	Suren Baghdasaryan <surenb@google.com>, "Liam R. Howlett" <liam@infradead.org>, 
-	Vlastimil Babka <vbabka@kernel.org>, Shakeel Butt <shakeel.butt@linux.dev>, 
-	David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
-	Uladzislau Rezki <urezki@gmail.com>, Toshi Kani <toshi.kani@hpe.com>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, Andy Lutomirski <luto@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, x86@kernel.org, 
-	"H. Peter Anvin" <hpa@zytor.com>, Kiryl Shutsemau <kas@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Dev Jain <dev.jain@arm.com>, Ryan Roberts <ryan.roberts@arm.com>, 
-	David Carlier <devnexen@gmail.com>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
-	bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	"Denis V. Lunev" <den@virtuozzo.com>, stable@vger.kernel.org
-Subject: Re: [PATCH mm-hotfixes v4 2/4] x86/mm/pat: acquire init_mm write
- lock to avoid UAF
-Message-ID: <aloU00ZYF-Iy_7tY@lucifer>
-References: <20260716-series-vmap-race-fix-v4-0-8c108c4317df@kernel.org>
- <20260716-series-vmap-race-fix-v4-2-8c108c4317df@kernel.org>
- <aloSXsTLOSepa5fA@willie-the-truck>
+	Fri, 17 Jul 2026 11:47:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=grrlz.net;
+	s=stigmate; t=1784288867;
+	bh=UuNCZ/AlfnTLbXwSf9IRvKCeJDW/6x4U6WFFHiQkOD0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=HsI1KhOsxfYd3AEqgxK2bxpYhq93tpzqcFfEmiWuTXnwUfKCezuspgJYWHAl+qcPQ
+	 GCFW2k1IgB8pH/22pKRCNUXsJO9E+ploXc62KP4izVXWe+pmSVQREk/fmGkyEfyHbZ
+	 qFNxJ7yi8bKEI75haN4hV/ypwL+AFxsvvicLE7LA=
+Received: from mx1.investici.org (unknown [127.0.0.1])
+	by confino.investici.org (Postfix) with ESMTP id 4h1p7R3Nn3z119K;
+	Fri, 17 Jul 2026 11:47:47 +0000 (UTC)
+Received: by mx1.investici.org (Postfix) id 4h1p7Q6Cx5z119H;
+	Fri, 17 Jul 2026 11:47:46 +0000 (UTC)
+From: Bradley Morgan <include@grrlz.net>
+To: catalin.marinas@arm.com,
+	will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Bradley Morgan <include@grrlz.net>
+Subject: [PATCH v2] arm64: sleep: factor sleep_save_stash slot lookup into a macro
+Date: Fri, 17 Jul 2026 11:47:46 +0000
+Message-ID: <20260717114746.15109-1-include@grrlz.net>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aloSXsTLOSepa5fA@willie-the-truck>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260717_044753_169370_6FD863B6 
+X-CRM114-Status: GOOD (  15.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,110 +68,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 17, 2026 at 12:30:38PM +0100, Will Deacon wrote:
-> On Thu, Jul 16, 2026 at 10:31:13PM +0100, Lorenzo Stoakes (ARM) wrote:
-> > x86 implements page attribute modification using its Change Page
-> > Attributes (CPA) mechanism.
-> >
-> > This tracks properties of ranges such as cache mode through x86 page
-> > attributes, and as part of that logic manipulates kernel page tables.
-> >
-> > Since commit 41d88484c71c ("x86/mm/pat: restore large ROX pages after
-> > fragmentation") ranges of kernel page table entries can be collapsed into
-> > huge page table entries as part of this logic.
-> >
-> > As part of this collapse, it frees the page tables which the collapsed
-> > entries previously pointed to, and it does so without any relevant locks
-> > being held to preclude concurrent kernel page table walkers.
-> >
-> > The only way this code can be reached is if CPA_COLLAPSE is specified, and
-> > this is only set in set_memory_rox() via:
-> >
-> > set_memory_rox()
-> > -> change_page_attr_set_clr()
-> > -> cpa_flush()
-> > -> cpa_collapse_large_pages()
-> >
-> > Notable users of this are execmem and bpf when manipulating executable
-> > mappings.
-> >
-> > However, this is problematic for ptdump as it walks ranges it does not own
-> > and thus runs the risk of a use-after-free on page tables freed underneath
-> > it.
-> >
-> > In addition, concurrent CPA collapse operations are possible which can also
-> > cause races.
-> >
-> > Resolve the issue by acquiring the mmap write lock on init_mm across the
-> > whole operation.
->
-> Thanks, Lorenzo.
->
-> This ain't worth much here, but all the same:
->
-> Reviewed-by: Will Deacon <will@kernel.org>
+Both __cpu_suspend_enter() and _cpu_resume() open code the same
+MPIDR_EL1 hash lookup to find the current CPU's slot in
+sleep_save_stash. Factor it into a get_sleep_stash_slot
+macro.
 
-Always appreciated :>) thanks!
+Since that macro would be the only remaining user of
+compute_mpidr_hash, inline the hash computation into
+get_sleep_stash_slot and just remove compute_mpidr_hash
+altogether.
 
->
-> with one nit below:
->
-> > diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-> > index d023a40a1e03..d1e63f7d267f 100644
-> > --- a/arch/x86/mm/pat/set_memory.c
-> > +++ b/arch/x86/mm/pat/set_memory.c
-> > @@ -22,6 +22,7 @@
-> >  #include <linux/cc_platform.h>
-> >  #include <linux/set_memory.h>
-> >  #include <linux/memregion.h>
-> > +#include <linux/cleanup.h>
-> >
-> >  #include <asm/e820/api.h>
-> >  #include <asm/processor.h>
-> > @@ -410,7 +411,7 @@ static void __cpa_flush_tlb(void *data)
-> >
-> >  static int collapse_large_pages(unsigned long addr, struct list_head *pgtables);
-> >
-> > -static void cpa_collapse_large_pages(struct cpa_data *cpa)
-> > +static void __cpa_collapse_large_pages(struct cpa_data *cpa)
-> >  {
-> >  	unsigned long start, addr, end;
-> >  	struct ptdesc *ptdesc, *tmp;
-> > @@ -442,6 +443,18 @@ static void cpa_collapse_large_pages(struct cpa_data *cpa)
-> >  	}
-> >  }
-> >
-> > +static void cpa_collapse_large_pages(struct cpa_data *cpa)
-> > +{
-> > +	/*
-> > +	 * Take the mmap write lock on init_mm to:
-> > +	 * - Avoid a use-after-free if raced by ptdump (which takes its own
-> > +	 *   write lock on init_mm).
-> > +	 * - Serialise concurrent CPA walkers.
->
-> The CPA lock should handle those, so I think it's the non-CPA walkers
+No functional change intended.
 
-Ah well no actually, see Denis's patch at [2] - we actually have a race here
-that this doesn't quite solve.
+Signed-off-by: Bradley Morgan <include@grrlz.net>
+---
+Changes since V1:
+- Inline the macro, there only is one user. (Will)
+- Also change the C psuedocode to be correct
 
-But. See my reply at [3] - if people are agreeable to that I'll respin with an
-extra patch to fix that which this change now permits :))
+ arch/arm64/kernel/sleep.S | 103 +++++++++++++++-----------------------
+ 1 file changed, 41 insertions(+), 62 deletions(-)
 
-> that are problematic. Looks like Sashiko reckons it's found some that
-> don't take the mmap_lock at all [1], but this is still a big step in the
-> right direction, fixes the ptdump case and we're not trying to boil the
-> ocean.
->
-> Will
->
-> [1] https://lore.kernel.org/all/20260716215307.14A6E1F000E9@smtp.kernel.org/#t
+diff --git a/arch/arm64/kernel/sleep.S b/arch/arm64/kernel/sleep.S
+index f093cdf71be1..dcf00a4d6233 100644
+--- a/arch/arm64/kernel/sleep.S
++++ b/arch/arm64/kernel/sleep.S
+@@ -7,48 +7,48 @@
+ 
+ 	.text
+ /*
+- * Implementation of MPIDR_EL1 hash algorithm through shifting
++ * Compute the address of the current CPU's entry in sleep_save_stash,
++ * i.e. &sleep_save_stash[hash(MPIDR_EL1)], where the hash is an
++ * implementation of the MPIDR_EL1 hash algorithm through shifting
+  * and OR'ing.
+  *
+- * @dst: register containing hash result
+- * @rs0: register containing affinity level 0 bit shift
+- * @rs1: register containing affinity level 1 bit shift
+- * @rs2: register containing affinity level 2 bit shift
+- * @rs3: register containing affinity level 3 bit shift
+- * @mpidr: register containing MPIDR_EL1 value
+- * @mask: register containing MPIDR mask
+- *
+  * Pseudo C-code:
+  *
+- *u32 dst;
++ *	u64 mpidr = MPIDR_EL1 & mpidr_hash.mask;
++ *	u32 hash = ((mpidr & 0xff) >> mpidr_hash.shift_aff[0]) |
++ *		   ((mpidr & 0xff00) >> mpidr_hash.shift_aff[1]) |
++ *		   ((mpidr & 0xff0000) >> mpidr_hash.shift_aff[2]) |
++ *		   ((mpidr & 0xff00000000) >> mpidr_hash.shift_aff[3]);
++ *	slot = &sleep_save_stash[hash];
++ *
++ * @slot: output register
+  *
+- *compute_mpidr_hash(u32 rs0, u32 rs1, u32 rs2, u32 rs3, u64 mpidr, u64 mask) {
+- *	u32 aff0, aff1, aff2, aff3;
+- *	u64 mpidr_masked = mpidr & mask;
+- *	aff0 = mpidr_masked & 0xff;
+- *	aff1 = mpidr_masked & 0xff00;
+- *	aff2 = mpidr_masked & 0xff0000;
+- *	aff3 = mpidr_masked & 0xff00000000;
+- *	dst = (aff0 >> rs0 | aff1 >> rs1 | aff2 >> rs2 | aff3 >> rs3);
+- *}
+- * Input registers: rs0, rs1, rs2, rs3, mpidr, mask
+- * Output register: dst
+- * Note: input and output registers must be disjoint register sets
+-         (eg: a macro instance with mpidr = x1 and dst = x1 is invalid)
++ * Clobbers: x2 - x8
+  */
+-	.macro compute_mpidr_hash dst, rs0, rs1, rs2, rs3, mpidr, mask
+-	and	\mpidr, \mpidr, \mask		// mask out MPIDR bits
+-	and	\dst, \mpidr, #0xff		// mask=aff0
+-	lsr	\dst ,\dst, \rs0		// dst=aff0>>rs0
+-	and	\mask, \mpidr, #0xff00		// mask = aff1
+-	lsr	\mask ,\mask, \rs1
+-	orr	\dst, \dst, \mask		// dst|=(aff1>>rs1)
+-	and	\mask, \mpidr, #0xff0000	// mask = aff2
+-	lsr	\mask ,\mask, \rs2
+-	orr	\dst, \dst, \mask		// dst|=(aff2>>rs2)
+-	and	\mask, \mpidr, #0xff00000000	// mask = aff3
+-	lsr	\mask ,\mask, \rs3
+-	orr	\dst, \dst, \mask		// dst|=(aff3>>rs3)
++	.macro get_sleep_stash_slot slot
++	mrs	x3, mpidr_el1
++	adr_l	x2, mpidr_hash
++	ldr	x8, [x2, #MPIDR_HASH_MASK]
++	/*
++	 * Following code relies on the struct mpidr_hash
++	 * members size.
++	 */
++	ldp	w4, w5, [x2, #MPIDR_HASH_SHIFTS]
++	ldp	w6, w7, [x2, #(MPIDR_HASH_SHIFTS + 8)]
++	and	x3, x3, x8			// mask out MPIDR bits
++	and	x2, x3, #0xff			// aff0
++	lsr	x2, x2, x4			// hash = aff0 >> rs0
++	and	x8, x3, #0xff00			// aff1
++	lsr	x8, x8, x5
++	orr	x2, x2, x8			// hash |= aff1 >> rs1
++	and	x8, x3, #0xff0000		// aff2
++	lsr	x8, x8, x6
++	orr	x2, x2, x8			// hash |= aff2 >> rs2
++	and	x8, x3, #0xff00000000		// aff3
++	lsr	x8, x8, x7
++	orr	x2, x2, x8			// hash |= aff3 >> rs3
++	ldr_l	\slot, sleep_save_stash
++	add	\slot, \slot, x2, lsl #3	// slot = &sleep_save_stash[hash]
+ 	.endm
+ /*
+  * Save CPU state in the provided sleep_stack_data area, and publish its
+@@ -74,20 +74,8 @@ SYM_FUNC_START(__cpu_suspend_enter)
+ 	mov	x2, sp
+ 	str	x2, [x0, #SLEEP_STACK_DATA_SYSTEM_REGS + CPU_CTX_SP]
+ 
+-	/* find the mpidr_hash */
+-	ldr_l	x1, sleep_save_stash
+-	mrs	x7, mpidr_el1
+-	adr_l	x9, mpidr_hash
+-	ldr	x10, [x9, #MPIDR_HASH_MASK]
+-	/*
+-	 * Following code relies on the struct mpidr_hash
+-	 * members size.
+-	 */
+-	ldp	w3, w4, [x9, #MPIDR_HASH_SHIFTS]
+-	ldp	w5, w6, [x9, #(MPIDR_HASH_SHIFTS + 8)]
+-	compute_mpidr_hash x8, x3, x4, x5, x6, x7, x10
+-	add	x1, x1, x8, lsl #3
+-
++	/* publish this CPU's sleep_stack_data area in its stash slot */
++	get_sleep_stash_slot x1
+ 	str	x0, [x1]
+ 	add	x0, x0, #SLEEP_STACK_DATA_SYSTEM_REGS
+ 	stp	x29, lr, [sp, #-16]!
+@@ -117,18 +105,9 @@ SYM_FUNC_START(_cpu_resume)
+ 	mov	x0, x19
+ 	bl	finalise_el2
+ 
+-	mrs	x1, mpidr_el1
+-	adr_l	x8, mpidr_hash		// x8 = struct mpidr_hash virt address
+-
+-	/* retrieve mpidr_hash members to compute the hash */
+-	ldr	x2, [x8, #MPIDR_HASH_MASK]
+-	ldp	w3, w4, [x8, #MPIDR_HASH_SHIFTS]
+-	ldp	w5, w6, [x8, #(MPIDR_HASH_SHIFTS + 8)]
+-	compute_mpidr_hash x7, x3, x4, x5, x6, x1, x2
+-
+-	/* x7 contains hash index, let's use it to grab context pointer */
+-	ldr_l	x0, sleep_save_stash
+-	ldr	x0, [x0, x7, lsl #3]
++	/* retrieve this CPU's context pointer from its stash slot */
++	get_sleep_stash_slot x1
++	ldr	x0, [x1]
+ 	add	x29, x0, #SLEEP_STACK_DATA_CALLEE_REGS
+ 	add	x0, x0, #SLEEP_STACK_DATA_SYSTEM_REGS
+ 	/* load sp from context */
+-- 
+2.53.0
 
-In the long run I'm looking into RCU-safe page table freeing more generally, but
-obviously here we're trying to get things to a state of vague sanity (and
-probably we're not getting _all_ the races anyway) first.
-
-Cheers, Lorenzo
-
-[2]:https://lore.kernel.org/all/20260626163213.2284080-1-den@openvz.org/
-[3]:https://lore.kernel.org/all/20260716-series-vmap-race-fix-v4-0-8c108c4317df@kernel.org/
 
