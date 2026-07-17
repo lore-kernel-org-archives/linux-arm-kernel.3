@@ -4,28 +4,28 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDB06C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 06:15:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3C82C4450F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 06:15:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HNMoDfSuSxJw6SemBX4XpeIAZF6FAMIZenhTrRJVbbc=; b=RFdWYdkpmFs3MqVTXZ67prDxoy
-	gu2Wc+9hRoS2bX+T34/YYALuGqNXwhW6/JLd5t9zyV3svZEZATlJCmSkYseTtA/+pTXE8m+1kGBUA
-	3Xf/NIoNkrOLFGhv2w2mJr1w0WHOetgPY43Xb3mHFfkNlECd8lZxEFcEugsAoevvUacxMUTikFMUC
-	jiWQAZgsoYbA64dhdHIg8GYlycYbCyEYfGklzxj2azwIqZyd+By2BlTcm35QBoEzxZ2CbZfk05G5n
-	w1SPquJkEykTvBrLdlZ1lTTod5xuuVKBZlC1hJx5IBmzpk0cNlbqvANOavSb95NFqCWeRMEVynNr2
-	4uFfOl3g==;
+	bh=wb2SX77zyxaYXrQzUmclJ/k81+yHIaZBLWgIqd5QYek=; b=i9H6thReqdKJvCRy520gLfw7Zx
+	KTcpc3ZifGBGB/fOnoaGqHYVtdI3rOOJSthxDczDLwSCooTyoFJIRwimbaqRNwivFBsBeFYgVk80t
+	vfiXfurFu4UT9upOEASyBl2q9iCuQZR85CueAWb7zLVcArOYzaA/gnuPBb/jheymE+27+QLw1kGdA
+	uf9DZl8pvZMcsqcjZjkHlnSVt5QNdd1uCsbosXwu2+DWrvjoiO8NBgWfSev5adV5PCdOjMq0GD2kI
+	DoUbkQD1eUQQzWzQhjB3BkRWurb0J0rHXdxiL+gyDNkHhHJwEQWspuqO61AESS10qmirxO5fcmUKQ
+	4f6eCI3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkbrM-00000001EF5-3Hv5;
-	Fri, 17 Jul 2026 06:15:44 +0000
+	id 1wkbrT-00000001EMZ-042N;
+	Fri, 17 Jul 2026 06:15:51 +0000
 Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkbr0-00000001Dwx-0mJB;
-	Fri, 17 Jul 2026 06:15:23 +0000
+	id 1wkbr0-00000001Dwy-0jD5;
+	Fri, 17 Jul 2026 06:15:24 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020; t=1784268902;
@@ -33,28 +33,28 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=HNMoDfSuSxJw6SemBX4XpeIAZF6FAMIZenhTrRJVbbc=;
-	b=kwP+ZcbEqDHqXFtctAmbUthHdgfiiuFcN2xHVOYaUW7PDhIR6C289v7UXiK1eBtTmNxrMm
-	rz8dTIO+98UVlTaDRsll2yY0JCSK1xmhZ8fcr/LSwUsPRvFjXdZx3BSQdpZcczfEDs59du
-	ljx+O0aVL+oPKU/5/haP59Ds0Zhelsb8dYL8uQOqCPVlt2kjUEifhVhKVZqgti+d1LDZjW
-	Yni/3nNOvYDSiJc3WCS8I1bvDfZqJxeK/QjSlWPkZVGeRqJ39ZRrVnnHjcYYtmTBNj8Q8y
-	9kDdXJ8R+z70lvDEPB2ZcU5dZsoZyS9m7S80ob9ywiDoH2FPQ00pcdQOjYr6OA==
+	bh=wb2SX77zyxaYXrQzUmclJ/k81+yHIaZBLWgIqd5QYek=;
+	b=u4eNl9UUcvupBQzTRkd62Gu0i5e4taE85FUWmk/2jcLm9rp2S5n/GfHRkmR+4f8ngi5KAJ
+	MtraBnPkgvXVZxTIMrynXKcN17bVph83CXMLuyexF//+Uqvlil1Taya0TAZI7Z5QHUaG26
+	5F9I4Keypt2pkMjC6Gr/2eYpOVz5mAMsNEXFTYn68ZeVNTQp9Rf8eDGwcx1lvI+aWwzgkR
+	vm5g+VcPXgE7npGpF5ONYgK8WmLrE1ImuT8cX+jDBN2T1DXUjB2iizF/l3ob03D+vq1bY0
+	uKf9eKwKUO/IzEO0/Yj+Xyg5ZBTC5lELET7QPGdAZNR0TyUxza0fwfuUr/FMFw==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020e; t=1784268902;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=HNMoDfSuSxJw6SemBX4XpeIAZF6FAMIZenhTrRJVbbc=;
-	b=zjvF0lrKY5L8Q5gp78MHGd7S8u1KObPwa73KgVbSZReQycUp5yzr9zhhZcUqRJcMuSV3XD
-	+41pq1V3hc4uGiDw==
-Date: Fri, 17 Jul 2026 08:14:49 +0200
-Subject: [PATCH v2 5/7] clocksource/drivers/arm_arch_timer: Remove
+	bh=wb2SX77zyxaYXrQzUmclJ/k81+yHIaZBLWgIqd5QYek=;
+	b=rGP6vb6JJmsFltlNED4hUaJ8a+h2yiSVYkGq/zIdu5++Fs8noFiqCMpoTCpb3SPHjdr84A
+	L4PBLwGCTsOiDKCg==
+Date: Fri, 17 Jul 2026 08:14:50 +0200
+Subject: [PATCH v2 6/7] clocksource/drivers/timer-riscv: Remove
  CONFIG_GENERIC_GETTIMEOFDAY ifdeffery
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260717-vdso-arch-clockmodes-v2-5-756f5a5d1467@linutronix.de>
+Message-Id: <20260717-vdso-arch-clockmodes-v2-6-756f5a5d1467@linutronix.de>
 References: <20260717-vdso-arch-clockmodes-v2-0-756f5a5d1467@linutronix.de>
 In-Reply-To: <20260717-vdso-arch-clockmodes-v2-0-756f5a5d1467@linutronix.de>
 To: Arnd Bergmann <arnd@arndb.de>, Andy Lutomirski <luto@kernel.org>, 
@@ -72,16 +72,16 @@ Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
  loongarch@lists.linux.dev, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784268894; l=1164;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784268894; l=898;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=lW6xuPaawuRjNMiAq3NjJ0vYClBA5grQp8KXYE1QcYY=;
- b=eXGwaK8fUQKZ2qgKSwMeVNdT1BL4zzlDIrGbovIZgFnCvBWvLcRXwdi1C341Kpq1ckzLl7AP7
- MaEHx4ncMWxAJmsA/+HulnDegxAfFq0oPXuQT/WwGPJdnlJvdSM7+yr
+ bh=6yZi1E2ORWX3erxZ2iLgMw+pOXO/qHsB3RdbekGUNbY=;
+ b=rGhEvH4eB3yQp5VIIcgk0f5HSBovo4PTZyNAEZbeclqqk6dXhrkWD3CoKxYIoBOGuJgAsnYhP
+ VCnQJqzmezKD+StMJTmIgFSq9ask+Vsf9Llxdphw8XKMcC+cV2EzgaT
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_231522_386686_922F0D8A 
-X-CRM114-Status: UNSURE (   7.49  )
+X-CRM114-CacheID: sfid-20260716_231522_358117_ED972458 
+X-CRM114-Status: UNSURE (   7.76  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -102,25 +102,25 @@ even if no vDSO is built, the ugly ifdeffery can be removed.
 
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
- drivers/clocksource/arm_arch_timer.c | 4 ----
+ drivers/clocksource/timer-riscv.c | 4 ----
  1 file changed, 4 deletions(-)
 
-diff --git a/drivers/clocksource/arm_arch_timer.c b/drivers/clocksource/arm_arch_timer.c
-index 4adf756423de..a5157d8a8a13 100644
---- a/drivers/clocksource/arm_arch_timer.c
-+++ b/drivers/clocksource/arm_arch_timer.c
-@@ -56,11 +56,7 @@ static struct clock_event_device __percpu *arch_timer_evt;
- static enum arch_timer_ppi_nr arch_timer_uses_ppi __ro_after_init = ARCH_TIMER_VIRT_PPI;
- static bool arch_timer_c3stop __ro_after_init;
- static bool arch_counter_suspend_stop __ro_after_init;
--#ifdef CONFIG_GENERIC_GETTIMEOFDAY
- static enum vdso_clock_mode vdso_default = VDSO_CLOCKMODE_ARCHTIMER;
+diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
+index cfc4d83c42c0..b310e6721fac 100644
+--- a/drivers/clocksource/timer-riscv.c
++++ b/drivers/clocksource/timer-riscv.c
+@@ -98,11 +98,7 @@ static struct clocksource riscv_clocksource = {
+ 	.mask		= CLOCKSOURCE_MASK(64),
+ 	.flags		= CLOCK_SOURCE_IS_CONTINUOUS,
+ 	.read		= riscv_clocksource_rdtime,
+-#if IS_ENABLED(CONFIG_GENERIC_GETTIMEOFDAY)
+ 	.vdso_clock_mode = VDSO_CLOCKMODE_ARCHTIMER,
 -#else
--static enum vdso_clock_mode vdso_default = VDSO_CLOCKMODE_NONE;
--#endif /* CONFIG_GENERIC_GETTIMEOFDAY */
+-	.vdso_clock_mode = VDSO_CLOCKMODE_NONE,
+-#endif
+ };
  
- static cpumask_t evtstrm_available = CPU_MASK_NONE;
- static bool evtstrm_enable __ro_after_init = IS_ENABLED(CONFIG_ARM_ARCH_TIMER_EVTSTREAM);
+ static int riscv_timer_starting_cpu(unsigned int cpu)
 
 -- 
 2.55.0
