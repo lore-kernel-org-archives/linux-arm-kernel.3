@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58620C4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 13:22:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9188DC44516
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 13:22:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yjHSStsJDP//mYX9uSW/6M2wBGGfjxvXziMH/pU21KY=; b=MfV4IULs7PQMRwZmVMSJpi9X9d
-	eqAo9wkNgHgO6thZwfrYu5XEDKT8ZOvgaiBhz8ht8sBOPs8Sg+7Bu9j7Y5MQmUyIHn6B8eDSTwXD3
-	OtEDSmIWhdwZCpiJyZlh3P9sYyxZbsvvNt1swt2itX3Pfy2UmG+C7yTX0SzoNwEb67H0gnZMXem8r
-	IUleDYr9j8kE74uOnpjZv4P+ETSyWhnCSuhVBx18AEVzYNwM7S8i5+cLbYIFyHuuoXFX0GBb2iyZs
-	a46rqdBAfU8iNb2uAEQSNHmRBU02ZxIIJIF46DDgQYXIdnrjx6GQyKOz0b27O/stdSDUsp1qt6uOd
-	aVE8l7Fw==;
+	bh=1kOJD1kFJV3xUAdZQqjPuTblJam8XpEuYK8dAO5fXE8=; b=hFul5a/DrtItnrbMCIw9VAlMa3
+	QhmwMcdvmtCEUFA6qjPVwLfbKnUAuGWeHL/5qBgl6vEGGWXir/eLByyCLsS7B3dzMCOT/o00tdkzQ
+	W7sD8Z3yIsNaFN/n566F8E/AGYoCsCipra8uE6DfkfD2VqBBeaAy+G8EGzEOmGthzn4KSakfr88+m
+	IBULhc98vcbJxpsD4QC/GLBlvP8LUZDzBQWR0Z81B7do9NJcoIPqzU6AhZefe8J4LCXoeSYmrwqWc
+	WmO/xHt/iRED+RsHU/bSfuVsk4Ws1NggxpzJrCLeb7ydVk4eVVQIMKSUgc/s0Z21/AWF+6g0qUn5H
+	h4ICfhFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkiWD-00000002OkG-0v3k;
-	Fri, 17 Jul 2026 13:22:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkiWA-00000002Ojb-0dRJ
+	id 1wkiWS-00000002OnH-1WCE;
+	Fri, 17 Jul 2026 13:22:36 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkiWR-00000002Omq-08SW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 13:22:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6F3231476;
-	Fri, 17 Jul 2026 06:22:11 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 060EE3F7D8;
-	Fri, 17 Jul 2026 06:22:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784294535; bh=ZpoCI9ofx2p/ua+KhEMRhGi82OXdAYlebI0ztnF7GEI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=K6AyEy3StxJcwPLr/m61NkJzXizkRu07Wyuz+kg41HvvKbPRzZqm+z8Wm0ev8hoxp
-	 OyjIi/WvIUkh3uwZOORa4hYvZ6Idk9ltbu1Ve2kAUkf/IiuFVW4JH1CDAgs8CstcX0
-	 KFIJXYHoTIb3Gq6WTIH4HCNgywrD0MHc3LdKI6H4=
-Date: Fri, 17 Jul 2026 14:22:07 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Vladimir Murzin <vladimir.murzin@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	broonie@kernel.org, catalin.marinas@arm.com, james.morse@arm.com,
-	maz@kernel.org, oupton@kernel.org, tabba@google.com,
-	will@kernel.org
-Subject: Re: [PATCH 17/18] arm64: fpsimd: Move SME save/restore inline
-Message-ID: <alosf_mrqeX668xC@J2N7QTR9R3>
-References: <20260521132556.584676-1-mark.rutland@arm.com>
- <20260521132556.584676-18-mark.rutland@arm.com>
- <ahWpST4K3rbMbjWK@J2N7QTR9R3>
- <08e5ce52-be74-4fc5-a0b2-8f405a5eff99@arm.com>
- <ahW8Eba3SNqfVDdk@J2N7QTR9R3>
- <ahXMkPEpgaZQf_Nk@J2N7QTR9R3>
- <ahlYC2qgqzNQxggP@J2N7QTR9R3>
+	Fri, 17 Jul 2026 13:22:35 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7F46841A1B;
+	Fri, 17 Jul 2026 13:22:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 437F81F000E9;
+	Fri, 17 Jul 2026 13:22:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784294554;
+	bh=1kOJD1kFJV3xUAdZQqjPuTblJam8XpEuYK8dAO5fXE8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=OB4sFjOkMLYMxOjflQc8muxxUs7V133H6x2O2zK7+3/xed0458zrQpJMT+12MhxY4
+	 nKD+Cc9opUf7loxx6rwHFe4jJ8hBDuhqbv2/fj6MnZnCOoVQpq7gaX6zbcPnL9umQP
+	 6soeO8bkJ9JInsJ7RhCPnxaQsYsegFkvffk1mHtCig7WaB50U0QzztYyJUGueA/tlF
+	 TTuj3PJw/fHgmxJZ56T6MOGua/mXXxsDureJt/nzkgNNGQjg5ProYnI06dCLsFRZ/p
+	 YPoJ/SIPW2ISEYtNm34v5SkEg2TJvt+TBpVpAA7Z+BlxTuT2BXIhUweT1BCmdJSpcg
+	 S/cvLb5rIm6Lg==
+Date: Fri, 17 Jul 2026 14:22:28 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Joy Zou <joy.zou@oss.nxp.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Ye Li <ye.li@nxp.com>,
+	Jacky Bai <ping.bai@nxp.com>, Peng Fan <peng.fan@nxp.com>,
+	Dong Aisheng <aisheng.dong@nxp.com>, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 2/3] regulator: pfuze100: add set_suspend_disable for LDO
+ ops
+Message-ID: <ad97113a-0898-415e-83e9-0e5db54a30a3@sirena.org.uk>
+References: <20260716-b4-regulator-pf01-v1-0-8c1519d54bd4@oss.nxp.com>
+ <20260716-b4-regulator-pf01-v1-2-8c1519d54bd4@oss.nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="uKYEymIBh1Me1XMm"
 Content-Disposition: inline
-In-Reply-To: <ahlYC2qgqzNQxggP@J2N7QTR9R3>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_062218_231783_A19A949C 
-X-CRM114-Status: GOOD (  20.40  )
+In-Reply-To: <20260716-b4-regulator-pf01-v1-2-8c1519d54bd4@oss.nxp.com>
+X-Cookie: Enjoy yourself while you're still old.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,44 +80,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 29, 2026 at 10:10:35AM +0100, Mark Rutland wrote:
-> On Tue, May 26, 2026 at 05:38:40PM +0100, Mark Rutland wrote:
-> > On Tue, May 26, 2026 at 04:28:17PM +0100, Mark Rutland wrote:
-> > > On Tue, May 26, 2026 at 03:39:56PM +0100, Vladimir Murzin wrote:
-> > > > I suspect you are intentionally not using "Ucj" constrain to limit register allocator,
-> > > > if so I'm wondering why?
-> > > 
-> > > Thanks for the suggestion; that was ignorance rather than intent.
-> > > 
-> > > I was not aware of "Ucj" as it doesn't appear on the public GCC
-> > > documentation:
-> > > 
-> > >   https://gcc.gnu.org/onlinedocs/gcc/Machine-Constraints.html
-> > > 
-> > > Looking at the machine description file, that's marked with '@internal',
-> > > so IIUC GCC folk don't seem to expect/want people to use it. That said,
-> > > LLVM seems to support it.
-> > > 
-> > > I'll go check that all relevant toolchains support this, and poke GCC
-> > > folk to see if they're happy to promote that to a public constraint.
-> > 
-> > GCC folk seem happy to make this public, which is great! I'll cross-link
-> > a thread here if/when patches appear.
-> 
-> Alex Coplan sent a patch for GCC to make this public:
-> 
->   https://gcc.gnu.org/pipermail/gcc-patches/2026-May/718560.html
 
-Just for posterity, that was merged in GCC commit:
+--uKYEymIBh1Me1XMm
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-  090f3e78a10b5ce14fd80de82d3e8dda8af1cae6 ("aarch64: Make Uc[ij] constraints public")
+On Thu, Jul 16, 2026 at 11:50:54AM +0800, Joy Zou wrote:
+> Add set_suspend_disable callback to pfuze100_ldo_regulator_ops to
+> support regulator-off-in-suspend DTS property for VGEN regulators.
+> This allows unused LDO regulators to be properly disabled during
+> system suspend, reducing power consumption.
 
-... which can be found at:
+> +static int pfuze100_set_suspend_disable(struct regulator_dev *rdev)
 
-  https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=090f3e78a10b5ce14fd80de82d3e8dda8af1cae6
+This looks to be only used for LDOs but is named like it applies to all
+regulators the driver supports.
 
-... so we should be able to use that in future once our minimum
-supported toolchains are GCC 14.1.0+ and and LLVM 18.1.0+.
+> +{
+> +	struct pfuze_chip *pfuze100 = rdev_get_drvdata(rdev);
+> +	int id = rdev_get_id(rdev);
+> +
+> +	/*
+> +	 * Set VGENxSTBY and clear VGENxLPWR so that the LDO output is
+> +	 * disabled when the PMIC receives a STANDBY event.
+> +	 * EN=1, LPWR=0, STBY=1 results in output Off when STANDBY is asserted.
+> +	 */
+> +	return regmap_update_bits(pfuze100->regmap,
+> +				  pfuze100->regulator_descs[id].stby_reg,
+> +				  PFUZE100_VGENxSTBY | PFUZE100_VGENxLPWR,
+> +				  PFUZE100_VGENxSTBY);
+> +}
 
-Mark.
+This is a fixed bit in the register, but I see other regulators have
+_stby_mask configuration.  Are you sure that all the LDOs in all the
+regulators covered by this driver have this feature with this exact
+control bit?
+
+--uKYEymIBh1Me1XMm
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmpaLJMACgkQJNaLcl1U
+h9DJTwf+JXmWWGEhODznp7wN0yDnSK3YWvaKUh1/0xQaa0wJUAiNuME7187VMBmJ
+Bv9HmnfG90F/7d6ZKZKzyF7yfYF4GdBMac9cUnb9g7hWg9fDe9nbWgKf7CTDhJzR
+KfrE2QY62rkYYLXQ/87FFBjB6W8dEd1/yB4tkTsJ9ZdhaSckyNRSgwu9/0sWkGA2
+1zvHyJQnDeLRGoQgYUrCzfGdwbGyMOgbn1mVrXJJHs7Mkg+t2v6+hBOYAbPVmwK9
+bGGwI+GQMS5UrRVEgTOk4F6HkqQRnN7zO245kTV4dp+qeTZTo7UbPhV/6Ks69XYg
+K6jZslVrBD6V8jlziX9iDCzADUhkHA==
+=IpOL
+-----END PGP SIGNATURE-----
+
+--uKYEymIBh1Me1XMm--
 
