@@ -4,94 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9F10C44512
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 01:12:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94CC0C44512
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 01:21:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1uPNpnjtf15pOqkeyn/OTIVkD0Q5Q/QxgSoCVuNMeg0=; b=wtP4Umbh00GRql1wx/dt2DWgpX
-	ULt/jzjNam43lqyboRKxd0lM0dCWitkHD1vYeiqf2m0OD8hLkdbc3jKbw9mDrUxBGcD53LjXNNZrM
-	qKfe6WccKK+ay5sr+W43Zci2L29LV0eNto6JzaTjCE5v61q93ijkWeBpmDupjFnG5qYiG3fTqJm8c
-	j+bs+BEI6dkhM8dyQCwqJhK9yNW3tRz+CaR+ZXIBcrAFfg2Ruk6ZxGd/WkWE+vesLnZkl1EJjyGV0
-	A6nYGKXT7NP+nNtaNY9Hd8IieYmV0PgVpyVRNDfqLPb7RPlJvaSuCj0IwXo/bYPPrzIK75If1699P
-	q6ASlrlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=esipi9dulbIpBE+N+GyY4DlvuRO65cVZjy0tHJ/qhiA=; b=KZWRtankK68zggxhFjKUYopfGr
+	q6vUlOjNn9K0/1pjX9Xxc7nt4AOGr5PWYG0mn+7fiZGaZ/Ju/AMns+iLXhmJoL7jX2hWxo7ZTfr6b
+	4Gr6pY+ObueeUj2SFw8RA3cZlUOdIxkVfpvwhCA5R94A/a6Dp/yYwqWePv9YqRQWaIGVu+2NF29I5
+	qNAYn1FLY6YEHyA2aQryg1m0KTxBqpjRH/pS6/Z61U6x0G25hM53AR2qfpEqB0STO6bjakF8pwF+B
+	VW7ndQz6lX+Btk+yj0mSWenfWYWxcPLvOvpXnuHuxA2T3HMfgVEMAE0iLM98Tz58d5sxR5LIb0DvB
+	eqnNhF5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkWW9-00000000qTf-3m5i;
-	Fri, 17 Jul 2026 00:33:29 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1wkXGp-00000000tUY-1kuS;
+	Fri, 17 Jul 2026 01:21:43 +0000
+Received: from mail-northcentralusazon11020097.outbound.protection.outlook.com ([52.101.193.97] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkWW7-00000000qTJ-3hKi
+	id 1wkXGm-00000000tU9-2d5o
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 00:33:29 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2ceaf8a1265so67398635ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 17:33:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784248406; x=1784853206; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=1uPNpnjtf15pOqkeyn/OTIVkD0Q5Q/QxgSoCVuNMeg0=;
-        b=Za8d8sySNHTarE+BXqbE35z6sKZ4YWDezksgXdSS5QyqzfZI5TKh3XoXr7zd4eicbV
-         l9wzrpnaEW21mvLl2knb+RBKl72BNMv+mmqPMX6t3Z4DProkR4ICNtzXrZ4k0VTFZPh5
-         HubFZQuEJhRibhiiELXMCffd8EhlLNanE+ulL+NKb76xNnr6gBnQZKmCAtK6mDQaqgVR
-         iPeU9fO0eAOOWoeePiSUGt8z/niFbegm8o6xkon+RPAzVqD+IwN4Ysnm0ISRRZy9iPeW
-         C0+fJkF43D5nX8yVJHiWSEE78xLjc5MhKS8btiAnFhiN21TKEIjUSfTVb7foyZMpyqKL
-         FSYw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784248406; x=1784853206;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=1uPNpnjtf15pOqkeyn/OTIVkD0Q5Q/QxgSoCVuNMeg0=;
-        b=VRg84YuJNyDJeVayzN/1NK46AnoPlhgSqQdKoHx/RpEKbT67ddrt2N95KD6heHhkqE
-         Cn/2qIFo1XzLp1sd3om8ViNuTEmq+x80lSWjgZk9tBLmRX/185QEArl7RxAU0NprRNtW
-         sUznn2VMvdd1hxf/jwg7VaqvoDwf2E1mRWm+UDrU0+Pz4KWzSxlcZ6EO4p7en3UwfkJh
-         ThXM7PR2Mz1ieVCYDHMBH/425xZTYs5s+a3HA3IdQrEaZkePIxHFWFcrFPksVo4LWV/z
-         FN0NS7PQjHdOq/uDR24BGzlgwYGBIrAObnSlkxAy7IpzWqT/+pS+fmaUdT75yWzVddTd
-         9BiA==
-X-Forwarded-Encrypted: i=1; AHgh+RoKwAthrFhbEznA/Th2RkrcSt1qrNfixV6viDnIDDuWx5BvO/UDdpUd/PRtAg8bKa0RGh0NuEtCR4fzOLxdnB6P@lists.infradead.org
-X-Gm-Message-State: AOJu0YwtfRVcSxWn70us8IqqLaIih7ipC6bwWCBRS4rh599Ly+Cc6HAT
-	nKH1O4xnPJGdHcBa8QRnRhWljsbcFflXoAROG/gutcf0apV1tTvCBuso
-X-Gm-Gg: AfdE7clXzS3Wvlxz5Lh65ob2utMfpBS89R9dDhBn+HBTg9KEW3Yoc3B/SZjFWNvXhgW
-	57HdkKrgLOiIXOGMTzigoek9ApKCx+o1oG+jZ6zy0Knzhi2Ju5K2K9tVIGelBAb7TG6baKJt/iV
-	0BIZDA6dqnnXkB3/p7gcoQrQPWO+gR5ivb9yISwhK8slepyOsyPkpLPCx6EqjIqYmugbc8Z9ccq
-	EVo42aQ1+u3n6/Cf4Xv3KA1MTmm/C0EEaqpr4Dh/BcGTYhnPo4DZub+DgfKLUS5abzD8FloTU8+
-	f7TBGKneIajoWXavJp16A8s+FX6CzhEl4uQmb10JpoFp1VX0MRcXQQbo/ZWMWKkxvihMz/SLBJn
-	wTaj8n9sJD4aKm3wCVckT7pAeFH1Oih8EDm9+P6WXQhQCx5yKApFhXa6tbeBkRElq8iI/SV3KiB
-	8UG7GRE3Kg3PvGxVueYL08X2iI4356erRUQ6k6/a9cpo9X8vP2iEx5yw==
-X-Received: by 2002:a17:903:3807:b0:2c2:bd7f:ccd4 with SMTP id d9443c01a7336-2cf349175f9mr3229355ad.21.1784248406238;
-        Thu, 16 Jul 2026 17:33:26 -0700 (PDT)
-Received: from [172.19.1.42] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf344f4481sm1139735ad.32.2026.07.16.17.33.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 16 Jul 2026 17:33:25 -0700 (PDT)
-Message-ID: <c95a8d31-f84a-471c-b216-f4cac5faf464@gmail.com>
-Date: Fri, 17 Jul 2026 08:33:22 +0800
-MIME-Version: 1.0
+	Fri, 17 Jul 2026 01:21:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ajK+JQUIKrY4sd7lSvPtbxV5nKqk5xLIXzw5n0W7frgz7rwpTp41BBxAiEQOXPe4mm2ncdHkZOQprV0kXWxczZsehEBSmzauSVhHbm+BJkCs3F8MXXrxb/TcHEHhGQwX6F+/w7EtRNSuzIBwtl77Qduhkf95cwHJYAri2Cvq+WHCPF5FKY4nlqjVvLH1Z7hAVGHI7Sut3b7FbguaxstdaC//VRd5raxl21Pa8aLA/23BnCBQYdTLP0UPQtIHxtGgVS5MJYpVVnw87ShD2xw2nQEtZTiI9lF5RrWH9jiXS85HxPxeORA8cuEQSUJ+Ys1ZyUfKM21Zj3ULW5Ee8mngsQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=esipi9dulbIpBE+N+GyY4DlvuRO65cVZjy0tHJ/qhiA=;
+ b=LT9YlaziljlfR2V9A15nAEoTe3x0T9oWHPW2X+fWFiGOrDt4xo3F1cwzUrrcRYRMtSlDBESu+3ztX8Dl5oz+uYYDitjBrUWgEiQ3kLYdch/1u1scHEFFP8x7nSK84OjA7+P6suF1NuVLBgUrCmJOrkUDRKIrivaPDLwmAk3KnG9seojKzNxrYwgBGvfoRMWh9thsSFK6jGZ6nKBPSmxLZpNKp2YRXTsqBlFfA+aT0xpcKRyN6RkdF+fSzLvJpEj3asqhk7+I0ADCO/aM7dKmCpDuzx2kqU3NQMyWmCGqaVJlWh/rHu402CFwMTcsYjwsaZeGG5BPn2ZTqR6oqtmw3g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=axiado.com; dmarc=pass action=none header.from=axiado.com;
+ dkim=pass header.d=axiado.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=esipi9dulbIpBE+N+GyY4DlvuRO65cVZjy0tHJ/qhiA=;
+ b=FrAmylXH8DC7Ne1E3I2Wa9Da595R5l8q0w07QhzeiSwb2IsKhAkfjpkbhnJLXfOPxYElECdOaSww9ao03eCkzRPpXgO8SScSe+ReWDMZMOC/ICfhdGZxIWi5LGeRP0TnkQbHjYoJHhtVudg0LCv8AUe6IgQJ3/6/Xjdm7BL4KfzR9Rb3eiHGhvHWEMithMT+BEHibFmtgvJe8HLFXlibcSImuUWFBx0xhtn65N/w5l4Mu/zUinwGbjXuYure1Ny+1WmZJ4Izt7YScKHleJxEtlbx5ik1ly60dxesovG+qPNXcHG3v1v5oGGmZkU3QNTKa5lMjYyTaBjYMt4Q4SQFSQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=axiado.com;
+Received: from PH0PR18MB4558.namprd18.prod.outlook.com (2603:10b6:510:ac::13)
+ by DSVPR18MB445268.namprd18.prod.outlook.com (2603:10b6:8:380::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.12; Fri, 17 Jul
+ 2026 01:21:35 +0000
+Received: from PH0PR18MB4558.namprd18.prod.outlook.com
+ ([fe80::ba9:422:da8:b963]) by PH0PR18MB4558.namprd18.prod.outlook.com
+ ([fe80::ba9:422:da8:b963%6]) with mapi id 15.21.0223.011; Fri, 17 Jul 2026
+ 01:21:35 +0000
+Message-ID: <3763f165-f981-4078-9f7b-09bc45c78622@axiado.com>
+Date: Fri, 17 Jul 2026 09:21:29 +0800
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/2] pwm: Add Nuvoton MA35D1 PWM controller support
-To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-pwm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- cwweng@nuvoton.com, Trevor Gamblin <tgamblin@baylibre.com>
-References: <20260617025925.2539334-1-cwweng.linux@gmail.com>
- <20260617025925.2539334-3-cwweng.linux@gmail.com>
- <alj1UapHAq9f_MiF@monoceros>
+Subject: Re: [PATCH 1/2] spi: axiado: merge identical if/else branches in
+ ax_transfer_one()
+To: Babanpreet Singh <bbnpreetsingh@gmail.com>,
+ Mark Brown <broonie@kernel.org>
+Cc: Vladimir Moravcevic <vmoravcevic@axiado.com>,
+ Swark Yang <syang@axiado.com>, Prasad Bolisetty <pbolisetty@axiado.com>,
+ Karthikeyan Mitran <kmitran@axiado.com>, kernel test robot <lkp@intel.com>,
+ Julia Lawall <julia.lawall@inria.fr>, linux-spi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260713060807.7-1-bbnpreetsingh@gmail.com>
+ <20260713060807.7-2-bbnpreetsingh@gmail.com>
 Content-Language: en-US
-From: Chi-Wen Weng <cwweng.linux@gmail.com>
-In-Reply-To: <alj1UapHAq9f_MiF@monoceros>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+From: Tzu-Hao Wei <twei@axiado.com>
+In-Reply-To: <20260713060807.7-2-bbnpreetsingh@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: TP0P295CA0003.TWNP295.PROD.OUTLOOK.COM (2603:1096:910:2::9)
+ To PH0PR18MB4558.namprd18.prod.outlook.com (2603:10b6:510:ac::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH0PR18MB4558:EE_|DSVPR18MB445268:EE_
+X-MS-Office365-Filtering-Correlation-Id: e38df724-fc48-42e0-e0b6-08dee3a1be02
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|42112799006|1800799024|376014|22082099003|18002099003|4143699003|10067099003|56012099006;
+X-Microsoft-Antispam-Message-Info: 8YK1KocyNspiI256iLjqwr/DUGmwVPstIz6kHrX+KpdFWQac5dr0xR54WS8spQoH+KO5g40jTMZWZpi0qraxDsAOqLoZdn1Cdx4H1QuaggdfNStx1ifcq89QhNo4goX1e1LkvIsFSIq7n82faGB1rY7a1KALyyELiMHwWBvY5/EAbrTVjngu6wsHN1VwEbWcX4zY/RS5sf7AjT8MI2XmkxwN20LcQ8ko3YOHlrvLuJLGn8WopYWTBfAJMqeDH1YIb/P4U2eu2+EGJUgPvyJUaH3fo8f+hvg0tlEDDJSO43FnXV2zDHKp0FMh3S73ZJA32jpc01BYA5LyEWHmkjI//0jdO+oqc+/+WCZ48b0rs9bTO05cM5O60gRAGClewRxc9FaJXUmUgZrl3vOq3DHs9Ur02S0Si+bLBkPayvRznEdN9RCQFjPIkKUBH/u1ASLnnHUkSl8lzNGvks2BBSE8eGEugxJCiUoFH5Lprba9EhkdjhInlLfhKwcL+DXyeCGehATlo0tEX+xH7unxkJX+yNUdkNrXFOI0kMU4BwdhChfknfFu57RyEOxHfucmXCTj9Q/fFSHx3HAtv8xO5I9/ACcHf2iX1DRpVAms2DPHyhC/X2s2tMgo07F/nM3StpUSjP/qO4b5eIKoEPVpwRpoFBDaqcPaldM15pClzDRBS7I=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR18MB4558.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(42112799006)(1800799024)(376014)(22082099003)(18002099003)(4143699003)(10067099003)(56012099006);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eWdDNGR1VjdqU0EvV3IrNEswRElJNWFwZ21ibVNaLzYzdkt2MjY3bFQ1R2k4?=
+ =?utf-8?B?aUJabnBVQnJ3ZVJ0KzRlcDhQalZnVkMwVDRGY09pL0k5SnROQmY1UmNlSExt?=
+ =?utf-8?B?ZWdpK0E1QWxDcmhOWEFHYXRERTgxWncrZ2l6ZFA3U3hPNUlmQ09zVFp4SDly?=
+ =?utf-8?B?M1FQeGs1QlR0VDVKVWt6WDJWSE54TXh4S2hCeUhORllUYlAzVUlyM2htTWF2?=
+ =?utf-8?B?TjF0MU5iazBZVFZEaUR1b2xlTmZhY3BjcHcyUjJwdFlKUVp1UnExbnYwaHVV?=
+ =?utf-8?B?NFlrVDlEbnNBNjhBM0VEYU1DUGVZUFdzSVhOUU9nZCtzVVp0UTR5SmVYT3Z1?=
+ =?utf-8?B?b1V5UW94b1VoNEdtVnUvejFpYWs1RTFtTW82YS9jb3E3RDB4UEdnTituR1ZT?=
+ =?utf-8?B?cmpVcmJ0ZURVYjg2ZWRmVUlVYUFXeUNWWldmRWNwNnh4cS9hOXJhQ3pRYzYy?=
+ =?utf-8?B?VTQ3YjR4STduMzNsMXQwU3lVY1paNHhFeWZadkZLRFIvUG81ZXJUZjJoVVla?=
+ =?utf-8?B?d0NPWmFZZVJjZ1ZvRlpGK1FncEJYNER2Z2h3cHlIbU1oR1lENDlRN20reFNw?=
+ =?utf-8?B?MFFpdk9KQ0p6VXJZVEIxWFgzZHlKdjk3ZXBJc0J1aDA2ZE83ck9xenpaZ0FX?=
+ =?utf-8?B?VmcwRzFOa0p2VEJKQk80dE4yOGhITU9pU0JlSGZKUk12b3o2MzFGbmdacyt0?=
+ =?utf-8?B?T2tEYVFockdQakFmL0kzcEN3Ti9lbjZoWVlqNmhKendKYmpkdVpER0hTUTI2?=
+ =?utf-8?B?dVBkNTRQcThQbnA0em9uTURwL1plNVpBazZ6Zjh3Smw2TUsxbis2MUZKQVpC?=
+ =?utf-8?B?SDExOSsydEQyeFVsODdDUFo2QXRSTmFsSytoMzFHY1RlUTNUcEwyOU9KYmNE?=
+ =?utf-8?B?eVF4RkNsRU1UeVlMb3FZYlNybEpqVVV1bmhTc3NlenBZbkNrcnZmanVhaDhi?=
+ =?utf-8?B?cERGT3dPS1FuU1R2Y3pHNHRSeEc5MHB0ZUlyb281ZlROaCsyV0c3Sk5paFh4?=
+ =?utf-8?B?NW80SnQ4VmM4dWdqRXJUOVh4ZHI2b29ZTUswSkpnVVNjT0N5ak1aaFNyMEJj?=
+ =?utf-8?B?VXNYZk1nN0ZzMXlnejZabUJsRVczdldUQXp1cE1aTXdZMVBUeWt1ZGRXYVBD?=
+ =?utf-8?B?S0NGcVBkUmFNenZSK01RUmRXVHplTW5nR3BUT3BnWTZLNTFpTzF6R3paMXJS?=
+ =?utf-8?B?TDdkWkpjcXJHSnhCRHJDaHB1cTVwV2NTTjNNWVJVZHVuZGZPbEUxOG9xQVdX?=
+ =?utf-8?B?bTAreENPNEJEOThZQzZmRUJsV1U4R0dwWGxZa0Mvb0hPTFFYSTduL1N0NHVm?=
+ =?utf-8?B?RWd2dm9FVFFyWnpDQXk3U1FmS3FXcjlIY0UwaGVYK25ubjN4TFkyT3NYV3cw?=
+ =?utf-8?B?VU9tSVMxWko2dmExWnluVktDd0Zsc0xIVFJLSkdnTENXb0ZLaVM1aDhqejlF?=
+ =?utf-8?B?VWxLMEIrTXd1QndFdCtpMHhBWlpRblE2dnlNMXI1ZUxNNzBrUjJpT1BoanFX?=
+ =?utf-8?B?bitGT29RMzFiZkFDcmE0UXhXVFQ1WERVR0g4bUpVMG92V3MwK1hRNDczOFpk?=
+ =?utf-8?B?T2RnRmVTS0tSclFQYmI2TEc0UngvY0pWZFRPSXdFMGMrYVN5Qm93bFRoNkQz?=
+ =?utf-8?B?dWFwalZvSzNmZFFYYnpMMVpUWHprNkUweWtkbGZuUXlzOTdLTERSTzBJci9Q?=
+ =?utf-8?B?aWFueXVkaGNUaUtERWNYcWlrVVZPZGQvblYwaEMvZThhWU5ta2xMa2dTY0tY?=
+ =?utf-8?B?Tkx3Si9jNzkvaHFkMEl5TVdkRXFQdWpXcm93ekV3UUcxdzdkOFEwVTVXQXVu?=
+ =?utf-8?B?amJCZ01VWEU5QkNaZE1qM2x4YUhaMDlIWTF5STAwSDIyeERUMEk3ckNsOUNt?=
+ =?utf-8?B?eVJXeThXY1U0UTVvQi80UWJDck9oSW10YUFpb0dyU01QSk1JZHM3TUNCSGp3?=
+ =?utf-8?B?cXF4UTBPenNRaXV1TFIzM3VjblVyODY2MmtKOVl4M0MvcER3L0ZKaU5IeXNl?=
+ =?utf-8?B?M1EvRlIwa0d3NFl1ZEI4RS9hZUlnRk5YMzV3YWxodm9OcFIwdFFFTU53VU5U?=
+ =?utf-8?B?VnFaa2FFY2VnRW4xVGcwRHRiRTVtbEx2eGdPM2ZrWVMwUkxnT3pibUE0ODBk?=
+ =?utf-8?B?ZnUrckxoSTZyMURVNEkxTVo3cEVJL2g5RGdjckdEVnZGZFprTUlwM2lwR2Vu?=
+ =?utf-8?B?WG5yWDJobW8yMjk5MEtnSlAxWnVSVFFsZENnOE1GbHUxWnQvaG0waEtWS0xI?=
+ =?utf-8?B?eW9iQ05LZFZBbEYrUGRQdm1pT1MxaG1MSmNUViszVU13WCttOE9DRzRQSTd0?=
+ =?utf-8?B?N01qMk8zVTVSd1JvSHBNWGp2Vzl2M040N1Zvdm1zZDB3MUd3ZzZHZz09?=
+X-OriginatorOrg: axiado.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e38df724-fc48-42e0-e0b6-08dee3a1be02
+X-MS-Exchange-CrossTenant-AuthSource: PH0PR18MB4558.namprd18.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2026 01:21:35.6050
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Q4DJbe2Ln9F3uOK/PvxcRRuH0cIGjfCoIjO5J6vj0rbJ5oH1IJKUSfUMNvw6628I
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DSVPR18MB445268
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_173327_961644_1FAA6957 
-X-CRM114-Status: GOOD (  21.76  )
+X-CRM114-CacheID: sfid-20260716_182140_694324_5E446331 
+X-CRM114-Status: GOOD (  21.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,119 +151,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 7/13/2026 2:08 PM, Babanpreet Singh wrote:
+> CAUTION: This email originated from outside of the organization. Do not click links or open attachments unless you recognize the sender and know the content is safe.
+> 
+> 
+> The else-if arm taken for RX-only and full-duplex transfers and the
+> trailing else arm in the RX bookkeeping setup of ax_transfer_one()
+> have identical bodies, so the second condition has no effect:
+> 
+>   drivers/spi/spi-axiado.c:433:8-10: WARNING: possible condition with
+>   no effect (if == else)
+> 
+> The trailing else arm (neither TX nor RX buffer) is also unreachable:
+> the SPI core only calls the ->transfer_one() callback for transfers
+> that carry at least one buffer, see spi_transfer_one_message().
+> 
+> Merge the two arms into a single else branch and fold their comments.
+> No functional change. The redundant condition has been present since
+> the driver was added in commit e75a6b00ad79 ("spi: axiado: Add driver
+> for Axiado SPI DB controller").
+> 
+> Reported-by: kernel test robot <lkp@intel.com>
+> Reported-by: Julia Lawall <julia.lawall@inria.fr>
+> Closes: https://lore.kernel.org/r/202607121827.djB0zLAj-lkp@intel.com/
+> Assisted-by: Claude:claude-fable-5 [coccinelle]
+> Signed-off-by: Babanpreet Singh <bbnpreetsingh@gmail.com>
+> ---
+>  drivers/spi/spi-axiado.c | 12 ++++--------
+>  1 file changed, 4 insertions(+), 8 deletions(-)
+> 
+> diff --git a/drivers/spi/spi-axiado.c b/drivers/spi/spi-axiado.c
+> index 649f149617ce..c4bc7a50d6c9 100644
+> --- a/drivers/spi/spi-axiado.c
+> +++ b/drivers/spi/spi-axiado.c
+> @@ -430,15 +430,11 @@ static int ax_transfer_one(struct spi_controller *ctlr,
+>                 /* TX mode: discard all received data */
+>                 xspi->rx_discard = transfer->len;
+>                 xspi->rx_copy_remaining = 0;
+> -       } else if ((!transfer->tx_buf && transfer->rx_buf) ||
+> -                  (transfer->tx_buf && transfer->rx_buf)) {
+> -               /* RX mode: generate clock by filling TX FIFO with dummy bytes
+> -                * Full-duplex mode: generate clock by filling TX FIFO
+> -                */
+> -               xspi->rx_discard = 0;
+> -               xspi->rx_copy_remaining = transfer->len;
+>         } else {
+> -               /* No TX and RX */
+> +               /* RX-only or full-duplex mode: copy received data, with the
+> +                * clock generated by filling the TX FIFO (with dummy bytes
+> +                * in RX-only mode)
+> +                */
+>                 xspi->rx_discard = 0;
+>                 xspi->rx_copy_remaining = transfer->len;
+>         }
+> 
+> base-commit: 5f1b513690edf51727e6928b97705b6437f9a98e
+> --
+> 2.43.0
+> 
+Hi Babanpreet,
 
-Uwe Kleine-König 於 2026/7/16 下午 11:29 寫道:
-> Hello,
->
-> On Wed, Jun 17, 2026 at 10:59:25AM +0800, Chi-Wen Weng wrote:
->> +#include <linux/bits.h>
->> +#include <linux/clk.h>
->> +#include <linux/io.h>
->> +#include <linux/math64.h>
->> +#include <linux/mod_devicetable.h>
-> Please don't include that file, <linux/platform_device.h> should pull in
-> the things you need from that file.
->
->> +#include <linux/module.h>
->> +#include <linux/platform_device.h>
->> +#include <linux/pwm.h>
->> +
->> +#define MA35D1_REG_PWM_CTL0			0x00
->> +#define MA35D1_REG_PWM_CTL1			0x04
->> +#define MA35D1_REG_PWM_CNTEN			0x20
->> +#define MA35D1_REG_PWM_PERIOD(ch)		(0x30 + 4 * (ch))
->> +#define MA35D1_REG_PWM_CMPDAT(ch)		(0x50 + 4 * (ch))
->> +#define MA35D1_REG_PWM_WGCTL0			0xb0
->> +#define MA35D1_REG_PWM_WGCTL1			0xb4
->> +#define MA35D1_REG_PWM_POLCTL			0xd4
->> +#define MA35D1_REG_PWM_POEN			0xd8
->> +
->> +#define MA35D1_PWM_CTL1_CNTMODE_MASK(ch)	BIT(16 + (ch))
->> +#define MA35D1_PWM_CTL1_OUTMODE_MASK(ch)	BIT(24 + ((ch) / 2))
->> +
->> +#define MA35D1_PWM_WGCTL_ACTION_MASK		0x3
->> +#define MA35D1_PWM_WGCTL_ACTION_LOW		1
->> +#define MA35D1_PWM_WGCTL_ACTION_HIGH		2
-> If you make this:
->
-> 	#define MA35D1_PWM_WGCTL_ACTION(ch)		GENMASK(2 * (ch) + 2, 2 * (ch))
-> 	#define MA35D1_PWM_WGCTL_ACTION_LOW		1
-> 	#define MA35D1_PWM_WGCTL_ACTION_HIGH		2
->
-> you can drop the static inlines below.
->
->> +
->> +#define MA35D1_PWM_WGCTL_ZERO_HIGH(ch)		\
->> +	(MA35D1_PWM_WGCTL_ACTION_HIGH << (2 * (ch)))
->> +#define MA35D1_PWM_WGCTL_CMP_UP_LOW(ch)		\
->> +	(MA35D1_PWM_WGCTL_ACTION_LOW << (2 * (ch)))
->> +
->> +#define MA35D1_PWM_CNTEN_EN(ch)			BIT(ch)
->> +#define MA35D1_PWM_POEN_EN(ch)			BIT(ch)
->> +#define MA35D1_PWM_POLCTL_INV(ch)		BIT(ch)
->> +
->> +#define MA35D1_PWM_MAX_CMPDAT			0xffff
->> +#define MA35D1_PWM_MAX_PERIOD			0xfffe
->> +#define MA35D1_PWM_MAX_PERIOD_CYCLES		(MA35D1_PWM_MAX_PERIOD + 1)
-> This is irritating with similar names and different values/semantic.
->
->> +#define MA35D1_PWM_NUM_CHANNELS			6
->> +
->> [...]
->> +static int nuvoton_pwm_probe(struct platform_device *pdev)
->> +{
->> [...]
->> +	nuvoton_pwm_init(nvtpwm);
-> This clobbers what the hardware is doing. The idea here is to not modify
-> the hardware settings at probe time to keep e.g. a backlight configured
-> as it was setup by the bootloader and only modify on explicit calls to
-> .apply().
->
->> +
->> +	chip->ops = &nuvoton_pwm_ops;
->> +	chip->atomic = true;
->> +
->> +	ret = devm_pwmchip_add(dev, chip);
->> +	if (ret)
->> +		return dev_err_probe(dev, ret, "Unable to add PWM chip\n");
->> +
->> +	return 0;
->> +}
-> Best regards
-> Uwe
+Thanks for your contribution. It looks good to me.
 
-Hi Uwe,
-
-Thanks for the review.
-
-On the include, I will drop <linux/mod_devicetable.h> as
-<linux/platform_device.h> already provides what is needed here.
-
-For the WGCTL helpers, I will rework this to avoid the extra static inline
-helpers and compute the 2-bit action field mask/value locally when 
-configuring
-a channel. The WGCTL action field is 2 bits wide, so I will use the bit 
-range
-[2 * ch + 1 : 2 * ch] for the mask.
-
-I will also rename the maximum value definitions to make the semantics 
-clearer.
-The intent is to keep PERIOD below the 16-bit register field maximum so that
-CMPDAT can be programmed greater than PERIOD to generate a 100% duty cycle.
-
-Most importantly, you are right about the probe-time initialization. The 
-driver
-should not reconfigure CTL1/WGCTL for all channels during probe, as that can
-disturb a PWM output already configured and enabled by firmware, such as a
-backlight.
-
-In the next version I will remove the controller initialization from 
-probe().
-Instead, the driver will configure only the channel being changed from the
-.apply() callback. The disable path will only clear POENn and CNTENn and 
-will
-not touch the waveform/control configuration.
+Acked-By: Tzu-Hao Wei <twei@axiado.com>
 
 Best regards,
-Chi-Wen
+TH
 
