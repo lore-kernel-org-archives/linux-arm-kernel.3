@@ -4,95 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E42A7C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 10:23:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3E4DC44507
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 10:29:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AT67KQjTJR7dEo6McJ2yM4H/bn6stxcaWzCw0maUZj4=; b=4vrfr2Zl/oH2IC7hkMtPl9gVmS
-	BPya+yoh3jAL7vTJeVp/5JQn6kxeNPS6N70KQB2g2rw3zuMpsWLTHZLTO/EL8jfv7a9LgO1zUdg8w
-	rqHTiMUbvLLDD84rCHk11/BZ+q0xFbx0SRJxmgCuuCjI/ZMijbuyeaSrTakowpWKXLi2tVZJMDgPE
-	0GFGvI+04sHEDsOhRdt3j8zSPNvrkOmw6G1OGttWvmFG2uXF3juHCLXkf4f2mDR4/HKP0KsL2367U
-	krwmpYRb93PnwA2ntiq/gMBBFSkKQmPOJMUjNkgkoB2akYQfNp5+pjggjtbg0oR/vpMDHJtCIO0n2
-	Wyaj60Tg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=PvD5qzugNa/+9F2N07ZM+JzfXI5/FOEBgI8hFqaVygI=; b=4tIf+0qp4SzPqW
+	V7fHXZ/x2fe4ruKZhkP/WYRd7JgP+mpm0Rnjp/cD2BEJKgStaXwWkGzquiqYHCT+bLhKEgMn04QUH
+	yvlIRyYl8yBkq5N6NL4Xcx1N70fT2uZICtKzcLc4u89k/+iKxdstZjhe39yrw6/EE1SK9WOT8nno6
+	fHJZdeDIwFS7NSs6xtPcVjMkY6By/jVTfGBgu2qc1ZZSYYA1s2/Pk8bxEgX2wtEEFHR0vYFFFqyug
+	PEWRSv1RssYO6X+AebQWb/Z4e3ZsthsQ8cJsa2ZNcbjPaNN3xjKEyuXpUY1MXYs4AiogFhZ1l2rjI
+	axr3LFFYJEE5Jmh2Fj6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkfjN-00000001xAf-0YQA;
-	Fri, 17 Jul 2026 10:23:45 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkfjK-00000001x9u-3wo2;
-	Fri, 17 Jul 2026 10:23:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1784283823; x=1815819823;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=tGvidDqf6jtkfzTcLaP8DnYMHTXgmGClLCAu67eKaQY=;
-  b=dmEvF4kHnGvgn1hlqCETkwDEpSA100OHtvH/f9dkgQmwxBNp+oL2MrU9
-   RQuVnfKDqIX2fXGQt7/vDaGQPwSUvzK2163je045ZYmSq45BfFQgpZ9bW
-   jNNrchifQ8btRxcCDl7tEuoCq7G+2SfrSecPHqqECw8V2diOqD4uKb/Tg
-   5chUdk7z3Egx7uy1ZHkdHZ38E0xPcqVSzKRROL7jDA7OzbudOruiVEmXR
-   dDM/DMcpIKwuzHY4sZw1VsYZ+p+ElMLd0VQSkuhhXf0g7Il4rJB4hE14f
-   ZOxBr+54TN/dkHUh8wLRx2NpTktvc62Lr7QJDfvfJDIG2HSv5GaDTQIVZ
-   Q==;
-X-CSE-ConnectionGUID: cgA7JaMfTkia1kYc2TOIQQ==
-X-CSE-MsgGUID: wuoV66JfSeGt84etlJ6yPQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11848"; a="95555317"
-X-IronPort-AV: E=Sophos;i="6.25,169,1779174000"; 
-   d="scan'208";a="95555317"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jul 2026 03:23:41 -0700
-X-CSE-ConnectionGUID: HwnTdJuoTTmMif+Zc0HdWA==
-X-CSE-MsgGUID: Bz+8y56PT0i4xLSMqjGqew==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,169,1779174000"; 
-   d="scan'208";a="258745095"
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.143])
-  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jul 2026 03:23:35 -0700
-Date: Fri, 17 Jul 2026 13:23:32 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Pan Chuang <panchuang@vivo.com>
-Cc: Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Doug Berger <opendmb@gmail.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Hoan Tran <hoan@os.amperecomputing.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Ming Yu <tmyu0@nuvoton.com>, Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>, Yixun Lan <dlan@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Kuppuswamy Sathyanarayanan <sathyanarayanan.kuppuswamy@linux.intel.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	"open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	"moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-	"open list:ARM/RISC-V/RENESAS ARCHITECTURE" <linux-renesas-soc@vger.kernel.org>,
-	"open list:RISC-V SPACEMIT SoC Support" <linux-riscv@lists.infradead.org>,
-	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>,
-	"moderated list:ARM/STM32 ARCHITECTURE" <linux-stm32@st-md-mailman.stormreply.com>
-Subject: Re: [PATCH] gpio: Remove redundant dev_err()/dev_err_probe()
-Message-ID: <aloCpCgDYjps9yQu@ashevche-desk.local>
-References: <20260717083037.284134-1-panchuang@vivo.com>
+	id 1wkfoa-00000001xva-3BCF;
+	Fri, 17 Jul 2026 10:29:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkfoY-00000001xtq-05OW
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Jul 2026 10:29:07 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CE2F51476;
+	Fri, 17 Jul 2026 03:28:58 -0700 (PDT)
+Received: from [10.1.34.162] (e121487-lin.cambridge.arm.com [10.1.34.162])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 42FE53F7D8;
+	Fri, 17 Jul 2026 03:29:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784284142; bh=FKjheZSmV4oiNq3J45v9YMynJqhfh3BCT1jXo+vh9Xw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=anzKG6ySObGODkjpZUZ8+17/EiSf8zJ6HvFrQpzrh8IbFpQDkcLGzIstAYBNpZBPd
+	 rZr8j2bu/Rn2XabLHjRFE0a+BTVmV/ihojOyj9pZVttsUkWUWhhQ3Y4bbiRfKkglNo
+	 /BqdELwJ1XTgTIfjZYNAL+w1fqKZIFk0Z1UAn2to=
+Message-ID: <fedf2b3e-14ed-4483-8cdf-d31f1ac97b84@arm.com>
+Date: Fri, 17 Jul 2026 11:28:59 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260717083037.284134-1-panchuang@vivo.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 10/36] arm64: irqflags: save and use both DAIF and PMR
+To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
+References: <20260709121333.23507-1-vladimir.murzin@arm.com>
+ <20260709121333.23507-11-vladimir.murzin@arm.com>
+ <793f5269-783c-46b6-847e-b943cf3e2a70@huawei.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <793f5269-783c-46b6-847e-b943cf3e2a70@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_032342_992551_45FF89E2 
-X-CRM114-Status: GOOD (  12.20  )
+X-CRM114-CacheID: sfid-20260717_032906_147505_15C3C9A8 
+X-CRM114-Status: GOOD (  25.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,72 +67,272 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org, catalin.marinas@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 17, 2026 at 04:30:33PM +0800, Pan Chuang wrote:
-> Since commit 55b48e23f5c4 ("genirq/devres: Add error handling in
-> devm_request_*_irq()"), devm_request_irq() and devm_request_threaded_irq()
-> automatically log detailed error messages on failure. Remove the
-> now-redundant driver-specific dev_err() and dev_err_probe() calls.
+On 7/10/26 10:02, Jinjie Ruan wrote:
+> 
+> On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
+>> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>>
+>> With pseudo-NMIs enabled, both DAIF and the PMR affect interrupt masking.
+>> Now that we have a type which can track both of them at the same time,
+>> update our irqflags implementation to use it.
+>>
+>> Save DAIF flags in all cases, as they can be manipulated directly by other
+>> code, and the PMR if it is in use.
+>>
+>> When checking if IRQs are disabled, now that we always save DAIF we can
+>> check that the I flag is set and bypass checking the PMR if it is.
+>> We can also properly check if PMR masks interrupts (PMR < GIC_PRIO_IRQON),
+>> now that we don't need to rely on the GIC_PRIO_PSR_I_SET bit being set in
+>> the PMR to know if DAIF is already masking interrupts.
+>> Update `irqs_priority_unmasked()` to align with this change.
+>>
+>> This allows us to remove the `__daif_...` and `__pmr_...` versions
+>> of the save and check functions, as they are now unified.
+>>
+>> We can reasonably merge the two `__{daif,pmr}_irq_restore()` functions
+>> in the main one, as the DAIF and PMR values are properly split now.
+>>
+>> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+>> ---
+>>  arch/arm64/include/asm/irqflags.h | 110 ++++++------------------------
+>>  arch/arm64/include/asm/ptrace.h   |   2 +-
+>>  2 files changed, 23 insertions(+), 89 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/irqflags.h b/arch/arm64/include/asm/irqflags.h
+>> index 7775904ba6a9..62f047702493 100644
+>> --- a/arch/arm64/include/asm/irqflags.h
+>> +++ b/arch/arm64/include/asm/irqflags.h
+>> @@ -95,117 +95,48 @@ static __always_inline void arch_local_irq_disable(void)
+>>  	}
+>>  }
+>>  
+>> -static __always_inline arm64_exc_hwstate_t __daif_local_save_flags(void)
+>> -{
+>> -	return (arm64_exc_hwstate_t){ .daif = read_sysreg(daif) };
+>> -}
+>> -
+>> -static __always_inline arm64_exc_hwstate_t __pmr_local_save_flags(void)
+>> -{
+>> -	return (arm64_exc_hwstate_t){ .pmr = read_sysreg_s(SYS_ICC_PMR_EL1) };
+>> -}
+>> -
+>>  /*
+>>   * Save the current interrupt enable state.
+>>   */
+>>  static __always_inline unsigned long arch_local_save_flags(void)
+>>  {
+>> -	if (system_uses_irq_prio_masking()) {
+>> -		return __pmr_local_save_flags().flags;
+>> -	} else {
+>> -		return __daif_local_save_flags().flags;
+>> -	}
+>> -}
+>> +	arm64_exc_hwstate_t hwstate = { .daif = read_sysreg(daif) };
+>>  
+>> -static __always_inline
+>> -bool __daif_irqs_disabled_flags(arm64_exc_hwstate_t hwstate)
+>> -{
+>> -	return hwstate.daif & PSR_I_BIT;
+>> -}
+>> +	if (system_uses_irq_prio_masking())
+>> +		hwstate.pmr = read_sysreg_s(SYS_ICC_PMR_EL1);
+>>  
+>> -static __always_inline
+>> -bool __pmr_irqs_disabled_flags(arm64_exc_hwstate_t hwstate)
+>> -{
+>> -	return hwstate.pmr != GIC_PRIO_IRQON;
+>> +	return hwstate.flags;
+>>  }
+>>  
+>>  static __always_inline bool arch_irqs_disabled_flags(unsigned long flags)
+>>  {
+>>  	arm64_exc_hwstate_t hwstate = { .flags = flags };
+>>  
+>> -	if (system_uses_irq_prio_masking()) {
+>> -		return __pmr_irqs_disabled_flags(hwstate);
+>> -	} else {
+>> -		return __daif_irqs_disabled_flags(hwstate);
+>> -	}
+>> -}
+>> +	/* If I is set, the PMR doesn't matter: interrupts will not be taken. */
+>> +	if (hwstate.daif & PSR_I_BIT)
+>> +		return true;
+>>  
+>> -static __always_inline bool __daif_irqs_disabled(void)
+>> -{
+>> -	return __daif_irqs_disabled_flags(__daif_local_save_flags());
+>> -}
+>> +	if (system_uses_irq_prio_masking() && hwstate.pmr < GIC_PRIO_IRQON)
+> I think "hwstate.pmr == GIC_PRIO_IRQOFF" is fine, Besides DAIF.I bit set
+> and pmr is GIC_PRIO_IRQOFF, are there any other possible cases?
+> 
 
+Numerically, PMR can hold values ordered as:
 
-...
+  IRQOFF < IRQON < IRQON | GIC_PRIO_PSR_I_SET
 
-> -	if (err != 0) {
-> -		dev_err(chip->parent, "can't request IRQ#%d: %d\n",
-> -			adnp->client->irq, err);
-> +	if (err != 0)
+So hwstate.pmr < GIC_PRIO_IRQON is indeed IRQOFF.
 
-This style is discouraged, so while at it, please replace with
+The only other possibility would be a buggy case with the DAIF.I bit
+clear and PMR set to IRQON | GIC_PRIO_PSR_I_SET.
 
-	if (err)
+So I think we can temporarily add a debug check for that, which would
+disappear together with GIC_PRIO_PSR_I_SET. Something like:
 
->  		return err;
-> -	}
->  
->  	return 0;
+static __always_inline bool arch_irqs_disabled_flags(unsigned long flags)
+{
+	arm64_exc_hwstate_t hwstate = { .flags = flags };
 
-...
+	if (hwstate.daif & PSR_I_BIT)
+		return true;
 
-> +++ b/drivers/gpio/gpio-brcmstb.c
-> @@ -489,10 +489,8 @@ static int brcmstb_gpio_irq_setup(struct platform_device *pdev,
->  					       IRQF_SHARED,
->  					       "brcmstb-gpio-wake", priv);
->  
-> -			if (err < 0) {
-> -				dev_err(dev, "Couldn't request wake IRQ");
-> +			if (err < 0)
+	if (system_uses_irq_prio_masking()) {
+		WARN_ON_ONCE(IS_ENABLED(CONFIG_DEBUG_IRQFLAGS) &&
+			     hwstate.pmr == GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET);
 
-This style might be okay, but has no sense, we know that there is no positive
-out from this function, so, please also replace with
+		return hwstate.pmr != GIC_PRIO_IRQON;
+	}
 
-			if (err)
+	return false;
+}
 
->  				goto out_free_domain;
-> -			}
->  		}
->  		priv->irq_chip.irq_set_wake = brcmstb_gpio_irq_set_wake;
->  	}
+>> +		return true;
+>>  
+>> -static __always_inline bool __pmr_irqs_disabled(void)
+>> -{
+>> -	return __pmr_irqs_disabled_flags(__pmr_local_save_flags());
+>> +	return false;
+>>  }
+>>  
+>>  static __always_inline bool arch_irqs_disabled(void)
+>>  {
+>> -	if (system_uses_irq_prio_masking()) {
+>> -		return __pmr_irqs_disabled();
+>> -	} else {
+>> -		return __daif_irqs_disabled();
+>> -	}
+>> -}
+>> -
+>> -static __always_inline arm64_exc_hwstate_t __daif_local_irq_save(void)
+>> -{
+>> -	arm64_exc_hwstate_t hwstate = __daif_local_save_flags();
+>> -
+>> -	__daif_local_irq_disable();
+>> -
+>> -	return hwstate;
+>> -}
+>> -
+>> -static __always_inline arm64_exc_hwstate_t __pmr_local_irq_save(void)
+>> -{
+>> -	arm64_exc_hwstate_t hwstate = __pmr_local_save_flags();
+>> -
+>> -	/*
+>> -	 * There are too many states with IRQs disabled, just keep the current
+>> -	 * state if interrupts are already disabled/masked.
+>> -	 */
+>> -	if (!__pmr_irqs_disabled_flags(hwstate))
+>> -		__pmr_local_irq_disable();
+>> -
+>> -	return hwstate;
+>> +	return arch_irqs_disabled_flags(arch_local_save_flags());
+>>  }
+>>  
+>>  static __always_inline unsigned long arch_local_irq_save(void)
+>>  {
+>> -	if (system_uses_irq_prio_masking()) {
+>> -		return __pmr_local_irq_save().flags;
+>> -	} else {
+>> -		return __daif_local_irq_save().flags;
+>> -	}
+>> -}
+>> +	unsigned long flags = arch_local_save_flags();
+>>  
+>> -static __always_inline
+>> -void __daif_local_irq_restore(arm64_exc_hwstate_t hwstate)
+>> -{
+>> -	barrier();
+>> -	write_sysreg(hwstate.daif, daif);
+>> -	barrier();
+>> -}
+>> +	if (system_uses_irq_prio_masking())
+>> +		__pmr_local_irq_disable();
+>> +	else
+>> +		__daif_local_irq_disable();
+>>  
+>> -static __always_inline
+>> -void __pmr_local_irq_restore(arm64_exc_hwstate_t hwstate)
+>> -{
+>> -	barrier();
+>> -	write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
+>> -	pmr_sync();
+>> -	barrier();
+>> +	return flags;
+>>  }
+>>  
+>>  /*
+>> @@ -215,11 +146,14 @@ static __always_inline void arch_local_irq_restore(unsigned long flags)
+>>  {
+>>  	arm64_exc_hwstate_t hwstate = { .flags = flags };
+>>  
+>> +	barrier();
+>>  	if (system_uses_irq_prio_masking()) {
+>> -		__pmr_local_irq_restore(hwstate);
+>> +		write_sysreg_s(hwstate.pmr, SYS_ICC_PMR_EL1);
+>> +		pmr_sync();
+>>  	} else {
+>> -		__daif_local_irq_restore(hwstate);
+>> +		write_sysreg(hwstate.daif, daif);
+>>  	}
+>> +	barrier();
+>>  }
+>>  
+>>  #endif /* __ASM_IRQFLAGS_H */
+>> diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
+>> index f7dc5fb9427d..192eb97cd50b 100644
+>> --- a/arch/arm64/include/asm/ptrace.h
+>> +++ b/arch/arm64/include/asm/ptrace.h
+>> @@ -205,7 +205,7 @@ static inline void forget_syscall(struct pt_regs *regs)
+>>  
+>>  #define irqs_priority_unmasked(regs)					\
+>>  	(system_uses_irq_prio_masking() ?				\
+>> -		(regs)->pmr == GIC_PRIO_IRQON :				\
+>> +		(regs)->pmr >= GIC_PRIO_IRQON :				\
+> I think "=== GIC_PRIO_IRQON" is fine.
+> 
 
-...
+Agree. This can be aligned to arch_irqs_disabled_flags() (maybe as a separate
+patch):
 
-> +++ b/drivers/gpio/gpio-max77620.c
-> @@ -356,10 +356,8 @@ static int max77620_gpio_probe(struct platform_device *pdev)
->  	ret = devm_request_threaded_irq(&pdev->dev, gpio_irq, NULL,
->  					max77620_gpio_irqhandler, IRQF_ONESHOT,
->  					"max77620-gpio", mgpio);
-> -	if (ret < 0) {
-> -		dev_err(&pdev->dev, "failed to request IRQ: %d\n", ret);
-> +	if (ret < 0)
->  		return ret;
-> -	}
+static __always_inline bool regs_irqs_disabled(const struct pt_regs *regs)
+{
+	if (regs->pstate & PSR_I_BIT)
+		return true;
 
-Ditto. And so on...
+	if (system_uses_irq_prio_masking()) {
+		WARN_ON_ONCE(IS_ENABLED(CONFIG_DEBUG_IRQFLAGS) &&
+			     regs->pmr == GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET);
 
--- 
-With Best Regards,
-Andy Shevchenko
+		return regs->pmr != GIC_PRIO_IRQON;
+	}
 
+	return false;
+}
 
+What do you reckon?
+
+> otherwise, LGTM
+> Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> 
+>>  		true)
+>>  
+>>  static __always_inline bool regs_irqs_disabled(const struct pt_regs *regs)
+> 
+
+Cheers
+Vladimir
 
