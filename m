@@ -4,72 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD1BFC44507
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 06:46:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 110D5C4450F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 06:51:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ljn3xSFIpmzgYfAeTiaxeOvaiTYt3QuwvY9djnL8ins=; b=nLHEylNlMZeEvoxhpg4Tqb+8F3
-	MRm4+S/POCVJP3XKZjQdKvdc3Mq+fBZiwRWPsEGVrWdj3MBNKBKHhacgLbH5BSSMQ081O14SDtpFQ
-	h0ywZ/KKK4fiqPsdY7Ot7ZPcUzGfSGvnPGj7jroKwhNC1eI/iw8fBY1N5dqCos1P9HoeM8vds2Ek1
-	w+rqwdGeTfMCiDqe7KnNpx1epyj84D6r2PG0OEZt6XMl0ZfnoHfwFWuLLpjoOAt2k9qneniuVLqBx
-	hHFv5aPvHqXTegDFTyNr5ql7A0CylVlPUv5xvXGRTn0XH8DjutNDC4aFd+pYkIzNqTuT/OfUwDzla
-	olE8wOHA==;
+	bh=y+pTr1GF5oCrWiw/EduYNgwy8M8mssLlqIc69r0gSWQ=; b=VWqmyVB4DHUfLijocBcb9ypNFH
+	BHPqq1tY256ZgXYVFMO3T/FhON0+skZfbyYJuy6LVVEb7UUHHD69ZmGHYzOKqeDBs6RlL5NyTxlhR
+	8ICZ12FygNpBdkuTR2hkOVNAIyXW/rg8eNpmzYI/wVnicqAuDL7LBWK/WrtII0gGnVBUqEPO4icDb
+	VQyjuofMy1zCLNCc8gTisCS71OYtVXHI89I07QIcJegySwHBHFjQDtnfKPg3aB935FdpuaMrrkOqO
+	Z780azdK+2gJ/VpfXijSyQnJ4YpMz9qV8I2FomZxwOxshWlrmIwDO1Ve98oaMQuKstDVPw/YICc1j
+	sksFuevQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkcKv-00000001If3-2Odq;
-	Fri, 17 Jul 2026 06:46:17 +0000
-Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
+	id 1wkcPw-00000001Iwj-11J8;
+	Fri, 17 Jul 2026 06:51:28 +0000
+Received: from canpmsgout12.his.huawei.com ([113.46.200.227])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkcKr-00000001IeM-2OhP
+	id 1wkcPt-00000001Ivo-0MkI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 06:46:16 +0000
+	Fri, 17 Jul 2026 06:51:26 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=ljn3xSFIpmzgYfAeTiaxeOvaiTYt3QuwvY9djnL8ins=;
-	b=WlhmqnPZsh63jvo26CQDWVtNRRhvNWtLqWeF9rp4b16t1wkqhJEYq79t8fgAIDUVdH4L1IOHp
-	IrDGMi3nhrJFIsmt2KNNa5jOUgk5rC4JXv7/tSiLGwRDoot7yx0qvAcH8ejjeNRnokGPeF+tiMS
-	iHiqIXMfm1Bk9Wzp5VZCXOU=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4h1gDV6s15z1T4HL;
-	Fri, 17 Jul 2026 14:36:42 +0800 (CST)
-Received: from dggpemf500002.china.huawei.com (unknown [7.185.36.57])
-	by mail.maildlp.com (Postfix) with ESMTPS id 4BF8040538;
-	Fri, 17 Jul 2026 14:45:56 +0800 (CST)
-Received: from [10.174.179.24] (10.174.179.24) by
- dggpemf500002.china.huawei.com (7.185.36.57) with Microsoft SMTP Server
+	bh=y+pTr1GF5oCrWiw/EduYNgwy8M8mssLlqIc69r0gSWQ=;
+	b=TOBVP6wA49XYyUqW5X3onFnQZEKtw4MUSPLDom+Nnl4IQxy/SrCaiozwaaM/FySRT2zKoD2uD
+	bD4c2NeY3KedyUy3Scs20kQjIVPWY/SFxGUiruj4x4+H5gBndVUkKpoSvTkZoKcb6IjhBYjcSOy
+	wPs8s/w6ZpB7+FL6Dm36tko=
+Received: from mail.maildlp.com (unknown [172.19.163.127])
+	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4h1gLB5XByznTtT;
+	Fri, 17 Jul 2026 14:41:38 +0800 (CST)
+Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
+	by mail.maildlp.com (Postfix) with ESMTPS id E343C40572;
+	Fri, 17 Jul 2026 14:51:12 +0800 (CST)
+Received: from [10.67.120.103] (10.67.120.103) by
+ kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 17 Jul 2026 14:45:55 +0800
-Subject: Re: [PATCH] ACPI: APMT: validate node bounds before device
- registration
-To: Pengpeng Hou <pengpeng@iscas.ac.cn>, Lorenzo Pieralisi
-	<lpieralisi@kernel.org>
-CC: Sudeep Holla <sudeep.holla@kernel.org>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, "Rafael J. Wysocki"
-	<rafael@kernel.org>, Len Brown <lenb@kernel.org>,
-	<linux-acpi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20260706093811.81850-1-pengpeng@iscas.ac.cn>
-From: Hanjun Guo <guohanjun@huawei.com>
-Message-ID: <e79f67b2-939a-8884-dc76-80e8c5e7278f@huawei.com>
-Date: Fri, 17 Jul 2026 14:45:54 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101
- Thunderbird/68.6.0
+ 15.2.1544.36; Fri, 17 Jul 2026 14:51:11 +0800
+Message-ID: <3fb4b33e-4618-4523-b140-955e15fd9a8c@huawei.com>
+Date: Fri, 17 Jul 2026 14:51:12 +0800
 MIME-Version: 1.0
-In-Reply-To: <20260706093811.81850-1-pengpeng@iscas.ac.cn>
-Content-Type: text/plain; charset="utf-8"; format=flowed
-Content-Language: en-GB
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.174.179.24]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- dggpemf500002.china.huawei.com (7.185.36.57)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 5/6] KVM: arm64: Add HDBSS fault handling and buffer
+ flush
+To: Leonardo Bras <leo.bras@arm.com>
+CC: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>,
+	<yangjinqian1@huawei.com>, <caijian11@h-partners.com>,
+	<liuyonglong@huawei.com>, <yezhenyu2@huawei.com>, <yubihong@huawei.com>,
+	<linuxarm@huawei.com>, <joey.gouly@arm.com>, <kvmarm@lists.linux.dev>,
+	<kvm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <seiden@linux.ibm.com>,
+	<suzuki.poulose@arm.com>
+References: <20260709104026.2612599-1-zhengtian10@huawei.com>
+ <20260709104026.2612599-6-zhengtian10@huawei.com>
+ <alTw0nwiBDWoFrjB@LeoBrasDK>
+ <9340fa94-6f26-4053-a4ca-0803af725936@huawei.com>
+ <alYUXkub43YxkeH1@LeoBrasDK>
+ <fa0839f9-7d83-4ad1-80e2-7e7dd0280222@huawei.com>
+ <alZFVPkS3lgGdruc@LeoBrasDK>
+From: Tian Zheng <zhengtian10@huawei.com>
+In-Reply-To: <alZFVPkS3lgGdruc@LeoBrasDK>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.120.103]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemr100010.china.huawei.com (7.202.195.125)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_234614_253714_62A900A7 
-X-CRM114-Status: GOOD (  22.56  )
+X-CRM114-CacheID: sfid-20260716_235125_452792_8FDBB64A 
+X-CRM114-Status: GOOD (  30.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,69 +90,311 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Pengpeng,
 
-On 2026/7/6 17:38, Pengpeng Hou wrote:
-> The APMT parser walks variable-length nodes from the ACPI table and
-> passes each node pointer to the platform device that is later consumed by
-> the Arm Coresight PMU driver. The loop only checked that the node start
-> was before the table end before reading the full struct acpi_apmt_node and
-> advancing by node->length.
-> 
-> Validate the fixed node body and the declared node length before using the
-> node. This keeps malformed short nodes from being consumed locally or
-> propagated to the runtime PMU driver as platform data.
-> 
-> Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
-> ---
->   drivers/acpi/arm64/apmt.c | 20 ++++++++++++++++++++
->   1 file changed, 20 insertions(+)
-> 
-> diff --git a/drivers/acpi/arm64/apmt.c b/drivers/acpi/arm64/apmt.c
-> index bb010f6164e5..5f341fa86fab 100644
-> --- a/drivers/acpi/arm64/apmt.c
-> +++ b/drivers/acpi/arm64/apmt.c
-> @@ -23,6 +23,21 @@
->   /* Root pointer to the mapped APMT table */
->   static struct acpi_table_header *apmt_table;
+On 7/14/2026 10:19 PM, Leonardo Bras wrote:
+> On Tue, Jul 14, 2026 at 09:27:15PM +0800, Tian Zheng wrote:
+>> On 7/14/2026 6:50 PM, Leonardo Bras wrote:
+>>> On Tue, Jul 14, 2026 at 03:38:39PM +0800, Tian Zheng wrote:
+>>>> On 7/13/2026 10:06 PM, Leonardo Bras wrote:
+>>>>> On Thu, Jul 09, 2026 at 06:40:25PM +0800, Tian Zheng wrote:
+>>>>>> From: eillon <yezhenyu2@huawei.com>
+>>>>>>
+>>>>>> Add HDBSS fault handling for buffer full, external abort, and general
+>>>>>> protection fault (GPF) events. When the HDBSS buffer becomes full,
+>>>>>> the hardware traps to EL2 with an HDBSSF event, which is handled by
+>>>>>> setting a flush request.
+>>>>>>
+>>>>>> Add kvm_flush_hdbss_buffer() to consume HDBSS buffer entries and
+>>>>>> propagate dirty information into the userspace-visible dirty bitmap.
+>>>>>> Flush is triggered on vcpu_put, check_vcpu_requests, and
+>>>>>> sync_dirty_log.
+>>>>>>
+>>>>>> Add esr_iss2_is_hdbssf() helper for HDBSS fault detection in guest
+>>>>>> abort handling.
+>>>>>>
+>>>>>> Signed-off-by: Eillon <yezhenyu2@huawei.com>
+>>>>>> Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
+>>>>>> ---
+>>>>>>     arch/arm64/include/asm/esr.h           |  5 +++
+>>>>>>     arch/arm64/include/asm/kvm_dirty_bit.h | 11 +++++
+>>>>>>     arch/arm64/include/asm/kvm_host.h      |  1 +
+>>>>>>     arch/arm64/kvm/arm.c                   | 14 ++++++
+>>>>>>     arch/arm64/kvm/dirty_bit.c             | 62 ++++++++++++++++++++++++++
+>>>>>>     arch/arm64/kvm/mmu.c                   |  4 ++
+>>>>>>     6 files changed, 97 insertions(+)
+>>>>>>
+>>>>>> diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
+>>>>>> index 81c17320a588..2e6b679b5908 100644
+>>>>>> --- a/arch/arm64/include/asm/esr.h
+>>>>>> +++ b/arch/arm64/include/asm/esr.h
+>>>>>> @@ -437,6 +437,11 @@
+>>>>>>     #ifndef __ASSEMBLER__
+>>>>>>     #include <asm/types.h>
+>>>>>>
+>>>>>> +static inline bool esr_iss2_is_hdbssf(unsigned long esr)
+>>>>>> +{
+>>>>>> +	return ESR_ELx_ISS2(esr) & ESR_ELx_HDBSSF;
+>>>>> This will return a long, which will be casted as bool.
+>>>>> In general, what I see in the kernel is something like:
+>>>>>
+>>>>> 	return !!(ESR_ELx_ISS2(esr) & ESR_ELx_HDBSSF)
+>>>> ok!
+>>>>
+>>>>
+>>>>>> +}
+>>>>>> +
+>>>>>>     static inline unsigned long esr_brk_comment(unsigned long esr)
+>>>>>>     {
+>>>>>>     	return esr & ESR_ELx_BRK64_ISS_COMMENT_MASK;
+>>>>>> diff --git a/arch/arm64/include/asm/kvm_dirty_bit.h b/arch/arm64/include/asm/kvm_dirty_bit.h
+>>>>>> index 84b12f0a10af..4b28000e972f 100644
+>>>>>> --- a/arch/arm64/include/asm/kvm_dirty_bit.h
+>>>>>> +++ b/arch/arm64/include/asm/kvm_dirty_bit.h
+>>>>>> @@ -10,7 +10,18 @@
+>>>>>>     #include <asm/kvm_pgtable.h>
+>>>>>>     #include <asm/sysreg.h>
+>>>>>>
+>>>>>> +/* HDBSS entry field definitions */
+>>>>>> +#define HDBSS_ENTRY_VALID	BIT(0)
+>>>>>> +#define HDBSS_ENTRY_TTWL_SHIFT (1)
+>>>>>> +#define HDBSS_ENTRY_TTWL_MASK (GENMASK(3, 1))
+>>>>>> +#define HDBSS_ENTRY_TTWL(x) \
+>>>>>> +	(((x) << HDBSS_ENTRY_TTWL_SHIFT) & HDBSS_ENTRY_TTWL_MASK)
+>>>>>> +#define HDBSS_ENTRY_TTWL_RESV HDBSS_ENTRY_TTWL(-4)
+>>>>>> +#define HDBSS_ENTRY_IPA	GENMASK_ULL(55, 12)
+>>>>>> +
+>>>>>>     int kvm_arm_vcpu_alloc_hdbss(struct kvm_vcpu *vcpu, unsigned int order);
+>>>>>>     void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu);
+>>>>>> +void kvm_flush_hdbss_buffer(struct kvm_vcpu *vcpu);
+>>>>>> +int kvm_handle_hdbss_fault(struct kvm_vcpu *vcpu);
+>>>>>>
+>>>>>>     #endif /* __ARM64_KVM_DIRTY_BIT_H__ */
+>>>>>> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+>>>>>> index c41ec6d9c45a..cecfb884a64f 100644
+>>>>>> --- a/arch/arm64/include/asm/kvm_host.h
+>>>>>> +++ b/arch/arm64/include/asm/kvm_host.h
+>>>>>> @@ -55,6 +55,7 @@
+>>>>>>     #define KVM_REQ_GUEST_HYP_IRQ_PENDING	KVM_ARCH_REQ(9)
+>>>>>>     #define KVM_REQ_MAP_L1_VNCR_EL2		KVM_ARCH_REQ(10)
+>>>>>>     #define KVM_REQ_VGIC_PROCESS_UPDATE	KVM_ARCH_REQ(11)
+>>>>>> +#define KVM_REQ_FLUSH_HDBSS			KVM_ARCH_REQ(12)
+>>>>>>
+>>>>>>     #define KVM_DIRTY_LOG_MANUAL_CAPS   (KVM_DIRTY_LOG_MANUAL_PROTECT_ENABLE | \
+>>>>>>     				     KVM_DIRTY_LOG_INITIALLY_SET)
+>>>>>> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+>>>>>> index bf6688245d83..566953a4e23a 100644
+>>>>>> --- a/arch/arm64/kvm/arm.c
+>>>>>> +++ b/arch/arm64/kvm/arm.c
+>>>>>> @@ -755,6 +755,9 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
+>>>>>>     		kvm_vcpu_put_hw_mmu(vcpu);
+>>>>>>     	kvm_arm_vmid_clear_active();
+>>>>>>
+>>>>>> +	if (vcpu->kvm->arch.enable_hdbss)
+>>>>>> +		kvm_flush_hdbss_buffer(vcpu);
+>>>>>> +
+>>>>>>     	vcpu_clear_on_unsupported_cpu(vcpu);
+>>>>>>     	vcpu->cpu = -1;
+>>>>>>     }
+>>>>>> @@ -1157,6 +1160,9 @@ static int check_vcpu_requests(struct kvm_vcpu *vcpu)
+>>>>>>     		if (kvm_dirty_ring_check_request(vcpu))
+>>>>>>     			return 0;
+>>>>>>
+>>>>>> +		if (kvm_check_request(KVM_REQ_FLUSH_HDBSS, vcpu))
+>>>>>> +			kvm_flush_hdbss_buffer(vcpu);
+>>>>>> +
+>>>>>>     		check_nested_vcpu_requests(vcpu);
+>>>>>>     	}
+>>>>>>
+>>>>>> @@ -1971,7 +1977,15 @@ long kvm_arch_vcpu_unlocked_ioctl(struct file *filp, unsigned int ioctl,
+>>>>>>
+>>>>>>     void kvm_arch_sync_dirty_log(struct kvm *kvm, struct kvm_memory_slot *memslot)
+>>>>>>     {
+>>>>>> +	/*
+>>>>>> +	 * Flush all CPUs' dirty log buffers to the dirty_bitmap.  Called
+>>>>>> +	 * before reporting dirty_bitmap to userspace. Send a request with
+>>>>>> +	 * KVM_REQUEST_WAIT to flush buffer synchronously.
+>>>>>> +	 */
+>>>>>> +	if (!kvm->arch.enable_hdbss)
+>>>>>> +		return;
+>>>>>>
+>>>>>> +	kvm_make_all_cpus_request(kvm, KVM_REQ_FLUSH_HDBSS | KVM_REQUEST_WAIT);
+>>>>>>     }
+>>>>>>
+>>>>>>     static int kvm_vm_ioctl_set_device_addr(struct kvm *kvm,
+>>>>>> diff --git a/arch/arm64/kvm/dirty_bit.c b/arch/arm64/kvm/dirty_bit.c
+>>>>>> index 6c7a6ef66b5a..002366337637 100644
+>>>>>> --- a/arch/arm64/kvm/dirty_bit.c
+>>>>>> +++ b/arch/arm64/kvm/dirty_bit.c
+>>>>>> @@ -50,3 +50,65 @@ void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu)
+>>>>>>
+>>>>>>     	vcpu->arch.hdbss.hdbssbr_el2 = 0;
+>>>>>>     }
+>>>>>> +
+>>>>>> +void kvm_flush_hdbss_buffer(struct kvm_vcpu *vcpu)
+>>>>>> +{
+>>>>>> +	int idx, curr_idx;
+>>>>>> +	u64 *hdbss_buf;
+>>>>>> +	struct kvm *kvm = vcpu->kvm;
+>>>>>> +
+>>>>>> +	if (!kvm->arch.enable_hdbss)
+>>>>>> +		return;
+>>>>>> +
+>>>>>> +	curr_idx = HDBSSPROD_IDX(read_sysreg_s(SYS_HDBSSPROD_EL2));
+>>>>>> +
+>>>>>> +	/* Do nothing if HDBSS buffer is empty or br_el2 is NULL */
+>>>>>> +	if (curr_idx == 0 || vcpu->arch.hdbss.hdbssbr_el2 == 0)
+>>>>>> +		return;
+>>>>>> +
+>>>>>> +	hdbss_buf = page_address(phys_to_page(vcpu->arch.hdbss.base_phys));
+>>>>>> +	if (!hdbss_buf)
+>>>>>> +		return;
+>>>>>> +
+>>>>>> +	guard(write_lock_irqsave)(&vcpu->kvm->mmu_lock);
+>>>>>> +	for (idx = 0; idx < curr_idx; idx++) {
+>>>>>> +		u64 gpa;
+>>>>>> +
+>>>>>> +		gpa = hdbss_buf[idx];
+>>>>>> +		if (!(gpa & HDBSS_ENTRY_VALID))
+>>>>>> +			continue;
+>>>>>> +
+>>>>>> +		gpa &= HDBSS_ENTRY_IPA;
+>>>>>> +		kvm_vcpu_mark_page_dirty(vcpu, gpa >> PAGE_SHIFT);
+>>>>> You mention that it does not support dirty-ring, but above function will
+>>>>> mark the page as dirty in the dirty-ring :/
+>>>>>
+>>>> In kvm_arm_enable_hdbss_global(), we explicitly check and reject HDBSS
+>>>> enablement if dirty-ring is active:
+>>>>
+>>>> ```
+>>>> if (kvm->dirty_ring_size)
+>>>>       return 0;
+>>>> ```
+>>>>
+>>>> So when kvm_flush_hdbss_buffer() runs (which requires enable_hdbss = true),
+>>>> we know for certain that
+>>>>
+>>>> kvm->dirty_ring_size == 0. Therefore, kvm_vcpu_mark_page_dirty() will always
+>>>> take the dirty_bitmap path,
+>>>>
+>>>> never the dirty-ring path.
+>>>>
+>>>> That said, I'll add a comment in kvm_flush_hdbss_buffer() before dirty ring
+>>>> mode is supported, to make this explicit:
+>>>>
+>>>> ```
+>>>> /*
+>>>>    * HDBSS is mutually exclusive with dirty-ring mode (see
+>>>>    * kvm_arm_enable_hdbss_global()), so kvm_vcpu_mark_page_dirty()
+>>>>    * will update the dirty_bitmap, not the dirty-ring.
+>>>>    */
+>>>> ```
+>>>>
+>>> Got it :)
+>>>
+>>> Out of curiosity: which issues have you found on supporting dirty-ring at
+>>> this point?
+>>>
+>>> Thanks!
+>>> Leo
+>>
+>> I haven't looked deeply into dirty-ring yet — my main concern is that if
+>> both the dirty
+>>
+>> ring and HDBSS buffer fill up, the flush path might get blocked or
+>> complicated.
+>>
+>> For now, I'm planning to match the HDBSS buffer size to the dirty ring size
+>> in v5 and test it.
+>>
+>> Ideally, the two buffers would be the same size, and the entire dirty
+>> tracking path would use
+>>
+> Ah, I see the point.
+>
+> IIRC, when dirty-ring gets full, the kernel returns to userspace with
+> run->exit_reason == KVM_EXIT_DIRTY_RING_FULL, which will warn the VMM to
+> drain the dirty-ring, and that makes space for us draining HDBSS to the
+> dirty-ring again.
+>
+> The best way to achieve that, as I remember, is to always drain
+> HDBSS as much as possible at guest_exitting. That will make more space to
+> newer HDBSS entries, and we can get userspace to drain the dirty-ring
+> earlier.
+>
+> I would say to even make HDBSS buffer half (entries) the dirty-ring. Then
+> we can generally fully drain to the dirty-ring and even report ring full
+> if the ring is above a given threshold percentage full.
 >   
-> +static bool __init apmt_node_valid(struct acpi_table_apmt *apmt, u64 offset,
-> +				   u64 end)
-> +{
-> +	struct acpi_apmt_node *node;
-> +
-> +	if (offset > end || end - offset < sizeof(*node))
-> +		return false;
-> +
-> +	node = ACPI_ADD_PTR(struct acpi_apmt_node, apmt, offset);
-> +	if (node->length < sizeof(*node))
-> +		return false;
-> +
-> +	return node->length <= end - offset;
-> +}
-> +
->   static int __init apmt_init_resources(struct resource *res,
->   				      struct acpi_apmt_node *node)
->   {
-> @@ -129,8 +144,13 @@ static int __init apmt_init_platform_devices(void)
->   	apmt = (struct acpi_table_apmt *)apmt_table;
->   	offset = sizeof(*apmt);
->   	end = apmt->header.length;
-> +	if (end < sizeof(*apmt))
-> +		return -EINVAL;
+>> HDBSS exclusively — no fallback to the legacy dirty bitmap path. If that
+>> works, I think this approach should be fine.
+>>
+>> Let me know if you have any insights on dirty ring's full-buffer behavior —
+>> that would be helpful.
+>>
+>>
+> Will do!
+>
+> Thanks!
+> Leo
 
-This means the firmware reports the wrong length of the ACPI table, it's
-better to print FW_BUG here.
 
-It's a rare case because the APMT is not work at all if the length
-is less than size of the head.
+Thanks for the insights — reusing PML's reservation mechanism makes sense.
 
->   
->   	while (offset < end) {
-> +		if (!apmt_node_valid(apmt, offset, end))
-> +			return -EINVAL;
-Do you have the real bad case? or can you trigger it?
+I think we can*keep the HDBSS buffer at 512 entries* (matching 
+PML_LOG_NR_ENTRIES)
 
-Thanks
-Hanjun
+for now, and *not expose any ioctl for userspace to configure it*. Since 
+the kernel
+
+auto-enables HDBSS, a userspace size knob would be confusing.
+
+
+The reservation logic would be:
+
+- Implement kvm_cpu_dirty_log_size() on arm64 to return the HDBSS buffer 
+entry
+
+count (512, or 0 if HDBSS is not enabled)
+
+- Reuse kvm_dirty_ring_get_rsvd_entries() to reserve space for one full 
+flush:
+
+KVM_DIRTY_RING_RSVD_ENTRIES + hdbss_entries
+
+- So soft_limit = dirty_ring_size - (KVM_DIRTY_RING_RSVD_ENTRIES + 
+hdbss_entries),
+
+guaranteeing a full flush always fits
+
+kvm_flush_hdbss_buffer() at guest_exit pushes via 
+mark_page_dirty_in_slot() ->
+
+kvm_dirty_ring_push() -> kvm_dirty_ring_soft_full, which triggers
+
+KVM_EXIT_DIRTY_RING_FULL when needed.
+
+If soft_limit is hit, KVM_REQ_DIRTY_RING_FULL is set and the next 
+vcpu_run exits
+
+to userspace for QEMU to drain the ring.
+
+*One more thing: *when userspace sets the dirty ring size via
+
+KVM_VM_IOCTL_ENABLE_DIRTY_LOG_RING, we already enforce that
+
+size >= kvm_dirty_ring_get_rsvd_entries(kvm) * sizeof(struct kvm_dirty_gfn)
+
+or size < PAGE_SIZE. With HDBSS, kvm_dirty_ring_get_rsvd_entries() will 
+include the
+
+HDBSS entries via kvm_cpu_dirty_log_size(), so the same check will 
+automatically guarantee
+
+the ring is large enough to accommodate the HDBSS buffer. No additional 
+validation is needed.
+
+Thanks,
+Tian
+
+
 
