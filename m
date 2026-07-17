@@ -4,104 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB0FCC44515
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 16:11:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E45CCC44515
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 16:12:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NQRz/eEv6O1w3b/5Q7E8Jwnz89TBuRefEY3MCKedBO4=; b=y21RdBHL0pQUEwhpInoWTKb7MR
-	C/VM844/Hq9PqP8ol83Sgwt/xaVw+3Dkc/V93NJmS0M093ca+L9LNAqmhW6sLKv/vlROztpFJfO76
-	icXNjSMBXWKrNfrQPZFBDP1iFtyJYwpWoKFozERrINsO49aHom/WQJbnIye2yjKIIaZ1axcSTqJ6W
-	0FKmpv/JrlhC1EL7TfEnMg3whRtOuCxVjKFgX7pRQQHIKtHRyxYwI39XRTOd3OBnDBxQAlu4Pl3p0
-	++9yzaF4Enuzz1F4RV8KE2/zI2TaFYzU20kar8/Sb7P1SKn0I/vWB2R9mgksr/o1qPuBag+XNnOuB
-	t6nsexxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MbA3fqdyYqx3+BHxrbfsEgpUodXHYmdKvkFVVVRQdTE=; b=EIEv7v/k2vZMrb9MJiOjFOZTQR
+	z6BHY9dkqyMUj3Am9oSkEgSwkXGH4boleDqYg6fw+R6X9V8umX4KV/8XtoIxnLTPC3dm8N80/ZmTn
+	mD+ptpSA+lfIz+wRd+cM3G+J7mcWU+UgYYVdLOWjBkzn+V76swIQnBKFjiUkB1rkFnvjUgWyni2sC
+	ehArysFMGWppmQBm4zgfaChJv4SnT5pJW5LY6HF8NKYuC5ze1Ioryrqpxoz2RTOphYyusfUqTyGqt
+	YmiO1V8tLToLtFDXhn+HKwu1iyOOd2wBcoGvcesXPhCsWQYeyHA9w47+t0LKXuiJjth5VaTvLkhJW
+	0DOXgEoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkl9j-00000002i0e-0KS1;
-	Fri, 17 Jul 2026 16:11:19 +0000
-Received: from fhigh-a2-smtp.messagingengine.com ([103.168.172.153])
+	id 1wklAa-00000002i8F-1YcV;
+	Fri, 17 Jul 2026 16:12:12 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkl9g-00000002hzz-40LV
+	id 1wklAW-00000002i7U-3brO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 16:11:18 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id AE2651400086;
-	Fri, 17 Jul 2026 12:11:15 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Fri, 17 Jul 2026 12:11:15 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1784304675;
-	 x=1784391075; bh=NQRz/eEv6O1w3b/5Q7E8Jwnz89TBuRefEY3MCKedBO4=; b=
-	IlqNrBR+vtGjLgPIojRHT4H/x2Z5H8G/x8UD3WqH+NShn2h0jkHsO8RJmIOkdspf
-	peMHLCjqipb+/ylOKymkBVyZknbQUh9keZhh9kk8lNK5MxA4+ifX+/Y7S4phkzvZ
-	gwkM+PEs4GJM29/Itawzhg7UWrvYraVf5ujhu0DyZlSCeNW5y2vZXUxSaPU9LAXl
-	5yHjduHHrKQVTe6V5e6BsvUT6bMVNMr/v3HQCPTmuBLADLj6oBsRdtMxgsNlvTB0
-	Lqk9CNrcqcN8cvAE4P27x2okHKUBNoTh4WHxhLm4pXNB0Hb7WBLMaZzBTA765Xa8
-	Fb6bVYV9zqsHWAnB6rONUQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1784304675; x=
-	1784391075; bh=NQRz/eEv6O1w3b/5Q7E8Jwnz89TBuRefEY3MCKedBO4=; b=P
-	6bRHzLpADkSy9qwZa0HioJhTSUxRVwbzCZVB6K83tNp8/W0IlwOkAiCSgyVbDu8X
-	F5ZPj9/Lhi9tcBKT43IFqNmNIcqR/IKzZTJbdvWLHPxOu0FJtHVizZ672YuIjW25
-	joFx3H1UMs9qRAPtaZIrOIvsci59e+BHz3ecn7eh65BJNflEHj9JYxEa3DhLHu1L
-	fh+vbWbZNTEbWpeUjGABVFI4FB7k6Bs+9xrxJGDG2E1iV/JKO2UTRhiuym3oiF0x
-	l4LVwUQWn3ikQ83Whdl+Qylr8pUXhzyKypVv4Zqkxg9s5usUdQLnHvlbOMHcP9bl
-	dzDF/3fqTe0sRvchVe1Iw==
-X-ME-Sender: <xms:I1RaajJz1CUMhyvmOH4FsJs15wV25Mh7Xww32usFhxN62Fzip2ZNPA>
-    <xme:I1Raah_MmmRCMFGqnMMn4EqrPUDr9I-j9TNwRQT4e6Te0sinhpnbNGUVAKD8kHtdc
-    fUaqK8fB8AkxGoxA7jhQr8OLo5mQM3pL3Fv_L759lnwiCTYkiAJuZk>
-X-ME-Proxy-Cause: dmFkZTGzT199FElmq41wAI354RUlYZG3ogFY7hHBHOXDBDCvD48ghXgZbJ9y9dTSiWP8Mf
-    U6Z6E1ptral2P7tzzwze8OuGLKv3rleaZSKnYbo0emyW3jcCiPAnU/HppblAEoEbpIHF5h
-    49vewLx8CFgg8mu1KLEKgwrFBwqCQ92KuSV8ntq8r+y5AYjeR5JheFLJSitG+E4y3hETqp
-    /RZE3K/dNNE7jwxcCMKo2jfWXVERIT8RYsjjIUK/bm/cVOwnO/Zri1VAbRauAM/Kk9sW39
-    9qMIR4inR8uSWiz+3XJdgk29FaggzzgIhS4gDdy4krKVfuepkQAU6s85ItWTcM+TqnbTVv
-    UrHTdf2NZIYv+SR3trC4XP7ArtYOIs/IFu10qWpyPXvdERlhFQ7w2cwCtytNi+ZT0qxKO6
-    tml/o02/e/LKdrD9KRTMLutRfWA5eaoaWYoivLXWNbGQBSYvIFYbX48bOHN232GOxoUEmB
-    LUfo3NHgjy/sogXJoNSrl8dNkOqtot61jv/66fGA8omEeShgoZ6JtMD18WDW4KRHvEnsNi
-    KTT4nxfjIF9kDkQG9d3OLxUgM2FlkQK5xQ5DzAVwVNJdjhOn9gqs0b8HV1d0bV8jsSUPPU
-    o6l2jd9cG+vtKhlLAjgRVOWVkC9S7rP5evowrN7sYUf4xj8KoOCKIVmxwCpQ
-X-ME-Proxy: <xmx:I1Raatbq9Qw0hu9I_n0J-ePbmeW7_rkpYpIvY4PmeWh2MbUyHDbA1w>
-    <xmx:I1Raaq7gZuxZQXRhUeEjkt3z1oWx4pyZoRTqS_0J1eDZGrWgsAyAZQ>
-    <xmx:I1Raat8I_LIpgfCkXp6Mtaqi6vYwQkvsbARwwPO8sr70TLxs29ns7w>
-    <xmx:I1RaauZshkI0T7qsstPKFP2QGhxIp2yq6hSMKdV3a_xCMhtxGKH7Iw>
-    <xmx:I1Raaif7Gtj-aCk4PnkKP-XB8F9kn2Kzme9yTGmmas6mgwiCFHoYaJ9Z>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 308BD182007E; Fri, 17 Jul 2026 12:11:15 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 17 Jul 2026 16:12:10 +0000
+Date: Fri, 17 Jul 2026 18:12:01 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1784304723;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=MbA3fqdyYqx3+BHxrbfsEgpUodXHYmdKvkFVVVRQdTE=;
+	b=3BGz0ObvZjFzKUZN9C/usZLCuvM7dtgyVvLpUB/4ej2WT/Zeork/TQ/Z8K8hrvEiH88APQ
+	+FOUcRwAkn9mvCaxF+MkRoUrmLoGyVGbKby4W1bLDnrnxaKxzRM++sJiVLSaRnU8phg5uR
+	Pt6fvPksHmc6VT+A3vwlv0mgoabF+0Oxygp9Jx0QdyEF8704HtePC3L+DogE1V9zYX1T80
+	zg2TXLYS+Mf4iJVXDG7XKFYsPsdDw2GNwS+whDVEA+csj7EtJlMalVZdZ9udcH7Ss/JUuX
+	/6jjeZ6dVI3mSTYj+EHl3pSD/gPe/X2QMlz4iCSU7GZA2bUv+sfAH5ylUau/Mw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1784304723;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=MbA3fqdyYqx3+BHxrbfsEgpUodXHYmdKvkFVVVRQdTE=;
+	b=ilOmU0raIeFSzZbr2NrW1NCOoFJ5OkWZpATf10Tuj9Gpj2HtcIM52SKITn1C8X3E4SrHJh
+	BaEox2Rr7sEMy3Dw==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Leo Yan <leo.yan@arm.com>
+Cc: Mohamed Ayman <mohamedaymanworkspace@gmail.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	"moderated list:ARM/CORESIGHT FRAMEWORK AND DRIVERS" <coresight@lists.linaro.org>,
+	"moderated list:ARM/CORESIGHT FRAMEWORK AND DRIVERS" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	"open list:Real-time Linux (PREEMPT_RT):Keyword:PREEMPT_RT" <linux-rt-devel@lists.linux.dev>
+Subject: Re: [PATCH v3] coresight: Fix scheduling while atomic in
+ coresight_cpu_pm_notify()
+Message-ID: <20260717161201.3jkO5o71@linutronix.de>
+References: <20260712210446.14290-1-mohamedaymanworkspace@gmail.com>
+ <20260716214155.2049564-1-mohamedaymanworkspace@gmail.com>
+ <20260717155848.GB3998092@e132581.arm.com>
 MIME-Version: 1.0
-X-ThreadId: AIcAXbcH1-lN
-Date: Fri, 17 Jul 2026 18:10:54 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Ryan Roberts" <ryan.roberts@arm.com>,
- "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
- "Mark Rutland" <mark.rutland@arm.com>,
- "Jean-Philippe Brucker" <jpb@kernel.org>, "Oded Gabbay" <ogabbay@kernel.org>,
- "Jonathan Corbet" <corbet@lwn.net>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org
-Message-Id: <2732dc3b-e3b0-4df6-9b63-f0de4eaca993@app.fastmail.com>
-In-Reply-To: <5f82ee6b-d106-4ae1-9b2c-5a817e3e43b9@arm.com>
-References: <20260717104759.123203-1-ryan.roberts@arm.com>
- <20260717104759.123203-2-ryan.roberts@arm.com>
- <1e561b1a-2c87-4a23-b4da-126b333de8ba@app.fastmail.com>
- <5f82ee6b-d106-4ae1-9b2c-5a817e3e43b9@arm.com>
-Subject: Re: [RFC PATCH v1 1/8] misc/arm-cla: Add driver skeleton and documentation
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260717155848.GB3998092@e132581.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_091117_076704_D8B64E84 
-X-CRM114-Status: GOOD (  33.19  )
+X-CRM114-CacheID: sfid-20260717_091209_071250_F126A113 
+X-CRM114-Status: GOOD (  24.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,101 +87,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 17, 2026, at 17:44, Ryan Roberts wrote:
-> On 17/07/2026 14:49, Arnd Bergmann wrote:
->> On Fri, Jul 17, 2026, at 12:47, Ryan Roberts wrote:
->> This sounds a lot like st64bv or st64bv0, passing an 8-word payload and returning
->> a single word per accelerator operation with shared addressing.
->
-> We're actually passing 9 words here; 8 DATA words plus the LAUNCH word. CLA
-> supports only 64 bit aligned and sized accesses (other accesses are RAZ/WI) so
-> they have to be written as 9x64bit stores. Then poll using 64bit loads.
->
->> 
->> Why are there now two interfaces to do the same thing?
->
-> Good question. This is how the HW operates.
->
->> 
->> Can a user process use st64bv to do the four steps in a
->> single instruction?
->
-> No, unfortunately not.
->
+On 2026-07-17 16:58:48 [+0100], Leo Yan wrote:
+> >  static struct coresight_path *coresight_cpu_get_active_path(enum cs_mode mode)
+> >  {
+> >  	struct coresight_device *source;
+> > -	bool is_active = false;
+> > +	struct coresight_path *path = NULL;
+> >  
+> > -	source = coresight_get_percpu_source_ref(smp_processor_id());
+> > -	if (!source)
+> > -		return NULL;
+> > -
+> > -	if (coresight_get_mode(source) & mode)
+> > -		is_active = true;
+> > +	guard(raw_spinlock_irqsave)(&coresight_dev_lock);
+> >  
+> > -	coresight_put_percpu_source_ref(source);
+> > +	source = per_cpu(csdev_source, smp_processor_id());
+> > +	if (source && (coresight_get_mode(source) & mode))
+> > +		path = source->path;
+> 
+> I agree the get_device()/put_device() pair in
+> coresight_cpu_get_active_path() is not a good fit for CPU PM notifier,
+> because the put_device() can become the final put while IRQ is disabled.
+> 
+> However, my understanding is this patch might cause UAF issue that the
+> existing code is intended to prevent.
+> 
+> The raw spinlock (coresight_dev_lock) serializes access to the per-CPU
+> csdev_source pointer. It does not guarantee the lifetime of the source
+> or its _parent_ device. coresight_unregister() is not only reached from
+> module unload; it can also be called when a driver is unbind, for
+> example DT overlay removal or device hotplug/unplug.
 
-Ok
+But doesn't coresight_unregister() block on the coresight_dev_lock here?
 
->> Can a CPU start multiple asynchronous operations concurrently?
->
-> Yes; STATUS indicates READY while it can accept more asynchronous operations
-> ("comamnds").
+> This is why the UAF issue Sashiko mentioned in patch 03 of [1]. A built
+> CoreSight path currently grabs references for the path components, which
+> keeps module alive, but that is not the same as preventing the parent
+> device/driver from being unbound and tearing down CoreSight device data
+> while an active session still has raw pointers.
+> 
+> There are also similar race window before the path is built: for
+> example etm_setup_aux() has to look up source/sink state before
+> coresight_build_path() establishes the path, so it might access
+> released source/sink data if device is unbound.
+> 
+> I think a proper fix needs a clearer lifetime model for an active
+> session. E.g., we could consider to call device_link_add() to prevent
+> device unbind / unregister, and unlink device when the session is
+> finished. Once that is in place, the CPU PM notifier can safely use the
+> active path without get_device()/put_device() pair anymore.
 
-How does userspace know which operations have already completed
-then? (not worried about this bit, just trying to understand)
+Right. I am also not sure about lifetime of coresight_device::path.
 
->> Do these continue to run if the starting process is scheduled out
->> and another process also tries to use CLA?
->
-> Yes; the driver manages assignment of a CLA to a process context completely
-> separately from the thread scheduler's decisions about which threads run on
-> which CPUs and when. If another process is scheduled onto the CPU and it
-> attempts to access it's VA for the CLA, it will fault into the driver's handler
-> and be put to sleep until the driver decides to reassign the CLA.
+> Hope this is clear and makes sense.
+> 
+> Thanks,
+> Leo
 
-This part does sound dangerous, not in the sense that I think it's
-fundamentally broken, but in the complexity it adds.
-
-I wonder if it's feasible to simplify this by always canceling
-any ongoing CLA operations during switch_mm():
-
-Is there an upper bound on how long a single operation can take,
-or a guarantee that an operation at least provides a partial result
-in hardware?
-
-From your earlier descriptions, it sounds like the CPU is usually
-assumed to wait for completion with WFE anyway, so from the
-scheduler's perspective, the thread is active while waiting for
-the accelerator to complete a job (even if from hardware side
-the CPU is powered down during WFE).
-
-If this is how it generally operates, and the accelerator jobs
-are usually fast, forcing the CLA TTBR0 to be the same as the
-CPU TTBR0 would avoid the entire problem of unmapping the registers
-on context switch, but instead let this hook into the same place
-as the corresponding iommu_mm_data switch on x86, which seems
-to handle this more nicely.
-
-> I'm not sure what you mean by "Which instruction specifically causes the fault".
-> A fault occurs within the accelerator if it tries to access a virtual address
-> that is not mapped by the page table or if the permissions of the mapping are
-> not sufficient, etc... The fact that the accelerator has faulted is reported to
-> the SW that is polling the accelerator's STATUS register within user space. That
-> SW is expected to trigger fault handling by the usual kernel mechanisms by
-> accessing the VA. Then it issues a RESOLVE operation to tell the accelerator it
-> can continue.
-
-Got it now. I had assumed that the page fault is delivered asynchronously
-to the kernel without user space getting involved. In this case, I think
-the interface is actually cleaner, though it does add a little bit
-of overhead for userspace having to decipher the status. 
- 
->>> +User space software is expected to create a thread to drive each CLA it is
->>> +using, and for each thread to be pinned to the CLA's local CPU.
->> 
->> What happens if multiple processes have the same chardev open and
->> each mmap() that, e.g. after a fork()? Does each process see its
->> own virtual instance of the accelerator and interact with it through
->> the same physical MMIO register range but its own process address space,
->> or do you have to rely on the registers being mapped only into a
->> single mm_struct to prevent a process from messing with another process
->> data?
->
-> The driver maintains a cla_ctx for each {file description, mm_struct} pair. So
-> in this case, even though the file description is shared between the parent and
-> child processes, they still have distinct mm_structs so still have separate
-> contexts allowing the driver to virtualize access correctly.
-
-Ok, got it.
-
-     Arnd
+Sebastian
 
