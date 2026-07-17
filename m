@@ -4,59 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6748FC44520
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 12:35:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D42B3C44520
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 12:36:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vW8pWm8rsdK9m5Q0HotqdfGr5xc15Rx6xUUgGdCCdJQ=; b=zV6wP1UuFG/s/rTsJsPWqZAhs2
-	0KX0+01G/7frUiYDwvVc/9nAAVJ+U8gnhtcYvGxO2PyPn98WjgwqvjwCiFsL2C9PmY/kCWU7l8KFi
-	w+ii3gxXEqFVt94mS1evi/YnmTQZBPtF703/pTDHGwmtTdQYfe+qKfF7nTAT3VvqA4hvQrfik++O+
-	q2tXMahQwgg+extJMAiiOcXeEPuq9gBz3/08zWnb2hKo9xPqKGg0Zqom96W1mcV++Fj6A4OKTCxSv
-	7HvRH6iFRdwKBCoz3UU2Ya9wpCVVEu+Ng/cryw98EWDHwqDEnA1rt6BSZG1lEB7Un7tEdoO2VD6wT
-	PWuSEcIA==;
+	bh=SGI+jBXufkLU8VtoZIyAUhAygRKSiHUyX05VgztKA4o=; b=GST3wfnTcslTlQG4dhj1FoVN8L
+	K4HFGnf/BFbcktawUM5Y7uOkBn1iGpc3eOp2v6NAGkIGDFfIiHwlLeWbA6fZzy9tCf3ceytniAdP0
+	YVcU+l5dpmqwsRDikAcg/9OaQ4s8+kX58UkvhTwW4gl6M3zDSUqeD5o4F3h7GYyF4OQK5MU+vayuf
+	RZB8d7yVYwUQ55Ik11iCmzQ8ZCmHBT9UIBNqo1W85UOuhSy3d5fdesVZ/L4hQ5v+aySWG05ntSJ1h
+	aMaSR0pS85ufZL4ti4+U9pS+CUrd4NsXNeen2uqR50wwEKmvixmkApMtkHmIm2RRpIcSIr1CHgyET
+	DkNxrO5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkhnE-00000002Iey-0kbU;
-	Fri, 17 Jul 2026 12:35:52 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkhnD-00000002Ier-33r8
+	id 1wkhny-00000002Iqd-1W4U;
+	Fri, 17 Jul 2026 12:36:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkhnv-00000002Ipu-3bBA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 12:35:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7E7CA40ABD;
-	Fri, 17 Jul 2026 12:35:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 995F31F00A3F;
-	Fri, 17 Jul 2026 12:35:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784291751;
-	bh=vW8pWm8rsdK9m5Q0HotqdfGr5xc15Rx6xUUgGdCCdJQ=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=GCJAeN3usxOsQR1vVrty384kmMqGCBnPsuNew07uH5FHKnERjy4JwrlUR2XVV4ZO5
-	 QbtidVqVs0OVOgQEz0hUZdC0A/mc/1Do6N+jDt+nzq5k/LarE3d7SaBp/k6XTxNEix
-	 W1jdXKT51c1n1BY1qjjhk250vIRPi4zg3iQBNY5hNVXeemWigzwAQPi7zB52OyB4Va
-	 y6Laq7Vddnmb9FvLOtVuIKkPT/uNjl+L0WKqRfjGjeMPQCxOTr6MyCVGnBIiG7KMYx
-	 iUZZ94hpnRpNUksVVTJpMjaqY7wGfjf94l3NMDoUzj9SMPOlgH0jGKhqcoAJCxxzMa
-	 /sHZ4FOzm99CQ==
-From: Vinod Koul <vkoul@kernel.org>
-To: Vignesh Raghavendra <vigneshr@ti.com>, Frank Li <Frank.Li@kernel.org>, 
- Michal Simek <michal.simek@amd.com>, 
- Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Cc: linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org, 
- dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-In-Reply-To: <b0a22171f3ed68e156a2fa84383e99c23ec6b2ff.1784037977.git.christophe.jaillet@wanadoo.fr>
-References: <b0a22171f3ed68e156a2fa84383e99c23ec6b2ff.1784037977.git.christophe.jaillet@wanadoo.fr>
-Subject: Re: [PATCH] dmaengine: Constify struct dma_descriptor_metadata_ops
-Message-Id: <178429174814.1176696.13776361509358729486.b4-ty@kernel.org>
-Date: Fri, 17 Jul 2026 18:05:48 +0530
+	Fri, 17 Jul 2026 12:36:37 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2BA161476;
+	Fri, 17 Jul 2026 05:36:30 -0700 (PDT)
+Received: from [10.57.84.220] (unknown [10.57.84.220])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4DB2D3F7B4;
+	Fri, 17 Jul 2026 05:36:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784291794; bh=cK5CyITB0AQ4m/M1LPMHQsYqVGfmWCfGzBB/iAt08Fo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=SWY4iwE32bOwuSxhu1Kr1LYKKKXPrBMFSFsib240wu2IB7V33T92lfoCNtCvAXPRu
+	 tDR54r1ifr8tF0pN1OPK5iKnW7W6gAVayDho5Y4frWx7ELROJHnFijd5hlJvaDQoFe
+	 ZLPPTRk6SWeGqDpwVM6hbKtrmRZgFqBqIDuSl3bM=
+Message-ID: <c000fe3e-2c10-4b2e-9f3c-852e38be5eb8@arm.com>
+Date: Fri, 17 Jul 2026 13:36:30 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v1 3/8] misc/arm-cla: Probe firmware-described devices
+Content-Language: en-GB
+To: Arnd Bergmann <arnd@arndb.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Jean-Philippe Brucker <jpb@kernel.org>,
+ Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org
+References: <20260717104759.123203-1-ryan.roberts@arm.com>
+ <20260717104759.123203-4-ryan.roberts@arm.com>
+ <7927c483-57ed-4253-a7df-40104ff2b192@app.fastmail.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <7927c483-57ed-4253-a7df-40104ff2b192@app.fastmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.13.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260717_053635_943114_D3FA6965 
+X-CRM114-Status: GOOD (  11.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,30 +76,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Tue, 14 Jul 2026 16:06:33 +0200, Christophe JAILLET wrote:
-> 'struct dma_descriptor_metadata_ops' in not modified in these drivers.
+On 17/07/2026 13:25, Arnd Bergmann wrote:
+> On Fri, Jul 17, 2026, at 12:47, Ryan Roberts wrote:
+>> +
+>> +static const struct of_device_id cla_of_match[] = {
+>> +	{.compatible = "arm,cla",},
+>> +	{},
+>> +};
+>> +MODULE_DEVICE_TABLE(of, cla_of_match);
 > 
-> Constifying these structures moves some data to a read-only section, so
-> increases overall security, especially when the structure holds some
-> function pointers.
+> This is missing a device tree binding, and probably needs to versioned
+> in some form.
+
+Given the aims of the RFC, I didn't think this would be a blocker for now - of
+course it's on the list for if/when we get further along the road.
+
+Thanks,
+Ryan
+
+
 > 
-> On a x86_64, with allmodconfig, as an example:
-> Before:
-> ======
->    text	   data	    bss	    dec	    hex	filename
->  120635	  21584	     64	 142283	  22bcb	drivers/dma/xilinx/xilinx_dma.o
-> 
-> [...]
-
-Applied, thanks!
-
-[1/1] dmaengine: Constify struct dma_descriptor_metadata_ops
-      commit: 338c853b7c3b422fefda195b9b8010e40611c96f
-
-Best regards,
--- 
-~Vinod
-
+>       Arnd
 
 
