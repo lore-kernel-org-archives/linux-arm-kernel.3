@@ -4,72 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C6B6C4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 07:23:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71432C44517
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 07:23:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Gq62rpkOqA5EldYMtV5eRz+hWgcc+sVzllek428B2M=; b=mNwPz1Pb411jwCWkAgUzbJ4zAj
-	JWwG+MJhztUa2hlwGzmPb0i1zqhdx4qiT0vhvT6L41r8g3h9wcQHLVf0Xs/m7gtKVfgvcNKpCfNNJ
-	4ojAK2S7jvVLkjS42fYNpK5+4B1cn9QYePs5T5OW+5DQYPBtbuDI2cXfg9L5tK2bpPVVwGGUNZZhx
-	Qlz6TKvX0DQ1X2KvpF4a9Hlaa2egzoFpcfr/80O7K0HnzwKnPg2X8m2exb8VOXUrV3bc3aga0EV3S
-	5pGmoqbvpjdaSllauTmxe/npN5OLbQR3ArOrBlQdRS46KT5g2bC0DNi7waLUGy2GR825K1b0QDc1E
-	ZmpkAHrQ==;
+	bh=QrkjOTVf61YiZqlRl+i7P0EykPYs03A7HSuM2kJgfsE=; b=o7Vt+iKex2yznRkHS3rPWNDEe2
+	EMnHg58Ocp3cuOPfpmevtZhxD4OP54zAKAPK73vMeKlagQys1YX1cmr86h2ZdsaK3G98Z1citg8bT
+	T8RC2NOSBov+eDgzGVtMfYf5n7VoL+7S+gTQ81wkqOg2b2AAm3vYIQ3vuUcXT9B76/FiPeAdUHAPu
+	fMy9VjbXXer9q2gKrvdoKwuYa37lo1HR39quJ89PmQzKm6CDmOPCLeUlQzJivHQPbbI9s0qIzceim
+	5mHzn6ppK2o6JsQMNQXT9l72unjlZAA7Cw+ePsI86uoAgJLQCIuU0GxMZZJbUKNP1iKiNcN4JK1e1
+	z2oLclTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkcuo-00000001OpS-0v95;
-	Fri, 17 Jul 2026 07:23:22 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wkcvA-00000001Pfq-0lR6;
+	Fri, 17 Jul 2026 07:23:44 +0000
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkcui-00000001Ogv-47O4;
-	Fri, 17 Jul 2026 07:23:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 90C8543D46;
-	Fri, 17 Jul 2026 07:23:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 742C1C2BD01;
-	Fri, 17 Jul 2026 07:23:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1784272996;
-	bh=ahvcE+DWpQoe5wArZj0WZmcJ66iD4odB2tuUtZTfV9I=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=Mctx/yvMoLyQOZkjA3Ds510Qi3dwUtG4anxvHmD9jVzYkf/505tHxXpz874SoM8W2
-	 ZuJ4/J11DUVn4EBPRAwd9FI1DvLrkRFdesmcE3op6WSi8f/HN+fOtGszK8xkszMK6W
-	 R73G4Hp0axZMaOXqwjGHhSuLiJ2w4SnHsCw+2sDOcMOetLpNlJBLmki1KpWK+7XZUt
-	 hSRU7DxI5QHxbhxyPFoN2MsWagYRx6k4tLpyY4WkLLVdStLQMQTPt1rlKK/Esel91/
-	 +hubmVPp6x0PcM+KICa+JPqGEmFomI0q6as2YStxUeeNjmGraBFVLz6qpNhq5QbghX
-	 t3xAQ+ecaIhNA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 63EA7C44517;
-	Fri, 17 Jul 2026 07:23:16 +0000 (UTC)
-From: Joachim Eastwood via B4 Relay <devnull+joachim.eastwood.gmail.com@kernel.org>
-Date: Fri, 17 Jul 2026 09:23:09 +0200
-Subject: [PATCH v4 11/12] arm64: dts: rockchip: rk3588s-nanopi-r6: refactor
- to support M6 boards
+	id 1wkcv3-00000001PNa-1GnH
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Jul 2026 07:23:43 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=QrkjOTVf61YiZqlRl+i7P0EykPYs03A7HSuM2kJgfsE=;
+	b=e5DXECaHoD+0+amPAU6R3XA9FRRzwXhKM6NDEX2faEd6/0Y9GjSW5eU16l0VlKx74YRto3gcW
+	6k5B07e91BvpSlMerrgeRBWcx8FbGQIjnWge19n1Y3M1pRSsCnUMOeG4ugCqN7sEv4rabjjdmLW
+	lt+Y15XZK0vlyWW4GtVOh0M=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4h1h3b4H7nz1prkx;
+	Fri, 17 Jul 2026 15:14:03 +0800 (CST)
+Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
+	by mail.maildlp.com (Postfix) with ESMTPS id 262AF4057D;
+	Fri, 17 Jul 2026 15:23:25 +0800 (CST)
+Received: from [10.67.120.103] (10.67.120.103) by
+ kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.36; Fri, 17 Jul 2026 15:23:24 +0800
+Message-ID: <02713422-0b1f-45c4-a93d-2fc7de2a0b84@huawei.com>
+Date: Fri, 17 Jul 2026 15:23:24 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260717-nanopi-m6-v4-11-b31391a72e41@gmail.com>
-References: <20260717-nanopi-m6-v4-0-b31391a72e41@gmail.com>
-In-Reply-To: <20260717-nanopi-m6-v4-0-b31391a72e41@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, diederik@cknow-tech.com, 
- jonas@kwiboo.se, Joachim Eastwood <joachim.eastwood@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784272993; l=37270;
- i=joachim.eastwood@gmail.com; s=20260701; h=from:subject:message-id;
- bh=TWfE1wLUrFH+vJ7AQscGtP6MIXrA2B2jckzE7oGY5fQ=;
- b=YZgnXRRSTlwvNfoYOcjWx1SKsV+hIfv1EAnl668qbCiycZCrP1uQdKqCX9icpYk6H527pFsUQ
- vvi+f/P/IQYBknpfWkiMp/1N0Kfl/MThpU5G31wpisF2p9zh4/TxMfv
-X-Developer-Key: i=joachim.eastwood@gmail.com; a=ed25519;
- pk=ZN/8xWtdYaSd5oEfloYSZ1a+/ri0n0VZqjlEeHlbXFU=
-X-Endpoint-Received: by B4 Relay for joachim.eastwood@gmail.com/20260701
- with auth_id=846
-X-Original-From: Joachim Eastwood <joachim.eastwood@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 6/6] KVM: arm64: Add auto HDBSS enable/disable on dirty
+ logging change
+To: Leonardo Bras <leo.bras@arm.com>
+CC: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>,
+	<yangjinqian1@huawei.com>, <caijian11@h-partners.com>,
+	<liuyonglong@huawei.com>, <yezhenyu2@huawei.com>, <yubihong@huawei.com>,
+	<linuxarm@huawei.com>, <joey.gouly@arm.com>, <kvmarm@lists.linux.dev>,
+	<kvm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <seiden@linux.ibm.com>,
+	<suzuki.poulose@arm.com>
+References: <20260709104026.2612599-1-zhengtian10@huawei.com>
+ <20260709104026.2612599-7-zhengtian10@huawei.com>
+ <alT7MeK_1ofOhIuv@LeoBrasDK>
+ <6e8b23bc-d420-4f5a-a921-5a5d64d84200@huawei.com>
+ <alYamq9BL5CTaAX7@LeoBrasDK>
+From: Tian Zheng <zhengtian10@huawei.com>
+In-Reply-To: <alYamq9BL5CTaAX7@LeoBrasDK>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.120.103]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemr100010.china.huawei.com (7.202.195.125)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260717_002338_139779_9BAA3F43 
+X-CRM114-Status: GOOD (  53.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,1663 +85,406 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: joachim.eastwood@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Joachim Eastwood <joachim.eastwood@gmail.com>
-
-FriendlyElec NanoPi6 series consists of four distinct boards; R6S, R6C,
-M6 and M6V2. Refactor FriendlyElec NanoPi R6 base dtsi in preparation
-for adding NanoPi M6 support.
-
-Signed-off-by: Joachim Eastwood <joachim.eastwood@gmail.com>
----
- .../arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi | 792 +-------------------
- arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi   | 797 +++++++++++++++++++++
- 2 files changed, 798 insertions(+), 791 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
-index b33e7b15d05e..ac9eebd2b790 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi
-@@ -1,38 +1,8 @@
- // SPDX-License-Identifier: (GPL-2.0+ OR MIT)
- 
--/dts-v1/;
--
--#include <dt-bindings/pinctrl/rockchip.h>
--#include <dt-bindings/gpio/gpio.h>
--#include <dt-bindings/input/input.h>
--#include <dt-bindings/soc/rockchip,vop2.h>
--#include "rk3588s.dtsi"
-+#include "rk3588s-nanopi.dtsi"
- 
- / {
--	aliases {
--		ethernet0 = &gmac1;
--		mmc0 = &sdmmc;
--		mmc1 = &sdhci;
--	};
--
--	chosen {
--		stdout-path = "serial2:1500000n8";
--	};
--
--	adc-keys {
--		compatible = "adc-keys";
--		io-channels = <&saradc 0>;
--		io-channel-names = "buttons";
--		keyup-threshold-microvolt = <1800000>;
--		poll-interval = <100>;
--
--		button-maskrom {
--			label = "Maskrom";
--			linux,code = <KEY_VENDOR>;
--			press-threshold-microvolt = <1800>;
--		};
--	};
--
- 	gpio-keys {
- 		compatible = "gpio-keys";
- 		pinctrl-names = "default";
-@@ -46,17 +16,6 @@ button-user {
- 		};
- 	};
- 
--	hdmi-con {
--		compatible = "hdmi-connector";
--		type = "a";
--
--		port {
--			hdmi_con_in: endpoint {
--				remote-endpoint = <&hdmi0_out_con>;
--			};
--		};
--	};
--
- 	leds {
- 		compatible = "gpio-leds";
- 
-@@ -89,48 +48,6 @@ lan2_led: led-3 {
- 		};
- 	};
- 
--	vcc5v0_sys: regulator-vcc5v0-sys {
--		compatible = "regulator-fixed";
--		regulator-name = "vcc5v0_sys";
--		regulator-always-on;
--		regulator-boot-on;
--		regulator-min-microvolt = <5000000>;
--		regulator-max-microvolt = <5000000>;
--	};
--
--	vcc_1v1_nldo_s3: regulator-vcc-1v1-nldo-s3 {
--		compatible = "regulator-fixed";
--		regulator-name = "vcc_1v1_nldo_s3";
--		regulator-always-on;
--		regulator-boot-on;
--		regulator-min-microvolt = <1100000>;
--		regulator-max-microvolt = <1100000>;
--		vin-supply = <&vcc5v0_sys>;
--	};
--
--	vcc_3v3_s0: regulator-vcc-3v3-s0 {
--		compatible = "regulator-fixed";
--		regulator-always-on;
--		regulator-boot-on;
--		regulator-min-microvolt = <3300000>;
--		regulator-max-microvolt = <3300000>;
--		regulator-name = "vcc_3v3_s0";
--		vin-supply = <&vcc_3v3_s3>;
--	};
--
--	vcc_3v3_sd_s0: regulator-vcc-3v3-sd-s0 {
--		compatible = "regulator-fixed";
--		enable-active-high;
--		gpios = <&gpio4 RK_PB4 GPIO_ACTIVE_HIGH>;
--		pinctrl-names = "default";
--		pinctrl-0 = <&sd_s0_pwr>;
--		regulator-name = "vcc_3v3_sd_s0";
--		regulator-boot-on;
--		regulator-max-microvolt = <3000000>;
--		regulator-min-microvolt = <3000000>;
--		vin-supply = <&vcc_3v3_s3>;
--	};
--
- 	vcc5v0_usb_otg0: regulator-vcc5v0-usb-otg0 {
- 		compatible = "regulator-fixed";
- 		enable-active-high;
-@@ -142,225 +59,6 @@ vcc5v0_usb_otg0: regulator-vcc5v0-usb-otg0 {
- 		regulator-max-microvolt = <5000000>;
- 		vin-supply = <&vcc5v0_sys>;
- 	};
--
--	vcc5v0_host_20: regulator-vcc5v0-host-20 {
--		compatible = "regulator-fixed";
--		enable-active-high;
--		gpios = <&gpio4 RK_PB5 GPIO_ACTIVE_HIGH>;
--		pinctrl-names = "default";
--		pinctrl-0 = <&vcc5v0_host20_en>;
--		regulator-name = "vcc5v0_host_20";
--		regulator-min-microvolt = <5000000>;
--		regulator-max-microvolt = <5000000>;
--		vin-supply = <&vcc5v0_sys>;
--	};
--};
--
--&combphy0_ps {
--	status = "okay";
--};
--
--&combphy2_psu {
--	status = "okay";
--};
--
--&cpu_b0 {
--	cpu-supply = <&vdd_cpu_big0_s0>;
--};
--
--&cpu_b1 {
--	cpu-supply = <&vdd_cpu_big0_s0>;
--};
--
--&cpu_b2 {
--	cpu-supply = <&vdd_cpu_big1_s0>;
--};
--
--&cpu_b3 {
--	cpu-supply = <&vdd_cpu_big1_s0>;
--};
--
--&cpu_l0 {
--	cpu-supply = <&vdd_cpu_lit_s0>;
--};
--
--&cpu_l1 {
--	cpu-supply = <&vdd_cpu_lit_s0>;
--};
--
--&cpu_l2 {
--	cpu-supply = <&vdd_cpu_lit_s0>;
--};
--
--&cpu_l3 {
--	cpu-supply = <&vdd_cpu_lit_s0>;
--};
--
--&gmac1 {
--	clock_in_out = "output";
--	phy-handle = <&rgmii_phy1>;
--	phy-mode = "rgmii-rxid"; /* Vendor provided tx delay value below */
--	phy-supply = <&vcc_3v3_s3>;
--	pinctrl-0 = <&gmac1_miim
--		     &gmac1_tx_bus2
--		     &gmac1_rx_bus2
--		     &gmac1_rgmii_clk
--		     &gmac1_rgmii_bus>;
--	pinctrl-names = "default";
--	tx_delay = <0x42>;
--	status = "okay";
--};
--
--&gpu {
--	mali-supply = <&vdd_gpu_s0>;
--	status = "okay";
--};
--
--&hdmi0 {
--	frl-enable-gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_LOW>;
--	pinctrl-0 = <&hdmim0_tx0_cec &hdmim0_tx0_hpd
--		     &hdmim0_tx0_scl &hdmim0_tx0_sda &hdmi0_tx_on_h>;
--	pinctrl-names = "default";
--	status = "okay";
--};
--
--&hdmi0_in {
--	hdmi0_in_vp0: endpoint {
--		remote-endpoint = <&vp0_out_hdmi0>;
--	};
--};
--
--&hdmi0_out {
--	hdmi0_out_con: endpoint {
--		remote-endpoint = <&hdmi_con_in>;
--	};
--};
--
--&hdmi0_sound {
--	status = "okay";
--};
--
--&hdptxphy0 {
--	status = "okay";
--};
--
--&i2c0 {
--	pinctrl-names = "default";
--	pinctrl-0 = <&i2c0m2_xfer>;
--	status = "okay";
--
--	vdd_cpu_big0_s0: regulator@42 {
--		compatible = "rockchip,rk8602";
--		reg = <0x42>;
--		fcs,suspend-voltage-selector = <1>;
--		regulator-name = "vdd_cpu_big0_s0";
--		regulator-always-on;
--		regulator-boot-on;
--		regulator-min-microvolt = <550000>;
--		regulator-max-microvolt = <1050000>;
--		regulator-ramp-delay = <2300>;
--		vin-supply = <&vcc5v0_sys>;
--
--		regulator-state-mem {
--			regulator-off-in-suspend;
--		};
--	};
--
--	vdd_cpu_big1_s0: regulator@43 {
--		compatible = "rockchip,rk8603", "rockchip,rk8602";
--		reg = <0x43>;
--		fcs,suspend-voltage-selector = <1>;
--		regulator-name = "vdd_cpu_big1_s0";
--		regulator-always-on;
--		regulator-boot-on;
--		regulator-min-microvolt = <550000>;
--		regulator-max-microvolt = <1050000>;
--		regulator-ramp-delay = <2300>;
--		vin-supply = <&vcc5v0_sys>;
--
--		regulator-state-mem {
--			regulator-off-in-suspend;
--		};
--	};
--};
--
--&i2c2 {
--	status = "okay";
--
--	vdd_npu_s0: regulator@42 {
--		compatible = "rockchip,rk8602";
--		reg = <0x42>;
--		fcs,suspend-voltage-selector = <1>;
--		regulator-name = "vdd_npu_s0";
--		regulator-min-microvolt = <550000>;
--		regulator-max-microvolt = <950000>;
--		regulator-ramp-delay = <2300>;
--		vin-supply = <&vcc5v0_sys>;
--
--		regulator-state-mem {
--			regulator-off-in-suspend;
--		};
--	};
--};
--
--&i2c6 {
--	clock-frequency = <200000>;
--	pinctrl-names = "default";
--	pinctrl-0 = <&i2c6m0_xfer>;
--	status = "okay";
--
--	hym8563: rtc@51 {
--		compatible = "haoyu,hym8563";
--		reg = <0x51>;
--		#clock-cells = <0>;
--		clock-output-names = "hym8563";
--		pinctrl-names = "default";
--		pinctrl-0 = <&rtc_int>;
--		interrupt-parent = <&gpio0>;
--		interrupts = <RK_PB0 IRQ_TYPE_LEVEL_LOW>;
--		wakeup-source;
--	};
--};
--
--&i2s5_8ch {
--	status = "okay";
--};
--
--&mdio1 {
--	rgmii_phy1: ethernet-phy@1 {
--		compatible = "ethernet-phy-id001c.c916";
--		reg = <0x1>;
--		pinctrl-names = "default";
--		pinctrl-0 = <&rtl8211f_rst>;
--		reset-assert-us = <20000>;
--		reset-deassert-us = <100000>;
--		reset-gpios = <&gpio3 RK_PB7 GPIO_ACTIVE_LOW>;
--	};
--};
--
--&pcie2x1l1 {
--	pinctrl-names = "default";
--	pinctrl-0 = <&pcie20x1_1_perstn_m2>;
--	reset-gpios = <&gpio1 RK_PA7 GPIO_ACTIVE_HIGH>;
--	vpcie3v3-supply = <&vcc_3v3_s3>;
--	status = "okay";
--};
--
--&pcie2x1l2 {
--	pinctrl-names = "default";
--	pinctrl-0 = <&pcie20x1_2_perstn_m0>, <&pcie20x1m0_clkreqn>;
--	supports-clkreq;
--	reset-gpios = <&gpio3 RK_PD1 GPIO_ACTIVE_HIGH>;
--	vpcie3v3-supply = <&vcc_3v3_s3>;
--	status = "okay";
--};
--
--&pd_gpu {
--	domain-supply = <&vdd_gpu_s0>;
--};
--
--&pd_npu {
--	domain-supply = <&vdd_npu_s0>;
- };
- 
- &pinctrl {
-@@ -392,497 +90,9 @@ lan2_led_pin: lan2-led-pin {
- 		};
- 	};
- 
--	hdmi {
--		hdmi0_tx_on_h: hdmi0-tx-on-h {
--			rockchip,pins = <4 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
--		};
--	};
--
--	hym8563 {
--		rtc_int: rtc-int {
--			rockchip,pins = <0 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
--		};
--	};
--
--	pcie {
--		pcie20x1_1_perstn_m2: pcie20x1-1-perstn-m2 {
--			rockchip,pins = <1 RK_PA7 RK_FUNC_GPIO &pcfg_pull_none>;
--		};
--
--		pcie20x1_2_perstn_m0: pcie20x1-2-perstn-m0 {
--			rockchip,pins = <3 RK_PD1 RK_FUNC_GPIO &pcfg_pull_none>;
--		};
--	};
--
--	sdmmc {
--		sdmmc_det_pin: sdmmc-det-pin {
--			rockchip,pins = <0 RK_PA4 RK_FUNC_GPIO &pcfg_pull_none>;
--		};
--
--		sd_s0_pwr: sd-s0-pwr {
--			rockchip,pins = <4 RK_PB4 RK_FUNC_GPIO &pcfg_pull_up>;
--		};
--	};
--
- 	usb {
- 		typec5v_pwren: typec5v-pwren {
- 			rockchip,pins = <1 RK_PD2 RK_FUNC_GPIO &pcfg_pull_none>;
- 		};
--
--		vcc5v0_host20_en: vcc5v0-host20-en {
--			rockchip,pins = <4 RK_PB5 RK_FUNC_GPIO &pcfg_pull_none>;
--		};
--	};
--
--	rtl8211f {
--		rtl8211f_rst: rtl8211f-rst {
--			rockchip,pins = <3 RK_PB7 RK_FUNC_GPIO &pcfg_pull_none>;
--		};
--	};
--};
--
--&rknn_core_0 {
--	npu-supply = <&vdd_npu_s0>;
--	sram-supply = <&vdd_npu_s0>;
--	status = "okay";
--};
--
--&rknn_core_1 {
--	npu-supply = <&vdd_npu_s0>;
--	sram-supply = <&vdd_npu_s0>;
--	status = "okay";
--};
--
--&rknn_core_2 {
--	npu-supply = <&vdd_npu_s0>;
--	sram-supply = <&vdd_npu_s0>;
--	status = "okay";
--};
--
--&rknn_mmu_0 {
--	status = "okay";
--};
--
--&rknn_mmu_1 {
--	status = "okay";
--};
--
--&rknn_mmu_2 {
--	status = "okay";
--};
--
--&saradc {
--	vref-supply = <&avcc_1v8_s0>;
--	status = "okay";
--};
--
--&sdhci {
--	bus-width = <8>;
--	no-sdio;
--	no-sd;
--	non-removable;
--	mmc-hs200-1_8v;
--	status = "okay";
--};
--
--&sdmmc {
--	bus-width = <4>;
--	cap-sd-highspeed;
--	cd-gpios = <&gpio0 RK_PA4 GPIO_ACTIVE_LOW>;
--	disable-wp;
--	max-frequency = <150000000>;
--	no-mmc;
--	no-sdio;
--	sd-uhs-sdr104;
--	pinctrl-names = "default";
--	pinctrl-0 = <&sdmmc_bus4 &sdmmc_clk &sdmmc_cmd &sdmmc_det_pin>;
--	vmmc-supply = <&vcc_3v3_sd_s0>;
--	vqmmc-supply = <&vccio_sd_s0>;
--	status = "okay";
--};
--
--&spi2 {
--	status = "okay";
--	assigned-clocks = <&cru CLK_SPI2>;
--	assigned-clock-rates = <200000000>;
--	pinctrl-names = "default";
--	pinctrl-0 = <&spi2m2_cs0 &spi2m2_pins>;
--	num-cs = <1>;
--
--	pmic@0 {
--		compatible = "rockchip,rk806";
--		spi-max-frequency = <1000000>;
--		reg = <0x0>;
--
--		interrupt-parent = <&gpio0>;
--		interrupts = <7 IRQ_TYPE_LEVEL_LOW>;
--
--		pinctrl-names = "default";
--		pinctrl-0 = <&pmic_pins>, <&rk806_dvs1_null>,
--			    <&rk806_dvs2_null>, <&rk806_dvs3_null>;
--
--		system-power-controller;
--
--		vcc1-supply = <&vcc5v0_sys>;
--		vcc2-supply = <&vcc5v0_sys>;
--		vcc3-supply = <&vcc5v0_sys>;
--		vcc4-supply = <&vcc5v0_sys>;
--		vcc5-supply = <&vcc5v0_sys>;
--		vcc6-supply = <&vcc5v0_sys>;
--		vcc7-supply = <&vcc5v0_sys>;
--		vcc8-supply = <&vcc5v0_sys>;
--		vcc9-supply = <&vcc5v0_sys>;
--		vcc10-supply = <&vcc5v0_sys>;
--		vcc11-supply = <&vcc_2v0_pldo_s3>;
--		vcc12-supply = <&vcc5v0_sys>;
--		vcc13-supply = <&vcc_1v1_nldo_s3>;
--		vcc14-supply = <&vcc_1v1_nldo_s3>;
--		vcca-supply = <&vcc5v0_sys>;
--
--		gpio-controller;
--		#gpio-cells = <2>;
--
--		rk806_dvs1_null: dvs1-null-pins {
--			pins = "gpio_pwrctrl1";
--			function = "pin_fun0";
--		};
--
--		rk806_dvs2_null: dvs2-null-pins {
--			pins = "gpio_pwrctrl2";
--			function = "pin_fun0";
--		};
--
--		rk806_dvs3_null: dvs3-null-pins {
--			pins = "gpio_pwrctrl3";
--			function = "pin_fun0";
--		};
--
--		regulators {
--			vdd_gpu_s0: vdd_gpu_mem_s0: dcdc-reg1 {
--				regulator-boot-on;
--				regulator-min-microvolt = <550000>;
--				regulator-max-microvolt = <950000>;
--				regulator-ramp-delay = <12500>;
--				regulator-name = "vdd_gpu_s0";
--				regulator-enable-ramp-delay = <400>;
--
--				regulator-state-mem {
--					regulator-off-in-suspend;
--				};
--			};
--
--			vdd_cpu_lit_s0: vdd_cpu_lit_mem_s0: dcdc-reg2 {
--				regulator-always-on;
--				regulator-boot-on;
--				regulator-min-microvolt = <550000>;
--				regulator-max-microvolt = <950000>;
--				regulator-ramp-delay = <12500>;
--				regulator-name = "vdd_cpu_lit_s0";
--
--				regulator-state-mem {
--					regulator-off-in-suspend;
--				};
--			};
--
--			vdd_log_s0: dcdc-reg3 {
--				regulator-always-on;
--				regulator-boot-on;
--				regulator-min-microvolt = <675000>;
--				regulator-max-microvolt = <750000>;
--				regulator-ramp-delay = <12500>;
--				regulator-name = "vdd_log_s0";
--
--				regulator-state-mem {
--					regulator-off-in-suspend;
--					regulator-suspend-microvolt = <750000>;
--				};
--			};
--
--			vdd_vdenc_s0: vdd_vdenc_mem_s0: dcdc-reg4 {
--				regulator-always-on;
--				regulator-boot-on;
--				regulator-min-microvolt = <550000>;
--				regulator-max-microvolt = <950000>;
--				regulator-ramp-delay = <12500>;
--				regulator-name = "vdd_vdenc_s0";
--
--				regulator-state-mem {
--					regulator-off-in-suspend;
--				};
--			};
--
--			vdd_ddr_s0: dcdc-reg5 {
--				regulator-always-on;
--				regulator-boot-on;
--				regulator-min-microvolt = <675000>;
--				regulator-max-microvolt = <900000>;
--				regulator-ramp-delay = <12500>;
--				regulator-name = "vdd_ddr_s0";
--
--				regulator-state-mem {
--					regulator-off-in-suspend;
--					regulator-suspend-microvolt = <850000>;
--				};
--			};
--
--			vdd2_ddr_s3: dcdc-reg6 {
--				regulator-always-on;
--				regulator-boot-on;
--				regulator-name = "vdd2_ddr_s3";
--
--				regulator-state-mem {
--					regulator-on-in-suspend;
--				};
--			};
--
--			vcc_2v0_pldo_s3: dcdc-reg7 {
--				regulator-always-on;
--				regulator-boot-on;
--				regulator-min-microvolt = <2000000>;
--				regulator-max-microvolt = <2000000>;
--				regulator-ramp-delay = <12500>;
--				regulator-name = "vdd_2v0_pldo_s3";
--
--				regulator-state-mem {
--					regulator-on-in-suspend;
--					regulator-suspend-microvolt = <2000000>;
--				};
--			};
--
--			vcc_3v3_s3: dcdc-reg8 {
--				regulator-always-on;
--				regulator-boot-on;
--				regulator-min-microvolt = <3300000>;
--				regulator-max-microvolt = <3300000>;
--				regulator-name = "vcc_3v3_s3";
--
--				regulator-state-mem {
--					regulator-on-in-suspend;
--					regulator-suspend-microvolt = <3300000>;
--				};
--			};
--
--			vddq_ddr_s0: dcdc-reg9 {
--				regulator-always-on;
--				regulator-boot-on;
--				regulator-name = "vddq_ddr_s0";
--
--				regulator-state-mem {
--					regulator-off-in-suspend;
--				};
--			};
--
--			vcc_1v8_s3: dcdc-reg10 {
--				regulator-always-on;
--				regulator-boot-on;
--				regulator-min-microvolt = <1800000>;
--				regulator-max-microvolt = <1800000>;
--				regulator-name = "vcc_1v8_s3";
--
--				regulator-state-mem {
--					regulator-on-in-suspend;
--					regulator-suspend-microvolt = <1800000>;
--				};
--			};
--
--			avcc_1v8_s0: pldo-reg1 {
--				regulator-always-on;
--				regulator-boot-on;
--				regulator-min-microvolt = <1800000>;
--				regulator-max-microvolt = <1800000>;
--				regulator-name = "avcc_1v8_s0";
--
--				regulator-state-mem {
--					regulator-off-in-suspend;
--					regulator-suspend-microvolt = <1800000>;
--				};
--			};
--
--			vcc_1v8_s0: pldo-reg2 {
--				regulator-always-on;
--				regulator-boot-on;
--				regulator-min-microvolt = <1800000>;
--				regulator-max-microvolt = <1800000>;
--				regulator-name = "vcc_1v8_s0";
--
--				regulator-state-mem {
--					regulator-off-in-suspend;
--					regulator-suspend-microvolt = <1800000>;
--				};
--			};
--
--			avdd_1v2_s0: pldo-reg3 {
--				regulator-always-on;
--				regulator-boot-on;
--				regulator-min-microvolt = <1200000>;
--				regulator-max-microvolt = <1200000>;
--				regulator-name = "avdd_1v2_s0";
--
--				regulator-state-mem {
--					regulator-off-in-suspend;
--				};
--			};
--
--			avcc_3v3_s0: pldo-reg4 {
--				regulator-always-on;
--				regulator-boot-on;
--				regulator-min-microvolt = <3300000>;
--				regulator-max-microvolt = <3300000>;
--				regulator-ramp-delay = <12500>;
--				regulator-name = "avcc_3v3_s0";
--
--				regulator-state-mem {
--					regulator-off-in-suspend;
--				};
--			};
--
--			vccio_sd_s0: pldo-reg5 {
--				regulator-always-on;
--				regulator-boot-on;
--				regulator-min-microvolt = <1800000>;
--				regulator-max-microvolt = <3300000>;
--				regulator-ramp-delay = <12500>;
--				regulator-name = "vccio_sd_s0";
--
--				regulator-state-mem {
--					regulator-off-in-suspend;
--				};
--			};
--
--			pldo6_s3: pldo-reg6 {
--				regulator-always-on;
--				regulator-boot-on;
--				regulator-min-microvolt = <1800000>;
--				regulator-max-microvolt = <1800000>;
--				regulator-name = "pldo6_s3";
--
--				regulator-state-mem {
--					regulator-on-in-suspend;
--					regulator-suspend-microvolt = <1800000>;
--				};
--			};
--
--			vdd_0v75_s3: nldo-reg1 {
--				regulator-always-on;
--				regulator-boot-on;
--				regulator-min-microvolt = <750000>;
--				regulator-max-microvolt = <750000>;
--				regulator-name = "vdd_0v75_s3";
--
--				regulator-state-mem {
--					regulator-on-in-suspend;
--					regulator-suspend-microvolt = <750000>;
--				};
--			};
--
--			avdd_ddr_pll_s0: nldo-reg2 {
--				regulator-always-on;
--				regulator-boot-on;
--				regulator-min-microvolt = <850000>;
--				regulator-max-microvolt = <850000>;
--				regulator-name = "avdd_ddr_pll_s0";
--
--				regulator-state-mem {
--					regulator-off-in-suspend;
--					regulator-suspend-microvolt = <850000>;
--				};
--			};
--
--			avdd_0v75_s0: nldo-reg3 {
--				regulator-always-on;
--				regulator-boot-on;
--				regulator-min-microvolt = <750000>;
--				regulator-max-microvolt = <750000>;
--				regulator-name = "avdd_0v75_s0";
--
--				regulator-state-mem {
--					regulator-off-in-suspend;
--				};
--			};
--
--			avdd_0v85_s0: nldo-reg4 {
--				regulator-always-on;
--				regulator-boot-on;
--				regulator-min-microvolt = <850000>;
--				regulator-max-microvolt = <850000>;
--				regulator-name = "avdd_0v85_s0";
--
--				regulator-state-mem {
--					regulator-off-in-suspend;
--				};
--			};
--
--			vdd_0v75_s0: nldo-reg5 {
--				regulator-always-on;
--				regulator-boot-on;
--				regulator-min-microvolt = <750000>;
--				regulator-max-microvolt = <750000>;
--				regulator-name = "vdd_0v75_s0";
--
--				regulator-state-mem {
--					regulator-off-in-suspend;
--				};
--			};
--		};
--	};
--};
--
--&tsadc {
--	status = "okay";
--};
--
--&u2phy0 {
--	status = "okay";
--};
--
--&u2phy0_otg {
--	phy-supply = <&vcc5v0_usb_otg0>;
--	status = "okay";
--};
--
--&u2phy2 {
--	status = "okay";
--};
--
--&u2phy2_host {
--	phy-supply = <&vcc5v0_host_20>;
--	status = "okay";
--};
--
--&uart2 {
--	pinctrl-0 = <&uart2m0_xfer>;
--	pinctrl-names = "default";
--	status = "okay";
--};
--
--&usb_host0_ehci {
--	status = "okay";
--};
--
--&usb_host0_ohci {
--	status = "okay";
--};
--
--&usb_host0_xhci {
--	dr_mode = "host";
--	status = "okay";
--};
--
--&usbdp_phy0 {
--	status = "okay";
--};
--
--&vop {
--	status = "okay";
--};
--
--&vop_mmu {
--	status = "okay";
--};
--
--&vp0 {
--	vp0_out_hdmi0: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
--		reg = <ROCKCHIP_VOP2_EP_HDMI0>;
--		remote-endpoint = <&hdmi0_in_vp0>;
- 	};
- };
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi
-new file mode 100644
-index 000000000000..df0a9a39e790
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi
-@@ -0,0 +1,797 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+
-+#include <dt-bindings/pinctrl/rockchip.h>
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/soc/rockchip,vop2.h>
-+#include "rk3588s.dtsi"
-+
-+/ {
-+	aliases {
-+		ethernet0 = &gmac1;
-+		mmc0 = &sdmmc;
-+		mmc1 = &sdhci;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial2:1500000n8";
-+	};
-+
-+	adc-keys {
-+		compatible = "adc-keys";
-+		io-channels = <&saradc 0>;
-+		io-channel-names = "buttons";
-+		keyup-threshold-microvolt = <1800000>;
-+		poll-interval = <100>;
-+
-+		button-maskrom {
-+			label = "Maskrom";
-+			linux,code = <KEY_VENDOR>;
-+			press-threshold-microvolt = <1800>;
-+		};
-+	};
-+
-+	hdmi-con {
-+		compatible = "hdmi-connector";
-+		type = "a";
-+
-+		port {
-+			hdmi_con_in: endpoint {
-+				remote-endpoint = <&hdmi0_out_con>;
-+			};
-+		};
-+	};
-+
-+	vcc5v0_sys: regulator-vcc5v0-sys {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc5v0_sys";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+	};
-+
-+	vcc_1v1_nldo_s3: regulator-vcc-1v1-nldo-s3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_1v1_nldo_s3";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <1100000>;
-+		regulator-max-microvolt = <1100000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	vcc_3v3_s0: regulator-vcc-3v3-s0 {
-+		compatible = "regulator-fixed";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-name = "vcc_3v3_s0";
-+		vin-supply = <&vcc_3v3_s3>;
-+	};
-+
-+	vcc_3v3_sd_s0: regulator-vcc-3v3-sd-s0 {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpios = <&gpio4 RK_PB4 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&sd_s0_pwr>;
-+		regulator-name = "vcc_3v3_sd_s0";
-+		regulator-boot-on;
-+		regulator-max-microvolt = <3000000>;
-+		regulator-min-microvolt = <3000000>;
-+		vin-supply = <&vcc_3v3_s3>;
-+	};
-+
-+	vcc5v0_host_20: regulator-vcc5v0-host-20 {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpios = <&gpio4 RK_PB5 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&vcc5v0_host20_en>;
-+		regulator-name = "vcc5v0_host_20";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+};
-+
-+&combphy0_ps {
-+	status = "okay";
-+};
-+
-+&combphy2_psu {
-+	status = "okay";
-+};
-+
-+&cpu_b0 {
-+	cpu-supply = <&vdd_cpu_big0_s0>;
-+};
-+
-+&cpu_b1 {
-+	cpu-supply = <&vdd_cpu_big0_s0>;
-+};
-+
-+&cpu_b2 {
-+	cpu-supply = <&vdd_cpu_big1_s0>;
-+};
-+
-+&cpu_b3 {
-+	cpu-supply = <&vdd_cpu_big1_s0>;
-+};
-+
-+&cpu_l0 {
-+	cpu-supply = <&vdd_cpu_lit_s0>;
-+};
-+
-+&cpu_l1 {
-+	cpu-supply = <&vdd_cpu_lit_s0>;
-+};
-+
-+&cpu_l2 {
-+	cpu-supply = <&vdd_cpu_lit_s0>;
-+};
-+
-+&cpu_l3 {
-+	cpu-supply = <&vdd_cpu_lit_s0>;
-+};
-+
-+&gmac1 {
-+	clock_in_out = "output";
-+	phy-handle = <&rgmii_phy1>;
-+	phy-mode = "rgmii-rxid"; /* Vendor provided tx delay value below */
-+	phy-supply = <&vcc_3v3_s3>;
-+	pinctrl-0 = <&gmac1_miim
-+		     &gmac1_tx_bus2
-+		     &gmac1_rx_bus2
-+		     &gmac1_rgmii_clk
-+		     &gmac1_rgmii_bus>;
-+	pinctrl-names = "default";
-+	tx_delay = <0x42>;
-+	status = "okay";
-+};
-+
-+&gpu {
-+	mali-supply = <&vdd_gpu_s0>;
-+	status = "okay";
-+};
-+
-+&hdmi0 {
-+	frl-enable-gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_LOW>;
-+	pinctrl-0 = <&hdmim0_tx0_cec &hdmim0_tx0_hpd
-+		     &hdmim0_tx0_scl &hdmim0_tx0_sda &hdmi0_tx_on_h>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
-+&hdmi0_in {
-+	hdmi0_in_vp0: endpoint {
-+		remote-endpoint = <&vp0_out_hdmi0>;
-+	};
-+};
-+
-+&hdmi0_out {
-+	hdmi0_out_con: endpoint {
-+		remote-endpoint = <&hdmi_con_in>;
-+	};
-+};
-+
-+&hdmi0_sound {
-+	status = "okay";
-+};
-+
-+&hdptxphy0 {
-+	status = "okay";
-+};
-+
-+&i2c0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c0m2_xfer>;
-+	status = "okay";
-+
-+	vdd_cpu_big0_s0: regulator@42 {
-+		compatible = "rockchip,rk8602";
-+		reg = <0x42>;
-+		fcs,suspend-voltage-selector = <1>;
-+		regulator-name = "vdd_cpu_big0_s0";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <550000>;
-+		regulator-max-microvolt = <1050000>;
-+		regulator-ramp-delay = <2300>;
-+		vin-supply = <&vcc5v0_sys>;
-+
-+		regulator-state-mem {
-+			regulator-off-in-suspend;
-+		};
-+	};
-+
-+	vdd_cpu_big1_s0: regulator@43 {
-+		compatible = "rockchip,rk8603", "rockchip,rk8602";
-+		reg = <0x43>;
-+		fcs,suspend-voltage-selector = <1>;
-+		regulator-name = "vdd_cpu_big1_s0";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <550000>;
-+		regulator-max-microvolt = <1050000>;
-+		regulator-ramp-delay = <2300>;
-+		vin-supply = <&vcc5v0_sys>;
-+
-+		regulator-state-mem {
-+			regulator-off-in-suspend;
-+		};
-+	};
-+};
-+
-+&i2c2 {
-+	status = "okay";
-+
-+	vdd_npu_s0: regulator@42 {
-+		compatible = "rockchip,rk8602";
-+		reg = <0x42>;
-+		fcs,suspend-voltage-selector = <1>;
-+		regulator-name = "vdd_npu_s0";
-+		regulator-min-microvolt = <550000>;
-+		regulator-max-microvolt = <950000>;
-+		regulator-ramp-delay = <2300>;
-+		vin-supply = <&vcc5v0_sys>;
-+
-+		regulator-state-mem {
-+			regulator-off-in-suspend;
-+		};
-+	};
-+};
-+
-+&i2c6 {
-+	clock-frequency = <200000>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c6m0_xfer>;
-+	status = "okay";
-+
-+	hym8563: rtc@51 {
-+		compatible = "haoyu,hym8563";
-+		reg = <0x51>;
-+		#clock-cells = <0>;
-+		clock-output-names = "hym8563";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&rtc_int>;
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <RK_PB0 IRQ_TYPE_LEVEL_LOW>;
-+		wakeup-source;
-+	};
-+};
-+
-+&i2s5_8ch {
-+	status = "okay";
-+};
-+
-+&mdio1 {
-+	rgmii_phy1: ethernet-phy@1 {
-+		compatible = "ethernet-phy-id001c.c916";
-+		reg = <0x1>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&rtl8211f_rst>;
-+		reset-assert-us = <20000>;
-+		reset-deassert-us = <100000>;
-+		reset-gpios = <&gpio3 RK_PB7 GPIO_ACTIVE_LOW>;
-+	};
-+};
-+
-+&pcie2x1l1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pcie20x1_1_perstn_m2>;
-+	reset-gpios = <&gpio1 RK_PA7 GPIO_ACTIVE_HIGH>;
-+	vpcie3v3-supply = <&vcc_3v3_s3>;
-+	status = "okay";
-+};
-+
-+&pcie2x1l2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pcie20x1_2_perstn_m0>, <&pcie20x1m0_clkreqn>;
-+	supports-clkreq;
-+	reset-gpios = <&gpio3 RK_PD1 GPIO_ACTIVE_HIGH>;
-+	vpcie3v3-supply = <&vcc_3v3_s3>;
-+	status = "okay";
-+};
-+
-+&pd_gpu {
-+	domain-supply = <&vdd_gpu_s0>;
-+};
-+
-+&pd_npu {
-+	domain-supply = <&vdd_npu_s0>;
-+};
-+
-+&pinctrl {
-+	hdmi {
-+		hdmi0_tx_on_h: hdmi0-tx-on-h {
-+			rockchip,pins = <4 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	hym8563 {
-+		rtc_int: rtc-int {
-+			rockchip,pins = <0 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	pcie {
-+		pcie20x1_1_perstn_m2: pcie20x1-1-perstn-m2 {
-+			rockchip,pins = <1 RK_PA7 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		pcie20x1_2_perstn_m0: pcie20x1-2-perstn-m0 {
-+			rockchip,pins = <3 RK_PD1 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	sdmmc {
-+		sdmmc_det_pin: sdmmc-det-pin {
-+			rockchip,pins = <0 RK_PA4 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		sd_s0_pwr: sd-s0-pwr {
-+			rockchip,pins = <4 RK_PB4 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+	};
-+
-+	usb {
-+		vcc5v0_host20_en: vcc5v0-host20-en {
-+			rockchip,pins = <4 RK_PB5 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	rtl8211f {
-+		rtl8211f_rst: rtl8211f-rst {
-+			rockchip,pins = <3 RK_PB7 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+};
-+
-+&rknn_core_0 {
-+	npu-supply = <&vdd_npu_s0>;
-+	sram-supply = <&vdd_npu_s0>;
-+	status = "okay";
-+};
-+
-+&rknn_core_1 {
-+	npu-supply = <&vdd_npu_s0>;
-+	sram-supply = <&vdd_npu_s0>;
-+	status = "okay";
-+};
-+
-+&rknn_core_2 {
-+	npu-supply = <&vdd_npu_s0>;
-+	sram-supply = <&vdd_npu_s0>;
-+	status = "okay";
-+};
-+
-+&rknn_mmu_0 {
-+	status = "okay";
-+};
-+
-+&rknn_mmu_1 {
-+	status = "okay";
-+};
-+
-+&rknn_mmu_2 {
-+	status = "okay";
-+};
-+
-+&saradc {
-+	vref-supply = <&avcc_1v8_s0>;
-+	status = "okay";
-+};
-+
-+&sdhci {
-+	bus-width = <8>;
-+	no-sdio;
-+	no-sd;
-+	non-removable;
-+	mmc-hs200-1_8v;
-+	status = "okay";
-+};
-+
-+&sdmmc {
-+	bus-width = <4>;
-+	cap-sd-highspeed;
-+	cd-gpios = <&gpio0 RK_PA4 GPIO_ACTIVE_LOW>;
-+	disable-wp;
-+	max-frequency = <150000000>;
-+	no-mmc;
-+	no-sdio;
-+	sd-uhs-sdr104;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&sdmmc_bus4 &sdmmc_clk &sdmmc_cmd &sdmmc_det_pin>;
-+	vmmc-supply = <&vcc_3v3_sd_s0>;
-+	vqmmc-supply = <&vccio_sd_s0>;
-+	status = "okay";
-+};
-+
-+&spi2 {
-+	status = "okay";
-+	assigned-clocks = <&cru CLK_SPI2>;
-+	assigned-clock-rates = <200000000>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&spi2m2_cs0 &spi2m2_pins>;
-+	num-cs = <1>;
-+
-+	pmic@0 {
-+		compatible = "rockchip,rk806";
-+		spi-max-frequency = <1000000>;
-+		reg = <0x0>;
-+
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <7 IRQ_TYPE_LEVEL_LOW>;
-+
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pmic_pins>, <&rk806_dvs1_null>,
-+			    <&rk806_dvs2_null>, <&rk806_dvs3_null>;
-+
-+		system-power-controller;
-+
-+		vcc1-supply = <&vcc5v0_sys>;
-+		vcc2-supply = <&vcc5v0_sys>;
-+		vcc3-supply = <&vcc5v0_sys>;
-+		vcc4-supply = <&vcc5v0_sys>;
-+		vcc5-supply = <&vcc5v0_sys>;
-+		vcc6-supply = <&vcc5v0_sys>;
-+		vcc7-supply = <&vcc5v0_sys>;
-+		vcc8-supply = <&vcc5v0_sys>;
-+		vcc9-supply = <&vcc5v0_sys>;
-+		vcc10-supply = <&vcc5v0_sys>;
-+		vcc11-supply = <&vcc_2v0_pldo_s3>;
-+		vcc12-supply = <&vcc5v0_sys>;
-+		vcc13-supply = <&vcc_1v1_nldo_s3>;
-+		vcc14-supply = <&vcc_1v1_nldo_s3>;
-+		vcca-supply = <&vcc5v0_sys>;
-+
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+
-+		rk806_dvs1_null: dvs1-null-pins {
-+			pins = "gpio_pwrctrl1";
-+			function = "pin_fun0";
-+		};
-+
-+		rk806_dvs2_null: dvs2-null-pins {
-+			pins = "gpio_pwrctrl2";
-+			function = "pin_fun0";
-+		};
-+
-+		rk806_dvs3_null: dvs3-null-pins {
-+			pins = "gpio_pwrctrl3";
-+			function = "pin_fun0";
-+		};
-+
-+		regulators {
-+			vdd_gpu_s0: vdd_gpu_mem_s0: dcdc-reg1 {
-+				regulator-boot-on;
-+				regulator-min-microvolt = <550000>;
-+				regulator-max-microvolt = <950000>;
-+				regulator-ramp-delay = <12500>;
-+				regulator-name = "vdd_gpu_s0";
-+				regulator-enable-ramp-delay = <400>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vdd_cpu_lit_s0: vdd_cpu_lit_mem_s0: dcdc-reg2 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <550000>;
-+				regulator-max-microvolt = <950000>;
-+				regulator-ramp-delay = <12500>;
-+				regulator-name = "vdd_cpu_lit_s0";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vdd_log_s0: dcdc-reg3 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <675000>;
-+				regulator-max-microvolt = <750000>;
-+				regulator-ramp-delay = <12500>;
-+				regulator-name = "vdd_log_s0";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+					regulator-suspend-microvolt = <750000>;
-+				};
-+			};
-+
-+			vdd_vdenc_s0: vdd_vdenc_mem_s0: dcdc-reg4 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <550000>;
-+				regulator-max-microvolt = <950000>;
-+				regulator-ramp-delay = <12500>;
-+				regulator-name = "vdd_vdenc_s0";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vdd_ddr_s0: dcdc-reg5 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <675000>;
-+				regulator-max-microvolt = <900000>;
-+				regulator-ramp-delay = <12500>;
-+				regulator-name = "vdd_ddr_s0";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+					regulator-suspend-microvolt = <850000>;
-+				};
-+			};
-+
-+			vdd2_ddr_s3: dcdc-reg6 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-name = "vdd2_ddr_s3";
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+				};
-+			};
-+
-+			vcc_2v0_pldo_s3: dcdc-reg7 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <2000000>;
-+				regulator-max-microvolt = <2000000>;
-+				regulator-ramp-delay = <12500>;
-+				regulator-name = "vdd_2v0_pldo_s3";
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+					regulator-suspend-microvolt = <2000000>;
-+				};
-+			};
-+
-+			vcc_3v3_s3: dcdc-reg8 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-name = "vcc_3v3_s3";
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+					regulator-suspend-microvolt = <3300000>;
-+				};
-+			};
-+
-+			vddq_ddr_s0: dcdc-reg9 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-name = "vddq_ddr_s0";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcc_1v8_s3: dcdc-reg10 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "vcc_1v8_s3";
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+					regulator-suspend-microvolt = <1800000>;
-+				};
-+			};
-+
-+			avcc_1v8_s0: pldo-reg1 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "avcc_1v8_s0";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+					regulator-suspend-microvolt = <1800000>;
-+				};
-+			};
-+
-+			vcc_1v8_s0: pldo-reg2 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "vcc_1v8_s0";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+					regulator-suspend-microvolt = <1800000>;
-+				};
-+			};
-+
-+			avdd_1v2_s0: pldo-reg3 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1200000>;
-+				regulator-max-microvolt = <1200000>;
-+				regulator-name = "avdd_1v2_s0";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			avcc_3v3_s0: pldo-reg4 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-ramp-delay = <12500>;
-+				regulator-name = "avcc_3v3_s0";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vccio_sd_s0: pldo-reg5 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-ramp-delay = <12500>;
-+				regulator-name = "vccio_sd_s0";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			pldo6_s3: pldo-reg6 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "pldo6_s3";
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+					regulator-suspend-microvolt = <1800000>;
-+				};
-+			};
-+
-+			vdd_0v75_s3: nldo-reg1 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <750000>;
-+				regulator-max-microvolt = <750000>;
-+				regulator-name = "vdd_0v75_s3";
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+					regulator-suspend-microvolt = <750000>;
-+				};
-+			};
-+
-+			avdd_ddr_pll_s0: nldo-reg2 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <850000>;
-+				regulator-max-microvolt = <850000>;
-+				regulator-name = "avdd_ddr_pll_s0";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+					regulator-suspend-microvolt = <850000>;
-+				};
-+			};
-+
-+			avdd_0v75_s0: nldo-reg3 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <750000>;
-+				regulator-max-microvolt = <750000>;
-+				regulator-name = "avdd_0v75_s0";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			avdd_0v85_s0: nldo-reg4 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <850000>;
-+				regulator-max-microvolt = <850000>;
-+				regulator-name = "avdd_0v85_s0";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vdd_0v75_s0: nldo-reg5 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <750000>;
-+				regulator-max-microvolt = <750000>;
-+				regulator-name = "vdd_0v75_s0";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+		};
-+	};
-+};
-+
-+&tsadc {
-+	status = "okay";
-+};
-+
-+&u2phy0 {
-+	status = "okay";
-+};
-+
-+&u2phy0_otg {
-+	phy-supply = <&vcc5v0_usb_otg0>;
-+	status = "okay";
-+};
-+
-+&u2phy2 {
-+	status = "okay";
-+};
-+
-+&u2phy2_host {
-+	phy-supply = <&vcc5v0_host_20>;
-+	status = "okay";
-+};
-+
-+&uart2 {
-+	pinctrl-0 = <&uart2m0_xfer>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
-+&usb_host0_ehci {
-+	status = "okay";
-+};
-+
-+&usb_host0_ohci {
-+	status = "okay";
-+};
-+
-+&usb_host0_xhci {
-+	dr_mode = "host";
-+	status = "okay";
-+};
-+
-+&usbdp_phy0 {
-+	status = "okay";
-+};
-+
-+&vop {
-+	status = "okay";
-+};
-+
-+&vop_mmu {
-+	status = "okay";
-+};
-+
-+&vp0 {
-+	vp0_out_hdmi0: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
-+		reg = <ROCKCHIP_VOP2_EP_HDMI0>;
-+		remote-endpoint = <&hdmi0_in_vp0>;
-+	};
-+};
-
--- 
-2.55.0
 
 
+On 7/14/2026 7:16 PM, Leonardo Bras wrote:
+> On Tue, Jul 14, 2026 at 04:58:37PM +0800, Tian Zheng wrote:
+>>
+>> On 7/13/2026 10:50 PM, Leonardo Bras wrote:
+>>> On Thu, Jul 09, 2026 at 06:40:26PM +0800, Tian Zheng wrote:
+>>>> From: eillon <yezhenyu2@huawei.com>
+>>>>
+>>>> HDBSS buffers store per-page dirty state after the stage-2 page tables
+>>>> have been split down to page granularity (chunk_size == PAGE_SIZE).
+>>> chunk_size != PAGE_SIZE now, but that should change as well :)
+>>
+>>
+>> Thanks, I'll clarify the comment in v5.
+> 
+> By the discussion we are having in the HACDBS patchset, I think we can't
+> assume the pages are split in the future. :\
+> 
+
+Agreed.
+
+>>
+>>
+>>>
+>>>> When chunk_size == 0 the kernel may lazily skip splitting block mappings,
+>>>> leaving the page table coarser than what HDBSS expects. Therefore,
+>>>> enabling HDBSS requires disabling lazy split so that all block mappings
+>>>> are eagerly broken down before the buffer starts recording.
+>>> (See cover letter reply)
+>>>
+>>>> Add VM-level HDBSS enable/disable support. When dirty logging is
+>>>> enabled on any memslot, HDBSS is automatically enabled. When dirty
+>>>> logging is disabled on all memslots, HDBSS is automatically disabled.
+>>>>
+>>>> This includes:
+>>>> - kvm_arm_enable_hdbss_global() to enable HDBSS for all vCPUs
+>>>> - kvm_arm_disable_hdbss_global() to disable and free HDBSS buffers
+>>>> - kvm_arm_hdbss_on_dirty_logging_change() for auto enable/disable
+>>>> - kvm_arch_destroy_vm() cleanup path
+>>>> - kvm_arch_commit_memory_region() integration
+>>>>
+>>>> Signed-off-by: Eillon <yezhenyu2@huawei.com>
+>>>> Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
+>>>> ---
+>>>>    arch/arm64/include/asm/kvm_dirty_bit.h |   2 +
+>>>>    arch/arm64/kvm/arm.c                   |   8 ++
+>>>>    arch/arm64/kvm/dirty_bit.c             | 105 +++++++++++++++++++++++++
+>>>>    arch/arm64/kvm/mmu.c                   |   3 +
+>>>>    4 files changed, 118 insertions(+)
+>>>>
+>>>> diff --git a/arch/arm64/include/asm/kvm_dirty_bit.h b/arch/arm64/include/asm/kvm_dirty_bit.h
+>>>> index 4b28000e972f..a4cda8cdab24 100644
+>>>> --- a/arch/arm64/include/asm/kvm_dirty_bit.h
+>>>> +++ b/arch/arm64/include/asm/kvm_dirty_bit.h
+>>>> @@ -23,5 +23,7 @@ int kvm_arm_vcpu_alloc_hdbss(struct kvm_vcpu *vcpu, unsigned int order);
+>>>>    void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu);
+>>>>    void kvm_flush_hdbss_buffer(struct kvm_vcpu *vcpu);
+>>>>    int kvm_handle_hdbss_fault(struct kvm_vcpu *vcpu);
+>>>> +void kvm_arm_hdbss_on_dirty_logging_change(struct kvm *kvm, int nr_memslots_logging);
+>>>> +void kvm_arm_disable_hdbss_global(struct kvm *kvm);
+>>>>
+>>>>    #endif /* __ARM64_KVM_DIRTY_BIT_H__ */
+>>>> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+>>>> index 566953a4e23a..536d94799ba8 100644
+>>>> --- a/arch/arm64/kvm/arm.c
+>>>> +++ b/arch/arm64/kvm/arm.c
+>>>> @@ -317,6 +317,14 @@ void kvm_arch_destroy_vm(struct kvm *kvm)
+>>>>    	if (is_protected_kvm_enabled())
+>>>>    		pkvm_destroy_hyp_vm(kvm);
+>>>>
+>>>> +	/*
+>>>> +	 * Userspace may destroy the VM without disabling dirty logging,
+>>>> +	 * so the auto-disable path is never reached. Force disable HDBSS
+>>>> +	 * here to ensure vCPU buffers are freed and prevent memory leaks.
+>>>> +	 */
+>>>> +	if (kvm->arch.enable_hdbss)
+>>>> +		kvm_arm_disable_hdbss_global(kvm);
+>>>> +
+>>>>    	kvm_uninit_stage2_mmu(kvm);
+>>>>    	kvm_destroy_mpidr_data(kvm);
+>>>>
+>>>> diff --git a/arch/arm64/kvm/dirty_bit.c b/arch/arm64/kvm/dirty_bit.c
+>>>> index 002366337637..c5bf866c23ef 100644
+>>>> --- a/arch/arm64/kvm/dirty_bit.c
+>>>> +++ b/arch/arm64/kvm/dirty_bit.c
+>>>> @@ -112,3 +112,108 @@ int kvm_handle_hdbss_fault(struct kvm_vcpu *vcpu)
+>>>>    		return -EFAULT;
+>>>>    	}
+>>>>    }
+>>>> +
+>>>> +static unsigned int hdbss_auto_select_order(struct kvm *kvm)
+>>>> +{
+>>>> +	unsigned long npages = 0;
+>>>> +	struct kvm_memory_slot *memslot;
+>>>> +	int bkt;
+>>>> +
+>>>> +	kvm_for_each_memslot(memslot, bkt, kvm_memslots(kvm))
+>>>> +		npages += memslot->npages;
+>>>> +
+>>>> +	if (npages <= 16384)
+>>>> +		return 0;
+>>>> +	else if (npages <= 262144)
+>>>> +		return 3;
+>>>> +	else if (npages <= 4194304)
+>>>> +		return 6;
+>>>> +	else
+>>>> +		return 9;
+>>>> +}
+>>> IIUC you are counting the amount of pages the VM has, and based on that
+>>> allocating a size for the HDBSS buffer.
+>>>
+>>> A few notes here:
+>>> - It's not really nice to use magic numbers around like this. If you
+>>>     actually want to use it, then use stuff like SZ_16K, SZ_256K, SZ_4M and
+>>>     so on.
+>>> - You are returning magic numbers as well, why is it 0, 3, 6, or 9 here?
+>>>     It only makes sense if the person is reading HDBSSBR_EL2 documentation,
+>>>     which should not be necessary at this point. That's one reason I
+>>>     recommended to using sizes. If that was really the best way to use it,
+>>>     I would recommend using the defines that we get from sysreg, and you
+>>>     actually used before to set the maximum order on a previous patch.
+>>> - Also, if you can return only valid values here, why do you check against
+>>>     the maximum value in that previous patch?
+>>> - Also, are you using some undisclosed rule here? On 'order 0' the
+>>>     meanining is 4KB, which translate to 512 HDBSS entries. Why are you using
+>>>     it for any value under 16K? Same for 3-32KB-4kEntries you use for under
+>>>     256K pages (and so on). If you are assuming a logical rule such as
+>>>     'N pages would be ok with N/32 entries' it has to be described here at
+>>>     least.
+>>> - Not sure VM size is the best way of doing that, since it will depend
+>>>     more on the dirtying rate than the actual size, and most VMs would just
+>>>     use the biggest size (4M x 4K pages is just 16GB). For instance with
+>>>     dirty_ring we can use the dirty_ring.size as a better option.
+>>>     (I know this is a hard one to estimate when using dirty-bitmap, though)
+>>
+>>
+>> I'll replace the magic numbers and also add a comment in the next version
+>> explaining
+>>
+>> the mapping between the thresholds and the order values.
+>>
+>>
+>> On auto-choosing the size: VM memory size is a simple starting point, but I
+>> agree it's
+>>
+>> not ideal. For dirty-ring mode we could use dirty_ring_size as a reference;
+>> for dirty-bitmap
+>>
+>> mode there's no equivalent, so I don't have a good answer yet. I'd really
+>> appreciate any
+>>
+>> suggestions from the community on a better idea for the dirty-bitmap case.
+> 
+> I am thinking that we could use a default value (say 1 PAGESIZE/vcpu) and
+> add an ioctl to optionally increase this value. This way we don't require
+> a new interface to benefit from HDBSS, but allow users to tune it.
+> 
+
+That makes sense. I think we can use a default value (e.g., 1 page per
+vCPU), but I'd prefer not to expose any ioctl for userspace to configure
+it. Since the kernel auto-enables HDBSS, a userspace size knob would be
+confusing — similar to what I mentioned in the discussion at [1].
+
+[1] 
+https://lore.kernel.org/linux-arm-kernel/3fb4b33e-4618-4523-b140-955e15fd9a8c@huawei.com/
+
+>>
+>> Also, since we automatically enable HDBSS in the kernel, the check against
+>> HDBSS_MAX_ORDER is redundant. I'll remove it.
+>>
+>>
+>>>> +
+>>>> +/*
+>>>> + * Enable HDBSS for all vCPUs in the VM.
+>>>> + *
+>>>> + * Called from kvm_arm_hdbss_on_dirty_logging_change() which is invoked
+>>>> + * by kvm_arch_commit_memory_region() under kvm->slots_lock.
+>>>> + *
+>>>> + * If buffer allocation fails, HDBSS remains disabled and dirty tracking
+>>>> + * falls back to the traditional software-based approach (PTE write-protect
+>>>> + * + software dirty marking). This does not affect correctness; dirty
+>>>> + * logging remains functional without HDBSS.
+>>>> + */
+>>>> +static int kvm_arm_enable_hdbss_global(struct kvm *kvm)
+>>>> +{
+>>>> +	int err;
+>>>> +	unsigned long i;
+>>>> +	unsigned int order;
+>>>> +	struct kvm_vcpu *vcpu;
+>>>> +
+>>>> +	if (!system_supports_hdbss())
+>>>> +		return 0;
+>>>> +
+>>>> +	if (kvm->dirty_ring_size) /* Don't support HDBSS in dirty ring mode */
+>>>> +		return 0;
+>>>> +
+>>>> +	if (kvm->arch.enable_hdbss) /* Already On */
+>>>> +		return 0;
+>>>> +
+>>>> +	/* Turn it on */
+>>>> +	order = hdbss_auto_select_order(kvm);
+>>>> +	kvm_for_each_vcpu(i, vcpu, kvm) {
+>>>> +		err = kvm_arm_vcpu_alloc_hdbss(vcpu, order);
+>>>> +		if (err)
+>>>> +			goto error_alloc;
+>>>> +	}
+>>>> +
+>>>> +	kvm->arch.enable_hdbss = true;
+>>>> +	kvm->arch.mmu.vtcr |= VTCR_EL2_HD | VTCR_EL2_HDBSS | VTCR_EL2_HA;
+>>>> +
+>>>> +	/*
+>>>> +	 * We should kick vcpus out of guest mode here to load new
+>>>> +	 * vtcr value to vtcr_el2 register when re-enter guest mode.
+>>>> +	 */
+>>>> +	kvm_for_each_vcpu(i, vcpu, kvm)
+>>>> +		kvm_vcpu_kick(vcpu);
+>>>> +
+>>>> +	return 0;
+>>>> +
+>>>> +error_alloc:
+>>>> +	kvm_for_each_vcpu(i, vcpu, kvm)
+>>>> +		if (vcpu->arch.hdbss.base_phys)
+>>>> +			kvm_arm_vcpu_free_hdbss(vcpu);
+>>>> +
+>>>> +	pr_warn_once("kvm: failed to allocate HDBSS buffers (order=%u), "
+>>>> +		     "falling back to software dirty tracking\n", order);
+>>>> +	return -ENOMEM;
+>>>> +}
+>>>> +
+>>>> +void kvm_arm_disable_hdbss_global(struct kvm *kvm)
+>>>> +{
+>>>> +	unsigned long i;
+>>>> +	struct kvm_vcpu *vcpu;
+>>>> +
+>>>> +	if (!kvm->arch.enable_hdbss) /* Already Off */
+>>>> +		return;
+>>>> +
+>>>> +	/* Turn it off */
+>>>> +	kvm->arch.mmu.vtcr &= ~(VTCR_EL2_HD | VTCR_EL2_HDBSS | VTCR_EL2_HA);
+>>>> +
+>>>> +	kvm_for_each_vcpu(i, vcpu, kvm)
+>>>> +		kvm_arm_vcpu_free_hdbss(vcpu);
+>>>> +
+>>>> +	kvm->arch.enable_hdbss = false;
+>>>> +}
+>>>> +
+>>> Okay, say the user requested it to be disabled, you change the global vtcr,
+>>> then free the hdbss on every vcpu.
+>>>
+>>> But the vcpus are still running, and since they will only disable this when
+>>> they go out of the guest, then in again, HDBSS will still be running,
+>>> right?
+>>>
+>>> If some page gets dirty in the between, would not the HDBSS try to write to
+>>> the already loaded buffer adress, and write to memory that have already
+>>> been freed here?
+>>>
+>>
+>> You're right — this is a race condition. I'll fix this in v5 by clearing
+>> VTCR_EL2_HDBSS from
+>>
+>> kvm->arch.mmu.vtcr first, then kicking all vCPUs to force them to exit guest
+>> mode and reload the config.
+>>
+>> Once all vCPUs are out of guest mode, it will be safe to free the HDBSS
+>> buffers.
+>>
+> 
+> That would be safer, indeed.
+>   
+>>
+>>>> +void kvm_arm_hdbss_on_dirty_logging_change(struct kvm *kvm, int nr_memslots_logging)
+>>>> +{
+>>>> +	/*
+>>>> +	 * Called from kvm_arch_commit_memory_region() under kvm->slots_lock.
+>>>> +	 * All state transitions are serialized by slots_lock.
+>>>> +	 */
+>>>> +	if (nr_memslots_logging > 0 && !kvm->arch.enable_hdbss)
+>>>> +		kvm_arm_enable_hdbss_global(kvm);
+>>>> +	else if (nr_memslots_logging == 0 && kvm->arch.enable_hdbss)
+>>>> +		kvm_arm_disable_hdbss_global(kvm);
+>>>> +}
+>>>> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+>>>> index 949fb895add6..484f48dae000 100644
+>>>> --- a/arch/arm64/kvm/mmu.c
+>>>> +++ b/arch/arm64/kvm/mmu.c
+>>>> @@ -2588,6 +2588,9 @@ void kvm_arch_commit_memory_region(struct kvm *kvm,
+>>>>    {
+>>>>    	bool log_dirty_pages = new && new->flags & KVM_MEM_LOG_DIRTY_PAGES;
+>>>>
+>>>> +	kvm_arm_hdbss_on_dirty_logging_change(kvm,
+>>>> +		atomic_read(&kvm->nr_memslots_dirty_logging));
+>>>> +
+>>>>    	/*
+>>>>    	 * At this point memslot has been committed and there is an
+>>>>    	 * allocated dirty_bitmap[], dirty pages will be tracked while the
+>>>> --
+>>>> 2.33.0
+>>>>
+>>> Okay, reading the above I remembered something really complicated:
+>>> We can't really enable HDBSS partially if we start with DBM set for all
+>>> pages. Once we enable HDBSS wit will track changes for all memslots.
+>>>
+>>> The only way to enable it partially would be to set DBM during the
+>>> dirty-bit tracking, which I recall being complicated for some reasons.
+>>>
+>>> Well, we have to think about the overall strategy before a next version.
+>>>
+>>> Thanks!
+>>> Leo
+>>
+>>
+>> Yes, I did consider this when I switched to global DBM injection in v4.
+>> There are
+>>
+>> indeed some scenarios that are harder to control:
+>>
+>>
+>>
+>> Firstly, for lazy split, if we add the DBM tag lazily during live migration
+>> dirty tracking (like v3 did),
+>>
+>> the first write to each page would trap. That trap serves two purposes: it
+>> gives us a chance to split
+>>
+>> hugepages on demand (lazy split), and it ensures the DBM addition happens at
+>> a safer, more controlled point.
+> 
+> It also allows us to do the dirty-tracking by slot, which is not possible
+> with the v4 approach.
+> 
+
+I think the per-memslot tracking capability is not a critical
+requirement. As I mentioned in my earlier reply [1], we can follow the
+same approach as PML on x86 — filtering at flush time works just fine.
+
+[1] 
+https://lore.kernel.org/linux-arm-kernel/a240e7a6-cd22-4fe4-a01d-472c95cc65e4@huawei.com/
+
+>>
+>> However, because v4 enables HDBSS and DBM upfront, we lose that initial
+>> trap. That's exactly why we
+>>
+>> now rely on your eager hugepage splitting patch as a mandatory dependency.
+>>
+> 
+> Correct.
+> 
+>>
+>>
+>> Secondly, I'm also concerned about whether global DBM injection could
+>> accidentally mark pages
+>>
+>> that shouldn't be tracked — for example, pages with special mappings.
+> 
+> Well, if we want to not track those pages, we have just to make sure we can
+> detect them and not mark them with the DBM bit.
+> 
+>> If
+>> that's possible, then the
+>>
+>> lazy approach (only adding DBM on the first write fault) would be safer
+>> because it only touches pages
+>>
+>> that are actually written to.
+>>
+>>
+>>
+>> So I'd like to ask: is avoiding the first-trap overhead worth the potential
+>> risks of global DBM injection?
+>>
+>> Or do you think the lazy approach is actually safer overall? I'd appreciate
+>> your thoughts on this trade-off.
+>>
+> 
+> Well, even though performance is important, the decision to set DBM bits
+> for all writtable pages at their mapping time was not driven by
+> performance, but instead by an issue with setting DBM while the VCPUs were
+> running. I have to rework what that was, and check if that is still an
+> issue, before we can even discuss what to do next :(
+> 
+> But the fact that the 'eager DBM setting' makes dirty-bit tracking start
+> global, instead of per-memslot, is something we have to consider as well.
+> 
+> 
+> Thanks!
+> Leo
+
+
+That makes sense. I think global eager DBM is workable.
+
+Thanks!
+Tian
+
+> 
+> 
+> 
+> 
 
