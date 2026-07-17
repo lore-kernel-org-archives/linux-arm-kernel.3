@@ -4,107 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C720C44517
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 06:56:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBD94C4450F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 06:59:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FLNBnsANrTUMdnBcC9IapvMl8huqE7Ah/L99fobP8RQ=; b=VwoVFdqiyNsXbT5v50ZxfLZ8iD
-	ZukMIIeWITryRpZNM+p+ljnbFvPXR0v7Ye16s6mPcrasfj+Njh3W0ciifFxIcEA1XNec9OMbDoNVf
-	aEY0Wxi7krgqTRD5o7xE2elvcV3r32z+40NgTyS0c9TslnBEqWWJqDuTuBNleWhN7yNhAczopazA0
-	eQN2JG2T1+x/59lBZT5g+asmHrxgzL0JRTbuZ7Jjp85fFtqvEqLGK22HDorQukX7MvJJkisOAZ8bP
-	G2gYc2mWZ1EMaInV/LQr5cQlFE5WhjwXzxfh5o+slo5/Z0GaTzf32DmzTgXGpmNBAqLTyM/7ITfdF
-	65xp45uw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8HvXs7CUgg+W9jq4h9ThPVWtnVBLT+yspWDmg3Ue+dM=; b=NYW9TPr5VaeAPdgWCd+ADkzW8d
+	JccPL5POQPIZMoS8ofnCzzd90LcmdYCuz4MhXJZZ2BqDQtEeytpYsn+fNzE3u0SrpLoHdLEWVg3oC
+	loqzpjtsHcbnuXjWVwvDud9yWFS2vBnGKWZ63xyzLHZJffTiFcXE2E8BMBPt+r7pWpSlYsTTqTbfo
+	Mr+XY5DCJxzT+Bd++nzmyK+x62Yo/91ze+zfLb4+IIKJ+Jlvtftu7U3jcjxbZoBCJ6HhOJ68QzM5x
+	oagmKDzOv7rJ9114w+w5ygSBm9OQ89TVz8dv/HGHD8d0KA+5Ua5Enyl90UXiuU/QvYAl8b1GJ8jix
+	q5boVbgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkcUA-00000001KGR-20uC;
-	Fri, 17 Jul 2026 06:55:50 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1wkcXS-00000001KxS-0Dzu;
+	Fri, 17 Jul 2026 06:59:14 +0000
+Received: from flow-b4-smtp.messagingengine.com ([202.12.124.139])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkcTp-00000001JhH-0i4e
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 06:55:30 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4921eed3fa2so59281175e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 23:55:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784271327; x=1784876127; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=FLNBnsANrTUMdnBcC9IapvMl8huqE7Ah/L99fobP8RQ=;
-        b=GjJ7Mhe4I4vVk10c64Kmi04a1A0/LJXzwR7lzKkH2YcF1krxYKl1RlH/oKZtzDxAa+
-         UhmPe8dLw+m+0DYBmmdJoEtP4y2ieed/pAqccVrNW34UHv2ebktaVGSUrx9jku5ioZL+
-         jANAe93WB4QVruapFgKRDFovFHZkCAIH9FnzMEUELJPwNXycnJve0zSl/5YDDwHM8Ay6
-         Q6NH6TiXibUrcHMVXnyf+3+bWY/rZsLO6lG26VvPiimsmqULw9wd2iOH5bouUN8A6G+s
-         8Rw4sS0RYiv+SL64kBKh3yO/FnKLQv1jpNhYkR9xboqyxn1agHXdq4pWmJBAHReDgBVO
-         2p3Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784271327; x=1784876127;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=FLNBnsANrTUMdnBcC9IapvMl8huqE7Ah/L99fobP8RQ=;
-        b=qvVbm4TdlA2dI/zELX3iEhtENveVY2VxAh3mFE7mS9EPAIU5vbM/unRAPVkoPFXOEJ
-         qBJopGPFtglPwHRplQI0mNXWG5BMx/Fi8ksn3ZyPn1+BKtzW0OEMP8yC8UU5RbBe2RbU
-         0Z6dzAr2TamPWKGS5R9aAUq9DWyI1Z5tgWM8QI7jEZfcUJQ02C1Nl4w3L3HZZfxxdkfl
-         w8QyGnZVkEdCoenOrEiJR8+DsR+aCrBQAOzUrdKrb+CeQBYAarZqiFij/yHW6JZAauu6
-         Zs4X40u79PwOQsyvbPJFSuGCyI6uu9K+qsKBVX+yzbAkiua9V8ucKvHR/U+pVspIiugU
-         p2Pg==
-X-Forwarded-Encrypted: i=1; AHgh+RpvFlpYHcBtldW/fcDAZI7uyDJCfvIPv5Lr8QLGDOQkIXOrQw4+3fKvg8YQfIwddGcQJSiUVKNcgRVl+xvz9k7H@lists.infradead.org
-X-Gm-Message-State: AOJu0YzdvI94TZvj4cRz4qcJdw0+Be/n1wjux9BY73IBTDww7LMxr7lb
-	P9wGtNehgCIs6q5Oad+gKkczZ5CvHb4uTjH9lRUMkFrZcB5LDWd7hGHk
-X-Gm-Gg: AfdE7ckQvu31WAD7J6YNBuRTjMqUuDLuRJNnQV0PZ7Z8IXA/l76hzIjNwtz3inqWYCV
-	xTj1Smg1l01mJa6l+3FU7QPcXXfevi5zxBKGm49dw6xvsWoonmiQ12MEvKUomJFqNNIYUF2J7ll
-	AcRUaCP8O0uaQn3R6icHnHVo94tL5tzFa4IyRy3SkS/VP0gGpd+HjBqxXtzxhrbEoC3wSl5MDwK
-	JhZsffxWDHAbhxNPKEfIVJTn8HQYTcj/kvOr0MhBGLedotcLLCKGSsZ9oNW5N4EQMA7WO/X9bod
-	NAi5Dok8snOxI4DQAlkdolv+B13qI4U431DidQN9kr/qdr0EXWnDLHXYDgFhkhM5sRlMpUJlhAy
-	2FZ3RxGUSnHHvMEAZ+ko9IWgLTssJrhDRMFSA+xDNtkeCJuHIkb8l4a+N4SzF06qc1m1ZcipxH1
-	r3bAZqTf1H3GGxugdVKhFXZncjXNfpq1H4JFo/lGOJPA/k5r2deWkWzKAl/C3JL3R+HRZMGA==
-X-Received: by 2002:a05:600c:4504:b0:493:c194:4e7a with SMTP id 5b1f17b1804b1-4954a3d09c8mr13071185e9.3.1784271327147;
-        Thu, 16 Jul 2026 23:55:27 -0700 (PDT)
-Received: from Ansuel-XPS24.localdomain (host-95-248-227-210.retail.telecomitalia.it. [95.248.227.210])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-495499f3f99sm24260835e9.0.2026.07.16.23.55.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 16 Jul 2026 23:55:26 -0700 (PDT)
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Simon Horman <horms@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Christian Marangi <ansuelsmth@gmail.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Saravana Kannan <saravanak@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org,
+	id 1wkcXP-00000001Kx1-0T2p;
+	Fri, 17 Jul 2026 06:59:12 +0000
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailflow.stl.internal (Postfix) with ESMTP id 2B63D130029D;
+	Fri, 17 Jul 2026 02:59:09 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-01.internal (MEProxy); Fri, 17 Jul 2026 02:59:09 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
+	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
+	:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to; s=fm1; t=1784271549; x=1784275149; bh=8HvXs7CUgg
+	+W9jq4h9ThPVWtnVBLT+yspWDmg3Ue+dM=; b=HD3EiK65LPmAYjSM8nVyfNvTTT
+	G+I1vUt8aJHzLBQSJfA8is89p3PBkw3oEdcIyq24MwujgH8IIsJCyJd5t5rvYSH9
+	iE7BC9cHhy5QqlOFFw+D4wx5xFWxZfoNclTtgzFSVaDQKkvDHDLCOQA7MG9Osph+
+	iZyr3YbwHRJRhTaMfPTrd4cT2jla+ITzUT0jssIbZLg1mfZkWmbD7tW+1PUkUl9X
+	2946J6FdbrJI/FUMjVG6iHR9zFfhaBz2LiPNo63a9CITox5GHWtzvMihSf1RfrV+
+	3GVrCq3S8V+zESNDyh5oiuCkoHKVZomPuARcz8Kapz71Fu6OxgCubGoUKDOg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=
+	1784271549; x=1784275149; bh=8HvXs7CUgg+W9jq4h9ThPVWtnVBLT+yspWD
+	mg3Ue+dM=; b=pD6m/SfhuubRBW0GBtNOr8ovoROY4BNBsd74lXc0fu+ABdV8HQ7
+	sa2Ug4veA4ONmKni3bnRuxw37mq3tvPGwUTS5uV+3zjwWxyyZJpIUBAdJIM67iDI
+	OZichqnBctOS+EH1WrP+yppzLPCoI0TpU/GwCdfaLVVCQVFzhD/iFQIJsLSAK00F
+	lsaW9T7UxekHeEDdJh9abMv4lDsU2bP9sHiSYF+n6noVwnEFtyCLLxC2Me8f+6+a
+	MnKub5MJorsWdCOeFS9dkWIQRCouZjVofJcbwQhIIJZvHNOI8bjpNPu4GDd/9HDB
+	5iUrepkjNMArB5rpT7oB3I49rbL1NMZw1zQ==
+X-ME-Sender: <xms:vNJZaooLvJow1uswiov3v9MKsXqwJajs0ebDMTAgusFT8Amk-wOEvg>
+    <xme:vNJZarPMcpsI4kpvFKcw57Yrrt1EnUXVlSEXHAJaRRpEM3cFIBr5WjsVEps5I0tGm
+    ZTyn9gtv8vQWnSglBqRlACj1XM-GOGfIzIDmVtgq9YCvZK1i7VE2wgc>
+X-ME-Received: <xmr:vNJZahozdLZXWJfs91bZbYyb29ycW9SiZEcW6LL0-WwM9yQ1C4_NjOpulG6pm0icE0J6wFHBUa9HudpsgL0>
+X-ME-Proxy-Cause: dmFkZTGxFtQ7rm5S321BiQW3lDhmeAbt7qejiWZVfY1YXg8QXynsse9vIbWj+GXyF8syfr
+    /j1kfqmqx0gO0BaTbe0qe/v0fky4zWGTYviTLuvvWFmsC7lSafc2/60BpZzdsOZJy4x806
+    /CoQGzL68sqaB1sE9zAv0xaAkYSoysb2E7lEPVG5xX4176I2/q7PfIkWK26KlfBK0f3tuo
+    eO4acG27Km7FmYkG5PoT5jT8JbR72LXiJSaYCPZFVCZikDf9Ks0WqL1ynRXO+fLOr8u2eu
+    IHCjynQTY68Ja330c0e6EFzvWkoGgbLTgNNXWJ3r2ixwi1KTFjl/RHlvztzuRkCKQp9FdF
+    lOb2VySduc3Ocw/uV/Dc9vVTs21c1FHK0ubkSaXbXN5vVkA26CymV+tY0RaMzMyntiGsGv
+    scC6VefnafC56+b8y5naZIXN6UwAUkIf8ZglWYoWqHgzpPErorEVvbidPX1t0peXxFa4oU
+    dypXTglLfJMSoAYDH1Cb8XXkjqksFtg4HuExTnkNTihiHsZh67tmbxP45Vui2koTAm45+k
+    Bw18+l6PWWsr1EE8qLZZDfrLjZYm1V54FxPFcZPWbRUNYiwsupn2S5glF3JfZZY1EYJGbO
+    9W3FZoz875GVO07+V7opL0nWI9CEyHG+qo9OyKmxMGynFzJMa+KM0830UhBA
+X-ME-Proxy: <xmx:vNJZamsf0O19wjAU-rzZ6FHDcE6CAlgrGfGogWsz1baPsim9mAIaEw>
+    <xmx:vNJZao1amVr0CHj5RPrjC-Wyak7WfgrZjTa0q03_2EydO2nJGPdyvQ>
+    <xmx:vNJZapGzpPNwPQK_j4kkxlUuphmw3qRAm7pEGXzjJvWybU23i_lfeQ>
+    <xmx:vNJZarsj4ZHc54n46QK-byKCqSRXMJrygZfJ3SBsWSZGbp6IHPdXpw>
+    <xmx:vNJZav665iCjuY9jJCdbK7RZ4TRPrsFSjRbOpyaAGszXSm2Y4TQSlYiG>
+Feedback-ID: i7a5e4b5f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
+ 17 Jul 2026 02:59:05 -0400 (EDT)
+From: Jiaxing Hu <gahing@gahingwoo.com>
+To: heiko@sntech.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: devicetree@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>
-Subject: [PATCH net-next v9 10/12] dt-bindings: net: pcs: Document support for Airoha Ethernet PCS
-Date: Fri, 17 Jul 2026 08:54:10 +0200
-Message-ID: <20260717065448.1498335-11-ansuelsmth@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260717065448.1498335-1-ansuelsmth@gmail.com>
-References: <20260717065448.1498335-1-ansuelsmth@gmail.com>
+	linux-kernel@vger.kernel.org,
+	Jiaxing Hu <gahing@gahingwoo.com>
+Subject: [PATCH v4 0/2] arm64: dts: rockchip: Add ArmSoM CM5 and CM5-IO
+Date: Fri, 17 Jul 2026 18:59:01 +1200
+Message-ID: <20260717065903.2629399-1-gahing@gahingwoo.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_235529_273419_602246A4 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20260716_235911_330154_1622DE5C 
+X-CRM114-Status: GOOD (  14.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,288 +108,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document support for Airoha Ethernet PCS for AN7581 SoC.
+Add mainline support for the ArmSoM CM5, an RK3576 compute module, and
+its CM5-IO carrier board.
 
-Airoha AN7581 SoC expose multiple Physical Coding Sublayer (PCS) for
-the various Serdes port supporting different Media Independent Interface
-(10BASE-R, USXGMII, 2500BASE-X, 1000BASE-X, SGMII).
+Patch 1 adds the binding, patch 2 the module dtsi and the carrier dts.
 
-This follow the new PCS provider with the use of #pcs-cells property.
+The on-module YT8531 PHY has no crystal and needs the SoC 25 MHz
+reference clock (clk_mac_refout). Ungating it for RGMII needs a small
+dwmac-rk change sent separately to netdev [1]; the clock is optional so
+this DTS applies without it.
 
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
----
- .../bindings/net/pcs/airoha,pcs.yaml          | 261 ++++++++++++++++++
- 1 file changed, 261 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/net/pcs/airoha,pcs.yaml
+Tested on a CM5-IO: the YT8531 links at 1000 Mbit/s; RK806, HYM8563,
+eMMC, microSD, the USB3 hub and the PCIe root complex all probe.
+dtbs_check is clean.
 
-diff --git a/Documentation/devicetree/bindings/net/pcs/airoha,pcs.yaml b/Documentation/devicetree/bindings/net/pcs/airoha,pcs.yaml
-new file mode 100644
-index 000000000000..9c1d116c1b01
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/pcs/airoha,pcs.yaml
-@@ -0,0 +1,261 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/pcs/airoha,pcs.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Airoha Ethernet PCS and Serdes
-+
-+maintainers:
-+  - Christian Marangi <ansuelsmth@gmail.com>
-+
-+description:
-+  Airoha AN7581 SoC expose multiple Physical Coding Sublayer (PCS) for
-+  the various Serdes port supporting different Media Independent Interface
-+  (10BASE-R, USXGMII, 2500BASE-X, 1000BASE-X, SGMII).
-+
-+properties:
-+  compatible:
-+    enum:
-+      - airoha,an7581-pcs-eth
-+      - airoha,an7581-pcs-pon
-+      - airoha,an7581-pcs-pcie
-+      - airoha,an7581-pcs-usb
-+
-+  reg:
-+    minItems: 6
-+    maxItems: 15
-+
-+  reg-names:
-+    minItems: 6
-+    maxItems: 15
-+
-+  airoha,scu:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: phandle to the SCU node required to configure
-+      the serdes line to the correct interface mode.
-+
-+  phys:
-+    maxItems: 1
-+
-+  "#pcs-cells": true
-+
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
-+  - "#pcs-cells"
-+
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - airoha,an7581-pcs-eth
-+              - airoha,an7581-pcs-pon
-+
-+    then:
-+      properties:
-+        reg:
-+          items:
-+            - description: PCS MAC reg
-+            - description: HSGMII AN reg
-+            - description: HSGMII PCS reg
-+            - description: MULTI SGMII reg
-+            - description: USXGMII reg
-+            - description: HSGMII rate adaption reg
-+            - description: PCS Analog register
-+            - description: PCS PMA (Physical Medium Attachment) register
-+
-+        reg-names:
-+          items:
-+            - const: pcs_mac
-+            - const: hsgmii_an
-+            - const: hsgmii_pcs
-+            - const: multi_sgmii
-+            - const: usxgmii
-+            - const: hsgmii_rate_adp
-+            - const: pcs_ana
-+            - const: pcs_pma
-+
-+        phys: false
-+
-+        "#pcs-cells":
-+          const: 0
-+
-+      required:
-+        - airoha,scu
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: airoha,an7581-pcs-pcie
-+
-+    then:
-+      properties:
-+        reg:
-+          items:
-+            - description: PCS MAC 0 reg
-+            - description: HSGMII AN 0 reg
-+            - description: HSGMII PCS 0 reg
-+            - description: MULTI SGMII 0 reg
-+            - description: USXGMII 0 reg
-+            - description: HSGMII rate adaption 0 reg
-+            - description: PCS MAC 1 reg
-+            - description: HSGMII AN 1 reg
-+            - description: HSGMII PCS 1 reg
-+            - description: MULTI SGMII 1 reg
-+            - description: USXGMII 1 reg
-+            - description: HSGMII rate adaption 1 reg
-+            - description: PCS Analog register
-+            - description: PCS PMA (Physical Medium Attachment) 0 register
-+            - description: PCS PMA (Physical Medium Attachment) 1 register
-+
-+        reg-names:
-+          items:
-+            - const: pcs_mac0
-+            - const: hsgmii_an0
-+            - const: hsgmii_pcs0
-+            - const: multi_sgmii0
-+            - const: usxgmii0
-+            - const: hsgmii_rate_adp0
-+            - const: pcs_mac1
-+            - const: hsgmii_an1
-+            - const: hsgmii_pcs1
-+            - const: multi_sgmii1
-+            - const: usxgmii1
-+            - const: hsgmii_rate_adp1
-+            - const: pcs_ana
-+            - const: pcs_pma0
-+            - const: pcs_pma1
-+
-+        phys: false
-+
-+        "#pcs-cells":
-+          const: 1
-+
-+      required:
-+        - airoha,scu
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: airoha,an7581-pcs-usb
-+
-+    then:
-+      properties:
-+        reg:
-+          items:
-+            - description: PCS MAC reg
-+            - description: HSGMII AN reg
-+            - description: HSGMII PCS reg
-+            - description: MULTI SGMII reg
-+            - description: HSGMII rate adaption reg
-+            - description: PCS Analog register
-+
-+        reg-names:
-+          items:
-+            - const: pcs_mac
-+            - const: hsgmii_an
-+            - const: hsgmii_pcs
-+            - const: multi_sgmii
-+            - const: hsgmii_rate_adp
-+            - const: pcs_ana
-+
-+        airoha,scu: false
-+
-+        "#pcs-cells":
-+          const: 0
-+
-+      required:
-+        - phys
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/phy/phy.h>
-+
-+    pcs@1fa08000 {
-+      compatible = "airoha,an7581-pcs-pon";
-+      reg = <0x1fa08000 0x1000>,
-+            <0x1fa80000 0x60>,
-+            <0x1fa80a00 0x164>,
-+            <0x1fa84000 0x450>,
-+            <0x1fa85900 0x338>,
-+            <0x1fa86000 0x300>,
-+            <0x1fa8a000 0x1000>,
-+            <0x1fa8b000 0x1000>;
-+      reg-names = "pcs_mac", "hsgmii_an", "hsgmii_pcs",
-+                  "multi_sgmii", "usxgmii",
-+                  "hsgmii_rate_adp", "pcs_ana", "pcs_pma";
-+
-+      airoha,scu = <&scuclk>;
-+      #pcs-cells = <0>;
-+    };
-+
-+    pcs@1fa09000 {
-+      compatible = "airoha,an7581-pcs-eth";
-+      reg = <0x1fa09000 0x1000>,
-+            <0x1fa70000 0x60>,
-+            <0x1fa70a00 0x164>,
-+            <0x1fa74000 0x450>,
-+            <0x1fa75900 0x338>,
-+            <0x1fa76000 0x300>,
-+            <0x1fa7a000 0x1000>,
-+            <0x1fa7b000 0x1000>;
-+      reg-names = "pcs_mac", "hsgmii_an", "hsgmii_pcs",
-+                  "multi_sgmii", "usxgmii",
-+                  "hsgmii_rate_adp", "pcs_ana", "pcs_pma";
-+
-+      airoha,scu = <&scuclk>;
-+      #pcs-cells = <0>;
-+    };
-+
-+    pcs@1fa04000 {
-+      compatible = "airoha,an7581-pcs-pcie";
-+      reg = <0x1fa04000 0x1000>,
-+            <0x1fa50000 0x60>,
-+            <0x1fa50a00 0x164>,
-+            <0x1fa54000 0x450>,
-+            <0x1fa55900 0x338>,
-+            <0x1fa56000 0x300>,
-+            <0x1fa05000 0x1000>,
-+            <0x1fa60000 0x60>,
-+            <0x1fa60a00 0x164>,
-+            <0x1fa64000 0x450>,
-+            <0x1fa65900 0x338>,
-+            <0x1fa66000 0x300>,
-+            <0x1fa5a000 0x1000>,
-+            <0x1fa5b000 0x1000>,
-+            <0x1fa5c000 0x1000>;
-+      reg-names = "pcs_mac0", "hsgmii_an0", "hsgmii_pcs0",
-+                  "multi_sgmii0", "usxgmii0",
-+                  "hsgmii_rate_adp0",
-+                  "pcs_mac1", "hsgmii_an1", "hsgmii_pcs1",
-+                  "multi_sgmii1", "usxgmii1",
-+                  "hsgmii_rate_adp1",
-+                  "pcs_ana", "pcs_pma0", "pcs_pma1";
-+
-+      airoha,scu = <&scuclk>;
-+      #pcs-cells = <1>;
-+    };
-+
-+    pcs@1fa07000 {
-+      compatible = "airoha,an7581-pcs-usb";
-+      reg = <0x1fa07000 0x1000>,
-+            <0x1fa90000 0x60>,
-+            <0x1fa90a00 0x164>,
-+            <0x1fa94000 0x450>,
-+            <0x1fa96000 0x300>,
-+            <0x1fa9a000 0x600>;
-+      reg-names = "pcs_mac", "hsgmii_an", "hsgmii_pcs",
-+                  "multi_sgmii", "hsgmii_rate_adp","pcs_ana";
-+
-+      phys = <&usb0_phy PHY_TYPE_USB3>;
-+
-+      #pcs-cells = <0>;
-+    };
+Sorry about the v3 traffic: it went out twice because my mail provider
+accepted the first copy but then held it for hours before delivering, so
+a resend and the original both landed. That is fixed now.
+
+Changes in v4:
+- Use phy-mode = "rgmii-id" and let the YT8531 add both RGMII delays
+  internally; drop the MAC tx_delay/rx_delay. The PCB does not use long
+  clock lines, so rgmii-id is the correct description, and this matches
+  the other rk3576 boards. Re-tested: link still comes up at 1000 Mbit/s
+  (Andrew Lunn).
+- Drop the redundant clocks/assigned-clocks on the PHY node; the 25 MHz
+  reference is enabled and rated through clk_mac_refout on the gmac node,
+  and clock properties on an MDIO child are not processed (sashiko-bot).
+- Enable &sai6, the I2S CPU DAI the HDMI sound card needs to probe
+  (sashiko-bot).
+- Pick up Krzysztof's Acked-by on patch 1.
+
+Changes in v3:
+- Remove the ES8388 codec from the file header and the i2c0 block comment
+  (the node was dropped in v2 but the comments still named it).
+- Use gpios instead of gpio in the vcc_3v3_pcie fixed regulator.
+
+Changes in v2:
+- Type-C DP alt-mode: name the altmodes child "displayport" and make svid
+  a /bits/ 16 value; drop the undocumented svid from &usbdp_phy and add
+  the missing mode-switch.
+- Move the FUSB302 role-switch endpoint into the connector's ports and
+  rename the node to usb-typec@22.
+- Drop the ES8388 node and the unreferenced gmac0_rst, bt_reg_on and
+  wifi_host_wake_irq pinctrls.
+- Rename the wifi-poweren-gpio pinctrl node (collided with
+  gpio-consumer.yaml).
+- Describe the PHY reset at the MDIO bus level rather than with the
+  deprecated snps,reset-gpios.
+
+[1] net: stmmac: dwmac-rk: enable the reference clock for output mode
+
+Jiaxing Hu (2):
+  dt-bindings: arm: rockchip: Add ArmSoM CM5 and CM5-IO
+  arm64: dts: rockchip: Add ArmSoM CM5 and CM5-IO
+
+ .../devicetree/bindings/arm/rockchip.yaml     |   7 +
+ arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+ .../dts/rockchip/rk3576-armsom-cm5-io.dts     | 402 +++++++++++++
+ .../boot/dts/rockchip/rk3576-armsom-cm5.dtsi  | 558 ++++++++++++++++++
+ 4 files changed, 968 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-armsom-cm5-io.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-armsom-cm5.dtsi
+
 -- 
-2.53.0
+2.43.0
 
 
