@@ -4,66 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C51D3C44514
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 10:58:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E371C44514
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 10:59:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XpYq1f/UmEcEGLFopzqqr091LXlUXw8/A/d1WMocgQM=; b=KH6X6E+uPHTVpTotd9mg8PnnhT
-	7bcRM7+sHPr2EH8z+1DCkT8TTjlX31jDGV4TwCgo3+IjRmYnOAuUfvu1Ay+Dcl53hDjzMGDfWerQj
-	4EuZP/oVUVBbaVidiWycpuhNdmSM+v2wWhBGFYsh3aFp5a2TxDi6MDExgA8uzTRYu0Dut48vph7Ad
-	FDLEQqxPKNivnLdP5wEt28H7FaKLrV6mGXtmjU5yC3AiDXZiUphXtYWw9tYzprMBmUNjI34ePTIb0
-	Z4TQKpCnD2rBktHJI5ZRheeMpHd6M9/uuv4xHRzcAUi2qBrm/msifEFJQWJU08sQep67mMt/88i1i
-	M+La+t4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7d4qJ+T8ver1Wxgr9oYxe2ulrXqphYcvsiqipcUS47g=; b=IqBNNxFO+1lhh6am9qdbswR0cq
+	U4EDtywXZOz0IhRKiu3Sd9vm13icUcDSqMs0jAZ+x4m+X/ONjX2mjmzeaQtjYHsq/yKsORrGA8i7v
+	z+Nha7ujLAQ1Wk+BYk6Gg+pZbDYlDWyIgMGGCR1rdlTga9O+SSASYpRVvjVcIGTrTtQb6EJ8najBA
+	DkbPWA2RJSH/WBERLfG3GNxUaxqYp8zxicjcLSnEsBRcbLoPLJgeetwp/VHqeiXPr0R4XARjrojYr
+	kPXr6xG4aFJUprEFiqlVVqEhlU1hLIuhSIP7FlyH2dfv3Hz/23DH0CcSzc8wNrCiJ2bt+7g47aIzp
+	JcndzNsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkg7S-00000002256-0ldl;
-	Fri, 17 Jul 2026 10:48:38 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkg7I-000000021xZ-30mu
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 10:48:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 99A3C169E;
-	Fri, 17 Jul 2026 03:48:23 -0700 (PDT)
-Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.2.198.107])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 05CCF3F7D8;
-	Fri, 17 Jul 2026 03:48:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784285307; bh=hL8zKEfkHR6cwYhCGYTeqo96eLtnIhcZah/Vhkb5Kyw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QEEiw3Uf+kHm/zL1nFZBxldILQjzxBFtjhfH7EA92tF9OyM93+HNtLYZ9vPDFTQfZ
-	 UnECFi4Mu3zS9ouFkdwePVIYiEmBC6juhEOfM0DrXtx7xq3o5DWIyZ+iC6rUoj9Th3
-	 yj2UICSyOOTN2JPHcBs/PsQ8B3E1oy19hU4DDskw=
-From: Ryan Roberts <ryan.roberts@arm.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	Oded Gabbay <ogabbay@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>
-Cc: Ryan Roberts <ryan.roberts@arm.com>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	dri-devel@lists.freedesktop.org,
-	linux-doc@vger.kernel.org
-Subject: [RFC PATCH v1 4/8] misc/arm-cla: Initialize devices on CPU bringup
-Date: Fri, 17 Jul 2026 11:47:48 +0100
-Message-ID: <20260717104759.123203-5-ryan.roberts@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260717104759.123203-1-ryan.roberts@arm.com>
-References: <20260717104759.123203-1-ryan.roberts@arm.com>
+	id 1wkgCZ-000000023SH-30Q4;
+	Fri, 17 Jul 2026 10:53:55 +0000
+Received: from exmail3.compal.com ([59.120.207.196] helo=tpecef22.compal.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkgCW-000000023RU-29gN;
+	Fri, 17 Jul 2026 10:53:54 +0000
+X-UUID: c7b693ec81cd11f1a87c2323a98e90a4-20260717
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.17,REQID:391a7171-17cc-4888-ad05-e57d16321c59,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-5
+X-CID-META: VersionHash:d497b38,CLOUDID:f1f83c19-ab14-4403-9336-76696324c5a8,B
+	ulkID:nil,BulkQuantity:0,SF:81|82|83|102|110|111|836|865|888|898,TC:-5,Con
+	tent:0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,
+	COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: c7b693ec81cd11f1a87c2323a98e90a4-20260717
+Received: from sdmg12.sdbg.compal.com [(10.113.168.10)] by tpecef22.compal.com
+	(envelope-from <jackbb_wu@compal.com>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 1917883768; Fri, 17 Jul 2026 18:53:44 +0800
+X-UUID: c4e776ea81cd11f1a9f9c99e036204b4-20260717
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.15,REQID:8f60a7f5-c765-41cc-8bf9-c82a64e37990,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-5
+X-CID-META: VersionHash:e276073,CLOUDID:bbf83c19-ab14-4403-9336-76696324c5a8,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|83|102|110|111|836|865|888|898
+	,TC:-5,Content:0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:ni
+	l,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:
+	0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: c4e776ea81cd11f1a9f9c99e036204b4-20260717
+Received: from sdbmbx11.tpe.compalcomm.com [(10.113.2.135)] by sdmg12.sdbg.compal.com
+	(envelope-from <jackbb_wu@compal.com>)
+	(Compal Mail Service with TLSv1.2 ECDHE-RSA-AES128-SHA 128/128)
+	with ESMTP id 393036499; Fri, 17 Jul 2026 18:53:39 +0800
+Received: from SDBMBX13.tpe.compalcomm.com (10.113.2.137) by
+ SDBMBX11.tpe.compalcomm.com (10.113.2.135) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.43;
+ Fri, 17 Jul 2026 18:53:37 +0800
+Received: from SDBMBX13.tpe.compalcomm.com ([fe80::2b98:6c2c:37df:2a86]) by
+ SDBMBX13.tpe.compalcomm.com ([fe80::2b98:6c2c:37df:2a86%11]) with mapi id
+ 15.02.2562.043; Fri, 17 Jul 2026 18:53:37 +0800
+From: "Wu. JackBB (GSM)" <JackBB_Wu@compal.com>
+To: Simon Horman <horms@kernel.org>
+CC: "loic.poulain@oss.qualcomm.com" <loic.poulain@oss.qualcomm.com>,
+	"ryazanov.s.a@gmail.com" <ryazanov.s.a@gmail.com>,
+	"johannes@sipsolutions.net" <johannes@sipsolutions.net>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
+	<davem@davemloft.net>, "edumazet@google.com" <edumazet@google.com>,
+	"kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
+	"wen-zhi.huang@mediatek.com" <wen-zhi.huang@mediatek.com>,
+	"shi-wei.yeh@mediatek.com" <shi-wei.yeh@mediatek.com>,
+	"Minano.tseng@mediatek.com" <Minano.tseng@mediatek.com>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	"angelogioacchino.delregno@collabora.com"
+	<angelogioacchino.delregno@collabora.com>, "corbet@lwn.net" <corbet@lwn.net>,
+	"skhan@linuxfoundation.org" <skhan@linuxfoundation.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>
+Subject: RE: [External Mail] Re: [PATCH v4 2/7] net: wwan: t9xx: Add control
+ plane transaction layer
+Thread-Topic: [External Mail] Re: [PATCH v4 2/7] net: wwan: t9xx: Add control
+ plane transaction layer
+Thread-Index: AQHdFQZLXFhkpHGHwk+0HowAeOhgTrZxQAIhgABKmI8=
+Date: Fri, 17 Jul 2026 10:53:36 +0000
+Message-ID: <e4c414ee18a0428f8388ee8c847b3ad5@compal.com>
+References: <20260709-t9xx_driver_v1-v4-2-a8c009d509c5@compal.com>,<20260716093355.231047-1-horms@kernel.org>,<47002e869f5b4f0985316669d2769c19@compal.com>
+In-Reply-To: <47002e869f5b4f0985316669d2769c19@compal.com>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.113.2.241]
+x-tm-as-product-ver: SMEX-14.0.0.3239-9.1.2019-30074.006
+x-tm-as-result: No-10--6.899800-8.000000
+x-tmase-matchedrid: T+XxcFniPGwuv++HU7VXryRFbfQbCufdN0X64jGy2dZJTOxleK2tZnw0
+	UcwaiWo2Fz8NwhmlWx4y7EpJodRIQMz74oElhNRBJfg23t68rFm+UXZnp3CKAPQOK2Gf/k+ts/y
+	bVOXU6piLzhmh6kfDWhg0mD5ur2qoJGhCEy7RQMEk+VN5SeE/Ck04j7+oEbb9WjsaYI4lh3U7nR
+	P0DvgcK7YURQHAp3zKSNJOcVup57cdMK1D9OMWjF3tbFMDIsdT+t7DQ0cGcYxMJBDuBaOWuw==
+x-tm-as-user-approved-sender: No
+x-tm-as-user-blocked-sender: No
+x-tmase-result: 10--6.899800-8.000000
+x-tmase-version: SMEX-14.0.0.3239-9.1.2019-30074.006
+x-tm-snts-smtp: D535A7E008353EB58D5883760F67864E65A4896D13E2587800F8A8BFB77112F32000:8
+Content-Type: text/plain; charset="big5"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_034828_849051_1BF7B370 
-X-CRM114-Status: GOOD (  27.67  )
+X-CRM114-CacheID: sfid-20260717_035352_898253_6FF382A5 
+X-CRM114-Status: UNSURE (   5.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,325 +137,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jean-Philippe Brucker <jpb@kernel.org>
-
-CLA registers are only accessible from the CPU local to the CLA, so
-perform device initialization from the CPU hotplug online callback.
-
-Clear the DATA registers, reset each attached accelerator and verify
-that it returns to the expected idle state. Record the set of usable
-accelerators and expose only those through PL0CTRL, and through PL1CTRL
-when the kernel is running at EL2.
-
-Reset optional timestamp and PMU controls where available so userspace
-starts from a predictable state, but do not fail probing if those
-optional controls cannot be programmed.
-
-On CPU teardown, reset all known accelerators and mark the device broken
-if reset fails, since the hotplug teardown path cannot safely fail.
-
-Signed-off-by: Jean-Philippe Brucker <jpb@kernel.org>
----
- drivers/misc/arm-cla/arm-cla.h  |  14 +++
- drivers/misc/arm-cla/cla-init.c | 178 ++++++++++++++++++++++++++++++++
- drivers/misc/arm-cla/cla-ops.c  |  19 ++++
- 3 files changed, 211 insertions(+)
-
-diff --git a/drivers/misc/arm-cla/arm-cla.h b/drivers/misc/arm-cla/arm-cla.h
-index 1853daa200e4..57d0acd01d3a 100644
---- a/drivers/misc/arm-cla/arm-cla.h
-+++ b/drivers/misc/arm-cla/arm-cla.h
-@@ -28,16 +28,25 @@ struct cla_domain;
-  * @regs:		Registers accessed by the kernel.
-  * @dev:		The platform device.
-  * @pfn:		Page of registers assigned to user.
-+ * @accelerators:	Available accelerators.
-  * @pg_offset:		Mmap offset of this device.
-  * @domain:		The domain this CLA belongs to.
-+ *
-+ * Mutable, only accessed under @lock:
-+ * @lock:		Protects the following members.
-+ * @broken:		Hardware failure.
-  */
- struct cla_dev {
- 	unsigned int cpu;
- 	void __iomem *regs;
- 	struct device *dev;
- 	unsigned long pfn;
-+	u8 accelerators;
- 	unsigned long pg_offset;
- 	struct cla_domain *domain;
-+
-+	struct mutex lock;
-+	bool broken;
- };
- 
- /**
-@@ -62,6 +71,10 @@ extern struct cla_dev **cla_lut_cpu;
- extern struct cla_dev **cla_lut_pg;
- extern unsigned int cla_nr_devs;
- 
-+#define cla_for_each_accid(dev, accid) \
-+	for ((accid) = 0; (accid) < CLA_NUM_ACC; (accid)++) \
-+		for_each_if((dev)->accelerators & BIT(accid))
-+
- #define cla_dbg(dev, fmt, ...) \
- 	dev_dbg((dev)->dev, "[%u] " fmt, (dev)->cpu, ##__VA_ARGS__)
- #define cla_info(dev, fmt, ...) \
-@@ -97,6 +110,7 @@ void cla_domains_free(void);
- 
- int cla_op_wait_lresp(struct cla_dev *dev, u64 *lresp);
- int cla_op_reset(struct cla_dev *dev, unsigned int accid);
-+int cla_op_reset_all(struct cla_dev *dev);
- int cla_op_regread(struct cla_dev *dev, unsigned int accid, unsigned int regidx,
- 		   size_t nregs, u64 *regs);
- int cla_op_regwrite(struct cla_dev *dev, unsigned int accid,
-diff --git a/drivers/misc/arm-cla/cla-init.c b/drivers/misc/arm-cla/cla-init.c
-index 731ca08c9b79..ba7552a2d886 100644
---- a/drivers/misc/arm-cla/cla-init.c
-+++ b/drivers/misc/arm-cla/cla-init.c
-@@ -17,18 +17,192 @@
- 
- static int cla_cpuhp_state = -1;
- 
-+static int cla_reset_ts(struct cla_dev *dev, unsigned int accid)
-+{
-+	int ret;
-+	u64 reg;
-+
-+	ret = cla_op_regread(dev, accid, CLA_REG_ACAP, 1, &reg);
-+	if (ret)
-+		return ret;
-+	if (!FIELD_GET(CLA_ACAP_TS, reg))
-+		return 0;
-+
-+	/*
-+	 * Disable TS control from userspace, provide TS from CNTP. If we do
-+	 * have to provide a timer to userspace or a virtual offset to a guest,
-+	 * we'll need to make sure we have access to both TSCTRLOWNER and
-+	 * TSOFFOWNER. For now best effort.
-+	 */
-+	reg = FIELD_PREP(CLA_TSCTRLOWNER_PL, cla_kernel_pl);
-+	ret = cla_op_regwrite(dev, accid, CLA_REG_TSCTRLOWNER, 1, &reg);
-+	if (!ret) {
-+		reg = FIELD_PREP(CLA_TSCTRL_TS, CLA_TSCTRL_PHYSICAL);
-+		ret = cla_op_regwrite(dev, accid, CLA_REG_TSCTRL, 1, &reg);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	reg = FIELD_PREP(CLA_TSOFFOWNER_PL, cla_kernel_pl);
-+	ret = cla_op_regread(dev, accid, CLA_REG_TSOFFOWNER, 1, &reg);
-+	if (!ret) {
-+		reg = 0;
-+		ret = cla_op_regwrite(dev, accid, CLA_REG_TSVOFF, 1, &reg);
-+		if (ret)
-+			return ret;
-+		ret = cla_op_regwrite(dev, accid, CLA_REG_TSPOFF, 1, &reg);
-+		if (ret)
-+			return ret;
-+	}
-+	return 0;
-+}
-+
-+static int cla_reset_pmu(struct cla_dev *dev, unsigned int accid)
-+{
-+	int ret;
-+	u64 reg;
-+
-+	/* Disable PMU access */
-+	reg = FIELD_PREP(CLA_PMUOWNER_PL, cla_kernel_pl);
-+	ret = cla_op_regwrite(dev, accid, CLA_REG_PMUOWNER, 1, &reg);
-+	if (!ret) {
-+		reg = 0;
-+		ret = cla_op_regwrite(dev, accid, CLA_REG_PMURESET, 1, &reg);
-+		if (ret)
-+			return ret;
-+	}
-+	return 0;
-+}
-+
-+/*
-+ * Return: 0 on success, 1 if the accelerator is not attached or not usable, or
-+ * an error
-+ */
-+static int cla_dev_setup_accel(struct cla_dev *dev, unsigned int accid)
-+{
-+	u64 status;
-+	int ret;
-+
-+	/*
-+	 * Probe and reset. Return 1 if no accelerator is attached, happy days.
-+	 * If the accelerator is unavailable (masked by higher PL with PLxCTRL),
-+	 * return an error. Individual accelerators cannot be owned by a higher
-+	 * PL, since the MTC is shared between all accelerators attached to this
-+	 * CLA.
-+	 *
-+	 * Some accelerators will be masked due to returning 1 further down this
-+	 * function. If we end up with no dev->accelerators because of that we
-+	 * won't setup the MTC, but as long as this reset succeeds, the
-+	 * accelerator is not issuing memory transactions.
-+	 */
-+	ret = cla_op_reset(dev, accid);
-+	if (ret)
-+		return ret;
-+
-+	status = cla_reg_read(dev, CLA_REG_STATUS(accid));
-+	if ((status & CLA_STATUS_STATE_MASK) != CLA_STATUS_STATE_IDLE) {
-+		cla_err(dev, "unexpected status 0x%llx for accelerator %d\n",
-+			status, accid);
-+		return -EIO;
-+	}
-+
-+	/*
-+	 * The following are nice to have, but the accelerator should work
-+	 * without them.
-+	 */
-+	ret = cla_reset_ts(dev, accid);
-+	if (ret)
-+		cla_err(dev, "[%u] could not reset TS: %d\n", accid, ret);
-+
-+	ret = cla_reset_pmu(dev, accid);
-+	if (ret)
-+		cla_err(dev, "[%u] could not reset PMU: %d\n", accid, ret);
-+
-+	return 0;
-+}
-+
-+/* Clean the device before releasing it */
-+static void cla_dev_reinit(struct cla_dev *dev)
-+{
-+	int i;
-+	bool broken;
-+
-+	mutex_lock(&dev->lock);
-+	broken = dev->broken;
-+	mutex_unlock(&dev->lock);
-+	if (broken)
-+		return;
-+
-+	if (WARN_ON(cla_op_reset_all(dev))) {
-+		mutex_lock(&dev->lock);
-+		dev->broken = true;
-+		mutex_unlock(&dev->lock);
-+		return;
-+	}
-+
-+	if (is_kernel_in_hyp_mode())
-+		cla_reg_write(dev, CLA_REG_PL1CTRL, ~0ULL);
-+	cla_reg_write(dev, CLA_REG_PL0CTRL, ~0ULL);
-+	for (i = 0; i < CLA_NUM_DATA_REGS; i++)
-+		cla_reg_write(dev, CLA_REG_DATA(i), 0);
-+	cla_reg_write(dev, CLA_REG_LRESP, 0);
-+}
-+
- static int cla_dev_setup(unsigned int cpu)
- {
-+	int i;
-+	int ret;
-+	bool broken;
-+	unsigned int accid;
- 	struct cla_dev *dev;
-+	u64 plxctrl_val = 0;
- 
- 	dev = cla_lut_cpu[cpu];
- 	if (!dev)
- 		return 0;
- 
-+	mutex_lock(&dev->lock);
-+	broken = dev->broken;
-+	mutex_unlock(&dev->lock);
-+	if (broken)
-+		return 0;
-+
- 	if (WARN_ON(smp_processor_id() != cpu || dev->cpu != cpu))
- 		return -EINVAL;
- 
-+	/* Clear DATA and LRESP_DATANZ */
-+	for (i = 0; i < CLA_NUM_DATA_REGS; i++)
-+		cla_reg_write(dev, CLA_REG_DATA(i), 0);
-+
-+	/*
-+	 * Reset all accelerators. We restrict PLxCTRL to the accelerators that
-+	 * are attached and well behaved.
-+	 */
-+	for (accid = 0; accid < CLA_NUM_ACC; accid++) {
-+		ret = cla_dev_setup_accel(dev, accid);
-+		if (ret > 0)
-+			continue;
-+		else if (ret < 0)
-+			goto err;
-+
-+		dev->accelerators |= (1 << accid);
-+		plxctrl_val |= CLA_PLxCTRL_PREP(accid,
-+						FIELD_PREP(CLA_PLxCTRL_AVAIL, 1));
-+	}
-+
-+	if (is_kernel_in_hyp_mode())
-+		cla_reg_write(dev, CLA_REG_PL1CTRL, plxctrl_val);
-+
-+	cla_reg_write(dev, CLA_REG_PL0CTRL, plxctrl_val);
-+
-+	if (dev->accelerators)
-+		cla_info(dev, "available accelerators: 0x%02x\n",
-+			 dev->accelerators);
-+
- 	return 0;
-+err:
-+	cla_dev_reinit(dev);
-+	return ret;
- }
- 
- static int cla_dev_teardown(unsigned int cpu)
-@@ -43,6 +217,8 @@ static int cla_dev_teardown(unsigned int cpu)
- 	if (!dev)
- 		return 0;
- 
-+	cla_dev_reinit(dev);
-+
- 	return 0;
- }
- 
-@@ -84,6 +260,8 @@ static struct cla_dev *cla_dev_alloc(struct device *parent, int cpu,
- 	dev->cpu = cpu;
- 	dev->dev = parent;
- 
-+	mutex_init(&dev->lock);
-+
- 	/* Attempt to find device domain, or allocate a new one */
- 	dev->domain = cla_dev_domain_get(dev);
- 	if (IS_ERR(dev->domain))
-diff --git a/drivers/misc/arm-cla/cla-ops.c b/drivers/misc/arm-cla/cla-ops.c
-index d594344a2eb4..f9e5570e89c1 100644
---- a/drivers/misc/arm-cla/cla-ops.c
-+++ b/drivers/misc/arm-cla/cla-ops.c
-@@ -143,6 +143,25 @@ int cla_op_reset(struct cla_dev *dev, unsigned int accid)
- 	return ret;
- }
- 
-+/**
-+ * cla_op_reset_all - Reset all attached accelerators
-+ * @dev: CLA device.
-+ *
-+ * Return: 0 on success, or an error
-+ */
-+int cla_op_reset_all(struct cla_dev *dev)
-+{
-+	int ret;
-+	unsigned int accid;
-+
-+	cla_for_each_accid(dev, accid) {
-+		ret = cla_op_reset(dev, accid);
-+		if (ret)
-+			return ret < 0 ? ret : -ENODEV;
-+	}
-+	return 0;
-+}
-+
- static int cla_op_access_reg(struct cla_dev *dev, u8 op,
- 			     enum cla_launch_data_mode data_mode,
- 			     unsigned int accid, unsigned int regidx,
--- 
-2.43.0
-
+DQpIaSBTaW1vbiwNCg0KQWZ0ZXIgZnVydGhlciBpbnRlcm5hbCByZXZpZXcsIHdlIGFncmVlIHRo
+aXMgbmVlZHMgdG8gYmUgZml4ZWQuDQoNCk9uIEphY2sgV3Ugd3JvdGU6DQoNCj4+IFtTZXZlcml0
+eTogSGlnaF0NCj4+IERvZXMgdGhpcyBjb2RlIGFwcGx5IGEgZG91YmxlIGJ5dGUtc3dhcCBvbiBi
+aWctZW5kaWFuIGFyY2hpdGVjdHVyZXM/DQoNCj5UOVhYIGN1cnJlbnRseSBvbmx5IHRhcmdldHMg
+eDg2IChsaXR0bGUtZW5kaWFuKSBwbGF0Zm9ybXMgd2hlcmUNCj5jcHVfdG9fbGUzMigpIGlzIGEg
+bm8tb3AuIFRoZSBLY29uZmlnIGVuZm9yY2VzICJkZXBlbmRzIG9uIFBDSSAmJg0KDQpJbiB2NSB3
+ZSB3aWxsIHJlbW92ZSBMRTMyX1RPX1UzMihjcHVfdG9fbGUzMiguLi4pKSBhbmQgcmV0dXJuDQpo
+d19iaXRzIGRpcmVjdGx5IGluIGJvdGggbXRrX3BjaV9leHRfZDJoX2V2dF9od19iaXRzKCkgYW5k
+DQptdGtfcGNpX2V4dF9oMmRfZXZ0X2h3X2JpdHMoKS4gVGhlIGN1c3RvbSBMRTMyX1RPX1UzMiBt
+YWNybw0Kd2lsbCBhbHNvIGJlIHJlbW92ZWQuDQoNClRoYW5rcy4NCg0KSmFjayBXdQ0K
 
