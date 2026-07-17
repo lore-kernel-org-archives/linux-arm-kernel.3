@@ -4,70 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E247EC44507
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 07:59:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3924C44507
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 08:00:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GMflJCfpssRM4YJJC+Tlv3Nh5omjZh8nOynqqpt+YI4=; b=h36E/B1bkwXytgfOeVsUQZHwrv
-	/tLnC39da/TIR85Y33Acfv+vY2WtMxlIq7D+kj4wyv5W/6QgBs++mGp0Fffp5Lgg1zAeSG1/Zjnkx
-	f89nowxKNq49JKwT7XV4tZ8+ZzQcFwMkZl1zkffARsmhLvVsc7I8fjop43Txqu5NyiU5RsMN7AGkT
-	062ST2g/onVfQPy0D850RROk2Yx4QJNgtu3ZabNa3NMSXG1Xl5qo7nIUF05s1sUnkNtnmeinz2k6D
-	7X3+eQbWyp6d/kBr3ZgTkCOV3iFcBfIqTxck3Fx1XaW+feOyDozaTP/Dqk9J8ECHHLPKeapXrpVBO
-	7GCj8Kjg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yyWkM6zopcr2MMl5SvPrurm7WiNsCcjkD9OPElmEF7w=; b=zkbgyfUE4yMMXi7vgr/Y7PgbH0
+	JOmKfWf6ayT1nd4M0rRNp9lLDNfaCwdRXpU0afdbVMY0xbke57+E6U7fheLwC4C8nr+HI7fw/FzHx
+	jtNwHb+x7Y8ojeWfmNp5YPMHS1lIo/h/WG8YVKygeDgsAM+C+v57y4G4057UMPJ8gUGfFY2ZHrJog
+	7ULpL7A0jow6QQoVoxxX2c8lmeAmD2ZjMT/GA8vXoVL5kbMLhWB8Xo1I8qdh+zqweKnb3+0tVKOIP
+	b7rbNbsA0XQNlgxF7TuSUIudxcbYuJnYYpFDWNYlk1VUioF2o1WrRsEqoXM2pd51GMmMdPQA9la9k
+	EXOotvqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkdU0-00000001X2Z-05md;
-	Fri, 17 Jul 2026 07:59:44 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1wkdU4-00000001X4i-16Ja;
+	Fri, 17 Jul 2026 07:59:48 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkdTw-00000001Wzt-14pn
+	id 1wkdTw-00000001X03-459p
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 07:59:42 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-49546c690ffso6944755e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 00:59:38 -0700 (PDT)
+	Fri, 17 Jul 2026 07:59:43 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-49545ba3d4eso5428765e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 00:59:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ahdrone.com; s=google; t=1784275177; x=1784879977; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=GMflJCfpssRM4YJJC+Tlv3Nh5omjZh8nOynqqpt+YI4=;
-        b=fhGUWiHvOjr5bbQoaKxbZJG4ZfKPxO/GKKLfTy3uQlVL0ZRdu0GSvD5dGhbd+Tzu1n
-         AuYs6LFy7soJQGUZh1VtbGFUm9C6HhW2yw5prpWArGmn7cLq4RNbDzjZ4sSLW0Ev+K4x
-         fjO1orHahTBQhdl2KdIniWTnrR4DXDVP57PIb7PkOWoxXbXHjRPUNrmPnkjRaYmbIStW
-         dJz4Xj8d2kJ10N2fJpyQoMfeicEPgSfzRRgiwNGalSfLtGnqGZomAAuLM+iYNazvuola
-         96CmnzkZX7bNpAIHWs0tHSUSUAtrzo9s2dnuEIpi7zwQoDjcNLmPLoXNBJYFwzmDxu54
-         0OHw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784275177; x=1784879977;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=ahdrone.com; s=google; t=1784275179; x=1784879979; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=GMflJCfpssRM4YJJC+Tlv3Nh5omjZh8nOynqqpt+YI4=;
-        b=SLzX6kAJmby9qEta5rgXJMXu2UwbPekTe7mrPxOs22eLN5UcW0gGWtwGG/m14MeXSQ
-         s96knX9VQR98fMBhfQoj4cSe+0gAm1EMuwoEZo8m4ixVtMTeDrZRlnFIVy9PmFoYtkOr
-         uzbxgRs5kef6bXCzHVwYGqiQmTRK9UOsOVvNUcU1iyd1GIw3hMFdYCEerV7idj1VWyyX
-         iLiQ8uZGXBGav63c7wyiE0irxPflhfJO8ClY9ywqoqyT05/b7wjV6uRom1nJgeSm2k1W
-         FcQ21sB3gOO/gITqfX7KKRJX00oTxO+FLFPY7/fwq2O1VOM2aj0acM3zg4XZcN5tfQQI
-         5moA==
-X-Forwarded-Encrypted: i=1; AHgh+Rp18ir3rpPsgmwaGhL14ZNsq3rEQIzmjfl2+tm/lz8xiaVtWaEzrhHKG8bs0ZfaCkJFzESEz/47sloRgPKdcqWK@lists.infradead.org
-X-Gm-Message-State: AOJu0YzRRFSHr/zrxuJuwUZUg1s5iDUbMh6rYo884MtV3kyk8PGDrl6R
-	I2OQFE3GF8AXdyWhbgJYdZnGx6SUGu/eyp8l9E6j+42UNY7Qqp9B5nYYpkgFXnjsCg==
-X-Gm-Gg: AfdE7ckRNFdW60wvIxKoI0aOnSPbxKz/cWuJO8yNSv5NCOUwjQ3+FS2kB4PVefLqn8k
-	xl0sKokA3tp/wehgc3LiyLN5V65MWH4ACE2xvgWWdXKdcgOJDXRGfAlHSrso5FrVb2bc8T1g9Nz
-	EXJ3NHzMpDrgC75dii+5R5KoNxvXwaf3+1H0rySQSnFiyUxJe21G2iWbaFcq8zSVaxUSdgg6BEp
-	2OZCHBC6F4OL54V5SuV6kynrdMOzfMlLhRYGVzlPyBGKezPsBHKQxHR6CkvM3HlZ2uTKg690Re+
-	aoWbWTLMO8VFLin+GvbRJcKob8xzOXm01ZQBD1ITIG/ZxHNvXPJ8WgfNBJQ9tPUU7+Kv2G3vGa8
-	mcXnTy3FqP4Xi003V7rU1D6YSO9+mLDM6/JWHKo2DR6LMclzvWYuUj55HIyV0JMC2vjzvgxIonD
-	hMfG6nOls1g9k2P76Shb5/xenb1g==
-X-Received: by 2002:a05:600c:c04b:20b0:493:d078:796 with SMTP id 5b1f17b1804b1-4954a3f397fmr12203065e9.17.1784275177348;
-        Fri, 17 Jul 2026 00:59:37 -0700 (PDT)
+        bh=yyWkM6zopcr2MMl5SvPrurm7WiNsCcjkD9OPElmEF7w=;
+        b=isHvt9KE3xSvwxTjkB0wHl3hGeWTYRyEVy1gUNVkBrUEY1u46HPjIKwkHMPG3DyXv+
+         ZL1R3KRPdBg+PkJZh/cK3+ReoUhfz8DE/Aec2Fwc4qTiHzJsKj9mBzBOg0dHG3LC/A4x
+         5KJaE+ddXQl37OYnu11HRl3FqsOoymIXqjwWERSB1dFTgkfh8xZvSKm9+S2XndXVLkOR
+         XRoeTVwr7i6SrwwdWbZdEof3axjlxrzr5lSR/pmOJt39IENOCwWljRnQLCRoIV884PrN
+         0oXOWFo3+4qATB7QhXXIJTlByRwXYanSsZXaDrraKBCfDjqc1b0booTZNIwT539wzE3L
+         oEKw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784275179; x=1784879979;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=yyWkM6zopcr2MMl5SvPrurm7WiNsCcjkD9OPElmEF7w=;
+        b=pTLk5aGCL7q70APIxq+s3iG4R9u/hxvbrN7Bz3AnckcaV+k6c6f983AWFugsU9K/fc
+         DcjkGAY/C7TryYJ6Qxy33Zdjjmq3F0FxYFPhNgtcnK1eYRol4lcs4XZzaF9KaaBMDI7t
+         MvO6PMkVoo9ukNk6i4tfkPBDIe62wzWwi0OgCcf3e+8fk72RcBeYNntv+PExopNyd58t
+         XZh/gM3s+Q+XBxpADg6yfqQHKZ5sLBoxTrrI5xG1Pdi9Zau3qzAi7v0QISK+mdXXwdGr
+         TWLjiBYMbDHgEN0/NIkZk6a21tdt6jRxb1cf6aiPfXhafIxvKUwZB2/GP6sSLhUvGcPr
+         c18w==
+X-Forwarded-Encrypted: i=1; AHgh+Rpo3KtQVyrhJ63mLkLz7c89rnm/CLp+vVPF0K3PL2cG0xYRV/Qr5pMQaN+HpEC0rGevLuotPzBBo/uZsfdSNY+K@lists.infradead.org
+X-Gm-Message-State: AOJu0YzlDNw4Uo/eTjdrNOiKMK9Pj3WWt1m/fLSbOP0q1uqDGosSijSa
+	Z6SFJqSAxwJU34ZbrrHL7mjkpBSSigP9xi1NbzUk1n1QoXtVsExSoJfLiGEtuvo9q/CpIxtg72s
+	saSFmAA==
+X-Gm-Gg: AfdE7ckOlqYteTqyf9qYDQ1smS9IPd6ch7D3dzbE1TblON/sFtW+R0wDxgIxNTcHNLU
+	Nhm6G04YoZj1HFTXILjo7/x2TuybAfDz/nBGxLTiZwEhjzvuVn9UuAmFigdbC7mClGul5vdeLqA
+	edoy4x72xaFcoviM2FmWNlRzWMCfS6pJpYHz8tQ7bWrGdoNpgUZ6nlGcQfsJ+2YZXcJlkt3I+JY
+	pJ4U0yEmT8rNNnL8MHBuCULZJr3yqC8c7fHFfMtKyX3yEM2qww57nIQ1U14TKM1o5obOi3gJ7RD
+	aUHfiX7brZnkr7DODQNJ3Soy64VZD99rAGsI+JLpTnendJxL35APr/OUdNBO7SYy9+q52XyHCFu
+	MCMgu4sCu90aTH5352KRLvEmaBw43BgICeU40A8jJwKO33J07vfG650iLynYs1qcpecOjAdYAhl
+	xTV4ZnxhcUMcIAOFaB+gRUbHlFlQ==
+X-Received: by 2002:a05:600c:705:b0:495:3b8a:bf11 with SMTP id 5b1f17b1804b1-4954a515217mr10032355e9.26.1784275179062;
+        Fri, 17 Jul 2026 00:59:39 -0700 (PDT)
 Received: from rikus ([2a01:e0a:edb:6330:cc2f:bd70:58a:fcfb])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49549a3e2a9sm31709045e9.4.2026.07.17.00.59.36
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49549a3e2a9sm31709045e9.4.2026.07.17.00.59.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 Jul 2026 00:59:37 -0700 (PDT)
+        Fri, 17 Jul 2026 00:59:38 -0700 (PDT)
 From: Hugo VALTIER <hugo@ahdrone.com>
 To: Linus Walleij <linusw@kernel.org>,
 	Heiko Stuebner <heiko@sntech.de>
@@ -79,16 +81,17 @@ Cc: Hugo VALTIER <hugo@ahdrone.com>,
 	Dmitry Yashin <dmt.yashin@gmail.com>,
 	Luca Ceresoli <luca.ceresoli@bootlin.com>,
 	Jonas Karlman <jonas@kwiboo.se>
-Subject: [PATCH 0/3] pinctrl: rockchip: add support for RK3308B SoC
-Date: Fri, 17 Jul 2026 09:59:13 +0200
-Message-ID: <20260717075918.1869879-1-hugo@ahdrone.com>
+Subject: [PATCH 2/3] pinctrl: rockchip: extract iomux_recalced_routes_init()
+Date: Fri, 17 Jul 2026 09:59:15 +0200
+Message-ID: <20260717075918.1869879-3-hugo@ahdrone.com>
 X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260717075918.1869879-1-hugo@ahdrone.com>
+References: <20260717075918.1869879-1-hugo@ahdrone.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_005940_615035_59C0E2E7 
-X-CRM114-Status: UNSURE (   9.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260717_005941_028390_1672ACD5 
+X-CRM114-Status: GOOD (  13.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,48 +106,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RK3308B is a silicon revision of the RK3308 with a different iomux
-register layout: several pins (GPIO2_A2, GPIO2_A3, GPIO2_C0, GPIO3_B2,
-GPIO3_B3) gained 3-bit mux fields in new GRF registers that override
-the original 2-bit fields. I believe the bootloader enables the new
-registers via the sel_src_ctrl bits, after which the kernel's writes
-to the old iomux registers are silently ignored. Whatever the exact
-mechanism, on RK3308B boards (e.g. current Radxa ROCK Pi S revisions)
-SPI1, I2C3 and other peripherals on the affected pins are
-non-functional without this series.
+Extract the per-bank recalced_mask and route_mask computation out of
+rockchip_pinctrl_get_soc_data() into a separate function and call it
+from rockchip_pinctrl_probe().
+This allows SoC-specific init code to swap the mux tables before
+the masks are computed.
 
-This is a continuation of Dmitry Yashin's series from 2024 [1], which
-was never resubmitted after review and got dropped. Following the
-reviewers' feedback on that series:
+No functional change intended.
 
-- the separate "rockchip,rk3308b-pinctrl" DT compatible is gone;
-  the variant is detected at runtime from the GRF chip_id register,
-  as suggested by Luca Ceresoli and Heiko Stuebner and prototyped by
-  Jonas Karlman [2], so the same DT works on both variants (boards
-  ship with either chip)
-- the mux_recalced/mux_route tables are constified (patch 1)
+Signed-off-by: Hugo VALTIER <hugo@ahdrone.com>
+---
+ drivers/pinctrl/pinctrl-rockchip.c | 15 +++++++++++++--
+ 1 file changed, 13 insertions(+), 2 deletions(-)
 
-Patch 2 is a small refactor so the SoC-specific init can swap the mux
-tables before the per-bank masks are computed.
-
-Tested on ROCK Pi S boards with RK3308B silicon, where this fixes
-previously dead SPI1. I don't have original-RK3308 hardware, so that
-path is compile-tested only; the tables used for RK3308 are unchanged.
-
-[1] https://lore.kernel.org/all/20240515121634.23945-1-dmt.yashin@gmail.com/
-[2] https://lore.kernel.org/all/20240604141020.21725-1-dmt.yashin@gmail.com/
-
-Hugo VALTIER (3):
-  pinctrl: rockchip: constify mux recalced and route data arrays
-  pinctrl: rockchip: extract iomux_recalced_routes_init()
-  pinctrl: rockchip: add support for RK3308B SoC
-
- drivers/pinctrl/pinctrl-rockchip.c | 266 ++++++++++++++++++++++++++---
- drivers/pinctrl/pinctrl-rockchip.h |   5 +-
- 2 files changed, 250 insertions(+), 21 deletions(-)
-
-
-base-commit: a13c140cc289c0b7b3770bce5b3ad42ab35074aa
+diff --git a/drivers/pinctrl/pinctrl-rockchip.c b/drivers/pinctrl/pinctrl-rockchip.c
+index 849e72f1832c..549834501e7f 100644
+--- a/drivers/pinctrl/pinctrl-rockchip.c
++++ b/drivers/pinctrl/pinctrl-rockchip.c
+@@ -4370,7 +4370,18 @@ static struct rockchip_pin_ctrl *rockchip_pinctrl_get_soc_data(
+ 
+ 			bank_pins += 8;
+ 		}
++	}
++
++	return ctrl;
++}
++
++static void iomux_recalced_routes_init(struct rockchip_pinctrl *info)
++{
++	struct rockchip_pin_ctrl *ctrl = info->ctrl;
++	struct rockchip_pin_bank *bank = ctrl->pin_banks;
++	int i, j;
+ 
++	for (i = 0; i < ctrl->nr_banks; ++i, ++bank) {
+ 		/* calculate the per-bank recalced_mask */
+ 		for (j = 0; j < ctrl->niomux_recalced; j++) {
+ 			int pin = 0;
+@@ -4391,8 +4402,6 @@ static struct rockchip_pin_ctrl *rockchip_pinctrl_get_soc_data(
+ 			}
+ 		}
+ 	}
+-
+-	return ctrl;
+ }
+ 
+ #define RK3288_GRF_GPIO6C_IOMUX		0x64
+@@ -4505,6 +4514,8 @@ static int rockchip_pinctrl_probe(struct platform_device *pdev)
+ 	/* try to find the optional reference to the ioc1 syscon */
+ 	info->regmap_ioc1 = syscon_regmap_lookup_by_phandle_optional(np, "rockchip,ioc1");
+ 
++	iomux_recalced_routes_init(info);
++
+ 	ret = rockchip_pinctrl_register(pdev, info);
+ 	if (ret)
+ 		return ret;
 -- 
 2.55.0
 
