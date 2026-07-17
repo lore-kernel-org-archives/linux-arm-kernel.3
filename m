@@ -4,127 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97200C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 11:00:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05EF7C4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 11:01:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8RmbrxbGqGU2GDfQYejUZ3I25Q1A45ujtjtU7ERjgzs=; b=Cn2ntcL9Qoht+ckYgB6UEJWQ23
-	Yh6X4aRoeJDDM6oqXUTvTr65yNJFOLW9as7VgavaWwTSQQfaoXrGf0q/u7ukdrEwl8iQfOU3g0l6t
-	gDtzcU2eBiAnOU9AWBayKm+1w68GouQwNgXF0TN8TWU0cs8fK9XEjtBrnHH/obOCLtyF0OL6Bf1mc
-	aDjIpjdZtm5mJgGXXMQ+V/EwZE5oFc7QXxwNk9VJEgDwgTCOj3Oc1ehxhfZQJl+lJVteGx9t0MwbR
-	vftM4+oLoCFfjGaUNjkqH8nITSus+gYhfVos5wdIZmKkXb0JjA6K1nRNMixQ+ZXdF7iSQ/2pVreJW
-	/9jOVD/Q==;
+	bh=sy+3CQp5uMIEjT1xFCDDjV/XqRXnSP0C+Ski+YXq6Bg=; b=C4aYBSXAWaIkJ7tw9TkD7iPqhm
+	JkAOuzA1ztBn3h+bVmmpxWorE/ijnQpW0Wdo4KiveMl9G8BwoqWq1Xp0S1wQjrz5HJdF05lB0lB65
+	CfNIT3tCGbJXEDoJdR5oCbE/hKwwJTfRyohGtTeiWYIFTA2qz45/uRuhh1du4Qjhic0sWxvDHY6Qn
+	uF+NdEsDKLRkCcm2TvBYIWkaOtz2tQkE0RNtGhZ1Rkz+zJ2+MMvUI79GKR4SFAB1P8Evx+7qYaRZq
+	ygFY2d0dy+LUz32wiFVzHLXLcNS7I5u04Ui1opSuthuDY6XVcmWwbPne2kmwuvCwPxQdcfuThtBUn
+	vByjikpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkgJC-000000025ZV-0q19;
-	Fri, 17 Jul 2026 11:00:46 +0000
-Received: from exmail3.compal.com ([59.120.207.196] helo=tpecef22.compal.com)
+	id 1wkgJh-000000025sp-3cED;
+	Fri, 17 Jul 2026 11:01:17 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkgJ8-000000025WU-14JL;
-	Fri, 17 Jul 2026 11:00:44 +0000
-X-UUID: ac889db281ce11f1a87c2323a98e90a4-20260717
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.17,REQID:5d32e8e6-4603-4433-8f22-48f96af29505,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:d497b38,CLOUDID:43f7975f-762a-4584-baab-4eebe609beea,B
-	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|110|111|836|865|888|898,TC:-5,
-	Content:0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:n
-	il,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: ac889db281ce11f1a87c2323a98e90a4-20260717
-Received: from sdmg11.sdbg.compal.com [(10.113.168.9)] by tpecef22.compal.com
-	(envelope-from <jackbb_wu@compal.com>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 111625876; Fri, 17 Jul 2026 19:00:08 +0800
-X-UUID: a98fe78281ce11f1b328fd8a884f4420-20260717
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.15,REQID:2bd3c9ee-7f01-4716-9e78-dd9258a3323b,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e276073,CLOUDID:d0f6975f-762a-4584-baab-4eebe609beea,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|865|888|
-	898,TC:-5,Content:0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS
-	:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,A
-	RC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: a98fe78281ce11f1b328fd8a884f4420-20260717
-Received: from sdbmbx12.tpe.compalcomm.com [(10.113.2.136)] by sdmg11.sdbg.compal.com
-	(envelope-from <jackbb_wu@compal.com>)
-	(Compal Mail Service with TLSv1.2 ECDHE-RSA-AES256-SHA 256/256)
-	with ESMTP id 371862174; Fri, 17 Jul 2026 19:00:03 +0800
-Received: from SDBMBX13.tpe.compalcomm.com (10.113.2.137) by
- SDBMBX12.tpe.compalcomm.com (10.113.2.136) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA) id 15.2.2562.43;
- Fri, 17 Jul 2026 19:00:01 +0800
-Received: from SDBMBX13.tpe.compalcomm.com ([fe80::2b98:6c2c:37df:2a86]) by
- SDBMBX13.tpe.compalcomm.com ([fe80::2b98:6c2c:37df:2a86%11]) with mapi id
- 15.02.2562.043; Fri, 17 Jul 2026 19:00:01 +0800
-From: "Wu. JackBB (GSM)" <JackBB_Wu@compal.com>
-To: Simon Horman <horms@kernel.org>
-CC: "loic.poulain@oss.qualcomm.com" <loic.poulain@oss.qualcomm.com>,
-	"ryazanov.s.a@gmail.com" <ryazanov.s.a@gmail.com>,
-	"johannes@sipsolutions.net" <johannes@sipsolutions.net>,
-	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
-	<davem@davemloft.net>, "edumazet@google.com" <edumazet@google.com>,
-	"kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
-	"wen-zhi.huang@mediatek.com" <wen-zhi.huang@mediatek.com>,
-	"shi-wei.yeh@mediatek.com" <shi-wei.yeh@mediatek.com>,
-	"Minano.tseng@mediatek.com" <Minano.tseng@mediatek.com>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	"angelogioacchino.delregno@collabora.com"
-	<angelogioacchino.delregno@collabora.com>, "corbet@lwn.net" <corbet@lwn.net>,
-	"skhan@linuxfoundation.org" <skhan@linuxfoundation.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>
-Subject: RE: [External Mail] Re: [PATCH v4 4/7] net: wwan: t9xx: Add control
- port
-Thread-Topic: [External Mail] Re: [PATCH v4 4/7] net: wwan: t9xx: Add control
- port
-Thread-Index: AQHdFQZRaZyRXyQV2Ei8jJ3fS8HrDbZxSABggABEQi0=
-Date: Fri, 17 Jul 2026 11:00:01 +0000
-Message-ID: <def80621b7b542008580609735872604@compal.com>
-References: <20260709-t9xx_driver_v1-v4-4-a8c009d509c5@compal.com>,<20260716093414.231093-1-horms@kernel.org>,<3a3b077758604433a0ddca3f3467a561@compal.com>
-In-Reply-To: <3a3b077758604433a0ddca3f3467a561@compal.com>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.113.2.241]
-x-tm-as-product-ver: SMEX-14.0.0.3239-9.1.2019-30074.006
-x-tm-as-result: No-10--21.348200-8.000000
-x-tmase-matchedrid: +gTBWF+Z0RMuv++HU7VXryRFbfQbCufdN0X64jGy2dZJTOxleK2tZpNz
-	D6YMRvgW4TxIMIx6VwqygWex5mZjoExpKNdX3ZAHGG92L3YEEC7+i5C4lXMwGl+wo4bU8mXUSOk
-	QLkoPeXNt9gtd7AIX7UcQboVrj5RRQ/oBc6KOvLkftZuMZfm2SRAHEUDztk84PtCfWUwJAdi3UA
-	+94gBIbWa96NA93JmEciryVhu4m80Asgl6PZgqJDZ4NKr/TszHbfDppa3pvd6QWn82LFk2uRNpw
-	FGo8YcXeNazwatiYB8gjQSNV+ZFJ4tH8IewwDDb9K6xgLnDQNiW07dlc9+hRSSt1u56pOfAOg7j
-	BSGj9CIgXawxmmfGtTHjiWB1Lc+2ZBKFYVim6qlgFLgE7TxyQ5Wa6EbToghtmbcAVHD2StYRusB
-	Q5CSPEND6xLvX4M4IEA4s0Z67fd2/2tJ3foSBQsD3fX6Y132wmzuCQZagpjfpAuB7xNymfQ==
-x-tm-as-user-approved-sender: No
-x-tm-as-user-blocked-sender: No
-x-tmase-result: 10--21.348200-8.000000
-x-tmase-version: SMEX-14.0.0.3239-9.1.2019-30074.006
-x-tm-snts-smtp: C42462ECFE02659FD77BFAE001E7F45A52DADA376696B2C7F36703BC9A08705D2000:8
-Content-Type: text/plain; charset="big5"
-Content-Transfer-Encoding: base64
+	id 1wkgJa-000000025ns-09V8
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Jul 2026 11:01:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id C889A4362D;
+	Fri, 17 Jul 2026 11:01:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 790D41F00A3A;
+	Fri, 17 Jul 2026 11:01:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784286069;
+	bh=sy+3CQp5uMIEjT1xFCDDjV/XqRXnSP0C+Ski+YXq6Bg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=jKm+fA9Btt2zwJNSK7aZF5mI4KNi2XmQjJiBVzsQvzda44O/cV0gCxm7lMHLkjqHa
+	 AAKsPeOeNs0bBOZmByzA3mvEkJnSHWE/Z7Fc2k+evvgGBTWkgApggPPlx3i5upSKDG
+	 fHb5FSMpwhaqGR2CQZorLurTTm4Jmod2DPRwm82YVX2DcxS3j/tB7kVL+OiRPGk8wo
+	 QZC0aPUBjqQiXvxNNiBeqzj24b4Y/CukxCa3twj8xYlTS2TpM4zkr6DSYsbzDGmykG
+	 oodfOswcQKjj6RAhTyQc6X51E0V1I5+r4OmuXlIVa85Vu2DMHLQRnxIuM/o9iIXgez
+	 G5py+HnHlPsuw==
+Date: Fri, 17 Jul 2026 12:01:03 +0100
+From: Will Deacon <will@kernel.org>
+To: Hongyan Xia <hongyan.xia@transsion.com>
+Subject: Re: [RFC v3 2/2] arm64: kprobes: Allow reentering kprobes while
+ single-stepping
+Message-ID: <aloLb0j8sg0usmAF@willie-the-truck>
+References: <20260710063242.228714-1-hupu@transsion.com>
+ <20260710063242.228714-3-hupu@transsion.com>
+ <aljbf_RmOd9U2KDT@willie-the-truck>
+ <0f049d38-b7f6-47f0-a410-95ad2aee7fd4@transsion.com>
+ <alj2uxE1M8mcMBhA@willie-the-truck>
+ <e0e800f5-a6f8-48ae-b55c-5c3d928bf234@transsion.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_040042_647377_68C2EA39 
-X-CRM114-Status: GOOD (  15.86  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <e0e800f5-a6f8-48ae-b55c-5c3d928bf234@transsion.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,48 +69,80 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Pu Hu <hupu@transsion.com>, Jiazi Li <jiazi.li@transsion.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "naveen@kernel.org" <naveen@kernel.org>, "mhiramat@kernel.org" <mhiramat@kernel.org>, "yang@os.amperecomputing.com" <yang@os.amperecomputing.com>, "davem@davemloft.net" <davem@davemloft.net>, "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-trace-kernel@vger.kernel.org" <linux-trace-kernel@vger.kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgU2ltb24sDQoNCkFmdGVyIGZ1cnRoZXIgaW50ZXJuYWwgcmV2aWV3LCB3ZSBhcmUgY29ycmVj
-dGluZyBzZXZlcmFsDQpyZXNwb25zZXMgZnJvbSBvdXIgcHJldmlvdXMgcmVwbHkuIFRoZSBmb2xs
-b3dpbmcgaXRlbXMgd2lsbA0KYmUgZml4ZWQgaW4gdjUuDQoNCk9uIFtkYXRlXSBKYWNrIFd1IHdy
-b3RlOg0KDQo+PiBbU2V2ZXJpdHk6IEhpZ2hdDQo+PiBDYW4gdGhpcyBsZWFkIHRvIHVzZS1hZnRl
-ci1mcmVlIGFuZCBkb3VibGUtZnJlZSBvbiB0aGUgc2tiPw0KDQo+IE5vLiBUaGUgcmVjdiBjYWxs
-YmFjayAobXRrX3BvcnRfaW50ZXJuYWxfcmVjdikgZG9lcyBub3QgZnJlZQ0KPiB0aGUgc2tiIG9u
-IGVycm9yIKFYIGl0IHJldHVybnMgLUVOWElPIGFuZCBsZWF2ZXMgc2tiIG93bmVyc2hpcA0KPiB3
-aXRoIHRoZSBjYWxsZXIuDQoNCj4+IFtTZXZlcml0eTogSGlnaF0NCj4+IFRoaXMgaXMgd2hlcmUg
-dGhlIHNlY29uZCBmcmVlIG9mIHRoZSBza2Igb2NjdXJzIHdoZW4gcHJvcGFnYXRpbmcNCj4+IHRo
-ZSBlcnJvciBmcm9tIHRoZSByZWN2IGNhbGxiYWNrLg0KDQo+IEFzIGFib3ZlLCB0aGUgcmVjdiBj
-YWxsYmFjayBkb2VzIG5vdCBmcmVlIHRoZSBza2Igb24gZXJyb3IuDQoNCj4+IFtTZXZlcml0eTog
-SGlnaF0NCj4+IFRoaXMgaXMgd2hlcmUgdGhlIHNrYiBpcyBmcmVlZCBvbiB0aGUgZXJyb3IgcGF0
-aCBiZWZvcmUgcmV0dXJuaW5nDQo+PiAtRU5YSU8uDQoNCj4gbXRrX3BvcnRfaW50ZXJuYWxfcmVj
-digpIGRvZXMgbm90IGNhbGwgZGV2X2tmcmVlX3NrYl9hbnkoKSBvbiB0aGUNCj4gZXJyb3IgcGF0
-aC4NCg0KT3VyIHByZXZpb3VzIHJlc3BvbnNlIHdhcyBpbmNvcnJlY3QuIEluIFBhdGNoIDQncyBj
-b2RlLA0KbXRrX3BvcnRfaW50ZXJuYWxfcmVjdidzIGRyb3BfZGF0YSBkb2VzIGhhdmUNCmRldl9r
-ZnJlZV9za2JfYW55KHNrYikgoVggdGhlIGRvdWJsZS1mcmVlIGFuZCBVQUYgYXJlIHJlYWwuDQoN
-CldpbGwgcmVtb3ZlIGRldl9rZnJlZV9za2JfYW55KHNrYikgZnJvbQ0KbXRrX3BvcnRfaW50ZXJu
-YWxfcmVjdidzIGRyb3BfZGF0YSBwYXRoIGluIHY1LiBUaGUgY2FsbGVyDQoobXRrX3BvcnRfcnhf
-ZGlzcGF0Y2gpIGlzIHRoZSBzb2xlIG93bmVyIGFuZCBmcmVlcyB0aGUgc2tiDQpvbiBlcnJvci4N
-Cg0KPj4gW1NldmVyaXR5OiBIaWdoXQ0KPj4gQ291bGQgdGhpcyBjcmVhdGUgYW4gaW5maW5pdGUg
-bG9vcCBpbiBrZXJuZWwgc3BhY2U/DQoNCj4gVGhpcyBpcyBpbnRlbnRpb25hbC4gQ2hhbm5lbCBl
-bmFibGUvZGlzYWJsZSBhcmUgY29udHJvbCBwbGFuZQ0KPiBvcGVyYXRpb25zIHRoYXQgbXVzdCBj
-b21wbGV0ZSBvciB0aW1lb3V0LiBUaGUgbG9vcCBkb2VzIG5vdA0KPiBidXN5LXNwaW46IGVhY2gg
-aXRlcmF0aW9uIHNsZWVwcyBpbg0KPiB3YWl0X2V2ZW50X2ludGVycnVwdGlibGVfdGltZW91dCB1
-bnRpbCB0aGUgY29uZGl0aW9uIGlzIG1ldCBvcg0KPiB0aGUgdGltZW91dCBleHBpcmVzLg0KDQo+
-PiBbU2V2ZXJpdHk6IEhpZ2hdDQo+PiBUaGlzIGFwcGVhcnMgdG8gaGF2ZSB0aGUgc2FtZSBpbmZp
-bml0ZSBsb29wIHJpc2suDQoNCj4gU2FtZSByZWFzb25pbmcgYXMgbXRrX3BvcnRfY2hfZW5hYmxl
-Lg0KDQpXaWxsIGNoYW5nZSB3YWl0X2V2ZW50X2ludGVycnVwdGlibGVfdGltZW91dCB0bw0Kd2Fp
-dF9ldmVudF90aW1lb3V0IGluIGJvdGggbXRrX3BvcnRfY2hfZW5hYmxlIGFuZA0KbXRrX3BvcnRf
-Y2hfZGlzYWJsZSwgYW5kIHJlbW92ZSB0aGUgLUVSRVNUQVJUU1lTIC8gZ290bw0Kc3RhcnRfd2Fp
-dCBibG9jay4NCg0KPj4gW1NldmVyaXR5OiBIaWdoXQ0KPj4gTWlzc2luZyBib3VuZHMgY2hlY2sg
-b24gbXNnLT5wb3J0X2NudCBpbg0KPj4gbXRrX3BvcnRfc3RhdHVzX3VwZGF0ZS4NCg0KPiBUaGUg
-bWVzc2FnZSBpcyBhbHJlYWR5IHZhbGlkYXRlZCBieSBoZWFkX3BhdHRlcm4sIHRhaWxfcGF0dGVy
-biwNCj4gYW5kIHZlcnNpb24gY2hlY2tzIGJlZm9yZSB0aGUgbG9vcC4gVGhlIG1vZGVtIGZpcm13
-YXJlIGlzIGENCj4gdHJ1c3RlZCBzb3VyY2UuDQoNCldpbGwgbW92ZSBkYXRhX2xlbiB2YWxpZGF0
-aW9uIGJlZm9yZSB0aGUgY2FsbGJhY2sgY2FsbCBpbg0KbXRrX2ZzbV9wYXJzZV9oczJfbXNnLCBw
-YXNzIGRhdGFfbGVuIHRvIHRoZSBjYWxsYmFjaywgYW5kIGFkZA0KYSBib3VuZHMgY2hlY2sgaW4g
-bXRrX3BvcnRfc3RhdHVzX3VwZGF0ZToNCg0KICBpZiAoZGF0YV9sZW4gPCBzaXplb2YoKm1zZykg
-Kw0KICAgICAgbGUxNl90b19jcHUobXNnLT5wb3J0X2NudCkgKiBzaXplb2YoKnBvcnRfaW5mbykp
-DQogICAgICByZXR1cm4gLUVQUk9UTzsNCg0KVGhhbmtzLg0KDQpKYWNrIFd1
+On Fri, Jul 17, 2026 at 01:51:12AM +0000, Hongyan Xia wrote:
+> On 7/16/2026 11:20 PM, Will Deacon wrote:
+> > On Thu, Jul 16, 2026 at 02:38:58PM +0000, Pu Hu wrote:
+> >> On 7/16/2026 9:24 PM, Will Deacon wrote:
+> >>> On Fri, Jul 10, 2026 at 06:32:55AM +0000, Pu Hu wrote:
+> >>>> From: Pu Hu <hupu@transsion.com>
+> >>>>
+> >>>> A kprobe can be hit while another kprobe is in KPROBE_HIT_SS state. This
+> >>>> can happen when tracing or perf code runs from the debug exception path
+> >>>> while the first kprobe is preparing or executing its out-of-line
+> >>>> single-step instruction.
+> >>>
+> >>> I don't understand this part. The single-step runs with debug exceptions
+> >>> disabled (kprobes_save_local_irqflag() sets PSTATE.D) so how do we end
+> >>> up taking one?
+> >>
+> >> You are right that the single-step runs with debug exceptions disabled.
+> >> However, the case I was referring to is not a hardware breakpoint or a
+> >> software-step exception, but another Breakpoint Instruction exception
+> >> generated by executing a BRK instruction. A BRK instruction exception is
+> >> not masked by PSTATE.D, so it can still be taken while handling a kprobe.
+> >>
+> >> As far as I understand the architecture, there are two different cases here:
+> >>
+> >>     - Breakpoint Instruction exceptions, generated by executing a BRK
+> >>       instruction.
+> >>     - Breakpoint exceptions, generated by the debug logic, for example by
+> >>       programmed breakpoint registers.
+> >>
+> >> PSTATE.D masks debug exceptions such as hardware breakpoints,
+> >> watchpoints and software-step exceptions, but it does not mask
+> >> Breakpoint Instruction exceptions generated by BRK. This also seems
+> >> consistent with the pseudocode for BRK,
+> >> Arch64.SoftwareBreakpoint(imm16), which does not appear to check
+> >> PSTATE.D before taking the exception.
+> >>
+> >> Therefore, even if kprobes_save_local_irqflag() sets PSTATE.D while
+> >> handling the first kprobe, if the code executed from that path reaches
+> >> another instruction patched with BRK, it can still take a Breakpoint
+> >> Instruction exception. In other words, the nested case I mentioned is
+> >> another kprobe BRK being hit, not a hardware debug exception or a
+> >> software-step exception.
+> > 
+> > Yes, that's correct, but if we're doing the out-of-line step, how do we
+> > end up executing a BRK? Or are you saying that it's the kprobes
+> > BRK64_OPCODE_KPROBES_SS instruction that we use to implement the
+> > single-step that is the problem? If so, how does taking that exception
+> > result in us executing tracing or perf code?
+> > 
+> > Sorry for all the questions, I just haven't understood what's going on
+> > here from the commit message.
+> 
+> The key is that, when you use 'perf --call-graph dwarf' to sample 
+> certain events, kernel perf code will sample a piece of user stack each 
+> time those events are hit, and copy_to/from_user() triggers page faults. 
+> Say you are profiling preempt_enable events:
+> 
+> 1st BRK -> preempt_disable() -> debug_exception() -> set SS state -> 
+> preempt_enable() -> triggers perf -> perf_sample() -> sample user stack 
+> using copy_to/from_user() -> page fault or 2nd BRK on the page fault path.
+> 
+> The key is perf sampling the user stack while the 1st BRK is still 
+> running. When a page fault is hit, a can of worms is released, including 
+> a possible 2nd BRK.
+
+Thanks. So perf is run synchronously from the debug exception entry path,
+rather than because of a second exception taking place. Got it. But then
+it sounds like we should really make the debug exception handling path (at
+least, the part that runs for handling the kprobe step) noinstr to avoid
+getting into this state to begin with. Is that practical?
+
+Will
 
