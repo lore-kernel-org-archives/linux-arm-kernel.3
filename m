@@ -4,132 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C98DDC44507
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 06:53:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF7F0C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 06:55:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OwSPbj6bHus/PVje4mHauNVjyk5PMc2+vdtb3EqrvNA=; b=De1cQHW7HQN7NhD9RKUGbcIcAy
-	pT/6r8QdLV1s3paRlbNBGbeZ9HkAQXrjxNYotZdr+Uqdm6YD7cpVAcnicemVW5OcXlOYQP3Ep6LTi
-	a5eeH2vswtmgdHp9F7YgS0nrvLqg9UwmbE7LHA0FgbmD71PJeALu5SNeVlV6ypvCzpbfWqejto0/K
-	uaj1xQ77BZE9CV9NWYUYwxkrlbku6XhHKe2QzxLU7u5fSsErPj0Nn9taqc7YegfhkWMXtL9WHw70m
-	4FTgQbOEZcQQGzlpZ+1Y3P3f2aCYqz8j8QqdIbuAjvuRrZMrTkSCymJp52poL4mvbuCiUer7v2sZ2
-	QFSUeajA==;
+	bh=xUKU1D5cUN0Qg6xvLwdian0LsUeuBf5DwRzyt6yTiC8=; b=EE3Rox0P+xPaONnUG0wWeR533w
+	aD5gSRwCppXimqGSYFegsHce9PNBcd+VI4Elt0oa9N9s9xiWvsJUfiu1b9AKUWtvrZEYFTjY3ZsDU
+	y9qBLMZY5kBS+KGbgnZ9oPm5TaDuuL+rHo08BMuZDBQy42H1ncwSybHjxuiXJ00HLCvts6JPC44rS
+	Oyo5l8PSPijFJSrGVUkYULizanhS4k1K0X2ZtcJclf/mB/urIagDivYwEiL1mhtcq4YwVjdItPJv5
+	k7yW6FM07NpzeYSu9IzAaVA0fm+KASUV3G//410Q3zxaF0zwu/wYdb9Rjv8CR5+OH95s17dJuczMA
+	qlQkqFRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkcRK-00000001JB8-2VlF;
-	Fri, 17 Jul 2026 06:52:54 +0000
-Received: from mail-japaneastazon11012032.outbound.protection.outlook.com ([52.101.126.32] helo=TYPPR03CU001.outbound.protection.outlook.com)
+	id 1wkcTZ-00000001JR7-1zz1;
+	Fri, 17 Jul 2026 06:55:13 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkcRH-00000001JAT-3w0v;
-	Fri, 17 Jul 2026 06:52:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JtLbpPrKjWcMFsszDSW3svAIJF2TG2kunDbT68whJzn4H3JOQv/FOHa8tjcHrLXMLOkFWN8wbKDXI2bS/zJyVgO3ij0NnsG27fjg2YmLyWFsHnoZBwVsma9zlJEVGv2Yg+zq/UZzDoZ/z13vJp03zGjhc/UV0u7K07MtXxDR9w6EaNOL793O/kXSuYP4keBjOIQHwusYOk93UZrJeFKu3GwOXsBZwzgB5WWFj6JjamyIliU8KOFCivZ3BmMXyUqc1tG4MtCzlXqJICGLhyIcmXs9SK9I3+1SHNz3mMnYuiRYQDa5LCDhW3eJsW+5K5xh62tNQN/ct/QsVfn5gaAvfg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OwSPbj6bHus/PVje4mHauNVjyk5PMc2+vdtb3EqrvNA=;
- b=xifRvttdX+EVzFBuFgCwjEYqDhklFEChFyda90tMpuurY24WfYGd5m23EON5Rc4PY9Ezydbpa7RGDIW/gIoJIxLRwzodGGle8OafivjEuOCW+gH63s8pBbk7pFdBffeVeINbSafuqKA6T6ROYuzyj/HrZhClGWf7GKL//BM+8rVVLltOlBKRVooZujR7L7lS4eCsrVgjsLpKkbZviGi33gWaXk2H7cPJoXQOELQF/FftT8wAUS+wcaRQA/LrvbABNQRl/rQNsgL4KGX/BO5KSuWC3YLLQtkK9qF18usJMTpG1alhOgwRbqWmFGWZ9Q7qSt9Oae/Cn+rNLMWdCIA46A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
- dkim=pass header.d=vivo.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OwSPbj6bHus/PVje4mHauNVjyk5PMc2+vdtb3EqrvNA=;
- b=j07O2XSSYyod2ElAVJNAaSmz7NLcwHVSXqPYQUftNLMjsIShCO2dJff/YQ9DkZsf9xG71iYEsjJ2Emfl2z3nPnCRi4x7cwInOrL1nE4JBLhUuH2TRmPIyv3J2rSkX89mUdyx79FslS47hNj0H1O6P4qloCgVInLkQWMhZ+xkH4wknrXm63V9dP46BsyGt5qGCeynAuGI2ISWsZELuYJI2WD8RZjiJ9ljYJ1cKdHENJzijY1Y1i4CBmLB9acdCqAJtWOqsXZNyW4jzsZfW3CSMC05IBikUVs1f9OtLdtcij+Io94Nn6rJVeswL52c5rrNESHf8ONrfhh67QbU1Q8xCg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=vivo.com;
-Received: from SEZPR06MB5832.apcprd06.prod.outlook.com (2603:1096:101:c8::12)
- by KUXPR06MB9155.apcprd06.prod.outlook.com (2603:1096:d10:68::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.11; Fri, 17 Jul
- 2026 06:52:36 +0000
-Received: from SEZPR06MB5832.apcprd06.prod.outlook.com
- ([fe80::f98:5e32:4ccb:d07b]) by SEZPR06MB5832.apcprd06.prod.outlook.com
- ([fe80::f98:5e32:4ccb:d07b%6]) with mapi id 15.21.0223.011; Fri, 17 Jul 2026
- 06:52:36 +0000
-From: Pan Chuang <panchuang@vivo.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Paul Cercueil <paul@crapouillou.net>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-remoteproc@vger.kernel.org (open list:REMOTE PROCESSOR (REMOTEPROC) SUBSYSTEM),
-	linux-kernel@vger.kernel.org (open list),
-	linux-mips@vger.kernel.org (open list:INGENIC JZ47xx SoCs),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
-	linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
-	linux-arm-msm@vger.kernel.org (open list:ARM/QUALCOMM MAILING LIST),
-	linux-stm32@st-md-mailman.stormreply.com (moderated list:ARM/STM32 ARCHITECTURE)
-Cc: Pan Chuang <panchuang@vivo.com>
-Subject: [PATCH] remoteproc: Remove redundant dev_err()/dev_err_probe()
-Date: Fri, 17 Jul 2026 14:52:23 +0800
-Message-Id: <20260717065224.600593-1-panchuang@vivo.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: TP0P295CA0013.TWNP295.PROD.OUTLOOK.COM
- (2603:1096:910:2::18) To SEZPR06MB5832.apcprd06.prod.outlook.com
- (2603:1096:101:c8::12)
+	id 1wkcTW-00000001JPU-2pG5
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Jul 2026 06:55:11 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-49544a80b9dso7788995e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 23:55:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784271308; x=1784876108; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=xUKU1D5cUN0Qg6xvLwdian0LsUeuBf5DwRzyt6yTiC8=;
+        b=q7o/HU2GmNUof0djo5PxkoEOw7JqkGhFIIx9m74l8/WJ39Fljss6Lx3lJ9cxalnjQR
+         0ZlmLkGGvSImTYtylPQMuX+RJXqfbKQjZhwxNOw7X7B+iqeUvB1vO47kUSGEoWMniz3u
+         54kCYSk8iFnrU1K9P/o50ns5PALPQofvDNLutEPKXaDCyMpM1jWCkKGL9kl74RqaxWYI
+         SDUz4Caeyf+Qln6sDljU46FP2GSL8RC/BKO/B2loFyu2nWwFQkRF2hj5PjZ2R1E3pxkj
+         8+1PfRTYY8OMhmu8dogDvJ8qddiLkgfQAqmoOUkt/PPstvn3ZaKUBOn0rMVl3loKfXx5
+         zZTg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784271308; x=1784876108;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=xUKU1D5cUN0Qg6xvLwdian0LsUeuBf5DwRzyt6yTiC8=;
+        b=PG+y1Ma+vPWXED4dvG3CpzFZ/K5bSCNgDqvhTR5JX0L22rLowdPV44MJpWp9xMdKk6
+         8uej2gMuhPkXL8CkBtNzSsdxZvVbIMFc8mA1ZAO4DvaeerLDd29DHTO8+5qKI8752uPm
+         20NgyFJ2hlmNfG2xc6v5nV9M/SFWyiTYPAhxyAuXjrk5W+nJ0fZ2lOfJM+AKgShlj3Nr
+         e6+y/oNR2JAK6tMAgmitWALerUAq7JT1Y4HAl/sWqYjRUVG5W34XdaCsg/Q5lhNNKMxj
+         L7EZwEH2WpefT/FJzUhSZwjC94V1hzGff3W2AviS2CxJcJmo0GYFRb6gMB8vFkVQSv3u
+         Ynjw==
+X-Forwarded-Encrypted: i=1; AHgh+RpOOrf4Jyf3EjAcKd5/GgN5ua4d/1J4YO2dLHTW7IN5SXY1yJ4C35oksTP/XVfqA8aYMDZZDfLPyKdKAgdSZBzl@lists.infradead.org
+X-Gm-Message-State: AOJu0YzEyiYJfke+cEogXfLNN2L8a4h5ZOimDmrFOnwZIJMWfV5zyGBq
+	KXiB/Fgzi6mCKcLKb/cftoIMPN+aC+aIYCI22yxpFILP2jVUuhVEgFU/
+X-Gm-Gg: AfdE7cneQdqu8jJoQAa0v1c92n/20qbNTiys71IQhdIfYoo3CfIPOSMwhk2ewNr8xAH
+	GeAhqp3RybBsYoDuIFkZnH4rs1snQxU4epqS/D6r4ET+ryz4FfUppZJCHjddXUruP1BwK07N1dG
+	j0FhKdOP7sz2zS2/inwNHDVdb4FMX0mU2aiUVWQtkjD/EtGZu+JuA3aYMvehwqRVr8U40k3ckOE
+	8TJR8Q3O4oedX4OKcS9UmJ6ZMd4MBoReCqe4j6IB+I0Gy5a4P92RkEcJzXcB1A0tpaH0qlrGre7
+	qLn66hg1ZXoNQYt5FSlBdnc5PEEuYH8BL4dlCJvtejw1DFwFYsc75G905iV5dJX6TiNK2IeSjO2
+	2GEmcgW8zGCSytskvCSxJS5Q09o5ZmrQNZYgOVBJ9zssw+R8fnbEvHqJhoM0GEI3pATUlN7p0u0
+	EaPdARoFd17dI9s5/bcE8oYgqVqMTQr/+YCZJmERIRQpAjH3hyp20vOTF6GlJEAhOGZnKs7w==
+X-Received: by 2002:a05:600c:154e:b0:495:405c:38d3 with SMTP id 5b1f17b1804b1-4954a3df9f9mr16057155e9.9.1784271307739;
+        Thu, 16 Jul 2026 23:55:07 -0700 (PDT)
+Received: from Ansuel-XPS24.localdomain (host-95-248-227-210.retail.telecomitalia.it. [95.248.227.210])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-495499f3f99sm24260835e9.0.2026.07.16.23.55.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 16 Jul 2026 23:55:07 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Simon Horman <horms@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Saravana Kannan <saravanak@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next v9 00/12] net: pcs: Introduce support for fwnode PCS
+Date: Fri, 17 Jul 2026 08:54:00 +0200
+Message-ID: <20260717065448.1498335-1-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SEZPR06MB5832:EE_|KUXPR06MB9155:EE_
-X-MS-Office365-Filtering-Correlation-Id: 19dfb515-8789-4359-fb7c-08dee3cffbf4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|23010399003|52116014|56012099006|11063799006|6133799003|18002099003|921020|10067099003|38350700014;
-X-Microsoft-Antispam-Message-Info: +jj+22Zq9fSwJ35DWs/NRlp0kgZJFGx/nB5ER1Y2aZWljreNKVES9wbTCTh4N6ReebpG9wIe36iUqOxHC8IPLck0v46FUxzTNDWyk+OdC+VhuUGWh6nYZfE3AzU8d8PW3ARPhYSl787nH8l3T4NOmbyArUrZgd3WJ1l/O6XkHu3SpAmLRlhyAxbYQpr/8zyTp28433GCe8/FMA/HHzq30cP+M6YJv2pZoZqum7YK8l99JCgCnSdgu4IvSjsHGB4Do0/i1mjG30Dn495nQXZX8qK/EnpJMTsk1SkJ7nh4/jMIt8xkW5pbeNRsB4JGIVckIcUAQP+Y7G6sg59ai8PryI7c4dvIirIWtu4/N1LQY5BQIiQcgvdb4OIaE6A+IPD5ByEeouEkYXjWOxbMaIjRDv/AG1pOcMpFFmRAvvrLKDYpzofQXoGs1+mQwm1myE8UtV3XCu87pgSL0ECRQ1F4LY2moSAN57/PNEsL8nvsQ8txSeXOM8Nk7ab8vImsXH975EaCfc2qkDBFzz8YNLcvk0nFTCq31rWrO0lVzmAjdb7VfXS/ZQ7lNvi4s4r2AB0AGuzyatESC7em+mkdX1JKmtD1IMeayL1iNbhl5k5YU+WD0fW1orUQgM3YqFF9B+rKEzPwVww+/46Ql4WG0r5jqb8+imSP+DrxpXMYYfSINP5mSt6HmMductDYRDjPxUF8VNXJ9uc93IqZ6NaIfL2kvpXRA3OES+Bj6BbGJhLjIB8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR06MB5832.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(23010399003)(52116014)(56012099006)(11063799006)(6133799003)(18002099003)(921020)(10067099003)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?wakMZhJ0Ge0AcXm8yvmqUz+e7mx6CEf6iE/F1TsgxVUkJo3VQphKmMaJJmHt?=
- =?us-ascii?Q?6w+ri1aMcW+5Q+GXB8TsHUB6uE3+K0kTIAQeik6ioci2DvGt0o0EDNTGx6U5?=
- =?us-ascii?Q?8zz6zGc/71h/5hBjMX1X+Bq2TjlxigrGcF2SkOR5qU36hgdcylozhecJMwwk?=
- =?us-ascii?Q?fgPp/kdoyhGmo7KbFbkdqR/SkZTTzAEfX6tFnqTlv0YBXh5ZT95nyIBmABpB?=
- =?us-ascii?Q?xi7XoWjkanen1JQqOXJz0BLWaKNtAlJfUrOiTJ5e4v2gBm/f4C/Wi+Da/5jH?=
- =?us-ascii?Q?GLmaBrwEE2wgD5wmudRFv6Ms4nwMw4BbJqWzM5SkRC9MNx2slGkUHbavmG75?=
- =?us-ascii?Q?mRqSH1aU20hK6HVodXjtYGH09FjnLVSJGP3sL+ILHykYPtxGeQHrgcAIrSZ3?=
- =?us-ascii?Q?Z/jFZGixBRWCbf3W7wtcAqxahIH0rkKQ07rIiUtwniwt0JamkOjK4XGXtezC?=
- =?us-ascii?Q?/Td4LTNbt5baQeiejlAtUcN1NF3x+F2RKBzI71i1NsSOgVyhyL5IltcNTHc+?=
- =?us-ascii?Q?U5P122pz/mE6J4o2VUSyFpAXJ7jk5d6hyt0FPeMuHeLysA9PNkrOEj7wI+Mg?=
- =?us-ascii?Q?KsNHNpkskg9HE3IWkXK5iRQDJ3wx5FXCFK7jQw+hsnQfRS3KvooQ0rsw8Geg?=
- =?us-ascii?Q?mLEu93g6OR7Jko+7uiW1Wt9L2dFkzyj1fOnsU8TdLF64DLyBTTIcnMT61CJr?=
- =?us-ascii?Q?KGpaoKuaDiOZlRkbbkN+5jpe3+lbyztumaT9psm1M6P6bdLYXuPvb3J0gL9X?=
- =?us-ascii?Q?kwnO2Z//xyXzm5FluyBnb3bQ6+ueoAo7/yX8hV2aEdum98gChZgE+jnCx75k?=
- =?us-ascii?Q?BLKLSeE8atVznMJKKuCYYaxTCEn00lCz9vsHIDQRJinvGaOid0dYURjMNEUm?=
- =?us-ascii?Q?DSxfIVo+LLZtLoYDLVHvOOBKO48IABJ1CTZw8rE550vTQkr/5gmSxs90W766?=
- =?us-ascii?Q?dNF9rcsgalqVq4aM/2FJ0Raoqn4DFQw4oacQ74fTbbcAkXom9F1C9ynV7mcE?=
- =?us-ascii?Q?tqV4Gm1WMf+VOhnObQaBq9zfMaGMfbOrdt3wfukhPi6D/ObdX//xqGWyhFiU?=
- =?us-ascii?Q?6Tk7wcx5hEj6+q5adR6Nf6Grdj9c37zJ3eVKPtleB1aKy7co/wgRJ0rZShEt?=
- =?us-ascii?Q?XgEwa9EGKlnyFcf2TaHHayLC6z5hLcDNXqR/kHZyFSghLHaUWGXKKaXCJ4V3?=
- =?us-ascii?Q?H6FaR4SkQFis/p/r5fRa+NDd6Dw+FuWtm6nZEt5TgURlgQgBsb6//aON4sVZ?=
- =?us-ascii?Q?Ckci8brpND0Jo+6EAH/tX+WD3CPKNQAuPFhHG8ntQ0T95qgYhTP/pj6EeqcS?=
- =?us-ascii?Q?KW6TusA/6xTi2QFstelSL0f0aYxyjZBVBas027YEtzsKyg7knvt3yHGvHts5?=
- =?us-ascii?Q?NgsalfLDeTxMCZuPjsfixlQjSbkO/AZzksJwKADhghTlaSC3eublPERdHoFX?=
- =?us-ascii?Q?TIYUdRRA/Kxf68V6f7N8SHzphfBTsAVbrEkFcQgiL8zxO2GW6ZOrPk0nnJDn?=
- =?us-ascii?Q?XQUwAoWZEMRKOSn2zvoP6zrs5repTLefRGTVEj1xR7tG8FHF6td/sgQMHSAs?=
- =?us-ascii?Q?C3VMisfW+FQ2oKW4jiPyqEzdZRmONF9+GREloEGM0CiwMoHsLv2VndUQyZ/P?=
- =?us-ascii?Q?6RUtQciVuYsoVQxj4+TxJ10dhYvL6P3M0bH+lXYQoeCs+6ck3WiLHIF+F5Zm?=
- =?us-ascii?Q?zEPhD1a5zT5Vsug5TgcsGs68w9D8vdjah582QDBsR6Cl8cSUWDSZ84op56tT?=
- =?us-ascii?Q?RY3LLRLmyQ=3D=3D?=
-X-OriginatorOrg: vivo.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 19dfb515-8789-4359-fb7c-08dee3cffbf4
-X-MS-Exchange-CrossTenant-AuthSource: SEZPR06MB5832.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2026 06:52:36.0752
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 2oF8UeBL/8/0q0/DLe6uKSvBvys4lIyujK6MDurR+hbt0ujMnmGhae0zaVdrWbppYYNsKVvqG6I6IKRCDUcCAw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KUXPR06MB9155
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_235252_289666_62A0DBD9 
-X-CRM114-Status: GOOD (  11.97  )
+X-CRM114-CacheID: sfid-20260716_235510_763044_A9D9F8A0 
+X-CRM114-Status: GOOD (  32.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,198 +116,235 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since commit 55b48e23f5c4 ("genirq/devres: Add error handling in
-devm_request_*_irq()"), devm_request_irq() and devm_request_threaded_irq()
-automatically log detailed error messages on failure. Remove the
-now-redundant driver-specific dev_err() and dev_err_probe() calls.
+This series introduce a most awaited feature that is correctly
+provide PCS with fwnode without having to use specific export symbol
+and additional handling of PCS in phylink.
 
-Signed-off-by: Pan Chuang <panchuang@vivo.com>
+At times there were 2 different implementation (this and the one
+from Sean) but Sean agreed that this can be picked and used in favor
+of his implementation as long as his case with race condition is
+correctly handled.
+
 ---
- drivers/remoteproc/da8xx_remoteproc.c    |  2 +-
- drivers/remoteproc/ingenic_rproc.c       |  4 +---
- drivers/remoteproc/keystone_remoteproc.c |  4 ++--
- drivers/remoteproc/mtk_scp.c             |  4 +---
- drivers/remoteproc/qcom_q6v5.c           | 20 +++++---------------
- drivers/remoteproc/qcom_sysmon.c         |  2 --
- drivers/remoteproc/qcom_wcnss.c          |  4 +---
- drivers/remoteproc/stm32_rproc.c         |  3 +--
- 8 files changed, 12 insertions(+), 31 deletions(-)
+First the PCS fwnode:
 
-diff --git a/drivers/remoteproc/da8xx_remoteproc.c b/drivers/remoteproc/da8xx_remoteproc.c
-index 23fca7176539..006fa7b56727 100644
---- a/drivers/remoteproc/da8xx_remoteproc.c
-+++ b/drivers/remoteproc/da8xx_remoteproc.c
-@@ -298,7 +298,7 @@ static int da8xx_rproc_probe(struct platform_device *pdev)
- 					handle_event, 0, "da8xx-remoteproc",
- 					rproc);
- 	if (ret)
--		return dev_err_probe(dev, ret, "devm_request_threaded_irq error\n");
-+		return ret;
- 
- 	/*
- 	 * rproc_add() can end up enabling the DSP's clk with the DSP
-diff --git a/drivers/remoteproc/ingenic_rproc.c b/drivers/remoteproc/ingenic_rproc.c
-index 1b78d8ddeacf..252519f48964 100644
---- a/drivers/remoteproc/ingenic_rproc.c
-+++ b/drivers/remoteproc/ingenic_rproc.c
-@@ -219,10 +219,8 @@ static int ingenic_rproc_probe(struct platform_device *pdev)
- 
- 	ret = devm_request_irq(dev, vpu->irq, vpu_interrupt, IRQF_NO_AUTOEN,
- 			       "VPU", rproc);
--	if (ret < 0) {
--		dev_err(dev, "Failed to request IRQ\n");
-+	if (ret < 0)
- 		return ret;
--	}
- 
- 	ret = devm_rproc_add(dev, rproc);
- 	if (ret) {
-diff --git a/drivers/remoteproc/keystone_remoteproc.c b/drivers/remoteproc/keystone_remoteproc.c
-index 83763d640c4e..407d6034f748 100644
---- a/drivers/remoteproc/keystone_remoteproc.c
-+++ b/drivers/remoteproc/keystone_remoteproc.c
-@@ -411,7 +411,7 @@ static int keystone_rproc_probe(struct platform_device *pdev)
- 	ret = devm_request_irq(dev, ksproc->irq_ring, keystone_rproc_vring_interrupt,
- 			       IRQF_NO_AUTOEN, dev_name(dev), ksproc);
- 	if (ret)
--		return dev_err_probe(dev, ret, "failed to request vring interrupt\n");
-+		return ret;
- 
- 	ksproc->irq_fault = platform_get_irq_byname(pdev, "exception");
- 	if (ksproc->irq_fault < 0)
-@@ -419,7 +419,7 @@ static int keystone_rproc_probe(struct platform_device *pdev)
- 	ret = devm_request_irq(dev, ksproc->irq_fault, keystone_rproc_exception_interrupt,
- 			       IRQF_NO_AUTOEN, dev_name(dev), ksproc);
- 	if (ret)
--		return dev_err_probe(dev, ret, "failed to enable exception interrupt\n");
-+		return ret;
- 
- 	ksproc->kick_gpio = devm_gpiod_get(dev, "kick", GPIOD_ASIS);
- 	ret = PTR_ERR_OR_ZERO(ksproc->kick_gpio);
-diff --git a/drivers/remoteproc/mtk_scp.c b/drivers/remoteproc/mtk_scp.c
-index 436656bdfa8b..9751acc2bf83 100644
---- a/drivers/remoteproc/mtk_scp.c
-+++ b/drivers/remoteproc/mtk_scp.c
-@@ -1246,10 +1246,8 @@ static struct mtk_scp *scp_rproc_init(struct platform_device *pdev,
- 					scp_irq_handler, IRQF_ONESHOT,
- 					pdev->name, scp);
- 
--	if (ret) {
--		dev_err(dev, "failed to request irq\n");
-+	if (ret)
- 		goto remove_subdev;
--	}
- 
- 	return scp;
- 
-diff --git a/drivers/remoteproc/qcom_q6v5.c b/drivers/remoteproc/qcom_q6v5.c
-index 0206a4a19254..1075ef4027b7 100644
---- a/drivers/remoteproc/qcom_q6v5.c
-+++ b/drivers/remoteproc/qcom_q6v5.c
-@@ -302,10 +302,8 @@ int qcom_q6v5_init(struct qcom_q6v5 *q6v5, struct platform_device *pdev,
- 					NULL, q6v5_wdog_interrupt,
- 					IRQF_TRIGGER_RISING | IRQF_ONESHOT,
- 					"q6v5 wdog", q6v5);
--	if (ret) {
--		dev_err(&pdev->dev, "failed to acquire wdog IRQ\n");
-+	if (ret)
- 		return ret;
--	}
- 
- 	q6v5->fatal_irq = platform_get_irq_byname(pdev, "fatal");
- 	if (q6v5->fatal_irq < 0)
-@@ -315,10 +313,8 @@ int qcom_q6v5_init(struct qcom_q6v5 *q6v5, struct platform_device *pdev,
- 					NULL, q6v5_fatal_interrupt,
- 					IRQF_TRIGGER_RISING | IRQF_ONESHOT,
- 					"q6v5 fatal", q6v5);
--	if (ret) {
--		dev_err(&pdev->dev, "failed to acquire fatal IRQ\n");
-+	if (ret)
- 		return ret;
--	}
- 
- 	q6v5->ready_irq = platform_get_irq_byname(pdev, "ready");
- 	if (q6v5->ready_irq < 0)
-@@ -328,10 +324,8 @@ int qcom_q6v5_init(struct qcom_q6v5 *q6v5, struct platform_device *pdev,
- 					NULL, q6v5_ready_interrupt,
- 					IRQF_TRIGGER_RISING | IRQF_ONESHOT,
- 					"q6v5 ready", q6v5);
--	if (ret) {
--		dev_err(&pdev->dev, "failed to acquire ready IRQ\n");
-+	if (ret)
- 		return ret;
--	}
- 
- 	q6v5->handover_irq = platform_get_irq_byname(pdev, "handover");
- 	if (q6v5->handover_irq < 0)
-@@ -342,10 +336,8 @@ int qcom_q6v5_init(struct qcom_q6v5 *q6v5, struct platform_device *pdev,
- 					IRQF_TRIGGER_RISING | IRQF_ONESHOT |
- 					IRQF_NO_AUTOEN,
- 					"q6v5 handover", q6v5);
--	if (ret) {
--		dev_err(&pdev->dev, "failed to acquire handover IRQ\n");
-+	if (ret)
- 		return ret;
--	}
- 
- 	q6v5->stop_irq = platform_get_irq_byname(pdev, "stop-ack");
- 	if (q6v5->stop_irq < 0)
-@@ -355,10 +347,8 @@ int qcom_q6v5_init(struct qcom_q6v5 *q6v5, struct platform_device *pdev,
- 					NULL, q6v5_stop_interrupt,
- 					IRQF_TRIGGER_RISING | IRQF_ONESHOT,
- 					"q6v5 stop", q6v5);
--	if (ret) {
--		dev_err(&pdev->dev, "failed to acquire stop-ack IRQ\n");
-+	if (ret)
- 		return ret;
--	}
- 
- 	q6v5->state = devm_qcom_smem_state_get(&pdev->dev, "stop", &q6v5->stop_bit);
- 	if (IS_ERR(q6v5->state)) {
-diff --git a/drivers/remoteproc/qcom_sysmon.c b/drivers/remoteproc/qcom_sysmon.c
-index a0830a48b1f4..61e1038328e8 100644
---- a/drivers/remoteproc/qcom_sysmon.c
-+++ b/drivers/remoteproc/qcom_sysmon.c
-@@ -662,8 +662,6 @@ struct qcom_sysmon *qcom_add_sysmon_subdev(struct rproc *rproc,
- 						IRQF_TRIGGER_RISING | IRQF_ONESHOT,
- 						"q6v5 shutdown-ack", sysmon);
- 		if (ret) {
--			dev_err(sysmon->dev,
--				"failed to acquire shutdown-ack IRQ\n");
- 			kfree(sysmon);
- 			return ERR_PTR(ret);
- 		}
-diff --git a/drivers/remoteproc/qcom_wcnss.c b/drivers/remoteproc/qcom_wcnss.c
-index 3392c9380202..e9a00efe97f6 100644
---- a/drivers/remoteproc/qcom_wcnss.c
-+++ b/drivers/remoteproc/qcom_wcnss.c
-@@ -521,10 +521,8 @@ static int wcnss_request_irq(struct qcom_wcnss *wcnss,
- 					NULL, thread_fn,
- 					IRQF_TRIGGER_RISING | IRQF_ONESHOT,
- 					"wcnss", wcnss);
--	if (ret) {
--		dev_err(&pdev->dev, "request %s IRQ failed\n", name);
-+	if (ret)
- 		return ret;
--	}
- 
- 	/* Return the IRQ number if the IRQ was successfully acquired */
- 	return irq_number;
-diff --git a/drivers/remoteproc/stm32_rproc.c b/drivers/remoteproc/stm32_rproc.c
-index 0e5d64fbe52c..1fe4cdc0a13a 100644
---- a/drivers/remoteproc/stm32_rproc.c
-+++ b/drivers/remoteproc/stm32_rproc.c
-@@ -682,8 +682,7 @@ static int stm32_rproc_parse_dt(struct platform_device *pdev,
- 		err = devm_request_irq(dev, irq, stm32_rproc_wdg, 0,
- 				       dev_name(dev), pdev);
- 		if (err)
--			return dev_err_probe(dev, err,
--					     "failed to request wdg irq\n");
-+			return err;
- 
- 		ddata->wdg_irq = irq;
- 
+The concept is to implement a producer-consumer API similar to other
+subsystem like clock or PHY.
+
+That seems to be the best solution to the problem as PCS driver needs
+to be detached from phylink and implement a simple way to provide a
+PCS while maintaining support for probe defer or driver removal.
+
+To keep the implementation simple, the PCS driver devs needs some
+collaboration to correctly implement this. This is O.K. as helper
+to correctly implement this are provided hence it's really a matter
+of following a pattern to correct follow removal of a PCS driver.
+
+A PCS provider have to implement and call fwnode_pcs_add_provider() in
+probe function and define an xlate function to define how the PCS
+should be provided based on the requested interface and phandle spec
+defined in fwnode (based on the #pcs-cells)
+
+fwnode_pcs_get() is provided to provide a specific PCS declared in
+fwnode at index.
+
+A simple xlate function is provided for simple single PCS
+implementation, fwnode_pcs_simple_get.
+
+A PCS provider on driver removal should first call
+fwnode_pcs_del_provider() to delete itself as a provider and then
+release the PCS from phylink with phylink_release_pcs() under rtnl
+lock.
+
+---
+Second PCS handling in phylink:
+
+We have the PCS problem for the only reason that in initial
+implementation, we permitted way too much flexibility to MAC driver
+and things started to deviate. At times we couldn't think SoC
+would start to put PCS outside the MAC hence it was OK to assume
+they would live in the same driver. With the introduction of
+10g in more consumer devices, we are observing a rapid growth
+of this pattern with multiple PCS external to MAC.
+
+To put a stop on this, the only solution is to give back to phylink
+control on PCS handling and enforce more robust supported interface
+definition from both MAC and PCS side.
+
+It's suggested to read patch 0003 of this series for more info, here
+a brief explaination of the idea:
+
+This series introduce handling of PCS in phylink and try to deprecate
+.mac_select_pcs.
+
+Phylink now might contain a linked list of available PCS and
+those will be used for PCS selection on phylink_major_config.
+
+MAC driver needs to define pcs_interfaces mask in phylink_config
+for every interface that needs a dedicated PCS.
+
+These PCS needs to be provided to phylink at phylink_create time
+by setting the .fill_available_pcs and .num_possible_pcs in phylink_config.
+Helpers to parse PCS from fwnode are provided
+fwnode_phylink_pcs_count() that will return the count of PCS entries
+described in the firmware node and fwnode_phylink_pcs_parse() that will
+fill a preallocated array of PCS pointer with the actual available PCS
+(ignoring the one that still needs to be probed).
+
+phylink_create() will fill the internal PCS list with the passed
+array of PCS. phylink_major_config and other user of .mac_select_pcs
+are adapted to make use of this new PCS list.
+
+The supported interface value is also moved internally to phylink
+struct. This is to handle late removal and addition of PCS.
+(the bonus effect to this is giving phylink a clear idea of what
+is actually supported by the MAC and his constraint with PCS)
+
+The supported interface mask in phylink is done by OR the
+supported_interfaces in phylink_config with every PCS in PCS list.
+
+PCS removal is supported by forcing a mac_config, refresh the
+supported interfaces and run a phy_resolve().
+
+PCS late addition is supported by introducing a global notifier
+for PCS provider. If a phylink have the pcs_interfaces mask not
+zero, it's registered to this notifier.
+
+PCS provider will emit a global PCS add event to signal any
+interface that a new PCS might be available.
+
+The function will then check if the PCS is related to the MAC
+fwnode and add it accordingly.
+
+A user for this new implementation is provided as an Airoha PCS
+driver. This was also tested downstream with the IPQ95xx QCOM SoC
+and with the help of Daniel also on the various Mediatek MT7988
+SoC with both SFP cage implementation and DSA attached.
+
+Lots of tests were done with driver unbind/bind and with interface
+up/down also by adding print to make sure major_config_fail gets
+correctly triggered and reset once the PCS comes back.
+
+The dedicated commits have longer description on the implementation
+so it's suggested to also check there for additional info.
+
+It's worth to mention that OpenWrt is currently using this on
+Mediatek SoC and QCOM ipq807x/ipq60xx/ipq50xx and Airoha are
+already ported in staging tree for testing.
+
+---
+
+Changes v9:
+- Rebase on top of net-next/main
+- Drop early verification of supported_interface
+  (it can also be provided by get_capabilites MAC OP)
+Changes v8:
+- Back to RFC (net-next closed)
+- Address additional bug reported by Sashiko bot
+  - Better handle priv interface for Airoha PCS driver
+  - Better handle locking for modifying the PCS list in
+    phylink code
+  - Improve fwnode_phylink_pcs_parse() parsing on -ENOENT
+  - Better handle error condition in phylink_create()
+  - Turn down the link when current PCS is released
+- Fix compilation warning caused by copy paste error
+Changes v7:
+- Address all the bug from the Sashiko bot
+- Rename .num_available_pcs to .num_possible_pcs
+- Link PCS in phylink_create()
+- Correctly unregister the notifier on phylink_destroy()
+- Introduce fwnode_phylink_pcs_count()
+- Better handle locking in phylink for PCS handling
+- Better handle unavailable PCS at phylink_create() time
+- Improve Documentation file
+- Other minor fixes to address suggestion from bot
+- Rebase on top of net-next
+Changes v6:
+- Rebase on top of net-next
+- Add Documentation files
+- Add fw_devlink patch
+- Fix some comments typo
+- Rework the airoha_eth.c implementation with new multi serdes code
+- Extend PCS code with PCIe and USB support
+- Align schema to new property
+Changes v5:
+- Rebase on top of net-next
+- Use the new force_major_config
+- Reword some comments and commit description
+- Return -ENODEV instead of -EPROBE_DEFER to perevent race condition
+- Drop phy_interface_copy patch (Russell pushed an equivalent version)
+Changes v4:
+- Move patch 0002 phy_interface_copy to 0002 (fix bisectability
+  problem)
+- Address review from Lorenzo for Airoha ethernet driver
+- Fix kdoc error with missing Return (actually missing : before Return)
+- Fix UNMET dependency reported error for CONFIG_FWNODE_PCS
+- Revert to pcs.c instead of core.c (due to name conflict with other kmod)
+- Fix clang compilation error for Airoha PCS driver
+- Add missing inline function to pcs.h function
+Changes v3:
+- Out of RFC
+- Fix various spelling mistake
+- Drop circular dependency patch
+- Complete Airoha Ethernet phylink integration
+- Introduce .pcs_link_down PCS OP
+Changes v2:
+- Switch to fwnode
+- Implement PCS provider notifier
+- Better split changes
+- Move supported_interfaces to phylink
+- Add circular dependency patch
+- Rework handling with indirect addition/removal and
+  trigger of phylink_resolve()
+
+Christian Marangi (12):
+  net: phylink: keep and use MAC supported_interfaces in phylink struct
+  net: phylink: introduce internal phylink PCS handling
+  net: phylink: add phylink_release_pcs() to externally release a PCS
+  net: pcs: implement Firmware node support for PCS driver
+  net: phylink: support late PCS provider attach
+  net: Document PCS subsystem
+  MAINTAINERS: add myself as PCS subsystem maintainer
+  of: property: fw_devlink: Add support for "pcs-handle"
+  net: phylink: add .pcs_link_down PCS OP
+  dt-bindings: net: pcs: Document support for Airoha Ethernet PCS
+  net: pcs: airoha: add PCS driver for Airoha AN7581 SoC
+  net: airoha: add phylink support
+
+ .../bindings/net/pcs/airoha,pcs.yaml          |  261 ++
+ Documentation/networking/index.rst            |    1 +
+ Documentation/networking/pcs.rst              |  229 ++
+ MAINTAINERS                                   |    9 +
+ drivers/net/ethernet/airoha/Kconfig           |    1 +
+ drivers/net/ethernet/airoha/airoha_eth.c      |  194 +-
+ drivers/net/ethernet/airoha/airoha_eth.h      |    7 +-
+ drivers/net/ethernet/airoha/airoha_regs.h     |   12 +
+ drivers/net/pcs/Kconfig                       |    8 +
+ drivers/net/pcs/Makefile                      |    3 +
+ drivers/net/pcs/airoha/Kconfig                |   12 +
+ drivers/net/pcs/airoha/Makefile               |    7 +
+ drivers/net/pcs/airoha/pcs-airoha-common.c    | 1324 +++++++++++
+ drivers/net/pcs/airoha/pcs-airoha.h           | 1311 +++++++++++
+ drivers/net/pcs/airoha/pcs-an7581.c           | 2093 +++++++++++++++++
+ drivers/net/pcs/pcs.c                         |  261 ++
+ drivers/net/phy/phylink.c                     |  366 ++-
+ drivers/of/property.c                         |    2 +
+ include/linux/pcs/pcs-provider.h              |   41 +
+ include/linux/pcs/pcs.h                       |  140 ++
+ include/linux/phylink.h                       |   30 +
+ 21 files changed, 6261 insertions(+), 51 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/pcs/airoha,pcs.yaml
+ create mode 100644 Documentation/networking/pcs.rst
+ create mode 100644 drivers/net/pcs/airoha/Kconfig
+ create mode 100644 drivers/net/pcs/airoha/Makefile
+ create mode 100644 drivers/net/pcs/airoha/pcs-airoha-common.c
+ create mode 100644 drivers/net/pcs/airoha/pcs-airoha.h
+ create mode 100644 drivers/net/pcs/airoha/pcs-an7581.c
+ create mode 100644 drivers/net/pcs/pcs.c
+ create mode 100644 include/linux/pcs/pcs-provider.h
+ create mode 100644 include/linux/pcs/pcs.h
+
 -- 
-2.34.1
+2.53.0
 
 
