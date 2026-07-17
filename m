@@ -4,153 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3483EC4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 11:40:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B798C44516
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 11:41:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KXuugUouKlB/CUW4LY6w9L6J1o6zPDA0wz2TTB2Kat4=; b=Xdxw54xCFe3G3Bh0pCsmmk13NZ
-	jBnqejaEAll4BYuXxS5y4UsT+NfN4N159Qtgnd61X2Xkb+8WvYk4e9Wz6D10dhIuyhP6R9IvxCKYF
-	v7yISf6mwx+QlBAwMDYES6Oel6+KdAfPZxbBsDf0bMI7JXd8TZ/oAJjEl7Qop2tmiydEYqEw7fXq+
-	McJA9PY16IVAOdOy83dKyfkv/mzyoeHtdDMxNVhezVB911JJv0d4AT/IOeUWXisN7W0KheGCjIrXC
-	3nNiMyY3vD1+5TrXe6nHxMUmd8J8VpAkmFkxDHuNnJGji9vv53ttwErLLSqMpABmP6Bm344JI1gbm
-	SJbv4epQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wMxcpm+IoVsxd9X54J6KG7SdZat99QLXoKqL6gFffBA=; b=D5ZRUamXsHkLe5GXWQmvjl1a7K
+	ZbwwZmyUzm61ldo/N/WRlXcy9/bnics3u2TqN5ZkjJXxTM7a+knPNzPs+fOXv8v6KzkmgcCNFK03W
+	YZ6Xsz+1ECZ4M2KfmVaRvL4ZoPrE+Vy4i6cy4C51nDjNK+sBqk+6yVbVpXmdDSlMNHFuovYJJvsXU
+	fKJh0+cyxf9W6NZVlmTKu88uCUZVC9EL+cN4M9ldKgemdnDx0Xq/KPw2X9ECySuqQ6UiXNMackM9w
+	W6A7tRPlhPsg96bXfFPrvxzL2upk8VqxyDtbvKTFJUD11c/Jz2FWMmDVW0PHgyWv24Xuf8lWQxCu5
+	0z1nVl4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkgvT-00000002Aq7-3KIb;
-	Fri, 17 Jul 2026 11:40:19 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wkgw7-00000002Ava-41N6;
+	Fri, 17 Jul 2026 11:40:59 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkgvR-00000002ApX-3wpP
+	id 1wkgw7-00000002AvS-0CDZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 11:40:19 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66HATCjh1557947
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 11:40:16 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	KXuugUouKlB/CUW4LY6w9L6J1o6zPDA0wz2TTB2Kat4=; b=a2v8hqQK+5NFF89D
-	97D6u2gu1GhLs3KiOzhJ9ucraCDlBeBTtrCFilTzkcsuq9OcGN9kl9X0Up4NKBW0
-	k8plGKaONU2Bzc6E1gTHBP91QyRnTHCCKPUs7Eocnr7Lw/AYnrWS8mWgabM3brTf
-	zNzQfLgUss/CGIKIpFSeoxa5zrxGstJ0SuHwOhNKlxP+dS73z/EQae0t3glkeB9f
-	2yO4euksQGEzVf/SST7/9nJAgB6TdMC6y1iWmS/hunc/ene9xhV9+RTFBFHUlYqd
-	cLZIT408D4tIFli89y1czok8b1kU2nzfSKyDjgwSyDMlN1joZXxW9XCuCDxt+qvJ
-	rrlsCw==
-Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fff8113wk-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 11:40:16 +0000 (GMT)
-Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-84a4d8fd6deso5746363b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 04:40:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1784288415; x=1784893215; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :references:cc:to:subject:from:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=KXuugUouKlB/CUW4LY6w9L6J1o6zPDA0wz2TTB2Kat4=;
-        b=URW9AkxYNOCUdeAg16loXqiCTGhFYXvjGyFtqtDaJl6R6tvLGn4ndOyOxxNhJc4UTx
-         rErWAZ30pKv6b16VrBzu42C8ydYPCSuLb1KdHcjG7+zkJGlfCKVm4i8s8C3B7a0BOLi9
-         GzDX3Wir1Zzlg8Gxs3v5fo5qfDjIq8H+cRDmH0PJW+9ujjNObqKqawmVS8E5zUitHSQM
-         mU2m9Jb8ITcL6Hvwo0OaR/7fljHFUWEj7cDRIRVzOUiiHKRBLmQf7A6bk7NBSVsP/6k2
-         /z0GZrSizodGCTqPn87La+OcPctGbSe0CsGr4nKh6m3osqkfo3nJdOR9uYcwiiAqI2md
-         hI3g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784288415; x=1784893215;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :references:cc:to:subject:from:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=KXuugUouKlB/CUW4LY6w9L6J1o6zPDA0wz2TTB2Kat4=;
-        b=N8R8ZPfATe1cyXNh0bWrGk35WSF2xETmnEN093IGup179NYEoDJJBXvS548T6hzokk
-         eaTEft4uSoVFn1Mp+rIeMw8sntvyLgqiITp0+Qhsg003gV5TngDKEn7d8zPlCwAGFcXQ
-         UODKM+SPqUARVNggMwuMdav5JYHKF7YgmqDaOJjJOhd0XiikXBWr2vdGI2fMQTZq7vqP
-         2Rebif/u0vvk9kB67WT7ehYy0UeNeqvgVD3KtB6blJsWzIiGRJ8dCv9cRZs2l8/YIDPH
-         tKdK1pIw6x5AYPS73MlKrjTT4fh/TLQ53Mvy/tdOi5oeNqhTWL/Qga6WyQ41VS/WpoV+
-         IeAA==
-X-Forwarded-Encrypted: i=1; AHgh+RpMG7RESuEHi+OcN0P7bcmuRXnX4d1xdznFOI+oIxR3DnFA1tFYa7aeRW2t/sEbFIOcho8BrnOL3+fdw11EocBA@lists.infradead.org
-X-Gm-Message-State: AOJu0YznIz7C2jptbqbB1g8fn449+e4ZiEm6ydgM4r903GRzIPTCvOMb
-	J+ku5swQPQtS0Q8ACUE2NCok/7bukc1cXOpHNQhfF+PwKmJXF00KD0XPeIh6uyX9xV+UPuulLNC
-	etVnC2WPDMG/8WyH07Qf+05lHTsAu45qmrkBQHtUWqwomFXzKWE4cmkHV1JXi/oyXcHSeGHewiQ
-	RNQQ==
-X-Gm-Gg: AfdE7cnmSLiPVibSihvWT9wymTMjXL94MMePOHzY/NE2R1IHZM1QJFpCjD0Yon0+lKj
-	DLYf8D+nyw8P8ivonLdIemFEZX1eoZCdWgph5R9uZ/P2i1oS+KOWIKAgJh1GTSY/5+ZrRYnVqS3
-	Si2clf2UkPACtuFNG47WI3ws0x2Zsx4+A6MY6mohZHMS5kodQm/WUAiq5L2Wnz9GU9Acm+uULjX
-	+ocY8PYAmliZ+iiHCsImEGmLWEanq2DUqZQqI8/sCAHbXfegkAX9dJbHWa4CooKdPs67rGK39cN
-	+7DC10Qjq1Gwo2Kx19IQulDdbjIo2zQ8Guf2T0eQagEC1bBnqsgA/GHWb6BsTpoMzoDN0wezE8n
-	2NgZHUZLpFcMxOp8QjCwn5qOZlNJQ
-X-Received: by 2002:a05:6a00:80a:b0:847:97a4:d6b3 with SMTP id d2e1a72fcca58-84c2922630cmr2362996b3a.16.1784288415369;
-        Fri, 17 Jul 2026 04:40:15 -0700 (PDT)
-X-Received: by 2002:a05:6a00:80a:b0:847:97a4:d6b3 with SMTP id d2e1a72fcca58-84c2922630cmr2362945b3a.16.1784288414707;
-        Fri, 17 Jul 2026 04:40:14 -0700 (PDT)
-Received: from [10.218.33.224] ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84c2af317c8sm859795b3a.30.2026.07.17.04.40.09
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 17 Jul 2026 04:40:14 -0700 (PDT)
-Message-ID: <2c21041d-f84c-4fa7-a977-555f9203d8b5@oss.qualcomm.com>
-Date: Fri, 17 Jul 2026 17:10:08 +0530
+	Fri, 17 Jul 2026 11:40:59 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4FAD143B13;
+	Fri, 17 Jul 2026 11:40:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB5B41F000E9;
+	Fri, 17 Jul 2026 11:40:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784288458;
+	bh=wMxcpm+IoVsxd9X54J6KG7SdZat99QLXoKqL6gFffBA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=F+ylRJNlTcwJhGBJ01DIn7oLm7TXQAXu2+mO4HsHi6022TFDme52Ltzf3ykFIWRiX
+	 sDUdKjTGWVvaP9TatyQ/XjfOHTVub9UT1FV65inDcTpw4W8oOP9O6WVi9El6ZeqsqJ
+	 m46cQ0zYPorXuwz6Y8HY8rwe2DW1IF0j5tCHwJX9N192yjBgysenD381xVaGlm/Fvk
+	 Cvsz+r+CrYck/qWkFmT6wVGOyFCWQqzs3VrwfmwtwPew8yesYwgkFpSzcvp0B+O/Fz
+	 6Ct97dz1xPU8clKQl2wZ+nr4fCUbBsTibi8odepAZRFcXrNNRwCVOw1m3xVZHW8xNn
+	 UNs+8qr93MSiw==
+Date: Fri, 17 Jul 2026 12:40:38 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>, 
+	Suren Baghdasaryan <surenb@google.com>, "Liam R. Howlett" <liam@infradead.org>, 
+	Vlastimil Babka <vbabka@kernel.org>, Shakeel Butt <shakeel.butt@linux.dev>, 
+	David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
+	Uladzislau Rezki <urezki@gmail.com>, Toshi Kani <toshi.kani@hpe.com>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, Andy Lutomirski <luto@kernel.org>, 
+	Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, 
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Kiryl Shutsemau <kas@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Dev Jain <dev.jain@arm.com>, 
+	Ryan Roberts <ryan.roberts@arm.com>
+Cc: David Carlier <devnexen@gmail.com>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	"Denis V. Lunev" <den@virtuozzo.com>, stable@vger.kernel.org
+Subject: Re: [PATCH mm-hotfixes v4 2/4] x86/mm/pat: acquire init_mm write
+ lock to avoid UAF
+Message-ID: <aloAVwijpWpfO-5n@lucifer>
+References: <20260716-series-vmap-race-fix-v4-0-8c108c4317df@kernel.org>
+ <20260716-series-vmap-race-fix-v4-2-8c108c4317df@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
-Subject: Re: [PATCH v3 3/6] arm64: dts: qcom: kodiak: Add GEM_NOC interconnect
- for adreno SMMU
-To: Bjorn Andersson <andersson@kernel.org>
-Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-        Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org
-References: <20260706-smmu_interconnect_addition-v3-0-afdca0125a65@oss.qualcomm.com>
- <20260706-smmu_interconnect_addition-v3-3-afdca0125a65@oss.qualcomm.com>
- <h6opbtr2ced3sannj3ym573qc2sjk7ek3clpto5j5mtqfrfk6w@34sk2zraoqtj>
- <807f145d-88d3-460a-9862-b63fe2a52cf7@oss.qualcomm.com>
- <a4f5sod3aflubxkk4mm4k5ozddydqcnqeac4s6vnozkd2nvxbi@hmh6zclsw5z3>
- <4e5a3d82-b946-4490-885a-ea7061939c32@oss.qualcomm.com>
- <ak5qkRKk2eHHLYmo@baldur>
-Content-Language: en-US
-In-Reply-To: <ak5qkRKk2eHHLYmo@baldur>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=RbqgzVtv c=1 sm=1 tr=0 ts=6a5a14a0 cx=c_pps
- a=m5Vt/hrsBiPMCU0y4gIsQw==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=qc56rwwszmrP7wb0vM8A:9 a=QEXdDO2ut3YA:10
- a=IoOABgeZipijB_acs4fv:22
-X-Proofpoint-GUID: TTIK5lEpceWw7PP-iQZJABichRnd2US0
-X-Proofpoint-ORIG-GUID: TTIK5lEpceWw7PP-iQZJABichRnd2US0
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzE3MDExOCBTYWx0ZWRfXw9iUTAd0VCvo
- 1t/glsu4km9QajPHKR/qHu0bNZ9z+SN3uTeEa4hluLr0+e0Zj4vaJmakVKDgvHCvGtKOSErsmJi
- bfrDetmq2+GqDaA1Ve71WL161GWlSXFMEwD698dDbXSB7WwLstEMzZmQmhF6QWxvg1H/W9MslnG
- bXWx8HGe5PX+QmXmxhfkdxqtnDZ+IJYwARNULiGmPMlEXQFNut5xpAjK9O9Ex/Zh/J9BV0e86gJ
- 4vkLg4qub3eoYJswBkL2HpnSJVioG4iTnu0QLtqonFFeJ6uWd5zWBPCxjKMf5HImrH2lY8hIaGF
- i1yoFdJHJIRHZsjrT5IR18Y4/3mraoyjyz3IQg8TQXWU+4JqSvnC9w0NViMXUpiHm2fyxgNDhy5
- qidE0H28R/ScOclacmEbsfcNKHb8xEsWfFrWEhaAOYFnQGMC8Z9n6n2rVwwc/QNmiVSfYBCgKd0
- Fzxehbtf4zi6MQL/VFw==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzE3MDExOCBTYWx0ZWRfX/F2K+cwuO1qW
- ckrhFuBtKF6hr2UuT3TWNGe4LpIKE+em5KQbrWddNo80c8OPnt2b78jws6AQEgyt3txQXnlBvJv
- ukxB7VgLnO8T6KbgB9LI7PhmOB9hocI=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-17_03,2026-07-15_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 clxscore=1015 suspectscore=0 priorityscore=1501
- lowpriorityscore=0 impostorscore=0 bulkscore=0 phishscore=0 adultscore=0
- spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2607170118
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_044018_105964_2369BC1C 
-X-CRM114-Status: GOOD (  32.18  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260716-series-vmap-race-fix-v4-2-8c108c4317df@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,135 +81,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jul 16, 2026 at 10:31:13PM +0100, Lorenzo Stoakes (ARM) wrote:
+
+OK so note to self - don't send series late in the evening when you're
+exhausted :)
+
+I rather glossed over the problem, Will's reply, and Denis's excellent bug
+report at [0].
+
+So. The (other) problem with CPA, as Denis pointed out, is that
+__change_page_attr() can update something in a page table that is
+concurrently being torn down, with set_pte_atomic() being the point at
+which the UAF occurs.
+
+With the switch to a write lock we can simply do:
+
+	scoped_guard(mmap_read_lock, &init_mm)
+		ret = __change_page_attr_set_clr(&cpa, 1);
+
+In change_page_attr_set_clr().
+
+Since CPA_COLLAPSE is only ever invoked via set_memory_rox() collapse is
+only done via change_page_attr_set_clr() and this covers all callers which
+are impacted by this.
+
+If people are agreeable to this I will respin with an additional patch to
+do this, as it makes sense to bundle it in this series with its depend
+change (this patch) included and properly ordered.
+
+Cheers, Lorenzo
 
 
-On 7/8/2026 8:56 PM, Bjorn Andersson wrote:
-> On Wed, Jul 08, 2026 at 03:31:07PM +0530, Bibek Kumar Patro wrote:
->>
->>
->> On 7/7/2026 10:14 PM, Dmitry Baryshkov wrote:
->>> On Tue, Jul 07, 2026 at 06:37:24PM +0530, Bibek Kumar Patro wrote:
->>>>
->>>>
->>>> On 7/6/2026 11:12 PM, Dmitry Baryshkov wrote:
->>>>> On Mon, Jul 06, 2026 at 10:26:36PM +0530, Bibek Kumar Patro wrote:
->>>>>> On Kodiak platforms, the Adreno SMMU requires a bandwidth vote on
->>>>>> the GEM_NOC path (MASTER_GPU_TCU -> SLAVE_EBI1) before its registers
->>>>>> are accessible. Without this vote, the SMMU may become unreachable,
->>>>>> leading to intermittent probe failures and runtime issues.
->>>>>>
->>>>>> Add the required interconnect to ensure reliable register access.
->>>>>>
->>>>>> Signed-off-by: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
->>>>>> ---
->>>>>>     arch/arm64/boot/dts/qcom/kodiak.dtsi | 2 ++
->>>>>>     1 file changed, 2 insertions(+)
->>>>>>
->>>>>> diff --git a/arch/arm64/boot/dts/qcom/kodiak.dtsi b/arch/arm64/boot/dts/qcom/kodiak.dtsi
->>>>>> index 90e50c245c0c..721526f023dd 100644
->>>>>> --- a/arch/arm64/boot/dts/qcom/kodiak.dtsi
->>>>>> +++ b/arch/arm64/boot/dts/qcom/kodiak.dtsi
->>>>>> @@ -3389,6 +3389,8 @@ adreno_smmu: iommu@3da0000 {
->>>>>>     			power-domains = <&gpucc GPU_CC_CX_GDSC>;
->>>>>>     			dma-coherent;
->>>>>> +			interconnects = <&gem_noc MASTER_GPU_TCU QCOM_ICC_TAG_ALWAYS
->>>>>> +					 &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>;
->>>>>
->>>>> Why is it ALWAYS? Would it be better to declare it as ACTIVE_ONLY and
->>>>
->>>> Added QCOM_ICC_TAG_ALWAYS, to hold the vote in SLEEP bucket as well
->>>> preventing gem_noc going to sleep when icc_set_bw is being called.
->>>
->>> _why_?
->>>
->>
->> Now when i think of where we implemented the hooks, ALWAYS is not needed. We
->> should keep it ACTIVE_ONLY since we are already voting it
->> back in resume pah. I'll fix it in next revision.
->>
-> 
-> The path is between the SMMU and DDR, so clearly it has to do with the
-> TCU's ability to fetch things from DDR.
-> 
+[0]:https://lore.kernel.org/all/20260626163213.2284080-1-den@openvz.org/
 
-Yes as you rightly mentioned, this series is helping to resolve the race 
-in TCU DDR clink
-
-> ACTIVE_ONLY states that the vote should only be applied when the
-> application subsystem (CPUSS) is not in low-power mode (CPU is active).
-> 
-> So, are you saying that in all cases that cpuidle might select such
-> low-power state the GPU TCU is "stopped", and does not need to perform
-> any memory transactions?
-> 
-
-I rechecked the architectural block diagram, GPU TCU is
-independent of the CPUSS, unlike system TCU.
-
-This means CPUSS can be powered down while the GPU TCU remains voted up. 
-While this series was intended to avoid a DDR voting race between the
-GPU TCU and its clients, using ACTIVE_ONLY could have possibly
-introduced a race between CPUSS and the GPU TCU itself.
-
-Thanks for catching this in my reply Bjorn.
-
-ACTIVE_ONLY would have been suitable for system TCU (apps_smmu)
-for which the interconnect field is anyways not needed, but
-unsuitable for GPU TCU.
-
-> 
-> To me these two are orthogonal and TAG_ALWAYS is logically correct, but
-> perhaps there's some practical dependency that I'm missing?
-> 
-
-We can ignore my acknowledgment [1] on previous response, Dmitry.
-ALWAYS TAG is correct here instead of ACTIVE_ONLY in the interconnect 
-field for adreno SMMU.
-
-[1]: 
-https://lore.kernel.org/all/4e5a3d82-b946-4490-885a-ea7061939c32@oss.qualcomm.com/#:~:text=Yes%2C%20I%20think%20we%20should%20go%20with%20the%20ACTIVE_ONLY%20flag
-
-Thanks & regards,
-Bibek
-
-> Regards,
-> Bjorn
-> 
->>>>
->>>>> then drop the extra suspend/resume play?
->>>>
->>>> Not sure if I understood it correctly.
->>>> Did you mean the extra suspend/resume play in arm_smmu_runtime_suspend
->>>> or in arm_smmu_device_shutdown() path?
->>>
->>> runtime_suspend/resume. I might be incorrect here, but I think it is
->>> exactly what you need.
->>>
->>
->> Yes, I think we should go with the ACTIVE_ONLY flag and we would need
->> this voting in suspend resume path (For the same reason mentioned in commit
->> description and cover letter of the series).
->>
->> ALWAYS would avoid the need for this handling, it would keep the vote active
->> unnecessarily, but still that would have been nondeterministic.
->>
->> Thanks & regards,
->> Bibek
->>
->>>>
->>>> Thanks & regards,
->>>> Bibek
->>>>
->>>>>
->>>>>>     		};
->>>>>>     		gfx_0_tbu: tbu@3dd9000 {
->>>>>>
->>>>>> -- 
->>>>>> 2.34.1
->>>>>>
->>>>>
->>>>
->>>
->>
-
+> x86 implements page attribute modification using its Change Page
+> Attributes (CPA) mechanism.
+>
+> This tracks properties of ranges such as cache mode through x86 page
+> attributes, and as part of that logic manipulates kernel page tables.
+>
+> Since commit 41d88484c71c ("x86/mm/pat: restore large ROX pages after
+> fragmentation") ranges of kernel page table entries can be collapsed into
+> huge page table entries as part of this logic.
+>
+> As part of this collapse, it frees the page tables which the collapsed
+> entries previously pointed to, and it does so without any relevant locks
+> being held to preclude concurrent kernel page table walkers.
+>
+> The only way this code can be reached is if CPA_COLLAPSE is specified, and
+> this is only set in set_memory_rox() via:
+>
+> set_memory_rox()
+> -> change_page_attr_set_clr()
+> -> cpa_flush()
+> -> cpa_collapse_large_pages()
+>
+> Notable users of this are execmem and bpf when manipulating executable
+> mappings.
+>
+> However, this is problematic for ptdump as it walks ranges it does not own
+> and thus runs the risk of a use-after-free on page tables freed underneath
+> it.
+>
+> In addition, concurrent CPA collapse operations are possible which can also
+> cause races.
+>
+> Resolve the issue by acquiring the mmap write lock on init_mm across the
+> whole operation.
+>
+> It is safe to acquire a sleeping lock as all the callers invoke
+> set_memory_rox() from process context and in any case,
+> change_page_attr_set_clr() calls vm_unmap_alias() which ultimately takes a
+> mutex, disallowing atomic context here.
+>
+> Fixes: 41d88484c71c ("x86/mm/pat: restore large ROX pages after fragmentation")
+> Cc: stable@vger.kernel.org
+> Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> Reviewed-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+> Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+> Reviewed-by: Dave Hansen <dave.hansen@linux.intel.com>
+> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+> ---
+>  arch/x86/mm/pat/set_memory.c | 15 ++++++++++++++-
+>  include/linux/mmap_lock.h    |  2 ++
+>  2 files changed, 16 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
+> index d023a40a1e03..d1e63f7d267f 100644
+> --- a/arch/x86/mm/pat/set_memory.c
+> +++ b/arch/x86/mm/pat/set_memory.c
+> @@ -22,6 +22,7 @@
+>  #include <linux/cc_platform.h>
+>  #include <linux/set_memory.h>
+>  #include <linux/memregion.h>
+> +#include <linux/cleanup.h>
+>
+>  #include <asm/e820/api.h>
+>  #include <asm/processor.h>
+> @@ -410,7 +411,7 @@ static void __cpa_flush_tlb(void *data)
+>
+>  static int collapse_large_pages(unsigned long addr, struct list_head *pgtables);
+>
+> -static void cpa_collapse_large_pages(struct cpa_data *cpa)
+> +static void __cpa_collapse_large_pages(struct cpa_data *cpa)
+>  {
+>  	unsigned long start, addr, end;
+>  	struct ptdesc *ptdesc, *tmp;
+> @@ -442,6 +443,18 @@ static void cpa_collapse_large_pages(struct cpa_data *cpa)
+>  	}
+>  }
+>
+> +static void cpa_collapse_large_pages(struct cpa_data *cpa)
+> +{
+> +	/*
+> +	 * Take the mmap write lock on init_mm to:
+> +	 * - Avoid a use-after-free if raced by ptdump (which takes its own
+> +	 *   write lock on init_mm).
+> +	 * - Serialise concurrent CPA walkers.
+> +	 */
+> +	scoped_guard(mmap_write_lock, &init_mm)
+> +		__cpa_collapse_large_pages(cpa);
+> +}
+> +
+>  static void cpa_flush(struct cpa_data *cpa, int cache)
+>  {
+>  	unsigned int i;
+> diff --git a/include/linux/mmap_lock.h b/include/linux/mmap_lock.h
+> index 6b5c2390cc30..047f5f5e2c34 100644
+> --- a/include/linux/mmap_lock.h
+> +++ b/include/linux/mmap_lock.h
+> @@ -621,6 +621,8 @@ static inline void mmap_read_unlock(struct mm_struct *mm)
+>
+>  DEFINE_GUARD(mmap_read_lock, struct mm_struct *,
+>  	     mmap_read_lock(_T), mmap_read_unlock(_T))
+> +DEFINE_GUARD(mmap_write_lock, struct mm_struct *,
+> +	     mmap_write_lock(_T), mmap_write_unlock(_T))
+>  DEFINE_GUARD_COND(mmap_read_lock, _try, mmap_read_trylock(_T))
+>
+>  static inline void mmap_read_unlock_non_owner(struct mm_struct *mm)
+>
+> --
+> 2.55.0
+>
 
