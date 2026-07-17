@@ -4,114 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC13DC4450F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 03:47:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA40FC4450F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 03:51:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+qfsfSM7+v1WClc9BxhjMt2YlMxMtKRK2E8WppuykZI=; b=jGxp9dgbdIxnqdYEUfzeQT7yTx
-	ASoT9xSviy5gbUMkNAOYYYv9WYvZQ6vCh83K3mtw+BY+gBP/Gdh1TTG9XWaI/KYkVRPp00eEW2pE9
-	LMJNO3Q6vCtCusLAKB74jer664YEdj3rFkfAw7hAK/mMG7uIH9k0SGHVRsrDMuzYJ0lzR4XQzpB5a
-	wgBplMT8efIejpobmBeQYEZiEFdqEcSomcsnW/nAQINJ58OJToyPVDyGYBHfcZtbVMaEcetiMeEO+
-	hEJF3rdKwM5Ci3HQZTz7b6yENeSB/2t9lmmFHVXWEyRyibRaCoa9Fsbc0hWispZeiQoDmPRQp9hcV
-	gvTp48Ig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=q4fXG/ZWn4c/9Vj8x+sBOeF9fZMIW8AvOy1gWND9rlI=; b=ug9g2BEOsAneA5iGE5PNSurkIZ
+	IvN56wJxngMEiOQ+DF2kYo++KlRq9RkavQaTkc7O7bY+xuWKlpgThfIXctm5L//VQh+65aX08LBlc
+	3yiCEKPVJm0TigcNVyDDDPc5r2amlnKQdrk5ytqxUlM4mCMdsxqVfZuGdqpOjuypYT7UtrLES/xU6
+	X6n4vGWLRKm27CZQjU1EqMrC34djGPuZUCT7lMOKoA3+/TkP7Rn8l4UtemhPhzrljGw2ny+etTpW4
+	tQN6MEANLzWhALnDNC2OXYeQCMRDgHgAkM+L4HdewGLSpk3wi7n80/HHkyhSH8RRuExFi71y1E5/t
+	KWCmEm2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkZXO-000000014AD-2SCw;
-	Fri, 17 Jul 2026 03:46:58 +0000
-Received: from mail-ot1-x335.google.com ([2607:f8b0:4864:20::335])
+	id 1wkZbC-000000014as-1Sem;
+	Fri, 17 Jul 2026 03:50:54 +0000
+Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkZXL-0000000149i-3war
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 03:46:57 +0000
-Received: by mail-ot1-x335.google.com with SMTP id 46e09a7af769-7ec49608332so1349638a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 20:46:54 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1784260014; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Kw+MC3VSDk/l/emjCr3///7rFLZ2ozTW1Cjo5WPK3A5zmwghph5SsDBMz1t2O3HT9w
-         f2y79iSUda7/vcIUXU6aXaLwgGwCZ+nM9i1HNscdA8SDiGUa7bnY4wn0f0VlCI3YxUee
-         q9ZlFbDGVlqtit0YBWvrJO7/pEnJrY14wiql5CZ6YEJqa91SdHN80JDY5e6o7uC7Misr
-         w9uqaGqLtJcVelkF+FnHtk1vKgy3COt0RwcchK0x6e1SqcsxPOxHENUgjlpXOmSMz07+
-         kPf76Tt8doHHPyr+qJiwnWQtGFyhr26LZIUdkfZLld/HRzvjPEC6ZIw7jlODRK5z7PHN
-         Vb3A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=+qfsfSM7+v1WClc9BxhjMt2YlMxMtKRK2E8WppuykZI=;
-        fh=bbOTOZsQ+8Kp5OCyPQNs1rjyMoXKyhoJXbk7reJsSFw=;
-        b=bIMJ4jDB5zfvQn6Vh5ZR4aly6u4nYyusnnv5o8wNIaYA7iTIL4KRpFg1yae/LCGzY6
-         2sV0HKJNUK1/b4BZg+/c91ITSlJHg7WWv42FzCC6mkvkDafC+vW44inZ21HG36Yiy9Px
-         4H3ebrMDwci/ckpjokCUEGrfvg3jPhModXjfFQumrtRG+1d7/VvkoAMzJ7FbgkZKTpwW
-         4RW9l0B7x500w3JAhsPUSwwfBNuXPR3bgjZ9fSjkPA5LKGDopeUmq7S3fnUk8qJnRNoT
-         Zujwdc7pcAFYkTZjJi6j7RsXTCQNdHLtRkw/+6ijlMLZckF6l+zUG4cdTXLpUuu61ZkG
-         hJ6w==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784260014; x=1784864814; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=+qfsfSM7+v1WClc9BxhjMt2YlMxMtKRK2E8WppuykZI=;
-        b=oEH8Qo2Neh0rOypoihAEZbR49hwZK9qstjJatds/XOE9l/bhUashSP5+OjAlEJlxO4
-         chkcoIUXp2qvO0wh47oweK3hGfJ7DWafNAvKWd/cHg2vhYBQkXBSOUOGKnKGpTW1Wc+j
-         WZ9mHAn4Fv+bJ+n3Wq4fD5I4L096mKJ1Mv7p0q/PWwG6scBnGlkYjPVByGjstMk6LPvL
-         V6uoSh7dAQmErxllTMGSuhhp9X6vB18PXCv9+LXmiQ6Mi8xCTX6z47ZhzjpkH0zH7Tdc
-         t1qraoLW0HHcuiMsGWWqdHzRpmfOCGRVjdp/fhpHtsyUT5NSHYsSolMlxhMX+luexX5s
-         useQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784260014; x=1784864814;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=+qfsfSM7+v1WClc9BxhjMt2YlMxMtKRK2E8WppuykZI=;
-        b=Z/8KfWPRoAdvhHi+icmKBMu4LPyXnFWyQ1TfH7jUdFN69DyIxgt4ZeCL0Q71f8ehnw
-         KD0i9NRuQBd0KKuDVB5sG1SKM2581O6k4CHLPni7zuY5iDKy9DrZN+MPuU0yJl/XxkPX
-         uTUmCqcWW5oZ4PmCkSVuObDoTC5fvcw1bQL7ECDKQafEoHBfvaWruMBu54YK5yTkuRWq
-         oUGcS6RTWGRlcJILJ/Ed7FuWZ8Tnb1CU5NFj8L+pEN1ukej09XkOFZXwiBPo2PH4kua2
-         pKA1Tf02x19PHUA9BNcS6RZX6VvYYqlAjmIPJdaNWJycnLxyJqiUnzAQ9ZrkG/lRrWCs
-         OezQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpHNz2JNhk4jTCGoUSk+1Yz7n+RtL6BaQ+OR13T+AnR5rPD2MjNDjpdMEa5pnStNn4OLrawbEZFeLDR72eACP9W@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZR3Ws59j4VWJiRuL+RCGYqyFalNk6WnqGWc6bHehBnLxMaDPQ
-	3pRGVDpPwI6Trg8+lHufGZDXIpmAOHKZTay6xm9vshg8oBXU24ExoprUziAduDYIlIytRVR56n8
-	wV3RY0uYsgTaiNMykwO6P/DHycbc4otwtl0oa
-X-Gm-Gg: AfdE7clhAyUCLhdXbDWHKjNOdOmTtKN3zXYgyYqiVP5gPi1srvV9l5ZqptsrB4dwHyM
-	H5g8XMjYrlqFvv7tH9LvRxYtr3JOJLlWOEsWFEzdoIB/y5AkQKZXBFUYZTYTeIUxslAhNUDf9XY
-	aHovyvz6S1Zh9yljpC78FPdyogyb6dm68GtBRB4ykn30FRwBbpaYN+DoR2rDI9FuQeXQH/HiUke
-	3dzRakiH1CgwOnQsn1Mm85DcFa5vNDgVMddgFBDEg9qiRe/xsGgBv/W1qV2gak1FCkCczir0WYZ
-	oZT77XiqoEcJJDKG
-X-Received: by 2002:a05:6808:14c6:b0:4a4:a693:9d8f with SMTP id
- 5614622812f47-4a4d03063fdmr419990b6e.6.1784260013937; Thu, 16 Jul 2026
- 20:46:53 -0700 (PDT)
+	id 1wkZbA-000000014a9-0Oye;
+	Fri, 17 Jul 2026 03:50:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IQ6Xuo8oW+bJzuUtzST/tc+u5ggs6q0rTpmvRy3dGjXMXIjpVNCrW7830EuY+FfAhgSL/vM+O1m/iOnIDDBny6JlXsW1ckduU4V/LAmlmY2KPl4UO4DcBe+3H94aiZSWTqJBWnB130EHNGLQTkfg5dWVhlnRpd1g7qruHrgQDDYjkyDtOSkYI5bKTX63i4Az7k4OZ0vyfv7ccNqXVyHPWVhhoCCxJXiyWGRpY/RV1knUJfWkJdkYhjezYf9fZZW+3AV6z8NFQe8PGSoi72bcaranTw7LqAksBV9ch4zJlZnYpvuYIBVrluSoibljTqL4GrSIJfq5MhHo3c1cLiTnLA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=q4fXG/ZWn4c/9Vj8x+sBOeF9fZMIW8AvOy1gWND9rlI=;
+ b=Spq0BJPBy3a3IRHzGGMOFTBJt66Zna84yQdCCwXwefo7AcXsAQOZH4HdSpqCTIErBdvhEYf4SGJOdQbIuaWVu3Qr7Bk4AxGtqHMFSUyw17MfKRA/wyDsSjqTjs9bQazbgXb92xSXpAfjd+/DQ213Zpn21YlgtX453xZSDcSi7gJ0VYOMTpk07I2iybyg6JOJQPoTtVQIjbIpJaD7lhU5pkKwBMjaYYKlLM2vdQYTkoF5vkyxixlNGXXcycCyPfZxvSRjT8VBxOowxysljrbSdI9DHNOjSUEcwBivsnGl1bYZiiPgdFmYoQvAdMZ6VDSutPzr3ef0fAI+5JlrGIraUg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
+ dkim=pass header.d=vivo.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=q4fXG/ZWn4c/9Vj8x+sBOeF9fZMIW8AvOy1gWND9rlI=;
+ b=q7u77wCNJMPN/Q/zb/FxYfAvN2Eu7FKpJrkXy93HQ0/8j8jQtIkL59ysvJXuQScrV+5OHuWN0Y5vGEMVdKsm/H3x5LOEfR6B1kvxYWv3tmkxbpF1UvfabiNTa3PagnQSK2wKzyMQ9tph+UJs++C3jdSk5sgtOzQDolR/wvC6LwwApp6pe8iQhA2UIFAuhQdHBGP1KtLjHm9qAFmAbbsikV3UozHKUXWlJb5Cc2fDhXXpMAonJ7k7dAfol+YAnQoD8hdKKirpAVo1aE1ceGmF8gCJZZJyVPs10eGAdWmWC414tpfROFJiP8DV32ceTkZsz8GwlIHuPOOyJFDLqOc0uQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=vivo.com;
+Received: from SEZPR06MB5832.apcprd06.prod.outlook.com (2603:1096:101:c8::12)
+ by SEYPR06MB5205.apcprd06.prod.outlook.com (2603:1096:101:8b::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.12; Fri, 17 Jul
+ 2026 03:50:25 +0000
+Received: from SEZPR06MB5832.apcprd06.prod.outlook.com
+ ([fe80::f98:5e32:4ccb:d07b]) by SEZPR06MB5832.apcprd06.prod.outlook.com
+ ([fe80::f98:5e32:4ccb:d07b%6]) with mapi id 15.21.0223.011; Fri, 17 Jul 2026
+ 03:50:25 +0000
+From: Pan Chuang <panchuang@vivo.com>
+To: Peter Wang <peter.wang@mediatek.com>,
+	Chaotian Jing <chaotian.jing@mediatek.com>,
+	Stanley Jhu <chu.stanley@gmail.com>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	"Martin K. Petersen" <martin.petersen@oracle.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-scsi@vger.kernel.org (open list:UNIVERSAL FLASH STORAGE HOST CONTROLLER DRIVER...),
+	linux-mediatek@lists.infradead.org (moderated list:UNIVERSAL FLASH STORAGE HOST CONTROLLER DRIVER...),
+	linux-kernel@vger.kernel.org (open list),
+	linux-arm-msm@vger.kernel.org (open list:UNIVERSAL FLASH STORAGE HOST CONTROLLER DRIVER...),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support:Keyword:mediatek)
+Cc: Pan Chuang <panchuang@vivo.com>
+Subject: [PATCH] ufs: host: Remove redundant dev_err()
+Date: Fri, 17 Jul 2026 11:50:13 +0800
+Message-Id: <20260717035013.563791-1-panchuang@vivo.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: TP0P295CA0054.TWNP295.PROD.OUTLOOK.COM
+ (2603:1096:910:3::18) To SEZPR06MB5832.apcprd06.prod.outlook.com
+ (2603:1096:101:c8::12)
 MIME-Version: 1.0
-References: <20260716-series-vmap-race-fix-v4-0-8c108c4317df@kernel.org> <20260716-series-vmap-race-fix-v4-2-8c108c4317df@kernel.org>
-In-Reply-To: <20260716-series-vmap-race-fix-v4-2-8c108c4317df@kernel.org>
-From: David CARLIER <devnexen@gmail.com>
-Date: Fri, 17 Jul 2026 04:46:42 +0100
-X-Gm-Features: AUfX_mxBLT37KrDyrNbP0EYWC50r_QKOrJ4iSaMj1OT4QL3-liPKJMNfSVRy2ow
-Message-ID: <CA+XhMqzUO49FiC-Oa6VYUt7Wm9RZLH30DhUH2kVn_PBodyZ6dg@mail.gmail.com>
-Subject: Re: [PATCH mm-hotfixes v4 2/4] x86/mm/pat: acquire init_mm write lock
- to avoid UAF
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Suren Baghdasaryan <surenb@google.com>, 
-	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
-	Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, 
-	Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, Uladzislau Rezki <urezki@gmail.com>, 
-	Toshi Kani <toshi.kani@hpe.com>, Dave Hansen <dave.hansen@linux.intel.com>, 
-	Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, x86@kernel.org, 
-	"H. Peter Anvin" <hpa@zytor.com>, Kiryl Shutsemau <kas@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Dev Jain <dev.jain@arm.com>, 
-	Ryan Roberts <ryan.roberts@arm.com>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
-	bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	"Denis V. Lunev" <den@virtuozzo.com>, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SEZPR06MB5832:EE_|SEYPR06MB5205:EE_
+X-MS-Office365-Filtering-Correlation-Id: a15a6919-45d1-42ea-0169-08dee3b688bb
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|52116014|376014|7416014|366016|921020|38350700014|10067099003|6133799003|18002099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: fmi1cHonkD2t+K5Sot2SUzvkykNcEY2TJPb52kwPEnSmJ6FSjutOtfSaPDeBQDyh7Tv2W5v4J+kQsloqoLQ68OudQz9v5PV6QuzoaYde7uZ+NsqvGJyJY1ms3ik45G2BkO6e4QtWT705yS6ilTcqrmgX3oFPsXFbr7ZSm5eDzR7Gn086xVU6uiAwxdbERzYhJD2GUEkdzVvO+vvzAV/8XoF0+Q4HBrZe1d8PEwsDTn+vCL1XgtSvWSpz+XQRnj4X4oLe0empxmtz9h3C/A7z9c/Wo/ABXvCC2aguE64TWsgIkxmAiP+aTO/YQfHogtD2Z49JKuq+zKCqyPtkNruS2XdHq67fXhrZFyr+U7ZvyJBsXY7dv+isY+EKlX/n6jTM2e9ZvC4AfmUrvMT8nLCBuoP5K6Q57RieggnFPDo+XvdyGuICNv1vPLjpAn/EtFsVEgaOq7eqI1VnVDQ+BEM89vWQ2WDEsvhvasquu9qlxWydnoJpQfM+SB6uqiwYaJrVHTs1n7AZAQGy9okmsSijOpWEQN7YREAW8c6zl4sHBEY9ARaRdLLqm/yFfEQQ8fcyjRRXp2vxyglouToDgGObSNGqUpbMlG4U0bHE9UB37j8s5jvPfFHuNPleYSe7w72dqw2JA3NyQ9fsW00ondA9XOA87QWTzqOxkT+Z4xaR5Klh48JMw7K13zmrZZOs1M5aB/i225ZWzx3bPQ83Nxy5Jeg6W+qB9V2wpZ7SgCmylHDXP0SxuqDeRtFC5cnr75C8
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR06MB5832.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(52116014)(376014)(7416014)(366016)(921020)(38350700014)(10067099003)(6133799003)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bIglRqykE1hSfCFVPZaaFTeJtydAH1X/xxIn2u5N9SP0jjNiKtnstUkpKQGf?=
+ =?us-ascii?Q?58GTyBQZ39NRs0cAwCOW3qcggA6M2GgQbUxUQIBbfvYAO2fWUSOa3uw/Fl+/?=
+ =?us-ascii?Q?2+UR+/UG1Il/nsaUGNmyFf4nU2W1BrU0IsAnIVUuOyPL/EcJQxmDVlCsY5a1?=
+ =?us-ascii?Q?56sDFZLgM6Dcz1MvulttZCWP3H0Cldat2K3hho2OTIrggJm+2jhSVG0ko5ao?=
+ =?us-ascii?Q?ervI4ODZhKoQUYOFmNiHIWj5uqLGRpSeEmAU/ctvquggQIHi2BhuIbQ+p2lh?=
+ =?us-ascii?Q?Lx0kPnG340SozK0k9yH4P9RJYlsuMRXZUuY23Q2EArQyRFDQi/+9aLMUdHKP?=
+ =?us-ascii?Q?lcHGm84OKjytpjPHf+YUlrUre1gVb0SnTCS2N3Ze8bcRpT/1ldfYMZfJi4SL?=
+ =?us-ascii?Q?HGMyJ2a4Wd7mjOozlDigYuxx3K5yqg95myYrsAV5nRXWgvYiFD5ZJrjVXubu?=
+ =?us-ascii?Q?Mj1riAy0AwP1U/zU59wBN4o7hnFzwW9ZxyX5fnQjKuNURR4V1ZgQrvuyYwcx?=
+ =?us-ascii?Q?Pc6QYH+3oIWkQmk6gRWrCS+wdbDm8GJm1BUglcuYdoNNE2zO3LvxInmheifT?=
+ =?us-ascii?Q?1zswlOa2/A/Cw19WbdJtStxCMKqfvtl7dFygmwV6Tdj/AF4rpa9a1xA3BHcl?=
+ =?us-ascii?Q?PFpVIkja1kk50uDpf+XZbrnj6FLNX/F+qRfyyCI780j3eefuCXDJagcAFpqj?=
+ =?us-ascii?Q?G+0VUL81xVk6+meu0hjKKUaiiYwiVFy3pJTdpt+Vid4sN2KF1x/loEd+nLU+?=
+ =?us-ascii?Q?FdQAC82Z1w6PSVHPW3psRJQ7xTylMJQqHRkiF4AJStQtwVP43X9lkbNWbDVQ?=
+ =?us-ascii?Q?S+iGJJQhRc8f4sl6gGWstTzwPcm0/qpXiRCBTjSr06HvTCW7II+HuIvKZGYB?=
+ =?us-ascii?Q?whhSdzUxFfJeFJduFnlYxJ+TNFJlHK4dMWjlcYpTm+IcxMuKPBcCAiIcTVz/?=
+ =?us-ascii?Q?uw5wjLh3usBYMzNNqaBCtkBAiLjmo1sqlZzBmsjiaZZQHPz3IKy/Ok7Ic+Wl?=
+ =?us-ascii?Q?nmqGqOmMSSFgRCOVdZqL7uF6IvrMZHg3Vauuy5HvSKPsfLprWNxn7emGLjgT?=
+ =?us-ascii?Q?rzOHRg/qjOh2auaMdFyLBVA6YNxxvSWYY4NMquk1zyfZG2Hlph9NUXeDyg5Z?=
+ =?us-ascii?Q?HFzgYOXOEBaJgSjFMISEjFIwF8LCVnd4XvAsEb8cBzz7ymUg1ayoJhtQTiyy?=
+ =?us-ascii?Q?NSJFB45eujGCU50v8EiLLEPkeMc8wySik2bX1dbof4Ze957LQMnmMPOhBvI6?=
+ =?us-ascii?Q?XEOExKR7p+t+xvv4NI4fd83lhPCFlI9+Yrr90GNVZL7+tvMaJNM89Nzym0/z?=
+ =?us-ascii?Q?khe+sij8MROeSpl699VZkZDr1RJ9PqwrzrOe7XP28LJ1WJ3ogvC3YIZi7NB6?=
+ =?us-ascii?Q?VEpU1gkKxT+kFFFxcAooxHjFMdNQfPJk/rGGABSy+fozuyxZ3Aii8EsKSgZB?=
+ =?us-ascii?Q?HWYSpyJWuK/Ag3FMSNktJcYCzQDzuowmUtY2NiB9TWs/JVf4hdbGNtETcEa5?=
+ =?us-ascii?Q?7HOirapkWLc4gNbNKL+f6BHfrZLSiIq++PI9JAiBHieI61xtt1KTbiEjp0hm?=
+ =?us-ascii?Q?hGKv1EczTltl6r12IZLMpXpZRrf1Ol+ZOC4hm8vuZUU/cwKNR6jEjRJhcC8F?=
+ =?us-ascii?Q?GM7t7gsNudoDDPYz+EDDyOvyk0eJlfW/VnT0qlLTSdSz9npg5Suk3u5vCQm9?=
+ =?us-ascii?Q?IXiEshg8tUvk4aq7jDnvnWFGvEiVv0zMMVUFm6b2aszIjGdJRU3zoehfSVAk?=
+ =?us-ascii?Q?1gPaoJd0yw=3D=3D?=
+X-OriginatorOrg: vivo.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a15a6919-45d1-42ea-0169-08dee3b688bb
+X-MS-Exchange-CrossTenant-AuthSource: SEZPR06MB5832.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2026 03:50:25.3853
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 49XOTbnn/LLdtUmqxRMUoX0nbEP58323P7XvVVip5ynn6VqMIUpY9xtVuVkxWWjq5GBelNWpa4uAWgbNvgnYSQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR06MB5205
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_204655_998721_6D09C8E4 
-X-CRM114-Status: GOOD (  31.29  )
+X-CRM114-CacheID: sfid-20260716_205052_162550_6E54BE95 
+X-CRM114-Status: UNSURE (   8.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,148 +144,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 16 Jul 2026 at 22:31, Lorenzo Stoakes (ARM) <ljs@kernel.org> wrote:
->
-> x86 implements page attribute modification using its Change Page
-> Attributes (CPA) mechanism.
->
-> This tracks properties of ranges such as cache mode through x86 page
-> attributes, and as part of that logic manipulates kernel page tables.
->
-> Since commit 41d88484c71c ("x86/mm/pat: restore large ROX pages after
-> fragmentation") ranges of kernel page table entries can be collapsed into
-> huge page table entries as part of this logic.
->
-> As part of this collapse, it frees the page tables which the collapsed
-> entries previously pointed to, and it does so without any relevant locks
-> being held to preclude concurrent kernel page table walkers.
->
-> The only way this code can be reached is if CPA_COLLAPSE is specified, and
-> this is only set in set_memory_rox() via:
->
-> set_memory_rox()
-> -> change_page_attr_set_clr()
-> -> cpa_flush()
-> -> cpa_collapse_large_pages()
->
-> Notable users of this are execmem and bpf when manipulating executable
-> mappings.
->
-> However, this is problematic for ptdump as it walks ranges it does not own
-> and thus runs the risk of a use-after-free on page tables freed underneath
-> it.
->
-> In addition, concurrent CPA collapse operations are possible which can also
-> cause races.
->
-> Resolve the issue by acquiring the mmap write lock on init_mm across the
-> whole operation.
->
-> It is safe to acquire a sleeping lock as all the callers invoke
-> set_memory_rox() from process context and in any case,
-> change_page_attr_set_clr() calls vm_unmap_alias() which ultimately takes a
-> mutex, disallowing atomic context here.
->
-> Fixes: 41d88484c71c ("x86/mm/pat: restore large ROX pages after fragmentation")
-> Cc: stable@vger.kernel.org
-> Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> Reviewed-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
-> Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
-> Reviewed-by: Dave Hansen <dave.hansen@linux.intel.com>
-> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-> ---
->  arch/x86/mm/pat/set_memory.c | 15 ++++++++++++++-
->  include/linux/mmap_lock.h    |  2 ++
->  2 files changed, 16 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-> index d023a40a1e03..d1e63f7d267f 100644
-> --- a/arch/x86/mm/pat/set_memory.c
-> +++ b/arch/x86/mm/pat/set_memory.c
-> @@ -22,6 +22,7 @@
->  #include <linux/cc_platform.h>
->  #include <linux/set_memory.h>
->  #include <linux/memregion.h>
-> +#include <linux/cleanup.h>
->
->  #include <asm/e820/api.h>
->  #include <asm/processor.h>
-> @@ -410,7 +411,7 @@ static void __cpa_flush_tlb(void *data)
->
->  static int collapse_large_pages(unsigned long addr, struct list_head *pgtables);
->
-> -static void cpa_collapse_large_pages(struct cpa_data *cpa)
-> +static void __cpa_collapse_large_pages(struct cpa_data *cpa)
->  {
->         unsigned long start, addr, end;
->         struct ptdesc *ptdesc, *tmp;
-> @@ -442,6 +443,18 @@ static void cpa_collapse_large_pages(struct cpa_data *cpa)
->         }
->  }
->
-> +static void cpa_collapse_large_pages(struct cpa_data *cpa)
-> +{
-> +       /*
-> +        * Take the mmap write lock on init_mm to:
-> +        * - Avoid a use-after-free if raced by ptdump (which takes its own
-> +        *   write lock on init_mm).
-> +        * - Serialise concurrent CPA walkers.
-> +        */
-> +       scoped_guard(mmap_write_lock, &init_mm)
-> +               __cpa_collapse_large_pages(cpa);
-> +}
-> +
->  static void cpa_flush(struct cpa_data *cpa, int cache)
->  {
->         unsigned int i;
-> diff --git a/include/linux/mmap_lock.h b/include/linux/mmap_lock.h
-> index 6b5c2390cc30..047f5f5e2c34 100644
-> --- a/include/linux/mmap_lock.h
-> +++ b/include/linux/mmap_lock.h
-> @@ -621,6 +621,8 @@ static inline void mmap_read_unlock(struct mm_struct *mm)
->
->  DEFINE_GUARD(mmap_read_lock, struct mm_struct *,
->              mmap_read_lock(_T), mmap_read_unlock(_T))
-> +DEFINE_GUARD(mmap_write_lock, struct mm_struct *,
-> +            mmap_write_lock(_T), mmap_write_unlock(_T))
->  DEFINE_GUARD_COND(mmap_read_lock, _try, mmap_read_trylock(_T))
->
->  static inline void mmap_read_unlock_non_owner(struct mm_struct *mm)
->
-> --
-> 2.55.0
->
+Since commit 55b48e23f5c4 ("genirq/devres: Add error handling in
+devm_request_*_irq()"), devm_request_irq() automatically logs
+detailed error messages on failure. Remove the now-redundant
+driver-specific dev_err() calls.
 
-Hi,
+Signed-off-by: Pan Chuang <panchuang@vivo.com>
+---
+ drivers/ufs/host/ufs-mediatek.c | 4 +---
+ drivers/ufs/host/ufs-qcom.c     | 2 --
+ 2 files changed, 1 insertion(+), 5 deletions(-)
 
-This bullet confuses me. __change_page_attr() and friends are serialised by
-cpa_lock/pgd_lock and never take init_mm's mmap lock, so this doesn't
-exclude them.
+diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
+index 3991a51263a6..98ea9aa2a39c 100644
+--- a/drivers/ufs/host/ufs-mediatek.c
++++ b/drivers/ufs/host/ufs-mediatek.c
+@@ -2266,10 +2266,8 @@ static int ufs_mtk_config_mcq_irq(struct ufs_hba *hba)
+ 
+ 		dev_dbg(hba->dev, "request irq %d intr %s\n", irq, ret ? "failed" : "");
+ 
+-		if (ret) {
+-			dev_err(hba->dev, "Cannot request irq %d\n", ret);
++		if (ret)
+ 			return ret;
+-		}
+ 	}
+ 	host->is_mcq_intr_enabled = true;
+ 
+diff --git a/drivers/ufs/host/ufs-qcom.c b/drivers/ufs/host/ufs-qcom.c
+index 291c43448764..7d690ea2fa67 100644
+--- a/drivers/ufs/host/ufs-qcom.c
++++ b/drivers/ufs/host/ufs-qcom.c
+@@ -2431,8 +2431,6 @@ static int ufs_qcom_config_esi(struct ufs_hba *hba)
+ 		ret = devm_request_irq(hba->dev, qi[idx].irq, ufs_qcom_mcq_esi_handler,
+ 				       IRQF_SHARED, "qcom-mcq-esi", qi + idx);
+ 		if (ret) {
+-			dev_err(hba->dev, "%s: Failed to request IRQ for %d, err = %d\n",
+-				__func__, qi[idx].irq, ret);
+ 			/* Free previously allocated IRQs */
+ 			for (int j = 0; j < idx; j++)
+ 				devm_free_irq(hba->dev, qi[j].irq, qi + j);
+-- 
+2.34.1
 
-Collapse vs collapse looks covered already: collapse_large_pages() holds
-pgd_lock across the walk and both collapse_pmd_page()/collapse_pud_page()
-calls, and the pmd_leaf()/pud_leaf() early-outs stop a second CPU
-re-queueing a collapsed table. I couldn't build the interleaving behind the
-cover letter's "could result in memory corruption". Can you spell it out?
-
-If the reason is really Will's v3 point - collapse rounds up to PMD/PUD and
-frees tables outside its caller's range, so it has to exclude
-walk_kernel_page_table_range() walkers holding the read lock - then say
-that. It's a UAF independent of ptdump, and it's why v3's read lock wasn't
-enough.
-
-Also: patch 1 justifies the trylock fallback on ptdump being rare, but this
-takes the write lock on every set_memory_rox() (BPF JIT, module load,
-execmem), even when nothing collapsed. vmap_try_huge_*() then loses the
-trylock and quietly falls back to PTEs on every BPF load. No counter, no
-trace. Not a blocker and I've no better idea, but fa93b45fd397 was about
-getting vmalloc-huge on by default, so it's worth calling out.
-
-Rest looks right. 4/4 restores pud_free_pmd_page() exactly as it was before
-fa93b45fd397, and 3/4 builds the same walk init_mm got via
-walk_kernel_page_table_range_lockless().
-
-Reviewed-by: David Carlier <devnexen@gmail.com>
-
-Cheers !
 
