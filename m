@@ -4,103 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5628DC44520
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 12:26:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 359CFC44521
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 12:30:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LlIvT5HVnRIYn4/t+E8XZ0B2vCQAJ0CtxWj3Ne8SfsQ=; b=cUQi2QDAqgGv32Bjm31vrioPr6
-	v4XxM0pIiuSqvqtGBkWlLGe1iTSIeGxrbC+/4za/R0KKXybWeWtMNYA7cCr5TBpMAl7KrZzRNu1h6
-	2bjDSxRCc2qQbidoQzyUe66t1srt+9oSAW4rPFwotsWKkAYkQHs2oXeLK6g/LJjZOHpwTx/rm9h4D
-	3HKaD+C0s7b6Gu2yEU9blQa+6C2cvkf8uvSQ0uP76Yt5oRSFvVri2DUKQgd6BrirFQ0ufn+YH4g7q
-	HggN+Ji2rdliRjwg0XJo44uuxl5rOlrcxGGYOa2H/OSoG95xJ14raRKc6OIkVw71y5bBhL864SUfa
-	M6bF29QA==;
+	bh=Nd8Wh11LfMKJFN4KnQ5d4/7IUQBKx2wq5Zn8/6KCdKc=; b=BpCOLaTZQZWPULbPDilFzRmEL/
+	Vy+rAA53fY7jkRyP2/rUIZ5IAHEeQKu0COH+EMR65/b20RJTqADafFuvl877q3wMTZ4oQ3/DVMv+Q
+	5rmJLzQVnUp5VfYAnIm3X8nNIyp0xxBHlYSkvR9cIQoZKIJE8g2zU2UET0F8vTiIfpBMnv/Es3Su2
+	8PV/OTe0TJwLLX9iOSmctnXfoZ6Vh6TDlN+tR3wcowdxvfLXjH3ItHXGEHJnA6VXVwDM7j9K7qv0R
+	nCTMe0A++bK6+7/u2Qh7rbKpwy2wVA1xWXudVDOPd8e9WWtFP9vQhvgm4Xn/AfVzjUCcyABqb/MFT
+	hzl1jLxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkhdk-00000002HnE-3Pi2;
-	Fri, 17 Jul 2026 12:26:04 +0000
-Received: from fhigh-a8-smtp.messagingengine.com ([103.168.172.159])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkhdi-00000002HmE-2LTF
+	id 1wkhiC-00000002ID0-1Fdv;
+	Fri, 17 Jul 2026 12:30:40 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkhi9-00000002ICK-1aI2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 12:26:03 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 4E1EE14000FF;
-	Fri, 17 Jul 2026 08:26:01 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Fri, 17 Jul 2026 08:26:01 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1784291161;
-	 x=1784377561; bh=LlIvT5HVnRIYn4/t+E8XZ0B2vCQAJ0CtxWj3Ne8SfsQ=; b=
-	MEIJF4Qx3j3Au4p7A61C/3znO/lkfCSRnF7G7XI32sYDZv89RyX2aw1eKPC7kv1A
-	azKXjDhxucjf8LBCN9aMJjQWYXyHonAuocNZxE9VNhsUGoFRAofZz67Y7Icvwk9j
-	hkB6R+dcaa5XIURJCMbjOG+CywtWoga/ufGYbP9YXbCSHg9zVJBGcKXOvTfDu9Mm
-	ePm1mMdUnKcbXLGxoC4aJ2W5/dxc8vKfMgIOIAY8FiK8nxLrFIchSJvN0XptWwKR
-	vw9zY+i6/GyaOCg+IZTTMay0WznTCQ0Bqr1S4QvcrF7dkKG0KV82VYtRWgZxZTgQ
-	c8UZiVNl2Kj+Hs9dqLIdwA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1784291161; x=
-	1784377561; bh=LlIvT5HVnRIYn4/t+E8XZ0B2vCQAJ0CtxWj3Ne8SfsQ=; b=P
-	guwGIHWNgZ8QOUFY/hFZyzdstLoSjAeU0+gkQ2EXSoLc1ZJ68bkgb/bS32/OcFHq
-	BB+XKUFCS4ivi6jnuJdLkl5+F6AVX1JxDx1s/lY0Wsibt3oqZ7deFnbFhLzixGlN
-	YhVT3/z+E1eGfIeNCUTLDP7c8ihuxwYdEJC8BgfI3NZVh+/6STrmNc7MZRsn7Ojc
-	y5UXi5zrwfh7OfP8/u1t/0Co1BXi6Lnd+S3Nmv5PCxJgHCuXBgWUODLXRVq8MNqf
-	23cA7wKXMRE9cfL9/axde1BOgiIuU5viYI01KMCkpnuWUYRPQIFyBdXpjET4T642
-	3fO90exEAIGWzu4111NeA==
-X-ME-Sender: <xms:WR9aasY0SR1H3vxCePN4sWvtap0-a_F1NnN9EE2X-jAE397u61iogQ>
-    <xme:WR9aaiMwrHO5Jb0C-yLZriVnCoFWijzzg6Hls8AfOBtPgYG_J_6edGbAR1InJ8RpZ
-    NQ_TRWrVwON1YQAkrnKVXXEpq_VztWpOVq0z06Dqil6Rb4PeJ0ITac>
-X-ME-Proxy-Cause: dmFkZTGRM8jFItkZCb1OBLwF4zCtBCdR74KKXPw8FxCpuL66Au3L2aLw/M7kjNhXMfuqeB
-    Y/sQB6wWkpNu0Dtqe7+W4FtMhLx7Ve69S9yQDwx6m4yXJ8vfq45gJdmnA1Lm+dyheKhp5g
-    byFVJRbpGI5TfsDN1e8khFoRX7cwjcle6LZrfzUOGSOkab4DarlLUvqYys1GnTGZqCkHu2
-    krZbK9Xs3Ska8nqc7uDNtE6B4+HQH0on6dvcVbouC104prSGsrB/DH+CcssNv0/fQrxvh0
-    8ySSbwDnwUQ4EAgjr3g89RXji2NCC70qn0ReYRGjp6bDFFrqKAj6iHmbWWJe+h7ApKKgKa
-    49fXAv+WpvZvHp7/HXruG1W52LJ4jNMyRcFb4JTzNqdpu+mko6Qrp07TiHSXJRHkoyVh4s
-    qZJepAyP56+P+lFG30q9SHLC/8mUMOhPt/C+ioSWwUhWKyqdLitqulGfQYmnorXUXWP3Ds
-    OP7Qc3Y6SFRn56jUyQnYsu+r+HitXTDBFjV6J7FGaPp3lwusIzhhxiHMJQC/wsvWuc1y/t
-    nRPik26tHRF7eEnMPpU95m9xoeMdUKqBdOoPLdWwWgWT3utsnt18hsr1PV+gJcfJJliFW4
-    pjpNSUcz1nnbTECXEXOtJUrIvGN9VYOSg7SpTTsWIypg8HQyLfs69qTPjnhA
-X-ME-Proxy: <xmx:WR9aaorBU9sMbw1024DlamQ5Eb2n_Af55McOcc0gptyFCm3MMMjRhA>
-    <xmx:WR9aalIDMR_ZfRCm77Xn93SqPAzZ5q2PSlWJuBMLRNWA_avbUDYZdg>
-    <xmx:WR9aarMgXBVfsqliAeYzE6IPLbfcEuLkh5TrqUv1tyQq3Mmu2TLIgQ>
-    <xmx:WR9aaioKSUriPIfJCaBe7M8DgAC76Xwuc0pTWEcdJ4Be8a7R1U48pA>
-    <xmx:WR9aauvZOGI-IDcA0AWfKFNh0qSVMQBzRfTWy8axJpivpFb-QsC6xb-6>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id EEEAF182007E; Fri, 17 Jul 2026 08:26:00 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 17 Jul 2026 12:30:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9E9841476;
+	Fri, 17 Jul 2026 05:30:31 -0700 (PDT)
+Received: from [10.57.84.220] (unknown [10.57.84.220])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2B58A3F7B4;
+	Fri, 17 Jul 2026 05:30:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784291435; bh=VughRvZS3iel7qOa0HOxMdU0JGPYnF1hquaPOHQ7V2g=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Dnwbk61c//Ro+a5eEjiWYqY+mydSl9pQFPNRcoRGiC3zmU2ACKQh4KPeY5M8DvbTY
+	 ONBIzrrAMIInP2pev4eRDrecGDNOikY7Aaa7Rn9y9if8dfiGE9O2OCgVud9Is7W4MQ
+	 CxDUYX2C1F/uatWwkExaY4PvwxEmqEpdH0V0RvC0=
+Message-ID: <38a7c29a-7859-4f38-b36d-473cae61cb56@arm.com>
+Date: Fri, 17 Jul 2026 13:30:31 +0100
 MIME-Version: 1.0
-X-ThreadId: Asac4qraI3UJ
-Date: Fri, 17 Jul 2026 14:25:30 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Ryan Roberts" <ryan.roberts@arm.com>,
- "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
- "Mark Rutland" <mark.rutland@arm.com>,
- "Jean-Philippe Brucker" <jpb@kernel.org>, "Oded Gabbay" <ogabbay@kernel.org>,
- "Jonathan Corbet" <corbet@lwn.net>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org
-Message-Id: <7927c483-57ed-4253-a7df-40104ff2b192@app.fastmail.com>
-In-Reply-To: <20260717104759.123203-4-ryan.roberts@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v1 0/8] Arm Core Local Accelerator Driver
+Content-Language: en-GB
+To: Will Deacon <will@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>, Jean-Philippe Brucker <jpb@kernel.org>,
+ Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, maz@kernel.org,
+ oupton@kernel.org, hch@infradead.org, jgg@nvidia.com
 References: <20260717104759.123203-1-ryan.roberts@arm.com>
- <20260717104759.123203-4-ryan.roberts@arm.com>
-Subject: Re: [RFC PATCH v1 3/8] misc/arm-cla: Probe firmware-described devices
-Content-Type: text/plain
+ <aloS_T3LQvpHeZUV@willie-the-truck>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <aloS_T3LQvpHeZUV@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_052602_679181_177D9450 
-X-CRM114-Status: UNSURE (   6.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260717_053037_502654_F5C31AE8 
+X-CRM114-Status: GOOD (  38.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,16 +76,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 17, 2026, at 12:47, Ryan Roberts wrote:
-> +
-> +static const struct of_device_id cla_of_match[] = {
-> +	{.compatible = "arm,cla",},
-> +	{},
-> +};
-> +MODULE_DEVICE_TABLE(of, cla_of_match);
+Hi Will,
 
-This is missing a device tree binding, and probably needs to versioned
-in some form.
+On 17/07/2026 12:33, Will Deacon wrote:
+> Hi Ryan,
+> 
+> I haven't bothered to look at the code (looks like Sashiko is having fun
+> with that), but I'm going to jump at this bit:
 
-      Arnd
+Thanks for the quick reply!
+
+JP and I had a quick glance at the Sashiko feedback; looks like some useful
+stuff, and a few false alarms. Nothing cricial though. Not that it matters too
+much for this stage of discussion.
+
+> 
+> On Fri, Jul 17, 2026 at 11:47:44AM +0100, Ryan Roberts wrote:
+>> * User space availability: The kernel driver exposes the capabilities of the
+>>   hardware to user space. Arm plans to open source a user space driver, but does
+>>   not yet have any committed date. I'd like to understand if the availability of
+>>   this component will be a prerequisite for upstream acceptance of the kernel
+>>   driver; either way, I'm hoping we can at least progress with some discussion
+>>   in its absence.
+> 
+> From my perspective, I'm not particularly interested in having code in
+> the upstream kernel tree that we can't meaningfully exercise or benefit
+> from. I also think that the incentive for Arm to open source the
+> user-space driver practically disappears if we merge the kernel part
+> first. So, at the moment, this just looks like a burden to me, especially
+
+Understood. Now that I have such a clear statement, hopefully I can use that to
+work internally to get commitments and dates to build a proper plan. What I'm
+trying to get out of this RFC though, is "is having an open source user space
+the main blocker, or are there other significant challenges here too?".
+
+> as it appears to create a brand new, device-specific UAPI for what is
+> ostensibly a form of SVA - something which the community is actively
+> working on already.
+> 
+> Relatedly, is there a spec and/or fastmodel/qemu (sorry...) support for
+> this?
+
+They both exist internally of course. There is a plan to publish the spec, but I
+don't think we will converge on a timeframe until after the summer now. I'll
+follow up regarding fastmodel.
+
+> 
+>> I'm deliberately constraining the scope to bare-metal support for now.
+>> Virtualization is something we are considering (and have prototyped), but plan
+>> to post a separate RFC for that as follow-up, once we have agreement on
+>> direction for the bare-metal driver.
+> 
+> I'd actually like to see what the virtualisation part looks like first
+> because doing it as a bolt-on later feels like the wrong approach. The
+> structure you have at the moment is remarkably clean, given the
+> architectural/CPU interactions (this thing even apparently builds as a
+> module, nice!), but I'm unsure how far you can push the separation once
+> you need to start hacking at KVM. Maybe the MMU notifiers are enough,
+> but I can't tell.
+
+The virtualization implementation is not as advanced as bare-metal and JP can
+probably comment on it in more detail, but the intention is to expose the HW
+using VFIO-MDEV (mediated device framework). We will need exported functions
+from (the arm64 part of) KVM to grab the S2 pgdir and to get/put the VMID - we
+would not be using MMU notifiers but instead sharing the pgtable and VMID and
+piggybacking the CPU's TBLI operations. My current expectation is that it can be
+made to work without deep KVM integration and still as a module, but let's see
+where we get to with the code. (I have spoken with Marc about this briefly - I
+would say he doesn't love it, but agreed to look at the code when we have it).
+
+But I think I'm hearing that to get into a deeper discussion we will need to
+post virt support? In which case, I'll prioritise getting something together.
+I'm about to be on sabbatical for 4 weeks though, so probably won't be until
+~early Sept.
+
+Thanks,
+Ryan
+
+
+> 
+> Will
+
 
