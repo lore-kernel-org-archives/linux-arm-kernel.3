@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 275D7C44514
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 00:05:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B64DDC4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 00:05:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sEoNHc30Ygmr289YdjGDZczw1IEztTdjdBUILej6wz4=; b=qAKnCRM1ZZS+NmiQ2sTaljtcEA
-	iGDFnBzcEgeVPKiyl37cv1XOZFmqL8Bp7zyDvz2WQgRafA83ifxtyjB0rHyrGCajKqG3YDUH4cdgN
-	8TwtBNDv/vEhmUIaJmKY/cyxcV/GH1ABUEeSJRUT+WZ+MHjsj284NJIj1C4qlyVxbiXz1YtTmZ0bu
-	lmeCPCslqueDbz7DqkdwRkc3KMaDEnm3sLNV8w0vyEjliwby4BOj5q8FjUIB9912ota1azmfSnNUI
-	XWbiadbQMFdkg5wKQ3lkAjfo7la/92J4i9v7hpnKUvfzbO/L+cY8b9co30SVjW6wUKszuShtPjSrg
-	x/6A+6OA==;
+	bh=zeYcmDAhR8mywlpb3AsXpEdGhrnmI2OfwnbW1aLTUCk=; b=yjR/c4ay2d0kJ42i7GhoBL4Yfo
+	dL6g85SP5ArU7Sx0uz4HpmeMY/WQycyKrNgcZYCxEIVAmpYBipTgQwv5Bc/h/Ri09HTK2NiRoVlZM
+	ysM2WeqwnM9CI1tfDvjQ9QBqU0RiStJUd84OwjcGauYbOe4cWjoxUhHZH6kkyzKV8D3GzDw5GhQth
+	07pCmA3b2eNxPz55J/xNY1VFyGwSkMrWCd11cciGFHoKIalQkLaJXjvnO2812/5AFDB4o6jQT/kcD
+	ECXGyEqZOsIr6JoAvUKlravwaP9jp827A9KKvRWOx3bEPuR2B14cH7FNkgFdBpBNx/pQlVABOOp8d
+	bz1ca2Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkW55-00000000p34-1fBL;
-	Fri, 17 Jul 2026 00:05:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wkW59-00000000p4E-2Gku;
+	Fri, 17 Jul 2026 00:05:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkW53-00000000p2t-3hAV;
-	Fri, 17 Jul 2026 00:05:29 +0000
+	id 1wkW55-00000000p33-0txm;
+	Fri, 17 Jul 2026 00:05:31 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3876642BC6;
+	by tor.source.kernel.org (Postfix) with ESMTP id 366CE60A5E;
+	Fri, 17 Jul 2026 00:05:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE2FF1F00A3A;
 	Fri, 17 Jul 2026 00:05:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC2AF1F000E9;
-	Fri, 17 Jul 2026 00:05:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1784246729;
-	bh=sEoNHc30Ygmr289YdjGDZczw1IEztTdjdBUILej6wz4=;
+	bh=zeYcmDAhR8mywlpb3AsXpEdGhrnmI2OfwnbW1aLTUCk=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject;
-	b=Qj9VpqiE7Ehhepu7zWi+9PbZsbi59beWQkYoECAliq5e4+wWKH2n0iPvrXYpZRi/K
-	 rzeEaq5gzlAHbtjO7LbfnCd9G8YF7KuOpuQ+dz2MJe9DA7gG6IAvzU2K3D7di4HVVX
-	 PQ3HTDjfX4Gcmzzx03a55aJ5sArxua82yjuRTNNX4dDG1pHBLjgtMKpWMxqxehvG94
-	 +JAS2xjtyWfvhzV2BoH23Z2Sjqtc1x2PT4XNH10XvgIZYVEABSKlN+hcQpKn7YddnD
-	 sB3HWd7E4ot5mlPuvDpDWNsBF7lm6v2Kh3Ea76/xut4i0zQkf+lwIUvPL6JiW/FTHq
-	 GgTK9QCF5tuOg==
-Date: Thu, 16 Jul 2026 19:05:28 -0500
+	b=S2BBny1zPu79IxN5GVqyWZV8s5bxNvEx9OTnv1BOluW8a0ERODOz46Hiu7AEbj2zq
+	 9EXLGKK6SlCu1tMCxSo6UwlDm929Kd2HJtZ1YTXflb28rnb9zv2sMOXrWJ/rmBeyp6
+	 qc91Dk8M3fEJ89511akW0gB/mZ2nGuksGx6m7Of1a6mT7vT9Ps8IOF4HrcSpl4oYlU
+	 kR2NjMAIeMMt3MgfNgXsKybe5xO4SlgS9oZVGKlA10IEzEBKrffVbBwzUiHi6EBSgJ
+	 pdvHqxgmPsQa/RTLyPBbpNZv5/QmOsU3JY5ObuKBK1nLh9U1/evuGFdlPq/jfTocQn
+	 U+GKt4Y3GaFqQ==
+Date: Thu, 16 Jul 2026 19:05:29 -0500
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, 
- Russell King <linux@armlinux.org.uk>, linux-phy@lists.infradead.org, 
- Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- Michael Turquette <mturquette@baylibre.com>, 
- Brian Masney <bmasney@redhat.com>, Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Vinod Koul <vkoul@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-clk@vger.kernel.org
+Cc: linux-phy@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Michael Turquette <mturquette@baylibre.com>, linux-kernel@vger.kernel.org, 
+ Brian Masney <bmasney@redhat.com>, Vinod Koul <vkoul@kernel.org>, 
+ Russell King <linux@armlinux.org.uk>, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ linux-arm-kernel@lists.infradead.org, Stephen Boyd <sboyd@kernel.org>
 To: =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
-In-Reply-To: <20260717-zx29clk-v7-1-408411cfcf36@gmail.com>
+In-Reply-To: <20260717-zx29clk-v7-2-408411cfcf36@gmail.com>
 References: <20260717-zx29clk-v7-0-408411cfcf36@gmail.com>
- <20260717-zx29clk-v7-1-408411cfcf36@gmail.com>
-Message-Id: <178424672694.2081810.9844688000925078533.robh@kernel.org>
-Subject: Re: [PATCH v7 01/13] dt-bindings: phy: Add zx297520v3 USB phy
- documentation
+ <20260717-zx29clk-v7-2-408411cfcf36@gmail.com>
+Message-Id: <178424672826.2081877.18233525928867886605.robh@kernel.org>
+Subject: Re: [PATCH v7 02/13] dt-bindings: clk: zte: Add zx297520v3 top
+ clock and reset controller
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,28 +76,84 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 17 Jul 2026 00:35:37 +0300, Stefan Dösinger wrote:
-> This binding will be used as a subnode of topcrm, which will be added in
-> the next patch.
+On Fri, 17 Jul 2026 00:35:38 +0300, Stefan Dösinger wrote:
+> These SoCs have 3 clock and reset controllers: Top, Matrix and LSP.
+> Clocks go from oscillator -> top -> matrix -> LSP, with a register in
+> top controlling most clocks that get passed to matrix and a register in
+> matrix controlling all the clocks that get passed to LSP.
 > 
-> Why is this a child node and not #phy-cells added to topcrm itself,
-> like clocks and resets as writing-bindings.rst suggests? Because
-> of_phy_provider_register checks if the of_node the PHY provider is added
-> to belongs to the device or is a child of the device, so I can't put the
-> PHY driver into an MFD (or AUX) child without its own node.
+> Generally every device has two clocks (one work clock, and one that
+> connects it to the bus, I call it PCLK), two reset bits (I don't know
+> what the difference is - sometimes asserting one is enough to reset the
+> device, sometimes both need to be asserted). PCLK and WCLK are
+> controlled by individual gates. Some devices have a mux and/or a
+> divider for their work clock. Some devices, like the GPIO controller,
+> only have reset bits and no clocks.
+> 
+> The top clock controller is fed by a 26mhz external oscillator and has 4
+> PLLs to generate other clock rates. ZTE's kernel mostly relies on the
+> boot ROM to set up PLLs, but one LTE-Related PLL is not configured
+> on some boards. Therefore my driver contains code to program PLLs. It
+> produces identical settings as the boot ROM for the pre-programmed
+> frequencies.
+> 
+> Not all clocks will have an explicit user in the end. I am defining a
+> lot of them simply to shut them off. The boot loader sets up a few of
+> the proprietary timers, which will send regular IRQs (although the
+> kernel of course doesn't need to listen to them). I don't plan to add a
+> driver for the proprietary timer as I see no use for them - the ARM arch
+> timer works just fine. I will add a driver for the very similar
+> proprietary watchdog though.
+> 
+> The clock list in this patch is pretty complete but not exhaustive.
+> There are other bits that are enabled, but I couldn't deduce what they
+> are controlling by trial and error. Some of them seem to do nothing.
+> Others cause an instant hang of the board when disabled. It is quite
+> likely that a handful more clocks will be added in the future, but not a
+> large number.
 > 
 > Signed-off-by: Stefan Dösinger <stefandoesinger@gmail.com>
 > 
 > ---
 > 
-> How do I handle examples? It would be identical to the example in
-> topcrm. The example needs the reset defines from the next patch in
-> either case.
+> Changes v6->v7:
+> *) Moved the bingings back into clock/ (Krzysztof). use clock-controller@
+> in example and in the later DTSI patch.
+> 
+> *) With as lucky find in strings in LTE's cpko.ko blob I could make sense
+> of the register that controls which clocks get passed from PLLs into
+> the clock distribution inside topcrm. Importantly that also narrows
+> which clocks can possibly be passed to Matrix, so I could slim down the
+> bindings considerably.
+> 
+> *) Add a usb phy child node with the phy schema added in the previous
+> patch. I don't expect the USB status register to ever be in another
+> place, so the binding expresses the @84 expectation.
+> 
+> Changes v5->v6:
+> Set value for syscon-reboot example (Sashiko). It was my intention to
+> set only the lowest bit, and I think Sashiko is right that without
+> 'value' being set, all other bits are actively set to 0. It shouldn't
+> matter given my understanding of the hardware (afaics all other bits are
+> ignored), but actively clearing bits was not my intention.
+> 
+> I haven't changed the name match for "syscon-reboot". I see plenty of
+> examples of hardcoding this string as opposed to having a regex for
+> syscon-reboot@12345678 in other bindings.
+> 
+> Changes v4->v5:
+> 
+> Rename from zte,zx297520v3-topclk to zte,zx297520v3-topcrm and move to
+> soc/zte
+> Fix path in MAINTAINERS
+> Add syscon-reboot node to the binding
+> Give the USB and HSIC PHY resets their own reset control
 > ---
->  .../bindings/phy/zte,zx297520v3-usb-phy.yaml       | 96 ++++++++++++++++++++++
->  MAINTAINERS                                        |  2 +
->  include/dt-bindings/phy/phy-zte-zx297520v3-usb.h   | 12 +++
->  3 files changed, 110 insertions(+)
+>  .../bindings/clock/zte,zx297520v3-topcrm.yaml      | 123 +++++++++++++++++++++
+>  MAINTAINERS                                        |   3 +
+>  include/dt-bindings/clock/zte,zx297520v3-clk.h     |  66 +++++++++++
+>  include/dt-bindings/reset/zte,zx297520v3-reset.h   |  32 ++++++
+>  4 files changed, 224 insertions(+)
 > 
 
 My bot found errors running 'make dt_binding_check' on your patch:
@@ -105,13 +161,18 @@ My bot found errors running 'make dt_binding_check' on your patch:
 yamllint warnings/errors:
 
 dtschema/dtc warnings/errors:
-Documentation/devicetree/bindings/phy/zte,zx297520v3-usb-phy.example.dtb: /example-0/clock-controller: failed to match any schema with compatible: ['zte,zx297520v3-topcrm', 'syscon']
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/phy/zte,zx297520v3-usb-phy.example.dtb: clock-controller (zte,zx297520v3-topcrm): 'reg' is a required property
-	from schema $id: http://devicetree.org/schemas/mfd/syscon-common.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/phy/zte,zx297520v3-usb-phy.example.dtb: clock-controller (zte,zx297520v3-topcrm): 'clocks' is a required property
+	from schema $id: http://devicetree.org/schemas/clock/zte,zx297520v3-topcrm.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/phy/zte,zx297520v3-usb-phy.example.dtb: clock-controller (zte,zx297520v3-topcrm): 'clock-names' is a required property
+	from schema $id: http://devicetree.org/schemas/clock/zte,zx297520v3-topcrm.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/phy/zte,zx297520v3-usb-phy.example.dtb: clock-controller (zte,zx297520v3-topcrm): 'syscon-reboot' is a required property
+	from schema $id: http://devicetree.org/schemas/clock/zte,zx297520v3-topcrm.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/phy/zte,zx297520v3-usb-phy.example.dtb: clock-controller (zte,zx297520v3-topcrm): '#clock-cells' is a required property
+	from schema $id: http://devicetree.org/schemas/clock/zte,zx297520v3-topcrm.yaml
 
 doc reference errors (make refcheckdocs):
 
-See https://patchwork.kernel.org/project/devicetree/patch/20260717-zx29clk-v7-1-408411cfcf36@gmail.com
+See https://patchwork.kernel.org/project/devicetree/patch/20260717-zx29clk-v7-2-408411cfcf36@gmail.com
 
 The base for the series is generally the latest rc1. A different dependency
 should be noted in *this* patch.
