@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C607C44514
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 08:53:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6AFBC44507
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 08:54:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zinUu7usH8QT+lRBkTaKjglbcOcyqsNJ7aGjhR0dVuc=; b=ChtGWgxvvk7QpazcWE0j2AOO3t
-	3QRBizMzIA5L/1Z9qTexj7Xo4FZjY8XaJziLdXz+tKQbCyTHHQ3HE7xHO+qIahfhOhKM32lFxo1ys
-	vRyfAESbVyZtFZ3nU9Wy6+GGTgBH1ywZuBG+DZVnUYN5KDL+/YyRNNfTJq+qEvq3fHWU3elZbslpD
-	3jgq0Kh6QudIoGv2eE87FSIcm1LC/o5K/GGBOFS0HPgGDEigMuGPOGzqzr6hI1PfKQZuIkY6TMje1
-	b34rP8TeRPeReHJ9w77cSDcnksMBxIxloxAP1w8MjnEvrLMPOMq6Q+0p7sxr8Lg5pMpZC5NtY4Fbq
-	DdYksZoA==;
+	bh=jciNOVcjwfiY3K3wYHnk65hT9aC3kb+UF6ZOUQUxjM8=; b=Vogfj3qkdwsDTdRvIqbE2FdwWT
+	b9WqGc4oOqbua6hUeD8tXGLAEFQJVBYnWhyA58kwBmwKW/Cbjo4kG0VDqC502S9GsB0uGmnhmRArp
+	rdQfW+kBLjQw/4CBTQB4MEDXv5Ds/OFk+uL5el0MI+1fRBcstSCPezt7eKZuehXoxlO3mLbY0/vQP
+	JNBcfUN8AHRYaWH+wXlOR90J6wIP9P7mk96OsI7vgnla7ZIGVYOgXvdFk8JZeJb0pn+wt5/XUESqi
+	zYr/+Hjq/9YNk06Vm2dlnkwVtf3odeq+iDh4uSl+K4vbf6VHTyPLVuXRqBVEnMztN3LjMlpall19l
+	4QsHoWUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkeKP-00000001jS5-0X77;
-	Fri, 17 Jul 2026 08:53:53 +0000
+	id 1wkeKh-00000001jaR-1G3F;
+	Fri, 17 Jul 2026 08:54:11 +0000
 Received: from flow-b8-smtp.messagingengine.com ([202.12.124.143])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkeKN-00000001jQq-0LyA;
-	Fri, 17 Jul 2026 08:53:52 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailflow.stl.internal (Postfix) with ESMTP id EF81913002C9;
-	Fri, 17 Jul 2026 04:53:49 -0400 (EDT)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-05.internal (MEProxy); Fri, 17 Jul 2026 04:53:50 -0400
+	id 1wkeKe-00000001jZM-3gUR;
+	Fri, 17 Jul 2026 08:54:10 +0000
+Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
+	by mailflow.stl.internal (Postfix) with ESMTP id B9F2713002D1;
+	Fri, 17 Jul 2026 04:54:07 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-06.internal (MEProxy); Fri, 17 Jul 2026 04:54:08 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
 	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
 	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm1; t=1784278429; x=
-	1784282029; bh=zinUu7usH8QT+lRBkTaKjglbcOcyqsNJ7aGjhR0dVuc=; b=v
-	0Ev9U20tBJWMVb1EmdXdnSoUf6IwfEDDfeQWAomsNPlGcq2M/dSHHugtLYyProcf
-	tUVfpYEHMEHgmAjoGtKW/NI6ybmC/hJ40dbu0DfaTNeFkBzKoK5y2Ttn5g/N5qPU
-	Njt+qeuAo4vUGll42ky+E5WPiNds2bcTINQw6y9DKPVlb0LLxk6uj06aJPi/deFg
-	J0rkKLXlMpE/E0q/vq4y4v1gh0M+47BYIW8e74q2/r5vgYY6sMgWw7NCpFVLd4l2
-	1yzkrAEcYerdljozyw9D39M/XbkYEeqia8nAIIjzW/AAos4VG9U+WDp1zCP/SqrV
-	G8DgZF+vTuOxDN1wS0sTw==
+	:reply-to:subject:subject:to:to; s=fm1; t=1784278447; x=
+	1784282047; bh=jciNOVcjwfiY3K3wYHnk65hT9aC3kb+UF6ZOUQUxjM8=; b=J
+	PzIasAd6Mb6g7wy0iH/sn+0Kb3n2neTY7MweFeYOMeRpSKHilodGjTevSk2jz5uq
+	B0eaCEC7IAQfosLdHvgSEMbWinrs3YRoTjYRtOVHm8QOslnV8BBoYodbsfeTjDAx
+	Kgv16jaiL8+Z7PTHM/K+1kCGazQmCzLz6v4PJxxskqHMB+r1N1NsmAl/pv+cK/Vo
+	FZsvDmFXR0ycmax9X/mpjdPIy7T5MPgx68VHcKkAMUWV4qXRpzrJcWKJl+xZ6YwR
+	rLxu111lysgwyo9evNk6O7sB3porLBVyfTNJ7HxDjQUBNJN9RldVqi5qouaVLf+O
+	TMzuAnwQwYmg/wtm5T2ew==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:date:date:feedback-id:feedback-id:from:from
 	:in-reply-to:in-reply-to:message-id:mime-version:references
 	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm2; t=1784278429; x=1784282029; bh=z
-	inUu7usH8QT+lRBkTaKjglbcOcyqsNJ7aGjhR0dVuc=; b=kIXOAQwc18Lq5X7qC
-	/HflxDnJPI2DhuHg4+4a85wMJz48k+2uNgkIP9e90PCXiWUyhW50tuKDfJ4wR3EP
-	O1ZUJX5GjW2tWzA6H5K8aQ0AFBYYHajgtImlXnY169Hc0tE/9kYbQWYYkI/a1rO7
-	0TMeHvhqj4aGueHYaJeVtkHWdpIz8g2ZiCoKZPVYIp2sIXSmnpiJ00wqFup26Bxc
-	m+jHudN8HkXb1dsOGsreNjXC0HNRlFO2yPi4zdElahDcUjseEHNDvjn4O68LGcM1
-	dTG4oF68ggSxy5Khe7anEofBtl8eH6GdUCz5iLalW86UQB6rYJYjrvUV2GsZ+dg/
-	5wnsA==
-X-ME-Sender: <xms:ne1ZahKSnZPikya0PRW9xaHqJYmxvzw9PuieOBrHHI18YeIE79cFkg>
-    <xme:ne1ZapCs7osDD-DI1Fy8I7njz9wxbp5l04XG5p03nrDaH1ZbQvS0tF0UehYPPKXc4
-    QpI3h6lEcDaX6McU0RyGKW5JLGRbFYXxuzxhTK3Q76FHIadS7QB9A>
-X-ME-Received: <xmr:ne1ZalPAfAEOvps3ZTtp--HFh6H6o9dfpdzS3oIenCCmeahqhEA3GxmjUvTRFpl7KIr-gdNi92QHZQvqgoU>
+	:x-me-sender:x-sasl-enc; s=fm2; t=1784278447; x=1784282047; bh=j
+	ciNOVcjwfiY3K3wYHnk65hT9aC3kb+UF6ZOUQUxjM8=; b=H7W/vmW6cHn0f589T
+	sSBacdcq7Qsa2d7y8rFh7a8EHSfPVSKHFuYp9nWa7Be7BKEnyWNJvsftoD9D0iHH
+	FLkgMTp/1Kh1DbUUuHhT3Tzro1DBFvM6PM77PIcOeXUF3V6qoev9bBSCVipi3FtJ
+	nNxfb7dfnJCHQzHHOJFvNGcIlL1zcnJU8GC5LXwBJiGEKBnQuLbyCG74fa/+77/3
+	pduidBSi64I4BSTb8mIUEoQsyOYku2RDaqQklvPf5MwgXgLi/zPcUhU1LTYsvQUp
+	fram4giHOUdTgu2HUBWN51sk8xgG2Qd3qLoct4/xrxBi3Tt62dgr+bRvlUVTeci7
+	MA1Og==
+X-ME-Sender: <xms:r-1ZarvQMRK7VPD5GHElMXAdNtPez0ItPlDD6Jf6_cTnsKZJUK-W9w>
+    <xme:r-1ZaqLINSBpDOmfQnJzF6evIO4MimTq7ZOIBa8Arqc9fSIen7VwNJzuJm7vAg9io
+    Z65D7AcEFNpTDXU-qjI_zK1mrGKspUtzLBOo322eSKffKoE13cxj7bs>
+X-ME-Received: <xmr:r-1Zagjj8s1XA7TzJ_qhpcfTjV6Wiauzd95Y-XFZoW4-V0aZw0nU8Oqaaquh3QsK-8_q1STIrmVihG_ajaU>
 X-ME-Proxy-Cause: dmFkZTFS7GW/vS+PGg3aNaRtXNWwH13wr4t6a3PsYvzLEfoa0d1tCLQMk4kuPOyqJxWYg8
     zWRgYifu3Q3qEvL/I6D+A7sONbehMF6Fzv0Jx15W8Bp0zPI2L6EoHnTvsn7KCzlmdcjq5Z
     AMiUX8pm/4UU/5q2rly/ctUYuGrpfv6aggolOMe4+7cw+YQgQv04wJ8otXu77hR4cT4fFc
     rauulgYGXJAH/ttinZ2FdpHwYOQghdgc8wZDZhtrydZHcBfVIkqxRabCZivPsjLLb49//R
-    HUixI1q1RTZqMytwufV0grN2inkZxcvjyE8RnYSpDV3z9U1hNPWgMeNXqfzcYN3TNROTjP
-    DJWBxCI5LG07PpCtrDGQylNVLAXiJDOw8Zv7N+umyJqbcz5h42OyiWTfA9CJmLIVWk/eBR
-    7Oln6Gq6e+F9e84h2z6cwCDpiPcYcwApw7eCgr9txIBNNq+fRM3OTF3EQHFoPNbSxFAkpU
-    5ELogvMw16Wd+Vy6XMRw9A/UtwpPyLICJuTXAYYhH4xpDkDzMpb3HsHGpDAc1aQPOHAVKz
-    djVrFxTql8z755ghlxCYAAPcAYjK1U21pj1mw/oRDOjRT+w19y4qp358reb4GFc2oAgB4C
-    J/ZOdnLoEh/CfXkF+vAx7BUzlua9nEu49XoFr0DIyWHCNBHuc6tRzL6mAn4Q
-X-ME-Proxy: <xmx:ne1ZamVf31AEljBp2KKIoxbKOG-lQk3X5ND9YiBLc3vCKwgoosp84w>
-    <xmx:ne1ZagQVWCGUG30yhYZaGHOFuWtPwDLAGpbk02NECHF1eP5fnOfnvQ>
-    <xmx:ne1Zak0hbu3Ej3bh0k9toYLJ3R0M43UiOyyYQlVdTmEiym68R8bg5Q>
-    <xmx:ne1Zalh9lYwZvJcbWs2ezvAw4Kqm81gGl0hUN-NqWGK9Ainagsp4_A>
-    <xmx:ne1Zag4aPt7Zx-oleisTXffXPfkps3G8dhk90C6wCJV4EDkwuO5WycWb>
+    HUixI1q1RTZqMytwufV0grN2inkZxcvjyE8RnYSpDV3z9U1hNPWgMeNXqfzcYN3TNROTmR
+    RgdzuH7DU+5N1oY8M3ODw+67ns+HFGVOSMGhx5XQjWxx/E68KouXSoOpv/PUcY/YDeVRSP
+    WK+GWEwQ7/prMm45XSJrsMeNKFxlTq1W4xqfm1rBdumM4pobMDS8xA4z5/fcup0LpFYmpx
+    K/Yc3mOP4uOBFn+05OiOMmoDIXkNoQocZjQ3SG5OHVADrnlhqCsft8JbTumD+zChibYASt
+    cM9nB9U5jUKCu6Z5+WfbcR6r7qq/eXvtnwaVVTqMW6bLVF5AS2NjuMsNlbltTaDEzr/tVg
+    Z0HabB9G2gzJuq7f61cGRWOsPSvYZHlsefSmgZ0whRvkfasj+XJljWCYJ4rw
+X-ME-Proxy: <xmx:r-1ZamuTL59blPvmv74ZiIvEo5A-LT34JoIV1CK0A_PKr17t6E0XsQ>
+    <xmx:r-1Zaih9s_aEUraz5ZKwHABcymZXG9YqD8f42hXzqwXNBfXZnwNsJQ>
+    <xmx:r-1ZapdbiGf4nvsVQpnvGXbTihYD0GC4Ei3ImCyzdxQsNWEk0CAr-Q>
+    <xmx:r-1Zanldm8Jv3_veMoAAkJ4kOHmdMY0J6AOh0q2P-t-SRBDTTZfdUw>
+    <xmx:r-1ZarISlvY7p8Rl8QhZZAflQSdhsrsVOHbZYMusJtoVGobKYDDvE7ux>
 Feedback-ID: i7a5e4b5f:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 17 Jul 2026 04:53:44 -0400 (EDT)
+ 17 Jul 2026 04:54:01 -0400 (EDT)
 From: Jiaxing Hu <gahing@gahingwoo.com>
 To: tomeu@tomeuvizoso.net,
 	heiko@sntech.de,
@@ -97,17 +97,17 @@ Cc: dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Jiaxing Hu <gahing@gahingwoo.com>
-Subject: [RFC PATCH 4/9] iommu/rockchip: skip orphaned-fault banks in rk_iommu_is_stall_active
-Date: Fri, 17 Jul 2026 20:50:42 +1200
-Message-ID: <20260717085220.3212274-5-gahing@gahingwoo.com>
+Subject: [RFC PATCH 5/9] iommu/rockchip: skip orphaned-fault banks in CMD_ENABLE_STALL dispatch
+Date: Fri, 17 Jul 2026 20:50:43 +1200
+Message-ID: <20260717085220.3212274-6-gahing@gahingwoo.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260717085220.3212274-1-gahing@gahingwoo.com>
 References: <20260717085220.3212274-1-gahing@gahingwoo.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_015351_201844_7B4CF9DB 
-X-CRM114-Status: GOOD (  10.91  )
+X-CRM114-CacheID: sfid-20260717_015408_977454_EFC3F632 
+X-CRM114-Status: GOOD (  11.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,56 +122,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Boot firmware can leave a PAGE_FAULT_ACTIVE condition in an IOMMU bank
-before the driver has configured paging.  Such a bank shows:
+Sending CMD_ENABLE_STALL to a bank that carries an orphaned firmware
+fault (PAGE_FAULT_ACTIVE & !STALL_ACTIVE & IDLE) causes the command to
+be silently dropped by that bank.  The dropped command also interferes
+with the other banks' stall transition, delaying them past the poll
+timeout even though they would otherwise stall within a few
+microseconds.
 
-  PAGE_FAULT_ACTIVE=1  STALL_ACTIVE=0  IDLE=1
-
-rk_iommu_is_stall_active() sees STALL_ACTIVE=0 and reports the whole
-IOMMU as "not stalled", so any subsequent readx_poll_timeout() loop
-waiting for the stall to complete never sees a passing result even
-after the other banks have correctly entered stall mode.
-
-Detect the orphaned-fault pattern (PAGE_FAULT_ACTIVE & !STALL_ACTIVE &
-IDLE) and skip those banks in the stall check.  They have no in-flight
-transaction, so they are already quiescent.
+Skip such banks when issuing CMD_ENABLE_STALL, matching the skip
+condition already used in rk_iommu_is_stall_active().
 
 Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
 ---
- drivers/iommu/rockchip-iommu.c | 20 +++++++++++++++++---
- 1 file changed, 17 insertions(+), 3 deletions(-)
+ drivers/iommu/rockchip-iommu.c | 16 +++++++++++++++-
+ 1 file changed, 15 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iommu.c
-index 0013cf196..f42ffcafb 100644
+index f42ffcafb..ce586919b 100644
 --- a/drivers/iommu/rockchip-iommu.c
 +++ b/drivers/iommu/rockchip-iommu.c
-@@ -378,9 +378,23 @@ static bool rk_iommu_is_stall_active(struct rk_iommu *iommu)
- 	bool active = true;
- 	int i;
+@@ -434,7 +434,21 @@ static int rk_iommu_enable_stall(struct rk_iommu *iommu)
+ 	if (!rk_iommu_is_paging_enabled(iommu))
+ 		return 0;
  
--	for (i = 0; i < iommu->num_mmu; i++)
--		active &= !!(rk_iommu_read(iommu->bases[i], RK_MMU_STATUS) &
--					   RK_MMU_STATUS_STALL_ACTIVE);
+-	rk_iommu_command(iommu, RK_MMU_CMD_ENABLE_STALL);
++	/*
++	 * Do not send CMD_ENABLE_STALL to orphaned-fault banks
++	 * (PAGE_FAULT_ACTIVE & !STALL_ACTIVE & IDLE): the command is ignored
++	 * by such a bank but its presence on the shared bus delays the other
++	 * banks from reaching STALL_ACTIVE within the poll timeout.
++	 */
 +	for (i = 0; i < iommu->num_mmu; i++) {
 +		u32 status = rk_iommu_read(iommu->bases[i], RK_MMU_STATUS);
 +
-+		/*
-+		 * A bank stuck with PAGE_FAULT_ACTIVE but without STALL_ACTIVE
-+		 * and with IDLE set has an orphaned fault left by firmware before
-+		 * paging was configured.  It cannot enter stall mode but has no
-+		 * transaction in flight, so it is already quiescent.  Skip it
-+		 * rather than treating it as "not stalled."
-+		 */
 +		if ((status & RK_MMU_STATUS_PAGE_FAULT_ACTIVE) &&
 +		    !(status & RK_MMU_STATUS_STALL_ACTIVE) &&
 +		    (status & RK_MMU_STATUS_IDLE))
 +			continue;
-+
-+		active &= !!(status & RK_MMU_STATUS_STALL_ACTIVE);
++		writel(RK_MMU_CMD_ENABLE_STALL, iommu->bases[i] + RK_MMU_COMMAND);
 +	}
  
- 	return active;
- }
+ 	ret = readx_poll_timeout(rk_iommu_is_stall_active, iommu, val,
+ 				 val, RK_MMU_POLL_PERIOD_US,
 -- 
 2.43.0
 
