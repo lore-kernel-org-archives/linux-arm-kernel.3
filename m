@@ -4,182 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 091BAC44507
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 10:38:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9F85C44514
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 10:44:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eDmjQSd77LmvXwhDhxUbn05kco3sTHCVrROmU8xMtHo=; b=gF0loTndExAMbANUkWM1kKOzxb
-	NzkJoyJRIVYmDXvV64H02Y1fis25lpV7/IFXgmHIMw9NMzXKO+DinaEmXit0UqXpzKymkXdFfQ/jz
-	+3xnQk8zIYZP8r41qc9MSYPkdo/+HM+m5DtWCvv0QFWwrdsYf+ceAIcB6eAEkEqxhzlrWH+EAKBcD
-	DBClOGFA6iLlWtrM029W94FH3nA2ZNxGuKpiBfUIOg9ZQ9g0A4p+9oXl+Dy8Z+ZReuX9FcY2a6YBh
-	xyFZMMwP3+eA/N+i0beKM3IU4s0AfgmKOs8qJtCurJhFFTdZKVPy971AnPyvM79DjTWhkvzE+CRr6
-	nE1HJh2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wQ0NxpDcsJi+Mf5VNx57sNCOj7v89pGrLJBMGSgunk8=; b=IrBcikBP/ED6GNCHhTlGhmVURF
+	fkJPmsBKfeNUDW47MfZ1qfvYEI03XpehUSg+c+OKF1PB3fUFaYOFCgwCzM/9I74zpL6n3xB3xRoQP
+	wMGS0AYAr7NMx+ImgKO9lRqlNYkAsgRkl4gOi30ZfjY01aaWHWbNQMWAeicxtue7HeJw1aiR2StF4
+	SQ7Wd8jgK+z8E+00RjhUqlDI8lP+BPNXpncJiUVH6h4o9FFDkIAvOB8v+VVuFXP9gys7zO+BtkWSP
+	Fwd+8ePXcflDeap2XpKMq0M+ugLCt32Speslzq9OIURXsvg4oZ31VdqEI5OHd/4baquyPOwDB3ygv
+	nT/R8HYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkdzk-00000001eLw-3I8w;
-	Fri, 17 Jul 2026 08:32:32 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wkfp2-00000001y3v-402T;
+	Fri, 17 Jul 2026 10:29:36 +0000
+Received: from mail-m20521016472.xmail.ntesmail.com ([205.210.164.72])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkdzi-00000001eKq-3XLD
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 17 Jul 2026 08:32:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=eDmjQSd77LmvXwhDhxUbn05kco3sTHCVrROmU8xMtHo=; b=X8L9b0i490xV0fNsfvqklj1R9H
-	terdrqRLKV8c9fFxaZAPqs+S0IjekDpFSuSYvGdQwioXNslojBBhT6vQ+eKltlbBaARSqfYALHCQG
-	/XHacR13QRada2MzvPigqw8sEU0zJ2odCz7IwIONk8yftbP8FmQmbFVlaKxGHlXf+Lpnz27Cs2ZV/
-	c00tBY8bh5I1lpeaRyb5fSN8UxBYkR8AVV9JeWzJhWuKxnmz/7SMoapWL4TfHaFJ70JUPplZU8v0u
-	AAJ3XldQJwZMt7TSnaB6BYpUQss/iNM1iVra1wSVVK8HtLYLlnGgUKEqsC/oqIbigzWE4Ff8hYpjr
-	pG8H57fw==;
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wkdze-0000000EfnR-1zZo
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 08:32:29 +0000
-Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
-	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 66H8JVMd363326;
-	Fri, 17 Jul 2026 03:32:19 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=eDmjQSd77LmvXwhDhxUbn05kco3sTHCVrROmU8xMt
-	Ho=; b=eATylOS2qBZxh9QEiscuRKmO0oQNeR4W45zWZy6/gSZoi99rj3BnsAUgE
-	9ZBam3SDcVZp2gEBPtf0jchfUna/DVWUjiwkPiDq1AJQXUpyVkg9UhGNij9fdsyu
-	l0OYqGcqFUSQjTQvZEGmCfGtheBOlJFWwhx3ucKX6WPaOxhhO1i6h4nxbD80mPSQ
-	trLyvZXaLONHpDsm8MPIjaZ6JHTyMa1rrx8+ULRGj/vjWFpTcZlKnpXeZZMr97df
-	FL5RhOaszKwZV5JEjwd1s8fGRYBIkSSh7LvdOipzwxpdI9bN+2msZNZFh2M5PklI
-	2v0RiXofToIbs6SFKKRoYkriKeQ4A==
-Received: from ch5pr02cu005.outbound.protection.outlook.com (mail-northcentralusazon11012012.outbound.protection.outlook.com [40.107.200.12])
-	by m0384305.ppops.net (PPS) with ESMTPS id 4ffgsm81x9-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 17 Jul 2026 03:32:19 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sRzG5hn7IGWNRN9YjiHb9jM2uDrompuTZQdG22/u4BEkLYGruQedPtMjTnERCowpEtNSi869slOPqdTxuXJSXycGVBOicDxuIF7gJzdRNFNA8Sb+cRCmbVuuhycg/95tWcBo+6o29XWA2jsBf1KODJ3c9qldrCzRxMAuYwM5KowJ9y2T+YDXVPyp8tH8RsfmR9DstjTwC6n3wVHEr7Ce3fIIYQJ3IK3/xAEVg6bCBNOabKHqw6dLBcNFVKBn9HnCnVOugp8Aoi4cFQonsOxy/0et2xK+EBSALhjyY130C5JBGNg9cY10W+0ogazkLYTZJqcafAHezpyBp+VUkq/WgA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=eDmjQSd77LmvXwhDhxUbn05kco3sTHCVrROmU8xMtHo=;
- b=kh+kmfL7brmV/szfCH3Ix2xFyiRd38zKlbKCrjEvoOa+HcQMGvKPLCfo07lc+NLwyHHZkQ8QWsRecqdU5pdLEW+0cxAc8j4vavjKjxvjmYT+ZiUoR5u/Y0OAJn8p4uKAGeMUIhXkBDH6pIc5preAVTTTG1j5pB3eFaK6+6iBBxcl4kEuhccOvVBr6//r+cK4qoWb+mocspfQkxLM5kyI98PyHuU978EJ5waGDLPHl2eokJVup9+a2tdMs0w/1Z85j51Uo0f1aDy3TpzFU+FobIPAjDZH7ND4KgWhN3/rnm338GQTAYxQ3SrGVoZyuqihN2CdIbyjnG+XTYt8b0pHMg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eDmjQSd77LmvXwhDhxUbn05kco3sTHCVrROmU8xMtHo=;
- b=gNGdMKyXOpRf71nQynm358XMyZFJTJiMBYAZ5BIkWe0tgxLZztul/1U2+H2QHsYog4t3LXry1RGvUBv+AOyI//ULeaVhjWSAtrTbEFc1MKIQWg5UU9Op345EqrqxQXbPxI83Eo6fL8QFI6JzMm4x9WZb8u0ujohBoTi8IBvpgP0=
-Received: from SJ0PR03CA0016.namprd03.prod.outlook.com (2603:10b6:a03:33a::21)
- by DS0PR10MB7202.namprd10.prod.outlook.com (2603:10b6:8:de::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.12; Fri, 17 Jul
- 2026 08:32:15 +0000
-Received: from SJ5PEPF000001EA.namprd05.prod.outlook.com
- (2603:10b6:a03:33a:cafe::2f) by SJ0PR03CA0016.outlook.office365.com
- (2603:10b6:a03:33a::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.223.13 via Frontend Transport; Fri,
- 17 Jul 2026 08:32:14 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- SJ5PEPF000001EA.mail.protection.outlook.com (10.167.242.198) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.245.5 via Frontend Transport; Fri, 17 Jul 2026 08:32:14 +0000
-Received: from DLEE203.ent.ti.com (157.170.170.78) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 17 Jul
- 2026 03:32:12 -0500
-Received: from DLEE202.ent.ti.com (157.170.170.77) by DLEE203.ent.ti.com
- (157.170.170.78) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 17 Jul
- 2026 03:32:12 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE202.ent.ti.com
- (157.170.170.77) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Fri, 17 Jul 2026 03:32:12 -0500
-Received: from moteen-ubuntu-desk.dhcp.ti.com (moteen-ubuntu-desk.dhcp.ti.com [10.24.50.20])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 66H8W27I3390257;
-	Fri, 17 Jul 2026 03:32:07 -0500
-From: Moteen Shah <m-shah@ti.com>
-To: <krzk+dt@kernel.org>, <robh@kernel.org>, <conor+dt@kernel.org>,
-        <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>,
-        <mturquette@baylibre.com>, <sboyd@kernel.org>, <bmasney@redhat.com>
-CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>,
-        <gehariprasath@ti.com>, <y-abhilashchandra@ti.com>, <m-shah@ti.com>,
-        <sen@ti.com>
-Subject: [PATCH v7 1/2] dt-bindings: ti: Update audio-refclk binding and j721e system controller
-Date: Fri, 17 Jul 2026 14:02:00 +0530
-Message-ID: <20260717083201.1887640-2-m-shah@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260717083201.1887640-1-m-shah@ti.com>
-References: <20260717083201.1887640-1-m-shah@ti.com>
+	id 1wkfoz-00000001y1c-2m21;
+	Fri, 17 Jul 2026 10:29:35 +0000
+Received: from [172.16.12.90] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 4696dc272;
+	Fri, 17 Jul 2026 18:29:28 +0800 (GMT+08:00)
+Message-ID: <0ef1cfc3-1c7d-4dd4-bb5a-cbf5f29c475a@rock-chips.com>
+Date: Fri, 17 Jul 2026 18:29:27 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 7/9] accel/rocket: add RK3576 NPU (RKNN) support
+To: Jiaxing Hu <gahing@gahingwoo.com>, tomeu@tomeuvizoso.net,
+ heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, ulfh@kernel.org,
+ p.zabel@pengutronix.de, ogabbay@kernel.org
+Cc: dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
+ iommu@lists.linux.dev, linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260717085220.3212274-1-gahing@gahingwoo.com>
+ <20260717085220.3212274-8-gahing@gahingwoo.com>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <20260717085220.3212274-8-gahing@gahingwoo.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF000001EA:EE_|DS0PR10MB7202:EE_
-X-MS-Office365-Filtering-Correlation-Id: d1a23f38-3442-4404-091f-08dee3dde7c7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|7416014|23010399003|36860700016|1800799024|6133799003|5023799004|56012099006|10067099003|22082099003|18002099003|3023799007;
-X-Microsoft-Antispam-Message-Info: 52BLvbjSxsPqN8nRaXCDCXu+umRxMNOdfycNlSR9MBOtpyfI1T21Nx9ZRlWzCnbu6OZEXDqDgWpjVq7sveL0TGoeSYVM6bfEN5kQdpDrn7uPvaRlnAwPnuaTNvbNxoK/ocelUVRtSI9peuZQNQfKu3O+VrgK2xl5BVh80R33g6VFeL1aAfbzFFgLghfdWP/PblYN0AV9g+Ob6zA7/Ph5jmnKctoEPYQgjgCfkQ46ROBOjpYGCJ0BHbxJbqT4miSgGzYKUPcqp+/sjbFh+8KaZI+Syj3oFAOondn6TKNMpdk6k+3gybRakQa/W3cDqjY6I29t8y5ysdrUim3jm2z066LHP0CmypfEBNzWT5RBNEozCE4hNjYXS3h3XKrehRTC6W16dfIOOaaF9+J6bAFF28KcbMA3MeEGhilhFR1oDhY5eI/nnEU4XscS9u1M4piHMEIu6PbrvItbaWM4VNM09tfl8GBV1OehQkjbfTJ4arWj+nNISN9nipmwaDKrav+MguTfVNv8INW7FCcFo4zSDjXV4g5FwoUXgRmse0KiInJzLFZLvSuhUgGa3pfMdWKT1xFxE+HuLBlFVUQA6CJFW19UGHsFaPEPr3BeGU6BzDCRCW2slFPeVqsP7kacc+mb/7TEac+ev606UZmtIuddPTy9gDUvSS/1hAUH48b4rjpftkPDjNRoTAx2m4djC68Lxvf3++80zBods545dp3nYw==
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(7416014)(23010399003)(36860700016)(1800799024)(6133799003)(5023799004)(56012099006)(10067099003)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: ihcAcQgj6Bv2jVv8CpbeqqYGpiNO5W6hhGTzYvsYd61RxRRrYxiNMkdteGSazlOU9g3l4THxBBopW5oYV1LJA83bPCQTX6Vn1u/pYkPYwGyqe08a/e7qTFTouIxGAUoB4r+lXzOy38A8KPlA5gh4nOaOarNnlC2kxxFWlTJVvhJ9nt7ByigVZSHg0jmRy42AO1yhvKvlCvRhlsmUsgQZhAHO3rQfmkkFIsFxaU7kyshMjbGRfhRus+e2E7qcq0oSTqtNUkt55OJxaskwPRuyJvtADASaNN4fA0BeIzyFDVZvc1FqJucwnxf/rPaQx9KOiILUKKJ6+aBvw4xOTmzE6O8uZhRA0GSIPEx2uDpRbcWVtJe5X3+zXd8lL9JPwoKv9KHh9Ouoj2irvusGg46nAVrsBtq5uLEcfaQmsH+atKbAPRYbWgrvGlFEmdvA+zGA
-X-Exchange-RoutingPolicyChecked: sv7K2qHiI0RbikUUvykKku8XJ/6tb6kdUqYwu1Y6AUFKV/w+w3TOaf/1cWdxcQdeA+i1MWEs08SML4g6sGE7s4rvDNZmGYllAJtwuZ7jhbJ//O6U12oIfVjxHjswwoX9jacKamwG74qoa84vMqecR4AhJIMgGwpfNgIQraFurOVO4MMw4AlhnSzBwPAYr/84qiqMLxx8CQlgZeZHJugMGlltZispCPTE2KK/EdDFuS36ZCui7JWLuM8GY9M8IrAEgovwVwzoTZKhnnv8l3zmkm3nju3XtBbPgYoNTobnM96tHgpioVQX6mMgFDEPdFunVjcj6cyUsLQ5KWnBfXlQLw==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2026 08:32:14.7794
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d1a23f38-3442-4404-091f-08dee3dde7c7
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001EA.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR10MB7202
-X-Proofpoint-GUID: LbAY5lObaVeOR_pEfJeLP8a0iYknrah7
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzE3MDA4NCBTYWx0ZWRfX2hXp+IX8qg2J
- YcCb/yVJ+/wottNGa9AFD0kXjdKnErtDThaqDOOc9n054DGko56EHasy7QutvW52U7MiaDQYwWS
- g1XBjrpII/b9xhnD6asp6IeL1nDtWiJ8iIT2/nm9OlZ+0OiR/wV54HkvxIyUlUfT7slQxT9ZxSH
- SHAP4OVRuVqw9PLyTViUDPNtzhq+Z0WBMCdIFcTs6FgjbdPEupNJ3vwFgiUdyyY0ZM0Ocd2nlT7
- HGxNYyWWQWfULXla0l+feH0143JOWjd+ivusr6JS5Vmdr6yA9fXpOnAWIelWwgxddQ5TzNBlKYg
- l6Pg2BKzoVZcRCYzE4TpxT6T8cfvxJWBFyChbhpNfRAX4pRRvKrEycXWUde3l3y4+yNtB54T5Dh
- lTWsaieRxyS+j+W5R5vxDGDfZqa3FyCqsUfK+m8Rrv1GFPgbWrzowjBaZ4/U9eDQMb6/DJH+XVj
- /hFPYxN/+h14v+Dnldg==
-X-Authority-Analysis: v=2.4 cv=GJ841ONK c=1 sm=1 tr=0 ts=6a59e893 cx=c_pps
- a=dctP2Ni10a9Sh7weZd+SyQ==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=RAioF0-LDSMA:10 a=s63m1ICgrNkA:10
- a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
- a=taLDd7a_hP9WKsMzeGRc:22 a=VwQbUJbxAAAA:8 a=sozttTNsAAAA:8
- a=o73yBMAOqiBwH8_aQz4A:9
-X-Proofpoint-ORIG-GUID: LbAY5lObaVeOR_pEfJeLP8a0iYknrah7
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzE3MDA4NCBTYWx0ZWRfX/Ns6wCZ582Te
- P9pA/G85z53ak1YJtp155M5gaPOaErGMNevof0+Ahq2WPNiKQblINZwOXJ/nOs9SqvEVyOrdjYK
- mXIFAdA8mg8bEIAULdvPHlvIpuHUx5w=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-17_02,2026-07-15_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 clxscore=1015 impostorscore=0 malwarescore=0 lowpriorityscore=0
- priorityscore=1501 suspectscore=0 phishscore=0 spamscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607170084
+X-HM-Tid: 0a9f6f9fc07803a7kunm8fda5c1f8f1b8
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaSk0dVkIeSR9PGEweHhpPHlYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
+	9PT0hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=VBK/Hss6Odr0xl2H62NbweykUOkBXv0DqfxV2qfXTmuD5q87M2iUM8nNLcaJIksVWI4zpsrhPudaiIKPldThkeI2gn+dkOSUAf19GU6Thybf60SaVy2tVAeud5ntGjvXPn6ZANyT6r84W6dkwecvG0/sNf8fDV/UAxG4kePYk4w=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=wQ0NxpDcsJi+Mf5VNx57sNCOj7v89pGrLJBMGSgunk8=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_093227_446448_92F0D6CA 
-X-CRM114-Status: UNSURE (   9.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260717_032934_083504_318660DF 
+X-CRM114-Status: GOOD (  35.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -194,61 +75,455 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add ti,j721s2-audio-refclk as a supported compatible string in the
-ti,am62-audio-refclk binding. J721S2 uses the same audio reference
-clock IP block first introduced on AM62. Per writing-bindings
-guidelines, the J721S2-specific compatible is added as the primary
-string with ti,am62-audio-refclk as the fallback.
+Hello Jiaxing,
 
-Also extend the ti,j721e-system-controller clock-controller@ child
-pattern to accept audio-refclk schemas alongside ehrpwm-tbclk via a
-oneOf constraint, fixing the alphanumerical ordering of $refs.
+On 7/17/2026 4:50 PM, Jiaxing Hu wrote:
+> Add RK3576 support to the rocket DRM accelerator driver (used with the
+> Mesa Teflon TFLite delegate).
+> 
+>   - match rockchip,rk3576-rknn-core; iterate its nodes at probe
+>   - add named clock IDs (aclk/hclk/npu/pclk) and the CBUF clock domain
+>     (ACLK/HCLK_RKNN_CBUF); the CNA fills the CBUF and CORE reads from it,
+>     so the compute path stalls if those clocks are not held for a job
+>   - guard rocket_job_timedout() MMIO behind pm_runtime_active()
+>   - hrtimer completion poll: OP_EN never clears on RK3576 (unlike
+>     RK3588), so poll INTERRUPT_RAW_STATUS PC_DONE bits instead
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: Moteen Shah <m-shah@ti.com>
----
- .../devicetree/bindings/clock/ti,am62-audio-refclk.yaml   | 8 ++++++--
- .../bindings/soc/ti/ti,j721e-system-controller.yaml       | 6 ++++--
- 2 files changed, 10 insertions(+), 4 deletions(-)
+This doesn't look like a correct implementation.
 
-diff --git a/Documentation/devicetree/bindings/clock/ti,am62-audio-refclk.yaml b/Documentation/devicetree/bindings/clock/ti,am62-audio-refclk.yaml
-index b2e40bd39a3af..6c8fb0793070d 100644
---- a/Documentation/devicetree/bindings/clock/ti,am62-audio-refclk.yaml
-+++ b/Documentation/devicetree/bindings/clock/ti,am62-audio-refclk.yaml
-@@ -11,8 +11,12 @@ maintainers:
- 
- properties:
-   compatible:
--    items:
--      - const: ti,am62-audio-refclk
-+    oneOf:
-+      - items:
-+          - const: ti,am62-audio-refclk
-+      - items:
-+          - const: ti,j721s2-audio-refclk
-+          - const: ti,am62-audio-refclk
- 
-   reg:
-     maxItems: 1
-diff --git a/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml b/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
-index f3bd0be3b279f..364be49f8c7c7 100644
---- a/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
-+++ b/Documentation/devicetree/bindings/soc/ti/ti,j721e-system-controller.yaml
-@@ -53,9 +53,11 @@ patternProperties:
- 
-   "^clock-controller@[0-9a-f]+$":
-     type: object
--    $ref: /schemas/clock/ti,am654-ehrpwm-tbclk.yaml#
-+    oneOf:
-+      - $ref: /schemas/clock/ti,am62-audio-refclk.yaml#
-+      - $ref: /schemas/clock/ti,am654-ehrpwm-tbclk.yaml#
-     description:
--      Clock provider for TI EHRPWM nodes.
-+      Clock provider for TI EHRPWM or Audio Reference Clock nodes.
- 
-   "phy@[0-9a-f]+$":
-     type: object
+>   - map the DPU (0x4000) and DPU_RDMA (0x5000) blocks and pre-arm them
+>   - attach both NPU power domains (PD_NPU0 + PD_NPU1): the CBUF->CMAC
+>     read path is only fully powered with NPU1 up
+> 
+> Tested on a Radxa ROCK 4D: the NPU probes, powers on, brings up its
+> IOMMUs and runs submitted jobs to completion. Full multi-layer inference
+> is not yet correct on this SoC (only the first operation per power
+> session produces valid output); see the cover letter.
+> 
+> Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
+> ---
+>  drivers/accel/rocket/rocket_core.c   |  43 +++++++-
+>  drivers/accel/rocket/rocket_core.h   |  22 +++-
+>  drivers/accel/rocket/rocket_device.c |   4 +
+>  drivers/accel/rocket/rocket_drv.c    |   1 +
+>  drivers/accel/rocket/rocket_job.c    | 154 +++++++++++++++++++++------
+>  5 files changed, 187 insertions(+), 37 deletions(-)
+> 
+> diff --git a/drivers/accel/rocket/rocket_core.c b/drivers/accel/rocket/rocket_core.c
+> index b3b2fa9ba..7b0c48e4d 100644
+> --- a/drivers/accel/rocket/rocket_core.c
+> +++ b/drivers/accel/rocket/rocket_core.c
+> @@ -8,6 +8,7 @@
+>  #include <linux/err.h>
+>  #include <linux/iommu.h>
+>  #include <linux/platform_device.h>
+> +#include <linux/pm_domain.h>
+>  #include <linux/pm_runtime.h>
+>  #include <linux/reset.h>
+>  
+> @@ -22,12 +23,23 @@ int rocket_core_init(struct rocket_core *core)
+>  	int err = 0;
+>  
+>  	core->resets[0].id = "srst_a";
+> -	core->resets[1].id = "srst_h";
+>  	err = devm_reset_control_bulk_get_exclusive(&pdev->dev, ARRAY_SIZE(core->resets),
+>  						    core->resets);
+>  	if (err)
+>  		return dev_err_probe(dev, err, "failed to get resets for core %d\n", core->index);
+>  
+> +	core->clks[0].id = "aclk";
+> +	core->clks[1].id = "hclk";
+> +	core->clks[2].id = "npu";
+> +	core->clks[3].id = "pclk";
+> +	/*
+> +	 * RK3576: the CBUF (convolution buffer) has its own clock domain. The CNA
+> +	 * fills the CBUF and CORE reads from it; without these the compute path
+> +	 * stalls after loading one slice (RDMA, which bypasses the CBUF, still
+> +	 * runs). The vendor keeps all NPU clocks on whenever powered.
+> +	 */
+> +	core->clks[4].id = "aclk_cbuf";
+> +	core->clks[5].id = "hclk_cbuf";
+>  	err = devm_clk_bulk_get(dev, ARRAY_SIZE(core->clks), core->clks);
+>  	if (err)
+>  		return dev_err_probe(dev, err, "failed to get clocks for core %d\n", core->index);
+> @@ -50,6 +62,18 @@ int rocket_core_init(struct rocket_core *core)
+>  		return PTR_ERR(core->core_iomem);
+>  	}
+>  
+> +	core->dpu_iomem = devm_platform_ioremap_resource_byname(pdev, "dpu");
+> +	if (IS_ERR(core->dpu_iomem)) {
+> +		dev_warn(dev, "no DPU registers; DPU S_POINTER won't be pre-armed\n");
+> +		core->dpu_iomem = NULL;
+> +	}
+> +
+> +	core->dpu_rdma_iomem = devm_platform_ioremap_resource_byname(pdev, "dpu_rdma");
+> +	if (IS_ERR(core->dpu_rdma_iomem)) {
+> +		dev_warn(dev, "no DPU_RDMA registers; DPU_RDMA S_POINTER won't be pre-armed\n");
+> +		core->dpu_rdma_iomem = NULL;
+> +	}
+> +
+>  	dma_set_max_seg_size(dev, UINT_MAX);
+>  
+>  	err = dma_set_mask_and_coherent(dev, DMA_BIT_MASK(40));
+> @@ -65,6 +89,23 @@ int rocket_core_init(struct rocket_core *core)
+>  		return err;
+>  	}
+>  
+> +	/*
+> +	 * RK3576: the NPU spans TWO power domains (PD_NPU0 + PD_NPU1). The vendor
+> +	 * powers BOTH from its single NPU node even when computing on one core --
+> +	 * the CBUF->CMAC read path only works fully with NPU1 powered. The board DT
+> +	 * lists both power-domains on rknn_core_0; a multi-PD device skips the
+> +	 * driver-core single-PD auto-attach, so attach the list explicitly. With
+> +	 * one PD in DT this is a no-op (returns 1) and behaves as before.
+> +	 */
+> +	{
+> +		struct dev_pm_domain_list *pd_list;
+> +
+> +		err = devm_pm_domain_attach_list(dev, NULL, &pd_list);
+> +		if (err < 0)
+> +			return dev_err_probe(dev, err,
+> +					     "failed to attach NPU power domains\n");
+> +	}
+> +
+>  	pm_runtime_use_autosuspend(dev);
+>  
+>  	/*
+> diff --git a/drivers/accel/rocket/rocket_core.h b/drivers/accel/rocket/rocket_core.h
+> index f6d738285..e959b26dd 100644
+> --- a/drivers/accel/rocket/rocket_core.h
+> +++ b/drivers/accel/rocket/rocket_core.h
+> @@ -6,6 +6,7 @@
+>  
+>  #include <drm/gpu_scheduler.h>
+>  #include <linux/clk.h>
+> +#include <linux/hrtimer.h>
+>  #include <linux/io.h>
+>  #include <linux/mutex_types.h>
+>  #include <linux/reset.h>
+> @@ -27,6 +28,16 @@
+>  #define rocket_core_writel(core, reg, value) \
+>  	writel(value, (core)->core_iomem + (REG_CORE_##reg) - REG_CORE_S_STATUS)
+>  
+> +#define rocket_dpu_readl(core, reg) \
+> +	readl((core)->dpu_iomem + (REG_DPU_##reg) - REG_DPU_S_STATUS)
+> +#define rocket_dpu_writel(core, reg, value) \
+> +	writel(value, (core)->dpu_iomem + (REG_DPU_##reg) - REG_DPU_S_STATUS)
+> +
+> +#define rocket_dpu_rdma_readl(core, reg) \
+> +	readl((core)->dpu_rdma_iomem + (REG_DPU_RDMA_##reg) - REG_DPU_RDMA_RDMA_S_STATUS)
+> +#define rocket_dpu_rdma_writel(core, reg, value) \
+> +	writel(value, (core)->dpu_rdma_iomem + (REG_DPU_RDMA_##reg) - REG_DPU_RDMA_RDMA_S_STATUS)
+> +
+
+Where are these macros used?
+
+>  struct rocket_core {
+>  	struct device *dev;
+>  	struct rocket_device *rdev;
+> @@ -36,8 +47,10 @@ struct rocket_core {
+>  	void __iomem *pc_iomem;
+>  	void __iomem *cna_iomem;
+>  	void __iomem *core_iomem;
+> -	struct clk_bulk_data clks[4];
+> -	struct reset_control_bulk_data resets[2];
+> +	void __iomem *dpu_iomem;
+> +	void __iomem *dpu_rdma_iomem;
+> +	struct clk_bulk_data clks[6];
+> +	struct reset_control_bulk_data resets[1];
+>  
+>  	struct iommu_group *iommu_group;
+>  
+> @@ -52,6 +65,11 @@ struct rocket_core {
+>  		atomic_t pending;
+>  	} reset;
+>  
+> +	/* RK3576 has no completion IRQ; poll for PC_DONE via hrtimer. */
+> +	struct hrtimer poll_timer;
+> +	struct work_struct poll_work;
+> +	atomic_t poll_active;
+> +
+>  	struct drm_gpu_scheduler sched;
+>  	u64 fence_context;
+>  	u64 emit_seqno;
+> diff --git a/drivers/accel/rocket/rocket_device.c b/drivers/accel/rocket/rocket_device.c
+> index 46e6ee1e7..bfb00f967 100644
+> --- a/drivers/accel/rocket/rocket_device.c
+> +++ b/drivers/accel/rocket/rocket_device.c
+> @@ -31,6 +31,10 @@ struct rocket_device *rocket_device_init(struct platform_device *pdev,
+>  		if (of_device_is_available(core_node))
+>  			num_cores++;
+>  
+> +	for_each_compatible_node(core_node, NULL, "rockchip,rk3576-rknn-core")
+> +		if (of_device_is_available(core_node))
+> +			num_cores++;
+> +
+>  	rdev->cores = devm_kcalloc(dev, num_cores, sizeof(*rdev->cores), GFP_KERNEL);
+>  	if (!rdev->cores)
+>  		return ERR_PTR(-ENOMEM);
+> diff --git a/drivers/accel/rocket/rocket_drv.c b/drivers/accel/rocket/rocket_drv.c
+> index 8bbbce594..8f6a02d50 100644
+> --- a/drivers/accel/rocket/rocket_drv.c
+> +++ b/drivers/accel/rocket/rocket_drv.c
+> @@ -215,6 +215,7 @@ static void rocket_remove(struct platform_device *pdev)
+>  
+>  static const struct of_device_id dt_match[] = {
+>  	{ .compatible = "rockchip,rk3588-rknn-core" },
+> +	{ .compatible = "rockchip,rk3576-rknn-core" },
+>  	{}
+>  };
+>  MODULE_DEVICE_TABLE(of, dt_match);
+> diff --git a/drivers/accel/rocket/rocket_job.c b/drivers/accel/rocket/rocket_job.c
+> index 2f1861f96..94461bf71 100644
+> --- a/drivers/accel/rocket/rocket_job.c
+> +++ b/drivers/accel/rocket/rocket_job.c
+> @@ -7,6 +7,7 @@
+>  #include <drm/drm_file.h>
+>  #include <drm/drm_gem.h>
+>  #include <drm/rocket_accel.h>
+> +#include <linux/hrtimer.h>
+>  #include <linux/interrupt.h>
+>  #include <linux/iommu.h>
+>  #include <linux/platform_device.h>
+> @@ -20,6 +21,16 @@
+>  
+>  #define JOB_TIMEOUT_MS 500
+>  
+> +/*
+> + * RK3576: INTERRUPT_MASK bits 28-29 are read-only (hardware rejects the write),
+> + * so the PC_DONE completion signal cannot be routed to the GIC via the normal
+> + * interrupt-mask path.  We poll OPERATION_ENABLE every RK3576_POLL_INTERVAL_NS
+> + * instead of waiting for a completion IRQ.
+> + */
+> +#define PC_INTERRUPT_MASK_RK3576_PC_DONE_0  0x10000000u
+> +#define PC_INTERRUPT_MASK_RK3576_PC_DONE_1  0x20000000u
+> +#define RK3576_POLL_INTERVAL_NS  1000000LL  /* 1 ms */
+> +
+>  static struct rocket_job *
+>  to_rocket_job(struct drm_sched_job *sched_job)
+>  {
+> @@ -137,8 +148,21 @@ static void rocket_job_hw_submit(struct rocket_core *core, struct rocket_job *jo
+>  	rocket_pc_writel(core, REGISTER_AMOUNTS,
+>  			 PC_REGISTER_AMOUNTS_PC_DATA_AMOUNT((task->regcmd_count + 1) / 2 - 1));
+>  
+> -	rocket_pc_writel(core, INTERRUPT_MASK, PC_INTERRUPT_MASK_DPU_0 | PC_INTERRUPT_MASK_DPU_1);
+> -	rocket_pc_writel(core, INTERRUPT_CLEAR, PC_INTERRUPT_CLEAR_DPU_0 | PC_INTERRUPT_CLEAR_DPU_1);
+> +	/* Enable DMA-error interrupts; PC_DONE (bits 28-29) is polled, see above. */
+> +	rocket_pc_writel(core, INTERRUPT_MASK,
+> +			 PC_INTERRUPT_MASK_DPU_0    | PC_INTERRUPT_MASK_DPU_1    |
+> +			 PC_INTERRUPT_MASK_CORE_0   | PC_INTERRUPT_MASK_CORE_1   |
+> +			 PC_INTERRUPT_MASK_PPU_0    | PC_INTERRUPT_MASK_PPU_1    |
+> +			 PC_INTERRUPT_MASK_CNA_CSC_0 | PC_INTERRUPT_MASK_CNA_CSC_1 |
+> +			 PC_INTERRUPT_MASK_DMA_READ_ERROR |
+> +			 PC_INTERRUPT_MASK_DMA_WRITE_ERROR);
+> +	rocket_pc_writel(core, INTERRUPT_CLEAR,
+> +			 PC_INTERRUPT_CLEAR_DPU_0    | PC_INTERRUPT_CLEAR_DPU_1    |
+> +			 PC_INTERRUPT_CLEAR_CORE_0   | PC_INTERRUPT_CLEAR_CORE_1   |
+> +			 PC_INTERRUPT_CLEAR_PPU_0    | PC_INTERRUPT_CLEAR_PPU_1    |
+> +			 PC_INTERRUPT_CLEAR_CNA_CSC_0 | PC_INTERRUPT_CLEAR_CNA_CSC_1 |
+> +			 PC_INTERRUPT_MASK_RK3576_PC_DONE_0 |
+> +			 PC_INTERRUPT_MASK_RK3576_PC_DONE_1);
+>  
+>  	rocket_pc_writel(core, TASK_CON, PC_TASK_CON_RESERVED_0(1) |
+>  					 PC_TASK_CON_TASK_COUNT_CLEAR(1) |
+> @@ -149,7 +173,9 @@ static void rocket_job_hw_submit(struct rocket_core *core, struct rocket_job *jo
+>  
+>  	rocket_pc_writel(core, OPERATION_ENABLE, PC_OPERATION_ENABLE_OP_EN(1));
+>  
+> -	dev_dbg(core->dev, "Submitted regcmd at 0x%llx to core %d", task->regcmd, core->index);
+> +	atomic_set(&core->poll_active, 1);
+> +	hrtimer_start(&core->poll_timer, ns_to_ktime(RK3576_POLL_INTERVAL_NS),
+> +		      HRTIMER_MODE_REL);
+>  }
+>  
+>  static int rocket_acquire_object_fences(struct drm_gem_object **bos,
+> @@ -326,56 +352,99 @@ static struct dma_fence *rocket_job_run(struct drm_sched_job *sched_job)
+>  	return fence;
+>  }
+>  
+> +static void rocket_job_handle_irq(struct rocket_core *core);
+> +
+> +static enum hrtimer_restart rocket_poll_timer_fn(struct hrtimer *timer)
+> +{
+> +	struct rocket_core *core = container_of(timer, struct rocket_core, poll_timer);
+> +
+> +	if (!atomic_read(&core->poll_active))
+> +		return HRTIMER_NORESTART;
+> +
+> +	/*
+> +	 * On RK3576, OPERATION_ENABLE is not cleared by hardware on completion;
+> +	 * check INTERRUPT_RAW_STATUS bits 28-29 (PC_DONE_0/1) instead.
+> +	 */
+> +	if (rocket_pc_readl(core, OPERATION_ENABLE) == 0 ||
+> +	    (rocket_pc_readl(core, INTERRUPT_RAW_STATUS) &
+> +	     (PC_INTERRUPT_MASK_RK3576_PC_DONE_0 |
+> +	      PC_INTERRUPT_MASK_RK3576_PC_DONE_1))) {
+> +		atomic_set(&core->poll_active, 0);
+> +		schedule_work(&core->poll_work);
+> +		return HRTIMER_NORESTART;
+> +	}
+> +
+> +	hrtimer_forward_now(timer, ns_to_ktime(RK3576_POLL_INTERVAL_NS));
+> +	return HRTIMER_RESTART;
+> +}
+> +
+> +static void rocket_poll_work_fn(struct work_struct *work)
+> +{
+> +	struct rocket_core *core = container_of(work, struct rocket_core, poll_work);
+> +
+> +	rocket_job_handle_irq(core);
+> +}
+> +
+>  static void rocket_job_handle_irq(struct rocket_core *core)
+>  {
+> +	struct rocket_job *job;
+> +
+> +	/* Stop the completion poll — we're handling it now. */
+> +	atomic_set(&core->poll_active, 0);
+> +	hrtimer_cancel(&core->poll_timer);
+> +
+>  	pm_runtime_mark_last_busy(core->dev);
+>  
+>  	rocket_pc_writel(core, OPERATION_ENABLE, 0x0);
+> -	rocket_pc_writel(core, INTERRUPT_CLEAR, 0x1ffff);
+> -
+> -	scoped_guard(mutex, &core->job_lock)
+> -		if (core->in_flight_job) {
+> -			if (core->in_flight_job->next_task_idx < core->in_flight_job->task_count) {
+> -				rocket_job_hw_submit(core, core->in_flight_job);
+> -				return;
+> -			}
+> -
+> -			iommu_detach_group(NULL, iommu_group_get(core->dev));
+> -			dma_fence_signal(core->in_flight_job->done_fence);
+> -			pm_runtime_put_autosuspend(core->dev);
+> -			core->in_flight_job = NULL;
+> +	rocket_pc_writel(core, INTERRUPT_CLEAR,
+> +			 0x1ffff |
+> +			 PC_INTERRUPT_MASK_RK3576_PC_DONE_0 |
+> +			 PC_INTERRUPT_MASK_RK3576_PC_DONE_1);
+> +
+> +	scoped_guard(mutex, &core->job_lock) {
+> +		job = core->in_flight_job;
+> +		if (!job)
+> +			return;
+> +
+> +		if (job->next_task_idx < job->task_count) {
+> +			rocket_job_hw_submit(core, job);
+> +			return;
+>  		}
+> +
+> +		iommu_detach_group(job->domain->domain, core->iommu_group);
+> +		dma_fence_signal(job->done_fence);
+> +		pm_runtime_put_autosuspend(core->dev);
+> +		core->in_flight_job = NULL;
+> +	}
+>  }
+>  
+>  static void
+>  rocket_reset(struct rocket_core *core, struct drm_sched_job *bad)
+>  {
+> +	struct rocket_job *job;
+> +
+>  	if (!atomic_read(&core->reset.pending))
+>  		return;
+>  
+> +	atomic_set(&core->poll_active, 0);
+> +	hrtimer_cancel(&core->poll_timer);
+> +	cancel_work(&core->poll_work);
+> +
+>  	drm_sched_stop(&core->sched, bad);
+>  
+> -	/*
+> -	 * Remaining interrupts have been handled, but we might still have
+> -	 * stuck jobs. Let's make sure the PM counters stay balanced by
+> -	 * manually calling pm_runtime_put_noidle().
+> -	 */
+>  	scoped_guard(mutex, &core->job_lock) {
+> -		if (core->in_flight_job)
+> +		job = core->in_flight_job;
+> +		if (job) {
+>  			pm_runtime_put_noidle(core->dev);
+> -
+> -		iommu_detach_group(NULL, core->iommu_group);
+> -
+> -		core->in_flight_job = NULL;
+> +			iommu_detach_group(job->domain->domain, core->iommu_group);
+> +			core->in_flight_job = NULL;
+> +		}
+>  	}
+>  
+> -	/* Proceed with reset now. */
+>  	rocket_core_reset(core);
+>  
+> -	/* NPU has been reset, we can clear the reset pending bit. */
+>  	atomic_set(&core->reset.pending, 0);
+>  
+> -	/* Restart the scheduler */
+>  	drm_sched_start(&core->sched, 0);
+>  }
+>  
+> @@ -385,7 +454,14 @@ static enum drm_gpu_sched_stat rocket_job_timedout(struct drm_sched_job *sched_j
+>  	struct rocket_device *rdev = job->rdev;
+>  	struct rocket_core *core = sched_to_core(rdev, sched_job->sched);
+>  
+> -	dev_err(core->dev, "NPU job timed out");
+> +	if (pm_runtime_active(core->dev))
+> +		dev_err(core->dev,
+> +			"NPU job timed out: RAW_STATUS=0x%08x MASK=0x%08x OP_EN=0x%08x\n",
+> +			rocket_pc_readl(core, INTERRUPT_RAW_STATUS),
+> +			rocket_pc_readl(core, INTERRUPT_MASK),
+> +			rocket_pc_readl(core, OPERATION_ENABLE));
+> +	else
+> +		dev_err(core->dev, "NPU job timed out (device not active)\n");
+>  
+>  	atomic_set(&core->reset.pending, 1);
+>  	rocket_reset(core, sched_job);
+> @@ -420,14 +496,16 @@ static irqreturn_t rocket_job_irq_handler(int irq, void *data)
+>  {
+>  	struct rocket_core *core = data;
+>  	u32 raw_status = rocket_pc_readl(core, INTERRUPT_RAW_STATUS);
+> +	/* Only bits 0-13 (DMA errors) can raise this IRQ; PC_DONE is polled. */
+> +	u32 active = raw_status & 0x3fff;
+> +
+> +	if (!active)
+> +		return IRQ_NONE;
+>  
+>  	WARN_ON(raw_status & PC_INTERRUPT_RAW_STATUS_DMA_READ_ERROR);
+>  	WARN_ON(raw_status & PC_INTERRUPT_RAW_STATUS_DMA_WRITE_ERROR);
+>  
+> -	if (!(raw_status & PC_INTERRUPT_RAW_STATUS_DPU_0 ||
+> -	      raw_status & PC_INTERRUPT_RAW_STATUS_DPU_1))
+> -		return IRQ_NONE;
+> -
+> +	rocket_pc_writel(core, INTERRUPT_CLEAR, active);
+>  	rocket_pc_writel(core, INTERRUPT_MASK, 0x0);
+>  
+>  	return IRQ_WAKE_THREAD;
+> @@ -445,6 +523,10 @@ int rocket_job_init(struct rocket_core *core)
+>  	int ret;
+>  
+>  	INIT_WORK(&core->reset.work, rocket_reset_work);
+> +	INIT_WORK(&core->poll_work, rocket_poll_work_fn);
+> +	hrtimer_setup(&core->poll_timer, rocket_poll_timer_fn, CLOCK_MONOTONIC,
+> +		      HRTIMER_MODE_REL);
+> +	atomic_set(&core->poll_active, 0);
+>  	spin_lock_init(&core->fence_lock);
+>  	mutex_init(&core->job_lock);
+>  
+> @@ -486,6 +568,10 @@ int rocket_job_init(struct rocket_core *core)
+>  
+>  void rocket_job_fini(struct rocket_core *core)
+>  {
+> +	atomic_set(&core->poll_active, 0);
+> +	hrtimer_cancel(&core->poll_timer);
+> +	cancel_work_sync(&core->poll_work);
+> +
+>  	drm_sched_fini(&core->sched);
+>  
+>  	cancel_work_sync(&core->reset.work);
+
 -- 
-2.34.1
-
+Best, 
+Chaoyi
 
