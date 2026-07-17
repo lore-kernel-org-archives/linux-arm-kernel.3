@@ -4,90 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32FF6C44516
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 10:11:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A7BBC44516
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 10:13:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vijqM8KLfxoJ7zWFWIhaauEg3BKDHA3EobwX8Ha/oEk=; b=L3eiNbuODwDZCDRHGR57nVWxJm
-	+SSzVWHSdAzEbw12CZapu5GxObhxDpmMWr63Z+RlT3OWNqyOiWsMdAYGoIW95pPGyD25qRLgcrKiG
-	eZc6S5vVKvTRBQ1uy/k6zF4p3U4/Dzn3ugYSC71fQMUokOd2YR/vSfiKIlRrHFC/86ycanvDsgIb1
-	QUO5MqnTZ3KiDNaW2j7xV0wRPfBblHGIk6RMj/Iu31GjBb5jHY0vAQz6mQlnYXvdGvch0EQ74lmOc
-	1F2ysjZdcyfUoRufWEVyPHfn6CaWQUCbLyn+iC73GfWh2uqhACvm87or7uK7IVZp8p6gkwPd1EkN+
-	Eyiume4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QNIrjaSLJz1l+01cxHUk/dkr8/Tcp9kC0XImG+1cKHg=; b=NfWhYOIUgy7xwpbfhUGbpf4Asp
+	zfa+ms6pVDoU9a2LXeJ69KPdRqsMwRBSyDMtBtJ9p1WmJ7oQmiLDwS/izAsA2L9HqWHz8uzeq0dex
+	v1/srxMh47+AjjkRHU+jscLNlgPn1MTAMLTSklUmbqPVqyKvDsiQ5l9SYh9/GZj5tJnOKUhoEckvh
+	U2ZBgl9MnDNdqT+7Td5/FUdJlbe3HNPgJWuCcQH1V79kd5isKOAibowOrOazGPxdWuLRVLeQy3awC
+	cW2MAN6cdbv3lgYtMNcIE/9HC/QM+qR2/V6WUCkAL3BmmX6jr8fKTiVGcsm69XP7Tlyce/099hPgB
+	5CTh5Kmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkfX2-00000001vNn-1VaO;
-	Fri, 17 Jul 2026 10:11:00 +0000
-Received: from mail-oa1-x2e.google.com ([2001:4860:4864:20::2e])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkfWw-00000001vMf-33Jj
+	id 1wkfZ6-00000001vlD-31Ri;
+	Fri, 17 Jul 2026 10:13:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkfZ4-00000001vkm-00q2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 10:10:58 +0000
-Received: by mail-oa1-x2e.google.com with SMTP id 586e51a60fabf-4566a5bc186so927113fac.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 03:10:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784283053; x=1784887853; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=vijqM8KLfxoJ7zWFWIhaauEg3BKDHA3EobwX8Ha/oEk=;
-        b=U+El5XcvJhobJQEG620XP42H6HXPpulnkyW+cnYNkkrdAfKlu7x3aw30D3/Iu6Dn3D
-         f/UXONGGxi9gHi1ND+umVdQ2FZXy5i3M9QqmKzRPKsKewyhZGLLc7TmSGLVfv/aqDdOw
-         6nnvIxZtMD3ngNVatrINUtNfhx46Zc5NgKyR0F9uVBgBI5MmNkWG9DV6yJ13Hfk25A/M
-         C38kSoZX/b7qvxRad0yxsJSUPUU170DiCIbk3rpZXi5g4SqA5wiRN7luWOCDpThhdBQy
-         eaK0QbufRx9iz1GRHUjvN1yuHQ5H6oJGqKNDL5X0mDm1yELgi73Qv5IGUC0tV+xIBMEM
-         mgaQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784283053; x=1784887853;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=vijqM8KLfxoJ7zWFWIhaauEg3BKDHA3EobwX8Ha/oEk=;
-        b=eXu0OwT4/+9ef4JHe/IVGsJQLAIZTRY0S7z+6jPFSlDlb05fZfc4uWenz76vIUB4jU
-         7QUKNIIYyEcL1nDEXM4LuXxVkfJ/2l5wMPxgx9tY85k9bSG/naUGT+c5PytdfT6Jlt8h
-         7X1B4IF/NeC6wKHnZvpLY20F7pUT3twcNl1jZc6uHxlV79zxPPCGpTbs7zGit6nRbaIl
-         3coVO/GAGOkpBn+f4TyKscoLRn8jqg26P3MwGOl5s+wLdpY/QupkYef1VJNPuSd1Fz8z
-         NRcal01XCqiDB3xU2fTT5FohaJ/f9l4j56UrqYr0MvicNUjI7fZaNAlobdYumzC9Pq3t
-         MBkQ==
-X-Forwarded-Encrypted: i=1; AHgh+RqG1K1x5b8BL2IZazQM0EAdTt/Gdxro/b2sI4Z+VZjTlvOJpWaugXa70aPrC93lgfACKKNdTKNEE64q4do7brfm@lists.infradead.org
-X-Gm-Message-State: AOJu0YyW5bThFc/DmoD2FWhgZFy1OyD5Xa20j0TyPIGrKBsKq2K92x8w
-	Ermv1Uw2kbQPiQXj2/AHcCDAVbuwF+JgoYS3sor7My6NgNvQuDsBtHj3ML3zEeQQ6gE=
-X-Gm-Gg: AfdE7ck0ZK5rFPmx8cJSDVv0lsY24C7vO0aabXFmrMQ7cu8qVRhRyUVUvIMl1M0hka6
-	734VxbvpdOykxzHRgL72mlL13fEmGzZ3mE0xy4ct5On2EdZyVUW0oP0c+TCff9/mCulObvjgR+x
-	BxtyUIQrbDo5DcNI511Thy/Nu9JZejtjRkqCwD5CYV2ZRJK2Md8HIKe5fzxy3YarRg9gK8hmrT1
-	7T0eGC+oBJnttvK654pXsiJzu3Uo3LUQYVX6rTrClBMe26KgF3nhUQS9KFuSdZkVN0lKwHDb3oP
-	qb/XjP25FScFx3ou2NFAVBRofOXL/uage/JFGTPNXZPA41GRk/K5VKUUKh2IjeehMKiOIgC3vQV
-	hhf3ZeHSm5+H8fT4+ehMjvyr+J4IYwxBr3GI6G9W0APS1rGzurPZfIaJrqcYMvrn1xkI3QQ==
-X-Received: by 2002:a05:6870:b3ed:b0:455:c1d1:9cc0 with SMTP id 586e51a60fabf-456901aa97bmr914974fac.19.1784283053390;
-        Fri, 17 Jul 2026 03:10:53 -0700 (PDT)
-Received: from localhost ([74.80.182.90])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4568e61cee3sm970024fac.9.2026.07.17.03.10.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 Jul 2026 03:10:51 -0700 (PDT)
-Date: Fri, 17 Jul 2026 13:10:44 +0300
-From: Dan Carpenter <error27@gmail.com>
-To: ziniu.wang_1@oss.nxp.com
-Cc: adrian.hunter@intel.com, ulfh@kernel.org, haibo.chen@nxp.com,
-	Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, imx@lists.linux.dev, linux-mmc@vger.kernel.org,
-	s32@nxp.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, harshit.m.mogalapalli@oracle.com
-Subject: Re: [PATCH v7 8/8] mmc: sdhci-esdhc-imx: fix resume error handling
-Message-ID: <aln_pFNqL8495Y_a@stanley.mountain>
-References: <20260715071818.272318-1-ziniu.wang_1@oss.nxp.com>
- <20260715071818.272318-9-ziniu.wang_1@oss.nxp.com>
+	Fri, 17 Jul 2026 10:13:07 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CC5921476;
+	Fri, 17 Jul 2026 03:13:00 -0700 (PDT)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5B6B43F7D8;
+	Fri, 17 Jul 2026 03:13:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784283184; bh=IbzdYhLneiEOTxgbETon//bLPPusokAVXvyXbnD3rwY=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=AETqWx/BC2w44cYCugIvBq065SOia90FmCdRd4hIfml6RKqIPjm6Pt3x7J58OtLR8
+	 Kz1oTy6ay4Ht/6La9NyYjGiwWGp0JwePx2ifwA+tj9z/rRKizBVw0ExW8tFgLFdSYU
+	 XcbRaIKYQYA4eo+qvPmiU8j8CkpYxAek4aGuAUZ8=
+Message-ID: <2ea1cc87-45cb-492e-8099-679b31a1a37b@arm.com>
+Date: Fri, 17 Jul 2026 11:13:00 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260715071818.272318-9-ziniu.wang_1@oss.nxp.com>
+User-Agent: Thunderbird Daily
+Subject: Re: [PATCH 03/23] resctrl: Expose MBA resource_schemata mode sysfs
+From: Ben Horgan <ben.horgan@arm.com>
+To: Fenghua Yu <fenghuay@nvidia.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Tony Luck
+ <tony.luck@intel.com>, James Morse <james.morse@arm.com>,
+ Dave Martin <Dave.Martin@arm.com>, Shaopeng Tan <tan.shaopeng@fujitsu.com>,
+ Chen Yu <yu.c.chen@intel.com>, Babu Moger <babu.moger@amd.com>,
+ Drew Fustini <fustini@kernel.org>, Vikram Sethi <vsethi@nvidia.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Newton Liu
+ <newtonl@nvidia.com>, Gavin Shan <gshan@redhat.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <cover.1784217438.git.fenghuay@nvidia.com>
+ <20260716210329.2914625-3-fenghuay@nvidia.com>
+ <1778dc0e-4a5a-45d5-865c-ab8c65988636@arm.com>
+Content-Language: en-US
+In-Reply-To: <1778dc0e-4a5a-45d5-865c-ab8c65988636@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_031054_770515_F846D6BC 
-X-CRM114-Status: GOOD (  21.34  )
+X-CRM114-CacheID: sfid-20260717_031306_230855_7BA1AF8F 
+X-CRM114-Status: GOOD (  42.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,105 +78,242 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 15, 2026 at 03:18:18PM +0800, ziniu.wang_1@oss.nxp.com wrote:
-> From: Luke Wang <ziniu.wang_1@nxp.com>
+Hi Fenghua,
+
+Just coming back to this.
+
+On 7/17/26 09:54, Ben Horgan wrote:
+> Hi Fenghua,
 > 
-> Check pm_runtime_force_resume() return value in resume. If it fails
-> (clock enable failure), return immediately since accessing hardware
-> registers on an unclocked device would cause a kernel panic.
+> On 7/16/26 22:02, Fenghua Yu wrote:
+>> Node-scoped MBA on MPAM needs a way to distinguish native memory-side
+>> controls from legacy L3-shaped MB emulation. Track the selected emulate
+>> mode on rdt_resource and expose it as
+>> info/<resource>/resource_schemata/mode ("native" or "legacy") when the
+>> architecture enables emulation.
+> 
+> This doesn't sound right.
+> 
+> If the MPAM mbwu counters are counting traffic on the egress of the L3 they should be described in
+
+The same point stands but I should say 'MPAM bandwidth partitioning controls' rather than 'MPAM mbwu
+counters'.
+
+> the acpi tables as such, if they are not then they shouldn't. If they are the MB resource can then
+> be scoped to the L3.
+> 
+> If the MPAM mbwu counters are at the memory bandwidth controller then they should be described in
+> the acpi tables as such. Currently there is no support for such counters except when there is a
+> single L3 and a single NUMA node and so a single link between the caches and the memory. Counting at
+> either end of the link, egress of the L3 or entry to the memory gives the same counts and so the
+> driver performs some unfortunate gymnastics to use L3 scope in this case. Do you see a reason not to
+> do this? If we change the scope to be NUMA node in these platforms all I see changing is the domain
+> id for the sole MB domain.
+> 
+> As such, can't we just add support for a NUMA scope memory bandwidth allocation resource, MB_NODE,
+> without having a legacy/native switch?
+
+Is the idea to use whatever is closest to the meaning of the MB resource to represent it?
+
+I see the benefit of stretching the existing interface to match new platforms but I am wary. For
+instance, the power management of MSC at the memory is different from that at caches. When a memory
+node is powered off the cpus can be still be on and so the user will see resctrl domains going
+offline and online at different times for the two.
+
+So far the MPAM driver has also been strict at only associating the MB with bandwidth allocation
+that can be considered at the egress of the L3 and anything else not. Part of the reasoning for this
+was that we didn't want to stop a better representation later. However, if there is an emulation
+toggle (legacy/native) then this reasoning becomes less compelling.
+
+For any node scoped support we need to consider power management. (For a single NUMA node this was
+ok as you can't turn off all the memory.) James has some example patches at [1] which add the
+hotplug lock to resctrl and add memory hotplug handlers to the mpam driver.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git mpam/snapshot%2bextras/v6.18-rc1
+
+Thanks,
+
+Ben
+
+> 
+> Thanks,
+> 
+> Ben
+> 
+>>
+>> The mode file is only created when rdt_resource::mode is non-zero
+>> (RESCTRL_CTRL_LEGACY or RESCTRL_CTRL_NATIVE). It defaults to
+>> RESCTRL_CTRL_MODE_NONE, so resources whose architecture does not support
+>> control emulation get no mode file and are unaffected. Architecture
+>> backends that support emulation set the initial mode when they create
+>> their controls; on MPAM this is wired up together with the node-scoped
+>> MB_NODE control in a later patch, so this commit only adds the (dormant)
+>> generic mechanism.
+>>
+>> The mode file is added read-only here: switching the mode at runtime
+>> requires rebuilding the resource_schemata layout to match the new mode,
+>> so the writable interface is added together with that rebuild logic in a
+>> later patch. Keeping the file read-only until then avoids exposing a
+>> writable-but-no-op interface.
+>>
+>> Store rdt_resource_final in the resource_schemata directory priv so the
+>> mode file can resolve the backing resource without dereferencing NULL.
+>>
+>> Signed-off-by: Fenghua Yu <fenghuay@nvidia.com>
+>> ---
+>>  fs/resctrl/rdtgroup.c   | 77 ++++++++++++++++++++++++++++++++++++++++-
+>>  include/linux/resctrl.h | 17 +++++++++
+>>  2 files changed, 93 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/fs/resctrl/rdtgroup.c b/fs/resctrl/rdtgroup.c
+>> index 2abb7fda6091..6b1f24c6a1f2 100644
+>> --- a/fs/resctrl/rdtgroup.c
+>> +++ b/fs/resctrl/rdtgroup.c
+>> @@ -2696,6 +2696,74 @@ static unsigned long fflags_from_resource(struct rdt_resource *r)
+>>  	return WARN_ON_ONCE(1);
+>>  }
+>>  
+>> +static int resctrl_ctrl_mb_mode_show(struct kernfs_open_file *of,
+>> +				     struct seq_file *seq, void *v)
+>> +{
+>> +	struct rdt_resource_final *f = rdt_kn_parent_priv(of->kn);
+>> +	struct rdt_resource *r = f->res;
+>> +
+>> +	guard(mutex)(&rdtgroup_mutex);
+>> +
+>> +	switch (r->mode) {
+>> +	case RESCTRL_CTRL_LEGACY:
+>> +		seq_puts(seq, "[legacy] native\n");
+>> +		break;
+>> +	case RESCTRL_CTRL_NATIVE:
+>> +		seq_puts(seq, "legacy [native]\n");
+>> +		break;
+>> +	default:
+>> +		WARN_ONCE(1, "%s: unexpected MB control mode %d\n",
+>> +			  f->name, r->mode);
+>> +		seq_puts(seq, "legacy native\n");
+>> +		break;
+>> +	}
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static struct rftype resctrl_ctrl_mb_files[] = {
+>> +	{
+>> +		.name		= "mode",
+>> +		.mode		= 0444,
+>> +		.kf_ops		= &rdtgroup_kf_single_ops,
+>> +		.seq_show	= resctrl_ctrl_mb_mode_show,
+>> +		/*
+>> +		 * Directory-level file, not per-control: fflags is only a
+>> +		 * presence flag here, not the BIT(ctrl->type) type filter used
+>> +		 * by resctrl_add_ctrl_files().
+>> +		 */
+>> +		.fflags		= 1,
+>> +	}
+>> +};
+>> +
+>> +static int resctrl_ctrl_add_files(struct kernfs_node *kn)
+>> +{
+>> +	struct rftype *rfts, *rft;
+>> +	int ret, len;
+>> +
+>> +	rfts = resctrl_ctrl_mb_files;
+>> +	len = ARRAY_SIZE(resctrl_ctrl_mb_files);
+>> +
+>> +	lockdep_assert_held(&rdtgroup_mutex);
+>> +
+>> +	for (rft = rfts; rft < rfts + len; rft++) {
+>> +		if (rft->fflags) {
+>> +			ret = rdtgroup_add_file(kn, rft);
+>> +			if (ret)
+>> +				goto error;
+>> +		}
+>> +	}
+>> +
+>> +	return 0;
+>> +error:
+>> +	pr_warn("Failed to add %s, err=%d\n", rft->name, ret);
+>> +	while (--rft >= rfts) {
+>> +		if (rft->fflags)
+>> +			kernfs_remove_by_name(kn, rft->name);
+>> +	}
+>> +	return ret;
+>> +}
+>> +
+>>  /*
+>>   * No need to cleanup on exit - caller calls the recursive kernfs_remove()
+>>   * on failure.
+>> @@ -2704,11 +2772,12 @@ static int resctrl_mkdir_schemata_dir(struct kernfs_node *kn,
+>>  				      struct rdt_resource_final *f)
+>>  {
+>>  	struct kernfs_node *kn_subdir, *kn_ctrl;
+>> +	struct rdt_resource *r = f->res;
+>>  	struct resctrl_ctrl *ctrl;
+>>  	char ctrl_full_name[20];
+>>  	int ret;
+>>  
+>> -	kn_subdir = kernfs_create_dir(kn, "resource_schemata", kn->mode, NULL);
+>> +	kn_subdir = kernfs_create_dir(kn, "resource_schemata", kn->mode, f);
+>>  	if (IS_ERR(kn_subdir))
+>>  		return PTR_ERR(kn_subdir);
+>>  
+>> @@ -2716,6 +2785,12 @@ static int resctrl_mkdir_schemata_dir(struct kernfs_node *kn,
+>>  	if (ret)
+>>  		return ret;
+>>  
+>> +	if (r->mode) {
+>> +		ret = resctrl_ctrl_add_files(kn_subdir);
+>> +		if (ret)
+>> +			return ret;
+>> +	}
+>> +
+>>  	for_each_resource_ctrl(ctrl, f->res) {
+>>  		ret = snprintf(ctrl_full_name, sizeof(ctrl_full_name), "%s%s%s",
+>>  			       f->name, resctrl_ctrl_is_default(ctrl) ? "" : "_",
+>> diff --git a/include/linux/resctrl.h b/include/linux/resctrl.h
+>> index 72fb7256270e..4fc41e269d0b 100644
+>> --- a/include/linux/resctrl.h
+>> +++ b/include/linux/resctrl.h
+>> @@ -257,6 +257,16 @@ enum resctrl_ctrl_unit {
+>>  	RESCTRL_CTRL_UNIT_GBPS,
+>>  };
+>>  
+>> +enum resctrl_ctrl_mode {
+>> +	/*
+>> +	 * Default (zero) value: the resource does not support control
+>> +	 * emulation, so no resource_schemata/mode file is created for it.
+>> +	 */
+>> +	RESCTRL_CTRL_MODE_NONE = 0,
+>> +	RESCTRL_CTRL_LEGACY,
+>> +	RESCTRL_CTRL_NATIVE,
+>> +};
+>> +
+>>  /**
+>>   * struct resctrl_membw - Memory bandwidth allocation related data
+>>   * @min_bw:		Minimum memory bandwidth percentage user can request
+>> @@ -399,6 +409,12 @@ struct resctrl_ctrl {
+>>   *			different memory bandwidths
+>>   * @cache_io_alloc_capable:True if portion of the cache can be configured
+>>   *			   for I/O traffic.
+>> + * @mode:		Control emulation mode for this resource.
+>> + *			RESCTRL_CTRL_MODE_NONE if the resource does not support
+>> + *			emulation. "legacy": keep the legacy MB control,
+>> + *			emulating it with a native control when it has no MBW
+>> + *			hardware of its own. "native": expose native controls
+>> + *			directly with no emulation.
+>>   * @controls:		List of controls of an alloc_capable resource
+>>   */
+>>  struct rdt_resource {
+>> @@ -413,6 +429,7 @@ struct rdt_resource {
+>>  	bool				bw_delay_linear;
+>>  	enum membw_throttle_mode	bw_throttle_mode;
+>>  	bool				cache_io_alloc_capable;
+>> +	enum resctrl_ctrl_mode		mode;
+>>  	struct list_head		controls;
+>>  };
+>>  
+> 
 > 
 
-The commit message says "would" which implies maybe...  Is this something
-that happens in real life?
-
-
-> The early return intentionally skips enable_irq() and
-> sdhci_disable_irq_wakeups() because the IRQ handler reads
-> SDHCI_INT_STATUS, which would also fault without clocks. The PM runtime
-> usage counter leak only affects this already-broken device instance and
-> is an acceptable tradeoff to preserve system stability.
-> 
-> Remove the return value check for mmc_gpio_set_cd_wake(host->mmc, false)
-> since disable_irq_wake() called internally always returns 0.
-
-I kind of agree with Sashiko here that keeping the check is better future
-proofing.
-
-> 
-> Also return 0 explicitly on the success path instead of propagating
-> stale return values.
-
-Unrelated cleans...  :/
-
-> 
-> Fixes: 676a83855614 ("mmc: host: sdhci-esdhc-imx: refactor the system PM logic")
-> Acked-by: Adrian Hunter <adrian.hunter@intel.com>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
-> ---
->  drivers/mmc/host/sdhci-esdhc-imx.c | 8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
-> index 290a3172931b..18f4905c15b9 100644
-> --- a/drivers/mmc/host/sdhci-esdhc-imx.c
-> +++ b/drivers/mmc/host/sdhci-esdhc-imx.c
-> @@ -2123,12 +2123,12 @@ static int sdhci_esdhc_resume(struct device *dev)
->  			dev_warn(dev, "Failed to restore pinctrl state\n");
->  	}
->  
-> -	pm_runtime_force_resume(dev);
-> -
-> -	ret = mmc_gpio_set_cd_wake(host->mmc, false);
-> +	ret = pm_runtime_force_resume(dev);
->  	if (ret)
->  		return ret;
->  
-> +	mmc_gpio_set_cd_wake(host->mmc, false);
-> +
-
-copy-paste-checker says that similar code exists in:
-
-drivers/mmc/host/sdhci-tegra.c
-  1879  static int sdhci_tegra_resume(struct device *dev)
-  1880  {
-  1881          struct sdhci_host *host = dev_get_drvdata(dev);
-  1882          int ret;
-  1883  
-  1884          ret = mmc_gpio_set_cd_wake(host->mmc, false);
-  1885          if (ret)
-  1886                  return ret;
-  1887  
-  1888          ret = pm_runtime_force_resume(dev);
-  1889          if (ret)
-  1890                  return ret;
-
-In this case we are calling mmc_gpio_set_cd_wake() before calling
-resume so it's surprising that that doesn't cause a panic..
-
-  1891  
-  1892          sdhci_tegra_program_stream_id(host);
-  1893  
-  1894          ret = sdhci_resume_host(host);
-  1895          if (ret)
-  1896                  goto disable_clk;
-  1897  
-  1898          if (host->mmc->caps2 & MMC_CAP2_CQE) {
-  1899                  ret = cqhci_resume(host->mmc);
-  1900                  if (ret)
-  1901                          goto suspend_host;
-  1902          }
-  1903  
-  1904          return 0;
-  1905  
-  1906  suspend_host:
-  1907          sdhci_suspend_host(host);
-  1908  disable_clk:
-  1909          pm_runtime_force_suspend(dev);
-  1910          return ret;
-  1911  }
-
-regards,
-dan carpenter
- 
 
