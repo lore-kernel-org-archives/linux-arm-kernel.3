@@ -4,67 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E73AC4451B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 15:59:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87FD0C4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 16:01:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IstgRLTJKNzTVf2DzZ9EtYolGXqanftf60Om1sBFiBI=; b=hZFy+0U6NyE+WNDwpAKr7A5nVh
-	HdSpcG8dcqWWF89kcsrNd0H/5EwtaKhcHS4opsIWxYEgo/+VRR3xJvEx4ka4i2EP47rIBypPb1eS6
-	Ae59tI7vIQvFg2evoSjpp8ZshrhIVmRwFS66Xe2cTfLRECD8hgIzNyUGFsmLVG6GHdq3c3/QEjq5w
-	rxHD5c0bvIF9Aya7APmomvhwqwCU1CyfHfuyH2SjCvHG+Xky2sXM6SBgzfCVLNPPJziCYdaoP0MuT
-	18gExtnmYebZF0ATqIoPY98DoGrOQNVPhnxifmKlHHThmLiX3jAbFT9idPUVicSfVnurTS5sgH/nU
-	HvJZcMDQ==;
+	bh=b518yO1BGkJvdZAaSEazGiO276NMnJIP8Vx9USQaPa8=; b=fjCfT/ciB1t+5BnhtxUxQetZ+5
+	ugY1Wb2WiDxjmIkgNTgh1yQeCIxz/LQ8gHcdbzZzYAFQ03HN1GK81PIdmmqJ0o7c5uqfrNXsOvcZz
+	QDKs+/JXomfF5xZYfdyyRvqNI2j637KX28n1C+gYS/lSAU4HeixkPAbEDPoZBy3tivPN0/O12839Q
+	PY0lVaGWTqZab6+54+JCXSl/3ABB3Gp8L8nhMbAw9Z5DNi0Jme+WR7lSj4jXm6WQ1NGRDp3W9cBOF
+	8ypZnqUMEmGxKNsDfez1y0rzfIIP/Z9jKOG6iOkKpK0grZLrAvoMuBjfpoP7SSEcGR3bO2kXpErj/
+	+msNxivg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkkxl-00000002gfA-0ogU;
-	Fri, 17 Jul 2026 15:58:57 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkkxi-00000002gdp-32j4
+	id 1wkkzp-00000002h5I-0Vm5;
+	Fri, 17 Jul 2026 16:01:05 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkkzn-00000002h4D-23W7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 15:58:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2D6C81476;
-	Fri, 17 Jul 2026 08:58:47 -0700 (PDT)
-Received: from localhost (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 013703F905;
-	Fri, 17 Jul 2026 08:58:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784303931; bh=AtgJblUedqk/MGp++U2qIbkbsahrGGfYJfzRXOGEZIk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=meTzP0sbPJwm08MUZ7+xwldKmtnHbAIhC4emfIEp/ILrACd6FgOdVUD5m4mNKs8+1
-	 5ZH2KJHt1aZD5SdvtCRRvDUK5x+5rCKXDHQ8QQLtLcoUe5QFTQ1FXe6gXNcQrBKfj2
-	 T8Py6kfk81fEl1iJdxoCcCByJOJUe35rdorII42U=
-Date: Fri, 17 Jul 2026 16:58:48 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Mohamed Ayman <mohamedaymanworkspace@gmail.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	"moderated list:ARM/CORESIGHT FRAMEWORK AND DRIVERS" <coresight@lists.linaro.org>,
-	"moderated list:ARM/CORESIGHT FRAMEWORK AND DRIVERS" <linux-arm-kernel@lists.infradead.org>,
+	Fri, 17 Jul 2026 16:01:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lrl/oZoEOFVKpK1296IyzJ+kGBAFkXKpwy3bjp1m7t/BEeUsU9ngrTN4lqVEaO9zo3ZqOqRN7agmdk4KNECNcikVFEALHbW73YwwAGILxqLDcJ/51Z5MgRTRRCi7SEKMNPXBs5FjpYsUbdr1JyBPeqfGGBexsFHEvFY9dIxa2RdZRexs5TNs+Z6wx6B+M0tkeecXfImm+/KnQ7Z4f/g5r9rDIavgROvr3EgFmkkfFT/0T1xH3JvsGWQYDX+apGXC4tVWj5JryVBo8fgRMeq1xAaqyZ2LzoEDlSylEpihBss32rNi8TR0ZjoMsssS9yciF6zKQNY0JJOuxr9FkGepaQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=b518yO1BGkJvdZAaSEazGiO276NMnJIP8Vx9USQaPa8=;
+ b=HI2z7RlcoXnaqDGU06wYqVwY2VFJB+gsc6IEj5/nKORBlGt8xygmM90OiROMxXifGJiajXBSQOtZQ5UCcceKioI6zGLJhbYjhQTwRR8GGnLdl0VR75/SFs5UondOfozi6OEY9f8sLb+MkoI17tln+dkE0nv8BCnSQKwRBJS+D8qEq2lqd17T2nj95nkeOZSivNZvU15hFE2lg1CjQf/kwQ6evQVbp1MiHaC6fzxZOzPmskFX2MV9jv+kY5vDhM6l+7Hn+ZcqgC2o4F1+iLSSO1UhvXsjq5UZ1sAeWocZh3ZhfIhiorNDUdEYADJx/WMglk1GAZnJdP+AKVmkH5bAjw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=b518yO1BGkJvdZAaSEazGiO276NMnJIP8Vx9USQaPa8=;
+ b=PoMWAeEv0G6GpHfya4s5XabuknIPCYOSLkr0cPHQMY1Q+8ebSTzXDL9mAj0o/z76nwiHpO2Uj9S8aAG7Es8WE6XV6K43/aIZCxW3k+mR7oacsMEl3hV2w4F463dNJXCnfVoQoA/iqB2g+JZOHUZyGhTmNetA1RYujxjVHhSXyzI0REPN6dtRE+gA/2dRXLh8B2T85uhaH+rWLe5Z8WkyQj7PbzYZJEwQUOFlJl74fslCFLCHxJ3nP0XN03J1gz37t7vHTECZRKiP1dWt76EtLn3tFyP1AFmtG3UViJZ+wTTTWRnxQqSsitXqcnzy6HVfucLo6agy8Ubb9lq0J2/yVg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by GV1PR04MB10824.eurprd04.prod.outlook.com (2603:10a6:150:20c::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.12; Fri, 17 Jul
+ 2026 16:00:53 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0223.011; Fri, 17 Jul 2026
+ 16:00:53 +0000
+Date: Fri, 17 Jul 2026 11:00:43 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Pan Chuang <panchuang@vivo.com>
+Cc: Shuai Xue <xueshuai@linux.alibaba.com>, Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, Frank Li <Frank.li@nxp.com>,
+	Xu Yang <xu.yang_2@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Ji Sheng Teoh <jisheng.teoh@starfivetech.com>,
+	Khuong Dinh <khuong@os.amperecomputing.com>,
+	"moderated list:ARM PMU PROFILING AND DEBUGGING" <linux-arm-kernel@lists.infradead.org>,
+	"open list:ARM PMU PROFILING AND DEBUGGING" <linux-perf-users@vger.kernel.org>,
 	open list <linux-kernel@vger.kernel.org>,
-	"open list:Real-time Linux (PREEMPT_RT):Keyword:PREEMPT_RT" <linux-rt-devel@lists.linux.dev>
-Subject: Re: [PATCH v3] coresight: Fix scheduling while atomic in
- coresight_cpu_pm_notify()
-Message-ID: <20260717155848.GB3998092@e132581.arm.com>
-References: <20260712210446.14290-1-mohamedaymanworkspace@gmail.com>
- <20260716214155.2049564-1-mohamedaymanworkspace@gmail.com>
-MIME-Version: 1.0
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
+	"open list:ARM/QUALCOMM MAILING LIST" <linux-arm-msm@vger.kernel.org>
+Subject: Re: [PATCH 1/3] perf: Remove redundant dev_err()/dev_err_probe()
+Message-ID: <alpRq-4qhxCTwy8R@SMW015318>
+References: <20260717103123.34887-1-panchuang@vivo.com>
+ <20260717103123.34887-2-panchuang@vivo.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260716214155.2049564-1-mohamedaymanworkspace@gmail.com>
+In-Reply-To: <20260717103123.34887-2-panchuang@vivo.com>
+X-ClientProxiedBy: SN7PR04CA0047.namprd04.prod.outlook.com
+ (2603:10b6:806:120::22) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GV1PR04MB10824:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7166819f-729f-40d1-c639-08dee41c9420
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|19092799006|376014|7416014|1800799024|366016|6133799003|11063799006|56012099006|10067099003|4143699003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: XCBCO1buIkOIVDnMDnl2eMEI1OUDZme2wmzoAXK+LA2pf7nGTgu68Idzxhv7BnKsTbLFm+X7vRbTKoItK3UOXbRAgDyFIqrlvOahNoSJaCU1/Qv91Oc2zQurQylLoQyNNtAVnsA40dpj5oZrXFMbDl4nNa/Wum1Rx3Rw+ZvF2lIGcLWzirr8/7ksZ/rKN2L7abDw8O9zz86Oa8smoEYQXq8mcjf1WZ/o8XUBuHVMH2g3Zvt1Xf5o8CAxf7Gjrd+bmwROpXVUSmF6ig6kuzbI2oWzzKj4sgbusTuo1Chv8DVeOq29RMKZoa6B55D+KDVMCr8+pv0E2hUrLvsXOIXc854Yr9RqlcZtJ/jsdtaLE475kAlufGDJfPSSWku7K6wK9KbuC331DY9v9lMSX5gjd1q4TvBv5cWcOgYGy6yl1IzS0VCHkoonfBj4Ocfbz/AL7D3waArASMSB2Rb0/JveCrfrl/QsQ2/O3Lh8QEtvuq6wohzeZTYDx38MupNE0tfIHueAu+ePcM7kf4bbcKBDR5L8AqO4AIe1eI+8UFWjPXeD2RlKdUMTfh20HDpKv7lDtocRop0ZpBkOZb1b6PBqvYRJEa9fEtYcKZqHHiVeBlYMdgvoz18tKFIKJRTzo3d417LfRyng7r/JP9HotoNQ/r4e7fbMkPmf4Gv/KJ/9BJc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(376014)(7416014)(1800799024)(366016)(6133799003)(11063799006)(56012099006)(10067099003)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?oltIm0ajfgbO2BOi9FBZluWKdFrhoI3XmLIb/w4UuJa8M/w8z2JiI6WjJ/3R?=
+ =?us-ascii?Q?JpltUm4Q/yjEAYj5psCN/q2y1733v6aQYzbp9o3VFis5gOWxwSOvzFb+ODIk?=
+ =?us-ascii?Q?fwy6H+Xf/1D8zVDVruKuCkQIDKrQ+L0HW9vMI+b+Z3AdxKKaIT2J61041Ysx?=
+ =?us-ascii?Q?6bcmqNF16MaWyRYLB/4vFMLWRWnZcmIpg+pPyHiwkpj6EPty7gtpY45H35z1?=
+ =?us-ascii?Q?vf86Z6PE2dQyP9qqWUXRNi/pbpvoitVCxT2DPXk/sXJV5gtHmpV0OuVa9wRM?=
+ =?us-ascii?Q?jYZZib1wsHdcyu1S5EHzNCtwJ7n9uwScwjETGIy0lqBLunQKmTsQvGWte4jN?=
+ =?us-ascii?Q?jx6yTTQVYMWavnF6oMr4uOPM7y8HDwWIBiEYpZeCjEXzNFj86bOHcdNlN3d7?=
+ =?us-ascii?Q?EM0aUo0U6SWDttRDPbM7BYmGVIpfubVt35AeBUOwt+LkMrd5wc8CjaiOlMoP?=
+ =?us-ascii?Q?+WV+mCfiLf/uL39VZH2wzKsXXVwZorlSBo5G72+amqFw1WRY5Ks2DtoSRrqc?=
+ =?us-ascii?Q?9bvsdDnYxPOjCAsFiS1UKqALnTB/Ngmi0EEJhx0/YQmutRvZkOwZbzMXRpH2?=
+ =?us-ascii?Q?RY7mVq+LRUYPJZiFiTQ4BKgN4pA2RmtaDccW/ZUDUwp2Fv8JMm7PdAtpnNKP?=
+ =?us-ascii?Q?7qkdDDpcOPyzWregGipRy4FqEn0cvHNRhIlWHNjGSas0YfRQnLST3NKct40Q?=
+ =?us-ascii?Q?D10Bx4WrZiZ9aqC4vdNgJV1dtjSdW+2ZCZSSoEL0wyEqP4+ZK0OeUor+DOkE?=
+ =?us-ascii?Q?Bpl5rTEDT6n6RXEzyADzKhcPaOhsLdglSdAB5o4aNDJBmBH65nUpsO9WCGSX?=
+ =?us-ascii?Q?n7+i2GPRGdJDuqcIyuy2WSteCVP8cHX2+aUyfXSCP5T23ZTVNeZ6RteF20nS?=
+ =?us-ascii?Q?p4C+qLqsTsUSCTH291MwAcuNdHDuC9MhM8L8jZ+m9uKODRnGXaMCmSqsdrm7?=
+ =?us-ascii?Q?oQ5elQZMWy45DIWZFy4+TGmTapj1TONuGZwZqpqCN0lw4VTamft48e/e6/dO?=
+ =?us-ascii?Q?qwJzyeB4IL9uFAuISkuNo67YpYOcECVnVSx4CiRfXtSlfDezRDrGQ5p4jMfY?=
+ =?us-ascii?Q?yocJH3tn62ilLaLaC89Mj1Xz9OygdbaqeS92ptSmQi6rgewYDn30OUR437dw?=
+ =?us-ascii?Q?83XNdXCwokRV4RVWR4c9lD3RDrAltp421uMAExs6dFdv8JNDM8Pz5bv/p8ZZ?=
+ =?us-ascii?Q?FbXI0SzkeRxah4VVNGXtG+9+IvXqjh7yjnIp4RxjhKm0e/7WpemPPOxJ1oJS?=
+ =?us-ascii?Q?HkeauhIf/TfHo2Z3OzNvGRbSI9e5KC+OVkb1E2wQskw6aU4ozxYYVCca1rLb?=
+ =?us-ascii?Q?REZhxrv56tSerA38SGClb54dRp40Rcb9DXyaqZafjM8kaDrtjEZ+E64rWsLj?=
+ =?us-ascii?Q?Rg9AyJVBYQ+Oo/rPr8H9qO5DQdA5Bkg/TMCiyrcD3m66Dyd3RLP6y8u3tQCO?=
+ =?us-ascii?Q?dq/QMN72u8pQ4i9LFPUxBdGladn/QQGNJ49fb1S8Us6L3n7ZnYa+U10oopjB?=
+ =?us-ascii?Q?YiAEccANR/W+NqQW7+7Fkc5H+Y//D/ahGY7NYHLQNxO3pjhSfPkazIK4vRD3?=
+ =?us-ascii?Q?4taFmf9Dz4xAhj+fEi9E2//EtaXAJJJADGqzGacxsGnKF+RMZ2AUg+9d3HOE?=
+ =?us-ascii?Q?UgMYAHhcOE2pls6stoHOWYhDmfFVd4FesyrRSfsrUDkycw+lvtScsAoHjko4?=
+ =?us-ascii?Q?gvTYHkjeoDHuuKV67yM6iOJy9XFI2NwLfSvwRygMKwrQUOTPUmXTOmi6BxsS?=
+ =?us-ascii?Q?lm4kuliCK6/gMW/67IV6DxQCe/nSfipo9dASYoNIv65GKABasK1k?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7166819f-729f-40d1-c639-08dee41c9420
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2026 16:00:53.0267
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Yx/pjDfOfdPJ5hK/Lwa38m90MueFOD9HukGaRrRO3lz/67YgRyUZAseREtSzutygObcj2o7tqkk+OGQGe3YeHEPxJE/I1UGCIM/Y9gKZgjKmId5Zr9PKAKSh6iPK1UxW
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10824
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_085854_854984_B2A118E7 
-X-CRM114-Status: GOOD (  17.76  )
+X-CRM114-CacheID: sfid-20260717_090103_531582_2D2C216D 
+X-CRM114-Status: UNSURE (   7.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,63 +147,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 17, 2026 at 12:41:54AM +0300, Mohamed Ayman wrote:
+On Fri, Jul 17, 2026 at 06:31:17PM +0800, Pan Chuang wrote:
+> Since commit 55b48e23f5c4 ("genirq/devres: Add error handling in
+> devm_request_*_irq()"), devm_request_irq() automatically logs
+> detailed error messages on failure. Remove the now-redundant
+> driver-specific dev_err() and dev_err_probe() calls.
+>
+> Signed-off-by: Pan Chuang <panchuang@vivo.com>
+> ---
+>  drivers/perf/alibaba_uncore_drw_pmu.c | 5 +----
+>  drivers/perf/fsl_imx8_ddr_perf.c      | 4 +---
+>  drivers/perf/fsl_imx9_ddr_perf.c      | 4 +---
 
-[...]
+for imx part
 
->  static struct coresight_path *coresight_cpu_get_active_path(enum cs_mode mode)
->  {
->  	struct coresight_device *source;
-> -	bool is_active = false;
-> +	struct coresight_path *path = NULL;
->  
-> -	source = coresight_get_percpu_source_ref(smp_processor_id());
-> -	if (!source)
-> -		return NULL;
-> -
-> -	if (coresight_get_mode(source) & mode)
-> -		is_active = true;
-> +	guard(raw_spinlock_irqsave)(&coresight_dev_lock);
->  
-> -	coresight_put_percpu_source_ref(source);
-> +	source = per_cpu(csdev_source, smp_processor_id());
-> +	if (source && (coresight_get_mode(source) & mode))
-> +		path = source->path;
+Acked-by: Frank Li <Frank.Li@kernel.org>
 
-I agree the get_device()/put_device() pair in
-coresight_cpu_get_active_path() is not a good fit for CPU PM notifier,
-because the put_device() can become the final put while IRQ is disabled.
-
-However, my understanding is this patch might cause UAF issue that the
-existing code is intended to prevent.
-
-The raw spinlock (coresight_dev_lock) serializes access to the per-CPU
-csdev_source pointer. It does not guarantee the lifetime of the source
-or its _parent_ device. coresight_unregister() is not only reached from
-module unload; it can also be called when a driver is unbind, for
-example DT overlay removal or device hotplug/unplug.
-
-This is why the UAF issue Sashiko mentioned in patch 03 of [1]. A built
-CoreSight path currently grabs references for the path components, which
-keeps module alive, but that is not the same as preventing the parent
-device/driver from being unbound and tearing down CoreSight device data
-while an active session still has raw pointers.
-
-There are also similar race window before the path is built: for
-example etm_setup_aux() has to look up source/sink state before
-coresight_build_path() establishes the path, so it might access
-released source/sink data if device is unbound.
-
-I think a proper fix needs a clearer lifetime model for an active
-session. E.g., we could consider to call device_link_add() to prevent
-device unbind / unregister, and unlink device when the session is
-finished. Once that is in place, the CPU PM notifier can safely use the
-active path without get_device()/put_device() pair anymore.
-
-Hope this is clear and makes sense.
-
-Thanks,
-Leo
-
-[1] https://sashiko.dev/#/patchset/20260405-arm_coresight_path_power_management_improvement-v10-0-13e94754a8be%40arm.com
 
