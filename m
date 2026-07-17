@@ -4,154 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4987EC44515
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 15:32:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 939D3C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 15:37:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PXbuCOBiPNN57BJ5m4JDTkx3mbk1UiBM2WvbCogeFR0=; b=FcxN8s/twGCi9asb2xSskxhrgm
-	8T91q8Rr3Az4m8LC4MNSfSvu2cUaE1uYLFNoTz1L847wKhZrZZLOddTpK/hZYRWG6X+xLk6J88TfI
-	bu+HiXh+ZhfUDgVf7VOzqUDKK4lFQ9iZl7Ujesx6bv0QeAzh2i9CPXEiJKCrLDbiudz7y2E9Qj4/v
-	us0F7big1gchwtMPWaI+6pbYzhWL+R6E4nrXnr7orpDuZqTfiV4ZDj+SJ2EyKczrVRazLgz5Q1tcG
-	aQZrWc2JTbBXukezZUAgI1fw5EWvHINQ/YkbpSLFMrv1hZtpJ7wyXj9Us+GunfQKbqRobDdhWmJos
-	GTnFfg7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QQBP/yB6MAPkv2pKBr9AcgRIfLc2kv6MLdfKCeDkkmo=; b=jKKuLz46D2stPRLJznHXSVH/Kf
+	vk1/QYuiaJgX4Lh34eHo/j9A4V7thVq2x89z3sX8giAijupiBVxMxTEpNZldVlHMPTplWvDre+0h6
+	MWNCegYQlmFYQ4T9lHWXsLz/BzH/bScWU+jCE+QAqUOBUgjr/WtkHFoJvEW6a4VQqRHH7NZl0BoSK
+	+zAfPEhJLoyHsNAHSjxAekZ+Cow1tQe+cHHstNumT/OsvQVTRZr4KlcjW3VJFGZ8xHLH0SN7rMBKr
+	WTqnLjKpdPLJ6YbmDPnA5PgLbTIcH7GvS8zlmIVRV2bYCYSTP06F6/WQzrmKuBbklEhWcleW/8z5E
+	RUJ45mXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkkYJ-00000002cRT-0ky5;
-	Fri, 17 Jul 2026 15:32:39 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1wkkcb-00000002cxF-2j1H;
+	Fri, 17 Jul 2026 15:37:05 +0000
+Received: from fout-a1-smtp.messagingengine.com ([103.168.172.144])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkkYH-00000002cQQ-3MfZ
+	id 1wkkcZ-00000002cwt-2iX2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 15:32:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KOfO5yxUAz1AWyFZswKL9qXbvm2ZVAhAmZ0tJv1tcF4Dtq2haZCwfOLi6aoTwfnGJxsERmKBJRqw/WBPXKxXX3hUPVub96Xd/HSlJg1lMtg5EYJiWdzrxORDTDEB7kAWnKvap83Z7xY26cJ9xWm+JT5AKDyU/qBtnXV6L4/glLXA/O4kkG4R8fRRHNiO3KQJUMUHzepXiN68+ATCYIboYIRobiATyUu5W27uIPMG5jmNtmw/DJYm9a8kJQhBIMrmVOGdUdoUP1/Oh+YFrS2SELGTQQ8Kjev0r5N0g2nTcAIq2+svmBQHZfEWjXONgCg22W2/H73IwL3xKP/8JkhShg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PXbuCOBiPNN57BJ5m4JDTkx3mbk1UiBM2WvbCogeFR0=;
- b=FGchTdyjhnDFq9xNAmzFjShHcaBWY6jKxdMGyFSAuNQ0Mn/3htCoro68Yrkpge18rDMLPl6HP9q12P/DBGedysZTBiTVWR23lBXwy0QEUAxa+XWEksKu9tFN553Xv/DHgnir+gHFCjtFSbs2v2eicV4N84QDvuzuaV/K4OPyYa0JXedMip0Bf7+SyA/61lSwY29nwhP5ciB9xojI3yYiEw6HzvxYArOs52Unhl65/4rTAeeEoFd8f9r9hdzDQ9/FLRKUkBHnSIwpfgHXttvTCaXAROs0uZ/t9Od114OfdQUKisxA2sKtf48ZVf2myXMqVbXwTF5w+f4Mx39BcMI/6A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PXbuCOBiPNN57BJ5m4JDTkx3mbk1UiBM2WvbCogeFR0=;
- b=kyEXH4WkDDiUw3UcwfC31mqChvxFgx25xBK0ht0wHcmrgTJRaJ3IrZ6UDMml0rwKA8DcZhhHjYZ5b9tGKdir+5Hcsjtd9DaXN3HUbdxLDyUTov2eeVLtXz75ob4B1vB+E5Pp0X8wmlIEwjwA3zz/H2hy/szR5wT6Sba6vyZk/3PDGeC/436gNxiwRbWnI5nIX5yIwEj1nxyHR/mIqU3fh6X7m0oRUKo1VfSf4n+z2rxEazBBpVF3tey30lkvtiGqOIunRdZNkf4cO6m/nKvej0b0c/O436+OC+dgZwB0ykudb0VqNi5yscm3/2enqE5YKinG+swr1ZrUISut1LHBKA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PAWPR04MB9909.eurprd04.prod.outlook.com (2603:10a6:102:385::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.10; Fri, 17 Jul
- 2026 15:32:33 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0223.011; Fri, 17 Jul 2026
- 15:32:33 +0000
-From: Frank.Li@oss.nxp.com
-To: linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Stefano Radaelli <stefano.radaelli21@gmail.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Josua Mayer <josua@solid-run.com>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
-	Maud Spierings <maudspierings@gocontroll.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>
-Subject: Re: [PATCH v6 0/3] Add support for Variscite VAR-SOM-MX8QM and Symphony board
-Date: Fri, 17 Jul 2026 11:32:25 -0400
-Message-ID: <178430233564.584159.13135506728491044861.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1784284092.git.stefano.r@variscite.com>
-References: <cover.1784284092.git.stefano.r@variscite.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PH7PR02CA0008.namprd02.prod.outlook.com
- (2603:10b6:510:33d::27) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Fri, 17 Jul 2026 15:37:05 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.phl.internal (Postfix) with ESMTP id 8EF0FEC018A;
+	Fri, 17 Jul 2026 11:37:02 -0400 (EDT)
+Received: from phl-imap-05 ([10.202.2.95])
+  by phl-compute-04.internal (MEProxy); Fri, 17 Jul 2026 11:37:02 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:message-id:mime-version:reply-to
+	:subject:subject:to:to; s=fm1; t=1784302622; x=1784389022; bh=QQ
+	BP/yB6MAPkv2pKBr9AcgRIfLc2kv6MLdfKCeDkkmo=; b=0GzJiit4nEOTM7h45N
+	M4pKO7TyRKsZeIV6MluzmVw09+sFsim0scD5i5LquwCJNin1C6oHOtxWHJbsev4F
+	vJr3AVebmi3CCdqJnwa7gnHRAfGN8hbXtRsgKOLRFw7e9mVUiJOC9QxESGXjlVwm
+	0G6a2VivNsijkcHwM7G0b5LMusqzlVJfxctTL7EuG7t2viGm0XWI+8G0YuKtlGNh
+	HhHizUwQhm7jMWrQS5lnEK1dZFIbE+7MZ/vK0t0mTZZOKq5tG1N6Xknhv2fv6yPJ
+	kuRdNZ02yGV2ed6/EH8Tb/EVQTBupiR2qONbNVaVe/syDaXhBKysVHchJpeMrTqw
+	aUjA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm2; t=1784302622; x=1784389022; bh=QQBP/yB6MAPkv2pKBr9AcgRIfLc2
+	kv6MLdfKCeDkkmo=; b=hJCcXWYwu16MGCZeXlf5clwUvUoqMhmUctr48PqJrio8
+	gtw9WB6O0OLGkpd/2YYv2UsqHhCEy3VFD62rwTKRF29eijxiEodGT7ULUvg7qeLu
+	eRFWTpvKw2DW9MrK+iPRKf/zXltmZBhwUZm8gAtb/GGL2bBEiBBqGYCdp8z3WonN
+	Oxz3MBGLAVWyM6/zOYihFClzEaGAA7HShZ/D274x5o0ZoRqNDXRo857MuQdb2yjE
+	PeaRPAzWlzZDHPKNdHuj/HhcmWBlxJLkf6WD1QQonYFx5AUeapCgDy2uxUdrbXu1
+	HZeLariDcUlJ2HBEF/uysWZQC5gslV59i91AKPXUGQ==
+X-ME-Sender: <xms:HkxaasTBsW_I1TsTSL5Q3ckVs1fQvkbpJ-uDeR8imPEp3zHIg0nJtA>
+    <xme:HkxaaklsBLce6PQ1A6D0YtcCxRddfGddQ2ybBV_5Ay8L8jYgfP0UVMuRT_rDcbrPF
+    vJXmW5-DhV1-c0S1ZdWTijqeJs68h7yCV6JH_KsNQuERoarxNax9t37>
+X-ME-Proxy-Cause: dmFkZTGO1a+ELqc/jATRbDevAoYzv0tMsX2lM8RlgGENghcT7UFNypaqNAb2S5eH3CaqYC
+    wo/MUbGjurUZfXGA75oZnIpCZw/DplETnoBk1NKyDDSIfMwc2LSCZD+qSQfEi6kcoTfvUS
+    pKHp3zI7vBoMf+pDsIPr9OI6hTf7aGzGWNmIT4XXBYLjDVw+AHrQohh0Lt4Xq/PmUmxhdY
+    s9MGG9VloK+tzUL4OIQGn2JHvLkzlS7XQEZCuNCuM+33tppCvQZQLyew+xm/2BzZGvIygm
+    CrMYhPfmizvgrCsuuLHsVno3NFxEd2n8ena4+80n3dM41MfJwuqK8Av0l//kNXu+gXlfKa
+    /MkSSNJHmGGc9lXksdTF3sNJsfV1YqObGYcUGuPzShzpFr1Lhg6QofJUkrZHohkS68u+1a
+    Q+5YPrDNg8yUfKOmgOkWOFDL/97Y5iILyASv1OxIvJ1qtaRdGrTed3wMA5B8CxQklzt0yJ
+    4bxdq2m8BwDFlg6H3zWZ9XNvHDvwUx4kXNYK8nYBUEpyDrLSGqWSBX+hFqXI7YnYubEs3i
+    e2JjxR1KiNGnh5b0ycLfnRY9o3QqJLiHD0LQZ3EARgmEsLaaJKLlPe4kgFRXPmp1k1Rh6N
+    PqV7N6D4RQdiJekQBfAh3VbC2XVAgsP6wu+VSVrMLsVhj5ONMhLIhCvu/OHQ
+X-ME-Proxy: <xmx:Hkxaal8OcjWQhizroBQ-XJJpadvUw6eyoyoBYjjf_H3x-v61Vr6e4Q>
+    <xmx:HkxaaglfOvfDWKfB6_39PUgp4ay2iBso5LRKgmzDcZhb4_tMfSGOVw>
+    <xmx:HkxaarUfm8IUNBJtPTMa7GH1FF4mskEShtfI59EBKBRtH4R_TGzkGw>
+    <xmx:HkxaalFIBvGBQSwqIFfhON_HWcPD6-YgVzuUsT8rDxHPaRBT-FR_jA>
+    <xmx:Hkxaal0IyAVEAi69doxUyoryRmw6gT4_897VmvnAgz5cLPPgo_9J6Liu>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 29BE31820082; Fri, 17 Jul 2026 11:37:02 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PAWPR04MB9909:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8d9fa327-b9d6-4b86-8a90-08dee4189ee8
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|7416014|376014|23010399003|366016|11063799006|56012099006|18002099003|22082099003|10067099003;
-X-Microsoft-Antispam-Message-Info: V68DKRhnXnvwEDSNxWgegROi2Xzwg4j1nLhd5rDIB6xQ3KblPAfXFShO3uqikdRSsTSz8XfXRNO04vuEShU+gEQbag8bjKSEh6AYzsMqOHtk72fDtcXgUXVl1HfWlq72Hifpo560/T44jwPWLj9vL8qc3Du1AXj7h5CbOrMa9W30YzpdGiZMNOZ5Bp6eKo425UsKp6LEELLrX1zjQAgeck2bUdo92cI5WP1r+ibiHiCnnEOzcx63XfF1ZGcCd1JYUgLlzsqbVkqycsonSE+24tQ7+dGRXDaOdqRyr99DEHb1wlAZn1YvH+kfLS69Wwskdtm8UoxQc+Hsr/uE2xXkzegCgE5Oo19A9IK1xUbozcIRPtvRv9j8EX9skQfiTVvZbL2p6w3AoQP0m4hmXGP11eferMczkFtLC/ODIOtLrMw7LaewcFW1Tk4mqt6P2Y9UtZOHCinKdXtaabA8lK2JdVmh+Vxkuzi4KBzTCyhIyx0OWmflmKMgsh7pwJZv3MNPJv8Tra4ll1ArMUxXwQ4mbPJwEStXZK6R1O2c/O1ZEKybZ61m1gMBycWYtNXXVWY8KMaqft/s/VV2nWNWw9zDXRZG58/bUvfmAU5kkhFKQxoKkwfYXpR7cc9acKU+bcjN+0T8AKjaT/2IQ9RDpAQ1Xd+jdYiiBOEVRPGHQd8428g=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(7416014)(376014)(23010399003)(366016)(11063799006)(56012099006)(18002099003)(22082099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UUpIZW5YQnMwSHQyQ0JFd09LYU9kZndoQlE4SXYyQStyTU0rZ09FZ3l6d1Vm?=
- =?utf-8?B?S1JEMUJwYXdoNEc2RitYanRBdHFiUVNLaVF0V05FZ1lTMzNFU2t3cjZDSzFq?=
- =?utf-8?B?OVl2b2pqL2daS0RiRThWU0ErZXlDdzdQRzZoRTIxSkN6RDY5M0hHMGRSdFd4?=
- =?utf-8?B?dUhyRCt5L2lBWWFqZTBFY3NZc2NNQkQ5U3lpVEd3N0IyZDNoMUFpR1ZjeDJU?=
- =?utf-8?B?bzEvVktDSWxNS2RselYzbWk0TnRWOWhKTHN5UnhLYkgrWUdFRnRKV3dYcmdz?=
- =?utf-8?B?YkIvZ29ZNGhTMVJJZ0FNUHd1Z0JVbGRzK2pxa05QWEl3ZnlXZkZrUFFWN2h5?=
- =?utf-8?B?a2kzMTNmQXJhbHJ3cjBOdXBQNG95QWlUSVhvSWNhVU5NZ2xFRU1hcVErT2pF?=
- =?utf-8?B?QnlxUlYxemEvb25FQXhBMXFiMHpxY24zbTRCKzV2Ukp2QVJSMHhXcTlpOXh4?=
- =?utf-8?B?UDBTd2FLWkEyenBjV2U0cjRRcU1VTDJ5TXdXUmc3ZWtnSDhJdDdQaE1TdUFN?=
- =?utf-8?B?Qk45c1lpVlMwNmRRYmhjdzU1UjIwMVRkRllreWFlMjJCTkxaR25MZEhNbEZq?=
- =?utf-8?B?RnhDWHV0aTdsdGVrUGpWM2pIVzVBQ1hWRjVvWm4xSG83OHZjeWQ4RTNzSWFP?=
- =?utf-8?B?bC8raE9lVWp3dS9pNnM4SzBERnJjSm9sb050T1BZUGFtd3dNbzNHcWZLbi82?=
- =?utf-8?B?SWF5cnAzNXYxelA0NkFicFFCZ09OOWlzT3hGcEJVUUNqM0tLVWV6ZkpzRTQv?=
- =?utf-8?B?N1FyNFdsUFhESklCM3dXQWpNbTRsbzdsTmRVUW5VT1UrUzJNNUtteUxZYWMv?=
- =?utf-8?B?YzdYQ2c5SkN3VkMxVUU3bnAxQTROTjRZRGd1RVpKZnQvb1czQkVYdng3UDRY?=
- =?utf-8?B?MEtRWjh6aGdKZVpLVjhwdWJLclRRV2g4OW5CdUl3aURnVGFUZFR2MW1xeUov?=
- =?utf-8?B?c28yWE54SVVwS1RRWVhFQnNObHVqd2xmaEtKWHErcHZabUZWQWNuMSthajNW?=
- =?utf-8?B?OWtFTWVBVWxlZWpSWEx3bUhacldOQ2MydFhKTUxubSt6TGd6ci85U2Nabjdo?=
- =?utf-8?B?N2psMStLdzdiamtnU0ZhSE1UcUQvdVJjUHllMWx6bFdZczR6YkZMNUloZXR2?=
- =?utf-8?B?ZTRzMjFyTU5CR2VVWDFmbUZzQm03cFNITkF2a0FIanJvaENqUzhtTHozaVpz?=
- =?utf-8?B?YU91bm1CVm8yNUFuSVloSHFVdTBRRW9rWWpqQXJ6U2RYQWhURnVDMVNTSURS?=
- =?utf-8?B?dnNtMlpRSmVHOGE4QWNrSEp3L0FuYzA4dkVUcFg3blVFenR2emttUWd2UXNk?=
- =?utf-8?B?Z251Y1RVeW1aSFM0YldoaHRtUzB4Q0wxVXhFYjJyUUFRUktQdFlIS0V0eDZ5?=
- =?utf-8?B?S1pFc1pkZ3gwUjMrWWErSkwxMTdrcGlZOEVOaW1naS9TbUc3R0VTQXlQakZo?=
- =?utf-8?B?b3JWdTE0blFMVDV2bXhFeFAwdDNxNGloRXArd0tuOVhMWVpjaGRKdEpyc3BP?=
- =?utf-8?B?S1pZUEtuVTVTY1ZRdzJ4WlFhT0RwZ2tLelpUY2xhVURRaDdUL3JFL2JuelNo?=
- =?utf-8?B?ckttTTlTZDN2bzJJMi9DQmFFMG9mdUgxQk8wK1dIQjFQb01oNnVqR044NHBC?=
- =?utf-8?B?ZVpHWnhjRmhMa1kzSlBMTjl6eHpNL3hJY2lEZy9JRzhXOWZDdmtrZ3FOUWox?=
- =?utf-8?B?WFhpV2Fzd2Rmb1pyVFJQQWpiUEZtNC9wbWs5bnJpNWVVamM0bll6TUlKTk5k?=
- =?utf-8?B?eGRwZW9VOEt6WkNmQlF6ZWUxYmM0eXJieW9MTTZQSVpsWDNzTTZSSjV3Y1BU?=
- =?utf-8?B?VWI1QVZvUHRmbW95OVc3dlI2YTN2dWhVcURENDdMUmhTMnJKS0J5SWdseXZk?=
- =?utf-8?B?ekxIaGpsZ3FvY1kzSlBVbnYzRXZNWjY0UmRkMTNJNEhRbVVGS2FiSHpIYnFF?=
- =?utf-8?B?RTM3cHZ1U0dTTFptMlE1R0psVjFCSlI3NjFoNHdDZDNhaC9jcmpLcW1rbjhr?=
- =?utf-8?B?b3pHVXlhemI4RUJ2Q3pPKy84V0YxQnluS3h5b29zRVZsMVRzWXFRSDkxSHBE?=
- =?utf-8?B?QWEyaVIzRVA3djZScHpYRitvem5EaGdabFMyMGU4WGdlbHBzZE50U1FuZW5t?=
- =?utf-8?B?NmVBOTBRQ0RuWi94SnRLOXM4dGJIRVRZWUVnb09nRVV3UmtpcXlPWld3TGda?=
- =?utf-8?B?VllMVzQ5UzhMT0kybUpBeTl4VDVUMi8xcnFuR0NVYldvZEtjS0Job3pJb1JV?=
- =?utf-8?B?dVpVU094N0F0ZG5QRUQydm9lMEp2VnhVbDZ4a0FsaDkwSXQzdXhFclppdW10?=
- =?utf-8?B?QXhGZVpKNEQzb1RoZ1hYK3lTMFdFOUZtdmZaZWhrNE9WeEdUS09sOXBIUW5j?=
- =?utf-8?Q?NeDNeMEZyDNOHTss87LdKFgj69oYXfmVIqdWn?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8d9fa327-b9d6-4b86-8a90-08dee4189ee8
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2026 15:32:33.1296
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: yfGIBOzsgyrMsRTTsSJmdq0tYfgxIIhmoKdLWaEy0LKZq83ItXbC3Jizq69oRarD2R1BguOTogc39HIB0D8+X0bfWQ4CKHO8CDCOWtTK6UUVB7+1rQfV95K5KY3SpkYB
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB9909
+Date: Fri, 17 Jul 2026 17:36:41 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Linus Torvalds" <torvalds@linux-foundation.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ soc@lists.linux.dev
+Message-Id: <69fe5d78-221f-4825-a2a5-fd78f62f3628@app.fastmail.com>
+Subject: [GIT PULL] SoC fixes for 7.2
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_083237_846094_FF671806 
-X-CRM114-Status: GOOD (  10.59  )
+X-CRM114-CacheID: sfid-20260717_083703_770710_77BAD015 
+X-CRM114-Status: GOOD (  11.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,29 +104,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+The following changes since commit 8cdeaa50eae8dad34885515f62559ee83e7e8=
+dda:
 
+  Linux 7.2-rc2 (2026-07-05 14:44:06 -1000)
 
-On Fri, 17 Jul 2026 12:29:36 +0200, Stefano Radaelli wrote:
-> This patch series adds support for the Variscite VAR-SOM-MX8 QuadMax
-> system on module and the Symphony carrier board.
-> 
-> The series includes:
-> - SOM device tree with on-module peripherals
-> - Symphony carrier board device tree with board-specific features
-> 
-> [...]
+are available in the Git repository at:
 
-Applied, thanks!
+  https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-f=
+ixes-7.2-1
 
-[1/3] dt-bindings: arm: fsl: add Variscite VAR-SOM-MX8 QuadMax Boards
-      commit: 4a3f4d08f53242dd6524285fd37c01886aacd0bc
-[2/3] arm64: dts: freescale: Add support for Variscite VAR-SOM-MX8 QuadMax
-      commit: 868ced4df4ef1169802c400a685820f2f1fc059b
-[3/3] arm64: dts: imx8qm-var-som: Add support for Variscite Symphony board
-      commit: a40fdbf706cc643671e41b9ac2f9ec3a832e769e
+for you to fetch changes up to 3d9855d114f0955d590420f5670152c1099c1638:
 
-Best regards,
--- 
-Frank Li <Frank.Li@nxp.com>
+  Merge tag 'renesas-fixes-for-v7.2-tag1' of https://git.kernel.org/pub/=
+scm/linux/kernel/git/geert/renesas-devel into arm/fixes (2026-07-16 15:5=
+9:57 +0200)
+
+----------------------------------------------------------------
+SoC fixes for 7.2
+
+There are only three devicetree fixes this time: one critical memory
+corruption fix for Renesas and three minor corrections for Tegra.
+
+The MAINTAINERS file is updated for a new maintainer of the CIX platform
+and two address changes.
+
+The rest is all driver fixes, mostly firmware:
+
+ - multiple runtime issues in ARM SCMI and FF-A firmware code, dealing
+   with error handling for corner cases in firmware.
+
+ - multiple fixes for reset drivers, dealing with individual platform
+   specific mistakes and more error handling
+
+ - minor build and runtime fixes for the Tegra SoC drivers
+
+----------------------------------------------------------------
+Akhil R (1):
+      arm64: tegra: Remove fallback compatible for GPCDMA
+
+Arnd Bergmann (8):
+      soc/tegra: pmc: fix #ifdef block in header
+      Merge tag 'reset-fixes-for-v7.2' of git://git.kernel.org/pub/scm/l=
+inux/kernel/git/pza/linux into arm/fixes
+      Merge tag 'tegra-for-7.2-pmc-fixes' of git://git.kernel.org/pub/sc=
+m/linux/kernel/git/tegra/linux into arm/fixes
+      Merge tag 'tegra-for-7.2-soc-fixes' of git://git.kernel.org/pub/sc=
+m/linux/kernel/git/tegra/linux into arm/fixes
+      Merge tag 'tegra-for-7.2-arm64-dt-fixes' of git://git.kernel.org/p=
+ub/scm/linux/kernel/git/tegra/linux into arm/fixes
+      Merge tag 'tee-update-for-v7.2' of git://git.kernel.org/pub/scm/li=
+nux/kernel/git/jenswi/linux-tee into arm/fixes
+      Merge tag 'scmi-ffa-fixes-7.2' of https://git.kernel.org/pub/scm/l=
+inux/kernel/git/sudeep.holla/linux into arm/fixes
+      Merge tag 'renesas-fixes-for-v7.2-tag1' of https://git.kernel.org/=
+pub/scm/linux/kernel/git/geert/renesas-devel into arm/fixes
+
+Breno Leitao (1):
+      soc/tegra: fuse: Fix spurious straps warning on SMCCC platforms
+
+Christophe JAILLET (1):
+      drm/tegra: Fix a strange error handling path
+
+Gary Yang (1):
+      MAINTAINERS: Update maintainer and git tree for CIX SoC
+
+Geert Uytterhoeven (1):
+      firmware: arm_scmi: Grammar s/may needed/may be needed/
+
+Jens Wiklander (1):
+      MAINTAINERS: .mailmap: update Jens Wiklander's email address
+
+Marek Vasut (1):
+      arm64: dts: renesas: ironhide: Describe inline ECC carveouts
+
+Pushpendra Singh (1):
+      firmware: arm_scmi: Rate-limit queue-full warnings in IRQ context
+
+Robby Cai (1):
+      reset: imx7: Correct polarity of MIPI CSI resets on i.MX8MQ
+
+Seth Forshee (1):
+      firmware: arm_ffa: Respect firmware advertised RX/TX buffer size l=
+imits
+
+Steve Dunnagan (1):
+      firmware: arm_scmi: Use 64-bit division for clock rate rounding
+
+Sudeep Holla (1):
+      Merge branches 'for-next/scmi/fixes' and 'for-next/ffa/fixes'
+
+Sumit Gupta (2):
+      arm64: tegra: Fix CPU compatible string to cortex-a78ae on Tegra234
+      arm64: tegra: Fix CPU1 node unit-address on Tegra264
+
+Tanmay Kathpalia (1):
+      dt-bindings: reset: altr: add COMBOPHY_RESET for Agilex5
+
+Unnathi Chalicheemala (1):
+      firmware: arm_ffa: Fix NULL dereference in ffa_partition_info_get()
+
+Uwe Kleine-K=C3=B6nig (The Capable Hub) (1):
+      ARM: Don't let ARMv5 platforms select USE_OF
+
+Yixun Lan (2):
+      reset: spacemit: k3: fix USB2 ahb reset
+      MAINTAINERS: Update SpacemiT SoC git tree repository
+
+Zhao Dongdong (1):
+      reset: sunxi: fix memory region leak on ioremap failure
+
+ .mailmap                                          |  1 +
+ MAINTAINERS                                       | 12 +++----
+ arch/arm/mach-ixp4xx/Kconfig                      |  1 -
+ arch/arm/mach-pxa/Kconfig                         |  3 --
+ arch/arm64/boot/dts/nvidia/tegra234.dtsi          | 24 ++++++-------
+ arch/arm64/boot/dts/nvidia/tegra264.dtsi          |  4 +--
+ arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts | 41 ++++++++++++++++=
++++++++
+ drivers/firmware/arm_ffa/driver.c                 | 29 +++++++++++-----
+ drivers/firmware/arm_scmi/Kconfig                 |  4 +--
+ drivers/firmware/arm_scmi/clock.c                 | 11 +++---
+ drivers/firmware/arm_scmi/notify.c                |  6 ++--
+ drivers/gpu/drm/tegra/sor.c                       |  6 ++--
+ drivers/reset/reset-imx7.c                        |  6 ++++
+ drivers/reset/reset-sunxi.c                       |  4 ++-
+ drivers/reset/spacemit/reset-spacemit-k3.c        |  2 +-
+ drivers/soc/tegra/fuse/tegra-apbmisc.c            |  2 +-
+ include/dt-bindings/reset/altr,rst-mgr-s10.h      |  2 +-
+ include/soc/tegra/pmc.h                           |  5 ++-
+ 18 files changed, 113 insertions(+), 50 deletions(-)
 
