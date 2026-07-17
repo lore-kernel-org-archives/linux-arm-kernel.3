@@ -4,70 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 721FBC44507
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 09:17:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A863DC44514
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 09:17:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tHnjMIAGRm2ejsywkpInpP3dH/N1dPQydtPOOeL+IoE=; b=TA6ZavPFibGTUPJWNSWk+SqlPp
-	lsRz19/FOl1VJbX3YaFWqmOf0690wWEHyfI/isjaZW5V3eaypbrE+tVzlihUJR/Q1/QONQkP9ftYs
-	NSaw8LJUX0wfTnsA620jp+L6anPuVaSLIB91B6uGrVO768SMBoz1yVUbg05j2wKZzKbPROBAoMkj0
-	46pI8f4QiQ+fSvvoiBFCpVtroqI9RGoqAuM+GiU3anhBaUDIOWwDMO+6ReKo9gRdNPEgVTuG1/VrN
-	uV5vqwYHvFl8j/Jffi0a0HIMmEo0GwtRtYWCQJbaV6hHkPDK+rJ2gOouJrV5pMtFtzFbO44cd7Rci
-	qQ92IV8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WsqS/RENXKBaiPcJVoqlvqE5VI6ff8i4YR1XPG/1jws=; b=ljDbh59B9f0FGwm1icAeOVOVfH
+	Hi6xlYxZGetqhb7J0VqyXOarbmpHulS6FEI8CsADkcsx1u29cRyBVFjE+Yrj/WYXhit6ryuBEdzV9
+	3VUO++c3FgjRDr50yTZONcBIsrPGdd3j8bEbE6ZD6U/gxVNXEOIcE+oV9JX/DsClkMHjCdFzVGmBR
+	bkjZbbnqO2fCo8NvzZ1IkY8zJb0x7XLLpWWScObkCVVc0vd6uj0Kg7XsPwZp/+oyIyDABzBKdg+jX
+	q2giXuouocvJ4IvSNR8Gp+6JRhmE+DevBdHpSiRAm8p6CTPDlRM2QLJZeYz1/EaaW5QuQNHAQkK0/
+	Viysq0Jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkegz-00000001oN6-3J8f;
-	Fri, 17 Jul 2026 09:17:13 +0000
-Received: from [2a0f:4ac0::3a11] (helo=mail.cyberchaos.dev)
+	id 1wkehF-00000001oS9-1qu5;
+	Fri, 17 Jul 2026 09:17:29 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkegx-00000001oH0-3yW2
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 09:17:13 +0000
-Message-ID: <5439c27a-84c9-455d-9c2d-be84a37469fe@cyberchaos.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
-	s=mail; t=1784279814;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=tHnjMIAGRm2ejsywkpInpP3dH/N1dPQydtPOOeL+IoE=;
-	b=p0YeJ7J5SHfYAAl34NLbf0yPli175elPbpLSRPmFGKTsrMkQgqwBQvdM1sVdP1rjJIYQQS
-	iEld3eWbyM4t71a0BQ7o2xqdyxD2oMSj1nqb7Q+AjfIcdtqxtIaEQr/0yoA3mWbYj88keW
-	Z4cbd3/7xkEdcCsUnyiUu1Zsug2+9c0=
-Date: Fri, 17 Jul 2026 11:16:48 +0200
+	id 1wkehE-00000001oRR-15cO;
+	Fri, 17 Jul 2026 09:17:28 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id B301A60204;
+	Fri, 17 Jul 2026 09:17:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E19E1F000E9;
+	Fri, 17 Jul 2026 09:17:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784279847;
+	bh=WsqS/RENXKBaiPcJVoqlvqE5VI6ff8i4YR1XPG/1jws=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=m5HakIZ0OPmQfxWfVzz83Zk5vj5X4xylgQw5lZEic4qN12nSEtvzPt1akW7R3aG7I
+	 BIDW7MNUu9XuwovXeZfEVuowJb+pmjYjaBtAwb6s9qo80wJ+e4R+D7cwCFSF5d9nMy
+	 4glZQ0q2Xh4igofwJdYWFu1MiHT4nfstnSwWd1LEG/TF4Tzz3fcMmA+wk4T0d1iR6s
+	 +x4V4/DBH6xRzJ+GgJOGTDa6lXoghO6AmfINorr8Emj2Vp9lvZylRbetpr8HhUZBbS
+	 1tdZuHf1ZiVX+winVpJrqY0bF8ICBaN4jPHiziMBfXJH7k1B2kXXTpEratoxQorgFG
+	 8nHgLbNmzWVnA==
+Date: Fri, 17 Jul 2026 11:17:23 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Akari Tsuyukusa <akkun11.open@gmail.com>
+Cc: Wim Van Sebroeck <wim@linux-watchdog.org>, 
+	Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	"open list:WATCHDOG DEVICE DRIVERS" <linux-watchdog@vger.kernel.org>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
+	"open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>, 
+	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>, Roman Vivchar <rva333@protonmail.com>
+Subject: Re: [PATCH 1/7] watchdog: mtk_wdt: add explicit compatibles for SoCs
+ using mt6589 fallback
+Message-ID: <20260717-unbeatable-strict-heron-fd1741@quoll>
+References: <20260716161923.266315-1-akkun11.open@gmail.com>
+ <20260716161923.266315-2-akkun11.open@gmail.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH 08/10] dt-bindings: pwm: apple,s5l-fpwm: Add t8132
- compatible
-To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
- Yureka Lilian <yureka@cyberchaos.dev>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Lorenzo Pieralisi
- <lpieralisi@kernel.org>, Sven Peter <sven@kernel.org>,
- Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
- Thomas Gleixner <tglx@kernel.org>, Wim Van Sebroeck
- <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>,
- Hector Martin <marcan@marcan.st>, Linus Walleij <linusw@kernel.org>,
- Mark Kettenis <kettenis@openbsd.org>, Andi Shyti <andi.shyti@kernel.org>,
- Sasha Finkelstein <k@chaosmail.tech>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-watchdog@vger.kernel.org,
- linux-gpio@vger.kernel.org, linux-i2c@vger.kernel.org,
- linux-pwm@vger.kernel.org
-References: <20260705-apple-m4-initial-devicetrees-v1-0-e5655ee56523@cyberchaos.dev>
- <20260705-apple-m4-initial-devicetrees-v1-8-e5655ee56523@cyberchaos.dev>
- <alj0EbuIzZUa48di@monoceros>
-Content-Language: en-US
-From: Yureka Lilian <yureka@cyberchaos.dev>
-In-Reply-To: <alj0EbuIzZUa48di@monoceros>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_021712_163972_260D275F 
-X-CRM114-Status: GOOD (  14.34  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260716161923.266315-2-akkun11.open@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,49 +77,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/16/26 17:11, Uwe Kleine-König wrote:
-> Hello,
->
-> On Sun, Jul 05, 2026 at 03:17:27PM +0200, Yureka Lilian wrote:
->> The PWM controller on the Apple silicon t8132 (M4) SoC is compatible
->> with the existing driver. Add "apple,t8132-fpwm" as SoC specific
->> compatible under "apple,s5l-fpwm" used by the driver.
->>
->> Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
->> ---
->>   Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml | 1 +
->>   1 file changed, 1 insertion(+)
->>
->> diff --git a/Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml b/Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml
->> index 25ef04b60ca1..c85a2b85a66a 100644
->> --- a/Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml
->> +++ b/Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml
->> @@ -19,6 +19,7 @@ properties:
->>             - apple,t8103-fpwm
->>             - apple,t8112-fpwm
->>             - apple,t8122-fpwm
->> +          - apple,t8132-fpwm
->>             - apple,t6000-fpwm
->>             - apple,t6020-fpwm
->>         - const: apple,s5l-fpwm
-> There is no merge plan specified in the cover letter, but I assume this
-> should go via arm-soc?
+On Fri, Jul 17, 2026 at 01:19:17AM +0900, Akari Tsuyukusa wrote:
+> Several SoCs currently rely on matching "mediatek,mt6589-wdt" via the
+> fallback compatible. Add dedicated of_device_id entries for each of
+> them so that the driver can match directly on the SoC-specific string.
 
-Yes, this will go through the appropriate -soc trees since there is no 
-driver change.
-Sorry for not mentioning it in the original cover letter, I wasn't aware 
-of the procedures at the time.
+This makes no sense, NAK.
 
->   In that case:
->
-> Acked-by: Uwe Kleine-König <ukleinek@kernel.org>
->
-> Best regards
-> Uwe
-
-
-Thanks,
-
-— Yureka
+Best regards,
+Krzysztof
 
 
