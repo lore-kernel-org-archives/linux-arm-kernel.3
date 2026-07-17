@@ -4,76 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F00BC44515
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 15:44:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B9A5C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 15:45:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MCxgpMVZ9jVq0CfLzTKvyVI1sK7IvN+hgdRqmomKpMA=; b=AANSuSKGg8XCgCrTi7e6X7axtG
-	rtQMgObYlNiKUBQw/jwDfS/4EP4idEME/u1XQq3MK2M1Q8hm2kUePJNByXvKxN6Ev/fk4fWquF3WY
-	n9zDehj5qnjsRA3NlvV64tgc3xBQN54lgpnWSMFElY5tmK58HEE/e+kTVvNFOLbSCJdFS44+kiS65
-	hTY7EPPboYuuD176RCa71Cz+VVpuGnoVFb1I3w51rjPIjR8CMgpDDMsN1s/PvN874I9+XUf/oPaBd
-	IFnrNKm8p4kwqZwRKSxo5ikS2mYxGAddHcD2TD4muTFnpssbyNq0ekNbLBEPzVK7xcvhekmZMzZru
-	VTSVr+cg==;
+	bh=0n2i1s+LpYYAHFkfXFF3KqPIyqVKHyb3+vwAPSgI6EM=; b=IefxcSLr8VFHYYvA1jxmxTHO8R
+	UVAonB4TY2Uk7bCLr5ennJFvZnwFWZqNi17/muoBWj47fgQzk6ju10AgRTE8spSfGbFqHdPKLtL7X
+	RYYU38LtlPAU3WYqIW9X3lav4NofHfvpaLj0fFbrna0ebh/MgWeR8Sjt3YqFAqS6nqkarbU9gxFAt
+	zWQARgcBp0iFxOUzgRmylFqMMVV9Tt3qhugr3JZP5G3qPIwNkDI9GmNQCWOI+/m6CP7V7Erko4M/g
+	gdXqFrVakffDnkXTn0GSMVaxglmGhyIe/O6EN4cNQugDCVqvN5Tg3/lYmwzY8MzzB5IzsDYbrGuLb
+	S9gYtSbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkkjq-00000002dtm-1BRC;
-	Fri, 17 Jul 2026 15:44:34 +0000
+	id 1wkkkE-00000002dya-2FN3;
+	Fri, 17 Jul 2026 15:44:58 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkkjn-00000002dtO-001b
+	id 1wkkkB-00000002dxY-1Akl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 15:44:32 +0000
+	Fri, 17 Jul 2026 15:44:56 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9CBE81476;
-	Fri, 17 Jul 2026 08:44:25 -0700 (PDT)
-Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5C4583F905;
-	Fri, 17 Jul 2026 08:44:26 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D6FC01477;
+	Fri, 17 Jul 2026 08:44:49 -0700 (PDT)
+Received: from [10.57.84.220] (unknown [10.57.84.220])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CB6F63F905;
+	Fri, 17 Jul 2026 08:44:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784303069; bh=y4ZEB408X7LyZYhgIl7uH9OCoAl7lgw57LthtZrwr+M=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=VjvctWpREJ3Mewz7b7njcLbqqVQMNcfsps9rZWECXckzYw0kMJKkw98KPRga8wQvz
-	 RWQvE5A06sWf4fbwwJM5Til3y0qtW4o96h/9yXDLy3M3ElLhtFnCXwctPwYAjcaK6s
-	 rzslKCGkGpsZLDaPNk98J/fN7tpcJxbBAYVQXTZs=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Tian Zheng <zhengtian10@huawei.com>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	maz@kernel.org,
-	oupton@kernel.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	yuzenghui@huawei.com,
-	wangzhou1@hisilicon.com,
-	yangjinqian1@huawei.com,
-	caijian11@h-partners.com,
-	liuyonglong@huawei.com,
-	yezhenyu2@huawei.com,
-	yubihong@huawei.com,
-	linuxarm@huawei.com,
-	joey.gouly@arm.com,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com
-Subject: Re: [PATCH v4 5/6] KVM: arm64: Add HDBSS fault handling and buffer flush
-Date: Fri, 17 Jul 2026 16:44:24 +0100
-Message-ID: <alpN16Q3MgVHJzsN@LeoBrasDK>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <3fb4b33e-4618-4523-b140-955e15fd9a8c@huawei.com>
-References: <20260709104026.2612599-1-zhengtian10@huawei.com> <20260709104026.2612599-6-zhengtian10@huawei.com> <alTw0nwiBDWoFrjB@LeoBrasDK> <9340fa94-6f26-4053-a4ca-0803af725936@huawei.com> <alYUXkub43YxkeH1@LeoBrasDK> <fa0839f9-7d83-4ad1-80e2-7e7dd0280222@huawei.com> <alZFVPkS3lgGdruc@LeoBrasDK> <3fb4b33e-4618-4523-b140-955e15fd9a8c@huawei.com>
+	t=1784303094; bh=1xqYa/5eSWO7i3QP0dwUy73LBcyWjTX2AK0R00/T4tk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=jliRQOkE9YYIg7mEmb5ahS59eMTSsRkz6QjEO32DvIEzQMBMVYPxak1GlBzdkb8qR
+	 eywBRrswngVRf/LANCYJsWVyMvysXWsNScQ681mRFptJT62NK8A+xG7j1er6nSWfFw
+	 h+uqLfwxw0zrCyFg+pZRyxUTmZ75YoAF5xFwUQXc=
+Message-ID: <5f82ee6b-d106-4ae1-9b2c-5a817e3e43b9@arm.com>
+Date: Fri, 17 Jul 2026 16:44:49 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v1 1/8] misc/arm-cla: Add driver skeleton and
+ documentation
+Content-Language: en-GB
+To: Arnd Bergmann <arnd@arndb.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Jean-Philippe Brucker <jpb@kernel.org>,
+ Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org
+References: <20260717104759.123203-1-ryan.roberts@arm.com>
+ <20260717104759.123203-2-ryan.roberts@arm.com>
+ <1e561b1a-2c87-4a23-b4da-126b333de8ba@app.fastmail.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <1e561b1a-2c87-4a23-b4da-126b333de8ba@app.fastmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_084431_405149_06E14711 
-X-CRM114-Status: GOOD (  61.73  )
+X-CRM114-CacheID: sfid-20260717_084455_436478_D61256B9 
+X-CRM114-Status: GOOD (  54.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,343 +77,209 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 17, 2026 at 02:51:12PM +0800, Tian Zheng wrote:
-> 
-> On 7/14/2026 10:19 PM, Leonardo Bras wrote:
-> > On Tue, Jul 14, 2026 at 09:27:15PM +0800, Tian Zheng wrote:
-> > > On 7/14/2026 6:50 PM, Leonardo Bras wrote:
-> > > > On Tue, Jul 14, 2026 at 03:38:39PM +0800, Tian Zheng wrote:
-> > > > > On 7/13/2026 10:06 PM, Leonardo Bras wrote:
-> > > > > > On Thu, Jul 09, 2026 at 06:40:25PM +0800, Tian Zheng wrote:
-> > > > > > > From: eillon <yezhenyu2@huawei.com>
-> > > > > > > 
-> > > > > > > Add HDBSS fault handling for buffer full, external abort, and general
-> > > > > > > protection fault (GPF) events. When the HDBSS buffer becomes full,
-> > > > > > > the hardware traps to EL2 with an HDBSSF event, which is handled by
-> > > > > > > setting a flush request.
-> > > > > > > 
-> > > > > > > Add kvm_flush_hdbss_buffer() to consume HDBSS buffer entries and
-> > > > > > > propagate dirty information into the userspace-visible dirty bitmap.
-> > > > > > > Flush is triggered on vcpu_put, check_vcpu_requests, and
-> > > > > > > sync_dirty_log.
-> > > > > > > 
-> > > > > > > Add esr_iss2_is_hdbssf() helper for HDBSS fault detection in guest
-> > > > > > > abort handling.
-> > > > > > > 
-> > > > > > > Signed-off-by: Eillon <yezhenyu2@huawei.com>
-> > > > > > > Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
-> > > > > > > ---
-> > > > > > >     arch/arm64/include/asm/esr.h           |  5 +++
-> > > > > > >     arch/arm64/include/asm/kvm_dirty_bit.h | 11 +++++
-> > > > > > >     arch/arm64/include/asm/kvm_host.h      |  1 +
-> > > > > > >     arch/arm64/kvm/arm.c                   | 14 ++++++
-> > > > > > >     arch/arm64/kvm/dirty_bit.c             | 62 ++++++++++++++++++++++++++
-> > > > > > >     arch/arm64/kvm/mmu.c                   |  4 ++
-> > > > > > >     6 files changed, 97 insertions(+)
-> > > > > > > 
-> > > > > > > diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
-> > > > > > > index 81c17320a588..2e6b679b5908 100644
-> > > > > > > --- a/arch/arm64/include/asm/esr.h
-> > > > > > > +++ b/arch/arm64/include/asm/esr.h
-> > > > > > > @@ -437,6 +437,11 @@
-> > > > > > >     #ifndef __ASSEMBLER__
-> > > > > > >     #include <asm/types.h>
-> > > > > > > 
-> > > > > > > +static inline bool esr_iss2_is_hdbssf(unsigned long esr)
-> > > > > > > +{
-> > > > > > > +	return ESR_ELx_ISS2(esr) & ESR_ELx_HDBSSF;
-> > > > > > This will return a long, which will be casted as bool.
-> > > > > > In general, what I see in the kernel is something like:
-> > > > > > 
-> > > > > > 	return !!(ESR_ELx_ISS2(esr) & ESR_ELx_HDBSSF)
-> > > > > ok!
-> > > > > 
-> > > > > 
-> > > > > > > +}
-> > > > > > > +
-> > > > > > >     static inline unsigned long esr_brk_comment(unsigned long esr)
-> > > > > > >     {
-> > > > > > >     	return esr & ESR_ELx_BRK64_ISS_COMMENT_MASK;
-> > > > > > > diff --git a/arch/arm64/include/asm/kvm_dirty_bit.h b/arch/arm64/include/asm/kvm_dirty_bit.h
-> > > > > > > index 84b12f0a10af..4b28000e972f 100644
-> > > > > > > --- a/arch/arm64/include/asm/kvm_dirty_bit.h
-> > > > > > > +++ b/arch/arm64/include/asm/kvm_dirty_bit.h
-> > > > > > > @@ -10,7 +10,18 @@
-> > > > > > >     #include <asm/kvm_pgtable.h>
-> > > > > > >     #include <asm/sysreg.h>
-> > > > > > > 
-> > > > > > > +/* HDBSS entry field definitions */
-> > > > > > > +#define HDBSS_ENTRY_VALID	BIT(0)
-> > > > > > > +#define HDBSS_ENTRY_TTWL_SHIFT (1)
-> > > > > > > +#define HDBSS_ENTRY_TTWL_MASK (GENMASK(3, 1))
-> > > > > > > +#define HDBSS_ENTRY_TTWL(x) \
-> > > > > > > +	(((x) << HDBSS_ENTRY_TTWL_SHIFT) & HDBSS_ENTRY_TTWL_MASK)
-> > > > > > > +#define HDBSS_ENTRY_TTWL_RESV HDBSS_ENTRY_TTWL(-4)
-> > > > > > > +#define HDBSS_ENTRY_IPA	GENMASK_ULL(55, 12)
-> > > > > > > +
-> > > > > > >     int kvm_arm_vcpu_alloc_hdbss(struct kvm_vcpu *vcpu, unsigned int order);
-> > > > > > >     void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu);
-> > > > > > > +void kvm_flush_hdbss_buffer(struct kvm_vcpu *vcpu);
-> > > > > > > +int kvm_handle_hdbss_fault(struct kvm_vcpu *vcpu);
-> > > > > > > 
-> > > > > > >     #endif /* __ARM64_KVM_DIRTY_BIT_H__ */
-> > > > > > > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> > > > > > > index c41ec6d9c45a..cecfb884a64f 100644
-> > > > > > > --- a/arch/arm64/include/asm/kvm_host.h
-> > > > > > > +++ b/arch/arm64/include/asm/kvm_host.h
-> > > > > > > @@ -55,6 +55,7 @@
-> > > > > > >     #define KVM_REQ_GUEST_HYP_IRQ_PENDING	KVM_ARCH_REQ(9)
-> > > > > > >     #define KVM_REQ_MAP_L1_VNCR_EL2		KVM_ARCH_REQ(10)
-> > > > > > >     #define KVM_REQ_VGIC_PROCESS_UPDATE	KVM_ARCH_REQ(11)
-> > > > > > > +#define KVM_REQ_FLUSH_HDBSS			KVM_ARCH_REQ(12)
-> > > > > > > 
-> > > > > > >     #define KVM_DIRTY_LOG_MANUAL_CAPS   (KVM_DIRTY_LOG_MANUAL_PROTECT_ENABLE | \
-> > > > > > >     				     KVM_DIRTY_LOG_INITIALLY_SET)
-> > > > > > > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> > > > > > > index bf6688245d83..566953a4e23a 100644
-> > > > > > > --- a/arch/arm64/kvm/arm.c
-> > > > > > > +++ b/arch/arm64/kvm/arm.c
-> > > > > > > @@ -755,6 +755,9 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
-> > > > > > >     		kvm_vcpu_put_hw_mmu(vcpu);
-> > > > > > >     	kvm_arm_vmid_clear_active();
-> > > > > > > 
-> > > > > > > +	if (vcpu->kvm->arch.enable_hdbss)
-> > > > > > > +		kvm_flush_hdbss_buffer(vcpu);
-> > > > > > > +
-> > > > > > >     	vcpu_clear_on_unsupported_cpu(vcpu);
-> > > > > > >     	vcpu->cpu = -1;
-> > > > > > >     }
-> > > > > > > @@ -1157,6 +1160,9 @@ static int check_vcpu_requests(struct kvm_vcpu *vcpu)
-> > > > > > >     		if (kvm_dirty_ring_check_request(vcpu))
-> > > > > > >     			return 0;
-> > > > > > > 
-> > > > > > > +		if (kvm_check_request(KVM_REQ_FLUSH_HDBSS, vcpu))
-> > > > > > > +			kvm_flush_hdbss_buffer(vcpu);
-> > > > > > > +
-> > > > > > >     		check_nested_vcpu_requests(vcpu);
-> > > > > > >     	}
-> > > > > > > 
-> > > > > > > @@ -1971,7 +1977,15 @@ long kvm_arch_vcpu_unlocked_ioctl(struct file *filp, unsigned int ioctl,
-> > > > > > > 
-> > > > > > >     void kvm_arch_sync_dirty_log(struct kvm *kvm, struct kvm_memory_slot *memslot)
-> > > > > > >     {
-> > > > > > > +	/*
-> > > > > > > +	 * Flush all CPUs' dirty log buffers to the dirty_bitmap.  Called
-> > > > > > > +	 * before reporting dirty_bitmap to userspace. Send a request with
-> > > > > > > +	 * KVM_REQUEST_WAIT to flush buffer synchronously.
-> > > > > > > +	 */
-> > > > > > > +	if (!kvm->arch.enable_hdbss)
-> > > > > > > +		return;
-> > > > > > > 
-> > > > > > > +	kvm_make_all_cpus_request(kvm, KVM_REQ_FLUSH_HDBSS | KVM_REQUEST_WAIT);
-> > > > > > >     }
-> > > > > > > 
-> > > > > > >     static int kvm_vm_ioctl_set_device_addr(struct kvm *kvm,
-> > > > > > > diff --git a/arch/arm64/kvm/dirty_bit.c b/arch/arm64/kvm/dirty_bit.c
-> > > > > > > index 6c7a6ef66b5a..002366337637 100644
-> > > > > > > --- a/arch/arm64/kvm/dirty_bit.c
-> > > > > > > +++ b/arch/arm64/kvm/dirty_bit.c
-> > > > > > > @@ -50,3 +50,65 @@ void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu)
-> > > > > > > 
-> > > > > > >     	vcpu->arch.hdbss.hdbssbr_el2 = 0;
-> > > > > > >     }
-> > > > > > > +
-> > > > > > > +void kvm_flush_hdbss_buffer(struct kvm_vcpu *vcpu)
-> > > > > > > +{
-> > > > > > > +	int idx, curr_idx;
-> > > > > > > +	u64 *hdbss_buf;
-> > > > > > > +	struct kvm *kvm = vcpu->kvm;
-> > > > > > > +
-> > > > > > > +	if (!kvm->arch.enable_hdbss)
-> > > > > > > +		return;
-> > > > > > > +
-> > > > > > > +	curr_idx = HDBSSPROD_IDX(read_sysreg_s(SYS_HDBSSPROD_EL2));
-> > > > > > > +
-> > > > > > > +	/* Do nothing if HDBSS buffer is empty or br_el2 is NULL */
-> > > > > > > +	if (curr_idx == 0 || vcpu->arch.hdbss.hdbssbr_el2 == 0)
-> > > > > > > +		return;
-> > > > > > > +
-> > > > > > > +	hdbss_buf = page_address(phys_to_page(vcpu->arch.hdbss.base_phys));
-> > > > > > > +	if (!hdbss_buf)
-> > > > > > > +		return;
-> > > > > > > +
-> > > > > > > +	guard(write_lock_irqsave)(&vcpu->kvm->mmu_lock);
-> > > > > > > +	for (idx = 0; idx < curr_idx; idx++) {
-> > > > > > > +		u64 gpa;
-> > > > > > > +
-> > > > > > > +		gpa = hdbss_buf[idx];
-> > > > > > > +		if (!(gpa & HDBSS_ENTRY_VALID))
-> > > > > > > +			continue;
-> > > > > > > +
-> > > > > > > +		gpa &= HDBSS_ENTRY_IPA;
-> > > > > > > +		kvm_vcpu_mark_page_dirty(vcpu, gpa >> PAGE_SHIFT);
-> > > > > > You mention that it does not support dirty-ring, but above function will
-> > > > > > mark the page as dirty in the dirty-ring :/
-> > > > > > 
-> > > > > In kvm_arm_enable_hdbss_global(), we explicitly check and reject HDBSS
-> > > > > enablement if dirty-ring is active:
-> > > > > 
-> > > > > ```
-> > > > > if (kvm->dirty_ring_size)
-> > > > >       return 0;
-> > > > > ```
-> > > > > 
-> > > > > So when kvm_flush_hdbss_buffer() runs (which requires enable_hdbss = true),
-> > > > > we know for certain that
-> > > > > 
-> > > > > kvm->dirty_ring_size == 0. Therefore, kvm_vcpu_mark_page_dirty() will always
-> > > > > take the dirty_bitmap path,
-> > > > > 
-> > > > > never the dirty-ring path.
-> > > > > 
-> > > > > That said, I'll add a comment in kvm_flush_hdbss_buffer() before dirty ring
-> > > > > mode is supported, to make this explicit:
-> > > > > 
-> > > > > ```
-> > > > > /*
-> > > > >    * HDBSS is mutually exclusive with dirty-ring mode (see
-> > > > >    * kvm_arm_enable_hdbss_global()), so kvm_vcpu_mark_page_dirty()
-> > > > >    * will update the dirty_bitmap, not the dirty-ring.
-> > > > >    */
-> > > > > ```
-> > > > > 
-> > > > Got it :)
-> > > > 
-> > > > Out of curiosity: which issues have you found on supporting dirty-ring at
-> > > > this point?
-> > > > 
-> > > > Thanks!
-> > > > Leo
-> > > 
-> > > I haven't looked deeply into dirty-ring yet — my main concern is that if
-> > > both the dirty
-> > > 
-> > > ring and HDBSS buffer fill up, the flush path might get blocked or
-> > > complicated.
-> > > 
-> > > For now, I'm planning to match the HDBSS buffer size to the dirty ring size
-> > > in v5 and test it.
-> > > 
-> > > Ideally, the two buffers would be the same size, and the entire dirty
-> > > tracking path would use
-> > > 
-> > Ah, I see the point.
-> > 
-> > IIRC, when dirty-ring gets full, the kernel returns to userspace with
-> > run->exit_reason == KVM_EXIT_DIRTY_RING_FULL, which will warn the VMM to
-> > drain the dirty-ring, and that makes space for us draining HDBSS to the
-> > dirty-ring again.
-> > 
-> > The best way to achieve that, as I remember, is to always drain
-> > HDBSS as much as possible at guest_exitting. That will make more space to
-> > newer HDBSS entries, and we can get userspace to drain the dirty-ring
-> > earlier.
-> > 
-> > I would say to even make HDBSS buffer half (entries) the dirty-ring. Then
-> > we can generally fully drain to the dirty-ring and even report ring full
-> > if the ring is above a given threshold percentage full.
-> > > HDBSS exclusively — no fallback to the legacy dirty bitmap path. If that
-> > > works, I think this approach should be fine.
-> > > 
-> > > Let me know if you have any insights on dirty ring's full-buffer behavior —
-> > > that would be helpful.
-> > > 
-> > > 
-> > Will do!
-> > 
-> > Thanks!
-> > Leo
-> 
-> 
-> Thanks for the insights — reusing PML's reservation mechanism makes sense.
-> 
-> I think we can*keep the HDBSS buffer at 512 entries* (matching
+Hi Arnd,
 
-I recommend using a PAGESIZE (512 in 4k, but bigger in other sizes)
+Thanks for all your fast feedback!...
 
-> PML_LOG_NR_ENTRIES)
-> 
-> for now, and *not expose any ioctl for userspace to configure it*. Since the
-> kernel
-> 
-> auto-enables HDBSS, a userspace size knob would be confusing.
-> 
 
-Humm, I am in favor of letting the user change it according to it's 
-workload. Why would that be confusing?
+On 17/07/2026 14:49, Arnd Bergmann wrote:
+> On Fri, Jul 17, 2026, at 12:47, Ryan Roberts wrote:
+>> From: Jean-Philippe Brucker <jpb@kernel.org>
+>>
+>> Add the initial Kconfig and build-system plumbing for the Arm Core Local
+>> Accelerator driver.
+>>
+>> Introduce the common driver header and register definitions used by
+>> later CLA support. The definitions cover the CLA MMIO frame, launch
+>> response and status fields, standard accelerator registers, launch
+>> opcodes, error codes and memory translation context state.
+>>
+>> Add documentation describing the CLA programming model, its CPU-local
+>> MMIO access rules, userspace assignment model, domain grouping and
+>> expected boot state.
+> 
+> I have a few more questions here. Most of the description and
+> the design decisions make perfect sense to me, but there are
+> a few things I don't understand from your current document.
+> 
+>> +The CLA supports up to 8 attached accelerators, which are accessed by
+>> +programming the CLA's MMIO registers. Operations are launched to an 
+>> accelerator
+>> +and are polled for completion. CLA does not raise interrupts.
+>> +
+>> +            CPU                     CLA              Accel
+>> +             |--- write DATA[7:0] -->|                 |
+>> +             |--- write LAUNCH ----->|---- launch ---->|
+>> +             |<--- poll LRESP -------|                 |
+>> +             |                       |                 |
+>> +             |<--- poll STATUS ------|<--- complete ---|
+>> +
+>> +Each operation can take a 512-bit payload in the DATA registers. After handling
+>> +a LAUNCH write, CLA indicates the launch status in the LRESP register. A further
+>> +operation can only be launched after LRESP indicates completion of the previous
+>> +launch.
+> 
+> This sounds a lot like st64bv or st64bv0, passing an 8-word payload and returning
+> a single word per accelerator operation with shared addressing.
 
-(Having a default size is useful just for enabling it to work without any 
-change in current VMs)
+We're actually passing 9 words here; 8 DATA words plus the LAUNCH word. CLA
+supports only 64 bit aligned and sized accesses (other accesses are RAZ/WI) so
+they have to be written as 9x64bit stores. Then poll using 64bit loads.
 
 > 
-> The reservation logic would be:
-> 
-> - Implement kvm_cpu_dirty_log_size() on arm64 to return the HDBSS buffer
-> entry
-> 
-> count (512, or 0 if HDBSS is not enabled)
+> Why are there now two interfaces to do the same thing?
 
-Why a get to log_size? does userspace need to know it's using HDBSS?
-
-Just a set should do, as VMMs can just try to set a value, and if it fails 
-(IOCTL does not exist, or invalid value), then it can just go forward. 
+Good question. This is how the HW operates.
 
 > 
-> - Reuse kvm_dirty_ring_get_rsvd_entries() to reserve space for one full
-> flush:
-> 
-> KVM_DIRTY_RING_RSVD_ENTRIES + hdbss_entries
-> 
-> - So soft_limit = dirty_ring_size - (KVM_DIRTY_RING_RSVD_ENTRIES +
-> hdbss_entries),
-> 
-> guaranteeing a full flush always fits
-> 
-> kvm_flush_hdbss_buffer() at guest_exit pushes via mark_page_dirty_in_slot()
-> ->
-> 
+> Can a user process use st64bv to do the four steps in a
+> single instruction?
 
-I think I get the point here: since we can have sw dirtying as well as 
-HDBSS tracking, we may get to the point that we don't have enough space to 
-flush hdbss -> dirty-ring, right?
-
-> kvm_dirty_ring_push() -> kvm_dirty_ring_soft_full, which triggers
-> 
-> KVM_EXIT_DIRTY_RING_FULL when needed.
-> 
-> If soft_limit is hit, KVM_REQ_DIRTY_RING_FULL is set and the next vcpu_run
-> exits
-> 
-> to userspace for QEMU to drain the ring.
-
-So the software dirtying routine would be affected by the soft limit, but 
-HADBSS exit would not. It means the dirty-ring would be effectively smaller 
-than specified if we are having mostly sw dirtying.
-
-Did I get that right?
+No, unfortunately not.
 
 > 
-> *One more thing: *when userspace sets the dirty ring size via
+>> +Some operations continue to run asynchronously on the accelerator after launch
+>> +completion. In this case progress is tracked by polling the STATUS register.
+>> +When the CLA updates the STATUS register, it also raises an event which will
+>> +wake an in-progress WFE (wait for event) instruction on the local CPU.
 > 
-> KVM_VM_IOCTL_ENABLE_DIRTY_LOG_RING, we already enforce that
+> The asynchronous interface seems very confusing.
 > 
-> size >= kvm_dirty_ring_get_rsvd_entries(kvm) * sizeof(struct kvm_dirty_gfn)
-> 
-> or size < PAGE_SIZE. With HDBSS, kvm_dirty_ring_get_rsvd_entries() will
-> include the
-> 
-> HDBSS entries via kvm_cpu_dirty_log_size(), so the same check will
-> automatically guarantee
-> 
-> the ring is large enough to accommodate the HDBSS buffer. No additional
-> validation is needed.
-> 
+> How are page faults from the SVA master resolved during an
+> asynchronous operation?
 
-An alternative is moving the remaining array entries to the beginning of 
-the array, and setting the registers accordingly. The tradeoff is an 
-overhead here vs having the full size of the array available later.
+The STATUS register has a fault bit; the poller notices, reads fault info from
+accelerator registers and takes actions to resolve the fault (which in practice
+means access from user space on CPU and fault into the kernel to handle).
 
-Thanks!
-Leo
+> 
+> Can a CPU start multiple asynchronous operations concurrently?
+
+Yes; STATUS indicates READY while it can accept more asynchronous operations
+("comamnds").
+
+> 
+> Do these continue to run if the starting process is scheduled out
+> and another process also tries to use CLA?
+
+Yes; the driver manages assignment of a CLA to a process context completely
+separately from the thread scheduler's decisions about which threads run on
+which CPUs and when. If another process is scheduled onto the CPU and it
+attempts to access it's VA for the CLA, it will fault into the driver's handler
+and be put to sleep until the driver decides to reassign the CLA.
+
+> 
+>> +Faults during address translation are reported by the accelerator in its
+>> +registers and in STATUS. While polling for work completion, software fixes up
+>> +the faults and notifies the accelerator with RESOLVE operations.
+> 
+> I would like to understand the faulting part better. Which instruction
+> specifically causes the fault, is that the poll STATUS read?
+
+I'm not sure what you mean by "Which instruction specifically causes the fault".
+A fault occurs within the accelerator if it tries to access a virtual address
+that is not mapped by the page table or if the permissions of the mapping are
+not sufficient, etc... The fact that the accelerator has faulted is reported to
+the SW that is polling the accelerator's STATUS register within user space. That
+SW is expected to trigger fault handling by the usual kernel mechanisms by
+accessing the VA. Then it issues a RESOLVE operation to tell the accelerator it
+can continue.
+
+> 
+>> +Inter-Accelerator Communication
+>> +-------------------------------
+>> +
+>> +On some platforms, multiple accelerators, each attached to a separate CLA within
+>> +a cluster, are also directly connected to each other via a shared bus to
+>> +accelerate cooperation between accelerators. The accelerators sharing a bus
+>> +cannot be isolated from each other. When collaborative operations are launched
+>> +on each of the participating accelerators, they synchronize over the bus,
+>> +stalling until all are ready.
+> 
+> Could you give an example what this model might be good for?
+
+I can't currently share that information. I expect you might be able to have a
+good guess though :)
+
+> 
+> Does this mean a user may have to start one operation on each CPU
+> from a thread of the same process in order to get a result efficiently
+> across a shared accelerator?
+
+Yes, correct. User space threads don't need to be precisesly synchronized
+because multiple operations can be queued.
+
+> 
+> I assume this will become clearer once you can show an example userspace
+> application that uses this type of accelerator.
+
+Yes indeed. As I said, Arm plans to open source a user space driver, but there
+is no commitment on dates yet.
+
+> 
+>> +Intended SW Usage Model
+>> +=======================
+>> +
+>> +CLA is designed for its PL0 MMIO frame to be mapped into user space  and for user
+>> +space to directly launch accelerator operations and poll for completion. It has
+>> +been observed that for some use cases, the operation execution time is small and
+>> +a trip through the kernel would consume a significant amount of the CPU budget
+>> +for preparing the next operation leading to a significant reduction in bandwidth
+>> +through the accelerator.
+> 
+> Do you have any plans for in-kernel usage of the accelerators?
+> I would assume that for things like cryptographic features, these
+> make sense to be exposed to the kernel itself.
+
+As per cover letter: "the initial (and currently only) target is a compute
+engine". There are not any plans for crypto accelerators (or other things like
+that). So haven't been considering this as something the kernel would want to
+use directly.
+
+(Sorry I'm being vague - I'm sure you appreciate I'm limited on what I can say
+around the use cases for now).
+
+> 
+>> +User space software is expected to create a thread to drive each CLA it is
+>> +using, and for each thread to be pinned to the CLA's local CPU.
+> 
+> What happens if multiple processes have the same chardev open and
+> each mmap() that, e.g. after a fork()? Does each process see its
+> own virtual instance of the accelerator and interact with it through
+> the same physical MMIO register range but its own process address space,
+> or do you have to rely on the registers being mapped only into a
+> single mm_struct to prevent a process from messing with another process
+> data?
+
+The driver maintains a cla_ctx for each {file description, mm_struct} pair. So
+in this case, even though the file description is shared between the parent and
+child processes, they still have distinct mm_structs so still have separate
+contexts allowing the driver to virtualize access correctly.
+
+> 
+>> +Saving and restoring the internal state of the accelerator is an optional
+>> +feature. Current platforms only support it when the accelerator is idle, so
+>> +preempting an accelerator causes work cancellation. Software must carefully
+>> +consider how to balance forward-progress guarantees with preemption 
+>> latency.
+> 
+> I'm not sure I understand this point. Do you mean any async operation
+> that was started on an accelerator may fail due to preemption, so user
+> space must be able to restart it?
+
+Yes, at it's simplest. But it gets a bit complicated if you introduce the idea
+of a priority to each cla_ctx. If a high priority context needs the HW
+periodically and preempts a low priority context, if we just abort the low
+priority work on preemption, it may never make forward progress. We've been
+considering a grace period where the kernel will wait for the accelerators to
+complete their current work (up to a certain timeout) before reassigning them to
+the incomming context. But none of that is part of this RFC - I think that's
+discussion that can come later once we have the basic shape of everything agreed.
+
+Thanks,
+Ryan
+
+> 
+>      Arnd
 
 
