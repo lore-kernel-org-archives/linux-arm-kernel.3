@@ -4,126 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E41FC44515
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 07:26:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB1ADC44515
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 07:27:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vpf7Ez7EdE1Vq+sym35CgM4C5nXj0FZvUFGxud5ge6Q=; b=qD46tEpTXk7kpj3z9X9RPD9w1B
-	IFCs8CWUq+bt9FXrSCzSWuwp5DZB7aCoUrdO3InJDCvrBm0QjBUkyIHb5vBcYcsoS0EMfdcreHHva
-	mFHfbGLi2ZTfrGaO8wo9bsSqBohNWmShGywrTPJxW3ls7mXLTlgyw//6vqx7x6FC8i+bEYU1ClxmR
-	HskKok/o7WJ/joEvVxpLrGM/AJC8SxRxQ18RxBFoMesoSbd69chAQl3POnWvhgP9n8RDlT7CCqEQI
-	MJ/5seVJuTicvFDnSLC7SYzGXgcXjNX1EVQWMd3WUB46pbWIM1ZWrbVyl10N0+Tywl8twEZldAXp/
-	JpnnpEjw==;
+	bh=hfSDcA/VFf5O36XZ1jIbDeiIvlPOe5N0iYnQa5D5SVg=; b=jFogPKTrSSCIAO9p9uPwgkX0Dk
+	na7Rna+qO5OAFJbpKRCpjuUPHTo7+TdoM7oaruvYTtnUBPKNfYISw28DPj2Xx8wY+nu3GrwVAw3IP
+	rJWpDxzeckbeAk67xjMqEHOn5fOk6/aVIyAiw+Yq4fTiGXhdhb8I6FOLJtANAEn+UqK0x7j2g6w+P
+	/4HTBfm7+R8AZfUhTdY2G6t4SfzATsF6cgEMlM9u9mCXlx1Mp23knhJouQZncyWqiQQh6l5dtd+EF
+	8D1xf9UhlDhJQx+2IxRYVfchUWdBZjugaQVyHHLIVliMKwJYLIVrep9mwEedD8VGWqX56U7SZN5+v
+	EuqnXMDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkcyB-00000001RI5-3g7L;
-	Fri, 17 Jul 2026 07:26:51 +0000
-Received: from exmail3.compal.com ([59.120.207.196] helo=tpecef21.compal.com)
+	id 1wkcyN-00000001RRa-1uS5;
+	Fri, 17 Jul 2026 07:27:03 +0000
+Received: from smtpbguseast3.qq.com ([54.243.244.52])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkcy7-00000001RF0-2fQE;
-	Fri, 17 Jul 2026 07:26:50 +0000
-X-UUID: dad18f4481b011f1b2470fb4f881575f-20260717
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.17,REQID:111355a2-2480-4131-8d44-035b674b9e32,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:d497b38,CLOUDID:ab293b19-ab14-4403-9336-76696324c5a8,B
-	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|110|111|836|865|888|898,TC:-5,
-	Content:0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:n
-	il,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: dad18f4481b011f1b2470fb4f881575f-20260717
-Received: from sdmg12.sdbg.compal.com [(10.113.168.10)] by tpecef21.compal.com
-	(envelope-from <jackbb_wu@compal.com>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1926054230; Fri, 17 Jul 2026 15:26:41 +0800
-X-UUID: d8b4070081b011f1a9f9c99e036204b4-20260717
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.15,REQID:68120410-0751-41c4-ae7e-f9a985aa4f58,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e276073,CLOUDID:94ca12d7-d84b-4e52-b801-314e13fb1691,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|865|888|
-	898,TC:-5,Content:0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS
-	:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,A
-	RC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: d8b4070081b011f1a9f9c99e036204b4-20260717
-Received: from sdbmbx11.tpe.compalcomm.com [(10.113.2.135)] by sdmg12.sdbg.compal.com
-	(envelope-from <jackbb_wu@compal.com>)
-	(Compal Mail Service with TLSv1.2 ECDHE-RSA-AES128-SHA 128/128)
-	with ESMTP id 847746305; Fri, 17 Jul 2026 15:26:37 +0800
-Received: from SDBMBX13.tpe.compalcomm.com (10.113.2.137) by
- SDBMBX11.tpe.compalcomm.com (10.113.2.135) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.43;
- Fri, 17 Jul 2026 15:26:35 +0800
-Received: from SDBMBX13.tpe.compalcomm.com ([fe80::2b98:6c2c:37df:2a86]) by
- SDBMBX13.tpe.compalcomm.com ([fe80::2b98:6c2c:37df:2a86%11]) with mapi id
- 15.02.2562.043; Fri, 17 Jul 2026 15:26:35 +0800
-From: "Wu. JackBB (GSM)" <JackBB_Wu@compal.com>
-To: Simon Horman <horms@kernel.org>
-CC: "loic.poulain@oss.qualcomm.com" <loic.poulain@oss.qualcomm.com>,
-	"ryazanov.s.a@gmail.com" <ryazanov.s.a@gmail.com>,
-	"johannes@sipsolutions.net" <johannes@sipsolutions.net>,
-	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
-	<davem@davemloft.net>, "edumazet@google.com" <edumazet@google.com>,
-	"kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
-	"wen-zhi.huang@mediatek.com" <wen-zhi.huang@mediatek.com>,
-	"shi-wei.yeh@mediatek.com" <shi-wei.yeh@mediatek.com>,
-	"Minano.tseng@mediatek.com" <Minano.tseng@mediatek.com>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	"angelogioacchino.delregno@collabora.com"
-	<angelogioacchino.delregno@collabora.com>, "corbet@lwn.net" <corbet@lwn.net>,
-	"skhan@linuxfoundation.org" <skhan@linuxfoundation.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>
-Subject: RE: [External Mail] Re: [PATCH v4 6/7] net: wwan: t9xx: Add AT & MBIM
- WWAN ports
-Thread-Topic: [External Mail] Re: [PATCH v4 6/7] net: wwan: t9xx: Add AT &
- MBIM WWAN ports
-Thread-Index: AQHdFQZbJYK1bUK1WEaDXhVMUHB9n7ZxULXN
-Date: Fri, 17 Jul 2026 07:26:35 +0000
-Message-ID: <7348d8ecabef42f892503ae6910c0e75@compal.com>
-References: <20260709-t9xx_driver_v1-v4-6-a8c009d509c5@compal.com>,<20260716093429.231132-1-horms@kernel.org>
-In-Reply-To: <20260716093429.231132-1-horms@kernel.org>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.113.2.241]
-x-tm-as-product-ver: SMEX-14.0.0.3239-9.1.2019-30074.005
-x-tm-as-result: No-10--10.227100-8.000000
-x-tmase-matchedrid: k7uoLACGqMouv++HU7VXryRFbfQbCufdN0X64jGy2dZAvBJVRgtcsjny
-	lHiK0ou/0wNjG7j2lpdbGNsZDOUGQtDVjrCAjJafJfg23t68rFm+UXZnp3CKAKMhPVMnoUqMFZF
-	fhayav43p+gp7hDwK8qIWjMM1LlCVlP8tEM0fMQ95JTDogbV4hPJDp0CY93MSHyNEnetUnYKO9o
-	XZJdq+a1LCyrCU73d8bZ0ZmXZM5yZ4KjjH0UCbNQ53Bh+4sUi8wBLtKYu8bEtpbszOEp41ydil2
-	pkoOjM8c7UkjmkQhyoNh194vDCrLCRoQhMu0UDBJPlTeUnhPwo58Sarp97J8xfqd/DJ3Zya7rEb
-	Qf2fdE7jTz65t1IJFMi17oTzQKhWJZ8EOwoK47yY3+hmZP9IU931j9zwRXOC
-x-tm-as-user-approved-sender: No
-x-tm-as-user-blocked-sender: No
-x-tmase-result: 10--10.227100-8.000000
-x-tmase-version: SMEX-14.0.0.3239-9.1.2019-30074.005
-x-tm-snts-smtp: 03905B1A35D55303C1E0973AC004C0DEE4B03304099A1CAEE825BBD116093C1A2000:8
-Content-Type: text/plain; charset="big5"
-Content-Transfer-Encoding: base64
-MIME-Version: 1.0
+	id 1wkcyE-00000001RE3-1CYu;
+	Fri, 17 Jul 2026 07:26:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
+	s=altu2504; t=1784273038;
+	bh=hfSDcA/VFf5O36XZ1jIbDeiIvlPOe5N0iYnQa5D5SVg=;
+	h=From:To:Subject:Date:Message-Id;
+	b=fYXEyAssbfHboxP5QdcQ6RM2gOmJnmbbZPGsTBD8SPtT5gd9wFAY0UGeMT42MDXjg
+	 ukdaXkyvlWNUDsUmO5b1iLRbYYMRG/QeFAQFz4251JelGmBGAojVXu38G0dj288PxV
+	 s4kIBlvRsQ0tUQ6lT1r3APLRPP5/q4mEgB0ZxaLk=
+X-QQ-mid: esmtpsz21t1784273037t8aa6d3dc
+X-QQ-Originating-IP: 0D5wUK+GE2YIGxT4HuuhDJ2D57emU1+Gs34WtC5gClQ=
+Received: from DESKTOP-8BT1A2O.localdomain ( [61.154.14.86])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 17 Jul 2026 15:23:46 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 8582860570799389207
+From: Chaoyi Chen <kernel@airkyi.com>
+To: Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Sandy Huang <hjc@rock-chips.com>,
+	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-phy@lists.infradead.org
+Subject: [PATCH v3 4/5] drm/rockchip: cdn-dp: Support handle lane info without extcon
+Date: Fri, 17 Jul 2026 15:23:22 +0800
+Message-Id: <20260717072323.96-5-kernel@airkyi.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20260717072323.96-1-kernel@airkyi.com>
+References: <20260717072323.96-1-kernel@airkyi.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpsz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
+X-QQ-XMAILINFO: MyirvGjpKb1j4ajW/h+h1TDId9lYcfgTEOsAICrRq9y1W44g/WIDA6L6
+	1JWZ0h4PwjzvF7e4k3ixjIK9UwIEJwaET8qNWs2PnJI8hQfasLNmNRXrpQycPjW3rv5xQ79
+	wt+8gbNqvaD6mdJptCUnIq2OEXaePOyrkb/k0b7Phsw6d70ijk7lbBUKfFGqgBDjF32iV4b
+	qyra8iqbYK7X8LxqFE0M19xYfhHKFTMCwGYJX8AVXtXOy0dwuVVPPBbHz9KdW/p0zc5HXRl
+	jZKIseDiWv27v26B+yZB6NrF8uteC1iepCxC0cIfh+w9fYUDpH8WmU1ZTpG/SNgvL6YKj/i
+	cWL9wInqWxMyqzznX/JMEgTW/RiD2tM0wgjL6i8LELLmGx+U43kMxyOuUUsDo84boQ61ujz
+	q1Zy5MLXCjSS3nzziQCUl12imVu3EKoXIxxb5wPPAHOQAReGMHuxha2poazmNdbtpIV2PPp
+	slyEdY9y8rw2SfehD0I2dYShbGaPT2k6T03HmT7r+S+gRvFO99QWLbeoopn7mRoWg6GCrlx
+	dBa4LXfe/fGZsMi8uJRfYgNk2RY28/6eONbtPt/ufC57K8pny3zG3hL+bheoIUl1gmRNCaw
+	CWQI1rNn8SXHwbn/+F7wESzmxW//eu7Tx6drkXJDkdrqAoGFdXe6wbACNf7B5h7JuL2jJjt
+	qZrXRQ6JiTUHIKytR55lC/ZstWZ1oKaGjoiBMNE+5sdEDW+taX9xVgzDUC3dQYcXK8Hiv5o
+	/OSRMq6bu7gRQnBNvpNBVjJFRYnM3GrvidG8FdyUS4wdFl5UMHra7FpUauzPEL0cWu3YNBB
+	ZywkpWayYDk+kW0RdDCHHGqfq2VJnyQiZK+l7/XaX0Nc71bUU7qwyVFPILMsaguABMZwoCf
+	8iOlMTqbi9wnOCpR3IHqv1sXLq0jsJfEbdi1Cb0/6dn5iCvqPVgY8ALM4U5DzDuM38uj4X5
+	98JR4Cjm19tvDfzNsdjFnu1VatTol4AB3LXhBGoZzxTJBCw5sSgekfvAnQASVeyips07zXK
+	ZkbmqqoDefXCroucMWu4TUw+a3LU9WeESH9O8nNg==
+X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_002648_027123_FF881C34 
-X-CRM114-Status: GOOD (  13.11  )
+X-CRM114-CacheID: sfid-20260717_002654_823602_4B8AD0FE 
+X-CRM114-Status: GOOD (  14.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,38 +109,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgU2ltb24sDQoNCk9uIC4uLiBzYXNoaWtvIHdyb3RlOg0KPiA+ICtzdGF0aWMgaW50IG10a19w
-b3J0X3d3YW5fd3JpdGUoLi4uKQ0KPiA+ICsJaWYgKHJldCA8IDApDQo+ID4gKwkJcmV0dXJuIHJl
-dDsNCj4gPiArDQo+ID4gKwljb25zdW1lX3NrYihza2IpOw0KPiA+ICsJcmV0dXJuIDA7DQo+DQo+
-IFtTZXZlcml0eTogSGlnaF0NCj4gSWYgbXRrX3BvcnRfY29tbW9uX3dyaXRlKCkgc3VjY2Vzc2Z1
-bGx5IHNlbmRzIHRoZSBmaXJzdCBmZXcgZnJhZ21lbnRzDQo+IGJ1dCBmYWlscyBvbiBzdWJzZXF1
-ZW50IG9uZXMgLi4uIGRvZXMgdGhpcyBjb2RlIHNpbGVudGx5IGRyb3AgdGhlDQo+IHJlbWFpbmlu
-ZyBkYXRhPw0KDQpUaGlzIGlzIGEgZGVzaWduIGxpbWl0YXRpb24gb2YgdGhlIFdXQU4gcG9ydCBB
-UEk6DQp3d2FuX3BvcnRfb3BfdHggcmV0dXJucyAwIGZvciBzdWNjZXNzIG9yIG5lZ2F0aXZlIGZv
-ciBlcnJvciChWA0KdGhlcmUgaXMgbm8gbWVjaGFuaXNtIHRvIHJlcG9ydCBwYXJ0aWFsIHdyaXRl
-cyBiYWNrIHRvIHRoZSBXV0FODQpjb3JlLiBUaGUgYWxyZWFkeS1zdWJtaXR0ZWQgZnJhZ21lbnRz
-IGNhbm5vdCBiZSByZWNhbGxlZCBmcm9tDQp0aGUgRE1BIGVuZ2luZS4gRm9yIHRoZSBBVC9NQklN
-IGNvbnRyb2wgcG9ydHMsIG1lc3NhZ2VzIGFyZQ0Kc21hbGwgKHR5cGljYWxseSB1bmRlciAxS0Is
-IHdpdGhpbiBhIHNpbmdsZSBNVFUpLiBUaGUNCm11bHRpLWZyYWdtZW50IHBhdGggaXMgcmFyZWx5
-IGV4ZXJjaXNlZCBmb3IgY29udHJvbCBwbGFuZQ0KdHJhZmZpYy4NCg0KPiA+ICtzdGF0aWMgaW50
-IG10a19wb3J0X3d3YW5fd3JpdGVfYmxvY2tpbmcoLi4uKQ0KPiA+ICsJaWYgKHJldCA8IDApDQo+
-ID4gKwkJcmV0dXJuIHJldDsNCj4gPiArDQo+ID4gKwljb25zdW1lX3NrYihza2IpOw0KPiA+ICsJ
-cmV0dXJuIDA7DQo+DQo+IFtTZXZlcml0eTogSGlnaF0NCj4gQ2FuIHRoZSBzYW1lIHNpbGVudCBk
-cm9wIG9mIHBhcnRpYWxseSB3cml0dGVuIFNLQnMgaGFwcGVuIGhlcmU/DQoNClNhbWUgcmVhc29u
-aW5nIGFzIGFib3ZlLiBUaGUgV1dBTiBwb3J0IEFQSSBkb2VzIG5vdCBzdXBwb3J0DQpwYXJ0aWFs
-IHdyaXRlIHJlcG9ydGluZywgYW5kIGNvbnRyb2wgcGxhbmUgbWVzc2FnZXMgYXJlDQp0eXBpY2Fs
-bHkgd2l0aGluIGEgc2luZ2xlIE1UVS4NCg0KPiA+ICtzdGF0aWMgaW50IG10a19wb3J0X3d3YW5f
-ZW5hYmxlKC4uLikNCj4gPiArCXBvcnQtPndfcHJpdi53X3BvcnQgPSB3d2FuX2NyZWF0ZV9wb3J0
-KC4uLik7DQo+ID4gKwlpZiAoSVNfRVJSKHBvcnQtPndfcHJpdi53X3BvcnQpKSB7DQo+DQo+IFtT
-ZXZlcml0eTogSGlnaF0NCj4gQ2FuIGEgcmFjZSBjb25kaXRpb24gb2NjdXIgaGVyZSBpZiB3d2Fu
-X2NyZWF0ZV9wb3J0KCkgZmFpbHM/DQoNCm10a19wb3J0X3d3YW5fZW5hYmxlKCkgaXMgY2FsbGVk
-IGZyb20gdGhlIEZTTSB0aHJlYWQgZHVyaW5nDQp0aGUgaGFuZHNoYWtlIHNlcXVlbmNlLCBiZWZv
-cmUgdGhlIHBvcnQgc3RhcnRzIHJlY2VpdmluZyBkYXRhLg0KVGhlIENMRE1BIFJYIHF1ZXVlIGZv
-ciB0aGlzIHBvcnQgaGFzIG5vdCBiZWVuIG9wZW5lZCBhdCB0aGlzDQpwb2ludCChWCBSWCBkYXRh
-IG9ubHkgYXJyaXZlcyBhZnRlciB0aGUgbW9kZW0gY29tcGxldGVzIGl0cw0KaGFuZHNoYWtlLiBU
-aGUgUlggcGF0aCBjYW5ub3Qgb2JzZXJ2ZSB0aGUgZXJyb3IgcG9pbnRlci4NCg0KRHVyaW5nIHRl
-YXJkb3duLCBtdGtfcG9ydF93d2FuX2Rpc2FibGUoKSBob2xkcyB3X2xvY2sgd2hlbg0KY2xlYXJp
-bmcgd19wb3J0LCBhbmQgbXRrX3BvcnRfd3dhbl9yZWN2KCkgY2hlY2tzIHdfcG9ydCB1bmRlcg0K
-dGhlIHNhbWUgbG9jaywgc28gdGhlIFJYIHBhdGggaXMgcHJvcGVybHkgc3luY2hyb25pemVkLg0K
-DQpUaGFua3MuDQoNCkphY2sgV3U=
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+
+This patch add support for get PHY lane info without help of extcon.
+
+There is no extcon needed if the Type-C controller is present. In this
+case, the lane info can be get from PHY instead of extcon.
+
+The extcon device should still be supported if Type-C controller is
+not present.
+
+Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+---
+
+(no changes since v1)
+
+---
+ drivers/gpu/drm/rockchip/cdn-dp-core.c | 25 +++++++++++++++++--------
+ 1 file changed, 17 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/gpu/drm/rockchip/cdn-dp-core.c b/drivers/gpu/drm/rockchip/cdn-dp-core.c
+index 190cce9530c8..74e1f5422a6e 100644
+--- a/drivers/gpu/drm/rockchip/cdn-dp-core.c
++++ b/drivers/gpu/drm/rockchip/cdn-dp-core.c
+@@ -157,6 +157,9 @@ static int cdn_dp_get_port_lanes(struct cdn_dp_port *port)
+ 	int dptx;
+ 	u8 lanes;
+ 
++	if (!edev)
++		return phy_get_bus_width(port->phy);
++
+ 	dptx = extcon_get_state(edev, EXTCON_DISP_DP);
+ 	if (dptx > 0) {
+ 		extcon_get_property(edev, EXTCON_DISP_DP,
+@@ -220,7 +223,7 @@ static bool cdn_dp_check_sink_connection(struct cdn_dp_device *dp)
+ 	 * some docks need more time to power up.
+ 	 */
+ 	while (time_before(jiffies, timeout)) {
+-		if (!extcon_get_state(port->extcon, EXTCON_DISP_DP))
++		if (port->extcon && !extcon_get_state(port->extcon, EXTCON_DISP_DP))
+ 			return false;
+ 
+ 		if (!cdn_dp_get_sink_count(dp, &sink_count))
+@@ -386,11 +389,14 @@ static int cdn_dp_enable_phy(struct cdn_dp_device *dp, struct cdn_dp_port *port)
+ 		goto err_power_on;
+ 	}
+ 
+-	ret = extcon_get_property(port->extcon, EXTCON_DISP_DP,
+-				  EXTCON_PROP_USB_TYPEC_POLARITY, &property);
+-	if (ret) {
+-		DRM_DEV_ERROR(dp->dev, "get property failed\n");
+-		goto err_power_on;
++	property.intval = 0;
++	if (port->extcon) {
++		ret = extcon_get_property(port->extcon, EXTCON_DISP_DP,
++					  EXTCON_PROP_USB_TYPEC_POLARITY, &property);
++		if (ret) {
++			DRM_DEV_ERROR(dp->dev, "get property failed\n");
++			goto err_power_on;
++		}
+ 	}
+ 
+ 	port->lanes = cdn_dp_get_port_lanes(port);
+@@ -1027,6 +1033,9 @@ static int cdn_dp_bind(struct device *dev, struct device *master, void *data)
+ 	for (i = 0; i < dp->ports; i++) {
+ 		port = dp->port[i];
+ 
++		if (!port->extcon)
++			continue;
++
+ 		port->event_nb.notifier_call = cdn_dp_pd_event;
+ 		ret = devm_extcon_register_notifier(dp->dev, port->extcon,
+ 						    EXTCON_DISP_DP,
+@@ -1119,14 +1128,14 @@ static int cdn_dp_probe(struct platform_device *pdev)
+ 		    PTR_ERR(phy) == -EPROBE_DEFER)
+ 			return -EPROBE_DEFER;
+ 
+-		if (IS_ERR(extcon) || IS_ERR(phy))
++		if (IS_ERR(phy) || PTR_ERR(extcon) != -ENODEV)
+ 			continue;
+ 
+ 		port = devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
+ 		if (!port)
+ 			return -ENOMEM;
+ 
+-		port->extcon = extcon;
++		port->extcon = IS_ERR(extcon) ? NULL : extcon;
+ 		port->phy = phy;
+ 		port->dp = dp;
+ 		port->id = i;
+-- 
+2.53.0
+
 
