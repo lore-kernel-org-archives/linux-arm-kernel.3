@@ -4,64 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 977C4C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 06:14:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E570C44507
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 06:15:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MYfIiTljvUdNCRakllw3Wd86kd4UG5DQ4bHXp1kZS0o=; b=cBbT1YeRvknEYZCyi/ZQX4Voo/
-	UcFB6tDZAwqCOD190p255PlAa/0JZJG9T/6Rg2ptjnJB69mZA1jyZseR0zJW5gdHeB+KqdEQly9k2
-	2rez2X5sV9mpau2b8W/hisCBscfQkQvQQisJ3flFOyt7lmCvtcplGVydXliDaA91kDulLkPCwMATf
-	U8X7Mqf8v0oDt1uM+A7roLhsHTut2ihWIn56srVe2K9TURghMXYNPSUso1mXlUgSrw7qUfM0r05g6
-	2t1vnXkIlu/ax5ukBlPe6fAjJ92GSX4ZHVL0DKkZ466oWCOpuoZmckFvWh8bMo1tRHlcqxwY1LkTt
-	TshTODCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Wy4A5Bpkj2zzKdn6eNsWOzDqtG3uGM/7aAgamplxzrs=; b=LWfgpkNR7y7WFjY2BjZ/nZ81Fq
+	RkEXNfEMSTm5N4RnyiCYqnWJdNZH03+v6ecUqgUDe7HgOYCMB+3K25d8tcXJOZPjSF+Jkd9ObcqGt
+	0z7PSJ/s9D86NpuSBH/KC9ztRUPyExS1FCJZD8MHkNVX2hdcEpmv4qZNGSQv/8FfYv+T/R3zhMsKi
+	BK3mXAhqseXFASw3dTlGfw+D66tDQI0oejt6qm9Yhid1rPGuvCVU80jw7Kzl02KYh2Wy6xUXFmACQ
+	xh6Nc25LySlLv+oy1P4lVd/BfhZV28XTrVj76/Aisij7/zg3ELw2DhnwWYSn06QieZXB83SIz2MlD
+	xdtBJvrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkbmR-00000001DUk-441Z;
-	Fri, 17 Jul 2026 06:10:39 +0000
-Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
+	id 1wkbqz-00000001DxA-1XYI;
+	Fri, 17 Jul 2026 06:15:21 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkbmN-00000001DUK-3Z5a
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 06:10:38 +0000
-Received: from francesco-nb (xcpe-178-82-120-96.dyn.res.sunrise.net [178.82.120.96])
-	by mail11.truemail.it (Postfix) with ESMTPA id 5A7A71FB8A;
-	Fri, 17 Jul 2026 08:10:30 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1784268631;
-	bh=MYfIiTljvUdNCRakllw3Wd86kd4UG5DQ4bHXp1kZS0o=; h=From:To:Subject;
-	b=hk4lwR1CZ6JKHAz0z8HOasZPFaSinvtuTwX7pFtN44+cOF4LecRE00r1TcxgaUWLZ
-	 MgfS8djpkpTGqBMMr/HLRBFlNiVoA4VcM76YAEMs66Y9G1OhpsNHCjbmbI2X16sdD9
-	 KqqX0NUZIqEkE+DQzbGorLWzXhPz5ufx/L+EuvNlhN6dAkPHRdGmRZvzsm1qDNo1dy
-	 f1z/Nww6QxgEsaudJoFkzuJRDbZpYEvrEG6jrPhr+7dlZkALaKgMNGIWKiKC0vrF4k
-	 F57rZ+MP5O47KU/cuELfIBDeSUAl/fdDmxZoCDJGbpX76XTeJrVE/HqpqRqxcyLMIS
-	 UbzhjI4QsNslA==
-Date: Fri, 17 Jul 2026 08:10:24 +0200
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Leonardo Costa <leoreis.costa@gmail.com>, bhelgaas@google.com
-Cc: hongxing.zhu@oss.nxp.com, frank.li@nxp.com, l.stach@pengutronix.de,
-	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
-	robh@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Richard Zhu <hongxing.zhu@nxp.com>,
-	leonardo.costa@toradex.com
-Subject: Re: [PATCH v2] PCI: imx6: Fix i.MX6Q/DL boot hang by separating PHY
- power and reference clock control
-Message-ID: <20260717061024.GA362793@francesco-nb>
-References: <20260708035928.580236-1-hongxing.zhu@oss.nxp.com>
- <20260708035928.580236-2-hongxing.zhu@oss.nxp.com>
- <blkjlbskmfiyprh6wlbfilwlgjw3zkbslh6fpogcc5vcfu5dvn@hcrojgleuxob>
+	id 1wkbqx-00000001Du7-0uds;
+	Fri, 17 Jul 2026 06:15:20 +0000
+From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1784268901;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Wy4A5Bpkj2zzKdn6eNsWOzDqtG3uGM/7aAgamplxzrs=;
+	b=P3SX6syH0JPq+BSR8L/gxIQXPwFFAE1o3/ph72Jp32jnjpxe38j3E7hjV4F1gTP2WgTwoX
+	ddZ91PW3NOhqQNsORIGBeh00/kVAuX9mpGes7V7A7uV5apMInBM/3qvHupwtjYo2FIHoEv
+	6X2nBf6kkBntHAsfm8NY14cfoErnb9FkM94LqODtMEcPSPDp3E6hqxVhGc8Phzd8gOsVyH
+	J9D4IP8GbsIa/Ofz1ykBl/1AQPH57q14h/1Sl8dfWELEfww7E0l02mrj/KowFPbcrDqf00
+	sekRqUJjtROJBEhIuQWnarqJK0yNhKAoUw2IeErUi/17vT3L2dIDVgHmhO3CAg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1784268901;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Wy4A5Bpkj2zzKdn6eNsWOzDqtG3uGM/7aAgamplxzrs=;
+	b=jSwIUk6v3+SYazZJ8ekQtG0on+6D+EFv408GtpL3sHwiYVbYBQ+5W/q83dsQg/4vpWev3r
+	904VBVIAQUebi+Ag==
+Date: Fri, 17 Jul 2026 08:14:48 +0200
+Subject: [PATCH v2 4/7] clocksource/drivers/mips-gic-timer: Remove
+ CONFIG_GENERIC_GETTIMEOFDAY ifdeffery
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <blkjlbskmfiyprh6wlbfilwlgjw3zkbslh6fpogcc5vcfu5dvn@hcrojgleuxob>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260717-vdso-arch-clockmodes-v2-4-756f5a5d1467@linutronix.de>
+References: <20260717-vdso-arch-clockmodes-v2-0-756f5a5d1467@linutronix.de>
+In-Reply-To: <20260717-vdso-arch-clockmodes-v2-0-756f5a5d1467@linutronix.de>
+To: Arnd Bergmann <arnd@arndb.de>, Andy Lutomirski <luto@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>, 
+ Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+ Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, 
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>
+Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-kbuild@vger.kernel.org, linux-mips@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
+ loongarch@lists.linux.dev, 
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784268894; l=811;
+ i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
+ bh=iYdmmwYnitqCJzJDOgChDbBElLI/0ThiAUZVrCungs4=;
+ b=BFHrzLnVuye2tr+e2SIbjrPgLrJp7uaBwOS9ADqw3d0W/ptiTxietvQ/GYUtcy6TC11wLvy6x
+ s4V0okkKzhyBxX091qQRCW+pdzTXMAeayl0oyQpbQAksL41O4o1wJc0
+X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
+ pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_231036_814331_056BBBCB 
-X-CRM114-Status: GOOD (  14.45  )
+X-CRM114-CacheID: sfid-20260716_231519_407466_D25EF2A4 
+X-CRM114-Status: UNSURE (   8.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,51 +97,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Now that there is a definition of VDSO_CLOCKMODE_GIC even if no
+vDSO is built, the ugly ifdeffery can be removed.
 
+Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+---
+ drivers/clocksource/mips-gic-timer.c | 2 --
+ 1 file changed, 2 deletions(-)
 
-On Thu, Jul 16, 2026 at 11:43:31AM -0300, Leonardo Costa wrote:
-> On Wed, Jul 08, 2026 at 11:59:27AM +0800, hongxing.zhu@oss.nxp.com wrote:
-> > From: Richard Zhu <hongxing.zhu@nxp.com>
-> > 
-> > Commit 610fa91d9863 ("PCI: imx6: Assert PERST# before enabling regulators")
-> > introduced a boot hang on i.MX6Q/DL variants by changing the initialization
-> > sequence.
-> > 
-> > The issue stems from coupling PHY power (TEST_PD) and reference clock
-> > (REF_CLK_EN) control in imx6q_pcie_enable_ref_clk(). When these are
-> > managed together, the timing between PHY power-up and reference clock
-> > enablement cannot be properly controlled, leading to initialization
-> > failures.
-> > 
-> > Fix this by separating the two concerns:
-> > 
-> > - Move PHY power control (TEST_PD) to imx6q_pcie_core_reset() where it
-> >   logically belongs with reset operations. This ensures PHY power state
-> >   is managed as part of the core reset sequence.
-> > 
-> > - Update imx6qp_pcie_core_reset() to call imx6q_pcie_core_reset() for
-> >   shared PHY power management, avoiding code duplication.
-> > 
-> > - Make imx6q_pcie_enable_ref_clk() responsible only for reference clock
-> >   (REF_CLK_EN) control, simplifying its purpose.
-> > 
-> > - Remove the 10us delay workaround from imx6q_pcie_enable_ref_clk() as
-> >   proper sequencing is now handled by the core_reset functions.
-> > 
-> > This refactoring ensures PHY power is controlled during reset
-> > operations, fixing the boot hang while improving code maintainability.
-> > 
-> > Fixes: 610fa91d9863 ("PCI: imx6: Assert PERST# before enabling regulators")
-> > Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> > ---
-> 
-> Tested-by: Leonardo Costa <leonardo.costa@toradex.com>
+diff --git a/drivers/clocksource/mips-gic-timer.c b/drivers/clocksource/mips-gic-timer.c
+index a1669266c94d..1501c7db9a8e 100644
+--- a/drivers/clocksource/mips-gic-timer.c
++++ b/drivers/clocksource/mips-gic-timer.c
+@@ -198,9 +198,7 @@ static struct clocksource gic_clocksource = {
+ 	.name			= "GIC",
+ 	.read			= gic_hpt_read,
+ 	.flags			= CLOCK_SOURCE_IS_CONTINUOUS,
+-#ifdef CONFIG_GENERIC_GETTIMEOFDAY
+ 	.vdso_clock_mode	= VDSO_CLOCKMODE_GIC,
+-#endif
+ };
+ 
+ static void gic_clocksource_unstable(char *reason)
 
-Reported-by: Leonardo Costa <leoreis.costa@gmail.com>
-Closes: https://lore.kernel.org/lkml/20260629143439.361560-1-leoreis.costa@gmail.com/
-
-Bjorn: this should solve the concerns your questions from https://lore.kernel.org/lkml/20260716172858.GA111215@bhelgaas/
-
-Francesco
+-- 
+2.55.0
 
 
