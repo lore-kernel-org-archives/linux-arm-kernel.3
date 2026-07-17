@@ -4,91 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30C05C44514
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 08:55:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FD21C44507
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 08:55:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=UqB+ZcdPBHABzE32jG4dg74lCIilLL5SjMXqW/Mf2cY=; b=CEXPOFVWINkPLFIVZhQsyhMosm
-	kLOF3y/uQNnH1fyitnzAr0F6h51h03Whcvt5BPaaI8q5TxnzX38cKKwHUFXEsA8d/r6L1EqfYVEHU
-	t8btz/SnH+W0gQdnZrOm+cqhaeglpKP3DeNupbwlJ6coyn456rX5mXwT/CXcVz574ArMzoptGgpO+
-	8NCCzWwPjExCzhk3S/D/TkAHaJtTU9qA9hYusFmd4k10FSeg6GA5eLDcXzT3Y6q4ekOp2mhhitOct
-	R1ak1HHv5lICoMgN7hQsSBYFoWx7XENmQtnAtn2AKfMRaqgS7x0x+nM7sjufwkqUp/AlXo2E7k3K3
-	J3vYn8Cw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Zvd1osMYewGqon41SsFYB9MFb6slH1HcdKHtX5RAEpk=; b=MbioaQmRZ4VxoONQr6IjgxYoax
+	QlFukAQjXdyiZT25aRFruabKXYqSA4wnOlENiWho+6Ed5qQ2hFJ49mQKZL3TXotEBIY/0RBs2powv
+	YFTe1ONR8B4jxKHxHmnhMg7XxYruTOZTqeT+u2MUKk84zIKt3+dRdZbOWhlPPYqjoB8ahScdeNYTe
+	Bv1m8scNq2UNj9WRR1i1fFRoNsooh4mhDpMo3i2b6KJBWOvfe61ykifCrG0RVSqTAMGPCbGDXEIMl
+	ya9zbLQFs5dF9PI0QAoLDzkaR5lZ8rmeDWcpGVC0eXojV0hbsVrkPWajoLQooifBEbjF4M9LBgdud
+	5hSl54zQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkeLp-00000001kGO-2FYl;
-	Fri, 17 Jul 2026 08:55:21 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1wkeLv-00000001kK6-2r4L;
+	Fri, 17 Jul 2026 08:55:27 +0000
+Received: from flow-b8-smtp.messagingengine.com ([202.12.124.143])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkeLj-00000001kCI-1XXJ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 08:55:17 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4953f64372aso3153015e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 01:55:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bisdn.de; s=google; t=1784278512; x=1784883312; darn=lists.infradead.org;
-        h=content-type:content-transfer-encoding:mime-version:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=UqB+ZcdPBHABzE32jG4dg74lCIilLL5SjMXqW/Mf2cY=;
-        b=dswilyn39X2k5HNOgumjbjT7BqmAClKHqqBgZEzxch2epF/+2JRkdshVXrgM2UJuuI
-         dlUrjvBri7YptFlRdttpij9Ldrt/xSJYQHraESyAhOGb8/5iizMETWKcojQnsrpANaPo
-         H9C4U7zmY74kmAKWs5O0XnAAlQ19xfesINkqFeyr+uIJWdlYWZSNbjqTwFOLGao40sD1
-         HAcYEGh8w6yC6BVV3BtEkh5XOokNfBrLEWklVl/2plEr1rz6PNqplIYl9hXDA3tnKwRo
-         iopqO1ygx8vxHhPA/6m5UesdbH2mf0iIrPG+S3/gNazZ2fFw8cUVynYu0s3bbiaw3MhE
-         FV8w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784278512; x=1784883312;
-        h=content-type:content-transfer-encoding:mime-version:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=UqB+ZcdPBHABzE32jG4dg74lCIilLL5SjMXqW/Mf2cY=;
-        b=fxAJaw5yzxaz+jWYoyNYPPW0ghZO5PWteYMdc6ZSVYDIPwheSX/+jIlaK78+bZ9PYe
-         S79QpyLYIYrMX27pupU1XNw4rUY6lOTI48bDU8XaTPC0U4K8JRyX6DO++VLjeMC3d4s8
-         HkwNMSQOIPD7IRoUdDE8jJLIT3roi7bUbPIibSoKafn/k0F3VG3LuruLAtZnCf5Ue/ok
-         qaq1hRYFf1xsCLmroPFtOsAmHSYOoDUV58hsYKeZeLyWtLUIPVdiPM6oAldZuFlmr7Qd
-         y7744BLdR/sAUF+urml0z+D1Hi4K6QzNSKIIvZldbuq/WbNng4cxmFspjXYIjBoLVjHB
-         h9VQ==
-X-Forwarded-Encrypted: i=1; AHgh+Ro2jnWaHK0TIdNedNwBfv50K3qISSevsrZSHMLfJtG+6pLOx/+vqe99fAD2TAr2BIBs32rsroZDLcgfcsZCjCwR@lists.infradead.org
-X-Gm-Message-State: AOJu0YzPSXKmXKXfIxVK5Xk19Nx/Kc0QXFlzEEy8bRupVZGUd/o+hXTK
-	u6fDF19i+Ylndpud7JqNpb0LIe+0aqibTDrBWUTQ3V4YJr6IE3jZY4EtqpKOh3IXq/i1iIOFFSC
-	k24nr9fak/Gyb0CvDtUS4S0jMCm1DDqmkCJIXcfvTwRQy1ANzvM6GbRGBgufJ2X7Gnj5xOQ==
-X-Gm-Gg: AfdE7cno8Lo0UTqCKFDJvX9xsov7g546c/+w9UHsm/QxoLxKZjZj8HOuf0u/ql+F9N9
-	b5yvV7c4nUtqkDZJYuKGRdZXaQPfMW/Aapi1lLaliQRHBrw74ltqgz8EUvqhes+55t7BI/SpaiY
-	e3yF+TrFGJNv9QIc9FCre5EmNLhvP+yNaVM404BBzTcS/FW+cWRJhg7M/y/fJBp6ELYyFO4Ubh4
-	VPfrljwziFTK/aQe4InS0RAJiznss1E+qf0YwMRAVUNaATtPN8KTfi8OL37s2JahFVvxVhaLz7j
-	tBS5G2yonG04k/syP8WIOBUu4+p9NwlQn4SdLGy7YDgptY70QItmNUqP+aJlCrC1cjXZEWhof7j
-	MbseHJgUgoA0wte177HPBwouOKQqV2apQzkK60A2SKD4AFHGTHLES6R6Xh2/t8hrsZYwLXwhBV/
-	J4AR8okhadZ9m2Q+W6soLCWEVz2TZfhlxzKnf8vxSSJj0qVJW+pF5DN9WE
-X-Received: by 2002:a05:6000:25f8:b0:472:da70:a45 with SMTP id ffacd0b85a97d-47f62344544mr1249749f8f.8.1784278512306;
-        Fri, 17 Jul 2026 01:55:12 -0700 (PDT)
-Received: from localhost (dslb-002-205-021-241.002.205.pools.vodafone-ip.de. [2.205.21.241])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f63e52f81sm2193727f8f.9.2026.07.17.01.55.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 Jul 2026 01:55:12 -0700 (PDT)
-From: Jonas Gorski <jonas.gorski@bisdn.de>
-To: Andi Shyti <andi.shyti@kernel.org>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Kevin Cernekee <cernekee@chromium.org>,
-	Wolfram Sang <wsa@kernel.org>
-Cc: linux-i2c@vger.kernel.org,
+	id 1wkeLq-00000001kHJ-3drK;
+	Fri, 17 Jul 2026 08:55:26 +0000
+Received: from phl-compute-10.internal (phl-compute-10.internal [10.202.2.50])
+	by mailflow.stl.internal (Postfix) with ESMTP id 999A013002E9;
+	Fri, 17 Jul 2026 04:55:21 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-10.internal (MEProxy); Fri, 17 Jul 2026 04:55:22 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
+	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
+	:from:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=fm1; t=1784278521; x=
+	1784282121; bh=Zvd1osMYewGqon41SsFYB9MFb6slH1HcdKHtX5RAEpk=; b=E
+	gKc7488I5Z9VTl7QMWXAF/psMQGuTz+k6DzFkDtAGftumnkGTZfPk2hkAncjLENy
+	3lhd+L/wvAV+XUcWtlBqrHwn+s0Ptx3qMEb6EBdCH2cIee+3P6sk/vOURW+EgVq9
+	UB41pWP9mMx4qIiuvzzglXlEyCdQnFKwtbCnfnoG9hX+JHHAnWgGHy38UYsPmYyl
+	w2FFb1uX313jG54k9GbVvswxVZDI6FqJ3B/oOwQIAwYhYKNcDJETZHF/1Mh5RuLj
+	C6ETziDGp6s+mtmZo9GMsnX4xv1sA5kJdPq0bri+aR2EkdYFiIJitjBE2Tv0RN1K
+	HBvKSWRdbBfLKrgyBb15Q==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
+	:x-me-sender:x-sasl-enc; s=fm2; t=1784278521; x=1784282121; bh=Z
+	vd1osMYewGqon41SsFYB9MFb6slH1HcdKHtX5RAEpk=; b=c2N3OeLEOynyxMYUC
+	uxfQfjDMA5BKinX4c5noX8w1esmnWz6udH74WmYHNk6ijpjIyYSUC6JeJ3heqsW8
+	+X9qarILtjVfgUKbDdG6OZFZO95Ompz1vYt97/hBxxEJkHxjhMojT8GRDwqjaBbX
+	p347mov/v+8CGtA8l4iE6+ayXlg3ZPf7SutFipH9kxejEBPVJQPYCb2/h2Akb5L7
+	NKY78pA4xhlGqQXpH3twO+qDTPXjme8bEFlgPFBRx1FfNi+p47b0LcUlsweUwaz4
+	qPxi/VXQA3ZIBWfGG7nyDmVZhxTK7aVaGXBPX7xX2lldUDzvLPXBiOk7PXjaNqHF
+	tCtUQ==
+X-ME-Sender: <xms:-e1ZaoVfHSjGr1nlzAKFMGWoA5RK0prc2QUfW2FUjNjNVS-R6MLu1g>
+    <xme:-e1ZaqQQA-bVOBEHyNh1qnX3EWAbXpdZg7HEETfVhVrPMO4Bje_DT2yTd2GS_38n6
+    QG-eHX1sR7GVVTH22BVqHRL_oXPCWyPNsyVtSkc1-4M0K8KdTnw_bk>
+X-ME-Received: <xmr:-e1ZauJX5JIzCi9JD54MACly-_OVPhXCvAkAeF0WEx1kMHhOhKMHh19qK0lFe6LClM5dIjEZUT5uDwmXUvc>
+X-ME-Proxy-Cause: dmFkZTFS7GW/vS+PGg3aNaRtXNWwH13wr4t6a3PsYvzLEfoa0d1tCLQMk4kuPOyqJxWYg8
+    zWRgYifu3Q3qEvL/I6D+A7sONbehMF6Fzv0Jx15W8Bp0zPI2L6EoHnTvsn7KCzlmdcjq5Z
+    AMiUX8pm/4UU/5q2rly/ctUYuGrpfv6aggolOMe4+7cw+YQgQv04wJ8otXu77hR4cT4fFc
+    rauulgYGXJAH/ttinZ2FdpHwYOQghdgc8wZDZhtrydZHcBfVIkqxRabCZivPsjLLb49//R
+    HUixI1q1RTZqMytwufV0grN2inkZxcvjyE8RnYSpDV3z9U1hNPWgMeNXqfzcYN3TNROTMi
+    g6lcYmPvi0ApJCuAabf56PdATqWvLMqqCJcKwwqf0txVfcxEFd+NU5gwyCeb3MzCwQHT4s
+    EYXLpjKzizp+/UuGKB61wzx+QKsc4bJ+eA7Tcughh+f+oX0EK2E+8ajqxfHbtGhkgMdraU
+    j2th4GtLuUd00xhVbvRlL17mbuXgmQPIe9KShH84oXetiVFix/VxRfbJKcEiu+tPu/4qAy
+    6LzMCGZJzCC1rlQBrFP+2s18jy5eOZIAJrxhuQdL/iREbdthHA9uD4/9o++C0Vyo1Cw8lp
+    6h4ZTMPnLU/gcmGCjyf19X1ADFp+MT0enTqyJ9/FtLX4vM858uFBQaTmIZkg
+X-ME-Proxy: <xmx:-e1Zaj0w8i3RrzWEFcY0cU0LA94nT7bQjStr-o09z17slP2zF-n_rg>
+    <xmx:-e1ZapLuDEa9Ai3K5-cem91ym2X2ttXYudxavBycRNLI2jl11rKsEw>
+    <xmx:-e1ZarnhOgaW2dVFhx5xqBl6qj9s1vXpHOhHHWAa7fjvQEVJpa5DVg>
+    <xmx:-e1ZavMFedxs_IZnYYaxtmNo7DwoKzbKJuDKYPp6VtNWI1I7ZxDd7w>
+    <xmx:-e1Zao_01By5GE1USQQXBduANFFQiDaHpbJdzBRF5QXfuV3sR617AdTI>
+Feedback-ID: i7a5e4b5f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
+ 17 Jul 2026 04:55:15 -0400 (EDT)
+From: Jiaxing Hu <gahing@gahingwoo.com>
+To: tomeu@tomeuvizoso.net,
+	heiko@sntech.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	ulfh@kernel.org,
+	p.zabel@pengutronix.de,
+	ogabbay@kernel.org
+Cc: dri-devel@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
+	iommu@lists.linux.dev,
+	linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] i2c: iproc: reset bus after timeout if START_BUSY is stuck
-Date: Fri, 17 Jul 2026 10:55:07 +0200
-Message-ID: <20260717085507.34209-1-jonas.gorski@bisdn.de>
-X-Mailer: git-send-email 2.55.0
+	linux-kernel@vger.kernel.org,
+	Jiaxing Hu <gahing@gahingwoo.com>
+Subject: [RFC PATCH 9/9] arm64: dts: rockchip: rk3576-rock-4d: enable NPU
+Date: Fri, 17 Jul 2026 20:50:47 +1200
+Message-ID: <20260717085220.3212274-10-gahing@gahingwoo.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260717085220.3212274-1-gahing@gahingwoo.com>
+References: <20260717085220.3212274-1-gahing@gahingwoo.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="ISO-8859-1"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_015515_720528_571C9731 
-X-CRM114-Status: GOOD (  16.55  )
+X-CRM114-CacheID: sfid-20260717_015522_959076_49FAE91D 
+X-CRM114-Status: UNSURE (   9.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,91 +123,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If a transaction times out, the START_BUSY signal can stay up, and
-subsequent transactaction attempts will fail as the bus is still
-considered busy.
+Enable rknn_core_0 and rknn_mmu_0 on the Radxa ROCK 4D. Supply the NPU
+rail (vdd_npu_s0) via npu-supply; it is marked regulator-always-on for
+now because the NPU power sequencing is still being brought up (see the
+cover letter) -- happy to switch to proper runtime control once the
+compute path is sorted.
 
-I can easily trigger this by attempting to read from an address with no
-device, e.g. when running i2cdetect. After the first read times out, all
-subsequent read attempts return busy.
-
-To get to a working state again, the controller needs to be reset to
-clear the START_BUSY signal. So check for START_BUSY still asserted on a
-timeout, and do reset in case it is,
-
-This is also done by the original non-upstream iproc-smbus driver
-implementation [1].
-
-Works around situations like:
-
-    bcm-iproc-2c 1803b000.i2c: transaction timed out
-    bcm-iproc-2c 1803b000.i2c: bus is busy
-    bcm-iproc-2c 1803b000.i2c: bus is busy
-    bcm-iproc-2c 1803b000.i2c: bus is busy
-    bcm-iproc-2c 1803b000.i2c: bus is busy
-    bcm-iproc-2c 1803b000.i2c: bus is busy
-    ...
-
-where the bus never recovers after a timeout.
-
-[1] https://github.com/opencomputeproject/onie/blob/master/patches/kernel/3=
-.2.69/driver-iproc-smbus.patch
-
-Fixes: e6e5dd3566e0 ("i2c: iproc: Add Broadcom iProc I2C Driver")
-Signed-off-by: Jonas Gorski <jonas.gorski@bisdn.de>
+Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
 ---
-v1 -> v2:
-* rebased on current master
-* reworded the comment and the commit message, as I found I could
-  trigger this intentionally
+ arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-v1: https://lore.kernel.org/all/20230904090005.52622-1-jonas.gorski@bisdn.d=
-e/
-
- drivers/i2c/busses/i2c-bcm-iproc.c | 11 +++++++++++
- 1 file changed, 11 insertions(+)
-
-diff --git a/drivers/i2c/busses/i2c-bcm-iproc.c b/drivers/i2c/busses/i2c-bc=
-m-iproc.c
-index b5629cffe99b..86ca4c2221c4 100644
---- a/drivers/i2c/busses/i2c-bcm-iproc.c
-+++ b/drivers/i2c/busses/i2c-bcm-iproc.c
-@@ -803,6 +803,17 @@ static int bcm_iproc_i2c_xfer_wait(struct bcm_iproc_i2=
-c_dev *iproc_i2c,
- 	}
-=20
- 	if (!time_left && !iproc_i2c->xfer_is_done) {
-+		/*
-+		 * The controller may fail to clear START_BUSY after a timeout,
-+		 * reset the controller to recover in that case.
-+		 */
-+		if (!!(iproc_i2c_rd_reg(iproc_i2c, M_CMD_OFFSET) &
-+		       BIT(M_CMD_START_BUSY_SHIFT))) {
-+			bcm_iproc_i2c_enable_disable(iproc_i2c, false);
-+			bcm_iproc_i2c_init(iproc_i2c);
-+			bcm_iproc_i2c_enable_disable(iproc_i2c, true);
-+		}
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
+index 272af1012..09d2fc98b 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
+@@ -442,6 +442,7 @@ regulator-state-mem {
+ 			};
+ 
+ 			vdd_npu_s0: dcdc-reg2 {
++				regulator-always-on;
+ 				regulator-boot-on;
+ 				regulator-enable-ramp-delay = <400>;
+ 				regulator-min-microvolt = <550000>;
+@@ -869,3 +870,18 @@ vp0_out_hdmi: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
+ 		remote-endpoint = <&hdmi_in_vp0>;
+ 	};
+ };
 +
- 		/* flush both TX/RX FIFOs */
- 		val =3D BIT(M_FIFO_RX_FLUSH_SHIFT) | BIT(M_FIFO_TX_FLUSH_SHIFT);
- 		iproc_i2c_wr_reg(iproc_i2c, M_FIFO_CTRL_OFFSET, val);
---=20
-2.55.0
-
-
---=20
-BISDN GmbH
-K=F6rnerstra=DFe 7-10
-10785 Berlin
-Germany
-Phone: +49 30 610 816 100
-Managing Directors:=A0Dr.-Ing. Hagen Woesner, Andreas K=F6psel
-
-
-Commercial=20
-register:=A0
-Amtsgericht Berlin-Charlottenburg HRB 141569 B
-VAT ID No:=A0
-DE283257294 <http://goog_1008408251>
++&rknn_core_0 {
++	npu-supply = <&vdd_npu_s0>;
++	/*
++	 * Power BOTH NPU domains (NPU0 + NPU1) like the vendor's single NPU node,
++	 * even though rocket computes only on core 0: the CBUF->CMAC read path is
++	 * only fully powered with NPU1 up. rocket attaches the multi-PD list.
++	 */
++	power-domains = <&power RK3576_PD_NPU0>, <&power RK3576_PD_NPU1>;
++	status = "okay";
++};
++
++&rknn_mmu_0 {
++	status = "okay";
++};
+-- 
+2.43.0
 
 
