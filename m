@@ -4,63 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FC29C4450F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 04:16:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77D60C44507
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 05:12:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RvcqjcKD2k24eeG1X+IgiTsgr1jJ4CBmmqIvgaG6pRU=; b=Jo/OKPdBV64Kd57i2c9OEjsAMj
-	zj+SnFX41yFvUfCLY0MkIQnTA2N0X6iEzjMNNsNUAxhQoMyuQ6lhWDIHc4IFoQF4rK6uPj5U0bJEl
-	bxmyMSj5VqGTCWOQS7kW0r65a9aT/MK+2kMqW2uXi/Uv7yg82esp4rIlZScG8VjhtV05GaGx5xzEk
-	ON+62MFzpCt8UQZVwh3H252bx8/cDUQ19+Qq9JlDAMVKG9dnOcLlI+jbi1gl0Yse5X50wzOsuUAwW
-	dYbcUNWVNP6OLnIs4DCDZeicO8C+HdCzpsf63yQ5DCvn9l8w67T+3xJYMdRDHNzcVo1w3lbL7+vK8
-	kPCLczMw==;
+	bh=vyh+v7AfK4/8VEd4e3hLdUN4c+YmHPIATOUkOdNeZEk=; b=UvfopW84WV29HHMWGpl37duQLZ
+	Yol/06mlkuuefOa6K9C3XlXtZjJBdmFk7AoaT2xQ/3z67otZMuNbpOfBiYcl/vGDwx+CdZqbNRjhe
+	L9BHqkfXVJwC4C+q8HT3Y5kmeSQYJwRBCi/f/GndhMYM+KKIB4AFzRnLtCuEKvCc8nAJtzigq6B87
+	1rZ5SFaod/NyfxqmQXgHsXSj0DoTphRKO5Mp+GifxLLOjiDdEacJ4cszVdKTixfLbEtEXE4/3TUiU
+	0hQMeTWCzg8kbZ1DyrEmJwi3PjGoTGbh9stCaVIYlh+E6yNnPef1oZe0aBIILzzGlna2rfOpMnINS
+	3wbfbV8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wka01-0000000170U-04Fy;
-	Fri, 17 Jul 2026 04:16:33 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkZzy-00000001705-3kPU
+	id 1wkarj-00000001ABI-267C;
+	Fri, 17 Jul 2026 05:12:03 +0000
+Received: from inva021.nxp.com ([92.121.34.21])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkarh-00000001AA6-0Erp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 04:16:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 207651476;
-	Thu, 16 Jul 2026 21:16:25 -0700 (PDT)
-Received: from [10.164.18.90] (unknown [10.164.18.90])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 562023F7D8;
-	Thu, 16 Jul 2026 21:16:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784261789; bh=qbRRlxOtRN6hWppRiqfYwDql1OvoKXqkARDwBGDBgBY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=BBQA1azIq5p20nHyKyJX1ATjKM0CRuIaUkF0sGkJBbdJ7Cf55ezLmUl3KBCpVimjA
-	 y9Dv4lsQnL9UOtMFVZdlDyCENDDHnXXEaGnRIcaNtCngwdFrOqb+LGcgeU5UkBgwQJ
-	 0/m1kIKdvfx2hl9pVtPkU+DK372qUVeyxRQfxmI0=
-Message-ID: <8f512add-b78f-49df-9239-274e7a9558ea@arm.com>
-Date: Fri, 17 Jul 2026 09:46:24 +0530
+	Fri, 17 Jul 2026 05:12:02 +0000
+Received: from inva021.nxp.com (localhost [127.0.0.1])
+	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id 9C62C200189;
+	Fri, 17 Jul 2026 07:11:59 +0200 (CEST)
+Received: from aprdc01srsp001v.ap-rdc01.nxp.com (aprdc01srsp001v.ap-rdc01.nxp.com [165.114.16.16])
+	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id 65E18200181;
+	Fri, 17 Jul 2026 07:11:59 +0200 (CEST)
+Received: from lsvm11u0000395.swis.ap-northeast-2.aws.nxp.com (lsvm11u0000395.swis.ap-northeast-2.aws.nxp.com [10.52.9.99])
+	by aprdc01srsp001v.ap-rdc01.nxp.com (Postfix) with ESMTP id 8CD7B18000B0;
+	Fri, 17 Jul 2026 13:11:57 +0800 (+08)
+From: Joseph Guo <qijian.guo@nxp.com>
+Date: Fri, 17 Jul 2026 14:11:53 +0900
+Subject: [PATCH 2/3] dt-bindings: arm: fsl: Add i.MX93 Wireless FRDM board
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64/defconfig: Restore built-in 9P rootfs support
-To: Arnd Bergmann <arnd@arndb.de>,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Eric Biggers <ebiggers@kernel.org>, Linus Walleij <linusw@kernel.org>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- linux-kernel@vger.kernel.org
-References: <20260716100243.1604526-1-anshuman.khandual@arm.com>
- <2fae9ef8-2ec1-48ed-9b25-8526db625732@oss.qualcomm.com>
- <cd8cc649-c4e9-4868-b68a-6a9de72b32fe@app.fastmail.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <cd8cc649-c4e9-4868-b68a-6a9de72b32fe@app.fastmail.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260717-imx93w_frdm-v1-2-0cca6c0ba2f5@nxp.com>
+References: <20260717-imx93w_frdm-v1-0-0cca6c0ba2f5@nxp.com>
+In-Reply-To: <20260717-imx93w_frdm-v1-0-0cca6c0ba2f5@nxp.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Joseph Guo <qijian.guo@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784265114; l=1272;
+ i=qijian.guo@nxp.com; s=20250519; h=from:subject:message-id;
+ bh=Ymma+ccm4S0berqOzybvR9sNfmMtutF/oYLFF+cWTDs=;
+ b=kwKiZuqV5B1EXnRLWzugN2GW9NQB79ME75Fg92uDHnTRPRbqcU7Ax1uY7umdgBDaRc7MXKEFG
+ T4Gxd36rficB32GOo1+3cRKxyk9gTCVtYFQA80TuGimJGK5SAWQvU/9
+X-Developer-Key: i=qijian.guo@nxp.com; a=ed25519;
+ pk=VRjOOFhVecTRwBzK4mt/k3JBnHoYfuXKCm9FM+hHQhs=
+X-Virus-Scanned: ClamAV using ClamSMTP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_211631_147969_CA0DB06A 
-X-CRM114-Status: GOOD (  12.22  )
+X-CRM114-CacheID: sfid-20260716_221201_236095_E9091B3F 
+X-CRM114-Status: UNSURE (   7.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,39 +80,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add DT compatible string for NXP i.MX93 Wireless FRDM board.
 
+i.MX93 Wireless SiP is created by integrating i.MX93 and IW610 WLCSP
+(Wi-Fi + BLE + 802.15.4). And i.MX93 Wireless FRDM board with the i.MX93
+Wireless SiP basically reuse the i.MX93 11x11 FRDM board, with some minor
+functional and pin connection differences.
 
-On 16/07/26 5:01 PM, Arnd Bergmann wrote:
-> On Thu, Jul 16, 2026, at 13:01, Krzysztof Kozlowski wrote:
->> On 16/07/2026 12:02, Anshuman Khandual wrote:
->>> Commit d521c4ca039f ("arm64: defconfig: Switch Ethernet drivers to modules")
->>> had changed 9P and virtio-9P support from built-in to modular instead. This
->>> breaks simple kvmtool boots using a 9P root filesystem without an initramfs
->>> , because the kernel must mount root filesystem before it can load the 9P
->>
->>
->> And that commit explained you must use initramfs. Nothing got broken,
->> because there was never a promise that a recent, virtualized environment
->> must work on defconfig without initramfs.
->>
->> You fully control your software, so just build initramfs which is
->> absolutely trivial and we all moved on to that for arm64 long time ago.
-> 
-> I still regularly boot KVM guests on arm64 without an initramfs,
+Signed-off-by: Joseph Guo <qijian.guo@nxp.com>
+---
+ Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-Actually that is a very normal use case particularly with KVM tool.
-> but I just use 'make kvm_guest.config', which turns on all the
-> commonly used virtio drivers as built-in. I wouldn't call
-> 9pfs root trivial without initramfs, configuring 9p built-in
-> is already complicated enough.
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index 7b57a6ee1b50dc22ece292d6d9b53b5aa834ee96..9ab7af8c02d68c7f95cccfb5071662eafc8f93a0 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1513,6 +1513,7 @@ properties:
+               - fsl,imx93-11x11-frdm      # i.MX93 11x11 FRDM Board
+               - fsl,imx93-14x14-evk       # i.MX93 14x14 EVK Board
+               - fsl,imx93-wireless-evk    # i.MX93 and IW610G WLCSP (Wi-Fi + BLE + 802.15.4) SiP EVK Board
++              - fsl,imx93-wireless-frdm   # i.MX93 and IW610G WLCSP (Wi-Fi + BLE + 802.15.4) SiP FRDM Board
+           - const: fsl,imx93
+ 
+       - description: i.MX94 based Boards
 
-Alright - fair enough.
-> 
-> So I agree we don't need this patch, but there is a trivial
-> workaround for Anshuman in case he wants to avoid doing this.
-The following sequence does indeed solve this problem for now.
+-- 
+2.34.1
 
-make mrproper
-make defconfig
-make kvm_guest.config
 
