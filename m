@@ -4,59 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B8D4C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 07:52:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FCCFC44507
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 07:54:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RzFbX1+ItCtFT+z6QOImlxQOT0iuiDDhV+oEbzU1ifA=; b=qdrGkLtFKDyccAUNOOQkJNpR7T
-	gN1BzIlh6boKZuOZGkxONDnlqjqB9OQjYUl3iKeXrz8p0NecymVXewW81jNmwHtrEcWu0SKLq7Tfx
-	x40oyTQSo4orMJnAn7Zu8DyagMgYdaZtmXM6UaRbK70F4UVAUIlCaINyeFGRs1zo8uUZnC3CWfoRn
-	YMnwCsk3WrionBIR66gUwUKtaF6Xgfc4oY1zQni5CunA8guD0vOQ2OlhSPu9h1Csg40OWtqXcRger
-	OM1Oo9zlEpmy0JY7hjeCS/8I25GlCg5qLBNDHro8qkPShER6ieiZ5NGNao3p11prQZZsLDi4WFoVY
-	omfFmQ+g==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MigHTOds7D7N1IpWdhIGfmpNkDbNAMOil7JP4NziY8o=; b=fvKLDzG0XdHQ19VKYn2aZQHLrM
+	L9ioyudATojG6VcQ2VZgjPTr4XqbwYsEeHzmyeOb/R26Nws/UXZjYiJHVJpBRb2SPlhgPDDrv5E2w
+	lM3p+1hGNuFG8vg+RT6yrQr7/ib1SF1RqmBE17aGh4T6m87lTZNWjpntaz8E3z1/c/MQKywQ0pLUW
+	GyyhwBpddeTDKZzLpFATvCK7yURaomc+eTG8k20AHel2LhzU6PcZrBevPSo7JIqcmrw0Kc4Bokne6
+	9PXofQqzB3MA7GRMaWzw1lplj+QPedeTg/l5E8qpxNODa5881WrfD6ESkiSBzqv+cZ1S6Yibq1nnW
+	KNF+WHsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkdNG-00000001Vw1-0ilq;
-	Fri, 17 Jul 2026 07:52:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wkdP9-00000001WAw-03tj;
+	Fri, 17 Jul 2026 07:54:43 +0000
+Received: from mout.web.de ([212.227.17.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkdNE-00000001Vvu-2g3t
+	id 1wkdP6-00000001WAH-18za
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 07:52:44 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 89FB760A5E;
-	Fri, 17 Jul 2026 07:52:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B1811F000E9;
-	Fri, 17 Jul 2026 07:52:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784274763;
-	bh=RzFbX1+ItCtFT+z6QOImlxQOT0iuiDDhV+oEbzU1ifA=;
-	h=From:To:Cc:Subject:Date;
-	b=oXbPzjecTXqPRfJH+Dfmg0Z7EdWnB2/xBJGF9FEI6HLcKKTokytUi+/rQ59auPwGR
-	 25Rmyp7Tvy2L4dMEPMvgaVq4GYcAY59HKTgKsg9btjhFkAXjmbLDwvFolmxilJ4orH
-	 bfSOgksoZ91FynB9FHQxr848mKyLGPOm9E108CCKDHSNPlR5NHIcwIvv5mumWO7beU
-	 CzUBI/prCgVyZ0fHW/zuQ5YYBeGDEKBE9l505bb6ZAJKI1XgJpoV2s3O0hncE/9548
-	 LPG6BhJHCuu+5E0Fo4Mry0XTpTAAbQKKfoUgCNn7DCfj5ebPdcdf/1J7YoTxFEnWRu
-	 WX2+Df9vHdl+w==
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Arnd Bergmann <arnd@arndb.de>,
-	linux-arm-kernel@lists.infradead.org
-Cc: Sudeep Holla <sudeep.holla@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Steven Price <steven.price@arm.com>
-Subject: [RFC PATCH] firmware: arm: Group interface drivers under arm/
-Date: Fri, 17 Jul 2026 08:52:24 +0100
-Message-ID: <20260717075224.465618-1-sudeep.holla@kernel.org>
-X-Mailer: git-send-email 2.43.0
+	Fri, 17 Jul 2026 07:54:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1784274862; x=1784879662; i=smoch@web.de;
+	bh=MigHTOds7D7N1IpWdhIGfmpNkDbNAMOil7JP4NziY8o=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=nQF9XBBrciKoTqgtiPeMp8GbC+zF+psJLIeNFPvmDc7OfJq9UbFluCSo+qtYzXXh
+	 Qq5xtX2VaiWXLZZg/u1TXvGghk3xFNU64HBbJgZ6Tow3xbgcgrww4Af+iVijdbtZm
+	 AFLcwTSdnvKrtJSrSGxP2m9KVZCHNQKQlFHhhOmG5TFmPYMidvCxBjEx4I3JlWqNV
+	 l6+9UnRK1UhO0HM1hWzRsLH79TnZJt6i80u2whmNgGNRUct5rRcvSdu0LW+IFVcpo
+	 YACdqSFeo8FsJ6o2K+ztLhNk2rjibeLOnhTRL2uw2wQrNyfydgVzLEF/x/frf9g4S
+	 9qb+Jjku34tJjncHWQ==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb106
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1MP3CA-1wNRBJ3b3c-00WalI; Fri, 17
+ Jul 2026 09:54:21 +0200
+Message-ID: <12e68e09-d123-467a-8058-2ff02ae24880@web.de>
+Date: Fri, 17 Jul 2026 09:54:20 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] PCI: imx6: Keep Root Port MSI capability also for
+ i.MX6Q
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Bjorn Helgaas <bhelgaas@google.com>, stable@vger.kernel.org,
+ Richard Zhu <hongxing.zhu@nxp.com>, Frank Li <Frank.Li@nxp.com>,
+ Manivannan Sadhasivam <mani@kernel.org>, Lucas Stach
+ <l.stach@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ imx@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20260716222704.GA240248@bhelgaas>
+Content-Language: en-US, de-DE
+From: Soeren Moch <smoch@web.de>
+In-Reply-To: <20260716222704.GA240248@bhelgaas>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:gcQA79xf+XIhmEg2GzU17lTN4hc4sofqw9NvP3Mb79oOkV+yWmK
+ wkDnUfa+QzADfkPP0JenW5lHGUgnuFr/s/fZ13BfbI47NZWBpPC3nm7fjt3ntU7IKvlUrUe
+ Zs8u3qJajewKY5Z1BM+3Qke/JB7+5x0+UaAOeDwwUcOQbkdOs7x/+8fzoiOpX0whPuJIEmn
+ JReFgVbJdZgNelL2qS3QQ==
+UI-OutboundReport: notjunk:1;M01:P0:VvT2jkzoaBE=;RscoxlYH/5jS9LelJ2xLHV/+nrL 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 DaXDNfXFIsJU
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260717_005440_707791_4F303FDA 
+X-CRM114-Status: GOOD (  24.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,522 +87,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Arm firmware interface drivers currently live directly under
-drivers/firmware/. Some use an arm_ prefix while others use generic
-names. More Arm firmware interface drivers, such as
-[1] Realm Management Monitor(RMM) Realm Management Interface (RMMI)
-[2] Live Firmware Activation (LFA)
-expected soon, which would further crowd the top-level directory.
 
-There are couple of other interfaces whose usage within the kernel was
-challenged in the past or is currently being explored.
 
-Create drivers/firmware/arm/ as the common home for Arm firmware
-interface drivers. Move FF-A, SCMI, PSCI and SMCCC under it, drop the
-redundant arm_ prefix from the FF-A and SCMI directory names.
-Update the Kconfig, Kbuild, maintainer and documentation paths.
+On 17.07.26 00:27, Bjorn Helgaas wrote:
+> On Thu, Jul 16, 2026 at 11:40:54PM +0200, Soeren Moch wrote:
+>> On the NXP i.MX6Q chipset MSIs from the endpoints won't be received by
+>> the iMSI-RX MSI controller if the Root Port MSI capability is disabled.
+>>
+>> Even though the Root Port MSIs won't be received by the iMSI-RX control=
+ler
+>> due to design, this chipset has some weird hardware bug that prevents
+>> the endpoint MSIs from reaching when the Root Port MSI capability is
+>> disabled.
+>>
+>> Hence, always keep the Root Port MSI capability for this chipset.
+>>
+>> Note that by keeping Root Port MSI capability, Root Port MSIs such as A=
+ER,
+>> PME and others won't be received by default. So users need to use
+>> workarounds such as passing 'pcie_pme=3Dnomsi' cmdline param.
+> I'd like to align the subject a little more with 3a4e8302e72f and
+> avoid repeating the ".. from reaching when the Root Port MSI ..." part
+> of the commit log, which seems to be missing a word.  So I propose the
+> following (if you think it's accurate):
+Your proposed new patch subject and commit message is totally fine for me.
 
-The resulting hierarchy provides room for upcoming interfaces without
-continuing to add Arm-specific directories at the firmware root.
-
-Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
----
-
-Hi,
-
-This is just to get a feedback/opinions.
-
-Regards,
-Sudeep
-
-[1] https://lore.kernel.org/all/20260715142739.80398-1-steven.price@arm.com/
-[2] https://lore.kernel.org/all/20260706134455.132091-1-andre.przywara@arm.com/
-
- Documentation/tee/ts-tee.rst                           |  2 +-
- MAINTAINERS                                            | 10 +++++-----
- drivers/firmware/Kconfig                               |  5 +----
- drivers/firmware/Makefile                              |  5 +----
- drivers/firmware/arm/Kconfig                           |  6 ++++++
- drivers/firmware/arm/Makefile                          |  6 ++++++
- drivers/firmware/{arm_ffa => arm/ffa}/Kconfig          |  0
- drivers/firmware/{arm_ffa => arm/ffa}/Makefile         |  0
- drivers/firmware/{arm_ffa => arm/ffa}/bus.c            |  0
- drivers/firmware/{arm_ffa => arm/ffa}/common.h         |  0
- drivers/firmware/{arm_ffa => arm/ffa}/driver.c         |  0
- drivers/firmware/{arm_ffa => arm/ffa}/smccc.c          |  0
- drivers/firmware/{ => arm}/psci/Kconfig                |  0
- drivers/firmware/{ => arm}/psci/Makefile               |  0
- drivers/firmware/{ => arm}/psci/psci.c                 |  0
- drivers/firmware/{ => arm}/psci/psci_checker.c         |  0
- drivers/firmware/{arm_scmi => arm/scmi}/Kconfig        |  4 ++--
- drivers/firmware/{arm_scmi => arm/scmi}/Makefile       |  0
- drivers/firmware/{arm_scmi => arm/scmi}/base.c         |  0
- drivers/firmware/{arm_scmi => arm/scmi}/bus.c          |  0
- drivers/firmware/{arm_scmi => arm/scmi}/clock.c        |  0
- drivers/firmware/{arm_scmi => arm/scmi}/common.h       |  0
- drivers/firmware/{arm_scmi => arm/scmi}/driver.c       |  0
- drivers/firmware/{arm_scmi => arm/scmi}/msg.c          |  0
- drivers/firmware/{arm_scmi => arm/scmi}/notify.c       |  0
- drivers/firmware/{arm_scmi => arm/scmi}/notify.h       |  0
- drivers/firmware/{arm_scmi => arm/scmi}/perf.c         |  0
- drivers/firmware/{arm_scmi => arm/scmi}/pinctrl.c      |  0
- drivers/firmware/{arm_scmi => arm/scmi}/power.c        |  0
- drivers/firmware/{arm_scmi => arm/scmi}/powercap.c     |  0
- drivers/firmware/{arm_scmi => arm/scmi}/protocols.h    |  0
- drivers/firmware/{arm_scmi => arm/scmi}/quirks.c       |  0
- drivers/firmware/{arm_scmi => arm/scmi}/quirks.h       |  0
- drivers/firmware/{arm_scmi => arm/scmi}/raw_mode.c     |  0
- drivers/firmware/{arm_scmi => arm/scmi}/raw_mode.h     |  0
- drivers/firmware/{arm_scmi => arm/scmi}/reset.c        |  0
- .../{arm_scmi => arm/scmi}/scmi_power_control.c        |  0
- drivers/firmware/{arm_scmi => arm/scmi}/sensors.c      |  0
- drivers/firmware/{arm_scmi => arm/scmi}/shmem.c        |  0
- drivers/firmware/{arm_scmi => arm/scmi}/system.c       |  0
- .../firmware/{arm_scmi => arm/scmi}/transports/Kconfig |  0
- .../{arm_scmi => arm/scmi}/transports/Makefile         |  0
- .../{arm_scmi => arm/scmi}/transports/mailbox.c        |  0
- .../firmware/{arm_scmi => arm/scmi}/transports/optee.c |  0
- .../firmware/{arm_scmi => arm/scmi}/transports/smc.c   |  0
- .../{arm_scmi => arm/scmi}/transports/virtio.c         |  0
- .../{arm_scmi => arm/scmi}/vendors/imx/Kconfig         |  0
- .../{arm_scmi => arm/scmi}/vendors/imx/Makefile        |  0
- .../{arm_scmi => arm/scmi}/vendors/imx/imx-sm-bbm.c    |  0
- .../{arm_scmi => arm/scmi}/vendors/imx/imx-sm-cpu.c    |  0
- .../{arm_scmi => arm/scmi}/vendors/imx/imx-sm-lmm.c    |  0
- .../{arm_scmi => arm/scmi}/vendors/imx/imx-sm-misc.c   |  0
- .../{arm_scmi => arm/scmi}/vendors/imx/imx95.rst       |  0
- drivers/firmware/{arm_scmi => arm/scmi}/voltage.c      |  0
- drivers/firmware/{ => arm}/smccc/Kconfig               |  0
- drivers/firmware/{ => arm}/smccc/Makefile              |  0
- drivers/firmware/{ => arm}/smccc/kvm_guest.c           |  0
- drivers/firmware/{ => arm}/smccc/smccc.c               |  0
- drivers/firmware/{ => arm}/smccc/soc_id.c              |  0
- 59 files changed, 22 insertions(+), 16 deletions(-)
- create mode 100644 drivers/firmware/arm/Kconfig
- create mode 100644 drivers/firmware/arm/Makefile
- rename drivers/firmware/{arm_ffa => arm/ffa}/Kconfig (100%)
- rename drivers/firmware/{arm_ffa => arm/ffa}/Makefile (100%)
- rename drivers/firmware/{arm_ffa => arm/ffa}/bus.c (100%)
- rename drivers/firmware/{arm_ffa => arm/ffa}/common.h (100%)
- rename drivers/firmware/{arm_ffa => arm/ffa}/driver.c (100%)
- rename drivers/firmware/{arm_ffa => arm/ffa}/smccc.c (100%)
- rename drivers/firmware/{ => arm}/psci/Kconfig (100%)
- rename drivers/firmware/{ => arm}/psci/Makefile (100%)
- rename drivers/firmware/{ => arm}/psci/psci.c (100%)
- rename drivers/firmware/{ => arm}/psci/psci_checker.c (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/Kconfig (97%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/Makefile (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/base.c (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/bus.c (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/clock.c (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/common.h (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/driver.c (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/msg.c (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/notify.c (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/notify.h (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/perf.c (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/pinctrl.c (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/power.c (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/powercap.c (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/protocols.h (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/quirks.c (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/quirks.h (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/raw_mode.c (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/raw_mode.h (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/reset.c (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/scmi_power_control.c (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/sensors.c (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/shmem.c (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/system.c (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/transports/Kconfig (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/transports/Makefile (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/transports/mailbox.c (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/transports/optee.c (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/transports/smc.c (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/transports/virtio.c (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/vendors/imx/Kconfig (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/vendors/imx/Makefile (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/vendors/imx/imx-sm-bbm.c (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/vendors/imx/imx-sm-cpu.c (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/vendors/imx/imx-sm-lmm.c (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/vendors/imx/imx-sm-misc.c (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/vendors/imx/imx95.rst (100%)
- rename drivers/firmware/{arm_scmi => arm/scmi}/voltage.c (100%)
- rename drivers/firmware/{ => arm}/smccc/Kconfig (100%)
- rename drivers/firmware/{ => arm}/smccc/Makefile (100%)
- rename drivers/firmware/{ => arm}/smccc/kvm_guest.c (100%)
- rename drivers/firmware/{ => arm}/smccc/smccc.c (100%)
- rename drivers/firmware/{ => arm}/smccc/soc_id.c (100%)
-
-diff --git a/Documentation/tee/ts-tee.rst b/Documentation/tee/ts-tee.rst
-index 843e34422648..0999d0e0d859 100644
---- a/Documentation/tee/ts-tee.rst
-+++ b/Documentation/tee/ts-tee.rst
-@@ -62,7 +62,7 @@ References
- 
- [3] https://www.arm.com/architecture/security-features/platform-security
- 
--[4] drivers/firmware/arm_ffa/
-+[4] drivers/firmware/arm/ffa/
- 
- [5] https://trusted-services.readthedocs.io/en/v1.0.0/developer/service-access-protocols.html#abi
- 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index ce5c5185c773..9edcf36fa2bd 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -10119,7 +10119,7 @@ FIRMWARE FRAMEWORK FOR ARMV8-A
- M:	Sudeep Holla <sudeep.holla@kernel.org>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- S:	Maintained
--F:	drivers/firmware/arm_ffa/
-+F:	drivers/firmware/arm/ffa/
- F:	include/linux/arm_ffa.h
- 
- FIRMWARE LOADER (request_firmware)
-@@ -21534,7 +21534,7 @@ M:	Lorenzo Pieralisi <lpieralisi@kernel.org>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- S:	Maintained
- F:	Documentation/devicetree/bindings/arm/psci.yaml
--F:	drivers/firmware/psci/
-+F:	drivers/firmware/arm/psci/
- F:	include/linux/psci.h
- F:	include/uapi/linux/psci.h
- 
-@@ -24465,7 +24465,7 @@ M:	Lorenzo Pieralisi <lpieralisi@kernel.org>
- M:	Sudeep Holla <sudeep.holla@kernel.org>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- S:	Maintained
--F:	drivers/firmware/smccc/
-+F:	drivers/firmware/arm/smccc/
- F:	include/linux/arm-smccc.h
- 
- SECURITY CONTACT
-@@ -26294,7 +26294,7 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/firmware/arm,sc[mp]i.yaml
- F:	drivers/clk/clk-sc[mp]i.c
- F:	drivers/cpufreq/sc[mp]i-cpufreq.c
--F:	drivers/firmware/arm_scmi/
-+F:	drivers/firmware/arm/scmi/
- F:	drivers/firmware/arm_scpi.c
- F:	drivers/hwmon/scmi-hwmon.c
- F:	drivers/pinctrl/pinctrl-scmi.c
-@@ -26313,7 +26313,7 @@ L:	imx@lists.linux.dev
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- S:	Maintained
- F:	Documentation/devicetree/bindings/firmware/nxp,*scmi.yaml
--F:	drivers/firmware/arm_scmi/vendors/imx/
-+F:	drivers/firmware/arm/scmi/vendors/imx/
- 
- SYSTEM RESET/SHUTDOWN DRIVERS
- M:	Sebastian Reichel <sre@kernel.org>
-diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
-index 12dc70254842..a32b0f1e6151 100644
---- a/drivers/firmware/Kconfig
-+++ b/drivers/firmware/Kconfig
-@@ -6,7 +6,7 @@
- 
- menu "Firmware Drivers"
- 
--source "drivers/firmware/arm_scmi/Kconfig"
-+source "drivers/firmware/arm/Kconfig"
- 
- config ARM_SCPI_PROTOCOL
- 	tristate "ARM System Control and Power Interface (SCPI) Message Protocol"
-@@ -287,7 +287,6 @@ config TURRIS_MOX_RWTM_KEYCTL
- 
- endif # TURRIS_MOX_RWTM
- 
--source "drivers/firmware/arm_ffa/Kconfig"
- source "drivers/firmware/broadcom/Kconfig"
- source "drivers/firmware/cirrus/Kconfig"
- source "drivers/firmware/google/Kconfig"
-@@ -295,10 +294,8 @@ source "drivers/firmware/efi/Kconfig"
- source "drivers/firmware/imx/Kconfig"
- source "drivers/firmware/meson/Kconfig"
- source "drivers/firmware/microchip/Kconfig"
--source "drivers/firmware/psci/Kconfig"
- source "drivers/firmware/qcom/Kconfig"
- source "drivers/firmware/samsung/Kconfig"
--source "drivers/firmware/smccc/Kconfig"
- source "drivers/firmware/tegra/Kconfig"
- source "drivers/firmware/xilinx/Kconfig"
- 
-diff --git a/drivers/firmware/Makefile b/drivers/firmware/Makefile
-index 4ddec2820c96..306f498d1057 100644
---- a/drivers/firmware/Makefile
-+++ b/drivers/firmware/Makefile
-@@ -23,8 +23,7 @@ obj-$(CONFIG_TI_SCI_PROTOCOL)	+= ti_sci.o
- obj-$(CONFIG_TRUSTED_FOUNDATIONS) += trusted_foundations.o
- obj-$(CONFIG_TURRIS_MOX_RWTM)	+= turris-mox-rwtm.o
- 
--obj-y				+= arm_ffa/
--obj-y				+= arm_scmi/
-+obj-y				+= arm/
- obj-y				+= broadcom/
- obj-y				+= cirrus/
- obj-y				+= meson/
-@@ -32,9 +31,7 @@ obj-y				+= microchip/
- obj-$(CONFIG_GOOGLE_FIRMWARE)	+= google/
- obj-y				+= efi/
- obj-y				+= imx/
--obj-y				+= psci/
- obj-y				+= qcom/
- obj-y				+= samsung/
--obj-y				+= smccc/
- obj-y				+= tegra/
- obj-y				+= xilinx/
-diff --git a/drivers/firmware/arm/Kconfig b/drivers/firmware/arm/Kconfig
-new file mode 100644
-index 000000000000..ac447e0d7a94
---- /dev/null
-+++ b/drivers/firmware/arm/Kconfig
-@@ -0,0 +1,6 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+
-+source "drivers/firmware/arm/scmi/Kconfig"
-+source "drivers/firmware/arm/ffa/Kconfig"
-+source "drivers/firmware/arm/psci/Kconfig"
-+source "drivers/firmware/arm/smccc/Kconfig"
-diff --git a/drivers/firmware/arm/Makefile b/drivers/firmware/arm/Makefile
-new file mode 100644
-index 000000000000..fffbd7a0bbff
---- /dev/null
-+++ b/drivers/firmware/arm/Makefile
-@@ -0,0 +1,6 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+obj-y				+= scmi/
-+obj-y				+= ffa/
-+obj-y				+= psci/
-+obj-y				+= smccc/
-diff --git a/drivers/firmware/arm_ffa/Kconfig b/drivers/firmware/arm/ffa/Kconfig
-similarity index 100%
-rename from drivers/firmware/arm_ffa/Kconfig
-rename to drivers/firmware/arm/ffa/Kconfig
-diff --git a/drivers/firmware/arm_ffa/Makefile b/drivers/firmware/arm/ffa/Makefile
-similarity index 100%
-rename from drivers/firmware/arm_ffa/Makefile
-rename to drivers/firmware/arm/ffa/Makefile
-diff --git a/drivers/firmware/arm_ffa/bus.c b/drivers/firmware/arm/ffa/bus.c
-similarity index 100%
-rename from drivers/firmware/arm_ffa/bus.c
-rename to drivers/firmware/arm/ffa/bus.c
-diff --git a/drivers/firmware/arm_ffa/common.h b/drivers/firmware/arm/ffa/common.h
-similarity index 100%
-rename from drivers/firmware/arm_ffa/common.h
-rename to drivers/firmware/arm/ffa/common.h
-diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm/ffa/driver.c
-similarity index 100%
-rename from drivers/firmware/arm_ffa/driver.c
-rename to drivers/firmware/arm/ffa/driver.c
-diff --git a/drivers/firmware/arm_ffa/smccc.c b/drivers/firmware/arm/ffa/smccc.c
-similarity index 100%
-rename from drivers/firmware/arm_ffa/smccc.c
-rename to drivers/firmware/arm/ffa/smccc.c
-diff --git a/drivers/firmware/psci/Kconfig b/drivers/firmware/arm/psci/Kconfig
-similarity index 100%
-rename from drivers/firmware/psci/Kconfig
-rename to drivers/firmware/arm/psci/Kconfig
-diff --git a/drivers/firmware/psci/Makefile b/drivers/firmware/arm/psci/Makefile
-similarity index 100%
-rename from drivers/firmware/psci/Makefile
-rename to drivers/firmware/arm/psci/Makefile
-diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/arm/psci/psci.c
-similarity index 100%
-rename from drivers/firmware/psci/psci.c
-rename to drivers/firmware/arm/psci/psci.c
-diff --git a/drivers/firmware/psci/psci_checker.c b/drivers/firmware/arm/psci/psci_checker.c
-similarity index 100%
-rename from drivers/firmware/psci/psci_checker.c
-rename to drivers/firmware/arm/psci/psci_checker.c
-diff --git a/drivers/firmware/arm_scmi/Kconfig b/drivers/firmware/arm/scmi/Kconfig
-similarity index 97%
-rename from drivers/firmware/arm_scmi/Kconfig
-rename to drivers/firmware/arm/scmi/Kconfig
-index e3fb36825978..ddb6f434fa0d 100644
---- a/drivers/firmware/arm_scmi/Kconfig
-+++ b/drivers/firmware/arm/scmi/Kconfig
-@@ -82,8 +82,8 @@ config ARM_SCMI_QUIRKS
- 	  depending on the SCMI firmware advertised versions and/or machine
- 	  compatibles.
- 
--source "drivers/firmware/arm_scmi/transports/Kconfig"
--source "drivers/firmware/arm_scmi/vendors/imx/Kconfig"
-+source "drivers/firmware/arm/scmi/transports/Kconfig"
-+source "drivers/firmware/arm/scmi/vendors/imx/Kconfig"
- 
- endif #ARM_SCMI_PROTOCOL
- 
-diff --git a/drivers/firmware/arm_scmi/Makefile b/drivers/firmware/arm/scmi/Makefile
-similarity index 100%
-rename from drivers/firmware/arm_scmi/Makefile
-rename to drivers/firmware/arm/scmi/Makefile
-diff --git a/drivers/firmware/arm_scmi/base.c b/drivers/firmware/arm/scmi/base.c
-similarity index 100%
-rename from drivers/firmware/arm_scmi/base.c
-rename to drivers/firmware/arm/scmi/base.c
-diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm/scmi/bus.c
-similarity index 100%
-rename from drivers/firmware/arm_scmi/bus.c
-rename to drivers/firmware/arm/scmi/bus.c
-diff --git a/drivers/firmware/arm_scmi/clock.c b/drivers/firmware/arm/scmi/clock.c
-similarity index 100%
-rename from drivers/firmware/arm_scmi/clock.c
-rename to drivers/firmware/arm/scmi/clock.c
-diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm/scmi/common.h
-similarity index 100%
-rename from drivers/firmware/arm_scmi/common.h
-rename to drivers/firmware/arm/scmi/common.h
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm/scmi/driver.c
-similarity index 100%
-rename from drivers/firmware/arm_scmi/driver.c
-rename to drivers/firmware/arm/scmi/driver.c
-diff --git a/drivers/firmware/arm_scmi/msg.c b/drivers/firmware/arm/scmi/msg.c
-similarity index 100%
-rename from drivers/firmware/arm_scmi/msg.c
-rename to drivers/firmware/arm/scmi/msg.c
-diff --git a/drivers/firmware/arm_scmi/notify.c b/drivers/firmware/arm/scmi/notify.c
-similarity index 100%
-rename from drivers/firmware/arm_scmi/notify.c
-rename to drivers/firmware/arm/scmi/notify.c
-diff --git a/drivers/firmware/arm_scmi/notify.h b/drivers/firmware/arm/scmi/notify.h
-similarity index 100%
-rename from drivers/firmware/arm_scmi/notify.h
-rename to drivers/firmware/arm/scmi/notify.h
-diff --git a/drivers/firmware/arm_scmi/perf.c b/drivers/firmware/arm/scmi/perf.c
-similarity index 100%
-rename from drivers/firmware/arm_scmi/perf.c
-rename to drivers/firmware/arm/scmi/perf.c
-diff --git a/drivers/firmware/arm_scmi/pinctrl.c b/drivers/firmware/arm/scmi/pinctrl.c
-similarity index 100%
-rename from drivers/firmware/arm_scmi/pinctrl.c
-rename to drivers/firmware/arm/scmi/pinctrl.c
-diff --git a/drivers/firmware/arm_scmi/power.c b/drivers/firmware/arm/scmi/power.c
-similarity index 100%
-rename from drivers/firmware/arm_scmi/power.c
-rename to drivers/firmware/arm/scmi/power.c
-diff --git a/drivers/firmware/arm_scmi/powercap.c b/drivers/firmware/arm/scmi/powercap.c
-similarity index 100%
-rename from drivers/firmware/arm_scmi/powercap.c
-rename to drivers/firmware/arm/scmi/powercap.c
-diff --git a/drivers/firmware/arm_scmi/protocols.h b/drivers/firmware/arm/scmi/protocols.h
-similarity index 100%
-rename from drivers/firmware/arm_scmi/protocols.h
-rename to drivers/firmware/arm/scmi/protocols.h
-diff --git a/drivers/firmware/arm_scmi/quirks.c b/drivers/firmware/arm/scmi/quirks.c
-similarity index 100%
-rename from drivers/firmware/arm_scmi/quirks.c
-rename to drivers/firmware/arm/scmi/quirks.c
-diff --git a/drivers/firmware/arm_scmi/quirks.h b/drivers/firmware/arm/scmi/quirks.h
-similarity index 100%
-rename from drivers/firmware/arm_scmi/quirks.h
-rename to drivers/firmware/arm/scmi/quirks.h
-diff --git a/drivers/firmware/arm_scmi/raw_mode.c b/drivers/firmware/arm/scmi/raw_mode.c
-similarity index 100%
-rename from drivers/firmware/arm_scmi/raw_mode.c
-rename to drivers/firmware/arm/scmi/raw_mode.c
-diff --git a/drivers/firmware/arm_scmi/raw_mode.h b/drivers/firmware/arm/scmi/raw_mode.h
-similarity index 100%
-rename from drivers/firmware/arm_scmi/raw_mode.h
-rename to drivers/firmware/arm/scmi/raw_mode.h
-diff --git a/drivers/firmware/arm_scmi/reset.c b/drivers/firmware/arm/scmi/reset.c
-similarity index 100%
-rename from drivers/firmware/arm_scmi/reset.c
-rename to drivers/firmware/arm/scmi/reset.c
-diff --git a/drivers/firmware/arm_scmi/scmi_power_control.c b/drivers/firmware/arm/scmi/scmi_power_control.c
-similarity index 100%
-rename from drivers/firmware/arm_scmi/scmi_power_control.c
-rename to drivers/firmware/arm/scmi/scmi_power_control.c
-diff --git a/drivers/firmware/arm_scmi/sensors.c b/drivers/firmware/arm/scmi/sensors.c
-similarity index 100%
-rename from drivers/firmware/arm_scmi/sensors.c
-rename to drivers/firmware/arm/scmi/sensors.c
-diff --git a/drivers/firmware/arm_scmi/shmem.c b/drivers/firmware/arm/scmi/shmem.c
-similarity index 100%
-rename from drivers/firmware/arm_scmi/shmem.c
-rename to drivers/firmware/arm/scmi/shmem.c
-diff --git a/drivers/firmware/arm_scmi/system.c b/drivers/firmware/arm/scmi/system.c
-similarity index 100%
-rename from drivers/firmware/arm_scmi/system.c
-rename to drivers/firmware/arm/scmi/system.c
-diff --git a/drivers/firmware/arm_scmi/transports/Kconfig b/drivers/firmware/arm/scmi/transports/Kconfig
-similarity index 100%
-rename from drivers/firmware/arm_scmi/transports/Kconfig
-rename to drivers/firmware/arm/scmi/transports/Kconfig
-diff --git a/drivers/firmware/arm_scmi/transports/Makefile b/drivers/firmware/arm/scmi/transports/Makefile
-similarity index 100%
-rename from drivers/firmware/arm_scmi/transports/Makefile
-rename to drivers/firmware/arm/scmi/transports/Makefile
-diff --git a/drivers/firmware/arm_scmi/transports/mailbox.c b/drivers/firmware/arm/scmi/transports/mailbox.c
-similarity index 100%
-rename from drivers/firmware/arm_scmi/transports/mailbox.c
-rename to drivers/firmware/arm/scmi/transports/mailbox.c
-diff --git a/drivers/firmware/arm_scmi/transports/optee.c b/drivers/firmware/arm/scmi/transports/optee.c
-similarity index 100%
-rename from drivers/firmware/arm_scmi/transports/optee.c
-rename to drivers/firmware/arm/scmi/transports/optee.c
-diff --git a/drivers/firmware/arm_scmi/transports/smc.c b/drivers/firmware/arm/scmi/transports/smc.c
-similarity index 100%
-rename from drivers/firmware/arm_scmi/transports/smc.c
-rename to drivers/firmware/arm/scmi/transports/smc.c
-diff --git a/drivers/firmware/arm_scmi/transports/virtio.c b/drivers/firmware/arm/scmi/transports/virtio.c
-similarity index 100%
-rename from drivers/firmware/arm_scmi/transports/virtio.c
-rename to drivers/firmware/arm/scmi/transports/virtio.c
-diff --git a/drivers/firmware/arm_scmi/vendors/imx/Kconfig b/drivers/firmware/arm/scmi/vendors/imx/Kconfig
-similarity index 100%
-rename from drivers/firmware/arm_scmi/vendors/imx/Kconfig
-rename to drivers/firmware/arm/scmi/vendors/imx/Kconfig
-diff --git a/drivers/firmware/arm_scmi/vendors/imx/Makefile b/drivers/firmware/arm/scmi/vendors/imx/Makefile
-similarity index 100%
-rename from drivers/firmware/arm_scmi/vendors/imx/Makefile
-rename to drivers/firmware/arm/scmi/vendors/imx/Makefile
-diff --git a/drivers/firmware/arm_scmi/vendors/imx/imx-sm-bbm.c b/drivers/firmware/arm/scmi/vendors/imx/imx-sm-bbm.c
-similarity index 100%
-rename from drivers/firmware/arm_scmi/vendors/imx/imx-sm-bbm.c
-rename to drivers/firmware/arm/scmi/vendors/imx/imx-sm-bbm.c
-diff --git a/drivers/firmware/arm_scmi/vendors/imx/imx-sm-cpu.c b/drivers/firmware/arm/scmi/vendors/imx/imx-sm-cpu.c
-similarity index 100%
-rename from drivers/firmware/arm_scmi/vendors/imx/imx-sm-cpu.c
-rename to drivers/firmware/arm/scmi/vendors/imx/imx-sm-cpu.c
-diff --git a/drivers/firmware/arm_scmi/vendors/imx/imx-sm-lmm.c b/drivers/firmware/arm/scmi/vendors/imx/imx-sm-lmm.c
-similarity index 100%
-rename from drivers/firmware/arm_scmi/vendors/imx/imx-sm-lmm.c
-rename to drivers/firmware/arm/scmi/vendors/imx/imx-sm-lmm.c
-diff --git a/drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c b/drivers/firmware/arm/scmi/vendors/imx/imx-sm-misc.c
-similarity index 100%
-rename from drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c
-rename to drivers/firmware/arm/scmi/vendors/imx/imx-sm-misc.c
-diff --git a/drivers/firmware/arm_scmi/vendors/imx/imx95.rst b/drivers/firmware/arm/scmi/vendors/imx/imx95.rst
-similarity index 100%
-rename from drivers/firmware/arm_scmi/vendors/imx/imx95.rst
-rename to drivers/firmware/arm/scmi/vendors/imx/imx95.rst
-diff --git a/drivers/firmware/arm_scmi/voltage.c b/drivers/firmware/arm/scmi/voltage.c
-similarity index 100%
-rename from drivers/firmware/arm_scmi/voltage.c
-rename to drivers/firmware/arm/scmi/voltage.c
-diff --git a/drivers/firmware/smccc/Kconfig b/drivers/firmware/arm/smccc/Kconfig
-similarity index 100%
-rename from drivers/firmware/smccc/Kconfig
-rename to drivers/firmware/arm/smccc/Kconfig
-diff --git a/drivers/firmware/smccc/Makefile b/drivers/firmware/arm/smccc/Makefile
-similarity index 100%
-rename from drivers/firmware/smccc/Makefile
-rename to drivers/firmware/arm/smccc/Makefile
-diff --git a/drivers/firmware/smccc/kvm_guest.c b/drivers/firmware/arm/smccc/kvm_guest.c
-similarity index 100%
-rename from drivers/firmware/smccc/kvm_guest.c
-rename to drivers/firmware/arm/smccc/kvm_guest.c
-diff --git a/drivers/firmware/smccc/smccc.c b/drivers/firmware/arm/smccc/smccc.c
-similarity index 100%
-rename from drivers/firmware/smccc/smccc.c
-rename to drivers/firmware/arm/smccc/smccc.c
-diff --git a/drivers/firmware/smccc/soc_id.c b/drivers/firmware/arm/smccc/soc_id.c
-similarity index 100%
-rename from drivers/firmware/smccc/soc_id.c
-rename to drivers/firmware/arm/smccc/soc_id.c
--- 
-2.43.0
+Thanks,
+Soeren
+>
+>    PCI: imx6: Keep i.MX6Q Root Port MSI capability with iMSI-RX to work =
+around hardware bug
+>
+>    On some NXP chipsets, disabling Root Port MSI/MSI-X Capabilities bloc=
+ks
+>    MSIs originating from Endpoints from reaching the iMSI-RX controller.
+>
+>    To address this hardware bug, 3a4e8302e72f ("PCI: imx6: Keep Root Por=
+t MSI
+>    capability with iMSI-RX to work around hardware bug") preserves Root =
+Port
+>    MSI and MSI-X Capabilities on i.MX7D, i.MX8MM, and i.MX8MQ when iMSI-=
+RX is
+>    in use.
+>
+>    The same applies to i.MX6Q, so preserve Root Port MSI/MSI-X Capabilit=
+ies
+>    there as well.
+>
+>    Note that preserving these Capabilities means Root Port-originated MS=
+Is
+>    such as AER and PME won't be received due to separate hardware limita=
+tions.
+>    Users may need to use workarounds such as passing the 'pcie_pme=3Dnom=
+si'
+>    command-line parameter.
+>
+> Also, we need to resolve the Sashiko question about whether IMX6QP and
+> IMX6SX also need this.  NXP folks, can you verify?
+>
+>> Fixes: f5cd8a929c825 ("PCI: dwc: Remove MSI/MSIX capability for Root Po=
+rt if iMSI-RX is used as MSI controller")
+>> Cc: <stable@vger.kernel.org> # 7.0+
+>> Signed-off-by: Soeren Moch <smoch@web.de>
+>> Acked-by: Richard Zhu <hongxing.zhu@nxp.com>
+>> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+>> Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
+>> ---
+>> Cc: Manivannan Sadhasivam <mani@kernel.org>
+>> Cc: Richard Zhu <hongxing.zhu@nxp.com>
+>> Cc: Lucas Stach <l.stach@pengutronix.de>
+>> Cc: Bjorn Helgaas <bhelgaas@google.com>
+>> Cc: Frank Li <Frank.Li@nxp.com>
+>> Cc: Fabio Estevam <festevam@gmail.com>
+>> Cc: linux-pci@vger.kernel.org
+>> Cc: linux-arm-kernel@lists.infradead.org
+>> Cc: imx@lists.linux.dev
+>> Cc: linux-kernel@vger.kernel.org
+>>
+>> This patch is similar to
+>> 3a4e8302e72f ("PCI: imx6: Keep Root Port MSI capability with iMSI-RX to=
+ work around hardware bug")
+>>
+>> Tested on a tbs2910 board [1]
+>> [1] arch/arm/boot/dts/nxp/imx/imx6q-tbs2910.dts
+>>
+>> changes in v2:
+>> - collect a-b and r-b tags
+>> - use correct fixes tag (Manivannan)
+>>    (reference commit that introduced the bug, not the incomplete fix)
+>>
+>> Since this is a fix for a regression in linux-7.0+, can this still be m=
+erged for 7.2-rcS ?
+>> ---
+>>   drivers/pci/controller/dwc/pci-imx6.c | 3 ++-
+>>   1 file changed, 2 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/contro=
+ller/dwc/pci-imx6.c
+>> index 98e1db751132..8130cf93c2bb 100644
+>> --- a/drivers/pci/controller/dwc/pci-imx6.c
+>> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+>> @@ -1995,7 +1995,8 @@ static const struct imx_pcie_drvdata drvdata[] =
+=3D {
+>>   		.flags =3D IMX_PCIE_FLAG_IMX_PHY |
+>>   			 IMX_PCIE_FLAG_SPEED_CHANGE_WORKAROUND |
+>>   			 IMX_PCIE_FLAG_BROKEN_SUSPEND |
+>> -			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
+>> +			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND |
+>> +			 IMX_PCIE_FLAG_KEEP_MSI_CAP,
+>>   		.dbi_length =3D 0x200,
+>>   		.gpr =3D "fsl,imx6q-iomuxc-gpr",
+>>   		.ltssm_off =3D IOMUXC_GPR12,
+>> --=20
+>> 2.43.0
+>>
 
 
