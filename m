@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A863DC44514
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 09:17:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D16DC44507
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 09:18:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WsqS/RENXKBaiPcJVoqlvqE5VI6ff8i4YR1XPG/1jws=; b=ljDbh59B9f0FGwm1icAeOVOVfH
-	Hi6xlYxZGetqhb7J0VqyXOarbmpHulS6FEI8CsADkcsx1u29cRyBVFjE+Yrj/WYXhit6ryuBEdzV9
-	3VUO++c3FgjRDr50yTZONcBIsrPGdd3j8bEbE6ZD6U/gxVNXEOIcE+oV9JX/DsClkMHjCdFzVGmBR
-	bkjZbbnqO2fCo8NvzZ1IkY8zJb0x7XLLpWWScObkCVVc0vd6uj0Kg7XsPwZp/+oyIyDABzBKdg+jX
-	q2giXuouocvJ4IvSNR8Gp+6JRhmE+DevBdHpSiRAm8p6CTPDlRM2QLJZeYz1/EaaW5QuQNHAQkK0/
-	Viysq0Jw==;
+	bh=1UT95bLXGY5IEzB0fijX3mfVzEGvJ1LcjJS5f8nS+1A=; b=uk9nlWrORu8V2e+FCTyk9rgmRq
+	jurok77HOeIoqVXRxJsh4HpE3qoogIvJfJBhjNlKgUjvmIAbtt409cYlvCcvwShOUScxGiHZP+1fw
+	au/scao5aBfa6UkTsN2Csb6imIrydqh2fJ5+7VUe2ceoAhJxvbggzgxls6WiETIZpg/4YdlCnmKBl
+	fthRID8v8rnXmAjValmPp2S7op64r+8G1BuCPegcNKPRIKjhOCyCzRGkUwF+M7TVIqOiOe3l8ZZOI
+	uk4kpO8AuF/poJLEZSRWT5LlBv3xNdi1UuTrESQDr3aX4fdIDlMCEHH0bmPZKLV1X4aJVx6Rxm9Rp
+	0J4VKhiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkehF-00000001oS9-1qu5;
-	Fri, 17 Jul 2026 09:17:29 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wkei4-00000001ogB-2xIy;
+	Fri, 17 Jul 2026 09:18:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkehE-00000001oRR-15cO;
-	Fri, 17 Jul 2026 09:17:28 +0000
+	id 1wkei1-00000001of8-03GN;
+	Fri, 17 Jul 2026 09:18:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B301A60204;
-	Fri, 17 Jul 2026 09:17:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E19E1F000E9;
-	Fri, 17 Jul 2026 09:17:26 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AAF2040932;
+	Fri, 17 Jul 2026 09:18:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62BC11F000E9;
+	Fri, 17 Jul 2026 09:18:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784279847;
-	bh=WsqS/RENXKBaiPcJVoqlvqE5VI6ff8i4YR1XPG/1jws=;
+	s=k20260515; t=1784279896;
+	bh=1UT95bLXGY5IEzB0fijX3mfVzEGvJ1LcjJS5f8nS+1A=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=m5HakIZ0OPmQfxWfVzz83Zk5vj5X4xylgQw5lZEic4qN12nSEtvzPt1akW7R3aG7I
-	 BIDW7MNUu9XuwovXeZfEVuowJb+pmjYjaBtAwb6s9qo80wJ+e4R+D7cwCFSF5d9nMy
-	 4glZQ0q2Xh4igofwJdYWFu1MiHT4nfstnSwWd1LEG/TF4Tzz3fcMmA+wk4T0d1iR6s
-	 +x4V4/DBH6xRzJ+GgJOGTDa6lXoghO6AmfINorr8Emj2Vp9lvZylRbetpr8HhUZBbS
-	 1tdZuHf1ZiVX+winVpJrqY0bF8ICBaN4jPHiziMBfXJH7k1B2kXXTpEratoxQorgFG
-	 8nHgLbNmzWVnA==
-Date: Fri, 17 Jul 2026 11:17:23 +0200
+	b=GOKFWh+pfFbTfNTJR4GU/Twcbplcra7BM0uZsF1hLDaY5hFOTheKAhi24IHPeWNw0
+	 xAhEo1uL47D1idT9QYYG6fxLWaQKFHIRdCF7lML/D9RTF+SdNGJzSUME0pCxZFEfAr
+	 OKgmkexnRF0aa0tw/Ez6YksJ4fAZXeF5PupjPdB3um/cY3uQf5JzeTe54WNlQ89JlM
+	 eVa0jT0lfg+WRmFOQ6sSB8hpERpoKGRZswKv21hqTor1xhKfS1IqU/BgySTBiTNYBu
+	 c7XK3H7pyov/rVrAUxTjgIb7RM4m7AXXAcUntnauH6X0mJ0RhA0v5eYjM3f5UfvBGp
+	 H6E1sW3gZ9enQ==
+Date: Fri, 17 Jul 2026 11:18:12 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Akari Tsuyukusa <akkun11.open@gmail.com>
 Cc: Wim Van Sebroeck <wim@linux-watchdog.org>, 
@@ -54,15 +54,15 @@ Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
 	"open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>, 
 	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>, 
 	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>, Roman Vivchar <rva333@protonmail.com>
-Subject: Re: [PATCH 1/7] watchdog: mtk_wdt: add explicit compatibles for SoCs
- using mt6589 fallback
-Message-ID: <20260717-unbeatable-strict-heron-fd1741@quoll>
+Subject: Re: [PATCH 5/7] dt-bindings: reset: Add bindings for MediaTek MT6589
+ reset controller
+Message-ID: <20260717-rattlesnake-of-enjoyable-dignity-42da64@quoll>
 References: <20260716161923.266315-1-akkun11.open@gmail.com>
- <20260716161923.266315-2-akkun11.open@gmail.com>
+ <20260716161923.266315-6-akkun11.open@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260716161923.266315-2-akkun11.open@gmail.com>
+In-Reply-To: <20260716161923.266315-6-akkun11.open@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,12 +77,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 17, 2026 at 01:19:17AM +0900, Akari Tsuyukusa wrote:
-> Several SoCs currently rely on matching "mediatek,mt6589-wdt" via the
-> fallback compatible. Add dedicated of_device_id entries for each of
-> them so that the driver can match directly on the SoC-specific string.
+On Fri, Jul 17, 2026 at 01:19:21AM +0900, Akari Tsuyukusa wrote:
+> Add MT6589 reset controller bindings.
+> 
+> Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
+> ---
+>  include/dt-bindings/reset/mt6589-resets.h | 25 +++++++++++++++++++++++
 
-This makes no sense, NAK.
+Filename must match compatible.
+
+Why is this separate from the patch adding the binding? Where is this
+explained?
+
+>  1 file changed, 25 insertions(+)
+>  create mode 100644 include/dt-bindings/reset/mt6589-resets.h
+> 
+> diff --git a/include/dt-bindings/reset/mt6589-resets.h b/include/dt-bindings/reset/mt6589-resets.h
+> new file mode 100644
+> index 000000000000..18ef729022a9
+> --- /dev/null
+> +++ b/include/dt-bindings/reset/mt6589-resets.h
+> @@ -0,0 +1,25 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
+> +/*
+> + * Copyright (c) 2026 Akari Tsuyukusa <akkun11.open@gmail.com>
+> + */
+> +
+> +#ifndef _DT_BINDINGS_RESET_MT6589_RESETS_H
+> +#define _DT_BINDINGS_RESET_MT6589_RESETS_H
+> +
+> +/* TOPRGU */
+> +#define MT6589_TOPRGU_INFRA_RST		0
+> +#define MT6589_TOPRGU_DISP_RST		1
+> +#define MT6589_TOPRGU_MFG_RST		2
+> +#define MT6589_TOPRGU_VENC_RST		3
+> +#define MT6589_TOPRGU_VDEC_RST		4
+> +#define MT6589_TOPRGU_IMG_RST		5
+> +#define MT6589_TOPRGU_DDRPHY_RST	6
+> +#define MT6589_TOPRGU_MD_RST		7
+> +#define MT6589_TOPRGU_INFRA_AO_RST	8
+> +#define MT6589_TOPRGU_MD_LITE_RST	9
+> +#define MT6589_TOPRGU_APMIXED_RST	10
+> +#define MT6589_TOPRGU_PWRAP_SPICTL_RST	11
+> +
+> +#define MT6589_TOPRGU_RST_NUM		12
+
+Not a binding, drop.
 
 Best regards,
 Krzysztof
