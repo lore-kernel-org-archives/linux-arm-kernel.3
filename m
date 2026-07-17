@@ -4,76 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71432C44517
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 07:23:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8817FC44515
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 07:24:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QrkjOTVf61YiZqlRl+i7P0EykPYs03A7HSuM2kJgfsE=; b=o7Vt+iKex2yznRkHS3rPWNDEe2
-	EMnHg58Ocp3cuOPfpmevtZhxD4OP54zAKAPK73vMeKlagQys1YX1cmr86h2ZdsaK3G98Z1citg8bT
-	T8RC2NOSBov+eDgzGVtMfYf5n7VoL+7S+gTQ81wkqOg2b2AAm3vYIQ3vuUcXT9B76/FiPeAdUHAPu
-	fMy9VjbXXer9q2gKrvdoKwuYa37lo1HR39quJ89PmQzKm6CDmOPCLeUlQzJivHQPbbI9s0qIzceim
-	5mHzn6ppK2o6JsQMNQXT9l72unjlZAA7Cw+ePsI86uoAgJLQCIuU0GxMZZJbUKNP1iKiNcN4JK1e1
-	z2oLclTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2tr1C24m6438i96kG1sAxMeU7KitaPRaCcPLLdcWwQ8=; b=Dr7PvVJyX8n605cKR2XsjqQkRd
+	GhhmFK5BLDjbqpU9MIUQmDTA1FtR12QWAOxu2Flu5vpulTlR5uTlIKQKntVX9ewXt2CSadblS1izW
+	1kE4uV8qvDrXHnxrWDiDgoUIGaYzXsaacO1nAneryGy2eVDdIi7k6qYKda9O/JLKx9Jbq2tCeg9/K
+	Hz4zcZfC0m1XV8Zv7o9kZ87X8nXiFXQiTKRsBL9E+Bs8pwdZJEtkQkPXOM6AyWTI6TNZKRsEWTyrP
+	ifjsyJxW7JtXOaCrIsHb0bfJDU/ojOz9QRqC3apYg13NSMjJukVMaP1VfblkF+h0Guj7oSUHUrMxa
+	ew+b3FFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkcvA-00000001Pfq-0lR6;
-	Fri, 17 Jul 2026 07:23:44 +0000
-Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
+	id 1wkcw2-00000001QK7-3BDV;
+	Fri, 17 Jul 2026 07:24:38 +0000
+Received: from smtpbgsg2.qq.com ([54.254.200.128])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkcv3-00000001PNa-1GnH
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 07:23:43 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=QrkjOTVf61YiZqlRl+i7P0EykPYs03A7HSuM2kJgfsE=;
-	b=e5DXECaHoD+0+amPAU6R3XA9FRRzwXhKM6NDEX2faEd6/0Y9GjSW5eU16l0VlKx74YRto3gcW
-	6k5B07e91BvpSlMerrgeRBWcx8FbGQIjnWge19n1Y3M1pRSsCnUMOeG4ugCqN7sEv4rabjjdmLW
-	lt+Y15XZK0vlyWW4GtVOh0M=
-Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4h1h3b4H7nz1prkx;
-	Fri, 17 Jul 2026 15:14:03 +0800 (CST)
-Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
-	by mail.maildlp.com (Postfix) with ESMTPS id 262AF4057D;
-	Fri, 17 Jul 2026 15:23:25 +0800 (CST)
-Received: from [10.67.120.103] (10.67.120.103) by
- kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Fri, 17 Jul 2026 15:23:24 +0800
-Message-ID: <02713422-0b1f-45c4-a93d-2fc7de2a0b84@huawei.com>
-Date: Fri, 17 Jul 2026 15:23:24 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 6/6] KVM: arm64: Add auto HDBSS enable/disable on dirty
- logging change
-To: Leonardo Bras <leo.bras@arm.com>
-CC: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>,
-	<yangjinqian1@huawei.com>, <caijian11@h-partners.com>,
-	<liuyonglong@huawei.com>, <yezhenyu2@huawei.com>, <yubihong@huawei.com>,
-	<linuxarm@huawei.com>, <joey.gouly@arm.com>, <kvmarm@lists.linux.dev>,
-	<kvm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <seiden@linux.ibm.com>,
-	<suzuki.poulose@arm.com>
-References: <20260709104026.2612599-1-zhengtian10@huawei.com>
- <20260709104026.2612599-7-zhengtian10@huawei.com>
- <alT7MeK_1ofOhIuv@LeoBrasDK>
- <6e8b23bc-d420-4f5a-a921-5a5d64d84200@huawei.com>
- <alYamq9BL5CTaAX7@LeoBrasDK>
-From: Tian Zheng <zhengtian10@huawei.com>
-In-Reply-To: <alYamq9BL5CTaAX7@LeoBrasDK>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.120.103]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemr100010.china.huawei.com (7.202.195.125)
+	id 1wkcvo-00000001Q6O-3PXM;
+	Fri, 17 Jul 2026 07:24:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
+	s=altu2504; t=1784273012;
+	bh=2tr1C24m6438i96kG1sAxMeU7KitaPRaCcPLLdcWwQ8=;
+	h=From:To:Subject:Date:Message-Id;
+	b=C+Pr/GhPjJBPbdJ2LD3baHMmTOp8Snt5aNFwKXNkeFMyZavQ3cu2vg7IoT34UQwFS
+	 S9SbxJ7NhfgCqIlXJt/SidJ+43W+BjUb8WW74w2LjyQiuyaRXdmFtyHMu62UKDZywp
+	 5tec//Zf5la1I5pXiopcSwpQJBrvZXfccIMJd0g0=
+X-QQ-mid: esmtpsz21t1784273010t618e8b28
+X-QQ-Originating-IP: vY/0NsjWxg2DNZvyWYpAsBikB9jLNme2YFNb+89ui+E=
+Received: from DESKTOP-8BT1A2O.localdomain ( [61.154.14.86])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 17 Jul 2026 15:23:27 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 9790818574636150360
+From: Chaoyi Chen <kernel@airkyi.com>
+To: Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Sandy Huang <hjc@rock-chips.com>,
+	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-phy@lists.infradead.org
+Subject: [PATCH v3 0/5] drm/bridge: Implement generic USB Type-C DP HPD bridge
+Date: Fri, 17 Jul 2026 15:23:18 +0800
+Message-Id: <20260717072323.96-1-kernel@airkyi.com>
+X-Mailer: git-send-email 2.17.1
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpsz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
+X-QQ-XMAILINFO: MsgkoYRPt7igYy2hXHJMQr9XNB7AMnTF+J8Uakx1P15+TZ4rfo6ax2dP
+	VQgk6Ov8P+/kK3maaqIuXrYlWXsgMtt+GQcd8Prk6DO9s2wtxiOWvRaLmbVanH0koI0W2PS
+	p/LmtwK4hZQN0HDiv2BtNSu55LVOx06zGu7VFZNJ7kr93xC9U474mZ/fW/MnRFW8d8aluMn
+	t4TBfcBNSehMCc5/1RTTKnVGWHTMaD5swWSCJQycgd6CNThvfu9I3hfo7aZc16/CqnAG9SU
+	AdqT8csSu1RRS7HeznUy88Nll3whAgM8lSrFwJzzIQSdTABiXPZsNEc8NGfPkxlh+pctboL
+	efW6qlS0/dg/Q9Qo3TQIz/rvDeANDN/fe+EutGe5WK9C3vcucwHk+fETJnkkxTczc5s9NE6
+	/2X6fd5mml7KZsGM8WW3dXymilfJeoci+5ME7rK/2FRyEFmgqmCTdSNzoUkWp6X399D8hFp
+	eieTPqfK8VbtSxnHrVKSnvD9TvEbY/DJnRw4MJuBuaQZMtUkEf6bS6GZhvYuEFOlVGp1YOG
+	qq8+B9bLPzci7wSH80h7VsP5KXGL6O1z5vr/ZOguRbbSDC0jtxuRPmlN8UPyHgwWCiXqFxx
+	o78UN3oJtuof/X6hpdFbIVl4LVqtlv8EF4O2kTIeomBsAtB+4tT6vyNIRngmBZU/Fd++PCJ
+	h7VmATaGfilz2YZi0Dc8xfa+orXVpnAVWDS5LfkYuqEydTYP9M/9ce6MNgbo32FsifE0ST1
+	aLeidD0612J9CG40qc9pxMBkLQyHURIht15ijiiyckE2sdhsohlsfH3tomaRlPtzTRJIIEP
+	JLcI7KXPmwZQ7nAQ+/OnXahLdEfAqD/r/mruwE/0mfANTYYjIUt+fjGEaA5hUceK95Avu4j
+	aV5JsktlMBidLwYNgiobsOVv8eQizw9ftm+v/xvGChj3B/R/lm6RLctBv9tM38x+19xvh19
+	MLlI6bpdV2HVoYM7OQNC7vkdJPIEc7dFmX7VDT/XZi08G67wbZZ3OskPEPPDvLC9YwA3pLL
+	9rm+K2GQ==
+X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_002338_139779_9BAA3F43 
-X-CRM114-Status: GOOD (  53.25  )
+X-CRM114-CacheID: sfid-20260717_002425_357077_39C3FE10 
+X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,403 +107,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
+This series is split from the v15 "Add Type-C DP support for RK3399 EVB
+IND board" series [1]. It focuses on the DRM bridge and Rockchip
+platform CDN-DP controller changes.
 
-On 7/14/2026 7:16 PM, Leonardo Bras wrote:
-> On Tue, Jul 14, 2026 at 04:58:37PM +0800, Tian Zheng wrote:
->>
->> On 7/13/2026 10:50 PM, Leonardo Bras wrote:
->>> On Thu, Jul 09, 2026 at 06:40:26PM +0800, Tian Zheng wrote:
->>>> From: eillon <yezhenyu2@huawei.com>
->>>>
->>>> HDBSS buffers store per-page dirty state after the stage-2 page tables
->>>> have been split down to page granularity (chunk_size == PAGE_SIZE).
->>> chunk_size != PAGE_SIZE now, but that should change as well :)
->>
->>
->> Thanks, I'll clarify the comment in v5.
-> 
-> By the discussion we are having in the HACDBS patchset, I think we can't
-> assume the pages are split in the future. :\
-> 
+[1] https://lore.kernel.org/all/20260304094152.92-1-kernel@airkyi.com/
 
-Agreed.
+====
+1. Generic Type-C DP HPD bridge
 
->>
->>
->>>
->>>> When chunk_size == 0 the kernel may lazily skip splitting block mappings,
->>>> leaving the page table coarser than what HDBSS expects. Therefore,
->>>> enabling HDBSS requires disabling lazy split so that all block mappings
->>>> are eagerly broken down before the buffer starts recording.
->>> (See cover letter reply)
->>>
->>>> Add VM-level HDBSS enable/disable support. When dirty logging is
->>>> enabled on any memslot, HDBSS is automatically enabled. When dirty
->>>> logging is disabled on all memslots, HDBSS is automatically disabled.
->>>>
->>>> This includes:
->>>> - kvm_arm_enable_hdbss_global() to enable HDBSS for all vCPUs
->>>> - kvm_arm_disable_hdbss_global() to disable and free HDBSS buffers
->>>> - kvm_arm_hdbss_on_dirty_logging_change() for auto enable/disable
->>>> - kvm_arch_destroy_vm() cleanup path
->>>> - kvm_arch_commit_memory_region() integration
->>>>
->>>> Signed-off-by: Eillon <yezhenyu2@huawei.com>
->>>> Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
->>>> ---
->>>>    arch/arm64/include/asm/kvm_dirty_bit.h |   2 +
->>>>    arch/arm64/kvm/arm.c                   |   8 ++
->>>>    arch/arm64/kvm/dirty_bit.c             | 105 +++++++++++++++++++++++++
->>>>    arch/arm64/kvm/mmu.c                   |   3 +
->>>>    4 files changed, 118 insertions(+)
->>>>
->>>> diff --git a/arch/arm64/include/asm/kvm_dirty_bit.h b/arch/arm64/include/asm/kvm_dirty_bit.h
->>>> index 4b28000e972f..a4cda8cdab24 100644
->>>> --- a/arch/arm64/include/asm/kvm_dirty_bit.h
->>>> +++ b/arch/arm64/include/asm/kvm_dirty_bit.h
->>>> @@ -23,5 +23,7 @@ int kvm_arm_vcpu_alloc_hdbss(struct kvm_vcpu *vcpu, unsigned int order);
->>>>    void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu);
->>>>    void kvm_flush_hdbss_buffer(struct kvm_vcpu *vcpu);
->>>>    int kvm_handle_hdbss_fault(struct kvm_vcpu *vcpu);
->>>> +void kvm_arm_hdbss_on_dirty_logging_change(struct kvm *kvm, int nr_memslots_logging);
->>>> +void kvm_arm_disable_hdbss_global(struct kvm *kvm);
->>>>
->>>>    #endif /* __ARM64_KVM_DIRTY_BIT_H__ */
->>>> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
->>>> index 566953a4e23a..536d94799ba8 100644
->>>> --- a/arch/arm64/kvm/arm.c
->>>> +++ b/arch/arm64/kvm/arm.c
->>>> @@ -317,6 +317,14 @@ void kvm_arch_destroy_vm(struct kvm *kvm)
->>>>    	if (is_protected_kvm_enabled())
->>>>    		pkvm_destroy_hyp_vm(kvm);
->>>>
->>>> +	/*
->>>> +	 * Userspace may destroy the VM without disabling dirty logging,
->>>> +	 * so the auto-disable path is never reached. Force disable HDBSS
->>>> +	 * here to ensure vCPU buffers are freed and prevent memory leaks.
->>>> +	 */
->>>> +	if (kvm->arch.enable_hdbss)
->>>> +		kvm_arm_disable_hdbss_global(kvm);
->>>> +
->>>>    	kvm_uninit_stage2_mmu(kvm);
->>>>    	kvm_destroy_mpidr_data(kvm);
->>>>
->>>> diff --git a/arch/arm64/kvm/dirty_bit.c b/arch/arm64/kvm/dirty_bit.c
->>>> index 002366337637..c5bf866c23ef 100644
->>>> --- a/arch/arm64/kvm/dirty_bit.c
->>>> +++ b/arch/arm64/kvm/dirty_bit.c
->>>> @@ -112,3 +112,108 @@ int kvm_handle_hdbss_fault(struct kvm_vcpu *vcpu)
->>>>    		return -EFAULT;
->>>>    	}
->>>>    }
->>>> +
->>>> +static unsigned int hdbss_auto_select_order(struct kvm *kvm)
->>>> +{
->>>> +	unsigned long npages = 0;
->>>> +	struct kvm_memory_slot *memslot;
->>>> +	int bkt;
->>>> +
->>>> +	kvm_for_each_memslot(memslot, bkt, kvm_memslots(kvm))
->>>> +		npages += memslot->npages;
->>>> +
->>>> +	if (npages <= 16384)
->>>> +		return 0;
->>>> +	else if (npages <= 262144)
->>>> +		return 3;
->>>> +	else if (npages <= 4194304)
->>>> +		return 6;
->>>> +	else
->>>> +		return 9;
->>>> +}
->>> IIUC you are counting the amount of pages the VM has, and based on that
->>> allocating a size for the HDBSS buffer.
->>>
->>> A few notes here:
->>> - It's not really nice to use magic numbers around like this. If you
->>>     actually want to use it, then use stuff like SZ_16K, SZ_256K, SZ_4M and
->>>     so on.
->>> - You are returning magic numbers as well, why is it 0, 3, 6, or 9 here?
->>>     It only makes sense if the person is reading HDBSSBR_EL2 documentation,
->>>     which should not be necessary at this point. That's one reason I
->>>     recommended to using sizes. If that was really the best way to use it,
->>>     I would recommend using the defines that we get from sysreg, and you
->>>     actually used before to set the maximum order on a previous patch.
->>> - Also, if you can return only valid values here, why do you check against
->>>     the maximum value in that previous patch?
->>> - Also, are you using some undisclosed rule here? On 'order 0' the
->>>     meanining is 4KB, which translate to 512 HDBSS entries. Why are you using
->>>     it for any value under 16K? Same for 3-32KB-4kEntries you use for under
->>>     256K pages (and so on). If you are assuming a logical rule such as
->>>     'N pages would be ok with N/32 entries' it has to be described here at
->>>     least.
->>> - Not sure VM size is the best way of doing that, since it will depend
->>>     more on the dirtying rate than the actual size, and most VMs would just
->>>     use the biggest size (4M x 4K pages is just 16GB). For instance with
->>>     dirty_ring we can use the dirty_ring.size as a better option.
->>>     (I know this is a hard one to estimate when using dirty-bitmap, though)
->>
->>
->> I'll replace the magic numbers and also add a comment in the next version
->> explaining
->>
->> the mapping between the thresholds and the order values.
->>
->>
->> On auto-choosing the size: VM memory size is a simple starting point, but I
->> agree it's
->>
->> not ideal. For dirty-ring mode we could use dirty_ring_size as a reference;
->> for dirty-bitmap
->>
->> mode there's no equivalent, so I don't have a good answer yet. I'd really
->> appreciate any
->>
->> suggestions from the community on a better idea for the dirty-bitmap case.
-> 
-> I am thinking that we could use a default value (say 1 PAGESIZE/vcpu) and
-> add an ioctl to optionally increase this value. This way we don't require
-> a new interface to benefit from HDBSS, but allow users to tune it.
-> 
+Currently, several USB-C controller drivers register their own DP HPD
+bridge via aux-hpd-bridge.c, each duplicating the same logic. For
+devicetree based platforms, the USB-C controller may vary across boards,
+and not every USB-C controller driver implements this feature. Patch 1
+implements a generic DP HPD bridge that monitors Type-C bus events and
+automatically creates an HPD bridge when a Type-C port device with DP
+SVID is registered.
 
-That makes sense. I think we can use a default value (e.g., 1 page per
-vCPU), but I'd prefer not to expose any ioctl for userspace to configure
-it. Since the kernel auto-enables HDBSS, a userspace size knob would be
-confusing — similar to what I mentioned in the discussion at [1].
+2. Multiple bridge model for CDN-DP
 
-[1] 
-https://lore.kernel.org/linux-arm-kernel/3fb4b33e-4618-4523-b140-955e15fd9a8c@huawei.com/
+The RK3399 has two USB/DP combo PHY and one CDN-DP controller. Patch 5
+introduces a multi-bridge model where each PHY port gets a separate
+encoder and bridge, allowing flexible selection of the output PHY port.
+This is based on the DRM AUX HPD bridge rather than extcon.
 
->>
->> Also, since we automatically enable HDBSS in the kernel, the check against
->> HDBSS_MAX_ORDER is redundant. I'll remove it.
->>
->>
->>>> +
->>>> +/*
->>>> + * Enable HDBSS for all vCPUs in the VM.
->>>> + *
->>>> + * Called from kvm_arm_hdbss_on_dirty_logging_change() which is invoked
->>>> + * by kvm_arch_commit_memory_region() under kvm->slots_lock.
->>>> + *
->>>> + * If buffer allocation fails, HDBSS remains disabled and dirty tracking
->>>> + * falls back to the traditional software-based approach (PTE write-protect
->>>> + * + software dirty marking). This does not affect correctness; dirty
->>>> + * logging remains functional without HDBSS.
->>>> + */
->>>> +static int kvm_arm_enable_hdbss_global(struct kvm *kvm)
->>>> +{
->>>> +	int err;
->>>> +	unsigned long i;
->>>> +	unsigned int order;
->>>> +	struct kvm_vcpu *vcpu;
->>>> +
->>>> +	if (!system_supports_hdbss())
->>>> +		return 0;
->>>> +
->>>> +	if (kvm->dirty_ring_size) /* Don't support HDBSS in dirty ring mode */
->>>> +		return 0;
->>>> +
->>>> +	if (kvm->arch.enable_hdbss) /* Already On */
->>>> +		return 0;
->>>> +
->>>> +	/* Turn it on */
->>>> +	order = hdbss_auto_select_order(kvm);
->>>> +	kvm_for_each_vcpu(i, vcpu, kvm) {
->>>> +		err = kvm_arm_vcpu_alloc_hdbss(vcpu, order);
->>>> +		if (err)
->>>> +			goto error_alloc;
->>>> +	}
->>>> +
->>>> +	kvm->arch.enable_hdbss = true;
->>>> +	kvm->arch.mmu.vtcr |= VTCR_EL2_HD | VTCR_EL2_HDBSS | VTCR_EL2_HA;
->>>> +
->>>> +	/*
->>>> +	 * We should kick vcpus out of guest mode here to load new
->>>> +	 * vtcr value to vtcr_el2 register when re-enter guest mode.
->>>> +	 */
->>>> +	kvm_for_each_vcpu(i, vcpu, kvm)
->>>> +		kvm_vcpu_kick(vcpu);
->>>> +
->>>> +	return 0;
->>>> +
->>>> +error_alloc:
->>>> +	kvm_for_each_vcpu(i, vcpu, kvm)
->>>> +		if (vcpu->arch.hdbss.base_phys)
->>>> +			kvm_arm_vcpu_free_hdbss(vcpu);
->>>> +
->>>> +	pr_warn_once("kvm: failed to allocate HDBSS buffers (order=%u), "
->>>> +		     "falling back to software dirty tracking\n", order);
->>>> +	return -ENOMEM;
->>>> +}
->>>> +
->>>> +void kvm_arm_disable_hdbss_global(struct kvm *kvm)
->>>> +{
->>>> +	unsigned long i;
->>>> +	struct kvm_vcpu *vcpu;
->>>> +
->>>> +	if (!kvm->arch.enable_hdbss) /* Already Off */
->>>> +		return;
->>>> +
->>>> +	/* Turn it off */
->>>> +	kvm->arch.mmu.vtcr &= ~(VTCR_EL2_HD | VTCR_EL2_HDBSS | VTCR_EL2_HA);
->>>> +
->>>> +	kvm_for_each_vcpu(i, vcpu, kvm)
->>>> +		kvm_arm_vcpu_free_hdbss(vcpu);
->>>> +
->>>> +	kvm->arch.enable_hdbss = false;
->>>> +}
->>>> +
->>> Okay, say the user requested it to be disabled, you change the global vtcr,
->>> then free the hdbss on every vcpu.
->>>
->>> But the vcpus are still running, and since they will only disable this when
->>> they go out of the guest, then in again, HDBSS will still be running,
->>> right?
->>>
->>> If some page gets dirty in the between, would not the HDBSS try to write to
->>> the already loaded buffer adress, and write to memory that have already
->>> been freed here?
->>>
->>
->> You're right — this is a race condition. I'll fix this in v5 by clearing
->> VTCR_EL2_HDBSS from
->>
->> kvm->arch.mmu.vtcr first, then kicking all vCPUs to force them to exit guest
->> mode and reload the config.
->>
->> Once all vCPUs are out of guest mode, it will be safe to free the HDBSS
->> buffers.
->>
-> 
-> That would be safer, indeed.
->   
->>
->>>> +void kvm_arm_hdbss_on_dirty_logging_change(struct kvm *kvm, int nr_memslots_logging)
->>>> +{
->>>> +	/*
->>>> +	 * Called from kvm_arch_commit_memory_region() under kvm->slots_lock.
->>>> +	 * All state transitions are serialized by slots_lock.
->>>> +	 */
->>>> +	if (nr_memslots_logging > 0 && !kvm->arch.enable_hdbss)
->>>> +		kvm_arm_enable_hdbss_global(kvm);
->>>> +	else if (nr_memslots_logging == 0 && kvm->arch.enable_hdbss)
->>>> +		kvm_arm_disable_hdbss_global(kvm);
->>>> +}
->>>> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
->>>> index 949fb895add6..484f48dae000 100644
->>>> --- a/arch/arm64/kvm/mmu.c
->>>> +++ b/arch/arm64/kvm/mmu.c
->>>> @@ -2588,6 +2588,9 @@ void kvm_arch_commit_memory_region(struct kvm *kvm,
->>>>    {
->>>>    	bool log_dirty_pages = new && new->flags & KVM_MEM_LOG_DIRTY_PAGES;
->>>>
->>>> +	kvm_arm_hdbss_on_dirty_logging_change(kvm,
->>>> +		atomic_read(&kvm->nr_memslots_dirty_logging));
->>>> +
->>>>    	/*
->>>>    	 * At this point memslot has been committed and there is an
->>>>    	 * allocated dirty_bitmap[], dirty pages will be tracked while the
->>>> --
->>>> 2.33.0
->>>>
->>> Okay, reading the above I remembered something really complicated:
->>> We can't really enable HDBSS partially if we start with DBM set for all
->>> pages. Once we enable HDBSS wit will track changes for all memslots.
->>>
->>> The only way to enable it partially would be to set DBM during the
->>> dirty-bit tracking, which I recall being complicated for some reasons.
->>>
->>> Well, we have to think about the overall strategy before a next version.
->>>
->>> Thanks!
->>> Leo
->>
->>
->> Yes, I did consider this when I switched to global DBM injection in v4.
->> There are
->>
->> indeed some scenarios that are harder to control:
->>
->>
->>
->> Firstly, for lazy split, if we add the DBM tag lazily during live migration
->> dirty tracking (like v3 did),
->>
->> the first write to each page would trap. That trap serves two purposes: it
->> gives us a chance to split
->>
->> hugepages on demand (lazy split), and it ensures the DBM addition happens at
->> a safer, more controlled point.
-> 
-> It also allows us to do the dirty-tracking by slot, which is not possible
-> with the v4 approach.
-> 
+====
+Patch 1 adds generic USB Type-C DP HPD bridge (Dmitry, Heikki).
+Patch 2 adds new API drm_aux_bridge_register_from_node() (Neil).
+Patch 3 adds DRM AUX bridge support for RK3399 USBDP PHY (Neil).
+Patch 4 drops CDN-DP's extcon dependency when Type-C is present (Dmitry).
+Patch 5 adds multiple bridges to support PHY port selection (Dmitry, Luca).
 
-I think the per-memslot tracking capability is not a critical
-requirement. As I mentioned in my earlier reply [1], we can follow the
-same approach as PML on x86 — filtering at flush time works just fine.
+Changes in v3:
+- Link to v2: https://lore.kernel.org/all/20260608070805.88-1-kernel@airkyi.com/
+  (Sorry, I forgot to add the "v2" title, so it looks like v1.)
+- Remove now-redundant call to drm_connector_attach_encoder()
+- Rebase to v7.2-rc2
 
-[1] 
-https://lore.kernel.org/linux-arm-kernel/a240e7a6-cd22-4fe4-a01d-472c95cc65e4@huawei.com/
+Changes in v2:
+- Link to v1: https://lore.kernel.org/all/20260521032854.103-1-kernel@airkyi.com/
+- Add copyright text.
+- Remove useless goto.
+- Fix incorrect function names in the documentation comments.
+- Fix the check logic for dp->active_port (0 is valid).
+- Fix the uninitialized prev_port.
+- Remove duplicate logic from cdn_dp_switch_port().
+- Fix the prototype of cdn_dp_bridge_hpd_notify().
+- Properly release connector->fwnode.
+- Properly release next_bridge.
 
->>
->> However, because v4 enables HDBSS and DBM upfront, we lose that initial
->> trap. That's exactly why we
->>
->> now rely on your eager hugepage splitting patch as a mandatory dependency.
->>
-> 
-> Correct.
-> 
->>
->>
->> Secondly, I'm also concerned about whether global DBM injection could
->> accidentally mark pages
->>
->> that shouldn't be tracked — for example, pages with special mappings.
-> 
-> Well, if we want to not track those pages, we have just to make sure we can
-> detect them and not mark them with the DBM bit.
-> 
->> If
->> that's possible, then the
->>
->> lazy approach (only adding DBM on the first write fault) would be safer
->> because it only touches pages
->>
->> that are actually written to.
->>
->>
->>
->> So I'd like to ask: is avoiding the first-trap overhead worth the potential
->> risks of global DBM injection?
->>
->> Or do you think the lazy approach is actually safer overall? I'd appreciate
->> your thoughts on this trade-off.
->>
-> 
-> Well, even though performance is important, the decision to set DBM bits
-> for all writtable pages at their mapping time was not driven by
-> performance, but instead by an issue with setting DBM while the VCPUs were
-> running. I have to rework what that was, and check if that is still an
-> issue, before we can even discuss what to do next :(
-> 
-> But the fact that the 'eager DBM setting' makes dirty-bit tracking start
-> global, instead of per-memslot, is something we have to consider as well.
-> 
-> 
-> Thanks!
-> Leo
+Chaoyi Chen (5):
+  drm/bridge: Implement generic USB Type-C DP HPD bridge
+  drm/bridge: aux: Add drm_aux_bridge_register_from_node()
+  phy: rockchip: phy-rockchip-typec: Add DRM AUX bridge
+  drm/rockchip: cdn-dp: Support handle lane info without extcon
+  drm/rockchip: cdn-dp: Add multiple bridges to support PHY port
+    selection
 
+ drivers/gpu/drm/bridge/Kconfig                |  10 +
+ drivers/gpu/drm/bridge/Makefile               |   1 +
+ drivers/gpu/drm/bridge/aux-bridge.c           |  26 +-
+ .../gpu/drm/bridge/aux-hpd-typec-dp-bridge.c  |  54 +++
+ drivers/gpu/drm/rockchip/Kconfig              |   1 +
+ drivers/gpu/drm/rockchip/cdn-dp-core.c        | 358 ++++++++++++++----
+ drivers/gpu/drm/rockchip/cdn-dp-core.h        |  18 +-
+ drivers/phy/rockchip/Kconfig                  |   2 +
+ drivers/phy/rockchip/phy-rockchip-typec.c     |  13 +-
+ include/drm/bridge/aux-bridge.h               |   6 +
+ 10 files changed, 418 insertions(+), 71 deletions(-)
+ create mode 100644 drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c
 
-That makes sense. I think global eager DBM is workable.
+-- 
+2.53.0
 
-Thanks!
-Tian
-
-> 
-> 
-> 
-> 
 
