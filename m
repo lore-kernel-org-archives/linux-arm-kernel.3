@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F793C44515
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 20:18:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5105BC44515
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 20:19:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OyZcoDYsLDOa3jljtF+USnQN0n2vX9UR7xfVNnqT1/U=; b=17BP2iYM4qxCWBOj8hswPbnsPR
-	ADM4VxaVnYhYg4xSzitXuZMsUpnVPdWPdTjqiIwcvu/odIWE5mUrD3BSaRF2UDEVIfsMQDeAFhu9e
-	2PgWAKoxjKpmAp8zQVixzC4PLNjPEXy73TCybMbYxwwhULf2uK7U5xcnuhi8LEo7/+NlUYroSK50J
-	9VAU7k0gSbpJKArjbZ8GmchbcO0y6KdIdEqeQVLUZxWdarmaB4IEM1VKdPPRcn/FOy4NgDJxfQkJy
-	iFoyyG+7lcWKWIuuoQueJu4WzQ/oTu4etJomHbwpRIL1w+oOcXZgukQ1GrAQU3e199NMOEQMsBEMX
-	C6b986Mg==;
+	bh=M2hbpzf52w+esSVkF8QFMW+oo8Oyq13jDlcvDql6gbs=; b=4+jVSSznqu+KARR7GIr0dtAOm6
+	d9iauNFrFbISu98FKsIVhDQj9E7gzCkG8M0H6kC+jv8zeIakD8Jq8MvRPX6JAfsdOHea+OfkjtwXD
+	QS3AK0gfh3DZHz7AR+EfVk2G1VWri8BjmdUiNqflksoFnT6aCyBY4bwikj030xwmV1qF7X22qSSR8
+	YFCz9AkPCXyOiWDx6x89iykelOo0UMuuHkw4jrC8aoBINr5u25elg8HZtj5UL6ddmlADvMv0wsx/J
+	jzzdKI22ixHPSeM1IXnRpo8TUirFBzsj5xZ/CVRKHVGgFqdm0DQIV86xOHRvW+BT20ryIOSX4neoY
+	dKK2CNxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkp1C-00000003Bop-1htP;
-	Fri, 17 Jul 2026 20:18:46 +0000
-Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
+	id 1wkp26-00000003BzG-2KVb;
+	Fri, 17 Jul 2026 20:19:42 +0000
+Received: from mail-qk1-x731.google.com ([2607:f8b0:4864:20::731])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkp1A-00000003BoP-1vHn
+	id 1wkp23-00000003ByN-3pPB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 20:18:45 +0000
-Received: by mail-qt1-x836.google.com with SMTP id d75a77b69052e-51c0c68aa31so49984861cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 13:18:43 -0700 (PDT)
+	Fri, 17 Jul 2026 20:19:41 +0000
+Received: by mail-qk1-x731.google.com with SMTP id af79cd13be357-92e5c9211d2so678782385a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 13:19:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1784319523; x=1784924323; darn=lists.infradead.org;
+        d=ziepe.ca; s=google; t=1784319579; x=1784924379; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=OyZcoDYsLDOa3jljtF+USnQN0n2vX9UR7xfVNnqT1/U=;
-        b=X+8tIHkCrfpD1FflVAh3HJrBeTcCMVOABZ4SUo4YpSk92vaTb+YtBWAwDvhUAZt4/8
-         KCF+LVCb7jiWSZXq+KMrtde+P57hbI7umlNmh9oXu42e1zMg/XoQImJcereMsMXIiJbZ
-         /zViCSQUu6kxeX2BKg8ri0JVgI77l3VnPvvLVbH7bYVYwQ02oRu+BYWIQwL8m/3TKmwX
-         4fO3/IPmqi4Bzpsm5dZ/0T7IEru7BTgx/y2VIg9JXjJYHRcMeRBrpGCIlOV4fuFo3tUO
-         2MFWTWwgVUqCcsW/odCzDuj+pqgKR1g3y8uiCYvT9w5bK+r/KY8MT6s46lT2Nqrb5M/t
-         u8eQ==
+        bh=M2hbpzf52w+esSVkF8QFMW+oo8Oyq13jDlcvDql6gbs=;
+        b=M8AzFT7jK5pwLDlmnaxBPPg7G2URcFr6Um7DunVxQNlXHbPskxpjIF2uYphg37Dj74
+         KaocDpV4FWerG+mHMIPtygBhHKjtjdEugRZdhhVv1vXdy2Ak/JnkPZKHz/J3X9uFFMWS
+         fHKVEN0BseNI8YJEtH7szX5/jIyOPhwSqzzowEMoxXP/wtMp7NO2c27uzjTUQ2xztECK
+         Q47Ybhl1Zj8wxU0QvFTu2Hhy2Vnh5bj39st+f3YPvVVzQQgqjUJHaNkRGSonPoGE8hw3
+         8BG9Hn5UQxjm9VAfVpoSsi9PnqE8AkxHNx65FdTv2XSLUgSaY+VOfzDx1dPQEyplmJle
+         2KiA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784319523; x=1784924323;
+        d=1e100.net; s=20251104; t=1784319579; x=1784924379;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=OyZcoDYsLDOa3jljtF+USnQN0n2vX9UR7xfVNnqT1/U=;
-        b=cOzDeBBE/SNqSbTq2Uezvuhd5u7PRLISPFx6Ie3+GIQcr3EN4GHs5UGbnaDxnw+LS/
-         6Pj1dQowX7RL3lLdGFVCYOL7P/NcV2hXX+BT/K3nJ5QU7GXVcv4wDAe5yS9c4I7+ylAP
-         ioNB6U5mutm2iYml0UAlc/HClIj3ekn4aLRamJDzj7sCATuvlBHRYO4dg+b2DR1K14l/
-         Yah5wUE5cNy+e0/02gS3opK6Rryq+6ytqskWvad+Y3PQd/a7jeOy+OVidmgZV76BIvVM
-         LZGFlQBe0Xd48lIxysCFg3ghfwSYO2c284vnsUzOnunSmFvZmkdVTcyYxFf/QTmhsSxO
-         5MMA==
-X-Forwarded-Encrypted: i=1; AHgh+Rp5Bf9y9n0hXwVRcX7nIcX0esrmZ1SU60KNDRrR4TZ/baJZTAZEjKlZdnBNX1mhSo+dKLQUcUXKbDZKfRN5CGBC@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywt5MdDBSHRSVjh7Mi3QjaleqKA0rSePHq/yy5vGFsY2hDCjHNj
-	9bmr+uvOw7W7dbb6dJHkW+c1T6AWObLII7w1Tk1MaDQYny65YiU0BbX4H8fGCeyhjRs=
-X-Gm-Gg: AfdE7ckZQWcEBG8JIU/osyB5E+Cro2OX9ZEKo7O9+ZcKTV0QQRYCCOapGrXg6LJXF53
-	XFV6tdYRwuBKAVWB4SIIqpM+gBhAg5CiAJ4Jr4pUv9zfU8OLfT50Bxk1Lmgt1a/e15ZXohvivhj
-	BlbZzqdXTHF1A1ng6wlsTe0Cc30xY3b3MqEuJLzNOljUsvoO/BF8TDgTEPlVtyQwLQAmxHBrnCv
-	sDrcWP2eQuUl9aP0A8ytBkcRcjP0EvcAZ3r4IiXkBZOmsRYhs625maVgEzjHNIO/lIw+/LWHfc6
-	eo9y6JRvsy+rcnzR1+PlGRC5XYxWvkA3Ljn3u15jSgws0pmqxun6J9qz/REMxXRMxPsJedNj4/7
-	tziyDeOKYIdiB8sPirYvgbWXE82HdMo1txSwR52IOhsLLZC0njg==
-X-Received: by 2002:a05:622a:249:b0:51a:8a47:b578 with SMTP id d75a77b69052e-5213b72b769mr40771701cf.38.1784319523028;
-        Fri, 17 Jul 2026 13:18:43 -0700 (PDT)
+        bh=M2hbpzf52w+esSVkF8QFMW+oo8Oyq13jDlcvDql6gbs=;
+        b=UJQ+6sEwhNt3Yn4yBBdYzUWfve5ETPY+g1bK3fsFOuXRXAWTQ25B570eN1ahy0LH9N
+         IVQe2R02CjgkSOheLCVCk/1WGq66K8rn9B+4Actk5CU98lHxA29mf+t+lSD6FmE0S+y5
+         co/l4L0PlDa63Fr345GCiKcvna+8DdVBXL/2sZnavCXboEcnE7CcSxRSCWhJzAmk3KsV
+         qJuFxUikjpdGVTJpqT4rOFpL2jy7P7N/VfljYYnRnATbuWYPs/YqGyY8Tzkqy3arwLcX
+         s9dGGnzAq52WnWBG2eM/6RH4LTj1Q/7nZFyI0dpM4bWiaWFbh1nk6tZ7HZsDaN3bVQvL
+         YQQw==
+X-Forwarded-Encrypted: i=1; AHgh+RqDOVGdIL711CwpfZaHgWV5ou3NCRREk4NGUaW1lVllPnRvOn3J48AXCAYZFYW9YzcJ0GS0ga90cqFcpxjSqKyp@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzvuqz0mLFj7TEx1K6Z5+UbzIoW6ywaEI4Y1c56vAQ2g345H1u1
+	gRCyu0nIDS1z2jwzRRtmNqR11cJD1Ay9km7NxaBR95fXGTX5Fvhaj8LDFOiPS7aS5TA=
+X-Gm-Gg: AfdE7cn1JuQNB98pyE3GmmKiTkKhmivuf1wH0gWCRWzD4UdLm8l6L/bYhpGSVCCC0lc
+	CCogir9JNZjOFID4VCr3c2rNjYbPRCeWu6nuwY7quXLoR2oPDxtqg4OF6WMQjL3va5+1NeUs0pj
+	nra275Fi0VitMkIo+j5cLAzRmNxElHsNtbxCZt2ubmFa9t9UZkNRbH5fBMB4b3sBzHK3N4B2mDK
+	TwFBXdFfvdtsqgoKjpySzREKQrUPkQbJPl/RxjqbtV/BLlFEowF9AbvT0eWIPZqH03g14AMVUFR
+	oxYn6DKy87AJW7yOPGdMY53vD1gsHrqe6cHPSa9/peyZ0cRxmc7wxzgcGilw8093AFizUzkkSYP
+	/znGKpAjZ71dQixMg6+O91n6bYxx1GHXTdTCJACGzJkIqAB9G2g==
+X-Received: by 2002:a05:620a:4588:b0:92e:e2a4:9d40 with SMTP id af79cd13be357-930b3f4547cmr452740585a.27.1784319578518;
+        Fri, 17 Jul 2026 13:19:38 -0700 (PDT)
 Received: from ziepe.ca ([159.2.72.92])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-521502b9d5bsm19993871cf.31.2026.07.17.13.18.42
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-930b542b300sm245589785a.26.2026.07.17.13.19.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 Jul 2026 13:18:42 -0700 (PDT)
+        Fri, 17 Jul 2026 13:19:37 -0700 (PDT)
 Received: from jgg by wakko with local (Exim 4.97)
 	(envelope-from <jgg@ziepe.ca>)
-	id 1wkp17-000000052o2-3RvD;
-	Fri, 17 Jul 2026 17:18:41 -0300
-Date: Fri, 17 Jul 2026 17:18:41 -0300
+	id 1wkp20-000000052xd-3lLn;
+	Fri, 17 Jul 2026 17:19:36 -0300
+Date: Fri, 17 Jul 2026 17:19:36 -0300
 From: Jason Gunthorpe <jgg@ziepe.ca>
 To: Ashish Mhetre <amhetre@nvidia.com>
 Cc: catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net,
@@ -81,18 +81,18 @@ Cc: catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net,
 	nicolinc@nvidia.com, linux-arm-kernel@lists.infradead.org,
 	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
 	iommu@lists.linux.dev, linux-tegra@vger.kernel.org
-Subject: Re: [PATCH v7 2/3] iommu/arm-smmu-v3: Introduce CFGI/TLBI-repeat
- workaround infrastructure
-Message-ID: <20260717201841.GC701389@ziepe.ca>
+Subject: Re: [PATCH v7 3/3] iommu/arm-smmu-v3: Enable CFGI/TLBI-repeat
+ workaround on Tegra264
+Message-ID: <20260717201936.GD701389@ziepe.ca>
 References: <20260714104202.1664187-1-amhetre@nvidia.com>
- <20260714104202.1664187-3-amhetre@nvidia.com>
+ <20260714104202.1664187-4-amhetre@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260714104202.1664187-3-amhetre@nvidia.com>
+In-Reply-To: <20260714104202.1664187-4-amhetre@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_131844_591670_6E3344CD 
-X-CRM114-Status: GOOD (  22.61  )
+X-CRM114-CacheID: sfid-20260717_131939_958680_83F35A22 
+X-CRM114-Status: GOOD (  11.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,70 +107,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2026 at 10:42:01AM +0000, Ashish Mhetre wrote:
-> Tegra264 SMMU instances need every CFGI/TLBI command sequence issued
-> twice, with the second issue executing only after the first issue's
-> CMD_SYNC has completed:
-> 
->     TLBI/CFGI ... CMD_SYNC TLBI/CFGI ... CMD_SYNC
-> 
-> ATC_INV is not affected and must never be doubled.
-> 
-> Add arm_smmu_erratum_repeat_tlbi_cfgi_key and an
-> arm_smmu_erratum_cmd_needs_repeating() helper that gates on the static
-> key first and then range-checks the opcode (CFGI_STE .. ATC_INV), so
-> subsequent changes wiring the workaround into the CMDQ submission and
-> iommufd batching paths can share a single predicate.
-> 
-> Rename the existing arm_smmu_cmdq_issue_cmdlist() to
-> __arm_smmu_cmdq_issue_cmdlist() and add a thin wrapper that re-issues
-> the same cmdlist a second time when the predicate fires. Register the
-> new condition with arm_smmu_cmdq_batch_force_sync() and add
-> arm_vsmmu_can_batch_cmd() so iommufd batches split at every "needs
-> repeating" transition.
-> 
-> No callers enable the static key yet, so there is no functional change.
-> A subsequent change will enable the key on affected instances.
-> 
-> Suggested-by: Nicolin Chen <nicolinc@nvidia.com>
-> Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
-> Signed-off-by: Ashish Mhetre <amhetre@nvidia.com>
-> ---
->  .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     | 14 ++++-
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 57 +++++++++++++++++--
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  1 +
->  3 files changed, 67 insertions(+), 5 deletions(-)
+On Tue, Jul 14, 2026 at 10:42:02AM +0000, Ashish Mhetre wrote:
 
-Because the VM has access to VCMDQ/etc it can issue commands directly
-(maybe not on this chip, but as a general comment), thus invalidation
-errata need to be made visible to the VM and we need to expect the VM
-will generate invalidations to properly deal with any errata.
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -5357,8 +5357,10 @@ static int arm_smmu_device_dt_probe(struct platform_device *pdev,
+>  	if (of_dma_is_coherent(dev->of_node))
+>  		smmu->features |= ARM_SMMU_FEAT_COHERENCY;
+>  
+> -	if (of_device_is_compatible(dev->of_node, "nvidia,tegra264-smmu"))
+> +	if (of_device_is_compatible(dev->of_node, "nvidia,tegra264-smmu")) {
+>  		tegra_cmdqv_dt_probe(dev->of_node, smmu);
+> +		static_branch_enable(&arm_smmu_erratum_repeat_tlbi_cfgi_key);
+> +	}
 
-Ie I'd expect the VM to see a "nvidia,tegra264-smmu" compatible string
-to activate the errata fix.
-
-If so then we will already get duplicated invalidations here and then
-we will duplicate them again. That's not great.
-
-On the other hand if you want to emulate a generic and actually
-functional SMMU device that has nothing like VCMDQ/etc then you must
-do something like this in this patch.
-
-I was imagining a general direction that we would expose the errata
-information to the guest and the guest would have to deal with it.
-
-Given this is the opposite I wonder if we want to do it. It does make
-sense for a chip that probably doesn't have vCMDQ and I don't think
-qemu can even create a DT description to trigger the errata anyhow.
-
-But it starts to become confusing down the road if we decide other
-invalidation errata (like the CONT must be RIL thing) must be delt
-with by the guest.
-
-So.. Maybe add a comment why this one is different, or maybe just
-disable FEAT_NESTING if there isn't a use case?
-
-Otherwise the rest is fine
+It is a bit of a big hammer to not have the per-instance FEAT but it
+probably doesn't matter
 
 Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 
