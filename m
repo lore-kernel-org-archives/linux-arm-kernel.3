@@ -4,60 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05EF7C4451C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA9E4C44514
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 11:01:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sy+3CQp5uMIEjT1xFCDDjV/XqRXnSP0C+Ski+YXq6Bg=; b=C4aYBSXAWaIkJ7tw9TkD7iPqhm
-	JkAOuzA1ztBn3h+bVmmpxWorE/ijnQpW0Wdo4KiveMl9G8BwoqWq1Xp0S1wQjrz5HJdF05lB0lB65
-	CfNIT3tCGbJXEDoJdR5oCbE/hKwwJTfRyohGtTeiWYIFTA2qz45/uRuhh1du4Qjhic0sWxvDHY6Qn
-	uF+NdEsDKLRkCcm2TvBYIWkaOtz2tQkE0RNtGhZ1Rkz+zJ2+MMvUI79GKR4SFAB1P8Evx+7qYaRZq
-	ygFY2d0dy+LUz32wiFVzHLXLcNS7I5u04Ui1opSuthuDY6XVcmWwbPne2kmwuvCwPxQdcfuThtBUn
-	vByjikpQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=CT3sAMi03LI/yWSvgArOf94yJC1J8CsoBt+7YSQ6uiU=; b=VxuDOkarycjXDs
+	PF/bwa3nsupcGsnrAfkHi+kmoBlr8F7kngRjVcj/0Y1F80TXUaaqeaSSFmm1UOW0U1EOBA5ALJ4pL
+	FF4u7xdrR3VfIaBy09E0SwQ6oKAM33VHNhibCloQ83symkrZqoz++UgulYTjX2g8saJYom7AM9tkb
+	O7tx1lQAmDf/aAMZ+Ytc2dVcH3QMnO/p/hmJuaVIiU3CfOt00Dt+2hTRiU91g6SDG8W9RmTWA7IBc
+	324OZl4IaMRdi/tjSDSi7J5X4ke/Yctrzw5ncbhJD1Pw+0U3NZ30Zd8Db0ahN+yOtyzDmqI4d/kRn
+	z644KddCp0e3uIyxJB2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkgJh-000000025sp-3cED;
-	Fri, 17 Jul 2026 11:01:17 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkgJa-000000025ns-09V8
-	for linux-arm-kernel@lists.infradead.org;
+	id 1wkgJY-000000025nl-27yi;
 	Fri, 17 Jul 2026 11:01:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C889A4362D;
-	Fri, 17 Jul 2026 11:01:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 790D41F00A3A;
-	Fri, 17 Jul 2026 11:01:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784286069;
-	bh=sy+3CQp5uMIEjT1xFCDDjV/XqRXnSP0C+Ski+YXq6Bg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=jKm+fA9Btt2zwJNSK7aZF5mI4KNi2XmQjJiBVzsQvzda44O/cV0gCxm7lMHLkjqHa
-	 AAKsPeOeNs0bBOZmByzA3mvEkJnSHWE/Z7Fc2k+evvgGBTWkgApggPPlx3i5upSKDG
-	 fHb5FSMpwhaqGR2CQZorLurTTm4Jmod2DPRwm82YVX2DcxS3j/tB7kVL+OiRPGk8wo
-	 QZC0aPUBjqQiXvxNNiBeqzj24b4Y/CukxCa3twj8xYlTS2TpM4zkr6DSYsbzDGmykG
-	 oodfOswcQKjj6RAhTyQc6X51E0V1I5+r4OmuXlIVa85Vu2DMHLQRnxIuM/o9iIXgez
-	 G5py+HnHlPsuw==
-Date: Fri, 17 Jul 2026 12:01:03 +0100
-From: Will Deacon <will@kernel.org>
-To: Hongyan Xia <hongyan.xia@transsion.com>
-Subject: Re: [RFC v3 2/2] arm64: kprobes: Allow reentering kprobes while
- single-stepping
-Message-ID: <aloLb0j8sg0usmAF@willie-the-truck>
-References: <20260710063242.228714-1-hupu@transsion.com>
- <20260710063242.228714-3-hupu@transsion.com>
- <aljbf_RmOd9U2KDT@willie-the-truck>
- <0f049d38-b7f6-47f0-a410-95ad2aee7fd4@transsion.com>
- <alj2uxE1M8mcMBhA@willie-the-truck>
- <e0e800f5-a6f8-48ae-b55c-5c3d928bf234@transsion.com>
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkgJT-000000025il-2pxb;
+	Fri, 17 Jul 2026 11:01:06 +0000
+Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c68:66a6:48e1:9e1:50d5:c75c])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id ABC87664;
+	Fri, 17 Jul 2026 13:00:01 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1784286002;
+	bh=VHbZI+GEQPLH3kCpxle96m7loSEA/fgokgnq68qE1a8=;
+	h=From:Subject:Date:To:Cc:From;
+	b=APtjRdaWGCF+LAOaUoaIKJk5OwlDvrvzq5KrgVuz6l/VGM2SzG1JbN75OEhfA1jcO
+	 GeKYuHKaUBw26A8U5sm+Mi5acOCj5yrvYANjmUjHHO5UbTj+5QQfK6hIAmTvq2YNxR
+	 8oWphkxV//ZCTcycd8zLBm7cA+TTBIntS/LFGpJs=
+From: Jai Luthra <jai.luthra@ideasonboard.com>
+Subject: [PATCH v3 0/6] platform/raspberrypi: Add Broadcom Videocore shared
+ memory support
+Date: Fri, 17 Jul 2026 16:30:11 +0530
+Message-Id: <20260717-b4-vc-sm-cma-v3-0-6c4e77804e5d@ideasonboard.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <e0e800f5-a6f8-48ae-b55c-5c3d928bf234@transsion.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/23OwQ6CMAwG4FchO1uyDQbBk+9hPIyuyA4w3XDRE
+ N7dCXrQePybv187s0DeUmD7bGaeog3WjSkUu4xhr8czgTUpM8mlErzg0JYQEcIAOGjoqlrWWDR
+ opGJp5eKps/eVO5627Ol6S+q0DVmrAwG6YbDTPot1LsGjYK9ub8Pk/GP9JIq1/D4qvo9GARy4M
+ Qo5YdEpPFhDOrixddqbPOGrF+XHqLjg6seQySiNJl2XDZJp/hjLsjwBAuIH+h8BAAA=
+X-Change-ID: 20251030-b4-vc-sm-cma-f6727c39cd25
+To: Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+ bcm-kernel-feedback-list@broadcom.com, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ Phil Elwell <phil@raspberrypi.com>
+Cc: Stefan Wahren <wahrenst@gmx.net>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Kieran Bingham <kieran.bingham@ideasonboard.com>, 
+ Sumit Semwal <sumit.semwal@linaro.org>, 
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-rpi-kernel@lists.infradead.org, linux-media@vger.kernel.org, 
+ Jai Luthra <jai.luthra@ideasonboard.com>, stable@vger.kernel.org, 
+ Dom Cobley <popcornmix@gmail.com>, 
+ Alexander Winkowski <dereference23@outlook.com>, 
+ Juerg Haefliger <juerg.haefliger@canonical.com>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3647;
+ i=jai.luthra@ideasonboard.com; h=from:subject:message-id;
+ bh=VHbZI+GEQPLH3kCpxle96m7loSEA/fgokgnq68qE1a8=;
+ b=owEBbQKS/ZANAwAKAUPekfkkmnFFAcsmYgBqWgtdDKR/6BMZI1OKg4GJv2m+gNB0CqG2ycVgY
+ 6YgpQbN0NqJAjMEAAEKAB0WIQRN4NgY5dV16NRar8VD3pH5JJpxRQUCaloLXQAKCRBD3pH5JJpx
+ Rf5AD/9/ivRsGkR9h8ZFHuOAOPC8JlgmZiCpkqLbcDS9EBFhX18U7ilpkfSqk6jSR/NiBhY33RK
+ XnLQGN4ZMrXxXFw6o6dRCajj/q94C8X3Jdh5cvqb067DKP/RMr1czJhW/GbifOD8UXdp5srtWdW
+ tcKM4ZER9FHquOxjGPtK4lvBf1fnPwpAjo7w+5aBwjnrAunvGRwkCvD6tfWa8yS1Wz+X7wGPxNz
+ CmRrbyzvDICCIwAy0QVCKgxo1ZAfBoYYZJF030ErKGsCiZ4riuUxucy3M8gkWYz0oppjPHvnI8l
+ vMMHCNiHJi00nL8Jxer/6UPT8wgXQ+F0tw+j3970eEp81PbKvwhlhjfFxqGKzvNmYUmoRodLHxI
+ 62yZz/WR6hg0rv13gXTSVroUFRPAZ02PFyt7KeT4JhjTD5hzVdPhPu07nLsBh/ZJyfwpy4Oe4S1
+ DLnjPICDhexOtM659Gm+RWHEo2VvMriNc6AioFd50fq2zvYWdsOeN85r8C7c1f/6tYYe6L6gJuS
+ Ym1JxsrsD8TQ+XrFAvz3jEC5p+7yupsSV4esla+/ujoOeeOpZ1BSc4nsUHj1H1rY8LOF9ZTS1VV
+ 4VGSgwFMk66q2XUdsimJnUPkAhpFmB79NMtIsNVzwHji8SPYn9NxAgWxqFUj1dhY8efzdQq6RKD
+ LehmwmywOQD+lcQ==
+X-Developer-Key: i=jai.luthra@ideasonboard.com; a=openpgp;
+ fpr=4DE0D818E5D575E8D45AAFC543DE91F9249A7145
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260717_040104_190613_88B8C5BE 
+X-CRM114-Status: GOOD (  13.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,80 +99,86 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Pu Hu <hupu@transsion.com>, Jiazi Li <jiazi.li@transsion.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "naveen@kernel.org" <naveen@kernel.org>, "mhiramat@kernel.org" <mhiramat@kernel.org>, "yang@os.amperecomputing.com" <yang@os.amperecomputing.com>, "davem@davemloft.net" <davem@davemloft.net>, "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-trace-kernel@vger.kernel.org" <linux-trace-kernel@vger.kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 17, 2026 at 01:51:12AM +0000, Hongyan Xia wrote:
-> On 7/16/2026 11:20 PM, Will Deacon wrote:
-> > On Thu, Jul 16, 2026 at 02:38:58PM +0000, Pu Hu wrote:
-> >> On 7/16/2026 9:24 PM, Will Deacon wrote:
-> >>> On Fri, Jul 10, 2026 at 06:32:55AM +0000, Pu Hu wrote:
-> >>>> From: Pu Hu <hupu@transsion.com>
-> >>>>
-> >>>> A kprobe can be hit while another kprobe is in KPROBE_HIT_SS state. This
-> >>>> can happen when tracing or perf code runs from the debug exception path
-> >>>> while the first kprobe is preparing or executing its out-of-line
-> >>>> single-step instruction.
-> >>>
-> >>> I don't understand this part. The single-step runs with debug exceptions
-> >>> disabled (kprobes_save_local_irqflag() sets PSTATE.D) so how do we end
-> >>> up taking one?
-> >>
-> >> You are right that the single-step runs with debug exceptions disabled.
-> >> However, the case I was referring to is not a hardware breakpoint or a
-> >> software-step exception, but another Breakpoint Instruction exception
-> >> generated by executing a BRK instruction. A BRK instruction exception is
-> >> not masked by PSTATE.D, so it can still be taken while handling a kprobe.
-> >>
-> >> As far as I understand the architecture, there are two different cases here:
-> >>
-> >>     - Breakpoint Instruction exceptions, generated by executing a BRK
-> >>       instruction.
-> >>     - Breakpoint exceptions, generated by the debug logic, for example by
-> >>       programmed breakpoint registers.
-> >>
-> >> PSTATE.D masks debug exceptions such as hardware breakpoints,
-> >> watchpoints and software-step exceptions, but it does not mask
-> >> Breakpoint Instruction exceptions generated by BRK. This also seems
-> >> consistent with the pseudocode for BRK,
-> >> Arch64.SoftwareBreakpoint(imm16), which does not appear to check
-> >> PSTATE.D before taking the exception.
-> >>
-> >> Therefore, even if kprobes_save_local_irqflag() sets PSTATE.D while
-> >> handling the first kprobe, if the code executed from that path reaches
-> >> another instruction patched with BRK, it can still take a Breakpoint
-> >> Instruction exception. In other words, the nested case I mentioned is
-> >> another kprobe BRK being hit, not a hardware debug exception or a
-> >> software-step exception.
-> > 
-> > Yes, that's correct, but if we're doing the out-of-line step, how do we
-> > end up executing a BRK? Or are you saying that it's the kprobes
-> > BRK64_OPCODE_KPROBES_SS instruction that we use to implement the
-> > single-step that is the problem? If so, how does taking that exception
-> > result in us executing tracing or perf code?
-> > 
-> > Sorry for all the questions, I just haven't understood what's going on
-> > here from the commit message.
-> 
-> The key is that, when you use 'perf --call-graph dwarf' to sample 
-> certain events, kernel perf code will sample a piece of user stack each 
-> time those events are hit, and copy_to/from_user() triggers page faults. 
-> Say you are profiling preempt_enable events:
-> 
-> 1st BRK -> preempt_disable() -> debug_exception() -> set SS state -> 
-> preempt_enable() -> triggers perf -> perf_sample() -> sample user stack 
-> using copy_to/from_user() -> page fault or 2nd BRK on the page fault path.
-> 
-> The key is perf sampling the user stack while the 1st BRK is still 
-> running. When a page fault is hit, a can of worms is released, including 
-> a possible 2nd BRK.
+Hi,
 
-Thanks. So perf is run synchronously from the debug exception entry path,
-rather than because of a second exception taking place. Got it. But then
-it sounds like we should really make the debug exception handling path (at
-least, the part that runs for handling the kprobe step) noinstr to avoid
-getting into this state to begin with. Is that practical?
+The vc-sm-cma driver allows contiguous memory blocks to be imported into
+the VideoCore VPU memory map. This series adds support for this driver
+and changes to VCHIQ MMAL layer required to get it functional.
 
-Will
+These changes have lived in the staging directory of the downstream
+Raspberry Pi tree since quite some time, but are necessary for getting
+the VCHIQ based peripherals like the ISP and codec functional in
+mainline.
+
+Thanks,
+	Jai
+
+Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
+---
+Changes in v3:
+- Rebase on v7.2-rc1
+- Fix lkp bot errors with Kconfig dependencies
+- Switch from kzalloc with sizeof to kzalloc_obj
+- Link to v2: https://lore.kernel.org/r/20260105-b4-vc-sm-cma-v2-0-4daea749ced9@ideasonboard.com
+
+Changes in v2:
+- Drop patches that are not related to vc-sm-cma, or used for codec and
+  not ISP, so that is v1 PATCH 1, 2, 4, 5, 6, 7, 8, 12
+- Move v1 PATCH 11 to the top, adding a Fixes tag
+- Don't use global singletons for storing `struct vchiq_device` in
+  VCHIQ, instead converting the existing device drivers (audio) to be
+  stored inside `struct vchiq_drv_mgmt`
+- Update the vc-sm-cma driver to latest standards, like:
+    - Replace MODULE_ALIAS call with a proper device id_table
+    - Add kernel-doc comments for exported functions
+    - Move exported functions to a header under include/linux for use in
+      MMAL (and later V4L2 ISP and codec drivers)
+    - Use xarray instead of deprecated idr to map an integer ID to
+      imported/allocated buffer pointers
+    - Drop unnecessary pr_debug calls
+    - Replacing pr_xxx use with dev_xxx wherever possible
+    - Clean up stray comments
+- Link to v1: https://lore.kernel.org/r/20251031-b4-vc-sm-cma-v1-0-0dd5c0ec3f5c@ideasonboard.com
+
+---
+Dave Stevenson (5):
+      platform/raspberrypi: vchiq-mmal: Reset buffers_with_vpu on port_enable
+      platform/raspberrypi: Add VideoCore shared memory support
+      platform/raspberrypi: vchiq-mmal: Use vc-sm-cma to support zero copy
+      platform/raspberrypi: vchiq-mmal: Support sending data to MMAL ports
+      platform/raspberrypi: vchiq: Register vc-sm-cma as a platform driver
+
+Jai Luthra (1):
+      platform/raspberrypi: vchiq: Store audio device in driver management struct
+
+ MAINTAINERS                                        |    7 +
+ drivers/platform/raspberrypi/Kconfig               |    2 +
+ drivers/platform/raspberrypi/Makefile              |    1 +
+ drivers/platform/raspberrypi/vc-sm-cma/Kconfig     |    9 +
+ drivers/platform/raspberrypi/vc-sm-cma/Makefile    |    5 +
+ drivers/platform/raspberrypi/vc-sm-cma/vc_sm.c     | 1571 ++++++++++++++++++++
+ drivers/platform/raspberrypi/vc-sm-cma/vc_sm.h     |   83 ++
+ .../raspberrypi/vc-sm-cma/vc_sm_cma_vchi.c         |  507 +++++++
+ .../raspberrypi/vc-sm-cma/vc_sm_cma_vchi.h         |   63 +
+ .../platform/raspberrypi/vc-sm-cma/vc_sm_defs.h    |  298 ++++
+ .../raspberrypi/vchiq-interface/vchiq_arm.c        |   13 +-
+ drivers/platform/raspberrypi/vchiq-mmal/Kconfig    |    3 +-
+ .../platform/raspberrypi/vchiq-mmal/mmal-common.h  |    4 +
+ .../platform/raspberrypi/vchiq-mmal/mmal-vchiq.c   |   85 +-
+ .../platform/raspberrypi/vchiq-mmal/mmal-vchiq.h   |    1 +
+ include/linux/raspberrypi/vc_sm_cma_ioctl.h        |  110 ++
+ include/linux/raspberrypi/vc_sm_knl.h              |   75 +
+ include/linux/raspberrypi/vchiq_arm.h              |    9 +
+ 18 files changed, 2827 insertions(+), 19 deletions(-)
+---
+base-commit: 728e68a889bcf257b1e67298b12c360e5c3a13e0
+change-id: 20251030-b4-vc-sm-cma-f6727c39cd25
+
+Best regards,
+-- 
+Jai Luthra <jai.luthra@ideasonboard.com>
+
 
