@@ -4,92 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 939D3C44515
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 15:37:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6C2CC4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 15:38:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QQBP/yB6MAPkv2pKBr9AcgRIfLc2kv6MLdfKCeDkkmo=; b=jKKuLz46D2stPRLJznHXSVH/Kf
-	vk1/QYuiaJgX4Lh34eHo/j9A4V7thVq2x89z3sX8giAijupiBVxMxTEpNZldVlHMPTplWvDre+0h6
-	MWNCegYQlmFYQ4T9lHWXsLz/BzH/bScWU+jCE+QAqUOBUgjr/WtkHFoJvEW6a4VQqRHH7NZl0BoSK
-	+zAfPEhJLoyHsNAHSjxAekZ+Cow1tQe+cHHstNumT/OsvQVTRZr4KlcjW3VJFGZ8xHLH0SN7rMBKr
-	WTqnLjKpdPLJ6YbmDPnA5PgLbTIcH7GvS8zlmIVRV2bYCYSTP06F6/WQzrmKuBbklEhWcleW/8z5E
-	RUJ45mXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZwW0H4K6wGmDUJp/zZ8+oIbhkO8qU081w1XSrGf787E=; b=Yo7C+noyCTe/qPFlC+I+5OBEQ9
+	TGLYLpymlcuPz6kIzQ5NizGygXHrvNNEBuAcdHQt1HfYX3/rVX7VtW/GB+UXdI0jFlxymW9KdOMIt
+	HmyXh8d0i78r40zTrVYH8yjjJGHNj7649vObW2252P0RAVaHwonutt7PuwliCnIeAAEJpaP3FAhJ+
+	eEpAHKXVFAAcgxql6GiE7cs5E2CO6UsYFT/iKtTP9RgBthAIc77fmyFQ52nDYBbRmPDqECJs9MsKD
+	D4me/AaAA6tkw2j2Nd9xvVwdMljOADXlsoZ4rfe6doa7fjy0btkn1FZ5YgHwkUiqlxLT1Qd9xhaAE
+	q0pZNqaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkkcb-00000002cxF-2j1H;
-	Fri, 17 Jul 2026 15:37:05 +0000
-Received: from fout-a1-smtp.messagingengine.com ([103.168.172.144])
+	id 1wkkdP-00000002d4e-3OO8;
+	Fri, 17 Jul 2026 15:37:55 +0000
+Received: from mail-westeuropeazon11010006.outbound.protection.outlook.com ([52.101.69.6] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkkcZ-00000002cwt-2iX2
+	id 1wkkdO-00000002d47-0b02
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 15:37:05 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.phl.internal (Postfix) with ESMTP id 8EF0FEC018A;
-	Fri, 17 Jul 2026 11:37:02 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Fri, 17 Jul 2026 11:37:02 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:message-id:mime-version:reply-to
-	:subject:subject:to:to; s=fm1; t=1784302622; x=1784389022; bh=QQ
-	BP/yB6MAPkv2pKBr9AcgRIfLc2kv6MLdfKCeDkkmo=; b=0GzJiit4nEOTM7h45N
-	M4pKO7TyRKsZeIV6MluzmVw09+sFsim0scD5i5LquwCJNin1C6oHOtxWHJbsev4F
-	vJr3AVebmi3CCdqJnwa7gnHRAfGN8hbXtRsgKOLRFw7e9mVUiJOC9QxESGXjlVwm
-	0G6a2VivNsijkcHwM7G0b5LMusqzlVJfxctTL7EuG7t2viGm0XWI+8G0YuKtlGNh
-	HhHizUwQhm7jMWrQS5lnEK1dZFIbE+7MZ/vK0t0mTZZOKq5tG1N6Xknhv2fv6yPJ
-	kuRdNZ02yGV2ed6/EH8Tb/EVQTBupiR2qONbNVaVe/syDaXhBKysVHchJpeMrTqw
-	aUjA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm2; t=1784302622; x=1784389022; bh=QQBP/yB6MAPkv2pKBr9AcgRIfLc2
-	kv6MLdfKCeDkkmo=; b=hJCcXWYwu16MGCZeXlf5clwUvUoqMhmUctr48PqJrio8
-	gtw9WB6O0OLGkpd/2YYv2UsqHhCEy3VFD62rwTKRF29eijxiEodGT7ULUvg7qeLu
-	eRFWTpvKw2DW9MrK+iPRKf/zXltmZBhwUZm8gAtb/GGL2bBEiBBqGYCdp8z3WonN
-	Oxz3MBGLAVWyM6/zOYihFClzEaGAA7HShZ/D274x5o0ZoRqNDXRo857MuQdb2yjE
-	PeaRPAzWlzZDHPKNdHuj/HhcmWBlxJLkf6WD1QQonYFx5AUeapCgDy2uxUdrbXu1
-	HZeLariDcUlJ2HBEF/uysWZQC5gslV59i91AKPXUGQ==
-X-ME-Sender: <xms:HkxaasTBsW_I1TsTSL5Q3ckVs1fQvkbpJ-uDeR8imPEp3zHIg0nJtA>
-    <xme:HkxaaklsBLce6PQ1A6D0YtcCxRddfGddQ2ybBV_5Ay8L8jYgfP0UVMuRT_rDcbrPF
-    vJXmW5-DhV1-c0S1ZdWTijqeJs68h7yCV6JH_KsNQuERoarxNax9t37>
-X-ME-Proxy-Cause: dmFkZTGO1a+ELqc/jATRbDevAoYzv0tMsX2lM8RlgGENghcT7UFNypaqNAb2S5eH3CaqYC
-    wo/MUbGjurUZfXGA75oZnIpCZw/DplETnoBk1NKyDDSIfMwc2LSCZD+qSQfEi6kcoTfvUS
-    pKHp3zI7vBoMf+pDsIPr9OI6hTf7aGzGWNmIT4XXBYLjDVw+AHrQohh0Lt4Xq/PmUmxhdY
-    s9MGG9VloK+tzUL4OIQGn2JHvLkzlS7XQEZCuNCuM+33tppCvQZQLyew+xm/2BzZGvIygm
-    CrMYhPfmizvgrCsuuLHsVno3NFxEd2n8ena4+80n3dM41MfJwuqK8Av0l//kNXu+gXlfKa
-    /MkSSNJHmGGc9lXksdTF3sNJsfV1YqObGYcUGuPzShzpFr1Lhg6QofJUkrZHohkS68u+1a
-    Q+5YPrDNg8yUfKOmgOkWOFDL/97Y5iILyASv1OxIvJ1qtaRdGrTed3wMA5B8CxQklzt0yJ
-    4bxdq2m8BwDFlg6H3zWZ9XNvHDvwUx4kXNYK8nYBUEpyDrLSGqWSBX+hFqXI7YnYubEs3i
-    e2JjxR1KiNGnh5b0ycLfnRY9o3QqJLiHD0LQZ3EARgmEsLaaJKLlPe4kgFRXPmp1k1Rh6N
-    PqV7N6D4RQdiJekQBfAh3VbC2XVAgsP6wu+VSVrMLsVhj5ONMhLIhCvu/OHQ
-X-ME-Proxy: <xmx:Hkxaal8OcjWQhizroBQ-XJJpadvUw6eyoyoBYjjf_H3x-v61Vr6e4Q>
-    <xmx:HkxaaglfOvfDWKfB6_39PUgp4ay2iBso5LRKgmzDcZhb4_tMfSGOVw>
-    <xmx:HkxaarUfm8IUNBJtPTMa7GH1FF4mskEShtfI59EBKBRtH4R_TGzkGw>
-    <xmx:HkxaalFIBvGBQSwqIFfhON_HWcPD6-YgVzuUsT8rDxHPaRBT-FR_jA>
-    <xmx:Hkxaal0IyAVEAi69doxUyoryRmw6gT4_897VmvnAgz5cLPPgo_9J6Liu>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 29BE31820082; Fri, 17 Jul 2026 11:37:02 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 17 Jul 2026 15:37:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZPMpnOJFwgREjkzSb3X8dGOJYdYhaO1MuvTeNjgHwGjSIGGAYcUyNhyEjrojp1t0elUkQKn4V5MOrvXmQVlag7Pexpqb8CbkGjvtTg58VFh1bNxec8ocYKa4MhQaR0w6gXcPUT1xlC/gZstjOl6F9wq67sq4l0oPUTE/jkxtrxyb7PEZCVkXm6ZJ8c9kJIouOwH0h538hHCElGzausEC3FIkgN7N/1uDwrYoBhGxlLyiZ+OCbzGpy9FBtfJefdFzYSuLhHwKV0SXWHEItHDCkCA7VyxorQxSzpCgr8Ug5bgt/lLDMvnIflIC/wvkd82u9jwSDOIbPg3O8CX4y/0nKQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZwW0H4K6wGmDUJp/zZ8+oIbhkO8qU081w1XSrGf787E=;
+ b=cqTNwfT2rL+Zpmv50ZAI6+GYJv4nEtqLpj7BX+HMRG+HA+ohIm0jFzB2PsPgFBeng51T6D14r2xF2BRYTQy3zz146c6yMtMBjlwHjAx9eCgeWnr3mPrPorYvNGtmImQtMji/i9a+cBPFEmg2FDBe8yFgG+/G56bqUqhlvE0EPvVk8SMDp0LhKRMV5CGgGxEfhtwKGjs5u2m8e7cNUDqba1hBv3+4SvK2vorFGePxjKZc+aOwarHahozoHuzNAlfYHi8UXM5s7gZaLqhrQeIn14SEbs1JyhxZ+nvuwIe9tAD9V0MZvrz5Lz8NmbzPa/Jy+pSyvxUO7UkUo25KDJYkwA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZwW0H4K6wGmDUJp/zZ8+oIbhkO8qU081w1XSrGf787E=;
+ b=uunlp+EIGeMs0KzZRWY/gYTxJ7DoHvbUO7EF6eZ03aYVJTTeZcg+WCIbZ5c5nXZwh+rzmI6UGZt1RwdgM3w00zStjuRYQRyNU/JBPiztEMQNBv53R0upX/u4Udz4Zw8qyJrVEHsDsXXzaNieTekF3xfiTaLPCuDA7N/8jGLG96YSH7BdCNgkRiA0ozUpm1Olrxj1MlRK1vIvkRVq0xoJ15FNvA7/yjWRgqFzmJD+t0WGNWN/5kiHLUAkv1ZBnuqXJVouHEWeuSqMFbJ7pFFXTjQ4f1G1jCH40pOEAnLMIbXotIFvFsn9v8AvuSdZLMpUUIQn4q+zBUagkPwU+kEzqw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AM9PR04MB8779.eurprd04.prod.outlook.com (2603:10a6:20b:40a::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.13; Fri, 17 Jul
+ 2026 15:37:50 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0223.011; Fri, 17 Jul 2026
+ 15:37:50 +0000
+From: Frank.Li@oss.nxp.com
+To: Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	haibo.chen@oss.nxp.com
+Cc: Frank Li <Frank.Li@nxp.com>,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Haibo Chen <haibo.chen@nxp.com>
+Subject: Re: [PATCH] arm64: dts: imx91-9x9-qsb: add CAN support overlay file
+Date: Fri, 17 Jul 2026 11:37:39 -0400
+Message-ID: <178430265551.588272.17200512442296766716.b4-ty@b4>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260710-dts-imx91-can1-v1-1-c78c9c378e8d@nxp.com>
+References: <20260710-dts-imx91-can1-v1-1-c78c9c378e8d@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: PH5P222CA0007.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:510:34b::13) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Date: Fri, 17 Jul 2026 17:36:41 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Linus Torvalds" <torvalds@linux-foundation.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- soc@lists.linux.dev
-Message-Id: <69fe5d78-221f-4825-a2a5-fd78f62f3628@app.fastmail.com>
-Subject: [GIT PULL] SoC fixes for 7.2
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM9PR04MB8779:EE_
+X-MS-Office365-Filtering-Correlation-Id: c632f4c5-f8fd-4dea-3a96-08dee4195bfe
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|376014|23010399003|366016|1800799024|11063799006|56012099006|10067099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: YRgqbCrp3WdMGOqsHI4UXj9EHmEwZTt5jeL6FWiAbgXh4QuTLdgVHP3FrOPKWNukRPRKbSPdixpl7xKryLprZpWu24totAFmJX6lRMDpihvwy/dPxIigVfgU6iVBZbHBu6YrfoYwW/wpeITsLi/zDcBI6GQ3g7oZNRVCBHHCCb+i31rRWkb/rMm8dQPrGAm6pz1yYi3XuAryIfwAMOZpTMBAF64FMl3VhEia6rF9vegMK2fxRNEzk6umODZqE2zlqAzTFpHH2tjYBYdIEXJzQVV53Eanc96XQYYbIKeirshJ61x9xIh7ZghlHaEcY51FpB5lxdGDOTNKwRVLbBulm+esyafw1ntWgSdkKmXgGnw4pC3FjXNcSvRcr0ByqWhjSqJWnAsD1h24S0vaKBLTyz5+MK3MmV+HEFc5X16PN2rm8VUMEaOXHdz5+pprp95AVcb1ywAJA2Dhoy9Qhz9HyYCAl2RgVwAGkIbKBb4jBqLSO1BqHCKFOfyOUXrlE7BjyxQ+CttPHzWuNfkPeDvefD+VIytcGDeLe/ZVECjlk8BE4ShvkMbA/uevTjSWc5L1P4IinqcSK0x1+OTSoQ6UM0fesXzGd89NrdT9/56NcJ+Th+xzOs8l0mKrF5YAOoEcJR9jUWexUy4cICOrHFWuJKzkGl5VQ4fVyVRZVBZ9zQA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(376014)(23010399003)(366016)(1800799024)(11063799006)(56012099006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?enRYSXo3K001NkhPRnFaR3p6enBWSG1rQTZ2VjZOSm9jbnFKRU9GK0lTNmg5?=
+ =?utf-8?B?T2txQVd3dnl1aWcrT1dkZzUxQ05SdFRybC9wdW0xWnlEMDN2c1R5c0Rnd2Fi?=
+ =?utf-8?B?Q21ZRHU1RVRvSGptRkM1UUhPRU5NVHRZM2tCdHdZQVNXUE5MS1AzdU5tSml1?=
+ =?utf-8?B?dEhIbzhrdmpqM3BjZk56ZW1uLzlBNzZHMG0wNGs2K04vRFh0M3EyTG1vWU9E?=
+ =?utf-8?B?VERSazdEMlNvZFA0dGhqcUJqZStDa0lObGJkckhXRmx4S1hHYW53bWVHU1Jr?=
+ =?utf-8?B?WWZ4TEtYNGpocit5TGh1eEZpWGJ2ZU15eDg4eUs5aFhmV1R3RWFPQnBpYTVP?=
+ =?utf-8?B?RzgySm1DWGFrSC95cENoMVpKT21NS3hZdkR5UXZUVW5FWHNHWFM4MjNleVRR?=
+ =?utf-8?B?Q1BoVmlFSkJWQUpUeEtaajJvS0VWaXlNRU5nM2FFd1g3M21Uc0JMMjhmeXFi?=
+ =?utf-8?B?Q2ZhMXFqL3RPSEp2S081TnVBR2U1MFdQMTkyTlRuekMwU2hvYWVDYlJmNFRv?=
+ =?utf-8?B?VStyZytjTzJKYWJtSEEyc0pJVGd2QXk1cjBzZktwbW9jczFnOTQyNUthdGMz?=
+ =?utf-8?B?RXFKZ0RVY0dOZzgzODMyQ3BreTRUbHZFZ0lmVGRkeXZjb254UEhyaEVYam9X?=
+ =?utf-8?B?YzhKdTl2STgzbFV3NXBoc0JTTitIUUNaTFNHNWNjdEtKYStXd0hIWlZBbHBP?=
+ =?utf-8?B?SzE0S1JnNmFHNW1lQUJkRWh5SHlJTDFMNXRTT2NpU2FwRWw3WVQzRFlwang5?=
+ =?utf-8?B?V1JXQ3FhdjhTSjZ1L1d0Z0hwaU9tVWtxOXpkcWpaU092TjE5dTlXWGU0aGVv?=
+ =?utf-8?B?YmlmbXZWODZjbE5FLzBoQTlIckdyakpOOER0eUtpMnF1M05jZHViekRrQkRq?=
+ =?utf-8?B?bDZYeGlrK3ZnaW9TNzVYRWZGK1N5bm9TQllFcFVuQUVGVDBXWlpoTjZPZ3Y4?=
+ =?utf-8?B?Rk9tcHQrZ0M4TTJZcFJKLzBsMGtaSFA2VHEzZHh1SVFoejgvNUxMdTVLaTgy?=
+ =?utf-8?B?SWF1RzkxeU1mb0NWSjNiMXowa1ZEQXpHc3EyTTRacUxKQk9zNktyUWdlMkZ5?=
+ =?utf-8?B?VXJPQjdxNlFIUGQ1U3k5d2V2aTFXZ1kxSTB3YWs1cW1EVWtzdS9wUWhJSU41?=
+ =?utf-8?B?WDZBT1Q4T2J5ZkJGTktMNlQweXBpKzlITkkxMFhyOWF4NFVrV1FHdyt4aFpO?=
+ =?utf-8?B?eGdMN1RDbWpWUXA1WmcySFhPbE9XNVprT1RncWUyOVh5Tm9mVUdINkVWc0xP?=
+ =?utf-8?B?UXdwNS9FYTZ0TlNWNFR5MXIvcHc1NkNiWE9vUTNadEFLaDg0cEdFRVlPUllu?=
+ =?utf-8?B?aG80UFdvYXI0UUcxa0MzVG1MT25IR0V4SDdvc3kwMStid1h2VmROTXpjZlhm?=
+ =?utf-8?B?SEZBdUQ1RXpZTFlZc01aRVVCTi9nV3lFNGEzZExYVmRWQklKdDUvRmI0a2gz?=
+ =?utf-8?B?cXplaHNRcGZvQUFZOFBiK3Y3dkpTYkZieXR3K1hnbEQ2WUV6a2hOZFpjMnBn?=
+ =?utf-8?B?RUViajdvb2R2QVdYZzUrNC9TYXRlMFJ6cDlJR05tVEpTcS8xTHRLY2ZscHdU?=
+ =?utf-8?B?M0ZtdTJLOXBDbng4ZmpDdytRcFpMSzJDWVlWKzlMSVlCVEdEblhhNFBvYW5s?=
+ =?utf-8?B?Tml3am1RYnIwTVNHT09pZWU1T00vdWJoYk5aU3FRR1A2R3l5Ulhyd21iYlFx?=
+ =?utf-8?B?Mmg2b011WGZrWkwwaWxFazdSVm1xT0pMQWN5dEVvNzVsVjR4Qmpsc29yTlh1?=
+ =?utf-8?B?dUZ4VGtwWHNMWDJiZ2UrT1RGdlc2dy91eXVSYm1mSVVKSW5jZ1lrbWlxYWxt?=
+ =?utf-8?B?dkZQdXBld3NuTURNclpQRmhLeFc3QjdkdTkzejRqdkZOWUNrM0RKbGRxbGI1?=
+ =?utf-8?B?VmhNald1V0g4MW5Xdy92cGlVWW1tc21MemdRa1YxUzVxVmJiSGQrRDdNY0hP?=
+ =?utf-8?B?MEdERmRkZUxZYVZsRTJuaGNSNlpDamlpdnpNQVZKZFdIaFRCZGtIK3pyRkJm?=
+ =?utf-8?B?WStsMHZ0U1Y0cEVUVFdxNER2RGdtOVE5QmdFM2FnTmREM0l1ZlpFQi9GUVU0?=
+ =?utf-8?B?dXpPUWVqcm5SNVNXQVBTY1BtNnI1Q3dsQytxZ3dNbU8xMmFRU3o0UDQ0eFZ5?=
+ =?utf-8?B?djhNa1N4UXFXSmJ5NHcrcHJLd2VwemwwZkh5Ymthcm85cXhFcE5HSHRia1FS?=
+ =?utf-8?B?MUZCUzN1UndmczlwN25Hd1JqUitTWmpVOUovblhXSGp3Z1JJc01oK2JQendl?=
+ =?utf-8?B?V284KzdWM3EycGZPSTN4dEVBU2NyUG50TE9zb0pzb1pSQ2lheUwzY3hoSU1x?=
+ =?utf-8?B?aEZTaHR1d3EyV0x2NkFlNE8yTVhIZ1BmWVUxdkV6M2xvNFI3MW9CaDh6REtt?=
+ =?utf-8?Q?p9jK8IWM+XKfCDb1B9JmScMvyqaMFS+M8Kju9?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c632f4c5-f8fd-4dea-3a96-08dee4195bfe
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2026 15:37:50.3724
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: egy7buvCIoPK2iZ0NyeZfFNDi3bIUj7Z7ovmRQBfljaYbpD+B/TunAMIm9TrGY/Zmg21jH9yDZvQgIncDZcjrTpAvKiUr6fM3OLe6K5zhFDxLPqChz/xiYdiRJRswu1x
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8779
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_083703_770710_77BAD015 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20260717_083754_184198_FD25BA6E 
+X-CRM114-Status: UNSURE (   8.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,134 +157,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 8cdeaa50eae8dad34885515f62559ee83e7e8=
-dda:
+From: Frank Li <Frank.Li@nxp.com>
 
-  Linux 7.2-rc2 (2026-07-05 14:44:06 -1000)
 
-are available in the Git repository at:
+On Fri, 10 Jul 2026 18:12:20 +0800, haibo.chen@oss.nxp.com wrote:
+> On the i.MX91 9x9 QSB, CAN1 and MICFIL share pins. A TMUX1574RSVR
+> analog mux controls the routing: when SEL is driven high, CAN1 is
+> selected; when SEL is driven low, MICFIL is selected. By default,
+> SEL is kept low.
+> 
+> To enable CAN1, SEL must be driven high. This is done via the can_fun
+> function defined in the pinctrl-gpiomux node. CAN1 uses the
+> TJA1057GT/3 PHY.
+> 
+> [...]
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-f=
-ixes-7.2-1
+Applied, thanks!
 
-for you to fetch changes up to 3d9855d114f0955d590420f5670152c1099c1638:
+[1/1] arm64: dts: imx91-9x9-qsb: add CAN support overlay file
+      commit: 356894c37aa1f8ab430cef5d69176123b0ec98b3
 
-  Merge tag 'renesas-fixes-for-v7.2-tag1' of https://git.kernel.org/pub/=
-scm/linux/kernel/git/geert/renesas-devel into arm/fixes (2026-07-16 15:5=
-9:57 +0200)
-
-----------------------------------------------------------------
-SoC fixes for 7.2
-
-There are only three devicetree fixes this time: one critical memory
-corruption fix for Renesas and three minor corrections for Tegra.
-
-The MAINTAINERS file is updated for a new maintainer of the CIX platform
-and two address changes.
-
-The rest is all driver fixes, mostly firmware:
-
- - multiple runtime issues in ARM SCMI and FF-A firmware code, dealing
-   with error handling for corner cases in firmware.
-
- - multiple fixes for reset drivers, dealing with individual platform
-   specific mistakes and more error handling
-
- - minor build and runtime fixes for the Tegra SoC drivers
-
-----------------------------------------------------------------
-Akhil R (1):
-      arm64: tegra: Remove fallback compatible for GPCDMA
-
-Arnd Bergmann (8):
-      soc/tegra: pmc: fix #ifdef block in header
-      Merge tag 'reset-fixes-for-v7.2' of git://git.kernel.org/pub/scm/l=
-inux/kernel/git/pza/linux into arm/fixes
-      Merge tag 'tegra-for-7.2-pmc-fixes' of git://git.kernel.org/pub/sc=
-m/linux/kernel/git/tegra/linux into arm/fixes
-      Merge tag 'tegra-for-7.2-soc-fixes' of git://git.kernel.org/pub/sc=
-m/linux/kernel/git/tegra/linux into arm/fixes
-      Merge tag 'tegra-for-7.2-arm64-dt-fixes' of git://git.kernel.org/p=
-ub/scm/linux/kernel/git/tegra/linux into arm/fixes
-      Merge tag 'tee-update-for-v7.2' of git://git.kernel.org/pub/scm/li=
-nux/kernel/git/jenswi/linux-tee into arm/fixes
-      Merge tag 'scmi-ffa-fixes-7.2' of https://git.kernel.org/pub/scm/l=
-inux/kernel/git/sudeep.holla/linux into arm/fixes
-      Merge tag 'renesas-fixes-for-v7.2-tag1' of https://git.kernel.org/=
-pub/scm/linux/kernel/git/geert/renesas-devel into arm/fixes
-
-Breno Leitao (1):
-      soc/tegra: fuse: Fix spurious straps warning on SMCCC platforms
-
-Christophe JAILLET (1):
-      drm/tegra: Fix a strange error handling path
-
-Gary Yang (1):
-      MAINTAINERS: Update maintainer and git tree for CIX SoC
-
-Geert Uytterhoeven (1):
-      firmware: arm_scmi: Grammar s/may needed/may be needed/
-
-Jens Wiklander (1):
-      MAINTAINERS: .mailmap: update Jens Wiklander's email address
-
-Marek Vasut (1):
-      arm64: dts: renesas: ironhide: Describe inline ECC carveouts
-
-Pushpendra Singh (1):
-      firmware: arm_scmi: Rate-limit queue-full warnings in IRQ context
-
-Robby Cai (1):
-      reset: imx7: Correct polarity of MIPI CSI resets on i.MX8MQ
-
-Seth Forshee (1):
-      firmware: arm_ffa: Respect firmware advertised RX/TX buffer size l=
-imits
-
-Steve Dunnagan (1):
-      firmware: arm_scmi: Use 64-bit division for clock rate rounding
-
-Sudeep Holla (1):
-      Merge branches 'for-next/scmi/fixes' and 'for-next/ffa/fixes'
-
-Sumit Gupta (2):
-      arm64: tegra: Fix CPU compatible string to cortex-a78ae on Tegra234
-      arm64: tegra: Fix CPU1 node unit-address on Tegra264
-
-Tanmay Kathpalia (1):
-      dt-bindings: reset: altr: add COMBOPHY_RESET for Agilex5
-
-Unnathi Chalicheemala (1):
-      firmware: arm_ffa: Fix NULL dereference in ffa_partition_info_get()
-
-Uwe Kleine-K=C3=B6nig (The Capable Hub) (1):
-      ARM: Don't let ARMv5 platforms select USE_OF
-
-Yixun Lan (2):
-      reset: spacemit: k3: fix USB2 ahb reset
-      MAINTAINERS: Update SpacemiT SoC git tree repository
-
-Zhao Dongdong (1):
-      reset: sunxi: fix memory region leak on ioremap failure
-
- .mailmap                                          |  1 +
- MAINTAINERS                                       | 12 +++----
- arch/arm/mach-ixp4xx/Kconfig                      |  1 -
- arch/arm/mach-pxa/Kconfig                         |  3 --
- arch/arm64/boot/dts/nvidia/tegra234.dtsi          | 24 ++++++-------
- arch/arm64/boot/dts/nvidia/tegra264.dtsi          |  4 +--
- arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts | 41 ++++++++++++++++=
-+++++++
- drivers/firmware/arm_ffa/driver.c                 | 29 +++++++++++-----
- drivers/firmware/arm_scmi/Kconfig                 |  4 +--
- drivers/firmware/arm_scmi/clock.c                 | 11 +++---
- drivers/firmware/arm_scmi/notify.c                |  6 ++--
- drivers/gpu/drm/tegra/sor.c                       |  6 ++--
- drivers/reset/reset-imx7.c                        |  6 ++++
- drivers/reset/reset-sunxi.c                       |  4 ++-
- drivers/reset/spacemit/reset-spacemit-k3.c        |  2 +-
- drivers/soc/tegra/fuse/tegra-apbmisc.c            |  2 +-
- include/dt-bindings/reset/altr,rst-mgr-s10.h      |  2 +-
- include/soc/tegra/pmc.h                           |  5 ++-
- 18 files changed, 113 insertions(+), 50 deletions(-)
+Best regards,
+-- 
+Frank Li <Frank.Li@nxp.com>
 
