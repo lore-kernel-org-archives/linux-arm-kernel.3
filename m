@@ -4,110 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32DE7C4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 12:02:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89984C4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 12:02:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gA+LgbDDmWtKcLIZGrCT2OufglfLr6cc3fRTD6cDRVQ=; b=NSwnPg6siNl2+ZbuEcIGy0deyY
-	CuNEiz1TiIr62d8P0Lcc6XqpPKyRNu0a2iVGJQQef0t1BdHf/XyqRyZQm8k262SfhNwzXM8Htbbjw
-	isTWrpLr8Jh46Qjjc3uapqdt0OszAoFq+GPSeHLGAkLPUA1DYSmkhcSkBQ2uII2EerGeC/z5WN31c
-	l5ccJS/d6wat7lcPO+CdxcY3ASxf58Fl3+U9bWz8E/a+H/yUdxN84xyBjbsTuLyIn7yE0qgIAGtYQ
-	JcQs3lhM0lTAv3NU74PRN7fUPKgrpxotLSHYAU1O1lx+GanFlMDXCxBtf6qVYdb1EJNY/f66T+fE0
-	nouSUc6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M6dliTL3upPz3AWTcFuW/Bf8sQHGqFSf/FvFJ52AEJY=; b=2hgnROCp3mszL+FzpuChsT9yw9
+	VCeEeX3axt26eBkv9Shawz/VKSTPxZ2Y6EM3u/012LATzr2T9ILOEckfEi8LizDJgEJ/h7l4yhDBT
+	h8i6G4leroxx8iovCL2a/vPIXfX9Q11fuq3hIv18SKWL43O39jfdmLGIW+hQRq0Vi2AxbeSWEVl+X
+	MVLsBHhVwKmUUGI4j4MktMScK6bnTx4Mr/6z6nzxlI51AhRjK9L19ZAzlFDyQyZFGp5x3mPSlSZCf
+	peDmd13/x3Glo5JVaSXcrZWVqQcap7ZwVl7L2PZgPlRyeaXckEZXt1Kjn3DDd0Ej7+S1eu4Jy6ywj
+	710KpmTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkhH9-00000002D2p-2XCU;
-	Fri, 17 Jul 2026 12:02:43 +0000
-Received: from th8-a.mail-neoserv.si ([152.89.234.173])
+	id 1wkhHE-00000002D6N-3a5K;
+	Fri, 17 Jul 2026 12:02:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkhH6-00000002D1Q-3THh;
-	Fri, 17 Jul 2026 12:02:42 +0000
-ARC-Seal: i=1; cv=none; a=rsa-sha256; d=th8.neoserv.si; s=default;
-	 b=lXgj+1ffX/jTBrSObabQuY6OKjOjtXn9e47ECWEvr0lQoSBVO8bBDxI9KPS6Kd2vFdpFmkNPIM
-	  1223Uhs+S5MIKyuf1JiQUF9/wI3Xk/R28/S0Dm3/V/j8R4J1MiEI6ZSfVc1KdWsfxeL0qRhxLD
-	  mF7E8UoaB6V9Pjd1t/E9D7e1ygYfubMC+RVLLIFU4HnHp/jcfVZHSqi6HXv5uPl+2LcZhiYPh7
-	  KXkhWfU2hSOdv3TIfhfzZOsOcRuDrfnOW5xq8qG0md3EhoDEWrx9LF8RuHKX8jYa0I6MuqcVp8
-	  +yXDImeQU9ULbqwKhfr+sS9oxn07FYuP+PFBDmag815HUQ==;
-ARC-Authentication-Results: i=1; th8.neoserv.si; smtp.remote-ip=193.77.36.193;
-	auth=pass (PLAIN) smtp.auth=rok@kanardia.eu
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=th8.neoserv.si; s=default;
-	bh=PHP7QiIbT0+ZzX++1crhTY5wkWTq6BCV5utX6ace2e8=;
-	h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:
-	  Date:Subject:Cc:To:From:DKIM-Signature;
-	b=MiYMT1f/pbj9dTD0yOEwy+BqzSRkrZrrmIS+qIOI4oa++IRhX7cqC3hhQlOiEuxCn6wt0C90/r
-	  5rbbMJ6er0OFMnxhEGkPVrEXixylFUox+736+S/FKDpy7GWMP+feI0wzHE8MxBAthMmDMKpxky
-	  CuLX9dME3QDVdG7JYSdl28+R7E/QBIvVv+hDqt6vEYvDVxnei5+DHUHH8QvkSufatrx1qOtkUB
-	  5GwijCewAGM38Mjy/TtPWXaBEGI3GKv5LKTOJ0bncDORSvCFRJ//FLFcivpIMKS9Pu/17m+Lk0
-	  H2Nz2IeEiL3EItTcrSz5BDbmRs3ElIJluNfreorcSe3e3A==;
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=kanardia.eu
-	; s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=gA+LgbDDmWtKcLIZGrCT2OufglfLr6cc3fRTD6cDRVQ=; b=eiGP9vZkQ/Zf+r72xzXfnBvZR0
-	Ue5EWPbdbJ52mOIoxIeiHFlM2UCYm+1j4xmbidFNqeu/xLZnI02i3kRf7R6/HD+GJSytjURvozPfy
-	Tzbq7R1RUT3SDthXXTYK2uVF5R3CcDUJ0togWkoF+ZdcV1+sAuG5MzfNWFHum1RncjPurB2lXR1KJ
-	GvJRmZd1AmWpWp//vTJEDFTC5Mc+5fcSEqNNM4QlxSv9xiRa7oNMd5+1mLlaaPQx3iNlP/3e7DGry
-	jGYVFPVeNw2dM5062u0cxU5EhkPemtLhEvZBz2KuvSBCc3lLmGbzsVMR0VP668bZzZ8nJ+N4i2CGF
-	Q35XdC3Q==;
-Received: from [193.77.36.193] (port=54788 helo=rok-trip.kanardia.eu)
-	by th8.neoserv.si with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.99.4)
-	(envelope-from <rok@kanardia.eu>)
-	id 1wkhH0-00000001fP1-1pwy;
-	Fri, 17 Jul 2026 14:02:34 +0200
-From: Rok Markovic <rok@kanardia.eu>
-To: Heiko Stuebner <heiko@sntech.de>,
-	Sandy Huang <hjc@rock-chips.com>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Alibek Omarov <a1ba.omarov@gmail.com>,
-	Rok Markovic <rok@kanardia.eu>
-Subject: [PATCH 1/4] drm/rockchip: lvds: propagate bus_flags to the CRTC state
-Date: Fri, 17 Jul 2026 14:00:02 +0200
-Message-ID: <20260717120005.2087386-2-rok@kanardia.eu>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260717120005.2087386-1-rok@kanardia.eu>
-References: <20260717120005.2087386-1-rok@kanardia.eu>
+	id 1wkhHA-00000002D3c-3fXJ;
+	Fri, 17 Jul 2026 12:02:44 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id B3F1460A6F;
+	Fri, 17 Jul 2026 12:02:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03A1A1F000E9;
+	Fri, 17 Jul 2026 12:02:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784289763;
+	bh=M6dliTL3upPz3AWTcFuW/Bf8sQHGqFSf/FvFJ52AEJY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=afG26BD5DJqcY9jFPHWwLoeF+nbY3GkVgbzmYISsj7xeZVCukUAa6Tdq4RdHOi1kv
+	 VhO0c4wlgnq8/uJ4G1UyEHvTyxI9wOPKKaqgViGb19EFGyS0cg19B9qoWfDnJR0YZm
+	 xD7VopeVKolG7iP9adxYqAQAtLV8auh9YJx/PsTDMa4HNn8peJiYCom6ppiEpBE6Ri
+	 O5VPY2KO8x4IepP8GFuNG7upUnYOFwAgzIaIiRLTvysiIiBbNcvkYDfO9/wew8cRsb
+	 l3JKPUr7GFFU/UKQZM1P948sh1G9gBvmTEg4KhGcT678i50OfZ6MBUBq9hVbqmsveD
+	 3Nyo9BqNTTjfQ==
+Date: Fri, 17 Jul 2026 13:02:35 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Swark Yang <syang@axiado.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>, Jan Kotas <jank@cadence.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	=?utf-8?Q?Przemys=C5=82aw?= Gaj <pgaj@cadence.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Boris Brezillon <bbrezillon@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Mathias Nyman <mathias.nyman@intel.com>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org, linux-i2c@vger.kernel.org,
+	linux-i3c@lists.infradead.org, linux-serial@vger.kernel.org,
+	linux-spi@vger.kernel.org, linux-usb@vger.kernel.org
+Subject: Re: [PATCH v3 6/8] dt-bindings: spi: dw-apb-ssi: add Axiado AX3005
+ SPI variant
+Message-ID: <6d69cfd0-5f3b-4324-8d64-b4695cbb3e92@sirena.org.uk>
+References: <20260716-upstream-axiado-ax3005-upstream-v3-0-c429095143ec@axiado.com>
+ <20260716-upstream-axiado-ax3005-upstream-v3-6-c429095143ec@axiado.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Authentication-Results: th8.neoserv.si;
-	auth=pass (PLAIN) smtp.auth=rok@kanardia.eu
-X-NEOSERV-MailScanner-Information: Please contact the ISP for more information
-X-NEOSERV-MailScanner-ID: 1wkhH0-00000001fP1-1pwy
-X-NEOSERV-MailScanner: Found to be clean
-X-NEOSERV-MailScanner-SpamCheck: not spam, SpamAssassin (not cached,
-	score=1.31, required 7, ALL_TRUSTED -1.00, BAYES_50 0.80,
-	KAM_DMARC_QUARANTINE 1.50, KAM_DMARC_STATUS 0.01)
-X-NEOSERV-MailScanner-SpamScore: s
-X-NEOSERV-MailScanner-From: rok@kanardia.eu
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - th8.neoserv.si
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - kanardia.eu
-X-Get-Message-Sender-Via: th8.neoserv.si: authenticated_id: rok@kanardia.eu
-X-Authenticated-Sender: th8.neoserv.si: rok@kanardia.eu
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_050241_041155_19D6DECA 
-X-CRM114-Status: GOOD (  11.42  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="70M3+S0UoM/WolbI"
+Content-Disposition: inline
+In-Reply-To: <20260716-upstream-axiado-ax3005-upstream-v3-6-c429095143ec@axiado.com>
+X-Cookie: Enjoy yourself while you're still old.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,52 +86,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-rockchip_lvds_encoder_atomic_check() sets output_mode and output_type
-but never copies the connector's bus_flags into the Rockchip CRTC
-state, unlike dw_dp-rockchip.c and dw-mipi-dsi2-rockchip.c which both
-do.
 
-panel-lvds parses pixelclk-active from the DT display timing and
-publishes it on the connector as DRM_BUS_FLAG_PIXDATA_DRIVE_NEGEDGE.
-VOP2 reads that flag back out of the CRTC state to decide
-POLFLAG_DCLK_INV. With the flag dropped here, vcstate->bus_flags is
-always zero, so a panel that asks to be clocked on the falling edge is
-driven on the rising one, and there is no way to express the panel's
-requirement from DT at all.
+--70M3+S0UoM/WolbI
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-No functional change for the SoCs currently supported by this driver:
-rk3288 and px30 pair with the VOP1 driver (rockchip_drm_vop.c), which
-never reads bus_flags - only VOP2 consumes it. The flag becomes live
-with the RK3568 support added later in this series.
+On Thu, Jul 16, 2026 at 08:51:13PM -0700, Swark Yang wrote:
+> Add binding for Axiado AX3005 SPI controller. So far, no changes
+> are known, so it can fall back to the snps,dwc-ssi-1.01a compatible.
 
-Signed-off-by: Rok Markovic <rok@kanardia.eu>
-Assisted-by: Claude:claude-opus-4-8
----
- drivers/gpu/drm/rockchip/rockchip_lvds.c | 10 +++++++++-
- 1 file changed, 9 insertions(+), 1 deletion(-)
+Please include human readable descriptions of things like commits and
+issues being discussed in e-mail in your mails, this makes them much
+easier for humans to read especially when they have no internet access.
+I do frequently catch up on my mail on flights or while otherwise
+travelling so this is even more pressing for me than just being about
+making things a bit easier to read.
 
-diff --git a/drivers/gpu/drm/rockchip/rockchip_lvds.c b/drivers/gpu/drm/rockchip/rockchip_lvds.c
-index 75f898a..95fa0a9 100644
---- a/drivers/gpu/drm/rockchip/rockchip_lvds.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_lvds.c
-@@ -129,7 +129,15 @@ rockchip_lvds_encoder_atomic_check(struct drm_encoder *encoder,
- 				   struct drm_connector_state *conn_state)
- {
- 	struct rockchip_crtc_state *s = to_rockchip_crtc_state(crtc_state);
--
-+	struct drm_connector *connector = conn_state->connector;
-+
-+	/*
-+	 * The VOP derives the pixel clock polarity from this. Without it a
-+	 * panel that declares pixelclk-active = <0> is clocked on the wrong
-+	 * edge. panel-lvds fills the connector's bus_flags in from the DT
-+	 * display timing.
-+	 */
-+	s->bus_flags = connector->display_info.bus_flags;
- 	s->output_mode = ROCKCHIP_OUT_MODE_P888;
- 	s->output_type = DRM_MODE_CONNECTOR_LVDS;
- 
--- 
-2.43.0
+If there is no need for things to be part of a multi-subsystem series
+(eg, dependencies) it's normally better to send each subsystem
+separately.
 
+--70M3+S0UoM/WolbI
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmpaGdoACgkQJNaLcl1U
+h9CYYgf/a6ZXfaJE/jmFwdCosDxknw75RDj7nPAqr8ZtQ6OEKCVRSIVBgwrMG1B6
+7TPPAIzIrDPqOWeb/BZihDW7BKUj2aDsl7pZivADMe0txrRhev2UcBUZUMxW1sXn
+DgyCTELlXBzkCAltV41zPIZTn6Rwcy8lHkkDXAfh0JGD5azOUiDxKAusCY9IhML1
+YtCaED6Zm325NAZ+cUqXIKy177WK3d4XQrt4N/qPahtGnlsER6BwUocE9HGNpNLh
+l3iTBw5h+slXmMR6H40Ax4/E64jiKe5RpDEW3MeDQgZLROX+xs5G+fp3eE5NGFPQ
+Z9zQeNxaiqK3XtZlukPgm9tW3O9UDA==
+=i8XU
+-----END PGP SIGNATURE-----
+
+--70M3+S0UoM/WolbI--
 
