@@ -4,76 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E344FC4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 01:25:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09525C44519
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 01:25:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SXoeLzz0joNDaurArO4fsXPyADL0JdoAhkTv0ebLgpA=; b=MCo5mpcenrGpRypsAYMFgiSqHC
-	GLAVliZza2+BVjQHWJ914Vyh7BbZCYIBQVf98GU/LEK6gb6ORyJ5kDX8BD4rqpNZStEHWgQKHnK1Z
-	h3/SidjkXiAvhuyw4xLPEG79f/zuZA1hsmKK941nJqwe1Vj32/7ektSnKtQWgdULhKtDL39ps69od
-	nNhUV6SWrPrnurpBnDi/7RBLdAD7kRm8iY5fOcg/QadpKEMR+DI1fKPitwy+hTQEcecyXgqnFyYwV
-	35HV0QsRSF/4C8EKnZPz53UKZ/MG6+gcEzdWBxQcHPAjsaWbDvJVi7/1PALTkPBEOhpfSrvfUzt17
-	9pR1i13w==;
+	bh=aeQGK1J/JjfWcopN0ALXDxeZFGUXUvRu0w7yqHt7aIc=; b=HlEMRWDM9zbq6ukskaRJgD0bm4
+	3qWZzgZQCPmINLEV8qJ2ghlanAWPk2vX6nRR6lB92ZcElEwX92NbeqfvnwLwfJcFToULTqTkFJkMQ
+	7PnEXtrl4RwuuMuNeOycwpK5Hq9fpS/EDqbHI7F8W6e+oe/MMPgNw/KtW+mpKLxXo6E7aHsRN7jkp
+	g+lnGfP3urJte0m5dESPAHQHgOpfEtpvatkUU1/xqqdqHVbSHdIzDyXg4KhmvAFQkUvexf3cvlief
+	uPVufCEcnTQI+wNI/gPimBzIlVuHnbQ0eHGs219E4RlRp+KsGi/ggSSvvSslrXXCmaQymukCFRVq/
+	ylo1x+2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkXJt-00000000tmC-3oDD;
+	id 1wkXJt-00000000tm8-3OPi;
 	Fri, 17 Jul 2026 01:24:53 +0000
-Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkXJp-00000000tkk-0F7o
-	for linux-arm-kernel@lists.infradead.org;
+	id 1wkXJp-00000000tkw-1n23;
 	Fri, 17 Jul 2026 01:24:51 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=SXoeLzz0joNDaurArO4fsXPyADL0JdoAhkTv0ebLgpA=;
-	b=kxGSgzcAVEnTkZ+VJacFArpr5p48N0MwJrODTo7eCHO5onknMoIdiCpZMUJWcU9qEQPcFzM5Y
-	Y7GN6f8J9bQDIP1QPthCGJDk5Q9vsKoyHBRxYELelNm14X8cNdPVHbRQHF4rZHKGlEOnI2oC9et
-	utTFBzxExpve7QfWkUCyH6c=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4h1X5T2dChz1prQs;
-	Fri, 17 Jul 2026 09:15:09 +0800 (CST)
-Received: from kwepemr200004.china.huawei.com (unknown [7.202.195.241])
-	by mail.maildlp.com (Postfix) with ESMTPS id BD1CB40577;
-	Fri, 17 Jul 2026 09:24:30 +0800 (CST)
-Received: from [10.67.121.62] (10.67.121.62) by kwepemr200004.china.huawei.com
- (7.202.195.241) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 17 Jul
- 2026 09:24:29 +0800
-Message-ID: <4d235a1b-41e1-4797-ad56-467d8d840b03@huawei.com>
-Date: Fri, 17 Jul 2026 09:24:29 +0800
+X-UUID: 482e9880817e11f1aa26b74ffac11d73-20260717
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:266998f4-54a9-4d8c-9379-97a3e12e18c4,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:e7bac3a,CLOUDID:c7669a7dd51c54e72c32c1faefd4cd1e,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|136|850|865|898,TC:nil,Content
+	:0|15|50,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0
+	,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 482e9880817e11f1aa26b74ffac11d73-20260717
+X-User: lilinmao@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <lilinmao@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 1000324493; Fri, 17 Jul 2026 09:24:40 +0800
+From: Linmao Li <lilinmao@kylinos.cn>
+To: Jerome Brunet <jbrunet@baylibre.com>,
+	Mark Brown <broonie@kernel.org>
+Cc: Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Linmao Li <lilinmao@kylinos.cn>
+Subject: [PATCH v2] ASoC: meson: Keep link pointers valid on realloc failure
+Date: Fri, 17 Jul 2026 09:24:33 +0800
+Message-Id: <20260717012433.1432285-1-lilinmao@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20260716100939.1381759-1-lilinmao@kylinos.cn>
+References: <20260716100939.1381759-1-lilinmao@kylinos.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/2] CPPC: reduce FFH feedback-counter sampling skew on
- arm64
-To: "Rafael J. Wysocki" <rafael@kernel.org>
-CC: <catalin.marinas@arm.com>, <will@kernel.org>, <rafael@kernel.org>,
-	<lenb@kernel.org>, <saket.dumbre@intel.com>, <zhenglifeng1@huawei.com>,
-	<sumitg@nvidia.com>, <zhanjie9@hisilicon.com>, <geert+renesas@glider.be>,
-	<cuiyunhui@bytedance.com>, <vanshikonda@os.amperecomputing.com>,
-	<ionela.voinescu@arm.com>, <jeremy.linton@arm.com>,
-	<viresh.kumar@linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
-	<acpica-devel@lists.linux.dev>, <linuxarm@huawei.com>,
-	<prime.zeng@hisilicon.com>, <wanghuiqiang@huawei.com>, <xuwei5@huawei.com>,
-	<lihuisong@huawei.com>, <yubowen8@huawei.com>, <wangzhi12@huawei.com>, Beata
- Michalska <beata.michalska@arm.com>
-References: <20260708082818.808041-1-zhangpengjie2@huawei.com>
- <alD2qU4FNoGvP7SN@arm.com>
-From: Pengjie Zhang <zhangpengjie2@huawei.com>
-In-Reply-To: <alD2qU4FNoGvP7SN@arm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.121.62]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- kwepemr200004.china.huawei.com (7.202.195.241)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_182449_741908_202B9B0D 
-X-CRM114-Status: GOOD (  17.06  )
+X-CRM114-CacheID: sfid-20260716_182449_770015_FD99B335 
+X-CRM114-Status: GOOD (  11.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,74 +84,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rafael,
+meson_card_reallocate_links() grows the DAI link and private data
+arrays with two consecutive krealloc() calls and updates the owner
+pointers only after both calls have succeeded.
 
-Just a gentle ping on this patch. It has been a week and Beata has taken
-a look at it. Could you please let me know if you have any comments or
-concerns regarding this change?
+A successful krealloc() may move the data: it frees the old block and
+returns a new one. When that happens for the link array and the second
+krealloc() then fails, card->dai_link still points to the block that
+krealloc() already freed, and the error path frees the new block too.
+The probe error path then calls meson_card_clean_references(), which
+dereferences card->dai_link and kfree()s it again, resulting in a
+use-after-free and a double free.
 
-Thanks,
-     Pengjie
+Commit card->dai_link and card->num_links right after the first
+krealloc() succeeds, so the pointer always refers to a valid allocation
+that meson_card_clean_references() can walk and free. krealloc() with
+__GFP_ZERO zero-initializes the added entries, so walking them on the
+error path is safe. With both failure paths reduced to a plain return,
+drop the goto labels and the error message.
 
-On 7/10/2026 9:42 PM, Beata Michalska wrote:
-> Looks good to me, though I guess you might need an ack from Rafael (?)
->
-> Thank you for the patches.
->
-> ---
-> BR
-> Beata
-> On Wed, Jul 08, 2026 at 04:28:16PM +0800, Pengjie Zhang wrote:
->> The legacy CPPC feedback-counter path reads the delivered and reference
->> performance counters separately.
->>
->> On arm64 systems using AMU-backed CPPC FFH counters, each FFH read is
->> served through a cross-CPU counter read helper. Reading the counters
->> separately therefore widens the sampling window between them and can
->> skew the delivered/reference ratio used by cpuinfo_cur_freq. Under heavy
->> load, the skew is observable as transient values that may exceed the
->> platform maximum, as discussed in [1] and [2].
->>
->> This series adds a small generic hook for architectures that can obtain
->> both FFH feedback counters in one operation, while preserving the
->> existing per-register read path as the fallback.
->>
->> Patch 1 adds the generic CPPC hook and uses it from cppc_get_perf_ctrs().
->> Patch 2 implements the hook on arm64 by sampling both AMU counters in a
->> single operation on the target CPU.
->>
->> For detailed test results and data demonstrating the observable skew and
->> the improvements brought by this series, please refer to [3] and [4].
->>
->> [1] https://lore.kernel.org/all/20231025093847.3740104-4-zengheng4@huawei.com/
->> [2] https://lore.kernel.org/all/20231212072617.14756-1-lihuisong@huawei.com/
->> [3] https://lore.kernel.org/all/443104e2-ba6e-454e-8469-909f35817a99@huawei.com/
->> [4] https://lore.kernel.org/all/317d33d5-8279-4aa8-84b7-6ae1976636ac@huawei.com/
->>
->> Tested-by: Sumit Gupta <sumitg@nvidia.com>
->> Reviewed-by: Sumit Gupta <sumitg@nvidia.com>
->> Tested-by: Vanshidhar Konda <vanshikonda@os.amperecomputing.com>
->> Reviewed-by: Vanshidhar Konda <vanshikonda@os.amperecomputing.com>
->> Signed-off-by: Pengjie Zhang <zhangpengjie2@huawei.com>
->> ---
->> Changes in v2:
->> - Simplified the CPPC generic layer fallback logic to prevent pointless single-read retries.
->> - Added upfront register validation in the arm64 hook to avoid unnecessary IPI overhead.
->> - Explicitly flipped the -EOPNOTSUPP error to -ENODEV in the arm64 hook when AMU is unsupported, cleanly bypassing redundant CPPC generic fallbacks.
->> - Addressed other kernel-doc and naming feedbacks from Beata.
->> - Added Reviewed-by and Tested-by tags from Vanshidhar and Sumit
->> - Link to v1: https://lore.kernel.org/all/20260410094145.4132082-1-zhangpengjie2@huawei.com/
->>
->> Pengjie Zhang (2):
->>    ACPI: CPPC: add paired FFH feedback-counter read hook
->>    arm64: topology: read CPPC FFH feedback counters in one operation
->>
->>   arch/arm64/kernel/topology.c | 92 ++++++++++++++++++++++++++++++++----
->>   drivers/acpi/cppc_acpi.c     | 50 ++++++++++++++++++--
->>   include/acpi/cppc_acpi.h     |  7 +++
->>   3 files changed, 136 insertions(+), 13 deletions(-)
->>
->> -- 
->> 2.33.0
->>
+Fixes: 7864a79f37b5 ("ASoC: meson: add axg sound card support")
+Signed-off-by: Linmao Li <lilinmao@kylinos.cn>
+Reviewed-by: Jerome Brunet <jbrunet@baylibre.com>
+---
+v2:
+- also commit num_links together with dai_link (Jerome)
+- drop the goto labels and the dev_err() (Jerome)
+- comment the ldata failure path (Jerome)
+
+ sound/soc/meson/meson-card-utils.c | 17 ++++++-----------
+ 1 file changed, 6 insertions(+), 11 deletions(-)
+
+diff --git a/sound/soc/meson/meson-card-utils.c b/sound/soc/meson/meson-card-utils.c
+index cdb759b466ad..8617a4661a33 100644
+--- a/sound/soc/meson/meson-card-utils.c
++++ b/sound/soc/meson/meson-card-utils.c
+@@ -50,25 +50,20 @@ int meson_card_reallocate_links(struct snd_soc_card *card,
+ 			 num_links * sizeof(*priv->card.dai_link),
+ 			 GFP_KERNEL | __GFP_ZERO);
+ 	if (!links)
+-		goto err_links;
++		return -ENOMEM;
++
++	priv->card.dai_link = links;
++	priv->card.num_links = num_links;
+ 
+ 	ldata = krealloc(priv->link_data,
+ 			 num_links * sizeof(*priv->link_data),
+ 			 GFP_KERNEL | __GFP_ZERO);
++	/* meson_card_clean_references() will free the links on this error path */
+ 	if (!ldata)
+-		goto err_ldata;
++		return -ENOMEM;
+ 
+-	priv->card.dai_link = links;
+ 	priv->link_data = ldata;
+-	priv->card.num_links = num_links;
+ 	return 0;
+-
+-err_ldata:
+-	kfree(links);
+-err_links:
+-	dev_err(priv->card.dev, "failed to allocate links\n");
+-	return -ENOMEM;
+-
+ }
+ EXPORT_SYMBOL_GPL(meson_card_reallocate_links);
+ 
+-- 
+2.25.1
+
 
