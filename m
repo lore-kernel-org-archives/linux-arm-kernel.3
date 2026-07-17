@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B942BC4450F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 06:55:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DEEEC4450F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 06:56:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aWBKkXCPnVX9y0NE85TytOyaJugeSr3Fnil+IDh5DbM=; b=gjFUbRKChKqZWa07y/H6in6rwb
-	ackpEsPtu29hyWNoYz/d1lCmQ46qmEHegnl2DsWBPMqQpBYk/K81IBfMXcFt1vqqBfgb8QG7votjP
-	8s68FACmstMRJDZHrN7ivj7uBzIbDp68/f1Hz8jV5KqxnO6o1Rs/YeccLGBbuaImDFAb5zUDkHPzZ
-	INu/5blnNhdZrfqfTFteOw+bBNX5C48YfwmqDfcMUMPiBCuz+VcwaKlq7Kkl56ZdsL698wUvzI3fX
-	dGcFPxEkLsH3Tse5VBsVvrbFrOFXOFBpEBqncsxcqyvoUhoM7z23CJQpFhUOGQBRFNcnHs8/4v1Qf
-	zP1DQuGQ==;
+	bh=VlkbpCy44dlroW2RCEp/LbnBuuBRf54m5s1Dlirl8co=; b=sLhKIDlP3rT3sYqM73FzPy4Z+8
+	eJvLCTP3MXOxdp0Y+aVje7LGMR9Shqfl5IfSWh5tjtmRmZWaImwSuuikvl6oay/xRueTIL5/kMg6v
+	O735eMRbVKSq15dFrjtO/pbDXSqkBVUy0YosTusQU/Uqx+pTovxZcqxjSVc/oMWWuR02ossqbthIC
+	Xhy1T2B7FF6Fi2nDJLXqOl8h9nzz2xKaK2/6OQmqENpUZ9VPnWDP8ZTycshFm0YP8dCRqsTF45Zee
+	ipmvIp/i1zGs6VTeZ6o6sVuBRXNHpUe5I9By2QKMODArM5uennOzHVzbTN+SU3JttMDNmFdKlDJyt
+	v1QiuG1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkcTo-00000001JjK-309X;
-	Fri, 17 Jul 2026 06:55:28 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1wkcUB-00000001KHX-0TcV;
+	Fri, 17 Jul 2026 06:55:51 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkcTh-00000001JYn-3MDo
+	id 1wkcTt-00000001Jrn-1MV7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 06:55:23 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-493ec555a26so48654715e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 23:55:21 -0700 (PDT)
+	Fri, 17 Jul 2026 06:55:37 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-493f4638f4aso34320665e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 23:55:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784271320; x=1784876120; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1784271332; x=1784876132; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=aWBKkXCPnVX9y0NE85TytOyaJugeSr3Fnil+IDh5DbM=;
-        b=DweIPOJjAFUjYcf6P5xkl4tmYKgAEPJUStnt6ue2MDRlfwbDx9TStIRB03S9M28NhX
-         oFiBqaFJAC0bmIpjlqxHtwNJCEJz2anaA/RGBfgTdGlYXbZvHeY3q8/n6q5GDXKJz6+j
-         dhAnjakSV1Gi19TYOMCJg9CkTLh5gZMXBhi6ogRoTsIfDd2fcCUdohMvSzN+RxdqO9AI
-         eJc1QPvUbplheBr2YB1CQcUx7sBEdz808Kcny+MBrbj+gg38YWoNNUgsoKPfg4vNarKY
-         Bkb1sgqCdxaGaL5xNVH2V1KKiilQemRXa4KRANwDWHFDN/3md+Wz1q6UBRdGZ00/4RcD
-         7Tpg==
+        bh=VlkbpCy44dlroW2RCEp/LbnBuuBRf54m5s1Dlirl8co=;
+        b=G+Ep80gUp9SLx6yYj7aHcgm6fAsQ7DB1np08JXOaWkBUWC/97/4+M9hJtIBpLdVct6
+         7OQISSzw2onLYsjk9vyHenI+MTRmpHZnOapIKUa8UaUP1z9J1aw359UMEDIwTW5RfcOw
+         g0x75xaDJAfld15DSbDrV0BBiL+Rzb7JPVT+GNRbPzuXu6qqlwuLhlvTnloeT9bOE9uG
+         +Zh8RBtOYg9gEpTHLzoo/QoJ6Bz67mVvZTZKnSEztav8lNLPDxSw2IEuCwLYG75IloSI
+         QsjO/fCZQiCN8P7UfT3HOo5VUrJG/WSfzpISPnqP0bdwZdOEGS8GjXDJGAm8GqyYi3Wm
+         kFgA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784271320; x=1784876120;
+        d=1e100.net; s=20251104; t=1784271332; x=1784876132;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to:content-type;
-        bh=aWBKkXCPnVX9y0NE85TytOyaJugeSr3Fnil+IDh5DbM=;
-        b=N6DuCYgpTF6HtX4xH19gklFiRWWgvl6Q4a6O5uuiaOjPQXPjd9URieNexQy5u457aI
-         GLcUV8r0I85dToSbncb+PwYKAOQQGJrH197DO57Hlo3gJ374tR4f3jOaKcHcTZmCIrUD
-         YsR6jUxudNDEB2pPkXhuWrvcenNtamDyb/jcRebOGEa6+TRs009MUFf5cTASSXwq35Rp
-         t9rQ3dPH+ZVy5bmpsEWu3zXYgQS46h4bgTI/miNdk+m/38oAbtaw6SaO0zAjz8gycW2E
-         poar4NGKrbJW9ADquHAvA/t/g/zcjWa35sALKgwBDJIYQjbMVCLegx6ppHKFXle4QzXi
-         gkuw==
-X-Forwarded-Encrypted: i=1; AHgh+RplG9AAVKxUSj+4itPztQVwlXAoCspufDenNd7daCZam+EzSyQTScmPTgn1LXE7//rSMtO4v2Nb04KbLzqKlV/8@lists.infradead.org
-X-Gm-Message-State: AOJu0YwnJcUFXx97Ry1xLEc2kzlC8UtZUgnwLXVcraVdqJAIrUCQHyHo
-	fLJCAzjJ0ev6TI5wD3OzMiVRBr5bxENTToZ+/zWJ+yFcaaTJUcahgXHw
-X-Gm-Gg: AfdE7ck8zjrF9Xm7kOcvaGE/05bJTai+lO6J9jra9U8a4wpN0l+VX2dV0+fcFU3DxPk
-	E09r9EVIGU36jU4e+mHbSRNm1aljkvv0djFcQOsPX+BjgsjK6qn7u46S+EOpjx4WcbXOBZy1hbR
-	MF4PlcHj7eZkJh7Rh6YhbG9UxqMmx2jOEsQzrrWewNKqnCRboo6ltEh9Ou1jAEXgo5XdFOUMCd+
-	37o0ZkGhAAe9ORRCkqqkEhqqRIbQZNRDsAU2PXnCrK/v9HgEZTjCaloaMee4ekupJ5J4tTEcGtD
-	ohd7x8kuxSW4xZPmJ3u7srYiM8r368F2qHkF5ATVaYNnjHm/ZMcIr7Hf19KPxQLJhVHgRXhdRED
-	U5VOLY/7qrOvN55pc8CnejdsnJxhkb7ZpqPZoVL4k4Uw/VFfSBAafuAaCtEz1V+IOhVd0XkW7Oc
-	eZmpDc03MIOQ6/J/XLttX5yfcF0NMYnjisopaLjUiiCfqSRgLIvb4Caz/CgWBdMx1ialhCgQ==
-X-Received: by 2002:a7b:c4da:0:b0:493:bd71:6084 with SMTP id 5b1f17b1804b1-4954a50bcd9mr8537915e9.31.1784271319600;
-        Thu, 16 Jul 2026 23:55:19 -0700 (PDT)
+        bh=VlkbpCy44dlroW2RCEp/LbnBuuBRf54m5s1Dlirl8co=;
+        b=YUo3PiwgGyhkYg7sLhw7IpLUQKyoWj5SAwGDvF01btHzjr0snL6jblBPnLP4CtNQjE
+         iEvmcuA8Hq0WR/W5Vpxw4QNVc3bWYswuFzuKmNuHCaLHCyBmHejTFnCi4bMbn5y5xBl+
+         V1gp1z3kmQNSoElT16ot/EZ38yTtbs9FiHQYAz82sfXQmLxCVJC4eDfsCiG1vZzmEjfX
+         S6Z+GuHqH59kZ4Xi72vx4hJ2RP0gGB+OrlYVuj1nuwOw5M9Dxo4aKi70sEnVrThpksdg
+         7wxgFiPDR7Y7AH5Vqe0BMirW/4Zf2WaUBy0cXB6ATGCzn9K6K30RfXyUhJwKqmhZTxg8
+         nmzg==
+X-Forwarded-Encrypted: i=1; AHgh+Rp7XYRT/ta9zlE0LMEt9Gl144GOsFBtcAWoC7AoE0Uo8/b9yUMs20Xg1LPsbDAs1Nx073vJwGvqbqxDWb6C2LDc@lists.infradead.org
+X-Gm-Message-State: AOJu0YyNdu2iVVxy7DKVxQtf6R9fUXyCTspnFGhmVWMN9ZmdtqwtHvso
+	AYrEgivSEXym3of4jfRTP4BqxcmevMbqSwgizeNg7PphzjpgEU3gPYny
+X-Gm-Gg: AfdE7cncfCRSwW+lwhE69/hxGeBTqqXF9flxsQOYwKx07cRGphqk+xNUR79Isi3w5Fd
+	xuNUOjBu8oJp1BAn77TEP4zBsweKkAelHRmn1pFTox1gxSL45PPWBHSsxU16KGazUYDUK3+rRSN
+	uqfk+dLUm3gyrdq0eHMG6y+9oYj/Ym2Ihf+95Nc1wqS57hZ+cANmFuVQpqgbwAndS+jt4rFT8rp
+	XLYxRp95/UNnyfD09w50IIp6UmzltZJJkHKNUOFIdJEqxD9kpwh/RvA8UJFm1H6/6XqDQMbKTdP
+	PhA8V2ugEGY63/RPDw+Pj0YXFrBl8iCKyIObclKINftnVSBAdRSR5c9d3fyA0EW3Av1M2O3thy5
+	MUksc+HfZSOwoO53zJT71B6AJUeJpZZj7rHq1KrjYDC02LrEh1IRVZYQkYb+8PXFVLXkxclwdoH
+	l+187920ZxNS9c8eaV7F1a+pn+rjUa6xY/4+syVyeE+07Fsqfk2MNAvIeUmGm4AJMPEJYb5A==
+X-Received: by 2002:a7b:c055:0:b0:492:6f6f:fa42 with SMTP id 5b1f17b1804b1-4954a516ae6mr8142375e9.37.1784271331576;
+        Thu, 16 Jul 2026 23:55:31 -0700 (PDT)
 Received: from Ansuel-XPS24.localdomain (host-95-248-227-210.retail.telecomitalia.it. [95.248.227.210])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-495499f3f99sm24260835e9.0.2026.07.16.23.55.17
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-495499f3f99sm24260835e9.0.2026.07.16.23.55.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 16 Jul 2026 23:55:19 -0700 (PDT)
+        Thu, 16 Jul 2026 23:55:31 -0700 (PDT)
 From: Christian Marangi <ansuelsmth@gmail.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
@@ -94,17 +94,17 @@ To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	Maxime Chevallier <maxime.chevallier@bootlin.com>
-Subject: [PATCH net-next v9 06/12] net: Document PCS subsystem
-Date: Fri, 17 Jul 2026 08:54:06 +0200
-Message-ID: <20260717065448.1498335-7-ansuelsmth@gmail.com>
+Subject: [PATCH net-next v9 12/12] net: airoha: add phylink support
+Date: Fri, 17 Jul 2026 08:54:12 +0200
+Message-ID: <20260717065448.1498335-13-ansuelsmth@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260717065448.1498335-1-ansuelsmth@gmail.com>
 References: <20260717065448.1498335-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_235521_921861_143E30A9 
-X-CRM114-Status: GOOD (  34.38  )
+X-CRM114-CacheID: sfid-20260716_235533_516017_6A18E771 
+X-CRM114-Status: GOOD (  27.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,263 +119,367 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add extensive documentation of the new PCS subsystem and the fwnode
-implementation with producer/consumer API.
+Add phylink support for each GDM port. For GDM1 add the internal interface
+mode as the only supported mode. For GDM2/3/4 add the required
+configuration of the PCS to make the external PHY or attached SFP cage
+work.
+
+These needs to be defined in the GDM port node using the pcs-handle
+property.
+
+Update and provide a .get/set_link_ksettings function that use phylink
+for ethtool OPs now that we fully support phylink.
 
 Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 ---
- Documentation/networking/index.rst |   1 +
- Documentation/networking/pcs.rst   | 229 +++++++++++++++++++++++++++++
- 2 files changed, 230 insertions(+)
- create mode 100644 Documentation/networking/pcs.rst
+ drivers/net/ethernet/airoha/Kconfig       |   1 +
+ drivers/net/ethernet/airoha/airoha_eth.c  | 194 +++++++++++++++++++++-
+ drivers/net/ethernet/airoha/airoha_eth.h  |   7 +-
+ drivers/net/ethernet/airoha/airoha_regs.h |  12 ++
+ 4 files changed, 207 insertions(+), 7 deletions(-)
 
-diff --git a/Documentation/networking/index.rst b/Documentation/networking/index.rst
-index 44a422ad3b05..3fce8f6ac089 100644
---- a/Documentation/networking/index.rst
-+++ b/Documentation/networking/index.rst
-@@ -28,6 +28,7 @@ Contents:
-    net_failover
-    page_pool
-    phy
-+   pcs
-    sfp-phylink
-    alias
-    bridge
-diff --git a/Documentation/networking/pcs.rst b/Documentation/networking/pcs.rst
-new file mode 100644
-index 000000000000..98592cdee3ef
---- /dev/null
-+++ b/Documentation/networking/pcs.rst
-@@ -0,0 +1,229 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+=============
-+PCS Subsystem
-+=============
-+
-+The PCS (Physical Coding Sublayer) subsystem handles the registration and lookup
-+of PCS devices. These devices contain the upper sublayers of the Ethernet
-+physical layer, generally handling framing, scrambling, and encoding tasks. PCS
-+devices may also include PMA (Physical Medium Attachment) components. PCS
-+devices transfer data between the Link-layer MAC device, and the rest of the
-+physical layer, typically via a serdes. The output of the serdes may be
-+connected more-or-less directly to the medium when using fiber-optic or
-+backplane connections (1000BASE-SX, 1000BASE-KX, etc). It may also communicate
-+with a separate PHY (such as over SGMII) which handles the connection to the
-+medium (such as 1000BASE-T).
-+
-+Remark on usage of .mac_select_pcs and fw_node PCS
-+--------------------------------------------------
-+
-+There are generally two ways to look up a PCS device.
-+
-+1. MAC OP struct .mac_select_pcs (considered legacy)
-+2. firmware node (fwnode) PCS entirely handled by phylink
-+
-+Implementation 1 leaves the entire handling of the PCS to the MAC
-+driver with the selection of the PCS driven by .mac_select_pcs.
-+Custom implementations are required if the PCS is external to the MAC
-+and needs to be handled by a separate driver.
-+
-+This implementation is considered legacy and it's suggested to
-+switch to the new fwnode PCS.
-+
-+Looking up PCS Devices (fwnode implementation)
-+-----------------------------------------------
-+
-+The lookup of a PCS device follows the common producer/consumer implementation
-+used by similar subsystems with a ``#pcs-cells`` on the producer and a
-+``pcs-handle`` property on the consumer::
-+
-+    pcs: pcs {
-+        // ...
-+        #pcs-cells = <0>;
-+    };
-+
-+    ethernet-controller {
-+        // ...
-+        pcs-handle = <&pcs>;
-+    };
-+
-+On :c:func:`phylink_create`, phylink will use the ``num_possible_pcs``
-+value and ``fill_available_pcs`` helper function in
-+:c:struct:`phylink_config` to compose the list of available PCS that can be
-+used for the phylink instance.
-+
-+Phylink will then internally handle the selection of the correct PCS for
-+the requested interface mode based on the interface modes configured in
-+``pcs_interfaces`` in :c:struct:`phylink_config` struct and
-+``supported_interfaces`` in :c:struct:`phylink_pcs` struct.
-+
-+A PCS is considered eligible when the requested interface mode is present
-+in both ``pcs_interfaces`` in :c:struct:`phylink_config` struct and
-+``supported_interfaces`` in :c:struct:`phylink_pcs` struct.
-+
-+``supported_interfaces`` describes all interface modes supported by the MAC,
-+whereas ``pcs_interfaces`` identifies the subset that require PCS selection.
-+
-+For the special implementation where the PCS is internal or part of the MAC
-+and a dedicated driver is not needed, it's possible to leave the implementation
-+of the PCS to the MAC driver and just implement the ``num_possible_pcs``
-+value and ``fill_available_pcs`` helper  function in
-+:c:struct:`phylink_config` referencing the local :c:struct:`phylink_pcs`
-+struct allocated from the MAC driver.
-+
-+Using PCS Devices
-+-----------------
-+
-+It's mandatory to either implement the ``mac_select_pcs`` callback
-+of :c:struct:`phylink_mac_ops` or ``num_possible_pcs`` and ``fill_available_pcs``
-+of :c:struct:`phylink_config` to use a PCS for a MAC.
-+
-+The fwnode implementation exposes simple helpers to parse the PCS from
-+the fwnode :c:func:`fwnode_phylink_pcs_count` and
-+:c:func:`fwnode_phylink_pcs_parse`. The :c:func:`fwnode_phylink_pcs_count` helper
-+takes the fwnode where the ``pcs-handle`` should be parsed and return the
-+number of PCS entries described in the fwnode.
-+The :c:func:`fwnode_phylink_pcs_parse` helper takes three arguments,
-+the fwnode where the ``pcs-handle`` should be parsed, an allocated array
-+of :c:struct:`phylink_pcs` pointer where to put the parsed PCS from the fwnode
-+and the maximum number of PCS to parse.
-+Contrary to :c:func:`fwnode_phylink_pcs_count`, :c:func:`fwnode_phylink_pcs_parse`
-+helper fills the allocated array with ONLY the available PCS and return the
-+number of available PCS found. PCS that returns -ENODEV will be skipped and
-+won't be inserted in the allocated array.
-+
-+A phylink instance may use multiple PCS devices. The maximum number is reported
-+through ``num_possible_pcs``.
-+
-+It's mandatory to specify for what interface a PCS is needed. This can be done
-+by filling the ``pcs_interfaces`` in :c:struct:`phylink_config` struct.
-+If the requested interface mode is not present in this bitmask, phylink does
-+not search for a PCS for  that specific mode. (example MAC doesn't need a PCS
-+for SGMII but require one for USXGMII)
-+
-+With the use of the :c:func:`fwnode_phylink_pcs_parse` a common implementation
-+is the following::
-+
-+   static int mac_fill_available_pcs(struct phylink_config *config,
-+   				                      struct phylink_pcs **available_pcs,
-+					                      unsigned int num_possible_pcs)
-+   {
-+   	struct device *dev = config->dev;
-+
-+   	return fwnode_phylink_pcs_parse(dev_fwnode(dev), available_pcs,
-+						                    num_possible_pcs);
-+   }
-+
-+   static int mac_setup_phylink(struct net_device *netdev)
-+   {
-+      struct phylink_config *config;
-+
-+      // ...
-+
-+      config->dev = &netdev->dev;
-+
-+      // ...
-+
-+      // Parse possible PCS and fill num_possible_pcs.
-+      config->num_possible_pcs = fwnode_phylink_pcs_count(dev_fwnode(&netdev->dev));
-+      config->fill_available_pcs = mac_fill_available_pcs;
-+
-+      __set_bit(PHY_INTERFACE_MODE_INTERNAL, config->supported_interfaces);
-+      __set_bit(PHY_INTERFACE_MODE_SGMII, config->supported_interfaces);
-+      __set_bit(PHY_INTERFACE_MODE_1000BASEX, config->supported_interfaces);
-+      __set_bit(PHY_INTERFACE_MODE_USXGMII, config->supported_interfaces);
-+
-+      // PCS required only for USXGMII
-+      __set_bit(PHY_INTERFACE_MODE_USXGMII, config->pcs_interfaces);
-+
-+      phylink = phylink_create(config, //...
-+
-+It's worth to mention that it's phylink code that takes care of allocating
-+the array of :c:struct:`phylink_pcs` pointer for ``fill_available_pcs``
-+callback based on the value set in ``num_possible_pcs`` for
-+:c:struct:`phylink_config` struct.
-+
-+The ``fill_available_pcs`` callback must not write more than
-+``num_possible_pcs`` entries. The third argument may be used to validate
-+that there is enough space to fill all the available PCS in the passed array
-+of :c:struct:`phylink_pcs` pointer.
-+
-+The ``fill_available_pcs`` callback is called only on :c:func:`phylink_create`
-+and is used only to compose the initial available PCS list. Ownership of PCS
-+is held by phylink and :c:func:`phylink_release_pcs` should be used to release
-+them.
-+
-+Writing PCS Drivers
-+-------------------
-+
-+To write a PCS driver, first implement :c:struct:`phylink_pcs_ops`. Then,
-+register your PCS in your probe function using :c:func:`fwnode_pcs_add_provider`.
-+The :c:func:`fwnode_pcs_add_provider` takes three arguments, the fwnode where
-+the PCS provider should be registered to, a get function to return the requested
-+PCS based on ``#pcs-cells`` and a pointer to reference private data for the get
-+function.
-+
-+The PCS will then be registered to a global list of PCS provider that the
-+PCS fwnode implementation will use to parse it.
-+
-+For the simple case where the PCS driver expose a single PCS,
-+:c:func:`fwnode_pcs_simple_get` can be used as the get function.
-+
-+You must call :c:func:`fwnode_pcs_del_provider` from your remove function and
-+release the PCS from any phylink instance under RTNL lock with
-+:c:func:`phylink_release_pcs`::
-+
-+   fwnode_pcs_del_provider(dev_fwnode(&pdev->dev));
-+
-+	rtnl_lock();
-+
-+	for (i = 0; i < data->num_port; i++) {
-+		struct pcs_port *port = &priv->ports[i];
-+
-+		phylink_release_pcs(&port->pcs);
+diff --git a/drivers/net/ethernet/airoha/Kconfig b/drivers/net/ethernet/airoha/Kconfig
+index 1f6640a15fc9..789906516bf8 100644
+--- a/drivers/net/ethernet/airoha/Kconfig
++++ b/drivers/net/ethernet/airoha/Kconfig
+@@ -20,6 +20,7 @@ config NET_AIROHA
+ 	depends on NET_DSA || !NET_DSA
+ 	select NET_AIROHA_NPU
+ 	select PAGE_POOL
++	select PHYLINK
+ 	help
+ 	  This driver supports the gigabit ethernet MACs in the
+ 	  Airoha SoC family.
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+index 59001fd4b6f7..ed1ac032f337 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.c
++++ b/drivers/net/ethernet/airoha/airoha_eth.c
+@@ -8,6 +8,7 @@
+ #include <linux/of_reserved_mem.h>
+ #include <linux/platform_device.h>
+ #include <linux/tcp.h>
++#include <linux/pcs/pcs.h>
+ #include <linux/u64_stats_sync.h>
+ #include <net/dst_metadata.h>
+ #include <net/page_pool/helpers.h>
+@@ -1837,7 +1838,7 @@ static void airoha_update_hw_stats(struct airoha_gdm_dev *dev)
+ 	struct airoha_gdm_port *port = dev->port;
+ 	int i;
+ 
+-	spin_lock(&port->stats_lock);
++	spin_lock(&port->lock);
+ 
+ 	for (i = 0; i < ARRAY_SIZE(port->devs); i++) {
+ 		if (port->devs[i])
+@@ -1848,7 +1849,7 @@ static void airoha_update_hw_stats(struct airoha_gdm_dev *dev)
+ 	airoha_fe_set(dev->eth, REG_FE_GDM_MIB_CLEAR(port->id),
+ 		      FE_GDM_MIB_RX_CLEAR_MASK | FE_GDM_MIB_TX_CLEAR_MASK);
+ 
+-	spin_unlock(&port->stats_lock);
++	spin_unlock(&port->lock);
+ }
+ 
+ static void airoha_dev_set_xmit_frame_size(struct net_device *netdev)
+@@ -1870,6 +1871,14 @@ static int airoha_dev_open(struct net_device *netdev)
+ 	u32 pse_port = FE_PSE_PORT_PPE1;
+ 	int err;
+ 
++	err = phylink_of_phy_connect(dev->phylink, netdev->dev.of_node, 0);
++	if (err) {
++		netdev_err(netdev, "could not attach PHY: %d\n", err);
++		return err;
 +	}
 +
-+	rtnl_unlock();
++	phylink_start(dev->phylink);
 +
-+Late PCS registration handling
-+------------------------------
+ 	netif_tx_start_all_queues(netdev);
+ 	err = airoha_set_vip_for_gdm_port(dev, true);
+ 	if (err)
+@@ -1909,6 +1918,10 @@ static int airoha_dev_stop(struct net_device *netdev)
+ 		airoha_set_gdm_port_fwd_cfg(qdma->eth,
+ 					    REG_GDM_FWD_CFG(port->id),
+ 					    FE_PSE_PORT_DROP);
 +
-+It's possible that a PCS becomes available after the MAC finished probing.
-+Contrary to the usual producer/consumer implementation, when a PCS is not
-+registered and can't be found, the fwnode parser helper returns ``-ENODEV``
-+instead of ``-EPROBE_DEFER``.
++	phylink_stop(dev->phylink);
++	phylink_disconnect_phy(dev->phylink);
 +
-+This is to prevent race condition with particular devices that register
-+MAC and PCS with USB or PCIe and require the MAC to be registered before
-+the PCS.
+ 	return 0;
+ }
+ 
+@@ -2389,6 +2402,24 @@ airoha_ethtool_get_rmon_stats(struct net_device *netdev,
+ 	} while (u64_stats_fetch_retry(&dev->stats.syncp, start));
+ }
+ 
++static int
++airoha_ethtool_get_link_ksettings(struct net_device *netdev,
++				  struct ethtool_link_ksettings *cmd)
++{
++	struct airoha_gdm_dev *dev = netdev_priv(netdev);
 +
-+The phylink logic correctly handle this special case and keep the phylink
-+instance in a fail condition.
++	return phylink_ethtool_ksettings_get(dev->phylink, cmd);
++}
 +
-+The PCS fwnode implementation provides a notifier to which each phylink
-+instance with a non-empty ``pcs_interfaces`` in :c:type:`phylink_config`
-+registers. When a new PCS provider is registered, the notifier is called
-+triggering the :c:func:`pcs_provider_notify` function.
++static int
++airoha_ethtool_set_link_ksettings(struct net_device *netdev,
++				  const struct ethtool_link_ksettings *cmd)
++{
++	struct airoha_gdm_dev *dev = netdev_priv(netdev);
 +
-+Function :c:func:`pcs_provider_notify` will check if the just added PCS
-+should be used by the phylink instance. If it should be used then,
-+it's added to the internal list of available PCS and a phylink major
-+config is forced.
++	return phylink_ethtool_ksettings_set(dev->phylink, cmd);
++}
 +
-+If a phylink instance was in a failure state, with the just added PCS
-+now part of the available PCS internal phylink list, provided all other
-+conditions are satisfied, the configuration is retried and the failure
-+condition is cleared.
+ static int airoha_qdma_set_chan_tx_sched(struct net_device *netdev,
+ 					 int channel, enum tx_sched_mode mode,
+ 					 const u16 *weights, u8 n_weights)
+@@ -3120,7 +3151,8 @@ static const struct ethtool_ops airoha_ethtool_ops = {
+ 	.get_drvinfo		= airoha_ethtool_get_drvinfo,
+ 	.get_eth_mac_stats      = airoha_ethtool_get_mac_stats,
+ 	.get_rmon_stats		= airoha_ethtool_get_rmon_stats,
+-	.get_link_ksettings	= phy_ethtool_get_link_ksettings,
++	.get_link_ksettings	= airoha_ethtool_get_link_ksettings,
++	.set_link_ksettings	= airoha_ethtool_set_link_ksettings,
+ 	.get_link		= ethtool_op_get_link,
+ };
+ 
+@@ -3176,6 +3208,155 @@ bool airoha_is_valid_gdm_dev(struct airoha_eth *eth,
+ 	return false;
+ }
+ 
++/* Nothing to do in MAC, everything is handled in PCS */
++static void airoha_mac_config(struct phylink_config *config, unsigned int mode,
++			      const struct phylink_link_state *state)
++{
++}
 +
-+API Reference
-+-------------
++static void airoha_mac_link_up(struct phylink_config *config, struct phy_device *phy,
++			       unsigned int mode, phy_interface_t interface,
++			       int speed, int duplex, bool tx_pause, bool rx_pause)
++{
++	struct airoha_gdm_dev *dev = container_of(config, struct airoha_gdm_dev,
++						  phylink_config);
++	struct airoha_gdm_port *port = dev->port;
++	struct airoha_eth *eth = dev->eth;
++	u32 frag_size_tx, frag_size_rx;
++	u32 mask, val;
 +
-+.. kernel-doc:: include/linux/phylink.h
-+   :identifiers: phylink_pcs
++	/* TX/RX frag is configured only for GDM4 */
++	if (port->id != AIROHA_GDM4_IDX)
++		return;
 +
-+.. kernel-doc:: include/linux/pcs/pcs.h
-+   :internal:
++	switch (speed) {
++	case SPEED_10000:
++	case SPEED_5000:
++		frag_size_tx = 8;
++		frag_size_rx = 8;
++		break;
++	case SPEED_2500:
++		frag_size_tx = 2;
++		frag_size_rx = 1;
++		break;
++	default:
++		frag_size_tx = 1;
++		frag_size_rx = 0;
++	}
 +
-+.. kernel-doc:: include/linux/pcs/pcs-provider.h
-+   :internal:
++	spin_lock(&port->lock);
++
++	/* Configure TX/RX frag based on speed */
++	if (dev->nbq == 1) {
++		mask = GDM4_SGMII1_TX_FRAG_SIZE_MASK;
++		val = FIELD_PREP(GDM4_SGMII1_TX_FRAG_SIZE_MASK,
++				 frag_size_tx);
++	}  else {
++		mask = GDM4_SGMII0_TX_FRAG_SIZE_MASK;
++		val = FIELD_PREP(GDM4_SGMII0_TX_FRAG_SIZE_MASK,
++				 frag_size_tx);
++	}
++	airoha_fe_rmw(eth, REG_FE_GDM4_TMBI_FRAG, mask, val);
++
++	if (dev->nbq == 1) {
++		mask = GDM4_SGMII1_RX_FRAG_SIZE_MASK;
++		val = FIELD_PREP(GDM4_SGMII1_RX_FRAG_SIZE_MASK,
++				 frag_size_rx);
++	} else {
++		mask = GDM4_SGMII0_RX_FRAG_SIZE_MASK;
++		val = FIELD_PREP(GDM4_SGMII0_RX_FRAG_SIZE_MASK,
++				 frag_size_rx);
++	}
++	airoha_fe_rmw(eth, REG_FE_GDM4_RMBI_FRAG, mask, val);
++
++	spin_unlock(&port->lock);
++}
++
++/* Nothing to do in MAC, everything is handled in PCS */
++static void airoha_mac_link_down(struct phylink_config *config, unsigned int mode,
++				 phy_interface_t interface)
++{
++}
++
++static const struct phylink_mac_ops airoha_phylink_ops = {
++	.mac_config = airoha_mac_config,
++	.mac_link_up = airoha_mac_link_up,
++	.mac_link_down = airoha_mac_link_down,
++};
++
++static int airoha_fill_available_pcs(struct phylink_config *config,
++				     struct phylink_pcs **available_pcs,
++				     unsigned int num_possible_pcs)
++{
++	struct device *dev = config->dev;
++
++	return fwnode_phylink_pcs_parse(dev_fwnode(dev), available_pcs,
++					num_possible_pcs);
++}
++
++static int airoha_setup_phylink(struct net_device *netdev)
++{
++	struct airoha_gdm_dev *dev = netdev_priv(netdev);
++	struct device_node *np = netdev->dev.of_node;
++	struct airoha_gdm_port *port = dev->port;
++	struct phylink_config *config;
++	phy_interface_t phy_mode;
++	struct phylink *phylink;
++	int err;
++
++	err = of_get_phy_mode(np, &phy_mode);
++	if (err) {
++		dev_err(&netdev->dev, "incorrect phy-mode\n");
++		return err;
++	}
++
++	config = &dev->phylink_config;
++	config->dev = &netdev->dev;
++	config->type = PHYLINK_NETDEV;
++
++	/*
++	 * GDM1 only supports internal for Embedded Switch
++	 * and doesn't require a PCS.
++	 */
++	if (port->id == AIROHA_GDM1_IDX) {
++		config->mac_capabilities = MAC_ASYM_PAUSE | MAC_SYM_PAUSE |
++					   MAC_10000FD;
++
++		__set_bit(PHY_INTERFACE_MODE_INTERNAL,
++			  config->supported_interfaces);
++	} else {
++		config->mac_capabilities = MAC_ASYM_PAUSE | MAC_SYM_PAUSE |
++					   MAC_10 | MAC_100 | MAC_1000 |
++					   MAC_2500FD | MAC_5000FD | MAC_10000FD;
++
++		config->num_possible_pcs = fwnode_phylink_pcs_count(dev_fwnode(config->dev));
++		config->fill_available_pcs = airoha_fill_available_pcs;
++
++		__set_bit(PHY_INTERFACE_MODE_SGMII,
++			  config->supported_interfaces);
++		__set_bit(PHY_INTERFACE_MODE_1000BASEX,
++			  config->supported_interfaces);
++		__set_bit(PHY_INTERFACE_MODE_2500BASEX,
++			  config->supported_interfaces);
++		__set_bit(PHY_INTERFACE_MODE_10GBASER,
++			  config->supported_interfaces);
++		__set_bit(PHY_INTERFACE_MODE_USXGMII,
++			  config->supported_interfaces);
++
++		phy_interface_copy(config->pcs_interfaces,
++				   config->supported_interfaces);
++	}
++
++	phylink = phylink_create(config, of_fwnode_handle(np),
++				 phy_mode, &airoha_phylink_ops);
++	if (IS_ERR(phylink))
++		return PTR_ERR(phylink);
++
++	dev->phylink = phylink;
++
++	return 0;
++}
++
+ static int airoha_alloc_gdm_device(struct airoha_eth *eth,
+ 				   struct airoha_gdm_port *port,
+ 				   int nbq, struct device_node *np)
+@@ -3239,7 +3420,7 @@ static int airoha_alloc_gdm_device(struct airoha_eth *eth,
+ 	dev->nbq = nbq;
+ 	port->devs[index] = dev;
+ 
+-	return 0;
++	return airoha_setup_phylink(netdev);
+ }
+ 
+ static int airoha_alloc_gdm_port(struct airoha_eth *eth,
+@@ -3274,7 +3455,7 @@ static int airoha_alloc_gdm_port(struct airoha_eth *eth,
+ 		return -ENOMEM;
+ 
+ 	port->id = id;
+-	spin_lock_init(&port->stats_lock);
++	spin_lock_init(&port->lock);
+ 	eth->ports[p] = port;
+ 
+ 	err = airoha_metadata_dst_alloc(port);
+@@ -3471,6 +3652,8 @@ static int airoha_probe(struct platform_device *pdev)
+ 			netdev = netdev_from_priv(dev);
+ 			if (netdev->reg_state == NETREG_REGISTERED)
+ 				unregister_netdev(netdev);
++			if (dev->phylink)
++				phylink_destroy(dev->phylink);
+ 			of_node_put(netdev->dev.of_node);
+ 		}
+ 		airoha_metadata_dst_free(port);
+@@ -3509,6 +3692,7 @@ static void airoha_remove(struct platform_device *pdev)
+ 
+ 			netdev = netdev_from_priv(dev);
+ 			unregister_netdev(netdev);
++			phylink_destroy(dev->phylink);
+ 			of_node_put(netdev->dev.of_node);
+ 		}
+ 		airoha_metadata_dst_free(port);
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
+index f6d01a8e8da1..b49fc5304b3a 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.h
++++ b/drivers/net/ethernet/airoha/airoha_eth.h
+@@ -561,6 +561,9 @@ struct airoha_gdm_dev {
+ 	int nbq;
+ 
+ 	struct airoha_hw_stats stats;
++
++	struct phylink *phylink;
++	struct phylink_config phylink_config;
+ };
+ 
+ struct airoha_gdm_port {
+@@ -568,8 +571,8 @@ struct airoha_gdm_port {
+ 	int id;
+ 	int users;
+ 
+-	/* protect concurrent hw_stats accesses */
+-	spinlock_t stats_lock;
++	/* protect concurrent hw_stats and frag register accesses */
++	spinlock_t lock;
+ 
+ 	struct metadata_dst *dsa_meta[AIROHA_MAX_DSA_PORTS];
+ };
+diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethernet/airoha/airoha_regs.h
+index 6fed63d013b4..8df02f51211c 100644
+--- a/drivers/net/ethernet/airoha/airoha_regs.h
++++ b/drivers/net/ethernet/airoha/airoha_regs.h
+@@ -357,6 +357,18 @@
+ #define IP_FRAGMENT_PORT_MASK		GENMASK(8, 5)
+ #define IP_FRAGMENT_NBQ_MASK		GENMASK(4, 0)
+ 
++#define REG_FE_GDM4_TMBI_FRAG		0x2028
++#define GDM4_SGMII1_TX_WEIGHT_MASK	GENMASK(31, 26)
++#define GDM4_SGMII1_TX_FRAG_SIZE_MASK	GENMASK(25, 16)
++#define GDM4_SGMII0_TX_WEIGHT_MASK	GENMASK(15, 10)
++#define GDM4_SGMII0_TX_FRAG_SIZE_MASK	GENMASK(9, 0)
++
++#define REG_FE_GDM4_RMBI_FRAG		0x202c
++#define GDM4_SGMII1_RX_WEIGHT_MASK	GENMASK(31, 26)
++#define GDM4_SGMII1_RX_FRAG_SIZE_MASK	GENMASK(25, 16)
++#define GDM4_SGMII0_RX_WEIGHT_MASK	GENMASK(15, 10)
++#define GDM4_SGMII0_RX_FRAG_SIZE_MASK	GENMASK(9, 0)
++
+ #define REG_MC_VLAN_EN			0x2100
+ #define MC_VLAN_EN_MASK			BIT(0)
+ 
 -- 
 2.53.0
 
