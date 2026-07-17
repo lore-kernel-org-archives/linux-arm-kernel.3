@@ -4,65 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B9A5C44515
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 15:45:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E7ADC44515
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 15:45:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0n2i1s+LpYYAHFkfXFF3KqPIyqVKHyb3+vwAPSgI6EM=; b=IefxcSLr8VFHYYvA1jxmxTHO8R
-	UVAonB4TY2Uk7bCLr5ennJFvZnwFWZqNi17/muoBWj47fgQzk6ju10AgRTE8spSfGbFqHdPKLtL7X
-	RYYU38LtlPAU3WYqIW9X3lav4NofHfvpaLj0fFbrna0ebh/MgWeR8Sjt3YqFAqS6nqkarbU9gxFAt
-	zWQARgcBp0iFxOUzgRmylFqMMVV9Tt3qhugr3JZP5G3qPIwNkDI9GmNQCWOI+/m6CP7V7Erko4M/g
-	gdXqFrVakffDnkXTn0GSMVaxglmGhyIe/O6EN4cNQugDCVqvN5Tg3/lYmwzY8MzzB5IzsDYbrGuLb
-	S9gYtSbw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tk8lVGnRUzd3xxkm+i4v8VOVuBwgnyAk7LAw5MNlK7s=; b=htLCTWk8CLk9zeXCXZg/GYNIGL
+	cga1IcGQ3qpj+LdGAql9yRVdbeX++efVEmplc+7tD/KG7mAndhLxGdZF16AK8s2MnAA0kKGxVgqZt
+	RmeVLVh7fbcRGeiGResUr128oUKn195oEenh73nhRt0xlK9V1Zu3/bgGXA3oOI2xBLnVassl5KvoP
+	Rjtv7WjmmX4CUjedfvGMr2sACOYqrnIOBZHcJ2Ac/b3t1QcT9nP3ZcwYKnVJHY3PN1yBnZcEiVden
+	4aQ7OoDRVaXZ8tOofB1qdFULDUgsKLrdTwQWdLnMGQaakbB1NOAqZrf7IzfsKNIdoDo7mjuqLr04U
+	M1x/PhUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkkkE-00000002dya-2FN3;
-	Fri, 17 Jul 2026 15:44:58 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkkkB-00000002dxY-1Akl
+	id 1wkkka-00000002e4P-2lKo;
+	Fri, 17 Jul 2026 15:45:20 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkkkX-00000002e2c-17DG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 15:44:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D6FC01477;
-	Fri, 17 Jul 2026 08:44:49 -0700 (PDT)
-Received: from [10.57.84.220] (unknown [10.57.84.220])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CB6F63F905;
-	Fri, 17 Jul 2026 08:44:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784303094; bh=1xqYa/5eSWO7i3QP0dwUy73LBcyWjTX2AK0R00/T4tk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jliRQOkE9YYIg7mEmb5ahS59eMTSsRkz6QjEO32DvIEzQMBMVYPxak1GlBzdkb8qR
-	 eywBRrswngVRf/LANCYJsWVyMvysXWsNScQ681mRFptJT62NK8A+xG7j1er6nSWfFw
-	 h+uqLfwxw0zrCyFg+pZRyxUTmZ75YoAF5xFwUQXc=
-Message-ID: <5f82ee6b-d106-4ae1-9b2c-5a817e3e43b9@arm.com>
-Date: Fri, 17 Jul 2026 16:44:49 +0100
+	Fri, 17 Jul 2026 15:45:18 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-47de008b020so1335665f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 08:45:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784303115; x=1784907915; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=tk8lVGnRUzd3xxkm+i4v8VOVuBwgnyAk7LAw5MNlK7s=;
+        b=HGBfFqtLqqt2OHhL6ZXxZYNOx6KQXHQrocn0qkVDQN1ABxF4us7/1RSGooG4suvq5I
+         tFGvtB0Q+lSPsTUirAkldD5ikYjIAoCZ6e/hxeyVG7Qb/UPEbqqxWLs8gQ1j8r01iBJ8
+         mWn+P5QM1j/2hFdRyw1fn7pEuoboO6vi3glN3yPiuSw/GoFGiq4nH71/VO7BdqETOx8w
+         TY6vChlO1BURunPpgC1q8FzAUCUk91+2vGkkuO48ToaFrIgOArF4KM8wYMDgMEaxVms9
+         bSMOUPD7QEqVi+1c19+lcrUbOWeC4QW3yFuqCu+LEfpFwTKgl5WODr9GgGjVfYKawo0o
+         FrWg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784303115; x=1784907915;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=tk8lVGnRUzd3xxkm+i4v8VOVuBwgnyAk7LAw5MNlK7s=;
+        b=eJ3C3ZedB+L5QkbkluBPE4i1mBcQcyEazaZBn/msjLpFnre7lMgCx39bSlCm21BYLy
+         620lAL3+b7UfNPFzkFviGFngoTsnNIE0srtS4qoK3gFY6YW89/vc+ZbNn3OXgbc54IPT
+         ivYNs2abXvyViG9l51I6PMm53p7i2RehJxxCtgHQHR2UqlmYFcK6U5SrRq78p5Effdxc
+         W/wUbsEoOx2uoUiIbx05VqwDzRJsx6QI58mSxjtaPwmbQAnJkZd/pJPtSIcz68j3K2ba
+         sRfL6PqpBBNGY11wLscDaUrbnQ4WGI4JDr8QEJ265vs/eso+v2/Yp3D/eMOk9Tdk8FY+
+         6eQA==
+X-Forwarded-Encrypted: i=1; AHgh+Rq4QNzKJ9Ani13PIeg/iRYawMyy90cWzh2ychPcZCikg1tciOPBaEa9JdzkxP139DJNmzitYWCSAH3NCHwGEiDR@lists.infradead.org
+X-Gm-Message-State: AOJu0YyWkpzDKotOBzFw+BxVKs4WE3O0/nLNjKRKM+hHtu+uHKiU+DQg
+	mgYbBOgf4JXnmxoq5CpybIhuuU2eF+Ssaw+TNEThMd/LoCelRZjD87g=
+X-Gm-Gg: AfdE7clL9ouJcQ6uAB5WBiIIjyHkHUN+ONg+Z0CB8ZTjV97SIqVVZ6mIR8bj0k7VvYK
+	LmKq//PEhtK16DHLWFQ0KKlvu9CzFckeZcT9cvrvC640Z1NMkZg36aTJRVR4fA84vg40PkBfhZk
+	Uy4dULlAsMw4jnd8hg7hXgaKcQ9LQmArsjNnDZYA1eFnKjoaw0VxqgLByPPrRqN2viIdVwEWuKX
+	sELfCZxwfWFhbAtD/DVn5+dqmXLjNvXFYEDgAFNT1QYFajy+tqO6lG6+SsFdWeIG+9s3V5JU70N
+	J/Ev5v/i8HGP2xz+03NQZjjMdNXDrTvO3baOpchyqwZv9n0UO/p8Wo59BWyhy+93BbA1IT15ESC
+	R+cwBznhC6d86VEVIDTdEDseRdlOmftaaW2kZBavatWPKusXLU4yltVoNxtOPxxg9RUfeT9TgQ7
+	tobp/gcvkcn+yVTHukqFQvvh5k18m+vxbmSnMisN+qeOwXBFNVzWeFF0HBZLvvlBI=
+X-Received: by 2002:a05:6000:250e:b0:47f:4834:99cd with SMTP id ffacd0b85a97d-47f5a66292bmr10529100f8f.26.1784303115040;
+        Fri, 17 Jul 2026 08:45:15 -0700 (PDT)
+Received: from localhost.localdomain ([151.43.147.3])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f63e49500sm4629130f8f.2.2026.07.17.08.45.13
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Fri, 17 Jul 2026 08:45:14 -0700 (PDT)
+From: Francesco Saverio Pavone <pavone.lawyer@gmail.com>
+To: jonas@kwiboo.se,
+	detlev.casanova@collabora.com,
+	nicolas.dufresne@collabora.com,
+	hverkuil@kernel.org,
+	mchehab@kernel.org
+Cc: ezequiel@vanguardiasur.com.ar,
+	heiko@sntech.de,
+	linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v4] media: rkvdec: fix clk reference leak on unbind
+Date: Fri, 17 Jul 2026 17:45:05 +0200
+Message-ID: <20260717154505.83935-1-pavone.lawyer@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v1 1/8] misc/arm-cla: Add driver skeleton and
- documentation
-Content-Language: en-GB
-To: Arnd Bergmann <arnd@arndb.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Jean-Philippe Brucker <jpb@kernel.org>,
- Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org
-References: <20260717104759.123203-1-ryan.roberts@arm.com>
- <20260717104759.123203-2-ryan.roberts@arm.com>
- <1e561b1a-2c87-4a23-b4da-126b333de8ba@app.fastmail.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <1e561b1a-2c87-4a23-b4da-126b333de8ba@app.fastmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_084455_436478_D61256B9 
-X-CRM114-Status: GOOD (  54.23  )
+X-CRM114-CacheID: sfid-20260717_084517_347008_9C1A8356 
+X-CRM114-Status: GOOD (  27.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,209 +103,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd,
+From: Jonas Karlman <jonas@kwiboo.se>
 
-Thanks for all your fast feedback!...
+remove() calls pm_runtime_disable() before
+pm_runtime_dont_use_autosuspend(), so the second call can never suspend
+the device: it reaches rpm_idle(), which returns -EACCES once PM runtime
+is disabled. The probe error path has had the two the other way round
+since the driver was merged.
 
+This shows up when the device is unbound while the 100ms autosuspend
+window is still open, which is what an rmmod right after a decode does.
+device_release_driver() calls pm_runtime_put_sync() before .remove(),
+and rpm_idle() adds RPM_AUTO on its own, so that put only arms the
+autosuspend timer. pm_runtime_disable() then cancels the timer, and
+pm_runtime_reinit() relabels the device suspended without calling the
+driver back. The clk_bulk reference taken by rkvdec_runtime_resume() is
+never dropped, and a later probe does not reclaim it, so every such
+unbind leaks one enable count.
 
-On 17/07/2026 14:49, Arnd Bergmann wrote:
-> On Fri, Jul 17, 2026, at 12:47, Ryan Roberts wrote:
->> From: Jean-Philippe Brucker <jpb@kernel.org>
->>
->> Add the initial Kconfig and build-system plumbing for the Arm Core Local
->> Accelerator driver.
->>
->> Introduce the common driver header and register definitions used by
->> later CLA support. The definitions cover the CLA MMIO frame, launch
->> response and status fields, standard accelerator registers, launch
->> opcodes, error codes and memory translation context state.
->>
->> Add documentation describing the CLA programming model, its CPU-local
->> MMIO access rules, userspace assignment model, domain grouping and
->> expected boot state.
-> 
-> I have a few more questions here. Most of the description and
-> the design decisions make perfect sense to me, but there are
-> a few things I don't understand from your current document.
-> 
->> +The CLA supports up to 8 attached accelerators, which are accessed by
->> +programming the CLA's MMIO registers. Operations are launched to an 
->> accelerator
->> +and are polled for completion. CLA does not raise interrupts.
->> +
->> +            CPU                     CLA              Accel
->> +             |--- write DATA[7:0] -->|                 |
->> +             |--- write LAUNCH ----->|---- launch ---->|
->> +             |<--- poll LRESP -------|                 |
->> +             |                       |                 |
->> +             |<--- poll STATUS ------|<--- complete ---|
->> +
->> +Each operation can take a 512-bit payload in the DATA registers. After handling
->> +a LAUNCH write, CLA indicates the launch status in the LRESP register. A further
->> +operation can only be launched after LRESP indicates completion of the previous
->> +launch.
-> 
-> This sounds a lot like st64bv or st64bv0, passing an 8-word payload and returning
-> a single word per accelerator operation with shared addressing.
+Drop autosuspend first, so the callback still runs and releases the
+clocks.
 
-We're actually passing 9 words here; 8 DATA words plus the LAUNCH word. CLA
-supports only 64 bit aligned and sized accesses (other accesses are RAZ/WI) so
-they have to be written as 9x64bit stores. Then poll using 64bit loads.
+The PM calls also have to move ahead of rkvdec_v4l2_cleanup() rather
+than just swap with each other. rkvdec_runtime_suspend() looks its state
+up with dev_get_drvdata(), and v4l2_device_unregister() clears it:
+struct rkvdec_dev has v4l2_device as its first member, so
+&rkvdec->v4l2_dev and rkvdec are the same address and the check in
+v4l2_device_disconnect() matches. That is harmless today because
+pm_runtime_disable() suppresses the callback, but once the callback can
+run, a suspend after the V4L2 teardown dereferences NULL. Swapping only
+the two PM calls oopses on every unbind.
 
-> 
-> Why are there now two interfaces to do the same thing?
+Fixes: cd33c830448b ("media: rkvdec: Add the rkvdec driver")
+Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+[fsp: wrote the commit message; the diff is unchanged]
+Tested-by: Francesco Saverio Pavone <pavone.lawyer@gmail.com>
+Assisted-by: Claude:claude-opus-4-8
+Signed-off-by: Francesco Saverio Pavone <pavone.lawyer@gmail.com>
+---
+Changes in v4:
+ - No functional change. Resent as its own thread (no In-Reply-To on v2),
+   per Nicolas's note that a new version should be its own thread for
+   patchwork tracking. Same diff and same commit message as v3.
 
-Good question. This is how the HW operates.
+Changes in v3:
+ - Rewrote the commit message, and dropped the VP9 claim from v1 and v2.
+   Those said this fixed a VP9 inter-prediction bug on RK3588, green chroma
+   from the second ALTREF frame onward. The bug is real, but this is not
+   what fixes it, and I should have established that before sending v1.
 
-> 
-> Can a user process use st64bv to do the four steps in a
-> single instruction?
+   What happened: I took this patch out of chewitt's tree along with two
+   others and tested the three as a batch. The green is fixed by "media:
+   rkvdec: implement reset controls" from Alex Bee, which adds the
+   reset_control handling that recovers the VDPU381 after a transient error
+   (COLMV_REF_ERR_STA and friends) instead of leaving it dirty for the next
+   inter frame. Randy Li's PMU idle export goes with it. This patch was the
+   third one in that batch and got the credit.
 
-No, unfortunately not.
+   Retested this week on the same Rock 5B+ with an unpatched driver: a VP9
+   Profile 0 1080p clip with alt-ref frames decodes byte-identical to the
+   libvpx reference, across five rmmod/insmod cycles and after an unbind
+   inside the autosuspend window. The green does not come back, because the
+   reset_control work is in the tree I test on. Sorry for the review and the
+   testing you spent on that basis.
 
-> 
->> +Some operations continue to run asynchronously on the accelerator after launch
->> +completion. In this case progress is tracked by polling the STATUS register.
->> +When the CLA updates the STATUS register, it also raises an event which will
->> +wake an in-progress WFE (wait for event) instruction on the local CPU.
-> 
-> The asynchronous interface seems very confusing.
-> 
-> How are page faults from the SVA master resolved during an
-> asynchronous operation?
+ - Worth flagging separately: mainline rkvdec has no reset_control support
+   at all, so the VDPU381 is never recovered after a transient error. That
+   is a real gap, it is just not this patch. I can write it up properly if
+   that is useful.
 
-The STATUS register has a fault bit; the poller notices, reads fault info from
-accelerator registers and takes actions to resolve the fault (which in practice
-means access from user space on CPU and fault into the kernel to handle).
+ - The diff is unchanged from v1 and v2. It is Jonas's 2020 commit verbatim,
+   and his original one-line subject already described exactly what it does.
+   The wrong story was mine, not his.
 
-> 
-> Can a CPU start multiple asynchronous operations concurrently?
+ - The subject changed with the message: "media: rkvdec: fix PM runtime
+   teardown ordering in remove" in v1 and v2, "media: rkvdec: fix clk
+   reference leak on unbind" here, since that is what it actually fixes.
 
-Yes; STATUS indicates READY while it can accept more asynchronous operations
-("comamnds").
+ - What is left is measured. With a dev_info() at the top of
+   rkvdec_runtime_suspend(), autosuspend_delay raised to 60s to take the
+   timer out of the race, and unbind driven through sysfs:
+       unpatched: 0 suspend callbacks, aclk_rkvdec0 enable_count 1 -> 2
+       patched:   1 suspend callback,  enable_count 1 -> 1
+   The leak survives rmmod and accumulates one per unbind. With
+   autosuspend_delay=0 both orders suspend once, which is the control: the
+   difference only exists inside the window.
 
-> 
-> Do these continue to run if the starting process is scheduled out
-> and another process also tries to use CLA?
+ - Fixes: was wrong in v1 and v2. ff8c5622f9f7 has the two pm_runtime calls
+   as context and only added iommu_domain_free(). cd33c830448b added remove()
+   with the reversed order, and the probe error path with the right one, so
+   the tag points there now.
 
-Yes; the driver manages assignment of a CLA to a process context completely
-separately from the thread scheduler's decisions about which threads run on
-which CPUs and when. If another process is scheduled onto the CPU and it
-attempts to access it's VA for the CLA, it will fault into the driver's handler
-and be put to sleep until the driver decides to reassign the CLA.
+ - Dropped Cc: stable. A clk reference leaked on unbind is not backport
+   material, and the tag was only there for the VP9 claim.
 
-> 
->> +Faults during address translation are reported by the accelerator in its
->> +registers and in STATUS. While polling for work completion, software fixes up
->> +the faults and notifies the accelerator with RESOLVE operations.
-> 
-> I would like to understand the faulting part better. Which instruction
-> specifically causes the fault, is that the poll STATUS read?
+ - Dropped your Reviewed-by and Tested-by from v2: they were given for a fix
+   to something else.
 
-I'm not sure what you mean by "Which instruction specifically causes the fault".
-A fault occurs within the accelerator if it tries to access a virtual address
-that is not mapped by the page table or if the permissions of the mapping are
-not sufficient, etc... The fact that the accelerator has faulted is reported to
-the SW that is polling the accelerator's STATUS register within user space. That
-SW is expected to trigger fault handling by the usual kernel mechanisms by
-accessing the VA. Then it issues a RESOLVE operation to tell the accelerator it
-can continue.
+ - Not included, happy to send as follow-ups: clearing empty_domain after
+   iommu_domain_free(), and hoisting the unregisters to the top of remove()
+   as you suggested on v2.
 
-> 
->> +Inter-Accelerator Communication
->> +-------------------------------
->> +
->> +On some platforms, multiple accelerators, each attached to a separate CLA within
->> +a cluster, are also directly connected to each other via a shared bus to
->> +accelerate cooperation between accelerators. The accelerators sharing a bus
->> +cannot be isolated from each other. When collaborative operations are launched
->> +on each of the participating accelerators, they synchronize over the bus,
->> +stalling until all are ready.
-> 
-> Could you give an example what this model might be good for?
+Tested on a Radxa Rock 5B+ (RK3588) on a 7.1 tree where the six calls in
+rkvdec_v4l2_cleanup() are open-coded; the executed sequence is the one this
+patch produces. VP9 decode stays byte-identical to libvpx, and five
+rmmod/insmod cycles leave dmesg clean.
 
-I can't currently share that information. I expect you might be able to have a
-good guess though :)
+Link to v1: https://lore.kernel.org/all/20260518105413.42147-1-pavone.lawyer@gmail.com/
+Link to v2: https://lore.kernel.org/all/20260518145414.64514-1-pavone.lawyer@gmail.com/
+Link to v3: https://lore.kernel.org/all/20260717150440.77079-1-pavone.lawyer@gmail.com/
+ drivers/media/platform/rockchip/rkvdec/rkvdec.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-> 
-> Does this mean a user may have to start one operation on each CPU
-> from a thread of the same process in order to get a result efficiently
-> across a shared accelerator?
-
-Yes, correct. User space threads don't need to be precisesly synchronized
-because multiple operations can be queued.
-
-> 
-> I assume this will become clearer once you can show an example userspace
-> application that uses this type of accelerator.
-
-Yes indeed. As I said, Arm plans to open source a user space driver, but there
-is no commitment on dates yet.
-
-> 
->> +Intended SW Usage Model
->> +=======================
->> +
->> +CLA is designed for its PL0 MMIO frame to be mapped into user space  and for user
->> +space to directly launch accelerator operations and poll for completion. It has
->> +been observed that for some use cases, the operation execution time is small and
->> +a trip through the kernel would consume a significant amount of the CPU budget
->> +for preparing the next operation leading to a significant reduction in bandwidth
->> +through the accelerator.
-> 
-> Do you have any plans for in-kernel usage of the accelerators?
-> I would assume that for things like cryptographic features, these
-> make sense to be exposed to the kernel itself.
-
-As per cover letter: "the initial (and currently only) target is a compute
-engine". There are not any plans for crypto accelerators (or other things like
-that). So haven't been considering this as something the kernel would want to
-use directly.
-
-(Sorry I'm being vague - I'm sure you appreciate I'm limited on what I can say
-around the use cases for now).
-
-> 
->> +User space software is expected to create a thread to drive each CLA it is
->> +using, and for each thread to be pinned to the CLA's local CPU.
-> 
-> What happens if multiple processes have the same chardev open and
-> each mmap() that, e.g. after a fork()? Does each process see its
-> own virtual instance of the accelerator and interact with it through
-> the same physical MMIO register range but its own process address space,
-> or do you have to rely on the registers being mapped only into a
-> single mm_struct to prevent a process from messing with another process
-> data?
-
-The driver maintains a cla_ctx for each {file description, mm_struct} pair. So
-in this case, even though the file description is shared between the parent and
-child processes, they still have distinct mm_structs so still have separate
-contexts allowing the driver to virtualize access correctly.
-
-> 
->> +Saving and restoring the internal state of the accelerator is an optional
->> +feature. Current platforms only support it when the accelerator is idle, so
->> +preempting an accelerator causes work cancellation. Software must carefully
->> +consider how to balance forward-progress guarantees with preemption 
->> latency.
-> 
-> I'm not sure I understand this point. Do you mean any async operation
-> that was started on an accelerator may fail due to preemption, so user
-> space must be able to restart it?
-
-Yes, at it's simplest. But it gets a bit complicated if you introduce the idea
-of a priority to each cla_ctx. If a high priority context needs the HW
-periodically and preempts a low priority context, if we just abort the low
-priority work on preemption, it may never make forward progress. We've been
-considering a grace period where the kernel will wait for the accelerators to
-complete their current work (up to a certain timeout) before reassigning them to
-the incomming context. But none of that is part of this RFC - I think that's
-discussion that can come later once we have the basic shape of everything agreed.
-
-Thanks,
-Ryan
-
-> 
->      Arnd
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+index 1d1e9bfef8e9..0ec3fca9cccc 100644
+--- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+@@ -1869,12 +1869,13 @@ static void rkvdec_remove(struct platform_device *pdev)
+ 
+ 	cancel_delayed_work_sync(&rkvdec->watchdog_work);
+ 
+-	rkvdec_v4l2_cleanup(rkvdec);
+-	pm_runtime_disable(&pdev->dev);
+ 	pm_runtime_dont_use_autosuspend(&pdev->dev);
+ 
+ 	if (rkvdec->empty_domain)
+ 		iommu_domain_free(rkvdec->empty_domain);
++
++	pm_runtime_disable(&pdev->dev);
++	rkvdec_v4l2_cleanup(rkvdec);
+ }
+ 
+ #ifdef CONFIG_PM
+-- 
+2.54.0
 
 
