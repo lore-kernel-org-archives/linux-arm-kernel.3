@@ -4,64 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B56EC44520
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 12:33:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C45A9C4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 12:35:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ymvy/Qu6IufbtJ2OYFKCXViCLO4cAmRswHnBu7Hf5lQ=; b=3nIhEqKaUy/rp4wLj/y6af+npd
-	SFuWu+1OKSuKNm+P6oA+cPXILR2iimSf0rdT+05uUR9TeD6VkGRSQiWyCf13IoOyPkzB9b4UnQH29
-	zXVZ/p94APYAGXu2Yw3QTYvxATgcm8HcPZNyoftDYoJG4pJe5Y/0A/e6pG7t8nEE7sh3IBUZ7OPmU
-	o4MxKlP7XxHWpZKGXH0ep2C8OhCd4GSC5eniGPFKx6WeJ3+wI2h3IC0H/v8n0cfdv8hQKlRfqbAQb
-	24ti64fGyniyrOcRROj2+W9z7e64NtoG0UxQbSISSJ4363psgst+sKL9W0mDKPt2JbCsv0Cvdy5AV
-	jtbuV5hg==;
+	bh=eQBV55pjnPQzDP+7XLl0sT2CKxbeF7SyKYEGPiZVinQ=; b=F1uDziyYBW/oSgALjZst0ByHw2
+	GKUjoFEZz6YU71ST2wn4/rwMXIOPGe5rUECVmCWCFFJErsO/ZXEtbrsyZ6+YSAfteDyVF0vFOQ2z/
+	FaLwH06kAQX5qCveobAyrMW/RL7exfKkjfC72/w2VBS1r2VmsBSsE6kYF8370KIkzbT+0ahESzUBC
+	aIakPHD20xWT4kMN6mBTqxbjktc7hAXLuLgTpGZvOZe6roan1HsfZX0xJ57M9c/6rbRVR66VLHdEN
+	/epNDtKdC6xCaqu5lB5NIcDzBOZrTfJ2iJGS6roXNWxVdTSgcubS75pQvUbilyALEBNmPjry+iZ7R
+	fukhJq/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkhkh-00000002IQR-2aP7;
-	Fri, 17 Jul 2026 12:33:15 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkhkf-00000002IPy-0FI7
+	id 1wkhn3-00000002IdI-0B8b;
+	Fri, 17 Jul 2026 12:35:41 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkhn2-00000002IdB-2Edk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 12:33:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A85021476;
-	Fri, 17 Jul 2026 05:33:07 -0700 (PDT)
-Received: from [10.57.84.220] (unknown [10.57.84.220])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 467C23F7B4;
-	Fri, 17 Jul 2026 05:33:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784291591; bh=RDpVVg8kFR8tLzOuRdIhEL58jET3NKRROOt/Z0gxSao=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hMWp8GwJzRF5UZIO7llWHBXTN/HLu31bPfKJMWbDqFPVX/ABCDP7Uv8E3nfr/pgz6
-	 mz93o+2LPGP9NgzF7GOkgmnMKpHPVuOlv83VrSes5m+va/CFG+etb0rtKfkR6zbW0B
-	 a1EOO8mqxjWKsUm2Nf3s27A0ZKvy/CA6wT5MW1T8=
-Message-ID: <a39b2bef-8fb5-444d-8ab8-3882224a3311@arm.com>
-Date: Fri, 17 Jul 2026 13:33:07 +0100
+	Fri, 17 Jul 2026 12:35:40 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id E2816418EB;
+	Fri, 17 Jul 2026 12:35:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF6C91F000E9;
+	Fri, 17 Jul 2026 12:35:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784291739;
+	bh=eQBV55pjnPQzDP+7XLl0sT2CKxbeF7SyKYEGPiZVinQ=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=NzxcOn7E2r9Xy1DDG2MutRPBR1JRlm+9Wd6wqR0bviRX5uhKgenCqXRxOyllvSOBH
+	 4D4hbAJqEGGRY2n/W9gC6YKLzNGswuU12ocXS4xynXmjdGikdMpfduSYHjS62H76gA
+	 OAGOfqWEPY3HmPzpYKVrlI3iJZEXtPDeOMCZZ8QByoXzrC3tyEUx9NVXoyINGNMZO/
+	 0U1G8ZxreuM5HwiUDuONVFnnBrK/UaL4qd/WTS8LmfcNw9YPaDXP3xJwXmhmaFq6v9
+	 jWT3T/HKGIuJK3RLFXRp/W+6h0HG5Wkasxi9JRmrzfFLIqh+d6qC9DW/rEFXwJS/rc
+	 rcrj+ddlt//bg==
+From: Vinod Koul <vkoul@kernel.org>
+To: peter.chen@cixtech.com, fugang.duan@cixtech.com, robh@kernel.org, 
+ krzk+dt@kernel.org, conor+dt@kernel.org, ychuang3@nuvoton.com, 
+ schung@nuvoton.com, robin.murphy@arm.com, Frank.Li@kernel.org, 
+ Jun Guo <jun.guo@cixtech.com>
+Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com, 
+ linux-arm-kernel@lists.infradead.org
+In-Reply-To: <20260521072924.3000282-1-jun.guo@cixtech.com>
+References: <20260521072924.3000282-1-jun.guo@cixtech.com>
+Subject: Re: (subset) [PATCH v7 0/2] dmaengine: arm-dma350: handle shared
+ channel IRQ wiring on sky1
+Message-Id: <178429173437.1176696.17881383591434929640.b4-ty@kernel.org>
+Date: Fri, 17 Jul 2026 18:05:34 +0530
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v1 0/8] Arm Core Local Accelerator Driver
-Content-Language: en-GB
-To: Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Mark Rutland <mark.rutland@arm.com>, Jean-Philippe Brucker <jpb@kernel.org>,
- Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
- oupton@kernel.org, hch@infradead.org, jgg@nvidia.com
-References: <20260717104759.123203-1-ryan.roberts@arm.com>
- <aloS_T3LQvpHeZUV@willie-the-truck> <87ech1rf6n.wl-maz@kernel.org>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <87ech1rf6n.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_053313_165995_4F456777 
-X-CRM114-Status: GOOD (  17.04  )
+X-Mailer: b4 0.13.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,50 +74,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/07/2026 13:09, Marc Zyngier wrote:
-> Thanks Will for roping me in.
 
-Sorry - I intentionally didn't include you because last time we spoke you said
-you were only really interested in discussions on the virt side of things and I
-didn't want to spam your inbox. Perhaps the wrong decision...
+On Thu, 21 May 2026 15:29:22 +0800, Jun Guo wrote:
+> This series updates DMA-350 support for the SKY1 integration where all
+> DMA
+> channel interrupt outputs are wired to the same GIC SPI.
+> 
+> Patch 1 enables DMANSECCTRL.INTREN_ANYCHINTR in the driver so
+> per-channel
+> interrupt status is propagated even when channels share one parent IRQ
+> line.
+> 
+> [...]
 
-> 
-> On Fri, 17 Jul 2026 12:33:17 +0100,
-> Will Deacon <will@kernel.org> wrote:
->>
->>> I'm deliberately constraining the scope to bare-metal support for now.
->>> Virtualization is something we are considering (and have prototyped), but plan
->>> to post a separate RFC for that as follow-up, once we have agreement on
->>> direction for the bare-metal driver.
->>
->> I'd actually like to see what the virtualisation part looks like first
->> because doing it as a bolt-on later feels like the wrong approach. The
->> structure you have at the moment is remarkably clean, given the
->> architectural/CPU interactions (this thing even apparently builds as a
->> module, nice!), but I'm unsure how far you can push the separation once
->> you need to start hacking at KVM. Maybe the MMU notifiers are enough,
->> but I can't tell.
-> 
-> +1.
-> 
-> Virtualisation cannot be a "bolt on the side" exercise. It is an
-> integral part of the arm64 tree, particularly for memory management
-> and scheduling, all of which have a direct impact on KVM.
-> 
-> I don't think we can really evaluate anything here without looking at
-> the full picture.
+Applied, thanks!
 
-OK understood - as per reply to Will, we'll prioritise doing a version with virt
-support.
+[1/2] dmaengine: arm-dma350: enable ANYCH interrupt for shared IRQ wiring
+      commit: 643c1e1ae3eb3cd9be31e83c2240e41849a6cb56
 
-Thanks,
-Ryan
+Best regards,
+-- 
+~Vinod
 
-
-> 
-> Thanks,
-> 
-> 	M.
-> 
 
 
