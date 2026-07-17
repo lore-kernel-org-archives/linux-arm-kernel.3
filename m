@@ -4,97 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB1ADC44515
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 07:27:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED271C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 07:32:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hfSDcA/VFf5O36XZ1jIbDeiIvlPOe5N0iYnQa5D5SVg=; b=jFogPKTrSSCIAO9p9uPwgkX0Dk
-	na7Rna+qO5OAFJbpKRCpjuUPHTo7+TdoM7oaruvYTtnUBPKNfYISw28DPj2Xx8wY+nu3GrwVAw3IP
-	rJWpDxzeckbeAk67xjMqEHOn5fOk6/aVIyAiw+Yq4fTiGXhdhb8I6FOLJtANAEn+UqK0x7j2g6w+P
-	/4HTBfm7+R8AZfUhTdY2G6t4SfzATsF6cgEMlM9u9mCXlx1Mp23knhJouQZncyWqiQQh6l5dtd+EF
-	8D1xf9UhlDhJQx+2IxRYVfchUWdBZjugaQVyHHLIVliMKwJYLIVrep9mwEedD8VGWqX56U7SZN5+v
-	EuqnXMDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=hJ2+RsjIu1eHK3Gfe9WhoyCOoyu0fRnru2GWuIngT/k=; b=P8vTDfGJPYgQrq
+	/5jPH5EsuQadt3TwTrw4+ORvE11JjoCFwnM2Aw1RdboJpiwmpH151rpjvQs9AkV/o1jecaftsq9cB
+	Eot5kuLyWPXtQbA7VGoXDPWoyJUSdNsG4xH5Aw/CKR2YB7MbL/i1PfCcJQE3Ar+ZXfUaOReCl0Jw7
+	N6oZ43G++y3PnjPS9NtG0Ga68dxIxeYwUBOjJXqlRSUHtjwiy4zqSp1C5QzqWiCp91fluqnQtOliC
+	9v/odV4dH6JO2psq6CAlc3MLwyYQB6sXyAw9Vfjru7WekCoEioglaPPh4MvfoHYr9afTn6SeEuM8v
+	4c60Ts8CKBa7FF48873A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkcyN-00000001RRa-1uS5;
-	Fri, 17 Jul 2026 07:27:03 +0000
-Received: from smtpbguseast3.qq.com ([54.243.244.52])
+	id 1wkd3F-00000001SSF-3xpj;
+	Fri, 17 Jul 2026 07:32:05 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkcyE-00000001RE3-1CYu;
-	Fri, 17 Jul 2026 07:26:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
-	s=altu2504; t=1784273038;
-	bh=hfSDcA/VFf5O36XZ1jIbDeiIvlPOe5N0iYnQa5D5SVg=;
-	h=From:To:Subject:Date:Message-Id;
-	b=fYXEyAssbfHboxP5QdcQ6RM2gOmJnmbbZPGsTBD8SPtT5gd9wFAY0UGeMT42MDXjg
-	 ukdaXkyvlWNUDsUmO5b1iLRbYYMRG/QeFAQFz4251JelGmBGAojVXu38G0dj288PxV
-	 s4kIBlvRsQ0tUQ6lT1r3APLRPP5/q4mEgB0ZxaLk=
-X-QQ-mid: esmtpsz21t1784273037t8aa6d3dc
-X-QQ-Originating-IP: 0D5wUK+GE2YIGxT4HuuhDJ2D57emU1+Gs34WtC5gClQ=
-Received: from DESKTOP-8BT1A2O.localdomain ( [61.154.14.86])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 17 Jul 2026 15:23:46 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 8582860570799389207
-From: Chaoyi Chen <kernel@airkyi.com>
-To: Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Sandy Huang <hjc@rock-chips.com>,
-	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-phy@lists.infradead.org
-Subject: [PATCH v3 4/5] drm/rockchip: cdn-dp: Support handle lane info without extcon
-Date: Fri, 17 Jul 2026 15:23:22 +0800
-Message-Id: <20260717072323.96-5-kernel@airkyi.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20260717072323.96-1-kernel@airkyi.com>
-References: <20260717072323.96-1-kernel@airkyi.com>
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: MyirvGjpKb1j4ajW/h+h1TDId9lYcfgTEOsAICrRq9y1W44g/WIDA6L6
-	1JWZ0h4PwjzvF7e4k3ixjIK9UwIEJwaET8qNWs2PnJI8hQfasLNmNRXrpQycPjW3rv5xQ79
-	wt+8gbNqvaD6mdJptCUnIq2OEXaePOyrkb/k0b7Phsw6d70ijk7lbBUKfFGqgBDjF32iV4b
-	qyra8iqbYK7X8LxqFE0M19xYfhHKFTMCwGYJX8AVXtXOy0dwuVVPPBbHz9KdW/p0zc5HXRl
-	jZKIseDiWv27v26B+yZB6NrF8uteC1iepCxC0cIfh+w9fYUDpH8WmU1ZTpG/SNgvL6YKj/i
-	cWL9wInqWxMyqzznX/JMEgTW/RiD2tM0wgjL6i8LELLmGx+U43kMxyOuUUsDo84boQ61ujz
-	q1Zy5MLXCjSS3nzziQCUl12imVu3EKoXIxxb5wPPAHOQAReGMHuxha2poazmNdbtpIV2PPp
-	slyEdY9y8rw2SfehD0I2dYShbGaPT2k6T03HmT7r+S+gRvFO99QWLbeoopn7mRoWg6GCrlx
-	dBa4LXfe/fGZsMi8uJRfYgNk2RY28/6eONbtPt/ufC57K8pny3zG3hL+bheoIUl1gmRNCaw
-	CWQI1rNn8SXHwbn/+F7wESzmxW//eu7Tx6drkXJDkdrqAoGFdXe6wbACNf7B5h7JuL2jJjt
-	qZrXRQ6JiTUHIKytR55lC/ZstWZ1oKaGjoiBMNE+5sdEDW+taX9xVgzDUC3dQYcXK8Hiv5o
-	/OSRMq6bu7gRQnBNvpNBVjJFRYnM3GrvidG8FdyUS4wdFl5UMHra7FpUauzPEL0cWu3YNBB
-	ZywkpWayYDk+kW0RdDCHHGqfq2VJnyQiZK+l7/XaX0Nc71bUU7qwyVFPILMsaguABMZwoCf
-	8iOlMTqbi9wnOCpR3IHqv1sXLq0jsJfEbdi1Cb0/6dn5iCvqPVgY8ALM4U5DzDuM38uj4X5
-	98JR4Cjm19tvDfzNsdjFnu1VatTol4AB3LXhBGoZzxTJBCw5sSgekfvAnQASVeyips07zXK
-	ZkbmqqoDefXCroucMWu4TUw+a3LU9WeESH9O8nNg==
-X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
-X-QQ-RECHKSPAM: 0
+	id 1wkd3A-00000001SRD-3rld
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Jul 2026 07:32:04 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66H6cWFh851755
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 07:31:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=hJ2+RsjIu1eHK3Gfe9Whoy
+	COoyu0fRnru2GWuIngT/k=; b=bnTGWMS5RWeZ/AFSSYaHklNPHV99mFQNQoOI4z
+	jV/mcWRp5hOUlz8KOOHdXIfQBAriVOtYJHnLlfkAB+LrGID79YFm1sL/Hv8yql0d
+	plZEKzOcZvO16b7KcCExc46d4o5yBIvOnbSuPQRbDL5wUCS8R8thYTTtex/zdvf2
+	11KcDOL/K4zgPq9CyS451XPIu5x/yCk1j3wnLCP93uXFM+fbUhvHAyNneFiu9frw
+	HtnXj1YtiEk3URujtb8bldj4pwJY/iqSwGl/0kk3kOubaB+BFCJ/wpQzRImMq6JG
+	RY9zYHMwj23OLM8IyC2LEHDFUNhpso5JACWt4Ky2fk1T2Nhw==
+Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com [209.85.215.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fff9p8767-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 07:31:57 +0000 (GMT)
+Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-c891ed872ddso13223523a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 00:31:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1784273517; x=1784878317; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=hJ2+RsjIu1eHK3Gfe9WhoyCOoyu0fRnru2GWuIngT/k=;
+        b=IoHvBWoBJ9D/sFGHD1PIlYJRPnbQ7KvZthVtPWHwfxowZInaUqfLOKid0Q/8RsSmB9
+         OdI2hFfi5KA+5vUZyhcGJUliQFqYtGB1C9XMphHXWSRhGAgqfzGV9RG0JGjT5FpKpMD8
+         SUtdBBqpZPX3r8RCGE81bEkzS03q+MdB9YmSHFxCkWHGkjJ4nupMbwaxzUP0JcpU5dr5
+         RbOx0YKbpYy5Jx4jcd4rnYvFfKUPc6Ew3k0i1TzF95vRz+eedgouyE/dOABPYcRN092z
+         kunG7nc1JveOFsYUMDFwdtgVEHm3z0p2xMy8NHjr89AvPzq73TFTedwFZy0JOyDKUjBK
+         OB0g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784273517; x=1784878317;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=hJ2+RsjIu1eHK3Gfe9WhoyCOoyu0fRnru2GWuIngT/k=;
+        b=qHY1CHMtnvKYzTpmAwmRoBqw18LJ3YCaZPd8+DzPLK12eppFhNVMCYiefrjtSEtdWx
+         P6sl3sx5qql05Zl/Ld7qen4Jx358lepO5PkJAolfjN8YD2AN+Hq0Ysy00/uoNn7bL2uJ
+         kyXtrAG1IXoE6qJY/ys0wQIdd2EATzm2DSKzR8VFSn4zSs0Vp1/Z8s3BVC13SNglTM3p
+         xQxT51pAjVUWz/CodiDKTdJ6CS2yA0iR2475OlzAkBRnA/LQh2zlHLYhUD7IdVpbFiue
+         woKR+mS/GYft6EG4uZTPJ420zcqimsUBnA44SIFQLze60RJKrVnugBSEcSKJt5BquY94
+         Ii5Q==
+X-Forwarded-Encrypted: i=1; AHgh+Ro3Jma0l1GQbrSl2PCmRxSWz73OchUnH+hXQr5RRWZdhjkELh96vLXpjFLNQI2ukEdDynYTq4ZXW9//az9xyMfx@lists.infradead.org
+X-Gm-Message-State: AOJu0YxOecE1APZvclMeoV3DX4jwqVKU60nM/6OcL0tiN6K/+7ZJcmuT
+	Q9pVhZEFAtE73NFukjJQNpTiVcY6yLLOgL4CBohMy64GK3fl4oHzM/CQfPn1+1u0SihTByMpTs9
+	sSkOkBdlZFk8Ix3xuWoTF4R4UopN5fsrzHY40Ltl/bDPWQs/RSwLsZcckOhQDXzUHgjx3fJuv+/
+	2gKA==
+X-Gm-Gg: AfdE7clta6HjMUnwxj3WOriHTAqSmVRi9jAjacbl9We8aZgiR9vxtvN2fvmHtv7ikoS
+	ltEAqgox8jTLGrEhaTTgTXycvSxIgai3zeIosh1XfkECUbJuIbdCLoKEKXQR41T21OYfZuHNYFR
+	M0G5sM+xF0x+WtKY2Yh091BWXLPJXxzTjM+lXmir8AautbWunANcbm9C6aQXD/xY6RafksUX8uQ
+	Y13phwYv/JTHHfuVDzATi/SSQbMe82G55fg5UBifkNpLq0XJ+jdHM1R7BjMbyaOU6VGkSqgnbLD
+	4ys0e2RCyG5bgByaJPUqIVHeG8zKg7ePOBIaQcv1dl5pALP6rIOraXH2ZAaGE6zakSbKWpGZ9n6
+	oLmSCnsNUnRbBfhgp5ugmU/Cw
+X-Received: by 2002:a17:902:ef01:b0:2cc:d192:50b5 with SMTP id d9443c01a7336-2cf349aa87emr17541485ad.34.1784273516589;
+        Fri, 17 Jul 2026 00:31:56 -0700 (PDT)
+X-Received: by 2002:a17:902:ef01:b0:2cc:d192:50b5 with SMTP id d9443c01a7336-2cf349aa87emr17541225ad.34.1784273516079;
+        Fri, 17 Jul 2026 00:31:56 -0700 (PDT)
+Received: from hu-tdas-hyd.qualcomm.com ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf3448fba7sm5882525ad.6.2026.07.17.00.31.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 17 Jul 2026 00:31:55 -0700 (PDT)
+From: Taniya Das <taniya.das@oss.qualcomm.com>
+Subject: [PATCH v8 00/10] Add support for Video, Camera, Graphics clock
+ controllers on Eliza
+Date: Fri, 17 Jul 2026 13:01:44 +0530
+Message-Id: <20260717-b4-eliza_mm_cc_v6-v8-0-5cca1bef2e48@oss.qualcomm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGDaWWoC/33N0QqDIBQG4FcJr2dYmeau9h5jhOlpCZmbbrIte
+ vdZN7uJweHA/8P5zowCeAMBHbMZeYgmGDel0BwypAY5XQEbnTIqSckIIwJ3FMNoPrK1tlWqjQw
+ zqlRVayqZaFC6u3nozWszz5eUBxMezr+3F5Gt7T8tDcEF1z0RUAtK1MmFkN+fclTO2jwttKKR/
+ yBeVHsQTxDVougU9DWBbgdaluUL3JTTAAIBAAA=
+X-Change-ID: 20260609-b4-eliza_mm_cc_v6-64cc35d4a698
+To: Bjorn Andersson <andersson@kernel.org>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Luca Weiss <luca.weiss@fairphone.com>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
+        Imran Shaik <imran.shaik@oss.qualcomm.com>,
+        Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
+        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Taniya Das <taniya.das@oss.qualcomm.com>,
+        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.15-dev-aa3f6
+X-Proofpoint-GUID: OcxM4GF_aebU3U3mvOdd38ILja5bLyi1
+X-Proofpoint-ORIG-GUID: OcxM4GF_aebU3U3mvOdd38ILja5bLyi1
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzE3MDA3MyBTYWx0ZWRfX1LzIub2dee0E
+ wG85lw0INOPtgAhySr+/no/RiylBNT77HbWh5lsYcktAwZ3i6XuSQmBSQwlUrmNKOk2fKVcSqec
+ pohzQzWsvTC7TyOISaIETr9Nlhwj5lRSeKWXQOGVlUbUSMM3qcvpxt6mLjtLy77XUliWDLxteg2
+ pnKLNj5CkvCF+U5CSXexnI666YVfVD1whr47Aa5xArKzXwDtUdyFFkw8wjs5ahv2GTOQNeXGG0L
+ R/OcITl7N+SWJZr0eQV9DWUHtW3zMUtd2UsBM9QrLiw6Uzjlgleft3dGFLbgREWW3isp01CyojW
+ xDfxMR9OYDex68Ax7a8m7TrVFs35gTWmE9ozWSDnx05JhycVd0xjM4EV19HmfX6Osr0Q87umAL2
+ mA6Z74If2C0oTIC6LN6isKx7b6zvlhlVkQTWRig1QcnBXP1Axb+gpqYp9VgH2xHYHtLbJN/5D/2
+ 1mi1MfwX8r3Yu5t0nyA==
+X-Authority-Analysis: v=2.4 cv=TaqmcxQh c=1 sm=1 tr=0 ts=6a59da6d cx=c_pps
+ a=Qgeoaf8Lrialg5Z894R3/Q==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=Y_ikFBnX2WV78VM4M2oA:9 a=QEXdDO2ut3YA:10
+ a=x9snwWr2DeNwDh03kgHS:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzE3MDA3MyBTYWx0ZWRfX55IrUZPCloBO
+ FqQXwH1JLd0/g9YnFdjux40FyJLEQzk4VovChw0MDaI73N0piAZTVrqITbKknKXbXkZDfUBybde
+ f24AhwF58gvpS536YkMVy2rgB9+ZGeY=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-17_02,2026-07-15_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 impostorscore=0 suspectscore=0 lowpriorityscore=0 phishscore=0
+ adultscore=0 spamscore=0 bulkscore=0 priorityscore=1501 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607170073
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_002654_823602_4B8AD0FE 
-X-CRM114-Status: GOOD (  14.96  )
+X-CRM114-CacheID: sfid-20260717_003201_882501_36FB1903 
+X-CRM114-Status: GOOD (  20.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,97 +168,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Add driver for Eliza SoC camera, graphics and Video clock controllers.
+The camera clock controller supports the cambist clock controller and
+the regular camera clock controller.
 
-This patch add support for get PHY lane info without help of extcon.
+Eliza camcc and videocc are on CX and MX rails and doesn't have MMCX
+and MXC rails dependency. Add explicit power-domain voting for Milos
+which are required. Hence extended the Milos camcc & videocc
+documentation bindings for Eliza.
 
-There is no extcon needed if the Type-C controller is present. In this
-case, the lane info can be get from PHY instead of extcon.
+The patches have been tested on Qualcomm Eliza MTP board.
 
-The extcon device should still be supported if Type-C controller is
-not present.
+Changes in v8:
+    - Remove unnecessary '#include <linux/mod_devicetable.h>' from the
+      videocc, gpucc, camcc and cambistmclkcc Eliza drivers.
+    - Added the RB-by from patchset v6.
+    - Link to v7: https://lore.kernel.org/r/20260713-b4-eliza_mm_cc_v6-v7-0-4d91bcef50eb@oss.qualcomm.com
 
-Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Changes in v7:
+   - Add missing 'power-domains' and 'required-opps' properties to the
+     Milos camcc and videocc dt-bindings, and the corresponding device
+     tree nodes, since the Eliza bindings extend the Milos ones. [Konrad]
+   - Update the camcc, videocc driver to 'use_rpm' flag for Eliza.
+   - Add the RB-by tags from patchset v6.
+   - Link to v6: https://lore.kernel.org/r/20260609-b4-eliza_mm_cc_v6-v6-0-17df09e5940c@oss.qualcomm.com
+
+Changes in v6:
+  - Update device tree to latest linux-next.
+  - Update commit text for no ABI breakage for VideoCC and CAMCC
+    binding [Krzysztof]
+  - Added the RB-by from patchset v5.
+  - Link to v5: https://lore.kernel.org/r/20260525-eliza_mm_cc_v2-v5-0-a1d125619a5a@oss.qualcomm.com
+
+Changes in v5:
+- Taken care of comments from v3, v4.
+- Update milos-videocc and milos-camcc bindings to add '#power-domain-cells'
+  as required property in bindings.
+- Remove duplicate clock 'gpu_cc_gpu_smmu_vote_clk' from driver and
+  bindings.
+- Add '#power-domain-cells' for 'camcc' and 'cambistmclkcc' device node.
+- Link to v4: https://lore.kernel.org/r/20260513-eliza_mm_cc_v2-v4-0-e61b5434e8d9@oss.qualcomm.com
+
+Changes in v4:
+- Update the clock ordering for camcc and cambistmclkcc in milos.dtsi.
+- Link to v3: https://lore.kernel.org/r/20260513-eliza_mm_cc_v2-v3-0-b59c370dc281@oss.qualcomm.com
+
+Changes in v3:
+- Dropped new documentation bindings & extended Milos documentation bindings for Eliza videocc & camcc.
+- Dropped the defconfig patch and included the drivers as m from Kconfig itself.
+- Update the header inclusion in the milos.dtsi.
+- Link to v2: https://lore.kernel.org/r/20260409-eliza_mm_cc_v2-v2-0-bc0c6dd77bc5@oss.qualcomm.com
+
+Changes in v2:
+ - rebased the patches on the latest linux-next.
+ - Add new bindings for Video and Camcc.
+ - Remove commented code in GPUCC (limiter code).
+ - Add device nodes for the corresponding clock controllers.
+ - Add RB-by tags for VideoCC and CamCC/Cambistmclk from v1.
+ - Link to v1: https://lore.kernel.org/r/20260317-eliza_mm_clock_controllers_v1-v1-0-4696eeda8cfb@oss.qualcomm.com
+
+Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
 ---
+Taniya Das (10):
+      dt-bindings: clock: qcom,milos-camcc: Add missing power-domains support
+      dt-bindings: clock: qcom,milos-videocc: Add missing power-domains support
+      arm64: dts: qcom: milos: Add power-domains for camcc and videocc
+      dt-bindings: clock: qcom: Add video clock controller on Qualcomm Eliza SoC
+      dt-bindings: clock: qcom: document the Eliza GPU Clock Controller
+      dt-bindings: clock: qcom: Add support for CAMCC for Eliza
+      clk: qcom: videocc: Add video clock controller driver for Eliza
+      clk: qcom: gpucc: Add GPU Clock Controller driver for Eliza
+      clk: qcom: camcc: Add support for camera clock controller for Eliza
+      arm64: dts: qcom: eliza: Add support for MM clock controllers
 
-(no changes since v1)
-
+ .../bindings/clock/qcom,milos-camcc.yaml           |   31 +-
+ .../bindings/clock/qcom,milos-videocc.yaml         |   29 +-
+ .../bindings/clock/qcom,sm8450-gpucc.yaml          |    3 +
+ arch/arm64/boot/dts/qcom/eliza.dtsi                |   76 +
+ arch/arm64/boot/dts/qcom/milos.dtsi                |   10 +
+ drivers/clk/qcom/Kconfig                           |   31 +
+ drivers/clk/qcom/Makefile                          |    3 +
+ drivers/clk/qcom/cambistmclkcc-eliza.c             |  464 ++++
+ drivers/clk/qcom/camcc-eliza.c                     | 2803 ++++++++++++++++++++
+ drivers/clk/qcom/gpucc-eliza.c                     |  606 +++++
+ drivers/clk/qcom/videocc-eliza.c                   |  404 +++
+ .../dt-bindings/clock/qcom,eliza-cambistmclkcc.h   |   32 +
+ include/dt-bindings/clock/qcom,eliza-camcc.h       |  151 ++
+ include/dt-bindings/clock/qcom,eliza-gpucc.h       |   51 +
+ include/dt-bindings/clock/qcom,eliza-videocc.h     |   37 +
+ 15 files changed, 4727 insertions(+), 4 deletions(-)
 ---
- drivers/gpu/drm/rockchip/cdn-dp-core.c | 25 +++++++++++++++++--------
- 1 file changed, 17 insertions(+), 8 deletions(-)
+base-commit: a87737435cfa134f9cdcc696ba3080759d04cf72
+change-id: 20260609-b4-eliza_mm_cc_v6-64cc35d4a698
 
-diff --git a/drivers/gpu/drm/rockchip/cdn-dp-core.c b/drivers/gpu/drm/rockchip/cdn-dp-core.c
-index 190cce9530c8..74e1f5422a6e 100644
---- a/drivers/gpu/drm/rockchip/cdn-dp-core.c
-+++ b/drivers/gpu/drm/rockchip/cdn-dp-core.c
-@@ -157,6 +157,9 @@ static int cdn_dp_get_port_lanes(struct cdn_dp_port *port)
- 	int dptx;
- 	u8 lanes;
- 
-+	if (!edev)
-+		return phy_get_bus_width(port->phy);
-+
- 	dptx = extcon_get_state(edev, EXTCON_DISP_DP);
- 	if (dptx > 0) {
- 		extcon_get_property(edev, EXTCON_DISP_DP,
-@@ -220,7 +223,7 @@ static bool cdn_dp_check_sink_connection(struct cdn_dp_device *dp)
- 	 * some docks need more time to power up.
- 	 */
- 	while (time_before(jiffies, timeout)) {
--		if (!extcon_get_state(port->extcon, EXTCON_DISP_DP))
-+		if (port->extcon && !extcon_get_state(port->extcon, EXTCON_DISP_DP))
- 			return false;
- 
- 		if (!cdn_dp_get_sink_count(dp, &sink_count))
-@@ -386,11 +389,14 @@ static int cdn_dp_enable_phy(struct cdn_dp_device *dp, struct cdn_dp_port *port)
- 		goto err_power_on;
- 	}
- 
--	ret = extcon_get_property(port->extcon, EXTCON_DISP_DP,
--				  EXTCON_PROP_USB_TYPEC_POLARITY, &property);
--	if (ret) {
--		DRM_DEV_ERROR(dp->dev, "get property failed\n");
--		goto err_power_on;
-+	property.intval = 0;
-+	if (port->extcon) {
-+		ret = extcon_get_property(port->extcon, EXTCON_DISP_DP,
-+					  EXTCON_PROP_USB_TYPEC_POLARITY, &property);
-+		if (ret) {
-+			DRM_DEV_ERROR(dp->dev, "get property failed\n");
-+			goto err_power_on;
-+		}
- 	}
- 
- 	port->lanes = cdn_dp_get_port_lanes(port);
-@@ -1027,6 +1033,9 @@ static int cdn_dp_bind(struct device *dev, struct device *master, void *data)
- 	for (i = 0; i < dp->ports; i++) {
- 		port = dp->port[i];
- 
-+		if (!port->extcon)
-+			continue;
-+
- 		port->event_nb.notifier_call = cdn_dp_pd_event;
- 		ret = devm_extcon_register_notifier(dp->dev, port->extcon,
- 						    EXTCON_DISP_DP,
-@@ -1119,14 +1128,14 @@ static int cdn_dp_probe(struct platform_device *pdev)
- 		    PTR_ERR(phy) == -EPROBE_DEFER)
- 			return -EPROBE_DEFER;
- 
--		if (IS_ERR(extcon) || IS_ERR(phy))
-+		if (IS_ERR(phy) || PTR_ERR(extcon) != -ENODEV)
- 			continue;
- 
- 		port = devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
- 		if (!port)
- 			return -ENOMEM;
- 
--		port->extcon = extcon;
-+		port->extcon = IS_ERR(extcon) ? NULL : extcon;
- 		port->phy = phy;
- 		port->dp = dp;
- 		port->id = i;
+Best regards,
 -- 
-2.53.0
+Taniya Das <taniya.das@oss.qualcomm.com>
 
 
