@@ -4,58 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1F54C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 10:30:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42A9DC44507
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 10:33:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=l3e7+w/4rLRrT1iV32BoYU8sfjj03xAoar971yOmdO4=; b=GX5nXXdllZHMlw
-	PX4u5JftrY2zPvTG6dztiyo/sjpga+XyVBvE2F7SLWORkjT3HzsVlr74PJ/sXhvrpD1eUMCZ3o5HV
-	NmfLmYAGvKISIhf7asP1p/q5/SVI3h7YG/lnAqw3qkDmWAIPTqUybdvSnD58B0+bHaGyc5Q8djgzB
-	HRmFCsWrQvUTger9imGDnYfhVjDS4wq1+DF9me5r+s1YdBJdokaeib4iBfWgfxG+d28xKKxxjMtOs
-	8J7fsTEj84G/gWNr7vrtdEYiHl32y524uBhCpyJy4Thtvh25ziVRU7DVJHdHI3gDRXjzojd0WDC3b
-	uEPw7XSxgkDGBhQ9t3zw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:To:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Z9EyU0iZnhU+t3tpRGWjOjeYdZ313otMwTLgAVl8MDg=; b=hD57ksZShz2ULBOyOEaJtDq3tg
+	vW5raYKv2+iO7fSA1uW+ky0/BvtggxtjF3JOG7f07erP/G4tJg6kSOv06OMpnVcnKW+qyfFrkXkoO
+	uUS/t1foGv+aQTWUVhdRYvd5LdYKjJQ7q+lCNplofYILsgIiqDjaIma5SbcJxtrets3yqCylEgnlp
+	eMucqYt306LRhokBEwcvLmn4jA29nO+dgeFpWgHV6LFsuwOvh/w1DZu60787ZcJKUS2YphQ/OpK/a
+	JtSOpoLPYpFiwvqshYNuk5Lq3W2eYP2iUGr5pYLYemAIIzsZ2FoS9bcj4c5lE64vrA+4U9GFWxVVA
+	eeHVYIJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkfpr-00000001yfP-0lSG;
-	Fri, 17 Jul 2026 10:30:27 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkfpi-00000001yZr-3lcm
+	id 1wkfsn-00000001zC5-2PA2;
+	Fri, 17 Jul 2026 10:33:29 +0000
+Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkfsk-00000001zB8-2VHc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 10:30:25 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6994B1476;
-	Fri, 17 Jul 2026 03:30:13 -0700 (PDT)
-Received: from [10.1.34.162] (e121487-lin.cambridge.arm.com [10.1.34.162])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 315A13F7D8;
-	Fri, 17 Jul 2026 03:30:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784284217; bh=d7+JBlLkYfqcnfrytyqNrGc1utkimog2DLhJOhXsAgE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=gEbyest3gLJOI8IDuq+ujTa9ykjwD8OvgN+EB02+DZkrCUBfUFFeSQ8u8T1YJbQpb
-	 6jv5L98o4/wiFMEe5QScafSfFpd/fZju+pBasrupCveCdjzkFknK1At7pkQPBJaviH
-	 P17iqLfbUd6rLvyU3RFwV0EfrhFFyqfmv5kZ87tw=
-Message-ID: <d6db2c79-858c-403f-8874-d74dfcf7c375@arm.com>
-Date: Fri, 17 Jul 2026 11:30:14 +0100
+	Fri, 17 Jul 2026 10:33:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vAsQf22LisV/lfKamXDejPZ8Miwhv9pHbC3POMUeAKElyp9+Z7whlJTzxQL0DsDoKk2/SMyeex2otvvmphuycl5rkvO6LBP7QbJ9a+8ELxPRC0lFOWMsMM++Gdg1Jht7xreA7yHOOPQfRaSOtBi0SZRm547BTAsYvsaBkox3pBGw2TavMb8HSZAIBmoUADWcNjO4HNMF4qonT3yp7qrlmvZiGLWyEs0Nvbi02M+cnqLvTJZodlkI0Rnyn5bmH3b3Ps5sVcZFVqq5JD1TigK0tN+682bCQixwuvAAORC4BHm1QMSoJ/ycJ+kGYkTlxBkUJGDLIIHHp+NHBpwzq9hRLQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Z9EyU0iZnhU+t3tpRGWjOjeYdZ313otMwTLgAVl8MDg=;
+ b=FRLs1/Sr2DrEMfMFBfvwEx88oROtRLx0TOPA7tb8N6V35oFoX51jJpXs8sb0Km5KiAo/7ibBpPQ86bWS1SDAyLHWqEm969BOC91IcKKBJ4MMONrWYemLx6DCWg+AEf5qe6BbnQcxUSL7QYBi5MdpxxFhw125wR2JHe+8pEy/BEsGUCwRLRGizFI7JFRrNuNsHoUEaHqlG0Exkadq5ZRNfZyyAW2Q47w1prD9l3s66bsUuTPa/oxVqkotPpat7vlh67NUO19YrEizrW23GLcFsGZ1pLL0Dky7R93QG0E3GU64uZq8Ex9kZGbxAQVsXvKzJQ0h5vOp7Fbs70F7D8wLPw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
+ dkim=pass header.d=vivo.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Z9EyU0iZnhU+t3tpRGWjOjeYdZ313otMwTLgAVl8MDg=;
+ b=CuSjcvVR28DkrKGZJy+CPoFc30ZZmJJSFRZo/Rj6eueoxMxDoTFmhaPkIUsaM1S0JImM2hiLY3U3VksA2VBZvLZxLOh+WOdUYZSvgbiUYj7B0Jo3uwi0oYAaWcpm4MvCsoH/1FL5JHepDSxBL7OOhEsKeZansaKC9E3CbDf3z6kVr8j0BaTS04cac9zvrOpKMIy7Mg+5kLmwEC2BS2oTP73HKEWy+nTfwL+vOCisaEK+LeBNG4pUpPZsLf8kdlKAjzuIQcALni9gfe1riA3kwaP5esRMyPFuPgzjoAJK1WKvJoaXqpSZoU5ncENbYfGJvJtyRkP4Jm1FI206sSsHyw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=vivo.com;
+Received: from SEZPR06MB5832.apcprd06.prod.outlook.com (2603:1096:101:c8::12)
+ by TY2PPFF72AB57F6.apcprd06.prod.outlook.com (2603:1096:408::7b2) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.18; Fri, 17 Jul
+ 2026 10:33:07 +0000
+Received: from SEZPR06MB5832.apcprd06.prod.outlook.com
+ ([fe80::f98:5e32:4ccb:d07b]) by SEZPR06MB5832.apcprd06.prod.outlook.com
+ ([fe80::f98:5e32:4ccb:d07b%6]) with mapi id 15.21.0223.011; Fri, 17 Jul 2026
+ 10:33:07 +0000
+From: Pan Chuang <panchuang@vivo.com>
+To: Shuai Xue <xueshuai@linux.alibaba.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Frank Li <Frank.li@nxp.com>,
+	Xu Yang <xu.yang_2@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Yushan Wang <wangyushan12@huawei.com>,
+	Ji Sheng Teoh <jisheng.teoh@starfivetech.com>,
+	Khuong Dinh <khuong@os.amperecomputing.com>,
+	Besar Wicaksono <bwicaksono@nvidia.com>,
+	Ilkka Koskinen <ilkka@os.amperecomputing.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Chengwen Feng <fengchengwen@huawei.com>,
+	Yury Norov <ynorov@nvidia.com>,
+	Ma Ke <make24@iscas.ac.cn>,
+	Pan Chuang <panchuang@vivo.com>,
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM PMU PROFILING AND DEBUGGING),
+	linux-perf-users@vger.kernel.org (open list:ARM PMU PROFILING AND DEBUGGING),
+	linux-kernel@vger.kernel.org (open list),
+	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
+	linux-arm-msm@vger.kernel.org (open list:ARM/QUALCOMM MAILING LIST)
+Subject: [PATCH 0/3] perf: Remove redundant error messages on IRQ request failure
+Date: Fri, 17 Jul 2026 18:31:16 +0800
+Message-Id: <20260717103123.34887-1-panchuang@vivo.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: TPYP295CA0042.TWNP295.PROD.OUTLOOK.COM
+ (2603:1096:7d0:7::20) To SEZPR06MB5832.apcprd06.prod.outlook.com
+ (2603:1096:101:c8::12)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 10/36] arm64: irqflags: save and use both DAIF and PMR
-To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
-References: <20260709121333.23507-1-vladimir.murzin@arm.com>
- <20260709121333.23507-11-vladimir.murzin@arm.com>
- <00f0b907-bab7-4f18-970f-25e2e7071b0a@huawei.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <00f0b907-bab7-4f18-970f-25e2e7071b0a@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SEZPR06MB5832:EE_|TY2PPFF72AB57F6:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8b580584-d9be-44cc-32f5-08dee3eeca1d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|52116014|366016|1800799024|921020|38350700014|6133799003|10067099003|56012099006|18002099003|11063799006;
+X-Microsoft-Antispam-Message-Info: g6HGMlurLTQTkBUK3FpsH5Higa/cBRpRSG6bv6jOpbd9sjL2eS+exLvRajKkkb47lVGHew8bqa9LhVfkCKO0NN+W/7W67N5ab/kTjL2IaIn5fxmbgeRnI8RI+BYS/YMS1nyffB3w8+Ck2EpQrUtC6JqJjGn89anWETTKC/IlxzoTLPfQ0NM6ZlH83sHskSSL4/j6OnbNqEf6HPhWNPfmUx2BkEQ9yMPC0lBYoSYeEHsZYIHbYPGwarXzjYJf22S1T+Tmr+WnBi75XfBXavJDikPjw9NmFIa0/cgwmCA7n5kJyn//rMTVrOoNcJsdlkbS4VlUQA/VJQGMcoWofGi8YlJwCPNF6as/ClqsljfeYrSbTc1uvEGpSdHkElI+mQixu3br5Pw5B2aJ2oBMJrJmTfJ9wavjZC+LSL0gKOqEAnWM1QROHsguK9Mt9zQt+YPrbWkM8XXDf0M3sYDLykNQZgKXaTn+HE9Lf1wjmH7KGGl5nYKZjrTUuu1Rs80RGdMxBEjzS8HJMrweEtE8YRTdZ3wrvcb+8PqY1/h6DkH8oMfVxNZKMsVFh1q7iLAf+PvtYIkNo8m9XiA1YVTVoa/EXxN0JWHh49wAAo9m4q/PUAnktKpYO9CfZXs1FoUmzOdfUwh6hrYnP+LVQHX5eZPdjEgBLtVfHmYCSuMKvw7cYTokQgABdz5FZX8GWUL7GGoGJLRBZB15VqCmZuORUFRicUE75CHaiHqCzxlfIbIW7Nf2NcoZ7Dgn+AfttQQxa1oZ
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR06MB5832.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(52116014)(366016)(1800799024)(921020)(38350700014)(6133799003)(10067099003)(56012099006)(18002099003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?oy7V+G5OWVwGK2njvEITEzfupOFNjuj/ngXkUJQDOarKNmSEK/3Y0UXeYdWv?=
+ =?us-ascii?Q?5fu4C3o0k8Mm0M2N6HIfX7P0VI2JvoCeuPimA0u4WZ0YBVGUzT0MNWzcjPXD?=
+ =?us-ascii?Q?wsLmxqHzPbwWCRy3exDcc5l8A5Hd49pHQejkcph5uDQ5T2swmfccOtvSAKG1?=
+ =?us-ascii?Q?rf4z5vWR7UiIo9+MunvtYQJOXcN9a6WSnAE/6+hDr2HIrxnywKMW87rdGOZy?=
+ =?us-ascii?Q?BCdm6NxkNQqYwByQ1bkm6Y8AJEqOyrfTro2w+ZLVZxSjjBMirVStFzdYs+tC?=
+ =?us-ascii?Q?ut8U+KqBvzQcRA9Pibco8EGlL36mPCZVklWE1H8fCc/VPC7gGrGhxjocbbZJ?=
+ =?us-ascii?Q?NAigLTrCHCM5VsAZ/hhuInd9xiSnfoL6IeVlc5P0pCORFRyFBtzFILTuLXPE?=
+ =?us-ascii?Q?Apl2t2Jyjwom3VtT0AMYDyv4Ki1DAudfrUatNqs0DcGjXdKZwv9A0iWQlbls?=
+ =?us-ascii?Q?E7NBrUJI+ztN2/3i4lcZRS8UXhzAaK5a/rodQ8Gc81OMoGrDYjPooeQ1oyj8?=
+ =?us-ascii?Q?T9gneF4riqGsw05ZWu5FOTegLSDC6vdbGnBHulm7wb58KGGdUpVOF2meaJR0?=
+ =?us-ascii?Q?aH3xZtfQ+NnSdcHyBnQMzi3kNdzDD6ffkOXpqXShO3R2RCbB4C1HmSY8sUrg?=
+ =?us-ascii?Q?P4eIFBfiCy0BUEdPP7VnWRYB8Gmtz8PPp1qgS3Q9ZgFn87JnwnZwzbpEg3y5?=
+ =?us-ascii?Q?bo8WoBtZcQ9mHoNvqo/FZRPsVE7vBaIQJ9K3JsbHpKrmrwOZ2Yg8u4frOQzq?=
+ =?us-ascii?Q?+99UTbL8svV5yAr9fuzAXTXw0a3lXw3vZc190nu1o1+HhJ5QVZZKE0roLHw+?=
+ =?us-ascii?Q?gckmcCZRACbemi0ob/3N9CkB3jTPyEDwJitr1SlTAXE9hBO80a3L1+6aeOYG?=
+ =?us-ascii?Q?knuaWNrzcFhJXiUqfVmd/vcBYsbRK8YbXAZGXp93wuwnUjrJdC/wEI6tnXu9?=
+ =?us-ascii?Q?NOQiNaC5y8IhWgOG70m8n0pKd9opXlPToO9esphLHM2TG6nHqanPp/xraK92?=
+ =?us-ascii?Q?FDRGptr7GEXeTWvNVpg59Wm85ZhMSkSwkKK/LqGMNSXUSX9l8odPGDFDnN5n?=
+ =?us-ascii?Q?gcz4mtKSSbfIALBhq0ML34QyJD5OxYfeAtjSCyiQYzMUq1RxyOmkKhfyswrR?=
+ =?us-ascii?Q?Gp+YPl2h6iJZ9b5YjHOMX744qQeyh637NEoY5iycDRzPEg6kCZY35KLaeSlS?=
+ =?us-ascii?Q?tExL9IlfmnqwYu0rFJvHx76ahThkCGNnNLNe7KBfSAsPdfsOLsQjZQV5Fa71?=
+ =?us-ascii?Q?OdvukVjLLRZTmixzDYywf//keSqlqQae0McPU3bHPl5qTUQy28PXi5mZ+e3a?=
+ =?us-ascii?Q?enKG2N/47AajS9XdE/YDjWIn5uuMU7SZo5mMHfBy97JcZFKmLIJzyz8Hhgu/?=
+ =?us-ascii?Q?t01Jn2Fwd3BsBqvWMQE8hXk32Pl/vZfETo1i6wIJo1Px2ISvpJxPNcQtRSiu?=
+ =?us-ascii?Q?gxy/SK3eRwELME9e3nD+ljAcHFdSgnY5LthPUjBQs3p6DhIdzNJoFUO8b5Dx?=
+ =?us-ascii?Q?H0CiEsUH611aPc/XoFmmZCjDUhLdzl189dPgjno3WdWTzZPyT9NY12B8eLvH?=
+ =?us-ascii?Q?jCTqFlSQKAbDABIBa5bT1+ddrx9Zb/egY5Vp6KjMLWLGrF6UptzZZtB8fu6/?=
+ =?us-ascii?Q?wzMCA5UcVdiwQrFcWZwU3S6LH0m8oOVvPbZi8q6tABUfRRJTaNGCCE3QXqwu?=
+ =?us-ascii?Q?OBIhBXhLZlRYBglJNCH/X/vZ4gYeyHzkyTzMEntRQUw5d3lVjgOzuSDrqGdn?=
+ =?us-ascii?Q?EQaB/c8Kxg=3D=3D?=
+X-OriginatorOrg: vivo.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8b580584-d9be-44cc-32f5-08dee3eeca1d
+X-MS-Exchange-CrossTenant-AuthSource: SEZPR06MB5832.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2026 10:33:06.9494
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: l94clO24hZ09KViRlFJoZqPkaDRTkpT6lENXXHwmloGLJvPRR0/9r1ddhCmHJnMIN6VDjBBVolIakmbsl2p2YQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY2PPFF72AB57F6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_033018_995238_C32977D1 
-X-CRM114-Status: UNSURE (   6.75  )
+X-CRM114-CacheID: sfid-20260717_033326_638669_B4D45CB8 
+X-CRM114-Status: UNSURE (   7.37  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -68,24 +152,42 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org, catalin.marinas@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/10/26 09:47, Jinjie Ruan wrote:
->> -static __always_inline bool __daif_irqs_disabled(void)
->> -{
->> -	return __daif_irqs_disabled_flags(__daif_local_save_flags());
->> -}
->> +	if (system_uses_irq_prio_masking() && hwstate.pmr < GIC_PRIO_IRQON)
-> This concept of being less than or greater than is not easy to understand.
+devm_request_threaded_irq() and devm_request_any_context_irq()
+automatically log detailed error messages on failure via
+the devm_request_result() helper, which prints device
+name, IRQ number, handler functions, and error code.
 
-IIUC, the original idea behind using less than and greater than
-comparisons was to provide a safety net while we transition to the new
-implementation in this patch series. However, after taking another
-look, it seems we do not require them. More on that in my reply to
-your other question about this code...
+Since devm_request_irq() is a static inline wrapper around
+devm_request_threaded_irq(), it also benefits from this
+automatic logging.
 
-Thanks
-Vladimir
+Remove the now-redundant dev_err() and dev_err_probe() calls
+in perf drivers that follow these devm_request_*_irq()
+functions, as the core now provides more detailed diagnostic
+information on failure.
+
+Pan Chuang (3):
+  perf: Remove redundant dev_err()/dev_err_probe()
+  perf: arm_cspmu: Remove redundant dev_err()
+  drivers/perf: hisi: Remove redundant dev_err()/dev_err_probe()
+
+ drivers/perf/alibaba_uncore_drw_pmu.c        | 5 +----
+ drivers/perf/arm_cspmu/arm_cspmu.c           | 4 +---
+ drivers/perf/fsl_imx8_ddr_perf.c             | 4 +---
+ drivers/perf/fsl_imx9_ddr_perf.c             | 4 +---
+ drivers/perf/fujitsu_uncore_pmu.c            | 2 +-
+ drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c | 3 +--
+ drivers/perf/hisilicon/hisi_uncore_pmu.c     | 5 +----
+ drivers/perf/qcom_l2_pmu.c                   | 5 +----
+ drivers/perf/qcom_l3_pmu.c                   | 5 +----
+ drivers/perf/starfive_starlink_pmu.c         | 2 +-
+ drivers/perf/xgene_pmu.c                     | 4 +---
+ 11 files changed, 11 insertions(+), 32 deletions(-)
+
+-- 
+2.34.1
+
 
