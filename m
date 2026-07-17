@@ -4,27 +4,27 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E570C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 06:15:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32642C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 06:15:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wy4A5Bpkj2zzKdn6eNsWOzDqtG3uGM/7aAgamplxzrs=; b=LWfgpkNR7y7WFjY2BjZ/nZ81Fq
-	RkEXNfEMSTm5N4RnyiCYqnWJdNZH03+v6ecUqgUDe7HgOYCMB+3K25d8tcXJOZPjSF+Jkd9ObcqGt
-	0z7PSJ/s9D86NpuSBH/KC9ztRUPyExS1FCJZD8MHkNVX2hdcEpmv4qZNGSQv/8FfYv+T/R3zhMsKi
-	BK3mXAhqseXFASw3dTlGfw+D66tDQI0oejt6qm9Yhid1rPGuvCVU80jw7Kzl02KYh2Wy6xUXFmACQ
-	xh6Nc25LySlLv+oy1P4lVd/BfhZV28XTrVj76/Aisij7/zg3ELw2DhnwWYSn06QieZXB83SIz2MlD
-	xdtBJvrg==;
+	bh=vQbno2WvTFVUJzsRinFLe6H6OiW8r6h0VjyMcplhKIo=; b=r/w/lV7/E5eIIKVd1roZiWGWmn
+	d/cqVLtMJrowD0vbdF6CA31olkqGWouV0SvW8rWpMD6tzO6LDrGsEY2hy+b0xG2oDr8HxBeAJaaYt
+	mJ4UTpdcQ2KQDY3mYAKVMARpmsxpOK5qKUD9vrviKydupDsyjCDG3onhFcbdqenxzn16icKD+g7dc
+	Bl6m5mU6MVA9KjKOIJq6kXKnYMbiRcGHg6UY3Rucg4BioQ5axl6uQFI92tA7+aJbYjrSN9iX0hVYg
+	pyM+n12W1CAnElTgOSL2Xy1yJ2UWhLeOoDXDg+XtjsnQC+J4qOPuO9MAf2pZYYvRIcua8A5OImsye
+	nch0ITxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkbqz-00000001DxA-1XYI;
-	Fri, 17 Jul 2026 06:15:21 +0000
+	id 1wkbr4-00000001E0k-2qwS;
+	Fri, 17 Jul 2026 06:15:26 +0000
 Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkbqx-00000001Du7-0uds;
+	id 1wkbqx-00000001Dtu-0pVV;
 	Fri, 17 Jul 2026 06:15:20 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
@@ -33,28 +33,28 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Wy4A5Bpkj2zzKdn6eNsWOzDqtG3uGM/7aAgamplxzrs=;
-	b=P3SX6syH0JPq+BSR8L/gxIQXPwFFAE1o3/ph72Jp32jnjpxe38j3E7hjV4F1gTP2WgTwoX
-	ddZ91PW3NOhqQNsORIGBeh00/kVAuX9mpGes7V7A7uV5apMInBM/3qvHupwtjYo2FIHoEv
-	6X2nBf6kkBntHAsfm8NY14cfoErnb9FkM94LqODtMEcPSPDp3E6hqxVhGc8Phzd8gOsVyH
-	J9D4IP8GbsIa/Ofz1ykBl/1AQPH57q14h/1Sl8dfWELEfww7E0l02mrj/KowFPbcrDqf00
-	sekRqUJjtROJBEhIuQWnarqJK0yNhKAoUw2IeErUi/17vT3L2dIDVgHmhO3CAg==
+	bh=vQbno2WvTFVUJzsRinFLe6H6OiW8r6h0VjyMcplhKIo=;
+	b=ovjYqPfP49nfKV50tUridaUCmN2wEut8eA8C8vu1HpUDDDG4MKVHrU+TXQvRmHTHW/SZG9
+	eBN4eN4cj8OOVwsHfa7RzuAN+xk7krnjKS5R+GB1U3UxER99/Eqb1/ZtQgpHkjTVKVWXUx
+	6hNRIh6jvfY2o+Tys7CVxCKW9AjEmKTLZMeK7CIPuXd3YnXe12XnfHniJ6ECaxNzycCOsb
+	NVYeZ3UvZzPN8GQ73OQ/rjH0KM3zUS0Xr5Mb1wLpmkM5S5XGbOO9e2Co0c+UZR21PGGTH0
+	qM5qhKiWB6+VgQ1nxscWhy9jyFC5VfsKAWTvv53Q+rGOpW9cpcD9ssalzRtHIQ==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020e; t=1784268901;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Wy4A5Bpkj2zzKdn6eNsWOzDqtG3uGM/7aAgamplxzrs=;
-	b=jSwIUk6v3+SYazZJ8ekQtG0on+6D+EFv408GtpL3sHwiYVbYBQ+5W/q83dsQg/4vpWev3r
-	904VBVIAQUebi+Ag==
-Date: Fri, 17 Jul 2026 08:14:48 +0200
-Subject: [PATCH v2 4/7] clocksource/drivers/mips-gic-timer: Remove
- CONFIG_GENERIC_GETTIMEOFDAY ifdeffery
+	bh=vQbno2WvTFVUJzsRinFLe6H6OiW8r6h0VjyMcplhKIo=;
+	b=r4tWelhaNShXcQKY3JDouYaui2eyhEbnWAbHyyJe+5Jr4uhktzkJdfKjWxywa+MG1Bb1hX
+	dMs3a1rcRJ+vIyBA==
+Date: Fri, 17 Jul 2026 08:14:47 +0200
+Subject: [PATCH v2 3/7] MIPS: csrc-r4k: Remove CONFIG_GENERIC_GETTIMEOFDAY
+ ifdeffery
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260717-vdso-arch-clockmodes-v2-4-756f5a5d1467@linutronix.de>
+Message-Id: <20260717-vdso-arch-clockmodes-v2-3-756f5a5d1467@linutronix.de>
 References: <20260717-vdso-arch-clockmodes-v2-0-756f5a5d1467@linutronix.de>
 In-Reply-To: <20260717-vdso-arch-clockmodes-v2-0-756f5a5d1467@linutronix.de>
 To: Arnd Bergmann <arnd@arndb.de>, Andy Lutomirski <luto@kernel.org>, 
@@ -72,16 +72,16 @@ Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
  loongarch@lists.linux.dev, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784268894; l=811;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784268894; l=1015;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=iYdmmwYnitqCJzJDOgChDbBElLI/0ThiAUZVrCungs4=;
- b=BFHrzLnVuye2tr+e2SIbjrPgLrJp7uaBwOS9ADqw3d0W/ptiTxietvQ/GYUtcy6TC11wLvy6x
- s4V0okkKzhyBxX091qQRCW+pdzTXMAeayl0oyQpbQAksL41O4o1wJc0
+ bh=t3APLy9t2SZVxR8iClS2KaGCf82ju0LDxr/0aH1HIvc=;
+ b=xI8NbmAXSs8ogUaOoFJQHyozFpyiKZY+gTXc6elvzxJ/8aAMz++2OBYOxxmDzQezptzAU4LCo
+ C3mfof7qJeGDv8TsxQP4KGhrtSCFjQ1QLt4BHVyXQNIUkV1JNwmDam6
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_231519_407466_D25EF2A4 
-X-CRM114-Status: UNSURE (   8.04  )
+X-CRM114-CacheID: sfid-20260716_231519_389055_FF860306 
+X-CRM114-Status: UNSURE (   7.44  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,28 +97,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that there is a definition of VDSO_CLOCKMODE_GIC even if no
+Now that there is a definition of VDSO_CLOCKMODE_R4K even if no
 vDSO is built, the ugly ifdeffery can be removed.
 
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
- drivers/clocksource/mips-gic-timer.c | 2 --
+ arch/mips/kernel/csrc-r4k.c | 2 --
  1 file changed, 2 deletions(-)
 
-diff --git a/drivers/clocksource/mips-gic-timer.c b/drivers/clocksource/mips-gic-timer.c
-index a1669266c94d..1501c7db9a8e 100644
---- a/drivers/clocksource/mips-gic-timer.c
-+++ b/drivers/clocksource/mips-gic-timer.c
-@@ -198,9 +198,7 @@ static struct clocksource gic_clocksource = {
- 	.name			= "GIC",
- 	.read			= gic_hpt_read,
- 	.flags			= CLOCK_SOURCE_IS_CONTINUOUS,
--#ifdef CONFIG_GENERIC_GETTIMEOFDAY
- 	.vdso_clock_mode	= VDSO_CLOCKMODE_GIC,
--#endif
- };
+diff --git a/arch/mips/kernel/csrc-r4k.c b/arch/mips/kernel/csrc-r4k.c
+index 241a934543a8..59eca397f297 100644
+--- a/arch/mips/kernel/csrc-r4k.c
++++ b/arch/mips/kernel/csrc-r4k.c
+@@ -126,14 +126,12 @@ int __init init_r4k_clocksource(void)
+ 	clocksource_mips.rating = 200;
+ 	clocksource_mips.rating += clamp(mips_hpt_frequency / 10000000, 0, 99);
  
- static void gic_clocksource_unstable(char *reason)
+-#ifdef CONFIG_GENERIC_GETTIMEOFDAY
+ 	/*
+ 	 * R2 onwards makes the count accessible to user mode so it can be used
+ 	 * by the VDSO (HWREna is configured by configure_hwrena()).
+ 	 */
+ 	if (cpu_has_mips_r2_r6 && rdhwr_count_usable())
+ 		clocksource_mips.vdso_clock_mode = VDSO_CLOCKMODE_R4K;
+-#endif
+ 
+ 	clocksource_register_hz(&clocksource_mips, mips_hpt_frequency);
+ 
 
 -- 
 2.55.0
