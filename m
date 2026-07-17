@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C302C4450A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEFE1C44512
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 02:14:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,46 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mP5hGp+Iyfyjl3bhjFZtDZFPCQSt9Imr8X/nypO6sRo=; b=LgLtnTl3pNMmqcn1zYPtsagIzd
-	HL9iGPeAMWqFsgGA+wygOy3qe0v0kwDOJkGMhr5xqTPxatTzQVrx/RCFlepjlQ50YV398C/qJNDSu
-	YyT9VVYGCfVzwxcHAo94U8cJyZvX6Dn3Jlh7Azv59oz/FakszeZ9RBXVWLr9llXFTmbkKDEZ8WXOD
-	5ZzxFSqj3OMhaeJxjTZYp8gDXnm36JEuiCMVMKM13sixNCs3KXrnt7a49ScZmWhIH1KXu4kc64c6m
-	bzPqx+Z2bwTTOrN4AD/hdwuPsDXk7htic2RNbTIDhCL7InVGv9Afrf0kOw49IHS51bPFNd5ORXWUM
-	h+lK0Nig==;
+	bh=0bzmzQewjfwDu4E5gKomq/RK+aH/kjgwok5bn6RtEHo=; b=ae2aAxnmmCN6Oh15JBtUBckcsJ
+	BTbhRgsigx25OvNFc6dyNBuvtWEqpc1rd4VACcds5k1Sez9ga/gHQO9h89ioEeT9N/GgFbs/hFG5S
+	AGiAoKMnZDoBTMDVT9z3N1BLHSuHNMxu1SNhFAQsClka9ZauBbU8lKmagYeRwKAOQwdKHhQX4Bpwk
+	bgdOj2Ep2i5dbTiRYm80qcr51NSUS0jlaDFxp4metpYNBYEDB1ovSfxDCZQhsXdhNpJxh41t5RHEp
+	MFERQFcMisw+wRs0XLWMTfGlLlJHemj3TuqVfigZ72FZ7WnVNRNc2vqasuEC5u2BiZQbtxJjYbcf8
+	ej83RQWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkY63-00000000wwP-2Url;
+	id 1wkY63-00000000ww2-23L3;
 	Fri, 17 Jul 2026 02:14:39 +0000
-Received: from mail-southcentralusazon11012022.outbound.protection.outlook.com ([40.93.195.22] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkY5y-00000000wuR-2uCu
+	id 1wkY5x-00000000wuI-3mve
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 17 Jul 2026 02:14:35 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WF1OEHF2B0qm+jBRbNrKd4jjchTA8NTi763SNkTqGUJnYQdR+r83FoHjUamsIux1oUUN9+44Ch0VbeneG+mgKynbjg06iXN0tWyym8aeNwp6kgbfnmmVLjbloOJQt6zsC6Z0XiAPzxdqr3uGuKHL74uO/+WRV2Ajy97fX1QqS4DBvDrgX5UbSS7EDposyXn9mYqar68Vvr32x7PHhyPwZbUn3ymBl1F9S2kzPJJ3OyB0plRh7chmKsMGZpzPKz6icItLF25nZ2d5jj6FwPq3A5MlsZatvagXcbg2qTJI2Oge5oLwVcXD79mVmFq49V8t1vs7pBmOkElo/XTs/G597w==
+ b=gWExeWtl70tswMPJyMbgDCxBfGHQU36SuFzzP+7H2X6KWM8TjJfPkpSI7A/9sKCQ1OWxxkvfKRhTK0NjPmgJNc8q6OzymUmeGilzqUu/nUSUSHY8PkRymK5E83PDqSc4ic9e+l2vtFaZv3leXD7+CddxXzqs4N5fT62a1ztmU8LE2iexAc8WIkY6DomZ5e4hQr37d5eDTa4O+ABzK/93QMZrGUg4Dgtavs61VSr6mS6/l0K6X7X6onywEGXehPM6EigttA6jGywdF7bMexm+DkB0skpXk8x1vTQnjsDtYkNRfNEqbBzpMq5x3DSxvmpWF5rs18YrSS/Jxpx5ykGR/w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mP5hGp+Iyfyjl3bhjFZtDZFPCQSt9Imr8X/nypO6sRo=;
- b=nl9z8RwT7jqCyMPfF7viOU6dQE5/iEeKHSqkILg7Uasc5M1/IoH6jjx3wmuZDDn+EQZgF/Sem9jwbK/2aM7SZhjAT6xTmRaNF1+cb7zQDn8TSBU9s7sLa0CGerydQDfyDhZbdRk7N7ojU6fQQtspTVHxC/vM6ce+R5ywQxldmKF8CxnL+dExodycYymRueL0RT/vQ2gmTRJlpYnet745jWucQzZtd6kHhfQNaDRKXGnXWbIcSMl744PaTNRYiXmkYqLa/+YOkpnRb9ZiXqT2afp+RNV3A022j+LVA0v7JFD45KPjUtxk0VynZBTp5sDnZJg5fMlrzjk1tdIi1nAmWA==
+ bh=0bzmzQewjfwDu4E5gKomq/RK+aH/kjgwok5bn6RtEHo=;
+ b=r1uVd5a9aXEjOdSQlSxxVg0ZkRsBOlzFIAmbwl55GMO5lk1hJB9lNYJG5SEkxWq7AiPfUwAlmOIKJ3LcX+tZSdGVTA6ignNS8380AYIGS22MUcpIuBRgcCZzDjuuyAnnmMeSlzv9S9klmkg/yQvp+4uPHDS4esVzTi2tnSMaT/7xH+iwhm8w65MUujjqJesEcf2jbpeEz1NIafhdRxx+dxuAQXHv6JLxFukBFFqw7RL/RT32cKNpNwDD9UKl6iK/DQCFrnutnuYZ1Vbe198kEuueJzCAjnqHmBezvR+aE44jAWg1v1a66NVJDJoIgV0yJVS/ITvzRfWE4xQKZezuuQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=pengutronix.de smtp.mailfrom=amd.com;
  dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
  header.from=amd.com; dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mP5hGp+Iyfyjl3bhjFZtDZFPCQSt9Imr8X/nypO6sRo=;
- b=DkoKzexp8rF4/kCpAmsZKLlYpAo63B9jFPg6DMkvAqBRcHzSnHsbi9mvCybTw6C+V5+65rCfb/gUSSJMAFpxeIb7lYVuVzx8SyH8BcdUKhzsjqBOcWbSlPbtoU5U3b+jsbcn3yaeO6qx+sxI1Ok7LX4l+bliVO+XFa+nuP97JRo=
-Received: from SJ0PR05CA0051.namprd05.prod.outlook.com (2603:10b6:a03:33f::26)
- by PH7PR12MB5760.namprd12.prod.outlook.com (2603:10b6:510:1d3::20) with
+ bh=0bzmzQewjfwDu4E5gKomq/RK+aH/kjgwok5bn6RtEHo=;
+ b=MvbA4JDsOMmVdQmpqiAuHg3MCdcHkTH5TjodCvBTvPGrdz2IhBvCNgwwkkz5k2j5+YJDLSFKPe2JVRKZbDFctKgc+1h47W/j/3nalFuZh9l6DFLp98EE2M7Rl9uionRmwCq/hIS/n6q+VEGdeY1P7ZzatEYsQhbBt16izBQ6qGw=
+Received: from SJ0PR05CA0034.namprd05.prod.outlook.com (2603:10b6:a03:33f::9)
+ by PH7PR12MB5973.namprd12.prod.outlook.com (2603:10b6:510:1d8::12) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.16; Fri, 17 Jul
- 2026 02:14:27 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.18; Fri, 17 Jul
+ 2026 02:14:24 +0000
 Received: from SJ1PEPF00001CE4.namprd03.prod.outlook.com
- (2603:10b6:a03:33f:cafe::2b) by SJ0PR05CA0051.outlook.office365.com
- (2603:10b6:a03:33f::26) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.223.7 via Frontend Transport; Fri, 17
- Jul 2026 02:14:26 +0000
+ (2603:10b6:a03:33f:cafe::60) by SJ0PR05CA0034.outlook.office365.com
+ (2603:10b6:a03:33f::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.223.6 via Frontend Transport; Fri, 17
+ Jul 2026 02:14:24 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
  smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
@@ -61,23 +61,23 @@ Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
 Received: from satlexmb08.amd.com (165.204.84.17) by
  SJ1PEPF00001CE4.mail.protection.outlook.com (10.167.242.20) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.245.5 via Frontend Transport; Fri, 17 Jul 2026 02:14:26 +0000
+ 15.21.245.5 via Frontend Transport; Fri, 17 Jul 2026 02:14:22 +0000
 Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb08.amd.com
  (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Thu, 16 Jul
- 2026 21:14:25 -0500
+ 2026 21:14:21 -0500
 Received: from xhdappanad40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
- Transport; Thu, 16 Jul 2026 21:14:22 -0500
+ Transport; Thu, 16 Jul 2026 21:14:19 -0500
 From: Harini T <harini.t@amd.com>
 To: <mkl@pengutronix.de>, <mailhol@kernel.org>, <robh@kernel.org>,
 	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <michal.simek@amd.com>,
 	<appana.durga.kedareswara.rao@amd.com>
 CC: <linux-can@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH 2/2] dt-bindings: can: xilinx_can: Document phys property
-Date: Fri, 17 Jul 2026 07:44:15 +0530
-Message-ID: <20260717021415.2234865-3-harini.t@amd.com>
+Subject: [PATCH 1/2] MAINTAINERS: Replace maintainer for Xilinx CAN driver
+Date: Fri, 17 Jul 2026 07:44:14 +0530
+Message-ID: <20260717021415.2234865-2-harini.t@amd.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260717021415.2234865-1-harini.t@amd.com>
 References: <20260717021415.2234865-1-harini.t@amd.com>
@@ -86,29 +86,28 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CE4:EE_|PH7PR12MB5760:EE_
-X-MS-Office365-Filtering-Correlation-Id: 19965e6d-ce3d-40a8-3463-08dee3a92097
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CE4:EE_|PH7PR12MB5973:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9fffaca6-6841-4a2d-c021-08dee3a91e39
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|23010399003|36860700016|376014|10067099003|3023799007|56012099006|18002099003|22082099003|11063799006;
-X-Microsoft-Antispam-Message-Info: 1gK1pHwfL8XA2Wpteb0bHdriOp31FEHAC024DwiH6rFyn3mOn5IHWplWm0rb772PlDGO1TcaMjed5aN1Q2eQurxtOdAezb++c88eFsHPZ5rpD6b4YhN6uB+z2t0qvUIZJDJGzp8HknmAb35l00ouTlfWTJy6wQdJYCLo3aOPF0n7x0msLm/69ypC+HiUL14iUYGSngyHluFAa4HbiquZJIfmM2AUq+5ACJ9dQ9Ze8hluf1LsZsS2NURmSRkJL3of0DTrJcrIlJHzcKAhi2++/4ed+M6YvbyKXFjHpp2dNWJVYWaxZCuO79BSyRuFmdF7dU/W9iog1yCL1JaoGuTNSyvm9j91TWgpDxMYrOR5FaXI4BfS9ohZSp38nfJX8NM2CHX+1vB490eZk9FV+5abdutDIFugaKoBO5lBFp5D6ngtoduN9DsTvV8k5UK6bg/CJqYETaR6DfMS7RahQROxWyzeDUVUKMzT5AZtQKi7uwMk64uVWghfD+M24wqaTmrLEOuFpTK+Fd/3cBCxTJo1HQsAY2jhNGFi3MgJ/bM9UcQGzPAKQDuUBAUm1JkaztwGQG96njqH6IMO9TlEDFCktxSOhH156m4MCOdZLSvYY5UpzdwjuNSS5wcxwcFAeJTzQvWQTl3E1yAsp5QefgPq1AzJJXXRc/5nZQd3wUw7zpkCDmV6+d3yVwPziWhRghnmPe2Nk3mRMQv1MrRPrI2q9g==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(23010399003)(36860700016)(376014)(10067099003)(3023799007)(56012099006)(18002099003)(22082099003)(11063799006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|82310400026|1800799024|23010399003|10067099003|56012099006|11063799006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: qK2yaNDr+sa7Hn3nbv+y9aDJj3dSBwlGusWLDZDPtjag6wK0kOBcBbUcHCqIFKC+oDx6HYBownYNvCh1lWL3Er59Xi01W74boDoage7sChmwReTD2eVe/uO4MMEsuZyXiGc+gGWS/sf1ZxJFLb3bCrhYU9YO2Vm5p7nITyvq1TiHMIW6x8qeJrhP55iELCsj7TARvik1B09L/adK+3oicTp2ohNwmgzIAUCgLGFGd61gsnsTx6xLN7aDCeS6h6xfR3OYpoAbJ0a5MPla0veHcf+ma+z8l8UvTvGk4BQaVgFOE2lWtH5c7kV834gq4fr4WX/sfxETDAaiJU5HBBFwbJf81zv2Y8x/vbrKGL7Xk59zuu2M4is9em4CZ4lhe9iVKSSSfMsAiGeXjcH488B27Kl3QBYqzLaT1eHDacXh+mskMXECSK1RZjvWFuaS+sItrf1pDNcP8xBgAAvUuXBL1qSfRgpja+/e2+VDg8X5sSiL8CrFmqnjKgYELN/gPcP1+jj5ynoOjuBgD/DvKtn89aW85B12mFOR3LgyEdEUEFKCo+FF/cI7PGLt3tpEL+A4ZpdsVtKnFp3XSZBDPWIEMJVP9kNHSqQwG5CrCQ43H4x+Dbnm2NK2kvyuYNkYlAmX3bMyBKOakBKsTk21JGxN/L4dtb/3QenuW11e3XzKWZDznXP7iC3ZPKQLNAi21axv1hGAheq8hHOMNxXaA6NqQg==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(82310400026)(1800799024)(23010399003)(10067099003)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: dF2hniPEM8Ajfp8xdYC3wYg/s3m0ChxblzXDcXg7N2wO0liVREr6PlrPLy2hDFOorf+k7FVpHSg1cSpEF99QaD/8TMqYBLHAXe1B74Pjh2PQ3C+ywqNPz4Gk/dXdAkIbJ1bqfuzssdiKzRdewYZ/EeA9tXkeXAWiNOy1DHoJGvQMAVGBlNi9ILNUZhPsVLMvppsFjSDoFwGhBvaci6tYVllINjI96aHxl7A5P4tUDgixVlpJkHshOMvo1Wt+NaBC0Nexgn2ZjRiu8v+IqLPimYc+CmwF1bhhEW5faF9y/AKaiM8cInLG1csf2mdIhBe6tU0/NV0MljtjI+tHnFcpStT4LS0LhWtg+Bet+dKwYTWwdDXB/piuhx9zw92SYEqhN+jlcQxPQl0lGgwH81E0Khk/6dEDf9O4bgbceetn+AuavFua9xuXAahVwAC0D5z0
+X-MS-Exchange-AntiSpam-MessageData-0: L5u2WS8SV4oM/EKbVvgzXOzWYFmSFfjHtgwnoA5CHsqgTld0byCEbZmBsgxRtvt2TRfnwpdC6B7VYh7CX59p4iOqSgrCFzl5jssxunpcC3ANhlTP+uJbNdZJQAHROeOmIKdcxYHQxFc0xqym5MX3Q+iiGOZVsYjklKqo1jxNR+EjNfJhDvx6/DHZi1nlAVLLxZoyCe1/Jgn52Z8JR9/Fuj+zNJuNZun1LJHzGk0ZdaKnULxCmdZbr3AnDiYmCmN1gBfsI1mIzCEI8gxgPx1ZxM6aIX+KoCh+0tPS69dQ19VNZKc5VtbXQgYuo89THx2nb5OCweTVIuZrP2H3SYv5s1y7tyXYWfIbyBuxTy1wAjS/5K1K+qdK9YKmZP1qkpR15cL3m4xensk5PLUnLKvygHod+ac0HntEcso2CDf8OIAPqcCS2vjhuDaGm55Bo3T7
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2026 02:14:26.7924
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2026 02:14:22.7999
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 19965e6d-ce3d-40a8-3463-08dee3a92097
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9fffaca6-6841-4a2d-c021-08dee3a91e39
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
 X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CE4.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5760
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5973
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_191434_733628_9A9BC27A 
-X-CRM114-Status: UNSURE (   9.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260716_191433_942170_F45B1BEF 
+X-CRM114-Status: GOOD (  12.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,34 +122,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Xilinx CAN and CANFD controllers can be connected to an external
-CAN transceiver on the board. That connection is described with the
-standard "phys" property on the controller node, pointing to a CAN
-transceiver PHY node which models the transceiver and its control
-lines (for example the standby/enable signals).
-
-Describe the optional "phys" property (a single transceiver PHY) so
-the on-board CAN transceiver can be described in the device tree.
+Replace Appana Durga Kedareswara rao with Harini T as the maintainer
+of the Xilinx CAN driver. Kedar is no longer maintaining it.
 
 Signed-off-by: Harini T <harini.t@amd.com>
 ---
- Documentation/devicetree/bindings/net/can/xilinx,can.yaml | 3 +++
- 1 file changed, 3 insertions(+)
+ Documentation/devicetree/bindings/net/can/xilinx,can.yaml | 2 +-
+ MAINTAINERS                                               | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/Documentation/devicetree/bindings/net/can/xilinx,can.yaml b/Documentation/devicetree/bindings/net/can/xilinx,can.yaml
-index e705c719f7b5..18015e60fd6d 100644
+index 40835497050a..e705c719f7b5 100644
 --- a/Documentation/devicetree/bindings/net/can/xilinx,can.yaml
 +++ b/Documentation/devicetree/bindings/net/can/xilinx,can.yaml
-@@ -53,6 +53,9 @@ properties:
-     $ref: /schemas/types.yaml#/definitions/flag
-     description: CAN TX_OL, TX_TL and RX FIFOs have ECC support(AXI CAN)
+@@ -8,7 +8,7 @@ title:
+   Xilinx CAN and CANFD controller
  
-+  phys:
-+    maxItems: 1
-+
- required:
-   - compatible
-   - reg
+ maintainers:
+-  - Appana Durga Kedareswara rao <appana.durga.rao@xilinx.com>
++  - Harini T <harini.t@amd.com>
+ 
+ properties:
+   compatible:
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 7a2ffd9d37d5..db619dcaddbf 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -28874,7 +28874,7 @@ F:	Documentation/devicetree/bindings/net/xlnx,axi-ethernet.yaml
+ F:	drivers/net/ethernet/xilinx/xilinx_axienet*
+ 
+ XILINX CAN DRIVER
+-M:	Appana Durga Kedareswara rao <appana.durga.rao@xilinx.com>
++M:	Harini T <harini.t@amd.com>
+ L:	linux-can@vger.kernel.org
+ S:	Maintained
+ F:	Documentation/devicetree/bindings/net/can/xilinx,can.yaml
 -- 
 2.34.1
 
