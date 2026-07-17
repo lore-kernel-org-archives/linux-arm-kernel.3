@@ -4,85 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07ADCC44519
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 06:15:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5801AC44507
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 06:24:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cIw1nW13D3Q7KVGq3dxw/myoCljjqPSm8YvxUaQYWA0=; b=lvL3vMQavpvt6bHNrNaak1tVio
-	8WWa8BqEaCJpS1Kfljxb22zaXPuU0sVEq/2DWxLFBDCeTzvWibAPZTtXZDEFX2Mz+NGD2uydd4Nr9
-	qe7HZYYFerHjLrfR/1GyBZzrLPJFAUxCg3DKxovd9WrbPgbqOKGt4h57wAECB6klSVoXeL8ryr4z2
-	kNSvKYqwGn4ytb0b94upLd0/gMM9Biuihi53gVYu+0pA40L4I53NgMhpINoHchi2BuDPoK3uz1RtC
-	4Jll4z8f5Xmk6JzPaPZnweteBVr1cSwQB2/36RumzIqjJg7Nlza7pR5owTDAmyFVlXtHlWvEn4YNl
-	a5302DLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DebmiLomxLz6/teVsDM6tuNqLgMURh1WMYyxmhdxV28=; b=f9CLV6y/yPuEHmnRCW9BGd06/4
+	LQ3QpeJYn+2RjEtqq+tSfYAlmHMcchzA1BNS3P4P48XJdkwLOTHfF/sJTKE3+gsz1KjvRbt6bIsec
+	+8fGF+oBoLDp2LiwtoifwC4oHbLLi3gYVXy8uKbazV/sXT+Z727eudbZJRvnMfMAu7+wiEr+qL4fI
+	EKsKshN40JvnLBFUTzZn8k17RC06p458ZmIaKOmNwDvy8ZDt0XMeveqzNN560as+vAHFFoknT1CmF
+	IKr9RUxbSbqurE2nWmQbKEW20W3acdoq/yabwnLBbLvGxvcE255Rs2ALWSKYaRTSZL0I2MILibfag
+	M5bNPIzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkbrT-00000001EN7-1EMg;
-	Fri, 17 Jul 2026 06:15:51 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1wkbzJ-00000001GFv-1HJ4;
+	Fri, 17 Jul 2026 06:23:57 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkbr0-00000001Dx9-2Nt3;
-	Fri, 17 Jul 2026 06:15:24 +0000
-From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1784268903;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=cIw1nW13D3Q7KVGq3dxw/myoCljjqPSm8YvxUaQYWA0=;
-	b=VNVPYOsbX7c1CIM8F7eHlMuXMtSmy45txWJpFs2iCH7yQCSNeiVTBBxJzTSjtvXQpK0oZT
-	T997yxk4Kvu4sGaAjJ8mFfOQFaoe4MTKbfoblYxFpjtu8DBhE9mp5dDdjiKgXDBgnwpKOG
-	yaSqIl5Qu7s9pXI19F1iv9O83rPG11nKgjtL/xSm+aXdXBzLbwKqviRgJArMflNwQF5cYE
-	CHJ+IduAZn5/lCKKZ+U4ULJNDQH/Hmgz8ZEhKrz3WG+6lx2TgHawzdzvn+oOfK/uycAkeO
-	1FN2BnXWt8HguVWd7fQ65Rj/MiELe+m6gXxvU0PbF1XZ0WBwxgy1+ZVRFu1I5A==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1784268903;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=cIw1nW13D3Q7KVGq3dxw/myoCljjqPSm8YvxUaQYWA0=;
-	b=8I1DwzTVpqUUamtI9UCb2EvwLrfrAAHexhzpGSaqZ+r2SqkHmQdH0+k5ovmHZIJ4CS9lRd
-	wLwAc6+3LDduDkBQ==
-Date: Fri, 17 Jul 2026 08:14:51 +0200
-Subject: [PATCH v2 7/7] LoongArch: Remove CONFIG_GENERIC_GETTIMEOFDAY
- ifdeffery
+	id 1wkbzI-00000001GFQ-0SAL
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 17 Jul 2026 06:23:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=DebmiLomxLz6/teVsDM6tuNqLgMURh1WMYyxmhdxV28=; b=dVOeIfGqT/yx28qBwV//mWHSbZ
+	5POvXiNBYft2u22whsFuDpHxOrAzBTUHu0IBMDk/n3qsxtzJ9RX+7Tiz5WsBrY6muDjzn9KVxuJ+a
+	LHZ3p8d3jCqw7EYUH5MpwKDZMus5K05HYRGkO7BiYjSoo00E6q7pgwmZUBRqS+Po8vJzrsIOuCH2f
+	IPpFTqkVX0CHDOXNZLMRupBSkvpIYUMnw2iNesqnXZlc1a9eRyerzgBNRWQDCTYNqXdj/ycWNmrwf
+	V9qO9DU2z2twdp/dNhaWwQOxM8bkq3IRiAu1RxhVCn4jpVm+WSEOw2SOm3BZdkZg/vWznKncuDvFX
+	TmA8mS2A==;
+Received: from mail-norwayeastazon11013044.outbound.protection.outlook.com ([40.107.159.44] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wkbzD-0000000EZBB-3DO1
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Jul 2026 06:23:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bgELIbOTunkRlET57qIt4e7vtL+1Nm0l6u/pf2//tDEfIJF2on2+dBJTAu7Faw9AIQjZ7h4J3QQSHdQ21H5j0VcIEL04+YUHq3RQmty8bktChRgufmcAO+Xe6nqLUO/zTnv55sXJ9a7ncf03fm3laDoayUon/hDoLiSugHHFonbVvX67o+UqBkPlJ2ORuzlg5oA258nkPLw2oEIHctieIKTM1Il326JCy9eDnuZZSCWed0Op65lRqmrjlve2Ck8Hkd3ysVGSpcKSp4VrIBpiMlphyJUTYdTPAKGWb5G5h9J6NuSmC1lxSJDclAs1kUwwaH46ZxU2QGwTuIxNSl8hOw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DebmiLomxLz6/teVsDM6tuNqLgMURh1WMYyxmhdxV28=;
+ b=hT7chhn81ZJbRo4fMUnY/O2TLFIz7IwJlAsYauaGm+jdA+oKREZsUvku2NpkSzd+skM/FW8FUiqzRq+f8+bo2UtSaocpm2CYqhj1TAcyaU7M60HslNDC1MqxXMoDZ4BCGDRoDmYWHb6JQkLMthqiBwdSuag0c/8ezQpCgbo7GG+t/R0fFq/WEK/ZwxL1VkKzm2i5IwB96XeolzwdONLz8sXiY2vGfN0pYhUkEqEyOWNzMHXcG3RoYEgqxYn1pONQrRn+h7/hZP2t/aZDxZb+7ObyMJndcwLCMxZ3+204j3cOJzNPnjcXChEIm9bVGOHHbG/DPKapRjP1zyQ4X8XrLg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=cn.bosch.com; dmarc=pass action=none header.from=cn.bosch.com;
+ dkim=pass header.d=cn.bosch.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cn.bosch.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DebmiLomxLz6/teVsDM6tuNqLgMURh1WMYyxmhdxV28=;
+ b=V4lIqNxjQ6EEHxoDI1r8yZvT7arDITmNPbLzoxMs1fkpfO6eN2u5UiPOU7Tw8w3t4O8wXhLjCHkXpKxeglMSxROZuqLknv1QBwopBocR9RXu4LEhtEqqx3ZXlXwD8EVESo6lB8YAfZEhhCbC0NdxhDgKCeySnPOex15yqXsQkOYsCZOSGJEEjcLVHXq1Ls6r5kfz2XZQlv2lct1ICUJxw9NDKWsfF8OVh1n+agB4fWw3cIdpvs9TqWdnCrROXYTh+S/vhsvk+UD0sDCQ7fQVji1hcAL3INaoMBUFBc1/IJJejP9dXS7VxlMLPVyQGrY0XKwnkp/N8+HAndVrsxY9Mg==
+Received: from PAWPR10MB7415.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:2ee::8)
+ by PAXPR10MB5518.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:23c::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.11; Fri, 17 Jul
+ 2026 06:23:44 +0000
+Received: from PAWPR10MB7415.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::fa9a:794b:21d4:ae9b]) by PAWPR10MB7415.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::fa9a:794b:21d4:ae9b%5]) with mapi id 15.21.0223.008; Fri, 17 Jul 2026
+ 06:23:44 +0000
+From: "CHENG Haoning (BCSC/ENG1)" <Haoning.CHENG@cn.bosch.com>
+To: Frieder Schrempf <frieder.schrempf@kontron.de>
+CC: "Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano
+	<daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, Lukasz Luba
+	<lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
+	<shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v8 3/3] thermal/drivers/imx: Add calibration offset
+ support
+Thread-Topic: [PATCH v8 3/3] thermal/drivers/imx: Add calibration offset
+ support
+Thread-Index: AQHdE3uQOwhGQ7gvREa8/JzAX/2zpLZuS2CAgAL3SOA=
+Date: Fri, 17 Jul 2026 06:23:44 +0000
+Message-ID: <PAWPR10MB741520A95E4822E935A0B7C0C2C62@PAWPR10MB7415.EURPRD10.PROD.OUTLOOK.COM>
+References: <20260714-b4-symana21-11221-imx-thermal-support-upstream-6-18-v8-0-d54d8690e16e@cn.bosch.com>
+ <20260714-b4-symana21-11221-imx-thermal-support-upstream-6-18-v8-3-d54d8690e16e@cn.bosch.com>
+ <5a000235-5e17-4d54-8bbe-42fda0b59db0@kontron.de>
+In-Reply-To: <5a000235-5e17-4d54-8bbe-42fda0b59db0@kontron.de>
+Accept-Language: zh-CN, en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+dlp-product: dlpe-windows
+dlp-version: 11.11.3.81
+dlp-reaction: no-action
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=cn.bosch.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAWPR10MB7415:EE_|PAXPR10MB5518:EE_
+x-ms-office365-filtering-correlation-id: 66550a3c-b158-4ed3-6b8e-08dee3cbf3dc
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|23010399003|4143699003|11063799006|56012099006|6133799003|18002099003|22082099003|10067099003|38070700021;
+x-microsoft-antispam-message-info: BJ2gxnHH42QnwmQTiFB0Ca69aAU+TJlVEJp1wnZizYCEMYMICytB7qTVoSNLXProZ7mOdpOAOFgw8bfxNGdJBooDgTdFVBNpvbbnOwn+qrGOTtt4UlcGc3gfPpevO0R1Dve4eto/tgBaUl50AuBafhwDl98JH+PmrKDJREMHqORX1IFiqlnSYstil8El5R1r7PELz31ASsvkpk6ZajT58du0kl3bA+4n587Q1XT7MKfTpM0MQ6KangdWVLu2iHA4YspxgOH+cAovryDPi131cJpqEnzhzNhWkPVmtVTZatVFuRViJZ2OT7J2/C0KojdovpnrTQqHLKj7CNqLDcdqgB9M7D71+2sSero5KUWoRD3ZLNaCXuNPybKdzAX++FJx/G0NUXk+Z2Q6S1N2Uvg+vF44Cc38tmWF1rUCWCh22DrXpsF0Q/Mvojz2B4r0RSKJHXxJnmufIN551sGSx3olqcNFzosGabrSEnU9BjhVDPISMUD7UVHebkxzh1i4mDtmS75S31tC6rx3sd8UG238HuN9MrsEcCapLwdCBeWSdB0j8T3syJvMRmJbKcbWRoAFz6y0JpNq4dzoIi/xC4vzuqic86aBRnpoft0gc7Kafu+nLGbVLXR6ZYJD8Z2eVCXOVuBTXJFKXZ3H/7e5knu671a8U1/ojQjM2W7wVr3Ksii1Brn1bIxZScMiqCKWROQOrEctgiK/Rt4sE6dfgi0bMKeL7Eu8jQWZqtS8SHKGPVY=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAWPR10MB7415.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(23010399003)(4143699003)(11063799006)(56012099006)(6133799003)(18002099003)(22082099003)(10067099003)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?zz0I4JwLe7ydhOnflQUQZlmE9KixLXiUf8gJfPx1KKcGoFSw/bT7sXQprV3f?=
+ =?us-ascii?Q?SL5JzapHNMCmF5Lw4ys5ICEyuVSxjg0vGS5dKLgHlR2taUtGDktIEkyU7Y5S?=
+ =?us-ascii?Q?c3uiEOWcg5cjHU5TYtZS6gMEHChzQJtSEdorwQII6P4WfxbgO0QM7lzPz/yQ?=
+ =?us-ascii?Q?qgKqH1MD01wPAIc8gUdxD/iueQtieiUxr3flLzS0kDDUOlNVMb7kpQ8oQdgr?=
+ =?us-ascii?Q?ZY85eS7tyuz9HN2gndm/hjrasRBCCOLN5tggdzbp3IQIzLHzznwbFSWFNqaJ?=
+ =?us-ascii?Q?OylDQOi5uVDbF6gknJ2k5swU3rDImJPYYeW7lhNnkxEB/j9LkJiNw0uhsKG9?=
+ =?us-ascii?Q?rFxM7m4WZmpYd2lmdcfCluax01nhWdGZI+f/HX0KZBnmqRur+7fhqWBQeHwb?=
+ =?us-ascii?Q?RM5RtfLvAGY1OjRwqKkLtQoCEsXy6RLvvtaT7uomckkogJzvdU2Pq5aXwqcP?=
+ =?us-ascii?Q?x58DbHe1alV8Cgjt7PKZDHqzdGnJKmG8vNPvyDiWEl7xHtisnFPbrJf0QWy/?=
+ =?us-ascii?Q?RMsbii3XTweEVTxmIU4uQxy6UBoXhaJsmFt+l3wTDg44q553RvlExu/z/Ncj?=
+ =?us-ascii?Q?Yr3YG7YFq9BhfZWmV2NjAwdTGBFDnJxc7Zf8eaKsvmntSLrV8z0vJlP8rVSd?=
+ =?us-ascii?Q?SM1jm7HfFckdUWZ8w5whyDgx/QnPwg/8Fh8bYU23mu4yv2BEAjd6tNvzcj4B?=
+ =?us-ascii?Q?4Gu2R5OcHiv2Hi0gGwARUmAY3v5JRxEX9TcefLDlBSSado9ofRM0QhZ3DMmC?=
+ =?us-ascii?Q?K9l6kGm22lHKLO7biQrNe1eqW6U2cZkg8bmfAGZ63h/RljuQ+WDXN5fEagQO?=
+ =?us-ascii?Q?f9hx1xIt64E2s3mkm4oF/FSdLZk7FQu9pnEkQlyCJfsKo873SklbCBNnu47I?=
+ =?us-ascii?Q?MqI6wH666gqDNQQFX2FwDB1bWDrYgyqxdLsVjxJq5FEK+PjQsCWSBHAnWjxu?=
+ =?us-ascii?Q?PTnI5aJwftUQo4Cpjaz0DRkT3VqCf9GAtSy9kY53Vf/GcJqMjTPaNG5+qdpg?=
+ =?us-ascii?Q?QkG+/E/xY4Hw3DnCFvtXoxk2ttvOgWvgf76Lg6cDGMqGh+zRQWHb4bQDGPwA?=
+ =?us-ascii?Q?NGPr4WPZ94jMpyrkle2zsbxKKpOoiBYGmpxX4Aui556ii8rOQasYyfharLfJ?=
+ =?us-ascii?Q?5AQoXzGFu0H7tKTcU9oSOqvTmScKv2x5SUopHkHqD8jyUc0NZVi59R3fGTyA?=
+ =?us-ascii?Q?ezvo1WdhTF4bh6I5GRSqk5iEQcltfw03PyISwQ7DAw7QS3gXOJwgs7hiaF0N?=
+ =?us-ascii?Q?xqooP0rZTae6tLn6mVEKr1hGZLLps76E8xIQDEBAdzpcMSmBk8o8LvNFpjqp?=
+ =?us-ascii?Q?Kv2giGTmjM7W51y5isQoQY7fdU+9sURHo2y9Ll/qga/lrb4uFdoQPJysIMVm?=
+ =?us-ascii?Q?t7XgQiSnK0HlGkoBGOdFxPKiuwGyvP0tPWETLRcKhARzpnEjIN/MBLhJm8Aw?=
+ =?us-ascii?Q?VRlQx00btKCZz/oxdyywv+2Rl1KwT05TDEJoniK5uwt913ihucTU+oC+LgJ+?=
+ =?us-ascii?Q?5mQqp3WttpoAbPf6b2VGkLsHzxef7JaFK0O1y7fzlrz/Ih3jHrCFS5DupwhS?=
+ =?us-ascii?Q?FSngAup1bvNU0h6APkrbXZDYyr7X/2uPEcZx3s+w+2lRi3gsjRcjmj4+9Uqz?=
+ =?us-ascii?Q?ESyLR7coNcVRym3CqqfQPTkirsgmsoiXxqyrm0zgfZJnMT6AS0EIUfKNvxbG?=
+ =?us-ascii?Q?Y3qSu7wCjXzHtqeSHtRYNin+Y677oZhv7lS2jdUT3jZ8DCMt?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260717-vdso-arch-clockmodes-v2-7-756f5a5d1467@linutronix.de>
-References: <20260717-vdso-arch-clockmodes-v2-0-756f5a5d1467@linutronix.de>
-In-Reply-To: <20260717-vdso-arch-clockmodes-v2-0-756f5a5d1467@linutronix.de>
-To: Arnd Bergmann <arnd@arndb.de>, Andy Lutomirski <luto@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, 
- Vincenzo Frascino <vincenzo.frascino@arm.com>, 
- Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
- Daniel Lezcano <daniel.lezcano@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>
-Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-kbuild@vger.kernel.org, linux-mips@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
- loongarch@lists.linux.dev, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784268894; l=780;
- i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=/YNIeu5dDcZIdRrt5u3jACXGrJAGqwCKT4gDnUxNTGQ=;
- b=214rtg/06/j2dYk14bVrr0sJ50TBCWX3iVo+aQXbK8yH33e5JHAj4jo6f6SALe1iyxSeGi8nJ
- TGV415gYICwBJYPC4sSsDENn7Hc4S5CQJ40r3cOD43Mp0pwgiakUKLQ
-X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
- pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
+X-OriginatorOrg: cn.bosch.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAWPR10MB7415.EURPRD10.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 66550a3c-b158-4ed3-6b8e-08dee3cbf3dc
+X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Jul 2026 06:23:44.1939
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 0ae51e19-07c8-4e4b-bb6d-648ee58410f4
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: PoaH1azldp64nML26sHt+5Oo9OYlxDJJnszYNSYnrbDGdSef2Hdl+TRkggpJTx47nmBHrjmSvq2C8N8T8x5pUw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR10MB5518
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_231522_769188_181ABE87 
-X-CRM114-Status: UNSURE (   7.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260717_072352_540677_A4A42758 
+X-CRM114-Status: GOOD (  21.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,30 +169,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that there is a definition of VDSO_CLOCKMODE_CPU even if no
-vDSO is built, the ugly ifdeffery can be removed.
+On Wed, Jul 15, 2026 at 11:06:07AM +0200, Frieder Schrempf wrote:
+> On 14.07.26 12:28, Haoning CHENG via B4 Relay wrote:
+> > Some boards need a small per-design correction to align the reported CP=
+U
+> > temperature with board-level measurements. Read the optional
+> > fsl,temp-calibration-offset-millicelsius property from DT and apply it
+> > uniformly to the i.MX6/6SX/7D calibration formulas.
+>
+> Sorry to chime in so late. I just want to understand what this
+> calibration offset is about. Why would there be a need of a
+> board-specific offset? The sensor is in the SoC and if you add a
+> board-specific offset, you no longer measure the SoC core temperature,
+> right?
+>
+> How would you determine the offset in the first place? How would I know
+> what fsl,temp-calibration-offset-millicelsius should be set to? I could
+> put a sensor on the SoC case and use the delta as offset, but then I
+> would just account for the thermal resistance of the casing and not
+> measure the SoC core temperature anymore, right?
 
-Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
----
- arch/loongarch/kernel/time.c | 2 --
- 1 file changed, 2 deletions(-)
+Hi Frieder,
 
-diff --git a/arch/loongarch/kernel/time.c b/arch/loongarch/kernel/time.c
-index dbaaabcaf6f0..5892f6da07a5 100644
---- a/arch/loongarch/kernel/time.c
-+++ b/arch/loongarch/kernel/time.c
-@@ -212,9 +212,7 @@ static struct clocksource clocksource_const = {
- 	.read = read_const_counter,
- 	.mask = CLOCKSOURCE_MASK(64),
- 	.flags = CLOCK_SOURCE_IS_CONTINUOUS,
--#ifdef CONFIG_GENERIC_GETTIMEOFDAY
- 	.vdso_clock_mode = VDSO_CLOCKMODE_CPU,
--#endif
- };
- 
- int __init constant_clocksource_init(void)
+Thanks for pointing this out. Your understanding is correct: after
+applying the offset, the reported value no longer represents the raw
+SoC die or junction temperature.
 
--- 
-2.55.0
+For this board, the required "SoC temperature" is the package-surface
+temperature. The offset was derived by comparing the TEMPMON reading
+against a calibrated external sensor placed near the SoC package
+surface under steady-state thermal conditions, and is used to
+approximate the package-surface temperature from the internal TEMPMON
+reading.
 
+The Linux thermal framework does not require a thermal zone to use a
+specific temperature reference. It only requires the reported
+temperature and trip points to use the same temperature domain.
+
+In this driver, the offset is added in get_temp() and subtracted in
+set_alarm() and set_panic() when programming the hardware thresholds.
+This keeps the reported temperature and trip points in the same
+package-surface temperature domain. Doing this in the driver is
+necessary because the hardware alarm thresholds must also be offset-
+corrected; applying the offset only in userspace would cause the
+TEMPMON IRQ to fire at the wrong die temperature.
+
+I agree that "calibration offset" is misleading, since this does not
+calibrate TEMPMON to a more accurate junction temperature. In the next
+revision, the commit messages and DT binding have been updated to
+describe this as a board-specific conversion offset from the internal
+sensor reading to an estimated package-surface temperature.
+
+Thanks,
+Haoning
 
