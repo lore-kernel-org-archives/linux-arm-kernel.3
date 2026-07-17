@@ -4,95 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EEB9C4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 00:59:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9215BC4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 01:07:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wOMUXoxvykC4/rWvGhc8fYAEJsaFuo0l6LI0NYyXnn8=; b=wNRN+Rh8piIXSvaU10YS7P8fle
-	6XAl7qzM3C2q30iuxHlib08qlmyodhg3zUVvztxX6XWof1GAwSphGlZ2U3LCij1qka8YIDY/tAdQ0
-	l1YDdjgQM2T1W4GyfM07dC3zXzfy8M9+jx+k6HPi89+K2wCvdkUoop2dKZjpBbnh97uYM97V0g4HR
-	k63nyJlm02tcHa3aqu0VE10f0btVTgCpH9KVKPqihS3vvbq08JWIGpkXcfaOzjxqMYyg/uPnTbnmV
-	JKVWebOk171pTZyTGGVEicxewDM6uSi6S6twITYzvWwk4NWze7hoCd2Byayl6+Fzn2+eobLqp4Liw
-	ivWT+qjg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=E+jMtOYXd86aOtbSew6YfEy4o+UUtHTJcq8MN5yVYKM=; b=li2hA11HHYsH5lxf5lEQem/GSS
+	vYo0yWqCjVGGaBzxyl96+yPD5ZR2N8dEWKyZeumr1XGQiukmpultXV7BSHIxJm70Q2KPCwv0hOyEk
+	gDRZQoNzqdbdcXyd9fHpWvDrzSyhkiiLxGH2qCqzQV8MM1kGUBiTH/+5r1B2yrGIMH2va6gCApDJk
+	glry5zay3KxjmF92JOHutVVY3S62Tpz3j3REgmyiDlq453JDn1zVLH8vDr6JCmY2VnAgGpwhllSZc
+	IRMdGIQ+H8x9BkNQZkm7EEe7qNtoG9YM5/i30HJ61CpJv537udJDrhggoqYd3PKfpLaQKKTAznbj8
+	XuMHx4GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkWv3-00000000s0z-401c;
-	Fri, 17 Jul 2026 00:59:13 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1wkX3N-00000000sLb-39zk;
+	Fri, 17 Jul 2026 01:07:49 +0000
+Received: from mail-yw1-x1136.google.com ([2607:f8b0:4864:20::1136])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkWv1-00000000s0d-29Jv
+	id 1wkX3K-00000000sKo-40bV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 00:59:12 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-38125cebfdaso4263985a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 17:59:11 -0700 (PDT)
+	Fri, 17 Jul 2026 01:07:48 +0000
+Received: by mail-yw1-x1136.google.com with SMTP id 00721157ae682-80cebd41372so69678777b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Jul 2026 18:07:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784249950; x=1784854750; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=wOMUXoxvykC4/rWvGhc8fYAEJsaFuo0l6LI0NYyXnn8=;
-        b=M24l0MZcMgKebtFeIOa+oOkcGeFJm4mrsMYbcGkoXucCGcGN/pPhcCY8WkyF7fzsLk
-         IBCjUe2ncQXaACIV5dJTfJUKO3rD2fgkR/ZIR5aYuTR8fNUY1kbWHd3AyBVdSifdEEZ2
-         XeVFkjYD+o8SnplC/cb0vfIj++32BmQeiaTXY4senzH2KU9bz3EIWcmdZ4eB5XvzYvNF
-         wejgcWsEaHxDf2zwc1mnbcMdKnYUhicGhoE573IsN3wwZWks1RbSydXW5KbLZ/hs+QEV
-         +7o9JO5NxpBfynTxFKqyAqQaqNE/pPom5obJ3mxrN7O/rcXnYXXtEWo5IoJuEBYUcKvs
-         dIEQ==
+        d=gmail.com; s=20251104; t=1784250465; x=1784855265; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=E+jMtOYXd86aOtbSew6YfEy4o+UUtHTJcq8MN5yVYKM=;
+        b=rTX1ikPWME3qnijojiZfIcRJ1etjf997gu+4TZGQ+HWitReqHJ49fW9JsS5LXLXRoT
+         RisTFWvJu8T/fACKho0XyyOA4sCGoSevV44Kowg3tmD9Hr7vA7fSxYAronQGs9vKjUWz
+         IlkQgCx6nwyxlHupeJ+qUIkxwqPK2ItsGaz7Z+t3IUpYXT+iN0jiW+ksJX05O+A4edwh
+         c1kdRfTsQe8klYMJAO3g62iOgnULOabTFvgoF/YdySKtxpfn4rh1aQg8vNJ6u3q++s9o
+         m4nixgsTcHHSn7nPVdJFteI5uCp9tFbNiV2BYpPbV21QP62rTKiZNjJR52pw0zndqjUL
+         lMUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784249950; x=1784854750;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20251104; t=1784250465; x=1784855265;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=wOMUXoxvykC4/rWvGhc8fYAEJsaFuo0l6LI0NYyXnn8=;
-        b=EQlJcNB+G7zhUGT2jOxny/03XTRw+ubRAdlWpMYbrMLfpmBUeQUZ4nN+KNLTUGSbDe
-         hVLDRjbZUD/ZhTEs2q0zQpVUGN6knym/oGKTL+N0+V9P5arhxLmpPiPiqidaSQ2CNvdL
-         H/zgPddKkvp2586zqPubtcI1eRhA82AXj+Z4cFY9tlLIvyF+EoxrdKFk33a/jQTDudvd
-         Qo3Y9KYeYAyQxQrVcGqVBRLYtryeML6fYHk/5WKbZ3vs6SPhPYJiagHbH8mvahsacG2F
-         SzXZjLc3lGP/M20WdOuBdXJN+feQWYP6a19nNpyk8G2KkxUj0CM5L1dW1CJUCQ4aMPdB
-         IgtQ==
-X-Forwarded-Encrypted: i=1; AHgh+RqasHSjMIV9AduDjdCRr9T0ikviWBBWXyIu2hIjTZvvABlX59A+KvWDfevDKqzltLNtcBfITXD/0K+FFMBWcB5W@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywn7OZwk2IamKEGBmQeYbAHB7A5RPq34U34UTRS0JlKOZ7w2Ubm
-	oDy7dTndYi9oon2+LHxNwx1Jes6IlHwKfGIoJNQurMPpu67hi1O+z2tpymY5wA==
-X-Gm-Gg: AfdE7cl6MdFMIlNEIV5KViWczOqxao6TDB9MW35dD141kWe/jsowPKXvnUoUbOCJmAI
-	FPgDDhIG/45apGhXgDVLya2M9zjmYxVudeefB8nfngpQQH0iBMqYDWQbNrEMzsgYZPqFeS8Cg+Q
-	IsaZCtc4V+eeh16cVKc6Sl8eySIjDjUg2+yDDMooZGFWDO0DlJhTB4qHzBFsbsahsiL2ctwg6RD
-	bfFZFg2HcYlns55ktr1DQyD3tT+S7q924HYOHgkn8IPCjGilXNJGs/5MecdF6NJUJVJFR2ULosG
-	1F6M+WoOkSnRSPeV6p39ynEGn1iEcpUBrLKGu0ky5vtqvCNbAPVLWK/zvMcWsF5+R6z7dq+ASej
-	P8W6NYznhLaJYLiFCzt8nxVHya6ZsnEV8lFVeiLbhXW+ddVHcMfvsh+PAG4So2zoyip2w3sohM6
-	vRnE4yhD3qxpvY8jk3IypeImYha0iJPx8h7+36LbHstroZlnT0+nxmNw==
-X-Received: by 2002:a17:90b:4d09:b0:38e:2fa0:491b with SMTP id 98e67ed59e1d1-38e4b594eb3mr346658a91.31.1784249950264;
-        Thu, 16 Jul 2026 17:59:10 -0700 (PDT)
-Received: from [172.19.1.42] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38e4aff1545sm151892a91.5.2026.07.16.17.59.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 16 Jul 2026 17:59:09 -0700 (PDT)
-Message-ID: <8d757505-ea93-4dd4-a374-79f143f6f949@gmail.com>
-Date: Fri, 17 Jul 2026 08:59:05 +0800
+        bh=E+jMtOYXd86aOtbSew6YfEy4o+UUtHTJcq8MN5yVYKM=;
+        b=oEj3IYOX0GTSR8WYpvtF/9JaO0vAz2vr2wr2c658LLeOh3l/FtTikmHK4Z3RLizypH
+         LhdmjmhjRHdrmtWLLWt7EZ/ZAosr4OO+2WhLtqEFHeb/uXMNz71jPnN+desnIjigGYy3
+         53oOb/GReV/1el/6/ETmvm3wrCthOnHJ7CtgqYihfD9SJ3LabuV70fILPfqQVpEAu22m
+         I/I9AhDgqJj/y/TZbNxfiFY+B7PljOgo8p3yy6D+ueVRbZP0uQckERg6Gzipo7EinfmH
+         YYn40CxtE6ulxaHC8PDF3yBH6pKSCYCgL6Tz4IB/xMdUQQD/EUHJ67i+ki1RMD1YuXyV
+         l0FQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqFK8wmXLjdpReQmxYXTyjV2EPTswyfVxv8t+Vc9LhAKgkAf7GV+/rg6YnjZqMY9Nc8K39fuKj7LkQQSIoLGIg1@lists.infradead.org
+X-Gm-Message-State: AOJu0YzZEfFkjBjSuaoGgMf0OmZVID70slAoYa1GVBPfretSSALJNQXr
+	KgLrYqMsk89ub8TbUYtAvT+BhFvK4Nd4qNNFLlBN2/FB/A4Of+y5Nwsb0u2sKg==
+X-Gm-Gg: AfdE7cmWpXaz+ZyfdyyWLpcrB0/uAECQRtzhqW9kuboMB5gloIGi3WKKqHqye83Ejp5
+	MnzXKtT7XBKHg7ZgI4iBOz7UwHY2i3th5o2hovIlPAw+GY2YsKhCRxIfD5tOT247a0OIGnH8Cc8
+	fjCUZAmriwwUjc5OneOQWOQS631hBokK1D7Fr1D/Q7N2J5tZCMtY636r0QoIB+9Fk5YymDarjYa
+	6/Mvo/eIZJmvvkk41TEg3uyyPyr5nu6+GQWUNiKByjkAFqvk79IFWwglg6/uQwgHml3adKBrCh5
+	h1KJYtgxodNWmr8sCJTSj571kxTsSCMnbYpz84Xx1LHnB73VgZmad+8qP6TZaYHn9TpcoPvkUev
+	YmduZzyv1JlX6ze1AGQSWvaa5XRwgTR5P+3JbpLFMMMTwHSYrv1GC8r2m6qEDvZOZ+7oCGyQ3X2
+	NfK7k6qWXhrU9UlAc5XwPmdzrIM+JYmgUwy9twCZxULlyS2uE=
+X-Received: by 2002:a05:690c:6b82:b0:7dc:e96a:26ed with SMTP id 00721157ae682-81ef22ef44cmr481287b3.9.1784250465041;
+        Thu, 16 Jul 2026 18:07:45 -0700 (PDT)
+Received: from fabio-Precision-3551.. ([2804:1b3:a801:a24:e2d1:829c:ccde:e84f])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-81e8f4c5d3csm159095057b3.15.2026.07.16.18.07.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 16 Jul 2026 18:07:44 -0700 (PDT)
+From: Fabio Estevam <festevam@gmail.com>
+To: heiko@sntech.de
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Fabio Estevam <festevam@nabladev.com>,
+	stable@vger.kernel.org
+Subject: [PATCH 1/3] arm64: dts: rockchip: Fix rk3399-roc-pc-plus analog audio
+Date: Thu, 16 Jul 2026 22:07:34 -0300
+Message-ID: <20260717010736.578419-1-festevam@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] dt-bindings: iio: adc: Add Nuvoton MA35D1 EADC
-To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Cc: jic23@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com,
- andy@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, cwweng@nuvoton.com
-References: <20260713081127.115197-1-cwweng.linux@gmail.com>
- <20260713081127.115197-2-cwweng.linux@gmail.com>
- <20260716174237.00004b79@oss.qualcomm.com>
-Content-Language: en-US
-From: Chi-Wen Weng <cwweng.linux@gmail.com>
-In-Reply-To: <20260716174237.00004b79@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_175911_558319_F2B1DBB3 
-X-CRM114-Status: GOOD (  20.07  )
+X-CRM114-CacheID: sfid-20260716_180746_994889_1BF9776C 
+X-CRM114-Status: GOOD (  10.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,67 +101,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonathan,
+From: Fabio Estevam <festevam@nabladev.com>
 
-Thank you for the review.
+The ES8388 sound card on the rk3399-roc-pc-plus fails to probe because
+i2s1 cannot claim its MCLK pin:
 
- > Not sure this doc helps. What are these interrupts for?
- > The driver only uses one of them so why are there 4?
- >
- > May well need interrupt-names to allow gaps in the list to
- > work but hard to tell without more information.
+pinctrl: pin gpio4-0 already requested by ff880000.i2s; cannot claim for ff890000.i2s
+pinctrl: error -EINVAL: pin-128 (ff890000.i2s)
+pinctrl: error -EINVAL: could not request pin 128 (gpio4-0) from group i2s-8ch-mclk-pin
+on device rockchip-pinctrl
 
-The hardware has four EADC interrupt outputs, ADINT0 to ADINT3. The
-conversion-complete source for each interrupt can be selected through
-the EADC interrupt source registers.
+GPIO4_A0 is routed as SCLK_I2S_8CH_OUT and is used by i2s1 as the
+external MCLK for the ES8388 codec. The board dts already removes
+GPIO4_A0 from the i2s0_8ch_bus pin group, but i2s0 still claims the
+same pin through its bclk_off state.
 
-However, this initial driver only uses sample module 0 and routes its
-end-of-conversion event to ADINT0. So the binding does not need to
-describe the unused interrupt outputs at this stage.
+Since the i2s driver requests both states, this blocks i2s1 pinctrl
+setup and leaves the simple-audio-card deferred with a parse error.
 
-I will simplify this in v3 and document only one interrupt entry for
-ADINT0. If support for the other ADINT lines is added later, the binding
-can be extended with interrupt-names at that point.
+Override i2s0_8ch_bus_bclk_off as well, matching the existing
+i2s0_8ch_bus override, so GPIO4_A0 is left for i2s1/ES8388 audio.
 
-I will also drop the redundant maxItems from the interrupts property, as
-reported by Rob's bot.
+Cc: stable@vger.kernel.org
+Fixes: 6d9a7bd6a13c ("arm64: dts: rockchip: add support for Firefly ROC-RK3399-PC-PLUS")
+Signed-off-by: Fabio Estevam <festevam@nabladev.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3399-roc-pc-plus.dts | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
- > Do you need that explicitly. I think adc.yaml already brings that in.
-
-No, it is not needed. I will drop the explicit diff-channels property
-from the binding.
-
- > For these take a look at the description of diff-channels.
- > It states that where the pairs are hard wired you can just use reg
- > and not specify diff-channels.  Seems to apply here and will greatly
- > simplify this binding.
-
-Yes, the differential pairs are fixed in hardware. The valid pairs are
-0-4, 1-5, 2-6 and 3-7.
-
-I will rework the channel binding to avoid diff-channels for these fixed
-pairs. For fixed differential channels, reg will identify the hardware
-pair. For single-ended inputs, I will use single-channel so that the
-single-ended input number is explicit and not confused with a fixed
-differential pair index.
-
-That should remove the large allOf block and make the binding much
-simpler.
-
- > What are these channels?  There is a reference to one
- > internally wired one so what are the other 3?
-
-Channels 4 to 7 are external ADC input pins. They can be used as
-single-ended inputs, and in differential mode they are the fixed negative
-inputs for channels 0 to 3.
-
-The internally wired channel is channel 8, which is the VBAT input. This
-binding only describes the external ADC input pins, so I will clarify the
-description to avoid confusion.
-
-Thanks again. I will address these issues in the next revision.
-
-Best regards,
-Chi-Wen
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-roc-pc-plus.dts b/arch/arm64/boot/dts/rockchip/rk3399-roc-pc-plus.dts
+index 4f2831097624..f6d62ee51f1b 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-roc-pc-plus.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3399-roc-pc-plus.dts
+@@ -136,6 +136,18 @@ &i2s0_8ch_bus {
+ 		<3 RK_PD7 1 &pcfg_pull_none>;
+ };
+ 
++&i2s0_8ch_bus_bclk_off {
++	rockchip,pins =
++		<3 RK_PD0 RK_FUNC_GPIO &pcfg_pull_none>,
++		<3 RK_PD1 1 &pcfg_pull_none>,
++		<3 RK_PD2 1 &pcfg_pull_none>,
++		<3 RK_PD3 1 &pcfg_pull_none>,
++		<3 RK_PD4 1 &pcfg_pull_none>,
++		<3 RK_PD5 1 &pcfg_pull_none>,
++		<3 RK_PD6 1 &pcfg_pull_none>,
++		<3 RK_PD7 1 &pcfg_pull_none>;
++};
++
+ &i2s1 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&i2s_8ch_mclk_pin>, <&i2s1_2ch_bus>;
+-- 
+2.43.0
 
 
