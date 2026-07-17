@@ -4,73 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2425C44515
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 18:31:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 238ACC4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 18:44:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lNQiPmenBx7qfDHkl/3kt6jXtsPh8klK9TqOSKZB99s=; b=f4igydpLqvWobJrdIwfh34nPhG
-	Q2aVu2JjFw+W4KRYgBpDmfSS5TtpsS7KopvC6VkINgTTzJzfvbSCZT1LLsiTxskowPo7j0bd8bOEF
-	SaQs0PZ8KDWGZmG7PLDMxkPFlDAzQN6meLqWiBtEW7j3l78lAW8ApDlYRbNoBKt9+s4TVaqnT5RFG
-	IYL7zhWHfeymBg9WGC6Z55bGs884jSKT+EigvaQwLX9iflXSBTfOg1IK5t+q7l8Xwvvyzb1rhSKyJ
-	My6lKPCBKSX7y4gvgMRiEwV6NsOTN+6imGPJAJi5QIZDtVJQ8Sp41S3OYhK4XiKgBqXsxiuGjL/nu
-	DoSWA2sQ==;
+	bh=P1b9DeYrFDNJXSmhHkvkSVwxA9oSUUdj93hOLCrfhtk=; b=E5Epmqr4mkSJw9mB0G4mL23Vhz
+	Z+5e2VevdsYI8YV3mgFOo0ViDz+miGnrKhHQ6DJSv58rg7SywlcVzFYhwCbov1j4AF/m6LN5EhfvD
+	+A+m9wBdZFi7Iq1w8ucw7ZKQ3EMpxX2SHFPCqnghKcubn8lHDEYSpj/WikwfseW/PHGFvZnH37fKG
+	SMrEMdfl+Yq7ZSUyM42hmKNIxQmDgEyJGsIFBMK8+GRsNSvyOb/oVE25NC8MnLUWGD7eab92Df+gW
+	XPqjF8uitkutX6V1KD6iCYjiVZzMbn736LCmeJTemMQdQ4+qh5q337cpyUieLGmSdKNaRd5sV73v2
+	AdoRwvrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wknLE-000000031aS-40fv;
-	Fri, 17 Jul 2026 18:31:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wknLB-000000031Zx-10Ok
+	id 1wknXW-000000032Sl-0kGH;
+	Fri, 17 Jul 2026 18:44:02 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wknXU-000000032SD-2lRf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 18:31:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 74AFA1476;
-	Fri, 17 Jul 2026 11:31:11 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BEE353F905;
-	Fri, 17 Jul 2026 11:31:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784313075; bh=kg8dmHrx04NL9M/AELLM+nB/YWf4ZTb98P3P9QKjC1k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jgCSFcmVbWxN2tEPfTO+mAPkZF1Wl1hJ8mrMMjhG3gsa5eclTxUgXGdB3rozf8ZTb
-	 +YJzdr66SJtRlV/IaSBcycJWviK+kXolDASNgEz2OSoC67bYrhGCsQBDHUgJus7KnK
-	 iAkmFPubtHTZYRfRaX7eS74oiVrVd+Z5p25raMYM=
-Date: Fri, 17 Jul 2026 19:31:09 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: =?utf-8?B?QW5kcsOp?= Almeida <andrealmeid@igalia.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Carlos O'Donell <carlos@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Florian Weimer <fweimer@redhat.com>,
-	Rich Felker <dalias@aerifal.cx>,
-	Torvald Riegel <triegel@redhat.com>,
-	Darren Hart <dvhart@infradead.org>, Ingo Molnar <mingo@kernel.org>,
-	Davidlohr Bueso <dave@stgolabs.net>, Arnd Bergmann <arnd@arndb.de>,
-	Uros Bizjak <ubizjak@gmail.com>,
-	Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org, kernel-dev@igalia.com
-Subject: Re: [PATCH v5 2/4] arm64: vdso: Implement
- __vdso_futex_robust_try_unlock()
-Message-ID: <alp07SOPOVKMQSzM@J2N7QTR9R3>
-References: <20260717-tonyk-robust_arm-v5-0-ffd1ad318d17@igalia.com>
- <20260717-tonyk-robust_arm-v5-2-ffd1ad318d17@igalia.com>
+	Fri, 17 Jul 2026 18:44:00 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id BD43B600DA;
+	Fri, 17 Jul 2026 18:43:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52B051F000E9;
+	Fri, 17 Jul 2026 18:43:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784313839;
+	bh=P1b9DeYrFDNJXSmhHkvkSVwxA9oSUUdj93hOLCrfhtk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=MbJV9CL39vRQMy2v/CN3jcpLY6clKVcc/kJEtuwRWFP5I6XZWtmd0F374u+m0u0LP
+	 Z8aSfnF6sBxzl9bNULI/oiKqnkmBZVMxLhQjV72/+84dDvvUAw+1eHq/LN5OqR1EOV
+	 EOnDSqwZytgo1rXC2lnnrfPKOralZwgqYCb3jVbR40l2nfZWFPpri/Oc6CQqMay2Im
+	 Ub6NfcUc0ehh9cqiA2a41ayCfi0/61486Qik2KE+VcxaKX4RGW3rc+u+2Z9FTCNUT3
+	 tQqJZDgP7wS0kMUizFUS8PhNnhNo5vLFmSq+Mc3Ox45WkgQuOmKIA6rqXB08WBP7gz
+	 tx4OqaF8o+u8Q==
+Date: Fri, 17 Jul 2026 13:43:58 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Frank.Li@oss.nxp.com
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Fabio Estevam <festevam@gmail.com>,
+	Conor Dooley <conor+dt@kernel.org>, imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] dt-bindings: soc: imx: Add fsl,eim-bus
+Message-ID: <178431383816.1803857.6272472582726116965.robh@kernel.org>
+References: <20260708-imx53-eim-v1-0-913b4559e5b5@nxp.com>
+ <20260708-imx53-eim-v1-1-913b4559e5b5@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260717-tonyk-robust_arm-v5-2-ffd1ad318d17@igalia.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_113117_460855_DF6CAE9E 
-X-CRM114-Status: GOOD (  35.50  )
+In-Reply-To: <20260708-imx53-eim-v1-1-913b4559e5b5@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,203 +75,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 17, 2026 at 11:41:41AM -0300, André Almeida wrote:
-> Based on the x86 implementation, implement the vDSO function for unlocking
-> a robust futex correctly.
 
-Hi Andre,
-
-As mentioned on the prior patch, it would be easier to review this if
-all of the compat VDSO additions were in this patch, rather than half of
-those being in the prior patch. I left some suggestions there as to how
-to split that.
-
-> Commit a2274cc0091e ("x86/vdso: Implement __vdso_futex_robust_try_unlock()")
-> has the full explanation about why this mechanism is needed.
-
-Can we please have a short explanation here? IIUC there's a race where
-one thread has a dangling pending op for a VA, but another thread has
-re-allocated that VA, and the kernel can corrupt the memory at that VA.
-
-TBH, from reading a2274cc0091e I'm struggling to follow the race, and
-how this mechanism helps, but that might just be due to my brain not
-working at the end of the week.
-
-> The unlock assembly sequence for arm64 is:
+On Wed, 08 Jul 2026 16:00:44 -0400, Frank.Li@oss.nxp.com wrote:
+> From: Frank Li <Frank.Li@nxp.com>
 > 
-> 	__vdso_futex_robust_list64_try_unlock:
-> 	retry:
-> 		ldxr	w8, [x0] // Load the value from *futex
-> 		cmp	w1, w8   // Compare with TID
-> 		b.ne	__vdso_futex_list64_try_unlock_cs_end
-> 		stlxr	w3, wzr, [x0] // Try to zero *futex
-> 	__vdso_futex_list64_try_unlock_cs_start:
-> 		cbnz	w3, retry
-> 		str	xzr, [x2] // After zeroing *futex, zero *op_pending
-> 	__vdso_futex_list64_try_unlock_cs_end>:
+> Add the fsl,eim-bus compatible strings for i.MX51 variants.
 > 
-> The decision regarding if the pointer should be cleared or not lies on
-> checking the w3 register:
+> These compatibles are only intended for existing legacy chips (more than 15
+> years old) and will not be used for new device trees.
 > 
-> 	return (regs->user_regs[3]) ? NULL : (void __user *)
-> 		regs->user_regs.regs[2];
-
-I don't think the description of the assembly helps without a complete
-description of the problem, and it'd be best to just remove the assembly
-from the commit message, and just describe what the kernel does
-depending on whether the userspace cmpxchg (using LDXR + STLXR) succeded
-or failed.
-
-> If it's zero, that means that the exclusive store worked and the kernel
-> should clear op_pending (if userspace didn't managed to) stored at x2.
+> Fix below CHECK_DTBS warnings
+> arch/arm/boot/dts/nxp/imx/imx53-ard.dtb: /eim-cs1@f4000000: failed to match any schema with compatible: ['fsl,eim-bus', 'simple-bus']
 > 
-> Signed-off-by: André Almeida <andrealmeid@igalia.com>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 > ---
-> Notes:
->  - Only LL/SC for now but I can add LSE later if this looks good
+>  Documentation/devicetree/bindings/bus/fsl,spba-bus.yaml | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
 > 
-> v4:
->  - Guard makefile for vfutex.o with ifdef
->  - Moved _start label one instruction above
->  - Use results register (w3) to check for store success instead of using zero
->    flag
-> 
-> v3:
->  - Managed to get pop to always be stored at x2
-> ---
->  arch/arm64/Kconfig                    |  1 +
->  arch/arm64/include/asm/futex_robust.h | 19 +++++++++++++++++++
->  arch/arm64/kernel/vdso/Makefile       | 10 ++++++++++
->  arch/arm64/kernel/vdso/vfutex.c       | 35 +++++++++++++++++++++++++++++++++++
->  4 files changed, 65 insertions(+)
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index b3afe0688919..0582172811d9 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -221,6 +221,7 @@ config ARM64
->  	select HAVE_RELIABLE_STACKTRACE
->  	select HAVE_POSIX_CPU_TIMERS_TASK_WORK
->  	select HAVE_FUNCTION_ARG_ACCESS_API
-> +	select HAVE_FUTEX_ROBUST_UNLOCK
->  	select MMU_GATHER_RCU_TABLE_FREE
->  	select HAVE_RSEQ
->  	select HAVE_RUST if RUSTC_SUPPORTS_ARM64
-> diff --git a/arch/arm64/include/asm/futex_robust.h b/arch/arm64/include/asm/futex_robust.h
-> new file mode 100644
-> index 000000000000..64f22166756a
-> --- /dev/null
-> +++ b/arch/arm64/include/asm/futex_robust.h
-> @@ -0,0 +1,19 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#ifndef _ASM_ARM64_FUTEX_ROBUST_H
-> +#define _ASM_ARM64_FUTEX_ROBUST_H
-> +
-> +#include <asm/ptrace.h>
-> +
-> +static __always_inline void __user *arm64_futex_robust_unlock_get_pop(struct pt_regs *regs)
-> +{
-> +	/*
-> +	 * w3 is stores the result of the stlxr instruction. If it's zero, the then
-> +	 * the ll/sc cmpxchg succeeded and the pending op pointer needs to be cleared.
-> +	 */
-> +	return (regs->user_regs.regs[3]) ? NULL : (void __user *) regs->user_regs.regs[2];
-> +}
-> +
-> +#define arch_futex_robust_unlock_get_pop(regs)	\
-> +	arm64_futex_robust_unlock_get_pop(regs)
-> +
-> +#endif /* _ASM_ARM64_FUTEX_ROBUST_H */
-> diff --git a/arch/arm64/kernel/vdso/Makefile b/arch/arm64/kernel/vdso/Makefile
-> index 7dec05dd33b7..985346c7a0bb 100644
-> --- a/arch/arm64/kernel/vdso/Makefile
-> +++ b/arch/arm64/kernel/vdso/Makefile
-> @@ -11,6 +11,10 @@ include $(srctree)/lib/vdso/Makefile.include
->  
->  obj-vdso := vgettimeofday.o note.o sigreturn.o vgetrandom.o vgetrandom-chacha.o
->  
-> +ifdef CONFIG_FUTEX_ROBUST_UNLOCK
-> +  obj-vdso += vfutex.o
-> +endif
-> +
->  # Build rules
->  targets := $(obj-vdso) vdso.so vdso.so.dbg
->  obj-vdso := $(addprefix $(obj)/, $(obj-vdso))
-> @@ -45,9 +49,11 @@ CC_FLAGS_ADD_VDSO := -O2 -mcmodel=tiny -fasynchronous-unwind-tables
->  
->  CFLAGS_REMOVE_vgettimeofday.o = $(CC_FLAGS_REMOVE_VDSO)
->  CFLAGS_REMOVE_vgetrandom.o = $(CC_FLAGS_REMOVE_VDSO)
-> +CFLAGS_REMOVE_vfutex.o = $(CC_FLAGS_REMOVE_VDSO)
->  
->  CFLAGS_vgettimeofday.o = $(CC_FLAGS_ADD_VDSO)
->  CFLAGS_vgetrandom.o = $(CC_FLAGS_ADD_VDSO)
-> +CFLAGS_vfutex.o = $(CC_FLAGS_ADD_VDSO)
->  
->  ifneq ($(c-gettimeofday-y),)
->    CFLAGS_vgettimeofday.o += -include $(c-gettimeofday-y)
-> @@ -57,6 +63,10 @@ ifneq ($(c-getrandom-y),)
->    CFLAGS_vgetrandom.o += -include $(c-getrandom-y)
->  endif
->  
-> +ifneq ($(c-futex-y),)
-> +  CFLAGS_vfutex.o += -include $(c-futex-y)
-> +endif
-> +
->  targets += vdso.lds
->  CPPFLAGS_vdso.lds += -P -C -U$(ARCH)
->  
-> diff --git a/arch/arm64/kernel/vdso/vfutex.c b/arch/arm64/kernel/vdso/vfutex.c
-> new file mode 100644
-> index 000000000000..4c69d92426fd
-> --- /dev/null
-> +++ b/arch/arm64/kernel/vdso/vfutex.c
-> @@ -0,0 +1,35 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
-> +#include <linux/stringify.h>
-> +#include <vdso/futex.h>
-> +
-> +#define LABEL(name, sz) __stringify(__futex_list##sz##_try_unlock_cs_##name)
-> +
-> +#define GLOBLS(sz) ".globl " LABEL(start, sz) ", " LABEL(success, sz) ", " LABEL(end, sz) "\n"
 
-Since we don't share the assembly between native and compat, it would be
-clearer to have these inline within the assembly block, and without the
-'sz' parameter.
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
-Using the full names would make this easier to grep for.
-
-Mark.
-
-> +
-> +__u32 __vdso_futex_robust_list64_try_unlock(__u32 *lock, __u32 tid, __u64 *pop)
-> +{
-> +	register __u64 *pop_reg asm("x2") = pop;
-> +	register __u32 result_reg asm("w3") = 0;
-> +	__u32 val;
-> +
-> +	asm volatile (
-> +		GLOBLS(64)
-> +		"	prfm pstl1strm, %[lock]			\n"
-> +		"retry:						\n"
-> +		"	ldxr %w[val], %[lock]			\n"
-> +		"	cmp %w[tid], %w[val]			\n"
-> +		"	bne " LABEL(end, 64)"			\n"
-> +		"	stlxr %w[result], wzr, %[lock]		\n"
-> +		LABEL(start, 64)":				\n"
-> +		"	cbnz %w[result], retry			\n"
-> +		LABEL(success, 64)":				\n"
-> +		"	str xzr, %[pop_reg]			\n"
-> +		LABEL(end, 64)":				\n"
-> +
-> +		: [val] "=&r" (val), [result] "=&r" (result_reg)
-> +		: [tid] "r" (tid), [lock] "Q" (*lock), [pop_reg] "Q" (*pop_reg)
-> +		: "cc", "memory"
-> +	);
-> +
-> +	return val;
-> +}
-> 
-> -- 
-> 2.55.0
-> 
 
