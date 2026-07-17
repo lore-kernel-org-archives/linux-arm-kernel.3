@@ -4,55 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 059DAC44507
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 08:38:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07152C44514
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 08:39:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6Sy6bLu9Q3NOEH8nZ+KczW/y7ldpRksGLq6zS2Mbwf4=; b=Meqv59DYYvjx6OvAOYY1n0g1Ht
-	ljMrtTRNekZsmJXnRx5lhvhSSFyuGM3kKkXbpBUpHJVcBX0VcPNvaPwtLR9komkXs2bBJQM4OaIgY
-	bSgu1+VLlLcWGnwBvotYtnG0zpbSGaO/srr4ys2/6QdXPEF9SVjSCyqs2w3SlERH7RQajHjqpNVml
-	Jpc1cFEH4+RtveHcXh2jJOu5Xh6dbBQdjsniTZrHR69cVKrGsVnABMhuyRdcY6yy3+DatwiP4jMyN
-	P82ueyFqKI3mPc/Kz9FWur8if3Rwd8UMqGbK52Ram7mBOziKFMW/K/1DU1Ee7RnhEF2P4i+LFJ9r7
-	1O+cwU6g==;
+	bh=TJFV9DU5Vwnd8GnMjCDv6CHqBURYy/BG/NXR1r4pGLQ=; b=fmHIfEenlTMyswkko4eDqtrk55
+	O3PGIe9xk+cfzrHqXLi4qUJeHBC9NsbJQqY6J41zzWTNhp1hJ03R5FWbKO+U+DAn9ce5SEP5QgpNS
+	FlLvM/wlrh/dcAFsXMIzkQ2akVw3Bltff1aAy4E9lM0cBXItpJvaBQX4dADpK/2EfhYiDdy0De3Ja
+	K6Cy7FvJ7OoDW1KBgeGcRVeyMkijgG6T/K/uAIydcamivK7L7WeavufiiJYUCz0Ipv00ONjjPZEyi
+	d9kkwM5Xsu9S6kV+ox7ETL7wgCzDLzB+8sIRW+HaJM/IajkJ9qKynB1i+v7THCbbcihtXXVPJ86E9
+	11Youlmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wke5h-00000001h24-3clM;
-	Fri, 17 Jul 2026 08:38:41 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wke5v-00000001h7E-4Aok;
+	Fri, 17 Jul 2026 08:38:56 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wke5g-00000001h1W-1nsg
+	id 1wke5o-00000001h4I-3KRw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 08:38:40 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 31C9E417A6;
-	Fri, 17 Jul 2026 08:38:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5243D1F000E9;
-	Fri, 17 Jul 2026 08:38:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784277520;
-	bh=6Sy6bLu9Q3NOEH8nZ+KczW/y7ldpRksGLq6zS2Mbwf4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=MlUgvP3LbouDsJKh3lNGWq26S6zD6qpcNMHht7j74BGZOhIqHvnqIz/xIZFQRsPKW
-	 uWIdKk3cAUDH0/kFYiXF3TvXDR7y7ToEsMo+On3E5cVbXlP7ksOXEZ3/XX0R8j8+QK
-	 8YbXUZD3kCG0DFErcfxU/5ym6p3/cgmQEqpTKfVJ2tpqUwqlWofmBSshnQEREY3LdP
-	 WUELjNe1sRgb+ZrXZSIWShDWHRZRanyu2jdqThFu5M0mvJHvMXiK3eMyqRXsP/hJV/
-	 PS1eNL21uTjUAqYwAtY++I+CyU0NKY11RMumQ44UkF52WEAkDeiOIx4Gr7pcJrY6fz
-	 1kXzDqhf8fx3Q==
-Date: Fri, 17 Jul 2026 09:38:35 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH v3 1/8] dt-bindings: arm: Add Live Firmware Activation
-Message-ID: <20260717-lucky-gerbil-of-courtesy-162f0e@sudeepholla>
-References: <20260706134455.132091-1-andre.przywara@arm.com>
- <20260706134455.132091-2-andre.przywara@arm.com>
+	Fri, 17 Jul 2026 08:38:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1784277529; x=1815813529;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=A2JhgEKXHwd6DTgUANQltUvF2hrMmXaQUk6VqGURdqU=;
+  b=d9iwyHxpBRNPB4OtO6pnRN0NqO1mWNJToLR4F8BRnu/SLn4aWP+qeMkw
+   JoJKPsxHWaW8CbuetZa8QTRb15XyyGHw+h3reK8PGGlxmFLHdSQiMirQ4
+   G3Iqb/dcfiaHJIzeBucgsj8JldhHAOOc6CFnV0vxxgJzIFt2RSj8mWJ8W
+   r2O17VoZmN7xiqcnIg/Yr0Bsmn+WdKxtfk/u4OB8+OcofbcpUcekqcJXo
+   nsYC/0qU5O3jnU9+6NLbxs9+Zze80v0XbTCA6u7YQRaEyiYLIC+adtJLh
+   hTHFzqcj4VIrWqloir7aDG1oIzZchIXn1x2yA/fcZ+5mPi9nVNd0naXtP
+   w==;
+X-CSE-ConnectionGUID: 9HGhE4naQLW9T60kp+u6Bw==
+X-CSE-MsgGUID: quatCBb0QXaVmpRllyLlEQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11848"; a="102372455"
+X-IronPort-AV: E=Sophos;i="6.25,169,1779174000"; 
+   d="scan'208";a="102372455"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jul 2026 01:38:48 -0700
+X-CSE-ConnectionGUID: Fz46YXghRfCGXVa4fTXzpw==
+X-CSE-MsgGUID: lEkyn+ObSCufQwvwFUxXqg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,169,1779174000"; 
+   d="scan'208";a="261015173"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.143])
+  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jul 2026 01:38:45 -0700
+Date: Fri, 17 Jul 2026 11:38:42 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Petar Stepanovic <pstepanovic@axiado.com>
+Cc: Akhila Kavi <akavi@axiado.com>,
+	Prasad Bolisetty <pbolisetty@axiado.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 2/2] iio: adc: add Axiado SARADC driver
+Message-ID: <alnqEnVm9rGTapFB@ashevche-desk.local>
+References: <20260716-axiado-ax3000-ax3005-saradc-v4-0-810527a9d27f@axiado.com>
+ <20260716-axiado-ax3000-ax3005-saradc-v4-2-810527a9d27f@axiado.com>
+ <alnpMFK6_ZkdWlLi@ashevche-desk.local>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260706134455.132091-2-andre.przywara@arm.com>
+In-Reply-To: <alnpMFK6_ZkdWlLi@ashevche-desk.local>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260717_013848_872182_F9FDD8E1 
+X-CRM114-Status: GOOD (  18.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,56 +92,71 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Trilok Soni <trilokkumar.soni@oss.qualcomm.com>, Salman Nabi <salman.nabi@arm.com>, Rob Herring <robh@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, linux-kernel@vger.kernel.org, Varun Wadekar <vwadekar@nvidia.com>, Sudeep Holla <sudeep.holla@kernel.org>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, vsethi@nvidia.com, Nirmoy Das <nirmoyd@nvidia.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 06, 2026 at 03:44:41PM +0200, Andre Przywara wrote:
-> The Arm Live Firmware Activation spec [1] describes updating firmware
-> images during runtime, without requiring a reboot. Update images might
-> be deployed out-of-band, for instance via a BMC, in this case the OS
-> needs to be notified about the availability of a new image.
-> 
-> Describe an interrupt that could be triggered by the platform, to notify
-> about any changes.
-> 
-> [1] https://developer.arm.com/documentation/den0147/latest/
-> 
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> ---
->  .../devicetree/bindings/arm/arm,lfa.yaml      | 45 +++++++++++++++++++
->  1 file changed, 45 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/arm/arm,lfa.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/arm/arm,lfa.yaml b/Documentation/devicetree/bindings/arm/arm,lfa.yaml
-> new file mode 100644
-> index 000000000000..ef8e250f2da7
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/arm/arm,lfa.yaml
-> @@ -0,0 +1,45 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/arm/arm,lfa.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Arm Live Firmware Activation (LFA)
-> +
-> +maintainers:
-> +  - Andre Przywara <andre.przywara@arm.com>
-> +  - Sudeep Holla <sudeep.holla@arm.com>
-> +
-> +description:
-> +  The Arm Live Firmware Activation (LFA) specification [1] describes a
-> +  firmware interface to activate an updated firmware at runtime, without
-> +  requiring a reboot. Updates might be supplied out-of-band, for instance
-> +  via a BMC, in which case the platform needs to notify an OS about pending
-> +  image updates.
+On Fri, Jul 17, 2026 at 11:35:01AM +0300, Andy Shevchenko wrote:
+> On Thu, Jul 16, 2026 at 10:53:02PM -0700, Petar Stepanovic wrote:
 
-What does the below described "interrupts" cover or doesn't cover? Both
-in case of in-band and out-of-band. It is not very clear for me.
+...
+
+> > +static void axiado_saradc_disable(void *data)
+> > +{
+> > +	struct axiado_saradc *info = data;
+> > +
+> > +	regmap_write(info->regmap, AX_SARADC_GLOBAL_CTRL_REG,
+> > +		     AX_SARADC_GLOBAL_CTRL_PD);
+> > +}
+> 
+> Supply regmap instead of info and make this simpler
+> 
+> static void axiado_saradc_disable(void *map)
+> {
+> 	regmap_write(map, AX_SARADC_GLOBAL_CTRL_REG, AX_SARADC_GLOBAL_CTRL_PD);
+> }
+> 
+> ...
+> 
+> > +	regval = FIELD_PREP(AX_SARADC_GLOBAL_CTRL_CH_EN_MASK,
+> > +			    GENMASK(soc_data->num_channels - 1, 0)) |
+> > +		 AX_SARADC_GLOBAL_CTRL_SAMPLE_16 |
+> > +		 AX_SARADC_GLOBAL_CTRL_MODE_MANUAL |
+> > +		 AX_SARADC_GLOBAL_CTRL_ENABLE;
+> 
+> This is not used in the below call, move it closer to its user.
+> 
+> > +	ret = regmap_write(info->regmap, AX_SARADC_GLOBAL_CTRL_REG,
+> > +			   AX_SARADC_GLOBAL_CTRL_PD);
+> 
+> With
+> 
+> 	struct regmap *map;
+> 
+> at the top, this and other will be shorter and easier to follow.
+> And I would dare to use a single line:
+> 
+> 	ret = regmap_write(map, AX_SARADC_GLOBAL_CTRL_REG, AX_SARADC_GLOBAL_CTRL_PD);
+
+Looking closer at this I think it's a leftover? Since it's an action that does
+disable. This one should only enable chip, right?
+
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	ret = regmap_write(info->regmap, AX_SARADC_GLOBAL_CTRL_REG, regval);
+> > +	if (ret)
+> > +		return ret;
+> 
+> > +	ret = devm_add_action_or_reset(dev, axiado_saradc_disable, info);
+> 
+> 	ret = devm_add_action_or_reset(dev, axiado_saradc_disable, map);
+> 
+> > +	if (ret)
+> > +		return ret;
 
 -- 
-Regards,
-Sudeep
+With Best Regards,
+Andy Shevchenko
+
+
 
