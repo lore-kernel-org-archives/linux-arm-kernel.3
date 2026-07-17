@@ -4,63 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBEDFC44507
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 10:19:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E42A7C44507
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 10:23:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fukq5CudpGBKu5jdyMM5vf8cGCrXvOss1I+wnUPLRAc=; b=PVEMZsGPN1XFJMW5yD25xSUsYB
-	+0IxFg1h7m8aYy96aPU8+H6jGk5sDFWIO3HhsAc7U2DvGMHcAfuiIQOWvPHTIkYA7YJ1b0Bbwbn1f
-	NKBdNahURNVEi3u+KDl8/RRvf793lXQcm9w1PdKhwVSRHjiAQOWY4k5P9YgFQtMU9b5Wbh2qOhMjX
-	hiTbVd/WuS8DNZng9VLAIBi96DbuWIOBmJ6xG9k3JN0okI20J2X3k0nYumq3gpLLBbauCbgsf6cWH
-	a183uXdakuzojnC8nKI02f1sbvVj1N6xHD7ftWjfuj6iZyy1aKC2icITS0ZVhELm21hkMHCB1gdRp
-	15sXPgtA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AT67KQjTJR7dEo6McJ2yM4H/bn6stxcaWzCw0maUZj4=; b=4vrfr2Zl/oH2IC7hkMtPl9gVmS
+	BPya+yoh3jAL7vTJeVp/5JQn6kxeNPS6N70KQB2g2rw3zuMpsWLTHZLTO/EL8jfv7a9LgO1zUdg8w
+	rqHTiMUbvLLDD84rCHk11/BZ+q0xFbx0SRJxmgCuuCjI/ZMijbuyeaSrTakowpWKXLi2tVZJMDgPE
+	0GFGvI+04sHEDsOhRdt3j8zSPNvrkOmw6G1OGttWvmFG2uXF3juHCLXkf4f2mDR4/HKP0KsL2367U
+	krwmpYRb93PnwA2ntiq/gMBBFSkKQmPOJMUjNkgkoB2akYQfNp5+pjggjtbg0oR/vpMDHJtCIO0n2
+	Wyaj60Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkffX-00000001wsC-2yL8;
-	Fri, 17 Jul 2026 10:19:47 +0000
-Received: from mail-m103131191199.xmail.ntesmail.com ([103.131.191.199])
+	id 1wkfjN-00000001xAf-0YQA;
+	Fri, 17 Jul 2026 10:23:45 +0000
+Received: from mgamail.intel.com ([192.198.163.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkffU-00000001wrg-0ljF;
-	Fri, 17 Jul 2026 10:19:46 +0000
-Received: from [172.16.12.90] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 46969559a;
-	Fri, 17 Jul 2026 18:19:38 +0800 (GMT+08:00)
-Message-ID: <b921b071-4187-4e53-b4c4-69bab0cea278@rock-chips.com>
-Date: Fri, 17 Jul 2026 18:19:38 +0800
+	id 1wkfjK-00000001x9u-3wo2;
+	Fri, 17 Jul 2026 10:23:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1784283823; x=1815819823;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=tGvidDqf6jtkfzTcLaP8DnYMHTXgmGClLCAu67eKaQY=;
+  b=dmEvF4kHnGvgn1hlqCETkwDEpSA100OHtvH/f9dkgQmwxBNp+oL2MrU9
+   RQuVnfKDqIX2fXGQt7/vDaGQPwSUvzK2163je045ZYmSq45BfFQgpZ9bW
+   jNNrchifQ8btRxcCDl7tEuoCq7G+2SfrSecPHqqECw8V2diOqD4uKb/Tg
+   5chUdk7z3Egx7uy1ZHkdHZ38E0xPcqVSzKRROL7jDA7OzbudOruiVEmXR
+   dDM/DMcpIKwuzHY4sZw1VsYZ+p+ElMLd0VQSkuhhXf0g7Il4rJB4hE14f
+   ZOxBr+54TN/dkHUh8wLRx2NpTktvc62Lr7QJDfvfJDIG2HSv5GaDTQIVZ
+   Q==;
+X-CSE-ConnectionGUID: cgA7JaMfTkia1kYc2TOIQQ==
+X-CSE-MsgGUID: wuoV66JfSeGt84etlJ6yPQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11848"; a="95555317"
+X-IronPort-AV: E=Sophos;i="6.25,169,1779174000"; 
+   d="scan'208";a="95555317"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jul 2026 03:23:41 -0700
+X-CSE-ConnectionGUID: HwnTdJuoTTmMif+Zc0HdWA==
+X-CSE-MsgGUID: Bz+8y56PT0i4xLSMqjGqew==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,169,1779174000"; 
+   d="scan'208";a="258745095"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.143])
+  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jul 2026 03:23:35 -0700
+Date: Fri, 17 Jul 2026 13:23:32 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Pan Chuang <panchuang@vivo.com>
+Cc: Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Doug Berger <opendmb@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Hoan Tran <hoan@os.amperecomputing.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	Ming Yu <tmyu0@nuvoton.com>, Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>, Yixun Lan <dlan@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Kuppuswamy Sathyanarayanan <sathyanarayanan.kuppuswamy@linux.intel.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	"open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	"moderated list:BROADCOM BCM7XXX ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	"open list:ARM/RISC-V/RENESAS ARCHITECTURE" <linux-renesas-soc@vger.kernel.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <linux-riscv@lists.infradead.org>,
+	"open list:RISC-V SPACEMIT SoC Support" <spacemit@lists.linux.dev>,
+	"moderated list:ARM/STM32 ARCHITECTURE" <linux-stm32@st-md-mailman.stormreply.com>
+Subject: Re: [PATCH] gpio: Remove redundant dev_err()/dev_err_probe()
+Message-ID: <aloCpCgDYjps9yQu@ashevche-desk.local>
+References: <20260717083037.284134-1-panchuang@vivo.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 6/9] iommu/rockchip: take all DT clocks
-To: Jiaxing Hu <gahing@gahingwoo.com>, tomeu@tomeuvizoso.net,
- heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, ulfh@kernel.org,
- p.zabel@pengutronix.de, ogabbay@kernel.org
-Cc: dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
- iommu@lists.linux.dev, linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260717085220.3212274-1-gahing@gahingwoo.com>
- <20260717085220.3212274-7-gahing@gahingwoo.com>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <20260717085220.3212274-7-gahing@gahingwoo.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a9f6f96c23c09dakunm3c6aa1ca9c9ec
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZGUNJVhpKGUNOH01DTU0YTFYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
-	9PT0hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=Ofxz/03TjZrHZN71x5wg4XZHSMeVGRnlrU/saD9oYpiWkJcbrwu8PUBFz4i6f/7AfPCtqiloFRJ/dR1AFHyEt/vJnbU5WcnJGz5SvvKEpeu0TbHXMGbYur+AMN+8jKWl0YfCwqftKasqgtgZb1qP8Ga/bvcekMhsS/bohnLNUbU=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=fukq5CudpGBKu5jdyMM5vf8cGCrXvOss1I+wnUPLRAc=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260717083037.284134-1-panchuang@vivo.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_031944_528384_DB7AD5FE 
-X-CRM114-Status: GOOD (  22.15  )
+X-CRM114-CacheID: sfid-20260717_032342_992551_45FF89E2 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,81 +107,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Jiaxing,
+On Fri, Jul 17, 2026 at 04:30:33PM +0800, Pan Chuang wrote:
+> Since commit 55b48e23f5c4 ("genirq/devres: Add error handling in
+> devm_request_*_irq()"), devm_request_irq() and devm_request_threaded_irq()
+> automatically log detailed error messages on failure. Remove the
+> now-redundant driver-specific dev_err() and dev_err_probe() calls.
 
-On 7/17/2026 4:50 PM, Jiaxing Hu wrote:
-> rk_iommu only enabled a fixed {aclk,iface} pair. On the RK3576 NPU the
-> MMU sits behind the CBUF/DSU gates, so writes to DTE_ADDR are silently
-> dropped until those clocks run too (reads work, writes need more clocks).
-> Take every clock described in the DT for the IOMMU instead of a fixed
-> pair, so a platform can list the full set it needs.
-> 
-> Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
-> ---
->  drivers/iommu/rockchip-iommu.c | 30 ++++++++++--------------------
->  1 file changed, 10 insertions(+), 20 deletions(-)
-> 
-> diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iommu.c
-> index ce586919b..49c841095 100644
-> --- a/drivers/iommu/rockchip-iommu.c
-> +++ b/drivers/iommu/rockchip-iommu.c
-> @@ -93,11 +93,6 @@ struct rk_iommu_domain {
->  	struct iommu_domain domain;
->  };
->  
-> -/* list of clocks required by IOMMU */
-> -static const char * const rk_iommu_clocks[] = {
-> -	"aclk", "iface",
-> -};
-> -
->  struct rk_iommu_ops {
->  	phys_addr_t (*pt_address)(u32 dte);
->  	u32 (*mk_dtentries)(dma_addr_t pt_dma);
-> @@ -1274,25 +1269,20 @@ static int rk_iommu_probe(struct platform_device *pdev)
->  	iommu->reset_disabled = device_property_read_bool(dev,
->  					"rockchip,disable-mmu-reset");
->  
-> -	iommu->num_clocks = ARRAY_SIZE(rk_iommu_clocks);
-> -	iommu->clocks = devm_kcalloc(iommu->dev, iommu->num_clocks,
-> -				     sizeof(*iommu->clocks), GFP_KERNEL);
-> -	if (!iommu->clocks)
-> -		return -ENOMEM;
-> -
-> -	for (i = 0; i < iommu->num_clocks; ++i)
-> -		iommu->clocks[i].id = rk_iommu_clocks[i];
-> -
->  	/*
-> -	 * iommu clocks should be present for all new devices and devicetrees
-> -	 * but there are older devicetrees without clocks out in the wild.
-> -	 * So clocks as optional for the time being.
-> +	 * Take every clock the devicetree provides.  Most IOMMU instances
-> +	 * need exactly "aclk" + "iface", but e.g. the RK3576 NPU IOMMUs sit
-> +	 * behind additional gates (CBUF/DSU) whose clocks must be running
-> +	 * for register writes to land.  Clocks stay optional because there
-> +	 * are older devicetrees without clocks out in the wild.
->  	 */
 
-It does not seem necessary to modify the comments, as there are indeed
-many MMUs with multiple clocks :)
+...
 
-> -	err = devm_clk_bulk_get(iommu->dev, iommu->num_clocks, iommu->clocks);
-> -	if (err == -ENOENT)
-> +	err = devm_clk_bulk_get_all(iommu->dev, &iommu->clocks);
-> +	if (err == -ENOENT || err == 0)
->  		iommu->num_clocks = 0;
+> -	if (err != 0) {
+> -		dev_err(chip->parent, "can't request IRQ#%d: %d\n",
+> -			adnp->client->irq, err);
+> +	if (err != 0)
 
-err == 0 is redundant.
+This style is discouraged, so while at it, please replace with
 
-> -	else if (err)
-> +	else if (err < 0)
+	if (err)
+
 >  		return err;
-> +	else
-> +		iommu->num_clocks = err;
+> -	}
 >  
->  	err = clk_bulk_prepare(iommu->num_clocks, iommu->clocks);
->  	if (err)
+>  	return 0;
+
+...
+
+> +++ b/drivers/gpio/gpio-brcmstb.c
+> @@ -489,10 +489,8 @@ static int brcmstb_gpio_irq_setup(struct platform_device *pdev,
+>  					       IRQF_SHARED,
+>  					       "brcmstb-gpio-wake", priv);
+>  
+> -			if (err < 0) {
+> -				dev_err(dev, "Couldn't request wake IRQ");
+> +			if (err < 0)
+
+This style might be okay, but has no sense, we know that there is no positive
+out from this function, so, please also replace with
+
+			if (err)
+
+>  				goto out_free_domain;
+> -			}
+>  		}
+>  		priv->irq_chip.irq_set_wake = brcmstb_gpio_irq_set_wake;
+>  	}
+
+...
+
+> +++ b/drivers/gpio/gpio-max77620.c
+> @@ -356,10 +356,8 @@ static int max77620_gpio_probe(struct platform_device *pdev)
+>  	ret = devm_request_threaded_irq(&pdev->dev, gpio_irq, NULL,
+>  					max77620_gpio_irqhandler, IRQF_ONESHOT,
+>  					"max77620-gpio", mgpio);
+> -	if (ret < 0) {
+> -		dev_err(&pdev->dev, "failed to request IRQ: %d\n", ret);
+> +	if (ret < 0)
+>  		return ret;
+> -	}
+
+Ditto. And so on...
 
 -- 
-Best, 
-Chaoyi
+With Best Regards,
+Andy Shevchenko
+
+
 
