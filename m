@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AD93C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 08:32:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8190C44514
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 08:32:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B1150FEolT4Sj5jskF2xoZNy5VPqKCLr3UsGC+Io9tQ=; b=y5vl0hCoGDrXup/2AuLw17Rg2P
-	jMgPrMlQkWuKX3upl6tGeeG4ssZo4vAQS0j2Y3Q5JL4VMBFVpr6854c0uXZdvXRwyjNZTk56x211f
-	boayv8GH7hD5P3CsMEbtfBkyWIZdI85lzoMz0SlP2Bn2umKnHb+Wp9Cot9Cf97wsABFDDNuFe9rTv
-	qM9gGdUp5LrdDuFe9r/W8pxULLuIKBLirqyOqSGSZCTxcjEb2GISUGg8chcWqlM3vJKgmxeguZpY3
-	uPucgHbgRvgAHmoZMHcvlMHnNxyLN65qQPhVzkWm3jhBJsCuctYfa2gszR//LCQwbqR0yR2/PvOZ8
-	y6mJj1Xg==;
+	bh=XSZWX5xFW0sVcWlHSb+4MgJ4CgTapTVN8LsIk7/nm/8=; b=xgGoS25v2o7ddlk4ytTEv5yN9C
+	Mm1yfbz1Mho/dGEs0lungKsngsPN/iGP2ndSALtsKNUCiKVWdwZ9J6Yu/Kf1kehfjhp+swbpp8mGM
+	45YJZg3Gg9gfpanf9Q2TZGv1arAdL6J5bAgUIIuhst8wDsk6qj9PVhxdyd/2KniB2g93uZWtoXeCh
+	qQyJVNw0eVzpygyqvzsi/pvtcFUS1vZbqWZnJ2KnTOUJte01FZpvk7rPXfLvDw3BrlH5N4Z9X44BV
+	D5gKqbe3SuE3hPYUKiTTHHGwOZjVf5YBMf8H2aX6joiGGk/aFRAHDPwgExK1c+iEh6cdtKlcUMt+x
+	xWolrFiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkdzL-00000001eBQ-1r16;
-	Fri, 17 Jul 2026 08:32:07 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wkdza-00000001eGa-2XYs;
+	Fri, 17 Jul 2026 08:32:22 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkdzK-00000001eB0-0EhB;
-	Fri, 17 Jul 2026 08:32:06 +0000
+	id 1wkdzZ-00000001eFw-0qY0;
+	Fri, 17 Jul 2026 08:32:21 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8278E60A61;
-	Fri, 17 Jul 2026 08:32:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A01F1F000E9;
-	Fri, 17 Jul 2026 08:32:04 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D896D40AB8;
+	Fri, 17 Jul 2026 08:32:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 600FE1F000E9;
+	Fri, 17 Jul 2026 08:32:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784277125;
-	bh=B1150FEolT4Sj5jskF2xoZNy5VPqKCLr3UsGC+Io9tQ=;
+	s=k20260515; t=1784277140;
+	bh=XSZWX5xFW0sVcWlHSb+4MgJ4CgTapTVN8LsIk7/nm/8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=K5QN8LUtjGqpCo64YJ1WWJRUe8xPvGTAhqiDiTvkjbud+ZFKKwzL4WUGpgiczOQY3
-	 3CKueGy35nboOLYF0ZP/GGT2ZiR2ja6UurRv1N1ggTYhUoQRJiAwgIq87MiXX8C6x8
-	 XhI1Jtmx/ICtI/OIE9s687KDlWvo0DRIKYEFvCz9Xfto6O2NnwTDhREzihnPze8n3f
-	 V5H5OQT2hsJBszLIMSXg+VrZyGHuNAKe6gXRXe4X4af0JPYXvA7MEVqQoS45FBq+zU
-	 pVCeiMnj2RL45e1lSU2+zRldbqSj6KG3n/Z5vBLoU1RP8r6HxkMJW3p1EZLb5WsmHa
-	 ELxeMvzW4WR/w==
-Date: Fri, 17 Jul 2026 10:32:01 +0200
+	b=EWG0PmBskngtBjqNBmrVsVSBFqYpucErvCXUeoY1LPeUz4W37bkXZIsScvNuFQOL9
+	 IConoJndUypWgtq5JTV2kKRJS9cNFHy0OsA7rp8LOWdRhUTTKNWojQacmIQH4/Kc9B
+	 BARghgtdWg05RSb2lk2Lr4h410Pw6CoixuD3CM9yJDJc4xfBIlNZ8e5hz5tdZry66A
+	 TkmiIgguw0SWhZqBNzpHzSr6hJJYVhPOYUIT7qmBmf+2F7UDxTKaJMNr017IBaGTfQ
+	 flFTCdN9yk8d9fB08dOKJ+NnVfW5KLi0OYGGqKu/jCUdl4BvKPAqHdqDsQoB4ArGS1
+	 guf6VOiY/S4bg==
+Date: Fri, 17 Jul 2026 10:32:16 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Swark Yang <syang@axiado.com>
 Cc: Rob Herring <robh@kernel.org>, 
@@ -57,15 +57,15 @@ Cc: Rob Herring <robh@kernel.org>,
 	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, linux-i2c@vger.kernel.org, 
 	linux-i3c@lists.infradead.org, linux-serial@vger.kernel.org, linux-spi@vger.kernel.org, 
 	linux-usb@vger.kernel.org
-Subject: Re: [PATCH v3 3/8] dt-bindings: i2c: cdns: add Axiado AX3005 I2C
+Subject: Re: [PATCH v3 4/8] dt-bindings: i3c: cdns: add Axiado AX3005 I3C
  variant
-Message-ID: <20260717-skilled-private-leech-e8c3be@quoll>
+Message-ID: <20260717-rainbow-innocent-mantis-eb246a@quoll>
 References: <20260716-upstream-axiado-ax3005-upstream-v3-0-c429095143ec@axiado.com>
- <20260716-upstream-axiado-ax3005-upstream-v3-3-c429095143ec@axiado.com>
+ <20260716-upstream-axiado-ax3005-upstream-v3-4-c429095143ec@axiado.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260716-upstream-axiado-ax3005-upstream-v3-3-c429095143ec@axiado.com>
+In-Reply-To: <20260716-upstream-axiado-ax3005-upstream-v3-4-c429095143ec@axiado.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,12 +80,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 16, 2026 at 08:51:10PM -0700, Swark Yang wrote:
-> Add binding for Axiado AX3005 I2C controller. So far, no changes
-> are known, so it can fall back to the cdns,i2c-r1p14 compatible.
+On Thu, Jul 16, 2026 at 08:51:11PM -0700, Swark Yang wrote:
+> Add binding for Axiado AX3005 I3C master. So far, no changes
+> are known, so it can fall back to the cdns,i3c-master compatible.
+> 
+> Signed-off-by: Swark Yang <syang@axiado.com>
+> ---
+>  Documentation/devicetree/bindings/i3c/cdns,i3c-master.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 
-
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 Best regards,
 Krzysztof
