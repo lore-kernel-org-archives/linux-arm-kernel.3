@@ -4,106 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E955BC4451B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 20:11:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2D46C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 20:15:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ydQkNQkbLghnjQ+CoNENuXsh07pMi97RHJvnyYdLqGw=; b=RZZmewvo6iVuP4RRi6JeCXWhxX
-	vWI08/Q/mwiG6DAHcTeZViMCBDGn4aZbdeOF8ffU1KgrLHQT9EpgXiGYtDE+Py4KjvGUDFv8YltPU
-	Jx097pfFBZvWlJN3Bgp5E/cW1iLe0T50VVy4WHCxIB8SfCdBb5dPi+HwsmwsrK1vah/3eW2NFuwRh
-	tyNznH52bMa0gdrQOEQcwvHqkA84hFhKsT0HKOvDN/1krlp5tNa4Z+54rjlRYzpQ3Sz4L8iVCI9KR
-	vOoZZPYcNOdfRxFmB0bj6A4oAVBhBScdxaLYxOKpfo18HQJ4xeF4z53W91KS4rhhld9sLV8oR/9SX
-	YmnVZAwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FpCBY9qMOgSc4ot+3Sr+jcSMl9z7SuZ/W3zPkot+flw=; b=xhzpYJPryRZziq+7B/o5KKpc7e
+	r8sbtDfSlPlcR8mYYICftReQ5rZOxkX59FgXwSrpYUyTV34xScxAZ8pQxG03Bt43U9AdAiLxHVqZT
+	H8mqpe4Ja1DJm++8eLcg97Q6Wqvq1HW7klUmTieU8vOLBNU6RCKpScmnqIUCYB8v0f56jIGvrRcC4
+	1oF3Lut1avbuUkGG9rBYPtS6/tORVOpuRmQ22L/FBu9KTtsdE0NusVQPCvtS5uw95XkJWzl7fpP9K
+	6vQ+RiqHAGK7VsurqC/CzDTlrMKWX/wCT1i1yntGSv0LkrH6FYXONxS7GP0iITsEBYRbHMtRMvKz8
+	JEm3kZpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkouX-00000003B7W-1zB6;
-	Fri, 17 Jul 2026 20:11:53 +0000
-Received: from fout-b7-smtp.messagingengine.com ([202.12.124.150])
+	id 1wkoy8-00000003BWE-3fE8;
+	Fri, 17 Jul 2026 20:15:36 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkouU-00000003B6u-0Yv4
+	id 1wkoy6-00000003BVk-13yy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 20:11:51 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.stl.internal (Postfix) with ESMTP id 365231D00095;
-	Fri, 17 Jul 2026 16:11:48 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Fri, 17 Jul 2026 16:11:48 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1784319108;
-	 x=1784405508; bh=ydQkNQkbLghnjQ+CoNENuXsh07pMi97RHJvnyYdLqGw=; b=
-	rDl+AgGEJ6BEl+sFJ+RUza/q5rTT3vvIaDNUsrNSpKEAnRqs9VJZe1i1cg7unyo3
-	Y9UWRywAainYZqu7n0j+Jppd5xCv9dQDxXrI40LuLfjjac51E62Zqv0tVav6JLs6
-	rtQZLxoeW/s8MQNkc2Hd73M1+plteTARVzfJ9E0/avZGge62Gxh9aKwTh+3QRyiu
-	m4r1G6zJ1P+/6vPHTqiBfxHJ9QUApK0DsK9ohi0XsS+fibq4VkypkuTt5IvhHvpk
-	ty8Ov7A76o/cQd5tGtOEH/NMkXgbwEiOxisFaCQPnUbPU69XxILc77LYZp3W7ASf
-	cswfaiPcp6MEIul138qvhQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1784319108; x=
-	1784405508; bh=ydQkNQkbLghnjQ+CoNENuXsh07pMi97RHJvnyYdLqGw=; b=k
-	s9ZOEGGZvdTxh3Mwc5+q8cRMcs+Ti3r7oXlBbjzHX0QP+4WlJOoLd7+9t0J2/22+
-	pWnmkLuVJjOHsWJMtJ9ZdQDYFbEZNhntrZtPns1zaKqtzSTEGQg5xVpLoYxVoLdZ
-	3TLdG/s+QgQBTkf21E5PsuaeI9utu3K+7J0rJ+0bz2KQ9YV/O0733jV2kSPWh/Hu
-	KNuZCTxpyDZowaxznfZUfYaWRoA+amEMKxR8z1dSwfKASQSx98RBazjVxw+NafbJ
-	jqv143QU+lMtWTaVYHrPoe8c+Rq+dmpivSUfOiGAH/olL6jvyYfzQT6+l5p6tipW
-	vOOS8fKG+N6ZSh+gPjQpg==
-X-ME-Sender: <xms:goxaalcLSKnPQXp2erAK6Qdhf5T-5X4sX4Xn1hjI6Ju7AUWNIe5Twg>
-    <xme:goxaauDRn49aKnXQwjgkDhOn5amO1O4MQ7eO4RHWDodYS_RfQZj0TIiAb2ghlzqch
-    ftqdg3ONU4o5hOsHlaBuC6umtKxpVDnUwgEQd0q9fRwZHQlEC7n5J4>
-X-ME-Proxy-Cause: dmFkZTEkkRtwDmS2wcRL7jqjr8WYoEYc++28KP+/ApojjVqEPpfh5dNOYFyH6gCi1rBylU
-    ol2y10M6UFHU48XhNtuowVb0l1+USBYJyuZq/GonjewqwGFcNUeDj67IjgCrdFdslfAMIz
-    Pvz5CJDTEe9qnoKI8lYPm3iuGiJA5bwRjkBzHwRll2HpYL2flauHQvXj5ibELyz9us0S2y
-    JwB93S/kYlKHuaVlQDPhuYfpGa9cgaPOnNzk4BL1lqE/GcKFTVWbeF4qoXz119FaT6NOik
-    wChm+MJJlA5lR0Fb7vZbbvohgblESeVeAeTVMUK1TjaTLcUbaoI85PVFobpVFDuntXbrQd
-    tyV/pB/v9T3W49cS3OguqY8g2FZ+5gm6LZDArnO9j8RwjLw4hVyRiNsXKuFVLVWyb6SDep
-    1fT1QzGnTyqnuo9ta6ED5Rf2Va8nXB5BVTbbeKEyl3CDG5OpDnJ5v2nevsrT8NbQfQy3ZU
-    M8WXtpePd7Fmhohf9z5ZVC/SmWkpktel2na0jYCBR+AseHKqURg1j1LWEinxHlyHYuWfDy
-    17BeXrUNMslvyqoi1cGilBWiMweHiE62V5EEmzJx6AFpgSiv4LdlENhJxOc9/uC47ujZwd
-    fW34Jqr44MoN824RLGYB9JOB111Y0N8z2Ts4LRQ0SbOHkeInFnaPvNQsqYPw
-X-ME-Proxy: <xmx:goxaakMefkJW3F5b8XrtexWQ5SZDoZmkvAH40ASyaMqy-x7mus2Vrg>
-    <xmx:goxaahe0FASVLa8REND-pFtMfzYyyZZg9nMlF7_QCY7MOp1H0fxmbQ>
-    <xmx:goxaapRiu-Y77xLOE1QQfisvPkVYY55YdOQP6H-TNi-7tp6_0ASrXQ>
-    <xmx:goxaavc8dN7xYPn73winWFLr-Wr4i7UXAjvNflZum3cpLulWN8pgbA>
-    <xmx:hIxaaphjNDgldvzSGiNHh7Hm0A7QkjPclCExPhkJ_AhG2xodkXMyCfmF>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id B0A54182007E; Fri, 17 Jul 2026 16:11:46 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-MIME-Version: 1.0
-X-ThreadId: AVTSZ6OHPQ6F
-Date: Fri, 17 Jul 2026 22:11:26 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Ryan Roberts" <ryan.roberts@arm.com>,
- "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
- "Mark Rutland" <mark.rutland@arm.com>,
- "Jean-Philippe Brucker" <jpb@kernel.org>, "Oded Gabbay" <ogabbay@kernel.org>,
- "Jonathan Corbet" <corbet@lwn.net>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org
-Message-Id: <ec998612-c527-4294-837b-5aa375b81cc1@app.fastmail.com>
-In-Reply-To: <2a69d96e-d37e-4e3d-8eaa-3ea31caf3893@arm.com>
-References: <20260717104759.123203-1-ryan.roberts@arm.com>
- <20260717104759.123203-9-ryan.roberts@arm.com>
- <404d2c6d-4a18-40c2-9da9-fb030c39536f@app.fastmail.com>
- <5012970d-a0f0-461c-b0b6-61823e0aab2d@arm.com>
- <59d0c4d5-af53-410d-9bf8-8dd2ba17f697@app.fastmail.com>
- <2a69d96e-d37e-4e3d-8eaa-3ea31caf3893@arm.com>
-Subject: Re: [RFC PATCH v1 8/8] misc/arm-cla: Add userspace interface
+	Fri, 17 Jul 2026 20:15:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JtKpcZK+ZiUo2sEO0HIftTzT0zEzPThAUu7Ids9DFShUTu2VXgvJhTGA2omRqT8kkKPqpnokgIfDUGb+p4l+SMPaizV+nKV4+uwRfI4X/Y5z79VvkaKlZaHnRlZU3y3kMZBia/lxRfIUQNrjoXE7wyF3ppflGYQpXpd1OWCUnUIsmRqZFUS5oCZ4qiI9aLGq4xcm/1riFXTseT3HIotbeZj+SJ0T9gtZw7vBJSfOjvIh9HgqficDrr9zmMvymT9F5ZKPhbUPuDnX70bo/hmToFwY0BwLIqbKDlggsyT+QlSF6Rtu60fM603UDSAZth+ewXAn7tH1E7ObJbbLVP/APA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=FpCBY9qMOgSc4ot+3Sr+jcSMl9z7SuZ/W3zPkot+flw=;
+ b=D+agDQNFZ9G7o/t7Kqfbo3Zz26qkmhe0jHjmoHdZkNLCdxbrNZDAtKy1x4cS6NMk8nSI5P0BySS8Ijd2hDP5Lu31aJDs/HjBMM36d0QVoIWzJg58vayRGv9xtRz9QQNPWLlmTwLUT+VWdDbzdiD35WPb93pwNvi/M2BLxYFfNOmg/Q+vrqGSARTw+pwsQruLcEvPiXkWYhIdHF/9uAbAKQ2GuRowP79iKL1qfIt9+geHUGlP2KnJfcQnElwTHDnZhClgEKu8ScEQFIPozWF2smoT1u79/Rp4YGwAR9QV1DxQFtf4KzDlM/lm+1WTew2F3OMgZZoCjInh2yJnFp9EQw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=FpCBY9qMOgSc4ot+3Sr+jcSMl9z7SuZ/W3zPkot+flw=;
+ b=qtTXJxTZj6ahCExR8E0PUbqxkef/tytxwPlrkNgiVBaabveg72sTLUmTgHO7Cm8lujOYoLADyQsPTXtqQS8UDRwGXXuQHzxLIyGY2biZMP2N203e9KH4NG+WWS2ieljgRGJvLVNcRcjCqsut8iZCNPLJIv+2lTZfDL3/ESkPwLyDmLdvJDKZ+xJIXH8vFFRQSKCt/eYfCWUBTtdv1e1lCbAxdUF+jE1T48MMiDbIGMC34mpGfGXAbtSFtLp7PFzKeNnNu6LLk9v9+ISayhuyLbtudQEgff/yjTxhmp6gKonKdIPF1gdvl5ygGePz1aTu1PepiLserEAl9zRYB5EjMA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AM9PR04MB8588.eurprd04.prod.outlook.com (2603:10a6:20b:43b::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.13; Fri, 17 Jul
+ 2026 20:15:29 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0223.012; Fri, 17 Jul 2026
+ 20:15:29 +0000
+From: Frank.Li@oss.nxp.com
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>,
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list)
+Cc: imx@lists.linux.dev
+Subject: [PATCH v2 1/1] dt-bindings: soc: imx-iomuxc-gpr: allow bridge@18 as child node
+Date: Fri, 17 Jul 2026 16:15:17 -0400
+Message-ID: <20260717201519.844259-1-Frank.Li@oss.nxp.com>
+X-Mailer: git-send-email 2.43.0
+Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SA1P222CA0007.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:806:22c::22) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM9PR04MB8588:EE_
+X-MS-Office365-Filtering-Correlation-Id: e08f7181-e8fc-4651-3671-08dee440253c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|23010399003|1800799024|366016|921020|11063799006|56012099006|10067099003|18002099003|3023799007;
+X-Microsoft-Antispam-Message-Info: LZd7q7HqKYcJe8sDV5r+zzJkBTZL//i78NJLfpvPJvu6yB2siTiV2lbSA1nikd1y7hj4pAc8dYDzatgpA6GAYDejqBikoYpUmSxOz5nyMPUeA61Kj82K0DQBDuMk7tgY9MMlwDHmM0xekSxyHXp66w7N9oAJ4nyh5ZimcxIycv3T095yN1FSHeVeyUHRjMlQzkcGSNjHPcMolE+crAZSkl7fRpbYdSBRbp80jQ7kkJ/tgEOEsrxnNHdCpaMD0fCDkiu1m+UcaIDq9gRkSYTc/dGTXp3mHcK14ni72WWw4iThIzg/h5JmFz6ZywYkvlQt29BtO/RpF9BQLpzCcdm/rSlKXHxmwRNViJU9cqAkEI1+tbfWlVVpsB7TP1dH3Re+a1FNqB2v/gGUFTVU6J4TxCegqLS3N5csBscIOiZsCq+HAwYjFjiQK4pyBAY5tgs9op7JG4I4v9/Rr27G4iL9Ij3CWP6ko8kAt+fnypBz+zjK8ff6mzcco4apLotup6kSlad3xxNjZF4qX1ypWstAtYaQmV3Mze0LdD9SYCIisHN8otl6JB8qUWQmA0SFxz8Nw+fUN17+OEbKk2m4YTVrat/ODZyNPjbDVsEnlnBxZ+GUupZsZAqdLNsdWdH7cPFdcmZpX8a/d02fX0kQeb7hFgU8+Pcy2nZQ5bVdOHJyZOEFBTAXzt33yaqhczWmIztnJPREl5SN2kuudLzoEO14KQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(23010399003)(1800799024)(366016)(921020)(11063799006)(56012099006)(10067099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?gGyWwkrP3w9W/BmCiMAgHkqBT1ylPti4SC/9+2TqhhrSj4AobhPWPaWcYzYV?=
+ =?us-ascii?Q?QspW2zr/AYQvFpex11PWEQVMuNAeuZ4qPd9ALnyE+8Y8chS8Ljt3Ugz66+eX?=
+ =?us-ascii?Q?jrGW2spL1wVPZXE9R3izl9bLULD3CL4k6fnFPz1Q4msEIlHiqBOdnc8WUfwd?=
+ =?us-ascii?Q?LoQLZysFLXn21yKhuD+maoICl57RFXFm1jROQ5VG+bj6lMv8f2024xcWKye+?=
+ =?us-ascii?Q?A9ZhUf9NwIUH4WHC+ZVVrtphkn+DAMESyT6+plnjBQ+DlBxlWp/RXWnxtX5w?=
+ =?us-ascii?Q?TIFCL7foewe/LPGPFS+GT4xQ3Cg9x+cbYNmkCZtS6YW897vNgQJ1rD7kuFGE?=
+ =?us-ascii?Q?xgLVYAehvAC45sUEkFwErDP5x3coZKCgd5s1xnvXEByKXFSHaBrdEQVwjVjh?=
+ =?us-ascii?Q?r/k8pMNB1Nr8KaJU5/c/e799d60kUKdWuQ68V7e14E0g+KpwXUF6iIa9dSy+?=
+ =?us-ascii?Q?YPLjSIOeMTvCwT85S8VTR+QDkejkP3sIZ0uRhfpl2FX4mxRn+kJcNp49XMZf?=
+ =?us-ascii?Q?lsixnwl3EP2IZRaGTyWaeFOi6yr01mmPdMbK9y707aloSWysyNozwXhCCrcK?=
+ =?us-ascii?Q?w+uhi1Mebt5zncsdkaOFylAIPK9JkcxNgAdtZ+mKMMNbvnRYKESyE26w2zjg?=
+ =?us-ascii?Q?Fk96LODF00vF3fr7tT0YOE6QbVxz8/V/7cbVtTALo/6ySgXJgPvMI4fsAKxS?=
+ =?us-ascii?Q?KFY2KgZWAeY5A5bqzDWnxKVqEahy3IpRbHrb854uJ8I5Ytg3McqBhfuy7zUf?=
+ =?us-ascii?Q?5HcmCJ1lrQHFlmyOgLCcwXgPChB4jIXcW7mDgtFqwMAut+HfxeSaQ1NqBZ8F?=
+ =?us-ascii?Q?Oy/sB+ZbMD8THXFoV8Jt03qhXWP2KU3uBstMeMerTbtZ9wIzR+jZjtNaPEyp?=
+ =?us-ascii?Q?Hz4kDQ4BsiV/GwrlMlwGc/Oe7Ky45sLRMup/R+WmPmngSVoz88BjfP815IzR?=
+ =?us-ascii?Q?Xv9DmCWQjd0YfNzlktwcQ2HDne8nQyZq2/Jkuyqcr2pIbRkd/37DgjsW05y8?=
+ =?us-ascii?Q?xWGKWmZ9HeQHHyTYQLY0OOrflKWO/8FyP1kgJOEwBWzvfSNEYg+GJTchTix2?=
+ =?us-ascii?Q?jtDuQcJPB1Cv5KFu0ki6PbMVKgns3xJ7D5ZjNgAslS5qMfbLLrRPoupNn4xX?=
+ =?us-ascii?Q?MTHBkQyM+Nmh167EPlR+G5r6sJdYNHU4T7Yfrt7FbUZpNVNojZcrAShsnQMS?=
+ =?us-ascii?Q?uHMayO5eSTPLlrq2lQzVpdh3ouHUAny/QfGNxSfNBjMRy3WsnfZ4IJfOxNyJ?=
+ =?us-ascii?Q?mJXxdACTYhbGyrGokPIFJOBJWMrrtX50n0G2+xQ4MTM8G7K7p78hb+s/5hf5?=
+ =?us-ascii?Q?ryM4vk4E5VwaOXwYxnOgD1PPcn6Ic5ee/Tr7H24unrNIdwic9knCjX1DJy2F?=
+ =?us-ascii?Q?V0vJIKIMDf4F5pRWCRYNwi94suNhUyeWScO1GRKFJzKDyn7CdYQ+1WWs10ce?=
+ =?us-ascii?Q?r9dTr57UB1QY1Jj3uHV+P7wRrsj+3vmUqVoRvkmE4zM+zwkWRAswemOlGNve?=
+ =?us-ascii?Q?Eo+yHU/k5oBN2Hl2peDIiGXZBTreAgmcgGfRg9pI5QPKnNM/OzRb9339cu2W?=
+ =?us-ascii?Q?f7U+PSS1w749K6zf33ZStxkv5aOp3LYHqgNSW+nFjRraSivo6t42G4Ex/EUw?=
+ =?us-ascii?Q?c9gBPEqVVMHzyRcQ5Gf6OQV8M5GpNe5QmIkJzd/yJEgNZGaNtnLJjbFMqI0v?=
+ =?us-ascii?Q?EfPkkTL0rLKR62Gi67f6P9RF7F1sZ7WLXjAl0qJ+7NyjG5ZOD/xcWjylzzOv?=
+ =?us-ascii?Q?TjoRU7lE/+JBOcmjIRU8d6K0fW8rBfK9lTFLn3kgb3YJMahTSMZi?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e08f7181-e8fc-4651-3671-08dee440253c
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2026 20:15:29.0252
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: viipSo2bELwDexx2UqHI3MNfuO+r4Y92eZ43gxHkI74Kxx6Xr2PSnfqeBGsq/PbCv+mtnFNgFK0JLrDM5iQf5zvBLAvZnTS4UH6Wuhp0cdlePot7WxQlY7CGUR+vT34p
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8588
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_131150_440240_5FB65E68 
-X-CRM114-Status: GOOD (  24.72  )
+X-CRM114-CacheID: sfid-20260717_131534_325459_50B9BDE9 
+X-CRM114-Status: UNSURE (   8.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,80 +146,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 17, 2026, at 18:21, Ryan Roberts wrote:
-> On 17/07/2026 16:31, Arnd Bergmann wrote:
->> 
->> Without concrete implementation examples, I find it hard to imagine
->> how granular the CLA and accelerator blocks are. What I'm interested
->> in is separating things into special character devices when they
->> refer to units that you want to manage separately in userspace.
->> 
->> If you have e.g. one accelerator for tensor operations and one for
->> handling gzip, I would very much want to see those have a separate
->> chardev nodes so a local administrator can give permissions to each
->> one separately, and have device names that are sensible to the
->> functionality underneath.
->
-> Unfortunately this doesn't map well to the HW: the MMIO is for the
-> CLA interface (each CPU has 1 CLA).
+From: Frank Li <Frank.Li@nxp.com>
 
-I'm sure you mentioned it in the documentation, but I missed that
-there are never multiple CLA instances.
+The legacy i.MX6SX (>15 year) SoC imx-iomuxc-gpr contains one LDB_CTRL
+register. Allow the LVDS Display Bridge(LDB) child node under
+imx-iomuxc-gpr.
 
-If the CLA is defined only in terms of its MMIO/DMA interface
-and listening to TLB broadcast operations, is having a single
-instance actually required by the design, or just an implementation
-choice?
+Fix below CHECK_DTBS warnings:
+  arch/arm/boot/dts/nxp/imx/imx6sx-nitrogen6sx.dtb: syscon@20e4000 (fsl,imx6sx-iomuxc-gpr): '#address-cells', '#size-cells', 'bridge@18' do not match any of the regexes: '^ipu[12]_csi[01]_mux$', '^pinctrl-[0-9]+$
 
-> Once you have access to that interface, you can
-> communicate with all of the accelerators that are connected to the CLA. We could
-> potentially use the availability masking control to only expose a single
-> accelerator for a given context (which would be chosen based on which file you
-> opened), but it wouldn't be possible for (e.g.) 2 different processes to access
-> the different accelerators concurrently - they would have to be subject to the
-> time slice model.
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+change in v2
+- remove status = "disabled" at example
+---
+ .../bindings/soc/imx/fsl,imx-iomuxc-gpr.yaml  | 58 +++++++++++++++++++
+ 1 file changed, 58 insertions(+)
 
-Right, that sounds a bit awkward. It sounds like this would also get
-simpler with a model that ensures the current CLA ttbr0 matches the
-CPU ttbr0 and the iotlb_mm setting, since you would never have concurrent
-uses of a single CLA from multipel tasks. On the other hand, that
-model would make it harder to use multiple accelerators from a
-single task, if they have to go through multiple file descriptors
-but could be accessed on a single mapping.
+diff --git a/Documentation/devicetree/bindings/soc/imx/fsl,imx-iomuxc-gpr.yaml b/Documentation/devicetree/bindings/soc/imx/fsl,imx-iomuxc-gpr.yaml
+index 721a67e84c137..e1fbdc7e4e057 100644
+--- a/Documentation/devicetree/bindings/soc/imx/fsl,imx-iomuxc-gpr.yaml
++++ b/Documentation/devicetree/bindings/soc/imx/fsl,imx-iomuxc-gpr.yaml
+@@ -47,10 +47,21 @@ properties:
+   reg:
+     maxItems: 1
+ 
++  '#address-cells':
++    const: 1
++
++  '#size-cells':
++    const: 1
++
+   mux-controller:
+     type: object
+     $ref: /schemas/mux/reg-mux.yaml
+ 
++  bridge@18:
++    type: object
++    $ref: /schemas/display/bridge/fsl,ldb.yaml#
++    unevaluatedProperties: false
++
+ patternProperties:
+   "^ipu[12]_csi[01]_mux$":
+     type: object
+@@ -67,6 +78,18 @@ allOf:
+       patternProperties:
+         '^ipu[12]_csi[01]_mux$': false
+ 
++  - if:
++      properties:
++        compatible:
++          not:
++            contains:
++              const: fsl,imx6sx-iomuxc-gpr
++    then:
++      properties:
++        bridge@18: false
++        '#address-cells': false
++        '#size-cells': false
++
+ additionalProperties: false
+ 
+ required:
+@@ -87,4 +110,39 @@ examples:
+         };
+     };
+ 
++  - |
++    #include <dt-bindings/clock/imx6sx-clock.h>
++
++    syscon@20e4000 {
++        compatible = "fsl,imx6sx-iomuxc-gpr", "fsl,imx6q-iomuxc-gpr", "syscon", "simple-mfd";
++        #address-cells = <1>;
++        #size-cells = <1>;
++        reg = <0x020e4000 0x4000>;
++
++        bridge@18 {
++            compatible = "fsl,imx6sx-ldb";
++            reg = <0x18 0x4>;
++            clocks = <&clks IMX6SX_CLK_LDB_DI0>;
++            clock-names = "ldb";
++
++            ports {
++                #address-cells = <1>;
++                #size-cells = <0>;
++
++                port@0 {
++                    reg = <0>;
++
++                    endpoint {
++                    };
++                };
++
++                port@1 {
++                    reg = <1>;
++
++                    endpoint {
++                    };
++                };
++            };
++        };
++    };
+ ...
+-- 
+2.43.0
 
->> If you have separate accelerators for AES encryption and decryption,
->> or a large set of identical accelerators that can run concurrently,
->> those would of course get managed as a single device file.
->> 
->> Most importantly, I don't think a global /dev/cla device node
->> is a sensible interface from a management perspective as that
->> would give unprivileged userspace direct control to something
->> that is essentially arbitrary (or buggy) vendor firmware
->> with DMA permissions.
->
-> OK I see your point.
->
-> While the interface supports up to 8 connected accelerators, we anticpate there
-> only being a single compute accelerator in practice. We decided to keep the
-> driver interface generic given the CLA spec, but perhaps it would be more
-> straightforward to limit the driver implementation to only permitting a single
-> accelerator?
-
-Probably, yes. From a kernel perspective, I think we're a bit better
-off with an abstraction like
-
-- One CLA MMIO range per /type/ of accelerator on a given CPU
-- One firmware node per CLA, possibly spanning multiple CPUs
-  if the accelerators behind them are shared.
-- One character device per firmware node, named according to the
-  type of CLA
-- Possibly multiple CLA nodes on a given CPU if multiple
-  unrelated accelerators are present
-- optionally multiple related accelerators on the eight ports of
-  a CLA, if that makes sense for that device type
-
-Not sure how far that is off from what you currently have in
-the hardware design.
-
-       Arnd
 
