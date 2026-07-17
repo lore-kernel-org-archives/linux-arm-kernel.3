@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89AC6C4451B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 18:44:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA59EC4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 18:45:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GDf0SHTCTXzajyFneAnVkXteY4zVvuU8fcfR6nj7tFI=; b=cd/EeH503kY3eeR5pdg3ofv9cy
-	6usDWG1CUXbeg054rWh6I5NJXq2n8JTUe+i5oPSEP/a8JSV8E3NAejbR8BCEBOV+ncyakfIHBbWei
-	74oViTNtQkxKZ7dxO26Y1hZmSS+cU+SM7Y25pDGKvjp60nkxwkhRvKKf220qikMLA1KzYHYoMuVE1
-	LqSsz4halsYQYonP3La7nqJtj8ymQhuvgaL9e9tL/d/eyb5+TwErWhi2n9S4CYKttWWh6MH/RmpqA
-	DUHuNc7ntisxBL11eC8Xk3lcRbxHUBUk0xeuNkz+RRFQmrXFslWmzWCBUaBK4tZmTJXulP5eQ7rFi
-	d2/259tw==;
+	bh=7e5kgtc2YZSO5D03srWrdyaym5Iq/tfMaY+RIMQ8Ask=; b=yh9ry8XBuSq4m5zFYBEnp8oXWc
+	uLlyjZepK5LayvUCewFunAYqmByWJKcCJGb7mw03seORNBJU7f19HL1Krch7ZhV9XGkqdzT5Iv7CM
+	rK8drzVqKuVk5crj5PSe5jop1MPXyVyRSdCufdp63Z3qDvixI9v3+AhVJbw6T2QrNM/+yvMrdfZZV
+	VO7o0xVAWfbXFROtL/uiywii8mAfypBLuQc3v6ykFU2UClqlkM3EftkXOfQ909voRPKrIv3WurHbf
+	sU5xDzXjeq24ndnZ1noi5VIVvXTpgQlMyD3kk2UR2Wifw1naQc5JHW181LWPWVAKY8sBFgQNwYLwh
+	p2fU/iGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wknYI-000000032bG-1S4v;
-	Fri, 17 Jul 2026 18:44:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wknZ4-000000032mc-23Jo;
+	Fri, 17 Jul 2026 18:45:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wknYH-000000032b1-3V0c
+	id 1wknZ3-000000032mN-2oi2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 18:44:49 +0000
+	Fri, 17 Jul 2026 18:45:37 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4E28543727;
-	Fri, 17 Jul 2026 18:44:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 180351F000E9;
-	Fri, 17 Jul 2026 18:44:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1CC0943FEB;
+	Fri, 17 Jul 2026 18:45:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7D1B1F00A3A;
+	Fri, 17 Jul 2026 18:45:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784313889;
-	bh=GDf0SHTCTXzajyFneAnVkXteY4zVvuU8fcfR6nj7tFI=;
+	s=k20260515; t=1784313937;
+	bh=7e5kgtc2YZSO5D03srWrdyaym5Iq/tfMaY+RIMQ8Ask=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Z36jQ+nxUJfkvV9idRAd2w0tSjY+NJGePRRNPqyp+IDVeGeJG/EX/8CtX+CPfGAAG
-	 DmSFUaF0YhEtKkItXGVn433F6SJQYsAW0Cd6lQQZ/ZWe8b1qr90c5OZCmdTlWtdT9d
-	 LhumZWncdKSvi3J0BEInpl42oTIFfwHpDOIjpdKmiuoAk/5vbxH837ZweYRSrQcoDA
-	 9NgmfhV1a3MaLX6S4Lp+sqPThmNgTFTDao15RQ2S0YHmWl6duMzSHhajxK7u3buv0f
-	 pqOWkgbhkc+9MZZ8iFYbDJ2Rh1AbcH32SK6inzi1vOCWy9G0rkV7MoiS3sU4Yjtyqc
-	 0qvWP8uJ0foxg==
-Date: Fri, 17 Jul 2026 13:44:48 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
+	b=B1fKXYJh2h7Ct2/5ML0oO16NwxLPg/4YRE4YHOue1OIZylWuNWnUszWCEoEOaAXoP
+	 4HlIqSo5hETN9YBZY48ZcnmuXi5WVyQrJp7jFO+tL7UAmpw/i4mFysLaQXsW8zif1x
+	 +RqtsbyH5fy9gDDKfVDNokAXATV+aMfYebYpIkZ7XXKawQ1AXjmmF3jRniGLIs3cOf
+	 vf8Ybp/wUvDhMxANd9b42G9fuLAjLXd+fxy4N9PQBcvZR5uGRGkVTe7CnUbCo8ZgT+
+	 xoqv+kcYqWru71TvPJPdAJEi6TK12MO/1+2nD0MLv7FRpF4cgufm6hQbSDH1ChnnHF
+	 Pc/KIgt9oxttg==
+Date: Fri, 17 Jul 2026 13:45:36 -0500
+From: Rob Herring <robh@kernel.org>
 To: Frank.Li@oss.nxp.com
-Cc: linux-kernel@vger.kernel.org,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org,
-	Stefan Agner <stefan@agner.ch>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	David Airlie <airlied@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	imx@lists.linux.dev, devicetree@vger.kernel.org,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 	Maxime Ripard <mripard@kernel.org>,
 	Thomas Zimmermann <tzimmermann@suse.de>,
-	Peng Fan <peng.fan@nxp.com>, linux-arm-kernel@lists.infradead.org,
-	Sascha Hauer <s.hauer@pengutronix.de>, Marek Vasut <marex@denx.de>,
-	Conor Dooley <conor+dt@kernel.org>, Simona Vetter <simona@ffwll.ch>
-Subject: Re: [PATCH 1/4] dt-bindings: display: bridge: ldb: allow a single
- reg for fsl,imx6sx-ldb
-Message-ID: <178431388818.1805043.6740193643637538952.robh@kernel.org>
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH 2/4] dt-bindings: soc: imx-iomuxc-gpr: allow bridge@18 as
+ child node
+Message-ID: <20260717184536.GA1805255-robh@kernel.org>
 References: <20260708-arm_dts_ldb-v1-0-4f5579b85797@nxp.com>
- <20260708-arm_dts_ldb-v1-1-4f5579b85797@nxp.com>
+ <20260708-arm_dts_ldb-v1-2-4f5579b85797@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260708-arm_dts_ldb-v1-1-4f5579b85797@nxp.com>
+In-Reply-To: <20260708-arm_dts_ldb-v1-2-4f5579b85797@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,33 +81,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Wed, 08 Jul 2026 16:29:02 -0400, Frank.Li@oss.nxp.com wrote:
+On Wed, Jul 08, 2026 at 04:29:03PM -0400, Frank.Li@oss.nxp.com wrote:
 > From: Frank Li <Frank.Li@nxp.com>
 > 
-> The i.MX6SX LDB only provides a single register region for the LDB block,
-> while other supported LDB variants require two register regions.
+> The legacy i.MX6SX (>15 year) SoC imx-iomuxc-gpr contains one LDB_CTRL
+> register. Allow the LVDS Display Bridge(LDB) child node under
+> imx-iomuxc-gpr.
 > 
-> Update the binding schema to allow a single reg entry for
-> fsl,imx6sx-ldb while keeping the existing constraints unchanged for the
-> other compatible strings.
-> 
-> Fix below DTB_CHECK warings:
->   arch/arm/boot/dts/nxp/imx/imx6sx-nitrogen6sx.dtb: bridge@18 (fsl,imx6sx-ldb): reg: [[24, 4]] is too short
+> Fix below CHECK_DTBS warnings:
+>   arch/arm/boot/dts/nxp/imx/imx6sx-nitrogen6sx.dtb: syscon@20e4000 (fsl,imx6sx-iomuxc-gpr): '#address-cells', '#size-cells', 'bridge@18' do not match any of the regexes: '^ipu[12]_csi[01]_mux$', '^pinctrl-[0-9]+$
 > 
 > Signed-off-by: Frank Li <Frank.Li@nxp.com>
 > ---
-> Related two theads:
-> - https://lore.kernel.org/imx/178154922879.1630652.11500293336634076421.robh@kernel.org/
+>  .../bindings/soc/imx/fsl,imx-iomuxc-gpr.yaml       | 59 ++++++++++++++++++++++
+>  1 file changed, 59 insertions(+)
 > 
-> Mixing the addressable and non-addressable child nodes is allowed according to discussion [1].
-> 
-> Link: https://lore.kernel.org/all/n6akxiayi3g6gxcqhreb4iaohmeokoalnqup6h5r2fwdt4zijt@u2wyps55ayqm/ [1]
-> ---
->  .../bindings/display/bridge/fsl,ldb.yaml           | 23 +++++++++++++---------
->  1 file changed, 14 insertions(+), 9 deletions(-)
-> 
+> diff --git a/Documentation/devicetree/bindings/soc/imx/fsl,imx-iomuxc-gpr.yaml b/Documentation/devicetree/bindings/soc/imx/fsl,imx-iomuxc-gpr.yaml
+> index 721a67e84c137..c3b942bbcd6da 100644
+> --- a/Documentation/devicetree/bindings/soc/imx/fsl,imx-iomuxc-gpr.yaml
+> +++ b/Documentation/devicetree/bindings/soc/imx/fsl,imx-iomuxc-gpr.yaml
+> @@ -47,10 +47,21 @@ properties:
+>    reg:
+>      maxItems: 1
+>  
+> +  '#address-cells':
+> +    const: 1
+> +
+> +  '#size-cells':
+> +    const: 1
+> +
+>    mux-controller:
+>      type: object
+>      $ref: /schemas/mux/reg-mux.yaml
+>  
+> +  bridge@18:
+> +    type: object
+> +    $ref: /schemas/display/bridge/fsl,ldb.yaml#
+> +    unevaluatedProperties: false
+> +
+>  patternProperties:
+>    "^ipu[12]_csi[01]_mux$":
+>      type: object
+> @@ -67,6 +78,18 @@ allOf:
+>        patternProperties:
+>          '^ipu[12]_csi[01]_mux$': false
+>  
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          not:
+> +            contains:
+> +              const: fsl,imx6sx-iomuxc-gpr
+> +    then:
+> +      properties:
+> +        bridge@18: false
+> +        '#address-cells': false
+> +        '#size-cells': false
+> +
+>  additionalProperties: false
+>  
+>  required:
+> @@ -87,4 +110,40 @@ examples:
+>          };
+>      };
+>  
+> +  - |
+> +    #include <dt-bindings/clock/imx6sx-clock.h>
+> +
+> +    syscon@20e4000 {
+> +        compatible = "fsl,imx6sx-iomuxc-gpr", "fsl,imx6q-iomuxc-gpr", "syscon", "simple-mfd";
+> +        reg = <0x020e4000 0x4000>;
+> +        #address-cells = <1>;
+> +        #size-cells = <1>;
+> +
+> +        bridge@18 {
+> +            compatible = "fsl,imx6sx-ldb";
+> +            reg = <0x18 0x4>;
+> +            clocks = <&clks IMX6SX_CLK_LDB_DI0>;
+> +            clock-names = "ldb";
+> +            status = "disabled";
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Examples should be enabled. Drop.
 
+> +
+> +            ports {
+> +                #address-cells = <1>;
+> +                #size-cells = <0>;
+> +
+> +                port@0 {
+> +                    reg = <0>;
+> +
+> +                    endpoint {
+> +                    };
+> +                };
+> +
+> +                port@1 {
+> +                    reg = <1>;
+> +
+> +                    endpoint {
+> +                    };
+> +                };
+> +            };
+> +        };
+> +    };
+>  ...
+> 
+> -- 
+> 2.43.0
+> 
 
