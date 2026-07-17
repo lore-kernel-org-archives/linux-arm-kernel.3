@@ -4,131 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C914C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 11:08:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 253D3C44507
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 11:09:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pIOso+/f6mheDtStsIgmtOw91R8YgWoOFYrywLkxQdg=; b=mvt5pKtRWVj9eTlMgAT0Jdy/jw
-	cEtzBpDRrPKTeZVcvfWzYy0FHkAmny9EGust+F7427yRU4roHa9kRP//j0QkJk3QbsKFNtgX1B/2b
-	i/NJYxMu3RsU518FaNUYf1uHyf78mUdgWdtaKjwqnewTqgbzGHTtWKIRj3+PFj+1ejU+tl19bLtD3
-	enHUhijFS7SXTzSyXHmheez8HxhvJ9kGKEYhwzaC7y0kOiyh5Y5OHLxvXKjt2lKkKKDdwKf5JKmJZ
-	1vz85BO/kni9s+VMl6k4UZ/uQtq+kaWzv0kmOoDOMmX2kzdLTB1XNKJLtHZNOX1UdqPpo0wozis0T
-	1YUXL/2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IVMjIqA5wERc1VK0TSVspzDmfYe5coCITH1bpAnvXTM=; b=GOfsdN+00vXIZ/du7zcVHrvob/
+	f/e0C0zoGaRFCgmj3cpP+mYnmXv1GpxqyyoopBHICwEIyb2cHbSxi+Odn5kqrMWGoUSofGDv36VRR
+	WUpvVTeJrKIjizWKE13RFeVuKh0z/l6DA4ZuEboEN16DPHOBeXtVinrQkJocfXDsIvQlcOCzS6ORH
+	nrdEF2GeN8EGvP5T2P67r/UvmmZiUiNNq++KyQYq+3ZRgWK10ZJv5ma3C4qjz13qyGf8KzBdkdttm
+	xm+CLHqKmvHsyMirQn1fQUPj/MNJTGYhohNj9MI/qsB476XuZFX1JZwWP966J0IlhrLYo22CWRL1C
+	tQeko3Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkgQZ-000000027Ri-3iXb;
-	Fri, 17 Jul 2026 11:08:23 +0000
-Received: from mail-swedencentralazon11013026.outbound.protection.outlook.com ([52.101.83.26] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1wkgRK-000000027Zk-0GeO;
+	Fri, 17 Jul 2026 11:09:10 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkgQX-000000027Qu-1Fbx
+	id 1wkgRG-000000027Yz-3gDL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 11:08:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=zMNHH8Gvj3EfjqDHSZRNVpyuQkkNmzrbue6M4mg7bRfs07pe3qnw4msyZzv3XMhQ8zY/TDzMo5kU6DkztJmTyJGcSOgt0Cp/tzeXqqKUPYjYDcPb1eGa6mZ6A00CHeaSEoY+1ULjjdWu3EMUcLz6knwQJDMzPlKfiZ9WlRGfDaY4vevHNVavkWIg4pxhPagVyTN2JXrUx9S8bq7xRGZmex4t1fRPwMDVhXgFJQJK5Ooc6nIY+TVByCIjUJVCmywvZm0hRudEY82L3W0HTXj+nN9OamJdFhWajQsFm2bBkbBWBnOvo5S4jy2a5lwqbZCaUBvLuSdS6sf//ke/7MOd5g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pIOso+/f6mheDtStsIgmtOw91R8YgWoOFYrywLkxQdg=;
- b=H7TnxbFI58pOb2Ego1lFd7Zh5GpLlvfB8JUnPjCkOgeQ29gDtygDnute0wJivqnfjCE65jPUnapbYdOr7LCmRQJLuqkvotrgYJv3b1N2I9c2x0yrwRtnvVDOGl4VBS5R1jJsU+q/VlUk/NkarZZRQjY1N+h5rJ3IXYFQggvmt0OMkhH8/wiCsJAJuAJO+wQ3IZqcI4RHaKTi7hJzu0MkSTKi9cE/YPXrvOls/ImbtBGSicpmfA1jwnz8mehs7P9BP2rkYVQwvNIKC+paXU5Bpp426M0drE8trsx66db14SRYgi4YdfmXm2syF7hgSrjsT3D5crfydWbaMq+daiWmLg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pIOso+/f6mheDtStsIgmtOw91R8YgWoOFYrywLkxQdg=;
- b=EPvyjyAc1JoRfjVCpDGmQL4iKDa9NBQfbeiTbwwoat0JIJtXLcZjG1WgKsyqJy19WU9JrPjhNJ0HZgKekE5YRW+BFpCZ8lds0pPRLRsr9/k7/G2LkeUr/JMJEmRWu91pMhB8kN2bAoZayq7FWRLxliNxSzgUUD3j54oSNbPU430s9VTlrL02a0QVVXav1OGpyCnnolzseEpqNWY09/y13LX0395rWT9UQBHjDb7Imr9jhveg7oof+TqR8SKOSXudMwleXD35OfVo9ultX0anx02BL1763QTl0LbVWDFUcgjX8Y/j8kBpRpRYKoe0T3B8UGBgE1CDSZOSkdgzjFVS5A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB9422.eurprd04.prod.outlook.com (2603:10a6:102:2b4::21)
- by VI1PR04MB9834.eurprd04.prod.outlook.com (2603:10a6:800:1d8::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.12; Fri, 17 Jul
- 2026 11:08:15 +0000
-Received: from PAXPR04MB9422.eurprd04.prod.outlook.com
- ([fe80::54e:28bf:aa85:d25d]) by PAXPR04MB9422.eurprd04.prod.outlook.com
- ([fe80::54e:28bf:aa85:d25d%4]) with mapi id 15.21.0223.011; Fri, 17 Jul 2026
- 11:08:15 +0000
-Date: Fri, 17 Jul 2026 19:06:50 +0800
-From: Xu Yang <xu.yang_2@oss.nxp.com>
-To: Pan Chuang <panchuang@vivo.com>
-Cc: Shuai Xue <xueshuai@linux.alibaba.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Frank Li <Frank.li@nxp.com>, Xu Yang <xu.yang_2@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Ji Sheng Teoh <jisheng.teoh@starfivetech.com>, 
-	Khuong Dinh <khuong@os.amperecomputing.com>, 
-	"moderated list:ARM PMU PROFILING AND DEBUGGING" <linux-arm-kernel@lists.infradead.org>, 
-	"open list:ARM PMU PROFILING AND DEBUGGING" <linux-perf-users@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>, 
-	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>, 
-	"open list:ARM/QUALCOMM MAILING LIST" <linux-arm-msm@vger.kernel.org>
-Subject: Re: [PATCH 1/3] perf: Remove redundant dev_err()/dev_err_probe()
-Message-ID: <va7tqd5fjr2lwivkbipphkfawkegroyvqf6kugvmbsylaxf3zt@kxo4a524zieu>
-References: <20260717103123.34887-1-panchuang@vivo.com>
- <20260717103123.34887-2-panchuang@vivo.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260717103123.34887-2-panchuang@vivo.com>
-X-ClientProxiedBy: FR4P281CA0339.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:ea::13) To PAXPR04MB9422.eurprd04.prod.outlook.com
- (2603:10a6:102:2b4::21)
+	Fri, 17 Jul 2026 11:09:08 +0000
+Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-5aebd7da975so904342e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 04:09:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1784286545; cv=none;
+        d=google.com; s=arc-20260327;
+        b=SEtm6DoEAJAuydKGeUpNo/UfmxDIl8oN4gWqILvLthH99W+rux6getbrpHnWwYfUkA
+         yYxqmGFICfItADpRhgp2HUAeTVUm25ciqSCNm+y2VMS6oyhZ304LgyAJf+gbTYTFfwwc
+         ScYo3FPb+z+fD+EV2nz+yY0HkHh7JQEPhmRE3IRLuaIBg1tNRRiASJKSGzmt0vDP1gLF
+         t6UrmEABvfwv/iUJkwT+Qq4b8VNPdLpRprF1i485dDkEjMXtwGCu8TC6mYAW0Ceik6wc
+         tWtLWC4/sJCt6t9C5uYKr4UuI98wVgrxU5scaHK93JzASA9627p2T9awHitc6RQ21pFx
+         B2LA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=IVMjIqA5wERc1VK0TSVspzDmfYe5coCITH1bpAnvXTM=;
+        fh=4+DpkPoifXVUomJdSpwBxdg9pqXPJ7G3a4WCX/Q5qMM=;
+        b=PyywavYuYTN9OaKSETO8k1ps4OY8eZMbafc1yiWFeQRYfrf2e5PA8scD0X8K7e0TBN
+         gaKLTgEZ+q+OUyGIdz7wf+INgkRT3v08Htrm6s8x0nD7xKUqbVdjkQU7+MJewNKsoQ38
+         78Oca5+nA/IyHDUvgHSw0tfYimqxc81c5/jmdXcmEkdihYSpti27cX7ZdmZU4LOW9EB9
+         Hrg/nFD5LIpfDAdx0OOs1EiiaqeVxsUXjmdsSzIPcdfIP0lLibzufkd4MIk2QbqooYAI
+         Pv4O/qPppaLDD5K+EGr/hXkNx7lpxRWnCm9z33RNMCumeL2jTXGJrI8f4frsSWbUnrTq
+         Wk3g==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bisdn.de; s=google; t=1784286545; x=1784891345; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=IVMjIqA5wERc1VK0TSVspzDmfYe5coCITH1bpAnvXTM=;
+        b=ZCLkLBO5HAy/2RsN2GxTfonfT3ys7NQygJDybWnorK2mmxUPvpqpcAIlQtGBSLh/nd
+         MzaexoZZXzz9oEYAklCV4vQH/zT3N4xY/EahF01G5DqK/kCVRaX6BKrCrxiX46qXDokB
+         BrCni2OJmnZ6nyoPwdF+uhXBE21lbnVfDkqRA+8DxjC8TzetP6gIh9Sg0Fil0jBXtUYs
+         DH+IkWHLafJy7bnd9NI4iwovDJBBUWbCpxZtlPLENd4NsWJCqXQwL+2ZvTr8MLuBn8RK
+         Y7REopWI2oKmOrWr56EoNMXKNeFyvE+Mmoggcs93hEOGcnKMwTzQv6quAZt27/vEoc89
+         SwGg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784286545; x=1784891345;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=IVMjIqA5wERc1VK0TSVspzDmfYe5coCITH1bpAnvXTM=;
+        b=EY99++2M/WSi0QiysxpPIW5mVfLuFsUIWM6HadTyNnE1RCCLsPQYBKAUBC7GjDAFAk
+         s1oo/Bc/fSIQRD7XBM9ckX2c9E/30fbep5j8hXK0Z7QBhHvqeKyIs4B2Krz+C4jNwa6K
+         9sDVzaGTQd/Wx8PEjF12cWlu3YYNE4aHJ1KREgBvBGDLHVnVlC4NW7Mhx/IQJp2JDEOG
+         zf4OKsjWowVzL/Dh25gkr9L0gR2YROx5mucyF3KfTectZ0DiilolgQHZR5B2SFLK/RjF
+         TiUEY9+XtKRayYziwXxHo66AOyxjqbcXf7y/EDq7A0ag7OXEEoe/n1cTW3n38nBTbpob
+         HIhQ==
+X-Forwarded-Encrypted: i=1; AHgh+Ro4bzJpcJziKkJep/RDz76TY81Sjzu1Bk4fTazze/TP5uVnuKmZFaVQ6UqREUwD8ajfGHylFkV73rv8BsKKlr41@lists.infradead.org
+X-Gm-Message-State: AOJu0YyjzXgRmKU2hoONv3pyFqkNhKJ1vtHyerXZYUJuQFgl3q6CrwVE
+	+apPpPN0xTwDHF9vk9oqVkbMwMmeirVSDGHDw3qHjS2CE6xtC2D5Y0mEWzzIHtEMpaGg3z+b1l8
+	b4tkai4yulPdGaDwJpERFizFcyUOoETA7gATZAUbkAoSCUgkonviasEpWuW0XlTNSelvJo0qflC
+	7nBxDxJwkBwcwKavO8gCILhOpWg/XUILCImVVB3E9U1sW0
+X-Gm-Gg: AfdE7clsnZsKyY3pTihx1d25RC6zaAv89E1OgzkEQ5lTdRoLD9XGDN40L06lj6lNgcq
+	Yf7yMKQ+QHvkoS/esiGOGUK2MLpgekY3wZNg0i/Sbz7XZMdqAlDi2VQa6a2DqhSUQuQmuZ6V4Rm
+	SoNfaXGhbgMUkXh9wvnQLSuc6bV52R9JzLOpmWdoETxN1YVolXAZe2r2RMNMQoIqLYXtH2z8HL8
+	W7ar/NTPlV/kPERaJTSNGoPa1U2qOZwE+DfnYH4x1xt+qF3LU0LRm2dwn7oMHT9tTOmexg=
+X-Received: by 2002:ac2:51c6:0:b0:5b2:8d3e:723b with SMTP id
+ 2adb3069b0e04-5b28f87712fmr299173e87.1.1784286544689; Fri, 17 Jul 2026
+ 04:09:04 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9422:EE_|VI1PR04MB9834:EE_
-X-MS-Office365-Filtering-Correlation-Id: f77a84b7-0ca8-446d-7de7-08dee3f3b2fc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|7416014|376014|23010399003|366016|6133799003|18002099003|22082099003|11063799006|10067099003|56012099006|4143699003;
-X-Microsoft-Antispam-Message-Info: MTDrZtqIvkC0xXBFv1RVBHAHLiecM01HXq/+AJ7FcfpZ1mAeotVP10C1lndcUvy3yVRwN56y028GWQ3+6AzaJI5bLh2c+vHxLMZfn1U9PS6peIbu50KsTK4oLNFJwC2cJ/NmbzTtzc9MAspNdi60CHBKZstnsAORHKShyv1G2MoVsrv2THwy5LTuqnntzHK1jIdCvxOB4wZ4XXhUKpY82XqRP+b4SxKgrPBm2ftuSlM+JecPrRX6qoUrRDb3idUwtKk0mX/PZMVpojmyGJ2QHkZE+FBFQtPRdmFnVi9DSqLdU8xl+MPjtAktMxeBoHag+LcrhqMidFGdg1bMT5/FdEBd/ujqjQi/RV+iAMsuGDffqnFiZPaxMGZC/+68ThmIqZ4P38WkN7Ma2vJcnpnzVb9guqKHk00yIXLACZFR6Ek4YYOG9N5JesfdGzjMvr5n76gg5SkylOblT9/0FZOSoFkoBWaJO1LFYm6OzF3OTSWj9/RfOpyblm3Q7HB3Ks/ro3+PcbdiSXGd6SngLfoIvOkBR5KFWaJivsom6CS/bYS9mynK+DAxAycN8P5RLJ2A33O6/w3qUYpQE/LgkbmrwNh0P+AnK/xQr1nNBD0SpDIWPLTMVaEF+ydNKLHgQRQygT7qPkWtVzQhUsdqzcFK/BeffXS9Cwi20q73fQryVWA=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9422.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(7416014)(376014)(23010399003)(366016)(6133799003)(18002099003)(22082099003)(11063799006)(10067099003)(56012099006)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?SmVP4x9lTviJkAnyzUT34DsrLlobdOLH8o5ZdU++hKUBy2zFnN76ZBWqpCcV?=
- =?us-ascii?Q?y/NMhK2GsiIpUYBN4VsIM/2BAcHnf6CJ8Eheh9ZOz6FCds7j/PRWAX4Uh1Bc?=
- =?us-ascii?Q?j1ipnzfy9NIpocwPv95iRAfZAS6FpYgShUXMTky+NExJtkxXvapKo9Zs6QCD?=
- =?us-ascii?Q?RtlaFBCImi9FuZWm76hbqJo7fZcvihB+H7ThhYR8ao0HO2JMJ2b7hxKoBew4?=
- =?us-ascii?Q?nmxPM+rKxhbKAAScbnzD8Qpb2abKYNmyD8fuIJ2KSHyVNDPT6A/gCXsxUfA1?=
- =?us-ascii?Q?lDT8C7fugWRJFhBt/RSS24LKcy/U3ZK4gMTvKz0JJ8wdB/pa5ro66SXr17wt?=
- =?us-ascii?Q?JfhxPSuUEwF9h+ztLBeY3lreISdTBjuXzZjSy7xkL1yq5aJLr0BTEfhIu0jh?=
- =?us-ascii?Q?CLTJ2/4TCCEikTNC2PC+R4HY/t+yLkH4e3dsQ7A6SwMIIrDFvj0afRfMt6n7?=
- =?us-ascii?Q?wc2L5B4a3fPJ9VEphxkoBdgpC6yc4tLabxya7OjYJPRHBG/OiUM+zzOcHJu9?=
- =?us-ascii?Q?MgqOuVObAjaZbHpagSEk8gl4GRzmx/ydWk37jHzYCnF057W+FkSjcDhDXMiH?=
- =?us-ascii?Q?SuYhVhzCsfv9uOY5TBUEWfpEvxmhEnUKoQINVE5b/RHlcTcN7elAk2qjVpRP?=
- =?us-ascii?Q?aUsHWNed9AY1WMNUU/sFwMUJB8NBiN2+IXFF7e368RVEjO8cYhwPGznP2FBE?=
- =?us-ascii?Q?Fb3zrnykX7iM0eLDFK2p6G0JpdMq+lqo4KX79eqMVt3lQ0PL4VMoJQeOVyja?=
- =?us-ascii?Q?Q4it0QHjlLPJq6kugShrJfasA8vSGhFVS7J58UYUwNsv2sPRzhZifBkFMYWG?=
- =?us-ascii?Q?LBkCJdJGAmJj72GZYlEAhXp+ZLGd6R02oGPStOd7uMoqluni4U1BH1mfBQx2?=
- =?us-ascii?Q?pPJ9vqWgO4OrxzD6noU4QOyiRTjJZCquesUg+qdTehoLXWIkxYwJkmM3Blxu?=
- =?us-ascii?Q?EpmygC4D5Nwp03Md3I8AobZnIBxiKflRJtO+sE8USC7eGeFk0ydnjDuHv1rF?=
- =?us-ascii?Q?SUQ1y00eih60nt0Qkkq9hDn+v9TEfX+EeX4qmGSPPrrpusjooA4u47iLv6qj?=
- =?us-ascii?Q?3F9zr87aYYVahYBeuEWYpqN/9Uav6jWluWBAWs/vWYcStRg2C1P51fAel1Vn?=
- =?us-ascii?Q?cUPaZLlGqK8RixXGHuEoFGHSeJKFKif/oXPLgZBkpGxS5Odv8COP+QzZ/yWk?=
- =?us-ascii?Q?e+QpohG68ys4SifszbDqi7KqYNxIFARWQJp9zlVQQMfd7xALg+krmePg1wib?=
- =?us-ascii?Q?o447gafSTI2BkQFfUzZ449f7hSrM/Lo6KmFlT811WgAIXuRF0B7wHcxyWx0n?=
- =?us-ascii?Q?8PMVfy6dtrH/KZ3g4BL9FH/gCwWbIpI0oAlCLEjG5Aly9rHyUEi4mQwQ8AYd?=
- =?us-ascii?Q?Dx5szUww4nGm2KEjoT5c4qP3wLUKIknZfjbq1eZ9Rs56WfrGET2dK1Sf+kBb?=
- =?us-ascii?Q?/czpQ/B0Uea0KPYGIdrnRFIzxpN9gGawjnxoEznXHiSzu+WGqIIHm3Lg67rb?=
- =?us-ascii?Q?Dmn/NGZieme7W6yxDCki1F29UqOtfAxAuyWFibVtuuXUCWgIQMPjdfqYTjK7?=
- =?us-ascii?Q?wcg/QH/iT/rVBbMfUbG8H8Nis/dl45o6G1UA9X9g31pd91ypHr82XqaI6dRR?=
- =?us-ascii?Q?Elu4BsGbkTh84lUmCOVFn0ngpNo1tIxB2NbuFvDWrmF6qFfa0IlhanooXfZ1?=
- =?us-ascii?Q?sacpqAeIPZfKZB6VAK+hpCQBQT6+JHXKxmdYQ05zDqliD2xX8bPMMutqvfyI?=
- =?us-ascii?Q?pSQWoeQOykyTyLySAyb4zCJ/l2jCf/fmSx0zfunSfXbbH/qFK5bQ?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f77a84b7-0ca8-446d-7de7-08dee3f3b2fc
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9422.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2026 11:08:15.5130
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 8kwJl/HWJhjwbkg5FLFo/KytWQfe2Ge9EdYs9VZPQro7CbgzXDqG3TruS1NLy+3EYxtXbTjpMULWgxMRygMcBS0PITt0YFpADJxadx1yZcxz2k79axgWBuQ4p/0Mt7MZ
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB9834
+References: <20260717085507.34209-1-jonas.gorski@bisdn.de> <eba6d3b3-b5ee-4543-a437-4e7c16c5653e@oss.qualcomm.com>
+In-Reply-To: <eba6d3b3-b5ee-4543-a437-4e7c16c5653e@oss.qualcomm.com>
+From: Jonas Gorski <jonas.gorski@bisdn.de>
+Date: Fri, 17 Jul 2026 13:08:48 +0200
+X-Gm-Features: AUfX_mw54--TNQFoTYsWHV7VstC3XqvwiGDE0dEj18UkhlySQ3jSOQB47lLuss0
+Message-ID: <CAJpXRYRyTaYgKGz6_JvFFZhQD6ioe1cnRUgGuZK2TxnOB0rH_g@mail.gmail.com>
+Subject: Re: [PATCH v2] i2c: iproc: reset bus after timeout if START_BUSY is stuck
+To: Mukesh Savaliya <mukesh.savaliya@oss.qualcomm.com>
+Cc: Andi Shyti <andi.shyti@kernel.org>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, Kevin Cernekee <cernekee@chromium.org>, 
+	Wolfram Sang <wsa@kernel.org>, linux-i2c@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_040821_335697_0352D7B8 
-X-CRM114-Status: GOOD (  16.36  )
+X-CRM114-CacheID: sfid-20260717_040907_632140_0A00532F 
+X-CRM114-Status: GOOD (  31.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,76 +119,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 17, 2026 at 06:31:17PM +0800, Pan Chuang wrote:
-> Since commit 55b48e23f5c4 ("genirq/devres: Add error handling in
-> devm_request_*_irq()"), devm_request_irq() automatically logs
-> detailed error messages on failure. Remove the now-redundant
-> driver-specific dev_err() and dev_err_probe() calls.
-> 
-> Signed-off-by: Pan Chuang <panchuang@vivo.com>
-> ---
->  drivers/perf/alibaba_uncore_drw_pmu.c | 5 +----
->  drivers/perf/fsl_imx8_ddr_perf.c      | 4 +---
->  drivers/perf/fsl_imx9_ddr_perf.c      | 4 +---
->  drivers/perf/fujitsu_uncore_pmu.c     | 2 +-
->  drivers/perf/qcom_l2_pmu.c            | 5 +----
->  drivers/perf/qcom_l3_pmu.c            | 5 +----
->  drivers/perf/starfive_starlink_pmu.c  | 2 +-
->  drivers/perf/xgene_pmu.c              | 4 +---
->  8 files changed, 8 insertions(+), 23 deletions(-)
-> 
-> diff --git a/drivers/perf/alibaba_uncore_drw_pmu.c b/drivers/perf/alibaba_uncore_drw_pmu.c
-> index 74786a5dd6a2..fc934bccf4a6 100644
-> --- a/drivers/perf/alibaba_uncore_drw_pmu.c
-> +++ b/drivers/perf/alibaba_uncore_drw_pmu.c
-> @@ -449,11 +449,8 @@ static struct ali_drw_pmu_irq *__ali_drw_pmu_init_irq(struct platform_device
->  	 */
->  	ret = devm_request_irq(&pdev->dev, irq_num, ali_drw_pmu_isr,
->  			       IRQF_SHARED, dev_name(&pdev->dev), irq);
-> -	if (ret < 0) {
-> -		dev_err(&pdev->dev,
-> -			"Fail to request IRQ:%d ret:%d\n", irq_num, ret);
-> +	if (ret < 0)
->  		goto out_free;
-> -	}
->  
->  	ret = irq_set_affinity_hint(irq_num, cpumask_of(irq->cpu));
->  	if (ret)
-> diff --git a/drivers/perf/fsl_imx8_ddr_perf.c b/drivers/perf/fsl_imx8_ddr_perf.c
-> index 3760ebe02674..dd8046265584 100644
-> --- a/drivers/perf/fsl_imx8_ddr_perf.c
-> +++ b/drivers/perf/fsl_imx8_ddr_perf.c
-> @@ -858,10 +858,8 @@ static int ddr_perf_probe(struct platform_device *pdev)
->  					IRQF_NOBALANCING | IRQF_NO_THREAD,
->  					DDR_CPUHP_CB_NAME,
->  					pmu);
-> -	if (ret < 0) {
-> -		dev_err(&pdev->dev, "Request irq failed: %d", ret);
-> +	if (ret < 0)
->  		goto ddr_perf_err;
-> -	}
->  
->  	pmu->irq = irq;
->  	ret = irq_set_affinity(pmu->irq, cpumask_of(pmu->cpu));
-> diff --git a/drivers/perf/fsl_imx9_ddr_perf.c b/drivers/perf/fsl_imx9_ddr_perf.c
-> index 6fee5eb5087a..d59bc5ea3155 100644
-> --- a/drivers/perf/fsl_imx9_ddr_perf.c
-> +++ b/drivers/perf/fsl_imx9_ddr_perf.c
-> @@ -830,10 +830,8 @@ static int ddr_perf_probe(struct platform_device *pdev)
->  	ret = devm_request_irq(&pdev->dev, irq, ddr_perf_irq_handler,
->  			       IRQF_NOBALANCING | IRQF_NO_THREAD,
->  			       DDR_CPUHP_CB_NAME, pmu);
-> -	if (ret < 0) {
-> -		dev_err(&pdev->dev, "Request irq failed: %d", ret);
-> +	if (ret < 0)
->  		goto ddr_perf_err;
-> -	}
->  
->  	pmu->irq = irq;
->  	ret = irq_set_affinity(pmu->irq, cpumask_of(pmu->cpu));
+Hi,
 
-Reviewed-by: Xu Yang <xu.yang_2@nxp.com>
+On Fri, 17 Jul 2026 at 11:40, Mukesh Savaliya
+<mukesh.savaliya@oss.qualcomm.com> wrote:
+>
+>
+>
+> On 7/17/2026 2:25 PM, Jonas Gorski wrote:
+> > If a transaction times out, the START_BUSY signal can stay up, and
+> What's exactly START_BUSY signal
+> > subsequent transactaction attempts will fail as the bus is still
+> transactaction =3D> transaction
+> > considered busy.
 
-Thanks,
-Xu Yang
+aah, I was so concentrated on getting the recipients right I forgot to
+spell check @_@
+
+> >
+> > I can easily trigger this by attempting to read from an address with no
+> > device, e.g. when running i2cdetect. After the first read times out, al=
+l
+> > subsequent read attempts return busy.
+> >
+> > To get to a working state again, the controller needs to be reset to
+> > clear the START_BUSY signal. So check for START_BUSY still asserted on =
+a
+> > timeout, and do reset in case it is,
+> >
+> what's here after it is, ? wanted to end the statement ?
+
+I think I forgot an "it" there, "and do reset it in case it is."
+
+> > This is also done by the original non-upstream iproc-smbus driver
+> > implementation [1].
+> >
+> > Works around situations like:
+> >
+> >      bcm-iproc-2c 1803b000.i2c: transaction timed out
+> >      bcm-iproc-2c 1803b000.i2c: bus is busy
+> >      bcm-iproc-2c 1803b000.i2c: bus is busy
+> >      bcm-iproc-2c 1803b000.i2c: bus is busy
+> >      bcm-iproc-2c 1803b000.i2c: bus is busy
+> >      bcm-iproc-2c 1803b000.i2c: bus is busy
+> >      ...
+> >
+> > where the bus never recovers after a timeout.
+> isn't there a max retry count ?
+
+In this case it is an already bound driver(s) trying to do (new)
+things. Each busy (likely) comes from a new request. In our case there
+is an RTC and several SFPs behind an i2c-mux.
+
+So there are two scenarios where I encountered it:
+
+- during runtime after a few hours of uptime, a timeout occurs
+accessing an existing device with a bound driver
+- and recently while working on a different device I noticed that
+reading from an unoccupied address triggers this also
+
+> >
+> [...]
+> >       if (!time_left && !iproc_i2c->xfer_is_done) {
+> > +             /*
+> > +              * The controller may fail to clear START_BUSY after a ti=
+meout,
+> > +              * reset the controller to recover in that case.
+> > +              */
+> Make it simple ?
+> Recover controller if START_BUSY signal is high after timeout
+
+That's more or less what I had in the first version, but was asked to
+expand it (split about two short comments)
+
+> > +             if (!!(iproc_i2c_rd_reg(iproc_i2c, M_CMD_OFFSET) &
+> > +                    BIT(M_CMD_START_BUSY_SHIFT))) {
+> > +                     bcm_iproc_i2c_enable_disable(iproc_i2c, false);
+> > +                     bcm_iproc_i2c_init(iproc_i2c);
+> > +                     bcm_iproc_i2c_enable_disable(iproc_i2c, true);
+> > +             }
+> > +
+> >               /* flush both TX/RX FIFOs */
+> >               val =3D BIT(M_FIFO_RX_FLUSH_SHIFT) | BIT(M_FIFO_TX_FLUSH_=
+SHIFT);
+> >               iproc_i2c_wr_reg(iproc_i2c, M_FIFO_CTRL_OFFSET, val);
+>
+
+Best regards,
+Jonas
+
+--=20
+BISDN GmbH
+K=C3=B6rnerstra=C3=9Fe 7-10
+10785 Berlin
+Germany
+Phone: +49 30 610 816 100
+Managing Directors:=C2=A0Dr.-Ing. Hagen Woesner, Andreas K=C3=B6psel
+
+
+Commercial=20
+register:=C2=A0
+Amtsgericht Berlin-Charlottenburg HRB 141569 B
+VAT ID No:=C2=A0
+DE283257294 <http://goog_1008408251>
+
 
