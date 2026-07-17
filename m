@@ -4,58 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2437C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 06:29:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78E8FC4450F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 06:32:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vt8OGv0LOWuxwEqoxCWnUi3qmJywPj+Zf/7zdmhZMDg=; b=GnUU03kl2RsbMrdGHWA5XQsXGJ
-	s3GiRF13gtfTbBCcTnfL5lVkfXm+HRtXZ8Frd7o9PFwpw2ej5ehOm48mc3KDZmWvq9Fuv6ad74Oxo
-	sitjJJ0sX0F/Ghsi1M8xxtvrEAPHFjvLTY8e+F7tTnOXclnWrBZDFW4UjL0xb9lL5ZFTvDm2Lgrj/
-	fDz7m6fI8wTkxzl8NmBIbcUBotKB8sJl6MHEomZhu2N4LM51sNhhXbNSR9zIztT1bNfEbdlKRWB7X
-	qfgSia+LKsMfPVmkDtdt5KZXepc0drwb5fZ+/vvTWxzoxKdRUUwpXKDomdQfdNZgPDTMXPe0a7Jb4
-	xBDveX7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F88kXLHiJluPemsV2dA4XtGRZ7VlVzWVhA8ffVQ3Koc=; b=Uu4kRga89z/UV/QdEIgarG+XNk
+	GDiOBnduF1nOClkB8twyH3ycF+2qAXvYi557/HWb1OzISrVHhlSW1ZwOTX2xSsLYlocLwPjSvfawG
+	jopIfbyxQ11kCv52SZ/u6nNfnd5Uz/RWfzzNexjJsHRa35c/UQQY/IkP6GAOpt2mbhHaeqTuDZv8k
+	uA6PDgvfSlMtqJPTxKgK3KkRM+iuF/1pdQKsEDUgp6Ddecop2BYlEIWpnOiDEHNkCxh7xXsbbuX+q
+	NBconLparqCfM6iXzO7+XqjOOWeGTktUDrYyLeHS2QpzJvIgOUVdBI7hZRTAueRH6p4HjTtaL/kwk
+	Y8TvPKjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkc4l-00000001H1v-3cbf;
-	Fri, 17 Jul 2026 06:29:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wkc7U-00000001HEu-0zqe;
+	Fri, 17 Jul 2026 06:32:24 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkc4k-00000001H1i-1uhp
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 06:29:34 +0000
+	id 1wkc7T-00000001HEk-0b4C;
+	Fri, 17 Jul 2026 06:32:23 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2796E405E6;
-	Fri, 17 Jul 2026 06:29:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D25741F000E9;
-	Fri, 17 Jul 2026 06:29:32 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C7A8F401DE;
+	Fri, 17 Jul 2026 06:32:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0560C1F000E9;
+	Fri, 17 Jul 2026 06:32:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784269774;
-	bh=vt8OGv0LOWuxwEqoxCWnUi3qmJywPj+Zf/7zdmhZMDg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=jQWnXn/gZ9d+ngHHYffqEyswTJpcv3dvrFX+fp69lrDhwhp+vl4Rm25w+/+TUD7LM
-	 qX7x07iUjh2KB0LYZovBcztWpt95CWKHfMYyYFMdJnwWl5qRUy5bn08QIXa578jYLF
-	 jpB3pz6gDCyFoxFSAgp1jZtdPboppUDsJ5kkJDvnb+iTN/fET8J6apsXHz7Vdip1AX
-	 j1rpqTCe+LjZQra16etOQleDdrsuSz3ImmLlqsfjkP2xNG/x/3EBz1uzQt6PLr9MTk
-	 8+CI9R1FYVK29dHyUdqJupzpYNu01PGAGBfU/FJELqLo5Q5MfLcNEdXOf6mcA56gd3
-	 T/nbPqapn4Mqg==
-Message-ID: <563ae255-a9a6-42f9-8f5f-77b341fed69f@kernel.org>
-Date: Fri, 17 Jul 2026 09:29:17 +0300
+	s=k20260515; t=1784269942;
+	bh=F88kXLHiJluPemsV2dA4XtGRZ7VlVzWVhA8ffVQ3Koc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=IMny/Fb25eeaa/OqOPZX4svMfgDHI7w0zXjZMf26ygEip02soGXnmovgLeF0Zeaqh
+	 5RftwD4Rrg+jPyHRDyTmifGl+hu+9Xtlkk7U/2YbyFKcrg2vTVE9W5YXatBOARy94Y
+	 d3v1r2hey2BjzJ3t349UtnDHdBH1jxf3cGlcHy94vQmV/aX01wcDNHQAZ3jAwZpduN
+	 CgyJtId8oAWdNLYUOisnNsVoYaW38Kxgs3uqBwvBjouNNa5bNTudReiCTkNkyLOJda
+	 Y9P7WGyS2GSQADpXl1q+IUegPM0TTdn8p1lmhnjF9YczbFUkcqI7kwJ9m+2wbJOYR2
+	 Z7Obh8mWh0Tug==
+Date: Fri, 17 Jul 2026 08:32:18 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Stefan =?utf-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Brian Masney <bmasney@redhat.com>, Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Russell King <linux@armlinux.org.uk>, linux-clk@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org
+Subject: Re: [PATCH v7 01/13] dt-bindings: phy: Add zx297520v3 USB phy
+ documentation
+Message-ID: <20260717-uncovered-feathered-groundhog-eab16e@quoll>
+References: <20260717-zx29clk-v7-0-408411cfcf36@gmail.com>
+ <20260717-zx29clk-v7-1-408411cfcf36@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] ARM: lpc32xx: only run SoC init on LPC32xx hardware
-To: Karl Mehltretter <kmehltretter@gmail.com>,
- Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260713192506.7782-1-kmehltretter@gmail.com>
-From: Vladimir Zapolskiy <vz@kernel.org>
-In-Reply-To: <20260713192506.7782-1-kmehltretter@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20260717-zx29clk-v7-1-408411cfcf36@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,106 +75,202 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/13/26 22:25, Karl Mehltretter wrote:
-> lpc32xx_check_uid() and lpc32xx_pm_init() are arch_initcalls that poke
-> LPC32xx-only registers. Since the multiplatform conversion they also
-> run on other ARCH_MULTI_V5 boards where access faults e.g. on versatile:
-> 
->    Unable to handle kernel paging request at virtual address f4004130
->    PC is at lpc32xx_check_uid+0x2c/0x9c
-> 
-> Drop the arch_initcall() registrations and call both functions directly
-> from lpc3250_machine_init(), the machine's .init_machine hook.
-> The calls are placed in link order (common.c, pm.c, phy3250.c) to
-> keep their previous relative ordering.
-> 
-> Fixes: 75bf1bd7d2f9 ("ARM: lpc32xx: allow multiplatform build")
-> Suggested-by: Arnd Bergmann <arnd@arndb.de>
-> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+On Fri, Jul 17, 2026 at 12:35:37AM +0300, Stefan D=C3=B6singer wrote:
+> This binding will be used as a subnode of topcrm, which will be added in
+> the next patch.
+
+Irrelevant, drop. Also not true, because next patch is driver patch.
+
+>=20
+> Why is this a child node and not #phy-cells added to topcrm itself,
+> like clocks and resets as writing-bindings.rst suggests? Because
+> of_phy_provider_register checks if the of_node the PHY provider is added
+> to belongs to the device or is a child of the device, so I can't put the
+> PHY driver into an MFD (or AUX) child without its own node.
+
+>=20
+> Signed-off-by: Stefan D=C3=B6singer <stefandoesinger@gmail.com>
+>=20
 > ---
-> v2:
->   - Rather than guarding the two arch_initcalls, drop the initcalls
->     entirely and call both functions from lpc3250_machine_init(), which
->     is already guarded properly. (Suggested by Arnd.)
-> 
->   arch/arm/mach-lpc32xx/common.c  | 5 +----
->   arch/arm/mach-lpc32xx/common.h  | 2 ++
->   arch/arm/mach-lpc32xx/phy3250.c | 2 ++
->   arch/arm/mach-lpc32xx/pm.c      | 5 +----
->   4 files changed, 6 insertions(+), 8 deletions(-)
-> 
-> diff --git a/arch/arm/mach-lpc32xx/common.c b/arch/arm/mach-lpc32xx/common.c
-> index 304ea61a0716..35ed3569c5a3 100644
-> --- a/arch/arm/mach-lpc32xx/common.c
-> +++ b/arch/arm/mach-lpc32xx/common.c
-> @@ -106,7 +106,7 @@ void __init lpc32xx_map_io(void)
->   	iotable_init(lpc32xx_io_desc, ARRAY_SIZE(lpc32xx_io_desc));
->   }
->   
-> -static int __init lpc32xx_check_uid(void)
-> +void __init lpc32xx_check_uid(void)
->   {
->   	u32 uid[4];
->   
-> @@ -119,7 +119,4 @@ static int __init lpc32xx_check_uid(void)
->   		system_serial_low = uid[0];
->   		system_serial_high = uid[1];
->   	}
-> -
-> -	return 1;
->   }
-> -arch_initcall(lpc32xx_check_uid);
-> diff --git a/arch/arm/mach-lpc32xx/common.h b/arch/arm/mach-lpc32xx/common.h
-> index 32f0ad217807..06b20bea324e 100644
-> --- a/arch/arm/mach-lpc32xx/common.h
-> +++ b/arch/arm/mach-lpc32xx/common.h
-> @@ -16,6 +16,8 @@
->    * Other arch specific structures and functions
->    */
->   extern void __init lpc32xx_map_io(void);
-> +extern void __init lpc32xx_check_uid(void);
-> +extern void __init lpc32xx_pm_init(void);
->   extern void __init lpc32xx_serial_init(void);
->   
->   /*
-> diff --git a/arch/arm/mach-lpc32xx/phy3250.c b/arch/arm/mach-lpc32xx/phy3250.c
-> index 66701bf43248..ddc6333ca55d 100644
-> --- a/arch/arm/mach-lpc32xx/phy3250.c
-> +++ b/arch/arm/mach-lpc32xx/phy3250.c
-> @@ -71,6 +71,8 @@ static const struct of_dev_auxdata lpc32xx_auxdata_lookup[] __initconst = {
->   
->   static void __init lpc3250_machine_init(void)
->   {
-> +	lpc32xx_check_uid();
-> +	lpc32xx_pm_init();
->   	lpc32xx_serial_init();
->   
->   	of_platform_default_populate(NULL, lpc32xx_auxdata_lookup, NULL);
-> diff --git a/arch/arm/mach-lpc32xx/pm.c b/arch/arm/mach-lpc32xx/pm.c
-> index 2572bd89a5e8..9b5c5e1462ed 100644
-> --- a/arch/arm/mach-lpc32xx/pm.c
-> +++ b/arch/arm/mach-lpc32xx/pm.c
-> @@ -120,7 +120,7 @@ static const struct platform_suspend_ops lpc32xx_pm_ops = {
->   #define EMC_DYN_MEM_CTRL_OFS 0x20
->   #define EMC_SRMMC           (1 << 3)
->   #define EMC_CTRL_REG io_p2v(LPC32XX_EMC_BASE + EMC_DYN_MEM_CTRL_OFS)
-> -static int __init lpc32xx_pm_init(void)
-> +void __init lpc32xx_pm_init(void)
->   {
->   	/*
->   	 * Setup SDRAM self-refresh clock to automatically disable o
-> @@ -129,7 +129,4 @@ static int __init lpc32xx_pm_init(void)
->   	__raw_writel(__raw_readl(EMC_CTRL_REG) | EMC_SRMMC, EMC_CTRL_REG);
->   
->   	suspend_set_ops(&lpc32xx_pm_ops);
-> -
-> -	return 0;
->   }
-> -arch_initcall(lpc32xx_pm_init);
+>=20
+> How do I handle examples? It would be identical to the example in
+> topcrm. The example needs the reset defines from the next patch in
+> either case.
 
-Reviewed-by: Vladimir Zapolskiy <vz@kernel.org>
+1. No, it does not need. Just use whatever numbers.
+2. Other code would give you the hint: one example in parent's schema.
 
--- 
-Best wishes,
-Vladimir
+> ---
+>  .../bindings/phy/zte,zx297520v3-usb-phy.yaml       | 96 ++++++++++++++++=
+++++++
+>  MAINTAINERS                                        |  2 +
+>  include/dt-bindings/phy/phy-zte-zx297520v3-usb.h   | 12 +++
+>  3 files changed, 110 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/phy/zte,zx297520v3-usb-phy=
+=2Eyaml b/Documentation/devicetree/bindings/phy/zte,zx297520v3-usb-phy.yaml
+> new file mode 100644
+> index 000000000000..8bad9365d5cc
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/phy/zte,zx297520v3-usb-phy.yaml
+> @@ -0,0 +1,96 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/phy/zte,zx297520v3-usb-phy.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: ZTE zx297520v3 USB and HSIC PHY
+> +
+> +maintainers:
+> +  - Stefan D=C3=B6singer <stefandoesinger@gmail.com>
+> +
+> +description: |
+> +  This PHY is found on zx297520v3 boards. It has no configurability on i=
+ts own,
+> +  but it does require a correct reset and wait sequence to initialize. I=
+t can
+> +  provide interrupt notification when USB is connected and disconnected.
+> +
+> +  The phy is a component of the board's topcrm controller. The hardware =
+needs to
+> +  be declared as a child node of the zte,zx297520v3-topcrm node.
+> +
+> +  The register space and IRQs always account for two PHYs: One USB 2.0 O=
+TG phy
+> +  and a HSIC PHY. Not all boards have both. If one is missing, the corre=
+sponding
+> +  ready flag will never be set.
+> +
+> +  The "include/dt-bindings/phy/phy-zte-zx297520v3-usb.h" header contains=
+ the
+> +  definition for the PHY indices.
+> +
+> +properties:
+> +  compatible:
+> +    const: zte,zx297520v3-usb-phy
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    items:
+> +      - description: IRQ reporting USB connection
+> +      - description: IRQ reporting USB disconnection
+> +      - description: IRQ reporting HSIC connection
+> +      - description: IRQ reporting HSIC disconnection
+> +
+> +  interrupt-names:
+> +    items:
+> +      - const: usb-up
+> +      - const: usb-down
+> +      - const: hsic-up
+> +      - const: hsic-down
+> +
+> +  resets:
+> +    items:
+> +      - description: USB phy reset
+> +      - description: HSIC phy reset
+
+Why do you reference here resets from the parent? That's a clear signal
+you have one device, so one device node regardless of Linux phy core
+behavior.
+
+> +
+> +  reset-names:
+> +    items:
+> +      - const: usb
+> +      - const: hsic
+> +
+> +  "#phy-cells":
+> +    const: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupts
+> +  - interrupt-names
+> +  - resets
+> +  - reset-names
+> +  - "#phy-cells"
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/phy/phy-zte-zx297520v3-usb.h>
+> +
+> +    topcrm: clock-controller {
+> +        compatible =3D "zte,zx297520v3-topcrm", "syscon";
+> +        #address-cells =3D <1>;
+> +        #size-cells =3D <0>;
+> +        #reset-cells =3D <1>;
+
+Drop node, you have warnings.
+
+> +
+> +        usb-phy@84 {
+> +          compatible =3D "zte,zx297520v3-usb-phy";
+> +          reg =3D <0x84>;
+> +          interrupts =3D <GIC_SPI 42 IRQ_TYPE_EDGE_RISING>,
+> +            <GIC_SPI 43 IRQ_TYPE_EDGE_RISING>,
+> +            <GIC_SPI 45 IRQ_TYPE_EDGE_RISING>,
+> +            <GIC_SPI 46 IRQ_TYPE_EDGE_RISING>;
+
+Align it properly/
+
+> +          interrupt-names =3D "usb-up", "usb-down", "hsic-up", "hsic-dow=
+n";
+> +          resets =3D <&topcrm 18>,
+> +            <&topcrm 20>;
+
+Same here.
+
+> +          reset-names =3D "usb", "hsic";
+> +          #phy-cells =3D <1>;
+> +        };
+> +    };
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 8729cea57c3d..cb50c2e3b4ea 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -3878,8 +3878,10 @@ L:	linux-arm-kernel@lists.infradead.org (moderated=
+ for non-subscribers)
+>  S:	Odd fixes
+>  F:	Documentation/arch/arm/zte/
+>  F:	Documentation/devicetree/bindings/arm/zte.yaml
+> +F:	Documentation/devicetree/bindings/phy/zte,zx297520v3-usb-phy.yaml
+>  F:	arch/arm/boot/dts/zte/
+>  F:	arch/arm/mach-zte/
+> +F:	include/dt-bindings/phy/phy-zte-zx297520v3-usb.h
+> =20
+>  ARM/ZYNQ ARCHITECTURE
+>  M:	Michal Simek <michal.simek@amd.com>
+> diff --git a/include/dt-bindings/phy/phy-zte-zx297520v3-usb.h b/include/d=
+t-bindings/phy/phy-zte-zx297520v3-usb.h
+> new file mode 100644
+> index 000000000000..8a0a3ccbdd63
+> --- /dev/null
+> +++ b/include/dt-bindings/phy/phy-zte-zx297520v3-usb.h
+
+Filename MUST match compatible.
+
+> @@ -0,0 +1,12 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
+> +/*
+> + * Copyright (C) Stefan D=C3=B6singer.
+> + */
+> +
+> +#ifndef __DT_BINDINGS_PHY_USB_ZX297520V3_H
+> +#define __DT_BINDINGS_PHY_USB_ZX297520V3_H
+> +
+> +#define ZX297520V3_USB_PHY	0
+> +#define ZX297520V3_HSIC_PHY	1
+> +
+> +#endif /* __DT_BINDINGS_PHY_USB_ZX297520V3_H */
+>=20
+> --=20
+> 2.54.0
+>=20
 
