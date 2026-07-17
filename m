@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2388C44516
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 13:04:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDD66C4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 13:06:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZSov26SoNzFoDbQjfVuL51TE+LmJwc4x9zfxixe6C8U=; b=AcT7HKNRFtahDJOjzCcgBh9Baa
-	XCeWc+H1oHXo3K8IEmDC1wCWwEHtQ9mSPw0VVm0QnO0+wxnq5td+OoOMJJ+90A8tV/f8VX3Z30gCc
-	kT5lPvdkxgzv5TF9r4D0AMRxUp4DSR0uSbdYZ9CJfJconsd1OfwVmcp6LwzQYw0vvsz2cH3/uAWDr
-	uNkHfiIlUq8c2qvJ1Iq2qAZFQJUlW+IdbQT5BKE6X5EV4evobHul6qoRjsHDb0FSBBKsYuvzzmJtV
-	O/92dErO51feEvxHtzxw7ba7fe8Rh00zBhnJxCfzLHs4tYSv87sT8n+7qT2/XpFD+lYtWX7Gsi6x0
-	0Su+wVFQ==;
+	bh=mamoyFKjWvwAuu0GxO6oNdptahRz0WsLGovVsb1KAic=; b=hT00I0kcJsMQg4Qh/2oCmphOMG
+	+rKTUTSsEd7Xk6oMx7gDJqfrN5cd6Cr6YC+kjQjTNIIucIkGCzwTEjm7P1HldYQTYUJfasFIhrSzU
+	4BN+CGvmNnzoCjNUt0o/kX3sRdf0ckp63dPI8bJiunG1V/0AWbhuRsXLplYCfHveDBXBBQKQvxExC
+	xmOmu8mv3Ae4yUZ/RTVvUl+aJpfHQT0Adyv+K4lzn2GLZRnF3UiyRSKAxJhjX450A3SVUTELNXS7D
+	Tfr2AKOQLipgaTvA9s2iPG5hKXhe+NMVZMZmqzLY92/0voNXnPObxJWDP4aaRyRIaXtrz3t06Nq61
+	Uau8Ngqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkiF4-00000002M2D-1XXH;
-	Fri, 17 Jul 2026 13:04:38 +0000
-Received: from out-177.mta1.migadu.com ([95.215.58.177])
+	id 1wkiH1-00000002MXj-33WZ;
+	Fri, 17 Jul 2026 13:06:39 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkiEi-00000002LlN-1F6h
+	id 1wkiH0-00000002MXL-1XO5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 13:04:17 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1784293453;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ZSov26SoNzFoDbQjfVuL51TE+LmJwc4x9zfxixe6C8U=;
-	b=IKq3ZohPaJOeF+j9hraLAzAOKhLZYJH53ntijnNYC+nqxylG9cyara1oELMIlARuR++bqL
-	6czgAMP6YsoasbgSfLMqTB+73C3857pFILaD7ODjjxlUaNvwFlxTlKo0hVqLtj/4T3HvSu
-	CkdEgv6AqtFLpmCCV2ZsvJc1IK5d8ko=
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Quentin Perret <qperret@google.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Dev Jain <dev.jain@arm.com>,
-	Bradley Morgan <include@grrlz.net>,
-	Fuad Tabba <tabba@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v5 7/7] KVM: arm64: selftests: Add stage-2 block transition test
-Date: Fri, 17 Jul 2026 14:03:17 +0100
-Message-Id: <20260717130317.1953574-8-fuad.tabba@linux.dev>
-In-Reply-To: <20260717130317.1953574-1-fuad.tabba@linux.dev>
-References: <20260717130317.1953574-1-fuad.tabba@linux.dev>
+	Fri, 17 Jul 2026 13:06:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id CFEE642E50
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 13:06:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8AAC1F00ADE
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 13:06:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784293597;
+	bh=mamoyFKjWvwAuu0GxO6oNdptahRz0WsLGovVsb1KAic=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=RCShuLEoeLiLiieUuzg3cC0Ahs9bSguy1LIoYnrIkaUhnloavxbkEmnUcLdHDcXtn
+	 TFY/BJ8mu5wbSKaNwlnWcCYOEKU66/yzUJCJNHk85YJIeMJD/IyiOaAfAQPuJcP7XH
+	 em0fFXG69aqY53k3a85wUf/y7/byv43YRYh6ptW//iTMkmk1LclbTzOpU7N//hhzvT
+	 323dUYxRht7EOlhCmtpNfXtinxe/7HdNwNWR76pDec8KwOVWqZt1bKm7XuNfQwv9FP
+	 WFMmVx0E0m7BfjTVmTKBd/Hr5X5nnRogGjJBfA2ftKe2oZ3HGSWBvcU7juS8ham3Wr
+	 iUgZi/PV6I4NQ==
+Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-c15e03c2763so352603166b.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 06:06:37 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RqbbbidWHVqEsqT7qINhC2S9P0ZDuBpkC3ZQuywbXcmtpVmKamypPQbGP+cW91tDBl4+x0kbtgjZgOz7Wal59L7@lists.infradead.org
+X-Gm-Message-State: AOJu0YzE+FjM8g4PXYHiAok96SCxTMyD3ZtD3X3S9H5+AXnos1Y5PuBe
+	RYCXyHiyf4J3mN2muSDjg7OZfNCMqExjW/yqeApkFYq2uULVCaI3huODQm+CeixJbe9r1g9+3LW
+	yNOZc+DsqCJ5PDv/Ufn7azSdk+sBAEA==
+X-Received: by 2002:a17:906:6a1a:b0:c16:ab18:55bf with SMTP id
+ a640c23a62f3a-c16b417051dmr138404466b.31.1784293596209; Fri, 17 Jul 2026
+ 06:06:36 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_060416_533915_F8224E49 
-X-CRM114-Status: GOOD (  25.56  )
+References: <20260713081127.115197-1-cwweng.linux@gmail.com>
+ <20260713081127.115197-2-cwweng.linux@gmail.com> <20260716174237.00004b79@oss.qualcomm.com>
+ <8d757505-ea93-4dd4-a374-79f143f6f949@gmail.com>
+In-Reply-To: <8d757505-ea93-4dd4-a374-79f143f6f949@gmail.com>
+From: Rob Herring <robh@kernel.org>
+Date: Fri, 17 Jul 2026 08:06:24 -0500
+X-Gmail-Original-Message-ID: <CAL_Jsq+5N9AvzQ0cxUVY97Ad+CasR29Fan7sUuprDYjgqzWjMQ@mail.gmail.com>
+X-Gm-Features: AUfX_mw6LJXrxe2IQurrdLfm7PIOYMWKcR5ywCkgwLq8okgu2522Hbb9oiRx92U
+Message-ID: <CAL_Jsq+5N9AvzQ0cxUVY97Ad+CasR29Fan7sUuprDYjgqzWjMQ@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] dt-bindings: iio: adc: Add Nuvoton MA35D1 EADC
+To: Chi-Wen Weng <cwweng.linux@gmail.com>
+Cc: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>, jic23@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com, 
+	andy@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, cwweng@nuvoton.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,274 +84,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a test for the two stage-2 granularity changes dirty logging forces
-at fault time, asserting the guest completes with no KVM_RUN error. The
-first scenario collapses a page into a hugetlb-backed block: it writes
-under logging, re-write-protects the page via GET_DIRTY_LOG, then writes
-again with logging off. The second splits blocks: it faults in several
-non-executable 2M blocks, enables logging, then executes in each block so
-an execute permission fault splits it. It is skipped when CTR_EL0.DIC is
-set, since mappings are then executable and no execute fault occurs.
+On Thu, Jul 16, 2026 at 7:59=E2=80=AFPM Chi-Wen Weng <cwweng.linux@gmail.co=
+m> wrote:
+>
+> Hi Jonathan,
+>
+> Thank you for the review.
+>
+>  > Not sure this doc helps. What are these interrupts for?
+>  > The driver only uses one of them so why are there 4?
+>  >
+>  > May well need interrupt-names to allow gaps in the list to
+>  > work but hard to tell without more information.
+>
+> The hardware has four EADC interrupt outputs, ADINT0 to ADINT3. The
+> conversion-complete source for each interrupt can be selected through
+> the EADC interrupt source registers.
+>
+> However, this initial driver only uses sample module 0 and routes its
+> end-of-conversion event to ADINT0. So the binding does not need to
+> describe the unused interrupt outputs at this stage.
+>
+> I will simplify this in v3 and document only one interrupt entry for
+> ADINT0. If support for the other ADINT lines is added later, the binding
+> can be extended with interrupt-names at that point.
 
-Both paths make the fault handler allocate under mmu_lock, so a backend
-that fails to stage that memory returns a KVM_RUN error or crashes the
-host. The property holds on any host. On a pKVM host, where a
-non-protected guest uses the pkvm_pgtable_*() backend, it also guards
-that backend's fault-time staging.
+No, document what the h/w has, not what a driver currently uses. The
+only exception I can think of here would be if only 1 interrupt pin is
+usable on a given system. Then it would be just 1 interrupt with
+interrupt-names to define which one is used.
 
-Assisted-by: Antigravity:gemini-3.1-pro
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
- tools/testing/selftests/kvm/Makefile.kvm      |   1 +
- .../kvm/arm64/stage2_block_transitions.c      | 226 ++++++++++++++++++
- 2 files changed, 227 insertions(+)
- create mode 100644 tools/testing/selftests/kvm/arm64/stage2_block_transitions.c
-
-diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-index d28a057fa6c2..ed2877825eee 100644
---- a/tools/testing/selftests/kvm/Makefile.kvm
-+++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -179,6 +179,7 @@ TEST_GEN_PROGS_arm64 += arm64/psci_test
- TEST_GEN_PROGS_arm64 += arm64/sea_to_user
- TEST_GEN_PROGS_arm64 += arm64/set_id_regs
- TEST_GEN_PROGS_arm64 += arm64/smccc_filter
-+TEST_GEN_PROGS_arm64 += arm64/stage2_block_transitions
- TEST_GEN_PROGS_arm64 += arm64/vcpu_width_config
- TEST_GEN_PROGS_arm64 += arm64/vgic_init
- TEST_GEN_PROGS_arm64 += arm64/vgic_irq
-diff --git a/tools/testing/selftests/kvm/arm64/stage2_block_transitions.c b/tools/testing/selftests/kvm/arm64/stage2_block_transitions.c
-new file mode 100644
-index 000000000000..5fd47f4ada1f
---- /dev/null
-+++ b/tools/testing/selftests/kvm/arm64/stage2_block_transitions.c
-@@ -0,0 +1,226 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (c) 2026 Google LLC
-+ * Author: Fuad Tabba <fuad.tabba@linux.dev>
-+ *
-+ * stage2_block_transitions - Exercise stage-2 block/page granularity changes
-+ * that dirty logging forces at fault time, and assert the guest completes.
-+ *
-+ * Both scenarios need the fault handler to allocate at fault time (a fresh
-+ * mapping and/or page-table pages while holding mmu_lock), so a fault path
-+ * that fails to stage that memory manifests as a KVM_RUN error or, worse, a
-+ * host crash. The asserted property is host-agnostic: the guest runs the
-+ * sequence to completion and every KVM_RUN succeeds. On a pKVM host, where a
-+ * non-protected guest's stage-2 faults are serviced by the pkvm_pgtable_*()
-+ * backend, the same sequences also guard that backend's fault-time staging.
-+ *
-+ * Scenario 1 - block collapse on dirty-logging disable:
-+ *   A write under dirty logging installs a 4K page; GET_DIRTY_LOG
-+ *   re-write-protects it; logging is disabled; a second write takes a
-+ *   permission fault that collapses the page into a hugetlb-backed block,
-+ *   which requires a fresh mapping object under mmu_lock.
-+ *
-+ * Scenario 2 - block split under dirty logging:
-+ *   Several hugetlb-backed blocks are faulted in as non-executable blocks,
-+ *   dirty logging is enabled (write-protect only), then the guest executes
-+ *   into each block. Each instruction fetch takes an execute permission
-+ *   fault that must split the block into pages during logging, draining
-+ *   page-table pages. Skipped on CTR_EL0.DIC hardware, where mappings are
-+ *   made executable eagerly and the execute fault never occurs.
-+ */
-+#include <linux/bitfield.h>
-+#include <linux/bitmap.h>
-+#include <linux/mman.h>
-+#include <linux/sizes.h>
-+#include <sys/mman.h>
-+
-+#include <asm/sysreg.h>
-+
-+#include "kvm_util.h"
-+#include "processor.h"
-+#include "test_util.h"
-+#include "ucall.h"
-+
-+#define DATA_SLOT		1
-+#define TEST_GVA		0xc0000000UL
-+#define BLOCK_SIZE		SZ_2M
-+
-+/* AArch64 "ret" (ret x30): a self-contained, returnable executable payload. */
-+#define RET_INSN		0xd65f03c0U
-+
-+/*
-+ * A non-protected guest's per-VM stage-2 pool is seeded only with the PGD
-+ * donation, which stage-2 init immediately consumes, so the page-table budget
-+ * for a fault that does not top up is just the handful (~2x the stage-2 min
-+ * pages) of memcache leftovers. Executing into this many distinct blocks
-+ * demands far more than that budget: a fault path that tops up on every fault
-+ * completes all of them, one that skips non-write faults runs out mid-sequence.
-+ */
-+#define NR_BLOCKS		16
-+
-+/* Scenario 2 guest -> host sync stages. */
-+#define STAGE_SKIP_DIC		1
-+#define STAGE_BLOCKS_READY	2
-+
-+static void collapse_guest_code(u64 gva)
-+{
-+	u64 *data = (u64 *)gva;
-+
-+	/* Under dirty logging: install a 4K writable page. */
-+	WRITE_ONCE(*data, 0x1);
-+	GUEST_SYNC(1);
-+
-+	/* Logging disabled: a permission fault collapses the page into a block. */
-+	WRITE_ONCE(*data, 0x2);
-+	GUEST_SYNC(2);
-+
-+	GUEST_DONE();
-+}
-+
-+static void test_block_collapse(void)
-+{
-+	struct kvm_vcpu *vcpu;
-+	unsigned long *bmap;
-+	struct kvm_vm *vm;
-+	struct ucall uc;
-+	size_t npages;
-+	u64 gpa;
-+
-+	vm = vm_create_with_one_vcpu(&vcpu, collapse_guest_code);
-+	npages = BLOCK_SIZE / vm->page_size;
-+
-+	gpa = (vm_compute_max_gfn(vm) * vm->page_size) - BLOCK_SIZE;
-+	gpa = align_down(gpa, BLOCK_SIZE);
-+
-+	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS_HUGETLB_2MB, gpa,
-+				    DATA_SLOT, npages, KVM_MEM_LOG_DIRTY_PAGES);
-+	virt_map(vm, TEST_GVA, gpa, npages);
-+	vcpu_args_set(vcpu, 1, TEST_GVA);
-+
-+	bmap = bitmap_zalloc(BLOCK_SIZE / getpagesize());
-+
-+	vcpu_run(vcpu);
-+	TEST_ASSERT(get_ucall(vcpu, &uc) == UCALL_SYNC && uc.args[1] == 1,
-+		    "Expected first sync, got cmd %lu arg %lu", uc.cmd, uc.args[1]);
-+
-+	/* GET_DIRTY_LOG re-write-protects the dirtied page; then stop logging. */
-+	kvm_vm_get_dirty_log(vm, DATA_SLOT, bmap);
-+	vm_mem_region_set_flags(vm, DATA_SLOT, 0);
-+
-+	/* The collapsing permission fault: a broken fault path faults here. */
-+	vcpu_run(vcpu);
-+	TEST_ASSERT(get_ucall(vcpu, &uc) == UCALL_SYNC && uc.args[1] == 2,
-+		    "Expected second sync, got cmd %lu arg %lu", uc.cmd, uc.args[1]);
-+
-+	vcpu_run(vcpu);
-+	TEST_ASSERT(get_ucall(vcpu, &uc) == UCALL_DONE,
-+		    "Expected done, got cmd %lu", uc.cmd);
-+
-+	free(bmap);
-+	kvm_vm_free(vm);
-+}
-+
-+static void guest_sync_insn(u64 va)
-+{
-+	/* Make the just-written instruction coherent for execution (!DIC). */
-+	asm volatile("dc cvau, %0\n"
-+		     "dsb ish\n"
-+		     "ic ivau, %0\n"
-+		     "dsb ish\n"
-+		     "isb\n"
-+		     :: "r" (va) : "memory");
-+}
-+
-+static void split_guest_code(u64 base_gva, u64 nblocks)
-+{
-+	u64 i, va;
-+
-+	if (FIELD_GET(CTR_EL0_DIC_MASK, read_sysreg(ctr_el0))) {
-+		GUEST_SYNC(STAGE_SKIP_DIC);
-+		GUEST_DONE();
-+		return;
-+	}
-+
-+	/* Fault in each block (non-executable) and stage an executable payload. */
-+	for (i = 0; i < nblocks; i++) {
-+		va = base_gva + i * BLOCK_SIZE;
-+		WRITE_ONCE(*(u32 *)va, RET_INSN);
-+		guest_sync_insn(va);
-+	}
-+	GUEST_SYNC(STAGE_BLOCKS_READY);
-+
-+	/* Logging is now on: executing into each block splits it into pages. */
-+	for (i = 0; i < nblocks; i++) {
-+		va = base_gva + i * BLOCK_SIZE;
-+		((void (*)(void))va)();
-+	}
-+
-+	GUEST_DONE();
-+}
-+
-+static void test_exec_split_drain(void)
-+{
-+	struct kvm_vcpu *vcpu;
-+	struct kvm_vm *vm;
-+	struct ucall uc;
-+	size_t npages;
-+	u64 gpa;
-+
-+	vm = vm_create_with_one_vcpu(&vcpu, split_guest_code);
-+	npages = NR_BLOCKS * (BLOCK_SIZE / vm->page_size);
-+
-+	gpa = (vm_compute_max_gfn(vm) * vm->page_size) - NR_BLOCKS * BLOCK_SIZE;
-+	gpa = align_down(gpa, BLOCK_SIZE);
-+
-+	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS_HUGETLB_2MB, gpa,
-+				    DATA_SLOT, npages, 0);
-+	virt_map(vm, TEST_GVA, gpa, npages);
-+	vcpu_args_set(vcpu, 2, TEST_GVA, (u64)NR_BLOCKS);
-+
-+	vcpu_run(vcpu);
-+	TEST_ASSERT(get_ucall(vcpu, &uc) == UCALL_SYNC,
-+		    "Expected sync, got cmd %lu", uc.cmd);
-+	if (uc.args[1] == STAGE_SKIP_DIC) {
-+		ksft_print_msg("SKIP block split: CTR_EL0.DIC == 1\n");
-+		kvm_vm_free(vm);
-+		return;
-+	}
-+	TEST_ASSERT(uc.args[1] == STAGE_BLOCKS_READY,
-+		    "Expected blocks-ready sync, got arg %lu", uc.args[1]);
-+
-+	/* Write-protect the blocks; the guest then splits them by executing. */
-+	vm_mem_region_set_flags(vm, DATA_SLOT, KVM_MEM_LOG_DIRTY_PAGES);
-+
-+	vcpu_run(vcpu);
-+	TEST_ASSERT(get_ucall(vcpu, &uc) == UCALL_DONE,
-+		    "Expected done, got cmd %lu", uc.cmd);
-+
-+	kvm_vm_free(vm);
-+}
-+
-+/*
-+ * The explicit-size hugetlb backing hard-fails region creation if the pages
-+ * are not already reserved, so probe here and skip rather than abort. The
-+ * peak reservation is scenario 2's; the two scenarios run and free in turn.
-+ */
-+static void require_hugepages(size_t bytes)
-+{
-+	void *mem = mmap(NULL, bytes, PROT_READ | PROT_WRITE,
-+			 MAP_PRIVATE | MAP_ANONYMOUS | MAP_HUGETLB | MAP_HUGE_2MB,
-+			 -1, 0);
-+
-+	if (mem == MAP_FAILED)
-+		ksft_exit_skip("Need %zu bytes of reserved 2M hugepages\n", bytes);
-+	munmap(mem, bytes);
-+}
-+
-+int main(void)
-+{
-+	require_hugepages(NR_BLOCKS * BLOCK_SIZE);
-+
-+	test_block_collapse();
-+	test_exec_split_drain();
-+
-+	ksft_print_msg("All ok!\n");
-+	return 0;
-+}
--- 
-2.39.5
-
+Rob
 
