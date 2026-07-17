@@ -4,130 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84736C44516
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 09:47:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BB01C44516
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 09:59:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yzSZ7MJUSzER/5jgryRueirtzjoPf1Y1jUn3cd3ju4w=; b=OVIpD9lGf1D3vZ1VACKGv4pR4M
-	AxxByPc5n1lM/fH/Ym9DC2ANOwySP+NgkNYF4KuVco+2WpI4ZyP9c9s3i3ywIphQrEXp/S1SxlNQQ
-	OWs6ZB9OwJxCEI/h8VIHnUG6C+D5sdsMYubAnb/BVEo+4uYV96gIMRc9dWTa8n04AHCEhop8jyosV
-	3bTSClYmIfIPQLs0rYFa1ISKSLPRjbhMFqzfOqAvD0OQj7vac6mO1MEMKzq934sADQIpKJ/kP9u/M
-	+jFsz6geX1FjQPqANPF8wqlK6RDGsQXYsfEX/Rp/U9CNBYEkLF5qSeuEyQ6keXMCD6eyXRlyy1hT1
-	mGU34hOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4m4mhHCdwe+iD4gbi28L8euNiv4IB7P2LYKO26utpc4=; b=COlvs5OBn5dttfEij/FAtrnbi6
+	4XorRxV3qUmzA5G3nvMAOOKB7akQFUYJ+dM08rzEAWTlEaEaCnE4o8Ds7kyoRDOPMzWAsvw5J0lMv
+	TRyQxsqUYf4FQ8mc/c39d/eICGG9ofzG+XMUHBpi9ulBha5NzWA3CegsPDo84uw5hPPz1ycCij5Ie
+	H+fwmEZYmpWMZntmT5laDPQo42FgvYA43E6ylzY+piyz/ctYHV2QC1savuvZIOdjUWc2Sk0zGfIfP
+	u0BjbT3hNkXyE5wJSzB0LRp93dCZvbBD47jFkahxRPSoytfifo2MMdZp6XPEVzUV2/KedTc+5CycW
+	ePswlosw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkfAT-00000001sZl-2y5l;
-	Fri, 17 Jul 2026 09:47:41 +0000
-Received: from mail-japaneastazon11022077.outbound.protection.outlook.com ([52.101.126.77] helo=TYPPR03CU001.outbound.protection.outlook.com)
+	id 1wkfLo-00000001tsp-1ssP;
+	Fri, 17 Jul 2026 09:59:24 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkfAP-00000001sXd-2BUw
+	id 1wkfLl-00000001ts2-3IX9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 09:47:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vZ52HsNO72XDUqijRb1sld1R2q1Qm94UMrpoQxsKz01pWcWCzBq+CV4kXvY7IdcOTePoyAXC/YvNnj5qes73W7Lc0RxAOY5hoD9KZHpe1Mz+f5fq+XVdnpHKrxPIodwFjrmj/3YSBhGY5Cv15auAXnLaYnCu7b3PVwqFmn7Au2XNm6ONKOFTuKMY0yaS0nZ8u0w4lch36kdFVkCtndTVXLNx5MNO0WYKVkii9/g1C2yG1mKfBz/sy9ICah65zSOedwW8JbfBfBwGVuxtR8yLhhIJLGCMJBb9WwbhbnJaywho0SaCtuMYRhF5z23GVl56gN/IYsvBsZ5j9ikLUd2YAg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yzSZ7MJUSzER/5jgryRueirtzjoPf1Y1jUn3cd3ju4w=;
- b=NBkkylGN7mtmyT65V7830KR0x5kJn2WMJvPSq4Hg1Lx0FPj0Zt5cWQLRuW8cMljGiVJfTok2aQ+slCLLIlNDtgaOtkTaCFz3hSMyirFnrcJsqrwRlf84lVBwhO1rgjcZP2KnGQxYI9OoPkyGEfOkW+F5acKpl+3QmZJm6UL8mhGUfH8PFSt2jqo2uVyRoEWtCjQcMhmifyolvagLa8yq6z/qQkSqRyihZ48qmM1ExmnyCNW/nuF9UEL9XzgVUHkGvnnxV+xS9077jlTkqArpcJmV5vC1eJ+zD3ok9+oAmbFkPdyq0NY+EXmyfsUcu6k90raL7HgbVs5qnlAoYwjXig==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cixtech.com; dmarc=pass action=none header.from=cixtech.com;
- dkim=pass header.d=cixtech.com; arc=none
-Received: from SEYPR06MB6226.apcprd06.prod.outlook.com (2603:1096:101:df::13)
- by SETPR06MB9118.apcprd06.prod.outlook.com (2603:1096:101:315::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.10; Fri, 17 Jul
- 2026 09:47:28 +0000
-Received: from SEYPR06MB6226.apcprd06.prod.outlook.com
- ([fe80::56e8:777c:d80e:d364]) by SEYPR06MB6226.apcprd06.prod.outlook.com
- ([fe80::56e8:777c:d80e:d364%5]) with mapi id 15.21.0223.011; Fri, 17 Jul 2026
- 09:47:28 +0000
-From: "Joakim  Zhang" <joakim.zhang@cixtech.com>
-To: Brian Masney <bmasney@redhat.com>
-CC: "mturquette@baylibre.com" <mturquette@baylibre.com>, "sboyd@kernel.org"
-	<sboyd@kernel.org>, "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>, cix-kernel-upstream
-	<cix-kernel-upstream@cixtech.com>, "linux-clk@vger.kernel.org"
-	<linux-clk@vger.kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>
-Subject: RE: [PATCH v9 2/4] clk: cix: add sky1 audss clock controller
-Thread-Topic: [PATCH v9 2/4] clk: cix: add sky1 audss clock controller
-Thread-Index: AQHdD5qxR8VCrIPVF02eRBIF0y1VMrZw3lWAgACePwA=
-Date: Fri, 17 Jul 2026 09:47:28 +0000
-Message-ID: <SEYPR06MB6226BD151ABBB192AEC53BA482C62@SEYPR06MB6226.apcprd06.prod.outlook.com>
-References: <20260709120125.3997078-1-joakim.zhang@cixtech.com>
- <20260709120125.3997078-3-joakim.zhang@cixtech.com>
- <allvw2ZiiyX5SGIk@redhat.com>
-In-Reply-To: <allvw2ZiiyX5SGIk@redhat.com>
-Accept-Language: zh-CN, en-US
-Content-Language: zh-CN
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cixtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SEYPR06MB6226:EE_|SETPR06MB9118:EE_
-x-ms-office365-filtering-correlation-id: 8df0aae6-f509-4e42-3d5a-08dee3e86a09
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|366016|23010399003|5023799004|56012099006|4143699003|6133799003|22082099003|18002099003|10067099003|38070700021;
-x-microsoft-antispam-message-info: ZPAdRieETxeeZZCt472g5J2vRpOvpWUTk+rfA43sSxo2zCV95qghND9glymg6ot1dwiYd/UuKSyzck3TabTjSOSJSmwsvg+Vr6EeiqtihZQpLmROR6vnejcgzHWKw8eV5Q6V68xywUxp9Mm6SqzT3bSR4GskNGbZ42S5LODotWus4yrOKLnBdViSUgDAoFiGLwLTdoDVcUYyTyFdpb0krL8VxowPlrFg1P6BjWZFIdjEDpJeGqxEeo5bH1VGSHfbEPnO0hkTLgKD9T4MlPQJjdaTsyDD3OUoT5MYEq9dAU86aQhilS7xskW92SLreojbYwzhcFkAtRytT+5GVidcH/+pQrv6TKzbeUXY/OJhB0H6PYaM4MIIaIDh/668YuqU411w0rwIaGTUaHBOW4gRW3CtqdyuMZCpJzvmQ9KK/jCaAQRlyvv34Qqe5ArVvpdr0RAl1ssLgVIMq+65CGCW5G6KQx51gIUeu4q3CIp7cp0lMdd+l0DnS3Ch1tGR1sCfu/QycRZ7lUZjMv749vmgdTD33CBf7Wic+8XzEU1M+8W+DJSoc5b8jzwPLrz63jU902VteJ2Az1TOr5xkBs5BtRhmobi72lw9UeKkAr4e62Gxf9VIwjv7POt25Zct5SLChKeb38qgv5h7fAKP5k9MtsEabKy0yEAxEozYGbRO9uwun/5gTT+WNtmffOIRUA7DzQhEb7Rfquir2VfamKsbm4Qgiv+nDzVKzU7zfCG8eI0=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR06MB6226.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(23010399003)(5023799004)(56012099006)(4143699003)(6133799003)(22082099003)(18002099003)(10067099003)(38070700021);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?5PnB4gShOCqfaLKCo7PKJMNc4C+91MJumL6mIH3QOFDYuSse/uZgTfZ954eE?=
- =?us-ascii?Q?4XHj/hSTazsSILMKBeNBfr+8hRfeiWR9kZ3wrwwibmTyr1DZQ5fXP3oNO6oW?=
- =?us-ascii?Q?10mW36J9BCSNzx3z0J7sZbDUXxUwGJsEiplGAyypLnrzYQ+p1t2uwpogbgFe?=
- =?us-ascii?Q?plZUWfqYPb7RMuqeSPHQULUrkERAbnY9PwJEBv7Cu2N+H2cPpv+7ptpLhxQb?=
- =?us-ascii?Q?InGCCiHeFstmIZQpAO4BmToypDfpyL+mI3TZJdpqiArc/snCyCLpFNyERG65?=
- =?us-ascii?Q?fKwRNHlwXB41KmKzhxiMIff73DfupROrbYZv9WPXGFpddEdA+gGW8uYcXVte?=
- =?us-ascii?Q?aZe0CYKDgpYkXbTbIpYd0swqTyOVU7/qfWSJTCcPGlSSmRqMwClqpvRBCqXt?=
- =?us-ascii?Q?Zt1PTOBsaR/VzzEpI4CMFYhB6L8QUOROIBuf5FErOORF64g1W/cNKULgjawg?=
- =?us-ascii?Q?czKt0JhRjS8jQTvU9j9ts89gR3ZmYE1c0yY32q8uCYMYxRxPh6ldX51fgwll?=
- =?us-ascii?Q?dFzykVxoOVsLbd0kCdKlwF97Bp5UO4dHRWIKzE1kvJWZ2uxh8CMhxNCv1JZl?=
- =?us-ascii?Q?fs4HdH5G5yYqAqZo8Fao18728wqurVanLZSv0AjkGU8BOqlHFzcYt76eE7jm?=
- =?us-ascii?Q?CrmetGc01Y4AB7+Vz0HT+FbDssbcH4Le174CyVDOkG7oz3KruWa2y7STS58x?=
- =?us-ascii?Q?ojEe+0PneESBWrBjVOPIYINoy6oMZE9vcxlgwYm4JbHXqoc7uQISJIpjs4xX?=
- =?us-ascii?Q?5+E38awZv9w43q+WtwcJGBP/ZAbUcTQpSqx21xEjuS8Fw8lh0QyUIYkCy/dl?=
- =?us-ascii?Q?fI05zMQMN59WaIW7vPPNjzuno3V8mhzzCAFlWAIyjEo4DygLqSTE7qjB70vm?=
- =?us-ascii?Q?2OC2kL2PObJQ7+MOH7NB3YItMW8uH/pLZtIivJNb17VvP7Q0awmTa/1ss595?=
- =?us-ascii?Q?GT2zWrbSCPFaa3x9ke4U/QJs97VSlG+iFUFpPMhH3XRnc9PDka7G2Vmd0qCs?=
- =?us-ascii?Q?r740L9B++8jUfDfSAVOMXd+0NK9rsKTekNWpHVPg0YZVwRvDSKXjItoIjhcx?=
- =?us-ascii?Q?k5H+WFGIDZB8UT/oZric5+qeqqubzrOsifBnI2fOfeAug/lIjkHCezSJyuK8?=
- =?us-ascii?Q?NqtPlM7lyXTGntuJi7+XrFw0nv6YQZvNoEN0xIquVBCUx66/0R1RIvLo0Q1v?=
- =?us-ascii?Q?sXjRbcVLIUiVnmRnwpzxeqWsf8f3h7l9CC26cdPdabggNla82/YcPBZqbebh?=
- =?us-ascii?Q?s8MCJcKDGlE+En2Yvz+VPYLKT1Nb7ljvbw4lbEglWne6CRQq9XyQ0K5s8QQh?=
- =?us-ascii?Q?WT9MpgvItj9PgjHhBoqGnChhag4WQL2s8N9PMDVDjyaJYouJqSH6CjpaQxwN?=
- =?us-ascii?Q?oJRA9AfpSRWk9D3sd5Nb2pbW+ByYrv9wQtsm2yiYs9sNxk6J9/hY6SC3soJD?=
- =?us-ascii?Q?Nz7BYNHHIZUqxs0avHdAQpVUy3pLgFcMZrXI+0YTrMX5ZNPxOps67Az+OFd3?=
- =?us-ascii?Q?MPXwCKMhGWNFl9WzbO+SV+tLHc0BYobPQSlXL8aaPmh/86r+6v358Pwp/bld?=
- =?us-ascii?Q?ppGxg1ANgK1LOh2p3vQgF35jzWM8W3QYQfz4TDPs+n8zRulIQlx0ORr2r4kw?=
- =?us-ascii?Q?eDjp8WtfRJJZbHFHRVxqLZlPGDuUPC99rDcYWlowowrBzzPpsef59kGhVdT1?=
- =?us-ascii?Q?gAABGmtyCq9VQtcNWh6soXgjy65YRx8zeTLXpb0e4kByNvglEFNMGcN8nd4w?=
- =?us-ascii?Q?Drm2Ci05Cw=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 17 Jul 2026 09:59:23 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66H9L8BP1461608
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 09:59:20 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	4m4mhHCdwe+iD4gbi28L8euNiv4IB7P2LYKO26utpc4=; b=Qov3sl3XOGvuaaS9
+	FzJ64v8p+4oY/aWx3GR75C+9X6OpIO2Ur6Y/TrlskZq7xyE4qWVcdLzgAK1OkjcW
+	/O1PfaH+hCukscfvU0Usf//CEk+9veVwA/G6+tNr3UL5NsUHHrdRVPTjn/Y0TlEb
+	LEVvhlslkKG67+QUs0vgfT3Af3AdvBk+sINzKnG390ybx+UpMIayENdJnYE4m9q+
+	c7Cr5MyXPrw54nkerytxqHoMPPoGxBTdNvngbm3R4fwW13K8hB0gqkBkCFZ1fwq/
+	eESdJxByGALHzIP2JC5Y3tAe5udjJlu/OgjRhjaDv5y/gVkCUi4NqZU3eFfD3YZG
+	4XXPdw==
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ffhpfg4g9-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 09:59:20 +0000 (GMT)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-92e6cb57d25so185626185a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 02:59:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1784282359; x=1784887159; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=4m4mhHCdwe+iD4gbi28L8euNiv4IB7P2LYKO26utpc4=;
+        b=JIfv/MkCTnCieUHGBNrHztwRCdfH95ZB1gyio9QFfk4RNbNZagZj+u7FPJc8Hhg0CR
+         qbFU2b6M+Bgl3C6ZDNLNx8jkWkqxoohofWxpJkkJkJ2pUTUCkuOnFvyLJQK2HfYEPCol
+         LNytZH2431tdNtDcntFV9xyK2cZJ5oDreWuXwPFTAVRo7VUKSd33fEaRXLyA7LJCZTZF
+         NEnNbFWRzTEpg7+I305VV7P1e/JoXRVV5gVdQ0QGe+pWDHQBWrGWvZk7apa4/jxQTinv
+         4J2jKCFtm2XK1CrdlPtSuCBX5Rh3kYqMdXSDWwVQDdbxmP29c/eanzWJkfMhOOvAdmFc
+         AZyw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784282359; x=1784887159;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=4m4mhHCdwe+iD4gbi28L8euNiv4IB7P2LYKO26utpc4=;
+        b=CmBBD/FgvR6rHUoD//gIL6Vz8qGkCQxpHa1LGItXJrWW9Kaxysp8jTqtw4NmV7Z6A2
+         SjCVf6AdtfkQFJhmfkUvvInoY1SkQ4F48IaNCrTMHzWJFSMQdhefrK6ktBWREgG/lDw3
+         xQkWfMjB+M2PSUAC60W0MAAxJuC6CEuCsPMiUvI5BwZpgbWXijPCHz9l44C9EXhNqqio
+         aP8uHxMb+3pCpi/Kw5bFOCIZX0zCr8mZ3TMWUZv3cwyBySidJodhNg9ACQVNPMMK1XfE
+         7q5lodR0vjce0dF36TVmJJle2cESRuZ6R/dOfAXvoMGA2/O8VKw0G7BeOusFdCy5e6mr
+         UTRQ==
+X-Forwarded-Encrypted: i=1; AHgh+RooAUcFZiw6XDIPeQPOtooVOCXYzizVmZU4Gr8yj2datvMnyVPKcDzuhWwzKFFmwE7OK9u5hu+wJH4/m8bU9NrH@lists.infradead.org
+X-Gm-Message-State: AOJu0YzvTSConYjMxoU80+l+oTa6TA1nTmoQCwscyy2pP+/9l/LJCE8h
+	ayg3pH3kg8pCghkzAsPJE9CX/CTw38WQ7c0Nk25fuUQ3KeA/qBLGxPOhAZEx4ffkMF06BTGTMJE
+	RFDmGFTRh1CDkuZQOYTcjIx6BcHzLCloYW7F+VF7ze70e0FXCWjTTI+5hqe6cPrDaMkyC39aHWh
+	J32g==
+X-Gm-Gg: AfdE7cnALtIiYbDiqu/tRU5bdLcDWXCmx26HjEe/bzL9s33OEVRUq4yab3iZmSf1jwu
+	7uEFmgQ7uikO07CzjZgRyy+pcN7pMDmBnSSpF7FI84Hv2YCUvrawx0fJQtoiEAGAd5fG0Y8kyrt
+	rOwEf1eg7TH4gZN1yFSS+51nd0H8tYHkAQkWW1yAqrOwe+xdAlkrEbMchKXDuWrzyRi5OE0Mufr
+	d68bZMFKO6GQTvpe2/tniNIkkMJFk/dYmP/KD+FBM/aKNSbcX3gNDns2oRkLQf+KZYkHVL3mBjW
+	4tywYiSINyhzkBQWsmvBjRwkYAYcomqLe4myQF2W0cdfg2qd/wtw4Rmt7mDT9gMPmF4ssuvYdwQ
+	gefyzPs3agTtBw5hf+rp12Gv5
+X-Received: by 2002:a05:620a:4396:b0:92a:228:1bfc with SMTP id af79cd13be357-930b3e2e4famr170490885a.2.1784282359420;
+        Fri, 17 Jul 2026 02:59:19 -0700 (PDT)
+X-Received: by 2002:a05:620a:4396:b0:92a:228:1bfc with SMTP id af79cd13be357-930b3e2e4famr170487485a.2.1784282359012;
+        Fri, 17 Jul 2026 02:59:19 -0700 (PDT)
+Received: from [192.168.120.193] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c1740bf5df5sm50044466b.61.2026.07.17.02.59.15
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 17 Jul 2026 02:59:18 -0700 (PDT)
+Message-ID: <f7de5852-c255-4a17-b87d-c9a4542255f7@oss.qualcomm.com>
+Date: Fri, 17 Jul 2026 11:59:14 +0200
 MIME-Version: 1.0
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SEYPR06MB6226.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8df0aae6-f509-4e42-3d5a-08dee3e86a09
-X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Jul 2026 09:47:28.3584
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: v0u/0tEascUWBfvpzS4thPyUtN2zX3UUrlvN4PIti9zdEqVn5rrrRdMYTZSjP8pN9uBUFhp5vJkD4N6e5YWrAo0tB5iauJoxWmHXmcNZ2/g=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SETPR06MB9118
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 6/8] arm64: dts: qcom: eliza: Add GPU SMMU node
+To: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+Cc: Puranam V G Tejaswi <puranam.tejaswi@oss.qualcomm.com>,
+        Abel Vesa <abel.vesa@oss.qualcomm.com>, linux-arm-msm@vger.kernel.org,
+        dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
+        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+        Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>, Will Deacon <will@kernel.org>,
+        Robin Murphy <robin.murphy@arm.com>,
+        "Joerg Roedel (AMD)" <joro@8bytes.org>
+References: <20260705-eliza-gpu-v1-0-c9f1354dbd29@oss.qualcomm.com>
+ <20260705-eliza-gpu-v1-6-c9f1354dbd29@oss.qualcomm.com>
+ <10b0ad51-8766-449c-a51c-979364e6c781@oss.qualcomm.com>
+ <5fcc0bc1-7f9e-4611-be77-42860e0f4c74@oss.qualcomm.com>
+ <e8255fe2-a67c-490e-a905-ed056c6af950@oss.qualcomm.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <e8255fe2-a67c-490e-a905-ed056c6af950@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzE3MDA5OSBTYWx0ZWRfXw5EYZgmM9C0I
+ B4BdQUKN79ydBEfE4g2mFymkWY+FcV/Co7QV9oi3kbgS/mKVycs42m1YstId+D5ds7bM7rv57zY
+ CjzI33l2B8w4xEPsbJig93UJMnsSGTMFr78ghTyDbJ6OulXFyM+9OwmlLo0TfLxHAORAYqoL32j
+ R/nsoC1cyIFPKQyecjrpehrLSL6iL9E/kfC1K3nsO3w0/vPAp/KWxxSQfdTzaSEfqnSF6f3IkD6
+ uLacQwE6dGZyS1SGrlQexTuGR76TPiEzFEOWu4lkVFKyHiNnnZ4rtz/GWz+Voy3vtjXwUeY57aE
+ evS4qBVzjgzYnIkeGy0C90SLCxnSWYHpj1l5pMkNPQOCZlJZLfLXQu2jzf2BkljduAfzrfcoBOo
+ o2nUJ+aThGUX1eCc0YdiBhrNIi4MW8oRpqoOK+zDYXUgViFFsLdVHl5D6gq3dlLJWocD9sGMaZy
+ 3yZcsuziUi+1rPQFaiQ==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzE3MDA5OSBTYWx0ZWRfXw5WIdBxod65P
+ NDve2NWNNyOwJrkh+32ETcPB1/yB7tsygkKam1C1ZHDnB/3rpc0Rob7imIJvPZJzqb7ql/SZvMI
+ Czgf3GxC1yIIQ+rgcu8cGVwWmRbx9Ls=
+X-Authority-Analysis: v=2.4 cv=YeWNIQRf c=1 sm=1 tr=0 ts=6a59fcf8 cx=c_pps
+ a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
+ a=EUspDBNiAAAA:8 a=hbrWYzUuUx-UyiL5C5EA:9 a=QEXdDO2ut3YA:10
+ a=PEH46H7Ffwr30OY-TuGO:22
+X-Proofpoint-GUID: TpxUG4wz2aL_SqNTlvfwZ-z7b9JH3R3d
+X-Proofpoint-ORIG-GUID: TpxUG4wz2aL_SqNTlvfwZ-z7b9JH3R3d
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-17_02,2026-07-15_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 bulkscore=0 suspectscore=0 priorityscore=1501 clxscore=1015
+ spamscore=0 lowpriorityscore=0 adultscore=0 phishscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607170099
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_024737_677477_70CCBA7A 
-X-CRM114-Status: GOOD (  19.76  )
+X-CRM114-CacheID: sfid-20260717_025921_951113_9295B3D1 
+X-CRM114-Status: GOOD (  18.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,314 +171,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 7/13/26 9:47 PM, Akhil P Oommen wrote:
+> On 7/6/2026 4:38 PM, Konrad Dybcio wrote:
+>> On 7/6/26 1:07 PM, Konrad Dybcio wrote:
+>>> On 7/5/26 10:14 AM, Akhil P Oommen wrote:
+>>>> From: Abel Vesa <abel.vesa@oss.qualcomm.com>
+>>>>
+>>>> Add the nodes to describe the GPU SMMU.
+>>>>
+>>>> Signed-off-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
+>>>> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+>>>> ---
+>>>>  arch/arm64/boot/dts/qcom/eliza.dtsi | 38 +++++++++++++++++++++++++++++++++++++
+>>>>  1 file changed, 38 insertions(+)
+>>>>
+>>>> diff --git a/arch/arm64/boot/dts/qcom/eliza.dtsi b/arch/arm64/boot/dts/qcom/eliza.dtsi
+>>>> index c5635f22e2a7..e5b8377e6c3a 100644
+>>>> --- a/arch/arm64/boot/dts/qcom/eliza.dtsi
+>>>> +++ b/arch/arm64/boot/dts/qcom/eliza.dtsi
+>>>> @@ -2674,6 +2674,44 @@ mdss_dp0_out: endpoint {
+>>>>  			};
+>>>>  		};
+>>>>  
+>>>> +		adreno_smmu: iommu@3da0000 {
+>>>> +			compatible = "qcom,eliza-smmu-500", "qcom,adreno-smmu",
+>>>> +				     "qcom,smmu-500", "arm,mmu-500";
+>>>> +			reg = <0x0 0x03da0000 0x0 0x40000>;
+>>>> +			#iommu-cells = <2>;
+>>>> +			#global-interrupts = <1>;
+>>>> +			interrupts = <GIC_SPI 673 IRQ_TYPE_LEVEL_HIGH>,
+>>>
+>>> 674 is the correct globla
+>>
+>> (modulo the issue i explained below)
+>>
+>> [...]
+>>
+>>> This list is not quite correct. It must be sorted by the context index,
+>>> to which a given interrupt corresponds to - the driver relies on that
+>>> to give you information about where a context fault happens
+>>>
+>>> Moreover, I see that the interrupt sheet has the bug where some
+>>> interrupts are offset by 32 from the base vector, and others are offset
+>>> by 31 (i.e. the SPI number doesn't equal irq vector - 32) - please find
+>>> out which mapping is correct with the right folks
+> 
+> I reviewed this and looks correct to me. Also, this matches the
+> downstream configuration. Did you confuse with Dest Port vs Vector ID in
+> the documentation?
 
-Hello Brian,
+What I'm trying to say is that the documentation is confusing, we've had
+that issue in the past on other platforms. If you see that the correct
+irqs are firing, it's fine
 
-Thanks for your kindly review.
-
-> -----Original Message-----
-> From: Brian Masney <bmasney@redhat.com>
-> Sent: Friday, July 17, 2026 7:57 AM
-> To: Joakim Zhang <joakim.zhang@cixtech.com>
-> Cc: mturquette@baylibre.com; sboyd@kernel.org; robh@kernel.org;
-> krzk+dt@kernel.org; conor+dt@kernel.org; p.zabel@pengutronix.de; cix-kern=
-el-
-> upstream <cix-kernel-upstream@cixtech.com>; linux-clk@vger.kernel.org;
-> devicetree@vger.kernel.org; linux-kernel@vger.kernel.org; linux-arm-
-> kernel@lists.infradead.org
-> Subject: Re: [PATCH v9 2/4] clk: cix: add sky1 audss clock controller
-
-[...]
-> > diff --git a/drivers/clk/cix/clk-sky1-audss.c
-> > b/drivers/clk/cix/clk-sky1-audss.c
-> > new file mode 100644
-> > index 000000000000..5f9133232eb1
-> > --- /dev/null
-> > +++ b/drivers/clk/cix/clk-sky1-audss.c
-> > @@ -0,0 +1,1205 @@
-> > +// SPDX-License-Identifier: GPL-2.0-only // Copyright 2026 Cix
-> > +Technology Group Co., Ltd.
-> > +
-> > +#include <linux/auxiliary_bus.h>
-> > +#include <linux/clk.h>
-> > +#include <linux/clk-provider.h>
-> > +#include <linux/device.h>
-> > +#include <linux/module.h>
-> > +#include <linux/of.h>
-> > +#include <linux/of_device.h>
->=20
-> You can drop this include since you are only using of_device_id. You will=
- get it
-> via two different chains:
->=20
-> <linux/platform_device.h>
->         -> <linux/device.h>
->         -> <linux/device/driver.h>
->         -> <linux/device-id/of.h>
->=20
->  linux/clk-provider.h -> linux/of.h -> linux/device-id/of.h
-> (Pasted from a review on a different series a little bit ago.)
-Fine, will drop of_device.h.
-
-
-[...]
-> > +/* register sky1 audio subsystem clocks */ static int
-> > +sky1_audss_clk_probe(struct platform_device *pdev) {
-> > +     const struct sky1_audss_clks_devtype_data *devtype_data;
-> > +     struct sky1_audss_clks_priv *priv;
-> > +     struct device *dev =3D &pdev->dev;
-> > +     struct clk_hw **clk_table;
-> > +     void __iomem *base;
-> > +     int i, ret;
-> > +
-> > +     devtype_data =3D device_get_match_data(dev);
-> > +     if (!devtype_data)
-> > +             return -ENODEV;
-> > +
-> > +     priv =3D devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-> > +     if (!priv)
-> > +             return -ENOMEM;
-> > +
-> > +     spin_lock_init(&priv->lock);
-> > +
-> > +     priv->clk_data =3D devm_kzalloc(dev,
-> > +                                   struct_size(priv->clk_data, hws,
-> SKY1_AUDSS_NUM_CLKS),
-> > +                                   GFP_KERNEL);
-> > +     if (!priv->clk_data)
-> > +             return -ENOMEM;
-> > +
-> > +     priv->clk_data->num =3D SKY1_AUDSS_NUM_CLKS;
-> > +     clk_table =3D priv->clk_data->hws;
-> > +
-> > +     base =3D devm_platform_ioremap_resource(pdev, 0);
-> > +     if (IS_ERR(base))
-> > +             return PTR_ERR(base);
-> > +
-> > +     priv->regmap_cru =3D devm_regmap_init_mmio(dev, base,
-> &sky1_audss_regmap_config);
-> > +     if (IS_ERR(priv->regmap_cru))
-> > +             return dev_err_probe(dev, PTR_ERR(priv->regmap_cru),
-> > +                                  "failed to initialize regmap\n");
-> > +
-> > +     priv->dev =3D dev;
-> > +     priv->devtype_data =3D devtype_data;
-> > +
-> > +     priv->rst_noc =3D devm_reset_control_get_exclusive(dev, NULL);
-> > +     if (IS_ERR(priv->rst_noc))
-> > +             return dev_err_probe(dev, PTR_ERR(priv->rst_noc),
-> > +                                  "failed to get audss noc reset");
-> > +
-> > +     reset_control_assert(priv->rst_noc);
-> > +
-> > +     reset_control_deassert(priv->rst_noc);
-> > +
-> > +     pm_runtime_get_noresume(dev);
-> > +     pm_runtime_set_active(dev);
-> > +     pm_runtime_enable(dev);
-> > +
-> > +     platform_set_drvdata(pdev, priv);
-> > +
-> > +     ret =3D sky1_audss_clks_get(priv);
-> > +     if (ret)
-> > +             goto err_pm;
-> > +
-> > +     ret =3D sky1_audss_clks_enable(priv);
-> > +     if (ret) {
-> > +             dev_err(dev, "failed to enable clocks\n");
-> > +             goto err_pm;
-> > +     }
-> > +
-> > +     ret =3D sky1_audss_clks_set_rate(priv);
-> > +     if (ret) {
-> > +             dev_err(dev, "failed to set clocks rate\n");
-> > +             goto fail_clks_set;
->=20
-> So starting here... Is there a double put below? I'll flag it below.
->=20
-> > +     }
-> > +
-> > +     /* audio_clk4 clock fixed divider */
-> > +     clk_table[CLK_AUD_CLK4_DIV2] =3D
-> > +             devm_clk_hw_register_fixed_factor(dev,
-> > +                                               "audio_clk4_div2",
-> > +                                               "audio_clk4",
-> > +                                               0,
-> > +                                               1, 2);
-> > +     if (IS_ERR(clk_table[CLK_AUD_CLK4_DIV2])) {
-> > +             ret =3D PTR_ERR(clk_table[CLK_AUD_CLK4_DIV2]);
-> > +             dev_err(dev, "failed to register clock %d, ret:%d\n",
-> CLK_AUD_CLK4_DIV2, ret);
-> > +             goto fail_fixed_clk;
-> > +     }
-> > +
-> > +     clk_table[CLK_AUD_CLK4_DIV4] =3D
-> > +             devm_clk_hw_register_fixed_factor(dev,
-> > +                                               "audio_clk4_div4",
-> > +                                               "audio_clk4",
-> > +                                               0,
-> > +                                               1, 4);
-> > +     if (IS_ERR(clk_table[CLK_AUD_CLK4_DIV4])) {
-> > +             ret =3D PTR_ERR(clk_table[CLK_AUD_CLK4_DIV4]);
-> > +             dev_err(dev, "failed to register clock %d, ret:%d\n",
-> CLK_AUD_CLK4_DIV4, ret);
-> > +             goto fail_fixed_clk;
-> > +     }
-> > +
-> > +     /* audio_clk5 clock fixed divider */
-> > +     clk_table[CLK_AUD_CLK5_DIV2] =3D
-> > +             devm_clk_hw_register_fixed_factor(dev,
-> > +                                               "audio_clk5_div2",
-> > +                                               "audio_clk5",
-> > +                                               0,
-> > +                                               1, 2);
-> > +     if (IS_ERR(clk_table[CLK_AUD_CLK5_DIV2])) {
-> > +             ret =3D PTR_ERR(clk_table[CLK_AUD_CLK5_DIV2]);
-> > +             dev_err(dev, "failed to register clock %d, ret:%d\n",
-> CLK_AUD_CLK5_DIV2, ret);
-> > +             goto fail_fixed_clk;
-> > +     }
-> > +
-> > +     for (i =3D 0; i < devtype_data->clk_cfg_size; i++) {
-> > +             clk_table[devtype_data->clk_cfg[i].id] =3D
-> > +                     sky1_audss_clk_register(dev,
-> > +                                             devtype_data->clk_cfg[i].=
-name,
-> > +                                             devtype_data->clk_cfg[i].=
-parent_names,
-> > +                                             devtype_data->clk_cfg[i].=
-num_parents,
-> > +                                             priv->regmap_cru,
-> > +                                             devtype_data->clk_cfg[i].=
-mux_table,
-> > +                                             devtype_data->clk_cfg[i].=
-mux_cfg,
-> > +                                             devtype_data->clk_cfg[i].=
-div_cfg,
-> > +                                             devtype_data->clk_cfg[i].=
-gate_cfg,
-> > +                                             devtype_data->clk_cfg[i].=
-flags,
-> > +                                             &priv->lock);
-> > +             if (IS_ERR(clk_table[devtype_data->clk_cfg[i].id])) {
-> > +                     ret =3D PTR_ERR(clk_table[devtype_data->clk_cfg[i=
-].id]);
-> > +                     dev_err(dev, "failed to register clock %d, ret:%d=
-\n",
-> > +                             devtype_data->clk_cfg[i].id, ret);
-> > +                     goto fail_fixed_clk;
-> > +             }
-> > +     }
-> > +
-> > +     ret =3D devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, p=
-riv-
-> >clk_data);
-> > +     if (ret) {
-> > +             dev_err(dev, "failed to add clock provider: %d\n", ret);
-> > +             goto fail_register;
-> > +     }
-> > +
-> > +     ret =3D sky1_audss_reset_controller_register(dev);
-> > +     if (ret)
-> > +             goto fail_register;
-> > +
-> > +     pm_runtime_put_sync(dev);
-> > +
-> > +     return 0;
-> > +
-> > +fail_register:
-> > +fail_fixed_clk:
-> > +fail_clks_set:
->=20
-> Collapse these 3 labels into 1.
->=20
-> > +     pm_runtime_put_sync(dev);
-> > +err_pm:
-> > +     pm_runtime_put_noidle(dev);
->=20
-> So above where I flagged the 'goto fail_clks_set', is this a double put?
-On the double-put concern: fail_* paths run put_sync() (usage 1->0) then fa=
-ll through to put_noidle(). put_noidle() usesatomic_add_unless(..., -1, 0),=
- so it is a no-op when the counter is already 0. But it still seems rather =
-strange, I will refine the sequence to avoid it.
-
-
-> > +     pm_runtime_disable(dev);
-> > +     return ret;
-> > +}
-> > +
-> > +static void sky1_audss_clk_remove(struct platform_device *pdev) {
-> > +     struct device *dev =3D &pdev->dev;
-> > +
-> > +     if (!pm_runtime_status_suspended(dev))
-> > +             pm_runtime_force_suspend(dev);
-> > +
-> > +     pm_runtime_disable(dev);
->=20
-> I am fairly certain that remove() is called before the devm handlers are
-> invoked. The clocks will be shutdown, but there's a window where they are=
- still
-> visible to consumers. I think you should use
-> devm_add_action_or_reset() so that the cleanup is called in the expected =
-order.
-Agreed. remove() runs before devres_release_all(), so force_suspend() tears=
- down the hardware while the OF clock provider is still visible. I'll move =
-the runtime PM cleanup into a devm_add_action_or_reset() registered before =
-the clocks/provider, and drop it from remove().
-
-> > +}
-> > +
-> > +static int __maybe_unused sky1_audss_clk_runtime_suspend(struct
-> > +device *dev) {
-> > +     struct sky1_audss_clks_priv *priv =3D dev_get_drvdata(dev);
-> > +     const struct sky1_audss_clks_devtype_data *devtype_data =3D priv-
-> >devtype_data;
-> > +     unsigned long flags;
-> > +     int i;
-> > +
-> > +     spin_lock_irqsave(&priv->lock, flags);
-> > +     for (i =3D 0; i < devtype_data->reg_save_size; i++)
-> > +             regmap_read(priv->regmap_cru,
-> > +                         devtype_data->reg_save[i][0], &devtype_data-
-> >reg_save[i][1]);
-> > +     spin_unlock_irqrestore(&priv->lock, flags);
-> > +
-> > +     sky1_audss_clks_disable(priv);
-> > +
-> > +     return reset_control_assert(priv->rst_noc);
-> > +}
-> > +
-> > +static int __maybe_unused sky1_audss_clk_runtime_resume(struct device
-> > +*dev) {
-> > +     struct sky1_audss_clks_priv *priv =3D dev_get_drvdata(dev);
-> > +     const struct sky1_audss_clks_devtype_data *devtype_data =3D priv-
-> >devtype_data;
-> > +     unsigned long flags;
-> > +     int i, ret;
-> > +
-> > +     ret =3D reset_control_deassert(priv->rst_noc);
-> > +     if (ret)
-> > +             return ret;
-> > +
-> > +     ret =3D sky1_audss_clks_enable(priv);
-> > +     if (ret) {
-> > +             dev_err(dev, "failed to enable clocks\n");
-> > +             reset_control_assert(priv->rst_noc);
-> > +             return ret;
-> > +     }
-> > +
-> > +     spin_lock_irqsave(&priv->lock, flags);
-> > +     for (i =3D 0; i < devtype_data->reg_save_size; i++)
-> > +             regmap_write(priv->regmap_cru,
-> > +                          devtype_data->reg_save[i][0],
-> > + devtype_data->reg_save[i][1]);
->=20
-> Does it matter what order the registers are written on resume?
-No, it doesn't matter.
-
-I will send the v10 soon.
-
-Thanks,
-Joakim
-
+Konrad
 
