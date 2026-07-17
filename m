@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93ED0C44514
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 10:29:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16667C44507
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 10:29:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=U6hKrX+f54qW1llsOGRsC3hsxY9DfQDweyuPaxBt6U0=; b=TWz+EuOP78xIYNGi6B37Vy3RuA
-	pfyuPOsRGIUYQlM3AKEhcJTREgi3CJcyZrQv7cXwuv+gWA0XIVOMz7V74XwkKFbk1hzRTznyHQiE2
-	HSqWN9zWQs2tUD4XV7cbPXURj9ZVNpVr/q8AVrnl3B+JdwgmihTGHPLzeNlNDNeQ6saTSoSx1GoaI
-	oSISaQsxXIJozUw8qVlrKdyje8u1Iag6mknVGnRi5GaE4zQpg1OFCe0EJtoBT8osyjwmOgNgXe65W
-	wtSwM3h0UlHAnGYg/AFRuz5RS9kPiJY5icheLY3IyES1pWci5SdFsmfwylhLd7lTGfpUJC8FtJ0IN
-	oIJQ6mTg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=reAbcqldKsv6m4zky3LvSNbWtVKFu22JGjwdfklQwuY=; b=WyXWzLeaUw1Ji8zFDdhby+sZKY
+	8k+L6bAhZtxKCqpLtHxzuMj2ux8WQzJt7/dlyHiYOsa06bz9Ko640yACupYkSMDeVzaItrs/OaNSs
+	qiGHMevl+JRULo8fd7e8YfOqDhrdtHzZM+4GKtiSj8GS96NoZLZE6W6ofb0kcAJMYpq06IFrij6C1
+	zYp+b3/6sr0ZtCMqoQIKh/zMmPxZmiZ56Tmm16yqvsu5el9Jkkg4t1HKXq6ly8/gPo2S/3bz2HYdL
+	TWjXVsnhjmss9pIF0nm0+nudwwNHIe7M+IW8Ar/c5EX8WHCoOzptGZ2Dw86GE3kGKB7vheZ/ueVDp
+	Rmf5XClQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkfpG-00000001yCf-1TDI;
+	id 1wkfpG-00000001yCz-28tc;
 	Fri, 17 Jul 2026 10:29:50 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkfpD-00000001y9M-00D5
+	id 1wkfpE-00000001yAX-1oUB
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 17 Jul 2026 10:29:49 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-47640541585so3822349f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 03:29:46 -0700 (PDT)
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-4759b4f0897so2397751f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 03:29:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784284185; x=1784888985; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=U6hKrX+f54qW1llsOGRsC3hsxY9DfQDweyuPaxBt6U0=;
-        b=e4ZiYaF01wURQEryUT/ig53UV/j5Pb4Du4+9vjnKMUwDEuACI+nfB/ZBfVz5pXz+xN
-         UWlrGDVca+Fer2oV+Jok0Cwf+qQXP63XcOYh5Q2Y033Ve6OqDKOqQsxIa5Xcnie0Ay08
-         J7tiF2ZbjtBq2RthlhnGtwR2Nzp8yHXVNJXgKG5sV+wmJYRNMMy2DAlsrwFHh2JutPP0
-         r5DIgSucPOuBi+zb/u90vYjRz508jan4CLtQMKgdMmy22uKI/usfd5kGKW+N9JtJYnE2
-         DxN1WEmdS2tC/zN+T8csmT9r3yxAp6pWLFcVGI5RbzXwmvN8PoTVBdsAumf6BhAo20sO
-         1LPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784284185; x=1784888985;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1784284187; x=1784888987; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=U6hKrX+f54qW1llsOGRsC3hsxY9DfQDweyuPaxBt6U0=;
-        b=c5HbVWTAhDCzegT33vhl4AB3X10bH5hnh5H1yb6Z1rivQDlMm97YKfoGAm2BtwjiLz
-         +5AGha6OWSnUa2Q6kzN0V9kBo27yPLx9a5SlPvAui+ROwzHKfIYoqgxkPYxRjn0kDFD8
-         rxTsQN/wD9IbW6UTOpOcyhBAIQTuk9g+OzyycZjn4a956b4c0a1gt9lDLBIkTudmrziX
-         dNS3LoV1JkXgykyV6sblQEnFL6gju670e9zqunfQBtRHoKdzz7XO4OiCKSgAejVU6nhe
-         8eY5tDSMzeMWNT/cdHOwT07cj+89DHLTv8BuNMkyYiOQaJwYhxs77qzQUBzZn3GEJej0
-         j0aA==
-X-Forwarded-Encrypted: i=1; AHgh+RqYqvTGcYyqiW+IxZesPcXPiYg+jaBD10GLjZtDfbb5UrUO/VJOXRvQtUkb0C48tTo+4flc/lUSqPSg9lgldK6h@lists.infradead.org
-X-Gm-Message-State: AOJu0YzDy6MZ6Uh0JToAztkmeIuZV9fYONTD8tQ5HHB7cbsGkQITUIW7
-	NEN0tq1YnPRvSRLT7cP76Y1e3YoI+KBRd2cANSG/Rh5zHDcsoNDJk0FE
-X-Gm-Gg: AfdE7cl/COcT+K+zCeYpzLMGnra9sTUUE92TT0TEXAWunQFaxclhicNRQJOjjc3Flwb
-	XW+KKTJgQzlTqpjajMyEDKL8pIo0NLXR2ITCtR9HLVVCGgLaN1zu+BgJi/Cqqy16o8saYhN7qCw
-	HPdJKVHHgHV6OHpbIeDRZxWmuykbJAASQpcblzZ8WXfbuSN4lESpy8OqI3yiNr/2WYp9C7st8t8
-	QvlsNF5VNCa1A6XCJV6VIAAWA821Jf2IG3MjitFj+LPY0DpGwTYxcECmrniXvywm0qUC03++JoH
-	EcpMk7m1f7cM3mJZBb7Sn1+d3YvZvrjoVo7GE+eY+q2ZGUaQa9Zh2f5JvgDmomxXJWL2wbT+kSp
-	XQ2WtnzGEgZmd//dQ5NNObV/JhQUK+cmgzy99P+gnS8HYH2Slo/XPe+PNfOmpSpTtVazdsHdqwu
-	Fm2oxTCg+01m4W/TqUtaIOK28fL31YjUSIq3Dj9xyrWUGURynfFURckCoN2XBAUZp8tfplEAGnT
-	MyJQRoolknFiQU=
-X-Received: by 2002:a05:600c:46d0:b0:495:3e81:770f with SMTP id 5b1f17b1804b1-4954a3f398amr21164725e9.15.1784284184783;
-        Fri, 17 Jul 2026 03:29:44 -0700 (PDT)
+        bh=reAbcqldKsv6m4zky3LvSNbWtVKFu22JGjwdfklQwuY=;
+        b=RoGqxvhD06Y6puBw7yEOdKrE1iUeJm8Zhn5FMI/1Hy8L6MW2dCxKMOXyF+BCsfprCL
+         NqS9qo22pmtd19gIWHowm+Hv+u/Lmu9U4Crvi1nWEHBANUM/pX4If9ct8w6q1Ot56Oak
+         bYZrx5ZYZxQfm9e+kKyvcVUtHxcj8rDnlWV8GInZnqCHHj9TeJJaqSWOXfxK9UCvtGHt
+         k6iCIMncZLp7HQWyMNeNs53VWj35c3xccPwxZepLz46EEoGo7FmnBpvrnyYs5rVFGrga
+         rbgSW8f7U8NIeuxWk0Ta7XaXb8a3UoaaS7wB+V/THR+fXUgedTFYPOZJYEEoHZOItXPZ
+         bGtA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784284187; x=1784888987;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=reAbcqldKsv6m4zky3LvSNbWtVKFu22JGjwdfklQwuY=;
+        b=A1s2+SVR0rIQJi6mGTGCmLXMVrI6P/kuuyUizg7sLl9jtNfWmHKblvJJpVWkkzcqhO
+         WYgh2H3TZcJqM8bNjk3TXwLAaSFgrXEiJQv9TEe0IzmCKtSHP19Jloe0+Dnvn5lMYGWJ
+         tG+lrfNOpCfq5GnqtDhbrdnTcQPPeMvmoe7WH4vP7x4v64aFNbo5XsUzUrGX0cTewIt3
+         wnMAFvMTKXoS5cqyk/0xJrjM+HQMYcFSSdyoas1q/J870EevEZDGdwTpQQGJL3E1rOs0
+         PCc+sMRJ3a+wA2wLDvymYCSCxP0qRC++diJGeM/4TGdkU35yIW1JnWZKTI+/M8Q+Qtdz
+         U/bg==
+X-Forwarded-Encrypted: i=1; AHgh+Rq9jK7JDKoac2FYMqeBvIlQzYVbY3z8JGE46y9lurkqH31dgHiT53dK8U9nRNwuHWASHLSjArSOSyTYDgx4DgfU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9d91hKB/OSUEzjKh7IX0ZMDGIQr9nw6mfS9JamO+EAZcCwdi6
+	fCo6FzYXOMnSet4L+DCJFwGkEMwkF0amDt5BZchQwKrspHQpZpfHSgpO
+X-Gm-Gg: AfdE7clATLAuLQdAXLQINU2jlvay00kgF3f0gwdZPGiDhe7ZPGF5sqOMNiB6hKDadQd
+	QcvSJA90wbD37H9vHkoiqyeoEJMRQYwAoTcw8vTAB+K844cfaNg7LjNGE9SoNpfKSpmMe23gXqr
+	8OebKBCSj+n7bJ7vhWMUV8GuiNpZw1Nk1NMRZHcYxUMz6WOAG1D6BhTJQZdqtFtmwcUQGHSUt34
+	ALjw0qNmXkHhQS4PXtCS3bftgRGbMweV3Jh1iM8b6u/5GWGcgmohau5MUckqXOWQVNVddMDNeGG
+	PzmECIMGPei0gGohAzYmOd2KKXn4x5/areyXMjMrsj70TIfFOuln2/GTSgSxlKArYRTCFCHp1ge
+	R34mNhTj+WdM7dUV7D7LYFWpNSNqoY2dtdLZaVW7RukbEcvo+XZ3nFTDoZE5O3vHK5gLaGA9Dwy
+	x29bOimwXZSh6W54b8abZh7/wasGE3ZHgYfGbGpHRndqu4MS1y8cyUKCHL+44kYotm5CR9KQzsN
+	L2faLm8sMyGs38=
+X-Received: by 2002:a05:600c:6a8a:b0:493:e46a:ab with SMTP id 5b1f17b1804b1-4954c9a0684mr6578525e9.34.1784284186204;
+        Fri, 17 Jul 2026 03:29:46 -0700 (PDT)
 Received: from Lord-Beerus.station (net-93-144-65-248.cust.dsl.teletu.it. [93.144.65.248])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49549a3f07esm39931735e9.6.2026.07.17.03.29.41
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49549a3f07esm39931735e9.6.2026.07.17.03.29.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 Jul 2026 03:29:44 -0700 (PDT)
+        Fri, 17 Jul 2026 03:29:45 -0700 (PDT)
 From: Stefano Radaelli <stefano.radaelli21@gmail.com>
 X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
 To: linux-kernel@vger.kernel.org,
@@ -91,16 +92,20 @@ Cc: pierluigi.p@variscite.com,
 	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
 	Maud Spierings <maudspierings@gocontroll.com>,
 	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>
-Subject: [PATCH v6 0/3] Add support for Variscite VAR-SOM-MX8QM and Symphony board
-Date: Fri, 17 Jul 2026 12:29:36 +0200
-Message-ID: <cover.1784284092.git.stefano.r@variscite.com>
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH v6 1/3] dt-bindings: arm: fsl: add Variscite VAR-SOM-MX8 QuadMax Boards
+Date: Fri, 17 Jul 2026 12:29:37 +0200
+Message-ID: <488d2b31400d2814b8c7d61fafd02a7af5ffe443.1784284092.git.stefano.r@variscite.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <cover.1784284092.git.stefano.r@variscite.com>
+References: <cover.1784284092.git.stefano.r@variscite.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_032947_071729_E7774C6C 
-X-CRM114-Status: GOOD (  12.90  )
+X-CRM114-CacheID: sfid-20260717_032948_503795_60E8463A 
+X-CRM114-Status: UNSURE (   8.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,66 +120,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series adds support for the Variscite VAR-SOM-MX8 QuadMax
-system on module and the Symphony carrier board.
+From: Stefano Radaelli <stefano.r@variscite.com>
 
-The series includes:
-- SOM device tree with on-module peripherals
-- Symphony carrier board device tree with board-specific features
+Add DT compatible strings for Variscite VAR-SOM-MX8 QuadMax SoM and
+Variscite Symphony development carrier Board.
 
-The implementation follows the standard SOM + carrier board pattern
-where the SOM dtsi contains only peripherals mounted on the module,
-while carrier-specific interfaces are enabled in the board dts.
-
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
+---
 v5->v6:
- - Fix regulator typo
+ - 
 
 v4->v5:
- - Fix sai7 clock
- - Fix codec regulator voltage
+ - 
 
 v3->v4:
- - Fix sai peripherals clocks
- - Add comment to clarify 1GB variant
+ - 
 
 v2->v3:
- - Fix led typo
- - Moved reset-gpios in pciea_port0
- - Removed wrong captouch pinctrl gpio
+ - 
 
 v1->v2:
- - Added non-removable property to usdhc3
- - Removed unused fec gpio pinctrl
- - Fix ptn5150 interrupt
- - Fix ecspi1 cs gpio
+ - 
 
-Stefano Radaelli (3):
-  dt-bindings: arm: fsl: add Variscite VAR-SOM-MX8 QuadMax Boards
-  arm64: dts: freescale: Add support for Variscite VAR-SOM-MX8 QuadMax
-  arm64: dts: imx8qm-var-som: Add support for Variscite Symphony board
+ Documentation/devicetree/bindings/arm/fsl.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
- .../devicetree/bindings/arm/fsl.yaml          |   6 +
- arch/arm64/boot/dts/freescale/Makefile        |   1 +
- .../dts/freescale/imx8qm-var-som-symphony.dts | 490 ++++++++++++++++
- .../boot/dts/freescale/imx8qm-var-som.dtsi    | 531 ++++++++++++++++++
- 4 files changed, 1028 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx8qm-var-som-symphony.dts
- create mode 100644 arch/arm64/boot/dts/freescale/imx8qm-var-som.dtsi
-
-
-base-commit: d089adef10f380cbdf65cbb87a59a9aab86cb0d2
-prerequisite-patch-id: 0996915f031a1d899202c5fba75a969d6ce2a53d
-prerequisite-patch-id: dbed47ecb907f6b7f7e284c5c1a3c325566eafd7
-prerequisite-patch-id: c758aa296e6effc94c30449cc7e4773f0ae02914
-prerequisite-patch-id: 31784fa7a3ee5c178b2f1ffa97c1dd7c1d3d898a
-prerequisite-patch-id: 5810f43cde9c24ee318d680c1852b3ded18f3aa0
-prerequisite-patch-id: 012c9c8ba4e290532a1b7f8642274b7c5f252e03
-prerequisite-patch-id: a57d576be42d5061bba453f0d5960132be55a1ff
-prerequisite-patch-id: e34a75fb6f7e01455dd5ca734dacad66b12de06c
-prerequisite-patch-id: cc7abadd0354d14bad0cac1fbacda14ab9d4e02b
-prerequisite-patch-id: c0276686c0247cb2385c56b96cbfd6de5128415c
-prerequisite-patch-id: 100c47538870af63194b407fae06183fee85fc09
-prerequisite-patch-id: 3a3b3e40f5fba785857091dda909d22bfc5e2d0e
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index 7b57a6ee1b50..52f08bc1f8ea 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1393,6 +1393,12 @@ properties:
+               - fsl,imx8qm-mek-revd      # i.MX8QM MEK Rev D Board
+           - const: fsl,imx8qm
+ 
++      - description: i.MX8QM Variscite VAR-SOM-MX8 based Boards
++        items:
++          - const: variscite,var-som-imx8qm-symphony
++          - const: variscite,var-som-imx8qm
++          - const: fsl,imx8qm
++
+       - description: i.MX8QM Boards with Toradex Apalis iMX8 Modules
+         items:
+           - enum:
 -- 
 2.47.3
 
