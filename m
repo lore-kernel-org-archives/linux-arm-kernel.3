@@ -4,127 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4260BC44515
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 16:31:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE3BDC4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 16:42:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aATbBoFQ2434QAVnaQ0IhzAChvgq0oIvxbfkUlfMGG4=; b=v1qOrZQHsPv0la11L5k/Y+c8h4
-	P7iW+A2tjjOM160ZtZk1TAjD4BXZ1cinNf1rhqRPXC1JooDu0594c76Q0IxIwfD2vmB7VBufLZWWQ
-	NQcdVJdjQk3IZf6W0EKcMfkVUCCCHqRXSaa5JMZGFqmlIIKHnL0h1ZOjPnQ1608jHiNovdqyiDYHO
-	bw8hgkXIRbajhuelzLN5o3LhsD7hjQobBoisneUcuCc0X11CidI3Rgr+ntafyOfp0F298UYr0ZQIV
-	siCTK9PzdWDt5xku7NHRR9qNVq/os89VxqUbZ0RQopUeZ9L/7fRJ2Wx6rt0qj8wXwTLA6CAcY1roN
-	Gy96+3FA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Upsuqa7VWRcDlZ5pIPK+Qqnf3tlxThPfy/sKdzeNaMI=; b=Wxh9eXFULZCyaJZlLVtspaWcy0
+	CvGzEYdL9gkj3jkJSbjkP8hlhg1IFY3y3cogAwntaC9rC11ADwwda4lqe/sAVAXWMa2C7FahmvkhB
+	azsNYglzoIB/0MjsTXOa8L6n9qwj0ZcB2CWERhAmMLaFEKhp12tbcDoJy8YLseWr//uArXtWEBt0A
+	HlElukjHxaWeVtylWRNmo+5mfowm6g26zv/dsBCYKIug+rizKHf8RE+P1bffRkiRjpgsl1cXPbU8P
+	6+qP0+NOGxD+tjLqRHB4lf245GAV4q/eQGKwK+WN5DXho3FFQxwweiuYnmRGFMYhDRi1J0wJHCQVb
+	rHKaTK1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wklSo-00000002kDR-3Vk5;
-	Fri, 17 Jul 2026 16:31:02 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1wkldK-00000002lAO-01aj;
+	Fri, 17 Jul 2026 16:41:54 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wklSm-00000002kCI-1k4S
+	id 1wkldG-00000002l95-3oCW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 16:31:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tgUqakUShKlA7yVTAx8PGWDMcPL5I0VBghwEWZtaI8CVmibyT5qHl9qdwRIVXNtPqykO879QFCrRPGq8WBDqf4fBuXDus3FVk9doupQAXoKcV+SK41GnYprc04ihcrBeCjlTDY7uyssFgePKyKXNqtolmRAbd9TWNz9F17A+faoVJ3/yHIqzdxvwdTBS8qcAozp/2GEY2xnvwf5ukMEqnv5GGG+dNPPXOOuD2J0biZ379uDq0wjp/u98VZ5f9ww8kjkjcHXhwnSDR3wLq2TlrW+f3IZNuX3xhB1o+lFBu9e0HI/FhpKsreNzp5OwJWuUHkDExE5Scui3m0sVBDYrOQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=aATbBoFQ2434QAVnaQ0IhzAChvgq0oIvxbfkUlfMGG4=;
- b=aKXS58gSWXFdT/qXNKvnf508WKDZ8vXDQ/kRWmE/SYRAmwk9DDNhoAhWXDQBLj1f3xwVCxT8o2TleUFI+UTzW1V5dJG7WZFLOu/p6dgJdXiSIV/M9/YQWcpMYj8WJ5O8KPvdKsta+mYWCOduS367uO3rWjSUjUpzuJM8vn/tOfbcxANWQ3ihrGBE/nSgmFN9AcQyfNL+7P8yz+0Er4qXBI71VbEi33MgzxylhzfmGAoAT5ird8VHDmb/C9U8L5S12LYJFpOgnR8tMv/DvXuzPUzRyZKdUsdpMluzQAd0oiSwsvDIWyJLvoimzlwflL0cpm4T/zqvbvJiwj5sCm22bQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=aATbBoFQ2434QAVnaQ0IhzAChvgq0oIvxbfkUlfMGG4=;
- b=UO4WT6FxDj13UNSqbkEFeVSxAGnWeE86x6Ytm5hX68PdA75ZrHQu4IkIbmeNukHc0jZaeJCKHccv/sRbnqC6pmzL69/cBZ4fXNnega5pdWAM7ozgKsenCpbjxdsWjGfMw6upy/+SXAeM+42pfPymFroAo+0UWyOFNBQSLFsZQRvhAx+CvYPHkg4jfsoka+iGLiZ10eJ44M82h2rqyHG+VLNgJiFXYJeVQzv9T9VhUobyVoNq90B356o9i8leC7YiV7+hAJ4z7mZ/cwAmSp3GB8ZWs30SmyxudX5tcIkFMkhrRAdhJVDq0NKcK5JbINO7BzXwjMzObZh4822gCMKsCA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DU4PR04MB11079.eurprd04.prod.outlook.com (2603:10a6:10:589::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.13; Fri, 17 Jul
- 2026 16:30:53 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0223.011; Fri, 17 Jul 2026
- 16:30:53 +0000
-Date: Fri, 17 Jul 2026 11:30:43 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: hongxing.zhu@oss.nxp.com
-Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org,
-	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org,
-	bhelgaas@google.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Richard Zhu <hongxing.zhu@nxp.com>
-Subject: Re: [PATCH v2] PCI: imx6: Add runtime PM support for i.MX95
-Message-ID: <alpYsyuDZxmy3v6a@SMW015318>
-References: <20260708035928.580236-1-hongxing.zhu@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260708035928.580236-1-hongxing.zhu@oss.nxp.com>
-X-ClientProxiedBy: SA1P222CA0147.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:806:3c2::11) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Fri, 17 Jul 2026 16:41:52 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-c167bda216fso535447166b.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 09:41:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784306509; x=1784911309; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Upsuqa7VWRcDlZ5pIPK+Qqnf3tlxThPfy/sKdzeNaMI=;
+        b=PUa6vw593YGIevMoBagennzTFJJ1ngNLTJp9J91C871+V+SrZnzoT7zdSwfX5P1sFx
+         u8j04ro+YOHt4bNMYhWi2UOxi1ghTiyL7WWrZPq4jhEaXq9iLJZAEhbPtSjjIesf96xa
+         F5qesRqxJOPtkogReUZ+JO3RJqhdYNCLvOfYt2NMi6FloL+Nsilvi9rzkNLzaZYAcXVo
+         xi5rFD2Kwiw7DUDtzjAwEZndr/5ksxifYFzcjTt/1zV+AQvw+yo6m0qA15Sj8LZL3dq8
+         trX2HvH9hIYWl6VNDoQ9mnD0FlGNx+seoyAfyDNl/VZRIQuZnvlp9HjFrj/bPAICkgS2
+         zlJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784306509; x=1784911309;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Upsuqa7VWRcDlZ5pIPK+Qqnf3tlxThPfy/sKdzeNaMI=;
+        b=ZJzOkL27vo5FiXrPuC2wvcqlokE+/43WJsTnwdFo9F42g2X9IxRBUPq0d7fae1k0vQ
+         QBGVNhuLnxQz6uapzgCWgFXeGizcw6xiCaYrCaZXQPKBLaFsxXCzYLSHRtMwkCjxxPmh
+         1u0aozE47ThCDFUHS+N+qT3oFjfspWyScwgapIj7RqSJa/FGCMRmGBC7SW9+6ZZXZiFn
+         IDBb1bsdgGsU9m3vGxijiIlESVOt2BJ9mDByPwLPNs7QguIhVdtCh0nLD0bkJ/tsAEDx
+         nuNYaaGT2Z9gDeDlKE1UhfUsnvCQOFdLFs9b0+F2CpCDQ3TB2EvPMaW4BmraNHQtnTnQ
+         gv9w==
+X-Forwarded-Encrypted: i=1; AHgh+RoZ/0pAKuwxs+j0fZH1xhkuFP7kUyN4ZaEi4KTdq28FM3zGYOdQZNNnLZPAyYXVhkk8/d9/G2cq8K1v7nDz+C0b@lists.infradead.org
+X-Gm-Message-State: AOJu0YzdcOTwkUh5IUm0qXU9rAuRYIIRdrDy6x7Ig+Eva7+alD9xatD+
+	ICHetypSN2dHD7nrX2xEXwe4pILng85TFKnscFx+wjvLkylLknQPdBCZ
+X-Gm-Gg: AfdE7cnfgyCWxhntjh166l5PJ2vPycSPHgHb9mnw6OHjzXpzd93kivwpFdXIKFTc3sW
+	h82E5fuQUf8tYbAYAstAIBvpMpisjAsliit8iNRxVQa4OAH7JCZFN5TtTejkbMf2r208vbvE/tp
+	8Q+vYUDq5RNYwfdS7tnSm9fRmZXmCTp9Kpe88oieLjsOlBc4ZIQw7dtNr/GTQ6ub4YxFr5e6d8P
+	1fzSFQoYCvWao0ChK0VKyJ0LbcUQ7PlpHAFdvYByNizni78gmx/VL/uH1oHpw+ykr7j9rSlw29A
+	m/AKZSGE+14A0SydQsz0lDaJ6d7ua0O4BR+r19i0sLwxhglDjyHOwHHTciPcbNSURdFwiGTPNZD
+	QRPkgsaX6N13jPBGFYIPlWGl25mIxSdTQjTpGuGqVQp2ciL7eQyh9RuqZiO8/J8XsGIhbK1OasQ
+	==
+X-Received: by 2002:a17:907:7a89:b0:c16:1df9:6eda with SMTP id a640c23a62f3a-c16b48d373emr163696066b.49.1784306508409;
+        Fri, 17 Jul 2026 09:41:48 -0700 (PDT)
+Received: from luca-vm.. ([109.52.116.145])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c1705912972sm105880366b.14.2026.07.17.09.41.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 17 Jul 2026 09:41:48 -0700 (PDT)
+From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+To: linux-mediatek@lists.infradead.org
+Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	linux-watchdog@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v2 0/7] Properly describe mt8167 watchdog and mmsys resets
+Date: Fri, 17 Jul 2026 18:39:11 +0200
+Message-ID: <20260717163959.714561-1-l.scorcia@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DU4PR04MB11079:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6e38cd1e-d03a-4d35-906c-08dee420c548
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|23010399003|1800799024|366016|56012099006|10067099003|11063799006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: lqp8WSS2GL86i/gNBy73x2RZDX9Cvc6a5JluUsd1d7rYbQ2M6aTxE031/E3gavCE+f/YFnCnQPccUGo8xdec1n8YwgEGpCbJSeJp+NkWiV0N8ayIZc+3yGJXAJ8l1tKpD8kVkKz+J158vgFdvOigpoDf9hHqC1jvM7mqcmisBBR83OQZ4NjVbfaMSTBPRVwoZWCp5IUcGpGEG2ETX5y+k7T9C+Kb6ZD2Mvf1nUf3hXDxsfnv98rkKSIIV2PB0+qZ4vtweZAIuLxl54MpEDM1ALqecYQnvMQ+FvSuR9YJkDX4fI/PSbNf7MikzYkmGRDprm1qHhuxOk8QfxMaHGUpPoLwqt3SKUt2/G1+owNej9OQraBbn7XbA3MN2AQoO/vJuatQx58Jc1elqCWzcP7lraJW9PvvDNoz1qz6ZDQhEXJFeI7iN5hjtyD6KXI3k3KeGtRpFU9zmaJHFUW11z5AI1SX8f+B20ttzVKDSMqItlhUUbGhtbIuTgoner9RfHkKrrJqsjCF09LIMiSl9hjkRUMPZzzDnYmkt63rJ4YGyrjCYULVrJ9wgPMZf3aSkMLjow0/5v4PsdRVI1M+oE9Bwcmp8SCG5dYf1XCH64hv+S06s6f/bhjO1EMYWKXPTI2Uz/gsIpDvliij+vOPEuSddvVL0pX0fKGjYfXMiTziW0k=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(23010399003)(1800799024)(366016)(56012099006)(10067099003)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?YZyqVQnULanQ9jNOv1qFHKOQDoQGrqoE9GQXAH5ZJFCfBX3akvtWtkp+XHg2?=
- =?us-ascii?Q?PqwIbYcf7GQ2lR6I9kw7waIBM/GBfHBfs5TZXtVx2hVAzdgpRPzLeNjsILh8?=
- =?us-ascii?Q?rp7TYxr0g4m/IvfZQChFeeaOy6FuYsC7XknUYUUC1ER32E/5lRz46XXJFXqm?=
- =?us-ascii?Q?ecRQ5vshPwTSIBb5vQ2mZ7h/SCEM6q89YPSrYpTIQFTy4qAThVrmXLpfD+Xf?=
- =?us-ascii?Q?o3iZkG3FdbFN1AFkVFB0iBQZx+3PJk1D7tNmnmbx7ccEQ8mQNv7H9qQieAir?=
- =?us-ascii?Q?xdRjyjtooDf9+DxfkYFCpLEVOgWRl1yO2ArWXyMvFikkgb6iMmOQhQNLzhTE?=
- =?us-ascii?Q?fyWpxpXVWRp3t8U6MVtaDSkDjsT1w9x8Nm/7vmK0FJGJ+ce5m8HbGEEo9kt7?=
- =?us-ascii?Q?0ge7/JnvUfL6sUxeJ+0VHTH4EwYeim8iuurXXIezlo8vmnsFdrzCgy19zNxC?=
- =?us-ascii?Q?5VoWfsnrKaGWZl0BiavKA8FFnZHsAMMcpFlIn1ug0Lt4zCytOFeFIeLIZ5P0?=
- =?us-ascii?Q?BQzNGTFdYhYugKdp+aOTCLOLEEIqZrR73yh2Fh4ROdbb20Fzbg4G07xU/H50?=
- =?us-ascii?Q?bw7LFF5uHzRDp0CfM+/uQK5tpkbiTei/Lnhe1AlbG60mJq/nU4VlYljZILJv?=
- =?us-ascii?Q?M3aXS6vpkHSE0yQDThMXJIo9UGW1xbrH+aPyR+yO/8BIpEtX3FLrORHcMezs?=
- =?us-ascii?Q?tBHFUEm8GbOdV/I80BJP57V9QsgpQwlFPp/GGInnyfymT6FpnHY+V1eqAcr6?=
- =?us-ascii?Q?PZwjirMI0xraqDml2c4KhShycivHVR51gOmXM3LP1cX6zw6y/LM77mPADiB8?=
- =?us-ascii?Q?hrhddnWcXN2Ldo1jjAg5Uw4TBicvLES+FXbSsC2c+EneCPy9W8iSrZOojcLh?=
- =?us-ascii?Q?UncYMG/OkZXcN6NIgxXuk5KBIGujj4v16EZPzn7orjJ6yLuefP9vZnIGPt8z?=
- =?us-ascii?Q?yKDHgIbIYNMizIEn/OwMZv9YW1JlZbYFOFAnjpsU3ecZtEUgMYjSj/l9Z36G?=
- =?us-ascii?Q?acvbKxHrKrBfastankwRKnG1JYrUnhvIMbXojonPl/5OT3oIUMjAd8gT7aMP?=
- =?us-ascii?Q?dMN0xbAeaDoe/vhukW2xK0IFnHq477Sdkm3drIal1RiMn/dpP4PqBwkHJ3Rb?=
- =?us-ascii?Q?+VEcxLBowLj0fVch3mHw2UamhBdU3DUTlh2zZIqpuin2yBhZPstWyHaf9QKS?=
- =?us-ascii?Q?7hh9hfQB/dVUKHjCEhiNVP53fKWrd0gYd7xxfn5XvjHuUtd77dCJ9EIz9QJj?=
- =?us-ascii?Q?pZzrfoREAmYAh4HdPSN0RTCMDBWqbzVLdlZf3uxCXUoGsnuoN/gXS5srlkDN?=
- =?us-ascii?Q?W17PxGqG/fBY36muOu+dRW6IYDjQDaK3yDVxH5uluroqJNnn+4imzF4PSYRC?=
- =?us-ascii?Q?c4GczbTmQbcctPCSvgJRvFQhCQPTU8UiSxs+d8nyZJZlQOCW7rmwnvaIjsHG?=
- =?us-ascii?Q?C+z7uaA1gloxyF/RU6wokMJJBd01RjuVjYhjvOo6yX/JBSlMcT6737OgG21s?=
- =?us-ascii?Q?42b+7s7XrkkzQvDp22CJ0UOFlQdMMVtVRCNwmLN+S4dysqnZkwKdZIPVGcuo?=
- =?us-ascii?Q?19p+qvotWkcfsrT6Uua6kDY4KaCo2JfRs0pdYhwPiBt81RXIvg6rmKTlhLEg?=
- =?us-ascii?Q?hG/FcVfRess709Uy5U5prKVjRMLEiTcWL2e+qjgnBia9+cMlhy159UD6l5V+?=
- =?us-ascii?Q?Y5ZgphDoJMqJA0Jowcvs7Qwb0XQ3NQwkiwUodxDcHLAs2JzCEh93wBb/slfQ?=
- =?us-ascii?Q?q4gD8pHTGlI1LXKj95oOi0RdOFUpaY7c6jIxS7MqJJCnYE0UUEjb?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6e38cd1e-d03a-4d35-906c-08dee420c548
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2026 16:30:53.5052
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: vfET5f4yM6+z2Fk//vO66u3+Ggw2AqXBZg6Q59I9N/HK1nPxf7MzqprvIIh3KVvY6G/Y03mdcHxKZQ/nm8cQk4OjqmCNnsw6rINNLEiyMefWOaMyMWp+sS7YnF4bMt1n
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB11079
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_093100_452945_D7F3B1AC 
-X-CRM114-Status: GOOD (  22.00  )
+X-CRM114-CacheID: sfid-20260717_094150_958828_A4C198B5 
+X-CRM114-Status: GOOD (  15.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,66 +106,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 08, 2026 at 11:59:26AM +0800, hongxing.zhu@oss.nxp.com wrote:
-> From: Richard Zhu <hongxing.zhu@nxp.com>
->
-> Enable runtime PM support for i.MX95 PCIe Root Complex to allow dynamic
-> power management when the PCIe link is idle.
->
-> The i.MX95 PCIe controller supports entering D3hot state when PCIe
-> devices are not actively in use. This implementation uses
-> pm_runtime_no_callbacks() to leverage the PCI core's generic runtime PM
-> handling. The PCI core automatically manages D-state transitions based
-> on the runtime PM state of connected endpoint devices.
->
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> ---
+Currently mt8167 inherits its watchdog from the included mt8516 dtsi,
+which in turn falls back on mt6589-wdt. However according to the data
+sheet mt8167 has 15 sw resets instead of 12, and the reset bits are
+different from mt6589.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+In the first two patches we improve the description of the resets for
+mt6589 with values obtained from Android sources.
 
-> Changes in v2:
-> Use devm_pm_runtime_set_active_enabled() simplify the codes and error
-> path.
-> ---
->  drivers/pci/controller/dwc/pci-imx6.c | 9 +++++++++
->  1 file changed, 9 insertions(+)
->
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index eae495a1b7990..578410f262aed 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -130,6 +130,7 @@ enum imx_pcie_variants {
->  #define IMX_PCIE_FLAG_SKIP_L23_READY		BIT(12)
->  /* Preserve MSI capability for platforms that require it */
->  #define IMX_PCIE_FLAG_KEEP_MSI_CAP		BIT(13)
-> +#define IMX_PCIE_FLAG_PM_RUNTIME		BIT(14)
->
->  #define imx_check_flag(pci, val)	(pci->drvdata->flags & val)
->
-> @@ -1973,6 +1974,13 @@ static int imx_pcie_probe(struct platform_device *pdev)
->  		 */
->  		imx_pcie_add_lut_by_rid(imx_pcie, 0);
->  	} else {
-> +		if (imx_pcie->drvdata->flags & IMX_PCIE_FLAG_PM_RUNTIME) {
-> +			pm_runtime_no_callbacks(dev);
-> +			ret = devm_pm_runtime_set_active_enabled(dev);
-> +			if (ret < 0)
-> +				return ret;
-> +		}
-> +
->  		/*
->  		 * i.MX RC is powered off during suspend, force L2 entry to
->  		 * ensure proper endpoint notification before power loss.
-> @@ -2121,6 +2129,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
->  		.flags = IMX_PCIE_FLAG_HAS_SERDES |
->  			 IMX_PCIE_FLAG_HAS_LUT |
->  			 IMX_PCIE_FLAG_8GT_ECN_ERR051586 |
-> +			 IMX_PCIE_FLAG_PM_RUNTIME |
->  			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
->  		.ltssm_off = IMX95_PE0_GEN_CTRL_3,
->  		.ltssm_mask = IMX95_PCIE_LTSSM_EN,
-> --
-> 2.34.1
->
->
+Then we introduce a dedicated mediatek,mt8167-wdt compatible for the
+watchdog driver that describes correctly this SoC's resets. Also while
+we're touching the bindings reset header, we add constants for the MMSYS
+resets.
+
+In the 6th patch we add a node for the mt8167 watchdog referring to the
+new compatible in the SoC dtsi.
+
+In the last patch, we define the mmsys reset table for the SoC. According
+to the datasheet, there are 28 mmsys reset bits divided across two
+adjacent registers.
+
+Changes in v2:
+- Sashiko pointed out correctly a missing entry in the mmsys reset table
+  in the last patch.
+
+Initial version: [1]
+
+[1] https://lore.kernel.org/linux-mediatek/20260717151134.678839-1-l.scorcia@gmail.com/
+
+Luca Leonardo Scorcia (7):
+  dt-bindings: reset: Add MT6589 toprgu reset IDs
+  watchdog: mediatek: Add wdt/toprgu resets for MT6589
+  dt-bindings: watchdog: Add compatible for MediaTek mt8167
+  dt-bindings: reset: Add reset controller constants for mt8167
+  watchdog: mediatek: Add support for mt8167 TOPRGU/WDT
+  arm64: dts: mt8167: Properly describe the SoC watchdog
+  soc: mediatek: mtk-mmsys: Add resets for mt8167
+
+ .../bindings/watchdog/mediatek,mtk-wdt.yaml   |  1 +
+ arch/arm64/boot/dts/mediatek/mt8167.dtsi      |  7 +++
+ drivers/soc/mediatek/mt8167-mmsys.h           | 41 ++++++++++++++
+ drivers/soc/mediatek/mtk-mmsys.c              |  3 ++
+ drivers/watchdog/mtk_wdt.c                    | 13 ++++-
+ .../reset/mediatek,mt6589-resets.h            | 24 +++++++++
+ .../reset/mediatek,mt8167-resets.h            | 53 +++++++++++++++++++
+ 7 files changed, 141 insertions(+), 1 deletion(-)
+ create mode 100644 include/dt-bindings/reset/mediatek,mt6589-resets.h
+ create mode 100644 include/dt-bindings/reset/mediatek,mt8167-resets.h
+
+-- 
+2.43.0
+
 
