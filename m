@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B09E1C4451B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 23:13:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5792EC44516
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 23:14:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SPnC5WVTIHOnEj+RAA+nTpokEosy532PowuwrEoM/KU=; b=boxj7Og6u+lPs9W5g9NA2m4SqI
-	dgSoLQ7z0LyBx7PsCR6mK7FCmewXxivdMqlrmWSZbkWVEUju1+HcUTia+XiVd/CATSPHVErXi0nBP
-	C1K6yYRTtK54YP+Kp3YaVUVXu91kZITkhwzUbakCBFvuzHUICJ2rDSajO1QLW6/+wuZfoa9PN4dcg
-	xPWo4Mm3tE5iIVn//TmlzZV7d7vg/hjZwsnmkeCYG3IkhSb6jiwnkcAkRLe/bOIlKCWN284gZMYXj
-	Xqs6V7+QEgsJJBsoPbylQgiAO5QK3W/XXYeTcBLggzxusnI/Vk8t3HTYK0xUDTyaK4wOY/gXNMiCi
-	4IdCOceA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=GBCPJgCnONoIe6VMGY5j1Fmy+0F7iJBPVsm978p2XD4=; b=pipsJnLpeD4MhO79+Z024e0E83
+	vr+LlK8LCh/1WEv0C5vEffiVEz0jX9mvCtDwMtk5/sbDElEVEYZZE9vT05wc+MCM1CZCC3nT/Kmkx
+	f1oEJM23Fu7xSAIzEbk2f1mRi/PiQP51GkxT3KFQh7H9rhIh1P+xoXEjsjqqxXWw3bzM6MbBHUdSf
+	Hr1jPGwoQFuECBGKCuF1vkrdnWvSlDzqlpN8+kbms0bVEMHyGBxfnrc8uoH9SlNvn5t9IDTSDcz3E
+	W22zVU7GhPaF/RSPVrAG7Y6hbUJa1LAl0RKkA48BDolcMdQvo9scBlweJdXzEdz0Ok3AXGsjrxiRc
+	PAWyVEDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkrkD-00000003NqC-1uly;
-	Fri, 17 Jul 2026 23:13:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkrkA-00000003NpX-0Knn
+	id 1wkrlG-00000003O2E-2soG;
+	Fri, 17 Jul 2026 23:14:30 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkrlF-00000003O1s-1mHN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 23:13:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 861851476;
-	Fri, 17 Jul 2026 16:13:13 -0700 (PDT)
-Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EDF783F66F;
-	Fri, 17 Jul 2026 16:13:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784329997; bh=3BlVjgmV5uha5Hv39vi3jBRXCmFZY73SrcLqw6/9YjM=;
-	h=From:To:Cc:Subject:Date:From;
-	b=MrG2RBy/Fb9HTHfDKyEJEEWtqIgzwZwHsP2O0U+aMZ70wHOhQdusEBocp3HC1ZIDn
-	 2Uv0rWgc/CndtB/MaFd/d6FaXjhyP4lt7QBFsmdREZtL2ztY86WIEzi+3ye7n+HkJM
-	 SM96L9nvLBq35DJrPUDZ0YWZvqwEPKc5j+CWqRcQ=
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Cc: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Dev Jain <dev.jain@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Sebastian Ene <sebastianene@google.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Wei-Lin Chang <weilin.chang@arm.com>
-Subject: [PATCH] KVM: arm64: ptdump: Flush the last region
-Date: Sat, 18 Jul 2026 00:12:33 +0100
-Message-ID: <20260717231233.2299068-1-weilin.chang@arm.com>
-X-Mailer: git-send-email 2.43.0
+	Fri, 17 Jul 2026 23:14:29 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3D93D60A98;
+	Fri, 17 Jul 2026 23:14:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA5861F000E9;
+	Fri, 17 Jul 2026 23:14:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784330068;
+	bh=GBCPJgCnONoIe6VMGY5j1Fmy+0F7iJBPVsm978p2XD4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=QiqLFsVGeRC4t1TL6NbvdldNt5+oM07JUShjNVwRj2TkyhqnglZViBhJrvdI+4oe4
+	 W0l3Ox4sk2AF1RfJ8LOQgmfTgt2Kuxjs1/z0LgLPDWrQb6AAGVHsoDzbLpUcTwP0pl
+	 NiHMNynxnDlEA0YwtsNrPs7DT7lZeKAiNEH9A0tcT4m3+nfSD6e0UEnY7BzE8D/BQj
+	 mIO2ifGZd1tF4w9edclbeyGox4XiYsWhACIxUKYB7l3YWFo1dYDCJN+eSV8MXFcy0r
+	 N9UL7bmQinwEVYzJXey83qHEmZL1vJheSebcauYzIY20b5XZ60TwNEB8qMhwxyAFED
+	 fUUvzjh4US5ow==
+Date: Fri, 17 Jul 2026 18:14:26 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: "Hongxing Zhu (OSS)" <hongxing.zhu@oss.nxp.com>
+Cc: Manivannan Sadhasivam <mani@kernel.org>, Frank Li <frank.li@nxp.com>,
+	"l.stach@pengutronix.de" <l.stach@pengutronix.de>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"kwilczynski@kernel.org" <kwilczynski@kernel.org>,
+	"robh@kernel.org" <robh@kernel.org>,
+	"bhelgaas@google.com" <bhelgaas@google.com>,
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Hongxing Zhu <hongxing.zhu@nxp.com>
+Subject: Re: [PATCH v2] PCI: imx6: Fix i.MX6Q/DL boot hang by separating PHY
+ power and reference clock control
+Message-ID: <20260717231426.GA211988@bhelgaas>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_161322_285109_4489BF3E 
-X-CRM114-Status: GOOD (  14.87  )
+In-Reply-To: <GV2PR04MB1201914A80BB2BF78A10465748CC62@GV2PR04MB12019.eurprd04.prod.outlook.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,80 +81,242 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently the stage-2 ptdump calls note_page() at each leaf entry visit.
-This simply misses the output of the last region, because note_page()
-only dumps output when it detects a change in level/prot, or when the
-walk enters a next marker section. The last region in the guest IPA
-space with the same level/prot is not dumped since there is no change
-after it.
+On Fri, Jul 17, 2026 at 08:57:04AM +0000, Hongxing Zhu (OSS) wrote:
+> > -----Original Message-----
+> > From: Manivannan Sadhasivam <mani@kernel.org>
+> ...
+> > On Wed, Jul 08, 2026 at 11:59:27AM +0800, hongxing.zhu@oss.nxp.com wrote:
+> > > From: Richard Zhu <hongxing.zhu@nxp.com>
+> > >
+> > > Commit 610fa91d9863 ("PCI: imx6: Assert PERST# before enabling
+> > > regulators") introduced a boot hang on i.MX6Q/DL variants by changing
+> > > the initialization sequence.
+> > >
+> > > The issue stems from coupling PHY power (TEST_PD) and reference clock
+> > > (REF_CLK_EN) control in imx6q_pcie_enable_ref_clk(). When these are
+> > > managed together, the timing between PHY power-up and reference clock
+> > > enablement cannot be properly controlled, leading to initialization
+> > > failures.
 
-To dump the final region, manually issue a note_page() call with address
-BIT(ia_bits) (end of guest IPA space) and level == -1 to trigger a level
-change after the last region. Additionally treat level == -1 as a last
-flushing note_page() call and avoid dumping the name of the next marker
-for this case.
+This is kind of a hand-wavy description that doesn't explain exactly
+what 610fa91d9863 changed that broke the boot.
 
-Fixes: 7c4f73548ed1 ("KVM: arm64: Register ptdump with debugfs on guest creation")
-Reported-by: Sashiko AI <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/kvmarm/20260630122758.891011F00A3A@smtp.kernel.org/
-Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
----
- arch/arm64/kvm/ptdump.c | 8 +++++---
- arch/arm64/mm/ptdump.c  | 5 +++--
- 2 files changed, 8 insertions(+), 5 deletions(-)
+I don't understand what you're saying about timing between PHY
+power-up and REFCLK enable because it looks like you enable REFCLK
+*first*, then power up the PHY.  There's a 200us delay in
+imx_pcie_clk_enable() after enabling REFCLK, but that was already
+there in 610fa91d9863.
 
-diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
-index c9140e22abcf..4096e4a92fae 100644
---- a/arch/arm64/kvm/ptdump.c
-+++ b/arch/arm64/kvm/ptdump.c
-@@ -155,11 +155,13 @@ static int kvm_ptdump_guest_show(struct seq_file *m, void *unused)
- 		.seq		= m,
- 	};
- 
--	write_lock(&kvm->mmu_lock);
-+	guard(write_lock)(&kvm->mmu_lock);
- 	ret = kvm_pgtable_walk(mmu->pgt, 0, BIT(mmu->pgt->ia_bits), &walker);
--	write_unlock(&kvm->mmu_lock);
-+	if (ret)
-+		return ret;
-+	note_page(&st->parser_state.ptdump, BIT(mmu->pgt->ia_bits), -1, 0);
- 
--	return ret;
-+	return 0;
- }
- 
- static int kvm_ptdump_guest_open(struct inode *m, struct file *file)
-diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
-index ab9899ca1e5f..fed4e4407e0e 100644
---- a/arch/arm64/mm/ptdump.c
-+++ b/arch/arm64/mm/ptdump.c
-@@ -194,6 +194,7 @@ void note_page(struct ptdump_state *pt_st, unsigned long addr, int level,
- 	struct ptdump_pg_state *st = container_of(pt_st, struct ptdump_pg_state, ptdump);
- 	struct ptdump_pg_level *pg_level = st->pg_level;
- 	static const char units[] = "KMGTPE";
-+	bool flush = level == -1;
- 	ptdesc_t prot = 0;
- 
- 	/* check if the current level has been folded dynamically */
-@@ -234,7 +235,7 @@ void note_page(struct ptdump_state *pt_st, unsigned long addr, int level,
- 				  pg_level[st->level].num);
- 		pt_dump_seq_puts(st->seq, "\n");
- 
--		if (addr >= st->marker[1].start_address) {
-+		if (addr >= st->marker[1].start_address && !flush) {
- 			st->marker++;
- 			pt_dump_seq_printf(st->seq, "---[ %s ]---\n", st->marker->name);
- 		}
-@@ -244,7 +245,7 @@ void note_page(struct ptdump_state *pt_st, unsigned long addr, int level,
- 		st->level = level;
- 	}
- 
--	if (addr >= st->marker[1].start_address) {
-+	if (addr >= st->marker[1].start_address && !flush) {
- 		st->marker++;
- 		pt_dump_seq_printf(st->seq, "---[ %s ]---\n", st->marker->name);
- 	}
--- 
-2.43.0
+> > What is the timing requirement here?
+>
+> The timing requirement is that TEST_PD must be deasserted (cleared) before
+> link training starts.
 
+Is there any delay required between deasserting TEST_PD and link
+training?
+
+Prior to this patch, imx_pcie_deassert_core_reset() didn't touch
+TEST_PD on imx6qp, but it did delay 200us in imx6qp_pcie_core_reset().
+Now it will clear TEST_PD and still delay 200us.
+
+On imx6q, it didn't touch TEST_PD or delay.  Now it will clear TEST_PD
+but still won't delay.
+
+I don't see any other delay enforced between PHY power up (in
+imx_pcie_deassert_core_reset()) and link training.  So after this
+patch, it looks like the chipset-specific behavior in
+imx_pcie_deassert_core_reset() is:
+
+  imx6sx:  clear TEST_POWERDOWN, no delay
+  imx6q:   clear TEST_PD, no delay
+  imx6qp:  clear TEST_PD, usleep(200)
+  imx7d:   wait for PHY PLL lock
+  imx95:   nothing
+
+Here's the path I see after this patch is applied:
+
+  imx_pcie_probe
+    dw_pcie_host_init
+      imx_pcie_host_init
+        imx_pcie_clk_enable
+          imx6q_pcie_enable_ref_clk(enable=true)
+            regmap_set_bits(IMX6Q_GPR1_PCIE_REF_CLK_EN)   # REFCLK enable
+          usleep(200)                                     # <-- delay
+        imx_pcie_assert_core_reset
+          imx6q_pcie_core_reset(assert=true)
+            regmap_set_bits(IMX6Q_GPR1_PCIE_TEST_PD)      # PHY power off
+        imx_pcie_ltssm_disable
+        imx_pcie_deassert_core_reset
+
+          imx6q_pcie_core_reset(assert=false)
+            regmap_clear_bits(IMX6Q_GPR1_PCIE_TEST_PD)    # PHY power on
+       -- or --
+          imx6qp_pcie_core_reset(assert=false)
+            regmap_clear_bits(IMX6Q_GPR1_PCIE_TEST_PD)    # PHY power on
+            regmap_update_bits(IMX6Q_GPR1_PCIE_SW_RST)
+            usleep(200)                                   # <-- delay
+
+      dw_pcie_start_link
+        imx_pcie_start_link
+
+> Before commit 610fa91d9863:
+> - imx_pcie_assert_core_reset(): Assert TEST_PD and REF_CLK_EN
+> - imx_pcie_clk_enable(): Deassert TEST_PD and assert REF_CLK_EN
+> - Link training starts with TEST_PD properly cleared
+> 
+> After commit 610fa91d9863:
+> - imx_pcie_clk_enable(): Deassert TEST_PD and assert REF_CLK_EN
+> - imx_pcie_assert_core_reset(): Assert TEST_PD and assert REF_CLK_EN again
+> - Link training starts with TEST_PD still asserted (never cleared again)
+> 
+> This commit corrects the sequence, and makes sure the TEST_PD is cleared
+> before link training starts.
+
+
+> > > Fix this by separating the two concerns:
+> > >
+> > > - Move PHY power control (TEST_PD) to imx6q_pcie_core_reset() where it
+> > >   logically belongs with reset operations. This ensures PHY power state
+> > >   is managed as part of the core reset sequence.
+> > >
+> > > - Update imx6qp_pcie_core_reset() to call imx6q_pcie_core_reset() for
+> > >   shared PHY power management, avoiding code duplication.
+> > >
+> > > - Make imx6q_pcie_enable_ref_clk() responsible only for reference clock
+> > >   (REF_CLK_EN) control, simplifying its purpose.
+> > >
+> > > - Remove the 10us delay workaround from imx6q_pcie_enable_ref_clk() as
+> > >   proper sequencing is now handled by the core_reset functions.
+> > >
+> > > This refactoring ensures PHY power is controlled during reset
+> > > operations, fixing the boot hang while improving code maintainability.
+> > >
+> > 
+> > This patch does too many things at once. Can't you split it and
+> > keep the minimal fix in one patch?
+>
+> Okay, I'll split this into a patch series in v3.
+
+The "invoke imx_pcie_assert_core_reset() explicitly in error path of
+imx_pcie_host_init() and imx_pcie_host_exit()" part seems unrelated to
+the boot hang.
+
+> > > Fixes: 610fa91d9863 ("PCI: imx6: Assert PERST# before enabling
+> > > regulators")
+> > > Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> > > ---
+> > > Changes in v2:
+> > > Regarding sashiko's reivew, invoke imx_pcie_assert_core_reset()
+> > > explicitly in error path of imx_pcie_host_init() and imx_pcie_host_exit().
+> > > ---
+> > >  drivers/pci/controller/dwc/pci-imx6.c | 45
+> > > ++++++++++++---------------
+> > >  1 file changed, 20 insertions(+), 25 deletions(-)
+> > >
+> > > diff --git a/drivers/pci/controller/dwc/pci-imx6.c
+> > > b/drivers/pci/controller/dwc/pci-imx6.c
+> > > index 9406bba36953f..53f3da6ab30d5 100644
+> > > --- a/drivers/pci/controller/dwc/pci-imx6.c
+> > > +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> > > @@ -680,21 +680,12 @@ static int imx_pcie_attach_pd(struct device
+> > > *dev)
+> > >
+> > >  static int imx6q_pcie_enable_ref_clk(struct imx_pcie *imx_pcie, bool
+> > > enable)  {
+> > > -	if (enable) {
+> > > -		/* power up core phy and enable ref clock */
+> > > -		regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
+> > IMX6Q_GPR1_PCIE_TEST_PD);
+> > > -		/*
+> > > -		 * The async reset input need ref clock to sync internally,
+> > > -		 * when the ref clock comes after reset, internal synced
+> > > -		 * reset time is too short, cannot meet the requirement.
+> > > -		 * Add a ~10us delay here.
+> > > -		 */
+> > > -		usleep_range(10, 100);
+> > > -		regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
+> > IMX6Q_GPR1_PCIE_REF_CLK_EN);
+> > > -	} else {
+> > > -		regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
+> > IMX6Q_GPR1_PCIE_REF_CLK_EN);
+> > > -		regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
+> > IMX6Q_GPR1_PCIE_TEST_PD);
+> > > -	}
+> > > +	if (enable)
+> > > +		regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
+> > > +				IMX6Q_GPR1_PCIE_REF_CLK_EN);
+> > > +	else
+> > > +		regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
+> > > +				  IMX6Q_GPR1_PCIE_REF_CLK_EN);
+> > >
+> > >  	return 0;
+> > >  }
+> > > @@ -823,23 +814,25 @@ static int imx6sx_pcie_core_reset(struct imx_pcie
+> > *imx_pcie, bool assert)
+> > >  	return 0;
+> > >  }
+> > >
+> > > -static int imx6qp_pcie_core_reset(struct imx_pcie *imx_pcie, bool
+> > > assert)
+> > > +static int imx6q_pcie_core_reset(struct imx_pcie *imx_pcie, bool
+> > > +assert)
+> > >  {
+> > > -	regmap_update_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
+> > IMX6Q_GPR1_PCIE_SW_RST,
+> > > -			   assert ? IMX6Q_GPR1_PCIE_SW_RST : 0);
+> > > -	if (!assert)
+> > > -		usleep_range(200, 500);
+> > > +	if (assert)
+> > > +		regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
+> > > +				IMX6Q_GPR1_PCIE_TEST_PD);
+> > > +	else
+> > > +		regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
+> > > +				  IMX6Q_GPR1_PCIE_TEST_PD);
+> > >
+> > >  	return 0;
+> > >  }
+> > >
+> > > -static int imx6q_pcie_core_reset(struct imx_pcie *imx_pcie, bool
+> > > assert)
+> > > +static int imx6qp_pcie_core_reset(struct imx_pcie *imx_pcie, bool
+> > > +assert)
+> > >  {
+> > > +	imx6q_pcie_core_reset(imx_pcie, assert);
+> > > +	regmap_update_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
+> > IMX6Q_GPR1_PCIE_SW_RST,
+> > > +			   assert ? IMX6Q_GPR1_PCIE_SW_RST : 0);
+> > >  	if (!assert)
+> > > -		return 0;
+> > > -
+> > > -	regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
+> > IMX6Q_GPR1_PCIE_TEST_PD);
+> > > -	regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
+> > IMX6Q_GPR1_PCIE_REF_CLK_EN);
+> > > +		usleep_range(200, 500);
+> > >
+> > >  	return 0;
+> > >  }
+> > > @@ -1445,6 +1438,7 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
+> > >  	return 0;
+> > >
+> > >  err_phy_off:
+> > > +	imx_pcie_assert_core_reset(imx_pcie);
+> > >  	phy_power_off(imx_pcie->phy);
+> > >  err_phy_exit:
+> > >  	phy_exit(imx_pcie->phy);
+> > > @@ -1471,6 +1465,7 @@ static void imx_pcie_host_exit(struct dw_pcie_rp
+> > *pp)
+> > >  			dev_err(pci->dev, "unable to power off PHY\n");
+> > >  		phy_exit(imx_pcie->phy);
+> > >  	}
+> > > +	imx_pcie_assert_core_reset(imx_pcie);
+> > >  	imx_pcie_clk_disable(imx_pcie);
+> > >
+> > >  	pci_pwrctrl_power_off_devices(pci->dev);
+> > > --
+> > > 2.34.1
+> > >
+> > 
+> > --
+> > மணிவண்ணன் சதாசிவம்
 
