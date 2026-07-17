@@ -4,64 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15ECFC4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 14:35:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00736C4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 14:42:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mX3zRMISZnfx6AVHx4+YRFFyWfpAZaiBL/1wXF8ilVc=; b=vClN6VxVqv/WScZ14kyxZdXRw+
-	0U+0xSVh+23EwgSmVOkWJ0TFkaWdZ+TawS/m6KVQoe4go7Lowby35c51JgHKr7ILWKXAW1IHAXneY
-	B8H13YuhknlByCDo9o1TQsghUkJBwZzs5LHe0Ex1S1ANnrEbte+iQJtSBYmEHYppIvqcT6BTwc9QT
-	wCIOTPMATLGi04qPnWGxnVllT5yF//BQco6ak9VY7PtlKfJXm8849oe0003aEjkuRCf0yAGpoGq0G
-	zntWZuhuljU6xH+B9q/eozXoTy5vGshweuuc1XpgxA97H8I2d1DEIYdrZTIaxhVHoZzRhEWm2pFLz
-	SewbPRIg==;
+	bh=Q7O9wWpQXaHzPaJD6V/UTzGw8eK1vlr+XrH7gH9bwDA=; b=FZteuFWekn4sb72OhlV/cI9CuM
+	V5poD/QGNMFzchZgVqR5jytanzJZguIcMr790yIZM3Ir7G7e8D6IF/+GVe6Z1jAwHtsq2MTXRb+L8
+	k52IL0xdmUJY9j+DYjhfJZNONZTGecvf6CZGshIbbLopChbkGzhCS0yolnQCIejYo0fydAHlp0uX0
+	04AcAIgyG8E0/Bilo1apTIeFDI/MZfbD0AjjrUzv0p/Xxy/mQb5YPbGcOSZndiNtFMLOXA6CS0+BI
+	ngqNnBodEk1/4buKsgPuAOxsipwqs0J11j+6BdGDoYwlMrpJLo3D/5hDB1CpYBPDpXRSnjOxtRbWb
+	KUfTqJ7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkjf2-00000002UWz-15gs;
-	Fri, 17 Jul 2026 14:35:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkjez-00000002UWc-2SnA
+	id 1wkjlb-00000002V54-46Rl;
+	Fri, 17 Jul 2026 14:42:20 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkjlX-00000002V3E-3Uhx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 14:35:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DAF601476;
-	Fri, 17 Jul 2026 07:35:23 -0700 (PDT)
-Received: from [10.57.84.220] (unknown [10.57.84.220])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 181A03F7B4;
-	Fri, 17 Jul 2026 07:35:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784298928; bh=04h1xL9bVQhcWyqK0UDPWaUwr2jn0aX6jLQn+ZTNHmw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=FJbsSHAoWobppT89ACo5EWn2LTm0G5snGwt2P7C8OT9u5cemEKtdWX4NvAyHrqkMx
-	 mmfy/NeA1yWTyLl8PseeJ7Tq2QUS511amuYPQcBw9Xv6ZC8Vvofwh+753Oc7IfWUPt
-	 +vHyGLZbI4QAuIJfituO9CjDFwv/xNzg7DPwJ6eQ=
-Message-ID: <5012970d-a0f0-461c-b0b6-61823e0aab2d@arm.com>
-Date: Fri, 17 Jul 2026 15:35:24 +0100
+	Fri, 17 Jul 2026 14:42:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Subject:Date:From:From:Reply-To;
+	bh=Q7O9wWpQXaHzPaJD6V/UTzGw8eK1vlr+XrH7gH9bwDA=; b=DnbzZoU0JvRXdDjBh7SsNAAIOB
+	HM23YwC/xH27m10Sul2fXEPINgihiP1hKa9X1K3hyA/9cg9J4Mu+zIqhr7xamfAgiXoNDKQKYrDtK
+	/qps/4qacX2/rZbarMTrl8nF81GCqwZ4qC2aDMdtvvckZPIQT93LX5HPIL4tjsxeuFO5sG+pZWhU7
+	cznNKjo6Mt1g25K/HQAX9OlrQO20sJHWqqY0gMHbwN8Yi9MshvJ76qBQCgwbNCRcCV9swjyIQEbXZ
+	nLXqwF/Q3JuM9FKRvzImAfvgzhaC5O36k1xHKUrx0uARxhZMvpMS2vb4ba9/+RoghBb0eCEK+c/NE
+	mgrQz01g==;
+Received: from [179.118.191.219] (helo=[192.168.15.100])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
+	id 1wkjlJ-00GdLF-En; Fri, 17 Jul 2026 16:42:01 +0200
+From: =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
+Date: Fri, 17 Jul 2026 11:41:40 -0300
+Subject: [PATCH v5 1/4] arm64: vdso: Prepare for robust futex unlock
+ support
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v1 8/8] misc/arm-cla: Add userspace interface
-Content-Language: en-GB
-To: Arnd Bergmann <arnd@arndb.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Jean-Philippe Brucker <jpb@kernel.org>,
- Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org
-References: <20260717104759.123203-1-ryan.roberts@arm.com>
- <20260717104759.123203-9-ryan.roberts@arm.com>
- <404d2c6d-4a18-40c2-9da9-fb030c39536f@app.fastmail.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <404d2c6d-4a18-40c2-9da9-fb030c39536f@app.fastmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260717-tonyk-robust_arm-v5-1-ffd1ad318d17@igalia.com>
+References: <20260717-tonyk-robust_arm-v5-0-ffd1ad318d17@igalia.com>
+In-Reply-To: <20260717-tonyk-robust_arm-v5-0-ffd1ad318d17@igalia.com>
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, 
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+ Carlos O'Donell <carlos@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+ Florian Weimer <fweimer@redhat.com>, Rich Felker <dalias@aerifal.cx>, 
+ Torvald Riegel <triegel@redhat.com>, Darren Hart <dvhart@infradead.org>, 
+ Ingo Molnar <mingo@kernel.org>, Davidlohr Bueso <dave@stgolabs.net>, 
+ Arnd Bergmann <arnd@arndb.de>, Uros Bizjak <ubizjak@gmail.com>, 
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>, 
+ "Liam R. Howlett" <liam@infradead.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-arch@vger.kernel.org, kernel-dev@igalia.com, 
+ LKML <linux-kernel@vger.kernel.org>, 
+ =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_073529_733834_D3B3C7D1 
-X-CRM114-Status: GOOD (  44.46  )
+X-CRM114-CacheID: sfid-20260717_074215_872410_13DAF254 
+X-CRM114-Status: GOOD (  17.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,179 +84,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/07/2026 13:54, Arnd Bergmann wrote:
-> On Fri, Jul 17, 2026, at 12:47, Ryan Roberts wrote:
->> Expose CLA devices through a character device so userspace can enumerate
->> the available hardware and map accelerator register frames.
->>
->> Define version 1 of the CLA UAPI with a GET_PARAM ioctl. Report device
->> topology, CPU affinity, domain membership, mmap offsets, architecture
->> version and attached accelerator masks, together with the IIDR, DEVARCH
->> and REVIDR of each accelerator.
->>
->> CLA registers can only be read from the CPU local to the device, while
->> enumeration may occur on any CPU. Validate the supported CLA
->> architecture version during device setup and cache the CLA and
->> accelerator identification registers for later ioctl queries.
-> 
-> This interface looks very raw at the moment, I expect this will have
-> one or more larger redesigns.
+There will be a VDSO function to unlock non-contended robust futexes in
+user space. The unlock sequence is racy vs. clearing the list_pending_op
+pointer in the task's robust list head. To plug this race the kernel needs
+to know the critical section window so it can clear the pointer when the
+task is interrupted within that race window. The window is determined by
+labels in the inline assembly.
 
-Are you referring to the overall UABI or specifically to the ioctl interface
-here? I could imagine the ioctl interface evolving before we get this merged
-(although it is based on similar patterns used by some DRM and accel drivers -
-it's intended to be easily extensible while existing params remain stable).
+Signed-off-by: André Almeida <andrealmeid@igalia.com>
+---
+v4:
+- Guard symbols from vdso.lds.S with ifdef
+- drop update_ips() from sigpage remap function
 
-The aspect where the CLA MMIO is directly mapped into user space is an aspect we
-are keen to keep though since it has significant performance implications if we
-need to redirect through the kernel.
+v3:
+ - Fix adding vdso base addr twice
+ - Call vdso_futex_robust_unlock_update_ips() on remap as well
+v2:
+ - Fixed linker not finding VDSO symbols
+---
+ arch/arm64/kernel/vdso.c          | 35 ++++++++++++++++++++++++++++++++++-
+ arch/arm64/kernel/vdso/vdso.lds.S |  9 +++++++++
+ 2 files changed, 43 insertions(+), 1 deletion(-)
 
-> 
-> Most importantly, a single character device to expose an arbitrary
-> number of underlying hardware features is an inherently flawed security
-> model. If any specific accelerator is ever found to have a
-> major vulnerability, that would mean administrators will have to
-> disable all of them by default.
+diff --git a/arch/arm64/kernel/vdso.c b/arch/arm64/kernel/vdso.c
+index 592dd8668de4..ff43b74e514e 100644
+--- a/arch/arm64/kernel/vdso.c
++++ b/arch/arm64/kernel/vdso.c
+@@ -11,6 +11,7 @@
+ #include <linux/clocksource.h>
+ #include <linux/elf.h>
+ #include <linux/err.h>
++#include <linux/futex.h>
+ #include <linux/errno.h>
+ #include <linux/gfp.h>
+ #include <linux/kernel.h>
+@@ -57,11 +58,41 @@ static struct vdso_abi_info vdso_info[] __ro_after_init = {
+ #endif /* CONFIG_COMPAT_VDSO */
+ };
+ 
++#ifdef CONFIG_FUTEX_ROBUST_UNLOCK
++static void vdso_futex_robust_unlock_update_ips(enum vdso_abi abi, struct mm_struct *mm)
++{
++	unsigned long vdso = (unsigned long) mm->context.vdso;
++	struct futex_mm_data *fd = &mm->futex;
++	uintptr_t success, end;
++
++	if (abi == VDSO_ABI_AA64) {
++		success = (uintptr_t) VDSO_SYMBOL(vdso, futex_list64_try_unlock_cs_start);
++		end = (uintptr_t) VDSO_SYMBOL(vdso, futex_list64_try_unlock_cs_end);
++
++		futex_set_vdso_cs_range(fd, 0, success, end, false);
++	}
++}
++#else
++static inline void vdso_futex_robust_unlock_update_ips(enum vdso_abi abi, struct mm_struct *mm) { }
++#endif /* CONFIG_FUTEX_ROBUST_UNLOCK */
++
+ static int vdso_mremap(const struct vm_special_mapping *sm,
+ 		struct vm_area_struct *new_vma)
+ {
+ 	current->mm->context.vdso = (void *)new_vma->vm_start;
+ 
++	vdso_futex_robust_unlock_update_ips(VDSO_ABI_AA64, current->mm);
++
++	return 0;
++}
++
++static int vdso32_mremap(const struct vm_special_mapping *sm,
++		struct vm_area_struct *new_vma)
++{
++	current->mm->context.vdso = (void *)new_vma->vm_start;
++
++	vdso_futex_robust_unlock_update_ips(VDSO_ABI_AA32, current->mm);
++
+ 	return 0;
+ }
+ 
+@@ -134,6 +165,8 @@ static int __setup_additional_pages(enum vdso_abi abi,
+ 	if (IS_ERR(ret))
+ 		goto up_fail;
+ 
++	vdso_futex_robust_unlock_update_ips(abi, mm);
++
+ 	return 0;
+ 
+ up_fail:
+@@ -174,7 +207,7 @@ static struct vm_special_mapping aarch32_vdso_maps[] = {
+ 	},
+ 	[AA32_MAP_VDSO] = {
+ 		.name = "[vdso]",
+-		.mremap = vdso_mremap,
++		.mremap = vdso32_mremap,
+ 	},
+ };
+ 
+diff --git a/arch/arm64/kernel/vdso/vdso.lds.S b/arch/arm64/kernel/vdso/vdso.lds.S
+index 52314be29191..225f59bb81d1 100644
+--- a/arch/arm64/kernel/vdso/vdso.lds.S
++++ b/arch/arm64/kernel/vdso/vdso.lds.S
+@@ -104,6 +104,9 @@ VERSION
+ 		__kernel_clock_gettime;
+ 		__kernel_clock_getres;
+ 		__kernel_getrandom;
++#ifdef CONFIG_FUTEX_ROBUST_UNLOCK
++		__vdso_futex_robust_list64_try_unlock;
++#endif
+ 	local: *;
+ 	};
+ }
+@@ -112,3 +115,9 @@ VERSION
+  * Make the sigreturn code visible to the kernel.
+  */
+ VDSO_sigtramp		= __kernel_rt_sigreturn;
++
++#ifdef CONFIG_FUTEX_ROBUST_UNLOCK
++VDSO_futex_list64_try_unlock_cs_start = __futex_list64_try_unlock_cs_start;
++VDSO_futex_list64_try_unlock_cs_success = __futex_list64_try_unlock_cs_success;
++VDSO_futex_list64_try_unlock_cs_end = __futex_list64_try_unlock_cs_end;
++#endif
 
-Note that we are exposing MMIO per CLA, not per accelerator. So preventing
-access to a single CLA would prevent access to all accelerators attached to it.
-There is a per-accelerator availability masking control that the kernel can use
-to disable access to selected accelerators though, which might help with the
-vulnerability example.
-
-The rationale for choosing a single device file was driven by performance: At
-domain reassignment time, we need to unmap and invalidate the TLB entries for
-all the devices in the domain from the out-going process's address space. By
-having all the devices in a single file and all devices within the same domain
-adjacent, they can all be mapped to a single VMA, meaning the driver can use a
-single call to the existing zap_special_vma_range(), which will result in a
-single TLBI-by-range instruction, which is faster than a TLBI-by-va for every
-device.
-
-If you think it is important for security to have each CLA exposed by an
-independent device file, I'll take another look.
-
-> 
->> Support shared read-write mmap of one or more CLA register pages. Create
->> a context for every domain covered by the mapping and resolve faults
->> only while that context owns the domain. Queue unassigned contexts with
->> the domain scheduler, drop mmap_lock while waiting for assignment and
->> retry the fault after the context is woken.
-> 
-> I still need some time to better understand what this means.
-
-I can probably do a better job of explaining this: The kernel keeps a cla_ctx
-object which represents a single {file description, mm_struct} context that
-wants to use the cla_domain (collection of 1 or more cla_dev). Initially the VMA
-is not populated so when user space tries to access, it will fault to the
-driver. If the cla_domain is assigned to a different cla_ctx, the faulting
-thread is put to sleep until the driver determines that it's the turn of that
-cla_ctx to be assigned the domain. At that point the waiting thread(s) are woken
-and map the devices from the domain to the VMA and return to user space. The
-out-going cla_ctx had it's mappings removed during the reassignment process so
-any user space access will now fault and sleep waiting for assignment.
-
-> Does a CPU have multiple concurrently running contexts? 
-
-The HW only has a single HW context, hence the timesliced assignment approach
-described above (assuming there is more than 1 concurrent user).
-
-> Is a
-> user process able to starve the allocation of other processes
-> by just requesting a lot of them?
-
-In the current code, a process can theoretically create the same number of
-cla_ctx as the number of file descriptors it can open(). It would then need to
-mmap and access to get into the queue to be assigned the domain. I see it as
-similar to threads; if process A creates 10 threads and process B creates 1
-thread, then in the long run (ignoring cgroups et al) you'd expect A to get
-10/11th of the CPU time (IIUC?).
-
-Do you think this consitutes a DoS?
-
-> 
->> +static long cla_ioctl_get_param(unsigned long arg)
->> +{
->> +	struct arm_cla_param __user *uparam = (void __user *)arg;
->> +	struct arm_cla_param param;
->> +	int accel_id;
->> +	int dev_id;
->> +	int ret;
->> +
->> +	if (copy_from_user(&param, uparam, sizeof(param)))
->> +		return -EFAULT;
->> +
->> +	ret = cla_ioctl_validate_param(&param);
->> +	if (ret)
->> +		return ret;
->> +
->> +	dev_id = dev_nospec(ARM_CLA_PARAM_INDEX_DEV(param.index));
->> +	accel_id = accel_nospec(ARM_CLA_PARAM_INDEX_ACCEL(param.index));
-> 
-> Why is the dev_id/accel_id not a property of the device node itself?
-
-As per above, I can go look again at having a device node per CLA device (i.e.
-one for each CPU that has a CLA). But it doesn't make sense to have a device
-node per accelerator (a CLA can have up to 8 connected accelerators); there is
-only a single HW interface.
-
-> 
->> +	switch (param.param) {
->> +	case ARM_CLA_PARAM_UABI_VERSION:
->> +		param.value = ARM_CLA_UABI_VERSION;
->> +		break;
-> 
-> UABI definitions are not versioned, you have to stay compatible
-> indefinitely. If you need something else, add a new command.
-
-Yes agreed; my mistake - this is used for the internal development versions
-where the interface has been changing and I forgot to remove it for the RFC.
-
-> 
->> +	wait_event_interruptible(ctx->waitq,
->> +				 READ_ONCE(domain->assigned_ctx) == ctx ||
->> +				 cla_ctx_is_dying(ctx) ||
->> +				 READ_ONCE(domain->broken));
-> 
-> If you call wait_event_interruptible(), you have to check the return
-> code and deal with it being interrupted.
-
-I believe this is already correct - I'm reeturning VM_FAULT_RETRY
-unconditionally at this point, which is also the correct return code if we get
-interrupted. This unwinds to arm64's do_page_fault() which then notices and
-handles the fault:
-
-	/* Quick path to respond to signals */
-	if (fault_signal_pending(fault, regs)) {
-		if (!user_mode(regs))
-			goto no_context;
-		return 0;
-	}
-
-I believe GUP and other handle_mm_fault() callers have similar logic.
-
-I'll add a comment to make that clear.
-
-> 
->> +static const struct file_operations cla_fops = {
->> +	.owner = THIS_MODULE,
->> +	.mmap = cla_file_mmap,
->> +	.unlocked_ioctl = cla_file_ioctl,
->> +#ifdef CONFIG_COMPAT
->> +	.compat_ioctl = cla_file_ioctl,
->> +#endif
-> 
-> No need for the #ifdef here. Technically setting .compat_ioctl=compat_ptr_ioctl
-> is the correct way here, though that may change in the future now that
-> s390 compat mode is gone.
-
-ACK, I'll fix this.
-
-Thanks,
-Ryan
-
-
-> 
->       Arnd
+-- 
+2.55.0
 
 
