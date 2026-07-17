@@ -4,111 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8D2DC44520
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 12:03:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E93CFC4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 12:07:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rhqQocmDn1ZVyttVBuCGSQaZNCEQDuZfGNQteeSIaWI=; b=mbHBHcYPvZ8Ei1uJO+azMTZsld
-	T4HDQX93hgugoFxU15Awg1bUx+gXDs78BgL3DgbZw+aRLOH900nxlQlex6UIJpvOVWbNRKAULmPzt
-	B7wTF8B2q1aECIx3cbBaOrzfsg6EApKBl/rQ9m5awYlHYNH6KTBupyOhyYNCgAIIIcocPBDEHdlZB
-	+LRlRjM7WTJDqS8NMyRIw/JWskf4hQUk32WntoByZO1jub4eXG1GR7b0pWYIpFfXiN5lilyjKrDFy
-	JESxmpBU4n9IDp4n+1HUkxTRkZ0aPq+h4OUDjbUaRQAL1epvC2UiR7Lv+wVoZLs2I/hhMxYuSfleJ
-	2CxmWjPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1emgn/47ILomSDWY6IekTb/COWW8oiLTOuIeRTPN6jc=; b=jvSGwBFerO2l52jijodHO8VRMB
+	ooq3pjZPiCom3qCE9i2CpW0rWqIt7l8mmVXhD82JI9FLadL/JdD3SHdzvWee3e747cZsdLkV61VcB
+	/w7rmAMsMORNp72j2UIulAHKuXJVjJwteq/c1vEu1B6gTy8fO3fKNgyxdoOpRrPDkWJqnNbIESK33
+	RNeVFxm0+5sL8hx60lBqqV4VFPk4FrB1YTpb9ax5Y4hpbqN8Dv6WZFQ3aK6fWEtP908we3Q+MHjlE
+	NWdHDuSYl+FM1Xim0MYm+4FeGPZR9B43hly0m/COb+Lw1VkqGFPzCIbUnmPRasZaxLoU5dz2kNWA4
+	gj7z6V9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkhHq-00000002DSX-2MCj;
-	Fri, 17 Jul 2026 12:03:26 +0000
-Received: from th8-a.mail-neoserv.si ([152.89.234.173])
+	id 1wkhLD-00000002Dva-1RJi;
+	Fri, 17 Jul 2026 12:06:55 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkhHn-00000002DQl-3mTE;
-	Fri, 17 Jul 2026 12:03:25 +0000
-ARC-Seal: i=1; cv=none; a=rsa-sha256; d=th8.neoserv.si; s=default;
-	 b=e4wr1RIKGAKwFb7CvuoGhMJksMeo2X6/du0d44Wq3M86JsufEJ01y5xkiTjZ+cmiJQgGjB4QO1
-	  1TbbpN3L7Tbdqym2X2awQ3EQrGWIZxh+U7wwbBTSvimGkQoC94d8eVA0DqAAuQwkHOGcVrBL1K
-	  cvOVaE3NHoR2kaR6CNmVirZJOTTPwbNg5l+SUhhXWkyW6jcDkmqj4hvmkTTPb8Q168+VBdnHDD
-	  qUfOr85z7MBLDvI1+BxnohyGqqboNAJ/q0ZT56ka3y01nF1t1xbQb+YTfVR/wKt20NhYNGk4eu
-	  93Bc+VOsl1zz7+CgS36w/ayT2Wxm0DdaKVHPHxpa8WO1Mg==;
-ARC-Authentication-Results: i=1; th8.neoserv.si; smtp.remote-ip=193.77.36.193;
-	auth=pass (PLAIN) smtp.auth=rok@kanardia.eu
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=th8.neoserv.si; s=default;
-	bh=7o4gkyWUm5NRKXjCtq4QFPNOZqVGYX0NqrC25z6iTAQ=;
-	h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:
-	  Date:Subject:Cc:To:From:DKIM-Signature;
-	b=Fzw+J56PO1j78a7aA8LdOOs2v7ZvPZR2V0ma8jd8Fbjf1F4mmLuzSMOee751na36an2fjPpJUU
-	  fk2RIDactnsZRThjMxmp8+ywjglcpvcpiuNNhWzzKR0lgcgyf/VwUfIvEDypMa1c3v978ZQBnv
-	  XCVrhObnvq+dGtiQx8kRIuAKOVZ4sKvSSv9uXbjQNRDNyS7JXVmZuomzxAAwbPpdGsRgEQCKxK
-	  h8wpZWA9kkM8n3W937gUXg6wXD3EuDI8hmZ3S5ZgeoZ1GhhFcHCU231b14VB7cXniltvAVT9tX
-	  GfA/xaXrxsxBDIxy2H+BpC+eQ1S00NkzIUVoai08+TNkQA==;
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=kanardia.eu
-	; s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=rhqQocmDn1ZVyttVBuCGSQaZNCEQDuZfGNQteeSIaWI=; b=fIA0Q6bFjuSYbA8c5wvLsqNuEU
-	ggOi2blAwuHhpFw5QDqdoC7VaajtNA6OqXiB4DDkd6VqvIFZ82T6FeP1AmsfDCwBg+V4sCgmAaK0j
-	mvKvRAb4MC0TfDp0rHyX0gT+oNHSz4wOR1JTC2X56T6Ujq0nOhbKYGcPbc8Ex7rLO2SgxCB7InYz9
-	pv7Jx+WQnhQCsp/R/zBZLR5p+QMoxaO/pq/mxIXly9dkbJxdLKifLeauNPUtrCQj65oEcdoepCivc
-	A+XaKBFNTpTc+OY+W5lwplzzMva2JT4/QMHQfm23NvsutXeftWWiazEqOTejZMth+aQty/7uoDHtg
-	p4kD/n0Q==;
-Received: from [193.77.36.193] (port=54788 helo=rok-trip.kanardia.eu)
-	by th8.neoserv.si with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.99.4)
-	(envelope-from <rok@kanardia.eu>)
-	id 1wkhHh-00000001fP1-22Ww;
-	Fri, 17 Jul 2026 14:03:17 +0200
-From: Rok Markovic <rok@kanardia.eu>
-To: Heiko Stuebner <heiko@sntech.de>,
-	Sandy Huang <hjc@rock-chips.com>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
+	id 1wkhLA-00000002Dur-2aoG
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Jul 2026 12:06:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PI7fZ0YuMkpMKxexrFAD0eC2fqCgGrXGDdmsqtPH6N2IwizPnh8u5bgAgZVFnivstPri0nJDfVPXMHmA6S5M5iCdkjf6ovfGYz73mnD1C9XQ0XMxVbgZzVvZSsxBx+DAgHQbwRljesQy/MI3B9xPpKzzIX93pmKOmU+UStKx4chptM64IKM3D4NMgTnuNqgY6SGwIZNTvgZbW/ZuJznNbc4pK0Kc6InrdI6CfbPnYhxVBvLwJPUdI5LQleo0pBX3Q8cS/Hx1s6lw2s/L3G16Lnb9b40cT9yVdA/Q+SLzi6uciDlkldIO89PWQNiY06lqMs/vD1R9BIooV6pT/2Lz2Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1emgn/47ILomSDWY6IekTb/COWW8oiLTOuIeRTPN6jc=;
+ b=D4KgeC9DzOZ6LrvP0uGqHsBe/opFvsefRR0jY11vPKBFSxSBXPmhE6y8c8FN9Sb6sCJrlXWoBKHrCcui4h0Ey1w5j8P1WoLqfyFYArlaTLQggO5qldlpjmtzlOBUDT45rE8JVhfi6Fj6xB07+M7pmYTAkQTBf1GWuEhYR/1IsY2psSTr/YwwEQ+zg+dPaAfdQNf3xGvhNa7qgXAiQ/jU1+B1hRnEQR6roRLR3SqL1tR4JohKwrkGjCsN/19++3IOIKOYF7W69CgFutKPHqh6jdA99Ev84wECP7YnUrctberXDwsTHewo08q2bUYsxgsUUSaCkwOipLptPO9RKHEBcQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1emgn/47ILomSDWY6IekTb/COWW8oiLTOuIeRTPN6jc=;
+ b=fDjWaOD7KJ+tO5LY3hHBqKBgPHlg9WcmZTlMO6athqxgxYkCKcqnqIY/5DjLJXXD4wHf7dbsLsaphdqHmGZD2oRQzBeIRhOydgZtI7OF2shOBL1Tqx3PyjsbB1iMyjGZuNoe+oXqyauovO8YffgSMEDMZ4fxGYP30D2TZ4Ah9pP0eCMS9jZ/xNPXvRC02zBBEZfpBHUSDyMzlobMqrCdIt0qObfIkm7LshCd4E0hl5vToAC7uENaO0czyHq+FWudaVrS1Bj4zMX9/V++v4RHxTV0a+nbBVE/KLPBB2e+t3fEcozP8vModVoPv3lkRK4HMu7EB7p9+OWLg3eQ5+/YBQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from GVXPR04MB12290.eurprd04.prod.outlook.com
+ (2603:10a6:150:319::13) by PA4PR04MB7645.eurprd04.prod.outlook.com
+ (2603:10a6:102:eb::14) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.12; Fri, 17 Jul
+ 2026 12:06:46 +0000
+Received: from GVXPR04MB12290.eurprd04.prod.outlook.com
+ ([fe80::1739:3404:2175:33dd]) by GVXPR04MB12290.eurprd04.prod.outlook.com
+ ([fe80::1739:3404:2175:33dd%6]) with mapi id 15.21.0223.011; Fri, 17 Jul 2026
+ 12:06:46 +0000
+From: Ioana Ciornei <ioana.ciornei@nxp.com>
+To: Frank.Li@nxp.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org
+Cc: vladimir.oltean@nxp.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Alibek Omarov <a1ba.omarov@gmail.com>,
-	Rok Markovic <rok@kanardia.eu>
-Subject: [PATCH 4/4] arm64: dts: rockchip: rk356x: add LVDS node
-Date: Fri, 17 Jul 2026 14:00:05 +0200
-Message-ID: <20260717120005.2087386-5-rok@kanardia.eu>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260717120005.2087386-1-rok@kanardia.eu>
-References: <20260717120005.2087386-1-rok@kanardia.eu>
-MIME-Version: 1.0
+	imx@lists.linux.dev,
+	linux@ew.tq-group.com
+Subject: [PATCH v3 00/11] arm64: dts: describe the Lynx 10G and 28G SerDes blocks for Layerscape SoCs
+Date: Fri, 17 Jul 2026 15:06:24 +0300
+Message-Id: <20260717120635.2118610-1-ioana.ciornei@nxp.com>
+X-Mailer: git-send-email 2.34.1
 Content-Transfer-Encoding: 8bit
-Authentication-Results: th8.neoserv.si;
-	auth=pass (PLAIN) smtp.auth=rok@kanardia.eu
-X-NEOSERV-MailScanner-Information: Please contact the ISP for more information
-X-NEOSERV-MailScanner-ID: 1wkhHh-00000001fP1-22Ww
-X-NEOSERV-MailScanner: Found to be clean
-X-NEOSERV-MailScanner-SpamCheck: not spam, SpamAssassin (not cached,
-	score=1.31, required 7, ALL_TRUSTED -1.00, BAYES_50 0.80,
-	KAM_DMARC_QUARANTINE 1.50, KAM_DMARC_STATUS 0.01)
-X-NEOSERV-MailScanner-SpamScore: s
-X-NEOSERV-MailScanner-From: rok@kanardia.eu
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - th8.neoserv.si
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - kanardia.eu
-X-Get-Message-Sender-Via: th8.neoserv.si: authenticated_id: rok@kanardia.eu
-X-Authenticated-Sender: th8.neoserv.si: rok@kanardia.eu
+Content-Type: text/plain
+X-ClientProxiedBy: FR4P281CA0100.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:cb::14) To GVXPR04MB12290.eurprd04.prod.outlook.com
+ (2603:10a6:150:319::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GVXPR04MB12290:EE_|PA4PR04MB7645:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4319c368-8e42-4709-7bfb-08dee3fbdfc7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|23010399003|19092799006|3023799007|10067099003|5023799004|11063799006|56012099006|18002099003;
+X-Microsoft-Antispam-Message-Info: X+d3T/Q837ZiBR71LjfGGwbm/AyCDD+t1J1YjSq7uapk/yPoPv/dIGX94yZApU7twfqmoeq/T/6jFwb9qyhf+E9rnV16MexcvAcsxxTUOvw9tI4e5j7W2QVdRtvRaMNdVQLAYSA1XcV4GAdUFE7tqV+CB01dylU/qZ+aFeBTEx5NGmNDqdbM16cBunDfNSVo/ByxuCfajyTOpT+POkAKenEi+ytA53Jqq7rexXOqxaiVFpAQgOzQ6ddBiDP8/Hab3EuBjhRKv17E4kG7Pe5ucW7DMsJ51mdyZ7D3jvOFtF3D2jVAa5kzCowAGLUif0JyOfMCZrwi4RoLcr+tSrsLYfe70tYDbwx+WcaAJJfY5mqLSxbXrFUtWM83//W4dYpb+sObf+wvyoeMzDWsIKISaJIt4DNgyQwC1zI9aBDlteeL9VHChtn5Wrg2n0Rvckvck0WsH2tdjXyzWyA66VUYdljUfkaZvg3HvFC669kNlo1A0fWAHVWAUz58F0NzVRRl+KxRkewckW/n3enm4/MKRLDHCVOwWX5Bv1WpgJicEcG+R0+7sZ9Tupn/ftQpwN1rkOo04gQrQMga8DavKb1zetZ1r/Mbz8gjay9cVi3rjlBujrccUVHxzauRMGO+2K5k2oDBH+eIlpV1BdzZS/0dTQR6KkdkCKWh+YS5mN15zGc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12290.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(23010399003)(19092799006)(3023799007)(10067099003)(5023799004)(11063799006)(56012099006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Q7gYhTAUDPdRXJ3o1kpKeWFShHSBhIzveaQZ9DHSLyix0aQkd2xfdJldTPT3?=
+ =?us-ascii?Q?tuR7LdpY9SeuoyAA4fDCEB5U0JffOatXqRVYpnbuDorpfld6aiA7o8OQ1OlU?=
+ =?us-ascii?Q?yRnHm3LJdHfC++zhiyDLgCdU8VT6linQBOP7+rZ2ggbcO9SHxuv6MN3VEkxD?=
+ =?us-ascii?Q?HK71f1mW5C79J8h3rhCksziGxlCEPWk5VDFEwCRT8nWV8LWFWevnykH+F/cs?=
+ =?us-ascii?Q?wF/8qvAaT16JCgA0kLoMbTIwFGACIz17fNV3J6k9pBhxpg/S2+9byT+mYMda?=
+ =?us-ascii?Q?6oreXZQMDEZHr0hbvsymRRnhxXT2NCLEkFl6boXWIGagGVwLAqYywhXQbljT?=
+ =?us-ascii?Q?45HCl60TpDU7sernNXDEwECFrFmuMaZZaOW5UbiYCVpcDDPPqs0ntXTgbZXi?=
+ =?us-ascii?Q?aGV6V8J0ChhRo/axS/+gfcJTpPZmJRmRNz+ZLi0qozPTfa26g0zBohpmiiTA?=
+ =?us-ascii?Q?DB+vFUmWncpcI3Sq0C6SbsNd8/g+jfAw288ruo6WtzUIcxRYJaIykTdIl0N7?=
+ =?us-ascii?Q?FsA9afuEhB1H/h9Ll6KJH7eFht9N3h2sp2nomy1fc2MsY5A4dAzJQhZX8mkP?=
+ =?us-ascii?Q?r2j/RCrtvksi3RokaGrRWY03+uQGSYjECcOLuJHWGPndlTAGzs7DuioA9BAv?=
+ =?us-ascii?Q?DttV8rWVZVBi4MDTPcwXXDjNUSsFFtFySOfQbHh8O8nnYPUnt3jA4yj8lx/B?=
+ =?us-ascii?Q?VNXOqjUX4SFG+Jk/X8Wx4VrjgppdGi9VR/AHN3GShqZ+as96CInGUWTgVz25?=
+ =?us-ascii?Q?5GcbwcYsFV5kPa4e22bp7I7SmrZZp6RLg/qBlkWAyV5GX963NmGE1Ci8cgW2?=
+ =?us-ascii?Q?DC9lxCzDW3m3GUyJ7G5//H9JImrjPBVfnpm1izs+f+ME1E/r956eJVrytkLa?=
+ =?us-ascii?Q?hlfcC5joctXgnsn2V4NwIfrkkkbydy7EGgsk/F5WljN0/KsyhsaPvLkiJtzF?=
+ =?us-ascii?Q?Af7kKHNL1oVuG40cOFLnx9grT0QLrpb2VY4kF+/hdSt/Gcxih2e3tmZHZbsy?=
+ =?us-ascii?Q?ZQh/3sujeNLx8vGAXTmgXqX68slqYLVat/8Zm52azI8/tm5aZjI/pdUCA2Nw?=
+ =?us-ascii?Q?BM6G4UUsL+2HpHAA0YgJm1QEY6vdJB/ldISWV6GXXYOCdo5mtK2n6PyqDu13?=
+ =?us-ascii?Q?bzQQBYK+bPNxz7rUCNrYaRt5Z98oXPSpbQlEyDrgw/JNWkIvDLSpHnrBgYag?=
+ =?us-ascii?Q?HrucQS2TJD9lY2q93EcX4t/y07ghXO1lycWoD7efkuk8FyW9AnJQ3/J71ctM?=
+ =?us-ascii?Q?DdRzM/eDEaAIBgsN7kaSPvGpe+3ilwkmwX4/vtQAl3WNP3bbxOHL140qWBLK?=
+ =?us-ascii?Q?twoQj6a2Oc/5hDb7ZE5b8faNwGDwc5aMjk1G1O/0e4r3tNNCV/m5Dl7+MWfX?=
+ =?us-ascii?Q?BtxmfsQFEwBmVgFwZUwpKBEe+dNeYOqaNGUf4oo8DJE0Y8hwiFk0qUiZ0l4T?=
+ =?us-ascii?Q?74gTpCYMqSmT2mVM5D/ASgzEJEQ86eaaK5BWyVDdZA2nQbhdbLkECx2NmTUR?=
+ =?us-ascii?Q?keMzjIRyK2+IClf1Dueo6qFEuL8KlcNI2jx/pw04Vdr3UN+gt0iR8K/lLQEq?=
+ =?us-ascii?Q?x9brxvXew8H9FKnbI7EH/MrfQUgNhUHC9bz4i0tC1qzS6BD94eA9ZAZjuRBn?=
+ =?us-ascii?Q?0mb5JkpkrJz+uA1DO8/Rzl3hWx2rxMJz1aZ4MSpaNJStLnSmydrA+y6fOPLI?=
+ =?us-ascii?Q?QwIDB+DIa84rEKFhe7O0YUfr+5O1jLEyZmRDRRBHSNl2uxPb5rYFmwKrawoC?=
+ =?us-ascii?Q?vNzynOmYAw=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4319c368-8e42-4709-7bfb-08dee3fbdfc7
+X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12290.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2026 12:06:46.5008
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 2XTmiP8F66+D+PxNNbjecR6bpYiUvDy/gi0QbQBppEx8irIJQ/D1VS69TjwApdjXaYt3V8RYBYWSfY1CC7QLCw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7645
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_050324_120770_D05605B1 
-X-CRM114-Status: UNSURE (   7.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260717_050652_671133_24780E34 
+X-CRM114-Status: GOOD (  18.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,57 +140,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the LVDS transmitter node. It has no register block of its own -
-it is programmed through the GRF and borrows the MIPI DSI0 D-PHY - so
-it carries no reg, only the DSITX_0 pclk, the phy and the VO power
-domain.
+This patch set adds the device tree nodes for the Lynx10G SerDes blocks
+found on the LS1028A, LS1046A, LS1088A and LS2088A SoCs.
 
-Disabled by default; boards that route LVDS enable it along with
-dsi_dphy0 and wire lvds_in to a VOP2 video port.
+The first 5 patches slowly change the LX2160A DTS support to a new
+structure which does not use any delete-node or delete-property
+directives. This is a direct result of the discussion with Frank in the
+v2 of this set:
+https://lore.kernel.org/all/akwAmzAbtg0Ejey0@SMW015318/
 
-Signed-off-by: Rok Markovic <rok@kanardia.eu>
-Assisted-by: Claude:claude-opus-4-8
----
- arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 25 +++++++++++++++++++
- 1 file changed, 25 insertions(+)
+Patches 5 and 6 transition the LX2160A and LX2162 SoC dtsi to use the
+device-specific Lynx28G SerDes compatible while the remainder of the set
+adds the SerDes block descriptions for the LS1028A, LS1046A, LS2088A and
+LS1088A SoCs.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-index 64bdd8b..9244b55 100644
---- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-@@ -878,6 +878,31 @@
- 		};
- 	};
- 
-+	lvds: lvds {
-+		compatible = "rockchip,rk3568-lvds";
-+		clocks = <&cru PCLK_DSITX_0>;
-+		clock-names = "pclk_lvds";
-+		phys = <&dsi_dphy0>;
-+		phy-names = "dphy";
-+		power-domains = <&power RK3568_PD_VO>;
-+		rockchip,grf = <&grf>;
-+		rockchip,output = "lvds";
-+		status = "disabled";
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			lvds_in: port@0 {
-+				reg = <0>;
-+			};
-+
-+			lvds_out: port@1 {
-+				reg = <1>;
-+			};
-+		};
-+	};
-+
- 	qos_gpu: qos@fe128000 {
- 		compatible = "rockchip,rk3568-qos", "syscon";
- 		reg = <0x0 0xfe128000 0x0 0x20>;
+Changes in v3:
+- Changes how the LX216XA based SoC dtsi files are structured.
+- Split the enabling of serdes_1 into a separate patch
+- Split the LX2162A changes to another patch
+- Move the status property to be the last for serdes_3
+- Move the changes to the new fsl-lx2160a-serdes.dtsi file
+
+Changes in v2:
+- Enable serdes_1 on all board DTs that has consumers for it.
+- Use the proper name for serdes_3 in fsl-lx2162a.dtsi.
+- Remove paragraph from commit message which mentioned some consumer
+changes that are no longer needed nor part of the commit.
+- Change the size of the SerDes region to 0x2000
+
+Ioana Ciornei (8):
+  arm64: dts: lx2160a: explicitly enable serdes_1 node
+  arm64: dts: lx2160a: extract the PCIe nodes into a separate dtsi
+  arm64: dts: lx2160a: extract the SerDes nodes into a separate dtsi
+  arm64: dts: lx2160a: extract the PCIe from LX2160A Rev2 into a
+    separate file
+  arm64: dts: lx2160a: split the dtsi to avoid delete-property
+  arm64: dts: lx2160a: transition to device-specific SerDes compatible
+    strings
+  arm64: dts: lx2162a: transition to device-specific SerDes compatible
+    strings
+  arm64: dts: ls1088a: describe the Lynx 10G SerDes blocks
+
+Vladimir Oltean (3):
+  arm64: dts: ls1028a: describe the Lynx 10G SerDes
+  arm64: dts: ls1046a: describe the Lynx 10G SerDes blocks
+  arm64: dts: ls208xa: describe the Lynx 10G SerDes blocks
+
+ .../arm64/boot/dts/freescale/fsl-ls1028a.dtsi |  29 ++
+ .../arm64/boot/dts/freescale/fsl-ls1046a.dtsi |  60 ++++
+ .../arm64/boot/dts/freescale/fsl-ls1088a.dtsi |  58 ++++
+ .../arm64/boot/dts/freescale/fsl-ls208xa.dtsi |  98 +++++++
+ .../dts/freescale/fsl-lx2160a-bluebox3.dts    |   2 +-
+ .../dts/freescale/fsl-lx2160a-clearfog-cx.dts |   2 +-
+ .../freescale/fsl-lx2160a-clearfog-itx.dtsi   |   4 +
+ .../dts/freescale/fsl-lx2160a-half-twins.dts  |   4 +
+ .../dts/freescale/fsl-lx2160a-honeycomb.dts   |   2 +-
+ .../dts/freescale/fsl-lx2160a-pcie-mbvl.dtsi  | 176 ++++++++++++
+ .../boot/dts/freescale/fsl-lx2160a-rdb.dts    |   4 +
+ .../boot/dts/freescale/fsl-lx2160a-rev1.dtsi  |   9 +
+ .../boot/dts/freescale/fsl-lx2160a-rev2.dtsi  | 188 +------------
+ .../dts/freescale/fsl-lx2160a-serdes.dtsi     | 167 ++++++++++++
+ .../dts/freescale/fsl-lx2160a-tqmlx2160a.dtsi |   2 +-
+ .../dts/freescale/fsl-lx2162a-clearfog.dts    |   6 +-
+ .../boot/dts/freescale/fsl-lx2162a-qds.dts    |   2 +-
+ .../dts/freescale/fsl-lx2162a-serdes.dtsi     |  86 ++++++
+ .../arm64/boot/dts/freescale/fsl-lx2162a.dtsi |   9 +
+ .../{fsl-lx2160a.dtsi => fsl-lx216x.dtsi}     | 181 ------------
+ .../dts/freescale/fsl-lx216xa-pcie-gen3.dtsi  | 257 ++++++++++++++++++
+ 21 files changed, 974 insertions(+), 372 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/freescale/fsl-lx2160a-pcie-mbvl.dtsi
+ create mode 100644 arch/arm64/boot/dts/freescale/fsl-lx2160a-rev1.dtsi
+ create mode 100644 arch/arm64/boot/dts/freescale/fsl-lx2160a-serdes.dtsi
+ create mode 100644 arch/arm64/boot/dts/freescale/fsl-lx2162a-serdes.dtsi
+ create mode 100644 arch/arm64/boot/dts/freescale/fsl-lx2162a.dtsi
+ rename arch/arm64/boot/dts/freescale/{fsl-lx2160a.dtsi => fsl-lx216x.dtsi} (86%)
+ create mode 100644 arch/arm64/boot/dts/freescale/fsl-lx216xa-pcie-gen3.dtsi
+
 -- 
-2.43.0
+2.25.1
 
 
