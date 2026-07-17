@@ -4,117 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 096BBC4451B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 15:40:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C0C2C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 15:41:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xq+wp583z5Dgaf7ED96floun2T/tzYN8/kIia0bn+j4=; b=KwCahxKLAj5dBjKpxMjRJI8zoa
-	pcsZF36hXZ2eI9rXynlhCkZRxYEYTryRK4hk4vzbSS4PyCN86Td10atqQySasXZoaIgXD++3FmNSp
-	zTJeDlzNCKqCLFRqcTEtbLf8lMoEMTqPD2LUtp69bIMMQqBe35qDLuomFqdKHSA+7vglbL76N0NJB
-	qGywFDYe/hcbAFZuChMnaMtGt25GCsCyheqYP8guZkwQ5syjSmwTp4lAIXprNcknHuRhRBU5qe1DT
-	fkfA13Z17f/nVZRE3x1yQFe4hXQlfcyTf+qb4CqiaW32/b/dftfbawmskfPlAezp9Lq3qjroLHFTQ
-	teWYbGOQ==;
+	bh=uiFJW7yDa7Q593qaNVa5df8mhuriHuxHGUsJACa+pQU=; b=vKt4Q2lkMlEFR6L9KYOAxi5ntp
+	6h3yUvkOpntLsg4WPmXmy+WfShTCTowrTPytopju3si+N6uEvWDruUeDuh5OmfkggGJjlCLjn5oo8
+	JZHkM0OA2FwN4YWJqOPOh1DHbBb6aDdan06WhmvaJa7wgMWI22hmCXErqAtAOq8pBkVa5eP4XbpBq
+	2+8G+t+UB+mAvgsCKEmc/Nvr5hQ0bcOWnuAGTYok0w00IwZV9XIy0sAF39/FckHGx63M0DhybjL+P
+	/t7HF+7h1IcjN96hH45Uq6gwHdRpDvhSkxcyIy7RP4WKpLoD+6AXJtoxJ95tfjioH2CZerFebjdcm
+	AbDpg+Sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkkfY-00000002dYx-2vKl;
-	Fri, 17 Jul 2026 15:40:08 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wkjal-00000002UBC-3K01;
+	Fri, 17 Jul 2026 14:31:07 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkkfX-00000002dYh-1l6v;
-	Fri, 17 Jul 2026 15:40:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Xq+wp583z5Dgaf7ED96floun2T/tzYN8/kIia0bn+j4=; b=fVnULtKzp8+R4/JMTcAEX2K7rQ
-	e/UIzNSUY2ts7M8m63xp8CPRCx7CSV/SyUYZu8bjkYb7A7gr7gnvak2C1Zg2h2EA2gPz1YVO8+O+b
-	ICrBHIAFXxdZC4OLWI5gJ1fUl+AWml0+ywqIwMDtGW0pvqTYdGxmUE8PjaGjd0Ybd42zha/zNkf6T
-	RCwuV5IAkWXBWHmt5Pe3SjzN0rPfBa1SwQno7LYc/ThlMSBBXvMkVS/JjllyYVWmIPJis5qOeM48O
-	hZT70ZEi6vmJqrgOb83RKxSON86rXsO5sro9qzo+tXMhLUj/aka1c77QjWJKeqGDXkqW/qtILs4s3
-	T/6fqchw==;
-Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wkkfT-0000000F0MH-3ATu;
-	Fri, 17 Jul 2026 15:40:06 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 66HFcZTm9227495, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1784302715; bh=Xq+wp583z5Dgaf7ED96floun2T/tzYN8/kIia0bn+j4=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=tChzxZZuw/EEvSWU2UNDR8ArudcgTBXIesf41mAHOesM0n1+yI3Z3RfWaw8XLTM4r
-	 7yI8RMjFFRTWGrZa3ieXtkYpyWAsEoJ7xukiSUcay+Lqqel3kGVqHKKv0k2TCnb9XY
-	 bJXxUI6DN7ztZUQ1DhyEiBc2Ef47KzJXgzYTe+qH73TQdcQwawiZNEl0ivQZ498k99
-	 P8DCnS0QuShQ/nmpZalpLcoz2Pm23R7zDuhTlzZg9F4EPjwjhN/3ImEbCim9rUkYb+
-	 ik494Uq0VRMeUbInseldfLQEnxXdvWtfBEk6syAxGgHBAlCNYVyf5ZBsggmrvf50yw
-	 H5FxENZVPZz8Q==
-Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 66HFcZTm9227495
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 17 Jul 2026 23:38:35 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Fri, 17 Jul 2026 23:38:36 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS06.realtek.com.tw (10.21.1.56) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Fri, 17 Jul 2026 23:38:35 +0800
-Received: from RTKEXHMBS06.realtek.com.tw ([::1]) by
- RTKEXHMBS06.realtek.com.tw ([fe80::e6fd:5a3f:8946:92c4%10]) with mapi id
- 15.02.2562.017; Fri, 17 Jul 2026 23:38:35 +0800
-From: =?big5?B?WXUtQ2h1biBMaW4gW6pMr6enZ10=?= <eleanor.lin@realtek.com>
-To: Andy Shevchenko <andriy.shevchenko@intel.com>, Michael Walle
-	<mwalle@kernel.org>
-CC: "Michael.Hennerich@analog.com" <Michael.Hennerich@analog.com>,
-	"afaerber@suse.com" <afaerber@suse.com>, "andy@kernel.org" <andy@kernel.org>,
-	"brgl@kernel.org" <brgl@kernel.org>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, =?big5?B?Q1lfSHVhbmdbtsDgsq7LXQ==?=
-	<cy.huang@realtek.com>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "dlechner@baylibre.com"
-	<dlechner@baylibre.com>, =?big5?B?SmFtZXMgVGFpIFvAuafTrnBd?=
-	<james.tai@realtek.com>, "jic23@kernel.org" <jic23@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "lars@metafoo.de"
-	<lars@metafoo.de>, "linus.walleij@linaro.org" <linus.walleij@linaro.org>,
-	"linusw@kernel.org" <linusw@kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-gpio@vger.kernel.org"
-	<linux-gpio@vger.kernel.org>, "linux-iio@vger.kernel.org"
-	<linux-iio@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-realtek-soc@lists.infradead.org"
-	<linux-realtek-soc@lists.infradead.org>, "mathieu.dubois-briand@bootlin.com"
-	<mathieu.dubois-briand@bootlin.com>, "nuno.sa@analog.com"
-	<nuno.sa@analog.com>, "robh@kernel.org" <robh@kernel.org>,
-	=?big5?B?U3RhbmxleSBDaGFuZ1up96h8vHdd?= <stanley_chang@realtek.com>,
-	=?big5?B?VFlfQ2hhbmdbsWmkbLZoXQ==?= <tychang@realtek.com>, "wbg@kernel.org"
-	<wbg@kernel.org>
-Subject: RE: [PATCH v3 3/7] gpio: regmap: Add gpio_regmap_operation and
- write-enable support
-Thread-Topic: [PATCH v3 3/7] gpio: regmap: Add gpio_regmap_operation and
- write-enable support
-Thread-Index: AQHc4cATPP5CAXxOA0S9aBj6QrzqgrYJ8C6AgFvXxWCACcZxAIAAIc4AgAALpoCAAAi9AIAAFRKAgAB1ogCAAW1TgA==
-Date: Fri, 17 Jul 2026 15:38:35 +0000
-Message-ID: <82f3f73764ac4553a8e2743bbebd90e8@realtek.com>
-References: <d301ba0cd45d49d59e6a014188306ec9@realtek.com>
- <20260716062614.1507243-1-eleanor.lin@realtek.com>
- <aliV4u6_xzx9D9Aq@ashevche-desk.local>
- <DJZVLZ4LLD9E.3MPLYYXT1VQ9R@kernel.org>
- <alim_HGTD5RCupav@ashevche-desk.local>
- <DJZXVOGZ3ZTH.20P8NY7DON0X7@kernel.org>
- <alkbVkB5KNNR7ffN@ashevche-desk.local>
-In-Reply-To: <alkbVkB5KNNR7ffN@ashevche-desk.local>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-x-originating-ip: [172.16.3.62]
-Content-Type: text/plain; charset="big5"
-Content-Transfer-Encoding: base64
+	id 1wkjaj-00000002UAg-0Omb
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Jul 2026 14:31:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1784298661;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=uiFJW7yDa7Q593qaNVa5df8mhuriHuxHGUsJACa+pQU=;
+	b=dt6HE0zcyJd1FzVvI1F6nqYq0Lxbf0RoXlJUPZy1TLrMeie1+bhwejEgJEvK89BR4QJLNU
+	AP3q0FJ0fMkGyrKceVLddQPbKTM1v18Wf+ge2vhe3ZJUh95ZGSYVf1IeB94U1eaC7l5ANy
+	wE3H71DHMPLE69t4RZXIPUUV34+1rC4=
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com
+ [209.85.160.197]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-259-w4CJtdYXMGmmNpZPpspNtA-1; Fri, 17 Jul 2026 10:31:00 -0400
+X-MC-Unique: w4CJtdYXMGmmNpZPpspNtA-1
+X-Mimecast-MFC-AGG-ID: w4CJtdYXMGmmNpZPpspNtA_1784298660
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-51c26012cd0so136179151cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 07:31:00 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784298660; x=1784903460;
+        h=user-agent:in-reply-to:content-disposition:content-type
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=uiFJW7yDa7Q593qaNVa5df8mhuriHuxHGUsJACa+pQU=;
+        b=sQcU6yQJSdUCxmIXfoengEUx1yRPF05WCesE/imQvBit3Vrks29XRzlSlUlpes6NdY
+         DzyKdB1tYOm64VDesUBX/EHGtyxVwNZwbxXcSB0yKHfYEcPfulZtQ7znTRIBeG9VYLqF
+         XffaiMBHnYBJuUOtzWZ+FJMrlAjV7I+BQaGVAGdFFcTaBNUhB3uIhOLwUilYXd0tG120
+         tKtPChBUbT+CPDvaje7vxRsuQTg1/34KR/EC5znKpR6pwOasRLY6KG6YGY2HK+8ywBEc
+         HMPM8H+jIrnw3JENsGG4Ks/onDfyxaho9ZA8DMHA9QMVFqmSIoIPIzqa1oAzVGYTtHv/
+         jDTQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rq6A5kf4mvYEi/AOUjFXhzxEfsA6CxM5b/pRkLgGmfzEocmz2eDWeZKkjMvSX6Vb4C82qfgAO7cNC8qiAmLeFQb@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZFyv85v71HW3CX3frV8ZUQNS0ZmDIO2obNeEC+8R5v4xrLL7y
+	Zlix4J/lrlk5bgAN2Yl+zMFITJ7POEHxNZ0GYVp9fShIGD3RxyNr5sNWP9yq5I0Ck8RnnHM0flc
+	S0HtaSIJaBNG+WDsDHZQePFKEjLN/3clisOGbU3WPf+yBz4vF+IkdfF2ItHCw3vE3LWT1jvsFod
+	Li
+X-Gm-Gg: AfdE7cnOc1XTrLgRFQ9rfJ642UP6mMHiiPznlON9dubrOJRE9naym2UAVyQl1NsSoxQ
+	ekq4zQoJK1OATXoCCKFAbt5b7dyzhuTEdPG3WpaorsoXYh99jO0yXAHmWl9jJA9QRjqJpgi08xG
+	imyjxhRQpgVVi4g6eJF//jNV9JCmhOUQa1AI3nbSJhkS3sganIT6rtNnh7svflBGg4rIgDVtVqM
+	Wwb+9OcHmRe9lQn2m9Ba/A7mDSk8zuOKz7ofSpAZa1LAWDoKCXw2laMRxtt46pg+NrXswcoWWNB
+	2/kzlnUNChds6/BPg1pOqJoJOIaT0Ks1H8Q/Xk8jOwL2ND502DXZetNEB6B1UCV5QLuWG3wkFsm
+	ICVt7nmmI0zQk+l4h5Nv28ZA28hjdpMh82Ec=
+X-Received: by 2002:ac8:59d4:0:b0:51b:ff45:bc82 with SMTP id d75a77b69052e-5213daa1d49mr25658921cf.54.1784298659437;
+        Fri, 17 Jul 2026 07:30:59 -0700 (PDT)
+X-Received: by 2002:ac8:59d4:0:b0:51b:ff45:bc82 with SMTP id d75a77b69052e-5213daa1d49mr25658361cf.54.1784298658914;
+        Fri, 17 Jul 2026 07:30:58 -0700 (PDT)
+Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-52149a3ce4fsm13091681cf.0.2026.07.17.07.30.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 17 Jul 2026 07:30:57 -0700 (PDT)
+Date: Fri, 17 Jul 2026 10:30:55 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Joakim  Zhang <joakim.zhang@cixtech.com>
+Cc: "mturquette@baylibre.com" <mturquette@baylibre.com>,
+	"sboyd@kernel.org" <sboyd@kernel.org>,
+	"robh@kernel.org" <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+	cix-kernel-upstream <cix-kernel-upstream@cixtech.com>,
+	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v9 2/4] clk: cix: add sky1 audss clock controller
+Message-ID: <alo8n8NmiB_8l7PL@redhat.com>
+References: <20260709120125.3997078-1-joakim.zhang@cixtech.com>
+ <20260709120125.3997078-3-joakim.zhang@cixtech.com>
+ <allvw2ZiiyX5SGIk@redhat.com>
+ <SEYPR06MB6226BD151ABBB192AEC53BA482C62@SEYPR06MB6226.apcprd06.prod.outlook.com>
 MIME-Version: 1.0
+In-Reply-To: <SEYPR06MB6226BD151ABBB192AEC53BA482C62@SEYPR06MB6226.apcprd06.prod.outlook.com>
+User-Agent: Mutt/2.4.0 (2026-06-19)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 59AjXCK1oYldMVcP0b0Latybb3evTk7iwwPIRpSTWVQ_1784298660
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_164004_451162_FA5A70C1 
-X-CRM114-Status: GOOD (  37.77  )
+X-CRM114-CacheID: sfid-20260717_073105_205373_940B6FF7 
+X-CRM114-Status: GOOD (  17.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,64 +121,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGksDQoNCj4gDQo+IE9uIFRodSwgSnVsIDE2LCAyMDI2IGF0IDEyOjU1OjM3UE0gKzAyMDAsIE1p
-Y2hhZWwgV2FsbGUgd3JvdGU6DQo+ID4gT24gVGh1IEp1bCAxNiwgMjAyNiBhdCAxMTo0MCBBTSBD
-RVNULCBBbmR5IFNoZXZjaGVua28gd3JvdGU6DQo+ID4gPiBPbiBUaHUsIEp1bCAxNiwgMjAyNiBh
-dCAxMTowODo1NUFNICswMjAwLCBNaWNoYWVsIFdhbGxlIHdyb3RlOg0KPiA+ID4+IE9uIFRodSBK
-dWwgMTYsIDIwMjYgYXQgMTA6MjcgQU0gQ0VTVCwgQW5keSBTaGV2Y2hlbmtvIHdyb3RlOg0KPiA+
-ID4+ID4gT24gVGh1LCBKdWwgMTYsIDIwMjYgYXQgMDI6MjY6MTRQTSArMDgwMCwgWXUtQ2h1biBM
-aW4gd3JvdGU6DQo+IA0KPiAuLi4NCj4gDQo+ID4gPj4gPiBGcm9tIHRoZSBhYm92ZSBsaXN0IEkg
-dGVuZCB0byB0aGUgYXBwcm9hY2ggMiwgYnV0IHRoaXMgbWlnaHQNCj4gPiA+PiA+IHJlcXVpcmUg
-dG8gaGF2ZSBHUElPIHJlZ21hcCBsZXZlbCBvZiBsb2NraW5nLiBJJ20gYSBiaXQgbG9zdCBpbg0K
-PiA+ID4+ID4gdGhlIGNvbnRleHQsIHRob3VnaC4gSSBhc3N1bWUgd2UgbmVlZCBhIGZyZXNoIHN0
-YXJ0LCBpZCBlc3QgaXNzdWUNCj4gPiA+PiA+IGEgdjYgd2l0aCBhcHByb2FjaCAyIG9yIDMgaW4g
-cGxhY2UgYW5kIHN1bW1hcml6ZSB0aGUgY2hvaWNlcyBpbg0KPiA+ID4+ID4gdGhlIGNvdmVyIGxl
-dHRlciwgc28gd2UgY2FuIHVuZGVyc3RhbmQgd2hhdCBoYXMgYmVlbiBjb25zaWRlcmVkLg0KPiA+
-ID4+DQo+ID4gPj4gSSBkb24ndCByZWFsbHkgbGlrZSBhcHByb2FjaCAzLiBZb3UnZCBuZWVkIHRv
-IGNoZWNrIGlmIHRoZSByZWdzIG9mDQo+ID4gPj4gYm90aCB4bGF0ZSBjYWxscyBhcmUgdGhlIHNh
-bWUuIFdpdGggdGhlIHNhbXBsZSBjb2RlIGFib3ZlLCB5b3UNCj4gPiA+PiBzaWxlbnRseSBkcm9w
-IHRoZSBmaXJzdCB4bGF0ZSdkIHJlZy4NCj4gPiA+DQo+ID4gPiBJZiBJIHJhbmsgdGhlIHByb3Bv
-c2FscywgdGhlIHdvcnN0IGlzICMxLCB0aGUgYmVzdCBpcyAjMi4NCj4gPiA+DQo+ID4gPj4gQW5k
-IGhvbmVzdGx5LCBpdCByZWFsbHkgc2VlbXMgbGlrZSBhIG9uZS1vZmYuIFdoYXQgY29udHJvbGxl
-cnMsIGFyZQ0KPiA+ID4+IHRoZXJlIHRoYXQgbmVlZCBhIHdyaXRlIGVuYWJsZSBiaXQuIFRoZSBy
-ZWFsIHByb2JsZW0gc2VlbXMgdG8gYmUNCj4gPiA+PiB0aGUgYXNzdW1wdGlvbiB0aGF0IHdlIG9w
-ZXJhdGUgb24ganVzdCBvbmUgYml0LiBJT1cgd2UgZWl0aGVyIHNldA0KPiA+ID4+IG1hc2sgb3Ig
-ZG9uJ3Qgc2V0IG1hc2sgaW4gZ3Bpb19yZWdtYXBfc2V0KCkuDQo+ID4gPg0KPiA+ID4gWWVzLCB3
-ZSBzaG91bGQgS0lTUy4NCj4gPg0KPiA+IEJ1dCBJTUhPICMyIGFuZCAjMyBhcmUgbm90IEtJU1Mu
-IEFwcHJvYWNoIDIgaXMganVzdCBhIHdheSBvZiBhZGRpbmcNCj4gPiBzb21lIGtpbmQgb2YgcHJl
-IG9wIHRvIGEgZ3BpbyBzZXQuIEp1c3QgdHlpbmcgaXQgdG8gYSB3cml0ZSBlbmFibGUNCj4gPiBm
-ZWF0dXJlLiBUaGF0IGtpbmRhIGJvdGhlcnMgbWUuIEl0IG1pZ2h0IGFsc28gYmUgdXNlZnVsIGZv
-ciBvdGhlcg0KPiA+IHRoaW5ncywgdG9vLiBTbyBkb24ndCB0aWUgaXQgdG8ganVzdCB3cml0ZSBl
-bmFibGUuIEFuZCB3aG8gaXMgZG9pbmcgYQ0KPiA+IHdyaXRlIGRpc2FibGUgaWYgaXQncyBub3Qg
-c2VsZiBjbGVhcmluZyBmb3IgZXhhbXBsZS4gUHJvYmFibHkgU29tZQ0KPiA+IGtpbmQgb2YgcG9z
-dCBvcCA6KQ0KPiA+DQo+ID4gQXBwcm9hY2ggMyBpcyBhIHdheSB0byBjaGFuZ2UgdGhlIHZhbHVl
-IG9mIHRoZSB3cml0dGVuIHZhbHVlIC0gaW4gYQ0KPiA+IHJlc3RyaWN0ZWQgd2F5LCBhcyBpcyBp
-cyBqdXN0IGRvaW5nIGEgT1Igd2l0aCBib3RoIHZhbHVlcy4NCj4gPg0KPiA+IEFsc28gYXBwcm9h
-Y2ggMiBtaWdodCBub3QgZXZlbiB3b3JrIGlmIHRoZSBoYXJkd2FyZSByZXF1aXJlcyB0aGUgd3Jp
-dGUNCj4gPiBlbmFibGUgYml0IHNldCBpbiB0aGUgKnNhbWUqIHdyaXRlIGFzIHRoZSBncGlvIHNl
-dCBiaXQuIFRodXMsIHdlIG1pZ2h0DQo+ID4gbmVlZCBib3RoIGFueXdheSBpbiB0aGUgZnV0dXJl
-Lg0KPiA+DQo+ID4gPj4gRm9yIGEgbW9yZSBnZW5lcmljIHNvbHV0aW9uLCB3ZSBzaG91bGQgYmUg
-YWJsZSB0byBjb250cm9sIHRoZQ0KPiA+ID4+IHdyaXR0ZW4gdmFsdWUuIFdlIGNvdWxkIGFkZCBh
-bm90aGVyIC52YWx1ZV94bGF0ZSgpLg0KPiA+ID4NCj4gPiA+IE1heWJlIG5vdCBub3c/DQo+ID4N
-Cj4gPiBCdXQgaWYgbm90IG5vdywgdGhlbiB3aGVuPyBJIHdvdWxkbid0IGFkZCB0aGUgd3JpdGUg
-ZW5hYmxlIGZlYXR1cmUgYW5kDQo+ID4gbGF0ZXIgYSBtb3JlIGdlbmVyaWMgc29sdXRpb24gd2hp
-Y2ggYWxzbyBjb3ZlcnMgdGhlIHdyaXRlIGVuYWJsZQ0KPiA+IGZlYXR1cmUuDQo+IA0KPiBUYWtp
-bmcgaW50byBhY2NvdW50IGhvdyBpdCdzIGRvbmUgaW4gSFcsIEkgdGhpbmsgdGhlIHdob2xlIGFw
-cHJvYWNoIGNhbiBiZQ0KPiBmb2xkZWQgdG8ganVzdCBhIGJvb2xlYW4gZmxhZyAgKG9yIGEgc2lt
-cGx5IGJpdCBzaGlmdCkgaW4gdGhlIGNvbmZpZy4NCj4gV291bGRuJ3QgaXQgd29yaz8NCj4gDQoN
-ClRvIHJlc3BlY3QgTWljaGFlbCdzIHBlcnNwZWN0aXZlIG9uIGtlZXBpbmcgV1JFTi1zcGVjaWZp
-YyBjb2RlIG91dCBvZiB0aGUNCmZyYW1ld29yaywgSSB0aGluayBhZGRpbmcgYSB2YWx1ZV94bGF0
-ZSBjYWxsYmFjayBpbiB0aGUgY29uZmlnIGlzIGEgY2xlYW5lcg0KYXBwcm9hY2guIEl0IGFsbG93
-cyB1cyB0byB3cmFwIHRoaXMgaGFyZHdhcmUgcXVpcmsgd2l0aGluIHRoZSBjYWxsYmFjayBhbmQg
-bGV0DQp0aGUgY29uc3VtZXIgZHJpdmVyIGhhbmRsZSBpdCBlbnRpcmVseS4NCg0KVG8gZW5zdXJl
-IGl0IGlzIHRydWx5IGdlbmVyaWMsIEkgd2lsbCBub3QgaW50cm9kdWNlIGFueSBXUkVOLXNwZWNp
-ZmljIG9wZXJhdGlvbg0KZmxhZ3MuIEluc3RlYWQsIHZhbHVlX3hsYXRlIHdpbGwgcmV1c2UgdGhl
-IGdwaW9fcmVnbWFwX29wZXJhdGlvbiBlbnVtDQooZS5nLiwgR1BJT19SRUdNQVBfT1BfU0VULCBH
-UElPX1JFR01BUF9PUF9TRVRfRElSKS4NCg0KQmVzdCBSZWdhcmRzLA0KWXUtQ2h1bg0KDQo+ID4g
-PiBBcyBwZXIgSVBzLCBTeW5vcHN5cyBJUHMgKG5vdCBleGFjdGx5IEdQSU8pIGxpa2VzIHRvIGhh
-dmUgdGhhdCBraW5kDQo+ID4gPiBvZiAicHJvdGVjdGlvbiIuIFNvLCBmcm9tIEhXIHBlcnNwZWN0
-aXZlIGl0J3Mga2luZGEgcGF0dGVybiwgYW5kIGl0DQo+ID4gPiBtaWdodCBiZSBwb3NzaWJsZSB0
-byBzZWUgbW9yZSBJUHMgKGluY2x1ZGluZyBHUElPKSB0aGF0IGZvbGxvdyBpdCBpbg0KPiA+ID4g
-c29tZSBjYXNlcy4NCj4gDQo+IC0tDQo+IFdpdGggQmVzdCBSZWdhcmRzLA0KPiBBbmR5IFNoZXZj
-aGVua28NCj4gDQoNCg==
+On Fri, Jul 17, 2026 at 09:47:28AM +0000, Joakim  Zhang wrote:
+> > -----Original Message-----
+> > > +static void sky1_audss_clk_remove(struct platform_device *pdev) {
+> > > +     struct device *dev = &pdev->dev;
+> > > +
+> > > +     if (!pm_runtime_status_suspended(dev))
+> > > +             pm_runtime_force_suspend(dev);
+> > > +
+> > > +     pm_runtime_disable(dev);
+> > 
+> > I am fairly certain that remove() is called before the devm handlers are
+> > invoked. The clocks will be shutdown, but there's a window where they are still
+> > visible to consumers. I think you should use
+> > devm_add_action_or_reset() so that the cleanup is called in the expected order.
+> Agreed. remove() runs before devres_release_all(), so force_suspend() tears down the hardware while the OF clock provider is still visible. I'll move the runtime PM cleanup into a devm_add_action_or_reset() registered before the clocks/provider, and drop it from remove().
+
+I don't know which email client you are using but you should fix your
+client so that the text in your response wraps at 80 characters. Also
+add a newline between what you are quoting and your response since it
+also makes things much nicer to read in the archive.
+
+Brian
+
 
