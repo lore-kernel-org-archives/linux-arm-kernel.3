@@ -4,83 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07152C44514
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 08:39:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B6C0C44507
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 08:49:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TJFV9DU5Vwnd8GnMjCDv6CHqBURYy/BG/NXR1r4pGLQ=; b=fmHIfEenlTMyswkko4eDqtrk55
-	O3PGIe9xk+cfzrHqXLi4qUJeHBC9NsbJQqY6J41zzWTNhp1hJ03R5FWbKO+U+DAn9ce5SEP5QgpNS
-	FlLvM/wlrh/dcAFsXMIzkQ2akVw3Bltff1aAy4E9lM0cBXItpJvaBQX4dADpK/2EfhYiDdy0De3Ja
-	K6Cy7FvJ7OoDW1KBgeGcRVeyMkijgG6T/K/uAIydcamivK7L7WeavufiiJYUCz0Ipv00ONjjPZEyi
-	d9kkwM5Xsu9S6kV+ox7ETL7wgCzDLzB+8sIRW+HaJM/IajkJ9qKynB1i+v7THCbbcihtXXVPJ86E9
-	11Youlmg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Yf0pm8fqpIF/cYpev0NfuPXTHX9J6olYRDfRygpeqDs=; b=saQcA9i1rd1MU6GOShTok/XtP6
+	uxeasaWxSUsNw49mYa7+958KhlPMTuBfZOd9msFA2W82jgpvb6q1ZL5lz4KacZd2Ul2Cwt3/cr/ql
+	x/akVtx+b79Lz2ajdQx6nUIj6RI/rEPvpDJfZeTS1KT4fe3do6BKyd0CBZUcfe26zZF3eaSZiCdI+
+	MAmBvrdNCerza8XNgxxL2ExYo+Ytfp4w51SQrrkcd1/8SfF0YO8K8KlIZt+aNWY89e+XqSnmtVEBu
+	EdINVzIdJIohgGKjl+WVpI0m7OzLi+rNiBGRm05oqAWkgaITptENuw5wxcGljBRfLfbsPgM15OqkF
+	1z+MYOVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wke5v-00000001h7E-4Aok;
-	Fri, 17 Jul 2026 08:38:56 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1wkcAs-00000001HWV-26uB;
+	Fri, 17 Jul 2026 06:35:54 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wke5o-00000001h4I-3KRw
+	id 1wkcAi-00000001HT4-40xj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 08:38:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1784277529; x=1815813529;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=A2JhgEKXHwd6DTgUANQltUvF2hrMmXaQUk6VqGURdqU=;
-  b=d9iwyHxpBRNPB4OtO6pnRN0NqO1mWNJToLR4F8BRnu/SLn4aWP+qeMkw
-   JoJKPsxHWaW8CbuetZa8QTRb15XyyGHw+h3reK8PGGlxmFLHdSQiMirQ4
-   G3Iqb/dcfiaHJIzeBucgsj8JldhHAOOc6CFnV0vxxgJzIFt2RSj8mWJ8W
-   r2O17VoZmN7xiqcnIg/Yr0Bsmn+WdKxtfk/u4OB8+OcofbcpUcekqcJXo
-   nsYC/0qU5O3jnU9+6NLbxs9+Zze80v0XbTCA6u7YQRaEyiYLIC+adtJLh
-   hTHFzqcj4VIrWqloir7aDG1oIzZchIXn1x2yA/fcZ+5mPi9nVNd0naXtP
-   w==;
-X-CSE-ConnectionGUID: 9HGhE4naQLW9T60kp+u6Bw==
-X-CSE-MsgGUID: quatCBb0QXaVmpRllyLlEQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11848"; a="102372455"
-X-IronPort-AV: E=Sophos;i="6.25,169,1779174000"; 
-   d="scan'208";a="102372455"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jul 2026 01:38:48 -0700
-X-CSE-ConnectionGUID: Fz46YXghRfCGXVa4fTXzpw==
-X-CSE-MsgGUID: lEkyn+ObSCufQwvwFUxXqg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,169,1779174000"; 
-   d="scan'208";a="261015173"
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.143])
-  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Jul 2026 01:38:45 -0700
-Date: Fri, 17 Jul 2026 11:38:42 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Petar Stepanovic <pstepanovic@axiado.com>
-Cc: Akhila Kavi <akavi@axiado.com>,
-	Prasad Bolisetty <pbolisetty@axiado.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>,
-	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 2/2] iio: adc: add Axiado SARADC driver
-Message-ID: <alnqEnVm9rGTapFB@ashevche-desk.local>
-References: <20260716-axiado-ax3000-ax3005-saradc-v4-0-810527a9d27f@axiado.com>
- <20260716-axiado-ax3000-ax3005-saradc-v4-2-810527a9d27f@axiado.com>
- <alnpMFK6_ZkdWlLi@ashevche-desk.local>
+	Fri, 17 Jul 2026 06:35:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1E4A360A6D;
+	Fri, 17 Jul 2026 06:35:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 9332DC2BCB9;
+	Fri, 17 Jul 2026 06:35:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1784270143;
+	bh=mhJJOiGSAySJ9mUo6G70qcgxDi+mETTMgMGHEkSRrZQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=J2yzw+nhMW8VMhFXrK0Oc8zmL4Yr4ewqnqgBZ2bBKd7n/hG9CUFybZj72yc3ZnUg0
+	 M1452BSW9lH8DIN9UfaEooVHSlaa/mAW133UO9pdaKgeqebsa9F98WTucb0dAcu7d3
+	 QnLGpQNpuUELMaMfwo/HfBmsbjLUjBxhDQnxIGcFwAkVqAVQQGhbHm3+YNWzVmVE3D
+	 fa+w62xgPwpO2OmJ9V69oeVY/M6t0UKabKLlHPj6sI2vjwmGHkuJUw4SbaDi/5O0qX
+	 /tDPtY8QlOhrTFqx1xR4jKSS1iH+cm0Ek9/dtpqsZt5kYHQoNMR1E0C6PqDVmIXLtX
+	 aJkezYvscWq6Q==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7597BC44515;
+	Fri, 17 Jul 2026 06:35:43 +0000 (UTC)
+From: Haoning CHENG via B4 Relay <devnull+Haoning.CHENG.cn.bosch.com@kernel.org>
+Date: Fri, 17 Jul 2026 14:35:36 +0800
+Subject: [PATCH v9 2/3] thermal/drivers/imx: Fix rounding and clamp for
+ i.MX7D alarm
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <alnpMFK6_ZkdWlLi@ashevche-desk.local>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_013848_872182_F9FDD8E1 
-X-CRM114-Status: GOOD (  18.73  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260717-b4-symana21-11221-imx-thermal-support-upstream-6-18-v9-2-75f4af8974f4@cn.bosch.com>
+References: <20260717-b4-symana21-11221-imx-thermal-support-upstream-6-18-v9-0-75f4af8974f4@cn.bosch.com>
+In-Reply-To: <20260717-b4-symana21-11221-imx-thermal-support-upstream-6-18-v9-0-75f4af8974f4@cn.bosch.com>
+To: "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Haoning CHENG <Haoning.CHENG@cn.bosch.com>, 
+ Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784270138; l=1704;
+ i=Haoning.CHENG@cn.bosch.com; s=20260709; h=from:subject:message-id;
+ bh=9D7qX15817iSb+CvnZ+YgaTi5ivABKiNn7DaNl6d+D8=;
+ b=fmFFePCNG9PZ7XUYjFBhZjg4onieYgP36c7WsmnkpLw+X+HxCyGq4YtPLjvAPYaB7ov/3Hjq1
+ XhPzhmUIPReB3uwF+XRu/JyH+Uj9ehTIV5JjZuIxiz7QMBEoqWHdm5V
+X-Developer-Key: i=Haoning.CHENG@cn.bosch.com; a=ed25519;
+ pk=glQGwad/fosRS5gZUJYbLDPPLGe7rFTrTV2VxY/ySdc=
+X-Endpoint-Received: by B4 Relay for Haoning.CHENG@cn.bosch.com/20260709
+ with auth_id=860
+X-Original-From: Haoning CHENG <Haoning.CHENG@cn.bosch.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,71 +89,57 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Haoning.CHENG@cn.bosch.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 17, 2026 at 11:35:01AM +0300, Andy Shevchenko wrote:
-> On Thu, Jul 16, 2026 at 10:53:02PM -0700, Petar Stepanovic wrote:
+From: Haoning CHENG <Haoning.CHENG@cn.bosch.com>
 
-...
+Convert the alarm temperature from millicelsius to degrees for i.MX7D
+using ceiling division instead of integer division, ensuring rounding
+errors do not cause the alarm to trigger below the intended threshold.
+Use DIV_ROUND_UP() for non-negative values and plain integer division
+for negative values, since C rounds toward zero which is equivalent to
+ceiling when the divisor is positive.
 
-> > +static void axiado_saradc_disable(void *data)
-> > +{
-> > +	struct axiado_saradc *info = data;
-> > +
-> > +	regmap_write(info->regmap, AX_SARADC_GLOBAL_CTRL_REG,
-> > +		     AX_SARADC_GLOBAL_CTRL_PD);
-> > +}
-> 
-> Supply regmap instead of info and make this simpler
-> 
-> static void axiado_saradc_disable(void *map)
-> {
-> 	regmap_write(map, AX_SARADC_GLOBAL_CTRL_REG, AX_SARADC_GLOBAL_CTRL_PD);
-> }
-> 
-> ...
-> 
-> > +	regval = FIELD_PREP(AX_SARADC_GLOBAL_CTRL_CH_EN_MASK,
-> > +			    GENMASK(soc_data->num_channels - 1, 0)) |
-> > +		 AX_SARADC_GLOBAL_CTRL_SAMPLE_16 |
-> > +		 AX_SARADC_GLOBAL_CTRL_MODE_MANUAL |
-> > +		 AX_SARADC_GLOBAL_CTRL_ENABLE;
-> 
-> This is not used in the below call, move it closer to its user.
-> 
-> > +	ret = regmap_write(info->regmap, AX_SARADC_GLOBAL_CTRL_REG,
-> > +			   AX_SARADC_GLOBAL_CTRL_PD);
-> 
-> With
-> 
-> 	struct regmap *map;
-> 
-> at the top, this and other will be shorter and easier to follow.
-> And I would dare to use a single line:
-> 
-> 	ret = regmap_write(map, AX_SARADC_GLOBAL_CTRL_REG, AX_SARADC_GLOBAL_CTRL_PD);
+Add clamp() to ensure the hardware register value stays within the 9-bit
+range (0..0x1ff) of the i.MX7D alarm field, preventing silent truncation
+if an out-of-range value is written.
 
-Looking closer at this I think it's a leftover? Since it's an action that does
-disable. This one should only enable chip, right?
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Reviewed-by: Lukasz Luba <lukasz.luba@arm.com>
+Signed-off-by: Haoning Cheng <Haoning.CHENG@cn.bosch.com>
+---
+ drivers/thermal/imx_thermal.c | 12 +++++++++---
+ 1 file changed, 9 insertions(+), 3 deletions(-)
 
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	ret = regmap_write(info->regmap, AX_SARADC_GLOBAL_CTRL_REG, regval);
-> > +	if (ret)
-> > +		return ret;
-> 
-> > +	ret = devm_add_action_or_reset(dev, axiado_saradc_disable, info);
-> 
-> 	ret = devm_add_action_or_reset(dev, axiado_saradc_disable, map);
-> 
-> > +	if (ret)
-> > +		return ret;
+diff --git a/drivers/thermal/imx_thermal.c b/drivers/thermal/imx_thermal.c
+index 38c993d1bcb3..7f7d1116b9d6 100644
+--- a/drivers/thermal/imx_thermal.c
++++ b/drivers/thermal/imx_thermal.c
+@@ -240,10 +240,16 @@ static void imx_set_alarm_temp(struct imx_thermal_data *data,
+ 
+ 	data->alarm_temp = alarm_temp;
+ 
+-	if (data->socdata->version == TEMPMON_IMX7D)
+-		alarm_value = alarm_temp / 1000 + data->c1 - 25;
+-	else
++	if (data->socdata->version == TEMPMON_IMX7D) {
++		if (alarm_temp >= 0)
++			alarm_temp = DIV_ROUND_UP(alarm_temp, 1000);
++		else
++			alarm_temp /= 1000;
++		alarm_value = alarm_temp + data->c1 - 25;
++		alarm_value = clamp(alarm_value, 0, 0x1ff);
++	} else {
+ 		alarm_value = (data->c2 - alarm_temp) / data->c1;
++	}
+ 
+ 	regmap_write(map, soc_data->high_alarm_ctrl + REG_CLR,
+ 		     soc_data->high_alarm_mask);
 
 -- 
-With Best Regards,
-Andy Shevchenko
+2.43.0
 
 
 
