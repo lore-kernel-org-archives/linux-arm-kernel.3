@@ -4,72 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1A4EC44520
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 14:42:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFFB7C4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 14:45:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xiHRHGRCN+D8F05AzRxD1qJuLVX4cK/IR40j35eLsPY=; b=WHCKmDdysymLoNX1WSGOzvNxDM
-	K3JwQJ0yMkqyNahmBr9a2o0q8sbekTHbr+KbftE8KJReRCWgBuTVYXana2pR7lXvoIzV7bzkkPY7E
-	6Mzm4PzQY2c1/eE2XgPCcSHNgozGEfsjW7l/dOhMSiZM+UCWtp9SvPPPNY2yHIQcA+QMpdhLH/Dro
-	bK6+ozBYKGp74FTi/W7z2kIPMBILc+c4K2yMXMvoHG7XFImi66/BrDlauFL9LFm+uI+1i276M9grD
-	v+bGI3UWLTeCclZCuZCPompo4KbqTmUD2o/bvURU0Ba6D7QmgorLFJMvFykokQTCiFixyrWtziZai
-	vRHuqiKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R9JLMkioJnN0QXjgGUJz/nVcjRGbLr8tJwMUzl8BySM=; b=gjnpYQXIg+kLvsqqIfxEm4VDfQ
+	whaIhI033KxjmOCzgdhjVdNfG4fMSMkilDKZqpzN/yqREqKgHV8eJBYltX5ruDoy4tA+EH9CEL6qS
+	zZSEu3GakgL9S7evkBtwncGpGrK0kLqnT7j1B3XRMg8nMUfJBcQgmg3mz4T3xHgtpmLDz58/rSduA
+	iM7HNVr2ovf6zR2vLdhFuzL9ULgKXGA8y0m6UuouTOWXFhdnFLp3HavujOEgGPBuHJfZwGwjGVFo+
+	6jC+5WUd3/Fm2D62MM4/GfoclmBBt7Ng/Ef8gE6VgY5vTPiMVkgg35dnqqIrftfallqtrt3tHslMT
+	g3PW65VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkjll-00000002V8H-1evD;
-	Fri, 17 Jul 2026 14:42:29 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1wkjon-00000002VoT-1a9s;
+	Fri, 17 Jul 2026 14:45:37 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkjla-00000002V4H-1Pzt
+	id 1wkjok-00000002Vnn-0ylq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 14:42:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Subject:Date:From:From:Reply-To;
-	bh=xiHRHGRCN+D8F05AzRxD1qJuLVX4cK/IR40j35eLsPY=; b=XhTj3NfcBSmxdHT6hwbMEqcC1c
-	wnqAPgR+OsPOpU1aiwcqAjKvKW3tgIUCFzC5jrlLJWmUrq3T2GoDex9aNo7BB3UJRs2LTLJV1lAGP
-	F8M/S2fuL0cNPy9467OE5HfIjuhb9Q4Ll1Cw3jd8LAHsfCydInjvPtEfKywWp68YKkhgSG2eOUtaK
-	IpNIetDqg9/AwtyIVXOdKN3k4yCnb3NOWINDk0aTyjDsQnoZ1wk/KPAJ5utuWfBecV2kaMTTOkyhZ
-	e4wLJ3pmd2Y9/ubo5NL0AFeOvt9EquFb/68Ew6KXUcaDMax+XFMoYfgiN8l9dOL4AeJ0Sc6ZbzFab
-	IgeL23EA==;
-Received: from [179.118.191.219] (helo=[192.168.15.100])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1wkjlP-00GdLF-8r; Fri, 17 Jul 2026 16:42:07 +0200
-From: =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-Date: Fri, 17 Jul 2026 11:41:41 -0300
-Subject: [PATCH v5 2/4] arm64: vdso: Implement
- __vdso_futex_robust_try_unlock()
+	Fri, 17 Jul 2026 14:45:35 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-698a9f11776so7659897a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 07:45:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1784299532; cv=none;
+        d=google.com; s=arc-20260327;
+        b=lqP/lxXCRAc0abpsPaOnh5C5fop9PKjOjVDblCorM6Uthamk/BiRLgY9nzfEY0y6LF
+         CGYF6se5LLAlhdP5Zn5W/hlH6upBFCitVDu9Q8FyIblXrD0vr8aiPiVhmkeRCCZh6107
+         G62Yg5lKeI1VcxW3QEDaDD97D1Cev7dkduixj+0QnKVTndgvY33LYZcAqswQ92yRQLs6
+         CwGAzB2iQ/rZo7N6qe8b5AilzYFLMnDUjDkDERERT5gtihOZ86EjwisE0AXQZEUH/5bC
+         IR9qcnCJWaHWu767f0IARppM/aVMUG5czfqihylFbdJ7BqF7Aud1pcDMMlwqvJWIwisY
+         fsuw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=R9JLMkioJnN0QXjgGUJz/nVcjRGbLr8tJwMUzl8BySM=;
+        fh=u1DMF56LXiLRYIdBBXF+tQFkw6sS49jxITriMcylFF8=;
+        b=d4wNq63CAAIiBEL6d9opN61e2xDoBVpwbcJJqtfFSR6U0HNXGHtcRuzp+2XuPxkqtT
+         fG+WOgZQGMbKOfTq6u9ostFqqJn7Rdc7yLSM/Gg+/+cGfq7YBT6FmsT2RJO3O31KP+u1
+         ClnXEUVxiA2nCZw/mdJ/p34UApiLjCafShussnljfm4Zd2Kn9gDbdtMXUfC5rL8dyXby
+         gwTy9n6vDn8/czZTM6DTRlYJMkIm3oNZ/gEuuZjm1dagiMX1+zjqIBta/OUf8Egskl8E
+         f3YgFgHM9SoQ3JXCN3vJE8AZvjF3fvEmBYvFXEpHOLvQbKGbdKtyFV5Tm1XWYdkdFmL7
+         kUow==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784299532; x=1784904332; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=R9JLMkioJnN0QXjgGUJz/nVcjRGbLr8tJwMUzl8BySM=;
+        b=Yv1P8Lj5/OMLBMVwLvYYDZ12/OGTOF1mIQyJ0RIB7PQsFhF+WYFkhWYZi7YAlHyVxV
+         pHOPFZJVWcxmg4ZnJ1p+PUimScGx8IcU+9Ht9d3Brvfr5vzkayaOPjuHVl0APTKbQW7d
+         X7taVSFgJ+8b+OhjaTDG+7UN6okQqTumzrGJQPvCEKPhxR+mNUnrMFHCJIF//2BYTm63
+         jKb/9X/dTyMaw5/faiL1mnq7UFxg84keNjDXVzdHNoVLAcPG3u/l1SSY9Iv9z3Oc9hn3
+         rpJWXywwT/n5T7/oEcDYebUXp5ACFW0NIlbRDln2OEMnDTqlSk1AljyHgzOH8AVL9ZHm
+         dTow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784299532; x=1784904332;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=R9JLMkioJnN0QXjgGUJz/nVcjRGbLr8tJwMUzl8BySM=;
+        b=UCwHdC5ap5kIK2c+I9vaKQjwoEiY5POW6LcBXpAx4GnMT9UlxmyIMgXxBeJsR99Kxc
+         /1TIzx8QlWY+uwlxLzdCrTWwoe1Xg13DIJk36mY22h1470it2UFX5k1f4zpdJwwS9yz/
+         QfcBb9Z2dNgZWfANWfnvMkps5Sw5vaOvGBfkSyNEtPq8I1oo3akHTz96Os4Heknf1zcT
+         UDEI7W1xr14o8NyD6qy3XVnXroCrDFKQUUGLv6pP2gw65qEpRntJLvBqonAHHpBl229l
+         uNgqmgXz9REhS73Ox9yfAp0R8PDE47PFF74WQjZQeZczocREO4zqwwmOYCHzjp6dfGG4
+         1Wrw==
+X-Forwarded-Encrypted: i=1; AHgh+Rq+GATh1HHOUpIlwVirILS05YjyoFFh1bGHNzWCp5FILav7dMbwWK0YEpXjrIk94w5ic5YPimWIj1qw3Q61Bkl8@lists.infradead.org
+X-Gm-Message-State: AOJu0YzL9VEwGQVd2C5TMP8xxdvjEB7fi5Vduyc3p7kzlEbOk8VF9oFX
+	amCiln24iF4T8Xvn1fBLkdm3/FOJFly3vWaCel13Wzh7PcyejA6A00GaMbptriHi4CFVCDu+DQZ
+	EunGQW5OVY94d/D1gvy0NSzYq0AzFJZQ=
+X-Gm-Gg: AfdE7cnqTQM1go1sg7uGh/lgRiz10zRf9dmD98yRZaEAIg7Ds85MwW1ziW+TQ4KVWFa
+	azc/r/gpjsV/s5F4cvhj5EkG0RzB3cgdVnaYL8AdNSyzRoanruGr3aBvfhki+X6+OLoiigPKpWT
+	6+JkqqjyTMRwAUIEPqpWZBd/CWS8a2qvllTSqm7gvXd7nqledybzz4wwTdrRJ6Ov9M3Vbac0xIe
+	LnedMMx7wZtcMnef0uVMDa6eA/w1ELoZfwUgvcC1e+oK4L5xgaQJtPD+8A+fEedUt1sh+x4FSvn
+	N50JIRQ7wCfl40MZ/FGg5Dt0N8xp5K29ylE02acQAA==
+X-Received: by 2002:a17:906:6a24:b0:c17:cf99:6154 with SMTP id
+ a640c23a62f3a-c17cf99625amr101393266b.16.1784299531705; Fri, 17 Jul 2026
+ 07:45:31 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260717-tonyk-robust_arm-v5-2-ffd1ad318d17@igalia.com>
-References: <20260717-tonyk-robust_arm-v5-0-ffd1ad318d17@igalia.com>
-In-Reply-To: <20260717-tonyk-robust_arm-v5-0-ffd1ad318d17@igalia.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, 
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
- Carlos O'Donell <carlos@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
- Florian Weimer <fweimer@redhat.com>, Rich Felker <dalias@aerifal.cx>, 
- Torvald Riegel <triegel@redhat.com>, Darren Hart <dvhart@infradead.org>, 
- Ingo Molnar <mingo@kernel.org>, Davidlohr Bueso <dave@stgolabs.net>, 
- Arnd Bergmann <arnd@arndb.de>, Uros Bizjak <ubizjak@gmail.com>, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>, 
- "Liam R. Howlett" <liam@infradead.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-arch@vger.kernel.org, kernel-dev@igalia.com, 
- LKML <linux-kernel@vger.kernel.org>, 
- =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-X-Mailer: b4 0.15.2
+References: <20260702230744.91169-1-dbgh9129@gmail.com> <aljL_HSIc2ZhVj07@willie-the-truck>
+In-Reply-To: <aljL_HSIc2ZhVj07@willie-the-truck>
+From: =?UTF-8?B?7LWc7Jyg7Zi4?= <dbgh9129@gmail.com>
+Date: Fri, 17 Jul 2026 10:45:19 -0400
+X-Gm-Features: AUfX_myaGRrmmSMWOxgj9sP-eefK2jevdqq9Y--2ct0cKEeID7Fw27bthF9X1OY
+Message-ID: <CACrCO_X2JTb8VOxVUhwtmvh50PuW0Sx7c6_VcwsZLvn2Try9jA@mail.gmail.com>
+Subject: Re: [PATCH v1] arm64: cpuinfo: Fix sysfs cleanup on failure
+To: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Mark Brown <broonie@kernel.org>, 
+	Yicong Yang <yangyicong@hisilicon.com>, Oliver Upton <oupton@kernel.org>, 
+	Zhou Wang <wangzhou1@hisilicon.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_074218_378762_5D1B8B92 
-X-CRM114-Status: GOOD (  15.38  )
+X-CRM114-CacheID: sfid-20260717_074534_285943_308A25EF 
+X-CRM114-Status: GOOD (  10.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,172 +117,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Based on the x86 implementation, implement the vDSO function for unlocking
-a robust futex correctly.
+On Thu, 16 Jul 2026 at 08:18, Will Deacon <will@kernel.org> wrote:
+>
+> Why is it a good idea to remove the entire group if the merge fails?
+> Wouldn't it be more pragmatic to continue with the group that we did
+> manage to create? I don't really get why this proposed behaviour is
+> better.
 
-Commit a2274cc0091e ("x86/vdso: Implement __vdso_futex_robust_try_unlock()")
-has the full explanation about why this mechanism is needed.
+You're right. Removing the entire group on an SME merge failure is
+unncessary. I'll send a v2 incorporating your suggestion.
 
-The unlock assembly sequence for arm64 is:
+Thanks for your time reviewing.
 
-	__vdso_futex_robust_list64_try_unlock:
-	retry:
-		ldxr	w8, [x0] // Load the value from *futex
-		cmp	w1, w8   // Compare with TID
-		b.ne	__vdso_futex_list64_try_unlock_cs_end
-		stlxr	w3, wzr, [x0] // Try to zero *futex
-	__vdso_futex_list64_try_unlock_cs_start:
-		cbnz	w3, retry
-		str	xzr, [x2] // After zeroing *futex, zero *op_pending
-	__vdso_futex_list64_try_unlock_cs_end>:
-
-The decision regarding if the pointer should be cleared or not lies on
-checking the w3 register:
-
-	return (regs->user_regs[3]) ? NULL : (void __user *)
-		regs->user_regs.regs[2];
-
-If it's zero, that means that the exclusive store worked and the kernel
-should clear op_pending (if userspace didn't managed to) stored at x2.
-
-Signed-off-by: André Almeida <andrealmeid@igalia.com>
----
-Notes:
- - Only LL/SC for now but I can add LSE later if this looks good
-
-v4:
- - Guard makefile for vfutex.o with ifdef
- - Moved _start label one instruction above
- - Use results register (w3) to check for store success instead of using zero
-   flag
-
-v3:
- - Managed to get pop to always be stored at x2
----
- arch/arm64/Kconfig                    |  1 +
- arch/arm64/include/asm/futex_robust.h | 19 +++++++++++++++++++
- arch/arm64/kernel/vdso/Makefile       | 10 ++++++++++
- arch/arm64/kernel/vdso/vfutex.c       | 35 +++++++++++++++++++++++++++++++++++
- 4 files changed, 65 insertions(+)
-
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index b3afe0688919..0582172811d9 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -221,6 +221,7 @@ config ARM64
- 	select HAVE_RELIABLE_STACKTRACE
- 	select HAVE_POSIX_CPU_TIMERS_TASK_WORK
- 	select HAVE_FUNCTION_ARG_ACCESS_API
-+	select HAVE_FUTEX_ROBUST_UNLOCK
- 	select MMU_GATHER_RCU_TABLE_FREE
- 	select HAVE_RSEQ
- 	select HAVE_RUST if RUSTC_SUPPORTS_ARM64
-diff --git a/arch/arm64/include/asm/futex_robust.h b/arch/arm64/include/asm/futex_robust.h
-new file mode 100644
-index 000000000000..64f22166756a
---- /dev/null
-+++ b/arch/arm64/include/asm/futex_robust.h
-@@ -0,0 +1,19 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _ASM_ARM64_FUTEX_ROBUST_H
-+#define _ASM_ARM64_FUTEX_ROBUST_H
-+
-+#include <asm/ptrace.h>
-+
-+static __always_inline void __user *arm64_futex_robust_unlock_get_pop(struct pt_regs *regs)
-+{
-+	/*
-+	 * w3 is stores the result of the stlxr instruction. If it's zero, the then
-+	 * the ll/sc cmpxchg succeeded and the pending op pointer needs to be cleared.
-+	 */
-+	return (regs->user_regs.regs[3]) ? NULL : (void __user *) regs->user_regs.regs[2];
-+}
-+
-+#define arch_futex_robust_unlock_get_pop(regs)	\
-+	arm64_futex_robust_unlock_get_pop(regs)
-+
-+#endif /* _ASM_ARM64_FUTEX_ROBUST_H */
-diff --git a/arch/arm64/kernel/vdso/Makefile b/arch/arm64/kernel/vdso/Makefile
-index 7dec05dd33b7..985346c7a0bb 100644
---- a/arch/arm64/kernel/vdso/Makefile
-+++ b/arch/arm64/kernel/vdso/Makefile
-@@ -11,6 +11,10 @@ include $(srctree)/lib/vdso/Makefile.include
- 
- obj-vdso := vgettimeofday.o note.o sigreturn.o vgetrandom.o vgetrandom-chacha.o
- 
-+ifdef CONFIG_FUTEX_ROBUST_UNLOCK
-+  obj-vdso += vfutex.o
-+endif
-+
- # Build rules
- targets := $(obj-vdso) vdso.so vdso.so.dbg
- obj-vdso := $(addprefix $(obj)/, $(obj-vdso))
-@@ -45,9 +49,11 @@ CC_FLAGS_ADD_VDSO := -O2 -mcmodel=tiny -fasynchronous-unwind-tables
- 
- CFLAGS_REMOVE_vgettimeofday.o = $(CC_FLAGS_REMOVE_VDSO)
- CFLAGS_REMOVE_vgetrandom.o = $(CC_FLAGS_REMOVE_VDSO)
-+CFLAGS_REMOVE_vfutex.o = $(CC_FLAGS_REMOVE_VDSO)
- 
- CFLAGS_vgettimeofday.o = $(CC_FLAGS_ADD_VDSO)
- CFLAGS_vgetrandom.o = $(CC_FLAGS_ADD_VDSO)
-+CFLAGS_vfutex.o = $(CC_FLAGS_ADD_VDSO)
- 
- ifneq ($(c-gettimeofday-y),)
-   CFLAGS_vgettimeofday.o += -include $(c-gettimeofday-y)
-@@ -57,6 +63,10 @@ ifneq ($(c-getrandom-y),)
-   CFLAGS_vgetrandom.o += -include $(c-getrandom-y)
- endif
- 
-+ifneq ($(c-futex-y),)
-+  CFLAGS_vfutex.o += -include $(c-futex-y)
-+endif
-+
- targets += vdso.lds
- CPPFLAGS_vdso.lds += -P -C -U$(ARCH)
- 
-diff --git a/arch/arm64/kernel/vdso/vfutex.c b/arch/arm64/kernel/vdso/vfutex.c
-new file mode 100644
-index 000000000000..4c69d92426fd
---- /dev/null
-+++ b/arch/arm64/kernel/vdso/vfutex.c
-@@ -0,0 +1,35 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+#include <linux/stringify.h>
-+#include <vdso/futex.h>
-+
-+#define LABEL(name, sz) __stringify(__futex_list##sz##_try_unlock_cs_##name)
-+
-+#define GLOBLS(sz) ".globl " LABEL(start, sz) ", " LABEL(success, sz) ", " LABEL(end, sz) "\n"
-+
-+__u32 __vdso_futex_robust_list64_try_unlock(__u32 *lock, __u32 tid, __u64 *pop)
-+{
-+	register __u64 *pop_reg asm("x2") = pop;
-+	register __u32 result_reg asm("w3") = 0;
-+	__u32 val;
-+
-+	asm volatile (
-+		GLOBLS(64)
-+		"	prfm pstl1strm, %[lock]			\n"
-+		"retry:						\n"
-+		"	ldxr %w[val], %[lock]			\n"
-+		"	cmp %w[tid], %w[val]			\n"
-+		"	bne " LABEL(end, 64)"			\n"
-+		"	stlxr %w[result], wzr, %[lock]		\n"
-+		LABEL(start, 64)":				\n"
-+		"	cbnz %w[result], retry			\n"
-+		LABEL(success, 64)":				\n"
-+		"	str xzr, %[pop_reg]			\n"
-+		LABEL(end, 64)":				\n"
-+
-+		: [val] "=&r" (val), [result] "=&r" (result_reg)
-+		: [tid] "r" (tid), [lock] "Q" (*lock), [pop_reg] "Q" (*pop_reg)
-+		: "cc", "memory"
-+	);
-+
-+	return val;
-+}
-
--- 
-2.55.0
-
+Yuho.
 
