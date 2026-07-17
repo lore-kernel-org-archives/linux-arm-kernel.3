@@ -4,75 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6F40C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 08:16:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 399C9C44514
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 08:16:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CLuw4SqcZi1lEKlD9DTjJE+cjzVv2f5SqYtEO7/zL04=; b=sk1r7LWQ6prQ0IHUT6DX4IVWXr
-	P2jmi4qEvU1k/BIebSoA1lt0gQX+J8O8XVzQ1hASFZFPutUwsluW1+OJgYn8+VuM2MdGYx5RFBrkF
-	U/brPaYvv9H5Mm/Gmr4hg/BK0D2Cby/i90VyOqrSMP0jhFrCGr9HBJAIKmfHDR5Vmt/4DwXqUH6di
-	m4mmSlVwEK9Th0zkVoge5PbEUMVVFRynxrF+DHXCPDXHnM+Ltagp1CrB+KJD+M2nYOk4x9G+b2gDR
-	eAWmBruz1FvBFmjZtfCBIU0y/Wgoj91KsE9KSNjWYpiA6LZgk+7k6VqD7cVwXc8JEyATtymTHMACq
-	rE6G8Rog==;
+	bh=+7Nd67iiHmSuvw06r7sfnoXomVEtuqgSBnJLlAkF+OM=; b=m1pK70IRkq16pSR1Q8o7O+w9gj
+	7VhNX1LO62R3iO1GgZZamJKjOUyWKU4jUAkDX1OQKJHmxoHnXUi5KEtu5JJoWbutUMQhs7p2E0aPX
+	DEv4v40D3T5vZPO9wPrKJuG+lcX3A9JaojHJFLHM8G964YZMuYJbfm0d/gDtmCUgXEPb5oxXXMuZh
+	lvtg0yUrI+vlANODRQGKLLha74DOTP1wNS8SctdZDPR2xRBJZpQJW8TkGOlh8rzBqZWCIINhWMdkj
+	gUZVhHlBhcwlKqpwxHRaDvTuY6MSZSwtyqSQdgBEtBjC0PDLaKSwuotxKNARvO6A0wgGWGn9hHuQe
+	nEy2Cu3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkdjh-00000001b9J-1SyN;
-	Fri, 17 Jul 2026 08:15:57 +0000
-Received: from mout.web.de ([217.72.192.78])
+	id 1wkdjr-00000001bDo-2X9K;
+	Fri, 17 Jul 2026 08:16:09 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkdjd-00000001b7L-0NzZ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 08:15:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1784276135; x=1784880935; i=smoch@web.de;
-	bh=CLuw4SqcZi1lEKlD9DTjJE+cjzVv2f5SqYtEO7/zL04=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=MDsGvZ+zgs6uYZlEuuxwI9xfavxxXdx53BjOjweyl3ouh7+prT1UR8Okm4Uqul24
-	 M8uGQFQrr+6N8IigMPM5bQTyYC3J7f31NS+VsTuOHO2HitkmDeVs/iXChrhuxBDXb
-	 PTrhxiFRTHK8iUiHhBtBsYDqo6A0hU0aexgmvjdRGisM1d76Ctr4Iva8HpqHY/f/I
-	 3p+Pv3Y36zOWYOaINcPhXJEVJoIZ4gvm4mfFOiAnVgwxclEMYuaQzK1ruLcHJvJxk
-	 bFFEf5/hzDnM2glrhxZPgkidVinrIXkWsnwT7IJc3RBeWY6d/aFkTWiqUooYS6nmX
-	 3uURABqwhFGWY+Eqww==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb105
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1MFJnX-1wmYbW10gL-00566c; Fri, 17
- Jul 2026 10:15:35 +0200
-Message-ID: <8cb386d1-32b4-486f-a2b9-86cf9d46a3e8@web.de>
-Date: Fri, 17 Jul 2026 10:15:33 +0200
+	id 1wkdjq-00000001bD2-17eS;
+	Fri, 17 Jul 2026 08:16:06 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id C881D42AA3;
+	Fri, 17 Jul 2026 08:16:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76CCE1F000E9;
+	Fri, 17 Jul 2026 08:16:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784276165;
+	bh=+7Nd67iiHmSuvw06r7sfnoXomVEtuqgSBnJLlAkF+OM=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To;
+	b=YdjTJtqqKbr0M2+vL9qCSGhbjH5UJGKkh1WBT/5dtMdEX5la1sEkalWpBl4F9Q4dI
+	 Xqo128VG+Cp+P91gLl9NyVGJk+IEd1nqGKJHgKJdP5/9Cg/a1IzWXUYLZVQVDKh5NP
+	 frYVaKMm3l5ARDYdSIACu2mISee2U622Do1WU3Mh0VhxGdfb4iIlvXEJ6qko01T2kt
+	 JpZxTnKSP3+Vq4Ix7x5DsLkEs3hYcb2v0MRqRR66H8ThTG3Wlaikq6IwCYKvU6FQNv
+	 fQ6A8boXWOvo+mnKec/SUPgEQXTIWjxzHMM2/y6qG2Zyb66er1siBQP6sRw/Jf2X9k
+	 afPD33eS2DctQ==
+Message-ID: <06d11879-b305-422c-bef1-982c968ce899@kernel.org>
+Date: Fri, 17 Jul 2026 10:15:58 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] PCI: imx6: Keep i.MX6Q Root Port MSI capability with
- iMSI-RX to work around hardware bug
-To: hongxing.zhu@oss.nxp.com, frank.li@nxp.com, l.stach@pengutronix.de,
- lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
- robh@kernel.org, bhelgaas@google.com, s.hauer@pengutronix.de,
- kernel@pengutronix.de, festevam@gmail.com
-Cc: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- imx@lists.linux.dev, linux-kernel@vger.kernel.org, stable@vger.kernel.org,
- Richard Zhu <hongxing.zhu@nxp.com>
-References: <20260717033203.2965045-1-hongxing.zhu@oss.nxp.com>
-Content-Language: en-US, de-DE
-From: Soeren Moch <smoch@web.de>
-In-Reply-To: <20260717033203.2965045-1-hongxing.zhu@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:LUKVP4XMMHrPv8SLWRbxJn+jn8rRVrD7hIU2qpLlUwnarsij/Yh
- /ARg8XGPf+r5aNfHWYSUtfvgJNAWPYinoF/CmqXeauR0+sU5mVWbnFDJiXV2+OAvOumeyV0
- yt/6bhRyPeV2yQR1SiERvQmwxoMF0Xt7FcesstI9NNDcQFtIMy+24bHUeaTMlXL06mePENw
- CRpbim0gTxCmq9pvVW6cg==
-UI-OutboundReport: notjunk:1;M01:P0:XStvjyGwY0k=;wut3CobyPf5ogBZFdd9+n2EqSMv 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 3Fw
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_011554_736265_BFF8B10F 
-X-CRM114-Status: GOOD (  17.21  )
+Subject: Re: [PATCH v7 02/13] dt-bindings: clk: zte: Add zx297520v3 top clock
+ and reset controller
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: =?UTF-8?Q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Brian Masney <bmasney@redhat.com>, Vinod Koul <vkoul@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Russell King <linux@armlinux.org.uk>, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org
+References: <20260717-zx29clk-v7-0-408411cfcf36@gmail.com>
+ <20260717-zx29clk-v7-2-408411cfcf36@gmail.com>
+ <20260717-berserk-faithful-cat-a34ad8@quoll>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20260717-berserk-faithful-cat-a34ad8@quoll>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,88 +122,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17.07.26 05:32, hongxing.zhu@oss.nxp.com wrote:
-> From: Soeren Moch <smoch@web.de>
->
-> On some NXP chipsets, disabling Root Port MSI/MSI-X Capabilities blocks
-> MSIs originating from Endpoints from reaching the iMSI-RX controller.
->
-> To address this hardware bug, commit 3a4e8302e72f ("PCI: imx6: Keep Root
-> Port MSI capability with iMSI-RX to work around hardware bug") preserves
-> Root Port MSI and MSI-X Capabilities on i.MX7D, i.MX8MM, and i.MX8MQ
-> when iMSI-RX is in use.
->
-> The same applies to i.MX6Q, i.MX6QP and i.MX6SX. So preserve Root Port
-> MSI/MSI-X Capabilities there as well.
->
-> Note that preserving these Capabilities means Root Port-originated MSIs
-> such as AER and PME won't be received due to separate hardware limitatio=
-ns.
-> Users may need to use workarounds such as passing the 'pcie_pme=3Dnomsi'
-> command-line parameter.
->
-> Fixes: f5cd8a929c825 ("PCI: dwc: Remove MSI/MSIX capability for Root Por=
-t if iMSI-RX is used as MSI controller")
-> Cc: <stable@vger.kernel.org> # 7.0+
-> Signed-off-by: Soeren Moch <smoch@web.de>
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> Acked-by: Richard Zhu <hongxing.zhu@nxp.com>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
-> ---
-> changes in v3:
-> - Extend the fix to i.MX6QP and i.MX6SX variants as well.
-> - Update the commit descriptions suggested by Bjorn.
-Thanks Richard for checking 6QP and 6SX platforms and extending the fix=20
-for them.
+On 17/07/2026 08:36, Krzysztof Kozlowski wrote:
+> On Fri, Jul 17, 2026 at 12:35:38AM +0300, Stefan Dösinger wrote:
+>> diff --git a/MAINTAINERS b/MAINTAINERS
+>> index cb50c2e3b4ea..5f962b9947ab 100644
+>> --- a/MAINTAINERS
+>> +++ b/MAINTAINERS
+>> @@ -3878,10 +3878,13 @@ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+>>  S:	Odd fixes
+>>  F:	Documentation/arch/arm/zte/
+>>  F:	Documentation/devicetree/bindings/arm/zte.yaml
+>> +F:	Documentation/devicetree/bindings/clock/zte,zx297520v3-topcrm.yaml
+>>  F:	Documentation/devicetree/bindings/phy/zte,zx297520v3-usb-phy.yaml
+>>  F:	arch/arm/boot/dts/zte/
+>>  F:	arch/arm/mach-zte/
+>> +F:	include/dt-bindings/clock/zte,zx297520v3-clk.h
+>>  F:	include/dt-bindings/phy/phy-zte-zx297520v3-usb.h
+>> +F:	include/dt-bindings/reset/zte,zx297520v3-reset.h
+>>  
+>>  ARM/ZYNQ ARCHITECTURE
+>>  M:	Michal Simek <michal.simek@amd.com>
+>> diff --git a/include/dt-bindings/clock/zte,zx297520v3-clk.h b/include/dt-bindings/clock/zte,zx297520v3-clk.h
+> 
+> Same mistake. Filename MUST match the compatible.
 
-Soeren
->
-> changes in v2:
-> - collect a-b and r-b tags
-> - use correct fixes tag (Manivannan)
->    (reference commit that introduced the bug, not the incomplete fix)
-> ---
->   drivers/pci/controller/dwc/pci-imx6.c | 9 ++++++---
->   1 file changed, 6 insertions(+), 3 deletions(-)
->
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/control=
-ler/dwc/pci-imx6.c
-> index 98e1db751132a..dba27eac6bff6 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -1995,7 +1995,8 @@ static const struct imx_pcie_drvdata drvdata[] =3D=
- {
->   		.flags =3D IMX_PCIE_FLAG_IMX_PHY |
->   			 IMX_PCIE_FLAG_SPEED_CHANGE_WORKAROUND |
->   			 IMX_PCIE_FLAG_BROKEN_SUSPEND |
-> -			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
-> +			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND |
-> +			 IMX_PCIE_FLAG_KEEP_MSI_CAP,
->   		.dbi_length =3D 0x200,
->   		.gpr =3D "fsl,imx6q-iomuxc-gpr",
->   		.ltssm_off =3D IOMUXC_GPR12,
-> @@ -2011,7 +2012,8 @@ static const struct imx_pcie_drvdata drvdata[] =3D=
- {
->   		.flags =3D IMX_PCIE_FLAG_IMX_PHY |
->   			 IMX_PCIE_FLAG_SPEED_CHANGE_WORKAROUND |
->   			 IMX_PCIE_FLAG_SKIP_L23_READY |
-> -			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
-> +			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND |
-> +			 IMX_PCIE_FLAG_KEEP_MSI_CAP,
->   		.gpr =3D "fsl,imx6q-iomuxc-gpr",
->   		.ltssm_off =3D IOMUXC_GPR12,
->   		.ltssm_mask =3D IMX6Q_GPR12_PCIE_CTL_2,
-> @@ -2026,7 +2028,8 @@ static const struct imx_pcie_drvdata drvdata[] =3D=
- {
->   		.flags =3D IMX_PCIE_FLAG_IMX_PHY |
->   			 IMX_PCIE_FLAG_SPEED_CHANGE_WORKAROUND |
->   			 IMX_PCIE_FLAG_SKIP_L23_READY |
-> -			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
-> +			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND |
-> +			 IMX_PCIE_FLAG_KEEP_MSI_CAP,
->   		.dbi_length =3D 0x200,
->   		.gpr =3D "fsl,imx6q-iomuxc-gpr",
->   		.ltssm_off =3D IOMUXC_GPR12,
+I did not notice that you combine here all the clock IDs from other
+clock controllers. The header filename is therefore fine (also reset fine).
 
+
+Best regards,
+Krzysztof
 
