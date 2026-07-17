@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FBC0C44515
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 09:09:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3CF5C44514
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 09:09:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q4cE7UArTN6RhuHj/AD5sk8PploVRZUygtjNoDSP+vs=; b=rHnB0x8eOt7f9SYgvIpLQU/EI8
-	Y9bWnYG4mQdl7DZc/N+VP+Skimdq2DD6TMX6VyL0qV4rAUA0ZA6JsDp9EuQFMYffWJUumocBMjCA3
-	Rwn3l8st4f7PAohFmFT/SeXwEGnLYz77MQirhIHo2qAdg//0ahrGrGlpMrib51KZZe+9t25HEFScg
-	qO9kN/KCXK/WuP1AQI/5JU17XEqmnDGwLqJcPjupBU4opouGGQgSnXVy0xbBMP4CkkJasSpPsoZpg
-	rPKo9zijVpVS9T9SpUQtE1mHzAjjC1LaHkD14OJcmipdmrHtbczegJz9Y4HNS8Bfhfw00/sLHUhpJ
-	7/jqGdyQ==;
+	bh=kmoqMb3dIzK3siCOfLO3U9g4OKJjSLzCQuPFj2MKo68=; b=bZHweK9Vm3ICuqvAFk/atF3B1D
+	arheD49iNudMP2RMDwgZ2gHfOnoLoXeBSAr5OQBWQulOGYHsJ3zFeSc9eyK3gj8dnNUfHlZ1oWbnU
+	TtcQRfUypc7HEo7frSsmsOUPzNsAhvS50/CKqXZn5DuApFnII95F7tAsvs2fG+7hGh7HtMpH9L8S+
+	/UjMBjNGj/TB+lTEYDl4k5qvjh2LgU8AxQOhqEavHfb5YYbUwd/qzcL70SVzx1wWDX8hO3QeTapkj
+	AZ+XvNKxjb1S7sw49NudW31Pri6RBGCuFCftwGwM2aHAo5pOVSpcWBtyHDH3FQFHeFA9K7fDXF3Xd
+	y9pF9Hdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkeZ2-00000001mQf-31Y5;
-	Fri, 17 Jul 2026 09:09:00 +0000
-Received: from mail-westusazon11012030.outbound.protection.outlook.com ([52.101.43.30] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+	id 1wkeZC-00000001mWg-08mj;
+	Fri, 17 Jul 2026 09:09:10 +0000
+Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkeYy-00000001mP6-10uG
+	id 1wkeZ3-00000001mQh-1w12
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 09:08:57 +0000
+	Fri, 17 Jul 2026 09:09:02 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QZIL+z2eB4E2CDlCbqwoS5fOw84Sqz5J1UNpsOYMIOQo7vE8Dg6XOzR78Vdefd2YT+usCkRotr04QPze8Nrp6lApfz+CPIw/3ilp4Q6/UyAsADAfIJdHk3VFXUjTP2aLn85ZTtD1OFXDjT+fEF9NgBDJAbA4IhLTZwp7I+rd0q5FCY7S88nliHo9cw79wxdPk7/N0G9+FLw0Oz3/evIx+QqRXrFL9uyXlf1CXIgfuBADXQgMVEJKPwKZc9iW8LQuMkwKT+sDBri6kB38NZEKn4arJI1rz9CEZyikh8xussSjswjy9rm0Hc/pQxvutaz7luUnd1yqC+ll9dYS6ijoWw==
+ b=pK07kPB2PjocoePPVIH3/6HOCeZIv/i+s/q/ApQ4Hk8PGBmna4rEmIgtpg2/EX/wAEZFv2t/lGR2aWiicLIQdmbGVxg7EkNOnP9hIiyIFLwzo+xHPCNw2JkX1tseKoAwpT6mcgmApYf/riFY5nYLGaFIBqfKBfuSPU5eC/bKLfGqZlI0IcREFpSaPShPE/s+EZITq9j45pFDWmuVtmqfZii3q2nph46lAbAes5YDhw4dy/nhvkuX+MoepTfaH+1AzHaDEo+e9+qEpPTdtFz2YqeSYRNrsxnVluFuV2WbR3s9BegTxtwPXHnlop80J9AVPEZZPGpEOYvDcdxTYYODMQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=q4cE7UArTN6RhuHj/AD5sk8PploVRZUygtjNoDSP+vs=;
- b=mnvQOTbEez04R9jUbShqlYC/q6tM8aMOboTEGbg4Z31wP8zh9xZYrJ9v6WDNX/6mMnIiyGX7wKX/xtKf9ukUyJu7Z0KyOZ37qpvYewSO6YVklTKPb32mg64FE3pxonlGF+MfOxSYuDrPNKMVks7Al4rchrXgOpOxZeYG+JLRKDWUncipSZKmqnlEbwbOfP2xCv0YQYgd3Na3csGGY666yi5XHDa2sE3KptauzgoBo1is8D0cGDQjfnYKAYksMIqfnHE1g98GLuCXMD+u8vrPaXDg0mxYW4qGhO2+A2pDTyLCAsikNilz6FP9WzjsM44CIv0xCPtV+fA58ROWxfYeew==
+ bh=kmoqMb3dIzK3siCOfLO3U9g4OKJjSLzCQuPFj2MKo68=;
+ b=lc884ugMx/JVUbGABnZdYm8nV3/4eyelwULL/xH17NWpKL0sPVGcCoh7ADkJlpSoGwgB3JtsaGFDIbtTk+IaBhgvLBnpeTuvf5lBF18eOqNEzjxl2zg/4uOSYiltFlGVaJof+EIf9clIicLP7mgQVgg2bsoTNP6PsOIDY9OVBI9qx4F08+cmOjQ5dLIA1/w9grsK5C0LGG2HNuzN6afzNMQ3TbJWkCTN4TuaYy2M3tCZWQNnfc5ZTNoL9FtXYOBuuJJS9LmfFn7fyFkfABbtS12wYOpytLZuu6P/Ep2qHvxQRMJdywucnfyNRFst9+8Hsl629Xyl0SYZ4rCRVweprA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
  (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=q4cE7UArTN6RhuHj/AD5sk8PploVRZUygtjNoDSP+vs=;
- b=PdJJFM/rXnJlblYkLRxjwKqLpQ5N9LR2m1qVSLQfHWaBrM4tWlD3MSw3j74dxSj6yR/6JhLd2HnQ7mhY65tWuyc0qz8UMHUJA+qU5ni2ynFRCRRXhwzzKzX/W8gj62AJhNDs+/D0RxL6kIUy8U+o/oQAPXpthAXwBDX3krSmhFw=
-Received: from DS1P220CA0020.NAMP220.PROD.OUTLOOK.COM (2603:10b6:8:44c::9) by
- BL1PR12MB5755.namprd12.prod.outlook.com (2603:10b6:208:392::17) with
+ bh=kmoqMb3dIzK3siCOfLO3U9g4OKJjSLzCQuPFj2MKo68=;
+ b=NkDshncKqEiKHMSNhwrVdQ/cBKLPbGqBMX5Yuh/sMgguQ/K21w2RGsQ+zSLMOdScAcsm7PPgpgQUfSn+cVv1eaEq+/N4o4mUMEL7/KgkQ6xWZSm7bsgmDxJUGchbbRzwf9uVhcYTZZJDC2Wbh9hcSUPCP/qK7Zm1ldGmwfTINY4=
+Received: from DS7P220CA0053.NAMP220.PROD.OUTLOOK.COM (2603:10b6:8:224::31) by
+ CH3PR12MB8933.namprd12.prod.outlook.com (2603:10b6:610:17a::22) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.12; Fri, 17 Jul
- 2026 09:08:48 +0000
-Received: from CY4PEPF0000EDD4.namprd03.prod.outlook.com
- (2603:10b6:8:44c:cafe::53) by DS1P220CA0020.outlook.office365.com
- (2603:10b6:8:44c::9) with Microsoft SMTP Server (version=TLS1_3,
+ 2026 09:08:54 +0000
+Received: from CY4PEPF0000EDD1.namprd03.prod.outlook.com
+ (2603:10b6:8:224:cafe::1b) by DS7P220CA0053.outlook.office365.com
+ (2603:10b6:8:224::31) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.223.13 via Frontend Transport; Fri,
- 17 Jul 2026 09:08:48 +0000
+ 17 Jul 2026 09:08:53 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
  smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
@@ -59,16 +59,16 @@ Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
  client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
 Received: from satlexmb08.amd.com (165.204.84.17) by
- CY4PEPF0000EDD4.mail.protection.outlook.com (10.167.241.200) with Microsoft
+ CY4PEPF0000EDD1.mail.protection.outlook.com (10.167.241.197) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.245.5 via Frontend Transport; Fri, 17 Jul 2026 09:08:48 +0000
+ 15.21.245.5 via Frontend Transport; Fri, 17 Jul 2026 09:08:53 +0000
 Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb08.amd.com
  (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Fri, 17 Jul
- 2026 04:08:39 -0500
+ 2026 04:08:49 -0500
 Received: from xhdsneeli40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
- Transport; Fri, 17 Jul 2026 04:08:35 -0500
+ Transport; Fri, 17 Jul 2026 04:08:45 -0500
 From: Srinivas Neeli <srinivas.neeli@amd.com>
 To: Vinod Koul <vkoul@kernel.org>, Radhey Shyam Pandey
 	<radhey.shyam.pandey@amd.com>
@@ -81,9 +81,9 @@ CC: Frank Li <Frank.Li@kernel.org>, Michal Simek <michal.simek@amd.com>,
  Schwesinger" <dev@folker-schwesinger.de>, <dmaengine@vger.kernel.org>,
 	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, <git@amd.com>
-Subject: [PATCH v5 2/4] dmaengine: xilinx_dma: Move descriptors to done list based on completion bit
-Date: Fri, 17 Jul 2026 14:38:22 +0530
-Message-ID: <20260717090824.2364230-3-srinivas.neeli@amd.com>
+Subject: [PATCH v5 4/4] dmaengine: xilinx_dma: Extend metadata handling for AXI DMA and MCDMA
+Date: Fri, 17 Jul 2026 14:38:24 +0530
+Message-ID: <20260717090824.2364230-5-srinivas.neeli@amd.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260717090824.2364230-1-srinivas.neeli@amd.com>
 References: <20260717090824.2364230-1-srinivas.neeli@amd.com>
@@ -92,28 +92,28 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000EDD4:EE_|BL1PR12MB5755:EE_
-X-MS-Office365-Filtering-Correlation-Id: 49a001f5-571c-4c0e-8fa6-08dee3e30324
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000EDD1:EE_|CH3PR12MB8933:EE_
+X-MS-Office365-Filtering-Correlation-Id: b0396e30-165d-4ec0-f856-08dee3e3067c
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|23010399003|7416014|376014|82310400026|10067099003|5023799004|11063799006|6133799003|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 6/NJZT/5WpLgL5B7YLGvQ+DUCZX6HRZ+si6TB0KuSdUtzMCzWEmuSLZ7QAc2YC16674ZPcZfZNPNsAXBI7wS+JPXvJIa5E51xFXTOoKcVcM+bXj1kIjPEYRSD3Br59FAuqtORB8IbdnH7MPaRzKd6q2ze57isTEVWH8Q5pIqKM9KotPZ45hbWmD7BMFDmYmC6pkns2bqg3VYGiexV5xqElbiCl7zbqeUVGnvzoxu1GK/WsaW2rMpe5PdujplnsqOmGS+q9KcBZWdcXtmfmFuqLswgR/nVKPRP8ofm7QC/o2nZxci9GnSKA+mmJ44gc31Xghw44cNSCZ4m7UQOtbT/xEyB6FTCk9A5NX/yhd+UuFr/EW4Nw3eOKyjSiZQ6V1S4uISNYd1cXi8Xovx2GPFDafcMrdZg4jQQMbNzF4CyXCZ/OwGnZSy8rO34FfJxEIsM7/1kohL5N6nMjUL+fGeZBkTA6o8wElrbwSGxyhB74HVbKkUzWRfmLLyWFkQniA4Kl52lrYHAjqH3uOnrqq3UiYbQuAARqLOYFuOEROBbEJ4/IFrv3HVLofu06cwak7NA96XxjuWc1EbbpYqVbL4WKKGvyS7L4PiCJEe+i0vHw43sT9lOc5bYoCUWYF6D1JRF8YkYVcS6UY4dge652uG1dEpALvz7pFx6CMr8nZllCKNnlcJoD0Rq4uz0wG3GXPOiuKcEcn6UzLNBS8BO07b/w==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(23010399003)(7416014)(376014)(82310400026)(10067099003)(5023799004)(11063799006)(6133799003)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|7416014|23010399003|36860700016|1800799024|10067099003|18002099003|22082099003|6133799003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: mHpVHfB35mY5jLNbziS4EYK8nT9wCQYwCGrBI+Suj9dyfqWk9+Qpt6NjiZRAWiuY296pvLEYWH3DwTkq1fFetQYykFsWVDa2iKiNyBfL7jEnzFksl8Sohn1LYJK1P2FVn1jYn9IVJT9SPKktmnw+a3UzhK3B3OVu5hmpWk2OMLH0i1fleLt13nrN+2cAaJax1S1KbttTAUrXATJjOIJ1DKZrgPbLrmAJHj3OOzVVB50bJdH0CnENAhgXA27eUZ5owd1qEitlHF956XYxAjJZlJXngOztBdkOkHMoWAabOpGuXmqp3Jqm69H2B1Y9NmkMDFMXa1DU7MWDy9x5PRy9ZnE72kCze/j9NcQTxz5UQxwaJGh+T5KTqY4eK1G2LKlk1HhzIFm4ieeNJmGx16aL7hcd7Vu8TLEbNZjHSDbeUYuqH/JPlVRHkhUxFDNpYXOpj1G8gNLznEuc3DsaB144zgqFT712Nj9OawzINzApA5h9DyRYINCiwLhdgWRVoi4dw9hYYrVbvLwSWB6+SxfMrhisy62GnQyil5RaFi6FLFVQZ4pJF8O5uM12Dr45ASKxqCX5cE7daLf8cVQPYrfAUoyy6tKIdLS0TwcYlvMTWL8+g0MUNh74mER0WAPd0kr4SuFc80RB/ypuKDp+1CldwzTYOwSgsmqsVCZj9pLOBaL5hHBqbL2CNGrxvJ+QV+fgzo5oiwW+uRfdb2VqBeCE7Q==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(7416014)(23010399003)(36860700016)(1800799024)(10067099003)(18002099003)(22082099003)(6133799003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: o9+GtI70uCLUpBJKDhRZZbOFOhg/fXtdkBYIg3OHin47zG1OI0+V1+IR970MRV5a8pOPGKD9Qmkl0w6+YBtCs9PGCUx4Y1R0gFJldoqGHWnUIXh8QdaRffUt8dQCSO8C31dLT+cHhn89heK0VMaajpRB+Ta4yhCG4w1DVg6VeKD/kPdb6uDEf9zhztKuKq+Xz4P37C4SqrzlgdtMQnuehPSXzaRnVfk0GlIa2J6C/zZX+w4dD5GWuQjaeieSwMQ1RT1CnT3ujH0ytf8Svc9rUncArxC8oY5TFHwqyfeJ7K1h9qmLFtXxfO+EEwGvk9hHfic0ILzPJz2vbuAvpp6j7QZLpUnGnnCqP9692FGYukPXzFxeBeUetqO/0niFXNu8NTJ7dfapYKK7QpXkQ0XzDw8SGzR283SA7VwsVBjA/dGks03OXLoHK+ShuyrGjoqw
+X-MS-Exchange-AntiSpam-MessageData-0: GWmgsgiU3qbPQbDVO+jlVEnYkrowiOR9UIIG6TKwfip2bqkiOAbwXDwPTSuR41KJlNjyn9cdKHQ3ajzNufFWrONMILEqfSvArbPubpetwNRhAJ96KOm5f9I27t8w/OtzYqP3gjHX5HK51qgemIobwL4++cQyTAy3Efw/W9eBw2QOZffJlx+w7n91XNenBLKDSx6wtKXpXRBgaXztTKuM5x0bCURv9Glw7aQp3cHDU6/Kz7MopUftKpkDogE2hBnnOCFNyo2nZKMk7WMhIk/pVDToS1NTfCxp1IvxoyjzZU4vUTAChC/g40JzoFQM9PKR9L06Hp2DefPEm8nP5hXKnc5wfGDz0G0aQrwzAL/Jlm6VJ2C5M+YR42rShn2ZB2z8StOhSAM0CbBZVKCm0UTcWlAb27swoCEEeZJzYGPEzGujwZ3a4KyykTzuk9W4YCiE
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2026 09:08:48.2368
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2026 09:08:53.8242
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 49a001f5-571c-4c0e-8fa6-08dee3e30324
+X-MS-Exchange-CrossTenant-Network-Message-Id: b0396e30-165d-4ec0-f856-08dee3e3067c
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EDD4.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EDD1.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR12MB5755
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8933
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_020856_306075_A03A957D 
-X-CRM114-Status: GOOD (  14.46  )
+X-CRM114-CacheID: sfid-20260717_020901_535493_5FFF55E2 
+X-CRM114-Status: GOOD (  23.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,71 +128,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In AXI MCDMA, xilinx_dma_complete_descriptor() walks the channel's
-active_list and unconditionally moves every entry to the done_list. The
-MCDMA IOC interrupt handler invokes this function on every
-interrupt-on-completion, but with interrupt coalescing (IRQThreshold > 1)
-an IOC interrupt may fire after only a subset of the queued descriptors
-have actually been processed by the hardware. As a result, descriptors
-whose completion bit is not yet set in the BD status were being reported
-as completed to client drivers.
+From: Suraj Gupta <suraj.gupta2@amd.com>
 
-Add a check for the descriptor completion bit before moving entries from
-the active list to the done list, using the appropriate direction-
-specific status field (s2mm_status for DMA_DEV_TO_MEM, mm2s_status for
-DMA_MEM_TO_DEV).
+xilinx_dma_get_metadata_ptr() returns the AXI DMA APP words from the SOP
+descriptor in both directions. This is wrong for RX, where the hardware
+writes the APP words into the EOF descriptor. It also leaves AXI MCDMA
+without metadata support.
 
-This mirrors the AXIDMA fix in commit 7bcdaa658102 ("dmaengine:
-xilinx_dma: Freeup active list based on descriptor completion bit").
+Return the metadata from the SOP descriptor for TX and from the EOF
+descriptor for RX, matching where the hardware reads and writes the
+fields. For AXI DMA, expose the APP words (20 bytes). For AXI MCDMA,
+expose the control sideband, status, and APP fields (28 bytes). On TX
+the control sideband holds TID and TUSER configuration for the outgoing
+stream. On RX the sideband status holds the received TID, TDEST and TUSER
+from the incoming stream. The field layout differs between MM2S and S2MM,
+and the wider payload lets a consumer distinguish the two controllers.
+No in-tree consumer is affected.
 
-Fixes: 6ccd692bfb7f ("dmaengine: xilinx_dma: Add Xilinx AXI MCDMA Engine driver support")
-Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Read xlnx,axistream-connected for AXI MCDMA. Attach metadata_ops in
+xilinx_mcdma_prep_slave_sg() when an AXI4-Stream interface is present,
+so MCDMA clients use the metadata API the same way as AXI DMA clients.
+
+Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
+Co-developed-by: Srinivas Neeli <srinivas.neeli@amd.com>
 Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
 ---
 Changes in V5:
- - No change.
+ - Take the metadata pointer from the SOP descriptor for TX and the EOF
+   descriptor for RX, matching where the hardware reads and writes the
+   fields (TX previously used the EOF descriptor).
+ - AXI DMA now exposes only the APP words (20 bytes) in both directions,
+   instead of the status word followed by APP (24 bytes).
+ - AXI MCDMA exposes the control sideband, status and APP fields
+   (28 bytes), with the sideband position differing between MM2S and S2MM.
+ - Reworked the kernel-doc index table and commit message accordingly.
 
 Changes in V4:
- - Reworded commit message to reference the AXIDMA fix it mirrors
-   (commit 7bcdaa658102).
- - Added Reviewed-by: Radhey Shyam Pandey.
+ - Restructured xilinx_dma_get_metadata_ptr(): AXIDMA is now the
+   fall-through path instead of a separate branch guarded by
+   WARN_ON_ONCE()/ERR_PTR().
+ - Rewrote the kernel-doc as an index table covering AXI DMA, MCDMA S2MM
+   and MCDMA MM2S, and documented that the pointer and payload length are
+   the same for both MCDMA directions.
+ - Added an inline comment explaining the union aliasing.
+ - Condensed the commit message.
 
 Changes in V3:
- - Added Fixes tag.
- - Expanded commit message to explain the interrupt coalescing scenario
-   and why the has_sg guard is omitted for MCDMA.
- - Changed local variable from 'bool completed' to 'u32 status' for
-   cleaner status field access.
- - Simplified completion check logic.
+ - Renamed subject to include "AXI DMA and MCDMA" (was "AXI MCDMA" only).
+ - Complete rewrite of commit message and implementation.
+ - Metadata pointer now returns status field at index 0 instead of APP
+   fields, exposing status and sideband information to clients.
+ - Changed from list_first_entry to list_last_entry to return the EOF
+   descriptor where hardware writes status and APP fields.
+ - Added explicit handling for both AXIDMA and MCDMA types with proper
+   payload length calculation.
+ - Added WARN_ON_ONCE for unsupported DMA types.
+ - Removed the 'chan' field from struct xilinx_dma_tx_descriptor (was
+   added in V2) as it's no longer needed; channel is obtained from
+   tx->chan instead.
+ - Dropped V2 patches 4/5 (dt-bindings xlnx,include-stscntrl-strm) and
+   5/5 (xferred_bytes support) as the approach changed to use residue.
 
 Changes in V2:
- - No change.
+ - Added support for MCDMA metadata handling alongside AXIDMA.
+ - Added 'chan' field to struct xilinx_dma_tx_descriptor.
 ---
- drivers/dma/xilinx/xilinx_dma.c | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+ drivers/dma/xilinx/xilinx_dma.c | 48 +++++++++++++++++++++++++++++----
+ 1 file changed, 43 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
-index ff5b29a808e9..1b5b00f08c5f 100644
+index 1b5b00f08c5f..6bf509d33e7c 100644
 --- a/drivers/dma/xilinx/xilinx_dma.c
 +++ b/drivers/dma/xilinx/xilinx_dma.c
-@@ -1784,6 +1784,17 @@ static void xilinx_dma_complete_descriptor(struct xilinx_dma_chan *chan)
- 					      struct xilinx_axidma_tx_segment, node);
- 			if (!(seg->hw.status & XILINX_DMA_BD_COMP_MASK) && chan->has_sg)
- 				break;
-+		} else if (chan->xdev->dma_config->dmatype == XDMA_TYPE_AXIMCDMA) {
-+			struct xilinx_aximcdma_tx_segment *seg;
-+			u32 status;
+@@ -651,17 +651,51 @@ static inline void xilinx_aximcdma_buf(struct xilinx_dma_chan *chan,
+  * @tx: async transaction descriptor
+  * @payload_len: metadata payload length
+  * @max_len: metadata max length
+- * Return: The app field pointer.
++ *
++ * The metadata lives in the SOP descriptor for TX and the EOF descriptor for RX.
++ * Field order depends on dmatype and direction:
++ *
++ *   AXI DMA:         [0..] app
++ *   AXI MCDMA (TX):  [0] ctrl_sideband, [1] status, [2..] app
++ *   AXI MCDMA (RX):  [0] status, [1] sideband, [2..] app
++ *
++ * Return: Pointer to the first metadata word.
+  */
+ static void *xilinx_dma_get_metadata_ptr(struct dma_async_tx_descriptor *tx,
+ 					 size_t *payload_len, size_t *max_len)
+ {
+ 	struct xilinx_dma_tx_descriptor *desc = to_dma_tx_descriptor(tx);
++	struct xilinx_dma_chan *chan = to_xilinx_chan(tx->chan);
 +
++	if (chan->xdev->dma_config->dmatype == XDMA_TYPE_AXIMCDMA) {
++		struct xilinx_aximcdma_tx_segment *seg;
++
++		if (chan->direction == DMA_DEV_TO_MEM) {
 +			seg = list_last_entry(&desc->segments,
-+					      struct xilinx_aximcdma_tx_segment,
-+					      node);
-+			status = (chan->direction == DMA_DEV_TO_MEM) ?
-+				seg->hw.s2mm_status : seg->hw.mm2s_status;
-+			if (!(status & XILINX_DMA_BD_COMP_MASK))
-+				break;
- 		}
- 		if (chan->has_sg && chan->xdev->dma_config->dmatype !=
- 		    XDMA_TYPE_VDMA)
++					      struct xilinx_aximcdma_tx_segment, node);
++			*max_len = *payload_len = sizeof(seg->hw.s2mm_status) +
++						  sizeof(seg->hw.s2mm_sideband_status) +
++						  sizeof(seg->hw.app);
++			return &seg->hw.s2mm_status;
++		}
++		seg = list_first_entry(&desc->segments,
++				       struct xilinx_aximcdma_tx_segment, node);
++		*max_len = *payload_len = sizeof(seg->hw.mm2s_ctrl_sideband) +
++					  sizeof(seg->hw.mm2s_status) +
++					  sizeof(seg->hw.app);
++		return &seg->hw.mm2s_ctrl_sideband;
++	}
++
+ 	struct xilinx_axidma_tx_segment *seg;
+ 
+-	*max_len = *payload_len = sizeof(u32) * XILINX_DMA_NUM_APP_WORDS;
+-	seg = list_first_entry(&desc->segments,
+-			       struct xilinx_axidma_tx_segment, node);
++	if (chan->direction == DMA_DEV_TO_MEM)
++		seg = list_last_entry(&desc->segments,
++				      struct xilinx_axidma_tx_segment, node);
++	else
++		seg = list_first_entry(&desc->segments,
++				       struct xilinx_axidma_tx_segment, node);
++
++	*max_len = *payload_len = sizeof(seg->hw.app);
+ 	return seg->hw.app;
+ }
+ 
+@@ -2639,6 +2673,9 @@ xilinx_mcdma_prep_slave_sg(struct dma_chan *dchan, struct scatterlist *sgl,
+ 		segment->hw.control |= XILINX_MCDMA_BD_EOP;
+ 	}
+ 
++	if (chan->xdev->has_axistream_connected)
++		desc->async_tx.metadata_ops = &xilinx_dma_metadata_ops;
++
+ 	return &desc->async_tx;
+ 
+ error:
+@@ -3287,7 +3324,8 @@ static int xilinx_dma_probe(struct platform_device *pdev)
+ 
+ 	dma_set_max_seg_size(xdev->dev, xdev->max_buffer_len);
+ 
+-	if (xdev->dma_config->dmatype == XDMA_TYPE_AXIDMA) {
++	if (xdev->dma_config->dmatype == XDMA_TYPE_AXIDMA ||
++	    xdev->dma_config->dmatype == XDMA_TYPE_AXIMCDMA) {
+ 		xdev->has_axistream_connected =
+ 			of_property_read_bool(node, "xlnx,axistream-connected");
+ 	}
 -- 
 2.43.0
 
