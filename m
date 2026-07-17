@@ -4,113 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9606FC4451B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 15:25:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E795C4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 15:29:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hhejqqk/YejfwiP6Ga/bYKh4OsY78ne2Bp/UpWOM4CI=; b=w86Cm9wH9PkLrXAN7M3GCa2X+N
-	mbOO3PQI/lxSIHncIJ6+J4X5OHukYHsVCBDPwcpAsBpSH/m3/bXC91b4b9cjXGMx+Ws6YGCozZqus
-	d6+i9p4O6AhBPFYXbgN/btf5ShlsazRgWeBxitRrXtwRJIHh4lOdI9q+Bppy6Rv1uqRhAlzgO7Kxh
-	PCqc2kZjWYoUjWgEH7FxakN/dAJPnAJiCyWtQnr5d3yVBXqblTgdyTe9GMqLK2R0YXhmhyf1tX8f6
-	fJoxwgIHumy1W2vweeTYNiZZ3qaqfhhu6emjTys38j962c4ns9UQwHkJOjvqnxftC76J/GCvUHqke
-	Zh3du44A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VFxZkkQT2J2erFlr6KVWOUxnKxLvVGeAS996SfO3E/o=; b=tMaUcbvk27C2EGJiQVFytDGobT
+	HOr3nrWbkxleLtJBRgAZjbd4ZO2BoeEcIbe3Z0KFyvit7X2J4cMmtyv3IT5npJTAL198LRlh4t09A
+	SsVvuxnTk5r1lTMYCPFT1TtkPN7eXN6PUC2//sbZmDCnkZimPGpe8SusUR8sT5RU57iUYaHz4ulvr
+	ZarEaYaWHfRtTpUyZL12Z7YYu+p3L8l3gkUfed/Qwkm6RPjSKz05ga2JySFMnY6dhmlrZjEOljaVX
+	v7jESY4GPfwieouUoW1Lc7z2H/6zlBlx7kbRJCA7puCP9h3KKmEKvdjnyAnWx64/w83URM4oafHjt
+	E8kTD7mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkkRM-00000002bWa-03Vh;
-	Fri, 17 Jul 2026 15:25:28 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1wkkVH-00000002bxv-2RYp;
+	Fri, 17 Jul 2026 15:29:31 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkkRD-00000002bQa-1zto
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 15:25:20 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-47d6c634f45so4521618f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 08:25:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1784301917; x=1784906717; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Hhejqqk/YejfwiP6Ga/bYKh4OsY78ne2Bp/UpWOM4CI=;
-        b=dMb5MX4DMLnCaMrN7Tn+WWO8VkXhaX/NuaHmbfW6EGwGjaRkdw6JBv4QjZKc96xX/B
-         cGx45sRYe1nswpEFixhENHhCc57HttFUJOI54E5YNuhomiPQhfoVA84wq2mLfGOF1udX
-         BtF9X/3N8vM3QxbvB61zkl/9LcmXc43Y24AxUVfp+Cwje1DWHTZl7Mgqe689uuY/E3iH
-         YOqXTnBUEyGleRsv2/4+A5tZLZOQIWzaFhI/sGabyHfOrMxbC8mP1iQHMognhcagwP3L
-         lcBm0Wt5O34RK/aD7+JJ4RiNpo7WWeFDJpcDTk25JBeSIP/4eubT+YmO2yEepXTzqp35
-         xtrw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784301917; x=1784906717;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Hhejqqk/YejfwiP6Ga/bYKh4OsY78ne2Bp/UpWOM4CI=;
-        b=Gpkq2neRj6iIAOR8CSgUoHco+eqlJ/GfKN+/YH9TgJsJk/pr2lRs9wz+aQS+9j8x2H
-         pj2JGJXY/5KG3bBQ5HViyuDMo0j4A/pWHiqxDHq+A6uXiNMq7mYV6o+ieCk4NXa9Se1O
-         0p/w5xw0RcGmvnWRjEPPwgBlSM6ftOpDXiuMXSBBsC2KGRDkOq6shHbg1DtSKUJlL9Nu
-         908tnkOZLJJUnbXtdFPhrIoZSKWEF19Xaots28LAaf4MXqiQCa0OgN+hCBKnAADEnnG+
-         iIDtWkrD2Mq3ZAEgiKq6RIny2WS+Apkcc55q438/q2rk+U1JElDaGnXqwoSE4EM9zFIp
-         29Lw==
-X-Forwarded-Encrypted: i=1; AHgh+Rrw567PEkrywGx8eCuppE/Fx8nuOjhrk5afr8ASNxA3NCcObAOolZZzDBhGcBkT0Xy8xoIAEclwodtfIf9pw+Ci@lists.infradead.org
-X-Gm-Message-State: AOJu0YwndupqJGhaapjp+vwvLiHKOt6UWOEI6Bg8PAi5XA6mibYPNvfH
-	b5iLvjcnZrPHBAXJuHVzwxTNnPDtr/rlbwFn54kGHCKVzJ0uOQxnzb1r/589Nbmprpw=
-X-Gm-Gg: AfdE7clNuNq2/PuqA1orwqDpgdaIQAKtDGhGjPqJLbjyCXAehkbKBNxwFqNAoEqb9gY
-	LNmMoZ8iwEAgEZ9sMpZglBD3IrUpAR9JDlEhjZQ27CJbNw2vSzSbNZeY7PvWm/4RQ3ib3rzALGR
-	9xQ6/Y8DDU8VR1VIq/Qu41Cfst9GcJA3Caao+458r9XuMhDEOyqDK6yRElpE+oDy9mw2G6b2GrF
-	jk9BMKcBJx9ZoM3pLsizmhxgYLOQNbd4RVGwA4L4BLORVzLEHbrQbCtBVvXwwzVzI2B2bkPMXWi
-	q6xWkOrg9T3P6Wb0GBBWy1J9Qo/c/54eDXMOIqAI9kLCJap0ME5C/+m5Qd6BmBru6VmN73lT4zK
-	Ll3pHW2yhIBt2J7gvndD+s38K6Rzx7+FDja4jyYp9sQBCmanGg3MxLMXnsEWHLu2TmZU+qJYpZ5
-	2P
-X-Received: by 2002:a5d:588d:0:b0:478:1a24:912d with SMTP id ffacd0b85a97d-47f6233d29fmr4655239f8f.57.1784301917524;
-        Fri, 17 Jul 2026 08:25:17 -0700 (PDT)
-Received: from localhost ([2a01:e0a:3c5:5fb1:8e22:8a15:f33f:dc60])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-47f63e65644sm4211074f8f.16.2026.07.17.08.25.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 Jul 2026 08:25:16 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-Date: Fri, 17 Jul 2026 17:24:54 +0200
-Subject: [PATCH v5 4/4] clk: sunxi-ng: sun6i-rtc: add a733 support
+	id 1wkkVE-00000002bwn-1tOs;
+	Fri, 17 Jul 2026 15:29:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1784302165;
+	bh=iTcn68zjNtWpuvUjVltPKPZ1D1yPX6EtcDbq4umcyg4=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=i7bGZ++HIOq+Rs7hQUb0OCVP+4/2P7b9r4vGY9ujCcXK0cfLLf7MfK664oL8442BX
+	 bdrAkLqyeZhzAkt4+h3BE+udp+w8WR90gARzcPTkkFUsvWVx382Sncuf9Au+tNqm6t
+	 +JKHk/N2AmqeK7uuOf07gPYBXBEcQ/+VcntrQLFMGawNWe635PJDIPTNGcNK03IdkD
+	 78DA5vEBHPdU9j8gPYdsoTnmBokJjamZ9OFGKJEFTOZyhtqm0gAPWdHXgzhe+bCX3C
+	 IxVNGQRSekGSNQEyb2jxW8HDQ4GuY1heWxqx5uy2tpX9EEr1QzHXRp5rlKxL5Rt1zh
+	 NUyeU0BHrbi1Q==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id AE4B717E0D7E;
+	Fri, 17 Jul 2026 17:29:23 +0200 (CEST)
+Message-ID: <6c3081fed130534ac0d5cf83c7658bb13e0bfc7b.camel@collabora.com>
+Subject: Re: [PATCH v3] media: rkvdec: fix clk reference leak on unbind
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Francesco Saverio Pavone <pavone.lawyer@gmail.com>, jonas@kwiboo.se, 
+	detlev.casanova@collabora.com, hverkuil@kernel.org, mchehab@kernel.org
+Cc: ezequiel@vanguardiasur.com.ar, heiko@sntech.de,
+ linux-media@vger.kernel.org, 	linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, 	linux-kernel@vger.kernel.org
+Date: Fri, 17 Jul 2026 11:29:22 -0400
+In-Reply-To: <20260717150440.77079-1-pavone.lawyer@gmail.com>
+References: <20260518145414.64514-1-pavone.lawyer@gmail.com>
+	 <20260717150440.77079-1-pavone.lawyer@gmail.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-4A3S8TQKw0LbkarlVsuL"
+User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260717-a733-rtc-v5-4-3874cc26abf7@baylibre.com>
-References: <20260717-a733-rtc-v5-0-3874cc26abf7@baylibre.com>
-In-Reply-To: <20260717-a733-rtc-v5-0-3874cc26abf7@baylibre.com>
-To: Junhui Liu <junhui.liu@pigmoral.tech>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Maxime Ripard <mripard@kernel.org>
-Cc: linux-rtc@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
- Jerome Brunet <jbrunet@baylibre.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6141; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=ZxtEY0Po9koFr9SK/FxQWL9lGl95syc2R11eiKw1uuc=;
- b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBqWklPYwYKyBd3CWGNFpqn23Bc7xuBlJIXjflvZ
- 24rfeAeKe6JAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCalpJTwAKCRDm/A8cN/La
- hSo8D/9xWGGY9LduPCVJf9vAXrffcvr112BqVG32PNVM3ZPUe5YFuym+2ounbNhggeMbn4430J7
- H3PrWERDgUypq91xeuRG10p3Pjixg7eudX9T1WtCuOFP+9f+4rSXQ3Fo1jP4hUXOXzn5ejskxbo
- e64YLBQU6HkFCGMpFoJz/Uq/0XCpLgHIpyBKGOk5mNA/7j3xnWRJEbBvS8op0eWxRqGoY16r2Xe
- u5X3PASiKN+EyUwPCu8QP/mcCzkDGM86U9MSY39YYdY7zmXvc2yvQpZfZCUv/raVorhNPEyO0Dt
- QuMoPAyXVkDF3ugO5DNbZjHJ95Mu6GxR02RKwbCAHxiYEluh8FyENX6ilRPjhHG3QkMvyIfPoca
- NXEv4Ux4WOcZKsF5Xba541HHJU5Z/KGNuJxXr8lKMPgCICkdzk4xQvxvday4VzUgTeBUAeU/vhg
- l/dt0giaCDfVz606oy/zsem00a+NvCOQdcMh7FIjUA1wdqp/Jk1LPlPJt+GgGGZY641PVY3Q3/Y
- 3VW7jIvd7wIEjr35JGieN2kuij0FgBdBlbf2q6B3TQ++KtlpXKdFACv5iT4ZCSPWDMszWKplci+
- edy8plNwJe4VN+q99eza06QDTpPot4etr/I37u4GZrgqwahUUiSD8UNOJmrvRoZt59zLIAgiw8A
- jMrXPitf3To3d5g==
-X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
- fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_082519_567315_F6777018 
-X-CRM114-Status: GOOD (  17.60  )
+X-CRM114-CacheID: sfid-20260717_082928_657177_07AB15D0 
+X-CRM114-Status: GOOD (  37.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,181 +90,203 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the sun60i a733 CCU RTC.
 
-Compared to the a523, this SoC has a different input oscillator divider
-which auto-detects the oscillator rate and select a divider to provide
-a fixed 32768Hz clock. It also provides several phy reference clocks
-with dedicated clock gates.
+--=-4A3S8TQKw0LbkarlVsuL
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
-Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
----
- drivers/clk/sunxi-ng/ccu-sun6i-rtc.c | 77 ++++++++++++++++++++++++++++++++++--
- drivers/clk/sunxi-ng/ccu-sun6i-rtc.h |  2 +-
- 2 files changed, 75 insertions(+), 4 deletions(-)
+Hi Francesco,
 
-diff --git a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
-index 25dd87e78eb7..98ae10307f43 100644
---- a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
-+++ b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
-@@ -44,9 +44,15 @@
- #define DCXO_CTRL_REG			0x160
- #define DCXO_CTRL_CLK16M_RC_EN		BIT(0)
- 
-+#define DCXO_GATING_REG			0x16c
-+
-+#define CLK_NUMBER_NO_GATES		(CLK_OSC24M_32K_DIV + 1)
-+
- struct sun6i_rtc_match_data {
- 	bool				have_ext_osc32k		: 1;
- 	bool				have_iosc_calibration	: 1;
-+	bool				have_dcxo_status	: 1;
-+	bool				have_phy_ref_gates	: 1;
- 	bool				rtc_32k_single_parent	: 1;
- 	const struct clk_parent_data	*osc32k_fanout_parents;
- 	u8				osc32k_fanout_nparents;
-@@ -213,7 +219,12 @@ static struct ccu_mux osc32k_clk = {
- 	},
- };
- 
--/* This falls back to the global name for fwnodes without a named reference. */
-+/*
-+ * This falls back to the global name for fwnodes without a named reference.
-+ * NOTE: osc24M name might be misleading the oscillator could also be a 26MHz
-+ * or a 19.2MHz one starting with the a733. The original name is kept anyway
-+ * in case anything is relying on it.
-+ */
- static const struct clk_parent_data osc24M[] = {
- 	{ .fw_name = "hosc", .name = "osc24M" }
- };
-@@ -227,8 +238,30 @@ static struct clk_fixed_factor osc24M_32k_div_clk = {
- 					    0),
- };
- 
--static SUNXI_CCU_GATE_HW(osc24M_32k_clk, "osc24M-32k", &osc24M_32k_div_clk.hw,
--			 LOSC_OUT_GATING_REG, BIT(16), 0);
-+static struct clk_div_table osc24M_32k_div_a733_table[] = {
-+	{ .val = 0, .div = 732 },
-+	{ .val = 1, .div = 586 },
-+	{ .val = 2, .div = 793 },
-+	{ .val = 3, .div = 732 },
-+	{ /* Sentinel */ },
-+};
-+
-+static struct ccu_div osc24M_32k_div_a733_clk = {
-+	.enable = BIT(1),
-+	.div	= _SUNXI_CCU_DIV_TABLE_FLAGS(14, 2,
-+					     osc24M_32k_div_a733_table,
-+					     CLK_DIVIDER_READ_ONLY),
-+	.common	= {
-+		.reg		= DCXO_CTRL_REG,
-+		.hw.init	= CLK_HW_INIT_PARENTS_DATA("osc24M-32k-div",
-+							   osc24M,
-+							   &ccu_rodiv_ops,
-+							   0),
-+	},
-+};
-+
-+static SUNXI_CCU_GATE(osc24M_32k_clk, "osc24M-32k", "osc24M-32k-div",
-+		      LOSC_OUT_GATING_REG, BIT(16), 0);
- 
- static const struct clk_hw *rtc_32k_parents[] = {
- 	&osc32k_clk.common.hw,
-@@ -267,6 +300,15 @@ static struct ccu_mux osc32k_fanout_clk = {
- 	},
- };
- 
-+static SUNXI_CCU_GATE_FW(hosc_serdes1_clk, "hosc-serdes1", "hosc",
-+		      DCXO_GATING_REG, BIT(5), 0);
-+static SUNXI_CCU_GATE_FW(hosc_serdes0_clk, "hosc-serdes0", "hosc",
-+		      DCXO_GATING_REG, BIT(4), 0);
-+static SUNXI_CCU_GATE_FW(hosc_hdmi_clk, "hosc-hdmi", "hosc",
-+		      DCXO_GATING_REG, BIT(1), 0);
-+static SUNXI_CCU_GATE_FW(hosc_ufs_clk, "hosc-ufs", "hosc",
-+		      DCXO_GATING_REG, BIT(0), 0);
-+
- static struct ccu_common *sun6i_rtc_ccu_clks[] = {
- 	&iosc_clk,
- 	&iosc_32k_clk,
-@@ -275,6 +317,11 @@ static struct ccu_common *sun6i_rtc_ccu_clks[] = {
- 	&osc24M_32k_clk.common,
- 	&rtc_32k_clk.common,
- 	&osc32k_fanout_clk.common,
-+	&osc24M_32k_div_a733_clk.common,
-+	&hosc_serdes1_clk.common,
-+	&hosc_serdes0_clk.common,
-+	&hosc_hdmi_clk.common,
-+	&hosc_ufs_clk.common,
- };
- 
- static struct clk_hw_onecell_data sun6i_rtc_ccu_hw_clks = {
-@@ -288,6 +335,10 @@ static struct clk_hw_onecell_data sun6i_rtc_ccu_hw_clks = {
- 		[CLK_OSC24M_32K]	= &osc24M_32k_clk.common.hw,
- 		[CLK_RTC_32K]		= &rtc_32k_clk.common.hw,
- 		[CLK_OSC24M_32K_DIV]	= &osc24M_32k_div_clk.hw,
-+		[CLK_HOSC_UFS]		= &hosc_ufs_clk.common.hw,
-+		[CLK_HOSC_HDMI]		= &hosc_hdmi_clk.common.hw,
-+		[CLK_HOSC_SERDES0]	= &hosc_serdes0_clk.common.hw,
-+		[CLK_HOSC_SERDES1]	= &hosc_serdes1_clk.common.hw,
- 	},
- };
- 
-@@ -330,6 +381,15 @@ static const struct sun6i_rtc_match_data sun55i_a523_rtc_ccu_data = {
- 	.osc32k_fanout_nparents	= ARRAY_SIZE(sun50i_r329_osc32k_fanout_parents),
- };
- 
-+static const struct sun6i_rtc_match_data sun60i_a733_rtc_ccu_data = {
-+	.have_ext_osc32k	= true,
-+	.have_iosc_calibration	= true,
-+	.have_dcxo_status	= true,
-+	.have_phy_ref_gates	= true,
-+	.osc32k_fanout_parents	= sun50i_r329_osc32k_fanout_parents,
-+	.osc32k_fanout_nparents	= ARRAY_SIZE(sun50i_r329_osc32k_fanout_parents),
-+};
-+
- static const struct of_device_id sun6i_rtc_ccu_match[] = {
- 	{
- 		.compatible	= "allwinner,sun50i-h616-rtc",
-@@ -343,6 +403,10 @@ static const struct of_device_id sun6i_rtc_ccu_match[] = {
- 		.compatible	= "allwinner,sun55i-a523-rtc",
- 		.data		= &sun55i_a523_rtc_ccu_data,
- 	},
-+	{
-+		.compatible	= "allwinner,sun60i-a733-rtc",
-+		.data		= &sun60i_a733_rtc_ccu_data,
-+	},
- 	{},
- };
- MODULE_DEVICE_TABLE(of, sun6i_rtc_ccu_match);
-@@ -375,6 +439,13 @@ int sun6i_rtc_ccu_probe(struct device *dev, void __iomem *reg)
- 	osc32k_fanout_init_data.parent_data = data->osc32k_fanout_parents;
- 	osc32k_fanout_init_data.num_parents = data->osc32k_fanout_nparents;
- 
-+	if (data->have_dcxo_status)
-+		sun6i_rtc_ccu_hw_clks.hws[CLK_OSC24M_32K_DIV] =
-+			&osc24M_32k_div_a733_clk.common.hw;
-+
-+	if (!data->have_phy_ref_gates)
-+		sun6i_rtc_ccu_hw_clks.num = CLK_NUMBER_NO_GATES;
-+
- 	return devm_sunxi_ccu_probe(dev, reg, &sun6i_rtc_ccu_desc);
- }
- 
-diff --git a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.h b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.h
-index ab7b92b47f59..4f4f4cb00f1d 100644
---- a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.h
-+++ b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.h
-@@ -11,6 +11,6 @@
- #define CLK_RTC_32K		6
- #define CLK_OSC24M_32K_DIV	7
- 
--#define CLK_NUMBER		(CLK_OSC24M_32K_DIV + 1)
-+#define CLK_NUMBER		(CLK_HOSC_SERDES1 + 1)
- 
- #endif /* _CCU_SUN6I_RTC_H */
 
--- 
-2.47.3
+This was sent as a reply to v2, best practice is that new version should be=
+ its
+own thread. This convention is best for patchwork tracking and other tools.
 
+cheers,
+Nicolas
+
+Le vendredi 17 juillet 2026 =C3=A0 17:04 +0200, Francesco Saverio Pavone a =
+=C3=A9crit=C2=A0:
+> From: Jonas Karlman <jonas@kwiboo.se>
+>=20
+> remove() calls pm_runtime_disable() before
+> pm_runtime_dont_use_autosuspend(), so the second call can never suspend
+> the device: it reaches rpm_idle(), which returns -EACCES once PM runtime
+> is disabled. The probe error path has had the two the other way round
+> since the driver was merged.
+>=20
+> This shows up when the device is unbound while the 100ms autosuspend
+> window is still open, which is what an rmmod right after a decode does.
+> device_release_driver() calls pm_runtime_put_sync() before .remove(),
+> and rpm_idle() adds RPM_AUTO on its own, so that put only arms the
+> autosuspend timer. pm_runtime_disable() then cancels the timer, and
+> pm_runtime_reinit() relabels the device suspended without calling the
+> driver back. The clk_bulk reference taken by rkvdec_runtime_resume() is
+> never dropped, and a later probe does not reclaim it, so every such
+> unbind leaks one enable count.
+>=20
+> Drop autosuspend first, so the callback still runs and releases the
+> clocks.
+>=20
+> The PM calls also have to move ahead of rkvdec_v4l2_cleanup() rather
+> than just swap with each other. rkvdec_runtime_suspend() looks its state
+> up with dev_get_drvdata(), and v4l2_device_unregister() clears it:
+> struct rkvdec_dev has v4l2_device as its first member, so
+> &rkvdec->v4l2_dev and rkvdec are the same address and the check in
+> v4l2_device_disconnect() matches. That is harmless today because
+> pm_runtime_disable() suppresses the callback, but once the callback can
+> run, a suspend after the V4L2 teardown dereferences NULL. Swapping only
+> the two PM calls oopses on every unbind.
+>=20
+> Fixes: cd33c830448b ("media: rkvdec: Add the rkvdec driver")
+> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+> [fsp: wrote the commit message; the diff is unchanged]
+> Tested-by: Francesco Saverio Pavone <pavone.lawyer@gmail.com>
+> Assisted-by: Claude:claude-opus-4-8
+> Signed-off-by: Francesco Saverio Pavone <pavone.lawyer@gmail.com>
+> ---
+> Changes in v3:
+> =C2=A0- Rewrote the commit message, and dropped the VP9 claim from v1 and=
+ v2.
+> =C2=A0=C2=A0 Those said this fixed a VP9 inter-prediction bug on RK3588, =
+green chroma
+> =C2=A0=C2=A0 from the second ALTREF frame onward. The bug is real, but th=
+is is not
+> =C2=A0=C2=A0 what fixes it, and I should have established that before sen=
+ding v1.
+>=20
+> =C2=A0=C2=A0 What happened: I took this patch out of chewitt's tree along=
+ with two
+> =C2=A0=C2=A0 others and tested the three as a batch. The green is fixed b=
+y "media:
+> =C2=A0=C2=A0 rkvdec: implement reset controls" from Alex Bee, which adds =
+the
+> =C2=A0=C2=A0 reset_control handling that recovers the VDPU381 after a tra=
+nsient error
+> =C2=A0=C2=A0 (COLMV_REF_ERR_STA and friends) instead of leaving it dirty =
+for the next
+> =C2=A0=C2=A0 inter frame. Randy Li's PMU idle export goes with it. This p=
+atch was the
+> =C2=A0=C2=A0 third one in that batch and got the credit.
+>=20
+> =C2=A0=C2=A0 Retested this week on the same Rock 5B+ with an unpatched dr=
+iver: a VP9
+> =C2=A0=C2=A0 Profile 0 1080p clip with alt-ref frames decodes byte-identi=
+cal to the
+> =C2=A0=C2=A0 libvpx reference, across five rmmod/insmod cycles and after =
+an unbind
+> =C2=A0=C2=A0 inside the autosuspend window. The green does not come back,=
+ because the
+> =C2=A0=C2=A0 reset_control work is in the tree I test on. Sorry for the r=
+eview and the
+> =C2=A0=C2=A0 testing you spent on that basis.
+>=20
+> =C2=A0- Worth flagging separately: mainline rkvdec has no reset_control s=
+upport
+> =C2=A0=C2=A0 at all, so the VDPU381 is never recovered after a transient =
+error. That
+> =C2=A0=C2=A0 is a real gap, it is just not this patch. I can write it up =
+properly if
+> =C2=A0=C2=A0 that is useful.
+>=20
+> =C2=A0- The diff is unchanged from v1 and v2. It is Jonas's 2020 commit v=
+erbatim,
+> =C2=A0=C2=A0 and his original one-line subject already described exactly =
+what it does.
+> =C2=A0=C2=A0 The wrong story was mine, not his.
+>=20
+> =C2=A0- The subject changed with the message: "media: rkvdec: fix PM runt=
+ime
+> =C2=A0=C2=A0 teardown ordering in remove" in v1 and v2, "media: rkvdec: f=
+ix clk
+> =C2=A0=C2=A0 reference leak on unbind" here, since that is what it actual=
+ly fixes.
+>=20
+> =C2=A0- What is left is measured. With a dev_info() at the top of
+> =C2=A0=C2=A0 rkvdec_runtime_suspend(), autosuspend_delay raised to 60s to=
+ take the
+> =C2=A0=C2=A0 timer out of the race, and unbind driven through sysfs:
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 unpatched: 0 suspend callbacks, aclk=
+_rkvdec0 enable_count 1 -> 2
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 patched:=C2=A0=C2=A0 1 suspend callb=
+ack,=C2=A0 enable_count 1 -> 1
+> =C2=A0=C2=A0 The leak survives rmmod and accumulates one per unbind. With
+> =C2=A0=C2=A0 autosuspend_delay=3D0 both orders suspend once, which is the=
+ control: the
+> =C2=A0=C2=A0 difference only exists inside the window.
+>=20
+> =C2=A0- Fixes: was wrong in v1 and v2. ff8c5622f9f7 has the two pm_runtim=
+e calls
+> =C2=A0=C2=A0 as context and only added iommu_domain_free(). cd33c830448b =
+added remove()
+> =C2=A0=C2=A0 with the reversed order, and the probe error path with the r=
+ight one, so
+> =C2=A0=C2=A0 the tag points there now.
+>=20
+> =C2=A0- Dropped Cc: stable. A clk reference leaked on unbind is not backp=
+ort
+> =C2=A0=C2=A0 material, and the tag was only there for the VP9 claim.
+>=20
+> =C2=A0- Dropped your Reviewed-by and Tested-by from v2: they were given f=
+or a fix
+> =C2=A0=C2=A0 to something else.
+>=20
+> =C2=A0- Not included, happy to send as follow-ups: clearing empty_domain =
+after
+> =C2=A0=C2=A0 iommu_domain_free(), and hoisting the unregisters to the top=
+ of remove()
+> =C2=A0=C2=A0 as you suggested on v2.
+>=20
+> Tested on a Radxa Rock 5B+ (RK3588) on a 7.1 tree where the six calls in
+> rkvdec_v4l2_cleanup() are open-coded; the executed sequence is the one th=
+is
+> patch produces. VP9 decode stays byte-identical to libvpx, and five
+> rmmod/insmod cycles leave dmesg clean.
+>=20
+> Link to v1:
+> https://lore.kernel.org/all/20260518105413.42147-1-pavone.lawyer@gmail.co=
+m/
+> Link to v2:
+> https://lore.kernel.org/all/20260518145414.64514-1-pavone.lawyer@gmail.co=
+m/
+> =C2=A0drivers/media/platform/rockchip/rkvdec/rkvdec.c | 5 +++--
+> =C2=A01 file changed, 3 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> index 1d1e9bfef8e9..0ec3fca9cccc 100644
+> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> @@ -1869,12 +1869,13 @@ static void rkvdec_remove(struct platform_device
+> *pdev)
+> =C2=A0
+> =C2=A0	cancel_delayed_work_sync(&rkvdec->watchdog_work);
+> =C2=A0
+> -	rkvdec_v4l2_cleanup(rkvdec);
+> -	pm_runtime_disable(&pdev->dev);
+> =C2=A0	pm_runtime_dont_use_autosuspend(&pdev->dev);
+> =C2=A0
+> =C2=A0	if (rkvdec->empty_domain)
+> =C2=A0		iommu_domain_free(rkvdec->empty_domain);
+> +
+> +	pm_runtime_disable(&pdev->dev);
+> +	rkvdec_v4l2_cleanup(rkvdec);
+> =C2=A0}
+> =C2=A0
+> =C2=A0#ifdef CONFIG_PM
+
+--=-4A3S8TQKw0LbkarlVsuL
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCalpKUgAKCRDZQZRRKWBy
+9LVmAPwMv14zaHFi949qsM/I622p/lShXu6bK/Y2Jtuyp6tUgQD9HpiozNEK6eiz
+QWlJkJR7ZdBh1nrOUCeKvZ7oVIvUDQU=
+=C564
+-----END PGP SIGNATURE-----
+
+--=-4A3S8TQKw0LbkarlVsuL--
 
