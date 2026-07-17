@@ -4,79 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24EB5C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 08:07:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65A79C44514
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 08:09:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sx70MohSQI5OynyQy2bJT7hUudD6UKCIjL2zOELkr2M=; b=SX/TmBcRWyM+2bwOxpYe9vuGvM
-	F5jUv+bca23s8AnMMjpgpv1SLwdmbZSkubo2Vp3X/p3wL/I06xZZYQnPno2UJmBmwB+wSHU0HEAWM
-	za3Mgjhm8wJ6TmCX8DIMVKtbEqf1YC5hPsYocRio/9Zf6OsKH9UlRVwSOOmunuB+wxl6Hl4fRAPDu
-	HA/oBPQxp19W4WaXYVkBj/yksCgjBXSVhg018pfy7+dYMZcffz9b34js1N1ETAb3h8lNKWKrJA34c
-	zuJqA6n61ME51hA9nV3hZY4VitXVTW10zdfTUx5z+XnL6NPeT75SLsBscpUKrIN0BG3Cf8WhHgDZ3
-	jq2M63lg==;
+	bh=dIadBkIMfc92d1GDfpRAdnJ2I4MVADdry9Rz78wXpcI=; b=b+lu8v5jJlL0i20e0oRABzkD3g
+	jmuJD4CUtxdMW9neM4otHlbQ63tcURtk5bCPj6O8Re64QPCeKAXvyuYtqPo/F+HEscSxqPpeR5Itz
+	2Fs9tbGNugUz6MC8YFOdNMrurKYgTwKLVyzNYO7b2PK/iPhrCTyonHhy4ZvYWTsUrNZzTcaC8bV8O
+	vTnYKb6sQMPO6Jgozt7jtHLgSmE6Y2i8HDOTgO7RwXz6V5Xv6MrkbGafT+IlkfTjNXxFx5kKRBOob
+	4B773V8gXaHwkY3xWz+UyaDCeXnozvjuuDQLt3apKLnCIcDH1iJ0iO+Zi05ocwMu62RzTx2+/3bcy
+	I3QQ8KAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkdbo-00000001ZWw-4C8z;
-	Fri, 17 Jul 2026 08:07:49 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wkdcy-00000001Zmo-16Zw;
+	Fri, 17 Jul 2026 08:09:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkdbo-00000001ZWI-0T0z
+	id 1wkdcx-00000001Zmh-1LWV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 08:07:48 +0000
+	Fri, 17 Jul 2026 08:08:59 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8B1A560A63;
-	Fri, 17 Jul 2026 08:07:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DAD471F000E9;
-	Fri, 17 Jul 2026 08:07:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E236343D30
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 08:08:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9FB51F00ACA
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 08:08:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784275667;
-	bh=Sx70MohSQI5OynyQy2bJT7hUudD6UKCIjL2zOELkr2M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=V4eP2GQ424QXG8DsrGa+QfSculVk9t6+kC9JuclpV+X9VGf3PzNm9R+fyPTZ8LJzO
-	 LqxvITYf97PSGsyN6o8S6POvpbxoVVT3zG4i/hRLi7hD4w8AsST+qyjd164XSQT27g
-	 Uk3hItdMpM1AIe97BLN0+jrPEV4ciR+UM5SmKmaE1IM3Tv4my7Y7Shtuc/2APhR5HA
-	 zU5D5oyvt10g1nMA6zxJIEPZic4+iU/MDnUtd8ysUjJXOWm1u4tISZ0vmch8lIdsYQ
-	 lxQPcxCo2dIRqIF0d+7SMQHNGiwLCUJvBr+zPmbh+iQyJzdLvNLpHwrp7OApPlNMJE
-	 1hHWImuCp055w==
-Date: Fri, 17 Jul 2026 09:07:41 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Saravana Kannan <saravanak@kernel.org>,
-	Ulf Hansson <ulfh@kernel.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 06/10] dt-bindings: power: renesas,r8a78000-mdlc: Add
- firmware property
-Message-ID: <20260717-pragmatic-alpaca-of-spirit-ae497e@sudeepholla>
-References: <cover.1783505329.git.geert+renesas@glider.be>
- <b4d16ddb0c0af56f4103feadb3014e71899edec1.1783505329.git.geert+renesas@glider.be>
+	s=k20260515; t=1784275738;
+	bh=dIadBkIMfc92d1GDfpRAdnJ2I4MVADdry9Rz78wXpcI=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=SJMJFMal+Qz/rARkuCF+DZhrZzvT9aEH2zlfAfunhCtri3omP3VMqQcqXZArWx5dk
+	 FQ4hrHxmR6iSCoIBL5QUbMaXVqRkGZDCMGjEv2toykAa201dMPjp6vVvRmLo2ouonT
+	 PQBSXd3WZJCyYzEQOOmfDQ1akkfrXQxbTS4EaRka3dPnP8mfp7Tezb2GHHgh1Eji3T
+	 V8oTgLjkF1p/uW23CR10ZjXD20Ml0fw8L4OblvIy0oZLE/2F9RYqiMqfa2ul+ZU8fF
+	 Alq83hx0i/bpN7q27cPgT8oFfCZcR1MvJmZLOfOMiGyQDJnqgJJZor3OUdWneyD02c
+	 FLO2aGpeCCWKg==
+Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-5b15c6fb864so2479879e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 01:08:58 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Rrmwb+84E3LNgNKdkIQiilA9ACCG37HxFVIifUlj5nzuu0tS1zFIxB/GzNXlU44mPQ+4rj/OisGzUIbKmBFdHr0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxm1NVON/v5duFBNhfc0thHNOq+LKOiNMi/rCVH/teoVOm4zofP
+	BDK4UU/wE8/hKHttfP+tFYzFX91r5a0iKwUaeIBWcBBF7Tg3piQ6h1AvyDjpjodaofvao5I46/2
+	WkVCxXy9CFuHqve9P+xNghN3rvMhO3+52YQjiMZBBkw==
+X-Received: by 2002:a05:6512:2524:b0:5ae:baa7:5ed2 with SMTP id
+ 2adb3069b0e04-5b28fabc53fmr376905e87.63.1784275737391; Fri, 17 Jul 2026
+ 01:08:57 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Fri, 17 Jul 2026 01:08:54 -0700
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Fri, 17 Jul 2026 01:08:54 -0700
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <alYGGu7_3G6mJAzQ@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <b4d16ddb0c0af56f4103feadb3014e71899edec1.1783505329.git.geert+renesas@glider.be>
+References: <20260713-qcom-qce-cmd-descr-v21-0-bc2583e18475@oss.qualcomm.com>
+ <20260713-qcom-qce-cmd-descr-v21-6-bc2583e18475@oss.qualcomm.com> <alYGGu7_3G6mJAzQ@linaro.org>
+Date: Fri, 17 Jul 2026 01:08:54 -0700
+X-Gmail-Original-Message-ID: <CAMRc=Mdj4n_EodNvdNK31wmiF=av6eqSNuVouPc8d+LFmQHi+w@mail.gmail.com>
+X-Gm-Features: AUfX_mx9FEOhptFi_3CRTp4Yaa7L94thQb83JpWfCNZjqAXnfBqalAbWqZfnado
+Message-ID: <CAMRc=Mdj4n_EodNvdNK31wmiF=av6eqSNuVouPc8d+LFmQHi+w@mail.gmail.com>
+Subject: Re: [PATCH v21 06/14] dmaengine: qcom: bam_dma: add support for BAM locking
+To: Stephan Gerhold <stephan.gerhold@linaro.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Thara Gopinath <thara.gopinath@gmail.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
+	"David S. Miller" <davem@davemloft.net>, Udit Tiwari <quic_utiwari@quicinc.com>, 
+	Md Sadre Alam <mdalam@qti.qualcomm.com>, Dmitry Baryshkov <lumag@kernel.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Bjorn Andersson <andersson@kernel.org>, 
+	Peter Ujfalusi <peter.ujfalusi@gmail.com>, Michal Simek <michal.simek@amd.com>, 
+	Frank Li <Frank.Li@kernel.org>, Andy Gross <agross@codeaurora.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, dmaengine@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, linux-crypto@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, brgl@kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,41 +94,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 08, 2026 at 12:16:24PM +0200, Geert Uytterhoeven wrote:
-> Add a firmware property, for systems where SCMI must be used instead of
-> direct hardware access.
-> 
+On Tue, 14 Jul 2026 11:49:14 +0200, Stephan Gerhold
+<stephan.gerhold@linaro.org> said:
+>
+>> +
+>>  /**
+>>   * bam_prep_slave_sg - Prep slave sg transaction
+>>   *
+>> [...]
+>> @@ -802,6 +851,7 @@ static int bam_dma_terminate_all(struct dma_chan *chan)
+>>  		}
+>>
+>>  		vchan_get_all_descriptors(&bchan->vc, &head);
+>> +		bchan->bam_locked = false;
+>
+> I wonder about the implications of this. If the LOCK descriptor was
+> already processed, will we cause a deadlock if we never submit the
+> UNLOCK descriptor? Or I guess bam_reset_channel() might reset the lock
+> as well?
+>
 
-Please add more info to explain why you think this is reasonable
-approach. Until then ...
+There's nothing in the HPG that would imply it but I instrumented a test where
+I excercised this situation and QCE was not locked up in any way. If there
+were more execution environments doing the same, I'm not sure but this series
+was tested by the NAND team and they didn't notice anything.
 
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> ---
-> v2:
->   - Spin off from "dt-bindings: power: Document Renesas R-Car X5H Module
->     Controller".
-> ---
->  .../devicetree/bindings/power/renesas,r8a78000-mdlc.yaml   | 7 +++++++
->  1 file changed, 7 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/power/renesas,r8a78000-mdlc.yaml b/Documentation/devicetree/bindings/power/renesas,r8a78000-mdlc.yaml
-> index 1dba1e1b1c5b52d0..9616f0244415896c 100644
-> --- a/Documentation/devicetree/bindings/power/renesas,r8a78000-mdlc.yaml
-> +++ b/Documentation/devicetree/bindings/power/renesas,r8a78000-mdlc.yaml
-> @@ -43,6 +43,12 @@ properties:
->        and thus identical to the second power domain specifier cell.
->      const: 1
->  
-> +  firmware:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description:
-> +      Reference to the SCMI firmware device node on systems where SCMI must be
-> +      used instead of direct hardware access.
-> +
-
-NACK
-
--- 
-Regards,
-Sudeep
+Bart
 
