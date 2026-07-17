@@ -4,64 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7478CC4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 13:49:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 655FBC4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 13:50:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DcKvn5xWvX7Tr6o2MEzx2nnPtuk3QJuyXuR/1daQF0o=; b=WcExDexyhcgMCFpOm2s6Z3gq+2
-	3XSZb7eBUiMPVjM9eJ5DoqlI+vVa6NTRZ8Fb4T1LY9HWnZNAZrlmLADq1piSLG4+yffr+ZstARokE
-	FIKKds+YrKAq5njFcHY5Y4olmwtbyPvvUVJ+wQ0rDRNc7gnEjN7gc1vVSXBpvzWUUk12GUsFtYbm6
-	9uEHlU9Ew7O+V1vrYNvn8MhXPudukkDiFECYyD9MH+PvF9HJ7kJF/ogmmEOuDhO8evcoTnqH34+Ag
-	X04eJP8iVxyYz71ouaeehb4+7pca9MDXRrdQhLcDQpcKCKbtszV5qh/OGO8TmZdPA0VxJMphB5lCD
-	oepc6KcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=scOaW8T/6xUJRRlim9gHWFq1a9XkSY2vJK+xeZy0trI=; b=tPi74Y8wU6HPq11uE9eolONRqY
+	xbmntCCdQPOLajB0K/686bYdb10W4mVdJmuYhDOc3fkVW7ol1wwsib4ho/leTO9cHdaxg+q2lT3CX
+	3rOFbwNyUZe9lejqkW9ojVixt+zuUmNhtsIjjE0F6bLKJZ+BJM65bebzNjVGNT+zxlaOoe6c9Gy+n
+	mIr+CM6AexqtLdlN8rkpIdtso9EEqssbDfBpHAdfbCJVm+rnUudZT/dglsPdRrxXMlsvVRjHXfsnt
+	vJKNbK0LCkXlGlpf3aGRZbZRo/b8cZ14u1k4vJkUmt1Bqw+xFU/yTqjyxlbcBAOox84uvQYgmYFDV
+	JASkOgHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkiwj-00000002R6i-3mqt;
-	Fri, 17 Jul 2026 13:49:45 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wkixH-00000002RBd-0Ule;
+	Fri, 17 Jul 2026 13:50:19 +0000
+Received: from fhigh-a1-smtp.messagingengine.com ([103.168.172.152])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkiwi-00000002R6S-0r5W;
-	Fri, 17 Jul 2026 13:49:44 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with UTF8SMTP id 082A660A5E;
-	Fri, 17 Jul 2026 13:49:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 30B701F000E9;
-	Fri, 17 Jul 2026 13:49:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784296182;
-	bh=DcKvn5xWvX7Tr6o2MEzx2nnPtuk3QJuyXuR/1daQF0o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=bS+u6ktSdRzWUanGEc0V5cWmp6CbSnnJYUP7RynZcNWeWsDwEdf3CXtkhPE0D/Ohw
-	 w8+Jtl2vezLlDPYM+dWjAvVh2t29XjkWaxu49NoZe1e+GWEcIQy25ItHK2p7Cu2kAE
-	 LJIfgHW8IVixF1j33i0yvRkRPqQODccgtnTUTyb9ej0ZuUUOuwM7vih/Bfj/wDfvMu
-	 Vu9eJ/4hCInKHzxKuAx50vq0eC0Cp/KWhpe1UOz/Gxvq8jfvY/suYkEGyyvacmCirm
-	 mCJBR1L6DzPm1iswUgYINM05WE+5OG81pWgDR9niqWipTeiTq1wneATBBdWBP1wjuQ
-	 wmPoS4nIQExAQ==
-Date: Fri, 17 Jul 2026 15:49:40 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Andrea della Porta <andrea.porta@suse.com>
-Cc: linux-pwm@vger.kernel.org, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Naushir Patuck <naush@raspberrypi.com>, Stanimir Varbanov <svarbanov@suse.de>, mbrugger@suse.com, 
-	Sean Young <sean@mess.org>, Julian Braha <julianbraha@gmail.com>
-Subject: Re: [PATCH v6 2/3] pwm: rp1: Add RP1 PWM controller driver
-Message-ID: <alowzfIvKGFkZI1q@monoceros>
-References: <cover.1783097764.git.andrea.porta@suse.com>
- <5171610d8bebdd10eea44bff5236502d765b5918.1783097764.git.andrea.porta@suse.com>
- <alibzwe9Mjf3GxJo@monoceros>
- <aln1D3E5QZULZ2U1@apocalypse>
+	id 1wkixE-00000002RBC-12A1
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Jul 2026 13:50:18 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id D5EFA140007F;
+	Fri, 17 Jul 2026 09:50:14 -0400 (EDT)
+Received: from phl-imap-05 ([10.202.2.95])
+  by phl-compute-04.internal (MEProxy); Fri, 17 Jul 2026 09:50:14 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1784296214;
+	 x=1784382614; bh=scOaW8T/6xUJRRlim9gHWFq1a9XkSY2vJK+xeZy0trI=; b=
+	r/um21kch8ow3J1TlPz7DsYLRS5x/5p+ifQZVJb9KcCwMZG++e09REtPBx2lRI6m
+	oOrXnn2WlvAo6FcDCI2/ZtofNF17kTP0ybWPeU8tdFKyKhsSGQI1CHd5yZDU+8QO
+	lxDxYmfSW/TUSq5IRHRfkcvYvkoFSNUFyTZ4N5TbNlgrl8pQfRVU9xLuhvqrIN7D
+	xrQs044u2cqEat4+gOkhxLlZc86nzfaXxrKDHStBjFsqCzrZLKhppLnAn6l18YUM
+	YGSHZHBocWfiEtJrMyIRhfAuNCF2aYXce8CtE9TaNwgbIU9ggWE/JWYCquIFCL0/
+	Qhu/y+hnfzNu+mws1iiLTA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1784296214; x=
+	1784382614; bh=scOaW8T/6xUJRRlim9gHWFq1a9XkSY2vJK+xeZy0trI=; b=D
+	oydIq9wkbVOPVWiKqSHMiUUJ4G+ySIrB2H2FYAMoYIXXo5c61sliw/TTlXDy1EFP
+	GvrlyvK+EJ1stS99PkkysyqQWkhucJMiP3Bx/0NSOLTiB0YKE0c+P04aOwh4vocF
+	TynxJVlqje3pzToEJSuSTgC8FPoNYjyeEpOT29JKkx8sTweRQmXB5oy6QpbBOLqg
+	vTKKg+tPJtnlLjvlIyjo1eR16WwPFEjCg0t4pAQ0zJz1NC7VZuqgtZveMZVbPXly
+	uIEPbrL4DD0e2sXqG0bfuXFAWVKXtBOW5akDfINzNJ5Xwff6FVmB++l09vA/rylF
+	tkc0iUtiKZUxaweCjyH1w==
+X-ME-Sender: <xms:FjNaalM_FGYe6x43Rb5xf9-Xv3B4lGttCwUJST8D3LJlIzQQzGVOvw>
+    <xme:FjNaaixclt27LGU_DnpycOWrK19gJpv-lQLWtTT-XdkmlEnbWize9SlvB3PDFbRLT
+    K8AqG3Ny4WDczSKHXYVsCFG8Fftk0omkVmOxBBPoqenZApd0S06kXA>
+X-ME-Proxy-Cause: dmFkZTERJCEXhIMrlS3slC0kmihwzJcFh0B4FXxdorq9T1Q0T0Mxl29TLDsJr5PeZzGWpe
+    UbsORXZHVsIFCXvn0fDDgnTxiwceDhvaxWSAKiGO3RO78ePsJ557lq0IMb4ArG7EdMLnrj
+    ZL3WEQ+Qp24tDiqurw4OiSagfB4DUNROb0h59g66fvn2eDLm/mX/B6tFPaqc1vG8cGEMPm
+    b4w+u8YJHg/gWEczMsrNlQavLyVKsZ/mLrIZFqlZ2MMLunTExVR0vGBTjO9qpVxP+JpJG4
+    W8SaW5cmC9Ohkhw1t691Tt+5oN2Hp1oDsnEsLpo68Hcdm7NBmWzO6m44nEjLuchtJA34EB
+    Tfhl9ZZbodA7mkTtwZdAEls37TCYJrc3EWJHEBBdA9G+XO1BPyHnDBko//x9eCv+MsjKla
+    EU5Eu/77IejqxFtmojaZ6Tc4RwGf/02oejE3Fn27NwJH36Tla5N/GrPl9Q1XC3hh2bENT3
+    kaoNT+A1/rbt0EyikRLkoxiIOuXXEs5yeglbceonlVkgQ9qxZEQYvofR1zAqRoGjMpsAue
+    at3qpm34p43g3dgSDNyOAaAgUyv+fl4EczPjEHSWLg7tra71EzXDh3UWeY2b7TgtQC1Ul+
+    3sATV7/B7x7GKIGuBSK/Ss7vgZLdrAuzj/c46hkU6rRrkjXuhk2P3jDbE19A
+X-ME-Proxy: <xmx:FjNaap9TJUaoTtgF3nBlyvC724B9DzcZU-H5ngyHTB8sc5zzrUom6w>
+    <xmx:FjNaakMUB8W__6BUCuLsbEQ1MxFgaC5U5iR47kpOH50DYLzV07PRXQ>
+    <xmx:FjNaalDd5aAdEW4FEffL78C5yzp5pFGOkfAl8GloX0rQpYauNMLHzA>
+    <xmx:FjNaagNnH3rgajyUv8Wo41Nt42gfB-JH_xMvZa03p659IFbO6xhgUA>
+    <xmx:FjNaaiSqUESq2TOdRHcQNoLt08u6EyXWR9qPDMzWvqCKc9KFYoO5drv5>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 653CB1820086; Fri, 17 Jul 2026 09:50:14 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="jjjqwa23viq7hrdc"
-Content-Disposition: inline
-In-Reply-To: <aln1D3E5QZULZ2U1@apocalypse>
+X-ThreadId: AIcAXbcH1-lN
+Date: Fri, 17 Jul 2026 15:49:54 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Ryan Roberts" <ryan.roberts@arm.com>,
+ "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+ "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
+ "Mark Rutland" <mark.rutland@arm.com>,
+ "Jean-Philippe Brucker" <jpb@kernel.org>, "Oded Gabbay" <ogabbay@kernel.org>,
+ "Jonathan Corbet" <corbet@lwn.net>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org
+Message-Id: <1e561b1a-2c87-4a23-b4da-126b333de8ba@app.fastmail.com>
+In-Reply-To: <20260717104759.123203-2-ryan.roberts@arm.com>
+References: <20260717104759.123203-1-ryan.roberts@arm.com>
+ <20260717104759.123203-2-ryan.roberts@arm.com>
+Subject: Re: [RFC PATCH v1 1/8] misc/arm-cla: Add driver skeleton and documentation
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260717_065016_753609_04E91152 
+X-CRM114-Status: GOOD (  31.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,112 +114,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Jul 17, 2026, at 12:47, Ryan Roberts wrote:
+> From: Jean-Philippe Brucker <jpb@kernel.org>
+>
+> Add the initial Kconfig and build-system plumbing for the Arm Core Local
+> Accelerator driver.
+>
+> Introduce the common driver header and register definitions used by
+> later CLA support. The definitions cover the CLA MMIO frame, launch
+> response and status fields, standard accelerator registers, launch
+> opcodes, error codes and memory translation context state.
+>
+> Add documentation describing the CLA programming model, its CPU-local
+> MMIO access rules, userspace assignment model, domain grouping and
+> expected boot state.
 
---jjjqwa23viq7hrdc
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v6 2/3] pwm: rp1: Add RP1 PWM controller driver
-MIME-Version: 1.0
+I have a few more questions here. Most of the description and
+the design decisions make perfect sense to me, but there are
+a few things I don't understand from your current document.
 
-Hello Andrea,
+> +The CLA supports up to 8 attached accelerators, which are accessed by
+> +programming the CLA's MMIO registers. Operations are launched to an 
+> accelerator
+> +and are polled for completion. CLA does not raise interrupts.
+> +
+> +            CPU                     CLA              Accel
+> +             |--- write DATA[7:0] -->|                 |
+> +             |--- write LAUNCH ----->|---- launch ---->|
+> +             |<--- poll LRESP -------|                 |
+> +             |                       |                 |
+> +             |<--- poll STATUS ------|<--- complete ---|
+> +
+> +Each operation can take a 512-bit payload in the DATA registers. After handling
+> +a LAUNCH write, CLA indicates the launch status in the LRESP register. A further
+> +operation can only be launched after LRESP indicates completion of the previous
+> +launch.
 
-On Fri, Jul 17, 2026 at 11:25:35AM +0200, Andrea della Porta wrote:
-> On 11:18 Thu 16 Jul     , Uwe Kleine-K=F6nig wrote:
-> > On Fri, Jul 03, 2026 at 07:05:25PM +0200, Andrea della Porta wrote:
-> > > +static int rp1_pwm_round_waveform_tohw(struct pwm_chip *chip,
-> > > +				       struct pwm_device *pwm,
-> > > +				       const struct pwm_waveform *wf,
-> > > +				       void *_wfhw)
-> > > +{
-> > > +	struct rp1_pwm *rp1 =3D pwmchip_get_drvdata(chip);
-> > > +	u64 period_ticks, duty_ticks, offset_ticks;
-> > > +	struct rp1_pwm_waveform *wfhw =3D _wfhw;
-> > > +	u64 clk_rate =3D rp1->clk_rate;
-> > > +	int ret =3D 0;
-> > > +
-> > > +	if (!wf->period_length_ns) {
-> > > +		wfhw->enabled =3D false;
-> > > +		wfhw->inverted_polarity =3D (pwm_get_polarity(pwm) =3D=3D PWM_POLA=
-RITY_INVERSED);
-> >=20
-> > pwm_get_polarity(pwm) looks wrong here for several reasons. 1st the
-> > polarity is defined in *wf and should not depend on the current state,
-> > 2nd for a disabled hardware the polarity doesn't matter anyhow, and 3rd
-> > you should not call pwm API functions from the lowlevel driver (which
-> > might interfere with subsystem locking).
->=20
-> Ok, but in this case what the output of the disabled channel should be?
-> If it was inverted before the disable, would it make sense to let the out=
-put
-> be high? Or are we allowed to hard code a polarity value on disable?
+This sounds a lot like st64bv or st64bv0, passing an 8-word payload and returning
+a single word per accelerator operation with shared addressing.
 
-Given that not all hardwares can drive the output of a disabled PWM to a
-fixed level, a consumer that relies on a fixed inactive level output
-must not disable the PWM. So it doesn't matter what you do on
-wf->period_length_ns =3D=3D 0, the only objective is to save power.
+Why are there now two interfaces to do the same thing?
 
-> > > +	if (!wfhw->inverted_polarity) {
-> > > +		wf->duty_length_ns =3D DIV_ROUND_UP_ULL((u64)wfhw->duty_ticks * NS=
-EC_PER_SEC,
-> > > +						      (u32)clk_rate);
-> > > +	} else {
-> > > +		if (wfhw->duty_ticks > (u64)wfhw->period_ticks + 1) {
-> > > +			/* 100% duty cycle case */
-> > > +			ticks =3D 0;
-> > > +		} else {
-> > > +			ticks =3D (u64)wfhw->period_ticks + 1 - wfhw->duty_ticks;
-> > > +		}
-> > > +		wf->duty_length_ns =3D DIV_ROUND_UP_ULL(ticks * NSEC_PER_SEC, clk_=
-rate);
-> > > +		wf->duty_offset_ns =3D wf->period_length_ns - wf->duty_length_ns;
-> >=20
-> > The duty_offset_ns calculation is wrong.
-> >=20
-> > Consider clk_rate =3D 3000000, period_ticks =3D 8, inverted_polarity =
-=3D true and
-> > duty_ticks =3D 4.
-> >=20
-> > Then you have:
-> >=20
-> > 	.period_length_ns =3D 2666.6666666666666 ns ~> 2667
-> > 	.duty_length_ns =3D 1333.3333333333333 ns -> 1334
-> > 	.duty_offset_ns =3D 1333.3333333333333 ns -> 1334
-> >=20
-> > but .period_length_ns - .duty_length_ns is 1333.
-> >=20
-> > To get this right, you have to calculate
-> >=20
-> > 	wf->duty_offset_ns =3D DIV_ROUND_UP_ULL((u64)(wfhw->period_ticks + 1 -=
- ticks) * NSEC_PER_SEC, clk_rate);
->=20
-> So it will end up as 'duty_length_ns + duty_offset_ns >
-> period_length_ns', which is timing violation. Is it allowed (or even
-> required) in the PWM subsystem?
+Can a user process use st64bv to do the four steps in a
+single instruction?
 
-Not all hardwares support that, but logically it makes sense. The active
-phase of the output just crosses the period border. With duty_length_ns
-+ duty_offset_ns < period_length_ns (and duty_offset > 0) it's the
-inactive phase that crosses the period border, and there is no reason
-why the active phase should be more special than the inactive one.
+> +Some operations continue to run asynchronously on the accelerator after launch
+> +completion. In this case progress is tracked by polling the STATUS register.
+> +When the CLA updates the STATUS register, it also raises an event which will
+> +wake an in-progress WFE (wait for event) instruction on the local CPU.
 
-Best regards
-Uwe
+The asynchronous interface seems very confusing.
 
---jjjqwa23viq7hrdc
-Content-Type: application/pgp-signature; name="signature.asc"
+How are page faults from the SVA master resolved during an
+asynchronous operation?
 
------BEGIN PGP SIGNATURE-----
+Can a CPU start multiple asynchronous operations concurrently?
 
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmpaMvEACgkQj4D7WH0S
-/k5Qrwf9EZx/Oe2WWXWSFUVsH8QkJDmP3mG5iNkR/MQ0szDAAbCoKKKjO82HN/L2
-5fGLEoeIblzXzA+UjdFGz8Agg08zLTrbEc2/SclkG0O6nUVpJ1OtMjRSqKcAk7bn
-Zi1CwmtHROqTTPcULCzHFO+8O0a0YwxQUpKysR1R0fTI0/WC0Yj/R72K2wH5qQAI
-AwzU4MUjk6DCl5jljRaRlfGn78mB9NXmkyFDD26ZLraglEhTi8ZZUv3ZkM9OXI3j
-i6N+xJ6hQCpp2LyVZPmylZ+rQ8VljWF2UJeZLBUEzHwXbTzfqnpz0aiujMDJGWX0
-VDBHJxe2pBQ4yt6dlW3sND+xCf3GdQ==
-=oeK6
------END PGP SIGNATURE-----
+Do these continue to run if the starting process is scheduled out
+and another process also tries to use CLA?
 
---jjjqwa23viq7hrdc--
+> +Faults during address translation are reported by the accelerator in its
+> +registers and in STATUS. While polling for work completion, software fixes up
+> +the faults and notifies the accelerator with RESOLVE operations.
+
+I would like to understand the faulting part better. Which instruction
+specifically causes the fault, is that the poll STATUS read?
+
+> +Inter-Accelerator Communication
+> +-------------------------------
+> +
+> +On some platforms, multiple accelerators, each attached to a separate CLA within
+> +a cluster, are also directly connected to each other via a shared bus to
+> +accelerate cooperation between accelerators. The accelerators sharing a bus
+> +cannot be isolated from each other. When collaborative operations are launched
+> +on each of the participating accelerators, they synchronize over the bus,
+> +stalling until all are ready.
+
+Could you give an example what this model might be good for?
+
+Does this mean a user may have to start one operation on each CPU
+from a thread of the same process in order to get a result efficiently
+across a shared accelerator?
+
+I assume this will become clearer once you can show an example userspace
+application that uses this type of accelerator.
+
+> +Intended SW Usage Model
+> +=======================
+> +
+> +CLA is designed for its PL0 MMIO frame to be mapped into user space  and for user
+> +space to directly launch accelerator operations and poll for completion. It has
+> +been observed that for some use cases, the operation execution time is small and
+> +a trip through the kernel would consume a significant amount of the CPU budget
+> +for preparing the next operation leading to a significant reduction in bandwidth
+> +through the accelerator.
+
+Do you have any plans for in-kernel usage of the accelerators?
+I would assume that for things like cryptographic features, these
+make sense to be exposed to the kernel itself.
+
+> +User space software is expected to create a thread to drive each CLA it is
+> +using, and for each thread to be pinned to the CLA's local CPU.
+
+What happens if multiple processes have the same chardev open and
+each mmap() that, e.g. after a fork()? Does each process see its
+own virtual instance of the accelerator and interact with it through
+the same physical MMIO register range but its own process address space,
+or do you have to rely on the registers being mapped only into a
+single mm_struct to prevent a process from messing with another process
+data?
+
+> +Saving and restoring the internal state of the accelerator is an optional
+> +feature. Current platforms only support it when the accelerator is idle, so
+> +preempting an accelerator causes work cancellation. Software must carefully
+> +consider how to balance forward-progress guarantees with preemption 
+> latency.
+
+I'm not sure I understand this point. Do you mean any async operation
+that was started on an accelerator may fail due to preemption, so user
+space must be able to restart it?
+
+     Arnd
 
