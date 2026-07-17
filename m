@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29913C44526
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 12:19:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97C96C44522
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 12:19:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hI+gYh3/TRT6FFcKJZ0XasSEEdmxHbnk71spIov2KOs=; b=lVj7qmmrV9zjwHpypZxl6RK0s8
-	qZ8kA4HQPuS3m/iGNEaBA65J8tmKieKfVHEa+cbO5eRSL++OfS4qW5cut3/c2uKN2y/uNRRxMjdjJ
-	xaGOlAOaunNZhiWLDPJX7NoXTvkRmxJtsp8a5ZKhHUN0Td6XImD2ggr0kpm/p1QBIb7FUtI0zHr4i
-	OlHFuP6vFPn7lXDzOCtCG6kMfF+HYKjq6WY3b41mHqeN3MEV3iU1k2uN0bPJI3rL9lfeQ1SPZiPVV
-	mP6b4tFsR3yUh+xDMkqC0IRMP2L3Jjz0wSuC6ARzFAsR5RnmlC5h2Oz1O+4PebOVFpb8/a6CNaUyI
-	tJLWWChA==;
+	bh=tjucR87tClkz1l16S+aKThSWLFGeiCovQUE3GWKhawk=; b=SgbiB1fMezunJF4g1pzQB+sgUZ
+	cp8rqFJviWd6NDI/MuGW95el9ZbzKADkZDU+F4YN2yTW5v6wBSRv5+S7Xk/PqRcRnr/2iUM7Shdrj
+	z1ThIl8Z2GI8I1eFZEkZFET3DUyphvsxOBjNkuzPryQwvVY1Jw+2zFKaQjI3PfjT6WkU6IpCunlzE
+	7VtoryZ1GQbxfWIUqv5xlpFgBNLmiMr3C6749Ai0f/7OkAW/vG9pEZk4rNSEMmGzCcS+T45pEQlNl
+	89znBUK5GAPtiieET11V1uRXfNzwDssH5AaIIWqzYpFc36cEeg3HR0iwMqGEPg+LUJKfVXR2MNUVk
+	GdZQtBeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkhX8-00000002GcM-0sFK;
+	id 1wkhX8-00000002Gd0-1jQR;
 	Fri, 17 Jul 2026 12:19:14 +0000
 Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkhWz-00000002GYk-3WFd
+	id 1wkhX1-00000002GYe-2mNH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 12:19:08 +0000
+	Fri, 17 Jul 2026 12:19:09 +0000
 Received: from francesco-nb.. (unknown [178.82.120.96])
-	by mail11.truemail.it (Postfix) with ESMTPA id F0DE4228CB;
-	Fri, 17 Jul 2026 14:19:00 +0200 (CEST)
+	by mail11.truemail.it (Postfix) with ESMTPA id 8559B22734;
+	Fri, 17 Jul 2026 14:18:58 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1784290741;
-	bh=hI+gYh3/TRT6FFcKJZ0XasSEEdmxHbnk71spIov2KOs=; h=From:To:Subject;
-	b=Cs0qV0ZyWBc8who59FcP+pRQEY7jRK39z+biHbA6BwPqkBxFHqLipsa/nxacukSmu
-	 CiNbzozUCxp8zHowxMtWry8aa5Or6WoIm62YOfq0ha42cDaToUjtMsU7YuoEFXio7x
-	 oRl4Rrk34wpY1/xUoxPCv35aIKgwqkpDMuT00WFzNheQHpdPdTb5A7qdkD6bDrNFsu
-	 nQjAj/zQFt/CcWa4OgFG1U1Qx9qiZUfQCxeO61Ig+TSdd9LjA/jm1FLqmmUW+xB9sj
-	 +rfoEqbYmmjBWcqra5b/s57mXBIxDChHgwzJhbFi4IY+cXGxJ70JHrgXaYsS3kRGyE
-	 U9EQ2D7CmCHrw==
+	s=default; t=1784290739;
+	bh=tjucR87tClkz1l16S+aKThSWLFGeiCovQUE3GWKhawk=; h=From:To:Subject;
+	b=SvW03pgfGHbcvlEjpleane2zkSv47jHysVnJ90Evye158m0l8ExpCNDEVu1VT94fd
+	 LtEAmovQ7bafUBcJ9Z3655theSQ7+Q5qaD6NDlIhY37/HzrpOmKOVMB8x1ukBMGXxa
+	 aRa/sAlNYI/VhFtVdFWFz/HGZY7gADbzQQZ7gAF2JTLo2bDpMTv/gWLTdOKBWO5HKL
+	 11u4eb4Oz9XgAM3gLYM5ulNg8ufRhKCIKzQucqCqU41584bnhddYQ8TQVNLtcu6M4g
+	 1SYa0yOTuYLJ/na8xJhY3A9V0TIEkvrl+x4S/Up2d0FKpyJS2WdvuOoR8xi330po9d
+	 VG9Is131dc91Q==
 From: Francesco Dolcini <francesco@dolcini.it>
 To: Marek Vasut <marex@denx.de>,
 	Stefan Agner <stefan@agner.ch>,
@@ -60,17 +60,17 @@ Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
 	linux-kernel@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v1 4/4] ARM: dts: imx7-colibri: Set LCDIF format
-Date: Fri, 17 Jul 2026 14:18:46 +0200
-Message-ID: <20260717121847.488148-5-francesco@dolcini.it>
+Subject: [PATCH v1 1/4] dt-bindings: lcdif: Add interface pixel format
+Date: Fri, 17 Jul 2026 14:18:43 +0200
+Message-ID: <20260717121847.488148-2-francesco@dolcini.it>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260717121847.488148-1-francesco@dolcini.it>
 References: <20260717121847.488148-1-francesco@dolcini.it>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_051906_790208_A3F60BF3 
-X-CRM114-Status: UNSURE (   6.58  )
+X-CRM114-CacheID: sfid-20260717_051907_859105_4695B883 
+X-CRM114-Status: UNSURE (   7.58  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,26 +88,43 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-The lcd DPI interface on colibri imx6ull uses a 18-bit width bus, set
-the interface-pix-fmt accordingly.
+LCDIF has a hardware-configurable LCD_DATABUS_WIDTH field which selects
+the parallel data bus transfer width. The selected mode changes how color
+component bits are assigned to the LCD_DATA pins.
+
+This must match the board wiring. On Colibri iMX6ULL, for example, only
+18 LCD data lines are routed. A 24-bit panel can still be connected by
+wiring the available LCD_DATA signals to the appropriate panel inputs.
+Without describing the resulting interface format, LCDIF may assign the
+color components to different data lines, causing shifted colors.
+
+Add interface-pix-fmt so the binding can describe the configured LCDIF
+bus format. The same property is already used by
+display/imx/fsl,imx-parallel-display.yaml.
 
 Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
 ---
- arch/arm/boot/dts/nxp/imx/imx7-colibri.dtsi | 1 +
- 1 file changed, 1 insertion(+)
+ Documentation/devicetree/bindings/display/fsl,lcdif.yaml | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx7-colibri.dtsi b/arch/arm/boot/dts/nxp/imx/imx7-colibri.dtsi
-index 8666dcd7fe97..f820a613109a 100644
---- a/arch/arm/boot/dts/nxp/imx/imx7-colibri.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx7-colibri.dtsi
-@@ -533,6 +533,7 @@ &lcdif {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_lcdif_dat
- 		     &pinctrl_lcdif_ctrl>;
-+	interface-pix-fmt = "rgb666";
- 	status = "disabled";
+diff --git a/Documentation/devicetree/bindings/display/fsl,lcdif.yaml b/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
+index 2dd0411ec651..209ee5a96e39 100644
+--- a/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
++++ b/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
+@@ -58,6 +58,13 @@ properties:
+     items:
+       - const: rx
  
- 	port {
++  interface-pix-fmt:
++    $ref: /schemas/types.yaml#/definitions/string
++    enum:
++      - rgb24
++      - rgb565
++      - rgb666
++
+   interrupts:
+     items:
+       - description: LCDIF DMA interrupt
 -- 
 2.47.3
 
