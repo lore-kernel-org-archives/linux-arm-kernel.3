@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB88DC4450F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 05:53:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33FAFC4450F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 05:53:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e+52g/0eepX9Ma7LUQ65DCe5CMz6aX+KN5W9QaXaWHo=; b=lme/lS78w4x58gG5eUgjkslsnx
-	BQ0jFF/+0e2di51tltfXs39vSYOw7Gw6TZGr5tSLGwrvAzsSECUQeyIX/y/vh5J16flCjySgODZgX
-	4XjernQJBKj6vDpirN0Pbb1k10ep9r26zlEIxhQKcWwKF/hV7pOFXjg9XC4s3ZmD71LOlqnVS8/kv
-	0eEeSE6M0sPJ4S9CowZiSgzhABTtf+YqwRXuWTly1yB+5ERYTLu7uK87Kq04w5twjhp+oGko7yYZN
-	OnO5FmRR7Bc6h3bqhjuwSVRFo/S4dILvsQhWaTJYSS+GxL0dpriSlZmulHBpvJOMo1vl4yth2rBUu
-	p5g1tAww==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=FAEkA9CX2WC6KWxeGmEVaQwPZJTs60T34n9qF4D/VJI=; b=HvbRXjNjH+7SWs
+	WXv5wqFmdBQlAZw/Gow2uUlLoOxqeWn0wsprWc0DKQ7dMR8dVjWrQzmudS8GscXx7aTcTa5GXGHR1
+	F8pnTa5pvgyIBrpO7RRJrR4YBY4nKbld5P1sqVy64RCNqZQQ32GU5WZetDSCZDpB36mPnxkogz7re
+	iHBmpWbvU4wg5tJMj+AbeBpmSAWIzAVLOUEvOtVxF7UtVKFcgiWqiBgmuUBo8aJ8w25vRFWfXL/rV
+	qTaRcir2S72AtO9akcGS00k6OPc+TGv9v0xJZK6/ZMZpLOgSxESQACLt8JQkkx+0z9EC2zPduFE9A
+	hC9D+PkngFfaN1n9gSQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkbVb-00000001CfA-1sjO;
-	Fri, 17 Jul 2026 05:53:15 +0000
-Received: from mail-westcentralusazon11023072.outbound.protection.outlook.com ([40.93.201.72] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	id 1wkbVf-00000001CgR-2PIB;
+	Fri, 17 Jul 2026 05:53:19 +0000
+Received: from mail-southcentralusazon11022103.outbound.protection.outlook.com ([40.93.195.103] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkbVY-00000001CeR-2Srg
+	id 1wkbVa-00000001Cek-0Yf5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 05:53:14 +0000
+	Fri, 17 Jul 2026 05:53:15 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ak5FW3mG6iLbZGjJa59wKKp+RKQ0QMiNYrDAqdE15S6VOrbyX+8Q88kTkvSNtoFWIKY5LatcW6ctMrWTjnNctDGeXixqNvTI3qN424yQ5QfeIsez52nvm+Gk/nwFh5MMWOkP5FRwJh3KiM8/BIZcSUokU/6Z9GOQ+s1TtxZASeAETpNh5eCwLgBGyE8PqOYA+Cna9S6YwcM9TakJx9r7LnXitrOTxmxsU0cwiPWAXDLEE+Imdovogk7eYBAfLodFDuqxv02vW4XWxkP3YguG0FtAgEoOXeCLssFu4MV4mGOC6ftbx+G53udT7AHeFcaf3Wx+8LfPXm9QFEbD0viJ2A==
+ b=OoDTr2G4xfKBDXsabREa9WWCv2eSnb41LstKLAdgygGP0eMwqabnGjwXCiaPyqbAwJcCi7uqKTYDoshXZDQ7v1gCG38R5rR7OWGE41Z38PhjoLxtgpLBvagyxCjhPgk0OnxsRNOFtusMQGRmqU+avlRw0qc7bv1D9m5+TTgpXg72p0ZanNbrpQlpWYltEo0y5yEvqGLpnAT4ugiHlJbppZdNxWZ05/HnlLEw5mx+whZAdYdVt8U+73dxMlvPUUbjLOqqi0x6DpO7RJas0+TgpJVaaBa8MUXJrDZbdtnP9O+4insaHOkdrUFb4ACanGqpHx782gDK0mV+1xuQ7TZ68A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=e+52g/0eepX9Ma7LUQ65DCe5CMz6aX+KN5W9QaXaWHo=;
- b=UeNxX81g/pzum8wpd7W69buHZ0jnxgpKoDChhI0uqkiVoxKs5bVwz+XYiTkwtVzWpw4YTWg34QK5a68XuQ/y9GUMRN48p3aK2ARy8mLAO393NbuxzO4FzcFBoj8anLvq9MyDzBGvfFbsg2wEefZ/J+WKo1/azz6fS/djBFaJTZ4XsFblIELuDGmBvc7O5dofxoh7VUOn+tXqkcLbd/UBIouGTLBnTBZ0zS5s6mBrV9LBBleTG1xLFZEMSn6CvIxBGFYjbLiJCk+MRbDO6xeo6o8KInZ/M5NmavZPEByBnKKzt9YnzfbszUfiY/F8KxY4ch71lh9GIfjoj+NUy+IAvA==
+ bh=FAEkA9CX2WC6KWxeGmEVaQwPZJTs60T34n9qF4D/VJI=;
+ b=nR5UHVzqY8Nc/gVyDNRicICfgwqDpwFSPbXHhoUcRTC/IBDqlBoW2dJwl/pLH/RDKl5ywkxRHniwpoXG84lY8Sz6532t60xruGdLVln3XXGA/lYMqCfVQVLdencYVT4pnnF7izjHwpp0J/N4ZMYBSojKQl39cfy7uJ82DnrQDnDTyCV2WU8ifQKbwIW9y4UsnmFCHU+izCZ7dqIPioRgCbaFT1eKeOEFHb80cyCXLoOwc7gy/hNi5HThl6QHWNyO3PAkhrFCAljPZA7RY6pHWzsbkhqupv3dKavEXrm7JFEu81IJPcx6V/8hDwcdkD0vXg86rBewqFqq+LlOGNPu2g==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
  64.62.143.114) smtp.rcpttodomain=analog.com smtp.mailfrom=axiado.com;
  dmarc=none action=none header.from=axiado.com; dkim=none (message not
@@ -41,18 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=e+52g/0eepX9Ma7LUQ65DCe5CMz6aX+KN5W9QaXaWHo=;
- b=kSLLeylNvserR8Y1TV9YbdxNDU0OFAomJiTipU1kwN2Lx9l32jJgkPISjx01NiPK6a7x98ilVJ8wCnkFQTIJYuwm1ZSiZ6kyvpShuxQQgR8ipU6rcPoEWOcTPgk5w+qk/UGAWi2Z9DAHtm60GZBgDkEoab3jKMMnYZYp0wVMNlsUTu8NeTfE+XN+W4eR7y6zBKqSm5PjFecfxTsSD2XOwXJNtIN5iL0Ubeb4KSgHTnvngj6YV2PKr4Dwf1M4S6Fd5E8bCYZhZmr8nYa1bb00IQDxHwCoyGUwXe1O1/5MTHsvsyFPW8+/LXZdcEvyBtAWNmcFZH8k62B1C4qgRsbE0g==
-Received: from MW4PR03CA0241.namprd03.prod.outlook.com (2603:10b6:303:b4::6)
- by DS4PR18MB927488.namprd18.prod.outlook.com (2603:10b6:8:318::9) with
+ bh=FAEkA9CX2WC6KWxeGmEVaQwPZJTs60T34n9qF4D/VJI=;
+ b=GrJ1TEbqNv623AzLuVGaYbxdl7Ub0FIU0dxOUyVgbP6VBAYrmSxkZ/A+IGN9OJOPZcweYsTZ/wdn5Kqn2n0n5uS06utmOD98/H/CeNEnIzhx37cCynPKvmN03fAiz6XmqCwIy494cXRMeTSWbC1/gF04NW5lEg9HJ0UYxbqb+KFSkl1uOmPbub6gInhxaiBYJGhuu479WHtT3hfNhqhl8IEl+uQeimPAeHuW88aLPLDH0J5DEDLZs4MOvN5+/ovdgUfiHbDDtR91QRcj3OgN4MsW/uuOklhAExruu8e+NxSGoiJe3DHP3te7apT1umYQcdAmAF+UfvO11nlxYZZ+Xg==
+Received: from BN9PR03CA0894.namprd03.prod.outlook.com (2603:10b6:408:13c::29)
+ by SA6PR18MB6203.namprd18.prod.outlook.com (2603:10b6:806:415::19) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.12; Fri, 17 Jul
- 2026 05:53:05 +0000
-Received: from SJ1PEPF0000231F.namprd03.prod.outlook.com
- (2603:10b6:303:b4:cafe::3d) by MW4PR03CA0241.outlook.office365.com
- (2603:10b6:303:b4::6) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.13; Fri, 17 Jul
+ 2026 05:53:07 +0000
+Received: from BN1PEPF00004688.namprd05.prod.outlook.com
+ (2603:10b6:408:13c:cafe::90) by BN9PR03CA0894.outlook.office365.com
+ (2603:10b6:408:13c::29) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.223.12 via Frontend Transport; Fri,
- 17 Jul 2026 05:53:04 +0000
+ 17 Jul 2026 05:53:05 +0000
 X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 64.62.143.114)
  smtp.mailfrom=axiado.com; dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=axiado.com;
@@ -60,22 +60,24 @@ Received-SPF: Fail (protection.outlook.com: domain of axiado.com does not
  designate 64.62.143.114 as permitted sender) receiver=protection.outlook.com;
  client-ip=64.62.143.114; helo=smtp.corp.axiado.com;
 Received: from smtp.corp.axiado.com (64.62.143.114) by
- SJ1PEPF0000231F.mail.protection.outlook.com (10.167.242.235) with Microsoft
+ BN1PEPF00004688.mail.protection.outlook.com (10.167.243.133) with Microsoft
  SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.5
- via Frontend Transport; Fri, 17 Jul 2026 05:53:04 +0000
+ via Frontend Transport; Fri, 17 Jul 2026 05:53:05 +0000
 Received: from axz-uw1-build-vm02.corp.axiado.com (unknown [10.14.1.22])
-	by smtp.corp.axiado.com (Postfix) with ESMTP id 5ABDE4186B53;
+	by smtp.corp.axiado.com (Postfix) with ESMTP id 4D5934186B52;
 	Thu, 16 Jul 2026 22:53:04 -0700 (PDT)
 From: Petar Stepanovic <pstepanovic@axiado.com>
-Date: Thu, 16 Jul 2026 22:53:01 -0700
-Subject: [PATCH v4 1/2] dt-bindings: iio: adc: add Axiado AX3000/AX3005
- SARADC
+Subject: [PATCH v4 0/2] iio: adc: Add Axiado SARADC driver
+Date: Thu, 16 Jul 2026 22:53:00 -0700
+Message-Id: <20260716-axiado-ax3000-ax3005-saradc-v4-0-810527a9d27f@axiado.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260716-axiado-ax3000-ax3005-saradc-v4-1-810527a9d27f@axiado.com>
-References: <20260716-axiado-ax3000-ax3005-saradc-v4-0-810527a9d27f@axiado.com>
-In-Reply-To: <20260716-axiado-ax3000-ax3005-saradc-v4-0-810527a9d27f@axiado.com>
+X-B4-Tracking: v=1; b=H4sIAD3DWWoC/33NwQrCMAwG4FeRnq2k7dKpJ99DPIQm0x500spQZ
+ O9utwkqwsjh5w/hy1NlSVGy2i6eKkkXc2wvpVTLhQonuhxFRy5dWbAeENaa7pG4LeEAYArUmRJ
+ x0AYNCSNbZFJFuCZp4n3U94fSTzHf2vQYn3Vm2L5dO+92RoN2FTJj4z2saTddr0J7VgPc2Q/mj
+ ZnHbME2xoUNSx18Ff4w94VZO4+5ggnWoQyJr/EH6/v+BcogJX5hAQAA
+X-Change-ID: 20260508-axiado-ax3000-ax3005-saradc-151aed5d25da
 To: Akhila Kavi <akavi@axiado.com>, 
  Prasad Bolisetty <pbolisetty@axiado.com>, 
  Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, 
@@ -88,37 +90,37 @@ Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
  Petar Stepanovic <pstepanovic@axiado.com>, 
  Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784267584; l=2961;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784267584; l=4388;
  i=pstepanovic@axiado.com; s=20250916; h=from:subject:message-id;
- bh=vkAKsJ2m95gzrXwsGVTAt+RuWciSLhwK1Ha1FjbN7G8=;
- b=8mAh1MiIGK0YlhlpRDxjVobgXeNJiKTbuX1WEfkubyvJdP7AjqRa8Y2POQ9TsbC1cJDH0IZWr
- o9st5EO3wjSDcuCou77kJ0cH9YOMTrAR5eCoi2gi09qMqxLlHKhSB45
+ bh=HfBJOW6IgNs7gipGHAjgNj9fjDhqHyw80PZlw3wc610=;
+ b=vERxrGztLouP1jbiLKFNq89JLnD4aHROSrGnABJIwBWWx0GMM8ny1thSeWAYkSVOHxo5i1Mop
+ 7nIVLU84oU3Dl6GLCGV7e+hsnvnSrKGS1V+YOR1VXSDOEhkwixKa8Hr
 X-Developer-Key: i=pstepanovic@axiado.com; a=ed25519;
  pk=70f1UJOGT9U11ZK6o+ENXtv0I5wBE3e+Y9YWODzRsdI=
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF0000231F:EE_|DS4PR18MB927488:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1dd4ef61-12bc-4d64-8223-08dee3c7ab6c
+X-MS-TrafficTypeDiagnostic: BN1PEPF00004688:EE_|SA6PR18MB6203:EE_
+X-MS-Office365-Filtering-Correlation-Id: 064b38bd-3fe7-4f9a-b36e-08dee3c7abcb
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|82310400026|7416014|376014|23010399003|10067099003|56012099006|3023799007|18002099003|22082099003|13003099007|921020;
-X-Microsoft-Antispam-Message-Info: K53to09h1hzp9razDUEoKViiQ9wOEctM6ha7jxSkETNFohQ0E3YPq6REkOBvzQNWH7RJY+7nakieLxnIH1sXPtgrzmrCzd8nVA7pUIvmwx32h/c/I8578URR93qDESMmFyhn2ipQtkVk6fqNx3qaqts1tTWUgFhliwhPjOV5nYi1bgzofe7ShKSv7thxsOe4Dy/Dft4bWrwJrgR8R/cUpjWT6gYNMgAmuO7W1UCSnEzYalpn47aFPhxUXqvXMc2rDJ4+LGTO/hxoPR0MmiQWs5Mj9sE9Pms7Ela2zX2e7oObKd9PUKIPFSLhbK0kuwUIA+JPSurh/tlvd3BbdLSZ/KoA+F6QM1d/qXBe5mcYo2SIl+VsGT4Fo5YRfUIO/ImzzAjluKk7O9SDuioo+8IqJ29zzBZe2oAhJGXSzLksrC+6TIJBlQGC+he1/5qMbcXv9pS6JZ/rnUlcn13do9XLe/cOD4rbZkiL1IeqjSExv+PvCpEPZUTDTySksEb1Ni+P0JTuYhFfSEjwKlTLXwOKOMqndlOOg+Q3sS0dJpWcFH2rzTukUfvPlJi6nJ5iS+3SIyz/A2DSjTXNkIpmavaNRKMtehgzC0BNM1MiCmfrkTHLDwdq11egP2ahHM0GijtYyFwBf/6HNrymN6R76QBbZE7a/uYig3Pg0W3ukTTiAaYWN07XC4PRb2sKwaGZKWGZ
-X-Forefront-Antispam-Report: CIP:64.62.143.114;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtp.corp.axiado.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(82310400026)(7416014)(376014)(23010399003)(10067099003)(56012099006)(3023799007)(18002099003)(22082099003)(13003099007)(921020);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|23010399003|7416014|376014|82310400026|10067099003|6133799003|56012099006|18002099003|921020|13003099007;
+X-Microsoft-Antispam-Message-Info: +MnnWPaRsr8ugVuwGCvve5PbpNq2OPoR64fW3/jUJeY817iHs6UTpv8xuwpHhsMYrfaXiwrhesF/2jsVml1IA0jdJ53QAQFRIMMOmvoWrc6z8QuZMtOCTL3KMpf17cwr5pbqg6J7/rKN0MmGxQ2sxI+MLqt72yjYc+t2zBGx9Dlh6cICDS0VVZycNy+5AihtNTWcVpM4G64LUkxp8Zmp8u2kCG8iXm28C3/K60y8jKo3B0AW/fnFp/pp7WIDVPwWeND1OSzzcj3qLeqfMxJMcScuRzxxnY/bFXa1Ev0anjZH9zfjbn5UIJ8ftw0aBesal6qwX3HsaUiYBqO6HWItVBQO9BlTpxjEqaRUKnxHoKXvHB9/YyuZ/2ED6dpeRsdvEsaaTfEpaM96qnBZJlVzMDLBjYxdCmmqM5xOy/BrhDpFEe0Z0AaDF+yObD9/K7FHVMmUAVgKuZSLr86V5F1GW3GjLQMwV1Pbeo+RzG140g1X9s4so7St59u3wNh743FVrSYg26P7wUhcziDK1ddotcPySo89kpfGIpMo+0b7HWtoGlWOfM8wRGRLS37fQX5iJ9WKBcXkpxYzyitSmXrDKTIzr5IQlVt+pmEsJT1Geil6cxJpvYiK2C7OSeRMpINLi7KAkBGZ7Rbuk6oZB0VXgL1i2pqe63CfJOtBnLfGy3uwowo1QboDec98PliX0sYQ
+X-Forefront-Antispam-Report: CIP:64.62.143.114;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtp.corp.axiado.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(23010399003)(7416014)(376014)(82310400026)(10067099003)(6133799003)(56012099006)(18002099003)(921020)(13003099007);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: ckJQ8SG/EU5ieuel+Ho9DtUQkSI9ApvJGzwmXNnJlqrP+AAksiYtJD4BZSPKnoHwVwar19J478Ehey+LO8MWs5aSfLJ+2xmOlTAJMxlqnwGSLG0dYCvTy7+1dh+wiJ/ni/IAWmNOYK044uApvYF6T7csZ+D1y6Q2DZNWUPHcaBO9o0RXPgWYwNrcQNoMetdp/yBIA9l2V6tN5q5B6bU0SkHscA7JpWNnrrA1Qr8WH7CkTzdylPuedy148hn02QAaaZTuKYZWuqc/j/QIcOiIfmPJC/cG/tZZjpW+oZxYrSxpHz0zoMaaeSVHjM9v+mhuz11PZF5Sb7Q4SlV3ComPcei/WjSvSQBEh/p7+WTs3o9la80sscaKc9IQRFEohBLHW+pQjAjiVwy6ZavUtazOMwnhkbnbbVBVsFazVfEQEV26eZ17xynRGNia4WnvmG6n
+X-MS-Exchange-AntiSpam-MessageData-0: EqVALNmrA+/WYuyse2qG+aTuHBWTRDH1H52/1QsTWBD7KYkonTtStJNh9/ZA4+UO5EjPYKLlWSxRF5RO3VOto5ZmTDqLjR2yAa8B1E+kj2qeVQxHS8z9xLUehASg4rMF7Q/bHTbMylGqs9t9OwOJ07+yhKQ0ZMCJvglY/eaFcQidYeYPXhnORVmcp41nuBnjk1D6kHm++H/vSH3y3FjUkzo9XzmIH8ebIJkRxMfuxA/JY8JeLPxlBKPoaQnhma9XkBdsXxW6g/7YXJoRWemd8M/QlSaeuV/+bvuT2KXmMOL+L9WA20gdCCDpHIUrqOpo45b/JOnXlpANc0wgv1RRfsX+Vq+XPj1alKKTCJwGOAy88g7ebymsf29oKDrAJj8xv353vTVovl1p8uKizH9FhA/7pUqZQcBUcTR2oVN51q5qWpbcJgkmBUNKODtdCuLK
 X-OriginatorOrg: axiado.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2026 05:53:04.6746
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2026 05:53:05.1644
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1dd4ef61-12bc-4d64-8223-08dee3c7ab6c
+X-MS-Exchange-CrossTenant-Network-Message-Id: 064b38bd-3fe7-4f9a-b36e-08dee3c7abcb
 X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=ff2db17c-4338-408e-9036-2dee8e3e17d7;Ip=[64.62.143.114];Helo=[smtp.corp.axiado.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF0000231F.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00004688.namprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PR18MB927488
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA6PR18MB6203
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260716_225312_678792_3A450C10 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20260716_225314_182195_C754FE2D 
+X-CRM114-Status: GOOD (  15.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,110 +135,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Axiado AX3000 and AX3005 SoCs include a 10-bit SAR ADC controller.
-AX3000 supports 16 input channels, while AX3005 supports 8 input
-channels.
+This series adds support for the SAR ADC controller found on Axiado
+AX3000 and AX3005 SoCs.
 
-Document the compatible strings, register region, clock, reference
-voltage supply, and IIO channel cells.
+A new driver is needed because this SAR ADC controller is a SoC-specific
+hardware block used on Axiado SoCs. It has its own register layout,
+channel enable handling, conversion control, and data readout sequence,
+and it does not match any existing upstream IIO ADC driver.
+
+AX3000 provides sixteen input channels, while AX3005 provides eight
+input channels. The driver uses SoC match data to select the number of
+available channels for each compatible.
+
+The driver supports single-shot voltage reads through the IIO subsystem
+and uses the reference voltage regulator for scale calculation.
+
+The datasheet is not publicly available. Public high-level product
+information is available at:
+
+  https://axiado.com/products/#AX3080
+
+The register definitions and programming sequence used by this driver
+are based on Axiado internal SoC documentation.
 
 Signed-off-by: Petar Stepanovic <pstepanovic@axiado.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../bindings/iio/adc/axiado,ax3000-saradc.yaml     | 63 ++++++++++++++++++++++
- MAINTAINERS                                        |  8 +++
- 2 files changed, 71 insertions(+)
+Changes in v4:
+- Converted direct MMIO register access from readl()/writel() to the regmap API.
+- Added REGMAP_MMIO as a Kconfig selection.
+- Added error handling for regmap read and write operations.
+- Ensured manual conversion is stopped even if reading the conversion result fails.
+- Fixed the regulator error path to return the actual error code instead of the
+  uninitialized reference voltage.
+- Simplified the channel macro by generating datasheet_name from the
+- channel index.
+- Changed the channel array to use one channel entry per line.
+- Link to v3: https://lore.kernel.org/r/20260622-axiado-ax3000-ax3005-saradc-v3-0-e57c7c7ae675@axiado.com
 
-diff --git a/Documentation/devicetree/bindings/iio/adc/axiado,ax3000-saradc.yaml b/Documentation/devicetree/bindings/iio/adc/axiado,ax3000-saradc.yaml
-new file mode 100644
-index 000000000000..b910852aa56f
---- /dev/null
-+++ b/Documentation/devicetree/bindings/iio/adc/axiado,ax3000-saradc.yaml
-@@ -0,0 +1,63 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/iio/adc/axiado,ax3000-saradc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Axiado AX3000/AX3005 Successive Approximation Register ADC
-+
-+description:
-+  The Axiado AX3000/AX3005 SAR ADC is a 10-bit ADC with sixteen input
-+  channels on AX3000 and eight input channels on AX3005.
-+
-+maintainers:
-+  - Petar Stepanovic <pstepanovic@axiado.com>
-+  - Akhila Kavi <akavi@axiado.com>
-+  - Prasad Bolisetty <pbolisetty@axiado.com>
-+
-+properties:
-+  compatible:
-+    enum:
-+      - axiado,ax3000-saradc
-+      - axiado,ax3005-saradc
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  clock-names:
-+    const: saradc
-+
-+  '#io-channel-cells':
-+    const: 1
-+
-+  vref-supply:
-+    description: Reference voltage regulator supplying the ADC
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - '#io-channel-cells'
-+  - vref-supply
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    soc {
-+      #address-cells = <2>;
-+      #size-cells = <2>;
-+
-+      adc@806a0000 {
-+        compatible = "axiado,ax3000-saradc";
-+        reg = <0x0 0x806a0000 0x0 0x400>;
-+        clocks = <&pclk>;
-+        clock-names = "saradc";
-+        vref-supply = <&vref_reg>;
-+        #io-channel-cells = <1>;
-+      };
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index b2040011a386..d6f4febfe4fd 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -4312,6 +4312,14 @@ S:	Orphan
- F:	Documentation/devicetree/bindings/sound/axentia,*
- F:	sound/soc/atmel/tse850-pcm5142.c
- 
-+AXIADO SARADC DRIVER
-+M:	Petar Stepanovic <pstepanovic@axiado.com>
-+M:	Akhila Kavi <akavi@axiado.com>
-+M:	Prasad Bolisetty <pbolisetty@axiado.com>
-+L:	linux-iio@vger.kernel.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/iio/adc/axiado,ax3000-saradc.yaml
-+
- AXIS ARTPEC ARM64 SoC SUPPORT
- M:	Jesper Nilsson <jesper.nilsson@axis.com>
- M:	Lars Persson <lars.persson@axis.com>
+Changes in v3:
+- Fixed vref regulator error handling.
+- Added linux/units.h and used MICRO / MILLI in scale calculation.
+- Reordered struct axiado_saradc members to improve the structure
+  layout.
+- Fixed indentation/alignment of multi-line FIELD_PREP(), GENMASK(), and
+  writel() expressions.
+- Removed the blank line before module_platform_driver().
+- Link to v2: https://lore.kernel.org/r/20260611-axiado-ax3000-ax3005-saradc-v2-0-913c9de7c64c@axiado.com
 
+Changes in v2:
+- Fixed the devicetree example node name to use the generic ADC node name.
+- Removed the explicit `depends on OF` from Kconfig.
+- Cleaned up and reordered header includes.
+- Added missing includes for `bits.h`, `clk.h`, `cleanup.h`, and `err.h`.
+- Removed unused `linux/kernel.h` include.
+- Renamed register offset macros to use the `_REG` suffix.
+- Renamed register bitfield macros to include the register name prefix.
+- Added separate macros for `GLOBAL_CTRL` and `MANUAL_CTRL` register
+  fields and values.
+- Replaced `iowrite32()` / `ioread32()` with `writel()` / `readl()`.
+- Moved ADC conversion locking into `axiado_saradc_conversion()` using
+  `guard(mutex)`.
+- Replaced `usleep_range()` with `fsleep()`.
+- Renamed `vref_uv` to `vref_uV`.
+- Added SoC-specific device names in `axiado_saradc_soc_data`.
+- Used the fixed SoC-specific name for `indio_dev->name`.
+- Removed unused buffered scan configuration from IIO channels.
+- Added a managed cleanup action to disable the SARADC hardware on driver
+  unbind or probe failure.
+- Switched to a local `struct device *dev` helper in probe.
+- Used `devm_mutex_init()` for mutex initialization.
+- Simplified error handling by using `dev_err_probe()`.
+- Updated probe variable declarations to follow reverse Christmas tree
+  order.
+- Fixed the `of_device_id` terminator style.
+- Replaced `KBUILD_MODNAME` with a fixed driver name string.
+- Link to v1: https://lore.kernel.org/r/20260528-axiado-ax3000-ax3005-saradc-v1-0-345dd5f6608a@axiado.com
+
+---
+Petar Stepanovic (2):
+      dt-bindings: iio: adc: add Axiado AX3000/AX3005 SARADC
+      iio: adc: add Axiado SARADC driver
+
+ .../bindings/iio/adc/axiado,ax3000-saradc.yaml     |  63 +++++
+ MAINTAINERS                                        |   9 +
+ drivers/iio/adc/Kconfig                            |  11 +
+ drivers/iio/adc/Makefile                           |   1 +
+ drivers/iio/adc/axiado_saradc.c                    | 286 +++++++++++++++++++++
+ 5 files changed, 370 insertions(+)
+---
+base-commit: 51f0c0b8545b23963afd5d43a8f56ee05bfa54da
+change-id: 20260508-axiado-ax3000-ax3005-saradc-151aed5d25da
+
+Best regards,
 -- 
-2.34.1
+Petar Stepanovic <pstepanovic@axiado.com>
 
 
