@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C82B6C44516
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 10:48:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97234C44514
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 10:48:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/4bxz3wlbvJdscIvVu9zlLUjXSEnlbTDBCAyfC+VArc=; b=IeCpDspkhmR1zPwWKK4N5GYS3F
-	Oajms/Y1rpTbJtYkhgdp37SzH2QBp0zWSjNpCZSHSPh7RIagwYskd75mV25PfraQJwQLYlNDqBA1V
-	B1qvtbl+E2qapTtnc0lZu0Tc5Ejzj5B2kLFzKdKwmsZwvCI73xGsCh8VbaO+f6C7MUqwpKR2gFCk4
-	aH9jC85yx3SkK6j+MHuvp2g535Mo/QZqxETzEjU4WhlN+94TOJ6jUdgTsr5soVX6V+0KMi8EVDcxn
-	A3sC4ciG3RncAs+txBUVta+f+bUBHzP3R8R73XnxgB8feDP2Cuq9pZ3vN7wYegYt3FvSDiLvg/+mi
-	9Y352glA==;
+	bh=rSqDna6Z722uZBMEARYcRoQv22UaMmO5EA0Fe3EuENs=; b=0yhfy7SUYWxguYi1PN5aSx1HGG
+	NEGD8GoIskbnVRZCDMIM+2ouooJW1cYV/2NjLSMFWqxbp+TFjLEjeQQDOIZkmGs54MqKbBXFF4nHS
+	slqeeJd3j4ufew2lW7WPOxJn3rDfeUswPzSaTp5mnbh/432vGW/86xS5gzV0zdc+0fj23WzQRCNOo
+	lFz+hrmA0UKasmiHdgsBOzq03JF52KD3qMUVOQSTPmusvDtll6CtTUFAEwzZDt/3z91KVkdySbQao
+	X/0ooLVCoLRJreniqJkpRlnn444GB3T8r7wjiopCTQFMa8WqgaGRK/eVFjK7IOQCe3zJIbAEKLLIW
+	WLUjpynQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkg7I-000000021zQ-3CqW;
-	Fri, 17 Jul 2026 10:48:28 +0000
+	id 1wkg7S-0000000225w-2THC;
+	Fri, 17 Jul 2026 10:48:38 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkg7E-000000021xZ-0g2S
+	id 1wkg7M-00000002228-205H
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 10:48:26 +0000
+	Fri, 17 Jul 2026 10:48:33 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 65F2C1476;
-	Fri, 17 Jul 2026 03:48:19 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A817A1476;
+	Fri, 17 Jul 2026 03:48:27 -0700 (PDT)
 Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.2.198.107])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CB3313F7D8;
-	Fri, 17 Jul 2026 03:48:21 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 17A223F7D8;
+	Fri, 17 Jul 2026 03:48:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784285303; bh=M3lQjBH3mo1sMqyWrYmtwxYC4XzZifrPrCwjDq5ZBXc=;
+	t=1784285311; bh=chWPSehmlJZgltcURJ8jpDXdqkFNEE2jEXjuTj8IlJA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=cJgfiMyzr4hAsdGyqLrDgeDsXQcFIC1Bp+XaYgE5uSear1jwwNWNqgC0X9ZAe+iHz
-	 us2qcoPEpHV03mVh//mr7qig09B0iwNvNjSyT3WMLwCUu0yKZ5NsWQ6MWGiG/7vOIA
-	 R7tbHF4pvvlvjVb4No9CRXRkltgmfyqsQXBBGYY8=
+	b=tGxXA+uwTwe+5IAPkv+RgC+rlgm1nBtbXuXBFFCmD9qJF9O7rphbetW8TsZwVMROT
+	 LNGYwVotfKxroDH7XHuriM0/UUIF5adE4tH8Tq6oQHVJCrTj5zQn9kpfNFqQSnFHaQ
+	 Zo3YmzS2jq5lBf267YwscGarVCu0P8UiQSuvhq24=
 From: Ryan Roberts <ryan.roberts@arm.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Arnd Bergmann <arnd@arndb.de>,
@@ -53,17 +53,17 @@ Cc: Ryan Roberts <ryan.roberts@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	dri-devel@lists.freedesktop.org,
 	linux-doc@vger.kernel.org
-Subject: [RFC PATCH v1 2/8] misc/arm-cla: Add launch operation helpers
-Date: Fri, 17 Jul 2026 11:47:46 +0100
-Message-ID: <20260717104759.123203-3-ryan.roberts@arm.com>
+Subject: [RFC PATCH v1 6/8] misc/arm-cla: Set up memory translation context
+Date: Fri, 17 Jul 2026 11:47:50 +0100
+Message-ID: <20260717104759.123203-7-ryan.roberts@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260717104759.123203-1-ryan.roberts@arm.com>
 References: <20260717104759.123203-1-ryan.roberts@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_034825_519958_754E14E2 
-X-CRM114-Status: GOOD (  28.58  )
+X-CRM114-CacheID: sfid-20260717_034832_609871_E2AE652E 
+X-CRM114-Status: GOOD (  27.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,343 +78,320 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jean-Philippe Brucker <jpb@kernel.org>
+CLA accelerators use a Memory Translation Context to describe the
+page-table and memory-system configuration used for DMA through the CPU
+MMU. Set up the kernel-owned MTC during CLA bringup so later context
+switches only need to replace the user TTBR0 value.
 
-CLA commands are issued by writing optional payload registers,
-programming the LAUNCH register and polling LRESP until the hardware
-accepts or rejects the operation.
+Populate the MTC from the CPU EL1 configuration, including SCTLR, MAIR,
+TCR and TCR2 where present. Configure the accelerator to run as EL0, put
+the ASID in TTBR0 and disable TTBR1 translations because the driver only
+installs user contexts in the TTBR0 range. When running at EL2, also
+program the host HCR state.
 
-Add a common launch helper that performs this sequence on the CLA's
-local CPU, waits for LRESP completion and translates launch response
-codes into Linux errors.
+Add SETCTX and GETCTX launch helpers for MTC register access. Use the
+first available accelerator ID for these operations, since the MTC is
+shared by the CLA but the operation still requires a valid accelerator
+ID.
 
-Build accelerator reset and register read and write support on top of
-it. The register read and write helpers split larger accesses into
-multiple launch operations when an access crosses an eight-register
-window.
+Clear the MTC on CPU teardown, and add helpers to install and uninstall
+a user translation context by updating TTBR0 with the process page
+table, ASID and CnP state.
 
+Co-developed-by: Jean-Philippe Brucker <jpb@kernel.org>
 Signed-off-by: Jean-Philippe Brucker <jpb@kernel.org>
+Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 ---
- drivers/misc/arm-cla/Makefile   |   6 +
- drivers/misc/arm-cla/arm-cla.h  |  21 +++
- drivers/misc/arm-cla/cla-init.c |  12 ++
- drivers/misc/arm-cla/cla-ops.c  | 228 ++++++++++++++++++++++++++++++++
- 4 files changed, 267 insertions(+)
- create mode 100644 drivers/misc/arm-cla/cla-init.c
- create mode 100644 drivers/misc/arm-cla/cla-ops.c
+ drivers/misc/arm-cla/Makefile   |   1 +
+ drivers/misc/arm-cla/arm-cla.h  |   9 +++
+ drivers/misc/arm-cla/cla-init.c |  10 ++-
+ drivers/misc/arm-cla/cla-mtc.c  | 139 ++++++++++++++++++++++++++++++++
+ drivers/misc/arm-cla/cla-ops.c  |  52 ++++++++++++
+ 5 files changed, 209 insertions(+), 2 deletions(-)
+ create mode 100644 drivers/misc/arm-cla/cla-mtc.c
 
 diff --git a/drivers/misc/arm-cla/Makefile b/drivers/misc/arm-cla/Makefile
-index a4e40e534e6a..3fa8567c8b3e 100644
+index c1b14155454d..df3ad7e4a1b4 100644
 --- a/drivers/misc/arm-cla/Makefile
 +++ b/drivers/misc/arm-cla/Makefile
-@@ -1 +1,7 @@
- # SPDX-License-Identifier: GPL-2.0-only
-+
-+arm-cla-y := \
-+	cla-init.o \
-+	cla-ops.o
-+
-+obj-$(CONFIG_ARM_CLA) += arm-cla.o
+@@ -2,6 +2,7 @@
+ 
+ arm-cla-y := \
+ 	cla-init.o \
++	cla-mtc.o \
+ 	cla-ops.o \
+ 	cla-regs.o \
+ 	cla-topology.o
 diff --git a/drivers/misc/arm-cla/arm-cla.h b/drivers/misc/arm-cla/arm-cla.h
-index f265d7b60268..9294b71929f1 100644
+index f1c6d509c3fe..ffdb82e5e09c 100644
 --- a/drivers/misc/arm-cla/arm-cla.h
 +++ b/drivers/misc/arm-cla/arm-cla.h
-@@ -7,6 +7,8 @@
- #ifndef _ARM_CLA_H_
- #define _ARM_CLA_H_
+@@ -134,6 +134,10 @@ int cla_op_regread(struct cla_dev *dev, unsigned int accid, unsigned int regidx,
+ 		   size_t nregs, u64 *regs);
+ int cla_op_regwrite(struct cla_dev *dev, unsigned int accid,
+ 		    unsigned int regidx, size_t nregs, u64 *regs);
++int cla_op_setctx(struct cla_dev *dev, unsigned int regidx, size_t nregs,
++		  u64 *regs);
++int cla_op_getctx(struct cla_dev *dev, unsigned int regidx, size_t nregs,
++		  u64 *regs);
+ int cla_op_entersr(struct cla_dev *dev, unsigned int accid, u64 *srstate);
+ int cla_op_exitsr(struct cla_dev *dev, unsigned int accid, u64 *srstate);
  
-+#include <linux/device.h>
-+#include <linux/io.h>
- #include <linux/types.h>
+@@ -143,4 +147,9 @@ int cla_regs_switch_in(struct cla_dev *dev, struct cla_regs *regs);
+ struct cla_regs **cla_regs_alloc_domain(struct cla_domain *domain);
+ void cla_regs_free_domain(struct cla_domain *domain, struct cla_regs **regs);
  
- #include "arm-cla-regs.h"
-@@ -21,10 +23,12 @@
-  *
-  * Immutable state:
-  * @cpu:		The CPU this CLA is attached to.
-+ * @regs:		Registers accessed by the kernel.
-  * @dev:		The platform device.
-  */
- struct cla_dev {
- 	unsigned int cpu;
-+	void __iomem *regs;
- 	struct device *dev;
- };
- 
-@@ -35,4 +39,21 @@ struct cla_dev {
- #define cla_err(dev, fmt, ...) \
- 	dev_err((dev)->dev, "[%u] " fmt, (dev)->cpu, ##__VA_ARGS__)
- 
-+static inline u64 cla_reg_read(struct cla_dev *dev, off_t reg)
-+{
-+	return readq_relaxed(dev->regs + reg);
-+}
-+
-+static inline void cla_reg_write(struct cla_dev *dev, off_t reg, u64 val)
-+{
-+	return writeq_relaxed(val, dev->regs + reg);
-+}
-+
-+int cla_op_wait_lresp(struct cla_dev *dev, u64 *lresp);
-+int cla_op_reset(struct cla_dev *dev, unsigned int accid);
-+int cla_op_regread(struct cla_dev *dev, unsigned int accid, unsigned int regidx,
-+		   size_t nregs, u64 *regs);
-+int cla_op_regwrite(struct cla_dev *dev, unsigned int accid,
-+		    unsigned int regidx, size_t nregs, u64 *regs);
++int cla_mtc_setup(struct cla_dev *dev);
++int cla_mtc_clear(struct cla_dev *dev);
++int cla_mtc_install(struct cla_dev *dev, pgd_t *pgd, unsigned long asid);
++int cla_mtc_uninstall(struct cla_dev *dev);
 +
  #endif /* _ARM_CLA_H_ */
 diff --git a/drivers/misc/arm-cla/cla-init.c b/drivers/misc/arm-cla/cla-init.c
-new file mode 100644
-index 000000000000..3d1f47592842
---- /dev/null
+index 189ab2a139f1..0451d97bc95b 100644
+--- a/drivers/misc/arm-cla/cla-init.c
 +++ b/drivers/misc/arm-cla/cla-init.c
-@@ -0,0 +1,12 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Arm CLA driver - probing and initialization
-+ *
-+ * Copyright 2026 Arm Limited.
-+ */
+@@ -155,7 +155,8 @@ static void cla_dev_reinit(struct cla_dev *dev)
+ 	if (broken)
+ 		return;
+ 
+-	if (WARN_ON(cla_op_reset_all(dev))) {
++	if (WARN_ON(cla_op_reset_all(dev)) ||
++	    WARN_ON(cla_mtc_clear(dev))) {
+ 		mutex_lock(&dev->lock);
+ 		dev->broken = true;
+ 		mutex_unlock(&dev->lock);
+@@ -217,9 +218,14 @@ static int cla_dev_setup(unsigned int cpu)
+ 
+ 	cla_reg_write(dev, CLA_REG_PL0CTRL, plxctrl_val);
+ 
+-	if (dev->accelerators)
++	if (dev->accelerators) {
++		ret = cla_mtc_setup(dev);
++		if (ret)
++			goto err;
 +
-+#include <linux/module.h>
-+
-+MODULE_DESCRIPTION("Arm Core Local Accelerator");
-+MODULE_AUTHOR("Arm Limited");
-+MODULE_LICENSE("GPL");
-diff --git a/drivers/misc/arm-cla/cla-ops.c b/drivers/misc/arm-cla/cla-ops.c
+ 		cla_info(dev, "available accelerators: 0x%02x\n",
+ 			 dev->accelerators);
++	}
+ 
+ 	return 0;
+ err:
+diff --git a/drivers/misc/arm-cla/cla-mtc.c b/drivers/misc/arm-cla/cla-mtc.c
 new file mode 100644
-index 000000000000..d594344a2eb4
+index 000000000000..0f786d5061da
 --- /dev/null
-+++ b/drivers/misc/arm-cla/cla-ops.c
-@@ -0,0 +1,228 @@
++++ b/drivers/misc/arm-cla/cla-mtc.c
+@@ -0,0 +1,139 @@
 +// SPDX-License-Identifier: GPL-2.0-only
 +/*
-+ * Arm CLA driver - Launch operations
++ * Arm CLA driver - memory translation context
 + *
 + * Copyright 2026 Arm Limited.
 + */
 +
-+#include <linux/iopoll.h>
++#include <asm/kvm_arm.h>
 +
 +#include "arm-cla.h"
 +
-+/* Time to wait between two LRESP reads */
-+#define CLA_LRESP_DELAY_US	1
-+
-+/*
-+ * Time to wait for LRESP_PENDING to clear. Commands like REGREAD should
-+ * complete in a few cycles, but ENTERSR and RESET may need to clean up
-+ * some very large states depending on the work interrupted, and may need
-+ * 1us or more.
-+ */
-+#define CLA_LRESP_TIMEOUT_US	100
-+
-+enum cla_launch_data_mode {
-+	CLA_DATA_NONE,
-+	CLA_DATA_IN,
-+	CLA_DATA_OUT,
-+};
-+
-+struct cla_launch {
-+	u8	op;		/* opcode */
-+	u8	ndata_m1;	/* Data size minus 1 */
-+	u8	accid;		/* Accelerator ID */
-+	bool	seq;		/* part of compound cmd */
-+	u32	regidx;		/* Register index */
-+
-+	enum cla_launch_data_mode data_mode;
-+	u64	*data;		/* In/out data */
-+
-+	u8	errcode;	/* Output error code */
-+};
++#define cla_kernel_mtc \
++	(cla_kernel_pl == 2 ? CLA_MTC_REGIDX_PL2 : CLA_MTC_REGIDX_PL1)
 +
 +/**
-+ * cla_op_launch - Launch operation.
-+ * @dev: CLA device.
-+ * @launch: LAUNCH settings.
++ * cla_mtc_setup - initialize the memory translation context
++ * @dev: CLA device
 + *
-+ * 1. If data_mode is %CLA_DATA_IN, write DATA registers.
-+ * 2. Launch the operation, and wait for the response.
-+ * 3. If data_mode is %CLA_DATA_OUT, read DATA registers into @launch->data.
-+ *
-+ * Return:
-+ * * %0			- Success.
-+ * * %-ETIMEDOUT	- LAUNCH timed out (possibly no CLA at this address).
-+ *			  Unless LRESP_PENDING eventually clears, this is
-+ *			  unrecoverable.
-+ * * %-ENODEV		- Accelerator not available.
-+ * * %-EBUSY		- Accelerator is busy.
-+ * * %-EIO		- LAUNCH error. @launch->errcode contains the LRESP
-+ *			  error code.
++ * Return: 0 on success, or a negative error code.
 + */
-+static int cla_op_launch(struct cla_dev *dev, struct cla_launch *launch)
++int cla_mtc_setup(struct cla_dev *dev)
 +{
-+	int i;
 +	int ret;
-+	u64 lresp;
++	u64 tcr;
++	u64 regs[2 * CLA_MTC_PL_SIZE] = {};
++	u64 *kregs = &regs[cla_kernel_mtc];
++	size_t regs_size = cla_kernel_pl * CLA_MTC_PL_SIZE;
++	u64 reserved_ttbr = phys_to_ttbr(page_to_phys(ZERO_PAGE(0)));
 +
-+	if (WARN_ON(smp_processor_id() != dev->cpu))
-+		return -EINVAL;
++	/* The accelerator always runs as EL0 */
++	kregs[CLA_MTC_PSTATE] = FIELD_PREP(CLA_MTC_PSTATE_EL, 0) |
++				FIELD_PREP(CLA_MTC_PSTATE_PAN,
++					   system_uses_hw_pan());
++	kregs[CLA_MTC_TTBR0] = reserved_ttbr;
++	kregs[CLA_MTC_TTBR1] = reserved_ttbr;
++	kregs[CLA_MTC_SCTLR] = read_sysreg(sctlr_el1);
++	kregs[CLA_MTC_MAIR] = read_sysreg(mair_el1);
 +
-+	if (launch->data_mode == CLA_DATA_IN)
-+		for (i = 0; i < launch->ndata_m1 + 1; i++)
-+			cla_reg_write(dev, CLA_REG_DATA(i), launch->data[i]);
++	if (cpus_have_final_cap(ARM64_HAS_TCR2))
++		kregs[CLA_MTC_TCR2] = read_sysreg_s(SYS_TCR2_EL1);
++
++	tcr = read_sysreg(tcr_el1);
++	/*
++	 * Put ASID in TTBR0, so that we only have one reg to update when
++	 * switching context.
++	 */
++	FIELD_MODIFY(TCR_EL1_A1, &tcr, 0);
++	/*
++	 * We never map anything in the TTBR1 VA range so explicitly disable
++	 * translations via TTBR1.
++	 */
++	FIELD_MODIFY(TCR_EL1_EPD1_MASK, &tcr, 1);
++	kregs[CLA_MTC_TCR] = tcr;
++
++	if (cla_kernel_pl == 2) {
++		/* E2H and TGE */
++		regs[CLA_MTC_HCR_EL2] = HCR_HOST_VHE_FLAGS;
++	}
 +
 +	/*
-+	 * No barrier needed because accesses use Device-nGnRE, within the same
-+	 * memory-mapped peripheral, so accesses arrive at the endpoint in
-+	 * program order.
++	 * All accelerators are idle, meaning there can't be any memory
++	 * transactions happening. So it is safe to setup the MTC in any order.
++	 * i.e. there is no issue with setting SCTLR.M=1 before we have
++	 * configured MAIR or TCR2.
 +	 */
-+	cla_reg_write(dev, CLA_REG_LAUNCH,
-+		      FIELD_PREP(CLA_LAUNCH_OP, launch->op) |
-+		      FIELD_PREP(CLA_LAUNCH_NDATA_M1, launch->ndata_m1) |
-+		      FIELD_PREP(CLA_LAUNCH_ACCID, launch->accid) |
-+		      FIELD_PREP(CLA_LAUNCH_SEQ, launch->seq) |
-+		      FIELD_PREP(CLA_LAUNCH_REGIDX, launch->regidx));
-+
-+	ret = cla_op_wait_lresp(dev, &lresp);
++	ret = cla_op_setctx(dev, CLA_MTC_REGIDX_PL1, regs_size, regs);
 +	if (ret) {
-+		cla_err(dev, "launch failed with %d\n", ret);
++		WARN_ON(cla_mtc_clear(dev));
 +		return ret;
 +	}
-+
-+	switch (FIELD_GET(CLA_LRESP_CODE, lresp)) {
-+	case CLA_LRESP_OK:
-+		break;
-+	case CLA_LRESP_UNAVAIL:
-+		return -ENODEV;
-+	case CLA_LRESP_BUSY:
-+		return -EBUSY;
-+	case CLA_LRESP_ERROR:
-+		launch->errcode = FIELD_GET(CLA_LRESP_ERRCODE, lresp);
-+		return -EIO;
-+	}
-+
-+	if (launch->data_mode == CLA_DATA_OUT)
-+		for (i = 0; i < launch->ndata_m1 + 1; i++)
-+			launch->data[i] = cla_reg_read(dev, CLA_REG_DATA(i));
 +
 +	return 0;
 +}
 +
 +/**
-+ * cla_op_wait_lresp - Wait for any LAUNCH op to complete.
-+ * @dev: CLA device.
-+ * @lresp: last LRESP value read.
++ * cla_mtc_clear - clear the memory translation context
++ * @dev: CLA device
 + *
-+ * Return: 0 on success, -ETIMEDOUT in case of timeout.
++ * Return: 0 on success, or a negative error code.
 + */
-+int cla_op_wait_lresp(struct cla_dev *dev, u64 *lresp)
++int cla_mtc_clear(struct cla_dev *dev)
 +{
-+	return readq_relaxed_poll_timeout_atomic(dev->regs + CLA_REG_LRESP,
-+			*lresp, FIELD_GET(CLA_LRESP_PENDING, *lresp) == 0,
-+			CLA_LRESP_DELAY_US, CLA_LRESP_TIMEOUT_US);
++	/* Don't set the RES1 bit in VTCR_EL2 because in MTC they are RAZ/WI. */
++	u64 regs[2 * CLA_MTC_PL_SIZE] = {};
++	size_t regs_size = cla_kernel_pl * CLA_MTC_PL_SIZE;
++
++	/* SETCTX fails if there is no ACCID */
++	if (!dev->accelerators)
++		return 0;
++
++	/*
++	 * All accelerators are idle, meaning there can't be any memory
++	 * transactions happening. So it is safe to clear the MTC in any order.
++	 * i.e. there is no issue with clearing TTBRx before setting SCTLR.M=0.
++	 */
++	return cla_op_setctx(dev, CLA_MTC_REGIDX_PL1, regs_size, regs);
 +}
 +
 +/**
-+ * cla_op_reset - Launch RESET operation for this accelerator.
-+ * @dev: CLA device.
-+ * @accid: accelerator ID.
++ * cla_mtc_install - enable a user translation context
++ * @dev: CLA device
++ * @pgd: page table to install
++ * @asid: ASID to use with the page table
 + *
-+ * Return: 0 on success, 1 if there is no accelerator with this ID, or an error.
++ * Return: 0 on success, or a negative error code.
 + */
-+int cla_op_reset(struct cla_dev *dev, unsigned int accid)
++int cla_mtc_install(struct cla_dev *dev, pgd_t *pgd, unsigned long asid)
 +{
-+	int ret;
-+	struct cla_launch launch = {
-+		.op	= CLA_LAUNCH_OP_RESET,
-+		.accid	= accid,
-+	};
++	u64 ttbr0;
 +
-+	ret = cla_op_launch(dev, &launch);
-+	if (ret == -EIO && launch.errcode == CLA_ERRCODE_NOACC)
-+		return 1;
-+	return ret;
++	/* SETCTX fails if there is no ACCID */
++	if (!dev->accelerators)
++		return 0;
++
++	ttbr0 = phys_to_ttbr(virt_to_phys(pgd)) |
++		FIELD_PREP(TTBRx_EL1_ASID_MASK, asid);
++
++	if (system_supports_cnp())
++		ttbr0 |= TTBRx_EL1_CnP;
++
++	return cla_op_setctx(dev, cla_kernel_mtc + CLA_MTC_TTBR0, 1, &ttbr0);
 +}
 +
-+static int cla_op_access_reg(struct cla_dev *dev, u8 op,
-+			     enum cla_launch_data_mode data_mode,
-+			     unsigned int accid, unsigned int regidx,
-+			     size_t nregs, u64 *regs)
++/**
++ * cla_mtc_uninstall - disable the user translation context
++ * @dev: CLA device
++ *
++ * Return: 0 on success, or a negative error code.
++ */
++int cla_mtc_uninstall(struct cla_dev *dev)
 +{
-+	int ret = -EINVAL;
-+	unsigned long max_regidx;
-+	struct cla_launch launch = {
-+		.op = op,
-+		.accid = accid,
-+		.data_mode = data_mode,
-+	};
++	u64 ttbr0 = phys_to_ttbr(page_to_phys(ZERO_PAGE(0)));
 +
-+	switch (op) {
-+	case CLA_LAUNCH_OP_REGREAD:
-+	case CLA_LAUNCH_OP_REGWRITE:
-+		max_regidx = 0x100000000;
++	/* SETCTX fails if there is no ACCID */
++	if (!dev->accelerators)
++		return 0;
++
++	return cla_op_setctx(dev, cla_kernel_mtc + CLA_MTC_TTBR0, 1, &ttbr0);
++}
+diff --git a/drivers/misc/arm-cla/cla-ops.c b/drivers/misc/arm-cla/cla-ops.c
+index 7ddb973927e9..4d3f4f453e0b 100644
+--- a/drivers/misc/arm-cla/cla-ops.c
++++ b/drivers/misc/arm-cla/cla-ops.c
+@@ -180,6 +180,10 @@ static int cla_op_access_reg(struct cla_dev *dev, u8 op,
+ 	case CLA_LAUNCH_OP_REGWRITE:
+ 		max_regidx = 0x100000000;
+ 		break;
++	case CLA_LAUNCH_OP_SETCTX:
++	case CLA_LAUNCH_OP_GETCTX:
++		max_regidx = 0x80;
 +		break;
-+	default:
-+		WARN_ON(1);
-+		return -EINVAL;
-+	}
-+
-+	if (WARN_ON(regidx + nregs > max_regidx))
-+		return -EINVAL;
-+
-+	/* 1 to 8 registers accessed at a time, within the same 8-reg group */
-+	while (nregs > 0) {
-+		unsigned int reg_group = ALIGN_DOWN(regidx, 8);
-+		unsigned int max_reg = min(regidx + nregs, reg_group + 8);
-+		unsigned int ndata = max_reg - regidx;
-+
-+		launch.ndata_m1 = ndata - 1;
-+		launch.regidx = regidx;
-+		launch.data = regs;
-+
-+		ret = cla_op_launch(dev, &launch);
-+		if (ret)
-+			break;
-+
-+		regidx += ndata;
-+		regs += ndata;
-+		nregs -= ndata;
-+	}
-+
-+	return ret;
-+}
-+
+ 	default:
+ 		WARN_ON(1);
+ 		return -EINVAL;
+@@ -246,6 +250,54 @@ int cla_op_regwrite(struct cla_dev *dev, unsigned int accid,
+ 				 accid, regidx, nregs, regs);
+ }
+ 
 +/**
-+ * cla_op_regread - Launch REGREAD operations.
++ * cla_op_setctx - launch SETCTX operation.
 + * @dev: CLA device.
-+ * @accid: accelerator ID.
-+ * @regidx: first register index.
-+ * @nregs: number of registers. Can be greater than 8 (accessed with multiple
-+ *         REGREAD operations).
-+ * @regs: array of length @nregs.
++ * @regidx: first MTC register index.
++ * @nregs: number of registers to set. Can be greater than 8 (accessed with
++ *         multiple SETCTX operations).
++ * @regs: register content, array of length @nregs.
 + *
 + * Return: 0 on success, or an error.
 + */
-+int cla_op_regread(struct cla_dev *dev, unsigned int accid,
-+			  unsigned int regidx, size_t nregs, u64 *regs)
++int cla_op_setctx(struct cla_dev *dev, unsigned int regidx, size_t nregs,
++		  u64 *regs)
 +{
-+	return cla_op_access_reg(dev, CLA_LAUNCH_OP_REGREAD, CLA_DATA_OUT,
-+				 accid, regidx, nregs, regs);
++	/*
++	 * Even though the MTC is shared between all accelerators, accid must be
++	 * valid. If no accelerator is attached, the op fails.
++	 */
++	if (!dev->accelerators)
++		return -ENODEV;
++
++	return cla_op_access_reg(dev, CLA_LAUNCH_OP_SETCTX, CLA_DATA_IN,
++				 __ffs(dev->accelerators), regidx, nregs, regs);
 +}
 +
 +/**
-+ * cla_op_regwrite - Launch REGWRITE operations.
++ * cla_op_getctx - launch GETCTX operation.
 + * @dev: CLA device.
-+ * @accid: accelerator ID.
-+ * @regidx: first register index.
-+ * @nregs: number of registers. Can be greater than 8 (accessed with multiple
-+ *         REGWRITE operations).
-+ * @regs: array of length @nregs.
++ * @regidx: first MTC register index.
++ * @nregs: number of registers to set. Can be greater than 8 (accessed with
++ *         multiple GETCTX operations).
++ * @regs: register content, array of length @nregs.
 + *
 + * Return: 0 on success, or an error.
 + */
-+int cla_op_regwrite(struct cla_dev *dev, unsigned int accid,
-+			   unsigned int regidx, size_t nregs, u64 *regs)
++int cla_op_getctx(struct cla_dev *dev, unsigned int regidx, size_t nregs,
++		  u64 *regs)
 +{
-+	return cla_op_access_reg(dev, CLA_LAUNCH_OP_REGWRITE, CLA_DATA_IN,
-+				 accid, regidx, nregs, regs);
++	/*
++	 * Even though the MTC is shared between all accelerators, accid must be
++	 * valid. If no accelerator is attached, the op fails.
++	 */
++	if (!dev->accelerators)
++		return -ENODEV;
++
++	return cla_op_access_reg(dev, CLA_LAUNCH_OP_GETCTX, CLA_DATA_OUT,
++				 __ffs(dev->accelerators), regidx, nregs, regs);
 +}
++
+ /**
+  * cla_op_entersr - launch ENTERSR operation.
+  * @dev: CLA device.
 -- 
 2.43.0
 
