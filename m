@@ -4,65 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5AF1C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 08:54:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B0E0C44514
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 08:55:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X4TfebZI/X7vLg+7QaTeb1T8CptL2Zov/E7KPsxYvXE=; b=3KXk+fqdoLo8uY0B82ROEAuvyF
-	rBqAIUHn4tq1J+05AmrmbdhV+aqhiAbrHklaTnTh19Y/pVyLAgngmhM72W6TOQvS4M05kkasxfYpO
-	SE6hxmV8GKpAX7FDg1eGV4bIHRwiTP8RHRorJoX+euZ2pBwFyXW1cQ3f86mv2KTeVSEfFfF1lLOGF
-	S1prt9ZN4KVlt3dmbhagNKD3yEBKE8Apjod9gwKvlbcIK3KaJvy8Xkuw0CDD8uJaXpbVXRKv5kp+S
-	0TGM1B1F/WhKpsCwf/BQgd3YZ4x1CwHSOHCiilo2F5EngVLKqxjD1OUBMWmqrKshp2aD74q5WqUA4
-	GoUEGKdA==;
+	bh=E0K+hUVV5f6NfyAYttCx4Ck/mF4yHBteglIqFGWOZTs=; b=pS7a2dwAecN36cOrFfhftcvxty
+	7qPlk0uCvxzk7oNSRiDiNqdwcr4d5dxg6mLroY9KCTnbpzBDPvgr3cnAPHWo3+P5ESIdIX86ugoaz
+	yq5QuiYmHpZeECNXlZV/HHMg9/oWLNEdcZepa0d9H5Y0kPAo0fAMsxUMyZ1jZpzFMOs/VC+lGHKFq
+	DGvKt8tRJJXmVY0rNYUQ9CbriUk7QRBRuskjqC0F20pj5s00FMAWeiAxEQaWJOM2EqvFKanSOXHxp
+	keDDjzCr42oDZkkbLa+a1vKeoZAd8bxHZ/e2SbOSRj2PXH1sqqMenI07AaoJZCs2aiS0+2vZPgc5n
+	6uM0LFuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkeLB-00000001jtG-1Hrw;
-	Fri, 17 Jul 2026 08:54:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkeL8-00000001jrE-0j38
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 08:54:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8274F1476;
-	Fri, 17 Jul 2026 01:54:32 -0700 (PDT)
-Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 874CF3F915;
-	Fri, 17 Jul 2026 01:54:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784278476; bh=kob8Dla1wi3f0iGs2cR93R/QiFUe5G7T9XeDcKAgmWA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hsnjCcQv+rrTANymNRkwC/QWvVXsvvn33vbES3VJaeVgzNEJDlLrF7BUgFWGMTCpt
-	 h0eQqyYphDVSzyzEloUt/21sF9snyP90nSxzTlAmW5Ad9ZZx+1dn4IeSmeIEO5BG/L
-	 zc5bdJT3gEN9VCf22LvcEyOU8I7p7N4is3lQonjc=
-Message-ID: <1778dc0e-4a5a-45d5-865c-ab8c65988636@arm.com>
-Date: Fri, 17 Jul 2026 09:54:32 +0100
+	id 1wkeLG-00000001jw4-1lKL;
+	Fri, 17 Jul 2026 08:54:47 +0000
+Received: from flow-b8-smtp.messagingengine.com ([202.12.124.143])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wkeLD-00000001juJ-2O03;
+	Fri, 17 Jul 2026 08:54:45 +0000
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailflow.stl.internal (Postfix) with ESMTP id 6B43313002DB;
+	Fri, 17 Jul 2026 04:54:42 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-01.internal (MEProxy); Fri, 17 Jul 2026 04:54:42 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
+	 h=cc:cc:content-transfer-encoding:content-type:content-type
+	:date:date:from:from:in-reply-to:in-reply-to:message-id
+	:mime-version:references:reply-to:subject:subject:to:to; s=fm1;
+	 t=1784278482; x=1784282082; bh=E0K+hUVV5f6NfyAYttCx4Ck/mF4yHBte
+	glIqFGWOZTs=; b=KSaP4sxUQHDZi5bADJa5UAt4G5iBqkSz6KcNxZGWXEWY/U8g
+	n/cWpXW4ZdWwLocbSxGIeBpwyhob5GsERpLTZT6WoeRbwgz3KpotjEWeAlgRqtEZ
+	jRHo7/TArkNaK9y56WkhTmNPtZkqEqcuoF65t2G2jIY3szDrBjf7mQIBvUZgt4i1
+	t9QLjCv0mxmqolUl+BHDnaQJQ+J0lMe6daLY4IlIUviOlv0mYYzSZQ2fHTEYjFfP
+	7h6EV7ptLqwe2BCNdKdDPiRj++5LqC/NMykxQ/P23K94+Xr0Yj5//0oOYfhUEZbL
+	v18moyh6TKaHUuxF42oLn+81nLLkgYPDs0r1RQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1784278482; x=
+	1784282082; bh=E0K+hUVV5f6NfyAYttCx4Ck/mF4yHBteglIqFGWOZTs=; b=K
+	gor+RGikhIIPAoYfAsvcs2xsZVuCMJSyHPabT6IKbrnHTIzxGR3Dx6FDqFdTxmsl
+	ySeNvlzpOdTUb/5m5DmFKAcPFUwQz07clbQxofRg7allEVTljZIKReio0X2OO8uI
+	cbjS/xDby+fX60FuiV8UfjhXBKFx2XpkKG2v8nYIB+nyeH23QQIf4zKCZzHpWocv
+	PMmb77qn2G2M1b87Nrx+2Yxycv07xO2M+GH0VVrG4blxSNE4EHBJmUUVJPVHr4mW
+	glgSD14NDZh9XIPAdHPoq7w2c3ocPH+m+4S+GyM7y1nr9UG0j+uOY4iEdzi0rAPQ
+	WSQHc0zFk9GOdBTwoFmeA==
+X-ME-Sender: <xms:0e1ZalrHuzaSi9_xtPmLFhea9P7l2Lmp9htV8n10WN0DpAgfLsz3GA>
+    <xme:0e1ZajgMCrLCPF2N3Fm2lIUakQ_LRIL4criR5TIesuhJpUO84rVCuPS4lkGCAPqkq
+    M3sRmeGvVgIN0NoEKCKSPZX819C-Xli4aBj7SDFIPCBfk-E0I3Ncuc1>
+X-ME-Received: <xmr:0e1Zattq9bFa-z9jIGZhfLqvcfif-QDBmCHBgPDcRIcCJ1WSTkFwF9-sd3olWvlobLiqqPPgbftaK2glJsc>
+X-ME-Proxy-Cause: dmFkZTFlqYOQDR3j98mEg55zUTBRGJoyYi0LNYqpxPFUij1eeuOTNhPKEq7aaRJQxFcRRK
+    Qe+rnmyYP/2AYKqjSPt6DmVKl9pFcjlTfz975oGBl5Ayy790RMcDXxZVGd5MobgrZ5sJ5N
+    ZppcnGayfzsQ4x7JcCuA8tWmlRxVvKCLDl4TR6oihVYV3SoUulACa/g1A4zhFAszisSGMj
+    u4Ui6WKABbGiuHbVQbDt8uT4F124PFqAYsOpAjuFkew0bhukYMl5KvFireeUYxIc7I6Kwy
+    6tBTZ10j5fYXecnDucl6C4ODV8HSIytp1MMpvREV+JeOyBx8/LnU+PdEGxWXC1sad6S4FO
+    nogCCV8dFScqOHo8C5/ACownohQeqzHNB7QNCwekwJkJLo2sNcyErrB//ZteD3oj1pin1S
+    epHefwgLEf5HEVTIgJMpk9sE5SgmCcbYwQAwjXi9eT7xa8+Ww8xuaAR2hwoNWLHnKdulEL
+    mkOJU3cgCEd6dyIFNNlwC6iz+FhjNv5nezJURt6D1Hnb1jicpC2rBcEJ1aeiaBxGSKE8N2
+    GsxTKSYIWS1sTsHhcbKmkD7XJGp+OveurLosfVlIkEyfy5mb8+qShkX+biuKh61msVaVpR
+    PGiiify0D7MdcjqO/8Bt+mGwXM29k8U9bRXKqMSNNKzorjRw5lRKYnsq4ddQ
+X-ME-Proxy: <xmx:0e1Zak0r1gJyFhe95-oQCz2x4NAX7V8spU9GyPYA40EywUfBH457rQ>
+    <xmx:0e1ZasxWf8wqUpil9jFBFkZuy5FGoJVwel1-45LGSRTBp8agm_m4Jg>
+    <xmx:0e1ZanXTniYA6WWB6XVC_ARqbEJZpS43kOnjjYVJQuPX5uq4FvHtAA>
+    <xmx:0e1ZamBIQZNqFVSeinEQukrtmNgSFStXeJArBTW4OlBo8c0NkJQKGg>
+    <xmx:0u1ZalaFAnAsV0E-LfHqD1l77ii721TCyjLUg9a1ngkRqyOHYEFM7DBw>
+Feedback-ID: i7a5e4b5f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
+ 17 Jul 2026 04:54:35 -0400 (EDT)
+From: Jiaxing Hu <gahing@gahingwoo.com>
+To: tomeu@tomeuvizoso.net,
+	heiko@sntech.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	ulfh@kernel.org,
+	p.zabel@pengutronix.de,
+	ogabbay@kernel.org
+Cc: dri-devel@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
+	iommu@lists.linux.dev,
+	linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jiaxing Hu <gahing@gahingwoo.com>
+Subject: [RFC PATCH 7/9] accel/rocket: add RK3576 NPU (RKNN) support
+Date: Fri, 17 Jul 2026 20:50:45 +1200
+Message-ID: <20260717085220.3212274-8-gahing@gahingwoo.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260717085220.3212274-1-gahing@gahingwoo.com>
+References: <20260717085220.3212274-1-gahing@gahingwoo.com>
 MIME-Version: 1.0
-User-Agent: Thunderbird Daily
-Subject: Re: [PATCH 03/23] resctrl: Expose MBA resource_schemata mode sysfs
-To: Fenghua Yu <fenghuay@nvidia.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Tony Luck
- <tony.luck@intel.com>, James Morse <james.morse@arm.com>,
- Dave Martin <Dave.Martin@arm.com>, Shaopeng Tan <tan.shaopeng@fujitsu.com>,
- Chen Yu <yu.c.chen@intel.com>, Babu Moger <babu.moger@amd.com>,
- Drew Fustini <fustini@kernel.org>, Vikram Sethi <vsethi@nvidia.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Newton Liu
- <newtonl@nvidia.com>, Gavin Shan <gshan@redhat.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <cover.1784217438.git.fenghuay@nvidia.com>
- <20260716210329.2914625-3-fenghuay@nvidia.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <20260716210329.2914625-3-fenghuay@nvidia.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_015438_316491_E27D2A60 
-X-CRM114-Status: GOOD (  39.48  )
+X-CRM114-CacheID: sfid-20260717_015443_715415_85C604F6 
+X-CRM114-Status: GOOD (  23.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,208 +123,445 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Fenghua,
+Add RK3576 support to the rocket DRM accelerator driver (used with the
+Mesa Teflon TFLite delegate).
 
-On 7/16/26 22:02, Fenghua Yu wrote:
-> Node-scoped MBA on MPAM needs a way to distinguish native memory-side
-> controls from legacy L3-shaped MB emulation. Track the selected emulate
-> mode on rdt_resource and expose it as
-> info/<resource>/resource_schemata/mode ("native" or "legacy") when the
-> architecture enables emulation.
+  - match rockchip,rk3576-rknn-core; iterate its nodes at probe
+  - add named clock IDs (aclk/hclk/npu/pclk) and the CBUF clock domain
+    (ACLK/HCLK_RKNN_CBUF); the CNA fills the CBUF and CORE reads from it,
+    so the compute path stalls if those clocks are not held for a job
+  - guard rocket_job_timedout() MMIO behind pm_runtime_active()
+  - hrtimer completion poll: OP_EN never clears on RK3576 (unlike
+    RK3588), so poll INTERRUPT_RAW_STATUS PC_DONE bits instead
+  - map the DPU (0x4000) and DPU_RDMA (0x5000) blocks and pre-arm them
+  - attach both NPU power domains (PD_NPU0 + PD_NPU1): the CBUF->CMAC
+    read path is only fully powered with NPU1 up
 
-This doesn't sound right.
+Tested on a Radxa ROCK 4D: the NPU probes, powers on, brings up its
+IOMMUs and runs submitted jobs to completion. Full multi-layer inference
+is not yet correct on this SoC (only the first operation per power
+session produces valid output); see the cover letter.
 
-If the MPAM mbwu counters are counting traffic on the egress of the L3 they should be described in
-the acpi tables as such, if they are not then they shouldn't. If they are the MB resource can then
-be scoped to the L3.
+Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
+---
+ drivers/accel/rocket/rocket_core.c   |  43 +++++++-
+ drivers/accel/rocket/rocket_core.h   |  22 +++-
+ drivers/accel/rocket/rocket_device.c |   4 +
+ drivers/accel/rocket/rocket_drv.c    |   1 +
+ drivers/accel/rocket/rocket_job.c    | 154 +++++++++++++++++++++------
+ 5 files changed, 187 insertions(+), 37 deletions(-)
 
-If the MPAM mbwu counters are at the memory bandwidth controller then they should be described in
-the acpi tables as such. Currently there is no support for such counters except when there is a
-single L3 and a single NUMA node and so a single link between the caches and the memory. Counting at
-either end of the link, egress of the L3 or entry to the memory gives the same counts and so the
-driver performs some unfortunate gymnastics to use L3 scope in this case. Do you see a reason not to
-do this? If we change the scope to be NUMA node in these platforms all I see changing is the domain
-id for the sole MB domain.
-
-As such, can't we just add support for a NUMA scope memory bandwidth allocation resource, MB_NODE,
-without having a legacy/native switch?
-
-Thanks,
-
-Ben
-
-> 
-> The mode file is only created when rdt_resource::mode is non-zero
-> (RESCTRL_CTRL_LEGACY or RESCTRL_CTRL_NATIVE). It defaults to
-> RESCTRL_CTRL_MODE_NONE, so resources whose architecture does not support
-> control emulation get no mode file and are unaffected. Architecture
-> backends that support emulation set the initial mode when they create
-> their controls; on MPAM this is wired up together with the node-scoped
-> MB_NODE control in a later patch, so this commit only adds the (dormant)
-> generic mechanism.
-> 
-> The mode file is added read-only here: switching the mode at runtime
-> requires rebuilding the resource_schemata layout to match the new mode,
-> so the writable interface is added together with that rebuild logic in a
-> later patch. Keeping the file read-only until then avoids exposing a
-> writable-but-no-op interface.
-> 
-> Store rdt_resource_final in the resource_schemata directory priv so the
-> mode file can resolve the backing resource without dereferencing NULL.
-> 
-> Signed-off-by: Fenghua Yu <fenghuay@nvidia.com>
-> ---
->  fs/resctrl/rdtgroup.c   | 77 ++++++++++++++++++++++++++++++++++++++++-
->  include/linux/resctrl.h | 17 +++++++++
->  2 files changed, 93 insertions(+), 1 deletion(-)
-> 
-> diff --git a/fs/resctrl/rdtgroup.c b/fs/resctrl/rdtgroup.c
-> index 2abb7fda6091..6b1f24c6a1f2 100644
-> --- a/fs/resctrl/rdtgroup.c
-> +++ b/fs/resctrl/rdtgroup.c
-> @@ -2696,6 +2696,74 @@ static unsigned long fflags_from_resource(struct rdt_resource *r)
->  	return WARN_ON_ONCE(1);
->  }
->  
-> +static int resctrl_ctrl_mb_mode_show(struct kernfs_open_file *of,
-> +				     struct seq_file *seq, void *v)
-> +{
-> +	struct rdt_resource_final *f = rdt_kn_parent_priv(of->kn);
-> +	struct rdt_resource *r = f->res;
-> +
-> +	guard(mutex)(&rdtgroup_mutex);
-> +
-> +	switch (r->mode) {
-> +	case RESCTRL_CTRL_LEGACY:
-> +		seq_puts(seq, "[legacy] native\n");
-> +		break;
-> +	case RESCTRL_CTRL_NATIVE:
-> +		seq_puts(seq, "legacy [native]\n");
-> +		break;
-> +	default:
-> +		WARN_ONCE(1, "%s: unexpected MB control mode %d\n",
-> +			  f->name, r->mode);
-> +		seq_puts(seq, "legacy native\n");
-> +		break;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static struct rftype resctrl_ctrl_mb_files[] = {
-> +	{
-> +		.name		= "mode",
-> +		.mode		= 0444,
-> +		.kf_ops		= &rdtgroup_kf_single_ops,
-> +		.seq_show	= resctrl_ctrl_mb_mode_show,
-> +		/*
-> +		 * Directory-level file, not per-control: fflags is only a
-> +		 * presence flag here, not the BIT(ctrl->type) type filter used
-> +		 * by resctrl_add_ctrl_files().
-> +		 */
-> +		.fflags		= 1,
-> +	}
-> +};
-> +
-> +static int resctrl_ctrl_add_files(struct kernfs_node *kn)
-> +{
-> +	struct rftype *rfts, *rft;
-> +	int ret, len;
-> +
-> +	rfts = resctrl_ctrl_mb_files;
-> +	len = ARRAY_SIZE(resctrl_ctrl_mb_files);
-> +
-> +	lockdep_assert_held(&rdtgroup_mutex);
-> +
-> +	for (rft = rfts; rft < rfts + len; rft++) {
-> +		if (rft->fflags) {
-> +			ret = rdtgroup_add_file(kn, rft);
-> +			if (ret)
-> +				goto error;
-> +		}
-> +	}
-> +
-> +	return 0;
-> +error:
-> +	pr_warn("Failed to add %s, err=%d\n", rft->name, ret);
-> +	while (--rft >= rfts) {
-> +		if (rft->fflags)
-> +			kernfs_remove_by_name(kn, rft->name);
-> +	}
-> +	return ret;
-> +}
-> +
->  /*
->   * No need to cleanup on exit - caller calls the recursive kernfs_remove()
->   * on failure.
-> @@ -2704,11 +2772,12 @@ static int resctrl_mkdir_schemata_dir(struct kernfs_node *kn,
->  				      struct rdt_resource_final *f)
->  {
->  	struct kernfs_node *kn_subdir, *kn_ctrl;
-> +	struct rdt_resource *r = f->res;
->  	struct resctrl_ctrl *ctrl;
->  	char ctrl_full_name[20];
->  	int ret;
->  
-> -	kn_subdir = kernfs_create_dir(kn, "resource_schemata", kn->mode, NULL);
-> +	kn_subdir = kernfs_create_dir(kn, "resource_schemata", kn->mode, f);
->  	if (IS_ERR(kn_subdir))
->  		return PTR_ERR(kn_subdir);
->  
-> @@ -2716,6 +2785,12 @@ static int resctrl_mkdir_schemata_dir(struct kernfs_node *kn,
->  	if (ret)
->  		return ret;
->  
-> +	if (r->mode) {
-> +		ret = resctrl_ctrl_add_files(kn_subdir);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
->  	for_each_resource_ctrl(ctrl, f->res) {
->  		ret = snprintf(ctrl_full_name, sizeof(ctrl_full_name), "%s%s%s",
->  			       f->name, resctrl_ctrl_is_default(ctrl) ? "" : "_",
-> diff --git a/include/linux/resctrl.h b/include/linux/resctrl.h
-> index 72fb7256270e..4fc41e269d0b 100644
-> --- a/include/linux/resctrl.h
-> +++ b/include/linux/resctrl.h
-> @@ -257,6 +257,16 @@ enum resctrl_ctrl_unit {
->  	RESCTRL_CTRL_UNIT_GBPS,
->  };
->  
-> +enum resctrl_ctrl_mode {
-> +	/*
-> +	 * Default (zero) value: the resource does not support control
-> +	 * emulation, so no resource_schemata/mode file is created for it.
-> +	 */
-> +	RESCTRL_CTRL_MODE_NONE = 0,
-> +	RESCTRL_CTRL_LEGACY,
-> +	RESCTRL_CTRL_NATIVE,
-> +};
-> +
->  /**
->   * struct resctrl_membw - Memory bandwidth allocation related data
->   * @min_bw:		Minimum memory bandwidth percentage user can request
-> @@ -399,6 +409,12 @@ struct resctrl_ctrl {
->   *			different memory bandwidths
->   * @cache_io_alloc_capable:True if portion of the cache can be configured
->   *			   for I/O traffic.
-> + * @mode:		Control emulation mode for this resource.
-> + *			RESCTRL_CTRL_MODE_NONE if the resource does not support
-> + *			emulation. "legacy": keep the legacy MB control,
-> + *			emulating it with a native control when it has no MBW
-> + *			hardware of its own. "native": expose native controls
-> + *			directly with no emulation.
->   * @controls:		List of controls of an alloc_capable resource
->   */
->  struct rdt_resource {
-> @@ -413,6 +429,7 @@ struct rdt_resource {
->  	bool				bw_delay_linear;
->  	enum membw_throttle_mode	bw_throttle_mode;
->  	bool				cache_io_alloc_capable;
-> +	enum resctrl_ctrl_mode		mode;
->  	struct list_head		controls;
->  };
->  
+diff --git a/drivers/accel/rocket/rocket_core.c b/drivers/accel/rocket/rocket_core.c
+index b3b2fa9ba..7b0c48e4d 100644
+--- a/drivers/accel/rocket/rocket_core.c
++++ b/drivers/accel/rocket/rocket_core.c
+@@ -8,6 +8,7 @@
+ #include <linux/err.h>
+ #include <linux/iommu.h>
+ #include <linux/platform_device.h>
++#include <linux/pm_domain.h>
+ #include <linux/pm_runtime.h>
+ #include <linux/reset.h>
+ 
+@@ -22,12 +23,23 @@ int rocket_core_init(struct rocket_core *core)
+ 	int err = 0;
+ 
+ 	core->resets[0].id = "srst_a";
+-	core->resets[1].id = "srst_h";
+ 	err = devm_reset_control_bulk_get_exclusive(&pdev->dev, ARRAY_SIZE(core->resets),
+ 						    core->resets);
+ 	if (err)
+ 		return dev_err_probe(dev, err, "failed to get resets for core %d\n", core->index);
+ 
++	core->clks[0].id = "aclk";
++	core->clks[1].id = "hclk";
++	core->clks[2].id = "npu";
++	core->clks[3].id = "pclk";
++	/*
++	 * RK3576: the CBUF (convolution buffer) has its own clock domain. The CNA
++	 * fills the CBUF and CORE reads from it; without these the compute path
++	 * stalls after loading one slice (RDMA, which bypasses the CBUF, still
++	 * runs). The vendor keeps all NPU clocks on whenever powered.
++	 */
++	core->clks[4].id = "aclk_cbuf";
++	core->clks[5].id = "hclk_cbuf";
+ 	err = devm_clk_bulk_get(dev, ARRAY_SIZE(core->clks), core->clks);
+ 	if (err)
+ 		return dev_err_probe(dev, err, "failed to get clocks for core %d\n", core->index);
+@@ -50,6 +62,18 @@ int rocket_core_init(struct rocket_core *core)
+ 		return PTR_ERR(core->core_iomem);
+ 	}
+ 
++	core->dpu_iomem = devm_platform_ioremap_resource_byname(pdev, "dpu");
++	if (IS_ERR(core->dpu_iomem)) {
++		dev_warn(dev, "no DPU registers; DPU S_POINTER won't be pre-armed\n");
++		core->dpu_iomem = NULL;
++	}
++
++	core->dpu_rdma_iomem = devm_platform_ioremap_resource_byname(pdev, "dpu_rdma");
++	if (IS_ERR(core->dpu_rdma_iomem)) {
++		dev_warn(dev, "no DPU_RDMA registers; DPU_RDMA S_POINTER won't be pre-armed\n");
++		core->dpu_rdma_iomem = NULL;
++	}
++
+ 	dma_set_max_seg_size(dev, UINT_MAX);
+ 
+ 	err = dma_set_mask_and_coherent(dev, DMA_BIT_MASK(40));
+@@ -65,6 +89,23 @@ int rocket_core_init(struct rocket_core *core)
+ 		return err;
+ 	}
+ 
++	/*
++	 * RK3576: the NPU spans TWO power domains (PD_NPU0 + PD_NPU1). The vendor
++	 * powers BOTH from its single NPU node even when computing on one core --
++	 * the CBUF->CMAC read path only works fully with NPU1 powered. The board DT
++	 * lists both power-domains on rknn_core_0; a multi-PD device skips the
++	 * driver-core single-PD auto-attach, so attach the list explicitly. With
++	 * one PD in DT this is a no-op (returns 1) and behaves as before.
++	 */
++	{
++		struct dev_pm_domain_list *pd_list;
++
++		err = devm_pm_domain_attach_list(dev, NULL, &pd_list);
++		if (err < 0)
++			return dev_err_probe(dev, err,
++					     "failed to attach NPU power domains\n");
++	}
++
+ 	pm_runtime_use_autosuspend(dev);
+ 
+ 	/*
+diff --git a/drivers/accel/rocket/rocket_core.h b/drivers/accel/rocket/rocket_core.h
+index f6d738285..e959b26dd 100644
+--- a/drivers/accel/rocket/rocket_core.h
++++ b/drivers/accel/rocket/rocket_core.h
+@@ -6,6 +6,7 @@
+ 
+ #include <drm/gpu_scheduler.h>
+ #include <linux/clk.h>
++#include <linux/hrtimer.h>
+ #include <linux/io.h>
+ #include <linux/mutex_types.h>
+ #include <linux/reset.h>
+@@ -27,6 +28,16 @@
+ #define rocket_core_writel(core, reg, value) \
+ 	writel(value, (core)->core_iomem + (REG_CORE_##reg) - REG_CORE_S_STATUS)
+ 
++#define rocket_dpu_readl(core, reg) \
++	readl((core)->dpu_iomem + (REG_DPU_##reg) - REG_DPU_S_STATUS)
++#define rocket_dpu_writel(core, reg, value) \
++	writel(value, (core)->dpu_iomem + (REG_DPU_##reg) - REG_DPU_S_STATUS)
++
++#define rocket_dpu_rdma_readl(core, reg) \
++	readl((core)->dpu_rdma_iomem + (REG_DPU_RDMA_##reg) - REG_DPU_RDMA_RDMA_S_STATUS)
++#define rocket_dpu_rdma_writel(core, reg, value) \
++	writel(value, (core)->dpu_rdma_iomem + (REG_DPU_RDMA_##reg) - REG_DPU_RDMA_RDMA_S_STATUS)
++
+ struct rocket_core {
+ 	struct device *dev;
+ 	struct rocket_device *rdev;
+@@ -36,8 +47,10 @@ struct rocket_core {
+ 	void __iomem *pc_iomem;
+ 	void __iomem *cna_iomem;
+ 	void __iomem *core_iomem;
+-	struct clk_bulk_data clks[4];
+-	struct reset_control_bulk_data resets[2];
++	void __iomem *dpu_iomem;
++	void __iomem *dpu_rdma_iomem;
++	struct clk_bulk_data clks[6];
++	struct reset_control_bulk_data resets[1];
+ 
+ 	struct iommu_group *iommu_group;
+ 
+@@ -52,6 +65,11 @@ struct rocket_core {
+ 		atomic_t pending;
+ 	} reset;
+ 
++	/* RK3576 has no completion IRQ; poll for PC_DONE via hrtimer. */
++	struct hrtimer poll_timer;
++	struct work_struct poll_work;
++	atomic_t poll_active;
++
+ 	struct drm_gpu_scheduler sched;
+ 	u64 fence_context;
+ 	u64 emit_seqno;
+diff --git a/drivers/accel/rocket/rocket_device.c b/drivers/accel/rocket/rocket_device.c
+index 46e6ee1e7..bfb00f967 100644
+--- a/drivers/accel/rocket/rocket_device.c
++++ b/drivers/accel/rocket/rocket_device.c
+@@ -31,6 +31,10 @@ struct rocket_device *rocket_device_init(struct platform_device *pdev,
+ 		if (of_device_is_available(core_node))
+ 			num_cores++;
+ 
++	for_each_compatible_node(core_node, NULL, "rockchip,rk3576-rknn-core")
++		if (of_device_is_available(core_node))
++			num_cores++;
++
+ 	rdev->cores = devm_kcalloc(dev, num_cores, sizeof(*rdev->cores), GFP_KERNEL);
+ 	if (!rdev->cores)
+ 		return ERR_PTR(-ENOMEM);
+diff --git a/drivers/accel/rocket/rocket_drv.c b/drivers/accel/rocket/rocket_drv.c
+index 8bbbce594..8f6a02d50 100644
+--- a/drivers/accel/rocket/rocket_drv.c
++++ b/drivers/accel/rocket/rocket_drv.c
+@@ -215,6 +215,7 @@ static void rocket_remove(struct platform_device *pdev)
+ 
+ static const struct of_device_id dt_match[] = {
+ 	{ .compatible = "rockchip,rk3588-rknn-core" },
++	{ .compatible = "rockchip,rk3576-rknn-core" },
+ 	{}
+ };
+ MODULE_DEVICE_TABLE(of, dt_match);
+diff --git a/drivers/accel/rocket/rocket_job.c b/drivers/accel/rocket/rocket_job.c
+index 2f1861f96..94461bf71 100644
+--- a/drivers/accel/rocket/rocket_job.c
++++ b/drivers/accel/rocket/rocket_job.c
+@@ -7,6 +7,7 @@
+ #include <drm/drm_file.h>
+ #include <drm/drm_gem.h>
+ #include <drm/rocket_accel.h>
++#include <linux/hrtimer.h>
+ #include <linux/interrupt.h>
+ #include <linux/iommu.h>
+ #include <linux/platform_device.h>
+@@ -20,6 +21,16 @@
+ 
+ #define JOB_TIMEOUT_MS 500
+ 
++/*
++ * RK3576: INTERRUPT_MASK bits 28-29 are read-only (hardware rejects the write),
++ * so the PC_DONE completion signal cannot be routed to the GIC via the normal
++ * interrupt-mask path.  We poll OPERATION_ENABLE every RK3576_POLL_INTERVAL_NS
++ * instead of waiting for a completion IRQ.
++ */
++#define PC_INTERRUPT_MASK_RK3576_PC_DONE_0  0x10000000u
++#define PC_INTERRUPT_MASK_RK3576_PC_DONE_1  0x20000000u
++#define RK3576_POLL_INTERVAL_NS  1000000LL  /* 1 ms */
++
+ static struct rocket_job *
+ to_rocket_job(struct drm_sched_job *sched_job)
+ {
+@@ -137,8 +148,21 @@ static void rocket_job_hw_submit(struct rocket_core *core, struct rocket_job *jo
+ 	rocket_pc_writel(core, REGISTER_AMOUNTS,
+ 			 PC_REGISTER_AMOUNTS_PC_DATA_AMOUNT((task->regcmd_count + 1) / 2 - 1));
+ 
+-	rocket_pc_writel(core, INTERRUPT_MASK, PC_INTERRUPT_MASK_DPU_0 | PC_INTERRUPT_MASK_DPU_1);
+-	rocket_pc_writel(core, INTERRUPT_CLEAR, PC_INTERRUPT_CLEAR_DPU_0 | PC_INTERRUPT_CLEAR_DPU_1);
++	/* Enable DMA-error interrupts; PC_DONE (bits 28-29) is polled, see above. */
++	rocket_pc_writel(core, INTERRUPT_MASK,
++			 PC_INTERRUPT_MASK_DPU_0    | PC_INTERRUPT_MASK_DPU_1    |
++			 PC_INTERRUPT_MASK_CORE_0   | PC_INTERRUPT_MASK_CORE_1   |
++			 PC_INTERRUPT_MASK_PPU_0    | PC_INTERRUPT_MASK_PPU_1    |
++			 PC_INTERRUPT_MASK_CNA_CSC_0 | PC_INTERRUPT_MASK_CNA_CSC_1 |
++			 PC_INTERRUPT_MASK_DMA_READ_ERROR |
++			 PC_INTERRUPT_MASK_DMA_WRITE_ERROR);
++	rocket_pc_writel(core, INTERRUPT_CLEAR,
++			 PC_INTERRUPT_CLEAR_DPU_0    | PC_INTERRUPT_CLEAR_DPU_1    |
++			 PC_INTERRUPT_CLEAR_CORE_0   | PC_INTERRUPT_CLEAR_CORE_1   |
++			 PC_INTERRUPT_CLEAR_PPU_0    | PC_INTERRUPT_CLEAR_PPU_1    |
++			 PC_INTERRUPT_CLEAR_CNA_CSC_0 | PC_INTERRUPT_CLEAR_CNA_CSC_1 |
++			 PC_INTERRUPT_MASK_RK3576_PC_DONE_0 |
++			 PC_INTERRUPT_MASK_RK3576_PC_DONE_1);
+ 
+ 	rocket_pc_writel(core, TASK_CON, PC_TASK_CON_RESERVED_0(1) |
+ 					 PC_TASK_CON_TASK_COUNT_CLEAR(1) |
+@@ -149,7 +173,9 @@ static void rocket_job_hw_submit(struct rocket_core *core, struct rocket_job *jo
+ 
+ 	rocket_pc_writel(core, OPERATION_ENABLE, PC_OPERATION_ENABLE_OP_EN(1));
+ 
+-	dev_dbg(core->dev, "Submitted regcmd at 0x%llx to core %d", task->regcmd, core->index);
++	atomic_set(&core->poll_active, 1);
++	hrtimer_start(&core->poll_timer, ns_to_ktime(RK3576_POLL_INTERVAL_NS),
++		      HRTIMER_MODE_REL);
+ }
+ 
+ static int rocket_acquire_object_fences(struct drm_gem_object **bos,
+@@ -326,56 +352,99 @@ static struct dma_fence *rocket_job_run(struct drm_sched_job *sched_job)
+ 	return fence;
+ }
+ 
++static void rocket_job_handle_irq(struct rocket_core *core);
++
++static enum hrtimer_restart rocket_poll_timer_fn(struct hrtimer *timer)
++{
++	struct rocket_core *core = container_of(timer, struct rocket_core, poll_timer);
++
++	if (!atomic_read(&core->poll_active))
++		return HRTIMER_NORESTART;
++
++	/*
++	 * On RK3576, OPERATION_ENABLE is not cleared by hardware on completion;
++	 * check INTERRUPT_RAW_STATUS bits 28-29 (PC_DONE_0/1) instead.
++	 */
++	if (rocket_pc_readl(core, OPERATION_ENABLE) == 0 ||
++	    (rocket_pc_readl(core, INTERRUPT_RAW_STATUS) &
++	     (PC_INTERRUPT_MASK_RK3576_PC_DONE_0 |
++	      PC_INTERRUPT_MASK_RK3576_PC_DONE_1))) {
++		atomic_set(&core->poll_active, 0);
++		schedule_work(&core->poll_work);
++		return HRTIMER_NORESTART;
++	}
++
++	hrtimer_forward_now(timer, ns_to_ktime(RK3576_POLL_INTERVAL_NS));
++	return HRTIMER_RESTART;
++}
++
++static void rocket_poll_work_fn(struct work_struct *work)
++{
++	struct rocket_core *core = container_of(work, struct rocket_core, poll_work);
++
++	rocket_job_handle_irq(core);
++}
++
+ static void rocket_job_handle_irq(struct rocket_core *core)
+ {
++	struct rocket_job *job;
++
++	/* Stop the completion poll — we're handling it now. */
++	atomic_set(&core->poll_active, 0);
++	hrtimer_cancel(&core->poll_timer);
++
+ 	pm_runtime_mark_last_busy(core->dev);
+ 
+ 	rocket_pc_writel(core, OPERATION_ENABLE, 0x0);
+-	rocket_pc_writel(core, INTERRUPT_CLEAR, 0x1ffff);
+-
+-	scoped_guard(mutex, &core->job_lock)
+-		if (core->in_flight_job) {
+-			if (core->in_flight_job->next_task_idx < core->in_flight_job->task_count) {
+-				rocket_job_hw_submit(core, core->in_flight_job);
+-				return;
+-			}
+-
+-			iommu_detach_group(NULL, iommu_group_get(core->dev));
+-			dma_fence_signal(core->in_flight_job->done_fence);
+-			pm_runtime_put_autosuspend(core->dev);
+-			core->in_flight_job = NULL;
++	rocket_pc_writel(core, INTERRUPT_CLEAR,
++			 0x1ffff |
++			 PC_INTERRUPT_MASK_RK3576_PC_DONE_0 |
++			 PC_INTERRUPT_MASK_RK3576_PC_DONE_1);
++
++	scoped_guard(mutex, &core->job_lock) {
++		job = core->in_flight_job;
++		if (!job)
++			return;
++
++		if (job->next_task_idx < job->task_count) {
++			rocket_job_hw_submit(core, job);
++			return;
+ 		}
++
++		iommu_detach_group(job->domain->domain, core->iommu_group);
++		dma_fence_signal(job->done_fence);
++		pm_runtime_put_autosuspend(core->dev);
++		core->in_flight_job = NULL;
++	}
+ }
+ 
+ static void
+ rocket_reset(struct rocket_core *core, struct drm_sched_job *bad)
+ {
++	struct rocket_job *job;
++
+ 	if (!atomic_read(&core->reset.pending))
+ 		return;
+ 
++	atomic_set(&core->poll_active, 0);
++	hrtimer_cancel(&core->poll_timer);
++	cancel_work(&core->poll_work);
++
+ 	drm_sched_stop(&core->sched, bad);
+ 
+-	/*
+-	 * Remaining interrupts have been handled, but we might still have
+-	 * stuck jobs. Let's make sure the PM counters stay balanced by
+-	 * manually calling pm_runtime_put_noidle().
+-	 */
+ 	scoped_guard(mutex, &core->job_lock) {
+-		if (core->in_flight_job)
++		job = core->in_flight_job;
++		if (job) {
+ 			pm_runtime_put_noidle(core->dev);
+-
+-		iommu_detach_group(NULL, core->iommu_group);
+-
+-		core->in_flight_job = NULL;
++			iommu_detach_group(job->domain->domain, core->iommu_group);
++			core->in_flight_job = NULL;
++		}
+ 	}
+ 
+-	/* Proceed with reset now. */
+ 	rocket_core_reset(core);
+ 
+-	/* NPU has been reset, we can clear the reset pending bit. */
+ 	atomic_set(&core->reset.pending, 0);
+ 
+-	/* Restart the scheduler */
+ 	drm_sched_start(&core->sched, 0);
+ }
+ 
+@@ -385,7 +454,14 @@ static enum drm_gpu_sched_stat rocket_job_timedout(struct drm_sched_job *sched_j
+ 	struct rocket_device *rdev = job->rdev;
+ 	struct rocket_core *core = sched_to_core(rdev, sched_job->sched);
+ 
+-	dev_err(core->dev, "NPU job timed out");
++	if (pm_runtime_active(core->dev))
++		dev_err(core->dev,
++			"NPU job timed out: RAW_STATUS=0x%08x MASK=0x%08x OP_EN=0x%08x\n",
++			rocket_pc_readl(core, INTERRUPT_RAW_STATUS),
++			rocket_pc_readl(core, INTERRUPT_MASK),
++			rocket_pc_readl(core, OPERATION_ENABLE));
++	else
++		dev_err(core->dev, "NPU job timed out (device not active)\n");
+ 
+ 	atomic_set(&core->reset.pending, 1);
+ 	rocket_reset(core, sched_job);
+@@ -420,14 +496,16 @@ static irqreturn_t rocket_job_irq_handler(int irq, void *data)
+ {
+ 	struct rocket_core *core = data;
+ 	u32 raw_status = rocket_pc_readl(core, INTERRUPT_RAW_STATUS);
++	/* Only bits 0-13 (DMA errors) can raise this IRQ; PC_DONE is polled. */
++	u32 active = raw_status & 0x3fff;
++
++	if (!active)
++		return IRQ_NONE;
+ 
+ 	WARN_ON(raw_status & PC_INTERRUPT_RAW_STATUS_DMA_READ_ERROR);
+ 	WARN_ON(raw_status & PC_INTERRUPT_RAW_STATUS_DMA_WRITE_ERROR);
+ 
+-	if (!(raw_status & PC_INTERRUPT_RAW_STATUS_DPU_0 ||
+-	      raw_status & PC_INTERRUPT_RAW_STATUS_DPU_1))
+-		return IRQ_NONE;
+-
++	rocket_pc_writel(core, INTERRUPT_CLEAR, active);
+ 	rocket_pc_writel(core, INTERRUPT_MASK, 0x0);
+ 
+ 	return IRQ_WAKE_THREAD;
+@@ -445,6 +523,10 @@ int rocket_job_init(struct rocket_core *core)
+ 	int ret;
+ 
+ 	INIT_WORK(&core->reset.work, rocket_reset_work);
++	INIT_WORK(&core->poll_work, rocket_poll_work_fn);
++	hrtimer_setup(&core->poll_timer, rocket_poll_timer_fn, CLOCK_MONOTONIC,
++		      HRTIMER_MODE_REL);
++	atomic_set(&core->poll_active, 0);
+ 	spin_lock_init(&core->fence_lock);
+ 	mutex_init(&core->job_lock);
+ 
+@@ -486,6 +568,10 @@ int rocket_job_init(struct rocket_core *core)
+ 
+ void rocket_job_fini(struct rocket_core *core)
+ {
++	atomic_set(&core->poll_active, 0);
++	hrtimer_cancel(&core->poll_timer);
++	cancel_work_sync(&core->poll_work);
++
+ 	drm_sched_fini(&core->sched);
+ 
+ 	cancel_work_sync(&core->reset.work);
+-- 
+2.43.0
 
 
