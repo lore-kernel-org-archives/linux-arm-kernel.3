@@ -4,135 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87FD0C4451B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 16:01:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D2BDC4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 16:06:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b518yO1BGkJvdZAaSEazGiO276NMnJIP8Vx9USQaPa8=; b=fjCfT/ciB1t+5BnhtxUxQetZ+5
-	ugY1Wb2WiDxjmIkgNTgh1yQeCIxz/LQ8gHcdbzZzYAFQ03HN1GK81PIdmmqJ0o7c5uqfrNXsOvcZz
-	QDKs+/JXomfF5xZYfdyyRvqNI2j637KX28n1C+gYS/lSAU4HeixkPAbEDPoZBy3tivPN0/O12839Q
-	PY0lVaGWTqZab6+54+JCXSl/3ABB3Gp8L8nhMbAw9Z5DNi0Jme+WR7lSj4jXm6WQ1NGRDp3W9cBOF
-	8ypZnqUMEmGxKNsDfez1y0rzfIIP/Z9jKOG6iOkKpK0grZLrAvoMuBjfpoP7SSEcGR3bO2kXpErj/
-	+msNxivg==;
+	bh=BTNiDs+YQP5gErq+/6PIKAwZFcni80aDhJBtKwTwBbg=; b=Chka8gPC1W4AJ4wLcKLp+0X6Pr
+	KKGaqbVlh+rbw9EEWHN50zw5bBmXfhHBLoGGkyb7/NIdLG7ZJ0QqpYUTeyMSsMXIhl3i8VRLVLtrq
+	ykxWGuW1yHJOa6lT1JffDqgpp6hQEUgEZqnPuvrMSAZnqC8Ao4bOzHilHsJa8HhAbkFP2DzUgHRGT
+	v5I9cNJZEDX9IqOMh9HVN5KZ2Woi39eU8qwbgb1THOTgEXh3AVETP0cM5yNLv2RtHBqpDNLjhU4fN
+	RWkaO9iIocaoxaDkuCM2+38/i6tsksmmTNh0zYg1j6h9p8HyNXpeyfuVsw81coXKe/mkc2PNkuzVj
+	teVt+HvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkkzp-00000002h5I-0Vm5;
-	Fri, 17 Jul 2026 16:01:05 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1wkl5M-00000002hgK-2wUB;
+	Fri, 17 Jul 2026 16:06:48 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkkzn-00000002h4D-23W7
+	id 1wkl5J-00000002hez-3Tw5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Jul 2026 16:01:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lrl/oZoEOFVKpK1296IyzJ+kGBAFkXKpwy3bjp1m7t/BEeUsU9ngrTN4lqVEaO9zo3ZqOqRN7agmdk4KNECNcikVFEALHbW73YwwAGILxqLDcJ/51Z5MgRTRRCi7SEKMNPXBs5FjpYsUbdr1JyBPeqfGGBexsFHEvFY9dIxa2RdZRexs5TNs+Z6wx6B+M0tkeecXfImm+/KnQ7Z4f/g5r9rDIavgROvr3EgFmkkfFT/0T1xH3JvsGWQYDX+apGXC4tVWj5JryVBo8fgRMeq1xAaqyZ2LzoEDlSylEpihBss32rNi8TR0ZjoMsssS9yciF6zKQNY0JJOuxr9FkGepaQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=b518yO1BGkJvdZAaSEazGiO276NMnJIP8Vx9USQaPa8=;
- b=HI2z7RlcoXnaqDGU06wYqVwY2VFJB+gsc6IEj5/nKORBlGt8xygmM90OiROMxXifGJiajXBSQOtZQ5UCcceKioI6zGLJhbYjhQTwRR8GGnLdl0VR75/SFs5UondOfozi6OEY9f8sLb+MkoI17tln+dkE0nv8BCnSQKwRBJS+D8qEq2lqd17T2nj95nkeOZSivNZvU15hFE2lg1CjQf/kwQ6evQVbp1MiHaC6fzxZOzPmskFX2MV9jv+kY5vDhM6l+7Hn+ZcqgC2o4F1+iLSSO1UhvXsjq5UZ1sAeWocZh3ZhfIhiorNDUdEYADJx/WMglk1GAZnJdP+AKVmkH5bAjw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=b518yO1BGkJvdZAaSEazGiO276NMnJIP8Vx9USQaPa8=;
- b=PoMWAeEv0G6GpHfya4s5XabuknIPCYOSLkr0cPHQMY1Q+8ebSTzXDL9mAj0o/z76nwiHpO2Uj9S8aAG7Es8WE6XV6K43/aIZCxW3k+mR7oacsMEl3hV2w4F463dNJXCnfVoQoA/iqB2g+JZOHUZyGhTmNetA1RYujxjVHhSXyzI0REPN6dtRE+gA/2dRXLh8B2T85uhaH+rWLe5Z8WkyQj7PbzYZJEwQUOFlJl74fslCFLCHxJ3nP0XN03J1gz37t7vHTECZRKiP1dWt76EtLn3tFyP1AFmtG3UViJZ+wTTTWRnxQqSsitXqcnzy6HVfucLo6agy8Ubb9lq0J2/yVg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by GV1PR04MB10824.eurprd04.prod.outlook.com (2603:10a6:150:20c::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.12; Fri, 17 Jul
- 2026 16:00:53 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0223.011; Fri, 17 Jul 2026
- 16:00:53 +0000
-Date: Fri, 17 Jul 2026 11:00:43 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Pan Chuang <panchuang@vivo.com>
-Cc: Shuai Xue <xueshuai@linux.alibaba.com>, Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, Frank Li <Frank.li@nxp.com>,
-	Xu Yang <xu.yang_2@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Ji Sheng Teoh <jisheng.teoh@starfivetech.com>,
-	Khuong Dinh <khuong@os.amperecomputing.com>,
-	"moderated list:ARM PMU PROFILING AND DEBUGGING" <linux-arm-kernel@lists.infradead.org>,
-	"open list:ARM PMU PROFILING AND DEBUGGING" <linux-perf-users@vger.kernel.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
-	"open list:ARM/QUALCOMM MAILING LIST" <linux-arm-msm@vger.kernel.org>
-Subject: Re: [PATCH 1/3] perf: Remove redundant dev_err()/dev_err_probe()
-Message-ID: <alpRq-4qhxCTwy8R@SMW015318>
-References: <20260717103123.34887-1-panchuang@vivo.com>
- <20260717103123.34887-2-panchuang@vivo.com>
+	Fri, 17 Jul 2026 16:06:47 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-493c19bad03so62820515e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 09:06:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784304403; x=1784909203; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=BTNiDs+YQP5gErq+/6PIKAwZFcni80aDhJBtKwTwBbg=;
+        b=l4P1/QkK4M2tCapXMyps7xxxTCnfeulxZWzD/gIgbzBw+IcG1npaYPS0bSUdRb9nYU
+         zLsIRarwqfkhlz8dcRma3zC0tnJjh+4VyWUbz0AMwN9qn+VLmSDYNOpmWluxCAF2Wvje
+         +sKR7negDiIbCRb1ZZaLR97e0Y3d9G0A2FeB9I75U+5iRD6aik4ICtzq815gTxDtebS/
+         dxltXK+y0zZqHsZozZhmb9kuTwcEITuAbcIHl92KjHa29RpekDDRwABxIjFUXglnfYE4
+         He5v1MyabYNPPgoaFvXp09gNxwEMARobmfoOk8PeKzrIHUd+xbZqL37xURgBRxwXRaka
+         oa3w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784304403; x=1784909203;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=BTNiDs+YQP5gErq+/6PIKAwZFcni80aDhJBtKwTwBbg=;
+        b=QZMf//9Vh38LLiRfZsyoY55qDbigQTojdbE9U3t1lYqdOVsz2b7yiUYgydRL32nGo+
+         oVWkjTMts7BO2Yy053OnpyYbO9RIwcaayiKoss0VJqVnDwKBK9+aOIGwwsuROC/cs5x6
+         SsSiR3UPHR9gWjoQAiUcWG7Aedc95Bcu3D6c/LpCHDqNhFYSFfRFq174kKXIKGHjxrnL
+         ESo1FP3wG37kLYEfXCa+4fSqc2mEcSUjIcJ1103ddpSKcGHkwFvLOTkDyBJ75B8TMngZ
+         QGlCA+US380P/laZS/ZCYNMO3s+9TT45FNWhmKw6TUMvCY6kI51y6eBNuUOqh5yL4pw9
+         QvFw==
+X-Forwarded-Encrypted: i=1; AHgh+RoVNDS78DSHqKZNEeSFFPG3ntyh1bBO4GRt0M3bVTKjJmjwQ20vrGwxjUfCv9JueocdfVIXOszEqzxc2BgPPJVB@lists.infradead.org
+X-Gm-Message-State: AOJu0YxtsgFQaVZ+UEXaiCoazHRNysr+xatrb9ZiC9AlG67th4k4eWm3
+	cevY918eEUfsdfZLG7CYO2wWtx1k4nXpcgCmWqNpwROoc7UiDx/BO5Uc
+X-Gm-Gg: AfdE7ckzIr0L+9ra0VtfdNFdhqlZZC64d26U5BPZIWQ40QMbYiSqoCY0CcaRHxHEY7+
+	J2UcP1dVrS0cTdtw2Lvcag6BB8nzDSu8CPzZsHv0xBw0sENR6Y9XXfhxCuHjOJWz0rWb8Zo7CU+
+	SWfI+J0qDoIv/OUGpSEV9UnNRcV9/t7TEjyD0lZenjX3vp1pjEDxCfRR9fZZtgbX6R/cUnf1syN
+	GTKrBGCcVooOK5HIqUJXVG4ghOgtsoE/2nRrBmvTp07MfFhmeGUr8xMoT/zGtkv25kVXfW5oNux
+	UjQ2zSCzTmtWTcqJE+9fenq30Ul9H3h900kDZjMjBKk2KJdp1NRgt8QKY5Xlq+XcKLBxxHHnx57
+	5ITn4+Ok35XffiPi4HbEZZyiVlRiQDL3LxZKPxsBIx+vgAD8AC+czBuhApbkGD6ZiGUB6LhbE1w
+	==
+X-Received: by 2002:a05:600c:4453:b0:495:4f62:1ff7 with SMTP id 5b1f17b1804b1-4954f622066mr5214955e9.17.1784304402908;
+        Fri, 17 Jul 2026 09:06:42 -0700 (PDT)
+Received: from owl5 ([2001:861:3201:3d10:d4b8:8874:bdef:21b2])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4954ba2abd0sm37795105e9.15.2026.07.17.09.06.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 17 Jul 2026 09:06:41 -0700 (PDT)
+Date: Fri, 17 Jul 2026 18:06:40 +0200
+From: Gary Bisson <bisson.gary@gmail.com>
+To: Esben Haabendal <esben@geanix.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Adam Thiede <me@adamthiede.com>,
+	Thorsten Leemhuis <regressions@leemhuis.info>
+Subject: Re: [PATCH] drm/mediatek: mtk_dsi: enable hs clock during pre-enable
+Message-ID: <alpTEPsy-SIQv_Oc@owl5>
+References: <20260120-mtkdsi-v1-1-b0f4094f3ac3@gmail.com>
+ <8733xko1ms.fsf@geanix.com>
+ <0f719c00-3cf5-4403-afbf-713b07255981@collabora.com>
+ <aleM9Wy9otpd6Je3@owl5>
+ <aRN3_2FHX8XmTcwduTAPwz4UFde4B0tbB09ajyeUg5qZxiIYMmbvMkG7CPoNTl4iySYMZawbLMWijO47R22gkg==@protonmail.internalid>
+ <65558ccc-4f2c-492d-8c74-627d27dce864@collabora.com>
+ <87h5m0mkca.fsf@geanix.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260717103123.34887-2-panchuang@vivo.com>
-X-ClientProxiedBy: SN7PR04CA0047.namprd04.prod.outlook.com
- (2603:10b6:806:120::22) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GV1PR04MB10824:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7166819f-729f-40d1-c639-08dee41c9420
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|19092799006|376014|7416014|1800799024|366016|6133799003|11063799006|56012099006|10067099003|4143699003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: XCBCO1buIkOIVDnMDnl2eMEI1OUDZme2wmzoAXK+LA2pf7nGTgu68Idzxhv7BnKsTbLFm+X7vRbTKoItK3UOXbRAgDyFIqrlvOahNoSJaCU1/Qv91Oc2zQurQylLoQyNNtAVnsA40dpj5oZrXFMbDl4nNa/Wum1Rx3Rw+ZvF2lIGcLWzirr8/7ksZ/rKN2L7abDw8O9zz86Oa8smoEYQXq8mcjf1WZ/o8XUBuHVMH2g3Zvt1Xf5o8CAxf7Gjrd+bmwROpXVUSmF6ig6kuzbI2oWzzKj4sgbusTuo1Chv8DVeOq29RMKZoa6B55D+KDVMCr8+pv0E2hUrLvsXOIXc854Yr9RqlcZtJ/jsdtaLE475kAlufGDJfPSSWku7K6wK9KbuC331DY9v9lMSX5gjd1q4TvBv5cWcOgYGy6yl1IzS0VCHkoonfBj4Ocfbz/AL7D3waArASMSB2Rb0/JveCrfrl/QsQ2/O3Lh8QEtvuq6wohzeZTYDx38MupNE0tfIHueAu+ePcM7kf4bbcKBDR5L8AqO4AIe1eI+8UFWjPXeD2RlKdUMTfh20HDpKv7lDtocRop0ZpBkOZb1b6PBqvYRJEa9fEtYcKZqHHiVeBlYMdgvoz18tKFIKJRTzo3d417LfRyng7r/JP9HotoNQ/r4e7fbMkPmf4Gv/KJ/9BJc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(376014)(7416014)(1800799024)(366016)(6133799003)(11063799006)(56012099006)(10067099003)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?oltIm0ajfgbO2BOi9FBZluWKdFrhoI3XmLIb/w4UuJa8M/w8z2JiI6WjJ/3R?=
- =?us-ascii?Q?JpltUm4Q/yjEAYj5psCN/q2y1733v6aQYzbp9o3VFis5gOWxwSOvzFb+ODIk?=
- =?us-ascii?Q?fwy6H+Xf/1D8zVDVruKuCkQIDKrQ+L0HW9vMI+b+Z3AdxKKaIT2J61041Ysx?=
- =?us-ascii?Q?6bcmqNF16MaWyRYLB/4vFMLWRWnZcmIpg+pPyHiwkpj6EPty7gtpY45H35z1?=
- =?us-ascii?Q?vf86Z6PE2dQyP9qqWUXRNi/pbpvoitVCxT2DPXk/sXJV5gtHmpV0OuVa9wRM?=
- =?us-ascii?Q?jYZZib1wsHdcyu1S5EHzNCtwJ7n9uwScwjETGIy0lqBLunQKmTsQvGWte4jN?=
- =?us-ascii?Q?jx6yTTQVYMWavnF6oMr4uOPM7y8HDwWIBiEYpZeCjEXzNFj86bOHcdNlN3d7?=
- =?us-ascii?Q?EM0aUo0U6SWDttRDPbM7BYmGVIpfubVt35AeBUOwt+LkMrd5wc8CjaiOlMoP?=
- =?us-ascii?Q?+WV+mCfiLf/uL39VZH2wzKsXXVwZorlSBo5G72+amqFw1WRY5Ks2DtoSRrqc?=
- =?us-ascii?Q?9bvsdDnYxPOjCAsFiS1UKqALnTB/Ngmi0EEJhx0/YQmutRvZkOwZbzMXRpH2?=
- =?us-ascii?Q?RY7mVq+LRUYPJZiFiTQ4BKgN4pA2RmtaDccW/ZUDUwp2Fv8JMm7PdAtpnNKP?=
- =?us-ascii?Q?7qkdDDpcOPyzWregGipRy4FqEn0cvHNRhIlWHNjGSas0YfRQnLST3NKct40Q?=
- =?us-ascii?Q?D10Bx4WrZiZ9aqC4vdNgJV1dtjSdW+2ZCZSSoEL0wyEqP4+ZK0OeUor+DOkE?=
- =?us-ascii?Q?Bpl5rTEDT6n6RXEzyADzKhcPaOhsLdglSdAB5o4aNDJBmBH65nUpsO9WCGSX?=
- =?us-ascii?Q?n7+i2GPRGdJDuqcIyuy2WSteCVP8cHX2+aUyfXSCP5T23ZTVNeZ6RteF20nS?=
- =?us-ascii?Q?p4C+qLqsTsUSCTH291MwAcuNdHDuC9MhM8L8jZ+m9uKODRnGXaMCmSqsdrm7?=
- =?us-ascii?Q?oQ5elQZMWy45DIWZFy4+TGmTapj1TONuGZwZqpqCN0lw4VTamft48e/e6/dO?=
- =?us-ascii?Q?qwJzyeB4IL9uFAuISkuNo67YpYOcECVnVSx4CiRfXtSlfDezRDrGQ5p4jMfY?=
- =?us-ascii?Q?yocJH3tn62ilLaLaC89Mj1Xz9OygdbaqeS92ptSmQi6rgewYDn30OUR437dw?=
- =?us-ascii?Q?83XNdXCwokRV4RVWR4c9lD3RDrAltp421uMAExs6dFdv8JNDM8Pz5bv/p8ZZ?=
- =?us-ascii?Q?FbXI0SzkeRxah4VVNGXtG+9+IvXqjh7yjnIp4RxjhKm0e/7WpemPPOxJ1oJS?=
- =?us-ascii?Q?HkeauhIf/TfHo2Z3OzNvGRbSI9e5KC+OVkb1E2wQskw6aU4ozxYYVCca1rLb?=
- =?us-ascii?Q?REZhxrv56tSerA38SGClb54dRp40Rcb9DXyaqZafjM8kaDrtjEZ+E64rWsLj?=
- =?us-ascii?Q?Rg9AyJVBYQ+Oo/rPr8H9qO5DQdA5Bkg/TMCiyrcD3m66Dyd3RLP6y8u3tQCO?=
- =?us-ascii?Q?dq/QMN72u8pQ4i9LFPUxBdGladn/QQGNJ49fb1S8Us6L3n7ZnYa+U10oopjB?=
- =?us-ascii?Q?YiAEccANR/W+NqQW7+7Fkc5H+Y//D/ahGY7NYHLQNxO3pjhSfPkazIK4vRD3?=
- =?us-ascii?Q?4taFmf9Dz4xAhj+fEi9E2//EtaXAJJJADGqzGacxsGnKF+RMZ2AUg+9d3HOE?=
- =?us-ascii?Q?UgMYAHhcOE2pls6stoHOWYhDmfFVd4FesyrRSfsrUDkycw+lvtScsAoHjko4?=
- =?us-ascii?Q?gvTYHkjeoDHuuKV67yM6iOJy9XFI2NwLfSvwRygMKwrQUOTPUmXTOmi6BxsS?=
- =?us-ascii?Q?lm4kuliCK6/gMW/67IV6DxQCe/nSfipo9dASYoNIv65GKABasK1k?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7166819f-729f-40d1-c639-08dee41c9420
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Jul 2026 16:00:53.0267
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Yx/pjDfOfdPJ5hK/Lwa38m90MueFOD9HukGaRrRO3lz/67YgRyUZAseREtSzutygObcj2o7tqkk+OGQGe3YeHEPxJE/I1UGCIM/Y9gKZgjKmId5Zr9PKAKSh6iPK1UxW
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10824
+In-Reply-To: <87h5m0mkca.fsf@geanix.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_090103_531582_2D2C216D 
-X-CRM114-Status: UNSURE (   7.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260717_090645_880560_EBC2FCC3 
+X-CRM114-Status: GOOD (  26.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,20 +112,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 17, 2026 at 06:31:17PM +0800, Pan Chuang wrote:
-> Since commit 55b48e23f5c4 ("genirq/devres: Add error handling in
-> devm_request_*_irq()"), devm_request_irq() automatically logs
-> detailed error messages on failure. Remove the now-redundant
-> driver-specific dev_err() and dev_err_probe() calls.
->
-> Signed-off-by: Pan Chuang <panchuang@vivo.com>
-> ---
->  drivers/perf/alibaba_uncore_drw_pmu.c | 5 +----
->  drivers/perf/fsl_imx8_ddr_perf.c      | 4 +---
->  drivers/perf/fsl_imx9_ddr_perf.c      | 4 +---
+Hi Angelo & Esteban,
 
-for imx part
+On Wed, Jul 15, 2026 at 03:52:05PM +0200, Esben Haabendal wrote:
+> "AngeloGioacchino Del Regno" <angelogioacchino.delregno@collabora.com>
+> writes:
+> 
+> > On 7/15/26 15:36, Gary Bisson wrote:
+> >> Hi,
+> >>
+> >> On Wed, Jul 15, 2026 at 03:25:11PM +0200, AngeloGioacchino Del Regno wrote:
+> >>> On 7/15/26 14:53, Esben Haabendal wrote:
+> >>>> Gary Bisson <bisson.gary@gmail.com> writes:
+> >>>>
+> >>>>> Some bridges, such as the TI SN65DSI83, require the HS clock to be
+> >>>>> running in order to lock its PLL during its own pre-enable function.
+> >>>>>
+> >>>>> Without this change, the bridge gives the following error:
+> >>>>> sn65dsi83 14-002c: failed to lock PLL, ret=-110
+> >>>>> sn65dsi83 14-002c: Unexpected link status 0x01
+> >>>>> sn65dsi83 14-002c: reset the pipe
+> >>>>>
+> >>>>> Move the necessary functions from enable to pre-enable.
+> >>>>>
+> >>>>> Signed-off-by: Gary Bisson <bisson.gary@gmail.com>
+> >>>>
+> >>>> Hi
+> >>>>
+> >>>> I have run into the same problem, but in combination with another
+> >>>> pipeline. I am seeing same problem with an i.MX8 using the nwl-dsi
+> >>>> bridge and the dcss driver.
+> >>>>
+> >>>> I have submitted a fix that adresses the problem in the ti-sn65dsi83
+> >>>> driver instead. With a bit of luck, it can replace the fix proposed in
+> >>>> this thread.
+> >>>>
+> >>>> See https://lore.kernel.org/all/20260711-ti-sn65dsi83-fixes-v1-2-d85eb5342b98@geanix.com/
+> >>
+> >> Thanks, just tried it on 7.2-rc3 with my patch reverted and confirm that
+> >> it works too. My assumption was that the SN65DSI83 was locking the PLL
+> >> earlier for some specific reason and therefore was reluctant to change
+> >> it.
+> >>
+> >>>> /Esben
+> >>>
+> >>> That clarifies a lot of things.
+> >>>
+> >>> The patch on mtk_dsi shall be reverted then.
+> >>
+> >> Angelo, do you want me to offer the revert patch? Should I wait to see
+> >> how the other thread goes?
+> >>
+> >
+> > Gary, yes please, send a revert and make sure to explain the reason why
+> > we're reverting this in the commit description :-)
+> 
+> Maybe test if my fix actually solves the problem with the mtk_dsi driver
+> also ;)
 
-Acked-by: Frank Li <Frank.Li@kernel.org>
+As mentioned in the other thread, your patch works but it might break
+the init sequence recommended by the bridge datasheet.
 
+Moreover, the drm_bridge.c doc [1] does mention that the clock lane
+should be initialized during pre_enable. If we agree on this assumption
+I believe my patch should not be reverted.
+
+Maybe Adam's bridge driver must be patched instead, just like the
+nwl-dsi driver should be updated to follow the drm recommendation.
+
+Let me know your thoughts.
+
+Regards,
+Gary
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/gpu/drm/drm_bridge.c#n169
 
