@@ -4,111 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CC82C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 08:55:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30C05C44514
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Jul 2026 08:55:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RGge6AXelYw4CHxTjY9ZAudHE/paAHJpZ+SOWdc+8nE=; b=fm+c1dvST0ToTnV89GGxrMp+aL
-	VzEQrmX7AIngasKrg6MuTo/6p1+06DTAp+Xw/Nj/vTKc9VYBiYwrksam2oze26QsTOMh4J3tno+SB
-	Pmh+g3tySyR6kJ4RsSwMt9k7TfKGr1bmbdiEF5FIe3t36/e5mJjtYBBiGJDNb9K6n5gjeadZsbA+/
-	wv8yfBg91rJdB0IlhWiG/r+I+BYbD4H86cfRS+ecfyJ/HqmXDcLKregzJ7Zl2dBj2Qq25T66Z50dy
-	5TEVccfZl6B97+JYVACLMYNnEjCzAQ4HN1FTGJSQXUAaEDvUJeJ0hRPLz7n32IT6uulnsKkOYj5jv
-	RvafgeNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UqB+ZcdPBHABzE32jG4dg74lCIilLL5SjMXqW/Mf2cY=; b=CEXPOFVWINkPLFIVZhQsyhMosm
+	kLOF3y/uQNnH1fyitnzAr0F6h51h03Whcvt5BPaaI8q5TxnzX38cKKwHUFXEsA8d/r6L1EqfYVEHU
+	t8btz/SnH+W0gQdnZrOm+cqhaeglpKP3DeNupbwlJ6coyn456rX5mXwT/CXcVz574ArMzoptGgpO+
+	8NCCzWwPjExCzhk3S/D/TkAHaJtTU9qA9hYusFmd4k10FSeg6GA5eLDcXzT3Y6q4ekOp2mhhitOct
+	R1ak1HHv5lICoMgN7hQsSBYFoWx7XENmQtnAtn2AKfMRaqgS7x0x+nM7sjufwkqUp/AlXo2E7k3K3
+	J3vYn8Cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkeLZ-00000001k6j-0If7;
-	Fri, 17 Jul 2026 08:55:05 +0000
-Received: from flow-b8-smtp.messagingengine.com ([202.12.124.143])
+	id 1wkeLp-00000001kGO-2FYl;
+	Fri, 17 Jul 2026 08:55:21 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkeLW-00000001k5H-3YXa;
-	Fri, 17 Jul 2026 08:55:04 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailflow.stl.internal (Postfix) with ESMTP id AB8BB13002E3;
-	Fri, 17 Jul 2026 04:55:01 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-04.internal (MEProxy); Fri, 17 Jul 2026 04:55:02 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
-	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm1; t=1784278501; x=
-	1784282101; bh=RGge6AXelYw4CHxTjY9ZAudHE/paAHJpZ+SOWdc+8nE=; b=Q
-	8I9FTk/YSI557MXnaI3wellQZxcA7TFXnEyTBnvAA0O62HEtytKGJY18Pa6QDzeP
-	4QWMMIKUa8+ZsUO8hgk2npNjtLEzRIbKOBAGjXkHgSAAuUzVAbPaKDukGSC/a7+x
-	EqvBbhuHTzgIg+lGVbCIZNPl1W5cyP4m+437QKvbHAcPck1ylMRnPaX3vEQsD/oY
-	Y6SqpoEzWWSb/6uWmUXCF5GMGeczfJpjuIxUibKqGt9uB5WmRbPhaUTnuR/zGgfB
-	zj5uVO1EbsbIGqLcv4Wlqku5iM3zAbRjbp6ceXFFdae8FSRHHT0O0nTmg+j3yGPl
-	pW5IDLIX6DBpl6V26WZng==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm2; t=1784278501; x=1784282101; bh=R
-	Gge6AXelYw4CHxTjY9ZAudHE/paAHJpZ+SOWdc+8nE=; b=aDYxsq8tbe8PRw2WR
-	dH8FI+FnghlkI/goafbeHb/wj83s/04JuqApB5WAL6UFfmqQW2fG3jUI7awwuaKQ
-	5K735JsL5Kb8MDWrmfW50F7yiBrjrKtscK44nO3lBwtDan7g6/6093PgJiqaLFId
-	qLxqbw0Pz2bdLCWkNm8qQ4Evyq56NGEVT3dVDvHskq8Qr9ihJ3MZVgXpUjOwL6am
-	gXFXAW+Jd07xsXA/uhNu3PkQt7ifQUSKMZyhKI8wya787EUfRZWXpXNKMZPl6jzI
-	zsvJ7eYb1+ndqT08XikyxTxRnwJLm6JijYgGLb7oz/YppxqV609tyi7pQoQqZTSb
-	Q2P4A==
-X-ME-Sender: <xms:5e1ZajVqVn3GMcN1FSvvC-RGaHMfuSOOkTBu0r8JN7vmgUHNQNtvkg>
-    <xme:5e1ZanclFrzhd_tz-WrNZ2An1vxjuvA8A_XWIQPXcF8IuP5MYbyPJ-rFhRXjbW8H6
-    vPeq4K6OqKQNPC_aRfNO04VwP3Bur-8zE-lypHkbGvmKvY7CpyDGx_k>
-X-ME-Received: <xmr:5e1Zaq7E3r9ZzTEHcERURJSiLZZop8ZKSa6zHaawRQBji6zEXvIS3SweBGcPsdeIzdBgJRTcpOIf5bDvG3A>
-X-ME-Proxy-Cause: dmFkZTFS7GW/vS+PGg3aNaRtXNWwH13wr4t6a3PsYvzLEfoa0d1tCLQMk4kuPOyqJxWYg8
-    zWRgYifu3Q3qEvL/I6D+A7sONbehMF6Fzv0Jx15W8Bp0zPI2L6EoHnTvsn7KCzlmdcjq5Z
-    AMiUX8pm/4UU/5q2rly/ctUYuGrpfv6aggolOMe4+7cw+YQgQv04wJ8otXu77hR4cT4fFc
-    rauulgYGXJAH/ttinZ2FdpHwYOQghdgc8wZDZhtrydZHcBfVIkqxRabCZivPsjLLb49//R
-    HUixI1q1RTZqMytwufV0grN2inkZxcvjyE8RnYSpDV3z9U1hNPWgMeNXqfzcYN3TNROTO3
-    m2XgDeRL8h/bOgSUAAZ2VtgJ4DeG3rEfL6GsQJybJ1AFKI2GRQdxSQSwiVJhthZHSptJyZ
-    BQvWLmIrmOq8N6mDQ6gyKaBMsJ9dYxxwlFNCP7T4KFOsjTr2ACESPR4nDDZOxM/whFn9Sn
-    3PFxQdr1+3IDjohIXLZlXCKNwqORzJaP3UR18PanRRk+mVXMAr3Xp1TlEhl8ZWSUYbF9QL
-    fx89mNcd8gYaO2N2IuBr5sF4dNqVOgM+PCDei2f7An6h1m1UGRA/giV+VV3keAHiujraiP
-    syJS/ZjtPZehGqF6eVFNlCw6u2RqORzsz79OKqO65fj3pHM81dE6xK8Mkf0A
-X-ME-Proxy: <xmx:5e1ZaiT8aF5AELOpFgjVsvFeUT-JR0fh2Ybhwpd96i8RgPDNSMZk1g>
-    <xmx:5e1Zalds16kngpYJKqCARhnOWxv25MO81fZGuIl-rbdQklHAaxO0aQ>
-    <xmx:5e1ZaqThnu6vwXbBh8QfntqiFPma7k_0UhkD4PGOIHx853_31p9bdg>
-    <xmx:5e1ZamOMWZ0YVAiJb6U2pNzDvvIkLQaFF2PFMqxqkFuWRtJAFxg6tA>
-    <xmx:5e1ZanGkvU78fPW8aleH6nnO192MLrq37sxOAz21_KnuC-OOWG3NzcOX>
-Feedback-ID: i7a5e4b5f:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 17 Jul 2026 04:54:55 -0400 (EDT)
-From: Jiaxing Hu <gahing@gahingwoo.com>
-To: tomeu@tomeuvizoso.net,
-	heiko@sntech.de,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	joro@8bytes.org,
-	will@kernel.org,
-	robin.murphy@arm.com,
-	ulfh@kernel.org,
-	p.zabel@pengutronix.de,
-	ogabbay@kernel.org
-Cc: dri-devel@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
-	iommu@lists.linux.dev,
-	linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org,
+	id 1wkeLj-00000001kCI-1XXJ
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Jul 2026 08:55:17 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4953f64372aso3153015e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 01:55:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bisdn.de; s=google; t=1784278512; x=1784883312; darn=lists.infradead.org;
+        h=content-type:content-transfer-encoding:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=UqB+ZcdPBHABzE32jG4dg74lCIilLL5SjMXqW/Mf2cY=;
+        b=dswilyn39X2k5HNOgumjbjT7BqmAClKHqqBgZEzxch2epF/+2JRkdshVXrgM2UJuuI
+         dlUrjvBri7YptFlRdttpij9Ldrt/xSJYQHraESyAhOGb8/5iizMETWKcojQnsrpANaPo
+         H9C4U7zmY74kmAKWs5O0XnAAlQ19xfesINkqFeyr+uIJWdlYWZSNbjqTwFOLGao40sD1
+         HAcYEGh8w6yC6BVV3BtEkh5XOokNfBrLEWklVl/2plEr1rz6PNqplIYl9hXDA3tnKwRo
+         iopqO1ygx8vxHhPA/6m5UesdbH2mf0iIrPG+S3/gNazZ2fFw8cUVynYu0s3bbiaw3MhE
+         FV8w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784278512; x=1784883312;
+        h=content-type:content-transfer-encoding:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=UqB+ZcdPBHABzE32jG4dg74lCIilLL5SjMXqW/Mf2cY=;
+        b=fxAJaw5yzxaz+jWYoyNYPPW0ghZO5PWteYMdc6ZSVYDIPwheSX/+jIlaK78+bZ9PYe
+         S79QpyLYIYrMX27pupU1XNw4rUY6lOTI48bDU8XaTPC0U4K8JRyX6DO++VLjeMC3d4s8
+         HkwNMSQOIPD7IRoUdDE8jJLIT3roi7bUbPIibSoKafn/k0F3VG3LuruLAtZnCf5Ue/ok
+         qaq1hRYFf1xsCLmroPFtOsAmHSYOoDUV58hsYKeZeLyWtLUIPVdiPM6oAldZuFlmr7Qd
+         y7744BLdR/sAUF+urml0z+D1Hi4K6QzNSKIIvZldbuq/WbNng4cxmFspjXYIjBoLVjHB
+         h9VQ==
+X-Forwarded-Encrypted: i=1; AHgh+Ro2jnWaHK0TIdNedNwBfv50K3qISSevsrZSHMLfJtG+6pLOx/+vqe99fAD2TAr2BIBs32rsroZDLcgfcsZCjCwR@lists.infradead.org
+X-Gm-Message-State: AOJu0YzPSXKmXKXfIxVK5Xk19Nx/Kc0QXFlzEEy8bRupVZGUd/o+hXTK
+	u6fDF19i+Ylndpud7JqNpb0LIe+0aqibTDrBWUTQ3V4YJr6IE3jZY4EtqpKOh3IXq/i1iIOFFSC
+	k24nr9fak/Gyb0CvDtUS4S0jMCm1DDqmkCJIXcfvTwRQy1ANzvM6GbRGBgufJ2X7Gnj5xOQ==
+X-Gm-Gg: AfdE7cno8Lo0UTqCKFDJvX9xsov7g546c/+w9UHsm/QxoLxKZjZj8HOuf0u/ql+F9N9
+	b5yvV7c4nUtqkDZJYuKGRdZXaQPfMW/Aapi1lLaliQRHBrw74ltqgz8EUvqhes+55t7BI/SpaiY
+	e3yF+TrFGJNv9QIc9FCre5EmNLhvP+yNaVM404BBzTcS/FW+cWRJhg7M/y/fJBp6ELYyFO4Ubh4
+	VPfrljwziFTK/aQe4InS0RAJiznss1E+qf0YwMRAVUNaATtPN8KTfi8OL37s2JahFVvxVhaLz7j
+	tBS5G2yonG04k/syP8WIOBUu4+p9NwlQn4SdLGy7YDgptY70QItmNUqP+aJlCrC1cjXZEWhof7j
+	MbseHJgUgoA0wte177HPBwouOKQqV2apQzkK60A2SKD4AFHGTHLES6R6Xh2/t8hrsZYwLXwhBV/
+	J4AR8okhadZ9m2Q+W6soLCWEVz2TZfhlxzKnf8vxSSJj0qVJW+pF5DN9WE
+X-Received: by 2002:a05:6000:25f8:b0:472:da70:a45 with SMTP id ffacd0b85a97d-47f62344544mr1249749f8f.8.1784278512306;
+        Fri, 17 Jul 2026 01:55:12 -0700 (PDT)
+Received: from localhost (dslb-002-205-021-241.002.205.pools.vodafone-ip.de. [2.205.21.241])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f63e52f81sm2193727f8f.9.2026.07.17.01.55.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 17 Jul 2026 01:55:12 -0700 (PDT)
+From: Jonas Gorski <jonas.gorski@bisdn.de>
+To: Andi Shyti <andi.shyti@kernel.org>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Kevin Cernekee <cernekee@chromium.org>,
+	Wolfram Sang <wsa@kernel.org>
+Cc: linux-i2c@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jiaxing Hu <gahing@gahingwoo.com>
-Subject: [RFC PATCH 8/9] arm64: dts: rockchip: rk3576: add NPU (RKNN) nodes
-Date: Fri, 17 Jul 2026 20:50:46 +1200
-Message-ID: <20260717085220.3212274-9-gahing@gahingwoo.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260717085220.3212274-1-gahing@gahingwoo.com>
-References: <20260717085220.3212274-1-gahing@gahingwoo.com>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] i2c: iproc: reset bus after timeout if START_BUSY is stuck
+Date: Fri, 17 Jul 2026 10:55:07 +0200
+Message-ID: <20260717085507.34209-1-jonas.gorski@bisdn.de>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="ISO-8859-1"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_015502_927994_7F855A01 
-X-CRM114-Status: UNSURE (   9.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260717_015515_720528_571C9731 
+X-CRM114-Status: GOOD (  16.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,124 +103,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the RK3576 NPU: rknn_core_0/1 and rknn_mmu_0/1, with register
-addresses, GIC_SPI 247/248 interrupts, clocks, resets and power-domains.
+If a transaction times out, the START_BUSY signal can stay up, and
+subsequent transactaction attempts will fail as the bus is still
+considered busy.
 
-Run the full RKNN clock set (CLK_RKNN_DSU0, ACLK_RKNN0/1, HCLK_RKNN_ROOT,
-ACLK/HCLK_RKNN_CBUF) during the NPU0/NPU1 power transitions and on the
-MMU nodes; without the functional and CBUF clocks the block powers on but
-its registers (including the IOMMU banks) read back dead. Drive the RKNN
-BIU reset (SRST_A_RKNN0/1_BIU) from the power domain so it fires before
-the IOMMU resumes.
+I can easily trigger this by attempting to read from an address with no
+device, e.g. when running i2cdetect. After the first read times out, all
+subsequent read attempts return busy.
 
-Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
+To get to a working state again, the controller needs to be reset to
+clear the START_BUSY signal. So check for START_BUSY still asserted on a
+timeout, and do reset in case it is,
+
+This is also done by the original non-upstream iproc-smbus driver
+implementation [1].
+
+Works around situations like:
+
+    bcm-iproc-2c 1803b000.i2c: transaction timed out
+    bcm-iproc-2c 1803b000.i2c: bus is busy
+    bcm-iproc-2c 1803b000.i2c: bus is busy
+    bcm-iproc-2c 1803b000.i2c: bus is busy
+    bcm-iproc-2c 1803b000.i2c: bus is busy
+    bcm-iproc-2c 1803b000.i2c: bus is busy
+    ...
+
+where the bus never recovers after a timeout.
+
+[1] https://github.com/opencomputeproject/onie/blob/master/patches/kernel/3=
+.2.69/driver-iproc-smbus.patch
+
+Fixes: e6e5dd3566e0 ("i2c: iproc: Add Broadcom iProc I2C Driver")
+Signed-off-by: Jonas Gorski <jonas.gorski@bisdn.de>
 ---
- arch/arm64/boot/dts/rockchip/rk3576.dtsi | 78 +++++++++++++++++++++++-
- 1 file changed, 76 insertions(+), 2 deletions(-)
+v1 -> v2:
+* rebased on current master
+* reworded the comment and the commit message, as I found I could
+  trigger this intentionally
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-index e12a2a0cf..5033f7628 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-@@ -1070,14 +1070,22 @@ power-domain@RK3576_PD_NPUTOP {
- 						power-domain@RK3576_PD_NPU0 {
- 							reg = <RK3576_PD_NPU0>;
- 							clocks = <&cru HCLK_RKNN_ROOT>,
--								 <&cru ACLK_RKNN0>;
-+								 <&cru ACLK_RKNN0>,
-+								 <&cru CLK_RKNN_DSU0>,
-+								 <&cru ACLK_RKNN_CBUF>,
-+								 <&cru HCLK_RKNN_CBUF>;
-+							resets = <&cru SRST_A_RKNN0_BIU>;
- 							pm_qos = <&qos_npu_m0>;
- 							#power-domain-cells = <0>;
- 						};
- 						power-domain@RK3576_PD_NPU1 {
- 							reg = <RK3576_PD_NPU1>;
- 							clocks = <&cru HCLK_RKNN_ROOT>,
--								 <&cru ACLK_RKNN1>;
-+								 <&cru ACLK_RKNN1>,
-+								 <&cru CLK_RKNN_DSU0>,
-+								 <&cru ACLK_RKNN_CBUF>,
-+								 <&cru HCLK_RKNN_CBUF>;
-+							resets = <&cru SRST_A_RKNN1_BIU>;
- 							pm_qos = <&qos_npu_m1>;
- 							#power-domain-cells = <0>;
- 						};
-@@ -1804,6 +1812,72 @@ qos_npu_m1ro: qos@27f22100 {
- 			reg = <0x0 0x27f22100 0x0 0x20>;
- 		};
- 
-+		rknn_core_0: npu@27700000 {
-+			compatible = "rockchip,rk3576-rknn-core";
-+			reg = <0x0 0x27700000 0x0 0x1000>,
-+			      <0x0 0x27701000 0x0 0x1000>,
-+			      <0x0 0x27703000 0x0 0x1000>,
-+			      <0x0 0x27704000 0x0 0x1000>,
-+			      <0x0 0x27705000 0x0 0x1000>;
-+			reg-names = "pc", "cna", "core", "dpu", "dpu_rdma";
-+			interrupts = <GIC_SPI 247 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cru ACLK_RKNN0>, <&cru HCLK_RKNN_ROOT>,
-+				 <&cru CLK_RKNN_DSU0>, <&cru PCLK_NPUTOP_ROOT>,
-+				 <&cru ACLK_RKNN_CBUF>, <&cru HCLK_RKNN_CBUF>;
-+			clock-names = "aclk", "hclk", "npu", "pclk",
-+				      "aclk_cbuf", "hclk_cbuf";
-+			resets = <&cru SRST_A_RKNN0>;
-+			reset-names = "srst_a";
-+			power-domains = <&power RK3576_PD_NPU0>;
-+			iommus = <&rknn_mmu_0>;
-+			status = "disabled";
-+		};
+v1: https://lore.kernel.org/all/20230904090005.52622-1-jonas.gorski@bisdn.d=
+e/
+
+ drivers/i2c/busses/i2c-bcm-iproc.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+diff --git a/drivers/i2c/busses/i2c-bcm-iproc.c b/drivers/i2c/busses/i2c-bc=
+m-iproc.c
+index b5629cffe99b..86ca4c2221c4 100644
+--- a/drivers/i2c/busses/i2c-bcm-iproc.c
++++ b/drivers/i2c/busses/i2c-bcm-iproc.c
+@@ -803,6 +803,17 @@ static int bcm_iproc_i2c_xfer_wait(struct bcm_iproc_i2=
+c_dev *iproc_i2c,
+ 	}
+=20
+ 	if (!time_left && !iproc_i2c->xfer_is_done) {
++		/*
++		 * The controller may fail to clear START_BUSY after a timeout,
++		 * reset the controller to recover in that case.
++		 */
++		if (!!(iproc_i2c_rd_reg(iproc_i2c, M_CMD_OFFSET) &
++		       BIT(M_CMD_START_BUSY_SHIFT))) {
++			bcm_iproc_i2c_enable_disable(iproc_i2c, false);
++			bcm_iproc_i2c_init(iproc_i2c);
++			bcm_iproc_i2c_enable_disable(iproc_i2c, true);
++		}
 +
-+		rknn_mmu_0: iommu@27702000 {
-+			compatible = "rockchip,rk3576-iommu", "rockchip,rk3568-iommu";
-+			reg = <0x0 0x27702000 0x0 0x100>,
-+			      <0x0 0x27702100 0x0 0x100>;
-+			interrupts = <GIC_SPI 247 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cru ACLK_RKNN0>, <&cru HCLK_RKNN_ROOT>,
-+				 <&cru CLK_RKNN_DSU0>, <&cru ACLK_RKNN_CBUF>,
-+				 <&cru HCLK_RKNN_CBUF>;
-+			#iommu-cells = <0>;
-+			power-domains = <&power RK3576_PD_NPU0>;
-+			status = "disabled";
-+		};
-+
-+		rknn_core_1: npu@27710000 {
-+			compatible = "rockchip,rk3576-rknn-core";
-+			reg = <0x0 0x27710000 0x0 0x1000>,
-+			      <0x0 0x27711000 0x0 0x1000>,
-+			      <0x0 0x27713000 0x0 0x1000>,
-+			      <0x0 0x27714000 0x0 0x1000>,
-+			      <0x0 0x27715000 0x0 0x1000>;
-+			reg-names = "pc", "cna", "core", "dpu", "dpu_rdma";
-+			interrupts = <GIC_SPI 248 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cru ACLK_RKNN1>, <&cru HCLK_RKNN_ROOT>,
-+				 <&cru CLK_RKNN_DSU0>, <&cru PCLK_NPUTOP_ROOT>;
-+			clock-names = "aclk", "hclk", "npu", "pclk";
-+			resets = <&cru SRST_A_RKNN1>;
-+			reset-names = "srst_a";
-+			power-domains = <&power RK3576_PD_NPU1>;
-+			iommus = <&rknn_mmu_1>;
-+			status = "disabled";
-+		};
-+
-+		rknn_mmu_1: iommu@2770a000 {
-+			compatible = "rockchip,rk3576-iommu", "rockchip,rk3568-iommu";
-+			reg = <0x0 0x2770a000 0x0 0x100>,
-+			      <0x0 0x2770a100 0x0 0x100>;
-+			interrupts = <GIC_SPI 248 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cru ACLK_RKNN1>, <&cru HCLK_RKNN_ROOT>,
-+				 <&cru CLK_RKNN_DSU0>, <&cru ACLK_RKNN_CBUF>,
-+				 <&cru HCLK_RKNN_CBUF>;
-+			#iommu-cells = <0>;
-+			power-domains = <&power RK3576_PD_NPU1>;
-+			status = "disabled";
-+		};
-+
- 		gmac0: ethernet@2a220000 {
- 			compatible = "rockchip,rk3576-gmac", "snps,dwmac-4.20a";
- 			reg = <0x0 0x2a220000 0x0 0x10000>;
--- 
-2.43.0
+ 		/* flush both TX/RX FIFOs */
+ 		val =3D BIT(M_FIFO_RX_FLUSH_SHIFT) | BIT(M_FIFO_TX_FLUSH_SHIFT);
+ 		iproc_i2c_wr_reg(iproc_i2c, M_FIFO_CTRL_OFFSET, val);
+--=20
+2.55.0
+
+
+--=20
+BISDN GmbH
+K=F6rnerstra=DFe 7-10
+10785 Berlin
+Germany
+Phone: +49 30 610 816 100
+Managing Directors:=A0Dr.-Ing. Hagen Woesner, Andreas K=F6psel
+
+
+Commercial=20
+register:=A0
+Amtsgericht Berlin-Charlottenburg HRB 141569 B
+VAT ID No:=A0
+DE283257294 <http://goog_1008408251>
 
 
