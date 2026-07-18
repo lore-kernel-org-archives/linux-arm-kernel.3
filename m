@@ -4,95 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DFCAC4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jul 2026 07:51:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDB7AC4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jul 2026 08:40:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XHuS2uW8Bo2nkF3eNBf80lun7nQgThoolW/PgIH06Nc=; b=lJEekYg5u2W5+mURWpXExacEIP
-	QFADwMrrt/z6zD8Rya5HffDW4n23qZK1s0Z+5Hz0IA8QPf3PnErQZGEA6VKIqxEl/Li9y+u8ehnl6
-	dkF/zv38Ra/a8m3u+D44YC+ZlIZgmWktOZ6oCY55s4jwC32iwEU0uzzQXCIWnMB2DJAXpht9Ta15z
-	7a5y+LDFmFFo43R6VOrkEKmORanbmyBg2NxXM3UBbZyiyk/FXmMTVgPTNakb5eIZkAmPhURu9pyB1
-	AvhqV7lxPhirsZinDtqvR66gnBWdh8GVuUZtp94XRnhCl/ATFEGr8lTme+kesrbirClahMyqWswRP
-	dnNqicWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7tMDcOMCOuv2/S1kjEybtD3qi7le2Cks8fYUJXxydzs=; b=Fmu/4Vj1tsLR1rmFhrrTTvOYW2
+	6rjgDbai+5t48XNWEYnZifP8oUT7ifQtcdoBFAfTnx6ckZc7dWjuLV+bEoL0I6KKar6JMPPohT6pm
+	T0O/Ikuza43abHUGNKMOQoyppUkghvgngdTX5kTPAiDOXXs9qVGpa5hgni4VMhNoYvugXyTZI0RFc
+	bQc83uiaAffAjqj4Rx6eAkabrdivtMQaxMgtsAMcPPVuj539RnS/okcRoHsLYot0jxEXIkMdu95Sy
+	ejunFbf8SktN0d096p75GFIpuD9+lGqh/4wa6xdcsHDz7CqYgyJubW5vf0n0847igNUqqXiwjO3yr
+	G3nWDgIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkzpd-00000003rtA-22HD;
-	Sat, 18 Jul 2026 07:51:33 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1wl0aT-00000003u3l-0DuK;
+	Sat, 18 Jul 2026 08:39:57 +0000
+Received: from mail-wr1-f48.google.com ([209.85.221.48])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkzpa-00000003rsG-0FtX
+	id 1wl0aQ-00000003u2w-1Gz4
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Jul 2026 07:51:31 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-47f6edffd06so69767f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 18 Jul 2026 00:51:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784361088; x=1784965888; darn=lists.infradead.org;
-        h=content-type:mime-version:references:in-reply-to:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=XHuS2uW8Bo2nkF3eNBf80lun7nQgThoolW/PgIH06Nc=;
-        b=ToBhUohg505qjl4NrBSOCF0SxLSqYpVhIMIluQ4teIGr4O3GQWQo3XUnWp9bByMCBG
-         4wbCSmuz0Oj3GAStosZi+3Xt/38yw04pYCvYCxy5pq2REzSCULgLPnHIJUamtrZHehXr
-         ySNYknT1Tk0/WAJ13nXW5f2fdwvs7RQ1uXjWdnMh8AeUwM3jxTmLVH1PwUupJjk2Si5h
-         SwotPjwRydTwHrK+KCXY/Cwq/B6keErWxiyV1G2lQl4LRHodWsXHZYQugFGesXJXa827
-         Ua1dAr/KeHbYXPFxZg7AgD27KnvPyRvFiiHuBIw1y5Dx1u7v0+J7H3c8n3/jt5AJWi7X
-         KWqQ==
+	Sat, 18 Jul 2026 08:39:55 +0000
+Received: by mail-wr1-f48.google.com with SMTP id ffacd0b85a97d-47f6edffd06so88070f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 18 Jul 2026 01:39:53 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784361088; x=1784965888;
-        h=content-type:mime-version:references:in-reply-to:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=XHuS2uW8Bo2nkF3eNBf80lun7nQgThoolW/PgIH06Nc=;
-        b=eJ/ljpSTOKIUDNOubseZrxMvvx98qvv0HLrwawtLPmHk7dZ1IP2sWgkNKlEwOPsjTm
-         eoIxgcep8Deq7W5MjneVATbrqlihE9vDcOFPon0tSiXi2yb08jZLk7kxmSNOm0SIpK4b
-         +2IdXj72pUCOf5psQV48VMRn9mk9uGBwvVJH8KRfSU4sG1w4BhgPTr0HAsW11akOYt8q
-         4wwXKzhlKZJbg+3aMMXYkRvvTBhCpewv0arCJhcZ8Q4VYqJCsHp7AF0vRjf4Q9vKQ8sr
-         +AmaNBBM9esqLbefPbPk3EreFq6CMf9Ns0W3/kCUwaG77sZ2QIoIYrTvx75chQT5KwZJ
-         iNCQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rr3dEqo3KC8HlIlTutKyDvKfhhWSp2iNCdqNcyFgvvyLcvN6QbmFH/tigIjuUPSQ3p4dszyDOmM4FnvTMPPiIKQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzNr/AhWW2NApnLdmUgLticVg5XzGza45vaKiAcBjZ1lvEGg/bK
-	wvHfkqyl0n9WbRL7s7J8f9YEKKVSZKJvrHPfQyaf7m3BmoheZc9Sj74p
-X-Gm-Gg: AfdE7cmpqbNFkI5LCd8F1DaNsoAlBt9IwxCKeRmJ06MkHwjwzD4g2j2hEsB0rqY1DkQ
-	8w1BaeAfwgjAQ4OWRHh41XprzdfaPZTSC8ZKDP78LlH3sfTfUxuIrsodFSMVVQcrbYOxuZkSI7d
-	Wau4T5T+saL5aqStqqNunftgNhhjJU6A9e53sAOIMa8Xnp8CA8my1CbyZzcDJljV7ieauvin7cw
-	wmeZ9JEu+Yzk5gw9w47haQjTBLAdZLpA4TG7NgUKHBcGQBeaZsdRwUHz4FJZgNZF5kTgX51sswB
-	4g2rlt8/9I4YYJrNNTK0PmEmF89FjLdpJ4TcWh6nJyhk/u6JogdDGR20H6Y89bE8CtTjtNZy51y
-	yzdaiRkA2+MI2tPHCcd6ijkcwKC2DhxaBqf6IO9mjmOqbjXme14Ev8A59WpjFwIpkqYMMYlyffG
-	NfNtXpseUFXkhazo6byBQwaw==
-X-Received: by 2002:a05:600c:4585:b0:492:45a0:dcef with SMTP id 5b1f17b1804b1-4954a3eeb63mr65163955e9.5.1784361087691;
-        Sat, 18 Jul 2026 00:51:27 -0700 (PDT)
-Received: from strix.localnet ([197.250.51.119])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4954aa1a231sm61024895e9.1.2026.07.18.00.51.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 18 Jul 2026 00:51:26 -0700 (PDT)
-From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-To: Vinod Koul <vkoul@kernel.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- Brian Masney <bmasney@redhat.com>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Russell King <linux@armlinux.org.uk>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org
-Subject: Re: [PATCH v7 01/13] dt-bindings: phy: Add zx297520v3 USB phy documentation
-Date: Sat, 18 Jul 2026 10:50:46 +0300
-Message-ID: <Jn1AVBXlRkmJ2q2cQbPFhA@gmail.com>
-In-Reply-To: <20260717-uncovered-feathered-groundhog-eab16e@quoll>
-References: <20260717-zx29clk-v7-0-408411cfcf36@gmail.com>
- <20260717-zx29clk-v7-1-408411cfcf36@gmail.com>
- <20260717-uncovered-feathered-groundhog-eab16e@quoll>
+        d=1e100.net; s=20251104; t=1784363992; x=1784968792;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=7tMDcOMCOuv2/S1kjEybtD3qi7le2Cks8fYUJXxydzs=;
+        b=GNzJYiTRFhagk7rVSF2og9KXgh7inIVEVsD4cwVGbfgYnBL6t/P7bwA9swNceyQ/yu
+         GMo/0foNki4Wq/+bEaZtybgNyIf4EXlf17OYTe5KIA8jb18G29NtDfyXov+vYKQBONoS
+         HetXIIBpyK8DWHqxd8xvAgSmipmek9fduVycGoUE4QffyD+MZ9cSitgYwMwgY6G8pwjM
+         yN9FW2d/+aHOOa7KDxuUFjIfX/+aARCKgGeBIgxuMhqBzbjpr+34GKF3TkhD4U0t7QCT
+         3HgR33ViTv1R2UJWad7Cqcfz/2r1fQGOC4/isLFrOQs/9YFNQrfajA2VemHc+UuQmR6e
+         Sy2w==
+X-Forwarded-Encrypted: i=1; AHgh+RqxZjxetdiSILOLbZXm9uCazkOErOcmRUVtaaCblDMhgnXMoLZYwILjo/FbApxCO333F7Nske1ozqUntBpmtkGg@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy+AkhEa+uT6e0b5RyEuLXlFyGtIy3ro402r3wWS2F4BKRGFX3f
+	ymmjYm7yfAx2GXAw3SQELxIy0btaH8Gysg1+HTtoeuUVZXn4PYnTIK3x
+X-Gm-Gg: AfdE7clCjmu2+dJ9OOLOyKnt+eyPrPKNEmor5dtNJRU9s1zvqNESi3w8Zp4Jb2jZS1B
+	8tVUtlPQcNU/TOY98wv5MUvxZ6/kmspbPruLQ9WIFppcLO5WOrv2QYtq6l1lyuygJYj2SuvMRDK
+	XjaAQTTOYG0FU3MCny6/2gSJ74Q+07UwZBe55m7byQShujbRHafbmBiAZnk/ZzpYNtQYOxZdEli
+	rfnsoNWV/Yb4mxk+6ZvE4CroQzFNEauX2x5HYnAbmhZK8ZLJi0AObJVGLHHuEZyYzMKFFEKGPyL
+	TrYU6rU5rVPX8qsZLEY1q3Pjca7WX056hJ76iabHb0ErbCbtlsbiLtnr/SBiPi6tFaYN4JNtUY0
+	iJrgbAvIfPJc5r2hWLl/DBWEVC9F/71usiTBgTfSbQNR0YMd0+bdMC8hwagdDjk4icorF68w2Xf
+	jHNealOAVH1HqGiT5+tdJkLZWg29G/S+mbkCQrnvSG5ZrmqBwsT5ZbWKunTgOsOB9FbPOODcuI6
+	W9/jBa8lQ==
+X-Received: by 2002:a5d:458c:0:b0:47f:45b1:128c with SMTP id ffacd0b85a97d-47f6233eda7mr5267829f8f.58.1784363991641;
+        Sat, 18 Jul 2026 01:39:51 -0700 (PDT)
+Received: from ?IPV6:2001:8a0:d6cd:9000:86f4:4e71:9fc8:3183? ([2001:8a0:d6cd:9000:86f4:4e71:9fc8:3183])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f63eddd27sm10661708f8f.28.2026.07.18.01.39.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 18 Jul 2026 01:39:51 -0700 (PDT)
+Message-ID: <57f5675c-8bcd-4022-978b-9f7933bb0032@reactivated.net>
+Date: Sat, 18 Jul 2026 09:39:48 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextPartTPGCLSSKQRu-pTqQQZ3W5g";
- micalg="pgp-sha256"; protocol="application/pgp-signature"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5/6] iommu: Add Broadcom BCM2712 IOMMU driver
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+ Robin Murphy <robin.murphy@arm.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ nick.hollinghurst@raspberrypi.com
+References: <20260712-bcm2712-iommu-submit-v1-0-80e10cdde2ea@reactivated.net>
+ <20260712-bcm2712-iommu-submit-v1-5-80e10cdde2ea@reactivated.net>
+ <20260712221125.GD1835788@ziepe.ca>
+Content-Language: en-US
+From: Daniel Drake <dan@reactivated.net>
+In-Reply-To: <20260712221125.GD1835788@ziepe.ca>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260718_005130_118929_026D2C53 
-X-CRM114-Status: GOOD (  14.40  )
+X-CRM114-CacheID: sfid-20260718_013954_366186_EDC0D52A 
+X-CRM114-Status: GOOD (  15.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,73 +99,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---nextPartTPGCLSSKQRu-pTqQQZ3W5g
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
-From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-To: Vinod Koul <vkoul@kernel.org>
-Date: Sat, 18 Jul 2026 10:50:46 +0300
-Message-ID: <Jn1AVBXlRkmJ2q2cQbPFhA@gmail.com>
-In-Reply-To: <20260717-uncovered-feathered-groundhog-eab16e@quoll>
-MIME-Version: 1.0
+Hi,
 
-Am Freitag, 17. Juli 2026, 09:32:18 Ostafrikanische Zeit schrieb Krzysztof=
-=20
-Kozlowski:
-> On Fri, Jul 17, 2026 at 12:35:37AM +0300, Stefan D=C3=B6singer wrote:
+On 12/07/2026 23:11, Jason Gunthorpe wrote:
+>> +static int bcm2712_iommu_map_pages(struct iommu_domain *domain,
+>> +				   unsigned long iova, phys_addr_t paddr,
+>> +				   size_t pgsize, size_t pgcount, int prot,
+>> +				   gfp_t gfp, size_t *mapped)
+>> +{
+>> +	struct bcm2712_iommu_domain *mydomain = to_bcm2712_domain(domain);
+>> +	struct pt_iommu *pt = &mydomain->pt.iommu;
+>> +
+>> +	return pt->ops->map_range(pt, bcm2712_iova_to_offset(mydomain, iova),
+>> +				  paddr, pgsize * pgcount, prot, gfp, mapped);
+>> +}
+> 
+> These ops should not be present, the iommpt provides the ops directly
+> through a macro;
+> 
+>> +static const struct iommu_ops bcm2712_iommu_ops = {
+>> +	.identity_domain = &bcm2712_identity_domain,
+>> +	.domain_alloc_paging = bcm2712_iommu_domain_alloc,
+>> +	.probe_device = bcm2712_iommu_probe_device,
+>> +	.device_group = generic_single_device_group,
+>> +	.of_xlate = bcm2712_iommu_of_xlate,
+>> +	.default_domain_ops = &(const struct iommu_domain_ops) {
+>> +		.attach_dev	 = bcm2712_iommu_attach_dev,
+>> +		.iotlb_sync      = bcm2712_iommu_sync,
+>> +		.iotlb_sync_map  = bcm2712_iommu_sync_map,
+>> +		.flush_iotlb_all = bcm2712_iommu_sync_all,
+>> +		.free		 = bcm2712_iommu_domain_free,
+>> +		.map_pages       = bcm2712_iommu_map_pages,
+>> +		.unmap_pages     = bcm2712_iommu_unmap_pages,
+>> +		.iova_to_phys    = bcm2712_iova_to_phys,
+>> +	},
+> 
+> Then use something like:
+> 
+> 		IOMMU_PT_DOMAIN_OPS(bcm2712),
+> 
+> To define all the page table related ops automatically.
+I don't think I can use that because this setup uses an IOVA aperture at 
+base 0xA00000000, whereas generic_pt assumes it is managing a 0-indexed 
+virtual address space. So the driver has to intercept every incoming 
+IOVA and translate for the aperture, see how map_pages calls:
 
-> > +  resets:
-> > +    items:
-> > +      - description: USB phy reset
-> > +      - description: HSIC phy reset
->=20
-> Why do you reference here resets from the parent? That's a clear signal
-> you have one device, so one device node regardless of Linux phy core
-> behavior.
+  static inline unsigned long
+  bcm2712_iova_to_offset(struct bcm2712_iommu_domain *domain, unsigned 
+long iova)
+  {
+  	return iova - domain->mmu->aperture_start;
+  }
 
-This is a follow-up question for the PHY maintainers, if they notice the E-
-Mail thread: I'm trying to resolve an apparent conflict between DT=20
-expectations and a check in the PHY core:
+That's why I also set is_iommupt=false. I will add a comment to make 
+this clear. Let me know if you see a better approach. I was wondering 
+about making iommupt understand apertures and translate accordingly, but 
+I imagine you would want to keep that kind of thing out of the generic 
+fast path?
 
-device_set_of_node_from_dev(dev, dev->parent);
-=2E..
-devm_of_phy_provider_register(dev, xlate);
+Thanks for all the other feedback too - working on it!
 
-Passes the letter of the check in __of_phy_provider_register(), but I am no=
-t=20
-sure about the spirit.
-
-"dev" here is a MFD child node without a DT node in accordance to DT's=20
-writing-bindings instructions ("DON=E2=80=99T create nodes just for the sak=
-e of=20
-instantiating drivers"). The PHY core prohibits a child to register a phy=20
-provider to its parent node. Why?
-
---nextPartTPGCLSSKQRu-pTqQQZ3W5g
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part.
-Content-Transfer-Encoding: 7Bit
-
------BEGIN PGP SIGNATURE-----
-
-iQJPBAABCAA5FiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmpbMFYbFIAAAAAABAAO
-bWFudTIsMi41KzEuMTIsMiwyAAoJED0TvMhUTxoi14UQALMgF2vE7gNXf/lwdBLJ
-nrd5dP9Opm9ywvrBTVh/X7JslAvqmfG7p99UPAkVxM3fHwX3i6Ep1UwKoClaM3jR
-lQWQhMJ9ceYI3ZtxDqV04raEtEYdD6iKTzqXVVLVySqFLFTy1M0SHAqN8I0hWY3X
-98H0UePyNZEVEQmuUTb8uxsdAMFZ1BPEatKENp2fNrge+kF60oIqjTfDYImBYPIK
-uZETnPzN7W0A6GvBjL4eMVYDRPyKSw3Yn58/hkkJCYuGGANNDy4D2mf5dvUbXhvu
-sqdnkAe8ABEwd7pXowiebQUmNbB+tKPpvqTRmXlr9pElhmknV7SOGYUnQt/7PeQa
-pIG+ksMvRKzFsmnoinzE04Gi4EqHf8XD8mDNEa5T6Nt/KvqpbpVufXu4t04zpJkN
-NXnCC66jNUQxkMmrIjncjpBtD8yvUA0Wy3C3MYYHPP+V04YRZXOrY1cJia94+zeL
-iqFQL6qHoeWjICo48CFvb++qor9eaQYHk7F4goql9o9XaroH+jXZsKkIV6hyFXZ3
-rZfjVgEl1Y7QQdAMihLz8zCrgM1xWHCWdSWwNEmcq2A1eCKg7F1sfG9armUWwrjE
-AR5fGoqdZ4x5KV/EgQOLNxsBEPnlUVA0Qz50jlNjlFRMlBFSNDJyHJft2qOXfeDd
-1fgWAHDkZiT9th1kma3dY/PQ
-=0ktk
------END PGP SIGNATURE-----
-
---nextPartTPGCLSSKQRu-pTqQQZ3W5g--
-
-
+Daniel
 
 
