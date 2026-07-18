@@ -4,87 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1904AC4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jul 2026 09:17:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C121C4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jul 2026 09:20:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+4ABO+bTkfPgOfO7AVPQCNenlwqlj31lfWE+FzUnWC8=; b=sAfImWGrePC6ZUWCUgsOMli1h+
-	ip6W5eTsZV3H/1hhnkXhR1oAdeHlksv0RZdybHYIP1yqWh8+eJq6W/6skXCnFoqpm3Vu5egauq9D9
-	DutXtlzuYx/8fVKEkP+fGmUx3zZVaxmL+mB7NyAWa0kEcMltFqtsSzOIdzVnEB949M9T/fR8WdxAk
-	H2gRayME853MWJV4TKYh4ijhI1hLxs4S8/hm5e7PWzYESSCV7+djNWhj/5z3zHCN+kwxrY6UV5HOE
-	Iv1WqUnDp/EMAHj2bJTciFdBvNiYlrR7JQPqaEa4uMCuwHFTxFhbtaotP3nKz9he7qK+/MIC2BtXA
-	tT35tc0Q==;
+	bh=hAQh92xiHuxy24em2szgQVZY3Sgo8YJL/c+Vt1olVPE=; b=Noj588JcH9QppM1eTEpTXbiCri
+	+VUfYS0Ii9NxBRfo09OlCAO4leVJSSmq3X2PZ9CSeMblnZ+rstqiaLCzqobkzq7GGvmL00SG+nsAd
+	6KF8OXVozGv2d2SbJgV2CqrkW0T2v1R2Eyp13XSMB7VU4RY0h/ktjzGMAbiIbVzEOaJEtbjGIQHgs
+	1ioU2WHe3IYB7l1ZsLwoypx4LmXNAeVqKSwBn03A/G60c+lTp8CCI2tpRSNyBWWjWinTfx4qHNNwo
+	H1SNcKBqNG9tEBr/ljs3WaG+buybNR3R4SqZCq5q6APn3qTknPuzbhJ5uPVb+NLt+FkA9ZwpDd+9k
+	7F/Eqnfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wl1B5-00000003wma-1vpy;
-	Sat, 18 Jul 2026 09:17:47 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1wl1DQ-00000003x0I-3Ts2;
+	Sat, 18 Jul 2026 09:20:12 +0000
+Received: from sender4-op-o11.zoho.com ([136.143.188.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wl1B2-00000003wm5-1VjA
+	id 1wl1DN-00000003wzk-21GQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Jul 2026 09:17:45 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4954d29264cso5098645e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 18 Jul 2026 02:17:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784366262; x=1784971062; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=+4ABO+bTkfPgOfO7AVPQCNenlwqlj31lfWE+FzUnWC8=;
-        b=I1RVtiDOZpCvADrD29KGhQeh8OfVW+t0aWLEOneQzCTSwN7xKIow1YeDqd22Fch9Uf
-         tEnd+LU+Wa8N+HlULcnRzqvJ8EfESv8cYGCjrWrQ6pYiYpFUVdPoKnyCvekoXfo7ux2M
-         j1C1CAWKE4GZ8/eDy22zFIgqe/WtqLHiJZC23LePho2aFnXBIvmpIXwJr0I1bJmf4OtT
-         seH2dIe7RP8rDk5KJhJSCq+Shp5+ygxoe3nEJpwzMyb51V6XaIuqSDVyVEPqDInBNwn5
-         PNCkKk/kR4FkoyNsDpsVbPeWWk0XZhD6VWLE1WNds7JiChWwhnQ/eCLEPmDQTxfRcrBf
-         /iyQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784366262; x=1784971062;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=+4ABO+bTkfPgOfO7AVPQCNenlwqlj31lfWE+FzUnWC8=;
-        b=kp5/ohjKf1STn2shIhZKR8VHi1ciKhR/8tl/NerVhmrw2JPvpQvR7EDFPf17fxioGy
-         LmJvmk+sitPBHuT+A5lW1053ThVIfI0kTmrjypCgmYQe11mVMxzO3Vn4YfRhBDUtuA1c
-         GZwvOETSDjK3/tZvk47hr/68NKKvkw0feLtyE0x/+iitTqqn0IxcgxPRQ5hm4k07ualv
-         IagvGdAR6iB8Vu80sYdqLnveb5OJ2X2yvRCldUclh0BfTZhiq2FG2fu3KjUPoiN7Q3Hb
-         ZyJdKNCu+hw/gUVMbO9UO/VcYYGSmlz4UPahCv9CfX3GB0tgsx59ztsnvyrSdO0DtnLi
-         a0kg==
-X-Forwarded-Encrypted: i=1; AHgh+RrNo0CFczcn3SBS3AhXeMQN+aMx+8eQd76YiOQfTiq1hV0EgK2vC5OXUJ2MHmqjwI4r/JyBQQem3RVw3TVc2qV/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyr1txMsCC0SOOoCAq79kmIFjAfd1rs28/Mt6XCZ2cIt/UUkjJ1
-	W7dpVnsVzw4xVuGIzE7AuBkm4NI17+85lj/yUXmMx9FuDM2p/JJwT3AE
-X-Gm-Gg: AfdE7ckgqZVLSIdTSi0ijQkIkQG9MN0XUaCJ5/EywlfPUFNSDXOmJoB27pMCMCJ+tB4
-	na2JKHNwCOFiuffNE15zVZNKoCeqCo2yatDT908zDwdRKPhCtIRN2HBkx9LpaPZPC92g7EfMUWF
-	0CTA5Dg8vYxPul4CEup9fDTpitq0OiEgsr8l8qX4ib/kNfc0u4i4XcVge0lmv9qAcvdD9hjKnJm
-	LNisuep/8snhZmN7UDIi0hBVAAPLkfITMWFGBF8+ZBritCailLhBkLNTshQNKhE4jdAtqyJwNOT
-	AVR94UrKtDQTgbuVj3RgvWNLz7O7wpVm2OQsyhXudGxxoCW2eZEsfMcCSCSoqTdUCXt3f4sbGC2
-	FDqUDuFH15y8u7DPUniZfNld8EvoGSedwDRB5NooJk6AC1TrvtN2ac2FclbuiI8zo/GXEYOnphn
-	y64bo1FXWaLYq8PncXcT4OhC3AhKIQy5EOxBTaLJ/VaabYIFBmm/51E+TKAX0eCfiq8JWOSsGwv
-	OdpUrPoyXEh/rRo49Cls5vddEBkf9Ak0l4uhMWL
-X-Received: by 2002:a05:600d:6413:20b0:495:47b9:f46 with SMTP id 5b1f17b1804b1-4954a52411emr55531825e9.39.1784366261485;
-        Sat, 18 Jul 2026 02:17:41 -0700 (PDT)
-Received: from localhost.localdomain (dynamic-077-002-153-175.77.2.pool.telefonica.de. [77.2.153.175])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f63ec7c69sm11186363f8f.17.2026.07.18.02.17.40
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sat, 18 Jul 2026 02:17:41 -0700 (PDT)
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Russell King <linux@armlinux.org.uk>
-Cc: Karl Mehltretter <kmehltretter@gmail.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
+	Sat, 18 Jul 2026 09:20:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1784366396; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=d4uXtXsojZ9niWNoSNItuz9oSsih7XWUHwEUcdNQ/w2WZFcHE3GJooCCqckeW6s46Xyn54rotrOTxjiUsXGPFo4BSS4cBm3g/YNyDuf3fOaEQW0JAhJL3Xmdv0EDYwreQXgbdJq1/1QTn1/XKzIYxYR2io+B8vD4XOZ48AQ742I=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1784366396; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=hAQh92xiHuxy24em2szgQVZY3Sgo8YJL/c+Vt1olVPE=; 
+	b=KlmFzUVym2NLPQ7lclvO2JhFV0N05sNvtsnw6hIq2OtTTrTPDUyhY7TzN3juwwn6Jr6UVUbrGKFbw51tBdfjLXBUbQDAJwcas0vjMy0RTbc7SuF2UHYlgXQN13lqqcaw0y+uCmLKWJFO5MYgp2MB0Ut77npbDGLMXIMCcFqKUzE=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=yoavmoshe.com;
+	spf=pass  smtp.mailfrom=linux@yoavmoshe.com;
+	dmarc=pass header.from=<linux@yoavmoshe.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1784366396;
+	s=zoho; d=yoavmoshe.com; i=linux@yoavmoshe.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=hAQh92xiHuxy24em2szgQVZY3Sgo8YJL/c+Vt1olVPE=;
+	b=l/aUp9Uv05QViHiGl8c1Lv4Fsq52btodrCQfR3iJcZhpWrC2bDSXkVaILnvy0s5E
+	ESJqQq4yllokG0Bf0Qz3U/pFHqhBEMLdMScIu+WhHjHmXiiEdHq28fyD2xmXzbXWD/E
+	jKs1uaTv7aJP88W3945DzoJ5AGKF2N4Un64t9n2I=
+Received: by mx.zohomail.com with SMTPS id 1784366393113119.4825574702162;
+	Sat, 18 Jul 2026 02:19:53 -0700 (PDT)
+From: Yo'av Moshe <linux@yoavmoshe.com>
+To: Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Russell King <linux@armlinux.org.uk>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
+	llvm@lists.linux.dev,
+	stable@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH] ARM: smp: set current pointer in assembly before jumping into C
-Date: Sat, 18 Jul 2026 11:16:00 +0200
-Message-Id: <20260718091600.92021-1-kmehltretter@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+	Yo'av Moshe <linux@yoavmoshe.com>
+Subject: [PATCH v2] ARM: imx: Fix suspend/resume crash with Clang CFI
+Date: Sat, 18 Jul 2026 11:19:17 +0200
+Message-ID: <20260718091917.81738-1-linux@yoavmoshe.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260718_021744_417903_D18B966B 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20260718_022009_579980_B4EB7CE6 
+X-CRM114-Status: GOOD (  11.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,61 +87,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With CONFIG_KCOV_INSTRUMENT_ALL=y, secondary CPUs fail to come online
-on ARMv6K/ARMv7 SMP:
+Relocated suspend code in OCRAM lacks compiler-generated CFI type
+signatures. When CONFIG_CFI=y is active, the indirect call to
+imx6_suspend_in_ocram_fn triggers a strict CFI violation panic.
 
-  CPU1: failed to boot: -38
+Annotate imx6q_suspend_finish with __nocfi to bypass CFI checking
+for this specific indirect call.
 
-The compiler inserts a call to __sanitizer_cov_trace_pc() at the entry
-of secondary_start_kernel(), before set_current(task). The KCOV hook
-dereferences current while TPIDRURO is still uninitialized, causing a
-data abort before cpu_init() has installed the exception stacks. The
-secondary CPU consequently never completes startup.
+Additionally, protect the imx6_suspend_in_ocram_fn pointer by marking
+it __ro_after_init to prevent it from being used as a CFI bypass
+exploit vector.
 
-Initialize current in the secondary assembly handoff, as
-__mmap_switched already does for the boot CPU.
-
-Fixes: 50596b7559bf ("ARM: smp: Store current pointer in TPIDRURO register if available")
 Cc: stable@vger.kernel.org
-Assisted-by: Claude:claude-fable-5
-Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+Signed-off-by: Yo'av Moshe <linux@yoavmoshe.com>
 ---
-Tested on QEMU vexpress-a15 (mainline and v6.12) and
-realview-eb-mpcore with and without CONFIG_KCOV_INSTRUMENT_ALL.
+Tested on a Kobo Clara HD (i.MX6SLL SoC) running postmarketOS edge. 
+Before this patch, suspending the device caused an immediate silent 
+hang requiring a hard-reboot. With this patch applied, suspend and 
+resume work successfully.
 
-The head-nommu.S change is untested because no currently reachable
-Kconfig combination enables non-MMU SMP.
+Differences from v1:
+- Added __ro_after_init to imx6_suspend_in_ocram_fn to prevent it
+  from being exploited as a CFI bypass gadget.
 
-The redundant set_current(task) is retained to keep the fix minimal.
+ arch/arm/mach-imx/pm-imx6.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
- arch/arm/kernel/head-nommu.S | 1 +
- arch/arm/kernel/head.S       | 1 +
- 2 files changed, 2 insertions(+)
+diff --git a/arch/arm/mach-imx/pm-imx6.c b/arch/arm/mach-imx/pm-imx6.c
+index a671ca498..b425a4701 100644
+--- a/arch/arm/mach-imx/pm-imx6.c
++++ b/arch/arm/mach-imx/pm-imx6.c
+@@ -63,7 +63,7 @@
+ 
+ static void __iomem *ccm_base;
+ static void __iomem *suspend_ocram_base;
+-static void (*imx6_suspend_in_ocram_fn)(void __iomem *ocram_vbase);
++static void (*imx6_suspend_in_ocram_fn)(void __iomem *ocram_vbase) __ro_after_init;
+ 
+ /*
+  * suspend ocram space layout:
+@@ -360,7 +360,7 @@ int imx6_set_lpm(enum mxc_cpu_pwr_mode mode)
+ 	return 0;
+ }
+ 
+-static int imx6q_suspend_finish(unsigned long val)
++static int __nocfi imx6q_suspend_finish(unsigned long val)
+ {
+ 	if (!imx6_suspend_in_ocram_fn) {
+ 		cpu_do_idle();
+-- 
+2.55.0
 
-diff --git a/arch/arm/kernel/head-nommu.S b/arch/arm/kernel/head-nommu.S
-index b9d6818f1ee1..f80bbfbd3a6f 100644
---- a/arch/arm/kernel/head-nommu.S
-+++ b/arch/arm/kernel/head-nommu.S
-@@ -116,6 +116,7 @@ ENTRY(secondary_startup)
- 	ldr	r7, __secondary_data		@ reload r7
- 	ldr	sp, [r7, #12]			@ set up the stack pointer
- 	ldr	r0, [r7, #16]			@ set up task pointer
-+	set_current r0, r1
- 	mov	fp, #0
- 	b	secondary_start_kernel
- ENDPROC(secondary_startup)
-diff --git a/arch/arm/kernel/head.S b/arch/arm/kernel/head.S
-index f22c50d4bd41..a22403a629ef 100644
---- a/arch/arm/kernel/head.S
-+++ b/arch/arm/kernel/head.S
-@@ -442,6 +442,7 @@ ENTRY(__secondary_switched)
- 	adr_l	r7, secondary_data + 12		@ get secondary_data.stack
- 	ldr	sp, [r7]
- 	ldr	r0, [r7, #4]			@ get secondary_data.task
-+	set_current r0, r1
- 	mov	fp, #0
- 	b	secondary_start_kernel
- ENDPROC(__secondary_switched)
---
-2.43.0
 
