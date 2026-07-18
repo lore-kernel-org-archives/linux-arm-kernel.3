@@ -4,109 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DE22C4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jul 2026 14:46:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1F05C4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jul 2026 14:56:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VapJVpk7Upuq/4IsumhznTZhjSgCFeW/dRXr+/nOOSk=; b=qbhxjAhAJlPY54VgQtaO/4e+v9
-	vyw8kM30J/JPUlEdgCnxW08dBInUlsjC5YbfUT0MJIwqM0VA87jRErDFw8rifTRn/MpLXpBChHJ4+
-	X/Yf+pZrqzXhZPXdTxi2Rnpewt/QfxO6uFy34urM4dhSAG31w4sfJobgviWSr1hr0PdTZcV3E+83p
-	0q9jSysl2NP5d6ap1MOnQgvwvmtVUiegpb0TedAqlThVIufKlg6POaYBvgsOMh5/iONTr+ojcRUPZ
-	i6UCBykl5Xxf2wxifDiKyykJoxIWsh9jfuOzmjSIgb0ADI68rVAl0YL1ql3kVO8Ld3R/Omma7rRh2
-	F26/MLhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ejdYBQbwWVDrY2k2z5DnAvOdbujuV80Ti1iaICcX3dU=; b=z5zokJb7l/R6bTeFEmqKkcxxw/
+	b2fKDizK4A0TIip/W1ktOX3lYk7fkZP6bT3H4XION5l69gzhRydwYWI1MavqKglq3+W2t9JwSnbzX
+	RERJ5UEspJkbIAXqT9omnbU/eJeo5rX19nyzpRThveKy34dlolAieUVAcqUL2uKZGhD13lIEYpZiD
+	lIHXAejgQm7WV9jDTVp6TeXu4tkC4452BgbFbWlLjK1Ecj7iAYXB0j14FsnSnHnpgw3PI4fbgXUsQ
+	AECd+fcI26HmrF8W87kfR28/ZiRcBvwh7bmOc/VfTmtUWA8kwj/dVYL2KtLyGf3aJlZbW/UpEHwuT
+	Bvjn7P5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wl6J8-00000004BIt-32cN;
-	Sat, 18 Jul 2026 14:46:26 +0000
-Received: from mail-qk1-x733.google.com ([2607:f8b0:4864:20::733])
+	id 1wl6T9-00000004C1G-2efW;
+	Sat, 18 Jul 2026 14:56:47 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wl6J1-00000004BDj-2TnE
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Jul 2026 14:46:21 +0000
-Received: by mail-qk1-x733.google.com with SMTP id af79cd13be357-9305a2121a1so532031185a.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 18 Jul 2026 07:46:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784385975; x=1784990775; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=VapJVpk7Upuq/4IsumhznTZhjSgCFeW/dRXr+/nOOSk=;
-        b=aT0n/KqE9tldr4M6QCQsYhN8SYoBCO03fcVuUAHkeKlLRJeQtvG3FYEIWpV/B3A8dB
-         58Cya7X1YqxXCw2HOFrgTFpNwEBaAgLvsC07GgrywO/6OaXIVghnO7rf9/50KzL8IAVN
-         aukiCFPNIhYyaF45pwg3GCnzntBhzS0ZFC1hsm/jRKiqohuZXstyoA7lsPA2PIM47DLC
-         DnTjnwG6TJU2X+/l9J2erTR1rOU377PLnsJGBR0mEVQ++HLX7vqf5NMv23yOjSIAfZ+g
-         d9jbxLmf4ig68pMBNGxGd2x/+2QdXHBiS9pqXHxT01YDINv5N48AcmFQogkdsgBBVGJN
-         lR9A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784385975; x=1784990775;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=VapJVpk7Upuq/4IsumhznTZhjSgCFeW/dRXr+/nOOSk=;
-        b=iFCRJJtvr5XcxBPR5t68UlnL+QuwFXomRq9y/oWNqwc83umXsjSodmSsfpPYnnS5fx
-         M9jQl0tVjwAyFfr8F569gBz0JZQ4lrKqutBGNHuQnveAPNvY7H5Z/0h1/4GRf9I+ynQA
-         Fec/gSKx+V1a9tENxjchtX8MXY7HVU2ZiRIMoMRrPFn7z/t+AQgCREWWWeHqfECjZtg1
-         i0uhnANefAZncK76muLdL6cYASGGrDIVaVJrnxRBJ8zCxHIE3RbebztCzPd+vCSLmGAZ
-         F288qXcTcOd04PclSY1AHpNG9UQIifK/DznH5Lz+WeQyD5S505j/Oly0OorUzha0FD5t
-         rpmg==
-X-Forwarded-Encrypted: i=1; AHgh+RrwGsoPuG64AnmUMjBwjLeCerVwZ74KfOaLdH0nG5hLc0UPV1h2nLBZxUy2NtmT543cJmQmEJtZNUYQCLu5Kt+4@lists.infradead.org
-X-Gm-Message-State: AOJu0YwiTWrfdnOsAAuzVW+OHD3bp30y0MEctS9Se6iXSvCWecfUgGyh
-	7gm1mtZOFuvrOjRPIkLVkenaLiH61rWbEOmgJzzFSzm7qUzATnfQvuJ2
-X-Gm-Gg: AfdE7cn5NPAwLNxZ/Uc4PLCBoxn8mCBtw+gdCka2L98l19gvWNDy7NjXKY280e97RoU
-	llxaLcePdiDXSykZgIXk0FrdxdpE5cjysuaWFeDVi2vw6MWWQgivLhl0w7rXLR36lhr7HHotm2w
-	VA8NEvQ87wQ9jLu5nS9jWUW4hi0b1RJGvd70B58dY85341lhFDlo9LnMENKVNc7DlQ5Oy4AN/pi
-	8m9D8uzcxQEpQnq2T2mBhEJ63fDYk882VZ3RGjEZlhpDXiTcBDpRy+SaG3WvrRYqWp0rUWp+RT2
-	a5QIhUWkktBEUK7tn6SewUw/VmVJ6+uYsFlARlDDeHlqlsSTfIlj1iD76nohwl016j0a2Z5kmJV
-	8DDuPEflQX5jkknu8ictYUiJ9GfTSV+ydApqEWKkbWQo5IXbjOK9oKFiKxiSLAIdvMlWcLMWiOn
-	dN4rUqZrwrLK73KtMuEgT0ULKSLe0y2wxb1yplqtrkvX/QY605kD2vhQ==
-X-Received: by 2002:a05:620a:400a:b0:92e:e252:bb43 with SMTP id af79cd13be357-930b4381a6dmr700628485a.77.1784385975182;
-        Sat, 18 Jul 2026 07:46:15 -0700 (PDT)
-Received: from AMD.home.internal (dhcp-9-244-8-156.gobrightspeed.net. [9.244.8.156])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-930b545ec44sm418682185a.34.2026.07.18.07.46.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 18 Jul 2026 07:46:14 -0700 (PDT)
-From: Enzo Adriano <enzo.adriano.code@gmail.com>
-To: Junhui Liu <junhui.liu@pigmoral.tech>
-Cc: Andre Przywara <andre.przywara@arm.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH v2 3/8] clk: sunxi-ng: a733: Add PRCM CCU
-Date: Sat, 18 Jul 2026 10:46:11 -0400
-Message-ID: <20260718144611.1523567-1-enzo.adriano.code@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260711-a733-clk-v2-3-974d188cbe0c@pigmoral.tech>
-References: <20260711-a733-clk-v2-0-974d188cbe0c@pigmoral.tech> <20260711-a733-clk-v2-3-974d188cbe0c@pigmoral.tech>
+	id 1wl6T6-00000004C0k-1FDl;
+	Sat, 18 Jul 2026 14:56:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1784386600;
+	bh=LKs2RiOPdG74pFGp0r9TLdRwYZYM+8e0AGESKFmQTCg=;
+	h=Subject:From:To:Date:In-Reply-To:References:From;
+	b=S0GsWdsgyMCyLvnFVNPDKVdpoqhZAQwPMfMsjqs9COYNqLaG9AssULlErRoBJGxhS
+	 jit0rkTF/XnPbQYsxu4BsGtNwNOd//9N3+oYk6Ukj68Pz5nQ8i7MtzK3vGhGknPzX7
+	 jILuftE8/j9F4HPqwdEKBoaeYO73wbIuJ7mPixkw8f1V+++nBPNPrLjmIFj0ZeDVll
+	 5q6hIdSCfY7jELoE4G5rM5TAxMVUnAgsCR08PjaZ9Xs5k1zi0+5gD81J+qElwzP79h
+	 2fDZrUL22DHhdQaDgnOsb/pAWU4Bq22nWucoa1UANUQ1Nsr0Z5Fu0N2f8VGMiAVj9V
+	 NllbABsAf5/LQ==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5409917E0564;
+	Sat, 18 Jul 2026 16:56:39 +0200 (CEST)
+Message-ID: <f60f255b81db1db310276a1acdca412f6070a28b.camel@collabora.com>
+Subject: Re: [PATCH v2] media: mtk-jpeg: drain hardware completion before
+ freeing context
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Guangshuo Li <lgs201920130244@gmail.com>, Bin Liu
+ <bin.liu@mediatek.com>,  Mauro Carvalho Chehab	 <mchehab@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,  AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>, Hans Verkuil
+ <hverkuil+cisco@kernel.org>, Fan Wu	 <fanwu01@zju.edu.cn>,
+ linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Date: Sat, 18 Jul 2026 10:56:37 -0400
+In-Reply-To: <20260718112448.3289122-1-lgs201920130244@gmail.com>
+References: <20260718112448.3289122-1-lgs201920130244@gmail.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-0dO7DanIzYXmfAeHXFYB"
+User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260718_074619_645081_036B9B24 
-X-CRM114-Status: UNSURE (   8.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260718_075644_657972_3B7D51A4 
+X-CRM114-Status: GOOD (  26.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,28 +92,327 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Junhui,
 
-I re-reviewed patch 3 in v2 after Andre pointed out that my RFC reply lacked
-a formal tag.
+--=-0dO7DanIzYXmfAeHXFYB
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-I compared the RFC and v2 PRCM drivers and rechecked v2 against the Allwinner
-A733 User Manual V0.92, chapter 4.2.5. I checked all 11 programmable clock
-definitions (register offsets and divider/mux/gate fields), all 18 bus-gate
-definitions, and all 13 reset-map entries. They match the manual.
+Le samedi 18 juillet 2026 =C3=A0 19:24 +0800, Guangshuo Li a =C3=A9crit=C2=
+=A0:
+> The change referenced by the Fixes tag cancels ctx->jpeg_work before
+> freeing the JPEG context.
+>=20
+> That prevents the worker itself from accessing the context after it has
+> been freed. However, the multi-core workers return after programming a
+> hardware instance. The IRQ handler or the per-hardware timeout work can
+> then continue to access the context through hw_param.curr_ctx after the
+> worker has completed.
+>=20
+> If userspace closes the file while a hardware job is still pending,
+> cancel_work_sync() can return and mtk_jpeg_release() can free the
+> context before the IRQ or timeout path has finished using it.
+>=20
+> Track the number of in-flight hardware jobs for each context and wait
+> for them to complete in mtk_jpeg_release().
+>=20
+> Use a per-hardware active flag to ensure that only the IRQ handler or
+> the timeout work completes each job. Clear hw_param.curr_ctx and drop
+> the in-flight count only after the completion path has finished all
+> accesses to the context.
+>=20
+> Fixes: 34c519feef3e ("media: mtk-jpeg: fix use-after-free in release path=
+ due to uncancelled work")
+> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+> ---
+> v2:
+> =C2=A0 - Replace the undefined mtk_jpeg_release_hw() call with per-contex=
+t
+> =C2=A0=C2=A0=C2=A0 in-flight hardware job tracking.
+> =C2=A0 - Ensure that only the IRQ or timeout path completes each hardware=
+ job.
+> =C2=A0 - Clear hw_param.curr_ctx after the completion path stops using th=
+e
+> =C2=A0=C2=A0=C2=A0 context.
+> =C2=A0 - Keep hardware instances busy until the timeout path has finished
+> =C2=A0=C2=A0=C2=A0 accessing their saved context and buffers.
+>=20
+> =C2=A0.../platform/mediatek/jpeg/mtk_jpeg_core.c=C2=A0=C2=A0=C2=A0 | 12 +=
++++++++-
+> =C2=A0.../platform/mediatek/jpeg/mtk_jpeg_core.h=C2=A0=C2=A0=C2=A0 | 14 +=
+++++++++++
+> =C2=A0.../platform/mediatek/jpeg/mtk_jpeg_dec_hw.c=C2=A0 | 25 +++++++++++=
+++------
+> =C2=A0.../platform/mediatek/jpeg/mtk_jpeg_enc_hw.c=C2=A0 | 25 +++++++++++=
+++------
+> =C2=A04 files changed, 61 insertions(+), 15 deletions(-)
+>=20
+> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drive=
+rs/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> index d147ec483081..d41c0e0516b9 100644
+> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> @@ -1161,6 +1161,8 @@ static int mtk_jpeg_open(struct file *file)
+> =C2=A0	}
+> =C2=A0
+> =C2=A0	INIT_WORK(&ctx->jpeg_work, jpeg->variant->jpeg_worker);
+> +	atomic_set(&ctx->hw_jobs, 0);
+> +	init_waitqueue_head(&ctx->hw_jobs_wq);
+> =C2=A0	INIT_LIST_HEAD(&ctx->dst_done_queue);
+> =C2=A0	spin_lock_init(&ctx->done_queue_lock);
+> =C2=A0	v4l2_fh_init(&ctx->fh, vfd);
+> @@ -1202,8 +1204,12 @@ static int mtk_jpeg_release(struct file *file)
+> =C2=A0	struct mtk_jpeg_dev *jpeg =3D video_drvdata(file);
+> =C2=A0	struct mtk_jpeg_ctx *ctx =3D mtk_jpeg_file_to_ctx(file);
+> =C2=A0
+> -	if (jpeg->variant->jpeg_worker)
+> +	if (jpeg->variant->jpeg_worker) {
+> =C2=A0		cancel_work_sync(&ctx->jpeg_work);
+> +		wait_event(ctx->hw_jobs_wq,
+> +			=C2=A0=C2=A0 atomic_read(&ctx->hw_jobs) =3D=3D 0);
+> +	}
+> +
+> =C2=A0	mutex_lock(&jpeg->lock);
+> =C2=A0	v4l2_m2m_ctx_release(ctx->fh.m2m_ctx);
 
-The RFC-to-v2 changes do not invalidate that check: the four R timer clocks
-move from the MP helper with no M field to the P-only helper while keeping
-their offsets and P/mux/gate fields unchanged, and the R PWM identifiers are
-renamed while keeping their offset/mux/gate fields unchanged. I also checked
-the gate-only BGRs for R-TWD, R-PPU, R-TZMA, and R-CPU-BIST; the manual defines
-gate bit 0 but no reset bit for those registers, matching v2.
+The things is that we already paid the price of this complexity in the m2m
+framework by synchronously waiting for the last v4l2_m2m_job_finish() to be
+called from the driver. I think we should not add a mechanism on top, but r=
+ather
+figure-out why this is not working for your usage of this driver.
 
-Reviewed-by: Enzo Adriano <enzo.adriano.code@gmail.com>
+Nicolas
 
-This analysis was done with AI assistance and each finding was checked against
-the cited sources.
+> =C2=A0	v4l2_ctrl_handler_free(&ctx->ctrl_hdl);
+> @@ -1640,6 +1646,8 @@ static void mtk_jpegenc_worker(struct work_struct *=
+work)
+> =C2=A0	v4l2_m2m_src_buf_remove(ctx->fh.m2m_ctx);
+> =C2=A0	v4l2_m2m_dst_buf_remove(ctx->fh.m2m_ctx);
+> =C2=A0
+> +	atomic_inc(&ctx->hw_jobs);
+> +	atomic_set_release(&comp_jpeg[hw_id]->hw_param.job_active, 1);
+> =C2=A0	schedule_delayed_work(&comp_jpeg[hw_id]->job_timeout_work,
+> =C2=A0			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 msecs_to_jiffies(MTK_JPEG_HW_TIME=
+OUT_MSEC));
+> =C2=A0
+> @@ -1759,6 +1767,8 @@ static void mtk_jpegdec_worker(struct work_struct *=
+work)
+> =C2=A0		goto setdst_end;
+> =C2=A0	}
+> =C2=A0
+> +	atomic_inc(&ctx->hw_jobs);
+> +	atomic_set_release(&comp_jpeg[hw_id]->hw_param.job_active, 1);
+> =C2=A0	schedule_delayed_work(&comp_jpeg[hw_id]->job_timeout_work,
+> =C2=A0			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 msecs_to_jiffies(MTK_JPEG_HW_TIME=
+OUT_MSEC));
+> =C2=A0
+> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h b/drive=
+rs/media/platform/mediatek/jpeg/mtk_jpeg_core.h
+> index 02ed0ed5b736..be8ada60782a 100644
+> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
+> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
+> @@ -103,6 +103,7 @@ struct mtk_jpeg_hw_param {
+> =C2=A0	struct vb2_v4l2_buffer *src_buffer;
+> =C2=A0	struct vb2_v4l2_buffer *dst_buffer;
+> =C2=A0	struct mtk_jpeg_ctx *curr_ctx;
+> +	atomic_t job_active;
+> =C2=A0};
+> =C2=A0
+> =C2=A0enum mtk_jpegenc_hw_id {
+> @@ -282,6 +283,8 @@ struct mtk_jpeg_q_data {
+> =C2=A0 * @restart_interval:		jpeg encoder restart interval
+> =C2=A0 * @ctrl_hdl:			controls handler
+> =C2=A0 * @jpeg_work:			jpeg encoder workqueue
+> + * @hw_jobs:			number of hardware jobs still referencing this context
+> + * @hw_jobs_wq:			wait queue for hardware job completion
+> =C2=A0 * @total_frame_num:		encoded frame number
+> =C2=A0 * @dst_done_queue:		encoded frame buffer queue
+> =C2=A0 * @done_queue_lock:		encoded frame operation spinlock
+> @@ -299,6 +302,8 @@ struct mtk_jpeg_ctx {
+> =C2=A0	struct v4l2_ctrl_handler ctrl_hdl;
+> =C2=A0
+> =C2=A0	struct work_struct jpeg_work;
+> +	atomic_t hw_jobs;
+> +	wait_queue_head_t hw_jobs_wq;
+> =C2=A0	u32 total_frame_num;
+> =C2=A0	struct list_head dst_done_queue;
+> =C2=A0	/* spinlock protecting the encode done buffer */
+> @@ -306,4 +311,13 @@ struct mtk_jpeg_ctx {
+> =C2=A0	u32 last_done_frame_num;
+> =C2=A0};
+> =C2=A0
+> +static inline void
+> +mtk_jpeg_hw_job_done(struct mtk_jpeg_hw_param *hw_param,
+> +		=C2=A0=C2=A0=C2=A0=C2=A0 struct mtk_jpeg_ctx *ctx)
+> +{
+> +	WRITE_ONCE(hw_param->curr_ctx, NULL);
+> +	if (atomic_dec_and_test(&ctx->hw_jobs))
+> +		wake_up(&ctx->hw_jobs_wq);
+> +}
+> +
+> =C2=A0#endif /* _MTK_JPEG_CORE_H */
+> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c b/dri=
+vers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
+> index 32372781daf5..c2d40653891a 100644
+> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
+> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
+> @@ -527,7 +527,12 @@ static void mtk_jpegdec_timeout_work(struct work_str=
+uct *work)
+> =C2=A0			=C2=A0=C2=A0=C2=A0=C2=A0 job_timeout_work.work);
+> =C2=A0	struct mtk_jpeg_dev *master_jpeg =3D cjpeg->master_dev;
+> =C2=A0	struct vb2_v4l2_buffer *src_buf, *dst_buf;
+> +	struct mtk_jpeg_ctx *ctx;
+> +
+> +	if (atomic_cmpxchg(&cjpeg->hw_param.job_active, 1, 0) !=3D 1)
+> +		return;
+> =C2=A0
+> +	ctx =3D cjpeg->hw_param.curr_ctx;
+> =C2=A0	src_buf =3D cjpeg->hw_param.src_buffer;
+> =C2=A0	dst_buf =3D cjpeg->hw_param.dst_buffer;
+> =C2=A0	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf);
+> @@ -535,11 +540,13 @@ static void mtk_jpegdec_timeout_work(struct work_st=
+ruct *work)
+> =C2=A0	mtk_jpeg_dec_reset(cjpeg->reg_base);
+> =C2=A0	clk_disable_unprepare(cjpeg->jdec_clk.clks->clk);
+> =C2=A0	pm_runtime_put(cjpeg->dev);
+> +	v4l2_m2m_buf_done(src_buf, buf_state);
+> +	mtk_jpegdec_put_buf(cjpeg);
+> +	mtk_jpeg_hw_job_done(&cjpeg->hw_param, ctx);
+> +
+> =C2=A0	cjpeg->hw_state =3D MTK_JPEG_HW_IDLE;
+> =C2=A0	atomic_inc(&master_jpeg->hw_rdy);
+> =C2=A0	wake_up(&master_jpeg->hw_wq);
+> -	v4l2_m2m_buf_done(src_buf, buf_state);
+> -	mtk_jpegdec_put_buf(cjpeg);
+> =C2=A0}
+> =C2=A0
+> =C2=A0static irqreturn_t mtk_jpegdec_hw_irq_handler(int irq, void *priv)
+> @@ -555,12 +562,10 @@ static irqreturn_t mtk_jpegdec_hw_irq_handler(int i=
+rq, void *priv)
+> =C2=A0	struct mtk_jpegdec_comp_dev *jpeg =3D priv;
+> =C2=A0	struct mtk_jpeg_dev *master_jpeg =3D jpeg->master_dev;
+> =C2=A0
+> -	cancel_delayed_work(&jpeg->job_timeout_work);
+> +	if (atomic_cmpxchg(&jpeg->hw_param.job_active, 1, 0) !=3D 1)
+> +		return IRQ_HANDLED;
+> =C2=A0
+> -	ctx =3D jpeg->hw_param.curr_ctx;
+> -	src_buf =3D jpeg->hw_param.src_buffer;
+> -	dst_buf =3D jpeg->hw_param.dst_buffer;
+> -	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf);
+> +	cancel_delayed_work(&jpeg->job_timeout_work);
+> =C2=A0
+> =C2=A0	irq_status =3D mtk_jpeg_dec_get_int_status(jpeg->reg_base);
+> =C2=A0	dec_irq_ret =3D mtk_jpeg_dec_enum_result(irq_status);
+> @@ -570,6 +575,11 @@ static irqreturn_t mtk_jpegdec_hw_irq_handler(int ir=
+q, void *priv)
+> =C2=A0	if (dec_irq_ret !=3D MTK_JPEG_DEC_RESULT_EOF_DONE)
+> =C2=A0		dev_warn(jpeg->dev, "Jpg Dec occurs unknown Err.");
+> =C2=A0
+> +	ctx =3D jpeg->hw_param.curr_ctx;
+> +	src_buf =3D jpeg->hw_param.src_buffer;
+> +	dst_buf =3D jpeg->hw_param.dst_buffer;
+> +	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf);
+> +
+> =C2=A0	jpeg_src_buf =3D
+> =C2=A0		container_of(src_buf, struct mtk_jpeg_src_buf, b);
+> =C2=A0
+> @@ -582,6 +592,7 @@ static irqreturn_t mtk_jpegdec_hw_irq_handler(int irq=
+, void *priv)
+> =C2=A0	mtk_jpegdec_put_buf(jpeg);
+> =C2=A0	pm_runtime_put(ctx->jpeg->dev);
+> =C2=A0	clk_disable_unprepare(jpeg->jdec_clk.clks->clk);
+> +	mtk_jpeg_hw_job_done(&jpeg->hw_param, ctx);
+> =C2=A0
+> =C2=A0	jpeg->hw_state =3D MTK_JPEG_HW_IDLE;
+> =C2=A0	wake_up(&master_jpeg->hw_wq);
+> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c b/dri=
+vers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
+> index b312a15d707b..b08f94845613 100644
+> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
+> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
+> @@ -257,7 +257,12 @@ static void mtk_jpegenc_timeout_work(struct work_str=
+uct *work)
+> =C2=A0	struct mtk_jpeg_dev *master_jpeg =3D cjpeg->master_dev;
+> =C2=A0	enum vb2_buffer_state buf_state =3D VB2_BUF_STATE_ERROR;
+> =C2=A0	struct vb2_v4l2_buffer *src_buf, *dst_buf;
+> +	struct mtk_jpeg_ctx *ctx;
+> +
+> +	if (atomic_cmpxchg(&cjpeg->hw_param.job_active, 1, 0) !=3D 1)
+> +		return;
+> =C2=A0
+> +	ctx =3D cjpeg->hw_param.curr_ctx;
+> =C2=A0	src_buf =3D cjpeg->hw_param.src_buffer;
+> =C2=A0	dst_buf =3D cjpeg->hw_param.dst_buffer;
+> =C2=A0	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf);
+> @@ -265,11 +270,13 @@ static void mtk_jpegenc_timeout_work(struct work_st=
+ruct *work)
+> =C2=A0	mtk_jpeg_enc_reset(cjpeg->reg_base);
+> =C2=A0	clk_disable_unprepare(cjpeg->venc_clk.clks->clk);
+> =C2=A0	pm_runtime_put(cjpeg->dev);
+> +	v4l2_m2m_buf_done(src_buf, buf_state);
+> +	mtk_jpegenc_put_buf(cjpeg);
+> +	mtk_jpeg_hw_job_done(&cjpeg->hw_param, ctx);
+> +
+> =C2=A0	cjpeg->hw_state =3D MTK_JPEG_HW_IDLE;
+> =C2=A0	atomic_inc(&master_jpeg->hw_rdy);
+> =C2=A0	wake_up(&master_jpeg->hw_wq);
+> -	v4l2_m2m_buf_done(src_buf, buf_state);
+> -	mtk_jpegenc_put_buf(cjpeg);
+> =C2=A0}
+> =C2=A0
+> =C2=A0static irqreturn_t mtk_jpegenc_hw_irq_handler(int irq, void *priv)
+> @@ -283,12 +290,10 @@ static irqreturn_t mtk_jpegenc_hw_irq_handler(int i=
+rq, void *priv)
+> =C2=A0	struct mtk_jpegenc_comp_dev *jpeg =3D priv;
+> =C2=A0	struct mtk_jpeg_dev *master_jpeg =3D jpeg->master_dev;
+> =C2=A0
+> -	cancel_delayed_work(&jpeg->job_timeout_work);
+> +	if (atomic_cmpxchg(&jpeg->hw_param.job_active, 1, 0) !=3D 1)
+> +		return IRQ_HANDLED;
+> =C2=A0
+> -	ctx =3D jpeg->hw_param.curr_ctx;
+> -	src_buf =3D jpeg->hw_param.src_buffer;
+> -	dst_buf =3D jpeg->hw_param.dst_buffer;
+> -	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf);
+> +	cancel_delayed_work(&jpeg->job_timeout_work);
+> =C2=A0
+> =C2=A0	irq_status =3D readl(jpeg->reg_base + JPEG_ENC_INT_STS) &
+> =C2=A0		JPEG_ENC_INT_STATUS_MASK_ALLIRQ;
+> @@ -297,6 +302,11 @@ static irqreturn_t mtk_jpegenc_hw_irq_handler(int ir=
+q, void *priv)
+> =C2=A0	if (!(irq_status & JPEG_ENC_INT_STATUS_DONE))
+> =C2=A0		dev_warn(jpeg->dev, "Jpg Enc occurs unknown Err.");
+> =C2=A0
+> +	ctx =3D jpeg->hw_param.curr_ctx;
+> +	src_buf =3D jpeg->hw_param.src_buffer;
+> +	dst_buf =3D jpeg->hw_param.dst_buffer;
+> +	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf);
+> +
+> =C2=A0	result_size =3D mtk_jpeg_enc_get_file_size(jpeg->reg_base,
+> =C2=A0						 ctx->jpeg->variant->support_34bit);
+> =C2=A0	vb2_set_plane_payload(&dst_buf->vb2_buf, 0, result_size);
+> @@ -305,6 +315,7 @@ static irqreturn_t mtk_jpegenc_hw_irq_handler(int irq=
+, void *priv)
+> =C2=A0	mtk_jpegenc_put_buf(jpeg);
+> =C2=A0	pm_runtime_put(ctx->jpeg->dev);
+> =C2=A0	clk_disable_unprepare(jpeg->venc_clk.clks->clk);
+> +	mtk_jpeg_hw_job_done(&jpeg->hw_param, ctx);
+> =C2=A0
+> =C2=A0	jpeg->hw_state =3D MTK_JPEG_HW_IDLE;
+> =C2=A0	wake_up(&master_jpeg->hw_wq);
 
-Thanks,
-Enzo
+--=-0dO7DanIzYXmfAeHXFYB
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaluUJQAKCRDZQZRRKWBy
+9OfiAP9dS9e9CSZovtBek0vhUMnhqaHhuPmqsAPzZS3/CjgQdAD9GzllYArQQrXZ
+IbvNmGEM7Sck0Vh/95Y1Gahbl+q0oAo=
+=0tOb
+-----END PGP SIGNATURE-----
+
+--=-0dO7DanIzYXmfAeHXFYB--
 
