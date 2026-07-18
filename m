@@ -4,112 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 202F1C4451B
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jul 2026 11:04:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C916C44520
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jul 2026 11:12:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vt2l2OcHA0eMP2cNyDZEsGAIycIWGJ5grI24JGOYQmM=; b=aX+wM3qgtWeIR3w/jRYUJGmDc1
-	UdXxfpbhOrPiPn3co38Ki7+OJBKoHwQMB9bQwTdroaN8TNFsQCSqBgcygWBQ+Ma8RhRkD9xF8owVI
-	4NO7OEm8AOAC5jruXIERcTSXJUdw4TlmcDFWXUEjiICz6s9VeBDCvHmFE1Hm8a1EWGA+iTe4yZ8PI
-	Pi4kBwkekw/BST526v/7zR/RHskqvrQ0gNwZb3kJT7vZvyp8mDQ9N/rSkcJ1wuVblJkdq9qPx3SLR
-	0mg1a+ZuqHySFl8OhwiivusEWoN1d1ub/RdNN1riGCBcwleluLIBIwbPp4eoP0wdd+XB+SjkGU3Wl
-	bUZ5h7Eg==;
+	bh=2jA614hcDkr1x/8k5i0HFdOVHmUkiD3T4/89ZLATA1s=; b=U0XJ7aoddOfm4Qp8t1Aum6Y6pG
+	RRk+bNtWCixwnvAKOAszMuTWbj7OtJycXtiU8HVsIA0rwuy0wNI7LsK8TDwjYawE3QfI53rVNNbOg
+	4n36X0L1PBhjUgGZlxl8KZ0VdUY82VsBLguUG7nwPj4/k8NpxJPpOxXm7bZrHDMiWGe6T0PUv5NmS
+	H/zWVeTVlNQ+mcWgc2fiflTNxi/1gJUVL+COBiFzVIeSBZh1H/cZnvBMEien0wZJAbsXRUiyFnETX
+	7t5JSGHdY17WmzfEEDhHjr0jU0ow+HgGt48FFuI9nYSc814k6GyYIxCA2PNrHI405hUb8TVkf3vn9
+	XPf2mh6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wl2qf-000000041rV-10Um;
-	Sat, 18 Jul 2026 11:04:49 +0000
+	id 1wl2yG-000000042Hu-3mmd;
+	Sat, 18 Jul 2026 11:12:41 +0000
 Received: from mail-yx1-xb133.google.com ([2607:f8b0:4864:20::b133])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wl2qc-000000041qd-0Vxt
+	id 1wl2yE-000000042HB-2XYe
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Jul 2026 11:04:47 +0000
-Received: by mail-yx1-xb133.google.com with SMTP id 956f58d0204a3-667b9bee563so1048823d50.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 18 Jul 2026 04:04:45 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1784372685; cv=none;
+	Sat, 18 Jul 2026 11:12:39 +0000
+Received: by mail-yx1-xb133.google.com with SMTP id 956f58d0204a3-664a5193741so1082409d50.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 18 Jul 2026 04:12:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1784373157; cv=none;
         d=google.com; s=arc-20260327;
-        b=nwbvQF6emZzDtLUj7UZu+GNJkGV7pWgef6fheNL4vRq9zx9qlj3YURhCqn7/W0R08x
-         ee4pwM5qDAFTfUR0EDs7nuYUur606SKNN8YUdvVTHuWprHzxMmxVCamYmj64anjljXxQ
-         6LePizfIFDQYTugjbWo8jUKs7OX1IWJvop1LFAWRhyQ2NO3bWq7JY41iFTWeVhSrRvMQ
-         yxAAieAOEifvrVmzB6MSKwRw9ZEFIMLDGbROVYctkVx8jOGv87Cvwt+XBXnbJr1u5sLl
-         I1VpIZEjqMlkWYp5ObZM6fjEZwsinf4HMVc6blvjcDZ4SAXKg5ELNZ/gm3nDtVhVz41D
-         R0sQ==
+        b=dFxsLkC4No5H+QDxmTSHxrt14bhAkUZHdJDd2+4UP4SmKaJ3da0jlQwlPgvPPl6ejr
+         ScjtYvPjfIvXjnB/UQqkNU38Ld30gvRNog/SDxKwafwuP7ax0nrFBaj+4WdFl+54xgC7
+         RETi8SatuBbqhShOtCL6/00opWjfqzwSC3YtwTCK5IXRgHJCrKeQYAoAIOhFlGwiEInC
+         Sc4sy4GLwts9YCW4TSs1rrg4wcpGiOf/Ek830YrtU/T+xgb1hwoGWtdLriNcibv9p9fz
+         LLEM4t6Pt+Lotnf52uJdjE5QlgDVv27GnSocjcz6fO711/wjTnCP1p+bF2l0gLVeoVhf
+         ZFhA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=vt2l2OcHA0eMP2cNyDZEsGAIycIWGJ5grI24JGOYQmM=;
-        fh=cBarEbAuyQGkUw9GMmWbw7y73BPdRQKSow6MZRE4qa8=;
-        b=fmlpOsdTUAA3ujd5eE6DtrG+RCOh+H7sN8UhJ8KMQlbBi31+jfXFUOAmaXDJC3qEUp
-         RIG1rT8lMn52KsvloPQOEVlbt8j2Xsw9iiZDKAu9/PGh7D/dGEJW9I2PSM7vKz2MpgcH
-         7d3IpHFiPOcy6uAFfuqdiiZqx9tr83I+zMTtxlRbEdHoLU3/WDTW4eSstBXRq7PWujRZ
-         OvGXXMOXfTgrs9Zr3R9Goc/YB8aVyKjyAJZwt6lMh67U2AlhcW3lt5ujvHSLToI4icXT
-         Vi/wsxupQo2rQt1eh/+VTuXXoV6+vQPtKXbfRZjePvXOvLgvaorTi49Oe94qO42ZaHqX
-         mHtw==;
+        bh=2jA614hcDkr1x/8k5i0HFdOVHmUkiD3T4/89ZLATA1s=;
+        fh=JQBbuKlqSfG0MsfGNmOMKLGqUO9jvocSuEtNi+SUr2s=;
+        b=hxnnsResNI/9sROhzY1lsx84mtwRUOuMS0Zssft0JTVXqfU/4/RQ20uIfKPWXfXF17
+         pq4CT3RiWZVRkm0dhEG2NIP4PT0CBw6+YrHh2HZeQzOghtXbqQoLau53lpe1t7tGArPK
+         YQ8t7cd56vjzwURaz+KqUbg1QCGyxx3rsVMWufAoPHakJLd90WXuFs0y+eyR5XL3533A
+         2+VJjeRQku7kpnJG40FENIn5JMvB0ENgzXXJGfQmp3iUn51Z7uPwpakZmLYipK8Ab9Cg
+         L+knCBYCktkIOLyHnztyZkj6GqpA+4n1DtoV+x37bFZG26eXO2GMP1IrYxCUGNuTaOK4
+         gwUQ==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784372685; x=1784977485; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1784373157; x=1784977957; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=vt2l2OcHA0eMP2cNyDZEsGAIycIWGJ5grI24JGOYQmM=;
-        b=oF0X/cmmkoQb15KtQwj1RKglLEW7+5g9UEqqTY+pWt6MCTBRQlTelS/e2JgQ4hBbrE
-         dCJ5cQkPUdoeTI8F35p+KdgVaEprz++nerP4wfG3VeTpD41gDGFEqChj0vy1NbiVFpB3
-         RRK+BdbYL1CNnCCZlXmswY+fY+cQb6d84xMiHTMCIiWlP/PmuCI4nBJ26RUrxIDZk8WR
-         TjwNaeg8E2EBqS/mZBB9HWKJ2XxX5jHpymATb47vbWLgrj5WgDpqH+DfcMe2mU9Bp6gR
-         lmiVvU/ryEJu1V/JXMPFTOnE3Wv9qQMoVLZQQ8b8agoy/09e7u2VgHgNxgtq6XrQ+Si7
-         WWug==
+        bh=2jA614hcDkr1x/8k5i0HFdOVHmUkiD3T4/89ZLATA1s=;
+        b=C42LVnWi8EFquOvmePh7arFM8FFwiA9/tTcPhsdKI/u1awfmFbjK3mKDzBzzqCoy0C
+         ThgEeIdlQ9e4HEGdmB0NRQ7lnYFyBRwL7Fh2qeu79Iv4g/cgupCKW/sRqLos+Dr/1+U7
+         FmKUAaim+Wxq80mKxlNqbcgCWFsb4xUIgTRavNTGn0Q32Hp18Au+k0HMzV5YzwT/Y16N
+         mUXBjtiUSdraLoPxt6UmZy6bl+aDL5w27h9MgGmTHHDrcqqLe9JUcOf5NZ3SR2FUONMZ
+         qVnpYkvTpROE3ncZz1Qb2APITkLTw2P304uCRlqWdtbPT5mp3z92yClt+MPneIeuJaHl
+         lihA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784372685; x=1784977485;
+        d=1e100.net; s=20251104; t=1784373157; x=1784977957;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=vt2l2OcHA0eMP2cNyDZEsGAIycIWGJ5grI24JGOYQmM=;
-        b=SLIlyv6TjufD2O3RANVr2AHYFJP07E91ww63SxTjHLAPp0FFHkc9a0LXmsXtdzEyY2
-         sQwP/RTsXxukFf2nCWEeIqXvCgHTO2/XaZ4qWggrBnQ9u+1ESatWTZsy86Nu8qjkWU0Z
-         xkTB8NJge6Nvw1nxD9rkgme2Gom7RzrINeSyjmCptnB2m8UtvjYNscJeiOa5mmqzoyq2
-         Dmh8BZh4FXyIMxTJjyVcmAald4SNzyewBZIiXSK7sadrCCvK3k30+swGL2VXtcrBrAXK
-         DtNeBveIDH6YRf4wgDFqWEPuGb9iFUIPUouga/3DxYXdkV+jBsYE8XOwq7G2lIBn29pE
-         uxDw==
-X-Forwarded-Encrypted: i=1; AHgh+RqU906PEL6QMoShKB9lR0BFaFLJ7XeKwkjVGNuK/ouqkbrmmeBjoDNV92Gic4lBB3rBnanB7uurZdzyWM2kSTLF@lists.infradead.org
-X-Gm-Message-State: AOJu0YwUkiLG4r/v1gb3boPuSNo46FP3J3x7VLDV82mDQkfwRn/cuDq/
-	uUgfIdSuppz/0efTR/6CMSht3MIfWuUHYlWu2mnwmSbW48ydTCrNJICXMCMV4lFOUPcq6AXa2Gm
-	Lr2Ow5A/CU9vfPqmW1YqkkXoLeuDRsWY=
-X-Gm-Gg: AfdE7ckvmW4+sJlzmZdQksyMzwDr5Qi9e7n2jTvzb+nkjqf2vRvGyaDj8wdntONshmU
-	uJD//j+bKXDRpWzqozZznGjvUWfQnkiZm5dc45BnkSEw4+8Vggi2jrfDorOmlf9fqYpH8ScEREa
-	t1bUp1zbjW+Wy7H1fCH9Dg3Jw+VsIAsR1gxWfM+95cR4XXT9mvM0/sfM56kADZ6ljwq16dMxDxM
-	MIh6irMw53BUnkSTHpPl2Isjo3onVTms9mFrCBDeEBts24+R4WIpkVrDih29228fetorAau8Uhe
-	LQ48eMY6pUM3OSoaFY+GCYfA+cPU5Q==
-X-Received: by 2002:a53:b19d:0:b0:667:8db0:76a7 with SMTP id
- 956f58d0204a3-6683be700d6mr1278751d50.9.1784372684813; Sat, 18 Jul 2026
- 04:04:44 -0700 (PDT)
+        bh=2jA614hcDkr1x/8k5i0HFdOVHmUkiD3T4/89ZLATA1s=;
+        b=oZiCdFqmL1NoypngQXr84iHB6lJgXFiNpqp2+hsoejEle7xtmH0fPGTy110cf90yJJ
+         VP/D+VzpEoS9K0CfvnPIcgKrxpy22+EOu/F9PGzCGkCkdw/nQGjVO6rBsC6yDwjJCnPv
+         ejeNpiT/Ed97VpjX3ydAt6SzvigDwjkwJypx3sAw5iVOVqSj1ylOmYoX2FQfGevlZ794
+         iS0HmjcGVl+IPN9lg4cuE3ZqRhilvs/Ii87vrxJ3lLmNainR6dMCwCT63BD8VFTc/V1p
+         W+JIuEblCQxnbMeT5OnvKm7X93hPpdPFYMqwjYrkSL3ZnMZ10jA51GymuxaHdny0vRbj
+         t4tg==
+X-Forwarded-Encrypted: i=1; AHgh+RrK6mQfaJ1gWkjAHR+s++GuqKCDRbmkX1EiXCFCFr8gFrJ7+fZ0H/zmHzXlPBuCTPdlevL9XbTpNab+oxqf6nvQ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzl8YyLZSE367McV5Zd2eoOr+pqjgg+0t+hNQHpJkmb+qEErGHd
+	lmeo7Lv6QIRz0IwCVeOmGQYF+pTzhlwV8imYDDsmXfOKG5Yro+tA+9tvN4tQ9EvAXE3zHL+wccN
+	HPCIWyOXpvd/b/9nPGY9mUM0LphPdF54=
+X-Gm-Gg: AfdE7cnKFkpIimIcXkvd4FLY94oP2AJwI1oTZLDnPCuKPcyFatCysIb+eoUdqrSi3zt
+	gSM3jc7j0NVmNDDso5ikV4sypUdtsWVamwLt7OmCmguxCk9oiWqrWkqtacw5bLEvwyHVjdXosXw
+	7riI17dCkn7G2czQXAMoRuDOR+9JUFPESFq9k1sZfKmMuB2E7p3q0dBNMixuto9i3nlLssCnnSV
+	qbQ4XewgcgMJF+ZD2fzx1rcTB3hDuqXPsmL+AJqz3jx4waUTXxnZzdHGKGUfLKQcLUtgg4TVv7m
+	Gj1ezQPZc1EcTajRERM=
+X-Received: by 2002:a05:690e:4009:b0:668:3d3e:17ce with SMTP id
+ 956f58d0204a3-6683d3e1caamr1668547d50.4.1784373157564; Sat, 18 Jul 2026
+ 04:12:37 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260718085728.6797-1-royalnet026@gmail.com> <20260718085728.6797-5-royalnet026@gmail.com>
- <20260718091200.65AE21F000E9@smtp.kernel.org>
-In-Reply-To: <20260718091200.65AE21F000E9@smtp.kernel.org>
+References: <20260718085728.6797-1-royalnet026@gmail.com> <20260718085728.6797-4-royalnet026@gmail.com>
+In-Reply-To: <20260718085728.6797-4-royalnet026@gmail.com>
 From: Igor Paunovic <royalnet026@gmail.com>
-Date: Sat, 18 Jul 2026 13:04:33 +0200
-X-Gm-Features: AUfX_mzv1PFiBSswpTxs5ztrtbcERZseF6OCGF3wFsdhSvoLcm5qvDBSH066Hi4
-Message-ID: <CAEWPSH7CMoQB=ypHQvrV058VxpX_+Wdfthb9SJrHczVPZKqmcQ@mail.gmail.com>
-Subject: Re: [PATCH v3 4/4] arm64: dts: rockchip: enable HDMI RX audio capture
- on Orange Pi 5 Plus
-To: sashiko-reviews@lists.linux.dev, 
-	Dmitry Osipenko <dmitry.osipenko@collabora.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Sebastian Reichel <sebastian.reichel@collabora.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
-	linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, kernel@collabora.com, 
+Date: Sat, 18 Jul 2026 13:12:26 +0200
+X-Gm-Features: AUfX_mwGRLq_cQ_8jKTIfqRv7vemDXFXO-Pu9-yMhP9fEm6AWXK5YDte3V2WYyo
+Message-ID: <CAEWPSH7b=KaVhz_Vhyrbj4mM2KANYSEzXPPqNSj1bW0xPLLRGw@mail.gmail.com>
+Subject: Re: [PATCH v3 3/4] arm64: dts: rockchip: add #sound-dai-cells to the
+ RK3588 HDMI receiver
+To: Dmitry Osipenko <dmitry.osipenko@collabora.com>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>
+Cc: Sebastian Reichel <sebastian.reichel@collabora.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	kernel@collabora.com, devicetree@vger.kernel.org, 
 	linux-kernel@vger.kernel.org
-Cc: media-ci@linuxtv.org, conor+dt@kernel.org, devicetree@vger.kernel.org, 
-	robh@kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260718_040446_207596_7551D2E3 
-X-CRM114-Status: GOOD (  27.52  )
+X-CRM114-CacheID: sfid-20260718_041238_679157_76D6E09E 
+X-CRM114-Status: GOOD (  19.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,135 +123,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Does exposing this codec to the ALSA subsystem trigger a suspend
-> regression in the hdmirx driver?
+A testing note for anyone trying this out, found while exercising
+the series today:
 
-Good catch -- this one is real. The audio worker missed the pattern
-the driver already applies to its hotplug and res_change works,
-which hdmirx_disable_irq() cancels on the suspend path. Fixed for
-v4: suspend cancels audio_work before the controller clocks are
-gated, and resume re-arms it when a capture stream is active; the
-worker's FIFO error path then resynchronizes the clock and the FIFO
-on its first run after resume.
+after (re)connecting a source, audio capture currently requires the
+video capture path to have been started once -- a cold
+`arecord -D hw:...` right after plug-in fails with EIO (the I2S
+interface gets no bit clock), while the same command succeeds after
+one video STREAMON/STREAMOFF cycle, and keeps working from then on
+until the source is re-plugged.
 
-> Should swab32() be used here instead to ensure the byte swap happens
-> unconditionally on all architectures?
+Setting DV timings alone is not sufficient; it does take a real
+streaming cycle. So for testing audio, either run a video pipeline
+first (e.g. v4l2src ! fakesink for a second) or capture both, which
+is the normal use case anyway.
 
-Yes -- readl() already abstracts the bus endianness, so what this
-code wants is an unconditional byte reversal, not an endian
-conversion. Switched to swab32() for v4 (no functional change on
-arm64, where this controller lives, but the right primitive
-regardless).
-
-Both changes are in my tree, compile-tested, and will be part of v4
-together with whatever comes out of human review of the series.
+I'm investigating which part of the streaming path opens the audio
+packet flow, and will either fix it in v4 (if it turns out to be a
+missing enable in the audio path) or send it as a follow-up with a
+proper analysis.
 
 Igor
 
-On Sat, Jul 18, 2026 at 11:12=E2=80=AFAM <sashiko-bot@kernel.org> wrote:
+On Sat, Jul 18, 2026 at 10:57=E2=80=AFAM Igor Paunovic <royalnet026@gmail.c=
+om> wrote:
 >
-> Thank you for your contribution! Sashiko AI review found 2 potential issu=
-e(s) to consider:
-> - [High] The audio_work delayed work is not cancelled during system suspe=
-nd, leading to a fatal bus fault.
-> - [Medium] Incorrect use of be32_to_cpu() for unconditional byte swapping=
- breaks audio capture on big-endian architectures.
-> --
+> The Synopsys HDMI RX controller exposes two digital audio interfaces,
+> one for I2S (0) and one for S/PDIF (1). Add the #sound-dai-cells
+> property so audio cards can reference them as a codec, as documented
+> by the snps,dw-hdmi-rx binding.
 >
-> --- Patch [4]: [PATCH v3 4/4] arm64: dts: rockchip: enable HDMI RX audio =
-capture on Orange Pi 5 Plus ---
-> commit 030cd8fd5334b79e1751dec57b1de1f5fa4e3df3
-> Author: Igor Paunovic <royalnet026@gmail.com>
+> Signed-off-by: Igor Paunovic <royalnet026@gmail.com>
+> ---
+> New in v3.
 >
-> arm64: dts: rockchip: enable HDMI RX audio capture on Orange Pi 5 Plus
+>  arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi | 1 +
+>  1 file changed, 1 insertion(+)
 >
-> This patch routes the HDMI receiver audio to the i2s7_8ch interface. It c=
-reates
-> a simple-audio-card configuration to expose a capture-only ALSA card driv=
-en
-> by the HDMI input. The setup uses the receiver as the bitclock and frame =
-master.
->
-> > diff --git a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts b/=
-arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
-> > index 145986695720a..2a68610cddbc3 100644
-> > --- a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
-> > +++ b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
-> > @@ -37,6 +37,22 @@ hdmi1_con_in: endpoint {
-> >               };
-> >       };
-> >
-> > +     hdmiin-sound {
-> > +             compatible =3D "simple-audio-card";
-> > +             simple-audio-card,name =3D "rockchip,hdmiin";
-> > +             simple-audio-card,format =3D "i2s";
-> > +             simple-audio-card,bitclock-master =3D <&hdmiin_codec>;
-> > +             simple-audio-card,frame-master =3D <&hdmiin_codec>;
-> > +
-> > +             simple-audio-card,cpu {
-> > +                     sound-dai =3D <&i2s7_8ch>;
-> > +             };
-> > +
-> > +             hdmiin_codec: simple-audio-card,codec {
-> > +                     sound-dai =3D <&hdmi_receiver 0>;
->
-> [Severity: High]
-> Does exposing this codec to the ALSA subsystem trigger a suspend regressi=
-on in
-> the hdmirx driver?
->
-> Looking at the underlying codec driver hdmirx_suspend() in snps_hdmirx.c:
->
-> drivers/media/platform/synopsys/hdmirx/snps_hdmirx.c:hdmirx_suspend()
-> {
->         struct snps_hdmirx_dev *hdmirx_dev =3D dev_get_drvdata(dev);
->
->         hdmirx_disable_irq(dev);
->
->         /* TODO store CEC HW state */
->         disable_irq(hdmirx_dev->cec->irq);
->
->         return hdmirx_disable(dev);
-> }
->
-> The audio_work delayed work is queued on system_unbound_wq, which is not
-> freezable, but this suspend callback doesn't cancel it.
->
-> If system suspend is initiated while audio capture is active, the worker
-> could fire after clocks are disabled via hdmirx_disable(), resulting in
-> a bus fault when it performs MMIO reads.
->
-> [Severity: Medium]
-> Will this audio capture work correctly on big-endian architectures?
->
-> The underlying hdmirx_audio_fs() driver function uses be32_to_cpu() for a=
-n
-> unconditional byte swap when calculating the ACR subpacket:
->
-> drivers/media/platform/synopsys/hdmirx/snps_hdmirx.c:hdmirx_audio_fs()
-> {
-> ...
->         acr_cts =3D be32_to_cpu((__force __be32)acr_pb3_0) & 0xfffff;
->         acr_n =3D (be32_to_cpu((__force __be32)acr_pb7_4) & 0x0fffff00) >=
-> 8;
-> ...
-> }
->
-> Since be32_to_cpu() behaves as a no-op on big-endian CPUs, the bytes rema=
-in
-> unswapped, causing the bitwise masking to extract the wrong bytes for the
-> ACR CTS and N fields.
->
-> Should swab32() be used here instead to ensure the byte swap happens
-> unconditionally on all architectures?
->
-> > +             };
-> > +     };
-> > +
->
-> [ ... ]
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi b/arch/arm64/=
+boot/dts/rockchip/rk3588-extra.dtsi
+> index a264001..fa100e3 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
+> @@ -338,6 +338,7 @@
+>                 reset-names =3D "axi", "apb", "ref", "biu";
+>                 rockchip,grf =3D <&sys_grf>;
+>                 rockchip,vo1-grf =3D <&vo1_grf>;
+> +               #sound-dai-cells =3D <1>;
+>                 status =3D "disabled";
+>         };
 >
 > --
-> Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/20260718085728.67=
-97-1-royalnet026@gmail.com?part=3D4
+> 2.53.0
+>
 
