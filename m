@@ -4,55 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D119C4451B
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jul 2026 07:48:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E2A9C4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jul 2026 07:50:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kk4t+KKRwZFpcw+1tWwmyImai/c4zSUMD76bk5C8kNI=; b=1MX/Ptt7Y4vy5tGTyQS87tgwFw
-	zj2pegvsZ66RPJewG2xACWCVfZpC47+NYWucgcZywsZ1QvYessLSXJ7RtwR3sGmH3me9rUnM0tQhK
-	3fMTcuPVV+ktuyKLdtbtzqY5uJ/C7BOCXLUpMVRy6mxsB86a+Gt89v/gGH3Hv6jbwj9DFQ9YeUJOe
-	hgM2tyc8Fd9uMGZvX6Ftrw5V8EpNJ272EoNkHWpc1RGPPHDWPU8i8BaypnEuTrLxTmAK+bwodMACj
-	1Z9AqzueiVA2EZlbqKs/DYB5GHUudszcSpQ7M63kGUp4kcJXnhpPM6yHm+OUJwDQuvGYFvm0M+DIe
-	eDrrzXAQ==;
+	bh=AHie92NtWc9kV2QZnhQ58NiM0LWOumFCPzL2zEinWuk=; b=o0Ez0ibroYX+QVPNW7dqubwE6i
+	9oCVkrf8KpzBpSbW237erf/ZtiFHPaV7jJiU6olgeB5WT5ecFxdiH0Cm//OpGe3s5P/tZ2NncbHmP
+	gg1MWXhco2nssii8Wz2UU7NSaWLMTUOB9RBcibtdU81Hru+XDlidWcC5etpq8YE5S8eogLaaIBovr
+	eZhngsUiYJ9ethk+eWDXa9ukkjxoRbfgCd4ygc/+N/RQWBn5hBRSDB1Uz1XOJyHX5lDuQ+Mr7vI7X
+	XtK1jNoLmxG9VZmeZyjF/o5U63WB5XfLTLTcVsKAfVqlC2x0CJuib6IZnvMZeWuRjL5mEIV5yO03F
+	mubO6Ubw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkzmH-00000003rSz-09RK;
-	Sat, 18 Jul 2026 07:48:05 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wkzoA-00000003rgC-0h7G;
+	Sat, 18 Jul 2026 07:50:02 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkzmD-00000003rSe-0OW9;
-	Sat, 18 Jul 2026 07:48:04 +0000
+	id 1wkzo9-00000003rfh-2XRl;
+	Sat, 18 Jul 2026 07:50:01 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3FCA96001A;
-	Sat, 18 Jul 2026 07:47:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 488A21F000E9;
-	Sat, 18 Jul 2026 07:47:56 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 82C6B6001A;
+	Sat, 18 Jul 2026 07:50:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60C661F000E9;
+	Sat, 18 Jul 2026 07:49:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784360878;
-	bh=Kk4t+KKRwZFpcw+1tWwmyImai/c4zSUMD76bk5C8kNI=;
+	s=k20260515; t=1784361000;
+	bh=AHie92NtWc9kV2QZnhQ58NiM0LWOumFCPzL2zEinWuk=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=ODh5ubbpuPCgl5b61xVxz+tkarFhF9HNWnrRao/l+vVTlUBNKTK9WuYScSwrnzepS
-	 kpRtA9RUh/mtmPtWp6mJtilbaY2uuQNeltb5u5V6tIm1jfcle1Apr7e5SvyH9Ha1n0
-	 IaNIyX4ARcB5bv3ksCeKdqwlyMQN0x3QQqmqozy7wSANDkpj5kKAKColuWJVfskCDD
-	 ohssM9jVPcRb88LV0D5emGb4tmC6BxX8/B2wjm/+RsMhGG9QUlvm2UF2RHOQS72xNi
-	 WC4X9pceri2VDTU4ScbUjcgvBFpg3I+5LqZlRzEZu25hLyjBOf7xFbQ1L11ji651L2
-	 HXPconHcShJDw==
-Message-ID: <06daa43f-c03d-407e-b785-980a85d50be9@kernel.org>
-Date: Sat, 18 Jul 2026 09:47:53 +0200
+	b=Y93DPKIVRYXCXxAkmwRIJC2IUhY2mAcyPq8Za6LHZxBZLu9q0Xj8FbSCjVuIl81+P
+	 RXq+HjGlfIJnQiHVqi0WtISYManHrK4U65hv0M8rP+CAsZzpUU7lESMFlF+rlIfplk
+	 AXbONeccwOxJCHnRlAzJdJvbZyXKSkt7ngxRfU8Fbcr9ysWE9XA+3Q/qfxHuQilI6s
+	 o5lHXFRlRZMwtW8SEsKdr1MoD25CDm4AhVeM1aMicvFu2Lme9wbvSBd6t2vIiCMlpj
+	 CWO5k/2kKovAePuSWkKO3M+Vc1ZQjfw/1N7CIv3aWuC6b9NyXMzPJDG8JjVMS7xOA+
+	 uNhZQRMaV3BDQ==
+Message-ID: <cfebdb15-38f1-470c-ae90-9ef06a612398@kernel.org>
+Date: Sat, 18 Jul 2026 09:49:49 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] dt-bindings: arm: rockchip: Add Vicharak Vaaman
- board
-To: Hrushiraj Gandhi <hrushirajg23@gmail.com>, heiko@sntech.de
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-References: <20260718065900.755631-1-hrushirajg23@gmail.com>
- <20260718065900.755631-2-hrushirajg23@gmail.com>
+Subject: Re: [RFC PATCH v2 1/8] dt-bindings: npu: rockchip: add
+ rockchip,rk3576-rknn-core
+To: Jiaxing Hu <gahing@gahingwoo.com>, tomeu@tomeuvizoso.net,
+ heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ joro@8bytes.org, will@kernel.org, robin.murphy@arm.com, ulfh@kernel.org,
+ p.zabel@pengutronix.de, ogabbay@kernel.org
+Cc: chaoyi.chen@rock-chips.com, dri-devel@lists.freedesktop.org,
+ linux-rockchip@lists.infradead.org, iommu@lists.linux.dev,
+ linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260718031146.3368811-1-gahing@gahingwoo.com>
+ <20260718031146.3368811-2-gahing@gahingwoo.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -98,7 +102,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260718065900.755631-2-hrushirajg23@gmail.com>
+In-Reply-To: <20260718031146.3368811-2-gahing@gahingwoo.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -115,17 +119,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/07/2026 08:58, Hrushiraj Gandhi wrote:
-> Document the compatible string for the Vicharak Vaaman, an RK3399-based
-> single-board computer.
-> 
-> Signed-off-by: Hrushiraj Gandhi <hrushirajg23@gmail.com>
-> ---
->  Documentation/devicetree/bindings/arm/rockchip.yaml | 5 +++++
->  1 file changed, 5 insertions(+)
+On 18/07/2026 05:11, Jiaxing Hu wrote:
+> Document the RK3576 NPU core: add rockchip,rk3576-rknn-core to the
+> compatible enum.  The RK3576 has no NPU SRAM supply, so make sram-supply
+> required only for rockchip,rk3588-rknn-core
 
+Full stop here.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+ via an allOf/if-then instead
+> of dropping it from the shared required list (which would have weakened
+> validation for RK3588).
+
+This is redundant.
+
+...
+
+>    - npu-supply
+> -  - sram-supply
+> +
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: rockchip,rk3588-rknn-core
+> +    then:
+> +      required:
+> +        - sram-supply
+>  
+
+else:
+  properties:
+    sram-supply: false
+
 
 Best regards,
 Krzysztof
