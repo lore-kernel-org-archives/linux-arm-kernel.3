@@ -4,145 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77F2CC4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jul 2026 03:18:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A20B6C4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jul 2026 03:30:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pPhZtUio0W6jdIt8volg2d3fugcUgIy4Rc66/vOazQc=; b=0ngVoWnJcGmJ5LUZRsrF/0yA6w
-	3AtGediAVDLD+6tNMvfJFFg4H1s18ZIzCEOang6LGZO8HYkf9frthjP31SFmpnYcYxSHTEqNSV64n
-	dR3MXbevAbfaE7HsghXQioJslVMa/BCuiVnKhSOSz2I1xOrscLbbMg7CpY97wNfUlg+Mf68Oh7iYB
-	WSyZ2FAt6UfxxLJxCfvNZGrANQwr1MDRzudURoexO9dOUV2F1JNN+DxkJd7Ln1l/CbsalUcXiJ2CU
-	j5rAQ8uC/k2axHS399ScvrX+Eq4/pOVpJmjglIFWrCawN1f/1q4vLCFhB/RgDDAxm/GI24s+zJ+A4
-	pP8yy2Hw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9ouvaa9/8fYIsCkOLegZZYgHHOm94zSfL0bRwGJyfXQ=; b=vQkTCnakX2J+yAXvbwJCGhSYRA
+	qzm2iMBib0VotaYPLBHoaW5QBrJHxDc0EDlxA7QXdLlHUU10HFr80Q6M2jPY/OqY25zEEU9RMdOWg
+	hrBVZDErDgiYsdWOwnmj8iiNUzi4/1N13SzV85ikZqDYcGiVKmbrWRMjrvRvUw5BOCHDVJJOqDIpw
+	edlJpHeGdK/UJcs8u7GzjKQQf/KogqVX6+qoPzBLe0IftD7awVYvANdIsb14RdsccVjzhuqLr5GCa
+	Q+arZrDLIGJI5yvUhjpZYIMdkCNaiIfRF99PFB8frpYjV7LYMyjSsbRkfQwJtP1jJsf/apEENZt5q
+	B2jNIrTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkvZ5-00000003cCy-2lzm;
-	Sat, 18 Jul 2026 03:18:11 +0000
-Received: from mail-japaneastazon11022131.outbound.protection.outlook.com ([52.101.126.131] helo=TYPPR03CU001.outbound.protection.outlook.com)
+	id 1wkvkl-00000003cmd-3FQn;
+	Sat, 18 Jul 2026 03:30:15 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkvZ2-00000003cCN-1NR3
+	id 1wkvki-00000003cls-2F6h
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Jul 2026 03:18:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sSf0qFk+GVUJ5vzix+kGQTcHvF/z74my92V4+umeYdeJtgdstEI9IKGBB1p4DRTrFh9IIMXx2cUjK922h/O8NRa7vrOkSqBXsyT4PvrsOAQZrPBUjdz8OhmGNhN0nnSFBecTxfHsDVGjroeYHWujJ6mq+bUCW9jxLspyhS2wUbVDsSMncE5dPSZcI+gmiWQ+B6Z9K+KHSUpsgKvJHLIRepBT219FnMvVAI8ehGtfdHWLcN5uy1z9MEyD5l+ltD+0J9ku0XFc3Y9W12MlieP4pU851yHVdYvpHjZkLkRPD2q6kARxH/PDsUGqFaHah7U9kRqw3RXKktI82iduX6EU2w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pPhZtUio0W6jdIt8volg2d3fugcUgIy4Rc66/vOazQc=;
- b=AaRbFLS/Ji2wTtPf4FUAPobzhc2mDgSCURS5w2e9OID463dlIv/LFLSDdEZySzbEEjBjUnlQ6RIw4nL++8wTEldn+3W8tX+lUMOZUukWzi+CBFx1Eu4J2ft2TaE5LlzMK1XobrSPh9Qcb0O8tofYl64n1t9Hy+GXM70uRgDw1BFocZY5yiTMP2e/qJE9k2mKHLjm7LW3ao01KizJURcTAAIhD915Ho+R3LdYLUO288vmsvQB9wpm4ES0eLz/N8V88dh05v/n761PyQk1TB63JaXGycnyNlaiflDRQZLVsXBbzGqforC3uZ8GbblxVJhBEgpxs1iC+K2ayvpkf6CXeA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=transsion.com; dmarc=pass action=none
- header.from=transsion.com; dkim=pass header.d=transsion.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=transsion.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pPhZtUio0W6jdIt8volg2d3fugcUgIy4Rc66/vOazQc=;
- b=GOVL+L12sgnBYjImpCaSOVFgfavAJiX2lOOJYPAP96lLzSX8VApoBxoX5dTHBdZxBYfLUv3BWA9fmtaVwsyTWhpM2MfBWw3oNpu24hAyyEiIwvEGjobMy/CZ52VstNh5+jzE2cB/ImKjMctQUBXd6HzOYYjaJWx5sqVLgw8jHMQ=
-Received: from KL1PR0401MB6196.apcprd04.prod.outlook.com
- (2603:1096:820:c7::13) by TYPPR04MB9137.apcprd04.prod.outlook.com
- (2603:1096:405:385::18) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.4; Sat, 18 Jul
- 2026 03:17:52 +0000
-Received: from KL1PR0401MB6196.apcprd04.prod.outlook.com
- ([fe80::f2ee:1e28:9022:99f3]) by KL1PR0401MB6196.apcprd04.prod.outlook.com
- ([fe80::f2ee:1e28:9022:99f3%3]) with mapi id 15.21.0245.006; Sat, 18 Jul 2026
- 03:17:52 +0000
-From: Hongyan Xia <hongyan.xia@transsion.com>
-To: Will Deacon <will@kernel.org>
-Subject: Re: [RFC v3 2/2] arm64: kprobes: Allow reentering kprobes while
- single-stepping
-Thread-Topic: [RFC v3 2/2] arm64: kprobes: Allow reentering kprobes while
- single-stepping
-Thread-Index: AQHdEDXxWg6e3HuDfkaTSvkiR6Me8rZwLF+AgAAU4ACAAAuXgIAAsBUAgACZxoCAAAhcAIAAbVyAgACbCwA=
-Date: Sat, 18 Jul 2026 03:17:52 +0000
-Message-ID: <ff0e5a26-8ff6-49e5-ade2-33875ae0174c@transsion.com>
-References: <20260710063242.228714-1-hupu@transsion.com>
- <20260710063242.228714-3-hupu@transsion.com>
- <aljbf_RmOd9U2KDT@willie-the-truck>
- <0f049d38-b7f6-47f0-a410-95ad2aee7fd4@transsion.com>
- <alj2uxE1M8mcMBhA@willie-the-truck>
- <e0e800f5-a6f8-48ae-b55c-5c3d928bf234@transsion.com>
- <aloLb0j8sg0usmAF@willie-the-truck>
- <be182a18-4cea-445d-a319-1ed3a6c17598@transsion.com>
- <alpuL10h7-OK2hFb@willie-the-truck>
-In-Reply-To: <alpuL10h7-OK2hFb@willie-the-truck>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=transsion.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: KL1PR0401MB6196:EE_|TYPPR04MB9137:EE_
-x-ms-office365-filtering-correlation-id: e3387863-548a-44c8-bf8c-08dee47b271e
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|23010399003|376014|7416014|18002099003|22082099003|4143699003|11063799006|38070700021|10067099003|56012099006;
-x-microsoft-antispam-message-info: IyaS8GxsMG2dJd0G46HXXUJlxwWHRQGSvwdOAsMuM/dsZx7KA4pz9TfXkaMiLQzHrMgonUjNkz6xHe9Wi6fTr0RUXAu5otQayWlFr9YcSyUrIEG/C0G63b7UKR5PC2s/PkQ1llrHu9mwjio7j1X1uCb3QduwSI4SLdnNjumMO99fbKhQO3dWBtWZs4n27ut8wvaNsxpqxv5RJrXp4fAnSuuAQCdvysPyxQ8lJ/NhGud3qgi/6QZHse+oC6ilrKiPFNeIKaZVVb8ZNk/dtYF9MmYhTOG8QS0P5LdpTBsVvZ3kNApoUdFjKCb6QwONUWYxIOUDi4tuExn8gzGl7FB5gzExnG2AEtVzQFWIUXU8RsRc5FHPK9kJeyf0BiZ3l+fbGfHSV7cgYpbKjxNT+BGhDU6cgJuANeAMFRPRMhC9sxNDoKP/DZFHsFThIP7yj0Y1r7QXOtIfMyrDvDGYzUZ1BXfhAobaBkhtezTqmpROoEN3CypQ6mw9oKTGiqj+i2dQM/P4MIZ+sV2pXwS+tL8AZbysIyVK+1FqZL2XLK4bVLWZ4k2JocNzMTUniMOKxh6pnmxLNwsKWoZXOebYQ6fAuxcb0/Dp5FPO4xw8uxOGmEyeQM/LpmOOGwbnaX/fdc3LcDouhD1NAG883c/k7Kjptltdhft60W+dNOuroEd61HepjK0IJesBLS4eTpYgs3XsdN4oarZLQgLf00LHFag5TwD7i9ic74PCHILolOQtAEM=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR0401MB6196.apcprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(23010399003)(376014)(7416014)(18002099003)(22082099003)(4143699003)(11063799006)(38070700021)(10067099003)(56012099006);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?U1pBeG13d2hrZVE0b1FFQlFJdE5QaDhtUnpCWmI1MjBvZlMrV3VoY1V3NWZi?=
- =?utf-8?B?c3VDd3kzelZGcXBCUGV0SlNRSFZsQmluQkFsT095TXN3Y3duSFZ2M2FTWHJ4?=
- =?utf-8?B?UzhyRVQ0MFd6cVhiMTgrQnRFZmN2cFMvNDdIRUVyUHMwWFlVMDVDdkxWMjc2?=
- =?utf-8?B?V3dwN0VGN29MYlpLWWR2ZEtZNVBNOVF6YXBoR2NTMW5CL0x5SGxCbisxTXA4?=
- =?utf-8?B?dXVsbFl1YTY2TVlUbVplMzE2ZWhZR0NOVmZ4R1grOWM1WW14WTVoOUlWbDN3?=
- =?utf-8?B?STBSMVpIUE1lVTRkL0lnbXUyeFdsVkxUOXE3VFhNcWZ6K3pObTJ3b3ZEUmJW?=
- =?utf-8?B?REZLWUVmVjZlNC85UWs3eWI4WkVWRGFDUm1pM3cvUnNSSGpuUmIvYVpXUTVv?=
- =?utf-8?B?SEVNY1R5VEY2UDhIYmZ6QVp0WDdlRFBqTzF2QkRiNVZhc1RlSDlqNHhjOTZo?=
- =?utf-8?B?cUZzSGorVDQ1eWN0Q3lLWDltY1pWMlVWR2JjMEJ0THpLcTJGYVpiWVovYlN1?=
- =?utf-8?B?WGdkbnphMU0rYWNPclA3VjNZM2lIY2xaVGs0TGVOQUt4c0hVY1JYWjFnUDdx?=
- =?utf-8?B?bkJNYlRNZ244ZHhFSnVsN2U1NVdNbVM4SjJHOERFN1JVMkVoc3VvZ1RrbDFz?=
- =?utf-8?B?QmtIVVdsWlAyeVZQZUtybmtGZklkNnpUZmc5QWtlZjQzcHQ2L0xScTMxa2Ey?=
- =?utf-8?B?MUhXQVZVMXFOVkNDWmFnYksxRUcyQ0ZoUFNnb0R5MHhZRWI2SjJvOHlyN0tM?=
- =?utf-8?B?ZFdOdzVjMHUxdGlOaktqU3AxbDZQRGE3dXdySUdSQXo3UTVKU09tdEJjSWVq?=
- =?utf-8?B?bFJ4K2RRSE5pR0FhVzNGR21wTVFkQVpVeGxYOHpwUnl6bFNZdEwrY3F4dzlM?=
- =?utf-8?B?L04wUThhUlUwSERESUJVY296azJVcno3bEJkZFdzRTdqWkRMZ3R6NHpDUWtG?=
- =?utf-8?B?d2xrT1J5cHNWN2dnWlppMFlWU0pWVVpRSWpVNWx1N1ZiMFh0T3prazRwYWtU?=
- =?utf-8?B?U09FVUp5SXh4anBCNmloWUJkd0syanZmL05CclZUSC85b3p3dy8wdTljRU9P?=
- =?utf-8?B?QlF2WlJwWUtzL2FZaVR0SUhqckpIMjAydkNOUWxhUnVkN0FnRFlURmROM2py?=
- =?utf-8?B?Mlc0dkZML05rTTVOcXVwOTN0bzFuVHM5T08yOVlwZmV0ZzdMVDBPNHh3bUxj?=
- =?utf-8?B?WGdEZlpGZWQ4a05ReVlLemdONVhFRTFXamExVzVjdjdVM093VHhIMFc1aFhn?=
- =?utf-8?B?UHVMQXIwczE0R1g1azNUaUtENEhlUUpLdk1CTXR3UGRnaUtXT1k2UHRMbVVI?=
- =?utf-8?B?OXhwdUdmc2ZkQTROOVpvc3JVVFlGSU42d1ozK1c4T0VqakhIdUNWMmlNZisy?=
- =?utf-8?B?cjByWWRsVlBTVms1TWJoSDQ2ZDhTVi9nbzRNdmVzMVlDaWFyWEhUbGg4ckpC?=
- =?utf-8?B?anBvdkZjdkFuMS9Mc25ZRStWNzdhNEVLUlkxZ3ZpMHJJN0xWMkEvVXhoWWpV?=
- =?utf-8?B?bSt6M2Rqay9vRThiMjJzK2pKMVZSWWxFR011ODlnUGNVblEwSEF3TXdMdTQ1?=
- =?utf-8?B?T29uV0xzbmhidFJ3dy9WcW40RFFBYm1uYU0xN1RNNUtnVENQb0tCQit1YmtN?=
- =?utf-8?B?NWIwT3ZqbXdJVkpDNWZ1VVhaK2g3WUlKVzA4K0c1MFk4MGhJWmY4dGx4UUt5?=
- =?utf-8?B?T3UrU1JsNFNVTWtKWkUxZEFwT29JN3lMNERreDVmQ05EOFMzVHpOQ215YzdZ?=
- =?utf-8?B?VlY5c0xVTDFsM2JLZlZnY3AvUVUxU1IvcjdFbjJ1OWUrQno4K1VLMXdtWkY0?=
- =?utf-8?B?b3NXcWFlQlVEOExucEZZd0FqR1c5RDkzVmZHKzBQajFPZHFEakJYYUp5R0Vr?=
- =?utf-8?B?c1RJNmhJbXVKWTlMNUZWMkhUVkQ4L3hMamNEMmplYmRKQkk1WEQ1K0dNOG53?=
- =?utf-8?B?cFVQaHdnUENvdS9zb1dMOUdTQkFIVnNxSW9HdFBtMEhMZzBCUm85WmFwbits?=
- =?utf-8?B?QzByOTZiRU1tYnpsU2dQOVZ6TytOaGIvZFp6dWgwT1hTVVpOWXo1WTJnZHNh?=
- =?utf-8?B?K0pLMmswNXBRMk4vbHlwOW9qbW8zZU1VU3BzT1lIckdHRTNVQzFMVkNnTHIr?=
- =?utf-8?B?cGVPdU1YaGM1R0FBZkZDbHdFeEQveDJvdnRNTHNnSjJBSmRqMHJ1ZVcxMWty?=
- =?utf-8?B?QjJScFVkNE1mcS85SG5qbzdEeFBvWVlJZ2p4TUphN0owWlhOTkpWWU9xRWpy?=
- =?utf-8?B?S3VDK01YbjFkRURRUklRaVZ6SWFCMDZ3NzVYaEd0Nk1xQVAycko5ZU5tQ0lU?=
- =?utf-8?B?clhvZ3ZGVUZlS0FQbW5XYzUrbTBUMEVMeDJsMHBsKysvYXlzQUpTRmVwMDBr?=
- =?utf-8?Q?xhVOpB+txaHA9h9Q=3D?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <C0CCD5C1C1AC664292ED1B18049E7DB5@apcprd04.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	Sat, 18 Jul 2026 03:30:14 +0000
+X-UUID: f7415b7a825811f1aa26b74ffac11d73-20260718
+X-CTIC-Tags: HR_CC_COUNT, HR_CC_DOMAIN_COUNT, HR_CC_NAME, HR_CC_NO_NAME, HR_CTE_8B
+	HR_CTT_MISS, HR_DATE_H, HR_DATE_WKD, HR_DATE_ZONE, HR_FROM_NAME
+	HR_SJ_DIGIT_LEN, HR_SJ_LANG, HR_SJ_LEN, HR_SJ_LETTER, HR_SJ_NOR_SYM
+	HR_SJ_PHRASE, HR_SJ_PHRASE_LEN, HR_SJ_WS, HR_TO_COUNT, HR_TO_DOMAIN_COUNT
+	HR_TO_NO_NAME, IP_TRUSTED, SRC_TRUSTED, DN_TRUSTED, SA_TRUSTED
+	SA_EXISTED, SN_TRUSTED, SN_EXISTED, SPF_NOPASS, DKIM_NOPASS
+	DMARC_NOPASS, CIE_GOOD, CIE_GOOD_SPF, GTI_FG_BS, GTI_RG_INFO
+	GTI_C_BU, AMN_GOOD, ABX_MISS_RDNS
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:0557ec99-a519-475f-8144-a7b7af1e1c6c,IP:15,
+	URL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:15
+X-CID-INFO: VERSION:1.3.12,REQID:0557ec99-a519-475f-8144-a7b7af1e1c6c,IP:15,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:15
+X-CID-META: VersionHash:e7bac3a,CLOUDID:2e247edadfe1e2921a451dae372606ee,BulkI
+	D:260718113004OXZDZ1FT,BulkQuantity:0,Recheck:0,SF:10|38|66|78|102|127|136
+	|865|898,TC:nil,Content:0|15|50,EDM:-3,IP:-2,URL:0,File:nil,RT:nil,Bulk:ni
+	l,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE
+	:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: f7415b7a825811f1aa26b74ffac11d73-20260718
+X-User: pengcan@kylinos.cn
+Received: from lenovo [(116.128.244.171)] by mailgw.kylinos.cn
+	(envelope-from <pengcan@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 1108708; Sat, 18 Jul 2026 11:30:04 +0800
+From: Can Peng <pengcan@kylinos.cn>
+To: olivia@selenic.com,
+	herbert@gondor.apana.org.au,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	danielt@kernel.org,
+	linusw@kernel.org
+Cc: linux-crypto@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Can Peng <pengcan@kylinos.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH] hwrng: stm32 - Fix runtime PM cleanup on registration failure
+Date: Sat, 18 Jul 2026 11:29:37 +0800
+Message-ID: <20260718032937.420561-1-pengcan@kylinos.cn>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-X-OriginatorOrg: transsion.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR0401MB6196.apcprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e3387863-548a-44c8-bf8c-08dee47b271e
-X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Jul 2026 03:17:52.1432
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 2e8503a6-2d01-4333-8e36-6ab7c8cd7ae2
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: tzPTQAVBD5VkCLV5bqpCBFMeslbvMDqctgMm3t0LFdL+6bo7BgIC7L7P3e4tPHlMdyUUs9gUJrz7m8wMS4iTMJYkPQtMsaPDhXefs/w3dq8=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYPPR04MB9137
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260717_201808_393650_14302CB0 
-X-CRM114-Status: GOOD (  16.97  )
+X-CRM114-CacheID: sfid-20260717_203012_881631_25693F60 
+X-CRM114-Status: GOOD (  10.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,36 +91,63 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Pu Hu <hupu@transsion.com>, Jiazi Li <jiazi.li@transsion.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "naveen@kernel.org" <naveen@kernel.org>, "mhiramat@kernel.org" <mhiramat@kernel.org>, "yang@os.amperecomputing.com" <yang@os.amperecomputing.com>, "davem@davemloft.net" <davem@davemloft.net>, "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-trace-kernel@vger.kernel.org" <linux-trace-kernel@vger.kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gNy8xOC8yMDI2IDI6MDIgQU0sIFdpbGwgRGVhY29uIHdyb3RlOg0KPiBPbiBGcmksIEp1bCAx
-NywgMjAyNiBhdCAxMTozMTozMUFNICswMDAwLCBIb25neWFuIFhpYSB3cm90ZToNCj4+IE9uIDcv
-MTcvMjAyNiA3OjAxIFBNLCBXaWxsIERlYWNvbiB3cm90ZToNCj4+PiBUaGFua3MuIFNvIHBlcmYg
-aXMgcnVuIHN5bmNocm9ub3VzbHkgZnJvbSB0aGUgZGVidWcgZXhjZXB0aW9uIGVudHJ5IHBhdGgs
-DQo+Pg0KPj4gWWVzLCBleGFjdGx5Lg0KPj4NCj4+PiByYXRoZXIgdGhhbiBiZWNhdXNlIG9mIGEg
-c2Vjb25kIGV4Y2VwdGlvbiB0YWtpbmcgcGxhY2UuIEdvdCBpdC4gQnV0IHRoZW4NCj4+PiBpdCBz
-b3VuZHMgbGlrZSB3ZSBzaG91bGQgcmVhbGx5IG1ha2UgdGhlIGRlYnVnIGV4Y2VwdGlvbiBoYW5k
-bGluZyBwYXRoIChhdA0KPj4+IGxlYXN0LCB0aGUgcGFydCB0aGF0IHJ1bnMgZm9yIGhhbmRsaW5n
-IHRoZSBrcHJvYmUgc3RlcCkgbm9pbnN0ciB0byBhdm9pZA0KPj4+IGdldHRpbmcgaW50byB0aGlz
-IHN0YXRlIHRvIGJlZ2luIHdpdGguIElzIHRoYXQgcHJhY3RpY2FsPw0KPj4NCj4+IE5vdCBzdXJl
-IGFib3V0IG1ha2luZyB0aGUgd2hvbGUgcGF0aCBub2luc3RyIChATWFzYW1pIG1pZ2h0IGhhdmUg
-YQ0KPj4gYmV0dGVyIG9waW5pb24gb24gdGhpcyB0aGFuIG1lKS4gUGVyc29uYWxseSBJIGRvbid0
-IG1pbmQgZWl0aGVyDQo+PiBkaXNhbGxvd2luZyBpdCBvciBtYWtpbmcgaXQgY29ycmVjdC4NCj4+
-DQo+PiBCdXQgaXQgbWlnaHQgYmUgYSBnb29kIGlkZWEgbm90IHRvIGRpdmVyZ2UgdG9vIG11Y2gg
-YmV0d2VlbiBJU0FzLiBUaGlzDQo+PiBwYXRjaCBpcyBwcmV0dHkgbXVjaCBtaXJyb3Jpbmcgd2hh
-dCB0aGUgeDg2IHNpZGUgaGFuZGxlcyB0aGlzIHNpdHVhdGlvbi4NCj4gDQo+IE9rLCBzbyBob3cg
-YWJvdXQgdGhpcy4gSSdsbCB0YWtlIHRoZXNlIGZpeGVzIGZvciBub3csIGJ1dCBsZXQncyB0cnkg
-dG8NCj4gbWFrZSB0aGVzZSBwYXRocyBub2luc3RyIGluIHRoZSBmdXR1cmU/IFRoYXQncyBhIG11
-Y2ggYmlnZ2VyIGpvYiwgYnV0IEkNCj4gZG8gd29ycnkgdGhhdCB3ZSdyZSBnb2luZyB0byBvdGhl
-cndpc2UgZW5kIHVwIGFkZGluZyBzcGVjaWFsIGxvZ2ljIGV2ZXJ5DQo+IHRpbWUgd2UgcnVuIGlu
-dG8gYW4gdW5leHBlY3RlZCByZS1lbnRyYW50IGNhc2UuDQoNClN1cmUsIHRoYW5rcy4gSW4gb3Vy
-IGNhc2UsIHN1cmVseSBpZiBzb21lb25lIHdhbnRzIHRvIHRyYWNlIGNlcnRhaW4gDQpldmVudHMg
-bGlrZSBwcmVlbXB0X29uL29mZiAod2hpY2ggaXMgd2hhdCB3ZSBhcmUgZG9pbmcgd2l0aCBwZXJm
-KSwgDQpldmVudHMgb3V0c2lkZSBkZWJ1ZyBleGNlcHRpb25zIHNob3VsZCBiZSBlbm91Z2guIEhl
-IG9yIHNoZSBtaWdodCBub3QgYmUgDQpzbyBrZWVuIG9uIGV2ZW50cyBpbnNpZGUgZGVidWcgZXhj
-ZXB0aW9ucywgYW5kIG5vaW5zdHIgc2hvdWxkbid0IGh1cnQuDQoNCldlIHdpbGwgZ2l2ZSBpdCBh
-IHRob3VnaHQgYW5kIHNlZSBpZiB3ZSBjYW4gY29tZSB1cCB3aXRoIHNvbWUgUkZDcyBsYXRlci4N
-Cg0KPiANCj4gV2lsbA0K
+stm32_rng_probe() enables autosuspend and runtime PM before registering the
+hwrng. If devm_hwrng_register() fails, probe returns with runtime PM left
+enabled and autosuspend still selected.
+
+The remove callback also only disables runtime PM and does not undo
+pm_runtime_use_autosuspend().
+
+Use devm_pm_runtime_enable() so runtime PM is unwound automatically on
+probe failure and driver detach. Since the managed cleanup also disables
+runtime PM,drop the remove callback.
+
+Fixes: c6a97c42e399 ("hwrng: stm32 - add support for STM32 HW RNG")
+Cc: stable@vger.kernel.org
+Signed-off-by: Can Peng <pengcan@kylinos.cn>
+---
+ drivers/char/hw_random/stm32-rng.c | 10 +++-------
+ 1 file changed, 3 insertions(+), 7 deletions(-)
+
+diff --git a/drivers/char/hw_random/stm32-rng.c b/drivers/char/hw_random/stm32-rng.c
+index 9a8c00586ab0..f5bfe54c01dc 100644
+--- a/drivers/char/hw_random/stm32-rng.c
++++ b/drivers/char/hw_random/stm32-rng.c
+@@ -368,11 +368,6 @@ static int stm32_rng_init(struct hwrng *rng)
+ 	return 0;
+ }
+ 
+-static void stm32_rng_remove(struct platform_device *ofdev)
+-{
+-	pm_runtime_disable(&ofdev->dev);
+-}
+-
+ static int __maybe_unused stm32_rng_runtime_suspend(struct device *dev)
+ {
+ 	struct stm32_rng_private *priv = dev_get_drvdata(dev);
+@@ -590,7 +585,9 @@ static int stm32_rng_probe(struct platform_device *ofdev)
+ 
+ 	pm_runtime_set_autosuspend_delay(dev, 100);
+ 	pm_runtime_use_autosuspend(dev);
+-	pm_runtime_enable(dev);
++	ret = devm_pm_runtime_enable(dev);
++	if (ret)
++		return ret;
+ 
+ 	return devm_hwrng_register(dev, &priv->rng);
+ }
+@@ -602,7 +599,6 @@ static struct platform_driver stm32_rng_driver = {
+ 		.of_match_table = stm32_rng_match,
+ 	},
+ 	.probe = stm32_rng_probe,
+-	.remove = stm32_rng_remove,
+ };
+ 
+ module_platform_driver(stm32_rng_driver);
+-- 
+2.53.0
+
 
