@@ -4,71 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1F9AC44520
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jul 2026 00:23:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABF52C4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jul 2026 00:35:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4coRiwjvVBqf9n8LjEuWK2QLrVBUAzdegtEpYVf9CGE=; b=2FazffZxZUFZ1TUM7BtFyAkevC
-	S+3kntbS1sHJyl2wtJVRt5tB2yhUajwr+A0dEkg1X/d7euL4Z49PmDkgzFVYyKvshRp4Hcg5ZkBAr
-	cVhmXBzEdNxCwkPa7ZV1S2w3BJjOIg3iOKDhANZ+lk0DpELYUnlgiJPqh1obRZ7pYwUkq1TGP76wa
-	cgz5AvkzcCtqNUzQ1/wmkDsrg42XFCPeV6hgxCr7B0Ag22cLLgMgsq9bvVVtoVRKAe1BmJHJm6abP
-	6B7DXzGpTYKT85K0UwVSauyG3dHI/SFOkGp/Shv/Mb1+z9WNCVpHXaRw71/eZSMhBgdZnZT4mdSta
-	YivVXauQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=83/QFKPUAecuur3XiUDSCrCipZXjd2KIGyHaxlFSSCE=; b=2MspP8bE8tczAnLTZZtuhoRr/+
+	b/bZtco+nno4lOpC1zyYRkaHIvmKiYaMFEXnQopeIrNqDawwM58j5VwUX6nRPOV4+MysINVGdrGDc
+	QQ08oF0H94vKSXOqkJ0/dWK8luU2tJDXYkrjqbwsXDjs1KiIAqLJhhY4U+tBp30H2q6DzE1qy3xzF
+	AW915ACEaOi3G+Uot0dKfqa1PFOgMD+QBztB1qLMNw2wjSVYcGODc5IxvXrVBP4mULN4xpX4B3bg9
+	qX5hy03VMoN6WqqJQhC9kxcq9CipeXI5pKB1YVy4t/dUY9QYGVqAV8SvkEjr0Yh8OCER2Dt6CLBQL
+	QQfdXhyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wksq9-00000003Rsf-2Iy8;
-	Sat, 18 Jul 2026 00:23:37 +0000
+	id 1wkt1d-00000003SQc-2Bxa;
+	Sat, 18 Jul 2026 00:35:29 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wksq8-00000003RsX-2cDZ
+	id 1wkt1c-00000003SQV-2yfd
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Jul 2026 00:23:36 +0000
+	Sat, 18 Jul 2026 00:35:28 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8666D43E1B;
-	Sat, 18 Jul 2026 00:23:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C18471F000E9;
-	Sat, 18 Jul 2026 00:23:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0494943599;
+	Sat, 18 Jul 2026 00:35:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF4571F000E9;
+	Sat, 18 Jul 2026 00:35:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784334215;
-	bh=4coRiwjvVBqf9n8LjEuWK2QLrVBUAzdegtEpYVf9CGE=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=HFKXG2Q8LPsQkg/og7HN0ZZVHzu/p+orGhphIVJ6Yklf6ZH489WWo9MG5f+Tpf8fI
-	 WWT6sBE38u450BSoeZPI297irPC+k8JlMI+OUJIFPmwwXO98KlZDRsAE5s8gXFGM8T
-	 hEgDt80fbjvoBce/1TY2eLirwGWuahIFJyZeOImLfN46Z+9P+4BGaQ8SabVDRC853+
-	 J7BPdMKAniK07rgLnr12UaRTFfWUy24bQ96/U1Wunr70+E1zB7YXeUiSY0T7B5So9m
-	 W1QQpVa8vsQKgAFVGElm+VEVU9XKNxZ1D+ovK6CWl//Gq1SrHob3zgEaXSzlFqW6VT
-	 Nhl0nUTEQCpcA==
+	s=k20260515; t=1784334927;
+	bh=83/QFKPUAecuur3XiUDSCrCipZXjd2KIGyHaxlFSSCE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=UZMqhG7jOCM0NcG8H7yxHekee//rMmL/U7Ry2BrLImm6unJIexmYIklkgmaYx2kJc
+	 w0QAzde1FMPP7tZgjagzsxmyGTzvWe+VetYaC6HyrUjg4v+PbZo1VN7Q8KWkcEo19T
+	 3EX+dn0yks9KVfhECXAzeEyN/luAsqwLZ2nH/c1kLeZxzu2Q27VxKzyUlYgTME67FT
+	 eIIkaE72/6x6u+8QvFPawI8tcNgDH3IBoD5VJYpu4gG8qoCTUHjV7m/6qrkXWvRkea
+	 vjYcsAWsbreVTHJrKt36aQ67Ts+zrieyLSdwkax7w8Vcuwbb7uH6ZPG5/tRr5i6KHP
+	 YHwLOVzyyTdgg==
+Date: Sat, 18 Jul 2026 01:35:21 +0100
 From: Mark Brown <broonie@kernel.org>
-To: claudiu.beznea@tuxon.dev, andrei.simion@microchip.com, 
- lgirdwood@gmail.com, Ninad Naik <ninadnaik07@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-kernel-mentees@lists.linux.dev, skhan@linuxfoundation.org, 
- me@brighamcampbell.com
-In-Reply-To: <20260714192228.1639768-1-ninadnaik07@gmail.com>
-References: <20260714192228.1639768-1-ninadnaik07@gmail.com>
-Subject: Re: [PATCH] regulator: mcp16502: Convert to dev_err_probe() in
- mcp16502_probe()
-Message-Id: <178420670127.63368.9042373456774603095.b4-ty@b4>
-Date: Thu, 16 Jul 2026 13:58:21 +0100
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>,
+	Fuad Tabba <tabba@google.com>, Ben Horgan <ben.horgan@arm.com>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Eric Auger <eric.auger@redhat.com>
+Subject: Re: [PATCH v12 02/29] arm64/fpsimd: Update FA64 and ZT0 enables when
+ loading SME state
+Message-ID: <3c76650f-ddda-47ae-a676-86016d8e39a6@sirena.org.uk>
+References: <20260709-kvm-arm64-sme-v12-0-d0301d79ef58@kernel.org>
+ <20260709-kvm-arm64-sme-v12-2-d0301d79ef58@kernel.org>
+ <ali39DG6qie7XTuD@J2N7QTR9R3.cambridge.arm.com>
+ <15a9ae14-395d-472a-a5be-9e46524fb493@sirena.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1158; i=broonie@kernel.org;
- h=from:subject:message-id; bh=SqddXHxoXAS44jnllTsPz243Fteup6i12LmMS6C4/uM=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqWseEiBgo3xyo82UaljCOR9Tn6rPG3NzUrPvhQ
- klhEhsi7M2JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCalrHhAAKCRAk1otyXVSH
- 0MQ2B/sE5oVaySi960GBX3VYSnhem3ODfMEnMaaccMh/1EwPZkvQGB5lJ79kdGeMACOhV+hqg9X
- q4rHN+i1LFDayg3ft9ZJAsJVatldrCsAHUxv+jo5z/OAVG8FSYtEk3rLK4MNi34mMIZ4eOhilMI
- UaZmzrX2RTHlvSPJMWooAUI3hBN7jOCx5ZIbRlCNjDfqZTbCl8FVUHX8q4AgqPuyIJNgNm50KHX
- yO9Et/3H4gKGoMbnpIUlfHSOtU2RdwE8l6Mkyw76VX1I4P3SkulS2HjvHpUnXFOE8G+qgBYFvNi
- AfHD7nIRujT3opRRj3aa3OSEJtFmCs+XShWwKXHNf2nrbbuD
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="B1L8qt03Fu74vlzF"
+Content-Disposition: inline
+In-Reply-To: <15a9ae14-395d-472a-a5be-9e46524fb493@sirena.org.uk>
+X-Cookie: Thufir's a Harkonnen now.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,35 +85,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 15 Jul 2026 00:52:28 +0530, Ninad Naik wrote:
-> regulator: mcp16502: Convert to dev_err_probe() in mcp16502_probe()
 
-Applied to
+--B1L8qt03Fu74vlzF
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git for-7.3
+On Thu, Jul 16, 2026 at 04:28:02PM +0100, Mark Brown wrote:
+> On Thu, Jul 16, 2026 at 11:52:36AM +0100, Mark Rutland wrote:
 
-Thanks!
+> > >  		if (test_thread_flag(TIF_SME)) {
+> > > -			unsigned long vq = sve_vq_from_vl(sme_vl);
+> > > -			sysreg_clear_set_s(SYS_SMCR_EL1, SMCR_ELx_LEN, vq - 1);
+> > > +			sysreg_cond_update_s(SYS_SMCR_EL1, task_smcr(current));
+> > > +			isb();
+> > >  		}
 
-[1/1] regulator: mcp16502: Convert to dev_err_probe() in mcp16502_probe()
-      https://git.kernel.org/broonie/regulator/c/25706f1ab9fb
+> > What's the ISB for? That mysteriously appeared in v11 without
+> > explanation. It wasn't in the original code, prior versions of the
+> > series, or my suggested rework with the task_smcr() helper.
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+> > I don't believe it's necessary to add an ISB here.
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+> I can't remember or figure it out, I'll delete.
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+Actually I remembered: while SCMR_EL1.LEN is self synchronising the
+"without the need for explict synchronization" wording is not present
+for SMCR_EL1.{FA64,EZT0} and this is no longer explicitly just an update
+of LEN.  It's possible I'm being overly paranoid here, I'll leave the
+isb() and add a comment for the next version.
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+--B1L8qt03Fu74vlzF
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Thanks,
-Mark
+-----BEGIN PGP SIGNATURE-----
 
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmpaykgACgkQJNaLcl1U
+h9DjvAf+Mo2V+vK8ka9ifnzNbT6e4l1B8v1nwzBzZqNOsHRBkYVA+3HzxPfa42iQ
+wBsUd5GDNYhvYnfigzrrCBiqP6iEXL2auvhxC05ZD/FMYpMpjg6l8a5YbyFZrCaI
+VCnHsZDwaYx0qDsmnOUgwi/AvliSoRdtky5XTuT5aJLAPePiiXhE3f3ltNCQqynG
+VzaW9xKH0Tng2mJ8kiajrNPlzKMChuJdcebmYosYMMiYFLiHjnE2FDyBqAf7A0It
+jjU1d99NHubQeKLYc+3Io4KDKVRAafjVK2BfVWpOhGPufaC/a+HxGr2ZkU250Q1q
+8YjIq/ZvP2kx3EodKw5prhfkTiaubw==
+=Oojd
+-----END PGP SIGNATURE-----
+
+--B1L8qt03Fu74vlzF--
 
