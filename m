@@ -4,63 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49162C4451B
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jul 2026 18:54:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A846C4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jul 2026 19:02:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ivwRKrM7a+JQs2oGmLyCMI+T7Np32kctvJz0lG+G9iM=; b=S/lOBgQCVgPStOyc0kzo47lkuf
-	u4alDpX9IffijD5Bup8juyIVO0ia9beQbu5kNUUfg0vD+zEwIRRRKH0WJglILSuRpTE1ksZGMGBTa
-	1gG83CLl/CEAZLNQ6K3ZxRcy+E6bvrL/1ES2Bd4HlGlC8Ryo+iqwTTUPwfeAteq+3H/chbakGC0xC
-	YqLJgoLmY2XU+ycE13Fnt+IO+oLpbsbR8JuKDwoDUJXoj7efQinSIdocmf14sHGWRPK3Ef6XivBXe
-	PE3UpHoVK5CaPFQKOAM4pnUdR4kexmunDmVh+feV2jANS3Hb11fvY6UQWiAKzXL2M0kp0iRkTvHjw
-	nuh18S0g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=uGi/dAnT42Y/IdcWpc+2iKl0ZKD5ISQO2gm0GJ6Um5Y=; b=aGiaGS4BwlS0d7
+	Ci0eosy50fiXOncmse7lUb4Q7cTxVb+RktjMB7gk9gBXk3RDcQuFvIeURVmd9xNtw7tSJWZuevgMM
+	bCLJGooB+gZrO/rOGsG28FLvltOMNIFjIuZUXMCFNrljA99QY01F8Uc5HulwpYP58n/sRIsi7/zYO
+	gEDf12+VdKVUfa1YBjh3ruSby+LFx9Ea/biCVxTzFJaZBo9i4dEni1871MZV4CRf7gFt50yH6GIpZ
+	zxwhSP9+typt/s8dxnz2/8lravUKkTdR6HN+kKf5DvGCp3bzd83d1oOeD45+8IVrz5IMInU+Zwp+S
+	Y3knW7XvRPJNdyfChDqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlAAl-00000004SP2-1Kd2;
-	Sat, 18 Jul 2026 18:54:03 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wlAIg-00000004T0f-1myy;
+	Sat, 18 Jul 2026 19:02:14 +0000
+Received: from confino.investici.org ([93.190.126.19])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlAAk-00000004SOr-2PYl;
-	Sat, 18 Jul 2026 18:54:02 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C4FB360018;
-	Sat, 18 Jul 2026 18:54:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7882E1F000E9;
-	Sat, 18 Jul 2026 18:53:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784400841;
-	bh=ivwRKrM7a+JQs2oGmLyCMI+T7Np32kctvJz0lG+G9iM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=cka3VSZgKkuwDGTpdGiQF3TI0XEo1Mj8D0lH8oRPSIyIrLnr4aerN+RQcCFFIk9Hf
-	 5YoKbl+VHFbPo9hViMlrt4xeEQoaLfOmz6qiyBeuGu6EYGi6lJg5XWqXM9yZBt1bS5
-	 xhxruFBwLFPkmY7iSS+8WJAIV/JMHa+qt4IvOw5eRasTr552EXTbUz78uKLPr2px5a
-	 pGiJopjThdn1TKcDV/4bawTNF+Hr8J49tUH8tPBV4Ac4ofe4sZVC6QVw2SeQiIdYuo
-	 BQF+wqzxRDsGg59nTUFl2KLFc739fRRjRRBQPYtx7xX7ibgA0bLJdm+hd5PeCQe29Z
-	 hmtkjBJGg8byA==
-Date: Sat, 18 Jul 2026 19:53:56 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Daniel Golle <daniel@makrotopia.org>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH] ASoC: topology: Guard against out-of-range mixer control
- shift
-Message-ID: <a28a49fa-a8e6-44ac-9401-4ac0286fe620@sirena.org.uk>
-References: <fb5d83513eda68578f0275b7fa274f172c08a0b1.1784395999.git.daniel@makrotopia.org>
+	id 1wlAIb-00000004SzE-30wp
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 18 Jul 2026 19:02:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=grrlz.net;
+	s=stigmate; t=1784400888;
+	bh=uGi/dAnT42Y/IdcWpc+2iKl0ZKD5ISQO2gm0GJ6Um5Y=;
+	h=From:To:Cc:Subject:Date:From;
+	b=SIMJ5TXsYdMQhemYBUGlsLAyrB1EsjE7UdsbxU+YtufYJ7qGfoOOAlc718w8H95oF
+	 UQnx1BwXb56u75YJxnCZyQxypBzojWZpp25ttn6JiPHiOWsd+f9sZFhgHRMd2vfERD
+	 zvkCfqMtPLUfl9G3gDC0i/AFqsW8BvC0J/zR5+8s=
+Received: from mx1.investici.org (unknown [127.0.0.1])
+	by confino.investici.org (Postfix) with ESMTP id 4h2bYh2XGLz10yH;
+	Sat, 18 Jul 2026 18:54:48 +0000 (UTC)
+Received: by mx1.investici.org (Postfix) id 4h2bYg5q7cz10yF;
+	Sat, 18 Jul 2026 18:54:47 +0000 (UTC)
+From: Bradley Morgan <include@grrlz.net>
+To: catalin.marinas@arm.com,
+	will@kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] arm64: entry: dedup SDEI event priority selection
+Date: Sat, 18 Jul 2026 18:54:47 +0000
+Message-ID: <20260718185447.25706-1-include@grrlz.net>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="W+7cZN/fsFiiASdA"
-Content-Disposition: inline
-In-Reply-To: <fb5d83513eda68578f0275b7fa274f172c08a0b1.1784395999.git.daniel@makrotopia.org>
-X-Cookie: Do not pick the flowers.
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260718_120210_402212_254D5D6E 
+X-CRM114-Status: GOOD (  12.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,42 +63,103 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: kees@kernel.org, Bradley Morgan <include@grrlz.net>, linux-kernel@vger.kernel.org, anshuman.khandual@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+__sdei_asm_handler open codes the same branch ladder four times to pick
+the normal or critical variant of a per CPU variable based on the SDEI
+event priority: when recording the active event, when selecting the
+SDEI stack, when selecting the shadow call stack, and when clearing the
+active-event record on exit.
 
---W+7cZN/fsFiiASdA
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Add a sdei_choose macro, using \@ local labels like the files existing
+macros, and replace the four open coded copies with it. This also drops
+the repeated reuse of the 1:/2:/3:/4: numeric labels in this handler.
 
-On Sat, Jul 18, 2026 at 06:34:42PM +0100, Daniel Golle wrote:
-> soc_tplg_control_dmixer_create() copies the per-channel "shift" field from
-> the topology file verbatim into struct soc_mixer_control. That value is
-> later used as a shift amount in soc_get_volsw() / soc_put_volsw() (e.g.
+No functional change intended.
 
->  	sm->shift =3D tplg_chan_get_shift(tplg, mc->channel, SNDRV_CHMAP_FL);
->  	sm->rshift =3D tplg_chan_get_shift(tplg, mc->channel, SNDRV_CHMAP_FR);
-> =20
-> +	if (sm->shift >=3D 32 || sm->rshift >=3D 32) {
+Signed-off-by: Bradley Morgan <include@grrlz.net>
+---
+ arch/arm64/kernel/entry.S | 39 +++++++++++++++++++--------------------
+ 1 file changed, 19 insertions(+), 20 deletions(-)
 
-Won't this break for mono controls - the right shift lookup will return
-a negative error code?
+diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
+index e0db14e9c843..29ef4a0d28a8 100644
+--- a/arch/arm64/kernel/entry.S
++++ b/arch/arm64/kernel/entry.S
+@@ -916,6 +916,15 @@ NOKPROBE(call_on_irq_stack)
+ 	b	.
+ .endm
+ 
++/* Set \dst using \op and the \normal or \critical sym, based on \prio */
++.macro sdei_choose op:req, dst:req, prio:req, normal:req, critical:req, tmp:req
++	cbnz	\prio, .Lcritical\@
++	\op dst=\dst, sym=\normal, tmp=\tmp
++	b	.Ldone\@
++.Lcritical\@:	\op dst=\dst, sym=\critical, tmp=\tmp
++.Ldone\@:
++.endm
++
+ #ifdef CONFIG_UNMAP_KERNEL_AT_EL0
+ /*
+  * The regular SDEI entry point may have been unmapped along with the rest of
+@@ -997,32 +1006,24 @@ SYM_CODE_START(__sdei_asm_handler)
+ 
+ 	/* Store the registered-event for crash_smp_send_stop() */
+ 	ldrb	w4, [x19, #SDEI_EVENT_PRIORITY]
+-	cbnz	w4, 1f
+-	adr_this_cpu dst=x5, sym=sdei_active_normal_event, tmp=x6
+-	b	2f
+-1:	adr_this_cpu dst=x5, sym=sdei_active_critical_event, tmp=x6
+-2:	str	x19, [x5]
++	sdei_choose adr_this_cpu, x5, w4, sdei_active_normal_event, \
++		    sdei_active_critical_event, x6
++	str	x19, [x5]
+ 
+ 	/*
+ 	 * entry.S may have been using sp as a scratch register, find whether
+ 	 * this is a normal or critical event and switch to the appropriate
+ 	 * stack for this CPU.
+ 	 */
+-	cbnz	w4, 1f
+-	ldr_this_cpu dst=x5, sym=sdei_stack_normal_ptr, tmp=x6
+-	b	2f
+-1:	ldr_this_cpu dst=x5, sym=sdei_stack_critical_ptr, tmp=x6
+-2:	mov	x6, #SDEI_STACK_SIZE
++	sdei_choose ldr_this_cpu, x5, w4, sdei_stack_normal_ptr, sdei_stack_critical_ptr, x6
++	mov	x6, #SDEI_STACK_SIZE
+ 	add	x5, x5, x6
+ 	mov	sp, x5
+ 
+ #ifdef CONFIG_SHADOW_CALL_STACK
+ 	/* Use a separate shadow call stack for normal and critical events */
+-	cbnz	w4, 3f
+-	ldr_this_cpu dst=scs_sp, sym=sdei_shadow_call_stack_normal_ptr, tmp=x6
+-	b	4f
+-3:	ldr_this_cpu dst=scs_sp, sym=sdei_shadow_call_stack_critical_ptr, tmp=x6
+-4:
++	sdei_choose ldr_this_cpu, scs_sp, w4, sdei_shadow_call_stack_normal_ptr, \
++		    sdei_shadow_call_stack_critical_ptr, x6
+ #endif
+ 
+ 	/*
+@@ -1068,11 +1069,9 @@ SYM_CODE_START(__sdei_asm_handler)
+ 
+ 	/* Clear the registered-event seen by crash_smp_send_stop() */
+ 	ldrb	w3, [x4, #SDEI_EVENT_PRIORITY]
+-	cbnz	w3, 1f
+-	adr_this_cpu dst=x5, sym=sdei_active_normal_event, tmp=x6
+-	b	2f
+-1:	adr_this_cpu dst=x5, sym=sdei_active_critical_event, tmp=x6
+-2:	str	xzr, [x5]
++	sdei_choose adr_this_cpu, x5, w3, sdei_active_normal_event, \
++		    sdei_active_critical_event, x6
++	str	xzr, [x5]
+ 
+ alternative_if_not ARM64_UNMAP_KERNEL_AT_EL0
+ 	sdei_handler_exit exit_mode=x2
+-- 
+2.53.0
 
---W+7cZN/fsFiiASdA
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmpby8QACgkQJNaLcl1U
-h9CWKAgAhFwX4gS+72WmY2yCfB3I/YS+ThcQGmD5qK/5tbNLIrLxiK5Q+ieX8m6b
-/LjYBogYwglN65Z52MSvIczTCKT3RWA+owm2Zls9Gf7FDhswD8UkLuD7X2PkhXJ9
-lAsb08wSpRbYNiAiUmsUk/3sWsYBy0ao3MB+jxXc+0aTsUQ9GKpYss9vzTgHDhgE
-a08lHuPe264xOVCnDbH/U8dF7LawK3q3gcKqnxC4idqsevACRCUcI2OuHGI9bhj3
-FxlC5fvOKpcFtS+gF36yUSuAqdox5Irqyiha1gd3fHFLwvJhX6t5zw/MzoCq/rK0
-MuyeUNZVOzSVorURGosYd3xJk/9NxQ==
-=oNWG
------END PGP SIGNATURE-----
-
---W+7cZN/fsFiiASdA--
 
