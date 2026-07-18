@@ -4,76 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3416C4451B
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jul 2026 14:24:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1B1FC4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jul 2026 14:28:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I2X51PbVx/BFVJ6LA8OK813ZCDWpSmXg2JC3L04Zccg=; b=I5ewwidTmbjxaJ1jTCc8bY7/tm
-	CRDrAWNQ/q5XaKcTPQvMAPUh38XMjJv42RUX2NXQ0EzgAb2ssDumJjH9Pn43qmXmTIAJJ8SEbVP1A
-	Wayr55vpRZy3k9z9Tt8BzMbMeQAuzcFFCga++ocjTg/xy6vi0uMunXZD1jNpTZXicG2yNL+7oFoZa
-	1YBRbccULga/oJ8Fr7KXJhtULAOWTrWHk9YOP+iAwGlSK/LVv5hf9OjZjEia2pmSkc18SwPIwJi1W
-	6JcKXbazWQ3TK8CdIKEu30W260nFs+Ou8NOy7TiIZ1wTyMMhYHflLs5kyY8kZCcbdaJ4GPJd3GGTX
-	e2RngzwA==;
+	bh=cN4SFoY/tZY29HdeZMDLAXwiTzxCSnJElqCY0zELtGs=; b=hpHaU1LA0Qp9RhnHKOWrvG9Pum
+	RWwFkyhD1EtEOx+YszGozvZK6pWMZNObdYnSPhv5zYG0ip2/UM89rGbzGO+ls7NZhgmxdbDEd7hA3
+	1pJJXjzwK31taN04lw/Qx4pEKqpYLgeWnm0NSIF00GZP4WDeNqdmI5LUTvxGIKMVquSjHF7k3QYXS
+	Rt2Zba+xMEjceCv90l2q/eik8U2ufKOPnTt0LrbaMH8SbR7mt0MijJDQsin2VFm7vwMlGgar7ylrF
+	965O2gq5uvmSxlkiSJgh/WcrUV/UjKcOW7sEN3lyxu4x3a9Pssf6v/+dk1MetNEmosbh7VSwukIgM
+	FxW4ytKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wl5xv-00000004A7Y-1Z2d;
-	Sat, 18 Jul 2026 14:24:31 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wl623-00000004ALr-3B8a;
+	Sat, 18 Jul 2026 14:28:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wl5xt-00000004A78-3TaZ
+	id 1wl623-00000004ALj-1M4H
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Jul 2026 14:24:29 +0000
+	Sat, 18 Jul 2026 14:28:47 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4272560018;
-	Sat, 18 Jul 2026 14:24:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09EA71F000E9;
-	Sat, 18 Jul 2026 14:24:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2864B60018;
+	Sat, 18 Jul 2026 14:28:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E7DD1F000E9;
+	Sat, 18 Jul 2026 14:28:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784384667;
-	bh=I2X51PbVx/BFVJ6LA8OK813ZCDWpSmXg2JC3L04Zccg=;
+	s=k20260515; t=1784384925;
+	bh=cN4SFoY/tZY29HdeZMDLAXwiTzxCSnJElqCY0zELtGs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=MLbiH6aGlQARFRsEAlT96uAdWJuJ+GS0r6dW7tDq1vw6FAFXkn0jdnMzF3AgpUKTs
-	 +jY/68c6WOZtDdG6v3RSGn1VEqqhvfNDvYgbdvnW0ItgrxgClhpUYrjCfqzhx2Wk8T
-	 PsaW2+yf4C/qclVWDG8cd3lBFNE3hwxF997q66ouMDo2TCZRS0XkpVwAET+7Z1FVRX
-	 AWnVu1p5q7vPD3g0zeInT4+2dB6E/lCWsg2PKFAshPiucSqc80AzCCT2AnvKBIV4E6
-	 Gg2LwnlWCl+d1kBWuzdVbbpb0JBj7FjwJcUbmGnPWb1eeSkOEF4tAVFEXVyKK2TNBZ
-	 RSMst6SU7+/Bg==
-Date: Sat, 18 Jul 2026 15:24:20 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>,
-	Ben Horgan <ben.horgan@arm.com>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Eric Auger <eric.auger@redhat.com>
-Subject: Re: [PATCH v12 02/29] arm64/fpsimd: Update FA64 and ZT0 enables when
- loading SME state
-Message-ID: <43f21c65-c5ba-44a3-9741-548390df369b@sirena.org.uk>
-References: <20260709-kvm-arm64-sme-v12-0-d0301d79ef58@kernel.org>
- <20260709-kvm-arm64-sme-v12-2-d0301d79ef58@kernel.org>
- <ali39DG6qie7XTuD@J2N7QTR9R3.cambridge.arm.com>
- <15a9ae14-395d-472a-a5be-9e46524fb493@sirena.org.uk>
- <3c76650f-ddda-47ae-a676-86016d8e39a6@sirena.org.uk>
- <CA+EHjTw9rGvQyev-4i7zkO5bPPZKGYn858485dCs8iHmCi0t3w@mail.gmail.com>
+	b=e2Uj07DOjH/TQ82jaKLRrQ0tj27mcvpntC4p3PJATIngsRHYlFU3X3lofLYviPBbs
+	 u5SyLmqiWfPcoz5tpuccs2N0KK12Od0OysNEMnnoYf6Ykh6Sy5OFYiUIoom5d8w5U1
+	 GUGdRFnntCxA4dVhZGQx7NjUHixCXMFqML9lUABHYf1QbdQYTkuwl6x0rdGQOsQoN+
+	 MrdDSuVD6+gdakknmWXozFPIxdXvFolH0Ka3+st04WOm7vqEifB/e5avrrzrslKj/h
+	 jZXYC+c+KKbCZ+E03rv7Y58wu4KoW0RstJn2j3yEL01YMhErUicAUA+uvQy8a78y/K
+	 pl0KFFOHijohQ==
+Date: Sat, 18 Jul 2026 15:28:25 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	Suren Baghdasaryan <surenb@google.com>, "Liam R. Howlett" <liam@infradead.org>, 
+	Vlastimil Babka <vbabka@kernel.org>, Shakeel Butt <shakeel.butt@linux.dev>, 
+	David Hildenbrand <david@kernel.org>, Michal Hocko <mhocko@suse.com>, 
+	Uladzislau Rezki <urezki@gmail.com>, Toshi Kani <toshi.kani@hpe.com>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, Andy Lutomirski <luto@kernel.org>, 
+	Peter Zijlstra <peterz@infradead.org>, Thomas Gleixner <tglx@kernel.org>, 
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Kiryl Shutsemau <kas@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Dev Jain <dev.jain@arm.com>, 
+	Ryan Roberts <ryan.roberts@arm.com>, David Carlier <devnexen@gmail.com>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	"Denis V. Lunev" <den@virtuozzo.com>, stable@vger.kernel.org
+Subject: Re: [PATCH mm-hotfixes v5 3/5] x86/mm/pat: acquire init_mm read lock
+ on attribute change to avoid UAF
+Message-ID: <aluLf-2NcDKylRP_@lucifer>
+References: <20260717-series-vmap-race-fix-v5-0-606a0ac6d3e5@kernel.org>
+ <20260717-series-vmap-race-fix-v5-3-606a0ac6d3e5@kernel.org>
+ <altbeuTZ0HCz_7HS@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="D59yeImOKcklFS0z"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CA+EHjTw9rGvQyev-4i7zkO5bPPZKGYn858485dCs8iHmCi0t3w@mail.gmail.com>
-X-Cookie: Do not pick the flowers.
+In-Reply-To: <altbeuTZ0HCz_7HS@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,61 +82,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sat, Jul 18, 2026 at 01:54:50PM +0300, Mike Rapoport wrote:
+> On Fri, Jul 17, 2026 at 06:30:09PM +0100, Lorenzo Stoakes (ARM) wrote:
+> > A previous commit protected us against races between ptdump and CPA
+> > collapse, however one still exists between attribute changes and collapse
+> > as reported by Denis V. Lunev (linked).
+> >
+> > When an attribute change arises, a lockless page table walker obtains a PTE
+> > entry, which is later written to via set_pte_atomic():
+> >
+> > ...
+> > -> change_page_attr_set_clr()
+> > -> __change_page_attr_set_clr()
+> > -> __change_page_attr()
+> > 	-> _lookup_address_cpa()
+> > 	-> lookup_address_in_pgd_attr()
+> > 	-> [ lockless page table walker ]
+> > -> set_pte_atomic()
+> >
+> > There is nothing preventing a concurrent CPA collapse which can free the
+> > PTE that was retrieved here, resulting in a use-after-free.
+> >
+> > With the mmap write lock taken on init_mm over CPA collapse, we can now
+> > resolve this race by acquiring an mmap read lock on init_mm over
+> > __change_page_attr_set_clr().
+> >
+> > This locks across the whole operation over which the walk and the PTE entry
+> > write occurs, solving the race.
+> >
+> > It is safe to do this here, as no spinlocks are held upon entry to
+> > __change_page_attr_set_clr().
+> >
+> > The CPA_COLLAPSE flag is only set by set_memory_rox(), which exclusively
+> > operates upon vmalloc ranges, and on x86 only within the module mapping
+> > space.
+> >
+> > This is important, because some callers directly invoke
+> > __change_page_attr_set_clr(), bypassing this lock. However, none of these
+> > operate within the module mapping space.
+> >
+> > * cpa_process_alias() - a recursive helper called by
+> >   __change_page_attr_set_clr().
+> > * __set_memory_enc_pgtable() - operates on the direct mapping and (via
+> >   __vmbus_establish_gpadl()) the vmalloc mapping space.
+> > * __set_pages_[n]p() - called by set_direct_map_[invalid, default,
+> >   valid]_noflush(), __kernel_map_pages() - operates on the direct map.
+> > * kernel_[un]map_pages_in_pgd() - operates on EFI ranges.
+> >
+> > This work is based upon Denis V. Lunev's excellent analysis of the bug with
+> > gratitude.
+> >
+> > Link: https://lore.kernel.org/all/20260626163213.2284080-1-den@openvz.org/
+> > Fixes: 41d88484c71c ("x86/mm/pat: restore large ROX pages after fragmentation")
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+> > ---
+> >  arch/x86/mm/pat/set_memory.c | 4 +++-
+> >  1 file changed, 3 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
+> > index d1e63f7d267f..301fb9e77d91 100644
+> > --- a/arch/x86/mm/pat/set_memory.c
+> > +++ b/arch/x86/mm/pat/set_memory.c
+> > @@ -2122,7 +2122,9 @@ static int change_page_attr_set_clr(unsigned long *addr, int numpages,
+> >  	cpa.curpage = 0;
+> >  	cpa.force_split = force_split;
+> >
+> > -	ret = __change_page_attr_set_clr(&cpa, 1);
+> > +	/* Avoid race with concurrent CPA collapse. */
+> > +	scoped_guard(mmap_read_lock, &init_mm)
+> > +		ret = __change_page_attr_set_clr(&cpa, 1);
+>
+> There's a small issue with this. debug_pagealloc_unmap_pages() ends up here
+> and since it's called from __free_pages() it can be in an atomic context.
 
---D59yeImOKcklFS0z
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Not the case - the callstack is:
 
-On Sat, Jul 18, 2026 at 02:30:04PM +0100, Fuad Tabba wrote:
-> On Sat, 18 Jul 2026 at 01:35, Mark Brown <broonie@kernel.org> wrote:
+debug_pagealloc_unmap_pages()
+-> __kernel_map_pages()
+-> __set_pages_[n]p()
+-> __change_page_attr_set_clr()
 
-> > Actually I remembered: while SCMR_EL1.LEN is self synchronising the
-> > "without the need for explict synchronization" wording is not present
-> > for SMCR_EL1.{FA64,EZT0} and this is no longer explicitly just an update
-> > of LEN.  It's possible I'm being overly paranoid here, I'll leave the
-> > isb() and add a comment for the next version.
+So it calls __change_page_attr_set_clr() not change_page_addr_set_clr()
+and doesn't hit this code.
 
-> I went through the ARM ARM (DDI 0487 M.c) on this and I don't think
-> you're being overly paranoid, I believe the isb() is needed here.
+As per the commit msg, it (and all the other bare
+__change_page_attr_set_clr() callers) do not hit ranges that can be
+collapsed so the race doesn't exist there.
 
-Thanks for double checking so thoroughly.
+Also the CPA_NO_CHECK_ALIAS flag is set, meaning there's no weird aliasing
+recursion via cpa_process_alias() (which in any case, also calls
+__change_page_attr_set_clr() directly anyway).
 
-> And task_fpsimd_load() does make indirect reads of both fields before
-> the next context synchronization event: sme_load_state() executes LDR
-> ZT0, whose execution at EL1 is trapped when SMCR_EL1.EZT0 is 0, and
-> when PSTATE.SM is set sve_load_state() executes WRFFR, which is
-> "illegal when executed in Streaming SVE mode, unless FEAT_SME_FA64 is
-> implemented and enabled" (from the WRFFR description). The MSR SVCR in
-> between doesn't provide the synchronization, since SVCR's
-> self-synchronisation wording covers reads of its own SM and ZA fields
-> only.
+>
+> >
+> >  	/*
+> >  	 * Check whether we really changed something:
+> >
+> > --
+> > 2.55.0
+> >
+>
+> --
+> Sincerely yours,
+> Mike.
 
-Yeah.  We should be able to optimise this:
-
- - If there is no change we don't need the isb().
- - If only EZT0 changes and we load state where ZA is disabled then we
-   won't try to access ZT0.
- - If only FA64 changes and we load state where streaming mode is
-   disabled then we won't try to access streaming mode FFR.
-
-I've gone and implemented the first which will suppress the isb() for
-current host kernel SME usage, the second two are starting to get more
-fiddly than seems sensible to do right now.
-
---D59yeImOKcklFS0z
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmpbjJMACgkQJNaLcl1U
-h9Aa2wf+MFnftbhCaUZX6WuBgJ/1JcYOGHYcvRPNQIAJbA+FOcoEoAhxy9zmXj4E
-Lj0HbydOLUFDNPTHJkNwKiBFX1bMmV6G4zai0jO0hNEdSrINc3XsQIvPZ05V/wnf
-P/22rDBegxR4h6onZCxuJybhd7tHT7HEzr/PSHT+7jq4UjUwNwFUafSkF1a4Wo+i
-OXEs6TU0LE4WFCXXKAZQDXNwT4uZcNtcFz+zXupnqRMWaaYyXY1h4PNvm7gl4UMK
-nizzA8eTfz10eI2NXtoYUDakxs+r3DKc1PF5a1WQaII9na/Ta1YymODmNqjNOSJv
-PmJ5ahScZWWJKbSaPYCK0A9YyOGYKw==
-=11bz
------END PGP SIGNATURE-----
-
---D59yeImOKcklFS0z--
+Thanks, Lorenzo
 
