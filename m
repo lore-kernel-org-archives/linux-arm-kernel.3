@@ -4,75 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C121C4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jul 2026 09:20:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8A48C4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jul 2026 09:57:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hAQh92xiHuxy24em2szgQVZY3Sgo8YJL/c+Vt1olVPE=; b=Noj588JcH9QppM1eTEpTXbiCri
-	+VUfYS0Ii9NxBRfo09OlCAO4leVJSSmq3X2PZ9CSeMblnZ+rstqiaLCzqobkzq7GGvmL00SG+nsAd
-	6KF8OXVozGv2d2SbJgV2CqrkW0T2v1R2Eyp13XSMB7VU4RY0h/ktjzGMAbiIbVzEOaJEtbjGIQHgs
-	1ioU2WHe3IYB7l1ZsLwoypx4LmXNAeVqKSwBn03A/G60c+lTp8CCI2tpRSNyBWWjWinTfx4qHNNwo
-	H1SNcKBqNG9tEBr/ljs3WaG+buybNR3R4SqZCq5q6APn3qTknPuzbhJ5uPVb+NLt+FkA9ZwpDd+9k
-	7F/Eqnfw==;
+	bh=XHtCFulTi7QuN+vcsXlI37N2cwZV1gauKNkUTz4LeTU=; b=XKhFwElo2u2Fbq7Xv3lx3w5eOa
+	juu2r5J9oDp7jvnQgFqh5QO9IANhWQ1MvKph/MvSJe0du6gaPzOsKPLO6kjWZZImhDzOdTWCHSq5C
+	yzHO9Z0CLtkdTTzlLFBOxYX4eoJRujVR/K4UgVQIQ5kU6gLk7ROXFMnVnHuqseZ0NUp8Pg8o7quhI
+	I2tnIpcKvBRrhZZICUnVWK08RrC/3sbEDGZf+FiGBRRRVKgDCBCKd+Hg6sAxnsQApgk+whyHejAal
+	L4qbSelidkKMduJptqxSS8XDoRSppTmtXMFgD1DsosykmhFPGKoihpF63Dd9SgrfXQfpSGGEWnDe+
+	5LsPti1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wl1DQ-00000003x0I-3Ts2;
-	Sat, 18 Jul 2026 09:20:12 +0000
-Received: from sender4-op-o11.zoho.com ([136.143.188.11])
+	id 1wl1n3-00000003yYQ-00uw;
+	Sat, 18 Jul 2026 09:57:01 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wl1DN-00000003wzk-21GQ
+	id 1wl1n0-00000003yY0-2KcT
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Jul 2026 09:20:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1784366396; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=d4uXtXsojZ9niWNoSNItuz9oSsih7XWUHwEUcdNQ/w2WZFcHE3GJooCCqckeW6s46Xyn54rotrOTxjiUsXGPFo4BSS4cBm3g/YNyDuf3fOaEQW0JAhJL3Xmdv0EDYwreQXgbdJq1/1QTn1/XKzIYxYR2io+B8vD4XOZ48AQ742I=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1784366396; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=hAQh92xiHuxy24em2szgQVZY3Sgo8YJL/c+Vt1olVPE=; 
-	b=KlmFzUVym2NLPQ7lclvO2JhFV0N05sNvtsnw6hIq2OtTTrTPDUyhY7TzN3juwwn6Jr6UVUbrGKFbw51tBdfjLXBUbQDAJwcas0vjMy0RTbc7SuF2UHYlgXQN13lqqcaw0y+uCmLKWJFO5MYgp2MB0Ut77npbDGLMXIMCcFqKUzE=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=yoavmoshe.com;
-	spf=pass  smtp.mailfrom=linux@yoavmoshe.com;
-	dmarc=pass header.from=<linux@yoavmoshe.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1784366396;
-	s=zoho; d=yoavmoshe.com; i=linux@yoavmoshe.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=hAQh92xiHuxy24em2szgQVZY3Sgo8YJL/c+Vt1olVPE=;
-	b=l/aUp9Uv05QViHiGl8c1Lv4Fsq52btodrCQfR3iJcZhpWrC2bDSXkVaILnvy0s5E
-	ESJqQq4yllokG0Bf0Qz3U/pFHqhBEMLdMScIu+WhHjHmXiiEdHq28fyD2xmXzbXWD/E
-	jKs1uaTv7aJP88W3945DzoJ5AGKF2N4Un64t9n2I=
-Received: by mx.zohomail.com with SMTPS id 1784366393113119.4825574702162;
-	Sat, 18 Jul 2026 02:19:53 -0700 (PDT)
-From: Yo'av Moshe <linux@yoavmoshe.com>
-To: Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Russell King <linux@armlinux.org.uk>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	imx@lists.linux.dev,
+	Sat, 18 Jul 2026 09:56:59 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-38dd1cc8dc8so818009a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 18 Jul 2026 02:56:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784368617; x=1784973417; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=XHtCFulTi7QuN+vcsXlI37N2cwZV1gauKNkUTz4LeTU=;
+        b=sKjh8nU4FEksfxJF8aiUOupWTyGEG8NUrbA4KdFCgtl20C5G42Ibf6IubW0tsrcwkr
+         o5rBM0b7TxVGdoPXcH8sP9lJOly/rsIBd77UYFhBnNFpM0EKGxf8U4jn9qlGSTLCv8Fw
+         YHux3Nd1IghnM3tskgZMgEaVJjTwMLQ35ZBnmtOmR8eM1816UADCm7nXX5a9FCqsrh8X
+         1hwjPwe4EnYW24PtoDFOgUmgybwlK0KmOopxdpEgG9ALso5rNCbqaMZE9yeCKiI5+MYA
+         D5mwgD5wkI1xdMV/GubnUFY8VmORdgZWxEbWSAKaY3bxEDl4Z2Xz2hbHofAdoZYK+FhI
+         ICCQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784368617; x=1784973417;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=XHtCFulTi7QuN+vcsXlI37N2cwZV1gauKNkUTz4LeTU=;
+        b=fzJKV2yDwYcqKlINwh13IYt+MKf4Z5g6faahszVNiYFZv0wigYrHRKcRx3AgGq5ahg
+         DwLBudGXkMI3ZCflK/b+CHZ/t7r1/EKb6lNh2d4APttUOJrKLweA6qfyIkQWWqYPSd+P
+         np7PMMRx8l1JctZ/uUkRT4b2QHBAsA5nnay+5TNdkqYFAK8ODGaK5A1UxKGh1oZ8YYXL
+         7vRck01l7bwr2Ebl9tkoZRSQTccxgo3nuHC3eS+GWdXQmKZjEia2fTnFjrEy+22TOxeK
+         dPtp4XzJsL2A8eSixi3mY0xfIzXd128Et5vvpJpNqhzKooy8PYIWQh0L0rc9+6ncdiVa
+         ygeg==
+X-Forwarded-Encrypted: i=1; AHgh+RpsAmjWy31QVao2CJzOCBUouUmxSXhPRCtp8GTPvsvlfDLWueV3aPsbQTEwmgsrHp67wVEiJTrPRvlK2pRHt8OZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzZA8evXLynRBs237ivbxNM9tAbYa1ilMFV4l71Ei1gLmR6hFqI
+	qZvnL1ynEHehU255tUsmDgcw9DAPppMMjXjuXPqVWX4qws2JuzPUJeYo
+X-Gm-Gg: AfdE7cnwwGYlD0LuC4RL+OirSvdd58DKoCRb9ykOwnnLmxiTcRxIrGWnzPcOfdGPYgO
+	KnI/YxikrL9508lZBjzPlE59PLZZRrsAVFnGQTufzbmVbRHTa5oU2d4Ban7l8Y+F230VgWCloOe
+	TfZ5cEzccvwvUhtqncwhcCDpoVXZBXk50NvnGzVKXtkt64VHLEYm6xZLS8HhVeG5T6XVz2/mn3D
+	15AV4tmT+fQcqt/pG41tjgAKf9Ug8XmXtd11qrPXChDDFMrK50cCquik7JvRtaUEt0KhXy0YI5Q
+	kNPyN7G+Q+w3VkffB16OtBmpcPe8hXykZdvx33J+fQVGXqb9MEq6GpleXzHMmlhDazxsQh+OeiZ
+	TYykJRJnJAzOTE4HTxxtny9LXgUQMOFyknieH//uS7/yIlCz04EgEoND/o5n2xaYB++/pw9dw/C
+	l/dJmGFPDzuSOAU8/yuhhlP7UAiX+65ove1IPvOTFtOVwL
+X-Received: by 2002:a05:6a00:80e6:b0:842:5a15:6fa6 with SMTP id d2e1a72fcca58-84c294b7ad8mr3410940b3a.3.1784368616755;
+        Sat, 18 Jul 2026 02:56:56 -0700 (PDT)
+Received: from debian.lan ([240e:391:eb4:a240::1])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84c2af317c8sm2417248b3a.30.2026.07.18.02.56.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 18 Jul 2026 02:56:56 -0700 (PDT)
+From: Xueyuan Chen <xueyuan.chen21@gmail.com>
+To: linux-mm@kvack.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>
+Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	llvm@lists.linux.dev,
-	stable@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Yo'av Moshe <linux@yoavmoshe.com>
-Subject: [PATCH v2] ARM: imx: Fix suspend/resume crash with Clang CFI
-Date: Sat, 18 Jul 2026 11:19:17 +0200
-Message-ID: <20260718091917.81738-1-linux@yoavmoshe.com>
-X-Mailer: git-send-email 2.55.0
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Lance Yang <lance.yang@linux.dev>,
+	Usama Arif <usama.arif@linux.dev>,
+	Jann Horn <jannh@google.com>,
+	Yang Shi <yang@os.amperecomputing.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Zi Yan <ziy@nvidia.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	"Liam R . Howlett" <liam@infradead.org>,
+	Nico Pache <npache@redhat.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Dev Jain <dev.jain@arm.com>,
+	Barry Song <baohua@kernel.org>,
+	Xueyuan Chen <xueyuan.chen21@gmail.com>
+Subject: [RFC PATCH v4 0/3] make persistent huge zero folio read-only
+Date: Sat, 18 Jul 2026 17:56:44 +0800
+Message-ID: <20260718095647.182592-1-xueyuan.chen21@gmail.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260718_022009_579980_B4EB7CE6 
-X-CRM114-Status: GOOD (  11.51  )
+X-CRM114-CacheID: sfid-20260718_025658_600756_37B45E77 
+X-CRM114-Status: GOOD (  11.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,55 +121,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Relocated suspend code in OCRAM lacks compiler-generated CFI type
-signatures. When CONFIG_CFI=y is active, the indirect call to
-imx6_suspend_in_ocram_fn triggers a strict CFI violation panic.
+The persistent huge zero folio is shared globally and should stay zero
+after initialization. As Jann Horn pointed out[1], kernel bugs have ended
+up writing to pages that were meant to be read-only, including in
+security-sensitive cases. Making the folio read-only in the direct map
+turns such writes into faults instead of silent zero-page corruption.
 
-Annotate imx6q_suspend_finish with __nocfi to bypass CFI checking
-for this specific indirect call.
+This series adds set_direct_map_ro_noflush() so mm code can make a
+direct-map range read-only, then uses it for the persistent huge zero
+folio. The helper is direct-map specific, takes an address-based range as
+discussed for set_direct_map* helpers[2], and leaves TLB invalidation to
+the caller.
 
-Additionally, protect the imx6_suspend_in_ocram_fn pointer by marking
-it __ro_after_init to prevent it from being used as a CFI bypass
-exploit vector.
+The folio is allocated and zeroed through the writable direct map before
+thp_shrinker_init() changes its permissions. thp_shrinker_init() is called
+from hugepage_init(), which is registered as a subsys_initcall and runs
+after SMP initialization. Writable TLB entries may therefore already be
+cached when the page-table permissions change. v4 flushes the exact
+direct-map range immediately after the noflush page-table update. Keeping
+the flush at the call site preserves the helper's explicit noflush contract
+and follows existing direct-map helper users such as secretmem and
+hibernation.
 
-Cc: stable@vger.kernel.org
-Signed-off-by: Yo'av Moshe <linux@yoavmoshe.com>
----
-Tested on a Kobo Clara HD (i.MX6SLL SoC) running postmarketOS edge. 
-Before this patch, suspending the device caused an immediate silent 
-hang requiring a hard-reboot. With this patch applied, suspend and 
-resume work successfully.
+Patches 2 and 3 add arm64 and x86 implementations.
 
-Differences from v1:
-- Added __ro_after_init to imx6_suspend_in_ocram_fn to prevent it
-  from being exploited as a CFI bypass gadget.
+[1]: https://lore.kernel.org/linux-mm/20260508-ro-zeropage-v1-1-9808abc20b49@google.com/
+[2]: https://lore.kernel.org/linux-mm/0e5b23a6-4895-454a-9dfa-6dc21adc2991@kernel.org/
+[3]: https://lore.kernel.org/linux-mm/CAHbLzkrXXe7r3n3jXgDKtwZhRqj=jDx9E6dLOULohnhBguvi9A@mail.gmail.com/
 
- arch/arm/mach-imx/pm-imx6.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+RFC v3 -> RFC v4:
+- Patch #01: Flush the direct-map range after changing it read-only, since
+  the folio was cleared through writable mappings after SMP initialization
+  (per Usama, thanks!).
+- Patch #01: Keep the flush in the caller to preserve the
+  set_direct_map_ro_noflush() contract and make the flushed range explicit.
+- Patch #01: Clarify the noflush API contract and the reason stale writable
+  translations must be invalidated.
+Link: https://lore.kernel.org/linux-mm/20260706130440.9295-1-xueyuan.chen21@gmail.com/
 
-diff --git a/arch/arm/mach-imx/pm-imx6.c b/arch/arm/mach-imx/pm-imx6.c
-index a671ca498..b425a4701 100644
---- a/arch/arm/mach-imx/pm-imx6.c
-+++ b/arch/arm/mach-imx/pm-imx6.c
-@@ -63,7 +63,7 @@
- 
- static void __iomem *ccm_base;
- static void __iomem *suspend_ocram_base;
--static void (*imx6_suspend_in_ocram_fn)(void __iomem *ocram_vbase);
-+static void (*imx6_suspend_in_ocram_fn)(void __iomem *ocram_vbase) __ro_after_init;
- 
- /*
-  * suspend ocram space layout:
-@@ -360,7 +360,7 @@ int imx6_set_lpm(enum mxc_cpu_pwr_mode mode)
- 	return 0;
- }
- 
--static int imx6q_suspend_finish(unsigned long val)
-+static int __nocfi imx6q_suspend_finish(unsigned long val)
- {
- 	if (!imx6_suspend_in_ocram_fn) {
- 		cpu_do_idle();
+RFC v2 -> RFC v3:
+- Patch #01: Replace arch_make_pages_readonly() with
+  set_direct_map_ro_noflush() in the existing set_direct_map* family
+  (per Mike and David, thanks!).
+- Patch #01: Use a direct-map address and number of pages, and document the
+  direct-map-only and no-TLB-flush semantics (per David, thanks!).
+- Patch #02 and #03: Update the arm64 and x86 implementations for
+  set_direct_map_ro_noflush().
+Link: https://lore.kernel.org/linux-mm/20260609143801.7917-1-xueyuan.chen21@gmail.com/
+
+RFC v1 -> RFC v2:
+- Patch #01: Drop the READONLY_HUGE_ZERO_FOLIO Kconfig option
+  (per Dave, thanks!).
+- Patch #01: Replace the huge-zero-folio-specific hook with a generic
+  page-range hook (per David, thanks!).
+- Patch #02 and #03: Update the arm64 and x86 implementations for the new
+  hook.
+Link: https://lore.kernel.org/linux-mm/20260527035607.14919-1-xueyuan.chen21@gmail.com/
+
+Xueyuan Chen (3):
+  mm: make persistent huge zero folio read-only
+  arm64/mm: add set_direct_map_ro_noflush()
+  x86/mm: add set_direct_map_ro_noflush()
+
+ arch/arm64/include/asm/set_memory.h |  2 ++
+ arch/arm64/mm/pageattr.c            | 10 ++++++++++
+ arch/x86/include/asm/set_memory.h   |  2 ++
+ arch/x86/mm/pat/set_memory.c        | 15 +++++++++++++++
+ include/linux/set_memory.h          | 29 +++++++++++++++++++++++++++++
+ mm/huge_memory.c                    | 16 +++++++++++++++-
+ 6 files changed, 73 insertions(+), 1 deletion(-)
+
 -- 
-2.55.0
-
+2.47.3
 
