@@ -4,88 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D41FC4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jul 2026 15:28:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37815C4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jul 2026 15:42:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nwqmyd6DelZJN33zgzOP1+KUArb5BHSnQUa4tshFmKs=; b=NXOQAPWGAoBbhSU+56CMtltxOE
-	9N0qArqVGz0JQTtaEnhsKv3vr4/P/GSccA7oEjv0V0dYn1RZJH3wQdf9zmtccbM3RgdyLIDBeivhv
-	7Hp1rTYjiUFun/QaSDBLvB+YL905r04qlidKrZFetdzMfLH7RDHPcnyH2hhUXYDJgWYYkvCdpiwKJ
-	98XVD+ghf89pVsv3Gy6HV2b8kjZC1Y0O6UwjMxNdU2vXuYOvbJ/JD+CxGuvMxlEmomowkadz1ZrlJ
-	OSi8c08Oomg+XE/cP/mE5qGY1jkdvgNTVzZ0ooIDGO2E/YUU93sl3E8fDGvnA9HM5t2973Yre6OtU
-	LF9qdJUA==;
+	bh=B3Tozc6XvAyXDRXhNm08ssVPc4HklhucZjeYpfFjPmA=; b=R+qvb48lVWJLTKXv7kCOafPskI
+	QcbR4kt9gGiC5EntqmGmo+EbY1USdqHoJXOvk8XHicwCwyzqM6q8Bqpla+QKop1DjBFopU4mgNKAM
+	hwF+dsBC2NEzZWRqXvd2m8y3q2B4OX4FcF7y6JZgECjhek79l+zUC4hU/gx75zFrOXFgLjGxxraRQ
+	j08+FBYj26FnQi8zPoD3hIE7gPLzZS5OeC/jmDzGDwm3abW/M6ZAwSVmX/1Hg/8IufZfm6vpWeXnb
+	JzXdEkETGPvrg6wGylEl6ea3ntW8KLWzyfAkrAyA5Pgp5LioSvyBL5XdiTw5Mx5YwYiElzX8rSRpt
+	errXiZwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wl6xq-00000004DSn-2p2k;
-	Sat, 18 Jul 2026 15:28:30 +0000
-Received: from shout01.mail.de ([2001:868:100:600::216])
+	id 1wl7BI-00000004EHP-0YxY;
+	Sat, 18 Jul 2026 15:42:24 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wl6xo-00000004DSD-0EiF
+	id 1wl7BF-00000004EGx-3vbq
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Jul 2026 15:28:29 +0000
-Received: from postfix01.mail.de (postfix01.bt.mail.de [10.0.121.125])
-	by shout01.mail.de (Postfix) with ESMTP id 424B624061B;
-	Sat, 18 Jul 2026 17:28:23 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mail.de;
-	s=mailde202009; t=1784388503;
-	bh=yK35+AhI3nm/v2z8NTIxfVsSX/APoUmq4QmgKb0ner4=;
-	h=From:To:Cc:Subject:Date:Message-ID:From:To:CC:Subject:Reply-To;
-	b=BB+qRCcSUzAH1v7bVC/Ohwy7IRO0k0JwjAtRQsdfwCHnK77q3O6dOIdzvtEecbPbc
-	 6GkmQhB6mQw5BiJwMw1hU/09i2rCuQRIAfBsq7CPEkMAu438xv2DhAbs2HHgf8Q1Qs
-	 /Gz0iEXB8p0QODhDqHKZkyAwHb0YVabmSo4nuLe0auNw6tKMAbvV66+yM+0T6KzhRI
-	 Y7EmbuIDQ2GKIu8ZclmkWtAhbDuVaTt/5ZC400fqfyjqCrtspaC3L/3HwlpF9xqz2b
-	 qXvIes7poj1Al9HFagQHzm3qRQsnDvm89DGx5o5UnWWnQf4JRQ7CFhzNG2R4/4DVoJ
-	 mkWOEQ7+ZeWwg==
-Received: from smtp01.mail.de (smtp01.bt.mail.de [10.0.121.211])
-	by postfix01.mail.de (Postfix) with ESMTP id 18D3124055F;
-	Sat, 18 Jul 2026 17:28:23 +0200 (CEST)
-Received: from [127.0.0.1] (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp01.mail.de (Postfix) with ESMTPSA id 54D0424065B;
-	Sat, 18 Jul 2026 17:28:16 +0200 (CEST)
-From: Luis Lang <luis.la@mail.de>
-To: netdev@vger.kernel.org
-Cc: Luis Lang <luis.la@mail.de>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Rohan G Thomas <rohan.g.thomas@altera.com>,
-	linux-stm32@st-md-mailman.stormreply.com (moderated list:ARM/STM32 ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/STM32 ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH] net: stmmac: dwmac4: mask interrupts before stopping DMA in suspend
-Date: Sat, 18 Jul 2026 17:27:57 +0200
-Message-ID: <20260718152802.83553-1-luis.la@mail.de>
-In-Reply-To: <7941d239-e5f5-43b5-ae0f-20398221e027@mail.de>
-References: <7941d239-e5f5-43b5-ae0f-20398221e027@mail.de>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-purgate: clean
-X-purgate: This mail is considered clean (visit http://www.eleven.de for further information)
-X-purgate-type: clean
-X-purgate-Ad: Categorized by eleven eXpurgate (R) https://www.eleven.de
-X-purgate: This mail is considered clean (visit https://www.eleven.de for further information)
-X-purgate: clean
-X-purgate-size: 5154
-X-purgate-ID: 154282::1784388502-86D848A6-0EF441FE/0/0
+	Sat, 18 Jul 2026 15:42:23 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66IDDRIh386325
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 18 Jul 2026 15:42:20 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	B3Tozc6XvAyXDRXhNm08ssVPc4HklhucZjeYpfFjPmA=; b=l9F6S0Gnb2vjgD6a
+	NBQfReSJBOyCIXwIUgjQE9ha1CjdNnqVi17UErZCTYSlBRo/TxMbCbjqKp2d0Yy8
+	2grbSegaeCpYWBsCtdZz1Mn3v8FEv1j5UcVICfCZoIiXa6CDvpkRuAbnTODcJZ/U
+	B2BcXlqo9x1yKCfP3m63lMsLAwNF6umECQ3O2BYkakRH9Y3pltrWALui4/z2ZZDB
+	Oohi70BkTEVI9LYX4Az4ZXFHWOAsSgFmcQVj/yBR+bc/KWRawPM7IARiYuzeczGl
+	2Z7prJm/hdBFhaSSwCdQjPyC6p/fQJ948P1wqkX9Tl6bHTlDilZ5bfpKV/jZ9sV8
+	GzU+Jw==
+Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fg2nhh12v-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 18 Jul 2026 15:42:20 +0000 (GMT)
+Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-c96b4f58ddcso5240997a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 18 Jul 2026 08:42:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1784389339; x=1784994139; darn=lists.infradead.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=B3Tozc6XvAyXDRXhNm08ssVPc4HklhucZjeYpfFjPmA=;
+        b=jBhfzSoiMhtYT7umbZ8bydkCHTCGrQu5DR6GaJK4R6yUmylRhxyBUNhj16iaGUuQtB
+         AwD2QHD/AnJ3g/16UlGPtvD1loGOt0uDBKDDDCZ/wapNx108TaiolfNlGz+BGNQkVazB
+         PqybKlSxj5kPQC/CqhEqVFWMWldAq9tdd2TiiBMwWERUTAFuub4Z4AujFYV6s5qRj1Cv
+         l8QOera3+UaQixsC71BSVFr7R794SOGBpvwjQngyrkrrR5FGZrjGsH1+6JR1uRutbzJz
+         /N0agLhiGozON43dsNoL5R2Odh8VuZ+Kg3p6dPDTZjx1dQF8M0BYssnX1TJxtF+5NLcV
+         JCiA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784389339; x=1784994139;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=B3Tozc6XvAyXDRXhNm08ssVPc4HklhucZjeYpfFjPmA=;
+        b=NdHw056gm7IUJVrU88q8CRkGz5/AxJjVBCoy8IlkiwIQp+qH7ERvpomdGSz7V81GkY
+         7I62qO1GLI8cezFhrQMea4gDs7Ycnsl3YMROIXLC5yTvTKWXmc38rjs31f5DsuC6DFGL
+         5PWfOiUd7t2wEP5Jw9IGd159YA8t80c0hNPCNeTUOeQ+gyPYucVGDizR4bYQRp+fJfzP
+         D9XO0Me2iysUBPc9dXjIbDKqXfKHbR0SvsgAqRpAD5uV+fjhNCe4Sw54yFD4tOV4TlgV
+         w41b5Vnx8ZbSoZzClrUyEEv086DzekWjHSvStgFkoR2siOTJmgZPSDwgfSJF+S7q6sYm
+         fBHQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rq7YFU/UCsBivte1IsvziOZ97waCv45+3d9yn1LIWUu4zS54YZgMEoe3kAYhvB2f2OS+pe18gyJdkhkWsQR+ERi@lists.infradead.org
+X-Gm-Message-State: AOJu0YzrkL7Y61/48kc9dO+UdhGtNNfMDt+XKffcoPxpJ29JC/RzXBcS
+	Wa3ZVJyfxR/hex5yt87lczAj/9Q6NJ6ExcqPorJc02n991WdWwolm+p2LNtMWJ1fEIJzQuE6PAp
+	5F6gSnrCWol/vsIMWHZQc/f9RfdF1lty2R4abQAya+ESRLMeKA8Q10HYZNvHXFswpBjIhEieiGE
+	dnmQ==
+X-Gm-Gg: AfdE7cn0nEQgfmslDTyeasAeJJvl0TEfuBDpzH5g1Wphp9B3yloOQDhB2vlFCDLBcvO
+	H6/HTcy/DrlX2ILDuhTl8YrsyI6wMg23yP8P68NQhTfh6SJ66kLZy+1IQVb4jGW0IN7KiRakiL/
+	K0swVkuhFNz5NGEOWpVd9Yx7W6CBBIkgei21crVF3+RgN6iXRCkGHh22U9IobKt4kefQ2DcBZAI
+	iaMF52YLwC/0pRpyjGfY6zslf1w6KmlK/ekItP2QupTHT0pJOTus4EuEyc4O0gl4aDyr7DHTpwB
+	RrXGIAxLGwHqHCWflXQMWBeuxqpQp52bIr9mtxB182ypeFpCk3p1f4W5Wtynndvuw/rb3XDGIqp
+	JxoQuyA==
+X-Received: by 2002:a05:6300:95:b0:3bf:e2f1:1b08 with SMTP id adf61e73a8af0-3c3ad9717d4mr7925888637.40.1784389339433;
+        Sat, 18 Jul 2026 08:42:19 -0700 (PDT)
+X-Received: by 2002:a05:6300:95:b0:3bf:e2f1:1b08 with SMTP id adf61e73a8af0-3c3ad9717d4mr7925851637.40.1784389338852;
+        Sat, 18 Jul 2026 08:42:18 -0700 (PDT)
+Received: from localhost ([188.253.117.185])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31429f9d439sm22974922eec.5.2026.07.18.08.42.13
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 18 Jul 2026 08:42:18 -0700 (PDT)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Sat, 18 Jul 2026 23:42:10 +0800
+Message-Id: <DK1T85P7OAAY.RXCY4AX71VRX@oss.qualcomm.com>
+Cc: <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
+        <linux-aspeed@lists.ozlabs.org>,
+        <linux-arm-kernel@lists.infradead.org>, <imx@lists.linux.dev>,
+        <xen-devel@lists.xenproject.org>
+Subject: Re: [PATCH v2 5/8] drm/gm12u320: replace struct
+ drm_simple_display_pipe with regular atomic helpers
+From: "Ze Huang" <ze.huang@oss.qualcomm.com>
+To: "Thomas Zimmermann" <tzimmermann@suse.de>,
+        "Ze Huang"
+ <ze.huang@oss.qualcomm.com>,
+        "Alexey Brodkin" <abrodkin@synopsys.com>,
+        "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
+        "Maxime Ripard"
+ <mripard@kernel.org>,
+        "David Airlie" <airlied@gmail.com>, "Simona Vetter"
+ <simona@ffwll.ch>,
+        "Joel Stanley" <joel@jms.id.au>,
+        "Andrew Jeffery"
+ <andrew@codeconstruct.com.au>,
+        "Frank Li" <Frank.Li@nxp.com>,
+        "Sascha
+ Hauer" <s.hauer@pengutronix.de>,
+        "Pengutronix Kernel Team"
+ <kernel@pengutronix.de>,
+        "Fabio Estevam" <festevam@gmail.com>,
+        "Linus
+ Walleij" <linusw@kernel.org>,
+        "Hans de Goede" <hansg@kernel.org>,
+        "Alex
+ Lanzano" <lanzano.alex@gmail.com>,
+        "Oleksandr Andrushchenko"
+ <oleksandr_andrushchenko@epam.com>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <20260716-drm-simple-kms-removal-v2-0-1133a8fc3785@oss.qualcomm.com> <20260716-drm-simple-kms-removal-v2-5-1133a8fc3785@oss.qualcomm.com> <26981ae1-4aef-4965-8600-f5e30a1b564a@suse.de>
+In-Reply-To: <26981ae1-4aef-4965-8600-f5e30a1b564a@suse.de>
+X-Authority-Analysis: v=2.4 cv=Le0MLDfi c=1 sm=1 tr=0 ts=6a5b9edc cx=c_pps
+ a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=RQ3dwY0XcLBFaqRX7rIGyg==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
+ a=EUspDBNiAAAA:8 a=ZBS7nKAnUslcPLfxFb0A:9 a=QEXdDO2ut3YA:10
+ a=_Vgx9l1VpLgwpw_dHYaR:22
+X-Proofpoint-GUID: 1AnnfQvnxZvlxv-I_oaC_IQaLMh8NJtu
+X-Proofpoint-ORIG-GUID: 1AnnfQvnxZvlxv-I_oaC_IQaLMh8NJtu
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzE4MDE2MyBTYWx0ZWRfX+3IhA8IUf/x8
+ GdK8dmA10GfUQvqWQ9bfybe/cX8JtXS2paEG/CJ82/Pf21ZkPMTAnQwjH4IIHK1N89IY2fcSVm7
+ TtN1Av37ypJuUoPIWRLZ7Vn/cirwm1xWc2rv4Y8zPxacMPhN0GdU0ck/A91jTtgLW3GCKQCgXwx
+ akBozwQRBgGUZNxb6YD/xeftBjHRgMrlQBF2DTRbjN+nJyYmEBTjsVnqOHbsD3gyxG/Na+B68w6
+ rlR5DiPZYSpXnROR3D/1VhkbrJAO4MOwvacIIr8HA5aWwnyurbO+wsV6kBU5c5e/eP5ALGjDAzO
+ E0f4i3tmdbM2GEeWFNTl/Qd+h3cB/YwPvqWLmpO1IO2X+b1cArx5XYK/VEGEg7ZEsfsEIu+H5QM
+ m7PbDiCvyDIK8jeKL6iAkyOSQXNXa4UfMWtcR2pD0Xydt8FYQWAf5UWdTfbpBPfe4XJdwFikZiS
+ WPH3U2+76DcUw4tbaNQ==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzE4MDE2MyBTYWx0ZWRfX9qORJttGgzyj
+ zrD/kQ2di8wlEQReBOxDAHzg9NdEDQBkuyntUdS2wjcaXMr4ee1shZ5KS+KtZ2nxKzivDin3e0h
+ BLXJJ0tfZTUp/qq0qS1WJCo1WrLtQkM=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-18_04,2026-07-17_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 lowpriorityscore=0 clxscore=1015 adultscore=0 phishscore=0
+ bulkscore=0 impostorscore=0 priorityscore=1501 malwarescore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607180163
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260718_082828_240131_6022C21B 
-X-CRM114-Status: GOOD (  10.13  )
+X-CRM114-CacheID: sfid-20260718_084222_004808_14D53A28 
+X-CRM114-Status: GOOD (  23.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,124 +174,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since commit 1b9707e6f1a9 ("net: stmmac: enable RPS and RBU
-interrupts"), suspending causes an interrupt storm from the RPS
-interrupt.
-Fix this by adding a deinit_chan() op to stmmac_dma_ops, which
-masks all default dma channel interrupts. This is called from
-stmmac_stop_all_dma(), so interrupts don't trigger while suspending.
+On Fri Jul 17, 2026 at 3:18 PM CST, Thomas Zimmermann wrote:
+> Hi
+>
+> Am 16.07.26 um 11:01 schrieb Ze Huang:
+>> Convert gm12u320 to direct primary plane, CRTC and encoder setup.
+>>
+>> Keep shadow-plane helper state, framebuffer access helpers and
+>> no-scaling plane-state check from simple-KMS path.
+>>
+>> Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
+>> Tested-by: Thomas Zimmermann <tzimmermann@suse.de>
+>> Signed-off-by: Ze Huang <ze.huang@oss.qualcomm.com>
+>> ---
+>>   drivers/gpu/drm/tiny/gm12u320.c | 132 ++++++++++++++++++++++++++++++++=
+--------
+>>   1 file changed, 107 insertions(+), 25 deletions(-)
+>>
+> [...]
+>>  =20
+>> -static void gm12u320_pipe_enable(struct drm_simple_display_pipe *pipe,
+>> -				 struct drm_crtc_state *crtc_state,
+>> -				 struct drm_plane_state *plane_state)
+>> +static void gm12u320_crtc_helper_atomic_enable(struct drm_crtc *crtc,
+>> +					       struct drm_atomic_commit *commit)
+>>   {
+>>   	struct drm_rect rect =3D { 0, 0, GM12U320_USER_WIDTH, GM12U320_HEIGHT=
+ };
+>> -	struct gm12u320_device *gm12u320 =3D to_gm12u320(pipe->crtc.dev);
+>> +	struct gm12u320_device *gm12u320 =3D to_gm12u320(crtc->dev);
+>> +	struct drm_plane_state *plane_state =3D gm12u320->plane.state;
+>
+> Did you see the reply from the Sashiko bot?
+>
+> What happens is that user space can apply multiple atomic commits in a=20
+> row, but they are applied to hardware asynchronously. So if you take the=
+=20
+> plane state here directly from the plane, it could have been replaced by=
+=20
+> a later atomic commit already.=C2=A0 Rather get the correct plane state w=
+ith=20
+> the helper drm_atomic_get_new_plane_state().
+>
 
-Fixes: 1b9707e6f1a9 ("net: stmmac: enable RPS and RBU interrupts")
-Suggested-by: Andrew Lunn <andrew@lunn.ch>
-Suggested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Signed-off-by: Luis Lang <luis.la@mail.de>
----
- .../net/ethernet/stmicro/stmmac/dwmac4_dma.c  | 24 +++++++++++++++++++
- drivers/net/ethernet/stmicro/stmmac/hwif.h    |  4 ++++
- .../net/ethernet/stmicro/stmmac/stmmac_main.c |  4 ++++
- 3 files changed, 32 insertions(+)
+I think I misunderstood this point. I had assumed that
+drm_atomic_get_*_state() was only needed for the state object directly
+matching the helper callback, for example crtc_state in
+*_crtc_helper_atomic_enable() and plane_state in
+*_plane_helper_atomic_update(), while other state could be accessed via
+the device-private structure.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c
-index 829a23bdad01..23ffe1adcd0d 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_dma.c
-@@ -106,6 +106,17 @@ static void dwmac4_dma_init_channel(struct stmmac_priv *priv,
- 	       ioaddr + DMA_CHAN_INTR_ENA(dwmac4_addrs, chan));
- }
- 
-+static void dwmac4_dma_deinit_channel(struct stmmac_priv *priv,
-+				      void __iomem *ioaddr, u32 chan)
-+{
-+	const struct dwmac4_addrs *dwmac4_addrs = priv->plat->dwmac4_addrs;
-+	u32 value;
-+
-+	value = readl(ioaddr + DMA_CHAN_INTR_ENA(dwmac4_addrs, chan));
-+	value &= ~DMA_CHAN_INTR_DEFAULT_MASK;
-+	writel(value, ioaddr + DMA_CHAN_INTR_ENA(dwmac4_addrs, chan));
-+}
-+
- static void dwmac410_dma_init_channel(struct stmmac_priv *priv,
- 				      void __iomem *ioaddr,
- 				      struct stmmac_dma_cfg *dma_cfg, u32 chan)
-@@ -125,6 +136,17 @@ static void dwmac410_dma_init_channel(struct stmmac_priv *priv,
- 	       ioaddr + DMA_CHAN_INTR_ENA(dwmac4_addrs, chan));
- }
- 
-+static void dwmac410_dma_deinit_channel(struct stmmac_priv *priv,
-+					void __iomem *ioaddr, u32 chan)
-+{
-+	const struct dwmac4_addrs *dwmac4_addrs = priv->plat->dwmac4_addrs;
-+	u32 value;
-+
-+	value = readl(ioaddr + DMA_CHAN_INTR_ENA(dwmac4_addrs, chan));
-+	value &= ~DMA_CHAN_INTR_DEFAULT_MASK_4_10;
-+	writel(value, ioaddr + DMA_CHAN_INTR_ENA(dwmac4_addrs, chan));
-+}
-+
- static void dwmac4_dma_init(void __iomem *ioaddr,
- 			    struct stmmac_dma_cfg *dma_cfg)
- {
-@@ -548,6 +570,7 @@ const struct stmmac_dma_ops dwmac4_dma_ops = {
- 	.reset = dwmac4_dma_reset,
- 	.init = dwmac4_dma_init,
- 	.init_chan = dwmac4_dma_init_channel,
-+	.deinit_chan = dwmac4_dma_deinit_channel,
- 	.init_rx_chan = dwmac4_dma_init_rx_chan,
- 	.init_tx_chan = dwmac4_dma_init_tx_chan,
- 	.axi = dwmac4_dma_axi,
-@@ -577,6 +600,7 @@ const struct stmmac_dma_ops dwmac410_dma_ops = {
- 	.reset = dwmac4_dma_reset,
- 	.init = dwmac4_dma_init,
- 	.init_chan = dwmac410_dma_init_channel,
-+	.deinit_chan = dwmac410_dma_deinit_channel,
- 	.init_rx_chan = dwmac4_dma_init_rx_chan,
- 	.init_tx_chan = dwmac4_dma_init_tx_chan,
- 	.axi = dwmac4_dma_axi,
-diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-index e6317b94fff7..04dafec021b4 100644
---- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-@@ -170,6 +170,8 @@ struct stmmac_dma_ops {
- 	void (*init)(void __iomem *ioaddr, struct stmmac_dma_cfg *dma_cfg);
- 	void (*init_chan)(struct stmmac_priv *priv, void __iomem *ioaddr,
- 			  struct stmmac_dma_cfg *dma_cfg, u32 chan);
-+	void (*deinit_chan)(struct stmmac_priv *priv, void __iomem *ioaddr,
-+			    u32 chan);
- 	void (*init_rx_chan)(struct stmmac_priv *priv, void __iomem *ioaddr,
- 			     struct stmmac_dma_cfg *dma_cfg,
- 			     dma_addr_t phy, u32 chan);
-@@ -235,6 +237,8 @@ struct stmmac_dma_ops {
- 	stmmac_do_void_callback(__priv, dma, init, __args)
- #define stmmac_init_chan(__priv, __args...) \
- 	stmmac_do_void_callback(__priv, dma, init_chan, __priv, __args)
-+#define stmmac_deinit_chan(__priv, __args...) \
-+	stmmac_do_void_callback(__priv, dma, deinit_chan, __priv, __args)
- #define stmmac_init_rx_chan(__priv, __args...) \
- 	stmmac_do_void_callback(__priv, dma, init_rx_chan, __priv, __args)
- #define stmmac_init_tx_chan(__priv, __args...) \
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 2a0d7eff88d3..af29a50ddb89 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -2560,6 +2560,7 @@ static void stmmac_stop_all_dma(struct stmmac_priv *priv)
- {
- 	u8 rx_channels_count = priv->plat->rx_queues_to_use;
- 	u8 tx_channels_count = priv->plat->tx_queues_to_use;
-+	u8 dma_csr_ch = max(rx_channels_count, tx_channels_count);
- 	u8 chan;
- 
- 	for (chan = 0; chan < rx_channels_count; chan++)
-@@ -2567,6 +2568,9 @@ static void stmmac_stop_all_dma(struct stmmac_priv *priv)
- 
- 	for (chan = 0; chan < tx_channels_count; chan++)
- 		stmmac_stop_tx_dma(priv, chan);
-+
-+	for (chan = 0; chan < dma_csr_ch; chan++)
-+		stmmac_deinit_chan(priv, priv->ioaddr, chan);
- }
- 
- /**
--- 
-2.55.0
+From your explanation, I see that this is wrong. In the atomic commit
+path, any state associated with the current commit should be obtained
+through drm_atomic_get_*_state(), because the object=E2=80=99s ->state may
+already refer to a later commit.
 
+> I did not look at all of the series' patches for this problem, but the ru=
+le
+> applies to all of the mode-setting code.
+>
+> Best regards
+> Thomas
+
+This affects other patches in the series as well, and some drivers may
+need additional fixes in internal helpers too, e.g. arc_pgu_set_pxl_fmt()
+in arcpgu.c [1].
+
+I will audit the full series and fix such cases in the next version.
+
+Best regards
+Ze
 
