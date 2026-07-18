@@ -4,61 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F2E6C44520
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jul 2026 01:16:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E4D4C44520
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jul 2026 01:40:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sIm3a0T7/ynzR7ODSnAGypmAHLIsy+fWZ3JA8rdeA/k=; b=FwNbRx/WqpRUdrW/aPFlTgjCvU
-	oVmg8LMsHaWiifo8y7soGB25Cm29LQNYSl/7UaEOpzXIZ4SHR6l79CeT3JUBQ2PrhrOnQbfEJJOcZ
-	SMaEhk5uv9/v6Mbb6r+5jcjf0kwxoWYTYcMQpVhudV7o9YpnmdrwXF8boIyEmG+pbBoxXJVktr1lQ
-	fxgifZ84wjeSxMk+SSSBndkXhfljFJ7U8B6cilMGABICYNqvRwnUsWuEpJLvjmHzPvWXLOVswP7r+
-	GtMNn0F7N88N9u0A7ciqdjhIpy8TKJkh9XNbKNaOyZpsxEnu5MPlFFs3zS7rFgivw2H1aEc/rpgWm
-	p3nzB0wQ==;
+	bh=S26ezyycOtOJJs/eO9LtmBbdx8jrwPqoD6H81PFFNZE=; b=j7v+w5mb/ah7QSs3Qsb4StIHnL
+	WJEGVQ5sQUGigJXMQ/OPXGBxmuJ3edL2cyP6fRT5ZBx53GRB46C2mO8ot6eQm3BFozKBCpKGqP6TA
+	F2uCJaFAxp7Fngr4yMqwmCpwJQz5ih7Hr4lmC1ZypXXCIyjvCEcztJVLHoUSyPPiQo0Rz4Eb2vQOX
+	woLhi9SowJPayuO9pxf8PTmarKgK0B3thZSdebI66/nziJCYk6D9pYp4tseZgMKh9X2jr8Qgc+cyx
+	7w+1bU226WFPQC/SlsCtON96Go01CydzWrzMhGu8IS26Yh1GhaOe59kPivcho8vOWS1+8JGZgcSO3
+	kwzwZ4gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wktes-00000003UYB-034z;
-	Sat, 18 Jul 2026 01:16:02 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wku2K-00000003Vj3-3SZI;
+	Sat, 18 Jul 2026 01:40:16 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wkteq-00000003UXv-0fgS;
-	Sat, 18 Jul 2026 01:16:00 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B021B4380C;
-	Sat, 18 Jul 2026 01:15:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67B5E1F000E9;
-	Sat, 18 Jul 2026 01:15:58 +0000 (UTC)
-Received: by venus (Postfix, from userid 1000)
-	id 132EA181D34; Sat, 18 Jul 2026 03:15:56 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Sebastian Reichel <sre@kernel.org>, Linus Walleij <linusw@kernel.org>, 
- Chen-Yu Tsai <wens@kernel.org>, Hans de Goede <hansg@kernel.org>, 
- Support Opensource <support.opensource@diasemi.com>, 
- Amit Sunil Dhamne <amitsd@google.com>, 
- Saravanan Sekar <sravanhome@gmail.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Samuel Kayode <samkay014@gmail.com>, 
- Casey Connolly <casey.connolly@linaro.org>, 
- Orson Zhai <orsonzhai@gmail.com>, 
- Baolin Wang <baolin.wang@linux.alibaba.com>, 
- Chunyan Zhang <zhang.lyra@gmail.com>, linux-pm@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, imx@lists.linux.dev, 
- linux-arm-msm@vger.kernel.org, Pan Chuang <panchuang@vivo.com>
-In-Reply-To: <20260709033428.362970-1-panchuang@vivo.com>
-References: <20260709033428.362970-1-panchuang@vivo.com>
-Subject: Re: [PATCH 00/43] power: Remove redundant error messages on IRQ
- request failure
-Message-Id: <178433735604.414021.16202847796535992443.b4-ty@collabora.com>
-Date: Sat, 18 Jul 2026 03:15:56 +0200
+	id 1wku2I-00000003Vi8-1Xkm
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 18 Jul 2026 01:40:15 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66HNEJgY3023688
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 18 Jul 2026 01:40:12 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	S26ezyycOtOJJs/eO9LtmBbdx8jrwPqoD6H81PFFNZE=; b=MHawPBaUfTnwVOG7
+	o+SmVpl5eFJPZ2WXCmraE9lW2gZFB1lQYiFwDBVktPQ2i95EZDExtLF5CId4OUCD
+	5j9m0mnSQs8AeTby4bSwduGrqb92g4OX4ZWWGLNn/t/SHZK83qnZOjFltejMhigE
+	rzEfX551lm6XUptgUjpIOL1SHt+pARg2pSvZKOJ1IpC02V6Jmcp0iFtsnXL0O5JN
+	HmtzNFFLVhp7EY8kPCGxfhRJqb45eC+Hc6pFWwxyPksoMQh3jge5cXLV6lHDeBk0
+	/sAnTahoFhxWiIK+3vrMXpG6Qc+QXkoO0sMfYRuTQ5nd64GZaosx/pinic1njspz
+	0BSCVA==
+Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ffrp8sfde-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 18 Jul 2026 01:40:11 +0000 (GMT)
+Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-84a651759a2so8769362b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Jul 2026 18:40:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1784338811; x=1784943611; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=S26ezyycOtOJJs/eO9LtmBbdx8jrwPqoD6H81PFFNZE=;
+        b=VaQe45o1hKJ/hDv99Os/Syb6pO3wB2eCZrNx4R8vqv+cwHUu1ZV/QgjK2IL0nqn4pM
+         dQYq0iMTmdUjaKsgh6Y9cu8Fh/i+Yj9+yVzf45uH6EJweTSnUp3CPq7trzBvgaKwuunc
+         l9YsRqeiqfjr/Vgks+uBCsPpJqbZ6r4OwniKGbYw2HoBUD1UMcNabFq48qwHFhez0Fhg
+         5i5LmeU7nSk2OUQWT7FEKUqQ2LrX3Kcpheb6O8odEZEWvMuApE0q6E9ni2WiyrftIOEN
+         SH5ST/xJn24TZC4urHXxXPmp3BvP3dJ/hTrkNn4P3xdoLzYagdfXeGhJ9VciH+6AME3J
+         +3ZA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784338811; x=1784943611;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=S26ezyycOtOJJs/eO9LtmBbdx8jrwPqoD6H81PFFNZE=;
+        b=k9HbM3WOPlHCmswha7sKueh3cpy/hRqkrLA4Qw+y2R5tXxNAN7QV7fW/i8BD48VeoP
+         8WrvRtOeMgY1eXjb3W97ERFLOcG5kSCS5ceyijGkUBzdN3YWl18KE/Lw6BrFqST7AKbZ
+         KqZScaQ5c3YA3S9PK0OWJbz2WlUNOjVy4TX7k0KbjkDnvftMqIkVt5mnInOrMK3BTJO3
+         Uae3/81gqK72imap0hn+vUeTC/g1EKq85cx8aEg3AM14DbHo1hIZIBsdT0OSawdr4xZh
+         upDZRMMwCI4EoWo/VgKVy+/yA3BMVhuB5e4RmvVIu5HwTK63ToVADiilcWZBb8e1Thbf
+         tv3A==
+X-Forwarded-Encrypted: i=1; AHgh+RqrYB8cr75Xv04dx5Qs3X489130BUXGlE1ltiglgRihJ0TkH44oJLi1xSh4U9cyLh0MaHaOChgaN8eHjgXeem6W@lists.infradead.org
+X-Gm-Message-State: AOJu0YzpHcXEkniXiYndXpCAyLS0k5HWeoracXlv2IuM1IcU3WYHX4cw
+	uDXcbJAgzRXwIr2epX4WEYxKwaELK86NKlASLz83co7/pNweuk0z3aANe375OOaBkM6MfFUyVpc
+	OAPqBKFV+gz5IHQjAQ97N1VAY0OWd/34xC7vfz+4A1/LCaS562xExKDbNV2kpPNJmE4U8CT5UWl
+	sVhg==
+X-Gm-Gg: AfdE7ckmB/1l2+V/vG4ombxNRXZQcX4xlLosE7mrwUj5d637f156MZkh6wHOY66P23v
+	SegNg+dTNz9t1UmG9dW4qh50j8MYjIaL/P9fh1LLkZ1fNEFF43YZB99scVgRCI+s/THQqdcQI0z
+	OyhL/3q66cdA7/GtdrtieMIdeweLGEphJzJ5akZA/sVtM5UoGFEqUILuacYNOs2un2mAK3OlDDB
+	AWgXgoofBdKKX9UHzX0KaMULe0/Lmef2xnNV3RB/AL/ym5iXTcX4w2reId3YvAZ5Lqf67tueONM
+	eAGD2mMoxUdhI80mDpP7NT8Qd41Lh6YmA81ERcTbwnZenHUMJ2xLUm31eO+J0yhh/lkanXmg4F1
+	kvSmfKKtZQbVk1pJH
+X-Received: by 2002:a05:6a00:278a:b0:845:d284:9e0a with SMTP id d2e1a72fcca58-84c294d4d65mr5211978b3a.49.1784338811353;
+        Fri, 17 Jul 2026 18:40:11 -0700 (PDT)
+X-Received: by 2002:a05:6a00:278a:b0:845:d284:9e0a with SMTP id d2e1a72fcca58-84c294d4d65mr5211955b3a.49.1784338810876;
+        Fri, 17 Jul 2026 18:40:10 -0700 (PDT)
+Received: from jic23-huawei ([50.35.46.84])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84c2adc3466sm2028562b3a.15.2026.07.17.18.40.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 17 Jul 2026 18:40:10 -0700 (PDT)
+Date: Sat, 18 Jul 2026 02:40:04 +0100
+From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Petar Stepanovic <pstepanovic@axiado.com>, Akhila Kavi
+ <akavi@axiado.com>,
+        Prasad Bolisetty <pbolisetty@axiado.com>,
+        David Lechner
+ <dlechner@baylibre.com>,
+        Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>,
+        Andy
+ Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Harshit
+ Shah <hshah@axiado.com>,
+        linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 2/2] iio: adc: add Axiado SARADC driver
+Message-ID: <20260718023952.5627abec@jic23-huawei>
+In-Reply-To: <alnpMFK6_ZkdWlLi@ashevche-desk.local>
+References: <20260716-axiado-ax3000-ax3005-saradc-v4-0-810527a9d27f@axiado.com>
+	<20260716-axiado-ax3000-ax3005-saradc-v4-2-810527a9d27f@axiado.com>
+	<alnpMFK6_ZkdWlLi@ashevche-desk.local>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzE4MDAxMyBTYWx0ZWRfX4x62J+OshnxC
+ 7VzWLJjZ1OvLtPCDhPtVW1mQ7LJehKjapjJ+BCnyQ4aGYEAKvyu04AB5JSdSlFSc7AFRPkOdHHE
+ XEmAnRtg3PX6YSsFyrqQARLFT9haMeI=
+X-Proofpoint-ORIG-GUID: pzYw4R9yf4EB_xuMoBGWAX3NFqAtFw3h
+X-Proofpoint-GUID: pzYw4R9yf4EB_xuMoBGWAX3NFqAtFw3h
+X-Authority-Analysis: v=2.4 cv=fMYJG5ae c=1 sm=1 tr=0 ts=6a5ad97c cx=c_pps
+ a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=qC1CW/w66vtJz1P9yTJxNA==:17
+ a=kj9zAlcOel0A:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
+ a=QyXUC8HyAAAA:8 a=JNnEj29XURRsWGGOtMsA:9 a=CjuIK1q_8ugA:10
+ a=zc0IvFSfCIW2DFIPzwfm:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzE4MDAxMyBTYWx0ZWRfX31rnG97MTNtR
+ 8kfIMOSqm9lTEtNQ88UPW66iRO1yQABDhjC2elIcSYWzs2H8wRuoMdS5wfCm0Q+6E3hjBWPQkY6
+ 7hDQKjvt8/pe/LN07QmcyrGZuren8COUuw+9Xh9NWPjiLq7YQzBpjrels5YpCizqJcmyRNYb8Rx
+ TUb+ek/RELnbxA3vPsF9JxnlSOCegPe5Jgp2+7h8BZY01A3w+VEL8OPTmAOCu7r9O6EmTBxXQvR
+ LLmRFAEi6XKKSSLlNTpS2Tdk5uLYq1bBcUlyT6Opzh3y/Vp/fWTo1R1fVyZRNoRLsrRm36L6MX0
+ viG1Mxltx6ZIzayZHDbXovCTfizPyCsunmS02nl77I5bpuEAmFFomEynW9Kj6U+8mVoh9NYWipD
+ VZuGaVXf9/5RxGUat2kWOMq3vkHO1XIxV7P32e6+eNwlUr1SlV6M33V+Pp3z9pGEwbobHLAlmuB
+ QnzxPkpNHANyuBC3DbA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-17_07,2026-07-17_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 malwarescore=0 priorityscore=1501 suspectscore=0
+ lowpriorityscore=0 bulkscore=0 spamscore=0 adultscore=0 clxscore=1015
+ phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2607180013
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260717_184014_440131_09605E7C 
+X-CRM114-Status: GOOD (  24.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,111 +162,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, 17 Jul 2026 11:34:56 +0300
+Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
 
-On Thu, 09 Jul 2026 11:33:39 +0800, Pan Chuang wrote:
-> Commit 55b48e23f5c4b6f5ca9b7ab09599b17dcf501c10 ("genirq/devres: Add
-> error handling in devm_request_*_irq()") added automatic error logging
-> to devm_request_threaded_irq() and devm_request_any_context_irq() via
-> the new devm_request_result() helper. The helper prints device name,
-> IRQ number, handler functions, and error code on failure.
+> On Thu, Jul 16, 2026 at 10:53:02PM -0700, Petar Stepanovic wrote:
+> > Add support for the SARADC controller found on Axiado AX3000 and
+> > AX3005 SoCs.
+> > 
+> > The driver supports single-shot voltage reads through the IIO
+> > subsystem. The number of available input channels is selected from
+> > the SoC match data, allowing AX3000 and AX3005 variants to use the
+> > same driver.  
 > 
-> Since devm_request_irq() is a static inline wrapper around
-> devm_request_threaded_irq(), it also benefits from this automatic
-> logging.
+Andy already commented everywhere I'd have said things, so just
+a few places where I'd take a different approach to resolving stuff.
+
+Thanks,
+
+Jonathan
+
 > 
-> [...]
+> ...
+> 
+> > +/* GLOBAL_CTRL register values */
+> > +#define AX_SARADC_GLOBAL_CTRL_SAMPLE_16	\
+> > +	FIELD_PREP(AX_SARADC_GLOBAL_CTRL_SAMPLE_MASK, 0)
+> > +
+> > +#define AX_SARADC_GLOBAL_CTRL_MODE_MANUAL	\
+> > +	FIELD_PREP(AX_SARADC_GLOBAL_CTRL_MODE_MASK, 1)  
+> 
+> FIELD_PREP_CONST() in both cases.
+> 
+For this second one I'd rather see defines for the values the
+field takes and then FIELD_PREP only used inline.
 
-Applied, thanks!
+#define AX_SARADC_GLOBAL_CTL_MODE_something 0
+#define AX_SARADC_GLOBAL_CTL_MODE_MANUAL 1
 
-[01/43] power: reset: pwr-mlxbf: Remove redundant dev_err()/dev_err_probe()
-        commit: e896e0d29ba30d462176c7611399c10297a6845f
-[02/43] power: supply: 88pm860x_battery: Remove redundant dev_err()/dev_err_probe()
-        commit: 098e2181f76fbcdd1592c1878a812bc9dbadc669
-[03/43] power: supply: 88pm860x_charger: Remove redundant dev_err()/dev_err_probe()
-        commit: a446886a5c112d6a7d019161cf520b1d6f10470f
-[04/43] power: supply: ab8500_btemp: Remove redundant dev_err()/dev_err_probe()
-        commit: 2865c7e80aee424a5266f8d089f7926394fe2d7c
-[05/43] power: supply: ab8500_charger: Remove redundant dev_err()/dev_err_probe()
-        commit: defdb28de9b3afb4811423a302ff11526595d098
-[06/43] power: supply: ab8500_fg: Remove redundant dev_err()/dev_err_probe()
-        commit: aa5f4decedfb4fc5cd0fe49ab256ad4304d192e4
-[07/43] power: supply: act8945a_charger: Remove redundant dev_err()/dev_err_probe()
-        commit: 88a66a3c93fe21f8fb6904a2ef95d53e637b355b
-[08/43] power: supply: axp20x_ac_power: Remove redundant dev_err()/dev_err_probe()
-        commit: daa60df947f41198defb37acef01b0c6cb819056
-[09/43] power: supply: axp20x_usb_power: Remove redundant dev_err()/dev_err_probe()
-        commit: d8b7f5b39c3487349f77676a78e44093ec42b7c4
-[10/43] power: supply: axp288_charger: Remove redundant dev_err()/dev_err_probe()
-        commit: 5ec359933b7cd110e35aa298438cc4beeff5cc4b
-[11/43] power: supply: axp288_fuel_gauge: Remove redundant dev_err()/dev_err_probe()
-        commit: dfb7997da1df482f29d19b18071bd9a18f35704c
-[12/43] power: supply: bq24190_charger: Remove redundant dev_err()/dev_err_probe()
-        commit: 6d5c4deea04580a08ad1ed3a13c11fac0dbefa7b
-[13/43] power: supply: bq24257_charger: Remove redundant dev_err()/dev_err_probe()
-        commit: 1fa348a2a1825a23ab7836671f067640c98174bd
-[14/43] power: supply: bq24735-charger: Remove redundant dev_err()/dev_err_probe()
-        commit: d77b6dd6903da71896aa20863ee51df7f54b9e7c
-[15/43] power: supply: bq256xx_charger: Remove redundant dev_err()/dev_err_probe()
-        commit: 4f22a6bd5130779014d19a9946bda07768325930
-[16/43] power: supply: bq257xx_charger: Remove redundant dev_err()/dev_err_probe()
-        commit: c1de2a3f1f4170105db56003be42c079dbc264dc
-[17/43] power: supply: cpcap-battery: Remove redundant dev_err()/dev_err_probe()
-        commit: fb5ce24c6e907165022a7df627bdf573d2c8fd1f
-[18/43] power: supply: cpcap-charger: Remove redundant dev_err()/dev_err_probe()
-        commit: 16447b9ef408768d94b9b15b589f287eb8ff2127
-[19/43] power: supply: da9150-fg: Remove redundant dev_err()/dev_err_probe()
-        commit: 79993fd38d1848c4cfc5d51b185c534cc4ed0b87
-[20/43] power: supply: generic-adc-battery: Remove redundant dev_err()/dev_err_probe()
-        commit: 9c6283da58db46a0cc747c87d187939fb53aa326
-[21/43] power: supply: max14656_charger_detector: Remove redundant dev_err()/dev_err_probe()
-        commit: 5fe1b9dfa5c3c51a9d4d68b407ad9c49096e4b3e
-[22/43] power: supply: max77759_charger: Remove redundant dev_err()/dev_err_probe()
-        commit: 05c9bf35a036944171344711e664e032bf518e08
-[23/43] power: supply: max8903_charger: Remove redundant dev_err()/dev_err_probe()
-        commit: 28b94b06c64a1b423e64357f4c2cf3256f3a35f7
-[24/43] power: supply: max8971_charger: Remove redundant dev_err()/dev_err_probe()
-        commit: 342b3ce23061ff9ad5c033596c60a663d15af116
-[25/43] power: supply: mp2629_charger: Remove redundant dev_err()/dev_err_probe()
-        commit: f73b8c7c3ee61e08819a688bef98c8c454b6d4d5
-[26/43] power: supply: mt6360_charger: Remove redundant dev_err()/dev_err_probe()
-        commit: 576014dbc39716304c7ee22dc5c0998222ae6676
-[27/43] power: supply: mt6370-charger: Remove redundant dev_err()/dev_err_probe()
-        commit: 1a3d312038e6e1d19b8fd9146fc544f09336c8bd
-[28/43] power: supply: pf1550-charger: Remove redundant dev_err()/dev_err_probe()
-        commit: 4fed9665ab09cb7c40f894506b8ee2730ed9f3e1
-[29/43] power: supply: qcom_smbb: Remove redundant dev_err()/dev_err_probe()
-        commit: cd05fa1ffae4e21c520b64e203f50b7d76d35a4f
-[30/43] power: supply: qcom_smbx: Remove redundant dev_err()/dev_err_probe()
-        commit: c01b2be3845ffae11a067cf93a7833ca840d7d1c
-[31/43] power: supply: rk817_charger: Remove redundant dev_err()/dev_err_probe()
-        commit: 6d5c18483f0cf12eb636dcf46be452054f3aef4f
-[32/43] power: supply: rn5t618_power: Remove redundant dev_err()/dev_err_probe()
-        commit: a69f6b1e30f72c5fdeab81319c378ebb6e539803
-[33/43] power: supply: rt9455_charger: Remove redundant dev_err()/dev_err_probe()
-        commit: 406b652bf9c47d6e784fd2ab723e6798d322ef47
-[34/43] power: supply: rt9467-charger: Remove redundant dev_err()/dev_err_probe()
-        commit: 1683815ef8892a56c2e07548b879f341bfda2952
-[35/43] power: supply: rt9471: Remove redundant dev_err()/dev_err_probe()
-        commit: 94f491a228bdde8982a3fd72cd1d46b12eef378e
-[36/43] power: supply: sbs-charger: Remove redundant dev_err()/dev_err_probe()
-        commit: bfae8c8ad5adc1796d7982feb2dd4a0bd947ba84
-[37/43] power: supply: sc27xx_fuel_gauge: Remove redundant dev_err()/dev_err_probe()
-        commit: 139c9e37448d215647d8c1a98974c0d8309af1de
-[38/43] power: supply: surface-rt-ec: Remove redundant dev_err()/dev_err_probe()
-        commit: 4e8ef72bbd3ef34e1137d365e7719399f45d5c0b
-[39/43] power: supply: tps65090-charger: Remove redundant dev_err()/dev_err_probe()
-        commit: ceaee7db26ffaeb78b64df9f21be4a1c7823793a
-[40/43] power: supply: tps65217_charger: Remove redundant dev_err()/dev_err_probe()
-        commit: abd5cd2d712cae2a7abc3852d9fbd05696d4b9eb
-[41/43] power: supply: twl4030_charger: Remove redundant dev_err()/dev_err_probe()
-        commit: ca5cb9488b800a5b39954391530244da41076f79
-[42/43] power: supply: twl6030_charger: Remove redundant dev_err()/dev_err_probe()
-        commit: c2d8a2b01bef42f4e50a87e5880f75401be1290c
-[43/43] power: supply: ucs1002_power: Remove redundant dev_err()/dev_err_probe()
-        commit: 5a6b9c36c56340812d49817524a5d96f7522c74d
+To me that acts as clearer documentation of what is
+going on at the point of the write.
 
-Best regards,
--- 
-Sebastian Reichel <sebastian.reichel@collabora.com>
+Similar applies for the SAMPLE_MASK field where I'd define the
+value 0 with a name then have the FIELD_PREP() inline.
 
+
+> ...
+> 
+> > +#define AX_SARADC_MANUAL_CTRL_EN(ch)	\
+> > +	(AX_SARADC_MANUAL_CTRL_ENABLE |	\
+> > +	FIELD_PREP(AX_SARADC_MANUAL_CTRL_CH_SEL_MASK, ch))  
+> 
+> Missing parentheses for ch. Also wrong indentation of the second line, missing
+> one space.
+> 
+
+I wonder if it would be more readable to just push that inline rather
+than having this define at all.
 
