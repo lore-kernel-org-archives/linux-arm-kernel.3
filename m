@@ -4,52 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C060C4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jul 2026 17:35:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 773F6C4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jul 2026 17:51:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6YMhhx6SFZqCgPSuG3unYR85mgfQTMBVDiqwJF5pJ7w=; b=jIm81Jd5Vj91kzI7kCz6ac7cIr
-	LCXbAxsTb0myf+DzkPB1jOxk/hSZDTik01aBCxfFbX6TFbpehoCkeAzcqb3u/eVwxSC//GvBfNEmR
-	Aede+hPR4cwRXJCuxS5HNNXdvk+wqHwi5jLzBRolwD/998qJz993NCEAX7pV4/ZhR4zbDswJ0xjR8
-	7hMpRc9jEaGai4fe94qZPiT21eEfemjtj+UIn/bSfNkA4cAsnSpa+TJRzbBazGc9zju+GbNdwcje6
-	QNT7VGeQ/QOWT/MDPxFeSHRtGtKuuJ/uaTrZf0QCUUvsAjfXxWxSDrewnEBtcwl/OtHjTCS1e7XWr
-	JYQSc6LQ==;
+	bh=BWOyJj4WL65+67nVExJiDXzlxhh/gmgtVKSlDc8eU5Y=; b=cm0z6yFs7rFk/anH89wRgvTVBH
+	qySFn6YE7MjuMxJDWI8R33WsnZvZ2LTPklSEfDaFJqiHj+YSTVAP6SIa3cyGHf7aFXami5/R+fjKK
+	RjkWNzTlz7hRB3oaNnoQR/YVGhNXY97uJGdcj4t89jAXjidCi+gr8d2fSBKOoGgJ7DSl8aFtC9dBL
+	r10U2DCLh5yPUd7/RKJSCBn36vk76Z3eJGURIStBzvOdM/9T2Xi/uKa48Ce3M+abkTqNOKdIC4KrL
+	Ht2LvZmWBUfo/vdT+kIbFv0ctr7tcQ7Gdx///iJYVXS4yg7IRrkJ7xH/Qn0N9iIE6XbrnKj2zVgam
+	SmPjcFQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wl8wA-00000004Prh-1NWj;
-	Sat, 18 Jul 2026 17:34:54 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	id 1wl9CI-00000004QJZ-0TYp;
+	Sat, 18 Jul 2026 17:51:34 +0000
+Received: from mail-yw1-x1129.google.com ([2607:f8b0:4864:20::1129])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wl8w7-00000004PrF-3tsQ;
-	Sat, 18 Jul 2026 17:34:53 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.99)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1wl8w2-0000000083K-0eK0;
-	Sat, 18 Jul 2026 17:34:46 +0000
-Date: Sat, 18 Jul 2026 18:34:42 +0100
-From: Daniel Golle <daniel@makrotopia.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH] ASoC: topology: Guard against out-of-range mixer control
- shift
-Message-ID: <fb5d83513eda68578f0275b7fa274f172c08a0b1.1784395999.git.daniel@makrotopia.org>
+	id 1wl9CD-00000004QJB-2fj4
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 18 Jul 2026 17:51:31 +0000
+Received: by mail-yw1-x1129.google.com with SMTP id 00721157ae682-81eaf3709b4so65048707b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 18 Jul 2026 10:51:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784397088; x=1785001888; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=BWOyJj4WL65+67nVExJiDXzlxhh/gmgtVKSlDc8eU5Y=;
+        b=alrGvq7v0YuOuWRAnP/Q6uWS71uDInhZNsvwoRvOBBx4zuMzRMl9mOkLpDIGb8ljc8
+         X/nbdKrw8XdqgRBBVaIN34Zd4lX3jdTVA2T4VuPASlW9wXXmp11rP3LGc5Dw3JiEMumy
+         g6CGULNvLQp/CW6tlz66KVvkV3AJMF/x9LWY8JKwbKBqX5cqvEVqrP5HT17i+W4syCmk
+         tzx2OiQ9rEkRgCknNK6rASIOW3j6jOQrJ+XZ75PWJB34DzB/yDa5F9JNQIXMsI7mvkrA
+         6SCX6e90Y//CR25No6p5izrY5tDDJAoqxSjUvySlfjjtLRzOfC1O1lSuW9JQtUmFvx4I
+         D4Sg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784397088; x=1785001888;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=BWOyJj4WL65+67nVExJiDXzlxhh/gmgtVKSlDc8eU5Y=;
+        b=sk+tR09qK/hE8X6kNauszsehm+rouyyhRqCstznpJoDxfNK5c+0kVqkIw/ryVgqBX1
+         wAzFM2d+7p9RozwMKvpUYYl4eRzo7Gwu0oU6LnDrjR+GmoAv27gYmw5FwQI/1k8Ab66F
+         0Q2Lj2HsRZO13JvL8enxSyh7kxOuydzH9sAR8kv6sUAGV5icDfnBFzhTd9qFdCPybmn6
+         bCxzCyOuidKx52x3mX6M4cCPEEsgixz4USuV/AnDjkmj+MR/68xvXkEf1oj0PC2InkkT
+         r7UU9k+SEDgRpgTQzswu8r/F6CwP89D/GI+ptknW+Y506v+0QyfXvYcbhIkfFQ/pVRrs
+         WBFg==
+X-Gm-Message-State: AOJu0YyfpvY9vs7RaYY4aRKfI/Ak41hcLb1JgXBB6Ezq3IqLSsjWDD8v
+	oFWTBQonqeA9DgJh1LOZWvZvigGHNhcOQmRZLOrC2/NMIJDtGEg2CKRNwu1apA==
+X-Gm-Gg: AfdE7cmK163jMJTa1PGElyQoN1rMIHVnFgtvcw/g5DIyoBiXCkc7jrq3rB5LlEXrO4Z
+	K2+LEDAMb0AAFcrUHlVfjolmtGySE+kueScUdJkcC5L7hN2hsxJr/BL4pWx39kGmXiWPntr84Op
+	nCS/JK96T64O61Cu9pgjiof7bAXql5slURqlQbSCe8cmyDYhc+kSlkK5U98A8FKGhhlnj7Kubuy
+	d7JmJbfIAQKMwkqPxTPAuRzim/B3elP9xn1dpGrP5jAOETfX1bXLUPuolQvfy2Txo0p9JqYa0s+
+	5lk92mBWVCq7vyHur3DT8Ql4iDOnjiYhIgRjuETYZLqMhoRGrj/U8vk0V5RuQTT5z1VMHqSGC+j
+	+0RmblMkyMyejeSyHJsKRfWA3aWVPbL3Q+f1wKWpxvXAHtrlT7gORvA/W3B4wbXGiDOuYkFLTGt
+	4=
+X-Received: by 2002:a53:cc4a:0:b0:667:8b90:2e55 with SMTP id 956f58d0204a3-6683bd63b80mr1264267d50.97.1784397087556;
+        Sat, 18 Jul 2026 10:51:27 -0700 (PDT)
+Received: from sleipnir ([2804:d45:3612:3b00:b74c:e115:7602:1640])
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-6683b8cd3aasm3878779d50.21.2026.07.18.10.51.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 18 Jul 2026 10:51:27 -0700 (PDT)
+From: Lincoln Wallace <locnnil0@gmail.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: linux@armlinux.org.uk,
+	kees@kernel.org,
+	will@kernel.org,
+	linusw@kernel.org,
+	f.fainelli@gmail.com,
+	catalin.marinas@arm.com,
+	joe@perches.com,
+	linux-kernel@vger.kernel.org,
+	Kees Cook <keescook@chromium.org>,
+	Lincoln Wallace <locnnil0@gmail.com>
+Subject: [PATCH] ARM: Drop outdated links in comments
+Date: Sat, 18 Jul 2026 14:51:14 -0300
+Message-ID: <20260718175114.1404471-1-locnnil0@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260718_103452_256671_E4F3AECA 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20260718_105129_686737_FCB9BA11 
+X-CRM114-Status: GOOD (  12.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,57 +102,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-soc_tplg_control_dmixer_create() copies the per-channel "shift" field from
-the topology file verbatim into struct soc_mixer_control. That value is
-later used as a shift amount in soc_get_volsw() / soc_put_volsw() (e.g.
-"reg_val >> shift" and "mask << shift"). Topology data is loaded from an
-untrusted firmware file, and a shift >= 32 (the width of the register
-value) is undefined behaviour when applied.
+From: Kees Cook <keescook@chromium.org>
 
-This is not hypothetical: mediatek/sof-tplg/sof-mt8186.tplg from
-linux-firmware contains a control whose channel shift is 0x01000000, so
-every read of that control (e.g. from alsamixer) emits:
+As started by commit 05a5f51ca566 ("Documentation: Replace lkml.org links
+with lore"), an effort was made to replace lkml.org links with lore to
+better use a single source that's more likely to stay available long-term.
+However, it seems these links don't offer much value here, so just
+remove them entirely.
 
-  UBSAN: shift-out-of-bounds in sound/soc/soc-ops.c:117:21
-  shift exponent 16777216 is too large for 32-bit type 'unsigned int'
+This is the arch/arm counterpart to commit 89d30b11507d ("arm64: Drop
+outdated links in comments"). The arch/arm hunk was dropped from that
+commit at the maintainer's request [1] and asked to be submitted
+separately via the ARM patch system.
 
-tplg_chan_get_shift() can also return -EINVAL when no matching channel is
-found, which becomes a large value once stored in the unsigned shift
-field; the same guard covers that case.
-
-Clamp an out-of-range shift to 0 and warn, so the rest of the card stays
-usable instead of failing the whole topology load.
-
-Fixes: 8a9782346dcc ("ASoC: topology: Add topology core")
-Cc: stable@vger.kernel.org
-Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+Cc: Joe Perches <joe@perches.com>
+Suggested-by: Will Deacon <will@kernel.org>
+Link: https://lore.kernel.org/lkml/20210211100213.GA29813@willie-the-truck/
+Signed-off-by: Kees Cook <keescook@chromium.org>
+Link: https://lore.kernel.org/r/20211215191835.1420010-1-keescook@chromium.org [1]
+Signed-off-by: Lincoln Wallace <locnnil0@gmail.com>
 ---
- sound/soc/soc-topology.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+This resurrects Kees Cook's arch/arm hunk, split off from 89d30b11507d at
+the maintainer's request; authorship and changelog are preserved, with my
+SoB added as the one submitting it.
+Note: checkpatch's PREFER_LORE_ARCHIVE warning fires on the removed
+lkml.org line (the check matches $rawline with no added-line guard, so it
+flags deletions too). Nothing to convert, the link is being removed.
 
-diff --git a/sound/soc/soc-topology.c b/sound/soc/soc-topology.c
-index 35cbe29d2275..dd94eb9460d3 100644
---- a/sound/soc/soc-topology.c
-+++ b/sound/soc/soc-topology.c
-@@ -672,6 +672,16 @@ static int soc_tplg_control_dmixer_create(struct soc_tplg *tplg, struct snd_kcon
- 	sm->shift = tplg_chan_get_shift(tplg, mc->channel, SNDRV_CHMAP_FL);
- 	sm->rshift = tplg_chan_get_shift(tplg, mc->channel, SNDRV_CHMAP_FR);
+ arch/arm/kernel/hibernate.c | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/arch/arm/kernel/hibernate.c b/arch/arm/kernel/hibernate.c
+index 231a76af09a0..5bec408478d2 100644
+--- a/arch/arm/kernel/hibernate.c
++++ b/arch/arm/kernel/hibernate.c
+@@ -7,10 +7,6 @@
+  * Ubuntu project, hibernation support for mach-dove
+  * Copyright (C) 2010 Nokia Corporation (Hiroshi Doyu)
+  * Copyright (C) 2010 Texas Instruments, Inc. (Teerth Reddy et al.)
+- *  https://lkml.org/lkml/2010/6/18/4
+- *  https://lists.linux-foundation.org/pipermail/linux-pm/2010-June/027422.html
+- *  https://patchwork.kernel.org/patch/96442/
+- *
+  * Copyright (C) 2006 Rafael J. Wysocki <rjw@sisk.pl>
+  */
  
-+	if (sm->shift >= 32 || sm->rshift >= 32) {
-+		dev_warn(tplg->dev,
-+			 "ASoC: out-of-range shift for control %s, clamping to 0\n",
-+			 mc->hdr.name);
-+		if (sm->shift >= 32)
-+			sm->shift = 0;
-+		if (sm->rshift >= 32)
-+			sm->rshift = 0;
-+	}
-+
- 	sm->max = le32_to_cpu(mc->max);
- 	sm->min = le32_to_cpu(mc->min);
- 	sm->invert = le32_to_cpu(mc->invert);
-
-base-commit: 0718283ab28bc3907e10b61a6b4be6fefa1cbb2f
 -- 
-2.55.0
+2.53.0
+
 
