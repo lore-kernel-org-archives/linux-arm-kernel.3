@@ -4,54 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A846C4451B
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jul 2026 19:02:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0DCDC4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jul 2026 19:55:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=uGi/dAnT42Y/IdcWpc+2iKl0ZKD5ISQO2gm0GJ6Um5Y=; b=aGiaGS4BwlS0d7
-	Ci0eosy50fiXOncmse7lUb4Q7cTxVb+RktjMB7gk9gBXk3RDcQuFvIeURVmd9xNtw7tSJWZuevgMM
-	bCLJGooB+gZrO/rOGsG28FLvltOMNIFjIuZUXMCFNrljA99QY01F8Uc5HulwpYP58n/sRIsi7/zYO
-	gEDf12+VdKVUfa1YBjh3ruSby+LFx9Ea/biCVxTzFJaZBo9i4dEni1871MZV4CRf7gFt50yH6GIpZ
-	zxwhSP9+typt/s8dxnz2/8lravUKkTdR6HN+kKf5DvGCp3bzd83d1oOeD45+8IVrz5IMInU+Zwp+S
-	Y3knW7XvRPJNdyfChDqQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/OtteCJd5kLZ2hGXBwK3WYGu95XqRXhomwJCp9pxwjE=; b=z3+f3wQRFwa5oY1Vk92KSGI5j6
+	9bkdkVgtoo+kH7ZH9p5321fv2JMFko/4lv2mZ8QexJ8C4SevCxFQsnMsB+ULlsBqW0oiZAREd7+K0
+	HgfGU2817PYNs2cp70ln98n+RU/bN4wBcpo0OTFQrIlJp4GgWOuBBz3JqHK8f+14/I129zTcSx5Hn
+	7n/u7wu60Wel/ENVuaYdXE/hpLSYhVsHqToicKsU6AMDA6mx/fb2Vok1PETDUAAruAwcEygdV2GH1
+	hg7dyKCurdfuBLwyyUWQmum9WD2UZV3+XU5upvqpfwwyl8CVQCroxM8csjQ+TCil8sGv8yKGRBs2e
+	Qsi8dtqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlAIg-00000004T0f-1myy;
-	Sat, 18 Jul 2026 19:02:14 +0000
-Received: from confino.investici.org ([93.190.126.19])
+	id 1wlB7u-00000004UqB-2eIw;
+	Sat, 18 Jul 2026 19:55:10 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlAIb-00000004SzE-30wp
+	id 1wlB7r-00000004Upm-3NqA
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Jul 2026 19:02:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=grrlz.net;
-	s=stigmate; t=1784400888;
-	bh=uGi/dAnT42Y/IdcWpc+2iKl0ZKD5ISQO2gm0GJ6Um5Y=;
-	h=From:To:Cc:Subject:Date:From;
-	b=SIMJ5TXsYdMQhemYBUGlsLAyrB1EsjE7UdsbxU+YtufYJ7qGfoOOAlc718w8H95oF
-	 UQnx1BwXb56u75YJxnCZyQxypBzojWZpp25ttn6JiPHiOWsd+f9sZFhgHRMd2vfERD
-	 zvkCfqMtPLUfl9G3gDC0i/AFqsW8BvC0J/zR5+8s=
-Received: from mx1.investici.org (unknown [127.0.0.1])
-	by confino.investici.org (Postfix) with ESMTP id 4h2bYh2XGLz10yH;
-	Sat, 18 Jul 2026 18:54:48 +0000 (UTC)
-Received: by mx1.investici.org (Postfix) id 4h2bYg5q7cz10yF;
-	Sat, 18 Jul 2026 18:54:47 +0000 (UTC)
-From: Bradley Morgan <include@grrlz.net>
-To: catalin.marinas@arm.com,
-	will@kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] arm64: entry: dedup SDEI event priority selection
-Date: Sat, 18 Jul 2026 18:54:47 +0000
-Message-ID: <20260718185447.25706-1-include@grrlz.net>
-X-Mailer: git-send-email 2.53.0
+	Sat, 18 Jul 2026 19:55:09 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4954d5d814fso60295e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 18 Jul 2026 12:55:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1784404505; x=1785009305; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=/OtteCJd5kLZ2hGXBwK3WYGu95XqRXhomwJCp9pxwjE=;
+        b=CD+mUimB1stUSEt/Fet9gOZfv2nthC67ZN1XYLIucbFYOpdC0PLFBNuRIHr5FXEeAI
+         h/DdGoe8oNcVOe4vU2OgAYE5PIoNPLuBLv6I+uLKRDTzOppx/7doTurYSwXRWAlaVCX2
+         5DGjVENyWGklwPtV6W9o7gVwH+NAeTDztvfajohqkuCSh+MqfMIGTe29rtJx1CWpGVKz
+         jH3EgzW/DtMmq8w5Q9hGVlr9qIHKt2COVX3BTsIiAG2/CyX3Xj3gX2HJ+VOUp+j8XAUm
+         dkSmPGaa1E1QCFb0LIAbuvJgH1MfBCGbwncq5PHQAZCN3e4BCy+mg/BYcBukeAyjV6YF
+         4nfg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784404505; x=1785009305;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/OtteCJd5kLZ2hGXBwK3WYGu95XqRXhomwJCp9pxwjE=;
+        b=qpxIXx7AZ0OzoO8cXxw1Ia2ifncmhbvnB2Z6kHsnbvtPXmJ1roi1kLLvKNiQJCtel2
+         DqHY9bdNk28/zLX8b+OweXukq9ve0NxJfzqi5/ctghOEWEeHy6T+GS+mTZEQqylJ3/1A
+         9sW4B6lL5fqV6GDPWjAWqPaN+In/ulFw4c4h/iArLTvrOUz2J8DLaqMb8zyzkI67X6GI
+         7Czltenx1GAd3yxXCneZX0Uof46H62M/HO9WrRtbYn5tuZN7EFyM5oO/+k6I2ogzLr06
+         MGVjl5UuhDPRIEQ5SEB6T0np3Q4yQ9O6BWGJugowiwozKJiH7J4tTKBOBZSn2g8QezJX
+         osxA==
+X-Forwarded-Encrypted: i=1; AHgh+Rry9BvHLWgjJpGvOl4W1iRMunE0428iNyjCxmrViEUXrOlnKRJKVkmsiX6ZrbCZsPCdfWXO+MKB9a86MdVR40RI@lists.infradead.org
+X-Gm-Message-State: AOJu0YzW64LITDoJWX+0zIiV53BwvOE023Lc3wQmDQiCJAuioei/VfDZ
+	q7n8R43bqG0UrxKnnrUysnBeczY/ZAssRv1Tbrn/gaczEJNkdtnHy+/EV9Us+qt0Fw==
+X-Gm-Gg: AfdE7cndQ4p8tn0QY6N/zCl2PJdYiwRL7ImKBfad6fBNjGYqMUPIvjduqBGuUQ3VjpB
+	0IdR5oowJaRslgO0EzC5nRtCoW3x//F+9APK6veHqVrX9lYNlM45uGOfSqnFjTX2ri/5PY7yHte
+	IQqi/3wALxJwJfOc2CT/yr3/qym149YunD4k6eHg3t0ciCEG4+NVlrU5MZlNMeh6FIFn/30sN9g
+	G84pCxO/rYl+JhlfxQqQQe6S0/aY3jDrdKK+j9Xo7tuVOA5uRBpWAEPXGleuq6DLrZJloR1CAWj
+	1ntlEuYi6ZRZ1ypIoSnASXoxKB7Wq1q5YVci/wIll3OcVmkMKdlBNjCQtxY6pUkZV3KlcNofTJP
+	7aNRLdZDoybGdpf8WnOVizEFSb4zrWM0CV2KTmO3oAREvfsjONKolrX6Lj73dyO+jRf3R5V0php
+	tNihl4N5eItTtgblxcsDur1UMVexZa7QvfvdlW6g==
+X-Received: by 2002:a05:600c:4995:b0:493:a96b:f9fe with SMTP id 5b1f17b1804b1-4954ff99257mr1026495e9.4.1784404504362;
+        Sat, 18 Jul 2026 12:55:04 -0700 (PDT)
+Received: from google.com (220.60.76.34.bc.googleusercontent.com. [34.76.60.220])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49549a36312sm161560395e9.2.2026.07.18.12.55.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 18 Jul 2026 12:55:03 -0700 (PDT)
+Date: Sat, 18 Jul 2026 19:54:58 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Oliver Upton <oupton@kernel.org>
+Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, maz@kernel.org,
+	seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org,
+	vdonnefort@google.com, tabba@google.com
+Subject: Re: [RFC PATCH 2/2] KVM: arm64: Support BBM level 3
+Message-ID: <alvaEgJFJ5DaQaac@google.com>
+References: <20260717130901.2239134-1-smostafa@google.com>
+ <20260717130901.2239134-3-smostafa@google.com>
+ <alqW49CH7eViDpAZ@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <alqW49CH7eViDpAZ@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260718_120210_402212_254D5D6E 
-X-CRM114-Status: GOOD (  12.97  )
+X-CRM114-CacheID: sfid-20260718_125507_905508_44F1F674 
+X-CRM114-Status: GOOD (  41.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,103 +101,110 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: kees@kernel.org, Bradley Morgan <include@grrlz.net>, linux-kernel@vger.kernel.org, anshuman.khandual@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-__sdei_asm_handler open codes the same branch ladder four times to pick
-the normal or critical variant of a per CPU variable based on the SDEI
-event priority: when recording the active event, when selecting the
-SDEI stack, when selecting the shadow call stack, and when clearing the
-active-event record on exit.
+Hi Oliver,
 
-Add a sdei_choose macro, using \@ local labels like the files existing
-macros, and replace the four open coded copies with it. This also drops
-the repeated reuse of the 1:/2:/3:/4: numeric labels in this handler.
+On Fri, Jul 17, 2026 at 01:56:03PM -0700, Oliver Upton wrote:
+> Hi Mostafa,
+> 
+> On Fri, Jul 17, 2026 at 01:09:00PM +0000, Mostafa Saleh wrote:
+> > If the system supports hardware Break-Before-Make (BBM) level 3, use it
+> > to replace stage-2 PTEs directly instead of falling back to the software
+> > break-before-make sequence.
+> > 
+> > 1) Get a reference count on the containing table for the new PTE.
+> > 2) Atomically update the PTE with the new valid descriptor.
+> > 3) Invalidate the TLB for the old PTE.
+> > 4) Drop the reference count holding the old PTE.
+> > 
+> > One interesting case, as BBML3 will update the PTE atomically, it
+> > can only know it raced with another core at the point of the cmpxchg
+> > failing, unlike the SW implementation which locks the PTE first.
+> > And as we must issue CMOs to the new mapped page before the update,
+> > that means with BBML3 racing cores will issue redundant CMOs,
+> 
+> I'd rather we just predicate BBML3-style transformations on an
+> implementation having FEAT_S2FWB and DIC. You can definitely come along
+> later and enable it when using a stage-2 in an SMMU makes this
+> mandatory, possibly at the expense of some extra CMOs.
 
-No functional change intended.
+Makes sense, I will do that in v2.
 
-Signed-off-by: Bradley Morgan <include@grrlz.net>
----
- arch/arm64/kernel/entry.S | 39 +++++++++++++++++++--------------------
- 1 file changed, 19 insertions(+), 20 deletions(-)
+> 
+> There's also an extremely subtle detail that BBML3 enablement relies on,
+> which is that KVM will never change the OA of active translation. IOW,
+> if the host is moving the PFN we expect an invalidation before
+> re-mapping it.
+> 
+> I have no issue with relying on that behavior but we should make that
+> assumption abundantly clear.
 
-diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
-index e0db14e9c843..29ef4a0d28a8 100644
---- a/arch/arm64/kernel/entry.S
-+++ b/arch/arm64/kernel/entry.S
-@@ -916,6 +916,15 @@ NOKPROBE(call_on_irq_stack)
- 	b	.
- .endm
- 
-+/* Set \dst using \op and the \normal or \critical sym, based on \prio */
-+.macro sdei_choose op:req, dst:req, prio:req, normal:req, critical:req, tmp:req
-+	cbnz	\prio, .Lcritical\@
-+	\op dst=\dst, sym=\normal, tmp=\tmp
-+	b	.Ldone\@
-+.Lcritical\@:	\op dst=\dst, sym=\critical, tmp=\tmp
-+.Ldone\@:
-+.endm
-+
- #ifdef CONFIG_UNMAP_KERNEL_AT_EL0
- /*
-  * The regular SDEI entry point may have been unmapped along with the rest of
-@@ -997,32 +1006,24 @@ SYM_CODE_START(__sdei_asm_handler)
- 
- 	/* Store the registered-event for crash_smp_send_stop() */
- 	ldrb	w4, [x19, #SDEI_EVENT_PRIORITY]
--	cbnz	w4, 1f
--	adr_this_cpu dst=x5, sym=sdei_active_normal_event, tmp=x6
--	b	2f
--1:	adr_this_cpu dst=x5, sym=sdei_active_critical_event, tmp=x6
--2:	str	x19, [x5]
-+	sdei_choose adr_this_cpu, x5, w4, sdei_active_normal_event, \
-+		    sdei_active_critical_event, x6
-+	str	x19, [x5]
- 
- 	/*
- 	 * entry.S may have been using sp as a scratch register, find whether
- 	 * this is a normal or critical event and switch to the appropriate
- 	 * stack for this CPU.
- 	 */
--	cbnz	w4, 1f
--	ldr_this_cpu dst=x5, sym=sdei_stack_normal_ptr, tmp=x6
--	b	2f
--1:	ldr_this_cpu dst=x5, sym=sdei_stack_critical_ptr, tmp=x6
--2:	mov	x6, #SDEI_STACK_SIZE
-+	sdei_choose ldr_this_cpu, x5, w4, sdei_stack_normal_ptr, sdei_stack_critical_ptr, x6
-+	mov	x6, #SDEI_STACK_SIZE
- 	add	x5, x5, x6
- 	mov	sp, x5
- 
- #ifdef CONFIG_SHADOW_CALL_STACK
- 	/* Use a separate shadow call stack for normal and critical events */
--	cbnz	w4, 3f
--	ldr_this_cpu dst=scs_sp, sym=sdei_shadow_call_stack_normal_ptr, tmp=x6
--	b	4f
--3:	ldr_this_cpu dst=scs_sp, sym=sdei_shadow_call_stack_critical_ptr, tmp=x6
--4:
-+	sdei_choose ldr_this_cpu, scs_sp, w4, sdei_shadow_call_stack_normal_ptr, \
-+		    sdei_shadow_call_stack_critical_ptr, x6
- #endif
- 
- 	/*
-@@ -1068,11 +1069,9 @@ SYM_CODE_START(__sdei_asm_handler)
- 
- 	/* Clear the registered-event seen by crash_smp_send_stop() */
- 	ldrb	w3, [x4, #SDEI_EVENT_PRIORITY]
--	cbnz	w3, 1f
--	adr_this_cpu dst=x5, sym=sdei_active_normal_event, tmp=x6
--	b	2f
--1:	adr_this_cpu dst=x5, sym=sdei_active_critical_event, tmp=x6
--2:	str	xzr, [x5]
-+	sdei_choose adr_this_cpu, x5, w3, sdei_active_normal_event, \
-+		    sdei_active_critical_event, x6
-+	str	xzr, [x5]
- 
- alternative_if_not ARM64_UNMAP_KERNEL_AT_EL0
- 	sdei_handler_exit exit_mode=x2
--- 
-2.53.0
+I see, I can add a comment as:
+Note: we assume that KVM will never change the OA of an active
+translation. If the host needs to move the backing PFN,it should do
+an explicit unmap to issue the required TLBI.
 
+> 
+> One of the things on my wish list for a while has been rebuilding
+> hugepages after dirty logging is disabled on a memslot. That seems like
+> like a very good optimization to do when BBML3 is present.
+> 
+
+In android we have support for coalescing for KVM_PGTABLE_S2_IDMAP
+on map, that does not rely on BBML3, maybe this can be added in a
+follow-up series, and eventually extended to be more generic.
+
+https://android.googlesource.com/kernel/common/+/refs/heads/android17-6.18/arch/arm64/kvm/hyp/pgtable.c#1107
+
+> > to improve this:
+> > - We only use BBML3 if the old PTE was live.
+> > - To reduce the window of the race, an early check is added before
+> >   the CMO to exit early, but that does not eliminate the race.
+> > 
+> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> > ---
+> >  arch/arm64/kvm/hyp/pgtable.c | 53 +++++++++++++++++++++++++++++++-----
+> >  1 file changed, 46 insertions(+), 7 deletions(-)
+> > 
+> > diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+> > index 127b7f9541b1..69d52308236f 100644
+> > --- a/arch/arm64/kvm/hyp/pgtable.c
+> > +++ b/arch/arm64/kvm/hyp/pgtable.c
+> > @@ -838,7 +838,8 @@ static void stage2_clean_old_pte(const struct kvm_pgtable_visit_ctx *ctx,
+> >  /**
+> >   * stage2_try_break_pte() - Invalidates a pte according to the
+> >   *			    'break-before-make' requirements of the
+> > - *			    architecture.
+> > + *			    architecture, if BMML3 is supported it
+> > + *			    will be used, otherwise fallback to SW.
+> >   *
+> >   * @ctx: context of the visited pte.
+> >   * @mmu: stage-2 mmu
+> > @@ -854,6 +855,18 @@ static bool stage2_try_break_pte(const struct kvm_pgtable_visit_ctx *ctx,
+> >  {
+> >  	kvm_pte_t locked_pte;
+> >  
+> > +	if (system_supports_bbml3() && kvm_pte_valid(ctx->old)) {
+> > +		kvm_pte_t curr_pte = READ_ONCE(*ctx->ptep);
+> > +
+> > +		/*
+> > +		 * All handled in stage2_make_pte(). However exit early if we already
+> > +		 * lost the race to avoid extra CMOs.
+> > +		 */
+> > +		 if (curr_pte != ctx->old)
+> > +			return false;
+> 
+> Does this race detection actually move the needle? We haven't gotten
+> very far from the read in __kvm_pgtable_visit().
+
+Yes, doesn't seem to help much with the current users, I will drop it.
+
+Thanks,
+Mostafa
+
+> 
+> Thanks,
+> Oliver
 
