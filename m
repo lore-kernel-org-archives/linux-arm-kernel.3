@@ -4,93 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27F2EC4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jul 2026 17:25:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A559BC4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jul 2026 17:30:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=oiJo0XVJPw2rjt+rcIvwSaUqFzjRlb/yk8buMFhbHKw=; b=JWWCx6043YC6utBDUmqU0dwVp4
-	uBD4FUZOhya/kdQ6ZkrmIVir/DrTNAshG7YonK0lNcajiRj80K/nj8H3eQvWAfc/6UEL/V693r85n
-	5DzORjiGBS6gIoVRla3bgfZ4nJPRNUSwyp3+ViFbbw2EXuHP7MYOuL6fGXH6tvgpX/A7k4zEJ4UlU
-	eoqEy5xU0G8S6V7t3WHE+Y1lDFPT155eEY3fT0HvIwRLhFqRCgeB2+DUdD1q3ui+/Gk6eadgtgr5I
-	Z3qy0nmUvOPeWUxgvjYo34DFd5nsKJxQtzVOn+7ZJM/Wr7nKWLuc06ayqdsKPHxDmluhHHhfiYFOq
-	aTiGrbuA==;
+	bh=dQ/ZbJiG58lt3l1hFxbH4cjbHgCyL2NHVFk05rzoPBE=; b=QHpRbgouXIKFdL2qs9+lVXqf3H
+	GGdagfeFsG1+L4y1NAzjMSBsnVuJwwoHzErdX4rdy9fSrXl5wfMJaZZD6n7kjIGbazODbFsOlSBvV
+	a0S3I75DuW3exJXZLQgMslJSrrdkeYvfnzGElHlna8JQP64dhI+jgBGmUjKPjcHemAKMGvZ5KkOHb
+	+Bkp7bAgCdRYmxKggoKqIsSPNHITkYeVx6f16BigEx22Ks/p8zVwfakhcgvNuB5uzyGPdiz8SO9hv
+	JtNp4V74UsdFU27r3wbqRzWqj00r37Z0W9iFq8a9Cmpyy/Lt3abYc5RB7HAzsimTuBvCH0z9k/3At
+	WixVq47w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wl8n6-00000004PM4-1Kfn;
-	Sat, 18 Jul 2026 17:25:32 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1wl8rm-00000004Pfe-3Nrp;
+	Sat, 18 Jul 2026 17:30:22 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wl8mx-00000004PL7-1f7u
+	id 1wl8rg-00000004PfD-27n8
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Jul 2026 17:25:30 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-493f45e20cdso51989805e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 18 Jul 2026 10:25:22 -0700 (PDT)
+	Sat, 18 Jul 2026 17:30:20 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-38dc69c74b8so6768221a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 18 Jul 2026 10:30:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1784395521; x=1785000321; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=oiJo0XVJPw2rjt+rcIvwSaUqFzjRlb/yk8buMFhbHKw=;
-        b=UjQM+m9wjKuoZ8QOXLKAw6deZdeniAZHntsheNnh4TjnAsZamjcdzICz80fG7CELoA
-         nCyWsiC7FLqU6DsorR/PHxasY2zEOvAwm7FweunBDbIN+NJBtg5Z1iSalvxOryCRHnMv
-         ydQlQ0uOVxMPudfFvuimvC5+PnaI8wz3WhLxs2ogVA9PWfpzoYjB3xjccW85ZiQQF/SJ
-         asRqO4ChGOXT5I/aCmyij1HTnbu9HPe405EoBGjpKMAOXM4qO7BCYxdTjFlCFJ1bWLpx
-         9dRXJfWBALQqhy6vSQni5ywyzjaOMZ1pPWQNrP7cagJV7LPcuXseZrwvbbqUIQo0s9PK
-         FlMg==
+        d=pcc-me-uk.20251104.gappssmtp.com; s=20251104; t=1784395814; x=1785000614; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=dQ/ZbJiG58lt3l1hFxbH4cjbHgCyL2NHVFk05rzoPBE=;
+        b=jhipnRogdSFG2QhlVMv66oMSpW7RwQclO6XJ7dNm3rnWTmQuFA1ijGC7fveeo0xFl8
+         UrrwwMUuwUuBgbTrE5DzkBU8AXkF0zhLRsAQqKSToTsAKlfvn/Ctsei+AVHHEyi1uI50
+         mhFdJVoFY3BhAIqVi9MGwS17CwFedUh1cyVW9fEyGKkB843oAnS3d4EhRaAePWRvrgYi
+         w/dD7Pu1cP0EpzbPVs9bPBxADQrxscf5BO+NcO+aCAe7eO0shiLQY2MAYGZjYzcbKkSg
+         MP2yjbbEtX0wAcmoebuwBSQeJEyibJDXqx2chRI1rVyLCMHjDVDFe1BprKOZL+TJ4vl2
+         vPog==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784395521; x=1785000321;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=oiJo0XVJPw2rjt+rcIvwSaUqFzjRlb/yk8buMFhbHKw=;
-        b=kLhCszn+cKJBQ5Vk3dAOSAk24q9OoFblPedoo3owSUVeUlPHV5gLxm7tdxBSrxKJY+
-         lfUGPYFtJbpLvzUgT1HgDEhe9EPh7aklxTyqUim9A5VV0KlqIjYKCQClfdo/EyIRVLRF
-         0ZlGex4MNhG/dtz/4xMOZRUqAtC0zisXw9DzpPQvoI8blj2D2JB/7P1Vp8XvrEmz4T8y
-         NQwl3zFSxSUTcZxZgeePN/5nHw+Jp47Cu4//tobpQLzGlcbrgamgu+B6EjepSp7n549u
-         uL4WgO8gpkGOqW2rbrM9JC02iZ1uZmGP1b0DmVOEbbhCJF2PJP/nMIOuCU/uTLr2Y2+z
-         Ukig==
-X-Forwarded-Encrypted: i=1; AHgh+RohWSVNIhhU3N5Py3y4bpVHumeQ2NL8nD36VqvyDmu/QObSvkeuS730W9aiRAfmTz12hn468o+P3X6r5AyOU9wo@lists.infradead.org
-X-Gm-Message-State: AOJu0YwYij08zkO6CtmpW5ac0rZvxLjHa/jJlSh9JDOBFPxikU9Ztd2w
-	rA2yBxs97sdFMFCXsCvBFGSiqBplcLaetLw4jNfSWhJGiiZeN+jJS6EYA6WuG15H1LU=
-X-Gm-Gg: AfdE7cn5qEiunfrEKxmPHacYs83K8wDlphaoqinPEnZ9+rVfFOtr45pJvwAl0hu8nyK
-	riYjlYSsaCXCMLKeTCiesA9HVZb/cRsut5uTb0PRkTXH6d6Oi9xmwpI9g3XWi8+UUfU3DrPpbRp
-	b40UMqsbXWxwTK9+eybRIwaTRY5I3WUSYXvDRg1KEz/MZEFPaTz8UNZjqRjTe/x/Giy6nTK6ppq
-	xqsh+VgzocLtlmGJHCdkIBw4GsSipY8FIRMxXZkkBne/uCvFTAUwF8UpvfwaCFjljvZ12IV3syN
-	kaEB3VOAqpEZJ6XQN6QQJLQKStscqvgXnGtcS9KE/d1H5GEDwXk+c10XJwUQLctHzoXZdUgYUrn
-	rL34/+bPMLQ0H1yP8WUREQTg6lJCm8NggWQ/vp3Jr47fO9AxtZVlpmvWEWjtODWZYjLIiPQSyro
-	WXPJ8c4N8=
-X-Received: by 2002:a05:600c:1551:b0:495:5858:e163 with SMTP id 5b1f17b1804b1-4955858e1damr1152765e9.27.1784395521571;
-        Sat, 18 Jul 2026 10:25:21 -0700 (PDT)
-Received: from localhost ([2a02:8071:56d1:2de0:1d24:d58d:2b65:c291])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-495499a5847sm102758895e9.2.2026.07.18.10.25.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 18 Jul 2026 10:25:21 -0700 (PDT)
-From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>
-To: Sven Peter <sven@kernel.org>,
-	Janne Grunau <j@jannau.net>,
-	Marcel Holtmann <marcel@holtmann.org>,
-	Luiz Augusto von Dentz <luiz.dentz@gmail.com>
-Cc: Neal Gompa <neal@gompa.dev>,
-	asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-bluetooth@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH RESEND] Bluetooth: hci_bcm4377: Use named initializers for pci_device_id array
-Date: Sat, 18 Jul 2026 19:25:12 +0200
-Message-ID: <20260718172513.986134-2-u.kleine-koenig@baylibre.com>
-X-Mailer: git-send-email 2.55.0.11.g153666a7d9bb
+        d=1e100.net; s=20251104; t=1784395814; x=1785000614;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=dQ/ZbJiG58lt3l1hFxbH4cjbHgCyL2NHVFk05rzoPBE=;
+        b=p9fCSHbowdoGYkoV9qiEQmq3UrWu7Hp4zIBka6/QupWDi3gSUQUh3UuBRN3VuASaRU
+         Z0m4+4yYptUmVhapkvvfRNRgBs//ZrXobSkM0M0wZQFQt2do4r+Ox8AMZm/l8T/lLXNa
+         apseOM5ZioYaDUTktbc+uPZGdq1NVc+52fTFki0/sTeIq2mWYj8/pE/FYrdEGjm1LWpl
+         1o9MiLz6w+YKpsUG97jF29l4ofa4r7/xLQdm2c9KMHXLjcu3JkDiGADBQApBzTUqgO/9
+         XlzLSgw1XtyfcZCbDuNViFyooEn6CZFhbUt8Jvm0GbbZI4AXti8phvtqpC9IsXcgESMC
+         /4Ow==
+X-Forwarded-Encrypted: i=1; AHgh+Rop6IOYm4gZ9QKNBmiQzB0kCrxAQ5kiQ6KD39k1JeFdPxPScmqQ6LVba5JBYUrLIb6tHMXCIV8dkptyr9di5bJi@lists.infradead.org
+X-Gm-Message-State: AOJu0YyuKPag+aNyWd5TJdDWpVvXPQDJkQawY7p08a17BRTmI2nBzhG8
+	csrlcYL1N3x8JWke3NHz0SQngbrp3KOnWR7GSmTxUNjdiEX6iC5D9Hpa0dW/C81fjQI=
+X-Gm-Gg: AfdE7ckS0ZwvxEmM2aFTzRkwUdweMUGmiPaLBUkuzbWSRyOse2iwfiv4IovKsHdlz3X
+	BsGInAc4qmKQx07iW0qYZvXDge5+klYoRC+uhcGY+RJesy3fMjDhnRXSlSICTJBQpqGa2LzIL/a
+	yklvk97FXZCMrgxcHAV7gwp2jVjGD9ZVE3b23RU0ZKTQoJFxysdIvk4E3W5Pma2akywEZLiNDuU
+	wkENUayCtGGh/DmSzCjcfuTJRlTi/BQTzwlRqdPFRSrnLbFPBEFvQoXKrWjIrSP3V1o1ezGCDkp
+	B2tB7b0yrZMTnQQuQmVG7XxB+xIcJOprS3Ek9P0KRbTLhB3O2j5VBIqZk/bOoD9w/gAQYgmiF+3
+	j0Eh0w0bwOyxcZO67FN6SYQFVsv3F2GNv/iB2c4F+q7JN0MNPyiPYqSzbfYj6cOFXUKCgG+hS
+X-Received: by 2002:a17:90b:1b47:b0:38e:e9b:ffa7 with SMTP id 98e67ed59e1d1-38e4b57933amr8720348a91.28.1784395814201;
+        Sat, 18 Jul 2026 10:30:14 -0700 (PDT)
+Received: from localhost ([2601:647:4000:e427:98c1:f5b9:6902:3c66])
+        by smtp.gmail.com with UTF8SMTPSA id 5a478bee46e88-31429fdcb09sm22720004eec.9.2026.07.18.10.30.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 18 Jul 2026 10:30:13 -0700 (PDT)
+From: Peter Collingbourne <peter@pcc.me.uk>
+To: Will Deacon <will@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Ian Rogers <irogers@google.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Alexander Sverdlin <alex@sverdlin.org>,
+	=?UTF-8?q?Martin=20Kepplinger-Novakovi=C4=87?= <martink@posteo.de>,
+	Chuck Lever <cel@kernel.org>,
+	=?UTF-8?q?St=C3=A9phane=20Grosjean?= <s.grosjean@peak-system.fr>,
+	Eugen Hristev <ehristev@kernel.org>,
+	Peter Collingbourne <peter@pcc.me.uk>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] arm64, mailmap: update email address for Peter Collingbourne
+Date: Sat, 18 Jul 2026 10:29:23 -0700
+Message-ID: <20260718172923.8297-1-peter@pcc.me.uk>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2277; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=szLs5CcDZwYWzOei8Q+NZivNVZp3qcW3phKkPE5EB1U=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBqW7b5l0Xf7DwIpP+bsrs2vbQ/0/z6agzIC30mc po64ff2EqSJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCalu2+QAKCRCPgPtYfRL+ To50CACKAOW2gW2kAvbfG1qPbjTY5veMSIusBRt/vgLy1JwBLwrE3YL1Vr8xDm480Vo5R8Y564E 6h5yd/+HFf7L6zW2S9ed9J5TMpsfK959oUZj3p9v754oxy2N0Y9UDo2g5BRzuaGOjlVk0LHxpHW 7Q55+MdVLRvZTVkoqBfhWjatzbaDmqkUoNJI24uqTwCmPoUEDtQiUUQkGuVbOX/josyADAf+4Te nAaMpGU/X7oEjt+akpqneCOqxkgnwh0RN3VAz6KZG6x1WC4K9wx3h7vxwOnmfbTfVCFJlSj1tKw CWi6ngKPT6xfbRklyiBSkGWz8eKGq+moaY9vUUeaaZTTE5y0
-X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260718_102528_793292_F92D0DD8 
-X-CRM114-Status: GOOD (  13.55  )
+X-CRM114-CacheID: sfid-20260718_103016_724405_D247B191 
+X-CRM114-Status: GOOD (  10.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,59 +105,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Initializing a struct using list initializers is hard to read, compared
-to that using named initializers is more ideomatic. Convert the macro
-used to assign values in the driver's pci_device_id array accordingly.
+I am no longer at Google.
 
-This change doesn't introduce any changes to the compiled array on an
-x86 and an arm64 build.
-
-Signed-off-by: Uwe Kleine-König (The Capable Hub) <u.kleine-koenig@baylibre.com>
+Signed-off-by: Peter Collingbourne <peter@pcc.me.uk>
 ---
-Hello,
+ .mailmap                        | 1 +
+ arch/arm64/kernel/pi/relocate.c | 2 +-
+ 2 files changed, 2 insertions(+), 1 deletion(-)
 
-it seems in the bluetooth patchwork patches are archived automatically
-after a month. And that even if there is recent activity. I consider
-that very annoying for contributors.
-
-So to get back on the list of considered patches, here comes a resend.
-The original submission can be found at
-https://lore.kernel.org/linux-bluetooth/20260504160940.2168650-2-u.kleine-koenig@baylibre.com
-or 
-https://patchwork.kernel.org/project/bluetooth/patch/20260504160940.2168650-2-u.kleine-koenig@baylibre.com/
-.
-
-Best regards
-Uwe
-
- drivers/bluetooth/hci_bcm4377.c | 11 ++++++-----
- 1 file changed, 6 insertions(+), 5 deletions(-)
-
-diff --git a/drivers/bluetooth/hci_bcm4377.c b/drivers/bluetooth/hci_bcm4377.c
-index 925d0a635945..89c317561bfb 100644
---- a/drivers/bluetooth/hci_bcm4377.c
-+++ b/drivers/bluetooth/hci_bcm4377.c
-@@ -2525,11 +2525,12 @@ static const struct bcm4377_hw bcm4377_hw_variants[] = {
- 	},
- };
+diff --git a/.mailmap b/.mailmap
+index 735470e21075..47127d6da636 100644
+--- a/.mailmap
++++ b/.mailmap
+@@ -691,6 +691,7 @@ Paulo Alcantara <pc@manguebit.org> <palcantara@suse.com>
+ Paulo Alcantara <pc@manguebit.org> <pc@manguebit.com>
+ Pavankumar Kondeti <quic_pkondeti@quicinc.com> <pkondeti@codeaurora.org>
+ Peter A Jonsson <pj@ludd.ltu.se>
++Peter Collingbourne <peter@pcc.me.uk> <pcc@google.com>
+ Peter Hilber <peter.hilber@oss.qualcomm.com> <quic_philber@quicinc.com>
+ Peter Oruba <peter.oruba@amd.com>
+ Peter Oruba <peter@oruba.de>
+diff --git a/arch/arm64/kernel/pi/relocate.c b/arch/arm64/kernel/pi/relocate.c
+index 2407d2696398..82592f3a5c1c 100644
+--- a/arch/arm64/kernel/pi/relocate.c
++++ b/arch/arm64/kernel/pi/relocate.c
+@@ -1,7 +1,7 @@
+ // SPDX-License-Identifier: GPL-2.0-only
+ // Copyright 2023 Google LLC
+ // Authors: Ard Biesheuvel <ardb@google.com>
+-//          Peter Collingbourne <pcc@google.com>
++//          Peter Collingbourne <peter@pcc.me.uk>
  
--#define BCM4377_DEVID_ENTRY(id)                                             \
--	{                                                                   \
--		PCI_VENDOR_ID_BROADCOM, BCM##id##_DEVICE_ID, PCI_ANY_ID,    \
--			PCI_ANY_ID, PCI_CLASS_NETWORK_OTHER << 8, 0xffff00, \
--			BCM##id                                             \
-+#define BCM4377_DEVID_ENTRY(id)                                                 \
-+	{                                                                       \
-+		PCI_DEVICE(PCI_VENDOR_ID_BROADCOM, BCM ## id ## _DEVICE_ID),    \
-+		.class = PCI_CLASS_NETWORK_OTHER << 8,                          \
-+		.class_mask = 0xffff00,                                         \
-+		.driver_data = BCM ## id,                                       \
- 	}
- 
- static const struct pci_device_id bcm4377_devid_table[] = {
-
-base-commit: 0718283ab28bc3907e10b61a6b4be6fefa1cbb2f
+ #include <linux/elf.h>
+ #include <linux/init.h>
 -- 
-2.55.0.11.g153666a7d9bb
+2.54.0
 
 
