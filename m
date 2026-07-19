@@ -4,79 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77CB5C44512
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jul 2026 12:59:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D42DC44521
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jul 2026 13:00:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dz6nstKPpdzr3m3YV5N5XtGEglEWs9DHWHKhwuF1feU=; b=Yb2ZyMKlTo+P1BLf/IZMmOl2lC
-	EFPjihncD4zlqlGc5U3clYQWcGoLl5FO13lgMbmfFgtb0f4i4UlDJJ2OGuRNF09GfMVwhFyjBATQZ
-	NAlbtePEvVdde8Jcg4TlfsziKf0nR00CzDMN0V5mvpj7Ho6kDixz8bjDS4NKAVOeQ4hj1bFZNIPw4
-	ZLR6EwrzPR/ff+XFd5EebMk8gWlFkK8gEV4qgtnlvf4J1+tKxkq4qpS0xXC5TxPRgwlapMYw48sdR
-	rdJ1TiFVO/Ck4jDMAMQWYDT6p/+OoxrrX0DHHWa5VXIRDIN2mW9Tgp/1eURtiH1wv+Q5BIxXHR4yJ
-	OPJmt0AA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XB6YcA1LMpF2Yn2bjXDh2H+HcWT4N/bplMGM1IzQCMo=; b=ZDVaEerj78erMtWuasgeo+A0sp
+	MeaSbwIrg8y1cYeYgOZ5CLcKvbviam5PAOuWZUe+qMm8FhIuAMZjk05Ce4TfmUKsMcDN2lEQB4B2W
+	uE3i7LUCs+9o3cVrqzFfQbNNoXCbmZXH737ec2BAlJtkT6L9QkH+ULXklc4CXBhvf5KCZ4Clg3uTn
+	yxQbrxJJUKobrNfWPkO9w+uMiC7ChyGZofijdySQ9f851mF9lEpHzs18fy/PI/sOMOTkafT3FqACY
+	MHwRkh+xkcVd/G/xUSOOTAxBUMrzhTtWHc4WdlK2a/UVXFRaFtllX2Am9Wzu2e22fIttBGBUWVRxN
+	tePPMc1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlR7G-000000050xB-2HGg;
-	Sun, 19 Jul 2026 12:59:34 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wlR8Q-0000000513x-3GzV;
+	Sun, 19 Jul 2026 13:00:46 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlR7E-000000050x4-2Kkd
+	id 1wlR8P-0000000513h-0R6b
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Jul 2026 12:59:32 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id F154B40238;
-	Sun, 19 Jul 2026 12:59:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABBBB1F000E9;
-	Sun, 19 Jul 2026 12:59:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784465971;
-	bh=dz6nstKPpdzr3m3YV5N5XtGEglEWs9DHWHKhwuF1feU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=RMvdkFlpGDTGUknV5qMv7bvE17VSPmAKTlGBUF0dGAFTJIm5YEMiHRqDBCQodxSTY
-	 Ge9fz3IG2p0LxJTSK4uvO9VLO6lxN9I70ZNr31wO8qXETMT7OK6O8mjwj7gxC5H5Aa
-	 ewZJvnjGNPAZL9onmVrfy8cENJCMslHIdl+eM6QVFGhkQSwKCyZSTlY25S4ltfuh0P
-	 Kv+mAVZazCnspK3pbXmA3iCAqR8+wEd0HAJlUkfnPPYL3D6hA8HBRc0oR91uWmdD+Q
-	 n2D0/dLV9W+Ualim3Ug8bC9mPBH3yO+XeTq+BG9fS7qDxo6NwPxPQ+6bf2ob3AI5YZ
-	 FHoaByhPLJAMQ==
-Date: Sun, 19 Jul 2026 13:59:25 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Fuad Tabba <fuad.tabba@linux.dev>, Mark Rutland <mark.rutland@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>,
-	Ben Horgan <ben.horgan@arm.com>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Eric Auger <eric.auger@redhat.com>
-Subject: Re: [PATCH v12 02/29] arm64/fpsimd: Update FA64 and ZT0 enables when
- loading SME state
-Message-ID: <df08b81a-13b6-4273-88e7-0627063d4e9c@sirena.org.uk>
-References: <20260709-kvm-arm64-sme-v12-0-d0301d79ef58@kernel.org>
- <20260709-kvm-arm64-sme-v12-2-d0301d79ef58@kernel.org>
- <ali39DG6qie7XTuD@J2N7QTR9R3.cambridge.arm.com>
- <15a9ae14-395d-472a-a5be-9e46524fb493@sirena.org.uk>
- <3c76650f-ddda-47ae-a676-86016d8e39a6@sirena.org.uk>
- <CA+EHjTw9rGvQyev-4i7zkO5bPPZKGYn858485dCs8iHmCi0t3w@mail.gmail.com>
- <43f21c65-c5ba-44a3-9741-548390df369b@sirena.org.uk>
- <87a4rnqsuu.wl-maz@kernel.org>
- <18229974-b26d-4eed-82f7-7af7e1c26634@sirena.org.uk>
+	Sun, 19 Jul 2026 13:00:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E1C2A601DE;
+	Sun, 19 Jul 2026 13:00:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 8B6A0C19425;
+	Sun, 19 Jul 2026 13:00:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1784466043;
+	bh=IpCdIvtqrUwzVFJ1/y1oYQ0klko2f12CuHINIX6XHp0=;
+	h=From:Date:Subject:To:Cc:From;
+	b=aX4hm9Muu7/kgalY7O/TrueR7ctjDyk5xAcBofehBQP7ZEECG8mg9W/Bo+X1DWDF0
+	 ydDl7AY3fHDNdRGuT9CiHdvM+tnXV/HDI/S24JQj2hpp6vWod+dnlbh2MtnUN4RaPw
+	 R+ovp5pkB0AK7CqmxyyrMOWLcRn2Tt1q2Ny48hcFyslETDgvRJzf0hYNvOqtaYLGzw
+	 9RcaizH2jjraBP6ma67xMNJsc3pqIoVrm7FIA2N2ixurCq029wIRwAjS1HAhCOgCmF
+	 kxXLvMRoOzCSjRnZDGmro1Us581VTlUx9D4e/HIQ7yct5mSHJBzfGNbLk63K1rs1TY
+	 MXGppGvr+UV1g==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 68B14C4450A;
+	Sun, 19 Jul 2026 13:00:43 +0000 (UTC)
+From: Sven Peter <sven@kernel.org>
+Date: Sun, 19 Jul 2026 15:00:32 +0200
+Subject: [PATCH] mfd: macsmc: Fix key count endianness annotation
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="cL9XJNQtGuI5OnYK"
-Content-Disposition: inline
-In-Reply-To: <18229974-b26d-4eed-82f7-7af7e1c26634@sirena.org.uk>
-X-Cookie: Courage is grace under pressure.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260719-b4-macsmc-be32-fix-v1-1-c7b1936307fa@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqDMBCF4avIrB0wUaL2KuIik47tCNqSURHEu
+ 5vW5ffg/QcoR2GFR3ZA5E1UPnOCyTMIbz+/GOWZDLawrqhNi1Th5INOAYlLi4Ps6MqaGyLjWus
+ hHb+R0/yPdv1tXWnksPxKcJ4XwjqYl3YAAAA=
+X-Change-ID: 20260719-b4-macsmc-be32-fix-637e8bb1692a
+To: Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
+ Lee Jones <lee@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, kernel test robot <lkp@intel.com>, 
+ Sven Peter <sven@kernel.org>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1756; i=sven@kernel.org;
+ h=from:subject:message-id;
+ bh=IpCdIvtqrUwzVFJ1/y1oYQ0klko2f12CuHINIX6XHp0=;
+ b=owGbwMvMwCXmIlirolUq95LxtFoSQ1bMqYp2pYikT13FLYG8HiX/uY447mATeXFkerccB8NL5
+ zcbVzzvKGVhEONikBVTZNm+3970ycM3gks3XXoPM4eVCWQIAxenAEzkZSgjw68OU/fSLdsbN6bc
+ 1tWeMfFvoIe3y+LLupXNc0KeBC/KPczwm11+6qTM9Zd3FcutOsh6dt9GpTnTlqpbT/p7J8vgx8z
+ J4rwA
+X-Developer-Key: i=sven@kernel.org; a=openpgp;
+ fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
+X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
+ auth_id=407
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,44 +87,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+SMC firmware returns the value of the #KEY key in big-endian unlike most
+other keys. Reading it through apple_smc_read_u32() into a plain u32
+and then converting with be32_to_cpu() makes sparse complain:
 
---cL9XJNQtGuI5OnYK
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+  drivers/mfd/macsmc.c:462:26: sparse: cast to restricted __be32
 
-On Sun, Jul 19, 2026 at 01:40:28PM +0100, Mark Brown wrote:
-> On Sun, Jul 19, 2026 at 09:35:53AM +0100, Marc Zyngier wrote:
+Read the raw value into a __be32 using apple_smc_read() instead.
 
-> > So leave this is a straight ISB, no optimisation. Once you come back
-> > with actual data showing that this is a terrible bottleneck affecting
-> > real workloads on real HW, we'll look at it. But until then, please
-> > keep it as stupid as possible.
+Fixes: e038d985c982 ("mfd: Add Apple Silicon System Management Controller")
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202607181046.OANjIoqR-lkp@intel.com/
+Signed-off-by: Sven Peter <sven@kernel.org>
+---
+ drivers/mfd/macsmc.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
 
-> I've already left the KVM hypervisor code like that - I only updated the
-> code here in the main kernel since that keeps the end effect for
-> existing systems and workloads the same.  I am aware that there has been
-> a great deal of attention paid to the barriers we have in the context
-> switch path so I am concerned that other people might have a different
-> view on adding one.
+diff --git a/drivers/mfd/macsmc.c b/drivers/mfd/macsmc.c
+index 358feec2d088..514cba7dc897 100644
+--- a/drivers/mfd/macsmc.c
++++ b/drivers/mfd/macsmc.c
+@@ -410,7 +410,7 @@ static int apple_smc_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
+ 	struct apple_smc *smc;
+-	u32 count;
++	__be32 count;
+ 	int ret;
+ 
+ 	smc = devm_kzalloc(dev, sizeof(*smc), GFP_KERNEL);
+@@ -461,8 +461,10 @@ static int apple_smc_probe(struct platform_device *pdev)
+ 	dev_set_drvdata(&pdev->dev, smc);
+ 	BLOCKING_INIT_NOTIFIER_HEAD(&smc->event_handlers);
+ 
+-	ret = apple_smc_read_u32(smc, SMC_KEY(#KEY), &count);
+-	if (ret)
++	ret = apple_smc_read(smc, SMC_KEY(#KEY), &count, sizeof(count));
++	if (ret >= 0 && ret != sizeof(count))
++		ret = -EINVAL;
++	if (ret < 0)
+ 		return dev_err_probe(smc->dev, ret, "Failed to get key count");
+ 	smc->key_count = be32_to_cpu(count);
+ 
 
-It does also look odd do a conditional update of SMCR_EL1 and then
-unconditionally add a barrier after it, even if the conditional
-update suppressed the write.
+---
+base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+change-id: 20260719-b4-macsmc-be32-fix-637e8bb1692a
 
---cL9XJNQtGuI5OnYK
-Content-Type: application/pgp-signature; name="signature.asc"
+Best regards,
+--  
+Sven Peter <sven@kernel.org>
 
------BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmpcyiwACgkQJNaLcl1U
-h9BpXwf+JYCe7VHaj7TfzZjCVUNf+N0uc2PbXDf9kiTps6TxEHMS/Lt7w8P5oqs3
-RDVLBZIPc43UyiYr27EH+NxHBS/jOGSdzNHCjkN4TN6hg+IEE08yL7RbnSH85hzX
-+iXiGHYKj6uzU0VxOCmw48BLoe1wkh4iToQT+ffGDaAd1yxraMDKWk1gom8j6Eaa
-Br6L+q2EfnbvuqtpZWEQ1WPGuRrcrcnTyrkEz2eQbNNAyMD1boHr9LHNeCRFoJSn
-2nDxtRYj6T2Vocmt59QX4JajZwM9fbfsZOR5NszhGW7Tm1EqgxbVg439ieY+ryMw
-AXrrkxhculDDRGWss27Ds2c+Cu+6ww==
-=CtjM
------END PGP SIGNATURE-----
-
---cL9XJNQtGuI5OnYK--
 
