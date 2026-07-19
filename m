@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19829C44521
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jul 2026 23:10:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DEF2C4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jul 2026 23:10:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7ZxSdy74Ay4v2Qdu4MSA5Ypp/4SsT82/WB2mwBgc3ik=; b=QuL43cdfYFoeVf27nFWbamq9iJ
-	7DdfeiO/5rrqhN8ApU3mjJRzNLoJxYCDC6F+sbtI2c8b+ckoUk4tM1gOgsmfK8LnsXjwFJ4Fs1Z3f
-	xu/X5VdboRgZXTYSMx92o9/lI2EU77W3kJ7QfSvOroXVYuYv1xJp49fILFtc2NMcaS3tU9NxeT3bT
-	UzZPyfQMWIGL14aQxUqFzAW69EGu9cH9HtW462olPK9y+CY0IwunQFa5XgTAFCjgzr/CNDicMe5+o
-	PHMOgbk2X2IGyis9JeqU2sx+cCdqoPiz2GL3FFaxPAd4jsacqh6cdfljHgHiP381HhZBL/0oMo/zL
-	ownkZKyg==;
+	bh=NedY6/OlzwTYxAtSditYiHpWbPSndrvxVk87IdXM00s=; b=2SFgRTebRKCvm/smcOmszbq+Q5
+	ybaxLhfN5yS/rl6cosGaGerUkMxfks6MtW89HZnFFhwuZBOHxLiX8Vs7bs+KxDCUWHxuXyT9vg06V
+	3gd05DxUvqTYYIv3X5IqaRlebPhFCqIXJ/CF+EP8KSda5Acol43uG0M217wMLZJ625XxYtCCQPsLh
+	nUUIY1AxqDKP1LdeaMMzHcAKqPPX4BSE4EcB755AE9301M8h9JYVqS7cq2kJKhnltu1l1Zk2OQ+pH
+	ZfO5PXDqZC6vt1xj58eiTSmbI+aO5y/cPp2/DjugtHS+i2LlfgvdZJeYU/+ePjjfhYqz6HkBKCC6o
+	B/lj2x7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlaeG-00000005SKm-42pI;
-	Sun, 19 Jul 2026 23:10:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wlaeR-00000005SPv-0HV1;
+	Sun, 19 Jul 2026 23:10:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlaeF-00000005SK6-3OGz
+	id 1wlaeK-00000005SMj-0Mus
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Jul 2026 23:10:16 +0000
+	Sun, 19 Jul 2026 23:10:20 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4180760120;
+	by sea.source.kernel.org (Postfix) with ESMTP id 63F7944044;
+	Sun, 19 Jul 2026 23:10:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 603871F00A3A;
 	Sun, 19 Jul 2026 23:10:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 124641F000E9;
-	Sun, 19 Jul 2026 23:10:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784502615;
-	bh=7ZxSdy74Ay4v2Qdu4MSA5Ypp/4SsT82/WB2mwBgc3ik=;
+	s=k20260515; t=1784502619;
+	bh=NedY6/OlzwTYxAtSditYiHpWbPSndrvxVk87IdXM00s=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=N0f57J8lqH8ZdaPRomNnI8s9v8EWpunYRvgxSafSGrad4lDc5hSR94fxzdp00OwRC
-	 TvDCUn1cQBdW1fXQ7gIUem3KyN92YS5I70ldcMzwMMltkXfA09QC78WHYdMNJ/MdTS
-	 4eMvsI0veanGKQA6JoyKTvmcyQ8cQJ2FgfWVWRRy+GJ+kYQuOK8ggjTeeGdw/Ai8wp
-	 +VST5eGPoj0t9RnO0InBwei9nXL+2q/duyPtKksHRqVAkGNjxQNragLS4z/zrv0MDk
-	 WgxvoDVz2orvUVw8vmlFQ2PSoeKNUZWUY47lmFGXyA7LOOE7oUbjzxV2eLe78j0P52
-	 BrjOnauAg3cZw==
+	b=RZcn60qKqWUeqexSTmP40SRqFeZ6/8h5A5I+G7j7pYzDaIpVHshhnROKKVo/smlvg
+	 jlkNEXHhbvXUFKTZopUg49/sSYprnU/zD9LQj5tUe4JFTGwa51LSMVy2pDtWk5oJOl
+	 8E9JsYyS86bQstmy2rhi/FAuhrTZlsgDO0T7D5SLGB3QH1MjXfJuQUnQrozY73SzBP
+	 RdB4VqeSEbTyYsDP/1Gn8T11kC1Qn/DeuRBPjYdbF4bna+JT3fWXLG50aCGmrueeKp
+	 9e3/UZV68YYzZnAsDZM7SSYElQs+nkwkUlHBRoLhipUF6LosTds/xUMhHLyIaXLWh3
+	 U7C84ZffO0DkQ==
 From: Mark Brown <broonie@kernel.org>
-Date: Mon, 20 Jul 2026 00:07:31 +0100
-Subject: [PATCH v13 04/32] arm64/fpsimd: Decide to save ZT0 and streaming
- mode FFR at bind time
+Date: Mon, 20 Jul 2026 00:07:32 +0100
+Subject: [PATCH v13 05/32] arm64/sve: Factor virtualizable VL discovery out
+ of SVE specific code
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260720-kvm-arm64-sme-v13-4-d9abd3ffa245@kernel.org>
+Message-Id: <20260720-kvm-arm64-sme-v13-5-d9abd3ffa245@kernel.org>
 References: <20260720-kvm-arm64-sme-v13-0-d9abd3ffa245@kernel.org>
 In-Reply-To: <20260720-kvm-arm64-sme-v13-0-d9abd3ffa245@kernel.org>
 To: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
@@ -66,15 +66,15 @@ Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>,
  Peter Maydell <peter.maydell@linaro.org>, 
  Eric Auger <eric.auger@redhat.com>, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4661; i=broonie@kernel.org;
- h=from:subject:message-id; bh=ee4vBGEdpju7o7htpyCkV88y2wT1UDGGt62IPZtgiFU=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqXVkq8sb8hg2ZdWlI61m0C5jJ3WZS7AQQANu4D
- k1GNwWE1MSJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCal1ZKgAKCRAk1otyXVSH
- 0G5kB/9yGIAfVt7vcNEJCJuzFdqbmHVCMQl7s9L9IfX6Nw1wzdeUDjF5z4hwWs58PB7J1PZlC4f
- nIET8M81PX0K6kkvvypEMLlZTqWtGGiztkDH6JYkTHupSiWFjd4hdNyMIzwQgPjAsCKup9UnNs4
- wPEF9e6bcVwo8czvDiy3HSrr0rR8lUoRKk0UKleoyeF45hFiULSFEpM3Jylhn88fGXrZYWXcTT0
- ViYwRE8fWfy8IcX68UDL4aGJi4faFbjqXHK7E47uJQJdaVidzyGooeY9+S8xgyeIF6J096GCEHh
- pGR0nFnFxcqaTDYvxL22Z9WLTf9BsWoQIprBk25Qj963SExq
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2856; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=+zyEiRn4TZGrkp1zrM7y7JLFFhEzfJlzJup4jyLspPk=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqXVkrxveMIWtmYorGSKcx5B2y2hXm1FuAf3p3s
+ oVBySvNN6mJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCal1ZKwAKCRAk1otyXVSH
+ 0IZNB/941fd8pdEduv+KVtwJ7DqG2jArwAHyIGwrXJWnObUMpcQ+JLh79PcqhiF/4AcFRIImaTx
+ 75IMeQ0/QbL2kS1Ra/C7cQ9cQjcOVJawH89iPJqn20jDmC7wZWxBuKJ7MsEiywgGUkxuYiOsv7Z
+ jKF5csamwIm8qH4RucIXoUi/86nzr2lcn9UKfaE234U4tFWHMvUa9yOdlrFyHDt+zmx7+HIrZ8C
+ ypP952b5GpwJamyFu8/a/mjvCPVaSiB6feL2GsY2EzjEWxjJt6SHMVwtrg4yNbt7FZjgpTIaKYs
+ oTgH8LvIqr8naveNhHpL5kmDkhxMYHLrruG/ZSfo3148m59y
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -91,122 +91,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some parts of the SME state are optional, enabled by additional features
-on top of the base FEAT_SME and controlled with enable bits in SMCR_ELx. We
-unconditionally enable these for the host but for KVM we will allow the
-feature set exposed to guests to be restricted by the VMM. These are the
-FFR register (FEAT_SME_FA64) and ZT0 (FEAT_SME2).
-
-We defer saving of guest floating point state for non-protected guests to
-the host kernel. We also want to avoid having to reconfigure the guest
-floating point state if nothing used the floating point state while running
-the host. If the guest was running with the optional features disabled then
-traps will be enabled for them so the host kernel will need to skip
-accessing that state when saving state for the guest.
-
-Support this by moving the decision about saving this state to the point
-where we bind floating point state to the CPU, instead of only storing
-the SME VL to use we store the SMCR value.  This includes all the enable
-controls for the subfeatures along the vector length.
-
-In order to keep the code paths for the vector extensions consistent
-also adjust the SVE path to store a ZCR value instead of the VL, since
-no fields other than LEN are currently defined for ZCR this is much less
-of a meaningful change.
+In preparation for reuising it for SME pull the code for discovering the
+maximum virtualizable vector length out of sve_setup() into a separate
+function, updating to return 0 without a WARN_ON() for the case where no
+virtualisable VL exists.  For SVE this case is architecturally invalid
+but for SME it is valid if ill advised.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/include/asm/fpsimd.h |  4 ++--
- arch/arm64/kernel/fpsimd.c      | 16 ++++++++--------
- arch/arm64/kvm/fpsimd.c         |  3 ++-
- 3 files changed, 12 insertions(+), 11 deletions(-)
+ arch/arm64/kernel/fpsimd.c | 41 ++++++++++++++++++++++++-----------------
+ 1 file changed, 24 insertions(+), 17 deletions(-)
 
-diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
-index 59f3c4a9e390..395606e01e18 100644
---- a/arch/arm64/include/asm/fpsimd.h
-+++ b/arch/arm64/include/asm/fpsimd.h
-@@ -166,8 +166,8 @@ struct cpu_fp_state {
- 	struct arm64_sme_state *sme_state;
- 	u64 *svcr;
- 	u64 *fpmr;
--	unsigned int sve_vl;
--	unsigned int sme_vl;
-+	u64 smcr;
-+	u64 zcr;
- 	enum fp_type *fp_type;
- 	enum fp_type to_save;
- };
 diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index b868db2982ee..b5535f8c9bd9 100644
+index b5535f8c9bd9..314f5d61be11 100644
 --- a/arch/arm64/kernel/fpsimd.c
 +++ b/arch/arm64/kernel/fpsimd.c
-@@ -474,7 +474,7 @@ static void fpsimd_save_user_state(void)
- 	/* set by fpsimd_bind_task_to_cpu() or fpsimd_bind_state_to_cpu() */
- 	bool save_sve_regs = false;
- 	bool save_ffr;
--	unsigned int vl;
-+	unsigned int vq;
+@@ -1118,6 +1118,29 @@ int vec_verify_vq_map(enum vec_type type)
+ 	return 0;
+ }
  
- 	WARN_ON(!system_supports_fpsimd());
- 	WARN_ON(preemptible());
-@@ -498,7 +498,7 @@ static void fpsimd_save_user_state(void)
- 	    last->to_save == FP_STATE_SVE) {
- 		save_sve_regs = true;
- 		save_ffr = true;
--		vl = last->sve_vl;
-+		vq = SYS_FIELD_GET(ZCR_ELx, LEN, last->zcr) + 1;
- 	}
++static int __init vec_virtualisable_vl(struct vl_info *info)
++{
++	DECLARE_BITMAP(partial_only_map, SVE_VQ_MAX);
++	unsigned long b_min_partial, b_max_virt;
++
++	bitmap_andnot(partial_only_map, info->vq_partial_map, info->vq_map,
++		      SVE_VQ_MAX);
++	b_min_partial = find_last_bit(partial_only_map, SVE_VQ_MAX);
++
++	/* All implemented VLs are virtualisable */
++	if (b_min_partial >= SVE_VQ_MAX)
++		return info->max_vl;
++
++	b_max_virt = find_next_bit(info->vq_map, SVE_VQ_MAX, b_min_partial);
++
++	/* No implemented VLs are virtualisable */
++	if (b_max_virt >= SVE_VQ_MAX)
++		return 0;
++
++	/* At least one virtualisable VL exists */
++	return sve_vl_from_vq(__bit_to_vq(b_max_virt));
++}
++
+ void cpu_enable_sve(const struct arm64_cpu_capabilities *__always_unused p)
+ {
+ 	write_sysreg(read_sysreg(CPACR_EL1) | CPACR_EL1_ZEN_EL1EN, CPACR_EL1);
+@@ -1129,8 +1152,6 @@ void cpu_enable_sve(const struct arm64_cpu_capabilities *__always_unused p)
+ void __init sve_setup(void)
+ {
+ 	struct vl_info *info = &vl_info[ARM64_VEC_SVE];
+-	DECLARE_BITMAP(tmp_map, SVE_VQ_MAX);
+-	unsigned long b;
+ 	int max_bit;
  
- 	if (system_supports_sme()) {
-@@ -508,19 +508,19 @@ static void fpsimd_save_user_state(void)
+ 	if (!system_supports_sve())
+@@ -1153,21 +1174,7 @@ void __init sve_setup(void)
+ 	 */
+ 	set_sve_default_vl(find_supported_vector_length(ARM64_VEC_SVE, 64));
  
- 		if (*svcr & SVCR_ZA_MASK)
- 			sme_save_state(last->sme_state,
--				       system_supports_sme2());
-+				       last->smcr & SMCR_ELx_EZT0);
+-	bitmap_andnot(tmp_map, info->vq_partial_map, info->vq_map,
+-		      SVE_VQ_MAX);
+-
+-	b = find_last_bit(tmp_map, SVE_VQ_MAX);
+-	if (b >= SVE_VQ_MAX)
+-		/* No non-virtualisable VLs found */
+-		info->max_virtualisable_vl = SVE_VQ_MAX;
+-	else if (WARN_ON(b == SVE_VQ_MAX - 1))
+-		/* No virtualisable VLs?  This is architecturally forbidden. */
+-		info->max_virtualisable_vl = SVE_VQ_MIN;
+-	else /* b + 1 < SVE_VQ_MAX */
+-		info->max_virtualisable_vl = sve_vl_from_vq(__bit_to_vq(b + 1));
+-
+-	if (info->max_virtualisable_vl > info->max_vl)
+-		info->max_virtualisable_vl = info->max_vl;
++	info->max_virtualisable_vl = vec_virtualisable_vl(info);
  
- 		/* If we are in streaming mode override regular SVE. */
- 		if (*svcr & SVCR_SM_MASK) {
- 			save_sve_regs = true;
--			save_ffr = system_supports_fa64();
--			vl = last->sme_vl;
-+			save_ffr = last->smcr & SMCR_ELx_FA64;
-+			vq = SYS_FIELD_GET(SMCR_ELx, LEN, last->smcr) + 1;
- 		}
- 	}
- 
- 	if (IS_ENABLED(CONFIG_ARM64_SVE) && save_sve_regs) {
- 		/* Get the configured VL from RDVL, will account for SM */
--		if (WARN_ON(sve_get_vl() != vl)) {
-+		if (WARN_ON(sve_get_vl() != sve_vl_from_vq(vq))) {
- 			/*
- 			 * Can't save the user regs, so current would
- 			 * re-enter user with corrupt state.
-@@ -1712,8 +1712,8 @@ static void fpsimd_bind_task_to_cpu(void)
- 	last->st = &current->thread.uw.fpsimd_state;
- 	last->sve_state = current->thread.sve_state;
- 	last->sme_state = current->thread.sme_state;
--	last->sve_vl = task_get_sve_vl(current);
--	last->sme_vl = task_get_sme_vl(current);
-+	last->zcr = task_zcr(current);
-+	last->smcr = task_smcr(current);
- 	last->svcr = &current->thread.svcr;
- 	last->fpmr = &current->thread.uw.fpmr;
- 	last->fp_type = &current->thread.fp_type;
-diff --git a/arch/arm64/kvm/fpsimd.c b/arch/arm64/kvm/fpsimd.c
-index 3f6b1e29cd6b..567dd43970c5 100644
---- a/arch/arm64/kvm/fpsimd.c
-+++ b/arch/arm64/kvm/fpsimd.c
-@@ -89,7 +89,8 @@ void kvm_arch_vcpu_ctxsync_fp(struct kvm_vcpu *vcpu)
- 		 */
- 		fp_state.st = &vcpu->arch.ctxt.fp_regs;
- 		fp_state.sve_state = vcpu->arch.sve_state;
--		fp_state.sve_vl = vcpu->arch.sve_max_vl;
-+		fp_state.zcr = vcpu_sve_max_vq(vcpu) - 1;
-+		fp_state.smcr = 0;
- 		fp_state.sme_state = NULL;
- 		fp_state.svcr = __ctxt_sys_reg(&vcpu->arch.ctxt, SVCR);
- 		fp_state.fpmr = __ctxt_sys_reg(&vcpu->arch.ctxt, FPMR);
+ 	pr_info("%s: maximum available vector length %u bytes per vector\n",
+ 		info->name, info->max_vl);
 
 -- 
 2.47.3
