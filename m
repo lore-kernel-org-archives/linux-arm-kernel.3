@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C96DC4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jul 2026 16:33:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B752BC4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jul 2026 17:34:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=smZHGSZd+IO/AnN/uVg98gEhWkbFF04beTjXtjoJyL0=; b=s2QXrK/CwDugNyVFnaHj8bsrYr
-	BxpzfhBxHgvolxO/A2vG+sFkbemr1ZSZ22veKNfmk1KkdiGI4OYk6Gifgw09KciI2g1j3FlP1zia6
-	hJyBGDNFd9eatOUr4GNgZXzT3kb9Ws14tku+qOlOZ5xlDSPlKbB2pA2BWrW7C8DxCpbWgO+l2XyMa
-	ewtQH7pQkxRM5UIu/02JQwvhJ7lHD6a+osYG3vXcEycCky9FJzR3x/xmGtAQvReVkIwLYXuCDV3Oa
-	UWlL6A9KQ5WqircejpTvWMzpTRxRYWGR5GnencxVTI0kZfNXmjmVzed39TMsqrfeOVa/icNfrkyuI
-	90YpcUrg==;
+	bh=wWDQs/F2bMUnm9ZFF7c9/syWaa0d2pil0MzAXc51hOc=; b=P38fmySSBOH0ZNDRYjtJunsiXu
+	A30qVSAbRKqVHDqaiEdT5KjWUuqwRvQ7o6A7CGXTZKaCU1ObG3zgp2/1bvRDVpc/VX/jPlDO+GJwN
+	hAECvX2924STT4/N2Tm0l1WScftoyzKAmNc22kNr9giqiPyxQfEXKJyOJw3Qb0DLmA+9uhiuizups
+	vW6UasjqrDtC4/OyhpQc3xLOGy1X8usUieckfrMXQEEEzo7GUgVbNptTLIaTW0aQbJGJYebBcsrb8
+	HgusBLwUa3U46/8RIe+QqljWL4otRyQ7+84qtnQ+0E1bVYJzeupasSVzYKX8QI2XINgn6Q5wsu6vY
+	RJ5bY8Yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlUSD-00000005Axy-3XtS;
-	Sun, 19 Jul 2026 16:33:25 +0000
-Received: from out-173.mta1.migadu.com ([95.215.58.173])
+	id 1wlVP1-00000005DRH-0btT;
+	Sun, 19 Jul 2026 17:34:11 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlUSA-00000005AxB-23TA
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Jul 2026 16:33:24 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1784478796;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=smZHGSZd+IO/AnN/uVg98gEhWkbFF04beTjXtjoJyL0=;
-	b=AO5lYXSZ0R465A+cTpfuESj7WV8mppFUwrTglz4gh1Qx83JeIw5v09WYTF5mBOVj3PqWZc
-	UdDbkMSGBBtJw/885isZNMQQxoAGbAlT4TC7xCfHZNYh1dzrJ8uK2fbgzEALpRG3+15e4n
-	cm7yk6tX6B1Rsl9IHmaqJLdnT0x1guc=
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>
-Cc: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	tabba@google.com
-Subject: [PATCH] KVM: arm64: Update Fuad Tabba's email address
-Date: Sun, 19 Jul 2026 17:32:57 +0100
-Message-Id: <20260719163257.3156529-1-fuad.tabba@linux.dev>
+	id 1wlVOz-00000005DQZ-1MLP;
+	Sun, 19 Jul 2026 17:34:10 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.99)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1wlVOi-000000004iM-0VQi;
+	Sun, 19 Jul 2026 17:33:52 +0000
+Date: Sun, 19 Jul 2026 18:33:45 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: "Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>, Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Russell King <linux@armlinux.org.uk>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH net-next v4 0/8] net: dsa: mt7530: modernise register access
+ and add two DSA ops
+Message-ID: <cover.1784481922.git.daniel@makrotopia.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260719_093323_102815_73E63FBB 
-X-CRM114-Status: UNSURE (   9.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260719_103409_386489_485121DB 
+X-CRM114-Status: GOOD (  12.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,42 +68,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Switch my KVM/arm64 reviewer entry to fuad.tabba@linux.dev, my canonical
-address for kernel work, and add a .mailmap entry so the existing
-tabba@google.com commits map onto it.
+The mt7530 driver carries its own register accessors that predate the
+regmap conversion and now largely duplicate what regmap already
+provides, including locking. Most of this series removes that layer.
 
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+It first moves the MDIO bus locking into the switch regmap via
+.lock/.unlock callbacks, matching the PCS regmaps, so any path reaching
+the regmap is serialised automatically. With the wrappers no longer
+adding locking, the thin mt7530_mii_* indirection is folded away and the
+remaining accessors are replaced mechanically with the plain regmap API,
+using the coccinelle semantic patches included in the commit messages.
+Open-coded register fields are then converted to FIELD_GET/FIELD_PREP.
+None of this is intended to change behaviour.
+
+The last two patches implement .port_fast_age, which flushes dynamically
+learned MAC entries on topology changes, and .port_change_conduit, which
+moves a user port's CPU-port affinity at runtime.
+
+v3 of this series arrived too close to the end of the last development
+cycle and was deferred, hence this respin on top of current net-next.
 ---
- .mailmap    | 1 +
- MAINTAINERS | 2 +-
- 2 files changed, 2 insertions(+), 1 deletion(-)
+v4:
+ * rebase onto current net-next
+ * 5/8: zero the read-back buffer in mt7530_regmap_read() instead of
+   initialising the result variables at every call site, as suggested
+   by Jakub
+ * 6/8: keep MT753X_CTRL_PHY_ADDR() as plain address arithmetic rather
+   than converting it to FIELD_PREP() as suggested in review: the macro
+   computes the MDIO bus address of the switch PHYs, used as the addr
+   argument of bus->read/write and as an iterator base in
+   mt7530_setup_mdio(), not a hardware register field
+v3:
+ * 5/8: initialise register read-back variables to 0 so a failed
+   regmap_read keeps the previous read-as-zero behaviour, and use u32
+   for the value in mt7530_setup_port5
+ * 6/8: name the age timer field AGE_TIMER_MASK and document the
+   corrected ATC_HASH/VTCR_VID field macros
+ * 7/8: serialise the port_fast_age ATC flush under reg_mutex and log
+   on timeout, align a define, and correct the commit message which
+   wrongly claimed per-port parity with b53/realtek
+ * 8/8: populate the netlink extack on rejection and refuse a conduit
+   that lives on a different switch
+v2:
+ * fix stray 'static void' left-over in 4/8 which had a fix accidentally
+   folded into 5/8 (byte-identical state at 8/8, but bisectability is
+   restored)
+ * extend port_change_conduit op commit message
 
-diff --git a/.mailmap b/.mailmap
-index 735470e21075b..91003fb861367 100644
---- a/.mailmap
-+++ b/.mailmap
-@@ -291,6 +291,7 @@ Frank Rowand <frowand.list@gmail.com> <frank.rowand@sony.com>
- Frank Rowand <frowand.list@gmail.com> <frank.rowand@sonymobile.com>
- Frank Rowand <frowand.list@gmail.com> <frowand@mvista.com>
- Frank Zago <fzago@systemfabricworks.com>
-+Fuad Tabba <fuad.tabba@linux.dev> <tabba@google.com>
- Gao Xiang <xiang@kernel.org> <gaoxiang25@huawei.com>
- Gao Xiang <xiang@kernel.org> <hsiangkao@aol.com>
- Gao Xiang <xiang@kernel.org> <hsiangkao@linux.alibaba.com>
-diff --git a/MAINTAINERS b/MAINTAINERS
-index a674e36529f75..5ab6fc1504267 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -14192,7 +14192,7 @@ F:	virt/kvm/*
- KERNEL VIRTUAL MACHINE FOR ARM64 (KVM/arm64)
- M:	Marc Zyngier <maz@kernel.org>
- M:	Oliver Upton <oupton@kernel.org>
--R:	Fuad Tabba <tabba@google.com>
-+R:	Fuad Tabba <fuad.tabba@linux.dev>
- R:	Joey Gouly <joey.gouly@arm.com>
- R:	Steffen Eiden <seiden@linux.ibm.com>
- R:	Suzuki K Poulose <suzuki.poulose@arm.com>
+Daniel Golle (8):
+  net: dsa: mt7530: move MDIO bus locking into regmap
+  net: dsa: mt7530: fold mt7530_mii_write/read into mt7530_write/read
+  net: dsa: mt7530: replace mt7530_write with regmap_write
+  net: dsa: mt7530: replace mt7530_rmw/set/clear with regmap API
+  net: dsa: mt7530: replace mt7530_read with regmap_read
+  net: dsa: mt7530: convert to use field accessor macros
+  net: dsa: mt7530: implement port_fast_age
+  net: dsa: mt7530: implement port_change_conduit op
+
+ drivers/net/dsa/mt7530-mdio.c |  12 +-
+ drivers/net/dsa/mt7530.c      | 809 +++++++++++++++++-----------------
+ drivers/net/dsa/mt7530.h      | 209 +++++----
+ 3 files changed, 537 insertions(+), 493 deletions(-)
+
+
+base-commit: ce6b4d3216b63f902bb8e9695ee6c10c83415f65
 -- 
-2.39.5
-
+2.55.0
 
