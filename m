@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85169C4451B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jul 2026 21:14:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61149C4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jul 2026 21:18:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mSI4AxiakfLEoxCkbMXngSkCPIZ/Cb8g+GVzqOuksO8=; b=qHPHXVPqZfGuSeHkAolJQDcrMp
-	IBFsaqXN8xCO9Pxz+QWL9E5/DXr3q9Ei5cIfOn2l2U1XaW0fpF8VK11960MaJydQ3TrCE8+lPrh9m
-	WSFYBFNiZ9dYuC7tefFMZIOJgzFRk5GgAvJRLsMoLbgo5wFuqUnuGW+giCbje1JMOW+7zaKT/FF86
-	YOjM0BLx6F1hWQ0KWe5Z0pDgqZB2iY8rRyKV98D6Vpjqo5yGKgMkN8Y1aRxB6Lh6Y7o/PRDZ48GMf
-	QaGuraOBGXUd2guLUYJLEXo8URWnr6CDvRffb2j9zr7yDL+EIkuRj1gOW5kOU0y7dImSqHEIh9JZH
-	JJWvaLlw==;
+	bh=v7CaPFCYxjAp666DnXxZML+uPeZM+JIvYLGcdU4j6/g=; b=kjQjT7jwAl+LtvVrBmreDR7xeU
+	qqRgwSL4g3GwF5PRyaosdgbT7XjI589U9IZg4TUmpxtO/C3efSs20x8hNHCYZ8Iu3aGdikaJrUNDg
+	bQol5OTmeh93jL/F26D26+liMKvP6JTS532pCsFyuM6SMEoPt38z2DosE435fCIOTLUOEI7PtzUrn
+	dr+k7eHZAJ5sO8A1+FbubuOBYsUuHwAqf3ITgkjuEAV4UhJaFTr3AVaQOFDWJtsJ/T9ougARj2JLG
+	jNYwxQcQ7yzeBroCrTSd5F79CbvNVuJhLFID2iBEcMyNfkEipCUMId+t+57Bc1ZhoNgt7OKyTCI/Y
+	qUMJKTxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlYpm-00000005MvT-0Cv0;
-	Sun, 19 Jul 2026 21:14:02 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1wlYpb-00000005MqH-37hM;
+	Sun, 19 Jul 2026 21:13:51 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlYpd-00000005Mqu-1MNU
+	id 1wlYpX-00000005MoF-2WWg
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Jul 2026 21:13:54 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4953de5be0aso26202905e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Jul 2026 14:13:52 -0700 (PDT)
+	Sun, 19 Jul 2026 21:13:48 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-495437bb891so23477485e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Jul 2026 14:13:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784495632; x=1785100432; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1784495626; x=1785100426; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=mSI4AxiakfLEoxCkbMXngSkCPIZ/Cb8g+GVzqOuksO8=;
-        b=XiswCUD7gXLm0aiDJPwJN5w31sCMJDfhtOUWfocOBZLRCxEi31wdcVGScv1VvPPOcK
-         NkVjJ7pgqh+Lb8zaXUmoBFoj5vwGAtmPJIEo2QqG9Hl1vxcdKfHkL3NRqbyT38XaEQYp
-         jhuDXqirS+EFOof3MhL4osH0OhjksgYyXbTKZPFZow8pQC0ktaMIOkdbfZ5X7R05P3AV
-         g+lqmiNusi/nRUDAUOySsbt5qraELzUIVPBgOv2XnMnlWHzb2NNjz/TLkjQ5B/ZTDpKL
-         QmCfXhiLEqzBILeuiR7n6kpFHBR5Of8a/u4PTkBRekA/bDiIFyAL1rUprUcThAhGuXJp
-         lAug==
+        bh=v7CaPFCYxjAp666DnXxZML+uPeZM+JIvYLGcdU4j6/g=;
+        b=XqYSTqkJ2uifjwCqsuPAwDAwhEQmOD2epl2BJ1Gu8YLCtK3sSC7AN8W4+mDBAeXl+o
+         8ZAnl61gN3ZI/5w4C7vLDF1SwPUPv1txvUFExAWe+IvOX9Mw+cAhBqC12hQiqhOs75ak
+         dGHJxYaC0bscNRZceUIIByc7r28e+j9vvR7JuLH0ZxoXxzk0iqdh13dqji/KcyrS7PSX
+         TQdYesQMuJorCeFZtEEoGVEej3Mzhneg6ti5+00o3ih2tCQF/Ysj5UBMic/CAF36UGo3
+         5AK9wO4NXwQJLCg1LPVnTB5AJ5tyfIwfMorkPze5QvAcKD/FXMP3SVHGbhXySyxykK85
+         TzCg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784495632; x=1785100432;
+        d=1e100.net; s=20251104; t=1784495626; x=1785100426;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=mSI4AxiakfLEoxCkbMXngSkCPIZ/Cb8g+GVzqOuksO8=;
-        b=dFjmMK95+GdcfnfMKhVM4KeV5z9K8BPrbTIeZcYC4IrBdPGHpjtWSjeTaQJ58aCjEI
-         LSZcouNBW2SUeL7lxkjw7rsIiOoOTxpZv35TRDGMDxE3TwESOiTbH79MJKRM/X6SgaAN
-         k8Ktz4f9hCHNTMPtbAAEz3GPsY5ej5VjyPVB9mCVqFpm94p0Wl8zDsms3VkypfDoYSx5
-         xE8byfpWmtKp+6gURQnnOs0H1GL13DTxjQx6zZ1ek782T2CO870ac3KZUZFepbbq+g2c
-         ypA8DSVs5+NIZT5bhvA7DRmuwhyQRMt39LWC8G0333BkwDSXhzj5lo0Cyp5gwrM80CU0
-         Kh9g==
-X-Forwarded-Encrypted: i=1; AHgh+Rra0lLMw9RidFIXqpM+lr7uXRoSWtiEgxtwhohZNchBatJPiu9ivcUVr0/F+891TW2PKCqQfw2tkuvNDvy24/J4@lists.infradead.org
-X-Gm-Message-State: AOJu0YyXxhcrPSezpOSE94LidFW05Txdt5tWwyHSquNeMJMia16+MXIO
-	Sx/PqZobWlrClN+5G2M7vF8R7eXsebDh/2YY5Hz3CyWKGLr5T6ujqULe
-X-Gm-Gg: AfdE7cmEAw4EiTfFbAM8NqdriSu0DFWJFKnt4Tu8HhoR0/frc5Q3ZPFIaUwz4Q4LPRa
-	8q24Kyy5ChcscxI6DbqIjhxgA7ZgO596py7E8CbTSqoRhxgvptz0agafCIhI/3ozQUV88pKc8oE
-	CKPkCkqdkYEGxXDYwngeS5g+ufPw3YranzDtzNplghnVtZ0N/hx6XDczCxBkvjf1/6Fkczg7tiG
-	smH09qWFWHDLq0YDwIBy1PaW0N1k/xqqDTDZqBW2RE7aRGQWhOIKC3F2G/rbXc8jeNd4YHrshbs
-	om99PPs8pe76Lf+IJ3sWe5AeZQ3X5U/s8ywyB2bGjQcYw5VhlMrjxw1959l0pZKYdhk2T1za+Nb
-	Bo6Y1ucvsG04Mk65k58q75bvC+tsu+vJ55xrEEWgC9t0tX42gWZOEK4UEZ9ksBs3dh47E+jVSit
-	yifIxvdSctIj6azKDVhb9/fv4Uxa1cUXHmEzlK
-X-Received: by 2002:a05:600d:8494:10b0:495:4056:2c6d with SMTP id 5b1f17b1804b1-4954a402f4fmr101550685e9.23.1784495631684;
-        Sun, 19 Jul 2026 14:13:51 -0700 (PDT)
+        bh=v7CaPFCYxjAp666DnXxZML+uPeZM+JIvYLGcdU4j6/g=;
+        b=b23ahQfTeyIFPVIBVw5vT/Ym9DmjCFIm7jyUvfz5MP3I2Jpi0ZmY4r4jfqsUoEkzjl
+         xMQXbXm/o9biWij+dFtqV1uK6rKuF0MPwPPUrY9ma70TjGgVHnGgGnM+DKBtlC4tXC7c
+         U9SjDhAXLVvr40f8xqian7zKzjTsMI6DVWg8AFj73SgEfZqj7SPE76/unlJ7R+vogAVI
+         WNqjZizlKdJFqzyBKSi43M8v4BVJtU5Oi5qUfwXOwlZhl/wM3OajIkmf9gvdQwqw21zE
+         vFSpfKk2Q+r5sYHrJASqCPWIKnveZOZUyrd5EZrIo8YzQt/UFmydp47R4UG+Tjt+ErC4
+         rRJw==
+X-Forwarded-Encrypted: i=1; AHgh+Rqm8J5ScIDjlMU2dyqBZAvV1WIxy0getvG5lTGMAA5HAk3VNGD39nY7EPmuXkdnB0Y68mCCdh68NLQcORZlGDUQ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx6lTd2KgiKKldG3zKmvh/yG1sMrAPzO1uZ7BR1mO91JRXG7FS0
+	TjjKTnTII8exGN7jbdjhueFNCwUB5ZVndSjyb67IbtswycItyRiwBILpI+lUGefRCig=
+X-Gm-Gg: AfdE7cnGMWUZd93h2mPqXa2NIdbPsEkgCbZjM5GsqT2MvqH7TqIc3UEMEW7jBwQPaTm
+	ZRCJTSD39Vz5fr3pfTVpgdFm5poZCaHCSbAHv3Z0KkLsuHTG52c5tXAoAiU2z+7WupWlyZzThgW
+	B+sGJ6i90/hmO0LMx+FxtqrSrGIvP0Amp0ByGHFg/B5WuUdyhmlzyIdVHX3DGler+ZeJUx5fogy
+	SGaz6o+7fZZ36y3TIbtwTUoa1ITUcktTrheglRiujCYIhjsGZvVBXl3ARTKKIZkf87y2ndBUSPX
+	I46+9YIfX3rrtUKUmzofodscHhGxxU8eNqC59sn76Z0l4P8Ze/9NrePRGxIBrKWKRNiGbsxYz6R
+	WVM8wa+RUjhFxCEfQqG0ZHLO6M+xQKvUxrYsAe+hrZyno3MPNmc4Gw8r72EV6CrUHeo/sGTGBPM
+	PUng5upCkaiJ5GVX7WVJFCiwgOKMlbO+91n/vRGeDfiQcNseE=
+X-Received: by 2002:a05:600c:1906:b0:495:3bc6:d381 with SMTP id 5b1f17b1804b1-4954affd764mr114277385e9.2.1784495625577;
+        Sun, 19 Jul 2026 14:13:45 -0700 (PDT)
 Received: from localhost.localdomain ([2a0d:3344:2841:7708:a101:2b8a:f76:a00f])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49549a3e2a9sm224108815e9.4.2026.07.19.14.13.49
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49549a3e2a9sm224108815e9.4.2026.07.19.14.13.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 19 Jul 2026 14:13:51 -0700 (PDT)
+        Sun, 19 Jul 2026 14:13:44 -0700 (PDT)
 From: =?UTF-8?q?Juan=20Manuel=20L=C3=B3pez=20Carrillo?= <juanmanuellopezcarrillo@gmail.com>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -87,9 +87,9 @@ Cc: Brian Masney <bmasney@redhat.com>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	=?UTF-8?q?Juan=20Manuel=20L=C3=B3pez=20Carrillo?= <juanmanuellopezcarrillo@gmail.com>
-Subject: [PATCH v1 4/4] arm64: dts: allwinner: t527-orangepi-4a: add GPU OPP table
-Date: Sun, 19 Jul 2026 23:13:19 +0200
-Message-ID: <20260719211319.982285-5-juanmanuellopezcarrillo@gmail.com>
+Subject: [PATCH v1 1/4] clk: sunxi-ng: add cycle-masking divider (maskdiv) clock type
+Date: Sun, 19 Jul 2026 23:13:16 +0200
+Message-ID: <20260719211319.982285-2-juanmanuellopezcarrillo@gmail.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260719211319.982285-1-juanmanuellopezcarrillo@gmail.com>
 References: <20260719211319.982285-1-juanmanuellopezcarrillo@gmail.com>
@@ -97,8 +97,8 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260719_141353_453770_FC4B3DBE 
-X-CRM114-Status: GOOD (  12.05  )
+X-CRM114-CacheID: sfid-20260719_141347_693023_B26197A8 
+X-CRM114-Status: GOOD (  27.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,75 +113,331 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the Mali-G57 operating points from the vendor BSP universal table
-(150/200/300/400/600 MHz) so panfrost devfreq can scale the GPU
-instead of running at the boot clock.
+Some mod clocks do not divide their parent with a linear M+1 divider:
+the M factor masks (swallows) M pulses out of every 2^width parent
+cycles, so the average output rate is
 
-All operating points use 920 mV: the BSP table specifies 900 mV for
-every universal OPP, but on this board the GPU rail (AXP717 DCDC2,
-vdd-gpu-sys) is a fixed 920 mV supply, so the OPP voltage states the
-actual rail value and voltage transitions are no-ops.  The higher
-speed-bin points of the BSP (648-792 MHz) are not included: they are
-gated by a SID efuse bin and need pll-gpu as a live parent.
+	rate = parent * (2^width - M) / 2^width
 
-Depends on the sun55i-a523 GPU clock divider fix (the OPP rates are
-only produced correctly with the cycle-masking divider model);
-validated on hardware with the Mali cycle counter: 149/199/300/399/597
-MHz measured under load, thermal-emulation throttling included.
+and the surviving pulses keep the parent period.  The A523/T527 GPU
+clock (GPU_CLK_REG, 0x670) is such a divider: "FACTOR_M: mask M cycles
+at 16 cycles", GPU_CLK = Clock Source * ((16-M)/16) (T527 user manual
+v0.92, section 2.7.6.58).
+
+Modelling these registers with the linear ccu_div type programs a
+faster clock than requested for every M > 0 (e.g. M=1 on a 800 MHz
+parent yields 750 MHz, not 400 MHz).
+
+Add a small ccu type implementing the masking semantics.  Because the
+masked output is not an even pulse train, determine_rate prefers, among
+the parents that reach the requested rate, the one needing the least
+masking.  set_rate_and_parent follows the same ordering rule as
+clk_composite_set_rate_and_parent() so no intermediate configuration
+overshoots both the old and the new rate.
 
 Signed-off-by: Juan Manuel López Carrillo <juanmanuellopezcarrillo@gmail.com>
 ---
- .../dts/allwinner/sun55i-t527-orangepi-4a.dts | 30 +++++++++++++++++++
- 1 file changed, 30 insertions(+)
+ drivers/clk/sunxi-ng/Makefile      |   1 +
+ drivers/clk/sunxi-ng/ccu_maskdiv.c | 199 +++++++++++++++++++++++++++++
+ drivers/clk/sunxi-ng/ccu_maskdiv.h |  71 ++++++++++
+ 3 files changed, 271 insertions(+)
+ create mode 100644 drivers/clk/sunxi-ng/ccu_maskdiv.c
+ create mode 100644 drivers/clk/sunxi-ng/ccu_maskdiv.h
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts b/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
-index 055be86e5..0fd73a1bb 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-orangepi-4a.dts
-@@ -30,6 +30,35 @@ ext_osc32k: ext-osc32k-clk {
- 		clock-output-names = "ext_osc32k";
- 	};
- 
-+	gpu_opp_table: opp-table-gpu {
-+		compatible = "operating-points-v2";
+diff --git a/drivers/clk/sunxi-ng/Makefile b/drivers/clk/sunxi-ng/Makefile
+index a1c4087d7..26313083c 100644
+--- a/drivers/clk/sunxi-ng/Makefile
++++ b/drivers/clk/sunxi-ng/Makefile
+@@ -10,6 +10,7 @@ sunxi-ccu-y			+= ccu_reset.o
+ # Base clock types
+ sunxi-ccu-y			+= ccu_div.o
+ sunxi-ccu-y			+= ccu_frac.o
++sunxi-ccu-y			+= ccu_maskdiv.o
+ sunxi-ccu-y			+= ccu_gate.o
+ sunxi-ccu-y			+= ccu_mux.o
+ sunxi-ccu-y			+= ccu_mult.o
+diff --git a/drivers/clk/sunxi-ng/ccu_maskdiv.c b/drivers/clk/sunxi-ng/ccu_maskdiv.c
+new file mode 100644
+index 000000000..2d3cccf08
+--- /dev/null
++++ b/drivers/clk/sunxi-ng/ccu_maskdiv.c
+@@ -0,0 +1,199 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Copyright (c) 2026 Juan Manuel López Carrillo
++ *
++ * Cycle-masking divider: the M factor masks M pulses out of every
++ * 2^width parent cycles instead of dividing the parent rate, so
++ *
++ *	rate = parent * (2^width - M) / 2^width
++ *
++ * The masked output is not an even pulse train: the surviving pulses
++ * keep the parent period. Rate selection therefore prefers, among the
++ * parents that reach the requested rate, the one needing the least
++ * masking.
++ */
 +
-+		opp-150000000 {
-+			opp-hz = /bits/ 64 <150000000>;
-+			opp-microvolt = <920000>;
-+		};
++#include <linux/clk-provider.h>
++#include <linux/io.h>
++#include <linux/math64.h>
 +
-+		opp-200000000 {
-+			opp-hz = /bits/ 64 <200000000>;
-+			opp-microvolt = <920000>;
-+		};
++#include "ccu_gate.h"
++#include "ccu_maskdiv.h"
 +
-+		opp-300000000 {
-+			opp-hz = /bits/ 64 <300000000>;
-+			opp-microvolt = <920000>;
-+		};
++static unsigned long ccu_maskdiv_calc_rate(unsigned long parent_rate,
++					   unsigned int m, unsigned int width)
++{
++	unsigned int n = 1 << width;
 +
-+		opp-400000000 {
-+			opp-hz = /bits/ 64 <400000000>;
-+			opp-microvolt = <920000>;
-+		};
++	return div_u64((u64)parent_rate * (n - m), n);
++}
 +
-+		opp-600000000 {
-+			opp-hz = /bits/ 64 <600000000>;
-+			opp-microvolt = <920000>;
-+		};
-+	};
++/*
++ * Smallest M (least masking) whose output does not exceed the requested
++ * rate; masking everything (M == 2^width) is never returned.
++ */
++static unsigned int ccu_maskdiv_find_m(unsigned long parent_rate,
++				       unsigned long rate, unsigned int width)
++{
++	unsigned int n = 1 << width;
++	u64 kept;
 +
- 	leds {
- 		compatible = "gpio-leds";
- 
-@@ -116,6 +145,7 @@ &gmac1 {
- 
- &gpu {
- 	mali-supply = <&reg_dcdc2>;
-+	operating-points-v2 = <&gpu_opp_table>;
- 	status = "okay";
- };
- 
++	if (!parent_rate || rate >= parent_rate)
++		return 0;
++
++	kept = div64_ul((u64)rate * n, parent_rate);
++	if (!kept)
++		kept = 1;
++
++	return n - (unsigned int)kept;
++}
++
++static void ccu_maskdiv_disable(struct clk_hw *hw)
++{
++	struct ccu_maskdiv *cmd = hw_to_ccu_maskdiv(hw);
++
++	return ccu_gate_helper_disable(&cmd->common, cmd->enable);
++}
++
++static int ccu_maskdiv_enable(struct clk_hw *hw)
++{
++	struct ccu_maskdiv *cmd = hw_to_ccu_maskdiv(hw);
++
++	return ccu_gate_helper_enable(&cmd->common, cmd->enable);
++}
++
++static int ccu_maskdiv_is_enabled(struct clk_hw *hw)
++{
++	struct ccu_maskdiv *cmd = hw_to_ccu_maskdiv(hw);
++
++	return ccu_gate_helper_is_enabled(&cmd->common, cmd->enable);
++}
++
++static unsigned long ccu_maskdiv_recalc_rate(struct clk_hw *hw,
++					     unsigned long parent_rate)
++{
++	struct ccu_maskdiv *cmd = hw_to_ccu_maskdiv(hw);
++	unsigned int m;
++	u32 reg;
++
++	reg = readl(cmd->common.base + cmd->common.reg);
++	m = (reg >> cmd->shift) & ((1 << cmd->width) - 1);
++
++	return ccu_maskdiv_calc_rate(parent_rate, m, cmd->width);
++}
++
++static int ccu_maskdiv_determine_rate(struct clk_hw *hw,
++				      struct clk_rate_request *req)
++{
++	struct ccu_maskdiv *cmd = hw_to_ccu_maskdiv(hw);
++	unsigned long best_rate = 0, best_parent_rate = 0;
++	struct clk_hw *best_parent = NULL;
++	unsigned int best_m = UINT_MAX;
++	unsigned int i;
++
++	for (i = 0; i < clk_hw_get_num_parents(hw); i++) {
++		struct clk_hw *parent = clk_hw_get_parent_by_index(hw, i);
++		unsigned long parent_rate, new_rate;
++		unsigned int m;
++
++		if (!parent)
++			continue;
++
++		parent_rate = clk_hw_get_rate(parent);
++		m = ccu_maskdiv_find_m(parent_rate, req->rate, cmd->width);
++		new_rate = ccu_maskdiv_calc_rate(parent_rate, m, cmd->width);
++
++		if (new_rate > req->rate)
++			continue;
++
++		/* Closest rate first; on ties, the least masking */
++		if (new_rate > best_rate ||
++		    (new_rate == best_rate && m < best_m)) {
++			best_rate = new_rate;
++			best_parent_rate = parent_rate;
++			best_parent = parent;
++			best_m = m;
++		}
++	}
++
++	if (!best_parent)
++		return -EINVAL;
++
++	req->best_parent_hw = best_parent;
++	req->best_parent_rate = best_parent_rate;
++	req->rate = best_rate;
++
++	return 0;
++}
++
++static int ccu_maskdiv_set_rate(struct clk_hw *hw, unsigned long rate,
++				unsigned long parent_rate)
++{
++	struct ccu_maskdiv *cmd = hw_to_ccu_maskdiv(hw);
++	unsigned int m;
++	unsigned long flags;
++	u32 reg;
++
++	m = ccu_maskdiv_find_m(parent_rate, rate, cmd->width);
++
++	spin_lock_irqsave(cmd->common.lock, flags);
++
++	reg = readl(cmd->common.base + cmd->common.reg);
++	reg &= ~GENMASK(cmd->shift + cmd->width - 1, cmd->shift);
++	writel(reg | (m << cmd->shift), cmd->common.base + cmd->common.reg);
++
++	spin_unlock_irqrestore(cmd->common.lock, flags);
++
++	return 0;
++}
++
++static u8 ccu_maskdiv_get_parent(struct clk_hw *hw)
++{
++	struct ccu_maskdiv *cmd = hw_to_ccu_maskdiv(hw);
++
++	return ccu_mux_helper_get_parent(&cmd->common, &cmd->mux);
++}
++
++static int ccu_maskdiv_set_parent(struct clk_hw *hw, u8 index)
++{
++	struct ccu_maskdiv *cmd = hw_to_ccu_maskdiv(hw);
++
++	return ccu_mux_helper_set_parent(&cmd->common, &cmd->mux, index);
++}
++
++static int ccu_maskdiv_set_rate_and_parent(struct clk_hw *hw,
++					   unsigned long rate,
++					   unsigned long parent_rate, u8 index)
++{
++	/*
++	 * Same ordering rule as clk_composite_set_rate_and_parent(): if
++	 * switching the mux with the current M would overshoot the
++	 * requested rate, program the divider first, so the
++	 * intermediate rate never exceeds both the old and the new
++	 * rate.
++	 */
++	if (ccu_maskdiv_recalc_rate(hw, parent_rate) > rate) {
++		ccu_maskdiv_set_rate(hw, rate, parent_rate);
++		ccu_maskdiv_set_parent(hw, index);
++	} else {
++		ccu_maskdiv_set_parent(hw, index);
++		ccu_maskdiv_set_rate(hw, rate, parent_rate);
++	}
++
++	return 0;
++}
++
++const struct clk_ops ccu_maskdiv_ops = {
++	.disable	= ccu_maskdiv_disable,
++	.enable		= ccu_maskdiv_enable,
++	.is_enabled	= ccu_maskdiv_is_enabled,
++
++	.get_parent	= ccu_maskdiv_get_parent,
++	.set_parent	= ccu_maskdiv_set_parent,
++
++	.determine_rate	= ccu_maskdiv_determine_rate,
++	.recalc_rate	= ccu_maskdiv_recalc_rate,
++	.set_rate	= ccu_maskdiv_set_rate,
++	.set_rate_and_parent = ccu_maskdiv_set_rate_and_parent,
++};
++EXPORT_SYMBOL_NS_GPL(ccu_maskdiv_ops, "SUNXI_CCU");
+diff --git a/drivers/clk/sunxi-ng/ccu_maskdiv.h b/drivers/clk/sunxi-ng/ccu_maskdiv.h
+new file mode 100644
+index 000000000..3cbfce064
+--- /dev/null
++++ b/drivers/clk/sunxi-ng/ccu_maskdiv.h
+@@ -0,0 +1,71 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (c) 2026 Juan Manuel López Carrillo
++ */
++
++#ifndef _CCU_MASKDIV_H_
++#define _CCU_MASKDIV_H_
++
++#include <linux/clk-provider.h>
++
++#include "ccu_common.h"
++#include "ccu_mux.h"
++
++/*
++ * struct ccu_maskdiv - cycle-masking ("fractional") divider
++ *
++ * This divider does not divide the parent clock: it masks (swallows) M
++ * pulses out of every 2^width parent cycles, so the average output rate
++ * is
++ *
++ *	rate = parent * (2^width - M) / 2^width
++ *
++ * with the remaining pulses keeping the parent period. The A523/T527
++ * GPU clock (GPU_CLK_REG, 0x670) is such a divider: "FACTOR_M: mask M
++ * cycles at 16 cycles", GPU_CLK = Clock Source * ((16-M)/16) (T527 user
++ * manual v0.92, section 2.7.6.58).
++ *
++ * @shift:	shift of the M field in the register
++ * @width:	width of the M field; the mask window is 2^width cycles
++ */
++struct ccu_maskdiv {
++	u32			enable;
++
++	u8			shift;
++	u8			width;
++
++	struct ccu_mux_internal	mux;
++	struct ccu_common	common;
++};
++
++#define SUNXI_CCU_MASKDIV_HW_WITH_MUX_TABLE_GATE(_struct, _name,	\
++						 _parents, _table,	\
++						 _reg,			\
++						 _mshift, _mwidth,	\
++						 _muxshift, _muxwidth,	\
++						 _gate, _flags)		\
++	struct ccu_maskdiv _struct = {					\
++		.enable	= _gate,					\
++		.shift	= _mshift,					\
++		.width	= _mwidth,					\
++		.mux	= _SUNXI_CCU_MUX_TABLE(_muxshift, _muxwidth,	\
++					       _table),			\
++		.common	= {						\
++			.reg		= _reg,				\
++			.hw.init	= CLK_HW_INIT_PARENTS_HW(_name,	\
++								 _parents, \
++								 &ccu_maskdiv_ops, \
++								 _flags), \
++		},							\
++	}
++
++static inline struct ccu_maskdiv *hw_to_ccu_maskdiv(struct clk_hw *hw)
++{
++	struct ccu_common *common = hw_to_ccu_common(hw);
++
++	return container_of(common, struct ccu_maskdiv, common);
++}
++
++extern const struct clk_ops ccu_maskdiv_ops;
++
++#endif /* _CCU_MASKDIV_H_ */
 -- 
 2.47.3
 
