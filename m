@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E245C4452B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 13:20:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9404BC4452B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 13:20:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N2F6OqijDAgxCZQOoV/vXM7bxYBnSV+cZVWcXVCaDLA=; b=XE0cdWmoE5r/kCL672m3mRPiy+
-	j7XEM6yoFEoYrZ04BlDpI1lpPQToa5JF8bWEnziPuOEG3ZEqbmEtHkKLmyRoO9UcwSaOiRoe595Ye
-	ghBlgiWTjqAuX2vAKgVxaCSbklG3RBBKHMFdlFBpe9FJNB56IdRRgDOdb6UOp6xIKRlSZ3vsA9VaR
-	N4XG3lm3aAKrzMEtDEIVmKfB51zj/gMVOogc0JcA2HjnDNtSR9AReZQX4hf/QaZs+sOAkGlScPNHp
-	q2OohFHMyIIVSMysxv5cWkUeSocgsSm2bWGDYYQRUtNYg/ot62puCCJGeLWd+CFXm3KLLvi4mnI9B
-	TYGEwfmA==;
+	bh=Zs08b7N7JXgAEMDwiHf505SxhscoZzfgeqelXaBrSH4=; b=YvMkC6Br+YVgIVtlBIaCGD2f9z
+	njLWnGBT9WsZHTK7UTYnsXJdyTzjzCOK2O17kjb5u+Ag0hNACx7xqZ5QD/CV56ubXQi3HAx5KyFuu
+	Y+hwJGOqTPAHQR97zRy2bhaBWSuDVE2ntSIz2M1reybTFvHou8zHkd7b3O+/+PnVN1+EzVg3thP9x
+	/Dpz6KZGOS5CNDp96ZFqror4v0beT8OSOBfiW9F1/6oiyh+/BSWNHbeKf6nBpZHoL/sEEhWalTBZ2
+	feEJpmzle7ZlZTsrwzXVjdOgTJjlSdX/ej+ZMq6+zAw4gpbAYQ15xLzQwuCygRXhBEvaeeqeKDeSZ
+	5MHRqLVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlnub-00000006mL2-3DHa;
-	Mon, 20 Jul 2026 13:20:01 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wlnuu-00000006mR2-0i45;
+	Mon, 20 Jul 2026 13:20:20 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlnuU-00000006mJr-0ohN
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 13:19:54 +0000
+	id 1wlnur-00000006mQF-3oMR;
+	Mon, 20 Jul 2026 13:20:17 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 59FAC60A90;
-	Mon, 20 Jul 2026 13:19:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22FDE1F00A3A;
-	Mon, 20 Jul 2026 13:19:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 31B2A60A8B;
+	Mon, 20 Jul 2026 13:20:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB4731F000E9;
+	Mon, 20 Jul 2026 13:20:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784553593;
-	bh=N2F6OqijDAgxCZQOoV/vXM7bxYBnSV+cZVWcXVCaDLA=;
+	s=k20260515; t=1784553616;
+	bh=Zs08b7N7JXgAEMDwiHf505SxhscoZzfgeqelXaBrSH4=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=bV+Hvn5jybVNvlS0SyepPzaTzj5esjqTzrolQ3EcatlhWafe1wbioSKTVXx7bsNtu
-	 MhvGTP6uT15ma/Y97PowY5XCqMOXtsp6qFEmXi/JJbheisePmza/mDLGXlWxKb2LWH
-	 eamktbLBtTg7eU5rVvTj5QD7J2IoN+hPLBPtV5HNgSUiLTeEAnhaSgiTaEjlDMcYfm
-	 s97zgEjVROE995oebb2RjIGaRDRIv/rAbA015isXHJcS0YLX5VpaZRxFA7Tp1CI6oB
-	 ECJ6TJnuXLdJ9PhPL7FNK9ow90Fqn9La2/Ht2Rm0CgTwCntM3RViY1leRjn5JScfTs
-	 ZvQRU1ISIFsDg==
+	b=jplMdewH9fT/Ln2t3TxSLb7JzgDFzasPQHhaw6fWsQhTpMYp0vfzmnLQ6OtNgm4LK
+	 mLYdXxdePnn5DQbGYkLMLCNKcgZqhjQElaerdyUFQczJkPxpviqvGEtGMxkoOVbQsY
+	 wFxj32W4c4mNyE7/Y1mNEdBPHNyfIESYyOzl5VmMzNYnZENtaV4URCiQAH1smx0k1C
+	 Vh3CT376eO8Uw+emvi0r5REA9CH5qfOz9AU5g18rcI7Y8lwZeYd1HKogP0UplXRmfK
+	 E7cssTHFj/0cGIH0UvwPNLJtKj4OouQIVI3QHTZKTlr90WMkaOwRBZgzAM0ECL1xfA
+	 hKN9o/xBPe2Wg==
 From: Mark Brown <broonie@kernel.org>
-To: Babanpreet Singh <bbnpreetsingh@gmail.com>
-Cc: Vladimir Moravcevic <vmoravcevic@axiado.com>, 
- Tzu-Hao Wei <twei@axiado.com>, Swark Yang <syang@axiado.com>, 
- Prasad Bolisetty <pbolisetty@axiado.com>, 
- Karthikeyan Mitran <kmitran@axiado.com>, kernel test robot <lkp@intel.com>, 
- Julia Lawall <julia.lawall@inria.fr>, linux-spi@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20260713060807.7-1-bbnpreetsingh@gmail.com>
-References: <20260713060807.7-1-bbnpreetsingh@gmail.com>
-Subject: Re: [PATCH 0/2] spi: axiado: cond_no_effect and kernel-doc fixes
-Message-Id: <178450176843.325809.14256051361365115123.b4-ty@b4>
-Date: Sun, 19 Jul 2026 23:56:08 +0100
+To: Jerome Brunet <jbrunet@baylibre.com>, Linmao Li <lilinmao@kylinos.cn>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20260717012433.1432285-1-lilinmao@kylinos.cn>
+References: <20260717012433.1432285-1-lilinmao@kylinos.cn>
+Subject: Re: [PATCH v2] ASoC: meson: Keep link pointers valid on realloc
+ failure
+Message-Id: <178449187119.33801.9637758292671659213.b4-ty@b4>
+Date: Sun, 19 Jul 2026 21:11:11 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1854; i=broonie@kernel.org;
- h=from:subject:message-id; bh=zSln4JFHKMvtPgqQEoN1cf0nMwRxxuI7uTOA1ueBSJY=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqXiB2eRbX7kAxhiTX1zUfiCjJlvejsf9RcyLPf
- RlQq3VqRT2JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCal4gdgAKCRAk1otyXVSH
- 0NZQB/9aaQ1gP8vlvbR469Y9H2cpE/HxJp2Q7HIYt8y398NCDa5S9n/yt/u7xdECvrLFK3uWX+M
- VSrM5NVJ4YQe2wQjbic8WaGuXgrsc7BOs4X9WTBdCKoKeld7/Lm6YJVj0EnhKDr2IeI++fY/H9u
- 3PpR98RWdNIdlUwX7PsFnn4n6fAB+VBoWEyLXwCyR3kOsLVfDVlYC6ozDluVQpIAkJ2EJGnbGYl
- tTpQTprtnZhFN2gCPWYvf3JGAi1eloPvUfFVc2yajudgDQMs/RNaE6l6EhfgjkrGbix9xRhEFVR
- BvqfGKdJQNsGdod6Wiu/IW+Q90e2s/8wEkW2Hu5hk58XNEED
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1127; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=VoXJfGpB/ta/YC1D6FKPsSCtqeizSV15Kd9VWuadT98=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqXiCN+7Wvw9kJ0foW8kHNsOI8DGcv+eWNcAOIW
+ SZLP1T1ERaJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCal4gjQAKCRAk1otyXVSH
+ 0IwMB/0XbFAgMNm1ubDnf+qduGvECWpbopGlp7M+qJ6NRg3MwksJBDgM2oAD1ZxBHdGDKw8NVv4
+ GpeK4kUApRRqSTyxJo96T1PAexwKwO6HaUhZrOULi3DXqiP7Jq6RgawejRHKGqHruXMye6Y9+tA
+ O0oCsKVoOBApkw9GMJeXNpdkJLRMa3zrj+tBJwFLpY1ZeSGFS4z5FzHe8Rh6QZTNh0ufNPUADZe
+ YWllLESrMwfFrhS4RkMk18etEclvFHVmDebnT1RCHneX00od3o1MCFPtAzhjNghroRnbaJNRxFV
+ 7h+BNIQW295dVF60FcCiTBqKvHa1nln2P0VGBRrmtPqMM4mz
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -84,33 +84,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 13 Jul 2026 06:08:05 +0000, Babanpreet Singh wrote:
-> spi: axiado: cond_no_effect and kernel-doc fixes
-> 
-> Two small cleanups for the Axiado SPI driver, both defects present
-> since the driver was added in e75a6b00ad79 ("spi: axiado: Add driver
-> for Axiado SPI DB controller").
-> 
-> Patch 1 addresses the coccinelle cond_no_effect warning reported by
-> the kernel test robot on 2026-07-12 [1]: the RX-only/full-duplex
-> else-if arm and the trailing else arm in ax_transfer_one() have
-> identical bodies, so the second condition has no effect. The arms are
-> merged; no functional change (on x86_64/gcc 14, only
-> ax_transfer_one()'s object code changes, dropping the dead condition
-> evaluation).
-> 
-> [...]
+On Fri, 17 Jul 2026 09:24:33 +0800, Linmao Li wrote:
+> ASoC: meson: Keep link pointers valid on realloc failure
 
 Applied to
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.3
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.3
 
 Thanks!
 
-[1/2] spi: axiado: merge identical if/else branches in ax_transfer_one()
-      https://git.kernel.org/broonie/spi/c/fc46551cfa3b
-[2/2] spi: axiado: fix kernel-doc comments
-      https://git.kernel.org/broonie/spi/c/7720f98d08fd
+[1/1] ASoC: meson: Keep link pointers valid on realloc failure
+      https://git.kernel.org/broonie/sound/c/2aaa41cf974f
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
