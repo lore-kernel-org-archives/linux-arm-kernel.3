@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 108CAC44512
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AEEDC4451B
 	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jul 2026 23:11:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,43 +12,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H8WckkdslO+jqzhb243ic0W1zpfpgFKz9U8uw4dwQBU=; b=VjCc44WsXX1EuJP95eT0ifOb+U
-	I+CyyHEl1PYoWwKoSnfEq4IQkc+K2d2sZE0lQD7uJVv+toG5T0bJMtnEPIzBPpwvgQkZZzHKslO8T
-	vYDTb2+CCaHGghZeElseZCPHTEAIsPeK6h2UqE3fHNj81B0vUsVVLdZh4mO2Pcar/FE7rcxfXQYrZ
-	LxHKmaUl2jbH1vTzHgjvEDVuVsY+BS93Fz7G0ZLKwCSXtMXB3McplXTI2QsKEnuwav0ZRrbfQAfZp
-	qfUwp7AaLQnOqIbUs45IUhbHyf+B07chrfMoZDuHr4akyqdJDY6j9aecWihDDs2jCkLOGAdTciRrB
-	oV6FrkYA==;
+	bh=9uIaB06tZng9peZX4GAyF9EMCE3RvorRheB3h8LExDA=; b=Bxpve+j3jfM3X+4VlmJ3ktSSs1
+	TqtNr4x57i0XmoW4ZBtfNK3n4reNrKVJ9VhHE3cSAziQrkujyB4FCGpsmSeoM9ElWt51ktH2jmJDo
+	TDm1M4uXdoQhZOATXnJMdB6OXq5zQ+0L7y3nC7eKjosOcSazdQljHnIdfxIlyY86nBYnRhOnhDeID
+	TSBb7VJygHMXOD+wOBvBgPagsB9wpPGqx43pu0VFSZQCp8s1ZKS2X6pq1YyYPXi93cHpaLTyXB6PK
+	g0wuQY53igaAV0pfVaND3SUoSVe9RwYV34vq7tEpklGtoLmiO322rw26NYWTSUAN4gcmWWbgv/wG1
+	rD0hajDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlaf7-00000005T2r-2xm6;
+	id 1wlaf7-00000005T3R-3zIK;
 	Sun, 19 Jul 2026 23:11:09 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlaes-00000005Snh-0z38
+	id 1wlaf0-00000005Swa-3vpI
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Jul 2026 23:10:54 +0000
+	Sun, 19 Jul 2026 23:11:02 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EBFA143490;
-	Sun, 19 Jul 2026 23:10:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E59F51F00A3A;
-	Sun, 19 Jul 2026 23:10:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A363B436AC;
+	Sun, 19 Jul 2026 23:11:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 914CC1F00ADF;
+	Sun, 19 Jul 2026 23:10:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784502653;
-	bh=H8WckkdslO+jqzhb243ic0W1zpfpgFKz9U8uw4dwQBU=;
+	s=k20260515; t=1784502662;
+	bh=9uIaB06tZng9peZX4GAyF9EMCE3RvorRheB3h8LExDA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=mWl78oUnvxwHaXL/sHj+CLVk86T8Unu5lpazkkW9i0xXcU8s4TIoR382HNxxWUDaf
-	 zuaNPqTNTYwSfPz2r01pv7bvjyOvcnAQKNkPqlEgx6PVZBTZjyMYaZwRVbwxytScRd
-	 nv87qSWLGHgIUgAqPuEn407oF+/qZyxIm9elNIWmBVxVV8ney9UR5cPICwJX0iE3Id
-	 PlGeJOCwgK83dVSZQIZ5WtjxzctO+Vh0ZeiqehGfilq2tkXrZ9R+YCGS6SBwvRmVfb
-	 B7pcp8ClMilje4YIL8EUZggg84LS/5HGNWQ8sxSAOrWEe/XbI46SxeAqyvLvhAdShp
-	 ORDAnfbw2DqPw==
+	b=glRgAns12r4ZtTb+IfvaIncB3CwZ8YtWt5cAQQi1og/rYhiVyWW01tUPMW4S+GdYO
+	 Y/29w6lrklV3fHrCoYQHLO6H3wn4EV+x2rqhzixo5jSIC+8ZzB8wmmBwEfY0K9xcA1
+	 fh5FwteBF8zc8E1WxwBh1PNz/8pbKxbaxXq86I1rQdQ+OUlG9wlsTsO62Ox6uNajO3
+	 ZKHNr/Cz2dR3ie63Zirs/ctbqgD2H+D8MgcyCepuyCCtzllQwz4MbXlYcgrIRiHbDd
+	 yqG+Om8RiJWWWF4EQ1fawxb108WcznoXZEfH/EwYEhl1JmJRAM1MGlj3kFt/qkusZv
+	 FRIp0UrrG/+Cw==
 From: Mark Brown <broonie@kernel.org>
-Date: Mon, 20 Jul 2026 00:07:40 +0100
-Subject: [PATCH v13 13/32] KVM: arm64: Rename sve_state_reg_region
+Date: Mon, 20 Jul 2026 00:07:42 +0100
+Subject: [PATCH v13 15/32] KVM: arm64: Factor SVE code out of
+ fpsimd_lazy_switch_to_host()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260720-kvm-arm64-sme-v13-13-d9abd3ffa245@kernel.org>
+Message-Id: <20260720-kvm-arm64-sme-v13-15-d9abd3ffa245@kernel.org>
 References: <20260720-kvm-arm64-sme-v13-0-d9abd3ffa245@kernel.org>
 In-Reply-To: <20260720-kvm-arm64-sme-v13-0-d9abd3ffa245@kernel.org>
 To: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
@@ -65,15 +66,15 @@ Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>,
  Peter Maydell <peter.maydell@linaro.org>, 
  Eric Auger <eric.auger@redhat.com>, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2449; i=broonie@kernel.org;
- h=from:subject:message-id; bh=LymwA3DqasGC4ZFs4/KMSvspNgOVO26BbyCDy7Uzk5Q=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqXVkxKQcZdJy3CgVlsYTB2yBImeJBskXWawsGh
- PIdrMofXbeJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCal1ZMQAKCRAk1otyXVSH
- 0PZPB/9wYDWSSwuJoaXegbkA3ojn0bg5GFt/VB8ePBzOuLDDSDK98wtdtnisSNGdTEQEODMmlwE
- TRHMG9m6rYm1abTicdktsE/jloy/lefN5lah0N5YueiMYZ502dFHWXLv9pGw2O0dp/cGhJwVX+j
- EP70Uq7RVtOrF3B2q+m982KWKilxk3T0TtNRFs0rc2lpsX987oc1SyzsoqPoH6iDDuTgE9TWCS6
- HXbfXb4kusiaYk1tkwJH2BabGn1PNNLvLZqgfT/zaxdFwnWlwxA7HGR+deaKEEPK+lGi+HS2Zjn
- vH88tZpsJAdaC5HrQgbTFBFigIpgUA/HS3O9xkfPcrvudQxq
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2931; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=bJ6/1BPMmH6cmZPVFQnhedk6wX18ttIgJVNhwPNun9Q=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqXVkzHZ4fRCHElMqfCb5+rQ+Li82PCjHzy8RfL
+ AW6xr2OGaKJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCal1ZMwAKCRAk1otyXVSH
+ 0HJdB/9MAtlVIPjFw6KwuvU2d3bKxxeGEzGE+PLj2Jxi4YenzXTNyLkRRvrTSujosJY6u/vRjQ+
+ 6zDxvphe0kxQoQGbM4hd531iZYT34MLqIKyj4IY2zxCHJO6EE8Nm4Abhv4SEb6GuYdD/zGHoA1q
+ 7BwB7pD/11LyRyYQgs87Yic/LQI2SFTXwyKZAeopVQrcuqL0qJiYoVItpu0FhgO7yxLe6GPdAeP
+ Av6teNKTLsokTL9QyrG2QBUEDO/qpSNKC1jI8W37ws+GLFECXhgbrJZpQoJs5BLwsYXwVxqnFfb
+ L6SkEBdAvLxHesavtPF6ffpAK8RoXoPlgZx+iLjvGZlobFdz
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -90,63 +91,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As for SVE we will need to pull parts of dynamically sized registers out of
-a block of memory for SME so we will use a similar code pattern for this.
-Rename the current struct sve_state_reg_region in preparation for this.
+Since the function will grow as a result of adding SME support move the
+SVE code out of fpsimd_lazy_switch_to_host(). No functional change, just
+code motion.
 
-No functional change.
-
-Reviewed-by: Fuad Tabba <tabba@google.com>
 Reviewed-by: Jean-Philippe Brucker <jpb@kernel.org>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/kvm/guest.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+ arch/arm64/kvm/hyp/include/hyp/switch.h | 48 ++++++++++++++++++---------------
+ 1 file changed, 27 insertions(+), 21 deletions(-)
 
-diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-index 0b789f73bf7c..3ae751e72c95 100644
---- a/arch/arm64/kvm/guest.c
-+++ b/arch/arm64/kvm/guest.c
-@@ -404,9 +404,9 @@ static int set_sve_vls(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
-  */
- #define vcpu_sve_slices(vcpu) 1
+diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+index 35e8d952c7b6..ce586110c226 100644
+--- a/arch/arm64/kvm/hyp/include/hyp/switch.h
++++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+@@ -519,11 +519,11 @@ static inline void fpsimd_lazy_switch_to_guest(struct kvm_vcpu *vcpu)
+ 	}
+ }
  
--/* Bounds of a single SVE register slice within vcpu->arch.sve_state */
--struct sve_state_reg_region {
--	unsigned int koffset;	/* offset into sve_state in kernel memory */
-+/* Bounds of a single register slice within vcpu->arch.s[mv]e_state */
-+struct vec_state_reg_region {
-+	unsigned int koffset;	/* offset into s[mv]e_state in kernel memory */
- 	unsigned int klen;	/* length in kernel memory */
- 	unsigned int upad;	/* extra trailing padding in user memory */
- };
-@@ -415,7 +415,7 @@ struct sve_state_reg_region {
-  * Validate SVE register ID and get sanitised bounds for user/kernel SVE
-  * register copy
-  */
--static int sve_reg_to_region(struct sve_state_reg_region *region,
-+static int sve_reg_to_region(struct vec_state_reg_region *region,
- 			     struct kvm_vcpu *vcpu,
- 			     const struct kvm_one_reg *reg)
+-static inline void fpsimd_lazy_switch_to_host(struct kvm_vcpu *vcpu)
++static inline void sve_lazy_switch_to_host(struct kvm_vcpu *vcpu)
  {
-@@ -485,7 +485,7 @@ static int sve_reg_to_region(struct sve_state_reg_region *region,
- static int get_sve_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
- {
- 	int ret;
--	struct sve_state_reg_region region;
-+	struct vec_state_reg_region region;
- 	char __user *uptr = (char __user *)reg->addr;
+ 	u64 zcr_el1, zcr_el2;
  
- 	/* Handle the KVM_REG_ARM64_SVE_VLS pseudo-reg as a special case: */
-@@ -511,7 +511,7 @@ static int get_sve_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
- static int set_sve_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
- {
- 	int ret;
--	struct sve_state_reg_region region;
-+	struct vec_state_reg_region region;
- 	const char __user *uptr = (const char __user *)reg->addr;
+-	if (!guest_owns_fp_regs())
++	if (!vcpu_has_sve(vcpu))
+ 		return;
  
- 	/* Handle the KVM_REG_ARM64_SVE_VLS pseudo-reg as a special case: */
+ 	/*
+@@ -534,29 +534,35 @@ static inline void fpsimd_lazy_switch_to_host(struct kvm_vcpu *vcpu)
+ 	 * synchronization event, we don't need an ISB here to avoid taking
+ 	 * traps for anything that was exposed to the guest.
+ 	 */
+-	if (vcpu_has_sve(vcpu)) {
+-		zcr_el1 = read_sysreg_el1(SYS_ZCR);
+-		__vcpu_assign_sys_reg(vcpu, vcpu_sve_zcr_elx(vcpu), zcr_el1);
++	zcr_el1 = read_sysreg_el1(SYS_ZCR);
++	__vcpu_assign_sys_reg(vcpu, vcpu_sve_zcr_elx(vcpu), zcr_el1);
+ 
+-		/*
+-		 * The guest's state is always saved using the guest's max VL.
+-		 * Ensure that the host has the guest's max VL active such that
+-		 * the host can save the guest's state lazily, but don't
+-		 * artificially restrict the host to the guest's max VL.
+-		 */
+-		if (has_vhe()) {
+-			zcr_el2 = vcpu_sve_max_vq(vcpu) - 1;
+-			write_sysreg_el2(zcr_el2, SYS_ZCR);
+-		} else {
+-			zcr_el2 = sve_vq_from_vl(kvm_host_max_vl[ARM64_VEC_SVE]) - 1;
+-			write_sysreg_el2(zcr_el2, SYS_ZCR);
+-
+-			zcr_el1 = vcpu_sve_max_vq(vcpu) - 1;
+-			write_sysreg_el1(zcr_el1, SYS_ZCR);
+-		}
++	/*
++	 * The guest's state is always saved using the guest's max VL.
++	 * Ensure that the host has the guest's max VL active such
++	 * that the host can save the guest's state lazily, but don't
++	 * artificially restrict the host to the guest's max VL.
++	 */
++	if (has_vhe()) {
++		zcr_el2 = vcpu_sve_max_vq(vcpu) - 1;
++		write_sysreg_el2(zcr_el2, SYS_ZCR);
++	} else {
++		zcr_el2 = sve_vq_from_vl(kvm_host_max_vl[ARM64_VEC_SVE]) - 1;
++		write_sysreg_el2(zcr_el2, SYS_ZCR);
++
++		zcr_el1 = vcpu_sve_max_vq(vcpu) - 1;
++		write_sysreg_el1(zcr_el1, SYS_ZCR);
+ 	}
+ }
+ 
++static inline void fpsimd_lazy_switch_to_host(struct kvm_vcpu *vcpu)
++{
++	if (!guest_owns_fp_regs())
++		return;
++
++	sve_lazy_switch_to_host(vcpu);
++}
++
+ static void kvm_hyp_save_fpsimd_host(struct kvm_vcpu *vcpu)
+ {
+ 	struct kvm_cpu_context *hctxt = host_data_ptr(host_ctxt);
 
 -- 
 2.47.3
