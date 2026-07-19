@@ -4,75 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C49A0C44521
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Jul 2026 23:32:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5465C4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jul 2026 00:48:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oMGvRNkuFyXaMYeP4ES+8jelR30jNKVF+YZjl8fjH+c=; b=QGrmciL/wUw+l0KJ+fEInZTjQc
-	aIriXNJqzxLwZBUyGtn/kXkOfmZ4ovp7BG6EloeyE3keKXbXfSEukqXv1dITt3Ul91rbUeuWSOVyX
-	tB+/fjBXBmhWwDxykjDtOs0SZ1uX3LL7/5rJ8MNcfAKyhHt5ui0Sbo3K8I6ovztlsrJvKRfwh60Eu
-	y4QG7ZUF1j3LHre5MnEb8TcqDm2wBfATmGKNE2eLplrUWUJx72C9NWhNy8IsLXV4Jf/3hlPbVKVLs
-	YK4eLcc46W3bwAOy6XbegNctE0kohLAuFHnk0dr8+aWfGn3zBgySaatcukXcr17C2pX1T+J6KtYTu
-	lYEuTVDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7EWwsWIADyuXSEEcPix4PovWy/AjCSESwW0LVKRsciM=; b=g+asitLm/SUbf7UWBYE5nJUsED
+	ylEhEs8AxEYhUlazndRxEb1M8LZeXNq+UBc56W8TPh6bi8KT4Iv1cwIV6HKXzFWmnaACs9aybVm1F
+	X/zT6lAKAvS0nH0U5nGgkWJ/9Jz1HxjY64Fu84y/dn0H9czSwe4Fq7i42u6aY1Ce8iIR2NwEWxP1Q
+	lxfn917KUErT6hiN4elU6TAV5UatleMiNziPRN1/Ecjz52s8Av5yQSruPQs1At1sfI6jWvNYkcr5N
+	3pLNXmkBqx76aVDPb60O43xwKysVHfltLVKnY+IcHbS/bTTOdJcHDB2nKOlQPJuiCtfiJSGyLUFFn
+	keFa9uxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlEVr-00000004bLk-41RT;
-	Sat, 18 Jul 2026 23:32:07 +0000
-Received: from sender4-op-o11.zoho.com ([136.143.188.11])
+	id 1wlFhd-00000004elm-27aR;
+	Sun, 19 Jul 2026 00:48:21 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlEVp-00000004bLK-08hg;
-	Sat, 18 Jul 2026 23:32:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1784417506; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=mjlBT5fBOmj0puaOAj3NrQ4dZIxtuOA+NuCb2Yzp1io4uYKf/JLzyEvzPxyp6rpc1wznjzHszAc6K/k9XBPK9IYRPJpNKcqW9EeFoyUmzYdfXmJGYnUdPyBtti8FyWT/1duxip0xZ+Jdbm5BWJ8thayTrVTDNSZDEsos0oid4Po=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1784417506; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=oMGvRNkuFyXaMYeP4ES+8jelR30jNKVF+YZjl8fjH+c=; 
-	b=TbfNsxKSpnNYMGfhpBfgeOqw7FcUXw62jOTFe/BZYXXiMdcvqp/HSlMIdMOl5yIckY69c1dXk/LiybPChgxtXLdAq1xBTCkMgk/6tl04QI4BAkfjCBzzzYFU19EdGkKMSmT2ntdnN5RLD/+SXe1m0S0yIFKIs8rNYhXmMYqxCFc=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1784417506;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=oMGvRNkuFyXaMYeP4ES+8jelR30jNKVF+YZjl8fjH+c=;
-	b=aW8DOYx18xezxX/CNds+Jm5xao3XhXf0fOSTgrsWOjnRFZPS9yPLGz0G2STbaGGV
-	SwdjbNK3dU0INwq+tHVxn5ZaaSIW9JhWVo246avHA7kdjEjND5cuOxR/hRhIMpnN3Me
-	ZDffuyEhqnXqJEj8O/dh84qj58eb5Q9pYTHIoDUo=
-Received: by mx.zohomail.com with SMTPS id 1784417504416910.5266533899085;
-	Sat, 18 Jul 2026 16:31:44 -0700 (PDT)
-Received: by venus (Postfix, from userid 1000)
-	id 2C8CE1804CF; Sun, 19 Jul 2026 01:31:39 +0200 (CEST)
-Date: Sun, 19 Jul 2026 01:31:39 +0200
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Igor Paunovic <royalnet026@gmail.com>
-Cc: Dmitry Osipenko <dmitry.osipenko@collabora.com>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, kernel@collabora.com, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 4/4] arm64: dts: rockchip: enable HDMI RX audio
- capture on Orange Pi 5 Plus
-Message-ID: <alwKdkNsMi9L4ZiY@venus>
-References: <20260718085728.6797-1-royalnet026@gmail.com>
- <20260718085728.6797-5-royalnet026@gmail.com>
+	id 1wlFha-00000004elO-18OV
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 19 Jul 2026 00:48:20 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-69c7ab350e9so11058352a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 18 Jul 2026 17:48:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=9elements.com; s=google; t=1784422095; x=1785026895; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=7EWwsWIADyuXSEEcPix4PovWy/AjCSESwW0LVKRsciM=;
+        b=TUbFUoQavgEO5MPXRriTLIfevaunbvUOo/F2ATJJAawZKVQqnkQ747HioJB7xJBCXp
+         1s9ncvF98DCoiES3EXYZ+1cgFsS5tCDm+BkU50+VhxjgLBn4aHrjm/dTx+BV/9mJD9m4
+         PBCq7WVUyOZgNqzxWFwlX4qsXiIdoD+XNkKxyIsDar/oO81vi2f0LcCoKBs4YPmsDACq
+         yhw74vogd58+Lx1Mj9pL1vpW7SmD1nBAL1464yKhzq5+vudkokuJOFIjjolCl3tJUB0u
+         o7Wivgqk6vo5H3HONJVr9+6itJaQazhBrCIIzVRLLJ1F8A1VmOe8TVR+fws03oTuq1Ji
+         NHHQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784422095; x=1785026895;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=7EWwsWIADyuXSEEcPix4PovWy/AjCSESwW0LVKRsciM=;
+        b=HPaKQ3/axwbWEfOflQ0XCIjgi35PlMLRIm4AOjchbnnuuIfhDzn3xRAyoW+BZVA9Xg
+         RnEIOTmQnenEeX48nN1AU8SkC/Pqtze1j9geLA+DIZva4mTZs/9DgB3zBglpcl9yZtqr
+         T2nCgS5gYtLBbWuUxdS1a5NOkmgLkmpJH8Q5VmoPv4s+QgwMnwKjaOPEFlXbEGWbzWqE
+         SdMOtXK2EUTQ74s+qXnt3VAXIfVbAahzziI9zEIwl5p56TUFYe85q81oJj3Nv6N3SX2P
+         Ejbk+qPhFn2ADNvJ7C/QUCLyL7mdZGpFBJcWp570nU+lQXTNBmKViHMDnGB9H4zuAz31
+         UAPg==
+X-Forwarded-Encrypted: i=1; AHgh+RqYKRDY6P1AsKyQ7gSW7nUVcLocGLGTe7rxJRtKo+fdrUsayDN0YCDTEG5rFVIs4xTEqS58TVluRzS9iscTo1fI@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx435C8w70FUJAUuXjLGpU4KCYQybwpQEtEIXavQHyU2GbkAVep
+	uTZq78LokzHxH7z7k7MftKOeeddYCBplk2GgQ6+grPv1k+g6Bxhwv1Gc5TviEXdp3A==
+X-Gm-Gg: AfdE7ckO+6fHUW7C8LEs+idWYvHnTuLO2+UAIbytdQXBiXpbQbKEKOUwKX88WeGX8nI
+	uSpT4oDFUXxV6EniSVph3BrfL/pIWZ8eqUcdeYqr1FWW75jpRCc0y8vFL8zCO2Ayh4SCRC/TEKJ
+	34o34fBvAaBx56Ww6jMxHx3JIwcj/PK6HBOAq8diPsNV5Z4Jc7zHyRDqIbvrg3uxw4d8dUIzA8r
+	Oj5PUSYrc/2hxvmwoW7OzHLNiuq8Mq1cmfTYAF22zVFbn0hWhnu0QcjVpHrVeac++RbH6puL1Va
+	4H7tv3EYDauJWLI2rDe9HYC+9+lj9ERAr0EibOJ5FxD0ZV0pCbp9frvZgcf70Sbn2+ZNHrAcsjx
+	B7846j+RRqg0cRwKMyAt9grBrs81ZpAM3DzCAYl3aYbC10F06CVENiIb18XILpQmudQbqj4BbrK
+	uFCxgtPvrH5IK47zaVwpeaFjI=
+X-Received: by 2002:a17:906:9c83:b0:c16:67d8:79e1 with SMTP id a640c23a62f3a-c16b46ab93amr334444066b.7.1784422094905;
+        Sat, 18 Jul 2026 17:48:14 -0700 (PDT)
+Received: from [127.0.0.2] ([185.213.155.231])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c1712a62e79sm270250066b.30.2026.07.18.17.48.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 18 Jul 2026 17:48:14 -0700 (PDT)
+From: Michal Gorlas <michal.gorlas@9elements.com>
+Date: Sun, 19 Jul 2026 02:47:54 +0200
+Subject: [PATCH] PCI: imx6: enable ASPM L1 only iff CLKREQ# is supported
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="5auwkjfiihzxz3ef"
-Content-Disposition: inline
-In-Reply-To: <20260718085728.6797-5-royalnet026@gmail.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.10.1.5.2/284.404.57
-X-ZohoMailClient: External
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260719-l1-conditional-imx-v1-1-a55a57915c68@9elements.com>
+X-B4-Tracking: v=1; b=H4sIALkeXGoC/yXMywrDIBCF4VcJs86AGnqhr1Ky8DJpp1gtaosgv
+ ntsu/zgnL9BpsSU4TI1SPThzDEMyHkCe9fhRshuGJRQR3GSC3qJNgbHZQy1R35WtMpsTglN4ny
+ AcXwl2rj+otf17/w2D7LlW4Led1B9dBB2AAAA
+X-Change-ID: 20260713-l1-conditional-imx-c2bfd20ae085
+To: Richard Zhu <hongxing.zhu@nxp.com>, 
+ Lucas Stach <l.stach@pengutronix.de>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Bjorn Helgaas <bhelgaas@google.com>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ imx@lists.linux.dev, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2389;
+ i=michal.gorlas@9elements.com; h=from:subject:message-id;
+ bh=8Dy6qNmKS8/8LS04fDzhefwfpJnXc37CXJeUp6zA7iw=;
+ b=owEBbQKS/ZANAwAKAWKaksyA3pPLAcsmYgBqXB7KH3m1ik9qYpuspVJBQkL8K/R/s7ZipXoyz
+ NDJmhIbCdOJAjMEAAEKAB0WIQTgoC0bQQLz7jVH2W9impLMgN6TywUCalweygAKCRBimpLMgN6T
+ yzUPD/9oPKNRqS9GxYGjqWNGDtsU8QIMyrii7nok9dJ2lQMYAfa13pVUQMpHlvF+jmPWBG+am31
+ 4qTo/4Wrol4fEBMS4GxoCtc9OcahIcvd3GKR6UBdEm/8uTaAg+ooA8+XZF5JtEEbqvX+zL6hq7U
+ v05X5N0vyrVGl5ebf2lQQ1cTzln+ZasaS7NynA9DDQL+nXPbmYX+6hSK3C8sMvMHkJxXswXZAxV
+ 4hy3Ta7ZNwe/Qp+51ns3A6km+hXSJOZKEy8nwyaLpe4XNzFk5uneFbdzIG+kylbIPPkSDCzUPrG
+ 9NYvgWVZwAm4ZAPG+pO2UTJvLPrpMfL9KTYKDpd8wQcjZToBQgRA+/x5EFP8qc3oV9PsQ+eF2Zr
+ MXCimhOClJGj45c+ACTfP5PY7TmX/hiwk7icuDK4RqAljjYXYSHEGtMSb6FXrNSo4oqDd7VCCwF
+ 81PHQ4FsYfGVAiDh8pi8XtM/cdZ7JR/rZ7GsTg+VZ4iCBIQJmeanHGaG7kLli6NgZzFqRK4XXrT
+ ywrbiSNkIEiA7rtp5kJoPK5k67Rz2qxxMRznl1iJ1VBFJ8aZACeNspLmFN8PnbKawWF6IYaw6q5
+ oZj/HelhlljJE+RyAxM8axJqL0Rx5tzM0CIDW95/ywdf5WlEpz5Ca1NbHKmxVXq83LXJAPkdqBL
+ Hs/qeMJGbHP+7wQ==
+X-Developer-Key: i=michal.gorlas@9elements.com; a=openpgp;
+ fpr=B4EB74EA41969D1140A4D1791596726986433F8C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260718_163205_153098_0C363D3B 
-X-CRM114-Status: GOOD (  22.68  )
+X-CRM114-CacheID: sfid-20260718_174819_038057_54621C1F 
+X-CRM114-Status: GOOD (  14.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,120 +126,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Since commit f3ac2ff14834 ("PCI/ASPM: Enable all ClockPM and ASPM
+states for devicetree platforms"), ASPM states are force enabled
+on all devicetree platforms. This causes PCI devices on some iMX SoCs
+(for e.g. iMX 8M Plus Kontron SMARC eval carrier) to enter L1 even
+though CLKREQ# is not supported (and consequently supports-clkreq is
+not set in pcie controller node of their DT), which causes the device to
+never wake up from L1.
 
---5auwkjfiihzxz3ef
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v3 4/4] arm64: dts: rockchip: enable HDMI RX audio
- capture on Orange Pi 5 Plus
-MIME-Version: 1.0
+Hence, disable L1 capability in the LINKCAP register if supports-clkreq
+is not set in the DT explicitly.
 
-Hi,
+Note, the logic here is very similar to 613f3255a35a, only difference
+is that leaving L0s enabled does not cause issues (at least
+I never encountered them myself when testing on the device) as its
+not dependent on CLKREQ# being physically there.
+Since there is already a way of specifying its presence in the DT,
+the driver should be aware and disable L1.
 
-On Sat, Jul 18, 2026 at 10:57:28AM +0200, Igor Paunovic wrote:
-> Route the HDMI receiver audio to i2s7_8ch, the receive-only I2S
-> interface dedicated to HDMI RX, through a simple-audio-card with the
-> receiver as bitclock and frame master. Together with the audio
-> capture support in the snps_hdmirx driver this exposes a capture-only
-> ALSA card fed by the HDMI input.
->=20
-> Tested on the Orange Pi 5 Plus with multiple HDMI sources: capture
-> follows the source sample rate and stays in sync via the FIFO-level
-> clock tracking in the driver.
->=20
-> Signed-off-by: Igor Paunovic <royalnet026@gmail.com>
-> ---
-> New in v3.
->=20
->  .../dts/rockchip/rk3588-orangepi-5-plus.dts   | 20 +++++++++++++++++++
->  1 file changed, 20 insertions(+)
->=20
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts b/ar=
-ch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
-> index 9950d11..d5840e1 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
-> @@ -37,6 +37,22 @@
->  		};
->  	};
-> =20
-> +	hdmiin-sound {
-> +		compatible =3D "simple-audio-card";
-> +		simple-audio-card,name =3D "rockchip,hdmiin";
+Fixes: f3ac2ff14834 ("PCI/ASPM: Enable all ClockPM and ASPM states for devicetree platforms")
+Signed-off-by: Michal Gorlas <michal.gorlas@9elements.com>
+---
+ drivers/pci/controller/dwc/pci-imx6.c | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
 
-The name is exposed to userspace and visible to the user (e.g.
-in alsamixer), but also used by Alsa UCM2. I suggest to use
-"RK3588 HDMI-IN".
+diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+index 98e1db751132..7471501fbf04 100644
+--- a/drivers/pci/controller/dwc/pci-imx6.c
++++ b/drivers/pci/controller/dwc/pci-imx6.c
+@@ -1318,6 +1318,22 @@ static void imx_pcie_assert_perst(struct imx_pcie *imx_pcie, bool assert)
+ 	}
+ }
+ 
++static void imx_pcie_disable_l1(struct dw_pcie *pci)
++{
++	u32 val;
++	u8 offset;
++
++	offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
++
++	dw_pcie_dbi_ro_wr_en(pci);
++
++	val = dw_pcie_readl_dbi(pci, offset + PCI_EXP_LNKCAP);
++	val &= ~PCI_EXP_LNKCAP_ASPM_L1;
++	dw_pcie_writel_dbi(pci, offset + PCI_EXP_LNKCAP, val);
++
++	dw_pcie_dbi_ro_wr_dis(pci);
++}
++
+ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
+ {
+ 	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+@@ -1442,6 +1458,9 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
+ 
+ 	imx_setup_phy_mpll(imx_pcie);
+ 
++	if (!imx_pcie->supports_clkreq)
++		imx_pcie_disable_l1(pci);
++
+ 	return 0;
+ 
+ err_phy_off:
 
-> +		simple-audio-card,format =3D "i2s";
-> +		simple-audio-card,bitclock-master =3D <&hdmiin_codec>;
-> +		simple-audio-card,frame-master =3D <&hdmiin_codec>;
-> +
-> +		simple-audio-card,cpu {
-> +			sound-dai =3D <&i2s7_8ch>;
-> +		};
-> +
-> +		hdmiin_codec: simple-audio-card,codec {
-> +			sound-dai =3D <&hdmi_receiver 0>;
-> +		};
-> +	};
-> +
+---
+base-commit: a13c140cc289c0b7b3770bce5b3ad42ab35074aa
+change-id: 20260713-l1-conditional-imx-c2bfd20ae085
 
-Move the whole card definition to rk3588-extra.dtsi with a new label
-(e.g. hdmi_receiver_sound) and add status =3D "disabled"; Then just do
+Best regards,
+--  
+Michal Gorlas <michal.gorlas@9elements.com>
 
-&hdmi_receiver_sound {
-    status =3D "okay";
-};
-
-in the Orange Pi 5+ DT, i.e. just like the soundcards for HDMI
-output. This reduces a lot of duplication as the soundcard is the
-same on all boards considering there is a dedicated I2S channel for
-it. It's disabled by default as some boards do not route the HDMI
-receiver at all.
-
-Greetings,
-
--- Sebastian
-
->  	ir-receiver {
->  		compatible =3D "gpio-ir-receiver";
->  		gpios =3D <&gpio4 RK_PB3 GPIO_ACTIVE_LOW>;
-> @@ -247,6 +263,10 @@
->  	status =3D "okay";
->  };
-> =20
-> +&i2s7_8ch {
-> +	status =3D "okay";
-> +};
-> +
->  &led_blue_gpio {
->  	gpios =3D <&gpio3 RK_PA6 GPIO_ACTIVE_HIGH>;
->  	status =3D "okay";
-> --=20
-> 2.53.0
->=20
-
---5auwkjfiihzxz3ef
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmpcDNYACgkQ2O7X88g7
-+przAxAAmp27ahike5cooDDpLsXCvhfzlAUohPcO39nvyh7GFLDhdFywIckmqKXe
-UQnJTwlqRZ2YQank3VipcBojKahUe+fvYFM5RSo1A7qc4eGHryFmNxBwGGh14qCm
-A+3dpyh7baCzsOPI/2rYib6Uncb/G6cQ/udYhE6le1dll3XnGTNq2iuBnFzxZd0U
-p1Wg8F/XLnrytXM6+1QAh5XoGPkjGUNjDqyrM+P+rvS46DR2UE2+bGvl8ggROL+e
-1ClG2mLugtFeV2VPpsdexirwUgqv0y4tRTv9Dw+XwzvweBE7EVz4mvZOVTphcHjL
-LjrTcKzLw2ZEUslgwXuyuVYNIUjs7Q1MgWDivPS8BFFI3YVruhHiAu0f6/sJUokL
-8mTNpE2b0N6VV+s85/W20LsHHAzdnJE+lERY1Zxw1ZT9ii+XXIn+N1VB0xBIGzMc
-7epiBSwb3N5Z7d+XwQtHCsma42JsGXFCBpgbIswphhoq0rLndqiT4dTUdn0yfL1h
-Y5Gm4dBH4h+yKioxzIrm3NZ6drbX3Eyd9TY7v0thdycAIGtuXtmLTnP9Fha98lb3
-jLXxlCBDtZ0kIV964HslAqBjOaV7Q1QSMRJ11+sy64p3GV6YMt0AevWRWua5w0fT
-qvGboGN2P6KsR85rLJ5ryFeEilUivC2nu3F/eId0Wpu+fUuCHEQ=
-=1b/t
------END PGP SIGNATURE-----
-
---5auwkjfiihzxz3ef--
 
