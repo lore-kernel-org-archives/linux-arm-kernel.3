@@ -4,52 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62BE7C44521
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jul 2026 23:11:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E1C7C4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jul 2026 23:12:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cQTVOv3doodlzyRyF79rD7oVUshuooj7eTaIdQCTKvI=; b=i9v3o5RQefibtRWGWZr90TINmv
-	S7v45mgzdHG/PjqGe3/B2XUs1TScP9NfsAwDkOOb2KNl92xQLfG06jhdzF1GKaQGf1eRHgOqymMr9
-	jn9SFqs2HibUSqcEUXgGePQwVG0dTFkONQ/vvrPQQNh4Lfg62lM9qRYwr6zI+0/jRYjdj9ELbxoFp
-	zUWTSuUALIUSN8mf9YPrTcJQb5ph3BdLtWqKOYHiyKnjcvyCYm3fncjvdDgki5MtxnBbpTdhEqOL9
-	FhODhAp01DVSMJPhWWMFJls8TPPOT94iRb77pJaVWn97+gkd+ObLXezRKPjpdg60cfXJCFfNr/+Kx
-	bx4VEb4w==;
+	bh=0sz8gGxyAlkQMG+rUT9zspvd+PY5FDI251nuvd5HfjQ=; b=ESXUV8f33Tl4YAJrEXJlEkD360
+	aYymp32tpAmVDd+So0BblIpYFZQNqdXGbsfISFExyWbTM4abciWfbOMqiEuZId+ef9ryA+4L75RnK
+	xWJjEsDEcFOn+wWGehDw/yy16Q7ho24Xr5kGFb6uM2aYswOVaLg2WA2zgnDWPzPocS0+dM36Nv4Jb
+	Ou+I9p+ha7IBCJNYCgC28695Zoi9p6LwzU1PDjiUlND4UmN/OQA1gBn6aHOCjBn8426md34FRVCLW
+	/oAZLIEZHq9W77GlMvcsyLhO29PcIydZoZ7m4kauvgxeRYmu9lglOqLZvuP0j1S///0ExXWRYB7ba
+	HC7CS2SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlafi-00000005TZd-1ELB;
-	Sun, 19 Jul 2026 23:11:46 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wlag3-00000005Ttk-05YW;
+	Sun, 19 Jul 2026 23:12:07 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlafd-00000005TWU-3hPe
+	id 1wlafr-00000005TiD-1KbJ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Jul 2026 23:11:41 +0000
+	Sun, 19 Jul 2026 23:11:55 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 96B47406B2;
-	Sun, 19 Jul 2026 23:11:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D5D11F00A3A;
-	Sun, 19 Jul 2026 23:11:37 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BF82D60A83;
+	Sun, 19 Jul 2026 23:11:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DB8D1F00A3D;
+	Sun, 19 Jul 2026 23:11:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784502701;
-	bh=cQTVOv3doodlzyRyF79rD7oVUshuooj7eTaIdQCTKvI=;
+	s=k20260515; t=1784502714;
+	bh=0sz8gGxyAlkQMG+rUT9zspvd+PY5FDI251nuvd5HfjQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=OGKZQoaUep5d5TFU6XJxsr1haz5wvHczP9UeXDlM+vSfVWIiTQUmoi6+oj2KHTByn
-	 cJRljvUSxNQg2/US09cLUSIi6jz5dZJOpcdGmTWytRsn4vZuG/zva6VZL2lZnUm7Q0
-	 J+9wGpnpPpEj0IyN5eCX0JIlSxbfIINYVSaWTieiQ13rZPkSLnvsDXH8pqLpJwEsDd
-	 gzgHyO4/xm2qLqKtVqV0LsOjgNJB9MRmXil9tIMaqplOchIYMm4gPJKnOTvm3Ubynx
-	 HBGowHclKwDEONT6zZ2BExOkc0hc/2Ojx1ndZEk0/boREE5ffPIM1SAvYkTh++ZL2p
-	 RD4KbLA88TkzQ==
+	b=c141UijV90dOfxJQJR7hg//rHLStvXnj+ICH6TcRlXifhTOAVR2jQZTXFsqDlRbTC
+	 zzkKQ3nAyE7m/flMUlffRcvh2F5KcaQh501/WPxk4LZyJhr2iSvgibe5ZkQMBI5Qd1
+	 IVviqhfmb/ysDcvRbdDldy25KLYeMuJBKo4/W4yWWjTg65az2clRuyKG31q6ewxA+6
+	 87RlfXzIYPudPGurbD+A/JarqhD87HhTksX/lZUzgBwOGOSGWIH3QglWWFGM6OtqEe
+	 vvS3z5y3UnOGZKTUJbL0UDaDNexk5vYwerBuXvu56fgVmgaBhO7fo8aSB0PM3SURiz
+	 8RqHnrGw7z7lA==
 From: Mark Brown <broonie@kernel.org>
-Date: Mon, 20 Jul 2026 00:07:51 +0100
-Subject: [PATCH v13 24/32] KVM: arm64: Expose SME specific state to
- userspace
+Date: Mon, 20 Jul 2026 00:07:54 +0100
+Subject: [PATCH v13 27/32] KVM: arm64: Expose SME to nested guests
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260720-kvm-arm64-sme-v13-24-d9abd3ffa245@kernel.org>
+Message-Id: <20260720-kvm-arm64-sme-v13-27-d9abd3ffa245@kernel.org>
 References: <20260720-kvm-arm64-sme-v13-0-d9abd3ffa245@kernel.org>
 In-Reply-To: <20260720-kvm-arm64-sme-v13-0-d9abd3ffa245@kernel.org>
 To: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
@@ -66,15 +65,15 @@ Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>,
  Peter Maydell <peter.maydell@linaro.org>, 
  Eric Auger <eric.auger@redhat.com>, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=9460; i=broonie@kernel.org;
- h=from:subject:message-id; bh=OWLQ+fStXa0u76ZwF0nDRlLR1/mZJ3iEmSPjs0EDopk=;
- b=owGbwMvMwMWocq27KDak/QLjabUkhqzYSKuKX4mN7Hp3J/55oHO4bJFJzMq+IOe5k+bY90/8y
- mbGtEask9GYhYGRi0FWTJFl7bOMVenhElvnP5r/CmYQKxPIFAYuTgGYiKAY+185b1cJy6bYpUeX
- 3zx5iW3GA+WFUeI771q/3Fk/70PXFXZu94kO3Ep62uU6Kz+eTHU+evGNgFSLifgp496kX1ed5iV
- WV8u9XM8foP3l6kPBB2cM/yqo2ylH8nwJMNvGu0GOj+s364Nd8bF+ocmJUdPevHzEGMP6j+U1yz
- qGg37m56OuGu5h233HuTGi70FKgHq+gmHsirdvLZqfr3iakiotGlHe3Xbzu2TTBwHrRev/V7B5M
- c56pKH2deN81t6Dna6/qha6PmayfaXKr5p1RuCmpPlnQ6vMR0d1TfiSuXJYoh97dKjcK7zHm1R0
- 7IN8ss5Zy2//m+UtHfgbm8w86uPFg/uMIj1VdCeF5bwEAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2042; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=hn1y/Ii/xUjl5TfgGrGM2KMGs+69hqwXhinvJnIOmPQ=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqXVk8nQnmN3m+uGAvuZGpAWgUu53Wf+RRuZH0/
+ cDlJNuNbiyJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCal1ZPAAKCRAk1otyXVSH
+ 0IorB/9CVjtR+do2u9SU5XXbIj5Z/P4o6NWAArtRleoYGdv9x1iD4a8PQ1xXIXi7xmB3V7B39if
+ /AYdqI7yxQiNG/5G+yWNw5cgUH+68ec3SxNXeOQSqjrydddIgx5YGG/dW50vBbUmj5ZJgeu6bob
+ 6pI9MY26qaXxQQ7rQbT233TWOCHdRdfO2cVg5AzDZfa3WiKwXNLUZrH2+e5MrxOb9Da637aniRD
+ 8w+dv+BS+xJZyQ1/4dFeyFj7ygrsfJXExC5CRjBKhzAjCWdtnnvz3tU/bHJGrpUURWMq4C4QAaO
+ 1BN65V9aBsc0jY77rIe12YC2fAuOdfbHP2+Y59IqbNWyd1Ik
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -91,306 +90,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SME introduces two new registers, the ZA matrix register and the ZT0 LUT
-register.  Both of these registers are only accessible when PSTATE.ZA is
-set and ZT0 is only present if SME2 is enabled for the guest. Provide
-support for configuring these from VMMs.
+With support for context switching SME state in place allow access to SME
+in nested guests.
 
-The ZA matrix is a single SVL*SVL register which is available when
-PSTATE.ZA is set. We follow the pattern established by the architecture
-itself and expose this to userspace as a series of horizontal SVE vectors
-with the streaming mode vector length, using the format already established
-for the SVE vectors themselves.
+The SME floating point state is handled along with all the other floating
+point state, SME specific floating point exceptions are directed into the
+same handlers as other floating point exceptions with NV specific handling
+for the vector lengths already in place.
 
-ZT0 is a single register with a refreshingly fixed size 512 bit register
-which is like ZA accessible only when PSTATE.ZA is set. Add support for it
-to the userspace API.
+TPIDR2_EL0 is context switched along with the other TPIDRs as part of the
+main guest register context switch.
 
-As is done in the architecture for both ZA and ZT0 the value will be
-reset to 0 whenever PSTATE.ZA changes from 0 to 1 and the registers are
-inaccessible when PSTATE.ZA is 0.
+SME priority support is currently masked from all guests including nested
+ones.
 
-While there is currently only one ZT register the naming as ZT0 and the
-instruction encoding clearly leave room for future extensions adding more
-ZT registers. This encoding can readily support such an extension if one is
-introduced.
-
+Reviewed-by: Fuad Tabba <tabba@google.com>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/include/uapi/asm/kvm.h |  20 ++++
- arch/arm64/kvm/guest.c            | 186 +++++++++++++++++++++++++++++++++++++-
- 2 files changed, 204 insertions(+), 2 deletions(-)
+ arch/arm64/include/asm/kvm_nested.h | 2 ++
+ arch/arm64/kvm/nested.c             | 3 +--
+ 2 files changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/uapi/asm/kvm.h
-index 15d53300914b..deccb034fce3 100644
---- a/arch/arm64/include/uapi/asm/kvm.h
-+++ b/arch/arm64/include/uapi/asm/kvm.h
-@@ -357,6 +357,26 @@ struct kvm_arm_counter_offset {
- /* SME registers */
- #define KVM_REG_ARM64_SME		(0x17 << KVM_REG_ARM_COPROC_SHIFT)
+diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
+index cdf3e8422ea1..9df3cea39b09 100644
+--- a/arch/arm64/include/asm/kvm_nested.h
++++ b/arch/arm64/include/asm/kvm_nested.h
+@@ -42,6 +42,8 @@ static inline u64 translate_cptr_el2_to_cpacr_el1(u64 cptr_el2)
+ 		cpacr_el1 |= CPACR_EL1_FPEN;
+ 	if (!(cptr_el2 & CPTR_EL2_TZ))
+ 		cpacr_el1 |= CPACR_EL1_ZEN;
++	if (!(cptr_el2 & CPTR_EL2_TSM))
++		cpacr_el1 |= CPACR_EL1_SMEN;
  
-+#define KVM_ARM64_SME_VQ_MIN __SVE_VQ_MIN
-+#define KVM_ARM64_SME_VQ_MAX 16
-+
-+/* ZA and ZTn occupy blocks at the following offsets within this range: */
-+#define KVM_REG_ARM64_SME_ZA_BASE	0
-+#define KVM_REG_ARM64_SME_ZT_BASE	0x600
-+
-+#define KVM_ARM64_SME_MAX_ZAHREG	(__SVE_VQ_BYTES * KVM_ARM64_SME_VQ_MAX)
-+
-+#define KVM_REG_ARM64_SME_ZAHREG(n, i)					\
-+	(KVM_REG_ARM64 | KVM_REG_ARM64_SME | KVM_REG_ARM64_SME_ZA_BASE | \
-+	 KVM_REG_SIZE_U2048 |						\
-+	 (((n) & (KVM_ARM64_SME_MAX_ZAHREG - 1)) << 5) |		\
-+	 ((i) & (KVM_ARM64_SVE_MAX_SLICES - 1)))
-+
-+#define KVM_REG_ARM64_SME_ZTREG_SIZE	(512 / 8)
-+#define KVM_REG_ARM64_SME_ZTREG(n) \
-+	(KVM_REG_ARM64 | KVM_REG_ARM64_SME | KVM_REG_ARM64_SME_ZT_BASE | \
-+	 KVM_REG_SIZE_U512 | (n))
-+
- /* Vector lengths pseudo-register: */
- #define KVM_REG_ARM64_SME_VLS		(KVM_REG_ARM64 | KVM_REG_ARM64_SME | \
- 					 KVM_REG_SIZE_U512 | 0xfffe)
-diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-index 110cc7f7527a..1b85f0383628 100644
---- a/arch/arm64/kvm/guest.c
-+++ b/arch/arm64/kvm/guest.c
-@@ -598,22 +598,133 @@ static int set_sme_vls(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
- 	return set_vec_vls(ARM64_VEC_SME, vcpu, reg);
- }
+ 	cpacr_el1 |= cptr_el2 & (CPTR_EL2_TCPAC | CPTR_EL2_TAM);
  
-+#define ZAH_REG_SLICE_SHIFT	0
-+#define ZAH_REG_SLICE_BITS	5
-+#define ZAH_REG_ID_SHIFT	(ZAH_REG_SLICE_SHIFT + ZAH_REG_SLICE_BITS)
-+#define ZAH_REG_ID_BITS		8
-+
-+#define ZAH_REG_SLICE_MASK					\
-+	GENMASK(ZAH_REG_SLICE_SHIFT + ZAH_REG_SLICE_BITS - 1,	\
-+		ZAH_REG_SLICE_SHIFT)
-+#define ZAH_REG_ID_MASK							\
-+	GENMASK(ZAH_REG_ID_SHIFT + ZAH_REG_ID_BITS - 1, ZAH_REG_ID_SHIFT)
-+
-+/*
-+ * Validate SME register ID and get sanitised bounds for user/kernel SME
-+ * register copy
-+ */
-+static int sme_reg_to_region(struct vec_state_reg_region *region,
-+			     struct kvm_vcpu *vcpu,
-+			     const struct kvm_one_reg *reg)
-+{
-+	/* reg ID ranges for ZA.H[n] registers */
-+	unsigned int vq = vcpu_sme_max_vq(vcpu);
-+	const u64 za_h_max = vq * __SVE_VQ_BYTES;
-+	const u64 zah_id_min = KVM_REG_ARM64_SME_ZAHREG(0, 0);
-+	const u64 zah_id_max = KVM_REG_ARM64_SME_ZAHREG(za_h_max - 1,
-+							SVE_NUM_SLICES - 1);
-+	unsigned int reg_num;
-+
-+	unsigned int reqoffset, reqlen; /* User-requested offset and length */
-+	unsigned int maxlen; /* Maximum permitted length */
-+
-+	size_t sme_state_size;
-+
-+	reg_num = (reg->id & ZAH_REG_ID_MASK) >> ZAH_REG_ID_SHIFT;
-+
-+	if (reg->id >= zah_id_min && reg->id <= zah_id_max) {
-+		if (!vcpu_has_sme(vcpu) || (reg->id & ZAH_REG_SLICE_MASK) > 0)
-+			return -ENOENT;
-+
-+		if (!vcpu_za_enabled(vcpu))
-+			return -EBUSY;
-+
-+		/* ZA is exposed as SVE vectors ZA.H[n] */
-+		reqoffset = ZA_SIG_ZAV_OFFSET(vq, reg_num) -
-+			ZA_SIG_REGS_OFFSET;
-+		reqlen = KVM_SVE_ZREG_SIZE;
-+		maxlen = SVE_SIG_ZREG_SIZE(vq);
-+	} else if (reg->id == KVM_REG_ARM64_SME_ZTREG(0)) {
-+		if (!kvm_has_feat(vcpu->kvm, ID_AA64PFR1_EL1, SME, SME2))
-+			return -ENOENT;
-+
-+		if (!vcpu_za_enabled(vcpu))
-+			return -EBUSY;
-+
-+		/* ZT0 is stored after ZA */
-+		reqoffset = ZA_SIG_REGS_SIZE(vq);
-+		reqlen = KVM_REG_ARM64_SME_ZTREG_SIZE;
-+		maxlen = KVM_REG_ARM64_SME_ZTREG_SIZE;
-+	} else {
-+		return -EINVAL;
-+	}
-+
-+	sme_state_size = vcpu_sme_state_size(vcpu);
-+	if (WARN_ON(!sme_state_size))
-+		return -EINVAL;
-+
-+	region->koffset = array_index_nospec(reqoffset, sme_state_size);
-+	region->klen = min(maxlen, reqlen);
-+	region->upad = reqlen - region->klen;
-+
-+	return 0;
-+}
-+
-+/*
-+ * ZA is exposed as an array of horizontal vectors with the same
-+ * format as SVE, mirroring the architecture's LDR ZA[Wv, offs], [Xn]
-+ * instruction.
-+ */
-+
- static int get_sme_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
- {
-+	int ret;
-+	struct vec_state_reg_region region;
-+	char __user *uptr = (char __user *)reg->addr;
-+
- 	/* Handle the KVM_REG_ARM64_SME_VLS pseudo-reg as a special case: */
- 	if (reg->id == KVM_REG_ARM64_SME_VLS)
- 		return get_sme_vls(vcpu, reg);
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index 7de9b7f8f90a..cc80d4c8ec20 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -1630,14 +1630,13 @@ u64 limit_nv_id_reg(struct kvm *kvm, u32 reg, u64 val)
+ 		break;
  
--	return -EINVAL;
-+	/* Try to interpret reg ID as an architectural SME register... */
-+	ret = sme_reg_to_region(&region, vcpu, reg);
-+	if (ret)
-+		return ret;
-+
-+	if (!kvm_arm_vcpu_vec_finalized(vcpu))
-+		return -EPERM;
-+
-+	if (copy_to_user(uptr, (void *)vcpu->arch.sme_state + region.koffset,
-+			 region.klen) ||
-+	    clear_user(uptr + region.klen, region.upad))
-+		return -EFAULT;
-+
-+	return 0;
- }
- 
- static int set_sme_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
- {
-+	int ret;
-+	struct vec_state_reg_region region;
-+	char __user *uptr = (char __user *)reg->addr;
-+
- 	/* Handle the KVM_REG_ARM64_SME_VLS pseudo-reg as a special case: */
- 	if (reg->id == KVM_REG_ARM64_SME_VLS)
- 		return set_sme_vls(vcpu, reg);
- 
--	return -EINVAL;
-+	/* Try to interpret reg ID as an architectural SME register... */
-+	ret = sme_reg_to_region(&region, vcpu, reg);
-+	if (ret)
-+		return ret;
-+
-+	if (!kvm_arm_vcpu_vec_finalized(vcpu))
-+		return -EPERM;
-+
-+	if (copy_from_user((void *)vcpu->arch.sme_state + region.koffset, uptr,
-+			   region.klen))
-+		return -EFAULT;
-+
-+	return 0;
- }
- 
- int kvm_arch_vcpu_ioctl_get_regs(struct kvm_vcpu *vcpu, struct kvm_regs *regs)
-@@ -694,6 +805,27 @@ static unsigned long num_sve_regs(const struct kvm_vcpu *vcpu)
- 	return ret;
- }
- 
-+static unsigned long num_sme_regs(const struct kvm_vcpu *vcpu)
-+{
-+	const unsigned int slices = vcpu_sve_slices(vcpu);
-+	int regs;
-+
-+	if (!vcpu_has_sme(vcpu))
-+		return 0;
-+
-+	/* Policed by KVM_GET_REG_LIST: */
-+	WARN_ON(!kvm_arm_vcpu_vec_finalized(vcpu));
-+
-+	/* KVM_REG_ARM64_SME_VLS */
-+	regs = 1;
-+
-+	/* ZA, and ZT0 if SME2 */
-+	if (vcpu_za_enabled(vcpu))
-+		regs += (slices * vcpu_sme_max_vl(vcpu)) + vcpu_has_sme2(vcpu);
-+
-+	return regs;
-+}
-+
- static int copy_sve_reg_indices(const struct kvm_vcpu *vcpu,
- 				u64 __user *uindices)
- {
-@@ -745,6 +877,50 @@ static int copy_sve_reg_indices(const struct kvm_vcpu *vcpu,
- 	return num_regs;
- }
- 
-+static int copy_sme_reg_indices(const struct kvm_vcpu *vcpu,
-+				u64 __user *uindices)
-+{
-+	const unsigned int slices = vcpu_sve_slices(vcpu);
-+	u64 reg;
-+	unsigned int i, n;
-+	int num_regs = 0;
-+
-+	if (!vcpu_has_sme(vcpu))
-+		return 0;
-+
-+	/* Policed by KVM_GET_REG_LIST: */
-+	WARN_ON(!kvm_arm_vcpu_vec_finalized(vcpu));
-+
-+	/*
-+	 * Enumerate this first, so that userspace can save/restore in
-+	 * the order reported by KVM_GET_REG_LIST:
-+	 */
-+	reg = KVM_REG_ARM64_SME_VLS;
-+	if (put_user(reg, uindices++))
-+		return -EFAULT;
-+	++num_regs;
-+
-+	if (vcpu_za_enabled(vcpu)) {
-+		for (i = 0; i < slices; i++) {
-+			for (n = 0; n < vcpu_sme_max_vl(vcpu); n++) {
-+				reg = KVM_REG_ARM64_SME_ZAHREG(n, i);
-+				if (put_user(reg, uindices++))
-+					return -EFAULT;
-+				num_regs++;
-+			}
-+		}
-+
-+		if (vcpu_has_sme2(vcpu)) {
-+			reg = KVM_REG_ARM64_SME_ZTREG(0);
-+			if (put_user(reg, uindices++))
-+				return -EFAULT;
-+			num_regs++;
-+		}
-+	}
-+
-+	return num_regs;
-+}
-+
- /**
-  * kvm_arm_num_regs - how many registers do we present via KVM_GET_ONE_REG
-  * @vcpu: the vCPU pointer
-@@ -757,6 +933,7 @@ unsigned long kvm_arm_num_regs(struct kvm_vcpu *vcpu)
- 
- 	res += num_core_regs(vcpu);
- 	res += num_sve_regs(vcpu);
-+	res += num_sme_regs(vcpu);
- 	res += kvm_arm_num_sys_reg_descs(vcpu);
- 	res += kvm_arm_get_fw_num_regs(vcpu);
- 
-@@ -784,6 +961,11 @@ int kvm_arm_copy_reg_indices(struct kvm_vcpu *vcpu, u64 __user *uindices)
- 		return ret;
- 	uindices += ret;
- 
-+	ret = copy_sme_reg_indices(vcpu, uindices);
-+	if (ret < 0)
-+		return ret;
-+	uindices += ret;
-+
- 	ret = kvm_arm_copy_fw_reg_indices(vcpu, uindices);
- 	if (ret < 0)
- 		return ret;
+ 	case SYS_ID_AA64PFR1_EL1:
+-		/* Only support BTI, SSBS, CSV2_frac */
++		/* Only support BTI, SME, SSBS, CSV2_frac */
+ 		val &= ~(ID_AA64PFR1_EL1_PFAR		|
+ 			 ID_AA64PFR1_EL1_MTEX		|
+ 			 ID_AA64PFR1_EL1_THE		|
+ 			 ID_AA64PFR1_EL1_GCS		|
+ 			 ID_AA64PFR1_EL1_MTE_frac	|
+ 			 ID_AA64PFR1_EL1_NMI		|
+-			 ID_AA64PFR1_EL1_SME		|
+ 			 ID_AA64PFR1_EL1_RES0		|
+ 			 ID_AA64PFR1_EL1_MPAM_frac	|
+ 			 ID_AA64PFR1_EL1_MTE);
 
 -- 
 2.47.3
