@@ -4,95 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3835BC44512
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jul 2026 12:40:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1745C44512
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jul 2026 12:40:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tp0EInT0wMivQgvvCzTXJ0B0Xd14SJ7dh4reAVO+dDw=; b=DYGWV4gRGYhwoyR/gpYCrD4l9P
-	VL1YF7FXDOHqdHC8WJ8AiYT3jVZxLxxn/jVePLnyuDBe2mD7zH8xmCRgipj9PnGT8AuAgklsJ0+Vd
-	YRWikRVSAU3ris8SZuGvhHme2sG7CtLyVC5nWqiUqnuBqS81rOL411XPjTbnfiT5lmqsbhZtihOz5
-	OvQQkgUN6g5kZbs9L2ZKJs225SR4hh90Q01Q9ob1n2/lGBW/Yk3OARcQpM2XN+vOPR86us1s1At62
-	IzWyjrtzlkRCM0ZXiidGugASB/wNOrfQXyT/lXim4RV00hZ1ooWhH87uGvqyTgCSLN761j7Rb71un
-	4bGlBr9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YOvOB8pIvE3bMR4eqh6BMH0CqqAl676IHewqOrjLT8M=; b=3GwuKaHsE02xUX2cx1TfrcxXmd
+	d+uEBHcQixvYcdwu5oY7D1VSCHQaigZ3Sku+tI5b7/MEd0E3PGrqwdY82z8fWlKyEodzx68xtL+QL
+	vVJRhM3+7knj3BxTG1EGnCJ+xbojBX9NpjISnfKhv2NrWmjpGEGaErSPgnQKnX8nMojXdXCc7a8RM
+	PC6L0hsqObh5BXygTQ6qo+cg2yIRGYhx8jGEubcvZxUdQyqwCxK9eBDoxne56C1Lm9Fnnoc+jrx2D
+	b5Q74dQy1kk+qOFG56eHPDkVWuIZunrcD6TWyZsHJ9A+hc78WiEyCGYJaoljQ6hjcj6jkVTAaZqEw
+	AVI+9zJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlQoA-00000004zsV-3k2G;
-	Sun, 19 Jul 2026 12:39:50 +0000
-Received: from mail.lysator.liu.se ([2001:6b0:17:f0a0::3])
+	id 1wlQoo-00000004zwX-05zQ;
+	Sun, 19 Jul 2026 12:40:30 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlQo7-00000004zru-26Up
+	id 1wlQom-00000004zwG-469C
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Jul 2026 12:39:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=lysator.liu.se;
-	s=2026; t=1784464780;
-	bh=wDCMcLB4SqxcRXKam+IVHADVUrv5oiJOZc+uyxtIoDs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=k1BQYx0ASsdm/uqD0Wpp7mvuq30Fu4DT6fOvHKLJtOHCiOEBQToUFge+7ydMPpRpN
-	 d7git0v1dmg38od2Ucc/wq8p2afY8v2XjIDk5CPoA5IeekrLVQ+DVesyLtj1ixEwJY
-	 nc+TxqFyHmgRXpIgNeJXuoqi/8LuZRIz33saQ0MGpJPmkOPSuycz6KvncNuid1o2wH
-	 oBWpWVVPaBKMq6kNtKIcjGqM/+h/0ArT3WGHoNqFGFpo9wr/BwtDNslqTUg+FjEo1d
-	 3HLYFGCNf6VIz1XiibjcJlm5MZSedpHHeGdLWO1Ib7icfopMcBEYNaNveiETRdYhm+
-	 ehoSnBEVBOuAQ==
-Received: from mail.lysator.liu.se (localhost [127.0.0.1])
-	by mail.lysator.liu.se (Postfix) with ESMTP id 12396BAFE
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Jul 2026 14:39:40 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=lysator.liu.se;
-	s=2026; t=1784464779;
-	bh=wDCMcLB4SqxcRXKam+IVHADVUrv5oiJOZc+uyxtIoDs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=FPLavt4Bmm/S8OWaXTeJeLJQF5/mCjLsHuKh/OWB59KCWomZlSIiyMfa168+IsH3M
-	 ueWfgL7kpZn3JtzCLH8NBHJJRN4kfUi1gHa00mJaARiarsfRfW9toz2RHx2iOjI75E
-	 UmecweJx8Jy0dZh1zyTjwJEkgxCvltW43xm4YSvz1pYvoClNHeboEkzUCuAYmIFOvE
-	 wRTT0mkDZbtHrq3oqlNcVCwW5fFUBsgSLtSEbhgdfe2HHDpMBeuF8Dbkdhk6P/P7sU
-	 g0+cbNjvEQEnBuNFVBZUkSk+oS7uk1cnKQOuQeVxNpaUEMvB6H6l9LjLUsvZb2rPP8
-	 Bf+EpKEVfahnw==
-Received: by mail.lysator.liu.se (Postfix, from userid 1004)
-	id E89D1BC86; Sun, 19 Jul 2026 14:39:39 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=lysator.liu.se;
-	s=2026; t=1784464776;
-	bh=wDCMcLB4SqxcRXKam+IVHADVUrv5oiJOZc+uyxtIoDs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=rQKuhDlIwuGM7EeDt9LonT33PGeAhZ/pNxR8sRZm6VIlWOzieTuXkbVTgT80DsUaR
-	 vuCin1URC8iPqNHU+ntTjBmHCgI86X++kIBpp97lT/DbR2Cqlh/VZ972abPb9jRdcN
-	 exvMBBi6UrOacaFZ7eLtECvafS6QSwIL+sBrjdPSajIJ1uKTI/XEgymSu4SkSL7gnM
-	 2VkKQwcWGr9Td7+yMNvF8QnGo5bam0vdcd3anXnhBO+iHUes5iiM/3xwHbSXqNYfal
-	 9FqwAD3EIvXgihrU51SPWNYQI8ICCHILhZ/9EL0IvP9167ZCWgVG3F9jGtyMDISvf9
-	 kE0A5Lo0pwC4Q==
-Received: from [192.168.2.172] (81-225-28-11-no2391.tbcn.telia.com [81.225.28.11])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by mail.lysator.liu.se (Postfix) with ESMTPSA id 02DC2BC11;
-	Sun, 19 Jul 2026 14:39:34 +0200 (CEST)
-Message-ID: <c0b47180-d3df-4b58-9311-d02734213716@lysator.liu.se>
-Date: Sun, 19 Jul 2026 14:39:34 +0200
+	Sun, 19 Jul 2026 12:40:29 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1A25640618;
+	Sun, 19 Jul 2026 12:40:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F5611F000E9;
+	Sun, 19 Jul 2026 12:40:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784464828;
+	bh=YOvOB8pIvE3bMR4eqh6BMH0CqqAl676IHewqOrjLT8M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=JQ6dzc9QYPamUTpUaOaGouWGchnGCu20cdv0d+AyLEkXf3ewVclThnMK0IZuBjccO
+	 LuJqE3WfClBs9/2lkIvk/lIVONDGui/UjZcgbW1hvO1onjvJYgLAM0Up4bvIImtuP4
+	 LID8WR17HyqbW7r15tlenPh0Uz/lyzeC2KnUUmessRhDB3kHnDtFv2HeeBkpu6WSgz
+	 mdfFHC+EbeCbi9vAnFMWeLtCxW6kVCVKUsDerkcC5T8y9tS9jI2AQsMrCSyjpw2pxm
+	 lJZ7LhM9YJiuLpO2At8IOi2N8UQGILSqTodkl+LFDoBEwkmy9+Sv9OogHxghMr3UVg
+	 7RaAu0g0tN8BQ==
+Date: Sun, 19 Jul 2026 13:40:21 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Fuad Tabba <fuad.tabba@linux.dev>, Mark Rutland <mark.rutland@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>,
+	Ben Horgan <ben.horgan@arm.com>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Eric Auger <eric.auger@redhat.com>
+Subject: Re: [PATCH v12 02/29] arm64/fpsimd: Update FA64 and ZT0 enables when
+ loading SME state
+Message-ID: <18229974-b26d-4eed-82f7-7af7e1c26634@sirena.org.uk>
+References: <20260709-kvm-arm64-sme-v12-0-d0301d79ef58@kernel.org>
+ <20260709-kvm-arm64-sme-v12-2-d0301d79ef58@kernel.org>
+ <ali39DG6qie7XTuD@J2N7QTR9R3.cambridge.arm.com>
+ <15a9ae14-395d-472a-a5be-9e46524fb493@sirena.org.uk>
+ <3c76650f-ddda-47ae-a676-86016d8e39a6@sirena.org.uk>
+ <CA+EHjTw9rGvQyev-4i7zkO5bPPZKGYn858485dCs8iHmCi0t3w@mail.gmail.com>
+ <43f21c65-c5ba-44a3-9741-548390df369b@sirena.org.uk>
+ <87a4rnqsuu.wl-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v11 2/7] i2c: mux: add idle_state property to i2c_mux_core
-To: Marcus Folkesson <marcus.folkesson@gmail.com>
-Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
- Michael Hennerich <michael.hennerich@analog.com>,
- Bartosz Golaszewski <brgl@bgdev.pl>, Andi Shyti <andi.shyti@kernel.org>,
- Andy Shevchenko <andriy.shevchenko@intel.com>,
- Bartosz Golaszewski <brgl@kernel.org>, linux-i2c@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20260713-i2c-mux-v11-0-72bb8af8ee8c@gmail.com>
- <20260713-i2c-mux-v11-2-72bb8af8ee8c@gmail.com>
- <e2d4fdf8-4dae-43dc-95ae-b9aa1884fdf5@lysator.liu.se>
- <alfZYOKCjf6CKN6i@gmail.com>
-Content-Language: en-US, sv-SE
-From: Peter Rosin <peda@lysator.liu.se>
-In-Reply-To: <alfZYOKCjf6CKN6i@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Virus-Scanned: ClamAV using ClamSMTP
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260719_053948_028564_8671157E 
-X-CRM114-Status: GOOD (  32.72  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="OIicqM3g5+ivtiDy"
+Content-Disposition: inline
+In-Reply-To: <87a4rnqsuu.wl-maz@kernel.org>
+X-Cookie: Courage is grace under pressure.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,121 +90,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-07-15 21:02, Marcus Folkesson wrote:
-> Hi Peter,
-> 
-> On Tue, Jul 14, 2026 at 01:29:01PM +0200, Peter Rosin wrote:
->> Hi Marcus,
->>
->> Sorry for the very late feedback.
->>
->> On 2026-07-13 09:19, Marcus Folkesson wrote:
->>> Muxes treat their channels differently when idle.
->>> Let the mux core have this information to make it available for
->>> internal use.
->>> Reuse the same state values used by CONFIG_MULTIPLEXER.
->>>
->>> Possible idle states are:
->>> - MUX_IDLE_AS_IS: Leave channels as is when idle
->>> - MUX_IDLE_DISCONNECT: Disconnect channel (set HiZ when idle)
->>> - <n>: Enable channel n when idle
->>>
->>> Default value is set to MUX_IDLE_AS_IS.
->>>
->>> Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
->>> ---
->>>    drivers/i2c/i2c-mux.c   |  1 +
->>>    include/linux/i2c-mux.h | 26 ++++++++++++++++++++++++++
->>>    2 files changed, 27 insertions(+)
->>>
->>> diff --git a/drivers/i2c/i2c-mux.c b/drivers/i2c/i2c-mux.c
->>> index 681a201c239b..edf16683dc83 100644
->>> --- a/drivers/i2c/i2c-mux.c
->>> +++ b/drivers/i2c/i2c-mux.c
->>> @@ -247,6 +247,7 @@ struct i2c_mux_core *i2c_mux_alloc(struct i2c_adapter *parent,
->>>    	muxc->select = select;
->>>    	muxc->deselect = deselect;
->>>    	muxc->max_adapters = max_adapters;
->>> +	muxc->idle_state = MUX_IDLE_AS_IS;
->>
->> This is insufficient. AS_IS is simply not an adequate default.
->>
->> For i2c-mux-gpmux, there is currently no way to dig out what
->> the idle state is, as it is not exposed by the mux subsystem. For
->> i2c-mux-gpio, the idle state depends on both the idle-state /and/
->> the i2c-mux-idle-disconnect props. For i2c-mux-pca954x the idle
->> state can be adjusted at runtime. Etc.
->>
->> In short, idle state handling is a bit diverse, and I think this
->> adds to that mess.
->>
->> I think it will be a bit of work to come up with a scheme for the
->> I2C mux core to accurately keep track of what the idle state is.
->> One way to deal with that is to introduce a new "unknown" value
->> that can be the default for all drivers that has not yet figured
->> out how to feed the correct idle state to the core.
->>
->> And that hints at why I think reusing the mux.h bindings #include
->> is bad. The mux subsystem simply has no need for an unknown state,
->> and adding that to mux.h is therefore out of place.
-> 
-> I see.
-> 
-> I think I will introduce a few defines in i2c-mux.c then;
-> 
-> 
-> #define I2C_MUX_IDLE_UNKNOWN	(-1)
-> #define I2C_MUX_IDLE_AS_IS      (-2)
-> #define I2C_MUX_IDLE_DISCONNECT (-3)
 
-Hi!
+--OIicqM3g5+ivtiDy
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Please keep AS_IS as -1 and DISCONNECT as -2. Using different
-values will make it difficult to get rid of the use of the
-defines belonging to the mux subsystem in case the actual
-value has crept into some .dtb or something like that.
+On Sun, Jul 19, 2026 at 09:35:53AM +0100, Marc Zyngier wrote:
+> Mark Brown <broonie@kernel.org> wrote:
 
-Also, I think the right thing to do is to put these defines
-in the i2c-mux.h header so that the drivers can find them.
-I assume .c was a typo?
+> > I've gone and implemented the first which will suppress the isb() for
+> > current host kernel SME usage, the second two are starting to get more
+> > fiddly than seems sensible to do right now.
 
-> [...]
-> 
-> struct i2c_mux_core {
-> 
->      [...]
-> 
-> 	/*
-> 	 * The mux state to use when not active.
+> I really wish you didn't optimise anything at all at this stage.
 
-This is not 100% accurate. The value stored here is never
-actually used to set the idle state. The idle_state here is
-only what the driver has declared that the idle_state is.
-Perhaps word it like this instead?
+> "Optimisation" is exactly what got us into so much trouble over the
+> past two years, and I really don't want SME in KVM to follow the same
+> trajectory.
 
-	* The mux state used by the driver when idle.
+> So leave this is a straight ISB, no optimisation. Once you come back
+> with actual data showing that this is a terrible bottleneck affecting
+> real workloads on real HW, we'll look at it. But until then, please
+> keep it as stupid as possible.
 
-Agreed, subtle difference, but...
+I've already left the KVM hypervisor code like that - I only updated the
+code here in the main kernel since that keeps the end effect for
+existing systems and workloads the same.  I am aware that there has been
+a great deal of attention paid to the barriers we have in the context
+switch path so I am concerned that other people might have a different
+view on adding one.
 
-In the future, drivers (most of them) could be changed to
-use this variable to store the actual idle state. But, as
-mentioned, that's not easy for i2c-mux-gpmux since the idle
-state is under the control of the the mux subsystem in that
-case.
+--OIicqM3g5+ivtiDy
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Cheers,
-Peter
+-----BEGIN PGP SIGNATURE-----
 
-> 	 * Possible idle states are:
-> 	 *  - I2C_MUX_IDLE_UNKNOWN: Unknown idle state
-> 	 *  - I2C_MUX_IDLE_AS_IS: Leave channels as is when idle
-> 	 *  - I2C_MUX_IDLE_DISCONNECT: Disconnect channel (set HiZ when idle)
-> 	 *  - <n>: Enable channel n (starting from 0) when idle"
-> 	 *
-> 	 * Default value is set to I2C_MUX_IDLE_UNKNOWN.
-> 	 */
-> 	int idle_state;
-> 
->      [...]
-> };
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmpcxbQACgkQJNaLcl1U
+h9DuzAf7BxGM4X6minFYapCsREk9SxuGWXgUZbzaq6n4+zLM/myAGA2hw1BwzRdB
+Qv2Iin/BHgelt7fpfJUK+OKlWIfzdPFnUtSytVdER5XMXnEPmwx2bw45YMuwxB4O
+anFUbDn7Q013adk1AEy/WAfmNNBooAzV0VB9OmKPqGvyZx92907MoOk8QzMDY40+
+Hy0AXBkhXOwXq+MinOQlq+PA40qXfCk1cawPFrmDzWeiDZkDvcAHnS83+nX3v7Hw
+izYjvCfY9adu+r7owVAKcP2FVWeoMJ0TFh48efIZmck4HsJmqtiekbGkyXr3Eq60
++Rl8dz5E1e1gxRadq/4qNcvgKUeCkg==
+=354Q
+-----END PGP SIGNATURE-----
+
+--OIicqM3g5+ivtiDy--
 
