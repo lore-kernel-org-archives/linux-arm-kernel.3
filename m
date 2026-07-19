@@ -4,75 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D42DC44521
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jul 2026 13:00:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB59DC44521
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jul 2026 13:15:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XB6YcA1LMpF2Yn2bjXDh2H+HcWT4N/bplMGM1IzQCMo=; b=ZDVaEerj78erMtWuasgeo+A0sp
-	MeaSbwIrg8y1cYeYgOZ5CLcKvbviam5PAOuWZUe+qMm8FhIuAMZjk05Ce4TfmUKsMcDN2lEQB4B2W
-	uE3i7LUCs+9o3cVrqzFfQbNNoXCbmZXH737ec2BAlJtkT6L9QkH+ULXklc4CXBhvf5KCZ4Clg3uTn
-	yxQbrxJJUKobrNfWPkO9w+uMiC7ChyGZofijdySQ9f851mF9lEpHzs18fy/PI/sOMOTkafT3FqACY
-	MHwRkh+xkcVd/G/xUSOOTAxBUMrzhTtWHc4WdlK2a/UVXFRaFtllX2Am9Wzu2e22fIttBGBUWVRxN
-	tePPMc1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lxCy6+4tgaC+do2rvc0+7V+EUsdw6w7kQ3US3qb8wy0=; b=hVw+9274nRNwCLyaSxB1RJJtiT
+	sdaHtyUEkuDF9b8FFHluhRE+tiv7UnLAJuRkxSI2X8nYY9yZlfzaWCgsbwTj6xLiYcwIaPwQj9vr8
+	fJgbAZPiQZQQDCmAaIOC+5Xj7yTcnBRarLNuxyN/hykrDdsgVJiQtqv6uMJviBsypkX2ieZZbxN8r
+	bgj5lT70WMcJTCBtZWByuop/ZqlBVdQikwxH/cxsjHZQETuz95IwTrh9+tLLkFMCb5QynrLHzeOSO
+	x7f11gSvfQe4OqsHhEjQspXqI20EPQOzwfiIXyHR09i21jCiFtE+GhKF+EdkxnflnmF+Q3nc8Fqtr
+	3Lxj+1iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlR8Q-0000000513x-3GzV;
-	Sun, 19 Jul 2026 13:00:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wlRMn-000000051aX-029E;
+	Sun, 19 Jul 2026 13:15:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlR8P-0000000513h-0R6b
+	id 1wlRMm-000000051aN-144A
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Jul 2026 13:00:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E1C2A601DE;
-	Sun, 19 Jul 2026 13:00:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 8B6A0C19425;
-	Sun, 19 Jul 2026 13:00:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1784466043;
-	bh=IpCdIvtqrUwzVFJ1/y1oYQ0klko2f12CuHINIX6XHp0=;
-	h=From:Date:Subject:To:Cc:From;
-	b=aX4hm9Muu7/kgalY7O/TrueR7ctjDyk5xAcBofehBQP7ZEECG8mg9W/Bo+X1DWDF0
-	 ydDl7AY3fHDNdRGuT9CiHdvM+tnXV/HDI/S24JQj2hpp6vWod+dnlbh2MtnUN4RaPw
-	 R+ovp5pkB0AK7CqmxyyrMOWLcRn2Tt1q2Ny48hcFyslETDgvRJzf0hYNvOqtaYLGzw
-	 9RcaizH2jjraBP6ma67xMNJsc3pqIoVrm7FIA2N2ixurCq029wIRwAjS1HAhCOgCmF
-	 kxXLvMRoOzCSjRnZDGmro1Us581VTlUx9D4e/HIQ7yct5mSHJBzfGNbLk63K1rs1TY
-	 MXGppGvr+UV1g==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 68B14C4450A;
-	Sun, 19 Jul 2026 13:00:43 +0000 (UTC)
-From: Sven Peter <sven@kernel.org>
-Date: Sun, 19 Jul 2026 15:00:32 +0200
-Subject: [PATCH] mfd: macsmc: Fix key count endianness annotation
+	Sun, 19 Jul 2026 13:15:36 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id A94884097E;
+	Sun, 19 Jul 2026 13:15:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE74E1F000E9;
+	Sun, 19 Jul 2026 13:15:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784466935;
+	bh=lxCy6+4tgaC+do2rvc0+7V+EUsdw6w7kQ3US3qb8wy0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=bgmli8w0LfTMb84cf4Usv1oyZxqOEFetk7IgX+b/lMYq21NtFhpZJJAz7Oyifh3wy
+	 XPjiqrsUORQ9CKSnMkJJ6VVcg1hY4etT8P4vrZqviYWXehBYjvNZHb9WZA5kQemigU
+	 Y+1+AdeWWdLeiOR3EUZ5LUH+XAkYmwJc39uRNQDs/NU7fy05f5ZvMgW+Bb+wzo0ATO
+	 pQNdOzvTI11eegJuSAbbFJ5Ijlov59D/p8OgdpG25uXwjVZbU1XSuqYNUTTcBE8C1f
+	 g9dx0eQdmTn28gJR8uzEA/JeaATKUdjkkpifuH7o92ZNG+lcnwr9M59Fx3ENq7EaOX
+	 g/1MXbTONiJmA==
+Message-ID: <e48a3602-0871-4675-a80c-154d58ce7243@kernel.org>
+Date: Sun, 19 Jul 2026 15:15:31 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260719-b4-macsmc-be32-fix-v1-1-c7b1936307fa@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqDMBCF4avIrB0wUaL2KuIik47tCNqSURHEu
- 5vW5ffg/QcoR2GFR3ZA5E1UPnOCyTMIbz+/GOWZDLawrqhNi1Th5INOAYlLi4Ps6MqaGyLjWus
- hHb+R0/yPdv1tXWnksPxKcJ4XwjqYl3YAAAA=
-X-Change-ID: 20260719-b4-macsmc-be32-fix-637e8bb1692a
-To: Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
- Lee Jones <lee@kernel.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, kernel test robot <lkp@intel.com>, 
- Sven Peter <sven@kernel.org>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1756; i=sven@kernel.org;
- h=from:subject:message-id;
- bh=IpCdIvtqrUwzVFJ1/y1oYQ0klko2f12CuHINIX6XHp0=;
- b=owGbwMvMwCXmIlirolUq95LxtFoSQ1bMqYp2pYikT13FLYG8HiX/uY447mATeXFkerccB8NL5
- zcbVzzvKGVhEONikBVTZNm+3970ycM3gks3XXoPM4eVCWQIAxenAEzkZSgjw68OU/fSLdsbN6bc
- 1tWeMfFvoIe3y+LLupXNc0KeBC/KPczwm11+6qTM9Zd3FcutOsh6dt9GpTnTlqpbT/p7J8vgx8z
- J4rwA
-X-Developer-Key: i=sven@kernel.org; a=openpgp;
- fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
-X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
- auth_id=407
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RESEND] Bluetooth: hci_bcm4377: Use named initializers for
+ pci_device_id array
+To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig_=28The_Capable_Hub=29?=
+ <u.kleine-koenig@baylibre.com>, Janne Grunau <j@jannau.net>,
+ Marcel Holtmann <marcel@holtmann.org>,
+ Luiz Augusto von Dentz <luiz.dentz@gmail.com>
+Cc: Neal Gompa <neal@gompa.dev>, asahi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-bluetooth@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260718172513.986134-2-u.kleine-koenig@baylibre.com>
+Content-Language: en-US
+From: Sven Peter <sven@kernel.org>
+In-Reply-To: <20260718172513.986134-2-u.kleine-koenig@baylibre.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,56 +75,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SMC firmware returns the value of the #KEY key in big-endian unlike most
-other keys. Reading it through apple_smc_read_u32() into a plain u32
-and then converting with be32_to_cpu() makes sparse complain:
-
-  drivers/mfd/macsmc.c:462:26: sparse: cast to restricted __be32
-
-Read the raw value into a __be32 using apple_smc_read() instead.
-
-Fixes: e038d985c982 ("mfd: Add Apple Silicon System Management Controller")
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202607181046.OANjIoqR-lkp@intel.com/
-Signed-off-by: Sven Peter <sven@kernel.org>
----
- drivers/mfd/macsmc.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/mfd/macsmc.c b/drivers/mfd/macsmc.c
-index 358feec2d088..514cba7dc897 100644
---- a/drivers/mfd/macsmc.c
-+++ b/drivers/mfd/macsmc.c
-@@ -410,7 +410,7 @@ static int apple_smc_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
- 	struct apple_smc *smc;
--	u32 count;
-+	__be32 count;
- 	int ret;
- 
- 	smc = devm_kzalloc(dev, sizeof(*smc), GFP_KERNEL);
-@@ -461,8 +461,10 @@ static int apple_smc_probe(struct platform_device *pdev)
- 	dev_set_drvdata(&pdev->dev, smc);
- 	BLOCKING_INIT_NOTIFIER_HEAD(&smc->event_handlers);
- 
--	ret = apple_smc_read_u32(smc, SMC_KEY(#KEY), &count);
--	if (ret)
-+	ret = apple_smc_read(smc, SMC_KEY(#KEY), &count, sizeof(count));
-+	if (ret >= 0 && ret != sizeof(count))
-+		ret = -EINVAL;
-+	if (ret < 0)
- 		return dev_err_probe(smc->dev, ret, "Failed to get key count");
- 	smc->key_count = be32_to_cpu(count);
- 
-
----
-base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
-change-id: 20260719-b4-macsmc-be32-fix-637e8bb1692a
-
-Best regards,
---  
-Sven Peter <sven@kernel.org>
 
 
+On 7/18/26 19:25, Uwe Kleine-König (The Capable Hub) wrote:
+> Initializing a struct using list initializers is hard to read, compared
+> to that using named initializers is more ideomatic. Convert the macro
+> used to assign values in the driver's pci_device_id array accordingly.
+>
+> This change doesn't introduce any changes to the compiled array on an
+> x86 and an arm64 build.
+>
+> Signed-off-by: Uwe Kleine-König (The Capable Hub) <u.kleine-koenig@baylibre.com>
+> ---
+
+Acked-by: Sven Peter <sven@kernel.org>
+
+
+Best,
+
+
+Sven
 
