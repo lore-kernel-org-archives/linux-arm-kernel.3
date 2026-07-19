@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D153FC44521
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jul 2026 12:56:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60051C44521
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jul 2026 12:56:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cBHTVFHbPFwIbhPoWqS470Iobk9r2Zi67JYQlymcIdw=; b=BdJ+8GY5TidpdK0ZVD03Pv8e7G
-	kZGU12XvQ6d9IY2xJBKkyhW3adk/hgcbljxjuUZ8m72gecmgj0X2KqqnDepstUgC34B88ztlK/9yC
-	iKab6qCsAFe0YLZhCWbCRFICoc6N5IectNzDSA8sD/wmKS3Oik6tPhWtruhjwG1HBuhoFENNcFFLh
-	DXO0R7UezhdKJM+ha+bwGq1S2MCUE7A7ukacWg/G6jlXXRfJWwgojT/grkRV5vsmceJzElbnakBvC
-	KhONwOCf1Y/cbUqoWLVAWYuI01QatLrm59mRVq5Hi1o7o8i9vN3of3f7usvrCZFf5ncvmveIv/zo8
-	IYAp53Jw==;
+	bh=PaeHrzDwq749xNqEBv7Hp6+uBqLf+sS5NmRKMPCInEA=; b=0NbqtW+9qZdfz7QFAhBmG0HLc8
+	hHaQPsydoUVryQBdxwJFtKVW5W4Vi91c/cDbG30i0IMwpKrgIvYjEMOUq4DbzksdAH+QQEPvfeFVB
+	+Ef3/JPFbNjyiqNyjF2GSObucSOXeCTs/LcX5wdbYs6THs+3DohEkbR0Tqz5z8pZ6rq01BagK11GY
+	8OizSkWKmSBo0v/RgUeHj4MnDSMbOf8Z0Aee8EjfWam/bjXeK3LlUtdxd8Ky7qgabS3YbZFrtKDWC
+	Lc+jR/iyPu+4zp12WK+7bn8/Y9KCV52RSpeHBlM1i4C5+bLQYnVoSMWCYu/SQn5SsCTooFvl/k7BA
+	YmcZMSNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlR49-000000050XZ-3ZAp;
-	Sun, 19 Jul 2026 12:56:21 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1wlR4E-000000050Zl-3z0z;
+	Sun, 19 Jul 2026 12:56:26 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlR46-000000050W3-0vfG
+	id 1wlR4C-000000050YX-0oFJ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Jul 2026 12:56:19 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-38dfe910e9dso6233416a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Jul 2026 05:56:17 -0700 (PDT)
+	Sun, 19 Jul 2026 12:56:25 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-38dd55ad76cso2189700a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Jul 2026 05:56:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784465777; x=1785070577; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1784465783; x=1785070583; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=cBHTVFHbPFwIbhPoWqS470Iobk9r2Zi67JYQlymcIdw=;
-        b=GQ3guVekIpfVX8GlWpI+Rn9cbuO92Zsiac4FXtGr0zyFQOtk1xeLxXhuTve/FRKvGL
-         /Dx65lwNUDiei3gJDNi2mTqeVLm/rdN5WAMOVaGzxsL7vj51E/wBgL3LiLkJhebmq4iX
-         UFijLOJNV51V4o6QzuzN0NgUHZAXxQcZWSbBOx341E/ZP25cvUnQW2BrYEzJUJTDdtKP
-         pK6U6qtf1B7Lf+/CnRrnI7PZ8sehil1ilMG1oMyUOZKrc1R5D2TPuBi8mutoEM9a4CU5
-         n51MMYg6J7lAHU43Jb3EnkuRAEHcbFmbvDrOkTLadP2xjsb262OBhdOh9EhcWxrejmtN
-         /vCg==
+        bh=PaeHrzDwq749xNqEBv7Hp6+uBqLf+sS5NmRKMPCInEA=;
+        b=bBYssMgo0hNXp9TVeESBB5+Qow9KgYJLTjEI0bQHw8R/gtYsPWMrjtL7b8SPiyIzng
+         S1p4EQvaniN6Vs70jp5+z9TDa/VVyhvDdZmihm/JkCqXBTMexi53bum6oxNBPkSjyh3f
+         AwzGNLGy/VTjF8YB/gIv4z8UvQvsgMvwrYiKhkRZ2eo9INbgebmFic6ldoCOK7dN0+0o
+         rZhLixV3jDGKq3vWCL2yJLw4Kkfi0sA9DZkavkUoLKMbzTUMi9GA99YhA1hpjJhx/j2j
+         NLUeaJ9whRunZNuqWtYd8W09H7dQwFj5XbGheXoc4kco+1wdWPBhROlqya6tH9UfbIzY
+         Ap1Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784465777; x=1785070577;
+        d=1e100.net; s=20251104; t=1784465783; x=1785070583;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=cBHTVFHbPFwIbhPoWqS470Iobk9r2Zi67JYQlymcIdw=;
-        b=bkrtjfmX7phV45axgBw1ClhMpJe0OUWxY/E0LmJF4CD2r6lFu0kvvQhfMk96EEWZp2
-         EJqFE+Xqu2S9ujONf2+eiEY+DI7lH9kLvUGng7gdeuxBG/qDFdF1s9K/F1hMw2tAQ1Sg
-         lrYJjSnIE9oArNF694J3fJhtArFYe7bqT4NRNDzbZlaYlvawC2x5LsshIhNjfdeKh4bQ
-         TGLTYicEg+oTXyVpzfI6L+euCs4SeFJg5W00xSsXph/0Zy+3BxsC0eNyiwUPkw7QV7FF
-         smU5TvIF+L5nnc1MZ8zoSE3yVJbBg8u8ajiXwDlNjEfv8rbU+2qQXP/JlxxwWXydfgj2
-         MVRQ==
-X-Forwarded-Encrypted: i=1; AHgh+RoNtKE5GHgpunbDVTDE0bdnWbN7vHgRNHZWOtfNyu7KOcHngClRJBVtIEEKG8bzn3LToIKfPYjx2qM6SQ/aXgSK@lists.infradead.org
-X-Gm-Message-State: AOJu0YzZfLSiJoUcwlmjhoc/hl1UkOWY+VtOvzkRJEhH/a416Gy37+i2
-	hM5BqHyC1/nRX58BOkXy/ZIx5KdO4Inr8mx/MkMr4qIGU4+3S5MDDHp2
-X-Gm-Gg: AfdE7cnrz3ZI0V7qqn10YFcPGDww09w/hvZ52smC+xcDYMhRdYj6fGnVqVJuXb2/wbY
-	IvEVvbV/zruBrmJ8AjuoUz3bmCwW3i3NhFzDjhpnBGlyKOvkmnodmMNYDme3jFxOONULuGKNvDC
-	uhU8nSlMWqD57nEvTy6dA75Lji3QuR/Fz8SgoWEgR/HzdZao7E2wGHdHLhhg4Nb048SIHQNsNw+
-	ISo0CBY80GwFaEbVlMpW8sYLWhUjmyZw3QDA6u6dKQciojKhiW5aFIZf+UtLSFUs4HvGKya77iQ
-	mRI3nSXbkG9lmwmXuHZxrkS3GOgBj2ckRw0mubOYIy9n2HyxI2H0ZVuJT41FC9AuLuaxfd8adI+
-	nchSiYMloaaEel82K6caAUvntaS/9Nx63pQMEJ4zFUcaDyRIa/bhIof33hs6WfrJRK6+pMCZo1+
-	9btSk=
-X-Received: by 2002:a17:90b:5547:b0:38d:fda6:4873 with SMTP id 98e67ed59e1d1-38e4b441269mr10885100a91.10.1784465777270;
-        Sun, 19 Jul 2026 05:56:17 -0700 (PDT)
+        bh=PaeHrzDwq749xNqEBv7Hp6+uBqLf+sS5NmRKMPCInEA=;
+        b=SFKkHlfNyQvZvbe3NeIIaINPAyPxRZUhfRpt3ZcioSs+n1F8kcS4/zadW6500PRjPR
+         98j+pH4dfxBLA71vDIbDzI8Nckcq6nL2cg/SjensyrjfaUv4IciSaUzp0HJ768oiJe9K
+         BjPILTTQdyqrJT2vifC7AONQ8IUO+Aw185W+WfpgD6WBiFOOliJ78dRA5PTGlyRhikCg
+         iz+XFM9/r5vweqctA0BQqE8v8e6mOxZsdstBjAxe+DdhtQ8dUy3ARE6UIjxvxjp+UF6l
+         QS0wDHi1fSoeJafL84EGQ4VuUuo+zWdN/FgjoHWcGtNLsP6pvpUsdrzTOGNvyAdDgGhu
+         93hQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rqq22sh4Q4nMYUd3LetQN5tpcESEvsmzTJioT0xIzzuKdcz0wlh7okkwj64UqcvlfwUc34avwyF/nVuUdshG1sW@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywlzd44RQzsojEAbl5P6w38vuSFnYoJjL12O7MLmWOo4oQuhM5x
+	C0Ta/lzLL4TlwxG28r8x5Xi33ulf97Pgi+lWSpRquRgva/cYgBrpNrTs
+X-Gm-Gg: AfdE7cn+rK1kAfZ2BhkSKGYUsaRZI0SqVwweAlrn3pdI0W1vK3AGYxPecSe+WIxm1yw
+	c4sB3os8lMMucfREf1fjzikMdHUGAuIzSVek37KYfYd/YVqYpS0f6TM4rMSOAKhYNyTJYEp04Zb
+	5n0nwB11ViZw87HXj9uA1xUkXsbdVA8OFZwlZRXTUqjLgqSOsWGyfW/3GS9RLRxsefReCzNOOUt
+	xuDLndCM8FrZDZth6GgII4YGUCOIyWquKOXRedeirOrQwdnFYtS0pNA2qCDqPoLYSQJCHWsDCtC
+	B2e2eYjQmKlRJfB6UPa8rkgxaEfAMUGjeWl4OmwkdfogdXoTdz44IhTqdddTEd4IWPN56E3ms6+
+	eqThigdnn9ObgsiBFJ+TE/9Sn/PNIjgRv0uM4Bdywf1lWSAkGKFQUmYYMgVmuJKrtEBZq5avisF
+	mMvMnjfsyHnrAeyQ==
+X-Received: by 2002:a17:90b:1fc3:b0:387:d9cc:7dc3 with SMTP id 98e67ed59e1d1-38e3d2b11dfmr16744203a91.21.1784465783164;
+        Sun, 19 Jul 2026 05:56:23 -0700 (PDT)
 Received: from [127.0.1.1] ([2404:f801:8028:1:edd:423c:25d9:f95a])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13ce2cbb6e8sm20990052c88.9.2026.07.19.05.56.11
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13ce2cbb6e8sm20990052c88.9.2026.07.19.05.56.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 19 Jul 2026 05:56:16 -0700 (PDT)
+        Sun, 19 Jul 2026 05:56:22 -0700 (PDT)
 From: Subasri S <subasris1210@gmail.com>
-Date: Sun, 19 Jul 2026 18:25:46 +0530
-Subject: [PATCH 1/3] usb: chipidea: Use %pe to print error pointers
+Date: Sun, 19 Jul 2026 18:25:47 +0530
+Subject: [PATCH 2/3] usb: misc: Use %pe to print error pointers
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260719-usb-ptr_err_patchset-v1-1-85f7f2e4fefb@gmail.com>
+Message-Id: <20260719-usb-ptr_err_patchset-v1-2-85f7f2e4fefb@gmail.com>
 References: <20260719-usb-ptr_err_patchset-v1-0-85f7f2e4fefb@gmail.com>
 In-Reply-To: <20260719-usb-ptr_err_patchset-v1-0-85f7f2e4fefb@gmail.com>
 To: Peter Chen <peter.chen@kernel.org>, 
@@ -93,16 +93,16 @@ Cc: linux-usb@vger.kernel.org, imx@lists.linux.dev,
  linux-atm-general@lists.sourceforge.net, netdev@vger.kernel.org, 
  Subasri S <subasris1210@gmail.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784465765; l=3053;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784465765; l=3927;
  i=subasris1210@gmail.com; s=20260709; h=from:subject:message-id;
- bh=n1zAO1jW4yVvRL07k2kgrVmGbmcyj6ikcTfAZVsVbnQ=;
- b=/EAz0qSfa1ZrMbHJH8QpbLX7wPvSeQecXMcU4Gf/i/q6LbRiAJ+x12SC7uRmvXyky0/DKO7rt
- pqai+Ji7fWLBLYYsUDJPeM5oyFKLNgt4Z1de4LkHeqmHlYvJzx6AW9s
+ bh=5zvKnd0JD5ih/+cLM7K1dUL0S6yC1cEB7EpZtuHweFE=;
+ b=ql28qsE4EWaYsxnuq4JZUcJCPFY2lrNmFjQWb9Rd/+w5VfSlKcXCXOhlFyrJi7M80qTF8IpCY
+ OaddRPOw0BcCS0eedCYsSCCl31WLSBEf+wArxIm7CVH02A31l4uhy6q
 X-Developer-Key: i=subasris1210@gmail.com; a=ed25519;
  pk=6C4wavGFy/OsR8yQQKNWuDXoYPHp2L3sfgNfyzTruTk=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260719_055618_282613_4B00BDA8 
-X-CRM114-Status: GOOD (  14.85  )
+X-CRM114-CacheID: sfid-20260719_055624_250152_708DF0B2 
+X-CRM114-Status: GOOD (  13.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,77 +118,103 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Use the %pe format specifier instead of %ld with PTR_ERR() for printing
-error pointers in imx_get_clks(), ci_hdrc_imx_probe(), and
-ci_get_platdata(). This prints symbolic error names (e.g. -ENOMEM)
-instead of errno numbers (e.g. -12), making error logs more readable.
+error pointers in various drivers across usb subsystem.
+This prints symbolic error names (e.g.-ENOMEM) instead of
+errno numbers (e.g. -12), making error logs more readable.
 
 This patch fixes coccinelle reported warnings:
-./chipidea/ci_hdrc_imx.c:452:5-12: WARNING: Consider using %pe to print PTR_ERR()
-./chipidea/ci_hdrc_imx.c:468:5-12: WARNING: Consider using %pe to print PTR_ERR()
-./chipidea/ci_hdrc_imx.c:222:4-11: WARNING: Consider using %pe to print PTR_ERR()
-./chipidea/ci_hdrc_imx.c:222:24-31: WARNING: Consider using %pe to print PTR_ERR()
-./chipidea/core.c:684:4-11: WARNING: Consider using %pe to print PTR_ERR()
+./misc/usb3503.c:206:5-12: WARNING: Consider using %pe to print PTR_ERR()
+./atm/usbatm.c:983:14-21: WARNING: Consider using %pe to print PTR_ERR()
+./core/hub.c:5675:6-13: WARNING: Consider using %pe to print PTR_ERR()
+./gadget/function/u_serial.c:1315:24-31: WARNING: Consider using %pe to print PTR_ERR()
+./dwc2/pci.c:72:3-10: WARNING: Consider using %pe to print PTR_ERR()
 
-Compile-tested only.
+Compile tested only.
 
 Signed-off-by: Subasri S <subasris1210@gmail.com>
 ---
- drivers/usb/chipidea/ci_hdrc_imx.c | 12 ++++++------
- drivers/usb/chipidea/core.c        |  4 ++--
- 2 files changed, 8 insertions(+), 8 deletions(-)
+ drivers/usb/atm/usbatm.c               | 4 ++--
+ drivers/usb/core/hub.c                 | 4 ++--
+ drivers/usb/dwc2/pci.c                 | 4 ++--
+ drivers/usb/gadget/function/u_serial.c | 4 ++--
+ drivers/usb/misc/usb3503.c             | 4 ++--
+ 5 files changed, 10 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/usb/chipidea/ci_hdrc_imx.c b/drivers/usb/chipidea/ci_hdrc_imx.c
-index 56d2ba824a0b..7bfe37ed68ae 100644
---- a/drivers/usb/chipidea/ci_hdrc_imx.c
-+++ b/drivers/usb/chipidea/ci_hdrc_imx.c
-@@ -218,8 +218,8 @@ static int imx_get_clks(struct device *dev)
- 		if (IS_ERR(data->clk)) {
- 			ret = PTR_ERR(data->clk);
- 			dev_err(dev,
--				"Failed to get clks, err=%ld,%ld\n",
--				PTR_ERR(data->clk), PTR_ERR(data->clk_ipg));
-+				"Failed to get clks, err=%pe,%pe\n",
-+				data->clk, data->clk_ipg);
- 			return ret;
+diff --git a/drivers/usb/atm/usbatm.c b/drivers/usb/atm/usbatm.c
+index 9600e1ec0993..c78caa1b57c9 100644
+--- a/drivers/usb/atm/usbatm.c
++++ b/drivers/usb/atm/usbatm.c
+@@ -979,8 +979,8 @@ static int usbatm_heavy_init(struct usbatm_data *instance)
+ 	t = kthread_create(usbatm_do_heavy_init, instance, "%s",
+ 			instance->driver->driver_name);
+ 	if (IS_ERR(t)) {
+-		usb_err(instance, "%s: failed to create kernel_thread (%ld)!\n",
+-				__func__, PTR_ERR(t));
++		usb_err(instance, "%s: failed to create kernel_thread (%pe)!\n",
++				__func__, t);
+ 		return PTR_ERR(t);
+ 	}
+ 
+diff --git a/drivers/usb/core/hub.c b/drivers/usb/core/hub.c
+index 5262e11c12cd..5e33e3984499 100644
+--- a/drivers/usb/core/hub.c
++++ b/drivers/usb/core/hub.c
+@@ -5671,8 +5671,8 @@ static void hub_port_connect_change(struct usb_hub *hub, int port1,
+ 			descr = usb_get_device_descriptor(udev);
+ 			if (IS_ERR(descr)) {
+ 				dev_dbg(&udev->dev,
+-						"can't read device descriptor %ld\n",
+-						PTR_ERR(descr));
++						"can't read device descriptor %pe\n",
++						descr);
+ 			} else {
+ 				if (descriptors_changed(udev, descr,
+ 						udev->bos)) {
+diff --git a/drivers/usb/dwc2/pci.c b/drivers/usb/dwc2/pci.c
+index f3a1e4232a31..9845327f95c5 100644
+--- a/drivers/usb/dwc2/pci.c
++++ b/drivers/usb/dwc2/pci.c
+@@ -68,8 +68,8 @@ static int dwc2_pci_probe(struct pci_dev *pci,
+ 
+ 	phy = usb_phy_generic_register();
+ 	if (IS_ERR(phy)) {
+-		dev_err(dev, "error registering generic PHY (%ld)\n",
+-			PTR_ERR(phy));
++		dev_err(dev, "error registering generic PHY (%pe)\n",
++			phy);
+ 		return PTR_ERR(phy);
+ 	}
+ 
+diff --git a/drivers/usb/gadget/function/u_serial.c b/drivers/usb/gadget/function/u_serial.c
+index cdd1dfc666c4..da31e5cea0a5 100644
+--- a/drivers/usb/gadget/function/u_serial.c
++++ b/drivers/usb/gadget/function/u_serial.c
+@@ -1311,8 +1311,8 @@ int gserial_alloc_line_no_console(unsigned char *line_num)
+ 	tty_dev = tty_port_register_device(&port->port,
+ 			gs_tty_driver, port_num, NULL);
+ 	if (IS_ERR(tty_dev)) {
+-		pr_err("%s: failed to register tty for port %d, err %ld\n",
+-				__func__, port_num, PTR_ERR(tty_dev));
++		pr_err("%s: failed to register tty for port %d, err %pe\n",
++				__func__, port_num, tty_dev);
+ 
+ 		ret = PTR_ERR(tty_dev);
+ 		mutex_lock(&ports[port_num].lock);
+diff --git a/drivers/usb/misc/usb3503.c b/drivers/usb/misc/usb3503.c
+index 759770a13260..3ac57d31376c 100644
+--- a/drivers/usb/misc/usb3503.c
++++ b/drivers/usb/misc/usb3503.c
+@@ -202,8 +202,8 @@ static int usb3503_probe(struct usb3503 *hub)
+ 
+ 		hub->clk = devm_clk_get_optional(dev, "refclk");
+ 		if (IS_ERR(hub->clk)) {
+-			dev_err(dev, "unable to request refclk (%ld)\n",
+-					PTR_ERR(hub->clk));
++			dev_err(dev, "unable to request refclk (%pe)\n",
++					hub->clk);
+ 			return PTR_ERR(hub->clk);
  		}
- 		/* Get wakeup clock. Not all of the platforms need to
-@@ -448,8 +448,8 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
- 		pinctrl_hsic_idle = pinctrl_lookup_state(data->pinctrl, "idle");
- 		if (IS_ERR(pinctrl_hsic_idle)) {
- 			dev_err(dev,
--				"pinctrl_hsic_idle lookup failed, err=%ld\n",
--					PTR_ERR(pinctrl_hsic_idle));
-+				"pinctrl_hsic_idle lookup failed, err=%pe\n",
-+					pinctrl_hsic_idle);
- 			ret = PTR_ERR(pinctrl_hsic_idle);
- 			goto err_put;
- 		}
-@@ -464,8 +464,8 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
- 								"active");
- 		if (IS_ERR(data->pinctrl_hsic_active)) {
- 			dev_err(dev,
--				"pinctrl_hsic_active lookup failed, err=%ld\n",
--					PTR_ERR(data->pinctrl_hsic_active));
-+				"pinctrl_hsic_active lookup failed, err=%pe\n",
-+					data->pinctrl_hsic_active);
- 			ret = PTR_ERR(data->pinctrl_hsic_active);
- 			goto err_put;
- 		}
-diff --git a/drivers/usb/chipidea/core.c b/drivers/usb/chipidea/core.c
-index 07563be0013f..09db8a4eace2 100644
---- a/drivers/usb/chipidea/core.c
-+++ b/drivers/usb/chipidea/core.c
-@@ -680,8 +680,8 @@ static int ci_get_platdata(struct device *dev,
- 			/* no vbus regulator is needed */
- 			platdata->reg_vbus = NULL;
- 		} else if (IS_ERR(platdata->reg_vbus)) {
--			dev_err(dev, "Getting regulator error: %ld\n",
--				PTR_ERR(platdata->reg_vbus));
-+			dev_err(dev, "Getting regulator error: %pe\n",
-+				platdata->reg_vbus);
- 			return PTR_ERR(platdata->reg_vbus);
- 		}
- 		/* Get TPL support */
+ 
 
 -- 
 2.43.0
