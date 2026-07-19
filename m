@@ -4,93 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE67DC44512
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jul 2026 08:35:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A754C4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jul 2026 08:54:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GBwZMiX5oIYlk5aa74UGNPjR193c08SmkpdkMUXCqZE=; b=NdA9pLQizDrg/8MNxm2YEU01yI
-	fBcqFrXIItc1Xb7KHrSb9NpHkTdHb2qBiZUOvi1CFRWzV9kI4OEELKiL7kw4dO3PdFLBwbAPhT9YN
-	huwsgx8OhwMc2aIWhoIJd6VvTKxD6k8BRV17yLMEgkSYKa8/Xedk/q/TEMCXaCk7RRckO7Yu4R/Mj
-	JwBCqQ1GoaOWessxnH/nLJ1nsPEN2ZrXkIqCWZm/0RlxG/0GsltsXW/TkLF1EAKJk56OZieL5aYwm
-	rpJVa+6QJ0XG+HkOGcj2EoTuQlt53VCXBmPdD5tdWCUXVHNkrnAAPsiXdqGVY54jIzFFUJStOpx8R
-	4RyzbYuQ==;
+	bh=6JA2cRpWVkl+pq93Gp5B+SIoyj8tOsJA9TqdlqOvO9Q=; b=olFa48zgtZHYF6U1g+gvDGw9eI
+	7xT5cOQOr67GxCej/81nl8G8MSLaQ3SiLL8aAMBgPGSUKGlw9hbRsNS2zn1giYCwxbMl3Jp3bnqHc
+	WF2OXwgrh3WI8ADBl32R3RMNuSokIxOS1YbgYDDjWCqnUjMPF9c7cmu1Ky9zcU/5r5mdxwQ/vl8CU
+	7oK7vUIImKop5BvTBvs9xwSu+lUuAzPjfCFUWBacapTsbU3vR+0u7HDcw9jlwVEmN90GcUDbzCzb+
+	3/lF1rAoKAsCmO/qqwpx/nLiWDTqO+diVWSz+GxLweUvBjD/Y1wFzg2d+pmtOCe1qrFsMCSqetsco
+	y2hkDLEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlMzU-00000004r0Y-3zbT;
-	Sun, 19 Jul 2026 08:35:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wlNIB-00000004rWL-1cpB;
+	Sun, 19 Jul 2026 08:54:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlMzT-00000004r0R-3B0A
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Jul 2026 08:35:15 +0000
+	id 1wlNIA-00000004rWB-319l;
+	Sun, 19 Jul 2026 08:54:34 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id BC9A96001A;
-	Sun, 19 Jul 2026 08:35:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 707151F000E9;
-	Sun, 19 Jul 2026 08:35:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 380E7433D7;
+	Sun, 19 Jul 2026 08:54:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 242071F000E9;
+	Sun, 19 Jul 2026 08:54:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784450114;
-	bh=GBwZMiX5oIYlk5aa74UGNPjR193c08SmkpdkMUXCqZE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=iEk2T7HrKtirZzLD1t5B57msFHz2BeJ4KF7iZm499Q0mfLE8rt1qNvnJmcCIMwZlb
-	 50yOtsMS6D88gCk3nGLHUTaMhDiOVxjcAzTc//053cqsd97/S4jL9EqoL52IXcblfc
-	 4MKUydIB6lzbWeL9sruw8ikrBfwaGGmapqaz863u4WJDDBY5JFzgCxuVwBOvw9kJAF
-	 qB5yW042IiY+1mW8Cgybiku7uwBWqY0VpWB+GxvW/CWcpFFuCx6djveFX+onPTsYHJ
-	 W2zqynbLTkQiT/SV3OttAf+cbfVAdTJEAQsiFwnl4t4uf6noPk2XaVrk4yvjrN69Ps
-	 mXHdN47EPCcIw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wlMzQ-00000006Slk-1UO2;
-	Sun, 19 Jul 2026 08:35:12 +0000
-Date: Sun, 19 Jul 2026 09:35:53 +0100
-Message-ID: <87a4rnqsuu.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Fuad Tabba <fuad.tabba@linux.dev>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <shuah@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Dave Martin <Dave.Martin@arm.com>,
-	Ben Horgan <ben.horgan@arm.com>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Eric Auger <eric.auger@redhat.com>
-Subject: Re: [PATCH v12 02/29] arm64/fpsimd: Update FA64 and ZT0 enables when loading SME state
-In-Reply-To: <43f21c65-c5ba-44a3-9741-548390df369b@sirena.org.uk>
-References: <20260709-kvm-arm64-sme-v12-0-d0301d79ef58@kernel.org>
-	<20260709-kvm-arm64-sme-v12-2-d0301d79ef58@kernel.org>
-	<ali39DG6qie7XTuD@J2N7QTR9R3.cambridge.arm.com>
-	<15a9ae14-395d-472a-a5be-9e46524fb493@sirena.org.uk>
-	<3c76650f-ddda-47ae-a676-86016d8e39a6@sirena.org.uk>
-	<CA+EHjTw9rGvQyev-4i7zkO5bPPZKGYn858485dCs8iHmCi0t3w@mail.gmail.com>
-	<43f21c65-c5ba-44a3-9741-548390df369b@sirena.org.uk>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: broonie@kernel.org, fuad.tabba@linux.dev, mark.rutland@arm.com, joey.gouly@arm.com, catalin.marinas@arm.com, suzuki.poulose@arm.com, will@kernel.org, pbonzini@redhat.com, corbet@lwn.net, shuah@kernel.org, oupton@kernel.org, Dave.Martin@arm.com, ben.horgan@arm.com, jpb@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, peter.maydell@linaro.org, eric.auger@redhat.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20260515; t=1784451274;
+	bh=6JA2cRpWVkl+pq93Gp5B+SIoyj8tOsJA9TqdlqOvO9Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=MIU9h77ioJjiCwHrf+PflRpZo079MJQCqzEvvi1QYXxwLdYFH4BCswhsaGtYr1/fw
+	 4ejYcLi1QxvOHmCBVsv8OwwXU/JV4ZjxE9/ORGY0FcNsq1tuUmv2UfupK13WhnThOB
+	 TscdaZN9BAspD+ELweg+MTJ0wHnXFkhNDLwRQAfl2FagGTe3SzExqbstIIjEf3kl04
+	 sx/NNCfaRJFJ1S7OT+Gyhp3GPXriGSZZ/QSUEEgEuXdRBiVGR2i+G6+1xuL9zT9r10
+	 i1/rFTHy4sH/KvIJ4NYLaxS92jVRQfvfy6Ec6VRHgrKH/uRcSmdKlDu09/Q0ssduBx
+	 GQAvcDbMsekYg==
+Date: Sun, 19 Jul 2026 10:54:29 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Igor Paunovic <royalnet026@gmail.com>
+Cc: Dmitry Osipenko <dmitry.osipenko@collabora.com>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Sebastian Reichel <sebastian.reichel@collabora.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, kernel@collabora.com, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/4] dt-bindings: media: snps,dw-hdmi-rx: add
+ #sound-dai-cells
+Message-ID: <20260719-sassy-muskrat-of-finesse-b426b0@quoll>
+References: <20260718085728.6797-1-royalnet026@gmail.com>
+ <20260718085728.6797-2-royalnet026@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260718085728.6797-2-royalnet026@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,61 +73,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 18 Jul 2026 15:24:20 +0100,
-Mark Brown <broonie@kernel.org> wrote:
-> 
-> [1  <text/plain; us-ascii (7bit)>]
-> On Sat, Jul 18, 2026 at 02:30:04PM +0100, Fuad Tabba wrote:
-> > On Sat, 18 Jul 2026 at 01:35, Mark Brown <broonie@kernel.org> wrote:
-> 
-> > > Actually I remembered: while SCMR_EL1.LEN is self synchronising the
-> > > "without the need for explict synchronization" wording is not present
-> > > for SMCR_EL1.{FA64,EZT0} and this is no longer explicitly just an update
-> > > of LEN.  It's possible I'm being overly paranoid here, I'll leave the
-> > > isb() and add a comment for the next version.
-> 
-> > I went through the ARM ARM (DDI 0487 M.c) on this and I don't think
-> > you're being overly paranoid, I believe the isb() is needed here.
-> 
-> Thanks for double checking so thoroughly.
-> 
-> > And task_fpsimd_load() does make indirect reads of both fields before
-> > the next context synchronization event: sme_load_state() executes LDR
-> > ZT0, whose execution at EL1 is trapped when SMCR_EL1.EZT0 is 0, and
-> > when PSTATE.SM is set sve_load_state() executes WRFFR, which is
-> > "illegal when executed in Streaming SVE mode, unless FEAT_SME_FA64 is
-> > implemented and enabled" (from the WRFFR description). The MSR SVCR in
-> > between doesn't provide the synchronization, since SVCR's
-> > self-synchronisation wording covers reads of its own SM and ZA fields
-> > only.
-> 
-> Yeah.  We should be able to optimise this:
-> 
->  - If there is no change we don't need the isb().
->  - If only EZT0 changes and we load state where ZA is disabled then we
->    won't try to access ZT0.
->  - If only FA64 changes and we load state where streaming mode is
->    disabled then we won't try to access streaming mode FFR.
-> 
-> I've gone and implemented the first which will suppress the isb() for
-> current host kernel SME usage, the second two are starting to get more
-> fiddly than seems sensible to do right now.
+On Sat, Jul 18, 2026 at 10:57:25AM +0200, Igor Paunovic wrote:
+ 
+> diff --git a/Documentation/devicetree/bindings/media/snps,dw-hdmi-rx.yaml b/Documentation/devicetree/bindings/media/snps,dw-hdmi-rx.yaml
+> index b7f6c87..fa6cd0d 100644
+> --- a/Documentation/devicetree/bindings/media/snps,dw-hdmi-rx.yaml
+> +++ b/Documentation/devicetree/bindings/media/snps,dw-hdmi-rx.yaml
+> @@ -78,6 +78,13 @@ properties:
+>        The phandle of the syscon node for the Video Output GRF register
+>        to enable EDID transfer through SDAIN and SCLIN.
+>  
+> +  "#sound-dai-cells":
+> +    const: 1
+> +    description:
+> +      The HDMI RX controller has two digital audio interfaces, one for
+> +      I2S and one for S/PDIF. The DAI cell selects the interface, 0 for
+> +      I2S and 1 for S/PDIF.
+> +
 
-I really wish you didn't optimise anything at all at this stage.
+Schema should also reference dai-common.yaml and use
+"unevaluatedProperties: false".
 
-"Optimisation" is exactly what got us into so much trouble over the
-past two years, and I really don't want SME in KVM to follow the same
-trajectory.
+>  required:
+>    - compatible
+>    - reg
+> @@ -129,4 +136,6 @@ examples:
+>        pinctrl-0 = <&hdmim1_rx_cec &hdmim1_rx_hpdin &hdmim1_rx_scl &hdmim1_rx_sda &hdmirx_5v_detection>;
+>        pinctrl-names = "default";
+>        hpd-gpios = <&gpio1 22 GPIO_ACTIVE_LOW>;
+> +      /* referenced by a sound card as <&hdmi_receiver 0> (0: I2S, 1: S/PDIF) */
 
-So leave this is a straight ISB, no optimisation. Once you come back
-with actual data showing that this is a terrible bottleneck affecting
-real workloads on real HW, we'll look at it. But until then, please
-keep it as stupid as possible.
+Drop comment, not needed. Consumer is not really relevant.
 
-Thanks,
+Best regards,
+Krzysztof
 
-	M.
-
--- 
-Jazz isn't dead. It just smells funny.
 
