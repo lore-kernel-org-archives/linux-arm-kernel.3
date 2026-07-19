@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DEF2C4451B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jul 2026 23:10:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78408C44521
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jul 2026 23:10:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NedY6/OlzwTYxAtSditYiHpWbPSndrvxVk87IdXM00s=; b=2SFgRTebRKCvm/smcOmszbq+Q5
-	ybaxLhfN5yS/rl6cosGaGerUkMxfks6MtW89HZnFFhwuZBOHxLiX8Vs7bs+KxDCUWHxuXyT9vg06V
-	3gd05DxUvqTYYIv3X5IqaRlebPhFCqIXJ/CF+EP8KSda5Acol43uG0M217wMLZJ625XxYtCCQPsLh
-	nUUIY1AxqDKP1LdeaMMzHcAKqPPX4BSE4EcB755AE9301M8h9JYVqS7cq2kJKhnltu1l1Zk2OQ+pH
-	ZfO5PXDqZC6vt1xj58eiTSmbI+aO5y/cPp2/DjugtHS+i2LlfgvdZJeYU/+ePjjfhYqz6HkBKCC6o
-	B/lj2x7Q==;
+	bh=85yZYCsmLUumgp2Ut8btqefYFUysunePTPypRChJllc=; b=4eAI7MiRst76TS0lRe7Bf9ToqI
+	pFyqnELVC8u43R64xLlQuyEZMXw4jJwbscJvjqC5QCyAh5A+DuIHIBsc/pt2HoJy6CEuaJ9+qFwEO
+	n2uC+cNbzVbCsWfuS8CqYiYsIsXTFEdACQRQoMLiYHNOkkeaDhoOuhQVpjKPkCdqQC6iBCzbY86AZ
+	sMc/me1esY/hLko1J8zbT7XTLX2SCbhNuDcGL+wcZJNwmqdc77tiioUzzGfxucu88Hwu58CGdIe7P
+	gzr4bL/LuhtARlawHA+sPZOQTFnlAiqGmQzI0rKL2vQ0f4wabmHL4lB0KQ6nxcbouslA4PnFYp4Mf
+	dpucOGxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlaeR-00000005SPv-0HV1;
+	id 1wlaeR-00000005SQK-0iGS;
 	Sun, 19 Jul 2026 23:10:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlaeK-00000005SMj-0Mus
+	id 1wlaeO-00000005SOL-1pNG
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Jul 2026 23:10:20 +0000
+	Sun, 19 Jul 2026 23:10:24 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 63F7944044;
+	by tor.source.kernel.org (Postfix) with ESMTP id DB9DC60A77;
+	Sun, 19 Jul 2026 23:10:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD68A1F00A3D;
 	Sun, 19 Jul 2026 23:10:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 603871F00A3A;
-	Sun, 19 Jul 2026 23:10:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784502619;
-	bh=NedY6/OlzwTYxAtSditYiHpWbPSndrvxVk87IdXM00s=;
+	s=k20260515; t=1784502623;
+	bh=85yZYCsmLUumgp2Ut8btqefYFUysunePTPypRChJllc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=RZcn60qKqWUeqexSTmP40SRqFeZ6/8h5A5I+G7j7pYzDaIpVHshhnROKKVo/smlvg
-	 jlkNEXHhbvXUFKTZopUg49/sSYprnU/zD9LQj5tUe4JFTGwa51LSMVy2pDtWk5oJOl
-	 8E9JsYyS86bQstmy2rhi/FAuhrTZlsgDO0T7D5SLGB3QH1MjXfJuQUnQrozY73SzBP
-	 RdB4VqeSEbTyYsDP/1Gn8T11kC1Qn/DeuRBPjYdbF4bna+JT3fWXLG50aCGmrueeKp
-	 9e3/UZV68YYzZnAsDZM7SSYElQs+nkwkUlHBRoLhipUF6LosTds/xUMhHLyIaXLWh3
-	 U7C84ZffO0DkQ==
+	b=UxtE5rYSJV7kiDY13Ngck1Han+RSfZGFH1OYfi7uOYOm7cGjAhna7ozNYUvGJdHVN
+	 rWaay2ePSw2wh33cEgMfdjLX2Owic3mlYQIUuufoACIfprxzOYW45BT2wjvVJ+gDAW
+	 Sns5+GfEmISgG7qTo+VAeXzIjaoJxOiSjaQ9OsImv6r1QI33xOGegutJTT07+wQHmV
+	 7TcPjAQHB5FlxGWZV0hgisVN4wKEb3RujRJAE+/azag+o4+QbxekEc3ipLyz3vI8S+
+	 Eb3ZL8ew8tx1DMpbIwzXtNClGqQl9rcdTNKn9W+HVpVNbh8bNQgon1eCqrmUfjioKM
+	 +qTFYl53FZvqQ==
 From: Mark Brown <broonie@kernel.org>
-Date: Mon, 20 Jul 2026 00:07:32 +0100
-Subject: [PATCH v13 05/32] arm64/sve: Factor virtualizable VL discovery out
- of SVE specific code
+Date: Mon, 20 Jul 2026 00:07:33 +0100
+Subject: [PATCH v13 06/32] arm64/fpsimd: Determine maximum virtualisable
+ SME vector length
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260720-kvm-arm64-sme-v13-5-d9abd3ffa245@kernel.org>
+Message-Id: <20260720-kvm-arm64-sme-v13-6-d9abd3ffa245@kernel.org>
 References: <20260720-kvm-arm64-sme-v13-0-d9abd3ffa245@kernel.org>
 In-Reply-To: <20260720-kvm-arm64-sme-v13-0-d9abd3ffa245@kernel.org>
 To: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
@@ -66,15 +66,15 @@ Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>,
  Peter Maydell <peter.maydell@linaro.org>, 
  Eric Auger <eric.auger@redhat.com>, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2856; i=broonie@kernel.org;
- h=from:subject:message-id; bh=+zyEiRn4TZGrkp1zrM7y7JLFFhEzfJlzJup4jyLspPk=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqXVkrxveMIWtmYorGSKcx5B2y2hXm1FuAf3p3s
- oVBySvNN6mJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCal1ZKwAKCRAk1otyXVSH
- 0IZNB/941fd8pdEduv+KVtwJ7DqG2jArwAHyIGwrXJWnObUMpcQ+JLh79PcqhiF/4AcFRIImaTx
- 75IMeQ0/QbL2kS1Ra/C7cQ9cQjcOVJawH89iPJqn20jDmC7wZWxBuKJ7MsEiywgGUkxuYiOsv7Z
- jKF5csamwIm8qH4RucIXoUi/86nzr2lcn9UKfaE234U4tFWHMvUa9yOdlrFyHDt+zmx7+HIrZ8C
- ypP952b5GpwJamyFu8/a/mjvCPVaSiB6feL2GsY2EzjEWxjJt6SHMVwtrg4yNbt7FZjgpTIaKYs
- oTgH8LvIqr8naveNhHpL5kmDkhxMYHLrruG/ZSfo3148m59y
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1384; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=vCPRPRr90nIU5ipka6gLN1cgvgNbXJf93goO/9YP1u8=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqXVks/jmqhVMG8IO8nHz8qNNomFhkac2J8q7Ak
+ s3NYvOuL8qJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCal1ZLAAKCRAk1otyXVSH
+ 0LQIB/4/MNP+lcZla/p9yTUwxLsmBOqBakpA6WR2OAQmiT84K7TTqUwb46t+8XDWAKGFRCJiPif
+ DptEpOaM4959PUGj/Xub784vEnIcgQvoMd3svgwB9oRrmxsn4Q6QbzZt9+mciYmQXdmACNtmUWC
+ 6DESysGrpyfchvENqdPNXouDccvPc0I/A7t5zAumyumZni6ErlkiTM931eaqA2fI5YXxAtwG4l7
+ FlYcZkgdOOu4CBQinmxRkaHxXt2aZHvipZeiJdRAXxGGdTNR/H38kwLM5OkpROJJFMJqUx8HUlx
+ /Fny0364G1vIaHTu9IrUBPH0HE12KdQklQ0vslAIR3uEFnqs
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -91,83 +91,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for reuising it for SME pull the code for discovering the
-maximum virtualizable vector length out of sve_setup() into a separate
-function, updating to return 0 without a WARN_ON() for the case where no
-virtualisable VL exists.  For SVE this case is architecturally invalid
-but for SME it is valid if ill advised.
+As with SVE we can only virtualise SME vector lengths that are supported by
+all CPUs in the system, implement similar checks to those for SVE. Since
+unlike SVE there are no specific vector lengths that are architecturally
+required the handling is subtly different, we report a system where this
+happens with a maximum vector length of 0.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/kernel/fpsimd.c | 41 ++++++++++++++++++++++++-----------------
- 1 file changed, 24 insertions(+), 17 deletions(-)
+ arch/arm64/kernel/fpsimd.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
 diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index b5535f8c9bd9..314f5d61be11 100644
+index 314f5d61be11..7f2c44bd9fd5 100644
 --- a/arch/arm64/kernel/fpsimd.c
 +++ b/arch/arm64/kernel/fpsimd.c
-@@ -1118,6 +1118,29 @@ int vec_verify_vq_map(enum vec_type type)
- 	return 0;
- }
- 
-+static int __init vec_virtualisable_vl(struct vl_info *info)
-+{
-+	DECLARE_BITMAP(partial_only_map, SVE_VQ_MAX);
-+	unsigned long b_min_partial, b_max_virt;
-+
-+	bitmap_andnot(partial_only_map, info->vq_partial_map, info->vq_map,
-+		      SVE_VQ_MAX);
-+	b_min_partial = find_last_bit(partial_only_map, SVE_VQ_MAX);
-+
-+	/* All implemented VLs are virtualisable */
-+	if (b_min_partial >= SVE_VQ_MAX)
-+		return info->max_vl;
-+
-+	b_max_virt = find_next_bit(info->vq_map, SVE_VQ_MAX, b_min_partial);
-+
-+	/* No implemented VLs are virtualisable */
-+	if (b_max_virt >= SVE_VQ_MAX)
-+		return 0;
-+
-+	/* At least one virtualisable VL exists */
-+	return sve_vl_from_vq(__bit_to_vq(b_max_virt));
-+}
-+
- void cpu_enable_sve(const struct arm64_cpu_capabilities *__always_unused p)
- {
- 	write_sysreg(read_sysreg(CPACR_EL1) | CPACR_EL1_ZEN_EL1EN, CPACR_EL1);
-@@ -1129,8 +1152,6 @@ void cpu_enable_sve(const struct arm64_cpu_capabilities *__always_unused p)
- void __init sve_setup(void)
- {
- 	struct vl_info *info = &vl_info[ARM64_VEC_SVE];
--	DECLARE_BITMAP(tmp_map, SVE_VQ_MAX);
--	unsigned long b;
- 	int max_bit;
- 
- 	if (!system_supports_sve())
-@@ -1153,21 +1174,7 @@ void __init sve_setup(void)
+@@ -1281,6 +1281,7 @@ void __init sme_setup(void)
+ 	 * minimum available VL will be used.
  	 */
- 	set_sve_default_vl(find_supported_vector_length(ARM64_VEC_SVE, 64));
- 
--	bitmap_andnot(tmp_map, info->vq_partial_map, info->vq_map,
--		      SVE_VQ_MAX);
--
--	b = find_last_bit(tmp_map, SVE_VQ_MAX);
--	if (b >= SVE_VQ_MAX)
--		/* No non-virtualisable VLs found */
--		info->max_virtualisable_vl = SVE_VQ_MAX;
--	else if (WARN_ON(b == SVE_VQ_MAX - 1))
--		/* No virtualisable VLs?  This is architecturally forbidden. */
--		info->max_virtualisable_vl = SVE_VQ_MIN;
--	else /* b + 1 < SVE_VQ_MAX */
--		info->max_virtualisable_vl = sve_vl_from_vq(__bit_to_vq(b + 1));
--
--	if (info->max_virtualisable_vl > info->max_vl)
--		info->max_virtualisable_vl = info->max_vl;
+ 	set_sme_default_vl(find_supported_vector_length(ARM64_VEC_SME, 32));
 +	info->max_virtualisable_vl = vec_virtualisable_vl(info);
  
- 	pr_info("%s: maximum available vector length %u bytes per vector\n",
- 		info->name, info->max_vl);
+ 	pr_info("SME: minimum available vector length %u bytes per vector\n",
+ 		info->min_vl);
+@@ -1288,6 +1289,10 @@ void __init sme_setup(void)
+ 		info->max_vl);
+ 	pr_info("SME: default vector length %u bytes per vector\n",
+ 		get_sme_default_vl());
++
++	/* KVM decides whether to support mismatched systems. Just warn here: */
++	if (info->max_virtualisable_vl < info->max_vl)
++		pr_warn("SME: unvirtualisable vector lengths present\n");
+ }
+ 
+ #endif /* CONFIG_ARM64_SME */
 
 -- 
 2.47.3
