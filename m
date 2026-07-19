@@ -4,103 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5650EC44512
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jul 2026 03:47:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BC99C44527
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jul 2026 04:30:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OHtgDO4iANSGYS0dotrlCjZ5i/qoruq7hbwefKWAtmg=; b=TkAd95R2KDhQcqHZGAYv9SX4bU
-	vVZJBDqUTk00PQgA5sTmHZzjiRPxmVlAOGtw62Ak8XRWUeLcOAX3/gSGAv9Zm+OqkqzpGSQw1qx4C
-	VvuTIkfGe8bp8UubeR3riRgxvvinzA6h3BX3ajUzT5om8HPlrqpYoGPuzQuwNtHFkFYieh3JjRNwt
-	8WGf9keiAJAVjaBP6JD9MUsrrpc3hsNCC9gXCEUjj4u7067N/7MYu3Z0mhlKnK+DhMmYTm5saa71p
-	46aVlYYKvDALUDUuas2xNDYadsVomncAx+fEWwUISoZdYgdAfP2HbuvcoLDhKlA1WpHLyq7NhIGO4
-	nfy0zGzg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CyX8AQABzaqPAtDGTAAypouoiAqWWrZDtQeghuZu8BI=; b=b2BfEW8SogVOvrjp23Ch01Kk5z
+	sb4WT0xe+qDd5yZY1+75u75S0PBOt9MsbMFZA9iZ7tL12cmo4uxnKAKbf/VEHVrDxAErbRxmoZEKq
+	TgNR8dbE8Aca3WXXX/ASxEy9cbXQSdoY6N33XLvyKxOV8cyrsDmI1mk7ILfRanwcOgGO/8e5b0uZi
+	09ZYs9HCDWrfOEt4eG0LLCHEDBgnL/cr7Z8uvqF/nyojfCyuBm/xpG/Lsi7g8MH9DhamUsVi+lzE/
+	eq8wMDJUJaL1xzgJw6OTbTschONfCB/PyaU+gE67saXp9lqgY0kqGwOFQLIcGAZzHgPG/jxmO9i9s
+	64hg6ClA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlIUO-00000004j4b-3h0U;
-	Sun, 19 Jul 2026 03:46:52 +0000
-Received: from flow-b1-smtp.messagingengine.com ([202.12.124.136])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlIUK-00000004j1n-0LHq;
-	Sun, 19 Jul 2026 03:46:50 +0000
-Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
-	by mailflow.stl.internal (Postfix) with ESMTP id 28CF5130009F;
-	Sat, 18 Jul 2026 23:46:47 -0400 (EDT)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-02.internal (MEProxy); Sat, 18 Jul 2026 23:46:47 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
-	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm1; t=1784432806; x=
-	1784436406; bh=OHtgDO4iANSGYS0dotrlCjZ5i/qoruq7hbwefKWAtmg=; b=Z
-	6Vsg8Ow3IirzzCOQkLKWzA/oD82GWIZ8RlDp9ZVzq7z1XwRefjS+akcRuZiJyVMU
-	OWz3jlyTb1GJyY758J54cetuAU7jHlGd2jU11rgFFvujlsl1bmAB9E+chpQpvQ4N
-	yNipPcceI2aHAhbjcXWOORUjReAqkHe4Pty5Bjoh6Ctfztyyu2ZufAio7snYxLw+
-	C24dsZL/Xqm9el0hzAwKbiMSqNRNmi+oYO5ezvu/mtTrYd0/W7LW4/1kpKaKYhQh
-	//NWQYQtW8Thz/aJcUfl1oERdpP5GVjmWG5AbXS2c6tl4zOUuELIibqiPtbqXme9
-	oMy9mNU5jWHDZGW0nCzmg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm2; t=1784432806; x=1784436406; bh=O
-	HtgDO4iANSGYS0dotrlCjZ5i/qoruq7hbwefKWAtmg=; b=KsacrUQn4eF/zW455
-	Mm65KRH9BkQdNzri1dIxORKcgVmaW7+D8FDdbcRzcdLhuxUDXXidnHhbHOIiefF9
-	p/n3HYrM+egkByzmCQLBBTbFDlvs3Pc2xDsJBW+jlObk7DO703yqC8TU9n2Sd21Q
-	2vYBVIWqOS4hKB7/OAVvLRwNegeGfBVmGNdAvcqhglaI4kWDUhAiAz0JXca9F+AD
-	UBzECGF1bP2OUhxhhMqDGnP/H6oHivWJDamx5e1IK05YOrGkxSk1IHzMcOdcthSC
-	BbTCrklzjhy784OGQ2m5lx1tBPQgBf+KDVhraIHOSdf9YGAe9LQulUUfokYO1J/j
-	wSRPg==
-X-ME-Sender: <xms:pkhcah2kV_nEp6kd4TotHFKzfwMRk4EN3xEs8SaeKsY0GuszaVJaZg>
-    <xme:pkhcauds6aote_O9_Sj2mK39_TSNU-HtS-q_zYEO4hXBlYAJPE74-c-MI9-GEEVWy
-    8tOoRlYBeUD7egHgSus9VZmGnQ-IeAMKef7MQEeXd6uzPUMadOvnD8>
-X-ME-Received: <xmr:pkhcauIJH7F9-IN4zEprZoaXTBstpl2k8ttMuDqVKQQGDs7oQG5DdRWwZoTNMbpLAYfzKZBqzl32AH1pKyE>
-X-ME-Proxy-Cause: dmFkZTEvqSoJQqnPvukA/0nUn+XxJpYTlQNqXc2syNunyqumVYApwogtjNKdZXBpfO8rfR
-    2Jx9JWiQHq2J5RmDUNfmbiSy7usanwZFiMdgwJ2HFO8oSvpsoMVUC1S7AfuWMXX9S4I0wK
-    5sBL/nJc1wAe+EOGyIiJ3+1YF5WnPBu7Az9KD9wwDOjxFoeCuBSLONC1xQ/IDpqZZASB3i
-    9aFIr9Y/79Hz1Vw4/wx43mF7b6lG4Xdmr3Qv+xi8VT374sGoR0MR15sTySeCXiHMBr56eK
-    BMsIhNpmLtm3HXQXTdxlBIws6XSX0UisPcNoyzVJduslnTJDNWaprHMRJzqSkV4N2LisXI
-    da9fUmFx6/KR9ZMe3ZBM18y+hf1OXvDZ8U4U6wC6YJleQ8hv9VSEnRVVsc4/9jg0t1LGCh
-    116u9bE7sbcMUukrtOCYzOzsqIRNQG3ZBeBSMy33OYZA0B8JIdKvAngV+DhCA2RqfHGnUX
-    cIeh8xMElXFdcUQR575d59ITd6Hel2TG52jAEiwcVi7/4XYGoFUILBxJUQSd5k3CkMaDxq
-    uO5sh8ftqHGAVIfkYaJ8DEKJB19JbLZ1x0ucib5madw/lMTnovz4hocb7LyX8hw7ZSGxB+
-    Hyn06azB0myWgSSfmA0CokdHWz0qYuwejw7VBZSsaF3mNo7nmzgCRxsTHD7w
-X-ME-Proxy: <xmx:pkhcasrg3co0Ohm9gvmunatMLX0iddoyRKh61q6Dl0uAMewAnNYrQw>
-    <xmx:pkhcass8kLcA2302yol_YRtDC5EqELNDih43Eas73u4-PVe0zL6wYQ>
-    <xmx:pkhcamKQ1uFUFOjVO18x1VKOaehrS4rGuvKt0WJxCGM0H-2zx76O3w>
-    <xmx:pkhcarpoWX7ibiSbui233ne9vBuBd1cj3BfsTBnB5YQ3tUzSayRwlQ>
-    <xmx:pkhcaqXFda_eRBoIGyjmJJkk62L7-aJ71__-3sD4_dFFnCCndF6Vs5UB>
-Feedback-ID: i7a5e4b5f:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
- 18 Jul 2026 23:46:42 -0400 (EDT)
-From: Jiaxing Hu <gahing@gahingwoo.com>
-To: maxime.chevallier@bootlin.com
-Cc: andrew@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	heiko@sntech.de,
-	netdev@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
+	id 1wlJA4-00000004kPB-02tO;
+	Sun, 19 Jul 2026 04:29:56 +0000
+Received: from azure-sdnproxy.icoremail.net ([52.187.6.220])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wlJ9z-00000004kOk-13q9
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 19 Jul 2026 04:29:54 +0000
+Received: from zju.edu.cn (unknown [10.98.66.117])
+	by mtasvr (Coremail) with SMTP id _____wD3SAivUlxqr5wRAA--.40166S3;
+	Sun, 19 Jul 2026 12:29:36 +0800 (CST)
+Received: from localhost.localdomain (unknown [10.98.66.117])
+	by mail-app1 (Coremail) with SMTP id yy_KCgCHiaOuUlxqvO31Ag--.22502S2;
+	Sun, 19 Jul 2026 12:29:34 +0800 (CST)
+From: Fan Wu <fanwu01@zju.edu.cn>
+To: linux-usb@vger.kernel.org
+Cc: gregkh@linuxfoundation.org,
+	nicolas.ferre@microchip.com,
+	alexandre.belloni@bootlin.com,
+	claudiu.beznea@tuxon.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v2 2/2] net: stmmac: dwmac-rk: enable the reference clock for output mode
-Date: Sun, 19 Jul 2026 15:46:40 +1200
-Message-ID: <20260719034640.3623173-1-gahing@gahingwoo.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <da7d4ee0-8122-4839-b807-5d23ee6aeef7@bootlin.com>
-References: <da7d4ee0-8122-4839-b807-5d23ee6aeef7@bootlin.com>
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Fan Wu <fanwu01@zju.edu.cn>
+Subject: [PATCH] usb: gadget: at91_udc: drain polled-VBUS timer/work before udc is freed
+Date: Sun, 19 Jul 2026 04:28:39 +0000
+Message-Id: <20260719042839.3167094-1-fanwu01@zju.edu.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: yy_KCgCHiaOuUlxqvO31Ag--.22502S2
+X-CM-SenderInfo: qrstjiaswqq6lmxovvfxof0/
+X-CM-DELIVERINFO: =?B?E9tgYQXKKxbFmtjJiESix3B1w3vZ3A9ovKVTomAyoQazvoRs/NHSP8GI2EvgeEEW7R
+	sfnVCjTgEH9dVomQuWcozCBBFO+OqxT0FaZMjqNNJSPRVXVwwGfJ0X0lj3+n4RXJDYpP4E
+	eXecJ1t502QrduF9jzDN5RPxYw6l01w8CbPzC/8w
+X-Coremail-Antispam: 1Uk129KBj93XoWxWF4fKFyUuw45XF1UWF48uFX_yoW5tF1kpF
+	Z3WFWfCFW7XFW2ywnxZ3yqvFyYy3yxt34jvrWxGa18urn3Jr13JFyUJFy2vFWrCFZ5G3W7
+	ta1kWw45CFn7ZrbCm3ZEXasCq-sJn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7ZEXa
+	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
+	0xBIdaVrnRJUUU9Gb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2
+	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+	0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AK
+	xVW0oVCq3wAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc804V
+	CY07AIYIkI8VC2zVCFFI0UMc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AK
+	xVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48Icx
+	kI7VAKI48JM4x0Y48IcxkI7VAKI48G6xCjnVAKz4kxMxAIw28IcxkI7VAKI48JMxC20s02
+	6xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_Jr
+	I_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v2
+	6r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj4
+	0_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8
+	JrUvcSsGvfC2KfnxnUUI43ZEXa7IU85l1PUUUUU==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260718_204648_166547_6F175067 
-X-CRM114-Status: UNSURE (   8.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260718_212951_493627_1B8725DE 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,25 +88,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> You've taken my review into account (thanks :) ), but you're failing to
-> address Andrew's comment.
->
-> The PHY should be the one requesting the MAC to output the refclk, in
-> that case the MAC will act as a clock provider [...]
+In polled-VBUS mode (board.vbus_pin && board.vbus_polled), probe arms a
+self-restarting cycle: at91_vbus_timer() schedules vbus_timer_work, and
+at91_vbus_timer_work() calls at91_vbus_update() and re-arms the timer via
+mod_timer(). Both recover the same udc through container_of and dereference
+it on every iteration.
 
-You are both right, and I am sorry I missed Andrew's point on v1. The MAC
-should not own the PHY's clock.
+Neither teardown path cancels this cycle. udc is devm-allocated, so it is
+freed after at91udc_remove() returns, and is likewise freed when probe
+fails and devres runs. A timer callback or work item that is pending or
+running at either point dereferences the freed udc.
 
-I have dropped this series. Instead the motorcomm driver now enables the
-reference clock itself, which is the consumer that needs it:
+Add at91_udc_shutdown_vbus_timer() and call it from at91udc_remove() and
+from the usb_add_gadget_udc() failure path in probe; the remaining probe
+error paths fail before the timer is armed. timer_shutdown_sync() waits
+for a running callback and clears timer->function, which makes the work
+handler's mod_timer() a permanent no-op; cancel_work_sync() then drains
+any pending or running work whose re-arm attempt now does nothing. The
+timer must be shut down first, since cancelling the work alone would let
+the timer re-queue it. The guard mirrors probe: in IRQ mode the timer and
+work_struct are never initialized.
 
-  https://lore.kernel.org/all/20260719034555.3623003-1-gahing@gahingwoo.com/
+This does not require a fault; a normal driver unbind can interleave with
+an already queued work item.
 
-The device tree names the YT8531 explicitly so the PHY is instantiated
-without an MDIO ID probe, which it cannot answer before that clock runs;
-the DTS goes to the rockchip tree. Tested on an ArmSoM CM5-IO: the PHY
-links at 1000 Mbit/s with no dwmac-rk change at all.
+This issue was found by an in-house static analysis tool.
 
-Thanks for the review,
-Jiaxing
+Fixes: 4037242c4f5f ("ARM: 6209/3: at91_udc: Add vbus polarity and polling mode")
+Cc: stable@vger.kernel.org
+Assisted-by: Codex:gpt-5.6
+Signed-off-by: Fan Wu <fanwu01@zju.edu.cn>
+---
+ drivers/usb/gadget/udc/at91_udc.c | 20 +++++++++++++++++++-
+ 1 file changed, 19 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/usb/gadget/udc/at91_udc.c b/drivers/usb/gadget/udc/at91_udc.c
+index 5aa360ba4..8e5d7fb71 100644
+--- a/drivers/usb/gadget/udc/at91_udc.c
++++ b/drivers/usb/gadget/udc/at91_udc.c
+@@ -1794,6 +1794,19 @@ static void at91udc_of_init(struct at91_udc *udc, struct device_node *np)
+ 		udc->caps = match->data;
+ }
+ 
++/*
++ * The work handler re-arms this timer, so shut the timer down before
++ * draining the work; otherwise it restarts the polling cycle.
++ */
++static void at91_udc_shutdown_vbus_timer(struct at91_udc *udc)
++{
++	if (!(udc->board.vbus_pin && udc->board.vbus_polled))
++		return;
++
++	timer_shutdown_sync(&udc->vbus_timer);
++	cancel_work_sync(&udc->vbus_timer_work);
++}
++
+ static int at91udc_probe(struct platform_device *pdev)
+ {
+ 	struct device	*dev = &pdev->dev;
+@@ -1907,7 +1920,7 @@ static int at91udc_probe(struct platform_device *pdev)
+ 	}
+ 	retval = usb_add_gadget_udc(dev, &udc->gadget);
+ 	if (retval)
+-		goto err_unprepare_iclk;
++		goto err_shutdown_vbus;
+ 	dev_set_drvdata(dev, udc);
+ 	device_init_wakeup(dev, 1);
+ 	create_debug_file(udc);
+@@ -1915,6 +1928,8 @@ static int at91udc_probe(struct platform_device *pdev)
+ 	INFO("%s version %s\n", driver_name, DRIVER_VERSION);
+ 	return 0;
+ 
++err_shutdown_vbus:
++	at91_udc_shutdown_vbus_timer(udc);
+ err_unprepare_iclk:
+ 	clk_unprepare(udc->iclk);
+ err_unprepare_fclk:
+@@ -1933,6 +1948,9 @@ static void at91udc_remove(struct platform_device *pdev)
+ 	DBG("remove\n");
+ 
+ 	usb_del_gadget_udc(&udc->gadget);
++
++	at91_udc_shutdown_vbus_timer(udc);
++
+ 	if (udc->driver) {
+ 		dev_err(&pdev->dev,
+ 			"Driver still in use but removing anyhow\n");
+-- 
+2.34.1
+
 
