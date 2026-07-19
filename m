@@ -4,52 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3088CC4451B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jul 2026 23:10:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0113DC44512
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jul 2026 23:10:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+YU88ZRUFkvSVuCkK74k+hG8HaktkRVNfkNeUzR+i14=; b=maivosSYdDAfbErI4WtOcw3450
-	a7nBy4VpqVcaGL9em5GCuK79BroI6A0XxJ7kY3llDKEnwkgSFtvzkKmAm3LuVkwauK7WRfsVumLh8
-	KaB+GZgRbDDm65COhGrFCWijHoIHGyP03zSO5sdP7Y7NbcqFibtAQtzKeP4DLRHFeqNZL51aku4du
-	RWDTdFXD/mmH1GweGt2zZ/AOM0Q58RnkURpc5pyU+SAHdLgDfTbusYPZRCkH0scjLJilXo1Qqr7ui
-	RXCgU089bS792vKRCBG1NZF2irDgtDSEsDMsgn+bP6qPrMhMBAS16v4sQvAgSuMevts3Fd7LjRFBW
-	1n2mi8Ig==;
+	bh=/D7A+/K09S6yFl/i+7JwiO/DHtiAAbsIdjqdAGJ7jGk=; b=lg1+1VO8042qEuQGPKk8dWr82Y
+	8uKT7CQR3JsQNqRf4jMk19yg1VwsoRh6fzbdTawII4CnU42D18XcvtrEh601jONnBwsR2O2wrBnKB
+	zSb1BBjte/9w7fznSygDFkm9m44qqz2RqL813gMnsnK0axWnp946gTl79ZFTy+ipRjb/yw1/zM3Nc
+	ytdG6c0n190stehWt2IPw+DKr7enTCxDqmxXlvBgPPwD9LcMVByUVANrBOi4+YfwpKlcPHl0qZ+1k
+	IJJiiOdoW8Oclj2JrGW9yQ8na50/HBEURmMjtWPjMCwcOIHiiSq27BvdpKevRAi8yViJDrE9W+7sT
+	XdT89U9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlael-00000005Sfw-2UIe;
-	Sun, 19 Jul 2026 23:10:47 +0000
+	id 1wlaer-00000005Sm2-11uD;
+	Sun, 19 Jul 2026 23:10:53 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlaeb-00000005SYM-1eKT
+	id 1wlaeo-00000005SiC-1enD
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Jul 2026 23:10:37 +0000
+	Sun, 19 Jul 2026 23:10:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D0E3560120;
-	Sun, 19 Jul 2026 23:10:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A42441F00A3A;
-	Sun, 19 Jul 2026 23:10:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C700360A81;
+	Sun, 19 Jul 2026 23:10:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98D321F000E9;
+	Sun, 19 Jul 2026 23:10:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784502636;
-	bh=+YU88ZRUFkvSVuCkK74k+hG8HaktkRVNfkNeUzR+i14=;
+	s=k20260515; t=1784502649;
+	bh=/D7A+/K09S6yFl/i+7JwiO/DHtiAAbsIdjqdAGJ7jGk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=lKZST2U7ubjF94vzjCLR7/tBNZHKWq/SqHHaeYDDFUgkJRTsm/NYPp1dN28Grf1zc
-	 ezK3qcf4oUDbMhB58cHm3ldJGm0lU0htcVBcvOit1dcOqGuY82vy9kePDBfQa+K934
-	 QTvvnwrFe77Xd/sSbjtQmBs8BDG0ZJCAOiKNCpW0OsJEZKUaQifOXxDa6e0UG8RwU+
-	 eo7D+AaFTnwz9JpcCsWjrMBRgU8L25wEK8kqY4ZZuzzCtPd1U4CMDwcbyykhhXnVPt
-	 TWJaEZj0NUzizt9RGJSJz7JiHRrVKz+M1wFuEBOtB0fC4n5JNIvuesw8L06i+sgsqt
-	 zVopxsQUaJK8g==
+	b=j7YH/ZeCcuUssPiRCEZVbO2hN8Ozd1nuiqVP2Q2dcGXfjTdSGryXl+fM2naIdrOCE
+	 zA0ykelNAn1oRgI+6Egoyh0pq/l6avq5UeVdAE5QTIHEcOlZcU8GpFD7PHcAi30CcD
+	 tRwF+RXGTzkfv2BOQy62rKHPxb0s5ujjXdZF1H9lU5oM0EkpGCH9dinLCmgQCLMzxj
+	 KIm6n1zvu1ztdBdKWf10yII3J5vBS6qY1UJrjN7I/hiCzyK2AF5PYp0geizz7+pmn3
+	 6x5+Tgkh+iZYbyXD3jMvHsWQE2CIKKgGH4+dnc55Fjg12FmoiD3x3mXbXlm6o7sUnU
+	 1pSKgcvr3UC4A==
 From: Mark Brown <broonie@kernel.org>
-Date: Mon, 20 Jul 2026 00:07:36 +0100
-Subject: [PATCH v13 09/32] KVM: arm64: Pull ctxt_has_ helpers to start of
- sysreg-sr.h
+Date: Mon, 20 Jul 2026 00:07:39 +0100
+Subject: [PATCH v13 12/32] KVM: arm64: Define internal features for SME
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260720-kvm-arm64-sme-v13-9-d9abd3ffa245@kernel.org>
+Message-Id: <20260720-kvm-arm64-sme-v13-12-d9abd3ffa245@kernel.org>
 References: <20260720-kvm-arm64-sme-v13-0-d9abd3ffa245@kernel.org>
 In-Reply-To: <20260720-kvm-arm64-sme-v13-0-d9abd3ffa245@kernel.org>
 To: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
@@ -66,15 +65,15 @@ Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>,
  Peter Maydell <peter.maydell@linaro.org>, 
  Eric Auger <eric.auger@redhat.com>, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4004; i=broonie@kernel.org;
- h=from:subject:message-id; bh=1qAIu+pXeO/t0Rjmal4q8j7FSwr2awFBos2cAAJK0lg=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqXVkuuB2WFjp/yCHTYWLJwZ//ZY+ziiL++zNgW
- 7XZWKWf06iJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCal1ZLgAKCRAk1otyXVSH
- 0IOAB/9zm0mTMrpACLfYQpRp5JTRK32UJLPDANkxqiujJAMEA2cYcOIiCgWaIDyKrlbL4JHlx/u
- lzEHf8UVQaXur8zc9E2qtt1ZJRLIGz6K+wGp+A0s7OVC3USUcnBgvYuedaWSFSabNL/sc9R+wwB
- NnKmKXctmfhytkAl+fKtrs/01ruaaYRZqrVbNfNTybysrw0gdiRT9mfZD7rVeXcPOJ9scdp2FTH
- ir/6Ss2e8oBTBQyrpK2YM8dC+340heBL/7UDYXKBbjWaJTC9RQFANscflSgZl+XbXbbhMqFVkIL
- oxHg5yvNLBElRbkKSaCmMQcmOYBs8zMO9fYbBPBqb2GnIMjG
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3307; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=sk5UV4D8nxCJMJ3xILivF4E7O/FkNOR/tMjqIGqB6Y0=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqXVkwTNOtFEXfazfu6PadtIzIGZDK6qlXVMYcs
+ vpCNxtkJhqJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCal1ZMAAKCRAk1otyXVSH
+ 0M9OB/0WkbYRiGnVCTEg8Nb8HLWnAa5UZu1OMM4e9pqP+1mMFRKuUdPlHivFhOAVBChGyZtGP3o
+ GLObsc9YKmZ8Y7hlgTiiieWM9UKVsNLYDFrmSdeWeLsg3OTL4uolCGQT10UXGZ0ssSSXTyG3vL7
+ Minw6VWRRJbsSH6XPkk2AGCBTunD5aYQStQAmdKANHxnjg+uatH6Dwspf5W7FQ6jX4gIbTry6Ya
+ WtnJw9DPRzuPydn2qOvsMIAQJpUaAm/YgOjzRrwevVWpp/WyS/AWt1Cg9LW4+XDX6vQYvsu8O5e
+ 0hdJnvl271uo+mhfQLt86L0lcRqXLAZOeK//YnmEvRkXd8/2
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -91,126 +90,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rather than add earlier prototypes of specific ctxt_has_ helpers let's just
-pull all their definitions to the top of sysreg-sr.h so they're all
-available to all the individual save/restore functions.
+In order to simplify interdependencies in the rest of the series define
+the feature detection for SME and its subfeatures.  Due to the need for
+vector length configuration we define a flag for SME like for SVE.  We
+also have two subfeatures which add architectural state, FA64 and SME2,
+which are configured via the normal ID register scheme.
+
+Also provide helpers which check if the vCPU is in streaming mode or has
+ZA enabled.
 
 Reviewed-by: Fuad Tabba <tabba@google.com>
-Reviewed-by: Jean-Philippe Brucker <jpb@kernel.org>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h | 84 +++++++++++++++---------------
- 1 file changed, 41 insertions(+), 43 deletions(-)
+ arch/arm64/include/asm/kvm_host.h | 35 ++++++++++++++++++++++++++++++++++-
+ arch/arm64/kvm/sys_regs.c         |  2 +-
+ 2 files changed, 35 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h b/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
-index a17cbe7582de..5624fd705ae3 100644
---- a/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
-@@ -16,8 +16,6 @@
- #include <asm/kvm_hyp.h>
- #include <asm/kvm_mmu.h>
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 8b746b1a1e53..8e185e43fbff 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -367,6 +367,8 @@ struct kvm_arch {
+ #define KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS		10
+ 	/* Unhandled SEAs are taken to userspace */
+ #define KVM_ARCH_FLAG_EXIT_SEA				11
++	/* SME exposed to guest */
++#define KVM_ARCH_FLAG_GUEST_HAS_SME			12
+ 	unsigned long flags;
  
--static inline bool ctxt_has_s1poe(struct kvm_cpu_context *ctxt);
--
- static inline struct kvm_vcpu *ctxt_to_vcpu(struct kvm_cpu_context *ctxt)
- {
- 	struct kvm_vcpu *vcpu = ctxt->__hyp_running_vcpu;
-@@ -28,47 +26,6 @@ static inline struct kvm_vcpu *ctxt_to_vcpu(struct kvm_cpu_context *ctxt)
- 	return vcpu;
- }
+ 	/* VM-wide vCPU feature set */
+@@ -1133,7 +1135,16 @@ struct kvm_vcpu_arch {
+ #define vcpu_has_sve(vcpu)	kvm_has_sve((vcpu)->kvm)
+ #endif
  
--static inline bool ctxt_is_guest(struct kvm_cpu_context *ctxt)
--{
--	return host_data_ptr(host_ctxt) != ctxt;
--}
--
--static inline u64 *ctxt_mdscr_el1(struct kvm_cpu_context *ctxt)
--{
--	struct kvm_vcpu *vcpu = ctxt_to_vcpu(ctxt);
--
--	if (ctxt_is_guest(ctxt) && kvm_host_owns_debug_regs(vcpu))
--		return &vcpu->arch.external_mdscr_el1;
--
--	return &ctxt_sys_reg(ctxt, MDSCR_EL1);
--}
--
--static inline u64 ctxt_midr_el1(struct kvm_cpu_context *ctxt)
--{
--	struct kvm *kvm = kern_hyp_va(ctxt_to_vcpu(ctxt)->kvm);
--
--	if (!(ctxt_is_guest(ctxt) &&
--	      test_bit(KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS, &kvm->arch.flags)))
--		return read_cpuid_id();
--
--	return kvm_read_vm_id_reg(kvm, SYS_MIDR_EL1);
--}
--
--static inline void __sysreg_save_common_state(struct kvm_cpu_context *ctxt)
--{
--	*ctxt_mdscr_el1(ctxt)	= read_sysreg(mdscr_el1);
--
--	// POR_EL0 can affect uaccess, so must be saved/restored early.
--	if (ctxt_has_s1poe(ctxt))
--		ctxt_sys_reg(ctxt, POR_EL0)	= read_sysreg_s(SYS_POR_EL0);
--}
--
--static inline void __sysreg_save_user_state(struct kvm_cpu_context *ctxt)
--{
--	ctxt_sys_reg(ctxt, TPIDR_EL0)	= read_sysreg(tpidr_el0);
--	ctxt_sys_reg(ctxt, TPIDRRO_EL0)	= read_sysreg(tpidrro_el0);
--}
--
- static inline bool ctxt_has_mte(struct kvm_cpu_context *ctxt)
- {
- 	struct kvm_vcpu *vcpu = ctxt_to_vcpu(ctxt);
-@@ -131,6 +88,47 @@ static inline bool ctxt_has_sctlr2(struct kvm_cpu_context *ctxt)
- 	return kvm_has_sctlr2(kern_hyp_va(vcpu->kvm));
- }
+-#define vcpu_has_vec(vcpu) vcpu_has_sve(vcpu)
++#define kvm_has_sme(kvm)	(system_supports_sme() &&		\
++				 test_bit(KVM_ARCH_FLAG_GUEST_HAS_SME, &(kvm)->arch.flags))
++
++#ifdef __KVM_NVHE_HYPERVISOR__
++#define vcpu_has_sme(vcpu)	kvm_has_sme(kern_hyp_va((vcpu)->kvm))
++#else
++#define vcpu_has_sme(vcpu)	kvm_has_sme((vcpu)->kvm)
++#endif
++
++#define vcpu_has_vec(vcpu) (vcpu_has_sve(vcpu) || vcpu_has_sme(vcpu))
  
-+static inline bool ctxt_is_guest(struct kvm_cpu_context *ctxt)
-+{
-+	return host_data_ptr(host_ctxt) != ctxt;
-+}
+ #ifdef CONFIG_ARM64_PTR_AUTH
+ #define vcpu_has_ptrauth(vcpu)						\
+@@ -1650,6 +1661,28 @@ void kvm_set_vm_id_reg(struct kvm *kvm, u32 reg, u64 val);
+ #define kvm_has_sctlr2(k)				\
+ 	(kvm_has_feat((k), ID_AA64MMFR3_EL1, SCTLRX, IMP))
+ 
++#define kvm_has_fa64(k)					\
++	(system_supports_fa64() &&			\
++	 kvm_has_feat((k), ID_AA64SMFR0_EL1, FA64, IMP))
 +
-+static inline u64 *ctxt_mdscr_el1(struct kvm_cpu_context *ctxt)
-+{
-+	struct kvm_vcpu *vcpu = ctxt_to_vcpu(ctxt);
++#define kvm_has_sme2(k)					\
++	(system_supports_sme2() &&			\
++	 kvm_has_feat((k), ID_AA64PFR1_EL1, SME, SME2))
 +
-+	if (ctxt_is_guest(ctxt) && kvm_host_owns_debug_regs(vcpu))
-+		return &vcpu->arch.external_mdscr_el1;
++#ifdef __KVM_NVHE_HYPERVISOR__
++#define vcpu_has_sme2(vcpu)	kvm_has_sme2(kern_hyp_va((vcpu)->kvm))
++#define vcpu_has_fa64(vcpu)	kvm_has_fa64(kern_hyp_va((vcpu)->kvm))
++#else
++#define vcpu_has_sme2(vcpu)	kvm_has_sme2((vcpu)->kvm)
++#define vcpu_has_fa64(vcpu)	kvm_has_fa64((vcpu)->kvm)
++#endif
 +
-+	return &ctxt_sys_reg(ctxt, MDSCR_EL1);
-+}
++#define vcpu_in_streaming_mode(vcpu) \
++	(__vcpu_sys_reg(vcpu, SVCR) & SVCR_SM_MASK)
 +
-+static inline u64 ctxt_midr_el1(struct kvm_cpu_context *ctxt)
-+{
-+	struct kvm *kvm = kern_hyp_va(ctxt_to_vcpu(ctxt)->kvm);
++#define vcpu_za_enabled(vcpu) \
++	(__vcpu_sys_reg(vcpu, SVCR) & SVCR_ZA_MASK)
 +
-+	if (!(ctxt_is_guest(ctxt) &&
-+	      test_bit(KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS, &kvm->arch.flags)))
-+		return read_cpuid_id();
-+
-+	return kvm_read_vm_id_reg(kvm, SYS_MIDR_EL1);
-+}
-+
-+static inline void __sysreg_save_common_state(struct kvm_cpu_context *ctxt)
-+{
-+	*ctxt_mdscr_el1(ctxt)	= read_sysreg(mdscr_el1);
-+
-+	// POR_EL0 can affect uaccess, so must be saved/restored early.
-+	if (ctxt_has_s1poe(ctxt))
-+		ctxt_sys_reg(ctxt, POR_EL0)	= read_sysreg_s(SYS_POR_EL0);
-+}
-+
-+static inline void __sysreg_save_user_state(struct kvm_cpu_context *ctxt)
-+{
-+	ctxt_sys_reg(ctxt, TPIDR_EL0)	= read_sysreg(tpidr_el0);
-+	ctxt_sys_reg(ctxt, TPIDRRO_EL0)	= read_sysreg(tpidrro_el0);
-+}
-+
- static inline void __sysreg_save_el1_state(struct kvm_cpu_context *ctxt)
+ static inline bool kvm_arch_has_irq_bypass(void)
  {
- 	ctxt_sys_reg(ctxt, SCTLR_EL1)	= read_sysreg_el1(SYS_SCTLR);
+ 	return true;
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index b352cd323e30..ba8a3ed8f5ff 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -2028,7 +2028,7 @@ static unsigned int sve_visibility(const struct kvm_vcpu *vcpu,
+ static unsigned int sme_visibility(const struct kvm_vcpu *vcpu,
+ 				   const struct sys_reg_desc *rd)
+ {
+-	if (kvm_has_feat(vcpu->kvm, ID_AA64PFR1_EL1, SME, IMP))
++	if (vcpu_has_sme(vcpu))
+ 		return 0;
+ 
+ 	return REG_HIDDEN;
 
 -- 
 2.47.3
