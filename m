@@ -4,108 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A25BC4450A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jul 2026 21:09:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08437C4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Jul 2026 21:13:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AhtM1hpbjZSDdUK5uO0cI/aNaLK1lqiY4lPHHX9EMZU=; b=wqEXNFRgQFcslIVCq9rLoKbJl3
-	Ypx2buP7weZoryNZ1EGIaSR3saNJka1Dg6rhVOEUSs+brB4xR2/PGjxg5of1rbe+gVD3GNwiWyaD4
-	2STO7uSKL/le99Cn2yVHA406vc9r322peEGpenAUbW5DgQN9myxXaYCrAJIei5s0jn9tC6cJH5FPc
-	0ZrtZ3r5qsNGBD4GPBcAuUwbA+XMta9kLFlIMSM7+drd53x5OX9wYmn1eF2edFVBdF4YWLsUOSzSd
-	E1DwmIEWeJD5Eis3sE2/OZd9ftkNEVgibaN0JnlSzt8vUELPUa8FNDae4OPSpii65ub5bt6NoFzp0
-	604FgqYg==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yoqurlPSvAJxWv157dNwPLL8InVlGkCToDlg+t76AwE=; b=gnN0kK6ZfmvqNyJxI0DG5EY6BA
+	uI5BCYwd55Y7/tzqXYA/6qJv7gT5iFPBLCsRCfCIVP0147OhDwnIhxuptavtjY7BNW4IJEcbUF494
+	72JbBmSxOmelL0T4j+q93jHYPXbu7DA9VvA7PBR8W3JnoQaHUFGDDwzXrMwb2twOVL5DC7HtCxxws
+	hmZwTs52sFyf+Q73n031AoI/0MUguFhjrzvwnC1g3TTIEhqXlD7ry3Wb1ll43U8pWgpLnodGiSLlD
+	K+moqQ27hd3CoT6Z2vDaEF7xE+TLtUStSaI9ycj1FdBzQEOv9sJ+eSohrDU3lRpmOPL3MrsiJCSxy
+	l/BrvpyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlYlM-00000005MWb-3jvX;
-	Sun, 19 Jul 2026 21:09:28 +0000
-Received: from mail-yw1-x112c.google.com ([2607:f8b0:4864:20::112c])
+	id 1wlYpX-00000005MoP-2GZE;
+	Sun, 19 Jul 2026 21:13:47 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlYlK-00000005MWG-1bML
+	id 1wlYpV-00000005Mnn-0Sgj
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Jul 2026 21:09:27 +0000
-Received: by mail-yw1-x112c.google.com with SMTP id 00721157ae682-8143daf89c7so56193977b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Jul 2026 14:09:25 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1784495365; cv=none;
-        d=google.com; s=arc-20260327;
-        b=gxzkKmszmQzOo4Y5WUmwZ2dI0ipsZy9ZKE0BsEYkaFtrIB48To/zdKuvZ53t+G7pJa
-         LMYhkF2ID62tTQiraUirePpfEUhPSKTwBrZ8SilRmhMG4btioOQP0VIEukPNlV7yRWjf
-         NxV2wX5blCFXykgDh1uklM07WhzujtJI5nTXqS67RlQtpk0LwucLwcJnrQjwGOdrWhRn
-         k5pMeQY9ElgDso7dZE+Riat01LK+bGyJ3plFlcs7MokDPbOM8YoHpwUOAvrNk5OfWBmi
-         ThoK1spOZ1kmrKOSoJJBdz7O/Sxy1A1HLu/qC2lMqsXjPsUClKqqvdTkFkiUfbOPTc8O
-         lh4Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=AhtM1hpbjZSDdUK5uO0cI/aNaLK1lqiY4lPHHX9EMZU=;
-        fh=wEa3nIoA4h+bsMSucP1ESIKxicx7Spvtisc2TwLcREU=;
-        b=Nn/lr1c34F37A6K6FGe1MJgODAHQ22Kfg8VYoXzTJq71pNP5e9rQNtYxQ3NiX1QHCy
-         pUyuEQ4wM39P2L7SDuQael04GAI5AQOAMltWyGFeTqRNj6ROiN35hjjD23LmT314R/io
-         NtamexY+AcO7d5B7IVXvp08EOp6SFrUuLwHZSKJXdqpoPUFciHxQd4+PLykJSVkTNQ2B
-         VByCsRjtlBvB6/23my94jCS4T3aQe+jlGLQgkoG42IQMktyIy65VIPQvvO7ZWWC4aKXp
-         m0HXaANF2r6mEAYVZA0p2484WDwityhFcQsOJL7FY+VdAFwYRByJqNbp/sccBLRyRvdL
-         vBUQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Sun, 19 Jul 2026 21:13:46 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4954aff6088so14254385e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Jul 2026 14:13:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784495365; x=1785100165; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=AhtM1hpbjZSDdUK5uO0cI/aNaLK1lqiY4lPHHX9EMZU=;
-        b=oaw1SIOP5w4LiblHVGView+AP3t0VEu1qFhrqj+CNrYZ7kpyBMJ6jRUoa3zx1UTlhc
-         0eGXHwEGPrwYH7+z4dijbpy/eE2zb0AFu0BIiYzD5C7Wzx54euNcT1iuWE/BdEhh0/uk
-         hK6tkF7lGXtAPdAMyYQWxGxTwxOSRiZLAVnZTSXVMSllp3QoXT+q/1hJSDrfV2XZvDNP
-         gBQyB7PpuCrU/l9oT40hPuDLJP6nP0GmXwogclfaDyvX9fZPfsmB79FF9VZvdsKZPnmm
-         5njrMhOzy05uRaC4hijg59RfYQQYJPcsO9iy6T4vepvEVH2/NmfpUtGqhCRxzhFnNbF2
-         u4rA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784495365; x=1785100165;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20251104; t=1784495623; x=1785100423; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=AhtM1hpbjZSDdUK5uO0cI/aNaLK1lqiY4lPHHX9EMZU=;
-        b=XbzeOEgXSh5oYqySaTZtZcJPdEfIX1KZKwPBqCZeIwoKAEzUSnvttbTc9eC6kO4ddY
-         GZJK/6YL/2UACvKL7IRMso0E2lcMHcmlFfRvNkwBkWG4QFXYPdUdfL8VyvhnZcXV9uMs
-         oV/Jz7T7c8CwTaFjYMnN4D0mV0j7UhBs1IA/jDSHAtV+t6mY9qej2GhsEjMkKpdbaZeP
-         qilSrLkz4rEGHUr6v/OtjaHI50A7f0IFFzyITpYrGdqs1g1RSJcJQHfGFNTWvJYzo8ci
-         OqQcJMLl39BmiTZtLMa/n52pgOlxUNU0OuwPcP3ZN2tFs57BUVuj1qk8ZDDD5LavYwFL
-         0mdg==
-X-Forwarded-Encrypted: i=1; AHgh+Rqcal6+maHPcuDruOu2faw1WCc/Rt7FElqjoOJrQ41be87HAGO3OhXeHJHaBy9ibiJI3bq7+KwfRG/85pYwyH/E@lists.infradead.org
-X-Gm-Message-State: AOJu0YzL33WXuZJfvxBw3POprl3KD55q2yix3Mpnk64xesg+rCA0MSxF
-	2nLW/WQFXdvPoXcVHZtphhtaHEdpk8AP8TkuHZeMdeu23Pk9br9XP90rZBZVqI8Q2eTvd8PpMrE
-	zaJ8PlP74n6w00c0SSLNz7F4djwPgpWs=
-X-Gm-Gg: AfdE7ckuu7HxAog8XczVSoDolKJ0u6n2XOjY087/P68ysrYndGFwWKka+pm5b1nkmej
-	6KVsiaUy8dol18PfOdMS41AZMedK6M4DMTfEEGA1mnBKmnacqkoxTlA4GRPk42uwWmtirvm0Yc6
-	4yunsfetyBblPRFelXXEidYv0jJNhFdEfBaCePzSsZHfdCKD0kdPGKNpViJoBOKkMu0Ux1FUMxk
-	V6BWONOOvgtMiojfalksPWNt6WBeY2Xt+FH+qcIcFfIY3MTJXvsA1ltHADjp2BuzapIWa+ijQ5b
-	3x7DxPHj2qItgbrFy08=
-X-Received: by 2002:a05:690c:4d83:b0:81d:d035:eb4b with SMTP id
- 00721157ae682-81ef22f15ecmr41881237b3.19.1784495364767; Sun, 19 Jul 2026
- 14:09:24 -0700 (PDT)
+        bh=yoqurlPSvAJxWv157dNwPLL8InVlGkCToDlg+t76AwE=;
+        b=jbyymCchmg6adgzYZgVA58hoRy41Gxwq/vjcEFzvEqL/P8jpUCFOGTWSiA9oM+LZKl
+         BxsN0jDltSr08VEOs7nhKh2mk76Ox62B/sLzOJgD1DRro1Z+5vf9CCe9E6FgacG1wEDv
+         vdlHG7eXlcXMbZlWMhSVh0PFkOlmBgF8koUSYe9SBX62rNv7b2dSst/rISPP+XWby74O
+         +CZeObsHVfKs8t856ZXZImzbkQsc2i1ORErGLdoY3Uhp1OAOa/5yCYUD/aPSmTyi2BIt
+         VjFgDUvniNokylOTIBXY0ZDxV4iNb9gwFT+PfHqXf4xD0PdDqYHZLGH8kDmWFguFYmJX
+         PaJw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784495623; x=1785100423;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=yoqurlPSvAJxWv157dNwPLL8InVlGkCToDlg+t76AwE=;
+        b=VJKMkubEGt4tNMD4G3/zTPYvpg5aSBt5bgrwSt6DZj1dIf2YrGBiFmb78w20MdtSTe
+         /oj4KpdEP2/HBdBjiP7ThfGAyRxMEslwCzdt750mN+qUH4x0eewDi49dzy3ddj3UZQju
+         Fjski6FhDFqba8qQdzTgINEOggb6FZF4OEvJJWoCBJUoFTrjpVUVGLqT0NvVuIh7uX8A
+         SgLoLNqT8KoIvg/eZ2N7/NmNAPDIXJNzh6SePsXGXr/Au2VM5kUMC6UPzjJE7myFe4jL
+         03LrITPaZkrQjNZN+NZV3EvPJfW4LxXicV0rfVO52w0Bv4UKtjf7ZniLyOZYcAINeX9R
+         jWRg==
+X-Forwarded-Encrypted: i=1; AHgh+RrUobXHiKA5LLFycnV0NUZ/fr9RXtyYZbdXGwGQUEHcLsHCefubyJ+fUQh/YD9zLTzKZpwM+AMaEPlFZXXagCEz@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxl4zWho2AJMQPJxFrAq9uMAR7licUg06fy2FOfy/NN4dShrozg
+	46/38XjQeXA43f0os7YVSIzz9HtCsUC+7oYThbvNWUu7Us6VofNv1W2X
+X-Gm-Gg: AfdE7cmPtIhMF3dWHSWLfLxV3422RgveA3i8LT6TUASBQA1efLDk+eKJw1BpN1YTiQC
+	D28CVksE6zYPBle/bLpfUK8t/bAtCc8AxgbRHOtM8gQEBzSj3TRcXA1eIGDZMWsQE4AqdgvNo0Z
+	yyJC/NbQjWRmJMyfkphhvLet+ntb4CghgDnbEw/6t+2Vao9NxmFV8a1hYaayAfjpI/Em7PnnfiD
+	0Ig9+cxI//DPvwj++cVnD/TKbiFbfmZZWHNRk8B0aOc+etTtwQHrRWK07a7XPEcJmUqTH1tiPT7
+	Bcp7mB1BMjx8eZb0PYnQa2Xt+sfuS3eqm/EIOCIvL9UrHZM9ndVb/xnQdp9nIX0ldhv3/9Qw1FV
+	PfnsXG9m6ylSbPMqIPBGLKo+eqQp4fq0Ni4HLPAKK0wj7lFsIjumYlXBEefArvec21mJGcaEpV7
+	M3gJRMKde7h7YE9ybiAtzwNsdyw22Qpogz0h2y8xbNCpkTRVE=
+X-Received: by 2002:a05:600c:3b10:b0:495:4aff:5fce with SMTP id 5b1f17b1804b1-4954aff609amr121711955e9.32.1784495622909;
+        Sun, 19 Jul 2026 14:13:42 -0700 (PDT)
+Received: from localhost.localdomain ([2a0d:3344:2841:7708:a101:2b8a:f76:a00f])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49549a3e2a9sm224108815e9.4.2026.07.19.14.13.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 19 Jul 2026 14:13:42 -0700 (PDT)
+From: =?UTF-8?q?Juan=20Manuel=20L=C3=B3pez=20Carrillo?= <juanmanuellopezcarrillo@gmail.com>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: Brian Masney <bmasney@redhat.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-clk@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	=?UTF-8?q?Juan=20Manuel=20L=C3=B3pez=20Carrillo?= <juanmanuellopezcarrillo@gmail.com>
+Subject: [PATCH v1 0/4] clk: sunxi-ng: fix the A523/T527 GPU clock model, enable GPU DVFS
+Date: Sun, 19 Jul 2026 23:13:15 +0200
+Message-ID: <20260719211319.982285-1-juanmanuellopezcarrillo@gmail.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-References: <20260719153122.892013-1-juanmanuellopezcarrillo@gmail.com> <CAGb2v64Mdq-+C2e6GGHEN_n_H6QEEd66zp6O2W9y--58L=5yzQ@mail.gmail.com>
-In-Reply-To: <CAGb2v64Mdq-+C2e6GGHEN_n_H6QEEd66zp6O2W9y--58L=5yzQ@mail.gmail.com>
-From: Juan Manuel <juanmanuellopezcarrillo@gmail.com>
-Date: Sun, 19 Jul 2026 23:09:12 +0200
-X-Gm-Features: AUfX_mzAKn4OrNAtXWomQRAbZerhdiZ5kkyJSxJPwI1hfOOK1mJBaeXrnWi0ctw
-Message-ID: <CA+c=wxXJCB3Ms=eRy4Bs6fG_uA0owLYpmaXHmxP6woeP+icsWA@mail.gmail.com>
-Subject: Re: [PATCH] clk: sunxi-ng: div: implement set_rate_and_parent
-To: wens@kernel.org
-Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Brian Masney <bmasney@redhat.com>, linux-clk@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, =?UTF-8?Q?Andr=C3=A9_Przywara?= <andre.przywara@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260719_140926_431726_AB597348 
-X-CRM114-Status: GOOD (  17.67  )
+X-CRM114-CacheID: sfid-20260719_141345_169523_900CC16C 
+X-CRM114-Status: GOOD (  15.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,60 +110,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
+This series follows up on the discussion in [1], where Chen-Yu pointed
+out that the A523/T527 GPU mod clock is not a standard divider but a
+fractional one: GPU_CLK = Clock Source * ((16-M)/16), with M 0-15.
 
-Thanks a lot for the quick review!
+I checked this against the T527 user manual (v0.92, section 2.7.6.58,
+"FACTOR_M: mask M cycles at 16 cycles") and verified it on hardware:
+with the current linear model, forcing each OPP on an Orange Pi 4A and
+measuring the real GPU frequency with the Mali cycle counter gives
 
-> So the patch itself is OK, but I think there is also something wrong
-> with the GPU mod clock. The GPU clock is not a standard divider, but
-> actually a fractional one. The formula for the output is
->
->     Clock Source * ((16-M)/16)
->
-> with M being 0~15.
+	OPP request	programmed	measured
+	150 MHz		600M, M=3	~487 MHz
+	200 MHz		800M, M=3	 648 MHz
+	300 MHz		600M, M=1	 560 MHz
+	400 MHz		800M, M=1	 749 MHz
+	600 MHz		600M, M=0	 599 MHz
 
-You were right, and it was worse than I expected.  I checked the T527
-user manual (v0.92, section 2.7.6.58: "FACTOR_M: mask M cycles at 16
-cycles") and then measured it on the Orange Pi 4A, forcing each OPP
-and reading the real GPU frequency with the Mali cycle counter.  With
-the current linear model:
+so every OPP below 600 MHz silently overclocks, up to 25% above the
+vendor ceiling, and thermal throttling to "400 MHz" actually raises
+the GPU frequency.
 
-  OPP request    programmed    measured
-  150 MHz        600M, M=3D3     ~487 MHz
-  200 MHz        800M, M=3D3      648 MHz
-  300 MHz        600M, M=3D1      560 MHz
-  400 MHz        800M, M=3D1      749 MHz
-  600 MHz        600M, M=3D0      599 MHz
+Patch 1 adds a small ccu type implementing the cycle-masking
+semantics.  Patch 2 switches the A523 GPU clock to it, drops
+pll-periph0-800M from the selectable parents (the vendor BSP removed
+it citing GPU job faults) and drops CLK_SET_RATE_PARENT (pll-gpu loses
+its CLK_SET_RATE_GATE protection once the GPU runs from a periph
+output).  Patch 3 registers the existing sunxi-ng mux notifier so the
+GPU is parked on pll-periph0-600M while pll-gpu changes rate, as
+Chen-Yu suggested in the same thread.  Patch 4 adds the BSP operating
+points to the Orange Pi 4A DT, which enables panfrost devfreq.
 
-so every OPP below 600 MHz silently overclocks (thermal throttling to
-"400 MHz" actually raises the clock to 750 MHz).  Interestingly the
-vendor BSP models this register as a linear divider too, so the
-vendor kernel has the same mislabelling; it also removed the 800M
-parent from its parent list citing GPU job faults.
+With the series applied the same cycle-counter measurement reads
+149/199/300/399/597 MHz for the five OPPs, all from the intended
+parents, and devfreq scaling plus thermal throttling (emulated
+temperature) behave correctly under load.
 
-I have a fix working: a small ccu type implementing the cycle-masking
-semantics, with the A523 GPU clock switched over to it, the 800M
-parent dropped from the selectable parents, and the OPP table for the
-Orange Pi 4A.  Re-measured with the same cycle-counter method the five
-OPPs now come out at 149/199/300/399/597 MHz from the intended
-parents.  I'll send it as a follow-up series referencing this thread.
+The higher speed-bin operating points of the BSP (648-792 MHz, gated
+by a SID efuse bin, running from pll-gpu) are left for a follow-up.
 
-> And we're also missing a notifier to switch the GPU clock away from
-> the PLL while the PLL is being changed.
+[1] https://lore.kernel.org/linux-sunxi/20260719153122.892013-1-juanmanuellopezcarrillo@gmail.com/
 
-Agreed =E2=80=94 the series also registers the existing sunxi-ng mux notifi=
-er
-on pll-gpu (cpux precedent), parking the GPU on pll-periph0-600M
-during PLL rate changes.  The manual states the mux switch is
-glitch-free.  Nothing retunes pll-gpu at runtime yet with the standard
-OPPs, but the higher speed-bin operating points (648-792 MHz) will
-need it as a live parent.
+Juan Manuel López Carrillo (4):
+  clk: sunxi-ng: add cycle-masking divider (maskdiv) clock type
+  clk: sunxi-ng: sun55i-a523: GPU clock divider is fractional, not
+    linear
+  clk: sunxi-ng: sun55i-a523: reparent GPU while pll-gpu changes rate
+  arm64: dts: allwinner: t527-orangepi-4a: add GPU OPP table
 
-> Do you plan on implementing GPU DVFS on mainline?
+ .../dts/allwinner/sun55i-t527-orangepi-4a.dts |  30 +++
+ drivers/clk/sunxi-ng/Makefile                 |   1 +
+ drivers/clk/sunxi-ng/ccu-sun55i-a523.c        |  47 ++++-
+ drivers/clk/sunxi-ng/ccu_maskdiv.c            | 199 ++++++++++++++++++
+ drivers/clk/sunxi-ng/ccu_maskdiv.h            |  71 +++++++
+ 5 files changed, 342 insertions(+), 6 deletions(-)
+ create mode 100644 drivers/clk/sunxi-ng/ccu_maskdiv.c
+ create mode 100644 drivers/clk/sunxi-ng/ccu_maskdiv.h
 
-Yes =E2=80=94 see above; the series is on its way.  The speed-bin OPPs (SID
-efuse gated) are left for a follow-up.  Happy to test any related
-series on this board in the meantime.
+-- 
+2.47.3
 
-Juan Manuel
 
