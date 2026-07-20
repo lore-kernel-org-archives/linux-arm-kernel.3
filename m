@@ -4,87 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25978C44529
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 18:29:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B84EC44515
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 18:34:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yLMgkHL29YuNPW+/3QaUsRDGEETcaDq11JerkMxi71U=; b=K712hDz+hHzycShKU8CIKsE/Fp
-	PXH+r/ElUcaa0EzwYcg0eLpLolEd84bd+08A30XS5Sex/MgNjs2ijV7bt3KluO8jMIX0lPUhaQS/r
-	jOg7/pAhFAOrxOo7HhUU99oEaAeKlbwqh2kvA36y06Zjp2ywm1Am+SimoYngCsPrf5jolWhEix9fh
-	TA6VnXUwoEZ5F8IKZ8AsNGI4zWqUF2flungeLeEmVDd4h5EinyYO+RQlex6MlKIWk2lPhQpUe3ozI
-	rfY0n2n/VSFL1xOflAFLkZpvohzh+W89B2Ux2QtDnBaWgu47CheuKn1UOdzM4Fvt0ufhiH8Net2iP
-	ujY9hKUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TAUtxooEebNess9CEi1siJitKJAhCmF0fkozk7XaYAQ=; b=AtIDQH8PJ3xU7W2A7UQac1cn8J
+	2osg8hSzlWxp8W0K9Zcc7vlTv3Kc4X0ENtEL1O+AcabAofybnyoFyySohPW41dYp/BMpguQDNgIoQ
+	Q5OVdSRHkM0olRaSTOpDpEogkGbneHgkj+RdZsNq0J6n80Uz5yEq8VIVcMpLkkTO9rMYzf1Z4JRMl
+	mIxsON+wYkt+lfFf5jRL2vfIvL+twghKEupVO9+1URa50q3cow8BAXw17bJBuBUUt1zuABUv9eQqX
+	jq3twyiycIkmacfSF/2ur0HxWFeKUnT+KjKpjBDzK0o75RHaVGlvuxZx60CAxTtgs2yDVBHQu+p2p
+	qZYCb16A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlsjm-00000007eja-36e5;
-	Mon, 20 Jul 2026 18:29:10 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1wlsmv-00000007fPw-12aP;
+	Mon, 20 Jul 2026 18:32:25 +0000
+Received: from smtprelay0015.hostedemail.com ([216.40.44.15] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlsjk-00000007eiO-1eeB
+	id 1wlsms-00000007fNz-0XUc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 18:29:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=yLMgkHL29YuNPW+/3QaUsRDGEETcaDq11JerkMxi71U=; b=aXfSe1axWn1ivOd2Cu9BO1RFeq
-	hWgF1UgIJeW3prZhNqGQBXWrgbuTuwyexLgmgUNYx2N/ldKGruFnJsUHlN1z27mAm6jFGqs2hs9gA
-	ahOJFCbMr0Yi7Jx28dCpVd/erX67Wj6OVBy/j8nQ7Y54VjyLQTQQ9WeRLH9Gg27QXLhQ=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wlsjH-00DJ6A-QN; Mon, 20 Jul 2026 20:28:39 +0200
-Date: Mon, 20 Jul 2026 20:28:39 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Doug Berger <opendmb@gmail.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Ulf Hansson <ulfh@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Lee Jones <lee@kernel.org>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Srinivas Kandagatla <srini@kernel.org>, driver-core@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
-	linux-i2c@vger.kernel.org, iommu@lists.linux.dev,
-	netdev@vger.kernel.org, linux-pm@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	mfd@lists.linux.dev, linux-arm-msm@vger.kernel.org,
-	linux-sound@vger.kernel.org
-Subject: Re: [PATCH 7/8] net: mv643xx: use platform_device_set_fwnode()
-Message-ID: <3e14e41f-ecd5-432b-9f52-690a05b38a8a@lunn.ch>
-References: <20260720-pdev-set-fwnode-instead-of-of-node-v1-0-2dee93f42c54@oss.qualcomm.com>
- <20260720-pdev-set-fwnode-instead-of-of-node-v1-7-2dee93f42c54@oss.qualcomm.com>
- <86b2aba7-b049-47e6-bc94-6cb499b30ce4@lunn.ch>
- <CAMRc=Mduv_KiB42d4AZddTrFSHmKogd2wh6vBDXomW6ssdfq9A@mail.gmail.com>
+	Mon, 20 Jul 2026 18:32:24 +0000
+Received: from omf11.hostedemail.com (lb01a-stub [10.200.18.249])
+	by unirelay04.hostedemail.com (Postfix) with ESMTP id AE9D91A0289;
+	Mon, 20 Jul 2026 18:32:16 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf11.hostedemail.com (Postfix) with ESMTPA id 73CF12002A;
+	Mon, 20 Jul 2026 18:32:12 +0000 (UTC)
+Date: Mon, 20 Jul 2026 14:32:11 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: maz@kernel.org, oupton@kernel.org, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org,
+ mhiramat@kernel.org, alexandru.elisei@arm.com, vdonnefort@google.com,
+ joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com,
+ yuzenghui@huawei.com, qperret@google.com, ardb@kernel.org,
+ linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+ tabba@google.com
+Subject: Re: [PATCH v1 01/11] tracing: Include linux/types.h in
+ trace_remote_event.h
+Message-ID: <20260720143211.0bc5d6a4@robin>
+In-Reply-To: <20260720161343.1367007-2-fuad.tabba@linux.dev>
+References: <20260720161343.1367007-1-fuad.tabba@linux.dev>
+	<20260720161343.1367007-2-fuad.tabba@linux.dev>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAMRc=Mduv_KiB42d4AZddTrFSHmKogd2wh6vBDXomW6ssdfq9A@mail.gmail.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Stat-Signature: a831g5wityo5unzsfqepbjsayoypenqi
+X-Rspamd-Server: rspamout02
+X-Rspamd-Queue-Id: 73CF12002A
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX18V9+EcvOTS50wfn1iUFdmuVa/ykzVCoIA=
+X-HE-Tag: 1784572332-903957
+X-HE-Meta: U2FsdGVkX1/nUie4EgfVs/N2MN8uYuXasi4IxdlvoavaGWe59c26La92i2jL7d8Ef0hWHk+Gs6YDAwZLoyVdqIXpVxEvu5g7sdhsQYQ128RX80hg4ZjuTEDC3f3aARD6PmMbm9HvR7IQQCVCMx9Xyk5NLs3upKYJSf98tJMMCixZuWNL6pm30wjpZM4XQxKnzFryYh0M2qH2uV8IcIQI1KHfCDaJtD14aaldy6iuuRezR3LRfKUNdAHfAtgH+dnCaYL3cSwR+0rrstNociZI03uZ1ghPYjjLtLJPJNNQ06xf3O1QLr1ywSywYVo0oHbaG7DSLu+AGcJsRqWedIOESDblNETM+yOk0hnRlEWWnVNZuxdBxyjmpTjSoCh0KcpE
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_112908_437848_E507D4DA 
-X-CRM114-Status: GOOD (  25.20  )
+X-CRM114-CacheID: sfid-20260720_113222_249861_1F0DBDAD 
+X-CRM114-Status: UNSURE (   9.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,61 +77,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 20, 2026 at 06:01:37PM +0200, Bartosz Golaszewski wrote:
-> On Mon, 20 Jul 2026 16:43:40 +0200, Andrew Lunn <andrew@lunn.ch> said:
-> > On Mon, Jul 20, 2026 at 11:24:54AM +0200, Bartosz Golaszewski wrote:
-> >> Prefer the higher-level platform_device_set_fwnode() over the
-> >> OF-specific platform_device_set_of_node() for dynamically allocated
-> >> platform devices.
-> >>
-> >> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> >> ---
-> >>  drivers/net/ethernet/marvell/mv643xx_eth.c | 2 +-
-> >>  1 file changed, 1 insertion(+), 1 deletion(-)
-> >>
-> >> diff --git a/drivers/net/ethernet/marvell/mv643xx_eth.c b/drivers/net/ethernet/marvell/mv643xx_eth.c
-> >> index 9caa1e47c174c9d7a161b7f2e2ee12a829b813d4..2f2d6cce8d852b9ec3ab42678a04a7915d1f00cc 100644
-> >> --- a/drivers/net/ethernet/marvell/mv643xx_eth.c
-> >> +++ b/drivers/net/ethernet/marvell/mv643xx_eth.c
-> >> @@ -2780,7 +2780,7 @@ static int mv643xx_eth_shared_of_add_port(struct platform_device *pdev,
-> >>  		goto put_err;
-> >>  	}
-> >>  	ppdev->dev.coherent_dma_mask = DMA_BIT_MASK(32);
-> >> -	platform_device_set_of_node(ppdev, pnp);
-> >> +	platform_device_set_fwnode(ppdev, of_fwnode_handle(pnp));
-> >
-> > This is definitely an OF only driver. There are no other calls to
-> > fwnode functions in this driver, so this is the wrong thing to do.
-> >
-> > Sorry, NACK.
-> >
-> 
-> I'm not going to die on this hill but drivers are OF-only until they're not.
-> For example, Qualcomm is now working on a hybrid ACPI-OF approach for
-> laptops[1] and we may end up needing to start converting drivers to fwnode
-> after all.
-> 
-> There's no real benefit to sticking to OF-specific APIs unless you need to
-> iterate over all properties of a node or use some other functionality not
-> available in fwnode. The overhead is minimal and it's never a hot path.
+On Mon, 20 Jul 2026 17:13:33 +0100
+Fuad Tabba <fuad.tabba@linux.dev> wrote:
 
-There is a lot of benefit to sticking to OF specific APIs, because
-within the kernel OF is well maintained, has active maintainers, there
-are tools to validate bindings, etc. ACPI is a Wild West, each driver
-is a snow flake, there is no review, no binding documentation, no
-validation tools etc.
+> diff --git a/include/linux/trace_remote_event.h b/include/linux/trace_remote_event.h
+> index c8ae1e1f5e721..e4cc2d4497bcf 100644
+> --- a/include/linux/trace_remote_event.h
+> +++ b/include/linux/trace_remote_event.h
+> @@ -3,6 +3,8 @@
+>  #ifndef _LINUX_TRACE_REMOTE_EVENTS_H
+>  #define _LINUX_TRACE_REMOTE_EVENTS_H
+>  
+> +#include <linux/types.h>
+> +
+>  struct trace_remote;
+>  struct trace_event_fields;
+>  struct trace_seq;
 
-I hope you allow plenty of time to convert any networking drivers,
-where Linux is driving the hardware, to ACPI. Your first stop will be
-the UEFI forum making a proposal for MDIO busses, because that
-currently is not part of ACPI. You will then need to spend time
-understanding the DT bindings, and figuring out which properties are
-deprecated so need to stay OF only, and which can be converted to dual
-OF/ACPI. I've seen too many naive attempts which blindly convert
-everything, copying all the past errors in the DT binding into the
-brand new ACPI binding. That will get NACKed.
+I don't know if this is correct or not, but here's my ack so others can
+decide and take it through their trees.
 
-OF != ACPI
+Acked-by: Steven Rostedt <rostedt@goodmis.org.
 
-	Andrew
+-- Steve
 
