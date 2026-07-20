@@ -4,68 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A16FC44520
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 21:15:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28A49C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 21:17:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UORWlzuR87ddV1y9kbk83e+yBPXKxZg8m/FZaB94uWs=; b=DfxWpN9tmHgvfNivPADlok8QLj
-	lyxTbVE35jLFsOF/LvivsWPBhlZSNIpAzgJJ+nlLbxuBPCLAWN84jbAD+ni99txf9Jl2eWdcbzkG1
-	akx2QlRtUr2bhp4Jd5tbCEviigk9plsojHN8cpnjLouv9m/q+4S90jPAfVVvYicykN7M8fQXXJlOn
-	YVxp/N/gYEdROjVAyNwoSnLrATqOBI40vPpV0Cc83Dv0a+oH9HsN12ruaUgkjpPHcxrJb6JQHQ5eS
-	rzW1xkpcKsHqy7LDsXdMN77aBjm2RvYnZXCH1OToeiMRig16vpXvuDC+YpRGEc+xaypaYmr7e0Ikw
-	ou9A4QEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YsqnHj4FyimjgtMv7CmV+usAxupMfWT9SKb2CMqETk8=; b=FZsy/wbO9bVrDomqb9HuEz6rrZ
+	kqrd1OCbcwtiU+XnIDOF42hV8eeFhCiTu7BDyq6L4QO7rM0R1zjiB1gNETcHLi9bYziMIMz7nvFa0
+	sKs1+GjgSlGLYpCdMj3hSl5uvGjGZZLzdU/nGQ0TGgw2gC+7z961bHSESNyGU20yesTG5Jmflu0Ns
+	3Esx20GbBHco6C/tcfxQtVAsJNqUSgBlueh3zxEngQju+8t4NnNwoGCS+9dGMTMdBxH97McZK9m3c
+	n0h0a5A+UQnmvZAUpSYjhu8YzNSTP2vIGZHk/Ksyq4fJ89Vcq8hQWJ8HiSyz/43Ikb5kE5DgcRTa/
+	rY4FVN+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlvKp-00000007wAa-05LF;
-	Mon, 20 Jul 2026 21:15:35 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1wluWA-00000007r5k-214E;
+	Mon, 20 Jul 2026 20:23:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlvKl-00000007w9w-3WCH
+	id 1wluW9-00000007r5M-1C3n
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 21:15:33 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 16078C1;
-	Mon, 20 Jul 2026 23:14:31 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1784582071;
-	bh=fwkvO1BlTuFLr5TUGCzW1d48NNwgkil0zWOpeTLxt3I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=a2vj4h5fb+jeY11Sxl4+xM2vB02xWxZmhqISZwnk38K2AFshkUYgo8wH3mDnooQOq
-	 YcPww7sOzpbMtaR9spni/jA6FAE4mE5RzUxpDo2YTtMP5AMrEZcyEny99fcc3CZAfO
-	 FvXoo2M2GGPJWnBY6tZJW+RUZO48CwPUybAMuWoU=
-Date: Tue, 21 Jul 2026 00:15:28 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: guoniu.zhou@oss.nxp.com
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Christian Hemp <c.hemp@phytec.de>,
-	Stefan Riedmueller <s.riedmueller@phytec.de>,
-	Jacopo Mondi <jacopo@jmondi.org>,
-	Loic Poulain <loic.poulain@oss.qualcomm.com>,
-	Bryan O'Donoghue <bod@kernel.org>,
-	Dong Aisheng <aisheng.dong@nxp.com>,
-	Guoniu Zhou <guoniu.zhou@nxp.com>, linux-media@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-Subject: Re: [PATCH v2 4/6] media: nxp: imx8-isi: Add 16-bit raw Bayer format
- support
-Message-ID: <20260720211528.GE50424@killaraus.ideasonboard.com>
-References: <20260720-isi-v2-0-45845bc5d4fa@oss.nxp.com>
- <20260720-isi-v2-4-45845bc5d4fa@oss.nxp.com>
+	Mon, 20 Jul 2026 20:23:13 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5715560A7A;
+	Mon, 20 Jul 2026 20:23:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 434B51F000E9;
+	Mon, 20 Jul 2026 20:23:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784578992;
+	bh=YsqnHj4FyimjgtMv7CmV+usAxupMfWT9SKb2CMqETk8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=MRrj/xa+nulFVu8CP3Y32amun/1OABrisq9piQuKX76H6aR2GpXfrTlLPLCqey6nm
+	 Mw9r9QIeRmwSJ+im7EphxjZRJOEyBrJ+XzAS42XZgjqfOu7u1FsOImgKawuVEYzuCA
+	 A0gcMboPGVaVMrl0hw3vVKZcLe5Z4ArPpw337Jahl8y8pJmpsNUsrLUh9gEyagwK5e
+	 mjGHOpzBSp9/JGyJdWB93AhX2gsv6AgPVw/ccKUyZ+8hPpoo+ziiOavoar2iZz3qon
+	 vsYgJR2v1uX9UxOoiN0XK1WsumlL4z9au9Oe13Xbf/0ikfELUNKWzVHeuQqR5Godor
+	 UuHpwBOR96p0A==
+Date: Mon, 20 Jul 2026 21:23:06 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Richard Cheng <icheng@nvidia.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, ryan.roberts@arm.com,
+ ardb@kernel.org, kevin.brodsky@arm.com, anshuman.khandual@arm.com,
+ yang@os.amperecomputing.com, chaitanyas.prakash@arm.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-cxl@vger.kernel.org, newtonl@nvidia.com, kristinc@nvidia.com,
+ mochs@nvidia.com, kaihengf@nvidia.com, kobak@nvidia.com
+Subject: Re: [PATCH] arm64/mm: Check the requested PFN range during memoroy
+ removal
+Message-ID: <20260720212306.674bd0d1@jic23-huawei>
+In-Reply-To: <20260720020655.9607-1-icheng@nvidia.com>
+References: <20260720020655.9607-1-icheng@nvidia.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260720-isi-v2-4-45845bc5d4fa@oss.nxp.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_141532_024628_23030B47 
-X-CRM114-Status: GOOD (  17.78  )
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,126 +74,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Guoniu, Laurentiu,
+On Mon, 20 Jul 2026 10:06:55 +0800
+Richard Cheng <icheng@nvidia.com> wrote:
 
-Thank you for the patch.
+Hi Richard, 
 
-On Mon, Jul 20, 2026 at 11:34:06AM +0800, guoniu.zhou@oss.nxp.com wrote:
-> From: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+Please run a spell checker over your commit messages. 
+"memory" in the patch description for example.
+
+Fix itself looks correct to me.
+
+
+> prevent_memory_remove_notifier() advances pfn while checking whether the
+> range contains early memory. After the loop, pfn points to end_pfn, but
+> it is passed to can_unmap_without_split(). This checks the range
+> immediately after the requested memory instead of the range being
+> offlined.
 > 
-> Add support for 16-bit raw Bayer formats (SBGGR16, SGBRG16, SGRBG16,
-> SRGGB16) to both the pipeline subdev and video capture interface.
+> Consequently, valid requests can be rejected with shifted address range,
+> while an unsafe request can be accepted when the following range is
+> unmapped. This was observed with CXL DAX memory, where the final memory
+> block was incorrectly allowed offline.
 > 
-> These formats are commonly used by high-end image sensors that output
-> 16-bit raw data, enabling the ISI to process and capture full dynamic
-> range from such sensors.
-
-It's not really high-end any more :-) Lots of sensors can output RAW16
-today.
-
-> Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+> Pass arg->start_pfn so the leaf-split check examines the requested
+> range.
+> 
+> Fixes: 95a58852b0e5 ("arm64/mm: Reject memory removal that splits a kernel leaf mapping")
+> Signed-off-by: Richard Cheng <icheng@nvidia.com>
 > ---
-> Changes in v2:
-> - Add Reviewed-by tag from Frank Li
-> ---
->  .../media/platform/nxp/imx8-isi/imx8-isi-pipe.c    | 24 +++++++++++++++
->  .../media/platform/nxp/imx8-isi/imx8-isi-video.c   | 36 ++++++++++++++++++++++
->  2 files changed, 60 insertions(+)
+> The bug occurred on a machine with CXL Type-3 device.
+> Branch: cxl-next
 > 
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
-> index 2d0843c86534..e58925d71164 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
-> @@ -179,6 +179,30 @@ static const struct mxc_isi_bus_format_info mxc_isi_bus_formats[] = {
->  		.pads		= BIT(MXC_ISI_PIPE_PAD_SINK)
->  				| BIT(MXC_ISI_PIPE_PAD_SOURCE),
->  		.encoding	= MXC_ISI_ENC_RAW,
+> Before 95a58852b0e5:
+> 
+> """
+> $ sudo echo offline > memory557056/state
+> write error: Operation not permitted
+> $ sudo dmesg
+> ---[snip]---
+> [440008000000 440010000000] splits a leaf entry in linear map
+> 
+> $ sudo echo offline > memory558079/state
+> $ cat memory558079/state
+> offline
+> """
+> 
+> After:
+> """
+> $ sudo echo offline > memory557056/state
+> write error: Operation not permitted
+> [440000000000 440008000000] splits a leaf entry in linear map
+> 
+> $ sudo echo offline > memory558079/state
+> write error: Operation not permitted
+> [441ff8000000 442000000000] splits a leaf entry in linear map
+> 
+> My fix corrects the checked range and prevents the false acceptance.
+> 
+> Best regards,
+> Richard Cheng.
+> ---
+>  arch/arm64/mm/mmu.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index a25d8beacc83..18a8b0d3714e 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -2194,7 +2194,7 @@ static int prevent_memory_remove_notifier(struct notifier_block *nb,
+>  		}
+>  	}
+>  
+> -	if (!can_unmap_without_split(pfn, arg->nr_pages))
+> +	if (!can_unmap_without_split(arg->start_pfn, arg->nr_pages))
+>  		return NOTIFY_BAD;
+>  
+>  	return NOTIFY_OK;
+> 
+> base-commit: 5ca04f3ba91f1773bbd5da6d9c654ccc1ba7831d
 
-While at it, could you please also add support for
-MEDIA_BUS_FMT_Y16_1X16, for 16-bit monochrome sensors (here and in
-mxc_isi_formats) ? With that,
-
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-
-> +	}, {
-> +		.mbus_code	= MEDIA_BUS_FMT_SBGGR16_1X16,
-> +		.output		= MEDIA_BUS_FMT_SBGGR16_1X16,
-> +		.pads		= BIT(MXC_ISI_PIPE_PAD_SINK)
-> +				| BIT(MXC_ISI_PIPE_PAD_SOURCE),
-> +		.encoding	= MXC_ISI_ENC_RAW,
-> +	}, {
-> +		.mbus_code	= MEDIA_BUS_FMT_SGBRG16_1X16,
-> +		.output		= MEDIA_BUS_FMT_SGBRG16_1X16,
-> +		.pads		= BIT(MXC_ISI_PIPE_PAD_SINK)
-> +				| BIT(MXC_ISI_PIPE_PAD_SOURCE),
-> +		.encoding	= MXC_ISI_ENC_RAW,
-> +	}, {
-> +		.mbus_code	= MEDIA_BUS_FMT_SGRBG16_1X16,
-> +		.output		= MEDIA_BUS_FMT_SGRBG16_1X16,
-> +		.pads		= BIT(MXC_ISI_PIPE_PAD_SINK)
-> +				| BIT(MXC_ISI_PIPE_PAD_SOURCE),
-> +		.encoding	= MXC_ISI_ENC_RAW,
-> +	}, {
-> +		.mbus_code	= MEDIA_BUS_FMT_SRGGB16_1X16,
-> +		.output		= MEDIA_BUS_FMT_SRGGB16_1X16,
-> +		.pads		= BIT(MXC_ISI_PIPE_PAD_SINK)
-> +				| BIT(MXC_ISI_PIPE_PAD_SOURCE),
-> +		.encoding	= MXC_ISI_ENC_RAW,
->  	},
->  	/* JPEG */
->  	{
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-> index fe4adfa3a1f0..5eb448f4c26f 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-> @@ -356,6 +356,42 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
->  		.color_planes	= 1,
->  		.depth		= { 16 },
->  		.encoding	= MXC_ISI_ENC_RAW,
-> +	}, {
-> +		.mbus_code	= MEDIA_BUS_FMT_SBGGR16_1X16,
-> +		.fourcc		= V4L2_PIX_FMT_SBGGR16,
-> +		.type		= MXC_ISI_VIDEO_CAP,
-> +		.isi_out_format	= CHNL_IMG_CTRL_FORMAT_RAW16,
-> +		.mem_planes	= 1,
-> +		.color_planes	= 1,
-> +		.depth		= { 16 },
-> +		.encoding	= MXC_ISI_ENC_RAW,
-> +	}, {
-> +		.mbus_code	= MEDIA_BUS_FMT_SGBRG16_1X16,
-> +		.fourcc		= V4L2_PIX_FMT_SGBRG16,
-> +		.type		= MXC_ISI_VIDEO_CAP,
-> +		.isi_out_format	= CHNL_IMG_CTRL_FORMAT_RAW16,
-> +		.mem_planes	= 1,
-> +		.color_planes	= 1,
-> +		.depth		= { 16 },
-> +		.encoding	= MXC_ISI_ENC_RAW,
-> +	}, {
-> +		.mbus_code	= MEDIA_BUS_FMT_SGRBG16_1X16,
-> +		.fourcc		= V4L2_PIX_FMT_SGRBG16,
-> +		.type		= MXC_ISI_VIDEO_CAP,
-> +		.isi_out_format	= CHNL_IMG_CTRL_FORMAT_RAW16,
-> +		.mem_planes	= 1,
-> +		.color_planes	= 1,
-> +		.depth		= { 16 },
-> +		.encoding	= MXC_ISI_ENC_RAW,
-> +	}, {
-> +		.mbus_code	= MEDIA_BUS_FMT_SRGGB16_1X16,
-> +		.fourcc		= V4L2_PIX_FMT_SRGGB16,
-> +		.type		= MXC_ISI_VIDEO_CAP,
-> +		.isi_out_format	= CHNL_IMG_CTRL_FORMAT_RAW16,
-> +		.mem_planes	= 1,
-> +		.color_planes	= 1,
-> +		.depth		= { 16 },
-> +		.encoding	= MXC_ISI_ENC_RAW,
->  	},
->  	/* JPEG */
->  	{
-
--- 
-Regards,
-
-Laurent Pinchart
 
