@@ -4,90 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E06BEC44520
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 19:03:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64BCBC44520
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 19:03:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ADiUitgJtlg1qZ/LHubhQUG1lGSN9jDviGJhaJgAv74=; b=q6Ku6b1xicnfOUh0EFpGiVuk4w
-	B2HY0x4P/ch2Kf3DGZEJbLTxYbdccRBsedRRw76rMQzW1YsjNXM+VSxUhQTYgZTXxwcGh3ARVJ6s/
-	cTDLcvwulINSpdwg6W/1aO9X7Vr/NsGMz+Fc29JNo9LLH0ty3Jni9dQBTy4/Y+Vp8khbbg/f7iuz4
-	5H+Yp0VrOWCcNU5wzF4KaXPTzY3rP1HNS8otBYOhfG3BqR4DG9Z7WVS0NQOiZDDBg7vgo36yH8szL
-	zAKdr67FRHB1fgmiLFRRuwkSM8ywM3OscmXRqkmNuQg+1ivBZiGm7MuBxrDG/Ryt7i9vVurAc2N5L
-	t7ukbF5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=/XC3AWRQ/CjLCQYpJHT31hZz4Xd0vJM30eKPvD0LiMw=; b=XAoFipQI26w4T7
+	vNwlGK8o8X0kI/BfG7PDBtHMBwEfy301Ib8I9sqAb9ZbapwVf3JR5bgr3fCLUtLFUThFcuswHyeXj
+	MckRnBTazFhlr1L1D4K1L2NwDKmfCQLFLPhJNScnuNNUT30MvLW/+mAx/C8UaymMTC2BcqwbW7L/w
+	h7330vz/AYBHjXypaE94+vjgqoNiFyPknv8aqd49hPUVNdnP/jQMa6bPVOjhr3gTd6to1S/0BI5AN
+	o7PkLgYs4Cymj7k5srWBAlo+LdNF5jvLy6yO7Ln4v8T52WuCrT/WLUrcsDD1FlufmvlbHQca0E3B7
+	12Ds9yAChwzMgHvrmMxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wltGf-00000007i6N-38XI;
-	Mon, 20 Jul 2026 19:03:09 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1wltHB-00000007iBO-3lUL;
+	Mon, 20 Jul 2026 19:03:41 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wltGc-00000007i5d-05RJ
+	id 1wltH8-00000007iAN-40U0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 19:03:07 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-49546c690ffso27654705e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 12:03:05 -0700 (PDT)
+	Mon, 20 Jul 2026 19:03:40 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66KH6XKe2962547
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 19:03:38 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=/XC3AWRQ/CjLCQYpJHT31h
+	Zz4Xd0vJM30eKPvD0LiMw=; b=kDFTjjt6k3/GLepGJVfLM4Ru++p/vQb+xfkuHl
+	r5bv7yC4iwT5ts2NVc7E5VfHikpZ+mWFs0eshYozgpzTIdsgjefcXcbWq1y8rUCM
+	BAT1kzZzfZ331ARuAI5n4seQYdFeaePrMfHn52vqZ4aWjPaZKAThMjvzF1naBdkC
+	9gDJ7YUeDLlcq3n463naxmAburNldi8kp+ZfTDE6QWewIheXqrNDZ9gY5WFw0FQw
+	BNiO5xZAbO6os+VEQ/56cGBCGv5Vw1MrJGfsr+3kyDn5CwM0dpLBlSrVZAhh80qq
+	HFMwDwKX86B/Idjwd4vLTaHBQ9JQ3q5RoK/nhnVcTVx6KeZw==
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fhh5y2jf5-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 19:03:37 +0000 (GMT)
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-5174a236220so194003451cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 12:03:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784574184; x=1785178984; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=ADiUitgJtlg1qZ/LHubhQUG1lGSN9jDviGJhaJgAv74=;
-        b=bk2/QTa23/8ivERGmWXqgvi2f+46fHBXuKPGA6SUUycL57s11ztuF4ZMi9z5hoL60x
-         z71Mp1hyGi7FsFdSFHRuVcJMXSCj6vDNkUyVbZOT8XkZiRTF7RE42zHxmXrXMp6Nhg7y
-         ydH7ErTvg4A7EjlXwsBT3ggFCYKp2iLTxh+f0926Yy5fCWh7RkVt43h2FoZo1MrIPlOI
-         vwApJz0bakH20Pglb8N4kNx2sEfzHl6byrMPWVDxcRHPHvPfx+l2NDMAO6fONua/MQ9u
-         cIZA3KH6J7VlOQ78lZbOVxswqzSw+n2cySTRkISD6bCenLZDSwONEg1XWjBOsaLW9vIr
-         mEUQ==
+        d=oss.qualcomm.com; s=google; t=1784574217; x=1785179017; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=/XC3AWRQ/CjLCQYpJHT31hZz4Xd0vJM30eKPvD0LiMw=;
+        b=TD68OWqNJy56RvR+iPOuhCxmU/USHYJHipBN1JEO0zUWUK73DAEnozEXH+4SpHSDK7
+         fLAE/gEn5WnZZbVDZVUHGwJj9CgB/9Nz8fHFQpIbdyIEpEatx6Qlp15ATSyyPafIJ6GU
+         YFgGBUbMgGunn6Y3+rgcg7hSCwRM+h9GDGf/qYAVd5I5g4mpSRJEk4oqjgtFNup0OpCe
+         9+P6iMeU/4NS9clpHwtRqDbbC/dg/uCLaouQMC4Gs+iai8P8aD/wgWypuA5ZW3IptwUJ
+         p/kp2Fjvliwkf4j3wAfMMzWWStlwX24G0XbYO2hZpv/khUwPxcJ0gLhjYN6TCJrBd55I
+         hkgA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784574184; x=1785178984;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ADiUitgJtlg1qZ/LHubhQUG1lGSN9jDviGJhaJgAv74=;
-        b=aK3Sxwho7p25JkMNch/q89/0aa4Vjsg4EiqK98ggSGD+OHwS93Lc/5X+YxuYzrOS6c
-         CDuymICdk/WpEONOxvPHpgGkh+DMWfprAhzysh/tif3ZXQpOToxjHC2UWnQnAbbteIb/
-         KpTruXowXlTKDCaPdka9ErCeKy5AN1GU18rjJM+mCjMzSxAtsTnwSgf57l698dvSSPmZ
-         jjKypI3FPeBYeiYIx9L2GsaH6Q5YiFB3Yetw1EyukrnkK6gA71hny6k3sPUw6xMVLdSX
-         0MjQKaw63GjnAMLWr3e0p/hqvLX3hwTju7EAHqwpm/Uj1WxBrUzBkC5VwvEtqmFQnVTt
-         xsFQ==
-X-Forwarded-Encrypted: i=1; AHgh+RrVJMI61bFR6GVmUuj0nkCeseKtm9Cpm1F7aq98m5nD5RSNFCd0jIEVxmTxVr/0yHxQPmmdNB+NaoOhGSNb0x4N@lists.infradead.org
-X-Gm-Message-State: AOJu0YyaEDWPz5HtXp+wgr2p3u91zjbgt1iwRNAnJtFCL9NUfP991TpR
-	uFtUitYFrnNndjmkclKnOfQROXmpFgba4W0+00ajz2zCd8/cnbOjMrY+y+hWNJb6qQ==
-X-Gm-Gg: AfdE7ck03it+fhuwFMoImrBehW54ryJKoTIgjMdURizxFbXaUMwnVziAlmwgqWV90pi
-	VuORutnm3H1PQa4JmhVHAm4iObIJqn2dmkdleVA35MmnmMRrLG3ZT0eDNJuvfSozU34iMlgL68V
-	BbW437O8CUA/Bq08W4mlJg1VgXlYMvcGDGmoD8t4yJN9N46txiQlzQh3yGN1DuNv0zIR+LKbNzg
-	OeewtNcy6ah6keKvodSW72f2XAI63ropbzmzDKTmSDCA5xin37PCdnHNExqndK8dnooB+X5YiN7
-	2Vk/MX2j8quv5iwFu8fkAC+maD9FCCb2RBHaSMa/ssWN+auGiusRAW7pPTWouBgwmde9s2OSo4+
-	cpKFz8ORgn8XkGSBNzYjgMGlIvYXAYrt85BGdoNDsmogjUPCcnJxviXhOcMRtq2CYanw85LdWji
-	pCZeAECCDntXiBC/w0fhMpYCkZiljB5gn2Tf8l2mXv
-X-Received: by 2002:a05:600c:3114:b0:493:f278:ba2f with SMTP id 5b1f17b1804b1-4954a3ed46bmr179664585e9.9.1784574183734;
-        Mon, 20 Jul 2026 12:03:03 -0700 (PDT)
-Received: from google.com (137.69.77.34.bc.googleusercontent.com. [34.77.69.137])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4956537c6besm9428245e9.8.2026.07.20.12.03.03
+        d=1e100.net; s=20251104; t=1784574217; x=1785179017;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=/XC3AWRQ/CjLCQYpJHT31hZz4Xd0vJM30eKPvD0LiMw=;
+        b=Nb0x1OC+vGr+joz0FUlNi5OoYNKU54YwXWAk6Qao1KhKXQ5+SsqVdtwCi5G4bUi6wk
+         wp5dtAN2UD7s2XJlArN9Nd6+cXHOpc//ASeBLW9dMG/orZYGupDuI20cYwcfFGGVTR9z
+         cPu+oKBHkiYNsrjJ+5Ajtzj/4WSORPcUrfMvHo0aW05FitEwPIlHqa+lF+O/RZhS4+oP
+         74tU//EqG9KM+IXcgwvicTZb/z4uSWKFEq5gQ/T2O2X7jCWPV75KlA/pOnJWaQdtrwXZ
+         bbCAGuQyUae8q/24jRNJphM9ni0flxel3S9DOg0fo0WkJGbOXFs8m18jpigimSM5LeDv
+         LPyw==
+X-Forwarded-Encrypted: i=1; AHgh+Roa0GgmYlMpxLNEQolCWRNvT9DZRgzB8AAjhmfzvrc/p/5uJlCpw5EnBIsBVEK+twBKtyJ/OULjndJ2TcoxE7xy@lists.infradead.org
+X-Gm-Message-State: AOJu0YxzneWc0giOzyDNQequ5W8lNjqtL4v9qjf6boiwXCHF1Tj8LXGp
+	HVG7XiDdD00aDPzD0hmuGokkuVvgF3Om8+v3VTCfeMqLfTzOBxnsDJHMSPa+PXB5UKpe3z7JGWo
+	iM7dEG1P5xQVgWDK6PdEuNFPoWPRJVqO7YJpejE0x0DyaGwXqWrYcNY47QRagy0bFRakj3XbObH
+	ZtrBiIEAMJvQ==
+X-Gm-Gg: AfdE7cnyooDU1UasDaDdSGWJkSQPhL3RW5eiAJD69eNOL5XxorRyFBf8HKloJig1JnY
+	/g88ayx0nz0XPgMJ5Cylz8bI+piI6vPYsKU8gYzxqRgynzXDvh23N+u0qSzfM1B2teV1eFb5aOz
+	U10nqacPqEIhYleEAViEdoJg5obK2E7oGjtjVrCjnUhPhINljqY3Ke5CU8ze7pCD4lBaH0K5vqN
+	4AiU07QUekdXOfnDaU3zxGoFPiIAEosKFTscs0foXIlJRrkxpjuTJNuBJS5IXCBY8SBtE4p+aVY
+	f1Q0zPX6AgAHC2ChAGwvOFcXSsfinbVip1LxeMxCIuefFDdlnKSV4G61A8/Co9J61WcwxDegO1B
+	XCvbSAJPWtNohQF1ocS85Y0cJ
+X-Received: by 2002:a05:622a:588b:b0:51c:e14:87ae with SMTP id d75a77b69052e-5213c7e69e7mr135591521cf.34.1784574216757;
+        Mon, 20 Jul 2026 12:03:36 -0700 (PDT)
+X-Received: by 2002:a05:622a:588b:b0:51c:e14:87ae with SMTP id d75a77b69052e-5213c7e69e7mr135591011cf.34.1784574216289;
+        Mon, 20 Jul 2026 12:03:36 -0700 (PDT)
+Received: from [127.0.1.1] ([178.197.223.174])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4954aa1a231sm181509845e9.1.2026.07.20.12.03.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Jul 2026 12:03:03 -0700 (PDT)
-Date: Mon, 20 Jul 2026 20:02:59 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: maz@kernel.org, oupton@kernel.org, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, will@kernel.org, joey.gouly@arm.com,
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	linux-kernel@vger.kernel.org, tabba@google.com
-Subject: Re: [PATCH] KVM: arm64: Stop the hyp trace clock worker on disable
-Message-ID: <al5w4wn9ZhPsZYUR@google.com>
-References: <20260720184850.1826630-1-fuad.tabba@linux.dev>
- <al5wo9x7oUGzlbTo@google.com>
+        Mon, 20 Jul 2026 12:03:35 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH v3 0/3] interconnect: qcom: Some defconfig/defaults
+ cleanups and improvements
+Date: Mon, 20 Jul 2026 21:03:26 +0200
+Message-Id: <20260720-interconnect-qcom-clean-arm64-v3-0-942e8ee7ebda@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <al5wo9x7oUGzlbTo@google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/43OTQ6CMBAF4KuQri2hLa3oynsYF/0ZpAZaaYFoC
+ He34MKNiW4mecmbb2ZGEYKFiI7ZjAJMNlrvUmC7DOlGuitga1JGtKCiKGmFrRsgaO8c6AH32nd
+ YtyAdlqETJZagjZQEOCMKJeMeoLaPzT9f3jmO6pZ2V3RtNDYOPjy3Byay9v69NRFcYBBKs3pfM
+ WrUyceY96NsU7PL00DryYl+UE74L5QmVBoApfeMH4T5gi7L8gIwQ8cmOAEAAA==
+X-Change-ID: 20260428-interconnect-qcom-clean-arm64-aecdaa1e531b
+To: Georgi Djakov <djakov@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-pm@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1458;
+ i=krzysztof.kozlowski@oss.qualcomm.com; h=from:subject:message-id;
+ bh=M49zLdCDFwEnulcdNvR0e/0VDmNXymrGOAhAWO4iyOQ=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqXnECNLZ+We35hlF8SaiTYUDxDhm0u0BBatNRk
+ W40K36eDu6JAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCal5xAgAKCRDBN2bmhouD
+ 1/B4D/9RPovgqGXWaSu9V+Bebs0TiuffKmIzkiJtAPx4hSP4CkLwlfLMeqfFC8BhSTLoyRyS/vU
+ uA437Krwo8leP4QeYndwigSrsouOli3k4c/ryg6NtoEJUvp+ZBqcMqeZkfqFlwBsra/sHq2GQCe
+ nmhtXq/zYyjX4OLKirWsiodkbPkOaGRo4zYXMirzROD51tEFXcSl+sB1YACZmH+zk63jwAwAmUF
+ o83DlHXg33UihM31/9kIJcm1+4+40AmIQn5/ssUel20WkOr/elI+z626ACBGahWvqw7PuXHQBHJ
+ wUKjEEj6L/CLPcMW2lKZUjq3Kgp9FDFu60uidAawk3SRu1Edd5Y6aguC/obcLeoVtyvTcdbZDI3
+ M7D+/Yocvx0SGsL7P1gVmzNc/MZbn3afA7GcdebR/z3kt5ixdrD0Ir1gWg/BLuqW5XnDHhUKX10
+ Xhj/Fr4BwNssYEPycrdvj1Na/jxGl5Nz2qb7EaSC4uJwUubD3rdZbKLBzK9ObGPO2LkbteHIPjy
+ dVdCwtReiuuqujVI43Km08cb+jAmFWL8usXzUnFCD63DriJGNS9Qy0fTD2uZdoACPG6Gb2oQkiM
+ Av/9r3EyMfPS6woikp09wrOOdYahapuDnO8X2qjUtD/caRf2u3/i8n5xulXyIPg7794lYvzncEC
+ 3SH7AhA4RPmS8Ig==
+X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp;
+ fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzIwMDIwOCBTYWx0ZWRfX0ju+UKca0Kox
+ qK2zaCO53/miu8WkkKnS1U1VhefsCToY7JTYn0ZD6KilfaOSe7Z5zF8/K5vkS271Nxs948swKa2
+ P+rZHaQsUe5fCMYXAPL8mAD4WWkzHWc=
+X-Proofpoint-GUID: LHMAY33WnM6F70kDNEJ4bFPcMDM-MiVq
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzIwMDIwOCBTYWx0ZWRfX0dWXWfEEuN8N
+ Q72wcn4RA7fIgRCoVY8HpPHHXX/AVQm66uJJJ0jqFpYvQKh2kbFtU6pBN0vf1aaBnGpu2cxO48S
+ M3g1xmw9aa71+bEZOnitrUJZdpELAprUOqVPa1ueHJVe69kfxcclRHgR6Lhkx50IACj5Wl/vPAs
+ qJgNIjf9o5iXxRohreIl0giANnAf1uEpf/Alh8pZfZ8p5LX+kOsUz3H1i+GTySHehRhchoz/wtC
+ 1p+6Z1k0r7VaeAzhtw7T7KVqTElRa+orKdKMADHEBdden+5SVwkVRao+aa+fLv9OKfkT/Irebbg
+ oHLptORgk9FEZ/gJVyi2P7yMccHuy6SIFdP71dhL70n/eO5+Bi+KMgZnWVNe5EuNL9GxudrLpFo
+ T0e+9AYIXp69CBsUCq06fs7bLwbbAGE1u8COzNJXFW76oG1c1TXu8n0yNVRGqb/igz6PuqjDD9v
+ R3F5/TJeRD8CKs5MYEg==
+X-Proofpoint-ORIG-GUID: LHMAY33WnM6F70kDNEJ4bFPcMDM-MiVq
+X-Authority-Analysis: v=2.4 cv=f/x4wuyM c=1 sm=1 tr=0 ts=6a5e7109 cx=c_pps
+ a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=N6niishs+lR9UBL1FN3Qrw==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
+ a=bC-a23v3AAAA:8 a=EUspDBNiAAAA:8 a=tjA5nVWDIhs3vSZUhDcA:9 a=QEXdDO2ut3YA:10
+ a=dawVfQjAaf238kedN5IG:22 a=FO4_E8m0qiDe52t0p3_H:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-20_04,2026-07-20_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 bulkscore=0 priorityscore=1501 clxscore=1015 adultscore=0
+ malwarescore=0 impostorscore=0 lowpriorityscore=0 spamscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607200208
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_120306_073731_5B4CE417 
-X-CRM114-Status: GOOD (  18.40  )
+X-CRM114-CacheID: sfid-20260720_120339_000368_E1DBD1B5 
+X-CRM114-Status: GOOD (  11.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,45 +168,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 20, 2026 at 08:01:55PM +0100, Vincent Donnefort wrote:
-> On Mon, Jul 20, 2026 at 07:48:50PM +0100, Fuad Tabba wrote:
-> > When disabling, hyp_trace_clock_enable() cancels the clock work but then
-> > falls through into the enable path, which re-schedules it and marks the
-> > clock running again, so the worker never stops. Return once the work is
-> > cancelled.
-> > 
-> > Fixes: b22888917fa41 ("KVM: arm64: Sync boot clock with the nVHE/pKVM hyp")
-> > Reported-by: Sashiko <sashiko-bot@kernel.org>
-> > Closes: https://lore.kernel.org/all/20260720172923.E4F161F000E9@smtp.kernel.org/
-> > Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
-> 
-> Done here already https://lore.kernel.org/all/alczBmnItMwq8xj4@google.com/
+Merging:
+1. First two patches via interconnect tree.
+2. Defconfig a release later via qcom soc tree (dependency to avoid
+   surprises).
 
-sorry I meant here:
+Changes in v3:
+- Update also Nord and Hawi
+- Split defconfig to separate patch #3.
+- Add new patch #2 for arm64 dependency for Hawi, Nord, Shikra and Maili.
+- Link to v2: https://patch.msgid.link/20260515-interconnect-qcom-clean-arm64-v2-0-adeebc73596d@oss.qualcomm.com
 
-https://lore.kernel.org/all/20260715105100.3178255-1-vdonnefort@google.com/
+Changes in v2:
+- Patch #3: Switch to built-in for everything, with explanation in
+  commit msg.
+- Tags
+- Link to v1: https://patch.msgid.link/20260428-interconnect-qcom-clean-arm64-v1-0-e6bc3f7832db@oss.qualcomm.com
 
+Similarly to clocks and pinctrl, interconnects should not be a user
+visible choice.
 
-> 
-> > ---
-> >  arch/arm64/kvm/hyp_trace.c | 1 +
-> >  1 file changed, 1 insertion(+)
-> > 
-> > diff --git a/arch/arm64/kvm/hyp_trace.c b/arch/arm64/kvm/hyp_trace.c
-> > index 2411b4c32932c..27367843fd211 100644
-> > --- a/arch/arm64/kvm/hyp_trace.c
-> > +++ b/arch/arm64/kvm/hyp_trace.c
-> > @@ -116,6 +116,7 @@ static void hyp_trace_clock_enable(struct hyp_trace_clock *hyp_clock, bool enabl
-> >  	if (!enable) {
-> >  		cancel_delayed_work_sync(&hyp_clock->work);
-> >  		hyp_clock->running = false;
-> > +		return;
-> >  	}
-> >  
-> >  	ktime_get_snapshot_id(CLOCK_BOOTTIME, &snap);
-> > 
-> > base-commit: 1590cf0329716306e948a8fc29f1d3ee87d3989f
-> > -- 
-> > 2.39.5
-> > 
+Best regards,
+Krzysztof
+
+---
+Krzysztof Kozlowski (3):
+      interconnect: qcom: Make important drivers default
+      interconnect: qcom: Add missing depends to Hawi, Maili, Nord and Shikra
+      ARM/arm64: defconfig: Drop redundant Qualcomm interconnect entries
+
+ arch/arm/configs/qcom_defconfig   |  3 ---
+ arch/arm64/configs/defconfig      | 31 ----------------------------
+ drivers/interconnect/qcom/Kconfig | 43 +++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 43 insertions(+), 34 deletions(-)
+---
+base-commit: 96ff9ad7f53e233e69f87f882b331bfddd903469
+change-id: 20260428-interconnect-qcom-clean-arm64-aecdaa1e531b
+
+Best regards,
+--  
+Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+
 
