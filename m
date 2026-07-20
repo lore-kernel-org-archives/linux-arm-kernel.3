@@ -4,144 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73BBEC4452A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 13:24:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B46AC44515
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 13:27:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2rnuTTxS3dtHAIgoofax5iZiwmNO+2ul3JOTWMDYSu8=; b=AyJjm2KFBLEEED2geHuezQVuDx
-	P4L9SDqkgtZnuaa1TJRFoaCMaFPFAFYnMAdW67r1f6UX50BYf3AnngvJakiL9BCOr7yDKvhlrE9+n
-	hwZvKQFGVcgHCU4Apkk4LCD/ZhRPgvaZiCRkKrqLah8XmU07QaOtwiksP8f4wCLg+gaS1D2Bk+cvW
-	OoVTOb1Y8TviEYO3bnYBlLwBwa+/mkaSqiDRcyXovy4kUZRqpwbZquNPQPe7ANJquIRCTwnzKXf5u
-	6xhC2tp1z9PG+SaFtLLz9zxG0nhcscCNbKFFslTeW+aamkVaP8Es2XblbgbXr9k05urER0WEnZBuk
-	wnKl0JFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zZQt89naWNf2L7OpBLgsofo4c+4U/0IJEon7GDnqm3U=; b=ohzrcKoH+1UkdX/qny59ZPcPqS
+	kWykQDRLYshAP/K2BdMrtJGGARTxWOn209wrGYIp9Q7G6ohYEXZvL2HNZgaEI5NGhdUKs4Da7oofd
+	l6VlPB8aY2M+o45oUc/GzS4QU5KHn1gw3MLzTrBomLPlinmPVF7zgd7psRwBGv0/xBNrHcF8zvndD
+	Yy0dgMdL4QRw2gujHlWpbJBM5H4vdeY9QQF4NKWTEQb9Fs7x68PBh5xLGj2lDsBfiD+f4RL9MHItV
+	Cx/HPo7WSJIsgxiNGNq2zRx29rMSbHDkYYXCEzFbcxEQMvaCnIXyZywvfpDHl5QbVbqN08opfDUZP
+	msFN0eVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlnyv-00000006nZm-09qZ;
-	Mon, 20 Jul 2026 13:24:29 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wlo1d-00000006o2R-2fc6;
+	Mon, 20 Jul 2026 13:27:17 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlnys-00000006nYT-0nL2
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 13:24:28 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66KAvXaV2457842
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 13:24:25 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	2rnuTTxS3dtHAIgoofax5iZiwmNO+2ul3JOTWMDYSu8=; b=eFxtgw5wut5B92w3
-	RtZVhajGc7llr/dfSaSe83kq00XNfrpnd8/z4naj0xu1FB2kRE5ClT3jFInM4NUk
-	OYC/SDqCunEnuJAXFLaWEamwJE+jF5XzAECMf0TH8KGT2GCGKsBD8RkQNevWqaUe
-	SK29H3kDJuKVntvjF3xkn3T/XNJ0RV7v4Cai3cKyn1xib7zOJQVepqd0zgt1VCQN
-	D3OTVNOlrhrltPMuOxNITi9kr6IQGWHxBm/b4Nhd3r82vSAGMSCSGnDWu/m7z2Zx
-	I4Ku6WhSOp1WwCOM61lpaFPN07QxjYiAtxTHCypTFVRmvMibPCSx0+cK0rn/r8f7
-	HoC55g==
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fhf0kskky-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 13:24:24 +0000 (GMT)
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-51c110a3b6aso109115701cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 06:24:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1784553864; x=1785158664; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=2rnuTTxS3dtHAIgoofax5iZiwmNO+2ul3JOTWMDYSu8=;
-        b=DQMugsXOJKYqSp46+HQNvJQdI46KKu0cmkfSqgB3rfcbiPbPMsguqEBThY5DLmqXcu
-         BsNyRiIdknDjxE8Ty3YoR6cxcwD1ettFxmDNeZUQQ/tsiZxpcR/emz7jxTLf8Ps5y6SY
-         zJRjLNYmOZI7+u5BYFawc3HPiXjarMd68Xd78opBOjxI4/3ITVP9DnKsoFLkQRSiDbv5
-         Dt9DWhUA+k6+MSP1iMvgR/JNxkLpquISZxbx1QQJztR9bMxA8SrVggDCugfUEi/3rSUL
-         wJRANaFfsC0m4mdW3hPtxxHV8g1lKONpKp02vhqc1Hfr/gx0inSLpP+Fq7hpkvKAjkdO
-         gqIA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784553864; x=1785158664;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=2rnuTTxS3dtHAIgoofax5iZiwmNO+2ul3JOTWMDYSu8=;
-        b=LFYPET4KKWGteWDNmA7x+vZBtZNbHx2MtxeQJFc5fpsdZjCMjle/Is3HJhcnrfe1Fb
-         hl0FXUGUU8Ssx8f/hfA3MvUyash9LfrCQ7toaVviLUqgb/lUD87w+jAbZLqLO3iDVObl
-         TCNcH1mCBliumziTC4PZaLiNkheHWm6klsPguzGq+ZEigTTNpW/cwhAf/pAlgjoDDU5H
-         uuA8wG8M0cr/CLnd3Ic14OwAkPuF29BMlNWNeRKgtfvoBiNXhnQEW8Xn4XUmRvDI+EC8
-         9FkuGaleA8PomPtiP3Dx6KgYKOPSF6H4faLCw+O1g9upaQf6yEnVu/8l5yXQJg++Dwbt
-         U0bA==
-X-Forwarded-Encrypted: i=1; AHgh+Rq8iRHyIhJG2arxnpDE6u3XOvR7vK/tF5mzuXATDOzUZaE/5SZYJ9Tkr2i+hJa60TxkF1Y9ztbgMcbdVzcmx5ZF@lists.infradead.org
-X-Gm-Message-State: AOJu0YzOZ8q7OAZ7+DfpsLB4NcyLW5uyQDHgc27MtRriQzSd7Ui6ztAc
-	dHGP76EQqEjUvIw3IDYJVnLpHFoTygHpTiTcJmkAdDfYduAOlINRThpJRy8stoxMejn4tvZw1R8
-	U/ksUqZdML7mc21I+mQEXLSlEt4xoseJZ7SUhmEG08WqTE5TvTIxa6W4R7XuXgwg9jIa63ST8pA
-	RlbyIkvT5+SA==
-X-Gm-Gg: AfdE7cnxWGcTRBhbe42NNvaqnzd7qIsaKiLQuQ2SVLaKYtRc5Yj0WnVVRw4qu/P9bEG
-	fQZliBaNq6Y8gBIkCkfUjAOoQvolxB/XhDVSFwiW3KO8LE/rL4tNdb/JQ8c1EabusaNa/henXwo
-	Y90vGN2CnEVjxonDO4hKlBYj1FRHu4U6GRCDbls2cEkwNONR/41Ps8ZbIhQOoXqjHYKKBYeCf89
-	zw3HGlXi7P0NFJMFo10WN4oSSfa0JrL07p8U+RrnTIGz6x3SbUIGD4G9xQA80nTcdLKLqz5b7hW
-	YqLJJ2ZPeFT2TvO1hMF9MdK8FIjf5azgK5ORyk9ikQJOeswJBQhHxJYo5+LpTDRByOW3DBZEMHB
-	M+Qs6sxsi4sTWg1qTZw0kUXQAut9RdyFEYc8/97JXVQMI72wgG79Etrqs3P6nfU9hg6vS5KxCpn
-	Y7NXWFSXaE2CoXfg==
-X-Received: by 2002:a05:622a:4110:b0:51a:8b64:69e0 with SMTP id d75a77b69052e-5213d2b7109mr130718291cf.11.1784553864335;
-        Mon, 20 Jul 2026 06:24:24 -0700 (PDT)
-X-Received: by 2002:a05:622a:4110:b0:51a:8b64:69e0 with SMTP id d75a77b69052e-5213d2b7109mr130717871cf.11.1784553863758;
-        Mon, 20 Jul 2026 06:24:23 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5b291e0ea8dsm2337558e87.41.2026.07.20.06.24.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Jul 2026 06:24:22 -0700 (PDT)
-Date: Mon, 20 Jul 2026 16:24:20 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
-        Heiko Stuebner <heiko@sntech.de>, Algea Cao <algea.cao@rock-chips.com>,
-        Dmitry Baryshkov <lumag@kernel.org>, kernel@collabora.com,
-        linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-        linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Thomas =?iso-8859-1?Q?Niederpr=FCm?= <dubito@online.de>,
-        Simon Wright <simon@symple.nz>
-Subject: Re: [PATCH v4 1/8] phy: rockchip: samsung-hdptx: Fix rate
- recalculation for high bpc
-Message-ID: <al4hhLKoufegMPAg@umbar.lan>
-References: <20260612-hdptx-clk-fixes-v4-0-ce5e1d456cda@collabora.com>
- <20260612-hdptx-clk-fixes-v4-1-ce5e1d456cda@collabora.com>
+	id 1wlo1b-00000006o1l-1sDp;
+	Mon, 20 Jul 2026 13:27:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1784554032;
+	bh=5miUtceH7EkaTGDhqxpZugrO4o05sy5fiYaqxmWb1w0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=HQM0sKz+XYpSU/sZ6EC7nF8oDHXBiRNCpZPABC56U5ilYJAZ47sxxMfXIDdksNKWh
+	 hJXV1ZE7O978ptTBR5m8cyRYOzbx8UuWKkNuTWN5w00XBTYyPwu7kQz93w4m4nQO2h
+	 EnzCvTA1xDpsC/RMv9J+as/7B6LSWNuI4Jb6lZJTjtbpQ/q4E7VM3bc7KihwRTPq/J
+	 2OmBXxvjGO7dlDLujPv3Lgym9YDi9IvvBUMs5cmAKP1CVDWfkva6B2MfM/ctdX14wh
+	 k20kEZNcXkZqZLnqjuMFxBdGCkO4A+1C6oaelbY0qBuh27UCYxmQWBoDjxge+I/iOU
+	 wn6o1504mPnjg==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 43D3C17E003B;
+	Mon, 20 Jul 2026 15:27:12 +0200 (CEST)
+Message-ID: <4fa4fb82-2118-4ddf-9b8c-510b58835b5f@collabora.com>
+Date: Mon, 20 Jul 2026 15:27:11 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260612-hdptx-clk-fixes-v4-1-ce5e1d456cda@collabora.com>
-X-Proofpoint-ORIG-GUID: rARWVoZaNhWHAhu-3ijkPGkUfhO-DL4W
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzIwMDE0OSBTYWx0ZWRfX6ynZpLkUYTXC
- mJtNnhyjFvhW38lkGf+kqsdFVwcIG2/+iwC5xODMTNb5Js9Z3nkr3SZ3veFHQFrXMFLXGLOmt+l
- yWQBlBqAfFg6q5hc/tsLBVpHJXrhQP8=
-X-Authority-Analysis: v=2.4 cv=G58s1dk5 c=1 sm=1 tr=0 ts=6a5e2188 cx=c_pps
- a=WeENfcodrlLV9YRTxbY/uA==:117 a=xqWC_Br6kY4A:10 a=8nJEP1OIZ-IA:10
- a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22 a=QX4gbG5DAAAA:8
- a=EUspDBNiAAAA:8 a=LBX7SfcbrNp00noYVVsA:9 a=3ZKOabzyN94A:10 a=wPNLvfGTeEIA:10
- a=kacYvNCVWA4VmyqE58fU:22 a=AbAUZ8qAyYyZVLSsDulk:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzIwMDE0OSBTYWx0ZWRfX4FqCUPtGQD+c
- u3saG8O1suV5GspUYvL9P0pcjc1PshimzI0n8/ggUhz1ZFM1uEEFdaEAIOb4dL7Gl4S/NHbsg0S
- c9ZQCBRLwu2JGZs3GHF3Anm6Y8JPQ/qG/s/69yT3ZglggrYFtYzeK1R0MTHb5xR49tXRLBaDXE1
- YaT4Vq3cEW41XuV/kvIpWrg2SZmO+txlA2ALiqzFfJT7CjaQLu7SP7Hn6RqXNnjBvZcYkZ+Grdn
- XFpKBeTm9LDDjp8atNtal7kPy9D79SN2y4GvaR86iLFYwlOGhKyT8T5G8576uybWvRKOwZ2oiP7
- lADjjj+mFu2VOTfn8LCgvOzBqQB00F2T+CEiQd6cC4lyMPNsWiVJ2L7d/WA6RmM+ETVIoCq3VY0
- XojvRvCjINx9O8IkOJ2+QFhMgH4cAYTXafu0pNLtJFRiLW+kN3sUVXuVWUESIkflzTlcULmqhFF
- C4Sf+B2a9APLX9PcD1w==
-X-Proofpoint-GUID: rARWVoZaNhWHAhu-3ijkPGkUfhO-DL4W
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-20_02,2026-07-20_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 impostorscore=0 clxscore=1015 spamscore=0
- lowpriorityscore=0 malwarescore=0 adultscore=0 phishscore=0 bulkscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2607200149
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] dt-bindings: soc: mediatek: pwrap: Add compatible for
+ MT6589 SoC
+To: Akari Tsuyukusa <akkun11.open@gmail.com>, Sen Chu <sen.chu@mediatek.com>,
+ Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>,
+ Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Flora Fu <flora.fu@mediatek.com>, Alexandre Mergnat <amergnat@baylibre.com>
+Cc: "open list:MEDIATEK BOARD LEVEL SHUTDOWN DRIVERS"
+ <linux-pm@vger.kernel.org>,
+ "open list:MULTIFUNCTION DEVICES (MFD)" <mfd@lists.linux.dev>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>,
+ "open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>,
+ "moderated list:ARM/Mediatek SoC support"
+ <linux-arm-kernel@lists.infradead.org>,
+ "moderated list:ARM/Mediatek SoC support"
+ <linux-mediatek@lists.infradead.org>
+References: <20260716171733.300885-1-akkun11.open@gmail.com>
+ <20260716171733.300885-2-akkun11.open@gmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20260716171733.300885-2-akkun11.open@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_062426_340705_B485BFF5 
-X-CRM114-Status: GOOD (  17.07  )
+X-CRM114-CacheID: sfid-20260720_062715_645640_4F62499E 
+X-CRM114-Status: GOOD (  14.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,34 +89,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 12, 2026 at 02:45:20AM +0300, Cristian Ciocaltea wrote:
-> The PHY PLL can be programmed by an external component, e.g. the
-> bootloader, just before the recalc_rate() callback is invoked during
-> devm_clk_hw_register() in the probe path.
+On 7/16/26 19:17, Akari Tsuyukusa wrote:
+> Add compatible string for MediaTek MT6589 PWRAP.
+> Also update the description since MT6589 has pwrap bridge.
 > 
-> Therefore rk_hdptx_phy_clk_recalc_rate() finds the PLL enabled and
-> attempts to compute the clock rate, while making use of the bpc value
-> from the HDMI PHY configuration, which always defaults to 8 because
-> phy_configure() was not run at that point.  As a consequence, the
-> (re)calculated rate is incorrect when the actual bpc was higher than 8.
-> 
-> Do not rely on any of the hdmi_cfg members when computing the clock rate
-> and, instead, read the required input data (i.e. bpc), directly from the
-> hardware registers.
-> 
-> Fixes: 3481fc04d969 ("phy: rockchip: samsung-hdptx: Compute clk rate from PLL config")
-> Tested-by: Thomas Niederprüm <dubito@online.de>
-> Tested-by: Simon Wright <simon@symple.nz>
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
 > ---
->  drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 13 ++++---------
->  1 file changed, 4 insertions(+), 9 deletions(-)
+>   .../devicetree/bindings/soc/mediatek/mediatek,pwrap.yaml     | 5 +++--
+>   1 file changed, 3 insertions(+), 2 deletions(-)
 > 
+> diff --git a/Documentation/devicetree/bindings/soc/mediatek/mediatek,pwrap.yaml b/Documentation/devicetree/bindings/soc/mediatek/mediatek,pwrap.yaml
+> index e7c4a3984c60..a487ed39e6cb 100644
+> --- a/Documentation/devicetree/bindings/soc/mediatek/mediatek,pwrap.yaml
+> +++ b/Documentation/devicetree/bindings/soc/mediatek/mediatek,pwrap.yaml
+> @@ -19,8 +19,8 @@ description:
+>   
+>     IP Pairing
+>   
+> -  On MT8135 the pins of some SoC internal peripherals can be on the PMIC.
+> -  The signals of these pins are routed over the SPI bus using the pwrap
+> +  On MT6589 and MT8135, the pins of some SoC internal peripherals can be on the
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Soon, this will become
 
+"On MT6589, MT8135, MT1234, MT3456, MT...." :-)
 
--- 
-With best wishes
-Dmitry
+So, perhaps, it's a better idea if we say:
+
+"In some SoCs, some of the internal peripherals may be accessible only
+through the PMIC.
+The signals of these pins are routed (blahblah)"
+
+Cheers,
+Angelo
+
 
