@@ -4,101 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 328F1C4452A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 14:02:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 635DEC4452B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 14:02:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jjgcDbEk+UwGPrm8p3ddZGJiNEptTi23fs+y3mGJy60=; b=A9LU79ObDj68idGW3bt+SbXyEC
-	zKr3L37ffcNmzHo0dwKPN8OIyNEbs9L+vhxbS/wUTBlloqInQTP1TVLhRHaeuY+p5WScjVnDA9dvZ
-	Ri9yT9ft+5zMa3vsrttDMpS65i/82mgJgrmsOpDeD3Lisn932Ul3uLq2d0lKUZxyZsaZAilBLRNo8
-	b2y+R1f9XxukNiCgtGt7bM1ZPIDJrSvpQjhuEBtV5Law7Ed7Kn7Pf5DQM4tuIy20+I8/AHWo35Jzx
-	mJnXEKN2v3FTrRIyU5fAxIUkSTITnMnG/ElgI8aoEyongchwiZ1sYObmPeLX9oyOBj7WgfK3/Giwe
-	Ll6fX4wA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
+	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rIUH7Om9TP2+of2IvSjo/klnvZLvL7VmTwo2Br+NlKo=; b=ayvKMXG74kwa5wWFIyzcbtZyHU
+	g8IRrLiY+ir0gVqB9dPoqW/QaJHossxPjDZu9hV6gr+G4hzaPn8JRFvho5VES9xMm9rQNctoTAOTK
+	juE/3Nk/OAOxsNlLdefovCHiN7bcfCaaTiCTb+Dt26S6BOuHUbLj8GLsyGoYF2f+EF8GUPlCE/8n9
+	0ogZl3I21RTgkcBXfWuW5H6kv7M+47aUGFIhS0iPdhqaewFAPyKW0tmnwCJG/dqNpy0d7VjZxrwMi
+	Py+M0fXnrPdIh74yV686oIiP1J9JcTs0er449AyK8z4OQdwyWOXiFiHgrktrTmAHSrJlh2idOWYXW
+	Kvg04yxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wloZg-00000006tjg-48eZ;
-	Mon, 20 Jul 2026 14:02:28 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1wloZn-00000006tm3-0Jf4;
+	Mon, 20 Jul 2026 14:02:35 +0000
+Received: from mail-106101.protonmail.ch ([79.135.106.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wloZe-00000006tiU-2W5a
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 14:02:27 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2ca64c3ce5fso115097885ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 07:02:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dama-to.20251104.gappssmtp.com; s=20251104; t=1784556146; x=1785160946; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:mail-followup-to:message-id:subject:cc:to:from:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=jjgcDbEk+UwGPrm8p3ddZGJiNEptTi23fs+y3mGJy60=;
-        b=AURU+OagZ0HqwfEwmjXKbnPnG4IlbogWP9TGYXTmUU1aaqcSXRLBr1yc9ThS6dntDq
-         NDxM9M0RFkUNjG2Gqmh3XOa+nOBa2yOEzeJc0ycu+fDGDf7rbZOKPDSdHDRnKs+iUOxc
-         m6ZBfKXWk1Ay0DXGxP+I+/n7Q+aB9HOOI5Uc5gFFAiOTlF1GPHAoikAynS36iwZEj9im
-         u5xYbCzLuchAaR0kr8cQ9NrDaFO7/0XWCx3KubgyuxEE62Mt3G/I2esc+IHg1K+SEhSC
-         cDAQMrwMRtgvgpRg6ASnZ4kPhLkVlALJtHPu08tpSRvh6BzhMWA22k84mr6apm4Xgq1r
-         cUUw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784556146; x=1785160946;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:mail-followup-to:message-id:subject:cc:to:from:date
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=jjgcDbEk+UwGPrm8p3ddZGJiNEptTi23fs+y3mGJy60=;
-        b=mwKLOJYCXNd43r4OsZbFRQ7c33RyQw4Yzryi8k6kJRRLHDdXaksXQ3mDYmtfi6h8kh
-         kFCUtFY7VALHsoeQuMYvXjd+FLUYkMh+i/RshE1OM31uj0spNXfMnjGCAU0qTrlMyw4D
-         7n0xYrBL9w5jEO4udCPWqRuWw2qynPimSpEvkFqr2JlkSftHtBTGonlxT+qMghRMJE40
-         u98pcjEMh3SbMaBGyfgVpNsrFWd8tberjn8BgoQ7C1dlqs3P/TcvcZIaiJwsWcQq4yCX
-         ZtXAMqZVXoVl1eLEWvony+BXG99BDV9/xZjI66+iRRzreHhcDqLdcUxodG6n+O11yjBs
-         uBQA==
-X-Forwarded-Encrypted: i=1; AHgh+Rqj+BNax140tgUqg6/Vp2iAt1PsowMpIpLi8Iss4XlEYOZjZKbRBjQ2eUT/yXlA/sw+f7vW1UA6uT2I4wzPXBmy@lists.infradead.org
-X-Gm-Message-State: AOJu0YzL3kV5xh+88fFRHnFxNlDgiWTPHqgELlOhRd/BojcpKkIDVxPE
-	ZAiCQjm2KkCeU6yuDv+qwAu1LIE/5poI+KyKLAqYi0kA0G4qYDujeJD7MyXju7b3wUk=
-X-Gm-Gg: AR+sD11kTmSttXGEB41509UlvJvTgFLu8fr7DwAu26YI16eAo06tpIEwZEjOnelLs2v
-	tCOoc4f7d0Xs2KTxbZghL3L73bjdfA3vME3hBG1OYMvZZUVq8eGWyksw4Dp0L2uhPAAW3i9p1XD
-	U9hHIPIrikOZ3zyUVL11mKZ0EQnZZvek1CTxrOud1dxWK00930NQC75AU4xuLpdTDW4tBtMInx3
-	7xq1e1kk8PimP62Al/SO4fpZwEv/Ti4NnNODM5RDxTPu0UuAPAdF5IWbwXv6w9cw7mkMSCC/8gm
-	eyICBc9jOxfg97OIoJma+Q6WAzs5ofNzJZfML+5JCZllf58KyP0AIsdzVFqqnyB7e6Sl+nNNK0G
-	zMg9EBmSxpecxUqnaR3ooPVx61pcxCFbmusb5wxKFjTHI+ESIxCX378qM0/r6/2czQ6xQgg==
-X-Received: by 2002:a17:902:f78c:b0:2cb:3f5b:6663 with SMTP id d9443c01a7336-2cf348bee75mr154491725ad.11.1784556145405;
-        Mon, 20 Jul 2026 07:02:25 -0700 (PDT)
-Received: from localhost ([2a03:2880:2ff:43::])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf346db113sm56870065ad.39.2026.07.20.07.02.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Jul 2026 07:02:22 -0700 (PDT)
-Date: Mon, 20 Jul 2026 07:02:21 -0700
-From: Joe Damato <joe@dama.to>
-To: wei.fang@oss.nxp.com
-Cc: claudiu.manoil@nxp.com, vladimir.oltean@nxp.com, xiaoning.wang@nxp.com,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, linux@armlinux.org.uk,
-	wei.fang@nxp.com, chleroy@kernel.org, maxime.chevallier@bootlin.com,
-	imx@lists.linux.dev, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH RESEND v4 net-next 01/14] net: enetc: extract common
- helpers for MAC promiscuous mode setting
-Message-ID: <al4qbRV8h1a5nZCd@devvm20253.cco0.facebook.com>
-Mail-Followup-To: Joe Damato <joe@dama.to>, wei.fang@oss.nxp.com,
-	claudiu.manoil@nxp.com, vladimir.oltean@nxp.com,
-	xiaoning.wang@nxp.com, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-	linux@armlinux.org.uk, wei.fang@nxp.com, chleroy@kernel.org,
-	maxime.chevallier@bootlin.com, imx@lists.linux.dev,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org
-References: <20260720014317.1059359-1-wei.fang@oss.nxp.com>
- <20260720014317.1059359-2-wei.fang@oss.nxp.com>
+	id 1wloZe-00000006tiE-2Zj0;
+	Mon, 20 Jul 2026 14:02:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1784556142; x=1784815342;
+	bh=rIUH7Om9TP2+of2IvSjo/klnvZLvL7VmTwo2Br+NlKo=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=hwEE0MCsp7FnCerQellLJy8FpDFGVQXkX4vQTSxjrPXlncsc5q2SalY289x8k9coU
+	 Sq985az+qLP64nhKhah3CKZh9bXBpJDtWHq448LfjvW/WbVaJ4xa4csjupjS0lF6N+
+	 J3SFsgpUrxrXmew/xT7y17M3+3IuN08/YK/FDOKjtbf8p6R6/hEIWk6JiKEsxFK8YC
+	 F8yWwhZFM8CAn8W2N7+eN3ld7FbRZQLi9RgUbpAayiocNUIgD4zUfMVXgm2Wa99bNn
+	 +lcRzSk/gvxeOETXA7oAkzqBSTyae8bRZqDfxbPBB1dXl18A36/p6tK8IBpEQnEXit
+	 m0R/6BqSv5uzg==
+Date: Mon, 20 Jul 2026 14:02:16 +0000
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+From: Roman Vivchar <rva333@protonmail.com>
+Cc: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, Andrew-CT Chen <andrew-ct.chen@mediatek.com>, Lala Lin <lala.lin@mediatek.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH 2/3] nvmem: mtk-efuse: add support for 32-bit aligned reads
+Message-ID: <fjbTxmhINpeE9M-4eyCFuhueFEH1J4fJBRN90DeIFMEfvxbwx8XeTLnkLsSDq2nchJJFFZxUe_SUNQuGWUDiB4taXJ5lRkLUhT1C_i3L8Rw=@protonmail.com>
+In-Reply-To: <c2b85740-4372-4609-a9fa-930010f5296a@collabora.com>
+References: <20260715-6572-nvmem-v1-0-9c13be99d077@protonmail.com> <20260715-6572-nvmem-v1-2-9c13be99d077@protonmail.com> <c2b85740-4372-4609-a9fa-930010f5296a@collabora.com>
+Feedback-ID: 173184497:user:proton
+X-Pm-Message-ID: 3ea465e119018711fb21346ca626e34fdfdfec16
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260720014317.1059359-2-wei.fang@oss.nxp.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_070226_681114_A183CCE7 
-X-CRM114-Status: GOOD (  23.64  )
+X-CRM114-CacheID: sfid-20260720_070226_813521_C9D09304 
+X-CRM114-Status: GOOD (  10.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,72 +68,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 20, 2026 at 09:43:03AM +0800, wei.fang@oss.nxp.com wrote:
-> From: Wei Fang <wei.fang@nxp.com>
-> 
-> The PSIPMMR (Port Station Interface Promiscuous MAC Mode Register) in
-> ENETC v4 has the same bit layout as the PSIPMR register in ENETC v1: bit
-> n controls unicast promiscuous mode for SI n, and bit (n + 16) controls
-> multicast promiscuous mode for SI n. The only difference between the two
-> hardware generations is the register address offset.
-> 
-> Since the register functionality is identical, the MAC promiscuous mode
-> setting code can be shared between ENETC v1 and v4 drivers.
-> 
-> Rename ENETC_PSIPMR to ENETC_PSIPMMR in enetc_hw.h to match the actual
-> register name used in the reference manual, and extract two new common
-> helper functions, enetc_set_si_uc_promisc() and
-> enetc_set_si_mc_promisc(), into enetc_pf_common.c. These helpers select
-> the correct register offset based on the hardware revision via
-> is_enetc_rev1().
-> 
-> Remove the v4-specific enetc4_pf_set_si_mac_promisc() function from
-> enetc4_pf.c and the duplicate PSIPMMR_SI_MAC_UP/MP macro definitions
-> from enetc4_hw.h, as they are now superseded by the shared code.
-> 
-> Signed-off-by: Wei Fang <wei.fang@nxp.com>
-> ---
->  .../net/ethernet/freescale/enetc/enetc4_hw.h  |  2 -
->  .../net/ethernet/freescale/enetc/enetc4_pf.c  | 21 +--------
->  .../ethernet/freescale/enetc/enetc_ethtool.c  |  2 +-
->  .../net/ethernet/freescale/enetc/enetc_hw.h   |  7 +--
->  .../net/ethernet/freescale/enetc/enetc_pf.c   | 11 ++---
->  .../freescale/enetc/enetc_pf_common.c         | 44 +++++++++++++++++++
->  .../freescale/enetc/enetc_pf_common.h         |  2 +
->  7 files changed, 56 insertions(+), 33 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/freescale/enetc/enetc4_hw.h b/drivers/net/ethernet/freescale/enetc/enetc4_hw.h
-> index f18437556a0e..6a8f2ed56017 100644
-> --- a/drivers/net/ethernet/freescale/enetc/enetc4_hw.h
-> +++ b/drivers/net/ethernet/freescale/enetc/enetc4_hw.h
-> @@ -69,8 +69,6 @@
->  
->  /* Port Station interface promiscuous MAC mode register */
->  #define ENETC4_PSIPMMR			0x200
-> -#define  PSIPMMR_SI_MAC_UP(a)		BIT(a) /* a = SI index */
-> -#define  PSIPMMR_SI_MAC_MP(a)		BIT((a) + 16)
+On Monday, July 20th, 2026 at 3:48 PM, AngeloGioacchino Del Regno <angelogi=
+oacchino.delregno@collabora.com> wrote:
 
-[...]
-  
-> diff --git a/drivers/net/ethernet/freescale/enetc/enetc_hw.h b/drivers/net/ethernet/freescale/enetc/enetc_hw.h
-> index bf99b65d7598..66bfda60da9c 100644
-> --- a/drivers/net/ethernet/freescale/enetc/enetc_hw.h
-> +++ b/drivers/net/ethernet/freescale/enetc/enetc_hw.h
-> @@ -180,9 +180,10 @@ enum enetc_bdr_type {TX, RX};
->  #define ENETC_PMR_PSPEED_1000M	BIT(9)
->  #define ENETC_PMR_PSPEED_2500M	BIT(10)
->  #define ENETC_PSR		0x0004 /* RO */
-> -#define ENETC_PSIPMR		0x0018
-> -#define ENETC_PSIPMR_SET_UP(n)	BIT(n) /* n = SI index */
-> -#define ENETC_PSIPMR_SET_MP(n)	BIT((n) + 16)
-> +#define ENETC_PSIPMMR		0x0018
-> +#define  PSIPMMR_SI_MAC_UP(n)	BIT(n) /* n = SI index */
-> +#define  PSIPMMR_SI_MAC_MP(n)	BIT((n) + 16)
+> On 7/15/26 16:27, Roman Vivchar via B4 Relay wrote:
 
-I probably would have fixed the leading spaces when copying/pasting the macro,
-but that seems like a nit.
+...
+=20
+> it's easier at this point if you simply do
+>=20
+> =09if (pdata->needs_aligned_read) {
+> =09=09econfig.stride =3D 4;
+> =09=09econfig.reg_read =3D mtk_reg_read_aligned;
+> =09} else {
+> =09=09econfig.stride =3D 1;
+> =09=09econfig.reg_read =3D mtk_reg_read;
+> =09}
+>=20
+> and you avoid touching mtk_reg_read entirely.
 
-I read the rest of the code a few times and it looks right to me.
+stride =3D 4 means we can't do something like reg =3D <0x1 0x1>;
+For example, CPU speedbin is sitting at 0x181, but we can model that as
+0x180.
+cpu_speedbin: cpu-speedbin@180 {
+    /* This is technically reg =3D <0x181 0x1> and bits =3D <0 2> */
+    reg =3D <0x180 0x4>;
+    bits =3D <8 2>;
+};
 
-Reviewed-by: Joe Damato <joe@dama.to>
+I'm not sure what are mediatek preferences in the devicetree since
+things change quite frequently... Downstream never triggers this hw bug
+because it uses readl everywhere for each efuse.
+
+I would keep the stride =3D 1 so we don't need workarounds in the DT, but
+the reg_read indeed sounds better :)
+
+Let me know if you have any objections.
+
+Best regards,
+Roman
 
