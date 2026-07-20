@@ -4,60 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3036AC44529
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 20:09:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C49DBC44529
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 20:10:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v+umRzPFk9xQ5Xmah/kPJWGDKwAbojiTzvV5y+9Yews=; b=196rp/cWUvyurqQoqd+FEbSqJR
-	TEvV+RFrkhbG5aSSBeaBwt+mgRnJqrur2DU5WqJD3Y5ABe0f/VpBdD2RNoH/r0GhlK4nItVp0euVY
-	viJCpNBH4koVNnazIOer6i+hs6eSnGPgfboCQV3HNGIn30pFJiNKsi8aUE2qxiZ6gqfqJWjFhrgls
-	yejpS9GfhoNbu4/e5VFpLM9Z5HKO/e4d7QtAyIhnwn1P11/vqtjJMAHjVe8Ziq7lcduAVgCVCTzxe
-	L/W7YlpYJftsi1+9VHV3CFWoArC52rfCsFiVIPRNl3yr5tLXOYSt6PhGMth0b6nkR7FnPmfTy+6a8
-	HRAglPgg==;
+	bh=nZ063Cr5IysRq6HcyQ+1TKilKDDKztM/HVWJR8czcj4=; b=XKAIt5CCHRQ9Q0Ss7SHmmmR8wx
+	9cbR31ljhvLd4Bvkme6S49NjzJeX5DQUZkoDnnztXvIHlyaDmjaHaW+msHtQ7y3vXrijpyE46A/uH
+	QWEXqQs1jeQu1GauG5jLZ4DfpkTsz604NSwHlLjYsefd7wAbeuKFU/RwIh76Z5nx78//JbuJV4HEq
+	WKrUye0+P4U807bI9a6o/Bv47N/zKH3USRc2/N1M4wEJyLKdKp4gGF9ps3uVSxh7GjxzccAZYy55B
+	8TcXqFP+6iD58pHB59eeA9idsO88MS6cjDJzOauqsxrV3BhOal3WKAlOCAjXyMe8u06tVFxMF8lJ3
+	/qayBq0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wluIx-00000007pOb-465g;
-	Mon, 20 Jul 2026 20:09:35 +0000
+	id 1wluJJ-00000007pSd-0W1u;
+	Mon, 20 Jul 2026 20:09:57 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wluIw-00000007pOP-2sj6;
-	Mon, 20 Jul 2026 20:09:34 +0000
+	id 1wluJH-00000007pSH-2K63;
+	Mon, 20 Jul 2026 20:09:55 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 21854418FD;
-	Mon, 20 Jul 2026 20:09:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 268671F000E9;
-	Mon, 20 Jul 2026 20:09:28 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4FFF240BD2;
+	Mon, 20 Jul 2026 20:09:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C09A1F000E9;
+	Mon, 20 Jul 2026 20:09:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784578174;
-	bh=v+umRzPFk9xQ5Xmah/kPJWGDKwAbojiTzvV5y+9Yews=;
+	s=k20260515; t=1784578195;
+	bh=nZ063Cr5IysRq6HcyQ+1TKilKDDKztM/HVWJR8czcj4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=ax7QJy5ICzU1aVwS1PDBbUm5DbJTetaj7J/+oAvcsd2fSqVBBlsRGkwmDsxt+pv3x
-	 Higtnn5mtrFxhcseFj1StlbinSQdUvr80NTzzMqaUDNyDDwM+oj75D0WQQUmv2tA/y
-	 2JgfxyX1EnZNynWJGNwveF3lETjQKzZ/eDisQbvsXHmIs6PCW6bNno7OWEGvJH4GcV
-	 JTGWnz2d1lawN1MCe/M+5OPMXguMckIPyaB2QSVpUvRRvZ3Zc4lUqOzymLB7Mwzo3A
-	 DGH+36iOlBaX8TulLUJ3aUG53AKCKbiJ1l3uUJNi9fTLKFHcaiuIlph2fS/EDNYX/a
-	 x0ZKmBcsrd/Rw==
-Message-ID: <39943736-4051-4b21-9ac1-b8f28ee9a480@kernel.org>
-Date: Mon, 20 Jul 2026 22:09:25 +0200
+	b=KslcyemOTwbV2E03AeYY4oo1GtzemQCxDq2kWyHW1c1oRK99hV6KqC2lns6Ov6a58
+	 Fcr5mtkfINO3B+o8cCONe5vwWLaQnAqmReXRJaDJUjvRazKEBmFEzkOAFquLzsTYjs
+	 Bdp4dufOjnq4UFS3ZPVoFxyJTBcXGKcFoqKNVi7KYy3UXMFGalfWP6Uv2VGQgswxU5
+	 G/4Ds7/zIjcNh+AOJiG8fWqIjNyw33AUUxBZz1T1xykDr3jgiazpbmWpDL8rQe1cfF
+	 10DGG+vgUI0EDL5+EhUd9MOnQYIE4Dy5dhyfwo2Z0DkUk8xex0J92A83X3GigH/SK2
+	 anXOcHOqsv+aQ==
+Message-ID: <0b4984b4-8729-4125-b09d-8136ee79ac0f@kernel.org>
+Date: Mon, 20 Jul 2026 22:09:49 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2 1/3] dt-bindings: power: Add MediaTek MT6858 power
  domain controller
-To: nikolai.burov@jolla.com, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+To: Nikolai Burov <nikolai.burov+review@abscue.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>,
  AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Ulf Hansson <ulfh@kernel.org>
-Cc: Matthias Brugger <mbrugger@suse.com>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org,
- Nikolai Burov <nikolai.burov+review@abscue.de>
+ Ulf Hansson <ulfh@kernel.org>, Matthias Brugger <mbrugger@suse.com>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-pm@vger.kernel.org, Nikolai Burov <nikolai.burov@jolla.com>
 References: <20260715-mt6858-pmdomain-v2-0-6293e87fc093@jolla.com>
  <20260715-mt6858-pmdomain-v2-1-6293e87fc093@jolla.com>
+ <20260720-vigorous-groovy-cassowary-9912d9@quoll>
+ <db76f500-0db5-4c5f-b4cb-60818702787e@abscue.de>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,7 +105,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260715-mt6858-pmdomain-v2-1-6293e87fc093@jolla.com>
+In-Reply-To: <db76f500-0db5-4c5f-b4cb-60818702787e@abscue.de>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -120,20 +122,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/07/2026 15:54, Nikolai Burov via B4 Relay wrote:
-> From: Nikolai Burov <nikolai.burov@jolla.com>
+On 20/07/2026 21:09, Nikolai Burov wrote:
+> On 7/20/26 8:05 AM, Krzysztof Kozlowski wrote:
+>> On Wed, Jul 15, 2026 at 04:54:05PM +0300, Nikolai Burov wrote:
+>>> Add a new compatible and document bindings for the power domain
+>>> controller of the MT6858 SoC.
+>>>
+>>> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>>
+>> To provide review, please open and read the entire file.
+>>
+>>> Signed-off-by: Nikolai Burov <nikolai.burov@jolla.com>
+>>> ---
+>>>  .../bindings/power/mediatek,power-controller.yaml  | 21 +++++++++++++++++++-
+>>>  include/dt-bindings/power/mediatek,mt6858-power.h  | 23 ++++++++++++++++++++++
+>>>  2 files changed, 43 insertions(+), 1 deletion(-)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml b/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
+>>> index 070c6e5666dc..d03e4a925163 100644
+>>> --- a/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
+>>> +++ b/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
+>>> @@ -25,6 +25,7 @@ properties:
+>>>      enum:
+>>>        - mediatek,mt6735-power-controller
+>>>        - mediatek,mt6795-power-controller
+>>> +      - mediatek,mt6858-power-controller
+>>>        - mediatek,mt6893-power-controller
+>>>        - mediatek,mt8167-power-controller
+>>>        - mediatek,mt8173-power-controller
+>>> @@ -56,7 +57,7 @@ properties:
+>>>        faults while enabling or disabling a power domain.
+>>>        For example, this may hold phandles to INFRACFG and SMI.
+>>>      minItems: 1
+>>> -    maxItems: 3
+>>> +    maxItems: 6
+>>
+>> And the rest? Why does this device have flexible number of access
+>> controllers?
 > 
-> Add a new compatible and document bindings for the power domain
-> controller of the MT6858 SoC.
-> 
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> Signed-off-by: Nikolai Burov <nikolai.burov@jolla.com>
-> ---
->  .../bindings/power/mediatek,power-controller.yaml  | 21 +++++++++++++++++++-
->  include/dt-bindings/power/mediatek,mt6858-power.h  | 23 ++++++++++++++++++++++
->  2 files changed, 43 insertions(+), 1 deletion(-)
+> For mt6858, the "items" list I provided already overrides both minItems 
+> and maxItems, so it has a fixed number (6) of access controllers.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Correct, somehow I missed that part of the diff for this file.
 
 Best regards,
 Krzysztof
