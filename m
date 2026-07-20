@@ -4,81 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64BEFC44529
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 17:35:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59BECC44515
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 17:36:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QEuOwiudoWWTi/wv3fiL2ZzwS4iTMOnI0AtYPMOpiXE=; b=hYVGN97tnxq59PqHfmr9lF9TX3
-	bpkir2SnVUaELFe4UkBuTR9wXAR940xKI1FxddQfe5n2vpzuw5B5lJjYZpAyZFWMDA/Dg1DGb3n2X
-	k+bjErO3TXqUj3NjUYUvvH84DWmeiwOCejdfLM7S6MkAdj3rTVzRQkFGSteXNq57NxXx9gMH2c65s
-	GhgG5iN5hvizwsVAKzNDIMBJoQYtn6atxLINxcohFG4K2NAXkDubarL01Aaw73yo2kaxp/3qznidn
-	3v1bD20isPQu4mRI6cHyu2VKb7OwburcV17sSHl5nblGL+2XfPsapJ3KqV4FGzUBL44H1Z39w8/KU
-	M1d/XmcQ==;
+	bh=bgJoRNuplp6eZlFzlFIl9nminZilm44pZn8iwP92+o4=; b=kbFsuYeouvjAL6t8m+Y/cM5rit
+	kPkBAZvldye04Nn4oG3Qe4/NO+2IQxzL4yGeqf8X8qXxw45S0Jrj5DHtphh0hKcleU+UiBISHu26E
+	ck2Z62VP3UGuGidw7MzIWZb5SGp6K1qhVHjthuwAO4BkkDgYzTPDxh6F9ll5jLttrC6T2iLVKBbxA
+	Df75+ru+a3yf6v3ZKbqRYf0QMJhagHcUiVR87d1empbVGLNbCpNo0SJxqAr7SfOL9wSpSh+qi8+RJ
+	nBE2X8i1No39EKJniBUrNqDbozVwSA0hQN6MB2MJ3zPx6t1b6j1dHwhz4n4pljcFNOMpcV8Irj1qm
+	GAggDiXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlrac-00000007UvA-2mT2;
-	Mon, 20 Jul 2026 17:15:38 +0000
-Received: from mail-wr1-x448.google.com ([2a00:1450:4864:20::448])
+	id 1wlruT-00000007YXS-37v8;
+	Mon, 20 Jul 2026 17:36:09 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlraU-00000007Ul6-01GT
+	id 1wlruP-00000007YVi-1kLw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 17:15:31 +0000
-Received: by mail-wr1-x448.google.com with SMTP id ffacd0b85a97d-476608a9fefso3884459f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 10:15:28 -0700 (PDT)
+	Mon, 20 Jul 2026 17:36:07 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2cea3004256so120123665ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 10:36:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784567727; x=1785172527; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=QEuOwiudoWWTi/wv3fiL2ZzwS4iTMOnI0AtYPMOpiXE=;
-        b=cMPdgoQOYAZghIRnOLYQ4RiOCJ081n/ZntFph/ZyzA3TTJrG0mBeot+dZDhul95ggl
-         /Nv6BD9QZ0tceEI3NvjoMwgnrgQhVAC1rbR/4Grl7u3Uv4xqfKpbUscMBIA87yhgpe7r
-         +bOo2YI5Yp89gjbcuOB5BAut4N99rYcTmH6CuMf9x7pPHrFUhL/wgY9h9efHDCZZqAJB
-         P3Evw9f58Bv9ct1rr5z7z/PCIZXiAKibwJEcQsFj+WOTTT9uLaVNRLR0SWPHEl0e4WhP
-         WPO8bl87qUhaeu0Hd2CbYaRnNyki64OhZ4nn0C/egN/QSfd21kNMhtLWJ7q6BxA42M6/
-         01rw==
+        d=dama-to.20251104.gappssmtp.com; s=20251104; t=1784568964; x=1785173764; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:mail-followup-to:message-id:subject:cc:to:from:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=bgJoRNuplp6eZlFzlFIl9nminZilm44pZn8iwP92+o4=;
+        b=mL4GkwOWkPX+/AK3FeVptRS5MfaXL/qiOpplqh7HGWUXioGyzw4eiN5VHB7KJO9fHq
+         6fd53gfJ/Ph/f/hWMBogsBicKPat9yq1OMR8FX15E4OaBddC47nxxrnMuL1fl1t5Uitd
+         FrrES/MRQshH9GOBDwU6vhdvIFolbDD1a91FIqGn8DGo9MHXPykSaioSM2eNKFmj33cP
+         mejvV9cHQ+WM/K+gLnoSu80efmJ2LBasaIAfFhVz6TKrmNxC/aJ5mGVJxn9pXxrRESgS
+         JZUK63vZjz3Kna1kx4AXCGTXJFmv0R2QFeYgnRAYMe02MVQvb4e2ko7al7fgmO3t/bxo
+         8+9w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784567727; x=1785172527;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=QEuOwiudoWWTi/wv3fiL2ZzwS4iTMOnI0AtYPMOpiXE=;
-        b=WrE05jqsTwWgYcYSsF58KpnQMNO8zoveBcNOzJaFpvEEsphaqmNe3umbB/GbYXIukg
-         57+5Hccm8/IQOUFFdIelZRK/Pj7rivDBf9/yJ14/3gMGeVqUnlmlK0ysgXQpdeCJ1MQP
-         WoD2jr71vutvHar2HVcdtnV84luq4N5l/KoTWUUQStwCS8j92kFSP9SXtIoCJUbBKgds
-         DLByogHu3I8IGDZG6rL6TCnPlrwp6LM8rV7ZS0xqZ8vKOoeQHk7Y8ZKS3nJaiczcEBWg
-         Q36YzCjdZbrETlOyEEXHXQivb+4OdI4BVjhrk9EArMV2jtxG+ATOLeXZ1V/GuPsHrf16
-         nDnw==
-X-Forwarded-Encrypted: i=1; AHgh+Rr9NQXdrQ/Eza86oH4Ov20O/oF3tmmw/eDhWgPxlP68U+d/kMXUDdiA6GpXyLJQJ5yvqDlD333O1lxBfHKL0Nga@lists.infradead.org
-X-Gm-Message-State: AOJu0YykeTV1J0Fad/eXm2CBycW92U2TLkFl3gHIPpMkqo4U7DvrZ24s
-	k3BMP8L8hW86wm3SVzW8PDINM5zH2Zl8yLBLZ6dHZpBqHDD/VQtUPhGE6+zBUhvv4H6TbGbxlUy
-	K7gvlCJZkwxioqyj0iJHARg==
-X-Received: from wrtc5.prod.google.com ([2002:a5d:4cc5:0:b0:47f:6d90:86fa])
- (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6000:2404:b0:47f:7926:90c3 with SMTP id ffacd0b85a97d-47f7926913bmr5497612f8f.30.1784567726608;
- Mon, 20 Jul 2026 10:15:26 -0700 (PDT)
-Date: Mon, 20 Jul 2026 18:15:03 +0100
-In-Reply-To: <20260720171513.1415357-1-vdonnefort@google.com>
-Mime-Version: 1.0
-References: <20260720171513.1415357-1-vdonnefort@google.com>
-X-Mailer: git-send-email 2.55.0.229.g6434b31f56-goog
-Message-ID: <20260720171513.1415357-8-vdonnefort@google.com>
-Subject: [PATCH v3 07/17] KVM: arm64: Add PKVM_HYP_REQ_HYP_ALLOC request
-From: Vincent Donnefort <vdonnefort@google.com>
-To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+        d=1e100.net; s=20251104; t=1784568964; x=1785173764;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:mail-followup-to:message-id:subject:cc:to:from:date
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=bgJoRNuplp6eZlFzlFIl9nminZilm44pZn8iwP92+o4=;
+        b=jZiN1Yfi6fgAbPBoACFV8ifT7udILXYgg/7kQbWzIpp1uHGPD/9TT2FfTBAUEGHnpa
+         gS07sfesZ5OEJHGu7YySOhTygsz08CVquoNYDXG0lPmKYjsY2NgwAO3R/TNwItnAIl+e
+         Iskj5Uk1tqRJMWGpfv9CoWQyXvKpWy8DJgpav8yzhYierzKx3heNfuk+YsbQHfUhnf67
+         LwF7+3QCXbv6hQFOOOlgtwcQX5jiQBBh7pRlH+vX8eG3//P7sCDa7JmQQJy40EtDKE0X
+         +v0ZByKSTfeBq4lSm/LaZ5lIMQPfYdgXxbWALShB26oT3JvHfz9Tj+MPInZSYppRaL+F
+         +5xQ==
+X-Forwarded-Encrypted: i=1; AHgh+RpNsMyoQqt1jCJzaBMe5zOVUoEVD7a+bIK6ml+MlqV2KiG8MWDQAVs0uFX0E8SQD/ZxIOqc59jiGt9l9WQEped4@lists.infradead.org
+X-Gm-Message-State: AOJu0YygK9sPPyPLa/LrGDoPDLM8I+3oHg2yWsuX6R+bwRXL+XY3O+yr
+	Xt+C+M3gKrwrdCyduzawQAlLYzCdUKpgPDPNG3JZsrU2n2A2RgJfc+ccCFmYIpObjC4=
+X-Gm-Gg: AR+sD10Lqs0ypynzEjjOqBc99M5KH0SICBkQYNJIhv7UdfvSvG9kXRBYenR+/PvI3vh
+	qwQ084wYYVBC/V9xjyvvX7jlxUHVpUcLbP9u8si+lS68etjKArlvnkH9Yc6oSjySoY7WZr5p0iL
+	PaGCsAlSJ+HkcAaDb2mGyriTxjZHcWRaw0UKc+pHeefVXWlcUwAKWbYesgBHY1eY1syg7+baCBk
+	SijxTo3Zx+Wokcc7wWFVYEb13mC+tNsEpweXo5oM3Y+1HKQHIn3h/svIywCAAWoJ+DD6BqdjHZu
+	w5ehBBgawNM3P3O8g7pcKVU2YGX5y0LJqYRE2ZNsD7beBNVymqr6+lDtj1Heb3kKiYJh3vvu2xj
+	MBrQhTPbQ/V0IX771hmr0qpHKXVkovsS9vxbOr9pYIQwkbqs+sq/xh644caY=
+X-Received: by 2002:a17:903:986:b0:2ca:53e9:1277 with SMTP id d9443c01a7336-2cf348193e8mr159265115ad.1.1784568964287;
+        Mon, 20 Jul 2026 10:36:04 -0700 (PDT)
+Received: from localhost ([2a03:2880:2ff:53::])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf3476f70esm60110235ad.77.2026.07.20.10.36.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 20 Jul 2026 10:36:03 -0700 (PDT)
+Date: Mon, 20 Jul 2026 10:36:02 -0700
+From: Joe Damato <joe@dama.to>
+To: wei.fang@oss.nxp.com
+Cc: claudiu.manoil@nxp.com, vladimir.oltean@nxp.com, xiaoning.wang@nxp.com,
+	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, linux@armlinux.org.uk,
+	wei.fang@nxp.com, chleroy@kernel.org, maxime.chevallier@bootlin.com,
+	imx@lists.linux.dev, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
 	linux-arm-kernel@lists.infradead.org
-Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
-	kernel-team@android.com, tabba@google.com, qperret@google.com, 
-	Vincent Donnefort <vdonnefort@google.com>
-Content-Type: text/plain; charset="UTF-8"
+Subject: Re: [PATCH RESEND v4 net-next 13/14] net: enetc: use
+ alloc_etherdev_mqs() to create netdev for VF driver
+Message-ID: <al5cgs6CqVKsy/gh@devvm20253.cco0.facebook.com>
+Mail-Followup-To: Joe Damato <joe@dama.to>, wei.fang@oss.nxp.com,
+	claudiu.manoil@nxp.com, vladimir.oltean@nxp.com,
+	xiaoning.wang@nxp.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+	linux@armlinux.org.uk, wei.fang@nxp.com, chleroy@kernel.org,
+	maxime.chevallier@bootlin.com, imx@lists.linux.dev,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org
+References: <20260720014317.1059359-1-wei.fang@oss.nxp.com>
+ <20260720014317.1059359-14-wei.fang@oss.nxp.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260720014317.1059359-14-wei.fang@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_101530_069932_CBC25F0E 
-X-CRM114-Status: GOOD (  14.95  )
+X-CRM114-CacheID: sfid-20260720_103605_591124_4E09E415 
+X-CRM114-Status: GOOD (  25.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,178 +113,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce a new pkvm_hyp_request type asking the host to top up the pKVM
-heap allocator.
+On Mon, Jul 20, 2026 at 09:43:15AM +0800, wei.fang@oss.nxp.com wrote:
+> From: Wei Fang <wei.fang@nxp.com>
+> 
+> The VF driver uses alloc_etherdev_mq() with ENETC_MAX_NUM_TXQS as the
+> queue count, which forces the TX and RX queue counts to be equal and
+> uses a compile-time constant rather than the actual hardware capability.
+> 
+> After enetc_get_si_caps() is called, si->num_tx_rings and
+> si->num_rx_rings reflect the actual number of rings assigned to the VF
+> by the PF. For the ENETC VF on LS1028A and the upcoming i.MX95/94, their
+> SoCs have no more than 6 CPUs, and the number of TX/RX rings allocated
+> to the VF is less than 8.
+> 
+> Therefore, switch to alloc_etherdev_mqs() so that the TX and RX queue
+> counts are set independently, each capped at ENETC_MAX_NUM_TXQS, based
+> on the actual number of rings assigned to the VF by the PF.
+> 
+> Note that if future SoCs have more than 6 CPUs and more than 6 RX rings
+> allocated to VFs, the size of the int_vector array in struct
+> enetc_ndev_priv will need to be modified. Similarly, if more than 8 TX
+> rings are allocated to each int_vector, ENETC_MAX_NUM_TXQS will also
+> need to be modified.
+> 
+> Signed-off-by: Wei Fang <wei.fang@nxp.com>
+> ---
+>  drivers/net/ethernet/freescale/enetc/enetc_vf.c | 9 ++++++++-
+>  1 file changed, 8 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/net/ethernet/freescale/enetc/enetc_vf.c b/drivers/net/ethernet/freescale/enetc/enetc_vf.c
+> index 9cdb0a4d6baf..7dcb4a0246f5 100644
+> --- a/drivers/net/ethernet/freescale/enetc/enetc_vf.c
+> +++ b/drivers/net/ethernet/freescale/enetc/enetc_vf.c
+> @@ -317,7 +317,14 @@ static int enetc_vf_probe(struct pci_dev *pdev,
+>  
+>  	enetc_get_si_caps(si);
+>  
+> -	ndev = alloc_etherdev_mq(sizeof(*priv), ENETC_MAX_NUM_TXQS);
+> +	/* Currently, the supported SoCs have a max of 6 CPUs and the VFs
+> +	 * have less than 6 RX/TX rings. So no issues for these supported
+> +	 * SoCs, but for future SoCs which have more CPUs or more TX/RX
+> +	 * rings, all the related logic needs to be improved.
+> +	 */
+> +	ndev = alloc_etherdev_mqs(sizeof(*priv),
+> +				  min(si->num_tx_rings, ENETC_MAX_NUM_TXQS),
+> +				  min(si->num_rx_rings, ENETC_MAX_NUM_TXQS));
 
-Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+Code looks right, but looks almost like a typo. I guess it would read nicer if
+ENETC_MAX_NUM_RXQS existed?
 
-diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-index 043495f7fc78..b77acfd7d1c8 100644
---- a/arch/arm64/include/asm/kvm_asm.h
-+++ b/arch/arm64/include/asm/kvm_asm.h
-@@ -89,6 +89,7 @@ enum __kvm_host_smccc_func {
- 	__KVM_HOST_SMCCC_FUNC___vgic_v3_restore_vmcr_aprs,
- 	__KVM_HOST_SMCCC_FUNC___vgic_v5_save_apr,
- 	__KVM_HOST_SMCCC_FUNC___vgic_v5_restore_vmcr_apr,
-+	__KVM_HOST_SMCCC_FUNC___pkvm_hyp_topup,
- 
- 	MARKER(__KVM_HOST_SMCCC_FUNC_PKVM_ONLY),
- 
-diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
-index 6c2497047f8d..99daa985856f 100644
---- a/arch/arm64/include/asm/kvm_pkvm.h
-+++ b/arch/arm64/include/asm/kvm_pkvm.h
-@@ -17,6 +17,10 @@
- 
- #define HYP_MEMBLOCK_REGIONS 128
- 
-+enum pkvm_topup_id {
-+	PKVM_TOPUP_HYP_ALLOC,
-+};
-+
- int pkvm_init_host_vm(struct kvm *kvm, unsigned long type);
- int pkvm_create_hyp_vm(struct kvm *kvm);
- bool pkvm_hyp_vm_is_created(struct kvm *kvm);
-@@ -201,6 +205,7 @@ struct pkvm_mapping {
- 
- enum pkvm_hyp_req_type {
- 	PKVM_HYP_NO_REQ = 0,
-+	PKVM_HYP_REQ_HYP_ALLOC,
- 	__PKVM_HYP_REQ_TYPE_MAX,
- };
- 
-@@ -222,9 +227,13 @@ struct pkvm_hyp_req {
- 
- static inline size_t pkvm_hyp_req_arg_size(u8 type)
- {
-+	struct pkvm_hyp_req *req;
-+
- 	switch (type) {
- 	case PKVM_HYP_NO_REQ:
- 		return 0;
-+	case PKVM_HYP_REQ_HYP_ALLOC:
-+		return sizeof(req->mem);
- 	default:
- 		WARN_ON(1);
- 	}
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index d3c69de698f4..439b91fc8aec 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -15,6 +15,7 @@
- #include <asm/kvm_hypevents.h>
- #include <asm/kvm_mmu.h>
- 
-+#include <nvhe/alloc.h>
- #include <nvhe/ffa.h>
- #include <nvhe/mem_protect.h>
- #include <nvhe/mm.h>
-@@ -632,6 +633,30 @@ static void handle___pkvm_finalize_teardown_vm(struct kvm_cpu_context *host_ctxt
- 	cpu_reg(host_ctxt, 1) = __pkvm_finalize_teardown_vm(handle);
- }
- 
-+static void handle___pkvm_hyp_topup(struct kvm_cpu_context *host_ctxt)
-+{
-+	DECLARE_REG(enum pkvm_topup_id, id, host_ctxt, 1);
-+	DECLARE_REG(phys_addr_t, head, host_ctxt, 2);
-+	DECLARE_REG(unsigned long, nr_pages, host_ctxt, 3);
-+	struct kvm_hyp_memcache host_mc = {
-+		.head = head,
-+		.nr_pages = nr_pages,
-+	};
-+	int ret;
-+
-+	switch (id) {
-+	case PKVM_TOPUP_HYP_ALLOC:
-+		ret = hyp_alloc_topup(&host_mc);
-+		break;
-+	default:
-+		ret = -EINVAL;
-+	}
-+
-+	cpu_reg(host_ctxt, 1) = ret;
-+	cpu_reg(host_ctxt, 2) = host_mc.head;
-+	cpu_reg(host_ctxt, 3) = host_mc.nr_pages;
-+}
-+
- static void handle___tracing_load(struct kvm_cpu_context *host_ctxt)
- {
- 	DECLARE_REG(unsigned long, desc_hva, host_ctxt, 1);
-@@ -740,6 +765,7 @@ static const hcall_t host_hcall[] = {
- 	HANDLE_FUNC(__vgic_v3_restore_vmcr_aprs),
- 	HANDLE_FUNC(__vgic_v5_save_apr),
- 	HANDLE_FUNC(__vgic_v5_restore_vmcr_apr),
-+	HANDLE_FUNC(__pkvm_hyp_topup),
- 
- 	HANDLE_FUNC(__pkvm_host_share_hyp),
- 	HANDLE_FUNC(__pkvm_host_unshare_hyp),
-diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-index a626978dc91f..d26e7435d34d 100644
---- a/arch/arm64/kvm/pkvm.c
-+++ b/arch/arm64/kvm/pkvm.c
-@@ -88,6 +88,33 @@ void __init kvm_hyp_reserve(void)
- 		 hyp_mem_base);
- }
- 
-+static int pkvm_hyp_topup(enum pkvm_topup_id id, unsigned long nr_pages)
-+{
-+	struct kvm_hyp_memcache mc;
-+	struct arm_smccc_res res;
-+	int ret;
-+
-+	init_hyp_memcache(&mc);
-+	ret = topup_hyp_memcache(&mc, nr_pages);
-+	if (ret)
-+		goto err;
-+
-+	arm_smccc_1_1_hvc(KVM_HOST_SMCCC_FUNC(__pkvm_hyp_topup), id, mc.head,
-+			  mc.nr_pages, &res);
-+	if (WARN_ON_ONCE(res.a0 != SMCCC_RET_SUCCESS)) {
-+		ret = -EINVAL;
-+		goto err;
-+	}
-+
-+	ret = res.a1;
-+	mc.head = res.a2;
-+	mc.nr_pages = res.a3;
-+
-+err:
-+	free_hyp_memcache(&mc);
-+	return ret;
-+}
-+
- static void __pkvm_destroy_hyp_vm(struct kvm *kvm)
- {
- 	if (pkvm_hyp_vm_is_created(kvm)) {
-@@ -599,6 +626,9 @@ static int pkvm_handle_hyp_req(struct pkvm_hyp_req *req)
- 	int ret = -EINVAL;
- 
- 	switch (req->type) {
-+	case PKVM_HYP_REQ_HYP_ALLOC:
-+		ret = pkvm_hyp_topup(PKVM_TOPUP_HYP_ALLOC, req->mem.nr_pages);
-+		break;
- 	}
- 
- 	trace_kvm_handle_pkvm_hyp_req(req, ret);
-diff --git a/arch/arm64/kvm/trace_pkvm.h b/arch/arm64/kvm/trace_pkvm.h
-index 3966c111e3ad..493225e3282d 100644
---- a/arch/arm64/kvm/trace_pkvm.h
-+++ b/arch/arm64/kvm/trace_pkvm.h
-@@ -9,9 +9,11 @@
- #define TRACE_SYSTEM kvm
- 
- TRACE_DEFINE_ENUM(PKVM_HYP_NO_REQ);
-+TRACE_DEFINE_ENUM(PKVM_HYP_REQ_HYP_ALLOC);
- 
--#define PKVM_HYP_REQ_TYPES \
--	{ PKVM_HYP_NO_REQ, "NO_REQ" }
-+#define PKVM_HYP_REQ_TYPES				\
-+	{ PKVM_HYP_NO_REQ, "NO_REQ" },			\
-+	{ PKVM_HYP_REQ_HYP_ALLOC, "HYP_ALLOC" }
- 
- TRACE_EVENT(kvm_handle_pkvm_hyp_req,
- 	TP_PROTO(struct pkvm_hyp_req *req, int ret),
--- 
-2.55.0.229.g6434b31f56-goog
+That said:
 
+Reviewed-by: Joe Damato <joe@dama.to>
 
