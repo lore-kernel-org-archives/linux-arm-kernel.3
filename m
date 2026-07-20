@@ -4,52 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 427ACC44515
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 16:13:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27E72C44524
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 16:14:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:From:Cc:To:Subject:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=18TgNI8MYp1LbNuXLtYtpwaKmD22eZReAWzfss1RBUE=; b=L1HKT2vY3YgIp3viJp/QEgia6n
-	kFTRrWW59baqJNbFxAFx6O+gtQlN3OUVD7dO3tAkbSXzFIXZVXDhL9NCyR/W+HLY0wYB9IsPp6TXL
-	5bT/s3fmSFXmX+alGc2NWZ2QFQ8BJFqdzlJdinhmdEpB7cH57h/VnOJ06sSQCRMPV/gMP8qSda4yh
-	Z2ffHcM6PaJkseljMtHYZgNhTfLfLeIEVdEECt3MA2jU6GWidpIs6i2oU/JQPKL2nShgpacYtEyWf
-	JqNa0bMstmPD+Hs4TTWUE+vh0fU5QrhdOo22qmQ5eT/NaN+k1ouReCDU1gdj+Hvksfcd4mr6kr/8y
-	U8gDpRSA==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GCBbrRKcGcDEgLZQwkzDEr2UVDx8peEyXcP2Ix5aats=; b=JJ9wl6ueI8gTyCP8vD1UxvTY0Q
+	G473StZSrV9lA+vYEVs2+3L5k+BsVMMVaicLTu+toK/H+EL7qeC50beNhjnmjFvPLePkd/uMAiiaK
+	dGfxFPkCJJaNfUCeX0wTUbWMex3aovtsSpgdVnyK4WZB1Z6xJdD261rESas9PsqJ+WqUZ2OnfDi3S
+	WzjmI+R5SYp0XhC/cet27jB+pKdcIlAv/fOWmgUhGid1BRCCIFdoNic1VrZb9OFGSoVKBe6El7Sqa
+	94HAONf4mbQzBr7ft3PBqvuMj3YdF4UCcOoo5mLkXK4lkWfd23csT+tlJMNXDV7C1334I4iClO461
+	J8DSrkOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlqcq-00000007KHx-0dp1;
-	Mon, 20 Jul 2026 16:13:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wlqd7-00000007KP2-1PXZ;
+	Mon, 20 Jul 2026 16:14:09 +0000
+Received: from out-185.mta0.migadu.com ([91.218.175.185])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlqco-00000007KHf-23d6
+	id 1wlqd0-00000007KKZ-1qh9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 16:13:50 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 945BF601DE;
-	Mon, 20 Jul 2026 16:13:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C91B61F00A3D;
-	Mon, 20 Jul 2026 16:13:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1784564029;
-	bh=18TgNI8MYp1LbNuXLtYtpwaKmD22eZReAWzfss1RBUE=;
-	h=Subject:To:Cc:From:Date;
-	b=FDenRoGKiFZwuJLBvtz7+YKFyqcAiir5ip0KNtpPVdjHvGeADrQU8JTLMhx6Y21O8
-	 kpR0F2o5S63VDPQI5zd2DrD07JDVhMyw26NMmYb7xU077M8WfpDYO5TcQsiuYBc7v4
-	 t/cEmpUgYxsNf9wa12T0JLmyy81bII83Nz7Xmk9U=
-Subject: Patch "net: ethernet: ti: icssg: guard PA stat lookups" has been added to the 6.18-stable tree
-To: danishanwar@ti.com,gregkh@linuxfoundation.org,horms@kernel.org,kuba@kernel.org,linux-arm-kernel@lists.infradead.org,philippe.schenker@impulsing.ch,rogerq@kernel.org
-Cc: <stable-commits@vger.kernel.org>
-From: <gregkh@linuxfoundation.org>
-Date: Mon, 20 Jul 2026 18:11:14 +0200
-Message-ID: <2026072014-each-bruising-a439@gregkh>
+	Mon, 20 Jul 2026 16:14:03 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1784564039;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=GCBbrRKcGcDEgLZQwkzDEr2UVDx8peEyXcP2Ix5aats=;
+	b=mqdnL5SlGcDKU3SLKE2x8Q+vrORgSdKeeq8x1APaR01wHnNsOs08UO2R0afR58sZUk5x5x
+	oT85GeacKoVzxpSjMgECKTL/mmQWJ/wsz2x6VB5sUdt92cVTRHle+ml0WNQg38knAjV/gT
+	aCj1XOVzl14GajM5gPQi6uA59ayD19A=
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: maz@kernel.org,
+	oupton@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	rostedt@goodmis.org,
+	mhiramat@kernel.org,
+	alexandru.elisei@arm.com,
+	vdonnefort@google.com,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	qperret@google.com,
+	ardb@kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	tabba@google.com,
+	fuad.tabba@linux.dev
+Subject: [PATCH v1 01/11] tracing: Include linux/types.h in trace_remote_event.h
+Date: Mon, 20 Jul 2026 17:13:33 +0100
+Message-Id: <20260720161343.1367007-2-fuad.tabba@linux.dev>
+In-Reply-To: <20260720161343.1367007-1-fuad.tabba@linux.dev>
+References: <20260720161343.1367007-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=ANSI_X3.4-1968
 Content-Transfer-Encoding: 8bit
-X-stable: commit
-X-Patchwork-Hint: ignore 
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260720_091402_619502_45BF867E 
+X-CRM114-Status: UNSURE (   7.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,127 +85,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+trace_remote_event.h uses bool without including linux/types.h, so a
+translation unit that includes it ahead of anything else that pulls
+types.h in fails to build, as with nvhe/trace.h at EL2.
 
-This is a note to let you know that I've just added the patch titled
-
-    net: ethernet: ti: icssg: guard PA stat lookups
-
-to the 6.18-stable tree which can be found at:
-    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
-
-The filename of the patch is:
-     net-ethernet-ti-icssg-guard-pa-stat-lookups.patch
-and it can be found in the queue-6.18 subdirectory.
-
-If you, or anyone else, feels it should not be added to the stable tree,
-please let <stable@vger.kernel.org> know about it.
-
-
-From 27b9daba50609335db6ca81e4cccf50ded21ec76 Mon Sep 17 00:00:00 2001
-From: Philippe Schenker <philippe.schenker@impulsing.ch>
-Date: Thu, 18 Jun 2026 11:30:24 +0200
-Subject: net: ethernet: ti: icssg: guard PA stat lookups
-
-From: Philippe Schenker <philippe.schenker@impulsing.ch>
-
-commit 27b9daba50609335db6ca81e4cccf50ded21ec76 upstream.
-
-icssg_ndo_get_stats64() unconditionally calls emac_get_stat_by_name()
-with FW PA stat names regardless of whether the PA stats block is
-present on the hardware.  emac_get_stat_by_name() already guards the
-PA stats lookup with `if (emac->prueth->pa_stats)`; when that pointer
-is NULL the lookup falls through to netdev_err() and returns -EINVAL.
-Because ndo_get_stats64 is polled regularly by the networking stack
-this produces thousands of log entries of the form:
-
-  icssg-prueth icssg1-eth end0: Invalid stats FW_RX_ERROR
-
-A secondary consequence is that the int(-EINVAL) return value is
-implicitly widened to a near-ULLONG_MAX unsigned value when accumulated
-into the __u64 fields of rtnl_link_stats64, silently corrupting the
-rx_errors, rx_dropped and tx_dropped counters reported by `ip -s link`.
-
-Every other PA-aware code path in the driver is already guarded with
-the same `if (emac->prueth->pa_stats)` check.  Apply the same guard
-here.
-
-Fixes: 0d15a26b247d ("net: ti: icssg-prueth: Add ICSSG FW Stats")
-Signed-off-by: Philippe Schenker <philippe.schenker@impulsing.ch>
-Reviewed-by: Simon Horman <horms@kernel.org>
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-
-Cc: danishanwar@ti.com
-Cc: rogerq@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: stable@vger.kernel.org
-Link: https://patch.msgid.link/20260618093037.3448858-1-dev@pschenker.ch
-Signed-off-by: Jakub Kicinski <kuba@kernel.org>
+Fixes: 072529158e60 ("tracing: Add events to trace remotes")
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- drivers/net/ethernet/ti/icssg/icssg_common.c |   49 +++++++++++++++------------
- 1 file changed, 28 insertions(+), 21 deletions(-)
+ include/linux/trace_remote_event.h | 2 ++
+ 1 file changed, 2 insertions(+)
 
---- a/drivers/net/ethernet/ti/icssg/icssg_common.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_common.c
-@@ -1315,28 +1315,35 @@ void icssg_ndo_get_stats64(struct net_de
- 	stats->rx_over_errors = emac_get_stat_by_name(emac, "rx_over_errors");
- 	stats->multicast      = emac_get_stat_by_name(emac, "rx_multicast_frames");
+diff --git a/include/linux/trace_remote_event.h b/include/linux/trace_remote_event.h
+index c8ae1e1f5e721..e4cc2d4497bcf 100644
+--- a/include/linux/trace_remote_event.h
++++ b/include/linux/trace_remote_event.h
+@@ -3,6 +3,8 @@
+ #ifndef _LINUX_TRACE_REMOTE_EVENTS_H
+ #define _LINUX_TRACE_REMOTE_EVENTS_H
  
--	stats->rx_errors  = ndev->stats.rx_errors +
--			    emac_get_stat_by_name(emac, "FW_RX_ERROR") +
--			    emac_get_stat_by_name(emac, "FW_RX_EOF_SHORT_FRMERR") +
--			    emac_get_stat_by_name(emac, "FW_RX_B0_DROP_EARLY_EOF") +
--			    emac_get_stat_by_name(emac, "FW_RX_EXP_FRAG_Q_DROP") +
--			    emac_get_stat_by_name(emac, "FW_RX_FIFO_OVERRUN");
--	stats->rx_dropped = ndev->stats.rx_dropped +
--			    emac_get_stat_by_name(emac, "FW_DROPPED_PKT") +
--			    emac_get_stat_by_name(emac, "FW_INF_PORT_DISABLED") +
--			    emac_get_stat_by_name(emac, "FW_INF_SAV") +
--			    emac_get_stat_by_name(emac, "FW_INF_SA_DL") +
--			    emac_get_stat_by_name(emac, "FW_INF_PORT_BLOCKED") +
--			    emac_get_stat_by_name(emac, "FW_INF_DROP_TAGGED") +
--			    emac_get_stat_by_name(emac, "FW_INF_DROP_PRIOTAGGED") +
--			    emac_get_stat_by_name(emac, "FW_INF_DROP_NOTAG") +
--			    emac_get_stat_by_name(emac, "FW_INF_DROP_NOTMEMBER");
-+	stats->rx_errors  = ndev->stats.rx_errors;
-+	stats->rx_dropped = ndev->stats.rx_dropped;
- 	stats->tx_errors  = ndev->stats.tx_errors;
--	stats->tx_dropped = ndev->stats.tx_dropped +
--			    emac_get_stat_by_name(emac, "FW_RTU_PKT_DROP") +
--			    emac_get_stat_by_name(emac, "FW_TX_DROPPED_PACKET") +
--			    emac_get_stat_by_name(emac, "FW_TX_TS_DROPPED_PACKET") +
--			    emac_get_stat_by_name(emac, "FW_TX_JUMBO_FRM_CUTOFF");
-+	stats->tx_dropped = ndev->stats.tx_dropped;
++#include <linux/types.h>
 +
-+	if (!emac->prueth->pa_stats)
-+		return;
-+
-+	stats->rx_errors  +=
-+			emac_get_stat_by_name(emac, "FW_RX_ERROR") +
-+			emac_get_stat_by_name(emac, "FW_RX_EOF_SHORT_FRMERR") +
-+			emac_get_stat_by_name(emac, "FW_RX_B0_DROP_EARLY_EOF") +
-+			emac_get_stat_by_name(emac, "FW_RX_EXP_FRAG_Q_DROP") +
-+			emac_get_stat_by_name(emac, "FW_RX_FIFO_OVERRUN");
-+	stats->rx_dropped +=
-+			emac_get_stat_by_name(emac, "FW_DROPPED_PKT") +
-+			emac_get_stat_by_name(emac, "FW_INF_PORT_DISABLED") +
-+			emac_get_stat_by_name(emac, "FW_INF_SAV") +
-+			emac_get_stat_by_name(emac, "FW_INF_SA_DL") +
-+			emac_get_stat_by_name(emac, "FW_INF_PORT_BLOCKED") +
-+			emac_get_stat_by_name(emac, "FW_INF_DROP_TAGGED") +
-+			emac_get_stat_by_name(emac, "FW_INF_DROP_PRIOTAGGED") +
-+			emac_get_stat_by_name(emac, "FW_INF_DROP_NOTAG") +
-+			emac_get_stat_by_name(emac, "FW_INF_DROP_NOTMEMBER");
-+	stats->tx_dropped +=
-+			emac_get_stat_by_name(emac, "FW_RTU_PKT_DROP") +
-+			emac_get_stat_by_name(emac, "FW_TX_DROPPED_PACKET") +
-+			emac_get_stat_by_name(emac, "FW_TX_TS_DROPPED_PACKET") +
-+			emac_get_stat_by_name(emac, "FW_TX_JUMBO_FRM_CUTOFF");
- }
- EXPORT_SYMBOL_GPL(icssg_ndo_get_stats64);
- 
+ struct trace_remote;
+ struct trace_event_fields;
+ struct trace_seq;
+-- 
+2.39.5
 
-
-Patches currently in stable-queue which might be from philippe.schenker@impulsing.ch are
-
-queue-6.18/net-ethernet-ti-icssg-guard-pa-stat-lookups.patch
 
