@@ -4,149 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04753C44527
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 10:35:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C84EC44515
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 10:40:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k37RWmWff7zt+PtsvHIuhzz9otckpy6kRhbc8EISwX4=; b=i7m6VpMt/y9+thrl3rBdDmONEE
-	M0UA8sapwxaBNkEfu/6AwGwerFw5n2f2ZgBQLxAM02raediL9a3LnqQkHXy7lBOoH5ARiIChqS3tq
-	Oh+SgcO78EooUDS3qMLan/Gs/KDhJYPp26Vrz+a++DXcHcObjbDgO5D+r0vIa2212brD/lxgco3vC
-	SrhSVME1TWCpCytWKvbxnmfS0aAQ9r8c3IxpAcmCdytJCBQxBHIn5Hi/NcHxSh8IZdnYVseJmPCDf
-	TxHeZVxWCBg+CogN6RR9YSu9KvT89niFwlRx4r6KLysX35QdydnJoXCIwtG3mawAsDOuPxj1/xe/F
-	hyJ2MRgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hILNR9k3hXFYG9NAdXW8UXhclKYONi6NDxe7T+WX1EE=; b=j6OlrIvn8983eDZidikgzVq761
+	hYSoFRJBg6hFZN3N50fI/Pvk9mjzDNxqCe7/ABcygq2tslPD4uU6oMaczetsybUgxgBP9JphusDVp
+	TLXqY9hm0mujoCxtKWErh4p8DmRFC3ots+Os0sD9L8uZz8aBkTKUMMG8anHP0OUNPEDakxkmsoaOq
+	OJ/zUmYavuGmoITCskpB4SucGTVEpZnRi2LStoXvULhv0MKt5P3rAjHUbvu6s5JWGGPq2XSfu+eNt
+	AA3rln3MQLdzzoXQrKJTQ7c8cJEry1IeB9abkv/jPahOmp+IDMD8jfpY29ktQtATk4kbdtYwFV9Ef
+	yo6P6SYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wllL3-00000006Usf-2l9U;
-	Mon, 20 Jul 2026 10:35:09 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1wllQM-00000006VhL-3ABs;
+	Mon, 20 Jul 2026 10:40:38 +0000
+Received: from mail-pl1-f171.google.com ([209.85.214.171])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wllL1-00000006UrR-2Z0W
+	id 1wllQJ-00000006VgR-3OXd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 10:35:08 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-493f75f7172so78024105e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 03:35:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1784543705; x=1785148505; darn=lists.infradead.org;
-        h=content-type:in-reply-to:autocrypt:from:content-language:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=k37RWmWff7zt+PtsvHIuhzz9otckpy6kRhbc8EISwX4=;
-        b=BcGkN1KlTbCrddiilYuF8ApNUBPl4dDpKwgp7UxhH3jl1muq+fLMknVstd6eWg70jF
-         Vacb2EsMGjZcg5LQBK8ivv5jkAKL6iUf6UAvEe9SovFHkhmq8++45r/EiSGb32OXRebg
-         YnKVkyJTCSvaTxBNXrop6o/7pEWrDo9SC77bJhbr4V/r6n3OFJRWh2/99Q23dIUBiCg7
-         Co+5FuzcWSPeOeHzGzvA6PVry/hV2t3ZLGXuc7MyX+LEImizu1FB+pk367EErXJplgSB
-         c45RXoGDk7QKT9E3e7zUXK47aHaETaHLx1BsAcb7jVvodIktI6foBWCO89IXGb7Wfp32
-         UouA==
+	Mon, 20 Jul 2026 10:40:37 +0000
+Received: by mail-pl1-f171.google.com with SMTP id d9443c01a7336-2cc97653887so108681885ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 03:40:35 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784543705; x=1785148505;
-        h=content-type:in-reply-to:autocrypt:from:content-language:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=k37RWmWff7zt+PtsvHIuhzz9otckpy6kRhbc8EISwX4=;
-        b=XJK/RVslIYB6NJeTMGITyhG0JfdARv2VnYgHdD/QhaZd9Ci1bF7dxqAblpD4gmSwyz
-         YgeEUWPUq85l1oZgX0D/ipzU/jREAKbRE2R8JT2EJdha1t97HYIeZOla0gNudTswng7I
-         kJd+b2aON/HUNY/lHHqwyE/VJV6ANId0oyODpaSCSJn4XMjLzGHF5sIUJz81yuQztsyn
-         Jk7/4mWyQjppYd4VSYQYfNVx54WAmrrWyXPOd2F69BgVYmK0qrkDDwhTgROeYqc6p1Eh
-         oU0Szlvp4UxKzbicTy+p84RvRZcEGKsZLX9yRWQtgqCoZj3hZLBg0dJm6Gl82S5wIMzr
-         /3Tw==
-X-Forwarded-Encrypted: i=1; AHgh+RpHcBBpOC1PI7E9Rrao6xs/FNErPI+TZDNCntPIcm61ejl1E5ZIekov8RZGoxRRS/bsheLcolCTYM/C6W0aMF4e@lists.infradead.org
-X-Gm-Message-State: AOJu0YzzSXk4l/Ma8hdbN58N19/z+WNeFYNPoE+aPQpkpm1BVQtGe9AN
-	4KrmeSlSiLJh89txy0zuv7Dt8L4iSEiUr7tbNIr2hv1BbS3quggtBE3McL4Lg4plHGE=
-X-Gm-Gg: AfdE7cmNxo8sLuc0otcNRHpSeSLjsi4zqPAMTL9az5Rl3aW0P+SRJX8HCrzg6hBdGw6
-	gXJ1K684Co8vIU7ZhrgUHji/QSBKg532A/qqdqhVFDqjbRcZFv/w4y6s13SAIVRHGUi4LxVM+9L
-	wmoeZaUbxrkhwZQLUjyFl5hT8V36bFXkQVkU2o9EPIZIyzmDraIUWyCsn2c1tsxXVIzy8d9v9eC
-	EFU/ZF8krb7MfyMaoPEAv9vxFHIkV7XIAfwjTuoq1UF5zkZpE76skAB9xIYClnpOZjtcY51F8xD
-	GULKSuE1KKce+kJnOkuuyhwGmIkWqZdGIxPHUWYIgj34rToIl9YILIphha+ybkxMw4q3L5gH5NG
-	gyYOKOM0eHo7rpl8Kiju0RewTGx3e/QGRyVO3DJs8TjBagTmYtgfnXauavaoW/K6rhojhkdq9LJ
-	xm9A4H5+p2ZcB11MqLL/VT06jveSf8lc1JCiEOXBYFZDSCITIT8Y1ZXyoStzLWO8z3Dm7o1GO8k
-	koNb5OuRkheJG2tGjSfAx0WPnii6C1F
-X-Received: by 2002:a05:600c:4f14:b0:495:5ce6:9c18 with SMTP id 5b1f17b1804b1-4955ce6a33cmr61097885e9.27.1784543704827;
-        Mon, 20 Jul 2026 03:35:04 -0700 (PDT)
-Received: from ?IPV6:2a00:12d0:af5d:ad01:5d3f:14e6:9bcb:5112? (2a00-12d0-af5d-ad01-5d3f-14e6-9bcb-5112.ip.tng.de. [2a00:12d0:af5d:ad01:5d3f:14e6:9bcb:5112])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4954a2b074csm291431975e9.6.2026.07.20.03.35.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 20 Jul 2026 03:35:04 -0700 (PDT)
-Message-ID: <e258581c-a17f-4b5a-aafd-82e513a6288e@suse.com>
-Date: Mon, 20 Jul 2026 12:35:02 +0200
+        d=1e100.net; s=20251104; t=1784544034; x=1785148834;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=hILNR9k3hXFYG9NAdXW8UXhclKYONi6NDxe7T+WX1EE=;
+        b=SkVfeIvyuUNoItKqkp3M8UCK+9+kkRNkFfEbpR7VLOkd1xLU5E8QwlKUL3UYO71LIz
+         Sp+GnWer2gUklY4r3ooKIaZdMRRC1CFrIQgHaL6U//VXf4gxNnVPKqJhnpni4mon9j4Y
+         SRT7SBFbyDrI9SXjQiReTcM1x0cjO+WzDAqa7H3/3T1/SLWCHiSaDTVzxgR5foPfUvOY
+         u8NDplKdamgg/yulDlB5RIbubkBclyIKarYWAO3fQX+SEymzhfN5Ad8AbBLSSKljkC62
+         u9ZxklhCunCsaB4/3oaY0WzMvTb/0ydMbkFrCYM7X/FKYuzG35t0PVNNi2tnjb9+TMO1
+         oDNw==
+X-Forwarded-Encrypted: i=1; AHgh+Rqhv/mKXU8gB6uhM5huVUrx4MCijD98NwEPTYEwsW7PkUUvva6tNYioWVTjUV2qN5MBBol2KZExbecJqWtme8yl@lists.infradead.org
+X-Gm-Message-State: AOJu0YzNcAGxx43oMpWyqRFyWKri+p76i/FoZMvlHkw4dbOkzxf06rx2
+	SB1WPW2Xgv3jFAbmoSAQs5/OI+gtY47y0omi0/Vh0O6v+NdQJT2PGAE=
+X-Gm-Gg: AR+sD102UogStzzWai8r4xSilcubApHxJgsj4e56mHuoelv9wZOXrbFvGIYA0wbW3yP
+	yzJIvSCQI4rZcmcWfox4mKBBrwQzvEDLLObn91MfqDp5EBG8TXamVJm1LtN99dyZ3ugFEocbRdz
+	SHHg7VHuregf0zNrcGc6MaDBVDbPwDe6YNm2U0bYNoliqMZ6SJPzB+E3aA0Jcd1778v+E0wlnHN
+	3uaErAzFRm27qQtSCyejtIcetliAux0i+DDcEJ9Teo9rOnK8Wz+BLAcdI8Oz3zeJpVshqbM1vlM
+	k3Em5vUD1pXVXKFp9ZlaukLSbJPWVhBrmPvPN66uW+B+WoIZfLtXUvJrqoJ4LgCwlKbSxYseQWU
+	nGH+AnPY1xn7FybEoF4TeBVv1raviNxcCjwQ/+6D8z5rc4JyYAg7h+Y3oGSXC9D9xVrcj5RgWPa
+	cktznmnBsw64JfABmJyyxDRprJiRwRd/Ruk3RoOGWF/U7KBRqSuBjssrnhngJX2e97tBfSnQrR3
+	fX++JILjPjwJGbAbZ5/AgwVxq5t
+X-Received: by 2002:a17:903:3d0e:b0:2cf:6dba:b294 with SMTP id d9443c01a7336-2cf6dbab68emr31159675ad.22.1784544034339;
+        Mon, 20 Jul 2026 03:40:34 -0700 (PDT)
+Received: from penguin.tail0a1999.ts.net (61-228-16-100.dynamic-ip.hinet.net. [61.228.16.100])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf344f61ffsm54900325ad.33.2026.07.20.03.40.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 20 Jul 2026 03:40:33 -0700 (PDT)
+From: Shih-Yuan Lee <fourdollars@debian.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Andy Shevchenko <andriy.shevchenko@intel.com>,
+	Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Shih-Yuan Lee <fourdollars@debian.org>
+Subject: [PATCH v15 0/7] spi: pxa2xx: Fix PM and interrupt issues on Intel LPSS SPI
+Date: Mon, 20 Jul 2026 18:40:22 +0800
+Message-Id: <20260720104029.13740-1-fourdollars@debian.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] sched: Convert paravirt_steal to new static key APIs
-To: Hongyan Xia <hongyan.xia@transsion.com>,
- "mingo@redhat.com" <mingo@redhat.com>,
- "peterz@infradead.org" <peterz@infradead.org>,
- "juri.lelli@redhat.com" <juri.lelli@redhat.com>,
- "vincent.guittot@linaro.org" <vincent.guittot@linaro.org>,
- "dietmar.eggemann@arm.com" <dietmar.eggemann@arm.com>,
- "rostedt@goodmis.org" <rostedt@goodmis.org>,
- "bsegall@google.com" <bsegall@google.com>, "mgorman@suse.de"
- <mgorman@suse.de>, "vschneid@redhat.com" <vschneid@redhat.com>,
- "kprateek.nayak@amd.com" <kprateek.nayak@amd.com>,
- Ajay Kaher <ajay.kaher@broadcom.com>,
- Alexey Makhalov <alexey.makhalov@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Thomas Gleixner <tglx@kernel.org>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, "x86@kernel.org"
- <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>,
- Paolo Bonzini <pbonzini@redhat.com>, Vitaly Kuznetsov <vkuznets@redhat.com>,
- Stefano Stabellini <sstabellini@kernel.org>,
- Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>
-Cc: Jiazi Li <jiazi.li@transsion.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "virtualization@lists.linux.dev" <virtualization@lists.linux.dev>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
- "xen-devel@lists.xenproject.org" <xen-devel@lists.xenproject.org>
-References: <cover.1784538478.git.hongyan.xia@transsion.com>
- <773bbd8fcd5ef2ebfe1c64303c7a71a56368de69.1784538478.git.hongyan.xia@transsion.com>
-Content-Language: en-US
-From: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
-Autocrypt: addr=jgross@suse.com; keydata=
- xsBNBFOMcBYBCACgGjqjoGvbEouQZw/ToiBg9W98AlM2QHV+iNHsEs7kxWhKMjrioyspZKOB
- ycWxw3ie3j9uvg9EOB3aN4xiTv4qbnGiTr3oJhkB1gsb6ToJQZ8uxGq2kaV2KL9650I1SJve
- dYm8Of8Zd621lSmoKOwlNClALZNew72NjJLEzTalU1OdT7/i1TXkH09XSSI8mEQ/ouNcMvIJ
- NwQpd369y9bfIhWUiVXEK7MlRgUG6MvIj6Y3Am/BBLUVbDa4+gmzDC9ezlZkTZG2t14zWPvx
- XP3FAp2pkW0xqG7/377qptDmrk42GlSKN4z76ELnLxussxc7I2hx18NUcbP8+uty4bMxABEB
- AAHNH0p1ZXJnZW4gR3Jvc3MgPGpncm9zc0BzdXNlLmNvbT7CwHkEEwECACMFAlOMcK8CGwMH
- CwkIBwMCAQYVCAIJCgsEFgIDAQIeAQIXgAAKCRCw3p3WKL8TL8eZB/9G0juS/kDY9LhEXseh
- mE9U+iA1VsLhgDqVbsOtZ/S14LRFHczNd/Lqkn7souCSoyWsBs3/wO+OjPvxf7m+Ef+sMtr0
- G5lCWEWa9wa0IXx5HRPW/ScL+e4AVUbL7rurYMfwCzco+7TfjhMEOkC+va5gzi1KrErgNRHH
- kg3PhlnRY0Udyqx++UYkAsN4TQuEhNN32MvN0Np3WlBJOgKcuXpIElmMM5f1BBzJSKBkW0Jc
- Wy3h2Wy912vHKpPV/Xv7ZwVJ27v7KcuZcErtptDevAljxJtE7aJG6WiBzm+v9EswyWxwMCIO
- RoVBYuiocc51872tRGywc03xaQydB+9R7BHPzsBNBFOMcBYBCADLMfoA44MwGOB9YT1V4KCy
- vAfd7E0BTfaAurbG+Olacciz3yd09QOmejFZC6AnoykydyvTFLAWYcSCdISMr88COmmCbJzn
- sHAogjexXiif6ANUUlHpjxlHCCcELmZUzomNDnEOTxZFeWMTFF9Rf2k2F0Tl4E5kmsNGgtSa
- aMO0rNZoOEiD/7UfPP3dfh8JCQ1VtUUsQtT1sxos8Eb/HmriJhnaTZ7Hp3jtgTVkV0ybpgFg
- w6WMaRkrBh17mV0z2ajjmabB7SJxcouSkR0hcpNl4oM74d2/VqoW4BxxxOD1FcNCObCELfIS
- auZx+XT6s+CE7Qi/c44ibBMR7hyjdzWbABEBAAHCwF8EGAECAAkFAlOMcBYCGwwACgkQsN6d
- 1ii/Ey9D+Af/WFr3q+bg/8v5tCknCtn92d5lyYTBNt7xgWzDZX8G6/pngzKyWfedArllp0Pn
- fgIXtMNV+3t8Li1Tg843EXkP7+2+CQ98MB8XvvPLYAfW8nNDV85TyVgWlldNcgdv7nn1Sq8g
- HwB2BHdIAkYce3hEoDQXt/mKlgEGsLpzJcnLKimtPXQQy9TxUaLBe9PInPd+Ohix0XOlY+Uk
- QFEx50Ki3rSDl2Zt2tnkNYKUCvTJq7jvOlaPd6d/W0tZqpyy7KVay+K4aMobDsodB3dvEAs6
- ScCnh03dDAFgIq5nsB11j3KPKdVoPlfucX2c7kGNH+LUMbzqV6beIENfNexkOfxHfw==
-In-Reply-To: <773bbd8fcd5ef2ebfe1c64303c7a71a56368de69.1784538478.git.hongyan.xia@transsion.com>
-Content-Type: multipart/signed; micalg=pgp-sha256;
- protocol="application/pgp-signature";
- boundary="------------xRaoXSGgLc0vY9TPQoiqAmqD"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_033507_724475_ED0773A6 
-X-CRM114-Status: GOOD (  10.47  )
+X-CRM114-CacheID: sfid-20260720_034035_874656_31641FC0 
+X-CRM114-Status: GOOD (  27.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,154 +91,224 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---------------xRaoXSGgLc0vY9TPQoiqAmqD
-Content-Type: multipart/mixed; boundary="------------GCGLUHAC00omEipMv2gl1qSr";
- protected-headers="v1"
-From: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
-To: Hongyan Xia <hongyan.xia@transsion.com>,
- "mingo@redhat.com" <mingo@redhat.com>,
- "peterz@infradead.org" <peterz@infradead.org>,
- "juri.lelli@redhat.com" <juri.lelli@redhat.com>,
- "vincent.guittot@linaro.org" <vincent.guittot@linaro.org>,
- "dietmar.eggemann@arm.com" <dietmar.eggemann@arm.com>,
- "rostedt@goodmis.org" <rostedt@goodmis.org>,
- "bsegall@google.com" <bsegall@google.com>, "mgorman@suse.de"
- <mgorman@suse.de>, "vschneid@redhat.com" <vschneid@redhat.com>,
- "kprateek.nayak@amd.com" <kprateek.nayak@amd.com>,
- Ajay Kaher <ajay.kaher@broadcom.com>,
- Alexey Makhalov <alexey.makhalov@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Thomas Gleixner <tglx@kernel.org>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, "x86@kernel.org"
- <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>,
- Paolo Bonzini <pbonzini@redhat.com>, Vitaly Kuznetsov <vkuznets@redhat.com>,
- Stefano Stabellini <sstabellini@kernel.org>,
- Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>
-Cc: Jiazi Li <jiazi.li@transsion.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "virtualization@lists.linux.dev" <virtualization@lists.linux.dev>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
- "xen-devel@lists.xenproject.org" <xen-devel@lists.xenproject.org>
-Message-ID: <e258581c-a17f-4b5a-aafd-82e513a6288e@suse.com>
-Subject: Re: [PATCH 2/3] sched: Convert paravirt_steal to new static key APIs
-References: <cover.1784538478.git.hongyan.xia@transsion.com>
- <773bbd8fcd5ef2ebfe1c64303c7a71a56368de69.1784538478.git.hongyan.xia@transsion.com>
-In-Reply-To: <773bbd8fcd5ef2ebfe1c64303c7a71a56368de69.1784538478.git.hongyan.xia@transsion.com>
+Hi Mark,
 
---------------GCGLUHAC00omEipMv2gl1qSr
-Content-Type: multipart/mixed; boundary="------------mHisnunnxH4NBSrCYMbsXcuq"
+This 7-patch series resolves issues in the spi-pxa2xx host controller driver
+related to Intel LPSS SPI controllers and the Apple MacBook8,1.
 
---------------mHisnunnxH4NBSrCYMbsXcuq
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: base64
+Changes in v15:
+  - Split the large PIO mode PM and interrupt patch (v14 Patch 2) into 4 distinct,
+    single-purpose commits (clock helpers, suspended flag, teardown overhaul,
+    and autosuspend lockout).
+  - Reordered the commits so that PIO PM and interrupt bug fixes are applied
+    before disabling DMA on MacBook8,1, satisfying kernel bisection safety.
+  - Replaced raw pxa_ssp_disable() calls in PM suspend/remove with
+    pxa2xx_spi_off() to respect the MMP2 platform's SSE-disable quirk.
+  - Renamed return variables from 'status' to 'ret' in clock helper functions,
+    and added a cleanup commit to rename 'status' to 'ret' in the PM and probe
+    callbacks to conform to standard coding conventions.
 
-T24gMjAuMDcuMjYgMTE6MzgsIEhvbmd5YW4gWGlhIHdyb3RlOg0KPiBGcm9tOiBIb25neWFu
-IFhpYSA8aG9uZ3lhbi54aWFAdHJhbnNzaW9uLmNvbT4NCj4gDQo+IHBhcmF2aXJ0X3N0ZWFs
-X3JxX2VuYWJsZWQgYW5kIHBhcmF2aXJ0X3N0ZWFsX2VuYWJsZWQgdXNlIHJhdyBzdGF0aWNf
-a2V5DQo+IEFQSXMgd2hpY2ggYXJlIG5vdyBkZXByZWNhdGVkLiBVc2UgdGhlIG5ldyBBUEkg
-aW5zdGVhZC4NCj4gDQo+IE5vIGZ1bmN0aW9uYWwgY2hhbmdlLg0KPiANCj4gU2lnbmVkLW9m
-Zi1ieTogSG9uZ3lhbiBYaWEgPGhvbmd5YW4ueGlhQHRyYW5zc2lvbi5jb20+DQoNCkFja2Vk
-LWJ5OiBKdWVyZ2VuIEdyb3NzIDxqZ3Jvc3NAc3VzZS5jb20+DQoNCg0KSnVlcmdlbg0K
---------------mHisnunnxH4NBSrCYMbsXcuq
-Content-Type: application/pgp-keys; name="OpenPGP_0xB0DE9DD628BF132F.asc"
-Content-Disposition: attachment; filename="OpenPGP_0xB0DE9DD628BF132F.asc"
-Content-Description: OpenPGP public key
-Content-Transfer-Encoding: quoted-printable
+Changes in v14:
+  - Addressed feedback from Sashiko review on the v13 patchset for Patch 2:
+  - Updated commit message text for Patch 2 to accurately reflect that ssp_int()
+    uses drv_data->suspended and drv_data->clk_enabled instead of pm_runtime_get_if_active().
+  - Clarified in commit message that active SPI transfers hold a PM reference via
+    spi_controller.auto_runtime_pm (pm_runtime_get_sync()), preventing autosuspend
+    from racing while an IRQ handler is reading/writing FIFO registers.
+  - Clarified teardown ordering: pxa_ssp_disable() disables hardware interrupt generation
+    first, followed by setting drv_data->suspended = true and calling synchronize_irq(),
+    ensuring in-flight IRQ handlers drain completely before clock gating.
 
------BEGIN PGP PUBLIC KEY BLOCK-----
+Changes in v13:
+  - Addressed feedback from Sashiko review on the v12 patchset for Patch 2:
+  - Removed pm_runtime_get_if_active() check from ssp_int(). During PM state
+    transitions (such as RPM_SUSPENDING or RPM_RESUMING), pm_runtime_get_if_active()
+    returns 0 because the state is not RPM_ACTIVE. Returning IRQ_NONE during transition
+    without clearing a level-triggered interrupt would cause the interrupt controller
+    to endlessly re-invoke the handler in a loop.
+  - Rely on drv_data->suspended and drv_data->clk_enabled in ssp_int() instead.
+    If the clock is enabled (drv_data->clk_enabled == true), MMIO reads are 100% safe
+    and will not cause PCIe Completion Timeouts. If the clock is disabled or the device
+    is suspended, ssp_int() immediately returns IRQ_NONE to prevent unclocked access.
 
-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
-kt+z4drzFUyEjLM1vVvIMjkUoJs=3D
-=3DeeAB
------END PGP PUBLIC KEY BLOCK-----
+Changes in v12:
+  - Addressed feedback from Sashiko review on the v11 patchset for Patch 2:
+  - Preserved the if (!pm_runtime_suspended(dev)) check prior to enabling/disabling
+    the clock in pxa2xx_spi_suspend() and pxa2xx_spi_resume(). On non-LPSS platforms,
+    if a device was runtime suspended prior to system sleep, unconditionally enabling
+    its hardware clock during system resume forced the clock ON while the PM core
+    retained RPM_SUSPENDED. Restoring this check prevents PM state desynchronization,
+    avoiding power leaks on non-LPSS platforms.
 
---------------mHisnunnxH4NBSrCYMbsXcuq--
+Changes in v11:
+  - Addressed feedback from Sashiko review on the v10 patchset for Patch 2:
+  - Replaced pm_runtime_put_noidle() with pm_runtime_put_sync() in pxa2xx_spi_remove().
+    Using pm_runtime_put_noidle() dropped usage count without executing the runtime_suspend
+    callback or updating the device runtime status, leaving it stuck in RPM_ACTIVE. This
+    permanently leaked an active child count on the parent LPSS power domain, preventing
+    the parent from entering low-power runtime suspend. Switching to pm_runtime_put_sync()
+    ensures the runtime PM state machine properly transitions to RPM_SUSPENDED upon driver
+    unbind.
 
---------------GCGLUHAC00omEipMv2gl1qSr--
+Changes in v10:
+  - Addressed feedback from Sashiko review on the v9 patchset:
+  - Fixed ssp_int() by explicitly returning IRQ_NONE when pm_runtime_get_if_active()
+    returns 0 (device inactive or suspending). This prevents reading SSSR and MMIO
+    registers when the hardware is powered down or in power transition.
+  - Resolved PM usage counter leak and double-increment for PIO mode devices. Removed
+    the redundant/unconditional pm_runtime_get_noresume() in pxa2xx_spi_probe() and
+    moved the single pm_runtime_get_noresume() call to occur strictly after
+    spi_register_controller() succeeds.
 
---------------xRaoXSGgLc0vY9TPQoiqAmqD
-Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
-Content-Description: OpenPGP digital signature
-Content-Disposition: attachment; filename="OpenPGP_signature.asc"
+Changes in v9:
+  - Separated the original "disable DMA and fix runtime PM" patch into two distinct commits:
+    1. spi: pxa2xx: disable DMA for Apple MacBook8,1 (PCI glue DMI quirk)
+    2. spi: pxa2xx: fix runtime PM and interrupt handling in PIO mode (core driver PM/IRQ fixes)
+  - Condensed commit messages for Patches 2 and 3 for clarity and brevity.
+  - Fixed checkpatch.pl warning regarding unnecessary braces in pxa2xx_spi_remove().
+  - Addressed feedback from Sashiko review on the v8 patchset:
+  - Scoped pm_runtime_get_noresume() in pxa2xx_spi_probe() and pm_runtime_put_noidle()
+    in remove/error paths using is_lpss_ssp(drv_data). This locks out autosuspend
+    for LPSS controllers operating in PIO mode without causing power regressions on
+    non-LPSS platforms (e.g. PXA25x, Intel Quark, CE4100) operating in PIO mode.
+  - Guarded MMIO accesses in pxa2xx_spi_runtime_suspend() with a drv_data->clk_enabled
+    check. If the clock has already been turned off (e.g. in pxa2xx_spi_remove() or
+    resume error path), runtime suspend skips hardware writes, avoiding unclocked
+    MMIO accesses and PCIe Completion Timeouts if runtime PM triggers after teardown.
+  - Cleaned up pxa2xx_spi_pci_can_dma() signature in spi-pxa2xx-pci.c by removing the
+    redundant `bool verbose` parameter.
 
------BEGIN PGP SIGNATURE-----
+Changes in v8:
+  - Addressed feedback from Sashiko review on the v7 patchset:
+  - Fixed runtime PM resume interrupt storm in ssp_int() by checking drv_data->clk_enabled
+    instead of pm_runtime_get_if_active() == 0.
+  - Fixed PM disabled configuration (CONFIG_PM=n) support in ssp_int() by avoiding
+    active <= 0 early returns.
+  - Reordered suspend and remove sequences to invoke pxa_ssp_disable() before setting
+    drv_data->suspended = true and synchronizing the IRQ, closing a race window
+    where level-triggered interrupts could cause a storm.
+  - Masked hardware interrupt generation in pxa2xx_spi_runtime_suspend() via
+    pxa_ssp_disable() to prevent unexpected interrupts during clock enable.
+  - Avoided PCIe Completion Timeout system hangs on newer LPSS platforms (SPT, BXT, CNL)
+    by introducing pxa2xx_spi_need_lpss_restore() to restrict MMIO save/restore
+    loops to LPT, BYT, and BSW platforms (which lack an MFD parent).
+  - Fixed compiler error in pxa2xx_spi_probe() due to unused label.
 
-wsB5BAABCAAjFiEEhRJncuj2BJSl0Jf3sN6d1ii/Ey8FAmpd+dYFAwAAAAAACgkQsN6d1ii/Ey+9
-dQf+MNwHi0AEoRwM0kGFqoNIkbCEeUDIsEPaZE6ECmiLVl6im8D6Tu03Xw92X3m4V6P4h8KP0cln
-E8xuh65pmvJfOkhbG6w3tnHb2DSaHJ3uBB1XN0hhnoe5LC2FjhTSrxSvUC9FTEmia3pQ/bsUMq1g
-s1BGaaxWDZhqOb5KP+W7tHOds08mT0VosshO8KzjtGtIpD+Hge6qd/LrxV6unk6MKQNSVdDJWwEl
-jB01KSXN6J0RnTSyvU9e/oCJWCrUdEBsjxd2JOFyef4dVLLVeFCm0gp0PLDEZEA+1VQSW0CE6Rjk
-TWjyd5V7/0D5UL8U6E38KHqqAuYS7WBJJGJF/Nx96Q==
-=Pl2M
------END PGP SIGNATURE-----
+Changes in v7:
+  - Addressed feedback from Sashiko review on the v6 patchset:
+  - Fixed a race condition during probe by moving the request_irq() call after
+    the clock is enabled and the suspended flag is cleared. This prevents an early
+    shared interrupt from asserting and triggering an interrupt storm before the clock
+    is active to allow clearing it.
+  - Rectified the teardown sequence in pxa2xx_spi_remove(): first set drv_data->suspended
+    to true and disable SSP hardware-level interrupt generation (pxa_ssp_disable()), then call
+    synchronize_irq() to wait for in-flight interrupt handlers to complete, free the
+    IRQ, and only then disable the clocks. This eliminates both post-clock-disable MMIO
+    accesses and unhandled shared hardware interrupt storms.
+  - Clarified that the unconditional MMIO register access in pxa2xx_spi_suspend()
+    is safe because pm_runtime_resume_and_get() is invoked at the very beginning of the
+    suspend callback, guaranteeing the LPSS device is active and clocked during register
+    disabling/saving.
+  - Added spi_controller_resume() recovery to the error path of spi_controller_suspend()
+    in pxa2xx_spi_suspend() to prevent the controller from remaining permanently disabled
+    in the event system suspend is aborted.
 
---------------xRaoXSGgLc0vY9TPQoiqAmqD--
+Changes in v6:
+  - Addressed feedback from Sashiko review on the v5 patchset:
+  - Added a synchronize_irq() call to the spi_controller_resume() error path in
+    pxa2xx_spi_resume(). This ensures any concurrent shared interrupt handlers
+    (which might execute because drv_data->suspended = false was set earlier)
+    finish executing before we disable the clock, preventing PCIe timeouts.
+  - Checked and confirmed that active == 0 is the correct check in ssp_int(). If
+    Runtime PM is disabled, pm_runtime_get_if_active() returns a negative error
+    code (like -EINVAL). Changing this check to active <= 0 would cause a
+    regression on non-PM configurations because the handler would always return
+    IRQ_NONE. Under disabled Runtime PM, the hardware clock is kept constantly
+    active, so it is safe to proceed and read registers when active < 0.
+
+Changes in v5:
+  - Reverted runtime PM configuration in spi-pxa2xx-pci.c to be unconditional.
+    This prevents the usage count from leaking by +1 on unbind for PIO mode,
+    while letting pxa2xx_spi_probe()'s pm_runtime_get_noresume() and
+    pxa2xx_spi_remove()'s pm_runtime_put_noidle() handle the permanent
+    autosuspend lockout for PIO devices symmetrically.
+  - Removed the pm_runtime_forbid() call from pxa2xx_spi_remove(). This resolves
+    reference leaks for non-PCI platform devices where pm_runtime_allow() was
+    never called during probe.
+  - Delayed clearing the drv_data->suspended flag on resume until after LPSS reset
+    deassertion and private register restoration are complete. This prevents a
+    shared interrupt from firing during resume and attempting to read the SSSR
+    register while the LPSS block is still held in reset.
+  - Set drv_data->suspended = true on spi_controller_resume() failure path in
+    pxa2xx_spi_resume(). This ensures that subsequent shared interrupts do not
+    attempt register access once the clock is disabled.
+
+Changes in v4:
+  - Track clock state using drv_data->clk_enabled via pxa2xx_spi_clk_enable() and
+    pxa2xx_spi_clk_disable() helper functions. This guarantees clock enable/disable
+    symmetry, preventing clock disable count underflows and framework warnings on S3
+    resume or runtime autosuspend error paths.
+  - Introduce drv_data->suspended flag to protect MMIO access in ssp_int() during
+    system suspend and runtime suspend transition windows.
+  - Initialize drv_data->suspended = true early in probe(), clearing it only after
+    the clock is successfully enabled. This completely prevents shared interrupt
+    handler races during device probe when the clock is still off.
+  - Call synchronize_irq() after setting drv_data->suspended = true in suspend and
+    runtime_suspend. This ensures any running shared interrupt handlers finish
+    executing before the clock is physically turned off.
+
+Changes in v3:
+  - Avoid PM reference leaks on probe bind/unbind cycle by keeping probe PM
+    configuration symmetric.
+  - Prevent userspace (PowerTOP, udev) from overriding runtime PM settings when
+    DMA is disabled by holding a PM reference via pm_runtime_get_noresume()
+    in pxa2xx_spi_probe() and dropping it in remove/error paths.
+  - Check device status in the shared interrupt handler ssp_int() using
+    pm_runtime_get_if_active() instead of pm_runtime_suspended(). If the device is
+    suspending (RPM_SUSPENDING) or suspended, ssp_int() immediately returns
+    IRQ_NONE to avoid reading unclocked MMIO registers during power transition.
+  - Adjust the driver teardown order in pxa2xx_spi_remove() and probe error paths:
+    always call free_irq() to unregister the handler before calling
+    clk_disable_unprepare() to turn off the clock, preventing concurrent
+    interrupts from reading registers while the clock is disabled.
+  - Avoid duplicate can-DMA pci_info() logging by checking the pre-computed
+    enable_dma status in probe and passing a verbose flag to can_dma().
+
+Changes in v2:
+  - Addressed feedback from Mark Brown on the original v1 series.
+  - Used drv_data->lpss_base together with relative offsets rather than
+    hardcoding absolute MMIO offsets that vary between LPSS IP revisions.
+  - Moved the register save block in suspend to after the controller is quiesced
+    (after spi_controller_suspend() and pxa_ssp_disable()).
+  - Store the context array lpss_priv_ctx[6] inside struct driver_data instead of
+    struct pxa2xx_spi_controller. This keeps the changes entirely local to the
+    core driver, preventing symbol version mismatches (disagrees about version
+    of symbol) for other subsystem components (e.g., spi-pxa2xx-platform.ko).
+  - Restrict the save/restore loop to the first 6 LPSS private registers
+    (offsets 0x00 to 0x14). Offsets beyond 0x14 (except CS control at 0x18, which is
+    re-initialised by lpss_ssp_setup()) are reserved/unimplemented on LPT
+    platforms (such as MacBook8,1), and writing to them triggers a PCIe
+    Completion Timeout causing a system freeze.
+  - Added named constants for LPSS_PRIV_RESETS and the de-assert value.
+  - Wrapped S3 suspend/resume with pm_runtime_resume_and_get() and
+    pm_runtime_put_autosuspend() respectively.
+
+Shih-Yuan Lee (7):
+  spi: pxa2xx: introduce clock enable and disable helper functions
+  spi: pxa2xx: introduce suspended flag for interrupt synchronization
+  spi: pxa2xx: overhaul teardown and suspend sequence using
+    pxa2xx_spi_off
+  spi: pxa2xx: lock out runtime autosuspend for Intel LPSS SPI in PIO
+    mode
+  spi: pxa2xx: disable DMA for Apple MacBook8,1
+  spi: pxa2xx: restore LPSS private register state on S3 resume
+  spi: pxa2xx: rename local status variable to ret
+
+ drivers/spi/spi-pxa2xx-pci.c |  35 +++++-
+ drivers/spi/spi-pxa2xx.c     | 225 +++++++++++++++++++++++++++++------
+ drivers/spi/spi-pxa2xx.h     |   4 +
+ 3 files changed, 224 insertions(+), 40 deletions(-)
+
+-- 
+2.39.5
 
