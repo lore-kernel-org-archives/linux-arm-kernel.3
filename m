@@ -4,58 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B6A7C44515
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 10:32:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2946FC44527
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 10:33:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+GIYhUm7qP4hDO//mI2sDZ/wC78YEFXTr75rid4St6w=; b=U0hwUmCF+W2EqaxekpdeFFUCs1
-	iM/B+VTthHCCSRkdJhj6K8QKza21EYn1E9Q/FQdI3V3JmvPTgkMGk8QwAM007YIDGzMsGo2bmRTHZ
-	GxY7OfacZQoR1t0rlcOmCFoJMI4gau08/llrs7YBNEAp0+E+xKL/03nxdz+7Bzzv2EUFZ6YGouKnF
-	ZAsrWUYM9zdsfLTypc4kXIpHgXeiDF0dImPeAJlVohPFwc88TBbQ1miHL0Dd02Oy9q62tnFVhlq4J
-	ScdAvepi++V869hNuRL70b7BemHuE9T7eA300nhsT1uoGzhrCaerU+L6MszfMoJ4Q5z2VgQTD49f9
-	ZxuGytLA==;
+	bh=Vck4YIp4wN9OE2k8mCGwpdVQNpG15Z8G4WE7ZLpSflI=; b=W+jWD70fzqUJ1w/rAA0woD916E
+	PXGcFylvz1OMvKdDNXZj2l578j1Ugby0ND2PHoukSCgZwQ6Lh4XEFyF3LsK7eWNjB0p6xTyGBzbF5
+	2h7jhhnqjKvPJuGgzHfeLUnGaD6Ugav73FH2iYlJyf/hljcJ7HTE7D+OYcj4DWzHRW6AiK6zCRLH2
+	9G/0FkJejYSne4HL9QJGuVUf1vs0gF1J1ljVCabXoknzlz3xm5Sux+ZZ7cuML7TlQlAQPaBCmB93N
+	4ALq5YnNhJ1bZeZe0x9I0YBnXdUItc81KCR4TJr+e6RvsBcKQ9rW5qcwo5aarEeuVhju+Bnwyep+x
+	TiBg4cfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wllHz-00000006UWD-3AQp;
-	Mon, 20 Jul 2026 10:31:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wllJd-00000006UcR-0Btl;
+	Mon, 20 Jul 2026 10:33:41 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wllHy-00000006UW7-2ZFv
+	id 1wllJc-00000006UcL-04mR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 10:31:58 +0000
+	Mon, 20 Jul 2026 10:33:40 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 01FE760103;
-	Mon, 20 Jul 2026 10:31:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55EFF1F000E9;
-	Mon, 20 Jul 2026 10:31:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 733C0408DF;
+	Mon, 20 Jul 2026 10:33:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 796B41F000E9;
+	Mon, 20 Jul 2026 10:33:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784543517;
-	bh=+GIYhUm7qP4hDO//mI2sDZ/wC78YEFXTr75rid4St6w=;
+	s=k20260515; t=1784543619;
+	bh=Vck4YIp4wN9OE2k8mCGwpdVQNpG15Z8G4WE7ZLpSflI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=U6dP3lM3+G8gII1NAY3/C/ISB7tM8Qlo1n5nKIzpizl/GOX3zC+6AUlTGWbWqYU5g
-	 8fpderYjqJ9OL5b5SiFvke0Y6Oc/lmbYM+4ZarLNU2n7D9m4fMcN310JPW623jBwMW
-	 HoKqgk7xvd1HQl/QOmWbdhTRBD1im2Ut5eV5N5IDJAn/ZG6WS9CVyG5SLjE5vePEdq
-	 Y2+/EpsRrhY4Sl8VSrDLEWoC6nim58taCPAJhRSnCFmcxm3ai+88cSOeeAWljvK01y
-	 L14Rq3u7k/V5DBYQtEZ8msFgSnmQS1rbqHTnkWvqm1ArRMl6Ta1lfKr9T53qeUXqA+
-	 RAN6/1pe/fWNg==
+	b=aw6MQclaCpFxlpAoUV/jnRQL7hh2YFwa9P4Z9ZutQuieku10gUKgeSRifW+HGzRoQ
+	 QI9AHxkt4NTDS0N2SuaDWFRcm2E6GZrku4vSc5tGNqhG5ky8rQ4Q+KlByilJlv8IbC
+	 uLYsQS0/LcQ3BYJloRH/H6/NU+aOAJ/T90f13M5d9a0Sojz7K10piM2KAnvUylXHlD
+	 Vx2WzkOq60yZW6myk/qiGGZSNDF1A0VfuziHbCEXNnKjB4x98dXfIE4jGgU44VATA8
+	 taCG3BOoy6/VudwlSQSyy0FcRFp/ZYzUkD04o/VmvvZAfM8Rr+BId0aUH5o1I8YG5Q
+	 fuOeKtmnzZt9w==
 From: Sudeep Holla <sudeep.holla@kernel.org>
 To: arm-scmi@vger.kernel.org,
-	Rosen Penev <rosenp@gmail.com>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCHv2] firmware: arm_scmi: simplify some allocations
-Date: Mon, 20 Jul 2026 11:31:49 +0100
-Message-ID: <178454310144.1349369.3756806387017332522.b4-ty@b4>
+	linux-arm-kernel@lists.infradead.org,
+	Sudeep Holla <sudeep.holla@kernel.org>
+Cc: Cristian Marussi <cristian.marussi@arm.com>
+Subject: Re: [PATCH v6 00/16] firmware: arm_scmi: Fix SCMI core cleanup paths
+Date: Mon, 20 Jul 2026 11:33:30 +0100
+Message-ID: <178454357814.1351639.7643602720515590905.b4-ty@b4>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260630204719.334211-1-rosenp@gmail.com>
-References: <20260630204719.334211-1-rosenp@gmail.com>
+In-Reply-To: <20260714-scmi_core_fixes-v6-0-3afe499d46e3@kernel.org>
+References: <20260714-scmi_core_fixes-v6-0-3afe499d46e3@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -73,20 +70,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 30 Jun 2026 13:47:19 -0700, Rosen Penev wrote:
-> Use flexible array members to combine allocations and remove kcalloc
-> usage.
+On Tue, 14 Jul 2026 13:56:19 +0100, Sudeep Holla wrote:
+> Most of these issues were found by Sashiko[1][2] while reviewing the
+> ACPI SCMI PCC work[3]. They are posted separately because the problems
+> are independent SCMI core, mailbox and SMC transport cleanup bugs, and do
+> not depend on the ACPI PCC series.
 > 
-> Add __counted_by where appropriate for extra runtime analysis. Move
-> counting variable assignment after allocation before any potential array
-> access.
+> The series fixes SCMI core and transport lifetime issues around channel
+> setup, probe failure, notification teardown, protocol-device creation,
+> driver binding and malformed firmware descriptions.
 > 
 > [...]
 
 Applied to sudeep.holla/linux (for-next/scmi/updates), thanks!
 
-[1/1] firmware: arm_scmi: simplify some allocations
-      https://git.kernel.org/sudeep.holla/c/9c62bb72a5d0
+[01/16] firmware: arm_scmi: Publish channel state before callbacks
+        https://git.kernel.org/sudeep.holla/c/0314900dcdde
+[02/16] firmware: arm_scmi: Unregister device notifier before IDR teardown
+        https://git.kernel.org/sudeep.holla/c/66a0bbf30cc1
+[03/16] firmware: arm_scmi: Quiesce notifications before teardown
+        https://git.kernel.org/sudeep.holla/c/8e49055d0d49
+[04/16] firmware: arm_scmi: Clean up channels on setup failure
+        https://git.kernel.org/sudeep.holla/c/687d67be3d87
+[05/16] firmware: arm_scmi: Free transport channel on IDR failure
+        https://git.kernel.org/sudeep.holla/c/d72e7e5f2468
+[06/16] firmware: arm_scmi: Avoid IDR updates while cleaning channels
+        https://git.kernel.org/sudeep.holla/c/c38b1e19485a
+[07/16] firmware: arm_scmi: Reject out of range DT protocol IDs
+        https://git.kernel.org/sudeep.holla/c/59407ccb5213
+[08/16] firmware: arm_scmi: Use channel ID for transport teardown
+        https://git.kernel.org/sudeep.holla/c/a71a3d4d8a6e
+[09/16] firmware: arm_scmi: Protect device request lookup with RCU
+        https://git.kernel.org/sudeep.holla/c/e6a0e7a49d83
+[10/16] firmware: arm_scmi: Drop handle on protocol bind failures
+        https://git.kernel.org/sudeep.holla/c/e3a5c30d233c
+[11/16] firmware: arm_scmi: Clear SystemPower flag on create failure
+        https://git.kernel.org/sudeep.holla/c/e4c16ae24ca0
+[12/16] firmware: arm_scmi: Fix OF node reference handling
+        https://git.kernel.org/sudeep.holla/c/659705f5eb37
+[13/16] firmware: arm_scmi: Unwind TX receiver mailbox setup failure
+        https://git.kernel.org/sudeep.holla/c/6f7c06744d53
+[14/16] firmware: arm_scmi: Unwind P2A receiver mailbox setup failure
+        https://git.kernel.org/sudeep.holla/c/f3e3773c4e5e
+[15/16] firmware: arm_scmi: Fix SCMI device destroy lifetimes
+        https://git.kernel.org/sudeep.holla/c/6abe8fe36b29
+[16/16] firmware: arm_scmi: Fix transport device teardown lookup
+        https://git.kernel.org/sudeep.holla/c/a14dd8fe0a95
 -- 
 Regards,
 Sudeep
