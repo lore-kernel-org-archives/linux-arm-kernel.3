@@ -4,70 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D37EFC44515
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 16:03:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF901C44520
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 16:05:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
+	:From:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8d5Xgeqbr1f1MGwFnkVvgzEnRmvJhiFMLb+8BeBD8T0=; b=4cK6L4EtsAHebxWl4aszcGfmoX
-	OfrAe1F1EdrS8aZku6EUplre0yLTS09Dqm21LlKABXT/dJrLMpGS56YJsqZUiDM5crmk30V/WOerm
-	KJuIbUk021mbl1qfdEL4jkp3wWnaBkceFs9LRD+x4EerEt6THU1L4wKTMpZWdluXAXi7v7mDomT7K
-	uBkz6x2wEyftzDt6qjoj4L+covKAJ1jtd5npiKCEO3z9csya+XF0xISdJhBzPo66j3ci5VKeDJmbO
-	spDLlxkQbmFvoQck2EpQ5qji+C3932T68oNpdz2CGVsA9nWDFXgJueRXt2XGU/tSYL7i2pOz5C8Re
-	uOIRICpw==;
+	bh=4V1kLYIy9VLaH4izcRngdk5f4+oVLN80Pe1S3oyCuaM=; b=49bckp6OMPRTqG3/rPsgFuq6PX
+	Ib0ZHPKE8x9mWhIhAfj/7iIxeF8TzDYs8W7T9y9peWtImHzPtC0y+pa5vsonPTd8nWijVUhVqG3FI
+	dWfRzWEDaTty7iB5KAU2SaXY7reuaDeNsbJl8lpqPCMRc8L/zmThB5nXDquEtFtQkhxXYpyyNmovY
+	MEp7cGb8nPwMGTHzem26x2bbLRs4s4BAN7+WDityUkDywbjCllKKQVF9sHVX6zAiEEWM2q+Xar1zM
+	lhOWeVvahz+hZj1weQGBbWZeSjACXbyNkrmHdf+eNIbquePgt+gKXriHbhhKwTsOfKjD2dvOD3Zu8
+	dJx/D3yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlqT4-00000007IiZ-27Oe;
-	Mon, 20 Jul 2026 16:03:49 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1wlqUj-00000007J9W-2d9z;
+	Mon, 20 Jul 2026 16:05:29 +0000
+Received: from smtp.forwardemail.net ([121.127.44.73])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlqSz-00000007Iff-108h
+	id 1wlqUf-00000007J7f-3Ae7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 16:03:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Subject:Date:From:From:Reply-To;
-	bh=8d5Xgeqbr1f1MGwFnkVvgzEnRmvJhiFMLb+8BeBD8T0=; b=OArncno8gpWNXxFCZJIOV+Nfrj
-	Wy++aR53dVPM8bQWA+/LnEVVkqHvrRAiSyC060f2QlWQG3nPR/avLpWjBy5BdV4rLOCf/q2YD3NYU
-	vFAMXlQBNBOnbqkPURLUF4bQS4v/2DgiKqSxxHsPqPhLrfjYAD5nLG7yEyMVvbhFEYiTDiZZeT8/p
-	h1JnaIG6DStHi2RfA8pGLcY1v652++Dg1ZeoQ7SVD8M0gDyjbWkb1/39WTR1NmaisITMedqu1ePFo
-	VRxwTf4L+oaf3c4xGbRrQqRbrqJrZxI5RosfGn7ZVDBIvYyC4/ijAKTl6CkE+Tg33R4ChhfVDPPWC
-	o6FABIfQ==;
-Received: from [179.118.191.219] (helo=[192.168.15.100])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1wlqSw-001CZ2-DN; Mon, 20 Jul 2026 18:03:38 +0200
-From: =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-Date: Mon, 20 Jul 2026 13:03:04 -0300
-Subject: [PATCH v6 4/4] arm64: vdso32: Implement
- __vdso_futex_robust_try_unlock()
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260720-tonyk-robust_arm-v6-4-7e68c122047e@igalia.com>
-References: <20260720-tonyk-robust_arm-v6-0-7e68c122047e@igalia.com>
-In-Reply-To: <20260720-tonyk-robust_arm-v6-0-7e68c122047e@igalia.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, 
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
- Peter Zijlstra <peterz@infradead.org>, Florian Weimer <fweimer@redhat.com>, 
- Darren Hart <dvhart@infradead.org>, Ingo Molnar <mingo@kernel.org>, 
- Davidlohr Bueso <dave@stgolabs.net>, Arnd Bergmann <arnd@arndb.de>, 
- Uros Bizjak <ubizjak@gmail.com>, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-arch@vger.kernel.org, kernel-dev@igalia.com, 
- LKML <linux-kernel@vger.kernel.org>, 
- =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-X-Mailer: b4 0.15.2
+	Mon, 20 Jul 2026 16:05:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ubuntu.com;
+ h=In-Reply-To: References: Cc: To: From: Subject: Message-Id: Date:
+ Content-Type: Content-Transfer-Encoding: Mime-Version; q=dns/txt;
+ s=fe-953a8a3ca9; t=1784563522;
+ bh=4V1kLYIy9VLaH4izcRngdk5f4+oVLN80Pe1S3oyCuaM=;
+ b=IXPouiTI6OJpt/VfNNm/vCrXDfC4UlwCFy1QfMbtq+AcGKNYG3hH/jgIxYqN1nyDpx0sixR1y
+ Bc/x/YS09l9xE/siwcegzJxsBZTkX9GneVtPxaTmI/8/mk6I/tbra0Lmxdtgva0oOBxPwcsXagE
+ YLIGypYq0LGUWpZHxr3BAF1OlsEA7NAHZT6FHb4DBW9YwF3PbIPIHBS0/EKGnl5flIFAN01ja8e
+ EOCgnTx2fHmP2jS4noWFHTwTeKPsW+EPsK2LODt+39berC/PTC0ebcRhZUFl5NXGO5bcbf7o1BR
+ f/D9H/BEHxXJJrtD216z3GM4PI76cNC2UTmNe0rd++Yw==
+X-Forward-Email-ID: 6a5e473e79814abe71f8e3c1
+X-Forward-Email-Sender: rfc822; jpeisach@ubuntu.com, smtp.forwardemail.net,
+ 121.127.44.73
+X-Forward-Email-Version: 2.11.4
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8; format=Flowed
+Date: Mon, 20 Jul 2026 12:05:17 -0400
+Message-Id: <DK3IYY2FP62G.2ZOAUMLYJP77P@ubuntu.com>
+Subject: Re: [PATCH v2] cpufreq: apple-soc: Calculate frequency as a 64-bit
+ value
+From: "Joshua Peisach" <jpeisach@ubuntu.com>
+To: "Sasha Finkelstein" <k@chaosmail.tech>, "Sven Peter" <sven@kernel.org>,
+ "Janne Grunau" <j@jannau.net>, "Neal Gompa" <neal@gompa.dev>, "Rafael J.
+ Wysocki" <rafael@kernel.org>, "Viresh Kumar" <viresh.kumar@linaro.org>
+Cc: <asahi@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-pm@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+X-Mailer: aerc 0.21.0
+References: <20260720-cpufreq-64-v2-1-72bd9b4e5ca0@chaosmail.tech>
+In-Reply-To: <20260720-cpufreq-64-v2-1-72bd9b4e5ca0@chaosmail.tech>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_090341_295158_547A25D0 
-X-CRM114-Status: GOOD (  13.61  )
+X-CRM114-CacheID: sfid-20260720_090526_157918_3CE61B5E 
+X-CRM114-Status: GOOD (  18.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,144 +78,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Based on aarch64 implementation, provide a 32 bit entry point for
-this vDSO.
+On Mon Jul 20, 2026 at 3:25 AM EDT, Sasha Finkelstein wrote:
+> The current frequency calculation is done in 32 bit, causing problems
+> if run on a future SoC that can boost higher than 4.2GHz. Ideally, we
+> should use a true u64 instead of unsigned long and "knowning" that this
+> only runs on 64 bit machines, but the core code uses ulong everywhere,
+> so this should be good enough.
+>
+> Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
+> ---
+> Changes in v2:
+> - Minor style fixes
+> - Link to v1: https://patch.msgid.link/20260703-cpufreq-64-v1-1-c406c7053=
+19a@chaosmail.tech
+> ---
+>  drivers/cpufreq/apple-soc-cpufreq.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/cpufreq/apple-soc-cpufreq.c b/drivers/cpufreq/apple-=
+soc-cpufreq.c
+> index 638e5bf72185..5ad274a1e6ae 100644
+> --- a/drivers/cpufreq/apple-soc-cpufreq.c
+> +++ b/drivers/cpufreq/apple-soc-cpufreq.c
+> @@ -288,7 +288,7 @@ static int apple_soc_cpufreq_init(struct cpufreq_poli=
+cy *policy)
+> =20
+>  	/* Get OPP levels (p-state indexes) and stash them in driver_data */
+>  	for (i =3D 0; freq_table[i].frequency !=3D CPUFREQ_TABLE_END; i++) {
+> -		unsigned long rate =3D freq_table[i].frequency * 1000 + 999;
+> +		unsigned long rate =3D freq_table[i].frequency * 1000UL + 999;
+>  		struct dev_pm_opp *opp =3D dev_pm_opp_find_freq_floor(cpu_dev, &rate);
+> =20
+>  		if (IS_ERR(opp)) {
+>
+> ---
+> base-commit: 4a50a141f05a8d1737661b19ee22ff8455b94409
+> change-id: 20260703-cpufreq-64-2a23d7261e09
+>
+> Best regards,
+> -- =20
+> Sasha Finkelstein <k@chaosmail.tech>
 
-In order to keep compatibility with arm64_futex_robust_unlock_get_pop(),
-make sure to store the pop address at r2 and the compare result value
-at r3.
-
-Signed-off-by: André Almeida <andrealmeid@igalia.com>
----
- arch/arm64/kernel/vdso.c            | 14 ++++++++++++++
- arch/arm64/kernel/vdso32/Makefile   |  4 ++++
- arch/arm64/kernel/vdso32/vdso.lds.S |  9 +++++++++
- arch/arm64/kernel/vdso32/vfutex.c   | 34 ++++++++++++++++++++++++++++++++++
- 4 files changed, 61 insertions(+)
-
-diff --git a/arch/arm64/kernel/vdso.c b/arch/arm64/kernel/vdso.c
-index 1d1633e8339b..d9b86f9a0db6 100644
---- a/arch/arm64/kernel/vdso.c
-+++ b/arch/arm64/kernel/vdso.c
-@@ -182,6 +182,15 @@ enum aarch32_map {
- static struct page *aarch32_vectors_page __ro_after_init;
- static struct page *aarch32_sig_page __ro_after_init;
- 
-+static inline void aarch32_vdso_futex_update_ips(struct mm_struct *mm)
-+{
-+	unsigned long vdso = (unsigned long) mm->context.vdso;
-+
-+	__vdso_futex_update_ips(mm, true,
-+				VDSO_SYMBOL(vdso, futex_list32_try_unlock_cs_start),
-+				VDSO_SYMBOL(vdso, futex_list32_try_unlock_cs_end));
-+}
-+
- static int aarch32_sigpage_mremap(const struct vm_special_mapping *sm,
- 				  struct vm_area_struct *new_vma)
- {
-@@ -195,6 +204,8 @@ static int aarch32_mremap(const struct vm_special_mapping *sm,
- {
- 	current->mm->context.vdso = (void *)new_vma->vm_start;
- 
-+	aarch32_vdso_futex_update_ips(current->mm);
-+
- 	return 0;
- }
- 
-@@ -327,6 +338,7 @@ static int aarch32_sigreturn_setup(struct mm_struct *mm)
- 	return PTR_ERR_OR_ZERO(ret);
- }
- 
-+
- int aarch32_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
- {
- 	struct mm_struct *mm = current->mm;
-@@ -347,6 +359,8 @@ int aarch32_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
- 	}
- 
- 	ret = aarch32_sigreturn_setup(mm);
-+
-+	aarch32_vdso_futex_update_ips(mm);
- out:
- 	mmap_write_unlock(mm);
- 	return ret;
-diff --git a/arch/arm64/kernel/vdso32/Makefile b/arch/arm64/kernel/vdso32/Makefile
-index 4bd60f059f4a..f3190125c68b 100644
---- a/arch/arm64/kernel/vdso32/Makefile
-+++ b/arch/arm64/kernel/vdso32/Makefile
-@@ -97,6 +97,10 @@ munge := ../../../arm/vdso/vdsomunge
- hostprogs := $(munge)
- 
- c-obj-vdso := note.o
-+ifdef CONFIG_FUTEX_ROBUST_UNLOCK
-+  c-obj-vdso += vfutex.o
-+endif
-+
- c-obj-vdso-gettimeofday := vgettimeofday.o
- 
- ifneq ($(c-gettimeofday-y),)
-diff --git a/arch/arm64/kernel/vdso32/vdso.lds.S b/arch/arm64/kernel/vdso32/vdso.lds.S
-index c374fb0146f3..46c0123b2684 100644
---- a/arch/arm64/kernel/vdso32/vdso.lds.S
-+++ b/arch/arm64/kernel/vdso32/vdso.lds.S
-@@ -87,6 +87,15 @@ VERSION
- 		__vdso_clock_getres;
- 		__vdso_clock_gettime64;
- 		__vdso_clock_getres_time64;
-+#ifdef CONFIG_FUTEX_ROBUST_UNLOCK
-+		__vdso_futex_robust_list32_try_unlock;
-+#endif
- 	local: *;
- 	};
- }
-+
-+#ifdef CONFIG_FUTEX_ROBUST_UNLOCK
-+VDSO_futex_list32_try_unlock_cs_success = __futex_list32_try_unlock_cs_success;
-+VDSO_futex_list32_try_unlock_cs_start = __futex_list32_try_unlock_cs_start;
-+VDSO_futex_list32_try_unlock_cs_end = __futex_list32_try_unlock_cs_end;
-+#endif
-diff --git a/arch/arm64/kernel/vdso32/vfutex.c b/arch/arm64/kernel/vdso32/vfutex.c
-new file mode 100644
-index 000000000000..030eb767b8d6
---- /dev/null
-+++ b/arch/arm64/kernel/vdso32/vfutex.c
-@@ -0,0 +1,34 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+#include <linux/stringify.h>
-+#include <vdso/futex.h>
-+
-+__u32 __vdso_futex_robust_list32_try_unlock(__u32 *lock, __u32 tid, __u32 *pop)
-+{
-+	register __u32 *pop_reg asm("r2") = pop, result_reg asm("r3") = 0;
-+	__u32 val, zero = 0;
-+
-+	asm volatile (
-+		".globl						  "
-+		"__futex_list32_try_unlock_cs_start,		  "
-+		"__futex_list32_try_unlock_cs_success,		  "
-+		"__futex_list32_try_unlock_cs_end		\n"
-+
-+		"retry:						\n"
-+		"	ldrex %[val], %[lock]			\n"
-+		"	cmp %[tid], %[val]			\n"
-+		"	bne __futex_list32_try_unlock_cs_end	\n"
-+		"	strex %[result], %[zero], %[lock]	\n"
-+		"__futex_list32_try_unlock_cs_start:		\n"
-+		"	cmp %[result], #0			\n"
-+		"	bne retry				\n"
-+		"__futex_list32_try_unlock_cs_success:		\n"
-+		"	str %[zero], %[pop_reg]			\n"
-+		"__futex_list32_try_unlock_cs_end:		\n"
-+
-+		: [val] "=&r" (val), [result] "=r" (result_reg)
-+		: [tid] "r" (tid), [lock] "Q" (*lock), [pop_reg] "Q" (*pop_reg), [zero] "r" (zero)
-+		: "cc", "memory"
-+	);
-+
-+	return val;
-+}
-
--- 
-2.55.0
-
+Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
 
