@@ -4,112 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3EFDC44515
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 20:02:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27C44C44529
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 20:08:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wv9fvaxLH49NpPefXP+gfDcvYRMVVGve36jTQRR2YNo=; b=tZiykctzDc9R8BagUrMLqnPiWl
-	zFWo9uUgMzY5wVIawIQL6sVg3GTpmUKStXx1uJ3T+gjIVmsgDVqnMVnj/J9bAsRkE9tLEKftEGWdW
-	7gfrxgGbYCIjYDs7hMGLzwuIml9+k8Puj/tykVzmifDIm39LZGqSMHaKYzzlKO0GC0NYl8X+wfhei
-	k6Asvld1SQc+X3C2gGL/p6DIjFBZMBqxMs+X/TN93zKB8oxu0fnyRWWP8aiVNfxqF4eM07Ft2oUwr
-	+U6iR75mXHkOiDXTwbppWWka7e0UitmP49xMGMCtrFQvAoGhnxkQoWoEHrQJH71URPZmnd4cfRwPF
-	k0ejTljA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tJmWcK7VtygAI73hXpZCkgCwblOmQljwdFQvepVqOmU=; b=c369HPG2IZWKlKaExcfyvzEhEm
+	rlAZL9madue4IIHJ5fYS0EQq1BiPeXihkAZd8nQmLaK4e+5JoHxTsiK9EIuMSARzKtxR4D+MdTsvj
+	lh0pfBrGPIzFOeHZ/x1c3/yc+21NjYR/7F0bIVhOVBwkiuTzxARCOFJ3FP0NCnVnObr7MgVDSNi42
+	+2Eq1XiJU49i4eSPxnz6piNWaafU68NuoEM/jqEFmACVJ6UPuG83aMMN/mXjTq5MzweQQJ5l0TnRe
+	YFP0+SUJAg9L4irDZf8qOAIOnnglRJ2GVP9bEEbZXR3bEPmkg3BrJzlhz7oRdLR3f+LSPfrD1umU2
+	cEEqn6ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wluBd-00000007otK-0foP;
-	Mon, 20 Jul 2026 20:02:01 +0000
+	id 1wluHn-00000007pGS-35WP;
+	Mon, 20 Jul 2026 20:08:23 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wluBZ-00000007ose-0VNV
+	id 1wluHk-00000007pFz-3ug5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 20:01:59 +0000
+	Mon, 20 Jul 2026 20:08:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1784577716;
+	s=mimecast20190719; t=1784578099;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Wv9fvaxLH49NpPefXP+gfDcvYRMVVGve36jTQRR2YNo=;
-	b=YJrUscfSAmSi/dwbiZ5Jpdtds8psCT0rKZVFGwktTg3tIqTcMg1EFE7Er2V2a/3TZHc+yK
-	sVrpaCNqE8ov+ojcc/dXje+CMJY6birrQCDSnr+6iC4yTalN93bANxIiD/vTqJ0eSJ7VW8
-	yh/4rsqzS/SDC28BXz+AQZuvLd9gwbw=
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com
- [209.85.160.197]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=tJmWcK7VtygAI73hXpZCkgCwblOmQljwdFQvepVqOmU=;
+	b=MCwmIF6TRwos4cIB4wR68p1HPBfNURBWj/n7qd2FiM7vggNxZcrEZbXpRwHXU7UHc8Pdpp
+	PvQw6UVEpazVKIiF+tXzdSIM7jSL/uoAoeUoXtv0aL453cS0Sow0fap5/XisMxP/KOe9jE
+	cZ1TTtWTaEttxRwsjFLiz1U7awfo+AA=
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com
+ [209.85.222.200]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-403-9A8OfPC2NealjpjOL37bqA-1; Mon, 20 Jul 2026 16:01:54 -0400
-X-MC-Unique: 9A8OfPC2NealjpjOL37bqA-1
-X-Mimecast-MFC-AGG-ID: 9A8OfPC2NealjpjOL37bqA_1784577714
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-51c1a9764f0so209581861cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 13:01:54 -0700 (PDT)
+ us-mta-153-hX1VkBo-M8iO_HePcjW3eg-1; Mon, 20 Jul 2026 16:08:17 -0400
+X-MC-Unique: hX1VkBo-M8iO_HePcjW3eg-1
+X-Mimecast-MFC-AGG-ID: hX1VkBo-M8iO_HePcjW3eg_1784578097
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-930b6bdcb4fso186286585a.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 13:08:17 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784577714; x=1785182514;
-        h=user-agent:in-reply-to:content-disposition:content-type
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Wv9fvaxLH49NpPefXP+gfDcvYRMVVGve36jTQRR2YNo=;
-        b=sJ2it9NoMArccG1Vhc4M8DJF+w87Vh1P8lOfM+cYrBYZCivgk7bgl/XYChVKv6iumi
-         fWNOF2Tco3lWqbJzU38dxDp+y3vFIN4R22Sfeg8/ffkKoks5h6rG6GRmpYxkyy8CW2Ns
-         SrurduDMa+U++lX7VYYcqUGHKYt0gzRjEs+bfo9IEP0UFkWbkwwvkR5KET7HwtKlxQSP
-         5dfGmz63Onwx9LvR7UHW5lB8gkjK1WgT1djCuH+gM6gPjBaGWLH9Hm1ZaBXBu9T8CeZC
-         RgsGKyBZRSnUeL5UglgWWWNDmf7TzIGMsjp/L4b2jJq3L1JuRh4OF3RpKUszbA6QOSV9
-         E68g==
-X-Forwarded-Encrypted: i=1; AHgh+RoDXisbhhAZ73bLmKw9Yc8Mw2VFeoc5+N9q+bljZf/P2K0mIvQqiH11o/44+TxLhO7jMJnIkdFY08SVKhpiXCr6@lists.infradead.org
-X-Gm-Message-State: AOJu0YxWXYYd3AiXfhAn7pJlqdooT/xmX6mfOUBwnLWUvtdRuk4Hssje
-	papPF8u/zCnhnmm4LmBewvXRqYoI44LbPWlkGxDjusvcWB1KDV0i72uY+wu8FT2jfkqYrItNcx5
-	IuCOLdY6m9aFME9u864/AyDXOp8Q2njL014xos80bwKMd/u0wf8EqIebcFNsOOfhsu7ZotSqYr9
-	Gw
-X-Gm-Gg: AfdE7cnFyLcxWjAl7HmmcIhiomdTA0W+RCDSaQJwWdHGDahhAMSK12xI9HMmLbNKhH/
-	BH3YRyc8E+kITYE7CgWe9AIEnEzmJP9yKAWM20kA5By0DXcTkcrn9r4kZdVWKtoyYyMzRDwu/14
-	Un7AMBvG5qnJgw9RC1MB6UYWM36zR22zO+Ln67cJCcTNK2J6tpOV593HqvdA85edRlOVUxuNmev
-	5UwGVVReraHn9xbnN9eGG28awCBMxJEl8JuXUw1SCiwtdYntgkMKnYoUo7sYvqjtEySz7oXDj4c
-	ve+zJJsQor1p2qTvr7ccSHDlppEE4BjkuoUyNNbzRdhmh92pQgil6uQ4P3ZgGAifud9hV7JqrAV
-	wrbfuBLfeowWGiNGrbGIuIGLD87tVbJ5k/AY=
-X-Received: by 2002:ac8:5f93:0:b0:51b:f36d:1ae4 with SMTP id d75a77b69052e-5213cad91d7mr153344951cf.43.1784577713770;
-        Mon, 20 Jul 2026 13:01:53 -0700 (PDT)
-X-Received: by 2002:ac8:5f93:0:b0:51b:f36d:1ae4 with SMTP id d75a77b69052e-5213cad91d7mr153344631cf.43.1784577713349;
-        Mon, 20 Jul 2026 13:01:53 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1784578097; x=1785182897;
+        h=user-agent:in-reply-to:content-transfer-encoding
+         :content-disposition:content-type:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=tJmWcK7VtygAI73hXpZCkgCwblOmQljwdFQvepVqOmU=;
+        b=GNDxZct94vovmO63l0022hDYV8R4QFVEoobjAM6+x1+zljyCfEyujq3qme2g8TsFzK
+         vANXgPvzTSgib3uHX+aFgkJBLxVIFzkpdYT1/u0PnixmpNziqJc2X77gzWawp3j/Ax49
+         q7eXXjgn7gaN9rAF7UaYX9RdG1fJkh163t+jtVBdZa4i2CuRQPlO1yiRLA8iGh4vZuKX
+         fPqMPHpOvVP5jSYiCPhUXSQNSJhGVuDeiefQfTmo4wb4LtSKrRw221HBJWeLcwPdtvIl
+         jItncpG/o8/juwB+UBg3RgZ8IKB36Tu5q1TiZGxh/fYQYt8rsf8Oz7g2lD3vwPS2Ra5O
+         vXig==
+X-Forwarded-Encrypted: i=1; AHgh+RquBddrZsJSFVUh2pC36s0XaNdvIQiK738Ycl7MTotE+ti+FUWN4eiw6LPqCu2/vZt+OxgckTRsTrxP9h0mUTE+@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx2svaoy1auoQ/5i5wZayd8yZKD2D04Jhva3ZYoxZp83QySTsOk
+	AdFpT2sStj6kJrlRD5uEP9BX1tKL44n/Ds4Cr6KZphfKKjQyR5CBQPVrELLkw+dnOa7spJBwdp7
+	NAoID4kDCp2uPxtdbSctYxqSk2mCrBVdZQDlDaI4sl/JC2L9jWDlKh2Wx1zyziQ0N0mpv6VEX30
+	bt
+X-Gm-Gg: AfdE7cnwqhR1cDed87GBWlJnjmW4GZD9d2tvfm0ru0Sz9Y8ffrxneN6xs0rowvjDhLp
+	hqzkmPt0DN8q9GJlW3xn5Vcdz1mM2T/qs1wEdgfwHpQ2+PRmq4McVuOGKob/i6E+8+AQ7BqN+pr
+	530lEsCJ0qaRcEzIM0s46PWDGJIqYsqU1XRr3a2UOlG5ZccF50wV3VftT13y2j54qDXWEtTYQ7M
+	ex9wecD6IN+/Uk6iFVbFYqAkoTKLsL1bPfo9A7hRV2Zuwijj909xPrhQP70dBnzD5nymjTTgTXx
+	fakwNNz29Ynj3asUYKpNiyOoZA+elEoSQlNrOBQ3BM2hlo60vmom2tEtH/ok2uwKQfWClA8pFdY
+	QmDLSvW5jBhwed3lDnt5nlLiUqkmJEh6RyzY=
+X-Received: by 2002:a05:620a:2985:b0:915:94f7:55df with SMTP id af79cd13be357-930b3ed9e37mr1488513885a.20.1784578097369;
+        Mon, 20 Jul 2026 13:08:17 -0700 (PDT)
+X-Received: by 2002:a05:620a:2985:b0:915:94f7:55df with SMTP id af79cd13be357-930b3ed9e37mr1488512285a.20.1784578096959;
+        Mon, 20 Jul 2026 13:08:16 -0700 (PDT)
 Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-5214d095ed4sm79193511cf.10.2026.07.20.13.01.50
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-930b52e02desm954762485a.10.2026.07.20.13.08.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Jul 2026 13:01:52 -0700 (PDT)
-Date: Mon, 20 Jul 2026 16:01:49 -0400
+        Mon, 20 Jul 2026 13:08:15 -0700 (PDT)
+Date: Mon, 20 Jul 2026 16:08:12 -0400
 From: Brian Masney <bmasney@redhat.com>
-To: Rosen Penev <rosenp@gmail.com>
-Cc: linux-clk@vger.kernel.org, Michael Turquette <mturquette@baylibre.com>,
+To: Duje =?utf-8?Q?Mihanovi=C4=87?= <dujemihanovic32@gmail.com>
+Cc: linux-clk@vger.kernel.org, Rosen Penev <rosenp@gmail.com>,
+	Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Nathan Chancellor <nathan@kernel.org>,
 	Nick Desaulniers <ndesaulniers@google.com>,
 	Bill Wendling <morbo@google.com>,
 	Justin Stitt <justinstitt@google.com>,
-	Gabriel Fernandez <gabriel.fernandez@foss.st.com>,
-	Nicolas Le Bayon <nicolas.le.bayon@foss.st.com>,
-	Alok Tiwari <alok.a.tiwari@oracle.com>,
 	open list <linux-kernel@vger.kernel.org>,
-	"moderated list:ARM/STM32 ARCHITECTURE" <linux-stm32@st-md-mailman.stormreply.com>,
-	"moderated list:ARM/STM32 ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	"moderated list:ARM/Marvell PXA1908 SOC support" <linux-arm-kernel@lists.infradead.org>,
 	"open list:CLANG/LLVM BUILD SUPPORT:Keyword:b(?i:clang|llvm)b" <llvm@lists.linux.dev>
-Subject: Re: [PATCHv2 2/2] clk: stm32: allow STM32MP COMPILE_TEST builds
-Message-ID: <al5-rbTqpaZ8EeHf@redhat.com>
-References: <20260719215040.767232-1-rosenp@gmail.com>
- <20260719215040.767232-3-rosenp@gmail.com>
+Subject: Re: [PATCH] clk: mmp: allow COMPILE_TEST builds
+Message-ID: <al6ALM2eIWots1Zr@redhat.com>
+References: <20260719214349.734351-1-rosenp@gmail.com>
+ <YBsaITDCQyaUWFnnWTe4Fw@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20260719215040.767232-3-rosenp@gmail.com>
+In-Reply-To: <YBsaITDCQyaUWFnnWTe4Fw@gmail.com>
 User-Agent: Mutt/2.4.0 (2026-06-19)
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: ZrPzBKAsl18srwJINy95PfJ9VBS6P0iThscWaHCfzYE_1784577714
+X-Mimecast-MFC-PROC-ID: KcWqmyBtnM6irIujWD3KmjXd4-YRskKqNWJWkuLwHjI_1784578097
 X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_130157_233814_CB9BED53 
-X-CRM114-Status: UNSURE (   8.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260720_130821_049744_68F0F4B5 
+X-CRM114-Status: GOOD (  16.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,17 +120,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 19, 2026 at 02:50:40PM -0700, Rosen Penev wrote:
-> COMMON_CLK_STM32MP already allows COMPILE_TEST, but the parent clock
-> Makefile only descends into drivers/clk/stm32 for ARCH_STM32.  Use the
-> STM32MP clock symbol for that directory gate instead.
-> 
-> Tested with:
-> make LLVM=1 ARCH=loongarch drivers/clk/stm32/
-> 
-> Assisted-by: Codex:GPT-5.5
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
+Hi Duje,
 
-Reviewed-by: Brian Masney <bmasney@redhat.com>
+On Mon, Jul 20, 2026 at 04:46:40PM +0200, Duje Mihanović wrote:
+> On Sunday, 19 July 2026 23:43:49 Central European Summer Time Rosen Penev 
+> wrote:
+> 
+> [...]
+> 
+> > diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
+> > index 4b2c089f46a1..8383f9f1da51 100644
+> > --- a/drivers/clk/Makefile
+> > +++ b/drivers/clk/Makefile
+> > @@ -130,7 +130,7 @@ obj-y					+= 
+> mediatek/
+> >  obj-$(CONFIG_ARCH_MESON)		+= meson/
+> >  obj-y					+= microchip/
+> >  ifeq ($(CONFIG_COMMON_CLK), y)
+> > -obj-$(CONFIG_ARCH_MMP)			+= mmp/
+> > +obj-$(CONFIG_COMMON_CLK_MMP)		+= mmp/
+> 
+> Could it be possible to select mmp unconditionally, like most of the other 
+> subtrees are? AFAICT, that would also require creating new Kconfig symbols for 
+> the PXA168, PXA910 and PXA1928 clocks, but I suspect it may be the more proper 
+> choice in the long term.
+
+Just by sheer numbers, the CONFIG_COMMON_CLK_XXX approach is the most
+common use case right now.
+
+    x1:~/src/linux/linux-next ((next-20260720) %)$ grep "CONFIG_COMMON_CLK" drivers/clk/Makefile | grep "+=" | wc -l
+    68
+    x1:~/src/linux/linux-next ((next-20260720) %)$ grep "obj-y" drivers/clk/Makefile | wc -l
+    25
+
+I have no strong opinions about this either way other than to drive
+consistency across various drivers as much as possible.
+
+Currently the mmp directory currently only has COMMON_CLK_PXA1908
+defined. When the other PXA* drivers are introduced, will there be a
+CONFIG_COMMON_CLK_MMA_COMMON that all of the drivers will use?
+
+If so, we could put that MMA_COMMON in the toplevel clk Makefile.
+
+If not, then yes I agree that obj-y will be fine.
+
+Brian
 
 
