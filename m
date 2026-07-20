@@ -4,81 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E595BC44520
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 18:01:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 211CDC44520
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 18:03:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aEoz5GSQ9cVNs2FectfX1Yi0QCRKtyn8M6SG2gEr+Q4=; b=fuBduBNFP+LoJbAsex8/RxzEVY
-	m8cps1B6wc8m3E4V3omvo0nYBUZJWkmIwOO6jNkiGtSDD4e1dcJ+/KDRA/BCZgF7GF6lWf5w3vepq
-	HMUSPM5ApZXVjk315mPrawojjVM5BIsJQq+NbsCPgPUYipoH4zhB0rxQeC6yl1C8pfB2POB2jrSl1
-	CFlmNEtvGyAKf2sU7KVXjDlrHWl07vufA2fCE9sk/AI8bdapdN6HKi5CypMQQqLCdI0Bu8SVH9dif
-	Egvk+VizqgKyn3uprOW3VffjdhBX0spQc/P7UnNV445NNENUU1C0hlk5di4IEofJtXDDcclxvk2P7
-	fB+0MGCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ptmo/42mb6OleOo3WAUeI3RlL5iqmYR87B2SI/srVQA=; b=IsrTOvv4wv8mHcIeGKoXQ36D3T
+	jZ5N01K5jpBxqCmS71Dx6Aie8kDeFzaPpKw/8wJpekQdTkf2o1t/KHGGLTpSz/bO94nHznoZMGa5G
+	pWvmsPODHc91x0F0qB/th430dPMmBgUgj5NnbQYn939k1uXVvuOco9m0EjcQL5Jhz+GMPd+ELNPon
+	gMt8AHHH62N0M1rBwqYHsO5tLX/HQ1taCiEShGU8at9qhUZg2N6YbVGPhgqsF0zStMxLU/L0bFlyI
+	NstBJ8YXmlX9qQmYjYD2P8Zc5Q2NrF+SrWLJmGBgjr/aT6QmKits8J+lbqIsEyynH5eh5nSQ/lI8u
+	AeCnd8Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlrab-00000007UtE-292s;
-	Mon, 20 Jul 2026 17:15:37 +0000
-Received: from mail-wm1-x345.google.com ([2a00:1450:4864:20::345])
+	id 1wlqSt-00000007IdF-0to8;
+	Mon, 20 Jul 2026 16:03:35 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlraQ-00000007UjB-1Sip
+	id 1wlqSo-00000007Ib3-1Q57
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 17:15:29 +0000
-Received: by mail-wm1-x345.google.com with SMTP id 5b1f17b1804b1-4955fd77c18so6770705e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 10:15:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784567723; x=1785172523; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=aEoz5GSQ9cVNs2FectfX1Yi0QCRKtyn8M6SG2gEr+Q4=;
-        b=BJvzDAFrTanS0mEW2GtZT3TrWBddHDCm16xSsBJUfMwoy2ncD8kASzRAG1AuCUAhXR
-         Fc2f7tjHtYj8oBUFhnPONC1VKPgDQNvC9t/ptDZILMV0ucOr+7SLghiN5eXJmWst8VTN
-         PcqmgwMOY1HtUmG9Qt9ERySygwAVtvHxx2d+guCiO23AJojMB0bF8N5CDmpbSzI+fVT/
-         zjFBunAqZ06y54XSCDhB5tchXQ8dT33NnGKXK1CaMGsZtlH6hD3ENUQgDw1FjfTjdbym
-         j9nFpt+bzhpnyS5YmF/CvpjcatePM25QSMIbeClfxVcwYhp38Np+FtFkBjG73B7OVtSi
-         LI7A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784567723; x=1785172523;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=aEoz5GSQ9cVNs2FectfX1Yi0QCRKtyn8M6SG2gEr+Q4=;
-        b=e40w54TIVsMt8EqkQVSQzNZ93hXWEobPyM9V1d72JOKRpeppwesoWX1WCdbgAMxQfp
-         bYsSd12bpGJlAOwRGjoFOcWyFhl/EXpTVJ37MCUO/ZnAvWzpFo8DegcatOSON21xWiYF
-         7QaHJrGwEdif7/HRZFn3aOBD9ulDe8zH+/7B3jEQYHYLvhlyeCHyaP2zb2HdWh+BCs+f
-         58osD25iBtpNr7wfWHkKuJhYEOiGrVJdSY1ashgBD78SIGU8jXIbKH+8h6o3E+H8rLwt
-         gBDpF4PZ7B48IuGOaecY2AsIujduTRo1+/AA1+xqIGwmldWVwuHNrlrOmT74PVBn1pKS
-         F78w==
-X-Forwarded-Encrypted: i=1; AHgh+RpfK6yDkvBIo64G1ADwH4Ac0njQaqUwKQ5RfiMCWu8qClvg4Il8uBuvJVfK7Bfb3UJlxjZNCvBs8sYILT4QGEr5@lists.infradead.org
-X-Gm-Message-State: AOJu0YxhWj1g+ymRn3NPlZ0qUQx0rH+Gcj9mLjNoT45HgGvMGYYRWdSS
-	tYuonLd8JSQJMDw0BFhY0MD5mK68GJq4Kmxs/Lymh1/Hn/ZyqN8Aif2niTHV29F9SUBFLuKSEr+
-	rUTnWKhcWdyLQGpK1zFyY0Q==
-X-Received: from wmaz1.prod.google.com ([2002:a05:600c:6d81:b0:493:c274:1b7b])
- (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:548b:b0:495:4c62:9d2f with SMTP id 5b1f17b1804b1-4954c629de4mr191735915e9.10.1784567722627;
- Mon, 20 Jul 2026 10:15:22 -0700 (PDT)
-Date: Mon, 20 Jul 2026 18:15:00 +0100
-In-Reply-To: <20260720171513.1415357-1-vdonnefort@google.com>
-Mime-Version: 1.0
-References: <20260720171513.1415357-1-vdonnefort@google.com>
-X-Mailer: git-send-email 2.55.0.229.g6434b31f56-goog
-Message-ID: <20260720171513.1415357-5-vdonnefort@google.com>
-Subject: [PATCH v3 04/17] KVM: arm64: Add a heap allocator for the pKVM hyp
-From: Vincent Donnefort <vdonnefort@google.com>
-To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
-	kernel-team@android.com, tabba@google.com, qperret@google.com, 
-	Vincent Donnefort <vdonnefort@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Mon, 20 Jul 2026 16:03:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Subject:Date:From:From:Reply-To;
+	bh=ptmo/42mb6OleOo3WAUeI3RlL5iqmYR87B2SI/srVQA=; b=DtlTktoGxA4xxfCNOTNR6a6l6f
+	060S+NOEVJcElqK+SYGCubbQOzEBc8NLtgnldn6HyS9ZC1uLkoinR+WIsC6Ejk/bQBLbhDovxhz6N
+	/TePLTsXlo65/Hgy1DhZ3Z3CBoASWiuIjn2cVbYNU1NltmWveRR39YsfGWQwTD6Iluj/LbT8ASR0g
+	0x1NCo542IOoLZSjGi3zRcuOuOrWYpq5vU/V9BecDRsGoqPCwsVO8QvVMzsBao1Y9GKxTViUQsK6p
+	tC4eG5uy0EWnagyT0U8kMatOzX0Q0qB9eia876SUAecVnUbHU5fs/0G9+ZRBxXT+WtiKJax53BwmG
+	R882q27w==;
+Received: from [179.118.191.219] (helo=[192.168.15.100])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
+	id 1wlqSi-001CZ2-IS; Mon, 20 Jul 2026 18:03:24 +0200
+From: =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
+Date: Mon, 20 Jul 2026 13:03:01 -0300
+Subject: [PATCH v6 1/4] arm64: vdso: Prepare for robust futex unlock
+ support
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260720-tonyk-robust_arm-v6-1-7e68c122047e@igalia.com>
+References: <20260720-tonyk-robust_arm-v6-0-7e68c122047e@igalia.com>
+In-Reply-To: <20260720-tonyk-robust_arm-v6-0-7e68c122047e@igalia.com>
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, 
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+ Peter Zijlstra <peterz@infradead.org>, Florian Weimer <fweimer@redhat.com>, 
+ Darren Hart <dvhart@infradead.org>, Ingo Molnar <mingo@kernel.org>, 
+ Davidlohr Bueso <dave@stgolabs.net>, Arnd Bergmann <arnd@arndb.de>, 
+ Uros Bizjak <ubizjak@gmail.com>, 
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-arch@vger.kernel.org, kernel-dev@igalia.com, 
+ LKML <linux-kernel@vger.kernel.org>, 
+ =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_101526_616871_5CB7315B 
-X-CRM114-Status: GOOD (  26.50  )
+X-CRM114-CacheID: sfid-20260720_090330_718183_4468ED5A 
+X-CRM114-Status: GOOD (  21.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,1142 +82,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, memory used by the hypervisor comes from donations that are
-embedded within HVCs. e.g. __pkvm_init_vm()'s hyp_vm.
+To solve the robust futex's list_pending_op clearing race condition,
+prepare for implement __vdso_futex_robust_try_unlock() for arm64 with the
+following steps:
 
-This is cumbersome: the host needs to know the size of those
-struct, the memory must be page-aligned and physically contiguous which
-may be difficult to satisfy when host memory is highly fragmented.
+- Create a helper function that sets the struct futex_mm_data with the
+VDSO's labels addresses. The robust futex fixup mechanism needs to
+compare the current instruction pointer to the VDSO instructions range.
 
-Create a heap allocator to manage VA-contiguous memory. This allocator
-grows upward, recycles unused chunks of memory and provides a simple API
-to allocate and free:
+- Split vdso_mremap() in vdso_mremap() and aarch32_mremap(), this allows
+the VDSO to be setup correctly regarding the instructions addresses for
+both ABIs when a mremap happens.
 
-  hyp_alloc(size), hyp_free(addr)
+- Implement arch_futex_robust_unlock_get_pop() for arm64, checking for r2
+and r3 registers values for the fixup function. The role of this registers
+is explained in the commit that implement the assembly portion of the VDSO.
 
-This heap allocator also manages the underlying physical memory,
-allowing the host to top up the allocator's pool and reclaim memory.
+Signed-off-by: André Almeida <andrealmeid@igalia.com>
+---
+v6:
+ - Restructured this commit. Move the arch bits away, kept just the
+ generic/helper functions.
 
-  hyp_alloc_topup(), hyp_alloc_reclaim().
+v4:
+- Guard symbols from vdso.lds.S with ifdef
+- drop update_ips() from sigpage remap function
 
-Pages remain mapped in the allocator's VA-space as long as they are not
-reclaimed.
+v3:
+ - Fix adding vdso base addr twice
+ - Call vdso_futex_robust_unlock_update_ips() on remap as well
+v2:
+ - Fixed linker not finding VDSO symbols
+---
+---
+ arch/arm64/include/asm/futex_robust.h | 19 +++++++++++++++++++
+ arch/arm64/kernel/vdso.c              | 27 ++++++++++++++++++++++++++-
+ 2 files changed, 45 insertions(+), 1 deletion(-)
 
-When the allocator runs out of memory, hyp_alloc() fails and
-hyp_alloc_errno() returns -ENOMEM to signal that a top-up is required.
-
-Additionally, harden the allocator with a fast hash of the chunks
-meta-data. This intends to detect accidental corruptions and makes the
-allocator slightly more robust to potential attacks.
-
-Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
-
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/alloc.h b/arch/arm64/kvm/hyp/include/nvhe/alloc.h
+diff --git a/arch/arm64/include/asm/futex_robust.h b/arch/arm64/include/asm/futex_robust.h
 new file mode 100644
-index 000000000000..8f87a63f8946
+index 000000000000..4ff783bb2dc3
 --- /dev/null
-+++ b/arch/arm64/kvm/hyp/include/nvhe/alloc.h
-@@ -0,0 +1,17 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+#ifndef __KVM_NVHE_ALLOC__
-+#define __KVM_NVHE_ALLOC__
-+#include <linux/types.h>
++++ b/arch/arm64/include/asm/futex_robust.h
+@@ -0,0 +1,19 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _ASM_ARM64_FUTEX_ROBUST_H
++#define _ASM_ARM64_FUTEX_ROBUST_H
 +
-+#include <asm/kvm_host.h>
++#include <asm/ptrace.h>
 +
-+void *hyp_alloc(size_t size);
-+int hyp_alloc_errno(void);
-+u32 hyp_alloc_topup_needed(void);
-+void hyp_free(void *addr);
-+
-+int hyp_alloc_init(size_t size);
-+int hyp_alloc_topup(struct kvm_hyp_memcache *host_mc);
-+unsigned long hyp_alloc_reclaimable(void);
-+void hyp_alloc_reclaim(struct kvm_hyp_memcache *host_mc, unsigned long target);
-+#endif
-diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
-index f57450ebcb49..985fe3343f4c 100644
---- a/arch/arm64/kvm/hyp/nvhe/Makefile
-+++ b/arch/arm64/kvm/hyp/nvhe/Makefile
-@@ -23,7 +23,7 @@ lib-objs := $(addprefix ../../../lib/, $(lib-objs))
- CFLAGS_switch.nvhe.o += -Wno-override-init
- 
- hyp-obj-y := timer-sr.o sysreg-sr.o debug-sr.o switch.o tlb.o hyp-init.o host.o \
--	 hyp-main.o hyp-smp.o psci-relay.o early_alloc.o page_alloc.o \
-+	 hyp-main.o hyp-smp.o psci-relay.o alloc.o early_alloc.o page_alloc.o \
- 	 cache.o setup.o mm.o mem_protect.o sys_regs.o pkvm.o stacktrace.o ffa.o
- hyp-obj-y += ../vgic-v3-sr.o ../aarch32.o ../vgic-v2-cpuif-proxy.o ../entry.o \
- 	 ../hyp-entry.o ../exception.o ../pgtable.o ../vgic-v5-sr.o
-diff --git a/arch/arm64/kvm/hyp/nvhe/alloc.c b/arch/arm64/kvm/hyp/nvhe/alloc.c
-new file mode 100644
-index 000000000000..32c923d83f78
---- /dev/null
-+++ b/arch/arm64/kvm/hyp/nvhe/alloc.c
-@@ -0,0 +1,1039 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2026 Google LLC
-+ * Author: Vincent Donnefort <vdonnefort@google.com>
-+ *
-+ * This heap allocator manages a reserved VA space range, dynamically mapping
-+ * and unmapping physical pages on-demand to minimise the pKVM hypervisor
-+ * footprint. As memory is reclaimed and relinquished to the host, unmapped
-+ * holes are introduced within the VA space. To prevent orphans mapped regions,
-+ * neighboring unused chunks cannot be merged if they are separated by an
-+ * unmapped region.
-+ *
-+ */
-+
-+#include <nvhe/alloc.h>
-+#include <nvhe/mem_protect.h>
-+#include <nvhe/mm.h>
-+#include <nvhe/spinlock.h>
-+
-+#include <linux/build_bug.h>
-+#include <linux/hash.h>
-+
-+/*
-+ * A minimum of 16 bytes allows us to comply with the alignment requirement for
-+ * FPSIMD registers that are part of struct pkvm_hyp_vcpu.
-+ *
-+ * It also must be a power of two.
-+ */
-+#define MIN_ALLOC_SIZE 16UL
-+
-+/**
-+ * struct chunk_hdr - Chunk header
-+ * @next:       offset from this chunk header to the next one.
-+ * @prev:       offset from this chunk header to the previous one.
-+ * @__unmapped: Internal field containing the offset to the unmapped page
-+ *              boundary, multiplexed with the allocation state flag.
-+ * @hash:       Hash computed over the chunk header.
-+ */
-+struct chunk_hdr {
-+	u32			next;
-+	u32			prev;
-+#define USED_BIT_MASK		1U
-+	u32			__unmapped;
-+	u32			hash;
-+	char			data[];
-+} __aligned(MIN_ALLOC_SIZE);
-+
-+/**
-+ * struct hyp_allocator - Heap allocator
-+ * @start:		Start in the allocator's reserved virtual address range.
-+ * @end:		End in the allocator's reserved virtual address range.
-+ * @last_used:		Pointer to the end of the last used chunk. This is
-+ *			necessary for the last chunk in the list as the
-+ *			allocated size of a chunk is derived from the next one.
-+ * @first_unmapped:	Pointer to the first unmapped page in the
-+ *			allocator's range. This is only necessary and
-+ *			updated when no chunk is in the list.
-+ * @head:		Head of the chunk list.
-+ * @tail:		Tail of the chunk list.
-+ * @mc:			Memcache containing pre-allocated pages for mapping.
-+ * @lock:		Spinlock protecting the allocator state.
-+ * @errno:		Per-CPU error code for allocation failures.
-+ * @topup_needed:	Per-CPU page counter needed to top-up the memcache.
-+ */
-+struct hyp_allocator {
-+	void			*start;
-+	void			*end;
-+	void			*last_used;
-+	void			*first_unmapped;
-+	struct chunk_hdr	*head;
-+	struct chunk_hdr	*tail;
-+	struct kvm_hyp_memcache	mc;
-+	hyp_spinlock_t		lock;
-+	int __percpu		*errno;
-+	u32 __percpu		*topup_needed;
-+};
-+
-+static u32 chunk_hash_compute(const struct chunk_hdr *chunk)
++static __always_inline void __user *arm64_futex_robust_unlock_get_pop(struct pt_regs *regs)
 +{
-+	u32 hash = 0;
-+
-+	BUILD_BUG_ON(sizeof(*chunk) != 16);
-+
-+	hash ^= hash_64(*(const u64 *)chunk, 32);
-+	hash ^= hash_32(chunk->__unmapped, 32);
-+	return hash;
-+}
-+
-+static void chunk_set_hash(struct chunk_hdr *chunk)
-+{
-+	if (chunk)
-+		chunk->hash = chunk_hash_compute(chunk);
-+}
-+
-+static void chunk_check_hash(const struct chunk_hdr *chunk)
-+{
-+	if (chunk)
-+		WARN_ON(chunk->hash != chunk_hash_compute(chunk));
-+}
-+
-+static bool chunk_is_used(const struct chunk_hdr *chunk)
-+{
-+	return !!(chunk->__unmapped & USED_BIT_MASK);
-+}
-+
-+static void chunk_set_used(struct chunk_hdr *chunk)
-+{
-+	chunk->__unmapped |= USED_BIT_MASK;
-+}
-+
-+static void chunk_set_unused(struct chunk_hdr *chunk)
-+{
-+	chunk->__unmapped &= ~USED_BIT_MASK;
-+}
-+
-+static void *chunk_unmapped(const struct chunk_hdr *chunk)
-+{
-+	u32 offset = chunk->__unmapped & ~USED_BIT_MASK;
-+
-+	if (!offset)
-+		return NULL;
-+
-+	return (void *)chunk + offset;
-+}
-+
-+static void __chunk_set_unmapped(struct chunk_hdr *chunk, u32 unmapped)
-+{
-+	chunk->__unmapped = unmapped | (chunk_is_used(chunk) ? USED_BIT_MASK : 0);
-+}
-+
-+static void chunk_set_unmapped(struct chunk_hdr *chunk, void *unmapped)
-+{
-+	WARN_ON(!PAGE_ALIGNED(unmapped));
-+
-+	if (unmapped) {
-+		WARN_ON((void *)chunk > unmapped);
-+		__chunk_set_unmapped(chunk, unmapped - (void *)chunk);
-+	} else {
-+		__chunk_set_unmapped(chunk, 0);
-+	}
-+}
-+
-+static void *chunk_data(const struct chunk_hdr *chunk)
-+{
-+	return (void *)&chunk->data;
-+}
-+
-+static struct chunk_hdr *__chunk_next(const struct chunk_hdr *chunk)
-+{
-+	if (!chunk->next)
-+		return NULL;
-+
-+	return (struct chunk_hdr *)((void *)chunk + chunk->next);
-+}
-+
-+static struct chunk_hdr *__chunk_prev(const struct chunk_hdr *chunk)
-+{
-+	if (!chunk->prev)
-+		return NULL;
-+
-+	return (struct chunk_hdr *)((void *)chunk - chunk->prev);
-+}
-+
-+static void chunk_set_next(struct chunk_hdr *chunk, struct chunk_hdr *next)
-+{
-+	if (!chunk)
-+		return;
-+
-+	if (next) {
-+		WARN_ON(chunk > next);
-+		chunk->next = (void *)next - (void *)chunk;
-+	} else {
-+		chunk->next = 0;
-+	}
-+}
-+
-+static void chunk_set_prev(struct chunk_hdr *chunk, struct chunk_hdr *prev)
-+{
-+	if (!chunk)
-+		return;
-+
-+	if (prev) {
-+		WARN_ON(chunk < prev);
-+		chunk->prev = (void *)chunk - (void *)prev;
-+	} else {
-+		chunk->prev = 0;
-+	}
-+}
-+
-+static struct chunk_hdr *chunk_get_next(const struct chunk_hdr *chunk)
-+{
-+	struct chunk_hdr *next = __chunk_next(chunk);
-+
-+	chunk_check_hash(next);
-+	return next;
-+}
-+
-+static struct chunk_hdr *chunk_get_prev(const struct chunk_hdr *chunk)
-+{
-+	struct chunk_hdr *prev = __chunk_prev(chunk);
-+
-+	chunk_check_hash(prev);
-+	return prev;
-+}
-+
-+static struct chunk_hdr *chunk_get(struct chunk_hdr *chunk)
-+{
-+	chunk_check_hash(chunk);
-+	return chunk;
-+}
-+
-+#define chunk_hdr_size() \
-+	offsetof(struct chunk_hdr, data)
-+
-+#define chunk_min_size() \
-+	(chunk_hdr_size() + MIN_ALLOC_SIZE)
-+
-+static size_t chunk_data_size(const struct chunk_hdr *chunk, struct hyp_allocator *allocator)
-+{
-+	struct chunk_hdr *next = chunk_get_next(chunk);
-+	void *end;
-+
-+	if (next)
-+		end = (void *)next;
-+	else
-+		end = allocator->end;
-+
-+	return end - chunk_data(chunk);
-+}
-+
-+static size_t chunk_mapped_data_size(const struct chunk_hdr *chunk, struct hyp_allocator *allocator)
-+{
-+	void *unmapped = chunk_unmapped(chunk);
-+
-+	if (!unmapped)
-+		return chunk_data_size(chunk, allocator);
-+
-+	return unmapped - chunk_data(chunk);
-+}
-+
-+static size_t chunk_used_size(const struct chunk_hdr *chunk, struct hyp_allocator *allocator)
-+{
-+	struct chunk_hdr *next = chunk_get_next(chunk);
-+
-+	if (!chunk_is_used(chunk))
-+		return 0;
-+
-+	if (next)
-+		return chunk_mapped_data_size(chunk, allocator);
-+
-+	return allocator->last_used - chunk_data(chunk);
-+}
-+
-+static void chunk_list_insert(struct chunk_hdr *chunk, struct chunk_hdr *prev)
-+{
-+	struct chunk_hdr *next = NULL;
-+
-+	WARN_ON(!chunk);
-+
-+	if (prev) {
-+		next = chunk_get_next(prev);
-+		chunk_set_next(prev, chunk);
-+		chunk_set_hash(prev);
-+	}
-+
-+	if (next) {
-+		chunk_set_prev(next, chunk);
-+		chunk_set_hash(next);
-+	}
-+
-+	chunk_set_next(chunk, next);
-+	chunk_set_prev(chunk, prev);
-+}
-+
-+static void chunk_list_del(struct chunk_hdr *chunk)
-+{
-+	struct chunk_hdr *prev, *next;
-+
-+	WARN_ON(!chunk);
-+
-+	prev = chunk_get_prev(chunk);
-+	next = chunk_get_next(chunk);
-+
-+	if (prev) {
-+		chunk_set_next(prev, next);
-+		chunk_set_hash(prev);
-+	}
-+
-+	if (next) {
-+		chunk_set_prev(next, prev);
-+		chunk_set_hash(next);
-+	}
-+}
-+
-+/*
-+ * Return a fixup start address for chunk creation. It makes sure the chunk
-+ * header doesn't cross any page boundary and that it leaves enough space at the
-+ * start of page. This is intended to prevent orphan mapped regions during chunk
-+ * memory reclaim
-+ */
-+static void *chunk_start(void *start)
-+{
-+	void *page = PTR_ALIGN(start, PAGE_SIZE);
-+
-+	if (page - start < chunk_hdr_size())
-+		return page;
-+
-+	page = PTR_ALIGN_DOWN(start, PAGE_SIZE);
-+	if (start - page < chunk_min_size())
-+		return page + chunk_min_size();
-+
-+	return start;
-+}
-+
-+static void hyp_allocator_set_errno(struct hyp_allocator *allocator, int errno)
-+{
-+	*this_cpu_ptr(allocator->errno) = errno;
-+}
-+
-+static int hyp_allocator_errno(struct hyp_allocator *allocator)
-+{
-+	int *errno = this_cpu_ptr(allocator->errno);
-+	int ret = *errno;
-+
-+	*errno = 0;
-+
-+	return ret;
-+}
-+
-+static int hyp_allocator_map(struct hyp_allocator *allocator, struct chunk_hdr *chunk,
-+			     struct chunk_hdr *next,
-+			     void *addr, void *end)
-+{
-+	void *unmapped = chunk ? chunk_unmapped(chunk) : allocator->first_unmapped;
-+	void *unmapped_end = next ?: allocator->end;
-+
 +	/*
-+	 * hyp_allocator_can_create_chunk() already validates addr/end
-+	 * belong to the chunk.
++	 * w3 stores the result of the stlxr instruction. If it's zero, the then
++	 * the ll/sc cmpxchg succeeded and the pending op pointer needs to be cleared.
 +	 */
-+	WARN_ON(end <= addr);
++	return (regs->user_regs.regs[3]) ? NULL : (void __user *) regs->user_regs.regs[2];
++}
 +
-+	/* The chunk does not span an unmapped region */
-+	if (!unmapped)
-+		return 0;
++#define arch_futex_robust_unlock_get_pop(regs) \
++	arm64_futex_robust_unlock_get_pop(regs)
 +
-+	while (unmapped < end) {
-+		void *page = pop_hyp_memcache(&allocator->mc, hyp_phys_to_virt);
-+		int ret;
++#endif /* _ASM_ARM64_FUTEX_ROBUST_H */
+diff --git a/arch/arm64/kernel/vdso.c b/arch/arm64/kernel/vdso.c
+index 592dd8668de4..3ef331b5b240 100644
+--- a/arch/arm64/kernel/vdso.c
++++ b/arch/arm64/kernel/vdso.c
+@@ -11,6 +11,7 @@
+ #include <linux/clocksource.h>
+ #include <linux/elf.h>
+ #include <linux/err.h>
++#include <linux/futex.h>
+ #include <linux/errno.h>
+ #include <linux/gfp.h>
+ #include <linux/kernel.h>
+@@ -57,6 +58,22 @@ static struct vdso_abi_info vdso_info[] __ro_after_init = {
+ #endif /* CONFIG_COMPAT_VDSO */
+ };
+ 
++#ifdef CONFIG_FUTEX_ROBUST_UNLOCK
++static inline void __vdso_futex_update_ips(struct mm_struct *mm, bool is_32bit, void *startp,
++					   void *endp)
++{
++	unsigned long start = (unsigned long) startp;
++	unsigned long end = (unsigned long) endp;
++	struct futex_mm_data *fd = &mm->futex;
 +
-+		if (!page) {
-+			end = PTR_ALIGN(end, PAGE_SIZE);
-+			*this_cpu_ptr(allocator->topup_needed) =
-+				(unsigned long)(end - unmapped) >> PAGE_SHIFT;
-+			return -ENOMEM;
-+		}
++	futex_set_vdso_cs_range(fd, is_32bit ? 1 : 0, start, end, is_32bit);
++}
 +
-+		ret = pkvm_map_private_va_range(unmapped, hyp_virt_to_phys(page), PAGE_SIZE);
-+		if (ret) {
-+			push_hyp_memcache(&allocator->mc, page, hyp_virt_to_phys);
-+			return ret;
-+		}
++#else
++static inline void __vdso_futex_update_ips(struct mm_struct *mm, bool is_32bit, void *startp,
++					   void *endp)
++#endif /* CONFIG_FUTEX_ROBUST_UNLOCK */
 +
-+		unmapped += PAGE_SIZE;
-+
-+		/*
-+		 * Reset the unmap field if we've reached the next chunk or the
-+		 * allocator boundary. Chunks are always installed to cover a
-+		 * mapped region followed by an unmapped one. Therefore, we
-+		 * expect next to be PAGE_ALIGNED.
-+		 */
-+		WARN_ON(!PAGE_ALIGNED(unmapped_end));
-+		if (unmapped == unmapped_end)
-+			unmapped = 0;
-+
-+		if (chunk) {
-+			chunk_set_unmapped(chunk, unmapped);
-+			chunk_set_hash(chunk);
-+		} else {
-+			allocator->first_unmapped = unmapped;
-+		}
-+
-+		if (!unmapped)
-+			break;
-+	}
+ static int vdso_mremap(const struct vm_special_mapping *sm,
+ 		struct vm_area_struct *new_vma)
+ {
+@@ -162,6 +179,14 @@ static int aarch32_sigpage_mremap(const struct vm_special_mapping *sm,
+ 	return 0;
+ }
+ 
++static int aarch32_mremap(const struct vm_special_mapping *sm,
++		struct vm_area_struct *new_vma)
++{
++	current->mm->context.vdso = (void *)new_vma->vm_start;
 +
 +	return 0;
 +}
 +
-+static void hyp_allocator_unmap(struct hyp_allocator *allocator, struct chunk_hdr *chunk,
-+				void *addr, void *end)
-+{
-+	void *unmap = addr;
-+
-+	/*
-+	 * hyp_allocator_chunk_reclaimable() already computes valid addr/end, no
-+	 * need to check them again
-+	 */
-+	WARN_ON(end <= addr);
-+
-+	while (unmap < end) {
-+		phys_addr_t pa = pkvm_private_va_range_pa((void *)unmap);
-+		void *page = hyp_phys_to_virt(pa);
-+
-+		push_hyp_memcache(&allocator->mc, page, hyp_virt_to_phys);
-+		unmap += PAGE_SIZE;
-+	}
-+
-+	pkvm_remove_mappings(addr, end);
-+
-+	if (chunk) {
-+		chunk_set_unmapped(chunk, addr);
-+		chunk_set_hash(chunk);
-+	} else {
-+		allocator->first_unmapped = addr;
-+	}
-+}
-+
-+static bool hyp_allocator_can_create_chunk(struct hyp_allocator *allocator,
-+					   const struct chunk_hdr *prev,
-+					   const struct chunk_hdr *next,
-+					   void *addr, void *end)
-+{
-+	void *page, *unmapped;
-+
-+	if (addr < allocator->start || end > allocator->end)
-+		return false;
-+
-+	/* First chunk created must be installed at allocator->start */
-+	if (!prev)
-+		return addr == allocator->start;
-+
-+	/* Must not overwrite the next chunk */
-+	if (next && end > (void *)next)
-+		return false;
-+
-+	/* Must not overwrite the previous chunk */
-+	if (addr < (chunk_data(prev) + chunk_used_size(prev, allocator)))
-+		return false;
-+
-+	/* Header must not cross page boundaries */
-+	page = PTR_ALIGN(addr, PAGE_SIZE);
-+	if (page != addr && (page - addr) < chunk_hdr_size())
-+		return false;
-+
-+	/* Must leave a minimum distance from a page-start to maximise reclaim */
-+	page = PTR_ALIGN_DOWN(addr, PAGE_SIZE);
-+	if (page != addr && (addr - page) < chunk_min_size())
-+		return false;
-+
-+	unmapped = chunk_unmapped(prev);
-+	if (!unmapped)
-+		return true;
-+
-+	/* Must never create an orphan mapped region */
-+	if (addr > unmapped)
-+		return false;
-+
-+	return true;
-+}
-+
-+/*
-+ * Tries to create a new chunk in the allocator whose header starts at @addr and
-+ * whose data finishes at @end.
-+ */
-+static struct chunk_hdr *hyp_allocator_create_chunk(struct hyp_allocator *allocator,
-+						    struct chunk_hdr *prev, void *addr,
-+						    void *end, bool used)
-+{
-+	struct chunk_hdr *next, *chunk = addr;
-+	void *unmapped;
-+	int ret;
-+
-+	if (end > allocator->end)
-+		return ERR_PTR(-E2BIG);
-+
-+	next = prev ? chunk_get_next(prev) : NULL;
-+	if (!hyp_allocator_can_create_chunk(allocator, prev, next, addr, end))
-+		return ERR_PTR(-EINVAL);
-+
-+	ret = hyp_allocator_map(allocator, prev, next, addr, end);
-+	if (ret)
-+		return ERR_PTR(ret);
-+
-+	memset(chunk, 0, sizeof(*chunk));
-+	if (used)
-+		chunk_set_used(chunk);
-+	else
-+		chunk_set_unused(chunk);
-+
-+	/* First chunk, first allocation */
-+	if (!prev) {
-+		chunk_set_unmapped(chunk, allocator->first_unmapped);
-+		chunk_list_insert(chunk, NULL);
-+		chunk_set_hash(chunk);
-+
-+		allocator->last_used = end;
-+		allocator->head = allocator->tail = chunk;
-+		return chunk;
-+	}
-+
-+	/* Last chunk in the list */
-+	if (!next) {
-+		allocator->last_used = end;
-+		allocator->tail = chunk;
-+	}
-+
-+	/* Inherit prev's unmapped region */
-+	unmapped = chunk_unmapped(prev);
-+	chunk_set_unmapped(chunk, unmapped);
-+	chunk_list_insert(chunk, prev);
-+	chunk_set_hash(chunk);
-+
-+	chunk_set_unmapped(prev, 0);
-+	chunk_set_hash(prev);
-+
-+	return chunk;
-+}
-+
-+static bool hyp_allocator_can_destroy_chunk(struct hyp_allocator *allocator,
-+					    const struct chunk_hdr *prev,
-+					    const struct chunk_hdr *next,
-+					    const struct chunk_hdr *chunk)
-+{
-+	if (chunk_is_used(chunk))
-+		return false;
-+
-+	/* Last chunk in the allocator */
-+	if (!prev)
-+		return true;
-+
-+	/* Can't merge down unless we are the last one in the list */
-+	if (next && chunk_is_used(prev))
-+		return false;
-+
-+	/* Must never create an orphan mapped region */
-+	if (chunk_unmapped(prev))
-+		return false;
-+
-+	return true;
-+}
-+
-+static int hyp_allocator_destroy_chunk(struct hyp_allocator *allocator,
-+				       struct chunk_hdr *prev,
-+				       struct chunk_hdr *chunk)
-+{
-+	struct chunk_hdr *next;
-+
-+	next = prev ? chunk_get_next(chunk) : NULL;
-+	if (!hyp_allocator_can_destroy_chunk(allocator, prev, next, chunk))
-+		return -EINVAL;
-+
-+	/* Last chunk in the allocator */
-+	if (!prev) {
-+		allocator->first_unmapped = chunk_unmapped(chunk);
-+		allocator->head = allocator->tail = NULL;
-+		return 0;
-+	}
-+
-+	/* Last chunk in the list */
-+	if (!next) {
-+		allocator->last_used = chunk;
-+		allocator->tail = prev;
-+	}
-+
-+	chunk_set_unmapped(prev, chunk_unmapped(chunk));
-+	chunk_set_hash(prev);
-+	chunk_list_del(chunk);
-+
-+	return 0;
-+}
-+
-+/*
-+ * Return the best unused chunk for recycling, that is the smallest chunk
-+ * fitting the allocation which needs to use the least unmapped region.
-+ */
-+static struct chunk_hdr *hyp_allocator_find_efficient_chunk(struct hyp_allocator *allocator,
-+							    size_t size)
-+{
-+	struct chunk_hdr *chunk, *best_chunk = NULL;
-+	size_t best_data_size = SIZE_MAX;
-+	size_t best_missing = SIZE_MAX;
-+
-+	chunk = allocator->head;
-+	while (chunk) {
-+		size_t missing, mapped, data_size;
-+
-+		if (chunk_is_used(chunk))
-+			goto next;
-+
-+		data_size = chunk_data_size(chunk, allocator);
-+		if (data_size < size)
-+			goto next;
-+
-+		mapped = chunk_mapped_data_size(chunk, allocator);
-+		missing = (size > mapped) ? DIV_ROUND_UP(size - mapped, PAGE_SIZE) : 0;
-+		if (missing > best_missing)
-+			goto next;
-+
-+		if (missing == best_missing && data_size >= best_data_size)
-+			goto next;
-+
-+		best_missing = missing;
-+		best_data_size = data_size;
-+		best_chunk = chunk;
-+
-+next:
-+		chunk = chunk_get_next(chunk);
-+	}
-+
-+	return best_chunk;
-+}
-+
-+static struct chunk_hdr *hyp_allocator_reuse_chunk(struct hyp_allocator *allocator,
-+						   struct chunk_hdr *chunk, size_t size)
-+{
-+	struct chunk_hdr *next = chunk_get_next(chunk);
-+	void *start, *end, *split, *split_end;
-+	int ret;
-+
-+	start = chunk_data(chunk);
-+	end = start + size;
-+
-+	/* Last chunk in the list, no need to split */
-+	if (!next) {
-+		split = split_end = NULL;
-+		allocator->last_used = chunk_data(chunk) + size;
-+	} else {
-+		split = chunk_start(end);
-+		split_end = split + chunk_min_size();
-+
-+		if (!hyp_allocator_can_create_chunk(allocator, chunk, next, split, split_end))
-+			split = split_end = NULL;
-+	}
-+
-+	/* Batch the mapping of the reused chunk and the split */
-+	ret = hyp_allocator_map(allocator, chunk, next, chunk_data(chunk), split ? split_end : end);
-+	if (ret)
-+		return ERR_PTR(ret);
-+
-+	if (split)
-+		WARN_ON(IS_ERR_OR_NULL(
-+			hyp_allocator_create_chunk(allocator, chunk, split, split_end, false)));
-+
-+	chunk_set_used(chunk);
-+	chunk_set_hash(chunk);
-+
-+	return chunk;
-+}
-+
-+static struct chunk_hdr *hyp_allocator_alloc_chunk(struct hyp_allocator *allocator, size_t size)
-+{
-+	struct chunk_hdr *chunk;
-+	void *start, *end;
-+
-+	/* First allocation */
-+	if (!allocator->head) {
-+		start = allocator->start;
-+		end = start + chunk_hdr_size() + size;
-+		return hyp_allocator_create_chunk(allocator, NULL, start, end, true);
-+	}
-+
-+	chunk = hyp_allocator_find_efficient_chunk(allocator, size);
-+
-+	/* Nothing found, create a new chunk at the end in the list */
-+	if (!chunk) {
-+		start = chunk_start(chunk_data(allocator->tail) +
-+				    chunk_used_size(allocator->tail, allocator));
-+		end = start + chunk_hdr_size() + size;
-+		return hyp_allocator_create_chunk(allocator, allocator->tail, start, end, true);
-+	}
-+
-+	return hyp_allocator_reuse_chunk(allocator, chunk, size);
-+}
-+
-+static void *hyp_allocator_alloc(struct hyp_allocator *allocator, size_t size)
-+{
-+	struct chunk_hdr *chunk;
-+
-+	size = max(size, MIN_ALLOC_SIZE);
-+
-+	/* Ensure we do not overflow ALIGN(MIN_ALLOC_SIZE) */
-+	if (size > U32_MAX) {
-+		hyp_allocator_set_errno(allocator, -E2BIG);
-+		return NULL;
-+	}
-+
-+	size = ALIGN(size, MIN_ALLOC_SIZE);
-+	if (size > (allocator->end - allocator->start - chunk_hdr_size())) {
-+		hyp_allocator_set_errno(allocator, -E2BIG);
-+		return NULL;
-+	}
-+
-+	scoped_guard(hyp_spinlock, &allocator->lock) {
-+		chunk = hyp_allocator_alloc_chunk(allocator, size);
-+		if (IS_ERR_OR_NULL(chunk)) {
-+			hyp_allocator_set_errno(allocator,
-+						IS_ERR(chunk) ? PTR_ERR(chunk) : -EINVAL);
-+			return NULL;
-+		}
-+	}
-+
-+	memset(chunk_data(chunk), 0, size);
-+	return chunk_data(chunk);
-+}
-+
-+static void hyp_allocator_free(struct hyp_allocator *allocator, void *data)
-+{
-+	struct chunk_hdr *chunk, *next, *prev;
-+
-+	if (!data)
-+		return;
-+
-+	WARN_ON(!IS_ALIGNED((unsigned long)data, MIN_ALLOC_SIZE));
-+	WARN_ON(data >= allocator->end || data < allocator->start + chunk_hdr_size());
-+
-+	guard(hyp_spinlock)(&allocator->lock);
-+
-+	chunk = chunk_get(container_of(data, struct chunk_hdr, data));
-+	WARN_ON(!chunk_is_used(chunk));
-+	chunk_set_unused(chunk);
-+	chunk_set_hash(chunk);
-+
-+	next = chunk_get_next(chunk);
-+	if (next)
-+		hyp_allocator_destroy_chunk(allocator, chunk, next);
-+
-+	prev = chunk_get_prev(chunk);
-+	if (prev)
-+		hyp_allocator_destroy_chunk(allocator, prev, chunk);
-+}
-+
-+static unsigned long hyp_allocator_chunk_reclaimable(struct hyp_allocator *allocator,
-+						     const struct chunk_hdr *chunk,
-+						     u64 *__addr, u64 *__end)
-+{
-+	struct chunk_hdr *next;
-+	void *addr, *end;
-+
-+	/* Last chunk in the allocator */
-+	if (chunk == allocator->head && chunk == allocator->tail && !chunk_is_used(chunk)) {
-+		addr = (void *)chunk;
-+		end = chunk_unmapped(chunk);
-+		if (!end)
-+			end = allocator->end;
-+		goto end;
-+	}
-+
-+	next = chunk_get_next(chunk);
-+
-+	/* Last chunk in the list we can reclaim, even if used */
-+	if (!next) {
-+		addr = chunk_data(chunk) + chunk_used_size(chunk, allocator);
-+		addr = PTR_ALIGN(addr, PAGE_SIZE);
-+		end = chunk_unmapped(chunk);
-+		if (!end)
-+			end = allocator->end;
-+		goto end;
-+	}
-+
-+	if (chunk_is_used(chunk))
-+		return 0;
-+
-+	addr = PTR_ALIGN(chunk_data(chunk), PAGE_SIZE);
-+	end = chunk_unmapped(chunk);
-+	if (!end)
-+		end = PTR_ALIGN_DOWN(next, PAGE_SIZE);
-+
-+end:
-+	if (addr >= end)
-+		return 0;
-+
-+	if (__end)
-+		*__end = (u64)end;
-+	if (__addr)
-+		*__addr = (u64)addr;
-+
-+	return (end - addr) >> PAGE_SHIFT;
-+}
-+
-+static void hyp_allocator_reclaim_chunk(struct hyp_allocator *allocator, struct chunk_hdr *chunk,
-+					void *addr, void *end)
-+{
-+	struct chunk_hdr *next;
-+
-+	WARN_ON(end <= addr);
-+
-+	/* We are about to destroy the last chunk in the allocator */
-+	if (addr == allocator->start) {
-+		allocator->tail = allocator->head = chunk = NULL;
-+		goto unmap;
-+	}
-+
-+	next = chunk_get_next(chunk);
-+
-+	/*
-+	 * Split the reclaimed chunk at the next page boundary,
-+	 * this ensures no orphan mapped region is created. Splitting at the page boundary is always
-+	 * possible because chunks always leave a minimum distance to the page start.
-+	 *
-+	 *  +--------------+
-+	 *  |______________|
-+	 *  |______________|<- Next chunk
-+	 *  |_ _ _ __ _ _ _|
-+	 *  |              |<- Page-aligned split
-+	 *  +--------------+
-+	 *  +--------------+
-+	 *  |              |
-+	 *  |              |<- Page reclaimed
-+	 *  |              |
-+	 *  |              |
-+	 *  +--------------+
-+	 *  +--------------+
-+	 *  |              |
-+	 *  |______________|
-+	 *  |______________|<- Chunk to split
-+	 *  |              |
-+	 *  +--------------+
-+	 */
-+	if (next && !chunk_unmapped(chunk) && next != end)
-+		WARN_ON(IS_ERR_OR_NULL(hyp_allocator_create_chunk(allocator, chunk, end, next,
-+								  false)));
-+unmap:
-+	hyp_allocator_unmap(allocator, chunk, addr, end);
-+}
-+
-+/*
-+ * Return the best reclaimable chunk which is the highest chunk in the list
-+ * with the biggest reclaimable region.
-+ */
-+static struct chunk_hdr *hyp_allocator_find_reclaimable_chunk(struct hyp_allocator *allocator,
-+							      u64 *addr, u64 *end)
-+{
-+	struct chunk_hdr *chunk, *best_chunk = NULL;
-+	unsigned long best_reclaimable = 0;
-+
-+	chunk = allocator->head;
-+	while (chunk) {
-+		u64 __addr, __end;
-+		unsigned long reclaimable = hyp_allocator_chunk_reclaimable(allocator, chunk,
-+									    &__addr, &__end);
-+
-+		/* Favour the top biggest chunks */
-+		if (reclaimable && reclaimable >= best_reclaimable) {
-+			best_reclaimable = reclaimable;
-+			best_chunk = chunk;
-+			*addr = __addr;
-+			*end = __end;
-+		}
-+
-+		chunk = chunk_get_next(chunk);
-+	}
-+
-+	return best_chunk;
-+}
-+
-+static unsigned long hyp_allocator_drain_memcache(struct hyp_allocator *allocator,
-+						  struct kvm_hyp_memcache *host_mc,
-+						  unsigned long target)
-+{
-+	struct kvm_hyp_memcache *mc = &allocator->mc;
-+	unsigned long drained = 0;
-+
-+	while (target && mc->nr_pages) {
-+		void *page = pop_hyp_memcache(mc, hyp_phys_to_virt);
-+
-+		memset(page, 0, PAGE_SIZE);
-+		kvm_flush_dcache_to_poc(page, PAGE_SIZE);
-+		push_hyp_memcache(host_mc, page, hyp_virt_to_phys);
-+		WARN_ON(__pkvm_hyp_donate_host(hyp_virt_to_pfn(page), 1));
-+
-+		target--;
-+		drained++;
-+	}
-+
-+	return drained;
-+}
-+
-+static void hyp_allocator_reclaim(struct hyp_allocator *allocator, struct kvm_hyp_memcache *host_mc,
-+				  unsigned long target)
-+{
-+	if (!target)
-+		return;
-+
-+	guard(hyp_spinlock)(&allocator->lock);
-+
-+	target -= hyp_allocator_drain_memcache(allocator, host_mc, target);
-+	if (!target)
-+		return;
-+
-+	do {
-+		unsigned long reclaimable;
-+		struct chunk_hdr *chunk;
-+		u64 addr, end;
-+
-+		chunk = hyp_allocator_find_reclaimable_chunk(allocator, &addr, &end);
-+		if (!chunk)
-+			break;
-+
-+		reclaimable = min((end - addr) >> PAGE_SHIFT, target);
-+		addr = end - (reclaimable << PAGE_SHIFT);
-+		hyp_allocator_reclaim_chunk(allocator, chunk, (void *)addr, (void *)end);
-+
-+		target -= reclaimable;
-+	} while (target);
-+
-+	hyp_allocator_drain_memcache(allocator, host_mc, ULONG_MAX);
-+}
-+
-+static unsigned long hyp_allocator_reclaimable(struct hyp_allocator *allocator)
-+{
-+	unsigned long reclaimable = 0;
-+	struct chunk_hdr *chunk;
-+
-+	guard(hyp_spinlock)(&allocator->lock);
-+
-+	chunk = allocator->head;
-+	while (chunk) {
-+		reclaimable += hyp_allocator_chunk_reclaimable(allocator, chunk, NULL, NULL);
-+		chunk = chunk_get_next(chunk);
-+	}
-+
-+	return reclaimable;
-+}
-+
-+static int hyp_allocator_topup(struct hyp_allocator *allocator,
-+			       struct kvm_hyp_memcache *host_mc)
-+{
-+	struct kvm_hyp_memcache *alloc_mc = &allocator->mc;
-+
-+	guard(hyp_spinlock)(&allocator->lock);
-+	return refill_memcache(alloc_mc, host_mc->nr_pages + alloc_mc->nr_pages, host_mc);
-+}
-+
-+static u32 hyp_allocator_topup_needed(struct hyp_allocator *allocator)
-+{
-+	u32 *topup_needed = this_cpu_ptr(allocator->topup_needed);
-+	u32 ret = *topup_needed;
-+
-+	*topup_needed = 0;
-+
-+	return ret;
-+}
-+
-+static int hyp_allocator_init(struct hyp_allocator *allocator, size_t size)
-+{
-+	unsigned long start;
-+	int ret;
-+
-+	size = PAGE_ALIGN(size);
-+
-+	/* constrained by chunk_hdr u32 types */
-+	if (size > U32_MAX || !size)
-+		return -EINVAL;
-+
-+	ret = pkvm_alloc_private_va_range(size, &start);
-+	if (ret)
-+		return ret;
-+
-+	allocator->first_unmapped = allocator->start = (void *)start;
-+	allocator->end = allocator->start + size;
-+	hyp_spin_lock_init(&allocator->lock);
-+
-+	return 0;
-+}
-+
-+static DEFINE_PER_CPU(int, __hyp_allocator_errno);
-+static DEFINE_PER_CPU(u32, __hyp_allocator_topup_needed);
-+
-+static struct hyp_allocator hyp_allocator = {
-+	.errno = &__hyp_allocator_errno,
-+	.topup_needed = &__hyp_allocator_topup_needed,
-+};
-+
-+/**
-+ * hyp_alloc() - Allocate memory from the heap allocator
-+ *
-+ * @size:	Allocation size in bytes.
-+ *
-+ * Callers must ensure they do not hold pkvm_pgd_lock to avoid deadlocks,
-+ * as the allocator may modify the hyp stage-1 page-table.
-+ *
-+ * Return: A pointer to the allocated memory on success, else NULL.
-+ */
-+void *hyp_alloc(size_t size)
-+{
-+	return hyp_allocator_alloc(&hyp_allocator, size);
-+}
-+
-+/**
-+ * hyp_free() - Free memory allocated with hyp_alloc()
-+ *
-+ * @data:	Address returned by the original hyp_alloc().
-+ *
-+ * The use of any other address than one returned by hyp_alloc() will cause a
-+ * hypervisor panic.
-+ */
-+void hyp_free(void *data)
-+{
-+	hyp_allocator_free(&hyp_allocator, data);
-+}
-+
-+/**
-+ * hyp_alloc_errno() - Read the errno on allocation error
-+ *
-+ * Get the return code from an allocation failure.
-+ *
-+ * Return: -ENOMEM if the allocator needs a refill from the host, -E2BIG if
-+ * there is no VA space left else 0.
-+ */
-+int hyp_alloc_errno(void)
-+{
-+	return hyp_allocator_errno(&hyp_allocator);
-+}
-+
-+int hyp_alloc_init(size_t size)
-+{
-+	return hyp_allocator_init(&hyp_allocator, size);
-+}
-+
-+void hyp_alloc_reclaim(struct kvm_hyp_memcache *mc, unsigned long target)
-+{
-+	hyp_allocator_reclaim(&hyp_allocator, mc, target);
-+}
-+
-+unsigned long hyp_alloc_reclaimable(void)
-+{
-+	return hyp_allocator_reclaimable(&hyp_allocator);
-+}
-+
-+int hyp_alloc_topup(struct kvm_hyp_memcache *host_mc)
-+{
-+	return hyp_allocator_topup(&hyp_allocator, host_mc);
-+}
-+
-+u32 hyp_alloc_topup_needed(void)
-+{
-+	return hyp_allocator_topup_needed(&hyp_allocator);
-+}
-diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
-index 75b00c323310..9fd3dcde3557 100644
---- a/arch/arm64/kvm/hyp/nvhe/setup.c
-+++ b/arch/arm64/kvm/hyp/nvhe/setup.c
-@@ -10,6 +10,7 @@
- #include <asm/kvm_pgtable.h>
- #include <asm/kvm_pkvm.h>
+ static struct vm_special_mapping aarch32_vdso_maps[] = {
+ 	[AA32_MAP_VECTORS] = {
+ 		.name	= "[vectors]", /* ABI */
+@@ -174,7 +199,7 @@ static struct vm_special_mapping aarch32_vdso_maps[] = {
+ 	},
+ 	[AA32_MAP_VDSO] = {
+ 		.name = "[vdso]",
+-		.mremap = vdso_mremap,
++		.mremap = aarch32_mremap,
+ 	},
+ };
  
-+#include <nvhe/alloc.h>
- #include <nvhe/early_alloc.h>
- #include <nvhe/ffa.h>
- #include <nvhe/gfp.h>
-@@ -363,6 +364,11 @@ int __pkvm_init(phys_addr_t phys, unsigned long size, unsigned long *per_cpu_bas
- 	if (ret)
- 		return ret;
- 
-+	/* Arbitrary size, unmapped at boot and only consume VA-space */
-+	ret = hyp_alloc_init(SZ_128M);
-+	if (ret)
-+		return ret;
-+
- 	update_nvhe_init_params();
- 
- 	/* Jump in the idmap page to switch to the new page-tables */
+
 -- 
-2.55.0.229.g6434b31f56-goog
+2.55.0
 
 
