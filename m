@@ -4,72 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9404BC4452B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 13:20:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31CC3C4452A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 13:22:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zs08b7N7JXgAEMDwiHf505SxhscoZzfgeqelXaBrSH4=; b=YvMkC6Br+YVgIVtlBIaCGD2f9z
-	njLWnGBT9WsZHTK7UTYnsXJdyTzjzCOK2O17kjb5u+Ag0hNACx7xqZ5QD/CV56ubXQi3HAx5KyFuu
-	Y+hwJGOqTPAHQR97zRy2bhaBWSuDVE2ntSIz2M1reybTFvHou8zHkd7b3O+/+PnVN1+EzVg3thP9x
-	/Dpz6KZGOS5CNDp96ZFqror4v0beT8OSOBfiW9F1/6oiyh+/BSWNHbeKf6nBpZHoL/sEEhWalTBZ2
-	feEJpmzle7ZlZTsrwzXVjdOgTJjlSdX/ej+ZMq6+zAw4gpbAYQ15xLzQwuCygRXhBEvaeeqeKDeSZ
-	5MHRqLVw==;
+	bh=4gktMd1z97qKRm65uykxL7tkOFdtPf+UvDzjJVptox4=; b=lp/elm7j+aof3T0iLx8nVnp8b0
+	e4ruaXTzs6Ih5ljhWVMommUrWbd8YnYnBjxfDH8RUZ+LSJDPlWYuaa438uG15XUXFT+9gX5QPWgTo
+	O9HmFqfk5d2JwL/nAqPGsImADUVJgP+6V45CBWVq1vbKsFkfUnlYxg5xMTlp84/2lLCIKLd+bDgds
+	ui8t6RJ2y3vwCOAVDms7a1Y2bZxolHMGJvM3gSvuT8XgZ0oYLdMRBQgm7M1Cilb7MuPu93Y8ZOAeb
+	CKHLFeVHpLZT04jFFFMHkYpmlMLFQKw1daO+RMbGL7L2grU7GutqqRxGt3t8Gs1MOCfeBCpD2DsYf
+	Mcf45SkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlnuu-00000006mR2-0i45;
-	Mon, 20 Jul 2026 13:20:20 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wlnxC-00000006mpq-3q1B;
+	Mon, 20 Jul 2026 13:22:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlnur-00000006mQF-3oMR;
-	Mon, 20 Jul 2026 13:20:17 +0000
+	id 1wlnxB-00000006mnx-3Mf0
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Jul 2026 13:22:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 31B2A60A8B;
-	Mon, 20 Jul 2026 13:20:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB4731F000E9;
-	Mon, 20 Jul 2026 13:20:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4CA7043C42;
+	Mon, 20 Jul 2026 13:22:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32E091F00ACA;
+	Mon, 20 Jul 2026 13:22:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784553616;
-	bh=Zs08b7N7JXgAEMDwiHf505SxhscoZzfgeqelXaBrSH4=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=jplMdewH9fT/Ln2t3TxSLb7JzgDFzasPQHhaw6fWsQhTpMYp0vfzmnLQ6OtNgm4LK
-	 mLYdXxdePnn5DQbGYkLMLCNKcgZqhjQElaerdyUFQczJkPxpviqvGEtGMxkoOVbQsY
-	 wFxj32W4c4mNyE7/Y1mNEdBPHNyfIESYyOzl5VmMzNYnZENtaV4URCiQAH1smx0k1C
-	 Vh3CT376eO8Uw+emvi0r5REA9CH5qfOz9AU5g18rcI7Y8lwZeYd1HKogP0UplXRmfK
-	 E7cssTHFj/0cGIH0UvwPNLJtKj4OouQIVI3QHTZKTlr90WMkaOwRBZgzAM0ECL1xfA
-	 hKN9o/xBPe2Wg==
-From: Mark Brown <broonie@kernel.org>
-To: Jerome Brunet <jbrunet@baylibre.com>, Linmao Li <lilinmao@kylinos.cn>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20260717012433.1432285-1-lilinmao@kylinos.cn>
-References: <20260717012433.1432285-1-lilinmao@kylinos.cn>
-Subject: Re: [PATCH v2] ASoC: meson: Keep link pointers valid on realloc
- failure
-Message-Id: <178449187119.33801.9637758292671659213.b4-ty@b4>
-Date: Sun, 19 Jul 2026 21:11:11 +0100
+	s=k20260515; t=1784553761;
+	bh=4gktMd1z97qKRm65uykxL7tkOFdtPf+UvDzjJVptox4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=AtQQlf8H8Pw+B272nhx53brEQt1RRgoy9wVSajVdF6Tj32zR6DpdKpOQislBHhkOu
+	 qhzrG6xBxvdlNGBZR2qFdJ6js7fWZwrQZ5sqwnIv2FCWHByZ+rCw+6+z+xkgE9tXdo
+	 s+61+yC3l1nVB7BcPmILND7e49ui0Uv5MlMxRuSiqrVG6LYDn6z/aeT5gd8XN6Bpw3
+	 XWHA36oBZFQmbnboUcWhcdWHgI5I75FSz9/BVsj1MNViQ0GC49WqAmBi3rNKD0p9Oi
+	 v9lauV175+kGfkZzIW4Ryvn5qhPxI++whZ2nedPZID69wvdaTBBBwfdBuY10CdL6Gf
+	 7Wps0P89ImF/A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wlnx9-00000006oKK-20dx;
+	Mon, 20 Jul 2026 13:22:39 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: Steffen Eiden <seiden@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH 4/5] KVM: arm64: vgic-v3: Simplify initial GICv3 configuration sampling
+Date: Mon, 20 Jul 2026 14:22:19 +0100
+Message-ID: <20260720132220.2143486-6-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260720132220.2143486-1-maz@kernel.org>
+References: <20260720132220.2143486-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1127; i=broonie@kernel.org;
- h=from:subject:message-id; bh=VoXJfGpB/ta/YC1D6FKPsSCtqeizSV15Kd9VWuadT98=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqXiCN+7Wvw9kJ0foW8kHNsOI8DGcv+eWNcAOIW
- SZLP1T1ERaJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCal4gjQAKCRAk1otyXVSH
- 0IwMB/0XbFAgMNm1ubDnf+qduGvECWpbopGlp7M+qJ6NRg3MwksJBDgM2oAD1ZxBHdGDKw8NVv4
- GpeK4kUApRRqSTyxJo96T1PAexwKwO6HaUhZrOULi3DXqiP7Jq6RgawejRHKGqHruXMye6Y9+tA
- O0oCsKVoOBApkw9GMJeXNpdkJLRMa3zrj+tBJwFLpY1ZeSGFS4z5FzHe8Rh6QZTNh0ufNPUADZe
- YWllLESrMwfFrhS4RkMk18etEclvFHVmDebnT1RCHneX00od3o1MCFPtAzhjNghroRnbaJNRxFV
- 7h+BNIQW295dVF60FcCiTBqKvHa1nln2P0VGBRrmtPqMM4mz
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,35 +82,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 17 Jul 2026 09:24:33 +0800, Linmao Li wrote:
-> ASoC: meson: Keep link pointers valid on realloc failure
+Now that we have our magic inline helper for ICH_VTR_EL2, we can
+get rid of the hack that was reporting a combination of that
+register and of the indication of the CPU interface supporting
+GICv2 compatibility. We now only report the latter.
 
-Applied to
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/kvm/hyp/vgic-v3-sr.c |  9 ++-------
+ arch/arm64/kvm/vgic/vgic-v3.c   | 13 +++++++------
+ arch/arm64/kvm/vgic/vgic-v5.c   |  2 +-
+ 3 files changed, 10 insertions(+), 14 deletions(-)
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.3
-
-Thanks!
-
-[1/1] ASoC: meson: Keep link pointers valid on realloc failure
-      https://git.kernel.org/broonie/sound/c/2aaa41cf974f
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
+diff --git a/arch/arm64/kvm/hyp/vgic-v3-sr.c b/arch/arm64/kvm/hyp/vgic-v3-sr.c
+index 3e5d5ddf35a19..8a15d6854d1bd 100644
+--- a/arch/arm64/kvm/hyp/vgic-v3-sr.c
++++ b/arch/arm64/kvm/hyp/vgic-v3-sr.c
+@@ -439,8 +439,6 @@ void __vgic_v3_init_lrs(void)
+ 
+ /*
+  * Return the GIC CPU configuration:
+- * - [31:0]  ICH_VTR_EL2
+- * - [62:32] RES0
+  * - [63]    MMIO (GICv2) capable
+  */
+ u64 __vgic_v3_get_gic_config(void)
+@@ -455,7 +453,7 @@ u64 __vgic_v3_get_gic_config(void)
+ 	 * system, so we first check if we have GICv5 support.
+ 	 */
+ 	if (cpus_have_final_cap(ARM64_HAS_GICV5_CPUIF))
+-		return vgic_ich_vtr();
++		return 0;
+ 
+ 	sre = read_gicreg(ICC_SRE_EL1);
+ 	/*
+@@ -497,10 +495,7 @@ u64 __vgic_v3_get_gic_config(void)
+ 		isb();
+ 	}
+ 
+-	val  = (val & ICC_SRE_EL1_SRE) ? 0 : (1ULL << 63);
+-	val |= vgic_ich_vtr();
+-
+-	return val;
++	return (val & ICC_SRE_EL1_SRE) ? 0 : (1ULL << 63);
+ }
+ 
+ static void __vgic_v3_compat_mode_enable(void)
+diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
+index ef62dd498f5cf..68d4a486df0a1 100644
+--- a/arch/arm64/kvm/vgic/vgic-v3.c
++++ b/arch/arm64/kvm/vgic/vgic-v3.c
+@@ -906,6 +906,9 @@ void noinstr kvm_patch_ich_vtr_el2(struct alt_instr *alt,
+ 
+ 	vtr = res.a1;
+ 
++	if (vgic_v3_broken_seis())
++		vtr &= ~ICH_VTR_EL2_SEIS;
++
+ 	/* Compute target register */
+ 	oinsn = le32_to_cpu(*origptr);
+ 	rd = aarch64_insn_decode_register(AARCH64_INSN_REGTYPE_RD, oinsn);
+@@ -950,12 +953,12 @@ void vgic_v3_enable_cpuif_traps(void)
+  */
+ int vgic_v3_probe(const struct gic_kvm_info *info)
+ {
+-	u64 ich_vtr_el2 = kvm_call_hyp_ret(__vgic_v3_get_gic_config);
++	u64 ich_vtr_el2;
+ 	bool has_v2;
+ 	int ret;
+ 
+-	has_v2 = ich_vtr_el2 >> 63;
+-	ich_vtr_el2 = (u32)ich_vtr_el2;
++	has_v2 = kvm_call_hyp_ret(__vgic_v3_get_gic_config) >> 63;
++	ich_vtr_el2 = vgic_ich_vtr();
+ 
+ 	/*
+ 	 * The ListRegs field is 5 bits, but there is an architectural
+@@ -1010,10 +1013,8 @@ int vgic_v3_probe(const struct gic_kvm_info *info)
+ 	if (has_v2)
+ 		static_branch_enable(&vgic_v3_has_v2_compat);
+ 
+-	if (vgic_v3_broken_seis()) {
++	if (vgic_v3_broken_seis())
+ 		kvm_info("GICv3 with broken locally generated SEI\n");
+-		kvm_vgic_global_state.ich_vtr_el2 &= ~ICH_VTR_EL2_SEIS;
+-	}
+ 
+ 	vgic_v3_enable_cpuif_traps();
+ 
+diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
+index d4789ff3e7402..16bc0a670d3e5 100644
+--- a/arch/arm64/kvm/vgic/vgic-v5.c
++++ b/arch/arm64/kvm/vgic/vgic-v5.c
+@@ -83,7 +83,7 @@ int vgic_v5_probe(const struct gic_kvm_info *info)
+ 	}
+ 
+ 	kvm_vgic_global_state.has_gcie_v3_compat = true;
+-	ich_vtr_el2 =  kvm_call_hyp_ret(__vgic_v3_get_gic_config);
++	ich_vtr_el2 = vgic_ich_vtr();
+ 	kvm_vgic_global_state.ich_vtr_el2 = (u32)ich_vtr_el2;
+ 
+ 	/*
+-- 
+2.47.3
 
 
