@@ -4,97 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2516DC4451B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 03:09:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC008C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 03:29:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1uELaWXedQ9qQGNcAq7Cw7Bv4z3LDW14NAE5K6u6YwA=; b=NxI3t0eoiRfDvMrT3cmAbsOxsX
-	wTt4Q5a55FnBsPc74cO8dZG/16qoOiIchSHwoBcZmwYoqKEYVda9RRPdgsTA1PO5/wRIqT2geBXgN
-	f+TeN0whgL0Q3sKoWLUBy4D3VhjPgvBJYo+60vAARj3DKmzlbDGshO4EJSawzhYGwGUXVQ3foJ1uB
-	2WLDUn7Cr3NTPecoIp8ky6Xwa7MhoSQfVUmAkOY4eQCroB9MpPYepfrjmY6NcCX+o/jmZvI9qoRNN
-	FuKlpfbD2v9L0ZyKK5ArigwuBXJHZZn1Sm/JPIDfQ/0w0JKwtWd+F8RuAxVzMuTy/lBP8AB0KaLBK
-	fmDMlMyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JLPjFZyeixXWhuHf9F/Xdw05dLLXUk59vTcZGoKAz1s=; b=aQJPSP3MappIpsxk624qLehGAU
+	pAW3Hzf4eq4EVYQ1r1e3sRN+BXsQ/kRkneB8UGu6iv5sNwTdr15YfhD+bco8ec7x1QsR3JWbR2qYl
+	nh9XLq/7IRVL70yb3XvIEdsj6YFPjrxxIE+NcqtTwiD9xOiFYLavTu0ArgEmj8l53NPuz+/AEHA/A
+	q1v/4+EOUa0EvzSHc7TEwr4nGDjmcN0HQ4ptfo9xcwcDqH3LdPhpUhE2xxFOcrH2+nSlTWnW2vqOe
+	TYLy9iSY8yqKx2139mK8Z4oICXoo6/MK0KWC7dm5ITdgW0tQQeQAYURg9eC/ZJvIs/Lxoy8cGUTTX
+	cgpXI7XQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wleNy-00000005jnM-1OkW;
-	Mon, 20 Jul 2026 03:09:42 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	id 1wleh9-00000005lYl-1VoA;
+	Mon, 20 Jul 2026 03:29:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wleNw-00000005jmx-2pkR
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 03:09:41 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-c9e0b89e228so4007323a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Jul 2026 20:09:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784516979; x=1785121779; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=1uELaWXedQ9qQGNcAq7Cw7Bv4z3LDW14NAE5K6u6YwA=;
-        b=DFYlYYQrVupkGXhWdCiOoxQ4q1ULIqzuzBY89nhbFGIYUdBpSB7kFyq2OfJAAi2ldM
-         BnpR2dnlCAx9gDHIajkhzijkxf9t33Zgle4xMoUitGYXJ9xLLrYX7d+SDOmVm6jlzQFm
-         Afwen6HzDwLgyh9Dp51ZnLf8yVniKmY0wzSPQVzC5VBUpv4ty/IOwrnOk4USQe+xjtPh
-         G28diKBuH/RNYdFzaxvY+/1wsR5Uh6O0K2It4b9rCYMFstwNm7vn8dTkVR80n1xNstTy
-         KCmx9/hnhi2M53pOIOkdPtINHlTE44GeatcJsGOzsq35qkagftJHq7ODKAWZ5XMiMDzY
-         Ug/w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784516979; x=1785121779;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=1uELaWXedQ9qQGNcAq7Cw7Bv4z3LDW14NAE5K6u6YwA=;
-        b=SkR71ZSRNoMx+wtdc2Tr93AXMt+uteB0k6GMo88i1BhtKwtu/9GmlVsC9EHf5WTKZa
-         tTjnsAwGPGwI8tMZDY+w7wcGRa1XS1Q48EIsack0efFqd0eEVAa/jeSWmqYp+t66v8pT
-         O5owBBLCwBZs8iSLwcO/4iT/NPu0TupnSd5XWNduyfl32LppAUrINH9ke2dIB7FZZD0e
-         THXJiqvWEYnQVYLJdnLF5JrGhj/lkH1TFlaKQT9O5w/QHiLsXVgAJC/zL3rWwmBFX43d
-         HZBNdk+Mhvm5oOaGUrQWqauTE2e8f9Rsl1kccDlnZ/iuDUwJM6EzxEGSSqI5PPQCdzYH
-         dBvw==
-X-Forwarded-Encrypted: i=1; AHgh+Rru5nVW2gor2yrK5um5Yh/582Kr0jyXykOCyVJXTWOtv7kVn2WgCm8C/0RRQiv9xxUeKw706hECkBmCtAVRb5y1@lists.infradead.org
-X-Gm-Message-State: AOJu0YzV3KwjRwgNOf5QiPPpYWfjrOML07vFp9LtkrAXLPBqLGOYTH1Q
-	XBjXn8MhjtRh6pzNZklhdLnaiTM2DjAHVmjJ+UJ97clqpfjET1Sgcnu1
-X-Gm-Gg: AfdE7clXfQOTo7SEbR4vF4fTka0OXqQ/tVXq1Tc6ZuMFkXotCGXAHGba4EMpfCnp+XH
-	0gBgb2M2xhjjaRwV51zpvljQZr7uONYhmcdR61x+LWnoT3czMU+nOx5ICeLPPn9TR4dPQSBTTvu
-	VhB8cnoyqjBuXwWdKdpaMMPReCJccroBDOHQnPH/tgdt/Qbn123b+B4SU8cezFSfHSY0hDBmdLl
-	sjQL7qi+cyd8z7vjSjHNtRME8BQovaPmn2h51+twhynqHbmifpWNaAvoXp02wJ3vKUeG/irZ3Om
-	xGkLPOpgVnrIj2JOw2FNukkQ36MFVpMG5qtduURPSgOdhHvOWCZOwk7r/r9ePJJcimWPvLNt87f
-	SJWoXe0ggUrl7TKzAAkFzAQgh5SqNUg5et7RinyMkra57MTmzGduM2VFTmr90rFX2PjJp1fdIt8
-	YaaCH1+gTvmuHaKrn0X/ysmoG6nw8Y/UHxklQCgYK0BVXXofJUxBoiuQ==
-X-Received: by 2002:a05:6a00:391f:b0:845:a435:a2eb with SMTP id d2e1a72fcca58-84c2927fc39mr13129007b3a.31.1784516978856;
-        Sun, 19 Jul 2026 20:09:38 -0700 (PDT)
-Received: from [172.19.1.42] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84c2adc7adasm4962151b3a.19.2026.07.19.20.09.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 19 Jul 2026 20:09:38 -0700 (PDT)
-Message-ID: <5eaff736-9271-487a-a9d2-225580ff449d@gmail.com>
-Date: Mon, 20 Jul 2026 11:09:35 +0800
+	id 1wleh9-00000005lYa-0CjZ;
+	Mon, 20 Jul 2026 03:29:31 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 16B1A601D9;
+	Mon, 20 Jul 2026 03:29:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D199A1F000E9;
+	Mon, 20 Jul 2026 03:29:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784518169;
+	bh=JLPjFZyeixXWhuHf9F/Xdw05dLLXUk59vTcZGoKAz1s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=TEbgZVZWTLIKqARTj/Jpj0t8zss5wiSS5rKMieHWR/wmmKzmCxQ9ZDwQyT/+OQ09p
+	 jlUnePSUL8j3htF6r3fgbxSQTn9/+ELBQTf/VRn+fvfpb9DR0GlkwZafoq+4a80B6b
+	 Ft0cShKW7eyb+v7hDOKkz4O5JpSWYsyS33VWqLBl9wGz0fT8Tx6h1VHl1wz5BvgMeA
+	 bEKs31ruPBY4mr8fYPuP41WPud6VsNx6WP7kOqer96bwkxduYY8SedrWSP008n7Awh
+	 Q1LNIoObCEUrohEv8wyEOB+9uZSaHqUoaUSBQbkRcTWGxx32C1e3GAollD1ags/6gX
+	 pEfdD0RmiwBNQ==
+Date: Mon, 20 Jul 2026 03:29:22 +0000
+From: Tzung-Bi Shih <tzungbi@kernel.org>
+To: Pan Chuang <panchuang@vivo.com>
+Cc: Hans de Goede <hansg@kernel.org>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+	Pengyu Luo <mitltlatltl@gmail.com>,
+	Sebastian Reichel <sre@kernel.org>,
+	Benson Leung <bleung@chromium.org>,
+	Guenter Roeck <groeck@chromium.org>,
+	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
+	Vadim Pasternak <vadimp@nvidia.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Corentin Chary <corentin.chary@gmail.com>,
+	"Luke D. Jones" <luke@ljones.dev>,
+	Denis Benato <denis.benato@linux.dev>,
+	Zha Qipeng <qipeng.zha@intel.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Takashi Sakamoto <o-takashi@sakamocchi.jp>,
+	Kees Cook <kees@kernel.org>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jai Luthra <jai.luthra@ideasonboard.com>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Phil Elwell <phil@raspberrypi.com>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	"open list:ARM64 PLATFORM DRIVERS" <platform-driver-x86@vger.kernel.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	"open list:CHROME HARDWARE PLATFORM SUPPORT" <chrome-platform@lists.linux.dev>,
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: (subset) [PATCH 0/7] platform: Remove redundant error messages
+ on IRQ request failure
+Message-ID: <al2WEhARVz5mpNGw@google.com>
+References: <20260717112103.213017-1-panchuang@vivo.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] dt-bindings: iio: adc: Add Nuvoton MA35D1 EADC
-To: Rob Herring <robh@kernel.org>
-Cc: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>, jic23@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, dlechner@baylibre.com,
- nuno.sa@analog.com, andy@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, cwweng@nuvoton.com
-References: <20260713081127.115197-1-cwweng.linux@gmail.com>
- <20260713081127.115197-2-cwweng.linux@gmail.com>
- <20260716174237.00004b79@oss.qualcomm.com>
- <8d757505-ea93-4dd4-a374-79f143f6f949@gmail.com>
- <CAL_Jsq+5N9AvzQ0cxUVY97Ad+CasR29Fan7sUuprDYjgqzWjMQ@mail.gmail.com>
-Content-Language: en-US
-From: Chi-Wen Weng <cwweng.linux@gmail.com>
-In-Reply-To: <CAL_Jsq+5N9AvzQ0cxUVY97Ad+CasR29Fan7sUuprDYjgqzWjMQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260719_200940_721340_645B46F7 
-X-CRM114-Status: GOOD (  13.38  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260717112103.213017-1-panchuang@vivo.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,39 +98,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
+On Fri, Jul 17, 2026 at 07:20:38PM +0800, Pan Chuang wrote:
+> devm_request_threaded_irq() and devm_request_any_context_irq()
+> automatically log detailed error messages on failure via
+> the devm_request_result() helper, which prints device
+> name, IRQ number, handler functions, and error code.
+> 
+> Since devm_request_irq() is a static inline wrapper around
+> devm_request_threaded_irq(), it also benefits from this
+> automatic logging.
+>
+> [...]
 
-Thank you for the clarification.
+Applied to
 
- > No, document what the h/w has, not what a driver currently uses. The
- > only exception I can think of here would be if only 1 interrupt pin is
- > usable on a given system. Then it would be just 1 interrupt with
- > interrupt-names to define which one is used.
+    https://git.kernel.org/pub/scm/linux/kernel/git/chrome-platform/linux.git for-next
 
-Understood. I incorrectly based the binding on the current driver
-implementation rather than the hardware resources.
+[2/7] platform/chrome: Remove redundant dev_err()
+      commit: 17376e7311cdec252b61cb1ecec43be61907781b
 
-MA35D1 has one EADC controller, EADC0, and all four interrupt outputs, 
-ADINT0
-through ADINT3, are connected to separate GIC interrupt lines.
-
-ADINT0, ADINT1 and ADINT2 are generated from the corresponding ADIF0,
-ADIF1 and ADIF2 conversion interrupt flags. ADINT3 is a shared interrupt
-output and can be generated by ADIF3 or by any of the ADCMPF0 through
-ADCMPF3 result-compare flags.
-
-I will therefore keep all four interrupt entries in the v3 binding and
-add interrupt-names for "adint0", "adint1", "adint2" and "adint3". The
-ADINT3 description will state that it is shared by the conversion and
-result-compare interrupt sources.
-
-The initial driver will continue to request and use only "adint0", but
-that implementation limitation will not restrict the hardware
-description in the binding.
-
-I will also remove the redundant maxItems property because the fixed
-items list already specifies the number of interrupt entries.
-
-Thanks,
-Chi-Wen
+Thanks!
 
