@@ -4,152 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 036BFC4452A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 14:34:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 267D8C4452A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 14:35:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d4C9Byof9W2UGgrTzIPNEkz5vcoDqc6h9sGuEKRkefg=; b=U8dvoH+06ZRq8vLNLUEMqde4sc
-	v3xReLrklKZ9Utm2Ya79+bvXlXlyFkGDizwPIBHUp977yQTaPNFa29QQHU5g/8Lpls19SvPlSLdJz
-	/UE1F3lO+LOZGhL8QzcHDHp7UYSrjDbCwkUT7us3H4TZ3scdqPb/oS9dWTRksZxbaVexUU9O8TAUA
-	9eFwoCml0XWrIh8Ml7gbHVNq/BY/0TSQHgPuglCrEvyZgCq9JdHU8u0vYqvzhj8opSrgOzv4g2/+c
-	VhfVpzCiQPbyF0byRos7Dy85b2Vgf/TdRS+6B/BgYSF9ZlgQn52Bsg4spBC4i5FCh+Z66/bia0q5V
-	mmYa84iQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6Tb8wqtR9ryTgh1xvi0oAMEHAbHL0B/dENMN0HrupOs=; b=gVdYqUAUjjAi79q2+B8GFMxyh3
+	tvStMuI4OpdA8Ov9U0xB+PWt/PfXrE6LhSPIHDheRWIJNK9/mQ1XrFICaLkq+FSJ9U++pvYKIilNL
+	dhM6wDXMeZWs/fsYdAHwCuK4SNRYSvtt3rqyOxVuHvxduNvZqc9UjSuF3T4wck+3M/yjG9x6DNV/a
+	TxJR9DGqMULtnhf4XY8nItc7+bnLf0aaf1lvFVh9yfsug81f269VRGgtTJg4hDDJvMxYX2HjGeLir
+	Y53otx3sfcA4wQtarUnrTqkF2LwQfdYBL1XbiT5+yuc/3wAnBsBLp/+twE8quMPgjM9FMMcl97f7v
+	wp4dEHrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlp4j-00000006z9r-0BnS;
-	Mon, 20 Jul 2026 14:34:33 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlp4h-00000006z94-0UN7
+	id 1wlp5B-00000006zGp-0vaW;
+	Mon, 20 Jul 2026 14:35:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wlp58-00000006zFa-30pA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 14:34:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=npJ5hwnWpOHWizrNOIONu0IiEgJvWApxJt7YD5Tswq++pY9Ci8w0OkCRWt20greESs4BoodniiVOQo41CIoRvCJbjWLAeEgHD2Igm6t4PNjR29I+bjg9IThjmuO6Lfahb2Z734Z82ga/lpoT/vaBjnU0ZbxcDkiPb76eNqTEa7uAUp3UN+fsfZJTElLBzsDTWeXG5qOM6Hx9yZBvuvC/vSgwEYmcHg3EnmkvjddBf0OIaPrAVHxjiRlExosz3FIHRUJN45IQX2XmWzfYGT8FN8L39e9XXukXitKKq/EanpMVyRreHczw1NMCAzYotb4noRE0rdPjqHvsahob3fcnBw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=d4C9Byof9W2UGgrTzIPNEkz5vcoDqc6h9sGuEKRkefg=;
- b=rGhgFlg+F7Nl5eitz2De1eWDaPpOoUdru1ZjAamM7iSepOl7tt9FWFgsLNf3/hopgHkrfQcUHTXRiDDGF5kKN/+8L4wLjLEJbqOQUNxKkZAzn42jKs89/rS+FRG4H2I+QY4RodMKU4h7RXWPktb/NxWQKcKjDqppf1RCjKzvWjoxNaYrmgkX4cL2poDS1fZFOqS4/ncasIK0l2f8Ll4W+2rQWDDAz2Pk538QAsNEE4g2wZFNtEc35LGFsjZzQTxS/+l5bMGEMDcUrLzZv/oA2XfmpY6JQ1zVg4/cv/e5Kj07uA+Xw550F3am5ikgQwVMBXh38iiMbFUSzj5pJ6Tgmw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=d4C9Byof9W2UGgrTzIPNEkz5vcoDqc6h9sGuEKRkefg=;
- b=OiGFw6AmDfHjNH6oluaSFV4sdE1KgzQ61dDiB/zM4FtkjLODBjAZ+yE3Gxg7d8C4aynO0Ynto1cydawFNRRaCalZOXaRabq9GBrrfQ4XTGR+5YUgL4mg2QjIJrNrKr/axVFlItNdK5n77ycXhnhXnqho9qfya5IsIyPBDBMvMZ2n+ij2/m5qeN21x0HPYKPGW7vaq33Jh4c2Pq7Z+MtvagtAlLaG+TNA8PYEvlJ1X8IQ/UmX/L3G1NCJRmwM526yoQCl/oxJehsMFjgLEU0b/7JYODIcpkLdAxWWCG2sW5FgFxb5a0NZdDGaGIQ3RE9UBx9ADLkJvXM63Mv8gdqpSA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PA1PR04MB11360.eurprd04.prod.outlook.com (2603:10a6:102:4f2::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.16; Mon, 20 Jul
- 2026 14:34:24 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0223.012; Mon, 20 Jul 2026
- 14:34:24 +0000
-Date: Mon, 20 Jul 2026 09:34:07 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Doug Berger <opendmb@gmail.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Ulf Hansson <ulfh@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Lee Jones <lee@kernel.org>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Srinivas Kandagatla <srini@kernel.org>, brgl@kernel.org,
-	driver-core@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org,
-	iommu@lists.linux.dev, netdev@vger.kernel.org,
-	linux-pm@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, mfd@lists.linux.dev,
-	linux-arm-msm@vger.kernel.org, linux-sound@vger.kernel.org
+	Mon, 20 Jul 2026 14:35:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 091DA143D;
+	Mon, 20 Jul 2026 07:34:53 -0700 (PDT)
+Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 434DC3F99C;
+	Mon, 20 Jul 2026 07:34:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784558097; bh=ZVkkZ18OLSNZOkiVP1mnO/iPf2y1oqZNLduNfGDfsQU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=uKnkz66yIGd6UFYKjma27WX+h7RPQeiRRY0BIkl83q7LK9tzwmzAAWB3CpaLYSzSz
+	 VAxrUqtdfHOxDU8UxXIgyQsQayXrfIiI6OfEhRpfdwO6iv7Qhs9TT/YU8rXJMUgOSF
+	 KUIcW53yHOX72MUF2MwWNytURigfff8YrvkHQEak=
+Message-ID: <c4abec80-2f8d-4070-aee4-76152f6f20cc@arm.com>
+Date: Mon, 20 Jul 2026 15:34:36 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH 3/8] iommu/fsl: use platform_device_set_fwnode()
-Message-ID: <al4x32yFNcEAAbVM@SMW015318>
+To: Bartosz Golaszewski <brgl@kernel.org>
+Cc: driver-core@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+ linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org,
+ iommu@lists.linux.dev, netdev@vger.kernel.org, linux-pm@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ mfd@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+ linux-sound@vger.kernel.org,
+ Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Andi Shyti <andi.shyti@kernel.org>, "Joerg Roedel (AMD)" <joro@8bytes.org>,
+ Will Deacon <will@kernel.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Doug Berger <opendmb@gmail.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Ulf Hansson <ulfh@kernel.org>,
+ Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Lee Jones <lee@kernel.org>,
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+ Srinivas Kandagatla <srini@kernel.org>
 References: <20260720-pdev-set-fwnode-instead-of-of-node-v1-0-2dee93f42c54@oss.qualcomm.com>
  <20260720-pdev-set-fwnode-instead-of-of-node-v1-3-2dee93f42c54@oss.qualcomm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260720-pdev-set-fwnode-instead-of-of-node-v1-3-2dee93f42c54@oss.qualcomm.com>
-X-ClientProxiedBy: PH8PR21CA0019.namprd21.prod.outlook.com
- (2603:10b6:510:2ce::9) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PA1PR04MB11360:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2ae80a3d-438a-4ae5-5c2d-08dee66bfe62
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|23010399003|376014|7416014|22082099003|18002099003|4143699003|10067099003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: WRb6A5pvBydH4WQFmnEhFEuoc2JEjUBx4mxuUs1acSzrtnw9/7GrgmBchC1ViEavD02uFQW+/gJm+C3cyPsRlS30ehMRDkJJqNyZSRQbatmYB/Jt5T9N5bnQ4XFyQrMDosY/cWostcrGKfQcYsCK1AOCXTOQJX9blnDQP05Zq62sxrzvaKeBBWL9u3lOd/CYxbjRdsrpcpUBMknGK6+b6NUtxjmxRYZDzg/utRpJGy6wdbnEDzBST+oCe5u0oQoGVgxUB2+EngKEnDxmymoMS3E4e0UL9wce+zjghHQpkQsnivfFbO8nya73nqRuICd2BXus2uHk6aD6FTv/GDNhrK3QRZEBM7QOpjXKEWAMDuDR/wtxueNHbT9oi4oMIqobfCcSwI5lO7nvmR+T8YHD99GyNTl0XiUKR3EgOZf+Mpd4ij14bEKce3m/yQT+T8lmkhOc+SJPQbkDuh84hoGIn9T/01F5zuvjhF9NcMDFSnJNS4t1X1VnPxSOK8SG4mtW09fdv4VRVd+R0wGLOAzhxrx23z27gJFSdQ/Jt3FWFJa+BLW5cHjlc4vo22MjuczuXiXwR93bX8MGuSSO+thB0CaeZC2c0PxQ6DdLoZt128A5snyXAT7bOjpTWlPpGxriAq8t+Ev0W55I4DZp0fQ8IvpWrLcH8g7d4gMw91KIiv0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(23010399003)(376014)(7416014)(22082099003)(18002099003)(4143699003)(10067099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?f+hegIkEwIIFo7w7TuB3JEfLvx2dOwcwj4wc5imGMZXm6zr5AO7O8UFDhg9o?=
- =?us-ascii?Q?VlXFAQyhdjTOelUvIDK4xYevNakSmJMq5rg60UG346rTvZCdJy9lsgxWzWMU?=
- =?us-ascii?Q?k43fV6lvBAYK7H1tdU1gEmlhOgT2bevLOieaLcSXtV+kB972H28p/LNxf3Cu?=
- =?us-ascii?Q?f/4Vkn296AAzeN0UYJikpFnRhs36pxivGo1WHpLUbGxHVNzW+JrcqUf/MbOb?=
- =?us-ascii?Q?QpeFemvdNkDJEtphaUkqJIx0ztxGe9dCwm6cNfrluFuz0lYAJ6YlMn7UbdmA?=
- =?us-ascii?Q?mefJRiE7wvRVSq+b4/L1w8OIhFIQmeQcLhqje0lHipZixtwjgXhdhvxRqg44?=
- =?us-ascii?Q?iFrjrQkR3KEu0l/MAIDvUYWXqjK+Ez5NrhSbQPtFM/pjp05GijNV3+q81+a3?=
- =?us-ascii?Q?S80hinhnW8NdK0IblNb6Y/hra/NXi890jv0s6ppXxhAvaidis10c1Y7pO4Y0?=
- =?us-ascii?Q?a/HUFGfUMmUOlMDgRyaMwlK2bpgpdFApKN1ViQbLvXS0YufUDbppNYJHWkSc?=
- =?us-ascii?Q?+g7QETYvOWnE1oDUHISeaz2KeTCs8byTt3wacn8/ymSJJ70IyQ+Pci7+rGdw?=
- =?us-ascii?Q?1fmF4DgDxyNWfC/BPXOE8MgyghT8Q2Fmm0DOwsza9OZrgXHmLyDLByxHtbhK?=
- =?us-ascii?Q?W3nhBQhOM6KQE13jnnOQRNq1mUVr62WSG11w7vWpeuutrDwXX5kq0zavJwHP?=
- =?us-ascii?Q?e9yqSL9gQIPV7Y0gJR298GkB3nKrknOL6yA/MkSxPzAUw4l1WmVL7V9jmw0O?=
- =?us-ascii?Q?rk1tvW9xP0WRiRYnMrRaSdze3tph/baovzLafgzQE/l1evONrOc402SOpy5U?=
- =?us-ascii?Q?keuH0ZCQ4whIuiejW/giSTMWSLJbKkQa39HxhWea4vW5DlZbUH/C2nt0d+zO?=
- =?us-ascii?Q?NzTBezV/9P6vnaZ+sq5oMS+8E2pL7jqRfAPLjC0hZSjPA2KIcGz1oItd/nVq?=
- =?us-ascii?Q?hZHFuwZyObLHtu7EYAuJcaK/AmJ/QnOdlnHb9enVCXDQuSKwmWD7hCFxfVC9?=
- =?us-ascii?Q?vSmcze6Ey3pmT3h6A6x+KzpaiZU3t5+VEAH1TV/CQjbomk0EL/bxdMhyfm/k?=
- =?us-ascii?Q?RvdPRkiHgmGCC1oFvz57VxOjSs/YtQte49Y0J3RUjxykKPVrBvBsDiaSt2/k?=
- =?us-ascii?Q?lsOlR0QaG+OdV6vADm99hM1OGfmoYFK3vl3KzNB2E68EPC1yUOqxJjOalP2g?=
- =?us-ascii?Q?djJDoZeIpssPU5YdJF1pxlJbWuwTe7pcrQfDsAAX7RexQEAFfqn/pn2xL+gs?=
- =?us-ascii?Q?Pl7gtWQVKQ7QqvWdI72Jm8la1IdY+2U+P+2TUFPVtyoA+B/wtFdgvzwYjUNW?=
- =?us-ascii?Q?beyps+ScdK/4TLi84w6fPR+n1awNl56mDY5/lat1mb6AOBOPXEgVaQH92nZx?=
- =?us-ascii?Q?tftlXd2NZ6f2GDZYG468TMSBp65CXGZiWUUIonf8OPnYsVPH9tgTUWC9duLU?=
- =?us-ascii?Q?/zQzOho6n99ecycuQnSwv65BLAgxZojrOuCbeF4yWbT1HRKDjGALye9oQI5K?=
- =?us-ascii?Q?5wOxqKTq9Bc9Fm2ekyFvz8z40V7rJdPIjo0nDPey0BQCEykd+/V38B5DRenk?=
- =?us-ascii?Q?iNm8fx/ccpEQhT7RU4vbXXu70LpPfhRcqwYybK8S9uVJN9CX+d+n89qpGRSw?=
- =?us-ascii?Q?mFxhyeaNLtLYgPBDULrmR71CmS9U1Iyjp1cCQTw6kmy/ybRH1YwRWz+/Nv9Q?=
- =?us-ascii?Q?B/3LvYfRBaycxg8zyZPqvbMkitUf0/mlqQIbxFJSOpi+CVhiKVR8G3JTeCZk?=
- =?us-ascii?Q?LU91EC4kBMm00PGwPO2tZQHPMXTiFY8nQxAoEQe8lJelp2vKXrPw?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2ae80a3d-438a-4ae5-5c2d-08dee66bfe62
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jul 2026 14:34:23.9448
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: dD8dIvZ1xYQfQWk7YYpvAtd8CeFaK1cZ25yqKWZ1TNKk3YSRC3eJnYqvK+IdPMxDoAllIWREcsrQfUZ25j5JetMULCiYNCpiYueMVlEIDLPAyYRPa1hA4oicr6Kf1ajE
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11360
+ <e4f9b266-8d9e-48fe-99c0-58b61e02c9bd@arm.com>
+ <CAMRc=MefqCMgVv-o5hWoRwS2iXPQNs5nH2qHiz55+ew162LfSA@mail.gmail.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <CAMRc=MefqCMgVv-o5hWoRwS2iXPQNs5nH2qHiz55+ew162LfSA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_073431_154905_24D17D11 
-X-CRM114-Status: GOOD (  15.41  )
+X-CRM114-CacheID: sfid-20260720_073458_940111_D3AC1601 
+X-CRM114-Status: GOOD (  17.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,35 +98,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 20, 2026 at 11:24:50AM +0200, Bartosz Golaszewski wrote:
-> Prefer the higher-level platform_device_set_fwnode() over the
-> OF-specific platform_device_set_of_node() for dynamically allocated
-> platform devices.
->
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> ---
+On 20/07/2026 2:39 pm, Bartosz Golaszewski wrote:
+> On Mon, 20 Jul 2026 14:58:27 +0200, Robin Murphy <robin.murphy@arm.com> said:
+>> On 20/07/2026 10:24 am, Bartosz Golaszewski wrote:
+>>> Prefer the higher-level platform_device_set_fwnode() over the
+>>> OF-specific platform_device_set_of_node() for dynamically allocated
+>>> platform devices.
+>>
+>> This is very much non-portable code specific to OF-only platforms, but
+>> if the intention is to remove platform_device_set_of_node() again
+>> already, then FWIW,
+>>
+> 
+> Providing platform_device_set_of_node() and using it was done to make the
+> transision to expanding reference counting to all firmware nodes possible.
+> I don't think we'll remove it just yet as it doesn't make sense to convert
+> the code under drivers/of/ to using the fwnode variant.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+OK, but in that case why convert these users either? If the OF helper 
+does continue to exist then I'd imagine the static checker brigade will 
+eventually end up sending patches to "simplify" these open-coded 
+equivalents back to using it. And frankly, if drivers do know for sure 
+they're exclusively dealing with of_nodes, rather than doing something 
+conditional under an is_of_node() check, then I see little justification 
+for them *not* using the dedicated helper.
 
->  drivers/iommu/fsl_pamu.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/iommu/fsl_pamu.c b/drivers/iommu/fsl_pamu.c
-> index c83bbc3faad56d6ee1c89b0a7f74028af02c81e9..268a1f752fbceab4fd24013aeea5df1b6982fbb1 100644
-> --- a/drivers/iommu/fsl_pamu.c
-> +++ b/drivers/iommu/fsl_pamu.c
-> @@ -975,7 +975,7 @@ static __init int fsl_pamu_init(void)
->  		goto error_device_alloc;
->  	}
->
-> -	platform_device_set_of_node(pdev, np);
-> +	platform_device_set_fwnode(pdev, of_fwnode_handle(np));
->
->  	ret = pamu_domain_init();
->  	if (ret)
->
-> --
-> 2.47.3
->
->
+If the complaint is that there are no *public* users to justify 
+exporting platform_device_set_fwnode(), then as I say AFAICS that's much 
+more neatly addressed with the static inline approach, such that we 
+still get to unify the public APIs, actively eliminate something from 
+the symbol table and save a bit of source and object code, but without 
+any need to churn the truly OF-based callers at all.
+
+Thanks,
+Robin.
+
+> 
+>> Acked-by: Robin Murphy <robin.murphy@arm.com>
+>>
+>> (Although I'm slightly puzzled by the cover letter - AFAICS in -next,
+>> platform_device_set_of_node() is itself very much a user of
+>> platform_device_set_fwnode(), however in terms of symbol exports,
+>> perhaps the former could now just be a static inline wrapper?)
+>>
+> 
+> Sure that can be done independently later.
+> 
+> Bart
+
 
