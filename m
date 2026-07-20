@@ -4,143 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC6BBC44527
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 09:51:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41DB0C44527
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 09:55:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TPPGQwc3PfT+C4VBhWiy0S/G7+Xy+TuZZ7wv5vN1sqA=; b=PB487hvSW313q36gmFgNp72tSi
-	NF0nDJzKeWY6MTzz/9XgiAfLaB3sr8u3ugVgXlqG0irWQKIiN8Xst3Vj3xLIv2nMdqKOu251LTH2z
-	n+kwnCTfUfQvawIoRn4Pi831aSLfDftNwR1GjrmRgQud6pFc84s96F8Pmvx3SZNmCZPTdzQFpzT0z
-	B1C9mgeHiEE2C7sxjk+mYoLurOxGJiMA6yCyAx8MIiRpoT12xP8taoV87uKg0kO1CqQB0ylRqMTfs
-	YAreWg0I8Pci+dF3v/639AFwQhWR0cgmo7QhCDZmsr7XbByLJlIUXJGbo6IPZBSr7hm5ATXD1gmUz
-	WN/HTKjg==;
+	bh=EoVcGHK5iQhlcyqxQEC4bFnebvvG6xJs/JJFVof5weY=; b=350G0lk9zFYFgzsZEToPUxUbm9
+	Tn/Dp7hAfhi17ivJ+K7eYTWvjmSrUZLR6ApkUXP1EOHDi7iOEfixNaRNUtar8Jm6AcYFNv2bb6AUx
+	iLdJwc4YYzJsXfpmGDmlBq0blUwN1gMtMjd2Peq7lPc2JI9hoFUb6KWLZHrypRVYpJCn0VIPoqUak
+	/Adh8Iq0/XIQQk7oXDi0RiMMVMtjsepvnpD8pS8Cnl1qH5IIeB8yRakmgU/WYeyohGpmxiyoTle/u
+	0Dl3yJ9+Gh3bP2HJl+kQKcKzKAcQwex2LcfDsiW3ObMdMj7iggDEy3cWgSabxepmoqu6cEl8eDBeB
+	GG5BUk2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlkf3-00000006NLi-3rWq;
-	Mon, 20 Jul 2026 09:51:45 +0000
-Received: from mail-francecentralazon11013055.outbound.protection.outlook.com ([40.107.162.55] helo=PA4PR04CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlkf1-00000006NIr-0Fwb
+	id 1wlkiE-00000006Nzt-1Kjo;
+	Mon, 20 Jul 2026 09:55:02 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wlkiB-00000006NyK-0KD4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 09:51:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nJ3JVOGFa6+RB3FZmE633WjVHpcFHjKGh0PCXrRG/Hh/dA32FdMhq9NaXwEpkdAJvZFsTpyHb2AXQurfXlRxtejC0ZNyM7FMlMgLJldyzzx9l38s9PD25dNcMke/XFB1PYCG21iRA+ZFV2uP7LZCmRAQKowxNZ4QhtB8x2I+o2jwt/YAKr7fHHh63FXV/Kmjr0K8OcDo/+2G5sAOEb7+27rcyA1i4lw51xhRHNn/8F+ZKeCGFBlbNVjMGFoMoCOj1/Ar5AEuEtiwBiWYt2ZPNGEInwOsN6kXdmEO306DZH6niFOjfHxPcTraCT7XEscNlH5RiN30qOMdDXs+0rh2kg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=TPPGQwc3PfT+C4VBhWiy0S/G7+Xy+TuZZ7wv5vN1sqA=;
- b=gtQjJVTefqZ3368963oafp6zCoGKdGuOmTKdpd8gKya8vzjpzVSeeDvkJcHdg4nw90EkXcOSoOykoTv49LCDW6AbDPP3LfWOxRfHc3LGt+O8RzLrVsOjPQl7muy9bxNJZ9+1Mul8xRZWwr6xExrdL8KWbps8mhiVXMfqSE1+QeilwONvloygKCckAxtw/3xwRQMqd/5+BogHtqfQyCusL3zokEYS9DZOCEmv3akEht53nLUmqrZwlfW7SmLcdYeZbraPe78S377ifSgwkEjl2isHJscnMKhSyFfsvVwClB9+EnsS5G6y2IvS47rzy5ZvY4vEWRcouQTUUxEI5UkKoA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=TPPGQwc3PfT+C4VBhWiy0S/G7+Xy+TuZZ7wv5vN1sqA=;
- b=P6iMheR8TIgyiFRrjT1jyBDa2/knAmVv0c+dwruZf/2uRjXEDIOQGMWQBjnLA0faRF5jsc9YzKQN4jf60b6gFldF/wthZPDt79jX4QCweTS4YQ2VO3vjJpB4zLjXpj1VQC9GxMD+oaQlHrHpCes2m6x6jK+htlHR8ZMSnajigNLBuzRAvVOp43p+dh7f5sLvg8ZHPN1qm2y6ZW6w03cycioolVS2X3afy+GsSMX/NrtaGeYEI1e867FXGHJRovEacyr5ElIgTDfHnMIhij0dm0eLnI6V8wb4WtCqvWd/ftTHS6htfKbQA4exCVshOph2Q53VDKJmFnyfPNv8cIXKrw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB9351.eurprd04.prod.outlook.com (2603:10a6:102:2b6::17)
- by AS5PR04MB9800.eurprd04.prod.outlook.com (2603:10a6:20b:677::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.16; Mon, 20 Jul
- 2026 09:51:39 +0000
-Received: from PAXPR04MB9351.eurprd04.prod.outlook.com
- ([fe80::1058:a430:52c1:5aa]) by PAXPR04MB9351.eurprd04.prod.outlook.com
- ([fe80::1058:a430:52c1:5aa%6]) with mapi id 15.21.0202.023; Mon, 20 Jul 2026
- 09:51:39 +0000
-From: shengjiu.wang@oss.nxp.com
-To: lgirdwood@gmail.com,
-	broonie@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	shawnguo@kernel.org,
-	linux-sound@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	shengjiu.wang@gmail.com,
-	Xiubo.Lee@gmail.com,
-	nicoleotsuka@gmail.com,
-	perex@perex.cz,
-	tiwai@suse.com,
-	linuxppc-dev@lists.ozlabs.org
-Cc: Shengjiu Wang <shengjiu.wang@nxp.com>
-Subject: [PATCH 4/4] ASoC: fsl_easrc: expose individual DAIs per conversion context
-Date: Mon, 20 Jul 2026 17:54:50 +0800
-Message-Id: <20260720095450.1618747-5-shengjiu.wang@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260720095450.1618747-1-shengjiu.wang@oss.nxp.com>
-References: <20260720095450.1618747-1-shengjiu.wang@oss.nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MA5PR01CA0266.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:21c::13) To PAXPR04MB9351.eurprd04.prod.outlook.com
- (2603:10a6:102:2b6::17)
+	Mon, 20 Jul 2026 09:55:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6F0A62B;
+	Mon, 20 Jul 2026 02:54:51 -0700 (PDT)
+Received: from [10.57.84.220] (unknown [10.57.84.220])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CC8F43F86F;
+	Mon, 20 Jul 2026 02:54:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784541295; bh=tgJkIB4B+jky/Ski+nut9PFjibMvVkWxjSFcztspMP0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ViEoCZkWwBB4U5jsCe/MenGzFNXbQMBSaC5EHu6i6kjJWEKhL4xaRojQr89BKZSgs
+	 WpYAl0Cc9hYS6ia083mYJImUWffA77MzsU7zSZ8rY2Yj0q65clVrp/Br9jjmWtuN6Q
+	 kuM3BuW2JZYN/AhHBIMX5SftJJL97UjTEDm2Ics0=
+Message-ID: <cd4258f6-084d-4759-9ba5-17cf29428b1d@arm.com>
+Date: Mon, 20 Jul 2026 10:54:50 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9351:EE_|AS5PR04MB9800:EE_
-X-MS-Office365-Filtering-Correlation-Id: 506eadd6-98c5-41f9-3a2d-08dee6447e8c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|19092799006|7416014|376014|10067099003|6133799003|56012099006|11063799006|921020|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: /og1Ky46OeAYVgh+J4a/o5oktCC0sK6cKUx2xdym8ZovdVgp6qMVMCaOh0MPhnnu42d1ecRxJnxD2eFCyanjcIpjEAunTvc3INpgqCoisL+xFMlQPjyAgwwqSlqycKDcnuZBxJPJO3+ktmiNThMyiTxYhNWb9d8BKvuR0+TVzC/DdQgS34zRrLHBIyM6i2hkh4jk9IKyhkiv6Zstrmu1Taz7DyMZ3+FzbJbg9Q0iltWpy0ziTOazap9uT27B51j6DKXF/GligI5O3fKd0y+zbZdAZQuMq1bXO+Jyr/U7XHd5vQpSZzxk77LyLA7VYtZOo1iRb1H49REivH2+mxnf3zx9pFDAxS0euJXAzVp5+AooxyKTajYjx45bTM2zPXovAVQhnlhl7e7DIraa//VBfDLzwPVANuBynmd7+n7QuiZ45Q5yki1rHSQAIbyCEsgdn7VBrqMBeZvISDnTvkzAVSKDTFjPyp6RT+RuSxzotd/VOmEEEe0BkXVSB+gjyMCtqrfcdAVy4l3l+tNclChLJBfpfQqUrW92W0tZAfiyeRoxd7eaKbd+2xRKNKQNELNvMBHEIrfGDSHVFDml6O4DVjvYnU9Dk29JMQLVzgwZUb2CsTS3wdljYUD+SJzfwM91/BCOtipsIYIv9t398W8cn0C5+IlSVBSMn+nZs5wwg2SNms150FFeR0jhDoCKxOOqCC5aMdXENgqgtB95pIPWJg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9351.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(19092799006)(7416014)(376014)(10067099003)(6133799003)(56012099006)(11063799006)(921020)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?L3whorcaQf9lOTRY8V9rt5b12FxQ58JUjc0SZ/3WHWPZJu+hiD6ur5erN0/o?=
- =?us-ascii?Q?8hgFhdl/2wkAbuSMbwr4mpOvxwWgxCo5iX7R5/K6kzFfhi554o30x3AlYp37?=
- =?us-ascii?Q?WnvwXlf1CVf5ok06SU+ebV73kZ6ANq6VrgJOt7Kh485ipklw52I4j4SkxxqE?=
- =?us-ascii?Q?BOcJpm9P33oyPLq1izO+cggET4advWun9HcfwdF2I3uA2zc8c7ltE8Jf0IMm?=
- =?us-ascii?Q?9ksiWzVdD0NS8FpKMrz1lPSP4H/BfwKMFH2ZuR9CyPXn89sZlPKhFiex37iV?=
- =?us-ascii?Q?Dvc+aRbYUkd+SzFeXHgsUx/cxf9kbUmedH2zBG2+rViIv3Se2PLvSWDbFcOu?=
- =?us-ascii?Q?fBNFLBEzOCFC/P3SkJ9vU7kMvadQ24ALICGbjYR2D23PgmxooymG9bpJbjeP?=
- =?us-ascii?Q?r3u4kLX+Oe93ivaG338qG1VaSxkDyzI1AIjhpF+AZ0njRnWRZe3NhvZpv50z?=
- =?us-ascii?Q?SNROis2WyvnVUhN08K65SQo6UPpTZOKV1kN0gJgk5E9jdP6sS8ReHuKi1EqH?=
- =?us-ascii?Q?8tYWW26Grs90Fy0nJSVnm4AmcaSvWen7a1cwzROneY0lRTTT8Uh4uPe54//T?=
- =?us-ascii?Q?/83Qm/kvLUOlbn3aeVJLMDqckkxuJQe/hjjHL+J6OJuks9vxOgsucRZEmOqD?=
- =?us-ascii?Q?8PFpqtZWfXCvcnPMTrO/GdzgafLmDdNOHb4Cdwnd4PtaTfihQi/KDWXiHMGl?=
- =?us-ascii?Q?M+wi2pAcfgdoLiAWgbATw+2SXUF8RSFzY2OsiAAeUmEL9Zdem6A7R6jRxZDB?=
- =?us-ascii?Q?K0XkXGmCYMkysMEjVq/uVw2RBbSamubw7OJJGXacqsFCpmbwsERj1jA63EoO?=
- =?us-ascii?Q?1V0RbB4fZ29sHqjF1Z0ndDPCs1m2crvwbBq/3xB27fgmx7jfsBY+er070Oq0?=
- =?us-ascii?Q?RHLGP5jRyBrOrYeuFtaSHu6/FtHIPG8GeI+THAtyozJDG6twb0p+z46GlZgl?=
- =?us-ascii?Q?qgQS5KtlhMaE9EShNn6A3yljwqC9mPRdRIhx3ICE+iZlguqJNWt5ylQ/1Pye?=
- =?us-ascii?Q?Ujc9QrWwbZK1je0dwFEeZPWeFidCq9gPUOMDhI8mECFOFIVLw0gP5vxZ2jTz?=
- =?us-ascii?Q?vBG8Tsfw89E2yUMg+NZqYDGVGqWmUlWpzH4t92pHXDxo//xvnH7eVWigQwXq?=
- =?us-ascii?Q?5N97qjhvaF0STaeyLLgs3QY1fRcbfKfTwlZ6FogXLbzX15bbkQvwQMF0P3vY?=
- =?us-ascii?Q?MyjljggN4JTa9utgprkpC1fUb6ABJxz9SBatAGuRuJYD64ycMP78lgI+I6QN?=
- =?us-ascii?Q?OwerPFAG8BNUETKZqATCNPmtSqvhw6vKxOJmYLHFa03fL7nt9gZPdd4oebmK?=
- =?us-ascii?Q?9O4adNJhJrbzQD6FJlUIbVKvd4GHg/EjntQWB82i/auhAJwDn+lj9wOA5iIE?=
- =?us-ascii?Q?PIFbkYbSbnpmN/ZaGb5E/5Hb4KsP6hFto99H6EyHu3XAterdS9399v/NHy3A?=
- =?us-ascii?Q?4CWh2qYsbLPnDOiB0jo+gS5O9z8miZ/bnkQUIZMABohnrOG/YdO6M79Oc40X?=
- =?us-ascii?Q?qqYQi6bCdLJcgrm8v7hcjht490is6pbwcJqppt8PDaQV3PwyZXVNZB5DQNTP?=
- =?us-ascii?Q?Xjwk9Fjft43nAfhYU5swFcCHkW6Yp2Z8vPFqE9BalUKfLXuXUqSS2vMdTINt?=
- =?us-ascii?Q?6eRnTVLcO1GnKUp0itzHhhUrYQjbZlq5XwcKG9aQ2pQSNLljSEdVdgLGuCJq?=
- =?us-ascii?Q?5q8dovrM4QayNRRyBp8oZsp+uLBTDTGhrjzLxO8yfVpo1UnGYZ14hD1AFzct?=
- =?us-ascii?Q?L8/to4sWsvZ0a84xtPsz1pq9c2tXI7zLtNnCpRnF45As+fD++VWI?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 506eadd6-98c5-41f9-3a2d-08dee6447e8c
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9351.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jul 2026 09:51:39.2118
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: JZYhzmz5MyW9O5cTSoTviKxoa9rls271pxlOOII0rndck87U8oJOrRnoOO+6GoTfZMWN0IancVbFAyKVlu6QBsZ/kxiCFypfawZhqYig/huhXAlvbBmxVzUMROvh2M9k
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB9800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v1 1/8] misc/arm-cla: Add driver skeleton and
+ documentation
+Content-Language: en-GB
+To: Arnd Bergmann <arnd@arndb.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Jean-Philippe Brucker <jpb@kernel.org>,
+ Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org
+References: <20260717104759.123203-1-ryan.roberts@arm.com>
+ <20260717104759.123203-2-ryan.roberts@arm.com>
+ <1e561b1a-2c87-4a23-b4da-126b333de8ba@app.fastmail.com>
+ <5f82ee6b-d106-4ae1-9b2c-5a817e3e43b9@arm.com>
+ <2732dc3b-e3b0-4df6-9b63-f0de4eaca993@app.fastmail.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <2732dc3b-e3b0-4df6-9b63-f0de4eaca993@app.fastmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_025143_111019_C91D11AC 
-X-CRM114-Status: GOOD (  13.46  )
+X-CRM114-CacheID: sfid-20260720_025459_222099_A97DDF54 
+X-CRM114-Status: GOOD (  45.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,166 +79,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Shengjiu Wang <shengjiu.wang@nxp.com>
+On 17/07/2026 17:10, Arnd Bergmann wrote:
+> On Fri, Jul 17, 2026, at 17:44, Ryan Roberts wrote:
+>> On 17/07/2026 14:49, Arnd Bergmann wrote:
+>>> On Fri, Jul 17, 2026, at 12:47, Ryan Roberts wrote:
+>>> This sounds a lot like st64bv or st64bv0, passing an 8-word payload and returning
+>>> a single word per accelerator operation with shared addressing.
+>>
+>> We're actually passing 9 words here; 8 DATA words plus the LAUNCH word. CLA
+>> supports only 64 bit aligned and sized accesses (other accesses are RAZ/WI) so
+>> they have to be written as 9x64bit stores. Then poll using 64bit loads.
+>>
+>>>
+>>> Why are there now two interfaces to do the same thing?
+>>
+>> Good question. This is how the HW operates.
+>>
+>>>
+>>> Can a user process use st64bv to do the four steps in a
+>>> single instruction?
+>>
+>> No, unfortunately not.
+>>
+> 
+> Ok
+> 
+>>> Can a CPU start multiple asynchronous operations concurrently?
+>>
+>> Yes; STATUS indicates READY while it can accept more asynchronous operations
+>> ("comamnds").
+> 
+> How does userspace know which operations have already completed
+> then? (not worried about this bit, just trying to understand)
 
-The i.MX EASRC hardware supports four independent conversion contexts
-(A, B, C, D). The driver previously registered a single DAI with generic
-stream names "ASRC-Playback" and "ASRC-Capture", which prevents
-individual contexts from being routed to separate audio paths
-simultaneously.
+There is nothing architected in the CLA to determine this; You can determine
+READY (i.e. can accept new commands) and IDLE (i.e. completed all previously
+submitted commands). If you want to know when a specific command completed
+without having to wait for all commands to complete, then you need extra
+knowledge of the specific accelerator.
 
-Replace the single fsl_easrc_dai instance with an array of four DAI
-drivers, one per context:
+> 
+>>> Do these continue to run if the starting process is scheduled out
+>>> and another process also tries to use CLA?
+>>
+>> Yes; the driver manages assignment of a CLA to a process context completely
+>> separately from the thread scheduler's decisions about which threads run on
+>> which CPUs and when. If another process is scheduled onto the CPU and it
+>> attempts to access it's VA for the CLA, it will fault into the driver's handler
+>> and be put to sleep until the driver decides to reassign the CLA.
+> 
+> This part does sound dangerous, not in the sense that I think it's
+> fundamentally broken, but in the complexity it adds.
 
-  ctxa -- ASRC-Playback / ASRC-Capture (backward compatible)
-  ctxb -- ASRCB-Playback / ASRCB-Capture
-  ctxc -- ASRCC-Playback / ASRCC-Capture
-  ctxd -- ASRCD-Playback / ASRCD-Capture
+Can you describe more about the complexity you see here? The intention is to
+_reduce_ complexity by not coupling with the CPU scheduler.
 
-Context A retains the original generic stream names to preserve backward
-compatibility with existing machine drivers and board configurations.
-Each DAI retains the same channel, rate and format capabilities as the
-original, including IEC958 subframe support on the capture side. Update
-the devm_snd_soc_register_component() call to register all four DAIs.
+> 
+> I wonder if it's feasible to simplify this by always canceling
+> any ongoing CLA operations during switch_mm():
 
-Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
----
- sound/soc/fsl/fsl_easrc.c | 112 +++++++++++++++++++++++++++++++-------
- 1 file changed, 92 insertions(+), 20 deletions(-)
+The advice I've had so far is to avoid at all costs, coupling the CLA context
+switch with the CPU context switch; there are concerns about the latency
+impliciaitons for the CLA context switch and also a desire not to couple the CLA
+device driver with arch code.
 
-diff --git a/sound/soc/fsl/fsl_easrc.c b/sound/soc/fsl/fsl_easrc.c
-index edfd943197a0..3c5303d9b9cf 100644
---- a/sound/soc/fsl/fsl_easrc.c
-+++ b/sound/soc/fsl/fsl_easrc.c
-@@ -1600,27 +1600,99 @@ static const struct snd_soc_dai_ops fsl_easrc_dai_ops = {
- 	.hw_free	= fsl_easrc_hw_free,
- };
- 
--static struct snd_soc_dai_driver fsl_easrc_dai = {
--	.playback = {
--		.stream_name = "ASRC-Playback",
--		.channels_min = 1,
--		.channels_max = 32,
--		.rate_min = 8000,
--		.rate_max = 768000,
--		.rates = SNDRV_PCM_RATE_KNOT,
--		.formats = FSL_EASRC_FORMATS,
-+static struct snd_soc_dai_driver fsl_easrc_dai[] = {
-+	{
-+		.name = "ctxa",
-+		.playback = {
-+			.stream_name = "ASRC-Playback",
-+			.channels_min = 1,
-+			.channels_max = 32,
-+			.rate_min = 8000,
-+			.rate_max = 768000,
-+			.rates = SNDRV_PCM_RATE_KNOT,
-+			.formats = FSL_EASRC_FORMATS,
-+		},
-+		.capture = {
-+			.stream_name = "ASRC-Capture",
-+			.channels_min = 1,
-+			.channels_max = 32,
-+			.rate_min = 8000,
-+			.rate_max = 768000,
-+			.rates = SNDRV_PCM_RATE_KNOT,
-+			.formats = FSL_EASRC_FORMATS |
-+				   SNDRV_PCM_FMTBIT_IEC958_SUBFRAME_LE,
-+		},
-+		.ops = &fsl_easrc_dai_ops,
- 	},
--	.capture = {
--		.stream_name = "ASRC-Capture",
--		.channels_min = 1,
--		.channels_max = 32,
--		.rate_min = 8000,
--		.rate_max = 768000,
--		.rates = SNDRV_PCM_RATE_KNOT,
--		.formats = FSL_EASRC_FORMATS |
--			   SNDRV_PCM_FMTBIT_IEC958_SUBFRAME_LE,
-+	{
-+		.name = "ctxb",
-+		.playback = {
-+			.stream_name = "ASRCB-Playback",
-+			.channels_min = 1,
-+			.channels_max = 32,
-+			.rate_min = 8000,
-+			.rate_max = 768000,
-+			.rates = SNDRV_PCM_RATE_KNOT,
-+			.formats = FSL_EASRC_FORMATS,
-+		},
-+		.capture = {
-+			.stream_name = "ASRCB-Capture",
-+			.channels_min = 1,
-+			.channels_max = 32,
-+			.rate_min = 8000,
-+			.rate_max = 768000,
-+			.rates = SNDRV_PCM_RATE_KNOT,
-+			.formats = FSL_EASRC_FORMATS |
-+				   SNDRV_PCM_FMTBIT_IEC958_SUBFRAME_LE,
-+		},
-+		.ops = &fsl_easrc_dai_ops,
-+	},
-+	{
-+		.name = "ctxc",
-+		.playback = {
-+			.stream_name = "ASRCC-Playback",
-+			.channels_min = 1,
-+			.channels_max = 32,
-+			.rate_min = 8000,
-+			.rate_max = 768000,
-+			.rates = SNDRV_PCM_RATE_KNOT,
-+			.formats = FSL_EASRC_FORMATS,
-+		},
-+		.capture = {
-+			.stream_name = "ASRCC-Capture",
-+			.channels_min = 1,
-+			.channels_max = 32,
-+			.rate_min = 8000,
-+			.rate_max = 768000,
-+			.rates = SNDRV_PCM_RATE_KNOT,
-+			.formats = FSL_EASRC_FORMATS |
-+				   SNDRV_PCM_FMTBIT_IEC958_SUBFRAME_LE,
-+		},
-+		.ops = &fsl_easrc_dai_ops,
-+	},
-+	{
-+		.name = "ctxd",
-+		.playback = {
-+			.stream_name = "ASRCD-Playback",
-+			.channels_min = 1,
-+			.channels_max = 32,
-+			.rate_min = 8000,
-+			.rate_max = 768000,
-+			.rates = SNDRV_PCM_RATE_KNOT,
-+			.formats = FSL_EASRC_FORMATS,
-+		},
-+		.capture = {
-+			.stream_name = "ASRCD-Capture",
-+			.channels_min = 1,
-+			.channels_max = 32,
-+			.rate_min = 8000,
-+			.rate_max = 768000,
-+			.rates = SNDRV_PCM_RATE_KNOT,
-+			.formats = FSL_EASRC_FORMATS |
-+				   SNDRV_PCM_FMTBIT_IEC958_SUBFRAME_LE,
-+		},
-+		.ops = &fsl_easrc_dai_ops,
- 	},
--	.ops = &fsl_easrc_dai_ops,
- };
- 
- static const struct snd_soc_component_driver fsl_easrc_component = {
-@@ -2245,7 +2317,7 @@ static int fsl_easrc_probe(struct platform_device *pdev)
- 	regcache_cache_only(easrc->regmap, true);
- 
- 	ret = devm_snd_soc_register_component(dev, &fsl_easrc_component,
--					      &fsl_easrc_dai, 1);
-+					      fsl_easrc_dai, ARRAY_SIZE(fsl_easrc_dai));
- 	if (ret) {
- 		dev_err(dev, "failed to register ASoC DAI\n");
- 		goto err_pm_disable;
--- 
-2.34.1
+> 
+> Is there an upper bound on how long a single operation can take,
+> or a guarantee that an operation at least provides a partial result
+> in hardware?
+
+For the compute accelerator we have, operations are gauranteed to complete in
+finite time, but that time could technically be very large. In practice
+operations for known use cases range from a few microseconds to ~10 milliseconds.
+
+As I described in a previous response, the accelerator does not support full
+save/restore so if it is interrupted while running an operation, the operation
+appears aborted when the state is next restored. Due to forward progress
+concerns, we are looking at the possibility of a grace period (of the order of a
+few milliseconds) during CLA reassignment. I'm pretty sure we wouldn't want to
+insert that into the (non-preemptible) CPU context switch path...
+
+> 
+> From your earlier descriptions, it sounds like the CPU is usually
+> assumed to wait for completion with WFE anyway, so from the
+> scheduler's perspective, the thread is active while waiting for
+> the accelerator to complete a job (even if from hardware side
+> the CPU is powered down during WFE).
+
+In practice the CPU will have some parallel work to prepare the next
+operation(s) for submission, but yes, eventually it will enter a polling loop
+waiting for accelarator completion with WFE.
+
+> 
+> If this is how it generally operates, and the accelerator jobs
+> are usually fast, forcing the CLA TTBR0 to be the same as the
+> CPU TTBR0 would avoid the entire problem of unmapping the registers
+> on context switch, but instead let this hook into the same place
+> as the corresponding iommu_mm_data switch on x86, which seems> to handle this
+more nicely.
+>
+
+I agree this feels like a much simpler model on the surface but because the jobs
+are not always fast and because the accelerator doesn't support full
+save/restore, I don't think this approach flies in practice.
+
+Thanks,
+Ryan
+
+
+>> I'm not sure what you mean by "Which instruction specifically causes the fault".
+>> A fault occurs within the accelerator if it tries to access a virtual address
+>> that is not mapped by the page table or if the permissions of the mapping are
+>> not sufficient, etc... The fact that the accelerator has faulted is reported to
+>> the SW that is polling the accelerator's STATUS register within user space. That
+>> SW is expected to trigger fault handling by the usual kernel mechanisms by
+>> accessing the VA. Then it issues a RESOLVE operation to tell the accelerator it
+>> can continue.
+> 
+> Got it now. I had assumed that the page fault is delivered asynchronously
+> to the kernel without user space getting involved. In this case, I think
+> the interface is actually cleaner, though it does add a little bit
+> of overhead for userspace having to decipher the status. 
+>  
+>>>> +User space software is expected to create a thread to drive each CLA it is
+>>>> +using, and for each thread to be pinned to the CLA's local CPU.
+>>>
+>>> What happens if multiple processes have the same chardev open and
+>>> each mmap() that, e.g. after a fork()? Does each process see its
+>>> own virtual instance of the accelerator and interact with it through
+>>> the same physical MMIO register range but its own process address space,
+>>> or do you have to rely on the registers being mapped only into a
+>>> single mm_struct to prevent a process from messing with another process
+>>> data?
+>>
+>> The driver maintains a cla_ctx for each {file description, mm_struct} pair. So
+>> in this case, even though the file description is shared between the parent and
+>> child processes, they still have distinct mm_structs so still have separate
+>> contexts allowing the driver to virtualize access correctly.
+> 
+> Ok, got it.
+> 
+>      Arnd
 
 
