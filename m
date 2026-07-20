@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE00AC44520
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 16:03:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D37EFC44515
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 16:03:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K8kjW1mgVYNAmXTDHsHgs1H1Tp7aKYu9ZJKgbwnVZzM=; b=SV1oqbpiBeiEutUlNruKa4eXcq
-	M2To5JbjRsM622hgul0v/2N24o6NelARyQKgEXTigULBnmsiiQ18BoUqU5IeGUfS/4mKxdyxobg+l
-	UFP39XA4kgO+XIfOu72JKzVXfPqzws6cKlCsN5I6EU2DhLWBO853zduPLe2bCdZHXff5Xq+OpU7/D
-	X1vGvF/ASROOvQhSCPqGxRt97X9X41TiZQH1vbECASkW4a+kk7T+Cug0UGnIJMHY3hE5YM/54k2KK
-	VWla2yWZtA+Bg/pl+xA15T/cTIxoRTtdf1muB5YS47GAIT8GESkr4nG8yOZrHe20Xoiy5VV599OtU
-	CA0kfbig==;
+	bh=8d5Xgeqbr1f1MGwFnkVvgzEnRmvJhiFMLb+8BeBD8T0=; b=4cK6L4EtsAHebxWl4aszcGfmoX
+	OfrAe1F1EdrS8aZku6EUplre0yLTS09Dqm21LlKABXT/dJrLMpGS56YJsqZUiDM5crmk30V/WOerm
+	KJuIbUk021mbl1qfdEL4jkp3wWnaBkceFs9LRD+x4EerEt6THU1L4wKTMpZWdluXAXi7v7mDomT7K
+	uBkz6x2wEyftzDt6qjoj4L+covKAJ1jtd5npiKCEO3z9csya+XF0xISdJhBzPo66j3ci5VKeDJmbO
+	spDLlxkQbmFvoQck2EpQ5qji+C3932T68oNpdz2CGVsA9nWDFXgJueRXt2XGU/tSYL7i2pOz5C8Re
+	uOIRICpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlqT4-00000007IiJ-1h3r;
-	Mon, 20 Jul 2026 16:03:46 +0000
+	id 1wlqT4-00000007IiZ-27Oe;
+	Mon, 20 Jul 2026 16:03:49 +0000
 Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlqSu-00000007IdZ-46h2
+	id 1wlqSz-00000007Iff-108h
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 16:03:38 +0000
+	Mon, 20 Jul 2026 16:03:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
 	s=20170329; h=Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:
 	MIME-Version:Subject:Date:From:From:Reply-To;
-	bh=K8kjW1mgVYNAmXTDHsHgs1H1Tp7aKYu9ZJKgbwnVZzM=; b=UcfDJoaRMfInIUOXPJua32nzro
-	TCUnBZXLISViJVj1RXkJixdDH5jwpPXdWaAhrLNaNO4fFg/FHYqc2a79uNPVPkzN15Qb/qNHQ6O6w
-	LEw6AOZcKd9E1hst81YMGVx9azzH9Mnd+ARfCOd5kR3OA9//Qjf2dcJWtWZfinqIOa8Sz3Y2ASHoP
-	0MZZrxXipDkbrpREof6vuUoYGmRRqIpnR+Rz+SROEqI6Gl9Vl0ipteleX3ini3MPGoE3CQ2vxqmEZ
-	rvDmgLKqquAu5A59tj19sLRg7V/mY1nuH5cM+pF5X27S1OL6BORcDB3qgbUaFKfHGrw7evICBgCag
-	ya7aJUjg==;
+	bh=8d5Xgeqbr1f1MGwFnkVvgzEnRmvJhiFMLb+8BeBD8T0=; b=OArncno8gpWNXxFCZJIOV+Nfrj
+	Wy++aR53dVPM8bQWA+/LnEVVkqHvrRAiSyC060f2QlWQG3nPR/avLpWjBy5BdV4rLOCf/q2YD3NYU
+	vFAMXlQBNBOnbqkPURLUF4bQS4v/2DgiKqSxxHsPqPhLrfjYAD5nLG7yEyMVvbhFEYiTDiZZeT8/p
+	h1JnaIG6DStHi2RfA8pGLcY1v652++Dg1ZeoQ7SVD8M0gDyjbWkb1/39WTR1NmaisITMedqu1ePFo
+	VRxwTf4L+oaf3c4xGbRrQqRbrqJrZxI5RosfGn7ZVDBIvYyC4/ijAKTl6CkE+Tg33R4ChhfVDPPWC
+	o6FABIfQ==;
 Received: from [179.118.191.219] (helo=[192.168.15.100])
 	by fanzine2.igalia.com with esmtpsa 
 	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1wlqSr-001CZ2-Pr; Mon, 20 Jul 2026 18:03:34 +0200
+	id 1wlqSw-001CZ2-DN; Mon, 20 Jul 2026 18:03:38 +0200
 From: =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-Date: Mon, 20 Jul 2026 13:03:03 -0300
-Subject: [PATCH v6 3/4] arm64: vdso32: Bring vdso32-offsets.h back
+Date: Mon, 20 Jul 2026 13:03:04 -0300
+Subject: [PATCH v6 4/4] arm64: vdso32: Implement
+ __vdso_futex_robust_try_unlock()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260720-tonyk-robust_arm-v6-3-7e68c122047e@igalia.com>
+Message-Id: <20260720-tonyk-robust_arm-v6-4-7e68c122047e@igalia.com>
 References: <20260720-tonyk-robust_arm-v6-0-7e68c122047e@igalia.com>
 In-Reply-To: <20260720-tonyk-robust_arm-v6-0-7e68c122047e@igalia.com>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -65,8 +66,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_090337_012015_164F0CCE 
-X-CRM114-Status: GOOD (  10.69  )
+X-CRM114-CacheID: sfid-20260720_090341_295158_547A25D0 
+X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,65 +82,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit c7767f5c43df ("arm64: vdso32: Remove unused vdso32-offsets.h")
-removed vdso32-offsets.h because it was empty and therefore useless.
+Based on aarch64 implementation, provide a 32 bit entry point for
+this vDSO.
 
-With the introduction of __vdso_futex_robust_try_unlock(), there is the
-need to expose offsets again.
+In order to keep compatibility with arm64_futex_robust_unlock_get_pop(),
+make sure to store the pop address at r2 and the compare result value
+at r3.
 
 Signed-off-by: André Almeida <andrealmeid@igalia.com>
 ---
- arch/arm64/Makefile               | 2 +-
- arch/arm64/include/asm/vdso.h     | 3 +++
- arch/arm64/kernel/vdso32/Makefile | 8 ++++++++
- 3 files changed, 12 insertions(+), 1 deletion(-)
+ arch/arm64/kernel/vdso.c            | 14 ++++++++++++++
+ arch/arm64/kernel/vdso32/Makefile   |  4 ++++
+ arch/arm64/kernel/vdso32/vdso.lds.S |  9 +++++++++
+ arch/arm64/kernel/vdso32/vfutex.c   | 34 ++++++++++++++++++++++++++++++++++
+ 4 files changed, 61 insertions(+)
 
-diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
-index 6b005c8fef70..265716644193 100644
---- a/arch/arm64/Makefile
-+++ b/arch/arm64/Makefile
-@@ -211,7 +211,7 @@ vdso_prepare: prepare0
- 	include/generated/vdso-offsets.h arch/arm64/kernel/vdso/vdso.so
- ifdef CONFIG_COMPAT_VDSO
- 	$(Q)$(MAKE) $(build)=arch/arm64/kernel/vdso32 \
--	arch/arm64/kernel/vdso32/vdso.so
-+	include/generated/vdso32-offsets.h arch/arm64/kernel/vdso32/vdso.so
- endif
- endif
+diff --git a/arch/arm64/kernel/vdso.c b/arch/arm64/kernel/vdso.c
+index 1d1633e8339b..d9b86f9a0db6 100644
+--- a/arch/arm64/kernel/vdso.c
++++ b/arch/arm64/kernel/vdso.c
+@@ -182,6 +182,15 @@ enum aarch32_map {
+ static struct page *aarch32_vectors_page __ro_after_init;
+ static struct page *aarch32_sig_page __ro_after_init;
  
-diff --git a/arch/arm64/include/asm/vdso.h b/arch/arm64/include/asm/vdso.h
-index 232b46969088..43a214b93524 100644
---- a/arch/arm64/include/asm/vdso.h
-+++ b/arch/arm64/include/asm/vdso.h
-@@ -10,6 +10,9 @@
- #ifndef __ASSEMBLER__
++static inline void aarch32_vdso_futex_update_ips(struct mm_struct *mm)
++{
++	unsigned long vdso = (unsigned long) mm->context.vdso;
++
++	__vdso_futex_update_ips(mm, true,
++				VDSO_SYMBOL(vdso, futex_list32_try_unlock_cs_start),
++				VDSO_SYMBOL(vdso, futex_list32_try_unlock_cs_end));
++}
++
+ static int aarch32_sigpage_mremap(const struct vm_special_mapping *sm,
+ 				  struct vm_area_struct *new_vma)
+ {
+@@ -195,6 +204,8 @@ static int aarch32_mremap(const struct vm_special_mapping *sm,
+ {
+ 	current->mm->context.vdso = (void *)new_vma->vm_start;
  
- #include <generated/vdso-offsets.h>
-+#ifdef CONFIG_COMPAT_VDSO
-+#include <generated/vdso32-offsets.h>
-+#endif
++	aarch32_vdso_futex_update_ips(current->mm);
++
+ 	return 0;
+ }
  
- #define VDSO_SYMBOL(base, name)						   \
- ({									   \
+@@ -327,6 +338,7 @@ static int aarch32_sigreturn_setup(struct mm_struct *mm)
+ 	return PTR_ERR_OR_ZERO(ret);
+ }
+ 
++
+ int aarch32_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
+ {
+ 	struct mm_struct *mm = current->mm;
+@@ -347,6 +359,8 @@ int aarch32_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
+ 	}
+ 
+ 	ret = aarch32_sigreturn_setup(mm);
++
++	aarch32_vdso_futex_update_ips(mm);
+ out:
+ 	mmap_write_unlock(mm);
+ 	return ret;
 diff --git a/arch/arm64/kernel/vdso32/Makefile b/arch/arm64/kernel/vdso32/Makefile
-index bea3675fa668..4bd60f059f4a 100644
+index 4bd60f059f4a..f3190125c68b 100644
 --- a/arch/arm64/kernel/vdso32/Makefile
 +++ b/arch/arm64/kernel/vdso32/Makefile
-@@ -135,6 +135,14 @@ $(c-obj-vdso-gettimeofday): %.o: %.c FORCE
- $(asm-obj-vdso): %.o: %.S FORCE
- 	$(call if_changed_dep,vdsoas)
+@@ -97,6 +97,10 @@ munge := ../../../arm/vdso/vdsomunge
+ hostprogs := $(munge)
  
-+# Generate VDSO offsets using helper script
-+gen-vdsosym := $(src)/../vdso/gen_vdso_offsets.sh
-+quiet_cmd_vdsosym = VDSOSYM $@
-+      cmd_vdsosym = $(NM) $< | $(gen-vdsosym) | LC_ALL=C sort > $@
+ c-obj-vdso := note.o
++ifdef CONFIG_FUTEX_ROBUST_UNLOCK
++  c-obj-vdso += vfutex.o
++endif
 +
-+include/generated/vdso32-offsets.h: $(obj)/vdso32.so.dbg FORCE
-+	$(call if_changed,vdsosym)
+ c-obj-vdso-gettimeofday := vgettimeofday.o
+ 
+ ifneq ($(c-gettimeofday-y),)
+diff --git a/arch/arm64/kernel/vdso32/vdso.lds.S b/arch/arm64/kernel/vdso32/vdso.lds.S
+index c374fb0146f3..46c0123b2684 100644
+--- a/arch/arm64/kernel/vdso32/vdso.lds.S
++++ b/arch/arm64/kernel/vdso32/vdso.lds.S
+@@ -87,6 +87,15 @@ VERSION
+ 		__vdso_clock_getres;
+ 		__vdso_clock_gettime64;
+ 		__vdso_clock_getres_time64;
++#ifdef CONFIG_FUTEX_ROBUST_UNLOCK
++		__vdso_futex_robust_list32_try_unlock;
++#endif
+ 	local: *;
+ 	};
+ }
 +
- # Actual build commands
- quiet_cmd_vdsold_and_vdso_check = LD32    $@
-       cmd_vdsold_and_vdso_check = $(cmd_vdsold); $(cmd_vdso_check)
++#ifdef CONFIG_FUTEX_ROBUST_UNLOCK
++VDSO_futex_list32_try_unlock_cs_success = __futex_list32_try_unlock_cs_success;
++VDSO_futex_list32_try_unlock_cs_start = __futex_list32_try_unlock_cs_start;
++VDSO_futex_list32_try_unlock_cs_end = __futex_list32_try_unlock_cs_end;
++#endif
+diff --git a/arch/arm64/kernel/vdso32/vfutex.c b/arch/arm64/kernel/vdso32/vfutex.c
+new file mode 100644
+index 000000000000..030eb767b8d6
+--- /dev/null
++++ b/arch/arm64/kernel/vdso32/vfutex.c
+@@ -0,0 +1,34 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++#include <linux/stringify.h>
++#include <vdso/futex.h>
++
++__u32 __vdso_futex_robust_list32_try_unlock(__u32 *lock, __u32 tid, __u32 *pop)
++{
++	register __u32 *pop_reg asm("r2") = pop, result_reg asm("r3") = 0;
++	__u32 val, zero = 0;
++
++	asm volatile (
++		".globl						  "
++		"__futex_list32_try_unlock_cs_start,		  "
++		"__futex_list32_try_unlock_cs_success,		  "
++		"__futex_list32_try_unlock_cs_end		\n"
++
++		"retry:						\n"
++		"	ldrex %[val], %[lock]			\n"
++		"	cmp %[tid], %[val]			\n"
++		"	bne __futex_list32_try_unlock_cs_end	\n"
++		"	strex %[result], %[zero], %[lock]	\n"
++		"__futex_list32_try_unlock_cs_start:		\n"
++		"	cmp %[result], #0			\n"
++		"	bne retry				\n"
++		"__futex_list32_try_unlock_cs_success:		\n"
++		"	str %[zero], %[pop_reg]			\n"
++		"__futex_list32_try_unlock_cs_end:		\n"
++
++		: [val] "=&r" (val), [result] "=r" (result_reg)
++		: [tid] "r" (tid), [lock] "Q" (*lock), [pop_reg] "Q" (*pop_reg), [zero] "r" (zero)
++		: "cc", "memory"
++	);
++
++	return val;
++}
 
 -- 
 2.55.0
