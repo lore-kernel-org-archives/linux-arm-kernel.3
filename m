@@ -4,66 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66147C44520
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 19:10:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07150C4452D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 19:23:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4btInc59l/zVSR9tA9MgzSoFhT1e6g3u0GbEChOxhsM=; b=KslSYZsxDLy+j+w8gH7dwS6jOh
-	ehDyL4Gpadqc9VwGunfxe1n7ww1nvB7roZIbQ7tnlfMwf2BUPluF+Ahm/QF79GPD1vlivI1eXQ7uD
-	2lMMW2IzHJPz5jlZm36t1ZamoqpdBjUZvPZP6qC3UfHiKZ0C/HwEzH/4hlkXNJlEzXLky6gHBpIZO
-	Hw0IekKIdBmuD7Oxiw9EnW/6g+uOetaXpg4S3gSdxaxICvycxiC2NEEdmfAtz9DvW3/hO8xDDRWei
-	VPHG/G0yBsQ60wtvKiyABJCpK5aVzGxRc9ny8qGTUieXz5XlHjw+/8bAK56OTaIJs9rB5YlVOmpYU
-	Kaj6cKYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zhsDptVnJ/ztNAQxE/yHvNkAp31hKo/DarPf2cIRmUI=; b=2vcEzUHdYtIqo/q33usPicJfda
+	t3eck+IDIcjOzhf6aN42N5pcmpRZ8tn2EUf63UEEBpZV53CGkQw0Q2e/Vy7MLhpus7gNB2nyRNw5L
+	4OiPhWxo188yxt2K/nUKIftgxqZxauO/FlTJs9DTB5mk8y2pK564YYZ5Q5wfHCQJFs8fSl+dZwpcU
+	DYhS8GIb5PqGIpRTHLtaIp59adSdzzU3kbQGC9BfSBd1qL/IdQfkAO9s9JtTEWoI2rygYuwRaH4QF
+	8h7bFXWciso6xq8sOCm2TbM6D3ssnbeXvvb4G4EPlggPLH2QX0ivo2AQEyEo7BjjbeVaIh5yJBui1
+	C0228twA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wltNR-00000007j73-143I;
-	Mon, 20 Jul 2026 19:10:09 +0000
-Received: from abscue.de ([2a03:4000:63:bf5:4817:8eff:feeb:8ac7] helo=srv01.abscue.de)
+	id 1wltZl-00000007k6x-0rgI;
+	Mon, 20 Jul 2026 19:22:53 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wltNN-00000007j5I-3HLC;
-	Mon, 20 Jul 2026 19:10:08 +0000
-Message-ID: <db76f500-0db5-4c5f-b4cb-60818702787e@abscue.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=abscue.de; s=dkim;
-	t=1784574589;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=4btInc59l/zVSR9tA9MgzSoFhT1e6g3u0GbEChOxhsM=;
-	b=nrGp+KFDtZK5cXMRQftZ9o1RD7uBJBYEEkvLa9ny5cg4VsDgBHNNG86pCox2hxlidSF7zf
-	EyjOWtc46Vzhn6ZkkAhqI7EWv5p0Apjd/O3zl+rmvD8DaobdBh5Qk9XSUREW+NDjoT/Clp
-	t8Emny+a+r2CevayhKk682KiqKmJZmaXVhktGFpZcQAt9QUftl5xRyxXEpicxbTtpxE7zQ
-	3bhBo/NtlDXgfTgMd1GusTfwR2yxzM1WQPqkX6mrBZNxxzIakPMEVFTgIsAky1iAz122qd
-	6TShAEZu73Wd9ZLfQ6aupzHmh2ogMq46HHqesM+3WHXYkvX8bSHYkp84Vh023A==
-Date: Mon, 20 Jul 2026 21:09:46 +0200
+	id 1wltZi-00000007k4w-1Jyo
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Jul 2026 19:22:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1784575370; x=1816111370;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=JHcppqoikoS8e0wMZIde7eaA2lWQyyAwdPloNvfOIcs=;
+  b=fNmHhWe7AMxmmM+qyj1PbtTtOcga9FShgN165hsxXeIhURVPmln5uMh0
+   D4w3wdF3RL0+mC2zS+FpY9mN8C6WnKhSD2l7hoxxa3nomW7JxdafGoz1v
+   ovX+DWoGgXqFyGjfjBbt6Sq0hVy2vV3wq4T8v1VmHP7W6ckvyHwO3kDZN
+   xcXHe85W+jPIhgKVv/BJB2KDExdkUx0EImxUMsaFhUEUb7sEtlfcxiodL
+   bRYpWfhuz3J3w5MUVI/rLpQbAtqsuV+9/U+CtD0IswaNGGD/FCyvg6oYN
+   7zdrHo92e1Ccl1cydXkD6UsNCTfdnu9x/tz8LVLgmXKnRUq9zOxHIg5En
+   g==;
+X-CSE-ConnectionGUID: X3iQtnjNTGOsGmUY6TssCg==
+X-CSE-MsgGUID: jLH1oPDjRSGxFd9sDBBEcg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11852"; a="96299855"
+X-IronPort-AV: E=Sophos;i="6.25,175,1779174000"; 
+   d="scan'208";a="96299855"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Jul 2026 12:22:48 -0700
+X-CSE-ConnectionGUID: LuL0t+6hQgex6EGAUYO66g==
+X-CSE-MsgGUID: zUA/8s2zRDq/rrKDCG7NAA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,175,1779174000"; 
+   d="scan'208";a="258181719"
+Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.175])
+  by orviesa009-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Jul 2026 12:22:46 -0700
+Date: Mon, 20 Jul 2026 22:22:43 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Shih-Yuan Lee <fourdollars@debian.org>
+Cc: Mark Brown <broonie@kernel.org>,
+	Mika Westerberg <mika.westerberg@linux.intel.com>,
+	Lukas Wunner <lukas@wunner.de>, Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v16 1/7] spi: pxa2xx: introduce clock enable and disable
+ helper functions
+Message-ID: <al51g77Zsdr3OyBS@ashevche-desk.local>
+References: <20260720162117.32304-1-fourdollars@debian.org>
+ <20260720162117.32304-2-fourdollars@debian.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] dt-bindings: power: Add MediaTek MT6858 power
- domain controller
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Ulf Hansson <ulfh@kernel.org>, Matthias Brugger <mbrugger@suse.com>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-pm@vger.kernel.org, Nikolai Burov <nikolai.burov@jolla.com>
-References: <20260715-mt6858-pmdomain-v2-0-6293e87fc093@jolla.com>
- <20260715-mt6858-pmdomain-v2-1-6293e87fc093@jolla.com>
- <20260720-vigorous-groovy-cassowary-9912d9@quoll>
-Content-Language: en-US
-From: Nikolai Burov <nikolai.burov+review@abscue.de>
-In-Reply-To: <20260720-vigorous-groovy-cassowary-9912d9@quoll>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260720162117.32304-2-fourdollars@debian.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_121006_277084_AB5F6382 
-X-CRM114-Status: GOOD (  21.52  )
+X-CRM114-CacheID: sfid-20260720_122250_407156_BBAF844E 
+X-CRM114-Status: GOOD (  20.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,68 +92,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/20/26 8:05 AM, Krzysztof Kozlowski wrote:
-> On Wed, Jul 15, 2026 at 04:54:05PM +0300, Nikolai Burov wrote:
->> Add a new compatible and document bindings for the power domain
->> controller of the MT6858 SoC.
->>
->> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+On Tue, Jul 21, 2026 at 12:21:10AM +0800, Shih-Yuan Lee wrote:
+> The driver disables the clock during PM runtime suspend, PM system
+> suspend, and device unbinding (remove). It also disables the clock
+> on various error unwinding paths in pxa2xx_spi_probe().
 > 
-> To provide review, please open and read the entire file.
+> However, if the clock is already disabled (for example, if the device is
+> already runtime-suspended during driver unbinding), calling the common
+> clock framework's clk_disable_unprepare() again leads to clock prepare/enable
+> count underflows, generating kernel warnings.
+
+Any real life example here?
+
+> Introduce pxa2xx_spi_clk_enable() and pxa2xx_spi_clk_disable() helper
+> functions that track the clock enable state using a new 'clk_enabled'
+> boolean flag in struct driver_data.
 > 
->> Signed-off-by: Nikolai Burov <nikolai.burov@jolla.com>
->> ---
->>  .../bindings/power/mediatek,power-controller.yaml  | 21 +++++++++++++++++++-
->>  include/dt-bindings/power/mediatek,mt6858-power.h  | 23 ++++++++++++++++++++++
->>  2 files changed, 43 insertions(+), 1 deletion(-)
->>
->> diff --git a/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml b/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
->> index 070c6e5666dc..d03e4a925163 100644
->> --- a/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
->> +++ b/Documentation/devicetree/bindings/power/mediatek,power-controller.yaml
->> @@ -25,6 +25,7 @@ properties:
->>      enum:
->>        - mediatek,mt6735-power-controller
->>        - mediatek,mt6795-power-controller
->> +      - mediatek,mt6858-power-controller
->>        - mediatek,mt6893-power-controller
->>        - mediatek,mt8167-power-controller
->>        - mediatek,mt8173-power-controller
->> @@ -56,7 +57,7 @@ properties:
->>        faults while enabling or disabling a power domain.
->>        For example, this may hold phandles to INFRACFG and SMI.
->>      minItems: 1
->> -    maxItems: 3
->> +    maxItems: 6
-> 
-> And the rest? Why does this device have flexible number of access
-> controllers?
+> This ensures clk_disable_unprepare() is called only when the clock is
+> active, preventing clock underflows during suspend transitions and unbind.
+> It also allows the probe function to safely unwind resource allocations
+> without triggering clock underflows.
 
-For mt6858, the "items" list I provided already overrides both minItems 
-and maxItems, so it has a fixed number (6) of access controllers.
+...
 
-The top-level constraints are intentionally broad so that the 
-SoC-specific constraints below, which all have minItems == maxItems, 
-don't contradict them. Those are missing for some SoCs, but isn't that 
-an existing weakness in the bindings?
+Same issue, I have no cover letter in my mailbox. Please, slow down and check
+your email setup. Something is wrong.
 
-Looking at the driver, apparently those missing SoCs are the ones that 
-only need infracfg. That's a single access controller. So they would 
-never have 3 or 2 items, only 1. This is not specified in the bindings 
-though.
+...
 
-If you mean that it can't stay like this, I could change the bindings to 
-add such a constraint for the remaining SoCs, provided that this is 
-allowed - theoretically it could break some hypothetical device trees 
-with excess items in access-controllers.
+> +static int pxa2xx_spi_clk_enable(struct driver_data *drv_data)
+> +{
+> +	int ret;
+> +
+> +	if (drv_data->clk_enabled)
+> +		return 0;
+> +
+> +	ret = clk_prepare_enable(drv_data->ssp->clk);
 
-Alternatively, I guess one solution would be to add a minItems: 1 and 
-maxItems: 3 constraint for the remaining SoCs to keep their bindings 
-unaffected, even though that seems wrong from a HW point of view. But 
-I'm not sure if that is what you mean.
+> +	if (ret == 0)
+> +		drv_data->clk_enabled = true;
+> +
+> +	return ret;
 
+Use usual pattern
+
+	if (ret)
+		return ret;
+
+	...
+	return 0;
+
+> +}
+
+> +static void pxa2xx_spi_clk_disable(struct driver_data *drv_data)
+> +{
+> +	if (drv_data->clk_enabled) {
+
+	if (!drv_data->clk_enabled)
+		return;
+
+> +		clk_disable_unprepare(drv_data->ssp->clk);
+> +		drv_data->clk_enabled = false;
+> +	}
+> +}
+
+...
+
+> struct driver_data {
+
+>  	void __iomem *lpss_base;
+>  
+> +	bool clk_enabled;
+
+How is this protected against simultaneously called enable/disable on different
+CPUs?
+
+>  	/* Optional slave FIFO ready signal */
+>  	struct gpio_desc *gpiod_ready;
+>  };
+
+Whenever you add the field, check with `pahole` that the layout is optimal.
 
 -- 
-Best regards,
-Nikolai
+With Best Regards,
+Andy Shevchenko
+
+
 
