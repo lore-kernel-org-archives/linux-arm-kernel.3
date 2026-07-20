@@ -4,68 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52190C4452A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 12:48:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47EA9C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 12:52:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7K66VbKKgTaDr52VYrIDy5bpnubc/RNE2MTPjW18K5c=; b=X36VK4pfmkL9fhj1IyTVdaAGF6
-	QF0KxiIS2Gtt1sx+SxYSas1+nCxiaG8kmPCsMjGnvDfndZO7xZpM/A79tpmQxm+1BwTESYGkybTPH
-	C+yDI+b9RUHUgJtXP2eTtT65dTW5bZAQ/PrelaC8HEbcFD1nIWa/lXOx2qBnQPMA7Q3inQKyRoYqg
-	oMZrhW4SG/e4zPg39OV0qPpvGlqQl+FBbeXWM2CB87xm+yOIQk2cx+WeBeOwdT3FTn7evhTkgPDUl
-	PAEaQ7vhLmVIZAd/OlB6x48jdr/KiS86owM/CyaqfgicRl2AvJfk2oJkNIWzlz9K3e/IxRXwqcAq6
-	WfWZ/IQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7NbFmGRL+DFWpJhLrxNldLv/oXQ0zjLejhLY/pDKR2U=; b=dC0y+6YBgcIDrRfXdIJ87Xkf3c
+	GwGpZ6ztQ9pC/9yDoemzTogfmBE9vl5WujsY0NphcRRklIvzUJFqbJQVcu7/hrhDol9Cc/J8RlMcG
+	vCXSt+rPcUINle9Sr9EIGw3lwWX+O3UceaKCs2GyhrFEqgasrsDWpu+5vBwJM20sWJTG5uvGsDRxf
+	myZp8TA5+DI7Hj0MF4nC9ZHfuL2VRgKQoUNNr1wAP9tVE15YeJaTNwZsqjrJqtRZ2yxKqtLfjASFP
+	HThHE+50fyEBT54vG+IEVMrrHEe+Obe2Ha8uSaDyrPJiUyeVEVt6ZmpR0sSHCuovbRAKuafx5RKgk
+	Frkzl+OA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlnQO-00000006jXI-0x3Q;
-	Mon, 20 Jul 2026 12:48:48 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wlnTV-00000006jsR-39qE;
+	Mon, 20 Jul 2026 12:52:01 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlnQF-00000006jQ7-2URE;
-	Mon, 20 Jul 2026 12:48:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1784551717;
-	bh=8al6kGjAgR8cWgWi9vo/v9SR3d7TNJ3OU/K1vjqdz8g=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=E+n4GOtYOKrCxhVCLmYXs7z6+9VGvsj7+ZRaecz5ZTAGQoHK5HoWrBp0yo038yQwf
-	 mrgnTqRqBMO1rLacXFNZAPxRkenW2HDA1qdda4lYC0oFZLDIxFM4HtOCuslAtMlGj/
-	 S7muLxa+SUxsLYzR2/jhCpV0RFyOlwO8FzyartADHgcJmI0y8DzupVmM3YLCKPt1nn
-	 en9A/hcjvlThUpgLKZ4lIqV/thdQoBeVdkgpFEVpZxkpcwP70pNlQsl2wJpMgq5Ko8
-	 s0/hWSPX/KbUg2sTethEuFzvLiyrPJjlUnoOPjCcNOKkJjCLbwOP79uv/0hP8iA1OZ
-	 G+QstnTAb91qg==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8B0C317E0CF1;
-	Mon, 20 Jul 2026 14:48:36 +0200 (CEST)
-Message-ID: <c2b85740-4372-4609-a9fa-930010f5296a@collabora.com>
-Date: Mon, 20 Jul 2026 14:48:36 +0200
+	id 1wlnTU-00000006jsE-1vf7;
+	Mon, 20 Jul 2026 12:52:00 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id E7C154192F;
+	Mon, 20 Jul 2026 12:51:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A8381F00A3A;
+	Mon, 20 Jul 2026 12:51:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784551919;
+	bh=7NbFmGRL+DFWpJhLrxNldLv/oXQ0zjLejhLY/pDKR2U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=FTX3EbeHXY2kGexsywwF78WG7NqBTfzKJqMqDKHVVjZnH1EexAo7I4eDQG86iOrAX
+	 mz5KzDBOBHms3gwIwzER4Z5y2Mi6h/65ywmrL55Ue6nZbxixoK8HSQE6dSbRyQfhA5
+	 U8kV+t1MtkTjWiMC512cc4AeaBPaFOtfJKNEOxAIDQi6/8jAR1EIpmBAVFYKOGrF96
+	 HSrTp3mrd+krZlCoIue4CKbKJDKyBSlh9GcbGNHDr0anjjKV8Z4q1O1p+ce8/MYxuk
+	 faLdaSxd54O+cvOvc34RNu0jAdnF6sVmGA79YtkGC2izi9fVWtlou6YowFRUofOQkc
+	 gEvSrnY1VbaXQ==
+Date: Mon, 20 Jul 2026 14:51:52 +0200
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>
+Subject: Re: [PATCH RESEND] dt-bindings: PCI: mediatek-gen3: Allow
+ memory-region for restricted DMA buffer
+Message-ID: <fgnu3itbp5wpnh23i3qafvku64ny33rwrncpjwd3cuwh6ipvt6@vujjmoikotht>
+References: <20260720092116.1823562-1-wenst@chromium.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] nvmem: mtk-efuse: add support for 32-bit aligned
- reads
-To: rva333@protonmail.com, Srinivas Kandagatla <srini@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
- Lala Lin <lala.lin@mediatek.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20260715-6572-nvmem-v1-0-9c13be99d077@protonmail.com>
- <20260715-6572-nvmem-v1-2-9c13be99d077@protonmail.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20260715-6572-nvmem-v1-2-9c13be99d077@protonmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_054839_790426_B1F01B2C 
-X-CRM114-Status: GOOD (  26.46  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260720092116.1823562-1-wenst@chromium.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,118 +73,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/15/26 16:27, Roman Vivchar via B4 Relay wrote:
-> From: Roman Vivchar <rva333@protonmail.com>
+On Mon, Jul 20, 2026 at 05:21:15PM +0800, Chen-Yu Tsai wrote:
+> On some SoCs without an IOMMU behind the PCIe controller, the PCIe
+> controller memory access could be limited to a small region by the
+> firmware configuring a memory protection unit. This memory region
+> must be assigned to the PCIe controller so that the OS knows to
+> use that region. Otherwise PCIe devices would not work properly.
 > 
-> Some MediaTek SoCs, such as mt6572, don't support 8-bit reads, leading
-> to zeroes or garbage data. 32-bit aligned reads must be used instead.
+> Allow the memory-region property with one item pointing to a
+> restricted DMA buffer.
 > 
-> Introduce an 'needs_aligned_read' field to the platform data to enforce
-> 32-bit aligned register access. All reads will be performed by reading
-> 4-byte words and masking them.
-> 
-> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
-
-You're effectively overriding the entire mtk_reg_read function when
-needs_aligned_read==true... so.... (check below)
-
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 > ---
->   drivers/nvmem/mtk-efuse.c | 31 ++++++++++++++++++++++++++++---
->   1 file changed, 28 insertions(+), 3 deletions(-)
+> Can we get this merged for v7.2? A matching device tree change was
+> already merged in v7.2-rc1.
 > 
-> diff --git a/drivers/nvmem/mtk-efuse.c b/drivers/nvmem/mtk-efuse.c
-> index af953e1d9230..1462f2760818 100644
-> --- a/drivers/nvmem/mtk-efuse.c
-> +++ b/drivers/nvmem/mtk-efuse.c
-> @@ -4,6 +4,7 @@
->    * Author: Andrew-CT Chen <andrew-ct.chen@mediatek.com>
->    */
->   
-> +#include <linux/align.h>
->   #include <linux/device.h>
->   #include <linux/module.h>
->   #include <linux/mod_devicetable.h>
-> @@ -14,10 +15,12 @@
->   
->   struct mtk_efuse_pdata {
->   	bool uses_post_processing;
-> +	bool needs_aligned_read;
->   };
->   
->   struct mtk_efuse_priv {
->   	void __iomem *base;
-> +	const struct mtk_efuse_pdata *data;
 
-...instead of adding pdata here...
+This is not a bug fix, so not sure if this patch can be applied for 7.2. But DTS
+change getting applied before the binding change was a mistake first of all.
 
->   };
->   
->   static int mtk_reg_read(void *context,
-> @@ -28,6 +31,26 @@ static int mtk_reg_read(void *context,
->   	u8 *val = _val;
->   	int i;
->   
-> +	if (priv->data->needs_aligned_read) {
-> +		u32 pos, shift, val32;
+- Mani
+
+> 
+>  Documentation/devicetree/bindings/pci/mediatek-pcie-gen3.yaml | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/pci/mediatek-pcie-gen3.yaml b/Documentation/devicetree/bindings/pci/mediatek-pcie-gen3.yaml
+> index fbc0378392d4..b88717dec1fa 100644
+> --- a/Documentation/devicetree/bindings/pci/mediatek-pcie-gen3.yaml
+> +++ b/Documentation/devicetree/bindings/pci/mediatek-pcie-gen3.yaml
+> @@ -116,6 +116,10 @@ properties:
+>    power-domains:
+>      maxItems: 1
+>  
+> +  memory-region:
+> +    maxItems: 1
+> +    description: phandle to restricted DMA buffer
 > +
-> +		for (i = 0; i < bytes; i++, val++) {
-> +			pos = reg + i;
-> +
-> +			/*
-> +			 * Read on 32-bit word boundary or if it's the first
-> +			 * iteration
-> +			 */
-> +			if (i == 0 || IS_ALIGNED(pos, 4))
-> +				val32 = readl(priv->base + (pos & ~3));
-> +
-> +			shift = (pos & 3) * 8;
-> +			*val = (val32 >> shift) & 0xff;
-> +		}
-> +
-> +		return 0;
-> +	}
-> +
->   	for (i = 0; i < bytes; i++, val++)
->   		*val = readb(addr + i);
->   
-> @@ -67,7 +90,6 @@ static int mtk_efuse_probe(struct platform_device *pdev)
->   	struct nvmem_device *nvmem;
->   	struct nvmem_config econfig = {};
->   	struct mtk_efuse_priv *priv;
-> -	const struct mtk_efuse_pdata *pdata;
->   	struct platform_device *socinfo;
->   
->   	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-> @@ -78,7 +100,8 @@ static int mtk_efuse_probe(struct platform_device *pdev)
->   	if (IS_ERR(priv->base))
->   		return PTR_ERR(priv->base);
->   
-> -	pdata = device_get_match_data(dev);
-> +	priv->data = device_get_match_data(dev);
-> +
+>    mediatek,pbus-csr:
+>      $ref: /schemas/types.yaml#/definitions/phandle-array
+>      items:
+> -- 
+> 2.55.0.229.g6434b31f56-goog
+> 
 
-...and instead of changing a bunch of lines here...
-
->   	econfig.add_legacy_fixed_of_cells = true;
->   	econfig.stride = 1;
->   	econfig.word_size = 1;
-
-it's easier at this point if you simply do
-
-	if (pdata->needs_aligned_read) {
-		econfig.stride = 4;
-		econfig.reg_read = mtk_reg_read_aligned;
-	} else {
-		econfig.stride = 1;
-		econfig.reg_read = mtk_reg_read;
-	}
-
-and you avoid touching mtk_reg_read entirely.
-
-Though it's not going to be used in any performance path, that's also faster as
-there's one less branch per execution.
-
-Cheers,
-Angelo
-
+-- 
+மணிவண்ணன் சதாசிவம்
 
