@@ -4,86 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3D24C4451B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 02:20:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7369DC4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 03:06:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zW3tm3Y0d1vKjC5eUVN1WLOfh3pit8adpOp6zKIGt4E=; b=PaQk5yPbYEW/j7or50Y3Iiq3Sr
-	zjFP8vCfQTJfzVhsWv9Xtb2JIH9UfeE4nJfLXLIsE1+mWIOW7LfM3VwqplA2U8RdNu74fzKl7wnmC
-	1DvF7xoQxEVTKD3Wey6LsYxJqeh68WLVf61UUrrXolj7Cb/tJ2RbGv2yaGPMUpr/txhRTlNqJelCG
-	zD5+rXYXEXViN53dXef59u5xfIUSK/RZih4cxu3PbsPGLRxuMtZFGa7trrZnsYfx/c8pb02AJllGK
-	X7Lk3np+3Gq7VFPv22Uj4O9dqPxuv/NTI7XQjM7Aa8lYLxOKyYZ6SeuF/j0HHZeuhOFfSzkNC2XJN
-	biFUG/oQ==;
+	bh=AXtq+ecEAywLnvDjSZM6ov2wubc0XFPi9d99IVIm0iw=; b=OXHHj7mfZmddZHh7JTWMXuTrH7
+	WKAlJTC0GEe7kKQ8aOEKFYqrvOQufVMf2fp1zLxOF3VmwBXbJCMEUeao0aUHVyk9OgIGOlkuoFnXE
+	//9CCj7X6mzV1LOH/T5sUa9u8Njll1ryh5LKkTPKMHl3S5hUyHZF3t7hSbPFCsQpLf6f9CTpO4g17
+	TBwLiF5z0vk8+zgpZm4EIp+6PhZ1aroo0SBKqwTmOQtx+wcYznz4/EN4ES5tw6HY2OwOw9rhs5YcF
+	+T+0eFMOvmK+t0zSXvjb+K9lLzdGTJHog+oY/pdTtuJcPMDYvHdeePG2qlfQMW/6XcS1t5RZOOZDR
+	qJm9iVFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wldbz-00000005g6C-0ac0;
-	Mon, 20 Jul 2026 02:20:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wleKz-00000005jK7-1oTg;
+	Mon, 20 Jul 2026 03:06:37 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wldbi-00000005fyh-2q27
+	id 1wleKw-00000005jJT-1zOf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 02:19:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 66AF760254;
-	Mon, 20 Jul 2026 02:19:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 0B193C19425;
-	Mon, 20 Jul 2026 02:19:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1784513989;
-	bh=VRTtWR3D6S0wEB2rt3tQ/Ck5VjGJQGbVpwn8H1hxXWA=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=tXdvr+xcjXqEhVUWcTSMr6NXTXM4UvJMRxjp/dMT41onjaRoxErzbOIT003Ywe2lP
-	 LBy4PYSV8h0x0j8xCdh+vKcZULnklyMoXIs7RXclZ/aOwFZhI75ddrZwsRCU4AbFRy
-	 E2NVPbvsuumXynt6Xbp7WvA58YFENguZ0PqEyYWBhPW5mPaYxMaM/DuKpr/yv4SnAc
-	 MjOSA7syNE2sf/Gp2f4yWWiphguaTKc/VuiBkwjIkEiNM8fjn/Ul25iZCqKPUkJt9z
-	 CB4sdL7Q4s3lskk7ii4Rj2o1TaVS5vOrZv+L7jZgE7c2/CzzlNDA3cnblmfU/Hic3E
-	 nFY5iqzkrjtpA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E0C8CC44521;
-	Mon, 20 Jul 2026 02:19:48 +0000 (UTC)
-From: Haoning CHENG via B4 Relay <devnull+Haoning.CHENG.cn.bosch.com@kernel.org>
-Subject: [PATCH v10 0/3] thermal: imx: Add calibration offset support
-Date: Mon, 20 Jul 2026 10:19:39 +0800
-Message-Id: <20260720-b4-symana21-11221-imx-thermal-support-upstream-6-18-v10-0-f8c3dcd9a57e@cn.bosch.com>
+	Mon, 20 Jul 2026 03:06:36 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-84a652535dcso2972322b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Jul 2026 20:06:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784516793; x=1785121593; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=AXtq+ecEAywLnvDjSZM6ov2wubc0XFPi9d99IVIm0iw=;
+        b=JOEvjmoDIN54EDsQDJuIqrXTwDmiw43HXNB1xh4VBM0LEFmmMxCKvIxnsbFhxvepyx
+         jSPJOfbMOpXkLpOG4RymRApfJiqFSKh3INIkYJTh+DB7I33zQxCgCwVlJUtClMuN9bgr
+         gShejKRK+kbK7/czL4zScQaX6wARvbdQ4SLo8OWbknZRFMRoo5iKPY6B8+/PX1Og/E3+
+         Dbxz13T+rVK3Ry2jdLYV+jtU7kVZoFvi4APggTZjgmVAZFjZCi5p0dmjxxtv2Z5kgGdY
+         ATneR2UyQLDwyIbmkw+xzAyBKRYPnxWx409cfPzhdP0Hwo8WvGqZulHuHSjfJnuw2OYA
+         E5DQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784516793; x=1785121593;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=AXtq+ecEAywLnvDjSZM6ov2wubc0XFPi9d99IVIm0iw=;
+        b=iCAmsys2UR93kCoqvvodIsnw0v/wJ0TTG+oQvDCo4hEiAq41/gDa0dkB/ujPhz+sLv
+         KguelQpe5wh0YXfzJG5+FonIglu1bJtdZwavXHV+e8N8fVR3DAalxn9d6z/sZRfpNBKg
+         wXoVb3eYEdZOoAqLY3yszgHF4GwI4+hjSFh06W5j8K7zkS5kr7AXmdJVxE8oFGiDJWWh
+         j1kbIO8fM4p47wrYScCqb5GkNWxNhPlSlD0nfCj9CJLlogJo9+zct9woTcQldqyi0INa
+         1o7OJKzLR6gOlwkUOJuxfQBD7cfbC7NI0WtJ5JhBH+lt4GQ4DzjzcqB3cQrCUf+HyAcf
+         UtlA==
+X-Forwarded-Encrypted: i=1; AHgh+RpPhBf4MbLYKGN9fnk5IVfOhg6yWRSsQ6LVz4WCb6mrsKujRmbP1LzuUskRDuWX0PVoKp+AlLv2oE7x3m+dT1J5@lists.infradead.org
+X-Gm-Message-State: AOJu0YzpX5iBuyUgw7aEHx0sM7NY5tgm+m1IWt4YCBxJFGO1wy3dY87Z
+	2nAh0BOKGzpHf3T3mFI4U1igyG6TD1uRp9wUgn+4WBt4A+u0keSxaJFC
+X-Gm-Gg: AfdE7ck3IjC/5MYimwut5T7gkcqlDrXmjvPBvsISEf3hi7pzMeM66A0gmWlNeEeN71F
+	lO/MVAtw45jQilHhlR7QQAimSOMUNmXF3Bgxls0HCrjUUVLkr+kT6bWBQpS6qTt9j35xjhThncv
+	2vgP0i9nBVHe92ZF6+NNDiSTrfd/HWxu9xkzVI5/EEi8SCKARzsl4lGxaHLmZK0VZPGMJtf8Aph
+	7jCa2qnNuGAoypISiEAlhIA0Nbqxh5fhbOwlxG2TYblRltIMAX0I4Vm6kkPZp0wf4JdoWx3Ypr7
+	e+khvOnQrpd82hGAkson7xayfAPRoINpAzGWvEmaYBMUwT20Ix2xJ+6lPGT9LWapOtWgSygJpc/
+	dqXd5ykN5jNXkHWztchM+eBu/mChvadGuODI75vcB5iIfoooL/VOvtG3nSHFehUN9/ZdSNBQ50D
+	4V67Ai15K62zoOkaO1KIntkMEgSLX3DbfJVd6W8uyvuszGf6QEoyVs8Nc6GBQa
+X-Received: by 2002:a05:6a00:4603:b0:848:4810:2b70 with SMTP id d2e1a72fcca58-84c294d4154mr12445461b3a.68.1784516793096;
+        Sun, 19 Jul 2026 20:06:33 -0700 (PDT)
+Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84c2adfdfe9sm4805267b3a.27.2026.07.19.20.06.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 19 Jul 2026 20:06:32 -0700 (PDT)
+From: Zi-Yu Chen <zychennvt@gmail.com>
+To: Andi Shyti <andi.shyti@kernel.org>,
+	linux-i2c@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Jacky Huang <ychuang3@nuvoton.com>,
+	Shan-Chun Hung <schung@nuvoton.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Zi-Yu Chen <zychennvt@gmail.com>
+Subject: [PATCH v6 0/3] i2c: ma35d1: Add support for MA35D1 I2C controller
+Date: Mon, 20 Jul 2026 11:06:13 +0800
+Message-Id: <20260720030616.1067660-1-zychennvt@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIALuFXWoC/63SS27DIBAG4KtUrEsEmGdXvUfVBeChpqofAsdKF
- OXuxcnGqli53iANGvGNhv+GMqQIGb293FCCJeY4DqWg5PUF+c4OX4BjWy4QI0wSRQx2HOdrbwf
- LKKaUlTP2Fzx3kHr7g/N5msY04/OU5wS2xxJTjS3R3GjeglMSlZenBCFeHuzH57POZ/cNfl6pt
- aOLeR7T9THXQte+/02wUEwwIUHrwJlpiHv3w8mN2XcnP/ZoHWJhBzDsyQTFuBHAeIVpNgwl+5i
- mMK0zwTPDlReiwvADGF4YGiAY1VKvBKkwYss0+xhRGGk4Eb4h0sva38gDGFkYrW2jdLDgbW1p6
- gBGrREwTpasS+OAVhi9Zfg+Rq8RELzV0hCgEiqM2TJqH2MKo0TgNmijePgb6Pv9/gvOBVouRAQ
- AAA==
-X-Change-ID: 20260709-b4-symana21-11221-imx-thermal-support-upstream-6-18-a084984deb76
-To: "Rafael J. Wysocki" <rafael@kernel.org>, 
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Haoning CHENG <Haoning.CHENG@cn.bosch.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
- Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784513984; l=6776;
- i=Haoning.CHENG@cn.bosch.com; s=20260709; h=from:subject:message-id;
- bh=VRTtWR3D6S0wEB2rt3tQ/Ck5VjGJQGbVpwn8H1hxXWA=;
- b=4WSuXv6K+DKOkR4rqdXDKQsnhVIE0UCOQUYAwYZsdQ+xnBBbzP1PUA76f+ydL2TTL+LfXpj/8
- 3GvqlSkhw0VDfHMuBqsy29eZrj7FxR/SnOU2yC/5L2Ge2yL+cyZhnLp
-X-Developer-Key: i=Haoning.CHENG@cn.bosch.com; a=ed25519;
- pk=glQGwad/fosRS5gZUJYbLDPPLGe7rFTrTV2VxY/ySdc=
-X-Endpoint-Received: by B4 Relay for Haoning.CHENG@cn.bosch.com/20260709
- with auth_id=860
-X-Original-From: Haoning CHENG <Haoning.CHENG@cn.bosch.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260719_200634_521864_CFA6E18A 
+X-CRM114-Status: GOOD (  17.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,140 +101,97 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Haoning.CHENG@cn.bosch.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The TEMPMON sensor reading may deviate from the theoretical SoC
-junction temperature even at the die level, before any board
-influence. This series adds an optional DT property to specify a
-calibration offset and implements the corresponding support in the
-imx_thermal driver.
+This series adds support for the I2C controller found in the Nuvoton
+MA35D1 SoC. The driver supports controller and optional target mode
+and runtime power management.
 
-Patch 1 documents the new fsl,temp-calibration-offset-millicelsius
-property in the i.MX thermal DT binding. The offset is determined
-through thermal characterization by comparing the sensor output
-against the calculated junction temperature, and is limited to
-±20 °C.
-
-Patch 2 fixes the i.MX7D alarm temperature conversion to use
-ceiling division (DIV_ROUND_UP() for non-negative, plain /
-for negative) and clamp() to stay within the 9-bit register range.
-
-Patch 3 reads this property in the imx_thermal driver and applies
-the offset symmetrically: it is added when reporting temperature to
-the thermal framework and subtracted when programming hardware alarm
-thresholds (to keep trip point semantics consistent). Out-of-range
-values are rejected with -EINVAL at probe time. When the property
-is absent, the default offset is 0.
-
-Signed-off-by: Haoning CHENG <Haoning.CHENG@cn.bosch.com>
----
-Changes in v10:
-- Rephrase the series to describe the offset as sensor calibration
-  toward the theoretical junction temperature, reverting the v9
-  terminology that characterized it as a board-specific die-to-package-
-  surface conversion. Hardware characterization confirmed the deviation
-  exists at the die level, independent of board influence.
-- dt-bindings: update the property description to state the offset
-  corrects the TEMPMON sensor reading toward the theoretical junction
-  temperature
-- driver commit message: replace package-surface estimate wording with
-  calibrated correction toward junction temperature
-- Link to v9: https://patch.msgid.link/20260717-b4-symana21-11221-imx-thermal-support-upstream-6-18-v9-0-75f4af8974f4@cn.bosch.com
-
-Changes in v9:
-- Rephrase the series to clarify that the offset converts the internal
-  TEMPMON reading to a package-surface temperature estimate, rather than
-  calibrating the sensor for better die temperature accuracy (Frieder)
-- dt-bindings: update the property description to explicitly state it is
-  a board-specific conversion offset, not a sensor calibration
-- driver commit message: distinguish die temperature from package-surface
-  temperature in the symmetric offset mechanism explanation
-- Pick up Reviewed-by tags from Frank Li (patches 2,3) and Lukasz Luba
-  (patches 1,2,3)
-- Link to v8: https://patch.msgid.link/20260714-b4-symana21-11221-imx-thermal-support-upstream-6-18-v8-0-d54d8690e16e@cn.bosch.com
-
-Changes in v8:
-- binding: s/behaviour/behavior/ (Lukasz)
-- New prep patch: use ceiling division (DIV_ROUND_UP() for non-negative, plain /
-  for negative) and clamp() for i.MX7D, extracted into a separate patch (Frank)
-- driver commit message: add offset mechanism explanation with a +3000 m°C calculation example (Lukasz)
-- probe: reject out-of-range offset with -EINVAL instead of silently clamping (Lukasz)
-- prep patch: handle negative alarm_temp with plain division (C rounds toward zero)
-- Link to v7: https://patch.msgid.link/20260713-b4-symana21-11221-imx-thermal-support-upstream-6-18-v7-0-09b6b7669be1@cn.bosch.com
-
-Changes in v7:
-- Align the author name with the Signed-off-by trailer.
-- Link to v6: https://patch.msgid.link/20260713-b4-symana21-11221-imx-thermal-support-upstream-6-18-v6-0-88a378faeca5@cn.bosch.com
+The implementation has been tested on the Nuvoton MA35D1 SOM board.
 
 Changes in v6:
-- Align the author name with the Signed-off-by trailer.
-- Link to v5: https://patch.msgid.link/20260713-b4-symana21-11221-imx-thermal-support-upstream-6-18-v5-0-69405c306c6b@cn.bosch.com
+  - Patch 2 (driver):
+		- Removed dynamic IRQ toggling helpers for simpler interrupt management.
+		Based on Sashiko AI Feedback:
+		- Added zero-length read quirk.
+		- Set i2c->msg to NULL on timeout to avoid use-after-free.
+		- Cleared hardware registers on target unregistration to release the bus.
+		- Protected suspend-path register writes with a spinlock.
+		- Validated clock-frequency to prevent division-by-zero.
+		- Removed incorrect I2C_M_IGNORE_NAK handling.
+		- Corrected a comment typo in the receive data path.		
+  - Patch 3 (dts):
+    - use a generic functional name audio-codec@1a
+  v5: https://lore.kernel.org/r/20260630012106.3616821-1-zychennvt@gmail.com/
 
 Changes in v5:
-- Move calibration offset application out of c2 initialization, instead
-  apply it in imx_get_temp(), imx_set_alarm_temp() and imx_set_panic_temp()
-  for consistent style across i.MX6 and i.MX7D
-- Subtract calibration offset from alarm_temp before the if-else block in
-  imx_set_alarm_temp(), simplifying both SoC branches (Frank's suggestion)
-- Link to v4: https://patch.msgid.link/20260710-b4-symana21-11221-imx-thermal-support-upstream-6-18-v4-0-1fef97d1c750@cn.bosch.com
+  - Patch 2 (driver):
+    - Add spinlock protection for MA35_CTL0 register access.
+    - Add NULL pointer check for i2c->msg in the ISR.
+    - Use devres-managed cleanup (devm_add_action_or_reset) for runtime PM.
+    - Use pm_runtime_force_suspend/resume() for Controller mode 
+      system sleep.
+    - Control I2CEN bit enabling/disabling via runtime PM.
+    - Refactor arbitration lost handling in state machines.
+    - Remove unsupported I2C_FUNC_PROTOCOL_MANGLING flag.
+    - Clean up readl_poll_timeout() parameters, retry loop, and
+      unused macros.
+  v4: https://lore.kernel.org/r/20260610030208.2020275-1-zychennvt@gmail.com/
 
 Changes in v4:
-- dt-bindings: drop maxItems to allow minimum/maximum constraints for
-  temp-calibration-offset-millicelsius
-- Link to v3: https://patch.msgid.link/20260710-b4-symana21-11221-imx-thermal-support-upstream-6-18-v3-0-db9fc2947c55@cn.bosch.com
+  - Patch 1 (dt-bindings):
+    - Update example interrupt number.
+  - Patch 2 (driver):
+    - Remove redundant spinlocks and fix 'irq' type to signed.
+    - Fix target address recovery in ma35d1_i2c_reset().
+    - Refactor IRQ handler for multi-msg reads and NACK/IGNORE_NAK.
+    - Fix timeout UAF via explicit IRQ disabling during recovery.
+    - Drop IRQF_SHARED and fix PM paths in probe/unregistration.
+    - Limit suspend/resume wakeup logic to target mode only.
+  - Patch 3 (dts):
+    - Add missing i2c0 node to dtsi.
+    - Switch SoM configuration from i2c1 to i2c2 with updated pinctrl.
+    - Add nau8822 audio codec node under i2c2 on the SoM board.
+    - Drop redundant i2c0 alias and clean up dtsi property ordering.
+  v3: https://lore.kernel.org/r/20260512073953.564323-1-zychennvt@gmail.com/
 
 Changes in v3:
-- dt-bindings: add minimum/maximum (-28580/+28580) for
-  temp-calibration-offset-millicelsius, as suggested by Conor Dooley
-- Link to v2: https://patch.msgid.link/20260709-b4-symana21-11221-imx-thermal-support-upstream-6-18-v2-0-00ff72495e24@cn.bosch.com
+  - Fix minor DTS formatting issues (whitespace, missing newline)  
+  v2: https://lore.kernel.org/r/20260316063726.41048-1-zychennvt@gmail.com
 
 Changes in v2:
-- dt-bindings: Removed explicit `$ref: /schemas/types.yaml#/definitions/int32`
-  for fsl,temp-calibration-offset-millicelsius; the `-millicelsius` suffix
-  already resolves to int32-array via property-units.yaml (Rob).
-- dt-bindings: Fixed example indentation.
-- driver: Replaced C integer division (/) with DIV_ROUND_CLOSEST() in
-  imx_set_alarm_temp() to prevent off-by-one alarm threshold mismatch that
-  could cause IRQ storms on i.MX7D.
-- driver: Added clamp() bounds check for alarm_value [0, 0x1ff] to avoid
-  corrupting adjacent register fields (PANIC_ALARM).
-- Link to v1: https://patch.msgid.link/20260709-b4-symana21-11221-imx-thermal-support-upstream-6-18-v1-0-00f88f42930b@cn.bosch.com
+  - Overall:
+    - Rebase on linux-i2c/i2c-next
+    - Switched terminology from "master/slave" to "controller/target".  
+  - Patch 1 (dt-bindings):
+    - Simplified description and fixed 'reg' size in example.
+  - Patch 2 (driver):
+    - Modernized using devm_*, generic device properties, and FIELD_PREP/GENMASK.
+    - Optimized power management by moving clock control to runtime PM.
+    - Simplified code by removing redundant .remove(), .owner, and inlines.
+    - Added dev_err_probe() and default bus frequency handling.
+  - Patch 3 (dts):
+    - Moved i2c aliases to board dts and reordered nodes alphabetically.
+  v1: https://lore.kernel.org/r/20260302020822.13936-1-zychennvt@gmail.com
 
-To: "Rafael J. Wysocki" <rafael@kernel.org>
-To: Daniel Lezcano <daniel.lezcano@linaro.org>
-To: Zhang Rui <rui.zhang@intel.com>
-To: Lukasz Luba <lukasz.luba@arm.com>
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Shawn Guo <shawnguo@kernel.org>
-To: Sascha Hauer <s.hauer@pengutronix.de>
-To: Pengutronix Kernel Team <kernel@pengutronix.de>
-To: Fabio Estevam <festevam@gmail.com>
-Cc: linux-pm@vger.kernel.org
-Cc: devicetree@vger.kernel.org
-Cc: imx@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
 
----
-Haoning CHENG (3):
-      dt-bindings: thermal: imx: Document calibration offset property
-      thermal/drivers/imx: Fix rounding and clamp for i.MX7D alarm
-      thermal/drivers/imx: Add calibration offset support
+Zi-Yu Chen (3):
+  dt-bindings: i2c: nuvoton,ma35d1-i2c: Add MA35D1 I2C controller
+  i2c: ma35d1: Add Nuvoton MA35D1 I2C driver support
+  arm64: dts: nuvoton: Add I2C nodes for MA35D1 SoC
 
- .../devicetree/bindings/thermal/imx-thermal.yaml   | 12 +++++++
- drivers/thermal/imx_thermal.c                      | 39 ++++++++++++++++++++--
- 2 files changed, 48 insertions(+), 3 deletions(-)
----
-base-commit: c50a940dcde35c647e097e89a9150003abd48329
-change-id: 20260709-b4-symana21-11221-imx-thermal-support-upstream-6-18-a084984deb76
+ .../bindings/i2c/nuvoton,ma35d1-i2c.yaml      |  63 ++
+ .../boot/dts/nuvoton/ma35d1-som-256m.dts      |  20 +
+ arch/arm64/boot/dts/nuvoton/ma35d1.dtsi       |  72 ++
+ drivers/i2c/busses/Kconfig                    |  13 +
+ drivers/i2c/busses/Makefile                   |   1 +
+ drivers/i2c/busses/i2c-ma35d1.c               | 780 ++++++++++++++++++
+ 6 files changed, 949 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/i2c/nuvoton,ma35d1-i2c.yaml
+ create mode 100644 drivers/i2c/busses/i2c-ma35d1.c
 
-Best regards,
---  
-Haoning Cheng <Haoning.CHENG@cn.bosch.com>
-
+-- 
+2.34.1
 
 
