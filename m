@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1597CC44521
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 07:41:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7F85C44521
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 07:41:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=scpaRJrlW34d2i0T3LPzlbqHWj1iPSwqpLVD8tv+N3k=; b=blal0tamAVp6NkQd++0dBS3+7B
-	XXQ37jd2AJ8maqPVNcu5cnlfe0VjIPrUvCHvtFjpvIDOiMTMZ4rs7vQXRdsIBsLZshPILeh8QK2AM
-	Qzyi2HJjA5EjwLJ9tFvKeaApjytanFZW+KQMogywMoC6p6eCplf/R1p1hzwpGmsSBYNjr3o0uLhP8
-	y6oyoXejejjs9TL6L/jl0SobZ12xp/It4AaN2e77zx1mpo4D/Cka85z/GS6Mu5itulzP4olr9r+jM
-	jxUSm9Tc86JON30JTTFaAXJX9G85jraX9ysWRpU3Tg6li1d5RKlgXPKjAjQ+tn5ReH+VfGGuhgefe
-	cDiu6nwQ==;
+	bh=QGaNvrdWrI81wJxxoSDN2zk2fUww4x2xHVeZ5hAGgN8=; b=pfnNLQ30R+lOhYgaCSsdQRxoHU
+	cclyyLSWgsMsa8eRcSRhuZDMCpKi+RGBDhIXD+is8w7tcsjv8Nz4uXADwoWVpXQw/ui31YdC5+h9+
+	Cud3WXBmGKKSk6qzktnOLJCiKAuMe1jDLVt7gn+VENGa99EIs84oSe2xFR06KagxVdmkwRyZJnAdM
+	9kSj7X58HDXLQipWhki6g5hw7IwzLs7tn4hZyorE3LVP3GL4A7hiAsQ+LiImeXeEElDn4cB0Jyq7j
+	OyZbWCsWAZP3nxCh26vpkelEbokdqgJnivLrDG1Y4SP0lffNsh9Q2v3OXdIGzkOlJD4Q8zaO9bciV
+	01nj7/qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlicl-000000067NA-0xkK;
-	Mon, 20 Jul 2026 07:41:15 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1wlics-000000067QT-1ehk;
+	Mon, 20 Jul 2026 07:41:22 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlici-000000067M6-3ZDf
+	id 1wlicm-000000067Ns-2vbF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 07:41:13 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-38e3efab7e0so2406211a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 00:41:12 -0700 (PDT)
+	Mon, 20 Jul 2026 07:41:17 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-38d489b6b71so9327103a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 00:41:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784533272; x=1785138072; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1784533276; x=1785138076; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=scpaRJrlW34d2i0T3LPzlbqHWj1iPSwqpLVD8tv+N3k=;
-        b=p78AtwJajd5mu3i1Y2cFGkW8QtHVMzhzfhCSnL38jjiN5Ffp58vsfIDDFsckPc83LM
-         dnGpSk+xxFHwRrZsX5EbCvWysmtIBtie16M7DevwXiqPLEQKkrnJFygAAlZbnwNJcs93
-         YzEd9LCKsGYKz66yPCUZVfFRkHmfw5JcigdThbNSPahtTp5xmKRJqyUQaB3LGa0bdlJh
-         +CSmomV5kjXLvenec9qHDz3arXF7DC7nkbiFyNq0tidgIOJpOmfWq30K2th6IEL6xFQz
-         ds8gn1zGnkfBdc9ab7ltnwXj2Iik1Xv/doj5NYMcwqxpBRew6B2jBPNaW2WN+lWd9TjS
-         pxSQ==
+        bh=QGaNvrdWrI81wJxxoSDN2zk2fUww4x2xHVeZ5hAGgN8=;
+        b=e2ujODdieT6hemNqZjPx6LiTWHhOYTE1orcB0rv7kOpEeSNbuOwu7EYJNnYEWX0Ts/
+         dn/bSLhPCz32dBmHtjeQkT7ezEUQiPcCoFQaT6Zgpb0o4SPO3DQ4Ky04CgXYXwlyJVH5
+         hD+RE8vKmDvlThPi8r4c0WFgTha3i7R52n66w+sLpuWRoErCm9tG1bMmmlzyEmcm0F6u
+         W8iPL3f7p/Y840GgFagDlW60yiNo23S+CSmUMu1eYYdHWvtOx9AqrmBGJt2su904Lqlr
+         tK1KdOgJW8xj8519ygxvKaTOMVT0kQxsmniRTU5kjuxKLf60zCIf3fVVsKN/Irdlov92
+         HZ+g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784533272; x=1785138072;
+        d=1e100.net; s=20251104; t=1784533276; x=1785138076;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=scpaRJrlW34d2i0T3LPzlbqHWj1iPSwqpLVD8tv+N3k=;
-        b=HW0UZRoITzKI9he8IhOUlvjANtLv8IDb6k5SNHrm1aviBJQ2IP0x0ciAoZwd1A5KVP
-         MwlbtovFK5YpgA9Ju6ccq6yzzz9pnziLjcmEthIVzEWasehSSW4Tosb8lra8KnxR1t0O
-         tuoIDdXo07rPpuaq2Is0Xs+m0pcQI487EHSk8eX4WxOWli42N8d6JisT2v6NeUIDNggm
-         vY6U0WMml/meNc2vxYGnDs8KdfRnRBHfcNC90HAp5Fy8aTKNVsyApW9RJOaG1erAY53F
-         WcsAIRfo3RTmMrOnxg3ZxoJXMXmVCKfYCM3phDXpaC6U5lzGITH8nn4f/iaq2yFN0lmI
-         BZDQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpDTMnZuGrAmEqp5EWLzhEzIVFUBX0zqjEKrStbttdbJyPup/wLSMGSA78LqH8CvDR/AXLsTx5/v5g8qIEzhgts@lists.infradead.org
-X-Gm-Message-State: AOJu0YxkYWFYT7NxaDo5faoD2Ioy8X+JpUMXlW3Q2rwQ/wGX/852/Css
-	+gTMoL+dEfTPIH9Oq5k3oJQcUxtWUe/YpOtjxjzJ5Sg/QfxzrZOllQcf
-X-Gm-Gg: AfdE7clHFOK3L+EO3VtJStbY6/dabNTZebS5tQlwpFYDi7jF4CC2C4cRuSQJeRag7a5
-	w2ppuTRctmR7+Rh0b88Frj2DragiWzUrWkAxVq97GIaAMDWqfHXHMLFqOTEpbKJxcMUj8DrkAab
-	GJwiLTdCy8Fs7VIF/VCGTi06iPtuXuMxK8T+hw/7aKXDd/dXWAOdJIWLewcEiC9nNxAF+sbfHv6
-	2AWURRzbpja+9PKNpCSlHXRlcw86+8h8r7cHzvowUDXwbhLBpB/UIk/vIvofqTSmDHI/DzPr5XW
-	zqirsLqOYUNw1rTDgQ7ndCB+85RKhCg/vDqNyRxL9PLTEyKyouowBiQ7JdakSXcgJsbTKOzX4Z9
-	0mXRMH8V1oBdJuT1ErDV1qrhNyqwG6QkUVvhofLNeEyuCNDWbGurUzXI2VpwEUjEE9hYQYnLdI0
-	XZ31mHkNDr/UlKY9A/V6KaL09i8hYN/KqB9XaV
-X-Received: by 2002:a17:90b:1d48:b0:37f:9e21:91d6 with SMTP id 98e67ed59e1d1-38e4b610362mr11098900a91.13.1784533271902;
-        Mon, 20 Jul 2026 00:41:11 -0700 (PDT)
+        bh=QGaNvrdWrI81wJxxoSDN2zk2fUww4x2xHVeZ5hAGgN8=;
+        b=hmuM8vmQlDzLRha0fWn6MYyliLD3ZT5FNsunPlukrsf5zteKD+Le9/N69LXX8cSfNp
+         AEEVf2hee8tVu9oOHaR1zxkuBF7CJ6QYXcC1ECYExGY7qKfHhP1M7CnTsbkcQPViL/xP
+         tIXjU45GIBQLe/ZymJHFn5yIgpPUlqp94H9i3KEHMQbE/DCpdaX6MtJnDAi7PaHNhR3e
+         BD66/WFCP+XNoDJrfpP5DtKAXE4lqs5FaORfIldhrKpwM7+AGFSE/1KQeWhuRUU1UT4W
+         WbaxpnoOZyCTVZryvfdOLZci2oTovk7xxFeB2FzAgAZ2MQzR2VASJcS8NFlQCo7NV3B/
+         ggaw==
+X-Forwarded-Encrypted: i=1; AHgh+Rrw26Fsyd6N6QAnGV8CLZ/f5x9Ab+G6YXGFX2CMc5tzBNHI4yOolO2AsUQtRhZxFtgkZLuR1fx1gRaQZ+2/vU/L@lists.infradead.org
+X-Gm-Message-State: AOJu0YzlMd5YcbqCCYIc3xiEMCwjtg7Ph6o4plpUChY994zytp612iPH
+	GkyEwZyvIV5aoaogYKYBuCyxWhImvb8kKkpIFtoVtYDX6gxRp3l5w8Wv
+X-Gm-Gg: AfdE7clrxDHHPj4BHuLmObqa1MOkKdpkLnoyOs3E8kDH2Ek2ep1lo7IO2xQdbfhI9nl
+	pgVeB1BXYJkLDZqSMQHY9HhX+adYuJWokarVE8H/GLlTcSjhfxHSnmT6uRh4OYgfgD5deI+vKxg
+	OCDJkNun82kBrM3HMGeNKJr9MpAKoKirAjIPV/FH9absMZmghI3oLKL0f3jzo3v32Jxa1Dd99gT
+	xOgWgzVrH/aoY2sdeHJTRpZMpWKntmCRVvxFBbgihY9dTGBHb8+c4+K0iml5r6ceZAd8f2Mr09Y
+	Ffogc8DAIPLp1RwJMJlmoPcEnAAiHrq3JH/IIjLrYFeNq/+iO3M0wGL/YO5pc7txfNEFfeWzEqf
+	FV751K0NfqN0u1wp9iYZAKKA9AifOpXsXrAcAxmq6KHK294+QqBFF6jkB/KnBD34VosAEToY5x7
+	GwUImkgYudzlVka+Km0fdXIn0vzlDdqOub7Hbd
+X-Received: by 2002:a17:90b:52c4:b0:381:85c0:1d88 with SMTP id 98e67ed59e1d1-38e4b417454mr14266360a91.9.1784533276029;
+        Mon, 20 Jul 2026 00:41:16 -0700 (PDT)
 Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38e60cc2ad5sm470171a91.4.2026.07.20.00.41.08
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38e60cc2ad5sm470171a91.4.2026.07.20.00.41.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Jul 2026 00:41:11 -0700 (PDT)
+        Mon, 20 Jul 2026 00:41:15 -0700 (PDT)
 From: phucduc.bui@gmail.com
 To: Mark Brown <broonie@kernel.org>,
 	Liam Girdwood <lgirdwood@gmail.com>,
@@ -83,17 +83,17 @@ Cc: linux-stm32@st-md-mailman.stormreply.com,
 	linux-sound@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH 1/4] ASoC: stm: stm32_adfsdm: Drop redundant error message
-Date: Mon, 20 Jul 2026 14:40:40 +0700
-Message-ID: <20260720074044.87528-2-phucduc.bui@gmail.com>
+Subject: [PATCH 2/4] ASoC: stm: stm32_i2s: Drop redundant error messages
+Date: Mon, 20 Jul 2026 14:40:41 +0700
+Message-ID: <20260720074044.87528-3-phucduc.bui@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260720074044.87528-1-phucduc.bui@gmail.com>
 References: <20260720074044.87528-1-phucduc.bui@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_004112_896241_CBD77A36 
-X-CRM114-Status: GOOD (  11.61  )
+X-CRM114-CacheID: sfid-20260720_004116_740347_74E67196 
+X-CRM114-Status: GOOD (  12.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,31 +110,40 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: bui duc phuc <phucduc.bui@gmail.com>
 
-devm_snd_soc_register_component() already logs the failure internally.
-Drop the redundant error message and return the original error directly.
+Both devm_request_irq() and snd_dmaengine_pcm_register() already log
+failures internally. Drop the redundant error messages and return the
+original errors directly.
 
 Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
 ---
- sound/soc/stm/stm32_adfsdm.c | 5 +----
- 1 file changed, 1 insertion(+), 4 deletions(-)
+ sound/soc/stm/stm32_i2s.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
-diff --git a/sound/soc/stm/stm32_adfsdm.c b/sound/soc/stm/stm32_adfsdm.c
-index 66efb9a0acb9..73c6460a6327 100644
---- a/sound/soc/stm/stm32_adfsdm.c
-+++ b/sound/soc/stm/stm32_adfsdm.c
-@@ -360,11 +360,8 @@ static int stm32_adfsdm_probe(struct platform_device *pdev)
- 	ret = devm_snd_soc_register_component(&pdev->dev,
- 					      &stm32_adfsdm_soc_platform,
- 					      NULL, 0);
--	if (ret < 0) {
--		dev_err(&pdev->dev, "%s: Failed to register PCM platform\n",
--			__func__);
-+	if (ret < 0)
+diff --git a/sound/soc/stm/stm32_i2s.c b/sound/soc/stm/stm32_i2s.c
+index ae9e25657f3f..83b51893b37c 100644
+--- a/sound/soc/stm/stm32_i2s.c
++++ b/sound/soc/stm/stm32_i2s.c
+@@ -1238,10 +1238,8 @@ static int stm32_i2s_parse_dt(struct platform_device *pdev,
+ 
+ 	ret = devm_request_irq(&pdev->dev, irq, stm32_i2s_isr, 0,
+ 			       dev_name(&pdev->dev), i2s);
+-	if (ret) {
+-		dev_err(&pdev->dev, "irq request returned %d\n", ret);
++	if (ret)
  		return ret;
 -	}
  
- 	pm_runtime_enable(&pdev->dev);
+ 	/* Reset */
+ 	rst = devm_reset_control_get_optional_exclusive(&pdev->dev, NULL);
+@@ -1295,7 +1293,7 @@ static int stm32_i2s_probe(struct platform_device *pdev)
  
+ 	ret = snd_dmaengine_pcm_register(&pdev->dev, &stm32_i2s_pcm_config, 0);
+ 	if (ret)
+-		return dev_err_probe(&pdev->dev, ret, "PCM DMA register error\n");
++		return ret;
+ 
+ 	ret = snd_soc_register_component(&pdev->dev, &stm32_i2s_component,
+ 					 i2s->dai_drv, 1);
 -- 
 2.43.0
 
