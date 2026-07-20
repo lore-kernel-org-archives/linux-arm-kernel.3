@@ -4,70 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B597DC44520
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 19:25:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 137C6C44520
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 19:27:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V6i2sivG6wR6n6p8jLv8e4sghEhVol9ByF9gXpr7sE0=; b=EPo03Lx0ZpnNf6YFakE/Ff/S7z
-	2/nnMRviulxRqDPOPiwl4sCyC5eFruraMkguqt5clXTCq5nh89AW6roRXF4FNFoz3A4kqgAwYbu4x
-	L9EGR8IuNHfYFumIO/kJggAJD3k7b6g3es+glSMuAPd1v0T8fuBhVPC9obRVmQcNPsVasSVKkW0tg
-	W5tjPnQWVVC+Osi6iyo9HZMYXNMnBNgO30yrBnwBXkKFy8jgkVA/JoxTyQuyc2fbZlbgGjJm4/3s5
-	sZ2piQq0e4L6TwYXSq6PAaO185X72KI2jMnVG4k//U/cQWL+S3Srt/WnORJxecV4SYimOgDqqMZrH
-	JxhiAV7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5du5EBQFpIi/SwJ0ieCW4HFbKgYVSov3wFaDLiDqK9c=; b=D7M0uGaKmIeunUg1CvX+RBCBPF
+	UaAvdIdkclIiQXiH0QKJ+qfJdOasHsfqD559qt7JOghJGzOJqUJjUOkuQGdZIr+2BDVWjZ3zgN6YH
+	miBXWFmjlS2LVD2xECmPnxRkGWSLcmmapX5A9a82HIV9IA3mCkuqc4ujWVU7gkNmaPQacfRXX/XeR
+	y7MADANqjZd9LjCaZDlgn9lLfNDPyVyIyaicwJUsyl94HtFS0C/s64RFK2kNTOOWMhe02clCMmQsP
+	8RplEucdPF/NnRIOD70BnKV/+mLEphYm/Wptq5/IrQj9Gag2vGPbH860CBYAaV62Ka5a8fcYGYe/b
+	aT/E0sRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wltbq-00000007kXr-2vb6;
-	Mon, 20 Jul 2026 19:25:02 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wlte7-00000007kss-0VoB;
+	Mon, 20 Jul 2026 19:27:23 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wltbn-00000007kWj-1oIS;
-	Mon, 20 Jul 2026 19:25:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1784575497;
-	bh=jmv02YI047x2xL6OXfQ0v6pTfoWDZauPaF6Dqs8le1M=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=K6MY+65pr1hcVX1aj8V2TeKS8e9QQ5ekOsZRaE+/XU564qamyoZs0cuAPK0yCcMci
-	 P8qG2mOvZl1nehFQOZ5E5nhB74aMOcE1NNrm8PArL/gUmI1j0LdH1OQEVgJoUF53uJ
-	 HP5uwKt1lRVIODh/2r3rEhsSZYgtUwDQDp/iOfWNXHsdC2O5ainOdJx6kAwjrLOhMF
-	 Gewf2Fb39K7g3LLKtx07sQooh2ECtnfQw6DtxJrNp44IC/gnjZaKjGh1L5mKsMIpwC
-	 NAoJq47rU4Vkz+i9zCn9abVd7sLPZRG4tS7x99fDXF29AF43+KS+MDXIN9x/Aic5GC
-	 j6I0Junvafq9Q==
-Received: from [100.64.0.241] (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C4A6017E09A3;
-	Mon, 20 Jul 2026 21:24:56 +0200 (CEST)
-Message-ID: <b2dfe89d-303e-485c-9d99-439a42f07811@collabora.com>
-Date: Mon, 20 Jul 2026 22:24:56 +0300
+	id 1wlte3-00000007ks8-3o4z
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Jul 2026 19:27:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1784575640; x=1816111640;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=hWgaDkOb0LbmVmmiCxtUvfxEken1qhpQkfHaM7Fgk3A=;
+  b=NGF4aVqiuLuwhnZpTpsvLDzmf/ADWEukC1zviQxA+iI5NOk7nv/fv2g2
+   WTb2cfZVS/VcnkaBRPdnSn2krEWiyYdFihLXXwmHGUh2hnSQHQXc/F+x5
+   x5Dm1igl8HUrq4cQPRcqavk546h8xIyy3loQNmWpI4fBjmhPUjqlt18T6
+   rJvoawclYc3JiJeWzpYL9/uYDeI8QDfdu1KkhJmr2+Zdzwmeyz/OUn6fK
+   f4MtEsJrMapjL2ZrsP22qJBXyYmq4yrPKt1msBQrlndmvnD+DWq+yUuAh
+   ode1EqkxM1gedxhtAzSxpSKUTM41byGDJBpRaiW5GDoZu4MRAQzLBuZjr
+   Q==;
+X-CSE-ConnectionGUID: 2ILECYwnQnyTnfLe09f93Q==
+X-CSE-MsgGUID: ixMevB0OQxOd0fIf+fS+gg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11852"; a="88843558"
+X-IronPort-AV: E=Sophos;i="6.25,175,1779174000"; 
+   d="scan'208";a="88843558"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Jul 2026 12:27:19 -0700
+X-CSE-ConnectionGUID: VEpARZS2TN6OfnH+jxlpNw==
+X-CSE-MsgGUID: VCqD1pLAT0WCgKQ3SjF7uA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,175,1779174000"; 
+   d="scan'208";a="257598201"
+Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.175])
+  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Jul 2026 12:27:16 -0700
+Date: Mon, 20 Jul 2026 22:27:14 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Shih-Yuan Lee <fourdollars@debian.org>
+Cc: Mark Brown <broonie@kernel.org>,
+	Mika Westerberg <mika.westerberg@linux.intel.com>,
+	Lukas Wunner <lukas@wunner.de>, Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v16 5/7] spi: pxa2xx: disable DMA for Apple MacBook8,1
+Message-ID: <al52kpB1hklx5guG@ashevche-desk.local>
+References: <20260720162117.32304-1-fourdollars@debian.org>
+ <20260720162117.32304-6-fourdollars@debian.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 5/8] phy: rockchip: samsung-hdptx: Drop TMDS rate setup
- workaround
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
- <neil.armstrong@linaro.org>, Heiko Stuebner <heiko@sntech.de>,
- Algea Cao <algea.cao@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>,
- kernel@collabora.com, linux-phy@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, =?UTF-8?Q?Thomas_Niederpr=C3=BCm?=
- <dubito@online.de>, Simon Wright <simon@symple.nz>
-References: <20260612-hdptx-clk-fixes-v4-0-ce5e1d456cda@collabora.com>
- <20260612-hdptx-clk-fixes-v4-5-ce5e1d456cda@collabora.com>
- <al4ujA5d6B5s23C4@umbar.lan>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <al4ujA5d6B5s23C4@umbar.lan>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260720162117.32304-6-fourdollars@debian.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_122459_636072_F290A741 
-X-CRM114-Status: GOOD (  16.46  )
+X-CRM114-CacheID: sfid-20260720_122719_991814_4C553157 
+X-CRM114-Status: GOOD (  15.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,83 +91,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/20/26 5:19 PM, Dmitry Baryshkov wrote:
-> On Fri, Jun 12, 2026 at 02:45:24AM +0300, Cristian Ciocaltea wrote:
->> Since commit ba9c2fe18c17 ("drm/rockchip: dw_hdmi_qp: Switch to
->> phy_configure()") the TMDS rate setup doesn't rely anymore on the
->> unconventional usage of the bus width, instead it is managed exclusively
->> through the HDMI PHY configuration API.
->>
->> Drop the now obsolete workaround to retrieve the TMDS character rate via
->> phy_get_bus_width() during power_on().
->>
->> While at it, get rid of the extra call to rk_hdptx_phy_consumer_put() by
->> moving the statement at the end of the function.
->>
->> Tested-by: Thomas Niederprüm <dubito@online.de>
->> Tested-by: Simon Wright <simon@symple.nz>
->> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->> ---
->>  drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 27 +++++------------------
->>  1 file changed, 6 insertions(+), 21 deletions(-)
->>
->> diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
->> index 25bd821cd039..35997087d61c 100644
->> --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
->> +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
->> @@ -1660,22 +1660,6 @@ static int rk_hdptx_phy_power_on(struct phy *phy)
->>  	enum phy_mode mode = phy_get_mode(phy);
->>  	int ret, lane;
->>  
->> -	if (mode != PHY_MODE_DP) {
->> -		if (!hdptx->hdmi_cfg.rate && hdptx->hdmi_cfg.mode != PHY_HDMI_MODE_FRL) {
->> -			/*
->> -			 * FIXME: Temporary workaround to setup TMDS char rate
->> -			 * from the RK DW HDMI QP bridge driver.
->> -			 * Will be removed as soon the switch to the HDMI PHY
->> -			 * configuration API has been completed on both ends.
->> -			 */
->> -			hdptx->hdmi_cfg.rate = phy_get_bus_width(hdptx->phy) & 0xfffffff;
->> -			hdptx->hdmi_cfg.rate *= 100;
->> -		}
->> -
->> -		dev_dbg(hdptx->dev, "%s rate=%llu bpc=%u\n", __func__,
->> -			hdptx->hdmi_cfg.rate, hdptx->hdmi_cfg.bpc);
->> -	}
->> -
->>  	ret = rk_hdptx_phy_consumer_get(hdptx);
->>  	if (ret)
->>  		return ret;
->> @@ -1701,9 +1685,10 @@ static int rk_hdptx_phy_power_on(struct phy *phy)
->>  		rk_hdptx_dp_pll_init(hdptx);
->>  
->>  		ret = rk_hdptx_dp_aux_init(hdptx);
->> -		if (ret)
->> -			rk_hdptx_phy_consumer_put(hdptx, true);
->>  	} else {
->> +		dev_dbg(hdptx->dev, "%s rate=%llu bpc=%u\n", __func__,
->> +			hdptx->hdmi_cfg.rate, hdptx->hdmi_cfg.bpc);
->> +
->>  		if (hdptx->pll_config_dirty)
->>  			ret = rk_hdptx_pll_cmn_config(hdptx);
->>  
->> @@ -1716,11 +1701,11 @@ static int rk_hdptx_phy_power_on(struct phy *phy)
->>  			else
->>  				ret = rk_hdptx_tmds_ropll_mode_config(hdptx);
->>  		}
->> -
->> -		if (ret)
->> -			rk_hdptx_phy_consumer_put(hdptx, true);
->>  	}
->>  
->> +	if (ret)
->> +		rk_hdptx_phy_consumer_put(hdptx, true);
+On Tue, Jul 21, 2026 at 12:21:14AM +0800, Shih-Yuan Lee wrote:
+> On MacBook8,1 (early 2015 12" MacBook), the LPSS SPI controller at
+> 00:15.4 suffers from hardware DMA handshake failures and interrupt
+> routing bugs, causing keyboard/touchpad transactions to fail when
+> DMA is enabled.
+
+Why? The thing like this I noticed on some other HW which required different
+DMA settings. Have you tried to investigate the issue more?
+
+> Move the forced PIO mode DMI quirk to spi-pxa2xx-pci.c (the LPSS host
+> controller PCI glue driver) to avoid layering violations in client
+> drivers (such as applespi).
 > 
-> This looks likes an unrelated change. Could you please split it to a
-> separate commit?
+> Add an explicit DMI match table for MacBook8,1 and a module parameter
+> spi_pxa2xx_force_pio to allow forcing PIO mode on demand.
 
-Ack.
+This looks like a hack. Please, if you have a hardware, try to dump the errors,
+collect the data corruption or timeouts and provide more information. DMA for
+SPI on LPSS hardware never was a problem (unlike UART in some cases). I'm almost
+100% sure the problem is in DMA configuration / setting bits.
 
-Thanks,
-Cristian
+...
+
+>  #include <linux/dmaengine.h>
+>  #include <linux/platform_data/dma-dw.h>
+>   +#include <linux/dmi.h>
+
+Keep list ordered.
+
+>  #include "spi-pxa2xx.h"
+
+...
+
+> +static bool spi_pxa2xx_force_pio;
+> +module_param_named(force_pio, spi_pxa2xx_force_pio, bool, 0444);
+> +MODULE_PARM_DESC(force_pio, "Force PIO mode (disables DMA) for SPI transfers. ([0] = disabled, 1 = enabled)");
+
+No. There is no room for module parameters like this.
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
