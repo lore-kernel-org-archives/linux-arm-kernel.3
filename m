@@ -4,138 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A735C44523
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 02:13:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E02CCC4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 02:13:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fV8Ikb13ip2x5qNT/bfhYmUDt+DWXX5h4YDEVsNj9z8=; b=Oy0o2zLElQBWDgMxqwmd5AsUpf
-	Ww47JAPoNzqYI3U03fZZ7ve04PhMWT6krjH3i9XOPxPrLSGPU4ivwP+/qF/jXHdFSf3joGw3rmyjs
-	jJxZpcH23roKZ5iR2SzbuFB1QD4NENxjoQqPITq10HGuaabsj5WtTmibiQ9Nk9d7oVnr86svV5+P2
-	zuyZu2en8bqkQGOFvKsarxtykqyPz5tqWDNuIX/kWsOcuE0egRssZNVJM6OT4+/H1NGfD+HbpCNUv
-	iEIP4MCCpgnnrjhglI3um1JyWheZysZS3GlXk2E541qG5zbEqpp9NW5DpZrmThcweyf1NyGGR+xjd
-	frvMhNFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Sf1pQlbMbiIrjnz8/66tGMCRdtP6utc4O8nw4rUQzS8=; b=0dONQEx/rQ4n29O19tyzeoAKvN
+	G/usgi9oRJwjdhLy/4wwgqhhWZiaflcN9/nd/id1CegdbNCFXxvI48pJevi5Dg/eB3+LwPjv5vHhA
+	XdKWdfVLrobaL67u6d0ob+/Nmt+YMKYTRLK+PmOIISy03WYAsYFVq4RYGQbW7D9J8ANs8KuEHITg4
+	TyPh9WoJYn6OW7ZWF5geE3uRf4jw6MJnUHgzIee5lOa3iuVZQEgovrJd7ACUSGrkwsEHiDHdNMvuT
+	RtDHW6gRwNfuT12NHrvonBdLNfP7rhUirxRZybG5r23TpMZMazqXdvMd8i8bcNlgkei8QsGxI0PKB
+	5bb80TGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wldVX-00000005f3e-376E;
-	Mon, 20 Jul 2026 02:13:27 +0000
-Received: from mail-northeuropeazon11011019.outbound.protection.outlook.com ([52.101.65.19] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1wlchC-00000005apF-0cvS;
+	Mon, 20 Jul 2026 01:21:26 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wldVV-00000005ewY-1w4a
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 02:13:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QMlPoNv17czUem73bcdDIM9yI6OvHjbJuNwzUGF8qIlYmDE/nDDBI82N7WcSJ448pXoUKiUiOr25arC0LN8HADipzc844+knIAIkJK83XWtQe2g1IIF9wg6IQ7eUa4FEtF7G+ggIn/DS6Gy+0HEJms4DXKVuphtjg7gACyPG7j3m1LZz/Zww3dXJdZCEqH5bXrnMVucCOoYPN+K7LfA5ssONhnbAyng8bFqDeV6o6uqqy2fR8JrYelKH3BpA/kJ+CjGxqpCtvkQ6skDOMEzt5PoOUAzvsTnXdETAag0zercNwlZl1fRLL6DtY91zksiMpvWBgTvsk7xQcQ49OPU4zg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fV8Ikb13ip2x5qNT/bfhYmUDt+DWXX5h4YDEVsNj9z8=;
- b=W54RmA4sUmW7uNKjLDVfjHGvufcNGomAi5fUruoaL380REDSbQ4UJS15VwexQmKl/27Gfub7HV4OGO+aIBRIn8Vjmxu1S9z5KjXew6oPcGoXgyT8TO7GlLEZWPriGESKjBuuS+C1afF0azKXArKhZLz5J+kZ0YindLspI35fvy8GWiE4Z/SBfXBiirW9Vffw9cqUx7O3sq/U/odFJi0P+lY4ECj62yEHQl6ZSiaXQez9d1BWLt0ZAwkGcDyapoK1uNEKB4lUEbGOLLYdGYMxQ4OjQyZJ+qKFH9tWUByfZptLXKqS0MIcbZDDDZckNTtOgvauIkIAgEMe/86weZllpw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fV8Ikb13ip2x5qNT/bfhYmUDt+DWXX5h4YDEVsNj9z8=;
- b=uva8wlZIenG37netasSWlcMx2l0ZdiGKVq3nnn/OGI7tncfcbY2gz8iaSNC4IN8bnh6LKHIaH73KYEWJ3RJ7zZ5ztv3eZ6+ySrZEPFuB2uWSwUy/Hdr3F2ZIlZAsqLb0Ufjm8GQ1rkiFRfMfKWTw5h3Tq0MuaNJ7gigRw9NO9OSVWUFoBRz6E1vTXPsKGkHlL/yAj4m8JDQT1JwEhKpHuHcRPwu0hQt/KvDvO/PDsLjB98fVDy8HlTjeXy9HTBfl1rjrZmMD0mA45grO3MgnTeBAkfyVXwBGgzZoLr8lPbwBGmY+86oIwnOd4rewbEQEFN1kuZZOCDgCK4BSJ6XS7A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from VE1PR04MB7216.eurprd04.prod.outlook.com (2603:10a6:800:1b0::22)
- by GV1PR04MB10872.eurprd04.prod.outlook.com (2603:10a6:150:20e::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.13; Mon, 20 Jul
- 2026 02:13:22 +0000
-Received: from VE1PR04MB7216.eurprd04.prod.outlook.com
- ([fe80::a9a5:cf83:dbe8:1f74]) by VE1PR04MB7216.eurprd04.prod.outlook.com
- ([fe80::a9a5:cf83:dbe8:1f74%3]) with mapi id 15.21.0223.015; Mon, 20 Jul 2026
- 02:13:22 +0000
-From: wei.fang@oss.nxp.com
-To: claudiu.manoil@nxp.com,
-	vladimir.oltean@nxp.com,
-	xiaoning.wang@nxp.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	linux@armlinux.org.uk,
-	wei.fang@nxp.com,
-	chleroy@kernel.org,
-	maxime.chevallier@bootlin.com
-Cc: imx@lists.linux.dev,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH RESEND v4 net-next 14/14] net: enetc: use kzalloc_flex() for enetc_psfp_gate allocation
-Date: Mon, 20 Jul 2026 09:43:16 +0800
-Message-Id: <20260720014317.1059359-15-wei.fang@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260720014317.1059359-1-wei.fang@oss.nxp.com>
-References: <20260720014317.1059359-1-wei.fang@oss.nxp.com>
+	id 1wlch2-00000005agf-3Ldm;
+	Mon, 20 Jul 2026 01:21:20 +0000
+X-UUID: 4b91ac4e83d911f1afed4741b24580c9-20260719
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=Sf1pQlbMbiIrjnz8/66tGMCRdtP6utc4O8nw4rUQzS8=;
+	b=YLZpH4+cCeB+G3nwRYhRKsLf/f7zh7owpzKkv6FB0UbXWdBHpz+M2nEqXy2JvBobhwU7ao19lXF2Dpzi6vojdkuXUIGbxD8nSNdlSOqANmhxvVKNXSvwijfajYmauof0eAAvz1+SQf+Gjj9omPvXBEU2k5WD3PJh9ybR77lbJS8=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.18,REQID:ef87fdeb-d98e-4f95-9783-b35c889981e0,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-5
+X-CID-META: VersionHash:8a735a6,CLOUDID:238f763f-46cf-453a-bd84-ad9fc7cb0e8c,B
+	ulkID:nil,BulkQuantity:0,SF:81|82|102|836|865|888|898,TC:-5,Content:0|15|5
+	0|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,
+	OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 4b91ac4e83d911f1afed4741b24580c9-20260719
+Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw01.mediatek.com
+	(envelope-from <kyrie.wu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1239950960; Sun, 19 Jul 2026 18:21:12 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Mon, 20 Jul 2026 09:21:09 +0800
+Received: from gcnsap21.gcn.mediatek.inc (10.17.81.22) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Mon, 20 Jul 2026 09:21:08 +0800
+From: Kyrie Wu <kyrie.wu@mediatek.com>
+To: Tiffany Lin <tiffany.lin@mediatek.com>, Andrew-CT Chen
+	<andrew-ct.chen@mediatek.com>, Yunfei Dong <yunfei.dong@mediatek.com>, Mauro
+ Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Kyrie Wu <kyrie.wu@mediatek.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>, Ricardo Ribalda
+	<ribalda@chromium.org>, Kees Cook <kees@kernel.org>, Hans Verkuil
+	<hverkuil+cisco@kernel.org>, Fei Shao <fshao@chromium.org>, Haoxiang Li
+	<haoxiang_li2024@163.com>, Chen-Yu Tsai <wenst@chromium.org>, Laurent
+ Pinchart <laurent.pinchart+renesas@ideasonboard.com>, Tomasz Figa
+	<tfiga@chromium.org>, Sebastian Fricke <sebastian.fricke@collabora.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>, Benjamin Gaignard
+	<benjamin.gaignard@collabora.com>, Qianfeng Rong <rongqianfeng@vivo.com>,
+	Irui Wang <irui.wang@mediatek.com>, Jacopo Mondi
+	<jacopo.mondi@ideasonboard.com>, Fan Wu <fanwu01@zju.edu.cn>,
+	<linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>
+CC: Sakari Ailus <sakari.ailus@linux.intel.com>
+Subject: [PATCH v6 06/14] media: mediatek: vcodec: add debug information
+Date: Mon, 20 Jul 2026 09:20:48 +0800
+Message-ID: <20260720012056.1026551-7-kyrie.wu@mediatek.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260720012056.1026551-1-kyrie.wu@mediatek.com>
+References: <20260720012056.1026551-1-kyrie.wu@mediatek.com>
+MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: SI1PR02CA0038.apcprd02.prod.outlook.com
- (2603:1096:4:1f6::15) To VE1PR04MB7216.eurprd04.prod.outlook.com
- (2603:10a6:800:1b0::22)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VE1PR04MB7216:EE_|GV1PR04MB10872:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7ad3e2cd-fec9-4728-e092-08dee6047956
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|7416014|376014|19092799006|921020|18002099003|22082099003|11063799006|56012099006|10067099003;
-X-Microsoft-Antispam-Message-Info: fhURm5iB51l/uPObKs0z8mwcjfm6WSDzrhNufnaWAgz6A23DCIiai3tSGchw9KGXLjTtZAW+ce1KtwMiGryIOiW3P+LYwv0S7DJmLMi6WlWWxSlk4t1L1cm3FsX1wE0szWXpGMO2Ru9A6HWtYjm5x4C8/Xf6ZPYlGfhCxseT7T3KGlQ+p/UZTsZeFBOOl4b1V1Xxzz5eiIazELRaf/g4v086b89tNOiAN2RAhQQt3IPDJSzNWG7h9o4bN7BiTMkpVMs0HFWXz1kYo/nSpBzud0zAH4KJkVFoZNpYBOMSXtBPtwM2GHueYjyVxa9czldA6hIZCnrH6srdROTRYZ0aG533PkqJSkAhmiBhpjGXkr4uVYDxe2NVaAYVrWbZNxwlEv6NAk4pA3k2vEhnMglZ2BJN42IzFuP4UlqXpKbqBXM84Ljs3Z4GLMmxGRlJVleI5QHL3KKHMOjMMfwpWdRpfLmxEFcFsF1yuSv384U6MHVT67oAT42lIZBOQr9kmqqCkcNW/Tf9dff7JnPdtzruI9y2471Bs8Jfci3kn0XY+CephfseZKyRZa1pqY6KcSc0CG7WC0CfeZiciZK6+16kmq1V36qehHfr/TIfuiCrPNQROOG4IoKFE4MMxJwbBPAZ2VWhQ0Zl92MyEGWCqkcCJRwSCd6p+H3jk5+ee6J307CllPl6eVQ2daQ41b3IP8/lkY0Bi+0sGtxtE6qhMGfAog==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VE1PR04MB7216.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(7416014)(376014)(19092799006)(921020)(18002099003)(22082099003)(11063799006)(56012099006)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?uRxVTAuSW5BIADJr2i6Uq6dCKrnIB3fqvipS2p/gTtjISWr5HvkrJsjr//cr?=
- =?us-ascii?Q?SDjnjCPf0GyTSKHzZBVlfAjXRTM8TzWhb4ox1gYx+SsnLRVebSRD06fQpUcx?=
- =?us-ascii?Q?uES2IJ0R/IF08CQ5YbHJKpTe1nuC9TYIr3gUoDYQ4OuVLDBaSOKTayW9edqD?=
- =?us-ascii?Q?XKxlqymPZQ7DCMjUE1boPKmkMobtuT40PpXMi+zFAwjYvox+C96C7C0h8TYz?=
- =?us-ascii?Q?C1YWjBoNte70MmeRhxUCPNaGMrCk4Pt57SXpN8VCUGhK5E5JXYoS8oC2xPU/?=
- =?us-ascii?Q?40X/0Fp6K32LwQVoKRSd2+lVvq7kE/8M5wauzakYY7GOEL7EoyWl4vTRHhrX?=
- =?us-ascii?Q?3xH4APo1GtAnOo/8IU8rgmvmMrsZsYDOK85mNck4CsGAMPXSUALhYFQZ2yGX?=
- =?us-ascii?Q?/FT29kcTYsKqjbZxbIw4Bv2F07uZL2XK1kw8cF6F3XNNax8yBHQl7pePC84Q?=
- =?us-ascii?Q?qX7h/7fEnfqyH0HytQAKy/k7UzI7/Xa63JZhNXu89F2jat7eWgV4tCd9Unii?=
- =?us-ascii?Q?Av/tUEvq+2w7qZG++Tx5ueeV6uFIRq/J3LaqPyk4isS0TWIHoXSgmjC60g/N?=
- =?us-ascii?Q?iBTaD3lcEexmtA+hWDxvU4RAttZMSTnG4Uzi1fvyDxfDcqncwQPOQ1jQN5jS?=
- =?us-ascii?Q?jz+N59wgX6yV64VwhMrcjDeSLadFm0w8gGpDAKP1uBLZbyG6Q3hK0vaIGgL5?=
- =?us-ascii?Q?hyMwHAqtGRYQ0+w+NhJxV7+e6c0dFe5GIo9i5f4CT7Ys7LzhIJ6F7bAq2SW4?=
- =?us-ascii?Q?npQh9XFoAZIElhqSPIT6A7IXOALOthWYANjDUiHKLDxa7VCXNzvU2VbUwt1b?=
- =?us-ascii?Q?N8/gVB07ww3MYuGEyb5EkIPazWIeV0TCUYf1iCSQuDlVefIOf0VnP5exiyGd?=
- =?us-ascii?Q?DOCJDNhNwhrs+pBrbeTFrRK8HoZwE/txV209CUIH9KkCJgoAv8JRusti829s?=
- =?us-ascii?Q?P4wyPGeDFg2t1ztTa/HDuyTly/HjyAnHQ+Nw6774nXKaZRiO6SNbG/8PfIzK?=
- =?us-ascii?Q?821w6R9HqjsKrcygdY/nSI4imbTDu7bS3TZizTC/0CQkbfh1aIb635sw3YsJ?=
- =?us-ascii?Q?bE6lTrJJnX6GbU9z39RYA9hVVSBC7gCqU+nuQkP2yFy/HAa3yGhrmrQ9HtgP?=
- =?us-ascii?Q?cnXneGxsg+PNZwEurFGMJasaO3frHcGvTn6imPj28dxFt4kkcFSkh9fLCqLd?=
- =?us-ascii?Q?zu+f194l9IGMhnAeTyXcwcCbHTkV4PIMAcscabfOERbkl/pprrpdtgkmDlzl?=
- =?us-ascii?Q?KcBfT7ii8GF8SKv7TbDFnumQ3vrJeJZKHoWM+cOQdkj7MDe0fCXAZl768FMm?=
- =?us-ascii?Q?lXTDTVbEC2RLpDvu02aV+CGFSsnOKp4sSiM5ukS58or479N4CyJ6mwMirAWY?=
- =?us-ascii?Q?Col80wus7ycR+o5PuGYCt54Ywl/9LU1ODwDhafNORq9a687ouBkFEnT3/Ktl?=
- =?us-ascii?Q?nAdJuL8hOyethjMPACJuvFS7riqF916JGX7pS/w/f6VyWnrvPoKjno+aDXHQ?=
- =?us-ascii?Q?55bGVo60qb0JIsEumMcUN2VSaCBT+ice9QawDv21+tYuuLe8iKf29389mp7J?=
- =?us-ascii?Q?iBMCp7AMNUbfkjlDz59iwHWExbMLsIufdeFNUL3c0kfkc1NS/evBroFLbC06?=
- =?us-ascii?Q?ThsU1+X1HPTbFRipgyvjJWTRFg7XpidF4ph3Iw+VBsp4PMpegOW3QEb7Nnsu?=
- =?us-ascii?Q?li9saARqNssc9bV8tpclZdwP07VW1w6ZtBEBcxR57fOp1cebVmkUakvPxWIP?=
- =?us-ascii?Q?Turk7RgYrPfCYASIPU1tJ63TP4M1J0TXvpXiAvt4XVf31iGJjc37?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7ad3e2cd-fec9-4728-e092-08dee6047956
-X-MS-Exchange-CrossTenant-AuthSource: VE1PR04MB7216.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jul 2026 02:13:22.4210
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: CGteordaMbLmkufvgiEjWTlpOLd9aN2Vrou8GNhGUZoi8tscXHfZMwWBO8MoZqbX+ctZUedoIB1O86oGcm4dCm2dAzR5mE8sI3JzD+AvNqyLbBjKGtMkzShN9KaloV/1
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10872
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260719_191325_544667_20C76CEE 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20260719_182119_342961_410CC43C 
+X-CRM114-Status: GOOD (  10.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,41 +102,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Wei Fang <wei.fang@nxp.com>
+Print hevc/av1 output format and 10bit capture format
+information to debug.
 
-Replace the open-coded struct_size() + kzalloc() pattern with the
-kzalloc_flex() helper when allocating struct enetc_psfp_gate. This
-removes the intermediate entries_size local variable and makes the
-allocation site more concise.
-
-Signed-off-by: Wei Fang <wei.fang@nxp.com>
+Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 ---
- drivers/net/ethernet/freescale/enetc/enetc_qos.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+ .../mediatek/vcodec/common/mtk_vcodec_dbgfs.c | 21 +++++++++++++++++--
+ 1 file changed, 19 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/net/ethernet/freescale/enetc/enetc_qos.c b/drivers/net/ethernet/freescale/enetc/enetc_qos.c
-index 7b17bca24f26..2aa0fcaafcd2 100644
---- a/drivers/net/ethernet/freescale/enetc/enetc_qos.c
-+++ b/drivers/net/ethernet/freescale/enetc/enetc_qos.c
-@@ -1135,7 +1135,6 @@ static int enetc_psfp_parse_clsflower(struct enetc_ndev_priv *priv,
- 	struct flow_action_entry *entry;
- 	struct action_gate_entry *e;
- 	u8 sfi_overwrite = 0;
--	int entries_size;
- 	int i, err;
+diff --git a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_dbgfs.c b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_dbgfs.c
+index 2da11521f..a9e52a320 100644
+--- a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_dbgfs.c
++++ b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_dbgfs.c
+@@ -29,6 +29,14 @@ static void mtk_vdec_dbgfs_get_format_type(struct mtk_vcodec_dec_ctx *ctx, char
+ 		curr_len = snprintf(buf + *used, total - *used,
+ 				    "\toutput format: vp9 slice\n");
+ 		break;
++	case V4L2_PIX_FMT_HEVC_SLICE:
++		curr_len = snprintf(buf + *used, total - *used,
++				    "\toutput format: hevc slice\n");
++		break;
++	case V4L2_PIX_FMT_AV1_FRAME:
++		curr_len = snprintf(buf + *used, total - *used,
++				    "\toutput format: av1 slice\n");
++		break;
+ 	default:
+ 		curr_len = snprintf(buf + *used, total - *used,
+ 				    "\tunsupported output format: 0x%x\n",
+@@ -45,6 +53,14 @@ static void mtk_vdec_dbgfs_get_format_type(struct mtk_vcodec_dec_ctx *ctx, char
+ 		curr_len = snprintf(buf + *used, total - *used,
+ 				    "\tcapture format: MT21C\n");
+ 		break;
++	case V4L2_PIX_FMT_MT2110T:
++		curr_len = snprintf(buf + *used, total - *used,
++				    "\tcapture format: MT2110T (10bit tile mode)\n");
++		break;
++	case V4L2_PIX_FMT_MT2110R:
++		curr_len = snprintf(buf + *used, total - *used,
++				    "\tcapture format: MT2110R (10bit raster mode)\n");
++		break;
+ 	default:
+ 		curr_len = snprintf(buf + *used, total - *used,
+ 				    "\tunsupported capture format: 0x%x\n",
+@@ -122,9 +138,10 @@ static ssize_t mtk_vdec_dbgfs_read(struct file *filp, char __user *ubuf,
  
- 	if (f->common.chain_index >= priv->psfp_cap.max_streamid) {
-@@ -1242,8 +1241,7 @@ static int enetc_psfp_parse_clsflower(struct enetc_ndev_priv *priv,
- 		goto free_filter;
- 	}
+ 		if (dbgfs_index[MTK_VDEC_DBGFS_PICINFO]) {
+ 			curr_len = snprintf(buf + used_len, total_len - used_len,
+-					    "\treal(%dx%d)=>align(%dx%d)\n",
++					    "\treal(%dx%d)=>align(%dx%d) 10bit(%d)\n",
+ 					    ctx->picinfo.pic_w, ctx->picinfo.pic_h,
+-					    ctx->picinfo.buf_w, ctx->picinfo.buf_h);
++					    ctx->picinfo.buf_w, ctx->picinfo.buf_h,
++					    ctx->is_10bit_bitstream);
+ 			used_len += curr_len;
+ 		}
  
--	entries_size = struct_size(sgi, entries, entryg->gate.num_entries);
--	sgi = kzalloc(entries_size, GFP_KERNEL);
-+	sgi = kzalloc_flex(*sgi, entries, entryg->gate.num_entries);
- 	if (!sgi) {
- 		err = -ENOMEM;
- 		goto free_filter;
 -- 
-2.34.1
+2.51.0.windows.2
 
 
