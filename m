@@ -4,84 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7216BC44515
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 09:28:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD755C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 09:30:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KdohSLCmhYYN5xFaerOht1QxlaqSBPNXnoi96FiAJc0=; b=Klr25SqiE/qKx37qkT9Oxu3ehJ
-	p4hTGrcWCMqVajULxfUtUh8bAdpnf8KJXvsyntk7IqIMATf1s+eLot28HRRO0KOCPoGMZZ3RmB8N3
-	EcI0BeadYRoL7QeZRHgoTtPeUzWLIxm1P15Wu1K98v6OqZCjxovzn1a7FZAcmCvsIarqyDJxBKU1B
-	GGIQ+YuMXrmL+CI/Fkd49cngnLcQLHcbS3EtUZKOzKUOdjBBr4tORqjJ/4eaisFmFWeqP0/Fwyj4Y
-	uUM67qaQMPH0t8ynL53cL4NDx45LarYGWaG/g0WVbCeTUUTcFcD99fcid7ZrO7ORk5d5UU/2CnONI
-	WzdM7X5g==;
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Qh40Kaf5239dKtP22X4SPcyyQ2a1IDHQ6RgI2IFlkJE=; b=Biy2wKOfTw8b6WCwhl8wNPG860
+	2M+Ni5Ir8GBj6KxmxggIw53vi5zXEBsQjizCGWN4/BECJunso97lQO18OghQTecXVmeZNwv+l4/4E
+	bUJ2eBgjLA6laGf12oZ+16ki7tQCS6dwGH3XsFe2XaEnCwDF0rlA7CeXWUiKlLqGH+dWeP7XaMMuu
+	ul2yHhuC1LWRSi+rafeHurgdB0VmbvlcycKMiv/j10sYMf1e5RJdB+4f173v42ifuffxNUoc9m9Md
+	m/CY+3PGZaJ/HdgqGqSFkP4UPZTEItpcIWNedc1BztNydWGiwCZYovAcG2EHprZQzpF1d5boZiSKw
+	9ihLjASQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlkIR-00000006Ji3-1Yzy;
-	Mon, 20 Jul 2026 09:28:23 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlkIO-00000006Jgl-0AhG
+	id 1wlkKI-00000006K18-2idT;
+	Mon, 20 Jul 2026 09:30:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wlkKF-00000006K0N-2XcM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 09:28:21 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-38df94d4dd8so4604814a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 02:28:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1784539699; x=1785144499; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=KdohSLCmhYYN5xFaerOht1QxlaqSBPNXnoi96FiAJc0=;
-        b=XG4eihar4T/zf9ajvRVz/F0koj7nVu0ShDJi0+TtG4RA0TdMSK3bTpX7ZSbqyz5JKI
-         MsxNtkWbwbshoBEPjA4cN1BoQVbuHdpwKz1bixL8Z32VE92f3DFWPXURNQlhtJmpJwNI
-         osyZ2MejCGG01x7sFP7vjmrgYc80GG2/NrXjw=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784539699; x=1785144499;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=KdohSLCmhYYN5xFaerOht1QxlaqSBPNXnoi96FiAJc0=;
-        b=Cdgz7iKrusxdGKE84hFI+6pBr/SZpSWmaVAVtmRZaz0VaSh/mjzusfVU7b3Bt5pNwI
-         GJJCMV3pOdLIf1bWRxF01FPe9uHii2o/MRocHXP+Ndws3zoTRkstvzannAleobQc2zkR
-         kDGP+2/MDwAAHzE1/maKZp7LXF+kNOGEOlwfSv1u7z//4VVd5Y63OcbPmZOOC/eGwR0w
-         wxs9RSfpvlmFfaz5RroEPWu0h+tw42kbV+oj2BsCWkewGgQtAD93R+9i5MKfvmRQy+a4
-         bb/dhl2Lj/QzcxUBSL6hXB1UouQwK0XFDmimn1wrO42vhbyv8pQudaywcl72woRM+Q+X
-         Yuvw==
-X-Forwarded-Encrypted: i=1; AHgh+RrmyXwL4nFBVyTvjhEsfeU9Zxsmr5STTwzvIiTLmfwABbVHTRSPBt5KvH0HovtE9vXIUFzUcDxm7JxsAJqgLnfC@lists.infradead.org
-X-Gm-Message-State: AOJu0YwBWpEODtosNP29DhFxjUeBweWYde+07A64BvakqsSDRrPo4tff
-	nInKj17U1aPGTxOMhyXZJhZZdtRToZ3X92dOtBYywo2h+9dgzUhJrLSGBFjTgniCUQ==
-X-Gm-Gg: AfdE7cnA+TvYmX+Uv/vtDlnBR0/exScxqFpcom2hDim2fwtAF+K/Y/s+YkuPL+k60VK
-	T0vlDpvNxfKuvy1haPktyxL041QbU9ts4x0X7BiGIq5YHy/SooE+12ffQ9eDdqKdmw/WAKlYrb6
-	j74R6QgIg05TU+bDbWsvEI5xC/gjpHb3X4RFMN+E04KWBKFgAStKhN7efi9hqLP3B+bP34O2SOW
-	VKimCO0p3Xdeq6b6HrUEVmuw9KlKjsdYdpqSEZnIUOFxSamAz2Rq871s9gvkwNUW85o7ccfG+ch
-	kF5WHy0tV0d18i4K3U79dJPE/yWugMkb4WBLJodA3u3LQMSvEToGfDVUcFHCcf+Bl0n2kWMHtYf
-	ZqFB1bqu63NtNyMztFw+40t1UX/iZ9TSlgbtdpWLP9A7eWJG8RhtawFRIj8MH6y/G2mDMIoW8Np
-	hJNMyUeHtQ92fvmLHHWEpHFpbft5Br9tvFMRL0UBmO+MsvQcdHeCI8u3qNZiM=
-X-Received: by 2002:a17:90a:e18d:b0:387:e0db:bc29 with SMTP id 98e67ed59e1d1-38e4b57ee17mr15411812a91.41.1784539699255;
-        Mon, 20 Jul 2026 02:28:19 -0700 (PDT)
-Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:3916:f048:32c3:931f])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38e39de7875sm7342610a91.2.2026.07.20.02.28.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Jul 2026 02:28:18 -0700 (PDT)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: dts: mediatek: mt8192-asurada: Disable mmc1 on Spherion
-Date: Mon, 20 Jul 2026 17:27:57 +0800
-Message-ID: <20260720092759.1831105-1-wenst@chromium.org>
-X-Mailer: git-send-email 2.55.0.229.g6434b31f56-goog
+	Mon, 20 Jul 2026 09:30:16 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 68F132B;
+	Mon, 20 Jul 2026 02:30:10 -0700 (PDT)
+Received: from [10.164.19.57] (unknown [10.164.19.57])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 828D03F86F;
+	Mon, 20 Jul 2026 02:30:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784539814; bh=u78go90jcYIuVoiboHtv2/azilqOO6gPDtK1P1MBAVg=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=Ohi2gNJRzYgy+THnDJEd8IqotthDyQLMLN7Z19lvW/SaHBwbg/iX2n+RhkH7ME117
+	 rf1bSX7rSKv/2RofZpRqxXzzdLu+410DMkIY4tyuyo4fuBWrPt6HF0U/g0truGNetK
+	 ON8g2xnwGaKdcaqE1OH4sNpxXn0u20RyTo+yv5SQ=
+Message-ID: <b7e7707e-e722-4daf-9d98-df82ddefd635@arm.com>
+Date: Mon, 20 Jul 2026 15:00:07 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] KVM: arm64: ptdump: Flush the last region
+From: Dev Jain <dev.jain@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Wei-Lin Chang <weilin.chang@arm.com>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-kernel@vger.kernel.org, Oliver Upton <oupton@kernel.org>,
+ Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>,
+ Steffen Eiden <seiden@linux.ibm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
+ Sebastian Ene <sebastianene@google.com>,
+ Vincent Donnefort <vdonnefort@google.com>
+References: <20260717231233.2299068-1-weilin.chang@arm.com>
+ <ad52d1ee-04cb-42d7-b50c-dfb3d28db5df@arm.com> <868q76f2wy.wl-maz@kernel.org>
+ <4a598a6c-496f-441c-b268-a725f9ee8090@arm.com>
+Content-Language: en-US
+In-Reply-To: <4a598a6c-496f-441c-b268-a725f9ee8090@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_022820_114395_E4C4C409 
-X-CRM114-Status: GOOD (  10.57  )
+X-CRM114-CacheID: sfid-20260720_023015_746240_71C804EA 
+X-CRM114-Status: GOOD (  25.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,31 +80,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Spherion does not have an micro SD card slot.
 
-Disable mmc1.
 
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
----
- arch/arm64/boot/dts/mediatek/mt8192-asurada-spherion-r0.dts | 4 ++++
- 1 file changed, 4 insertions(+)
+On 20/07/26 2:40 pm, Dev Jain wrote:
+> 
+> 
+> On 20/07/26 2:33 pm, Marc Zyngier wrote:
+>> On Mon, 20 Jul 2026 09:53:29 +0100,
+>> Dev Jain <dev.jain@arm.com> wrote:
+>>>
+>>>
+>>>
+>>> On 18/07/26 4:42 am, Wei-Lin Chang wrote:
+>>>> Currently the stage-2 ptdump calls note_page() at each leaf entry visit.
+>>>> This simply misses the output of the last region, because note_page()
+>>>> only dumps output when it detects a change in level/prot, or when the
+>>>> walk enters a next marker section. The last region in the guest IPA
+>>>> space with the same level/prot is not dumped since there is no change
+>>>> after it.
+>>>>
+>>>> To dump the final region, manually issue a note_page() call with address
+>>>> BIT(ia_bits) (end of guest IPA space) and level == -1 to trigger a level
+>>>> change after the last region. Additionally treat level == -1 as a last
+>>>> flushing note_page() call and avoid dumping the name of the next marker
+>>>> for this case.
+>>>>
+>>>> Fixes: 7c4f73548ed1 ("KVM: arm64: Register ptdump with debugfs on guest creation")
+>>>> Reported-by: Sashiko AI <sashiko-bot@kernel.org>
+>>>> Closes: https://lore.kernel.org/kvmarm/20260630122758.891011F00A3A@smtp.kernel.org/
+>>>> Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+>>>> ---
+>>>>  arch/arm64/kvm/ptdump.c | 8 +++++---
+>>>>  arch/arm64/mm/ptdump.c  | 5 +++--
+>>>>  2 files changed, 8 insertions(+), 5 deletions(-)
+>>>>
+>>>> diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
+>>>> index c9140e22abcf..4096e4a92fae 100644
+>>>> --- a/arch/arm64/kvm/ptdump.c
+>>>> +++ b/arch/arm64/kvm/ptdump.c
+>>>> @@ -155,11 +155,13 @@ static int kvm_ptdump_guest_show(struct seq_file *m, void *unused)
+>>>>  		.seq		= m,
+>>>>  	};
+>>>>  
+>>>> -	write_lock(&kvm->mmu_lock);
+>>>> +	guard(write_lock)(&kvm->mmu_lock);
+>>>
+>>> The guard clause change has nothing to do with the fix I think? Although the change
+>>> is small and the fix is for a recent commit so maybe we don't care having this
+>>> in the same patch - not sure how strict kvm reviewers are about this : )
+>>>
+>>
+>> Look at the quality spaghetti code this would otherwise result in:
+>>
+>> 	write_lock();
+>> 	ret = kvm_pgtable_walk();
+>> 	if (ret) {
+>> 		write_unlock();
+>> 		return ret;
+>> 	}
+>> 	note_page_flush();
+>> 	write_unlock();
+>>
+>> 	return 0;
+>>
+>> How is that better? So it has *everything* to do with the fix.
+>>
+>> And FWIW, the policy for KVM is that we don't do lock->guard
+>> conversions as a separate patches. Only when we need to change the
+>> code, and as part of the patch that changes that code.  Which is
+>> exactly what is happening here.
+> 
+> I agree, thanks.
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8192-asurada-spherion-r0.dts b/arch/arm64/boot/dts/mediatek/mt8192-asurada-spherion-r0.dts
-index c02edba73eaf..0b976b09d47f 100644
---- a/arch/arm64/boot/dts/mediatek/mt8192-asurada-spherion-r0.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt8192-asurada-spherion-r0.dts
-@@ -64,6 +64,10 @@ &rt5682 {
- 	VBAT-supply = <&pp3300_ldo_z>;
- };
- 
-+&mmc1 {
-+	status = "disabled";
-+};
-+
- &sound {
- 	compatible = "mediatek,mt8192_mt6359_rt1015p_rt5682";
- 
--- 
-2.55.0.229.g6434b31f56-goog
+Yeah in my head I was thinking that the guard clause is a "functional change"
+but it really isn't, the fix implies that without the guard you will get
+horrible code, and had the code been correct in the first place, it would
+have been written *with* the guard, so yes that was a stupid
+observation from my side : )
+
+> 
+> 
+>>
+>>>
+>>>>  	ret = kvm_pgtable_walk(mmu->pgt, 0, BIT(mmu->pgt->ia_bits), &walker);
+>>>> -	write_unlock(&kvm->mmu_lock);
+>>>> +	if (ret)
+>>>> +		return ret;
+>>>> +	note_page(&st->parser_state.ptdump, BIT(mmu->pgt->ia_bits), -1, 0);
+>>>>  
+>>>> -	return ret;
+>>>> +	return 0;
+>>>>  }
+>>>>  
+>>>>  static int kvm_ptdump_guest_open(struct inode *m, struct file *file)
+>>>> diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
+>>>> index ab9899ca1e5f..fed4e4407e0e 100644
+>>>> --- a/arch/arm64/mm/ptdump.c
+>>>> +++ b/arch/arm64/mm/ptdump.c
+>>>> @@ -194,6 +194,7 @@ void note_page(struct ptdump_state *pt_st, unsigned long addr, int level,
+>>>>  	struct ptdump_pg_state *st = container_of(pt_st, struct ptdump_pg_state, ptdump);
+>>>>  	struct ptdump_pg_level *pg_level = st->pg_level;
+>>>>  	static const char units[] = "KMGTPE";
+>>>> +	bool flush = level == -1;
+>>>
+>>> Can we do something similar to what S1 ptdump does (note_page_flush in ptdump_walk_pgd).
+>>
+>> See Mark's email.
+>>
+>> 	M.
+>>
+> 
 
 
