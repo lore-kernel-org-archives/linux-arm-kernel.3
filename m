@@ -4,64 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67696C44529
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 20:28:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE2F0C44529
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 20:35:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VbpAem1WedJc3O7Kq+6yk924WUUTh67h1vQt+9QesvA=; b=AW/Gq7/LLRKErcBOlOpXpyHzSE
-	byAN8fv15f1mjscSSzoSPavFSJ60SOXAK+pnSzgGxZf+beosboaadHDR5ynYpTHyxTFbLwzcXGvKY
-	/DEQIQQ3+xqcFNjYFn7P6pYKUxUwYl6OH+TdCCAqgicIeSfQ1bNf33JUvR24eIjyqgeNAl4wKNmpl
-	dxfpMB87B2E8m+jKo61Yesc8UiSy59Ly3IhwHwgM0DPzjk1bqUh/yQ9Ihb5jttgYZeue8PaaWYyLe
-	4pg2WuWw9XMvkgcPgZlfyLCmOH7oQzenL2cG03ncyQBtl8osrq3b0T1rB7o6IYNCCViqo/FUPrzQH
-	zDzRe3dQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LA6BVqbIhEwIMVMXHgwJu8nqjN0TgDEofdIQtGf4DJQ=; b=S4PkNe5yRCBEUPXsUT7pUPQ8t9
+	oX+5bYqVbGhaTGlzwyKBJYZTzMPTeaoWcy2rl5sInd+ug2DuLnrkZ7YVG0YH1nL7iu6F7phiYOob7
+	Veix7Y6Hm5PAm8IJ9LZCF44090ZOi7rPO7po2Gaxj24AbsOUm1WN+AQC5ZXrAwOzEFdx16J7QCqD4
+	3S/z2c01GEIsLSQU2x0RgujHkZzSldsj0S9lPOk+2pUvh3NKj6plnq440KvYtajaDwlcbH+7DCVOQ
+	qA1RxYXXJcCMUjCIh8/Ud20QrBxdtEudW8wS8kG34wQWtFPc+esxPNpHL0VCS49uTMipb3IDuQ/Oc
+	0H3RTvPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wluaz-00000007s5E-2PQf;
-	Mon, 20 Jul 2026 20:28:13 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wluaw-00000007s4k-06Nj
+	id 1wluiA-00000007sam-322X;
+	Mon, 20 Jul 2026 20:35:38 +0000
+Received: from mail-wr1-x447.google.com ([2a00:1450:4864:20::447])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wlui8-00000007saJ-36Mm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 20:28:12 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 506A1143D;
-	Mon, 20 Jul 2026 13:28:04 -0700 (PDT)
-Received: from ryzen.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 573FB3F86F;
-	Mon, 20 Jul 2026 13:28:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784579288; bh=nQJLmuZAjlXCvBDXMohcZ1j/B2+X5Z8O3RPYfkvXlB8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=FaCaGQddWXnChyga+RlhKYyLo8XEy4ewC/EDTFcDq5vXLzxixfQMBSTMF8zwQnRqL
-	 +1NBWJuZasrxbqVyEL3NC+PBLd2yrjmYBZBFYAhwijAtPkMtZWv9c1/fKrvX043IFr
-	 L+nKIgPQSzVdpSSODZxxWWXKRhcbX97KiFMtz4XM=
-Date: Mon, 20 Jul 2026 22:24:20 +0200
-From: Andre Przywara <andre.przywara@arm.com>
-To: Per Larsson <per@palvencia.se>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Jernej
- Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
- devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE
- TREE BINDINGS), linux-arm-kernel@lists.infradead.org (moderated
- list:ARM/Allwinner sunXi SoC support), linux-sunxi@lists.linux.dev (open
- list:ARM/Allwinner sunXi SoC support), linux-kernel@vger.kernel.org (open
- list)
-Subject: Re: [PATCH 1/2] arm64: dts: allwinner: a523: Add missing SPDIF pin
-Message-ID: <20260720222420.0c063b18@ryzen.lan>
-In-Reply-To: <20260720174253.7686-1-per@palvencia.se>
-References: <20260720174253.7686-1-per@palvencia.se>
-Organization: Arm Ltd.
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
-MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+	Mon, 20 Jul 2026 20:35:38 +0000
+Received: by mail-wr1-x447.google.com with SMTP id ffacd0b85a97d-472c330e555so5143246f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 13:35:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1784579733; x=1785184533; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=LA6BVqbIhEwIMVMXHgwJu8nqjN0TgDEofdIQtGf4DJQ=;
+        b=sPguIAmq7sKzVlKPiGSnkhO1TpsC+ms5lKF0EXYWu+e5BIxBPdeumzzZJeAzrFekNX
+         7McWko54aR+G1mbsbbRH451ueBHFzk/vhmF2V/N+e0tZ7uZC7ER4V1xVgHoQ8+VDufeY
+         L3enyj1ZUo8Ysy82o61cWy06HZVpYBgEqy+DxPMv0bGsuKI25Os1a88IxXYDtwMp/QU9
+         ekjzDy2c7jNW7EnbB7SAgS7FJM5GjxVTZ42mHXbeq8Ip+9cu3ARzwFSRR4i9bUI0Yxah
+         SWnkJaHUD2XimvVsSRyJjyM/wBaPGaFPi3z3yx3F5DCzAAcELch4R7tA0D6Fe4bEjzYB
+         acqw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784579733; x=1785184533;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=LA6BVqbIhEwIMVMXHgwJu8nqjN0TgDEofdIQtGf4DJQ=;
+        b=G6ob67F5Kpk4YPiA3ITdKTOwGVnslTRXJWLYsMyMX1anm7B1NpHJ2hCf2GTxepoNkT
+         MkLuStJItE/qmoUVir07tSpUmPTiMwN3iRH0Iw/pwKybrdwREBcXHrE0UrlbEUwGk9De
+         UdMRaGeV7k04lIHd8Y7hQXMFCmweNUFJm0UC5Y4W4m29v7R8lb9uGQjRaZhAJFZLKENO
+         QNKIMe+WJpwLOS7Undk+jekAPDAZEs5v1uKcpkLKxETwomHxj7nTQbbilDSQzxhaOeXm
+         N9Fc2/qIbHs62YN1mqSHRwGv6uRKFRJO0L2FHXSdWPp58vDizgb6zJouOq+MnhXUXzjF
+         XDmA==
+X-Forwarded-Encrypted: i=1; AHgh+RoU2I1RViG+jvPe7BAE1kSeNUlJbbNA9OUC8kz8GDDAQk57r4sR+AOUyCEbH5cEyR46vCy6LoXNBJY89SNKn1rj@lists.infradead.org
+X-Gm-Message-State: AOJu0YyX6iLDgW6d/dJTDFJ7oJzasFJLGBbUcqCBsdQzsl5dSP3IYcUq
+	lqJwAOrvtQwsLJ6RthvT144RxWMPVlGBF3kwzngYm5dq01ZxanO4wTT68x0ZY8ZHhSlqh6HGBa4
+	qDpQdLoPQt1GlEg==
+X-Received: from wmpi31.prod.google.com ([2002:a05:600c:4b1f:b0:489:1b01:386f])
+ (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:310e:b0:495:52dc:73a1 with SMTP id 5b1f17b1804b1-49552dc776bmr119110015e9.29.1784579732667;
+ Mon, 20 Jul 2026 13:35:32 -0700 (PDT)
+Date: Mon, 20 Jul 2026 20:35:29 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.55.0.229.g6434b31f56-goog
+Message-ID: <20260720203529.1276355-1-smostafa@google.com>
+Subject: [PATCH] KVM: arm64: Optimize protected mode and FWB
+From: Mostafa Saleh <smostafa@google.com>
+To: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Cc: maz@kernel.org, oupton@kernel.org, seiden@linux.ibm.com, 
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, will@kernel.org, vdonnefort@google.com, 
+	tabba@google.com, sebastianene@google.com, keirf@google.com, 
+	Mostafa Saleh <smostafa@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_132810_195213_41E34E50 
-X-CRM114-Status: GOOD (  18.32  )
+X-CRM114-CacheID: sfid-20260720_133536_788291_A2EE1777 
+X-CRM114-Status: GOOD (  10.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,56 +91,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 20 Jul 2026 19:42:42 +0200
-Per Larsson <per@palvencia.se> wrote:
+KVM opportunistically enables FWB if supported by the system for guest
+VMs, which allows it to elude cache maintenance for data as they are
+forced to be cacheable from stage-2.
+In that case, __clean_dcache_guest_page() will immediately return.
+However in protected mode, before calling __clean_dcache_guest_page()
+it loops over the range and fix_map/unmap it, issuing TLB
+invalidations, dsb() and isb() unnecessarily.
 
-Hi,
+This can be optimized by returning early if FWB is supported,
+kvm_pgtable_stage2_map() already issues dsb() and tlb invalidation
+functions issue dsb() for the unmap path.
 
-thanks for takign the time to send a patch!
+Signed-off-by: Mostafa Saleh <smostafa@google.com>
+---
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-> When spdif support was added for the Allwinner A523 family of SoCs, only
-> two of the three possible pins were added to the dtsi, since the third
-> would clash with the first ethernet port (emac0)
-> However, some devices don't use emac0 and instead use emac1 for the only
-> available ethernet port, leaving the pin free to use for spdif.
-
-Not sure we need such an elaborate excuse to add a pinmux that is
-used on one device - you could just say *that* instead.
-But that's not a big issue, as the patch itself is correct.
-
-
-> Add the missing pin to the dtsi so such devices can (later) use it
-> 
-> Signed-off-by: Per Larsson <per@palvencia.se>
-
-Checked the details against the user manual: they match:
-
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-
-Cheers,
-Andre
-
-> ---
->  arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi | 7 +++++++
->  1 file changed, 7 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> index ca6a16807049..7370e8ed24ec 100644
-> --- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> +++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> @@ -216,6 +216,13 @@ spdif_out_pb_pin: spdif-pb-pin {
->  				allwinner,pinmux = <2>;
->  			};
->  
-> +			/omit-if-no-ref/
-> +			spdif_out_ph_pin: spdif-ph-pin {
-> +				pins = "PH7";
-> +				function = "spdif";
-> +				allwinner,pinmux = <4>;
-> +			};
-> +
->  			/omit-if-no-ref/
->  			spdif_out_pi_pin: spdif-pi-pin {
->  				pins = "PI10";
+diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+index 4e329e39a695..6e9229106a25 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
++++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+@@ -261,6 +261,10 @@ static void __apply_guest_page(void *va, size_t size,
+ 
+ static void clean_dcache_guest_page(void *va, size_t size)
+ {
++	/* See __clean_dcache_guest_page() */
++	if (cpus_have_final_cap(ARM64_HAS_STAGE2_FWB))
++		return;
++
+ 	__apply_guest_page(va, size, __clean_dcache_guest_page);
+ }
+ 
+-- 
+2.55.0.229.g6434b31f56-goog
 
 
