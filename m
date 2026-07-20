@@ -4,154 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72E5FC44515
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 09:38:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89D61C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 09:40:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S0tdWGsY8ovK8tJeJyM3lFSP9EHZNI48Z0Uy16r6Azs=; b=MVF9h5OGRW9TJDqfYHek6d50zB
-	UTTdpiTghEQhv9m91FcuHRvUgQCFvzxo4TILV4O8rmQK1D3pvL751+qomfBTpo46len91lC2R+z65
-	MwI6+o/F66ORvX45k0ZOvYbaOCn3zzEZ/pzSUmBzzDGqgN0e8IRuqBAYOm5bYamF/FEdYv6YRYXgX
-	DMSXVAWCPWgAePqOk6IesO2e0YFhfJJ1RLUBBhb1Yh3GwhbXUJdI8pvWWg5fnGl3+jBoAZf2Kwjxp
-	zhxfD2RYdSwMqG9+p8U0hYP3MI/83HuO+OXUeHRtFGoAwmN/WFyOhgMEgkQG7Hirqil/J5XkeC3ru
-	0UXmaJOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3u1CwozotVn5LDWLD1V9wVLi4fj6wktLd2vv686ZRBI=; b=AlvMWtiS0zBc8yDdXb9Q84Y1sx
+	Xhl/Mt3m1CE4IgOmaUk98IPzEtiqUTFGRG266ETuYYrhW3JvP9hqM/EMOUJROWKE+8gO+/YLj6ExO
+	uKctUXVhN+pDLILoBNnncIzS0s402fWXDpbOJ//k1X0eCSuc0pTNg5nm8TZRDkamn6cqg7moWJKQq
+	N3GF51xjU5aq0IJs9YSoy1tAEh2seEq2OgcWj4qSH9sW8vbhmg2a9r/nJaNp5w3lijgbNOpBx6vJc
+	8vUU8plXINYCMgYMBZgfPpYguJP8w1GTTMS29PtQdwcS5fn2bdPpjnnCZkG3JqWoc7f4fRM5+mJ4A
+	ScNwYDVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlkS6-00000006LDw-3F2q;
-	Mon, 20 Jul 2026 09:38:22 +0000
-Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1wlkUS-00000006LhX-1lkf;
+	Mon, 20 Jul 2026 09:40:48 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlkS4-00000006LBj-1B1j;
-	Mon, 20 Jul 2026 09:38:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MYQFWwU4BhmfJKviDLZGgEgrjOyJ+2Kovi4iEAGG/TbAHrmiyVh217EI+RIi1AFmj9vP8dEUlkqSY97qUB4pci07pKAqCFLH6R6HI/37wXr15XY35WDl9PY/rywFB8GRgcUgMQ4oL8a/MEcwrQhq/6ucoaocb96oCV539xORC0SI93WHkMffH3ufF2v7P32MxjPNmmJNuv6xFyDUbV3owU9ZdMv8Yw6UrgWpmEuitGfD2cuXYbwhO7Iob0t8HVSiKh0ytHare30w62ALyQ6NOemlPBxD0bHO3l3tUFmPXPWA4k6/zvvc64+R1kkW5ICJiy0obpKGYUmLN+V916RAeg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=S0tdWGsY8ovK8tJeJyM3lFSP9EHZNI48Z0Uy16r6Azs=;
- b=KvOeDp4or4NHf3vkt+CvwU8QCX+OQz23zdo/nGiE4hEHtZ8IYanCl+xawHths7oDR7NAGXP2yIfqBLnPFSS+7/ucLmuI2l3lZpL90EGsKb3YGThAq+ao7S8kiMrxmyx6E+E2IXqXLjXRZ18hbL1rnRViEi9LmHTkBPbTfvgo7a4A3I6jbAlBLwtGxSgm6esKpSKbX9JtZLnaLL/SFsXMOIu8gQk1qiLJ+4S+Kp0EHeuV1plZNw20eyFw/LHxZo1QKxljKjsIOFM9zZAWanuUSPR6VvFwVF8PAEniiHzlFAG8rhEKXcGUZgQLoiM9JBQV805wtMAXn6JmZRxuM2mYgA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=transsion.com; dmarc=pass action=none
- header.from=transsion.com; dkim=pass header.d=transsion.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=transsion.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=S0tdWGsY8ovK8tJeJyM3lFSP9EHZNI48Z0Uy16r6Azs=;
- b=UWH7Mfa20aRABHcBN1gY0dimzV9YAvCxgfcai7PVU+DoZgHr5bwVKoag4Xef+2N9eEhhC3NReSxtiVjsnG0WoWMK3XnVYNpFibMNmNE2P/ReIuhlhihfdlPZ+/9FD9COTBdIYnlT86LPtuCMYbJn9vKKnDuyz9yHqgnxwSfLi48=
-Received: from KL1PR0401MB6196.apcprd04.prod.outlook.com
- (2603:1096:820:c7::13) by TYSPR04MB7923.apcprd04.prod.outlook.com
- (2603:1096:405:8f::12) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.6; Mon, 20 Jul
- 2026 09:38:10 +0000
-Received: from KL1PR0401MB6196.apcprd04.prod.outlook.com
- ([fe80::f2ee:1e28:9022:99f3]) by KL1PR0401MB6196.apcprd04.prod.outlook.com
- ([fe80::f2ee:1e28:9022:99f3%3]) with mapi id 15.21.0245.009; Mon, 20 Jul 2026
- 09:38:10 +0000
-From: Hongyan Xia <hongyan.xia@transsion.com>
-To: "mingo@redhat.com" <mingo@redhat.com>, "peterz@infradead.org"
-	<peterz@infradead.org>, "juri.lelli@redhat.com" <juri.lelli@redhat.com>,
-	"vincent.guittot@linaro.org" <vincent.guittot@linaro.org>,
-	"dietmar.eggemann@arm.com" <dietmar.eggemann@arm.com>, "rostedt@goodmis.org"
-	<rostedt@goodmis.org>, "bsegall@google.com" <bsegall@google.com>,
-	"mgorman@suse.de" <mgorman@suse.de>, "vschneid@redhat.com"
-	<vschneid@redhat.com>, "kprateek.nayak@amd.com" <kprateek.nayak@amd.com>,
-	Juergen Gross <jgross@suse.com>, Ajay Kaher <ajay.kaher@broadcom.com>, Alexey
- Makhalov <alexey.makhalov@broadcom.com>, Broadcom internal kernel review list
-	<bcm-kernel-feedback-list@broadcom.com>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Huacai Chen
-	<chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, Madhavan Srinivasan
-	<maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin
-	<npiggin@gmail.com>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Paul
- Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Thomas Gleixner
-	<tglx@kernel.org>, Borislav Petkov <bp@alien8.de>, Dave Hansen
-	<dave.hansen@linux.intel.com>, "x86@kernel.org" <x86@kernel.org>, "H. Peter
- Anvin" <hpa@zytor.com>, Paolo Bonzini <pbonzini@redhat.com>, Vitaly Kuznetsov
-	<vkuznets@redhat.com>, Stefano Stabellini <sstabellini@kernel.org>, Oleksandr
- Tyshchenko <oleksandr_tyshchenko@epam.com>
-CC: Jiazi Li <jiazi.li@transsion.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "virtualization@lists.linux.dev"
-	<virtualization@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "loongarch@lists.linux.dev"
-	<loongarch@lists.linux.dev>, "linuxppc-dev@lists.ozlabs.org"
-	<linuxppc-dev@lists.ozlabs.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "kvm@vger.kernel.org"
-	<kvm@vger.kernel.org>, "xen-devel@lists.xenproject.org"
-	<xen-devel@lists.xenproject.org>
-Subject: [PATCH 2/3] sched: Convert paravirt_steal to new static key APIs
-Thread-Topic: [PATCH 2/3] sched: Convert paravirt_steal to new static key APIs
-Thread-Index: AQHdGCt41jgQ0Gd26kKdzbVxHXHoxA==
-Date: Mon, 20 Jul 2026 09:38:07 +0000
-Message-ID: <773bbd8fcd5ef2ebfe1c64303c7a71a56368de69.1784538478.git.hongyan.xia@transsion.com>
-References: <cover.1784538478.git.hongyan.xia@transsion.com>
-In-Reply-To: <cover.1784538478.git.hongyan.xia@transsion.com>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=transsion.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: KL1PR0401MB6196:EE_|TYSPR04MB7923:EE_
-x-ms-office365-filtering-correlation-id: 63fea150-c8cb-4d86-a7ac-08dee6429caa
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|23010399003|7416014|10067099003|56012099006|11063799006|38070700021|6133799003|22082099003|18002099003|921020;
-x-microsoft-antispam-message-info: yh5mlue1Iw8cl0uEdIvMARq0emXCCTnLQUzpkmJ/bGuZg1DAJNMCdD0eZgjEQ5YoKdbt7wJiu4uINN5s8w4qI32lIAA1yhm8hecS/eyEPjlvFfcmTgExOVgF7SvRQAeK3uweD05fpdKR24cNVFSWdU2LCCJgMPO5YfERS25h7q52/esYgCQnbLJ0uMZ+6gCTVAWbBuW2o86hVWqRWZnsRJEAtpQd1bXSkchaN0T7/G6CMUXOMzmJpNwXj7Msp52kdHyi8Pl/5e8NB5PcF8jbI9HuJ4T5ik5D45L6MH2wze+PHtqytWSUWQG02n5TxSFbVAv0DCSS21XwoX4LjOU60NlnZmmhEG96wz8pboybvvI80Z5esLacGPji0hypFz5EHkR4awn3Z2qhFwd/NWgfuN1JbXjejzQdbEwOtBaNOvX0gPNpZ1lp0pOk30I+BzDJ1MorSb+TWs/3ETgleLUFFusDOj2kaVtBhV7oWFYgfswVIYhF8XG6KnRIhCUoOcXkv2bqdOiIA5geQdGwf7Oc6sbLGpqBopRbOWa37Isf7/J378wzb+HiXcGk8elu0UY7O+S1gOe8c9HlmfyIG5Jbu7DjGUW1Lw1IvNrx+rSrVx2fr324geruXdtX2JzpAIvSMSodSKwaLnpGDV3Cf9heUhlIL7lFQtCbphC9qfMwQuDCZSU6JIili1Ki9Wnsk0AKlOKIVaP+PgISQjz5tzaMuxrOocKEA75LyQBhnQkF2IPcosfvF2E+y1cKRjKZsMId
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR0401MB6196.apcprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(23010399003)(7416014)(10067099003)(56012099006)(11063799006)(38070700021)(6133799003)(22082099003)(18002099003)(921020);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?eBUVMW7/w2cI/IxTnB8SV7GR+w1qa7lThnaWmawlaQG7fv5lnQhEw/06Hk?=
- =?iso-8859-1?Q?A20S/9p8yJp8vMFMFBt64Q+ktwMGf5YzVjOdUJUZWUywbOOGQQ6Xd8SOlx?=
- =?iso-8859-1?Q?RviphnmYISWfbpOlM6wuN9IKxvjiPPcNDLm7oy4CQ7+vRl0+nkJfyzVtIe?=
- =?iso-8859-1?Q?0/c9DLzDaxMb1SnDc0KgeXxo0Zhcztbuw33qtKBiNypfFOLK46wosVUpcI?=
- =?iso-8859-1?Q?UOwCPMou35+Ax8fJPfNnS7eEAX5kFsROGoeZoqt87hX59FLl89nn/n0727?=
- =?iso-8859-1?Q?ce79hLA4m3GOWMdqm+NZINaIOYBoA+zMjvJO60NzkwIc29xiKE6hFvMOG2?=
- =?iso-8859-1?Q?PV1oLK6NXsnR2GYRGStPQhnfRnhFuYBBy+tpyAazgCfPpRirt6mKTpc48L?=
- =?iso-8859-1?Q?rK/SsL5N4AqYpitxTM+NZr/pWYU6GrzZ+BAZdVmh7IPo1LTS92Eoau8FTV?=
- =?iso-8859-1?Q?qdCT6a1CMLBVjqNWT6lJvXb8fdElZCPHHghvLyzqtNme8Bv95swiP8fJvm?=
- =?iso-8859-1?Q?ENEqgzaASdoWVTfIWJeONkB7QltIG8krk4kU0KgaQHq3tsTPeLOdOTtpsK?=
- =?iso-8859-1?Q?dvqj8Jo1IBAdeneHidkf1yXY6x7BDJRTeqDNu/QTLsUTz/JCPuU5pxU3xD?=
- =?iso-8859-1?Q?6mY7C+Jv8P86aLqEVNGgq/mz7wukYbhepaOuLfB7j8oM47XCTbkvW5QvC7?=
- =?iso-8859-1?Q?a39sOPR64joC5WttLC9a9BRIcj9JZuWyc7j9BYYKPtrYCA9ThPuFan2gI9?=
- =?iso-8859-1?Q?1R3bnKS6WeAkjsgz4Kvqp9AErbttAWgSEx+uMz7jB2rIsL9XKMWwpsz/UQ?=
- =?iso-8859-1?Q?3PzcqhENmQ19aWZknX0ceaNxsB1muHeiD5THFa+/VNsELRIde7PofXo3SJ?=
- =?iso-8859-1?Q?fL3tNtiAK0buMdj9AhRJX6Tr03vdCVB1DHCPgw0JXpPkF3saJ7PC1hN4ze?=
- =?iso-8859-1?Q?/7EKK5OpK0ZJAk8/0fhxf58v5hUU3bYMe43UsQZ7q7Jt7QMgTsaFkV/E4a?=
- =?iso-8859-1?Q?XLSy+IcwA+duL52gB+3N+MAHZ6GW3KLVjmIPZsOIPSOW3A51HoyA2XEk9G?=
- =?iso-8859-1?Q?Hu4xF8MWvCTdAV9gXB66bUtFUSODAwVnPUmM4OHCBY38y7MjhJ0W84P2B7?=
- =?iso-8859-1?Q?PLxfEy4nc4nT3juDVA0PgTR47otXzvqOu0q6Zse9qdgNDh3ynLKBdwXD7i?=
- =?iso-8859-1?Q?95p/uQKUrXqJADAdYHA5A3h5sxRWbQ643qfBP1R6Yk5hvPBT0AF0yP7xVb?=
- =?iso-8859-1?Q?RoQAigoZK0MiIvisRFMKldDLnd5xcEEEk9GHj25Okd6hUa++CGMLY9a+xI?=
- =?iso-8859-1?Q?XF5MZT6FtNwYMN8pperlWmmaP1gEGVg0nHj5+1nNiDpbfonE0KRo3DfBe3?=
- =?iso-8859-1?Q?HDdmPLiqv6ZAAi+GstAc8xUvkfV7LUrtHMs2f61KRsNL5S4asGVjr6oCar?=
- =?iso-8859-1?Q?uYn/uPai2zvo+zUDaTDWOd/o2ggmoE3UeqsTWGfxjekNxEbMS1lXt9zXND?=
- =?iso-8859-1?Q?wZm0OqEcDec2LUHyk6wyHCoTyVVixmL3eUQOjO7+/1z4WzMe7OwM6FSOyV?=
- =?iso-8859-1?Q?4WB8GwXVKp2BNQKVNGV6TC0eg48ph/XC0/AuxCxwtOWFKIb4wzrNp4bk0m?=
- =?iso-8859-1?Q?iNEZa/d9+1EQ5XCy/bYoVFNte9DEkJ2t1EzMmsmIXom5fR2o2x5lL5RL5Z?=
- =?iso-8859-1?Q?19/kFehHikj4+xEeCu/8nJPXEwkup2SrDquFZ0RDJfY1WpzRsr+zGk2ESe?=
- =?iso-8859-1?Q?mF7JqZFjwzKdT2wu8cgUO8JEEtwfzVrPPUZAAGouRnAqacoprVJoH3AE9l?=
- =?iso-8859-1?Q?Oh1w4/zEdg=3D=3D?=
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	id 1wlkUP-00000006LfI-2NOk
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Jul 2026 09:40:47 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-493f75f7172so77544805e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 02:40:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1784540443; x=1785145243; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=3u1CwozotVn5LDWLD1V9wVLi4fj6wktLd2vv686ZRBI=;
+        b=CtIt35zKYHdHND5iPf5TvOwUnmKfAmsID6DFrwWPnKTyqiNMZUvyPk1qgCOdVlMudp
+         KzPORmmLix8+198sCLMc07Gfid+95hCnZpizz8Dh6gKn7MKr3tWLd+jGMxvVP4nS8dl2
+         4e/ZxiThav+8LxfHka4FZFoVwrYcdysyhr4kwjpc1SYbFLZGodHUB9jo5xPKBC+HF1TF
+         zVRaTMuiUMHQ1G0nmt7LGRXihHk59GkR5eb5dWnvfXcgRrwcnaM7qLYnZMsb6k/3+NIG
+         TG9XmpJFhH22th1AHVrZzmHQovId39YD81CKZYdxh22Z2ppyI7Qge5enAJ+AqN+9cHuA
+         CaCQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784540443; x=1785145243;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=3u1CwozotVn5LDWLD1V9wVLi4fj6wktLd2vv686ZRBI=;
+        b=aiISNvoMeGboJC1Hr2L0N9pHeDoPgSFWXNLhKEDur6XsdweynF/zNSfJnCkQvvtsSm
+         8zjZdjXDLG2mNxfybJ53VNSr+PBf7glPci6Jlxq1jXP10HhlHq6IQc9bLnr+2YDNGQz8
+         M3XuEPHrfzqmkrsTa8+tS8v9t6d4EPToalc6KLPZZJ8FeMxoujRXBxhd+N8ApEvewbxW
+         34uMpw03r0xdKPm2yAKUZDxPTK6K2TQVSc7XCLssEI7VRHTNTM+sN9nrRNS5oSBoWy7D
+         eakuRyGBU4ZL2HqsTMCmZCEo3usDpEgQp57iMnB8LQsVIZXQ9h3ukfVc2dc94hCGAvHY
+         wsnQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqCxJJbOi9LXkE2egxrJmr1KvZZUHNzMyw53rny6UqPJTfeTaQYFgNsg3hb/6qEFsLHfR29qeXHux2yaybamKuO@lists.infradead.org
+X-Gm-Message-State: AOJu0YwHfQdUzfmaBYwNzTqINnKhnWE758F92ooVmBB2VxX+xcfNHuIY
+	72GvCnHsmfhKzjtFonk96RrsrFn8t1Zz2Tdd1JbOkfusOz4Zm0K6MmzPToBFq18iafQ=
+X-Gm-Gg: AfdE7cmCDm5LgGKqykzaB39WPj4Exc5+By+r4McZManHoJr0ry21Reyq3koWK+30xgi
+	6sIWEMj6GbaLvBPgDywUKRZL9KkgdptkVnWoo+ifEmmfCoiF0kGA1p+OW/x6RSZN4riZ3AAPFeg
+	PHBNM8y4WEaNTINOmcjpjH90MipmWp/q5xifMTOYAsyVq+I4sk7jInGG94iHm62WFKWmzhy/Xz1
+	E0svMDqVpAJ+7GpYTvPaSdws+15fOA/otIoi5IBNkFYidy5Iq/je+9cjggOZDF9xJZakhC7EI9J
+	a/I3XN8sch8sNZadkfmLXmasAtq8YWEZ9PYSoQmSNAzDR41PuuHgmTy6Q7UxJjg9xIAGWLdo2pM
+	ppucUlAA+mr98bAS5zcuTc64JN0Ee2HlcCPdudDGmxURMgBMsJfwZJI+Zt3hpWZjJJk5iJEWlMW
+	8ZMP2zElxVrR4=
+X-Received: by 2002:a05:600c:4585:b0:492:437a:a653 with SMTP id 5b1f17b1804b1-4954a50b811mr138696825e9.26.1784540443117;
+        Mon, 20 Jul 2026 02:40:43 -0700 (PDT)
+Received: from localhost ([195.94.145.62])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49563969482sm15082875e9.3.2026.07.20.02.40.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 20 Jul 2026 02:40:42 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+	linux-pwm@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Andrea della Porta <andrea.porta@suse.com>,
+	devicetree@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Naushir Patuck <naush@raspberrypi.com>,
+	Stanimir Varbanov <svarbanov@suse.de>,
+	mbrugger@suse.com,
+	Sean Young <sean@mess.org>,
+	Julian Braha <julianbraha@gmail.com>
+Subject: [PATCH v7 0/3] Add RP1 PWM controller support
+Date: Mon, 20 Jul 2026 11:44:04 +0200
+Message-ID: <cover.1784539788.git.andrea.porta@suse.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-X-OriginatorOrg: transsion.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR0401MB6196.apcprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 63fea150-c8cb-4d86-a7ac-08dee6429caa
-X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Jul 2026 09:38:07.6005
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 2e8503a6-2d01-4333-8e36-6ab7c8cd7ae2
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: iL3zE7b8rMUVTzwzyUk7DRTgOGTS2BPssQcGsgjIRskDDC2269Ewz5hnWQ43ECc/YJhsXvWGFpyzWFVs5qeCW6ZWLNABU9tWKNQnzoaHuJY=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR04MB7923
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_023820_327417_D55CF1D8 
-X-CRM114-Status: UNSURE (   8.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260720_024045_642655_1BAA6AEE 
+X-CRM114-Status: GOOD (  16.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,208 +109,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Hongyan Xia <hongyan.xia@transsion.com>=0A=
-=0A=
-paravirt_steal_rq_enabled and paravirt_steal_enabled use raw static_key=0A=
-APIs which are now deprecated. Use the new API instead.=0A=
-=0A=
-No functional change.=0A=
-=0A=
-Signed-off-by: Hongyan Xia <hongyan.xia@transsion.com>=0A=
----=0A=
- arch/arm64/kernel/paravirt.c           | 4 ++--=0A=
- arch/loongarch/kernel/paravirt.c       | 4 ++--=0A=
- arch/powerpc/platforms/pseries/setup.c | 4 ++--=0A=
- arch/riscv/kernel/paravirt.c           | 4 ++--=0A=
- arch/x86/kernel/cpu/vmware.c           | 4 ++--=0A=
- arch/x86/kernel/kvm.c                  | 4 ++--=0A=
- drivers/xen/time.c                     | 4 ++--=0A=
- include/linux/sched/cputime.h          | 6 +++---=0A=
- kernel/sched/core.c                    | 4 ++--=0A=
- kernel/sched/cputime.c                 | 4 ++--=0A=
- 10 files changed, 21 insertions(+), 21 deletions(-)=0A=
-=0A=
-diff --git a/arch/arm64/kernel/paravirt.c b/arch/arm64/kernel/paravirt.c=0A=
-index 572efb96b23f..30bf61d031eb 100644=0A=
---- a/arch/arm64/kernel/paravirt.c=0A=
-+++ b/arch/arm64/kernel/paravirt.c=0A=
-@@ -157,9 +157,9 @@ int __init pv_time_init(void)=0A=
- =0A=
- 	static_call_update(pv_steal_clock, para_steal_clock);=0A=
- =0A=
--	static_key_slow_inc(&paravirt_steal_enabled);=0A=
-+	static_branch_inc(&paravirt_steal_enabled);=0A=
- 	if (steal_acc)=0A=
--		static_key_slow_inc(&paravirt_steal_rq_enabled);=0A=
-+		static_branch_inc(&paravirt_steal_rq_enabled);=0A=
- =0A=
- 	pr_info("using stolen time PV\n");=0A=
- =0A=
-diff --git a/arch/loongarch/kernel/paravirt.c b/arch/loongarch/kernel/parav=
-irt.c=0A=
-index 10821cce554c..e8965a3f8082 100644=0A=
---- a/arch/loongarch/kernel/paravirt.c=0A=
-+++ b/arch/loongarch/kernel/paravirt.c=0A=
-@@ -308,10 +308,10 @@ int __init pv_time_init(void)=0A=
- =0A=
- 	static_call_update(pv_steal_clock, paravt_steal_clock);=0A=
- =0A=
--	static_key_slow_inc(&paravirt_steal_enabled);=0A=
-+	static_branch_inc(&paravirt_steal_enabled);=0A=
- #ifdef CONFIG_PARAVIRT_TIME_ACCOUNTING=0A=
- 	if (steal_acc)=0A=
--		static_key_slow_inc(&paravirt_steal_rq_enabled);=0A=
-+		static_branch_inc(&paravirt_steal_rq_enabled);=0A=
- #endif=0A=
- =0A=
- 	if (static_key_enabled(&virt_preempt_key))=0A=
-diff --git a/arch/powerpc/platforms/pseries/setup.c b/arch/powerpc/platform=
-s/pseries/setup.c=0A=
-index 1223dc961242..8dcbc4bb7025 100644=0A=
---- a/arch/powerpc/platforms/pseries/setup.c=0A=
-+++ b/arch/powerpc/platforms/pseries/setup.c=0A=
-@@ -852,9 +852,9 @@ static void __init pSeries_setup_arch(void)=0A=
- 			static_branch_enable(&shared_processor);=0A=
- 			pv_spinlocks_init();=0A=
- #ifdef CONFIG_PARAVIRT_TIME_ACCOUNTING=0A=
--			static_key_slow_inc(&paravirt_steal_enabled);=0A=
-+			static_branch_inc(&paravirt_steal_enabled);=0A=
- 			if (steal_acc)=0A=
--				static_key_slow_inc(&paravirt_steal_rq_enabled);=0A=
-+				static_branch_inc(&paravirt_steal_rq_enabled);=0A=
- #endif=0A=
- 		}=0A=
- =0A=
-diff --git a/arch/riscv/kernel/paravirt.c b/arch/riscv/kernel/paravirt.c=0A=
-index 5f56be79cd06..9c13a6f1ea2a 100644=0A=
---- a/arch/riscv/kernel/paravirt.c=0A=
-+++ b/arch/riscv/kernel/paravirt.c=0A=
-@@ -116,9 +116,9 @@ int __init pv_time_init(void)=0A=
- =0A=
- 	static_call_update(pv_steal_clock, pv_time_steal_clock);=0A=
- =0A=
--	static_key_slow_inc(&paravirt_steal_enabled);=0A=
-+	static_branch_inc(&paravirt_steal_enabled);=0A=
- 	if (steal_acc)=0A=
--		static_key_slow_inc(&paravirt_steal_rq_enabled);=0A=
-+		static_branch_inc(&paravirt_steal_rq_enabled);=0A=
- =0A=
- 	pr_info("Computing paravirt steal-time\n");=0A=
- =0A=
-diff --git a/arch/x86/kernel/cpu/vmware.c b/arch/x86/kernel/cpu/vmware.c=0A=
-index 34b73573b108..f7ab9e7902cf 100644=0A=
---- a/arch/x86/kernel/cpu/vmware.c=0A=
-+++ b/arch/x86/kernel/cpu/vmware.c=0A=
-@@ -328,9 +328,9 @@ static int vmware_cpu_down_prepare(unsigned int cpu)=0A=
- static __init int activate_jump_labels(void)=0A=
- {=0A=
- 	if (has_steal_clock) {=0A=
--		static_key_slow_inc(&paravirt_steal_enabled);=0A=
-+		static_branch_inc(&paravirt_steal_enabled);=0A=
- 		if (steal_acc)=0A=
--			static_key_slow_inc(&paravirt_steal_rq_enabled);=0A=
-+			static_branch_inc(&paravirt_steal_rq_enabled);=0A=
- 	}=0A=
- =0A=
- 	return 0;=0A=
-diff --git a/arch/x86/kernel/kvm.c b/arch/x86/kernel/kvm.c=0A=
-index dcef84da304b..d3dcd64f22c2 100644=0A=
---- a/arch/x86/kernel/kvm.c=0A=
-+++ b/arch/x86/kernel/kvm.c=0A=
-@@ -1052,9 +1052,9 @@ const __initconst struct hypervisor_x86 x86_hyper_kvm=
- =3D {=0A=
- static __init int activate_jump_labels(void)=0A=
- {=0A=
- 	if (has_steal_clock) {=0A=
--		static_key_slow_inc(&paravirt_steal_enabled);=0A=
-+		static_branch_inc(&paravirt_steal_enabled);=0A=
- 		if (steal_acc)=0A=
--			static_key_slow_inc(&paravirt_steal_rq_enabled);=0A=
-+			static_branch_inc(&paravirt_steal_rq_enabled);=0A=
- 	}=0A=
- =0A=
- 	return 0;=0A=
-diff --git a/drivers/xen/time.c b/drivers/xen/time.c=0A=
-index a2be0a4d45b0..a02d48a2aa68 100644=0A=
---- a/drivers/xen/time.c=0A=
-+++ b/drivers/xen/time.c=0A=
-@@ -169,7 +169,7 @@ void __init xen_time_setup_guest(void)=0A=
- =0A=
- 	static_call_update(pv_steal_clock, xen_steal_clock);=0A=
- =0A=
--	static_key_slow_inc(&paravirt_steal_enabled);=0A=
-+	static_branch_inc(&paravirt_steal_enabled);=0A=
- 	if (xen_runstate_remote)=0A=
--		static_key_slow_inc(&paravirt_steal_rq_enabled);=0A=
-+		static_branch_inc(&paravirt_steal_rq_enabled);=0A=
- }=0A=
-diff --git a/include/linux/sched/cputime.h b/include/linux/sched/cputime.h=
-=0A=
-index e90efaf6d26e..694126411dfe 100644=0A=
---- a/include/linux/sched/cputime.h=0A=
-+++ b/include/linux/sched/cputime.h=0A=
-@@ -182,9 +182,9 @@ extern unsigned long long=0A=
- task_sched_runtime(struct task_struct *task);=0A=
- =0A=
- #ifdef CONFIG_PARAVIRT=0A=
--struct static_key;=0A=
--extern struct static_key paravirt_steal_enabled;=0A=
--extern struct static_key paravirt_steal_rq_enabled;=0A=
-+#include <linux/jump_label.h>=0A=
-+DECLARE_STATIC_KEY_FALSE(paravirt_steal_enabled);=0A=
-+DECLARE_STATIC_KEY_FALSE(paravirt_steal_rq_enabled);=0A=
- =0A=
- #ifdef CONFIG_HAVE_PV_STEAL_CLOCK_GEN=0A=
- u64 dummy_steal_clock(int cpu);=0A=
-diff --git a/kernel/sched/core.c b/kernel/sched/core.c=0A=
-index 96226707c2f6..786975d4ca1e 100644=0A=
---- a/kernel/sched/core.c=0A=
-+++ b/kernel/sched/core.c=0A=
-@@ -795,7 +795,7 @@ struct rq *_task_rq_lock(struct task_struct *p, struct =
-rq_flags *rf)=0A=
- =0A=
- /* Use CONFIG_PARAVIRT as this will avoid more #ifdef in arch code. */=0A=
- #ifdef CONFIG_PARAVIRT=0A=
--struct static_key paravirt_steal_rq_enabled;=0A=
-+DEFINE_STATIC_KEY_FALSE(paravirt_steal_rq_enabled);=0A=
- #endif=0A=
- =0A=
- static void update_rq_clock_task(struct rq *rq, s64 delta)=0A=
-@@ -834,7 +834,7 @@ static void update_rq_clock_task(struct rq *rq, s64 del=
-ta)=0A=
- 	}=0A=
- #endif=0A=
- #ifdef CONFIG_PARAVIRT_TIME_ACCOUNTING=0A=
--	if (static_key_false((&paravirt_steal_rq_enabled))) {=0A=
-+	if (static_branch_unlikely(&paravirt_steal_rq_enabled)) {=0A=
- 		u64 prev_steal;=0A=
- =0A=
- 		steal =3D prev_steal =3D paravirt_steal_clock(cpu_of(rq));=0A=
-diff --git a/kernel/sched/cputime.c b/kernel/sched/cputime.c=0A=
-index 06bddaa738e5..f16970ca81d0 100644=0A=
---- a/kernel/sched/cputime.c=0A=
-+++ b/kernel/sched/cputime.c=0A=
-@@ -255,7 +255,7 @@ void __account_forceidle_time(struct task_struct *p, u6=
-4 delta)=0A=
-  * occasion account more time than the calling functions think elapsed.=0A=
-  */=0A=
- #ifdef CONFIG_PARAVIRT=0A=
--struct static_key paravirt_steal_enabled;=0A=
-+DEFINE_STATIC_KEY_FALSE(paravirt_steal_enabled);=0A=
- =0A=
- #ifdef CONFIG_HAVE_PV_STEAL_CLOCK_GEN=0A=
- static u64 native_steal_clock(int cpu)=0A=
-@@ -270,7 +270,7 @@ DEFINE_STATIC_CALL(pv_steal_clock, native_steal_clock);=
-=0A=
- static __always_inline u64 steal_account_process_time(u64 maxtime)=0A=
- {=0A=
- #ifdef CONFIG_PARAVIRT=0A=
--	if (static_key_false(&paravirt_steal_enabled)) {=0A=
-+	if (static_branch_unlikely(&paravirt_steal_enabled)) {=0A=
- 		u64 steal;=0A=
- =0A=
- 		steal =3D paravirt_steal_clock(smp_processor_id());=0A=
--- =0A=
-2.47.3=0A=
-=0A=
+This patchset adds support for the PWM controller found on the
+Raspberry Pi RP1 southbridge. This is necessary to operate the
+cooling fan connected to one of the PWM channels.
+
+The tachometer pin for the fan speed is managed by the firmware 
+running on the RP1's M-core. It uses the PHASE2 register
+to report the RPM, which is then exported by this driver via
+syscon registers. A subsequent patch will add a new device
+and driver to read the RPM and export this value via hwmon.
+ 
+Subsequent patches will also add the CPU thermal zone, which
+acts as a consumer of the PWM device.
+
+Best regards,
+Andrea
+
+CHANGES in V7:
+
+- _tohw(): use *wfhw = (typeof(*wfhw)){...} to initialize the
+  structure in the disable case 
+- _tohw(): fixed the offset_ticks calculation
+- _fromhw(): fixed a rounding error in the duty_offset_ns calculation
+- _write_waveform(): dropped the goto in favor of return in diasble
+  channel exit path
+- _read_waveform(): use *wfhw = (typeof(*wfhw)){...} to initialize
+  the structure in the disable case
+- dropped rp1_pwm_remove() since this driver depends on syscon
+  and cannot be removed/unbound (added a comment to explain that)
+
+Naushir Patuck (2):
+  dt-bindings: pwm: Add Raspberry Pi RP1 PWM controller
+  pwm: rp1: Add RP1 PWM controller driver
+
+Stanimir Varbanov (1):
+  arm64: dts: broadcom: rpi-5: Add RP1 PWM node
+
+ .../bindings/pwm/raspberrypi,rp1-pwm.yaml     |  66 +++
+ .../boot/dts/broadcom/bcm2712-rpi-5-b.dts     |  12 +
+ arch/arm64/boot/dts/broadcom/rp1-common.dtsi  |   9 +
+ drivers/pwm/Kconfig                           |   9 +
+ drivers/pwm/Makefile                          |   1 +
+ drivers/pwm/pwm-rp1.c                         | 428 ++++++++++++++++++
+ 6 files changed, 525 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pwm/raspberrypi,rp1-pwm.yaml
+ create mode 100644 drivers/pwm/pwm-rp1.c
+
+-- 
+2.35.3
+
 
