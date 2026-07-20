@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27E72C44524
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 16:14:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E5C0C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 16:14:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GCBbrRKcGcDEgLZQwkzDEr2UVDx8peEyXcP2Ix5aats=; b=JJ9wl6ueI8gTyCP8vD1UxvTY0Q
-	G473StZSrV9lA+vYEVs2+3L5k+BsVMMVaicLTu+toK/H+EL7qeC50beNhjnmjFvPLePkd/uMAiiaK
-	dGfxFPkCJJaNfUCeX0wTUbWMex3aovtsSpgdVnyK4WZB1Z6xJdD261rESas9PsqJ+WqUZ2OnfDi3S
-	WzjmI+R5SYp0XhC/cet27jB+pKdcIlAv/fOWmgUhGid1BRCCIFdoNic1VrZb9OFGSoVKBe6El7Sqa
-	94HAONf4mbQzBr7ft3PBqvuMj3YdF4UCcOoo5mLkXK4lkWfd23csT+tlJMNXDV7C1334I4iClO461
-	J8DSrkOQ==;
+	bh=mbmwUYRMkOEfVhoKhlo/B+eCrpuKcZd9NIaZ5Zet0iU=; b=pYcJ8DIWlQmtvx070oNmDMgbzF
+	cRkCYuoYy82XGmHQgxEn06oa/Mxm9thw3skbItjdK5upiUfwoywAlG+obkTyqMd7LcmGLnM8NZIIQ
+	RKVkI35N//kKKyKnYvbkOkRhPR/HVv/8159vUdIjXeRpKJyvKL1nLaSxTaBXEr01CDJSiujiFrNx4
+	2P8/cpabzmqr5Sg1Q+JyGi66NaiAbBfE/VlZSe6hHj6D1+l6tAe6vLGypG1JqYkXYBUQGRJumz+SA
+	zOlNBOKEVh30TfVX6fuurvYx7Mpsb56MZKoxnE9LZQMDuvrXM+9JhxR9ratHKe1l0Q0VaLvQ3VKIQ
+	3QH5mhpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlqd7-00000007KP2-1PXZ;
-	Mon, 20 Jul 2026 16:14:09 +0000
-Received: from out-185.mta0.migadu.com ([91.218.175.185])
+	id 1wlqd8-00000007KPb-0Kwd;
+	Mon, 20 Jul 2026 16:14:10 +0000
+Received: from out-177.mta0.migadu.com ([91.218.175.177])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlqd0-00000007KKZ-1qh9
+	id 1wlqd3-00000007KLx-10TA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 16:14:03 +0000
+	Mon, 20 Jul 2026 16:14:06 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1784564039;
+	t=1784564042;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=GCBbrRKcGcDEgLZQwkzDEr2UVDx8peEyXcP2Ix5aats=;
-	b=mqdnL5SlGcDKU3SLKE2x8Q+vrORgSdKeeq8x1APaR01wHnNsOs08UO2R0afR58sZUk5x5x
-	oT85GeacKoVzxpSjMgECKTL/mmQWJ/wsz2x6VB5sUdt92cVTRHle+ml0WNQg38knAjV/gT
-	aCj1XOVzl14GajM5gPQi6uA59ayD19A=
+	bh=mbmwUYRMkOEfVhoKhlo/B+eCrpuKcZd9NIaZ5Zet0iU=;
+	b=mXHvANBQCOGor+hK+HFplRlPR3mKFDBUfR5DP7LEyH5LYOZTAToDmT23itFFaXKvu2MLR5
+	Th/NMggE2J4Fq6HPWVsX5MT1Bswt0n36jkHTWT5GQO4dBuwpoo2gEpbyiVkK6yI4GWfVCv
+	eBNCVgORdEiAkXbZBp88okhSwyscPko=
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: maz@kernel.org,
 	oupton@kernel.org,
@@ -59,18 +59,17 @@ Cc: catalin.marinas@arm.com,
 	linux-trace-kernel@vger.kernel.org,
 	tabba@google.com,
 	fuad.tabba@linux.dev
-Subject: [PATCH v1 01/11] tracing: Include linux/types.h in trace_remote_event.h
-Date: Mon, 20 Jul 2026 17:13:33 +0100
-Message-Id: <20260720161343.1367007-2-fuad.tabba@linux.dev>
+Subject: [PATCH v1 02/11] KVM: arm64: nVHE: Share the stacktrace per-CPU declarations with EL2
+Date: Mon, 20 Jul 2026 17:13:34 +0100
+Message-Id: <20260720161343.1367007-3-fuad.tabba@linux.dev>
 In-Reply-To: <20260720161343.1367007-1-fuad.tabba@linux.dev>
 References: <20260720161343.1367007-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_091402_619502_45BF867E 
-X-CRM114-Status: UNSURE (   7.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260720_091405_420038_2B98718B 
+X-CRM114-Status: GOOD (  10.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,29 +84,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-trace_remote_event.h uses bool without including linux/types.h, so a
-translation unit that includes it ahead of anything else that pulls
-types.h in fails to build, as with nvhe/trace.h at EL2.
+The declarations for overflow_stack, kvm_stacktrace_info and
+pkvm_stacktrace are only visible to the host (the first two sit in the
+host-only section of stacktrace/nvhe.h, the last is private to
+kvm/stacktrace.c), so the definitions in nvhe/stacktrace.c compile
+with no declaration in sight and sparse suggests making them static.
+DECLARE_KVM_NVHE_PER_CPU() resolves to the right symbol name on both
+sides of the build: move the declarations where both can see them and
+include the header from the EL2 side unconditionally.
 
-Fixes: 072529158e60 ("tracing: Add events to trace remotes")
+No functional change intended.
+
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- include/linux/trace_remote_event.h | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/arm64/include/asm/stacktrace/nvhe.h | 10 ++++++++--
+ arch/arm64/kvm/hyp/nvhe/stacktrace.c     |  3 +--
+ arch/arm64/kvm/stacktrace.c              |  3 ---
+ 3 files changed, 9 insertions(+), 7 deletions(-)
 
-diff --git a/include/linux/trace_remote_event.h b/include/linux/trace_remote_event.h
-index c8ae1e1f5e721..e4cc2d4497bcf 100644
---- a/include/linux/trace_remote_event.h
-+++ b/include/linux/trace_remote_event.h
-@@ -3,6 +3,8 @@
- #ifndef _LINUX_TRACE_REMOTE_EVENTS_H
- #define _LINUX_TRACE_REMOTE_EVENTS_H
+diff --git a/arch/arm64/include/asm/stacktrace/nvhe.h b/arch/arm64/include/asm/stacktrace/nvhe.h
+index 171f9edef49fc..a631a577cbe5d 100644
+--- a/arch/arm64/include/asm/stacktrace/nvhe.h
++++ b/arch/arm64/include/asm/stacktrace/nvhe.h
+@@ -37,6 +37,14 @@ static inline void kvm_nvhe_unwind_init(struct unwind_state *state,
+ 	state->pc = pc;
+ }
  
-+#include <linux/types.h>
++DECLARE_KVM_NVHE_PER_CPU(unsigned long [OVERFLOW_STACK_SIZE/sizeof(long)], overflow_stack);
++DECLARE_KVM_NVHE_PER_CPU(struct kvm_nvhe_stacktrace_info, kvm_stacktrace_info);
 +
- struct trace_remote;
- struct trace_event_fields;
- struct trace_seq;
++#ifdef CONFIG_PKVM_STACKTRACE
++DECLARE_KVM_NVHE_PER_CPU(unsigned long [NVHE_STACKTRACE_SIZE/sizeof(long)],
++			 pkvm_stacktrace);
++#endif
++
+ #ifndef __KVM_NVHE_HYPERVISOR__
+ /*
+  * Conventional (non-protected) nVHE HYP stack unwinder
+@@ -45,8 +53,6 @@ static inline void kvm_nvhe_unwind_init(struct unwind_state *state,
+  * (by the host in EL1).
+  */
+ 
+-DECLARE_KVM_NVHE_PER_CPU(unsigned long [OVERFLOW_STACK_SIZE/sizeof(long)], overflow_stack);
+-DECLARE_KVM_NVHE_PER_CPU(struct kvm_nvhe_stacktrace_info, kvm_stacktrace_info);
+ DECLARE_PER_CPU(unsigned long, kvm_arm_hyp_stack_base);
+ 
+ void kvm_nvhe_dump_backtrace(unsigned long hyp_offset);
+diff --git a/arch/arm64/kvm/hyp/nvhe/stacktrace.c b/arch/arm64/kvm/hyp/nvhe/stacktrace.c
+index 7c832d60d22bb..11fadbebbf1d6 100644
+--- a/arch/arm64/kvm/hyp/nvhe/stacktrace.c
++++ b/arch/arm64/kvm/hyp/nvhe/stacktrace.c
+@@ -8,6 +8,7 @@
+ #include <asm/kvm_hyp.h>
+ #include <asm/memory.h>
+ #include <asm/percpu.h>
++#include <asm/stacktrace/nvhe.h>
+ 
+ DEFINE_PER_CPU(unsigned long [OVERFLOW_STACK_SIZE/sizeof(long)], overflow_stack)
+ 	__aligned(16);
+@@ -35,8 +36,6 @@ static void hyp_prepare_backtrace(unsigned long fp, unsigned long pc)
+ }
+ 
+ #ifdef CONFIG_PKVM_STACKTRACE
+-#include <asm/stacktrace/nvhe.h>
+-
+ DEFINE_PER_CPU(unsigned long [NVHE_STACKTRACE_SIZE/sizeof(long)], pkvm_stacktrace);
+ 
+ static struct stack_info stackinfo_get_overflow(void)
+diff --git a/arch/arm64/kvm/stacktrace.c b/arch/arm64/kvm/stacktrace.c
+index 9724c320126b7..69377195e18b7 100644
+--- a/arch/arm64/kvm/stacktrace.c
++++ b/arch/arm64/kvm/stacktrace.c
+@@ -198,9 +198,6 @@ static void hyp_dump_backtrace(unsigned long hyp_offset)
+ }
+ 
+ #ifdef CONFIG_PKVM_STACKTRACE
+-DECLARE_KVM_NVHE_PER_CPU(unsigned long [NVHE_STACKTRACE_SIZE/sizeof(long)],
+-			 pkvm_stacktrace);
+-
+ /*
+  * pkvm_dump_backtrace - Dump the protected nVHE HYP backtrace.
+  *
 -- 
 2.39.5
 
