@@ -4,55 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE102C44515
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 08:51:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30226C4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 08:51:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=uJ79qPzp8tIhAiU3rMgJbhgxhoX8UnanAQA0Qwctxmg=; b=JhY0GD8mnwgIP9ntdAbUO294Z1
-	FbSHjkLOAMxZ3nFowIJhY4eMVxRMZNhwUQvebXbQiOT6e6F6pcEARzAW2Bic/tZdlQqVQIVq/8wEe
-	tK9oYI/eebyps1sa1HtxHFu0V1Z+n68DZx2gvSTGLaJCbHBsXhoZg2Yas048djXAD/2qSgqd15F8K
-	mGxQ6L5Nxc4wk+txh4fpjlxWdBngCtHNgtfo3tPkqXSUo8e1TjBubXzZL0jXgcA6RsF2+fMp1Zen8
-	16m+Go1059RWsxjnk18VXhkrhYUehMu3xm+8Z04HqD3rJp7H3cE5fUSot9RX0wqcjOA0dYm3SzqgQ
-	7E+AdjIg==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=38KZKaYHVQVcHagUxOWFZKukMbZNQOPk/ErrD0Oyc3g=; b=13Kroa9JBPlZk9JPhJD6kDK/7s
+	OT5vB0IGN4dPCspqno8ql0dSSiS4QiN5WSQG/u1uBHMNQJQASsKwywwqWz12SgmpNI6VEZgEvt4en
+	sZLYiY9UlQb2VJ5H31oq6mnKcrgK4C3cUtuZ15D8jloheG08XQecTpMKh5YWTGsPmZyJ5G1at7YOF
+	+47ffamIcOVCJ3r2FctwxwXbWdXhuzrNKJZUIEuAdyG3tpRnRyfc2LXjB0h14k6jHuvZY2lC0ZJZw
+	q6oZV524ynhJoh8UfF4k7YM/5IlM3zjWtgbPJUD9d4uzKa9RpE0oLX4wprKLeZlMc//I7uU9pyC9H
+	Kc0NySYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wljiv-00000006Eq6-3YeU;
-	Mon, 20 Jul 2026 08:51:41 +0000
-Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
+	id 1wljj5-00000006Et8-0FQY;
+	Mon, 20 Jul 2026 08:51:51 +0000
+Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wljir-00000006Ep9-2eRd
+	id 1wljiv-00000006Epp-2zu0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 08:51:40 +0000
+	Mon, 20 Jul 2026 08:51:43 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=uJ79qPzp8tIhAiU3rMgJbhgxhoX8UnanAQA0Qwctxmg=;
-	b=y59Qo9ELPLHaCjmtQS81az0HA0Er+BT/T4LY5yq7gfu0/V6q5t80pOUq50pJRwrwdDkhuhiSZ
-	IhSNIoT3cI8tyF/yxZGEgzag9JgRhU8M6AcQLnKOhXZQ63rm9g6pVSCRjEdYhHLv3W/oDb5w6ZO
-	rp2/03W+Wa30WZLPRhgP4zk=
+	bh=38KZKaYHVQVcHagUxOWFZKukMbZNQOPk/ErrD0Oyc3g=;
+	b=377AMWgkdDM+Z75M57JHFWyAW9glZvz/jLro5ND40WdoYXMfbPpdO3IB7JswoWAYo7tcte12C
+	2jlfZ3PYbYd/M6TAA8EMnsJtHWWNxaONiLjvQqcaADEYHn+nM19O1rM0F5ksACW/NWIFgcmtPjW
+	EMskzmqt2zATUGw/xPgw4vw=
 Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4h3Ysv4HTbzRhWS;
-	Mon, 20 Jul 2026 16:42:11 +0800 (CST)
+	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4h3Ysy1CM2z1T4Km;
+	Mon, 20 Jul 2026 16:42:14 +0800 (CST)
 Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id CB1844056E;
+	by mail.maildlp.com (Postfix) with ESMTPS id D7D4C40574;
 	Mon, 20 Jul 2026 16:51:31 +0800 (CST)
 Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
  (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 20 Jul
- 2026 16:51:28 +0800
+ 2026 16:51:29 +0800
 From: Jinjie Ruan <ruanjinjie@huawei.com>
 To: <catalin.marinas@arm.com>, <will@kernel.org>, <shuah@kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kselftest@vger.kernel.org>
 CC: <ruanjinjie@huawei.com>
-Subject: [PATCH v2 0/2]  kselftest/arm64: Add two arm64 kselftests for orig_x0 issue
-Date: Mon, 20 Jul 2026 16:51:43 +0800
-Message-ID: <20260720085145.247690-1-ruanjinjie@huawei.com>
+Subject: [PATCH v2 2/2] kselftest/arm64: Add testcase for SECCOMP_RET_TRACE orig_x0 bypass
+Date: Mon, 20 Jul 2026 16:51:45 +0800
+Message-ID: <20260720085145.247690-3-ruanjinjie@huawei.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260720085145.247690-1-ruanjinjie@huawei.com>
+References: <20260720085145.247690-1-ruanjinjie@huawei.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
@@ -60,9 +62,8 @@ X-Originating-IP: [10.90.53.73]
 X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
  dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_015138_137983_147F161B 
-X-CRM114-Status: UNSURE (   9.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260720_015142_091404_EA63A3B7 
+X-CRM114-Status: GOOD (  25.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,36 +78,284 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Recently, a security issue related to orig_x0 was discovered and fixed
-in arm64, but there are still no test cases covering it. Seccomp,
-tracepoints, and audit can observe a stale value for x0 after a ptracer
-or SECCOMP_RET_TRACE modifies x0.
+Add a selftest that verifies the kernel re-evaluates a seccomp filter
+with the correct (ptrace-modified) first argument after
+a SECCOMP_RET_TRACE stop. On arm64, syscall_get_arguments() reads
+the first argument from orig_x0, which may be stale if the tracer modified
+regs->regs[0] but orig_x0 was not synced.  This can cause the filter to
+see an old argument and incorrectly allow a syscall that it should
+have rejected.
 
-As Kees suggested, this series adds two kselftests for arm64 that validate
-the orig_x0 re-synchronisation fix in ptrace, the first one is for ptrace
-update, the second one is for SECCOMP_RET_TRACE update.
+The child installs a filter that:
+ - TRACEs write() when fd == 2
+ - returns ERRNO(EPERM) when fd == 1
 
+The parent catches the SECCOMP event, changes x0 (fd) from 2 to 1,
+and resumes the child.
+
+If the seccomp re-evaluation sees the stale orig_x0 (fd=2) the filter
+returns TRACE again and the kernel (with recheck_after_trace=true)
+allows the syscall to proceed – write succeeds and the child exits 0.
+If the seccomp re-evaluation sees the new value (fd=1) the filter
+returns ERRNO(EPERM), write fails and the child exits non-zero.
+The test passes only when the write fails (child exit != 0).
+
+Before the fix:
+	# ./seccomp_ret_trace_x0_bypass
+	TAP version 13
+	1..1
+	not ok 1 write succeeded, orig_x0 bypass likely
+	# Totals: pass:0 fail:1 xfail:0 xpass:0 skip:0 error:0
+
+After the fix:
+	# ./seccomp_ret_trace_x0_bypass
+	TAP version 13
+	1..1
+	ok 1 seccomp correctly denied modified syscall
+	# Totals: pass:1 fail:0 xfail:0 xpass:0 skip:0 error:0
+
+Cc: Kees Cook <kees@kernel.org>
+Cc: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>
 Link: https://lore.kernel.org/all/20260717182758.17111-1-will@kernel.org/
 Link: https://lore.kernel.org/all/20260716120640.6590-1-will@kernel.org/
 Link: https://lore.kernel.org/all/202607152004.DEA95D63@keescook/
-
-Changes in v2:
-- Update the 2st testcase to cover the corner case pointed out by Sashiko[1].
-
-[1]: https://sashiko.dev/#/patchset/20260716120640.6590-1-will@kernel.org
-
-Jinjie Ruan (2):
-  kselftest/arm64: Add seccomp ptrace x0 bypass test
-  kselftest/arm64: Add testcase for SECCOMP_RET_TRACE orig_x0 bypass
-
- tools/testing/selftests/arm64/abi/.gitignore  |   2 +
+Suggested-by: Kees Cook <kees@kernel.org>
+Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+---
+ tools/testing/selftests/arm64/abi/.gitignore  |   1 +
  tools/testing/selftests/arm64/abi/Makefile    |   2 +-
- .../arm64/abi/seccomp_ptrace_x0_bypass.c      | 181 ++++++++++++++++
  .../arm64/abi/seccomp_ret_trace_x0_bypass.c   | 196 ++++++++++++++++++
- 4 files changed, 380 insertions(+), 1 deletion(-)
- create mode 100644 tools/testing/selftests/arm64/abi/seccomp_ptrace_x0_bypass.c
+ 3 files changed, 198 insertions(+), 1 deletion(-)
  create mode 100644 tools/testing/selftests/arm64/abi/seccomp_ret_trace_x0_bypass.c
 
+diff --git a/tools/testing/selftests/arm64/abi/.gitignore b/tools/testing/selftests/arm64/abi/.gitignore
+index 39129a9907c7..491a80db9dff 100644
+--- a/tools/testing/selftests/arm64/abi/.gitignore
++++ b/tools/testing/selftests/arm64/abi/.gitignore
+@@ -1,5 +1,6 @@
+ hwcap
+ ptrace
+ seccomp_ptrace_x0_bypass
++seccomp_ret_trace_x0_bypass
+ syscall-abi
+ tpidr2
+diff --git a/tools/testing/selftests/arm64/abi/Makefile b/tools/testing/selftests/arm64/abi/Makefile
+index 5a16db379bd4..a01d3806eba8 100644
+--- a/tools/testing/selftests/arm64/abi/Makefile
++++ b/tools/testing/selftests/arm64/abi/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ # Copyright (C) 2021 ARM Limited
+ 
+-TEST_GEN_PROGS := hwcap ptrace syscall-abi tpidr2 seccomp_ptrace_x0_bypass
++TEST_GEN_PROGS := hwcap ptrace syscall-abi tpidr2 seccomp_ptrace_x0_bypass seccomp_ret_trace_x0_bypass
+ 
+ include ../../lib.mk
+ 
+diff --git a/tools/testing/selftests/arm64/abi/seccomp_ret_trace_x0_bypass.c b/tools/testing/selftests/arm64/abi/seccomp_ret_trace_x0_bypass.c
+new file mode 100644
+index 000000000000..6887ec71aef1
+--- /dev/null
++++ b/tools/testing/selftests/arm64/abi/seccomp_ret_trace_x0_bypass.c
+@@ -0,0 +1,196 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Test for SECCOMP_RET_TRACE argument modification bypass
++ * via stale orig_x0 during filter re-evaluation.
++ *
++ * On arm64, syscall_get_arguments() reads the first argument from
++ * regs->orig_x0.  When a seccomp filter returns SECCOMP_RET_TRACE,
++ * ptrace may modify regs->regs[0] while orig_x0 remains unchanged.
++ * The kernel then re-evaluates the filter; if it sees the stale
++ * orig_x0, it may incorrectly allow a syscall that the tracer intended
++ * to block.
++ *
++ * This test installs a filter that:
++ *   - TRACEs write() when fd == 2
++ *   - returns ERRNO(EPERM) when fd == 1
++ *   - allows all other syscalls
++ *
++ * The child calls write(2, ...).  The parent catches the SECCOMP stop,
++ * changes x0 (fd) from 2 to 1, and resumes the child.
++ *
++ * If re-evaluation sees the old fd=2 (stale orig_x0), the filter
++ * returns TRACE again; because recheck_after_trace is true, the kernel
++ * allows the syscall to proceed.  write(1, ...) succeeds, child exits 0.
++ * -> test FAIL (bypass detected).
++ *
++ * If re-evaluation sees the new fd=1 (synced orig_x0), the filter
++ * returns ERRNO(EPERM), write fails, child exits 1.
++ * -> test PASS (no bypass).
++ *
++ * No special privileges required beyond CAP_SYS_PTRACE.
++ */
++#include <errno.h>
++#include <signal.h>
++#include <stddef.h>
++#include <stdio.h>
++#include <stdlib.h>
++#include <unistd.h>
++#include <sys/prctl.h>
++#include <sys/ptrace.h>
++#include <sys/uio.h>
++#include <sys/wait.h>
++#include <linux/elf.h>
++#include <linux/filter.h>
++#include <linux/seccomp.h>
++#include <linux/ptrace.h>
++
++#include "kselftest.h"
++
++#ifndef __NR_write
++#define __NR_write 64
++#endif
++
++#define PTRACE_EVENT_MASK(status) ((status) >> 16)
++
++static int do_child(void)
++{
++	long ret;
++
++	if (ptrace(PTRACE_TRACEME, 0, NULL, NULL))
++		_exit(2);
++
++	raise(SIGSTOP);	/* synchronize with parent */
++
++	/*
++	 * Filter:
++	 *   if syscall == write:
++	 *     if fd == 2 -> TRACE
++	 *     if fd == 1 -> ERRNO(EPERM)
++	 *     else -> ALLOW
++	 *   else -> ALLOW
++	 */
++	struct sock_filter filter[] = {
++		/* Load syscall number */
++		BPF_STMT(BPF_LD | BPF_W | BPF_ABS,
++			 offsetof(struct seccomp_data, nr)),
++		/* If not write, allow */
++		BPF_JUMP(BPF_JMP | BPF_JEQ | BPF_K, __NR_write, 0, 5),
++		/* Load first argument (fd) */
++		BPF_STMT(BPF_LD | BPF_W | BPF_ABS,
++			 offsetof(struct seccomp_data, args[0])),
++		/* fd == 2 ? */
++		BPF_JUMP(BPF_JMP | BPF_JEQ | BPF_K, 2, 0, 2),
++		/* Yes: TRACE */
++		BPF_STMT(BPF_RET | BPF_K, SECCOMP_RET_TRACE),
++		/* fd == 1 ? */
++		BPF_JUMP(BPF_JMP | BPF_JEQ | BPF_K, 1, 0, 1),
++		/* Yes: ERRNO(EPERM) */
++		BPF_STMT(BPF_RET | BPF_K, SECCOMP_RET_ERRNO | (EPERM & SECCOMP_RET_DATA)),
++		/* Other fd: ALLOW */
++		BPF_STMT(BPF_RET | BPF_K, SECCOMP_RET_ALLOW),
++	};
++
++	struct sock_fprog prog = {
++		.len = ARRAY_SIZE(filter),
++		.filter = filter,
++	};
++
++	if (prctl(PR_SET_NO_NEW_PRIVS, 1, 0, 0, 0))
++		_exit(3);
++	if (prctl(PR_SET_SECCOMP, SECCOMP_MODE_FILTER, &prog))
++		_exit(4);
++
++	/*
++	 * write(2, ...) triggers TRACE, parent changes fd to 1.
++	 * If re-eval sees fd=1 -> ERRNO -> write fails, ret = -EPERM.
++	 * If re-eval sees fd=2 -> TRACE again -> allowed -> write succeeds.
++	 */
++	ret = syscall(__NR_write, 2, "", 0);
++	_exit(ret == 0 ? 0 : 1);
++}
++
++int main(void)
++{
++	struct user_pt_regs regs;
++	struct iovec iov = { .iov_base = &regs, .iov_len = sizeof(regs) };
++	pid_t child;
++	int status;
++
++	ksft_print_header();
++	ksft_set_plan(1);
++
++	child = fork();
++	if (!child)
++		return do_child();
++
++	/* 1. Wait for initial SIGSTOP */
++	if (waitpid(child, &status, 0) != child)
++		ksft_exit_fail_msg("waitpid SIGSTOP");
++	if (!WIFSTOPPED(status) || WSTOPSIG(status) != SIGSTOP)
++		ksft_exit_fail_msg("unexpected initial stop");
++
++	/* 2. Enable SECCOMP ptrace events */
++	if (ptrace(PTRACE_SETOPTIONS, child, 0, PTRACE_O_TRACESECCOMP))
++		ksft_exit_fail_msg("PTRACE_SETOPTIONS");
++
++	/* 3. Continue child to hit SECCOMP stop */
++	if (ptrace(PTRACE_CONT, child, 0, 0))
++		ksft_exit_fail_msg("PTRACE_CONT");
++
++	/* 4. Wait for SECCOMP stop */
++	while (1) {
++		if (waitpid(child, &status, 0) != child)
++			ksft_exit_fail_msg("waitpid SECCOMP");
++		if (WIFEXITED(status)) {
++			ksft_test_result_fail("child exited before SECCOMP stop\n");
++			goto out;
++		}
++		if (WIFSIGNALED(status)) {
++			ksft_test_result_fail("child killed unexpectedly\n");
++			goto out;
++		}
++		if (WIFSTOPPED(status) &&
++		    WSTOPSIG(status) == SIGTRAP &&
++		    PTRACE_EVENT_MASK(status) == PTRACE_EVENT_SECCOMP)
++			break;
++		ptrace(PTRACE_CONT, child, 0, WSTOPSIG(status));
++	}
++
++	/* 5. Modify x0 (fd) from 2 to 1 */
++	if (ptrace(PTRACE_GETREGSET, child, NT_PRSTATUS, &iov))
++		ksft_exit_fail_perror("GETREGSET");
++	if (regs.regs[8] != __NR_write || regs.regs[0] != 2) {
++		ksft_test_result_fail("unexpected regs: syscall=%llu, x0=%llu\n",
++				      regs.regs[8], regs.regs[0]);
++		goto out;
++	}
++	regs.regs[0] = 1;
++	if (ptrace(PTRACE_SETREGSET, child, NT_PRSTATUS, &iov))
++		ksft_exit_fail_perror("SETREGSET");
++
++	/* 6. Resume child */
++	if (ptrace(PTRACE_CONT, child, 0, 0))
++		ksft_exit_fail_perror("PTRACE_CONT");
++
++	/* 7. Reap child – must exit normally */
++	if (waitpid(child, &status, 0) != child)
++		ksft_exit_fail_msg("final waitpid");
++
++	if (!WIFEXITED(status)) {
++		ksft_test_result_fail("child did not exit normally\n");
++		goto out;
++	}
++
++	if (WEXITSTATUS(status) != 0)
++		ksft_test_result_pass("seccomp correctly denied modified syscall\n");
++	else
++		ksft_test_result_fail("write succeeded, orig_x0 bypass likely\n");
++
++out:
++	if (child > 0) {
++		kill(child, SIGKILL);
++		waitpid(child, NULL, 0);
++	}
++	ksft_print_cnts();
++	return ksft_get_fail_cnt() ? EXIT_FAILURE : EXIT_SUCCESS;
++}
 -- 
 2.34.1
 
