@@ -4,145 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A446C44520
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 17:01:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45C3CC44520
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 17:06:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LM9lm/YwTNqDZ0N7heDDoe0JCGJGO1CnHBalRcdJ5Mk=; b=Wff1zrL/gOh1QlQe/wYWLHp3mJ
-	38eZHHulBBugWK0K3i2b8yLEtbSZra+BOniLzmafsq6aRzHQ9n5loBj2GbEsycq/S66jpkocZkZyk
-	Yy13DUuNHecx5BOzxt9iSGal4zPQmy+xKgny+2SNIIBcnWCOan2zK0Tudyj2n+1yzeNvOIVYAlBhS
-	MO03hMLdORxozphZ9ospf6ZzVqHjkFWscGP/5ah4XovBxgLN0WpIVRK+15i+nFijdNWt3ynDIB83S
-	7JKu9nH/nTAMrYOnDrMVDUoQfB/PECyVZ2SbN2bx1q1Jull48jSqoHEmfldv+KPQycACiqv+2Awnk
-	7iNtHYyg==;
+	bh=b1L7tZDQECCAX9LHGcudqTiUrXGqRu9Jaz/4oHhXhyI=; b=OsY0ze08W+AeND+39xG1jMue9u
+	i1bG8VW7nos+vUQmQR4LcL0W9dmAn/volvt80Py1hHOpKqbtbLwWup0e1llFyhHtORWR9F+bHBf+2
+	aBnsPX1GemnSly0mUR/HDMksmcZLGSYVkofk1Zqi5hLYDTmuT2KIGtu0yGxT/vDuzgOY+A3jPW832
+	jYJ8+j2vgp9Du8epmAMEcpvWWY5BW9LG7669ovO6FsXqbrAH98DSObf9aq/g6fe4EPnqPF7+CYqTo
+	EZun4k6/+FJCL+q+w4r0HKe+qWZpk5PQQxYA7lRjJK85iXNi+OuZ7cPfmTrsbHwVLwfGqcciPn7m6
+	I4wKbBcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlrMk-00000007Soh-2plH;
-	Mon, 20 Jul 2026 17:01:18 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1wlrRC-00000007TH1-0kWX;
+	Mon, 20 Jul 2026 17:05:54 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlrMi-00000007SnU-1arT
+	id 1wlrR9-00000007TGc-0gGN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 17:01:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rEkjptUMlXRk2UTYr3XZ9OQVZEUWsMxHG1h6gTQR2ON8eLboLJIClk0zQulemiSjXCLKYaCU33rjI1BMa6QnXgWVyOZ4RHmic1EjrhwBbX/vpYvEDHFKmuw2gW+A4LQfs/3geEN3lRGFfGsVxzEOWaoKbOsKd9I5O4K4nhsTgaMn/QLilluc7mAi66zHDYkKdlvHqGUNh9Pkh0rxV5yR90Vg+bl7ig1WrcQCC0KXiN0LasYGSKbD1ekaX+2fqeL1u02fET6mlNlQoTr+7s3fp5BaOWGZPWir/Ko6WBYmQ588TVr/OX4dsvw6WQFjhXRDW7iuiSOivaYc3oXl27RMOA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LM9lm/YwTNqDZ0N7heDDoe0JCGJGO1CnHBalRcdJ5Mk=;
- b=E/76c5Pgf+9CNn7ZNbG4b3T1c6omwz3gR+BHzq9Iw3ULKo8S2wq71nWyAUyRLH6UteqFLb1qp8N2QvIGauQxnMDSVqwBr+QVIiC1QEJocVCHNZLTsxbCzBQ9+psQPxzuBapewqJfDx+R3rPzxiTlzFH/QbPLp7zBuBHLc8CFaZ4tzQI/AL5bV193k8KUeExbTH8JtrLn4BqgrgkHOuXYB7Ww55bftgptNjd73DytBWqYSO2QsSHTaBAfE7OupJXORPEZx5e3STbeg5MPWsejNm4qvZ4Weh32FhSOKXnBu70K99+Gt2J4ztFIRoyHQ0xvDdvmWz3R0A+hkVXWI8y7FQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LM9lm/YwTNqDZ0N7heDDoe0JCGJGO1CnHBalRcdJ5Mk=;
- b=aX+VEgp9Qoh9GaApI5Yi+sXNHExbwhFqm4BaFpBg69V+mdJgrmNP7AOUZn2mUdlNG1JoRR4mOqcsD6AYA7mX3OSxy6qkSioVbMNwuDKN/ZRr5XMJ3cMlJHVk1kN6DF0mJxYSUvAKiShYg4bPd2pH3tAAjzsT7iofdS4jLVvrO/VpKuPY1tYCVvW+5D+xtngBv0qqwt7+R6/bB0xdDlhk1HujVUOPSYFwQcn/4PN51DfVkoY34e7lf920ljz1aZ0iqMbZspv5t/uW2gJnYpLGATDcdvQoDDNFYBi1Q2Mw/BP29p52Lekg4rXU3UgrEcrCLXqt9p2U8v3p28vIPm9DSw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from VI0PR04MB11784.eurprd04.prod.outlook.com
- (2603:10a6:800:2ea::12) by AM7PR04MB7189.eurprd04.prod.outlook.com
- (2603:10a6:20b:116::23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.18; Mon, 20 Jul
- 2026 17:01:12 +0000
-Received: from VI0PR04MB11784.eurprd04.prod.outlook.com
- ([fe80::d486:debf:a139:2953]) by VI0PR04MB11784.eurprd04.prod.outlook.com
- ([fe80::d486:debf:a139:2953%5]) with mapi id 15.21.0223.017; Mon, 20 Jul 2026
- 17:01:11 +0000
-From: Frank.Li@oss.nxp.com
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
+	Mon, 20 Jul 2026 17:05:52 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id C9725289;
+	Mon, 20 Jul 2026 19:04:50 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1784567091;
+	bh=zOd4fmr8g7iB1tL/nkX4lZvsQbt/xhYZxfKsMTFQEBo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mQOAoK3X3q5Df3CvTO/taog4X044TnOODo1YS5I7eg5giG2TCmtE70JEtYUbfkVkg
+	 YJvvvyyFmx8jCRRhE5mnlBs/IZwzhJsjT9JkRDMN+xti6Mqj58o30iX/zJuzmv3U0l
+	 qgcN7CQGIj/e/kKnE9JOMte5YgKespXizEG8vBNU=
+Date: Mon, 20 Jul 2026 20:05:48 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Frank Li <Frank.Li@nxp.com>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux@ew.tq-group.com
-Subject: Re: [PATCH v2 0/2] Support for TQMa91xx on MBa93xxCA
-Date: Mon, 20 Jul 2026 13:00:20 -0400
-Message-ID: <178456681264.3791549.6261476129516016148.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260713091924.2319674-1-alexander.stein@ew.tq-group.com>
-References: <20260713091924.2319674-1-alexander.stein@ew.tq-group.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PH7P220CA0111.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:32d::35) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Aisheng Dong <aisheng.dong@nxp.com>, linux-media@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Guoniu Zhou <guoniu.zhou@nxp.com>
+Subject: Re: [PATCH v5 2/2] media: nxp: imx8-isi: Add virtual channel support
+Message-ID: <20260720170548.GC42426@killaraus.ideasonboard.com>
+References: <20260521-isi_vc-v5-0-a38eb4fcd58e@oss.nxp.com>
+ <20260521-isi_vc-v5-2-a38eb4fcd58e@oss.nxp.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI0PR04MB11784:EE_|AM7PR04MB7189:EE_
-X-MS-Office365-Filtering-Correlation-Id: a3bb2a4d-e58c-4e5d-589e-08dee6806b39
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|19092799006|7416014|376014|1800799024|366016|56012099006|11063799006|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: raJIaZoeV0mzIRv36Iq58WWmRE5g93znCXRnDa2RwUMn4vIyMrHTbk83kq0y935CUYIDzvCt7d6stnqLn9mGixt7Atei5AqIlOuAyZulYsTCUXu31gx+uHFTwBzbF6FUzdbz2OjYZ7pqJ4uu2M7pnunFNMeLPOSLh65NDra43sGfxNZVyp87r2Yo16Aq80EqdZKPE3HG9rF4RF9/ThJfpE5yggMb5/Ph2nFF7hoVKR3/zeBtFOthadmGcfeJPzjWMpC/ozAPL6XNq5/k1imF7y1w4XDzodHGv1ZcGJ+nRnhjfdDxlGSTL5xPmYoG3pRdFbaLYUJ+b/KEDFKdu8CsGotIrI0ygxUpHaZT+lc3g7ZPUNwbwErAUEUsnoFhjbfW8TEgqbO7z6ftuVj1q/LDvWZxeYIfKs5J7fdIuW7qrvHIiioDWC0XjU3JOKGayv0g3CmSu/rITajF2vDp4sKI8d+uvmGaJ/IjJSWjwPUqOd193v76Y1T/0KgiprfXPTXMMoCClUcfM6mDnjKn3epKMv1Fd5USeY/CsTRiJj5Q1gg0XjfonJH9xXaq6TTz637oMlc41WgFJIShTAluUqxAWBjcsR83/r0TVCmrsZ5oC0FKck9f3NN4y8TO6xk0TwIxpNcEkoC5D2Ln6cESG2oRH9dx1VQ1kRjZLyRh7QbDlmo=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB11784.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(7416014)(376014)(1800799024)(366016)(56012099006)(11063799006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OStiWmtaa0xZUTFPWGtGM28yVmJjeVVobEJmcE84NVFPcnZOU0poOUpraXkr?=
- =?utf-8?B?WW50MXZZWlF1VUtQTDlEcHppV3VZS0k5VEd5SUtNUU9LSXZYVENHMy95akl0?=
- =?utf-8?B?OElsdGxkb3VKN1EyMUQvMGkzOVdKVnJVMWRRdmZjWGhOdHZ2UXhhRkRXcDhz?=
- =?utf-8?B?cWs2RDFFdndEbVZvcE1KaFgyNWZuVzFuQnI0USsyRktPNzlXZ1JiWTNna0xT?=
- =?utf-8?B?ZFpuUkszdE1DTU51clVmNXp5cXhRSmtSaGhuWE90YWQrQ0YyS0VqbU80Zjgw?=
- =?utf-8?B?ZWVKRmtWVnhrY0RVMktZVmlJSlV2RklTdFBRMG1VNDA4S2hUUVN3Z1J0eDNi?=
- =?utf-8?B?bjFGakRHa3owSCtjV0RGZWlYMC9IVFNHbkFoa0N6L2lOSjBtV1YrdU1RejVw?=
- =?utf-8?B?VVJpYnE5amtRS2FnbGlxdDV0bUp2RGJWY2xjdG9IdnllcWxqN0x1MS9EZzZS?=
- =?utf-8?B?WTd4bmVQQkhuVCs2Mk1VN2krd2ozVFdORGpFdno1U2IvQnQxTVBjZ1drQ2dt?=
- =?utf-8?B?aC9YemVYQ0dvV2ZCNHA2TkNQY2c1Zmd2eHRpUmg2ZTZjRldJektjcmlWUHNR?=
- =?utf-8?B?bjc3dzd0M1l6bG81OTBQNmJHdXNQWEdqd3BaYjAxRHNzWGVFVkI0bm5qK29N?=
- =?utf-8?B?eUNMODlvUE5xakpYRzJKbVNIbmtXOEl6NnU5d3ZTZHVKL3g1R0NsdGRxVElY?=
- =?utf-8?B?Q3d0bzE3Z1JHZCtuNE9UVm8xblc4SzVDZDhCcU9zWWhnWFJITkZvWHZIdkhT?=
- =?utf-8?B?Smo5K2F6UE1vR1ZFdjhKcUIwTlZRWmhtbEQzV2k1UExWMndPMFpJQTFDRmYy?=
- =?utf-8?B?eHQ0cHFleVNwdDRLcEdZdElqbXJDSGUwUHQ1TENwdDJ4SWo3T1dZTi8vNFND?=
- =?utf-8?B?SFpXOTZSMjRzWENGTXg4MFFhYUQ5eWZYM3VYZkRKdXJrcUlySUR6c3Z6dVJF?=
- =?utf-8?B?eTBvZVlzQTFzcGh3Y01PcXdqYmYrUnZSWGlpK2N0bWRGYi9JbnQ0TEJYcGRa?=
- =?utf-8?B?OXNiSVVYWEV5cUxGQ08ramhPRTZCSE1qVHBCakhhQ2ZBNjBzZ3pSNHRKSElp?=
- =?utf-8?B?aUlwZmtDemtaYjZoOExtMFoyRlk4cHc5WlpZdmxiWGJ4cUR2Q21jL0plWXB4?=
- =?utf-8?B?YSt0ZmJVRlNld0d5cjBvTlFsM0JydjdPR0xGYmY4OUZNdjM5Z1FnMzJBY0xt?=
- =?utf-8?B?UlZBNk9YQ2F2SDE3WWlNOHgzb2pmQmdTSnhWU2lIM0tWNStQeWlPTDdOaUh2?=
- =?utf-8?B?ZlEwdlBLR2o3d3hXa2JJNVdHRGdabk15WDRNNzFqdkJ5dDFUYXU4RnV1VEdo?=
- =?utf-8?B?MjFvQzB5MkYwVnFoY2U4MTRsRkowTVNWRDZSSUdoOXFHdmFzcGFHRnRPaXU2?=
- =?utf-8?B?Z3VETHlyUzExb08xMkYyMW02VEN6eWM4VW9ZcTg1d1lNWnFvbXQrR3ZTaCs5?=
- =?utf-8?B?T3pHTEhXUVFqcDhNdUlqM0Z4akVMNERoQVordFZzZ1llYlJhTVlUYlI4L2hh?=
- =?utf-8?B?b20rb1VzOUcvSGRrN2hnNDRYWGNVYnBaUFl6RzVmYUNVcU9KNDA5VW5wN3U4?=
- =?utf-8?B?K1RrRURCdWFQRy9Mb3J6UTV2QmxBb0NpU0xBR2czUkgzV2EzZnlUYnZuU3RN?=
- =?utf-8?B?RjdRMmUwVEdWOHA0WHowK1ZzRFQ3V0tnM3d0Q2FHNXZBTnJjWGg2aFRQaGpu?=
- =?utf-8?B?czhZSlJUWmsyUTViUTlpSCtFeHFPbm9VUDJUejA3UGNTUlZwR0pQSGdXQU9M?=
- =?utf-8?B?S1lNMERQMVlIeUVGazlqYW9pMTBSdUFQWjYvQ1RUV2JNcXdFbWVwbE5yWHlW?=
- =?utf-8?B?TTMrN0tRZXdXN1JqMlFVek9nL1RLL0lTL3ZZdHFWM2k4K2IxSkV4WDFKcU5E?=
- =?utf-8?B?OTZob0lMU2VxckNNOGZtSGlhZCsyZGM1N3Ntak5acFhqOW9QV0VySGFBVmhn?=
- =?utf-8?B?Q1NSUlpqaVdxaDhrcGN4RnhBQjJQQjQxaDJFTTdXaXk2LytVeUpyaS9KNW1Y?=
- =?utf-8?B?YTNxZllJRW1HbDNSNExxVlRReVZFTlZVOHd4Zld0RXVHVElWWjRvT1I0Tk1l?=
- =?utf-8?B?U3FzOHo1MnQxV01NYkxsMkJUcmkySXVuMi9BYWVtdjgzczZCS3VoQ0xWM1kw?=
- =?utf-8?B?UHVVZy8wQTVyV2ZFbWZqbWFPUVJlWUMzY09ISzhIc0FVcW83UkVnN3BYUzVC?=
- =?utf-8?B?d0N0anlxQlB6R1BkaHdzRmJua3VueE9IM1hDejJyN1I3RmMzVmlqOEtBRnlm?=
- =?utf-8?B?OFY0a09FUlQxU0pTS1JmbkxnblgydVQ3dTJZM3o4UEJHSnRRVG5lWmxQbTFD?=
- =?utf-8?B?OVFwYU1QOWVrRjVQbVNlSnVRRHpUTmJYaGRIdVVHenlpU3hOQXJlTGNQMi9o?=
- =?utf-8?Q?7kAHbnuO6EzHBsZ4H98lzdQd9Fx2OZIOd8kwH?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a3bb2a4d-e58c-4e5d-589e-08dee6806b39
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jul 2026 17:01:11.7805
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: QUH1vC39h5y3vcXKbAdipM9grfOGYqM573wkqVhqx0ZXEfCrcmXrI09V5NLBeV45dWY6yGmA7D5gev+wJdRHlV45Cjv+HY96/9odl1oswAJTqtvxtFaT2nfRYjhNbTtp
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB7189
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260521-isi_vc-v5-2-a38eb4fcd58e@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_100116_422629_A8E22BE8 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20260720_100551_377545_9576033D 
+X-CRM114-Status: GOOD (  40.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,27 +72,299 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+Hi Guoniu,
 
+Thank you for the patch.
 
-On Mon, 13 Jul 2026 11:19:20 +0200, Alexander Stein wrote:
-> this small series adds support for TQMa91xx, i.MX91 based module, on
-> MBa93xxCA. It supports most interfaces similar to TQMa93xx, but LVDS is not
-> supported at all. Wake-on-LAN works on both interfaces.
+On Thu, May 21, 2026 at 05:10:05PM +0800, Guoniu Zhou wrote:
+> From: Guoniu Zhou <guoniu.zhou@nxp.com>
 > 
-> Best regards,
-> Alexander
+> The ISI supports different numbers of virtual channels depending on the
+> platform. i.MX95 supports 8 virtual channels, and i.MX8QXP/QM support 4
+> virtual channels. They are used in multiple camera use cases, such as
+> surround view. Other platforms (such as i.MX8/MN/MP/ULP/91/93) don't
+> support virtual channels, and the VC_ID bits are marked as read-only.
 > 
-> [...]
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+> ---
+> Changes in v5:
+> - Return -EPIPE instead of -EINVAL for stream configuration errors
+> - Clear VC_ID_1 after generic mask to follow generic-then-conditional order
+> - Pass vc as function parameter instead of storing in pipe structure.
+> - Drop get_frame_desc fallback as crossbar now implements the operation
+> - Remove redundant num_entries check in mxc_isi_get_vc().
+> - Set vc to 0 for M2M as it doesn't support virtual channels.
+> 
+> Changes in v4:
+> - Fix VC boundary check: use num_vc (virtual channels count) instead of
+>   num_channels (ISI pipelines count)
+> - Set VC to 0 when frame descriptor has no entries
+> - Move platform-specific comments to block style to fix line length warnings
+> 
+> Changes in v3:
+> - Add num_vc field to platform data to indicate VC support
+> - Clear VC_ID_1 bit after reading CHNL_CTRL for proper VC switching
+> - Set VC_ID_1 only on platforms with num_vc > 4
+> - Improve mxc_isi_get_vc() error handling
+> - Add back CHNL_CTRL_BLANK_PXL and document platform-specific register fields
+> ---
+>  .../media/platform/nxp/imx8-isi/imx8-isi-core.c    |  3 ++
+>  .../media/platform/nxp/imx8-isi/imx8-isi-core.h    |  2 +
+>  drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c  | 17 +++++++-
+>  drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c |  2 +-
+>  .../media/platform/nxp/imx8-isi/imx8-isi-pipe.c    | 50 +++++++++++++++++++++-
+>  .../media/platform/nxp/imx8-isi/imx8-isi-regs.h    | 12 ++++--
+>  6 files changed, 79 insertions(+), 7 deletions(-)
+> 
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> index 4bf8570e1b9e..837ac7046cf2 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> @@ -318,6 +318,7 @@ static const struct mxc_isi_plat_data mxc_imx95_data = {
+>  	.model			= MXC_ISI_IMX95,
+>  	.num_ports		= 4,
+>  	.num_channels		= 8,
+> +	.num_vc			= 8,
+>  	.reg_offset		= 0x10000,
+>  	.ier_reg		= &mxc_imx8_isi_ier_v2,
+>  	.set_thd		= &mxc_imx8_isi_thd_v1,
+> @@ -329,6 +330,7 @@ static const struct mxc_isi_plat_data mxc_imx8qm_data = {
+>  	.model			= MXC_ISI_IMX8QM,
+>  	.num_ports		= 5,
+>  	.num_channels		= 8,
+> +	.num_vc			= 4,
+>  	.reg_offset		= 0x10000,
+>  	.ier_reg		= &mxc_imx8_isi_ier_qm,
+>  	.set_thd		= &mxc_imx8_isi_thd_v1,
+> @@ -340,6 +342,7 @@ static const struct mxc_isi_plat_data mxc_imx8qxp_data = {
+>  	.model			= MXC_ISI_IMX8QXP,
+>  	.num_ports		= 5,
+>  	.num_channels		= 6,
+> +	.num_vc			= 4,
+>  	.reg_offset		= 0x10000,
+>  	.ier_reg		= &mxc_imx8_isi_ier_v2,
+>  	.set_thd		= &mxc_imx8_isi_thd_v1,
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> index 14d63ec36416..2957119c81f2 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> @@ -169,6 +169,7 @@ struct mxc_isi_plat_data {
+>  	enum model model;
+>  	unsigned int num_ports;
+>  	unsigned int num_channels;
+> +	unsigned int num_vc;		/* Number of VCs, 0 = no VC support */
+>  	unsigned int reg_offset;
+>  	const struct mxc_isi_ier_reg  *ier_reg;
+>  	const struct mxc_isi_set_thd *set_thd;
+> @@ -377,6 +378,7 @@ void mxc_isi_channel_unchain(struct mxc_isi_pipe *pipe);
+>  
+>  void mxc_isi_channel_config(struct mxc_isi_pipe *pipe,
+>  			    enum mxc_isi_input_id input,
+> +			    unsigned int vc,
+>  			    const struct v4l2_area *in_size,
+>  			    const struct v4l2_area *scale,
+>  			    const struct v4l2_rect *crop,
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c
+> index 0187d4ab97e8..a98d7bec731d 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c
+> @@ -301,6 +301,7 @@ static void mxc_isi_channel_set_panic_threshold(struct mxc_isi_pipe *pipe)
+>  
+>  static void mxc_isi_channel_set_control(struct mxc_isi_pipe *pipe,
+>  					enum mxc_isi_input_id input,
+> +					unsigned int vc,
+>  					bool bypass)
+>  {
+>  	u32 val;
+> @@ -312,6 +313,10 @@ static void mxc_isi_channel_set_control(struct mxc_isi_pipe *pipe,
+>  		 CHNL_CTRL_SRC_TYPE_MASK | CHNL_CTRL_MIPI_VC_ID_MASK |
+>  		 CHNL_CTRL_SRC_INPUT_MASK);
+>  
+> +	/* Clear the VC_ID_1 bit on platforms supporting more than 4 VCs. */
+> +	if (pipe->isi->pdata->num_vc > 4)
+> +		val &= ~CHNL_CTRL_VC_ID_1_MASK;
+> +
+>  	/*
+>  	 * If no scaling or color space conversion is needed, bypass the
+>  	 * channel.
+> @@ -338,7 +343,14 @@ static void mxc_isi_channel_set_control(struct mxc_isi_pipe *pipe,
+>  	} else {
+>  		val |= CHNL_CTRL_SRC_TYPE(CHNL_CTRL_SRC_TYPE_DEVICE);
+>  		val |= CHNL_CTRL_SRC_INPUT(input);
+> -		val |= CHNL_CTRL_MIPI_VC_ID(0); /* FIXME: For CSI-2 only */
+> +		val |= CHNL_CTRL_MIPI_VC_ID(vc); /* FIXME: For CSI-2 only */
+> +
+> +		/*
+> +		 * On platforms with more than 4 VCs (i.MX95), the VC ID is
+> +		 * split across VC_ID_0 (bits 7:6) and VC_ID_1 (bit 16).
+> +		 */
+> +		if (pipe->isi->pdata->num_vc > 4)
+> +			val |= CHNL_CTRL_VC_ID_1(vc >> 2);
+>  	}
+>  
+>  	mxc_isi_write(pipe, CHNL_CTRL, val);
+> @@ -348,6 +360,7 @@ static void mxc_isi_channel_set_control(struct mxc_isi_pipe *pipe,
+>  
+>  void mxc_isi_channel_config(struct mxc_isi_pipe *pipe,
+>  			    enum mxc_isi_input_id input,
+> +			    unsigned int vc,
+>  			    const struct v4l2_area *in_size,
+>  			    const struct v4l2_area *scale,
+>  			    const struct v4l2_rect *crop,
+> @@ -374,7 +387,7 @@ void mxc_isi_channel_config(struct mxc_isi_pipe *pipe,
+>  	mxc_isi_channel_set_panic_threshold(pipe);
+>  
+>  	/* Channel control */
+> -	mxc_isi_channel_set_control(pipe, input, csc_bypass && scaler_bypass);
+> +	mxc_isi_channel_set_control(pipe, input, vc, csc_bypass && scaler_bypass);
+>  }
+>  
+>  void mxc_isi_channel_set_input_format(struct mxc_isi_pipe *pipe,
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
+> index a39ad7a1ab18..291907ef44cb 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
+> @@ -144,7 +144,7 @@ static void mxc_isi_m2m_device_run(void *priv)
+>  			.height = ctx->queues.cap.format.height,
+>  		};
+>  
+> -		mxc_isi_channel_config(m2m->pipe, MXC_ISI_INPUT_MEM,
+> +		mxc_isi_channel_config(m2m->pipe, MXC_ISI_INPUT_MEM, 0,
+>  				       &in_size, &scale, &crop,
+>  				       ctx->queues.out.info->encoding,
+>  				       ctx->queues.cap.info->encoding);
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
+> index a41c51dd9ce0..03e0115b5b5a 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
+> @@ -232,6 +232,47 @@ static inline struct mxc_isi_pipe *to_isi_pipe(struct v4l2_subdev *sd)
+>  	return container_of(sd, struct mxc_isi_pipe, sd);
+>  }
+>  
+> +static int mxc_isi_get_vc(struct mxc_isi_pipe *pipe)
+> +{
+> +	struct mxc_isi_crossbar *xbar = &pipe->isi->crossbar;
+> +	struct device *dev = pipe->isi->dev;
+> +	struct v4l2_mbus_frame_desc fd = { };
+> +	unsigned int source_pad = xbar->num_sinks + pipe->id;
+> +	unsigned int max_vc;
+> +	unsigned int i;
+> +	int ret;
+> +
+> +	ret = v4l2_subdev_call(&xbar->sd, pad, get_frame_desc,
+> +			       source_pad, &fd);
+> +	if (ret < 0) {
+> +		dev_err(dev, "Failed to get source frame desc from pad %u\n",
+> +			source_pad);
+> +		return ret;
+> +	}
+> +
+> +	/* Find stream 0 in the frame descriptor */
 
-Applied, thanks!
+	/* Find stream 0 in the frame descriptor. */
 
-[1/2] dt-bindings: arm: add MBa93xxCA as mainboard for TQMa91xxCA and TQMa91xxLA SOM
-      commit: 174b7dfb7dce9017e482c1fb2aa04ed28a141936
-[2/2] arm64: dts: add devicetree for TQMa91xx on MBa93xxCA
-      commit: 4d0d3a3d1993a41b2bf8d28aa6c6071fa1a3bff7
+> +	for (i = 0; i < fd.num_entries; i++) {
+> +		if (fd.entry[i].stream == 0)
+> +			break;
+> +	}
+> +
+> +	if (i == fd.num_entries) {
+> +		dev_err(dev, "Failed to find stream from source frame desc\n");
+> +		return -EPIPE;
+> +	}
+> +
+> +	max_vc = pipe->isi->pdata->num_vc ? : 1;
 
-Best regards,
+Let's name this num_vc, as it's the number of supported virtual
+channels, not the maximum VC identifier.
+
+> +
+> +	/* Check virtual channel range */
+
+	/* Check virtual channel range. */
+
+> +	if (fd.entry[i].bus.csi2.vc >= max_vc) {
+> +		dev_err(dev, "Virtual channel %u exceeds maximum %u\n",
+> +			fd.entry[i].bus.csi2.vc, max_vc - 1);
+> +		return -EPIPE;
+> +	}
+> +
+> +	return fd.entry[i].bus.csi2.vc;
+> +}
+> +
+>  int mxc_isi_pipe_enable(struct mxc_isi_pipe *pipe)
+>  {
+>  	struct mxc_isi_crossbar *xbar = &pipe->isi->crossbar;
+> @@ -244,6 +285,7 @@ int mxc_isi_pipe_enable(struct mxc_isi_pipe *pipe)
+>  	struct v4l2_subdev *sd = &pipe->sd;
+>  	struct v4l2_area in_size, scale;
+>  	struct v4l2_rect crop;
+> +	unsigned int vc;
+>  	u32 input;
+>  	int ret;
+>  
+> @@ -280,8 +322,14 @@ int mxc_isi_pipe_enable(struct mxc_isi_pipe *pipe)
+>  
+>  	v4l2_subdev_unlock_state(state);
+>  
+> +	ret = mxc_isi_get_vc(pipe);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	vc = ret;
+> +
+
+As vc values are small, you make the variable an int, and write
+
+	vc = mxc_isi_get_vc(pipe);
+	if (vc < 0)
+		return vc;
+
+There's no need to send a new version for this, I can handle it when
+applying your patches.
+
+Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+
+>  	/* Configure the ISI channel. */
+> -	mxc_isi_channel_config(pipe, input, &in_size, &scale, &crop,
+> +	mxc_isi_channel_config(pipe, input, vc, &in_size, &scale, &crop,
+>  			       sink_info->encoding, src_info->encoding);
+>  
+>  	mxc_isi_channel_enable(pipe);
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h
+> index 1b65eccdf0da..e795f4daf3ff 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h
+> @@ -6,6 +6,7 @@
+>  #ifndef __IMX8_ISI_REGS_H__
+>  #define __IMX8_ISI_REGS_H__
+>  
+> +#include <linux/bitfield.h>
+>  #include <linux/bits.h>
+>  
+>  /* ISI Registers Define  */
+> @@ -19,9 +20,14 @@
+>  #define CHNL_CTRL_CHAIN_BUF_NO_CHAIN				0
+>  #define CHNL_CTRL_CHAIN_BUF_2_CHAIN				1
+>  #define CHNL_CTRL_SW_RST					BIT(24)
+> -#define CHNL_CTRL_BLANK_PXL(n)					((n) << 16)
+> -#define CHNL_CTRL_BLANK_PXL_MASK				GENMASK(23, 16)
+> -#define CHNL_CTRL_MIPI_VC_ID(n)					((n) << 6)
+> +/*
+> + * CHNL_CTRL_BLANK_PXL: i.MX8{QM,QXP} only
+> + * CHNL_CTRL_VC_ID_1, CHNL_CTRL_VC_ID_1_MASK: i.MX95 only
+> + */
+> +#define CHNL_CTRL_BLANK_PXL(n)					FIELD_PREP(GENMASK(23, 16), (n))
+> +#define CHNL_CTRL_VC_ID_1(n)					FIELD_PREP(BIT(16), (n))
+> +#define CHNL_CTRL_VC_ID_1_MASK					BIT(16)
+> +#define CHNL_CTRL_MIPI_VC_ID(n)					FIELD_PREP(GENMASK(7, 6), (n))
+>  #define CHNL_CTRL_MIPI_VC_ID_MASK				GENMASK(7, 6)
+>  #define CHNL_CTRL_SRC_TYPE(n)					((n) << 4)
+>  #define CHNL_CTRL_SRC_TYPE_MASK					BIT(4)
+
 -- 
-Frank Li <Frank.Li@nxp.com>
+Regards,
+
+Laurent Pinchart
 
