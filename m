@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A27BC44515
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A2BCC44524
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 16:21:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,52 +12,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aLETP574W//JLh+FTkzjcKwtbtDnoO3wAXCceho0s4c=; b=PFcUdN0/pKOlNVouHyL26YrfdR
-	bcGkWDX0kZf/HZwba8s3nAeVeA4+yewwe0zVziYq48MgRKGwjkV4NgaU/OwiT63Px8AtyiWkIwmI5
-	Ee7w5OXlcc8PscXEhaniVlAfjwBuIf270bc1ZKP/WXlQSiXrJ/ayZzuCBETT44yvMDB6xlVOPXG9g
-	6fjwshC8aA6p/7QHUjo7VwruAQS2ZmdYXQtBNJFjs+pvoXilM5L4cl4ahzaAFFtFWs3595R6uuVjv
-	tz6ELFasHjuAT7lqDnShpiRHZ6xi5Afg79Yot6dFRM7k5wEu8WUCKEFPkGLn2PlFfjJbmXgZPQt12
-	4ZDDc+1w==;
+	bh=zjfjMNm+cQqraDceqixUdtwSS848knI19QAP7FSOitc=; b=CTkqkMGNvFxaX5AXjN1/EOkv/d
+	Gd2jwLmEcBis7aXwdO2VMod7g0kIXPAWRVOXV4ycKHIb17M1KZErCtWQh7uR1rAPtOD5nn7gv4TSj
+	8ptYMYhn53/4wiakcc7ahj4705mX5tbmNkobarBzMVBIVmVhPSf+NkMHlhD/lfX9ibBpPXT9n0kOr
+	yPpyxQzwNFVBmpKEJkPFdQXiAdFmXqlwYEtz6DL9GGUqLYltHSwsoJtxGDZ5PTitTSnZkVmLNT/V0
+	G4YCV8vGPwkiyJ32YE8uWMKdLOb2Qzq6b0d+Gu7uL5+4kKGKrGBZWrM3/hz3PnPLeZZFu+6yJZe+m
+	X6tv35SA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlqkP-00000007MN8-13jg;
+	id 1wlqkP-00000007MMq-0NXT;
 	Mon, 20 Jul 2026 16:21:41 +0000
 Received: from mail-pl1-f178.google.com ([209.85.214.178])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlqkH-00000007MJO-3cLi
+	id 1wlqkF-00000007MHK-1IUs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 16:21:34 +0000
-Received: by mail-pl1-f178.google.com with SMTP id d9443c01a7336-2cee9b74ee1so63493715ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 09:21:33 -0700 (PDT)
+	Mon, 20 Jul 2026 16:21:32 +0000
+Received: by mail-pl1-f178.google.com with SMTP id d9443c01a7336-2cedda2ce6fso61324425ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 09:21:31 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784564493; x=1785169293;
+        d=1e100.net; s=20251104; t=1784564490; x=1785169290;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=aLETP574W//JLh+FTkzjcKwtbtDnoO3wAXCceho0s4c=;
-        b=LvVM4UuRr9qeHzqHn/wwA6Jm/IjuYRtLj7qC0OOOV/n9WWS39BI5up/gNoedtJeFpx
-         NRAug036V0G6fxrDMyFtFU2mc2ohR4a5Or9lLltfHOMjyeR0WptkGD3Sx6gVXtQAF0zH
-         929TSDdd99bLrKrt0G6Ha+9D+NK1tTDAQoJt/bCk/hZROG0yxLRO3Bk2L0txIb4OK5Yu
-         Ef3Z3mgG+8M5y454dDn4T67xQuf+xWgXLaWvgNEvoz2Teg+oHq+iqzj9byD5EMyTajXW
-         kmo5/M4KJxRziSMXeyhQbPzSLMEbnR9jliov+GX/h8YJ4vrw/UjArZ2Im5jZemnOC5V1
-         s3+w==
-X-Forwarded-Encrypted: i=1; AHgh+RosaRML3oZw8LLYZj77s9sa6zMU08SBxt6zK62CKe/oLk/QXZYJuT0MCcuP7zeM4sm8JycsgNQtff+NaDUsCp8q@lists.infradead.org
-X-Gm-Message-State: AOJu0YzgWQc88HrmzDK/Bb3DuXr3QXEXqb8fHKpuCi0n91FgmPjG3kfT
-	wurZGrdXyyrPAl+JHDiV7Lwkz5SQVjn2oSQFWCfJretDqEfS0mxG9PI=
-X-Gm-Gg: AR+sD109VVqX+7VXHpqyzuzJuZzKnqrLE+rOsVLlMOx2veSTaQrYFOGkQ6GR97kPe48
-	TvZ07LPP6i0CQflbZrV/vlTqxUPGWG1bw6+TC5WxFVlVlPFkyykMfn2eOXmh7rprQHflRAr9kbb
-	WOntFfLISsDSKl8ltBguXc1tcIANBmJmHvcROFOxTbMtRySnOmIglTbvY+kDmAjFYgTjNMaFcN5
-	ffpiZD0MmiUwM8hk6DT+94hME4LOgZDb22I3uy0SHYPZppa+CgDsTq458IeFq9U0noJnP/Pmgng
-	yKmuI+mGgRvCKKMHRDDOkfrmIeOR6A+/sgi5kaxBFQlTvQSRNEQjCnCtgKNNB7cj6cggyp88fqK
-	9Lpycdl9pdlcgX3ZrlJVzS9QCiJiHjdkbDTpqG/JdKhG00aDFI/c5GifsXDZv/pM4Q/DVvIJ6B5
-	vsSZnbirGN3teK6NLNlwaUznNjqfpBr9pkwAOqRyLPOy/LUGTTR+jlOn62EhHpMm4y6+4ixeMsj
-	SyakGofHtn+93vbUBeQMolypAqn
-X-Received: by 2002:a17:902:fdae:b0:2ca:ecf6:910e with SMTP id d9443c01a7336-2cf3466a93fmr166932475ad.0.1784564493132;
-        Mon, 20 Jul 2026 09:21:33 -0700 (PDT)
+        bh=zjfjMNm+cQqraDceqixUdtwSS848knI19QAP7FSOitc=;
+        b=k+JN9zuvulLHUEDLWvXlYMFJunx71sndOSatYTYmKDm3RPXuLHs+4H/gFnPCxBw+s0
+         gkSD7rSgvpi10PJl+iNLOFovl7k8TASXc46IwS6BHLF9ghAbQN06FSaMDOpYzZcPJHNo
+         SOlFKq6kmjbXPHmpI5M5kILn23cm9YrSi7GLyx6HU03fqShyCxy79ejVHh8XGydhI1gG
+         5rh/BFtKzDK2Lz/xGVktCBPUfwU/KEmq497Jb+1cnrh1VpMpdTpMR1h3K3dq08Ad8DXb
+         JTQkAZYZ8FJSx0RDVPNrqX1+Tps88DRCCzvg3svgqvFcqAuZuSpyJWJxl9oLBwI+RtDP
+         8ojw==
+X-Forwarded-Encrypted: i=1; AHgh+RrlaiDK4g3Cw2JQxn047o3P47YSCT9Ev5FIYz+90mbsRpWoE1XF755xJBXks7Fw3uDlZ2XyYw2ppI9hJo7KVTli@lists.infradead.org
+X-Gm-Message-State: AOJu0YyHcgfiBY6wh/6NLwaHVvZRS5hhjDDrg00CoUwrHqCDOgT+ZUFm
+	LcfWmFhcmy6vfIzerVhVWPyEKtyC01d0Gc0GVF9eW3z8GNy0xjfGw/w=
+X-Gm-Gg: AR+sD10ix8nVGc65qRILunT2fxT5dNMhGbYCNYp4jXejk8RQRoM9BGCEvX1E/scuzhm
+	BVq56pKVuTSbjD6zR9nLpXS0AEBhT1xGOon+ERpYCWypN9uw/RgdgS6WKVIFu+v/UtB2woeLP+r
+	lKlLbW9SPB3u4NCqInNotJDRU32jm/C02fdsDmodTY444E8UI0lSDFGyq4GOdR3Yn2peRd5GXVg
+	XiqKIJl7TJ047LLtUHPyRwkH5gdLN1BsAttSXNTzQl+ZCx8s9gj5DPWGIT/MZ9ltQFNhD2+cW+/
+	YZS8+255S0SDkLab3swSpWCnam7eC1x0gHHo8keqUDQbvVyPqiGEI73rCceP5cz2+2G++ye7gVV
+	+HgjiATmSKjWXPsZPy1noC69J9fpgbpry9VuHngaq6UFG42qyhT4NwXKyvLUNe0zn+kA1QIgsdE
+	i4y33yKyJRfk1Kl427e5ninCwZDdhUnArxczLCPeVq7MwBiWcuxYXGsL27UZCjRZvHd7kTesBx6
+	1naklejXDH28EurVw==
+X-Received: by 2002:a17:902:dac9:b0:2ca:1479:d9dc with SMTP id d9443c01a7336-2cf34853397mr160016285ad.12.1784564490463;
+        Mon, 20 Jul 2026 09:21:30 -0700 (PDT)
 Received: from penguin.tail0a1999.ts.net (61-228-16-100.dynamic-ip.hinet.net. [61.228.16.100])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf3479463bsm58467385ad.80.2026.07.20.09.21.30
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf3479463bsm58467385ad.80.2026.07.20.09.21.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Jul 2026 09:21:32 -0700 (PDT)
+        Mon, 20 Jul 2026 09:21:29 -0700 (PDT)
 From: Shih-Yuan Lee <fourdollars@debian.org>
 To: Mark Brown <broonie@kernel.org>
 Cc: Andy Shevchenko <andriy.shevchenko@intel.com>,
@@ -70,17 +70,17 @@ Cc: Andy Shevchenko <andriy.shevchenko@intel.com>,
 	linux-spi@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Shih-Yuan Lee <fourdollars@debian.org>
-Subject: [PATCH v16 4/7] spi: pxa2xx: lock out runtime autosuspend for Intel LPSS SPI in PIO mode
-Date: Tue, 21 Jul 2026 00:21:13 +0800
-Message-Id: <20260720162117.32304-5-fourdollars@debian.org>
+Subject: [PATCH v16 3/7] spi: pxa2xx: overhaul teardown and suspend sequence using pxa2xx_spi_off
+Date: Tue, 21 Jul 2026 00:21:12 +0800
+Message-Id: <20260720162117.32304-4-fourdollars@debian.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260720162117.32304-1-fourdollars@debian.org>
 References: <20260720162117.32304-1-fourdollars@debian.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_092133_899990_EDECA04D 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20260720_092131_358608_2999C110 
+X-CRM114-Status: GOOD (  17.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,55 +95,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When operating in PIO mode on Intel LPSS SPI controllers, runtime PM
-autosuspend clock-gates the hardware block when idle. On subsequent
-transfers, MMIO accesses to trigger resume are performed before the runtime
-PM state machine can wake the controller, causing PCIe Completion Timeouts.
-This issue does not affect DMA mode, where the DMA engine holds the required
-resources, nor does it affect non-LPSS controllers.
+When removing the driver or suspending the device, the clock must not
+be disabled while shared interrupts are still active. Gating the clock
+before waiting for in-flight interrupt handlers to complete results
+in race conditions where the handler performs unclocked MMIO accesses,
+causing PCIe Completion Timeouts.
 
-Lock out runtime PM autosuspend for LPSS SPI controllers specifically
-when operating in PIO mode.
+Overhaul the remove, suspend, and runtime_suspend paths to use a strict
+synchronized teardown order:
+1. Disable hardware interrupt generation at the controller level.
+2. Mark the device state as suspended (suspended = true) to prevent
+   subsequent interrupt handlers from attempting MMIO reads.
+3. Call synchronize_irq() to wait for any active interrupt handlers
+   to drain completely.
+4. Gate the clock via pxa2xx_spi_clk_disable().
 
-Acquire a runtime PM reference via pm_runtime_get_noresume() in
-pxa2xx_spi_probe() after registration, and release it via
-pm_runtime_put_noidle() in pxa2xx_spi_remove() before hardware teardown to
-ensure the runtime PM reference held in probe is released without invoking
-runtime_suspend on already-unclocked hardware.
+Additionally, commit 29d7e05c5f75 ("spi: pxa2xx: Avoid touching
+SSCR0_SSE on MMP2") documented that disabling the hardware block via SSE on
+MMP2 SoC platforms corrupts the RX/TX FIFO. Instead of calling
+pxa_ssp_disable() directly, use the helper function pxa2xx_spi_off(),
+which respects the MMP2 platform quirk by bypassing SSE register writes.
 
 Signed-off-by: Shih-Yuan Lee <fourdollars@debian.org>
 ---
- drivers/spi/spi-pxa2xx.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ drivers/spi/spi-pxa2xx.c | 45 ++++++++++++++++++++++++++++------------
+ 1 file changed, 32 insertions(+), 13 deletions(-)
 
 diff --git a/drivers/spi/spi-pxa2xx.c b/drivers/spi/spi-pxa2xx.c
-index 6bfd3382acc3..34241a6742eb 100644
+index c44349ab2b52..6bfd3382acc3 100644
 --- a/drivers/spi/spi-pxa2xx.c
 +++ b/drivers/spi/spi-pxa2xx.c
-@@ -1473,6 +1473,9 @@ int pxa2xx_spi_probe(struct device *dev, struct ssp_device *ssp,
- 		goto out_error_irq_alloc;
- 	}
- 
-+	if (is_lpss_ssp(drv_data) && !platform_info->enable_dma)
-+		pm_runtime_get_noresume(dev);
-+
- 	return status;
- 
- out_error_irq_alloc:
-@@ -1495,6 +1498,13 @@ void pxa2xx_spi_remove(struct device *dev)
+@@ -1495,16 +1495,24 @@ void pxa2xx_spi_remove(struct device *dev)
  
  	spi_unregister_controller(drv_data->controller);
  
-+	/* Release the PM reference held in probe for LPSS PIO mode before
-+	 * hardware teardown so the PM core does not invoke runtime_suspend
-+	 * on already-unclocked hardware.
-+	 */
-+	if (is_lpss_ssp(drv_data) && !drv_data->controller_info->enable_dma)
-+		pm_runtime_put_noidle(dev);
+-	/* Disable the SSP at the peripheral and SOC level */
+-	pxa_ssp_disable(ssp);
++	/* Disable SSP interrupt generation on hardware level while clock is active */
++	pxa2xx_spi_off(drv_data);
 +
- 	/* Disable SSP interrupt generation on hardware level while clock is active */
- 	pxa2xx_spi_off(drv_data);
++	/* Mark as suspended to prevent further IRQ handling */
++	drv_data->suspended = true;
++
++	/* Wait for any pending interrupt handlers to complete */
++	synchronize_irq(ssp->irq);
++
++	/* Release IRQ */
++	free_irq(ssp->irq, drv_data);
++
++	/* Safe to disable the SSP clock now */
+ 	pxa2xx_spi_clk_disable(drv_data);
  
+ 	/* Release DMA */
+ 	if (drv_data->controller_info->enable_dma)
+ 		pxa2xx_spi_dma_release(drv_data);
+-
+-	/* Release IRQ */
+-	free_irq(ssp->irq, drv_data);
+ }
+ EXPORT_SYMBOL_NS_GPL(pxa2xx_spi_remove, "SPI_PXA2xx");
+ 
+@@ -1519,10 +1527,10 @@ static int pxa2xx_spi_suspend(struct device *dev)
+ 		return status;
+ 
+ 	drv_data->suspended = true;
+-	pxa_ssp_disable(ssp);
++	pxa2xx_spi_off(drv_data);
++	synchronize_irq(ssp->irq);
+ 
+-	if (!pm_runtime_suspended(dev))
+-		pxa2xx_spi_clk_disable(drv_data);
++	pxa2xx_spi_clk_disable(drv_data);
+ 
+ 	return 0;
+ }
+@@ -1530,6 +1538,7 @@ static int pxa2xx_spi_suspend(struct device *dev)
+ static int pxa2xx_spi_resume(struct device *dev)
+ {
+ 	struct driver_data *drv_data = dev_get_drvdata(dev);
++	struct ssp_device *ssp = drv_data->ssp;
+ 	int status;
+ 
+ 	/* Enable the SSP clock */
+@@ -1542,7 +1551,15 @@ static int pxa2xx_spi_resume(struct device *dev)
+ 	drv_data->suspended = false;
+ 
+ 	/* Start the queue running */
+-	return spi_controller_resume(drv_data->controller);
++	status = spi_controller_resume(drv_data->controller);
++	if (status) {
++		drv_data->suspended = true;
++		synchronize_irq(ssp->irq);
++		pxa2xx_spi_clk_disable(drv_data);
++		return status;
++	}
++
++	return 0;
+ }
+ 
+ static int pxa2xx_spi_runtime_suspend(struct device *dev)
+@@ -1550,6 +1567,8 @@ static int pxa2xx_spi_runtime_suspend(struct device *dev)
+ 	struct driver_data *drv_data = dev_get_drvdata(dev);
+ 
+ 	drv_data->suspended = true;
++	pxa2xx_spi_off(drv_data);
++	synchronize_irq(drv_data->ssp->irq);
+ 	pxa2xx_spi_clk_disable(drv_data);
+ 	return 0;
+ }
+@@ -1557,11 +1576,11 @@ static int pxa2xx_spi_runtime_suspend(struct device *dev)
+ static int pxa2xx_spi_runtime_resume(struct device *dev)
+ {
+ 	struct driver_data *drv_data = dev_get_drvdata(dev);
+-	int ret;
++	int status;
+ 
+-	ret = pxa2xx_spi_clk_enable(drv_data);
+-	if (ret)
+-		return ret;
++	status = pxa2xx_spi_clk_enable(drv_data);
++	if (status)
++		return status;
+ 
+ 	drv_data->suspended = false;
+ 	return 0;
 -- 
 2.39.5
 
