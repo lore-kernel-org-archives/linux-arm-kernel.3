@@ -4,155 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1381C4452A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 14:12:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8362FC4452A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 14:13:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IFbXZVYlpWFB+86AR3x1jH6JDJM2yKuesn95gcq6Bt8=; b=LsCZIT4xNa9FRAIoNp6ciTtPz1
-	12zdRqaP8kBcAvoVEKYUepF2/Xi2xQTp1Lyu7UG8wYShUi+yZJWfhaRc9KBKEA+hWjaeLaAUum279
-	1IZSGZdfx6Wemu9eU/69VZqkhrk201R9q9TokfV2ppwlJRKfUkNwkiV5zljCcpcKB+G+rPGqL4tl4
-	mTzmpkObApQnQ5sxuD/7ciAR1o6XOsLyUBtwwB46axRExaCMAWcobf8rqIbUsDmhI7EqutVOPOUTp
-	fgD+R6YMnum7l+ZIn7LrI8CKxCYGL4a2pT5ONXuOaky7fUuAHURgqudsb4FIJz6NZK9MdrjWU9QiH
-	v1kBUazA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lF8karFkg0wDdEIf59u76yMEjWKKdqIYaXBpJmFfZtY=; b=F9SHDvhfxa2b66Ttgrmooqu7P8
+	NvMnazZ19uNPjVcijofIW/ULHqZMOlgebXobp6MUf7l4kKTxgZ0rOqRPwrcxlO8EHChGC9SlQ3bXm
+	xiHaczS20C2irCek/stDybyy/9f5Xo3O9QKKehcKbTfGFvpC48qefNlbJLdctAIwqTnMnFj7bKVgl
+	aymzeo91SLUkiljTOtn0mz9Wu98zSow973NAcOKfuZrZPwcEQvrmvk83+CiFkyUixSMy7l0B1xjyR
+	N15S7RrQLdsAD6z7GLiSFxwHpx0ZqWfS3iCPyJaTYId/LU4AiOtaWe0+hg7h4claIfSpFyAjWAez+
+	tz+XtcIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wloj1-00000006vUr-0zTV;
-	Mon, 20 Jul 2026 14:12:07 +0000
+	id 1wlojo-00000006ve6-1tLe;
+	Mon, 20 Jul 2026 14:12:56 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wloiz-00000006vUB-1rqk
+	id 1wlojm-00000006vcz-0kId
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 14:12:06 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66KDqkux2746904
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 14:12:03 GMT
+	Mon, 20 Jul 2026 14:12:55 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66KDrFSw2807604
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 14:12:53 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	IFbXZVYlpWFB+86AR3x1jH6JDJM2yKuesn95gcq6Bt8=; b=MgerdfAGT8P4AsIY
-	Bb7+lF6ar+WGa3Xv8UPRLAtbfgAI/6Ay7vu4wY8upS/JK5Sa4OIcHGWZO/LmPp0k
-	PADPqEm1K7t+R5eprqmKKggHeDeSa53LKG2MLyxAs0/FUqGMOCsuYtxn4FkbrXzI
-	zmiICvyIcNsfmP6ZlurHvwAOL4qtRJobKmZRaS1f9yLlpu3CrZpcasDVXaIiCTfK
-	6EfQNPZFVKokSQ7lcV9W5Ok46nfJaXR7ADHgw4qM5OmhoYwIx6FuzhrK1raFem3J
-	TzKdTl6gu/FyBHhh2CR6PO9dZ+0Rf9UkFaBg3yU2yHJLFjoNkvwdwYnB2VZlm/3Z
-	R3ul/Q==
-Received: from mail-oi1-f200.google.com (mail-oi1-f200.google.com [209.85.167.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fhk2f8kt7-1
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=lF8karFkg0wDdEIf59u76yME
+	jWKKdqIYaXBpJmFfZtY=; b=P9jylU1OWDZDvCUMZurHCGquKJfn9Kz1PKdfu3/9
+	PbZOR0XqFH+7RQtryW4etriqR3XYE0+vSv3xdgvr3SGaF9oRIVvybAor4ItxulnO
+	qrMfVAUf6OK+TxRDuBYuAPHUIHGIsiC6EeQwZvX7NQqRqV8JAgBfNJLb03dlXH75
+	uyY7QEPw6LuBFdw13JvcnHzUKQ77EIooJJHYvJQKeKI8sVl2R9xR45SG/fb6BW2s
+	Rw+mCBs5itpzAbAyJzo309xdII/bR3R2TXLa05LQTjf1hu+6+8+1JrsS3VCW6+Nk
+	loRRhHr7TTsCNocwtg/XJH5rKNwLoWX3vEBvuvCtEwU/Hw==
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fhgre9a7b-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 14:12:03 +0000 (GMT)
-Received: by mail-oi1-f200.google.com with SMTP id 5614622812f47-4a416619e8dso6995118b6e.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 07:12:03 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 14:12:53 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-51c20762d21so94721821cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 07:12:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1784556723; x=1785161523; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=IFbXZVYlpWFB+86AR3x1jH6JDJM2yKuesn95gcq6Bt8=;
-        b=auzPElUc6T1LiBSUtxjt1a21ELq2NjgikCOq1oBntcHk++UkOp2Nw+2KuANTXxIdVd
-         ofxadF+dVAqvQcyhSA3jMf260DOG7nRm2dPmFh4oDT8fDxbfJNc5nQn9wA45BDLplfrw
-         LCYLqaXdSwY6oO/PlM63eJdxWd9ozpYhPpLute4Sc9cNJErKZmxZsJEBA6hxa5SqDtGa
-         ddHwR9DQ7g8M2RxZOfsS83fRGv+q+vi9zF2CGuG8P6v8TJ4bG9vpxcrhZVmIn9oX2ChX
-         Gbc9q9Gki1lB+mV2b9QDYBG2lqUAmr0dhKODM6wlWdJ2JJWT7F2Knritq/NNz9DymKvT
-         IOcA==
+        d=oss.qualcomm.com; s=google; t=1784556772; x=1785161572; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=lF8karFkg0wDdEIf59u76yMEjWKKdqIYaXBpJmFfZtY=;
+        b=Z6KyAl19g2uE686V6JaPXUx4DhOZAF8YlpyUq1Z0w3Tp62zWOak0uPIA9Y9Blr+yaW
+         BXjBs1BPe/3GTUHi2V4wlW5lsy2WEsA2ad7WyHvv6pw0t2HeF8vQGIewrpBGaW+1t7HX
+         RsdvnVGgT3SSCwKFHTbNq0D1qJoLu8JGn/84b7lkRYXy7ssZAAMmZd4ch0W//WrUfphs
+         sXqGeaOfXJJrshCiD9zzMfIPJLsbrPQjjnVlPYnTboH/2cnDF3FAgsaGZwbzf8z5uwoK
+         SOAFSSwEffiHZl+5JiHB7M+tsR8Kxu6h204hBPITvth5iNv8I75ZUs9W2ZFBOULFf7UD
+         CQ2Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784556723; x=1785161523;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=IFbXZVYlpWFB+86AR3x1jH6JDJM2yKuesn95gcq6Bt8=;
-        b=byDgW5KlGujY/cox6aYeadv9/GzVvhEWvhWd7m8MmLLfKkgtVSvObs3dxNfLRoCEyQ
-         HiU7UarySknb1EzDefW2WIrH3UjOUTQgxfxthFEGrPiWzKXI96B8H6weW5icF9aGMOPR
-         yAAZchGiyrEQR4TpHokGV11cXh1ZQY0t8nULBq+gdnkmqaXsXy0LveRAJP79kG5ZXgOe
-         jYVXIvrhF8Y4BZlw5XGA3VausDmSNUHmHjVb4B7lpnKNlYdAdR80bbgCi+hucCQHvhQg
-         llmbW4YbDNbdvSP8HO0rTS+NNFMcSUEqjF2fTckakr+Lnja97D4d6lZPJTKxFrIfbT+6
-         7TyQ==
-X-Forwarded-Encrypted: i=1; AHgh+RrDHa9WIRe33v1+hvSkihSFzZj5f4eKu2MUzPQCWRHvAx1nOn4Jobz/Q+PESYNsL8mlS4b9nXgu+Af/Md2NYjG5@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5Ersn7/F8N7LPSNVYyebuQNMqTn1NhdAivu0oWukWmaIJuXPG
-	QcWitxy9b9Huvw2X6/LB8LAuMCdeynJf8sMyNONYo5+c1Tv3Lfq2/EvtB0NKH8eHkG9seFu/TCt
-	xKP51BCGc5jWqE92qClD5rCAOCRbpN1khTH2V4wyuN9uuaLxzo6hkooPIPuszBAA1k5GwqoAWCa
-	uiOA==
-X-Gm-Gg: AfdE7ck2SdljLA85IG/ZEfgKSK/wRRHNTJqYc3T84T64rGSmqJBp60/Yhatqszt8TA6
-	4rIlYCw4hP6XbDwNQl0O4MAXwZYxtG553zzgPY9gsuooWRyAE9nsQhoFEf2OeJeRl014VIMKyyg
-	R4gITPuzMw9ZidbWBy/y2cOx1CEVsTXY3RStW9J1tYRQfAEkn24U53UVGohGUNPuglalpku39+C
-	xyItsuLyWigh3wrES3tj4YSn6TRu2eRoz9aO+TgIaMLn3XyLqaNe84Xq/q1wHP0yEmel49R4AgL
-	mMefRXxaVS5BM8L91ROn4qVDOQRmLEQe4cQoukvgrBMHVoFlgFOLpQygqhrmw1s+VbIbyRMukoD
-	eUdLB2vzn4TenU/Zpn2k0w5y6Ln1O
-X-Received: by 2002:a05:6808:c3cb:b0:495:fa67:7496 with SMTP id 5614622812f47-4a4cf26bb93mr7248859b6e.14.1784556722680;
-        Mon, 20 Jul 2026 07:12:02 -0700 (PDT)
-X-Received: by 2002:a05:6808:c3cb:b0:495:fa67:7496 with SMTP id 5614622812f47-4a4cf26bb93mr7248832b6e.14.1784556722182;
-        Mon, 20 Jul 2026 07:12:02 -0700 (PDT)
-Received: from [10.218.33.224] ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-4a4d3d36340sm7497247b6e.16.2026.07.20.07.11.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 20 Jul 2026 07:12:01 -0700 (PDT)
-Message-ID: <9f31bf3d-3c7d-45ba-bc25-e6349f689b70@oss.qualcomm.com>
-Date: Mon, 20 Jul 2026 19:41:35 +0530
+        d=1e100.net; s=20251104; t=1784556772; x=1785161572;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=lF8karFkg0wDdEIf59u76yMEjWKKdqIYaXBpJmFfZtY=;
+        b=qXxQ6LYT+H448TdO++9g/6KKxslos7Uks7/RfgVmSrmIYflT+4vmzO1UT4q7dlWXfv
+         NDTQuI7pB4g0zFX5+Pqc9rPoPsGKyPh4RTWEnjvZwhrfjlvCnDx97sW1ZyBMYrbDWsgZ
+         n0qToE+MumnKTr/5mpOOIFP1QJ34PlMO5oLTsucbABTXSde0sUALxKgwiwynlpya56TK
+         Nq3jPv7p5loclo+p6j3QsaA/DpaGQ9ZhnIiBCOJNLq9MD5WfKXm8bK6toxmraZx7aELM
+         BK50HJ+QkCBSxdHo1JHW5R7A0QOTnldMp0LDKHHuPee3MQAmHtu6i23YDQ2DvFMfOMt3
+         VOsg==
+X-Forwarded-Encrypted: i=1; AHgh+RoYx6T/Ap5INfdFaHW3mp0ftMR6gGZaUG98lwDbFsGDt2GyZiyTOV2Gc3EWAmxgKZmk01wB5zQnA8UFAza3dS7f@lists.infradead.org
+X-Gm-Message-State: AOJu0YyNZqE9dA7b/2DvWT3aD3jHuft3t18vfO0qy5RBSzQef9XjKzSZ
+	Qy9xJt44qPhi8F6rroxbP7b6odwu1tja2/RluzyFJ300kp941YQJyJd9hVCmGkwaU4Lxzkxk16J
+	ixoNyAKYkDsdHlZbSPLtxE5OrtAQCibeabeGkKbE68mHwx+3IXZy8fo5bYvbvvGIYjh3XxOpzNx
+	j4mg==
+X-Gm-Gg: AfdE7clc2jqumnkpazh/xKdWuM71kDCLs8PXaW3+e3isXTGcsz/Cqg1XJaDOtMvBChc
+	Y6u9SsguWfqsZQVqYiHD4pLLgV67XMZ1Nh/WLFmNHxHn0q3cgAw5qjW3sj+ZlTpA3yQvLUadrEc
+	lFehfBTfv6l2SBmjlg8ZqEp58WlGxanlrOJU42xu0CvN4AV7jgWdEUqvKcE1b+jOU31gKBiFrza
+	BL8Gtf5/d9paUc3qhkDp4NF4yKkzFjKOtkPWAfL7ZyIiVVNvd77N5/hiJARtjfF3O0/OMXer5H4
+	E7H4pB1vpvPa5WxLW4NAknm1tgeHzIf0mxwACws36quw3SW9BpS6v9Np/BK/4DJm/HopLke2iCF
+	zNmVnLqJ9yuCVTN8N9ikdWNvw2hYx/UffDEczX8AXLlmkTV3m8NVoXBswjyWMNHjNU6TuT3mG6c
+	Uo+TXrEeBtmD96og==
+X-Received: by 2002:a05:622a:2b0f:b0:51c:b8fa:395b with SMTP id d75a77b69052e-5213eb7cb5amr135131491cf.66.1784556772368;
+        Mon, 20 Jul 2026 07:12:52 -0700 (PDT)
+X-Received: by 2002:a05:622a:2b0f:b0:51c:b8fa:395b with SMTP id d75a77b69052e-5213eb7cb5amr135130821cf.66.1784556771698;
+        Mon, 20 Jul 2026 07:12:51 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5b291e25290sm2371565e87.73.2026.07.20.07.12.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 20 Jul 2026 07:12:50 -0700 (PDT)
+Date: Mon, 20 Jul 2026 17:12:48 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+        Heiko Stuebner <heiko@sntech.de>, Algea Cao <algea.cao@rock-chips.com>,
+        Dmitry Baryshkov <lumag@kernel.org>, kernel@collabora.com,
+        linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+        linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+        Sashiko <sashiko-bot@kernel.org>
+Subject: Re: [PATCH v4 3/8] phy: rockchip: samsung-hdptx: Fix rate
+ recalculation for 3.2GHz FRL
+Message-ID: <al4s4LH2Om9bZ-X9@umbar.lan>
+References: <20260612-hdptx-clk-fixes-v4-0-ce5e1d456cda@collabora.com>
+ <20260612-hdptx-clk-fixes-v4-3-ce5e1d456cda@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/6] dt-bindings: iommu: arm,smmu: Document
- interconnects property
-To: Bjorn Andersson <andersson@kernel.org>
-Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-        Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org,
-        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260706-smmu_interconnect_addition-v3-0-afdca0125a65@oss.qualcomm.com>
- <20260706-smmu_interconnect_addition-v3-1-afdca0125a65@oss.qualcomm.com>
- <nrht4irqtvt2vk3lrqvljonarc4kanht2nrwjt7pppsfhozffv@o4xei47l6gcj>
- <e8b247d9-d60d-497f-a831-a9772d27481a@oss.qualcomm.com>
- <phlk6zsxr7szdadsvgoecf7ewcqjkuaj5aeqmfqa4uvvvvnsmj@57u2pofxewuh>
- <4e266d45-ee88-42f8-91da-6253927686ae@oss.qualcomm.com>
- <ak5pC_meP8KRc3wJ@baldur>
-Content-Language: en-US
-From: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
-In-Reply-To: <ak5pC_meP8KRc3wJ@baldur>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: KhdMjYeZCTKhYN2QhiUrO97zp9PnuCP1
-X-Authority-Analysis: v=2.4 cv=X8xi7mTe c=1 sm=1 tr=0 ts=6a5e2cb3 cx=c_pps
- a=AKZTfHrQPB8q3CcvmcIuDA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
- a=EUspDBNiAAAA:8 a=fPhLyPd3YuFPpQYp6doA:9 a=QEXdDO2ut3YA:10
- a=pF_qn-MSjDawc0seGVz6:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzIwMDE1OCBTYWx0ZWRfX+8zV8eC3ugw0
- YBbaqBvkBCe+hMHuHLQ/L1H0Dwf/Eak07XO90yzjRX4pFsGhKFioSaxt3aqloZmsLx1byzZA1Kn
- D3Qaj4qxLYcQkYZy/70vIo2xw8PJtRQ=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzIwMDE1OCBTYWx0ZWRfX9kv2id1nJrkH
- Hr8aO1WKLYVToTrBQIUfgVJoHaI2ssuuGDxRoTRfBFcn2ZLbUFx4jIp8cb8tie9OozoDojvLH3J
- llTgxUG6OhVITGiLfKB1NdKyHN/1NlxkRAxXpct4RmWnuE/EkG77Le4lFzUP9Nwb5daptP+0Efy
- X86oPQHnTe9l9QChyyk9vOeJlODzfzIy2X7IeZrJbL2AhH++lu2bt76soV4bJ11Zkt0kY/cmf8f
- URyT6ynB6LVw5ZbQ27doC5IZSzSMWCo8q78/HmPcx76tbu4CqFdNL/m6Y/s+bXkC/813XkeFVuu
- 1G/vB4z4attBsQGgCVLU4fGw56eE/i/w7GAKgE/uBS/rN/xCVHfgFz+WnaFvbWHjE/s5gu+UFpM
- U2rMg382Px0UnhRVrDjKDyDs874oZqi8gDsIYFsao/3XE165P8ALklG6iXzgF1y9yz2L08IhDdh
- J/Npn/XUJFisB3aXIEQ==
-X-Proofpoint-GUID: KhdMjYeZCTKhYN2QhiUrO97zp9PnuCP1
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260612-hdptx-clk-fixes-v4-3-ce5e1d456cda@collabora.com>
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzIwMDE1OCBTYWx0ZWRfX23Roe9rUBn5f
+ folrceQ0xhqnEHMZvEs+yxbLgq8Qvm1sYVRQUUo5D0MEqK3lgKHZ/kyAr40sy9lpYul9dOID9oG
+ 78t/gbTJKeSzuElK6smWrx0aks8Waqs=
+X-Proofpoint-GUID: c-WM_1E5L_TGy0cc_MWVcQQgy553fjNk
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzIwMDE1OCBTYWx0ZWRfX34FmZ4yoLg2z
+ cdPnx38MxMiyA/yuk/swu+A5AjjPSX3088HhCxMm9L+U5OnJ7lHzD0Ii6AL8v+4nAeNZoq7R6s8
+ sDbDPjTzFbkzilPpo900rrH6P5VeVC3iKV1cFQrVDyTyvrJ+KwL8jjWMntNpeDf8o//gotlTjjw
+ IsiEyImTvqDDKWgMznTiZXy9qGNNV6CrjnJBElEW0dyzFtFUALa9KMmBz7h/z6jZMnFje3RASV+
+ PjO9ZM+gTGexv/cqAmTlH7YPAL7KD5WGQ012B2fJo4fotK2yUv+MXqN67x+DVRGSQ0ohx4pt6tt
+ kZIbE9UBQWurtBTGyKdiVjj9CDouO4wJ9desjw3hWE5txZosgyHoG7AQlSlZafV1loOoyWg7Bsz
+ JVrcYUge73Yw+7ecbPko4YkvcyLmlN/fCCyGYPaGT2FiN9JRnPWMkKdrMk1iitzH3uxtt35EyOx
+ Q+F7FogtltM9C71qnXA==
+X-Proofpoint-ORIG-GUID: c-WM_1E5L_TGy0cc_MWVcQQgy553fjNk
+X-Authority-Analysis: v=2.4 cv=foLsol4f c=1 sm=1 tr=0 ts=6a5e2ce5 cx=c_pps
+ a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22 a=c92rfblmAAAA:8
+ a=QX4gbG5DAAAA:8 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=6btzFAMt-cuNwz31USQA:9
+ a=CjuIK1q_8ugA:10 a=a_PwQJl-kcHnX1M80qC6:22 a=GvGzcOZaWPEFPQC_NcjD:22
+ a=AbAUZ8qAyYyZVLSsDulk:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-07-20_03,2026-07-20_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 lowpriorityscore=0 phishscore=0 impostorscore=0
- priorityscore=1501 malwarescore=0 adultscore=0 clxscore=1015 spamscore=0
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2607200158
+ phishscore=0 suspectscore=0 priorityscore=1501 spamscore=0 clxscore=1015
+ lowpriorityscore=0 bulkscore=0 malwarescore=0 adultscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607200158
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_071205_603730_141CD708 
-X-CRM114-Status: GOOD (  34.11  )
+X-CRM114-CacheID: sfid-20260720_071254_332944_F82872C1 
+X-CRM114-Status: GOOD (  15.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,102 +153,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 7/8/2026 8:48 PM, Bjorn Andersson wrote:
-> On Wed, Jul 08, 2026 at 08:22:00PM +0530, Bibek Kumar Patro wrote:
->>
->>
->> On 7/7/2026 10:12 PM, Dmitry Baryshkov wrote:
->>> On Tue, Jul 07, 2026 at 06:06:59PM +0530, Bibek Kumar Patro wrote:
->>>>
->>>>
->>>> On 7/6/2026 11:09 PM, Dmitry Baryshkov wrote:
->>>>> On Mon, Jul 06, 2026 at 10:26:34PM +0530, Bibek Kumar Patro wrote:
->>>>>> Some SoC implementations require a bandwidth vote on an interconnect
->>>>>> path before the SMMU register space is accessible. Add the optional
->>>>>
->>>>> Why is it limited only to those SoCs? Is it also applicable to other
->>>>> Qualcomm SoCs?
->>>>>
->>>>
->>>> I was hoping to keep this series focused on the core infrastructure
->>>> changes: the bindings, base ICC bandwidth-voting support, and DT
->>>> interconnect properties for the platforms currently supported on
->>>> Qualcomm Linux and have been validated so far.
->>>>
->>>> The additional targets have not been tested yet, so I'd prefer
->>>> to add their support in a separate follow-up series once validation
->>>> is complete, rather than growing this series further. WDYT?
->>>
->>> Then it should be a part of the commit message. All SoCs since SDM12345
->>> need to vote on the interconnect (and then, in the cover letter mention
->>> that you convert only a few of the SoCs). We possibly can help with
->>> testing on other platforms.
->>>
->>
->> Ack, sounds reasonable.
->> I'll add the first platform onwards which interconnect voting is required in
->> commit description.
+On Fri, Jun 12, 2026 at 02:45:22AM +0300, Cristian Ciocaltea wrote:
+> rk_hdptx_phy_clk_calc_rate_from_pll_cfg() is currently unable to handle
+> cascade mode for the 3.2GHz FRL operating mode, as it relies solely on
+> LCPLL_LCVCO_MODE_EN_MASK to determinate the rate from the
+> rk_hdptx_frl_lcpll_cfg array.  Since there is no entry for this
+> particular rate, the function returns 0.
 > 
-> But to what degree is this related to a specific set of platforms? If we
-> look ahead, aren't we expecting the list to grow to include all
-> platforms in the end - resulting in a lot of noise and churn.
+> This is the only rate which requires LC_REF_CLK_SEL to be set in
+> GRF_HDPTX_CON0, hence extend the FRL matching accordingly.
+> 
+> Reported-by: Sashiko <sashiko-bot@kernel.org>
+> Closes: https://sashiko.dev/#/patchset/20260611-hdptx-clk-fixes-v3-0-67b1b0c00e16@collabora.com?part=1
+> Fixes: de5dba833118 ("phy: rockchip: samsung-hdptx: Add HDMI 2.1 FRL support")
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> ---
+>  drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 33 ++++++++++++++++-------
+>  1 file changed, 24 insertions(+), 9 deletions(-)
 > 
 
-We have seen this issue consistently on SM8750 and later platforms, 
-along with at least one customer-reported instance on SM8550. As a 
-result, downstream Android implementations already vote for the required 
-interconnect bandwidth explicitly on these platforms.
-
-On Qualcomm Linux targets, we have observed similar issues on Kodiak, 
-with a few occurrences on Talos as well.
-
-My understanding is that the interconnects property remains optional, 
-but in practice it is needed for Adreno SMMU operation on these platforms.
-
-> Can you give an example of a platform where there is no interconnect
-> path to vote for here or where it would be harmful to do so?
-> 
-
-I do not anticipate any functional issues or side effects from
-explicitly voting for the interconnect on Qualcomm platforms where the 
-path exists.
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 
 
->> And update the cover letter to clarify that this series adds
->> support for the Qualcomm Linux-supported targets available today, and
->> the list will be expanded in follow-up series as additional platforms
->> are enabled.
->>
-> 
-> The binding should not reflect what has been implemented and verified in
-> Linux, it defines the contract between DeviceTree and the OS.
-> 
-
-Since the property is optional, would it be necessary to add in AllOf
-the list of compatible for which the property hasn't been added yet, or 
-for the compatibles where it is added?
-
-Thanks & regards,
-Bibek
-
-> Regards,
-> Bjorn
-> 
->> Thanks & regards,
->> Bibek
->>
->>>>>> 'interconnects' property to the binding to allow platform DT nodes
->>>>>> to describe this path.
->>>>>>
->>>>>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
->>>>>> Signed-off-by: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
->>>>>> ---
->>>>>>     .../devicetree/bindings/iommu/arm,smmu.yaml        | 27 ++++++++++++++++++++++
->>>>>>     1 file changed, 27 insertions(+)
->>>>>>
->>>
->>
-
+-- 
+With best wishes
+Dmitry
 
