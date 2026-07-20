@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7DD4C44520
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 20:57:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59663C44520
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 21:04:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qxE83okyCU1Z19kWUkQur9dh/HYvgoAFGD83U44qp88=; b=ZaZGfXqr9jyFiIfFKo8F7KRkIe
-	IzNtn8HGaLYOVrM/JM5LbUNI2JRIzOhUCAaPDlooZ20hStbMI1x1ezdOvfGVdf/vM38hCwPOj6AVh
-	MAeFKmuKrn7O4mOammuzSptNDyGt1ha1fJY9XWTCQzT0UiLorUpT6kz474gef0WpIsf+4K0l79f1D
-	DidDjr7YpFgKA53FQZ6DGWItoqKW6k85SEqmpt+JUyur4mDQdZpOaCp3mOD/VV8mWhZHoIJ8PvgbL
-	B7VKoGQs/7m8XlbPTffpDiDL/KWTSh1385EAEi4EH4G7zqwAgQnLWNaLSvBe+rpKdn7FM3sN1JcVH
-	sRqzMkXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hZMPEeD/mJwl2X1K++VfAYlxmubD+xhRxehyrVRGtwM=; b=L8UH3tuzMK7TSFIdyTpI0inNVu
+	o8VbSy3pnb42tFS4Eij+vWmAYCg1S5f7VgYL/rp8xYgRBnqLaDGt+bRFY/FIcKXaZFxgxYXYFehKb
+	vB4vOg5Wu68A6mk+E+PzkVy6eR7LrU6K0dMv2k+L23MvmzwgJBP4YXBQ+DXv94t5cJmXvT3taOTpc
+	pMntcVy6O/RNB5127qgchTFqwXRY9RLArc1bjnUho5DLO4jQ46s7G3vd9fkm6o4xD4Tyayv3a9YZY
+	91aOTNws3U33w8ZkX9bsE39buG3+b4Av+L+sQnZ2usP58KTAPDBoQmq8eizcsQ5HLOrB5Uz0e1kZL
+	3jrU97aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlv2u-00000007u6p-32mG;
-	Mon, 20 Jul 2026 20:57:04 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlv2r-00000007u6O-25F4
+	id 1wlv9W-00000007uUZ-1bFI;
+	Mon, 20 Jul 2026 21:03:54 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wlv9T-00000007uTx-0rNh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 20:57:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 089FA143D;
-	Mon, 20 Jul 2026 13:56:55 -0700 (PDT)
-Received: from ryzen.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 47E543F86F;
-	Mon, 20 Jul 2026 13:56:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784581019; bh=0sf+fyuHYnaMAtA19DNDELQhufykY0EdpHdcCz+mY5E=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Txr+OlWCU4eRFFdWhfpWDvyOIGXTE6VaH2oovMfE3rYvaXCxdRyi7vq8YUyWnOKke
-	 8pm9yanXgHi2g5r9fcnnBoOGust6vI1m9TPxPCzZa6aND9D51JAsd3CHZgIcL3St2i
-	 ln5zfxbkd/RvZ7Dtd9JNF+IRAP5fcdoK16AMcrDI=
-Date: Mon, 20 Jul 2026 22:53:10 +0200
-From: Andre Przywara <andre.przywara@arm.com>
-To: Justin Suess <utilityemal77@gmail.com>
-Cc: Sean Young <sean@mess.org>, Mauro Carvalho Chehab <mchehab@kernel.org>,
- Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Maxime Ripard <mripard@kernel.org>,
- linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, Sashiko
- <sashiko-bot@kernel.org>
-Subject: Re: [PATCH 0/4] media: rc: sunxi-cir: support the A523/H728/T527 IR
- receiver
-Message-ID: <20260720225310.039aca2e@ryzen.lan>
-In-Reply-To: <20260702214750.3428694-1-utilityemal77@gmail.com>
-References: <20260702214750.3428694-1-utilityemal77@gmail.com>
-Organization: Arm Ltd.
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
+	Mon, 20 Jul 2026 21:03:53 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id A1F84BB;
+	Mon, 20 Jul 2026 23:02:49 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1784581369;
+	bh=Vow20Z1JLPafCgEs8/gHRfDCbYGdzjMYj1szkVCn+CM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ee3yBIp+bJBisa3yefDNA4grWWXvkxPkcYh8o2p0j92ILX1LJ314kX6SwzgNFC/I0
+	 wRMBhxcIxBPbXSW3Iqbz4KQQSPUOURDkoNmI9oZ/KwvmRY8zAtLyfXMWgdsAP91uko
+	 HooJCrD6EULlMNtw3tfPMsK44SzxuyNIBwmMEGmY=
+Date: Tue, 21 Jul 2026 00:03:46 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Christian Hemp <c.hemp@phytec.de>,
+	Stefan Riedmueller <s.riedmueller@phytec.de>,
+	Jacopo Mondi <jacopo@jmondi.org>,
+	Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	Bryan O'Donoghue <bod@kernel.org>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Guoniu Zhou <guoniu.zhou@nxp.com>, linux-media@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2 3/6] media: nxp: imx8-isi: Fix per-stream reference
+ counting for multiplexed streams
+Message-ID: <20260720210346.GD50424@killaraus.ideasonboard.com>
+References: <20260720-isi-v2-0-45845bc5d4fa@oss.nxp.com>
+ <20260720-isi-v2-3-45845bc5d4fa@oss.nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260720-isi-v2-3-45845bc5d4fa@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_135701_640648_51489AF5 
-X-CRM114-Status: GOOD (  23.92  )
+X-CRM114-CacheID: sfid-20260720_140351_424713_C22C68A1 
+X-CRM114-Status: GOOD (  44.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,62 +79,297 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu,  2 Jul 2026 17:47:46 -0400
-Justin Suess <utilityemal77@gmail.com> wrote:
+On Mon, Jul 20, 2026 at 11:34:05AM +0800, Guoniu Zhou wrote:
+> The ISI crossbar fails to properly enable multiple streams from different
+> virtual channels on the same input pad. Only the first stream gets enabled
+> in hardware, subsequent streams are silently ignored.
+> 
+> The driver uses a single enable_count per input to track the input state.
+> When enable_count is non-zero, the code assumes the input is already active
+> and skips calling v4l2_subdev_enable_streams() for additional streams:
+> 
+>   Call 1: enable_streams(stream 0)
+>     -> enable_count == 0, enable gasket and stream 0 in hardware
+>     -> enable_count = 1
+> 
+>   Call 2: enable_streams(stream 1)
+>     -> enable_count == 1, skip hardware enable (BUG!)
+>     -> enable_count = 2
+>     -> stream 1 never gets enabled
+> 
+> Similarly on disable, when enable_count reaches zero, ALL streams are
+> disabled regardless of which streams are actually still active.
+> 
+> Fix this by tracking per-stream state using:
+> - enabled_streams (u64 bitmask): tracks which streams are currently enabled
+> - enabled_count[] (array): per-stream reference counter to support the same
+>   stream being enabled/disabled multiple times
+> 
+> Now each stream is independently enabled/disabled in hardware based on the
+> enabled_streams bitmask, while enabled_count[] provides reference counting
+> for scenarios where the same stream is enabled multiple times, such as
+> duplicate cases in the ISI stream.
+> 
+> Fixes: cf21f328fcaf ("media: nxp: Add i.MX8 ISI driver")
+> Cc: stable@vger.kernel.org
 
-Hey Justin,
+As far as I understand, only newer SoCs support multi-stream for ISI
+inputs (please tell me if that's incorrect). Those SoCs were not
+supported when the ISI driver was merged, so I don't think this should
+be backported to stable kernels. The subject line should then read
+"Implement per-stream ..." instead of "Fix per-stream ..." and the
+commit message adapted accordingly.
 
-> This series adds support for the CIR receiver found in the Allwinner
-> A523/T527/H728 family (sun55i). The only board in this family that I
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+> ---
+> Changes in v2:
+> - Use fixed-size array for enabled_count instead of dynamic allocation
+> - Use BIT_ULL() macro for u64 bitmask operations
+> - Use MXC_ISI_MAX_STREAMS (64) as loop boundary instead of num_sources
+> - Remove mxc_isi_stream_counters_alloc/free functions
+> ---
+>  .../media/platform/nxp/imx8-isi/imx8-isi-core.h    |  7 +-
+>  .../platform/nxp/imx8-isi/imx8-isi-crossbar.c      | 76 ++++++++++++++++------
+>  2 files changed, 63 insertions(+), 20 deletions(-)
+> 
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> index 7547a6559d4c..9adbe2fe7cf8 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> @@ -184,8 +184,13 @@ struct mxc_isi_dma_buffer {
+>  	dma_addr_t			dma;
+>  };
+>  
+> +/* V4L2 subdev max stream ID is 63, need 64 counters (0-63) */
+> +#define MXC_ISI_MAX_STREAMS		64
+> +
+>  struct mxc_isi_input {
+> -	unsigned int			enable_count;
+> +	u64				enabled_streams;
+> +	/* Per-stream reference counter */
+> +	unsigned int			enabled_count[MXC_ISI_MAX_STREAMS];
 
-will you be able to send a v2 with the fixes we discussed in this
-thread? No driver changes, just the binding for the new specific
-compatible string, and the DT changes.
-I tested this on the X96QPro+, and also managed to enable IR operation
-on the Avaota board, where it uses the other IP instance (and another
-pin).
+You can save some memory here by replacing unsigned int with u8. The
+counter can never go above the number of ISI outputs, as streams can be
+enabled once only.
 
-Please let us know if you can send a new version this week still, to
-possibly allow a v7.3 merge. Happy to review that quickly then.
-If not, please drop me a note, I can then take care of that.
+>  };
+>  
+>  struct mxc_isi_crossbar {
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
+> index 328d08a278ea..64576f6bd45c 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
+> @@ -337,6 +337,8 @@ static int mxc_isi_crossbar_enable_streams(struct v4l2_subdev *sd,
+>  	struct mxc_isi_crossbar *xbar = to_isi_crossbar(sd);
+>  	struct v4l2_subdev *remote_sd;
+>  	struct mxc_isi_input *input;
+> +	u64 streams_to_enable;
+> +	unsigned long stream;
 
-Cheers,
-Andre
+unsigned int is enough, this is a counter, not a bitmask.
 
-> am in possession of that has the IR receiver is the x96qpro+, so it is
-> just enabled for that board. The Avaota A1 may have it, but I don't have
-> hardware to test, so it's just enabled on the x96qpro+ for now, but
-> left in the a523 DTSI for future use.
-> 
-> The sun55i family carries a newer revision of the sunxi CIR IP that is
-> not backwards-compatible with the prior hardware. So a new pulse
-> capture mode field in the control register resets to 0 by default,
-> which captures nothing, and the sample clock divider became selectable
-> instead of the fixed module clock / 64.
-> 
-> Solve this by adding the two new registers, enabling the setting of the
-> pulse capture mode register and the selection of the clock speed.
-> 
-> The new compatible is therefore added standalone, without the
-> usual sun6i-a31-ir fallback (it won't work).
-> 
-> Tested on an X96Q Pro+ (H728) TV box with the Google TV remote that
-> came in the box (using NEC keymap). Was able to press buttons and
-> get readings from lirc / ir-keytable.
-> 
-> The series is based on tag v7.2-rc1 on mainline.
-> 
-> Justin Suess (4):
->   media: dt-bindings: allwinner,sun4i-a10-ir: add A523 compatible
->   media: rc: sunxi-cir: add support for the A523
->   arm64: dts: allwinner: a523: add IR receiver node
->   arm64: dts: allwinner: a523: enable IR receiver on the X96Q Pro+
-> 
->  .../media/allwinner,sun4i-a10-ir.yaml         |  1 +
->  .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 19 +++++
->  .../dts/allwinner/sun55i-h728-x96qpro+.dts    |  4 +
->  drivers/media/rc/sunxi-cir.c                  | 76 +++++++++++++++----
->  4 files changed, 87 insertions(+), 13 deletions(-)
-> 
+>  	u64 sink_streams;
+>  	u32 sink_pad;
+>  	u32 remote_pad;
+> @@ -350,30 +352,47 @@ static int mxc_isi_crossbar_enable_streams(struct v4l2_subdev *sd,
+>  
+>  	input = &xbar->inputs[sink_pad];
+>  
+> -	/*
+> -	 * TODO: Track per-stream enable counts to support multiplexed
+> -	 * streams.
+> -	 */
+> -	if (!input->enable_count) {
 
+Let's keep a short comment here:
+
+	/* Enable the gasket when the first stream is enabled for this input. */
+
+> +	if (!input->enabled_streams) {
+>  		ret = mxc_isi_crossbar_gasket_enable(xbar, state, remote_sd,
+>  						     remote_pad, sink_pad);
+>  		if (ret)
+>  			return ret;
+> +	}
+>  
+> +	/*
+> +	 * Track per-stream enable counts to support multiplexed streams.
+> +	 * Only enable streams that are not already enabled.
+> +	 */
+> +	streams_to_enable = sink_streams & ~input->enabled_streams;
+> +
+> +	if (streams_to_enable) {
+>  		ret = v4l2_subdev_enable_streams(remote_sd, remote_pad,
+> -						 sink_streams);
+> +						 streams_to_enable);
+>  		if (ret) {
+>  			dev_err(xbar->isi->dev,
+>  				"failed to enable streams 0x%llx on '%s':%u: %d\n",
+> -				sink_streams, remote_sd->name, remote_pad, ret);
+> -			mxc_isi_crossbar_gasket_disable(xbar, sink_pad);
+> -			return ret;
+> +				streams_to_enable, remote_sd->name, remote_pad, ret);
+> +			goto err_gasket_disable;
+>  		}
+> +
+> +		input->enabled_streams |= streams_to_enable;
+>  	}
+>  
+> -	input->enable_count++;
+> +	/* Increment reference count for all requested streams */
+> +	for (stream = 0; stream < MXC_ISI_MAX_STREAMS; stream++) {
+
+	for (unsigned int stream = 0; stream < MXC_ISI_MAX_STREAMS; stream++) {
+
+and drop the local variable above.
+
+> +		if (!(sink_streams & BIT_ULL(stream)))
+> +			continue;
+> +
+> +		input->enabled_count[stream]++;
+> +	}
+
+Each ISI pipe processes a single stream (the driver uses the
+V4L2_SUBDEV_ROUTING_NO_N_TO_1 validation flag, and patch 2/6 ensures
+that only stream 0 is accepted on the source side of the crossbar). This
+means that that, after translating streams_mask to the sink side,
+sink_streams should have a single bit set, and streams_to_enable will
+have either 0 or 1 bit set.
+
+If that explanation is correct (please let me know if you disagree),
+then this loop can be replaced with
+
+	input->enabled_count[__ffs64(sink_streams)]++;
+
+>  
+>  	return 0;
+> +
+> +err_gasket_disable:
+> +	if (!input->enabled_streams)
+> +		mxc_isi_crossbar_gasket_disable(xbar, sink_pad);
+> +
+> +	return ret;
+>  }
+>  
+>  static int mxc_isi_crossbar_disable_streams(struct v4l2_subdev *sd,
+> @@ -383,6 +402,8 @@ static int mxc_isi_crossbar_disable_streams(struct v4l2_subdev *sd,
+>  	struct mxc_isi_crossbar *xbar = to_isi_crossbar(sd);
+>  	struct v4l2_subdev *remote_sd;
+>  	struct mxc_isi_input *input;
+> +	u64 streams_to_disable = 0;
+> +	unsigned long stream;
+
+unsigned int here too.
+
+>  	u64 sink_streams;
+>  	u32 sink_pad;
+>  	u32 remote_pad;
+> @@ -396,19 +417,36 @@ static int mxc_isi_crossbar_disable_streams(struct v4l2_subdev *sd,
+>  
+>  	input = &xbar->inputs[sink_pad];
+>  
+> -	input->enable_count--;
+> +	/*
+> +	 * Decrease the enable count for each stream. Only disable streams
+> +	 * whose count reaches zero.
+> +	 */
+> +	for (stream = 0; stream < MXC_ISI_MAX_STREAMS; stream++) {
+
+	for (unsigned int stream = 0; stream < MXC_ISI_MAX_STREAMS; stream++) {
+
+> +		if (!(sink_streams & BIT_ULL(stream)))
+> +			continue;
+>  
+> -	if (!input->enable_count) {
+> -		ret = v4l2_subdev_disable_streams(remote_sd, remote_pad,
+> -						  sink_streams);
+> -		if (ret)
+> -			dev_err(xbar->isi->dev,
+> -				"failed to disable streams 0x%llx on '%s':%u: %d\n",
+> -				sink_streams, remote_sd->name, remote_pad, ret);
+> +		if (!(input->enabled_streams & BIT_ULL(stream)))
+> +			continue;
+>  
+> -		mxc_isi_crossbar_gasket_disable(xbar, sink_pad);
+> +		if (--input->enabled_count[stream] == 0)
+> +			streams_to_disable |= BIT_ULL(stream);
+>  	}
+
+Similarly here, the whole loop could be replaced by
+
+	if (--input->enabled_count[__ffs64(stream)] == 0)
+		streams_to_disable |= BIT_ULL(stream);
+
+Another option is to store the information in the mxc_isi_pipe structure
+in the form of two new fields:
+
+	unsigned int input;
+	unsigned int input_stream;
+
+The fields would be set to the input index and the sink stream mask in
+mxc_isi_crossbar_enable_streams():
+
+
+	struct mxc_isi_pipe *pipe = &xbar->isi->pipes[pad - xbar->num_sources];
+
+	...
+
+	pipe->input = sink_pad;
+	pipe->input_stream = sink_streams;
+
+In this function you would then do (completely untested)
+
+	struct mxc_isi_pipe *pipe = &xbar->isi->pipes[pad - xbar->num_sources];
+
+	...
+
+	pipe->input = 0;
+	pipe->input_stream = 0;
+
+	/*
+	 * Check if any other pipe receives the same input stream. If so we
+	 * can't disable it yet, so return immediately.
+	 */
+	for (i = 0; i < xbar->isi->pdata->num_channels; ++i) {
+		struct mxc_isi_pipe *pipe = &xbar->isi->pipes[i];
+
+		if (pipe->input == sink_pad &&
+		    pipe->input_stream == sink_streams)
+			return 0;
+	}
+
+	input->enabled_streams &= ~sink_streams;
+
+The advantage of this is that we won't have to add a 64 entries array to
+each input. I'm not too concerned about the memory usage (even if
+reducing memory usage is always nice, more for the improvement in cache
+locality than for the memory saving itself), but the 64 entries feel a
+bit arbitrary.
+
+What do you think is best ?
+
+> +	if (!streams_to_disable)
+> +		return 0;
+> +
+> +	ret = v4l2_subdev_disable_streams(remote_sd, remote_pad,
+> +					  streams_to_disable);
+> +	if (ret)
+> +		dev_err(xbar->isi->dev,
+> +			"failed to disable streams 0x%llx on '%s':%u: %d\n",
+> +			streams_to_disable, remote_sd->name, remote_pad, ret);
+> +
+> +	input->enabled_streams &= ~streams_to_disable;
+> +
+> +	if (!input->enabled_streams)
+> +		mxc_isi_crossbar_gasket_disable(xbar, sink_pad);
+> +
+>  	return ret;
+>  }
+>  
+
+-- 
+Regards,
+
+Laurent Pinchart
 
