@@ -4,154 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57650C4451B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 03:31:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C0EDC4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 03:49:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Uc4Nulb9p9hc+eMM5m5OIXTvCXPBrbT+CMETT720AFg=; b=aNJMkQC+JekNPEvwKGrROTWs8H
-	VvtfDAxyCHitCOCgVICGQ57Ss0ZTcv7mEod9/FwK/kNJl8asl9/HGZuMycdB6kkJOg8hQBL+dT9lb
-	4PQn8cdmhPfHF/V9fZKZgMOubZuSGMJGiYBP1JUn7/cs3zCAdld2PBf7DzCoAyaLXVlbw4DE+dR5n
-	LaBG+NZbRCehqTX6DJETkLs4SkAzliWsp0WgONPPGvDgeP6oX0sYioxWtlaNMMsxgr3FJVd4IR3MR
-	a4GXOJzoYHV22gVywyHSYsiNgx4wWythRSaaHF8gOtd5cM9B+zLBlpMEreYparOfgIEnPkNVKvXRE
-	3NzZrX+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v0z6sh/KJ9O1KI6wSAtg1ENxH1VHZOrj/P++2HlNnhM=; b=HfGPwz7lFpiUeysROnsyU9trkw
+	GSsEz102Z6beYR8u8wiNFXhKOu8VMuSM4xdZnNveHM+ugsuIa+VkBIAauE3WnPLA5gqsPg70KEuFb
+	cq9VSZ/2TtVhjzd4KRMIq6Kfo3Id6K6ZzWgrCVQasD9VYKHZSrLZc80QsGauQ29LxyiSKKDNVqAbN
+	FJZQcLnPbyt2DCa0pn5oSqldJuuRVijBG4+yjZGQIHoH1wxW6RUs5KXgHBMWqEHrogVBR+6TvNLED
+	yKcQjzJfUvAxyxlDL8RmJoiVr6lwL0GJ9txPeI60RsLpY5icY9eptcYS47c2E+9MZdDomA5DyqgTm
+	j+4jMNSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlej5-00000005m9b-2wBT;
-	Mon, 20 Jul 2026 03:31:31 +0000
-Received: from mail-francesouthazon11011062.outbound.protection.outlook.com ([40.107.130.62] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1wlf02-00000005nf6-0Eqj;
+	Mon, 20 Jul 2026 03:49:02 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wleiz-00000005m2U-0JkG
+	id 1wlezy-00000005neA-3GqK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 03:31:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=n6BKyMpVYGTM8+hg5uw8FCNkStOdEzoRcrGKuIpv8EDZ0SeJL9Q2SUooWcYFVYWQfUECJsrTA3/1Zy4Va9Bu56qML3QHJBGv+sUWUEW6U3sZ7vn5aagpFRKZFxt/y0dgrv9Ib2SJm4rglWOQ1ul0pRCht2FYqzCLAJd01wrJuUyjjn9K0O0FyHZ7Y+nz0dRQ9zEr194tMe+hYZnjP2g8bnnkPaMo1YpOFFrVv0q9C3gjupVQYzmLpuHAteqOTk3XlB58obf7phCsKQ5ACX7/5eXXXhLupY1F0nEtm6cnRVCwxYXB+nuneaHZqrhIN+OJBc9L/5FQNyBaSbEwYL3jRw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Uc4Nulb9p9hc+eMM5m5OIXTvCXPBrbT+CMETT720AFg=;
- b=BZp6TvNf3qJLpMOg5bVkkRDcjx/Ik7yAAqt15t5uLr73KjHtvCoFr+2FI1qUzLvpykpEGyWwhIHlFvbAXBdOOnK2m/8+/KVgPcQL24cIjufogaTOIaouT4ARq44p81nA9mMjNPAf3kPl66Zqad4m1jMzq53ZKDGY5vqVHq1lAmpuOHcRfccrjRXDXNUMY3jVjpTTVeHptw7i+c38o7GV7lUuwvU3gYiSwTJktC1o2zBOIhxAqTi/XFjxd6FJzpnX65LjY5bO771LcCMZVLEuTA46pPkMbXlch95vzmL2w6WGRUVSwgWZ79wLI4BrZGBhswPKQWcP+zO7wXO8QPjMcg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Uc4Nulb9p9hc+eMM5m5OIXTvCXPBrbT+CMETT720AFg=;
- b=xU2pYoHgNbFijvsgLLK0nvr7M880zzA1h9HkuURLqQAdyAddSrpAYE5Mosn68Lsd+8wRwqrd4HS3UB6W/Rke0qGowJsrpaFkHI4llGVlaSzebW1JZtG/Hic+yfRevCS/qL10Ybc0hSwkta3cnvFrcPteC7JWPOxOg/JtTRa4K5d/HdeNCErVprRDCz5YsFptuLk1p6137mEIlhzOhwXmTZ4jqTcyKqkCeP+hcoLFHK1mNWbzCSVkjk5AjRptXAPcV/rUy6vZLLBuNb/LoGO405yX01O96nrSuPNI8jkd2cqStmz5Vu3P6gtbuhd9L9/J4RG8nT9v6GxA9zGde6WfnA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV1PR04MB11513.eurprd04.prod.outlook.com (2603:10a6:150:284::9)
- by GV1PR04MB10534.eurprd04.prod.outlook.com (2603:10a6:150:205::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.16; Mon, 20 Jul
- 2026 03:31:21 +0000
-Received: from GV1PR04MB11513.eurprd04.prod.outlook.com
- ([fe80::29e0:98a1:4577:2cc7]) by GV1PR04MB11513.eurprd04.prod.outlook.com
- ([fe80::29e0:98a1:4577:2cc7%3]) with mapi id 15.21.0223.012; Mon, 20 Jul 2026
- 03:31:21 +0000
-From: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Date: Mon, 20 Jul 2026 11:34:08 +0800
-Subject: [PATCH v2 6/6] media: nxp: imx8-isi: Add additional 32-bit RGB
- format support
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260720-isi-v2-6-45845bc5d4fa@oss.nxp.com>
-References: <20260720-isi-v2-0-45845bc5d4fa@oss.nxp.com>
-In-Reply-To: <20260720-isi-v2-0-45845bc5d4fa@oss.nxp.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Christian Hemp <c.hemp@phytec.de>, 
- Stefan Riedmueller <s.riedmueller@phytec.de>, 
- Jacopo Mondi <jacopo@jmondi.org>, 
- Loic Poulain <loic.poulain@oss.qualcomm.com>, 
- Bryan O'Donoghue <bod@kernel.org>
-Cc: Dong Aisheng <aisheng.dong@nxp.com>, Guoniu Zhou <guoniu.zhou@nxp.com>, 
- linux-media@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Guoniu Zhou <guoniu.zhou@oss.nxp.com>, 
- Robert Chiras <robert.chiras@nxp.com>
-X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784518456; l=3424;
- i=guoniu.zhou@oss.nxp.com; s=20250815; h=from:subject:message-id;
- bh=gQ84FhidFxOrMQlGZqdpL26VQTTR7PRmXdT31fsLHkI=;
- b=4TUsZBN5Zv3s5V0a9Rs+VZ9xKCxSc7vA5Q918WzLEN9SiuK4kPExLWbc3vRFl2C4Tw40ZVSl3
- wORoYvyceaMAeSJ4GYbApIrM53poQMtH8O5gIje0/klhnQ2l0Zwx75W
-X-Developer-Key: i=guoniu.zhou@oss.nxp.com; a=ed25519;
- pk=MM+/XICg5S78/gs+f9wtGP6yIvkyjTdZwfaxXeu5rlo=
-X-ClientProxiedBy: SG2PR02CA0136.apcprd02.prod.outlook.com
- (2603:1096:4:188::16) To GV1PR04MB11513.eurprd04.prod.outlook.com
- (2603:10a6:150:284::9)
+	Mon, 20 Jul 2026 03:49:01 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=v0z6sh/KJ9O1KI6wSAtg1ENxH1VHZOrj/P++2HlNnhM=;
+	b=RPEYKD29ppO4dwOtM21x+1TLwwPAiYBYn27HvNxVHEm6ixpwON7UXYdP4sYEYXs3Vj/qpVY6C
+	qRej3WfZ2nl0LsDWbWaquBizM9+VJs3ahY3SyJij3Bh4ROHrNbDl9HCw3p8qsKbEunbunN18Myb
+	8Wzq01DiTmd8/EqlEtRWPqk=
+Received: from mail.maildlp.com (unknown [172.19.163.15])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4h3R8S70GjzLlTV;
+	Mon, 20 Jul 2026 11:39:20 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 45EEF40586;
+	Mon, 20 Jul 2026 11:48:42 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 20 Jul 2026 11:48:41 +0800
+Message-ID: <8d3d3ea7-b250-4022-8ed7-6d438b43a518@huawei.com>
+Date: Mon, 20 Jul 2026 11:48:40 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV1PR04MB11513:EE_|GV1PR04MB10534:EE_
-X-MS-Office365-Filtering-Correlation-Id: 53352083-fc69-47f3-543d-08dee60f5e52
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|366016|23010399003|1800799024|921020|22082099003|18002099003|3023799007|6133799003|56012099006|11063799006|10067099003;
-X-Microsoft-Antispam-Message-Info: dpwhEi0F01+nDsTO3gytMMl5w6xEcg0a7SUmU44hCqxHfUy0io+niWgpArRzgwYw3tDctfKGRCPzQAEgZ5UFuXN8jH5tqtX+KZHfcIATnfRcudURcMPvoqRqef5TiwwL183jKH/sAuaEBMrV+24RoswV85okgObfGB6L0I7jwJK0YldoUD78257ETXy6ATyN5qJnVBYcwApyLzrk0UlEPpEG266kl5icz63ujWqhKV3S9N6Gn30qhmZb50s+Sw/f/NB9S7iFJYD4y/xcicL0W11P4Su6yCbb/4/WPAfLHAIcvDmnfIJ1SsnpiMXBYtLflQcpXnGI0vL82ziexSMNXodBoeshcnw8gLpwe91KJuV9PcVrXdSXEgA23dO5k9MrcBHmGJlUv6nWKYmH3iSdkb1JJlKEedSvm5yojDthJCdsJzJi9Ni40DzsHdqMsmNrJdxHpRmsOw1V/j8nl/18c2yba/FbHinCHcOgoyN5tCvPbqgW2yeIgp51rT/RUqrcjJVg0nZvcRePQYOsyVIXYW1NT2uRsDojN7Aq+HPu+o+5gFnO2uugC41uMNAPq2Vqe/fWicMVMPhc8t6eD6ui1KtizilFut6XapsfdT9LJl15TBD3gHpS3/A4+GQ2ORzatzQ0WTzWllP3ia6KF50lD8MRxvoT4dyoovkg584939RD08hyKcILq8XdRmBuDro9wHv6p+MmUmoOHJb0Z6hw0g==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR04MB11513.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(366016)(23010399003)(1800799024)(921020)(22082099003)(18002099003)(3023799007)(6133799003)(56012099006)(11063799006)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?b1JxaGxhZ2FVbjN3OVc5V1lGaGtrMHhkcjBxdm9DZU1aNWRYTkw1bmJLaU5q?=
- =?utf-8?B?SnZCVnVNcVc5TkxucVRtRTlzcG5xTVRTdkFUNlFkS1dmZS9ZMDJVeEhLaGJD?=
- =?utf-8?B?SDN2emZMalFXK2tNbDNUdGJNWGlsb2hQN3Z6OTFDN2pKNTlSZlY0UUNFeGY4?=
- =?utf-8?B?Ync5MGZsVzFnT3FOdFVabFFiRUV3QzNwZnlYTFRteWdrZXBzR3g1cG0rMTd5?=
- =?utf-8?B?MGtKaEdua3ZocUpDWVc2S2lLQm1iWVNrMys2UXQwS0hTUnFGd0dkTXVBbUZ3?=
- =?utf-8?B?RW9CNEtYTFFwZHBsYlpVOXlJUjB2TE12MER5MWtzTUdtUlUxVC8vUE5wWGR4?=
- =?utf-8?B?Vk9rb2F3MDllaERJOFMrTE5nKzZ2SkhldUNubi8yblFiYVI3QWFOUTA0a3Uw?=
- =?utf-8?B?TWVST1kwRndFY2NYRTdVWkZTQjdtODROS0daeFpxemg4dkdQYVFSWnZzUmdW?=
- =?utf-8?B?Skx6TjBiU3l4L2NLTXNIMUhLT3lyOHdQKzhZajNzWXpnZXU2SUJNTm8yQ0Jk?=
- =?utf-8?B?QWV2UHdnMnI4a0VKVWdoaVFianc4V1Fxb2hJUlRXL3gzUys1TFNjNlYzN2dI?=
- =?utf-8?B?WGNpeFAvRWpPZlhSK2RDZHQwbEJHWHUzRVN2U0k3aHQxc0lpaWtUVVlVUWNz?=
- =?utf-8?B?bzRIbmRYQ0lhbWFGcG5XanRxam5DUWhQc3lWQk5hUWdQSVVVeGJEK3NYR1BI?=
- =?utf-8?B?Y0d2ZDdxYTRrT2ZWTDFPeDYyVmRKZEZnZnVWVHhHMU9hNXNGTmYxQjdUOG1u?=
- =?utf-8?B?ZXpDYlc2RmJTbUVxZng3WDVocUpRWk0raEZUWEcxaWtVcVZ5VmJjRkZpTzVk?=
- =?utf-8?B?UGp5UnQ0dzk5RlpvMHFWd2huYVFKZ29DczdCOW1iR0dsVnBqMDJBa3lnWnhs?=
- =?utf-8?B?ejRpMjk2bjk4VndPMHBhWC9PMTFZSFZlWHFWcUl3SlRaRVlzZHF5cW5vRlN1?=
- =?utf-8?B?ckFiTXZJRm1tNTN4UlJKR05neE8xUEM4NnB1S0pNKzROU2JOWm4zVHEvazdy?=
- =?utf-8?B?WUpGNmdmZmZtdW9maFVmWEFsTHNXbXg5TG9SUEZ5Um1pSU5FMnlua1crUjY0?=
- =?utf-8?B?UkdDekxWSHUrckI0TTV0RmFEYnppWjFlWUg2VHI4WW8yblA3a2tZZGpVYUZ3?=
- =?utf-8?B?N0FyUmdiRS80T2ZIT2FERmRVQ2Rla3gzRmFjRjd6WUxCZlgzaWFWSUFyUFFr?=
- =?utf-8?B?VUFZb3RPd1h1K2VYWlNFOEx6MDJveWNyWUh6RWRNUVZEMzM3L1JnamRhTHkr?=
- =?utf-8?B?ZHg4N1lVNTBNNi9hT1hhNWYycWpsSWUzcXBhNmtScHlLNE1RUGs1VEpHNWwr?=
- =?utf-8?B?d3M3bXE1cWk0bXVieGJsa0VNNDJvTVM5aUsxOHZjajFzbHc5K29DT0dZWmk5?=
- =?utf-8?B?aU9Zc01oMlZvR3dHYjYzR0NjamIvbDdkT1JVSWV3SUtYVjgzQzYvQmtESG5U?=
- =?utf-8?B?K0dqZkdCdzRzeVpnYXRPYTg0V1J3b21yNlVHZWFOYzVCMHFLeTJYYmFhbVNQ?=
- =?utf-8?B?RWI1aGV6VEFGemwzaUJ4R2w1dy9kRkxtT1BpNCs5NVgrdEduN1VpQ0JnWE93?=
- =?utf-8?B?TzB2cHdURmh2T2hKVFpGOUNiOG9CWElXU0w5NkljYlk5RC9xd0hVWTloYStI?=
- =?utf-8?B?R3d6RzlKZ2pXdTgrRm9kNDVrV3RtQWhyZk50MS9RbzgxVDhja0c5Sk5EQ3Ir?=
- =?utf-8?B?QXJsVkw3cW9qMVdwMm5JenpOdkZJYnBWYm9zSkhFTm9TM092UlB0TVoxQnZh?=
- =?utf-8?B?dWszNUdZNEpoeXhXakEzVGp2WVB4aGlyc1BiL3o5dWVXeDVkcUlubzdBVmsx?=
- =?utf-8?B?V1I3VVZOdncxR1lGblFlaml4bVJlNFJRS0wvUkZISTFRdkZLbzBDNFlhRWpk?=
- =?utf-8?B?K1lER3daSFV5QWs4NVRENCs3MGRTcDNTUVdTK21KMGlaTnhKaUZOYTZJYmts?=
- =?utf-8?B?KzhSdXlOTlRsS0lSUTFVbkk1eVF6L0gwR0hmUUpNanBsVjJ1VHVVZ0ZaeTdG?=
- =?utf-8?B?Z1M0Um1yQUpaSGFZNGhrdUxOTkZKSCtrd05FcHZzN3o1Wjl0WVBlelFBVEhL?=
- =?utf-8?B?aGhKNUdjWXVlZWgybk1hMnJXdW9hdmVzWG40WjB4Y2ZEb2c4UHBtbXVQMFgz?=
- =?utf-8?B?YXpMS0dHdGdHbnAyb1lNRU5MSklEeEFEOTAwcXplc21jRXQ5bE93eEd1UWZz?=
- =?utf-8?B?RWtEYTJybUZGS2tQOFMyeGljQkZkbEU4cDlrbU1TblI1SG5hMXhKYkVnRHZt?=
- =?utf-8?B?b2g1eFVOUW5IVHRFK3JUQ3dRaXpwN3hieE9WK0hwcnJMN01ETGdRckxOenBN?=
- =?utf-8?B?OFNEVkRndzZJZXlMWmx4UHFLOG1EVzFqelB5R2Y5VnNraE80K1JJanNUcmkx?=
- =?utf-8?Q?EWmQmCqQHO8zK0lrI6DtQGn4jRV9M6dYksKWd?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 53352083-fc69-47f3-543d-08dee60f5e52
-X-MS-Exchange-CrossTenant-AuthSource: GV1PR04MB11513.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jul 2026 03:31:21.6018
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ewmAO6TjVNqzjZj+Gwq2qbd3IJhXeFWFZlvshtGLiDaQWeLgveB6AOTIFuYKQRvanBr85kXTMDT5N/VFPHyHNcy5uQhBTGOYiwdTc42kHaO1YKQX82Wud11D+lxlyUIo
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10534
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: syscall: Ensure saved x0 is kept in-sync with
+ tracer updates
+To: Will Deacon <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>
+CC: <catalin.marinas@arm.com>, <kernel-team@android.com>,
+	<linux-kernel@vger.kernel.org>, Kees Cook <kees@kernel.org>, Mark Rutland
+	<mark.rutland@arm.com>, Yiqi Sun <sunyiqixm@gmail.com>
+References: <20260716120640.6590-1-will@kernel.org>
+ <178420908877.33796.2351583216856259313.b4-ty@kernel.org>
+ <alpsSRyTU_mquZyA@willie-the-truck>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <alpsSRyTU_mquZyA@willie-the-truck>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260719_203125_128277_36449636 
-X-CRM114-Status: GOOD (  10.63  )
+X-CRM114-CacheID: sfid-20260719_204859_135652_B57F3B7B 
+X-CRM114-Status: GOOD (  30.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,100 +81,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for additional 32-bit RGB pixel formats (BGRA32, RGBA32,
-BGRX32, RGBX32, ARGB2101010) and extend existing ABGR32 format with
-full memory-to-memory capabilities to meet Android requirements.
 
-All formats support capture, M2M input, and M2M output operations,
-enabling complete format conversion pipelines.
 
-Signed-off-by: Robert Chiras <robert.chiras@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
----
-Changes in v2:
-- Add Reviewed-by tag from Frank Li
----
- .../media/platform/nxp/imx8-isi/imx8-isi-video.c   | 59 +++++++++++++++++++++-
- 1 file changed, 58 insertions(+), 1 deletion(-)
+On 7/18/2026 1:54 AM, Will Deacon wrote:
+> On Thu, Jul 16, 2026 at 05:48:01PM +0100, Will Deacon wrote:
+>> On Thu, 16 Jul 2026 13:06:39 +0100, Will Deacon wrote:
+>>> When seccomp support was originally added to arm64 in a1ae65b21941
+>>> ("arm64: add seccomp support"), seccomp was erroneously called _before_
+>>> the ptrace syscall-enter-stop and therefore the tracer could trivially
+>>> manipulate the syscall register state after the seccomp check had
+>>> passed. This was subsequently fixed in a5cd110cb836 ("arm64/ptrace: run
+>>> seccomp after ptrace") by moving the seccomp check after the tracer has
+>>> run. Unfortunately, a decade later, that fix has been reported to be
+>>> incomplete.
+>>>
+>>> [...]
+>>
+>> Applied to arm64 (for-next/fixes), thanks!
+>>
+>> [1/1] arm64: syscall: Ensure saved x0 is kept in-sync with tracer updates
+>>       https://git.kernel.org/arm64/c/e057b9477232
+> 
+> Bah, I've had to revert this. I think Sashiko makes a good point here
+> that the seccomp interaction is still broken when the filter is
+> re-evaluated after the tracer stop, because that all happens inside
+> secure_computing() so we don't get a chance to update 'orig_x0':
+> 
+> https://sashiko.dev/#/patchset/20260716120640.6590-1-will@kernel.org
+> 
 
-diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-index 05b51b98344b..ef638af350fe 100644
---- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-+++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-@@ -160,12 +160,69 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
- 	}, {
- 		.mbus_code	= MEDIA_BUS_FMT_RGB888_1X24,
- 		.fourcc		= V4L2_PIX_FMT_ABGR32,
--		.type		= MXC_ISI_VIDEO_CAP | MXC_ISI_VIDEO_M2M_CAP,
-+		.type		= MXC_ISI_VIDEO_CAP | MXC_ISI_VIDEO_M2M_OUT
-+				| MXC_ISI_VIDEO_M2M_CAP,
-+		.isi_in_format	= CHNL_MEM_RD_CTRL_IMG_TYPE_XRGB8,
- 		.isi_out_format	= CHNL_IMG_CTRL_FORMAT_ARGB8888,
- 		.mem_planes	= 1,
- 		.color_planes	= 1,
- 		.depth		= { 32 },
- 		.encoding	= MXC_ISI_ENC_RGB,
-+	}, {
-+		.mbus_code	= MEDIA_BUS_FMT_RGB888_1X24,
-+		.fourcc		= V4L2_PIX_FMT_BGRA32,
-+		.type		= MXC_ISI_VIDEO_CAP | MXC_ISI_VIDEO_M2M_OUT
-+				| MXC_ISI_VIDEO_M2M_CAP,
-+		.isi_in_format	= CHNL_MEM_RD_CTRL_IMG_TYPE_RGBX8,
-+		.isi_out_format	= CHNL_IMG_CTRL_FORMAT_RGBA8888,
-+		.mem_planes	= 1,
-+		.color_planes	= 1,
-+		.depth		= { 32 },
-+		.encoding	= MXC_ISI_ENC_RGB,
-+	}, {
-+		.mbus_code	= MEDIA_BUS_FMT_RGB888_1X24,
-+		.fourcc		= V4L2_PIX_FMT_RGBA32,
-+		.type		= MXC_ISI_VIDEO_CAP | MXC_ISI_VIDEO_M2M_OUT
-+				| MXC_ISI_VIDEO_M2M_CAP,
-+		.isi_in_format	= CHNL_MEM_RD_CTRL_IMG_TYPE_XBGR8,
-+		.isi_out_format	= CHNL_IMG_CTRL_FORMAT_ABGR8888,
-+		.mem_planes	= 1,
-+		.color_planes	= 1,
-+		.depth		= { 32 },
-+		.encoding	= MXC_ISI_ENC_RGB,
-+	}, {
-+		.mbus_code	= MEDIA_BUS_FMT_RGB888_1X24,
-+		.fourcc		= V4L2_PIX_FMT_BGRX32,
-+		.type		= MXC_ISI_VIDEO_CAP | MXC_ISI_VIDEO_M2M_OUT
-+				| MXC_ISI_VIDEO_M2M_CAP,
-+		.isi_in_format	= CHNL_MEM_RD_CTRL_IMG_TYPE_RGBX8,
-+		.isi_out_format	= CHNL_IMG_CTRL_FORMAT_RGBX888,
-+		.mem_planes	= 1,
-+		.color_planes	= 1,
-+		.depth		= { 32 },
-+		.encoding	= MXC_ISI_ENC_RGB,
-+	}, {
-+		.mbus_code	= MEDIA_BUS_FMT_RGB888_1X24,
-+		.fourcc		= V4L2_PIX_FMT_RGBX32,
-+		.type		= MXC_ISI_VIDEO_CAP | MXC_ISI_VIDEO_M2M_OUT
-+				| MXC_ISI_VIDEO_M2M_CAP,
-+		.isi_in_format	= CHNL_MEM_RD_CTRL_IMG_TYPE_XBGR8,
-+		.isi_out_format	= CHNL_IMG_CTRL_FORMAT_XBGR888,
-+		.mem_planes	= 1,
-+		.color_planes	= 1,
-+		.depth		= { 32 },
-+		.encoding	= MXC_ISI_ENC_RGB,
-+	}, {
-+		.mbus_code	= MEDIA_BUS_FMT_RGB888_1X24,
-+		.fourcc		= V4L2_PIX_FMT_ARGB2101010,
-+		.type		= MXC_ISI_VIDEO_CAP | MXC_ISI_VIDEO_M2M_OUT
-+				| MXC_ISI_VIDEO_M2M_CAP,
-+		.isi_in_format	= CHNL_MEM_RD_CTRL_IMG_TYPE_A2RGB10,
-+		.isi_out_format	= CHNL_IMG_CTRL_FORMAT_A2RGB10,
-+		.mem_planes	= 1,
-+		.color_planes	= 1,
-+		.depth		= { 32 },
-+		.encoding	= MXC_ISI_ENC_RGB,
- 	},
- 	/*
- 	 * RAW formats
+Hi Will,
 
--- 
-2.34.1
+Yes, I also think the point raised by Sashiko is meaningful.
+
+After reviewing the relevant code, I believe that the issue Sashiko
+pointed out regarding the compat task also exists.
+
+My confusion is that on arm64 compat mode, both audit and trace use
+orig_x0, but the first parameter used for executing system calls is
+regs->reg[0]. If x0 is modified at the system call entry point in ptrace
+but orig_x0 is not modified, or if orig_x0 is modified but x0 is not,
+then the first parameter for audit and the actual system call being
+executed will be out of sync. Could there be any issues here? Is it the
+responsibility of ptrace to ensure that orig_x0 and x0 are synchronized
+at the system call entry point on arm64 compat mode?
+
+Whether it is ptrace or the kernel, ensuring that orig_x0 and x0 are
+synchronized at the entry point of a system call, I believe it is
+reasonable to use orig_x0 as the first parameter of the system call
+execution and pre-set an error code in advance, as this way orig_x0
+always retains the latest value of x0.
+
+diff --git a/arch/arm64/include/asm/syscall_wrapper.h
+b/arch/arm64/include/asm/syscall_wrapper.h
+index abb57bc54305..6b13d7c8ad95 100644
+--- a/arch/arm64/include/asm/syscall_wrapper.h
++++ b/arch/arm64/include/asm/syscall_wrapper.h
+@@ -12,7 +12,7 @@
+
+ #define SC_ARM64_REGS_TO_ARGS(x, ...)                          \
+        __MAP(x,__SC_ARGS                                       \
+-             ,,regs->regs[0],,regs->regs[1],,regs->regs[2]     \
++             ,,regs->orig_x0,,regs->regs[1],,regs->regs[2]     \
+              ,,regs->regs[3],,regs->regs[4],,regs->regs[5])
+
+ #ifdef CONFIG_COMPAT
+diff --git a/arch/arm64/kernel/syscall.c b/arch/arm64/kernel/syscall.c
+index 2535cae9413d..a978bab59924 100644
+--- a/arch/arm64/kernel/syscall.c
++++ b/arch/arm64/kernel/syscall.c
+@@ -62,6 +62,7 @@ static __always_inline void el0_svc_common(struct
+pt_regs *regs, int scno, int s
+        unsigned long work;
+
+        regs->orig_x0 = regs->regs[0];
++       syscall_set_return_value(current, regs, -ENOSYS, 0);
+        regs->syscallno = scno;
+
+        /*
+@@ -94,23 +95,6 @@ static __always_inline void el0_svc_common(struct
+pt_regs *regs, int scno, int s
+
+        work = READ_ONCE(current_thread_info()->syscall_work);
+        if (unlikely(work & SYSCALL_WORK_ENTER)) {
+-               /*
+-                * The de-facto standard way to skip a system call using
+ptrace
+-                * is to set the system call to -1 (NO_SYSCALL) and set
+x0 to a
+-                * suitable error code for consumption by userspace.
+However,
+-                * this cannot be distinguished from a user-issued
+syscall(-1)
+-                * and so we must set x0 to -ENOSYS here in case the
+tracer doesn't
+-                * issue the skip and we fall into trace_exit with x0
+preserved.
+-                *
+-                * This is slightly odd because it also means that if a
+tracer
+-                * sets the system call number to -1 but does not
+initialise x0,
+-                * then x0 will be preserved for all system calls apart
+from a
+-                * user-issued syscall(-1). However, requesting a skip
+and not
+-                * setting the return value is unlikely to do anything
+sensible
+-                * anyway.
+-                */
+-               if (scno == NO_SYSCALL)
+-                       syscall_set_return_value(current, regs, -ENOSYS, 0);
+                if (!syscall_trace_enter(regs, work, scno))
+                        goto trace_exit;
+
+
+> I've got a v3 that takes a different approach, so I'll send that out
+> shortly. Jinjie, thanks for sending the selftests, but maybe we can
+> extend them to cover the loophole above as wel?
+
+I will update the test cases to cover the corner case it pointed out.
+
+Best regards,
+Jinjie
+
+> 
+> Will
 
 
