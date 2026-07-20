@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EC50C4452C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C100C4452B
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 10:05:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,45 +12,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HDlY3L+wbIeuKuWj1TRGxelV/jYuwKeoBpfxYCOkCmU=; b=CzGkNqiK55QTd3sKCtjo6hrjZa
-	QiqpCplZEt/XgIh+qKd3u5X0DXKXHQhVgICHhAv818jcptIYX/6IOhZAP2plfMZZIsj6eD8yFrJjU
-	IsmURFc+6OF/hBQrgcpBLRSDEVCr0eWdAz+rx/DK0kDMIGQcmIrxldyCYQjLQ56YsO6SH2CEa8wE8
-	7yoOYgE0yjrxgslkFhEBwtLuGNP69Eriuem+7XryaZ3xHp/Xk6Lz2LFE0Q6IborF6ZxmZc9okTUNh
-	nFjw+qsVXncd2tg7AO4OXZ34E71Q1lphhOMQUHRjR7joNq5uBX3+64U4Utf96SfUGgLLvuiH6GZWf
-	2WbmBX1A==;
+	bh=IyATmwihzFeSUhE+feD/cmxnJkAdqqQ2d+HaigYUhLU=; b=Wn7x6TszjVzsszh5F/HHY1mZzC
+	EMejtH7rGA8bW01kKy9V5cdnXMLqZNFN2wVs18Ii8xkGM1ZFx8xDc3kh4sai+ssKq+hWsv+CLX+B7
+	/jNj5Ig4k6Aj7ASYWMOB9hOHRqYcUPi8xGz92UNLQCrtO710pgx9O2jQQ+K2A7rRRrlmiWMPFIqL5
+	U2jDub1FsJctmF/6DvoZTmrbt4S+WnLBgybuKbH2KrvBYsnZcLEHprKK3sTXZhKhdSPJSXNDvQ1WA
+	/LJOtVhXbCu9Q9qPyrQjOuPsHzvwAECZjnmU7uB6UIsydb1uh4bOyxZ7HPfxFMZcLaosdDHQNs2se
+	s/4ylssQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlkrx-00000006Pkf-0NAm;
-	Mon, 20 Jul 2026 10:05:05 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wlkrw-00000006Pjk-37jP;
+	Mon, 20 Jul 2026 10:05:04 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlkrr-00000006Ph6-36Ss;
+	id 1wlkrt-00000006PhS-3WBQ;
 	Mon, 20 Jul 2026 10:05:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1784541896;
-	bh=rp96vQvpmzcYQQQawuTsiCW9FJPQfixEXB6+OjlKWjQ=;
+	s=mail; t=1784541899;
+	bh=m2yiWy5le2r+frQc8DgaYIgBdSKa3Pdp/bb9fJVyV0E=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=cUXuEiIht+z70ITVtT3aMJOqVAXPEkt+xdNaJYwPQV+u2ysejRxe34pOPW12ibkJl
-	 JBnGfuynBWdNBTSW0azMZkJ+GeRW3VArIdc04fy73BiZcxRXp61sAcditjKfkxispg
-	 WrhtT1ruPxqFCeOyNm9PC98cEsBd7m4f3P5yNlZYpt+T2n1oYho0Is8x09iq1ZU/RJ
-	 O9wsOb7vkmkOKfeNSnEuvK8Sp1byEfkFDK7QBUUpdS67KycyW/efyI/YlPTPqiB74g
-	 VhEa57ALvp7KHwxL6dztDpo9nytY3nGb0p5FybyShxnOoJ/i0MNzyv2wpkU3xpSxfG
-	 gvEjOpor5Eh/w==
+	b=bQ7xI1qPk6/UKGGy7qN4+hT5fiJQgE3m/DNeSOh5HjtVSO5chgQzsybeszbHWDoZk
+	 wyFdPZHnDaJg7KZZBpVclVloq96aR3udUZy66r7o0bS3iiXQxNJkwjbdDi7S4IIv5M
+	 JDt3yIeoeNS01AaUuuEU0eBr0AHfZ9YB3uyL3/VsQKksS+Mdlsk72vonSxOnaJIZNG
+	 qrGzB7axiU8IiGuFsAmnRCohN8ys6TW83OyYg1fEeZEUccEV6jCgE26FLNMM9bp0mu
+	 ZWL/RzPqKGNgHRkyiCJbXf3+FhSz+Vh2FlvgCIR7kE3/RQ+r8Ie8XDWIZmCCeFmUsT
+	 wawvpg8y4TlXA==
 Received: from yukiji.home (unknown [100.64.0.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9AB8B17E0D87;
-	Mon, 20 Jul 2026 12:04:55 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1EB0017E0DFD;
+	Mon, 20 Jul 2026 12:04:58 +0200 (CEST)
 From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Mon, 20 Jul 2026 12:04:11 +0200
-Subject: [PATCH v3 01/18] dt-bindings: clock: mediatek: Make '#clock-cells'
- required for MT8186
+Date: Mon, 20 Jul 2026 12:04:13 +0200
+Subject: [PATCH v3 03/18] dt-bindings: clock: mediatek: Make '#clock-cells'
+ required for MT8195
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260720-mt8189-clocks-system-base-v3-1-8e6d99ab3ad2@collabora.com>
+Message-Id: <20260720-mt8189-clocks-system-base-v3-3-8e6d99ab3ad2@collabora.com>
 References: <20260720-mt8189-clocks-system-base-v3-0-8e6d99ab3ad2@collabora.com>
 In-Reply-To: <20260720-mt8189-clocks-system-base-v3-0-8e6d99ab3ad2@collabora.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -72,15 +72,14 @@ Cc: kernel@collabora.com, linux-clk@vger.kernel.org,
 X-Mailer: b4 0.14.3
 X-Developer-Signature: v=1; a=ed25519-sha256; t=1784541894; l=1753;
  i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=rp96vQvpmzcYQQQawuTsiCW9FJPQfixEXB6+OjlKWjQ=;
- b=yJg4F6Q1CnIIBmJawSiJfmtIHG86T4HrpDtuEhOqvNV0DbM3TeQd90ds4tCNnyTIW/zjiSR6t
- 7yXpB3P6uJ6B/9SDTXG6NidujT3BGzXWjsxBw+e7Pdmzh1ef8dKy8/o
+ bh=m2yiWy5le2r+frQc8DgaYIgBdSKa3Pdp/bb9fJVyV0E=;
+ b=G8aCCCDpSAggfchH+maw3C3rwwYqsB5wMfUi8CZyMUkpVgo3xUKgUNm/Io45MIZZv3OnTyOcL
+ SeP/1mLm7FIDwgjL5W1IE6OxtmlsR8DQ41djoL0S2VS6hzvCtLT+Adt
 X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
  pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_030459_936220_74CBD62C 
-X-CRM114-Status: UNSURE (   9.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260720_030502_074163_6D7C7A8E 
+X-CRM114-Status: GOOD (  10.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,26 +94,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Both MT8186 clock controllers dt-bindings (clock and sys-clock)
+Both MT8195 clock controllers dt-bindings (clock and sys-clock)
 document the '#clock-cells' property but do not enforce it as required
 property.
 As clock provider nodes should define this property in devicetrees, add
 it to the required property list in both its dt-bindings files.
 
-Fixes: f113a51aa2cf ("dt-bindings: ARM: MediaTek: Add new document bindings of MT8186 clock")
+Fixes: 34d3ed3b9a00 ("dt-bindings: ARM: Mediatek: Add new document bindings of MT8195 clock")
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
- Documentation/devicetree/bindings/clock/mediatek,mt8186-clock.yaml     | 1 +
- Documentation/devicetree/bindings/clock/mediatek,mt8186-sys-clock.yaml | 1 +
+ Documentation/devicetree/bindings/clock/mediatek,mt8195-clock.yaml     | 1 +
+ Documentation/devicetree/bindings/clock/mediatek,mt8195-sys-clock.yaml | 1 +
  2 files changed, 2 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/clock/mediatek,mt8186-clock.yaml b/Documentation/devicetree/bindings/clock/mediatek,mt8186-clock.yaml
-index f4e58bfa504f..539149c945d0 100644
---- a/Documentation/devicetree/bindings/clock/mediatek,mt8186-clock.yaml
-+++ b/Documentation/devicetree/bindings/clock/mediatek,mt8186-clock.yaml
-@@ -44,6 +44,7 @@ properties:
+diff --git a/Documentation/devicetree/bindings/clock/mediatek,mt8195-clock.yaml b/Documentation/devicetree/bindings/clock/mediatek,mt8195-clock.yaml
+index fcc963aff087..94dd29c2396c 100644
+--- a/Documentation/devicetree/bindings/clock/mediatek,mt8195-clock.yaml
++++ b/Documentation/devicetree/bindings/clock/mediatek,mt8195-clock.yaml
+@@ -58,6 +58,7 @@ properties:
  required:
    - compatible
    - reg
@@ -122,11 +121,11 @@ index f4e58bfa504f..539149c945d0 100644
  
  additionalProperties: false
  
-diff --git a/Documentation/devicetree/bindings/clock/mediatek,mt8186-sys-clock.yaml b/Documentation/devicetree/bindings/clock/mediatek,mt8186-sys-clock.yaml
-index 1c446fbc5108..f8acc02cafee 100644
---- a/Documentation/devicetree/bindings/clock/mediatek,mt8186-sys-clock.yaml
-+++ b/Documentation/devicetree/bindings/clock/mediatek,mt8186-sys-clock.yaml
-@@ -45,6 +45,7 @@ properties:
+diff --git a/Documentation/devicetree/bindings/clock/mediatek,mt8195-sys-clock.yaml b/Documentation/devicetree/bindings/clock/mediatek,mt8195-sys-clock.yaml
+index 69f096eb168d..ba1b36fa0169 100644
+--- a/Documentation/devicetree/bindings/clock/mediatek,mt8195-sys-clock.yaml
++++ b/Documentation/devicetree/bindings/clock/mediatek,mt8195-sys-clock.yaml
+@@ -43,6 +43,7 @@ properties:
  required:
    - compatible
    - reg
