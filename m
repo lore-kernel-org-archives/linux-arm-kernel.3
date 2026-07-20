@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 885C1C44515
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 16:14:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D156C4452E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 16:14:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3zIKmZROYh74nqCSv6sg/c+Cjz0XlrnkYv/gMVvWs5g=; b=hFhs/9jfRDVMW7YrAKVdI5qZKe
-	AGkdJH0tYZ691m42HQKd1oI7CP2xSxdVn0l6CBm8l8yKIzmyv9Ko4MZm9umeOkSITj+Dui7ANasn1
-	1dHGvadN0UFwlRJGfN4aG8rgUtFiRZytfXKSsds1sZu0qF3jQd/jHP9RZwovL7qbtOIdhS8GDPzgl
-	G3l8zxZ5HkntMrZAihlzsGAKfHw5Hmvi8ptdYlsRMmTC6IWq3ceGWFnrNccgHfpBWE+kLgOaWklyM
-	tNN+dQoULip4TU5MngxG4k5+bQwq60nLbfrtx2Y3Iig3NskU/v37tWJKrvskXzoFR63E2v77gxJA1
-	gvKqdsmQ==;
+	bh=sjtjOJ8VIAIzCYAs/x+lZGyja9IHYPAp3SWkrVb/Pdo=; b=nP+P/PIXmHwTgWcGsGWNYhorpu
+	Nk8Mh4yYdoQSUSHF+cj/x/mm6XFZdmw/FgCGq24+K9/xXmAMVurFApvTg7C58ElyXVbmMXxQ3Uxzi
+	8sxjPrZ6tQzHGJmMWNbefv9iHe7Lk3YOaGM2DtCvH+Cevg2755Li8VqxsUepHcM6tifDJOe1zPfqd
+	GDzV+ra9WF4eOPJHUJw4HRAVAJ2RkQZUilH6uSWC4re1pKDCSUOWXRFfDyMObH+Qh4pib21n4BFA/
+	UJlVSLP/MvPE0Ogzbs/v7Cs4dxMazbNAfBBeZ76lzSoJzqQEtkyexTD2IXDu1UBAbkeBF9S8RddO4
+	+aKYOlww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlqdI-00000007KXF-1yb1;
-	Mon, 20 Jul 2026 16:14:20 +0000
-Received: from out-173.mta0.migadu.com ([2001:41d0:1004:224b::ad])
+	id 1wlqdJ-00000007KYb-28cL;
+	Mon, 20 Jul 2026 16:14:21 +0000
+Received: from out-183.mta0.migadu.com ([91.218.175.183])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlqd9-00000007KP3-0B9q
+	id 1wlqdE-00000007KTg-3UKq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 16:14:12 +0000
+	Mon, 20 Jul 2026 16:14:18 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1784564048;
+	t=1784564054;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=3zIKmZROYh74nqCSv6sg/c+Cjz0XlrnkYv/gMVvWs5g=;
-	b=Z7BfzI45SyIIjCifTWZFRl69fF0oXedsowC4+zlSeN41852ATp2ILM4Syg9wpryJZbbVmm
-	3xE4orm4inUitbpuRfwKY8rO0l0F3ibxz/rW5Ff6gZBVbTEviu0S5qoFQUJJh8i3Jblo4P
-	RLhfWmD/gFMxoXxCh3k0S1vM5W+dKyg=
+	bh=sjtjOJ8VIAIzCYAs/x+lZGyja9IHYPAp3SWkrVb/Pdo=;
+	b=I3ISrcRXyImrPc+/x/x6ibXI+PCwhBoSj4qLhLhqyPyHIMF+uj5pvsYu9/d6n8ez5w+ZeF
+	is+wAUu6k9H73z+bIbDNr5RLSwYJy92kMRWMZoJ5e6FhLqyQtPQSwwL4/459ihXW8bhbRS
+	5xHUEM9Crt0fwelhLSBXhSUOZtddT0c=
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: maz@kernel.org,
 	oupton@kernel.org,
@@ -59,17 +59,17 @@ Cc: catalin.marinas@arm.com,
 	linux-trace-kernel@vger.kernel.org,
 	tabba@google.com,
 	fuad.tabba@linux.dev
-Subject: [PATCH v1 04/11] KVM: arm64: nVHE: Use NULL to reset the trace buffer backing pointer
-Date: Mon, 20 Jul 2026 17:13:36 +0100
-Message-Id: <20260720161343.1367007-5-fuad.tabba@linux.dev>
+Subject: [PATCH v1 06/11] arm64: pi: Run the source checker on the libfdt objects under C=2
+Date: Mon, 20 Jul 2026 17:13:38 +0100
+Message-Id: <20260720161343.1367007-7-fuad.tabba@linux.dev>
 In-Reply-To: <20260720161343.1367007-1-fuad.tabba@linux.dev>
 References: <20260720161343.1367007-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_091411_218753_D0DA9C05 
-X-CRM114-Status: UNSURE (   9.98  )
+X-CRM114-CacheID: sfid-20260720_091417_017896_F9AAFCBC 
+X-CRM114-Status: UNSURE (   7.94  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,29 +85,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-bpages_backing_start is a pointer; resetting it to plain 0 triggers a
-sparse warning.
+The custom lib-%.o rule reuses rule_cc_o_c, which hooks the source
+checker only for C=1, and that only when the object is rebuilt. The
+C=2 hook, cmd_force_checksrc, hangs off the standard %.o rule, so
+"make C=2" silently skips the two libfdt objects. Call
+cmd_force_checksrc after the compile rule, as the standard rule does.
 
-No functional change intended.
-
+Fixes: aacd149b6238 ("arm64: head: avoid relocating the kernel twice for KASLR")
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- arch/arm64/kvm/hyp/nvhe/trace.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/kernel/pi/Makefile | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/trace.c b/arch/arm64/kvm/hyp/nvhe/trace.c
-index e7e150ab265ff..177fe3d8fbb13 100644
---- a/arch/arm64/kvm/hyp/nvhe/trace.c
-+++ b/arch/arm64/kvm/hyp/nvhe/trace.c
-@@ -93,7 +93,7 @@ static void hyp_trace_buffer_unload_bpage_backing(struct hyp_trace_buffer *trace
+diff --git a/arch/arm64/kernel/pi/Makefile b/arch/arm64/kernel/pi/Makefile
+index be92d73c25b21..96243c291e39d 100644
+--- a/arch/arm64/kernel/pi/Makefile
++++ b/arch/arm64/kernel/pi/Makefile
+@@ -34,6 +34,7 @@ $(obj)/lib-%.pi.o: OBJCOPYFLAGS += --prefix-alloc-sections=.init
  
- 	__release_host_mem(start, size);
+ $(obj)/lib-%.o: $(srctree)/lib/%.c FORCE
+ 	$(call if_changed_rule,cc_o_c)
++	$(call cmd,force_checksrc)
  
--	trace_buffer->bpages_backing_start = 0;
-+	trace_buffer->bpages_backing_start = NULL;
- 	trace_buffer->bpages_backing_size = 0;
- }
- 
+ obj-y					:= idreg-override.pi.o \
+ 					   map_kernel.pi.o map_range.pi.o \
 -- 
 2.39.5
 
