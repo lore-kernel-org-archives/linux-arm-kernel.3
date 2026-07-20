@@ -4,114 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55DB2C4452A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 14:47:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F8F7C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 14:47:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+DIcEgoppAXulH5vp8KeYvryGqkcW4+kiP+l5ButByY=; b=vfWA/w3AYwD/qEB2/74He7alMW
-	0hCyXEjuBxwyyLe7EDGL/lzUrf7vc+q1d+PyPXOV4Rm51zZN2MbxH3IWNfjtr0BkjNsTuhtjXaahK
-	3dxF6tGnjQpfuGQgf7kZU5/ZufkTI1kjanUYXHgCmbGl5G4XZ1ey/0ZUOhwV4Be8E6xtN1S9n1ZyG
-	GmbkV6uy/TGQElPjsQUDC8fhXFBq2+JMvk7b2mxE5DuUsdZzfRDnwoD435YXbLI1r9lZiti06Ven/
-	SzSVX98NeGdF8YElid43MIIw8FMWIOK5FvTBR6iq2W+sdPLmtg3zUrYPydW+LSvazqLt+9QUH9SnB
-	VYDBKuNg==;
+	bh=Y/kPz5ajPeR8UdBb+Kn3rMnPwkhqf5YXoddQSOq9Wck=; b=waMqRWO1jzu0U4ykPDyy4Ecmki
+	CHmk+UO0N89FsN/cyp5WIL14RUpMYR4hY6bnl1p6m6994ZOqdwAhWHuUrUmcUIE+/22fpzslsFReK
+	gww38zGBy+MGEKe9xOKk6xf1APAdG1yhxaFUssocX52iOdKntiyZLexCMM5WO2Ref6CMyUiQakkFk
+	6dWJ7ow5lzvC7+HoVgJnm/nio2CcRXhccKSMQifCviidVRGGfY56jwkaOfhtRQLcrucnV9F12xXJ3
+	kvHlUVITdr/SDxxlnD+Kzqshg96BrfHNx2Y5q1kCfJ6Tru89R1N6Txsm5NG/ieBsHeo2Nr1Hc7ifg
+	oWaach6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlpGZ-000000071cq-1wcq;
-	Mon, 20 Jul 2026 14:46:47 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1wloFG-00000006rWg-0rTo;
+	Mon, 20 Jul 2026 13:41:22 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlpGX-000000071cL-2jun
+	id 1wloFC-00000006rVU-2LAW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 14:46:46 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-476d8e647e9so9312775f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 07:46:44 -0700 (PDT)
+	Mon, 20 Jul 2026 13:41:20 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-c1670dad7a8so1017175766b.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 06:41:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784558803; x=1785163603; darn=lists.infradead.org;
-        h=content-type:content-transfer-encoding:autocrypt:mime-version
-         :references:in-reply-to:message-id:date:subject:cc:to:from:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=+DIcEgoppAXulH5vp8KeYvryGqkcW4+kiP+l5ButByY=;
-        b=C9Tal57/EhlvmGLCmZWd/LowdVW6eKdmuIyR2wuFhRTuSQWjrXg36TDajO7SwBk5BG
-         ZO93E95VdczvyJS0Zrl8ZZi78qjQwfvyrVHYNcXSdBpG/r0jd9E3I8jKVI9IpSq1h5oN
-         gZF3oT90B/xjEsDbhMDT11nUe+sZgewHVL/z6rFnkrTvw+0ZZYLDn+BAtbRx7k5+eqEI
-         hg9DOTHtPMdd1VDLqm7EECGHpB4CtH4x0SjXdrgyHAuGXJyZ7gV+tnNbHU+dWBWPDJX3
-         Wo0vjjRgGbxI65EQa9WvhImV0zJ88e0XGi58RKYU7DJCraiG7eUDdgXu8G0+ZKVwsAGY
-         WnoQ==
+        d=google.com; s=20251104; t=1784554877; x=1785159677; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Y/kPz5ajPeR8UdBb+Kn3rMnPwkhqf5YXoddQSOq9Wck=;
+        b=pdhFCWvlP66WToa29NzDSJopJOkvmz/ok0R/3K+Z2cZby3mH773IJaz8Tbp8lPWi30
+         lXWAmaDIGTH7ZLh9+FdiGvDzGGo6wGTja8mo83nT0+jY+dG1kFeLckveFoZ8sJPaUy+M
+         54W4YLWcpY2f15QpHKfSL0a2FXtK2/iZ6juBkA8Z0EdCgGLJpMXQNibKGh5Mhn2+iUf8
+         ghmcbhR2f68xUIoF3kpHXlBcUGz0w41a3XdkivdhYtv3dXwVekdgL0C+HSf2CIfB4Plq
+         KVgonJsJbu7HXpX4ZUKXsVwXywx1ZI++b0b7bZt/OOJN/YzJ5IOv/J8IDZTKQFOdDVC9
+         7Z/Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784558803; x=1785163603;
-        h=content-type:content-transfer-encoding:autocrypt:mime-version
-         :references:in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+        d=1e100.net; s=20251104; t=1784554877; x=1785159677;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=+DIcEgoppAXulH5vp8KeYvryGqkcW4+kiP+l5ButByY=;
-        b=mggHvdSKIQw16aHvWPM9Ivr5MpQy/lfBu8urXc3YSp982ElVpxdtp/xHdpJmZRBzB/
-         7zSmNdc/O8bLrGXPwzYpNVQLvbsk4mPngXKeRvYRuVXrZkgQBGHq1tqlDbFhcJllO+Tj
-         OAonbWHXS4kCrtynQqUoyO429MOZZ5XZBRBTNhE2GGRlidfWzAPeNcRDEDF063U6R7kz
-         oNH75XEv+CibYrbXRaNLER07KB9r1wsOdrpxz+HxK3xFnBCsZvdVHefJN3GVJ1KAp0Ht
-         w39Sy0nLdVhxiy85+Ba2FJVHldB8l7J+J8LeasWmrLSVuKMbiD9LQw03PFmtqU14lG1E
-         VQ9w==
-X-Forwarded-Encrypted: i=1; AHgh+RoKUO502cbCVndeQAr4zX5ANopC74PJirX6n3ryGJNa0J4utsqWD7euGcofnln7OLy0i9MqlRIAOipfKFSIY59R@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8OzqqQ8iJ9+ptKJlvwnyuW45caR8ahp1r4kji0LyCEdWe4Sn4
-	+97iF1q1yT7vGZiYNoj5SfnBgpsCae6mHSetmDc8EnmNqVjpFuww7xNE
-X-Gm-Gg: AR+sD12GziLTTRu3V3tv0Gmxj+OPUt4tXEutvY+5P6etMl3epJrMtPgowUxxm47cF+z
-	AJlHu2xRq9htbeonS3OIvrBuZ1YPilZED3hJnQ8D/yMt4kmbJqlcylo6k9vAA6n7kjEmfssCOBI
-	PFhOXRCGB/skBmxSNsO6I994g4mvx7QZCEakLQ8+s0c34RLlanrCRVLyS0yN9MShoiows0EDFMf
-	GzkJxYpV/L9hRpulsQEuSWkO3CG1Y7SxGYoJ7vTiVC0IjeiM0snO/+s+1ovOyCp44fndzCSnvjW
-	ZmcJnU6zi40vbb/KXJqipLiKO+RGEwZrE+oBLdKhtgFtxv6pco8TMTjTD/qrHJhp87DnfKOKgBv
-	ypYocf3hyugllU198q2rcaWBlJ9LDmoN4BlDx8S4HPBmmRHzV/xN1gxVO4G5STOPg3yheAoxjQp
-	nlYjZIdWTZZefKWTL60Q==
-X-Received: by 2002:a05:6000:188e:b0:47d:ec60:6581 with SMTP id ffacd0b85a97d-47f622d612emr17290234f8f.0.1784558803067;
-        Mon, 20 Jul 2026 07:46:43 -0700 (PDT)
-Received: from radijator.localnet ([93.140.52.191])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f63edd7d3sm29579920f8f.25.2026.07.20.07.46.41
+        bh=Y/kPz5ajPeR8UdBb+Kn3rMnPwkhqf5YXoddQSOq9Wck=;
+        b=PKwrwqJjf+jrXjI7sbsn4qQIWp1ySACSNLTvrHPTwm/55mwwxWfLiUSwvYHkGSXfWJ
+         pfkiPgFtZ0hQbhP/3gZumtUZ6noqnPRUOUjviiVXsEOpASZRjIcY1n/FYemlHou78hXA
+         WGwtJ+sVuaDxrb6/xqStfkxTkj4VjJv6iEaERc/+vXRE/5RdN8Y1t5vp59+PwLSWB9Mf
+         YW19GTjw/7t0GdftBCYgv9HRpowSPw8fVRAv2LsFOgESghxwSEV2VKmkMZxe6+vDyXZc
+         XmMtUCncGDbd/MCwgvQT4EsaCK5e1t96y9wy3gCDmGJ2x/ih7OonXxZx9FYXKhp4HRcn
+         Avdw==
+X-Forwarded-Encrypted: i=1; AHgh+RoRDKLuu3tPQX5vVWvyi48r55Z8ldT9k+TXQ//hTjCNaClPjQ6s4awCT7+CvPFXCkFL/zJdmwjF4HaydDKo0gGo@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzuoq2nyrjnfPhdcJrQvDGu1NKinIIYldn/3cqg983K6KPc0RBo
+	yVZest8ARin67dVYdsGrg0+32vYow15lzmiHzDc29Zx2kRbkIxS3gcGUeFeE0g+hTw==
+X-Gm-Gg: AfdE7ckMZ9V1kLGYfHwxJ0Lu2xtixDf3WeKoHEVM3Jf3PPSMCRhPX7Q8Y7vCZaXOqCa
+	COUAbVCeal0h4omOvrQbEH0xLC//JQGu57ANG8kgTYqiVgwMR5FFzYwqc7G9UBpkYUT7suQ6N3o
+	Hl+VLlQ8d4lfXdZC7obYOxIE8h8A7D3nNbfKhRqi1d3ZD9yh0SE+uMR5o9hu06tjAAADTyYm1zK
+	KoeiXd3sRPV2ZSx0OwX1GMbKr/RmkuN8jAVvO0vnyNXtyLQ72cWNg7ovAowt6nXiVe+IeLUrmAe
+	qbdErrzMsHQwn8F3xADpQGs4EwD/6Z4dOsMNv/FuYrbQA7KAlSJqHCP3m4GLdXsrBkQTZKWT6Rx
+	xk+wWzBqDTB6NQDqHq8TOkdS+XU7THzFaOSIG6TxE1hdT5wZ3QlgzOFgDRiN0VeXUU4XJcnWsy1
+	sebtI/WPPUnMyLLUQPIP+m5Tl+mKId9UvSwdz1Zm7DBhfTqcwzyjo=
+X-Received: by 2002:a17:906:7953:b0:c16:9d11:8f51 with SMTP id a640c23a62f3a-c16b48c8020mr590472366b.46.1784554876054;
+        Mon, 20 Jul 2026 06:41:16 -0700 (PDT)
+Received: from google.com (137.69.77.34.bc.googleusercontent.com. [34.77.69.137])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c17361fc972sm465211766b.54.2026.07.20.06.41.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Jul 2026 07:46:42 -0700 (PDT)
-From: Duje =?UTF-8?B?TWloYW5vdmnEhw==?= <dujemihanovic32@gmail.com>
-To: linux-clk@vger.kernel.org, Rosen Penev <rosenp@gmail.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
- Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>,
- Justin Stitt <justinstitt@google.com>,
- open list <linux-kernel@vger.kernel.org>,
- "moderated list:ARM/Marvell PXA1908 SOC support"
- <linux-arm-kernel@lists.infradead.org>,
- "open list:CLANG/LLVM BUILD SUPPORT:Keyword:b(?i:clang|llvm)b"
- <llvm@lists.linux.dev>
-Subject: Re: [PATCH] clk: mmp: allow COMPILE_TEST builds
-Date: Mon, 20 Jul 2026 16:46:40 +0200
-Message-ID: <YBsaITDCQyaUWFnnWTe4Fw@gmail.com>
-In-Reply-To: <20260719214349.734351-1-rosenp@gmail.com>
-References: <20260719214349.734351-1-rosenp@gmail.com>
+        Mon, 20 Jul 2026 06:41:15 -0700 (PDT)
+Date: Mon, 20 Jul 2026 14:41:11 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kernel-team@android.com, qperret@google.com
+Subject: Re: [PATCH v2 14/18] KVM: arm64: Use noclear for PGD in
+ __pkvm_init_vm error path
+Message-ID: <al4ldxSPH2MJKJcD@google.com>
+References: <20260706175415.2604046-1-vdonnefort@google.com>
+ <20260706175415.2604046-15-vdonnefort@google.com>
+ <CA+EHjTyFavaVQ=bmo=1s9LgDVQftdsCELUudSza1ARZCJo+dqw@mail.gmail.com>
 MIME-Version: 1.0
-Autocrypt: addr=dujemihanovic32@gmail.com;
- keydata=
- mDMEabRVUBYJKwYBBAHaRw8BAQdAG5VJBpoPRIGQml4+E2LcPdyVtnXRuuqoD1BsHxRjNQ60KER
- 1amUgTWloYW5vdmnEhyA8ZHVqZUBkdWplbWloYW5vdmljLnh5ej6ImQQTFgoAQRYhBJvUYwF2kA
- idqo3CZidfVEs7G0eSBQJptFVQAhsDBQkFo5qABQsJCAcCAiICBhUKCQgLAgQWAgMBAh4HAheAA
- AoJECdfVEs7G0eStq0A/1SDcm8Bkq1JV+GTGMC8qE1QzCFvnoJuZqtUuQRCkd31AP9Mbc3pmg1K
- JDxgPl17/CQohZ98dbUVffmdQpJJLLMsArgzBGm0VXYWCSsGAQQB2kcPAQEHQH8nnS6QNfgpc1Y
- tqU80DWMWMsDPEGJ7yZ9Nf90mPEEQiPUEGBYKACYWIQSb1GMBdpAInaqNwmYnX1RLOxtHkgUCab
- RVdgIbAgUJBaOagACBCRAnX1RLOxtHknYgBBkWCgAdFiEEA6Ue0g5lV5FAcj1ivjIt18NZWcUFA
- mm0VXYACgkQvjIt18NZWcUyDwEA5OK1WRFN4/psOq/bS6Wuh5ysy0CyXIydqIwDJDdAFukA+wfc
- lr1qyAbEX0FHVunCl+sxv/ymvjsup85rAH+a2j8HA7gBAIolabvAIUTUfCQNCu5MUt482b2EC8K
- 40xl/6HT43dunAQCqxwRLI2k0xmTdia2AZwqbbMvqWonOLWtdZwWvodgjBLg4BGm0VaASCisGAQ
- QBl1UBBQEBB0CoqkQL2R15WHRvj3RlkxjW3pPpZVUOHyfhEX+Q9PhTcwMBCAeIfgQYFgoAJhYhB
- JvUYwF2kAidqo3CZidfVEs7G0eSBQJptFWgAhsMBQkFo5qAAAoJECdfVEs7G0eSnB0A/3oyRxS5
- cUJMNnM1+4UkRahmU5/42NfVOxIL5d5oaW13AQD617LpOfnCuZR3U0vHLOW5vrnFtdvi32N5zLD
- 9wyShC7gzBGm0VbYWCSsGAQQB2kcPAQEHQPRL1mWe9nIhjicyAqqEN80IXEF0NeKSFFpN8n75b2
- YIiH4EGBYKACYWIQSb1GMBdpAInaqNwmYnX1RLOxtHkgUCabRVtgIbIAUJBaOagAAKCRAnX1RLO
- xtHktyGAQCJPD6JsQhQZEB8ciZrJz+hnonsJp+KZZQQGEK/KsLHEgD/ePz/x0pQdI/DcJd/5Qge
- +IJGd+jyv4zyevPxipVbyAo=
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CA+EHjTyFavaVQ=bmo=1s9LgDVQftdsCELUudSza1ARZCJo+dqw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_074645_713975_BB2E04D1 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20260720_064118_610015_86AE1AE7 
+X-CRM114-Status: GOOD (  26.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,31 +105,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sunday, 19 July 2026 23:43:49 Central European Summer Time Rosen Penev 
-wrote:
+On Wed, Jul 15, 2026 at 01:09:12PM +0100, Fuad Tabba wrote:
+> On Mon, 6 Jul 2026 at 18:54, Vincent Donnefort <vdonnefort@google.com> wrote:
+> >
+> > In the error path of __pkvm_init_vm(), use unmap_donated_memory_noclear()
+> > instead of the clearing variant to release the donated stage-2 PGD back
+> > to the host.
+> >
+> > This intends to eliminate the clearing variant of
+> > unmap_donated_memory(), as zeroing the PGD memory before returning it to
+> > the host is unnecessary in this failure path.
+> >
+> > Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+> >
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > index d9ab58226889..0c82f1ddb93d 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > @@ -861,7 +861,7 @@ int __pkvm_init_vm(struct kvm *host_kvm, unsigned long vm_hva,
+> >         kvm_guest_destroy_stage2(hyp_vm);
+> >  err_remove_mappings:
+> >         unmap_donated_memory(hyp_vm, vm_size);
+> > -       unmap_donated_memory(pgd, pgd_size);
+> > +       unmap_donated_memory_noclear(pgd, pgd_size);
+> 
+> 
+> We spoke about this in person before you sent the series and I thought
+> it was ok. Sashiko's review made me doubt at first, since the freed
+> blocks carry EL2 list_head pointers that the noclear variant hands
+> back to the host.
+> 
+> You mentioned that the mapping isn't secret (later when we discussed
+> Sashiko's review in person), and I checked: kvm_compute_layout() runs
+> at EL1 on the host and rolls the tag itself. The host already knows
+> the PA of every page it donated, so it can compute those VAs anyway.
+> So I don't think this is a real leak.
+> 
+> However, this relies on the pool and hyp_vm both being donated
+> linear-map memory here. Once hyp_vm moves to hyp_alloc() in the
+> private range, the free_area anchor becomes a private-range VA, and I
+> haven't checked whether that's host-derivable.
+> 
+> Given it's the init error path and not hot, clearing costs basically
+> nothing, so I'd lean towards just keeping unmap_donated_memory()
+> rather than reasoning about derivability.
+> 
+> What do you think?
 
-[...]
+Happy to not take any risk and to drop it. It was just an attempt to simplify
+the code anyway.
 
-> diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
-> index 4b2c089f46a1..8383f9f1da51 100644
-> --- a/drivers/clk/Makefile
-> +++ b/drivers/clk/Makefile
-> @@ -130,7 +130,7 @@ obj-y					+= 
-mediatek/
->  obj-$(CONFIG_ARCH_MESON)		+= meson/
->  obj-y					+= microchip/
->  ifeq ($(CONFIG_COMMON_CLK), y)
-> -obj-$(CONFIG_ARCH_MMP)			+= mmp/
-> +obj-$(CONFIG_COMMON_CLK_MMP)		+= mmp/
-
-Could it be possible to select mmp unconditionally, like most of the other 
-subtrees are? AFAICT, that would also require creating new Kconfig symbols for 
-the PXA168, PXA910 and PXA1928 clocks, but I suspect it may be the more proper 
-choice in the long term.
-
-Regards,
---
-Duje
-
-
+> 
+> 
+> 
+> /fuad
+> 
+> >  err_unpin_kvm:
+> >         hyp_unpin_shared_mem(host_kvm, host_kvm + 1);
+> >         return ret;
+> > --
+> > 2.55.0.rc2.803.g1fd1e6609c-goog
+> >
 
