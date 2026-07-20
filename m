@@ -4,76 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57369C44515
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 20:47:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7DD4C44520
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 20:57:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xOEh37AFghzsd7yZGglcKHrZctvBohti1ACwlTyRIB0=; b=Rr3aRafdjYeTj/BRrsJSmXY+J2
-	dioHpipqe7RJCXzhwrK2ajU7c8WgfDoR07K5nxwNDxojlkCnYOPwyMLnO+ewsPgd/C6F7FHKWP0E/
-	QkAJ6DlmrLanrUZNKKkfNxygdK5qrQqn9vNCl3erv5KOsKcZc/mgaiURD7QxLefXR2rh/MK99qvbj
-	VqeITmrX6EmMT1eovMi7fJ/ZhvNSluKxo4pPcpxERK/UtJdyb9yCp8UoDUFlvswS7B31XMjWCRad9
-	5qpfSr3j2BDkRNL+joPFs0C7ULQqXs6ni5XR/Bh8jQVn6Qbf61z0NfloqZJaP9HMP7w7O0DHhz474
-	4efYGu/Q==;
+	bh=qxE83okyCU1Z19kWUkQur9dh/HYvgoAFGD83U44qp88=; b=ZaZGfXqr9jyFiIfFKo8F7KRkIe
+	IzNtn8HGaLYOVrM/JM5LbUNI2JRIzOhUCAaPDlooZ20hStbMI1x1ezdOvfGVdf/vM38hCwPOj6AVh
+	MAeFKmuKrn7O4mOammuzSptNDyGt1ha1fJY9XWTCQzT0UiLorUpT6kz474gef0WpIsf+4K0l79f1D
+	DidDjr7YpFgKA53FQZ6DGWItoqKW6k85SEqmpt+JUyur4mDQdZpOaCp3mOD/VV8mWhZHoIJ8PvgbL
+	B7VKoGQs/7m8XlbPTffpDiDL/KWTSh1385EAEi4EH4G7zqwAgQnLWNaLSvBe+rpKdn7FM3sN1JcVH
+	sRqzMkXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlut3-00000007tO7-1erx;
-	Mon, 20 Jul 2026 20:46:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlut1-00000007tMF-3OrM;
-	Mon, 20 Jul 2026 20:46:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A66EF60A90;
-	Mon, 20 Jul 2026 20:46:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 17B73C2BCFB;
-	Mon, 20 Jul 2026 20:46:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1784580410;
-	bh=q36T6GIOtX7H5x/O7acwgYsOnd9oNLmakfoX/yu9MZY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=ihSsillAqRCZsOm2r8uCM+OD7SVRFWoWnQ0pUDgAh2slYgxwOorYqgmOZAe2C41nI
-	 3vZP+sUbAWiCNpY8DOT8jWH3Ixsr5Yjj5mMY8T3NbHAUvfwViAs9yKYuGsmShUQKcQ
-	 9+qpTJPsSp8oC/Lawkwd52FbDajnfAkf3zKtyZR3QkzfEJ7YnuHZbRglf2PP2yWlME
-	 lMQnqww1vsl6orBA+yzeNJoATY5dICTK8WtRaoY2gzmj6dRdZKsqs93XXS03ZmjB6L
-	 QumYTIKmIopoKhw990k1hTYeSDAwY2s6I2WrcLPCWVLG4SFR/xJAE/rgWVWkFOUELC
-	 hb5oqMvTMXs5A==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id F160EC4452F;
-	Mon, 20 Jul 2026 20:46:49 +0000 (UTC)
-From: Nikolai Burov via B4 Relay <devnull+nikolai.burov.jolla.com@kernel.org>
-Date: Mon, 20 Jul 2026 23:46:48 +0300
-Subject: [PATCH v3 3/3] pmdomain: mediatek: Add support for MT6858 SoC
+	id 1wlv2u-00000007u6p-32mG;
+	Mon, 20 Jul 2026 20:57:04 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wlv2r-00000007u6O-25F4
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Jul 2026 20:57:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 089FA143D;
+	Mon, 20 Jul 2026 13:56:55 -0700 (PDT)
+Received: from ryzen.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 47E543F86F;
+	Mon, 20 Jul 2026 13:56:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784581019; bh=0sf+fyuHYnaMAtA19DNDELQhufykY0EdpHdcCz+mY5E=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Txr+OlWCU4eRFFdWhfpWDvyOIGXTE6VaH2oovMfE3rYvaXCxdRyi7vq8YUyWnOKke
+	 8pm9yanXgHi2g5r9fcnnBoOGust6vI1m9TPxPCzZa6aND9D51JAsd3CHZgIcL3St2i
+	 ln5zfxbkd/RvZ7Dtd9JNF+IRAP5fcdoK16AMcrDI=
+Date: Mon, 20 Jul 2026 22:53:10 +0200
+From: Andre Przywara <andre.przywara@arm.com>
+To: Justin Suess <utilityemal77@gmail.com>
+Cc: Sean Young <sean@mess.org>, Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Maxime Ripard <mripard@kernel.org>,
+ linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, Sashiko
+ <sashiko-bot@kernel.org>
+Subject: Re: [PATCH 0/4] media: rc: sunxi-cir: support the A523/H728/T527 IR
+ receiver
+Message-ID: <20260720225310.039aca2e@ryzen.lan>
+In-Reply-To: <20260702214750.3428694-1-utilityemal77@gmail.com>
+References: <20260702214750.3428694-1-utilityemal77@gmail.com>
+Organization: Arm Ltd.
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260720-mt6858-pmdomain-v3-3-8966d8de93c8@jolla.com>
-References: <20260720-mt6858-pmdomain-v3-0-8966d8de93c8@jolla.com>
-In-Reply-To: <20260720-mt6858-pmdomain-v3-0-8966d8de93c8@jolla.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Ulf Hansson <ulfh@kernel.org>
-Cc: Matthias Brugger <mbrugger@suse.com>, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org, 
- Nikolai Burov <nikolai.burov@jolla.com>, 
- Nikolai Burov <nikolai.burov+review@abscue.de>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784580408; l=18360;
- i=nikolai.burov@jolla.com; s=20260707; h=from:subject:message-id;
- bh=cmcaHgBUveM0hhnoTQ3lTPE3BbxD87A6yhMWhEAXSmg=;
- b=sWwX6cWsxbHHeMXPMAQg7TD+aVNbF1jJobNH/CjPuKTvA+gLiRxAnTq2a+qP/4IVNJEMZh4ZF
- 1n2gEaa4WLIBaFzKALR6RjI0VOMnwjQAxIfrE1bNNMGD7XN8jjgbT/0
-X-Developer-Key: i=nikolai.burov@jolla.com; a=ed25519;
- pk=yzpa+PD+ovHUFMIOBA9o2QqGwI110jM6hdGHLc7jtoQ=
-X-Endpoint-Received: by B4 Relay for nikolai.burov@jolla.com/20260707 with
- auth_id=859
-X-Original-From: Nikolai Burov <nikolai.burov@jolla.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260720_135701_640648_51489AF5 
+X-CRM114-Status: GOOD (  23.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,536 +74,65 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: nikolai.burov@jolla.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nikolai Burov <nikolai.burov@jolla.com>
+On Thu,  2 Jul 2026 17:47:46 -0400
+Justin Suess <utilityemal77@gmail.com> wrote:
 
-Add support for the power domains found in the MediaTek MT6858 SoC.
+Hey Justin,
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: Nikolai Burov <nikolai.burov@jolla.com>
----
- drivers/pmdomain/mediatek/mt6858-pm-domains.h | 466 ++++++++++++++++++++++++++
- drivers/pmdomain/mediatek/mtk-pm-domains.c    |   5 +
- drivers/pmdomain/mediatek/mtk-pm-domains.h    |   5 +
- 3 files changed, 476 insertions(+)
+> This series adds support for the CIR receiver found in the Allwinner
+> A523/T527/H728 family (sun55i). The only board in this family that I
 
-diff --git a/drivers/pmdomain/mediatek/mt6858-pm-domains.h b/drivers/pmdomain/mediatek/mt6858-pm-domains.h
-new file mode 100644
-index 000000000000..177b2e86ab1e
---- /dev/null
-+++ b/drivers/pmdomain/mediatek/mt6858-pm-domains.h
-@@ -0,0 +1,466 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (c) 2025 MediaTek Inc.
-+ *                    KY Liu <ky.liu@mediatek.com>
-+ * Copyright (c) 2026 Jolla Mobile Ltd
-+ *                    Nikolai Burov <nikolai.burov@jolla.com>
-+ */
-+
-+#ifndef __SOC_MEDIATEK_MT6858_PM_DOMAINS_H
-+#define __SOC_MEDIATEK_MT6858_PM_DOMAINS_H
-+
-+#include "mtk-pm-domains.h"
-+#include <dt-bindings/power/mediatek,mt6858-power.h>
-+
-+/* TOP_AXI registers */
-+#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_SET		0x0c14
-+#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_CLR		0x0c18
-+#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_RDY		0x0c1c
-+
-+#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_DIS0		(BIT(0) | BIT(1) | BIT(18))
-+#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_ISP_IPE	BIT(2)
-+#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_ISP_IMG1	BIT(3)
-+#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_VEN0		BIT(12)
-+#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_VDE0		BIT(20)
-+#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_CAM_MAIN	(BIT(30) | BIT(31))
-+
-+#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_SET		0x0c24
-+#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_CLR		0x0c28
-+#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_RDY		0x0c2c
-+
-+#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_ISP_IMG1	BIT(7)
-+#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_ISP_IPE	BIT(8)
-+#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_CAM_MAIN	(BIT(9) | BIT(10))
-+#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_VEN0		BIT(12)
-+#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_VDE0		BIT(13)
-+#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_MM_INFRA	(GENMASK(3, 1) | BIT(6))
-+#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_MM_INFRA_2ND	(BIT(0) | BIT(5) | GENMASK(15, 7))
-+
-+#define MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_0_SET	0x0c44
-+#define MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_0_CLR	0x0c48
-+#define MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_0_RDY	0x0c4c
-+
-+#define MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_0_CONN	BIT(8)
-+#define MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_0_MM_INFRA	BIT(16)
-+
-+#define MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_1_SET	0x0c54
-+#define MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_1_CLR	0x0c58
-+#define MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_1_RDY	0x0c5c
-+
-+#define MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_1_MM_INFRA	BIT(11)
-+#define MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_1_CONN	BIT(12)
-+
-+#define MT6858_TOP_AXI_PROT_EN_EMISYS_STA_0_SET		0x0c64
-+#define MT6858_TOP_AXI_PROT_EN_EMISYS_STA_0_CLR		0x0c68
-+#define MT6858_TOP_AXI_PROT_EN_EMISYS_STA_0_RDY		0x0c6c
-+
-+#define MT6858_TOP_AXI_PROT_EN_EMISYS_STA_0_MM_INFRA	(BIT(20) | BIT(21))
-+
-+#define MT6858_TOP_AXI_PROT_EN_PERISYS_STA_0_SET	0x0c84
-+#define MT6858_TOP_AXI_PROT_EN_PERISYS_STA_0_CLR	0x0c88
-+#define MT6858_TOP_AXI_PROT_EN_PERISYS_STA_0_RDY	0x0c8c
-+
-+#define MT6858_TOP_AXI_PROT_EN_PERISYS_STA_0_AUDIO	BIT(6)
-+#define MT6858_TOP_AXI_PROT_EN_PERISYS_STA_0_SSUSB	BIT(7)
-+
-+#define MT6858_TOP_AXI_PROT_EN_MCU_STA_0_SET		0x0c94
-+#define MT6858_TOP_AXI_PROT_EN_MCU_STA_0_CLR		0x0c98
-+#define MT6858_TOP_AXI_PROT_EN_MCU_STA_0_RDY		0x0c9c
-+
-+#define MT6858_TOP_AXI_PROT_EN_MCU_STA_0_CONN		BIT(1)
-+#define MT6858_TOP_AXI_PROT_EN_MCU_STA_0_CONN_2ND	BIT(0)
-+
-+/* {IMG,IPE,CAM}_SUBx registers */
-+#define MT6858_SUBx_PROT_EN_SET				0x03c4
-+#define MT6858_SUBx_PROT_EN_CLR				0x03c8
-+#define MT6858_SUBx_PROT_EN_STA				0x03cc
-+
-+#define MT6858_IMG_SUB0_PROT_EN_SMI_ISP_IMG1		(BIT(0) | BIT(1))
-+
-+#define MT6858_IPE_SUB0_PROT_EN_SMI_ISP_IPE		(BIT(0) | BIT(1))
-+
-+#define MT6858_CAM_SUB0_PROT_EN_SMI_CAM_MAIN		BIT(0)
-+#define MT6858_CAM_SUB0_PROT_EN_SMI_CAM_SUBB		BIT(1)
-+
-+#define MT6858_CAM_SUB1_PROT_EN_SMI_CAM_MAIN		BIT(0)
-+#define MT6858_CAM_SUB1_PROT_EN_SMI_CAM_SUBA		BIT(1)
-+
-+/* VLP_AXI registers */
-+#define MT6858_VLP_AXI_PROT_EN_SET			0x0214
-+#define MT6858_VLP_AXI_PROT_EN_CLR			0x0218
-+#define MT6858_VLP_AXI_PROT_EN_STA			0x021c
-+
-+#define MT6858_VLP_AXI_PROT_EN_MM_PROC			BIT(8)
-+#define MT6858_VLP_AXI_PROT_EN_MM_PROC_2ND		(BIT(9) | BIT(10))
-+
-+/* PWR_CON registers */
-+#define MT6858_PWR_ACK					BIT(30)
-+#define MT6858_PWR_ACK_2ND				BIT(31)
-+
-+static enum scpsys_bus_prot_block scpsys_bus_prot_blocks_mt6858[] = {
-+	BUS_PROT_BLOCK_INFRA,
-+	BUS_PROT_BLOCK_IMG_SUB0,
-+	BUS_PROT_BLOCK_CAM_SUB1,
-+	BUS_PROT_BLOCK_CAM_SUB0,
-+	BUS_PROT_BLOCK_IPE_SUB0,
-+	BUS_PROT_BLOCK_VLP,
-+};
-+
-+static const struct scpsys_domain_data scpsys_domain_data_mt6858[] = {
-+	[MT6858_POWER_DOMAIN_MD] = {
-+		.name = "md",
-+		/*
-+		 * Note: the PWR_ACK_2ND bit is not used for the modem domain.
-+		 * Skip it and fall back to checking the 1st bit twice.
-+		 */
-+		.sta_mask = MT6858_PWR_ACK,
-+		.ctl_offs = 0xe00,
-+		.pwr_sta_offs = 0xe00,
-+		.pwr_sta2nd_offs = 0xe00,
-+		.ext_buck_iso_offs = 0xf20,
-+		.ext_buck_iso_mask = GENMASK(1, 0),
-+		.caps = MTK_SCPD_MODEM_SECURE_PWRSEQ | MTK_SCPD_EXT_BUCK_ISO |
-+			MTK_SCPD_KEEP_DEFAULT_OFF,
-+	},
-+	[MT6858_POWER_DOMAIN_CONN] = {
-+		.name = "conn",
-+		.sta_mask = MT6858_PWR_ACK,
-+		.sta2nd_mask = MT6858_PWR_ACK_2ND,
-+		.ctl_offs = 0xe04,
-+		.pwr_sta_offs = 0xe04,
-+		.pwr_sta2nd_offs = 0xe04,
-+		.bp_cfg = {
-+			BUS_PROT_WR_IGN(INFRA,
-+					MT6858_TOP_AXI_PROT_EN_MCU_STA_0_CONN,
-+					MT6858_TOP_AXI_PROT_EN_MCU_STA_0_SET,
-+					MT6858_TOP_AXI_PROT_EN_MCU_STA_0_CLR,
-+					MT6858_TOP_AXI_PROT_EN_MCU_STA_0_RDY),
-+			BUS_PROT_WR_IGN(INFRA,
-+					MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_1_CONN,
-+					MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_1_SET,
-+					MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_1_CLR,
-+					MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_1_RDY),
-+			BUS_PROT_WR_IGN(INFRA,
-+					MT6858_TOP_AXI_PROT_EN_MCU_STA_0_CONN_2ND,
-+					MT6858_TOP_AXI_PROT_EN_MCU_STA_0_SET,
-+					MT6858_TOP_AXI_PROT_EN_MCU_STA_0_CLR,
-+					MT6858_TOP_AXI_PROT_EN_MCU_STA_0_RDY),
-+			BUS_PROT_WR_IGN(INFRA,
-+					MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_0_CONN,
-+					MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_0_SET,
-+					MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_0_CLR,
-+					MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_0_RDY),
-+		},
-+		.caps = MTK_SCPD_KEEP_DEFAULT_OFF,
-+	},
-+	[MT6858_POWER_DOMAIN_AUDIO] = {
-+		.name = "audio",
-+		.sta_mask = MT6858_PWR_ACK,
-+		.sta2nd_mask = MT6858_PWR_ACK_2ND,
-+		.ctl_offs = 0xe18,
-+		.pwr_sta_offs = 0xe18,
-+		.pwr_sta2nd_offs = 0xe18,
-+		.sram_pdn_bits = BIT(8),
-+		.sram_pdn_ack_bits = BIT(12),
-+		.bp_cfg = {
-+			BUS_PROT_WR_IGN(INFRA,
-+					MT6858_TOP_AXI_PROT_EN_PERISYS_STA_0_AUDIO,
-+					MT6858_TOP_AXI_PROT_EN_PERISYS_STA_0_SET,
-+					MT6858_TOP_AXI_PROT_EN_PERISYS_STA_0_CLR,
-+					MT6858_TOP_AXI_PROT_EN_PERISYS_STA_0_RDY),
-+		},
-+	},
-+	[MT6858_POWER_DOMAIN_ISP_IMG1] = {
-+		.name = "isp-img1",
-+		.sta_mask = MT6858_PWR_ACK,
-+		.sta2nd_mask = MT6858_PWR_ACK_2ND,
-+		.ctl_offs = 0xe28,
-+		.pwr_sta_offs = 0xe28,
-+		.pwr_sta2nd_offs = 0xe28,
-+		.sram_pdn_bits = BIT(8),
-+		.sram_pdn_ack_bits = BIT(12),
-+		.bp_cfg = {
-+			BUS_PROT_WR_IGN(INFRA,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_ISP_IMG1,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_SET,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_CLR,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_RDY),
-+			BUS_PROT_WR_IGN(INFRA,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_ISP_IMG1,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_SET,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_CLR,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_RDY),
-+			BUS_PROT_WR_IGN(IMG_SUB0,
-+					MT6858_IMG_SUB0_PROT_EN_SMI_ISP_IMG1,
-+					MT6858_SUBx_PROT_EN_SET,
-+					MT6858_SUBx_PROT_EN_CLR,
-+					MT6858_SUBx_PROT_EN_STA),
-+		},
-+		.caps = MTK_SCPD_KEEP_DEFAULT_OFF,
-+	},
-+	[MT6858_POWER_DOMAIN_ISP_IMG2] = {
-+		.name = "isp-img2",
-+		.sta_mask = MT6858_PWR_ACK,
-+		.sta2nd_mask = MT6858_PWR_ACK_2ND,
-+		.ctl_offs = 0xe2c,
-+		.pwr_sta_offs = 0xe2c,
-+		.pwr_sta2nd_offs = 0xe2c,
-+		.sram_pdn_bits = BIT(8),
-+		.sram_pdn_ack_bits = BIT(12),
-+		.caps = MTK_SCPD_KEEP_DEFAULT_OFF,
-+	},
-+	[MT6858_POWER_DOMAIN_ISP_IPE] = {
-+		.name = "isp-ipe",
-+		.sta_mask = MT6858_PWR_ACK,
-+		.sta2nd_mask = MT6858_PWR_ACK_2ND,
-+		.ctl_offs = 0xe30,
-+		.pwr_sta_offs = 0xe30,
-+		.pwr_sta2nd_offs = 0xe30,
-+		.sram_pdn_bits = BIT(8),
-+		.sram_pdn_ack_bits = BIT(12),
-+		.bp_cfg = {
-+			BUS_PROT_WR_IGN(INFRA,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_ISP_IPE,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_SET,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_CLR,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_RDY),
-+			BUS_PROT_WR_IGN(INFRA,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_ISP_IPE,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_SET,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_CLR,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_RDY),
-+			BUS_PROT_WR_IGN(IPE_SUB0,
-+					MT6858_IPE_SUB0_PROT_EN_SMI_ISP_IPE,
-+					MT6858_SUBx_PROT_EN_SET,
-+					MT6858_SUBx_PROT_EN_CLR,
-+					MT6858_SUBx_PROT_EN_STA),
-+		},
-+		.caps = MTK_SCPD_KEEP_DEFAULT_OFF,
-+	},
-+	[MT6858_POWER_DOMAIN_VDE0] = {
-+		.name = "vde0",
-+		.sta_mask = MT6858_PWR_ACK,
-+		.sta2nd_mask = MT6858_PWR_ACK_2ND,
-+		.ctl_offs = 0xe34,
-+		.pwr_sta_offs = 0xe34,
-+		.pwr_sta2nd_offs = 0xe34,
-+		.sram_pdn_bits = BIT(8),
-+		.sram_pdn_ack_bits = BIT(12),
-+		.bp_cfg = {
-+			BUS_PROT_WR_IGN(INFRA,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_VDE0,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_SET,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_CLR,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_RDY),
-+			BUS_PROT_WR_IGN(INFRA,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_VDE0,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_SET,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_CLR,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_RDY),
-+		},
-+	},
-+	[MT6858_POWER_DOMAIN_VEN0] = {
-+		.name = "ven0",
-+		.sta_mask = MT6858_PWR_ACK,
-+		.sta2nd_mask = MT6858_PWR_ACK_2ND,
-+		.ctl_offs = 0xe3c,
-+		.pwr_sta_offs = 0xe3c,
-+		.pwr_sta2nd_offs = 0xe3c,
-+		.sram_pdn_bits = BIT(8),
-+		.sram_pdn_ack_bits = BIT(12),
-+		.bp_cfg = {
-+			BUS_PROT_WR_IGN(INFRA,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_VEN0,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_SET,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_CLR,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_RDY),
-+			BUS_PROT_WR_IGN(INFRA,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_VEN0,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_SET,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_CLR,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_RDY),
-+		},
-+	},
-+	[MT6858_POWER_DOMAIN_CAM_MAIN] = {
-+		.name = "cam-main",
-+		.sta_mask = MT6858_PWR_ACK,
-+		.sta2nd_mask = MT6858_PWR_ACK_2ND,
-+		.ctl_offs = 0xe44,
-+		.pwr_sta_offs = 0xe44,
-+		.pwr_sta2nd_offs = 0xe44,
-+		.sram_pdn_bits = BIT(8),
-+		.sram_pdn_ack_bits = BIT(12),
-+		.bp_cfg = {
-+			BUS_PROT_WR_IGN(INFRA,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_CAM_MAIN,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_SET,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_CLR,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_RDY),
-+			BUS_PROT_WR_IGN(INFRA,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_CAM_MAIN,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_SET,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_CLR,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_RDY),
-+			BUS_PROT_WR_IGN(CAM_SUB0,
-+					MT6858_CAM_SUB0_PROT_EN_SMI_CAM_MAIN,
-+					MT6858_SUBx_PROT_EN_SET,
-+					MT6858_SUBx_PROT_EN_CLR,
-+					MT6858_SUBx_PROT_EN_STA),
-+			BUS_PROT_WR_IGN(CAM_SUB1,
-+					MT6858_CAM_SUB1_PROT_EN_SMI_CAM_MAIN,
-+					MT6858_SUBx_PROT_EN_SET,
-+					MT6858_SUBx_PROT_EN_CLR,
-+					MT6858_SUBx_PROT_EN_STA),
-+		},
-+		.caps = MTK_SCPD_KEEP_DEFAULT_OFF,
-+	},
-+	[MT6858_POWER_DOMAIN_CAM_SUBA] = {
-+		.name = "cam-suba",
-+		.sta_mask = MT6858_PWR_ACK,
-+		.sta2nd_mask = MT6858_PWR_ACK_2ND,
-+		.ctl_offs = 0xe4c,
-+		.pwr_sta_offs = 0xe4c,
-+		.pwr_sta2nd_offs = 0xe4c,
-+		.sram_pdn_bits = BIT(8),
-+		.sram_pdn_ack_bits = BIT(12),
-+		.bp_cfg = {
-+			BUS_PROT_WR_IGN(CAM_SUB1,
-+					MT6858_CAM_SUB1_PROT_EN_SMI_CAM_SUBA,
-+					MT6858_SUBx_PROT_EN_SET,
-+					MT6858_SUBx_PROT_EN_CLR,
-+					MT6858_SUBx_PROT_EN_STA),
-+		},
-+		.caps = MTK_SCPD_KEEP_DEFAULT_OFF,
-+	},
-+	[MT6858_POWER_DOMAIN_CAM_SUBB] = {
-+		.name = "cam-subb",
-+		.sta_mask = MT6858_PWR_ACK,
-+		.sta2nd_mask = MT6858_PWR_ACK_2ND,
-+		.ctl_offs = 0xe50,
-+		.pwr_sta_offs = 0xe50,
-+		.pwr_sta2nd_offs = 0xe50,
-+		.sram_pdn_bits = BIT(8),
-+		.sram_pdn_ack_bits = BIT(12),
-+		.bp_cfg = {
-+			BUS_PROT_WR_IGN(CAM_SUB0,
-+					MT6858_CAM_SUB0_PROT_EN_SMI_CAM_SUBB,
-+					MT6858_SUBx_PROT_EN_SET,
-+					MT6858_SUBx_PROT_EN_CLR,
-+					MT6858_SUBx_PROT_EN_STA),
-+		},
-+		.caps = MTK_SCPD_KEEP_DEFAULT_OFF,
-+	},
-+	[MT6858_POWER_DOMAIN_DIS0] = {
-+		.name = "dis0",
-+		.sta_mask = MT6858_PWR_ACK,
-+		.sta2nd_mask = MT6858_PWR_ACK_2ND,
-+		.ctl_offs = 0xe6c,
-+		.pwr_sta_offs = 0xe6c,
-+		.pwr_sta2nd_offs = 0xe6c,
-+		.sram_pdn_bits = BIT(8),
-+		.sram_pdn_ack_bits = BIT(12),
-+		.bp_cfg = {
-+			BUS_PROT_WR_IGN(INFRA,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_DIS0,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_SET,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_CLR,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_RDY),
-+		},
-+	},
-+	[MT6858_POWER_DOMAIN_MM_INFRA] = {
-+		.name = "mm-infra",
-+		.sta_mask = MT6858_PWR_ACK,
-+		.sta2nd_mask = MT6858_PWR_ACK_2ND,
-+		.ctl_offs = 0xe74,
-+		.pwr_sta_offs = 0xe74,
-+		.pwr_sta2nd_offs = 0xe74,
-+		.sram_pdn_bits = BIT(8),
-+		.sram_pdn_ack_bits = BIT(12),
-+		.bp_cfg = {
-+			BUS_PROT_WR_IGN(INFRA,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_MM_INFRA,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_SET,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_CLR,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_RDY),
-+			BUS_PROT_WR_IGN(INFRA,
-+					MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_1_MM_INFRA,
-+					MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_1_SET,
-+					MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_1_CLR,
-+					MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_1_RDY),
-+			BUS_PROT_WR_IGN(INFRA,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_MM_INFRA_2ND,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_SET,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_CLR,
-+					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_RDY),
-+			BUS_PROT_WR_IGN(INFRA,
-+					MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_0_MM_INFRA,
-+					MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_0_SET,
-+					MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_0_CLR,
-+					MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_0_RDY),
-+			BUS_PROT_WR_IGN(INFRA,
-+					MT6858_TOP_AXI_PROT_EN_EMISYS_STA_0_MM_INFRA,
-+					MT6858_TOP_AXI_PROT_EN_EMISYS_STA_0_SET,
-+					MT6858_TOP_AXI_PROT_EN_EMISYS_STA_0_CLR,
-+					MT6858_TOP_AXI_PROT_EN_EMISYS_STA_0_RDY),
-+		},
-+	},
-+	[MT6858_POWER_DOMAIN_MM_PROC_DORMANT] = {
-+		.name = "mm-proc-dormant",
-+		.sta_mask = MT6858_PWR_ACK,
-+		.sta2nd_mask = MT6858_PWR_ACK_2ND,
-+		.ctl_offs = 0xe78,
-+		.pwr_sta_offs = 0xe78,
-+		.pwr_sta2nd_offs = 0xe78,
-+		.sram_pdn_bits = BIT(9),
-+		.sram_pdn_ack_bits = BIT(13),
-+		.bp_cfg = {
-+			BUS_PROT_WR_IGN(VLP,
-+					MT6858_VLP_AXI_PROT_EN_MM_PROC,
-+					MT6858_VLP_AXI_PROT_EN_SET,
-+					MT6858_VLP_AXI_PROT_EN_CLR,
-+					MT6858_VLP_AXI_PROT_EN_STA),
-+			BUS_PROT_WR_IGN(VLP,
-+					MT6858_VLP_AXI_PROT_EN_MM_PROC_2ND,
-+					MT6858_VLP_AXI_PROT_EN_SET,
-+					MT6858_VLP_AXI_PROT_EN_CLR,
-+					MT6858_VLP_AXI_PROT_EN_STA),
-+		},
-+		.caps = MTK_SCPD_SRAM_ISO | MTK_SCPD_SRAM_PDN_INVERTED,
-+	},
-+	[MT6858_POWER_DOMAIN_CSI_RX] = {
-+		.name = "csi-rx",
-+		.sta_mask = MT6858_PWR_ACK,
-+		.sta2nd_mask = MT6858_PWR_ACK_2ND,
-+		.ctl_offs = 0xe98,
-+		.pwr_sta_offs = 0xe98,
-+		.pwr_sta2nd_offs = 0xe98,
-+		.caps = MTK_SCPD_KEEP_DEFAULT_OFF,
-+	},
-+	[MT6858_POWER_DOMAIN_SSUSB] = {
-+		.name = "ssusb",
-+		.sta_mask = MT6858_PWR_ACK,
-+		.sta2nd_mask = MT6858_PWR_ACK_2ND,
-+		.ctl_offs = 0xea4,
-+		.pwr_sta_offs = 0xea4,
-+		.pwr_sta2nd_offs = 0xea4,
-+		.sram_pdn_bits = BIT(8),
-+		.sram_pdn_ack_bits = BIT(12),
-+		.bp_cfg = {
-+			BUS_PROT_WR_IGN(INFRA,
-+					MT6858_TOP_AXI_PROT_EN_PERISYS_STA_0_SSUSB,
-+					MT6858_TOP_AXI_PROT_EN_PERISYS_STA_0_SET,
-+					MT6858_TOP_AXI_PROT_EN_PERISYS_STA_0_CLR,
-+					MT6858_TOP_AXI_PROT_EN_PERISYS_STA_0_RDY),
-+		},
-+	},
-+};
-+
-+static const struct scpsys_soc_data mt6858_scpsys_data = {
-+	.domains_data = scpsys_domain_data_mt6858,
-+	.num_domains = ARRAY_SIZE(scpsys_domain_data_mt6858),
-+	.bus_prot_blocks = scpsys_bus_prot_blocks_mt6858,
-+	.num_bus_prot_blocks = ARRAY_SIZE(scpsys_bus_prot_blocks_mt6858),
-+	.type = SCPSYS_MTCMOS_TYPE_DIRECT_CTL,
-+};
-+
-+#endif /* __SOC_MEDIATEK_MT6858_PM_DOMAINS_H */
-diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.c b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-index 5b4d860318a4..b43f8b4a6a01 100644
---- a/drivers/pmdomain/mediatek/mtk-pm-domains.c
-+++ b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-@@ -20,6 +20,7 @@
- 
- #include "mt6735-pm-domains.h"
- #include "mt6795-pm-domains.h"
-+#include "mt6858-pm-domains.h"
- #include "mt6893-pm-domains.h"
- #include "mt8167-pm-domains.h"
- #include "mt8173-pm-domains.h"
-@@ -1288,6 +1289,10 @@ static const struct of_device_id scpsys_of_match[] = {
- 		.compatible = "mediatek,mt6795-power-controller",
- 		.data = &mt6795_scpsys_data,
- 	},
-+	{
-+		.compatible = "mediatek,mt6858-power-controller",
-+		.data = &mt6858_scpsys_data,
-+	},
- 	{
- 		.compatible = "mediatek,mt6893-power-controller",
- 		.data = &mt6893_scpsys_data,
-diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.h b/drivers/pmdomain/mediatek/mtk-pm-domains.h
-index 8690690335ad..45da83e9d649 100644
---- a/drivers/pmdomain/mediatek/mtk-pm-domains.h
-+++ b/drivers/pmdomain/mediatek/mtk-pm-domains.h
-@@ -66,6 +66,11 @@ enum scpsys_bus_prot_block {
- 	BUS_PROT_BLOCK_INFRA_NAO,
- 	BUS_PROT_BLOCK_SMI,
- 	BUS_PROT_BLOCK_SPM,
-+	BUS_PROT_BLOCK_IMG_SUB0,
-+	BUS_PROT_BLOCK_CAM_SUB1,
-+	BUS_PROT_BLOCK_CAM_SUB0,
-+	BUS_PROT_BLOCK_IPE_SUB0,
-+	BUS_PROT_BLOCK_VLP,
- 	BUS_PROT_BLOCK_COUNT,
- };
- 
+will you be able to send a v2 with the fixes we discussed in this
+thread? No driver changes, just the binding for the new specific
+compatible string, and the DT changes.
+I tested this on the X96QPro+, and also managed to enable IR operation
+on the Avaota board, where it uses the other IP instance (and another
+pin).
 
--- 
-2.54.0
+Please let us know if you can send a new version this week still, to
+possibly allow a v7.3 merge. Happy to review that quickly then.
+If not, please drop me a note, I can then take care of that.
 
+Cheers,
+Andre
+
+> am in possession of that has the IR receiver is the x96qpro+, so it is
+> just enabled for that board. The Avaota A1 may have it, but I don't have
+> hardware to test, so it's just enabled on the x96qpro+ for now, but
+> left in the a523 DTSI for future use.
+> 
+> The sun55i family carries a newer revision of the sunxi CIR IP that is
+> not backwards-compatible with the prior hardware. So a new pulse
+> capture mode field in the control register resets to 0 by default,
+> which captures nothing, and the sample clock divider became selectable
+> instead of the fixed module clock / 64.
+> 
+> Solve this by adding the two new registers, enabling the setting of the
+> pulse capture mode register and the selection of the clock speed.
+> 
+> The new compatible is therefore added standalone, without the
+> usual sun6i-a31-ir fallback (it won't work).
+> 
+> Tested on an X96Q Pro+ (H728) TV box with the Google TV remote that
+> came in the box (using NEC keymap). Was able to press buttons and
+> get readings from lirc / ir-keytable.
+> 
+> The series is based on tag v7.2-rc1 on mainline.
+> 
+> Justin Suess (4):
+>   media: dt-bindings: allwinner,sun4i-a10-ir: add A523 compatible
+>   media: rc: sunxi-cir: add support for the A523
+>   arm64: dts: allwinner: a523: add IR receiver node
+>   arm64: dts: allwinner: a523: enable IR receiver on the X96Q Pro+
+> 
+>  .../media/allwinner,sun4i-a10-ir.yaml         |  1 +
+>  .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 19 +++++
+>  .../dts/allwinner/sun55i-h728-x96qpro+.dts    |  4 +
+>  drivers/media/rc/sunxi-cir.c                  | 76 +++++++++++++++----
+>  4 files changed, 87 insertions(+), 13 deletions(-)
+> 
 
 
