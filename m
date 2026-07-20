@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF461C44520
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 23:18:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 609E0C44524
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 23:30:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PIdTfjSmUf2l6QbXl28Z9ySz7lLCFTnKrNPeGTX5US0=; b=fRkZ4raDAmOU11SNF2EYsR7/Ul
-	iBWfXYryZLsWyT6GAMwD8mD2/LDc6k7Sw3r+L1hs2klWPeFi0I6L1S2lMVGjefn1ZZbYGV7+YFszB
-	7fOplafk/DpvL/TvFMmPTaejOfd6OWh8nQ0pkMwdWz9Yi7hzwUbUTrjku4tnh6wSHN+brQnxAe0sy
-	exLG0F934hT4tMQxac5mjRQCfLFwS2/InxYrWnhOIY+RT4uPYLIc+mZCYpKVA7n1mxG1hH6eWUmay
-	C0BrxMPX5vbNaHKMWpOTvc6LFVSKptcDUECZYKkpZS6Cggk1nvvm0DhfkYQ7oXPDh/z3B6eyy2yZM
-	pIU9+g4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tEuvx0xqS6jOAxGHGjS56fzxNVbE0qKpn7aKV9qmCb8=; b=xEhdnjqQM/+ckVATB6gJY7h4mV
+	Hwbh8H3dXzXEeWYboWtyH1huE0Aqb0hTG0dl8bndhbsSjVHndGJRx0MJLO/o8atnAhrdOqCSRYGYQ
+	M6hjGdH/my6oYatXslWLGy253+kLgLlRiIZlnRVE7dybobS1p9YU8yIpmDV4FY7eyXHenGvP3y0GO
+	qlYVOPy2157HleC+I3Ya4S6sUXNnTSkX0TpDzMStUyRDNKZVLht91IbBjPWUamzpJck4iTpF33M1L
+	EGV/KF+MIsh32B4PLuMdp2vI7m9FN1JuNOnxEQGgTE/T98mm1CAh29soH4Tx0PnUGxDmynO2nBRoN
+	w5E6tE6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlxFd-000000085G2-3Syo;
-	Mon, 20 Jul 2026 23:18:21 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1wlwhr-0000000833t-2Qkh;
+	Mon, 20 Jul 2026 22:43:27 +0000
+Received: from out-185.mta0.migadu.com ([2001:41d0:1004:224b::b9])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlxFZ-000000085Ex-0bvi
+	id 1wlwhp-0000000832H-1GLc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 23:18:20 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id A6CAD838;
-	Tue, 21 Jul 2026 01:17:15 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1784589435;
-	bh=E3sdT3o+6WpSJr7fCr9NTMdAbC9MhuLYIrPuCVmMHSI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=vsnzvkZ8S/6+1JZKdKZWX2Fm/ea9Huss9N3AnWA2Qu8J1jXaKIOpCq2stdsKvCRq9
-	 P+BPY/k2PEIiE4ZwRw+1Jz7Li23AZCw5brs1Up8nbR3/AcF6rL2uidiDAP/3b3Z8iM
-	 BFTRF5AHsnzJypQRhgjAGPl3WohSFxVn1nKsDZDE=
-Date: Tue, 21 Jul 2026 02:18:12 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Christian Hemp <c.hemp@phytec.de>,
-	Stefan Riedmueller <s.riedmueller@phytec.de>,
-	Jacopo Mondi <jacopo@jmondi.org>,
-	Loic Poulain <loic.poulain@oss.qualcomm.com>,
-	Bryan O'Donoghue <bod@kernel.org>,
-	Dong Aisheng <aisheng.dong@nxp.com>,
-	Guoniu Zhou <guoniu.zhou@nxp.com>, linux-media@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v2 5/6] media: nxp: imx8-isi: Correct color map between
- V4L2 and ISI
-Message-ID: <20260720231812.GB27524@killaraus.ideasonboard.com>
-References: <20260720-isi-v2-0-45845bc5d4fa@oss.nxp.com>
- <20260720-isi-v2-5-45845bc5d4fa@oss.nxp.com>
- <20260720174002.GC50424@killaraus.ideasonboard.com>
+	Mon, 20 Jul 2026 22:43:26 +0000
+Message-ID: <d4f606b9-d793-47c1-8c91-9c9da0e68b4a@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1784587401;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=tEuvx0xqS6jOAxGHGjS56fzxNVbE0qKpn7aKV9qmCb8=;
+	b=SUQKKxradGvzXTciYS8KMcmj+8F1RFfKbN4vzzvDpEPma1ytvrnkD1kxVr906ocCwWJvAT
+	CTuWSgq0nIwkQd8XFRKzPTC4hQsx/hykf13Yg633SX0O4t2pp0S884c0I8idfTQEan3PLJ
+	GjCSRA2/XFh5jxBE/uiJZzoXBxZet6M=
+Date: Mon, 20 Jul 2026 23:43:16 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260720174002.GC50424@killaraus.ideasonboard.com>
+Subject: Re: [PATCH net-next] net: stmmac: Simplify ioctl handling
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+ davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Russell King <linux@armlinux.org.uk>, thomas.petazzoni@bootlin.com,
+ =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com
+References: <20260718143848.677531-1-maxime.chevallier@bootlin.com>
+ <ae82997f-537e-4a2d-abce-d163fcf9d868@lunn.ch>
+ <6ac12388-60de-45aa-a8d0-62fcfaf7bea2@linux.dev>
+ <1e640dcb-43ce-4a3b-a74a-ed8e48706b86@lunn.ch>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Vadim Fedorenko <vadim.fedorenko@linux.dev>
+In-Reply-To: <1e640dcb-43ce-4a3b-a74a-ed8e48706b86@lunn.ch>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_161819_739031_5F759DFF 
-X-CRM114-Status: GOOD (  16.77  )
+X-CRM114-CacheID: sfid-20260720_154325_483960_FF4BF19B 
+X-CRM114-Status: GOOD (  21.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,46 +81,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 20, 2026 at 08:40:04PM +0300, Laurent Pinchart wrote:
-> On Mon, Jul 20, 2026 at 11:34:07AM +0800, Guoniu Zhou wrote:
-> > Fix the ISI input format for the color map V4L2_PIX_FMT_XBGR32 in
-> > memory-to-memory mode.
-> > 
-> > Fixes: cf21f328fcaf ("media: nxp: Add i.MX8 ISI driver")
-> > Cc: stable@vger.kernel.org
-> > Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+On 20.07.2026 19:12, Andrew Lunn wrote:
+> On Mon, Jul 20, 2026 at 04:17:32PM +0100, Vadim Fedorenko wrote:
+>> On 19.07.2026 17:13, Andrew Lunn wrote:
+>>>> Looking at this, I'm wondering if we can't just get rid of SIOCSHWTSTAMP
+>>>> handling in phy_mii_ioctl(). Looks like we can ?
+>>>
+>>> I'm not sure about that. We need Richards input.
+>>>
+>>> The code in phy_mii_ioctl() allows the MAC to be bypassed, it goes
+>>> straight to a PHY based stamper. It could be the MAC has no idea the
+>>> PHY has this capability, so it has not implemented the .ndo?
+>>>
+>>> It might be we need to hoist the code from phy_mii_ioctl() into
+>>> dev_{sg}et_hwtstamp()?
+>>
+>> Hi Andrew!
+>>
+>> I think I've converted all phy drivers while removing support for
+>> SIOCSHWTSTAMP/SIOCGHWTSTAMP from netdev ioctl. I believe it's impossible right
+>> now to reach SIOCSHWTSTAMP path of phy_mii_ioctl via ioctl on net device.
 > 
-> Tentatively,
+> Lets look at this, using a random example:
 > 
-> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> drivers/net/ethernet/marvell/mv643xx_eth.c
 > 
-> I'm running a build to test this change.
+> mv643xx_eth_netdev_ops has nothing about time stamping. However it
+> does have a mv643xx_eth_ioctl. Which calls phy_mii_ioctl().
+> 
+> Lets say this Marvell MAC driver was paired with a
+> nxp-c45-tja11xx. nxp_c45_probe() does:
+> 
+>                  priv->mii_ts.rxtstamp = nxp_c45_rxtstamp;
+>                  priv->mii_ts.txtstamp = nxp_c45_txtstamp;
+>                  priv->mii_ts.hwtstamp_set = nxp_c45_hwtstamp_set;
+>                  priv->mii_ts.hwtstamp_get = nxp_c45_hwtstamp_get;
+>                  priv->mii_ts.ts_info = nxp_c45_ts_info;
+>                  phydev->mii_ts = &priv->mii_ts;
+> 
+> So it looks like in phy_mii_ioctl(), the conditions:
+> 
+>         case SIOCSHWTSTAMP:
+>                  if (phydev->mii_ts && phydev->mii_ts->hwtstamp_set) {
+> 
+> are fulfilled, and
+> 
+>                          ret = phydev->mii_ts->hwtstamp_set(phydev->mii_ts,
+>                                                             &kernel_cfg,
+>                                                             &extack);
+> 
+> will happen.
+> 
+> Now, this combination of MAC and PHY is very unlikely but it proves
+> the point. As far as i remember, Richard added this code for the
+> dp83640 PHY device, but i don't remember what MAC driver it was paired
+> with. He wanted to make PHY support just work without the MAC driver
+> even caring.
 
-Tested-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+looks like it won't work now. we have to create helpers in phy to fix it.
+I can work on it, but I don't have such HW combination to test. Do you have some 
+HW to test this combination?
 
-> > ---
-> > Changes in v2:
-> > - Reword commit description for clarity (Frank Li)
-> > ---
-> >  drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > 
-> > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-> > index 5eb448f4c26f..05b51b98344b 100644
-> > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-> > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-> > @@ -151,7 +151,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
-> >  		.fourcc		= V4L2_PIX_FMT_XBGR32,
-> >  		.type		= MXC_ISI_VIDEO_CAP | MXC_ISI_VIDEO_M2M_OUT
-> >  				| MXC_ISI_VIDEO_M2M_CAP,
-> > -		.isi_in_format	= CHNL_MEM_RD_CTRL_IMG_TYPE_XBGR8,
-> > +		.isi_in_format	= CHNL_MEM_RD_CTRL_IMG_TYPE_XRGB8,
-> >  		.isi_out_format	= CHNL_IMG_CTRL_FORMAT_XRGB888,
-> >  		.mem_planes	= 1,
-> >  		.color_planes	= 1,
 
--- 
-Regards,
+> 
+> 	Andrew
 
-Laurent Pinchart
 
