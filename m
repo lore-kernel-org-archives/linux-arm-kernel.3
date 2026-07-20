@@ -4,65 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B84EC44515
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 18:34:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C994C44520
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 18:46:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TAUtxooEebNess9CEi1siJitKJAhCmF0fkozk7XaYAQ=; b=AtIDQH8PJ3xU7W2A7UQac1cn8J
-	2osg8hSzlWxp8W0K9Zcc7vlTv3Kc4X0ENtEL1O+AcabAofybnyoFyySohPW41dYp/BMpguQDNgIoQ
-	Q5OVdSRHkM0olRaSTOpDpEogkGbneHgkj+RdZsNq0J6n80Uz5yEq8VIVcMpLkkTO9rMYzf1Z4JRMl
-	mIxsON+wYkt+lfFf5jRL2vfIvL+twghKEupVO9+1URa50q3cow8BAXw17bJBuBUUt1zuABUv9eQqX
-	jq3twyiycIkmacfSF/2ur0HxWFeKUnT+KjKpjBDzK0o75RHaVGlvuxZx60CAxTtgs2yDVBHQu+p2p
-	qZYCb16A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jV85aXzZjjVnNwqYktMBTA7s+qiPqgMbSaekctZ/drg=; b=idApFLoevisvwgsGMY36cgkGW8
+	+Fk1e/adwCZVMJ5AgyX8t1x06FhPgPoYaAL8b4Z18+lZYmHsTCtt8s/TymJbymTy54ox/MvQYUCEj
+	XZhTxsd3vCSxPqy3Ff38tkBv/SQWJml7ZnfT3eBEAySl6KOFQ1uYwN6zAw6LW0VUYTK5lBjO5Iljk
+	8reZ6Zek3jTlxLnUC6CD1c8lkwBTfBMsxYF+0XF8QVOxc2eX9LpxH4jn8h9oHCJhEGb/LK1knAeeg
+	yLbinMGejAcWfKU9ixNqPK7tgyM6kjQonJeBC1i6At4cO1Z48Pv0eBk012RtrCPj0jNClfVe+LKl3
+	Jd0WfIRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlsmv-00000007fPw-12aP;
-	Mon, 20 Jul 2026 18:32:25 +0000
-Received: from smtprelay0015.hostedemail.com ([216.40.44.15] helo=relay.hostedemail.com)
+	id 1wlt0d-00000007gXC-2hoM;
+	Mon, 20 Jul 2026 18:46:35 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlsms-00000007fNz-0XUc
+	id 1wlt0c-00000007gX3-1um2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 18:32:24 +0000
-Received: from omf11.hostedemail.com (lb01a-stub [10.200.18.249])
-	by unirelay04.hostedemail.com (Postfix) with ESMTP id AE9D91A0289;
-	Mon, 20 Jul 2026 18:32:16 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf11.hostedemail.com (Postfix) with ESMTPA id 73CF12002A;
-	Mon, 20 Jul 2026 18:32:12 +0000 (UTC)
-Date: Mon, 20 Jul 2026 14:32:11 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: maz@kernel.org, oupton@kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org,
- mhiramat@kernel.org, alexandru.elisei@arm.com, vdonnefort@google.com,
- joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com,
- yuzenghui@huawei.com, qperret@google.com, ardb@kernel.org,
- linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
- tabba@google.com
-Subject: Re: [PATCH v1 01/11] tracing: Include linux/types.h in
- trace_remote_event.h
-Message-ID: <20260720143211.0bc5d6a4@robin>
-In-Reply-To: <20260720161343.1367007-2-fuad.tabba@linux.dev>
-References: <20260720161343.1367007-1-fuad.tabba@linux.dev>
-	<20260720161343.1367007-2-fuad.tabba@linux.dev>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
+	Mon, 20 Jul 2026 18:46:34 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7B6C960051;
+	Mon, 20 Jul 2026 18:46:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 777B21F000E9;
+	Mon, 20 Jul 2026 18:46:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784573193;
+	bh=jV85aXzZjjVnNwqYktMBTA7s+qiPqgMbSaekctZ/drg=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=N/NWFSrA88AaQ1EF1EB3CUo1xXTh5k88kac/WL5wdINpSTXnZXLy6P5yGg7GLaUec
+	 O6Qp/JuOZmt2pmZqxCK+BhNUDtTEcZwslIx5+rvyjgy0mdGXJZQs9k6Co0FJ5T7RtB
+	 9X98rfcwlu4+yYFV5UAp9naXS4new9gj+gwK+3dBprv/2D5DsSxWCIFtV/qruWc2YD
+	 s2rcMnXMU0tqSifxO6ebx4VmUs/oJs5oRwH4hb3qx35SRl2IqUNlQ5y3/rNFw3S1J4
+	 f93VHPIo+shY3H81pZbsGyZ8VqcZJtc+c0jFuOTYdQq/F50mvzPZNUPNUVdW6fJNmq
+	 pjJtrwzjU0amQ==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Kemeng Shi <shikemeng@huaweicloud.com>, maz@kernel.org,
+ jason@lakedaemon.net, lpieralisi@kernel.org, radu@rendec.net
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Kemeng Shi <shikemeng@huaweicloud.com>
+Subject: Re: [PATCH v5 0/4] Some Minor fixes and cleanups to irqchip/gic-v3-its
+In-Reply-To: <20260720071215.50705-1-shikemeng@huaweicloud.com>
+References: <20260720071215.50705-1-shikemeng@huaweicloud.com>
+Date: Mon, 20 Jul 2026 20:46:30 +0200
+Message-ID: <8733xdmrcp.ffs@fw13>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Stat-Signature: a831g5wityo5unzsfqepbjsayoypenqi
-X-Rspamd-Server: rspamout02
-X-Rspamd-Queue-Id: 73CF12002A
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX18V9+EcvOTS50wfn1iUFdmuVa/ykzVCoIA=
-X-HE-Tag: 1784572332-903957
-X-HE-Meta: U2FsdGVkX1/nUie4EgfVs/N2MN8uYuXasi4IxdlvoavaGWe59c26La92i2jL7d8Ef0hWHk+Gs6YDAwZLoyVdqIXpVxEvu5g7sdhsQYQ128RX80hg4ZjuTEDC3f3aARD6PmMbm9HvR7IQQCVCMx9Xyk5NLs3upKYJSf98tJMMCixZuWNL6pm30wjpZM4XQxKnzFryYh0M2qH2uV8IcIQI1KHfCDaJtD14aaldy6iuuRezR3LRfKUNdAHfAtgH+dnCaYL3cSwR+0rrstNociZI03uZ1ghPYjjLtLJPJNNQ06xf3O1QLr1ywSywYVo0oHbaG7DSLu+AGcJsRqWedIOESDblNETM+yOk0hnRlEWWnVNZuxdBxyjmpTjSoCh0KcpE
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_113222_249861_1F0DBDAD 
-X-CRM114-Status: UNSURE (   9.44  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,27 +68,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 20 Jul 2026 17:13:33 +0100
-Fuad Tabba <fuad.tabba@linux.dev> wrote:
+On Mon, Jul 20 2026 at 15:12, Kemeng Shi wrote:
+>
+> Kemeng Shi (4):
+>   irqchip/gic-v3-its: Fix memleak in its_probe_one()
+>   irqchip/gic-v3-its: Fix its node leak in gic_acpi_parse_madt_its()
 
-> diff --git a/include/linux/trace_remote_event.h b/include/linux/trace_remote_event.h
-> index c8ae1e1f5e721..e4cc2d4497bcf 100644
-> --- a/include/linux/trace_remote_event.h
-> +++ b/include/linux/trace_remote_event.h
-> @@ -3,6 +3,8 @@
->  #ifndef _LINUX_TRACE_REMOTE_EVENTS_H
->  #define _LINUX_TRACE_REMOTE_EVENTS_H
->  
-> +#include <linux/types.h>
-> +
->  struct trace_remote;
->  struct trace_event_fields;
->  struct trace_seq;
-
-I don't know if this is correct or not, but here's my ack so others can
-decide and take it through their trees.
-
-Acked-by: Steven Rostedt <rostedt@goodmis.org.
-
--- Steve
+Why are you resending already merged patches? You got an email
+notification about it, no?
 
