@@ -4,108 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27D3DC44515
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 15:39:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DF7FC44520
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 15:39:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jr3BJIgFhDTmrJKgUlUDwp61WWkXNwM6edIiv0GwGD4=; b=e22MPztt7VE2R4VyY+s7JUFlSK
-	GMtIlHqh4j8dgfthvhGd2vQG8r3LmtSXFkpj3c3Q1o9Y8NbNRI3pDdzaswRy7wiiW83vLIa/yYK3v
-	zwQAQ36rUH44rxEpTb4Z7bzAk8Jwsi1uukDUsBGjeuMj8jEXYHol7euAYVDsHmX6BHLg7vn1h/bJy
-	qAVcNMgHqT5u5tHEZ0for1dO/9A6wpci8iO9oOTZvCFhpgO+S/Z69ZkKderzyPFUrOqRwCNQWdeqV
-	lAaXPNWAZujmNZw/sBZfed5tJ2NGL1qBoQ2hA3ueuCjhES5FtDm+Zqn45brrn07lNjEtZw3b5XHPQ
-	Z/f1bmmA==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cgF0MEgU/30tU1I7r6J7cVBBky2HrgoOTg461cjGO9E=; b=loHgeUBRcWm7n+yTruhiJD67zo
+	kzn1o7QQRTJHeWs6fVJbfUbiDSGZnf2Lgl/wlMZzZl9/wQYD6Y62RJOa/3cKqV/mWynZDZSOlQTm0
+	VffCo/vQDXskUlCSkiwNo3D+O0qMEP48UuW4DfyPFg4mX5iyCjWdBiX4wE03H7o47STWbvSk6jMS/
+	o/IDSdZHmik1WUXzqDKeD2AcDURpP/xq3x35wlpAc9NkmYEd7rysPsONd3+Ssn9M0qJQgJe+Tgs2m
+	Ba05+FzV5W/Lxlm/ETLMLku+7MQPD+8XT21AJG2L5wNdOcKpmdofRYuf92qIdwV3z6sChg5RE1R3U
+	I2cGC9Og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlq51-00000007DOI-1SZi;
-	Mon, 20 Jul 2026 15:38:55 +0000
-Received: from mail-westus3azon11011063.outbound.protection.outlook.com ([40.107.208.63] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1wlq57-00000007DQX-3UKm;
+	Mon, 20 Jul 2026 15:39:01 +0000
+Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlq4x-00000007DNO-36r4;
-	Mon, 20 Jul 2026 15:38:53 +0000
+	id 1wlq4z-00000007DNc-2NhG;
+	Mon, 20 Jul 2026 15:38:54 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=h6szXohsomvOvzhQs44k/sxzAv0EK8kUZ4FJ/e+yeF2Scs7RCgWXUfjUOjxXbLjckACKYkeRd0EarZ7+qi3PAmhIJXEImRhgkhprNbsx8Jj4O+/i8OPbWvqFQgvWuiX0DSbnr+DUDUt8ZUsJSn9W6pDK7a3wXvEgOKrKl5fcT9v1cJ7WBbDccWhGnbFxm9wwm+Pbz4RvmTXpCAPd0Q/wo5u0N5dp2/80duQuqoQfMuYL0DFRLTSBcVUFD1acpUWaRJJi0BIUl1xLoaXb+ZEN4sdihnHUnT95gH1aqEmzAoEGKeYX7Q/I7CIoSCgq+5Y3Pb8cBKdG04d5t8b+iKvR7w==
+ b=WNFEaDLSOU8cCXs6jaPPZcRXJ9HPQBKB6BtV3ZbwI1QayoDOtQ/pFgoBlkoMRTNLzSQevUC6UVX84/NaizhMJ6b0HPQuzGVc6yskXfGq1BTUjupsoJ0fRlz5LGhVhHpWiJmsW750jwI2ZR9/AQ5pFRajJv0Yj7JSX1yB5gaHTVN3XxwSd6ZWUViCd1Gu/vNys+13fNeQEkv3OwEJxEyd5aC3Agz4Q8nzmbO2hbv3OnnAYeQOiVFNszrwvhJnQ1kNfbQdnAeBwNFlgkPFFoRPLjGoRZY8v9V6FB5oGpI31kWlfH/WPiiLX9QyLN06H6BI0qtwTVvgHVhK4jrVDa7fzg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jr3BJIgFhDTmrJKgUlUDwp61WWkXNwM6edIiv0GwGD4=;
- b=ybMd3j3sFZMz/4CLc5/pUkilioagkeEO7aPMWaD/OE4dbh7Q39wJ87AjgrvdR7j+wIDjAqFKWm3CAAjeyi0SOZ6mf6HtQaf/d72fBwJSLHjKSKHGKiyavixLtt75aMXYL9dj5KpsuKhjhPRiZOZRD0bzMePWhAhNMJrBNOlcii3r47sTZZ3MoK/w+KHgVBPpr0v2nrxnccCUyuZxQozK/Gm1I/uN0OIArFp4Q4vVRqe62rkiStAVrPlNPSdLRlV9vJZf6vUTtIJUdJBt1pVpIZOZ0yoRUujA3PXPvAxAXyjw7t4vAMP9BxYEaMIHHpepTROFoNd7YFVgViJj/oWkkA==
+ bh=cgF0MEgU/30tU1I7r6J7cVBBky2HrgoOTg461cjGO9E=;
+ b=ueeQpjCY5FiZ4U7Npkzy9LBksrwjb0YyhDPPIEXMbSyzWbpJHhv6wsqM1R2mkG62XmF3KZjwxhZWZxvE3Wl+gtsnE7F9sqR8Fu9QuiPtMoxr4moo4vh1nHk7pDJxYH92BMcxRva/guNouMhCAb1mqafaag9ROPKx21ys/wlX0nOB8YcaGIvI+B77kIUaThuySZ5TTdyBCIHLODzxEBHiEPSvNaPd76PZhIW8O+mWcYJuxsDh8wQJ++4XrwDOFr5tuZedUTV36xe5N70bqVef44hliA4NZxLyMyLigQT6eTfWWpBLSd4qDVxvxL5G1m5e3CE/lxWxjjCNEiLK/D83+Q==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=ideasonboard.com smtp.mailfrom=amd.com;
  dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
  header.from=amd.com; dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jr3BJIgFhDTmrJKgUlUDwp61WWkXNwM6edIiv0GwGD4=;
- b=SqXUcIYOE8edhEC4909V1RNmAYUIB44dVR29KBXH6AnkjtjS/AdkY4NOhnAPgQ2Ktq0+PS+IyqQ28jTukJJ4Bk8cf4gTJh+bucYTMBJtqeyCQTGLmS2PwS9tHgd2Vkhvba8cgB/3b3YWUtUbKT9mGWz4cl/WNCXH+OKiHCU9eTw=
-Received: from CH5PR02CA0008.namprd02.prod.outlook.com (2603:10b6:610:1ed::15)
- by CYYPR12MB8889.namprd12.prod.outlook.com (2603:10b6:930:cb::16) with
+ bh=cgF0MEgU/30tU1I7r6J7cVBBky2HrgoOTg461cjGO9E=;
+ b=ji05XsFdJ3d4qNIKJUsmz3o9cGOEd+DDkWaPIRSXifi1/qujcwYMzS4MqYmdcuPbs5budYYkFkpAcleOHMYcTcGiJ1OpKK64+zcnSBjWTB1lh9TNbS2FsfmWxR/QYALut0iGWvysymca+9ud8ftnlt+vpue5agtIHbR3UfaoA58=
+Received: from BN9PR03CA0455.namprd03.prod.outlook.com (2603:10b6:408:139::10)
+ by MN0PR12MB6296.namprd12.prod.outlook.com (2603:10b6:208:3d3::9) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.18; Mon, 20 Jul
- 2026 15:38:43 +0000
-Received: from CH2PEPF0000013E.namprd02.prod.outlook.com
- (2603:10b6:610:1ed:cafe::4) by CH5PR02CA0008.outlook.office365.com
- (2603:10b6:610:1ed::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.18; Mon, 20 Jul
+ 2026 15:38:46 +0000
+Received: from BN3PEPF0000B370.namprd21.prod.outlook.com
+ (2603:10b6:408:139:cafe::99) by BN9PR03CA0455.outlook.office365.com
+ (2603:10b6:408:139::10) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.223.18 via Frontend Transport; Mon,
- 20 Jul 2026 15:38:43 +0000
+ 20 Jul 2026 15:38:46 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
  smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
 Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- CH2PEPF0000013E.mail.protection.outlook.com (10.167.244.70) with Microsoft
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ BN3PEPF0000B370.mail.protection.outlook.com (10.167.243.167) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.245.5 via Frontend Transport; Mon, 20 Jul 2026 15:38:43 +0000
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ 15.21.270.0 via Frontend Transport; Mon, 20 Jul 2026 15:38:46 +0000
+Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Mon, 20 Jul
- 2026 10:38:42 -0500
+ 2026 10:38:45 -0500
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb09.amd.com
+ (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Mon, 20 Jul
+ 2026 08:38:45 -0700
 Received: from xhdradheys41.xilinx.com (10.180.168.240) by satlexmb08.amd.com
  (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
- Transport; Mon, 20 Jul 2026 10:38:39 -0500
+ Transport; Mon, 20 Jul 2026 10:38:42 -0500
 From: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
 To: <tomi.valkeinen@ideasonboard.com>, <vkoul@kernel.org>,
 	<neil.armstrong@linaro.org>, <michal.simek@amd.com>
 CC: <linux-kernel@vger.kernel.org>, <linux-phy@lists.infradead.org>,
 	<linux-arm-kernel@lists.infradead.org>, <git@amd.com>, Radhey Shyam Pandey
 	<radhey.shyam.pandey@amd.com>
-Subject: [PATCH 0/2] phy: zynqmp: fix clock and runtime PM error paths in xpsgtr driver
-Date: Mon, 20 Jul 2026 21:08:29 +0530
-Message-ID: <20260720153832.1130006-1-radhey.shyam.pandey@amd.com>
+Subject: [PATCH 1/2] phy: zynqmp: fix clock error handling in xpsgtr_phy_init()
+Date: Mon, 20 Jul 2026 21:08:30 +0530
+Message-ID: <20260720153832.1130006-2-radhey.shyam.pandey@amd.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260720153832.1130006-1-radhey.shyam.pandey@amd.com>
+References: <20260720153832.1130006-1-radhey.shyam.pandey@amd.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PEPF0000013E:EE_|CYYPR12MB8889:EE_
-X-MS-Office365-Filtering-Correlation-Id: f44a6a12-07c0-4638-08e1-08dee674faef
+X-MS-TrafficTypeDiagnostic: BN3PEPF0000B370:EE_|MN0PR12MB6296:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5c748e05-6862-42a7-ebc5-08dee674fcb1
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|1800799024|36860700016|23010399003|13003099007|18002099003|11063799006|10067099003|56012099006|6133799003;
-X-Microsoft-Antispam-Message-Info: D0/GfQ/qatJw5ZstPS+WZvqvBrK5BJcDU0KDBB4jhI5lYxh4uPkUmDcGFGOZg4Bkf/CGCg+q7ciH8wtxFL8QBPslD8kLaMtDWM7DBmGMHHLvh8Yi+IVBroRPt+7CAGrH7TdWajQMKrLHQG8LoeGpO60Tts4YgcjnAsU92JMaopbAvO38U0gK+J4NDXjkifUbqDiYEDHJ96qiTRVUAhEqpCA3XUW5mu4D6XYj+6ID8BvJaURDpufHioxfwxIknK8hZ42SCBsnytSqs8NepcWElA+tLIMIHK9PWvk28tZru6ISMgdvB2h6oDg9lEOLDiLdsmlwFUkfrD1v6TjUb8mrDao/FOAD+x3WmILJfmhTNpI7nEGasQ1zsWaXsO3Nh08JyqL2UUg0e0uj6w4+7KbkvzcR8XgNbsHi5Mm06UKnFVQtcm9bYu0pNEXMSL6qQncsN5475l1FmvDZAfacU/+ACZTVAshkuOejo23459Kkqxn/Q+VURgjq/7p1ZkhifuQUUv4H1WmW6o8Y2OWwSD5YgdRyR4pV35Tx3fU9Ma2Leo/7eMXEUDSnI0aR9UBLwuIM+D1EQCpzb4gSFzxoWSx+LkMDCQHq2wtrI8MDy0wAJGM4NPZ2q71zJSpIVbV5wJnNXO1YoWn+hyz/7wxT3MMoGS1vgNj6ZZGxiG5afxWbTrk3MQGvv4pBrF3VhyaBlSJsH+yGIYLhoNU+ZXR/bMVG1A==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(1800799024)(36860700016)(23010399003)(13003099007)(18002099003)(11063799006)(10067099003)(56012099006)(6133799003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|23010399003|376014|36860700016|22082099003|18002099003|3023799007|56012099006|11063799006|10067099003|6133799003;
+X-Microsoft-Antispam-Message-Info: Hs+80azgXeP9rqC1/NVwuNnpS86ZRhSCf2bVEZgLJ9mkcgs2UZBoin/eyR38ASTbzK9qYRHpJq+YBcZlgtbFU+HDQe1b+zTHNoReo2JtwPGos8/D3tGTR8fN3YcmO1e0BFEb9leyqVvbBv8OlLPF8fXDbEKlTTE+gZl4EcNiJyaqFdQMfds1eB1raNSRmj/5fhayaOmeSdEl8C+sXZy/GQ2ualIiJIMmulI+W53fPxriJPbPp92fgNSvWPDP7Xt/J4CyazLGo2Vq1rnn/9H3Wh4Um9KDEu1VrxU3xps3SkCN13bDByJw1L0S27z/IJEn2+jWGYDhdTswfyoA085j014zht8BE8uCAs1AQHwWNixys8Wh9Uc85iVjhHS16xHB9Jtr6AuY2eaP/Wy9SQcWbG8jC+ChmsYHzHfBCr2pPQ9YmIBJFt12jmVmD8L63HnCgcDnSpCXDC/HTA+tHzmV1Q2TwipuvTAXJcGPy5xADKPeM//Og+cn5quJZNtqlpCOp3rQGNvwTXO1vF7SP0l7/5h2ObeO7HVfZXKrI/jqfzWk12Gdj7Cnfj3uWRXzCGhrOSpG3Yh3daW3FZNKBAkS7so1UJI+tmzLfXO4/t4MpyQ+fCHZWIze9jNhYieSQryPAyS7/3LysylriTXSRc6Z2zYPKZn8pOIabv6IpxPpKuSEoUcwp2QtKZBLJbx7G8J9xLtaw13J9/gY9AfOCigz7g==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(23010399003)(376014)(36860700016)(22082099003)(18002099003)(3023799007)(56012099006)(11063799006)(10067099003)(6133799003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: TXaA0eyC8qCV+BnaQFFrTlPB9f5NBtTu19VSNAtkBG+qVx+wcldL+Dlii6gr5Re/7003kDbhz22EiOsfQk3yJxCav6+Ex+wwx1QMUShNNlb1pwUSlrqak1h5MHgT2nYW6wThkN4gwNgEMf9eoy7SHCEVzcGmU9fvxQRdIK/0A23HHRIDo/R6U2MlUfPiWUlpyXmC/PHZaxsWUFr4Ztrc2P5Rrr/pl8ifII2b0ujL3EcWjkxm6Ha8VD/KYgyzNhLoqDNFzLSwreHtYvHJ/0SwnI+UbWhuHhD9ECdr2XeLgQP2drH6WpdA5JVxsbpTbvPo7zki5FpFHpWR2sQBCa5FtPYSxWX1ahc5MwIN/9ui7XHy6UEZ+/Ylwc5p4zCQcHfW9O+cUVatrKyPNXfPj5bc9KFTQDsLceUFGybbzYPoHf+wOI+OdsAPT3iMR/ZTce4Q
+X-MS-Exchange-AntiSpam-MessageData-0: D+xEC5Ps1vzhkaX46zuQwupr57YusVGeMGbALvO5O24yweGPdOYXNMwwiTkmSG3yLyfVTuQgT4Pm0XTpFLnFIt9NjE69sYRkAg/av+HW98UUVZqJKTMT84t8+UDcvETHqMYYUU9JuEJHTX6KEJuOqwblaZ0a95t5TQ7aHQqIOz4gLiqwhmoygOvbmcO84+8N0vOLaClQR0SCDlVJSEpjypBLxZ/VTyR9xYl3FCQTFb3892wlWR3ooXme0M4D7FH7Khhs3JIbJqOz24YnZeiI+Jz1e8KUP/kmNsylZt5q4sgVqLq56TLtI+bN9avDcEuaCcP0Xc263DC0EBNpzxx1tBTfdhZtF/N6zBAKcSqaJ/m3gi29pDm18FI6J4RF/Teuf+VQtvUDc8aE/zDgm1GV5ziBExLSvEK1vmzlOHw80aNAg6q1DtXAGOlFKc8BpuH2
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jul 2026 15:38:43.3215
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jul 2026 15:38:46.2872
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f44a6a12-07c0-4638-08e1-08dee674faef
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5c748e05-6862-42a7-ebc5-08dee674fcb1
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000013E.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B370.namprd21.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYYPR12MB8889
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB6296
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_083851_777102_E18D0D5D 
-X-CRM114-Status: UNSURE (   6.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260720_083853_604812_3033B54D 
+X-CRM114-Status: GOOD (  12.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,30 +125,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series fixes two pre-existing resource handling bugs in the Zynq
-UltraScale+ MPSoC Gigabit Transceiver (XPSGTR) PHY driver. They were
-reported during review of the SERDES scrambler series [1] and were
-intentionally deferred to this follow-up series.
+Propagate clk_prepare_enable() failures to the caller instead of
+returning success, and disable the reference clock on initialization
+error paths to avoid leaking clock references when phy_exit() is not
+called.
 
-Patch 1:
-Propagate clk_prepare_enable() failures from xpsgtr_phy_init() and 
-disable the reference clock on initialization error paths.
+Fixes: 25d700833513 ("phy: xilinx: phy-zynqmp: dynamic clock support for power-save")
+Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+---
+ drivers/phy/xilinx/phy-zynqmp.c | 13 +++++++++----
+ 1 file changed, 9 insertions(+), 4 deletions(-)
 
-Patch 2:
-Move saved_regs allocation before runtime PM resume to avoid 
-leaking the runtime PM usage count on probe failures.
-
-[1]: https://lore.kernel.org/all/20260627155229.2791113-1-radhey.shyam.pandey@amd.com
-
-Radhey Shyam Pandey (2):
-  phy: zynqmp: fix clock error handling in xpsgtr_phy_init()
-  phy: zynqmp: fix runtime PM leak on probe allocation failure
-
- drivers/phy/xilinx/phy-zynqmp.c | 25 +++++++++++++++----------
- 1 file changed, 15 insertions(+), 10 deletions(-)
-
-
-base-commit: 0718283ab28bc3907e10b61a6b4be6fefa1cbb2f
+diff --git a/drivers/phy/xilinx/phy-zynqmp.c b/drivers/phy/xilinx/phy-zynqmp.c
+index fe6b4925d166..c8230f2bda62 100644
+--- a/drivers/phy/xilinx/phy-zynqmp.c
++++ b/drivers/phy/xilinx/phy-zynqmp.c
+@@ -658,12 +658,13 @@ static int xpsgtr_phy_init(struct phy *phy)
+ {
+ 	struct xpsgtr_phy *gtr_phy = phy_get_drvdata(phy);
+ 	struct xpsgtr_dev *gtr_dev = gtr_phy->dev;
+-	int ret = 0;
++	int ret;
+ 
+ 	mutex_lock(&gtr_dev->gtr_mutex);
+ 
+ 	/* Configure and enable the clock when peripheral phy_init call */
+-	if (clk_prepare_enable(gtr_dev->clk[gtr_phy->refclk]))
++	ret = clk_prepare_enable(gtr_dev->clk[gtr_phy->refclk]);
++	if (ret)
+ 		goto out;
+ 
+ 	/* Skip initialization if not required. */
+@@ -673,7 +674,7 @@ static int xpsgtr_phy_init(struct phy *phy)
+ 	if (gtr_dev->tx_term_fix) {
+ 		ret = xpsgtr_phy_tx_term_fix(gtr_phy);
+ 		if (ret < 0)
+-			goto out;
++			goto out_disable_clk;
+ 
+ 		gtr_dev->tx_term_fix = false;
+ 	}
+@@ -687,7 +688,7 @@ static int xpsgtr_phy_init(struct phy *phy)
+ 	 */
+ 	ret = xpsgtr_configure_pll(gtr_phy);
+ 	if (ret)
+-		goto out;
++		goto out_disable_clk;
+ 
+ 	xpsgtr_lane_set_protocol(gtr_phy);
+ 
+@@ -705,6 +706,10 @@ static int xpsgtr_phy_init(struct phy *phy)
+ 		break;
+ 	}
+ 
++	goto out;
++
++out_disable_clk:
++	clk_disable_unprepare(gtr_dev->clk[gtr_phy->refclk]);
+ out:
+ 	mutex_unlock(&gtr_dev->gtr_mutex);
+ 	return ret;
 -- 
 2.43.0
 
