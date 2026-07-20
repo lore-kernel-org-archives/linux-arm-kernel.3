@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EB88C44521
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 07:22:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57FA7C44521
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 07:23:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
 	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0fm7uYEG5s4l2Qi1Q3lmMTkR8sLj78MMwG9bX9Qa+qk=; b=GMuZ5MLRl0o9V7nhu9bnFeHZ43
-	Nl5D+1kwqmlJo7iZDMpzgkWgK8Mh/FAgBvE2G2AcamuFVgvFjqqfSAXTi6HVyOY4cd446XlArrk4t
-	7FGI0AHMP8Jg6gzZCSYwlmyou5VRTp3yr+QuevB6AQjmL8TTYxva0GrDy8b1TjDxBPVhq5qLFi0xa
-	kB7KkQjyn6fWTO8Uq7Y0Gh9UoHNg/PlTVviaQcFzoyrZH+Y5ajqtaTJH23zP9KNsgvct6qrZ9W7O/
-	dzoa2V6ioll6KE5ZeiFIbhYqVkcoAfV45rR/TyCSm2yGcH2gTY27c2Cd71spxMhdoj+JtkTFNP/y+
-	6TmzFgHg==;
+	bh=T1rQiWC4b1Qi8oqfTxdLB8xh9GtA5nvI8VX0/xhDq6k=; b=mFSkEPdAa3OCxoBWdzObhASkao
+	0vXpJXQ7Yz1KKjXg385rVGETXx1XCnsFKN618DHFnGWt26Rxnn1KQe+6U9QCpM9kG94amIXWcRK2z
+	Zl7dmz+R1KCvus6JJT/Uuw22DipWGgjBhCQ5m7KeMJr69o2QCwoAaAJsIeLAePxvFIe8EcDZ1aI5H
+	F9ftRV4Wj8a8FbNIVwc+c7duPvDtcXi9LszAhdpxvZn1q7GDl0PNFv9CCplucqXhZtFBMxsYG/6ep
+	PL1qVmDcDy1Av3syxDQ35GX/L5VfoP2X5LdMa+47V/p6E/f5e7LIhn9PyPlUzcn5wv1VaE/NNborS
+	uqn91+eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wliKI-000000063Bc-2kim;
-	Mon, 20 Jul 2026 07:22:10 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1wliLH-000000063d4-2KCn;
+	Mon, 20 Jul 2026 07:23:11 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wliKG-000000063AY-2tX0
+	id 1wliKJ-000000063Bu-1yDM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 07:22:09 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-384930ca5e2so9172442a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 00:22:06 -0700 (PDT)
+	Mon, 20 Jul 2026 07:22:12 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-381c51fde6bso9845781a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 00:22:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784532126; x=1785136926; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1784532130; x=1785136930; darn=lists.infradead.org;
         h=message-id:date:references:in-reply-to:cc:to:from:subject
          :content-transfer-encoding:content-type:mime-version:from:to:cc
          :subject:date:message-id:reply-to:content-type;
-        bh=0fm7uYEG5s4l2Qi1Q3lmMTkR8sLj78MMwG9bX9Qa+qk=;
-        b=FyITGyJLBJZrr8Dyd/qBNSXjZb1ETOP46RHLCYXHel3skPnRqtNsjSzMcLfZ1Q7uNQ
-         jtC4Hauhv5aOkdJ3sPrOyLDEHSzFF0nsa6Yu0jIKOXdV1lJkgXuT953wJkzjYPD0uC6W
-         eTJg3LGHaF5HFUWN70AkQ5j+XW0eIBnWgGYY2QlAowXhvSGuROwMVOfzuXygWFekMsEf
-         KnEgvMp29nyjrl3UvmxJY58g82VkBYgd8u+w8q3z+Fm4ZN82U8SaR/+R75KUQPQXNTdy
-         D8NARp1sBmIMkLwvgRvtEG2IC95Sn7m6ClaHXRpJs2XWyFZsJrYTur99EDTOv7BnH3yR
-         VkwQ==
+        bh=T1rQiWC4b1Qi8oqfTxdLB8xh9GtA5nvI8VX0/xhDq6k=;
+        b=UrXozMEfNKb6ZjwNmSjgiI/ybxojEpM+aF9basO3HL1jG03ugfZWzXx5cKiBb4pHhy
+         hgQ/Ga4whY0Wg5fFN95ttjABGz+67ifyBSYa9HQZgh4yW0nE0KTnqIv2ymZ1rzCM04Xa
+         dbjdZipxvDZdgANkMAk/ytmxAVdLh+l5NYztqHJjmhjxc1Geg3YJqmFTAPIkqrm0YYBD
+         iarkO9paUL4tArr68V6z5xnOrvQ8+FBYTI+fmdq35IiyE80E4yM4AO75IEqs49w2sTUc
+         4l30c1AxByUNlhMg/NygeQ+2Mge3gMUf7JhYf8WdIRJWyspHz2ESPCEg5j7KVaGzxOLB
+         XmSQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784532126; x=1785136926;
+        d=1e100.net; s=20251104; t=1784532130; x=1785136930;
         h=message-id:date:references:in-reply-to:cc:to:from:subject
          :content-transfer-encoding:content-type:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=0fm7uYEG5s4l2Qi1Q3lmMTkR8sLj78MMwG9bX9Qa+qk=;
-        b=f7h/kmuRqLYI2VWtb39Q/2v0k9p7w7aBjAnahbPmcIcv1In82XuLhXiTkGma7S8na5
-         /1f13ZkobFgF+FqScOMGL57dIjgbDGo4a7YdSFsIQjcJf6IiIPSQHRooORA9VvIq7XcX
-         AYGaYWFT5+hT2R6dvpFu4PF9qNpwMLf0YXrbvZJqMGgbnUK2kaZKjhLnGQ1XWY336Mhh
-         hgY1zQrDQD/GFfKAtBjAFllZXLxXeGBJDkc4dTfqGKmNCdhebt3S7j/tK88puMfFNfN+
-         j4JWANjxpzqmOcLRn74/lMB6LsdgAejwIXvkJkP6pYtrgq84/jA4oIUaO3endVIIrjL5
-         j7sg==
-X-Forwarded-Encrypted: i=1; AHgh+RoojZ8xhN/6p06HfBEdiCC+2NhC8oGxBNDY2Ly3KalmD5L7sTRfbWa6bwZswWsYxj6f/+25CS39QsvCviVHF48h@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxvr0t5TnhzwaHg53OBFiX1PTd3RSaqXX4AAGMTb6nIuCOSrMeI
-	KB6d17AczsKjfKcAvh0ihiWxazrG+5GmNhH+DrmAu/zdAJEX+1C9aZnp
-X-Gm-Gg: AfdE7cki8K6VoMuQTm86VtBHnvIXuFSMUnom90w+/8a/X3iJAalSqqPaZjj6ss5XVIL
-	eGeYSu/na3cZo0Sb5avRYCw/KW1XZ0QdNIZoqjT3OsRKOdv2m+mTLaUZqPEH6gCJW+MvahLsFQy
-	2YABV4Gy3XiuismxUCsLTL25guW8A6Phxmy0o7QadzOF6UjlUm4/Q57QO9HV+jOZE+e3ZBGOCX3
-	GKmT/CWHX6aUOcog06HVR/b34yX4X0AnSi8bFVLCAzh0vxWlEkFpXk6Af24GhuM3JVJODqrq7Xo
-	JxIWuhAIUUA1mg9DLfT5H/mLSHISRgmEMbJrGeoDyAdSBYApgZFVj19effGB3pZ4PCys1vQeyED
-	NbOQFdIQ7C+1dvCZ53pdrl0bDIly8hElBDVPVCxO8rbOIxQkN694J/OSkO/t4V+wp1V1SxNPlte
-	PqO/R3L1YgIsvUy3Ci/G18Z7/ciGoT
-X-Received: by 2002:a17:90b:184d:b0:38d:858c:834d with SMTP id 98e67ed59e1d1-38e4b47726fmr13853861a91.17.1784532126260;
-        Mon, 20 Jul 2026 00:22:06 -0700 (PDT)
+        bh=T1rQiWC4b1Qi8oqfTxdLB8xh9GtA5nvI8VX0/xhDq6k=;
+        b=Z9etG6xyT9TF3Wb2/L5fwvASXa8mYqg9J8GwutSuYoRiWBt/4dFZ2JaUCUGyBkug2C
+         K6HrTTE7iNp9XKfL+JYM1Qy0+0rmIqHk5u9QwlwbaG2svHioA6L40yGBHRpA55noBezm
+         i65Clx4j/dCaWpVuywOSRcxtiGQAf3mQhULN5hWFBriy6d0TmvImE4wzvReS7Py4BYz0
+         rp5CPE16MHIBGgp98rltKjuOZrZx8Jh3NPOp61PZuY2kJ1qqg0tnL7pedUrpE3n/4h5o
+         X5yWgT7J0cqpLkRFkHwwKn/Hu541dhaBoToRpB3eE/wrlVIEDddP4ovrFflEuSWKXY8o
+         gUbg==
+X-Forwarded-Encrypted: i=1; AHgh+RoE095x/0kxOz1O4x/pASwl4KLsEjwbJukpVLHZDnuON8flpJPgypcwPeu4dyhyygdwK1VVZshE90VXFXGlXgOe@lists.infradead.org
+X-Gm-Message-State: AOJu0YzND70tpW5cOjnG0x0Dpyt097BlmYDMImlx3fTVUR4z8GeSceoS
+	K+vnBCHh/5+Sfc4AqJPiLlZkNIFkQFUkhZWue+0Nr5csvBTLFgCs/Fr6
+X-Gm-Gg: AfdE7clXCuGYdgSlHD//m0Gz4pm/tmbuYCK+xzTtrfmIeWEpt18SVuqYtjM7YOy/JUE
+	+ikTQaOGU3uQkfmragkVGSvdmq7sintFWNzVG7F3w8F/eDPX+QW4A2tywBa0TwT5oKkrhEiBMLQ
+	bz5SO9SsAc5PYjwwNZnTqC+1/goMntGO0TdqpWiobpHpaWBBQBO9xIHPptX/lK7Z73r6WDlMHpx
+	ivE3UvOTHtZIQ85jellew/uZ4L/mLNdjRqmip8cf8Gqaqcosg6SliMEGYlSdeFX5iucNvT/n8OG
+	e8U0XWKrRX1uWn1zvwkijUJsYuh+oowTh5HV5A5Nsu2ymM9iQ+aO8FAjit3boJnIIW4Ucz5lqrX
+	ImKNT0VdzSM7Y6XQEDHY4EMshe2Pf9dw3NasCQjq8RWfaAU6lvqE9w6ECybu/Eg1rvw02b4PD17
+	Bo/wB1D/Jqylbm4k9+br2tEaeLOsODHj+hB8b3A3k=
+X-Received: by 2002:a17:90b:2691:b0:387:df8f:1408 with SMTP id 98e67ed59e1d1-38e4b5ad2a9mr14741701a91.41.1784532130478;
+        Mon, 20 Jul 2026 00:22:10 -0700 (PDT)
 Received: from [10.0.0.29] ([2601:647:4000:5070::51d7])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38e4afcc067sm5153318a91.1.2026.07.20.00.22.04
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38e4afcc067sm5153318a91.1.2026.07.20.00.22.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Jul 2026 00:22:05 -0700 (PDT)
+        Mon, 20 Jul 2026 00:22:09 -0700 (PDT)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v8 01/22] RISC-V: perf: fix resource cleanup on driver
- probe failure
+Subject: Re: [PATCH v8 03/22] RISC-V: Add Sxcsrind ISA extension definition
+ and parsing
 From: Charlie Jenkins <thecharlesjenkins@gmail.com>
 To: Atish Patra <atish.patra@linux.dev>
 Cc: Jiri Olsa <jolsa@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
@@ -86,22 +86,22 @@ Cc: Jiri Olsa <jolsa@kernel.org>, Paul Walmsley <pjw@kernel.org>,
  linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-perf-users@vger.kernel.org, Conor Dooley <conor@kernel.org>
-In-Reply-To: <20260701-counter_delegation-v8-1-7909f863a645@meta.com>
+In-Reply-To: <20260701-counter_delegation-v8-3-7909f863a645@meta.com>
 References: <20260701-counter_delegation-v8-0-7909f863a645@meta.com>
- <20260701-counter_delegation-v8-1-7909f863a645@meta.com>
+ <20260701-counter_delegation-v8-3-7909f863a645@meta.com>
 Date: Mon, 20 Jul 2026 00:21:59 -0700
-Message-Id: <178453211932.543975.10206534637071583934.b4-review@b4>
+Message-Id: <178453211934.543975.9634665501136926362.b4-review@b4>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784532124; l=522;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784532124; l=387;
  i=thecharlesjenkins@gmail.com; s=20260605; h=from:subject:message-id;
- bh=ysgPHA/+x7CEppuRQZHdHoo9X3ZDd6yInqnds9Ij0bo=;
- b=qvIZNCLm5+fXN3DnRuew6aKjZnISyDx8ToUDRMjQnEAf9oEg+M6noqRVyXRmMKpzp0n+0SKqQ
- v5ga/susCSiBn1ylxb3JFmtsT1uI3nl6wtJUgUv4oCsU6GIAT34AFQ0
+ bh=DaF1WA85q36ajkUp2wWjzs8vEjfcfgQEKe7dAK+cruo=;
+ b=RXEmXx3bUlqTR60e37EoLeCgujoBbcJb1A9/syNgqmenEp+jMQ5zhL3lYU2n1ecg3AztUmOp0
+ 223x7CuCQiDBG4mckQKZidh3U7VcQ7UofEjiHekyrNNXCwnACr4Cm4W
 X-Developer-Key: i=thecharlesjenkins@gmail.com; a=ed25519;
  pk=ajnnRQ98PIdwKp4HeMkq9U32okYbnh6Zb4G3o5XXvkg=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_002208_739648_85082865 
-X-CRM114-Status: UNSURE (   9.52  )
+X-CRM114-CacheID: sfid-20260720_002211_531949_FA2780D6 
+X-CRM114-Status: UNSURE (   9.44  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -117,19 +117,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 01 Jul 2026 01:46:49 -0700, Atish Patra <atish.patra@linux.dev> wrote:
-> Sashiko pointed out various UAF and memory leak issues around
-> pmu_sbi_device_probe() error paths.
+On Wed, 01 Jul 2026 01:46:51 -0700, Atish Patra <atish.patra@linux.dev> wrote:
+> The S[m|s]csrind extension extends the indirect CSR access mechanism
+> defined in Smaia/Ssaia extensions.
 > 
-> If the probe fails, here are list of cleanups needed.
-> a. Already registered pmu must be freed
-> b. per cpu IRQ must be released
-> c. pmu_ctr_list data structure must be freed
-> d. cpu hotplug state must be cleaned up only if added.
-> 
-> [...]
+> This patch just enables the definition and parsing.
 
 Reviewed-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
+Tested-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
 
 -- 
 - Charlie
