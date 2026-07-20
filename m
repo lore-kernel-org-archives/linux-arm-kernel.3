@@ -4,80 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B39D7C4452C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 13:35:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C4E7C4452A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 13:37:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EPwHw4vTRVqhwvFn5Tq3G4jVaNzkNp1zRikg7B+yPsQ=; b=UeKnol8JhXnu5o+C13dQhkqbnr
-	bkGGpaozl5wKMRzAL7XAzkFJ+UDo9Q+XCxecJtK9u6zMqfpl+60yNEBNw5z/kYpGTy/NBNuNNCrp3
-	4f8RvL2KpCva3XQsIEP0JDC4P1HN+mtUdxxbfxBk95zIChucXlj15krqMIG0g2iBXa9n8F0EyoRlu
-	5KAaGYTtplM0DAhx/NdHrNuYmUNIqCcl4Udi4wWXaVsQFE5ltQd7o2RJ1u45U222PH7UBlmuG39h3
-	Jnd+jmmxntrrUFJusOyKfWTD4CQvIw8uilEs4DNcihxFdRhv41v3cb11y8B1N3YxPqdykIAjXTn25
-	oFlpJ6fg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Obh7R9qKC5V8H7mIMt7BCNgcA1CyEsysjPEQ+3GdH/8=; b=alrEuNagQRkJKiz6SuDMDmezQ6
+	U8kuw2QtQPx015tI0nwhlxTtZnfWdRL3OpbOEOcAie5PhYdv4wRcpBMky2jKbkFxyQPK2poydGQSe
+	J2GiOElbLYfYDtPDnmNRQpLfszKBdAnDLkDkYM0bZ5BhJX5nmOFvyb4rhniIoISDvuRKZd4CAbaTz
+	0KPXlQyFtm/7wBDGoHQ8fpMCLTfW3cEIvHsv8K9SZC1WnKur8eyA6u4xDw36NiGIweh01faCjFf8Q
+	sF7BpbmaDy7kccgasx2+TATxUWKJc34NIesh2Qul6LMgB95ZBMsl7BzFTF4Nw47Y8EblKjnPaSt2O
+	psr0udpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlo9o-00000006pdU-1LRN;
-	Mon, 20 Jul 2026 13:35:44 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1wloB0-00000006qEg-2PEx;
+	Mon, 20 Jul 2026 13:36:58 +0000
+Received: from mail-westeuropeazon11011012.outbound.protection.outlook.com ([52.101.70.12] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlo90-00000006ozO-3kkO;
-	Mon, 20 Jul 2026 13:34:56 +0000
-X-UUID: c888c1cc843f11f1afed4741b24580c9-20260720
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=EPwHw4vTRVqhwvFn5Tq3G4jVaNzkNp1zRikg7B+yPsQ=;
-	b=ADLT3+7mr1/pV4jnGLSbc3/gqVvHBYNwOn8Wj7L5resTosjDqi3vhc5N69Y01iuBhTpND8AA8h6UNSLlF+rIP0mcFVadYbpeu7Gim9vIFKY2fZAjzdok2cAIhMOdET0Xva0UoFv2FIKRNVQ83uheDZQT5SriLK6/zhXgXqsrKHQ=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.18,REQID:7128e98f-475f-4f26-9936-4fe4b8a39e27,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:8a735a6,CLOUDID:e185b35f-762a-4584-baab-4eebe609beea,B
-	ulkID:nil,BulkQuantity:0,SF:81|82|102|836|865|888|898,TC:-5,Content:0|15|5
-	0|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,
-	OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: c888c1cc843f11f1afed4741b24580c9-20260720
-Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw01.mediatek.com
-	(envelope-from <kyrie.wu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1813358205; Mon, 20 Jul 2026 06:34:50 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Mon, 20 Jul 2026 21:34:48 +0800
-Received: from gcnsap21.gcn.mediatek.inc (10.17.81.22) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Mon, 20 Jul 2026 21:34:47 +0800
-From: Kyrie Wu <kyrie.wu@mediatek.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Bin Liu <bin.liu@mediatek.com>,
-	kyrie wu <kyrie.wu@mediatek.corp-partner.google.com>, Hans Verkuil
-	<hverkuil@kernel.org>, irui wang <irui.wang@mediatek.com>, Nicolas Dufresne
-	<nicolas.dufresne@collabora.com>, <linux-media@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
-CC: Kyrie Wu <kyrie.wu@mediatek.com>
-Subject: [PATCH v16 12/12] media: mediatek: jpeg: add jpeg smmu sid setting
-Date: Mon, 20 Jul 2026 21:34:32 +0800
-Message-ID: <20260720133432.1042046-13-kyrie.wu@mediatek.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260720133432.1042046-1-kyrie.wu@mediatek.com>
-References: <20260720133432.1042046-1-kyrie.wu@mediatek.com>
-MIME-Version: 1.0
+	id 1wloAy-00000006qDt-0FUf;
+	Mon, 20 Jul 2026 13:36:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GqQAHL7GidNFJ6oGFHgX4n+3/EQTedRuI4F+UmWI1QzFFBQtQ0lelLxYUAAndUhYUHFTZNlyP4C8fujkYhF21VA0e912tfqYJblJxJlMZSFpSKNnDaJArEhit06juh3jcUjcbMPf3ASukoraDdyiX0z8nwzI0GvnUpaD4RxAD9WzMtQY6/ldcOzx2seernBPbJkGgnmHYDSAlHjAnh8i60y3oOBOdQAX7ifcRHneKj8o+PjdyCruVUnzdCh8xXDZ0i6P8lF/p5dp1XSv5QddknzJ2QX2h4jmS1GKVSN9j4wuujeAOjeX5O9IEDAsL7iYch9l/TqkzIEqCYattrv9KQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Obh7R9qKC5V8H7mIMt7BCNgcA1CyEsysjPEQ+3GdH/8=;
+ b=rAJthG+94cWH9jJndb9AdMGp+vqs5IRwvtzSYQV4VEZ7K4sdDwXqrlW+vyG6dUFJdk2CrbCpxeEbEH7FQrf35JMccdFnaG/8eyn7tnvvRwRE/+I12USp0XmvgXmveCfplxQkTO2w0vXmz+38bcbXVZ0oSNs8r+KMSMvxs3+uq9DOOoAHMQuOj02uvcpVB0NNJ0qu125m0v8C4kcvX0kVcS9ssYojsQwm/f/KzDXsNK6Uiv966LdQqeUF3C9V3VuTjVc564xfy8dfm2yaSec9I0AYURBn0qIe7vxl5OieXeIAg6UOeKyu3odTRQkSMGYRsNwYVLQSOeIxx0jDrPQHrw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Obh7R9qKC5V8H7mIMt7BCNgcA1CyEsysjPEQ+3GdH/8=;
+ b=UYgtVTrCHS3BmhiXp8OZLsAprTFbqqnKc/0tcDBetAo+cDpmWchiZtaJtFbNbLY66Gq5/1ndJff4Ij8KYP5PEbTUzQmsgx67EONiGuFe0JP0KXr3vdRGCkeL3X8i/UEzGkLDJ1TQDH9wE+RR2/8dbnAnw2ynoiu7B1HxHHGo8FNn7SikffmOlZqsnNwfp3J3PH4gLedCQ7gKNC0CDrlHydgVr0w4x/E0jodupWBaE9aVQmCWObTCDpcKuLFBp8ICpVXthkXt9Q9rEX27gp4JC+1Ptcag2886PJQ3PYKok9iac7VO1ymGCH1pQk/S6n+71uvuVA+42MDQgDWtUywcNw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM0PR04MB6900.eurprd04.prod.outlook.com (2603:10a6:208:17d::10)
+ by AS8PR04MB8626.eurprd04.prod.outlook.com (2603:10a6:20b:429::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.18; Mon, 20 Jul
+ 2026 13:36:51 +0000
+Received: from AM0PR04MB6900.eurprd04.prod.outlook.com
+ ([fe80::7fda:8431:ca1b:b023]) by AM0PR04MB6900.eurprd04.prod.outlook.com
+ ([fe80::7fda:8431:ca1b:b023%5]) with mapi id 15.21.0223.017; Mon, 20 Jul 2026
+ 13:36:51 +0000
+From: Vladimir Oltean <vladimir.oltean@nxp.com>
+To: linux-phy@lists.infradead.org
+Cc: devicetree@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	Ioana Ciornei <ioana.ciornei@nxp.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Tanjeff Moos <tanjeff.moos@westermo.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Michael Walle <mwalle@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	linux-kernel@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>
+Subject: [PATCH v3 phy-next 0/8] RCW override for 10G Lynx dynamic protocol reconfiguration
+Date: Mon, 20 Jul 2026 16:36:34 +0300
+Message-Id: <20260720133642.136324-1-vladimir.oltean@nxp.com>
+X-Mailer: git-send-email 2.34.1
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-MTK: N
+X-ClientProxiedBy: AS4P191CA0016.EURP191.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5d9::11) To AM0PR04MB6900.eurprd04.prod.outlook.com
+ (2603:10a6:208:17d::10)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM0PR04MB6900:EE_|AS8PR04MB8626:EE_
+X-MS-Office365-Filtering-Correlation-Id: 25b3d99d-8d46-4b3c-b32a-08dee663f4b0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|19092799006|23010399003|366016|3023799007|18002099003|10067099003|6133799003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: +0lcyEp12ZZj9BZoCnnwP2bEh25tDDPzsm65TywJV0gPqgTYdXmFC6u45t0Jrgsx2uAJPgEX881kNNLEW15RqSJjRJHZgMBfj2l/vJDh785N7DWqZ1KVmK+jTcLkoz4mlhC4m/R7LiXmu7G/2X5cf+VuCVoOoy6l9++StO+KG/vyXfxnnLpv/OThxcyb45nl/l8M+Xx4IuwZcO3KM64vxD6PWpcgjUSZBeMOZQj5G1bAq7GhiicUTMEQz5fUTci/eNA2LgQX4MoyayDeZxk7EvJvjXpNsizum8993XVIO3qzaWtiHHvH6pHgnLzgOI8lyFga/WwRnNNs4D6CuBTXHRlKBJuokxDiYFmx37/K7ytpHzz9hioMNu66DHnJnvedihlpxCjQLL16LkDscbRDeMXTAiAGgKTbH+o792/7oMAv4/K/kYJzmUrBjqh8NSJqA2XzrLIuyuDp+hF07lDvAaTWdAObhPoMKTX5Z9oHaw6/iv8kkqfRr1NjeBoyIwOMaMf7UvEu2zW7RW9rqKcYtTx+RcpCKBDmxnzIBChLVONYr6m3k8Vs0OluOtOrVetjl25hbzOxw3ZubCarjyHihiHoqIaEMusNRVz9iM6jKJOD5ii7w6HQb+FzJxQhMz+iile4YATn2FBfOh/qdw/OVBJp/hiyzFhoMrXWv0IjIWU=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6900.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(19092799006)(23010399003)(366016)(3023799007)(18002099003)(10067099003)(6133799003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ByRBNIU3RCpB+qdBZz6oifcMJEkMXC4VRm43W/VtQkugTGuKhHpVCTlO+zMi?=
+ =?us-ascii?Q?Lf7OxC0lmYRJinomI9N/0ghqP1xQVaZ0RkoAtYyX8JVH8CyTtDdwRYsH0+P3?=
+ =?us-ascii?Q?NOXfTG+uthHXoI01yc0CcsrDrfPQ17xBq0vCyRTjj5ICTjScFQGBHvTONs1Q?=
+ =?us-ascii?Q?EC0XvrXRoL3+M1Kc6t1KQzWqKwDZwFX/TLtdUHyxO3IPkqfGpcOmucO448/R?=
+ =?us-ascii?Q?aIunfo7JH/P3ZtDcjdbqZUd8XSYFMVPRVHFQBjtUj4rBNn33jXnLsFEj1HKu?=
+ =?us-ascii?Q?FQ0GyOxCmss1alAAIBl2wKT9jXi5Qp4i4um1vw1lrE2e5cpSWbMnbajgmtev?=
+ =?us-ascii?Q?mLlcx9jd9EysYee6sVZurMGU2fyXKMI9mGDaRaMxIdu8jR27KVRxF0a7Qbsx?=
+ =?us-ascii?Q?6PEV9e7lGfxtynk7ZjWOKEGy3f0gHEXI0VMra5ejNGsXV1Ahern8gNR8DcsH?=
+ =?us-ascii?Q?ZE5Wo2WcAqe796kjH6sIhAP6nmhMV7CXL8GgnvRejDhA3rYpm6etKFv0BUV1?=
+ =?us-ascii?Q?LSIXBYGe60QwwCBtIgFWcZvk5HtzkUmFaMO4W/tU/ZZSvAYAbErCAhtPs0uy?=
+ =?us-ascii?Q?FeGqn7yrAtAHfReTkDe7f/PKBshetpaQb4WV3Evewuf0s2ERkmQ62iz/ZxH8?=
+ =?us-ascii?Q?I7qRKZFqVaq2jN7ojpeHsHl38UWJpP0u3xChC5iTZ/2gqC0cEAAZr+SK9xtr?=
+ =?us-ascii?Q?00hl7wyHTJKb80G0O+SecSXIENWeDBguWt+e08wbk6mt9GyhfCNPJdSPIwQI?=
+ =?us-ascii?Q?wuPzcgJBgJ6H1FA9nH6phUQUqLo5twb7GqEwrxg4k2nZLRYhTKhdgj9oE4YZ?=
+ =?us-ascii?Q?nJlV4yksfoh0xqztex0x4UAYqpAyn9Ake+iGEv7yi1A81qqV7kIT4X66rpid?=
+ =?us-ascii?Q?274oE8IFnMhaOBieST6PENoKIbZ7oIs564d9IykHKIKOxOSbM0NG1oyLa378?=
+ =?us-ascii?Q?PECl0Rk58IxRbem6kWkp7TLIP0zqcjpZ8KvYciHtuXRbBMXcQ7xpVMfNkyrh?=
+ =?us-ascii?Q?6TKwQTaZTaDITdfiA7t8JQikAgTFJ1/yVj95kwRze75AinigapY71OBdLtwm?=
+ =?us-ascii?Q?11UCiO6Za+NiED6DTNfENOSKDNjNz+r/+9VzIkjho8zxCV39F9sUBqom78xG?=
+ =?us-ascii?Q?5aEc49m6TXQbG2JC37pglFWLkhm1IbTX7/b33Mixa/Yl/tqONwQ5mkukf6GA?=
+ =?us-ascii?Q?dno0IDsCEbM4bqolOnVHZaGPa5xsrXrcF/EDcIJrjfN411+hp1cEAqArLta4?=
+ =?us-ascii?Q?juXPKy81RXzqgBRSnEmhH7rUJRh/hDj+nMHLGvPTUyaM6YZK4QtZuXAFAnHT?=
+ =?us-ascii?Q?phLVWYl+x/cEOfTBcz+IOphLTz0RQQXXvuktDCUoJuiRJaoFf/XoXaImXDtg?=
+ =?us-ascii?Q?5HKLLEqc6Z4FuoVHNzuhhvyCZ1dGNO8uM3aoYkw8qti89rV0Z23L+A8sbhbp?=
+ =?us-ascii?Q?hXM5fNQVw+ByjWcVxfdgNrD0crCO4sn+hTAIW1GgKCzHvqIsMdvyAcLSfmTd?=
+ =?us-ascii?Q?dLVCAi/rbMyn1kaurKZ7kX+NG8tnqTEOAWGFZWgsByb9X57jy3BziMlzZpbr?=
+ =?us-ascii?Q?NRNgS3KTNWgEr9x58dfNXhm1KndlvDrehtklOsT76vBovtZ8WKw7AKHaWN+I?=
+ =?us-ascii?Q?2/MMu4AcvCuPyhAfeqbRtvC9974OKf8s57nttvboFc6c1rJqOj4StkAKPEHr?=
+ =?us-ascii?Q?nHVOL81glBhRbvfWHqwe95JrdywyVBWa3AIF3f3/3OyPfUZkMmv+GVtqizai?=
+ =?us-ascii?Q?ESYm44p/J3qF71Xuut0eZ7HRrOj69KA=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 25b3d99d-8d46-4b3c-b32a-08dee663f4b0
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6900.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jul 2026 13:36:51.6155
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Ce42wKa9gz9Iucor6ag+v2AkBbKNJDEh4iZeQptzzkIxLZ7Uimp+bAW8lkC61itn4a8MYZEgJRBxqKPNiWyUuA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8626
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_063454_956689_925D096A 
-X-CRM114-Status: GOOD (  18.11  )
+X-CRM114-CacheID: sfid-20260720_063656_107131_405D3A37 
+X-CRM114-Status: GOOD (  17.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,250 +145,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a configuration to set jpeg dec & enc smmu sid
+Previous set "New Generic PHY driver for Lynx 10G SerDes":
+https://lore.kernel.org/linux-phy/20260610151952.2141019-1-vladimir.oltean@nxp.com/
+introduced the 10G Lynx SerDes driver with a reduced functionality set.
+Namely, only minor protocol changes are supported (1GbE <-> 2.5GbE).
+The major protocol changes need a procedure named RCW override,
+explained in more detail in commits 6/8 and 7/8.
 
-Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
----
- .../platform/mediatek/jpeg/mtk_jpeg_core.c    | 29 +++++++++++++++++++
- .../platform/mediatek/jpeg/mtk_jpeg_core.h    | 15 ++++++++++
- .../platform/mediatek/jpeg/mtk_jpeg_dec_hw.c  | 23 +++++++++++++++
- .../platform/mediatek/jpeg/mtk_jpeg_enc_hw.c  | 23 +++++++++++++++
- 4 files changed, 90 insertions(+)
+This series adds kernel and device tree binding support for RCW
+override, completing the SerDes PHY driver functionality.
 
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-index 8e96501a4..bb9bdd991 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-@@ -15,6 +15,7 @@
- #include <linux/of_platform.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
-+#include <linux/regmap.h>
- #include <linux/slab.h>
- #include <linux/spinlock.h>
- #include <media/v4l2-event.h>
-@@ -1602,6 +1603,22 @@ static irqreturn_t mtk_jpeg_enc_done(struct mtk_jpeg_dev *jpeg)
- 	return IRQ_HANDLED;
- }
- 
-+static void mtk_jpeg_set_smmu_sid(struct regmap *smmu_regmap, unsigned int sid)
-+{
-+	if (sid == JPG_REG_GUSER_ID_DEC_SID)
-+		regmap_update_bits(smmu_regmap, JPEG_DEC_SMMU_SID,
-+				   JPG_REG_GUSER_ID_MASK <<
-+				   JPG_REG_DEC_GUSER_ID_SHIFT,
-+				   JPG_REG_GUSER_ID_DEC_SID <<
-+				   JPG_REG_DEC_GUSER_ID_SHIFT);
-+	else
-+		regmap_update_bits(smmu_regmap, JPEG_ENC_SMMU_SID,
-+				   JPG_REG_GUSER_ID_MASK <<
-+				   JPG_REG_ENC_GUSER_ID_SHIFT,
-+				   JPG_REG_GUSER_ID_ENC_SID <<
-+				   JPG_REG_ENC_GUSER_ID_SHIFT);
-+}
-+
- static void mtk_jpegenc_worker(struct work_struct *work)
- {
- 	struct mtk_jpegenc_comp_dev *comp_jpeg[MTK_JPEGENC_HW_MAX];
-@@ -1663,6 +1680,11 @@ static void mtk_jpegenc_worker(struct work_struct *work)
- 	jpeg_dst_buf->frame_num = ctx->total_frame_num;
- 	ctx->total_frame_num++;
- 	mtk_jpeg_enc_reset(comp_jpeg[hw_id]->reg_base);
-+
-+	if (jpeg->variant->support_smmu && comp_jpeg[hw_id]->smmu_regmap)
-+		mtk_jpeg_set_smmu_sid(comp_jpeg[hw_id]->smmu_regmap,
-+				      JPG_REG_GUSER_ID_ENC_SID);
-+
- 	mtk_jpeg_set_enc_dst(ctx,
- 			     comp_jpeg[hw_id]->reg_base,
- 			     &dst_buf->vb2_buf);
-@@ -1772,6 +1794,11 @@ static void mtk_jpegdec_worker(struct work_struct *work)
- 	jpeg_dst_buf->frame_num = ctx->total_frame_num;
- 	ctx->total_frame_num++;
- 	mtk_jpeg_dec_reset(comp_jpeg[hw_id]->reg_base);
-+
-+	if (jpeg->variant->support_smmu && comp_jpeg[hw_id]->smmu_regmap)
-+		mtk_jpeg_set_smmu_sid(comp_jpeg[hw_id]->smmu_regmap,
-+				      JPG_REG_GUSER_ID_DEC_SID);
-+
- 	mtk_jpeg_dec_set_config(comp_jpeg[hw_id]->reg_base,
- 				jpeg->variant->support_34bit,
- 				&jpeg_src_buf->dec_param,
-@@ -1931,6 +1958,7 @@ static struct mtk_jpeg_variant mtk8196_jpegenc_drvdata = {
- 	.multi_core = true,
- 	.jpeg_worker = mtk_jpegenc_worker,
- 	.support_34bit = true,
-+	.support_smmu = true,
- };
- 
- static const struct mtk_jpeg_variant mtk8195_jpegdec_drvdata = {
-@@ -1958,6 +1986,7 @@ static const struct mtk_jpeg_variant mtk8196_jpegdec_drvdata = {
- 	.multi_core = true,
- 	.jpeg_worker = mtk_jpegdec_worker,
- 	.support_34bit = true,
-+	.support_smmu = true,
- };
- 
- static const struct of_device_id mtk_jpeg_match[] = {
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
-index 148fd4175..186cd1862 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
-@@ -11,6 +11,7 @@
- 
- #include <linux/clk.h>
- #include <linux/interrupt.h>
-+#include <linux/mfd/syscon.h>
- #include <media/v4l2-ctrls.h>
- #include <media/v4l2-device.h>
- #include <media/v4l2-fh.h>
-@@ -34,6 +35,14 @@
- 
- #define MTK_JPEG_MAX_EXIF_SIZE	(64 * 1024)
- 
-+#define JPEG_DEC_SMMU_SID				0
-+#define JPEG_ENC_SMMU_SID				0
-+#define JPG_REG_GUSER_ID_MASK			0x7
-+#define JPG_REG_GUSER_ID_DEC_SID		0x4
-+#define JPG_REG_GUSER_ID_ENC_SID		0x5
-+#define JPG_REG_DEC_GUSER_ID_SHIFT		8
-+#define JPG_REG_ENC_GUSER_ID_SHIFT		4
-+
- #define MTK_JPEG_ADDR_MASK GENMASK(1, 0)
- 
- /**
-@@ -65,6 +74,7 @@ enum mtk_jpeg_ctx_state {
-  * @multi_core:		mark jpeg hw is multi_core or not
-  * @jpeg_worker:		jpeg dec or enc worker
-  * @support_34bit:	flag to check support for 34-bit DMA address
-+ * @support_smmu:	flag to check if support smmu
-  */
- struct mtk_jpeg_variant {
- 	struct clk_bulk_data *clks;
-@@ -82,6 +92,7 @@ struct mtk_jpeg_variant {
- 	bool multi_core;
- 	void (*jpeg_worker)(struct work_struct *work);
- 	bool support_34bit;
-+	bool support_smmu;
- };
- 
- struct mtk_jpeg_src_buf {
-@@ -150,6 +161,7 @@ struct mtk_jpegdec_clk {
-  * @hw_param:		jpeg encode hw parameters
-  * @hw_state:		record hw state
-  * @hw_lock:		spinlock protecting the hw device resource
-+ * @smmu_regmap:	SMMU registers mapping
-  */
- struct mtk_jpegenc_comp_dev {
- 	struct device *dev;
-@@ -163,6 +175,7 @@ struct mtk_jpegenc_comp_dev {
- 	enum mtk_jpeg_hw_state hw_state;
- 	/* spinlock protecting the hw device resource */
- 	spinlock_t hw_lock;
-+	struct regmap *smmu_regmap;
- };
- 
- /**
-@@ -177,6 +190,7 @@ struct mtk_jpegenc_comp_dev {
-  * @hw_param:			jpeg decode hw parameters
-  * @hw_state:			record hw state
-  * @hw_lock:			spinlock protecting hw
-+ * @smmu_regmap:		SMMU registers mapping
-  */
- struct mtk_jpegdec_comp_dev {
- 	struct device *dev;
-@@ -190,6 +204,7 @@ struct mtk_jpegdec_comp_dev {
- 	enum mtk_jpeg_hw_state hw_state;
- 	/* spinlock protecting the hw device resource */
- 	spinlock_t hw_lock;
-+	struct regmap *smmu_regmap;
- };
- 
- /**
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-index 07452249b..3058fdf4f 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-@@ -613,6 +613,25 @@ static int mtk_jpegdec_hw_init_irq(struct mtk_jpegdec_comp_dev *dev)
- 	return 0;
- }
- 
-+static int mtk_jpegdec_smmu_init(struct mtk_jpegdec_comp_dev *dev)
-+{
-+	struct mtk_jpeg_dev *master_dev = dev->master_dev;
-+
-+	if (!master_dev->variant->support_smmu)
-+		return 0;
-+
-+	dev->smmu_regmap =
-+		syscon_regmap_lookup_by_phandle(dev->plat_dev->dev.of_node,
-+						"mediatek,smmu-config");
-+	if (IS_ERR(dev->smmu_regmap)) {
-+		return dev_err_probe(dev->dev, PTR_ERR(dev->smmu_regmap),
-+				     "mmap smmu_base failed(%pe)\n",
-+				     dev->smmu_regmap);
-+	}
-+
-+	return 0;
-+}
-+
- static int mtk_jpegdec_hw_probe(struct platform_device *pdev)
- {
- 	struct mtk_jpegdec_clk *jpegdec_clk;
-@@ -665,6 +684,10 @@ static int mtk_jpegdec_hw_probe(struct platform_device *pdev)
- 	master_dev->reg_decbase[i] = dev->reg_base;
- 	dev->master_dev = master_dev;
- 
-+	ret = mtk_jpegdec_smmu_init(dev);
-+	if (ret)
-+		return ret;
-+
- 	platform_set_drvdata(pdev, dev);
- 	pm_runtime_enable(&pdev->dev);
- 
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-index c04988bd5..d98a83212 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-@@ -339,6 +339,25 @@ static int mtk_jpegenc_hw_init_irq(struct mtk_jpegenc_comp_dev *dev)
- 	return 0;
- }
- 
-+static int mtk_jpegenc_smmu_init(struct mtk_jpegenc_comp_dev *dev)
-+{
-+	struct mtk_jpeg_dev *master_dev = dev->master_dev;
-+
-+	if (!master_dev->variant->support_smmu)
-+		return 0;
-+
-+	dev->smmu_regmap =
-+		syscon_regmap_lookup_by_phandle(dev->plat_dev->dev.of_node,
-+						"mediatek,smmu-config");
-+	if (IS_ERR(dev->smmu_regmap)) {
-+		return dev_err_probe(dev->dev, PTR_ERR(dev->smmu_regmap),
-+				     "mmap smmu_base failed(%pe)\n",
-+				     dev->smmu_regmap);
-+	}
-+
-+	return 0;
-+}
-+
- static int mtk_jpegenc_hw_probe(struct platform_device *pdev)
- {
- 	struct mtk_jpegenc_clk *jpegenc_clk;
-@@ -389,6 +408,10 @@ static int mtk_jpegenc_hw_probe(struct platform_device *pdev)
- 	master_dev->reg_encbase[i] = dev->reg_base;
- 	dev->master_dev = master_dev;
- 
-+	ret = mtk_jpegenc_smmu_init(dev);
-+	if (ret)
-+		return ret;
-+
- 	platform_set_drvdata(pdev, dev);
- 	pm_runtime_enable(&pdev->dev);
- 
+Two components are involved:
+- drivers/soc/fsl/guts.c (binding is fsl,layerscape-dcfg.yaml) - Device
+  Configuration Unit, this is API provider for the SerDes driver to
+  request RCW override depending on SoC
+- drivers/phy/freescale/phy-fsl-lynx-10g.c - SerDes PHY driver, this is
+  API consumer
+
+The guts driver probes on DCFG blocks from multiple Freescale SoC
+generations:
+- MPC85xx, BSC and QorIQ (PowerPC) are all covered by the
+  Documentation/devicetree/bindings/soc/fsl/guts.txt schema
+- Layerscape (Arm) is covered by
+  Documentation/devicetree/bindings/soc/fsl/fsl,layerscape-dcfg.yaml
+
+It is ultimately the same hardware block, just that (from what I can
+tell) the Layerscape nodes are also compatible with syscon, and PowerPC
+aren't.
+
+RCW override has only been validated on select Layerscape SoCs, so
+converting guts.txt to a PowerPC schema is out of scope for this
+series - we don't even touch that (just in case it gets asked).
+
+Using syscon to map the DCFG_DCSR register block in the Lynx SerDes
+driver instead of creating this guts <-> lynx API was considered, but
+because the RCW procedure is SoC-specific, it was ruled out for
+polluting the SerDes driver. The guts driver is all about SoC awareness
+anyway, and it offers some abstraction of all the gory details.
+
+Changes since v2:
+- fix error handling in fsl_guts_init() and make sure that all newly
+  introduced RCW override API functions fail if fsl_guts_init() failed.
+- replace __bf_shf() use with __ffs()
+- use read_poll_timeout_atomic() in fsl_guts_rcw_rmw() to clarify that
+  DCFG_DCSR writes are supposed to reflect back in DCFG_CCSR
+- only operate on lanes on which fsl_guts_lane_init() was called in
+  ls2088a_serdes_init_rcwcr()
+- put parentheses around (lane) in LS1088A_RCWSR29_SRDS_PRTCL_S1_LNn()
+  and LS1088A_RCWSR30_SRDS_PRTCL_S2_LNn() macro expressions
+
+v2 at:
+https://lore.kernel.org/linux-phy/20260612210859.266759-8-vladimir.oltean@nxp.com/
+
+Changes since v1:
+- add Conor's review tag on 6/8
+- update email addresses of DT maintainers
+- drop DT maintainers from explicit CC on patch 7/8
+- keep devicetree@vger.kernel.org CCed on entire series
+- include missing <linux/bitfield.h> in patch 7/8
+- namespace SRDS_PRTCL values for LS1046A and LS1088A, even if they are
+  the same. For LS1028A (not covered here) they are not.
+- prefix SRDS_CLK_SEL_{GMII,XGMII} with LS2088A_
+- reorder alphanumerically (LS1046A should come before LS1088A)
+
+Change logs also in individual patches.
+
+v1 at:
+https://lore.kernel.org/linux-phy/20260611193940.44416-1-vladimir.oltean@nxp.com/
+
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Rob Herring <robh@kernel.org>
+
+Ioana Ciornei (5):
+  soc: fsl: guts: use a macro to encode the DCFG CCSR space
+  soc: fsl: guts: add a global structure to hold state
+  soc: fsl: guts: add a central fsl_guts_read() function
+  soc: fsl: guts: make it easier to determine on which SoC we are
+    running
+  soc: fsl: guts: implement the RCW override procedure
+
+Vladimir Oltean (3):
+  soc: fsl: guts: make fsl_soc_data available after fsl_guts_init()
+  dt-bindings: fsl: layerscape-dcfg: define DCFG_DCSR region
+  phy: lynx-10g: use RCW override procedure for dynamic protocol change
+
+ .../bindings/soc/fsl/fsl,layerscape-dcfg.yaml |  15 +-
+ drivers/phy/freescale/Kconfig                 |   1 +
+ drivers/phy/freescale/phy-fsl-lynx-10g.c      |  24 +-
+ drivers/soc/fsl/guts.c                        | 438 ++++++++++++++++--
+ include/linux/fsl/guts.h                      |  20 +-
+ 5 files changed, 459 insertions(+), 39 deletions(-)
+
 -- 
-2.51.0.windows.2
+2.34.1
 
 
