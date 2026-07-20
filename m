@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0883AC44520
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 16:12:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 427ACC44515
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 16:13:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Message-ID:Date:From:Cc:To:Subject:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ic3FkiU1WNXwGtsDJe/2lOY05f8Tp7NBvySyAmFAPyw=; b=yV1mekPeKe4E6/m6j8q9KuXFC0
-	9I2cSHnKCK5Vnw3mS5kjsL/g6dBLiPqp1gWTPUtR/Q/5QPRGRp9PCA4TGGYQTJE/sqr0tGcR/5+6i
-	K5vPQwRMXenR01SGyVPKyDw+cI0BZQZLP3EwfDI+tYEdPYfAs2KdZzdQ3bKoEKNPX1ZtstFNvvns/
-	Yt11drMLYG2jDEcZDBlbLFoYgVOBamaNsUeeBBC4dsyFsYm45NsXJb3MlCoLzxvA8VILz7YHli5vX
-	SmvqfK2//RvfEaCZ3+k7ZP7aiPsfth+E4peDdVYP0TEl3fXXK2lV91H6YB76wDAkBTlrDEqTgCQ7Z
-	79uzBMPA==;
+	bh=18TgNI8MYp1LbNuXLtYtpwaKmD22eZReAWzfss1RBUE=; b=L1HKT2vY3YgIp3viJp/QEgia6n
+	kFTRrWW59baqJNbFxAFx6O+gtQlN3OUVD7dO3tAkbSXzFIXZVXDhL9NCyR/W+HLY0wYB9IsPp6TXL
+	5bT/s3fmSFXmX+alGc2NWZ2QFQ8BJFqdzlJdinhmdEpB7cH57h/VnOJ06sSQCRMPV/gMP8qSda4yh
+	Z2ffHcM6PaJkseljMtHYZgNhTfLfLeIEVdEECt3MA2jU6GWidpIs6i2oU/JQPKL2nShgpacYtEyWf
+	JqNa0bMstmPD+Hs4TTWUE+vh0fU5QrhdOo22qmQ5eT/NaN+k1ouReCDU1gdj+Hvksfcd4mr6kr/8y
+	U8gDpRSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlqav-00000007Jzo-3euo;
-	Mon, 20 Jul 2026 16:11:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wlqcq-00000007KHx-0dp1;
+	Mon, 20 Jul 2026 16:13:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlqau-00000007JzH-33BQ
+	id 1wlqco-00000007KHf-23d6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 16:11:52 +0000
+	Mon, 20 Jul 2026 16:13:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1E0E7412CA;
-	Mon, 20 Jul 2026 16:11:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 816801F000E9;
-	Mon, 20 Jul 2026 16:11:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 945BF601DE;
+	Mon, 20 Jul 2026 16:13:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C91B61F00A3D;
+	Mon, 20 Jul 2026 16:13:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1784563912;
-	bh=ic3FkiU1WNXwGtsDJe/2lOY05f8Tp7NBvySyAmFAPyw=;
+	s=korg; t=1784564029;
+	bh=18TgNI8MYp1LbNuXLtYtpwaKmD22eZReAWzfss1RBUE=;
 	h=Subject:To:Cc:From:Date;
-	b=SmfwLViB6SIXPGQi9/siNQQXK6LpnDCwFG13BsfMjickkg85mNPV/gYu0L6BrjfFD
-	 mF1WvSuVrKOKMQpGMLxKMmOYsDzTGtc//iqDCUgF0X2AuctrH8BLmzRvSKvavLWFnC
-	 IZOp5Fgoe7dUv7QmQSTvHybH3J5TyeYk60naXhBg=
-Subject: Patch "net: ethernet: ti: icssg: guard PA stat lookups" has been added to the 7.1-stable tree
+	b=FDenRoGKiFZwuJLBvtz7+YKFyqcAiir5ip0KNtpPVdjHvGeADrQU8JTLMhx6Y21O8
+	 kpR0F2o5S63VDPQI5zd2DrD07JDVhMyw26NMmYb7xU077M8WfpDYO5TcQsiuYBc7v4
+	 t/cEmpUgYxsNf9wa12T0JLmyy81bII83Nz7Xmk9U=
+Subject: Patch "net: ethernet: ti: icssg: guard PA stat lookups" has been added to the 6.18-stable tree
 To: danishanwar@ti.com,gregkh@linuxfoundation.org,horms@kernel.org,kuba@kernel.org,linux-arm-kernel@lists.infradead.org,philippe.schenker@impulsing.ch,rogerq@kernel.org
 Cc: <stable-commits@vger.kernel.org>
 From: <gregkh@linuxfoundation.org>
-Date: Mon, 20 Jul 2026 17:55:00 +0200
-Message-ID: <2026072000-palace-savage-5ccf@gregkh>
+Date: Mon, 20 Jul 2026 18:11:14 +0200
+Message-ID: <2026072014-each-bruising-a439@gregkh>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=ANSI_X3.4-1968
 Content-Transfer-Encoding: 8bit
@@ -69,12 +69,12 @@ This is a note to let you know that I've just added the patch titled
 
     net: ethernet: ti: icssg: guard PA stat lookups
 
-to the 7.1-stable tree which can be found at:
+to the 6.18-stable tree which can be found at:
     http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
 
 The filename of the patch is:
      net-ethernet-ti-icssg-guard-pa-stat-lookups.patch
-and it can be found in the queue-7.1 subdirectory.
+and it can be found in the queue-6.18 subdirectory.
 
 If you, or anyone else, feels it should not be added to the stable tree,
 please let <stable@vger.kernel.org> know about it.
@@ -125,7 +125,7 @@ Signed-off-by: Jakub Kicinski <kuba@kernel.org>
 
 --- a/drivers/net/ethernet/ti/icssg/icssg_common.c
 +++ b/drivers/net/ethernet/ti/icssg/icssg_common.c
-@@ -1651,28 +1651,35 @@ void icssg_ndo_get_stats64(struct net_de
+@@ -1315,28 +1315,35 @@ void icssg_ndo_get_stats64(struct net_de
  	stats->rx_over_errors = emac_get_stat_by_name(emac, "rx_over_errors");
  	stats->multicast      = emac_get_stat_by_name(emac, "rx_multicast_frames");
  
@@ -186,5 +186,5 @@ Signed-off-by: Jakub Kicinski <kuba@kernel.org>
 
 Patches currently in stable-queue which might be from philippe.schenker@impulsing.ch are
 
-queue-7.1/net-ethernet-ti-icssg-guard-pa-stat-lookups.patch
+queue-6.18/net-ethernet-ti-icssg-guard-pa-stat-lookups.patch
 
