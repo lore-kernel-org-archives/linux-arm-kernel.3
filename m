@@ -4,90 +4,178 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17D45C4451B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 09:21:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2940DC44515
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 09:25:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dEo1zfdAxyxkmckxTePHzZtAsHT/hlKIP/V7KkMgw7A=; b=Mypvbb92grLUXT2LnjY9WP/HPb
-	79RjnyLyj1rOsgwdMG4UC6XXwZXQDV97VwuW1Z+A7xwmJjCkcb+vFHPwnw0vh4DnDB/45SaHoWLn2
-	QI6JbabhIveYj9JhNZskKbFxfAHr4WAETIYMVQBehoSygj0g6NyeH8kmZQa+4ao5/PvnQ0bd9DMNs
-	U0tXQJNNr6ThHObFtJxVLRLisI3AmtGSnLJ5NL1iyDMfgrbCd4deYsFDQaMPLkwN83WDl2jHCI4Jw
-	+TxYPogjxaAW9jOEEs5ljjm3HQW40rek2256cu3+vvRy/T1K+5ErLAyASyT/rhQ6u4bS50hjkrbwi
-	Y/09bLlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=LemIgIdjk5eM3AXQKute2fWvk4y9PhORePmOHO5weFo=; b=LWrQhHtuVlGb4z
+	8E+Ffjf/ktVPtbNgYIkLWiEf6aHvECU/sXKNkW0WSI+zeKCFILvuv8uJzftqQVbx9AgUq17o/3OdA
+	10IVXPTpMMJBPdGxLolYJCPrF1IS1mtEgPMwCMqubTSRDVdgzINtSilOWRzlC8xkq7M8lZN/msFpi
+	stquuupcG9tuhu4w4RMBk/KO33KXTQLVN2CKSVfVnU8OkVTfzxJcaNbnBzdeBAonBikyRLyaHN5Cc
+	k7ecQie2FD519Dwk9sSR0ewb3VgEn4Ox3CdVgbWaoXqVGUNpven9MQSOa9Ig/PvAE06dB+oxthaD7
+	cwU2VJRvcKjheJZsr4Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlkBz-00000006I9z-2iIN;
-	Mon, 20 Jul 2026 09:21:43 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1wlkFe-00000006IcQ-0rno;
+	Mon, 20 Jul 2026 09:25:30 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlkBw-00000006I8e-3CYm
+	id 1wlkFb-00000006IbN-3SdC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 09:21:42 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2ccdb73f0e1so57676875ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 02:21:40 -0700 (PDT)
+	Mon, 20 Jul 2026 09:25:29 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66K97Fv51900970
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 09:25:26 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=LemIgIdjk5eM3AXQKute2f
+	Wvk4y9PhORePmOHO5weFo=; b=RhycOz9ZM0sBTG+JXF14kS7s/iqaTNli8PXQKJ
+	C72kD/luWZS45Go3+a4DbMmI4SDf2il2GgK4FwpqIcWEAz55lViHRkySGBPuPOsY
+	IUxnfqfr12rU5+egoIxWfhubYRyJ/AMPdL2Lz70pptI5AwygrnUPRzfl50jRkev+
+	lOhWY1hAqSk8fhT3+/pogMIioSoDehy8uDJTmwuGXFf9Pu/cJ6a8gZpATQETlZL+
+	z5xtt8+URVfsZWGAdcCwZmV491HqQxz1dKgxV5ERPyXQCO5Vtdz6uxI7zUwgPL+5
+	y57TYAujaast9gunXtb+8OzA0tHevb0p1pH9eJ1FO99Kbnwg==
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fhgs002g0-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 09:25:26 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-51bfe3fa93bso204897971cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 02:25:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1784539299; x=1785144099; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=dEo1zfdAxyxkmckxTePHzZtAsHT/hlKIP/V7KkMgw7A=;
-        b=dcI/oyYxqNRimBCjEDeWa82vXHOMgxs7TX97uuoQDRyxFHhq6GxjpOzHISh7mFHxYT
-         TBAFBGhB3Eot66G6AbvG4lutcgiI8Vmym4iKBMSsQp0R4+8jeAu9bjPIq676ZeVlNtU0
-         +hydMbgqWKk/bu/C3ok2yOGUqXVhCnNHReFoQ=
+        d=oss.qualcomm.com; s=google; t=1784539525; x=1785144325; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=LemIgIdjk5eM3AXQKute2fWvk4y9PhORePmOHO5weFo=;
+        b=HFerDHyx/+8r6uR2pO3Dcey5FF2RyVZcUuW0G6Ww8HtLrjAC3Ujgf6FrIKMOVi2Buh
+         Um2YI4dNgkXovMk4XOvESzh4hnbCiv59EKrRQH+1U3VdQrLjxflIWcWKcixRPTQE9LA2
+         8AcPWx1tb7FUyK1mEKInmnTBfZKhKFDeTtOiwj/offmD3KF+Jkok7frc4MwCDQfNZLyt
+         y5XRlMdzpdEiXYjAoU2TsVgMx5clJBimbZCSDkk6YGmqe0FZK1jU+WtPjjlr1yu9KJuT
+         aVFyxFBCbW1gnKEwXUvJqR4gfvot+bIcvJxfxJoHXnlA+rZdyM0tV0efUSpjxm+nVMZM
+         dcvQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784539299; x=1785144099;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=dEo1zfdAxyxkmckxTePHzZtAsHT/hlKIP/V7KkMgw7A=;
-        b=fuWcKCyajQBYQc7kbDXJuxtkE3digeeLSIXb8V9NIXhEYU7XuE2ZGa8pxOBJ0PDTmj
-         qlHJlL0SNky0aYaYwa+H9Q1OYnkeuZ24wgrbQUW1NXCfqyuBvbZaF61+tOXYFxyt08Zm
-         pEUWmEy38blGkZj9FYa+VM6Cd9T8dARs8ND3uU4TokJxfje6iPxpCsmS2vQrm+RJoA4u
-         10klGgh3B8w2sTLfU5Y7bL/RsiZ04SPn5fE2l+F0OY/YKmhHdHZfJwktPO+9w701Rvkv
-         ZjHeOXqQk8zsWO1Ah6xD82XQ8X3n5sebaR2RsCYeDBZVpr/GY6xXs+ewYyDWRLtrO5d8
-         fzsw==
-X-Forwarded-Encrypted: i=1; AHgh+RpgGwAVakv4DKgAbl0UWgwVuu8uRn9+PwZsRhm2gwyB6pya0kbgKlTEai5ACFz2P3V0hMzCFCTc3UarxNqYVJfW@lists.infradead.org
-X-Gm-Message-State: AOJu0YyqplD4sU3bRsGm/ga81WkEgLq4O+yJB7jckJWDc+67shmuA4f+
-	hW3Y4fd8fZbrSnfV2iCuWvsxg8RC/PT/kgWhYipFmVqv8kmCWY02ncnQsluBFhWiDQ==
-X-Gm-Gg: AfdE7cnO1tsHQPS5cfIRjs3beNh/70FBiIZ1T+DobFFTJl3m4RU+Fy8KQZMovz0ffUb
-	YStJoP1XxkOF9krTNN6acDElsJkc8pu6GWP0JdeleJVhX45mFqlQluDpRdFDgkAWW8BR8sbk9dT
-	LCBjtlXhhnfF7UmGeGEidKcYZ6A4y0cG87W+st9kt8mQnZRj6XDvBZEcS5jDhf7OquWzDQIfxu8
-	saXhLQYKKQJ5zuG/Wa+w4lmb4k2mvVfUMatSAOb03hRSP209l0Y2VtU5BQkPwEpV5C8iH9JlnSG
-	O7wS2pNeU1vjesINcoj+EeYLrRmtmCL7UGMYvZ01T3WkqzRwtq914l3WXryUBT0jcqkRBW3CIw7
-	0GkXc4yGfBUExNHAMVnyG1kQlP6yzWr2u4UP5BMT57ajSjRb3c1bsoSnMlPQuuarrTXBZAJNOlB
-	LSVWAO3ItDQi8pm2RpjCzN/MnpVQG65zBMG58n1eF9inarTM77DCm7+wIpw+tYu9UY4XzTBg==
-X-Received: by 2002:a17:902:e80e:b0:2cc:8267:31b5 with SMTP id d9443c01a7336-2cf3489a830mr141008405ad.19.1784539299565;
-        Mon, 20 Jul 2026 02:21:39 -0700 (PDT)
-Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:3916:f048:32c3:931f])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf344be458sm53775345ad.25.2026.07.20.02.21.36
+        d=1e100.net; s=20251104; t=1784539525; x=1785144325;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=LemIgIdjk5eM3AXQKute2fWvk4y9PhORePmOHO5weFo=;
+        b=c2Cog1URQKnNjoMfbLA4pFufH5C3p5131nGyhFKq0BwFDNXtxIedrGDgiPwd1Sip2a
+         rUwdIAsbxPmjG26sJrcmreFvsoWQaoZVC55bjobQahHn7h6ey33QajcBznnrsFm0EmFC
+         kGHr1rfyQukIDpXhYoyb/5JWwQU/fOLd8jnL1GJWEfDhaOG4ooi28ELebxBOyDHnxhwf
+         eVJ9Ww9cuj4n0Lv+UuYhgNyfbjXhpWeUgIqP+ogb3GhsBeRIcOUxhXYbIvX/Ie+M7fnM
+         c1xo9EuR0BE+j+yNejZt0g3MoTnlVY8qsE2Gh8vJ5hRqABFwVyyA44iTYP/QZ9neUwfI
+         5FuA==
+X-Forwarded-Encrypted: i=1; AHgh+RrD220bUT1NkHlL7/tES166w1VBXcBJPuQ7jAaAtFhk6SQ8YkLkn4pW9JiqO8AFcmcR1tOSjOh4wbpJk8LvVveo@lists.infradead.org
+X-Gm-Message-State: AOJu0YxUMfMTq5CIpxrMme6sTkzhmMEOxzGFb7fHP2RlRzq7bi//vm+b
+	jtvijOKONGWvk0jmHg7t7itdei57AuKRqvt+VKNP9q9ig73bzXX7ECgagz/KabrbjNeQebf40Jj
+	qPBBOVz0lis0TPFkiWCFbEZViyQMGhq+PUDyCo1N3f9av6QezMxSn6i2P3Zhq4K4UEwFRVhCOXh
+	1RYQ==
+X-Gm-Gg: AfdE7cncIEOiWE7ukvwOxaEKY7YePQqJaQRIGa9u4tnHRwzM6uVzbw51Sv0HqreFq3q
+	TZkiMx1VTn9C2xWg98ltfQe/TAPFlyB6QCC/JlReQMXm5sy24cz3yYdGQZFJGWVrIjGOB335zQW
+	JfUVCZyMWYuTSINhq84YvFbeGkT6uPMs4aH7NZ4+yBAKPZOKJs2GrL7Dzkg9fz5qw23PYzcajDG
+	DwgUq7C+dx4wKDm8GppsjW9oDiGdPJf9osC8b3u6DOW55PdxP7QUzm0prU8yWJLQC68RgfbcoHt
+	74ZzMsetQj+ZdxzgD4Pap5cISD+Yaez/pGXtlsguA9rS9bFbC2H1XTCGHMTTZXoO9xwQgCc1HXt
+	qfoNWZKFBX7ErvKnqt+p3XO+Bvz7yJA==
+X-Received: by 2002:ac8:7f8f:0:b0:517:8011:3a4b with SMTP id d75a77b69052e-5213c7e50cdmr116347181cf.21.1784539524999;
+        Mon, 20 Jul 2026 02:25:24 -0700 (PDT)
+X-Received: by 2002:ac8:7f8f:0:b0:517:8011:3a4b with SMTP id d75a77b69052e-5213c7e50cdmr116346691cf.21.1784539524509;
+        Mon, 20 Jul 2026 02:25:24 -0700 (PDT)
+Received: from brgl-qcom.local ([2a01:cb1d:dc:7e00:65fa:60cb:c205:d511])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4955de88951sm62228205e9.3.2026.07.20.02.25.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Jul 2026 02:21:39 -0700 (PDT)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Chen-Yu Tsai <wenst@chromium.org>,
-	linux-pci@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Subject: [PATCH RESEND] dt-bindings: PCI: mediatek-gen3: Allow memory-region for restricted DMA buffer
-Date: Mon, 20 Jul 2026 17:21:15 +0800
-Message-ID: <20260720092116.1823562-1-wenst@chromium.org>
-X-Mailer: git-send-email 2.55.0.229.g6434b31f56-goog
+        Mon, 20 Jul 2026 02:25:23 -0700 (PDT)
+From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Subject: [PATCH 0/8] driver core: prefer platform_device_set_fwnode()
+Date: Mon, 20 Jul 2026 11:24:47 +0200
+Message-Id: <20260720-pdev-set-fwnode-instead-of-of-node-v1-0-2dee93f42c54@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAF/pXWoC/x2NwQqDMBBEf0X23IUYaVP9leJBzKTdSyJZUUH8d
+ 9PAXN48mDlJkQVKQ3NSxiYqKRZoHw3Nvyl+weILkzX2ZZw1vHhsrFg57DH5oqOumDyn8E+t8O4
+ wo3Pt0/RUhpaMIEc9+YzXdQP5bB3HdAAAAA==
+X-Change-ID: 20260720-pdev-set-fwnode-instead-of-of-node-e83ece371509
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        "Rafael J. Wysocki" <rafael@kernel.org>,
+        Danilo Krummrich <dakr@kernel.org>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+        Andi Shyti <andi.shyti@kernel.org>,
+        "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+        Robin Murphy <robin.murphy@arm.com>,
+        Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+        Doug Berger <opendmb@gmail.com>,
+        Florian Fainelli <florian.fainelli@broadcom.com>,
+        Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, Ulf Hansson <ulfh@kernel.org>,
+        Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>, Lee Jones <lee@kernel.org>,
+        Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+        Srinivas Kandagatla <srini@kernel.org>
+Cc: brgl@kernel.org, driver-core@lists.linux.dev,
+        linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+        linux-i2c@vger.kernel.org, iommu@lists.linux.dev,
+        netdev@vger.kernel.org, linux-pm@vger.kernel.org, imx@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, mfd@lists.linux.dev,
+        linux-arm-msm@vger.kernel.org, linux-sound@vger.kernel.org,
+        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2116;
+ i=bartosz.golaszewski@oss.qualcomm.com; h=from:subject:message-id;
+ bh=y+3A5/VLvAorU5dstuzQ20g0vs1cTbJrLg8xUVeJe9k=;
+ b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBqXelzKWZE6870gD3WWYpCRNtH/x/7TnWJA+MWI
+ +18iI+ok1yJAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCal3pcwAKCRAFnS7L/zaE
+ wwVFEAC39JKLu5OuBinyDLYXI20Qwbj5iJgddspKDBrIHwzbE8GYvwxR4tbccRRa382Fmzdct8y
+ EzujI9HvhuEvuRGbzYN7nXKISM2Di8/vbjW+fYvgUH0d61sNqxWxNpyhA+RjY+bO2ovYCYgitp4
+ KAuedXV8aifMRqUntG8OUyDK7/pRU/OYeBjdQqP86+KfJROziANbRE6R13AsREnvOsOpXp5rxyf
+ Nt6Hq0D2M1mUJWKYKcqaBHXnY9HMNXXOzc+1UK6ohzMTFcE+JjZXbkZpOBfkNqimGJXIfXglvMO
+ vQyEV1EzrURqAEx+qx4RAqS1LAMEjW6NWVmfKZwViSO4RFnifrncA74OhKxw4imku2YwssQ1ZAT
+ X1fkgdX8b5xMz70t2a3rvbGmwvSksfSCz2RzAbhkD2CbvxkaN6/J7yDasBLy/iYvfmCsDWt0g+o
+ lQe7N4WegbVPHnOq3qaCeCE1A7AeqAPWEDnzj01qMuNcvv6BsYMBI5+5nWHFw2X5pFbGQntKtIE
+ y2IHrZix8Z8c+8zw1ZC6CCaW/8PZ/bZt8nHiPN97ndbD6joCGFMKOo1R/yAr0eychf3fUsa34MQ
+ 543Wud8L0J+bI8TjoQFUK8AhP4uQe4aVi0URHHakNa+jsR5rhwd9SKHNKnMG95SngYBbKD8g+Vf
+ pAe3KSxbxKULFDg==
+X-Developer-Key: i=bartosz.golaszewski@oss.qualcomm.com; a=openpgp;
+ fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzIwMDEwNCBTYWx0ZWRfX+fPyj9iMaJxF
+ vOEhA4q9HYxZUY4TNpSitxlsSsFu3p2vRr3/Y1t1wwkc8YE/CDAyx5d7OLcvy68g94xJ+sU8HEJ
+ YXNW0nHypir34+yABs28KVsMOVA4eLA=
+X-Proofpoint-ORIG-GUID: t7-iG2rTOJp9lAAUYbE_6a4oQigZitrt
+X-Authority-Analysis: v=2.4 cv=DMS/JSNb c=1 sm=1 tr=0 ts=6a5de986 cx=c_pps
+ a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22 a=EUspDBNiAAAA:8
+ a=dfxIzRrD6tu8yhXxuZUA:9 a=QEXdDO2ut3YA:10 a=a_PwQJl-kcHnX1M80qC6:22
+X-Proofpoint-GUID: t7-iG2rTOJp9lAAUYbE_6a4oQigZitrt
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzIwMDEwNCBTYWx0ZWRfX6DTNCDt5w1F7
+ lvRu0hUFjYPcZRev3yb7xGfG8Cc31ZYZHuaImKl9BkTub37245Jq3SA4ohOvX94O0UaSaiA9B2Y
+ 2BmByEOb8vcOybzLAzMhyg47lMc6kPjNkWLTvjprRXAYrGTE8GP1ydm0waOI00cc1rrtYZ745ue
+ enXJ11VfG1euCWQQg+PTI/AzE5JsQs/Jp4F9hXaZl1Szmj6feqL2mTmQyV88TPkXjnQfArc3mog
+ HptmU3rG5Vd12k66+xuaXeeBak9S38jvo+vx7AhbyvtzkERecBqa+ZupXp9fqGzSTgacQfVKeZo
+ 60G/SjL/a5R+Chm2z9jP7Zobi925nF8Ck8t1FioirrtoPr+UFp+FBBxGWBrEABmcZvNT1aI+9MJ
+ 3npc30fucvATmT24yEuQBmQR6dwC9TrrvR5M/tw2TTWfDqPKo1Y1ADOqXj5DG/LMsIWD7+6tele
+ LaV93eWGK21BuGDWnoA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-20_01,2026-07-17_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 impostorscore=0 priorityscore=1501 spamscore=0 bulkscore=0
+ lowpriorityscore=0 clxscore=1015 phishscore=0 malwarescore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607200104
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_022140_801753_6A271DED 
-X-CRM114-Status: GOOD (  13.10  )
+X-CRM114-CacheID: sfid-20260720_022527_878052_B656D012 
+X-CRM114-Status: GOOD (  16.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,42 +190,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On some SoCs without an IOMMU behind the PCIe controller, the PCIe
-controller memory access could be limited to a small region by the
-firmware configuring a memory protection unit. This memory region
-must be assigned to the PCIe controller so that the OS knows to
-use that region. Otherwise PCIe devices would not work properly.
+With the final platform device and software node rework changes having
+been queued in the driver core tree, Danilo pointed out that
+platform_device_set_fwnode() is no longer used and should be removed. I
+argued that instead we should prefer it over the OF-specific
+platform_device_set_of_node().
 
-Allow the memory-region property with one item pointing to a
-restricted DMA buffer.
+This series converts drivers using platform_device_set_of_node() to
+platform_device_set_fwnode() and does not intend any functional change
+as the semantics of:
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+  platform_device_set_of_node(pdev, np);
+
+should be equal to those of:
+
+  platform_device_set_fwnode(pdev, of_fwnode_handle(np));
+
+The prerequisite changes are currently in the driver core tree so this
+entire series should follow them as well with Acks from maintainers. If
+it doesn't make v7.3 for some reason, then I will resend these next
+cycle separately targetting individual trees.
+
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 ---
-Can we get this merged for v7.2? A matching device tree change was
-already merged in v7.2-rc1.
+Bartosz Golaszewski (8):
+      powerpc/powermac: use platform_device_set_fwnode()
+      i2c: pxa-pci: use platform_device_set_fwnode()
+      iommu/fsl: use platform_device_set_fwnode()
+      net: bcmgenet: use platform_device_set_fwnode()
+      pmdomain: imx: use platform_device_set_fwnode()
+      mfd: tps6586: use platform_device_set_fwnode()
+      net: mv643xx: use platform_device_set_fwnode()
+      slimbus: qcom-ngd-ctrl: use platform_device_set_fwnode()
 
+ arch/powerpc/platforms/powermac/low_i2c.c    | 2 +-
+ drivers/i2c/busses/i2c-pxa-pci.c             | 2 +-
+ drivers/iommu/fsl_pamu.c                     | 2 +-
+ drivers/mfd/tps6586x.c                       | 2 +-
+ drivers/net/ethernet/broadcom/genet/bcmmii.c | 3 ++-
+ drivers/net/ethernet/marvell/mv643xx_eth.c   | 2 +-
+ drivers/pmdomain/imx/gpc.c                   | 2 +-
+ drivers/slimbus/qcom-ngd-ctrl.c              | 2 +-
+ 8 files changed, 9 insertions(+), 8 deletions(-)
+---
+base-commit: 27edebd505791748a77703e311d76f0f55a8d7ec
+change-id: 20260720-pdev-set-fwnode-instead-of-of-node-e83ece371509
 
- Documentation/devicetree/bindings/pci/mediatek-pcie-gen3.yaml | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/pci/mediatek-pcie-gen3.yaml b/Documentation/devicetree/bindings/pci/mediatek-pcie-gen3.yaml
-index fbc0378392d4..b88717dec1fa 100644
---- a/Documentation/devicetree/bindings/pci/mediatek-pcie-gen3.yaml
-+++ b/Documentation/devicetree/bindings/pci/mediatek-pcie-gen3.yaml
-@@ -116,6 +116,10 @@ properties:
-   power-domains:
-     maxItems: 1
- 
-+  memory-region:
-+    maxItems: 1
-+    description: phandle to restricted DMA buffer
-+
-   mediatek,pbus-csr:
-     $ref: /schemas/types.yaml#/definitions/phandle-array
-     items:
+Best regards,
 -- 
-2.55.0.229.g6434b31f56-goog
+Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
 
