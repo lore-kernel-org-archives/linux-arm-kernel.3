@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21DA5C44515
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 19:56:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2CA5C44529
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 19:59:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=97OJ/mlTAMlKy5EjSNHcp0JDElogp7owWQT+IYr41/8=; b=vaU7B/NSYyIIH6/E9+HrEjTctA
-	vwJptZOTgwunLIzYAYxJaFPhna61NNoCkdfd+05ltgBpzMU4d/rahXdsAfUM79wbI0EDpRZjHfcr+
-	K8SVZSiwPCx09PpIma1uSNtLuy9RwOs5nR0xozOiSvoHKodngjPfX/cRhKCGzYqb8fsQ0Cl0clYo0
-	m+MU/Z4AceNdcWJUouVoVkqA/XgHonGVjUgh9YlZvtnTCyOjF/OQGnBR6jJ8JfIPA3S9IKgtao7pY
-	KsTw1dlt9tFv2aWYLuYCRxLes6WaX7bK8SeVPICD7/OHHU1M6IunsWKl655v2hCWHMTcDu89Xfc8Z
-	OI09tzoQ==;
+	bh=M0iCIEUW10O2kbnfX6KiwVUa+mnyTLrVr4tfL904/Vw=; b=oELJwekxB7uwGqnvywWuYaXL+9
+	AMkWrSJmXVeieRCtbmZ9DJTSpym9OXfubI+veX2nLF9aZX/Wdaxw827PV2xbm2ZvveS6GCfLa77WI
+	bbPOFdP/P2KzSSzzQmQ8uD8H+Bue06rGIpNvGhbafHPta+GoXBl3BEUb7xDX+Bcv3JuEPpIxnKEpc
+	ayidZD0lq4IJHcCZcqa0344u0LtFgE7lVkEoi41TBosmS6Ggp8Tq5zofE2/F51QOaTAx8xEnE5igz
+	NbMphFSZb9sU+MjL5tMdCHtz9HMY9PmpLsWm0aypcVbTTXHPV6c7c72wX7zVDTRYHnSy5wxc5df37
+	5uqYaTyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlu6Z-00000007oL8-0nS1;
-	Mon, 20 Jul 2026 19:56:47 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1wlu9N-00000007ob8-2Vrg;
+	Mon, 20 Jul 2026 19:59:41 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlu6W-00000007oKi-0v6h
+	id 1wlu9L-00000007oak-2Itd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 19:56:45 +0000
+	Mon, 20 Jul 2026 19:59:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1784577405; x=1816113405;
+  t=1784577579; x=1816113579;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=xuBSAIf2BqyIqXPMitrv7lDaxfE+4gesNzdoI735OW0=;
-  b=mU/GPmwEhQLBdYtxxdraePyGTwuW7ACjEGUvR/KiyyHQVHJ2BifE5mrN
-   XoNKqzkJD2ZpZBHGramKpCLs9Hk1J8UIW7LVznXvboRiHrxPdIZHGlfao
-   9bKYTCZeotF4jPBI9DCbBHcWt0t0JVEiCtmfXd3JlDe4VniUyJmzUersK
-   ugv6NABW0iOVxWsrJa9E3jsNFIkKbohQN9ws3pIgSj7z9PHNMwym6FnxK
-   3iKIhEeIjzPlfWn0vtkQ1c4YgkahaRUQg+ByOmhSnBtDyxcvxpgOF3E7e
-   13cL8JmUIgM+xXV3hltE6o/7zTN+Vwab4fgC6JaJMwG6UMfHrNgHN8/8V
-   w==;
-X-CSE-ConnectionGUID: 4TAOXdjtS+qlFf1/PdRg4w==
-X-CSE-MsgGUID: he7S6xpOR/yaJru+ZEENvw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11852"; a="89062622"
+  bh=5nBWDPcmFe0n+me7Aphp9FEdrZbw0OAsproebJUVPfo=;
+  b=RdD1wjUTVPoGRZLgFWQV9JG3WIH3uyIc8t2Xiv7MsSizcZF1Py7iSzqy
+   uYR+YW1ae1cQUoaM0pdP2OKBYRStXleJB7s9aPXeEgKwovHpi6XENq6By
+   E3D5d0Z2iqqOdhCLp/Gz9bQI7N95RTs9ae/qMKV85Q8NsnLDCjtMRrIDM
+   cskuKUJzmjl8DGdYKncqYC6qu1vD+DLw2PKfvj9lV/JdYQqoJOSLg5Z8X
+   iez9oXN5zIKWpjRl+FOVbMrTZqn5PcSYsS2mcNMSlOc6HsXyOaeWFtbnH
+   VRahYG20FyBkZ+Nw25o69OS0FlVQn+aaAHj88lDxVTF8rM6Oaj3gFa8c1
+   Q==;
+X-CSE-ConnectionGUID: PtQl1DIrRea/2mcZG7Cgqw==
+X-CSE-MsgGUID: DbV27P8hTfiM7zqG19vAfg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11852"; a="96680607"
 X-IronPort-AV: E=Sophos;i="6.25,175,1779174000"; 
-   d="scan'208";a="89062622"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Jul 2026 12:56:44 -0700
-X-CSE-ConnectionGUID: fWcSVIL0QG2H/pMvF8+BQw==
-X-CSE-MsgGUID: x2ZAM/duSk+2r3A3i5//Tg==
+   d="scan'208";a="96680607"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Jul 2026 12:59:39 -0700
+X-CSE-ConnectionGUID: eIrH41XgSc6mjV9zSfN6lw==
+X-CSE-MsgGUID: fSuRV11BSymJPi12DM5ZSQ==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.25,175,1779174000"; 
-   d="scan'208";a="262498572"
+   d="scan'208";a="295761514"
 Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.175])
-  by fmviesa005-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Jul 2026 12:56:41 -0700
-Date: Mon, 20 Jul 2026 22:56:39 +0300
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Jul 2026 12:59:36 -0700
+Date: Mon, 20 Jul 2026 22:59:33 +0300
 From: Andy Shevchenko <andriy.shevchenko@intel.com>
 To: Shih-Yuan Lee <fourdollars@debian.org>
 Cc: Mark Brown <broonie@kernel.org>,
@@ -64,19 +64,20 @@ Cc: Mark Brown <broonie@kernel.org>,
 	Robert Jarzmik <robert.jarzmik@free.fr>,
 	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v16 7/7] spi: pxa2xx: rename local status variable to ret
-Message-ID: <al59d-zgEV0KCPIp@ashevche-desk.local>
+Subject: Re: [PATCH v16 6/7] spi: pxa2xx: restore LPSS private register state
+ on S3 resume
+Message-ID: <al5-JasTYF5r8A-j@ashevche-desk.local>
 References: <20260720162117.32304-1-fourdollars@debian.org>
- <20260720162117.32304-8-fourdollars@debian.org>
+ <20260720162117.32304-7-fourdollars@debian.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260720162117.32304-8-fourdollars@debian.org>
+In-Reply-To: <20260720162117.32304-7-fourdollars@debian.org>
 Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
  krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_125644_293053_CF33CAA2 
-X-CRM114-Status: GOOD (  10.28  )
+X-CRM114-CacheID: sfid-20260720_125939_635602_9874B08D 
+X-CRM114-Status: GOOD (  17.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,14 +92,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 21, 2026 at 12:21:16AM +0800, Shih-Yuan Lee wrote:
-> Rename the return value variable name from 'status' to 'ret' in the
-> pxa2xx_spi_probe(), pxa2xx_spi_suspend(), pxa2xx_spi_resume(), and
-> pxa2xx_spi_runtime_resume() functions to conform to standard Linux kernel
-> coding conventions.
+On Tue, Jul 21, 2026 at 12:21:15AM +0800, Shih-Yuan Lee wrote:
 
-It makes a ping-pong style of changes: Previous patches add more status uses
-and moves, and so on. Instead, this patch should go before all that.
+Is this series AI-assisted?
+
+> Intel LPSS SPI controllers lose all private register state across S3
+> suspend because the LPSS power domain is fully removed. On resume the
+> driver only re-enables the SSP clock, leaving the LPSS private registers
+> in their power-on-reset state, which causes two problems:
+> 
+> 1. LPSS_PRIV_RESETS (offset 0x04 within the LPSS private space) stays
+>    zero, keeping the functional block in reset. Any MMIO access while
+>    the block is held in reset causes a PCIe Completion Timeout and a
+>    watchdog-triggered system reset. LPSS_PRIV_RESETS_FUNC and
+>    LPSS_PRIV_RESETS_IDMA must be de-asserted before any other register
+>    access on resume.
+> 
+> 2. The LPSS software chip-select control register must not be blindly
+>    restored from its suspend-time snapshot: if CS was asserted at the
+>    moment of suspend, restoring that state corrupts the first
+>    post-resume SPI transaction. Instead, call lpss_ssp_setup() which
+>    unconditionally writes SW_MODE | CS_HIGH (idle/deasserted), matching
+>    the state established at probe time.
+> 
+> To resolve these issues safely:
+> - Wrap S3 suspend/resume with pm_runtime_resume_and_get() and
+>   pm_runtime_put_noidle() to guarantee active clocks during MMIO
+>   access and preserve PM reference counting.
+> - Restrict LPSS private register save/restore to LPT, BYT, and BSW
+
+^^^^ (1)
+
+>   platforms via pxa2xx_spi_need_lpss_restore() (newer platforms are
+>   handled by intel-lpss.c).
+> - Save only the first 6 LPSS private registers (offsets 0x00..0x14) in
+>   drv_data during suspend, avoiding reserved offsets beyond 0x14.
+> - On resume, de-assert resets first, restore saved registers, call
+>   lpss_ssp_setup(), and clear drv_data->suspended to prevent unclocked
+>   IRQ access.
+> - Add error recovery paths for spi_controller_suspend/resume failures.
+> - On the resume error path, call pm_runtime_set_suspended() before
+>   pm_runtime_put_noidle() to align the PM runtime state with the
+>   already-disabled hardware clock, preventing pxa2xx_spi_runtime_suspend()
+>   from attempting unclocked MMIO via pxa2xx_spi_off().
+
+This is an ugly hack.
+
+Saving context is done in drivers/acpi/x86/lpss.c (see #1 why this file).
+If something wrong in the flow it has to be fixed there, not here.
 
 -- 
 With Best Regards,
