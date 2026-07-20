@@ -4,67 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C053C44512
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 01:28:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCD57C4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 01:40:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KlQm/PpCTfe1j9oRpQXe07F8wUNhZzgsWv2yet6lYR8=; b=Nnu/c5vqPz9+4Y0CELDrjMHKMu
-	+g6W1w2QemRbti8+OwQDKVU5tAclvQIWK7y9i4XnvWG//vuX0iuLD+f0M93AELqpuOrL3WLKuA0qY
-	9ce03kK3eLyKVWaglXk2U9mGArLfaTxFjSUi/Sfh2+7VPFJ6RLlAwInL+xyJqmpz3nWOTF7xZx6HP
-	FS2oQs+74gnDQdJ3iGFHlnDhA+ohAodNfI5PsKh3sosVjlO4wEMnA4Q1iNQ6sI0UqvijTcw6GbATn
-	GyWxTp9/Sm0OxMoKUy1Hy0qzgv5oiLvVyKXwy5D2Ri88XvLLMTJXiIrf1qXPB4RGqRRGeZdbPkW7q
-	aZbay5YA==;
+	bh=kHtfumkrjgWV6lqa6yLCz3o3in3lRj0JfrLm7BDLacg=; b=A3pEuHlly+V004T6t6Nb9Y6hmg
+	VZVE15fPQXYIYcqKIQ1f/OKC7tUPhRAiBgQsUZlwWIQvJvrCbnnmRZ6mzpmMaubFflLXwBEXOVRVV
+	DrXfgPstAUiws9eX5Wkw3i2QibvK4aDSuab5hgaAS2jiXaSO5i/7bRusuzRNoM5dBkbREcKo+pLzp
+	tJDyoO018VO3XUIgnPyXRoz5i4ownBFEhYOoCmw998Y7NebYvYrT4InmOIW/0UrM6cQ9ffaK5oax/
+	TXYzJ7ErRNiOUoQ5NW4/0feFxdQ7h9mTTUF5Dn/U2wwBtn500DW1UsGDzS7O8QRp77BrXZbp1j5kp
+	JnhZbYdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlcnh-00000005cNb-0PJO;
-	Mon, 20 Jul 2026 01:28:09 +0000
-Received: from mail-m103131191147.xmail.ntesmail.com ([103.131.191.147])
+	id 1wlcz9-00000005coB-1T6Z;
+	Mon, 20 Jul 2026 01:39:59 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlcnb-00000005cMf-3AEm;
-	Mon, 20 Jul 2026 01:28:07 +0000
-Received: from [172.16.12.90] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 46c241bcb;
-	Mon, 20 Jul 2026 09:27:46 +0800 (GMT+08:00)
-Message-ID: <a2eed39e-1991-4b76-837f-d5cab47391b2@rock-chips.com>
-Date: Mon, 20 Jul 2026 09:27:44 +0800
+	id 1wlcz6-00000005cnT-2HQO
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Jul 2026 01:39:57 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66JNsQgm756106
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 01:39:54 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	kHtfumkrjgWV6lqa6yLCz3o3in3lRj0JfrLm7BDLacg=; b=Gf1eMcpZ+8HPLJAN
+	fiCceCP8o7gZyVS2ficRMT61jE+1kif8cDyKp2T1NMhKtz2Y2q63BlRPiWUIy8Wx
+	ClhT/nckFZRUezDlKJAJYLKBzNkwyV3y7FSgeEc2dtiHWtTF5vn73qZnyJCwY/Pc
+	MDh+3AXYn3S9mFxazvO4DgAG4nDdcTJiGlgEKiXMAZyUvUb1ZQ2bQ4//YXiUNuEX
+	TmycDo60JjR+RSmmEwmiG7Dw4UeuZ7yzMs2Tgz4hw5MHHHX2/USiF7cawmLTghao
+	Cwo26aAoFMA1aC6bQxpS71lVfm1/V+/sD1/27YV3Du6UeWKH44ezy5aNwnhAxdJS
+	ZKL3Ug==
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fg2bnkvrf-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 01:39:54 +0000 (GMT)
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2cca5e0a0c9so190351005ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Jul 2026 18:39:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1784511593; x=1785116393; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=kHtfumkrjgWV6lqa6yLCz3o3in3lRj0JfrLm7BDLacg=;
+        b=D1hOaXZNRjlNeT34K4Zzx2y4dgqNM3jXj6zw4uapjp+8mE+4WxPs6KhYLDxT+GGlmL
+         Fra2tSgkwN8d9I6NtbE2HGNg7WVmeMRmZlUBpR6XIjhzp2b6gjtn30GWIH29XAxFPnoK
+         3KQCIRuvJB4dtAJ+mQuF4ZXFMFk+rnkSrxxOVf5BYaAtTTpmoxzYKuRxVnGYoSPQSMSd
+         QJoEkOy7NAiwHgImGl749e0DOl2L7HYXEGj+OGksn3eI7wCkC9wfx66kmlICuMb2zCEX
+         IB586LUC7RGcsAGemgybLP65W6dvo/KvlHKnCCen6wrsUpE/zTKWJ24cw9wmc0G0RKqL
+         XwfA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784511593; x=1785116393;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=kHtfumkrjgWV6lqa6yLCz3o3in3lRj0JfrLm7BDLacg=;
+        b=QC/+PS1goGORWZi3If147A8DE28dwM+9x6jxRs+lrPP+z6JU8yacNgcS9jwpth71QT
+         svuP6BovXdHnH2EyYHAFJ5Ipy9LDpWcKIr3iGknsKiz1GeBMJzxONRm8+N6RlgBGdQeG
+         UTgUhZLzh+keucDAKCaX/rJaMve+lPxh4dOHAw7bu02KPctOhr/KT/QZDAweo9kPnLI5
+         tVO8e0IiLkx6WPOkjlzWqnNevt/IYsHl39N/BL1ajiLVx4YOqeg5hqdxYKQirKhemaha
+         Iy2+AYhQO1fLVUwxiWXJpbyXA6+CedPzKwLm51Tuh4PNZOQQ4r6wxsYiOw1lWsYj1q4j
+         eysQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rrv9VvgysS/O1W/qu55wYXML33rEB1nK70l5WaIoSqjs+ooehG/GKtqKuhNVDoqgFb61+/G7deBRk54OOuXbWun@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxy0GeurRDA4JfnT85Zx7Azc22um67Uwq97wAXJ87gf6H9VeBr1
+	urYNSbqLCR/eCQ6eWosiGwRPBtw5scvvJtAGCTDE9lOn2I+ZBc/gct9yLwudz1FAPLBQKGylObE
+	zcLyVGmErf+NZmPDyfpcDB8fwJYUGGaNgQpHicKcE7RvZ5tAMLz6bNf+XZFEr6JayK+iB8ybDo5
+	S10g==
+X-Gm-Gg: AfdE7cm/jdfI1gOJx/gc2S+x3zqrlfLtaBwug7CrJcyPmJ9XUGvLtq/9Exc2lqg/Seo
+	bl3fxr6qIX7IjcPdujFE7lRSlnSzceP3tz7r8KwdBQdU3aPvaqAuLatr8lrNA27yDzJ9jI/vMsI
+	A0u7PRh8THGyO1GywdK6cpnfLKed6ZTdodsgw6KYUm6g4zj7WgcHFGiRLQ2rdKzHg/qJ9sp8WOg
+	l2A2WKiYxLZaH8Kwh2DVBK9ydP/SWu021gvDTfwnVSdXSJWX50KLAXIviziYZwJG7pRG4/B84sq
+	Kznj43P0Pt6Y76j9stMzFEZRk7cdMNCIelgNEDNAqw5XycwzqmnZPpn9hscNxjXaeMTUR7uhjet
+	R5IQaUm5s0jJMVcyN
+X-Received: by 2002:a17:902:d987:b0:2cc:a977:4260 with SMTP id d9443c01a7336-2cf3489c64amr138490545ad.21.1784511593219;
+        Sun, 19 Jul 2026 18:39:53 -0700 (PDT)
+X-Received: by 2002:a17:902:d987:b0:2cc:a977:4260 with SMTP id d9443c01a7336-2cf3489c64amr138490325ad.21.1784511592787;
+        Sun, 19 Jul 2026 18:39:52 -0700 (PDT)
+Received: from jic23-huawei ([50.35.46.84])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf34730e35sm47246165ad.64.2026.07.19.18.39.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 19 Jul 2026 18:39:52 -0700 (PDT)
+Date: Mon, 20 Jul 2026 02:39:47 +0100
+From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Simon Glass <sjg@chromium.org>, Andy Shevchenko <andy@kernel.org>,
+        David
+ Lechner <dlechner@baylibre.com>, linux-iio@vger.kernel.org,
+        devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+        linux-rockchip@lists.infradead.org,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>,
+        Rob Herring <robh@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] dt-bindings: iio: adc: rockchip-saradc: Add RV1106
+ compatible
+Message-ID: <20260720023947.0064a45c@jic23-huawei>
+In-Reply-To: <5684233.Sb9uPGUboI@phil>
+References: <20260714131631.v2.1.0b846080833e4b836793c43fc26d1c6d817cf9b4@changeid>
+	<5684233.Sb9uPGUboI@phil>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] drm/rockchip: lvds: propagate bus_flags to the CRTC
- state
-To: Rok Markovic <rok@kanardia.eu>, Heiko Stuebner <heiko@sntech.de>,
- Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Alibek Omarov <a1ba.omarov@gmail.com>
-References: <20260717120005.2087386-1-rok@kanardia.eu>
- <20260717120005.2087386-2-rok@kanardia.eu>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <20260717120005.2087386-2-rok@kanardia.eu>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a9f7d22e4aa03a7kunmc2dbdd921ce93e
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDGR5CVkgfGkoaHUxLTExJGFYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
-	9PT0hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=WVqO+2NCDv/mqaO7Kt2nEXgpTXTldKPyN/TiQkHcsd5v7udtGR77JY3k0OKq4COd3wN0vU79o6m/lfszbFb8PIsZYbVdWFJmO0yDE9FtgwlO5bc6k6xYkmawjTIedk/4J+nzSL2Igg1ho8BleWnFiLT+YAsqNSxgP6FQ5VsHWxg=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=KlQm/PpCTfe1j9oRpQXe07F8wUNhZzgsWv2yet6lYR8=;
-	h=date:mime-version:subject:message-id:from;
+Content-Transfer-Encoding: quoted-printable
+X-Proofpoint-GUID: l_Xe6ook7Q0eB2dgAG4mZApw1SR9KomV
+X-Proofpoint-ORIG-GUID: l_Xe6ook7Q0eB2dgAG4mZApw1SR9KomV
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzIwMDAxNCBTYWx0ZWRfXxj4gIQfZwkKh
+ wYZVJLq3wrxwnQAIUqhrSJFKdV/3W4tkiYK/b/ZHUfUj5dhdk8aVwlMp5axa11StTPuHNDx5EwP
+ sLu+XQFF+dBYUanVYn2xtsnAkmi4BMEE3STQ6jazWA0L+IW5iXknvWR9tPACAC8JXjqG4jB+bhK
+ mS4IveqTlauPvQRbSydlNVRJlP03Is4ryNocx4l4rVlO/zEolkVQfTUQDcVxd23W6w5P/u8qRnK
+ DfUaW3Veh58PcsqjXaAMxnsK7lYyg8pWWMV2vfeaTpVPyOID/Fi8Dc3BSDDpvbncvuItXq6Tm3/
+ 7rmv7HSRvurm5n4HxEBJyrIX2V4JoG5YuDcwf4KTSUN7wmj0aqG4i2qMoGnlTKDDdCkLlDBbcAX
+ 34UWZmFbb8mC4XgT6L/mgYeHFLMSIWkogOevfFuyHD9RjVfWT3GpPow0oOS68oGcdNXHPSDdHPR
+ PNDCyvIrQPBas9wYL3A==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzIwMDAxNCBTYWx0ZWRfX5Kc2YEFDzzP+
+ vEiJvuFm5GDyUMvaJqxc/AJhmR6efu+ak4pKPnAaM/CAsjgkZvbwLqfEEzNvTFPPGpHOJlldg+1
+ NdGnJ4i9xfbt8CE2mTm2vmvn6eqC9Ow=
+X-Authority-Analysis: v=2.4 cv=YsQ/gYYX c=1 sm=1 tr=0 ts=6a5d7c6a cx=c_pps
+ a=JL+w9abYAAE89/QcEU+0QA==:117 a=qC1CW/w66vtJz1P9yTJxNA==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
+ a=cm27Pg_UAAAA:8 a=-xwdloifxYJzbv6MhYQA:9 a=QEXdDO2ut3YA:10
+ a=324X-CrmTo6CU4MGRt3R:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-19_08,2026-07-17_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 priorityscore=1501 phishscore=0 adultscore=0
+ lowpriorityscore=0 suspectscore=0 clxscore=1015 spamscore=0 malwarescore=0
+ bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2607200014
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260719_182804_372395_9CF20047 
-X-CRM114-Status: GOOD (  20.09  )
+X-CRM114-CacheID: sfid-20260719_183956_690000_7BAFFF1E 
+X-CRM114-Status: GOOD (  14.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,57 +158,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/17/2026 8:00 PM, Rok Markovic wrote:
-> rockchip_lvds_encoder_atomic_check() sets output_mode and output_type
-> but never copies the connector's bus_flags into the Rockchip CRTC
-> state, unlike dw_dp-rockchip.c and dw-mipi-dsi2-rockchip.c which both
-> do.
-> 
-> panel-lvds parses pixelclk-active from the DT display timing and
-> publishes it on the connector as DRM_BUS_FLAG_PIXDATA_DRIVE_NEGEDGE.
-> VOP2 reads that flag back out of the CRTC state to decide
-> POLFLAG_DCLK_INV. With the flag dropped here, vcstate->bus_flags is
-> always zero, so a panel that asks to be clocked on the falling edge is
-> driven on the rising one, and there is no way to express the panel's
-> requirement from DT at all.
-> 
-> No functional change for the SoCs currently supported by this driver:
-> rk3288 and px30 pair with the VOP1 driver (rockchip_drm_vop.c), which
-> never reads bus_flags - only VOP2 consumes it. The flag becomes live
-> with the RK3568 support added later in this series.
-> 
-> Signed-off-by: Rok Markovic <rok@kanardia.eu>
-> Assisted-by: Claude:claude-opus-4-8
-> ---
->  drivers/gpu/drm/rockchip/rockchip_lvds.c | 10 +++++++++-
->  1 file changed, 9 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/gpu/drm/rockchip/rockchip_lvds.c b/drivers/gpu/drm/rockchip/rockchip_lvds.c
-> index 75f898a..95fa0a9 100644
-> --- a/drivers/gpu/drm/rockchip/rockchip_lvds.c
-> +++ b/drivers/gpu/drm/rockchip/rockchip_lvds.c
-> @@ -129,7 +129,15 @@ rockchip_lvds_encoder_atomic_check(struct drm_encoder *encoder,
->  				   struct drm_connector_state *conn_state)
->  {
->  	struct rockchip_crtc_state *s = to_rockchip_crtc_state(crtc_state);
-> -
-> +	struct drm_connector *connector = conn_state->connector;
-> +
-> +	/*
-> +	 * The VOP derives the pixel clock polarity from this. Without it a
-> +	 * panel that declares pixelclk-active = <0> is clocked on the wrong
-> +	 * edge. panel-lvds fills the connector's bus_flags in from the DT
-> +	 * display timing.
-> +	 */
-> +	s->bus_flags = connector->display_info.bus_flags;
->  	s->output_mode = ROCKCHIP_OUT_MODE_P888;
->  	s->output_type = DRM_MODE_CONNECTOR_LVDS;
->  
+On Wed, 15 Jul 2026 21:21:17 +0200
+Heiko Stuebner <heiko@sntech.de> wrote:
 
-Reviewed-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> Am Dienstag, 14. Juli 2026, 21:16:32 Mitteleurop=C3=A4ische Sommerzeit sc=
+hrieb Simon Glass:
+> > Add the compatible for the SARADC of the Rockchip RV1106, which is
+> > compatible with the RK3588 variant.
+> >=20
+> > Signed-off-by: Simon Glass <sjg@chromium.org> =20
+>=20
+> Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+>=20
+>=20
+Applied to the testing branch of iio.git. Thanks,
 
--- 
-Best, 
-Chaoyi
+J
+>=20
+>=20
 
 
