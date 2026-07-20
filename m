@@ -4,110 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03FC7C44529
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 19:30:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A023CC44515
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 19:45:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FkD3jB2s3IIbN08+g0w0TygpA5tj0fOSjjBWkNKDgEk=; b=Ta/io1E3wmF/Caqw5x0lwNbOO/
-	g8q/2EvhGpGI7vghbT1qawd9YOBKjsy+oSboZ7d1smxUDcZbocbDVFExol08w1UjaPMR83lOvrsRf
-	GrOza6FeW0hyBSi2iIC6tasTNOly6kAyYlG6aYgyn8/suNu2Tun2ipIejMyG+QI/ezrtRH3GFPOt3
-	z/uD8kvkC4RMH0ExCkJ5gEpXHXawEIFBuT9eUkN4O5Rtb/9xziSn1Q5eGs+KFXFUho82wNpLkAEy3
-	LvGWgHLU01q7Vj9bUj+SpJlCtOouY0r6eRbgBah5oJbzVVuML1kOjipuCvY2000mh4ATvw1vPI9cu
-	J2GpQDfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gnRgW07hzLRCxIKekWyNR2ruwTjgHHkQMx96GO7mN0k=; b=oYGOm5DJMMV9VOfJOhUGowdo1U
+	Uq4SLpigFaYss0sgWUdE3GQy5XyghL1HI1el8EpDVbAtQJFmQ2fLBsPl1Sgit69Y5DZiOGE2nIMBd
+	ERxC+e3RcBGI+ngvw5SwsihIFm4tch+iCk3ce8Odlv8R80w/qt5FXELSco6FNHPUEw2Q7QtQCCn0N
+	IkBr8QVWADgr2dWSfdcCTpbh540NEmYulSO+XsTDqy3EC7fnuMywR8wUEkqdwiwznJRNHOndNfrIF
+	XOBRM7UP84lf4JtJgSV4Se6dCN0M1/2zCEwbjU/m8pHc01XJJKHHw/W/XpaQN/LF1b45lrAgpEo23
+	/i5jSllA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wltgf-00000007lGQ-2VAY;
-	Mon, 20 Jul 2026 19:30:01 +0000
-Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
+	id 1wltvd-00000007nCa-09Y2;
+	Mon, 20 Jul 2026 19:45:29 +0000
+Received: from out-186.mta1.migadu.com ([95.215.58.186])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wltgd-00000007lFd-2P3o
+	id 1wltvZ-00000007nBm-1xMD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 19:30:01 +0000
-Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-51c10e86e52so948741cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 12:29:58 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1784575797; cv=none;
-        d=google.com; s=arc-20260327;
-        b=QLvvXho2/QncX0cr9IS9sWXKVaYbmYoRvKw00TNpo0Ysn9uUAY9YG3j+OYII6Jpusu
-         +LLeqU33gcgIA3LvBYqhmyNFeZeAcMVPbgsE/CZxpMjzaQHFy0EEMCw3aeIw0wzOjBt1
-         vaASC7n1wrWFQAeAMviyCsmGYTL9ZKBj0n06IM7/s2vf0zhdd4AvInIoViYuyjiKNdyo
-         HWRYZP9ajvqH+a4t64AXirSGzc7YMav/9X1H5UEnDoO3AAInXN+z1+7DSbvHCH8FRe2Q
-         8boUPr/F707oPozykSbWhZbUK7+fv0mueiA+bGVUA8IyLsqDWriU1ti3H8PSO9tCE2my
-         6H2Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=FkD3jB2s3IIbN08+g0w0TygpA5tj0fOSjjBWkNKDgEk=;
-        fh=ymPylF+GpHl7qWWtoyAKVKSvfx2FFUx6R+5Ml8ijcKY=;
-        b=CVAfxQATKO7OzqiR7v4wDFwMVXKp196x+kEYd1/A0gaJ3ILdhS4y41T1aOB7UgyL+x
-         Tp7me69jfTblCW5taSlWUtenTNpjJtTBb4sMbMrnPDPiUKLgB6kRvqvV4ISuKMDJHxQ4
-         Zs80JXYHDLJOs9ByTKUumCuCs+O5s2VAz0ZNU5m3LEbjcLv9Jmcg42XWzhGvynEWDjZ1
-         RHc0pcA89WK4j8a2HWCLcZylOQ9kKB52lk/40EmEhHnGEHccxjZxxAXtGRW/6zQC5Dho
-         lp5mEm4Oh4MKEjkFtzMUX2CEL6UwWbjArXJz4jSIppThL5aCBFO+8wgiF+PRF4nJrBzh
-         Ircg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784575797; x=1785180597; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=FkD3jB2s3IIbN08+g0w0TygpA5tj0fOSjjBWkNKDgEk=;
-        b=M+Ogpy9/33V/R0H12imlT7lMbu5eUjdkcCLshePWXH9yFccNmrcDPCXpZMdg6A/Bek
-         pZ6NJXwmutrdRstLjsstbh6j9U8gwc52zbkKdDrov+/wMb2J6JeMzR1NT8zmTA6M9smt
-         aaFUo0aljyuGVaL7Y8tHY86uRSmHw3iMTQa/Rgh2MAzJK0cz5YySR4zkiM5XT496Bwov
-         Wtu8eW0HUJsheE00b5QQuci7hBcGmzCszAlrIrPrHumtM32yh86nZaNMEjEQVxw97Ebc
-         bUDxq15Old2zGu4xiMFAZoync/q015afwE16Z5HFdBvkEql6UyKcwfSttZb9LhTck6NW
-         1e0g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784575797; x=1785180597;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=FkD3jB2s3IIbN08+g0w0TygpA5tj0fOSjjBWkNKDgEk=;
-        b=p0Ey72KdeGi+MKZDNc2uOzj/s8uuevGj+CNCT9FInDUlGpZ1EtVraF7NJvrb+a9UXe
-         C/KOJzGFchP9ZauN4KgFMSXLeB5rN3gQxAzZ2cSt0N2HVyMIIScCAAvZ61B0XWAVLyR9
-         zDk8GuzKdN5tFAfBG2ivoKXrx1pFfRO0GtRLxfWng/MLM5TZKc9UwgFPbQ0oGW2uf3BS
-         XD6h0x1/jSgyrdexjGXc56U8oHtaWrQnndj11WOIR7IszTN03CzFuuhtbx5FtXRnxrtU
-         hoi6Ud6D1BGf7klm90b7TGHcHXvPeiP+fZrHXw4uM+Yt7x+xFgOuRWRxUpz3RY1BzsG2
-         PYgA==
-X-Forwarded-Encrypted: i=1; AHgh+RrcKPXPNafVvHZjfJj+PkDVu8FsrdK3psVjEAXu5P0X1Jac1O6MsvOSOqfY3N9QIsss2rGZypDxQnm5pFUh2XJE@lists.infradead.org
-X-Gm-Message-State: AOJu0YyCK4ykiObKDNIHN4T7jZ+rCBOvNSLq3hG+dRopfPJG2IQrPpXl
-	tDMJT/niXqrkYc8Jqcw4FMbXJ39LZl52xlzYeFx2LsjG58Y4EUZrDi7KozK5e8nyuhJlYtyAEVc
-	S3QGIQ/TA4/ONoBIyw854Dzg7SlM9Jb4jNL01jEI/
-X-Gm-Gg: AfdE7cnKR+lzXvXnwg275iyCGA7nJeanktTqtHJIeKsuERZ1RwfK6DtP+UztPJjA7qd
-	fhqKuTNDt1Gv0yqLQ8O1rrAza7EQNkfFIfcQmOE5QRzzrx937kVinMs/UcFsZUH+IGISJN7KP5O
-	ue73mXf0uUpYnJoxUxJBnUrylgVBy058iIiexPRHH9jCSkpGLldUnL66lIqaseldW0dzdrG2FAf
-	GlNZNPCNAz4FyO/Q8RDQTq8bUlXpUT6zDtph+AZ0EialM+EgpDrwXTyAT8=
-X-Received: by 2002:a05:622a:6d13:20b0:51c:7a90:a79a with SMTP id
- d75a77b69052e-526033764f4mr4774471cf.26.1784575796860; Mon, 20 Jul 2026
- 12:29:56 -0700 (PDT)
+	Mon, 20 Jul 2026 19:45:27 +0000
+X-Forwarded-Encrypted: i=1; AHgh+RoZqTI0aBvbf6vbpT8L3LKnhGidqWwqEL1n/iDE6Hm+XJokAYOo2dbDLw28hfWNSbtcGIAQd0hIvSzikMXuJYz9@lists.infradead.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1784576723;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=gnRgW07hzLRCxIKekWyNR2ruwTjgHHkQMx96GO7mN0k=;
+	b=GE1IXM2FFsUbMgD3tbSp12QPGPa+ZTt52q4TPHh4H3KkMFPV5L8TA9KFdHv+Lkc1cbnpcx
+	r0lAeqcAhQnUBN3sgTM9IxL+1FDHMQWYqtrATBG7UFXh6nRIv5AabWgX8WIsNBcsHxZE7q
+	ieGbRLCODet233WM9APisoWijzoC4YA=
+X-Gm-Message-State: AOJu0Yy3xwsQr+5hJ59tysPAUgC7w2Rm9caim1GnSzTys+2tqzR1Isqq
+	2Rb+OhiGSa6ARf73zI6NKQfTQ9avUs7BdKTVNB8NafHbK/ckCDQ8u8qf76PzMV9XIWGzsyfeism
+	ocIZGMczkGKGYLZglRP2tgQZYiEzgXOLKFjHc3hBx
+X-Received: by 2002:a05:622a:d0e:b0:51c:ca9:3d17 with SMTP id
+ d75a77b69052e-52601f03537mr5544981cf.12.1784576711189; Mon, 20 Jul 2026
+ 12:45:11 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260718111340.159896-1-linux@yoavmoshe.com>
-In-Reply-To: <20260718111340.159896-1-linux@yoavmoshe.com>
-From: Sami Tolvanen <samitolvanen@google.com>
-Date: Mon, 20 Jul 2026 12:29:20 -0700
-X-Gm-Features: AUfX_mz0YGJIXTAqoc42mflq1D8eqRe1dNjHeR1gvxIC8uUY_rJ9mhzujQ94LHE
-Message-ID: <CABCJKudqGL+BFFcz3qsuoJB6S_OAt-vs2yqePC_=oy+JzmPpVw@mail.gmail.com>
-Subject: Re: [PATCH v3] ARM: imx: Fix suspend/resume crash with Clang CFI
-To: "Yo'av Moshe" <linux@yoavmoshe.com>
-Cc: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Russell King <linux@armlinux.org.uk>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, llvm@lists.linux.dev, 
-	stable@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260715105100.3178255-1-vdonnefort@google.com>
+In-Reply-To: <20260715105100.3178255-1-vdonnefort@google.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Mon, 20 Jul 2026 20:45:00 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTyVRn8BR7bLBo5m_k9m1VNv95y4h+WTJvz86FTf+=XeFg@mail.gmail.com>
+X-Gm-Features: AUfX_myO2U0cPSk1RjmpSUdu0_huarr-ty_DjO0s1lnxhyEnNkUc3-HgW4xg-JY
+Message-ID: <CA+EHjTyVRn8BR7bLBo5m_k9m1VNv95y4h+WTJvz86FTf+=XeFg@mail.gmail.com>
+Subject: Re: [PATCH v2] KVM: arm64: Fix hyp_trace clock disabling
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, 
+	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_122959_638783_8302E6AC 
-X-CRM114-Status: UNSURE (   9.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260720_124525_712537_446B1BC9 
+X-CRM114-Status: GOOD (  21.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,16 +77,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jul 18, 2026 at 4:14=E2=80=AFAM Yo'av Moshe <linux@yoavmoshe.com> w=
-rote:
+Hi Vincent,
+
+On Wed, 15 Jul 2026 at 11:51, Vincent Donnefort <vdonnefort@google.com> wrote:
 >
-> Relocated suspend code in OCRAM lacks compiler-generated CFI type
-> signatures. When CONFIG_CFI=3Dy is active, the indirect call to
-> imx6_suspend_in_ocram_fn triggers a strict CFI violation panic.
+> Fix the disable path in hyp_trace_clock_enable(), which fell through to
+> re-initialize and reschedule the clock after cancelling the work. Return
+> early instead.
+>
+> While at it, cleanup hyp_trace_clock::lock which is unused and
+> hyp_trace_clock::running which is redundant: the trace_remote framework
+> already serializes calls to the callback enable_tracing.
 
-Would it be possible to just copy the 4-byte CFI hash prefix to OCRAM
-when relocating the function? If not, the __nocfi approach seems
-reasonable to me.
+Although the cleanup and the fix are to the same commit, could this be
+split into the fix and the lock/running cleanup as a separate patch?
+Since b22888917fa41 is already in a released kernel, the fix will
+likely go to stable, and it'd be nice to keep that backport to just
+the behavioural change.
 
-Sami
+Cheers,
+/fuad
+
+>
+> Fixes: b22888917fa4 ("KVM: arm64: Sync boot clock with the nVHE/pKVM hyp")
+> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+>
+> ---
+>
+> v1 -> v2:
+>   * Rollback hyp_trace_clock_enable() on __tracing_enable error (Sashiko)
+>
+> v1: https://lore.kernel.org/all/alczBmnItMwq8xj4@google.com/
+>
+> diff --git a/arch/arm64/kvm/hyp_trace.c b/arch/arm64/kvm/hyp_trace.c
+> index 2411b4c32932..9bfa368dd841 100644
+> --- a/arch/arm64/kvm/hyp_trace.c
+> +++ b/arch/arm64/kvm/hyp_trace.c
+> @@ -37,8 +37,6 @@ static struct hyp_trace_clock {
+>         u32                     shift;
+>         struct delayed_work     work;
+>         struct completion       ready;
+> -       struct mutex            lock;
+> -       bool                    running;
+>  } hyp_clock;
+>
+>  static void __hyp_clock_work(struct work_struct *work)
+> @@ -110,12 +108,9 @@ static void hyp_trace_clock_enable(struct hyp_trace_clock *hyp_clock, bool enabl
+>  {
+>         struct system_time_snapshot snap;
+>
+> -       if (hyp_clock->running == enable)
+> -               return;
+> -
+>         if (!enable) {
+>                 cancel_delayed_work_sync(&hyp_clock->work);
+> -               hyp_clock->running = false;
+> +               return;
+>         }
+>
+>         ktime_get_snapshot_id(CLOCK_BOOTTIME, &snap);
+> @@ -128,7 +123,6 @@ static void hyp_trace_clock_enable(struct hyp_trace_clock *hyp_clock, bool enabl
+>         INIT_DELAYED_WORK(&hyp_clock->work, __hyp_clock_work);
+>         schedule_delayed_work(&hyp_clock->work, msecs_to_jiffies(CLOCK_INIT_MS));
+>         wait_for_completion(&hyp_clock->ready);
+> -       hyp_clock->running = true;
+>  }
+>
+>  /* Access to this struct within the trace_remote_callbacks are protected by the trace_remote lock */
+> @@ -304,9 +298,15 @@ static void hyp_trace_unload(struct trace_buffer_desc *desc, void *priv)
+>
+>  static int hyp_trace_enable_tracing(bool enable, void *priv)
+>  {
+> +       int ret;
+> +
+>         hyp_trace_clock_enable(&hyp_clock, enable);
+>
+> -       return kvm_call_hyp_nvhe(__tracing_enable, enable);
+> +       ret = kvm_call_hyp_nvhe(__tracing_enable, enable);
+> +       if (ret)
+> +               hyp_trace_clock_enable(&hyp_clock, !enable);
+> +
+> +       return ret;
+>  }
+>
+>  static int hyp_trace_swap_reader_page(unsigned int cpu, void *priv)
+>
+> base-commit: a13c140cc289c0b7b3770bce5b3ad42ab35074aa
+> --
+> 2.55.0.141.g00534a21ce-goog
+>
 
