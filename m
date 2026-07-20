@@ -4,151 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E185CC44515
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 08:27:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60B32C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 08:27:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uvO1aPOrH9qcru1lsSePrBwTtIjIpNV09myyzyzygPE=; b=zj+NcXnThKiVKU+7XtYwqI+9eW
-	7NzjCnvKW+/F/A9KdhIeh1WSOhR2JgLOIiXb+r9z3q4AM3ftTtpf7meEwl5Ycs0KNzOa6I+ZCF88W
-	uBAUJURzeK2E5bpHCog2DU6wzQVsqbeu1lzJPGCB2v0R0mtSQ3bdSV+9QM2sNnezJhdc5orMXAsvC
-	y23Cmyp4ddHLfZcI1z7r1/ZDP1CjgHt6myAO3RNqPU8r6Fkbmu2KgrMLBLRbk5j46zX1wJJXZctLc
-	+8dtn+SdK+7Ber8KEQeUsFpfrt6887/F2jGUEpBtKdamb6jwBxRGL97kMmr6L8PKVy7Zmm7UevQcR
-	8QcTBiSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1RfFJezOgIiNsgp05GP4syUtkTURbMDdxIP6+LImR8w=; b=3Ww3ZOPxQi5r8klWQZxqpIvb3J
+	7COBNjNU7QZxjcJ1JMrRT6iKgf+9E/1b1YUTB+jgartfHC0TjJijZM+HBV/01KonqEPmDPT0NveZ0
+	YwoWbSUG+GO3gnsDwj1jJXXzkcjczaavrhn3WdEaSL4/R07UZmcAriSqu6ZGbuV5CqIIiRd9JfX/7
+	MzKWhi3AiwaoyZxver3f1QIcEhfOUw+KanfRI1ekSgTZU16+xEesG7hA6DP6Z1VYxf6pe2e8OIWry
+	tIqYQVjxJr44sm6H0AcIGJ9RkvYZA9jeGpp+RjE9QW7He5f+V0MYzL7+dgxTxwvzN7Vc0WTEI/O9w
+	QzCxQ4xA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wljKz-00000006C22-0siC;
-	Mon, 20 Jul 2026 08:26:57 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wljLr-00000006CDc-1aJj;
+	Mon, 20 Jul 2026 08:27:51 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wljKw-00000006C0h-0UbB
+	id 1wljLn-00000006CCh-0qEb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 08:26:55 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66K7YPLc2044321
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 08:26:53 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	uvO1aPOrH9qcru1lsSePrBwTtIjIpNV09myyzyzygPE=; b=pAGBBbywxeysVlas
-	GFmdusuG73KvhYxviYX8Z5wyW6s9hRSYaAmg9LiOf92Ov0OqqdsO02WGw3PchPpU
-	TpY6T3XzFewSZlvxAq8PpKvp577u9Ncu6+b4d0zwE91w+3xgWe/hLeER0EOe9CnY
-	OWQnaVVxKq+gKf+QFdHztSTmDZJ+P6ROMcWpMrc1KBTKB5Y5WO0WqhXn6pv997rb
-	F1pZ07DCIV5Is/khy8VVDAtToYrdtD2/wZlH0CkrXBV96UeLhaoYGM8fyPBGIa7/
-	gMj4/lKJYwsUXbtGRJvPmPhOVgTrDl8LTYCMqrntb4u3Mzhf4zygTVHdVuczbSAi
-	dBbZfg==
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fhfdcg63s-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 08:26:53 +0000 (GMT)
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-37f5ea6097cso1412124a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 01:26:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1784536013; x=1785140813; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=uvO1aPOrH9qcru1lsSePrBwTtIjIpNV09myyzyzygPE=;
-        b=N9Kfn4vuH5Yu+pkV5mcQrWlYfrb8KIZc4cdlEit80SuzmRMJnx9rRG6uAhyXsQTluo
-         NNQRi6eth5Cy6zeQ1Rr0pRRr8O9QMAInwj5msGnwrEjzfKR2+4f4ZG2Xi4ehYggsQuNP
-         atIR7tsYULTwbGyCSr/sou7CYWj+b+gMRvwVmqhdIzln0AFfaK4CNyWef2PpxIhORHH+
-         hDRB5fIEt3KwCoP3+q11H3uYPMz9QtpQnTT+Z4Qljnj2qqErv+q8jTip9pcuZtiOl+iX
-         6PrpVHL9W90BfGke8y4TCNdN0S/eO6kAf0bRt7B8X/CNlfRce1MuBvMNr+LwtTww6ZsR
-         jKOg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784536013; x=1785140813;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=uvO1aPOrH9qcru1lsSePrBwTtIjIpNV09myyzyzygPE=;
-        b=VcgHDYd09w6T89bk8OXltWEy2HF1Q+8CYNBm18lRjnCRkkCIo7gIqtNHVRxYPNr5Co
-         ODyGY8S4F/Wu+EJuUVryCUmNZ9Xg4ZlIpywv7/KZWZRV8vJR6er5zJxoQ6KF8y0rIIZR
-         pkJVnWurGceP1XX2BJruQPZfpFwbIbqovhZyXqhedPgoWD+EjogNoxH473E2T1Hod7QE
-         C4OgMG5YFRza95SoCKIlfr5FcL2uP7OdugPlwvgpzyeMYZj/hko3cnPDYdjRQ6oA1Qoj
-         dyQiKd/aMEiCIbEEU8d3oPylw5mduQznZEJONomtW2aBUPZXbmc0yFjde049c9+i3AI0
-         Gu6g==
-X-Forwarded-Encrypted: i=1; AHgh+Ro5yTCI98u5XjzFsy10AzT+CTpZ3EE3ecrja4pjAkTnza0ISr/Mr1DIoDiugg4q5QMyjK7xF+XfJEB4zekybnaF@lists.infradead.org
-X-Gm-Message-State: AOJu0YxemNO3VlIW473Y+7sMgdpwEQiQXWjwaTTiadEDhCLBrdjhDHen
-	TnNMmuAm+KlmdbD8dz//pf754QiXnufLHCaOGysk1+ICroydSKukvvWQe2IasjDxhoYZFN7Ksye
-	YXvZd1zUHCzvpc5QKzlzyCSIJ4NaMh3sMpZqSqxOxX6ooHurUdM/NpiWEh1GnuoNS9XZg62+XgC
-	RjQw==
-X-Gm-Gg: AfdE7clTuCkXsugXhhhgJ2New1Qe4QCXEBbRKZTvsiWncpLuAEdoYdOLKP+3PbLlQZY
-	iYPkYraL7x3rBn9c9K1RRv0Hv/N7KdWbNBKoPqj8RN3Lg3DAsoR6TLbn5T35gC3kBRP2PprRmzS
-	405poOCOAcj43J/43BrwNRPOrKWGeuGoQdz1t8ClUqXpP1VU87n6xiLariUbZsXqwbT1nh7R+m/
-	Mbq1c3buKuHxKapDKPoqZxJpvBF6HuOOlRDrzs96UHIVPuYHtyIRetNDKWtFpE2rO6keoGz9N7a
-	1U7W/oCqiC1aLWRxjWfslbAOpOSOa7IW5hcJ8XHG9DpUAeU4OdnOnHBQuYBNTRc4MG2h+eNhoii
-	yo1VERxItzbW2p6DMxhiw281GK0E/uA==
-X-Received: by 2002:a17:90b:a48:b0:38e:6a7c:abbc with SMTP id 98e67ed59e1d1-38e6a7cacfbmr3818789a91.3.1784536012796;
-        Mon, 20 Jul 2026 01:26:52 -0700 (PDT)
-X-Received: by 2002:a17:90b:a48:b0:38e:6a7c:abbc with SMTP id 98e67ed59e1d1-38e6a7cacfbmr3818774a91.3.1784536012350;
-        Mon, 20 Jul 2026 01:26:52 -0700 (PDT)
-Received: from [10.92.208.175] ([202.46.23.19])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38e4b0e9c5fsm5437015a91.10.2026.07.20.01.26.46
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 20 Jul 2026 01:26:51 -0700 (PDT)
-Message-ID: <89f07e36-ac7e-4895-8d2f-5c509c6eabdb@oss.qualcomm.com>
-Date: Mon, 20 Jul 2026 13:56:44 +0530
-MIME-Version: 1.0
+	Mon, 20 Jul 2026 08:27:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xM+V0+Wu6/2psQT1OBx77pEn7rXE9GfBCS6E6FjpXBeDjIJw4U7ZVXtnT+YK31pEWRsIO+hNbnN83QI1cGs50fA2j+l5TroUzhzVk+8nvGGQBJXeSVh4MUeSl1G1b1CRqUwFURSkXZlmxZiFlvm5g7xlk3NvV81qsfjRJTPTgEgtCnPwPogx8g082BjO7BISWlbImoQOoVHOWVZbhEHHJ9cZSRPL7BDPgEQMWhGdzOI6Y9QiTwyZtcFgHKlJKdYDHIY5DzjcL/2klBpaaA+OxYpFW8oqRMjHJavSMiK/8tbES4EGKz+iOwkeYrIazfMDSRTXD6vID8b4rPuk6y9cJg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1RfFJezOgIiNsgp05GP4syUtkTURbMDdxIP6+LImR8w=;
+ b=zHCA9ZQsOx9i8pFEk2tKQBPEVGJTNddGi9tI8rOu/U91siH97nw6AO8bUtxb77qy2mq+YqgMEvZmOD2rEnFHQEa51BuVgpXsCfJz+jYAaGELzAgEbSPDAdS+M9ilRmlcfXG4dvGs3TOLIVIwngqVi8NNVF4Ot3cnn25uMQQsSrUlt+zvRebtEYAKFYqFxguPhzRDMNiEDZXoi0sji46g2w5xZAghLkWCstNb5BMKRchATmSEW7KWblTSMrxaSOMCdnn8rWkYOWiqPS6Ht00FmAFQBiy0iccJfdqdEw2MiLmwNPkl3tFH1wqta5ykz1lMnVpMw8s1zgm5KBk9rJ8g0g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=kontron.de; dmarc=pass action=none header.from=kontron.de;
+ dkim=pass header.d=kontron.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kontron.de;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1RfFJezOgIiNsgp05GP4syUtkTURbMDdxIP6+LImR8w=;
+ b=R5MmloeCMNmQtyuLgvA5I1AKd4YJ6Gs4pFTyb7XOj42om8YhN88sUlP0/7BOCJfHYlBPHWvNTBAeKpg9jUbWqFxmA2OsbY40qSd0/aY0AYuz2720fw8edOsivgQf9gaMxDX0x3z6OeDhKkKgpyGgHKAdcPCQIH1AWuwOMHHyNdSUEwjA2QeHRPIAKiJAIRFdKK7Gvg1IFlNTb+WEGgl6zvxgGFrU4oTpOJ+sQzNLwEDVjZOC2W1/K2ieHrlbGZeoY1BISvMBkXuxVYNMtSrhrxN0SlxJhUG9aILnLKHHVqeH+zZOzQLhc4QVx0N9piOX60LxUcZqQ1I0yrdYM/dLaw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=kontron.de;
+Received: from PR3PR10MB4288.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:97::22)
+ by AS8PR10MB5949.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:528::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.13; Mon, 20 Jul
+ 2026 08:27:34 +0000
+Received: from PR3PR10MB4288.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::6aec:a389:7814:860f]) by PR3PR10MB4288.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::6aec:a389:7814:860f%4]) with mapi id 15.21.0223.015; Mon, 20 Jul 2026
+ 08:27:34 +0000
+Message-ID: <cf03ce93-bd08-411c-9ca3-2a3238e38eec@kontron.de>
+Date: Mon, 20 Jul 2026 10:27:33 +0200
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 00/16] Support Armv8 RAS Extensions for Kernel-first
- error handling
-To: Catalin Marinas <catalin.marinas@arm.com>, Borislav Petkov <bp@alien8.de>
-Cc: Ruidong Tian <tianruidong@linux.alibaba.com>,
-        Will Deacon <will@kernel.org>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Hanjun Guo <guohanjun@huawei.com>,
-        Sudeep Holla <sudeep.holla@kernel.org>,
-        "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
-        Tony Luck <tony.luck@intel.com>, Thomas Gleixner <tglx@kernel.org>,
-        Peter Zijlstra <peterz@infradead.org>,
-        Robin Murphy <robin.murphy@arm.com>, linux-acpi@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-edac@vger.kernel.org, zhuo.song@linux.alibaba.com,
-        oliver.yang@linux.alibaba.com, James Morse <james.morse@arm.com>,
-        Rob Herring <robh@kernel.org>
-References: <20260602071540.3711528-1-tianruidong@linux.alibaba.com>
- <20260708024131.GCak242z-9YE2xL6q0@fat_crate.local>
- <ak6HPmosSUleJFYU@arm.com>
-Content-Language: en-US
-From: Umang Chheda <umang.chheda@oss.qualcomm.com>
-In-Reply-To: <ak6HPmosSUleJFYU@arm.com>
+Subject: Re: [PATCH v8 3/3] thermal/drivers/imx: Add calibration offset
+ support
+To: "CHENG Haoning (BCSC/ENG1)" <Haoning.CHENG@cn.bosch.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <20260714-b4-symana21-11221-imx-thermal-support-upstream-6-18-v8-0-d54d8690e16e@cn.bosch.com>
+ <20260714-b4-symana21-11221-imx-thermal-support-upstream-6-18-v8-3-d54d8690e16e@cn.bosch.com>
+ <5a000235-5e17-4d54-8bbe-42fda0b59db0@kontron.de>
+ <PAWPR10MB741520A95E4822E935A0B7C0C2C62@PAWPR10MB7415.EURPRD10.PROD.OUTLOOK.COM>
+ <PAWPR10MB7415DE998EA3CCA639F14EF2C2C32@PAWPR10MB7415.EURPRD10.PROD.OUTLOOK.COM>
+Content-Language: en-US, de-DE
+From: Frieder Schrempf <frieder.schrempf@kontron.de>
+In-Reply-To: <PAWPR10MB7415DE998EA3CCA639F14EF2C2C32@PAWPR10MB7415.EURPRD10.PROD.OUTLOOK.COM>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: NH23A9AhDRwM82anbcZsCoyDoJWjQHjY
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzIwMDA5MyBTYWx0ZWRfX1K89UP307tpN
- 3ZJymqoCzUNuQjW/0t+YDOksa0hVtECgeQEuloLyjJCQ3dth6Cx3MYxdPl8wQ+P8fE/+E+t2hrc
- Ym3m5wlxz7i7a3V8owzM1XlFSoJQmGcZy7ECcwgCcFolUu0S2W45TS67cZ1DEriSdJLW7eQYLAR
- O20TYaCyNPqgRWE7xc/+0bft2/9SA4Q8khHI3paHmSnmn/yoLhmI28WG1WiNt32MsNxnH1Wymdq
- bh4viBFqxxUIKhtAZghlu7l5687eBr/SUdgn8Ct/wO2Ead15YB5f1u/DSGDulOHY4TzaJ9Re/lX
- 7dZhLncNuVMeewSpuwbCYSqRT1cpP8MCkApc9Vo4CA1TddE1lC5d3Rd9aJzTonZBG6+YFQGmTWc
- F+VgF0zAxZqZhfBWZKUKoqntlKS3k/XerOLyf+t2dtSJdn4dyzxHjxZKFOFBzTUVtmfmtg72CaM
- PR80nIgpgaOO8YIwzjg==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzIwMDA5MyBTYWx0ZWRfX3U/d6I8xEtKs
- IWYTW3qCCbGkwhRc+mhicSh6cRL5wX7DXyizHrB/dS9GxmNuxQ/8gZ5lDfVSq9YsKfAUVNVvn+D
- 66+2MSiEAHm1AcbG3Uu3TApz0JS6Gmw=
-X-Proofpoint-GUID: NH23A9AhDRwM82anbcZsCoyDoJWjQHjY
-X-Authority-Analysis: v=2.4 cv=bv58wkai c=1 sm=1 tr=0 ts=6a5ddbcd cx=c_pps
- a=0uOsjrqzRL749jD1oC5vDA==:117 a=j4ogTh8yFefVWWEFDRgCtg==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=jnGYlY96OlQ6c1eOmxQA:9 a=QEXdDO2ut3YA:10
- a=mQ_c8vxmzFEMiUWkPHU9:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-20_01,2026-07-17_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 bulkscore=0 priorityscore=1501 spamscore=0 malwarescore=0
- phishscore=0 lowpriorityscore=0 clxscore=1015 suspectscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607200093
+X-ClientProxiedBy: FR0P281CA0232.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:b2::16) To PR3PR10MB4288.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:102:97::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PR3PR10MB4288:EE_|AS8PR10MB5949:EE_
+X-MS-Office365-Filtering-Correlation-Id: aa9017c8-65e6-447c-5715-08dee638bfdb
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|7416014|6133799003|10067099003|56012099006|11063799006|4143699003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: vfQZgyu1GC78LYUGz6kJET9aCJmQ21hu9A0zJIkaiJMJd6bA4IMjJwepdpszR4VAr+y2/eeM+A7KZyL1sF6GscOfYzmBj7W42W5nUdMJdb5OIcb8fn9X5YXJ//jt7WfrVPKJNJKD+9Ka6uZZ9k8d8lgFXd2tk25lqq2fV3DZRYOlxa5My95qv3QQXJlbo/YV6fOnzsW9JPY3buX/TXa09rWQOmqLDcXXuxthQA5GcscP+bYsixJxchHGveus/R7LVpcs7uCLXp6f0cfFNVCOJUAl33NyolkxMlF2Q42jlkHmUNTYPj/2MBnXu00PVQCL0IF4S5ZNRDYsnUkCtzwy1gYPPTNZzBsEp0VY4/CpBZWBRQPund7s5erxwflUGDCjhtolO0VP6h3vOVWoZQWn5vM8BlrH31OwAcplKyXHODK/7Cqr7P/Tiz8Td88x6DXCxVvddwvRfhzfjy4dtgrjiSqS/jWjhmmYnfJfq8tiLyTiShXzw0YKOSioP/uwqPYIE8nU9XdDwgAJeLyict2yqPn8N4SaqlX2R9EfnCjPcEwrW0Fypjz/jInGCvO6f949IwjkhGC16uoWQNYhjk/h++kHEwhWMLditiPvbuu2akEiPxS/0WWQnxw04Lsabr0TS+zT0Ywf14l8LcpHNp8zyzyDrm4FwF/xTKqViSaTVFM=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PR3PR10MB4288.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(7416014)(6133799003)(10067099003)(56012099006)(11063799006)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WmVnSDFRbzM3TU1UK1ZqVXJ0bGZoZ2FtbUk1L2svQlBodGpUMis2N3FVQjFw?=
+ =?utf-8?B?VEFOWTBsWkdzSVE5Y0FsdTl2UW0xb1VGU1AwVWg2WVFHL1hKdHdBQlRyMnVE?=
+ =?utf-8?B?aVR6MitndTVpeUpUQW9odGtxcnJYTzVJMUNmMklaZ01Na1Q0SnJCdWxJSkgv?=
+ =?utf-8?B?Sm0velJmMHAxZGVnZDUxTndlTVphdmt5elJKUTdId2NHTGVXY1ZFTEN0QmNT?=
+ =?utf-8?B?UDJiTzQzckJuNitGc2lGRTVzbjlRdGNZdTZPR3l6VGk4M01kM2FBRlVGT2tR?=
+ =?utf-8?B?UW9XRlVHbjhGeVh3RSszL3ErTi9qbXZkSEZEZTA1QmlLdXFTUXUyRHdxYSto?=
+ =?utf-8?B?NGhqT08vU25OYTYzWHhpdU1sUk90N3JYampEa0M4ckV3emdxRVdERzhzcldX?=
+ =?utf-8?B?R1VHMHN0UWRveXVvU0dtQzd2VnhYN2k2WHVteUhwVUhLMGphbG5HWU9LT2tW?=
+ =?utf-8?B?ei95NjRNTTErcEx2L0MxR2I5b3JPRG5iWkZZM3RRNlhpTWpNSkg0cXBNREtW?=
+ =?utf-8?B?MXFOK1ZjYldORGk1VXFJdEN6Y1k5eWtVNFgrS0wvWEVYVDRmaGV0LzROOGJM?=
+ =?utf-8?B?aEEvL21LeGZxTEc3bXJPeEpEanhleVBEeUlrcnY5WjJQQURSVm8wdEFYNTVT?=
+ =?utf-8?B?SWVSdDV3QXBrQXBoZm9rV1pTRUE4NitCVWpsT2hIVVBHeTZDVU1scmEwbkpM?=
+ =?utf-8?B?cUp4bHN0L2JBM2JWMnJqUmdFNTR3QTViMEk5SFBaUkltOG1peG9EbE9NRHN0?=
+ =?utf-8?B?cXU5WnZPMURkSDlmTlNjUXBEZW92WUhTTzc5eGtBR2NHc2JGVkUxV2tIeWY4?=
+ =?utf-8?B?TjdQUEM1T2tib1pENzk1SU5YZWFVczJVZ3NTa3RVdEZrdFpnKzNyMEpSOGp4?=
+ =?utf-8?B?T2c3NDZLb0QrQXk4OHRENTJqY2J0K1NMcXFDTEorbElVZndIU2wvdVI5NEtO?=
+ =?utf-8?B?S0V3TjQ3QVRIa3pTd0NWMlRCelBDZVlLSTcxUys1M2NXQmtkSDE2blQvRVFn?=
+ =?utf-8?B?dTI2OU1GQ3pneG5QcXFyWTRFYXovbkF4ZHRkSXFtUS82UmlnaEJSMDVmb1Fx?=
+ =?utf-8?B?M1FRVHFQTGV4Y09VRXVXb1ZsVUxIeGpGekYxZ2Q1djVhWERZVzZwWEx4R3dk?=
+ =?utf-8?B?TGp1NnE2N3oxNlE1RWtEYlRCdy9qQm9aUk9BMjhGMHF2OUIvRHM5QnVENmZo?=
+ =?utf-8?B?b2szSWVEbVhENHhCWDliMlR4NHhOTlp0VkRtenMxZlk1UnhGM2VpK1FMNTd2?=
+ =?utf-8?B?MUovNlZlSFdLTkRXWUpYZVJKUjV0REFCaWVrQmhwQVJRaHRDSDdGWDRTV3FF?=
+ =?utf-8?B?azh0YmFCTjAxdmFBcFAyaElmOUNjeUVBOFZXUWpKUTVoVEpVRkhWdXR0OTdt?=
+ =?utf-8?B?MjVtVk1POTA3ZjZhNllpSUo5cldlUHlrSWRkUkFJSVdnRDZiYkRFOUxPK0ky?=
+ =?utf-8?B?a3ppQy9XNXNINFEzakNBVTQwK01tQ1RaTlBZdXFTU3l3WnlMUnczcWtEMmlu?=
+ =?utf-8?B?N1ltSVZyQStJcitSdjR1N1ZIbGRBNzRXSFFUUmt6T1hGQWRNOXpKTHMrWFZT?=
+ =?utf-8?B?TktiNWhFWjd2SmNKYUsyMlk2OVFMTDNKZ2IvYlJVZFZmdVM5WmZDVG82SGtP?=
+ =?utf-8?B?cTFMZDdLNGIzTi9rMXRnblNUVTNVK3p2S3EvWnNGNDVOVE83UGUwU2VzVlhZ?=
+ =?utf-8?B?SzYyR29DNFEwdUFxWkVUM0xvZXlQMnBTYXN5emRjbHczZWxNSE1HRG1SNjVN?=
+ =?utf-8?B?SnRWdGtwMEY3M2c2SVNjZ2VOWnpxSFhIaEVSWXBKaDlreHhOczNDYXR3aTdn?=
+ =?utf-8?B?d0FBZnFHam9CU1FJZXRranRra1lsMGZYeUtKMXBtUVJpV0pRVFFmSFJsV3lL?=
+ =?utf-8?B?bHhGNU4vUjdCZURSSGUrZXFCVzB3cll6eVBiZm1yYlMrWEo0QlQrL3h5RCtE?=
+ =?utf-8?B?WVIzNk1CVWRZMmUxSDdGc0xTTTR4MlRzMFB5d2xyRVZlR2ZzNWlPZldyOExr?=
+ =?utf-8?B?eWl3bGQ0QWZIaFBMSmVFZi85bmlhSDYvaWRMZDg5VlVPbVU2MUxsOVZWaUJN?=
+ =?utf-8?B?dmN6OU9DUWRKaitJYVVHSFE5SnZOdjhZdUcvRjFyUnRrWGk3Q1VSSG1vckc5?=
+ =?utf-8?B?Y3lmYU5NQVVNZFhub2pXcC9MQk1Nb0xVVG9RV3M1WWZaaVoyMjRnNnI2VlFO?=
+ =?utf-8?B?cGloNEdkeVROYkZ6d3pBZ3E2VDhsY2J6NkxEb3lYaHNKaUJrRGxxajlLRXIx?=
+ =?utf-8?B?RnZ0UzFKT053R3p3UEhSTFFJZE0zc2pBWkh0U1dkUFRwemljZTFKUG5MN0kx?=
+ =?utf-8?B?dXVKRmZNRW41OXJ0SzdSMnpSaGhzWDVxbGlJamxRKzFrMmxtYUthU2JwanhW?=
+ =?utf-8?Q?YedFL4sefPo587Zs=3D?=
+X-OriginatorOrg: kontron.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: aa9017c8-65e6-447c-5715-08dee638bfdb
+X-MS-Exchange-CrossTenant-AuthSource: PR3PR10MB4288.EURPRD10.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jul 2026 08:27:34.6072
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8c9d3c97-3fd9-41c8-a2b1-646f3942daf1
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: H31ntylUCJu8xeOvdUig3nv1b5UOqiQW0+a2iATSIrGpbTass96EC9Pv9WvgrlGlxZMhWc4cDwug9TKFcKtqQ+ImI54QANteEuKRBKutWIc=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR10MB5949
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_012654_170203_8BD15F9C 
-X-CRM114-Status: GOOD (  21.61  )
+X-CRM114-CacheID: sfid-20260720_012747_570283_7231E967 
+X-CRM114-Status: GOOD (  23.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,71 +164,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello All/Catalin,
-
-On 7/8/2026 10:52 PM, Catalin Marinas wrote:
-> On Tue, Jul 07, 2026 at 07:41:31PM -0700, Borislav Petkov wrote:
->> On Tue, Jun 02, 2026 at 03:15:23PM +0800, Ruidong Tian wrote:
->>>  Documentation/ABI/testing/debugfs-arm64-ras |   87 ++
->>>  MAINTAINERS                                 |   11 +
->>>  arch/arm64/include/asm/ras.h                |   99 ++
->>>  drivers/acpi/arm64/Kconfig                  |   10 +
->>>  drivers/acpi/arm64/Makefile                 |    1 +
->>>  drivers/acpi/arm64/aest.c                   |  423 ++++++++
->>>  drivers/ras/Kconfig                         |    1 +
->>>  drivers/ras/Makefile                        |    1 +
->>>  drivers/ras/arm64/Kconfig                   |   16 +
->>>  drivers/ras/arm64/Makefile                  |    9 +
->>>  drivers/ras/arm64/ras-cmn.c                 |  479 +++++++++
->>>  drivers/ras/arm64/ras-core.c                | 1026 +++++++++++++++++++
->>>  drivers/ras/arm64/ras-inject.c              |  130 +++
->>>  drivers/ras/arm64/ras-storm.c               |  198 ++++
->>>  drivers/ras/arm64/ras-sysfs.c               |  319 ++++++
->>>  drivers/ras/arm64/ras.h                     |  374 +++++++
->>>  drivers/ras/debugfs.c                       |    3 +-
->>>  drivers/ras/ras.c                           |    3 +
->>>  include/linux/acpi_aest.h                   |   36 +
->>>  include/linux/cpuhotplug.h                  |    1 +
->>>  include/linux/ras.h                         |   10 +
->>>  include/ras/ras_event.h                     |   79 ++
->>>  22 files changed, 3315 insertions(+), 1 deletion(-)
->>>  create mode 100644 Documentation/ABI/testing/debugfs-arm64-ras
->>>  create mode 100644 arch/arm64/include/asm/ras.h
->>>  create mode 100644 drivers/acpi/arm64/aest.c
->>>  create mode 100644 drivers/ras/arm64/Kconfig
->>>  create mode 100644 drivers/ras/arm64/Makefile
->>>  create mode 100644 drivers/ras/arm64/ras-cmn.c
->>>  create mode 100644 drivers/ras/arm64/ras-core.c
->>>  create mode 100644 drivers/ras/arm64/ras-inject.c
->>>  create mode 100644 drivers/ras/arm64/ras-storm.c
->>>  create mode 100644 drivers/ras/arm64/ras-sysfs.c
-> [...]
->> But that's still not that important - what is even more important is who from
->> ARM is going to review and maintain this? I can take a look at the generic
->> bits so that the RAS stuff coexists fine in drivers/ras/ but I'd need an ARM
->> person to take care of this.
+On 20.07.26 04:10, CHENG Haoning (BCSC/ENG1) wrote:
+> [Sie erhalten nicht h?ufig E-Mails von haoning.cheng@cn.bosch.com. Weitere Informationen, warum dies wichtig ist, finden Sie unter https://aka.ms/LearnAboutSenderIdentification ]
+> 
+> On 2026-07-17 06:23:44+00:00, CHENG Haoning (BCSC/ENG1) wrote:
+>> On Wed, Jul 15, 2026 at 11:06:07AM +0200, Frieder Schrempf wrote:
 >>
->> There are enough on Cc so let's see if anyone moves.
+>>> On 14.07.26 12:28, Haoning CHENG via B4 Relay wrote:
+>>>
+>>> Sorry to chime in so late. I just want to understand what this
+>>> calibration offset is about. Why would there be a need of a
+>>> board-specific offset? The sensor is in the SoC and if you add a
+>>> board-specific offset, you no longer measure the SoC core temperature,
+>>> right?
+>>>
+>>> How would you determine the offset in the first place? How would I know
+>>> what fsl,temp-calibration-offset-millicelsius should be set to? I could
+>>> put a sensor on the SoC case and use the delta as offset, but then I
+>>> would just account for the thermal resistance of the casing and not
+>>> measure the SoC core temperature anymore, right?
+>>
+>> Hi Frieder,
+>>
+>> Thanks for pointing this out. Your understanding is correct: after
+>> applying the offset, the reported value no longer represents the raw
+>> SoC die or junction temperature.
+>>
+>> For this board, the required "SoC temperature" is the package-surface
+>> temperature. The offset was derived by comparing the TEMPMON reading
+>> against a calibrated external sensor placed near the SoC package
+>> surface under steady-state thermal conditions, and is used to
+>> approximate the package-surface temperature from the internal TEMPMON
+>> reading.
+>>
+>> The Linux thermal framework does not require a thermal zone to use a
+>> specific temperature reference. It only requires the reported
+>> temperature and trip points to use the same temperature domain.
+>>
+>> In this driver, the offset is added in get_temp() and subtracted in
+>> set_alarm() and set_panic() when programming the hardware thresholds.
+>> This keeps the reported temperature and trip points in the same
+>> package-surface temperature domain. Doing this in the driver is
+>> necessary because the hardware alarm thresholds must also be offset-
+>> corrected; applying the offset only in userspace would cause the
+>> TEMPMON IRQ to fire at the wrong die temperature.
+>>
+>> I agree that "calibration offset" is misleading, since this does not
+>> calibrate TEMPMON to a more accurate junction temperature. In the next
+>> revision, the commit messages and DT binding have been updated to
+>> describe this as a board-specific conversion offset from the internal
+>> sensor reading to an estimated package-surface temperature.
+>>
+>> Thanks,
+>> Haoning
+> Hi Frieder,
 > 
-> I will volunteer James Morse (he doesn't know yet) as the Arm RAS
-> expert. He's away this week, hopefully can have a look when he gets
-> back. For the ACPI bits, we have Lorenzo, Hanjun, Sudeep who should be
-> able to review.
+> I need to correct my previous reply. After further discussion with our hardware team, the offset does NOT convert die temperature to package-surface temperature.
 > 
-> Adding Rob Herring as well who's been giving some feedback on the DT
-> counterpart:
+> Their thermal characterization shows that the raw TEMPMON sensor reading itself deviates from the theoretical junction temperature - this deviation exists even at the die level, before any board or package influence. The offset corrects the sensor reading toward the actual junction temperature, so it is a genuine sensor calibration.
 > 
-> https://lore.kernel.org/all/20260505-aest-devicetree-support-v1-0-d5d6ffacf0a5@oss.qualcomm.com/
-> 
-> I have some vague recollection James wanting to start with something
-> simpler like EDAC and do DT first but I may be wrong or things could
-> have changed since. So, let's wait for James to comment.
-> 
+> Board-level effects may contribute additionally, but they are not the primary reason for this feature. I apologize for the confusion - my earlier description was inaccurate. The v10 series reflects this corrected understanding.
+Thanks for the update. If that is the case, then I would still be
+interested to know:
 
-JYFI, I have v2 [1] of DT front-end support for ARM RAS.
-https://lore.kernel.org/lkml/20260720081954.1858180-1-umang.chheda@oss.qualcomm.com/
+1. How is the value for fsl,temp-calibration-offset-millicelsius
+determined, if it is not provided by the SoC vendor.
 
-Thanks,
-Umang
+2. Why do we need an additional offset, if there is already a
+calibration using the value that NXP stores in the OTPs.
 
+3. Who is supposed to set this property and where does it belong? The
+SoC dtsi, the board dts?
+
+Thanks
+Frieder
 
