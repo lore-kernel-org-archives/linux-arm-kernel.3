@@ -4,69 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C0EDC4451B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 03:49:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1FBAC44515
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 03:57:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v0z6sh/KJ9O1KI6wSAtg1ENxH1VHZOrj/P++2HlNnhM=; b=HfGPwz7lFpiUeysROnsyU9trkw
-	GSsEz102Z6beYR8u8wiNFXhKOu8VMuSM4xdZnNveHM+ugsuIa+VkBIAauE3WnPLA5gqsPg70KEuFb
-	cq9VSZ/2TtVhjzd4KRMIq6Kfo3Id6K6ZzWgrCVQasD9VYKHZSrLZc80QsGauQ29LxyiSKKDNVqAbN
-	FJZQcLnPbyt2DCa0pn5oSqldJuuRVijBG4+yjZGQIHoH1wxW6RUs5KXgHBMWqEHrogVBR+6TvNLED
-	yKcQjzJfUvAxyxlDL8RmJoiVr6lwL0GJ9txPeI60RsLpY5icY9eptcYS47c2E+9MZdDomA5DyqgTm
-	j+4jMNSw==;
+	bh=wVuJ19qCX9x3MniEK3yhTad3eaC+4o0Rjt1+dLJVWW8=; b=BnRitef4OL2vsGFCygaZxhbQnD
+	C3/v7pzBVo4sB6Y/SNMYrmlbBLgAyBmsB3Dl/ND7dMhes+R+HVG2I9cdJkWKJQDyYCtxNgVihduln
+	cWAqZ0U+JQsa3/QKXDsqerbX5K4x8JSo8VSt+fkpUb9kidOixNkA2R3bt9vVzH6AlmHZUC6Q1cWuo
+	DEUMz6zg0OtAz5jlSQ2ttlQMs/WsgjGKfrp7kuOxG68kWCLp00QyjsFCQSYyHH0JZh8UnAfc+ml7z
+	vOIOP3wksabvqkejKZSFysLOoTBad83INpDwjjICYsEide3M5aEaO3GVGpNxW0JwCs46GbdNmYvhs
+	IkpJiKvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlf02-00000005nf6-0Eqj;
-	Mon, 20 Jul 2026 03:49:02 +0000
-Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlezy-00000005neA-3GqK
+	id 1wlf7x-00000005o3A-3UJD;
+	Mon, 20 Jul 2026 03:57:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wlf7u-00000005o2K-2eK5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 03:49:01 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=v0z6sh/KJ9O1KI6wSAtg1ENxH1VHZOrj/P++2HlNnhM=;
-	b=RPEYKD29ppO4dwOtM21x+1TLwwPAiYBYn27HvNxVHEm6ixpwON7UXYdP4sYEYXs3Vj/qpVY6C
-	qRej3WfZ2nl0LsDWbWaquBizM9+VJs3ahY3SyJij3Bh4ROHrNbDl9HCw3p8qsKbEunbunN18Myb
-	8Wzq01DiTmd8/EqlEtRWPqk=
-Received: from mail.maildlp.com (unknown [172.19.163.15])
-	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4h3R8S70GjzLlTV;
-	Mon, 20 Jul 2026 11:39:20 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 45EEF40586;
-	Mon, 20 Jul 2026 11:48:42 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 20 Jul 2026 11:48:41 +0800
-Message-ID: <8d3d3ea7-b250-4022-8ed7-6d438b43a518@huawei.com>
-Date: Mon, 20 Jul 2026 11:48:40 +0800
+	Mon, 20 Jul 2026 03:57:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4BDEF1476;
+	Sun, 19 Jul 2026 20:57:02 -0700 (PDT)
+Received: from [10.164.18.31] (unknown [10.164.18.31])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 704733F86F;
+	Sun, 19 Jul 2026 20:57:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784519826; bh=FGNZk1B/g4lSat+TD26du1p5U+sjvBqH3Ks8aOh02zY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=J0VSyJYMiKo7Ps1MrSM5R8ut41wweptSyPHSMZAEhYOtEB6Cs+vGlWMrR/jYAVHSj
+	 6UyedudCsLMg6q3dfLnWV+ZqC8ohsH0H2iGS7C8qCUD77Tl5BL0tLY95j6VBl8nvVd
+	 RGB1Lgqyp/kJkNIhIcKY6sLhZoLrGf6ypVdie34o=
+Message-ID: <153f7a44-b995-4001-a2af-b576656963a1@arm.com>
+Date: Mon, 20 Jul 2026 09:26:59 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: syscall: Ensure saved x0 is kept in-sync with
- tracer updates
-To: Will Deacon <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>
-CC: <catalin.marinas@arm.com>, <kernel-team@android.com>,
-	<linux-kernel@vger.kernel.org>, Kees Cook <kees@kernel.org>, Mark Rutland
-	<mark.rutland@arm.com>, Yiqi Sun <sunyiqixm@gmail.com>
-References: <20260716120640.6590-1-will@kernel.org>
- <178420908877.33796.2351583216856259313.b4-ty@kernel.org>
- <alpsSRyTU_mquZyA@willie-the-truck>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <alpsSRyTU_mquZyA@willie-the-truck>
-Content-Type: text/plain; charset="UTF-8"
+Subject: Re: [PATCH] arm64/mm: Check the requested PFN range during memoroy
+ removal
+To: Richard Cheng <icheng@nvidia.com>, catalin.marinas@arm.com,
+ will@kernel.org
+Cc: ryan.roberts@arm.com, ardb@kernel.org, kevin.brodsky@arm.com,
+ yang@os.amperecomputing.com, chaitanyas.prakash@arm.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-cxl@vger.kernel.org, newtonl@nvidia.com, kristinc@nvidia.com,
+ mochs@nvidia.com, kaihengf@nvidia.com, kobak@nvidia.com
+References: <20260720020655.9607-1-icheng@nvidia.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20260720020655.9607-1-icheng@nvidia.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260719_204859_135652_B57F3B7B 
-X-CRM114-Status: GOOD (  30.22  )
+X-CRM114-CacheID: sfid-20260719_205710_844860_752C1BB2 
+X-CRM114-Status: GOOD (  22.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,129 +77,93 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 7/18/2026 1:54 AM, Will Deacon wrote:
-> On Thu, Jul 16, 2026 at 05:48:01PM +0100, Will Deacon wrote:
->> On Thu, 16 Jul 2026 13:06:39 +0100, Will Deacon wrote:
->>> When seccomp support was originally added to arm64 in a1ae65b21941
->>> ("arm64: add seccomp support"), seccomp was erroneously called _before_
->>> the ptrace syscall-enter-stop and therefore the tracer could trivially
->>> manipulate the syscall register state after the seccomp check had
->>> passed. This was subsequently fixed in a5cd110cb836 ("arm64/ptrace: run
->>> seccomp after ptrace") by moving the seccomp check after the tracer has
->>> run. Unfortunately, a decade later, that fix has been reported to be
->>> incomplete.
->>>
->>> [...]
->>
->> Applied to arm64 (for-next/fixes), thanks!
->>
->> [1/1] arm64: syscall: Ensure saved x0 is kept in-sync with tracer updates
->>       https://git.kernel.org/arm64/c/e057b9477232
-> 
-> Bah, I've had to revert this. I think Sashiko makes a good point here
-> that the seccomp interaction is still broken when the filter is
-> re-evaluated after the tracer stop, because that all happens inside
-> secure_computing() so we don't get a chance to update 'orig_x0':
-> 
-> https://sashiko.dev/#/patchset/20260716120640.6590-1-will@kernel.org
-> 
+On 20/07/26 7:36 AM, Richard Cheng wrote:
+> prevent_memory_remove_notifier() advances pfn while checking whether the
+> range contains early memory. After the loop, pfn points to end_pfn, but
+> it is passed to can_unmap_without_split(). This checks the range
+> immediately after the requested memory instead of the range being
+> offlined.
 
-Hi Will,
-
-Yes, I also think the point raised by Sashiko is meaningful.
-
-After reviewing the relevant code, I believe that the issue Sashiko
-pointed out regarding the compat task also exists.
-
-My confusion is that on arm64 compat mode, both audit and trace use
-orig_x0, but the first parameter used for executing system calls is
-regs->reg[0]. If x0 is modified at the system call entry point in ptrace
-but orig_x0 is not modified, or if orig_x0 is modified but x0 is not,
-then the first parameter for audit and the actual system call being
-executed will be out of sync. Could there be any issues here? Is it the
-responsibility of ptrace to ensure that orig_x0 and x0 are synchronized
-at the system call entry point on arm64 compat mode?
-
-Whether it is ptrace or the kernel, ensuring that orig_x0 and x0 are
-synchronized at the entry point of a system call, I believe it is
-reasonable to use orig_x0 as the first parameter of the system call
-execution and pre-set an error code in advance, as this way orig_x0
-always retains the latest value of x0.
-
-diff --git a/arch/arm64/include/asm/syscall_wrapper.h
-b/arch/arm64/include/asm/syscall_wrapper.h
-index abb57bc54305..6b13d7c8ad95 100644
---- a/arch/arm64/include/asm/syscall_wrapper.h
-+++ b/arch/arm64/include/asm/syscall_wrapper.h
-@@ -12,7 +12,7 @@
-
- #define SC_ARM64_REGS_TO_ARGS(x, ...)                          \
-        __MAP(x,__SC_ARGS                                       \
--             ,,regs->regs[0],,regs->regs[1],,regs->regs[2]     \
-+             ,,regs->orig_x0,,regs->regs[1],,regs->regs[2]     \
-              ,,regs->regs[3],,regs->regs[4],,regs->regs[5])
-
- #ifdef CONFIG_COMPAT
-diff --git a/arch/arm64/kernel/syscall.c b/arch/arm64/kernel/syscall.c
-index 2535cae9413d..a978bab59924 100644
---- a/arch/arm64/kernel/syscall.c
-+++ b/arch/arm64/kernel/syscall.c
-@@ -62,6 +62,7 @@ static __always_inline void el0_svc_common(struct
-pt_regs *regs, int scno, int s
-        unsigned long work;
-
-        regs->orig_x0 = regs->regs[0];
-+       syscall_set_return_value(current, regs, -ENOSYS, 0);
-        regs->syscallno = scno;
-
-        /*
-@@ -94,23 +95,6 @@ static __always_inline void el0_svc_common(struct
-pt_regs *regs, int scno, int s
-
-        work = READ_ONCE(current_thread_info()->syscall_work);
-        if (unlikely(work & SYSCALL_WORK_ENTER)) {
--               /*
--                * The de-facto standard way to skip a system call using
-ptrace
--                * is to set the system call to -1 (NO_SYSCALL) and set
-x0 to a
--                * suitable error code for consumption by userspace.
-However,
--                * this cannot be distinguished from a user-issued
-syscall(-1)
--                * and so we must set x0 to -ENOSYS here in case the
-tracer doesn't
--                * issue the skip and we fall into trace_exit with x0
-preserved.
--                *
--                * This is slightly odd because it also means that if a
-tracer
--                * sets the system call number to -1 but does not
-initialise x0,
--                * then x0 will be preserved for all system calls apart
-from a
--                * user-issued syscall(-1). However, requesting a skip
-and not
--                * setting the return value is unlikely to do anything
-sensible
--                * anyway.
--                */
--               if (scno == NO_SYSCALL)
--                       syscall_set_return_value(current, regs, -ENOSYS, 0);
-                if (!syscall_trace_enter(regs, work, scno))
-                        goto trace_exit;
-
-
-> I've got a v3 that takes a different approach, so I'll send that out
-> shortly. Jinjie, thanks for sending the selftests, but maybe we can
-> extend them to cover the loophole above as wel?
-
-I will update the test cases to cover the corner case it pointed out.
-
-Best regards,
-Jinjie
+can_unmap_without_split() ends up checking 'a memory range' after
+the actual range being offlined, because pfn could have gone past
+end_pfn by the time it exists the loop. This is wrong and was not
+intended.
 
 > 
-> Will
+> Consequently, valid requests can be rejected with shifted address range,
+> while an unsafe request can be accepted when the following range is
+> unmapped. This was observed with CXL DAX memory, where the final memory
+> block was incorrectly allowed offline.
 
+Agreed.
+> 
+> Pass arg->start_pfn so the leaf-split check examines the requested
+
+Pass arg->start_pfn into can_unmap_without_split().
+> range.
+
+Although the explanations above are correct, the wording in the
+commit message could have been better.
+> 
+> Fixes: 95a58852b0e5 ("arm64/mm: Reject memory removal that splits a kernel leaf mapping")
+
+Correct commit ID for attribution.
+
+> Signed-off-by: Richard Cheng <icheng@nvidia.com>
+> ---
+> The bug occurred on a machine with CXL Type-3 device.
+> Branch: cxl-next
+> 
+> Before 95a58852b0e5:
+> 
+> """
+> $ sudo echo offline > memory557056/state
+> write error: Operation not permitted
+> $ sudo dmesg
+> ---[snip]---
+> [440008000000 440010000000] splits a leaf entry in linear map
+> 
+> $ sudo echo offline > memory558079/state
+> $ cat memory558079/state
+> offline
+> """
+> 
+> After:
+> """
+> $ sudo echo offline > memory557056/state
+> write error: Operation not permitted
+> [440000000000 440008000000] splits a leaf entry in linear map
+> 
+> $ sudo echo offline > memory558079/state
+> write error: Operation not permitted
+> [441ff8000000 442000000000] splits a leaf entry in linear map
+
+Seems exactly as would have been expected.
+> 
+> My fix corrects the checked range and prevents the false acceptance.
+
+> 
+> Best regards,
+> Richard Cheng.
+> ---
+>  arch/arm64/mm/mmu.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index a25d8beacc83..18a8b0d3714e 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -2194,7 +2194,7 @@ static int prevent_memory_remove_notifier(struct notifier_block *nb,
+>  		}
+>  	}
+>  
+> -	if (!can_unmap_without_split(pfn, arg->nr_pages))
+> +	if (!can_unmap_without_split(arg->start_pfn, arg->nr_pages))
+>  		return NOTIFY_BAD;
+>  
+>  	return NOTIFY_OK;
+> 
+> base-commit: 5ca04f3ba91f1773bbd5da6d9c654ccc1ba7831d
+
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
