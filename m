@@ -4,101 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 480FEC44515
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 13:49:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4859C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 13:54:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=exgSZUy4mQ+gBayEGCoSCzUgfoiRVrcGM1wITQ8aelo=; b=0lZKyLD0Wa0Bgf1n4/lNQdq6Oa
-	8VV09tTdYTxL+osmOwojAvqYzFD0rNTkMRuQtpmzIkvmg910bZ9SaDBjKYB59zJc+bR0srmcSSuXw
-	u6yN3lMh29otLnbK9ZHSglglpG1BIkFKG6GlNTLm8Jq1+y5K02t97QqD10aoL7ZPzrndNXC0rfG/5
-	dFT77doS658WL6T8k66MlYqltSWHRRVH6JXQZfNKqVXRhDHgr11nE1F/iFOAFi69kE0uob6ML8idQ
-	Octr5hPIb/VuYh7sVd3pyq9GGBxkAzpkkxZLtq8QhtQtJu+LwZXhsKbckDIB+l5nQ+1CUXzUlvlpP
-	Lcg3x6Nw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=erbWLFzguWC5h/HOWJNB8D81QDIsuPVj0c0A6+NSYaI=; b=GOk9uNZ1gGrI6qR1vFTSsoTA3P
+	60Wi8xGuO7j94yVC8j23+W46MbZ6yiRW8Gepzegaw5xzpDyKIK84sz5yT+9k8nwDIbbkdx59bHf03
+	3gDPzhW/GQRHsyAobz1WJzujT0vrG69oaT3OvuIUbm/QSgb9qMdlogUkfQA6Ab9yscMNa7DXr/wVs
+	blxO9yO/9EsTF1zGdZ6ajrEAoN6tazmiP2vFuCZ/ou3ozsHiVL6v/Z5fFGSTRgdHV8rs63jWUfdV5
+	IvSxI3UyoYJ5xpOwMIm3R9x0KsNQvezbFBv6FV4J8INcpEg/f1dmEFOOAhMy8HKrMQyQtofths8nz
+	2efxIdCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wloMc-00000006sKI-0nk5;
-	Mon, 20 Jul 2026 13:48:58 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1wloRq-00000006sjp-3rgp;
+	Mon, 20 Jul 2026 13:54:22 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wloMZ-00000006sJt-24BR
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 13:48:56 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-848882fdb18so7329030b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 06:48:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dama-to.20251104.gappssmtp.com; s=20251104; t=1784555334; x=1785160134; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:mail-followup-to:message-id:subject:cc:to:from:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=exgSZUy4mQ+gBayEGCoSCzUgfoiRVrcGM1wITQ8aelo=;
-        b=kITQ0j0ckkfQhYz6xl9dRDQavV9DIfx7Z9y9bkY0KEqz6uO6IrTZb173BapRhF67/P
-         0GJDsfxYvoQQXJ5ATtjKp+jhPuAevbP5heUdpySPVpiwlsk2ExnmX7MWEch8idZ3cM0C
-         81xFel912EDX7GHmisfjj0DUwwW56vNSZOjkHFfeV1TydK52tS+5Tsrde9jNllBHForu
-         wiNBqdBf1OXL+wTCz/HxKCQBMGHjoiCftzsC88ZFZb6I53SsPOPFGAb4anjS+7ErZ0kH
-         h6oMpvFuKxceyFdl782Zn2ZQzZUQYdqJoxYKqbfUXQ3cr+94Lcs8q2ZvCpM4m5iv29HH
-         gugg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784555334; x=1785160134;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:mail-followup-to:message-id:subject:cc:to:from:date
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=exgSZUy4mQ+gBayEGCoSCzUgfoiRVrcGM1wITQ8aelo=;
-        b=FJGREYeJ/QvdkD18hh4Xql187THIJczc1+36H0PaxLw/wWJPXRqY3joFZL32ThgqJT
-         yEspuQ3DrwXdqgzaofZosxuMhP5j20ZX3eFD2BAGVy2svJseXpzDavARllgHUuAdnMNZ
-         9z6+SdTsmXh+6bzczGhe3KSyx3eH7U7T68/1Xrmbo4e3hTsWerIDzeA6MnS03MorwJI8
-         UbVhzI9TKtUYAEfQQO5yOJJGAL9IwAOHTmfaG3eftXE52l0oTcVNp77i6+7+uKRghh9B
-         Te2XxsyUd2e4J+x39MJ6225aj1TahFtKjtqDbAfyYJ7IBcUfwYGA7pKcU0A6HaWWanjy
-         Itxw==
-X-Forwarded-Encrypted: i=1; AHgh+RrNmBg0kEy8DYpmKK2QCJ/FFqkUywKBCLXcaA7h+LVYfv9gVtkmNs5XgPcgnNWEPiTvEpxTQxYNQP0cIB8oMXPU@lists.infradead.org
-X-Gm-Message-State: AOJu0YwozFsKrByPlBZZoD1jmghMqXmtAGLxrMRA6odRApCOYe8X/MtE
-	726XK/NhUqqiI9tNzyY34TbxjZKHP9oO9z+aLYuUT6iZJfq0QkgYf9MDSFdB5A0Raq4=
-X-Gm-Gg: AfdE7clKKEOHccm+uJdlJ/70YFyn5/pJlfxZQbfaWnn77TQGj8HGyJjZHGF1J63C3Q0
-	rhIdhbaacn9Kejrp6obgu3FSQ3XDeh5CvrwZ+IaoUpjffDnC6gGhrUVPQPQ6YFn39VugpypYEs4
-	PDeOA8NP/C5Apgy0caQZrAWi1shLseV8vbUlUjXjFhqS9Trj9at5agob78GS7dWuufgZZShHfZp
-	hbk/GYIUxlAfDOndXSf8ivHjvHdI9RABg21ZG+chAMk1IxrbI+E50rzXSeVpbZB+GmnrIfOBpro
-	JgVsmLQzzmqb4/eBR4z+w7Dh+zkZ92BYmAdBdJJMsaItWeITnb9FZhxNU7FrstFlHqNsmTWsXCE
-	VhcqlyNwKcZY//HDMogh61pl8dzzoK+xj+OAR7neqpcvRmXgyaEJ2YjI=
-X-Received: by 2002:a05:6a00:998:b0:845:eb73:411c with SMTP id d2e1a72fcca58-84c2946f027mr14586475b3a.45.1784555334640;
-        Mon, 20 Jul 2026 06:48:54 -0700 (PDT)
-Received: from localhost ([2a03:2880:2ff::])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84c2adc3466sm5844378b3a.15.2026.07.20.06.48.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Jul 2026 06:48:53 -0700 (PDT)
-Date: Mon, 20 Jul 2026 06:48:53 -0700
-From: Joe Damato <joe@dama.to>
-To: wei.fang@oss.nxp.com
-Cc: claudiu.manoil@nxp.com, vladimir.oltean@nxp.com, xiaoning.wang@nxp.com,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, linux@armlinux.org.uk,
-	wei.fang@nxp.com, chleroy@kernel.org, maxime.chevallier@bootlin.com,
-	imx@lists.linux.dev, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH RESEND v4 net-next 14/14] net: enetc: use kzalloc_flex()
- for enetc_psfp_gate allocation
-Message-ID: <al4nRS6hB8siUx3f@devvm20253.cco0.facebook.com>
-Mail-Followup-To: Joe Damato <joe@dama.to>, wei.fang@oss.nxp.com,
-	claudiu.manoil@nxp.com, vladimir.oltean@nxp.com,
-	xiaoning.wang@nxp.com, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-	linux@armlinux.org.uk, wei.fang@nxp.com, chleroy@kernel.org,
-	maxime.chevallier@bootlin.com, imx@lists.linux.dev,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org
-References: <20260720014317.1059359-1-wei.fang@oss.nxp.com>
- <20260720014317.1059359-15-wei.fang@oss.nxp.com>
+	id 1wloRn-00000006siB-3Zbd;
+	Mon, 20 Jul 2026 13:54:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1784555656;
+	bh=ib28vJDYiKmHcDyK/UpURzcfp8BRW36RPjln12pow78=;
+	h=From:To:Cc:Subject:Date:From;
+	b=J/Em3Klb1iVFK4yuQPbJePEhaSge583cobLXXAxfGmeoq4x26911sIgTnVLecHUy8
+	 6y2Iu1cMOsp3qyanETBz3oyBw0+DH9YUpmCycAidxJnyxzJ+DKAM/XW0ozaWnf+2mI
+	 ZxgFJfpjIYZqPCpwNkHis8/I/kJylvE0ljCbg/ZmeC8JNFIsbFAWdUpi7bev2YwoCy
+	 BU3yCpBqJsHelJtEFGaGhf/GEGKIo0ggnGvRsoBxHlOOh0sphuMIAvRYsClig6P2W4
+	 nR3Tdj87qLYPfyyhuNkdTNRh4CG7oQ4w1fli9KLE0Fzx8L2noxbOpAW4yIaI1bwNam
+	 cvOn2wEJzhCaQ==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9A82417E0910;
+	Mon, 20 Jul 2026 15:54:15 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: chunfeng.yun@mediatek.com
+Cc: vkoul@kernel.org,
+	neil.armstrong@linaro.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	kernel@collabora.com
+Subject: [PATCH v2 0/2] PHY: Add MediaTek PCI-Express Gen4 S-PHY Driver
+Date: Mon, 20 Jul 2026 15:53:42 +0200
+Message-ID: <20260720135344.84183-1-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260720014317.1059359-15-wei.fang@oss.nxp.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_064855_556985_871654E6 
-X-CRM114-Status: GOOD (  17.74  )
+X-CRM114-CacheID: sfid-20260720_065420_041288_72CB7F12 
+X-CRM114-Status: GOOD (  11.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,41 +81,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 20, 2026 at 09:43:16AM +0800, wei.fang@oss.nxp.com wrote:
-> From: Wei Fang <wei.fang@nxp.com>
-> 
-> Replace the open-coded struct_size() + kzalloc() pattern with the
-> kzalloc_flex() helper when allocating struct enetc_psfp_gate. This
-> removes the intermediate entries_size local variable and makes the
-> allocation site more concise.
-> 
-> Signed-off-by: Wei Fang <wei.fang@nxp.com>
-> ---
->  drivers/net/ethernet/freescale/enetc/enetc_qos.c | 4 +---
->  1 file changed, 1 insertion(+), 3 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/freescale/enetc/enetc_qos.c b/drivers/net/ethernet/freescale/enetc/enetc_qos.c
-> index 7b17bca24f26..2aa0fcaafcd2 100644
-> --- a/drivers/net/ethernet/freescale/enetc/enetc_qos.c
-> +++ b/drivers/net/ethernet/freescale/enetc/enetc_qos.c
-> @@ -1135,7 +1135,6 @@ static int enetc_psfp_parse_clsflower(struct enetc_ndev_priv *priv,
->  	struct flow_action_entry *entry;
->  	struct action_gate_entry *e;
->  	u8 sfi_overwrite = 0;
-> -	int entries_size;
->  	int i, err;
->  
->  	if (f->common.chain_index >= priv->psfp_cap.max_streamid) {
-> @@ -1242,8 +1241,7 @@ static int enetc_psfp_parse_clsflower(struct enetc_ndev_priv *priv,
->  		goto free_filter;
->  	}
->  
-> -	entries_size = struct_size(sgi, entries, entryg->gate.num_entries);
-> -	sgi = kzalloc(entries_size, GFP_KERNEL);
-> +	sgi = kzalloc_flex(*sgi, entries, entryg->gate.num_entries);
->  	if (!sgi) {
->  		err = -ENOMEM;
->  		goto free_filter;
+Changes in v2:
+ - Added items/description to reg in binding
+ - Added missing pm_runtime.h inclusion
+ - Moved pm_runtime_enable call to before registering PHY
+ - Fixed pmos/nmos variable size for 5 bits calibration values
+ - Fixed calibration for single-lane PCIe, as in, the ln1 rswn
+   calibration nvmem value is ignored in code if it's single
+   lane and will not return an error; this is due to the fact
+   that, effectively, single-lane may have a zero calibration
+   in tx-ln1-rswn which is fine, as that'd be anyway unused
+ - Changed calibration data errors to dev_err_probe and changed
+   the "no calibration for ..." message to dev_info instead
 
-Reviewed-by: Joe Damato <joe@dama.to>
+This adds a driver for the PCI-Express Gen4 "S-PHY" found in the
+Genio MT8894, Kompanio MT8196, Dimensity MT6991 SoCs (which are
+all variants of the same chip).
+
+This was successfully tested on MT8894 and MT8196.
+
+AngeloGioacchino Del Regno (2):
+  dt-bindings: phy: Document MT8196 MediaTek PCI-Express Gen4 S-PHY
+  phy: mediatek: Add support for PCI-Express Gen4 S-PHY
+
+ .../phy/mediatek,mt8196-pcie-sphy.yaml        |  93 +++
+ drivers/phy/mediatek/Kconfig                  |   9 +
+ drivers/phy/mediatek/Makefile                 |   1 +
+ drivers/phy/mediatek/phy-mtk-pcie-sphy.c      | 561 ++++++++++++++++++
+ 4 files changed, 664 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/phy/mediatek,mt8196-pcie-sphy.yaml
+ create mode 100644 drivers/phy/mediatek/phy-mtk-pcie-sphy.c
+
+-- 
+2.55.0
+
 
