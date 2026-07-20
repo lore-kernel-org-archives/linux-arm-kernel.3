@@ -4,67 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2E62C4452C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 14:28:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 187AFC4452A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 14:28:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YGgq0kgANQfSfLYugyd1czX94b3DsWuJoJbSm/P4QPY=; b=zAnhHOlBK/x4Ag+OKKPR1SoWTi
-	1OPlXNbdf83h664FfLQMNXN0249D/+1Z2NZbv3vlfbqjgIbhbnvspDNutsNxkZvO5OXxYzeFgV+Mr
-	lRO1JNCiGp+mD2nG8ZPbh4Dtlos7NymrhyiTrakOkUsoEgbwAu+a8cRZE8/vUy+7OHHuY5JqcBLGC
-	4RDiZ7pP8kzWoaxF9nB7T1Ct1WZ9kLGxgkrXTJ54SENjnrZQGn/MjMHRCv3Cm2HQ5Esi8YWdX2gZV
-	mb42iVGYWcDA8Dh/dhL9kHFY7u1lcmSWylRSfXZwSdtEDChFeEb1vD8nR1QR7MOvpTb7uWt9LVnit
-	CqXteDSg==;
+	bh=QAQHbsBV90WnR9+tdGtScEWvzclJKWcmodue1Ffc3Cs=; b=cmrvXTX81mjdm/lHeJgJ0S+NjQ
+	+qOJHB0Cpv4dzNe5Y0noo9di/u82ZFjhvGbBaI19haB5lJ34kkU5jrSoQE4WeDNhjggEllgUTKAH5
+	thmEFttNvoZ2Q420Pj7RBGDfPYPak4pd5vOA1phL/jQXgeYi808icYTepOkWQWdNtD/ef3T3Ejz7Z
+	i/30jYs9fB24bfmi74PhGRmkkdeeAJ8q30Ot1KAshWq45Ax+xfyDqB2AY/Dlu5eFUIjN4s1Ob1LQS
+	+/d4IO41+SI/Nbwfz7+rJq+lFu/6/EGMTin9Za910eqGHliJsQdZ7osmiWsLxxxY6Q3diHCD1mchY
+	0StHYFsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wloz6-00000006y1t-3NmW;
-	Mon, 20 Jul 2026 14:28:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wlozC-00000006y3y-3xaI;
+	Mon, 20 Jul 2026 14:28:50 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wloz5-00000006y1k-2vqz
+	id 1wloz9-00000006y2m-1wSr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 14:28:43 +0000
+	Mon, 20 Jul 2026 14:28:47 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0826C41093;
-	Mon, 20 Jul 2026 14:28:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B40541F000E9;
-	Mon, 20 Jul 2026 14:28:38 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A990260A6A;
+	Mon, 20 Jul 2026 14:28:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CBCD81F000E9;
+	Mon, 20 Jul 2026 14:28:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784557722;
-	bh=YGgq0kgANQfSfLYugyd1czX94b3DsWuJoJbSm/P4QPY=;
+	s=k20260515; t=1784557726;
+	bh=QAQHbsBV90WnR9+tdGtScEWvzclJKWcmodue1Ffc3Cs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=mmjA/ibQFEKvbtDANfHjDwYzondvF8dCGbOlKvcYXhqfyoFvsJWBlVT3fMQ4CW2dV
-	 EsVz1jSEX9nkyB2WD2Kp3gIZPs9paB0Ex9FU6eEBnLbe/2SYPmdcBX8juues0+1VNL
-	 dMhG7MgxWgHpzUCpZQZlbgxXCNh3a5jbFg2UrmL4BDOwV1BKNxBAV0mHb5i2JqpxsF
-	 QREQ1LPDXsK1d/CsVddkt39zQPKqPhUzNy+P9b+IpoZcw46UMTuiGuR+6xPoeKbed3
-	 RSyVwbN5yXBs/7n0Ss5NcADewMl+VwdXAExwUvQ+oRbA71IAIlG/zoPt2nMGWzHetl
-	 OVpuzQYTUwazw==
-Date: Mon, 20 Jul 2026 15:28:36 +0100
-From: Mark Brown <broonie@kernel.org>
-To: shengjiu.wang@oss.nxp.com
-Cc: lgirdwood@gmail.com, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, Frank.Li@nxp.com, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com, shawnguo@kernel.org,
-	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, shengjiu.wang@gmail.com,
-	Xiubo.Lee@gmail.com, nicoleotsuka@gmail.com, perex@perex.cz,
-	tiwai@suse.com, linuxppc-dev@lists.ozlabs.org,
-	Shengjiu Wang <shengjiu.wang@nxp.com>
-Subject: Re: [PATCH 1/4] dt-bindings: sound: fsl,imx-asrc: update port
- binding to support multiple pairs
-Message-ID: <3ce4bfa8-b051-40af-9478-00540019680b@sirena.org.uk>
-References: <20260720095450.1618747-1-shengjiu.wang@oss.nxp.com>
- <20260720095450.1618747-2-shengjiu.wang@oss.nxp.com>
+	b=I+BL4sgRlsEcHDDq90cf0u4HVNvGks9J7Nc1O0fePHO7OzmTlag8sOST9OgwiTEVA
+	 8Gvt+Hn261WmF1Z8y41WojxA3qRtFu8ZrV4Ogj54MYaxwYJMmQqxVmN34j1zN69hMz
+	 b/BstZP7t3yhRp05FTQ491iKZY69Ipyuw8R1OjspqV/OWpN5df3DaJA1YRfbkk2xsN
+	 fW2CVwFQU/NLPHoaKIngzeZ0nuTWru1LUXdptx1wEmHBmDPfRJufYiZwp12YqWHao4
+	 Xk8dE/NvT6tIi8OH5p0IOl2u+UmgXJ6YmTdA5uOeMVv67JcIqkaHtTKGKEjGuuBM+r
+	 4TpoqJS/aWaBQ==
+Date: Mon, 20 Jul 2026 16:28:43 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Inki Dae <inki.dae@samsung.com>, 
+	Jagan Teki <jagan@amarulasolutions.com>, Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Hui Pu <Hui.Pu@gehealthcare.com>, 
+	Ian Ray <ian.ray@gehealthcare.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 05/37] drm/display: bridge-connector: split code creating
+ the connector to a subfunction
+Message-ID: <20260720-eel-of-immense-triumph-3e24e0@penduick>
+References: <DJHEAWSEZR79.19UFIKS8QJBQ7@bootlin.com>
+ <20260626-polite-hairy-perch-25e1aa@houat>
+ <DJJ1MPCEJGZD.UZM9183V6ZE5@bootlin.com>
+ <20260626-classy-nightingale-of-romance-1cacad@houat>
+ <DJJ4X22CJ3FG.5EYF84LVRNOG@bootlin.com>
+ <20260707-warping-goshawk-of-swiftness-beea4a@penduick>
+ <20260707123205.GB211515@killaraus.ideasonboard.com>
+ <DJZUXUBO8DI4.2J2NI3S0KYNUE@bootlin.com>
+ <20260716-stoic-muskox-from-asgard-c12b65@houat>
+ <DK0QXI6KF7PC.3DJW38KB8MJED@bootlin.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="UXRfRhuyL0flFFDD"
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="lp6wptr2qw22x2tg"
 Content-Disposition: inline
-In-Reply-To: <20260720095450.1618747-2-shengjiu.wang@oss.nxp.com>
-X-Cookie: Caution: Keep out of reach of children.
+In-Reply-To: <DK0QXI6KF7PC.3DJW38KB8MJED@bootlin.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,38 +91,157 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---UXRfRhuyL0flFFDD
-Content-Type: text/plain; charset=us-ascii
+--lp6wptr2qw22x2tg
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 05/37] drm/display: bridge-connector: split code creating
+ the connector to a subfunction
+MIME-Version: 1.0
 
-On Mon, Jul 20, 2026 at 05:54:47PM +0800, shengjiu.wang@oss.nxp.com wrote:
-> From: Shengjiu Wang <shengjiu.wang@nxp.com>
+On Fri, Jul 17, 2026 at 11:41:33AM +0200, Luca Ceresoli wrote:
+> Hi Maxime,
 >=20
-> The i.MX ASRC hardware supports up to three conversion pairs (A, B, C).
-> The existing binding exposed only a single generic audio-graph port,
-> which cannot represent the individual pair endpoints.
+> On Thu Jul 16, 2026 at 3:22 PM CEST, Maxime Ripard wrote:
+> > On Thu, Jul 16, 2026 at 10:37:24AM +0200, Luca Ceresoli wrote:
+> >> >> > Now if the bridges start doing it themselves we should go back to
+> >> >> > those encoder drivers and ditch all the drm_bridge_connector from
+> >> >> > there?
+> >> >> >
+> >> >> > I must be missing something. Can you elaborate on this?
+> >> >>
+> >> >> drm_bridge_connectors bring together a (complete) bridge chain and a
+> >> >> connector. If you don't have either anymore, then we shouldn't keep=
+ it
+> >> >> around.
+> >> >>
+> >> >> What I was suggesting before was only a suggestion. I guess we could
+> >> >> also make the encoder own the hotplug handling code and create the
+> >> >> drm_bridge_connector when the chain is complete, and remove it when=
+ it's
+> >> >> no longer the case.
+> >> >
+> >> > That's an interesting option. We don't have to keep drm_bridge_conne=
+ctor
+> >> > in its current form, but I don't think we should go back to individu=
+al
+> >> > bridge driver creating connectors, especially now that we have bridge
+> >> > chains where the connector ops are implemented collectively by multi=
+ple
+> >> > bridges.
+> >>
+> >> I definitely agree we don't want to add burden back on the encoder.
+> >
+> > I don't think Laurent mentioned the encoder anywhere.
+>=20
+> Ah, indeed, sorry! However, I think both the bridges and the encoder
+> drivers should equally have the minimum burden on them.
+>=20
+> Right now the recommended practice is:
+>=20
+>  - bridges do not create connectors (thanks to DRM_BRIDGE_ATTACH_NO_CONNE=
+CTOR)
+>  - encoders just call drm_bridge_connector_init(), which does all the
+>    common operations to populate a suitable drm_connector
+>=20
+> So all common operations involved in connector creation and bridge chain
+> analysis are implemented in common code, not per-bridge or
+> per-encoder. That's good.
 
-Please submit patches using subject lines reflecting the style for the
-subsystem, this makes it easier for people to identify relevant patches.
-Look at what existing commits in the area you're changing are doing and
-make sure your subject lines visually resemble what they're doing.
-There's no need to resubmit to fix this alone.
+I agree, but another way to phrase it is: bridges aren't aware of how
+the chain is setup, the encoder ties it all together.
 
---UXRfRhuyL0flFFDD
+> >> >> We can discuss alternatives too. But either way, we shouldn't have =
+it
+> >> >> stick around.
+> >>
+> >> Bottom line, I roughly see three ideas mentioned:
+> >>
+> >>  1. (this series) extend the drm_bridge_connector to create the
+> >>     drm_connector based on bridge hotplug events [+rename it]
+> >>  2. - keep the drm_bridge_connector (mostly) as is
+> >>     - let each encoder driver add/remove it based on bridge hotplug ev=
+ents
+> >>     =3D> more burden on encoder drivers -> no
+> >
+> > Can you motivate that with *any* reason? Because I really feel like it's
+> > the best solution going forward.
+>=20
+> My understanding of your idea (maybe a bit overstressed just to ensure it=
+'s
+> clear) is that:
+>=20
+>  - the drm_bridge_connector should stay (almost) unmodified
+
+Yes, and bridges should ideally remain as lightly affected as possible.
+We have probably around 100 bridge drivers at the moment, having some
+kind of opt-in to enable hotplug would mean that we can't expect hotplug
+to work on a new platform, which should be a last resort.
+
+>  - there should be no new "manager" component (not sure this is actually
+>    your opinion, can you comment on this specifically?)
+>  - every encoder driver would have to:
+>    - register to receive hotplug events
+>    - when receiving one such event, find out whether the hardware is
+>      complete or not (by calling drm_bridge_connector_pipeline_is_complet=
+e()
+>      or so)
+>    - create/destroy a drm_bridge_connector based on hotplug events
+>=20
+> Is this somewhat close to what you have in mind?
+
+Yes. To make things a bit more precise, we need two things: the encoder
+to put the chain together, and "something" (that you used to call
+manager) to react to hotplug events and handle the bridge
+detach/destruction, connector creation/destruction, etc and should stick
+around when we enable hotplug.
+
+What I'm suggesting is that, since the encoder already owns and creates
+the chain in the first place, and is there forever, it's only natural
+for the encoder to be that "something", and we don't necessarily mean
+creating a new entity or piece of code. A bunch of helpers and hooks a
+probably going to be enough.
+
+This is where the opt-in part should be, and I'd like, if possible, for
+hotplug-enabled encoders to work with any bridge.
+
+> To me the best solution to add hotplug support is that encoder drivers
+> replace the single drm_bridge_connector_init() call with a single call to
+> something new (let's call it a hotplug manager), which takes care of all
+> the common aspects: registering to receive bridge hotplug events, finding
+> out whether the hardware pipeline is complete or not, and add/remove the
+> drm_connector based on that.
+>=20
+> In other words, the changes on encoder drivers would be similar to patch
+> 37. In a nutshell:
+>=20
+>   -	connector =3D drm_bridge_connector_init(lcdif->drm, encoder);
+>   +	drm_hotplug_manager =3D drm_hotplug_manager_init(lcdif->drm, encoder);
+>=20
+> All the hotplug logic would be in common code, and any maintenance and
+> future improvements to it would stay in a single place, benefitting all
+> encoders at once.
+>=20
+> What do you think about this?
+
+=46rom a high level point-of-view, I think we mostly agree. We can argue
+on the name, and if we should merge it with something else
+(drm_encoder_init, drm_bridge_attach, something else?) but that's the
+path forward I think.
+
+Maxime
+
+--lp6wptr2qw22x2tg
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmpeMJMACgkQJNaLcl1U
-h9Ctbgf/aH7yDt8XXrgvezUpFfpFQ5mZqqk3wPckaCo6daYpU4BG1u+NUAKBzvhl
-muNUxzj7qKiFil/axJI6oSs/DwlazpzaLVOVlZI+GiLaec8Dv9QaKqpQFs7E4lAF
-/V1cjx5SJ716WveCM914F7i8GWb8H2XLBo++jlEyTgOE3JRiiewPmrLl9HgSaA8B
-ZxIIA+4GBGrmjPn22q4Sbs+orGPuVYBQuqyrsJYi5aGn6ANHdl/Qv2lEleJwqgWG
-XcAMLGE16UceqIkZyJOQZf16dODg0S7zSLSJ8UuujFWFfxmDNuSs2Hm+X1eY7A4V
-Sgyi6yiw5s3KskslFOtv5jPz7bNC1w==
-=Nq5N
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCal4wmgAKCRAnX84Zoj2+
+dgktAX4228G96x+8Z0Dw6IjUdAVLYXmjmJyQlMI/D0b0Lbb/y7NEWM86n6g9VaJT
+M3uZYKYBf0U1YCLtV3vGID4exmQjHi60MDFrDBb6zVc4tvw3U2CZ0uFcTrkLpMW3
+MpRElEYqOg==
+=UEBc
 -----END PGP SIGNATURE-----
 
---UXRfRhuyL0flFFDD--
+--lp6wptr2qw22x2tg--
 
