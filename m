@@ -4,100 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EAD7C44515
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 16:22:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9030C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 16:24:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lwQUQLjTNbpBIphWUbMxPz0kEUt9B2K2jVWc6+WyxN8=; b=ww8BthttnzjaKM8y0/4hbEDx7Z
-	mlxDiwE0K+SUmHMfMnZ7hrH366uXL67sIbISCSkPTAvbvPzbvSQ02oxB/sdFawtF/ktDLVX2GH35y
-	r8+k6YvV6fR3+74A39rW3khjiUsJ4FetYkaC3gXW2FbHibjqe6fmfbCnLCNe5ANHV+ZsWNiAF1G0F
-	/jkKQu8Z1KM79QEJs0+LuNkOGNAPfriFHxDjbD4cTKgpCsbtIJHtFHoXslKzG9S89b+g4TCqJG45P
-	r/OYakg51fVFU60BBoV05IUTt99Cn5z9LWjOwDI9PjUdRQ3qeU6K5j5qOWz6grPijRcwCRo6T8q5d
-	iIFqy9cA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/TRPSX3J5InSXjftas7xX2k53zlMJOLoFrumSzVW9P4=; b=BD583RGUVCcfukneBHGVnSsm2P
+	OBOA5QQAJJtqGDLKqpuSaCRKCh+Pi4l7eN+fzk36wJE3Ivvnlk3+C+7Kz3IFF/YOC0dZ0lOuCOpx1
+	CzinyeUr8irvfnn5Y4CyQmFvTcYrGT6QUInnijpvkM/ZQ7AGZd0nCghpKsPA/6fdIQ6iFJBHA2M2l
+	AsxNDzOmhdhwED5nnbELuxKHfmMDMZwisaeSUa9PDnu2om5elVTFO1ZQd93AJo6xRY8Nij2Nf2aHu
+	02sP/Zv8kQU/Bns58DzXcNhEUzIveSVaPGXiEfllepqFnkvNkSgK1lsX8JZHkWzW9nN+0W3i510uu
+	97hdI92A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlql1-00000007MoW-0Oga;
-	Mon, 20 Jul 2026 16:22:19 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wlqn4-00000007N9C-1eJr;
+	Mon, 20 Jul 2026 16:24:26 +0000
+Received: from out-186.mta0.migadu.com ([91.218.175.186])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlql0-00000007MnR-1xJK;
-	Mon, 20 Jul 2026 16:22:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=lwQUQLjTNbpBIphWUbMxPz0kEUt9B2K2jVWc6+WyxN8=; b=OGAFTaPnSsuNbcJyYdvg/tHAVa
-	kEZLxS9/i34qqdYRhSwv6o6JAoPT2qY/t7NQY21h61cdeDyN+VvFn3SfJqI8733Xm6UhIXpR7KH2E
-	B/NvibcZDqQkcFHR2NyzvfbhmyQW334HbUjC/PQi9qh+TdsvwVbzcMGBIWzjzcM9KKFiRubYCtsGL
-	TwEzXkWfRgbOTEVWbEzF20HOGE2FZ0YCqCEd+r1e9W4sfBZl2Lc5ccnlFzpXlL1FlrAynuOieJITi
-	EeBHQkg0EmDX9tdjM3bxi1bIdUqrqamHxM7Cmct4KqHAyv2kI2lRR8I8hTABRwgcO7/cqYIoZVcKP
-	SRfLZ93Q==;
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wlqkw-0000000Gmx3-0Jtm;
-	Mon, 20 Jul 2026 16:22:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1784564506; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=bxjn/lrbz8f3iTEFS5kTXhb+Oce5wmwZVsNZpZpVrAPk/gfkafShCeRvZqOa+Zq3kXVVuenPYHLKExIs5Xo0qAmZUnkSUuIoOX6L21F8BK6f1+VvBoFBoVLvgTswcxRE52rWzL/ZJcSl7HeW6Ncm+lSOEWKg2CZATmy9/x/qR58=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1784564506; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=lwQUQLjTNbpBIphWUbMxPz0kEUt9B2K2jVWc6+WyxN8=; 
-	b=SlvxJxxp/5iBQsaXRs9MrqDK1tIW3rgLq1fugjNAg1Vvhl3kkDeWHWvEAU1K0UBFxhdHT3Pdr6QVg2in6/Zn7bNceMp3ftSuFVooCfo1lQryvLgiPYBYs1Lwu3UNbccPB9IsALnQFuE/HJVjRTfDsMFm2dSpIrBBl6kxQGucxtI=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=louisalexis.eyraud@collabora.com;
-	dmarc=pass header.from=<louisalexis.eyraud@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1784564506;
-	s=zohomail; d=collabora.com; i=louisalexis.eyraud@collabora.com;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=lwQUQLjTNbpBIphWUbMxPz0kEUt9B2K2jVWc6+WyxN8=;
-	b=VJrRY3yz8lpIcDRl3iNEsvOV4IRYjslWdQRks4JPFDKwSZQdxU8bfxTHK9u7L/OF
-	UtaA7Yw/Ta/nB9sudI+TFolVm+q1jEPy9q2YFCGhSQDhkNSiPj1By+DtOeve5/yb+Oj
-	sq/t5/LcTbN3LadhhydWdscV+ClVT5p4oFDNa0L8=
-Received: by mx.zohomail.com with SMTPS id 1784564496439685.8308189373028;
-	Mon, 20 Jul 2026 09:21:36 -0700 (PDT)
-Message-ID: <8b013876c591f80ec4af86d69bf2f38f9ac481ad.camel@collabora.com>
-Subject: Re: [PATCH v9 03/23] dt-bindings: ufs: mediatek,ufs: Add mt8196
- variant
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-To: Rob Herring <robh@kernel.org>, Nicolas Frattaroli
-	 <nicolas.frattaroli@collabora.com>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>, Avri Altman
- <avri.altman@wdc.com>,  Bart Van Assche <bvanassche@acm.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>,  Chunfeng Yun
- <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, Kishon Vijay
- Abraham I	 <kishon@kernel.org>, Peter Wang <peter.wang@mediatek.com>,
- Stanley Jhu	 <chu.stanley@gmail.com>, "James E.J. Bottomley"	
- <James.Bottomley@hansenpartnership.com>, "Martin K. Petersen"	
- <martin.petersen@oracle.com>, Philipp Zabel <p.zabel@pengutronix.de>, Liam
- Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Chaotian
- Jing	 <Chaotian.Jing@mediatek.com>, Neil Armstrong
- <neil.armstrong@linaro.org>, 	kernel@collabora.com,
- linux-scsi@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org, Conor
- Dooley	 <conor.dooley@microchip.com>
-Date: Mon, 20 Jul 2026 18:21:28 +0200
-In-Reply-To: <CAL_Jsq+mF_Q7Ld8__ZTc5yDvWAT6uK5wxfBJM-YdFjOvdiDc-w@mail.gmail.com>
-References: <20260306-mt8196-ufs-v9-0-55b073f7a830@collabora.com>
-	 <20260306-mt8196-ufs-v9-3-55b073f7a830@collabora.com>
-	 <20260306163305.GA2680515-robh@kernel.org> <4089450.ElGaqSPkdT@workhorse>
-	 <CAL_Jsq+mF_Q7Ld8__ZTc5yDvWAT6uK5wxfBJM-YdFjOvdiDc-w@mail.gmail.com>
-Organization: Collabora Ltd
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
+	id 1wlqn1-00000007N8L-0TYa
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Jul 2026 16:24:25 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1784564660;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=/TRPSX3J5InSXjftas7xX2k53zlMJOLoFrumSzVW9P4=;
+	b=a9FQzt1sft5w+RF4KEpCwHdSgeRH9IEVSEpH2hTCm8PJuU0iV3xwCg0t8LCFAc7seSim8e
+	SbOGUrQ8n4kEbSUIgYUzWPr4TTucb+0BD/BwoxDvBY7mf5cdvwiT5YqIaQc0X11fc3GHxx
+	N3UkzCcADZ51snRk6o9qvkbtR3hEk58=
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: maz@kernel.org,
+	oupton@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	rostedt@goodmis.org,
+	mhiramat@kernel.org,
+	alexandru.elisei@arm.com,
+	vdonnefort@google.com,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	qperret@google.com,
+	ardb@kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	tabba@google.com,
+	fuad.tabba@linux.dev
+Subject: [PATCH v1 10/11] KVM: arm64: nVHE: Check hypercall handlers against the declared ABI
+Date: Mon, 20 Jul 2026 17:24:11 +0100
+Message-Id: <20260720162412.1401272-1-fuad.tabba@linux.dev>
+In-Reply-To: <20260720161343.1367007-1-fuad.tabba@linux.dev>
+References: <20260720161343.1367007-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
-X-ZohoMailClient: External
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_172214_594172_2DAD56AC 
-X-CRM114-Status: GOOD (  51.41  )
+X-CRM114-CacheID: sfid-20260720_092423_662775_CEAE14FC 
+X-CRM114-Status: GOOD (  17.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,201 +84,762 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
+Each hypercall handler unmarshals its arguments from the host context
+with hand-written DECLARE_REG() casts that nothing ties to what the
+caller passed: a handler can disagree with its caller in argument type,
+count or register index without a diagnostic.
 
-On Tue, 2026-03-10 at 13:10 -0500, Rob Herring wrote:
-> On Fri, Mar 6, 2026 at 12:37=E2=80=AFPM Nicolas Frattaroli
-> <nicolas.frattaroli@collabora.com> wrote:
-> >=20
-> > On Friday, 6 March 2026 17:33:05 Central European Standard Time Rob
-> > Herring wrote:
-> > > On Fri, Mar 06, 2026 at 02:24:44PM +0100, Nicolas Frattaroli
-> > > wrote:
-> > > > The MediaTek MT8196 SoC's UFS controller uses three additional
-> > > > clocks
-> > > > compared to the MT8195, and a different set of supplies. It is
-> > > > therefore
-> > > > not compatible with the MT8195.
-> > > >=20
-> > > > While it does have a AVDD09_UFS_1 pin in addition to the
-> > > > AVDD09_UFS pin,
-> > > > it appears that these two pins are commoned together, as the
-> > > > board
-> > > > schematic I have access to uses the same supply for both, and
-> > > > the
-> > > > downstream driver does not distinguish between the two supplies
-> > > > either.
-> > > >=20
-> > > > Add a compatible for it, and modify the binding
-> > > > correspondingly.
-> > > >=20
-> > > > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> > > > Acked-by: Vinod Koul <vkoul@kernel.org>
-> > > > Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> > > > Reviewed-by: AngeloGioacchino Del Regno
-> > > > <angelogioacchino.delregno@collabora.com>
-> > > > Signed-off-by: Nicolas Frattaroli
-> > > > <nicolas.frattaroli@collabora.com>
-> > > > ---
-> > > > =C2=A0.../devicetree/bindings/ufs/mediatek,ufs.yaml=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 | 58
-> > > > +++++++++++++++++++++-
-> > > > =C2=A01 file changed, 57 insertions(+), 1 deletion(-)
-> > > >=20
-> > > > diff --git
-> > > > a/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml
-> > > > b/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml
-> > > > index e0aef3e5f56b..a82119ecbfe8 100644
-> > > > --- a/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml
-> > > > +++ b/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml
-> > > > @@ -16,10 +16,11 @@ properties:
-> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - mediatek,mt8183-ufshci
-> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - mediatek,mt8192-ufshci
-> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - mediatek,mt8195-ufshci
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - mediatek,mt8196-ufshci
-> > > >=20
-> > > > =C2=A0=C2=A0 clocks:
-> > > > =C2=A0=C2=A0=C2=A0=C2=A0 minItems: 1
-> > > > -=C2=A0=C2=A0=C2=A0 maxItems: 13
-> > > > +=C2=A0=C2=A0=C2=A0 maxItems: 16
-> > > >=20
-> > > > =C2=A0=C2=A0 clock-names:
-> > > > =C2=A0=C2=A0=C2=A0=C2=A0 minItems: 1
-> > > > @@ -37,6 +38,9 @@ properties:
-> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: crypt_perf
-> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: ufs_rx_symbol0
-> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: ufs_rx_symbol1
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: ufs_sel
-> > >=20
-> > > "ufs" is redundant as all the clocks are for UFS. Same comment on
-> > > prior
-> > > patch.
-> >=20
-> > Is this naming a big enough concern to block this series with two
-> > explicit acks on this patch that fixes a wholly broken and useless
-> > binding?
->=20
-> Shrug... Is changing it really that hard?
->=20
-Since I'm currently working on rebasing this series and fixing its
-remaining open issues (compilation, dt-bindings warnings,...) to send a
-new revision, I've looked at the questions you raised.
+Generate the unmarshalling instead. DEFINE_KVM_HOST_HCALL() expands to
+the handle_<name>() glue, modelled on the syscall wrappers, and checks
+the handler's parameter list against the signature declared in
+kvm_hcall.h, so both ends of every hypercall are now compiled against
+the same declaration. Handler bodies keep their logic and lose the
+DECLARE_REG() and return-register boilerplate. The compiled handlers
+are instruction-for-instruction identical, apart from flush_hyp_vcpu()
+and sync_hyp_vcpu() now being inlined into their only caller.
 
-First, renaming those clocks and all the other starting with "ufs_"
-prefix (including the one that is simply named ufs) is indeed easy and
-needs just a little rework.=C2=A0
-Mostly, a driver patch, as it is currently explicitly using the name of
-the 3 ufs_sel clocks and devicetree patches to adapt to this change.
+Assisted-by: Antigravity:gemini-3.1-pro
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+---
+ arch/arm64/include/asm/kvm_hcall.h |  19 +-
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c | 420 ++++++++++++++---------------
+ 2 files changed, 213 insertions(+), 226 deletions(-)
 
-The next series revision will include the devicetree patches for MT8195
-SoC and the two boards that integrate this SoC and an UFS storage
-(Genio 1200 EVK UFS and Radxa NIO-12L), to fix the warnings that the
-dt-binding changes, done by patch 1 (additional clocks, freq-table-hz
-deprecation, additional power supplies) in the v9 revision, generate.
+diff --git a/arch/arm64/include/asm/kvm_hcall.h b/arch/arm64/include/asm/kvm_hcall.h
+index 51bfd14748464..6aa2df90a14a4 100644
+--- a/arch/arm64/include/asm/kvm_hcall.h
++++ b/arch/arm64/include/asm/kvm_hcall.h
+@@ -41,6 +41,8 @@ struct vgic_v5_cpu_if;
+ #define __KVM_HCALL_MAP(n, ...) __KVM_HCALL_MAP##n(__VA_ARGS__)
+ 
+ #define __KVM_HCALL_DECL(t, a)	t a
++#define __KVM_HCALL_LONG(t, a)	unsigned long a
++#define __KVM_HCALL_CAST(t, a)	(__force t) a
+ #define __KVM_HCALL_ARGS(t, a)	a
+ 
+ #ifndef __KVM_NVHE_HYPERVISOR__
+@@ -124,10 +126,19 @@ struct vgic_v5_cpu_if;
+ #define kvm_call_hyp_ret(f, ...) f(__VA_ARGS__)
+ #define kvm_call_hyp_nvhe(f, ...) f(__VA_ARGS__)
+ 
+-#define DECLARE_KVM_HOST_HCALL(ret, name, x, ...)
+-#define DECLARE_KVM_HOST_HCALL_VOID(name, x, ...)
+-#define DECLARE_KVM_HOST_HCALL0(ret, name)
+-#define DECLARE_KVM_HOST_HCALL0_VOID(name)
++/*
++ * At EL2 each declaration emits the canonical signature of the hypercall,
++ * which DEFINE_KVM_HOST_HCALL() in hyp-main.c checks the handler
++ * definition against.
++ */
++#define DECLARE_KVM_HOST_HCALL(ret, name, x, ...)			\
++	typedef ret kvm_host_hcall_sig_##name(__KVM_HCALL_MAP(x, __KVM_HCALL_DECL, __VA_ARGS__));
++#define DECLARE_KVM_HOST_HCALL_VOID(name, x, ...)			\
++	typedef void kvm_host_hcall_sig_##name(__KVM_HCALL_MAP(x, __KVM_HCALL_DECL, __VA_ARGS__));
++#define DECLARE_KVM_HOST_HCALL0(ret, name)				\
++	typedef ret kvm_host_hcall_sig_##name(void);
++#define DECLARE_KVM_HOST_HCALL0_VOID(name)				\
++	typedef void kvm_host_hcall_sig_##name(void);
+ #endif /* __KVM_NVHE_HYPERVISOR__ */
+ 
+ /* Hypercalls that are unavailable once pKVM has finalised. */
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index 7537d422deab3..f2501249f4391 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -24,6 +24,62 @@
+ 
+ DEFINE_PER_CPU(struct kvm_nvhe_init_params, kvm_init_params);
+ 
++/*
++ * Define a hypercall handler: handle_<name> unmarshals the arguments from
++ * the host context and hands them, correctly typed, to the body that
++ * follows the macro. The parameter list is type-checked against the
++ * signature declared in <asm/kvm_hcall.h>, so the handler cannot drift
++ * from what the typed caller stubs marshal in. Modelled on the syscall
++ * wrappers.
++ */
++#define KVM_HOST_HCALL_REGS(x)						\
++	__KVM_HCALL_MAP(x, __KVM_HCALL_ARGS				\
++		,, cpu_reg(host_ctxt, 1),, cpu_reg(host_ctxt, 2)	\
++		,, cpu_reg(host_ctxt, 3),, cpu_reg(host_ctxt, 4)	\
++		,, cpu_reg(host_ctxt, 5),, cpu_reg(host_ctxt, 6))
++
++#define DEFINE_KVM_HOST_HCALL(ret, name, x, ...)			\
++	static kvm_host_hcall_sig_##name __do_##name;			\
++	static __always_inline						\
++	ret __se_##name(__KVM_HCALL_MAP(x, __KVM_HCALL_LONG, __VA_ARGS__)) \
++	{								\
++		return __do_##name(__KVM_HCALL_MAP(x, __KVM_HCALL_CAST, __VA_ARGS__)); \
++	}								\
++	static void handle_##name(struct kvm_cpu_context *host_ctxt)	\
++	{								\
++		cpu_reg(host_ctxt, 1) = __se_##name(KVM_HOST_HCALL_REGS(x)); \
++	}								\
++	static ret __do_##name(__KVM_HCALL_MAP(x, __KVM_HCALL_DECL, __VA_ARGS__))
++
++#define DEFINE_KVM_HOST_HCALL_VOID(name, x, ...)			\
++	static kvm_host_hcall_sig_##name __do_##name;			\
++	static __always_inline						\
++	void __se_##name(__KVM_HCALL_MAP(x, __KVM_HCALL_LONG, __VA_ARGS__)) \
++	{								\
++		__do_##name(__KVM_HCALL_MAP(x, __KVM_HCALL_CAST, __VA_ARGS__)); \
++	}								\
++	static void handle_##name(struct kvm_cpu_context *host_ctxt)	\
++	{								\
++		__se_##name(KVM_HOST_HCALL_REGS(x));			\
++	}								\
++	static void __do_##name(__KVM_HCALL_MAP(x, __KVM_HCALL_DECL, __VA_ARGS__))
++
++#define DEFINE_KVM_HOST_HCALL0(ret, name)				\
++	static kvm_host_hcall_sig_##name __do_##name;			\
++	static void handle_##name(struct kvm_cpu_context *host_ctxt)	\
++	{								\
++		cpu_reg(host_ctxt, 1) = __do_##name();			\
++	}								\
++	static ret __do_##name(void)
++
++#define DEFINE_KVM_HOST_HCALL0_VOID(name)				\
++	static kvm_host_hcall_sig_##name __do_##name;			\
++	static void handle_##name(struct kvm_cpu_context *host_ctxt)	\
++	{								\
++		__do_##name();						\
++	}								\
++	static void __do_##name(void)
++
+ /* Number of implemented GICv3 LRs. Used by flush_hyp_vcpu(). */
+ unsigned int hyp_gicv3_nr_lr;
+ 
+@@ -185,11 +241,9 @@ static void sync_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
+ 		host_cpu_if->vgic_lr[i] = hyp_cpu_if->vgic_lr[i];
+ }
+ 
+-static void handle___pkvm_vcpu_load(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL_VOID(__pkvm_vcpu_load, 3,
++	pkvm_handle_t, handle, unsigned int, vcpu_idx, u64, hcr_el2)
+ {
+-	DECLARE_REG(pkvm_handle_t, handle, host_ctxt, 1);
+-	DECLARE_REG(unsigned int, vcpu_idx, host_ctxt, 2);
+-	DECLARE_REG(u64, hcr_el2, host_ctxt, 3);
+ 	struct pkvm_hyp_vcpu *hyp_vcpu;
+ 
+ 	hyp_vcpu = pkvm_load_hyp_vcpu(handle, vcpu_idx);
+@@ -206,7 +260,7 @@ static void handle___pkvm_vcpu_load(struct kvm_cpu_context *host_ctxt)
+ 	}
+ }
+ 
+-static void handle___pkvm_vcpu_put(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL0_VOID(__pkvm_vcpu_put)
+ {
+ 	struct pkvm_hyp_vcpu *hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
+ 
+@@ -214,9 +268,9 @@ static void handle___pkvm_vcpu_put(struct kvm_cpu_context *host_ctxt)
+ 		pkvm_put_hyp_vcpu(hyp_vcpu);
+ }
+ 
+-static void handle___kvm_vcpu_run(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL(int, __kvm_vcpu_run, 1,
++	struct kvm_vcpu *, host_vcpu)
+ {
+-	DECLARE_REG(struct kvm_vcpu *, host_vcpu, host_ctxt, 1);
+ 	int ret;
+ 
+ 	if (unlikely(is_protected_kvm_enabled())) {
+@@ -228,15 +282,11 @@ static void handle___kvm_vcpu_run(struct kvm_cpu_context *host_ctxt)
+ 		 * loading a vcpu. Therefore, if SME features enabled the host
+ 		 * is misbehaving.
+ 		 */
+-		if (unlikely(system_supports_sme() && read_sysreg_s(SYS_SVCR))) {
+-			ret = -EINVAL;
+-			goto out;
+-		}
++		if (unlikely(system_supports_sme() && read_sysreg_s(SYS_SVCR)))
++			return -EINVAL;
+ 
+-		if (!hyp_vcpu) {
+-			ret = -EINVAL;
+-			goto out;
+-		}
++		if (!hyp_vcpu)
++			return -EINVAL;
+ 
+ 		flush_hyp_vcpu(hyp_vcpu);
+ 
+@@ -251,8 +301,8 @@ static void handle___kvm_vcpu_run(struct kvm_cpu_context *host_ctxt)
+ 		ret = __kvm_vcpu_run(vcpu);
+ 		fpsimd_lazy_switch_to_host(vcpu);
+ 	}
+-out:
+-	cpu_reg(host_ctxt, 1) =  ret;
++
++	return ret;
+ }
+ 
+ static int pkvm_refill_memcache(struct pkvm_hyp_vcpu *hyp_vcpu)
+@@ -264,184 +314,150 @@ static int pkvm_refill_memcache(struct pkvm_hyp_vcpu *hyp_vcpu)
+ 			       &host_vcpu->arch.pkvm_memcache);
+ }
+ 
+-static void handle___pkvm_host_donate_guest(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL(int, __pkvm_host_donate_guest, 2,
++	u64, pfn, u64, gfn)
+ {
+-	DECLARE_REG(u64, pfn, host_ctxt, 1);
+-	DECLARE_REG(u64, gfn, host_ctxt, 2);
+ 	struct pkvm_hyp_vcpu *hyp_vcpu;
+-	int ret = -EINVAL;
++	int ret;
+ 
+ 	hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
+ 	if (!hyp_vcpu || !pkvm_hyp_vcpu_is_protected(hyp_vcpu))
+-		goto out;
++		return -EINVAL;
+ 
+ 	ret = pkvm_refill_memcache(hyp_vcpu);
+ 	if (ret)
+-		goto out;
++		return ret;
+ 
+-	ret = __pkvm_host_donate_guest(pfn, gfn, hyp_vcpu);
+-out:
+-	cpu_reg(host_ctxt, 1) =  ret;
++	return __pkvm_host_donate_guest(pfn, gfn, hyp_vcpu);
+ }
+ 
+-static void handle___pkvm_host_share_guest(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL(int, __pkvm_host_share_guest, 4,
++	u64, pfn, u64, gfn, u64, nr_pages, u64, prot)
+ {
+-	DECLARE_REG(u64, pfn, host_ctxt, 1);
+-	DECLARE_REG(u64, gfn, host_ctxt, 2);
+-	DECLARE_REG(u64, nr_pages, host_ctxt, 3);
+-	DECLARE_REG(enum kvm_pgtable_prot, prot, host_ctxt, 4);
+ 	struct pkvm_hyp_vcpu *hyp_vcpu;
+-	int ret = -EINVAL;
++	int ret;
+ 
+ 	hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
+ 	if (!hyp_vcpu || pkvm_hyp_vcpu_is_protected(hyp_vcpu))
+-		goto out;
++		return -EINVAL;
+ 
+ 	ret = pkvm_refill_memcache(hyp_vcpu);
+ 	if (ret)
+-		goto out;
++		return ret;
+ 
+-	ret = __pkvm_host_share_guest(pfn, gfn, nr_pages, hyp_vcpu, prot);
+-out:
+-	cpu_reg(host_ctxt, 1) =  ret;
++	return __pkvm_host_share_guest(pfn, gfn, nr_pages, hyp_vcpu, prot);
+ }
+ 
+-static void handle___pkvm_host_unshare_guest(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL(int, __pkvm_host_unshare_guest, 3,
++	pkvm_handle_t, handle, u64, gfn, u64, nr_pages)
+ {
+-	DECLARE_REG(pkvm_handle_t, handle, host_ctxt, 1);
+-	DECLARE_REG(u64, gfn, host_ctxt, 2);
+-	DECLARE_REG(u64, nr_pages, host_ctxt, 3);
+ 	struct pkvm_hyp_vm *hyp_vm;
+-	int ret = -EINVAL;
++	int ret;
+ 
+ 	hyp_vm = get_np_pkvm_hyp_vm(handle);
+ 	if (!hyp_vm)
+-		goto out;
++		return -EINVAL;
+ 
+ 	ret = __pkvm_host_unshare_guest(gfn, nr_pages, hyp_vm);
+ 	put_pkvm_hyp_vm(hyp_vm);
+-out:
+-	cpu_reg(host_ctxt, 1) =  ret;
++
++	return ret;
+ }
+ 
+-static void handle___pkvm_host_relax_perms_guest(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL(int, __pkvm_host_relax_perms_guest, 2,
++	u64, gfn, u64, prot)
+ {
+-	DECLARE_REG(u64, gfn, host_ctxt, 1);
+-	DECLARE_REG(enum kvm_pgtable_prot, prot, host_ctxt, 2);
+ 	struct pkvm_hyp_vcpu *hyp_vcpu;
+-	int ret = -EINVAL;
+ 
+ 	hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
+ 	if (!hyp_vcpu || pkvm_hyp_vcpu_is_protected(hyp_vcpu))
+-		goto out;
++		return -EINVAL;
+ 
+-	ret = __pkvm_host_relax_perms_guest(gfn, hyp_vcpu, prot);
+-out:
+-	cpu_reg(host_ctxt, 1) = ret;
++	return __pkvm_host_relax_perms_guest(gfn, hyp_vcpu, prot);
+ }
+ 
+-static void handle___pkvm_host_wrprotect_guest(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL(int, __pkvm_host_wrprotect_guest, 3,
++	pkvm_handle_t, handle, u64, gfn, u64, nr_pages)
+ {
+-	DECLARE_REG(pkvm_handle_t, handle, host_ctxt, 1);
+-	DECLARE_REG(u64, gfn, host_ctxt, 2);
+-	DECLARE_REG(u64, nr_pages, host_ctxt, 3);
+ 	struct pkvm_hyp_vm *hyp_vm;
+-	int ret = -EINVAL;
++	int ret;
+ 
+ 	hyp_vm = get_np_pkvm_hyp_vm(handle);
+ 	if (!hyp_vm)
+-		goto out;
++		return -EINVAL;
+ 
+ 	ret = __pkvm_host_wrprotect_guest(gfn, nr_pages, hyp_vm);
+ 	put_pkvm_hyp_vm(hyp_vm);
+-out:
+-	cpu_reg(host_ctxt, 1) = ret;
++
++	return ret;
+ }
+ 
+-static void handle___pkvm_host_test_clear_young_guest(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL(int, __pkvm_host_test_clear_young_guest, 4,
++	pkvm_handle_t, handle, u64, gfn, u64, nr_pages, bool, mkold)
+ {
+-	DECLARE_REG(pkvm_handle_t, handle, host_ctxt, 1);
+-	DECLARE_REG(u64, gfn, host_ctxt, 2);
+-	DECLARE_REG(u64, nr_pages, host_ctxt, 3);
+-	DECLARE_REG(bool, mkold, host_ctxt, 4);
+ 	struct pkvm_hyp_vm *hyp_vm;
+-	int ret = -EINVAL;
++	int ret;
+ 
+ 	hyp_vm = get_np_pkvm_hyp_vm(handle);
+ 	if (!hyp_vm)
+-		goto out;
++		return -EINVAL;
+ 
+ 	ret = __pkvm_host_test_clear_young_guest(gfn, nr_pages, mkold, hyp_vm);
+ 	put_pkvm_hyp_vm(hyp_vm);
+-out:
+-	cpu_reg(host_ctxt, 1) = ret;
++
++	return ret;
+ }
+ 
+-static void handle___pkvm_host_mkyoung_guest(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL(int, __pkvm_host_mkyoung_guest, 1,
++	u64, gfn)
+ {
+-	DECLARE_REG(u64, gfn, host_ctxt, 1);
+ 	struct pkvm_hyp_vcpu *hyp_vcpu;
+-	int ret = -EINVAL;
+ 
+ 	hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
+ 	if (!hyp_vcpu || pkvm_hyp_vcpu_is_protected(hyp_vcpu))
+-		goto out;
++		return -EINVAL;
+ 
+-	ret = __pkvm_host_mkyoung_guest(gfn, hyp_vcpu);
+-out:
+-	cpu_reg(host_ctxt, 1) =  ret;
++	return __pkvm_host_mkyoung_guest(gfn, hyp_vcpu);
+ }
+ 
+-static void handle___kvm_adjust_pc(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL_VOID(__kvm_adjust_pc, 1,
++	struct kvm_vcpu *, vcpu)
+ {
+-	DECLARE_REG(struct kvm_vcpu *, vcpu, host_ctxt, 1);
+-
+ 	__kvm_adjust_pc(kern_hyp_va(vcpu));
+ }
+ 
+-static void handle___kvm_flush_vm_context(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL0_VOID(__kvm_flush_vm_context)
+ {
+ 	__kvm_flush_vm_context();
+ }
+ 
+-static void handle___kvm_tlb_flush_vmid_ipa(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid_ipa, 3,
++	struct kvm_s2_mmu *, mmu, phys_addr_t, ipa, int, level)
+ {
+-	DECLARE_REG(struct kvm_s2_mmu *, mmu, host_ctxt, 1);
+-	DECLARE_REG(phys_addr_t, ipa, host_ctxt, 2);
+-	DECLARE_REG(int, level, host_ctxt, 3);
+-
+ 	__kvm_tlb_flush_vmid_ipa(kern_hyp_va(mmu), ipa, level);
+ }
+ 
+-static void handle___kvm_tlb_flush_vmid_ipa_nsh(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid_ipa_nsh, 3,
++	struct kvm_s2_mmu *, mmu, phys_addr_t, ipa, int, level)
+ {
+-	DECLARE_REG(struct kvm_s2_mmu *, mmu, host_ctxt, 1);
+-	DECLARE_REG(phys_addr_t, ipa, host_ctxt, 2);
+-	DECLARE_REG(int, level, host_ctxt, 3);
+-
+ 	__kvm_tlb_flush_vmid_ipa_nsh(kern_hyp_va(mmu), ipa, level);
+ }
+ 
+-static void
+-handle___kvm_tlb_flush_vmid_range(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid_range, 3,
++	struct kvm_s2_mmu *, mmu, phys_addr_t, start, unsigned long, pages)
+ {
+-	DECLARE_REG(struct kvm_s2_mmu *, mmu, host_ctxt, 1);
+-	DECLARE_REG(phys_addr_t, start, host_ctxt, 2);
+-	DECLARE_REG(unsigned long, pages, host_ctxt, 3);
+-
+ 	__kvm_tlb_flush_vmid_range(kern_hyp_va(mmu), start, pages);
+ }
+ 
+-static void handle___kvm_tlb_flush_vmid(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid, 1,
++	struct kvm_s2_mmu *, mmu)
+ {
+-	DECLARE_REG(struct kvm_s2_mmu *, mmu, host_ctxt, 1);
+-
+ 	__kvm_tlb_flush_vmid(kern_hyp_va(mmu));
+ }
+ 
+-static void handle___pkvm_tlb_flush_vmid(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL_VOID(__pkvm_tlb_flush_vmid, 1,
++	pkvm_handle_t, handle)
+ {
+-	DECLARE_REG(pkvm_handle_t, handle, host_ctxt, 1);
+ 	struct pkvm_hyp_vm *hyp_vm = get_np_pkvm_hyp_vm(handle);
+ 
+ 	if (!hyp_vm)
+@@ -451,19 +467,19 @@ static void handle___pkvm_tlb_flush_vmid(struct kvm_cpu_context *host_ctxt)
+ 	put_pkvm_hyp_vm(hyp_vm);
+ }
+ 
+-static void handle___kvm_flush_cpu_context(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL_VOID(__kvm_flush_cpu_context, 1,
++	struct kvm_s2_mmu *, mmu)
+ {
+-	DECLARE_REG(struct kvm_s2_mmu *, mmu, host_ctxt, 1);
+-
+ 	__kvm_flush_cpu_context(kern_hyp_va(mmu));
+ }
+ 
+-static void handle___kvm_timer_set_cntvoff(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL_VOID(__kvm_timer_set_cntvoff, 1,
++	u64, cntvoff)
+ {
+-	__kvm_timer_set_cntvoff(cpu_reg(host_ctxt, 1));
++	__kvm_timer_set_cntvoff(cntvoff);
+ }
+ 
+-static void handle___kvm_enable_ssbs(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL0_VOID(__kvm_enable_ssbs)
+ {
+ 	u64 tmp;
+ 
+@@ -472,72 +488,61 @@ static void handle___kvm_enable_ssbs(struct kvm_cpu_context *host_ctxt)
+ 	write_sysreg_el2(tmp, SYS_SCTLR);
+ }
+ 
+-static void handle___vgic_v3_get_gic_config(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL0(u64, __vgic_v3_get_gic_config)
+ {
+-	cpu_reg(host_ctxt, 1) = __vgic_v3_get_gic_config();
++	return __vgic_v3_get_gic_config();
+ }
+ 
+-static void handle___vgic_v3_init_lrs(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL0_VOID(__vgic_v3_init_lrs)
+ {
+ 	__vgic_v3_init_lrs();
+ }
+ 
+-static void handle___vgic_v3_save_aprs(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL_VOID(__vgic_v3_save_aprs, 1,
++	struct vgic_v3_cpu_if *, cpu_if)
+ {
+-	DECLARE_REG(struct vgic_v3_cpu_if *, cpu_if, host_ctxt, 1);
+-
+ 	__vgic_v3_save_aprs(kern_hyp_va(cpu_if));
+ }
+ 
+-static void handle___vgic_v3_restore_vmcr_aprs(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL_VOID(__vgic_v3_restore_vmcr_aprs, 1,
++	struct vgic_v3_cpu_if *, cpu_if)
+ {
+-	DECLARE_REG(struct vgic_v3_cpu_if *, cpu_if, host_ctxt, 1);
+-
+ 	__vgic_v3_restore_vmcr_aprs(kern_hyp_va(cpu_if));
+ }
+ 
+-static void handle___pkvm_init(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL(int, __pkvm_init, 4,
++	phys_addr_t, phys, unsigned long, size,
++	unsigned long *, per_cpu_base, u32, hyp_va_bits)
+ {
+-	DECLARE_REG(phys_addr_t, phys, host_ctxt, 1);
+-	DECLARE_REG(unsigned long, size, host_ctxt, 2);
+-	DECLARE_REG(unsigned long *, per_cpu_base, host_ctxt, 3);
+-	DECLARE_REG(u32, hyp_va_bits, host_ctxt, 4);
+-
+ 	/*
+ 	 * __pkvm_init() will return only if an error occurred, otherwise it
+ 	 * will tail-call in __pkvm_init_finalise() which will have to deal
+ 	 * with the host context directly.
+ 	 */
+-	cpu_reg(host_ctxt, 1) = __pkvm_init(phys, size, per_cpu_base, hyp_va_bits);
++	return __pkvm_init(phys, size, per_cpu_base, hyp_va_bits);
+ }
+ 
+-static void handle___pkvm_cpu_set_vector(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL(int, __pkvm_cpu_set_vector, 1,
++	enum arm64_hyp_spectre_vector, slot)
+ {
+-	DECLARE_REG(enum arm64_hyp_spectre_vector, slot, host_ctxt, 1);
+-
+-	cpu_reg(host_ctxt, 1) = pkvm_cpu_set_vector(slot);
++	return pkvm_cpu_set_vector(slot);
+ }
+ 
+-static void handle___pkvm_host_share_hyp(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL(int, __pkvm_host_share_hyp, 1,
++	u64, pfn)
+ {
+-	DECLARE_REG(u64, pfn, host_ctxt, 1);
+-
+-	cpu_reg(host_ctxt, 1) = __pkvm_host_share_hyp(pfn);
++	return __pkvm_host_share_hyp(pfn);
+ }
+ 
+-static void handle___pkvm_host_unshare_hyp(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL(int, __pkvm_host_unshare_hyp, 1,
++	u64, pfn)
+ {
+-	DECLARE_REG(u64, pfn, host_ctxt, 1);
+-
+-	cpu_reg(host_ctxt, 1) = __pkvm_host_unshare_hyp(pfn);
++	return __pkvm_host_unshare_hyp(pfn);
+ }
+ 
+-static void handle___pkvm_create_private_mapping(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL(unsigned long, __pkvm_create_private_mapping, 3,
++	phys_addr_t, phys, size_t, size, u64, prot)
+ {
+-	DECLARE_REG(phys_addr_t, phys, host_ctxt, 1);
+-	DECLARE_REG(size_t, size, host_ctxt, 2);
+-	DECLARE_REG(enum kvm_pgtable_prot, prot, host_ctxt, 3);
+-
+ 	/*
+ 	 * __pkvm_create_private_mapping() populates a pointer with the
+ 	 * hypervisor start address of the allocation.
+@@ -554,154 +559,125 @@ static void handle___pkvm_create_private_mapping(struct kvm_cpu_context *host_ct
+ 	if (err)
+ 		haddr = (unsigned long)ERR_PTR(err);
+ 
+-	cpu_reg(host_ctxt, 1) = haddr;
++	return haddr;
+ }
+ 
+-static void handle___pkvm_prot_finalize(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL0(int, __pkvm_prot_finalize)
+ {
+-	cpu_reg(host_ctxt, 1) = __pkvm_prot_finalize();
++	return __pkvm_prot_finalize();
+ }
+ 
+-static void handle___pkvm_reserve_vm(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL0(int, __pkvm_reserve_vm)
+ {
+-	cpu_reg(host_ctxt, 1) = __pkvm_reserve_vm();
++	return __pkvm_reserve_vm();
+ }
+ 
+-static void handle___pkvm_unreserve_vm(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL_VOID(__pkvm_unreserve_vm, 1,
++	pkvm_handle_t, handle)
+ {
+-	DECLARE_REG(pkvm_handle_t, handle, host_ctxt, 1);
+-
+ 	__pkvm_unreserve_vm(handle);
+ }
+ 
+-static void handle___pkvm_init_vm(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL(int, __pkvm_init_vm, 3,
++	struct kvm *, host_kvm, void *, vm_hva, void *, pgd_hva)
+ {
+-	DECLARE_REG(struct kvm *, host_kvm, host_ctxt, 1);
+-	DECLARE_REG(void *, vm_hva, host_ctxt, 2);
+-	DECLARE_REG(void *, pgd_hva, host_ctxt, 3);
+-
+-	host_kvm = kern_hyp_va(host_kvm);
+-	cpu_reg(host_ctxt, 1) = __pkvm_init_vm(host_kvm, vm_hva, pgd_hva);
++	return __pkvm_init_vm(kern_hyp_va(host_kvm), vm_hva, pgd_hva);
+ }
+ 
+-static void handle___pkvm_init_vcpu(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL(int, __pkvm_init_vcpu, 3,
++	pkvm_handle_t, handle, struct kvm_vcpu *, host_vcpu,
++	void *, vcpu_hva)
+ {
+-	DECLARE_REG(pkvm_handle_t, handle, host_ctxt, 1);
+-	DECLARE_REG(struct kvm_vcpu *, host_vcpu, host_ctxt, 2);
+-	DECLARE_REG(void *, vcpu_hva, host_ctxt, 3);
+-
+-	host_vcpu = kern_hyp_va(host_vcpu);
+-	cpu_reg(host_ctxt, 1) = __pkvm_init_vcpu(handle, host_vcpu, vcpu_hva);
++	return __pkvm_init_vcpu(handle, kern_hyp_va(host_vcpu), vcpu_hva);
+ }
+ 
+-static void handle___pkvm_vcpu_in_poison_fault(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL0(int, __pkvm_vcpu_in_poison_fault)
+ {
+-	int ret;
+ 	struct pkvm_hyp_vcpu *hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
+ 
+-	ret = hyp_vcpu ? __pkvm_vcpu_in_poison_fault(hyp_vcpu) : -EINVAL;
+-	cpu_reg(host_ctxt, 1) = ret;
++	return hyp_vcpu ? __pkvm_vcpu_in_poison_fault(hyp_vcpu) : -EINVAL;
+ }
+ 
+-static void handle___pkvm_force_reclaim_guest_page(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL(int, __pkvm_force_reclaim_guest_page, 1,
++	phys_addr_t, phys)
+ {
+-	DECLARE_REG(phys_addr_t, phys, host_ctxt, 1);
+-
+-	cpu_reg(host_ctxt, 1) = __pkvm_host_force_reclaim_page_guest(phys);
++	return __pkvm_host_force_reclaim_page_guest(phys);
+ }
+ 
+-static void handle___pkvm_reclaim_dying_guest_page(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL(int, __pkvm_reclaim_dying_guest_page, 2,
++	pkvm_handle_t, handle, u64, gfn)
+ {
+-	DECLARE_REG(pkvm_handle_t, handle, host_ctxt, 1);
+-	DECLARE_REG(u64, gfn, host_ctxt, 2);
+-
+-	cpu_reg(host_ctxt, 1) = __pkvm_reclaim_dying_guest_page(handle, gfn);
++	return __pkvm_reclaim_dying_guest_page(handle, gfn);
+ }
+ 
+-static void handle___pkvm_start_teardown_vm(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL(int, __pkvm_start_teardown_vm, 1,
++	pkvm_handle_t, handle)
+ {
+-	DECLARE_REG(pkvm_handle_t, handle, host_ctxt, 1);
+-
+-	cpu_reg(host_ctxt, 1) = __pkvm_start_teardown_vm(handle);
++	return __pkvm_start_teardown_vm(handle);
+ }
+ 
+-static void handle___pkvm_finalize_teardown_vm(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL(int, __pkvm_finalize_teardown_vm, 1,
++	pkvm_handle_t, handle)
+ {
+-	DECLARE_REG(pkvm_handle_t, handle, host_ctxt, 1);
+-
+-	cpu_reg(host_ctxt, 1) = __pkvm_finalize_teardown_vm(handle);
++	return __pkvm_finalize_teardown_vm(handle);
+ }
+ 
+-static void handle___tracing_load(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL(int, __tracing_load, 2,
++	void *, desc_hva, size_t, desc_size)
+ {
+-	DECLARE_REG(void *, desc_hva, host_ctxt, 1);
+-	DECLARE_REG(size_t, desc_size, host_ctxt, 2);
+-
+-	cpu_reg(host_ctxt, 1) = __tracing_load(desc_hva, desc_size);
++	return __tracing_load(desc_hva, desc_size);
+ }
+ 
+-static void handle___tracing_unload(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL0_VOID(__tracing_unload)
+ {
+ 	__tracing_unload();
+ }
+ 
+-static void handle___tracing_enable(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL(int, __tracing_enable, 1,
++	bool, enable)
+ {
+-	DECLARE_REG(bool, enable, host_ctxt, 1);
+-
+-	cpu_reg(host_ctxt, 1) = __tracing_enable(enable);
++	return __tracing_enable(enable);
+ }
+ 
+-static void handle___tracing_swap_reader(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL(int, __tracing_swap_reader, 1,
++	unsigned int, cpu)
+ {
+-	DECLARE_REG(unsigned int, cpu, host_ctxt, 1);
+-
+-	cpu_reg(host_ctxt, 1) = __tracing_swap_reader(cpu);
++	return __tracing_swap_reader(cpu);
+ }
+ 
+-static void handle___tracing_update_clock(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL_VOID(__tracing_update_clock, 4,
++	u32, mult, u32, shift, u64, epoch_ns, u64, epoch_cyc)
+ {
+-	DECLARE_REG(u32, mult, host_ctxt, 1);
+-	DECLARE_REG(u32, shift, host_ctxt, 2);
+-	DECLARE_REG(u64, epoch_ns, host_ctxt, 3);
+-	DECLARE_REG(u64, epoch_cyc, host_ctxt, 4);
+-
+ 	__tracing_update_clock(mult, shift, epoch_ns, epoch_cyc);
+ }
+ 
+-static void handle___tracing_reset(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL(int, __tracing_reset, 1,
++	unsigned int, cpu)
+ {
+-	DECLARE_REG(unsigned int, cpu, host_ctxt, 1);
+-
+-	cpu_reg(host_ctxt, 1) = __tracing_reset(cpu);
++	return __tracing_reset(cpu);
+ }
+ 
+-static void handle___tracing_enable_event(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL(int, __tracing_enable_event, 2,
++	unsigned short, id, bool, enable)
+ {
+-	DECLARE_REG(unsigned short, id, host_ctxt, 1);
+-	DECLARE_REG(bool, enable, host_ctxt, 2);
+-
+-	cpu_reg(host_ctxt, 1) = __tracing_enable_event(id, enable);
++	return __tracing_enable_event(id, enable);
+ }
+ 
+-static void handle___tracing_write_event(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL_VOID(__tracing_write_event, 1,
++	u64, id)
+ {
+-	DECLARE_REG(u64, id, host_ctxt, 1);
+-
+ 	trace_selftest(id);
+ }
+ 
+-static void handle___vgic_v5_save_apr(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL_VOID(__vgic_v5_save_apr, 1,
++	struct vgic_v5_cpu_if *, cpu_if)
+ {
+-	DECLARE_REG(struct vgic_v5_cpu_if *, cpu_if, host_ctxt, 1);
+-
+ 	__vgic_v5_save_apr(kern_hyp_va(cpu_if));
+ }
+ 
+-static void handle___vgic_v5_restore_vmcr_apr(struct kvm_cpu_context *host_ctxt)
++DEFINE_KVM_HOST_HCALL_VOID(__vgic_v5_restore_vmcr_apr, 1,
++	struct vgic_v5_cpu_if *, cpu_if)
+ {
+-	DECLARE_REG(struct vgic_v5_cpu_if *, cpu_if, host_ctxt, 1);
+-
+ 	__vgic_v5_restore_vmcr_apr(kern_hyp_va(cpu_if));
+ }
+ 
+-- 
+2.39.5
 
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: ufs_sel_min_src
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: ufs_sel_max_src
-> > >=20
-> > > "src" sounds like a parent clock? If so, probably shouldn't be in
-> > > the
-> > > clocks list. 'assigned-clocks' is for dealing with parent clocks.
-> > >=20
-> >=20
-> > I don't know what it is, and I have no way to consult any
-> > documentation
-> > that would tell me what it is. I am trying to put out this dumpster
-> > fire
-> > of a downstream turd that made its way into mainline as the review
-> > process
-> > has been completely subverted, and is only getting worse with each
-> > passing
-> > month that MediaTek is allowed to block this series from
-> > progressing while
-> > sneaking further changes through.
->=20
-> It's good Mediatek is active, then they can tell us what the clocks
-> are for. I would think the driver would give some clue.
->=20
-Second, when searching in the driver code and the git history, it shows
-that ufs_sel is indeed a parent clock.
-The ufs_sel/ufs_sel_min_src/ufs_sel_max_src clock use in the driver
-code was introduced by the commit b7dbc686f60b ("scsi: ufs: ufs-
-mediatek: Support clk-scaling to optimize power consumption") to
-implement a dynamic clock scaling feature.
-
-ufs_sel is supposed to be the parent clock of the main clock ("ufs" in
-dt-bindings) and both ufs_sel_min_src/ufs_sel_max_src the parent of
-ufs_sel.
-The code switches conditionally the ufs_sel parent to modify the ufs
-clock rate (ufs_sel_max_src for maximum performance, ufs_sel_min_src
-otherwise).
-I've also looked at different downstream kernel trees, the assigned
-clocks values for those 3 clocks in the ufshci node in devicetree are
-consistent with the clock hierarchy in the MT8196 clock controllers
-drivers.
-
-This feature also seems to be linked to another one that added the
-clock scaling for the FDE clock (ufs_aes in dt-bindings).=C2=A0
-The commit that introduced it is 5e5976f5242d ("scsi: ufs: host:
-mediatek: Support FDE (AES) clock scaling") and it also added the 3
-undocumented clocks: ufs_fde, ufs_fde_min_src, ufs_fde_max_src.
-It is similar to the previous described one.
-
-The current driver code seems to require having the "ufs_fde" clock
-(supposed to be the ufs_aes parent clock) in the devicetree, so that
-the clock scaling feature for the "ufs_sel" clock is performed and I
-did not find why.=C2=A0
-So, with this current series dt-bindings patches, ufs clock scaling
-feature seems not completely described yet.
-
-There is also the crypto boost feature that make use of the
-crypt_mux/crypt_lp/crypt_perf clocks in a similar way.
-They were missing from dt-bindings, before this series patches made by
-Nicolas to documented them. Angelo also sent a patch two years ago in
-that regard ([1]) but did not get picked.
-The feature has been introduced by commit 590b0d2372fe ("scsi: ufs-
-mediatek: Support performance mode for inline encryption engine")
-The crypt_mux clock is also supposed to be the ufs_aes parent clock and
-its own parent is switched on need between crypt_lp (low power) and
-crypt_perf (performance).
-This feature is also depending two undocumented property:
-- dvfsrc-vcore-supply: Angelo sent [2] to add it and this current
-series forgot to add it too (to be done for v10 ?)
-- mediatek,ufs-boost-crypt: vendor specific property to enable this
-feature. Angelo sent [3] to remove its need but got reject back then
-
-Note that crypto boost and FDE clock scaling features seem not to be
-supposed to be enabled at the same time.
-
-Again, this crypto boost feature seems not completely described yet.
-
-Sorry for the wall of text but I felt it was better to add extra
-details regarding all those features and how they relate to each other
-to have a more complete answer regarding ufs_sel.
-
-[1]
-https://lore.kernel.org/linux-mediatek/20240612074309.50278-8-angelogioacch=
-ino.delregno@collabora.com/
-[2]
-https://lore.kernel.org/linux-mediatek/20240612074309.50278-9-angelogioacch=
-ino.delregno@collabora.com/
-[3]
-https://lore.kernel.org/linux-mediatek/20240612074309.50278-4-angelogioacch=
-ino.delregno@collabora.com/
-
-> I don't see how accepting sub-par bindings or not fixes the issues
-> here.
-
-So, since all these features rely heavily on optional parent clocks,
-that were not documented before being used in driver code, what should
-be done to make progress and fix these dt-bindings?
-
-What would you recommend to do in order to resolve those topics?
-I'm open for ideas, please.
-
-Best regards,
-Louis-Alexis
-
->=20
-> Rob
 
