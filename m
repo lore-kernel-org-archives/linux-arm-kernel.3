@@ -4,80 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7549C44521
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 07:51:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 708ACC44515
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 07:57:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lodkTsyKKcDBj+yB9Hc1ozevSN9hyzeJ/bgAOus7jZU=; b=q2oDroQAs3d/sY+Kua0D7CNWXT
-	TzWy7RO25kuJvbPkWyUx4pKbujHesiQu+zF+PfeozSdva92jPD6hNaVUKcaQtympSAB6ahoeARRar
-	Xs8rD61Cssbv4Iu6rX2uGl4WJwYj4cQK92l5E6Ou4afVwLJURNLJFyV/+sJkr3P7ZW4eiA/h4nQZu
-	QHAy5Djx0gPbiB5H+mSVvFTxpGhPThaKwrZLccfaO5r0dPPESZ6zClHkDA6T1Zt6dxI+vc0w64y79
-	Xc4xlkFL2gpeXzgyUOjcjafkGmKYYJ0yW/WebK+h5dC5w7O5+jOwQ0KH16w9vzEa/IEQHKS64mq74
-	A65UQy+A==;
+	bh=ZOk0UVNRw5/GaLj4qQsKJ3hC+F4oor+v94A2S3FZbFw=; b=Dexdf37pqXEUFXTrbBgMgcyb6O
+	DH8m9tWnHbQT6cyAlYNQsJ022rDiATG9hy4tJULG1d0sosMna6fPnqY3g56BiHtyaly+IDtqV5gOc
+	e7ADG0nGD55E+wvnL7O71r0VOJFT+tv/VEE8Kz8QX7+o9LtGQ0P1NvFTRGwvPQH7KLKHmYIe77joH
+	sG0w9jbGtwkL9P3s3fyKVdZwhnmSi2ZhxhWHZ0N03GtG+pGPvQesLLBphKSUzaAFaQ6RNNv4Jct+r
+	i9klRg/PLSdES2r6TtuoFaGDSrtamqinG7gXNceEIz8MUwB7FgQWaIBGiXzRMu9xO+qMZBSPjqyEu
+	EdbOvOmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlimE-000000068Y6-3iwh;
-	Mon, 20 Jul 2026 07:51:02 +0000
+	id 1wlirs-00000006967-2Nbq;
+	Mon, 20 Jul 2026 07:56:52 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlimD-000000068Xj-24yD
+	id 1wlirq-0000000695N-1Eav
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 20 Jul 2026 07:51:01 +0000
+	Mon, 20 Jul 2026 07:56:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=lodkTsyKKcDBj+yB9Hc1ozevSN9hyzeJ/bgAOus7jZU=; b=dFPleSEnFeJkXi0y4xjBXf257H
-	1lbMfC/9V04NhLYDJZH1+pvpynxr9MrYVNx5kqOMujjFRz3o8aRNxVebI99swg+5gXFZqiPsy8D0c
-	7mpcQmwNYww2PpfFCrO0oNcybY+G1q0egchMrHUuXLdXpZovWtrVdHZlQa6tvhJbhjZ04FUTM3Rw7
-	v760Xgb3wU2FjVZeC69clgy++Il1W+EDriOFC6LG3V1vS5F4uKt4IBcn5tl4HFej0/FLZd5HDs6QU
-	kKQ0M50S37Z951BH8jvw03FQk3/PHEHGzikGlAXuVob01cV/Gphd4VEUSJVG09ooMVDP7o3Nxw9JN
-	NB/+m98w==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wlim9-0000000GMKo-1XVY
+	bh=ZOk0UVNRw5/GaLj4qQsKJ3hC+F4oor+v94A2S3FZbFw=; b=XhJrHAVNJMyV+wrkn9SK36hkpY
+	CY4RKzAEdn+MCuKkiYOSklyoE1ph1GbPLBamMMBQrmfb3uh4OdS67XnjaTJcQcoC9ONDqSdyP8Sa0
+	G2mOZaMaepzn3sMJMrIT776Ki9GOUqPAQKXPjXRBZmT9ZKnbYGQRRT70dJugt2RRePW+ZYwJHgEwc
+	c7TzoYApj11GgPGQJEsxhv71zN1vH1CVuNntFb/cBXoj8qO+yTTXsoWbQVanAvjp3giVpxkehzjtq
+	9YhmM+nr+GNsPCzMj8hxZvSuuGGQi2ggSLDRcMHOeKIrrG8VfSXen6Y7Ss44uah1qSA+Oac/eaHi6
+	SeQN9mcA==;
+Received: from mail-yw1-x112f.google.com ([2607:f8b0:4864:20::112f])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wlirm-0000000GMZ3-3ocY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 07:50:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 299F22B;
-	Mon, 20 Jul 2026 00:50:51 -0700 (PDT)
-Received: from [10.164.19.57] (unknown [10.164.19.57])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 10F823F86F;
-	Mon, 20 Jul 2026 00:50:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784533855; bh=2Un4GO8yOvt4jQTKL0yMvo/Ed/dJKpSRadpiypHDvPg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=N3Y1fIEH02S7auRV/kad7+v07C+/uk7U1HwOWDfGg9cVKuJxjpF4lLb4rTj8QcSVM
-	 fy1FCBwPyvvEce0+BXG4UcjaKJJF9wjlLKZNU3G1qgpI12D+s8sxjqCjt5PHMGl/1o
-	 HVQy4QlxnijXCCw0L/cqoKcHdjO0pr1e+G9OvkWc=
-Message-ID: <243328f9-1247-4104-ad09-b2f6de520128@arm.com>
-Date: Mon, 20 Jul 2026 13:20:48 +0530
+	Mon, 20 Jul 2026 07:56:49 +0000
+Received: by mail-yw1-x112f.google.com with SMTP id 00721157ae682-8143daf89c7so59026627b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 00:56:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1784534204; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ggB4zaZ66QbDkwkUaMsGQvGBY3vEPZmJo2/uWAU8cwYMOM6agJ9Rm7fuv+dwFwJp/b
+         QOpmn4tgcIjxpcUdrHJGHDMM4g8sXPzTMmABEVUOUnujL/QDjpVfx00us+wSzbrLj5Hn
+         S+htLcZLkxxvizBUVBnNJqf6q+BNl3neLLpNKlICjLPzj0STLgbO133YRVKxZRrfCU0A
+         pVwcQpDL7i32StExZQlLRxlfnL9m9QBgIMwNxiMjaSMrx21IAPpKYoQ54ffEunE3qwc1
+         1k/DHF/eNQnzcOvqfca0Pt/VZmKnYec27nx5t3lkQXdcWzKUHLO5jCMuujujYj14JGSQ
+         44mg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=ZOk0UVNRw5/GaLj4qQsKJ3hC+F4oor+v94A2S3FZbFw=;
+        fh=5EbcUwPkSgK/F3Om6+0+R1wGtS6P3KBMO/DHTPhqVmo=;
+        b=i7XDphhsuXTW12EyaQiL9AFNLB8YQxw4eeIlI9NNVY8sU+Ta8kyy3Fj3Ub03xt+tPU
+         nCojLe7p7cfUeQ6HQ/ItXVk3ebbc3DD7qyJTZBSrcJ+ER5DGrNTc9O7NF8U3UKs3U8a+
+         mUm7yPlbReNb/hUPV0Qeob5kNJiaxvEDczon26HoN64UjrQYOmbsapofb5LvCGRSmNSf
+         RxsnPQuj21IBFCSQhd5LhyJuziAlE0TG+hDTiYiGAA6vQCjvjTPOsxfwLPQMsohWRAb5
+         YpIk7tDCvMwhdl/bD7eKH/XW2bb03ubDkl/BaAMXWFQFVBr8WCxxjUW6j0z7tAnHcBnV
+         nJjA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1784534204; x=1785139004; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ZOk0UVNRw5/GaLj4qQsKJ3hC+F4oor+v94A2S3FZbFw=;
+        b=IJ3Le+CjQdiQxnczQTn17Gy9UjGL6zYeN11ii+XMmDnUmCMcZEyT9lLYw8Pe8LSEfA
+         yEFOOj96mc7E0H0Hva+cXedfudt5YoVCxJMAHzbCyFiHMhO9xYj8lMCQy57W9u2KpVmv
+         3ybsrBVg3+yVI9dQkQ/JRGbw9O+wQpT0zisus=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784534204; x=1785139004;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ZOk0UVNRw5/GaLj4qQsKJ3hC+F4oor+v94A2S3FZbFw=;
+        b=XAvrgzZyC69aMjsKt6bIcdFP+fjkGkMMNyD1NcCJ9MBMIJOOorrY6Vd2GqIP+/6i1g
+         iyLm1mwM/axcxsZGJEQG2qMaDNRJD+69bLY3NxK/B5UTILCy6tJUy+QbofvE7BD3Jr9Q
+         Qa8CiE26x4sycANVpySeBpoQpBmQAO3qu7R/9e5MP1Q2RjJQ2K4foRT1V+tyQQZ327Dr
+         xHdjAzKvuAjqbWyvm4gwGVe22W0Csj3Qv3a/NOkPEPpYFUXvrvBfviH6yg8dw6JR0GUy
+         atmeBwYLGqjsMqRzN9AsSWMNyajju7jOKyobNbJX1YUsnQXqOgHtDr2zX9AsOTUqA3J4
+         SlfQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rp0dsGCdRLzCrxhTqQxP9XtOlzm0nvyIfPSkgji8TKcO9u19sUtidhTeSLXERIt5pZwZof18AlppSV9zp6shDgm@lists.infradead.org
+X-Gm-Message-State: AOJu0YyNdjV0Gp4kB6lGj9bQU33CdjWJhhPB/yl69N1jqXDJiiMpXzc6
+	QAlWgNP0FPzFaO5bQXtYiJB1uyEqTVuOfYQJGX5TG9ZK9p1OH3j8ss/G4mjmAn/PfMyWUI6GVLa
+	udVCunqDprHjalSvjfnxmfN69ABYJLb1ojrxGvXNH
+X-Gm-Gg: AR+sD12mpVwrH/2tfHSUycczc6Q2Q0Ptbls4AQhuNpX/E2qODrct1u2nq9HAKZB8G3z
+	TMhMF8yvnFAfMJPkEHZ8S9dT7J8kcQODLR4aRJxZRvgFfSu/WQ3FKpG5FJrB2PwlHI7UJIvJH0Y
+	DQPyvNcOduUKu6aM8F/yVLZg7L1UmLU+Udk13LG6Bngiq0bA4cPFg62y+6186thXPhSa8/TckY6
+	nDLyfbohxq9EYGR089ETVVrSN1jxgkHngxaVq+/qrGd1t6xuaCi0MQe7uOLU4rxNFAmEsOXweZ8
+	LrcLjXJpMpIfMAbF
+X-Received: by 2002:a05:690c:22c3:b0:7db:a109:f12f with SMTP id
+ 00721157ae682-81ef22c8c66mr39077937b3.1.1784534204236; Mon, 20 Jul 2026
+ 00:56:44 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 5/7] mm/vmalloc: Extract vm_shift() to consolidate
- mapping shift selection
-To: Wen Jiang <jiangwenxiaomi@gmail.com>, akpm@linux-foundation.org,
- catalin.marinas@arm.com, linux-mm@kvack.org, urezki@gmail.com,
- will@kernel.org
-Cc: Xueyuan.chen21@gmail.com, ajd@linux.ibm.com, anshuman.khandual@arm.com,
- david@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, rppt@kernel.org, ryan.roberts@arm.com,
- baohua@kernel.org, Wen Jiang <jiangwen6@xiaomi.com>,
- Leo Yan <leo.yan@arm.com>
-References: <20260715120813.3609949-1-jiangwen6@xiaomi.com>
- <20260715120813.3609949-6-jiangwen6@xiaomi.com>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <20260715120813.3609949-6-jiangwen6@xiaomi.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <dcd98d81dede338c9bbb9700a9613c848b702e49.1784336005.git.daniel@makrotopia.org>
+In-Reply-To: <dcd98d81dede338c9bbb9700a9613c848b702e49.1784336005.git.daniel@makrotopia.org>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Mon, 20 Jul 2026 15:56:33 +0800
+X-Gm-Features: AUfX_mzig1MDLgHbJy7nor9Z4O8-sZf9ZnQXEm-6mq0XRTnwakXA39D5hmxWyiY
+Message-ID: <CAGXv+5GpGfA+hBADn69eNEetP_zR+Xmt3fMhyapK3SsaEa=DFQ@mail.gmail.com>
+Subject: Re: [PATCH] regulator: mt6358: use regmap helper to read fixed LDO calibration
+To: Daniel Golle <daniel@makrotopia.org>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Lee Jones <lee@kernel.org>, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_085058_392940_683D08D7 
-X-CRM114-Status: GOOD (  13.80  )
+X-CRM114-CacheID: sfid-20260720_085647_120815_9CC8A5C4 
+X-CRM114-Status: GOOD (  21.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,61 +132,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sat, Jul 18, 2026 at 9:06=E2=80=AFAM Daniel Golle <daniel@makrotopia.org=
+> wrote:
+>
+> The "fixed" LDOs with output voltage calibration use
+> mt6358_get_buck_voltage_sel as their get_voltage_sel op, but the
+> MT6358_REG_FIXED and MT6366_REG_FIXED entries do not populate
+> da_vsel_reg/da_vsel_mask. The op therefore reads register 0x0 with a
+> zero mask and shifts the result by ffs(0) - 1 =3D -1, which is undefined
+> behaviour and gets flagged by UBSAN on every boot on MT6366 boards:
+>
+>   UBSAN: shift-out-of-bounds in drivers/regulator/mt6358-regulator.c:384:=
+38
+>   shift exponent -1 is negative
+>   Call trace:
+>    mt6358_get_buck_voltage_sel+0xc8/0x120
+>    regulator_get_voltage_rdev+0x70/0x170
+>    set_machine_constraints+0x504/0xc38
+>    regulator_register+0x324/0xc68
+>
+> Besides the undefined shift, the returned selector is always 0, so the
+> actual calibration offset programmed in <reg>_ANA_CON0 is never
+> reported.
+>
+> The descriptor already carries the correct vsel_reg/vsel_mask (the
+> ANA_CON0 calibration field), matching the regulator_set_voltage_sel_regma=
+p
+> op already in use. Read the selector back through
+> regulator_get_voltage_sel_regmap instead.
+>
+> Fixes: cf08fa74c716 ("regulator: mt6358: Add output voltage fine tuning t=
+o fixed regulators")
+> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 
+Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
+Tested-by: Chen-Yu Tsai <wens@kernel.org>
 
-On 15/07/26 5:38 pm, Wen Jiang wrote:
-> Extract the vmalloc mapping shift selection from
-> __vmalloc_node_range_noprof() into vm_shift(), preparing for reuse by the
-> vmap batching path.
-> 
-> No functional change.
-> 
-> Suggested-by: Dev Jain <dev.jain@arm.com>
-> Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
-> Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
-> Tested-by: Leo Yan <leo.yan@arm.com>
+I guess I wasn't looking hard enough when I did the original patch.
+I can confirm that after this patch, the fixed LDOs like vxo22 on
+Juniper reads out as 2.24V instead of 2.2V (and then gets corrected
+down to 2.2V by the kernel).
+
 > ---
-
-Reviewed-by: Dev Jain <dev.jain@arm.com>
-
-
->  mm/vmalloc.c | 14 +++++++++-----
->  1 file changed, 9 insertions(+), 5 deletions(-)
-> 
-> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-> index afc695d5973e8..a1e025120e9df 100644
-> --- a/mm/vmalloc.c
-> +++ b/mm/vmalloc.c
-> @@ -3549,6 +3549,14 @@ void vunmap(const void *addr)
->  }
->  EXPORT_SYMBOL(vunmap);
-> 
-> +static inline unsigned int vm_shift(pgprot_t prot, unsigned long size)
-> +{
-> +	if (arch_vmap_pmd_supported(prot) && size >= PMD_SIZE)
-> +		return PMD_SHIFT;
-> +
-> +	return arch_vmap_pte_supported_shift(size);
-> +}
-> +
->  /**
->   * vmap - map an array of pages into virtually contiguous space
->   * @pages: array of page pointers
-> @@ -4047,11 +4055,7 @@ void *__vmalloc_node_range_noprof(unsigned long size, unsigned long align,
->  		 * supporting them.
->  		 */
-> 
-> -		if (arch_vmap_pmd_supported(prot) && size >= PMD_SIZE)
-> -			shift = PMD_SHIFT;
-> -		else
-> -			shift = arch_vmap_pte_supported_shift(size);
-> -
-> +		shift = vm_shift(prot, size);
->  		align = max(original_align, 1UL << shift);
->  	}
-> 
+>  drivers/regulator/mt6358-regulator.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/regulator/mt6358-regulator.c b/drivers/regulator/mt6=
+358-regulator.c
+> index f2bb3c1523ca..d6a0ec406b07 100644
+> --- a/drivers/regulator/mt6358-regulator.c
+> +++ b/drivers/regulator/mt6358-regulator.c
+> @@ -492,7 +492,7 @@ static const struct regulator_ops mt6358_volt_fixed_o=
+ps =3D {
+>         .list_voltage =3D regulator_list_voltage_linear,
+>         .map_voltage =3D regulator_map_voltage_linear,
+>         .set_voltage_sel =3D regulator_set_voltage_sel_regmap,
+> -       .get_voltage_sel =3D mt6358_get_buck_voltage_sel,
+> +       .get_voltage_sel =3D regulator_get_voltage_sel_regmap,
+>         .set_voltage_time_sel =3D regulator_set_voltage_time_sel,
+>         .enable =3D regulator_enable_regmap,
+>         .disable =3D regulator_disable_regmap,
 > --
-> 2.34.1
-> 
-
+> 2.55.0
 
