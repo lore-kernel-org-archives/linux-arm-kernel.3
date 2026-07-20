@@ -4,107 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C2DBC44520
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 17:44:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60680C44520
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 18:01:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a6K3JoQ/La7gglTSywyKmCSq3qYTAVbtDQfL9xWyo6M=; b=o7XjhL5l8ac7QG9XYpAnytrvOI
-	8GOU9ERtWU8skZtnxZEpfR8pXkX4oNmAXep5I78UClNnEG7LBtR8EZe4vKILLCBrnQ2XYgeXfWJVG
-	ld69hlNfrhYCO3agSn3hkVQtu5b3DG9UCTMC0IPLzvNhMo6dBebzr0HROvdSqRfIrsatWx1sGf9Gq
-	HFrbTuyKPZAPvdmNy6NZb6l9zx+frIIAvx1guyqOPx6reUlAiEgpcxHWF0UmVj/gDKKZrCxnM+3Hk
-	cwdK7gByK9UDtsDZ+wHTvC9ECULciof8ATFPR0xM8pnP1I+WEztjVES+iHfTg/KtDworS80m0IgXh
-	JOvD6fzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PI5Oxb9HCfJR7oPD5XfJPeD09VaVWbnvfaj5lOSTQXI=; b=uR0gMS4Xr0mm5OKF1/afIEAs7M
+	lvLKg7x3qKqnEL+iwMGZQH/ZmumYcbTGMlG4FkSTxH2tR6HwjAoRiXphsaE+Hr14NLokT7EkyO7uI
+	Q6fyZfgtX8hmj0LKudFLSvslWhmTwFp7zs3GNjC8oxzcrwzcbzvSS8ap9cTT6NZnOyaGN26hndncr
+	Bdtv/0A1CWBzNz4wSq1aSF7QNCC5b0UEo7C211G1UG0tNoQF5427do/CM/0nw0rc3OnmhJIDxnVIB
+	boUKQrzXRxFWTSnlRlrinwQKg9IcKh30j4Rv+Mcl3LpuGfQGnrhKfiF8+sbXC5ICehsD6UJvZVnt8
+	0x9L4aDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wls1y-00000007ZTP-3MFo;
-	Mon, 20 Jul 2026 17:43:54 +0000
-Received: from m101-out-mua-6.websupport.se ([2a00:1968:0:9:109:235:175:106])
+	id 1wlsIZ-00000007b7r-2KQa;
+	Mon, 20 Jul 2026 18:01:03 +0000
+Received: from sender4-op-o11.zoho.com ([136.143.188.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wls1w-00000007ZS2-1XZL
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 17:43:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=palvencia.se;
-	s=mail; t=1784569430;
-	bh=a6K3JoQ/La7gglTSywyKmCSq3qYTAVbtDQfL9xWyo6M=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=uRE/tTHmCL6OMXyzABtlR6iHJJluQr/DgUbHrnzemJ7dyb+eRnbFvUG2uA9/1y4UF
-	 zR7kn+0OSQgMzzPmwjQLZlXIjK5tDdX4Qvw6q7GqNauLf2SanNE/8XNYIMf4LxVG9B
-	 EHNPmqJuLvnhFjFeYU5w8fzdtaOjZXj6h8PcRBv7MaJb3iJllp5PFuH/JTP2NqF1V8
-	 zroBCHdhrvvPoXCJyd497KnuIY2OgDLSWhFlUsLnRMLlB5JhUDJC3Brq0ud3DRC6+M
-	 nsDtGeZpb3ReQ4kdyk0qePn5Jqv3X0W5X/4XWqP0R9GYrSfnx4FVsi/Oxw7YmetIJD
-	 4dubC8bFVQBkQ==
-Received: from m101-u5-ing.websupport.se (unknown [10.30.5.2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	by m101-out-mua-6.websupport.se (Postfix) with ESMTPS id 4h3nts714szRD7;
-	Mon, 20 Jul 2026 19:43:49 +0200 (CEST)
-X-Authenticated-Sender: per@palvencia.se
-Authentication-Results: m101-u5-ing.websupport.se;
-	auth=pass smtp.auth=per@palvencia.se smtp.mailfrom=per@palvencia.se
-Received: from palvencia.se (unknown [193.180.91.63])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: per@palvencia.se)
-	by m101-u5-ing.websupport.se (Postfix) with ESMTPSA id 4h3ntr3rKVz2p3h;
-	Mon, 20 Jul 2026 19:43:48 +0200 (CEST)
-From: Per Larsson <per@palvencia.se>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Allwinner sunXi SoC support),
-	linux-sunxi@lists.linux.dev (open list:ARM/Allwinner sunXi SoC support),
-	linux-kernel@vger.kernel.org (open list)
-Cc: Per Larsson <per@palvencia.se>
-Subject: [PATCH 2/2] arm64: dts: allwinner: a523: Add SPDIF to x96qpro+ device
-Date: Mon, 20 Jul 2026 19:42:43 +0200
-Message-ID: <20260720174253.7686-2-per@palvencia.se>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20260720174253.7686-1-per@palvencia.se>
-References: <20260720174253.7686-1-per@palvencia.se>
+	id 1wlsIV-00000007b6f-3L8v;
+	Mon, 20 Jul 2026 18:01:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1784570401; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=RT/1oyKIMcGmM+6SQWFkdyVqHta/RRyy0Yu4g4mm2VfK93pSIopDF6QoHT41cPIbnPr7Hy9dMb4JYN0l9C+h3MeYgS6BCda64OY2r5L2u/L/ht2dBIDLPOt5PFzx6a4nrkAQFD9dkerk6zeq67tC8mrABV3OdCH9YNp+NTUWEv0=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1784570401; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=PI5Oxb9HCfJR7oPD5XfJPeD09VaVWbnvfaj5lOSTQXI=; 
+	b=i/mkP3SSxYV9S4bVnCbWrIBof1StGDfQlRgeCnXvGVBJAGkOqDaLIzvZd4/OzOOrTPfQBbeUsqtMMAoH2wB3GRl+3JaSSXMmZ5JgVNuXmXukC6VT/pluuNyx1YvvtvVdAb5HfNbNKNhsspzV5ZTiYjA8dK1vueh8M0zrwCYP+QE=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1784570401;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=PI5Oxb9HCfJR7oPD5XfJPeD09VaVWbnvfaj5lOSTQXI=;
+	b=IQqR+m+U/mjAqGizVvFMly5QcjIIaE/3vePjAzA6K22TI7658slUzACY11LrIn7m
+	edZZJ3OOCmrkW+Zp88L8qw86AYN/EMlgxSCqJPV4S33e6eFomYSt6mup8so6MjN0buj
+	rTE1wUvmp1WrV7i93mJ+hhrZCZ2KdghDyrbpcswM=
+Received: by mx.zohomail.com with SMTPS id 1784570399288490.3932171563042;
+	Mon, 20 Jul 2026 10:59:59 -0700 (PDT)
+Received: by venus (Postfix, from userid 1000)
+	id 26FF41809C8; Mon, 20 Jul 2026 19:59:53 +0200 (CEST)
+Date: Mon, 20 Jul 2026 19:59:53 +0200
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Chaoyi Chen <kernel@airkyi.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Vinod Koul <vkoul@kernel.org>, Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-phy@lists.infradead.org
+Subject: Re: [PATCH v3 1/5] drm/bridge: Implement generic USB Type-C DP HPD
+ bridge
+Message-ID: <al5fYojQ0kJw2okg@venus>
+References: <20260717072323.96-1-kernel@airkyi.com>
+ <20260717072323.96-2-kernel@airkyi.com>
+ <alpeAqKo72pwOEnX@venus>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Out-Rspamd-Queue-Id: 4h3ntr3rKVz2p3h
-X-Out-Rspamd-Server: m101-rspamd-out-6
-X-Rspamd-Action: no action
-X-Out-Spamd-Result: default: False [2.90 / 1000.00];
-	SUSPICIOUS_RECIPS(1.50)[];
-	MID_CONTAINS_FROM(1.00)[];
-	R_MISSING_CHARSET(0.50)[];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_COUNT_ZERO(0.00)[0];
-	FREEMAIL_TO(0.00)[kernel.org,gmail.com,sholland.org,vger.kernel.org,lists.infradead.org,lists.linux.dev];
-	TAGGED_RCPT(0.00)[dt];
-	ASN(0.00)[asn:35790, ipnet:193.180.91.0/24, country:SE];
-	ARC_NA(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCPT_COUNT_SEVEN(0.00)[11];
-	HAS_X_AS(0.00)[];
-	ALIAS_RESOLVED(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	FROM_EQ_ENVFROM(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	LOCAL_OUTBOUND(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com]
-X-purgate-type: clean
-X-purgate-Ad: Categorized by eleven eXpurgate (R) https://www.eleven.de
-X-purgate: This mail is considered clean (visit https://www.eleven.de for further information)
-X-purgate: clean
-X-purgate-size: 1315
-X-purgate-ID: 155908::1784569429-3D7071C6-507E0540/2/76550713453
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="qn43nqqaph5qazm4"
+Content-Disposition: inline
+In-Reply-To: <alpeAqKo72pwOEnX@venus>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.10.1.5.2/284.544.97
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_104352_579432_EF77A507 
-X-CRM114-Status: GOOD (  10.19  )
+X-CRM114-CacheID: sfid-20260720_110059_889660_F84CF393 
+X-CRM114-Status: GOOD (  28.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,57 +94,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The X96QPro+ TV box uses the PH7 pin for its SPDIF output
-Add the relevant bits to the dts now that the dtsi knows about the pin
 
-Signed-off-by: Per Larsson <per@palvencia.se>
----
- .../dts/allwinner/sun55i-h728-x96qpro+.dts    | 24 +++++++++++++++++++
- 1 file changed, 24 insertions(+)
+--qn43nqqaph5qazm4
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 1/5] drm/bridge: Implement generic USB Type-C DP HPD
+ bridge
+MIME-Version: 1.0
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts b/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
-index a96927fbdadd..b172985583f8 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
-@@ -44,6 +44,24 @@ reg_vcc3v3: vcc3v3 {
- 		vin-supply = <&reg_vcc5v>;
- 		regulator-always-on;
- 	};
-+
-+	sound-spdif {
-+		compatible = "simple-audio-card";
-+		simple-audio-card,name = "spdif-out";
-+
-+		simple-audio-card,cpu {
-+			sound-dai = <&spdif>;
-+		};
-+
-+		simple-audio-card,codec {
-+			sound-dai = <&spdif_out>;
-+		};
-+	};
-+
-+	spdif_out: spdif-out {
-+		#sound-dai-cells = <0>;
-+		compatible = "linux,spdif-dit";
-+	};
- };
- 
- &ehci0 {
-@@ -275,6 +293,12 @@ &r_pio {
- 	vcc-pm-supply = <&reg_aldo3>;
- };
- 
-+&spdif {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&spdif_out_ph_pin>;
-+	status = "okay";
-+};
-+
- &uart0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&uart0_pb_pins>;
--- 
-2.48.1
+Hi,
 
+On Fri, Jul 17, 2026 at 07:19:29PM +0200, Sebastian Reichel wrote:
+> On Fri, Jul 17, 2026 at 03:23:19PM +0800, Chaoyi Chen wrote:
+> > From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> >=20
+> > The HPD function of Type-C DP is implemented through
+> > drm_connector_oob_hotplug_event(). For embedded DP, it is required
+> > that the DRM connector fwnode corresponds to the Type-C port fwnode.
+> >=20
+> > To describe the relationship between the DP controller and the Type-C
+> > port device, we usually using drm_bridge to build a bridge chain.
+> >=20
+> > Now several USB-C controller drivers have already implemented the DP
+> > HPD bridge function provided by aux-hpd-bridge.c, it will build a DP
+> > HPD bridge on USB-C connector port device.
+> >=20
+> > But this requires the USB-C controller driver to manually register the
+> > HPD bridge. If the driver does not implement this feature, the bridge
+> > will not be create.
+> >=20
+> > So this patch implements a generic DP HPD bridge based on
+> > aux-hpd-bridge.c. It will monitor Type-C bus events, and when a
+> > Type-C port device containing the DP svid is registered, it will
+> > create an HPD bridge for it without the need for the USB-C controller
+> > driver to implement it.
+> >=20
+> > Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> > Reviewed-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+> > Reviewed-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > ---
+>=20
+> Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> Tested-by: Sebastian Reichel <sebastian.reichel@collabora.com> # ArmSom S=
+ige5
+>=20
+> I gave this a test together with the RK3588/RK3576 USB-C DP AltMode
+> patches I'm working on. As the fusb302 does a manual registration
+> for the DRM bridge in its probe function, the bridge is registered
+> twice:
+>=20
+> root@sige5 # cat /sys/kernel/debug/dri/bridges
+> ...
+> bridge[1]: drm_aux_hpd_bridge_funcs
+> 	refcount: 4
+> 	type: [10] DP
+> 	OF: /soc/i2c@2ac50000/typec-portc@22/connector:usb-c-connector
+> 	ops: [0x4] hpd
+> bridge[2]: drm_aux_hpd_bridge_funcs
+> 	refcount: 2
+> 	type: [10] DP
+> 	OF: /soc/i2c@2ac50000/typec-portc@22/connector:usb-c-connector
+> 	ops: [0x4] hpd
+> ...
+>=20
+> Apparently the USB-C DP AltMode keeps working, so this just wastes
+> a few CPU cycles and some memory. So this can land and then we can
+> remove the manual code from the driver as a follow-up step. I also
+> gave that a try and things keep working. I won't send the fusb302
+> patch for now to ensure its not applied before this patch lands.
+
+The above test was done with a kernel having all config options
+built-in (i.e. no modules). Using arm64 defconfig one ends up with
+
+CONFIG_DRM_AUX_HPD_TYPEC_BRIDGE=3Dm
+
+But the resulting 'aux-hpd-typec-dp-bridge' module is not loaded
+automatically resulting in missing bridge registration. Running
+'modprobe aux-hpd-typec-dp-bridge' manually in the booted system
+does not work either as the TypeC controller has already been
+registered and no new BUS_NOTIFY_ADD_DEVICE is generated.
+
+Greetings,
+
+-- Sebastian
+
+--qn43nqqaph5qazm4
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmpeYgsACgkQ2O7X88g7
++pp+TQ//dO/L/gdv3kllo402Dewki5Weq5We6e9xzWhRnm2HCSo/GBdqWFfuxZhw
+lQJeUcgDS7NJw/Btt1+oseitVUxklDA9U5tdh21nLt6lZ8xybUI4ejCM++GOgCbv
+rd4Qm9QEsWBL5dSSL7REXU4QqoZMDf7SDO/JMWRyxki0WT4E1HFD1Rq0q/XWnD0/
+zVWg01K10udFR7cMY9o8pAEXdqBvMiOncBGmHgHl/cx87yz7XPSDfhzN5y5bHPIs
+UEZr8vv6nOrhGkOxMqBXs86AEvdkBlOHl02UA2RU5MSukt2qIFz7IXRDxmcTruvq
+U9Q5ydGWrXNqOYvtaEgmjV844bmy4RVqRKyJTy/OlDLjLvMbdKbvo4s2v9vc1Q9a
+JKlWr8NlaGUh6vcH/gPgRZVzWp0XrHez3bDxeHK/8cLhzmhB2s6Q587ToGrUuDSp
+AryltU/IrpTYhOMdXt+hjIHRwo4fVYbKfMP/6ccgL3cVHwqncrhNSKSsoXgqXpsG
+XnB8Ptw8j6khSsJYsvz7lknc+CEQnC5Xm/Ltg0o9+Co7pY3Elph1W4dM2wqGM+mA
+xnYe7MtpRuA2wkMmBieyKremABtImf7OAyM6xY0qFJx925K46MwEbDJS+PMw+8PT
+lpUfz3PvTPEY0UaKQhXusyDfWCQpftab5PHy+kH7BBVDWY1V0hY=
+=yeQL
+-----END PGP SIGNATURE-----
+
+--qn43nqqaph5qazm4--
 
