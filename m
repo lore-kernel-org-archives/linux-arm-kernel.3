@@ -4,80 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB139C44520
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 12:21:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C0B3C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 12:30:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:In-Reply-To:References:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZT1jaqD1Iccb31fXdwSCF9w0Y9iQoL1OwEC509jWVdI=; b=t8738Ebi3abSSugAJwmS6W5iZT
-	3Hr5MNzIZ2ljhLrkj8MDrLoZ6xWSdzlmdelnDR/uX392PUgiHgkczQPOKnF29Hg6mTQtPu1VB97lP
-	r9oYECx5HSyZSjLXo3cGI7NR/d787mdMI1bS774La9Pxj6Vbhx6JoBydeMdOU8Rk463ToKeZnjm40
-	wKm2bvuBm0YJ+cNaO9gZIirkzoVVGfVOCHA5QYCDMKQ8P1JIMJi32G698bkqUbody94ejyttaPY3K
-	44vVuaRAxsBgAUghdYIPmF7ABhcJttQmQNIfIFhfJSm6rW9FydTUqmNFX9qQB9CZ+AUiOxGpRiHG1
-	bcHEA0IA==;
+	bh=RK3orBipLvBxv9OpAnJ3z8fX6ifrA1MYoB2RBjJvzSM=; b=bRjoy2589Vjlh9EF5mBAx7lqNu
+	yyBH2W7WYt/FCM9/HIcJp+eKAyJ7Lq1CQu4qAb4oDdRmGLp2AmE3PYTGe55Vh8NUnLe78L7KOedSr
+	aBbMNgbqjLCqHx8ZG3wd87BDIkDxtu3VLFiyKZFEPbMu4LQYxXVvARPjRmVYeG7ifzM1v8XKgG+3+
+	MNZ+NnvF9VlNmdfLTr+i9fjRF8o/K+MygjAaKsW2O7wiK+qQqp7lFj/bvcQNT8ojuT8f18LtA2jYQ
+	P58kweBKq8b2HdLXe7DLM+1foTkSkZaQgeiZvIzc6IjUM6IEMmk7piR7KmJxSNRgwUTNWZmzO0ID6
+	nkDCp9Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlmzY-00000006gcO-3et1;
-	Mon, 20 Jul 2026 12:21:04 +0000
-Received: from wp585.webpack.hosteurope.de ([80.237.130.107])
+	id 1wln8t-00000006hNd-2xZF;
+	Mon, 20 Jul 2026 12:30:43 +0000
+Received: from mail-yx1-xb12c.google.com ([2607:f8b0:4864:20::b12c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlmzW-00000006gan-25I0;
-	Mon, 20 Jul 2026 12:21:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=loe-web.de;
-	s=he168698; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:
-	Date:Subject:In-Reply-To:References:Cc:To:From:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=ZT1jaqD1Iccb31fXdwSCF9w0Y9iQoL1OwEC509jWVdI=; t=1784550062; x=1784982062; 
-	b=ogPN1ev90JIDAeEsG8BTrxMST5U42TqgWPccC1gBxjqVn7KHijepwQ6dg3hm/Gsuek3DWu1D/qo
-	rNBGR7bR4Vmj2IkwxcLBKjTeT6+5nmNbL64FYRdXZIhRgiZ6SFuPJ4OBVGlyCVX9eXJFYc1aa+DaA
-	zZ23/5ExAeWMo9MAVqeUywFAAxdbkUVoc7nZ2VdOGaP+141YIGa7FzVylVz0LeUnnTmyVWT6/XWP4
-	kQyy/VMbBmjuX3h6VMoVCXNV+BF2wc7PcG/3T04RjHx1S75Xx8OYQ8K/+89eIOiO1U68+15UvlL8B
-	mtBypmtuGs18zg9yO+TeWZ8MXhbWlCKZDBuQ==;
-Received: from host-213-179-158-197.customer.m-online.net ([213.179.158.197] helo=84JJL23); authenticated
-	by wp585.webpack.hosteurope.de running ExIM with esmtpsa (TLS1.2:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	id 1wlmzI-004nlt-2U;
-	Mon, 20 Jul 2026 14:20:48 +0200
-From: "Jakob Loe" <jakob@loe-web.de>
-To: "'Alibek Omarov'" <a1ba.omarov@gmail.com>,
-	"'Rok Markovic'" <rok@kanardia.eu>
-Cc: "'Heiko Stuebner'" <heiko@sntech.de>,
-	"'Sandy Huang'" <hjc@rock-chips.com>,
-	"'Andy Yan'" <andy.yan@rock-chips.com>,
-	"'Maarten Lankhorst'" <maarten.lankhorst@linux.intel.com>,
-	"'Maxime Ripard'" <mripard@kernel.org>,
-	"'Thomas Zimmermann'" <tzimmermann@suse.de>,
-	"'David Airlie'" <airlied@gmail.com>,
-	"'Simona Vetter'" <simona@ffwll.ch>,
-	"'Rob Herring'" <robh@kernel.org>,
-	"'Krzysztof Kozlowski'" <krzk+dt@kernel.org>,
-	"'Conor Dooley'" <conor+dt@kernel.org>,
-	<dri-devel@lists.freedesktop.org>,
-	<devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<linux-rockchip@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20260717120005.2087386-1-rok@kanardia.eu> <20260717120005.2087386-4-rok@kanardia.eu> <CAKyg=SV2-81VFgr+Tq=-Si5EO-86MA+ZFoQ+DX1fEYdnnLYJng@mail.gmail.com>
-In-Reply-To: <CAKyg=SV2-81VFgr+Tq=-Si5EO-86MA+ZFoQ+DX1fEYdnnLYJng@mail.gmail.com>
-Subject: AW: [PATCH 3/4] drm/rockchip: lvds: add RK3568 support
-Date: Mon, 20 Jul 2026 14:20:48 +0200
-Message-ID: <000c01dd1842$32a0a580$97e1f080$@loe-web.de>
+	id 1wln8r-00000006hMK-1r2V
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Jul 2026 12:30:42 +0000
+Received: by mail-yx1-xb12c.google.com with SMTP id 956f58d0204a3-66787b93a0aso1118552d50.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 05:30:40 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1784550640; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Mt2G+UaccVVFs5g6ksL6nrX+hlcJvyIUSDy6BIttSPP5qhdLtKeo6Y1MgFg9xZ8mxR
+         gQ5gMCgOIIaOAcXotFejTO+j2uj/telUBiPCLkxv+GsOb5pxlNLNs38Y7MusbwOyDz+m
+         lzivZqTpZ2IRCHxON8U4TYcsvPCkJG0JjmnvYDpiVLZpxSZ4jquBfnqzMEymMX0Wfhmm
+         QX4TtncF5ldMrQdxccshF7GVagcLvIIMPjx9Q7oQQL2X/xAzYa7aYIH9klVATQ+lV6bk
+         YxkFnqop1DkgkhL7oCZ0i43TRUfUb6A7aVN8HefxP7ojl0j/rG8rzUKsGe/tEozEWTOJ
+         ZyEA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=RK3orBipLvBxv9OpAnJ3z8fX6ifrA1MYoB2RBjJvzSM=;
+        fh=kBQ4JqYxKTuq8iMq60IJfmWeFfo5VZ8rJtgyTIKpJ6o=;
+        b=MSwD3AnJugygEkT813tu53Xv8S+pwSMpmPYXUy7XoFL7MZyDbImylbcZJ/QqnH2W7j
+         LCPudqT1EJKHSkEbQUBpefuRAuRtemuzKwVcazltzLcBfHZxNUj/zUbhB+YLMRi2hgj6
+         DxCMHOGB4FaWG8rWXrHIHXb9AAdgomU1IEAgHp2Xg/CTzvIyTEfRKEXPV0sL+wRDOlpR
+         J01bpSemPeznNE0QQWqGKc+kqzZKcLOUZHVIf1YcTfcrzQU8EQS59oZ2P0BzygguBDFI
+         ze1LQFwevQ6VWWh40NzGQrYvpaxyzKD73iGOum/3Inw//RbNJmb7Wxjpsthcw3VwzZXD
+         qhcQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784550640; x=1785155440; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=RK3orBipLvBxv9OpAnJ3z8fX6ifrA1MYoB2RBjJvzSM=;
+        b=lfueju9bymihNYWS7f+FnnxrN6HCRUDsXa+r/lQ8NvCC7hHlutPuZdBTwn+FXcWBC1
+         UDx8to2RaI71hojCIG8tvdYN8rFTXhMwAAb5AJPeX04jV4QsDNTxgwV7MKt/nSk6Bli7
+         PrDnoDUyzGnM5bRurUfidQ/qV0gfkoZjs7fQWaU4e7D3Tsg0sf/vichPojVhbeLi2udd
+         katikwf59CoxlOD9Ppb7Y21flcfb7mt9+bSeYZJIbRQ5h3OaOMmTDN5BnS6RzydJurv5
+         gQl78UMWuxDqmELo8L+cufBo6FJ2dAMMFdKItu0xvcDXy1Niv4E6H4YMz3dwLN+slLdM
+         Pm9w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784550640; x=1785155440;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=RK3orBipLvBxv9OpAnJ3z8fX6ifrA1MYoB2RBjJvzSM=;
+        b=aP8+029EVShO+j/p3BjZ5io0xTMRXOAsT/Y0e5BgH5iWnLQYD4+Aj2a9oQYbIbcN3Q
+         +DozkSGxsAH4Lsz637KDf86sDpjzBfiDH8E7zDhHZLjQKpztUknQOxk2sFuC3B2OkUkL
+         kKc1vlMbfGdePV1Tf4hM81zETh7DSFQrA+dZexOfX+JXJmbHxx/3hvYJhsVeJ/Cjfm3T
+         KlL7xhIRLThGFNnE6hDntDZMkw49+1m5jIJuwO7+OvwfaHEN4EGOYzYTuWPxA8kmlDlI
+         TpBsJivdVWc21oK7sIfz4VQNt6Cw/LuA5Gs7756WYxTfgjh+s1Fi6EV/JNmTUevrCuvl
+         qQcw==
+X-Forwarded-Encrypted: i=1; AHgh+RqgdQXQmcs9DO2DcMf5X/yXm7yvE+Y5LBEZIhVRi7VqIhn1umK+t9kxx+MVWh3KAKsdUtELeM3wvEVz4EeqWP7D@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw8TtvkLKCt9XHSHqW9VulqGnc6ZUeY/7CgqX7jn+5eeCJ31PQ9
+	cplyQldtqdfSE16pzXfckqWVPsnPzLzLeso7NB3CGe32BA/wufai4d/+0c+nYjagTL5QY8bANIf
+	p8i3HxFwXJOL77CrwlndVj+FpdAWUgxw=
+X-Gm-Gg: AR+sD12re9WRko8aOVjtEhuId/4b5JjPaYWFkD4wUJ5921MOjoJmHWVxJsNMk4CkIsV
+	4i6AwiklKRH73rQFVuF/ypSbkUgRWhMUf3IXtfxhBdrH38vE1Ag7yGDSG0hD34xVO3zkKKZu9Wl
+	Neraw7hRQ34EeuctaW5toWLBO5PONVA+nPJwZdfbmvDEyHjy9Za/oAOqj8Z4luyscnsxYvJfAil
+	MdGGwUEUSFLTc+bx4nqggJeUVjowwdhwPKETxk1CWWATyACqUOy54GIyXo+oFCoYSwjqLFEYVGw
+	F6QdFyuXCydi+OyYylf3cxDpcxGzn+k=
+X-Received: by 2002:a53:b185:0:b0:664:afd7:e41d with SMTP id
+ 956f58d0204a3-6683bd3225fmr3054006d50.6.1784550639803; Mon, 20 Jul 2026
+ 05:30:39 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain;
-	charset="UTF-8"
+References: <20260718085728.6797-1-royalnet026@gmail.com> <20260718085728.6797-3-royalnet026@gmail.com>
+ <25922edc-4ff1-4d28-9a64-2c28b2b690cb@collabora.com>
+In-Reply-To: <25922edc-4ff1-4d28-9a64-2c28b2b690cb@collabora.com>
+From: Igor Paunovic <royalnet026@gmail.com>
+Date: Mon, 20 Jul 2026 14:30:26 +0200
+X-Gm-Features: AUfX_mxl6V0Fcqr3p7PwGpYbAibraD_hti9tBU-fCmVXnkE6AMcEpLARKs3E8NU
+Message-ID: <CAEWPSH70FecQRuGtA=S8+_CnLY5sMyf1j57Uwzwv54zceS1HZg@mail.gmail.com>
+Subject: Re: [PATCH v3 2/4] media: synopsys: hdmirx: add HDMI audio capture support
+To: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Sebastian Reichel <sebastian.reichel@collabora.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	kernel@collabora.com, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQFaHWtND3nIPg5aqhiCEj6HM4JNGQJz810+As1SicW3Uj7lQA==
-Content-Language: de
-X-bounce-key: webpack.hosteurope.de;jakob@loe-web.de;1784550062;9dd12afc;
-X-HE-SMSGID: 1wlmzI-004nlt-2U
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_052102_708320_24AF7335 
-X-CRM114-Status: UNSURE (   8.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260720_053041_492808_A31C1011 
+X-CRM114-Status: GOOD (  28.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,42 +122,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello!=20
+Hi Dmitry,
 
-Nice to see this is still being used.
-I can confirm that this actually works and outputs fine LVDS on a =
-RK3566. Also reliably so far...
-Any questions, I will see what I can help.
+Great to hear it works on the 5B -- thanks for testing!
 
-All the best
-Jakob
+Agreed on the -EBUSY guard, done in my tree exactly as you wrote it.
+It also supersedes the suspend cancel/re-arm I had queued from the
+bot review: with suspend refused while audio_streaming is set, the
+worker can never be armed at suspend time, so those hunks are
+dropped.
 
+v4 follows shortly with this plus Sebastian's dts restructuring
+(shared disabled-by-default card in rk3588-extra.dtsi, renamed to
+"RK3588 HDMI-IN") and Krzysztof's binding comments (dai-common.yaml
+reference + unevaluatedProperties).
 
------Urspr=C3=BCngliche Nachricht-----
-Von: Alibek Omarov <a1ba.omarov@gmail.com>=20
-Gesendet: Montag, 20. Juli 2026 07:39
-An: Rok Markovic <rok@kanardia.eu>
-Cc: Heiko Stuebner <heiko@sntech.de>; Sandy Huang <hjc@rock-chips.com>; =
-Andy Yan <andy.yan@rock-chips.com>; Maarten Lankhorst =
-<maarten.lankhorst@linux.intel.com>; Maxime Ripard <mripard@kernel.org>; =
-Thomas Zimmermann <tzimmermann@suse.de>; David Airlie =
-<airlied@gmail.com>; Simona Vetter <simona@ffwll.ch>; Rob Herring =
-<robh@kernel.org>; Krzysztof Kozlowski <krzk+dt@kernel.org>; Conor =
-Dooley <conor+dt@kernel.org>; dri-devel@lists.freedesktop.org; =
-devicetree@vger.kernel.org; linux-arm-kernel@lists.infradead.org; =
-linux-rockchip@lists.infradead.org; linux-kernel@vger.kernel.org; Jakob =
-Loeschke <jakob@loe-web.de>
-Betreff: Re: [PATCH 3/4] drm/rockchip: lvds: add RK3568 support
+Igor
 
-> Based on Alibek Omarov's earlier posting [1], with the changes below.
-
-Hi, I'm Alibek Omarov and thanks for picking up my patches. I didn't had =
-time to finish them and these days I don't work on hardware that uses =
-any of Rockchip SoCs. However, if I'm not wrong, it's still used in =
-production and I had report from Jakob Loeschke (added in CC) who =
-confirmed it worked in their setup as well.
-
-Thanks.
-
-
+On Mon, Jul 20, 2026 at 3:43=E2=80=AFAM Dmitry Osipenko
+<dmitry.osipenko@collabora.com> wrote:
+>
+> On 7/18/26 11:57, Igor Paunovic wrote:
+> > The Synopsys DesignWare HDMI RX controller extracts the audio stream
+> > embedded in the incoming HDMI signal and feeds it to an on-SoC I2S
+> > controller. Expose it as an ALSA capture device by registering the
+> > generic hdmi-codec as a child of the controller, so that a
+> > simple-audio-card in the device tree can bind the HDMI RX audio DAI.
+> >
+> > The sample rate is recovered from the ACR N/CTS values together with th=
+e
+> > measured TMDS character rate. A periodic worker keeps the local audio
+> > reference clock locked to the source by nudging it in small ppm steps t=
+o
+> > hold the audio FIFO fill level near its target, which avoids FIFO
+> > under/overflow and the resulting dropped samples.
+> >
+> > Signed-off-by: Igor Paunovic <royalnet026@gmail.com>
+> > ---
+> > Changes in v3:
+> > - restore the v1 audio teardown in remove(): audio_shutdown() already
+> >   stops the worker when the stream closes, so the extra flag clear
+> >   and trailing cancel added in v2 were redundant (Dmitry Osipenko)
+> > - rename the ACR read locals and add a comment documenting the
+> >   register byte packing
+> > - drop the get_dai_id stub so OF-graph cards resolve the DAI index
+> >   from the reg property
+> >
+> > Changes in v2:
+> > - register the S/PDIF DAI so the indexes match the binding and reject
+> >   it with -EOPNOTSUPP until wired up (Sebastian Reichel)
+> > - use platform_device_register_data() and drop the fixed 32-bit DMA
+> >   mask (Dmitry Osipenko)
+> > - don't leave an ERR_PTR in audio_pdev on registration failure
+> > - fix teardown ordering in remove()
+> > - stop the worker before reprogramming shared state in hw_params()
+> > - look up the "audio" clock by name instead of indexing clks[1]
+> > - keep the worker on system_unbound_wq when re-arming
+> >
+> >  .../platform/synopsys/hdmirx/snps_hdmirx.c    | 271 ++++++++++++++++++
+> >  .../platform/synopsys/hdmirx/snps_hdmirx.h    |   8 +
+> >  2 files changed, 279 insertions(+)
+>
+> Works well on 5b, thanks. Only one additional review comment:
+>
+> Please update hdmirx_suspend() to return -EBUSY if audio_streaming=3Dtrue=
+.
+>
+> ```
+> static __maybe_unused int hdmirx_suspend(struct device *dev)
+> {
+>         struct snps_hdmirx_dev *hdmirx_dev =3D dev_get_drvdata(dev);
+>
+>         if (READ_ONCE((hdmirx_dev->audio_streaming)))
+>                 return -EBUSY;
+> ```
+>
+> --
+> Best regards,
+> Dmitry
 
