@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 132B6C44515
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 594BCC4452B
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 13:22:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jbQDACakTRETryp3VlBQ7FasPGSnCE+jqltMPIJeasw=; b=lvptd6+1CqKhh+uHjn6YsGP/Rv
-	4jPlKqmmkpbHrcsv8ewbNc/yTRA8o7eHcQWdWVOT3eQoozydhWBLUE/7JlkvB/CBOzwJlYYGrmAip
-	IyInIIec6Cmkc3K4+IB6iOgm5iHB4BBNLgM7fv4JjctURGFTJovUJia5nGc+QRqIOMZ9XaWOAuBLq
-	l+49BNLK4feTG4JEuwKBkVE+ICpIuumlb0PBxVLkrXqEoSO5hFLdOZdBc1bWrWIO+PCtbfNERWS5f
-	upZi0oUS0UHDr3bchwZ4W49n2afMH8+993efum4BC08sQinLRMei2WftvUvM4/CGWx3ubY/UqBA03
-	73zw/uTA==;
+	bh=hQNMJbiWYGixZ4+KVfGNBt46fUl3S7AjtHgErLnAUdU=; b=S90KYMDyaQPI5gqFx44n18JD/o
+	mkvuiaqQzjfjrYGBCFll588XGXTSdjinYWanvnXwbKawwDTzR4XpJ3v8zEvli10AmpgntBNIy2f//
+	LssW43qP7Pqsan6jJRLMwzHmmZy+5mMuIN8JfIhZz3skFw/6Ijg5UCkTJZjzTwl8DDPlNRuGBea1B
+	iMtoJnTjxtbmoFoeaGVksyine6zuS7Poi9LgnGxoFNSMRaz00cOVUSOMOTvU2nqC1zqJAOvjv864F
+	AjmfhCxZZxiRMC+hUsJmSE8Em4Iwh8ezLAeVEhDOHJiRI+3Bx/xoLWVI0SpjL0xVEdyClppzVf4zG
+	UpXosT9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlnxC-00000006mof-2EGE;
+	id 1wlnxC-00000006mpG-32GJ;
 	Mon, 20 Jul 2026 13:22:42 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlnxB-00000006mnt-1cbn
+	id 1wlnxB-00000006mnv-2kzR
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 20 Jul 2026 13:22:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 14BE243D4C;
+	by tor.source.kernel.org (Postfix) with ESMTP id 207D860A84;
 	Mon, 20 Jul 2026 13:22:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE9441F00ACF;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA4E51F00A3A;
 	Mon, 20 Jul 2026 13:22:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784553761;
-	bh=jbQDACakTRETryp3VlBQ7FasPGSnCE+jqltMPIJeasw=;
+	s=k20260515; t=1784553760;
+	bh=hQNMJbiWYGixZ4+KVfGNBt46fUl3S7AjtHgErLnAUdU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=nYck7O4kWWxsUSxL58MlrgkK2QNm1fOsMqUghUiVUSK9KCF3J1Sinpr2AEdvLFPhk
-	 ytKPGNsGL1f0RXfM+JZNjJcx+SIRdA+x4akjyw93/GerLM//BZ5K/MXe53vhZEm3lr
-	 q+a2y+wx9akzVDAm5vOq7MvD5U62C42Je6NLzwo/04OMdZmtUDLRLl5eIQztAQfCIZ
-	 rIHQBjCCiNvsqOdkUMJG+r0weTgFWyOAbCbnt1NHei3I++h0DqKKAV/B4SMZs1r0S8
-	 OsqjEf9chwrw1IxuBfSfB2ou3eoVE1SZF0fxgxxO1pvmzG0W7ToFJfCWpeG/MN+Up2
-	 tONl6H51zIRUw==
+	b=XVnf0cyg+hYKUTj2sszHBsxX/lXtrPV/+1GFW11N6hwXu35zduAYufbqJa+zbpSja
+	 wHGss1vWCHEdJSAlsA6pdp6io0OsDseeDbBvVA21Voyf6qUC2bfUPwTY1+8YNbhvmv
+	 bWzanGUWSxUQZWyjwlGT6NA4KHZd6FdUWQ9CHBU4+0Jqzg238/rigl68aiGrbwaTBB
+	 gW1A42RmIi7LlxSs3nUu+BXFhgB2y506scZ/NENj2LlSv/bcSIMHbpPQRu4tM0DA7P
+	 gV+C8l74/DlIJ/A/Mz0XT3EU5JNyInCpR/jlnHSo6TePo9olNSTCVnBdFXXhvxRzlF
+	 SU3l5eteph8IQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wlnx9-00000006oKK-1El7;
-	Mon, 20 Jul 2026 13:22:39 +0000
+	id 1wlnx8-00000006oKK-2vCP;
+	Mon, 20 Jul 2026 13:22:38 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
@@ -56,9 +56,9 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Oliver Upton <oupton@kernel.org>,
 	Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH 3/5] KVM: arm64: Convert most ICH_VTR_EL2 accesses to inlined literal value
-Date: Mon, 20 Jul 2026 14:22:18 +0100
-Message-ID: <20260720132220.2143486-5-maz@kernel.org>
+Subject: [PATCH 1/5] KVM: arm64: vgic-v3: Make vtr_to_* helpers use architectural field symbols
+Date: Mon, 20 Jul 2026 14:22:15 +0100
+Message-ID: <20260720132220.2143486-2-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260720132220.2143486-1-maz@kernel.org>
 References: <20260720132220.2143486-1-maz@kernel.org>
@@ -82,102 +82,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that we have a new helper that inlines the value of ICH_VTR_EL2
-into the code, use this to replace most of the sysreg accesses to
-that register.
-
-This avoids a lot of traps when running KVM under NV.
+vgic-v3-sr.c still contains some hardcoded constants for some of
+the ICH)VTR_EL2 fields. Bring them into the modern world by using
+the named symbols from the sysreg file.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/hyp/vgic-v3-sr.c | 18 +++++++++---------
- 1 file changed, 9 insertions(+), 9 deletions(-)
+ arch/arm64/kvm/hyp/vgic-v3-sr.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/arch/arm64/kvm/hyp/vgic-v3-sr.c b/arch/arm64/kvm/hyp/vgic-v3-sr.c
-index 8da7a40ced58a..3e5d5ddf35a19 100644
+index c4d2f1feea8b6..8da7a40ced58a 100644
 --- a/arch/arm64/kvm/hyp/vgic-v3-sr.c
 +++ b/arch/arm64/kvm/hyp/vgic-v3-sr.c
-@@ -367,7 +367,7 @@ void __vgic_v3_save_aprs(struct vgic_v3_cpu_if *cpu_if)
- 	u64 val;
- 	u32 nr_pre_bits;
+@@ -16,9 +16,9 @@
  
--	val = read_gicreg(ICH_VTR_EL2);
-+	val = vgic_ich_vtr();
- 	nr_pre_bits = vtr_to_nr_pre_bits(val);
+ #include "../../vgic/vgic.h"
  
- 	switch (nr_pre_bits) {
-@@ -400,7 +400,7 @@ static void __vgic_v3_restore_aprs(struct vgic_v3_cpu_if *cpu_if)
- 	u64 val;
- 	u32 nr_pre_bits;
+-#define vtr_to_max_lr_idx(v)		((v) & 0xf)
+-#define vtr_to_nr_pre_bits(v)		((((u32)(v) >> 26) & 7) + 1)
+-#define vtr_to_nr_apr_regs(v)		(1 << (vtr_to_nr_pre_bits(v) - 5))
++#define vtr_to_max_lr_idx(v)		FIELD_GET(ICH_VTR_EL2_ListRegs, (v))
++#define vtr_to_nr_pre_bits(v)		(FIELD_GET(ICH_VTR_EL2_PREbits, (v)) + 1)
++#define vtr_to_nr_apr_regs(v)		BIT(vtr_to_nr_pre_bits(v) - 5)
  
--	val = read_gicreg(ICH_VTR_EL2);
-+	val = vgic_ich_vtr();
- 	nr_pre_bits = vtr_to_nr_pre_bits(val);
- 
- 	switch (nr_pre_bits) {
-@@ -430,7 +430,7 @@ static void __vgic_v3_restore_aprs(struct vgic_v3_cpu_if *cpu_if)
- 
- void __vgic_v3_init_lrs(void)
+ u64 __gic_v3_get_lr(unsigned int lr)
  {
--	int max_lr_idx = vtr_to_max_lr_idx(read_gicreg(ICH_VTR_EL2));
-+	int max_lr_idx = vtr_to_max_lr_idx(vgic_ich_vtr());
- 	int i;
- 
- 	for (i = 0; i <= max_lr_idx; i++)
-@@ -455,7 +455,7 @@ u64 __vgic_v3_get_gic_config(void)
- 	 * system, so we first check if we have GICv5 support.
- 	 */
- 	if (cpus_have_final_cap(ARM64_HAS_GICV5_CPUIF))
--		return read_gicreg(ICH_VTR_EL2);
-+		return vgic_ich_vtr();
- 
- 	sre = read_gicreg(ICC_SRE_EL1);
- 	/*
-@@ -498,7 +498,7 @@ u64 __vgic_v3_get_gic_config(void)
- 	}
- 
- 	val  = (val & ICC_SRE_EL1_SRE) ? 0 : (1ULL << 63);
--	val |= read_gicreg(ICH_VTR_EL2);
-+	val |= vgic_ich_vtr();
- 
- 	return val;
- }
-@@ -540,7 +540,7 @@ void __vgic_v3_restore_vmcr_aprs(struct vgic_v3_cpu_if *cpu_if)
- static int __vgic_v3_bpr_min(void)
- {
- 	/* See Pseudocode for VPriorityGroup */
--	return 8 - vtr_to_nr_pre_bits(read_gicreg(ICH_VTR_EL2));
-+	return 8 - vtr_to_nr_pre_bits(vgic_ich_vtr());
- }
- 
- static int __vgic_v3_get_group(struct kvm_vcpu *vcpu)
-@@ -614,7 +614,7 @@ static int __vgic_v3_find_active_lr(struct kvm_vcpu *vcpu, int intid,
- 
- static int __vgic_v3_get_highest_active_priority(void)
- {
--	u8 nr_apr_regs = vtr_to_nr_apr_regs(read_gicreg(ICH_VTR_EL2));
-+	u8 nr_apr_regs = vtr_to_nr_apr_regs(vgic_ich_vtr());
- 	u32 hap = 0;
- 	int i;
- 
-@@ -707,7 +707,7 @@ static void __vgic_v3_set_active_priority(u8 pri, u32 vmcr, int grp)
- 
- static int __vgic_v3_clear_highest_active_priority(void)
- {
--	u8 nr_apr_regs = vtr_to_nr_apr_regs(read_gicreg(ICH_VTR_EL2));
-+	u8 nr_apr_regs = vtr_to_nr_apr_regs(vgic_ich_vtr());
- 	u32 hap = 0;
- 	int i;
- 
-@@ -1039,7 +1039,7 @@ static void __vgic_v3_read_ctlr(struct kvm_vcpu *vcpu, u32 vmcr, int rt)
- {
- 	u32 vtr, val;
- 
--	vtr = read_gicreg(ICH_VTR_EL2);
-+	vtr = vgic_ich_vtr();
- 	/* PRIbits */
- 	val = ((vtr >> 29) & 7) << ICC_CTLR_EL1_PRI_BITS_SHIFT;
- 	/* IDbits */
 -- 
 2.47.3
 
