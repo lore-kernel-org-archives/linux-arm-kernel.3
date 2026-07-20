@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8476C4452A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 15:06:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19BAAC44515
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 15:06:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A2sTffJ1ZiwupTetcfcyRy6Hq17YZeO9fnKxr3wzrZA=; b=LJoFAZVggSlRlGZQxwguzhzvrE
-	ELhRoJySTwUcACN4+nbWGZ5MK4F2IDeNpmzkA+ZrYNjQSq3+/1U+yqqwzX1QfFejS2m5SJ3iN1A4M
-	c7vz6xEr/bLMyeqz66NHf4R+Yjuv/ixGuInBbAnmkKN64aUT9b7LPit4oku6LoY9IMRqCtwW4taw7
-	CHngSdwxjhXmUmEz5rf4dKNzsFww6l2VVrR4y0RNL6HXGGVXE3ZOEePayk99K4Race3gxEjfFkWaS
-	FOi0v1T94Karl9XRuur7RLju1PJB3zDwu2jmoij+UoN58nv87WJ68HOSfbrf7vqbHo5zgkgVFBNIK
-	zNGDa+Ug==;
+	bh=BIY3KLx0NVnJTNGRra+GZa2Kh3/iY8HTWhCvE4KM1q4=; b=r9PEHVrdIQNl94dtm3c2pyUqll
+	5+KjyPqNlAh/OqzIWUuBbp9sJlZd4tf5AGYuMvpbVzE63ipWYzFVWd8KT7+YUNg1MQW82LEFmlM3n
+	hQBz/T6eomeJEhAyc/K5C/mKJuCFueQPu6W1V4U4ojVZX9Y7vLKj9t2nCkpaHPh5oKiNqBaX0v56G
+	MdXIgyFT6xwSBvQje64HiLBVaH/6ESCVBR+xYn1CPnOdXFrCw75TK6mJGywRiNRmMw/02+bDhRJtb
+	reJcg+YZF16yshk9o/qFVTz9UlBWlpgXs0LS6QDDSjV4mgoy/XpEXHudg6B/9oY3yZFf+TdZtTXW/
+	POmOx6DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlpZP-000000074zc-1QkF;
-	Mon, 20 Jul 2026 15:06:15 +0000
+	id 1wlpZa-0000000752l-2aST;
+	Mon, 20 Jul 2026 15:06:26 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlpZL-000000074yc-3ldI
+	id 1wlpZX-0000000751l-20mA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 15:06:13 +0000
+	Mon, 20 Jul 2026 15:06:25 +0000
 Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 51D76289;
-	Mon, 20 Jul 2026 17:05:08 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id C6FC7289;
+	Mon, 20 Jul 2026 17:05:22 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1784559908;
-	bh=kx2U3JzsAJE/W0InIkz6dN6aTr44P0qWHwoMKu4ZJ68=;
+	s=mail; t=1784559922;
+	bh=/QIDt4LDCYGQcnJdj1Dx87jsIpu4s/yJXTsEwMTLmgY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bXYdBR+5FvG2b17Bc1D4J6FIL6CHtumZ4wPEVZMShKSWykoXKiyfHvqCbS55s/PTF
-	 pHHB7qyYt0BykwdCGAtjoE1rBL9qt0OiNR+pIw1PYattdRLbczEcUM5KdZFDLfI9Lh
-	 t/ojktcf4tAd2pLuBoOD1ZkVe9IrmFwiYWALWriQ=
-Date: Mon, 20 Jul 2026 18:06:05 +0300
+	b=L3cegZmAnmCW2CNzqSdb2q8JVLanloll2EzhTtVk1ic2L5aFlHGrajBqIGJFe1rcy
+	 o4Gglr/L8bi13h+aJFHIxGtpZw8MLBGC0YWlR4sXY5TASofRax5yZxxlsavmlyo/KX
+	 82TdkU5WQOKXYQu8cuHOZcQY2WO2YdW846QVrbfI=
+Date: Mon, 20 Jul 2026 18:06:20 +0300
 From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 To: guoniu.zhou@oss.nxp.com
 Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
@@ -56,18 +56,18 @@ Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	linux-clk@vger.kernel.org, Guoniu Zhou <guoniu.zhou@nxp.com>,
 	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH v13 1/3] media: dt-bindings: Add CSI Pixel Formatter DT
- bindings
-Message-ID: <20260720150605.GA27524@killaraus.ideasonboard.com>
+Subject: Re: [PATCH v13 2/3] dt-bindings: clock: imx95-blk-ctl: Define
+ formatter child node schema
+Message-ID: <20260720150620.GA26742@killaraus.ideasonboard.com>
 References: <20260720-csi_formatter-v13-0-4dc9a80e4cfd@oss.nxp.com>
- <20260720-csi_formatter-v13-1-4dc9a80e4cfd@oss.nxp.com>
+ <20260720-csi_formatter-v13-2-4dc9a80e4cfd@oss.nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260720-csi_formatter-v13-1-4dc9a80e4cfd@oss.nxp.com>
+In-Reply-To: <20260720-csi_formatter-v13-2-4dc9a80e4cfd@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_080612_088259_DD5B804A 
-X-CRM114-Status: GOOD (  20.91  )
+X-CRM114-CacheID: sfid-20260720_080623_669767_7DCE221F 
+X-CRM114-Status: GOOD (  18.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,16 +82,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Guoniu,
+Hello Guoniu,
 
 Thank you for the patch.
 
-On Mon, Jul 20, 2026 at 05:59:46PM +0800, guoniu.zhou@oss.nxp.com wrote:
+On Mon, Jul 20, 2026 at 05:59:47PM +0800, guoniu.zhou@oss.nxp.com wrote:
 > From: Guoniu Zhou <guoniu.zhou@nxp.com>
 > 
-> The i.MX95 CSI pixel formatting module uses packet info, pixel and
-> non-pixel data from the CSI-2 host controller and reformat them to
-> match Pixel Link(PL) definition.
+> The Camera CSR contains control registers for multiple CSI formatter IPs
+> at different register offsets. Each formatter is an independent hardware
+> block with its own clock input and media pipeline connection.
+> 
+> Define schema to allow formatter child nodes under nxp,imx95-camera-csr,
+> with 'reg' property specifying the formatter's register offset within the
+> CSR address space.
 > 
 > Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
 > Reviewed-by: Frank Li <Frank.Li@nxp.com>
@@ -100,126 +104,117 @@ On Mon, Jul 20, 2026 at 05:59:46PM +0800, guoniu.zhou@oss.nxp.com wrote:
 Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 
 > ---
+> Changes in v13:
+> - Add Reviewed-by tag from Frank and Krzysztof
+> 
 > Changes in v11:
-> - Add Rb tags from Frank Li and Krzysztof Kozlowski
+> - Move properties to top-level and use if:then:else (Krzysztof/Frank)
 > 
 > Changes in v10:
-> - Drop syscon parent node from example
-> - Drop Reviewed-by tags from Frank and Krzysztof due to binding changes
-> - Add description for reg property
-> - Add space after formatter@20 before opening brace in example
-> - Enhance the port description with more detailed information
-> - Delete the blank line immediately following the endpoint in example
+> - Use single quotes for regex pattern to be consistent (Krzysztof Kozlowski)
+> - Add formatter subnode binding and camera-csr syscon example
+> - Update commit title and message
 > 
 > Changes in v9:
-> - Use direct node instead of syscon wrapper in example
-> 
-> Changes in v8:
-> - Use standard port reference instead of video-interfaces.yaml
-> - Add parent syscon node in example to show device integration
-> - Add required constraints for port@0 and port@1 in ports node
-> 
-> Changes in v7:
-> - Change compatible to imx95-csi-formatter as IP is i.MX95 specific per Marco's suggestion
->   Link: https://lore.kernel.org/linux-media/20260511-csi_formatter-v6-0-01028e312e2b@oss.nxp.com/T/#mcd135b3de179b3cb69daa1fd6e0e8e27c85b3332
+> - New patch to address the issue of formatter acting as a child node of syscon
 > ---
->  .../bindings/media/fsl,imx95-csi-formatter.yaml    | 88 ++++++++++++++++++++++
->  1 file changed, 88 insertions(+)
+>  .../bindings/clock/nxp,imx95-blk-ctl.yaml          | 71 ++++++++++++++++++++++
+>  1 file changed, 71 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/media/fsl,imx95-csi-formatter.yaml b/Documentation/devicetree/bindings/media/fsl,imx95-csi-formatter.yaml
-> new file mode 100644
-> index 000000000000..58c4e1cc056b
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/media/fsl,imx95-csi-formatter.yaml
-> @@ -0,0 +1,88 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/media/fsl,imx95-csi-formatter.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> diff --git a/Documentation/devicetree/bindings/clock/nxp,imx95-blk-ctl.yaml b/Documentation/devicetree/bindings/clock/nxp,imx95-blk-ctl.yaml
+> index 27403b4c52d6..fbbf1b3f1790 100644
+> --- a/Documentation/devicetree/bindings/clock/nxp,imx95-blk-ctl.yaml
+> +++ b/Documentation/devicetree/bindings/clock/nxp,imx95-blk-ctl.yaml
+> @@ -39,6 +39,18 @@ properties:
+>        ID in its "clocks" phandle cell. See
+>        include/dt-bindings/clock/nxp,imx95-clock.h
+>  
+> +  '#address-cells':
+> +    const: 1
 > +
-> +title: i.MX95 CSI Pixel Formatter
+> +  '#size-cells':
+> +    const: 1
 > +
-> +maintainers:
-> +  - Guoniu Zhou <guoniu.zhou@nxp.com>
+> +patternProperties:
+> +  '^formatter@[0-9a-f]+$':
+> +    type: object
+> +    $ref: /schemas/media/fsl,imx95-csi-formatter.yaml#
+> +    unevaluatedProperties: false
 > +
-> +description:
-> +  The CSI pixel formatting module found on i.MX95 uses packet info, pixel
-> +  and non-pixel data from the CSI-2 host controller and reformat them to
-> +  match Pixel Link(PL) definition.
+>  required:
+>    - compatible
+>    - reg
+> @@ -46,6 +58,23 @@ required:
+>    - power-domains
+>    - clocks
+>  
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: nxp,imx95-camera-csr
+> +    then:
+> +      required:
+> +        - '#address-cells'
+> +        - '#size-cells'
+> +    else:
+> +      properties:
+> +        '#address-cells': false
+> +        '#size-cells': false
+> +      patternProperties:
+> +        '^formatter@[0-9a-f]+$': false
 > +
-> +properties:
-> +  compatible:
-> +    const: fsl,imx95-csi-formatter
+>  additionalProperties: false
+>  
+>  examples:
+> @@ -57,4 +86,46 @@ examples:
+>        clocks = <&scmi_clk 114>;
+>        power-domains = <&scmi_devpd 21>;
+>      };
 > +
-> +  reg:
-> +    maxItems: 1
-> +    description: Register offset and size within the parent syscon
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  power-domains:
-> +    maxItems: 1
-> +
-> +  ports:
-> +    $ref: /schemas/graph.yaml#/properties/ports
-> +
-> +    properties:
-> +      port@0:
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +        description:
-> +          Input port, connects to MIPI CSI-2 receiver output (IDI interface)
-> +
-> +      port@1:
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +        description:
-> +          Output port, connects to ISI input via Pixel Link (PL)
-> +
-> +    required:
-> +      - port@0
-> +      - port@1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - power-domains
-> +  - ports
-> +
-> +additionalProperties: false
-> +
-> +examples:
 > +  - |
 > +    #include <dt-bindings/clock/nxp,imx95-clock.h>
 > +
-> +    formatter@20 {
+> +    syscon@4ac10000 {
+> +      compatible = "nxp,imx95-camera-csr", "syscon";
+> +      reg = <0x4ac10000 0x10000>;
+> +      #address-cells = <1>;
+> +      #size-cells = <1>;
+> +      #clock-cells = <1>;
+> +      clocks = <&scmi_clk 62>;
+> +      power-domains = <&scmi_devpd 3>;
+> +
+> +      formatter@20 {
 > +        compatible = "fsl,imx95-csi-formatter";
 > +        reg = <0x20 0x100>;
 > +        clocks = <&cameramix_csr IMX95_CLK_CAMBLK_CSI2_FOR0>;
 > +        power-domains = <&scmi_devpd 3>;
 > +
 > +        ports {
-> +            #address-cells = <1>;
-> +            #size-cells = <0>;
+> +          #address-cells = <1>;
+> +          #size-cells = <0>;
 > +
-> +            port@0 {
-> +                reg = <0>;
+> +          port@0 {
+> +            reg = <0>;
 > +
-> +                endpoint {
-> +                    remote-endpoint = <&mipi_csi_0_out>;
-> +                };
+> +            endpoint {
+> +              remote-endpoint = <&mipi_csi_0_out>;
 > +            };
 > +
-> +            port@1 {
-> +                reg = <1>;
+> +          };
 > +
-> +                endpoint {
-> +                    remote-endpoint = <&isi_in_2>;
-> +                };
+> +          port@1 {
+> +            reg = <1>;
+> +
+> +            endpoint {
+> +              remote-endpoint = <&isi_in_2>;
 > +            };
+> +          };
 > +        };
+> +      };
 > +    };
+>  ...
 
 -- 
 Regards,
