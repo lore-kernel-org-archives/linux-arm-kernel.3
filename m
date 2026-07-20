@@ -4,64 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B020C44520
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 15:44:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35AA5C44520
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 15:46:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pYYsEwOVQ0v1AVNZOQN5PzwCM48qQaF11OzC3DHeUNo=; b=dI/BRDUti8f3kzWdk8LaLoYoK/
-	JnAwypnG29rYTqbDjkHsjCCWpGYldMwuwPRtQF9lNjhO+KVMvqX1Rt+bWx1KKi1T/UeJKZE5+dcIh
-	9e63MEaHjDiXl7IhAMfJfp/WzmGInQPiVSst+ruyr20EcxqzgcF0WwO6W7Kc8NwaxmhBABMcwxFzW
-	va7vbv8to41rDPH1LThmYwhMUzOAbu05kOdZTacO6fpjjMYflEHLw9wTByN4H+UCizMPmNOHLlKDB
-	bE960puSx6hitzDT2nOVEa2D6tfLN93DvoIFdmVVNLw43cyNfVShWYSrPqnoncU90sgHwebmSgRH/
-	rqvCsw0g==;
+	bh=qC0oyjZRLPuK+GQFJvM2S1G+hvGV2beKz0IWEpIWH4M=; b=0cqhw0FlEuMcrrc3vZpN52zsnd
+	uWnTbGHcbvNJlE+GAJcL1gJeD+pJ3R5PhMlQ7iGKf5nel+PbzUo9LRUt0/UP9DEdUMg9VtG2xJYCg
+	2symnu3Qz7yIX4vO/wbFoYLvAYroDIKRAZEW9gVe+6+1wUKTMmaf3JCnJ23reovb2C6SEiKbtiIE1
+	kOW0K6cXOw7BAOYTno3QqBKBvmEBjScVKTVNAlw+05cftKu9TfeKG98t5YZT+WWJ/+q6sep9GvkEz
+	Wn+XM/Hy+X/nmDghXZ9tLVvbqU31GFRr5jLWCoOv5mxgZ2jsMyksRPf3G0Jzd0cTPdM2ZXIWNto8I
+	OBvw/atw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlqAL-00000007Fh9-2big;
-	Mon, 20 Jul 2026 15:44:25 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	id 1wlqCV-00000007GC9-4BaR;
+	Mon, 20 Jul 2026 15:46:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlqAJ-00000007FfI-1MCx;
-	Mon, 20 Jul 2026 15:44:24 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.99)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1wlqAC-000000004GF-1w0u;
-	Mon, 20 Jul 2026 15:44:16 +0000
-Date: Mon, 20 Jul 2026 16:44:13 +0100
-From: Daniel Golle <daniel@makrotopia.org>
-To: Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Hermes Wu <hermes.wu@ite.com.tw>,
-	Allen Chen <allen.chen@ite.com.tw>, dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH v2 2/2] drm/bridge: it6505: Don't reject audio hw_params
- without an encoder
-Message-ID: <11d86a39a66ad81f29bb6d9274419e993d58337a.1784561622.git.daniel@makrotopia.org>
-References: <cover.1784561622.git.daniel@makrotopia.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cover.1784561622.git.daniel@makrotopia.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_084423_364896_E937926D 
-X-CRM114-Status: GOOD (  12.40  )
+	id 1wlqCU-00000007GBz-1S3J
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Jul 2026 15:46:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1D68D60103;
+	Mon, 20 Jul 2026 15:46:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C57A61F000E9;
+	Mon, 20 Jul 2026 15:46:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784562395;
+	bh=qC0oyjZRLPuK+GQFJvM2S1G+hvGV2beKz0IWEpIWH4M=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=dstj0oURLKHuCq5UW8kl0eKs+3ksI9ZqIhNDPJkhi9HXLY5m8F5LmUBdmTBRH7HtK
+	 79E4BsfdQH8BnZF9d1oIiGnLOCO7Nnr58LIgYZKGnD5XY3/Oh7qJlEx9bkoSNz8JzN
+	 JH7Goi+aIEmtJSnja3NO9UxLMi9a1t/770B6EqSV7l8d0uI482v4ub0N7Qs4Z/4uf2
+	 VSR9VsqOogHHMnavKVEXGXFZEFtfBjEubp5tmQAvOjJAPrp/dvGO8+i3VCnYdHwkFs
+	 upYRNyQ3+kRY3XNqwa+nM7PnlVx2lcFyXgGCk7pFiYXw4EHYAgBIcOvG3VCjNGMz+2
+	 YyL65Az7fJx8w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wlqCP-00000006s7w-3Gwd;
+	Mon, 20 Jul 2026 15:46:33 +0000
+Date: Mon, 20 Jul 2026 16:46:33 +0100
+Message-ID: <864ihtfyue.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Alexandru Elisei <alexandru.elisei@arm.com>
+Cc: oupton@kernel.org,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	steven.price@arm.com,
+	fuad.tabba@linux.dev
+Subject: Re: [PATCH v2] KVM: arm64: Reject guest_memfd memslots when the VM has MTE
+In-Reply-To: <20260720130942.135033-1-alexandru.elisei@arm.com>
+References: <20260720130942.135033-1-alexandru.elisei@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: alexandru.elisei@arm.com, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, steven.price@arm.com, fuad.tabba@linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,52 +89,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-it6505_audio_setup_hw_params() returns -ENODEV when the bridge is not
-attached to a DRM encoder. Now that it6505 registers an hdmi-audio-codec,
-this callback runs whenever a stream is configured on the I2S DAI it is
-wired to, including when that DAI is shared with another codec. On
-mt8186-corsola the speaker amplifier (rt1019) and it6505 share I2S3, so
-when the it6505 DP output has no display attached (bridge.encoder is
-NULL) the -ENODEV propagates up through dpcm_be_dai_hw_params() and tears
-down the whole backend, breaking speaker playback.
+On Mon, 20 Jul 2026 14:09:42 +0100,
+Alexandru Elisei <alexandru.elisei@arm.com> wrote:
+> 
+> The user cannot use MTE on VMAs created by mapping a guest_memfd file,
+> as arch_calc_vm_flag_bits() does not set VM_MTE_ALLOWED.
+> 
+> When creating a guest_memfd backed memslot,
+> kvm_arch_prepare_memory_region() rejects the memslot if MTE is enabled for
+> the VM and if guest_memfd has been mapped in a VMA that intersects the
+> memslot.
+> 
+> However, the documentation for KVM_SET_USER_MEMORY_REGION2 explicitly
+> states that the only condition for userspace_addr is for it to be a legal
+> userspace address, but the mapping is not required to be valid nor
+> populated at memslot creation.
+> 
+> If userspace sets userspace_addr to an address that hasn't been mapped, or
+> if userspace_addr belongs to a VMA that isn't backed by the guest_memfd
+> file, or if the VMA doesn't intersect the memslot, memslot creation is
+> successful and KVM ends up with a VM with MTE and guest_memfd-backed
+> memslots.
+> 
+> The same happens if the order is reversed: when userspace enables MTE, KVM
+> does not check if memslots backed by guest_memfd are already present.
+> 
+> Fix both issues by rejecting guest_memfd-backed memslots when MTE is
+> enabled, and by reject MTE when guest_memfd-backed memslots are already
+> present.
+> 
+> Fixes: 32e200bd6e44 ("KVM: arm64: Enable support for guest_memfd backed memory")
+> Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
 
-The check is harmful in its own right: the rest of the function only
-caches the stream parameters (channel count, rate, word length) in
-software, none of which needs an encoder. Returning early leaves
-it6505->audio.channel_count at 0, which would then index
-audio_info_ca[-1] in it6505_enable_audio_infoframe() should a display be
-hotplugged while a stream is running, and makes such a hotplug play with
-stale parameters.
+This looks reasonable to me, but you probably want to capture some of
+that in the documentation one way or another, because this will leave
+the amateur VMM author puzzled for a bit...
 
-Drop the encoder check so the parameters are always cached; the actual
-audio output is already gated by it6505->powered.
+Thanks,
 
-Fixes: b5c84a9edcd4 ("drm/bridge: add it6505 driver")
-Signed-off-by: Daniel Golle <daniel@makrotopia.org>
----
-v2:
- * drop the encoder check entirely instead of returning 0 early, so
-   the stream parameters are always cached even while no display is
-   attached; rewrite the commit message to explain why the check is
-   harmful
+	M.
 
- drivers/gpu/drm/bridge/ite-it6505.c | 3 ---
- 1 file changed, 3 deletions(-)
-
-diff --git a/drivers/gpu/drm/bridge/ite-it6505.c b/drivers/gpu/drm/bridge/ite-it6505.c
-index d84441926e8e..e20edbbb7c13 100644
---- a/drivers/gpu/drm/bridge/ite-it6505.c
-+++ b/drivers/gpu/drm/bridge/ite-it6505.c
-@@ -2979,9 +2979,6 @@ static int it6505_audio_setup_hw_params(struct it6505 *it6505,
- 			     params->sample_rate, params->sample_width,
- 			     params->cea.channels);
- 
--	if (!it6505->bridge.encoder)
--		return -ENODEV;
--
- 	if (params->cea.channels <= 1 || params->cea.channels > 8) {
- 		DRM_DEV_DEBUG_DRIVER(dev, "channel number: %d not support",
- 				     it6505->audio.channel_count);
 -- 
-2.55.0
+Without deviation from the norm, progress is not possible.
 
