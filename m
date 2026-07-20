@@ -4,81 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CF84C44525
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 10:06:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36C75C44527
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 10:08:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o/GVNhFdB/BeYw3ohLo/Bxmxi5PlcXI4mV+PDhw0MWU=; b=GAuif/BlCw5bstWoSv+8IswwEo
-	uPU8bDMxBM6wfd0WpvQusHiT1+7JTG0p1Heh2bddQlxnY6qRe/rGogWqLZZRhxvnqXCNDQbousYkH
-	CXWTCbEy3MhpgWJuzXnt3Mqk5TZas0cgJiV1UEhqjOocVh86oOgczNuoE8jyXFIpqbcOR4AchTGQC
-	FUsyGRtpime4uT4B5eQ64+PYMQ0kCdRXvkXTgJyXOeeH97UJ0xqoggTG6q9FhiSRkFZUpzKgluXjZ
-	n0o0j4lvfM2Wv4wZvdDyBVZQAQI6wdaXqiOHlBZ6OOmghRblVqomzDMy3lQ1M/3D2e0ZMkbWxeY+5
-	ZoipR7Ag==;
+	bh=6Kb3DwHOJRoxaCruQM++shG+RbOi01rLJ7Tldla4u9Q=; b=XcTNTK45QjJXOEz6QFiRlMURTp
+	lAtUbyJPdAq294+3wIXsoUWJ+vPWGjW35SfYFdpUKmsbZ4gfxruiDESQBm5NHAFSOmxUCBWu06arL
+	RT9oc7cYC18I3w8ADIohDviV+LIRAoZcI8x/0FSYH++Uzgt1zFHTdTb+TO0B5elTBfHgm+Zbx7W9y
+	7IbC6EIAd2G0r9BPE4qm0YwmwjOwTi9VLdqt5IDAyuY/exw13QbxtyQQa8ZPN7nqvFf/6yyiZ4Z6g
+	EDFqFCw8a86/SII2gJBqoTmCNkF0KSR/JbbeHK9StPBjVbmj/cvs6VtpkT8ImJS4pjppygrxIz1L8
+	CW9t0IEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlktF-00000006R40-3AHc;
-	Mon, 20 Jul 2026 10:06:25 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wljiv-00000006EqP-3xEA;
+	Mon, 20 Jul 2026 08:51:41 +0000
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlksA-00000006Q0O-1RX2;
-	Mon, 20 Jul 2026 10:05:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1784541915;
-	bh=JjK8pa9skMKrbL9WvATZeCl7TfsvD3UbnhThFaSduHw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ELbpPYsYwbEgYOg14lR5UHALfdwFtfj7AMr1tvB7VqyOl4J7gr9eNzOh8nZ7HGoVS
-	 5BuGrG7EfpXBujGsCn5vyJ759tOsoVUgWFS5NqqdE4rexn95hogIpqa8fkZ1n5R+aK
-	 a7msW0v3L48r1osxeC7l59i7LelY83lshkrmsr+s9y9jSwpxEgoMhi4nTEDz3x5vbA
-	 sgIyVHSwbXouhG5umzdpuzl2Nr+HDtKSv2VQA8v1Y2TKPOd+gwMuKw/UrTyGtQ8YvD
-	 Rx6xlnntVPLADf6dHB3iYPqdb+iwWtxu/InCi4yzNaeCsSNHCmruCvSHQymvZPFp3q
-	 ldR9qnFeHrmag==
-Received: from yukiji.home (unknown [100.64.0.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id CDBA717E0DFF;
-	Mon, 20 Jul 2026 12:05:14 +0200 (CEST)
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Mon, 20 Jul 2026 12:04:26 +0200
-Subject: [PATCH v3 16/18] clk: mediatek: Add MT8189 i2c clock support
+	id 1wljis-00000006EpF-0rDy
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Jul 2026 08:51:40 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=6Kb3DwHOJRoxaCruQM++shG+RbOi01rLJ7Tldla4u9Q=;
+	b=1fATCpot+TPP1h7BtwzkOxn+bToPVszOnjNK5ds/nJcYqmqWshjXRkPV5/RyyO8Tf/F4nqGxm
+	tge8QqKo7+dOld62Nd8Wx5I6DaAiNuM7IzkC4addw8ZJ0djB8ZQQPE4CbrKvdWxpX8NlPnPJsu/
+	l6pnxdfsa9/27p5QoYZh5MA=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4h3Ysc65Ndz12LGB;
+	Mon, 20 Jul 2026 16:41:56 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id D13B540572;
+	Mon, 20 Jul 2026 16:51:31 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
+ (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 20 Jul
+ 2026 16:51:28 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <shuah@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kselftest@vger.kernel.org>
+CC: <ruanjinjie@huawei.com>
+Subject: [PATCH v2 1/2] kselftest/arm64: Add seccomp ptrace x0 bypass test
+Date: Mon, 20 Jul 2026 16:51:44 +0800
+Message-ID: <20260720085145.247690-2-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260720085145.247690-1-ruanjinjie@huawei.com>
+References: <20260720085145.247690-1-ruanjinjie@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260720-mt8189-clocks-system-base-v3-16-8e6d99ab3ad2@collabora.com>
-References: <20260720-mt8189-clocks-system-base-v3-0-8e6d99ab3ad2@collabora.com>
-In-Reply-To: <20260720-mt8189-clocks-system-base-v3-0-8e6d99ab3ad2@collabora.com>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Chun-Jie Chen <chun-jie.chen@mediatek.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Edward-JW Yang <edward-jw.yang@mediatek.com>, 
- Richard Cochran <richardcochran@gmail.com>, 
- Chen-Yu Tsai <wenst@chromium.org>
-Cc: kernel@collabora.com, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- netdev@vger.kernel.org, Irving-CH Lin <irving-ch.lin@mediatek.com>, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784541894; l=6586;
- i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=JjK8pa9skMKrbL9WvATZeCl7TfsvD3UbnhThFaSduHw=;
- b=3BfE8npwcwAUc8R0SySG1YERm0OxKSbtIB0HMIuh+iPoIdGPktKnb11WOv1ARPJujrzjdsILP
- whbYoeNhtcXAacsyxI3NTgh+EtvMamzsdGCsAhfP1/q1jwLTDdjH1PT
-X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
- pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.90.53.73]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_030518_541553_A9C2375B 
-X-CRM114-Status: GOOD (  18.06  )
+X-CRM114-CacheID: sfid-20260720_015138_560531_1D9B3BA8 
+X-CRM114-Status: GOOD (  26.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,186 +78,264 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the MT8189 i2c clock controller,
-which provides clock gate control for i2c.
+As Kees suggested, add a test that verifies that seccomp observes the
+correct first argument after a ptracer modifies x0 at a syscall-enter-stop
+on arm64.
 
-Co-developed-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
-Signed-off-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
-Co-developed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+The first syscall argument and the return value share register x0.
+The original value is saved in orig_x0 on entry and used by
+syscall_get_arguments(), but ptrace changes to x0 were not
+automatically reflected there.  This test checks the kernel re-syncs
+orig_x0 after a ptrace stop so that seccomp sees the modified
+argument.
+
+A seccomp filter allows write(2,...) and kills the task for any other
+fd.  The tracer changes fd from 2 to 1 at entry.  If orig_x0 remains
+stale, the child exits normally (bypass, test fails).  If orig_x0 is
+correctly updated, the child is killed by SIGSYS (test passes).
+
+Before the fix:
+	 ./seccomp_ptrace_x0_bypass
+	TAP version 13
+	1..1
+	not ok 1 seccomp_ptrace_x0_bypass
+	# Totals: pass:0 fail:1 xfail:0 xpass:0 skip:0 error:0
+
+After the fix:
+	# ./seccomp_ptrace_x0_bypass
+	TAP version 13
+	1..1
+	[   19.475951] audit: type=1326 audit(1784254846.284:2): auid=4294967295 uid=0 gid=0 ses=4294967295 pid=227 comm="seccomp_ptrace_" exe="/mnt/seccomp0
+	[   19.477852] audit: type=1701 audit(1784254846.284:3): auid=4294967295 uid=0 gid=0 ses=4294967295 pid=227 comm="seccomp_ptrace_" exe="/mnt/seccomp1
+	ok 1 seccomp_ptrace_x0_bypass
+	# Totals: pass:1 fail:0 xfail:0 xpass:0 skip:0 error:0
+
+Cc: Kees Cook <kees@kernel.org>
+Cc: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Link: https://lore.kernel.org/all/20260716120640.6590-1-will@kernel.org/
+Link: https://lore.kernel.org/all/202607152004.DEA95D63@keescook/
+Suggested-by: Kees Cook <kees@kernel.org>
+Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 ---
- drivers/clk/mediatek/Kconfig          |  13 ++++
- drivers/clk/mediatek/Makefile         |   1 +
- drivers/clk/mediatek/clk-mt8189-iic.c | 122 ++++++++++++++++++++++++++++++++++
- 3 files changed, 136 insertions(+)
+ tools/testing/selftests/arm64/abi/.gitignore  |   1 +
+ tools/testing/selftests/arm64/abi/Makefile    |   2 +-
+ .../arm64/abi/seccomp_ptrace_x0_bypass.c      | 181 ++++++++++++++++++
+ 3 files changed, 183 insertions(+), 1 deletion(-)
+ create mode 100644 tools/testing/selftests/arm64/abi/seccomp_ptrace_x0_bypass.c
 
-diff --git a/drivers/clk/mediatek/Kconfig b/drivers/clk/mediatek/Kconfig
-index 245d3b83b5d3..bba631138b07 100644
---- a/drivers/clk/mediatek/Kconfig
-+++ b/drivers/clk/mediatek/Kconfig
-@@ -859,6 +859,19 @@ config COMMON_CLK_MT8189_DVFSRC
- 	  vcore dvfs clocks. If you want to control its clocks, say Y or M
- 	  to include this driver in your kernel build.
+diff --git a/tools/testing/selftests/arm64/abi/.gitignore b/tools/testing/selftests/arm64/abi/.gitignore
+index 44f8b80f37e3..39129a9907c7 100644
+--- a/tools/testing/selftests/arm64/abi/.gitignore
++++ b/tools/testing/selftests/arm64/abi/.gitignore
+@@ -1,4 +1,5 @@
+ hwcap
+ ptrace
++seccomp_ptrace_x0_bypass
+ syscall-abi
+ tpidr2
+diff --git a/tools/testing/selftests/arm64/abi/Makefile b/tools/testing/selftests/arm64/abi/Makefile
+index 483488f8c2ad..5a16db379bd4 100644
+--- a/tools/testing/selftests/arm64/abi/Makefile
++++ b/tools/testing/selftests/arm64/abi/Makefile
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ # Copyright (C) 2021 ARM Limited
  
-+config COMMON_CLK_MT8189_IIC
-+	tristate "Clock driver for MediaTek MT8189 iic"
-+	depends on COMMON_CLK_MT8189
-+	default COMMON_CLK_MT8189
-+	help
-+	  Enable this option to support the clock framework for MediaTek MT8189
-+	  integrated circuits (iic). This driver is responsible for managing
-+	  clock sources, dividers, and gates specifically designed for MT8189
-+	  SoCs. Enabling this driver ensures that the system can correctly
-+	  manage clock frequencies and power for various components within
-+	  the MT8189 chipset, improving the overall performance and power
-+	  efficiency of the device.
-+
- config COMMON_CLK_MT8192
- 	tristate "Clock driver for MediaTek MT8192"
- 	depends on ARM64 || COMPILE_TEST
-diff --git a/drivers/clk/mediatek/Makefile b/drivers/clk/mediatek/Makefile
-index 4dbfc9ac83ba..bfc075023d9b 100644
---- a/drivers/clk/mediatek/Makefile
-+++ b/drivers/clk/mediatek/Makefile
-@@ -128,6 +128,7 @@ obj-$(CONFIG_COMMON_CLK_MT8189) += clk-mt8189-apmixedsys.o clk-mt8189-topckgen.o
- obj-$(CONFIG_COMMON_CLK_MT8189_BUS) += clk-mt8189-bus.o
- obj-$(CONFIG_COMMON_CLK_MT8189_DBGAO) += clk-mt8189-dbgao.o
- obj-$(CONFIG_COMMON_CLK_MT8189_DVFSRC) += clk-mt8189-dvfsrc.o
-+obj-$(CONFIG_COMMON_CLK_MT8189_IIC) += clk-mt8189-iic.o
- obj-$(CONFIG_COMMON_CLK_MT8192) += clk-mt8192-apmixedsys.o clk-mt8192.o
- obj-$(CONFIG_COMMON_CLK_MT8192_AUDSYS) += clk-mt8192-aud.o
- obj-$(CONFIG_COMMON_CLK_MT8192_CAMSYS) += clk-mt8192-cam.o
-diff --git a/drivers/clk/mediatek/clk-mt8189-iic.c b/drivers/clk/mediatek/clk-mt8189-iic.c
+-TEST_GEN_PROGS := hwcap ptrace syscall-abi tpidr2
++TEST_GEN_PROGS := hwcap ptrace syscall-abi tpidr2 seccomp_ptrace_x0_bypass
+ 
+ include ../../lib.mk
+ 
+diff --git a/tools/testing/selftests/arm64/abi/seccomp_ptrace_x0_bypass.c b/tools/testing/selftests/arm64/abi/seccomp_ptrace_x0_bypass.c
 new file mode 100644
-index 000000000000..80a01706791a
+index 000000000000..718d3dcb3264
 --- /dev/null
-+++ b/drivers/clk/mediatek/clk-mt8189-iic.c
-@@ -0,0 +1,122 @@
++++ b/tools/testing/selftests/arm64/abi/seccomp_ptrace_x0_bypass.c
+@@ -0,0 +1,181 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
-+ * Copyright (C) 2025-2026 MediaTek Inc.
-+ *                    Qiqi Wang <qiqi.wang@mediatek.com>
-+ *                    Irving-CH Lin <irving-ch.lin@mediatek.com>
-+ * Copyright (C) 2026 Collabora Ltd.
-+ *                    AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-+ *                    Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
++ * Test that seccomp, tracepoints and audit observe the correct syscall
++ * arguments after a ptracer has modified them at syscall-enter-stop.
++ *
++ * On arm64, both the first argument and the return value of a syscall
++ * are passed in register x0.  The original x0 is saved in
++ * pt_regs::orig_x0 during syscall entry and returned as the first
++ * argument by syscall_get_arguments().  Because ptrace modifications
++ * to x0 are not automatically reflected in orig_x0, seccomp, tracepoints
++ * and audit may see a stale value unless orig_x0 is explicitly
++ * re-synchronised after a ptrace stop.
++ *
++ * This test sets up a seccomp filter that allows write(2, ...) but kills
++ * the task for any other fd.  A ptracer changes the fd argument from 2
++ * to 1 at the syscall-enter stop.  If the orig_x0 re-sync works, seccomp
++ * sees the modified argument (fd=1) and kills the child with SIGSYS
++ * (test passes).  If orig_x0 is not re-synced, seccomp sees the original
++ * fd=2, the write succeeds and the child exits normally (test fails,
++ * vulnerability present).
 + */
++#include <errno.h>
++#include <stdbool.h>
++#include <stddef.h>
++#include <stdio.h>
++#include <stdlib.h>
++#include <string.h>
++#include <unistd.h>
++#include <sys/prctl.h>
++#include <sys/ptrace.h>
++#include <sys/uio.h>
++#include <sys/wait.h>
++#include <asm/ptrace.h>
++#include <linux/elf.h>
++#include <linux/filter.h>
++#include <linux/seccomp.h>
 +
-+#include <linux/clk-provider.h>
-+#include <linux/module.h>
-+#include <linux/of_device.h>
-+#include <linux/platform_device.h>
++#include "kselftest.h"
 +
-+#include "clk-mtk.h"
-+#include "clk-gate.h"
++#ifndef __NR_write
++#define __NR_write 64
++#endif
 +
-+#include <dt-bindings/clock/mediatek,mt8189-clk.h>
++#define EXPECTED_TESTS 1
 +
-+static const struct mtk_gate_regs impe_cg_regs = {
-+	.set_ofs = 0x8,
-+	.clr_ofs = 0x4,
-+	.sta_ofs = 0x0,
-+};
++static int do_child(void)
++{
++	if (ptrace(PTRACE_TRACEME, 0, NULL, NULL))
++		ksft_exit_fail_perror("PTRACE_TRACEME");
 +
-+#define GATE_IMPE(_id, _name, _parent, _shift)				\
-+	GATE_MTK_FLAGS(_id, _name, _parent, &impe_cg_regs, _shift,	\
-+		&mtk_clk_gate_ops_setclr, CLK_OPS_PARENT_ENABLE)
++	if (raise(SIGSTOP))
++		ksft_exit_fail_perror("raise(SIGSTOP)");
 +
-+static const struct mtk_gate impe_clks[] = {
-+	GATE_IMPE(CLK_IMPE_I2C0, "impe_i2c0", "i2c_sel", 0),
-+	GATE_IMPE(CLK_IMPE_I2C1, "impe_i2c1", "i2c_sel", 1),
-+};
++	/*
++	 * Seccomp filter:
++	 *    If syscall is not write -> ALLOW
++	 *    If syscall is write:
++	 *	- If args[0] (fd) == 2 -> ALLOW
++	 *	- Otherwise -> KILL
++	 */
++	struct sock_filter filter[] = {
++		BPF_STMT(BPF_LD | BPF_W | BPF_ABS, 0),			/* nr */
++		BPF_JUMP(BPF_JMP | BPF_JEQ | BPF_K, __NR_write, 0, 3),
++		BPF_STMT(BPF_LD | BPF_W | BPF_ABS, 16),			/* args[0] */
++		BPF_JUMP(BPF_JMP | BPF_JEQ | BPF_K, 2, 1, 0),
++		BPF_STMT(BPF_RET | BPF_K, SECCOMP_RET_KILL),
++		BPF_STMT(BPF_RET | BPF_K, SECCOMP_RET_ALLOW),
++	};
++	struct sock_fprog prog = {
++		.len = ARRAY_SIZE(filter),
++		.filter = filter,
++	};
 +
-+static const struct mtk_clk_desc impe_mcd = {
-+	.clks = impe_clks,
-+	.num_clks = ARRAY_SIZE(impe_clks),
-+};
++	if (prctl(PR_SET_NO_NEW_PRIVS, 1, 0, 0, 0))
++		ksft_exit_fail_perror("prctl NO_NEW_PRIVS");
 +
-+static const struct mtk_gate_regs impen_cg_regs = {
-+	.set_ofs = 0x8,
-+	.clr_ofs = 0x4,
-+	.sta_ofs = 0x0,
-+};
++	if (prctl(PR_SET_SECCOMP, SECCOMP_MODE_FILTER, &prog))
++		ksft_exit_fail_perror("prctl SECCOMP");
 +
-+#define GATE_IMPEN(_id, _name, _parent, _shift)				\
-+	GATE_MTK_FLAGS(_id, _name, _parent, &impen_cg_regs, _shift,	\
-+		&mtk_clk_gate_ops_setclr, CLK_OPS_PARENT_ENABLE)
++	/*
++	 * Invoke write(2, ...) while the tracer will change the first
++	 * argument (fd) from 2 to 1 at syscall entry.
++	 */
++	syscall(__NR_write, 2, NULL, 0);
++	_exit(0);
++}
 +
-+static const struct mtk_gate impen_clks[] = {
-+	GATE_IMPEN(CLK_IMPEN_I2C7, "impen_i2c7", "i2c_sel", 0),
-+	GATE_IMPEN(CLK_IMPEN_I2C8, "impen_i2c8", "i2c_sel", 1),
-+};
++static int do_parent(pid_t child)
++{
++	bool bypass = false;
++	int status;
 +
-+static const struct mtk_clk_desc impen_mcd = {
-+	.clks = impen_clks,
-+	.num_clks = ARRAY_SIZE(impen_clks),
-+};
++	/* Wait for the initial SIGSTOP */
++	if (waitpid(child, &status, 0) != child)
++		ksft_exit_fail_msg("waitpid failed");
 +
-+static const struct mtk_gate_regs imps_cg_regs = {
-+	.set_ofs = 0x8,
-+	.clr_ofs = 0x4,
-+	.sta_ofs = 0x0,
-+};
++	if (!WIFSTOPPED(status) || WSTOPSIG(status) != SIGSTOP)
++		ksft_exit_fail_msg("unexpected stop status");
 +
-+#define GATE_IMPS(_id, _name, _parent, _shift)				\
-+	GATE_MTK_FLAGS(_id, _name, _parent, &imps_cg_regs, _shift,	\
-+		&mtk_clk_gate_ops_setclr, CLK_OPS_PARENT_ENABLE)
++	if (ptrace(PTRACE_SETOPTIONS, child, 0, PTRACE_O_TRACESYSGOOD))
++		ksft_exit_fail_perror("PTRACE_SETOPTIONS");
 +
-+static const struct mtk_gate imps_clks[] = {
-+	GATE_IMPS(CLK_IMPS_I2C3, "imps_i2c3", "i2c_sel", 0),
-+	GATE_IMPS(CLK_IMPS_I2C4, "imps_i2c4", "i2c_sel", 1),
-+	GATE_IMPS(CLK_IMPS_I2C5, "imps_i2c5", "i2c_sel", 2),
-+	GATE_IMPS(CLK_IMPS_I2C6, "imps_i2c6", "i2c_sel", 3),
-+};
++	if (ptrace(PTRACE_SYSCALL, child, 0, 0))
++		ksft_exit_fail_perror("PTRACE_SYSCALL");
 +
-+static const struct mtk_clk_desc imps_mcd = {
-+	.clks = imps_clks,
-+	.num_clks = ARRAY_SIZE(imps_clks),
-+};
++	while (1) {
++		int sig;
 +
-+static const struct mtk_gate_regs impws_cg_regs = {
-+	.set_ofs = 0x8,
-+	.clr_ofs = 0x4,
-+	.sta_ofs = 0x0,
-+};
++		if (waitpid(child, &status, 0) != child)
++			ksft_exit_fail_msg("waitpid lost child");
 +
-+#define GATE_IMPWS(_id, _name, _parent, _shift)				\
-+	GATE_MTK_FLAGS(_id, _name, _parent, &impws_cg_regs, _shift,	\
-+		&mtk_clk_gate_ops_setclr, CLK_OPS_PARENT_ENABLE)
++		if (WIFEXITED(status)) {
++			/* Child exited normally – bypass succeeded */
++			bypass = true;
++			break;
++		}
 +
-+static const struct mtk_gate impws_clks[] = {
-+	GATE_IMPWS(CLK_IMPWS_I2C2, "impws_i2c2", "i2c_sel", 0),
-+};
++		if (WIFSIGNALED(status))
++			break;
 +
-+static const struct mtk_clk_desc impws_mcd = {
-+	.clks = impws_clks,
-+	.num_clks = ARRAY_SIZE(impws_clks),
-+};
++		if (!WIFSTOPPED(status))
++			ksft_exit_fail_msg("unexpected wait status");
 +
-+static const struct of_device_id of_match_clk_mt8189_iic[] = {
-+	{ .compatible = "mediatek,mt8189-iic-wrap-e", .data = &impe_mcd },
-+	{ .compatible = "mediatek,mt8189-iic-wrap-en", .data = &impen_mcd },
-+	{ .compatible = "mediatek,mt8189-iic-wrap-s", .data = &imps_mcd },
-+	{ .compatible = "mediatek,mt8189-iic-wrap-ws", .data = &impws_mcd },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, of_match_clk_mt8189_iic);
++		sig = WSTOPSIG(status);
 +
-+static struct platform_driver clk_mt8189_iic_drv = {
-+	.probe = mtk_clk_simple_probe,
-+	.remove = mtk_clk_simple_remove,
-+	.driver = {
-+		.name = "clk-mt8189-iic",
-+		.of_match_table = of_match_clk_mt8189_iic,
-+	},
-+};
-+module_platform_driver(clk_mt8189_iic_drv);
++		if (sig == (SIGTRAP | 0x80)) {
++			struct user_regs_struct regs;
++			struct iovec iov = {
++				.iov_base = &regs,
++				.iov_len = sizeof(regs),
++			};
 +
-+MODULE_DESCRIPTION("MediaTek MT8189 iic clocks driver");
-+MODULE_LICENSE("GPL");
-
++			if (ptrace(PTRACE_GETREGSET, child, NT_PRSTATUS, &iov))
++				ksft_exit_fail_perror("PTRACE_GETREGSET");
++
++			unsigned long syscall_nr = regs.regs[8];
++			unsigned long x0 = regs.regs[0];
++
++			/* Modify fd from 2 to 1 at write entry */
++			if (syscall_nr == __NR_write && x0 == 2) {
++				regs.regs[0] = 1;
++				if (ptrace(PTRACE_SETREGSET, child, NT_PRSTATUS, &iov))
++					ksft_exit_fail_perror("PTRACE_SETREGSET");
++			}
++
++			if (ptrace(PTRACE_SYSCALL, child, 0, 0))
++				ksft_exit_fail_perror("PTRACE_SYSCALL");
++		} else {
++			/* Forward other signals */
++			if (ptrace(PTRACE_SYSCALL, child, 0, sig))
++				ksft_exit_fail_perror("PTRACE_SYSCALL");
++		}
++	}
++
++	/* bypass == true means vulnerability exists -> test fails */
++	return bypass ? EXIT_FAILURE : EXIT_SUCCESS;
++}
++
++int main(void)
++{
++	pid_t child;
++
++	ksft_print_header();
++	ksft_set_plan(EXPECTED_TESTS);
++
++	child = fork();
++	if (!child)
++		return do_child();
++
++	/*
++	 * do_parent() returns EXIT_SUCCESS if the child was killed by
++	 * SIGSYS (i.e. seccomp correctly saw the modified argument),
++	 * and EXIT_FAILURE if the child exited normally (bypass).
++	 */
++	int result = do_parent(child);
++
++	ksft_test_result(result == EXIT_SUCCESS, "seccomp_ptrace_x0_bypass\n");
++
++	ksft_print_cnts();
++	return result;
++}
 -- 
-2.55.0
+2.34.1
 
 
