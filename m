@@ -4,53 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C49DC44520
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 23:12:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF461C44520
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 23:18:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cx+ezRc11qoejyDwRyBvxAc3Is3tTNGOfMZZRPcGCGo=; b=jzdqAv8KY7bcKIClzFM/OUuZKE
-	XotzU1vj/PrQcSfJLz8Z81WBCFBLVDWoB3px50uP/HjFUFamwnWZ49AFsnhAa55QG27uNzsykVO47
-	4rDz2o8K3C+0uWJEyxVBTO72jErt4zWtLHekZ8Q+00Bb8tm23wFCvxj9ZxsWPf1YX9k1APPvknRj9
-	2d5NeAHEyyeOtzTfHMA+hnkl77k2TaG526l3R0GCexw/smdaS+ZANYLh/Xdo6vSLcriDvsKyFKUIL
-	C5SNbsBAXlXrir73NCeJbTvsz8pL3QWcvYo6slKnyVRklhnYpSIW1zqbVlIUVxasudCpNKqcIWQaG
-	iFxeuqdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PIdTfjSmUf2l6QbXl28Z9ySz7lLCFTnKrNPeGTX5US0=; b=fRkZ4raDAmOU11SNF2EYsR7/Ul
+	iBWfXYryZLsWyT6GAMwD8mD2/LDc6k7Sw3r+L1hs2klWPeFi0I6L1S2lMVGjefn1ZZbYGV7+YFszB
+	7fOplafk/DpvL/TvFMmPTaejOfd6OWh8nQ0pkMwdWz9Yi7hzwUbUTrjku4tnh6wSHN+brQnxAe0sy
+	exLG0F934hT4tMQxac5mjRQCfLFwS2/InxYrWnhOIY+RT4uPYLIc+mZCYpKVA7n1mxG1hH6eWUmay
+	C0BrxMPX5vbNaHKMWpOTvc6LFVSKptcDUECZYKkpZS6Cggk1nvvm0DhfkYQ7oXPDh/z3B6eyy2yZM
+	pIU9+g4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlx9p-000000084oD-0y4j;
-	Mon, 20 Jul 2026 23:12:21 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wlxFd-000000085G2-3Syo;
+	Mon, 20 Jul 2026 23:18:21 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlx9n-000000084nz-0hx4
+	id 1wlxFZ-000000085Ex-0bvi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 23:12:19 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 43FC060A7A;
-	Mon, 20 Jul 2026 23:12:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D62A41F000E9;
-	Mon, 20 Jul 2026 23:12:17 +0000 (UTC)
-Received: by venus (Postfix, from userid 1000)
-	id 40CE118081D; Tue, 21 Jul 2026 01:12:16 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
- Neal Gompa <neal@gompa.dev>, Sebastian Reichel <sre@kernel.org>, 
- Sasha Finkelstein <k@chaosmail.tech>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Joshua Peisach <jpeisach@ubuntu.com>, stable@vger.kernel.org
-In-Reply-To: <20260712-gate-power-v4-1-aa59c6583247@chaosmail.tech>
-References: <20260712-gate-power-v4-1-aa59c6583247@chaosmail.tech>
-Subject: Re: [PATCH v4] power: supply: macsmc: Support macOS 27 SMC
- firmware
-Message-Id: <178458913624.374847.13868321140299746497.b4-ty@collabora.com>
-Date: Tue, 21 Jul 2026 01:12:16 +0200
+	Mon, 20 Jul 2026 23:18:20 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id A6CAD838;
+	Tue, 21 Jul 2026 01:17:15 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1784589435;
+	bh=E3sdT3o+6WpSJr7fCr9NTMdAbC9MhuLYIrPuCVmMHSI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=vsnzvkZ8S/6+1JZKdKZWX2Fm/ea9Huss9N3AnWA2Qu8J1jXaKIOpCq2stdsKvCRq9
+	 P+BPY/k2PEIiE4ZwRw+1Jz7Li23AZCw5brs1Up8nbR3/AcF6rL2uidiDAP/3b3Z8iM
+	 BFTRF5AHsnzJypQRhgjAGPl3WohSFxVn1nKsDZDE=
+Date: Tue, 21 Jul 2026 02:18:12 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Christian Hemp <c.hemp@phytec.de>,
+	Stefan Riedmueller <s.riedmueller@phytec.de>,
+	Jacopo Mondi <jacopo@jmondi.org>,
+	Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	Bryan O'Donoghue <bod@kernel.org>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Guoniu Zhou <guoniu.zhou@nxp.com>, linux-media@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2 5/6] media: nxp: imx8-isi: Correct color map between
+ V4L2 and ISI
+Message-ID: <20260720231812.GB27524@killaraus.ideasonboard.com>
+References: <20260720-isi-v2-0-45845bc5d4fa@oss.nxp.com>
+ <20260720-isi-v2-5-45845bc5d4fa@oss.nxp.com>
+ <20260720174002.GC50424@killaraus.ideasonboard.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260720174002.GC50424@killaraus.ideasonboard.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260720_161819_739031_5F759DFF 
+X-CRM114-Status: GOOD (  16.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,21 +80,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Sun, 12 Jul 2026 00:48:56 +0200, Sasha Finkelstein wrote:
-> The SMC firmware included in macOS 27 changed the size of BCF0 key from
-> 4 to 1 bytes. This key is used for indicating that battery state is
-> critically low. In addition, B0RM key has changed endianness.
+On Mon, Jul 20, 2026 at 08:40:04PM +0300, Laurent Pinchart wrote:
+> On Mon, Jul 20, 2026 at 11:34:07AM +0800, Guoniu Zhou wrote:
+> > Fix the ISI input format for the color map V4L2_PIX_FMT_XBGR32 in
+> > memory-to-memory mode.
+> > 
+> > Fixes: cf21f328fcaf ("media: nxp: Add i.MX8 ISI driver")
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
 > 
+> Tentatively,
 > 
+> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> 
+> I'm running a build to test this change.
 
-Applied, thanks!
+Tested-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 
-[1/1] power: supply: macsmc: Support macOS 27 SMC firmware
-      commit: f7b253a6e217f71d754d70c525e9b4c1dcbd4414
+> > ---
+> > Changes in v2:
+> > - Reword commit description for clarity (Frank Li)
+> > ---
+> >  drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> > 
+> > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
+> > index 5eb448f4c26f..05b51b98344b 100644
+> > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
+> > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
+> > @@ -151,7 +151,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
+> >  		.fourcc		= V4L2_PIX_FMT_XBGR32,
+> >  		.type		= MXC_ISI_VIDEO_CAP | MXC_ISI_VIDEO_M2M_OUT
+> >  				| MXC_ISI_VIDEO_M2M_CAP,
+> > -		.isi_in_format	= CHNL_MEM_RD_CTRL_IMG_TYPE_XBGR8,
+> > +		.isi_in_format	= CHNL_MEM_RD_CTRL_IMG_TYPE_XRGB8,
+> >  		.isi_out_format	= CHNL_IMG_CTRL_FORMAT_XRGB888,
+> >  		.mem_planes	= 1,
+> >  		.color_planes	= 1,
 
-Best regards,
 -- 
-Sebastian Reichel <sebastian.reichel@collabora.com>
+Regards,
 
+Laurent Pinchart
 
