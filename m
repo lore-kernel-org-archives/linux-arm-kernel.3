@@ -4,103 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A64AC4451B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 08:58:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9476C4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 09:04:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RUKJxr+1tIy/FI363caVVmoJTRInNyqm1ZI8xlDvLAU=; b=LrGub4ExV0ZHu0RGefHJmulcKt
-	m2FArrA2N19oD5ZRemrli39WtDExOPdBpEzaHtY/JQBLo59DuZKbgDNs5Wp32D/6fFcBvfDIBEEzc
-	4kVOCJ8dtW4sPblOFHDiHNZy2YNw8+YqkGdT/OkkC4omlKswZzKk5qkGyYpuyJOJe3pNlyrYQ/Rta
-	s1hgOOlAGMPv5sKGdA7dNxs82bdS98hpnXkAEBmHEHqLpGoJ7l5mB/c5GP1G8KoeNL3Lbgi+Ku8n5
-	qmwwf94Wye8VNKaH2IkBG4HKB+3LMCOgC1nai33KgSJHRXo1wmwk5v6jZmAGxh3dJBKce516Ytuv0
-	9JDlt0UA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JlH6bBHsx0iUgxzN2Wc0xmjFP/YXdJ+cTewN5QULG2A=; b=aIehO8Mv9xgr3qHObhKe9uul9c
+	SbSz3K5e6DvXgc6Z3Kkv1YHrMMEOxvcOecWbcberYE9iscLNB1mucSNf1JEW7YSsViO2kqTsNAkCR
+	KucXAL8DCnsKFo7fhkim72678srPvVzkqJp3iTAtWU7W9AFwbffD1W+pJ9pRQmrfFDzmMQSXEoqvQ
+	0+ii7dpTMCyVa5WFxCKpE1eelP7snYzU5IIOHyDumHib+ZMy+/nZZ/dHcUcnVYBi2tzium1drav6C
+	VgutK0bcAY+huyDh3badi2Rqq7F5NpqjDeDK/n8runPcDk09sAyaRJ86skJFcJniZvwaSNxsepYsp
+	//eg0Cyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wljpl-00000006G0R-1Dx0;
-	Mon, 20 Jul 2026 08:58:45 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1wljut-00000006GOw-02fv;
+	Mon, 20 Jul 2026 09:04:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wljpj-00000006FyR-0VRa
+	id 1wljur-00000006GOo-10Uh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 08:58:44 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-84a4d8fd6ecso6264892b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 01:58:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784537922; x=1785142722; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=RUKJxr+1tIy/FI363caVVmoJTRInNyqm1ZI8xlDvLAU=;
-        b=kcgJNcX4MPEaKum8phnD3iXK7obGARykhjalw18w9ZNLDW6QN7Kh+TUkEv5hJssDB7
-         6jG+Pyc9HRYsxumOlr+02Zt8QKcHbdRgCdAUC7GP6t75XUKbfBqhDFh6UaVORhJi2/nI
-         3dkWJVeNtd2fmtSoAM5ts+RzVbnnNFHkki2RxhI1Jdz1nE9CmdLq7KXx4u1XdRBIJGs1
-         cCo0He846Sbi2TxRG5L+x/m61Cc9/w7dhDBYFPvfoG1R/Mp9wfJ6BGNghN4UZ3YoVXuW
-         DpASuHgyb5dVAKDmxrQNaJlPxXy0rqpUQ1EdMYZNwBaXUOW4NpSrnObT+KWdx3csLXU1
-         e6cg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784537922; x=1785142722;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=RUKJxr+1tIy/FI363caVVmoJTRInNyqm1ZI8xlDvLAU=;
-        b=WKfNmEruVCim5oGuaFoaMc9SVtJXiq0yHproEQij6E+lJyoAm2PfPXsYQ+cLIHXL/k
-         o1l0iRIoV5OeYs9+a1aac/ncKx3Z7ExcQ25Rliml00ykLDTTZj8B5MlJBAkLd4bGIQqa
-         EOZJ8QSbos7eOd84M2jOaqEpUvIFVFpuYThWefV25XJIjwex1l85pvXEvAuXErRoDvcA
-         eaFeSvoAFUMuQB01zM33leqhrosHN5SlXCzIXnaqcj0YG36YPm/87dPbU4+OyoiKoRVN
-         85uertq3fYgPAJQTnYy7/vX4b0moM/n8MhSOKrYDuY6NlFlWdkzh0f8TV+GBStUFYoBq
-         jsTA==
-X-Forwarded-Encrypted: i=1; AHgh+RpfMRNk8l23PlCu8pOCrrydrhYlVpblN6WwVrnoSjwWCj6wHA9FY/Q5xjkbjU9rInqRgkJkBDJ3s8+m0XRS6i2i@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1p5KuMNZ+oEaJh3oxeFwAEaV4d3tAPG0vOjCI9M3Kh5/ZzYE+
-	71D42gkE8NQa4500HZpMVigPj82syv/dYJiIbDESYcFopld6kDHS7uG4
-X-Gm-Gg: AfdE7ckLKSBnEKxyZPGvub8C9k8gHCN8g/aIAMV13jrsmdhNbFjoUAX8NjowS2QijEy
-	5zQTqXVnxeNuBFbdXH06KHAYaoDeaBmdpcM5zsSGf8/QWL4gzQn5acEE5U4JRtp6zbpjrXcsqyq
-	95xPyi77FsEOeXQNmSI0wsAD1HMZFwHTTs4cIfuHy7mwkDS+c/LTenutS9GicmPsPce0d5yYHrP
-	JbQfL9Rfyq5Ft0kaO3sLtetNSBWHYjPeT+WWcjhqIG3QIUSshwRGAeUjXbn5DL/pAtUu/N/6GXh
-	woE73/dW9REnoKXFBQ5Ux3AFQCLd+HdAaIuUVuZ4Q1FKEbQ2u/EpuOUf0VELi2SvFPo7XoJ5a5k
-	tZGQGeod4m+qOreOhk7MApqI1JiVe0x0h5qUAW6jqbxkBpS8VkEH6xdzYDR1/3nAaDz4=
-X-Received: by 2002:a05:6a00:14d1:b0:848:6c37:cd74 with SMTP id d2e1a72fcca58-84c29288282mr13097826b3a.22.1784537922386;
-        Mon, 20 Jul 2026 01:58:42 -0700 (PDT)
-Received: from lgs.. ([118.193.39.55])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84c2adcc78asm5247901b3a.23.2026.07.20.01.58.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Jul 2026 01:58:41 -0700 (PDT)
-From: Guangshuo Li <lgs201920130244@gmail.com>
-To: Minghsiu Tsai <minghsiu.tsai@mediatek.com>,
-	Houlong Wei <houlong.wei@mediatek.com>,
-	Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Tiffany Lin <tiffany.lin@mediatek.com>,
-	Yunfei Dong <yunfei.dong@mediatek.com>,
-	Hans Verkuil <hverkuil+cisco@kernel.org>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Chen-Yu Tsai <wenst@chromium.org>,
-	Fei Shao <fshao@chromium.org>,
-	Tomasz Figa <tfiga@chromium.org>,
-	Guangshuo Li <lgs201920130244@gmail.com>,
-	Haoxiang Li <haoxiang_li2024@163.com>,
-	Eizan Miyamoto <eizan@chromium.org>,
-	Enric Balletbo i Serra <eballetbo@kernel.org>,
-	linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	Mon, 20 Jul 2026 09:04:01 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 978CC414AC;
+	Mon, 20 Jul 2026 09:04:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77E131F000E9;
+	Mon, 20 Jul 2026 09:04:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784538240;
+	bh=JlH6bBHsx0iUgxzN2Wc0xmjFP/YXdJ+cTewN5QULG2A=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=F63DBJYlQvbDo0WzO97R/H784F8hXmRqb12FCBhAk8GqjhhrAyM7mD569fP3TBK4L
+	 31c3rRzU12mu6agMPFHDGJQvStIyqG/vNon5cDyk+nYV7X7/YmDrm+QZ69kJePIv1/
+	 F8s1nIc6VarzN4yrmeYen78DVge4SWPU6DEWCvBEc2BW0BIHyT5dnPLTI+RZ7E45qR
+	 KDS/RPTYzfPw1lCYGxfT0ClISm/K8USEsMeKNFcZPBZEQKWXinhEjvAoixbJKre4u2
+	 9pm1nIlLTdB7rQ2dU4HWUeyVG9Ru5Kp3Gpah2maLKQT0ILbrMm+YuhPxrtUzSbVOAb
+	 QiILg3g7Yjq8Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wljuo-00000006iJd-1MQG;
+	Mon, 20 Jul 2026 09:03:58 +0000
+Date: Mon, 20 Jul 2026 10:03:57 +0100
+Message-ID: <868q76f2wy.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Dev Jain <dev.jain@arm.com>
+Cc: Wei-Lin Chang <weilin.chang@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH v2 3/3] media: mtk-mdp: unregister VPU watchdog handler
-Date: Mon, 20 Jul 2026 16:57:56 +0800
-Message-ID: <20260720085756.465667-4-lgs201920130244@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260720085756.465667-1-lgs201920130244@gmail.com>
-References: <20260720085756.465667-1-lgs201920130244@gmail.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_015843_187165_4E1D4965 
-X-CRM114-Status: GOOD (  14.28  )
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu
+ <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>
+Subject: Re: [PATCH] KVM: arm64: ptdump: Flush the last region
+In-Reply-To: <ad52d1ee-04cb-42d7-b50c-dfb3d28db5df@arm.com>
+References: <20260717231233.2299068-1-weilin.chang@arm.com>
+	<ad52d1ee-04cb-42d7-b50c-dfb3d28db5df@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: dev.jain@arm.com, weilin.chang@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, oupton@kernel.org, tabba@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, ryan.roberts@arm.com, sebastianene@google.com, vdonnefort@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,47 +95,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mtk_mdp_probe() registers the MDP reset handler with the VPU watchdog
-code and passes the MDP device as the private data.
+On Mon, 20 Jul 2026 09:53:29 +0100,
+Dev Jain <dev.jain@arm.com> wrote:
+> 
+> 
+> 
+> On 18/07/26 4:42 am, Wei-Lin Chang wrote:
+> > Currently the stage-2 ptdump calls note_page() at each leaf entry visit.
+> > This simply misses the output of the last region, because note_page()
+> > only dumps output when it detects a change in level/prot, or when the
+> > walk enters a next marker section. The last region in the guest IPA
+> > space with the same level/prot is not dumped since there is no change
+> > after it.
+> > 
+> > To dump the final region, manually issue a note_page() call with address
+> > BIT(ia_bits) (end of guest IPA space) and level == -1 to trigger a level
+> > change after the last region. Additionally treat level == -1 as a last
+> > flushing note_page() call and avoid dumping the name of the next marker
+> > for this case.
+> > 
+> > Fixes: 7c4f73548ed1 ("KVM: arm64: Register ptdump with debugfs on guest creation")
+> > Reported-by: Sashiko AI <sashiko-bot@kernel.org>
+> > Closes: https://lore.kernel.org/kvmarm/20260630122758.891011F00A3A@smtp.kernel.org/
+> > Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+> > ---
+> >  arch/arm64/kvm/ptdump.c | 8 +++++---
+> >  arch/arm64/mm/ptdump.c  | 5 +++--
+> >  2 files changed, 8 insertions(+), 5 deletions(-)
+> > 
+> > diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
+> > index c9140e22abcf..4096e4a92fae 100644
+> > --- a/arch/arm64/kvm/ptdump.c
+> > +++ b/arch/arm64/kvm/ptdump.c
+> > @@ -155,11 +155,13 @@ static int kvm_ptdump_guest_show(struct seq_file *m, void *unused)
+> >  		.seq		= m,
+> >  	};
+> >  
+> > -	write_lock(&kvm->mmu_lock);
+> > +	guard(write_lock)(&kvm->mmu_lock);
+> 
+> The guard clause change has nothing to do with the fix I think? Although the change
+> is small and the fix is for a recent commit so maybe we don't care having this
+> in the same patch - not sure how strict kvm reviewers are about this : )
+>
 
-The handler is stored in the VPU device and can outlive the MDP probe or
-remove path. If probe fails after the handler has been registered, or if
-the MDP device is removed, the watchdog table can retain a pointer to an
-MDP object that is about to be released. A later VPU watchdog reset can
-then call mtk_mdp_reset_handler() with a stale pointer and dereference
-freed memory while queuing the MDP watchdog work.
+Look at the quality spaghetti code this would otherwise result in:
 
-Unregister the watchdog handler in the probe error path and in the
-remove path before dropping the VPU device reference.
+	write_lock();
+	ret = kvm_pgtable_walk();
+	if (ret) {
+		write_unlock();
+		return ret;
+	}
+	note_page_flush();
+	write_unlock();
 
-Fixes: ee18fc7b0b95 ("media: mtk-mdp: handle vpu_wdt_reg_handler() errors during probe")
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
----
- drivers/media/platform/mediatek/mdp/mtk_mdp_core.c | 2 ++
- 1 file changed, 2 insertions(+)
+	return 0;
 
-diff --git a/drivers/media/platform/mediatek/mdp/mtk_mdp_core.c b/drivers/media/platform/mediatek/mdp/mtk_mdp_core.c
-index 8432833814f3..5ccb7aa925d9 100644
---- a/drivers/media/platform/mediatek/mdp/mtk_mdp_core.c
-+++ b/drivers/media/platform/mediatek/mdp/mtk_mdp_core.c
-@@ -221,6 +221,7 @@ static int mtk_mdp_probe(struct platform_device *pdev)
- 	return 0;
- 
- err_reg_handler:
-+	vpu_wdt_unreg_handler(mdp->vpu_dev, VPU_RST_MDP);
- 	platform_device_put(mdp->vpu_dev);
- 
- err_vpu_get_dev:
-@@ -254,6 +255,7 @@ static void mtk_mdp_remove(struct platform_device *pdev)
- 
- 	pm_runtime_disable(&pdev->dev);
- 	vb2_dma_contig_clear_max_seg_size(&pdev->dev);
-+	vpu_wdt_unreg_handler(mdp->vpu_dev, VPU_RST_MDP);
- 	platform_device_put(mdp->vpu_dev);
- 	mtk_mdp_unregister_m2m_device(mdp);
- 	v4l2_device_unregister(&mdp->v4l2_dev);
+How is that better? So it has *everything* to do with the fix.
+
+And FWIW, the policy for KVM is that we don't do lock->guard
+conversions as a separate patches. Only when we need to change the
+code, and as part of the patch that changes that code.  Which is
+exactly what is happening here.
+
+> 
+> >  	ret = kvm_pgtable_walk(mmu->pgt, 0, BIT(mmu->pgt->ia_bits), &walker);
+> > -	write_unlock(&kvm->mmu_lock);
+> > +	if (ret)
+> > +		return ret;
+> > +	note_page(&st->parser_state.ptdump, BIT(mmu->pgt->ia_bits), -1, 0);
+> >  
+> > -	return ret;
+> > +	return 0;
+> >  }
+> >  
+> >  static int kvm_ptdump_guest_open(struct inode *m, struct file *file)
+> > diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
+> > index ab9899ca1e5f..fed4e4407e0e 100644
+> > --- a/arch/arm64/mm/ptdump.c
+> > +++ b/arch/arm64/mm/ptdump.c
+> > @@ -194,6 +194,7 @@ void note_page(struct ptdump_state *pt_st, unsigned long addr, int level,
+> >  	struct ptdump_pg_state *st = container_of(pt_st, struct ptdump_pg_state, ptdump);
+> >  	struct ptdump_pg_level *pg_level = st->pg_level;
+> >  	static const char units[] = "KMGTPE";
+> > +	bool flush = level == -1;
+> 
+> Can we do something similar to what S1 ptdump does (note_page_flush in ptdump_walk_pgd).
+
+See Mark's email.
+
+	M.
+
 -- 
-2.43.0
-
+Without deviation from the norm, progress is not possible.
 
