@@ -4,66 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30226C4451B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 08:51:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 500BFC4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 08:53:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=38KZKaYHVQVcHagUxOWFZKukMbZNQOPk/ErrD0Oyc3g=; b=13Kroa9JBPlZk9JPhJD6kDK/7s
-	OT5vB0IGN4dPCspqno8ql0dSSiS4QiN5WSQG/u1uBHMNQJQASsKwywwqWz12SgmpNI6VEZgEvt4en
-	sZLYiY9UlQb2VJ5H31oq6mnKcrgK4C3cUtuZ15D8jloheG08XQecTpMKh5YWTGsPmZyJ5G1at7YOF
-	+47ffamIcOVCJ3r2FctwxwXbWdXhuzrNKJZUIEuAdyG3tpRnRyfc2LXjB0h14k6jHuvZY2lC0ZJZw
-	q6oZV524ynhJoh8UfF4k7YM/5IlM3zjWtgbPJUD9d4uzKa9RpE0oLX4wprKLeZlMc//I7uU9pyC9H
-	Kc0NySYw==;
+	bh=LrlTUmgBAy0MeYhpd3XQX/F4/MLL4uJLkkm9uFPxeGY=; b=CBr7HElRjyIUgYKal6AjgQKx3A
+	L5e4CMCV82N/VFXwEoLdwGipwuBxm+MX4bM2atxlTh3RXLJ2WzJPLQqpmJrEvtvPl1LBwv4CO9jaI
+	3XDXF9zdWyCvsx1zf19JqFy69BuwkdHbT0T5yI3jFy1P2UzrYwWZEt6sWbH5MTKYiTHKWvwcP7iGw
+	3loXuCWFTYQjmHCe4jGkaOjbkFjFHpG/bfjC3HeOtakA6TNUzU6Clb1fTH7QgTcXBd2nF3Ds0Unf2
+	0TDdZmcMqJv1FK+yxx2agWCmt5tFqJQVnZ90gNg9qomCYZMuu9DiBxuqEhgF9v3pd7GP2CwxmoLBj
+	E9kwYvRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wljj5-00000006Et8-0FQY;
-	Mon, 20 Jul 2026 08:51:51 +0000
-Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
+	id 1wljkt-00000006FKE-1zxB;
+	Mon, 20 Jul 2026 08:53:43 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wljiv-00000006Epp-2zu0
+	id 1wljks-00000006FJg-00fV
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 20 Jul 2026 08:53:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=LrlTUmgBAy0MeYhpd3XQX/F4/MLL4uJLkkm9uFPxeGY=; b=PBnSQc7nIDmchg2XcmkYUkiYwL
+	ddbwyCZEAhJrfjen1cIAZCSioYOuH8MSw5RMPpvd8PniDsYk93HrFdT5A5fdZ1xz9/5PUKHYVeIVn
+	+0I99cuVVUWQvCgPJxUJheHOprsOh8MItZAwQ2QZKA3HkyVFb2IVJ+JGZAH+icO9RXpjhTPnXK0YO
+	4cTwoWHOXRMvlvMieLpIn0A4UpfVRDf6En+BYDMk+kV2bw8bHw3z6ak8KkbT68xe39rFkGwoi4M52
+	W2dFUFrhr+dLKGY0OeAAt6K8NxlIazkUgue4AkgJ9p4uCloLtuf0csPrKXLnDZ8ZRlXkSvAbU2lgf
+	xF4fWCgg==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wljko-0000000GPKb-1vZV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 08:51:43 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=38KZKaYHVQVcHagUxOWFZKukMbZNQOPk/ErrD0Oyc3g=;
-	b=377AMWgkdDM+Z75M57JHFWyAW9glZvz/jLro5ND40WdoYXMfbPpdO3IB7JswoWAYo7tcte12C
-	2jlfZ3PYbYd/M6TAA8EMnsJtHWWNxaONiLjvQqcaADEYHn+nM19O1rM0F5ksACW/NWIFgcmtPjW
-	EMskzmqt2zATUGw/xPgw4vw=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4h3Ysy1CM2z1T4Km;
-	Mon, 20 Jul 2026 16:42:14 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id D7D4C40574;
-	Mon, 20 Jul 2026 16:51:31 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
- (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 20 Jul
- 2026 16:51:29 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <shuah@kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kselftest@vger.kernel.org>
-CC: <ruanjinjie@huawei.com>
-Subject: [PATCH v2 2/2] kselftest/arm64: Add testcase for SECCOMP_RET_TRACE orig_x0 bypass
-Date: Mon, 20 Jul 2026 16:51:45 +0800
-Message-ID: <20260720085145.247690-3-ruanjinjie@huawei.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260720085145.247690-1-ruanjinjie@huawei.com>
-References: <20260720085145.247690-1-ruanjinjie@huawei.com>
+	Mon, 20 Jul 2026 08:53:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BC9C42B;
+	Mon, 20 Jul 2026 01:53:31 -0700 (PDT)
+Received: from [10.164.19.57] (unknown [10.164.19.57])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D49D03FB82;
+	Mon, 20 Jul 2026 01:53:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784537615; bh=GPcoRiOabqZcrKhtCc+010r/lyLlvM0NRgvjbYmd7Ls=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=a3p+arOH4IgRk1UdjlpkNlL7fdOacQQheCQ+AEjtvgt29y2yTQ+2P3ZI+RRoC88+z
+	 2+C/Ph2/U6oUkMdI01CqAqixS5bJMyrn5sMtdEGWCGqEQ62x6ZOeL5haE9cSZKnn1q
+	 dzBpzHaZ2684ZHWnVMEbh9AcXc8LV6TcaGy/jANI=
+Message-ID: <ad52d1ee-04cb-42d7-b50c-dfb3d28db5df@arm.com>
+Date: Mon, 20 Jul 2026 14:23:29 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.90.53.73]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] KVM: arm64: ptdump: Flush the last region
+To: Wei-Lin Chang <weilin.chang@arm.com>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+ Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>,
+ Steffen Eiden <seiden@linux.ibm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
+ Sebastian Ene <sebastianene@google.com>,
+ Vincent Donnefort <vdonnefort@google.com>
+References: <20260717231233.2299068-1-weilin.chang@arm.com>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <20260717231233.2299068-1-weilin.chang@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_015142_091404_EA63A3B7 
-X-CRM114-Status: GOOD (  25.47  )
+X-CRM114-CacheID: sfid-20260720_095338_994928_5D2AF3B4 
+X-CRM114-Status: GOOD (  25.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,285 +93,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a selftest that verifies the kernel re-evaluates a seccomp filter
-with the correct (ptrace-modified) first argument after
-a SECCOMP_RET_TRACE stop. On arm64, syscall_get_arguments() reads
-the first argument from orig_x0, which may be stale if the tracer modified
-regs->regs[0] but orig_x0 was not synced.  This can cause the filter to
-see an old argument and incorrectly allow a syscall that it should
-have rejected.
 
-The child installs a filter that:
- - TRACEs write() when fd == 2
- - returns ERRNO(EPERM) when fd == 1
 
-The parent catches the SECCOMP event, changes x0 (fd) from 2 to 1,
-and resumes the child.
+On 18/07/26 4:42 am, Wei-Lin Chang wrote:
+> Currently the stage-2 ptdump calls note_page() at each leaf entry visit.
+> This simply misses the output of the last region, because note_page()
+> only dumps output when it detects a change in level/prot, or when the
+> walk enters a next marker section. The last region in the guest IPA
+> space with the same level/prot is not dumped since there is no change
+> after it.
+> 
+> To dump the final region, manually issue a note_page() call with address
+> BIT(ia_bits) (end of guest IPA space) and level == -1 to trigger a level
+> change after the last region. Additionally treat level == -1 as a last
+> flushing note_page() call and avoid dumping the name of the next marker
+> for this case.
+> 
+> Fixes: 7c4f73548ed1 ("KVM: arm64: Register ptdump with debugfs on guest creation")
+> Reported-by: Sashiko AI <sashiko-bot@kernel.org>
+> Closes: https://lore.kernel.org/kvmarm/20260630122758.891011F00A3A@smtp.kernel.org/
+> Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+> ---
+>  arch/arm64/kvm/ptdump.c | 8 +++++---
+>  arch/arm64/mm/ptdump.c  | 5 +++--
+>  2 files changed, 8 insertions(+), 5 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
+> index c9140e22abcf..4096e4a92fae 100644
+> --- a/arch/arm64/kvm/ptdump.c
+> +++ b/arch/arm64/kvm/ptdump.c
+> @@ -155,11 +155,13 @@ static int kvm_ptdump_guest_show(struct seq_file *m, void *unused)
+>  		.seq		= m,
+>  	};
+>  
+> -	write_lock(&kvm->mmu_lock);
+> +	guard(write_lock)(&kvm->mmu_lock);
 
-If the seccomp re-evaluation sees the stale orig_x0 (fd=2) the filter
-returns TRACE again and the kernel (with recheck_after_trace=true)
-allows the syscall to proceed – write succeeds and the child exits 0.
-If the seccomp re-evaluation sees the new value (fd=1) the filter
-returns ERRNO(EPERM), write fails and the child exits non-zero.
-The test passes only when the write fails (child exit != 0).
+The guard clause change has nothing to do with the fix I think? Although the change
+is small and the fix is for a recent commit so maybe we don't care having this
+in the same patch - not sure how strict kvm reviewers are about this : )
 
-Before the fix:
-	# ./seccomp_ret_trace_x0_bypass
-	TAP version 13
-	1..1
-	not ok 1 write succeeded, orig_x0 bypass likely
-	# Totals: pass:0 fail:1 xfail:0 xpass:0 skip:0 error:0
 
-After the fix:
-	# ./seccomp_ret_trace_x0_bypass
-	TAP version 13
-	1..1
-	ok 1 seccomp correctly denied modified syscall
-	# Totals: pass:1 fail:0 xfail:0 xpass:0 skip:0 error:0
+>  	ret = kvm_pgtable_walk(mmu->pgt, 0, BIT(mmu->pgt->ia_bits), &walker);
+> -	write_unlock(&kvm->mmu_lock);
+> +	if (ret)
+> +		return ret;
+> +	note_page(&st->parser_state.ptdump, BIT(mmu->pgt->ia_bits), -1, 0);
+>  
+> -	return ret;
+> +	return 0;
+>  }
+>  
+>  static int kvm_ptdump_guest_open(struct inode *m, struct file *file)
+> diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
+> index ab9899ca1e5f..fed4e4407e0e 100644
+> --- a/arch/arm64/mm/ptdump.c
+> +++ b/arch/arm64/mm/ptdump.c
+> @@ -194,6 +194,7 @@ void note_page(struct ptdump_state *pt_st, unsigned long addr, int level,
+>  	struct ptdump_pg_state *st = container_of(pt_st, struct ptdump_pg_state, ptdump);
+>  	struct ptdump_pg_level *pg_level = st->pg_level;
+>  	static const char units[] = "KMGTPE";
+> +	bool flush = level == -1;
 
-Cc: Kees Cook <kees@kernel.org>
-Cc: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Link: https://lore.kernel.org/all/20260717182758.17111-1-will@kernel.org/
-Link: https://lore.kernel.org/all/20260716120640.6590-1-will@kernel.org/
-Link: https://lore.kernel.org/all/202607152004.DEA95D63@keescook/
-Suggested-by: Kees Cook <kees@kernel.org>
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
----
- tools/testing/selftests/arm64/abi/.gitignore  |   1 +
- tools/testing/selftests/arm64/abi/Makefile    |   2 +-
- .../arm64/abi/seccomp_ret_trace_x0_bypass.c   | 196 ++++++++++++++++++
- 3 files changed, 198 insertions(+), 1 deletion(-)
- create mode 100644 tools/testing/selftests/arm64/abi/seccomp_ret_trace_x0_bypass.c
+Can we do something similar to what S1 ptdump does (note_page_flush in ptdump_walk_pgd).
 
-diff --git a/tools/testing/selftests/arm64/abi/.gitignore b/tools/testing/selftests/arm64/abi/.gitignore
-index 39129a9907c7..491a80db9dff 100644
---- a/tools/testing/selftests/arm64/abi/.gitignore
-+++ b/tools/testing/selftests/arm64/abi/.gitignore
-@@ -1,5 +1,6 @@
- hwcap
- ptrace
- seccomp_ptrace_x0_bypass
-+seccomp_ret_trace_x0_bypass
- syscall-abi
- tpidr2
-diff --git a/tools/testing/selftests/arm64/abi/Makefile b/tools/testing/selftests/arm64/abi/Makefile
-index 5a16db379bd4..a01d3806eba8 100644
---- a/tools/testing/selftests/arm64/abi/Makefile
-+++ b/tools/testing/selftests/arm64/abi/Makefile
-@@ -1,7 +1,7 @@
- # SPDX-License-Identifier: GPL-2.0
- # Copyright (C) 2021 ARM Limited
- 
--TEST_GEN_PROGS := hwcap ptrace syscall-abi tpidr2 seccomp_ptrace_x0_bypass
-+TEST_GEN_PROGS := hwcap ptrace syscall-abi tpidr2 seccomp_ptrace_x0_bypass seccomp_ret_trace_x0_bypass
- 
- include ../../lib.mk
- 
-diff --git a/tools/testing/selftests/arm64/abi/seccomp_ret_trace_x0_bypass.c b/tools/testing/selftests/arm64/abi/seccomp_ret_trace_x0_bypass.c
-new file mode 100644
-index 000000000000..6887ec71aef1
---- /dev/null
-+++ b/tools/testing/selftests/arm64/abi/seccomp_ret_trace_x0_bypass.c
-@@ -0,0 +1,196 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Test for SECCOMP_RET_TRACE argument modification bypass
-+ * via stale orig_x0 during filter re-evaluation.
-+ *
-+ * On arm64, syscall_get_arguments() reads the first argument from
-+ * regs->orig_x0.  When a seccomp filter returns SECCOMP_RET_TRACE,
-+ * ptrace may modify regs->regs[0] while orig_x0 remains unchanged.
-+ * The kernel then re-evaluates the filter; if it sees the stale
-+ * orig_x0, it may incorrectly allow a syscall that the tracer intended
-+ * to block.
-+ *
-+ * This test installs a filter that:
-+ *   - TRACEs write() when fd == 2
-+ *   - returns ERRNO(EPERM) when fd == 1
-+ *   - allows all other syscalls
-+ *
-+ * The child calls write(2, ...).  The parent catches the SECCOMP stop,
-+ * changes x0 (fd) from 2 to 1, and resumes the child.
-+ *
-+ * If re-evaluation sees the old fd=2 (stale orig_x0), the filter
-+ * returns TRACE again; because recheck_after_trace is true, the kernel
-+ * allows the syscall to proceed.  write(1, ...) succeeds, child exits 0.
-+ * -> test FAIL (bypass detected).
-+ *
-+ * If re-evaluation sees the new fd=1 (synced orig_x0), the filter
-+ * returns ERRNO(EPERM), write fails, child exits 1.
-+ * -> test PASS (no bypass).
-+ *
-+ * No special privileges required beyond CAP_SYS_PTRACE.
-+ */
-+#include <errno.h>
-+#include <signal.h>
-+#include <stddef.h>
-+#include <stdio.h>
-+#include <stdlib.h>
-+#include <unistd.h>
-+#include <sys/prctl.h>
-+#include <sys/ptrace.h>
-+#include <sys/uio.h>
-+#include <sys/wait.h>
-+#include <linux/elf.h>
-+#include <linux/filter.h>
-+#include <linux/seccomp.h>
-+#include <linux/ptrace.h>
-+
-+#include "kselftest.h"
-+
-+#ifndef __NR_write
-+#define __NR_write 64
-+#endif
-+
-+#define PTRACE_EVENT_MASK(status) ((status) >> 16)
-+
-+static int do_child(void)
-+{
-+	long ret;
-+
-+	if (ptrace(PTRACE_TRACEME, 0, NULL, NULL))
-+		_exit(2);
-+
-+	raise(SIGSTOP);	/* synchronize with parent */
-+
-+	/*
-+	 * Filter:
-+	 *   if syscall == write:
-+	 *     if fd == 2 -> TRACE
-+	 *     if fd == 1 -> ERRNO(EPERM)
-+	 *     else -> ALLOW
-+	 *   else -> ALLOW
-+	 */
-+	struct sock_filter filter[] = {
-+		/* Load syscall number */
-+		BPF_STMT(BPF_LD | BPF_W | BPF_ABS,
-+			 offsetof(struct seccomp_data, nr)),
-+		/* If not write, allow */
-+		BPF_JUMP(BPF_JMP | BPF_JEQ | BPF_K, __NR_write, 0, 5),
-+		/* Load first argument (fd) */
-+		BPF_STMT(BPF_LD | BPF_W | BPF_ABS,
-+			 offsetof(struct seccomp_data, args[0])),
-+		/* fd == 2 ? */
-+		BPF_JUMP(BPF_JMP | BPF_JEQ | BPF_K, 2, 0, 2),
-+		/* Yes: TRACE */
-+		BPF_STMT(BPF_RET | BPF_K, SECCOMP_RET_TRACE),
-+		/* fd == 1 ? */
-+		BPF_JUMP(BPF_JMP | BPF_JEQ | BPF_K, 1, 0, 1),
-+		/* Yes: ERRNO(EPERM) */
-+		BPF_STMT(BPF_RET | BPF_K, SECCOMP_RET_ERRNO | (EPERM & SECCOMP_RET_DATA)),
-+		/* Other fd: ALLOW */
-+		BPF_STMT(BPF_RET | BPF_K, SECCOMP_RET_ALLOW),
-+	};
-+
-+	struct sock_fprog prog = {
-+		.len = ARRAY_SIZE(filter),
-+		.filter = filter,
-+	};
-+
-+	if (prctl(PR_SET_NO_NEW_PRIVS, 1, 0, 0, 0))
-+		_exit(3);
-+	if (prctl(PR_SET_SECCOMP, SECCOMP_MODE_FILTER, &prog))
-+		_exit(4);
-+
-+	/*
-+	 * write(2, ...) triggers TRACE, parent changes fd to 1.
-+	 * If re-eval sees fd=1 -> ERRNO -> write fails, ret = -EPERM.
-+	 * If re-eval sees fd=2 -> TRACE again -> allowed -> write succeeds.
-+	 */
-+	ret = syscall(__NR_write, 2, "", 0);
-+	_exit(ret == 0 ? 0 : 1);
-+}
-+
-+int main(void)
-+{
-+	struct user_pt_regs regs;
-+	struct iovec iov = { .iov_base = &regs, .iov_len = sizeof(regs) };
-+	pid_t child;
-+	int status;
-+
-+	ksft_print_header();
-+	ksft_set_plan(1);
-+
-+	child = fork();
-+	if (!child)
-+		return do_child();
-+
-+	/* 1. Wait for initial SIGSTOP */
-+	if (waitpid(child, &status, 0) != child)
-+		ksft_exit_fail_msg("waitpid SIGSTOP");
-+	if (!WIFSTOPPED(status) || WSTOPSIG(status) != SIGSTOP)
-+		ksft_exit_fail_msg("unexpected initial stop");
-+
-+	/* 2. Enable SECCOMP ptrace events */
-+	if (ptrace(PTRACE_SETOPTIONS, child, 0, PTRACE_O_TRACESECCOMP))
-+		ksft_exit_fail_msg("PTRACE_SETOPTIONS");
-+
-+	/* 3. Continue child to hit SECCOMP stop */
-+	if (ptrace(PTRACE_CONT, child, 0, 0))
-+		ksft_exit_fail_msg("PTRACE_CONT");
-+
-+	/* 4. Wait for SECCOMP stop */
-+	while (1) {
-+		if (waitpid(child, &status, 0) != child)
-+			ksft_exit_fail_msg("waitpid SECCOMP");
-+		if (WIFEXITED(status)) {
-+			ksft_test_result_fail("child exited before SECCOMP stop\n");
-+			goto out;
-+		}
-+		if (WIFSIGNALED(status)) {
-+			ksft_test_result_fail("child killed unexpectedly\n");
-+			goto out;
-+		}
-+		if (WIFSTOPPED(status) &&
-+		    WSTOPSIG(status) == SIGTRAP &&
-+		    PTRACE_EVENT_MASK(status) == PTRACE_EVENT_SECCOMP)
-+			break;
-+		ptrace(PTRACE_CONT, child, 0, WSTOPSIG(status));
-+	}
-+
-+	/* 5. Modify x0 (fd) from 2 to 1 */
-+	if (ptrace(PTRACE_GETREGSET, child, NT_PRSTATUS, &iov))
-+		ksft_exit_fail_perror("GETREGSET");
-+	if (regs.regs[8] != __NR_write || regs.regs[0] != 2) {
-+		ksft_test_result_fail("unexpected regs: syscall=%llu, x0=%llu\n",
-+				      regs.regs[8], regs.regs[0]);
-+		goto out;
-+	}
-+	regs.regs[0] = 1;
-+	if (ptrace(PTRACE_SETREGSET, child, NT_PRSTATUS, &iov))
-+		ksft_exit_fail_perror("SETREGSET");
-+
-+	/* 6. Resume child */
-+	if (ptrace(PTRACE_CONT, child, 0, 0))
-+		ksft_exit_fail_perror("PTRACE_CONT");
-+
-+	/* 7. Reap child – must exit normally */
-+	if (waitpid(child, &status, 0) != child)
-+		ksft_exit_fail_msg("final waitpid");
-+
-+	if (!WIFEXITED(status)) {
-+		ksft_test_result_fail("child did not exit normally\n");
-+		goto out;
-+	}
-+
-+	if (WEXITSTATUS(status) != 0)
-+		ksft_test_result_pass("seccomp correctly denied modified syscall\n");
-+	else
-+		ksft_test_result_fail("write succeeded, orig_x0 bypass likely\n");
-+
-+out:
-+	if (child > 0) {
-+		kill(child, SIGKILL);
-+		waitpid(child, NULL, 0);
-+	}
-+	ksft_print_cnts();
-+	return ksft_get_fail_cnt() ? EXIT_FAILURE : EXIT_SUCCESS;
-+}
--- 
-2.34.1
+
+>  	ptdesc_t prot = 0;
+>  
+>  	/* check if the current level has been folded dynamically */
+> @@ -234,7 +235,7 @@ void note_page(struct ptdump_state *pt_st, unsigned long addr, int level,
+>  				  pg_level[st->level].num);
+>  		pt_dump_seq_puts(st->seq, "\n");
+>  
+> -		if (addr >= st->marker[1].start_address) {
+> +		if (addr >= st->marker[1].start_address && !flush) {
+>  			st->marker++;
+>  			pt_dump_seq_printf(st->seq, "---[ %s ]---\n", st->marker->name);
+>  		}
+> @@ -244,7 +245,7 @@ void note_page(struct ptdump_state *pt_st, unsigned long addr, int level,
+>  		st->level = level;
+>  	}
+>  
+> -	if (addr >= st->marker[1].start_address) {
+> +	if (addr >= st->marker[1].start_address && !flush) {
+>  		st->marker++;
+>  		pt_dump_seq_printf(st->seq, "---[ %s ]---\n", st->marker->name);
+>  	}
 
 
