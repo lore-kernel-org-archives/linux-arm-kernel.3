@@ -4,71 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C603DC44525
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 10:01:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EC50C4452C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 10:05:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=10GckTjhfZGgdyb4+SoDUN2U0nJyezLnFpIIYVOOPAc=; b=yqQA/p0t9KJXH281aloF0/cA21
-	BhMXyYf3941dEFl00gpeG7+pyhkqB+/EMbckfi70OF8z/GioUZ0lu2T5dIwwwXYebasNO86hxyZX/
-	nTvOgFps5Y/vOjelXQahWgLNmJr5ob57U5ipIBbEb4ugRY31hSR7rHH4QGJs4WhOcZyirZ5Dl9zsx
-	Osa2k023c8S8G8A1RzxovtCzIyhFYADSxNv+C2MKW5brgv1UqrxJ0VC54NmHDg/CYcvzbk/wqwBUz
-	fW54bDT714t1bTt4ye/39cTaFMHaxxiqc/JYdgXTRAEBcHtRSK+wvAfCt/4tw8215HY09H7epyJ9y
-	PGe34hPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HDlY3L+wbIeuKuWj1TRGxelV/jYuwKeoBpfxYCOkCmU=; b=CzGkNqiK55QTd3sKCtjo6hrjZa
+	QiqpCplZEt/XgIh+qKd3u5X0DXKXHQhVgICHhAv818jcptIYX/6IOhZAP2plfMZZIsj6eD8yFrJjU
+	IsmURFc+6OF/hBQrgcpBLRSDEVCr0eWdAz+rx/DK0kDMIGQcmIrxldyCYQjLQ56YsO6SH2CEa8wE8
+	7yoOYgE0yjrxgslkFhEBwtLuGNP69Eriuem+7XryaZ3xHp/Xk6Lz2LFE0Q6IborF6ZxmZc9okTUNh
+	nFjw+qsVXncd2tg7AO4OXZ34E71Q1lphhOMQUHRjR7joNq5uBX3+64U4Utf96SfUGgLLvuiH6GZWf
+	2WbmBX1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlkof-00000006PSP-1JwY;
-	Mon, 20 Jul 2026 10:01:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlkod-00000006PRM-0NLN
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 10:01:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ABC302B;
-	Mon, 20 Jul 2026 03:01:31 -0700 (PDT)
-Received: from e132581.arm.com (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 665193F86F;
-	Mon, 20 Jul 2026 03:01:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784541695; bh=HvH60az2pgbHIpr+00e5DtDk22sQ4vHKOnqPd/nOpz0=;
-	h=From:Date:Subject:To:Cc:From;
-	b=USzRiFifRaM1egoAR25PE6nkkvG/vL0F4AoCyTalJzWFsyjlhkjfYuMogevZ+GW4k
-	 VL7r3jjtXSFzMG/GMCuYDpIR1nODL3AV7mYe5I6LHgx4snMReu6XYdIIU+e4EBbKvi
-	 njLcrRjiplmJrv48wa/td74yukWe6CNsVCydGywE=
-From: Leo Yan <leo.yan@arm.com>
-Date: Mon, 20 Jul 2026 11:01:21 +0100
-Subject: [PATCH] perf cs-etm: Avoid truncating AUX buffer sizes to int
+	id 1wlkrx-00000006Pkf-0NAm;
+	Mon, 20 Jul 2026 10:05:05 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wlkrr-00000006Ph6-36Ss;
+	Mon, 20 Jul 2026 10:05:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1784541896;
+	bh=rp96vQvpmzcYQQQawuTsiCW9FJPQfixEXB6+OjlKWjQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=cUXuEiIht+z70ITVtT3aMJOqVAXPEkt+xdNaJYwPQV+u2ysejRxe34pOPW12ibkJl
+	 JBnGfuynBWdNBTSW0azMZkJ+GeRW3VArIdc04fy73BiZcxRXp61sAcditjKfkxispg
+	 WrhtT1ruPxqFCeOyNm9PC98cEsBd7m4f3P5yNlZYpt+T2n1oYho0Is8x09iq1ZU/RJ
+	 O9wsOb7vkmkOKfeNSnEuvK8Sp1byEfkFDK7QBUUpdS67KycyW/efyI/YlPTPqiB74g
+	 VhEa57ALvp7KHwxL6dztDpo9nytY3nGb0p5FybyShxnOoJ/i0MNzyv2wpkU3xpSxfG
+	 gvEjOpor5Eh/w==
+Received: from yukiji.home (unknown [100.64.0.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9AB8B17E0D87;
+	Mon, 20 Jul 2026 12:04:55 +0200 (CEST)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Date: Mon, 20 Jul 2026 12:04:11 +0200
+Subject: [PATCH v3 01/18] dt-bindings: clock: mediatek: Make '#clock-cells'
+ required for MT8186
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260720-perf_cs_etm_fix_big_size-v1-1-97ded24636b1@arm.com>
-X-B4-Tracking: v=1; b=H4sIAPDxXWoC/x2MwQqDMBAFf0X23EAMNCn+SpHFxhe7B61ki4iSf
- zd4HIaZkxRZoNQ1J2VsovJbKrSPhuJ3WCYYGSuTs87b4KxZkRNHZfxnTrLzRyZWOWAQn96+UvB
- hTFTzNaP6e/3uS7kAbyJ1zGoAAAA=
-X-Change-ID: 20260720-perf_cs_etm_fix_big_size-ec5608f767df
-To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>, 
- Jiri Olsa <jolsa@kernel.org>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>, 
- Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
- linux-perf-users@vger.kernel.org, Suyash Mahar <smahar@meta.com>, 
- Leo Yan <leo.yan@arm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784541694; l=3060;
- i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=HvH60az2pgbHIpr+00e5DtDk22sQ4vHKOnqPd/nOpz0=;
- b=EnprNlHgaiV8R5vwtyiaanocyQCXT4KPvm+chm9kn032dyPaIvytisSsqcb3dx6lzIeYbZNw+
- wkUGCFRpZusC1HQ2RQ2csrA2ZjJr7WSFPq1zcG9LPH4NpBY9Pv2RtAG
-X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
- pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
+Message-Id: <20260720-mt8189-clocks-system-base-v3-1-8e6d99ab3ad2@collabora.com>
+References: <20260720-mt8189-clocks-system-base-v3-0-8e6d99ab3ad2@collabora.com>
+In-Reply-To: <20260720-mt8189-clocks-system-base-v3-0-8e6d99ab3ad2@collabora.com>
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Chun-Jie Chen <chun-jie.chen@mediatek.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Edward-JW Yang <edward-jw.yang@mediatek.com>, 
+ Richard Cochran <richardcochran@gmail.com>, 
+ Chen-Yu Tsai <wenst@chromium.org>
+Cc: kernel@collabora.com, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ netdev@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784541894; l=1753;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=rp96vQvpmzcYQQQawuTsiCW9FJPQfixEXB6+OjlKWjQ=;
+ b=yJg4F6Q1CnIIBmJawSiJfmtIHG86T4HrpDtuEhOqvNV0DbM3TeQd90ds4tCNnyTIW/zjiSR6t
+ 7yXpB3P6uJ6B/9SDTXG6NidujT3BGzXWjsxBw+e7Pdmzh1ef8dKy8/o
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_030139_223308_A4FF93CB 
-X-CRM114-Status: GOOD (  16.89  )
+X-CRM114-CacheID: sfid-20260720_030459_936220_74CBD62C 
+X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,107 +95,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-cs_etm__get_trace() returns an int, but it used to return etmq->buf_len
-on success. That value comes from auxtrace_buffer::size, which is a
-size_t. For a large AUX trace block, returning the byte count through an
-int can overflow and make a valid buffer look like a negative error.
+Both MT8186 clock controllers dt-bindings (clock and sys-clock)
+document the '#clock-cells' property but do not enforce it as required
+property.
+As clock provider nodes should define this property in devicetrees, add
+it to the required property list in both its dt-bindings files.
 
-The callers do not need the actual byte count from cs_etm__get_trace().
-The buffer length is already stored in the etmq->buf_len. The callers
-only need to distinguish three states:
-
-  < 0: error
-  = 0: no more AUX buffers
-  > 0: data is available
-
-Make cs_etm__get_trace() return 0 for all non-error cases and use
-etmq->buf_len to indicate whether a new buffer was found. Then make
-cs_etm__get_data_block() return 1 whenever data is available, instead of
-returning the buffer length.
-
-Also refactor cs_etm__get_data_block() to make its return value
-semantics clearer.
-
-Reported-by: Suyash Mahar <smahar@meta.com>
-Fixes: 8224531cf5a1 ("perf cs-etm: Modularize auxtrace_buffer fetch function")
-Signed-off-by: Leo Yan <leo.yan@arm.com>
+Fixes: f113a51aa2cf ("dt-bindings: ARM: MediaTek: Add new document bindings of MT8186 clock")
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
- tools/perf/util/cs-etm.c | 46 ++++++++++++++++++++++++++--------------------
- 1 file changed, 26 insertions(+), 20 deletions(-)
+ Documentation/devicetree/bindings/clock/mediatek,mt8186-clock.yaml     | 1 +
+ Documentation/devicetree/bindings/clock/mediatek,mt8186-sys-clock.yaml | 1 +
+ 2 files changed, 2 insertions(+)
 
-diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-index 95e3ec1171acc8442d8539a72a26a1a5a53a2f37..114b3cd2da495e54e78df8fbd707898312f95079 100644
---- a/tools/perf/util/cs-etm.c
-+++ b/tools/perf/util/cs-etm.c
-@@ -1467,8 +1467,7 @@ cs_etm__get_trace(struct cs_etm_queue *etmq)
- 	etmq->buf_used = 0;
- 	etmq->buf_len = aux_buffer->size;
- 	etmq->buf = aux_buffer->data;
--
--	return etmq->buf_len;
-+	return 0;
- }
+diff --git a/Documentation/devicetree/bindings/clock/mediatek,mt8186-clock.yaml b/Documentation/devicetree/bindings/clock/mediatek,mt8186-clock.yaml
+index f4e58bfa504f..539149c945d0 100644
+--- a/Documentation/devicetree/bindings/clock/mediatek,mt8186-clock.yaml
++++ b/Documentation/devicetree/bindings/clock/mediatek,mt8186-clock.yaml
+@@ -44,6 +44,7 @@ properties:
+ required:
+   - compatible
+   - reg
++  - '#clock-cells'
  
- /*
-@@ -2151,26 +2150,33 @@ static int cs_etm__get_data_block(struct cs_etm_queue *etmq)
- {
- 	int ret;
+ additionalProperties: false
  
--	if (!etmq->buf_len) {
--		ret = cs_etm__get_trace(etmq);
--		if (ret <= 0)
--			return ret;
--		/*
--		 * We cannot assume consecutive blocks in the data file
--		 * are contiguous, reset the decoder to force re-sync.
--		 */
--		ret = cs_etm_decoder__reset(etmq->decoder);
--		if (ret)
--			return ret;
-+	/* The current block is not finished */
-+	if (etmq->buf_len)
-+		return 1;
+diff --git a/Documentation/devicetree/bindings/clock/mediatek,mt8186-sys-clock.yaml b/Documentation/devicetree/bindings/clock/mediatek,mt8186-sys-clock.yaml
+index 1c446fbc5108..f8acc02cafee 100644
+--- a/Documentation/devicetree/bindings/clock/mediatek,mt8186-sys-clock.yaml
++++ b/Documentation/devicetree/bindings/clock/mediatek,mt8186-sys-clock.yaml
+@@ -45,6 +45,7 @@ properties:
+ required:
+   - compatible
+   - reg
++  - '#clock-cells'
  
--		/*
--		 * Since the decoder is reset, this causes a global trace
--		 * discontinuity. Flush all thread stacks.
--		 */
--		cs_etm__flush_all_stack(etmq);
--	}
-+	ret = cs_etm__get_trace(etmq);
-+	if (ret < 0)
-+		return ret;
-+
-+	/* No more buffer to read */
-+	if (!etmq->buf_len)
-+		return 0;
-+
-+	/*
-+	 * We cannot assume consecutive blocks in the data file
-+	 * are contiguous, reset the decoder to force re-sync.
-+	 */
-+	ret = cs_etm_decoder__reset(etmq->decoder);
-+	if (ret)
-+		return ret;
-+
-+	/*
-+	 * Since the decoder is reset, this causes a global trace
-+	 * discontinuity. Flush all thread stacks.
-+	 */
-+	cs_etm__flush_all_stack(etmq);
+ additionalProperties: false
  
--	return etmq->buf_len;
-+	return 1;
- }
- 
- static bool cs_etm__is_svc_instr(struct cs_etm_queue *etmq,
 
----
-base-commit: e01c7bd5b1eece254bcbf282db066b12c4815d21
-change-id: 20260720-perf_cs_etm_fix_big_size-ec5608f767df
-
-Best regards,
 -- 
-Leo Yan <leo.yan@arm.com>
+2.55.0
 
 
