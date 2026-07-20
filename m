@@ -4,71 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0CF0C44515
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 15:00:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E9F1C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 15:02:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ycNBxklaVmmxA9p+FUkLQ7zBOctipBkWzL8+cRziObE=; b=tY9FXwDxycuwgO
-	FRVk6WyNRE8FJitDm3jYkVobYgvKkqpXfK/SWNs0AfWlMF+Hdsfr3VY6cQ+uUsU4JvJ4eYZWjeBht
-	zsTgdETBzRXW9OWpAAHd+YqzxJM+r809mciAvSj4aJTzN1U8mFxmyfdW7HtstcSpWoIK21m5u4eYh
-	zh3vtrUkxGc+yMlXYBgWUSLwzj9OZfsFzYyfWEP3RswaSW/Hp8ITi28kJ5K1oRvBavD+0eP6dfG+7
-	CNjys5tO5ckhQV/1Y1Q23iPe8/vmxrwVGgew7PqsACa6nSLE7b+Abl4I3gzPNX0vBs3xaVdl2aqFG
-	nqP1XeScvjwCMJtf8lIQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H7ebGOfgWruWMTliDiVKQ4TF3W+TtvBsQAK7dfzMFZc=; b=rycehSqGq8AuZiGDroXWZd3Juo
+	YOhCu3joIsXLm81wMbhE3xplP6dhUnZGctRRc+2M9LNQnRInF8VY8xy+8LRjZ2A2a501ROzwojy5s
+	0Ww2rZe1ktdag4znVfjQDuh2ycKZ324ODW1CSvtE5xdSJysW70vzNAypG2TAwn1yMMnUiSXR2NtJd
+	jKrbs1eI5X9ikccZJ4sARAd+PwYBJhIcGN8BofD84Jup27xG2CFhzBSgcxQ6e/nKbnjfh3QxdtCLZ
+	sBq2/PO6+cKmwnpxIZ5/CJaFMmeHP7eyVTctcyPdhOrR2lyiHe9UOoSPR82EPOVPQA/a9efD3gSX+
+	/GZWAOHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlpTb-0000000740x-0k6K;
-	Mon, 20 Jul 2026 15:00:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlpTZ-000000073wZ-1UO9
+	id 1wlpVr-000000074TK-47Cy;
+	Mon, 20 Jul 2026 15:02:35 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wlpVp-000000074Re-0qyi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 15:00:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8155660A6A
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 15:00:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22B631F01559
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 15:00:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784559612;
-	bh=ycNBxklaVmmxA9p+FUkLQ7zBOctipBkWzL8+cRziObE=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
-	b=jYNftuoYHLqhjKULKjfWm+F98NTgtaMuARSXROze+kppPuP211YIGPoUqvVGvBN1H
-	 AbSP3gzgNZ9l8CH75UmHp2t0LR+jbliLU9ZTysP8dWdWJsjQWUF+SZefpuFRokncMO
-	 TeRKdB3hFfRxZXPxtX9fvmd8vYa9e3BAzYna/P4b4Eb7kfkbrmbMK728lZX9r1VmS9
-	 AbU/vcar9X2gtc0VIqLA2st5pH8r5q2YxoX2uX5XMSvYhaP+OKtYLzNNRi7hpeSxkQ
-	 sFXB3+KEAtDG9aImwMmrqtkIuV5Y8wc/PabssfEYbD/eSxHXYtfcymuWnGdIRdandd
-	 /c63Fo1Da1DdQ==
-Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-39c9452243cso65913491fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 08:00:12 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RquqBXLe1/1IKY3Dh2RjpUpK30cZrCKi6KYjKguFaTCN6fTRkQX5AVeXUBG4NQYRDpKsQrtGnJAhkTkYpigBqlC@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz33PdiQRlputT54tLPpd2S8M1+3HKdC/+BV2wYw+XP6LgE2hkM
-	6dPtDfmz1sOj4G7Of26uXCYsbMDhBGYb8S1C8EFNBFDCeZt+u6Q9DP4EApTZsYKkbyuTP3ggzat
-	lXlzOXjCwutdEaZAX1Z7WzsVfT4A3JxQ=
-X-Received: by 2002:a2e:be85:0:b0:39d:4014:12cb with SMTP id
- 38308e7fff4ca-39eb27158ddmr27207081fa.2.1784559610404; Mon, 20 Jul 2026
- 08:00:10 -0700 (PDT)
+	Mon, 20 Jul 2026 15:02:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B75EE143D;
+	Mon, 20 Jul 2026 08:02:24 -0700 (PDT)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 91A073F99C;
+	Mon, 20 Jul 2026 08:02:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784559748; bh=2KrXs8f1Z0TbwsJPm9+uw/ZocejU2n3Z6xMfdKnMATk=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=lL01rMJyakJc2SleEFeo6HDq1evTC5J4j64QNxXkDJqqAn1ChszxucBmcseF0r/0L
+	 kd2vD9xPjlQkGVos3hUD4IdJ4EUeuk9dL+BcwsySe/K17wMraKAg6L8bItt2ajHYt7
+	 5buWcOMN1YA3w06jdPajNnr5bTX+VXTap1HTYwIU=
+Message-ID: <203bfc7b-b8de-442e-8057-4ffe25949244@arm.com>
+Date: Mon, 20 Jul 2026 16:02:24 +0100
 MIME-Version: 1.0
-References: <20260719030927.2417-1-per@palvencia.se>
-In-Reply-To: <20260719030927.2417-1-per@palvencia.se>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Mon, 20 Jul 2026 22:59:57 +0800
-X-Gmail-Original-Message-ID: <CAGb2v64rRipC9VV5QyHC0nR4rAho8q=wX0ngVVxRND3xMOnofA@mail.gmail.com>
-X-Gm-Features: AUfX_mygD09zG0aqXA7P3nfYCY5wS_Gay0KUV-iNTQ-76viZAbc2kbcgr8hwOVI
-Message-ID: <CAGb2v64rRipC9VV5QyHC0nR4rAho8q=wX0ngVVxRND3xMOnofA@mail.gmail.com>
-Subject: Re: [PATCH RFC] arm64: dts: allwinner: a523: Add SPDIF to x96qproplus device
-To: Per Larsson <per@palvencia.se>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
-	"moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	"open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>, open list <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Thunderbird Daily
+Subject: Re: [PATCH 03/23] resctrl: Expose MBA resource_schemata mode sysfs
+From: Ben Horgan <ben.horgan@arm.com>
+To: Fenghua Yu <fenghuay@nvidia.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Tony Luck
+ <tony.luck@intel.com>, James Morse <james.morse@arm.com>,
+ Dave Martin <Dave.Martin@arm.com>, Shaopeng Tan <tan.shaopeng@fujitsu.com>,
+ Chen Yu <yu.c.chen@intel.com>, Babu Moger <babu.moger@amd.com>,
+ Drew Fustini <fustini@kernel.org>, Vikram Sethi <vsethi@nvidia.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Newton Liu
+ <newtonl@nvidia.com>, Gavin Shan <gshan@redhat.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <cover.1784217438.git.fenghuay@nvidia.com>
+ <20260716210329.2914625-3-fenghuay@nvidia.com>
+ <1778dc0e-4a5a-45d5-865c-ab8c65988636@arm.com>
+Content-Language: en-US
+In-Reply-To: <1778dc0e-4a5a-45d5-865c-ab8c65988636@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260720_080233_358669_18787D7D 
+X-CRM114-Status: GOOD (  36.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,111 +75,226 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 19, 2026 at 11:10=E2=80=AFAM Per Larsson <per@palvencia.se> wro=
-te:
->
-> When spdif support was added for the Allwinner A523 family of SoCs, only
-> two of the three possible pins were added to the dtsi, since the third
-> would clash with the first ethernet port (emac0)
-> However, some devices don't use emac0 and instead use emac1 for the only
-> available ethernet port, leaving the pin free to use for spdif.
->
-> Add it to the dtsi, and to such a device where this pin is used for spdif
->
-> Signed-off-by: Per Larsson <per@palvencia.se>
-> ---
-> Marking this as RFC for a few reasons
-> 1. This is my first submission, hoping everything is properly organized.
+Hi Fenghua,
 
-This is pretty good. The commit message is also well written. I would
-like to see the patch split into two patches though. The first adds the
-pinmux (and you can mention in the commit message that a subsequent
-patch will reference it). The second patch enables SPDIF on the device
-you have.
+On 7/17/26 09:54, Ben Horgan wrote:
+> Hi Fenghua,
+> 
+> On 7/16/26 22:02, Fenghua Yu wrote:
+>> Node-scoped MBA on MPAM needs a way to distinguish native memory-side
+>> controls from legacy L3-shaped MB emulation. Track the selected emulate
+>> mode on rdt_resource and expose it as
+>> info/<resource>/resource_schemata/mode ("native" or "legacy") when the
+>> architecture enables emulation.
+> 
+> This doesn't sound right.
+> 
+> If the MPAM mbwu counters are counting traffic on the egress of the L3 they should be described in
+> the acpi tables as such, if they are not then they shouldn't. If they are the MB resource can then
+> be scoped to the L3.
+> 
+> If the MPAM mbwu counters are at the memory bandwidth controller then they should be described in
+> the acpi tables as such. Currently there is no support for such counters except when there is a
+> single L3 and a single NUMA node and so a single link between the caches and the memory. Counting at
+> either end of the link, egress of the L3 or entry to the memory gives the same counts and so the
+> driver performs some unfortunate gymnastics to use L3 scope in this case. Do you see a reason not to
+> do this? If we change the scope to be NUMA node in these platforms all I see changing is the domain
+> id for the sole MB domain.
+> 
+> As such, can't we just add support for a NUMA scope memory bandwidth allocation resource, MB_NODE,
+> without having a legacy/native switch?
 
-> 2. My testing setup is not the best: I get sound with this patch, but
->    the pulseaudio daemon needs to be restarted far too often.
->    Hopefully it's just something on this minirootfs. Testing welcome.
-> 3. Not sure where to get the hash for a fixes tag or if that's even OK
+There is some further discussion here on when emulation is required in resctrl. [1] No firm
+conclusion as of yet.
 
-This is a new addition, not a fix, so no fixes tag is warranted.
+[1] https://lore.kernel.org/lkml/8fd6caed-820f-457a-a1ef-a0a006fa52aa@intel.com/
 
+Thanks,
 
-Thanks
-ChenYu
+Ben
 
-> ---
->  .../arm64/boot/dts/allwinner/sun55i-a523.dtsi |  7 ++++++
->  .../dts/allwinner/sun55i-h728-x96qpro+.dts    | 24 +++++++++++++++++++
->  2 files changed, 31 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/=
-boot/dts/allwinner/sun55i-a523.dtsi
-> index ca6a16807049..7370e8ed24ec 100644
-> --- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> +++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> @@ -216,6 +216,13 @@ spdif_out_pb_pin: spdif-pb-pin {
->                                 allwinner,pinmux =3D <2>;
->                         };
->
-> +                       /omit-if-no-ref/
-> +                       spdif_out_ph_pin: spdif-ph-pin {
-> +                               pins =3D "PH7";
-> +                               function =3D "spdif";
-> +                               allwinner,pinmux =3D <4>;
-> +                       };
-> +
->                         /omit-if-no-ref/
->                         spdif_out_pi_pin: spdif-pi-pin {
->                                 pins =3D "PI10";
-> diff --git a/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts b/arc=
-h/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
-> index a96927fbdadd..b172985583f8 100644
-> --- a/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
-> +++ b/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
-> @@ -44,6 +44,24 @@ reg_vcc3v3: vcc3v3 {
->                 vin-supply =3D <&reg_vcc5v>;
->                 regulator-always-on;
->         };
-> +
-> +       sound-spdif {
-> +               compatible =3D "simple-audio-card";
-> +               simple-audio-card,name =3D "spdif-out";
-> +
-> +               simple-audio-card,cpu {
-> +                       sound-dai =3D <&spdif>;
-> +               };
-> +
-> +               simple-audio-card,codec {
-> +                       sound-dai =3D <&spdif_out>;
-> +               };
-> +       };
-> +
-> +       spdif_out: spdif-out {
-> +               #sound-dai-cells =3D <0>;
-> +               compatible =3D "linux,spdif-dit";
-> +       };
->  };
->
->  &ehci0 {
-> @@ -275,6 +293,12 @@ &r_pio {
->         vcc-pm-supply =3D <&reg_aldo3>;
->  };
->
-> +&spdif {
-> +       pinctrl-names =3D "default";
-> +       pinctrl-0 =3D <&spdif_out_ph_pin>;
-> +       status =3D "okay";
-> +};
-> +
->  &uart0 {
->         pinctrl-names =3D "default";
->         pinctrl-0 =3D <&uart0_pb_pins>;
-> --
-> 2.48.1
->
+> 
+> Thanks,
+> 
+> Ben
+> 
+>>
+>> The mode file is only created when rdt_resource::mode is non-zero
+>> (RESCTRL_CTRL_LEGACY or RESCTRL_CTRL_NATIVE). It defaults to
+>> RESCTRL_CTRL_MODE_NONE, so resources whose architecture does not support
+>> control emulation get no mode file and are unaffected. Architecture
+>> backends that support emulation set the initial mode when they create
+>> their controls; on MPAM this is wired up together with the node-scoped
+>> MB_NODE control in a later patch, so this commit only adds the (dormant)
+>> generic mechanism.
+>>
+>> The mode file is added read-only here: switching the mode at runtime
+>> requires rebuilding the resource_schemata layout to match the new mode,
+>> so the writable interface is added together with that rebuild logic in a
+>> later patch. Keeping the file read-only until then avoids exposing a
+>> writable-but-no-op interface.
+>>
+>> Store rdt_resource_final in the resource_schemata directory priv so the
+>> mode file can resolve the backing resource without dereferencing NULL.
+>>
+>> Signed-off-by: Fenghua Yu <fenghuay@nvidia.com>
+>> ---
+>>  fs/resctrl/rdtgroup.c   | 77 ++++++++++++++++++++++++++++++++++++++++-
+>>  include/linux/resctrl.h | 17 +++++++++
+>>  2 files changed, 93 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/fs/resctrl/rdtgroup.c b/fs/resctrl/rdtgroup.c
+>> index 2abb7fda6091..6b1f24c6a1f2 100644
+>> --- a/fs/resctrl/rdtgroup.c
+>> +++ b/fs/resctrl/rdtgroup.c
+>> @@ -2696,6 +2696,74 @@ static unsigned long fflags_from_resource(struct rdt_resource *r)
+>>  	return WARN_ON_ONCE(1);
+>>  }
+>>  
+>> +static int resctrl_ctrl_mb_mode_show(struct kernfs_open_file *of,
+>> +				     struct seq_file *seq, void *v)
+>> +{
+>> +	struct rdt_resource_final *f = rdt_kn_parent_priv(of->kn);
+>> +	struct rdt_resource *r = f->res;
+>> +
+>> +	guard(mutex)(&rdtgroup_mutex);
+>> +
+>> +	switch (r->mode) {
+>> +	case RESCTRL_CTRL_LEGACY:
+>> +		seq_puts(seq, "[legacy] native\n");
+>> +		break;
+>> +	case RESCTRL_CTRL_NATIVE:
+>> +		seq_puts(seq, "legacy [native]\n");
+>> +		break;
+>> +	default:
+>> +		WARN_ONCE(1, "%s: unexpected MB control mode %d\n",
+>> +			  f->name, r->mode);
+>> +		seq_puts(seq, "legacy native\n");
+>> +		break;
+>> +	}
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static struct rftype resctrl_ctrl_mb_files[] = {
+>> +	{
+>> +		.name		= "mode",
+>> +		.mode		= 0444,
+>> +		.kf_ops		= &rdtgroup_kf_single_ops,
+>> +		.seq_show	= resctrl_ctrl_mb_mode_show,
+>> +		/*
+>> +		 * Directory-level file, not per-control: fflags is only a
+>> +		 * presence flag here, not the BIT(ctrl->type) type filter used
+>> +		 * by resctrl_add_ctrl_files().
+>> +		 */
+>> +		.fflags		= 1,
+>> +	}
+>> +};
+>> +
+>> +static int resctrl_ctrl_add_files(struct kernfs_node *kn)
+>> +{
+>> +	struct rftype *rfts, *rft;
+>> +	int ret, len;
+>> +
+>> +	rfts = resctrl_ctrl_mb_files;
+>> +	len = ARRAY_SIZE(resctrl_ctrl_mb_files);
+>> +
+>> +	lockdep_assert_held(&rdtgroup_mutex);
+>> +
+>> +	for (rft = rfts; rft < rfts + len; rft++) {
+>> +		if (rft->fflags) {
+>> +			ret = rdtgroup_add_file(kn, rft);
+>> +			if (ret)
+>> +				goto error;
+>> +		}
+>> +	}
+>> +
+>> +	return 0;
+>> +error:
+>> +	pr_warn("Failed to add %s, err=%d\n", rft->name, ret);
+>> +	while (--rft >= rfts) {
+>> +		if (rft->fflags)
+>> +			kernfs_remove_by_name(kn, rft->name);
+>> +	}
+>> +	return ret;
+>> +}
+>> +
+>>  /*
+>>   * No need to cleanup on exit - caller calls the recursive kernfs_remove()
+>>   * on failure.
+>> @@ -2704,11 +2772,12 @@ static int resctrl_mkdir_schemata_dir(struct kernfs_node *kn,
+>>  				      struct rdt_resource_final *f)
+>>  {
+>>  	struct kernfs_node *kn_subdir, *kn_ctrl;
+>> +	struct rdt_resource *r = f->res;
+>>  	struct resctrl_ctrl *ctrl;
+>>  	char ctrl_full_name[20];
+>>  	int ret;
+>>  
+>> -	kn_subdir = kernfs_create_dir(kn, "resource_schemata", kn->mode, NULL);
+>> +	kn_subdir = kernfs_create_dir(kn, "resource_schemata", kn->mode, f);
+>>  	if (IS_ERR(kn_subdir))
+>>  		return PTR_ERR(kn_subdir);
+>>  
+>> @@ -2716,6 +2785,12 @@ static int resctrl_mkdir_schemata_dir(struct kernfs_node *kn,
+>>  	if (ret)
+>>  		return ret;
+>>  
+>> +	if (r->mode) {
+>> +		ret = resctrl_ctrl_add_files(kn_subdir);
+>> +		if (ret)
+>> +			return ret;
+>> +	}
+>> +
+>>  	for_each_resource_ctrl(ctrl, f->res) {
+>>  		ret = snprintf(ctrl_full_name, sizeof(ctrl_full_name), "%s%s%s",
+>>  			       f->name, resctrl_ctrl_is_default(ctrl) ? "" : "_",
+>> diff --git a/include/linux/resctrl.h b/include/linux/resctrl.h
+>> index 72fb7256270e..4fc41e269d0b 100644
+>> --- a/include/linux/resctrl.h
+>> +++ b/include/linux/resctrl.h
+>> @@ -257,6 +257,16 @@ enum resctrl_ctrl_unit {
+>>  	RESCTRL_CTRL_UNIT_GBPS,
+>>  };
+>>  
+>> +enum resctrl_ctrl_mode {
+>> +	/*
+>> +	 * Default (zero) value: the resource does not support control
+>> +	 * emulation, so no resource_schemata/mode file is created for it.
+>> +	 */
+>> +	RESCTRL_CTRL_MODE_NONE = 0,
+>> +	RESCTRL_CTRL_LEGACY,
+>> +	RESCTRL_CTRL_NATIVE,
+>> +};
+>> +
+>>  /**
+>>   * struct resctrl_membw - Memory bandwidth allocation related data
+>>   * @min_bw:		Minimum memory bandwidth percentage user can request
+>> @@ -399,6 +409,12 @@ struct resctrl_ctrl {
+>>   *			different memory bandwidths
+>>   * @cache_io_alloc_capable:True if portion of the cache can be configured
+>>   *			   for I/O traffic.
+>> + * @mode:		Control emulation mode for this resource.
+>> + *			RESCTRL_CTRL_MODE_NONE if the resource does not support
+>> + *			emulation. "legacy": keep the legacy MB control,
+>> + *			emulating it with a native control when it has no MBW
+>> + *			hardware of its own. "native": expose native controls
+>> + *			directly with no emulation.
+>>   * @controls:		List of controls of an alloc_capable resource
+>>   */
+>>  struct rdt_resource {
+>> @@ -413,6 +429,7 @@ struct rdt_resource {
+>>  	bool				bw_delay_linear;
+>>  	enum membw_throttle_mode	bw_throttle_mode;
+>>  	bool				cache_io_alloc_capable;
+>> +	enum resctrl_ctrl_mode		mode;
+>>  	struct list_head		controls;
+>>  };
+>>  
+> 
+> 
+
 
