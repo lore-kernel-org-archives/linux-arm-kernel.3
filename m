@@ -4,66 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 473A8C4451B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 08:35:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE102C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 08:51:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AsOZ7XfSvbIf3BMwD/e9SnYeGyYjuUGA0WNws0sPDDo=; b=FcQ7fMTDQAigy0fgswKgKVG83j
-	PlrnyR5xlGrmD0bWOP1gpS4pULppbIL4Evhki+asfKumF6fTr3y8Easmz8bwhmUkQPxG/6J36v1Dv
-	6cTq1rw2k0qQirxd0S/YoTRaTrn035kPlDNM70j5HCh49bCBJR/IA30QMJbOFedF5A+qkgJcGAA70
-	980k/nnKC4kXA2S6LlKFFdoTYafmDXDSSPdA4a2IQMX5+id1keUGg5GZZueEpnM+gO2D/0tbPxy2E
-	vFBNf7BiYGTF/lgGpxwddXpbtjk0nsdQG7PN2TnxHxFJ8t3a7AypXbe289uPJNaD7Lz/Jg69Jpt7/
-	HWtvOUEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uJ79qPzp8tIhAiU3rMgJbhgxhoX8UnanAQA0Qwctxmg=; b=JhY0GD8mnwgIP9ntdAbUO294Z1
+	FbSHjkLOAMxZ3nFowIJhY4eMVxRMZNhwUQvebXbQiOT6e6F6pcEARzAW2Bic/tZdlQqVQIVq/8wEe
+	tK9oYI/eebyps1sa1HtxHFu0V1Z+n68DZx2gvSTGLaJCbHBsXhoZg2Yas048djXAD/2qSgqd15F8K
+	mGxQ6L5Nxc4wk+txh4fpjlxWdBngCtHNgtfo3tPkqXSUo8e1TjBubXzZL0jXgcA6RsF2+fMp1Zen8
+	16m+Go1059RWsxjnk18VXhkrhYUehMu3xm+8Z04HqD3rJp7H3cE5fUSot9RX0wqcjOA0dYm3SzqgQ
+	7E+AdjIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wljT2-00000006D3v-0OCb;
-	Mon, 20 Jul 2026 08:35:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wljSz-00000006D2o-1jgN
+	id 1wljiv-00000006Eq6-3YeU;
+	Mon, 20 Jul 2026 08:51:41 +0000
+Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wljir-00000006Ep9-2eRd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 08:35:15 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ABA102B;
-	Mon, 20 Jul 2026 01:35:05 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F01EE3F66F;
-	Mon, 20 Jul 2026 01:35:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784536509; bh=Zd1wpy6j5eslq7JRXhCnn94i7JTqW6/xMDM1ttvsk3g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VUn7VLZzdIMhGN3GGLPkKrxXQfjuWBcPIW477yxizdTHNbmLa/OZf+x0wuxuItp02
-	 QNyX7iMqH/Pn3VO1oTNTKDwZgmsnJilYT38hOOR/cYKWtWg/Q1CVC2D8Jrx3xhmDak
-	 Btdy42sgXTdxHVr1o7vv5WzoU0Ldc0ZrIxc07c8A=
-Date: Mon, 20 Jul 2026 09:35:01 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Wei-Lin Chang <weilin.chang@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>, Fuad Tabba <tabba@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Dev Jain <dev.jain@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Sebastian Ene <sebastianene@google.com>,
-	Vincent Donnefort <vdonnefort@google.com>
-Subject: Re: [PATCH] KVM: arm64: ptdump: Flush the last region
-Message-ID: <al3dtUVPxBXY0AJP@J2N7QTR9R3.cambridge.arm.com>
-References: <20260717231233.2299068-1-weilin.chang@arm.com>
+	Mon, 20 Jul 2026 08:51:40 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=uJ79qPzp8tIhAiU3rMgJbhgxhoX8UnanAQA0Qwctxmg=;
+	b=y59Qo9ELPLHaCjmtQS81az0HA0Er+BT/T4LY5yq7gfu0/V6q5t80pOUq50pJRwrwdDkhuhiSZ
+	IhSNIoT3cI8tyF/yxZGEgzag9JgRhU8M6AcQLnKOhXZQ63rm9g6pVSCRjEdYhHLv3W/oDb5w6ZO
+	rp2/03W+Wa30WZLPRhgP4zk=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4h3Ysv4HTbzRhWS;
+	Mon, 20 Jul 2026 16:42:11 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id CB1844056E;
+	Mon, 20 Jul 2026 16:51:31 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
+ (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 20 Jul
+ 2026 16:51:28 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <shuah@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kselftest@vger.kernel.org>
+CC: <ruanjinjie@huawei.com>
+Subject: [PATCH v2 0/2]  kselftest/arm64: Add two arm64 kselftests for orig_x0 issue
+Date: Mon, 20 Jul 2026 16:51:43 +0800
+Message-ID: <20260720085145.247690-1-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260717231233.2299068-1-weilin.chang@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.90.53.73]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_013513_622020_A9D00D12 
-X-CRM114-Status: GOOD (  27.50  )
+X-CRM114-CacheID: sfid-20260720_015138_137983_147F161B 
+X-CRM114-Status: UNSURE (   9.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,102 +77,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jul 18, 2026 at 12:12:33AM +0100, Wei-Lin Chang wrote:
-> Currently the stage-2 ptdump calls note_page() at each leaf entry visit.
-> This simply misses the output of the last region, because note_page()
-> only dumps output when it detects a change in level/prot, or when the
-> walk enters a next marker section. The last region in the guest IPA
-> space with the same level/prot is not dumped since there is no change
-> after it.
-> 
-> To dump the final region, manually issue a note_page() call with address
-> BIT(ia_bits) (end of guest IPA space) and level == -1 to trigger a level
-> change after the last region. Additionally treat level == -1 as a last
-> flushing note_page() call and avoid dumping the name of the next marker
-> for this case.
+Recently, a security issue related to orig_x0 was discovered and fixed
+in arm64, but there are still no test cases covering it. Seccomp,
+tracepoints, and audit can observe a stale value for x0 after a ptracer
+or SECCOMP_RET_TRACE modifies x0.
 
-I think you can use note_page_flush() rather than doing that manually.
+As Kees suggested, this series adds two kselftests for arm64 that validate
+the orig_x0 re-synchronisation fix in ptrace, the first one is for ptrace
+update, the second one is for SECCOMP_RET_TRACE update.
 
-> Fixes: 7c4f73548ed1 ("KVM: arm64: Register ptdump with debugfs on guest creation")
-> Reported-by: Sashiko AI <sashiko-bot@kernel.org>
-> Closes: https://lore.kernel.org/kvmarm/20260630122758.891011F00A3A@smtp.kernel.org/
-> Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
-> ---
->  arch/arm64/kvm/ptdump.c | 8 +++++---
->  arch/arm64/mm/ptdump.c  | 5 +++--
->  2 files changed, 8 insertions(+), 5 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
-> index c9140e22abcf..4096e4a92fae 100644
-> --- a/arch/arm64/kvm/ptdump.c
-> +++ b/arch/arm64/kvm/ptdump.c
-> @@ -155,11 +155,13 @@ static int kvm_ptdump_guest_show(struct seq_file *m, void *unused)
->  		.seq		= m,
->  	};
->  
-> -	write_lock(&kvm->mmu_lock);
-> +	guard(write_lock)(&kvm->mmu_lock);
->  	ret = kvm_pgtable_walk(mmu->pgt, 0, BIT(mmu->pgt->ia_bits), &walker);
-> -	write_unlock(&kvm->mmu_lock);
-> +	if (ret)
-> +		return ret;
-> +	note_page(&st->parser_state.ptdump, BIT(mmu->pgt->ia_bits), -1, 0);
+Link: https://lore.kernel.org/all/20260717182758.17111-1-will@kernel.org/
+Link: https://lore.kernel.org/all/20260716120640.6590-1-will@kernel.org/
+Link: https://lore.kernel.org/all/202607152004.DEA95D63@keescook/
 
-This can be:
+Changes in v2:
+- Update the 2st testcase to cover the corner case pointed out by Sashiko[1].
 
-	note_page_flush(&st->parser_state.ptdump);
+[1]: https://sashiko.dev/#/patchset/20260716120640.6590-1-will@kernel.org
 
-The level change alone should trigger the dump, so the address doesn't
-need to be at the end of the guest IPA space.
+Jinjie Ruan (2):
+  kselftest/arm64: Add seccomp ptrace x0 bypass test
+  kselftest/arm64: Add testcase for SECCOMP_RET_TRACE orig_x0 bypass
 
-Importantly, note_page_flush() will pass 0 as the address, which won't
-trigger the checks you try to suppress below.
+ tools/testing/selftests/arm64/abi/.gitignore  |   2 +
+ tools/testing/selftests/arm64/abi/Makefile    |   2 +-
+ .../arm64/abi/seccomp_ptrace_x0_bypass.c      | 181 ++++++++++++++++
+ .../arm64/abi/seccomp_ret_trace_x0_bypass.c   | 196 ++++++++++++++++++
+ 4 files changed, 380 insertions(+), 1 deletion(-)
+ create mode 100644 tools/testing/selftests/arm64/abi/seccomp_ptrace_x0_bypass.c
+ create mode 100644 tools/testing/selftests/arm64/abi/seccomp_ret_trace_x0_bypass.c
 
-Please use note_page_flush() here, and drop the changes to
-arch/arm64/mm/ptdump.c.
+-- 
+2.34.1
 
->  
-> -	return ret;
-> +	return 0;
->  }
->  
->  static int kvm_ptdump_guest_open(struct inode *m, struct file *file)
-> diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
-> index ab9899ca1e5f..fed4e4407e0e 100644
-> --- a/arch/arm64/mm/ptdump.c
-> +++ b/arch/arm64/mm/ptdump.c
-> @@ -194,6 +194,7 @@ void note_page(struct ptdump_state *pt_st, unsigned long addr, int level,
->  	struct ptdump_pg_state *st = container_of(pt_st, struct ptdump_pg_state, ptdump);
->  	struct ptdump_pg_level *pg_level = st->pg_level;
->  	static const char units[] = "KMGTPE";
-> +	bool flush = level == -1;
->  	ptdesc_t prot = 0;
->  
->  	/* check if the current level has been folded dynamically */
-> @@ -234,7 +235,7 @@ void note_page(struct ptdump_state *pt_st, unsigned long addr, int level,
->  				  pg_level[st->level].num);
->  		pt_dump_seq_puts(st->seq, "\n");
->  
-> -		if (addr >= st->marker[1].start_address) {
-> +		if (addr >= st->marker[1].start_address && !flush) {
->  			st->marker++;
->  			pt_dump_seq_printf(st->seq, "---[ %s ]---\n", st->marker->name);
->  		}
-
-If you use note_page_flush(), addr will be 0. As the final marker is at
-BIT(pgtable->ia_bits), this condition cannot fire.
-
-> @@ -244,7 +245,7 @@ void note_page(struct ptdump_state *pt_st, unsigned long addr, int level,
->  		st->level = level;
->  	}
->  
-> -	if (addr >= st->marker[1].start_address) {
-> +	if (addr >= st->marker[1].start_address && !flush) {
->  		st->marker++;
->  		pt_dump_seq_printf(st->seq, "---[ %s ]---\n", st->marker->name);
->  	}
-
-Likewise here.
-
-Mark.
 
