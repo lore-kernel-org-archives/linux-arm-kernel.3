@@ -4,79 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 137C6C44520
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 19:27:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03FC7C44529
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 19:30:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5du5EBQFpIi/SwJ0ieCW4HFbKgYVSov3wFaDLiDqK9c=; b=D7M0uGaKmIeunUg1CvX+RBCBPF
-	UaAvdIdkclIiQXiH0QKJ+qfJdOasHsfqD559qt7JOghJGzOJqUJjUOkuQGdZIr+2BDVWjZ3zgN6YH
-	miBXWFmjlS2LVD2xECmPnxRkGWSLcmmapX5A9a82HIV9IA3mCkuqc4ujWVU7gkNmaPQacfRXX/XeR
-	y7MADANqjZd9LjCaZDlgn9lLfNDPyVyIyaicwJUsyl94HtFS0C/s64RFK2kNTOOWMhe02clCMmQsP
-	8RplEucdPF/NnRIOD70BnKV/+mLEphYm/Wptq5/IrQj9Gag2vGPbH860CBYAaV62Ka5a8fcYGYe/b
-	aT/E0sRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FkD3jB2s3IIbN08+g0w0TygpA5tj0fOSjjBWkNKDgEk=; b=Ta/io1E3wmF/Caqw5x0lwNbOO/
+	g8q/2EvhGpGI7vghbT1qawd9YOBKjsy+oSboZ7d1smxUDcZbocbDVFExol08w1UjaPMR83lOvrsRf
+	GrOza6FeW0hyBSi2iIC6tasTNOly6kAyYlG6aYgyn8/suNu2Tun2ipIejMyG+QI/ezrtRH3GFPOt3
+	z/uD8kvkC4RMH0ExCkJ5gEpXHXawEIFBuT9eUkN4O5Rtb/9xziSn1Q5eGs+KFXFUho82wNpLkAEy3
+	LvGWgHLU01q7Vj9bUj+SpJlCtOouY0r6eRbgBah5oJbzVVuML1kOjipuCvY2000mh4ATvw1vPI9cu
+	J2GpQDfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlte7-00000007kss-0VoB;
-	Mon, 20 Jul 2026 19:27:23 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1wltgf-00000007lGQ-2VAY;
+	Mon, 20 Jul 2026 19:30:01 +0000
+Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlte3-00000007ks8-3o4z
+	id 1wltgd-00000007lFd-2P3o
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 19:27:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1784575640; x=1816111640;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=hWgaDkOb0LbmVmmiCxtUvfxEken1qhpQkfHaM7Fgk3A=;
-  b=NGF4aVqiuLuwhnZpTpsvLDzmf/ADWEukC1zviQxA+iI5NOk7nv/fv2g2
-   WTb2cfZVS/VcnkaBRPdnSn2krEWiyYdFihLXXwmHGUh2hnSQHQXc/F+x5
-   x5Dm1igl8HUrq4cQPRcqavk546h8xIyy3loQNmWpI4fBjmhPUjqlt18T6
-   rJvoawclYc3JiJeWzpYL9/uYDeI8QDfdu1KkhJmr2+Zdzwmeyz/OUn6fK
-   f4MtEsJrMapjL2ZrsP22qJBXyYmq4yrPKt1msBQrlndmvnD+DWq+yUuAh
-   ode1EqkxM1gedxhtAzSxpSKUTM41byGDJBpRaiW5GDoZu4MRAQzLBuZjr
-   Q==;
-X-CSE-ConnectionGUID: 2ILECYwnQnyTnfLe09f93Q==
-X-CSE-MsgGUID: ixMevB0OQxOd0fIf+fS+gg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11852"; a="88843558"
-X-IronPort-AV: E=Sophos;i="6.25,175,1779174000"; 
-   d="scan'208";a="88843558"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Jul 2026 12:27:19 -0700
-X-CSE-ConnectionGUID: VEpARZS2TN6OfnH+jxlpNw==
-X-CSE-MsgGUID: VCqD1pLAT0WCgKQ3SjF7uA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,175,1779174000"; 
-   d="scan'208";a="257598201"
-Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.175])
-  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Jul 2026 12:27:16 -0700
-Date: Mon, 20 Jul 2026 22:27:14 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Shih-Yuan Lee <fourdollars@debian.org>
-Cc: Mark Brown <broonie@kernel.org>,
-	Mika Westerberg <mika.westerberg@linux.intel.com>,
-	Lukas Wunner <lukas@wunner.de>, Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v16 5/7] spi: pxa2xx: disable DMA for Apple MacBook8,1
-Message-ID: <al52kpB1hklx5guG@ashevche-desk.local>
-References: <20260720162117.32304-1-fourdollars@debian.org>
- <20260720162117.32304-6-fourdollars@debian.org>
+	Mon, 20 Jul 2026 19:30:01 +0000
+Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-51c10e86e52so948741cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 12:29:58 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1784575797; cv=none;
+        d=google.com; s=arc-20260327;
+        b=QLvvXho2/QncX0cr9IS9sWXKVaYbmYoRvKw00TNpo0Ysn9uUAY9YG3j+OYII6Jpusu
+         +LLeqU33gcgIA3LvBYqhmyNFeZeAcMVPbgsE/CZxpMjzaQHFy0EEMCw3aeIw0wzOjBt1
+         vaASC7n1wrWFQAeAMviyCsmGYTL9ZKBj0n06IM7/s2vf0zhdd4AvInIoViYuyjiKNdyo
+         HWRYZP9ajvqH+a4t64AXirSGzc7YMav/9X1H5UEnDoO3AAInXN+z1+7DSbvHCH8FRe2Q
+         8boUPr/F707oPozykSbWhZbUK7+fv0mueiA+bGVUA8IyLsqDWriU1ti3H8PSO9tCE2my
+         6H2Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=FkD3jB2s3IIbN08+g0w0TygpA5tj0fOSjjBWkNKDgEk=;
+        fh=ymPylF+GpHl7qWWtoyAKVKSvfx2FFUx6R+5Ml8ijcKY=;
+        b=CVAfxQATKO7OzqiR7v4wDFwMVXKp196x+kEYd1/A0gaJ3ILdhS4y41T1aOB7UgyL+x
+         Tp7me69jfTblCW5taSlWUtenTNpjJtTBb4sMbMrnPDPiUKLgB6kRvqvV4ISuKMDJHxQ4
+         Zs80JXYHDLJOs9ByTKUumCuCs+O5s2VAz0ZNU5m3LEbjcLv9Jmcg42XWzhGvynEWDjZ1
+         RHc0pcA89WK4j8a2HWCLcZylOQ9kKB52lk/40EmEhHnGEHccxjZxxAXtGRW/6zQC5Dho
+         lp5mEm4Oh4MKEjkFtzMUX2CEL6UwWbjArXJz4jSIppThL5aCBFO+8wgiF+PRF4nJrBzh
+         Ircg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1784575797; x=1785180597; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=FkD3jB2s3IIbN08+g0w0TygpA5tj0fOSjjBWkNKDgEk=;
+        b=M+Ogpy9/33V/R0H12imlT7lMbu5eUjdkcCLshePWXH9yFccNmrcDPCXpZMdg6A/Bek
+         pZ6NJXwmutrdRstLjsstbh6j9U8gwc52zbkKdDrov+/wMb2J6JeMzR1NT8zmTA6M9smt
+         aaFUo0aljyuGVaL7Y8tHY86uRSmHw3iMTQa/Rgh2MAzJK0cz5YySR4zkiM5XT496Bwov
+         Wtu8eW0HUJsheE00b5QQuci7hBcGmzCszAlrIrPrHumtM32yh86nZaNMEjEQVxw97Ebc
+         bUDxq15Old2zGu4xiMFAZoync/q015afwE16Z5HFdBvkEql6UyKcwfSttZb9LhTck6NW
+         1e0g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784575797; x=1785180597;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=FkD3jB2s3IIbN08+g0w0TygpA5tj0fOSjjBWkNKDgEk=;
+        b=p0Ey72KdeGi+MKZDNc2uOzj/s8uuevGj+CNCT9FInDUlGpZ1EtVraF7NJvrb+a9UXe
+         C/KOJzGFchP9ZauN4KgFMSXLeB5rN3gQxAzZ2cSt0N2HVyMIIScCAAvZ61B0XWAVLyR9
+         zDk8GuzKdN5tFAfBG2ivoKXrx1pFfRO0GtRLxfWng/MLM5TZKc9UwgFPbQ0oGW2uf3BS
+         XD6h0x1/jSgyrdexjGXc56U8oHtaWrQnndj11WOIR7IszTN03CzFuuhtbx5FtXRnxrtU
+         hoi6Ud6D1BGf7klm90b7TGHcHXvPeiP+fZrHXw4uM+Yt7x+xFgOuRWRxUpz3RY1BzsG2
+         PYgA==
+X-Forwarded-Encrypted: i=1; AHgh+RrcKPXPNafVvHZjfJj+PkDVu8FsrdK3psVjEAXu5P0X1Jac1O6MsvOSOqfY3N9QIsss2rGZypDxQnm5pFUh2XJE@lists.infradead.org
+X-Gm-Message-State: AOJu0YyCK4ykiObKDNIHN4T7jZ+rCBOvNSLq3hG+dRopfPJG2IQrPpXl
+	tDMJT/niXqrkYc8Jqcw4FMbXJ39LZl52xlzYeFx2LsjG58Y4EUZrDi7KozK5e8nyuhJlYtyAEVc
+	S3QGIQ/TA4/ONoBIyw854Dzg7SlM9Jb4jNL01jEI/
+X-Gm-Gg: AfdE7cnKR+lzXvXnwg275iyCGA7nJeanktTqtHJIeKsuERZ1RwfK6DtP+UztPJjA7qd
+	fhqKuTNDt1Gv0yqLQ8O1rrAza7EQNkfFIfcQmOE5QRzzrx937kVinMs/UcFsZUH+IGISJN7KP5O
+	ue73mXf0uUpYnJoxUxJBnUrylgVBy058iIiexPRHH9jCSkpGLldUnL66lIqaseldW0dzdrG2FAf
+	GlNZNPCNAz4FyO/Q8RDQTq8bUlXpUT6zDtph+AZ0EialM+EgpDrwXTyAT8=
+X-Received: by 2002:a05:622a:6d13:20b0:51c:7a90:a79a with SMTP id
+ d75a77b69052e-526033764f4mr4774471cf.26.1784575796860; Mon, 20 Jul 2026
+ 12:29:56 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260720162117.32304-6-fourdollars@debian.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+References: <20260718111340.159896-1-linux@yoavmoshe.com>
+In-Reply-To: <20260718111340.159896-1-linux@yoavmoshe.com>
+From: Sami Tolvanen <samitolvanen@google.com>
+Date: Mon, 20 Jul 2026 12:29:20 -0700
+X-Gm-Features: AUfX_mz0YGJIXTAqoc42mflq1D8eqRe1dNjHeR1gvxIC8uUY_rJ9mhzujQ94LHE
+Message-ID: <CABCJKudqGL+BFFcz3qsuoJB6S_OAt-vs2yqePC_=oy+JzmPpVw@mail.gmail.com>
+Subject: Re: [PATCH v3] ARM: imx: Fix suspend/resume crash with Clang CFI
+To: "Yo'av Moshe" <linux@yoavmoshe.com>
+Cc: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Russell King <linux@armlinux.org.uk>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, llvm@lists.linux.dev, 
+	stable@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_122719_991814_4C553157 
-X-CRM114-Status: GOOD (  15.47  )
+X-CRM114-CacheID: sfid-20260720_122959_638783_8302E6AC 
+X-CRM114-Status: UNSURE (   9.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,48 +122,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 21, 2026 at 12:21:14AM +0800, Shih-Yuan Lee wrote:
-> On MacBook8,1 (early 2015 12" MacBook), the LPSS SPI controller at
-> 00:15.4 suffers from hardware DMA handshake failures and interrupt
-> routing bugs, causing keyboard/touchpad transactions to fail when
-> DMA is enabled.
+On Sat, Jul 18, 2026 at 4:14=E2=80=AFAM Yo'av Moshe <linux@yoavmoshe.com> w=
+rote:
+>
+> Relocated suspend code in OCRAM lacks compiler-generated CFI type
+> signatures. When CONFIG_CFI=3Dy is active, the indirect call to
+> imx6_suspend_in_ocram_fn triggers a strict CFI violation panic.
 
-Why? The thing like this I noticed on some other HW which required different
-DMA settings. Have you tried to investigate the issue more?
+Would it be possible to just copy the 4-byte CFI hash prefix to OCRAM
+when relocating the function? If not, the __nocfi approach seems
+reasonable to me.
 
-> Move the forced PIO mode DMI quirk to spi-pxa2xx-pci.c (the LPSS host
-> controller PCI glue driver) to avoid layering violations in client
-> drivers (such as applespi).
-> 
-> Add an explicit DMI match table for MacBook8,1 and a module parameter
-> spi_pxa2xx_force_pio to allow forcing PIO mode on demand.
-
-This looks like a hack. Please, if you have a hardware, try to dump the errors,
-collect the data corruption or timeouts and provide more information. DMA for
-SPI on LPSS hardware never was a problem (unlike UART in some cases). I'm almost
-100% sure the problem is in DMA configuration / setting bits.
-
-...
-
->  #include <linux/dmaengine.h>
->  #include <linux/platform_data/dma-dw.h>
->   +#include <linux/dmi.h>
-
-Keep list ordered.
-
->  #include "spi-pxa2xx.h"
-
-...
-
-> +static bool spi_pxa2xx_force_pio;
-> +module_param_named(force_pio, spi_pxa2xx_force_pio, bool, 0444);
-> +MODULE_PARM_DESC(force_pio, "Force PIO mode (disables DMA) for SPI transfers. ([0] = disabled, 1 = enabled)");
-
-No. There is no room for module parameters like this.
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+Sami
 
