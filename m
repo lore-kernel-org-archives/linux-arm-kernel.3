@@ -4,58 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2946FC44527
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 10:33:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04753C44527
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 10:35:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vck4YIp4wN9OE2k8mCGwpdVQNpG15Z8G4WE7ZLpSflI=; b=W+jWD70fzqUJ1w/rAA0woD916E
-	PXGcFylvz1OMvKdDNXZj2l578j1Ugby0ND2PHoukSCgZwQ6Lh4XEFyF3LsK7eWNjB0p6xTyGBzbF5
-	2h7jhhnqjKvPJuGgzHfeLUnGaD6Ugav73FH2iYlJyf/hljcJ7HTE7D+OYcj4DWzHRW6AiK6zCRLH2
-	9G/0FkJejYSne4HL9QJGuVUf1vs0gF1J1ljVCabXoknzlz3xm5Sux+ZZ7cuML7TlQlAQPaBCmB93N
-	4ALq5YnNhJ1bZeZe0x9I0YBnXdUItc81KCR4TJr+e6RvsBcKQ9rW5qcwo5aarEeuVhju+Bnwyep+x
-	TiBg4cfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k37RWmWff7zt+PtsvHIuhzz9otckpy6kRhbc8EISwX4=; b=i7m6VpMt/y9+thrl3rBdDmONEE
+	M0UA8sapwxaBNkEfu/6AwGwerFw5n2f2ZgBQLxAM02raediL9a3LnqQkHXy7lBOoH5ARiIChqS3tq
+	Oh+SgcO78EooUDS3qMLan/Gs/KDhJYPp26Vrz+a++DXcHcObjbDgO5D+r0vIa2212brD/lxgco3vC
+	SrhSVME1TWCpCytWKvbxnmfS0aAQ9r8c3IxpAcmCdytJCBQxBHIn5Hi/NcHxSh8IZdnYVseJmPCDf
+	TxHeZVxWCBg+CogN6RR9YSu9KvT89niFwlRx4r6KLysX35QdydnJoXCIwtG3mawAsDOuPxj1/xe/F
+	hyJ2MRgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wllJd-00000006UcR-0Btl;
-	Mon, 20 Jul 2026 10:33:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wllL3-00000006Usf-2l9U;
+	Mon, 20 Jul 2026 10:35:09 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wllJc-00000006UcL-04mR
+	id 1wllL1-00000006UrR-2Z0W
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 10:33:40 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 733C0408DF;
-	Mon, 20 Jul 2026 10:33:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 796B41F000E9;
-	Mon, 20 Jul 2026 10:33:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784543619;
-	bh=Vck4YIp4wN9OE2k8mCGwpdVQNpG15Z8G4WE7ZLpSflI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=aw6MQclaCpFxlpAoUV/jnRQL7hh2YFwa9P4Z9ZutQuieku10gUKgeSRifW+HGzRoQ
-	 QI9AHxkt4NTDS0N2SuaDWFRcm2E6GZrku4vSc5tGNqhG5ky8rQ4Q+KlByilJlv8IbC
-	 uLYsQS0/LcQ3BYJloRH/H6/NU+aOAJ/T90f13M5d9a0Sojz7K10piM2KAnvUylXHlD
-	 Vx2WzkOq60yZW6myk/qiGGZSNDF1A0VfuziHbCEXNnKjB4x98dXfIE4jGgU44VATA8
-	 taCG3BOoy6/VudwlSQSyy0FcRFp/ZYzUkD04o/VmvvZAfM8Rr+BId0aUH5o1I8YG5Q
-	 fuOeKtmnzZt9w==
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Sudeep Holla <sudeep.holla@kernel.org>
-Cc: Cristian Marussi <cristian.marussi@arm.com>
-Subject: Re: [PATCH v6 00/16] firmware: arm_scmi: Fix SCMI core cleanup paths
-Date: Mon, 20 Jul 2026 11:33:30 +0100
-Message-ID: <178454357814.1351639.7643602720515590905.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260714-scmi_core_fixes-v6-0-3afe499d46e3@kernel.org>
-References: <20260714-scmi_core_fixes-v6-0-3afe499d46e3@kernel.org>
+	Mon, 20 Jul 2026 10:35:08 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-493f75f7172so78024105e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 03:35:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1784543705; x=1785148505; darn=lists.infradead.org;
+        h=content-type:in-reply-to:autocrypt:from:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=k37RWmWff7zt+PtsvHIuhzz9otckpy6kRhbc8EISwX4=;
+        b=BcGkN1KlTbCrddiilYuF8ApNUBPl4dDpKwgp7UxhH3jl1muq+fLMknVstd6eWg70jF
+         Vacb2EsMGjZcg5LQBK8ivv5jkAKL6iUf6UAvEe9SovFHkhmq8++45r/EiSGb32OXRebg
+         YnKVkyJTCSvaTxBNXrop6o/7pEWrDo9SC77bJhbr4V/r6n3OFJRWh2/99Q23dIUBiCg7
+         Co+5FuzcWSPeOeHzGzvA6PVry/hV2t3ZLGXuc7MyX+LEImizu1FB+pk367EErXJplgSB
+         c45RXoGDk7QKT9E3e7zUXK47aHaETaHLx1BsAcb7jVvodIktI6foBWCO89IXGb7Wfp32
+         UouA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784543705; x=1785148505;
+        h=content-type:in-reply-to:autocrypt:from:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=k37RWmWff7zt+PtsvHIuhzz9otckpy6kRhbc8EISwX4=;
+        b=XJK/RVslIYB6NJeTMGITyhG0JfdARv2VnYgHdD/QhaZd9Ci1bF7dxqAblpD4gmSwyz
+         YgeEUWPUq85l1oZgX0D/ipzU/jREAKbRE2R8JT2EJdha1t97HYIeZOla0gNudTswng7I
+         kJd+b2aON/HUNY/lHHqwyE/VJV6ANId0oyODpaSCSJn4XMjLzGHF5sIUJz81yuQztsyn
+         Jk7/4mWyQjppYd4VSYQYfNVx54WAmrrWyXPOd2F69BgVYmK0qrkDDwhTgROeYqc6p1Eh
+         oU0Szlvp4UxKzbicTy+p84RvRZcEGKsZLX9yRWQtgqCoZj3hZLBg0dJm6Gl82S5wIMzr
+         /3Tw==
+X-Forwarded-Encrypted: i=1; AHgh+RpHcBBpOC1PI7E9Rrao6xs/FNErPI+TZDNCntPIcm61ejl1E5ZIekov8RZGoxRRS/bsheLcolCTYM/C6W0aMF4e@lists.infradead.org
+X-Gm-Message-State: AOJu0YzzSXk4l/Ma8hdbN58N19/z+WNeFYNPoE+aPQpkpm1BVQtGe9AN
+	4KrmeSlSiLJh89txy0zuv7Dt8L4iSEiUr7tbNIr2hv1BbS3quggtBE3McL4Lg4plHGE=
+X-Gm-Gg: AfdE7cmNxo8sLuc0otcNRHpSeSLjsi4zqPAMTL9az5Rl3aW0P+SRJX8HCrzg6hBdGw6
+	gXJ1K684Co8vIU7ZhrgUHji/QSBKg532A/qqdqhVFDqjbRcZFv/w4y6s13SAIVRHGUi4LxVM+9L
+	wmoeZaUbxrkhwZQLUjyFl5hT8V36bFXkQVkU2o9EPIZIyzmDraIUWyCsn2c1tsxXVIzy8d9v9eC
+	EFU/ZF8krb7MfyMaoPEAv9vxFHIkV7XIAfwjTuoq1UF5zkZpE76skAB9xIYClnpOZjtcY51F8xD
+	GULKSuE1KKce+kJnOkuuyhwGmIkWqZdGIxPHUWYIgj34rToIl9YILIphha+ybkxMw4q3L5gH5NG
+	gyYOKOM0eHo7rpl8Kiju0RewTGx3e/QGRyVO3DJs8TjBagTmYtgfnXauavaoW/K6rhojhkdq9LJ
+	xm9A4H5+p2ZcB11MqLL/VT06jveSf8lc1JCiEOXBYFZDSCITIT8Y1ZXyoStzLWO8z3Dm7o1GO8k
+	koNb5OuRkheJG2tGjSfAx0WPnii6C1F
+X-Received: by 2002:a05:600c:4f14:b0:495:5ce6:9c18 with SMTP id 5b1f17b1804b1-4955ce6a33cmr61097885e9.27.1784543704827;
+        Mon, 20 Jul 2026 03:35:04 -0700 (PDT)
+Received: from ?IPV6:2a00:12d0:af5d:ad01:5d3f:14e6:9bcb:5112? (2a00-12d0-af5d-ad01-5d3f-14e6-9bcb-5112.ip.tng.de. [2a00:12d0:af5d:ad01:5d3f:14e6:9bcb:5112])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4954a2b074csm291431975e9.6.2026.07.20.03.35.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 20 Jul 2026 03:35:04 -0700 (PDT)
+Message-ID: <e258581c-a17f-4b5a-aafd-82e513a6288e@suse.com>
+Date: Mon, 20 Jul 2026 12:35:02 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] sched: Convert paravirt_steal to new static key APIs
+To: Hongyan Xia <hongyan.xia@transsion.com>,
+ "mingo@redhat.com" <mingo@redhat.com>,
+ "peterz@infradead.org" <peterz@infradead.org>,
+ "juri.lelli@redhat.com" <juri.lelli@redhat.com>,
+ "vincent.guittot@linaro.org" <vincent.guittot@linaro.org>,
+ "dietmar.eggemann@arm.com" <dietmar.eggemann@arm.com>,
+ "rostedt@goodmis.org" <rostedt@goodmis.org>,
+ "bsegall@google.com" <bsegall@google.com>, "mgorman@suse.de"
+ <mgorman@suse.de>, "vschneid@redhat.com" <vschneid@redhat.com>,
+ "kprateek.nayak@amd.com" <kprateek.nayak@amd.com>,
+ Ajay Kaher <ajay.kaher@broadcom.com>,
+ Alexey Makhalov <alexey.makhalov@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Thomas Gleixner <tglx@kernel.org>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, "x86@kernel.org"
+ <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>,
+ Paolo Bonzini <pbonzini@redhat.com>, Vitaly Kuznetsov <vkuznets@redhat.com>,
+ Stefano Stabellini <sstabellini@kernel.org>,
+ Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>
+Cc: Jiazi Li <jiazi.li@transsion.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "virtualization@lists.linux.dev" <virtualization@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
+ "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+ "xen-devel@lists.xenproject.org" <xen-devel@lists.xenproject.org>
+References: <cover.1784538478.git.hongyan.xia@transsion.com>
+ <773bbd8fcd5ef2ebfe1c64303c7a71a56368de69.1784538478.git.hongyan.xia@transsion.com>
+Content-Language: en-US
+From: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
+Autocrypt: addr=jgross@suse.com; keydata=
+ xsBNBFOMcBYBCACgGjqjoGvbEouQZw/ToiBg9W98AlM2QHV+iNHsEs7kxWhKMjrioyspZKOB
+ ycWxw3ie3j9uvg9EOB3aN4xiTv4qbnGiTr3oJhkB1gsb6ToJQZ8uxGq2kaV2KL9650I1SJve
+ dYm8Of8Zd621lSmoKOwlNClALZNew72NjJLEzTalU1OdT7/i1TXkH09XSSI8mEQ/ouNcMvIJ
+ NwQpd369y9bfIhWUiVXEK7MlRgUG6MvIj6Y3Am/BBLUVbDa4+gmzDC9ezlZkTZG2t14zWPvx
+ XP3FAp2pkW0xqG7/377qptDmrk42GlSKN4z76ELnLxussxc7I2hx18NUcbP8+uty4bMxABEB
+ AAHNH0p1ZXJnZW4gR3Jvc3MgPGpncm9zc0BzdXNlLmNvbT7CwHkEEwECACMFAlOMcK8CGwMH
+ CwkIBwMCAQYVCAIJCgsEFgIDAQIeAQIXgAAKCRCw3p3WKL8TL8eZB/9G0juS/kDY9LhEXseh
+ mE9U+iA1VsLhgDqVbsOtZ/S14LRFHczNd/Lqkn7souCSoyWsBs3/wO+OjPvxf7m+Ef+sMtr0
+ G5lCWEWa9wa0IXx5HRPW/ScL+e4AVUbL7rurYMfwCzco+7TfjhMEOkC+va5gzi1KrErgNRHH
+ kg3PhlnRY0Udyqx++UYkAsN4TQuEhNN32MvN0Np3WlBJOgKcuXpIElmMM5f1BBzJSKBkW0Jc
+ Wy3h2Wy912vHKpPV/Xv7ZwVJ27v7KcuZcErtptDevAljxJtE7aJG6WiBzm+v9EswyWxwMCIO
+ RoVBYuiocc51872tRGywc03xaQydB+9R7BHPzsBNBFOMcBYBCADLMfoA44MwGOB9YT1V4KCy
+ vAfd7E0BTfaAurbG+Olacciz3yd09QOmejFZC6AnoykydyvTFLAWYcSCdISMr88COmmCbJzn
+ sHAogjexXiif6ANUUlHpjxlHCCcELmZUzomNDnEOTxZFeWMTFF9Rf2k2F0Tl4E5kmsNGgtSa
+ aMO0rNZoOEiD/7UfPP3dfh8JCQ1VtUUsQtT1sxos8Eb/HmriJhnaTZ7Hp3jtgTVkV0ybpgFg
+ w6WMaRkrBh17mV0z2ajjmabB7SJxcouSkR0hcpNl4oM74d2/VqoW4BxxxOD1FcNCObCELfIS
+ auZx+XT6s+CE7Qi/c44ibBMR7hyjdzWbABEBAAHCwF8EGAECAAkFAlOMcBYCGwwACgkQsN6d
+ 1ii/Ey9D+Af/WFr3q+bg/8v5tCknCtn92d5lyYTBNt7xgWzDZX8G6/pngzKyWfedArllp0Pn
+ fgIXtMNV+3t8Li1Tg843EXkP7+2+CQ98MB8XvvPLYAfW8nNDV85TyVgWlldNcgdv7nn1Sq8g
+ HwB2BHdIAkYce3hEoDQXt/mKlgEGsLpzJcnLKimtPXQQy9TxUaLBe9PInPd+Ohix0XOlY+Uk
+ QFEx50Ki3rSDl2Zt2tnkNYKUCvTJq7jvOlaPd6d/W0tZqpyy7KVay+K4aMobDsodB3dvEAs6
+ ScCnh03dDAFgIq5nsB11j3KPKdVoPlfucX2c7kGNH+LUMbzqV6beIENfNexkOfxHfw==
+In-Reply-To: <773bbd8fcd5ef2ebfe1c64303c7a71a56368de69.1784538478.git.hongyan.xia@transsion.com>
+Content-Type: multipart/signed; micalg=pgp-sha256;
+ protocol="application/pgp-signature";
+ boundary="------------xRaoXSGgLc0vY9TPQoiqAmqD"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260720_033507_724475_ED0773A6 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,54 +161,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 14 Jul 2026 13:56:19 +0100, Sudeep Holla wrote:
-> Most of these issues were found by Sashiko[1][2] while reviewing the
-> ACPI SCMI PCC work[3]. They are posted separately because the problems
-> are independent SCMI core, mailbox and SMC transport cleanup bugs, and do
-> not depend on the ACPI PCC series.
-> 
-> The series fixes SCMI core and transport lifetime issues around channel
-> setup, probe failure, notification teardown, protocol-device creation,
-> driver binding and malformed firmware descriptions.
-> 
-> [...]
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--------------xRaoXSGgLc0vY9TPQoiqAmqD
+Content-Type: multipart/mixed; boundary="------------GCGLUHAC00omEipMv2gl1qSr";
+ protected-headers="v1"
+From: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
+To: Hongyan Xia <hongyan.xia@transsion.com>,
+ "mingo@redhat.com" <mingo@redhat.com>,
+ "peterz@infradead.org" <peterz@infradead.org>,
+ "juri.lelli@redhat.com" <juri.lelli@redhat.com>,
+ "vincent.guittot@linaro.org" <vincent.guittot@linaro.org>,
+ "dietmar.eggemann@arm.com" <dietmar.eggemann@arm.com>,
+ "rostedt@goodmis.org" <rostedt@goodmis.org>,
+ "bsegall@google.com" <bsegall@google.com>, "mgorman@suse.de"
+ <mgorman@suse.de>, "vschneid@redhat.com" <vschneid@redhat.com>,
+ "kprateek.nayak@amd.com" <kprateek.nayak@amd.com>,
+ Ajay Kaher <ajay.kaher@broadcom.com>,
+ Alexey Makhalov <alexey.makhalov@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Thomas Gleixner <tglx@kernel.org>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, "x86@kernel.org"
+ <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>,
+ Paolo Bonzini <pbonzini@redhat.com>, Vitaly Kuznetsov <vkuznets@redhat.com>,
+ Stefano Stabellini <sstabellini@kernel.org>,
+ Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>
+Cc: Jiazi Li <jiazi.li@transsion.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "virtualization@lists.linux.dev" <virtualization@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
+ "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+ "xen-devel@lists.xenproject.org" <xen-devel@lists.xenproject.org>
+Message-ID: <e258581c-a17f-4b5a-aafd-82e513a6288e@suse.com>
+Subject: Re: [PATCH 2/3] sched: Convert paravirt_steal to new static key APIs
+References: <cover.1784538478.git.hongyan.xia@transsion.com>
+ <773bbd8fcd5ef2ebfe1c64303c7a71a56368de69.1784538478.git.hongyan.xia@transsion.com>
+In-Reply-To: <773bbd8fcd5ef2ebfe1c64303c7a71a56368de69.1784538478.git.hongyan.xia@transsion.com>
 
-Applied to sudeep.holla/linux (for-next/scmi/updates), thanks!
+--------------GCGLUHAC00omEipMv2gl1qSr
+Content-Type: multipart/mixed; boundary="------------mHisnunnxH4NBSrCYMbsXcuq"
 
-[01/16] firmware: arm_scmi: Publish channel state before callbacks
-        https://git.kernel.org/sudeep.holla/c/0314900dcdde
-[02/16] firmware: arm_scmi: Unregister device notifier before IDR teardown
-        https://git.kernel.org/sudeep.holla/c/66a0bbf30cc1
-[03/16] firmware: arm_scmi: Quiesce notifications before teardown
-        https://git.kernel.org/sudeep.holla/c/8e49055d0d49
-[04/16] firmware: arm_scmi: Clean up channels on setup failure
-        https://git.kernel.org/sudeep.holla/c/687d67be3d87
-[05/16] firmware: arm_scmi: Free transport channel on IDR failure
-        https://git.kernel.org/sudeep.holla/c/d72e7e5f2468
-[06/16] firmware: arm_scmi: Avoid IDR updates while cleaning channels
-        https://git.kernel.org/sudeep.holla/c/c38b1e19485a
-[07/16] firmware: arm_scmi: Reject out of range DT protocol IDs
-        https://git.kernel.org/sudeep.holla/c/59407ccb5213
-[08/16] firmware: arm_scmi: Use channel ID for transport teardown
-        https://git.kernel.org/sudeep.holla/c/a71a3d4d8a6e
-[09/16] firmware: arm_scmi: Protect device request lookup with RCU
-        https://git.kernel.org/sudeep.holla/c/e6a0e7a49d83
-[10/16] firmware: arm_scmi: Drop handle on protocol bind failures
-        https://git.kernel.org/sudeep.holla/c/e3a5c30d233c
-[11/16] firmware: arm_scmi: Clear SystemPower flag on create failure
-        https://git.kernel.org/sudeep.holla/c/e4c16ae24ca0
-[12/16] firmware: arm_scmi: Fix OF node reference handling
-        https://git.kernel.org/sudeep.holla/c/659705f5eb37
-[13/16] firmware: arm_scmi: Unwind TX receiver mailbox setup failure
-        https://git.kernel.org/sudeep.holla/c/6f7c06744d53
-[14/16] firmware: arm_scmi: Unwind P2A receiver mailbox setup failure
-        https://git.kernel.org/sudeep.holla/c/f3e3773c4e5e
-[15/16] firmware: arm_scmi: Fix SCMI device destroy lifetimes
-        https://git.kernel.org/sudeep.holla/c/6abe8fe36b29
-[16/16] firmware: arm_scmi: Fix transport device teardown lookup
-        https://git.kernel.org/sudeep.holla/c/a14dd8fe0a95
--- 
-Regards,
-Sudeep
+--------------mHisnunnxH4NBSrCYMbsXcuq
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: base64
 
+T24gMjAuMDcuMjYgMTE6MzgsIEhvbmd5YW4gWGlhIHdyb3RlOg0KPiBGcm9tOiBIb25neWFu
+IFhpYSA8aG9uZ3lhbi54aWFAdHJhbnNzaW9uLmNvbT4NCj4gDQo+IHBhcmF2aXJ0X3N0ZWFs
+X3JxX2VuYWJsZWQgYW5kIHBhcmF2aXJ0X3N0ZWFsX2VuYWJsZWQgdXNlIHJhdyBzdGF0aWNf
+a2V5DQo+IEFQSXMgd2hpY2ggYXJlIG5vdyBkZXByZWNhdGVkLiBVc2UgdGhlIG5ldyBBUEkg
+aW5zdGVhZC4NCj4gDQo+IE5vIGZ1bmN0aW9uYWwgY2hhbmdlLg0KPiANCj4gU2lnbmVkLW9m
+Zi1ieTogSG9uZ3lhbiBYaWEgPGhvbmd5YW4ueGlhQHRyYW5zc2lvbi5jb20+DQoNCkFja2Vk
+LWJ5OiBKdWVyZ2VuIEdyb3NzIDxqZ3Jvc3NAc3VzZS5jb20+DQoNCg0KSnVlcmdlbg0K
+--------------mHisnunnxH4NBSrCYMbsXcuq
+Content-Type: application/pgp-keys; name="OpenPGP_0xB0DE9DD628BF132F.asc"
+Content-Disposition: attachment; filename="OpenPGP_0xB0DE9DD628BF132F.asc"
+Content-Description: OpenPGP public key
+Content-Transfer-Encoding: quoted-printable
+
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+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
+kt+z4drzFUyEjLM1vVvIMjkUoJs=3D
+=3DeeAB
+-----END PGP PUBLIC KEY BLOCK-----
+
+--------------mHisnunnxH4NBSrCYMbsXcuq--
+
+--------------GCGLUHAC00omEipMv2gl1qSr--
+
+--------------xRaoXSGgLc0vY9TPQoiqAmqD
+Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="OpenPGP_signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+wsB5BAABCAAjFiEEhRJncuj2BJSl0Jf3sN6d1ii/Ey8FAmpd+dYFAwAAAAAACgkQsN6d1ii/Ey+9
+dQf+MNwHi0AEoRwM0kGFqoNIkbCEeUDIsEPaZE6ECmiLVl6im8D6Tu03Xw92X3m4V6P4h8KP0cln
+E8xuh65pmvJfOkhbG6w3tnHb2DSaHJ3uBB1XN0hhnoe5LC2FjhTSrxSvUC9FTEmia3pQ/bsUMq1g
+s1BGaaxWDZhqOb5KP+W7tHOds08mT0VosshO8KzjtGtIpD+Hge6qd/LrxV6unk6MKQNSVdDJWwEl
+jB01KSXN6J0RnTSyvU9e/oCJWCrUdEBsjxd2JOFyef4dVLLVeFCm0gp0PLDEZEA+1VQSW0CE6Rjk
+TWjyd5V7/0D5UL8U6E38KHqqAuYS7WBJJGJF/Nx96Q==
+=Pl2M
+-----END PGP SIGNATURE-----
+
+--------------xRaoXSGgLc0vY9TPQoiqAmqD--
 
