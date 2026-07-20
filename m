@@ -4,70 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19BAAC44515
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 15:06:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD21FC44515
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 15:10:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BIY3KLx0NVnJTNGRra+GZa2Kh3/iY8HTWhCvE4KM1q4=; b=r9PEHVrdIQNl94dtm3c2pyUqll
-	5+KjyPqNlAh/OqzIWUuBbp9sJlZd4tf5AGYuMvpbVzE63ipWYzFVWd8KT7+YUNg1MQW82LEFmlM3n
-	hQBz/T6eomeJEhAyc/K5C/mKJuCFueQPu6W1V4U4ojVZX9Y7vLKj9t2nCkpaHPh5oKiNqBaX0v56G
-	MdXIgyFT6xwSBvQje64HiLBVaH/6ESCVBR+xYn1CPnOdXFrCw75TK6mJGywRiNRmMw/02+bDhRJtb
-	reJcg+YZF16yshk9o/qFVTz9UlBWlpgXs0LS6QDDSjV4mgoy/XpEXHudg6B/9oY3yZFf+TdZtTXW/
-	POmOx6DQ==;
+	bh=Y2qrkOn8lR+mg0m8yQSXJVw1kY+B7jZVD0FjIpHlZEs=; b=DD7om57KUr8TybDjl9KWMSq5Mi
+	vgmye4SfDlgU8NWJhneaml0ZurvHmR6uy9JR9qPBszeIOEOl/5j6ioKK791Qf2CTNW85HOoez99oM
+	yg7YLJF98TXAf5rKXx9Ofh3eyc/Hj9GEVNEHa58mLeWFyAOVJa11zqKnvy32FF0VhQLHir6hHmmDv
+	C3SiYCzEs1rtS/vHxUXcqiEw1cXAsvOvi0zkCkPYaMaNDSLhEBhS53+xBLkh+7eqhymS0QDgsAOAp
+	aQ4JkvVtS27FkrD9WjwsKnR1EOAvKINyE8aec0nVdL+lsXtaiEscgYfigcfPRk8ptYV2ocxH4g4qS
+	XYHc1HVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlpZa-0000000752l-2aST;
-	Mon, 20 Jul 2026 15:06:26 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1wlpcw-0000000781P-2kpr;
+	Mon, 20 Jul 2026 15:09:54 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlpZX-0000000751l-20mA
+	id 1wlpcv-0000000780h-1i2z
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 20 Jul 2026 15:09:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Y2qrkOn8lR+mg0m8yQSXJVw1kY+B7jZVD0FjIpHlZEs=; b=iFKYo8GzPTp7UxNx/xMXI8D4u1
+	UMzs1Jvky7IKjTMjBdTEIZlQsjlo0fQEUapLlEIwwB1UaCxn2au0pgitRKNdiTXtlzl/BzB9Jpyzg
+	Q8edPI3qIHVEQBVOv/sF3AA7j4aVPoGFk6JErxmuqJSDfT0YCCcXfO00IjDAY3bXXgqK3Zfi/vLqt
+	0RZ9nzO9HFdfsUC6lUOg5rQOeJ3hd5X4Fyf0yQQ5XtcmOSgy75SPjZOqmP8b4U8lT2P1d/+s3sq2w
+	dP67V7sh6TyP/H4yEXu3n/GpVCtccAuaw/ZCb1o+lsTtDeetVBIN0HNvTMiT0d9LKoj7pOe8YldBN
+	3UwNsLVQ==;
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wlpcs-0000000Gi99-1SE2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 15:06:25 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id C6FC7289;
-	Mon, 20 Jul 2026 17:05:22 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1784559922;
-	bh=/QIDt4LDCYGQcnJdj1Dx87jsIpu4s/yJXTsEwMTLmgY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=L3cegZmAnmCW2CNzqSdb2q8JVLanloll2EzhTtVk1ic2L5aFlHGrajBqIGJFe1rcy
-	 o4Gglr/L8bi13h+aJFHIxGtpZw8MLBGC0YWlR4sXY5TASofRax5yZxxlsavmlyo/KX
-	 82TdkU5WQOKXYQu8cuHOZcQY2WO2YdW846QVrbfI=
-Date: Mon, 20 Jul 2026 18:06:20 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: guoniu.zhou@oss.nxp.com
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
+	Mon, 20 Jul 2026 15:09:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TvoMh7lvneVM+A5vNG+JN21XYdP/rC880YHIhO7aUKlysFWO//SRDAj0O5++bi1iX7WymkvUZPeKyNqS+t+tr3diXvNIqIWtdghmHDqxFmX3LTCW2UPUlEi6FUEDlf+qvJhMHHBgP1ZFhSAO4KmWhI0w2YhlGLULKH6PzDTuSREzZWtStU8611JTOz/vwi5+G2WpzYJR3Yq2+iDH2+UGFb8IrawaZZznrzpNdNNh43L8oF7EupBvM0s/f9sc66gxVKq3yLZAmGWPNq2+ziKXtO0TSzjLK3oHwVxHFd1NaMry6obJaASd7G/fg27JfDhLKZybzCNSTKr3B85sHn49Qw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Y2qrkOn8lR+mg0m8yQSXJVw1kY+B7jZVD0FjIpHlZEs=;
+ b=u1W6OYZ7ooxKtApGFxGDpFsJEsC6TMcciDBM52TjsBOfswTJw4sYUqC3mIGkL539jwoI5sSPeFhKHyepcX4IUvTBOB4n098DNQm6zZEUZvwnLRT5Swma24NWGwovuJochZYRu0jk7Eo+xVSlIg1QKUQQLlrJGvPFaemngUvv6Z6HVHrhFbF9e8OKpODUvGUycj674JsZTv2jmTzYdc8hJSNs+mGX24hx3AcMNHBRoioTfMgJ2dyMbiGgD+fQDr2gaUrdsppflVhkIOquvTsbmvVpcta44bCtqfI+s8thsSepu5ph2M9HKunEU/lRBrZL9pEu2tSSQADnuZ5PTCoCag==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Y2qrkOn8lR+mg0m8yQSXJVw1kY+B7jZVD0FjIpHlZEs=;
+ b=Pw09WcmhDwX3B8KjyPZa+RK+x/ls4nPXIbwRAUe5xkWjxuPhY3E7A+YfgMJjgGyyHPyvzlHodDAXtmFero77hPHLcJ0sk4JoAPtsMkuvc9knQq+2HlZqm/JwDkOmZ34DDjzlYNRYWxnPpQNJMNctMB7RmUdLjOSs8nkRRgr26MFE+/V050rsggjGpSMpL14mREamL1wXim43keEzA8i+lTDW8i6S03NjKdeEeRnIps9BPri2tomHYnllcAsXs1zcBaZCDDqj3ygHV1+90S04ALRxh7m/cZ/q3SrDZmKwo9/ntwGG2O0w037fTYSPeuW+gsGXJ4M5dP9hDHVJjUimEg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AS8PR04MB8006.eurprd04.prod.outlook.com (2603:10a6:20b:288::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.18; Mon, 20 Jul
+ 2026 15:09:44 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0223.012; Mon, 20 Jul 2026
+ 15:09:43 +0000
+Date: Mon, 20 Jul 2026 10:09:33 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Christian Hemp <c.hemp@phytec.de>,
+	Stefan Riedmueller <s.riedmueller@phytec.de>,
+	Jacopo Mondi <jacopo@jmondi.org>,
 	Loic Poulain <loic.poulain@oss.qualcomm.com>,
-	Bryan O'Donoghue <bod@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, imx@lists.linux.dev,
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org, Guoniu Zhou <guoniu.zhou@nxp.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH v13 2/3] dt-bindings: clock: imx95-blk-ctl: Define
- formatter child node schema
-Message-ID: <20260720150620.GA26742@killaraus.ideasonboard.com>
-References: <20260720-csi_formatter-v13-0-4dc9a80e4cfd@oss.nxp.com>
- <20260720-csi_formatter-v13-2-4dc9a80e4cfd@oss.nxp.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+	Bryan O'Donoghue <bod@kernel.org>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Guoniu Zhou <guoniu.zhou@nxp.com>, linux-media@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2 1/6] media: nxp: imx8-isi: Fix stream ID validation
+ bypass in crossbar routing
+Message-ID: <al46LcL-wo5_-fhk@SMW015318>
+References: <20260720-isi-v2-0-45845bc5d4fa@oss.nxp.com>
+ <20260720-isi-v2-1-45845bc5d4fa@oss.nxp.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260720-csi_formatter-v13-2-4dc9a80e4cfd@oss.nxp.com>
+In-Reply-To: <20260720-isi-v2-1-45845bc5d4fa@oss.nxp.com>
+X-ClientProxiedBy: SA1P222CA0004.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:806:22c::14) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS8PR04MB8006:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9612a5eb-eb85-4df9-a6ca-08dee670edc1
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|19092799006|376014|7416014|10067099003|6133799003|4143699003|3023799007|56012099006|5023799004|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: c8JV0Qok0tdqjXNK+BsoTdxDZx7BlA0jIWhif0MSfLB0rlroiXn9SEhXcb3A30CxTkEW5NyxmDCx+3jxkZ1bvv7WXc6xnI23PdrJKd1D4BYrlXoNs0bDcWjIDSpzQd9JJzx6zY6F8NbtB16N8yNcj4bFJwHcxxklFAiL45fGZ2UQvFcytiVkfLSRd4/XJTgdcgBHpu6UBVzjmeeUKOVYI9toDFFiNQdT7VvBJq3jdqTNWo6LBDu4UFfAWaS4yk+tZ2S2i8q55nsrwyzhJj1PZ3B7Z/d1QCIrAX0Ax9PIilfUFBKogwQMwuXx++A9Xi/4XuQkgz0U5PxH0j3YP76g3OuVXkfva67jrqncSCUt9qlizWg4dE+XRPruSwSvNAqst4m5qCPAk9HGYBZNnN8219RmwJ0/09SVjLln9gQiPH24guwaLtD4+CoY0D/h08hBt9pIcoPqCIgdeLyz9JTdgZXzDrkXW9/Yz0u7tLng0kxyg6ELmCTOhm2fAgXexSW2EKt348xOiCqdnBgXiTVX+HvS6eOf2Tmgq9ij24Fa5m55UXbhphPhrqPSoaR/jFPKWE+CeBtW7z3xIHhFJh5lPFIKKPLAXLDzpLuUpnNThMSFChteGWfHtGOtOp70u5E53lgt9vSMTiraC/KIUzOsv8/FsWys7PgTrMuoE9OCnDU=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(19092799006)(376014)(7416014)(10067099003)(6133799003)(4143699003)(3023799007)(56012099006)(5023799004)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Izcc38rmCrqaA4tC/WWkUGTiABdJLfgLmfMghKXxLs9pUd2kP5k0CRpA6Lyl?=
+ =?us-ascii?Q?vniBosAXT4L6XTzHfLMoa4G57eNvjq2SMGcGW6w/EZaqaaoEfs6QmTcjJnlM?=
+ =?us-ascii?Q?I5UZH/8XqJPiVyEV7jRQj5qJDMshimR6eHmePd2qjvDDgj2RUJvaU6J4jxzX?=
+ =?us-ascii?Q?/160EKlrgrUu3eTRyVy09yJ2DqfCJyk2N65hG5D53OqWlCW1+wVmZFK/zMuy?=
+ =?us-ascii?Q?TQAVr4ec2r78GX65EMZflKQ0ylo40iSzvmkTNHcpOt0EcF1hxOQvH0l96Xzm?=
+ =?us-ascii?Q?HYhTvelptjfPszwYwRuxLpDoaZurkH6j0A429oEfoNV+02IuDELV3+KUSgnj?=
+ =?us-ascii?Q?OBHQDgQaD4xpkUB3w/NBpPB1dbLlZmrjrJOUP2aRlabzKxEVgv9BxMnwCUfV?=
+ =?us-ascii?Q?2jKKu6vwK54VUmX3fk9f72j2eWu4Lzq2ZAcTZ4Il3brBfHOaJuy0KSFMIzgo?=
+ =?us-ascii?Q?rDkV2Jp3VUEtlSy/7W2wyhzYMI8bJpDxhJEPbmm9UCHb6uQ+1xuMMmof4Vrw?=
+ =?us-ascii?Q?6F5d25PwLWC+rQcHs7XQfkJBlUK2k8xKfYrAfNMrRJxDRn2UniNSseSejo9N?=
+ =?us-ascii?Q?IgEdblyDDHn+2cZZNMFgoQ9OK3kGh0CCIBsD40bxucRMh17/GpDynZyuW+wk?=
+ =?us-ascii?Q?94fZTy2d1MLRYvCehBRvzyRY+sAzUObCWyhlhcjywBM/1Uqc1Ub/CJKv3fD5?=
+ =?us-ascii?Q?FWhXd8DiQFQn6XxQBw0kd9tKxNBWTnuHKW70EN4cnjGNQ/sgqp0NWjPuou0O?=
+ =?us-ascii?Q?5Jhyzsd3j4g4OdJnFbg+Q+zSkiax2VPlkwRhRvAKFGqdkEkS7gigD0LOwvVQ?=
+ =?us-ascii?Q?QKLULwbxiDYkjvlnL9V5TX89Dzo6BzzyuDLoHwfbomVzy3eJploXziZGlDlJ?=
+ =?us-ascii?Q?DHU7FV+Ii2D6toXMih4rWMFN4G8o7a2rdMhD8MeL1MssCvdPeJ0FRnCo15Tl?=
+ =?us-ascii?Q?5wFpbCv6t9nHIlbkjYUbfWeaKZ75apV3xZZpKE/Rcppt4y49E2oFJiAIAFPr?=
+ =?us-ascii?Q?OBpyIOqTne4f/nA9KgLYswGptK4NfIRBW05kLl1TxxyE/U4V+Vg8AmP8WSTl?=
+ =?us-ascii?Q?PYYYb250YHqVmq3AWJ+4HAyCHsqWMpNNOLVPWLN9ySPOKYC/P3VxPlIobcwE?=
+ =?us-ascii?Q?WWAefE5PVeiZCfxmK1a58Ca5VvRBY8YZRsLr90CAaapclWr1qILefuRRK8tF?=
+ =?us-ascii?Q?FRSXONH6Wpo5GW4pMhvJZ0Dm4h1OZPxq8PzzdY1JMYrPD+G20z6Z7/zMkgWd?=
+ =?us-ascii?Q?wJI5jOEe5o8u0RW4i9zU30GFgtNgcn9Ek+6JffSsW0BCYezkt0n0bEO300m3?=
+ =?us-ascii?Q?1qpb5q3dYZVfDks3j4E/FsQJ11XIOseCgf/punc0//9rDNOMFI6M/KXprQ3M?=
+ =?us-ascii?Q?DwcGrehuMJoG72eKteyFm76sWH1UAZmdO/vdZc7hkBBkR3aAjYb1YErbaHM2?=
+ =?us-ascii?Q?sCA/fhgnvvCmo2srYtJq2IqI8Esfvf8q5n8ARzQEaKSagQrYxXAx8x6Ffv+X?=
+ =?us-ascii?Q?73br4UNNY7r1Vlbrs26KXGgIQkgINtVYXN02I8T8V35WAQWw3U3uXVc7y5tK?=
+ =?us-ascii?Q?5GlDVLUhXO4GHq2/zKY1+lI0dYiL6MIHE/SH/bNKuf44wcBhARk15mklAHl1?=
+ =?us-ascii?Q?9MSB2FpPZ6YBnA7nGK2Zpzq7BdVOMXyD4qeKPJvd7I1S+OQNMiyS/smfwvFC?=
+ =?us-ascii?Q?TUHU3V2wHOc5TH8w6iaV42z6OCEU38MU6OrzC8Ybz5Zu66ep65IzByi3JAKH?=
+ =?us-ascii?Q?ufYKNMj1A50S51kTzN5xKS61CVqMTfgjIGflqspTt00lZWDRCviW?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9612a5eb-eb85-4df9-a6ca-08dee670edc1
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jul 2026 15:09:43.7163
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: py/BvqV9gVg2nwEFr2pVOw1Rzq3eWh3hLDDkMTqOXqoBQnNdaTzEatSqW0ZkHNo2x7wf55r1QWACo5uoyypcIwtcyvJ2ibmziB7h/c0cWibULeP5cBuVTEkOtvqGRNQk
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8006
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_080623_669767_7DCE221F 
-X-CRM114-Status: GOOD (  18.54  )
+X-CRM114-CacheID: sfid-20260720_160950_500750_CAA8C299 
+X-CRM114-Status: GOOD (  22.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,142 +165,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Guoniu,
-
-Thank you for the patch.
-
-On Mon, Jul 20, 2026 at 05:59:47PM +0800, guoniu.zhou@oss.nxp.com wrote:
-> From: Guoniu Zhou <guoniu.zhou@nxp.com>
-> 
-> The Camera CSR contains control registers for multiple CSI formatter IPs
-> at different register offsets. Each formatter is an independent hardware
-> block with its own clock input and media pipeline connection.
-> 
-> Define schema to allow formatter child nodes under nxp,imx95-camera-csr,
-> with 'reg' property specifying the formatter's register offset within the
-> CSR address space.
-> 
-> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-
+On Mon, Jul 20, 2026 at 11:34:03AM +0800, Guoniu Zhou wrote:
+> The crossbar routing validation has a critical bug where it validates
+> the wrong routing table, allowing userspace to bypass validation entirely.
+>
+> The __mxc_isi_crossbar_set_routing() function is called to validate and
+> apply a new routing table from userspace. However, the validation loop
+> iterates over state->routing (the currently active routing table) instead
+> of the routing parameter (the new table being validated):
+>
+>     for_each_active_route(&state->routing, route) {
+>
+> This means userspace can submit any invalid routing configuration and it
+> will pass validation as long as the currently active routing is valid.
+> This is a security issue as it allows userspace to configure routes that
+> violate hardware constraints, potentially causing undefined hardware
+> behavior.
+>
+> Fix by validating the routing table that will actually be applied.
+>
+> Fixes: cf21f328fcaf ("media: nxp: Add i.MX8 ISI driver")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
 > ---
-> Changes in v13:
-> - Add Reviewed-by tag from Frank and Krzysztof
-> 
-> Changes in v11:
-> - Move properties to top-level and use if:then:else (Krzysztof/Frank)
-> 
-> Changes in v10:
-> - Use single quotes for regex pattern to be consistent (Krzysztof Kozlowski)
-> - Add formatter subnode binding and camera-csr syscon example
-> - Update commit title and message
-> 
-> Changes in v9:
-> - New patch to address the issue of formatter acting as a child node of syscon
+
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+
+> Changes in v2:
+> - Split v1 patch 1/5 into two patches: this patch fixes the core
+>   for_each_active_route() bug, next patch adds additional stream
+>   validation (Frank Li)
 > ---
->  .../bindings/clock/nxp,imx95-blk-ctl.yaml          | 71 ++++++++++++++++++++++
->  1 file changed, 71 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/clock/nxp,imx95-blk-ctl.yaml b/Documentation/devicetree/bindings/clock/nxp,imx95-blk-ctl.yaml
-> index 27403b4c52d6..fbbf1b3f1790 100644
-> --- a/Documentation/devicetree/bindings/clock/nxp,imx95-blk-ctl.yaml
-> +++ b/Documentation/devicetree/bindings/clock/nxp,imx95-blk-ctl.yaml
-> @@ -39,6 +39,18 @@ properties:
->        ID in its "clocks" phandle cell. See
->        include/dt-bindings/clock/nxp,imx95-clock.h
->  
-> +  '#address-cells':
-> +    const: 1
-> +
-> +  '#size-cells':
-> +    const: 1
-> +
-> +patternProperties:
-> +  '^formatter@[0-9a-f]+$':
-> +    type: object
-> +    $ref: /schemas/media/fsl,imx95-csi-formatter.yaml#
-> +    unevaluatedProperties: false
-> +
->  required:
->    - compatible
->    - reg
-> @@ -46,6 +58,23 @@ required:
->    - power-domains
->    - clocks
->  
-> +allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: nxp,imx95-camera-csr
-> +    then:
-> +      required:
-> +        - '#address-cells'
-> +        - '#size-cells'
-> +    else:
-> +      properties:
-> +        '#address-cells': false
-> +        '#size-cells': false
-> +      patternProperties:
-> +        '^formatter@[0-9a-f]+$': false
-> +
->  additionalProperties: false
->  
->  examples:
-> @@ -57,4 +86,46 @@ examples:
->        clocks = <&scmi_clk 114>;
->        power-domains = <&scmi_devpd 21>;
->      };
-> +
-> +  - |
-> +    #include <dt-bindings/clock/nxp,imx95-clock.h>
-> +
-> +    syscon@4ac10000 {
-> +      compatible = "nxp,imx95-camera-csr", "syscon";
-> +      reg = <0x4ac10000 0x10000>;
-> +      #address-cells = <1>;
-> +      #size-cells = <1>;
-> +      #clock-cells = <1>;
-> +      clocks = <&scmi_clk 62>;
-> +      power-domains = <&scmi_devpd 3>;
-> +
-> +      formatter@20 {
-> +        compatible = "fsl,imx95-csi-formatter";
-> +        reg = <0x20 0x100>;
-> +        clocks = <&cameramix_csr IMX95_CLK_CAMBLK_CSI2_FOR0>;
-> +        power-domains = <&scmi_devpd 3>;
-> +
-> +        ports {
-> +          #address-cells = <1>;
-> +          #size-cells = <0>;
-> +
-> +          port@0 {
-> +            reg = <0>;
-> +
-> +            endpoint {
-> +              remote-endpoint = <&mipi_csi_0_out>;
-> +            };
-> +
-> +          };
-> +
-> +          port@1 {
-> +            reg = <1>;
-> +
-> +            endpoint {
-> +              remote-endpoint = <&isi_in_2>;
-> +            };
-> +          };
-> +        };
-> +      };
-> +    };
->  ...
-
--- 
-Regards,
-
-Laurent Pinchart
+>  drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
+> index c580c831972e..84871bceb31d 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
+> @@ -107,7 +107,7 @@ static int __mxc_isi_crossbar_set_routing(struct v4l2_subdev *sd,
+>  		return ret;
+>
+>  	/* The memory input can be routed to the first pipeline only. */
+> -	for_each_active_route(&state->routing, route) {
+> +	for_each_active_route(routing, route) {
+>  		if (route->sink_pad == xbar->num_sinks - 1 &&
+>  		    route->source_pad != xbar->num_sinks) {
+>  			dev_dbg(xbar->isi->dev,
+>
+> --
+> 2.34.1
+>
+>
 
