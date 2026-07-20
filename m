@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34CB0C4451B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 08:58:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A454C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 08:58:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VFpLun3aTRlN5AWiLiGZ73OhLT8cMhNwsTldXssx/wk=; b=eWURqZ78VflGeWXT/S1aCv4P1S
-	58of7fKsDeBTv4jH9UOeIwkv+KaCe0cwdmh1setaH+KiL3xiS3zoBRm5u8y1Dh+96BQIih5m9noQV
-	AFs0ILECAWOZubiNFiJPKmlLnQ/kfXFxArgQQegYSpv49cHHA6yz4X1M5b273ePqJW+UhN3TyNHOB
-	iEJN9cvxjBBaL9/vTEaPmL8zDNfxH5OFD/PTz0Qnm7TurzcMj7QJwmR6riAAjVTEqcXwwROU+Pp5r
-	8dofv5EW2TlvJqy7r/L6A+ONW8RRX6dax/jpSZCEeQMkARx9WOTJ8Lzg47dsTHrdaQaTAv0NUFKz5
-	VJ3G972g==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cOfUy+CQo+u3Sm5zMP7PbJnZMmWfXxmWUpfU0u6aASk=; b=qLLaBh3/IP93mSaRcL6Hwj/jg1
+	2GWb6jjRLFtlJweOQ25FcZYv1ZxS3V20uux7nMZxEfczYT/nV1DPzzUkG4WyUlyFTxgmz5OX0g1gj
+	M/m2j9DRgMUQwl6HX54ieCa+zaC3ocF72Z4FyC6oJ+NIWktYwnP58/CCDXnA8viatcJTEu8ZOf5za
+	JU1ND2zcBZ9KnHKJfc2Cf7w41UngfLjc8X0Pf385jY9GJc35yfTSJ6vT+Urz/dAgFGo2PZwTQKzZK
+	8mV7sxd0gi2iwbek8GFA7e3yjGTkq0ksoac0iugE+JIQ6ou7SlK907gDf1H2FXQ7PcUVoTVGeBbRA
+	0snrogcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wljpN-00000006Fp4-0r3R;
-	Mon, 20 Jul 2026 08:58:21 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1wljpV-00000006Frg-3wPA;
+	Mon, 20 Jul 2026 08:58:29 +0000
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wljpK-00000006FoK-3e63
+	id 1wljpR-00000006FqF-114a
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 08:58:19 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-84864086bfeso10438553b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 01:58:18 -0700 (PDT)
+	Mon, 20 Jul 2026 08:58:26 +0000
+Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-8487088510aso9952769b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 01:58:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784537897; x=1785142697; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=VFpLun3aTRlN5AWiLiGZ73OhLT8cMhNwsTldXssx/wk=;
-        b=BwDc+Szn2lweApjqh3FPs1zd/kOHERPgs9H311opgp1vC1sOAdS8M8e43pHoyRF78G
-         eUOKjUow5mmbY9uGLXFdz9mrkeivLtlbd9UYyJRV6jHNijgwXutbTbF4XldDN9a96pns
-         YhzXm3Z81WzvYwJwBexDE3L0myIDffYDPEksQUXPlKtCTpGxQldovMQnFbvP39CCL1+h
-         8aYqJiplZ3j3syCSOX35Wj17Rg7NH51MKosq6AQX2PwyHqvWtfyoXBCKSN465iK7hp/m
-         BORb4X8Wx0Kg0uuOCcTIEQdMLwPetCixuZ5Og8cmZbbkxCuH0yKg8DHdoIoAnQGBGcBa
-         brgg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784537897; x=1785142697;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=gmail.com; s=20251104; t=1784537904; x=1785142704; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=VFpLun3aTRlN5AWiLiGZ73OhLT8cMhNwsTldXssx/wk=;
-        b=SMExV7CikjZ1ZwL6tv1VaNNjBWFRcOvx05GziH8bV51nbzNTMQ8E2jMbvQHlIvBv34
-         k/akyKTw2cDvuTT0vBRGWtbyzdU0hLjRwuzu32BJUJQRQgjGUeM6tT2pMzH2WWxvvSMN
-         dP9XipjUlyhivJPJTPRdgqNoexWH+wO78LYqx8prnsxpyUS7OR4an6TEdcTsR9LxUpO3
-         zXr7N3Vovpb0RVelY6gtIKAvGtuLOvIvx7+2vUU8NYiA9hr7YvYhq7ySMxYXS8YzktEB
-         LeRRWOVQZ9ouISMqNdGjbYSxZV6K4fa5ok2wh4OGpJSUiU5BQykgbTQtOmX/E8YJSosu
-         +GMg==
-X-Forwarded-Encrypted: i=1; AHgh+Rr5/OW7/CtHxtKwGywbaA7veclKvd/T/fNtfjuNIJbNOjygTAfKrEHBm5wPGuwcd+Re3yUL1BFjD78Ki0/mAm4K@lists.infradead.org
-X-Gm-Message-State: AOJu0YwjYofiLM4Iwbb/yZsyEMCTk7iGXB3AeXY6hB4epENHwIngcB5x
-	814thgy06Qxk/Sv9hxXOy1p+1yUJLXQv032riL4BKdQLxna5hBe9CwvL
-X-Gm-Gg: AfdE7clQSVbjKZKp8K/EANCWVBKCVQPvK6UPGHT7wq3jK2uojwptg2Ly9/9bmjJUQCO
-	OcuAAiE+vKmlv8ohIU/KnqbzJhXljZT0ckbTkDSUG07umDZfS637v2Lu5CALOkKGi0/41C9Tc/6
-	acrX5KWvMS4t+lqSxjJGJgq3riYDFz5HiMCTTImJPMZAbLqpe0mfXAXeGbHj8tf0FwgtxKNzqCD
-	tqZXO8KiaJ7S+9E+lDN87/qAkpz/9zEQIUs8/cC283GEW4P5IjckLw6XQdqIcdLQkQ861cUH7ua
-	01M5YDky9t9HUpdtsdg0nJwF5mUSW4hV00duzYvPhT0KKlXKkzdFfMWOAwc6g3MWBaTY7wC6t9e
-	/DmZez5IODw9FnyO5Lia1vmn2XgVqIdIJYyzDriUffR1OBdCYwYW4ru7u2Gv/EP4cZVQ=
-X-Received: by 2002:a05:6a00:a96:b0:848:64fc:510d with SMTP id d2e1a72fcca58-84c294892d9mr12402258b3a.45.1784537897395;
-        Mon, 20 Jul 2026 01:58:17 -0700 (PDT)
+        bh=cOfUy+CQo+u3Sm5zMP7PbJnZMmWfXxmWUpfU0u6aASk=;
+        b=rIRRfAjmvXwTpzzvbVEC8/NyfIH0x8mlXEa15R1T331bbvBaeLHN5i/8S5v7j00J4s
+         nd3ykslIwRhuidIbf+zHjTbyezrf/ftt7cXjzB/wEuSLbeC9B6BhPPaIBP+Ips/i2Lqg
+         qf+DsnOA4ZTraqMBuMMp6CupEKDYoC2nYsCHOK5jowi7m7ZiTK5THcdj6PlJ0fOuaKlS
+         tQPTJ2+jJJetSWjee/0Hs6L0RHiIi+t5aYZ67Uh94aXc0L03HbJfKh49Vo8jSSadJ/pY
+         P8lFOyJ9IlIAbYErKkwVWFjYfgYq4foF3xBgqre2CTDpg7BxCsRUqgGryHU2zVsH1tbo
+         7zNA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784537904; x=1785142704;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=cOfUy+CQo+u3Sm5zMP7PbJnZMmWfXxmWUpfU0u6aASk=;
+        b=cpH21p6tRqAPlyw1CBJUx1q9N4HidwfBsvQhRVCpWz1S2Y5uPi8N3TkBUoXCprJNvI
+         gi4sPxpBZD2TIwuIo/xBFf1szkcDj5PoOtK9+TZIuhozV7OqxAz7enQSm55VAt6mQfWD
+         sXF+XNyQGZ89XG1jrWH2eofMs5E77JCNdHJ5CY6pzohVOHL8yyUBgHJz0Bt7lghly8Ll
+         xz9b2n9z2kCnVrjwvTl4vumfhgY0FXeEl5+b1/cKxsN45ox7R96qAoOykTZUcyqRFTVL
+         NK2x0x45NQtlsXzdEMqSr02qv5Z0vbgEoL+trY9E6rZnhFcxni+10B/sH6aZzQu9aR5Z
+         x1bQ==
+X-Forwarded-Encrypted: i=1; AHgh+RpvtH3l+lov+0BhdpOa6Bzt8G9p57a7dAv9VOpDYzsmZoPCKktJKb/O65JwsFi//ZRWkjxu1Bq/9So365j0c5s2@lists.infradead.org
+X-Gm-Message-State: AOJu0YzrZXzOWJFg5VwqJvoV+pBaeD4sAbiHve4/as6dr6K2JKVxuheE
+	49vEphidQ+oRqCI/8jqb22Vm1oMTod3tXe6JBw87PZkMl3snMgqIN+Yv
+X-Gm-Gg: AfdE7cm1yV7PmAnOez3KUd0Xd+nOcMO1GNo/61wj8dmdBkxV83GhCeq3BKypS4uMTs8
+	KmtpEVNzYsgAorhMq1LMn8GE2RzCh1LEhTafe/Pf6ga6wJA+RJRaf+gsEQvjgXB1fXWn2LVGhLD
+	/ObD0+roubU+FOXNTVau/XwJ2LrO09dE/4RxWzRkEARLq/nu67zAkp0y+eEIcLlNemQZ7gGspRB
+	Qmzx125Qfz9X+M63jAXXqSv6kV49+tKOo8rol8B0nKmgg1OQYv2nektY9dbGBOLqkQ3VCQ5u8jz
+	9Ut8dMR1oXN2naMUg5VloWCk7yynEqe4mVkyANJiriEDWUb+w8ay9sExue6cCw8R8cNLny7dU58
+	1ivnIDhY3I0nudHeiuuEqPDX+vO73edLvK7RSRxdAtA7jNY8CIgn+dzPWajC425l5QOk=
+X-Received: by 2002:a05:6a00:1888:b0:845:e740:8ba6 with SMTP id d2e1a72fcca58-84c294d43e9mr13050873b3a.43.1784537904420;
+        Mon, 20 Jul 2026 01:58:24 -0700 (PDT)
 Received: from lgs.. ([118.193.39.55])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84c2adcc78asm5247901b3a.23.2026.07.20.01.58.11
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84c2adcc78asm5247901b3a.23.2026.07.20.01.58.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Jul 2026 01:58:16 -0700 (PDT)
+        Mon, 20 Jul 2026 01:58:23 -0700 (PDT)
 From: Guangshuo Li <lgs201920130244@gmail.com>
 To: Minghsiu Tsai <minghsiu.tsai@mediatek.com>,
 	Houlong Wei <houlong.wei@mediatek.com>,
@@ -89,15 +90,17 @@ To: Minghsiu Tsai <minghsiu.tsai@mediatek.com>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH v2 0/3] media: mediatek: unregister VPU watchdog handlers
-Date: Mon, 20 Jul 2026 16:57:53 +0800
-Message-ID: <20260720085756.465667-1-lgs201920130244@gmail.com>
+Subject: [PATCH v2 1/3] media: mediatek: vpu: add watchdog handler unregister helper
+Date: Mon, 20 Jul 2026 16:57:54 +0800
+Message-ID: <20260720085756.465667-2-lgs201920130244@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260720085756.465667-1-lgs201920130244@gmail.com>
+References: <20260720085756.465667-1-lgs201920130244@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_015818_908415_7B0D7E7D 
-X-CRM114-Status: GOOD (  10.99  )
+X-CRM114-CacheID: sfid-20260720_015825_314247_D6F0830E 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,43 +115,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Mediatek vcodec and MDP drivers register watchdog reset handlers
-with the VPU driver and pass driver-owned objects as private data.
+VPU clients register watchdog reset handlers with private data owned by
+the client device. The VPU driver currently provides no way to clear a
+handler when client initialization fails or when the client device is
+removed.
 
-These handlers can remain registered after an initialization failure or
-device removal. A later VPU watchdog reset can therefore invoke a
-handler with stale private data and potentially dereference freed
-memory.
+Add vpu_wdt_unreg_handler() to clear the reset callback and its private
+data while holding the VPU mutex. This allows clients to remove stale
+watchdog entries before releasing their device references.
 
-This series adds a common helper for unregistering VPU watchdog
-handlers, then uses it in the vcodec and MDP cleanup paths before their
-VPU device references are released.
+Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+---
+ drivers/media/platform/mediatek/vpu/mtk_vpu.c | 14 ++++++++++++++
+ drivers/media/platform/mediatek/vpu/mtk_vpu.h |  2 ++
+ 2 files changed, 16 insertions(+)
 
-The series is organized as follows:
-
-1. Add vpu_wdt_unreg_handler() to the VPU driver.
-2. Unregister the vcodec watchdog handler during initialization
-   failure and firmware release.
-3. Unregister the MDP watchdog handler during probe failure and
-   device removal.
-
-v2:
-
-  - Split the changes into three patches as requested by Nicolas.
-  - Fix the extra blank line reported by checkpatch.
-  - Carry Nicolas' Reviewed-by tag on the MDP patch.
-
-Guangshuo Li (3):
-media: mediatek: vpu: add watchdog handler unregister helper
-media: mediatek: vcodec: unregister VPU watchdog handler
-media: mtk-mdp: unregister VPU watchdog handler
-
-drivers/media/platform/mediatek/mdp/mtk_mdp_core.c |  2 ++
-.../mediatek/vcodec/common/mtk_vcodec_fw_vpu.c     |  6 ++++++
-drivers/media/platform/mediatek/vpu/mtk_vpu.c      | 14 ++++++++++++++
-drivers/media/platform/mediatek/vpu/mtk_vpu.h      |  2 ++
-4 files changed, 24 insertions(+)
-
---
+diff --git a/drivers/media/platform/mediatek/vpu/mtk_vpu.c b/drivers/media/platform/mediatek/vpu/mtk_vpu.c
+index 8d8319f0cd22..a2b937095248 100644
+--- a/drivers/media/platform/mediatek/vpu/mtk_vpu.c
++++ b/drivers/media/platform/mediatek/vpu/mtk_vpu.c
+@@ -437,6 +437,20 @@ int vpu_wdt_reg_handler(struct platform_device *pdev,
+ }
+ EXPORT_SYMBOL_GPL(vpu_wdt_reg_handler);
+ 
++void vpu_wdt_unreg_handler(struct platform_device *pdev, enum rst_id id)
++{
++	struct mtk_vpu *vpu = platform_get_drvdata(pdev);
++
++	if (!vpu || id >= VPU_RST_MAX)
++		return;
++
++	mutex_lock(&vpu->vpu_mutex);
++	vpu->wdt.handler[id].reset_func = NULL;
++	vpu->wdt.handler[id].priv = NULL;
++	mutex_unlock(&vpu->vpu_mutex);
++}
++EXPORT_SYMBOL_GPL(vpu_wdt_unreg_handler);
++
+ unsigned int vpu_get_vdec_hw_capa(struct platform_device *pdev)
+ {
+ 	struct mtk_vpu *vpu = platform_get_drvdata(pdev);
+diff --git a/drivers/media/platform/mediatek/vpu/mtk_vpu.h b/drivers/media/platform/mediatek/vpu/mtk_vpu.h
+index 3951547e9ec5..2ccb481a04cf 100644
+--- a/drivers/media/platform/mediatek/vpu/mtk_vpu.h
++++ b/drivers/media/platform/mediatek/vpu/mtk_vpu.h
+@@ -141,6 +141,8 @@ int vpu_wdt_reg_handler(struct platform_device *pdev,
+ 			void vpu_wdt_reset_func(void *priv),
+ 			void *priv, enum rst_id id);
+ 
++void vpu_wdt_unreg_handler(struct platform_device *pdev, enum rst_id id);
++
+ /**
+  * vpu_get_vdec_hw_capa - get video decoder hardware capability
+  *
+-- 
 2.43.0
+
 
