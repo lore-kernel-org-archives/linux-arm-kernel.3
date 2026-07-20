@@ -4,71 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27DE9C44520
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 11:53:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05D93C44520
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 12:00:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Content-Type:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fZfIR0xEAZOFXbzSMIDRPOwa8N9R3psoROjzWoX6L34=; b=UD5U3pzoLS7pJ+kL7MVEAlwnw3
-	+PdBQYvImDyPgkBB/NC3AHFmDGjgeqUri/eIdX4NFhtF2g5BnSZpMs6vIDMCd7dN7uzU4ZBPdEpxD
-	rLKxe4rQ68TWwX1gD+P91vVp0bYomWtgR6BfAm4jn+LjRwAugqLRTyTAK5O/hlvc+mufJIet82L7w
-	RDah56wMJtFfSxDcm34OS2YTO08R/e/aFehAFDlDBxC4mYDzcm3Dw4lav/hJlv9IDmr1eLwSdupwH
-	BjxPMk9aPbTf945rG4HEEx2ZtQNmDKQKLksBdOG0xuiM0l2qGo9RiEaoGRUmJyf0Uud/OhIXsvAzg
-	pUJRi3LA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JfG1ZHcv+rjvAHjyJjxi2sRN0IfFFjf4AjdeqTop9C4=; b=RKVEyCrDoXedRB2eKf1OsAlqv5
+	ceTVvIKHEt1Oz1k6XnbIPsYNylm9RP890XkhiZcaXnhpxXY1r2I02lez1wBSzhUW/w9ha5gJlOaxT
+	o5DgaSi1ZoWADxWuUGvdc1bAzX4HsfkqnGzbGJxfpalouv8yQyhFwVq2cwifIkABV6ml8LVdxMOUw
+	ER1wEnUGklHAp9wtHWUgAI7Ptzkqts1eEFQxFR3lW0jkYWUwOsSwDmNaFK/ZqNxEEcQG+FyF1rhDH
+	Xg4ZsVQHcwvlxtqFc/py0A3rze9O+x2e7Add7nYrHDRWZaQCxhxM3eCCkuVCKFBC80RSwlNIwDZjW
+	P/ISiXXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlmYq-00000006duS-2KWt;
-	Mon, 20 Jul 2026 11:53:28 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1wlmfc-00000006eYz-1z8P;
+	Mon, 20 Jul 2026 12:00:28 +0000
+Received: from out-183.mta0.migadu.com ([2001:41d0:1004:224b::b7])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlmYn-00000006dtd-1S8V;
-	Mon, 20 Jul 2026 11:53:27 +0000
-Received: from localhost.localdomain (unknown [111.196.245.140])
-	by APP-05 (Coremail) with SMTP id zQCowADHND8yDF5qtcmIAA--.52459S2;
-	Mon, 20 Jul 2026 19:53:22 +0800 (CST)
-From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: Bin Liu <bin.liu@mediatek.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>
-Cc: Nicolas Dufresne <nicolas@ndufresne.ca>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-media@vger.kernel.org,
+	id 1wlmfZ-00000006eXo-3WVh
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Jul 2026 12:00:27 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1784548811;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=JfG1ZHcv+rjvAHjyJjxi2sRN0IfFFjf4AjdeqTop9C4=;
+	b=Zz/2JB1+Mjxt6Dns0uYzFOLTpBQzIGJuYWgxQWef6tQ/Sif17tZoTMbnsT31ipbxFQqIC1
+	by46BgHzKdI49KEy4T6VOcJ9sDDWluNNus+x4SW729AZrSg7ZqMe59h+dIAuyEei/KIDgi
+	jnbZK4lJjvBXGxcY5kNPMkJxf7hndIU=
+From: Usama Arif <usama.arif@linux.dev>
+To: Rik van Riel <riel@surriel.com>
+Cc: Usama Arif <usama.arif@linux.dev>,
 	linux-kernel@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	kernel-team@meta.com,
+	David Hildenbrand <david@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>,
+	linux-mm@kvack.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Harry Yoo <harry@kernel.org>,
+	Jann Horn <jannh@google.com>,
+	Lance Yang <lance.yang@linux.dev>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Pengpeng Hou <pengpeng@iscas.ac.cn>
-Subject: [PATCH v2] media: mediatek: jpeg: retry HW selection after successful wait
-Date: Mon, 20 Jul 2026 19:53:22 +0800
-Message-ID: <20260720115322.89784-1-pengpeng@iscas.ac.cn>
-X-Mailer: git-send-email 2.50.1
-Content-Type: text/plain; charset="utf-8"
+	linux-trace-kernel@vger.kernel.org
+Subject: Re: [PATCH RFC v3 3/6] mm: rename get_user_page_vma_remote() to get_user_page_lookup_vma()
+Date: Mon, 20 Jul 2026 05:00:01 -0700
+Message-ID: <20260720120002.299101-1-usama.arif@linux.dev>
+In-Reply-To: <20260717170036.743149-4-riel@surriel.com>
+References: 
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowADHND8yDF5qtcmIAA--.52459S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Aw4rWFyftryxJF1fXFyftFb_yoW8ZFWxpr
-	W5K39IvrW8Gr4qgr48Aa1UAF15Gw1rCa1xWrnxZw48ArsIqF1Dt3WUta48tFyxAFy2ka45
-	JF1FvayfCrW2yFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9Y14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUtVWrXwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
-	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
-	67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUCVW8Jw
-	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWU
-	CwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCT
-	nIWIevJa73UjIFyTuYvjfUOuc_DUUUU
-X-Originating-IP: [111.196.245.140]
-X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_045325_751697_3418E75B 
-X-CRM114-Status: GOOD (  10.24  )
+X-CRM114-CacheID: sfid-20260720_050026_156071_6D69C4BA 
+X-CRM114-Status: GOOD (  19.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,49 +93,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-wait_event_interruptible_timeout() returns a positive value when its
-condition becomes true before timeout. mtk_jpegdec_worker() treats every
-nonzero result as failure, so a normal decoder wakeup can finish the
-mem2mem job as though no hardware became available.
+On Fri, 17 Jul 2026 13:00:33 -0400 Rik van Riel <riel@surriel.com> wrote:
 
-Handle an interrupted wait and exhausted timeout retries separately, and
-retry hardware selection after a successful wakeup. The encoder uses
-wait_event_interruptible(), whose successful return is zero, so this change
-does not alter its separate no-timeout waiting policy.
+> get_user_page_vma_remote() faults in the page at @addr in a remote mm and
+> also looks up the VMA that covers it, handing both back to the caller.
+> 
+> This cleans up the name space for adding a get_user_page_vma() variant
 
-Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
----
-Changes since v1: https://lore.kernel.org/all/20260625003142.99598-1-pengpeng@iscas.ac.cn/
-- split interrupted waits, timeout exhaustion and successful wakeups
-- use distinct diagnostics and explain why the encoder path is outside this
-  fix
-- rebase onto v7.2-rc4
+nit: s/name space/namespace/
 
- drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c | 12 +++++++++---
- 1 file changed, 9 insertions(+), 3 deletions(-)
+> where the caller already has the vma.
+> 
+> Assisted-by: Claude:claude-opus-4.8
+> Signed-off-by: Rik van Riel <riel@surriel.com>
+> ---
+>  arch/arm64/kernel/mte.c   | 2 +-
+>  arch/x86/kernel/uprobes.c | 2 +-
+>  include/linux/mm.h        | 2 +-
+>  mm/memory.c               | 4 ++--
+>  mm/rmap.c                 | 2 +-
+>  5 files changed, 6 insertions(+), 6 deletions(-)
+> 
 
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-index d147ec483081..9634c95aaada 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-@@ -1697,9 +1697,15 @@ static void mtk_jpegdec_worker(struct work_struct *work)
- 		ret = wait_event_interruptible_timeout(jpeg->hw_wq,
- 						       atomic_read(&jpeg->hw_rdy) > 0,
- 						       MTK_JPEG_HW_TIMEOUT_MSEC);
--		if (ret != 0 || (i++ > MTK_JPEG_MAX_RETRY_TIME)) {
--			dev_err(jpeg->dev, "%s : %d, all HW are busy\n",
--				__func__, __LINE__);
-+		if (ret < 0) {
-+			dev_err(jpeg->dev, "decoder HW wait interrupted: %d\n",
-+				ret);
-+			v4l2_m2m_job_finish(jpeg->m2m_dev, ctx->fh.m2m_ctx);
-+			return;
-+		}
-+
-+		if (!ret && i++ > MTK_JPEG_MAX_RETRY_TIME) {
-+			dev_err(jpeg->dev, "all decoder HW are busy\n");
- 			v4l2_m2m_job_finish(jpeg->m2m_dev, ctx->fh.m2m_ctx);
- 			return;
- 		}
 
+I think good to add no functional change intended in the patch.
+
+Acked-by: Usama Arif <usama.arif@linux.dev>
+
+
+> diff --git a/arch/arm64/kernel/mte.c b/arch/arm64/kernel/mte.c
+> index 1a9aad6ef22a..7a6ecc3d9294 100644
+> --- a/arch/arm64/kernel/mte.c
+> +++ b/arch/arm64/kernel/mte.c
+> @@ -459,7 +459,7 @@ static int __access_remote_tags(struct mm_struct *mm, unsigned long addr,
+>  		struct vm_area_struct *vma;
+>  		unsigned long tags, offset;
+>  		void *maddr;
+> -		struct page *page = get_user_page_vma_remote(mm, addr,
+> +		struct page *page = get_user_page_lookup_vma(mm, addr,
+>  							     gup_flags, &vma);
+>  		struct folio *folio;
+>  
+> diff --git a/arch/x86/kernel/uprobes.c b/arch/x86/kernel/uprobes.c
+> index 3af979fb41d3..329efac0cfb3 100644
+> --- a/arch/x86/kernel/uprobes.c
+> +++ b/arch/x86/kernel/uprobes.c
+> @@ -1036,7 +1036,7 @@ static int copy_from_vaddr(struct mm_struct *mm, unsigned long vaddr, void *dst,
+>  	struct vm_area_struct *vma;
+>  	struct page *page;
+>  
+> -	page = get_user_page_vma_remote(mm, vaddr, gup_flags, &vma);
+> +	page = get_user_page_lookup_vma(mm, vaddr, gup_flags, &vma);
+>  	if (IS_ERR(page))
+>  		return PTR_ERR(page);
+>  	uprobe_copy_from_page(page, vaddr, dst, len);
+> diff --git a/include/linux/mm.h b/include/linux/mm.h
+> index 485df9c2dbdd..24ead14b4790 100644
+> --- a/include/linux/mm.h
+> +++ b/include/linux/mm.h
+> @@ -3238,7 +3238,7 @@ long pin_user_pages_remote(struct mm_struct *mm,
+>  /*
+>   * Retrieves a single page alongside its VMA. Does not support FOLL_NOWAIT.
+>   */
+> -static inline struct page *get_user_page_vma_remote(struct mm_struct *mm,
+> +static inline struct page *get_user_page_lookup_vma(struct mm_struct *mm,
+>  						    unsigned long addr,
+>  						    int gup_flags,
+>  						    struct vm_area_struct **vmap)
+> diff --git a/mm/memory.c b/mm/memory.c
+> index ff338c2abe92..3b86eeaf084f 100644
+> --- a/mm/memory.c
+> +++ b/mm/memory.c
+> @@ -7039,7 +7039,7 @@ static int __access_remote_vm(struct mm_struct *mm, unsigned long addr,
+>  		void *maddr;
+>  		struct folio *folio;
+>  		struct vm_area_struct *vma = NULL;
+> -		struct page *page = get_user_page_vma_remote(mm, addr,
+> +		struct page *page = get_user_page_lookup_vma(mm, addr,
+>  							     gup_flags, &vma);
+>  
+>  		if (IS_ERR(page)) {
+> @@ -7167,7 +7167,7 @@ static int __copy_remote_vm_str(struct mm_struct *mm, unsigned long addr,
+>  		struct page *page;
+>  		struct vm_area_struct *vma = NULL;
+>  
+> -		page = get_user_page_vma_remote(mm, addr, gup_flags, &vma);
+> +		page = get_user_page_lookup_vma(mm, addr, gup_flags, &vma);
+>  		if (IS_ERR(page)) {
+>  			/*
+>  			 * Treat as a total failure for now until we decide how
+> diff --git a/mm/rmap.c b/mm/rmap.c
+> index 1c77d5dc06e9..b36f2e219b8f 100644
+> --- a/mm/rmap.c
+> +++ b/mm/rmap.c
+> @@ -2838,7 +2838,7 @@ struct page *make_device_exclusive(struct mm_struct *mm, unsigned long addr,
+>  	 * (non-device-exclusive) PTE and issue a MMU_NOTIFY_EXCLUSIVE.
+>  	 */
+>  retry:
+> -	page = get_user_page_vma_remote(mm, addr,
+> +	page = get_user_page_lookup_vma(mm, addr,
+>  					FOLL_GET | FOLL_WRITE | FOLL_SPLIT_PMD,
+>  					&vma);
+>  	if (IS_ERR(page))
+> -- 
+> 2.53.0-Meta
+> 
+> 
 
