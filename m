@@ -4,101 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59BECC44515
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 17:36:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 765A4C44520
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 17:40:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bgJoRNuplp6eZlFzlFIl9nminZilm44pZn8iwP92+o4=; b=kbFsuYeouvjAL6t8m+Y/cM5rit
-	kPkBAZvldye04Nn4oG3Qe4/NO+2IQxzL4yGeqf8X8qXxw45S0Jrj5DHtphh0hKcleU+UiBISHu26E
-	ck2Z62VP3UGuGidw7MzIWZb5SGp6K1qhVHjthuwAO4BkkDgYzTPDxh6F9ll5jLttrC6T2iLVKBbxA
-	Df75+ru+a3yf6v3ZKbqRYf0QMJhagHcUiVR87d1empbVGLNbCpNo0SJxqAr7SfOL9wSpSh+qi8+RJ
-	nBE2X8i1No39EKJniBUrNqDbozVwSA0hQN6MB2MJ3zPx6t1b6j1dHwhz4n4pljcFNOMpcV8Irj1qm
-	GAggDiXA==;
+	bh=DzK2uV3jM7LNAvY+RCE19QMNrszM78M3cKYaB4hIw+M=; b=GZULC36R8HzDqhP1nVxOtc8SGg
+	3f1/pCOKmCtINjztsPxxYTVJT6+wz6zh67E/gxtOmdcxt70yt2xdZZhK9etgVPeN7TEWDP38JM9xz
+	awlFVXaFaopydR5mH33bi6Fp9MXkP5tu3GOrK9hYLY1LL1hPe3ErFPHO+0oNqUbpP8iuHuHI5rzTt
+	VtlxqSydDSJqcOWPTi6iKVsaiFJ12zNRbsCke+odvEngNxhc/RDpfeQ7cWkNUCygH+9wrv7+3q4WT
+	b+JRx88cQRaHeW9GXk1yNfLaGxr7f9di6w2Vz45Mb6/el0jLANW9V5HgLW3+jm19QamEoBfTMDmzi
+	gZMpUYKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlruT-00000007YXS-37v8;
-	Mon, 20 Jul 2026 17:36:09 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1wlryL-00000007Z5z-0rWb;
+	Mon, 20 Jul 2026 17:40:09 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlruP-00000007YVi-1kLw
+	id 1wlryH-00000007Z5J-3jLL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 17:36:07 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2cea3004256so120123665ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 10:36:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dama-to.20251104.gappssmtp.com; s=20251104; t=1784568964; x=1785173764; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:mail-followup-to:message-id:subject:cc:to:from:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=bgJoRNuplp6eZlFzlFIl9nminZilm44pZn8iwP92+o4=;
-        b=mL4GkwOWkPX+/AK3FeVptRS5MfaXL/qiOpplqh7HGWUXioGyzw4eiN5VHB7KJO9fHq
-         6fd53gfJ/Ph/f/hWMBogsBicKPat9yq1OMR8FX15E4OaBddC47nxxrnMuL1fl1t5Uitd
-         FrrES/MRQshH9GOBDwU6vhdvIFolbDD1a91FIqGn8DGo9MHXPykSaioSM2eNKFmj33cP
-         mejvV9cHQ+WM/K+gLnoSu80efmJ2LBasaIAfFhVz6TKrmNxC/aJ5mGVJxn9pXxrRESgS
-         JZUK63vZjz3Kna1kx4AXCGTXJFmv0R2QFeYgnRAYMe02MVQvb4e2ko7al7fgmO3t/bxo
-         8+9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784568964; x=1785173764;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:mail-followup-to:message-id:subject:cc:to:from:date
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=bgJoRNuplp6eZlFzlFIl9nminZilm44pZn8iwP92+o4=;
-        b=jZiN1Yfi6fgAbPBoACFV8ifT7udILXYgg/7kQbWzIpp1uHGPD/9TT2FfTBAUEGHnpa
-         gS07sfesZ5OEJHGu7YySOhTygsz08CVquoNYDXG0lPmKYjsY2NgwAO3R/TNwItnAIl+e
-         Iskj5Uk1tqRJMWGpfv9CoWQyXvKpWy8DJgpav8yzhYierzKx3heNfuk+YsbQHfUhnf67
-         LwF7+3QCXbv6hQFOOOlgtwcQX5jiQBBh7pRlH+vX8eG3//P7sCDa7JmQQJy40EtDKE0X
-         +v0ZByKSTfeBq4lSm/LaZ5lIMQPfYdgXxbWALShB26oT3JvHfz9Tj+MPInZSYppRaL+F
-         +5xQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpNsMyoQqt1jCJzaBMe5zOVUoEVD7a+bIK6ml+MlqV2KiG8MWDQAVs0uFX0E8SQD/ZxIOqc59jiGt9l9WQEped4@lists.infradead.org
-X-Gm-Message-State: AOJu0YygK9sPPyPLa/LrGDoPDLM8I+3oHg2yWsuX6R+bwRXL+XY3O+yr
-	Xt+C+M3gKrwrdCyduzawQAlLYzCdUKpgPDPNG3JZsrU2n2A2RgJfc+ccCFmYIpObjC4=
-X-Gm-Gg: AR+sD10Lqs0ypynzEjjOqBc99M5KH0SICBkQYNJIhv7UdfvSvG9kXRBYenR+/PvI3vh
-	qwQ084wYYVBC/V9xjyvvX7jlxUHVpUcLbP9u8si+lS68etjKArlvnkH9Yc6oSjySoY7WZr5p0iL
-	PaGCsAlSJ+HkcAaDb2mGyriTxjZHcWRaw0UKc+pHeefVXWlcUwAKWbYesgBHY1eY1syg7+baCBk
-	SijxTo3Zx+Wokcc7wWFVYEb13mC+tNsEpweXo5oM3Y+1HKQHIn3h/svIywCAAWoJ+DD6BqdjHZu
-	w5ehBBgawNM3P3O8g7pcKVU2YGX5y0LJqYRE2ZNsD7beBNVymqr6+lDtj1Heb3kKiYJh3vvu2xj
-	MBrQhTPbQ/V0IX771hmr0qpHKXVkovsS9vxbOr9pYIQwkbqs+sq/xh644caY=
-X-Received: by 2002:a17:903:986:b0:2ca:53e9:1277 with SMTP id d9443c01a7336-2cf348193e8mr159265115ad.1.1784568964287;
-        Mon, 20 Jul 2026 10:36:04 -0700 (PDT)
-Received: from localhost ([2a03:2880:2ff:53::])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf3476f70esm60110235ad.77.2026.07.20.10.36.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Jul 2026 10:36:03 -0700 (PDT)
-Date: Mon, 20 Jul 2026 10:36:02 -0700
-From: Joe Damato <joe@dama.to>
-To: wei.fang@oss.nxp.com
-Cc: claudiu.manoil@nxp.com, vladimir.oltean@nxp.com, xiaoning.wang@nxp.com,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, linux@armlinux.org.uk,
-	wei.fang@nxp.com, chleroy@kernel.org, maxime.chevallier@bootlin.com,
-	imx@lists.linux.dev, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH RESEND v4 net-next 13/14] net: enetc: use
- alloc_etherdev_mqs() to create netdev for VF driver
-Message-ID: <al5cgs6CqVKsy/gh@devvm20253.cco0.facebook.com>
-Mail-Followup-To: Joe Damato <joe@dama.to>, wei.fang@oss.nxp.com,
-	claudiu.manoil@nxp.com, vladimir.oltean@nxp.com,
-	xiaoning.wang@nxp.com, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-	linux@armlinux.org.uk, wei.fang@nxp.com, chleroy@kernel.org,
-	maxime.chevallier@bootlin.com, imx@lists.linux.dev,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org
-References: <20260720014317.1059359-1-wei.fang@oss.nxp.com>
- <20260720014317.1059359-14-wei.fang@oss.nxp.com>
+	Mon, 20 Jul 2026 17:40:07 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 42292289;
+	Mon, 20 Jul 2026 19:39:05 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1784569145;
+	bh=e5OrRvxSiFTa/QC9cW29fVTOig3L9LCGIe18h8M+WF4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lgCPsP91d7hkqCuMK8yrsy8hrbbKGZAqer2zMO7QBSMdSuh6Ea3eub82Tk2We03fe
+	 sUtlMsf6UTVx45Bv/i2WffIvAA5eq4LyFdcr/vg/UiL2G/pu6X2qoNTjsow1Ko9KZ+
+	 vz4NHCeF2tcp5bV6UHmixL+JBx0ExQSaiIGOPPpI=
+Date: Mon, 20 Jul 2026 20:40:02 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Christian Hemp <c.hemp@phytec.de>,
+	Stefan Riedmueller <s.riedmueller@phytec.de>,
+	Jacopo Mondi <jacopo@jmondi.org>,
+	Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	Bryan O'Donoghue <bod@kernel.org>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Guoniu Zhou <guoniu.zhou@nxp.com>, linux-media@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2 5/6] media: nxp: imx8-isi: Correct color map between
+ V4L2 and ISI
+Message-ID: <20260720174002.GC50424@killaraus.ideasonboard.com>
+References: <20260720-isi-v2-0-45845bc5d4fa@oss.nxp.com>
+ <20260720-isi-v2-5-45845bc5d4fa@oss.nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260720014317.1059359-14-wei.fang@oss.nxp.com>
+In-Reply-To: <20260720-isi-v2-5-45845bc5d4fa@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_103605_591124_4E09E415 
-X-CRM114-Status: GOOD (  25.34  )
+X-CRM114-CacheID: sfid-20260720_104006_098414_5635C563 
+X-CRM114-Status: GOOD (  16.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,56 +79,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 20, 2026 at 09:43:15AM +0800, wei.fang@oss.nxp.com wrote:
-> From: Wei Fang <wei.fang@nxp.com>
+Hi Guoniu,
+
+On Mon, Jul 20, 2026 at 11:34:07AM +0800, Guoniu Zhou wrote:
+> Fix the ISI input format for the color map V4L2_PIX_FMT_XBGR32 in
+> memory-to-memory mode.
 > 
-> The VF driver uses alloc_etherdev_mq() with ENETC_MAX_NUM_TXQS as the
-> queue count, which forces the TX and RX queue counts to be equal and
-> uses a compile-time constant rather than the actual hardware capability.
-> 
-> After enetc_get_si_caps() is called, si->num_tx_rings and
-> si->num_rx_rings reflect the actual number of rings assigned to the VF
-> by the PF. For the ENETC VF on LS1028A and the upcoming i.MX95/94, their
-> SoCs have no more than 6 CPUs, and the number of TX/RX rings allocated
-> to the VF is less than 8.
-> 
-> Therefore, switch to alloc_etherdev_mqs() so that the TX and RX queue
-> counts are set independently, each capped at ENETC_MAX_NUM_TXQS, based
-> on the actual number of rings assigned to the VF by the PF.
-> 
-> Note that if future SoCs have more than 6 CPUs and more than 6 RX rings
-> allocated to VFs, the size of the int_vector array in struct
-> enetc_ndev_priv will need to be modified. Similarly, if more than 8 TX
-> rings are allocated to each int_vector, ENETC_MAX_NUM_TXQS will also
-> need to be modified.
-> 
-> Signed-off-by: Wei Fang <wei.fang@nxp.com>
+> Fixes: cf21f328fcaf ("media: nxp: Add i.MX8 ISI driver")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+
+Tentatively,
+
+Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+
+I'm running a build to test this change.
+
 > ---
->  drivers/net/ethernet/freescale/enetc/enetc_vf.c | 9 ++++++++-
->  1 file changed, 8 insertions(+), 1 deletion(-)
+> Changes in v2:
+> - Reword commit description for clarity (Frank Li)
+> ---
+>  drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> diff --git a/drivers/net/ethernet/freescale/enetc/enetc_vf.c b/drivers/net/ethernet/freescale/enetc/enetc_vf.c
-> index 9cdb0a4d6baf..7dcb4a0246f5 100644
-> --- a/drivers/net/ethernet/freescale/enetc/enetc_vf.c
-> +++ b/drivers/net/ethernet/freescale/enetc/enetc_vf.c
-> @@ -317,7 +317,14 @@ static int enetc_vf_probe(struct pci_dev *pdev,
->  
->  	enetc_get_si_caps(si);
->  
-> -	ndev = alloc_etherdev_mq(sizeof(*priv), ENETC_MAX_NUM_TXQS);
-> +	/* Currently, the supported SoCs have a max of 6 CPUs and the VFs
-> +	 * have less than 6 RX/TX rings. So no issues for these supported
-> +	 * SoCs, but for future SoCs which have more CPUs or more TX/RX
-> +	 * rings, all the related logic needs to be improved.
-> +	 */
-> +	ndev = alloc_etherdev_mqs(sizeof(*priv),
-> +				  min(si->num_tx_rings, ENETC_MAX_NUM_TXQS),
-> +				  min(si->num_rx_rings, ENETC_MAX_NUM_TXQS));
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
+> index 5eb448f4c26f..05b51b98344b 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
+> @@ -151,7 +151,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
+>  		.fourcc		= V4L2_PIX_FMT_XBGR32,
+>  		.type		= MXC_ISI_VIDEO_CAP | MXC_ISI_VIDEO_M2M_OUT
+>  				| MXC_ISI_VIDEO_M2M_CAP,
+> -		.isi_in_format	= CHNL_MEM_RD_CTRL_IMG_TYPE_XBGR8,
+> +		.isi_in_format	= CHNL_MEM_RD_CTRL_IMG_TYPE_XRGB8,
+>  		.isi_out_format	= CHNL_IMG_CTRL_FORMAT_XRGB888,
+>  		.mem_planes	= 1,
+>  		.color_planes	= 1,
 
-Code looks right, but looks almost like a typo. I guess it would read nicer if
-ENETC_MAX_NUM_RXQS existed?
+-- 
+Regards,
 
-That said:
-
-Reviewed-by: Joe Damato <joe@dama.to>
+Laurent Pinchart
 
