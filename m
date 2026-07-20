@@ -4,68 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD755C44515
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 09:30:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BBD5C4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 09:33:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qh40Kaf5239dKtP22X4SPcyyQ2a1IDHQ6RgI2IFlkJE=; b=Biy2wKOfTw8b6WCwhl8wNPG860
-	2M+Ni5Ir8GBj6KxmxggIw53vi5zXEBsQjizCGWN4/BECJunso97lQO18OghQTecXVmeZNwv+l4/4E
-	bUJ2eBgjLA6laGf12oZ+16ki7tQCS6dwGH3XsFe2XaEnCwDF0rlA7CeXWUiKlLqGH+dWeP7XaMMuu
-	ul2yHhuC1LWRSi+rafeHurgdB0VmbvlcycKMiv/j10sYMf1e5RJdB+4f173v42ifuffxNUoc9m9Md
-	m/CY+3PGZaJ/HdgqGqSFkP4UPZTEItpcIWNedc1BztNydWGiwCZYovAcG2EHprZQzpF1d5boZiSKw
-	9ihLjASQ==;
+	bh=4CQrISOl0BCVcY0P30M6vyCI4+NKDoGPEn3wN8pRNP8=; b=D6LR5URPQmrPWxxTk3zsDUyEMk
+	vMCveOgdw9YZY1UzEWumW+k3obUPEt/PiSh/TqaliJQ+SCICQP8H2s2eGIntsbGd57lHX1DemILfo
+	upPcFT2VanXOCUs+iMg5VzjvlOhg9wWuplZ6B1q5it6bioRjiJfKGFg4APGbo00nE2ASH1Dhh+a9p
+	6HQfpEWO9dtAkgFrX0U/cUw9pkawn6ER5nj6zrQeuRYTqZhTfkHJCgjp/HlBMwf3T77Q9+JzkBbFu
+	IDArl2SVwNAySugE20NFSnkX9m9hbYrfAcFhddrohI0Ou5+EL6p2NyyzWKdNphB18+C4TXMOuQdKg
+	l8ZT7N3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlkKI-00000006K18-2idT;
-	Mon, 20 Jul 2026 09:30:18 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlkKF-00000006K0N-2XcM
+	id 1wlkNH-00000006KWm-0NeW;
+	Mon, 20 Jul 2026 09:33:23 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wlkND-00000006KVB-1q13
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 09:30:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 68F132B;
-	Mon, 20 Jul 2026 02:30:10 -0700 (PDT)
-Received: from [10.164.19.57] (unknown [10.164.19.57])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 828D03F86F;
-	Mon, 20 Jul 2026 02:30:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784539814; bh=u78go90jcYIuVoiboHtv2/azilqOO6gPDtK1P1MBAVg=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=Ohi2gNJRzYgy+THnDJEd8IqotthDyQLMLN7Z19lvW/SaHBwbg/iX2n+RhkH7ME117
-	 rf1bSX7rSKv/2RofZpRqxXzzdLu+410DMkIY4tyuyo4fuBWrPt6HF0U/g0truGNetK
-	 ON8g2xnwGaKdcaqE1OH4sNpxXn0u20RyTo+yv5SQ=
-Message-ID: <b7e7707e-e722-4daf-9d98-df82ddefd635@arm.com>
-Date: Mon, 20 Jul 2026 15:00:07 +0530
+	Mon, 20 Jul 2026 09:33:21 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 06AC04E40E79;
+	Mon, 20 Jul 2026 09:33:14 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id C46B060360;
+	Mon, 20 Jul 2026 09:33:13 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CC54A11BD3CCE;
+	Mon, 20 Jul 2026 11:33:06 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1784539992; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=4CQrISOl0BCVcY0P30M6vyCI4+NKDoGPEn3wN8pRNP8=;
+	b=lqgTOb7hGCPz4Bhuasua5vOcMC3VV8568buK9tnmi9N04rblfX1BC83fjsC2wruPtlCOTJ
+	OFsQKlwuR6/+LzFaEqf9hgGVWTJyiEVn7vcK0GNxUOb80IQvo8dlKHZlzZrZcPcWdreXoW
+	ugqvko4Eq09Xwz8U5ibOUx58cE71sdrye8OFMeAZISkMb/6Kvp6WGhEh8CbaTZEGgbd5HR
+	3f8W31rYeVcPvtf+ULh22yd0wS9mbiqgtKNwB8VwsXssU02wy06hBCdZOrnp0QjsoCMiek
+	EcvypwsBMERZx9HNElvb1p+941OtF65re8Qcg2/xLDhzkC5IkX7XPQ33UwuUZA==
+Message-ID: <5cc0d788-c78d-40f2-998f-235d40f567f2@bootlin.com>
+Date: Mon, 20 Jul 2026 11:33:05 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] KVM: arm64: ptdump: Flush the last region
-From: Dev Jain <dev.jain@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Wei-Lin Chang <weilin.chang@arm.com>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- linux-kernel@vger.kernel.org, Oliver Upton <oupton@kernel.org>,
- Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>,
- Steffen Eiden <seiden@linux.ibm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
- Sebastian Ene <sebastianene@google.com>,
- Vincent Donnefort <vdonnefort@google.com>
-References: <20260717231233.2299068-1-weilin.chang@arm.com>
- <ad52d1ee-04cb-42d7-b50c-dfb3d28db5df@arm.com> <868q76f2wy.wl-maz@kernel.org>
- <4a598a6c-496f-441c-b268-a725f9ee8090@arm.com>
+Subject: Re: [PATCH] net: stmmac: dwmac4: mask interrupts before stopping DMA
+ in suspend
+To: Luis Lang <luis.la@mail.de>, netdev@vger.kernel.org
+Cc: Andrew Lunn <andrew@lunn.ch>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+ Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
+ Oleksij Rempel <o.rempel@pengutronix.de>,
+ Rohan G Thomas <rohan.g.thomas@altera.com>,
+ "moderated list:ARM/STM32 ARCHITECTURE"
+ <linux-stm32@st-md-mailman.stormreply.com>,
+ "moderated list:ARM/STM32 ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>,
+ open list <linux-kernel@vger.kernel.org>
+References: <7941d239-e5f5-43b5-ae0f-20398221e027@mail.de>
+ <20260718152802.83553-1-luis.la@mail.de>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 Content-Language: en-US
-In-Reply-To: <4a598a6c-496f-441c-b268-a725f9ee8090@arm.com>
+In-Reply-To: <20260718152802.83553-1-luis.la@mail.de>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_023015_746240_71C804EA 
-X-CRM114-Status: GOOD (  25.04  )
+X-CRM114-CacheID: sfid-20260720_023319_645780_1F5D2F9F 
+X-CRM114-Status: GOOD (  10.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,115 +90,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Luis,
 
+On 7/18/26 17:27, Luis Lang wrote:
+> Since commit 1b9707e6f1a9 ("net: stmmac: enable RPS and RBU
+> interrupts"), suspending causes an interrupt storm from the RPS
+> interrupt.
+> Fix this by adding a deinit_chan() op to stmmac_dma_ops, which
+> masks all default dma channel interrupts. This is called from
+> stmmac_stop_all_dma(), so interrupts don't trigger while suspending.
+> 
+> Fixes: 1b9707e6f1a9 ("net: stmmac: enable RPS and RBU interrupts")
+> Suggested-by: Andrew Lunn <andrew@lunn.ch>
+> Suggested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+> Signed-off-by: Luis Lang <luis.la@mail.de>
 
-On 20/07/26 2:40 pm, Dev Jain wrote:
-> 
-> 
-> On 20/07/26 2:33 pm, Marc Zyngier wrote:
->> On Mon, 20 Jul 2026 09:53:29 +0100,
->> Dev Jain <dev.jain@arm.com> wrote:
->>>
->>>
->>>
->>> On 18/07/26 4:42 am, Wei-Lin Chang wrote:
->>>> Currently the stage-2 ptdump calls note_page() at each leaf entry visit.
->>>> This simply misses the output of the last region, because note_page()
->>>> only dumps output when it detects a change in level/prot, or when the
->>>> walk enters a next marker section. The last region in the guest IPA
->>>> space with the same level/prot is not dumped since there is no change
->>>> after it.
->>>>
->>>> To dump the final region, manually issue a note_page() call with address
->>>> BIT(ia_bits) (end of guest IPA space) and level == -1 to trigger a level
->>>> change after the last region. Additionally treat level == -1 as a last
->>>> flushing note_page() call and avoid dumping the name of the next marker
->>>> for this case.
->>>>
->>>> Fixes: 7c4f73548ed1 ("KVM: arm64: Register ptdump with debugfs on guest creation")
->>>> Reported-by: Sashiko AI <sashiko-bot@kernel.org>
->>>> Closes: https://lore.kernel.org/kvmarm/20260630122758.891011F00A3A@smtp.kernel.org/
->>>> Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
->>>> ---
->>>>  arch/arm64/kvm/ptdump.c | 8 +++++---
->>>>  arch/arm64/mm/ptdump.c  | 5 +++--
->>>>  2 files changed, 8 insertions(+), 5 deletions(-)
->>>>
->>>> diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
->>>> index c9140e22abcf..4096e4a92fae 100644
->>>> --- a/arch/arm64/kvm/ptdump.c
->>>> +++ b/arch/arm64/kvm/ptdump.c
->>>> @@ -155,11 +155,13 @@ static int kvm_ptdump_guest_show(struct seq_file *m, void *unused)
->>>>  		.seq		= m,
->>>>  	};
->>>>  
->>>> -	write_lock(&kvm->mmu_lock);
->>>> +	guard(write_lock)(&kvm->mmu_lock);
->>>
->>> The guard clause change has nothing to do with the fix I think? Although the change
->>> is small and the fix is for a recent commit so maybe we don't care having this
->>> in the same patch - not sure how strict kvm reviewers are about this : )
->>>
->>
->> Look at the quality spaghetti code this would otherwise result in:
->>
->> 	write_lock();
->> 	ret = kvm_pgtable_walk();
->> 	if (ret) {
->> 		write_unlock();
->> 		return ret;
->> 	}
->> 	note_page_flush();
->> 	write_unlock();
->>
->> 	return 0;
->>
->> How is that better? So it has *everything* to do with the fix.
->>
->> And FWIW, the policy for KVM is that we don't do lock->guard
->> conversions as a separate patches. Only when we need to change the
->> code, and as part of the patch that changes that code.  Which is
->> exactly what is happening here.
-> 
-> I agree, thanks.
+This is almost perfect for a new submission, only 2 things to improve :
 
-Yeah in my head I was thinking that the guard clause is a "functional change"
-but it really isn't, the fix implies that without the guard you will get
-horrible code, and had the code been correct in the first place, it would
-have been written *with* the guard, so yes that was a stupid
-observation from my side : )
+ - you're missing the tree name in the patch subject. As this is a fix, it should be :
 
-> 
-> 
->>
->>>
->>>>  	ret = kvm_pgtable_walk(mmu->pgt, 0, BIT(mmu->pgt->ia_bits), &walker);
->>>> -	write_unlock(&kvm->mmu_lock);
->>>> +	if (ret)
->>>> +		return ret;
->>>> +	note_page(&st->parser_state.ptdump, BIT(mmu->pgt->ia_bits), -1, 0);
->>>>  
->>>> -	return ret;
->>>> +	return 0;
->>>>  }
->>>>  
->>>>  static int kvm_ptdump_guest_open(struct inode *m, struct file *file)
->>>> diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
->>>> index ab9899ca1e5f..fed4e4407e0e 100644
->>>> --- a/arch/arm64/mm/ptdump.c
->>>> +++ b/arch/arm64/mm/ptdump.c
->>>> @@ -194,6 +194,7 @@ void note_page(struct ptdump_state *pt_st, unsigned long addr, int level,
->>>>  	struct ptdump_pg_state *st = container_of(pt_st, struct ptdump_pg_state, ptdump);
->>>>  	struct ptdump_pg_level *pg_level = st->pg_level;
->>>>  	static const char units[] = "KMGTPE";
->>>> +	bool flush = level == -1;
->>>
->>> Can we do something similar to what S1 ptdump does (note_page_flush in ptdump_walk_pgd).
->>
->> See Mark's email.
->>
->> 	M.
->>
-> 
+   [PATCH net] net: stmmac: dwmac4: mask interrupts before stopping DMA in suspend
 
+   you can find instructions for this in the doc Andrew linked :
+
+   https://www.kernel.org/doc/html/latest/process/maintainer-netdev.html
+
+ - When submitting a patch, do so in a dedicated thread, and not in reply to
+   other threads.
+
+You should send a V2 addressing the tree name in the patch subject.
+
+Sashiko noted something on the patch :
+
+  https://sashiko.dev/#/patchset/20260718152802.83553-1-luis.la%40mail.de
+
+It looks to me that sashiko is just wrong there though, I can't make sense
+of what it is saying.
+
+Maxime
 
