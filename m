@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65832C4452C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 13:22:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AE0EC4452E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 13:22:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xkqMxQoVEiMfKZejeC5Qcqv1rK1w4sxhkFUEo2DhpNQ=; b=od/H2NpoVG1CEdaspgWasMAgfa
-	/oGXrDf+C933BMViUo8qRDTu/DNrJQqGwoUGBupq2gRS0oR9YFeso1ldLvJZKyQrI/wwTnAr5u2rD
-	Z/ObN8MSmIgpeqdOT0Za2OGCTtWtm006d8G34qD1QxwGvrrMcL2idgG213F/HbyBjYscTaIYEJhKz
-	pwgKAvAzhbb8C3M1VVYYFhZKDlu+vlRoqj35HNXNFUlzpg6E/QZMMXPujZBxrUWSbvW461ir1VUOM
-	RA1qlwpHvcisFTrRvb1yKWU45xCSn/c2dYNvfeYkDwQPPpVtO0n1HVVDyFiQK3cpVN/oigWULRv9G
-	QCed+0Og==;
+	bh=VtxOHlbnPHBVtBuAcQ7cm5gSMi7F1IghKeq2ZP/DQ0o=; b=WLN0SZ0Zbb3DF6d3oBWYf6qMgG
+	9C6pwX2YXymqvGvef6FBsALFqspirnNXBMavZiIF4yKuvXASDCXWHdumrczo7ouiOgJqOkueJLkdB
+	yOB4DLTxe0v5kH43bCoW2k02GtPyWRizkJz+GMEJk+6XrGSvINeiveRYT7+85WGQLtJWiApEaDuAc
+	Jz/Crix/v0VFuCVxBUSFpAtcma5F/n99zsu1Ur5gC9+K+mLWuGuAIQ/YRs6JCSTK7fbguiRLPoC5Q
+	fl/IzfveuUkN7nqzlM1dR0vSPA34NALcu39cHyYRtLur4GaziaKR4vvL0hlffBUS/3Ti0Zi+X9aVj
+	xg/5NcpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlnxD-00000006mqN-0Pak;
+	id 1wlnxC-00000006mq3-4BqK;
 	Mon, 20 Jul 2026 13:22:43 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlnxB-00000006mnz-3RV3
+	id 1wlnxB-00000006mnw-35Lb
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 20 Jul 2026 13:22:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2CEF960A90;
+	by tor.source.kernel.org (Postfix) with ESMTP id 29E9560A8C;
 	Mon, 20 Jul 2026 13:22:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D61381F00A3E;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D37941F00A3D;
 	Mon, 20 Jul 2026 13:22:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1784553760;
-	bh=xkqMxQoVEiMfKZejeC5Qcqv1rK1w4sxhkFUEo2DhpNQ=;
+	bh=VtxOHlbnPHBVtBuAcQ7cm5gSMi7F1IghKeq2ZP/DQ0o=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=h86M0QBMbxZoTUYFETmRBVhFHkniHBIzpxhjZ1RzZI2qo9w9jSnebLw62OKOHB/eS
-	 n/xEF0ZgvmAx9ua+Xch/Ap5OhmshPktoT78k3c7hxFbN5CInJ+CouUxr+K0DJIx3dT
-	 MV5J1Eqi3sERmA+8s5+5Kh60/XmQi1Zd8ycQdYX3NOYTcsFE0eAPAWAIL89Z+qxJOD
-	 yyQN0ecgFqJiQnOiw02oX9/ACe5Mj6uqEZOWa4X1Kd9TSxNor9aFjSc57w98txU5NE
-	 c9b5b1KZvT2nTBsRkCzEcucEgzqUP7YCVPG7f3BH/jL1sy/SYfJUqc/+ebHmg9AXWp
-	 gZB6UGUEZZ4mQ==
+	b=fMd2UR+uH7EakMHuzfhW/sNV5reM/ytmaLXLAyDUz9ycKZ6mamKqYw+z3qqhRK9OL
+	 RXGdT3CAdTxf94J+rdOoT5bpNIGPY6IMzjAGRyoRd3RvRJhmxU0P85SKvxl/Eofqm8
+	 MBP+mJlA6Ok5Wcu6vU+c7duQvvRG0V17lIftgBZbJ+pxX1MHI0u/KPKdBRsYMq072X
+	 LbraCt7YjZYlJpkcQ2p9mrGFLOQKozZp0ZHma80+gu4926c8grxQN5AtUMsWiGtNDJ
+	 jqYSBYDW71T/AMke2mROMmB2zG/h5V0wnFVNufiAuZ1g1DvI+eMeWA0lOxQ2bRyNgo
+	 JQAZ8XstVDX/Q==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wlnx8-00000006oKK-3mdk;
-	Mon, 20 Jul 2026 13:22:38 +0000
+	id 1wlnx9-00000006oKK-0U31;
+	Mon, 20 Jul 2026 13:22:39 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
@@ -56,9 +56,9 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Oliver Upton <oupton@kernel.org>,
 	Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH 2/5] KVM: arm64: Add a helper providing an inlined literal value for ICH_VTR_EL2
-Date: Mon, 20 Jul 2026 14:22:16 +0100
-Message-ID: <20260720132220.2143486-3-maz@kernel.org>
+Subject: [PATCH 2/5] KVM: arm64: Add a helper providing an inlined litteral value for ICH_VTR_EL2
+Date: Mon, 20 Jul 2026 14:22:17 +0100
+Message-ID: <20260720132220.2143486-4-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260720132220.2143486-1-maz@kernel.org>
 References: <20260720132220.2143486-1-maz@kernel.org>
@@ -87,8 +87,8 @@ We already have two ways to deal with ICH_VTR_EL2:
 - directly read the system register
 - read a cached copy in the vgic global state
 
-Add a third way, in the form of an inlined literal value that will
-eventually replace all of the above. This literal value is computed
+Add a third way, in the form of an inlined litteral value that will
+eventually replace all of the above. This litteral value is computed
 at boot time, and patched in the relevant code locations.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
