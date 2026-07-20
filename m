@@ -4,78 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDCA5C44515
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 17:15:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 572C2C44520
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 17:15:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=UVoemQnQmJJ0JZcsgNr0OJzMZbKjQ12R/fuSO3309Tk=; b=LM2Sv/q3EdzDB/muwl0hSqu41R
-	9oSN56oJP0d35z5fUmEyLZRqDlzaMEZ5oMPHQliteoL0rMdCW2qrBgZOm/FGwbmW7tBT0Oc6v7oWQ
-	CbgxhU0lGstml+c5FN+wCUb8rqzu5r8ykXJVuVy8CYXPqcNZSy/KoJjgSIpqzbU0h83PXV/Ip2B+y
-	goOibqYoOfv7t+PkmHbrzlnsFOM0tyycpL7rXpY1kSAzHAN2pHskPxJ6Xy+mrFqc9F6SxG2+JyXbN
-	R3T6ZBD0XBpfQ31/RCzeCGor0HOxc24MNWK2gZAsTq8a88thM17bhB8oUipQqfE/+Kl5xHAEvtX3+
-	AeVKSg/A==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o9KxvNMIvUtQq3xLQOoAWnVxOnpsU0qAP80ryNPLHJM=; b=Ui1qSra3RO6a3RZhlamcc1VEWz
+	u0QyuO+/01Erh5Om1rZ22FyDyzeFR2sQZb0tlZ8ej7cuN05BbOHqq90gGe3ApqUJXlRtxzrV+TDPJ
+	owcM4w6/i+dEB0XaGk9Ed2dLeWdRZuP8AxlUvjmTY2Rgv3LwFFgK2cS+Rzli5hainwlAfPXmN+Lb1
+	cMtNf9csBA9ST1bIzNgQFmtu17l3xmt+8+WJ6vYNka4fBfj9anNC2KxxW4nrWVnwSnvFwt17C8dpd
+	UEvWTmZDiBNNifX9vpuoofho9Yh52UUKy7i+gP2gURbzuvci7uhXLA1LzqBA4FMcf9BLeditNq+BK
+	ngnbZ8SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlraS-00000007UlE-0ApS;
+	id 1wlraS-00000007Ulb-3sLU;
 	Mon, 20 Jul 2026 17:15:28 +0000
-Received: from mail-wr1-x446.google.com ([2a00:1450:4864:20::446])
+Received: from mail-wm1-x348.google.com ([2a00:1450:4864:20::348])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlraK-00000007Uh2-3xNk
+	id 1wlraL-00000007UhU-3557
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 20 Jul 2026 17:15:26 +0000
-Received: by mail-wr1-x446.google.com with SMTP id ffacd0b85a97d-473bc66c837so8705069f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 10:15:19 -0700 (PDT)
+Received: by mail-wm1-x348.google.com with SMTP id 5b1f17b1804b1-495593376bdso10934385e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 10:15:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784567718; x=1785172518; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=UVoemQnQmJJ0JZcsgNr0OJzMZbKjQ12R/fuSO3309Tk=;
-        b=PjxRtD1FhfsEdC2CLf4KkbEUsbaiCseTZLx7BmSR2HnS0vL4IEhWJJhu4nmji/olpR
-         oM8T+b6Ur9XoUiMcoE5MI5cbWEYNUU0qgAsEGEKY4UMgcsaoO729JmBwo2K7mKS2GvSH
-         5TpazrpEPni3t4hGcTRBGYG3T7sdhkpXUFg4dLVfPPqexGW0AqF36osLOhMEL+TTlc/u
-         3Xo3q+pQdcpPFs7GafWyMdFa9wRsttdeZT3dDnnjogpN/xAeOhqNud8dfKnbsgm+vXDc
-         CUAXKeI7dl2lL7hMwoK2gyMCM3AMt0DfYLmV9G+Hl2nxE1tzNjG69x/rn9hS6WOftmSd
-         EwOg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784567718; x=1785172518;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=google.com; s=20251104; t=1784567719; x=1785172519; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=UVoemQnQmJJ0JZcsgNr0OJzMZbKjQ12R/fuSO3309Tk=;
-        b=HMTYSF5NfcKoQ9r6vTAm8lOKALO1Ct9lVSl3RJkDZpXhj8UU5GNX92R4dgAICBmihF
-         SIdD6eYrUsTq0/MRkLouqKWzW8pYfXHgBBWhY8DCoTzTxGRwIfMLoi6ebLFF4VRow/8p
-         R1P2G/uZ7Lm3pldIGSCsY1ugudz+AfNbN2AwU2UPSti8qPo/9M6zNSUr26PIBaHTBIe9
-         MWZO86t91ePn1VvM+ID8gcB09UVJqrCJMvc16K0Gy89UCTijfysw2cgARgvRt5taRH6q
-         gLtFJPNTY0WCIv8yp46qp903vRpQrT7Hq/AloUQBHsC5WqpyLsCiCyx941jxRXx6s57D
-         XDFA==
-X-Forwarded-Encrypted: i=1; AHgh+RqbAPn8YmWAZtXOk41RXrxePaj56vF7WKRkJ8nBalTgMCzQXhN3Ebh5HN3PGBM+0YEQB0jQCWM6/MyfUChDwMy+@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywt0iSnTyeNj6HEVuiZTe7q5Uljckvn1bKt18BGEveTaA5+N1pv
-	WWkeWK4jIzXGa8RtBuKvKdXdRJHJuBIbhK1MJSzT1NGcA4lPA6AKhYbUjwIU1ggztXI9niNmXN+
-	e+aEZpkgxzqi+NgWwNSTAbg==
-X-Received: from wruj14.prod.google.com ([2002:a5d:618e:0:b0:462:70f1:9ee8])
+        bh=o9KxvNMIvUtQq3xLQOoAWnVxOnpsU0qAP80ryNPLHJM=;
+        b=Cupu1Rxm1vOKBtE0nCcgEqcgB2xcKYknQ5G3Yid0i8eVSl+Waf7aXmBuu+K/c3keRh
+         434bB0NNKjdog2AopJOnlhubUrV4IgX28jHmdgbE0+tfyygrLNAtCIOWMr6H3ioGpntH
+         0xvfdDo9ZaG1YD0jN5IYKi5e5+J74Awcj8t6WQfGWkRkE5B20bolh26nIUaQemmQN4cL
+         ZkDJdJMB/AtsHnDJ7IQE/cyaN7q9n+5sCSo2evuBWSMYh5zSLYtLi7Mv00EST/YCDkax
+         TvN0V8BNOlAzeyBzE8ZVn/b+rktSbH6lrKBlzpQHbWWSOAYqoQRC/geIjdxTi9BQuLJf
+         QGAg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784567719; x=1785172519;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=o9KxvNMIvUtQq3xLQOoAWnVxOnpsU0qAP80ryNPLHJM=;
+        b=Tw8IprJ0gSjaFbAXIvTOK0fJJQcNVJvle0zM3YPkbABiseiJLmWTBjo5F3WMZ2YIYJ
+         2LeTEQofppFoIpTcmJ0kmjTxXE0Gap1Vl0DDZ4MeQjOLnQIVMl3/ruixKW4sALAZA+jR
+         oieH24oyTIsDwzjyCbBQb7Gr1lEWVv2E4qXGkiD+kutKkFZ9CcxN6f8cuUyCBly1/Fpq
+         nuki8xJwEaKTR3MKWKn6X0yO08Q7/itEBZdZamS8NocCP4AS6Ie2h60fdILuXeNmmnYP
+         gm2Mx6BeAoCiJNy4H1XG7bVmyPU1JSiZF0LHT0HLw0fhd366+jyOviG7DxfQU+X9t7UW
+         Rk5A==
+X-Forwarded-Encrypted: i=1; AHgh+RqX8sB5CzdSTCjE3KuSJPvoPtfi618wXxHrJrg+cVBcLLLp4VD15q5RQ6hds6mcKoAr0RUhhQyK3qknPSroi3RH@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzm8OLSx+N8b50XBI1Hb80LJ6xqpE6foSKvT/YtYNwj+KUWeRVA
+	V9U7BbOLBbHBXKMykFmgNpEp58Y7IUPm18iSHG4PD7FmUyLxjAX1rqIhy82y4+QdtYDCfju8XVy
+	DfmamPr7QDt1Lf75mU0w/yg==
+X-Received: from wmbjl1.prod.google.com ([2002:a05:600c:6a81:b0:495:571e:e5e2])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:adf:e195:0:b0:475:a4ae:e630 with SMTP id ffacd0b85a97d-47f623364bfmr18006292f8f.37.1784567717745;
- Mon, 20 Jul 2026 10:15:17 -0700 (PDT)
-Date: Mon, 20 Jul 2026 18:14:56 +0100
+ 2002:a05:600c:1554:b0:493:c10c:22f0 with SMTP id 5b1f17b1804b1-4954a50d963mr194510095e9.20.1784567719153;
+ Mon, 20 Jul 2026 10:15:19 -0700 (PDT)
+Date: Mon, 20 Jul 2026 18:14:57 +0100
+In-Reply-To: <20260720171513.1415357-1-vdonnefort@google.com>
 Mime-Version: 1.0
+References: <20260720171513.1415357-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.55.0.229.g6434b31f56-goog
-Message-ID: <20260720171513.1415357-1-vdonnefort@google.com>
-Subject: [PATCH v3 00/17] KVM: arm64: Introduce pKVM hypervisor heap allocator
+Message-ID: <20260720171513.1415357-2-vdonnefort@google.com>
+Subject: [PATCH v3 01/17] KVM: arm64: Add pkvm_private_va_range_pa
 From: Vincent Donnefort <vdonnefort@google.com>
 To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org
 Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
 	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
 	kernel-team@android.com, tabba@google.com, qperret@google.com, 
-	Vincent Donnefort <vdonnefort@google.com>
+	Vincent Donnefort <vdonnefort@google.com>, Fuad Tabba <fuad.tabba@linux.dev>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_101521_008095_00590816 
-X-CRM114-Status: GOOD (  15.94  )
+X-CRM114-CacheID: sfid-20260720_101521_809560_C5638C99 
+X-CRM114-Status: UNSURE (   9.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,128 +94,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-pKVM historically lacked a dynamic memory allocator: all hypervisor-side
-VM and VCPU structures had to be sized on the host, allocated as
-contiguous pages and donated to the hypervisor.
+Mappings in the pKVM private range are not identity mapped, making the
+standard __hyp_pa() unsuitable for translating these addresses.
 
-This design tightly coupled the hypervisor's memory footprint to
-host-side constraints, complicated memory reclaim, and severely
-restricted VM scalability.
+Introduce pkvm_private_va_range_pa() to resolve physical addresses for
+this range by walking the hypervisor page-table. This will be useful for
+the upcoming pKVM heap allocator.
 
-This patch series introduces a dynamically-mapped custom heap allocator
-(hyp_allocator) to the pKVM hypervisor. The initial users are the
-pkvm_hyp_vm and pkvm_hyp_vcpu structs, and the hypervisor tracing
-metadata.
+Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
 
-In the near future, this heap allocator is expected to be leveraged to
-support SVE in protected VMs and in the distant future, it will also
-support dynamic device assignment.
-
-By moving to a hypervisor-managed dynamic allocator, we also allow
-deduplicating the donation/reclaim path of EL2-private structures.
-
-The main building blocks for this series are:
-
-1. pkvm_hyp_req:
-----------------
-When the hypervisor heap allocator goes out of memory (-ENOMEM), it
-suspends the hypercall, embeds a PKVM_HYP_REQ_HYP_ALLOC top-up request
-into the SMCCC HVC return registers, and exits back to the host.
-
-This building block will also be useful for the future huge-mapping
-support in protected guests, allowing EL2 to raise requests such as
-block splitting back to the host.
-
-2. hyp_allocator:
-----------------
-This heap allocator manages a reserved VA space range, dynamically
-mapping and unmapping physical pages on-demand to minimise the pKVM
-hypervisor footprint. As memory is reclaimed and relinquished to the
-host, unmapped holes are introduced within the VA space. To prevent
-orphan mapped regions, neighboring unused chunks cannot be merged if
-they are separated by an unmapped region.
-
-The allocator chunk metadata is stored directly into the VA space range.
-To minimize metadata overhead, chunks only link to each other via a
-relative 32-bit offset.
-
-A simple hardening of the metadata is added via a simple 32-bit hash.
-
-3. shrinker:
-------------
-As the heap allocator isn't reclaimed actively on VM or tracing
-teardown, a shrinker is added to allow the host to reclaim unused memory
-from the hypervisor when the host is under heavy memory pressure.
-
-v2 -> v3:
-  - Remove unsafe WARN_ON(hyp_spin_is_locked(&pkvm_pgd_lock)) check in hyp_allocator_alloc() (Sashiko)
-  - Modify MIN_ALLOC_SIZE to 16-bytes to comply with FPSIMD alignment requirements (Sashiko)
-  - Allow hyp topup/reclaim HVCs pre-deprivilege
-  - Add enum symbols to pkvm_hyp_req_handle event (Fuad)
-  - Various clarification in commit descriptions (Fuad)
-  - Restore unmap_donated_memory() for PGD on error path (Fuad)
-  - Renamed __hyp_allocator_map -> pkvm_map_private_va_range (Fuad)
-  - Collected Fuad's Reviewed-by tags
-  - Rebased on 7.2-rc4
-
-v1 -> v2:
-  - Rebased series on 7.2-rc2.
-  - Use scope-based hyp_spinlock.
-  - Fix best_missing/best_data_size priority in hyp_allocator_find_efficient_chunk() (Sashiko)
-  - Fix missing free_hyp_memcache() in pkvm_hyp_topup() (Sashiko)
-  - Fix unused selftest_init() warning when !CONFIG_NVHE_EL2_DEBUG (Sashiko)
-  - Fix missing shrinker_free() in teardown_hyp_mode() (Sashiko)
-
-v1: https://lore.kernel.org/r/20260520152650.4107895-1-vdonnefort@google.com
-
-Vincent Donnefort (17):
-  KVM: arm64: Add pkvm_private_va_range_pa
-  KVM: arm64: Add pkvm_remove_mappings
-  KVM: arm64: Add pkvm_map_private_va_range
-  KVM: arm64: Add a heap allocator for the pKVM hyp
-  KVM: arm64: Allow kvm_hyp_memcache usage outside of stage-2
-  KVM: arm64: Add pkvm_hyp_req infrastructure
-  KVM: arm64: Add PKVM_HYP_REQ_HYP_ALLOC request
-  KVM: arm64: Add reclaim interface for the pKVM heap alloc
-  KVM: arm64: Add selftests for the pKVM heap allocator
-  KVM: arm64: Add a shrinker for pKVM
-  KVM: arm64: Filter out non-kernel addresses in kern_hyp_va
-  KVM: arm64: Move hyp_vm refcount into the structure
-  KVM: arm64: Alloc pkvm_hyp_vm using pKVM heap allocator
-  KVM: arm64: Alloc pkvm_hyp_vcpu using pKVM heap allocator
-  KVM: arm64: Reject hyp trace descriptors with fewer CPUs than
-    hyp_nr_cpus
-  KVM: arm64: Reject hyp trace descriptors with fewer than 3 pages
-  KVM: arm64: Alloc simple_buffer_page using pKVM hyp allocator
-
- arch/arm64/include/asm/kvm_asm.h           |    4 +
- arch/arm64/include/asm/kvm_host.h          |   14 +-
- arch/arm64/include/asm/kvm_mmu.h           |    3 +
- arch/arm64/include/asm/kvm_pkvm.h          |  102 ++
- arch/arm64/kvm/arm.c                       |    2 +
- arch/arm64/kvm/hyp/hyp-constants.c         |    2 -
- arch/arm64/kvm/hyp/include/nvhe/alloc.h    |   24 +
- arch/arm64/kvm/hyp/include/nvhe/mm.h       |    3 +
- arch/arm64/kvm/hyp/include/nvhe/pkvm.h     |   19 +-
- arch/arm64/kvm/hyp/include/nvhe/spinlock.h |    4 +
- arch/arm64/kvm/hyp/nvhe/Makefile           |    2 +-
- arch/arm64/kvm/hyp/nvhe/alloc.c            | 1223 ++++++++++++++++++++
- arch/arm64/kvm/hyp/nvhe/hyp-main.c         |  124 +-
- arch/arm64/kvm/hyp/nvhe/mm.c               |   51 +
- arch/arm64/kvm/hyp/nvhe/pkvm.c             |  100 +-
- arch/arm64/kvm/hyp/nvhe/setup.c            |    6 +
- arch/arm64/kvm/hyp/nvhe/trace.c            |   70 +-
- arch/arm64/kvm/hyp_trace.c                 |   15 +-
- arch/arm64/kvm/mmu.c                       |    4 +-
- arch/arm64/kvm/pkvm.c                      |  159 ++-
- arch/arm64/kvm/trace_pkvm.h                |   45 +
- 21 files changed, 1831 insertions(+), 145 deletions(-)
- create mode 100644 arch/arm64/kvm/hyp/include/nvhe/alloc.h
- create mode 100644 arch/arm64/kvm/hyp/nvhe/alloc.c
- create mode 100644 arch/arm64/kvm/trace_pkvm.h
-
-
-base-commit: 1590cf0329716306e948a8fc29f1d3ee87d3989f
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/mm.h b/arch/arm64/kvm/hyp/include/nvhe/mm.h
+index 6e83ce35c2f2..85f1e3c711d9 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/mm.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/mm.h
+@@ -30,5 +30,6 @@ int __pkvm_create_private_mapping(phys_addr_t phys, size_t size,
+ 				  unsigned long *haddr);
+ int pkvm_create_stack(phys_addr_t phys, unsigned long *haddr);
+ int pkvm_alloc_private_va_range(size_t size, unsigned long *haddr);
++phys_addr_t pkvm_private_va_range_pa(void *va);
+ 
+ #endif /* __KVM_HYP_MM_H */
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/spinlock.h b/arch/arm64/kvm/hyp/include/nvhe/spinlock.h
+index 7c7ea8c55405..260e14d6d200 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/spinlock.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/spinlock.h
+@@ -17,6 +17,8 @@
+ #include <asm/lse.h>
+ #include <asm/rwonce.h>
+ 
++#include <linux/cleanup.h>
++
+ typedef union hyp_spinlock {
+ 	u32	__val;
+ 	struct {
+@@ -122,4 +124,6 @@ static inline void hyp_assert_lock_held(hyp_spinlock_t *lock)
+ static inline void hyp_assert_lock_held(hyp_spinlock_t *lock) { }
+ #endif
+ 
++DEFINE_LOCK_GUARD_1(hyp_spinlock, hyp_spinlock_t, hyp_spin_lock(_T->lock),
++		    hyp_spin_unlock(_T->lock))
+ #endif /* __ARM64_KVM_NVHE_SPINLOCK_H__ */
+diff --git a/arch/arm64/kvm/hyp/nvhe/mm.c b/arch/arm64/kvm/hyp/nvhe/mm.c
+index 3b0bee496bff..8b8c9d3dc82a 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mm.c
++++ b/arch/arm64/kvm/hyp/nvhe/mm.c
+@@ -90,6 +90,17 @@ int pkvm_alloc_private_va_range(size_t size, unsigned long *haddr)
+ 	return ret;
+ }
+ 
++phys_addr_t pkvm_private_va_range_pa(void *va)
++{
++	kvm_pte_t pte = 0;
++
++	guard(hyp_spinlock)(&pkvm_pgd_lock);
++	WARN_ON(kvm_pgtable_get_leaf(&pkvm_pgtable, (u64)va, &pte, NULL));
++	WARN_ON(!kvm_pte_valid(pte));
++
++	return kvm_pte_to_phys(pte) + offset_in_page(va);
++}
++
+ int __pkvm_create_private_mapping(phys_addr_t phys, size_t size,
+ 				  enum kvm_pgtable_prot prot,
+ 				  unsigned long *haddr)
 -- 
 2.55.0.229.g6434b31f56-goog
 
