@@ -4,57 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E64B9C4452A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 13:33:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2A73C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 13:34:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MVVLvE90fQ7WmoELEjqp4sHIFe3nRrj87JvQ3rAea0k=; b=yeZ04xDJcrQz62v9KEolhK/cco
-	51WUcezWEa1cJDISxe0r+YqAyIF5Zt9tezLDI5bc0HnfVhCqixAlLxvPMe3iWFOx9QvxQCCJo71Mf
-	ByJyDqVK7y/V+xCBHQ6JzUyWJXZct4SFjOMQxiJlE3oltDP6mkrU0Z/7TkqcFHjRG7Bh5G+5Tm1+n
-	wyMByUzVrEDg8XUJ0XNO/1IIG+BWZPHxhZrkyqtQbPV+lzaaKtu1iDIRMmkE+tPxAixB2c7YV0mGs
-	w1Tpjwd7Myh+wgAlJpu114LBwEa5eQ1BhYNOvHUPA3bE4A6B+MkzJhj2EMQILYArqyT36SDoMqJx1
-	7Z9TJPgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QFqdH+mvV/P1QCgbCqAR7BkqJj0DghPGkClR+7hQy7A=; b=xTbL46TTFARrLaUriv8+kbnq0F
+	JttE6vST2sId8CK9eVV3lqNfbKGvDxDmfP0k49OGk5I2H8S2wZhQieORcdaVKmJ6YHHHbDvbrYNrT
+	cC6SGHBZHKHV7+ILuJaskPgQh9LyAUZUEW1B12Gl8ugRlJeU8JVbky8z86bfscnqI8WaEdFQqyjx7
+	m1yIUW8OeyXoQaiGCh0u0756UVSZ6jk6udYEwVW/kQ8Bjuugt9/cAmG0ROjiBzabCf849PHG8ziB4
+	OsBJZ3voaj0F5ayr1J18PcwMU4Q+bqy5IQIN0wnN/VSMZT/zexhaXsBowoXclSllwpdzJkqbX+t6y
+	FBD8vSvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlo7y-00000006okz-3gBl;
-	Mon, 20 Jul 2026 13:33:50 +0000
-Received: from mail-24426.protonmail.ch ([109.224.244.26])
+	id 1wlo8x-00000006ouJ-0hrh;
+	Mon, 20 Jul 2026 13:34:51 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlo7v-00000006ojT-3I4A
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 13:33:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1784554422; x=1784813622;
-	bh=MVVLvE90fQ7WmoELEjqp4sHIFe3nRrj87JvQ3rAea0k=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=r8sHuiwmmwgjaayUilvtsFIMfdeUlI09w2ctFtoG5E29SALjpYYgHvQrMPHMwD4Zo
-	 mWh3MXVoclvO9WUqjZunx55+knaivwf3GuHO1GiuK84Xqkb6Drz0mBEfxjGzWc6byc
-	 DFltL3byxRQXRd4Kp2yg3ZnCQnMUzRWgzxPXxIkwkR6/Oxl6E2QXDrdXzhepCcFDiW
-	 kysVZq4BGraWN3k/Y0a/L3CtOhIf9fGVManvMX28kyvejLMs4XxTrkTtWTlKGCSdH/
-	 xLrRzKghqvSlDluxOgwXMaTd47VoXaKwKmoDKmA2fVwFeLjsEUl1bOLQ9prY/735Aw
-	 96rheXJVrVpLQ==
-Date: Mon, 20 Jul 2026 13:33:36 +0000
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-From: Roman Vivchar <rva333@protonmail.com>
-Cc: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, Andrew-CT Chen <andrew-ct.chen@mediatek.com>, Lala Lin <lala.lin@mediatek.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 3/3] nvmem: mtk-efuse: add mt6572 support
-Message-ID: <LQrjqkJAVzl-TSaOAypAQdfM8rR4F59aSX5yJIw8S3neOhFlPmTeFrW1PBK4JDos7v7VvL8nTblX22lK78U0FlVE_bwuOJYR36CK3eDE5RM=@protonmail.com>
-In-Reply-To: <2aa16ed7-5d36-4e78-929e-84b9d6befe77@collabora.com>
-References: <20260715-6572-nvmem-v1-0-9c13be99d077@protonmail.com> <20260715-6572-nvmem-v1-3-9c13be99d077@protonmail.com> <2aa16ed7-5d36-4e78-929e-84b9d6befe77@collabora.com>
-Feedback-ID: 173184497:user:proton
-X-Pm-Message-ID: 0ec302920432415fdca89990ad31f8fe4c975042
+	id 1wlo8u-00000006orK-0cHb;
+	Mon, 20 Jul 2026 13:34:49 +0000
+X-UUID: c2aeae06843f11f1acbe4559397dec65-20260720
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=QFqdH+mvV/P1QCgbCqAR7BkqJj0DghPGkClR+7hQy7A=;
+	b=Kj9vVEW3uTv4yWcis6qlu6AygSCb7QMuN0EMvsFPOALArUUpaDllFspSDU60/sPX8+1bG2YpEdzuHTyXN2GmK6dUXJ/Zk2AR8IAhzUqE4LV/XkK3D0tO4qBeMI9GmxHsc8edBidSrT8xmZaiWOaWuH/EUKxkQHJ4LgOJDVRKzYQ=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.18,REQID:e1faf3e7-acdf-4d33-a2bf-87066c470734,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-5
+X-CID-META: VersionHash:8a735a6,CLOUDID:28985819-ab14-4403-9336-76696324c5a8,B
+	ulkID:nil,BulkQuantity:0,SF:81|82|102|836|865|888|898,TC:-5,Content:0|15|5
+	0|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,
+	OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: c2aeae06843f11f1acbe4559397dec65-20260720
+Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw02.mediatek.com
+	(envelope-from <kyrie.wu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1578197193; Mon, 20 Jul 2026 06:34:40 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Mon, 20 Jul 2026 21:34:39 +0800
+Received: from gcnsap21.gcn.mediatek.inc (10.17.81.22) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Mon, 20 Jul 2026 21:34:38 +0800
+From: Kyrie Wu <kyrie.wu@mediatek.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Bin Liu <bin.liu@mediatek.com>,
+	kyrie wu <kyrie.wu@mediatek.corp-partner.google.com>, Hans Verkuil
+	<hverkuil@kernel.org>, irui wang <irui.wang@mediatek.com>, Nicolas Dufresne
+	<nicolas.dufresne@collabora.com>, <linux-media@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
+CC: Kyrie Wu <kyrie.wu@mediatek.com>
+Subject: [PATCH v16 03/12] media: mediatek: jpeg: fix buffer structure size and layout
+Date: Mon, 20 Jul 2026 21:34:23 +0800
+Message-ID: <20260720133432.1042046-4-kyrie.wu@mediatek.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260720133432.1042046-1-kyrie.wu@mediatek.com>
+References: <20260720133432.1042046-1-kyrie.wu@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_063347_970254_A411E7B5 
-X-CRM114-Status: GOOD (  17.63  )
+X-CRM114-CacheID: sfid-20260720_063448_197518_088FA519 
+X-CRM114-Status: GOOD (  14.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,76 +92,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Angelo,
+Updates the `buf_struct_size` in the JPEG driver to use the correct
+structure `mtk_jpeg_src_buf` instead of `v4l2_m2m_buffer`, ensuring
+proper handling of source buffers. The previous buffer size led to
+mismatches and potential issues during video buffer handling.
 
-On Monday, July 20th, 2026 at 3:48 PM, AngeloGioacchino Del Regno <angelogi=
-oacchino.delregno@collabora.com> wrote:
+Moves `frame_num` in the `mtk_jpeg_src_buf` structure to align with
+other members appropriately. The first field of the driver-specific
+buffer structure must be the subsystem-specificstruct
+(vb2_v4l2_buffer in the case of V4L2).
 
-> On 7/15/26 16:27, Roman Vivchar via B4 Relay wrote:
-> > From: Roman Vivchar <rva333@protonmail.com>
-> >
-> > Add a platform data struct for the efuse controller.
-> >
-> > Signed-off-by: Roman Vivchar <rva333@protonmail.com>
-> > ---
-> >   drivers/nvmem/mtk-efuse.c | 6 ++++++
-> >   1 file changed, 6 insertions(+)
-> >
-> > diff --git a/drivers/nvmem/mtk-efuse.c b/drivers/nvmem/mtk-efuse.c
-> > index 1462f2760818..a79434608465 100644
-> > --- a/drivers/nvmem/mtk-efuse.c
-> > +++ b/drivers/nvmem/mtk-efuse.c
-> > @@ -124,6 +124,11 @@ static int mtk_efuse_probe(struct platform_device =
-*pdev)
-> >   =09return 0;
-> >   }
-> >
-> > +static const struct mtk_efuse_pdata mtk_mt6572_efuse_pdata =3D {
-> > +=09.uses_post_processing =3D false,
->
-> Are you sure this SoC (or any other compatible with it) doesn't have any =
-GPU speed
-> binning?
->
-> If you're really sure
->
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
-ora.com>
+Fixes: 5fb1c2361e56 ("mtk-jpegenc: add jpeg encode worker interface")
+Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+---
+ drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c | 2 +-
+ drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-It does, but we can't really rely on it. The GPU is complicated here...
+diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+index 34135706a..7856a556c 100644
+--- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
++++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+@@ -1092,7 +1092,7 @@ static int mtk_jpeg_queue_init(void *priv, struct vb2_queue *src_vq,
+ 	dst_vq->type = V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE;
+ 	dst_vq->io_modes = VB2_DMABUF | VB2_MMAP;
+ 	dst_vq->drv_priv = ctx;
+-	dst_vq->buf_struct_size = sizeof(struct v4l2_m2m_buffer);
++	dst_vq->buf_struct_size = sizeof(struct mtk_jpeg_src_buf);
+ 	dst_vq->ops = jpeg->variant->qops;
+ 	dst_vq->mem_ops = &vb2_dma_contig_memops;
+ 	dst_vq->timestamp_flags = V4L2_BUF_FLAG_TIMESTAMP_COPY;
+diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
+index 6be5cf30d..148fd4175 100644
+--- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
++++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
+@@ -85,10 +85,10 @@ struct mtk_jpeg_variant {
+ };
+ 
+ struct mtk_jpeg_src_buf {
+-	u32 frame_num;
+ 	struct vb2_v4l2_buffer b;
+ 	struct list_head list;
+ 	u32 bs_size;
++	u32 frame_num;
+ 	struct mtk_jpeg_dec_param dec_param;
+ 
+ 	struct mtk_jpeg_ctx *curr_ctx;
+-- 
+2.51.0.windows.2
 
-Something like this:
-- mfgcfg
-  ^- mfg_pre ('safe' UNIVPLL div or 'unsafe' mfg mux)
-     ^- mfg (if you're here and your chip is NOT mt6572w then be prepared
-=09         for crashes)
-        ^- whpll (or any other parent, but downstream uses WHPLL as GPU
-                  clock source)
-
-There is GPU speedbin, but it means either GPU scaling is fine and mfg
-mux is safe (0, unfused) or that the GPU must stay at UNIVPLL divider
-(1, fused off).
-
-My current solution is using assigned-clocks and assigned-clock-parents
-in the each board which we've tested manually.
-&gpu {
-        /* Switch to WHPLL */
-        assigned-clocks =3D <&topckgen CLK_TOP_MFG_SEL>,
-                          <&topckgen CLK_TOP_MFG_PRE_SEL>;
-        assigned-clock-parents =3D <&topckgen CLK_TOP_MFG_PRE_500M>,
-                                 <&topckgen CLK_TOP_MFG_SEL>;
-
-        operating-points-v2 =3D <&gpu_opp_table>;
-        nvmem-cells =3D <&gpu_speedbin>;
-        nvmem-cell-names =3D "speedbin";
-=09=09status =3D "okay";
-};
-
-On boards with GPU frequency fused off the entire setup is omitted
-except status =3D "okay";
-
-Let me know if you have some other idea how this should be handled.
-
-Best regards,
-Roman
 
