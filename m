@@ -4,136 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A288FC44512
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 02:07:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 871DFC4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 02:10:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+c48qZLa/B/sI+2tLwAmuhQqI1A/ErWfJRUtg/y7R28=; b=RXCR3UTqj2VipKn25NQeLrA3os
-	31wERv/nqKBNaTfvQnKbBRWaH/ORrhz0NnrgNol7cTuDFzLlfobTZjUlVOEp0DP8CHzAvdbGjiQvO
-	0ve60Fgqe0Amow2aKo8puzknO189uiYbRrrc8vnfcbVrkDx6hnFeKAEP/XoOEsezSJ8bvwYvu7yOp
-	8Vug7sWkSlxBGljsBjJLXSLfvBPt7SKXq8D0cXW+o36WSJ9n8dZu+zBGMXEWqyiAmeYNI8pcaYyxb
-	2tGcWzW5At6WEG1NX2wifyGCKVRZwzrnovI/MqgsXQj+b5PWnWTqpekeJ8Ark9k0GDMGr5PCOVF8P
-	ygInruAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XyP3beKTqKy7/tm4NGhKSSOYn9FOIhNtE617thQbnkU=; b=HYoU1jCvufaw3/2MnsgZ46PAoF
+	FUeTprP7WEuFFvZZxvXXOCZ+CNCw/QZpLqVvBlawxdC86WNzUt0kfQKRNsYhr8DvpFxFebnETB0Eb
+	2IJoH+pnWSq4/3BwDX9moKyKuEeeeTM4S7sLxMfe16JvjAup5pi/s9KCEuhK2L8zTY5V56Nf+guJW
+	TyVsGjPB3NnjB9Zf21gWTw8IG2i/KJaAY5UAM0JzsYb3JjMy3V9Wu72xDhM/zqhXPv2EtXb7cZWYO
+	NRyQVr2GBr+m5aCGDa0wanVcKJU9CajlWRrSHqIJKAWdjj8LdobJwnoYUQpKpeN5QwoG+P0lfD9Os
+	kdb3XtxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wldPZ-00000005dot-457v;
-	Mon, 20 Jul 2026 02:07:17 +0000
-Received: from mail-northcentralusazon11012050.outbound.protection.outlook.com ([40.107.200.50] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	id 1wldSZ-00000005dxA-1SSG;
+	Mon, 20 Jul 2026 02:10:23 +0000
+Received: from mail-northeuropeazon11012013.outbound.protection.outlook.com ([52.101.66.13] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wldPX-00000005doT-1osC
+	id 1wldSV-00000005dwj-2hXa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 02:07:16 +0000
+	Mon, 20 Jul 2026 02:10:21 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BabFbAr1OIxNZUKqvx9VvHfb+YM0Mv3MmyEsAvzsk8eF4aS/T9E0fFLuohoBFu3h81SJr0eidLnwcWWb8xZ/0EJOI7dgcHpIZ19ovnCMjZx5c4aTZgycuLRIv/vCdmfiVIlphl+UVzanXxf2dH7Fw+izH/rzZp2N5Up3Ype8y56ZKFJIMni+lo4P3sGJ6A6UCwED9EfmyTnic0jJDV5HURVI/UqlmenzLsyzHf7JvmV8Qa4jgD7RHR5iv4kZ1eKxenU5vlpDQBQzCZ+USE0oh64Q5rqxi+vj7MNkmofGSO966Yl07elbgtNXAfQcLTouOoS3WMIa1ZTK14yw4CkoBw==
+ b=x1oBf0IpiB1U0sClW86H5gqsWmrbDDgi/qcZCEd5swAFUF2Z9bV5QkG5XZOgj1o9QnuY+fKplilT2ukAGPhs9Xw/d26TknaRSTooclcC4+z4/2Zt/4D3gTkY/kgJ4r2bu50iip+D/54Ut1mR9/b5/IoUtPd6l6xR4pzCh4FtQklW4Dp0V/4eHSypNgTXydTnCLJYnPsFMVtySzIOTv2U4mO8R8FfDrKxQBoufxDYPrn9IKBNKTnQuZlONiBscFfH/qfP851oiME/D/LgrmYBfLkzuEw0YampJmX+AaDrQzIeswaW2sdsagrthmGTWAidANT3Dz8bVjtuPyrAKN+SKQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+c48qZLa/B/sI+2tLwAmuhQqI1A/ErWfJRUtg/y7R28=;
- b=xxL3TDsUWwsC9Or81ejJAkNYYE1+0u2k74Z5njHVPBKDMfSKEBZNQ+q9Nyyt1efDfid87TZG9Pa5GpAY8gZ/1mfBka7K4if8sNsWRgXBmr3xl9ZKu8z8rRcKYibjUfIqEXV/Uec5R2UeQR/CpZqkJCtW1U8u2Sw5awWH5UIiqk2FiaUBvxSHWMd5clvl2Z2534NATsdM/ptYxkMu8HDl7ciuvI8sLPKMEDkr5m0M78WF0roLw6Z3W8vUridjsBkXPMkGPgiEKRQ61x3luff0Q/QtnLFFL0+VjrShWU3FCroXip7c1B8TVApogpUQlwUMOmatl+/Ug6zEpeMVWZsbHg==
+ bh=XyP3beKTqKy7/tm4NGhKSSOYn9FOIhNtE617thQbnkU=;
+ b=wW82cp6NZnJ4V8lVPNQwEPVGUbDZ8G8cA5bUafktXP6NWUBgvsVe/DU4X2UFURhcZCQglRTk8Fkd2KrvWnyqt0puvbp2iWc1eBjdbPTxc2LthDDKAYuoYEJ8i8XnZbtg7gzYlY0BWD06tx0drUz1PPrgWNxBgDI0MRHNXj8ntp8Z4n5aBpVtHnorBPstlVKNgfDWiyLbDp5G/SIB3EXjjjKijb/MtRPkw/9xGYtCZuRuhSFSHtBivX0Ug/QsjXS3DgGWBaDLnmNCKa73Wlr/Y72f1BU0runnrXqU7TlTQsYgxIs8QgcNsei16WPwiYATP2KY3GpFG+Ynd1Ax62UHWw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ smtp.mailfrom=cn.bosch.com; dmarc=pass action=none header.from=cn.bosch.com;
+ dkim=pass header.d=cn.bosch.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cn.bosch.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+c48qZLa/B/sI+2tLwAmuhQqI1A/ErWfJRUtg/y7R28=;
- b=jzhFhAQ4eA6Rt7pIyETu+z2UrW6mgVhZj4fSfgGoDqraPM1L2MRh5kiodVvU5nw+bn4eTyQ5KvvtH1onnaL/cd6jWhJXxbLew0hWfCnNVxC9en3ZEWe8yrujJqy3rAmdeo+lsCBKTH9vmdFlpSu/nUtSaZJ8/aDERRdB4U1l/+u4amOwJTDPyoaXxpsOfvpyB3SwZi9/VEwF7H7DSplSy1SdVbJXfWZRK1RZJ1U0SQW4sd7HIWnPr2Y894hLnSUmnNO6GVc2sJWX8ebAxksNTx2gWRE/Sofk58aoWGd1AOIAy3/aW5YYVbLJ8OWDiTIYICymWGl59nFS+84B1HmDfw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from BL0PR12MB2370.namprd12.prod.outlook.com (2603:10b6:207:47::27)
- by CH2PR12MB4200.namprd12.prod.outlook.com (2603:10b6:610:ac::16) with
+ bh=XyP3beKTqKy7/tm4NGhKSSOYn9FOIhNtE617thQbnkU=;
+ b=UyBYuORWgCOBjMPCrZkujyIRLA2JB0h8e6ww+y+fxrFa0xLVvpPB4dFT3OH+qCCd5pHDzScsB60Qf0TOH3gsqJWXXwkH7ctxRMiVkHt/u/QGXBKKhQJisytfexGKjPakda6my5YebY0oVg3wZ8O0o8C7rCWjctvEVtci5C2ZibWQQ8mPQrbyEQd0yC8SAuGjUc2j0wYXsYEJieYAm36OExeWa4qXB87wNJ3aiSDgoAlDLObtTFJQuJ4544f2khJaW2cGII9C119UrIP3GtRfQ6MIuiEfvUPnFlWr8frSxGbIJxrq3B9akh3KSdABF3Ad4DbGTRpwwspoyFxKrLV6vg==
+Received: from PAWPR10MB7415.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:2ee::8)
+ by DB4PR10MB6285.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:383::18) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.16; Mon, 20 Jul
- 2026 02:07:07 +0000
-Received: from BL0PR12MB2370.namprd12.prod.outlook.com
- ([fe80::86cf:c3ec:2cf5:74c8]) by BL0PR12MB2370.namprd12.prod.outlook.com
- ([fe80::86cf:c3ec:2cf5:74c8%5]) with mapi id 15.21.0223.015; Mon, 20 Jul 2026
- 02:07:07 +0000
-From: Richard Cheng <icheng@nvidia.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org
-Cc: ryan.roberts@arm.com,
-	ardb@kernel.org,
-	kevin.brodsky@arm.com,
-	anshuman.khandual@arm.com,
-	yang@os.amperecomputing.com,
-	chaitanyas.prakash@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-cxl@vger.kernel.org,
-	newtonl@nvidia.com,
-	kristinc@nvidia.com,
-	mochs@nvidia.com,
-	kaihengf@nvidia.com,
-	kobak@nvidia.com,
-	Richard Cheng <icheng@nvidia.com>
-Subject: [PATCH] arm64/mm: Check the requested PFN range during memoroy removal
-Date: Mon, 20 Jul 2026 10:06:55 +0800
-Message-ID: <20260720020655.9607-1-icheng@nvidia.com>
-X-Mailer: git-send-email 2.50.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2PR01CA0025.apcprd01.prod.exchangelabs.com
- (2603:1096:4:192::10) To BL0PR12MB2370.namprd12.prod.outlook.com
- (2603:10b6:207:47::27)
+ 2026 02:10:09 +0000
+Received: from PAWPR10MB7415.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::fa9a:794b:21d4:ae9b]) by PAWPR10MB7415.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::fa9a:794b:21d4:ae9b%5]) with mapi id 15.21.0223.008; Mon, 20 Jul 2026
+ 02:10:09 +0000
+From: "CHENG Haoning (BCSC/ENG1)" <Haoning.CHENG@cn.bosch.com>
+To: Frieder Schrempf <frieder.schrempf@kontron.de>
+CC: "Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano
+	<daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, Lukasz Luba
+	<lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
+	<shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v8 3/3] thermal/drivers/imx: Add calibration offset
+ support
+Thread-Topic: [PATCH v8 3/3] thermal/drivers/imx: Add calibration offset
+ support
+Thread-Index: AQHdE3uQOwhGQ7gvREa8/JzAX/2zpLZuS2CAgAL3SOCABHAl0A==
+Date: Mon, 20 Jul 2026 02:10:09 +0000
+Message-ID: <PAWPR10MB7415DE998EA3CCA639F14EF2C2C32@PAWPR10MB7415.EURPRD10.PROD.OUTLOOK.COM>
+References: <20260714-b4-symana21-11221-imx-thermal-support-upstream-6-18-v8-0-d54d8690e16e@cn.bosch.com>
+ <20260714-b4-symana21-11221-imx-thermal-support-upstream-6-18-v8-3-d54d8690e16e@cn.bosch.com>
+ <5a000235-5e17-4d54-8bbe-42fda0b59db0@kontron.de>
+ <PAWPR10MB741520A95E4822E935A0B7C0C2C62@PAWPR10MB7415.EURPRD10.PROD.OUTLOOK.COM>
+In-Reply-To: <PAWPR10MB741520A95E4822E935A0B7C0C2C62@PAWPR10MB7415.EURPRD10.PROD.OUTLOOK.COM>
+Accept-Language: zh-CN, en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+dlp-product: dlpe-windows
+dlp-version: 11.11.3.81
+dlp-reaction: no-action
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=cn.bosch.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAWPR10MB7415:EE_|DB4PR10MB6285:EE_
+x-ms-office365-filtering-correlation-id: 03119b5c-d9e6-4135-62cf-08dee604064f
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|1800799024|366016|11063799006|4143699003|56012099006|10067099003|6133799003|18002099003|22082099003|38070700021;
+x-microsoft-antispam-message-info: 3kJ1emsaDpw/4M+G7TPcNCFquyBdEPJoXbsp6Qbn50YG9k6mcWDo+fdl6fK6YrswiTes9HBkggkBWL+uXFbfe0gy72zezh5sKo8xcue9E/7kwC+b4ZDwz8b/lL0SshULZM4eHXYXP1TppYmkF/dl3KRdExbJWdIg56S2jewYeQfa1/qcFVjSI/MjHMN7ejmts1D41mR7FtierQY2Sbx/miVA/qHdHwiAleU/Cuwew/awP376BEbqbrf1Je1tDGAJx4Qk63w8oO6ZWcYa6+Seo/UN8U7w70kQ52+Y9AYMLTYKB9SYEpDl69yfDUwlGR7AVovktlWmsHUr87pVFl5kDb/BvHt0vhSxdMP6yKpbC6thvk1JCHZbAHszuroojumrBUiiQPn75vk12E8AeKxjWTyipPiRjGlG+ODFpQ5t/fw+8cdqVv2JRfO9jb7+gcko3r2vN0m6sifLVSpsA2EkH14gb/JZsw6qmcD66WPVl39wy5i7GbLufHQTJR2ijT9qE9hexsupkry632xrusoWNofKKkH2Uqb7cqSNdOjDCRpH3zk67AWE6Ww2Aopu09cfNY6WtabDBnJ5zJIHrAaspequuO4qBuNl6RFFEEt8IVye8eFcPj5Sy7Qz2RXsKEvSBJWaGklEGWNOsC7EZsh5/lth1Fp7O92neProjh5ymf8iUd0LUQbYH0IhR1fQyByk0pJxMdP3c4JZNdXDHX1KspAcn2b7uM6IEivalPSAEfA=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAWPR10MB7415.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(1800799024)(366016)(11063799006)(4143699003)(56012099006)(10067099003)(6133799003)(18002099003)(22082099003)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?o3OdH4hCEhmv1qhVPehSBgRTfuGCpX6F1T4qB1hKvpou8QybS4SP/6FpYCmC?=
+ =?us-ascii?Q?6MMLKIq0j9C3v+1L+pYuSvYngwvkTnKTOZtVrbG24/ojNYzcvyg1mKNmah4X?=
+ =?us-ascii?Q?DNJh4e2+hsk7VsrN+qrjzn3BtJ0PJruU3uwEK8WOVIEuQWpDfhmSKnX5jTTZ?=
+ =?us-ascii?Q?ho5Ng73rFEk/EbC03K+3yW5xXmXqn8xOap/yEULIK3Xsur+P+00pBasCiLBL?=
+ =?us-ascii?Q?8j6oCo7EKdQF9KRkN3/5RqvU31EUkPZxUYdB+t3xoKdzQWHTmhACBrtqxsri?=
+ =?us-ascii?Q?Lfabl7xDr6IEt6LKxpsF4GWKqYeaaor6tyFePn8PZdIlo5ymV3IHnvJYLxJy?=
+ =?us-ascii?Q?8K5FaVezJDoko+9PQ6PcmZs6OFebU0hfi0IMZp0cbEWV9oEw1YEI6MXFYZ4o?=
+ =?us-ascii?Q?RFZatxiMymZbC7b9jpmoPuMkplo7DxudxoMoLKUTAh+7qcnB9fg1H5rGBxIM?=
+ =?us-ascii?Q?ZSeXDmqKKa8D92d62MF1+7owE+OBSmXW6TXyFcyhr2JsJJ5Se61cFY0Mquhv?=
+ =?us-ascii?Q?ouYpPdTrYHgWJ9txHTR2RlT4FWrsGMTs5ybAgdJSFxAp38DBTlgfqKhaGEi4?=
+ =?us-ascii?Q?PnHdy40pH9u9i0hE63L/sKqXYkQnt2/ViKYK699XwKhslBJ7oTYjPJPw6eVH?=
+ =?us-ascii?Q?Idj8rZyzv01tl7cm8PYF4vydcmXPLsWQ2t6I1IhKizzvlw28/XqOhAOqZ3DM?=
+ =?us-ascii?Q?tKUmWOzBKlYHrRlBeJRYrzPDIQW9GCaNwYTsIDgHUdFFQy8kRvhiWWdLtzbx?=
+ =?us-ascii?Q?CFrqh6k7nv70yTfiDq+rci2lIK4lGDiBHM2TTQVWGVZK+sCWVzU6HEfkGzDq?=
+ =?us-ascii?Q?kFg4uvZGz+iw5LdXsW3QRfjieEERQ9w5Mcn0Xi8l1/tVitqtx0+MZNSMIfOn?=
+ =?us-ascii?Q?EkFea2AbBrWNVJK2lQ1RDmo3ao6Jigr798KZhBlEEUj/xQsB315KczQICqTt?=
+ =?us-ascii?Q?MSHMa6ewfVu4rucSgnlbf1TsnpxsbDw2E50xb6XA48B+8kSMPbgHlru0opVM?=
+ =?us-ascii?Q?50Z9QqWwCJnypDHwX5LKqczz2+FoG5yjdbqSvylDkhzBwsI5RHhsTIeLkcGg?=
+ =?us-ascii?Q?5RQFUIuHdySpc7Zp8LyADWDTjuA1nSdUZdWHK7TOk0MjZCcosQJr0zdT+Qp9?=
+ =?us-ascii?Q?1/zNGpuqjwJMuWp9Gky6RufChgjv14uO/L0rfvMMaTrUUeyPgLYsPKhETtui?=
+ =?us-ascii?Q?AMTM1Rh60GP8T6gRKEQm77chz9et4BkjYEayJoRXTTXzXFt8bGIwInJ3IsRt?=
+ =?us-ascii?Q?S0sKxmQ6i2ZUpnVrBSwUMx0XsnW5aHWC8dN/w2WLXEfDd9j8X3+WwmjIAqi9?=
+ =?us-ascii?Q?jwb+Aa3TlolMY+pUsBRqE4g9ek/pJGy42SfY6WoiPGxufCgPYUBBixGzcLyE?=
+ =?us-ascii?Q?Ghs3UNeIdh+2d8Ci8Gs14nIADw8dMlSX8cIGugP/DqIiTgyu8noMo1EdWMPP?=
+ =?us-ascii?Q?jFqmojwKSBOsVkHk4p0/979B5M2NWHb3yJ10kezP/PAiS74aCvDi0Zjm4nzg?=
+ =?us-ascii?Q?KmmfNDbNTK9N9hJQ0ueiRAhXsH1WZmxc5IZeDq9/9lBNrwKF+AkUShFn+o0W?=
+ =?us-ascii?Q?Jp8+lBMc1bvREBhx1uvdblUnP0IAiKFcYFyW4QlNrTu+CDJ10k7WGjbFG+1w?=
+ =?us-ascii?Q?/YEbvnO3Sw/D80a27Lwjx2JTI0ZB6asiGrUmKv4aJDKW/Wp4SsQZpxBljNx+?=
+ =?us-ascii?Q?D1hTnEwHkbQ8G26XkDNwAuTs0ZtpZd+gNOVNqIYXhwps6k15?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL0PR12MB2370:EE_|CH2PR12MB4200:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6894345d-4d04-41e9-ffbf-08dee60399d1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|7416014|376014|18002099003|10067099003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: xAMEMd7r12akk0dUWLgcPH9iDcXHKGiZyE4z2lY2QrKphe8amqXshn9sGfCNqYPCv4QtKYVx3MKKPxwQNZ8lg/TMv7cFY/fzK/sHo5X67CiBegOBNsGBK7j9+tWtwhDzmGP+BlT6GwW2qmCdnFYnGABmhzmHz0s+PfNlDUX4MqUh8jd7L91jEiBlqKO6+qaFWJCoLgE/TXPE1OyNInaZb6I2uo4LJb7aCe+JGl/3U00CfYLeDkVjiKjUWEOhUpLmNigr9KKgS/CmQx9HjAWEmwssLPxiNtOrAceMOUZIz81zsEHkZREkkH6QK0cHZevCy98rN9UM305RB+9z97LMHNcK9t98E1PDV3dfWt/XAu8L3KSLCgFOV79X6Tvjl1FxJVjEsR2na3vv/lzv7fNxY/cyFa6C0sf4v/B1cHwJ0ypogNvc39/J23Rmu6BlCUyH0+dNAjLskktYbmoGcCkXa1WFrm2nwEtu86UNTnbCmj0/nM+/ZW8l2SNoJtYKcwsneXk9l6VVsazroiNk7ruv0D37RrFhTCfn5QjPYuM5Tr4KgbqO/u3ckOZxxrW2AMa/K2CFu7qZIXrvyOfWhSeFeZm9aHSkWvOhnyA+3QKXW2qir0wkN6o5s54hVaS3CRNWLdc6MUezlCjLgBASKD2aWpeWKjbpwFRjaQqKkBICkng=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL0PR12MB2370.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(7416014)(376014)(18002099003)(10067099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?OkLCw01yHA3V20RSzDHONagkSE/YhuN8eF8OGGL+c+rcVgv8z24Tou2PUFP2?=
- =?us-ascii?Q?e/c7Zjab/zluJdB7Wxcsj7JZz+7pkLXwZBBzkrdZ1yvejXfyqNnxys+MN6Qr?=
- =?us-ascii?Q?jqRyk0dtp21oXtEvv7+LAmQg2lIdXoubSwkbBalfUvxDf05xLaLDmPanQqwC?=
- =?us-ascii?Q?YP0Ya1yBDYqGZQb+pM588F6VexsD8cpZUDJpj1NRiM8igtDKsiGSZuHLDwgw?=
- =?us-ascii?Q?a/S05PUC0lkZEnnCv+QjQ4WJ9f+mxxFZSiP0qbT88ROoiA7+cWVpseqMygYX?=
- =?us-ascii?Q?pdvE4VhjruLyzozwES/wd7MIm1Glxdd+yWMobF9rYZy/ckVl0RHUjfH7Wnas?=
- =?us-ascii?Q?j7WCZZSuOrAn0n0I20M+nZYMTghq4KLf2YJgE6kg6yCC74IsctY1xpob0di0?=
- =?us-ascii?Q?KWemho75JMuKTf4/RQqVhdzzG9Vh4L+vlmf6Z0I9D6W4itDu+OYNbcqNiwmf?=
- =?us-ascii?Q?sfORpJv9DEyBcQzJuuA1R4sF9HZJMpKGx4pAVrQTSlULFEODTCeCDbHRYc4c?=
- =?us-ascii?Q?GPhftB70KyTkqm7UsjDL42+OtDAPci5qDzJPaZw/nVuHsKTvuMUw7/hJy0ag?=
- =?us-ascii?Q?pxuAn62ijiym1QWJtLMkmODfLXsPm2xayJfCesExxEfIrfdKYbi9K1+7NDsd?=
- =?us-ascii?Q?duLk5vPJsc6CcaGVwJuNjfnjXNFHYOpf0/sn3WF3m96tOhN2VtAc5FCXFmLS?=
- =?us-ascii?Q?QBjUhqVx3hR4AEBvJnpKRyEDeidAftzvSnLI/rsgUY9Tz7JUa2VUuLoNoO7c?=
- =?us-ascii?Q?qCiqejYlIwRNB1TlUdjdOVPhR+H4GDJI/GOyAv5mV4q2n9dRAK8BLpKftvLc?=
- =?us-ascii?Q?26bDnS0u4x92100RnleluezLs5MCFQxdk75G+loHoKI/U2wU6paMmHOr8noM?=
- =?us-ascii?Q?BgjqI6koXeA8TMhAimnYBhO9QICRBmYWrlIIyac8HUMP/ed9zJFFSCffYUDJ?=
- =?us-ascii?Q?vutgCZSPVIgix2+jDZ6t1cqo7HgjoLgfg5HhvpN/HRR08BC+IKpCWPZjKfyv?=
- =?us-ascii?Q?0ZkN007Ej79I3wXwM7RlQMr2mEzBfSuzi4FDrEWzPSaVuKHCHNV9KgjAEtj4?=
- =?us-ascii?Q?IOGrPE7fvee8qMfAQHVdr/uWlDQWHTkjxfOU7AwxMG168gTnY5G/mAhb/1kG?=
- =?us-ascii?Q?2RIL3TD7dbqPO1bo7C4oRS9jral9DJMkphP4N/vFituUW0qz1E7GWPvIzpUu?=
- =?us-ascii?Q?lD02IXSskAZf0gdUpBTvm13UZm0w1I9Kzoy2BiyOWyfGBZq8FXgWqlgEejjU?=
- =?us-ascii?Q?gyJJttZq7X98GqufX+vcSvy7th+YLEo6a77iOVL65941xWJ7Tb2sqcE5rIXU?=
- =?us-ascii?Q?T7h3b8QbViQMGtrnwcSDQ1j6S6bd0475Upo9epqkDEKbXKAGfyUzGlQ3C7yl?=
- =?us-ascii?Q?PdhlNuAVB74p5gM8MVVtYZS3SDLgnopNRawpClIBq+744UQvLDcI+KPTVW7X?=
- =?us-ascii?Q?mEDxQ/yKUr6AkWnff82z8CLO4JEBJATLUG3xMPAGV47NEBuS1tmJk8Igpx0L?=
- =?us-ascii?Q?RCjDWEBHgqjoP9+KL9FZXOzAXL2p+PxeGSabOy4oy06pylDLE+dHVqWOKEnA?=
- =?us-ascii?Q?KU+Sr6AIaPke+r+CAvok3iiWrSB7pzUj4w6dX34pTSjHf6HXAInDgd8YUUUy?=
- =?us-ascii?Q?u4T3J1zJ1MFoZG5CEp/JLAK6D7pZ7HoMC+AAoBYw2ToXledURPtwosEhMft8?=
- =?us-ascii?Q?oHD9s34hnUAqLv89gMsUkAv0rnkyUpdQkC4YvcjVjjj+qKZr9EuVhuNOUib8?=
- =?us-ascii?Q?Ru0Zo+T4TA=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6894345d-4d04-41e9-ffbf-08dee60399d1
-X-MS-Exchange-CrossTenant-AuthSource: BL0PR12MB2370.namprd12.prod.outlook.com
+X-OriginatorOrg: cn.bosch.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jul 2026 02:07:07.7307
+X-MS-Exchange-CrossTenant-AuthSource: PAWPR10MB7415.EURPRD10.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 03119b5c-d9e6-4135-62cf-08dee604064f
+X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Jul 2026 02:10:09.3088
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: HRr4vBms9StM97xsxHgzBgmfUI90pAyuPb5/RIb9WpFiVzFY9HHBPRPEKcm+AVE0tr8cWeglvDCd72VTW2xkyA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4200
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 0ae51e19-07c8-4e4b-bb6d-648ee58410f4
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: FGLUKlXUdMJiscDCwUKOWWmjlC3ZEe5FEpzX0n+bxPeObQfTc9OWa1fSqZSdyoDUja0UrHWStwUAY48/o1XqmQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB4PR10MB6285
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260719_190715_488487_9F997FA8 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20260719_191020_180550_5B507F2D 
+X-CRM114-Status: GOOD (  28.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,74 +155,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-prevent_memory_remove_notifier() advances pfn while checking whether the
-range contains early memory. After the loop, pfn points to end_pfn, but
-it is passed to can_unmap_without_split(). This checks the range
-immediately after the requested memory instead of the range being
-offlined.
+On 2026-07-17 06:23:44+00:00, CHENG Haoning (BCSC/ENG1) wrote:
+> On Wed, Jul 15, 2026 at 11:06:07AM +0200, Frieder Schrempf wrote:
+>
+> > On 14.07.26 12:28, Haoning CHENG via B4 Relay wrote:
+> >
+> > Sorry to chime in so late. I just want to understand what this
+> > calibration offset is about. Why would there be a need of a
+> > board-specific offset? The sensor is in the SoC and if you add a
+> > board-specific offset, you no longer measure the SoC core temperature,
+> > right?
+> >
+> > How would you determine the offset in the first place? How would I know
+> > what fsl,temp-calibration-offset-millicelsius should be set to? I could
+> > put a sensor on the SoC case and use the delta as offset, but then I
+> > would just account for the thermal resistance of the casing and not
+> > measure the SoC core temperature anymore, right?
+>
+> Hi Frieder,
+>
+> Thanks for pointing this out. Your understanding is correct: after
+> applying the offset, the reported value no longer represents the raw
+> SoC die or junction temperature.
+>
+> For this board, the required "SoC temperature" is the package-surface
+> temperature. The offset was derived by comparing the TEMPMON reading
+> against a calibrated external sensor placed near the SoC package
+> surface under steady-state thermal conditions, and is used to
+> approximate the package-surface temperature from the internal TEMPMON
+> reading.
+>
+> The Linux thermal framework does not require a thermal zone to use a
+> specific temperature reference. It only requires the reported
+> temperature and trip points to use the same temperature domain.
+>
+> In this driver, the offset is added in get_temp() and subtracted in
+> set_alarm() and set_panic() when programming the hardware thresholds.
+> This keeps the reported temperature and trip points in the same
+> package-surface temperature domain. Doing this in the driver is
+> necessary because the hardware alarm thresholds must also be offset-
+> corrected; applying the offset only in userspace would cause the
+> TEMPMON IRQ to fire at the wrong die temperature.
+>
+> I agree that "calibration offset" is misleading, since this does not
+> calibrate TEMPMON to a more accurate junction temperature. In the next
+> revision, the commit messages and DT binding have been updated to
+> describe this as a board-specific conversion offset from the internal
+> sensor reading to an estimated package-surface temperature.
+>
+> Thanks,
+> Haoning
+Hi Frieder,
 
-Consequently, valid requests can be rejected with shifted address range,
-while an unsafe request can be accepted when the following range is
-unmapped. This was observed with CXL DAX memory, where the final memory
-block was incorrectly allowed offline.
+I need to correct my previous reply. After further discussion with our hard=
+ware team, the offset does NOT convert die temperature to package-surface t=
+emperature.
 
-Pass arg->start_pfn so the leaf-split check examines the requested
-range.
+Their thermal characterization shows that the raw TEMPMON sensor reading it=
+self deviates from the theoretical junction temperature - this deviation ex=
+ists even at the die level, before any board or package influence. The offs=
+et corrects the sensor reading toward the actual junction temperature, so i=
+t is a genuine sensor calibration.
 
-Fixes: 95a58852b0e5 ("arm64/mm: Reject memory removal that splits a kernel leaf mapping")
-Signed-off-by: Richard Cheng <icheng@nvidia.com>
----
-The bug occurred on a machine with CXL Type-3 device.
-Branch: cxl-next
+Board-level effects may contribute additionally, but they are not the prima=
+ry reason for this feature. I apologize for the confusion - my earlier desc=
+ription was inaccurate. The v10 series reflects this corrected understandin=
+g.
 
-Before 95a58852b0e5:
-
-"""
-$ sudo echo offline > memory557056/state
-write error: Operation not permitted
-$ sudo dmesg
----[snip]---
-[440008000000 440010000000] splits a leaf entry in linear map
-
-$ sudo echo offline > memory558079/state
-$ cat memory558079/state
-offline
-"""
-
-After:
-"""
-$ sudo echo offline > memory557056/state
-write error: Operation not permitted
-[440000000000 440008000000] splits a leaf entry in linear map
-
-$ sudo echo offline > memory558079/state
-write error: Operation not permitted
-[441ff8000000 442000000000] splits a leaf entry in linear map
-
-My fix corrects the checked range and prevents the false acceptance.
-
-Best regards,
-Richard Cheng.
----
- arch/arm64/mm/mmu.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index a25d8beacc83..18a8b0d3714e 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -2194,7 +2194,7 @@ static int prevent_memory_remove_notifier(struct notifier_block *nb,
- 		}
- 	}
- 
--	if (!can_unmap_without_split(pfn, arg->nr_pages))
-+	if (!can_unmap_without_split(arg->start_pfn, arg->nr_pages))
- 		return NOTIFY_BAD;
- 
- 	return NOTIFY_OK;
-
-base-commit: 5ca04f3ba91f1773bbd5da6d9c654ccc1ba7831d
--- 
-2.43.0
-
+Thanks,
+Haoning
 
