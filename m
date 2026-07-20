@@ -4,85 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 124BCC4451B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 06:19:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43690C4451B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 06:24:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W4lqbbuFRL8zkHdtyIDwRkuJmQS4zljitCYbt4eFEpU=; b=uPG/oxKz+ZNkTW9YHOyhY0XnH9
-	zibi4zmGzZOTyrpeFjraAV0AdERMQafzdLkxXpvhRjU5LdAbqfUzISaVRof16ixsrqU9a024iM2n5
-	r3XY4FUMbD3B4sRsCl0Spn6cEneJO5c12e5po3hZH2FPNgfPGY7nJqGCmGJJWVKRDt+rXbohhbU8R
-	gjNphClq+h7XbbJFztCT9C6K91wl5O6ElmV9WAcaBncnPZLLFr+2NTsSrk9N+Ga8ed+uG8kMZJJnp
-	l/u5zFpEGZ0MPnrxBFuyG/ZD21NvtQQHhcYO3tOL3x61JDTbWLK4ntdjNcjUHBYsOqQSaIQ1fI/T1
-	5HlCsLTA==;
+	bh=LjslSMaLxzrkUem1WFJqu5PdOsbgvYRCxR6KR5IC8og=; b=nmTdwweTW7cfPVIgrF/PACi0vo
+	RV9inUzhMT19JX6vpaD4dQoJMgHaCqVFzzSl+xZVSvvLa9xj5VPs6ThRvMzgEDoZNByCfTL557qWT
+	oIbkOS+q4/3bJg/9UhyLgbFrfuhVAaeBAEAfM5OuLjB2L2OMj8BlXM6/QFLkP6S8jfgEOk2qEGMBp
+	rVXZhnRgJVSGeP+4YltQCNxe3PpCuFkrHXkezns9kKPtuacjPOhMBHzcFQD0lKuTLOQKSTA97/gBU
+	qWV3lHmcYYtfYPJ7jdKtCKOjiDMunALkcU0VGtEi94j58YwJ8GJ+EBcvdeRNzpZgfSVP3Cae9AG3Y
+	FGRzLBRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlgil-00000005s53-0rQI;
-	Mon, 20 Jul 2026 05:39:19 +0000
-Received: from www3579.sakura.ne.jp ([49.212.243.89])
+	id 1wlhQF-00000005wDX-2PdE;
+	Mon, 20 Jul 2026 06:24:15 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlgiW-00000005ruR-26Yo
+	id 1wlhQB-00000005wBM-3abr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 05:39:08 +0000
-Received: from h183.csg.ci.i.u-tokyo.ac.jp (h183.csg.ci.i.u-tokyo.ac.jp [133.11.54.183])
-	(authenticated bits=0)
-	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 66K5c7oj075973
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Mon, 20 Jul 2026 14:38:25 +0900 (JST)
-	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
-DKIM-Signature: a=rsa-sha256; bh=W4lqbbuFRL8zkHdtyIDwRkuJmQS4zljitCYbt4eFEpU=;
-        c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
-        h=From:Message-Id:To:Subject:Date;
-        s=rs20250326; t=1784525905; v=1;
-        b=FjP2Zp/gShL+KSdp17onx0WTPALVsK0YZkJSLbAHoGXn67MFLivI0gGT/lbQEZWk
-         1OTRjgJVtX/Cr4u0gJvYsYiQGfsDGm56wjMOC/FkJ0zVTZMp6FBghXTfn0go2lxU
-         yn//GSzCNfOjb2owuSH25gD2PZ1dKi7AdhlAt16SLmWm9sCSMsKj0IKQp3jOSUK6
-         m4alfzGyQJg5oxh86XVKklL//pjBcdEGy0xMtq6uRFXrH0VNcrhUoGbT0zY3c1NN
-         O4zStZHqi4B9zl177zBuF81j2NaT8zR5MGLDIczZgVQU/IVnr36xedlhA68Sbo22
-         S8e5EOp61Ph97PjdbQgWPg==
-From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Date: Mon, 20 Jul 2026 14:37:55 +0900
-Subject: [PATCH v9 01/16] KVM: arm64: Serialize repeated vCPU
- initialization
+	Mon, 20 Jul 2026 06:24:13 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4956242332dso1236105e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Jul 2026 23:24:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1784528650; x=1785133450; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=LjslSMaLxzrkUem1WFJqu5PdOsbgvYRCxR6KR5IC8og=;
+        b=S0OBhEGDZWMXk9OG8TA4F3+dU6nkUQzj1cQGYspNq70nMqo6miF8lK+GsalB/N3ccE
+         bFB8PkFdQhAHecoPX6LYarN9cLjmlp65paZRKh8eoTJRaasQEYn74PKaKonh+6YrgLYY
+         90oJnoKb8ZUEM7g0cOu7fbZUZmPZogGvU9LSbxw+yUg1aPRcm36bqhEB+oWGaKviZT7I
+         UIEbpIyhnxGNwDGPKyqxoJNe9UPMEMf7uP22qiAOygeCIHwlxX/PIiH3bj9VqWCT8uFq
+         AM8qTSvvi1ODR97AivSzMph+/CAMktA8fAOxF5pt8MCLCvbqFPkhzrqCwxnmOD51TaeN
+         IkKw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784528650; x=1785133450;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=LjslSMaLxzrkUem1WFJqu5PdOsbgvYRCxR6KR5IC8og=;
+        b=cZDvNDPZI9xoqvCO2CmqICJ7D1XCnvddwWJ8rb+Zvb53m3MHIWDKDbQBmcdexIvTaM
+         3xfXNKkIKw803AsWr88nBkgyGsHVEYr88EggoAR2DEaD+f0ayvHA0S8m5qn6QoEHL8B0
+         26QmNqRb8j6CAxLA01dLWDsmW9uFUtkQqaoVHUJ42YkaiatY/NUYPAV0bd6/i/Ig+rMj
+         se01nGxF5B1Ey95hr70tjEyJ4ggI+z5oHsTV9ZoOXEEHRuIAhmuXtTtTcxC/Czz3Uksc
+         k9ueVXULGP9jBUARSXsJMaFv4U1OVksXfPV6/A4vjUraiHQ4eQbSu67lFyyCRppSuXZb
+         RK1w==
+X-Forwarded-Encrypted: i=1; AHgh+RoxxMT3mDEwipJmccI6RSXz0htYZBAn980ue3ceanCynxTHnaeWQTIbJofXvKQS4vIeUc8PckbTnIohd/hpjnma@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXa+XFSh3kBd6aJYmjhvsmWdlELN9Q1midPSJHIXXIt6khijBw
+	6JudIeiVfgOCdrVueylUkDU89Z2lmQjjGWE4Y0FLUROC1jyjuv6q/FYulp8+5QBFZSQ=
+X-Gm-Gg: AfdE7cmabphEck88eEyXo9Og3gHab425qyMz146+FW7mHVjv1dJaB3lYk+UStqbJml/
+	dqBTI4WcW2ReXTKOVwEN/ZAiaJwWGLNkKwdyK0Mo+pqdL7wRCpvBsZu2m2ja2PFBSSzkQgiD2+N
+	2SkZFN+bKGLV4Vz67e1njG1feQWrNGOvZBtX5itv/DOMXawa+Ekbokz8BG2Mhm/JU06IOaZbIkP
+	F8Rceb8aD1jHbI+4FWvQPzpLtUlL7av3CczNgcaBX+yylVZ9TTTDmQqgPq14CiFHKqxYsvsQVLU
+	cSAVXEdLxjOoaev/LaEKamrb/i91copuM2bgZ6F8aPkCvDyHFP11LMcH36ikJIou/1Kffv+8KEG
+	z4FlNhwRYz2aWCx3wd4y8EQdaFUqwTm3JDUwcz4oxp4D/2nIESp8REyxA9vwPYtFVS6hXgIYDo/
+	zRsZEDRv8=
+X-Received: by 2002:a05:600c:3b9e:b0:493:c1bc:79bd with SMTP id 5b1f17b1804b1-4954a41150fmr139665125e9.20.1784528650076;
+        Sun, 19 Jul 2026 23:24:10 -0700 (PDT)
+Received: from localhost ([2a02:8071:56d1:2de0:1d24:d58d:2b65:c291])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-47f63ed1911sm28677377f8f.22.2026.07.19.23.24.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 19 Jul 2026 23:24:09 -0700 (PDT)
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>
+To: Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>
+Cc: Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Charles Keepax <ckeepax@opensource.cirrus.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH v2 1/6] ASoC: codecs: mt6357: Drop unused assignment of platform_device_id driver data
+Date: Mon, 20 Jul 2026 08:23:45 +0200
+Message-ID: <724af6f60ed9420d5513724d126d70f22e319c91.1784528081.git.u.kleine-koenig@baylibre.com>
+X-Mailer: git-send-email 2.55.0.11.g153666a7d9bb
+In-Reply-To: <cover.1784528081.git.u.kleine-koenig@baylibre.com>
+References: <cover.1784528081.git.u.kleine-koenig@baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260720-hybrid-v9-1-2b713ca1b5dc@rsg.ci.i.u-tokyo.ac.jp>
-References: <20260720-hybrid-v9-0-2b713ca1b5dc@rsg.ci.i.u-tokyo.ac.jp>
-In-Reply-To: <20260720-hybrid-v9-0-2b713ca1b5dc@rsg.ci.i.u-tokyo.ac.jp>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-        Joey Gouly <joey.gouly@arm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Zenghui Yu <yuzenghui@huawei.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
-        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
-        Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
-        Shuah Khan <shuah@kernel.org>, Shuah Khan <skhan@linuxfoundation.org>,
-        Yury Norov <yury.norov@gmail.com>,
-        Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-        Steffen Eiden <seiden@linux.ibm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-        linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
-        devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
-        linux-kselftest@vger.kernel.org,
-        Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-X-Mailer: b4 0.16-dev-925f5
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2147;
- i=odaki@rsg.ci.i.u-tokyo.ac.jp; h=from:subject:message-id;
- bh=B/aTTBwSppIIw7reVtSzRCsQnZmIJ/JGamCuAzhFrHE=;
- b=owGbwMvMwCWmMbc20y1CyJDxtFoSQ1bsFqeYJVcEshYYc1SJLGk5GHSwSutY5GzVvw19XP/yt
- 5y7sNS6o5SFQYyLQVZMkSWlaDe3RnTtp8KE+BaYOaxMIEMYuDgFYCIP9Bj+ym2ouDvLa29bkRGX
- +KmyeGa2p0/jLG72XejufW2vZjxRhZHh0jTR06ZXvzTefuA1Mavej/PskiSuGbyu87e1Tv2Y8lC
- WGwA=
-X-Developer-Key: i=odaki@rsg.ci.i.u-tokyo.ac.jp; a=openpgp;
- fpr=AEDC03C9AF734F2EC26A7BFFA4BAEAA73536753C
+Content-Type: text/plain; charset=UTF-8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=996; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=vAKMmJnHPuZMbQlF7pMCnwvdxfkdQbAQi3GO0Glrn7k=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBqXb7zvzrc7TRHECpePNkMrYEielNWjuww1fVDr ZBkweZo62OJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCal2+8wAKCRCPgPtYfRL+ TiVRB/9pxg+lmyYWuCSLbYSK9sf7vzngD6LucEFTmTPJICBCB4vNZ3/XUHrJlM1DESz4TIzE2Fh 1fwPQsqTHoPspzc+0uTxTmt68ghGm5Xr1drI9zNF9bbji6fWZhpXSlmMSbvfctD7OBsqTDg/wF0 6PyxjnmLlOlSo42BTI1Qq1qTrxRpLWs7GU+C+KW098GhMah3AUzkFe6oKPDwgkYVhIUCCHvq4bl lI2gUj9DrJCts6IznbFJQi34G3AgS59Jkd+AsDET5IuL8q23tuscpT1HNsDs8SJgBrkQxLfIczg Dn9ZzmUSYacJgaE0Dz12vY3llnccIhHPDDHlun34OYeksTb8
+X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260719_223904_765539_310B28D4 
-X-CRM114-Status: GOOD (  11.29  )
+X-CRM114-CacheID: sfid-20260719_232411_908820_D53243CF 
+X-CRM114-Status: GOOD (  15.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,72 +111,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The initial KVM_ARM_VCPU_INIT path holds config_lock while resetting the
-vCPU, but repeated initialization of an existing vCPU does not. As a
-result, reset_mdcr() can race with VM-wide PMU configuration and
-overwrite MDCR_EL2 with a stale counter count.
+The driver explicitly sets the .driver_data member of struct
+platform_device_id to zero without relying on that value. Drop this
+unused assignment.
 
-Take config_lock around the repeated-init checks and reset. The vCPU
-ioctl already holds vcpu->mutex, matching the established lock ordering.
+While touching this array unify spacing, use a named initializer for
+.name and drop a trailing comma after the list terminator.
 
-Fixes: c8823e51b534 ("KVM: arm64: Fix MDCR_EL2.HPMN reset value")
-Closes: https://sashiko.dev/#/patchset/20260710-hybrid-v8-0-621409f3a592@rsg.ci.i.u-tokyo.ac.jp?part=1
-Assisted-by: Codex:gpt-5.6-sol
-Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+Signed-off-by: Uwe Kleine-König (The Capable Hub) <u.kleine-koenig@baylibre.com>
 ---
- arch/arm64/kvm/arm.c | 15 +++++++--------
- 1 file changed, 7 insertions(+), 8 deletions(-)
+ sound/soc/codecs/mt6357.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 50adfff75be8..a06ea39f57b1 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -1652,29 +1652,26 @@ static int __kvm_vcpu_set_target(struct kvm_vcpu *vcpu,
- {
- 	unsigned long features = init->features[0];
- 	struct kvm *kvm = vcpu->kvm;
--	int ret = -EINVAL;
-+	int ret;
- 
--	mutex_lock(&kvm->arch.config_lock);
-+	lockdep_assert_held(&kvm->arch.config_lock);
- 
- 	if (test_bit(KVM_ARCH_FLAG_VCPU_FEATURES_CONFIGURED, &kvm->arch.flags) &&
- 	    kvm_vcpu_init_changed(vcpu, init))
--		goto out_unlock;
-+		return -EINVAL;
- 
- 	bitmap_copy(kvm->arch.vcpu_features, &features, KVM_VCPU_MAX_FEATURES);
- 
- 	ret = kvm_setup_vcpu(vcpu);
- 	if (ret)
--		goto out_unlock;
-+		return ret;
- 
- 	/* Now we know what it is, we can reset it. */
- 	kvm_reset_vcpu(vcpu);
- 
- 	set_bit(KVM_ARCH_FLAG_VCPU_FEATURES_CONFIGURED, &kvm->arch.flags);
- 	vcpu_set_flag(vcpu, VCPU_INITIALIZED);
--	ret = 0;
--out_unlock:
--	mutex_unlock(&kvm->arch.config_lock);
--	return ret;
-+	return 0;
+diff --git a/sound/soc/codecs/mt6357.c b/sound/soc/codecs/mt6357.c
+index 674cf7df9df4..3b07087e1cab 100644
+--- a/sound/soc/codecs/mt6357.c
++++ b/sound/soc/codecs/mt6357.c
+@@ -1834,8 +1834,8 @@ static int mt6357_platform_driver_probe(struct platform_device *pdev)
  }
  
- static int kvm_vcpu_set_target(struct kvm_vcpu *vcpu,
-@@ -1690,6 +1687,8 @@ static int kvm_vcpu_set_target(struct kvm_vcpu *vcpu,
- 	if (ret)
- 		return ret;
+ static const struct platform_device_id mt6357_platform_ids[] = {
+-	{"mt6357-sound", 0},
+-	{ /* sentinel */ },
++	{ .name = "mt6357-sound" },
++	{ /* sentinel */ }
+ };
+ MODULE_DEVICE_TABLE(platform, mt6357_platform_ids);
  
-+	guard(mutex)(&vcpu->kvm->arch.config_lock);
-+
- 	if (!kvm_vcpu_initialized(vcpu))
- 		return __kvm_vcpu_set_target(vcpu, init);
- 
-
 -- 
-2.55.0
+2.55.0.11.g153666a7d9bb
 
 
