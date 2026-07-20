@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCE36C4452A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 10:06:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1775FC44529
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 10:06:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v1oxE096+SJP9W824qVU6+8hGCf8GvtkFKOzw4+nEjg=; b=m39InVSnphNNiQE5p9lIB5NnjA
-	ENhU1GUqqT/HR5Ba8O1GrqZiBS+sv7DazU/5IuaNiAEsKdSKx9a4apVjPB8RupuKRwrd7ccdgUDSu
-	J1LnfB/rDWyZVtp5gIv/i6qDOAP8JyI4Nwx3t7kZCzzFQpFpTAO4AkGBZkiOu6FKlEkXXtfKymsVy
-	+Ua6kPeyy6zfN8fVHpLrZpNcCHsWODo+LtYSG2OfpDoDDEksDaOqTlynztR/3wi1f7GRXcngZ62wE
-	Y7DmRmM1IfrtWplMUb1DXEmwzqocUrtC9UmESL3dYoZWKdb/ck1sZ3hR28nPVZkH/lrSvdbgAn5i1
-	l1fAh3PQ==;
+	bh=2NwPjjnUZWrH+h1kaVagksWOBsdMuMZDJHzblOITnSI=; b=SqQIjIrDonwy08fezLhlne3kto
+	/+Ej5WTeE+xa8s5EPwNPsMovK0jyTKfGjFQqq3XaI4Z924FMkDg499/cfLKxR/RvlSReiN4M2xoYG
+	LkClgJPGniKFgaXyCVkBIYq2lb6pTLs7YSocTToSAtijL9M5eRnaht2CuvTiz4gzsHJrZwKCGvXoa
+	eAPLAw1LxHRmmHjf6Wx2itAnh5A6GzCuuA3s3ONnAOYbEMbIszC0JC2Y5oOScPXtOPxBK/d7i6rB+
+	FsY1Vklaihki0LQ+VeJi9vO58prdbkNjNBVp6S9Id7i97vJX5Yin0Gih32+wyXMX/V+7t3AcMjBTP
+	LVSUA/Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlktF-00000006R2n-0zIn;
-	Mon, 20 Jul 2026 10:06:25 +0000
+	id 1wlktG-00000006R68-25KM;
+	Mon, 20 Jul 2026 10:06:26 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlks7-00000006Puk-0S3y;
-	Mon, 20 Jul 2026 10:05:16 +0000
+	id 1wlksC-00000006Q2Z-0Xz6;
+	Mon, 20 Jul 2026 10:05:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1784541913;
-	bh=/FLn2DEgBy/c1f8A7XQpvscRwWNAHYOICbBCj3T6JDo=;
+	s=mail; t=1784541918;
+	bh=Zh06wlUmAIC1iukSKooFVWp0hF17e98otRnRFvdgrT0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=kpRNKgwOgi1YeplYxx6zgmy4bNF3E4DT4xD9manDNTkOL7n6/zOZ5i1deX63o8Vdh
-	 fCt3X/avta3GC7zP9HGHhcg503HH2KuNiewgn+H3B6peoXjwxJpgSpjgLZ3Y4kV76z
-	 6k4UnJoD1/4piVnPbPdXgYRKGjjRpeRN56MgGys8XhLcjp1OD6fHoKubCYqUI37vz8
-	 6+cl+P9Y9+TF6Irb0R5bChQakwJ+/h96GBlWrQ027VBLkrmjPkUUdhacwBJoigUf1w
-	 k1ZStpIYQjEg0F26uA26cPL+wYZe8fS1+pEQ4dgC4mfAtksmxKKD8RX93PDyR1HUa6
-	 GIap4AyB15F3A==
+	b=DsMO0Qkdk2Xliq4fo4RZ7MNfqjKTJfKN/TrfgQJT6uhR4xxdbK23qoPr6oLr/dT+R
+	 0xzO3a2cSgDotSRrYi8iYGcK+GkPk8J3ZolXDtbK7ZbBNGUMrDOiO6draba3AeElaK
+	 SXP/sn96QAIejIXCm6zg7vytZiqrkDDGo0x+uefYVnPiOtpVCCpc7VJv0yPlB4fAT8
+	 31APsCKdAKLSO12qLAzdRGerSiXRv5HhVqZ5zJVcZgok0lGn2V8W9+gx827DtMGehr
+	 YBa323097vrbvSlvyLVLHemhKo/RkiNxm0BJJykZ54GHKlhtBv4dC1OQolJIE8Hont
+	 72nf36GDEiocw==
 Received: from yukiji.home (unknown [100.64.0.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2BDDF17E0D9D;
-	Mon, 20 Jul 2026 12:05:12 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4C93317E0676;
+	Mon, 20 Jul 2026 12:05:17 +0200 (CEST)
 From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Mon, 20 Jul 2026 12:04:24 +0200
-Subject: [PATCH v3 14/18] clk: mediatek: Add MT8189 dbgao clock support
+Date: Mon, 20 Jul 2026 12:04:28 +0200
+Subject: [PATCH v3 18/18] clk: mediatek: Add MT8189 ufs clock support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260720-mt8189-clocks-system-base-v3-14-8e6d99ab3ad2@collabora.com>
+Message-Id: <20260720-mt8189-clocks-system-base-v3-18-8e6d99ab3ad2@collabora.com>
 References: <20260720-mt8189-clocks-system-base-v3-0-8e6d99ab3ad2@collabora.com>
 In-Reply-To: <20260720-mt8189-clocks-system-base-v3-0-8e6d99ab3ad2@collabora.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -69,16 +69,16 @@ Cc: kernel@collabora.com, linux-clk@vger.kernel.org,
  netdev@vger.kernel.org, Irving-CH Lin <irving-ch.lin@mediatek.com>, 
  Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784541894; l=5596;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1784541894; l=7242;
  i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=/FLn2DEgBy/c1f8A7XQpvscRwWNAHYOICbBCj3T6JDo=;
- b=/YFcGqKY1kIR+D/Nhah2ftF8jeOHRf/cPr8cvzkDp/xzOO3SgQOXUvpyMGbik9hzefU/noh6w
- Z0X3Y1tatnrCsaQ0D+Dy1umxkz/NyPqR19N/kEyNzIteZnVuovq7jiK
+ bh=Zh06wlUmAIC1iukSKooFVWp0hF17e98otRnRFvdgrT0=;
+ b=YJajpir1SDekl3Wkg7O/kATYdiNGI/V0BfledlBE1XvXUj4ZXDCbhVicWxBLZ1XmGB2H6pwmJ
+ RCndffD/2W0DNbNOTajeIdBimv1uF2m9X/1J+5xUpwzvklNEYzUuQYD
 X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
  pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_030515_351796_0523252D 
-X-CRM114-Status: GOOD (  16.91  )
+X-CRM114-CacheID: sfid-20260720_030520_345694_8ADC2C34 
+X-CRM114-Status: GOOD (  18.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,8 +93,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the MT8189 dbgao clock controller,
-which provides clock gate control for debug-system.
+Add support for the MT8189 ufs clock controller,
+which provides clock gate control for Universal Flash Storage.
 
 Co-developed-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
 Signed-off-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
@@ -102,50 +102,52 @@ Co-developed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
- drivers/clk/mediatek/Kconfig            | 10 ++++
- drivers/clk/mediatek/Makefile           |  1 +
- drivers/clk/mediatek/clk-mt8189-dbgao.c | 98 +++++++++++++++++++++++++++++++++
- 3 files changed, 109 insertions(+)
+ drivers/clk/mediatek/Kconfig          |  12 +++
+ drivers/clk/mediatek/Makefile         |   1 +
+ drivers/clk/mediatek/clk-mt8189-ufs.c | 133 ++++++++++++++++++++++++++++++++++
+ 3 files changed, 146 insertions(+)
 
 diff --git a/drivers/clk/mediatek/Kconfig b/drivers/clk/mediatek/Kconfig
-index 8eba45f05968..635b0109ec07 100644
+index 919a916f1f4f..34a270a377cc 100644
 --- a/drivers/clk/mediatek/Kconfig
 +++ b/drivers/clk/mediatek/Kconfig
-@@ -839,6 +839,16 @@ config COMMON_CLK_MT8189_BUS
- 	  MT8189 chipset, ensuring that all bus-related components receive the
- 	  correct clock signals for optimal performance.
+@@ -882,6 +882,18 @@ config COMMON_CLK_MT8189_SCP
+ 	  management for SCP-related features, ensuring proper clock
+ 	  distribution and gating for power efficiency and functionality.
  
-+config COMMON_CLK_MT8189_DBGAO
-+	tristate "Clock driver for MediaTek MT8189 debug ao"
++config COMMON_CLK_MT8189_UFS
++	tristate "Clock driver for MediaTek MT8189 ufs"
 +	depends on COMMON_CLK_MT8189
 +	default COMMON_CLK_MT8189
 +	help
-+	  Enable this to support the clock management for the debug function
-+	  on MediaTek MT8189 SoCs. This includes enabling and disabling
-+	  vcore debug system clocks. If you want to control its clocks, say Y or M
-+	  to include this driver in your kernel build.
++	  Enable this to support the clock management for the Universal Flash
++	  Storage (UFS) interface on MediaTek MT8189 SoCs. This includes
++	  clock sources, dividers, and gates that are specific to the UFS
++	  feature of the MT8189 platform. It is recommended to enable this
++	  option if the system includes a UFS device that relies on the MT8189
++	  SoC for clock management.
 +
  config COMMON_CLK_MT8192
  	tristate "Clock driver for MediaTek MT8192"
  	depends on ARM64 || COMPILE_TEST
 diff --git a/drivers/clk/mediatek/Makefile b/drivers/clk/mediatek/Makefile
-index aabfb42cb1b2..6ab6df7ebf2a 100644
+index a3a93a16b369..1aa9f4265225 100644
 --- a/drivers/clk/mediatek/Makefile
 +++ b/drivers/clk/mediatek/Makefile
-@@ -126,6 +126,7 @@ obj-$(CONFIG_COMMON_CLK_MT8188_WPESYS) += clk-mt8188-wpe.o
- obj-$(CONFIG_COMMON_CLK_MT8189) += clk-mt8189-apmixedsys.o clk-mt8189-topckgen.o \
- 				   clk-mt8189-vlpckgen.o clk-mt8189-vlpcfg.o
- obj-$(CONFIG_COMMON_CLK_MT8189_BUS) += clk-mt8189-bus.o
-+obj-$(CONFIG_COMMON_CLK_MT8189_DBGAO) += clk-mt8189-dbgao.o
+@@ -130,6 +130,7 @@ obj-$(CONFIG_COMMON_CLK_MT8189_DBGAO) += clk-mt8189-dbgao.o
+ obj-$(CONFIG_COMMON_CLK_MT8189_DVFSRC) += clk-mt8189-dvfsrc.o
+ obj-$(CONFIG_COMMON_CLK_MT8189_IIC) += clk-mt8189-iic.o
+ obj-$(CONFIG_COMMON_CLK_MT8189_SCP) += clk-mt8189-scp.o
++obj-$(CONFIG_COMMON_CLK_MT8189_UFS) += clk-mt8189-ufs.o
  obj-$(CONFIG_COMMON_CLK_MT8192) += clk-mt8192-apmixedsys.o clk-mt8192.o
  obj-$(CONFIG_COMMON_CLK_MT8192_AUDSYS) += clk-mt8192-aud.o
  obj-$(CONFIG_COMMON_CLK_MT8192_CAMSYS) += clk-mt8192-cam.o
-diff --git a/drivers/clk/mediatek/clk-mt8189-dbgao.c b/drivers/clk/mediatek/clk-mt8189-dbgao.c
+diff --git a/drivers/clk/mediatek/clk-mt8189-ufs.c b/drivers/clk/mediatek/clk-mt8189-ufs.c
 new file mode 100644
-index 000000000000..40307bdc93eb
+index 000000000000..85afab04420f
 --- /dev/null
-+++ b/drivers/clk/mediatek/clk-mt8189-dbgao.c
-@@ -0,0 +1,98 @@
++++ b/drivers/clk/mediatek/clk-mt8189-ufs.c
+@@ -0,0 +1,133 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
 + * Copyright (C) 2025-2026 MediaTek Inc.
@@ -165,84 +167,119 @@ index 000000000000..40307bdc93eb
 +#include "clk-gate.h"
 +
 +#include <dt-bindings/clock/mediatek,mt8189-clk.h>
++#include <dt-bindings/reset/mediatek,mt8189-resets.h>
 +
-+static const struct mtk_gate_regs dbgao_cg_regs = {
-+	.set_ofs = 0x70,
-+	.clr_ofs = 0x70,
-+	.sta_ofs = 0x70,
++#define MT8189_UFSCFG_AO_RST0_SET_OFFSET	0x48
++#define MT8189_UFSCFG_PDN_RST0_SET_OFFSET	0x48
++
++static const struct mtk_gate_regs ufscfg_ao_reg_cg_regs = {
++	.set_ofs = 0x8,
++	.clr_ofs = 0xc,
++	.sta_ofs = 0x4,
 +};
 +
-+#define GATE_DBGAO(_id, _name, _parent, _shift)		\
-+	GATE_MTK(_id, _name, _parent, &dbgao_cg_regs, _shift, &mtk_clk_gate_ops_no_setclr_inv)
++#define GATE_UFSCFG_AO_REG(_id, _name, _parent, _shift)		\
++	GATE_MTK(_id, _name, _parent, &ufscfg_ao_reg_cg_regs, _shift, &mtk_clk_gate_ops_setclr)
 +
-+static const struct mtk_gate dbgao_clks[] = {
-+	GATE_DBGAO(CLK_DBGAO_ATB_EN, "dbgao_atb_en", "atb_sel", 0),
++static const struct mtk_gate ufscfg_ao_reg_clks[] = {
++	GATE_UFSCFG_AO_REG(CLK_UFSCFG_AO_REG_UNIPRO_TX_SYM,
++			   "ufscfg_ao_unipro_tx_sym", "clk26m", 1),
++	GATE_UFSCFG_AO_REG(CLK_UFSCFG_AO_REG_UNIPRO_RX_SYM0,
++			   "ufscfg_ao_unipro_rx_sym0", "clk26m", 2),
++	GATE_UFSCFG_AO_REG(CLK_UFSCFG_AO_REG_UNIPRO_RX_SYM1,
++			   "ufscfg_ao_unipro_rx_sym1", "clk26m", 3),
++	GATE_UFSCFG_AO_REG(CLK_UFSCFG_AO_REG_UNIPRO_SYS,
++			   "ufscfg_ao_unipro_sys", "ufs_sel", 4),
++	GATE_UFSCFG_AO_REG(CLK_UFSCFG_AO_REG_U_SAP_CFG,
++			   "ufscfg_ao_u_sap_cfg", "clk26m", 5),
++	GATE_UFSCFG_AO_REG(CLK_UFSCFG_AO_REG_U_PHY_TOP_AHB_S_BUS,
++			   "ufscfg_ao_u_phy_ahb_s_bus", "axi_u_sel", 6),
 +};
 +
-+static const struct mtk_clk_desc dbgao_mcd = {
-+	.clks = dbgao_clks,
-+	.num_clks = ARRAY_SIZE(dbgao_clks),
++static u16 ufscfg_ao_rst_ofs[] = {
++	MT8189_UFSCFG_AO_RST0_SET_OFFSET,
 +};
 +
-+static const struct mtk_gate_regs dem0_cg_regs = {
-+	.set_ofs = 0x2c,
-+	.clr_ofs = 0x2c,
-+	.sta_ofs = 0x2c,
++static u16 ufscfg_ao_rst_idx_map[] = {
++	[MT8189_UFSAO_RST_UFS_MPHY] = 8,
 +};
 +
-+static const struct mtk_gate_regs dem1_cg_regs = {
-+	.set_ofs = 0x30,
-+	.clr_ofs = 0x30,
-+	.sta_ofs = 0x30,
++static const struct mtk_clk_rst_desc ufscfg_ao_rst_desc = {
++	.version = MTK_RST_SET_CLR,
++	.rst_bank_ofs = ufscfg_ao_rst_ofs,
++	.rst_bank_nr = ARRAY_SIZE(ufscfg_ao_rst_ofs),
++	.rst_idx_map = ufscfg_ao_rst_idx_map,
++	.rst_idx_map_nr = ARRAY_SIZE(ufscfg_ao_rst_idx_map),
 +};
 +
-+static const struct mtk_gate_regs dem2_cg_regs = {
-+	.set_ofs = 0x70,
-+	.clr_ofs = 0x70,
-+	.sta_ofs = 0x70,
++static const struct mtk_clk_desc ufscfg_ao_reg_mcd = {
++	.clks = ufscfg_ao_reg_clks,
++	.num_clks = ARRAY_SIZE(ufscfg_ao_reg_clks),
++	.rst_desc = &ufscfg_ao_rst_desc,
 +};
 +
-+#define GATE_DEM0(_id, _name, _parent, _shift)		\
-+	GATE_MTK(_id, _name, _parent, &dem0_cg_regs, _shift, &mtk_clk_gate_ops_no_setclr_inv)
-+
-+#define GATE_DEM1(_id, _name, _parent, _shift)		\
-+	GATE_MTK(_id, _name, _parent, &dem1_cg_regs, _shift, &mtk_clk_gate_ops_no_setclr_inv)
-+
-+#define GATE_DEM2(_id, _name, _parent, _shift)		\
-+	GATE_MTK(_id, _name, _parent, &dem2_cg_regs, _shift, &mtk_clk_gate_ops_no_setclr_inv)
-+
-+static const struct mtk_gate dem_clks[] = {
-+	/* DEM0 */
-+	GATE_DEM0(CLK_DEM_BUSCLK_EN, "dem_busclk_en", "axi_sel", 0),
-+	/* DEM1 */
-+	GATE_DEM1(CLK_DEM_SYSCLK_EN, "dem_sysclk_en", "axi_sel", 0),
-+	/* DEM2 */
-+	GATE_DEM2(CLK_DEM_ATB_EN, "dem_atb_en", "atb_sel", 0),
++static const struct mtk_gate_regs ufscfg_pdn_reg_cg_regs = {
++	.set_ofs = 0x8,
++	.clr_ofs = 0xc,
++	.sta_ofs = 0x4,
 +};
 +
-+static const struct mtk_clk_desc dem_mcd = {
-+	.clks = dem_clks,
-+	.num_clks = ARRAY_SIZE(dem_clks),
++#define GATE_UFSCFG_PDN_REG(_id, _name, _parent, _shift)	\
++	GATE_MTK(_id, _name, _parent, &ufscfg_pdn_reg_cg_regs, _shift, &mtk_clk_gate_ops_setclr)
++
++static const struct mtk_gate ufscfg_pdn_reg_clks[] = {
++	GATE_UFSCFG_PDN_REG(CLK_UFSCFG_REG_UFSHCI_UFS,
++			    "ufscfg_ufshci_ufs", "ufs_sel", 0),
++	GATE_UFSCFG_PDN_REG(CLK_UFSCFG_REG_UFSHCI_AES,
++			    "ufscfg_ufshci_aes", "aes_ufsfde_sel", 1),
++	GATE_UFSCFG_PDN_REG(CLK_UFSCFG_REG_UFSHCI_U_AHB,
++			    "ufscfg_ufshci_u_ahb", "axi_u_sel", 3),
++	GATE_UFSCFG_PDN_REG(CLK_UFSCFG_REG_UFSHCI_U_AXI,
++			    "ufscfg_ufshci_u_axi", "mem_sub_u_sel", 5),
 +};
 +
-+static const struct of_device_id of_match_clk_mt8189_dbgao[] = {
-+	{ .compatible = "mediatek,mt8189-dbg-ao", .data = &dbgao_mcd },
-+	{ .compatible = "mediatek,mt8189-dem", .data = &dem_mcd },
++static u16 ufscfg_pdn_rst_ofs[] = {
++	MT8189_UFSCFG_PDN_RST0_SET_OFFSET,
++};
++
++static u16 ufscfg_pdn_rst_idx_map[] = {
++	[MT8189_UFSPDN_RST_UFS_UNIPRO] = 0,
++	[MT8189_UFSPDN_RST_UFS_CRYPTO] = 1,
++	[MT8189_UFSPDN_RST_UFS_HCI] = 2,
++};
++
++static const struct mtk_clk_rst_desc ufscfg_pdn_rst_desc = {
++	.version = MTK_RST_SET_CLR,
++	.rst_bank_ofs = ufscfg_pdn_rst_ofs,
++	.rst_bank_nr = ARRAY_SIZE(ufscfg_pdn_rst_ofs),
++	.rst_idx_map = ufscfg_pdn_rst_idx_map,
++	.rst_idx_map_nr = ARRAY_SIZE(ufscfg_pdn_rst_idx_map),
++};
++
++static const struct mtk_clk_desc ufscfg_pdn_reg_mcd = {
++	.clks = ufscfg_pdn_reg_clks,
++	.num_clks = ARRAY_SIZE(ufscfg_pdn_reg_clks),
++	.rst_desc = &ufscfg_pdn_rst_desc,
++};
++
++static const struct of_device_id of_match_clk_mt8189_ufs[] = {
++	{ .compatible = "mediatek,mt8189-ufscfg-ao", .data = &ufscfg_ao_reg_mcd },
++	{ .compatible = "mediatek,mt8189-ufscfg-pdn", .data = &ufscfg_pdn_reg_mcd },
 +	{ /* sentinel */ }
 +};
-+MODULE_DEVICE_TABLE(of, of_match_clk_mt8189_dbgao);
++MODULE_DEVICE_TABLE(of, of_match_clk_mt8189_ufs);
 +
-+static struct platform_driver clk_mt8189_dbgao_drv = {
++static struct platform_driver clk_mt8189_ufs_drv = {
 +	.probe = mtk_clk_simple_probe,
 +	.remove = mtk_clk_simple_remove,
 +	.driver = {
-+		.name = "clk-mt8189-dbgao",
-+		.of_match_table = of_match_clk_mt8189_dbgao,
++		.name = "clk-mt8189-ufs",
++		.of_match_table = of_match_clk_mt8189_ufs,
 +	},
 +};
-+module_platform_driver(clk_mt8189_dbgao_drv);
++module_platform_driver(clk_mt8189_ufs_drv);
 +
-+MODULE_DESCRIPTION("MediaTek MT8189 dbgao system clocks driver");
++MODULE_DESCRIPTION("MediaTek MT8189 ufs clocks driver");
 +MODULE_LICENSE("GPL");
 
 -- 
