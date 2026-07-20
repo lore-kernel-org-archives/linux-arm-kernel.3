@@ -4,140 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67EF8C44515
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1A66C4452B
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Jul 2026 14:09:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A29aetx0aVJv7rcuZPNrAFEWUH+M64h+DMEXRq7TAzs=; b=q7GNjeoAU/TSYhAshBxBBD772l
-	n6BfIUwyMCl86xTjaA1nG1Dd9TD+Qk5Gup8x12xqIqGC+fbvXh5hJPQf40eEioYSUvKCniBrWda9v
-	6B3p9FI7Y1v0ctupdw9cSMTJts47LhfoxoAhxq40yDSKCEMok+Ifn/ONRh8tU71Tv20/bLut/4yw+
-	F64JXmGyY3rLvAoPbYpR6jubzEg58JmZ4HaBX1lM6W9/LMw89Wd/Tp0Q6/4GnIErxKfxxHhq+37Fv
-	ht/jWrLmSGBO273dUayHpWvRfx8qyaWypJmkLzPDoL6h50ydVs6GCFg4D9555y+l63XsBA+TC2M3C
-	5BQGjZ0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-transfer-encoding:
+	MIME-version:Message-id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rpvkHatc5venoF9j9L6XoNX8JdOk4x19jKiLt8qwkGg=; b=G00CBd+gMf2M8uu2JPXMEvixHV
+	7BP2PLk4uLWcYW8J1eeugoWEQd7yOeZ6gSveK2nT0GwAM+IlFmJJAOx18JfxKVwbw7S9OX4cwpHY1
+	d3iQXc4i6r/7brZC0um1iI5L2RKeJBbbPqmHWEs+YcRBedvTwNOli5/2WRUZr/QxgnVpzCn15v6+m
+	gA3y+frmJNJi+4HI+rCTm81Fqdld+C5phy+sTC0IQVobAOD2ls4NiXXIEl7SLlg3g75UyPKtdFDn4
+	CtKZtM5vjvlLCM0S8LYzRK5hFF6uFLpL4U13fIoRU9NT/bcnq6BURKnp6xZK4WDuQ9AHhAZdnPdIi
+	brefcKZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlogN-00000006ueA-3l1Z;
-	Mon, 20 Jul 2026 14:09:23 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wlogO-00000006ueY-0SXn;
+	Mon, 20 Jul 2026 14:09:24 +0000
+Received: from vib-mx01.apple.com ([17.132.96.0])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlogJ-00000006uXq-0QNs
+	id 1wlogK-00000006uYP-0qDB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Jul 2026 14:09:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iYdzWS3BIyMOS9g3t6WpaHR2oxGuutuobxxqF0k6Lt/hp6QE8ZLRI3rxhMRZk0eHacYCinoq34HfiweVhQlnIPu5OW9J22ODOcr5uUo7vzwhxm416SHCbZsrSwVO2mYuBd6nyhlNKbJnsbq403yGgKmg1MCm8K5pLPkNSPNPXT9bwl5pBoYw6y52GqLMiW59aYg4M8p9fV/+tm8BIFHpdpY+coEpJv+nglWZIYRSWnMI3qMmBKTamDx2pwIsOUhFCLaM1GPRU8ZIV9lM/8BYJxfr4SwrTNLtGOMdXGACkQwXL/LFpwyZ4NuWcM/2OA0i486VOiwI+U57npsJAyYvmQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=A29aetx0aVJv7rcuZPNrAFEWUH+M64h+DMEXRq7TAzs=;
- b=aN6ngJ+PI89Dggg0j19QySR8b5FWoOxpFLvztCSdoehL0SZmM4ADTGT4yk60HYQfX+uy0Ll1qtl/sbb7u9B4V9JXxBCwrkheXRV+B73Axn7C7DLIYBfAA4KScyJypIX60nf8ah4IJI3ORByOwHfyZ13HHrjRmo6tJPVyXcGnmEBpe79E45LDR6q4BmQAcg/SGLMAW6oA3t+Ce9lMFzAs/xnAYvCPP301kU0tqrY4DAEUJQYiwNmJtvS7pib+3UlVdLYTkM1FK/9V1UygWYKvdaNVjivmFbXYjZlRDCEGRtlrcZ7aYZitoPwzFmm1n4WCBhaOGBQRTxmk8LDifF+L3Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=A29aetx0aVJv7rcuZPNrAFEWUH+M64h+DMEXRq7TAzs=;
- b=rG7NsZY28HirluTOJSGrtqIxHAX3rHinz1bmDnAjTpVnqp4ggzWRlURPwsjVOnVC9pyRQAAFOD0sy2K2q/e/SWo7kLkc0/CxKLcV4rYFfV15kUXrR3AxUFYKtMzKwBPkV67qp9bQ5xL8SHsxub32uYW127QPcfBxcW5kjkcsM+/Ect+6XCth8sogX6yVsDmdZU7IkThT947mJz/C0VZd7jq8Ss4BpbetwB7SInL7M4M5w7VTUNM3M8OSCeaT7XXIqZL+RuEOLH7++O3tPe8oHdmpzlQN/jXCgvyJkaXkAK52j77oe/4hv8tD4NWDmJ7SBlFxqntQ5ssr1C8t9W/ydg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by AS4PR04MB9412.eurprd04.prod.outlook.com (2603:10a6:20b:4eb::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.18; Mon, 20 Jul
- 2026 14:09:15 +0000
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0223.015; Mon, 20 Jul 2026
- 14:09:15 +0000
-From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Date: Mon, 20 Jul 2026 22:12:14 +0800
-Subject: [PATCH v2 6/9] arm64: dts: imx8ulp-evk: Enable LPUART6 for
- Bluetooth
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260720-imx8ulp-dts-v2-6-d05c67676f53@nxp.com>
-References: <20260720-imx8ulp-dts-v2-0-d05c67676f53@nxp.com>
-In-Reply-To: <20260720-imx8ulp-dts-v2-0-d05c67676f53@nxp.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Peng Fan <peng.fan@nxp.com>, Sherry Sun <sherry.sun@nxp.com>
-X-Mailer: b4 0.16-dev-7bc12
-X-ClientProxiedBy: SI2P153CA0011.APCP153.PROD.OUTLOOK.COM
- (2603:1096:4:140::14) To AM8PR04MB7874.eurprd04.prod.outlook.com
- (2603:10a6:20b:24d::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|AS4PR04MB9412:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3f0b52fd-26fb-4ae7-2e56-08dee6687b3e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|23010399003|1800799024|19092799006|22082099003|18002099003|56012099006|11063799006|10067099003;
-X-Microsoft-Antispam-Message-Info: yKjxSFcsJhME0ErVx9k+/ImwvxjOxE8POSnKB+6M8YeMEelMqqnbjSlmfWocvOZ4AaYDJKKJb2xhtEbuQ0lNuWFP7/rLt1DnT2isR+RhNW8UlDNtQzZM82Ee9IG5Jy6SnNgrKDvwmOw464bOncNYvUPdZ5JXEHX75VqBGF6wKyEtgzwak6RWxAM5yvtg+GJKfg0KAfuwAG42IJ5a+FCOjHOHhbBJpxoSjORwGdyFJ1QG5Ie+GqKp3l7OOSP4bmE3JSsq4IlPbkVE/6CPr09OBPgdWMvfUxltkNHAytrp+QjOSFGtAPqOEION7W7A7xCOjJM7UdmfnRRTzvZEW3WubrqHkg1DqaTzQ1AoPy3quEroI/b0zLz88RhUR1UlpuvariT3bx2bbDppwXeo1Qpz3PjyePJeTZUCLOfmoJ3/WYFXBHzlF2+Sy0R2ZiIleFIEj/o79+K25/Q5qiaGQSksq7d3ZkJ2zJv5sDHBcWHYgM5J19rmtvYy84OVdg8PsVsS1uQZSmlRC2sr3GjyWkSl+FqSGmcfkWAcY69qkC9VNteYDwTHcBzMyY9AfW/IIgYlcuwPK6beP2e/hrlnMWzDmj8BRgUji53ek7/Th5nfqJdGVe1q3AmWKF/eBPwMz/XiB2ZUnEujj17kViCM7utbqrVimSwP5xhMC3ZpdLtz7rQ=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(23010399003)(1800799024)(19092799006)(22082099003)(18002099003)(56012099006)(11063799006)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZDhZVCtwRGVCZTRmMWVrekVKNDl2UmZmb3BycU5CUW54ZHhmUmNwM1d6dDJJ?=
- =?utf-8?B?eVFSMVRrRS8valVhWlR6ZUpKTFhlNVhBRWlRUTR1RUdBOFMyWVJHOWhrOEJO?=
- =?utf-8?B?Y0ZOeXBYdnMvOG0vcmpWK1VWL1IyZFhkVWpkcWJHRHZ0VWlXLzBWWFVZN2pk?=
- =?utf-8?B?aEpCZWNvQ3VIVlpiWkRZYXY5eHlQSU1EU09sK1JWZ2pONGc3SU9sZ0RNOEM0?=
- =?utf-8?B?WUVWdzR1WjBXcUVKcXBJVzd6YUQ3bUNxb1VPaGVVeFFmeGgwNEhKd1Y0OUpQ?=
- =?utf-8?B?WCt6STdnTktKRktlU1prT1M0dXpkYUxzR2Z1UHRLZkZQVmU1eDY1b1VnMUVk?=
- =?utf-8?B?MVZGekJDRWRHWDNTUWxDWHZsemtXeEtOK1pXbURHY1c1WmUzWExKMFVoRE1a?=
- =?utf-8?B?UmZpa1hWb3JVVGNzQXNFYWZ0QUR5UkFvL3RNOCtRZmFkY3pDcGhqVmpTeVBM?=
- =?utf-8?B?WTZ5b3NIa2gyMHBGNTg4SUZMTXg5WTk1cktySTlsYjltOGhkYnNTbmQveUpO?=
- =?utf-8?B?RUl0YUZRWHpkcGVnWG1OcTIzdCtFNVBzLzR0UkpPZkdtdWo1MVpsTitMK0sz?=
- =?utf-8?B?OEM3UVU1eWZta2lTSUNSY2hNOG5yeFk0OVlzUWNrc21QaGdOeG85YXA3RzB5?=
- =?utf-8?B?UmV6c3ozTUpIcUtQREZUMVVOVHRMRjdNbUg2K0hWNzUvR1hkSTV2ZnIxZ1hE?=
- =?utf-8?B?RXk4RjUrTHVPMUFmQ0pPYklYMFlTb21Lak42NXJKQkFtNzBJdzhLb052Z2Jt?=
- =?utf-8?B?NG41SWJ5WGkrdXc4N0p2dnRSdVNhK3N6RnZYNms5WjZadktMcFd3QlFPNk91?=
- =?utf-8?B?a2JSUFpWRUhuU2MzaytkWEpUMEczNkk3bjhUbEtKOG5DM1IwaWxNMUx4T1Rj?=
- =?utf-8?B?cTVNTkVJVEpId0V3cGd1UGY1cFZycHhoWnVuL1AxM3lMY1JNS0V0K2pSc2Js?=
- =?utf-8?B?UkpSKzdacFd2UVkwM0tOSTlKYUl1WGNFNUgyR0UxaENnUzJzaXhuQWxmOWh6?=
- =?utf-8?B?TStiTk4zTitXMUpZdlYzZUZGTTNiU08wcXRnNzZIeWlueE9yU1llMFUrUVNF?=
- =?utf-8?B?amsrdDNPSTVEclpGaEs1d0ZTZmZVVENMVU5oTVY0TkRiWEFOR0wyb01acjh6?=
- =?utf-8?B?SDMwR0Ztc3R6UU1RdzFldGZYNFB3L2tvdmlOUmVUaVYvNWFQM0t5cSthdGFm?=
- =?utf-8?B?NVdyNTdkSERHWlpvckQ5V0FIWWtxZFRUdXJab0JxRHZ2a1c0bzBydFpLUkg1?=
- =?utf-8?B?a2ZlQnhCRDVXQWhzRVdsZlo5dG9FZldlbFlBTCtVamNrSUtvM0luNm9CNmxn?=
- =?utf-8?B?ZUEycDFiRzRzSG5rMDhZR0p6R3Vlay8xdk1CMVZsOGFBVUJlR1dWK1VYUjFo?=
- =?utf-8?B?RHBXQTQzRzRuZVNnWm5zbE5IY0taV2s5V1J3bnpwd1ZTNllVaVBCTGJvSFJ1?=
- =?utf-8?B?WXNSY1VXMEE4dlBqV2xxUFNhUzV4c1JOWFFvV2tSQm9vMHRiTXpJMW9WTkZa?=
- =?utf-8?B?Mkt6UEJvTHVoSU1wUlgxMUhpUXlxbTA4UkZrRmhmQ1FocUJ2MkJjcFN3bFZL?=
- =?utf-8?B?cDgvR0tMbzJ6VDFuVERHelBUeVRoYXhIaXRMNHk3QU5UTzdLb3QwRE9MZ3ND?=
- =?utf-8?B?NWhkaDE1dkRCd05EZlNwQllOVzROaUk4NnRsUHZGWExCRENBTkd4R0dKRmtk?=
- =?utf-8?B?Y2xFV3U2c0owS2hFNDF6YzZ1dU1mUEpXTEd3am5uYkdBVUVYMmZ2Zmdzb0Vl?=
- =?utf-8?B?M3JuM2FLa01sb2Rya2JVeGhWTzlyZFZhVEJGV01hbmpiTUpxWS93QmN0YUxl?=
- =?utf-8?B?azJ5Qis5bSt6Z3VJQWlrbkVIUFpPSU0rVXZjbHVIUGtZZzdkd3FOMXBraFRP?=
- =?utf-8?B?Nmg0MmFQLzdSNlpUVDVJZEt1UDhwNHZCSnE4UVV5NFdoSDN1cm8yb2hPVkp0?=
- =?utf-8?B?dzRSZFI3VFFqTnZUUDZQR3pLR1kzMHk3bVVaNUNSdXI0T09TdXZhMjRaczdn?=
- =?utf-8?B?YTdvbHk0MHJITVVRMm1meG5GbUpuRG1Lak1ZY1I1NGgvNE9oL0hnVmxYSGVq?=
- =?utf-8?B?b0Z6NVh5dGhtdEhSOVN0QmRQcDFha3RlMGlOaTdrOFN0TDBkejdMSFNrMUVi?=
- =?utf-8?B?d1dwMG5ENUdGek0waVpPd2R0VWZSVllYZ0x0TldlWUlMMFVzODc1RkhCUEZl?=
- =?utf-8?B?VkdzQzNMVGJzNW9EUGdZWlg1Z2FuMlJiUzU2ZHRwSUtraFRMamdsQlN3dysy?=
- =?utf-8?B?bytWQWwyRVo0bVlMNmRPZ1h4WHdlVUppalNrOXJHdUMxek55M3VjczViWDl3?=
- =?utf-8?B?djNoYzVGQVVLUzdOYjQyZWtpTzNTTm55TW9kNE5tUXJLekp4Syt6ZnlXUWFN?=
- =?utf-8?Q?+PZuBOPVBFZxYjenGs8EwHGfA25r7lSJ3vN7Q?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3f0b52fd-26fb-4ae7-2e56-08dee6687b3e
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Jul 2026 14:09:15.4762
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /BtWUQVuQ37s/Picb/ON5CMh4BOkQYmN2TH4W66QlhOXP37xDiIB/W8epsJFgFuTCOS61ZNNTIPnlCWvnhU0Yukgoy0oXSY81AlzHIzk7nQEFSdhCAR/CrhZxm4LTrSD
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR04MB9412
+	Mon, 20 Jul 2026 14:09:21 +0000
+Received: from am11p01nt-mtap01.apple.com
+ (am11p01nt-mtap01.ise.apple.com [100.85.69.146]) by vb11p01nt-mxp01.apple.com
+ (Oracle Communications Messaging Server 8.1.0.28.20250821 64bit (built Aug 21
+ 2025)) with ESMTPS id <0TIH02LQT8NGQQ00@vb11p01nt-mxp01.apple.com> for
+ linux-arm-kernel@lists.infradead.org; Mon, 20 Jul 2026 14:09:17 +0000 (GMT)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-20_03,2026-07-20_02,2025-10-01_01
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=apple.com; h=cc :
+ content-transfer-encoding : date : from : message-id : mime-version : subject
+ : to; s=20180706; bh=rpvkHatc5venoF9j9L6XoNX8JdOk4x19jKiLt8qwkGg=;
+ b=s5Dn55UoMmTP/XSzcCqKoFDU27jZJDMKcRoIaw0yOCcD4zfZwtybrM5EV0UEgkd0UUa5
+ qj05K/cVWKQ2ne4l22SABHOoBnNwxUriDuPLMO6lBsY4CZJCbfhGR9YUwmvtR6CCpTdS
+ oEq/IJhF5lcxSGloZfAna1t88+bG3JA9qFmln7fw0GQpXQTzEgILpFQ9diww+y5ZmmzQ
+ Oa/wCtNI1wKRL3MVSdVg6CJUOP6IgEEO/8kIfwyUNFZ+H92qAI3fywRwWLK5SxA5+TRH
+ p+CHJ34mqrGLG7ax6VgfkBYyBAnsyf20X/sxZ1ZTNYJ1k0kRkE4ygeTqfeXnSDFoQ2E5 /Q==
+Received: from am11p01nt-relayp03.apple.com
+ (am11p01nt-relayp03.ise.apple.com [100.85.69.150])
+ by am11p01nt-mtap01.apple.com
+ (Oracle Communications Messaging Server 8.1.0.28.20250821 64bit (built Aug 21
+ 2025)) with ESMTPS id <0TIH1W79N8IV1210@am11p01nt-mtap01.apple.com>; Mon,
+ 20 Jul 2026 14:06:32 +0000 (GMT)
+Received: from process_milters-daemon.am11p01nt-relayp03.apple.com by
+ am11p01nt-relayp03.apple.com
+ (Oracle Communications Messaging Server 8.1.0.28.20250821 64bit (built Aug 21
+ 2025)) id <0TIH2D2008A70P00@am11p01nt-relayp03.apple.com>; Mon,
+ 20 Jul 2026 14:06:31 +0000 (GMT)
+X-Va-A: 
+X-Va-T-CD: ce4f70dc1a2240fbd24f73b1a9e97a59
+X-Va-E-CD: 8ade7adb67953b6c8d3e3cec0ec7a4d5
+X-Va-R-CD: 4aecd6208650d7300b2b78998d1f3b9e
+X-Va-ID: b321d080-9dd8-46af-ae81-ccd23a3de1a4
+X-Va-CD: 0
+X-V-A: 
+X-V-T-CD: ce4f70dc1a2240fbd24f73b1a9e97a59
+X-V-E-CD: 8ade7adb67953b6c8d3e3cec0ec7a4d5
+X-V-R-CD: 4aecd6208650d7300b2b78998d1f3b9e
+X-V-ID: bddfdfeb-f8f1-4386-bb63-476d01f6b7b2
+X-V-CD: 0
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-20_03,2026-07-20_02,2025-10-01_01
+Received: from amanp-m5d.apple.com (unknown [10.106.6.90])
+ by am11p01nt-relayp03.apple.com
+ (Oracle Communications Messaging Server 8.1.0.28.20250821 64bit (built Aug 21
+ 2025)) with ESMTP id <0TIH2COZ18IVW310@am11p01nt-relayp03.apple.com>; Mon,
+ 20 Jul 2026 14:06:31 +0000 (GMT)
+From: Aman Priyadarshi <amanp@apple.com>
+To: catalin.marinas@arm.com, will@kernel.org
+Cc: Jason@zx2c4.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Aman Priyadarshi <amanp@apple.com>,
+ Ard Biesheuvel <ardb@kernel.org>
+Subject: [PATCH] arm64: archrandom: avoid trapping ID register read in
+ __cpu_has_rng()
+Date: Mon, 20 Jul 2026 15:06:15 +0100
+Message-id: <20260720140615.99343-1-amanp@apple.com>
+X-Mailer: git-send-email 2.54.0
+MIME-version: 1.0
+Content-transfer-encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_070919_155986_33752F63 
-X-CRM114-Status: GOOD (  10.18  )
+X-CRM114-CacheID: sfid-20260720_070920_254279_BDC5E8FF 
+X-CRM114-Status: GOOD (  16.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,91 +103,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sherry Sun <sherry.sun@nxp.com>
+__cpu_has_rng() has an early-boot fallback, taken before the
+ARM64_HAS_RNG alternative is patched, that calls
+this_cpu_has_cap(ARM64_HAS_RNG). With SCOPE_LOCAL_CPU that resolves the
+capability by reading ID_AA64ISAR0_EL1 directly from hardware via
+__read_sysreg_by_encoding(), on every invocation.
 
-Enable lpuart6 with RTS/CTS flow control on the i.MX 8ULP EVK board
-and add an NXP 88W8987 Bluetooth companion node to pair the UART
-transport with the wireless chip.
+Until the CRNG is seeded, crng_make_state() routes every get_random_*()
+through extract_entropy(), which drains architectural entropy via
+arch_get_random_seed_longs()/arch_get_random_longs() and so calls
+__cpu_has_rng() several times per request. On a direct (non-EFI) boot
+there is no bootloader seed, so the CRNG stays unseeded for much of
+boot and essentially every early randomness consumer takes this path.
 
-i.MX8ULP 9X9 EVK use different lpuart6 pins which used for M.2 bluetooth,
-also use the sai6 instead of sai5 for PCM interface on M.2, so need to
-update the pin setting in dts.
+Under virtualization this is costly: the hypervisor traps guest
+accesses to the ID registers (HCR_EL2.TID3), making each read a vmexit,
+producing ~200k trapped ID_AA64ISAR0_EL1 reads during boot.
 
-Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
+The register value is invariant, so read the sanitised feature register
+instead. read_sanitised_ftr_reg() returns the cached value from
+arm64_ftr_regs[] with no sysreg access, and hence no trap. That array
+is populated by cpuinfo_store_boot_cpu() in smp_prepare_boot_cpu(),
+before the first early RNG use in random_init_early(), so it is always
+valid here.
+
+With this change the trapped reads drop from ~200k to handful number of
+times, and the boot time drops roughly by 6.3% in the test environment.
+
+Fixes: 2c03e16f4499 ("random: remove early archrandom abstraction")
+Cc: Jason A. Donenfeld <Jason@zx2c4.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>
+Cc: Will Deacon <will@kernel.org>
+Signed-off-by: Aman Priyadarshi <amanp@apple.com>
 ---
- arch/arm64/boot/dts/freescale/imx8ulp-9x9-evk.dts | 17 +++++++++++++++++
- arch/arm64/boot/dts/freescale/imx8ulp-evk.dts     | 20 ++++++++++++++++++++
- 2 files changed, 37 insertions(+)
+ arch/arm64/include/asm/archrandom.h | 18 ++++++++++++++++--
+ 1 file changed, 16 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8ulp-9x9-evk.dts b/arch/arm64/boot/dts/freescale/imx8ulp-9x9-evk.dts
-index af8f0d6087f71..71c66c58edc4d 100644
---- a/arch/arm64/boot/dts/freescale/imx8ulp-9x9-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8ulp-9x9-evk.dts
-@@ -75,6 +75,23 @@ MX8ULP_PAD_PTE20__USB1_OC		0x10003
- 	>;
- };
+diff --git a/arch/arm64/include/asm/archrandom.h b/arch/arm64/include/asm/archrandom.h
+index 8babfbe31f95..8067e9a35641 100644
+--- a/arch/arm64/include/asm/archrandom.h
++++ b/arch/arm64/include/asm/archrandom.h
+@@ -61,8 +61,22 @@ static inline bool __arm64_rndrrs(unsigned long *v)
  
-+&pinctrl_lpuart6 {
-+	fsl,pins = <
-+		MX8ULP_PAD_PTF18__LPUART6_TX    0x3
-+		MX8ULP_PAD_PTF19__LPUART6_RX    0x3
-+		MX8ULP_PAD_PTF16__LPUART6_CTS_B 0x3
-+		MX8ULP_PAD_PTF17__LPUART6_RTS_B 0x3
-+	>;
-+};
+ static __always_inline bool __cpu_has_rng(void)
+ {
+-	if (unlikely(!system_capabilities_finalized() && !preemptible()))
+-		return this_cpu_has_cap(ARM64_HAS_RNG);
++	if (unlikely(!system_capabilities_finalized() && !preemptible())) {
++		/*
++		 * Until the ARM64_HAS_RNG alternative is patched we can't use
++		 * the static-branch form, so consult the feature register
++		 * directly. Don't use this_cpu_has_cap() here: it reads
++		 * ID_AA64ISAR0_EL1 from hardware on every call, under
++		 * virtualization each ID register read traps to the hypervisor
++		 * (HCR_EL2.TID3) -- producing a storm of vmexits during boot.
++		 * The sanitised value is cached in memory.
++		 */
++		u64 isar0 = read_sanitised_ftr_reg(SYS_ID_AA64ISAR0_EL1);
 +
-+&lpspi5 { /* conflict with lpuart6 PAD_PTF16-19 */
-+	status = "disabled";
-+};
-+
-+&sai5 {
-+	status = "disabled";
-+};
-+
- &sai6 {
- 	pinctrl-names = "default", "sleep";
- 	pinctrl-0 = <&pinctrl_sai6>;
-diff --git a/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts b/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-index 6a92c5ca9a412..84c61656f3f2b 100644
---- a/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-@@ -167,6 +167,17 @@ &lpuart5 {
- 	status = "okay";
- };
++		return cpuid_feature_extract_unsigned_field(isar0,
++				ID_AA64ISAR0_EL1_RNDR_SHIFT) >=
++			ID_AA64ISAR0_EL1_RNDR_IMP;
++	}
+ 	return alternative_has_cap_unlikely(ARM64_HAS_RNG);
+ }
  
-+&lpuart6 {
-+	/* BT */
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_lpuart6>;
-+	status = "okay";
-+
-+	bluetooth {
-+		compatible = "nxp,88w8987-bt";
-+	};
-+};
-+
- &lpi2c7 {
- 	#address-cells = <1>;
- 	#size-cells = <0>;
-@@ -349,6 +360,15 @@ MX8ULP_PAD_PTF15__LPUART5_RX	0x3
- 		>;
- 	};
- 
-+	pinctrl_lpuart6: lpuart6grp {
-+		fsl,pins = <
-+			MX8ULP_PAD_PTE10__LPUART6_TX	0x3
-+			MX8ULP_PAD_PTE11__LPUART6_RX	0x3
-+			MX8ULP_PAD_PTE9__LPUART6_RTS_B	0x3
-+			MX8ULP_PAD_PTE8__LPUART6_CTS_B	0x3
-+		>;
-+	};
-+
- 	pinctrl_lpi2c7: lpi2c7grp {
- 		fsl,pins = <
- 			MX8ULP_PAD_PTE12__LPI2C7_SCL	0x20
-
 -- 
-2.34.1
+2.54.0 (Apple Git-156)
 
 
