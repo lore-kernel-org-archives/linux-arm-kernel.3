@@ -4,76 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7255EC44529
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 14:09:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DDF6C44532
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 14:19:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BYUWYXX8kHWsBTJ72hrxX3YRBViCGluR8JguUf8yDng=; b=xWXBj0/GG3M3+MB9mv1J9dCCgf
-	Ij7KxHS6fIEozDoZG51FcIcRHCJi4KES8Li8/BxPvRClTBucYXE5vQu+ZkfE0sNYZZymdVheAbABW
-	6sSTiz74nPgMm1paXXV/qS8KqW78tJiTNcS9XdmTV/DxRXpRk7Ao81JxC+E47BZdC/W8MCrQiJVB4
-	vQmp5bWxDZSrukgXlkeZwGh4xQSQ29fQnQv2NK3vSrx0mpz40l5TSlu3GlMtoilZgnbXkemcznEaW
-	2rkouWNO9wBVGicZhvDUVzvHVddXRix4bdydkTRuNRlS8el/LjCdN2GJBA7UT96MmGSgDN0O4816z
-	Kqxph6kg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
+	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
+	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=doxlar0h1i/Mc/eyGBx3FgbrfxAmZ8ASm3b2ucZdj4Y=; b=VT4bdGJRiANSNf7s0+AiaJO4Wn
+	i0Eskl3mdmzH+yhYHuRlFGSjRbNyHvIRlind3wAXMMxgG7HxfGMbJ+8yMLb9fs6p7aUKwujq2lRpn
+	v3uDMnAIX+324nWj00AqX7U4g6BhZl+voQeEnRk9PcieNB5NnUES6bs5x8oOSNoj2hKG5bvx20MCL
+	+nobPbDrJU1qcoJ+bLxQFS2BLTx0HC9LunuS3AiBz7aXLjEc29RcEZk1kDVR8WFVWQQPenM8gszKI
+	xM8ikgyRm6ojKinkivqYx7ZywTQnem6zhuaxSzPvCemqqdwDk5G3w7JnB6X2OYs7735ARCMoTP0hJ
+	HpdOCVkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmB9n-00000009cVp-3Ex2;
-	Tue, 21 Jul 2026 14:09:15 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1wmBJZ-00000009dTt-38p4;
+	Tue, 21 Jul 2026 14:19:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmB9k-00000009cUj-409d
+	id 1wmBJX-00000009dTP-3Cpu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 14:09:14 +0000
-Date: Tue, 21 Jul 2026 16:09:06 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1784642948;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=BYUWYXX8kHWsBTJ72hrxX3YRBViCGluR8JguUf8yDng=;
-	b=UO4yZl2Vjoi9SqlBjRbHhx9QCqRVuzwsKHZAkO+SDTVgAnKzbfLP4wvbVcQ4e+8DMojzTW
-	3VTNO5ou5l4kNUDIcoGVJ2v3Hee7HmEZswMOk6gpPs/lPtHlqCB4l2zaNSLS8mZwCXAmNk
-	b4sd6LEZnUT8UX0N84x5lhke33FZ9S6wG2B29GpgPZB3gdPyqMu9uBE1GoScCVyEitLqvh
-	wAY4PIJjAGiCEvKMWuhZd34SaHGxEUJm3eaxZJ8zkOeYLHtZVa0IDWvOfnaPpOhERCHA8+
-	S7xvlFGmFOn3pGbssoOaQ6hcAIfZPFL3nXdGeM2MqhzgA2UwxseoYB37NNbG2Q==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1784642948;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=BYUWYXX8kHWsBTJ72hrxX3YRBViCGluR8JguUf8yDng=;
-	b=MkVwi0UUFG+WoYSc3I4962NMaTgrQGAUustqk5OEMWeCyWmGi/in+dlOYYyxjY6n+VWPG7
-	V/ZuXeGzYTr7MEAQ==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-remoteproc@vger.kernel.org, linux-rt-devel@lists.linux.dev
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Steven Rostedt <rostedt@goodmis.org>, Peng Fan <peng.fan@nxp.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Subject: [PATCH v5 REPOST] remoteproc: imx_rproc: Invoke the callback directly
-Message-ID: <20260721-imx_mbox_rproc-v5-1-6386a2cf8524@linutronix.de>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3XOTW7DIBAF4KtYrEvEYAN2Vr1HFUX8DA1SbRJwL
- EeR717qLFI17vKNZr55d5IxBcxkX91JwinkEIcSxFtF7EkPn0iDK5lwxiUTvKOhn4+9ifMxnVO
- 0VDkB3AstvWpJOTon9GFewY/DIye8XIs7PobE6IzUxr4P476a1A7Iz94p5DGm29pjgnXxv5cTU
- EZN672tJQKgeP8Kw3VMcQjzzuHKTfxJSFa/ELwQmjHROVsb2ektov5FgHoh6kIo1TUtAHfo7Rb
- RPAm10aKhQKUywIRkupXwl1iW5Ru0Dv6moQEAAA==
-X-Change-ID: 20260529-imx_mbox_rproc-7d512f5a6f78
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_070913_146062_73B5E880 
-X-CRM114-Status: GOOD (  17.77  )
+	Tue, 21 Jul 2026 14:19:19 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1FF246001A;
+	Tue, 21 Jul 2026 14:19:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EC091F00A3A;
+	Tue, 21 Jul 2026 14:19:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784643558;
+	bh=doxlar0h1i/Mc/eyGBx3FgbrfxAmZ8ASm3b2ucZdj4Y=;
+	h=Date:From:To:Subject:In-Reply-To:References:Cc;
+	b=G7GRxw8WUXfAFYdaeTm340OKqVwsM3pgjKqi658oBzEJArpgcXW9knXwU8T25VR4a
+	 F3cZe2hY5XwAd3TmJYfMgYC8dWlY6xPppV0vrcZ5DtsvCBggKMkHm3kApoC+9Y6Rai
+	 /OteLMOyfX3s1ssPqCk9tXZTmHluhuinWGYC6hbzYOGyXb+F6KrcJBDniwNikbKUvt
+	 VqFjji77T49zcZNP6armTeUrSlgk75f7nxgvBae1ADT3rjzHV6ZQmNcer8a++tJ3Y5
+	 afDoLmwZQ5DzCuuG0sSsyQo02eOfhtAsRJZIgmisxac4ZtOZzS6zo7B7bCoI729Nn+
+	 fDcuPhWEFPnGA==
+Message-ID: <351720a5ab7640ef0239448b1f7965c4@kernel.org>
+Date: Tue, 21 Jul 2026 14:19:16 +0000
+From: "Maxime Ripard" <mripard@kernel.org>
+To: "Nicolas Frattaroli" <nicolas.frattaroli@collabora.com>
+Subject: Re: [PATCH v7 4/5] drm/debugfs: Move HDMI debugfs registration to
+ state helper
+In-Reply-To: <20260721-scdc-link-health-v7-4-92df1b6ad5fc@collabora.com>
+References: <20260721-scdc-link-health-v7-4-92df1b6ad5fc@collabora.com>
+Cc: dri-devel@lists.freedesktop.org, kernel@collabora.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-sunxi@lists.linux.dev, "Andrzej
+ Hajda" <andrzej.hajda@intel.com>, "Chen-Yu Tsai" <wens@kernel.org>, "Daniel
+ Stone" <daniel@fooishbar.org>, "Dave Stevenson" <dave.stevenson@raspberrypi.com>, "David
+ Airlie" <airlied@gmail.com>, "Hans Verkuil" <hverkuil+cisco@kernel.org>, "Jani
+ Nikula" <jani.nikula@linux.intel.com>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Jonas
+ Karlman" <jonas@kwiboo.se>, "Laurent Pinchart" <Laurent.pinchart@ideasonboard.com>, "Luca
+ Ceresoli" <luca.ceresoli@bootlin.com>, "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime
+ Ripard" <mripard@kernel.org>, =?utf-8?b?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, "Neil
+ Armstrong" <neil.armstrong@linaro.org>, "Raspberry Pi Kernel Maintenance" <kernel-list@raspberrypi.com>, "Robert
+ Foss" <rfoss@kernel.org>, "Samuel Holland" <samuel@sholland.org>, "Simona
+ Vetter" <simona@ffwll.ch>, "Thomas Zimmermann" <tzimmermann@suse.de>
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,146 +76,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The imx-mailbox driver moved the callback invocation into the threaded
-IRQ handler. This means the callback is invoked in preemptible context
-and there is no need to schedule the kworker for the
-imx_rproc_notified_idr_cb() invocation.
+On Tue, 21 Jul 2026 10:59:00 +0200, Nicolas Frattaroli wrote:
+> The HDMI debugfs files are only useful for connectors that already make
+> use of the HDMI state helpers. In addition, relying on HDMI-specific
+> functions in drm_debugfs.c can lead to circular linking problems later
+> down the line.
+> 
+> 
+> [ ... ]
 
-This was tested with the rpmsg-tty driver on imx93.
+Acked-by: Maxime Ripard <mripard@kernel.org>
 
-Remove the workqueue handling and invoke the imx_rproc_notified_idr_cb()
-callback directly.
-
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
-Reviewed-by: Mathieu Poirier <mathieu.poirier@linaro.org>
-Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
----
-This change was tested on a im93 board with rpmsg-tty driver.
-
-v4=E2=80=A6v5: https://lore.kernel.org/all/20260703-imx_mbox_rproc-v4-1-67b=
-10560a861@linutronix.de/
-  - Repost
-
-v3=E2=80=A6v4: https://lore.kernel.org/r/20260617-imx_mbox_rproc-v3-0-77948=
-112defc@linutronix.de
-  - The mailbox bits are part of v7.2-rc1. This is just a repost of the
-    imx_rproc driver which is left.
-  =20
-v2=E2=80=A6v3: https://lore.kernel.org/r/20260603-imx_mbox_rproc-v2-0-a0059=
-dc3b69a@linutronix.de
-  - Forward the error in imx_mu_generic_tx() to the caller (new patch
-    #1)
-  - Extend the patch description a bit for for "Start splitting the IRQ
-    handler" to briefly explain why callbacks are moved to the threaded
-    handler.
-  - Drop imx_mu_con_priv::pending. The primary handler wakes its
-    threaded handler. Once the handler is woken, the pending flag must
-    be set and there is no need to set/ clear it.
-  - Avoid the double clk_disable_unprepare() if
-    devm_mbox_controller_register() fails.
-
-v1=E2=80=A6v2: https://lore.kernel.org/r/20260529-imx_mbox_rproc-v1-0-b8ffc=
-36e11e5@linutronix.de
-  - Using correct register to enable RXDB event.
-  - Update commit description for the "threaded interrupt", "unmasks the
-    interrupt" =3D> "masks the interrupt event".
-  - Add a shutdown field so that the interrupt does not unmask the
-    interrupt if it has been already disabled because the channel is
-    about to be shutdown.  A possible race mentioned by sashiko.
-  - Use devm_pm_runtime_enable(). This should avoid a possible race
-    sashiko mentioned.
-  - Use devm_of_platform_populate().
----
- drivers/remoteproc/imx_rproc.c | 33 +--------------------------------
- 1 file changed, 1 insertion(+), 32 deletions(-)
-
-diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
-index 7662ebd9d2f49..e18ae33a5cf85 100644
---- a/drivers/remoteproc/imx_rproc.c
-+++ b/drivers/remoteproc/imx_rproc.c
-@@ -24,7 +24,6 @@
- #include <linux/regmap.h>
- #include <linux/remoteproc.h>
- #include <linux/scmi_imx_protocol.h>
--#include <linux/workqueue.h>
-=20
- #include "imx_rproc.h"
- #include "remoteproc_internal.h"
-@@ -115,8 +114,6 @@ struct imx_rproc {
- 	struct mbox_client		cl;
- 	struct mbox_chan		*tx_ch;
- 	struct mbox_chan		*rx_ch;
--	struct work_struct		rproc_work;
--	struct workqueue_struct		*workqueue;
- 	void __iomem			*rsc_table;
- 	struct imx_sc_ipc		*ipc_handle;
- 	struct notifier_block		rproc_nb;
-@@ -892,21 +889,11 @@ static int imx_rproc_notified_idr_cb(int id, void *pt=
-r, void *data)
- 	return 0;
- }
-=20
--static void imx_rproc_vq_work(struct work_struct *work)
--{
--	struct imx_rproc *priv =3D container_of(work, struct imx_rproc,
--					      rproc_work);
--	struct rproc *rproc =3D priv->rproc;
--
--	idr_for_each(&rproc->notifyids, imx_rproc_notified_idr_cb, rproc);
--}
--
- static void imx_rproc_rx_callback(struct mbox_client *cl, void *msg)
- {
- 	struct rproc *rproc =3D dev_get_drvdata(cl->dev);
--	struct imx_rproc *priv =3D rproc->priv;
-=20
--	queue_work(priv->workqueue, &priv->rproc_work);
-+	idr_for_each(&rproc->notifyids, imx_rproc_notified_idr_cb, rproc);
- }
-=20
- static int imx_rproc_xtr_mbox_init(struct rproc *rproc, bool tx_block)
-@@ -1271,13 +1258,6 @@ static int imx_rproc_sys_off_handler(struct sys_off_=
-data *data)
- 	return NOTIFY_DONE;
- }
-=20
--static void imx_rproc_destroy_workqueue(void *data)
--{
--	struct workqueue_struct *workqueue =3D data;
--
--	destroy_workqueue(workqueue);
--}
--
- static int imx_rproc_probe(struct platform_device *pdev)
- {
- 	struct device *dev =3D &pdev->dev;
-@@ -1305,17 +1285,6 @@ static int imx_rproc_probe(struct platform_device *p=
-dev)
- 		priv->ops =3D dcfg->ops;
-=20
- 	dev_set_drvdata(dev, rproc);
--	priv->workqueue =3D create_workqueue(dev_name(dev));
--	if (!priv->workqueue) {
--		dev_err(dev, "cannot create workqueue\n");
--		return -ENOMEM;
--	}
--
--	ret =3D devm_add_action_or_reset(dev, imx_rproc_destroy_workqueue, priv->=
-workqueue);
--	if (ret)
--		return dev_err_probe(dev, ret, "Failed to add devm destroy workqueue act=
-ion\n");
--
--	INIT_WORK(&priv->rproc_work, imx_rproc_vq_work);
-=20
- 	ret =3D imx_rproc_xtr_mbox_init(rproc, true);
- 	if (ret)
-
----
-base-commit: b3f94b2b3f3e51ab880a51fc6510e1dafba654ed
-change-id: 20260529-imx_mbox_rproc-7d512f5a6f78
-
-Best regards,
---=20
-Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Thanks!
+Maxime
 
