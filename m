@@ -4,119 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F4A4C4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 09:03:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99449C44529
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 09:06:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZzFEYaZ31ngV7DM8NQYdoY1mO7XPfcDH93x7MCGl7Mc=; b=GnvtqMI9gsXb2CzHgaMlMX6qCC
-	SV3FRq5hlsjwMGeBJb4m0ElLN6gDRNOKtE+n2jJBP3glDebrVpSzx6m44YSErO5YQ6uNW59ZdfxcT
-	waG1l7Lw/u8GlDJgUIH6lUd3WN8k28K9t3cTvfb4yz762XjkkQ8vKF4MJaMD6pwFX+3qPW2ChzGwK
-	6lUtKwWLXUwJYoy5ResYEdIyMO/Ipa+NtKPZVmTCDerMEnvxZmoyH0h0Zn3ECEb4/9xOF3vezX27T
-	vI/J2jEtVIkV35Hs9yMX79s7IFHXW+74ifaG+qUYd2foC5kYViIv73YFCOdZwLBY7E96ISh4kSpyD
-	e9gY+MtA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=IMOJHz/XCMhKiE2U1vvO9eSGZCNpXYgVldDTYc7JJDM=; b=E1SCPAwskDK0lo
+	ljPFNymE1Fj41nwTTuQcxkM8Arf6ys8EScX79FSHTatoiXKbhMwzgaeetAw6YaDNpHcoQaU9+jBjT
+	8ZnPZ79+Ymq6FcEjhqJphWGnRDqvnb7KOfjRizA+0DBVz+i/uzg16vfbKMt+YjQSgZfZVOQ/GsTxX
+	KPb5fmxUql6PC0uQnaeM06hO3zpxtWxTjQz4k4D8yAysaagNdoWzGB1I3cgd1yO4/t2bhx3AhO8x+
+	FNgF2zCfOE5XKqr0FtYU7iJz7CMpoOBtgknf47hTiw0pBk4ZXT1yWpqWv4KSkZaT/353g3Kcg/MAx
+	lkLsFOBSt3Pqh2iELgQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm6Na-00000008ujT-26bc;
-	Tue, 21 Jul 2026 09:03:10 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1wm6R8-00000008v8b-0dGz;
+	Tue, 21 Jul 2026 09:06:50 +0000
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm6NX-00000008uhW-3sq2
+	id 1wm6R4-00000008v7s-3h6v
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 09:03:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UddvM23W3damzky253hs11o87Kw+QYj3/ZQxqcOrak6o/nfsIcM8IhKMnLASdvGGUCFc5k8yBvY/eTyj2hEx4K65t/fUEv1qRgN6QzZO597Z7d5R6L6OTm1HlvRupnynV8db/Bl+J1UQA3tdzDcmo/Xp4RAkncPiyBwgM1mMXrI+7DusSUW19udSwAkE9uu9Mn33M8Ri08RBlq1clyZUZvBJ6kNfw3Owy5PJ0DNoJjkM0lb2i8aZHQmUvhU1tTzRhusGMsNaNUtK+kzbg9E/Em7gkQPykAIgQJIi6EIVpTnphylNP7YCsTjkbrYugti6kpUaSZZt1AxeJAvhktvhIQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZzFEYaZ31ngV7DM8NQYdoY1mO7XPfcDH93x7MCGl7Mc=;
- b=DOmb147Cb7RxVCUbb5C3Rave54i+cqI/YLOyGotLof7PaKsDppUc4IG/zcMlXrbtVUlcexNBW1oBbYney75JkltoBMV7AyGTZQTY40cPElJoQ1fMirAu6va1ETNH2gGBT+RuDpJcQlZNanVY6Zx0R1lNhC2lRY01ORSjv0ghRcheo25t4OjSeqHtVPyqBiKxxWv9JCrVWGDbWC0iLYvINs3j3zzXAA0baU14cF3AyTYCcnkk+VP0pP0YQhX87NZ5sNiG2otpmLFCp2rdextC8zZm/oztcyYN7SRcUT7sNscLo4Gme6DOYCCiVpyhfG+SyjVnI+Of3BjDYG3uzvMkaQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=gmail.com smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZzFEYaZ31ngV7DM8NQYdoY1mO7XPfcDH93x7MCGl7Mc=;
- b=fvaEn7FwFSi0k2acx2VqeDpaEY+fN65h1lNcj0oDi2tCTazEX8sh0TIM80eAY6NLIcGamgo0x/9JH6bAl4a5giDNKfnClH5USQHdw+asVdq2rphvOIo4HIXtDM9z11kF7ezMED2mtkPKtLiwf0M5BcLWBP31huKTHAOSR/Kwg7GuZ32xVPiey6SDoCRCkOT9H+xMtrnDoOHithq6D0p/o2d80kLQKtybWPuW0R81RHrJLAMOPaz4kayhr15g+er5Fkxn3nsv9SMK0rsSZynH5uYOSLhMMcX3g16pLi6novHL6/swXqPflmHje2KqFzZJAhL/X9cM/cTpxF/nLfebQg==
-Received: from DUZPR01CA0191.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4b6::20) by GVXPR10MB8106.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:150:116::9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.18; Tue, 21 Jul
- 2026 09:02:56 +0000
-Received: from DB3PEPF0000885C.eurprd02.prod.outlook.com
- (2603:10a6:10:4b6:cafe::56) by DUZPR01CA0191.outlook.office365.com
- (2603:10a6:10:4b6::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.10 via Frontend Transport; Tue,
- 21 Jul 2026 09:02:56 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- DB3PEPF0000885C.mail.protection.outlook.com (10.167.242.7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.245.5 via Frontend Transport; Tue, 21 Jul 2026 09:02:55 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Tue, 21 Jul
- 2026 11:07:24 +0200
-Received: from gnbcxd0016.gnb.st.com (10.130.77.119) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Tue, 21 Jul
- 2026 11:02:47 +0200
-Date: Tue, 21 Jul 2026 11:02:39 +0200
-From: Alain Volmat <alain.volmat@foss.st.com>
-To: Dan Carpenter <error27@gmail.com>
-CC: Hugues Fruchet <hugues.fruchet@foss.st.com>, Mauro Carvalho Chehab
-	<mchehab@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, "Alexandre
- Torgue" <alexandre.torgue@foss.st.com>, Sakari Ailus
-	<sakari.ailus@linux.intel.com>, <linux-media@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<kernel-janitors@vger.kernel.org>
-Subject: Re: [PATCH] media: stm32: dcmi: fix some error handling bugs in
- probe()
-Message-ID: <al81r7oJXTms6XG-@gnbcxd0016.gnb.st.com>
-References: <alnx_dGHIBYpZuHo@stanley.mountain>
+	Tue, 21 Jul 2026 09:06:49 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=IMOJHz/XCMhKiE2U1vvO9eSGZCNpXYgVldDTYc7JJDM=;
+	b=A76zcX/le28ZLetwOsdGCYH2sygkrpLpHEjNZfJek5FV16uDXGnuSLvE+cJ5kfEsLa7F6dWNA
+	FJSIfPOxvz/57CeL4Fd7unipb1TNsFeYvYQajUhWMMkCgWblarvCiLUAM4IS2/DF4A+kPPQGoMK
+	p/T/bKNJ8AzarxJFt0AJie8=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4h4B8V4zWFz1prKd;
+	Tue, 21 Jul 2026 16:56:58 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id C861340538;
+	Tue, 21 Jul 2026 17:06:22 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 21 Jul 2026 17:06:22 +0800
+Message-ID: <b9d0683d-4469-4a8c-be1d-77d8b9836c0a@huawei.com>
+Date: Tue, 21 Jul 2026 17:06:20 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <alnx_dGHIBYpZuHo@stanley.mountain>
-X-Disclaimer: ce message est personnel / this message is private
-X-Originating-IP: [10.130.77.119]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB3PEPF0000885C:EE_|GVXPR10MB8106:EE_
-X-MS-Office365-Filtering-Correlation-Id: e8270b24-a93e-424b-c691-08dee706dace
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|36860700016|376014|1800799024|56012099006|11063799006|10067099003|6133799003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: ETIquyLnod+xrdQLtO4uRzOieDu9dsZFzSpNdnqoUlhqk9lSab36Xp1E/2G3SDYByXN/cXJjkQX6NTaLoDTZ/07fj414o7HAIqaqIvoI6dYJPEsTz+DgZaoGjgACUJHX+qJl2lGTAvpxqsqAnFNZ5wyjy1jS3CuOt23vOxe7Rw/SINW6rc/yMe2HOzRjQ739SCgH2pUM8Vbk7qBX8W3SOqfgpDjtYVe8tBY/Mm3gd8y+AdjTgW3DBaX3p/cYXggcEr6ho0qmt5/i3AdvDZoPnXCDtw0ZCGPGccvDZWtcrTOd6LE4mQ6mdgiW18sOBt70L2Opmz846mB6QhLV+uEXIBl4Iu+bBgzX5Rdc0033H6/rhKLUXRUUXy3hLY4mc7UYauP8qVi2yzPOlywOQWzXiLV2cvTFPEa9Y7TjIwT8KPJgjC33TEGoatD4ZJl28R2zqqp64R/oTO5WzJWFIpabdvrdN08ovK2kbAnXl7am8rjrXWa8pZn8xSI8Tz3lZ59aGJ5vGQ76Gs+3DyURXWKD18BcXPk/2U0gBO/7gSfpPhW2GBko31a65Os7pqcwuQhIRG0P4q7HFHCGteJ8LVA+dstyAlpAzhWXFz/lpBH+AzM/hR4CG2CkBnOi21/teLk/OvGgD9KDzhz0YnzqUusKa4+w3VSKE2PgD+wnuJHlP3Vj/BscvENKkkecqgVeBqEHuH+NssCi+Sk7tr8f3faO8g==
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(36860700016)(376014)(1800799024)(56012099006)(11063799006)(10067099003)(6133799003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: pGmezc+6pCIA8nnBkJsjaRAgaXyx7U+uxK6z/TXQNrEpejVAoLftUW7mBwITxP+JRG8Dt82uyAA/g+R21iyNKNHTgPYgNgns/qovFNOpnEc3GbRImeY0HkT7WUfJ+9RdvO6779RV5atihqhnac5lhUyTw4hbggJQQRucLfEAhvcbp8yfRfOV1qgZ3X/c3fjmL9r9HeyRf75gc7krrbeLE8BNLGTUA/11+Pcpv+X1SQpldn5dxJLC7dmsbDZVCfj8EK+HX/hGgtuznGTPbBM/njmykaG0E3QfgmYMqLsvvQDpxi+vnMlyUG8IfEfnwjIlRbFnbDy0cOIOpZh4hhGlgXggut+Xn5V9K55YvTIMz6qXr1jHeVQgR+gNCPLK61wzKRhjbJEcyzDuvx8xJ3qTR4bWQajRTHYHNEBXOi5pp1Chskq10RciI1Fgsu8cG4Bv
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Jul 2026 09:02:55.8782
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e8270b24-a93e-424b-c691-08dee706dace
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB3PEPF0000885C.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR10MB8106
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 30/36] arm64: irq: Report FEAT_NMI masking local IRQs
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+References: <20260709121333.23507-1-vladimir.murzin@arm.com>
+ <20260709121333.23507-31-vladimir.murzin@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260709121333.23507-31-vladimir.murzin@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_020308_033461_8D3C478D 
-X-CRM114-Status: GOOD (  22.71  )
+X-CRM114-CacheID: sfid-20260721_020647_638335_D7B581EC 
+X-CRM114-Status: GOOD (  28.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,79 +74,129 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: mark.rutland@arm.com, maz@kernel.org, Mark Brown <broonie@kernel.org>, catalin.marinas@arm.com, will@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dan,
 
-thanks for the patch.
 
-On Fri, Jul 17, 2026 at 12:12:29PM +0300, Dan Carpenter wrote:
-> There are a few issues here:
+On 7/9/2026 8:13 PM, Vladimir Murzin wrote:
+> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 > 
-> 1) After we assign:
->         chan = dma_request_chan(&pdev->dev, "tx");
->    Then the error paths need to clean up before returning.  The first
->    error path does a direct return.
-> 2) The error paths check "dcmi->mdma_chan" but that is not assigned
->    until later so it results in memory leaks.  Test "mdma_chan"
->    instead.
-> 3) The error handling calls dma_release_channel(dcmi->dma_chan) before
->    "dcmi->dma_chan" has been assigned which leads to a NULL pointer
->    dereference.  Use the "chan" variable instead.
+> As we clear SCTLR_EL1.SPINTMASK when enabling FEAT_NMI, ALLINT masks
+> IRQs and FIQs regardless of superpriority.
+> Update irqflags.h and `regs_irqs_disabled()` to take it into account,
+> so we properly keep track of
 > 
-> I also moved the call to dma_release_channel() after the call to
-> dma_release_channel() so it mirrors the allocation code better.
+> We have documentation at the top of irqflags.h which explains the DAIF
+> masking. Since the additional masking with NMIs is related and also
+> covers the IF in DAIF, extend the comment to note what's going on
+> with NMIs.
 > 
-> Fixes: bc901885fae0 ("media: stm32: dcmi: perform dmaengine_slave_config at probe")
-> Signed-off-by: Dan Carpenter <error27@gmail.com>
-
-Acked-by: Alain Volmat <alain.volmat@foss.st.com>
-
+> Co-developed-by: Mark Brown <broonie@kernel.org>
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
 > ---
-> From static analysis.  Untested.
+>  arch/arm64/include/asm/irqflags.h | 17 +++++++++++++++++
+>  arch/arm64/include/asm/ptrace.h   |  9 ++++++++-
+>  2 files changed, 25 insertions(+), 1 deletion(-)
 > 
->  drivers/media/platform/st/stm32/stm32-dcmi.c | 13 ++++++++-----
->  1 file changed, 8 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/media/platform/st/stm32/stm32-dcmi.c b/drivers/media/platform/st/stm32/stm32-dcmi.c
-> index eeb0199864dd..c9f08b2465be 100644
-> --- a/drivers/media/platform/st/stm32/stm32-dcmi.c
-> +++ b/drivers/media/platform/st/stm32/stm32-dcmi.c
-> @@ -2024,8 +2024,10 @@ static int dcmi_probe(struct platform_device *pdev)
->  	mdma_chan = dma_request_chan(&pdev->dev, "mdma_tx");
->  	if (IS_ERR(mdma_chan)) {
->  		ret = PTR_ERR(mdma_chan);
-> -		if (ret != -ENODEV)
-> -			return dev_err_probe(&pdev->dev, ret, "Failed to request MDMA channel\n");
-> +		if (ret != -ENODEV) {
-> +			dev_err_probe(&pdev->dev, ret, "Failed to request MDMA channel\n");
-> +			goto err_release_chan;
-> +		}
->  		mdma_chan = NULL;
->  	}
+> diff --git a/arch/arm64/include/asm/irqflags.h b/arch/arm64/include/asm/irqflags.h
+> index b571d34bf11d..a291a231d644 100644
+> --- a/arch/arm64/include/asm/irqflags.h
+> +++ b/arch/arm64/include/asm/irqflags.h
+> @@ -20,6 +20,16 @@
+>   * always masked and unmasked together, and have no side effects for other
+>   * flags. Keeping to this order makes it easier for entry.S to know which
+>   * exceptions should be unmasked.
+> + *
+> + * With the addition of the FEAT_NMI extension we gain an additional
+> + * class of superpriority IRQ/FIQ which is separately masked with a
+> + * choice of modes controlled by SCTLR_ELn.{SPINTMASK,NMI}.
+> + * Linux sets SPINTMASK to 0 and NMI to 1 which results in ALLINT.ALLINT
+> + * masking both superpriority interrupts and IRQ/FIQ regardless of the
+> + * I and F settings. Since these superpriority interrupts are being
+> + * used as NMIs we do not include them in the interrupt masking here,
+> + * anything that requires that NMIs be masked needs to explicitly do so,
+> + * but we do check for ALLINT masking IRQs/FIQs.
+>   */
 >  
-> @@ -2206,12 +2208,13 @@ static int dcmi_probe(struct platform_device *pdev)
->  err_media_device_cleanup:
->  	media_device_cleanup(&dcmi->mdev);
->  err_mdma_slave_config:
-> -	if (dcmi->mdma_chan)
-> +	if (mdma_chan)
->  		gen_pool_free(dcmi->sram_pool, (unsigned long)dcmi->sram_buf, dcmi->sram_buf_size);
->  err_dma_slave_config:
-> -	dma_release_channel(dcmi->dma_chan);
-> -	if (dcmi->mdma_chan)
-> +	if (mdma_chan)
->  		dma_release_channel(mdma_chan);
-> +err_release_chan:
-> +	dma_release_channel(chan);
+>   /*
+> @@ -103,6 +113,9 @@ static __always_inline unsigned long arch_local_save_flags(void)
+>  {
+>  	arm64_exc_hwstate_t hwstate = { .daif = read_sysreg(daif) };
 >  
->  	return ret;
->  }
-> -- 
-> 2.53.0
-> 
+> +	if (system_uses_nmi())
+> +		hwstate.allint = read_sysreg_s(SYS_ALLINT);
+> +
+>  	if (system_uses_irq_prio_masking())
+>  		hwstate.pmr = read_sysreg_s(SYS_ICC_PMR_EL1);
+>  
+> @@ -117,6 +130,10 @@ static __always_inline bool arch_irqs_disabled_flags(unsigned long flags)
+>  	if (hwstate.daif & PSR_I_BIT)
+>  		return true;
+>  
+> +	/* SCTLR_EL1.SPINTMASK is clear, so ALLINT masks *all* IRQs/FIQs. */
+> +	if (system_uses_nmi() && hwstate.allint > 0)
 
-Regards,
-Alain
+The ">0" here doesn't seem very rigorous, maybe:
+
+if (system_uses_nmi() && hwstate.allint & ALLINT_ALLINT)
+
+> +		return true;
+> +
+>  	if (system_uses_irq_prio_masking() && hwstate.pmr < GIC_PRIO_IRQON)
+>  		return true;
+>  
+> diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
+> index c630165882e8..096d85d75bd7 100644
+> --- a/arch/arm64/include/asm/ptrace.h
+> +++ b/arch/arm64/include/asm/ptrace.h
+> @@ -206,9 +206,16 @@ static inline void forget_syscall(struct pt_regs *regs)
+>  		(regs)->pmr >= GIC_PRIO_IRQON :				\
+>  		true)
+>  
+> +#define irqs_allint_clear(regs)				\
+> +	(system_uses_nmi() ?				\
+> +		((regs)->pstate & PSR_ALLINT_BIT) == 0:	\
+> +		true)
+> +
+>  static __always_inline bool regs_irqs_disabled(const struct pt_regs *regs)
+>  {
+> -	return (regs->pstate & PSR_I_BIT) || !irqs_priority_unmasked(regs);
+> +	return (regs->pstate & PSR_I_BIT) ||
+> +		!irqs_priority_unmasked(regs) ||
+> +		!irqs_allint_clear(regs);
+
+Why not define the logic for disable? The semantics of
+regs_irqs_disabled() is "interrupts disabled".
+
+204 #define
+irqs_priority_masked(regs)>----->------->------->------->-------\
+205 >-------(system_uses_irq_prio_masking()
+?>------>------->------->-------\
+206 >------->-------(regs)->pmr == GIC_PRIO_IRQOFF
+:>------->------->-------\
+207 >------->-------false)
+208
+209 #define irqs_allint_masked(regs)>------->------->------->-------\
+210 >-------(system_uses_nmi() ?>--->------->------->-------\
+211 >------->-------((regs)->pstate & PSR_ALLINT_BIT) :>----\
+212 >------->-------false)
+213
+214 static __always_inline bool regs_irqs_disabled(const struct pt_regs
+*regs)
+215 {
+216 >-------return (regs->pstate & PSR_I_BIT) ||
+217 >------->-------irqs_priority_masked(regs) ||
+218 >------->-------irqs_allint_masked(regs);
+
+otherwise, LGTM
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+
+>  }
+>  
+>  #define interrupts_enabled(regs)	(!regs_irqs_disabled(regs))
+
 
