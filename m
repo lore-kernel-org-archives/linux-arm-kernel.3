@@ -4,82 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05ECAC4452D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 23:03:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98819C4452B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 23:04:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=NJKoZRGKO9NbNpeWxmViKbQ0iXfhg+MMY+xSLEzpUsk=; b=zuiUk0kqm95DoW
-	lxaHjOSyMsEMHgaeRovks0kub/I4jHg45mlyTPsWy6z6nGVUn9EjJmrbVO11PzkCLiHrxGR2klyO0
-	4WVIRjYXd+BXkCteLDGCBNTFkr7doXaeMuAjpob02VeDuDD7ABLvxjv/FxmP0QS53pAutd6fcwMR+
-	aBBlUhdvPjGuTMgGo7Pz+YjYqlvvonntNdy6NgYBA9BEDNM+bGwVGB+TW4zl7TKVXVETbF+eSssUn
-	HIU0/6JCrxPeAV71vFLuCWCcvkHz6Y0vBD4pCxFo7lT4saJ6BcRW6ygtArZ047/d0SW/kCXmlVLPN
-	9aE4JdaICy2udTlThcxQ==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z9jxxoNk0Zci913QIrLSshdt2n65M0x+d9IlMGmwHh4=; b=Un+8206ox+x1b1T9X0tAddbExI
+	W5i+Ex2gNk2ZTSMyDNKH53tBhoaXGSbpDhMGb18R70KUd3K178Dfk+Aw8YE2cZk2PDnAy4KhdTQvg
+	r1cKuwGr8s6Zd4ZAT1P0uyN4MxGMTuNE4xQCKlzCB/kxON5tDo9YGGiXOJZ50ltiePmbju6hP6b0n
+	yWVAr41yYXjtDoihqfr+KkwARWIp7m2nvuEjy4ziCOkcjSnGLkA8f3oyjmU05qbhdFlBytqmKDLAx
+	UOKFMinusYCJENuzrlba4wMcE4Epk0vhEgbAkDjIJgK1CvCZAERHBUSuyWBq4O6Kbl3eNqf8ZuQEQ
+	wO+LRFsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmJV0-0000000AXma-46Zc;
-	Tue, 21 Jul 2026 23:03:43 +0000
-Received: from mail-ot1-x347.google.com ([2607:f8b0:4864:20::347])
+	id 1wmJVi-0000000AXrp-1NyO;
+	Tue, 21 Jul 2026 23:04:26 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmJUy-0000000AXm6-3izN
+	id 1wmJVf-0000000AXq4-08pl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 23:03:42 +0000
-Received: by mail-ot1-x347.google.com with SMTP id 46e09a7af769-7eb6a8c61deso9056005a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 16:03:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784675018; x=1785279818; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=NJKoZRGKO9NbNpeWxmViKbQ0iXfhg+MMY+xSLEzpUsk=;
-        b=HMT9RiW3Hq9NfsRmMfckdrSUW8Y9yvpqoVZ8YZaLWbyqiHwUnXPuLhs18DvzzJwalo
-         UNw9qI6Y8a4zLFgVQZhuaZfUrmydtkdDmGFoZcwYuMfNHrmj9FQjr6KnAl4vUi8jrMMf
-         OLdk3n4sVxqIl6jRhrv9pfBgVwkVrcpOKkyyGt7Tj301Sb9FBGy2tekhNX0jZ0Tp1Zqt
-         qIa0jm2byyK6bDVTXSDbT6N0IiW6BH2W5pcbmOIETO+ewnVDBeACF+JtKJqXK/oJuN7M
-         U7haxQAfaDeywWRNwzXqeXk2SUeZvEngqtV3KbdEcMQ4CK9N9EdihSG0vHy0FYSUYaf3
-         0QAQ==
+	Tue, 21 Jul 2026 23:04:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1784675062;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=z9jxxoNk0Zci913QIrLSshdt2n65M0x+d9IlMGmwHh4=;
+	b=FnjSBgfAWd47cgN+YbhAGxu2OgFGLRDnsB20R3l2D6/+M03T0bj3CgDHDJAV+8SZFbxhHm
+	j9BzVLeIWBH5tH6fOlcN4XOkrPQr+2wxWGiqqNWqwEyxKl52yHzEc7NDTcLp39oUHlxWg7
+	RxIn765VgodpXmZHk+GramAxR+g+M9E=
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com
+ [209.85.160.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-676-Gxw5WDrnPqS1AM0dDSrGwg-1; Tue, 21 Jul 2026 19:04:20 -0400
+X-MC-Unique: Gxw5WDrnPqS1AM0dDSrGwg-1
+X-Mimecast-MFC-AGG-ID: Gxw5WDrnPqS1AM0dDSrGwg_1784675060
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-51c1e6f602cso183694401cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 16:04:20 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784675018; x=1785279818;
-        h=content-type:cc:to:from:subject:message-id:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=1e100.net; s=20251104; t=1784675060; x=1785279860;
+        h=user-agent:in-reply-to:content-disposition:content-type
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=NJKoZRGKO9NbNpeWxmViKbQ0iXfhg+MMY+xSLEzpUsk=;
-        b=h0DKlLHwRq503kQEh6dQ0Ofk7py1iEFJ35vP3QHAcXwtl3259hIcFLrb9RnagpgwXD
-         kxMc72D8NNsfO1Ir2Q1NZAvCM/PJePL1viqA0d2iLjOo1V6rvUJA5tDzUN8q2VEL2jmw
-         FzB1D/X+df9WeJqjJtKerUJ4H1iWULKVmdoMs/zsGjef/m/WoiajWVel5VHcVw0r60j7
-         ZdarqrMyRbexXPeYOzi20aZAD8rMMtZwXrwdOroFXSTaADj+9HtxIIhT8WlQ1pJoyydj
-         xKSPcDYsz8wZiKQdttdGyWWMaPIwhn2l9Mmte9/mY0uwILeX/zVf8CHchYlzNOOhWaZL
-         Jjeg==
-X-Forwarded-Encrypted: i=1; AHgh+Rr5IU2s4NlRZvD5bIOGTVBDxxKIMvPxPullhmEs/8OS2RL0NimnDVHKjo/7oA8ELs+1afp2LVUmFtSHJqeovJDq@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZmE1vEUht3UJKqxKh/l7AHMRBU80Y5lq+SNZqK+hQukIsB+dA
-	izrVmh23hojgwggy0KikWSMAXldeR6GVnmG8PqE7JtvEyXiWMfu17UVQ0lCssvM6cloPEgOS60z
-	amTetSwlj8GoenGoEwGNQ88qjkQ==
-X-Received: from ilsh7.prod.google.com ([2002:a05:6e02:527:b0:506:ef74:afee])
- (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6808:3a0d:b0:497:e619:56a with SMTP id 5614622812f47-4a4d054cf7fmr10559726b6e.25.1784675018028;
- Tue, 21 Jul 2026 16:03:38 -0700 (PDT)
-Date: Tue, 21 Jul 2026 23:03:37 +0000
-In-Reply-To: <515af040-deec-471f-92df-ca3e4e91e789@linaro.org> (message from
- James Clark on Mon, 20 Jul 2026 17:46:19 +0100)
-Mime-Version: 1.0
-Message-ID: <gsntbjc054ja.fsf@coltonlewis-kvm.c.googlers.com>
-Subject: Re: [PATCH v8 00/21] ARM64 PMU Partitioning
-From: Colton Lewis <coltonlewis@google.com>
-To: James Clark <james.clark@linaro.org>
-Cc: kvm@vger.kernel.org, alexandru.elisei@arm.com, pbonzini@redhat.com, 
-	corbet@lwn.net, linux@armlinux.org.uk, catalin.marinas@arm.com, 
-	will@kernel.org, maz@kernel.org, oliver.upton@linux.dev, mizhang@google.com, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	mark.rutland@arm.com, shuah@kernel.org, gankulkarni@os.amperecomputing.com, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+        bh=z9jxxoNk0Zci913QIrLSshdt2n65M0x+d9IlMGmwHh4=;
+        b=DprQUa3tFzDv6j22/ROtbiJtyC7uSj7kObb2WSDfUuFnr+uGylJGwGDvfhaovA8yRz
+         /Apv2vVbfTQ0wt/ovdN6+VY1aU8XDPSSrXfKQ1MNO/oh33IP3GP/fBmOW44xdB6GABC8
+         tfy0GTojvyyFdvhZOPUduolLU/2+1MkyNhPfj+UKaCe/rnTViDv1QK0mhvPMPlbBUZ2/
+         hwt63KlsKj3orKQDvl0Oy7V6pNlkhO3kYZHR8AZdcDoYj//OFPYasDOrmxYW495flHLr
+         4EVc3qSXYiB7w74grdGRVtIeVkMVtn6zs5EjVI7dg2pJf7WWZeqebvhH938wAj1R+noe
+         QMkw==
+X-Forwarded-Encrypted: i=1; AHgh+RpGfuIfiHtzgcHRb8V44mdCjDZ/4SpYHB7EXs/CRN86O32F+vyMQ7/97ETiAHVKoKBlT+Y2UPaWMU31rF0H7n7m@lists.infradead.org
+X-Gm-Message-State: AOJu0YzkSmur/0/9Vsh+jIFVxoisWVYsrWEAwNx4yTc6RHVlNRNL8AjE
+	oJCfA64KKNqrT/Vak5MXfi1hsZRUwW66h+JKVURgplCF8NIMYzFl0j5Bc8VOKiolp00yf3dL6lR
+	HyfbKtggTHIVaat1bbHJNPCtnAw13yEATtjcrxxWJVAgksKSO93RJIrHSxzAZZ5R5LYCFRnS5bN
+	r9
+X-Gm-Gg: AR+sD1364M+gePWzN8BxFz9GNN6D9ngw/3m/QjCB5dIw5ghA8dq6C38fM+7oQxbCtBp
+	6c8r4oSu/xSl7NEKvbYKK4DBs8nc+3w4KC5Iu5qQf3mRovh1ydrMly3cvwvamYI2sJXpvuaAFgG
+	dZaK6taTzpuJ1KTRe/yRL0ozPgNyAoIKQryVOAvCaa5RoJCDu1gVJk/mRhsyy69h2EXEADUBOLe
+	zV4vKPsNoSYIw47gP3HO5alAuWqfs8No+WvzNcgtWHUiyz87xSIfMsgVrgUVb30mkD6/E9VApdk
+	LuqAZM2oS/RT0J8Txce9CmoZIJ1bQwQlJVOJ5rCTWCfrq+ExKsb/7tzTHomD6o1a84Qqr/GsKq+
+	XUjmoUddjY2hCsldcTmBJLaHqmCKT0QyLLfo=
+X-Received: by 2002:a05:6214:2301:b0:8ce:ca7d:b099 with SMTP id 6a1803df08f44-9077832dd19mr216149256d6.18.1784675059749;
+        Tue, 21 Jul 2026 16:04:19 -0700 (PDT)
+X-Received: by 2002:a05:6214:2301:b0:8ce:ca7d:b099 with SMTP id 6a1803df08f44-9077832dd19mr216148766d6.18.1784675059293;
+        Tue, 21 Jul 2026 16:04:19 -0700 (PDT)
+Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-907ba9e13d1sm7062316d6.28.2026.07.21.16.04.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 21 Jul 2026 16:04:18 -0700 (PDT)
+Date: Tue, 21 Jul 2026 19:04:16 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Chun-Jie Chen <chun-jie.chen@mediatek.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Edward-JW Yang <edward-jw.yang@mediatek.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Chen-Yu Tsai <wenst@chromium.org>, kernel@collabora.com,
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	Irving-CH Lin <irving-ch.lin@mediatek.com>
+Subject: Re: [PATCH v3 09/18] clk: mediatek: Add MT8189 apmixedsys clock
+ support
+Message-ID: <al_68GlP01W0US0x@redhat.com>
+References: <20260720-mt8189-clocks-system-base-v3-0-8e6d99ab3ad2@collabora.com>
+ <20260720-mt8189-clocks-system-base-v3-9-8e6d99ab3ad2@collabora.com>
+MIME-Version: 1.0
+In-Reply-To: <20260720-mt8189-clocks-system-base-v3-9-8e6d99ab3ad2@collabora.com>
+User-Agent: Mutt/2.4.0 (2026-06-19)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: Rs3LUKtxGaduJiqV6fwTJqhuEk8H_GZONmh0y20H018_1784675060
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_160340_977000_F8239D04 
-X-CRM114-Status: GOOD (  57.65  )
+X-CRM114-CacheID: sfid-20260721_160423_149232_0BA5B002 
+X-CRM114-Status: GOOD (  27.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,333 +124,222 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James, thanks for the review.
+Hi Louis-Alexis,
+
+On Mon, Jul 20, 2026 at 12:04:19PM +0200, Louis-Alexis Eyraud wrote:
+> Add support for the MT8189 apmixedsys clock controller, which provides
+> PLLs generated from SoC 26m.
+> 
+> Co-developed-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
+> Signed-off-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
+> Co-developed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> ---
+>  drivers/clk/mediatek/Kconfig                 |  13 ++
+>  drivers/clk/mediatek/Makefile                |   1 +
+>  drivers/clk/mediatek/clk-mt8189-apmixedsys.c | 196 +++++++++++++++++++++++++++
+>  3 files changed, 210 insertions(+)
+> 
+> diff --git a/drivers/clk/mediatek/Kconfig b/drivers/clk/mediatek/Kconfig
+> index 2c09fd729bab..f67dfb6cd019 100644
+> --- a/drivers/clk/mediatek/Kconfig
+> +++ b/drivers/clk/mediatek/Kconfig
+> @@ -815,6 +815,19 @@ config COMMON_CLK_MT8188_WPESYS
+>  	help
+>  	  This driver supports MediaTek MT8188 Warp Engine clocks.
+>  
+> +config COMMON_CLK_MT8189
+> +	tristate "Clock driver for MediaTek MT8189"
+> +	depends on ARM64 || COMPILE_TEST
+> +	select COMMON_CLK_MEDIATEK
+> +	select COMMON_CLK_MEDIATEK_FHCTL
+> +	default ARCH_MEDIATEK
+> +	help
+> +	  Enable this option to support the clock management for MediaTek MT8189 SoC. This
+> +	  includes handling of all primary clock functions and features specific to the MT8189
+> +	  platform. Enabling this driver ensures that the system's clock functionality aligns
+> +	  with the MediaTek MT8189 hardware capabilities, providing efficient management of
+> +	  clock speeds and power consumption.
+> +
+>  config COMMON_CLK_MT8192
+>  	tristate "Clock driver for MediaTek MT8192"
+>  	depends on ARM64 || COMPILE_TEST
+> diff --git a/drivers/clk/mediatek/Makefile b/drivers/clk/mediatek/Makefile
+> index d8736a060dbd..66577ccb9b93 100644
+> --- a/drivers/clk/mediatek/Makefile
+> +++ b/drivers/clk/mediatek/Makefile
+> @@ -123,6 +123,7 @@ obj-$(CONFIG_COMMON_CLK_MT8188_VDOSYS) += clk-mt8188-vdo0.o clk-mt8188-vdo1.o
+>  obj-$(CONFIG_COMMON_CLK_MT8188_VENCSYS) += clk-mt8188-venc.o
+>  obj-$(CONFIG_COMMON_CLK_MT8188_VPPSYS) += clk-mt8188-vpp0.o clk-mt8188-vpp1.o
+>  obj-$(CONFIG_COMMON_CLK_MT8188_WPESYS) += clk-mt8188-wpe.o
+> +obj-$(CONFIG_COMMON_CLK_MT8189) += clk-mt8189-apmixedsys.o
+>  obj-$(CONFIG_COMMON_CLK_MT8192) += clk-mt8192-apmixedsys.o clk-mt8192.o
+>  obj-$(CONFIG_COMMON_CLK_MT8192_AUDSYS) += clk-mt8192-aud.o
+>  obj-$(CONFIG_COMMON_CLK_MT8192_CAMSYS) += clk-mt8192-cam.o
+> diff --git a/drivers/clk/mediatek/clk-mt8189-apmixedsys.c b/drivers/clk/mediatek/clk-mt8189-apmixedsys.c
+> new file mode 100644
+> index 000000000000..0657a50c30d9
+> --- /dev/null
+> +++ b/drivers/clk/mediatek/clk-mt8189-apmixedsys.c
+> @@ -0,0 +1,196 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (C) 2025-2026 MediaTek Inc.
+> + *                    Qiqi Wang <qiqi.wang@mediatek.com>
+> + *                    Irving-CH Lin <irving-ch.lin@mediatek.com>
+> + * Copyright (C) 2026 Collabora Ltd.
+> + *                    AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> + *                    Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> + */
+> +
+> +#include <linux/clk.h>
+> +#include <linux/delay.h>
+> +#include <linux/mfd/syscon.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/of_address.h>
+> +#include <linux/of_device.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/slab.h>
+
+The list of includes here seems excessive, especially compared to the
+later files in this series.
+
+> +
+> +#include "clk-fhctl.h"
+> +#include "clk-mtk.h"
+> +#include "clk-pll.h"
+> +
+> +#include <dt-bindings/clock/mediatek,mt8189-clk.h>
+> +
+> +#define MT8189_PLL_FMAX		(3800UL * MHZ)
+> +#define MT8189_PLL_FMIN		(1500UL * MHZ)
+> +#define MT8189_PLLEN_OFS	0x70
+> +#define MT8189_INTEGER_BITS	8
+> +
+> +#define PLL_SETCLR(_id, _name, _reg, _en_setclr_bit,		\
+> +			_rstb_setclr_bit, _flags, _pd_reg,	\
+> +			_pd_shift, _tuner_reg, _tuner_en_reg,	\
+> +			_tuner_en_bit, _pcw_reg, _pcw_shift,	\
+> +			_pcwbits) {				\
+> +		.id = _id,					\
+> +		.name = _name,					\
+> +		.en_reg = MT8189_PLLEN_OFS,			\
+> +		.reg = _reg,					\
+> +		.pll_en_bit = _en_setclr_bit,			\
+> +		.rst_bar_mask = BIT(_rstb_setclr_bit),		\
+> +		.flags = _flags,				\
+> +		.fmax = MT8189_PLL_FMAX,			\
+> +		.fmin = MT8189_PLL_FMIN,			\
+> +		.pd_reg = _pd_reg,				\
+> +		.pd_shift = _pd_shift,				\
+> +		.tuner_reg = _tuner_reg,			\
+> +		.tuner_en_reg = _tuner_en_reg,			\
+> +		.tuner_en_bit = _tuner_en_bit,			\
+> +		.pcw_reg = _pcw_reg,				\
+> +		.pcw_shift = _pcw_shift,			\
+> +		.pcwbits = _pcwbits,				\
+> +		.pcwibits = MT8189_INTEGER_BITS,		\
+> +	}
+
+There is no .ops set. mtk_clk_register_pll() in drivers/clk/mediatek/clk-pll.c
+will use mtk_pll_ops when no ops is set. mtk_pll_prepare() reads/writes
+pll->pwr_addr.
+
+> +
+> +static const struct mtk_pll_data apmixed_plls[] = {
+> +	PLL_SETCLR(CLK_APMIXED_ARMPLL_LL, "armpll-ll", 0x204, 18,
+> +		   0, PLL_AO, 0x208, 24, 0, 0, 0, 0x208, 0, 22),
+> +	PLL_SETCLR(CLK_APMIXED_ARMPLL_BL, "armpll-bl", 0x214, 17,
+> +		   0, PLL_AO, 0x218, 24, 0, 0, 0, 0x218, 0, 22),
+> +	PLL_SETCLR(CLK_APMIXED_CCIPLL, "ccipll", 0x224, 16,
+> +		   0, PLL_AO, 0x228, 24, 0, 0, 0, 0x228, 0, 22),
+> +	PLL_SETCLR(CLK_APMIXED_MAINPLL, "mainpll", 0x304, 15,
+> +		   23, HAVE_RST_BAR | PLL_AO,
+> +		   0x308, 24, 0, 0, 0, 0x308, 0, 22),
+> +	PLL_SETCLR(CLK_APMIXED_UNIVPLL, "univpll", 0x314, 14,
+> +		   23, HAVE_RST_BAR, 0x318, 24, 0, 0, 0, 0x318, 0, 22),
+> +	PLL_SETCLR(CLK_APMIXED_MMPLL, "mmpll", 0x324, 13,
+> +		   23, HAVE_RST_BAR, 0x328, 24, 0, 0, 0, 0x328, 0, 22),
+> +	PLL_SETCLR(CLK_APMIXED_MFGPLL, "mfgpll", 0x504, 7,
+> +		   0, 0, 0x508, 24, 0, 0, 0, 0x508, 0, 22),
+> +	PLL_SETCLR(CLK_APMIXED_APLL1, "apll1", 0x404, 11,
+> +		   0, 0, 0x408, 24, 0x040, 0x00c, 0, 0x40c, 0, 32),
+> +	PLL_SETCLR(CLK_APMIXED_APLL2, "apll2", 0x418, 10,
+> +		   0, 0, 0x41c, 24, 0x044, 0x00c, 1, 0x420, 0, 32),
+> +	PLL_SETCLR(CLK_APMIXED_EMIPLL, "emipll", 0x334, 12,
+> +		   0, PLL_AO, 0x338, 24, 0, 0, 0, 0x338, 0, 22),
+> +	PLL_SETCLR(CLK_APMIXED_APUPLL2, "apupll2", 0x614, 2,
+> +		   0, 0, 0x618, 24, 0, 0, 0, 0x618, 0, 22),
+> +	PLL_SETCLR(CLK_APMIXED_APUPLL, "apupll", 0x604, 3,
+> +		   0, 0, 0x608, 24, 0, 0, 0, 0x608, 0, 22),
+> +	PLL_SETCLR(CLK_APMIXED_TVDPLL1, "tvdpll1", 0x42c, 9,
+> +		   0, 0, 0x430, 24, 0, 0, 0, 0x430, 0, 22),
+> +	PLL_SETCLR(CLK_APMIXED_TVDPLL2, "tvdpll2", 0x43c, 8,
+> +		   0, 0, 0x440, 24, 0, 0, 0, 0x440, 0, 22),
+> +	PLL_SETCLR(CLK_APMIXED_ETHPLL, "ethpll", 0x514, 6,
+> +		   0, 0, 0x518, 24, 0, 0, 0, 0x518, 0, 22),
+> +	PLL_SETCLR(CLK_APMIXED_MSDCPLL, "msdcpll", 0x524, 5,
+> +		   0, 0, 0x528, 24, 0, 0, 0, 0x528, 0, 22),
+> +	PLL_SETCLR(CLK_APMIXED_UFSPLL, "ufspll", 0x534, 4,
+> +		   0, 0, 0x538, 24, 0, 0, 0, 0x538, 0, 22),
+> +};
+> +
+> +#define FH(_pllid, _fhid, _offset) {				\
+> +		.data = {					\
+> +			.pll_id = _pllid,			\
+> +			.fh_id = _fhid,				\
+> +			.fh_ver = FHCTL_PLLFH_V2,		\
+> +			.fhx_offset = _offset,			\
+> +			.dds_mask = GENMASK(21, 0),		\
+> +			.slope0_value = 0x6003c97,		\
+> +			.slope1_value = 0x6003c97,		\
+> +			.sfstrx_en = BIT(2),			\
+> +			.frddsx_en = BIT(1),			\
+> +			.fhctlx_en = BIT(0),			\
+> +			.tgl_org = BIT(31),			\
+> +			.dvfs_tri = BIT(31),			\
+> +			.pcwchg = BIT(31),			\
+> +			.dt_val = 0x0,				\
+> +			.df_val = 0x9,				\
+> +			.updnlmt_shft = 16,			\
+> +			.msk_frddsx_dys = GENMASK(23, 20),	\
+> +			.msk_frddsx_dts = GENMASK(19, 16),	\
+> +		},						\
+> +	}
+> +
+> +static struct mtk_pllfh_data pllfhs[] = {
+> +	FH(CLK_APMIXED_ARMPLL_LL, 0, 0x003C),
+> +	FH(CLK_APMIXED_ARMPLL_BL, 1, 0x0050),
+> +	FH(CLK_APMIXED_CCIPLL, 2, 0x0064),
+> +	FH(CLK_APMIXED_MAINPLL, 3, 0x0078),
+> +	FH(CLK_APMIXED_MMPLL, 4, 0x008C),
+> +	FH(CLK_APMIXED_MFGPLL, 5, 0x00A0),
+> +	FH(CLK_APMIXED_EMIPLL, 6, 0x00B4),
+> +	FH(CLK_APMIXED_TVDPLL1, 7, 0x00C8),
+> +	FH(CLK_APMIXED_TVDPLL2, 8, 0x00DC),
+> +	FH(CLK_APMIXED_MSDCPLL, 9, 0x00F0),
+> +	FH(CLK_APMIXED_UFSPLL, 10, 0x0104),
+> +	FH(CLK_APMIXED_APUPLL, 11, 0x0118),
+> +	FH(CLK_APMIXED_APUPLL2, 12, 0x012c),
+> +};
+> +
+> +static const struct of_device_id of_match_clk_mt8189_apmixed[] = {
+> +	{ .compatible = "mediatek,mt8189-apmixedsys" },
+> +	{ /* sentinel */ }
+> +};
+> +MODULE_DEVICE_TABLE(of, of_match_clk_mt8189_apmixed);
+> +
+> +static int clk_mt8189_apmixed_probe(struct platform_device *pdev)
+> +{
+> +	int r;
+> +	struct clk_hw_onecell_data *clk_data;
+> +	struct device_node *node = pdev->dev.of_node;
+> +	const u8 *fhctl_node = "mediatek,mt8189-fhctl";
+
+Reverse Christmas tree.
+
+Brian
 
-James Clark <james.clark@linaro.org> writes:
-
-> On 12/06/2026 8:28 pm, Colton Lewis wrote:
->> This series creates a new PMU scheme on ARM, a partitioned PMU that
->> allows reserving a subset of counters for more direct guest access,
->> significantly reducing overhead. More details, including performance
->> benchmarks, can be read in the v1 cover letter linked below.
-
->> An overview of what this series accomplishes was presented at KVM
->> Forum 2025. Slides [1] and video [2] are linked below.
-
->> The kernel command line parameter for the driver still exists, but now
->> only defines an upper limit of counters the guest might use rather
->> than taking those counters from the host permanently.
-
->> I would appreciate any discussion on whether that parameter should
->> still exist as it's an inconvenient enabling gate on the feature that
->> is no longer required. The question comes down to what, if any, guards
->> we want against a guest monopolizing all counters on a system.
-
-
-> Hi Colton,
-
-> The existence of the parameter makes sense, but can't the default be
-> arm_pmuv3.reserved_host_counters=0 instead of -1 (partition disabled)?
-
-How would you interpret reserved_host_counters=0? Because that would
-express that the host should have zero counters and the guest gets them
-all. I remember in early versions of this series last year I did use 0
-as the default but reviewers asked for a way to express the scenario of
-of zero counters for the host.
-
-> It's still a bit fiddly having to do two things to make it work, and
-> there's no documentation about what the defaults or other prerequisites
-> are. IMO it's not even trivial to work out that you need to prefix it
-> with "arm_pmuv3.", which documentation would improve.
-
-It is fiddly, which is why the more I think about it the more I'd rather
-ditch the kernel cmdline entirely and leave it up to KVM. That's the
-most flexible approach. There isn't a good way to change the cmdline
-after boot. Trying to make it writeable via sysfs runs into the problem
-of when is it safe to apply the change.
-
-I thought it was commonly understood module parameters need to be
-prefixed by the module name, but I can add better documentation to that
-effect.
-
-
-> Testing the whole set I ran into a few issues:
-
-> This warn is hit when there is some kind of interaction with sleeping. I
-> tried to bisect it but it only appears on the last commit when the
-> option to enable partitioning is added.
-
-> 	/*
-> 	 * ARM pmu always has to reprogram the period, so ignore
-> 	 * PERF_EF_RELOAD, see the comment below.
-> 	 */
-> 	if (flags & PERF_EF_RELOAD)
-> 		WARN_ON_ONCE(!(hwc->state & PERF_HES_UPTODATE));
-
-> Steps to reproduce:
-
-> Host (arm_pmuv3.reserved_host_counters=0):
->    $ sudo perf stat -C 2 -e \
->      'branches,branches,branches,branches,branches,branches'
->    $ sudo taskset --cpu-list 2 ./lkvm run --kernel \
->      /boot/vmlinux-7.1.0-rc7+ -m 1024 -c 1 --pmu
-
-> Guest:
->    $ sleep 1
-
->     WARNING: drivers/perf/arm_pmu.c:302 at cpu_pm_pmu_notify+0x278/0x2c0,
-> CPU#2: swapper/2/0
->      Call trace:
->     cpu_pm_pmu_notify+0x278/0x2c0 (P)
->     notifier_call_chain+0x84/0x1d0
->     raw_notifier_call_chain+0x24/0x38
->     cpu_pm_exit+0x34/0x68
->     acpi_processor_ffh_lpi_enter+0x40/0x78
->     acpi_idle_lpi_enter+0x54/0x78
->     cpuidle_enter_state+0xb4/0x248
->     cpuidle_enter+0x44/0x68
->     do_idle+0x21c/0x300
->     cpu_startup_entry+0x40/0x50
->     secondary_start_kernel+0x120/0x150
->     __secondary_switched+0xc0/0xc8
-
-
-I'll attempt to reproduce that. I've never seen it myself but I've
-mainly been using QEMU for my testing.
-
-
-> When running the guest on a single CPU I get different counts for the
-> same event for a single process, although this never happens on a host.
-> I think there might even be some Perf tests which expect them to be the
-> same, and this doesn't depend on whether any events are running on the
-> host or not. Not sure if you ran all the Perf selftests in a guest or not?
-
-I'll investigate but I'm not sure perf is intended to guarantee
-that. perf stat just runs the event counters but may not write or read
-them at exactly the same time.
-
-> I'm not sure if the exception level filtering isn't working or there is
-> something wrong with freezing. Doesn't the host PMU driver need to
-> freeze with HPME? I see it's still doing it with PMCR_EL0.E which
-> freezes the guest's counters now doesn't it?
-
-HPME only has any effect while HPMN is programmed to a value different
-than the number of counters on the system. That is only true in a guest
-context. As I understand it, that means HPME has no effect anywhere the
-host driver needs to freeze counters since that happens in host context.
-
-Maybe HPMN stays programmed during interrupt handling though. I'll
-confirm.
-
-
-> Host (arm_pmuv3.reserved_host_counters=0):
->    $ sudo taskset --cpu-list 2 ./lkvm run --kernel \
->      /boot/vmlinux-7.1.0-rc7+ -m 1024 -c 1 --pmu
-
-> Guest:
->    $ perf stat -e branches,branches true
-
->     Performance counter stats for 'true':
-
->               167963      branches
-
->               160925      branches
-
-
->    $ perf stat -e branches,branches,branches,branches,branches true
-
->     Performance counter stats for 'true':
-
->               164425      branches
-
->               164425      branches
-
->               164425      branches
-
->               157743      branches
-
->               157743      branches
-
-
-> When running the guest on two CPUs I just get zeros. Do the kvm
-> selftests not catch this? Or is it something to do with my setup:
-
-KVM selftests definitely don't catch it. I'll see if I can reproduce.
-
-Since the problem happens with 2 CPUs I wonder if something is
-triggering the lazy context swap behavior so the counter values aren't
-being moved to the 2nd CPU correctly.
-
-> Host (arm_pmuv3.reserved_host_counters=0):
->    $ sudo taskset --cpu-list 2-3 ./lkvm run --kernel \
->      /boot/vmlinux-7.1.0-rc7+ -m 1024 -c 1 --pmu
-
-> Guest:
->    $ perf stat -e branches,branches true
-
->    Performance counter stats for 'true':
-
->                    0      branches
-
->                    0      branches
-
-> I also noticed I get the "squeezed" warning printed after launching the
-> guest but not using Perf. This comment implies that not using counters
-> makes it a nop:
-
->    	/*
-> 	 * If we aren't guest-owned then we know the guest isn't using
-> 	 * the PMU anyway, so no need to bother with the swap.
-> 	 */
-> 	if (vcpu->arch.pmu.access != VCPU_PMU_ACCESS_GUEST_OWNED)
-> 		return;
-
-> But maybe linux is touching them in a way that makes them guest owned,
-> even on probe? Or is the guest/host ownership tracking not working, I
-> didn't look too hard.
-
-Maybe. I'll check. The guest is also running its own PMU driver that
-might trigger guest ownership on initialization since ownership is
-determined by which registers the guest touches.
-
-> Finally I think there are 3 critical Sashiko comments on this version.
-> If they're false positives, then maybe some comments in the code or
-> commit messages could reassure it.
-
-I've looked at these and concluded they are worth fixing.
-
-> Thanks
-> James
-
->> v8:
-
->> * Rebase on top of v7.1-rc7.
-
->> * Implement Oliver Upton's accessor proposal to centralize PMU
->>     register access and simplify trap handlers. Instead of one singular
->>     accessor, implement as two because the read and write paths are
->>     always different anyway.
-
->> * Introduce the partitioning flag along with the
->>     kvm_pmu_is_partitioned predicate
-
->> * Don't use ifdef for partitioning predicates as that can be handled
->>     by has_vhe
-
->> * Clean up MDCR_EL2 handling by open-coding use_fgt and hpmn and
->>     unconditionally setting RES0 bits.
-
->> * Use {read,write}_pmcrcntrn in context swaps
-
->> * Put operators on preceeding lines
-
->> * Rename hw_cntr_mask to hw_cntr_impl to clarify it tracks the number
->>     of counters implemented by hardware
-
->> * Use GENMASK_ULL in mask functions returning u64
-
->> * warn_once when host events are squeezed out by guest counter
->>     allocations.
-
->> * Address Sashiko AI Review findings:
-
->>     - Critical fixes for lazy PMU context swaps (ensuring guest state is
->>       loaded on transition to GUEST_OWNED), PMSELR_EL0 trapping to
->>       prevent stale selector index, and masking guest PMCR_EL0 writes to
->>       prevent host reset.
-
->>     - High priority fixes for lock safety (disabling IRQs when acquiring
->>       perf context lock), disabling guest counters on vCPU put,
->>       preserving VHE host profiling in MDCR_EL2, waking halted vCPUs on
->>       guest PMU interrupts, masking host configuration leaks, preemption
->>       safety in per-CPU accesses, emulating PMCR.N reads, and preventing
->>       data races in PMOVSSET_EL0 accesses.
-
->>     - Medium/Low fixes for user-access fallback safety, VM-wide state
->>       modification restrictions, selftests type safety, and cleanup of
->>       unused fields and typos.
-
->> v7:
->> https://lore.kernel.org/kvmarm/20260504211813.1804997-1-coltonlewis@google.com/
-
->> v6:
->> https://lore.kernel.org/kvmarm/20260209221414.2169465-1-coltonlewis@google.com/
-
->> v5:
->> https://lore.kernel.org/kvmarm/20251209205121.1871534-1-coltonlewis@google.com/
-
->> v4:
->> https://lore.kernel.org/kvmarm/20250714225917.1396543-1-coltonlewis@google.com/
-
->> v3:
->> https://lore.kernel.org/kvm/20250626200459.1153955-1-coltonlewis@google.com/
-
->> v2:
->> https://lore.kernel.org/kvm/20250620221326.1261128-1-coltonlewis@google.com/
-
->> v1:
->> https://lore.kernel.org/kvm/20250602192702.2125115-1-coltonlewis@google.com/
-
->> [1]  
->> https://gitlab.com/qemu-project/kvm-forum/-/raw/main/_attachments/2025/Optimizing__itvHkhc.pdf
->> [2]  
->> https://www.youtube.com/watch?v=YRzZ8jMIA6M&list=PLW3ep1uCIRfxwmllXTOA2txfDWN6vUOHp&index=9
-
->> Colton Lewis (20):
->>     arm64: cpufeature: Add cpucap for HPMN0
->>     KVM: arm64: Reorganize PMU functions
->>     perf: arm_pmuv3: Generalize counter bitmasks
->>     perf: arm_pmuv3: Check cntr_mask before using pmccntr
->>     perf: arm_pmuv3: Allocate counter indices from high to low
->>     perf: arm_pmuv3: Add method to partition the PMU
->>     KVM: arm64: Set up FGT for Partitioned PMU
->>     KVM: arm64: Add Partitioned PMU register trap handlers
->>     KVM: arm64: Set up MDCR_EL2 to handle a Partitioned PMU
->>     KVM: arm64: Context swap Partitioned PMU guest registers
->>     KVM: arm64: Enforce PMU event filter at vcpu_load()
->>     perf: Add perf_pmu_resched_update()
->>     KVM: arm64: Apply dynamic guest counter reservations
->>     KVM: arm64: Implement lazy PMU context swaps
->>     perf: arm_pmuv3: Handle IRQs for Partitioned PMU guest counters
->>     KVM: arm64: Detect overflows for the Partitioned PMU
->>     KVM: arm64: Add vCPU device attr to partition the PMU
->>     KVM: selftests: Add find_bit to KVM library
->>     KVM: arm64: selftests: Add test case for Partitioned PMU
->>     KVM: arm64: selftests: Relax testing for exceptions when partitioned
-
->> Marc Zyngier (1):
->>     KVM: arm64: Reorganize PMU includes
-
->>    arch/arm/include/asm/arm_pmuv3.h              |  18 +
->>    arch/arm64/include/asm/arm_pmuv3.h            |  12 +-
->>    arch/arm64/include/asm/kvm_host.h             |  17 +-
->>    arch/arm64/include/asm/kvm_types.h            |   6 +-
->>    arch/arm64/include/uapi/asm/kvm.h             |   2 +
->>    arch/arm64/kernel/cpufeature.c                |  10 +-
->>    arch/arm64/kvm/Makefile                       |   2 +-
->>    arch/arm64/kvm/arm.c                          |   2 +
->>    arch/arm64/kvm/config.c                       |  41 +-
->>    arch/arm64/kvm/debug.c                        |  30 +-
->>    arch/arm64/kvm/pmu-direct.c                   | 507 ++++++++++++
->>    arch/arm64/kvm/pmu-emul.c                     | 684 +----------------
->>    arch/arm64/kvm/pmu.c                          | 720 ++++++++++++++++++
->>    arch/arm64/kvm/sys_regs.c                     | 271 +++++--
->>    arch/arm64/tools/cpucaps                      |   1 +
->>    arch/arm64/tools/sysreg                       |   6 +-
->>    drivers/perf/arm_pmuv3.c                      | 136 +++-
->>    include/kvm/arm_pmu.h                         |  93 ++-
->>    include/linux/perf/arm_pmu.h                  |   8 +
->>    include/linux/perf/arm_pmuv3.h                |  14 +-
->>    include/linux/perf_event.h                    |   3 +
->>    kernel/events/core.c                          |  31 +-
->>    tools/include/perf/arm_pmuv3.h                |  12 +-
->>    tools/testing/selftests/kvm/Makefile.kvm      |   1 +
->>    .../selftests/kvm/arm64/vpmu_counter_access.c | 112 ++-
->>    tools/testing/selftests/kvm/lib/find_bit.c    |   2 +
->>    26 files changed, 1918 insertions(+), 823 deletions(-)
->>    create mode 100644 arch/arm64/kvm/pmu-direct.c
->>    create mode 100644 tools/testing/selftests/kvm/lib/find_bit.c
-
-
->> base-commit: 4549871118cf616eecdd2d939f78e3b9e1dddc48
 
