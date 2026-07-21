@@ -4,63 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2CF1C4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 16:42:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70C28C4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 16:47:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B5qM9chBCdVYWvuZvuUKvIvKfuTex0gYLfS3OQl7ilc=; b=B8/wTLFLXcsrmC7xM3u0u/1cEk
-	T1pe5/DwsiMiYJWW/vKchIKfbMxOXJWtVRGKxGi+DjYrgaHqEdx9k/B+lFQ4Bw/yGtueESs0ZXxu0
-	d86RnT04V7zWDE2tcF6ZDdbwIQpi6kdQcV2j6ojGHFKax08QM/KTAbEFjPUZWKXpe8E4RFCcL1Z0m
-	szevxcogPSEnzHa/eXTsfShVFYDOZcg7GJdRCcf0zYf7RwlzFQGqOhiVJf9ypSLRC6kyuR+tBeYeI
-	PH+o7G6MYr+THrZkkkRb8Hn9LW3zpD27BavoiybSTrGCjrONZ7j2pwxgB7e8kPG7O1lGSDzSmxdbS
-	HHrDdwWw==;
+	bh=vcrdkt/zpqdJhwX50ycE29+MVmNJkeE6hgzbUXIx5Z8=; b=d4Y8pY7I4AQ6xScprFz5hc59dR
+	9vpUjHq9L4pj1kzDFb/6VDfSnvI8NUh1YOicc2e6LmExX7QmvDPsEHfJZZnKZ0bcRNjxun6DWCud3
+	lFMdy8pSLtvRaak7w6nbsTi1TKrx8yI/HCfbdZ9X9EJXlfTinuBfp7w3Pb0A0V9DSujMOjDaUlYZq
+	Q35ad0yKnhe3fWuGzqUUAdcVaRsh8WhNUDVFixHl1W6rE0G3MbEJVUirAU2vXqHWrAvtFnTlcqv0U
+	sVoOh33i41DA2X9+30fTra+5mWOgTYqTtWMHNK29P+LxFIQHHmvOnVh+E+6eHpv+nCOWiBo3rqnW1
+	kvc8wkug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmDYQ-00000009y6X-2qLB;
-	Tue, 21 Jul 2026 16:42:50 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wmDd4-00000009ygH-1GZl;
+	Tue, 21 Jul 2026 16:47:38 +0000
+Received: from out-177.mta1.migadu.com ([95.215.58.177])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmDYP-00000009y6N-2T5E
+	id 1wmDcy-00000009ydI-18G2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 16:42:49 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4D976600D8;
-	Tue, 21 Jul 2026 16:42:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CC0F1F000E9;
-	Tue, 21 Jul 2026 16:42:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784652167;
-	bh=B5qM9chBCdVYWvuZvuUKvIvKfuTex0gYLfS3OQl7ilc=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=bEr+lfzHr9tBe8KVs+4dUMAA8Y8DzbSXuACDc+80BtqwzrrEkkvDysl32+0Ne2qSc
-	 sCPcQrw6uC3ltYQ+72SZrlCKOAlqk38JGmlHfNCbXhuHfpFilXI6zRmfiKkAtGi9/T
-	 7R4qZsppur1nLm7j0nLgidKDJNCoKsR8dFWRf6uP2cIZ2b+IcP50AIb59Hw3EVdBJV
-	 d15Uge/sHXdAqkU23jfioEhGDN6fGYaJlCsvXNUPqv9CMMD7SABn1RfTVHFniRRIEt
-	 6PjfNWVVx8a8gCKjFCT1BmgHlr4HBmCJXyd0SxvSDlzj/+FmFwcYQTx3OC6MjFI4H/
-	 BwqjmhFtTEWAQ==
-Date: Tue, 21 Jul 2026 09:42:45 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
- <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
- <horms@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre
- Torgue <alexandre.torgue@foss.st.com>, Russell King
- <linux@armlinux.org.uk>, thomas.petazzoni@bootlin.com, Alexis
- =?UTF-8?B?TG90aG9yw6k=?= <alexis.lothore@bootlin.com>,
+	Tue, 21 Jul 2026 16:47:36 +0000
+Message-ID: <1c128f18-0531-4761-a0aa-200a6378a882@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1784652433;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=vcrdkt/zpqdJhwX50ycE29+MVmNJkeE6hgzbUXIx5Z8=;
+	b=vzEe6KkbIvM/FVxKb3FR1k+Elok0XukYIRqpnxFDiYbwt0JtLFxnxwWS7iVMCdl5aqsQm7
+	Fcuu/m5aN0TLVKTeXv1Qmc+VgE58cbt272PeWu/gIsEojhbqh3O65fwv2rnofdQcsJad9A
+	Mz4WOqKFx4YNdNIuZymqjpomXu+Tndg=
+Date: Tue, 21 Jul 2026 17:46:40 +0100
+MIME-Version: 1.0
+Subject: Re: [PATCH net-next] net: stmmac: Simplify ioctl handling
+To: Richard Cochran <richardcochran@gmail.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+ davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Russell King <linux@armlinux.org.uk>, thomas.petazzoni@bootlin.com,
+ =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
  netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH net-next] net: stmmac: Simplify ioctl handling
-Message-ID: <20260721094245.1b6aab2d@kernel.org>
-In-Reply-To: <20260718143848.677531-1-maxime.chevallier@bootlin.com>
+ linux-stm32@st-md-mailman.stormreply.com, Andrew Lunn <andrew@lunn.ch>
 References: <20260718143848.677531-1-maxime.chevallier@bootlin.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+ <ae82997f-537e-4a2d-abce-d163fcf9d868@lunn.ch>
+ <6ac12388-60de-45aa-a8d0-62fcfaf7bea2@linux.dev>
+ <1e640dcb-43ce-4a3b-a74a-ed8e48706b86@lunn.ch>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Vadim Fedorenko <vadim.fedorenko@linux.dev>
+In-Reply-To: <1e640dcb-43ce-4a3b-a74a-ed8e48706b86@lunn.ch>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260721_094735_086372_6B9A4580 
+X-CRM114-Status: GOOD (  20.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,14 +81,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 18 Jul 2026 16:38:47 +0200 Maxime Chevallier wrote:
-> Now that timestamping is controlled through an NDO, we can simply
-> call phylink_mii_ioctl() to handle ioctls.
+On 20/07/2026 19:12, Andrew Lunn wrote:
+> On Mon, Jul 20, 2026 at 04:17:32PM +0100, Vadim Fedorenko wrote:
+>> On 19.07.2026 17:13, Andrew Lunn wrote:
+>>>> Looking at this, I'm wondering if we can't just get rid of SIOCSHWTSTAMP
+>>>> handling in phy_mii_ioctl(). Looks like we can ?
+>>>
+>>> I'm not sure about that. We need Richards input.
+>>>
+>>> The code in phy_mii_ioctl() allows the MAC to be bypassed, it goes
+>>> straight to a PHY based stamper. It could be the MAC has no idea the
+>>> PHY has this capability, so it has not implemented the .ndo?
+>>>
+>>> It might be we need to hoist the code from phy_mii_ioctl() into
+>>> dev_{sg}et_hwtstamp()?
+>>
+>> Hi Andrew!
+>>
+>> I think I've converted all phy drivers while removing support for
+>> SIOCSHWTSTAMP/SIOCGHWTSTAMP from netdev ioctl. I believe it's impossible right
+>> now to reach SIOCSHWTSTAMP path of phy_mii_ioctl via ioctl on net device.
 > 
-> The only functional difference is that phylink_mii_ioctl() ->
-> phy_mii_ioctl() can handle SIOCSHWTSTAMP, but this no longer happens
-> as this ioctl is not longer dispatched to the ndo_eth_ioctl().
+> Lets look at this, using a random example:
+> 
+> drivers/net/ethernet/marvell/mv643xx_eth.c
+> 
+> mv643xx_eth_netdev_ops has nothing about time stamping. However it
+> does have a mv643xx_eth_ioctl. Which calls phy_mii_ioctl().
+> 
+> Lets say this Marvell MAC driver was paired with a
+> nxp-c45-tja11xx. nxp_c45_probe() does:
+> 
+>                  priv->mii_ts.rxtstamp = nxp_c45_rxtstamp;
+>                  priv->mii_ts.txtstamp = nxp_c45_txtstamp;
+>                  priv->mii_ts.hwtstamp_set = nxp_c45_hwtstamp_set;
+>                  priv->mii_ts.hwtstamp_get = nxp_c45_hwtstamp_get;
+>                  priv->mii_ts.ts_info = nxp_c45_ts_info;
+>                  phydev->mii_ts = &priv->mii_ts;
+> 
+> So it looks like in phy_mii_ioctl(), the conditions:
+> 
+>         case SIOCSHWTSTAMP:
+>                  if (phydev->mii_ts && phydev->mii_ts->hwtstamp_set) {
+> 
+> are fulfilled, and
+> 
+>                          ret = phydev->mii_ts->hwtstamp_set(phydev->mii_ts,
+>                                                             &kernel_cfg,
+>                                                             &extack);
+> 
+> will happen.
+> 
+> Now, this combination of MAC and PHY is very unlikely but it proves
+> the point. As far as i remember, Richard added this code for the
+> dp83640 PHY device, but i don't remember what MAC driver it was paired
+> with. He wanted to make PHY support just work without the MAC driver
+> even caring.
 
-To double check - the discussion is orthogonal and this patch can be
-applied as is?
+Richard,
+
+is it still a case? do you have a HW to test patches that I'm going to
+write to restore the functionality?
+
 
