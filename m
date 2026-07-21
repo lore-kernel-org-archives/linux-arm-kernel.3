@@ -4,66 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5EDCC4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 09:31:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AD0EC4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 09:36:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cJbsqN6wqYrtfAxvXkhAoP2bYCz03A4sparHJIC38dE=; b=eeh6kfR0F664T3
-	aZikfUwsFz0yPOwhlkkQ4kfXN9m0yt0Y3NIKa1/zoU1zreDJt16vGrnnC96qzng1P5/PgJ+Mq93zz
-	rB8xv0CRxAAK8uU3FtNPSlSsek2TcwOlteR2LO3265PSokKs6UEf5ldbAxq/rbXTlAlUc6x1Cn+2n
-	1jZM25iqWFXySR4zJNcydtN46rhmjWgv3btOezXuF+JfdYqs3hqMcnlnvfllqYso1rkaChxkClcMW
-	oEe/kuYB+ndcNrYH42JfIoDrMcHVZE0lMuuNXLDU8yaC4fRd+lFQjrDYRjfKXY0nUmfJ/q/qP3zq1
-	vMKowT/xjhRQ8AE6OHYg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LkbTUzJ7Xgd7EcsbWW/V1SykEOd0nQdvevXT30R5Sls=; b=tEeE9/Ewmt+UonxOYHzMRpfb1g
+	5r/Hn/c4opbvyegyjJRJajdI3O897tjszsViJLuEyKANXEy6HuFFgmJOmJYsr1gj1oTqUjAj+O7jB
+	TQGAlQhk0vh76yntTxA61PR1ywbM48pKaR6Ldl6im/RSpdp7fMohzGfkDidCoUPNBuj5f0GE5E9Bd
+	e4dBCgYg3Ps75WROxdqoS6GGnX/MZ+0Oxysz69WqXXJu/krD68SAd5WzlUKlybQa7CC4cwCtR3D61
+	X5B3fiZ0VadZVGfnoFoPJfidl8sutmweGmZEAkg+AK3GD/3kuNwp4wEWPEsj5yKxl8M0FDFRtBEMF
+	GA/nWneQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm6oe-00000008zfG-0Ue7;
-	Tue, 21 Jul 2026 09:31:08 +0000
-Received: from [113.46.200.225] (helo=canpmsgout10.his.huawei.com)
+	id 1wm6tY-0000000909I-2nsN;
+	Tue, 21 Jul 2026 09:36:12 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm6oa-00000008zdC-3rCp
+	id 1wm6tV-0000000908S-0rmw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 09:31:06 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=cJbsqN6wqYrtfAxvXkhAoP2bYCz03A4sparHJIC38dE=;
-	b=d/waB1qOowvCbjjPKalGiMhNHDsFZrHvKEHZlV/nJrLXOgmgPkC7nDlJRnAO16DkaldMP9gWd
-	aletERf6DHgMUR4iKCXmqmCq/Cr6ZvibLW7dIaJRLDqN5VbVvp+15UOKCURwB7wjglTTNp+8f+o
-	lWBEFP3d2ypJVutMKNnzRNM=
-Received: from mail.maildlp.com (unknown [172.19.163.15])
-	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4h4Bhc42Lcz1K9cD;
-	Tue, 21 Jul 2026 17:21:20 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 63DA840578;
-	Tue, 21 Jul 2026 17:30:41 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 21 Jul 2026 17:30:39 +0800
-Message-ID: <e674b355-b4a9-4205-9a60-a1c49aca6758@huawei.com>
-Date: Tue, 21 Jul 2026 17:30:38 +0800
+	Tue, 21 Jul 2026 09:36:11 +0000
+Received: from francesco-nb (xcpe-178-82-120-96.dyn.res.sunrise.net [178.82.120.96])
+	by mail11.truemail.it (Postfix) with ESMTPA id C96472061E;
+	Tue, 21 Jul 2026 11:36:01 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1784626562;
+	bh=LkbTUzJ7Xgd7EcsbWW/V1SykEOd0nQdvevXT30R5Sls=; h=From:To:Subject;
+	b=AI3np4m1E64keLXTufUzfthcPErhnjJFYusJRMeMCRhbwgxM3yQt9ljj2GHGr0Cuh
+	 c1QhN+XiWip8PQXJKyZzBbCTNGeAr3h7gp4sxwF9ZT8zL7yKLUcNOUcZGSxl8AHIlg
+	 h2+2od8AllziKPWeMiRmQd5xyDpTrWeX7Q4GvMs66w3CbyfUqIrJP+8hm5IdtX4xAB
+	 lcjMJpMaOA5X4dRLGkMLGNagLWc/Hq8HsEu2b8vGCNn+hgkKzBQkEnMG9tCFC2ztsV
+	 SWDvaSb6YGCctjBcN2PIlbUd1GRylT0Kny1N63wu0TVFPX6Db8Mq8CHgpndRxhMMp7
+	 3WQlXLfCapMOw==
+Date: Tue, 21 Jul 2026 11:35:57 +0200
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Marco Felsch <m.felsch@pengutronix.de>
+Cc: Francesco Dolcini <francesco@dolcini.it>, Marek Vasut <marex@denx.de>,
+	Stefan Agner <stefan@agner.ch>, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v1 2/4] drm: mxsfb: Allow optional LCDIF interface format
+ override
+Message-ID: <20260721093557.GA61843@francesco-nb>
+References: <20260717121847.488148-1-francesco@dolcini.it>
+ <20260717121847.488148-3-francesco@dolcini.it>
+ <bfhx5yyyyqxa6aty4ybdmwp7t7q6kyh5jacotlugf6cyhohmwt@ygi7jioxbyt4>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v17 11/15] arm64: syscall: Simplify el0_svc_common()
- syscall exit path
-To: Linus Walleij <linusw@kernel.org>
-References: <20260721081858.1169276-1-ruanjinjie@huawei.com>
- <20260721081858.1169276-12-ruanjinjie@huawei.com>
- <CAD++jL=D1S7HE9dVwHeOyAmu-6g+BGq+f2=2=BUX-4tzp88NOQ@mail.gmail.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <CAD++jL=D1S7HE9dVwHeOyAmu-6g+BGq+f2=2=BUX-4tzp88NOQ@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <bfhx5yyyyqxa6aty4ybdmwp7t7q6kyh5jacotlugf6cyhohmwt@ygi7jioxbyt4>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_023105_264227_AD9FC653 
-X-CRM114-Status: GOOD (  15.53  )
+X-CRM114-CacheID: sfid-20260721_023609_840107_96195DA3 
+X-CRM114-Status: GOOD (  17.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,76 +82,43 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, kees@kernel.org, catalin.marinas@arm.com, oleg@redhat.com, will@kernel.org, peterz@infradead.org, thuth@redhat.com, ryan.roberts@arm.com, anshuman.khandual@arm.com, kevin.brodsky@arm.com, pengcan@kylinos.cn, broonie@kernel.org, linux-arm-kernel@lists.infradead.org, wad@chromium.org, linux-mm@kvack.org, yeoreum.yun@arm.com, linux-kernel@vger.kernel.org, luto@amacapital.net, james.morse@arm.com, tglx@kernel.org, liqiang01@kylinos.cn
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello Marco,
 
+On Tue, Jul 21, 2026 at 10:52:37AM +0200, Marco Felsch wrote:
+> On 26-07-17, Francesco Dolcini wrote:
+> > From: Francesco Dolcini <francesco.dolcini@toradex.com>
+> > 
+> > LCDIF programs LCD_DATABUS_WIDTH from the selected media bus format. The
+> > format reported by the downstream panel or bridge describes the display
+> > input, but it does not describe how the LCDIF data pins are physically
+> > wired on the board.
+> > 
+> > These can differ. For example, a 16-bit LCDIF bus can be connected to a
+> > 24-bit display by wiring the available color bits to the corresponding
+> > display inputs. In that case, using the display's 24-bit format to
+> > configure LCDIF selects the wrong data-bus mode and changes the assignment
+> > of color bits on the LCD_DATA pins.
+> > 
+> > Read the optional interface-pix-fmt property from the LCDIF node and use
+> > it to select the media bus format used to configure LCDIF. This allows
+> > the LCDIF bus mode to describe the physical interface independently of
+> > the downstream display format.
+> > 
+> > When the optional property is absent, continue using the format reported
+> > by the downstream display device, preserving the existing behavior.
+> > 
+> > This follows the same approach already implemented in
+> > drivers/gpu/drm/imx/ipuv3/parallel-display.c.
+> 
+> According the driver comment, this is a legacy property. If you just
+> want to limit the physical bus width you could use the common of-graph
+> endpoint bus-width property.
 
-On 7/21/2026 4:51 PM, Linus Walleij wrote:
-> On Tue, Jul 21, 2026 at 10:19 AM Jinjie Ruan <ruanjinjie@huawei.com> wrote:
-> 
->> Remove the redundant nested conditional check within the system call
->> exit path of el0_svc_common() to streamline the exit sequence.
->>
->> When entering this fast-path block, CONFIG_DEBUG_RSEQ is guaranteed to be
->> disabled so the call of rseq_syscall() is a no-op.
-> 
-> Please explain why this is guaranteed.
+Yes, I will change to that. Thanks for the feedback.
 
-Yes, there is a little unclear.
-
-The expression "!IS_ENABLED(CONFIG_DEBUG_RSEQ)" evaluates to true only
-when CONFIG_DEBUG_RSEQ is not set; with the guarantee that it is
-disabled, the condition is always satisfied.
-
-> 
->> Under this constraint,
->> the code logic inside the block becomes completely identical to what
->> the arm64_syscall_exit_to_user_mode_work() helper already does. Replace
->> that nested logic with a direct invocation of the helper, eliminating
->> redundant code.
->>
->> Before:
->>
->> | if (... && !IS_ENABLED(CONFIG_DEBUG_RSEQ)) {
->> |       flags = read_thread_flags();
->> |       if (unlikely(flags & _TIF_SYSCALL_EXIT_WORK) || flags & _TIF_SINGLESTEP)
->> |               arm64_syscall_exit_to_user_mode_work(regs);
->> |       return;
->> | }
->> | trace_exit:
->> |       arm64_syscall_exit_to_user_mode_work(regs);
->>
->> After simplify:
->>
->> | if (... && !IS_ENABLED(CONFIG_DEBUG_RSEQ)) {
->> |       arm64_syscall_exit_to_user_mode_work(regs);
->> |       return;
->> | }
->> | trace_exit:
->> |       arm64_syscall_exit_to_user_mode_work(regs);
->>
->> Furthermore, Since both the conditional fast-path and the fallback
->> slow-path now uniformly invoke arm64_syscall_exit_to_user_mode_work(),
->> this explicit conditional branch is entirely redundant regardless of
->> whether the evaluation is true or false. Removing it collapses
->> the duplicated logic into a single, unconditional path.
->>
->> No functional changes.
->>
->> Cc: Mark Rutland <mark.rutland@arm.com>
->> Cc: Will Deacon <will@kernel.org>
->> Cc: Catalin Marinas <catalin.marinas@arm.com>
->> Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
->> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> 
-> After looking at it for a while I conclude you are right, provided
-> the reasoning about !CONFIG_DEBUG_RSEQ holds. So with
-> that explained:
-> Reviewed-by: Linus Walleij <linusw@kernel.org>
-> 
-> Yours,
-> Linus Walleij
+Francesco
 
 
