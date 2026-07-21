@@ -4,82 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EF43C4452B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 20:31:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04044C4452D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 20:36:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f/6dlNNzxrep/I+kUXeBP0Zntpy18OdT5rMs8LfTOhI=; b=DQ9sHePrazClDGpb9aCbP6ZA8j
-	apX8/UBLPgVaot1QrM5z0R+7a8wdEbth4PyKonnDyAZJdcXsspRh08I7javkukiVtPAozOUb/O0m+
-	1609y56sh1hlwzDguyeLbd7YbvCpfhOsfJwAJQxpV1pzNy8Zy4W3pzRHF6d4KNVQFmxNFexI9WyHr
-	e2jPTvzQuTto9eyW27RWYWOR4PypNSqYVR7ugFqzERlkFU0/4hFBGIim0QRrnRb+Ht8XsDUrFy849
-	q+uAmxU1idDkb87PsThq3Spz9kvNRAxiZe+CWRv0Q4gi5SpSG95qX44P03Xn/KofH0qfa58q+/0x/
-	XRK8bfsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=75nElkeyX/1rftfHH9IMo3FcFB/4yMecwRs8lFAe3OE=; b=psfuYoGPzqJznRxSRsJ53t38Uz
+	doORbYPWwCsXAAL/ovBj55msU/j6kKbrMwUKwvko1nkXhBoS5+BA6E3Vfpj3cvp4W5Rxp+rzBLfeZ
+	wMFGihjP+1SaLiw79QFRAWG/Hj6uDuh30+M1A76/kV4m2eT9Z44wLMeWq29YXeE938ACS3kWKA/C/
+	EdxPzgRW2jed3QNbvL3WJses+5MI1djY8wYEAbYii6OfG1kuLocB82Z+MctQ4sgY46qearrAbrZAY
+	6QIzUrUdcClBpDc9BGH8azhuXiTgfKz42PqtEmUdVjmfe1Reb1MSNnYGm7dXS2vKaGa0l+4ehyhud
+	wj9p2Asw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmH7l-0000000ANyN-1Blr;
-	Tue, 21 Jul 2026 20:31:33 +0000
-Received: from mgamail.intel.com ([198.175.65.20])
+	id 1wmHCh-0000000AOOS-3ZOh;
+	Tue, 21 Jul 2026 20:36:39 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmH7i-0000000ANxt-485y
+	id 1wmHCg-0000000AOOF-41oR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 20:31:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1784665891; x=1816201891;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=mELpT8EvpAt86dh+Sl+XOiKX3cuLi6TaXGjWeybKb3c=;
-  b=iP4XN+Igw1puPa+uAtQgahHWgeJPBRGQPWOVSS2PPn1dSLvTZC6fZfoL
-   +VY0PY6Ihacw+Llux7Kd8Lf7vG9M8kCm1ZJL3FflZHzyJo3A746TjC7g/
-   VIOpWjyv2ANzhqHWTA36h/2evu0J30PjPJDGYeDpyat2kOUk+6Gw/pnjZ
-   SMrbkNmpBOMWRD1AI0dli7BCWk5HgkRxIxpc/R81tmXVKKruBug10WezN
-   j0fqcrGg3FWEdHO9gKxQlv13P61Z/hJizMUy9cclJUFbzlOv2nlPkkXJO
-   5pyJVSiLE7cQJ1mI5lPMXQ7i2a7/bGN5jNrzz+vV4nZHXzVGfrEaQj1gf
-   w==;
-X-CSE-ConnectionGUID: DOSBuig1RdCskQi+d2DcYw==
-X-CSE-MsgGUID: Qfw9B4eMQ1ikZIhKZEKGZQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11853"; a="85046555"
-X-IronPort-AV: E=Sophos;i="6.25,177,1779174000"; 
-   d="scan'208";a="85046555"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jul 2026 13:31:30 -0700
-X-CSE-ConnectionGUID: iT9pIwoOSTusznNhX95K7g==
-X-CSE-MsgGUID: 1l8sK7okT1O+xBqBdpftvA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,177,1779174000"; 
-   d="scan'208";a="257940865"
-Received: from ncintean-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.67])
-  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jul 2026 13:31:27 -0700
-Date: Tue, 21 Jul 2026 23:31:25 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: "Shih-Yuan Lee (FourDollars)" <fourdollars@debian.org>
-Cc: Mark Brown <broonie@kernel.org>,
-	Mika Westerberg <mika.westerberg@linux.intel.com>,
-	Lukas Wunner <lukas@wunner.de>, Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v16 5/7] spi: pxa2xx: disable DMA for Apple MacBook8,1
-Message-ID: <al_XHWJktSD_MWHe@ashevche-desk.local>
-References: <20260720162117.32304-1-fourdollars@debian.org>
- <20260720162117.32304-6-fourdollars@debian.org>
- <al52kpB1hklx5guG@ashevche-desk.local>
- <CAAT15mOxrJxb+jRf1P=yu=vXgDj9kRhrdSLkB8v4tEbhHOZ+Pw@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAAT15mOxrJxb+jRf1P=yu=vXgDj9kRhrdSLkB8v4tEbhHOZ+Pw@mail.gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_133131_058177_3D67C64D 
-X-CRM114-Status: GOOD (  19.19  )
+	Tue, 21 Jul 2026 20:36:39 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id F33A3601D9;
+	Tue, 21 Jul 2026 20:36:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D9AC1F00A3A;
+	Tue, 21 Jul 2026 20:36:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux-foundation.org; s=korg; t=1784666197;
+	bh=75nElkeyX/1rftfHH9IMo3FcFB/4yMecwRs8lFAe3OE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=XLQwPvZ9xtGdL+DY6bGaWTnkoRGbd9wQqD5w1Arm5TIeVUGypID8HUCBGnz9J8BB0
+	 Yo5uCAe6oRTZsXgu4C8V9DsfiA5c8LCvitKVd4cAK1Bd9q5+aNkMoju59xFum2nqUX
+	 G4MuLqf+yYanRswvoRSguhUqrQUGE3l3AbfRt5AA=
+Date: Tue, 21 Jul 2026 13:36:36 -0700
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Will Deacon <will@kernel.org>
+Cc: muchun.song@linux.dev, osalvador@suse.de, ljs@kernel.org,
+ david@kernel.org, liam@infradead.org, Dev Jain <dev.jain@arm.com>,
+ catalin.marinas@arm.com, kernel-team@android.com, riel@surriel.com,
+ vbabka@kernel.org, harry@kernel.org, jannh@google.com,
+ lance.yang@linux.dev, kas@kernel.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, apopple@nvidia.com, rcampbell@nvidia.com,
+ ziy@nvidia.com, matthew.brost@intel.com, joshua.hahnjy@gmail.com,
+ rakie.kim@sk.com, byungchul@sk.com, gourry@gourry.net,
+ ying.huang@linux.alibaba.com, ak@linux.intel.com, nao.horiguchi@gmail.com,
+ mel@csn.ul.ie, j-nomura@ce.jp.nec.com, pfalcato@suse.de, tglx@kernel.org,
+ dave.hansen@intel.com, jpoimboe@kernel.org,
+ linux-arm-kernel@lists.infradead.org, ryan.roberts@arm.com,
+ anshuman.khandual@arm.com
+Subject: Re: [PATCH v3 0/6] Fix incorrect access of hugetlb pte entries
+Message-Id: <20260721133636.df1a012df895054d3fd34a2e@linux-foundation.org>
+In-Reply-To: <178464737122.1305746.12295190523058911270.b4-ty@kernel.org>
+References: <20260703114202.365553-1-dev.jain@arm.com>
+	<178464737122.1305746.12295190523058911270.b4-ty@kernel.org>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,50 +78,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 21, 2026 at 10:49:17PM +0800, Shih-Yuan Lee (FourDollars) wrote:
-> On Tue, Jul 21, 2026 at 3:27 AM Andy Shevchenko
-> <andriy.shevchenko@intel.com> wrote:
-> > On Tue, Jul 21, 2026 at 12:21:14AM +0800, Shih-Yuan Lee wrote:
+On Tue, 21 Jul 2026 18:18:38 +0100 Will Deacon <will@kernel.org> wrote:
 
-...
-
-> Thank you for the review and feedback.
+> On Fri, 03 Jul 2026 11:41:53 +0000, Dev Jain wrote:
+> > There are various places which use ptep_get() to get the pte entry
+> > corresponding to a hugetlb folio. Some arches (like s390) have special
+> > handling to compute the pteval, so they provide huge_ptep_get(). Use this
+> > helper consistently.
+> > 
+> > Additionally, some code paths may provide huge_ptep_get with an unaligned
+> > address. This is a problem on arm64 (I checked other arches and it looks
+> > fine for them), which is fixed in patch 1. The fix is made to be
+> > to huge_ptep_get() - that is wider churn and we can do that later.
+> > 
+> > [...]
 > 
-> Regarding your question about why DMA fails on this hardware, I have
-> just sent a detailed reply to Lukas in this thread outlining our
-> physical verification findings. In short, I confirmed that the
-> DMA controller's physical interrupt line is not functioning on this
-> motherboard,
-
-It might be wrongly described in ACPI tables, but in HW it works.
-
-> and macOS and Windows 10 also completely bypass the DMA
-> controller. Please refer to that email for the DMAR/IOMMU and
-> cross-OS analysis details.
+> Applied first patch to arm64 (for-next/fixes), thanks!
 > 
-> Regarding your other comments:
-
-> 2. The force_pio Module Parameter:
-> The original spi-pxa2xx driver is designed to hardcode DMA usage if
-> DMA channels are available. I introduced the force_pio module
-> parameter for two reasons:
->   • It serves as a diagnostic tool for users on similar hardware to
-> easily test and verify if their issues are related to DMA.
->   • It allows developers to easily test and debug the PIO code path on
-> DMA-capable LPSS hardware to prevent regressions.
+> [1/6] arm64: make huge_ptep_get handled unaligned addresses
+>       https://git.kernel.org/arm64/c/9175a8c7cfe88
 > 
-> That being said, if module parameters of this type are strictly not
-> preferred, I am completely fine with removing force_pio and keeping
-> only the DMI-based quirk for the MacBook8,1. Please let me know your
-> preference.
+> I'm hoping Andrew can drop this from the mm tree to avoid a duplicate,
+> but I didn't hear back yet and I'd like to land the fix.
 
-Neither is preferred until we will fully understand what's going on there.
-Yes, DMI quirk is a last resort, but to come to that we need to try better
-options. See my other reply about the DMA case.
+I can redo Dev's series to omit [1/6].  The patches apply that way, but
+there might be build-time or runtime issues running the other patches
+without [1/6] present, haven't looked.
 
--- 
-With Best Regards,
-Andy Shevchenko
+Also, review indicates that the changelog requires updating
+(https://lore.kernel.org/all/2b9d60a2-8698-46b0-80ae-b8747a66a85b@kernel.org/)
+and I believe that Dev plans to do that.
 
+IOW, it would be better to carry this in mm.git with your ack.
 
+Do you plan to upstream this in 7.2-rcX?  If so then I can hang onto
+this patch until it appears in mainline.  Or something.
 
