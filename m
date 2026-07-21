@@ -4,83 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BC4CC4452F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 11:55:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1581C44529
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 11:58:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UJXno+NE2LaIdHpYv/4s8ue4/cjDLWXaEa8lFS8q5GY=; b=3VbmUH3uIsMWE2ub14iqmSrRim
-	7WNMOk/5XMQr0qcSTYr4TNRcoPyHxJR6NrZBDNQMwO7smvyPk0kCAdwdMGI5FpOMKz4gn7C7+tr20
-	5B6YKWyOhCi2giFr3pOnNlbKcF4yBYfgluoee8bPGMmgOjfNxXlKbvWt/v2MDc8VA7GXnLLw8KtZY
-	yPba0NLW8CgSC6pOPE/EHeMLiwM/o6Ty/ktqLmyAY6HiyD0qmk5AozhezE9bC5yKlOIEL0j77f9w6
-	JaHL2JQf58qsJRkejMonNeSGxIN1h0MPAphhSAWz8ZyzJ6YFbEg35kgrEdq0yhJ2RdNuksCTaEsma
-	1NqES5BQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TbRt66DWq0Kax2nWpkRuQuxuobx/m8rLkvG747KBwKg=; b=f/4hknbA6YavPpvatzDgtlMKRE
+	qfFRS7XEqXJpZ6UsKrmwxJ+FcXTddpE7/SKkIKKtRkPR58IfUXNJ57Kbo2etR7rfpzwwmWsYtOvBB
+	VxCvnhFCoigXAIBPn1F/hWa6Pz4hnueo6VzNGV+F6ripC6aBgA8RvPJdVkfMpvjIZH/9xLj33Syy6
+	+q4NdVoUOhksKhmANZnq3e7vXoNYf0V+0UbU10I0Zf3kwKfPUk6ttv7zC0NqKQ5w2zLEYiyckMXAu
+	O57FE24Z1PgpB74okSzssMdV34l/CMUPcsJOjORX1gN6a649mBzY23ptcf76JHVf85onB61KSme2H
+	INoYgWaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm93v-00000009MFn-1yjp;
-	Tue, 21 Jul 2026 11:55:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wm97Q-00000009Map-0OFi;
+	Tue, 21 Jul 2026 11:58:40 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm93t-00000009MFS-3J7m
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 11:55:01 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4482241FA5;
-	Tue, 21 Jul 2026 11:55:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E50E81F000E9;
-	Tue, 21 Jul 2026 11:54:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784634901;
-	bh=UJXno+NE2LaIdHpYv/4s8ue4/cjDLWXaEa8lFS8q5GY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=F95kPevlSn1NQmmXdgfNRRHtm8wP1sXWeSsajbmTVkqIVzEt4omP7+o8h/zzqgon8
-	 aO2X352TPWBumHybCH5wICorK7tHQOJ+DLfga1PMxYtgGyqAr1d75R36jZQcoAZQ0G
-	 u4Ltzvzc8UN19pVa60sSITfwm9xlmo7Hr5kTf7or5X1dbKVS99JrE6bfnBoFbv+ckQ
-	 REkQsHFwee8HrNaRT8lHJe7QWLL3u2KfR4piTx/+d8f8FoJDJV6XZZXLGbwgVG6/2w
-	 R3oYpiCOUEawrQ7xZmqfEe7FPeRTR/3x9h6o8gh9596QPZeiwtdrlz0QLXVFYHGROp
-	 Opr9JesAwQ3ow==
-Date: Tue, 21 Jul 2026 14:54:56 +0300
-From: Leon Romanovsky <leon@kernel.org>
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
-	stable@vger.kernel.org, Michael Kelley <mhklinux@outlook.com>,
-	Jason Gunthorpe <jgg@nvidia.com>
-Subject: Re: [PATCH v8 01/23] dma-direct: return struct page from
- dma_direct_alloc_from_pool()
-Message-ID: <20260721115456.GI110966@unreal>
-References: <20260717180442.110954-1-aneesh.kumar@kernel.org>
- <20260717180442.110954-2-aneesh.kumar@kernel.org>
+	id 1wm97N-00000009MaN-1aYm;
+	Tue, 21 Jul 2026 11:58:39 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 9A9EE1A1135;
+	Tue, 21 Jul 2026 11:58:31 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 68D4C60368;
+	Tue, 21 Jul 2026 11:58:31 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6790111BD3CB9;
+	Tue, 21 Jul 2026 13:58:22 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1784635109; h=from:subject:date:message-id:to:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=TbRt66DWq0Kax2nWpkRuQuxuobx/m8rLkvG747KBwKg=;
+	b=LQFHapx21KVFtPunsPbh+HHXqTk1H7GVbBNTj7tQjCBFkZbuNXa967ZK8eUxdtYBo+awP3
+	QXd4UWnXD46kGwqbUHlhPj2/GTNi5lY9gj+1WMyRJ6ASd87VIJJXnUlPRyBvunJYEW4YgY
+	oNxQwhW+Av+BRKabgld4w+XGCtMfcuBvx359GEiIZDZzgpac9nuUN3an5DK6tiULWiIU6H
+	mBBuCWZOi1jv+l9G1EvfYp+S2QT4V/AfPWB4a9S4zLk7a4aKpA8QNsU9WE/pF0ltSo7R49
+	KNpoBclpoH7lUte+kjPQrQOqsflW2GjfRSugiD7l2FFCHCdicNGzq0hEt6SOUQ==
+Message-ID: <b8f26ddd-4c95-44a2-b93f-ef198702c838@bootlin.com>
+Date: Tue, 21 Jul 2026 13:58:21 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260717180442.110954-2-aneesh.kumar@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v9 00/12] net: pcs: Introduce support for fwnode
+ PCS
+To: Christian Marangi <ansuelsmth@gmail.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Simon Horman <horms@kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ Lorenzo Bianconi <lorenzo@kernel.org>, Heiner Kallweit
+ <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>,
+ Saravana Kannan <saravanak@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20260717065448.1498335-1-ansuelsmth@gmail.com>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <20260717065448.1498335-1-ansuelsmth@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260721_045837_601876_BA56D4B6 
+X-CRM114-Status: GOOD (  25.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,102 +87,254 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 17, 2026 at 11:34:19PM +0530, Aneesh Kumar K.V (Arm) wrote:
-> Commit 5b138c534fda ("dma-direct: factor out a dma_direct_alloc_from_pool
-> helper") changed dma_direct_alloc_from_pool() to return the CPU address
-> from dma_alloc_from_pool(). That fits dma_direct_alloc(), but
-> dma_direct_alloc_pages() also uses the helper and expects a struct page *.
-> 
-> Fix this by making dma_direct_alloc_from_pool() return the struct page *
-> again, and pass the CPU address back through an out-parameter for the
-> dma_direct_alloc() caller.
-> 
-> Fixes: 5b138c534fda ("dma-direct: factor out a dma_direct_alloc_from_pool helper")
-> Cc: stable@vger.kernel.org
-> Tested-by: Michael Kelley <mhklinux@outlook.com>
-> Tested-by: Mostafa Saleh <smostafa@google.com>
-> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
-> ---
->  kernel/dma/direct.c | 18 ++++++++++--------
->  1 file changed, 10 insertions(+), 8 deletions(-)
-> 
-> diff --git a/kernel/dma/direct.c b/kernel/dma/direct.c
-> index d8219efe3273..363d984d90e7 100644
-> --- a/kernel/dma/direct.c
-> +++ b/kernel/dma/direct.c
-> @@ -164,22 +164,21 @@ static bool dma_direct_use_pool(struct device *dev, gfp_t gfp)
->  	return !gfpflags_allow_blocking(gfp) && !is_swiotlb_for_alloc(dev);
->  }
->  
-> -static void *dma_direct_alloc_from_pool(struct device *dev, size_t size,
-> -		dma_addr_t *dma_handle, gfp_t gfp)
-> +static struct page *dma_direct_alloc_from_pool(struct device *dev, size_t size,
-> +		dma_addr_t *dma_handle, void **cpu_addr, gfp_t gfp)
->  {
->  	struct page *page;
->  	u64 phys_limit;
-> -	void *ret;
->  
->  	if (WARN_ON_ONCE(!IS_ENABLED(CONFIG_DMA_COHERENT_POOL)))
->  		return NULL;
->  
->  	gfp |= dma_direct_optimal_gfp_mask(dev, &phys_limit);
-> -	page = dma_alloc_from_pool(dev, size, &ret, gfp, dma_coherent_ok);
-> +	page = dma_alloc_from_pool(dev, size, cpu_addr, gfp, dma_coherent_ok);
->  	if (!page)
->  		return NULL;
->  	*dma_handle = phys_to_dma_direct(dev, page_to_phys(page));
-> -	return ret;
-> +	return page;
->  }
->  
->  static void *dma_direct_alloc_no_mapping(struct device *dev, size_t size,
-> @@ -247,8 +246,11 @@ void *dma_direct_alloc(struct device *dev, size_t size,
->  	 * the atomic pools instead if we aren't allowed block.
->  	 */
->  	if ((remap || force_dma_unencrypted(dev)) &&
-> -	    dma_direct_use_pool(dev, gfp))
-> -		return dma_direct_alloc_from_pool(dev, size, dma_handle, gfp);
-> +	    dma_direct_use_pool(dev, gfp)) {
-> +		page = dma_direct_alloc_from_pool(dev, size, dma_handle,
-> +						  &ret, gfp);
-> +		return page ? ret : NULL;
+Hi Christian,
 
-Sorry for joining the discussion late, but the line above caught my
-attention.
+On 7/17/26 08:54, Christian Marangi wrote:
+> This series introduce a most awaited feature that is correctly
+> provide PCS with fwnode without having to use specific export symbol
+> and additional handling of PCS in phylink.
+I was finally able to spend a bit of time digging deeper, I ported the
+mvpp2 driver to your new API to test that dynamic PCS selection for
+internal PCSs still works, and it's all good :)
 
-Why do we need both ret and page? We can derive cpu_addr from page and
-vice versa. Do we really need the &ret parameter? Or, more generally, do
-we really need "struct page *"?
+Congrats on that work !
 
-static struct page *__dma_alloc_from_pool(struct device *dev, size_t size,
-		struct gen_pool *pool, void **cpu_addr,
-		bool (*phys_addr_ok)(struct device *, phys_addr_t, size_t))
-{
-...
-	*cpu_addr = (void *)addr;
-	memset(*cpu_addr, 0, size);
-	return pfn_to_page(__phys_to_pfn(phys));
-}
+This didn't exercise all code paths, especially with the fwnode API but
+you've tested that enough on your side :)
 
-Why 
+Maxime
 
-> +	}
->  
->  	/* we always manually zero the memory once we are done */
->  	page = __dma_direct_alloc_pages(dev, size, gfp & ~__GFP_ZERO, true);
-> @@ -357,7 +359,7 @@ struct page *dma_direct_alloc_pages(struct device *dev, size_t size,
->  	void *ret;
->  
->  	if (force_dma_unencrypted(dev) && dma_direct_use_pool(dev, gfp))
-> -		return dma_direct_alloc_from_pool(dev, size, dma_handle, gfp);
-> +		return dma_direct_alloc_from_pool(dev, size, dma_handle, &ret, gfp);
->  
->  	page = __dma_direct_alloc_pages(dev, size, gfp, false);
->  	if (!page)
-> -- 
-> 2.43.0
-> 
-> 
+The patch I used for testing if you're curious :
+
+(I'll send that once this series land, or you can include it but I don't
+want to delay your work in case the patch goes through rounds of reviews...)
+
+--- 8>< -----------------------------------------------------------------
+
+From 38ad94b1e62bf3523097983dfb515f59b1634477 Mon Sep 17 00:00:00 2001
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Date: Tue, 21 Jul 2026 13:52:57 +0200
+Subject: [PATCH] net: marvell: mvpp2: Convert to the new PCS API
+
+Following the introduction of the PCS framework, port mvpp2 to the new
+PCS API.
+
+Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+---
+ .../net/ethernet/marvell/mvpp2/mvpp2_main.c   | 161 +++++++++++-------
+ 1 file changed, 95 insertions(+), 66 deletions(-)
+
+diff --git a/drivers/net/ethernet/marvell/mvpp2/mvpp2_main.c b/drivers/net/ethernet/marvell/mvpp2/mvpp2_main.c
+index ccc24a1301f2..8d9663c7a023 100644
+--- a/drivers/net/ethernet/marvell/mvpp2/mvpp2_main.c
++++ b/drivers/net/ethernet/marvell/mvpp2/mvpp2_main.c
+@@ -6499,21 +6499,6 @@ static void mvpp2_gmac_config(struct mvpp2_port *port, unsigned int mode,
+ 		writel(ctrl4, port->base + MVPP22_GMAC_CTRL_4_REG);
+ }
+ 
+-static struct phylink_pcs *mvpp2_select_pcs(struct phylink_config *config,
+-					    phy_interface_t interface)
+-{
+-	struct mvpp2_port *port = mvpp2_phylink_to_port(config);
+-
+-	/* Select the appropriate PCS operations depending on the
+-	 * configured interface mode. We will only switch to a mode
+-	 * that the validate() checks have already passed.
+-	 */
+-	if (mvpp2_is_xlg(interface))
+-		return &port->pcs_xlg;
+-	else
+-		return &port->pcs_gmac;
+-}
+-
+ static int mvpp2_mac_prepare(struct phylink_config *config, unsigned int mode,
+ 			     phy_interface_t interface)
+ {
+@@ -6786,7 +6771,6 @@ static int mvpp2_mac_enable_tx_lpi(struct phylink_config *config, u32 timer,
+ }
+ 
+ static const struct phylink_mac_ops mvpp2_phylink_ops = {
+-	.mac_select_pcs = mvpp2_select_pcs,
+ 	.mac_prepare = mvpp2_mac_prepare,
+ 	.mac_config = mvpp2_mac_config,
+ 	.mac_finish = mvpp2_mac_finish,
+@@ -6808,7 +6792,10 @@ static void mvpp2_acpi_start(struct mvpp2_port *port)
+ 	};
+ 	struct phylink_pcs *pcs;
+ 
+-	pcs = mvpp2_select_pcs(&port->phylink_config, port->phy_interface);
++	if (mvpp2_is_xlg(port->phy_interface))
++		pcs = &port->pcs_xlg;
++	else
++		pcs = &port->pcs_gmac;
+ 
+ 	mvpp2_mac_prepare(&port->phylink_config, MLO_AN_INBAND,
+ 			  port->phy_interface);
+@@ -6823,6 +6810,78 @@ static void mvpp2_acpi_start(struct mvpp2_port *port)
+ 			  SPEED_UNKNOWN, DUPLEX_UNKNOWN, false, false);
+ }
+ 
++static int mvpp2_port_fill_pcs(struct phylink_config *config,
++			       struct phylink_pcs **available_pcs,
++			       unsigned int num_possible_pcs)
++{
++	struct mvpp2_port *port = mvpp2_phylink_to_port(config);
++
++	available_pcs[0] = &port->pcs_gmac;
++
++	if (mvpp2_port_supports_xlg(port)) {
++		if (num_possible_pcs < 2)
++			return -EINVAL;
++
++		available_pcs[1] = &port->pcs_xlg;
++	}
++
++	return 0;
++}
++
++static void mvpp2_port_init_pcs_xlg(struct phylink_pcs *pcs, bool has_comphy,
++				    phy_interface_t phy_mode)
++{
++	if (has_comphy) {
++		__set_bit(PHY_INTERFACE_MODE_5GBASER,
++			  pcs->supported_interfaces);
++		__set_bit(PHY_INTERFACE_MODE_10GBASER,
++			  pcs->supported_interfaces);
++		__set_bit(PHY_INTERFACE_MODE_XAUI,
++			  pcs->supported_interfaces);
++	} else if (phy_mode == PHY_INTERFACE_MODE_5GBASER) {
++		__set_bit(PHY_INTERFACE_MODE_5GBASER,
++			  pcs->supported_interfaces);
++	} else if (phy_mode == PHY_INTERFACE_MODE_10GBASER) {
++		__set_bit(PHY_INTERFACE_MODE_10GBASER,
++			  pcs->supported_interfaces);
++	} else if (phy_mode == PHY_INTERFACE_MODE_XAUI) {
++		__set_bit(PHY_INTERFACE_MODE_XAUI,
++			  pcs->supported_interfaces);
++	}
++}
++
++static void mvpp2_port_init_pcs_gmac(struct phylink_pcs *pcs, bool has_comphy,
++				     phy_interface_t phy_mode)
++{
++	if (has_comphy) {
++		/* If a COMPHY is present, we can support any of the
++		 * serdes modes and switch between them.
++		 */
++		__set_bit(PHY_INTERFACE_MODE_SGMII,
++			  pcs->supported_interfaces);
++		__set_bit(PHY_INTERFACE_MODE_1000BASEX,
++			  pcs->supported_interfaces);
++		__set_bit(PHY_INTERFACE_MODE_2500BASEX,
++			  pcs->supported_interfaces);
++	} else if (phy_mode == PHY_INTERFACE_MODE_2500BASEX) {
++		/* No COMPHY, with only 2500BASE-X mode supported */
++		__set_bit(PHY_INTERFACE_MODE_2500BASEX,
++			  pcs->supported_interfaces);
++	} else if (phy_mode == PHY_INTERFACE_MODE_1000BASEX ||
++		   phy_mode == PHY_INTERFACE_MODE_SGMII) {
++		/* No COMPHY, we can switch between 1000BASE-X and SGMII
++		 */
++		__set_bit(PHY_INTERFACE_MODE_1000BASEX,
++			  pcs->supported_interfaces);
++		__set_bit(PHY_INTERFACE_MODE_SGMII,
++			  pcs->supported_interfaces);
++	}
++
++	/* RGMII and MII are still routed through the gmac PCS */
++	phy_interface_set_rgmii(pcs->supported_interfaces);
++	__set_bit(PHY_INTERFACE_MODE_MII, pcs->supported_interfaces);
++}
++
+ /* In order to ensure backward compatibility for ACPI, check if the port
+  * firmware node comprises the necessary description allowing to use phylink.
+  */
+@@ -7082,28 +7141,17 @@ static int mvpp2_port_probe(struct platform_device *pdev,
+ 			port->phylink_config.mac_capabilities |=
+ 				MAC_SYM_PAUSE | MAC_ASYM_PAUSE;
+ 
+-		if (mvpp2_port_supports_xlg(port)) {
+-			/* If a COMPHY is present, we can support any of
+-			 * the serdes modes and switch between them.
+-			 */
+-			if (comphy) {
+-				__set_bit(PHY_INTERFACE_MODE_5GBASER,
+-					  port->phylink_config.supported_interfaces);
+-				__set_bit(PHY_INTERFACE_MODE_10GBASER,
+-					  port->phylink_config.supported_interfaces);
+-				__set_bit(PHY_INTERFACE_MODE_XAUI,
+-					  port->phylink_config.supported_interfaces);
+-			} else if (phy_mode == PHY_INTERFACE_MODE_5GBASER) {
+-				__set_bit(PHY_INTERFACE_MODE_5GBASER,
+-					  port->phylink_config.supported_interfaces);
+-			} else if (phy_mode == PHY_INTERFACE_MODE_10GBASER) {
+-				__set_bit(PHY_INTERFACE_MODE_10GBASER,
+-					  port->phylink_config.supported_interfaces);
+-			} else if (phy_mode == PHY_INTERFACE_MODE_XAUI) {
+-				__set_bit(PHY_INTERFACE_MODE_XAUI,
+-					  port->phylink_config.supported_interfaces);
+-			}
++		if (!mvpp2_port_supports_xlg(port))
++			port->phylink_config.num_possible_pcs = 1;
++		else
++			port->phylink_config.num_possible_pcs = 2;
++
++		port->phylink_config.fill_available_pcs = mvpp2_port_fill_pcs;
+ 
++		mvpp2_port_init_pcs_xlg(&port->pcs_xlg, comphy, phy_mode);
++		mvpp2_port_init_pcs_gmac(&port->pcs_gmac, comphy, phy_mode);
++
++		if (mvpp2_port_supports_xlg(port)) {
+ 			if (comphy)
+ 				port->phylink_config.mac_capabilities |=
+ 					MAC_10000FD | MAC_5000FD;
+@@ -7115,35 +7163,16 @@ static int mvpp2_port_probe(struct platform_device *pdev,
+ 					MAC_10000FD;
+ 		}
+ 
+-		if (mvpp2_port_supports_rgmii(port)) {
+-			phy_interface_set_rgmii(port->phylink_config.supported_interfaces);
+-			__set_bit(PHY_INTERFACE_MODE_MII,
+-				  port->phylink_config.supported_interfaces);
+-		}
++		phy_interface_copy(port->phylink_config.pcs_interfaces,
++				   port->pcs_gmac.supported_interfaces);
+ 
+-		if (comphy) {
+-			/* If a COMPHY is present, we can support any of the
+-			 * serdes modes and switch between them.
+-			 */
+-			__set_bit(PHY_INTERFACE_MODE_SGMII,
+-				  port->phylink_config.supported_interfaces);
+-			__set_bit(PHY_INTERFACE_MODE_1000BASEX,
+-				  port->phylink_config.supported_interfaces);
+-			__set_bit(PHY_INTERFACE_MODE_2500BASEX,
+-				  port->phylink_config.supported_interfaces);
+-		} else if (phy_mode == PHY_INTERFACE_MODE_2500BASEX) {
+-			/* No COMPHY, with only 2500BASE-X mode supported */
+-			__set_bit(PHY_INTERFACE_MODE_2500BASEX,
+-				  port->phylink_config.supported_interfaces);
+-		} else if (phy_mode == PHY_INTERFACE_MODE_1000BASEX ||
+-			   phy_mode == PHY_INTERFACE_MODE_SGMII) {
+-			/* No COMPHY, we can switch between 1000BASE-X and SGMII
+-			 */
+-			__set_bit(PHY_INTERFACE_MODE_1000BASEX,
+-				  port->phylink_config.supported_interfaces);
+-			__set_bit(PHY_INTERFACE_MODE_SGMII,
+-				  port->phylink_config.supported_interfaces);
+-		}
++		if (mvpp2_port_supports_xlg(port))
++			phy_interface_or(port->phylink_config.pcs_interfaces,
++					 port->phylink_config.pcs_interfaces,
++					 port->pcs_xlg.supported_interfaces);
++
++		phy_interface_copy(port->phylink_config.supported_interfaces,
++				   port->phylink_config.pcs_interfaces);
+ 
+ 		phylink = phylink_create(&port->phylink_config, port_fwnode,
+ 					 phy_mode, &mvpp2_phylink_ops);
+-- 
+2.55.0
+
+
 
