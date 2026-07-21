@@ -4,98 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E220BC44529
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 06:42:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF04DC4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 06:52:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ulPEDLH/C//NrEG8Ra6a2W7BH2SJyZZBWy1vtB32mys=; b=V5bPH4r5TBz/CgsMKVUDNEkz54
-	jCnVO0jZPNCZ6AXWj8RONkW26cQpfZ0KshTQD8GVsZW2wpv3/15JQl2zNt/TM+MIQ8AbGYp2gFXlg
-	5drrOsyIqw688ECsVUxjFgn/KhrvT+guVEZZqQT59j9WRxiuArsLI4rDm8IWmoJcb2cNNGpB6sBSI
-	dbTUek+Cb+qWrSWUvuSFgm+rqO7Kyhliv9qvu7uHbVx4AyPlI8TcrfHSzYDRB/2/VZHaeTxW1q8s7
-	eq7ffPXva5obvke/Wn0Y/glFcd5+V0F+eq5b2XILz5qWEZhiIUqNZLwC7z2gKVuQDqtFVD7jPxsi3
-	9vAWoo/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ecPqk7dPmScIh6Av3W0D+6bpYM48TCqyyw+XursOn7w=; b=YFA4fq5uih85wom4VXefOr2A2a
+	Ou0+SRv6CJmr7Q24w0raX9K4AZtMlr2ryxnNnARVRd7b12FuhItorkiDRzI32XnuWpMgm87yohykr
+	r9ad8NXqQJ8Etv1ZsDICxRxsi71Ef35ppETlRzOlzZF1dK3k/yomt5BknRN2jPVbnv/APgM0av9Dq
+	g5nVOjOF7YaDovfaQwDQXAF3+7oboDJbINEcdzS7H4UMNxh3qw0/C7+IfVbU1K1BYnhyBt7WclD6d
+	eJMUksNrODq47q7ql4iNh6KXa309Wo3/HyY0GMExPNh6Z+jdac4PDNQvQ5hZvnbAd7uMYcqJb0xIl
+	AdF0vLvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm4Aw-00000008YOa-2wDn;
-	Tue, 21 Jul 2026 06:41:58 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1wm4LB-00000008Zfh-0YTn;
+	Tue, 21 Jul 2026 06:52:33 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm4AZ-00000008Y1j-3Tzx
+	id 1wm4LA-00000008Zfa-2SAh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 06:41:37 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-494049206c6so4264745e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 23:41:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784616094; x=1785220894; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ulPEDLH/C//NrEG8Ra6a2W7BH2SJyZZBWy1vtB32mys=;
-        b=j+TuBicjnvPlLc0Fv93hDY11aR7Vm9YjpVk4MZoYdd6iyqpJrOZAURy7yKphGgh1e7
-         BbYskZ8LMxR71h6fhq7ICOEhZYlE1dI7pfCCeQfZvnC0Qcp8fZrKn5nIwy+rdc2q60Rk
-         q6ZQcS9eDB1Jlq3wzHuMUvUhvekIJZYK6kARZ+1pmw79ENip48TAleG/kCsUEgKAytPb
-         25oSAKtept+xwgynkyCwrQCnZHi63pbui1ZEkIJzdD3YK2DS+9t0UdVMP5fVfW7XiWu5
-         sgjiBup8VskWAPo5K1TCc8aG0kmvST7kZ9ZJS503rl3sQ3tp9iPXzvIiWmfeuUdvR977
-         waCw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784616094; x=1785220894;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ulPEDLH/C//NrEG8Ra6a2W7BH2SJyZZBWy1vtB32mys=;
-        b=hhVwGLIMDQFat/dgXUn/Epz9/ea3nOhUBo0KCr0h4SH3DvNhUly253tYKYAQlWcNGx
-         Pl15+Bn0IH1USJF/goYiGty4Hge9hMrsayJi/CBey+m7VrzRHJmob+16UZaawOsSwITM
-         c+UIflUhIOu7X26+BwEtGA65WNkZ6ivW3GVsDHcdxWJ7kPMmLrU9m3//5DcUPoyUTQta
-         PmrOU4H/g/Wgu2bD1MsWD6feI8lK9LBiFnJOzqV8tXcQtH8XVmKrB+175iFPoN8guHIt
-         bI1lm9ehoFuyv8ROm5mNXtzd5ltEaEFCEp78JLu5sHw+1QuZRY8Mekc0CeVHrjMZRfou
-         bAEQ==
-X-Forwarded-Encrypted: i=1; AHgh+RoRMiWg88/yAGMwTguN+lknRjrbtgRo1/R+1/ytz/WOLirvacIPUHQjmZZzpVXlN7eLfVmLnUAreIC1KinyLrYk@lists.infradead.org
-X-Gm-Message-State: AOJu0YzPq6lvISu9oCMIDLF5kIKz3sXPZOUbYjsYCtAySa10jKvVADJ6
-	AKX7+y6AHzDCImLSDi6jAp1qKKS8vxNnbVXgamuvNCYPCNqb8Hvr6Kx3
-X-Gm-Gg: AfdE7cka2D9dK1hN3lJ/+3v1fXVc13H2ap/8qgX1NHBa0PSfuRfnXxaG3dPaZULCgWu
-	VYgD5Aa1gSubsDtyQ94DAaZaRERdRdpgHb1UJME4eg7tLaZPCORg8cIBVnGtKyNvG9DVHWQPg7M
-	W7pPZavQtWXvQvObA2zxqh/s2lbL+LlN2ZHqQn/1hBCUjTxiHgLC1Yd9UpFfaq+XZBJjMXxen6H
-	lRCwBAnTVx5/kLJN/6iHvQvXOSJMkOPoZ23glGtmtL0WoCIIwPinMAfE8XwOvZ2voi5jyUOwa4Z
-	IkWprJJRrngCfRwjI61LfN63XNJuNsR/B4cVcMQB+kj8uair6tuBbqkGDVL+veOVJxAMbGauFb+
-	ihJU4IjEFp7e6/GYkY/kCaJxPs8sXX3KscqFEFEceAvi14RlSGzTDEZoMXKmNp8IeKtZQ+jG0A2
-	zDKBsvC+mjGQuYi2QWCOGUnPF8KGRHhOtMpc9r8nms0OPuB/dEdDEJSOPHXb4ET809PcBZpgW+W
-	PUsxJsavZo=
-X-Received: by 2002:a05:600c:1911:b0:495:59af:7a5e with SMTP id 5b1f17b1804b1-4956598fb80mr11601215e9.5.1784616093905;
-        Mon, 20 Jul 2026 23:41:33 -0700 (PDT)
-Received: from OrangePi5-Plus.BB-HOME (20014C4E1B88AD00DA0BF9DB4519DBD6.dsl.pool.telekom.hu. [2001:4c4e:1b88:ad00:da0b:f9db:4519:dbd6])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f63ed1911sm38837951f8f.22.2026.07.20.23.41.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Jul 2026 23:41:33 -0700 (PDT)
-From: Igor Paunovic <royalnet026@gmail.com>
-To: Dmitry Osipenko <dmitry.osipenko@collabora.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>
-Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
+	Tue, 21 Jul 2026 06:52:32 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 90F6660A8E;
+	Tue, 21 Jul 2026 06:52:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43E181F000E9;
+	Tue, 21 Jul 2026 06:52:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784616751;
+	bh=ecPqk7dPmScIh6Av3W0D+6bpYM48TCqyyw+XursOn7w=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Mjn7NJH1DoVyenPD36cyNInYRA2icOYNKmPRaBkUE/vN01rOF7J8Q3dmPKqCmhAho
+	 bHgeGehcddg79YLm3MHJE/bM9WSZei+cctH1qtTTyMPoWKVbpsnoePLsrNC2jhDUZ9
+	 k2jIvIrqfHGR7Esy//Gk1JjQMuqV5HfU/BBLa3AKITpd7be1j17lXfSYg1A9RpAs9H
+	 pFEoot4n0MmOAFcYsmPxJrYK6OdFxydIwH63P3a8oCgqo0OryUVYkasGrKArxpwy0/
+	 j4FV0PAiulOGKdeVljZ0biuBRk7MwiSlsH6ORwefsW+kVonnO6/aATgb3s3RIPYEXE
+	 6Jg1tFQoPDsww==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wm4L7-000000075j7-1fSw;
+	Tue, 21 Jul 2026 06:52:29 +0000
+Date: Tue, 21 Jul 2026 07:52:28 +0100
+Message-ID: <861pcwg7gz.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Vincent Donnefort <vdonnefort@google.com>,
+	oupton@kernel.org,
+	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Igor Paunovic <royalnet026@gmail.com>
-Subject: [PATCH v4 4/4] arm64: dts: rockchip: enable HDMI RX audio capture on Orange Pi 5 Plus
-Date: Tue, 21 Jul 2026 08:41:15 +0200
-Message-ID: <20260721064115.64809-5-royalnet026@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260721064115.64809-1-royalnet026@gmail.com>
-References: <20260721064115.64809-1-royalnet026@gmail.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_234135_910817_D5C5D46B 
-X-CRM114-Status: GOOD (  13.65  )
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	kernel-team@android.com
+Subject: Re: [PATCH v2] KVM: arm64: Fix hyp_trace clock disabling
+In-Reply-To: <CA+EHjTyVRn8BR7bLBo5m_k9m1VNv95y4h+WTJvz86FTf+=XeFg@mail.gmail.com>
+References: <20260715105100.3178255-1-vdonnefort@google.com>
+	<CA+EHjTyVRn8BR7bLBo5m_k9m1VNv95y4h+WTJvz86FTf+=XeFg@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, vdonnefort@google.com, oupton@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,52 +90,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the shared HDMI RX sound card and the i2s7_8ch interface it
-uses. Together with the audio capture support in the snps_hdmirx
-driver this exposes a capture-only ALSA card fed by the HDMI input.
+On Mon, 20 Jul 2026 20:45:00 +0100,
+Fuad Tabba <fuad.tabba@linux.dev> wrote:
+> 
+> Hi Vincent,
+> 
+> On Wed, 15 Jul 2026 at 11:51, Vincent Donnefort <vdonnefort@google.com> wrote:
+> >
+> > Fix the disable path in hyp_trace_clock_enable(), which fell through to
+> > re-initialize and reschedule the clock after cancelling the work. Return
+> > early instead.
+> >
+> > While at it, cleanup hyp_trace_clock::lock which is unused and
+> > hyp_trace_clock::running which is redundant: the trace_remote framework
+> > already serializes calls to the callback enable_tracing.
+> 
+> Although the cleanup and the fix are to the same commit, could this be
+> split into the fix and the lock/running cleanup as a separate patch?
+> Since b22888917fa41 is already in a released kernel, the fix will
+> likely go to stable, and it'd be nice to keep that backport to just
+> the behavioural change.
 
-Tested on the Orange Pi 5 Plus with multiple HDMI sources: capture
-follows the source sample rate and stays in sync via the FIFO-level
-clock tracking in the driver.
+Not sure I get what you mean here. From what I can see, this patch
+fully applies to b22888917fa41. Given that this is the third version
+for something that trivial (two from Vincent, one from you), can we
+please agree on *something* quickly?
 
-Signed-off-by: Igor Paunovic <royalnet026@gmail.com>
----
-Changes in v4:
-- only enable the shared hdmi_receiver_sound card and i2s7_8ch, now
-  that the card definition lives in rk3588-extra.dtsi (Sebastian
-  Reichel)
+Thanks,
 
-New in v3.
- arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts | 8 ++++++++
- 1 file changed, 8 insertions(+)
+	M.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
-index 9950d11..9f9a303 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
-@@ -171,6 +171,10 @@
- 	status = "okay";
- };
- 
-+&hdmi_receiver_sound {
-+	status = "okay";
-+};
-+
- &hdptxphy0 {
- 	status = "okay";
- };
-@@ -247,6 +251,10 @@
- 	status = "okay";
- };
- 
-+&i2s7_8ch {
-+	status = "okay";
-+};
-+
- &led_blue_gpio {
- 	gpios = <&gpio3 RK_PA6 GPIO_ACTIVE_HIGH>;
- 	status = "okay";
 -- 
-2.53.0
-
+Without deviation from the norm, progress is not possible.
 
