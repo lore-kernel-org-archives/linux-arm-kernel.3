@@ -4,94 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 590FAC4452D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 22:54:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05ECAC4452D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 23:03:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QGYc1TdXcvIKmo54F2N01YiaD23wedJvo9tZPTjUvCE=; b=hxb5lPCV4Y97KhuNfDPONAUECG
-	7/N5PVj3p1M1xcENrNmtLidyRukjTOarmx+Ueodm8W/GH+LBlNj6gYM6iqCZ3lY64rOJJNEOlv6VU
-	1uFl97/YbAaDXCAExxabf4TdIMIHf8R16OfclsspPk/7rHrChFecLEpxtlt6AmqdxVyCkcRkGQtxM
-	1moIzF7kkoT2D17R+xXzpEy0ANv0uhlQnoGeSeLHHRJIdv0Mp1AmdFaBTLLqg/CzPLVmGOAhzVSwT
-	XAw8iJtLtBSbyCy/IsiKvNTXQ9CMh77e3JZv41CxgNyg23m0w327H6Z/zLg+2MBEfKoIUad21pOWK
-	/CTiENnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=NJKoZRGKO9NbNpeWxmViKbQ0iXfhg+MMY+xSLEzpUsk=; b=zuiUk0kqm95DoW
+	lxaHjOSyMsEMHgaeRovks0kub/I4jHg45mlyTPsWy6z6nGVUn9EjJmrbVO11PzkCLiHrxGR2klyO0
+	4WVIRjYXd+BXkCteLDGCBNTFkr7doXaeMuAjpob02VeDuDD7ABLvxjv/FxmP0QS53pAutd6fcwMR+
+	aBBlUhdvPjGuTMgGo7Pz+YjYqlvvonntNdy6NgYBA9BEDNM+bGwVGB+TW4zl7TKVXVETbF+eSssUn
+	HIU0/6JCrxPeAV71vFLuCWCcvkHz6Y0vBD4pCxFo7lT4saJ6BcRW6ygtArZ047/d0SW/kCXmlVLPN
+	9aE4JdaICy2udTlThcxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmJLt-0000000AXJy-39u2;
-	Tue, 21 Jul 2026 22:54:17 +0000
-Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
+	id 1wmJV0-0000000AXma-46Zc;
+	Tue, 21 Jul 2026 23:03:43 +0000
+Received: from mail-ot1-x347.google.com ([2607:f8b0:4864:20::347])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmJLq-0000000AXJZ-2NGD
+	id 1wmJUy-0000000AXm6-3izN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 22:54:16 +0000
-Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-c999f162c9aso7521524a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 15:54:14 -0700 (PDT)
+	Tue, 21 Jul 2026 23:03:42 +0000
+Received: by mail-ot1-x347.google.com with SMTP id 46e09a7af769-7eb6a8c61deso9056005a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 16:03:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784674453; x=1785279253; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=QGYc1TdXcvIKmo54F2N01YiaD23wedJvo9tZPTjUvCE=;
-        b=OT5QomZKEJgmN5lVfyj/6pDI5dbUpAp8tIudgsbCxp8wcTOgh0l4xyluzqohla1jBn
-         FLAm5azZ99cStlwhBAvg0El1DHs//Pa113sIWU+MCVTQ5RGNbwrkyMtEk15b1VI7rJNQ
-         tyl8y+ZoAFANejQcsKWMXfVt3bZ6baKUT6uRW5U7FQC+6EjihOvlxRPqoZCyLu1PTVyU
-         /E0vKdJN2RT/KOMS0F7vPXKUziHkwOPJRWclHFnQ5bDIHFdZ3YTTGTjvzDOMOdFUizTr
-         2hwx1V2/NFSjLqaexmzREXwwSpSNh6vbmhrS4FCvtb+s5VxMQsQ74RlnP+1EQhULEPiR
-         GBQQ==
+        d=google.com; s=20251104; t=1784675018; x=1785279818; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=NJKoZRGKO9NbNpeWxmViKbQ0iXfhg+MMY+xSLEzpUsk=;
+        b=HMT9RiW3Hq9NfsRmMfckdrSUW8Y9yvpqoVZ8YZaLWbyqiHwUnXPuLhs18DvzzJwalo
+         UNw9qI6Y8a4zLFgVQZhuaZfUrmydtkdDmGFoZcwYuMfNHrmj9FQjr6KnAl4vUi8jrMMf
+         OLdk3n4sVxqIl6jRhrv9pfBgVwkVrcpOKkyyGt7Tj301Sb9FBGy2tekhNX0jZ0Tp1Zqt
+         qIa0jm2byyK6bDVTXSDbT6N0IiW6BH2W5pcbmOIETO+ewnVDBeACF+JtKJqXK/oJuN7M
+         U7haxQAfaDeywWRNwzXqeXk2SUeZvEngqtV3KbdEcMQ4CK9N9EdihSG0vHy0FYSUYaf3
+         0QAQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784674453; x=1785279253;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=QGYc1TdXcvIKmo54F2N01YiaD23wedJvo9tZPTjUvCE=;
-        b=Aqzbb73J3ezwxN9Xq2fDiGrlfP5TvEa6y0Ek9t+wOohLrGCcnw2LFuMPCXwXobBpNk
-         IdKNq2xb/jdKWYFuWjlHx2uLWahcMLIJg+cKPZuZE0Gvai0/TNx8Y8SKs9AxV3WczZ8R
-         uCpUsnrPupPbCXy6kpTLXX/Yt1cSwgx4EkVrh9/jr+4Gqk0H5kTDqwNTU2aCW25ZkvCj
-         MPsXiPTxHEVzQ5PrEjZ9E+p9QB3WhCyxkql5bLOZcklfrBvNbyRo7vUliefl2Mx1kOyW
-         TSnSqobmxXfJBCeJ4TjCKCeZrdkg7/8LZi7HPH+oJ2+43xwoxywCrytyhgMFcKHW3b6O
-         sENA==
-X-Forwarded-Encrypted: i=1; AHgh+RpzaJLyLy7MnsSbYOEclDKrrIVPuWWr5fYgxAcbU25QuvdEv8Mhym267KZrSVrNcnA8vXARu3PSs291Vm6BHWSQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw45cGK//UI6ARhznOTCc3B/Dd7Y7oUBF23JplktCahkvBybGwD
-	Yau2aXueppkpBbRu/cfqgpVdOXTt7daNpXwx3Vtva09SaEhybCzD1bxSch59Ow==
-X-Gm-Gg: AR+sD11TwZUQqCFXpGVeBiklsYsSUvTSWkLq3lbuE5Y9jre9YV8iiwkH4fd/lzWoRYp
-	LYAREaV1K7vC3seGwqH1uW/e391DIauk8d5+icFvc/o5emSdIIs3dLh8KnAUZ39uunW+VDOqYRQ
-	U+ElKmHqnwIzvvKO5MFJzeP5rs+JPpQ1T16ZOmc+HpSTvs1qsuP6hiKIcxAoC6XWy6rQPLjimlA
-	uVil2EPMn0WqCM2ghHMcGrJqcSvXqUiSB3Ur/fng/PfT3XttIu2jkP+oe1kfHqbDeB6YHFenwiX
-	+Prz+5ncdobwxBqtFxmxQSy4U3f1l7//WyLMeanrhBGbxnNuRHnrAgcYtUpsLmn0p4bAEwLH0Nh
-	sMz9woG1WccKG+Vq1zy2+mN/cWMW6d0eDLwe7MLNxEdcgHW23LvHlGEgLmY7KnGVJ3uvIrQjId+
-	osT6cYamDVLey13HxM+NM9Qqu5f0Hc3VFdmfeBG0WoJwBLTChpYeViwJR8sknAc43mRJH776E0c
-	dAzOWEyf6yVTjKlny/ewj8zrMhXlt2B24jpyIkMSt9E16ftL8deuFE=
-X-Received: by 2002:a05:6a21:7008:b0:3b4:8ba9:4d8e with SMTP id adf61e73a8af0-3c3ad7a3d10mr23380821637.23.1784674453530;
-        Tue, 21 Jul 2026 15:54:13 -0700 (PDT)
-Received: from ryzen.lan ([2601:644:8000:7a86::e35])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cbb8f1a884esm199994a12.23.2026.07.21.15.54.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Jul 2026 15:54:12 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: linux-sound@vger.kernel.org
-Cc: Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Microchip (AT91) SoC support),
-	linux-kernel@vger.kernel.org (open list),
-	llvm@lists.linux.dev (open list:CLANG/LLVM BUILD SUPPORT:Keyword:\b(?i:clang|llvm)\b)
-Subject: [PATCH] ALSA: atmel: ac97c: use platform helpers and devm cleanup
-Date: Tue, 21 Jul 2026 15:54:11 -0700
-Message-ID: <20260721225411.815553-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.55.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+        d=1e100.net; s=20251104; t=1784675018; x=1785279818;
+        h=content-type:cc:to:from:subject:message-id:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=NJKoZRGKO9NbNpeWxmViKbQ0iXfhg+MMY+xSLEzpUsk=;
+        b=h0DKlLHwRq503kQEh6dQ0Ofk7py1iEFJ35vP3QHAcXwtl3259hIcFLrb9RnagpgwXD
+         kxMc72D8NNsfO1Ir2Q1NZAvCM/PJePL1viqA0d2iLjOo1V6rvUJA5tDzUN8q2VEL2jmw
+         FzB1D/X+df9WeJqjJtKerUJ4H1iWULKVmdoMs/zsGjef/m/WoiajWVel5VHcVw0r60j7
+         ZdarqrMyRbexXPeYOzi20aZAD8rMMtZwXrwdOroFXSTaADj+9HtxIIhT8WlQ1pJoyydj
+         xKSPcDYsz8wZiKQdttdGyWWMaPIwhn2l9Mmte9/mY0uwILeX/zVf8CHchYlzNOOhWaZL
+         Jjeg==
+X-Forwarded-Encrypted: i=1; AHgh+Rr5IU2s4NlRZvD5bIOGTVBDxxKIMvPxPullhmEs/8OS2RL0NimnDVHKjo/7oA8ELs+1afp2LVUmFtSHJqeovJDq@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZmE1vEUht3UJKqxKh/l7AHMRBU80Y5lq+SNZqK+hQukIsB+dA
+	izrVmh23hojgwggy0KikWSMAXldeR6GVnmG8PqE7JtvEyXiWMfu17UVQ0lCssvM6cloPEgOS60z
+	amTetSwlj8GoenGoEwGNQ88qjkQ==
+X-Received: from ilsh7.prod.google.com ([2002:a05:6e02:527:b0:506:ef74:afee])
+ (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6808:3a0d:b0:497:e619:56a with SMTP id 5614622812f47-4a4d054cf7fmr10559726b6e.25.1784675018028;
+ Tue, 21 Jul 2026 16:03:38 -0700 (PDT)
+Date: Tue, 21 Jul 2026 23:03:37 +0000
+In-Reply-To: <515af040-deec-471f-92df-ca3e4e91e789@linaro.org> (message from
+ James Clark on Mon, 20 Jul 2026 17:46:19 +0100)
+Mime-Version: 1.0
+Message-ID: <gsntbjc054ja.fsf@coltonlewis-kvm.c.googlers.com>
+Subject: Re: [PATCH v8 00/21] ARM64 PMU Partitioning
+From: Colton Lewis <coltonlewis@google.com>
+To: James Clark <james.clark@linaro.org>
+Cc: kvm@vger.kernel.org, alexandru.elisei@arm.com, pbonzini@redhat.com, 
+	corbet@lwn.net, linux@armlinux.org.uk, catalin.marinas@arm.com, 
+	will@kernel.org, maz@kernel.org, oliver.upton@linux.dev, mizhang@google.com, 
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	mark.rutland@arm.com, shuah@kernel.org, gankulkarni@os.amperecomputing.com, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_155414_634501_66F59A05 
-X-CRM114-Status: GOOD (  19.39  )
+X-CRM114-CacheID: sfid-20260721_160340_977000_F8239D04 
+X-CRM114-Status: GOOD (  57.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,176 +94,333 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert atmel_ac97c_probe() to the managed APIs. Replace the open-coded
-platform_get_resource() + ioremap() with devm_platform_ioremap_resource(),
-which requests and maps the AC97C register window in one call. Switch the
-clock to devm_clk_get_enabled(), the card to snd_devm_card_new(), and the
-interrupt to devm_request_irq(). The now-unnecessary error-path cleanup
-and the manual teardown in atmel_ac97c_remove() are dropped, since devm
-handles them.
+Hi James, thanks for the review.
 
-platform_get_irq() was already used; tighten its error check to irq < 0.
+James Clark <james.clark@linaro.org> writes:
 
-Both resource and IRQ lookups are equivalent for a platform-backed
-device. The AC97C register window is owned solely by this driver, so the
-new region request cannot conflict with another claimant, and it is
-mapped exactly once (no double mapping).
+> On 12/06/2026 8:28 pm, Colton Lewis wrote:
+>> This series creates a new PMU scheme on ARM, a partitioned PMU that
+>> allows reserving a subset of counters for more direct guest access,
+>> significantly reducing overhead. More details, including performance
+>> benchmarks, can be read in the v1 cover letter linked below.
 
-No functional change; built for ARM (allmodconfig + SND_ATMEL_AC97C)
-with LLVM=1 and sound/atmel/ac97c.o compiles cleanly.
+>> An overview of what this series accomplishes was presented at KVM
+>> Forum 2025. Slides [1] and video [2] are linked below.
 
-Assisted-by: opencode:hy3-free
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
----
- sound/atmel/ac97c.c | 67 ++++++++++++---------------------------------
- 1 file changed, 17 insertions(+), 50 deletions(-)
+>> The kernel command line parameter for the driver still exists, but now
+>> only defines an upper limit of counters the guest might use rather
+>> than taking those counters from the host permanently.
 
-diff --git a/sound/atmel/ac97c.c b/sound/atmel/ac97c.c
-index e394205f469b..234549e17351 100644
---- a/sound/atmel/ac97c.c
-+++ b/sound/atmel/ac97c.c
-@@ -693,7 +693,7 @@ static int atmel_ac97c_probe(struct platform_device *pdev)
- 	struct device			*dev = &pdev->dev;
- 	struct snd_card			*card;
- 	struct atmel_ac97c		*chip;
--	struct resource			*regs;
-+	void __iomem			*regs;
- 	struct clk			*pclk;
- 	static const struct snd_ac97_bus_ops	ops = {
- 		.write	= atmel_ac97c_write,
-@@ -702,42 +702,34 @@ static int atmel_ac97c_probe(struct platform_device *pdev)
- 	int				retval;
- 	int				irq;
- 
--	regs = platform_get_resource(pdev, IORESOURCE_MEM, 0);
--	if (!regs) {
--		dev_dbg(&pdev->dev, "no memory resource\n");
--		return -ENXIO;
--	}
-+	regs = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(regs))
-+		return PTR_ERR(regs);
- 
- 	irq = platform_get_irq(pdev, 0);
--	if (irq < 0) {
--		dev_dbg(&pdev->dev, "could not get irq: %d\n", irq);
-+	if (irq < 0)
- 		return irq;
--	}
- 
--	pclk = clk_get(&pdev->dev, "ac97_clk");
-+	pclk = devm_clk_get_enabled(&pdev->dev, "ac97_clk");
- 	if (IS_ERR(pclk)) {
- 		dev_dbg(&pdev->dev, "no peripheral clock\n");
- 		return PTR_ERR(pclk);
- 	}
--	retval = clk_prepare_enable(pclk);
--	if (retval)
--		goto err_prepare_enable;
- 
--	retval = snd_card_new(&pdev->dev, SNDRV_DEFAULT_IDX1,
-+	retval = snd_devm_card_new(&pdev->dev, SNDRV_DEFAULT_IDX1,
- 			      SNDRV_DEFAULT_STR1, THIS_MODULE,
- 			      sizeof(struct atmel_ac97c), &card);
- 	if (retval) {
- 		dev_dbg(&pdev->dev, "could not create sound card device\n");
--		goto err_snd_card_new;
-+		return retval;
- 	}
- 
- 	chip = get_chip(card);
- 
--	retval = request_irq(irq, atmel_ac97c_interrupt, 0, "AC97C", chip);
--	if (retval) {
--		dev_dbg(&pdev->dev, "unable to request irq %d\n", irq);
--		goto err_request_irq;
--	}
-+	retval = devm_request_irq(&pdev->dev, irq, atmel_ac97c_interrupt, 0, "AC97C", chip);
-+	if (retval)
-+		return retval;
-+
- 	chip->irq = irq;
- 
- 	spin_lock_init(&chip->lock);
-@@ -749,13 +741,7 @@ static int atmel_ac97c_probe(struct platform_device *pdev)
- 	chip->card = card;
- 	chip->pclk = pclk;
- 	chip->pdev = pdev;
--	chip->regs = ioremap(regs->start, resource_size(regs));
--
--	if (!chip->regs) {
--		dev_dbg(&pdev->dev, "could not remap register memory\n");
--		retval = -ENOMEM;
--		goto err_ioremap;
--	}
-+	chip->regs = regs;
- 
- 	chip->reset_pin = devm_gpiod_get_index(dev, "ac97", 2, GPIOD_OUT_HIGH);
- 	if (IS_ERR(chip->reset_pin))
-@@ -770,25 +756,25 @@ static int atmel_ac97c_probe(struct platform_device *pdev)
- 	retval = snd_ac97_bus(card, 0, &ops, chip, &chip->ac97_bus);
- 	if (retval) {
- 		dev_dbg(&pdev->dev, "could not register on ac97 bus\n");
--		goto err_ac97_bus;
-+		return retval;
- 	}
- 
- 	retval = atmel_ac97c_mixer_new(chip);
- 	if (retval) {
- 		dev_dbg(&pdev->dev, "could not register ac97 mixer\n");
--		goto err_ac97_bus;
-+		return retval;
- 	}
- 
- 	retval = atmel_ac97c_pcm_new(chip);
- 	if (retval) {
- 		dev_dbg(&pdev->dev, "could not register ac97 pcm device\n");
--		goto err_ac97_bus;
-+		return retval;
- 	}
- 
- 	retval = snd_card_register(card);
- 	if (retval) {
- 		dev_dbg(&pdev->dev, "could not register sound card\n");
--		goto err_ac97_bus;
-+		return retval;
- 	}
- 
- 	platform_set_drvdata(pdev, card);
-@@ -797,18 +783,6 @@ static int atmel_ac97c_probe(struct platform_device *pdev)
- 			chip->regs, irq);
- 
- 	return 0;
--
--err_ac97_bus:
--	iounmap(chip->regs);
--err_ioremap:
--	free_irq(irq, chip);
--err_request_irq:
--	snd_card_free(card);
--err_snd_card_new:
--	clk_disable_unprepare(pclk);
--err_prepare_enable:
--	clk_put(pclk);
--	return retval;
- }
- 
- static int atmel_ac97c_suspend(struct device *pdev)
-@@ -839,13 +813,6 @@ static void atmel_ac97c_remove(struct platform_device *pdev)
- 	ac97c_writel(chip, CAMR, 0);
- 	ac97c_writel(chip, COMR, 0);
- 	ac97c_writel(chip, MR,   0);
--
--	clk_disable_unprepare(chip->pclk);
--	clk_put(chip->pclk);
--	iounmap(chip->regs);
--	free_irq(chip->irq, chip);
--
--	snd_card_free(card);
- }
- 
- static struct platform_driver atmel_ac97c_driver = {
--- 
-2.55.0
+>> I would appreciate any discussion on whether that parameter should
+>> still exist as it's an inconvenient enabling gate on the feature that
+>> is no longer required. The question comes down to what, if any, guards
+>> we want against a guest monopolizing all counters on a system.
 
+
+> Hi Colton,
+
+> The existence of the parameter makes sense, but can't the default be
+> arm_pmuv3.reserved_host_counters=0 instead of -1 (partition disabled)?
+
+How would you interpret reserved_host_counters=0? Because that would
+express that the host should have zero counters and the guest gets them
+all. I remember in early versions of this series last year I did use 0
+as the default but reviewers asked for a way to express the scenario of
+of zero counters for the host.
+
+> It's still a bit fiddly having to do two things to make it work, and
+> there's no documentation about what the defaults or other prerequisites
+> are. IMO it's not even trivial to work out that you need to prefix it
+> with "arm_pmuv3.", which documentation would improve.
+
+It is fiddly, which is why the more I think about it the more I'd rather
+ditch the kernel cmdline entirely and leave it up to KVM. That's the
+most flexible approach. There isn't a good way to change the cmdline
+after boot. Trying to make it writeable via sysfs runs into the problem
+of when is it safe to apply the change.
+
+I thought it was commonly understood module parameters need to be
+prefixed by the module name, but I can add better documentation to that
+effect.
+
+
+> Testing the whole set I ran into a few issues:
+
+> This warn is hit when there is some kind of interaction with sleeping. I
+> tried to bisect it but it only appears on the last commit when the
+> option to enable partitioning is added.
+
+> 	/*
+> 	 * ARM pmu always has to reprogram the period, so ignore
+> 	 * PERF_EF_RELOAD, see the comment below.
+> 	 */
+> 	if (flags & PERF_EF_RELOAD)
+> 		WARN_ON_ONCE(!(hwc->state & PERF_HES_UPTODATE));
+
+> Steps to reproduce:
+
+> Host (arm_pmuv3.reserved_host_counters=0):
+>    $ sudo perf stat -C 2 -e \
+>      'branches,branches,branches,branches,branches,branches'
+>    $ sudo taskset --cpu-list 2 ./lkvm run --kernel \
+>      /boot/vmlinux-7.1.0-rc7+ -m 1024 -c 1 --pmu
+
+> Guest:
+>    $ sleep 1
+
+>     WARNING: drivers/perf/arm_pmu.c:302 at cpu_pm_pmu_notify+0x278/0x2c0,
+> CPU#2: swapper/2/0
+>      Call trace:
+>     cpu_pm_pmu_notify+0x278/0x2c0 (P)
+>     notifier_call_chain+0x84/0x1d0
+>     raw_notifier_call_chain+0x24/0x38
+>     cpu_pm_exit+0x34/0x68
+>     acpi_processor_ffh_lpi_enter+0x40/0x78
+>     acpi_idle_lpi_enter+0x54/0x78
+>     cpuidle_enter_state+0xb4/0x248
+>     cpuidle_enter+0x44/0x68
+>     do_idle+0x21c/0x300
+>     cpu_startup_entry+0x40/0x50
+>     secondary_start_kernel+0x120/0x150
+>     __secondary_switched+0xc0/0xc8
+
+
+I'll attempt to reproduce that. I've never seen it myself but I've
+mainly been using QEMU for my testing.
+
+
+> When running the guest on a single CPU I get different counts for the
+> same event for a single process, although this never happens on a host.
+> I think there might even be some Perf tests which expect them to be the
+> same, and this doesn't depend on whether any events are running on the
+> host or not. Not sure if you ran all the Perf selftests in a guest or not?
+
+I'll investigate but I'm not sure perf is intended to guarantee
+that. perf stat just runs the event counters but may not write or read
+them at exactly the same time.
+
+> I'm not sure if the exception level filtering isn't working or there is
+> something wrong with freezing. Doesn't the host PMU driver need to
+> freeze with HPME? I see it's still doing it with PMCR_EL0.E which
+> freezes the guest's counters now doesn't it?
+
+HPME only has any effect while HPMN is programmed to a value different
+than the number of counters on the system. That is only true in a guest
+context. As I understand it, that means HPME has no effect anywhere the
+host driver needs to freeze counters since that happens in host context.
+
+Maybe HPMN stays programmed during interrupt handling though. I'll
+confirm.
+
+
+> Host (arm_pmuv3.reserved_host_counters=0):
+>    $ sudo taskset --cpu-list 2 ./lkvm run --kernel \
+>      /boot/vmlinux-7.1.0-rc7+ -m 1024 -c 1 --pmu
+
+> Guest:
+>    $ perf stat -e branches,branches true
+
+>     Performance counter stats for 'true':
+
+>               167963      branches
+
+>               160925      branches
+
+
+>    $ perf stat -e branches,branches,branches,branches,branches true
+
+>     Performance counter stats for 'true':
+
+>               164425      branches
+
+>               164425      branches
+
+>               164425      branches
+
+>               157743      branches
+
+>               157743      branches
+
+
+> When running the guest on two CPUs I just get zeros. Do the kvm
+> selftests not catch this? Or is it something to do with my setup:
+
+KVM selftests definitely don't catch it. I'll see if I can reproduce.
+
+Since the problem happens with 2 CPUs I wonder if something is
+triggering the lazy context swap behavior so the counter values aren't
+being moved to the 2nd CPU correctly.
+
+> Host (arm_pmuv3.reserved_host_counters=0):
+>    $ sudo taskset --cpu-list 2-3 ./lkvm run --kernel \
+>      /boot/vmlinux-7.1.0-rc7+ -m 1024 -c 1 --pmu
+
+> Guest:
+>    $ perf stat -e branches,branches true
+
+>    Performance counter stats for 'true':
+
+>                    0      branches
+
+>                    0      branches
+
+> I also noticed I get the "squeezed" warning printed after launching the
+> guest but not using Perf. This comment implies that not using counters
+> makes it a nop:
+
+>    	/*
+> 	 * If we aren't guest-owned then we know the guest isn't using
+> 	 * the PMU anyway, so no need to bother with the swap.
+> 	 */
+> 	if (vcpu->arch.pmu.access != VCPU_PMU_ACCESS_GUEST_OWNED)
+> 		return;
+
+> But maybe linux is touching them in a way that makes them guest owned,
+> even on probe? Or is the guest/host ownership tracking not working, I
+> didn't look too hard.
+
+Maybe. I'll check. The guest is also running its own PMU driver that
+might trigger guest ownership on initialization since ownership is
+determined by which registers the guest touches.
+
+> Finally I think there are 3 critical Sashiko comments on this version.
+> If they're false positives, then maybe some comments in the code or
+> commit messages could reassure it.
+
+I've looked at these and concluded they are worth fixing.
+
+> Thanks
+> James
+
+>> v8:
+
+>> * Rebase on top of v7.1-rc7.
+
+>> * Implement Oliver Upton's accessor proposal to centralize PMU
+>>     register access and simplify trap handlers. Instead of one singular
+>>     accessor, implement as two because the read and write paths are
+>>     always different anyway.
+
+>> * Introduce the partitioning flag along with the
+>>     kvm_pmu_is_partitioned predicate
+
+>> * Don't use ifdef for partitioning predicates as that can be handled
+>>     by has_vhe
+
+>> * Clean up MDCR_EL2 handling by open-coding use_fgt and hpmn and
+>>     unconditionally setting RES0 bits.
+
+>> * Use {read,write}_pmcrcntrn in context swaps
+
+>> * Put operators on preceeding lines
+
+>> * Rename hw_cntr_mask to hw_cntr_impl to clarify it tracks the number
+>>     of counters implemented by hardware
+
+>> * Use GENMASK_ULL in mask functions returning u64
+
+>> * warn_once when host events are squeezed out by guest counter
+>>     allocations.
+
+>> * Address Sashiko AI Review findings:
+
+>>     - Critical fixes for lazy PMU context swaps (ensuring guest state is
+>>       loaded on transition to GUEST_OWNED), PMSELR_EL0 trapping to
+>>       prevent stale selector index, and masking guest PMCR_EL0 writes to
+>>       prevent host reset.
+
+>>     - High priority fixes for lock safety (disabling IRQs when acquiring
+>>       perf context lock), disabling guest counters on vCPU put,
+>>       preserving VHE host profiling in MDCR_EL2, waking halted vCPUs on
+>>       guest PMU interrupts, masking host configuration leaks, preemption
+>>       safety in per-CPU accesses, emulating PMCR.N reads, and preventing
+>>       data races in PMOVSSET_EL0 accesses.
+
+>>     - Medium/Low fixes for user-access fallback safety, VM-wide state
+>>       modification restrictions, selftests type safety, and cleanup of
+>>       unused fields and typos.
+
+>> v7:
+>> https://lore.kernel.org/kvmarm/20260504211813.1804997-1-coltonlewis@google.com/
+
+>> v6:
+>> https://lore.kernel.org/kvmarm/20260209221414.2169465-1-coltonlewis@google.com/
+
+>> v5:
+>> https://lore.kernel.org/kvmarm/20251209205121.1871534-1-coltonlewis@google.com/
+
+>> v4:
+>> https://lore.kernel.org/kvmarm/20250714225917.1396543-1-coltonlewis@google.com/
+
+>> v3:
+>> https://lore.kernel.org/kvm/20250626200459.1153955-1-coltonlewis@google.com/
+
+>> v2:
+>> https://lore.kernel.org/kvm/20250620221326.1261128-1-coltonlewis@google.com/
+
+>> v1:
+>> https://lore.kernel.org/kvm/20250602192702.2125115-1-coltonlewis@google.com/
+
+>> [1]  
+>> https://gitlab.com/qemu-project/kvm-forum/-/raw/main/_attachments/2025/Optimizing__itvHkhc.pdf
+>> [2]  
+>> https://www.youtube.com/watch?v=YRzZ8jMIA6M&list=PLW3ep1uCIRfxwmllXTOA2txfDWN6vUOHp&index=9
+
+>> Colton Lewis (20):
+>>     arm64: cpufeature: Add cpucap for HPMN0
+>>     KVM: arm64: Reorganize PMU functions
+>>     perf: arm_pmuv3: Generalize counter bitmasks
+>>     perf: arm_pmuv3: Check cntr_mask before using pmccntr
+>>     perf: arm_pmuv3: Allocate counter indices from high to low
+>>     perf: arm_pmuv3: Add method to partition the PMU
+>>     KVM: arm64: Set up FGT for Partitioned PMU
+>>     KVM: arm64: Add Partitioned PMU register trap handlers
+>>     KVM: arm64: Set up MDCR_EL2 to handle a Partitioned PMU
+>>     KVM: arm64: Context swap Partitioned PMU guest registers
+>>     KVM: arm64: Enforce PMU event filter at vcpu_load()
+>>     perf: Add perf_pmu_resched_update()
+>>     KVM: arm64: Apply dynamic guest counter reservations
+>>     KVM: arm64: Implement lazy PMU context swaps
+>>     perf: arm_pmuv3: Handle IRQs for Partitioned PMU guest counters
+>>     KVM: arm64: Detect overflows for the Partitioned PMU
+>>     KVM: arm64: Add vCPU device attr to partition the PMU
+>>     KVM: selftests: Add find_bit to KVM library
+>>     KVM: arm64: selftests: Add test case for Partitioned PMU
+>>     KVM: arm64: selftests: Relax testing for exceptions when partitioned
+
+>> Marc Zyngier (1):
+>>     KVM: arm64: Reorganize PMU includes
+
+>>    arch/arm/include/asm/arm_pmuv3.h              |  18 +
+>>    arch/arm64/include/asm/arm_pmuv3.h            |  12 +-
+>>    arch/arm64/include/asm/kvm_host.h             |  17 +-
+>>    arch/arm64/include/asm/kvm_types.h            |   6 +-
+>>    arch/arm64/include/uapi/asm/kvm.h             |   2 +
+>>    arch/arm64/kernel/cpufeature.c                |  10 +-
+>>    arch/arm64/kvm/Makefile                       |   2 +-
+>>    arch/arm64/kvm/arm.c                          |   2 +
+>>    arch/arm64/kvm/config.c                       |  41 +-
+>>    arch/arm64/kvm/debug.c                        |  30 +-
+>>    arch/arm64/kvm/pmu-direct.c                   | 507 ++++++++++++
+>>    arch/arm64/kvm/pmu-emul.c                     | 684 +----------------
+>>    arch/arm64/kvm/pmu.c                          | 720 ++++++++++++++++++
+>>    arch/arm64/kvm/sys_regs.c                     | 271 +++++--
+>>    arch/arm64/tools/cpucaps                      |   1 +
+>>    arch/arm64/tools/sysreg                       |   6 +-
+>>    drivers/perf/arm_pmuv3.c                      | 136 +++-
+>>    include/kvm/arm_pmu.h                         |  93 ++-
+>>    include/linux/perf/arm_pmu.h                  |   8 +
+>>    include/linux/perf/arm_pmuv3.h                |  14 +-
+>>    include/linux/perf_event.h                    |   3 +
+>>    kernel/events/core.c                          |  31 +-
+>>    tools/include/perf/arm_pmuv3.h                |  12 +-
+>>    tools/testing/selftests/kvm/Makefile.kvm      |   1 +
+>>    .../selftests/kvm/arm64/vpmu_counter_access.c | 112 ++-
+>>    tools/testing/selftests/kvm/lib/find_bit.c    |   2 +
+>>    26 files changed, 1918 insertions(+), 823 deletions(-)
+>>    create mode 100644 arch/arm64/kvm/pmu-direct.c
+>>    create mode 100644 tools/testing/selftests/kvm/lib/find_bit.c
+
+
+>> base-commit: 4549871118cf616eecdd2d939f78e3b9e1dddc48
 
