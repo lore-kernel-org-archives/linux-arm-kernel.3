@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84830C4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 16:30:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFC92C4452B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 16:35:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ttX//dzrhR9sMSF/SSGtobxX0kA46zEbXIpY5XaZ9N4=; b=XSbkAb4juQnEjCVtjCR59Sjxce
-	Q+w/yJjgMtMHupSfAh+bz460g0hFznzSUtzhH5l3eSGu8mw1+yS+JAsOP74+oQvCOzO9/ChEgX11L
-	AaO8u+LO3EX/km9qaUh2dM/OenHIC2ebSnKZ5Qp4bZVg/7yM3TczGJ9PXBqspJeIpk0O3j/8wS7Zs
-	ObabZ3x26t9qwu2CA3V3SiobignRD4o28OLn62594Gx7mOPVSAVpFLy4T5lO8v/58IuUeBHLB2x3b
-	eCOWMKPAJX7B8NgN7qfzJMnBITYBKwy549T4GrZfEbeh21QELebtBcHQt1sKdta6cH17mkPqxA945
-	bq62xBSQ==;
+	bh=XB4al3rOoBg4JSOO19Uh9eYt2qBCEAxlPfiPknctj/I=; b=vLPGOLL1blMV36nEY9HCKqU6K7
+	CEnAyiw8MBvzxPDZJEn237fwe30y15dAfULJZ6pVVP57CWlCbA+mFNIOFqSYRMyjGmDQehQeUMeXD
+	zc/b+WA2ltkqf2VTNceKQALJ8MamosZy286DM6NQmEXGKQXCDIUM4UN/4pyT6rDzI40aRUBnFmAEH
+	vIHAgzsfHZu1ZoE3FuRgN+RZEKCXEf4RMB+R38ro+ilhORa90Dgk34QW3B45HoBAj/pctpt5K7Pso
+	6fzeC/9Kv+JCM6WuGq3fuvOY7/lg5oPEQluYXzef0Q7oSujy3MJHuXewmMsgXquxx8gI46K13+nQc
+	60oKO9Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmDH2-00000009twh-1BuK;
-	Tue, 21 Jul 2026 16:24:52 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wmDG2-00000009srR-1fx2;
+	Tue, 21 Jul 2026 16:23:50 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmDH0-00000009tuX-2SaT;
-	Tue, 21 Jul 2026 16:24:50 +0000
+	id 1wmDG1-00000009sr2-1cIg;
+	Tue, 21 Jul 2026 16:23:49 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5845041AC5;
-	Tue, 21 Jul 2026 16:24:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDC241F00A3D;
-	Tue, 21 Jul 2026 16:24:43 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B1129601DE;
+	Tue, 21 Jul 2026 16:23:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7C571F00A3A;
+	Tue, 21 Jul 2026 16:23:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784651090;
-	bh=ttX//dzrhR9sMSF/SSGtobxX0kA46zEbXIpY5XaZ9N4=;
+	s=k20260515; t=1784651028;
+	bh=XB4al3rOoBg4JSOO19Uh9eYt2qBCEAxlPfiPknctj/I=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=gJmSLh0p2zdn+TUWP5ffCXLjps1IY4pdY2MSOyC8/W+aqm3nsNU1U4iTihlhrvBfa
-	 Q+mS6sw0lO9mOetPMFTsC9dtXtC+igugk3tV3KUzXcEwQ3X4QI6fHv+juQ4w7aGN0T
-	 6Px8rlP17Ve+8eSsv4CW4eS0U4mcadHN/jXWfIC0dyhff3ZJLuUNrRa6uIJZHrAFd0
-	 nO6yCipEiqmY+g1A97wEKDQ84Iad1bsmvztr7/jT6rGQyglKtI15OsZ1wyr0KZv5tg
-	 s6ZFygHv5zMyo254wbSw+EqReu5y/kry5UxoS4XSbiqQL4PE3YknAVR4TX4v4odaNL
-	 L75H13AxOl1Jg==
+	b=mKMTfTfZUJdKGwWB88q3MmHstD1zIbNqfuQyZ+BRaAhhajf7LR9JlLvHXO02AACeZ
+	 FTlA0E0QLniF/9UduU1JcK1Zt/0PJvKV+ojBQKZCr+3D8Ut/wKtGHCRw5BkHT5EPSj
+	 GQD7zZIHCIv9D7iMSQPw7l76zQxEOd5wMZ+hwVjw9NzgIyfjEJrr0pK3P8do0X2/YS
+	 z3gNy8oRMf0+fn8Cqp1vwF8N5ezh4wRzEbz8gk/+aeM2Qdnu7V800g9/NYGbN1OOIj
+	 Rwp6d5daE20K+Y5iJgr+4zLFeNl5BXFmfKqOxS7DGq5Y/CxU4aIDzlJE2qmeCE88N7
+	 pQhTF9DI3MSNA==
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Date: Tue, 21 Jul 2026 19:23:33 +0300
-Subject: [PATCH RFC 10/18] x86/mm/pat: move the large page size calculation
- to should_split_large_page
+Date: Tue, 21 Jul 2026 19:23:24 +0300
+Subject: [PATCH RFC 01/18] x86/mm/pat: Don't gate cpa_lock on
+ debug_pagealloc_enabled()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260721-generic-set-memory-v0-1-v1-10-2c1fc62306b3@kernel.org>
+Message-Id: <20260721-generic-set-memory-v0-1-v1-1-2c1fc62306b3@kernel.org>
 References: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
 In-Reply-To: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
 To: linux-mm@kvack.org
@@ -68,7 +68,8 @@ Cc: Albert Ou <aou@eecs.berkeley.edu>,
  Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner <tglx@kernel.org>, 
  Vlastimil Babka <vbabka@kernel.org>, Will Deacon <will@kernel.org>, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, loongarch@lists.linux.dev, x86@kernel.org
+ linux-riscv@lists.infradead.org, loongarch@lists.linux.dev, x86@kernel.org, 
+ Dave Hansen <dave.hansen@intel.com>
 X-Mailer: b4 0.16-dev
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,96 +85,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The calculation of large page size and mask and the update to
-cpa->numpages use generic helpers and can be reused by common code.
+The splitting and merging of kernel page table mappings between small and
+large is protected by cpa_lock. The merging is relatively new but the
+splitting is ancient.
 
-The upcoming changes that will make should_split_large_page() available
-in common code and __should_split_large_page() will become the basis of x86
-specific implementation.
+The splitting has a locking optimization: since DEBUG_PAGEALLOC forces all
+mappings to 4k, there are no large pages to split. So the code that *might*
+cause a split can just skip the locking (and a few other things).
 
-In preparation to moving core parts of change_page_attr() to common
-code, move the generic calculations from __should_split_large_page() to
-should_split_large_page().
+This is entertaining, but it adds complexity and makes for weird locking
+rules. Plus it's all for a debugging feature which makes the kernel super
+slow in the first place. Optimizing something which is already super slow
+and not used in production is not the best way to spend our complexity
+budget.
 
-No functional change intended.
+Stop gating cpa_lock on debug_pagealloc_enabled() to simplify the code
+and the locking rules.
 
-Assisted-by: Copilot:claude-opus-4.8
+[ dhansen: flesh out changelog ]
+
+Suggested-by: Dave Hansen <dave.hansen@intel.com>
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Signed-off-by: Dave Hansen <dave.hansen@linux.intel.com>
+Link: https://patch.msgid.link/20260715144519.934289-1-rppt@kernel.org
+Link: https://lore.kernel.org/all/aab44f08-89f8-47fe-bee4-0ab6b25968c6@intel.com/
 ---
- arch/x86/mm/pat/set_memory.c | 34 +++++++++++++++++++++-------------
- 1 file changed, 21 insertions(+), 13 deletions(-)
+ arch/x86/mm/pat/set_memory.c | 19 +++++++------------
+ 1 file changed, 7 insertions(+), 12 deletions(-)
 
 diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-index ef206ba6e254..56676d4cf510 100644
+index d023a40a1e03..e8316f5ffa8a 100644
 --- a/arch/x86/mm/pat/set_memory.c
 +++ b/arch/x86/mm/pat/set_memory.c
-@@ -58,6 +58,8 @@ struct cpa_data {
+@@ -62,10 +62,9 @@ enum cpa_warn {
+ static const int cpa_warn_level = CPA_PROTECT;
+ 
+ /*
+- * Serialize cpa() (for !DEBUG_PAGEALLOC which uses large identity mappings)
+- * using cpa_lock. So that we don't allow any other cpu, with stale large tlb
+- * entries change the page attribute in parallel to some other cpu
+- * splitting a large page entry along with changing the attribute.
++ * Serialize cpa() using cpa_lock so that we don't allow any other cpu, with
++ * stale large tlb entries, to change the page attribute in parallel to some
++ * other cpu splitting a large page entry along with changing the attribute.
   */
- struct cpa_split_data {
- 	unsigned long	address;
-+	unsigned long	psize;
-+	unsigned long	pmask;
- 	pte_t		*kpte;
- 	struct ptdesc	*ptdesc;
- 	enum pgtable_level level;
-@@ -884,10 +886,12 @@ static pgprot_t pgprot_clear_protnone_bits(pgprot_t prot)
- static int __should_split_large_page(struct cpa_data *cpa,
- 				     struct cpa_split_data *sd)
- {
--	unsigned long numpages, pmask, psize, lpaddr, pfn, old_pfn;
- 	pgprot_t old_prot, new_prot, req_prot, chk_prot;
-+	unsigned long numpages, lpaddr, pfn, old_pfn;
- 	enum pgtable_level level = sd->level;
- 	unsigned long address = sd->address;
-+	unsigned long psize = sd->psize;
-+	unsigned long pmask = sd->pmask;
- 	pte_t *kpte = sd->kpte;
- 	bool nx = sd->nx;
- 	bool rw = sd->rw;
-@@ -908,18 +912,6 @@ static int __should_split_large_page(struct cpa_data *cpa,
- 		return -EINVAL;
- 	}
+ static DEFINE_SPINLOCK(cpa_lock);
  
--	psize = pgtable_level_size(level);
--	pmask = pgtable_level_mask(level);
--
--	/*
--	 * Calculate the number of pages, which fit into this large
--	 * page starting at address:
--	 */
--	lpaddr = (address + psize) & pmask;
--	numpages = (lpaddr - address) >> PAGE_SHIFT;
--	if (numpages < cpa->numpages)
--		cpa->numpages = numpages;
--
- 	/*
- 	 * We are safe now. Check whether the new pgprot is the same:
- 	 * Convert protection attributes to 4k-format, as cpa->mask* are set
-@@ -1026,9 +1018,25 @@ static int __should_split_large_page(struct cpa_data *cpa,
- static int should_split_large_page(struct cpa_data *cpa,
- 				   struct cpa_split_data *sd)
+@@ -1235,11 +1234,9 @@ static int split_large_page(struct cpa_data *cpa, pte_t *kpte,
  {
-+	enum pgtable_level level = sd->level;
-+	unsigned long address = sd->address;
-+	unsigned long numpages, lpaddr;
-+
- 	if (cpa->force_split)
- 		return 1;
+ 	struct ptdesc *ptdesc;
  
-+	sd->psize = pgtable_level_size(level);
-+	sd->pmask = pgtable_level_mask(level);
-+
-+	/*
-+	 * Calculate the number of pages, which fit into this large
-+	 * page starting at address:
-+	 */
-+	lpaddr = (address + sd->psize) & sd->pmask;
-+	numpages = (lpaddr - address) >> PAGE_SHIFT;
-+	if (numpages < cpa->numpages)
-+		cpa->numpages = numpages;
-+
- 	return __should_split_large_page(cpa, sd);
- }
+-	if (!debug_pagealloc_enabled())
+-		spin_unlock(&cpa_lock);
++	spin_unlock(&cpa_lock);
+ 	ptdesc = pagetable_alloc(GFP_KERNEL, 0);
+-	if (!debug_pagealloc_enabled())
+-		spin_lock(&cpa_lock);
++	spin_lock(&cpa_lock);
+ 	if (!ptdesc)
+ 		return -ENOMEM;
+ 
+@@ -2023,11 +2020,9 @@ static int __change_page_attr_set_clr(struct cpa_data *cpa, int primary)
+ 		if (cpa->flags & (CPA_ARRAY | CPA_PAGES_ARRAY))
+ 			cpa->numpages = 1;
+ 
+-		if (!debug_pagealloc_enabled())
+-			spin_lock(&cpa_lock);
++		spin_lock(&cpa_lock);
+ 		ret = __change_page_attr(cpa, primary);
+-		if (!debug_pagealloc_enabled())
+-			spin_unlock(&cpa_lock);
++		spin_unlock(&cpa_lock);
+ 		if (ret)
+ 			goto out;
  
 
 -- 
