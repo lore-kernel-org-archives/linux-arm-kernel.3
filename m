@@ -4,70 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32F6DC4452F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 13:20:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26965C4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 13:25:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GEPDHEaRDKqZ6dNu/J9CK7yq+4aTB7MUn/lfU2U1p6k=; b=AxG7OAD396HOAfl6eOfsA117mm
-	F4unHHMECpmvzATlrwMgGcg9hBLvrP1wUlCBJ4kj8Abfr71BVJk5PoigIAFSErVWAO7zxhfody0Yr
-	k3D/qYZfJYEdl4sPioa53MokdloDqDJfv/E5IfROc84iS0siLIaNOrK/mSZtGsACI520FFuDXlcSS
-	vbgL2RWtlRvZXliuPlI1IHhr8fSOfAYnRDz5y0V0uh1oWAMzluSkZ2VDItAPSWDGxfNSdSBLE9rH6
-	QCz0u3a8CjzojQIodfOtXvlQ+jENU6PgR96pk9sN9dko4ZQWhzLcBkEP4FPz2OcsZG2t/BX7I3IhD
-	d6Rc5Y5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yif91B+KlLGgItRG2ZGYWcgS3NGMXtTFKaWfIW3KxWk=; b=c8dLxN6785rzDrhhYeiOCJgxkM
+	RM+c0sqxObsbMobzfY/yZxpVUYnvt8CRIJSC2UQt8mKFxBPhOafjeOKEfmAbHcP/36kbBJnFP6nGA
+	2NnilacwG31wHm9OP8cxFtS7iykPVb+dE2uEgAmVhtaH/YPLZeARFlK/489cQ5D0sINPYIhNd9NFr
+	9TT+NkF3JeHmgVXxuyE1wYm5TWGV8hHftzTZtrE7KDC+NJn7xH5+yJwjrKiBokOm8aBm4T5Ruc3fi
+	Msw8tFGCTVeAWBmnuFtI5Eap429aQ5uOZnNj2OsqH1vDNb1s8rnfyzk56+qsO1QyfngwnbPfMQOhD
+	Jci7U4Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmAOM-00000009Va4-01Z6;
-	Tue, 21 Jul 2026 13:20:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wmAT0-00000009W0g-2ziS;
+	Tue, 21 Jul 2026 13:25:02 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmAOK-00000009VZr-2Vcu
+	id 1wmASx-00000009VzE-1Po8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 13:20:12 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5BFCE405AC;
-	Tue, 21 Jul 2026 13:20:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A82A31F000E9;
-	Tue, 21 Jul 2026 13:20:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784640012;
-	bh=GEPDHEaRDKqZ6dNu/J9CK7yq+4aTB7MUn/lfU2U1p6k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=f2GrUSkQ+dYENYlClXT0M2kBcCpxk1B46HnSHBgkfXdy0QW8AcHrD2wIrH+KPrmcv
-	 cwwlD1IMG5bN/4zAIw0vhD2qgfq4w17HYUOxBKBc7nvXa80jlBg+GwDM+QTA+ah+Xd
-	 fwI9OcS4ury3cowlUEW6G3gODpzvksrTSSDPREzBAP9aLB71P4XyxXXzC7hjbEFInZ
-	 73zf1OjYqdwBhKFnK3hYdTIuWOC6+ILefEgXA1bjrH+zaK0XpM8vXdhZf7f3Z+2Fj4
-	 +xpGnHuE8Jy6ytglrp1E6iu4CgUhmOTFy2SceYSogq5Sac23cMK9hQQR2qzUmJe4E9
-	 OWrYGue9pH2pQ==
-Date: Tue, 21 Jul 2026 15:20:09 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Jani Nikula <jani.nikula@linux.intel.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Luca Ceresoli <luca.ceresoli@bootlin.com>, Daniel Stone <daniel@fooishbar.org>, 
-	Hans Verkuil <hverkuil+cisco@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
-	Samuel Holland <samuel@sholland.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
-	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, kernel@collabora.com, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v7 2/5] drm/scdc-helper: Add scdc_status debugfs entry
-Message-ID: <20260721-wooden-placid-bumblebee-73360c@houat>
-References: <20260721-scdc-link-health-v7-0-92df1b6ad5fc@collabora.com>
- <20260721-scdc-link-health-v7-2-92df1b6ad5fc@collabora.com>
- <20260721-angelic-gay-caiman-26f7ab@houat>
- <Ds65RxhYQNiDhRyjzYaHhw@collabora.com>
+	Tue, 21 Jul 2026 13:25:01 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-4758bd3731bso4024131f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 06:24:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1784640297; x=1785245097; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=yif91B+KlLGgItRG2ZGYWcgS3NGMXtTFKaWfIW3KxWk=;
+        b=I4pCr1kFw8x3R+Tj1R/9MCTHIWTeXob7RYrd7Nz/hX1+DvOyL/gmTFEPcGg1xJDoaD
+         9zXPpB494gq5iFG7EBOiOXMHlMB8gMH2fJvjv6G6B3tsTHrodUZo5c8IM/0hQZZvzGBX
+         IgvI8CXdLzvKuoX3lGLL1CE6UVyZFGJG/rpwuUtGKmKwqVboOJgURcQRMLnRIG7BiEub
+         I+uSu9iEcBPt9wMXoXq6xKxNT9Dw4XHeNpRSxJO9Vlvry+ViLkOHDRIxxPvLdYERRnle
+         UkeV88YKciMhBNoHYPU2ra1uoelk21MXQ74C6tTZ1p6QB62SvS0all0GzOD3w4164TMl
+         I7sA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784640297; x=1785245097;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=yif91B+KlLGgItRG2ZGYWcgS3NGMXtTFKaWfIW3KxWk=;
+        b=gsGZRkk8pvUxG6SwRer7u7viaGNMaDy/PDQ43BtLvETrmscgYW9TCzJsVMErj/1yNA
+         l8BQkWaR2uit0u3KSbBxWlQnQpkB8uWJqcOUsUUGjr3PApGyEik2q4rk1+XmpAhNjFLa
+         8GyWAclOsIQBcJ35FYiBo+YKl9Y8q121cuWrWEUeg7gzEzgOYEB5dU+dOYa9ODh21am8
+         2yF7ZrB6Py/A8ZP65vcGAhW8gro+5ndILLDyj3CGsqeEbqWXnLGKpqs91EhswPiGrc6S
+         CefntihIQ9DtlFEbLLmJmgpJyLW0J5uIcyPDjnelZTEjf/606k8YwLGb6qNNVhDv4CuG
+         Dw7A==
+X-Forwarded-Encrypted: i=1; AHgh+Rp9BJUcaMm30aoweFNaKuk9YnvBCViRQpEVVZv6Et1dXdnNpxpjsu4HYs/OmBUOkU4sABKnBm/aRn8RmfHfVqEG@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywm4W82U7WnMbx1DPutGaS7kXiKewFn5j8gFNtUnee0SrhmMzLT
+	J07yb8v3R6maOW0mUucmJK7UHGLO6R3ye5K8VedQEzpJfAgcywcHkEV12NS9t4HO9FM=
+X-Gm-Gg: AR+sD130L0RDR5ftPzNc/FTDpOvC2KdgArSt0af/K5A6uHGLPK6iFcwIjtf8Amz1dUF
+	/D+AP8vL8lZaSFNBZNJEkhzCdb0A28nSCX7pnaMk0b1aT+lRRJg9oBmNGgTVRy64eXtLUDR4yuq
+	bReX1NWTZ5m+7WZbL+AZ0tv92WgY6kfqqQqa6ewHHTbAWWgy8GhqQuAYP7/t+FeiXXZN6gtpUYV
+	cR6hBz6/wC5Cdo3zScvXZzJ/F1DpVHJaEaBP5SMDAGXAM8FqwhuerEb9LrYNzkt/rG2eMa9ydAl
+	lCfE4RAm2YY5Xb/v+n/i1HJOdofNFOrDyExmIO8/qtuCZo1MueSs3w2Q+LSyKWPXBi2srteaMCB
+	ik4rdxvQLfTmev6gUqGV4N2NoBiln5sQvSGqANlifDGNIpTp1ExMdgN1ZlOXlRZrY+X67TPZMWj
+	wzoOxyuvyewd4OzBrPfahx5J1tUu/+xdxuMZtdV7hwOruBb/0bKOwQtkQjTDU=
+X-Received: by 2002:a05:6000:178d:b0:474:bbbb:bf17 with SMTP id ffacd0b85a97d-47f62378c4bmr20304933f8f.0.1784640297061;
+        Tue, 21 Jul 2026 06:24:57 -0700 (PDT)
+Received: from [127.0.0.1] (host-87-0-90-136.retail.telecomitalia.it. [87.0.90.136])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f63ed244bsm2918310f8f.20.2026.07.21.06.24.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 21 Jul 2026 06:24:56 -0700 (PDT)
+From: Carlo Caione <ccaione@baylibre.com>
+Date: Tue, 21 Jul 2026 15:24:46 +0200
+Subject: [PATCH] arm64: dts: mediatek: mt8390-genio-700: Add boot phase
+ tags
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="llbbhttkpl4ptwgh"
-Content-Disposition: inline
-In-Reply-To: <Ds65RxhYQNiDhRyjzYaHhw@collabora.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260721-ccaione-upstream-mt8390-bootph-v1-1-5642198f979d@baylibre.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXN0QrCMAyF4VcZuTbQxeKcryK76GJ0EbaWphNh7
+ N2tevnB4T8bmGQVg0uzQZaXmsaloj00wFNYHoJ6qwZydHIdtcgc6kRwTVayhBnncj72DscYS5p
+ QQhfIe089MdRIynLX9+/gOvxt6/gULt8q7PsHCWa3c4IAAAA=
+X-Change-ID: 20260721-ccaione-upstream-mt8390-bootph-ea7a2444292c
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ David Lechner <dlechner@baylibre.com>, 
+ Julien Stephan <jstephan@baylibre.com>, Carlo Caione <ccaione@baylibre.com>
+X-Mailer: b4 0.15.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260721_062459_388832_4B0A6381 
+X-CRM114-Status: GOOD (  10.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,90 +107,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+U-Boot SPL runs after the platform DDR loader has initialized DRAM. It
+needs the debug UART and eMMC controller, together with their clock,
+syscon, pinctrl, interrupt and watchdog providers, to load the firmware
+FIT.
 
---llbbhttkpl4ptwgh
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v7 2/5] drm/scdc-helper: Add scdc_status debugfs entry
-MIME-Version: 1.0
+Mark the nodes consumed by the current SPL configuration with
+'bootph-pre-ram' so that the canonical devicetree carries the boot-phase
+information and bootloaders do not need local overrides.
 
-On Tue, Jul 21, 2026 at 03:01:12PM +0200, Nicolas Frattaroli wrote:
-> On Tuesday, 21 July 2026 14:41:42 Central European Summer Time Maxime Rip=
-ard wrote:
-> > On Tue, Jul 21, 2026 at 10:58:58AM +0200, Nicolas Frattaroli wrote:
-> > > SCDC provides status information on the current display link. At the
-> > > very least, it may be useful to expose this info through debugfs.
-> > >
-> > > Add a debugfs entry for it under the connector, which displays a few
-> > > more details parsed out of the SCDC registers. A new
-> > > drm_scdc_debugfs_init function can be called by the connector
-> > > implementation to initialise the debugfs file.
-> > >
-> > > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> > > ---
-> > >  drivers/gpu/drm/display/drm_scdc_helper.c | 184 ++++++++++++++++++++=
-++++++++++
-> > >  include/drm/display/drm_scdc_helper.h     |  32 ++++++
-> > >  2 files changed, 216 insertions(+)
-> > >
-> > > diff --git a/drivers/gpu/drm/display/drm_scdc_helper.c b/drivers/gpu/=
-drm/display/drm_scdc_helper.c
-> > > +/**
-> > > + * drm_scdc_debugfs_init - Initialize scdc files in connector debugfs
-> > > + * @connector: pointer to &struct drm_connector to operate on
-> > > + * @root: debugfs &struct dentry for the debugfs root of @connector
-> > > + *
-> > > + * Creates SCDC-related debugfs files for @connector. Must be called=
- after
-> > > + * @root is already created.
-> > > + */
-> > > +void drm_scdc_debugfs_init(struct drm_connector *connector, struct d=
-entry *root)
-> > > +{
-> > > +	struct scdc_debugfs_priv *priv;
-> > > +
-> > > +	if (!root || !connector)
-> > > +		return;
-> > > +
-> > > +	priv =3D drmm_kzalloc(connector->dev, sizeof(*priv), GFP_KERNEL);
-> > > +	if (!priv)
-> > > +		return;
-> > > +
-> > > +	priv->connector =3D connector;
-> >=20
-> > You need to take a reference to the connector pointer here with
-> > drm_connector_get()
-> >=20
-> > With this fixed,
-> > Reviewed-by: Maxime Ripard <mripard@kernel.org>
-> >=20
-> > Maxime
-> >=20
->=20
-> I think sashiko is onto something here with the memleak and the
-> entirety of the priv thing should go, which is fairly easy to do.
-> We don't reuse the state anymore anyways.
->=20
-> I'll then just pass the connector as the priv, which will be valid
-> for the lifetime of the debugfs entry. This means there's no cleanup.
+Signed-off-by: Carlo Caione <ccaione@baylibre.com>
+---
+ .../boot/dts/mediatek/mt8390-genio-700-evk.dts     | 81 ++++++++++++++++++++++
+ 1 file changed, 81 insertions(+)
 
-Connectors can be hotplugged, so they have a shorter (or equal) lifetime
-than what drmm_kzalloc provides.
+diff --git a/arch/arm64/boot/dts/mediatek/mt8390-genio-700-evk.dts b/arch/arm64/boot/dts/mediatek/mt8390-genio-700-evk.dts
+index 0d5a75efb2ee..83f2d10fd28d 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8390-genio-700-evk.dts
++++ b/arch/arm64/boot/dts/mediatek/mt8390-genio-700-evk.dts
+@@ -16,11 +16,20 @@ / {
+ 		     "mediatek,mt8188";
+ 
+ 	memory@40000000 {
++		bootph-pre-ram;
+ 		device_type = "memory";
+ 		reg = <0 0x40000000 0x2 0x00000000>;
+ 	};
+ };
+ 
++&apmixedsys {
++	bootph-pre-ram;
++};
++
++&clk26m {
++	bootph-pre-ram;
++};
++
+ &cpu4 {
+ 	cpu-supply = <&mt6359_vcore_buck_reg>;
+ };
+@@ -28,3 +37,75 @@ &cpu4 {
+ &cpu5 {
+ 	cpu-supply = <&mt6359_vcore_buck_reg>;
+ };
++
++&gic {
++	bootph-pre-ram;
++};
++
++&infracfg_ao {
++	bootph-pre-ram;
++};
++
++&mmc0 {
++	bootph-pre-ram;
++};
++
++&mmc0_default_pins {
++	bootph-pre-ram;
++
++	pins-clk {
++		bootph-pre-ram;
++	};
++
++	pins-cmd-dat {
++		bootph-pre-ram;
++	};
++
++	pins-rst {
++		bootph-pre-ram;
++	};
++};
++
++&mmc0_uhs_pins {
++	bootph-pre-ram;
++
++	pins-clk {
++		bootph-pre-ram;
++	};
++
++	pins-cmd-dat {
++		bootph-pre-ram;
++	};
++
++	pins-ds {
++		bootph-pre-ram;
++	};
++
++	pins-rst {
++		bootph-pre-ram;
++	};
++};
++
++&pio {
++	bootph-pre-ram;
++};
++
++&topckgen {
++	bootph-pre-ram;
++};
++
++&uart0 {
++	bootph-pre-ram;
++};
++
++&uart0_pins {
++	bootph-pre-ram;
++
++	pins {
++		bootph-pre-ram;
++	};
++};
++
++&watchdog {
++	bootph-pre-ram;
++};
 
-Maxime
+---
+base-commit: b95f03f04d475aa6719d15a636ddf32222d55657
+change-id: 20260721-ccaione-upstream-mt8390-bootph-ea7a2444292c
 
---llbbhttkpl4ptwgh
-Content-Type: application/pgp-signature; name="signature.asc"
+Best regards,
+--  
+Carlo Caione <ccaione@baylibre.com>
 
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCal9yBQAKCRAnX84Zoj2+
-djbVAYDohBqoOi6dEtLX0bqbl0aljhsUfHcZC3fb1TYOgKURiRy5KZAGugxyJU5z
-298gN1kBfiaVDF/Xr+lM6KrsiLuapmElClTOMC4p9EsWGzz4+YFIiSurQylDLoP7
-p4g1IkjsHg==
-=Tmw5
------END PGP SIGNATURE-----
-
---llbbhttkpl4ptwgh--
 
