@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFB02C44515
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 00:12:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 690D3C44520
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 00:21:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VXlc6HT4lYc03UjhyLS3oPG/+n1mY3bfDktU1WUYqAY=; b=O+EGE22eDCX8cQY86YxXm+Hqsz
-	80AQfVA5rgm74NT3kLFz8o/6wtzyc4CoSCaruKEcfTpj7jNBQRwYTBZhpBChWMkVK5TcFCUqGYtE3
-	ICT4pfYYWBazw42QbXMt/assmk7R7p5m5B7L8TCR639g006svkXzhyp4KdN1kD/yhDAYNuDYgw1OZ
-	fUlIiSIt7FKosaiVvTTcDgut1RI6qPtW/TzWaS3JWv2V9TtpileE3QJ9RZhyKe3v4Iutx2MD2KtqK
-	pXP5yD57BWX5B+NsMwh6NSCgf43XhLFuBvF4QD7NAQYD4gh2r4drfv227tkYn5M/YBY8y0oTvNMuU
-	WDkifbrg==;
+	bh=MUv4d6nTrngEkqt6Q97Q9K+18CiueXmDwGzKqsrvwL8=; b=QtnT8tGeDoj0ixAy1M2NpxieH6
+	ot7rFh+5rdVcTxfu1MzsJPbxUHp580L7DhxdB8awCMEWevUYU+6UVxR6vmOD4Tc3YSXxS4Tse5ypB
+	TJniqHGpfA6lxF9s2uPQKFj70e5Q6gU5Y9hUl5uUQOY6W6bWICzDKdq01mzI1cC/mI0gvTA7XWsVf
+	FISskwXspJas4eXPYCqkTBbgqNdQxnPIlhMASKaaNicf2+gF7M800CGzqi0pQ2y6XHwC1L149DwuR
+	qIqTFG+0rQRFSSi0uMSV6FcvciK7plUUeYubXPfJF8wKB6HbvBoLXWEpYmIpG75kfCEdtTN9W/k4w
+	fGc9gGOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wly5i-000000087Oj-0Eh0;
-	Tue, 21 Jul 2026 00:12:10 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wlyF2-00000008876-3vjw;
+	Tue, 21 Jul 2026 00:21:48 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wly5g-000000087OZ-1NEf
+	id 1wlyEz-0000000886a-23eR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 00:12:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id AB06443B45;
-	Tue, 21 Jul 2026 00:12:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13A8E1F000E9;
-	Tue, 21 Jul 2026 00:12:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784592725;
-	bh=VXlc6HT4lYc03UjhyLS3oPG/+n1mY3bfDktU1WUYqAY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=N7lsda8wgWs09xBOYAOmoQ90scQZUIW+wwU1JYnB2SddZXloWe42l+bWx5uwn9N7t
-	 ZBVK83YqBKcyJEQertnaLibX5qRO0C4BrYJuT7G4yxEazd/Z8+MUj7mVwC5+qnc6Mn
-	 6VF1MOp5sIBOBvryDTOhV2dGnDxVqSks4fhlaHpZm0dmocljiyGJWvjw3ONlBNErtE
-	 l89OQJQKwriJc6g4AfWsSp9EXFT8+k0iOjTE8+Zke53X4p+f08FMrjhtA1Vc6EGgF6
-	 qZPmeYU3CN5TWEq+oaRLPPHplOFeom5DDPpTYGYIoChe5QkGk2GFT71XEWkhXA60jg
-	 r4eP6jXHiaCEw==
-Date: Mon, 20 Jul 2026 17:11:59 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Kees Cook <kees@kernel.org>
-Cc: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Linus Walleij <linusw@kernel.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Zhen Lei <thunder.leizhen@huawei.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	=?utf-8?Q?Micha=C5=82?= Pecio <michal.pecio@gmail.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	linux-arm-kernel@lists.infradead.org,
-	Russell King <linux@armlinux.org.uk>, Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v3] ARM: traps: Implement KCFI trap handler for ARM32
-Message-ID: <20260721001159.GA3326792@ax162>
-References: <20260715175223.make.153-kees@kernel.org>
+	Tue, 21 Jul 2026 00:21:46 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 66956517;
+	Tue, 21 Jul 2026 02:20:43 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1784593243;
+	bh=jJrpOSbeTf34j9iiFEHrzsvZoGTsWVLoBLS5eWxjPqw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=wRH/NrkkbXTQKpCZr5joGqIY/jc1bbUUolWjSU06RWrOQFhhgjkqvxOoxVtq53mUs
+	 OAkrPlxZK9EID9WZ/d0VCiVQKx/OGV2L2/wqfqUxwPLRbfz6JiTQTMhDF3e5cpUZI8
+	 UE1H+hz66YJp6EQMPIqE43ESQAOxty8nvgQxIgts=
+Date: Tue, 21 Jul 2026 03:21:41 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Christian Hemp <c.hemp@phytec.de>,
+	Stefan Riedmueller <s.riedmueller@phytec.de>,
+	Jacopo Mondi <jacopo@jmondi.org>,
+	Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	Bryan O'Donoghue <bod@kernel.org>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Guoniu Zhou <guoniu.zhou@nxp.com>, linux-media@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Robert Chiras <robert.chiras@nxp.com>
+Subject: Re: [PATCH v2 6/6] media: nxp: imx8-isi: Add additional 32-bit RGB
+ format support
+Message-ID: <20260721002141.GF50424@killaraus.ideasonboard.com>
+References: <20260720-isi-v2-0-45845bc5d4fa@oss.nxp.com>
+ <20260720-isi-v2-6-45845bc5d4fa@oss.nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260715175223.make.153-kees@kernel.org>
+In-Reply-To: <20260720-isi-v2-6-45845bc5d4fa@oss.nxp.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260720_172145_682435_0DAB8E72 
+X-CRM114-Status: GOOD (  21.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,58 +79,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 15, 2026 at 10:52:27AM -0700, Kees Cook wrote:
-> ARM32 GCC KCFI[1] violations currently show as generic "Oops - undefined
-> instruction" errors, making debugging CFI failures difficult. Add a proper
-> KCFI trap handler similar to the aarch64 implementation to provide clear
-> CFI error messages, including the call target and the expected type.
-> 
-> Clang and GCC trap CFI failures differently on ARM32. Clang lowers
-> its checks to a BKPT, handled via the breakpoint/prefetch-abort path
-> in hw_breakpoint.c, which cannot recover the target or expected type
-> and so must report via report_cfi_failure_noaddr(). GCC instead lowers
-> KCFI checks to a UDF (undefined instruction) whose immediate encodes
-> the registers involved, so the handler can decode it and call the full
-> report_cfi_failure() with the target and expected type.
-> 
-> The GCC ARM32 KCFI implementation uses UDF instructions with a specific
-> encoding pattern:
-> - UDF instruction format: cccc 0111 1111 imm12 1111 imm4
-> - 16-bit immediate reconstructed from bits 19-8 and 3-0
-> - KCFI encoding: 0x8000 | (type_reg_num << 5) | (target_reg_num & 31)
-> - Bit 15: KCFI trap identifier (0x8000)
-> - Bits 9-5: Type ID register field (0x1F when unavailable)
-> - Bits 4-0: Target address register number
-> 
-> When the type register field is 0x1F (the type was spilled rather than
-> kept in a register), the handler walks back up to 6 preceding
-> instructions to recover the 32-bit type ID from the four EOR-immediate
-> instructions the compiler emits, similar to x86 CFI trap reconstruction.
-> 
-> The handler is dispatched directly from do_undefinstr() rather than
-> through register_undef_hook(). A registered hook is only installed once
-> initcalls run, so any KCFI violation that fires earlier in boot would be
-> reported as a generic "undefined instruction"; calling the decoder from
-> the exception handler itself catches failures from the very first
-> instruction. Dispatching directly also lets the handler ignore
-> non-kernel-mode UDFs, preventing a user process from spoofing the KCFI
-> encoding.
-> 
-> Both the UDF handler and the Clang breakpoint handler in hw_breakpoint.c
-> act on the report_cfi_failure*() result identically (oops on a fatal
-> violation, or skip the trapping instruction under CFI permissive mode)
-> so factor that shared tail into arm_cfi_handle_failure(), declared in
-> asm/traps.h.
-> 
-> Link: https://inbox.sourceware.org/gcc-patches/20260618204539.824446-6-kees@kernel.org/ [1]
-> Signed-off-by: Kees Cook <kees@kernel.org>
+Hi Guoniu, Robert,
 
-Tested-by: Nathan Chancellor <nathan@kernel.org>
+Thank you for the patch.
 
-I tested this in QEMU using LKDTM, which shows lkdtm_increment_int() as
-the target of the failed call.
+On Mon, Jul 20, 2026 at 11:34:08AM +0800, Guoniu Zhou wrote:
+> Add support for additional 32-bit RGB pixel formats (BGRA32, RGBA32,
+> BGRX32, RGBX32, ARGB2101010) and extend existing ABGR32 format with
+> full memory-to-memory capabilities to meet Android requirements.
+
+What are those Android requirements ?
+
+> All formats support capture, M2M input, and M2M output operations,
+> enabling complete format conversion pipelines.
+> 
+> Signed-off-by: Robert Chiras <robert.chiras@nxp.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+> ---
+> Changes in v2:
+> - Add Reviewed-by tag from Frank Li
+> ---
+>  .../media/platform/nxp/imx8-isi/imx8-isi-video.c   | 59 +++++++++++++++++++++-
+>  1 file changed, 58 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
+> index 05b51b98344b..ef638af350fe 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
+> @@ -160,12 +160,69 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
+>  	}, {
+>  		.mbus_code	= MEDIA_BUS_FMT_RGB888_1X24,
+>  		.fourcc		= V4L2_PIX_FMT_ABGR32,
+> -		.type		= MXC_ISI_VIDEO_CAP | MXC_ISI_VIDEO_M2M_CAP,
+> +		.type		= MXC_ISI_VIDEO_CAP | MXC_ISI_VIDEO_M2M_OUT
+> +				| MXC_ISI_VIDEO_M2M_CAP,
+> +		.isi_in_format	= CHNL_MEM_RD_CTRL_IMG_TYPE_XRGB8,
+
+This doesn't seem right. The value is the same as for
+V4L2_PIX_FMT_XBGR32. As far as I understand, the ISI will ignore the
+alpha bits (MSBs in the 32-bit data).
+
+This is why the V4L2_PIX_FMT_ABGR32 format doesn't set
+MXC_ISI_VIDEO_M2M_OUT: to be supported as an output format (input to the
+ISI), we would need a hardware mode where the alpha bits are read from
+memory and used by the ISI. I recommend dropping this part of the patch.
+
+>  		.isi_out_format	= CHNL_IMG_CTRL_FORMAT_ARGB8888,
+>  		.mem_planes	= 1,
+>  		.color_planes	= 1,
+>  		.depth		= { 32 },
+>  		.encoding	= MXC_ISI_ENC_RGB,
+> +	}, {
+> +		.mbus_code	= MEDIA_BUS_FMT_RGB888_1X24,
+> +		.fourcc		= V4L2_PIX_FMT_BGRA32,
+> +		.type		= MXC_ISI_VIDEO_CAP | MXC_ISI_VIDEO_M2M_OUT
+> +				| MXC_ISI_VIDEO_M2M_CAP,
+> +		.isi_in_format	= CHNL_MEM_RD_CTRL_IMG_TYPE_RGBX8,
+
+Same comment here, this format should not have MXC_ISI_VIDEO_M2M_OUT
+set.
+
+> +		.isi_out_format	= CHNL_IMG_CTRL_FORMAT_RGBA8888,
+> +		.mem_planes	= 1,
+> +		.color_planes	= 1,
+> +		.depth		= { 32 },
+> +		.encoding	= MXC_ISI_ENC_RGB,
+> +	}, {
+> +		.mbus_code	= MEDIA_BUS_FMT_RGB888_1X24,
+> +		.fourcc		= V4L2_PIX_FMT_RGBA32,
+> +		.type		= MXC_ISI_VIDEO_CAP | MXC_ISI_VIDEO_M2M_OUT
+> +				| MXC_ISI_VIDEO_M2M_CAP,
+> +		.isi_in_format	= CHNL_MEM_RD_CTRL_IMG_TYPE_XBGR8,
+
+Same here too.
+
+> +		.isi_out_format	= CHNL_IMG_CTRL_FORMAT_ABGR8888,
+> +		.mem_planes	= 1,
+> +		.color_planes	= 1,
+> +		.depth		= { 32 },
+> +		.encoding	= MXC_ISI_ENC_RGB,
+> +	}, {
+> +		.mbus_code	= MEDIA_BUS_FMT_RGB888_1X24,
+> +		.fourcc		= V4L2_PIX_FMT_BGRX32,
+> +		.type		= MXC_ISI_VIDEO_CAP | MXC_ISI_VIDEO_M2M_OUT
+> +				| MXC_ISI_VIDEO_M2M_CAP,
+> +		.isi_in_format	= CHNL_MEM_RD_CTRL_IMG_TYPE_RGBX8,
+> +		.isi_out_format	= CHNL_IMG_CTRL_FORMAT_RGBX888,
+> +		.mem_planes	= 1,
+> +		.color_planes	= 1,
+> +		.depth		= { 32 },
+> +		.encoding	= MXC_ISI_ENC_RGB,
+> +	}, {
+> +		.mbus_code	= MEDIA_BUS_FMT_RGB888_1X24,
+> +		.fourcc		= V4L2_PIX_FMT_RGBX32,
+> +		.type		= MXC_ISI_VIDEO_CAP | MXC_ISI_VIDEO_M2M_OUT
+> +				| MXC_ISI_VIDEO_M2M_CAP,
+> +		.isi_in_format	= CHNL_MEM_RD_CTRL_IMG_TYPE_XBGR8,
+> +		.isi_out_format	= CHNL_IMG_CTRL_FORMAT_XBGR888,
+> +		.mem_planes	= 1,
+> +		.color_planes	= 1,
+> +		.depth		= { 32 },
+> +		.encoding	= MXC_ISI_ENC_RGB,
+> +	}, {
+> +		.mbus_code	= MEDIA_BUS_FMT_RGB888_1X24,
+> +		.fourcc		= V4L2_PIX_FMT_ARGB2101010,
+> +		.type		= MXC_ISI_VIDEO_CAP | MXC_ISI_VIDEO_M2M_OUT
+> +				| MXC_ISI_VIDEO_M2M_CAP,
+> +		.isi_in_format	= CHNL_MEM_RD_CTRL_IMG_TYPE_A2RGB10,
+> +		.isi_out_format	= CHNL_IMG_CTRL_FORMAT_A2RGB10,
+> +		.mem_planes	= 1,
+> +		.color_planes	= 1,
+> +		.depth		= { 32 },
+> +		.encoding	= MXC_ISI_ENC_RGB,
+
+The rest looks good. I have tested all the new formats, both on the
+input and output side, and have not noticed any issue.
+
+Tested-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+
+>  	},
+>  	/*
+>  	 * RAW formats
 
 -- 
-Cheers,
-Nathan
+Regards,
+
+Laurent Pinchart
 
