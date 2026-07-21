@@ -4,92 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9868C44529
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 08:42:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7976BC4452B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 08:43:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OshMXjh7Cgoor6MMiGrVEQRdUgGOjdKbShq5C0Pf5vg=; b=qKvkZK1jg/95kJNzBxQtK2cpwk
-	Qtjz2gCa+JPni5ZsOgfOTMIYZ8hw93W4+UPcJiGswaCD2j40kRvfE1Xz8oTPztCkUcJIi3LKJHJ5Z
-	PN/RF9aXiOjEMtmJwKLRasJYEyBjHM6Dj2hET9JJnXmIzejKz2o4WmntfgEVXlHJEQd4tXI34QWz4
-	kORRhzTDDu2UY0Rw/1y5YZ43ZDqOIuNcjmEZDInODgkia6A/aYeQ1jrpqHb1sy6crQRcv70nGapJ5
-	ryXzK5oJenN9aDTGN3x86Ukgk6A/Zs3oq7bzuoHCIWaF9cZpsK5IXhF+rj0gg2LSV64CH9+zz4Hlj
-	SG7N51sA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4YnrIcak9MnTuq1PIcIeffGKhfewNQREoFw5G3CgkVE=; b=MAbbMpyzMzbNn5
+	nvGcTfLvaqnG3IRrWubIMUnPO1nns2DJSzpaoEQUSHdpj/Z0wK4vrXazXe6Ir74cnOxLDnjpkcmE0
+	ePVLuVnijVsGFcxMZgaWwoiQnspgs/uBxVpoioGgZ8IKRor0+orC7uNtLFq7mVR1Rs3Hnb4O9gZkC
+	6yKDENvpPNgMPM3Z3/QwYJDAEbVt/kxY4d+Ld/Q/DPL5V3Pt0aeCbkbLGb9/cBLW87D8VWISCK9y7
+	DloVG7LU1U12xebU86dyJUj0k2xxv6h8TUDxDvDAN7QpCO9bmWOAhaotgdatJ72BDPkvPyXXuzvYa
+	jZTcQC5AUlwMcVTEomdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm63x-00000008rYk-1g84;
-	Tue, 21 Jul 2026 08:42:53 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1wm64t-00000008ri5-2ILm;
+	Tue, 21 Jul 2026 08:43:51 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm63v-00000008rYG-1zsU
+	id 1wm64s-00000008rhq-1sZr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 08:42:52 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-698b78c05b0so45219a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 01:42:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784623369; x=1785228169; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=OshMXjh7Cgoor6MMiGrVEQRdUgGOjdKbShq5C0Pf5vg=;
-        b=cNRVxIxnxkYsWBOMHzgB8vXWx3SBcrspPeSSWLNeG1z4Pec7an4ETazTbavLNUEOqB
-         v2narwfCHwyS/K4cjhFslsUghr8gZw+mOoNL7YCmtisElRy7rb127GcPVO8suY3ikMuf
-         feFUBUrJ7xbI/wwX0T3IBVPbjN/oz8+mqNDcLvv03VBwhNyY2H+pbf5yBcaV58LHAS7Y
-         qrpmtE6SK4Qaqu+xgSLCAQbwIB0+g/xW/ri8+9aYUvUIr8yx8rQsGEMwm3TEQFUStyAh
-         K1XF06o6/SHk7EKShN9rkHTRCyJMzenAgsMG5+f8YXvmDHB5gpCYfC4+9zbXiQ5Ct1rc
-         JLlg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784623369; x=1785228169;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=OshMXjh7Cgoor6MMiGrVEQRdUgGOjdKbShq5C0Pf5vg=;
-        b=YMU0ZjilRTYa4LC8s0n1gpzGew0yQGdGWioO0IWDf+lWXPooVyRW8mpjDwZFDBfYUm
-         uaVuHnBJ+SYSztMCLGo4DYKa3TACPvor53dap+d7Lr0cu6+g3PRUf5EsLDZpFi5zzVce
-         nL4NCdYvh8f+USsXsmIiI9DArlDTSCA134lDWTMTS0aZf8MR7UWo3p0tUshVyx1/MGZg
-         kZLY9m2pOPvDHTFBXl5FcInCr1A5/muOQFyPgIqnSYIAJYKpm0lZ3GGz3D4dJ3dxP6Oz
-         7dgoMMe/brlFku9i3yXNsOiVprf27S+Lq+rDg8S7A0oe1mL5k2bJLinUUTN7qy18mGVS
-         5b8A==
-X-Forwarded-Encrypted: i=1; AHgh+RqCYeNIsL+tLgWRfcHk5pxKLzTnvjZ44yK8J1r+6WDyErzgjskFXJoV53uPXE99f8+3dk+9HthnhkwzgpUsJ2vo@lists.infradead.org
-X-Gm-Message-State: AOJu0YxV0+3yHu1BbSLRvwOpRIGienpheQx913U7v+grOP17Xk+p4O95
-	5ON8s5WQ/YddKcVqBRxhaZVvKSrQdG/UaX4mG8ILM4lS0GVBjgvaTc1riYPlft3rtw==
-X-Gm-Gg: AR+sD127R7lZZDJ+dhIAg0oz1RfeTuqs894Uj4oaRkyHxOhAtaBKCTYLJDfUz5opoQD
-	wEyV0YAG5cuKaEaDDXg72c0CcMo8tDS6aI4BfSnW7TNgwxmjPhvbf/HVWbqwZvfZsW2OU29rhop
-	KN8n6QwB8xzulBjVI82B5JlR31hATkJzhgagYOb0zwx+4cr3tLq0+7vtE4E8Zui4NID+8tHU8Ra
-	lTy2lM9CejkG8ZRc7L40lTiiJUM6GvzWzlugbyJlQQRddzA6yiTtGq9d8RnunK0z3m9I3EoRNYE
-	x54aRveaKAdw87iE3RmvAcriofluEkeBfJZCNznSQ83s9HAgHsfAxz3ULXuWyYxb3CexCQxHpCI
-	RlJyJqtAs5v+44PvynfTgmt9g0YfQ7pYW8veH9rpPqugdmqF5o+kbDuRtHsrwhzMapxlBWeOlKT
-	aEF5H/ImM682hdWNwkilAmFQ34uIJrB6/2UuyRiC3NXav4nfPT
-X-Received: by 2002:aa7:dd03:0:b0:69e:98c8:e958 with SMTP id 4fb4d7f45d1cf-69ef509967emr74880a12.7.1784623369037;
-        Tue, 21 Jul 2026 01:42:49 -0700 (PDT)
-Received: from google.com (220.60.76.34.bc.googleusercontent.com. [34.76.60.220])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c1705a0a4c2sm566318166b.16.2026.07.21.01.42.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Jul 2026 01:42:45 -0700 (PDT)
-Date: Tue, 21 Jul 2026 08:42:39 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, maz@kernel.org,
-	oupton@kernel.org, seiden@linux.ibm.com, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, vdonnefort@google.com,
-	sebastianene@google.com, keirf@google.com
-Subject: Re: [PATCH] KVM: arm64: Optimize protected mode and FWB
-Message-ID: <al8w_5ogFQgt7ZFe@google.com>
-References: <20260720203529.1276355-1-smostafa@google.com>
- <CA+EHjTw+BypEvWRccxqsSGR+btEX58nCUC2ypuSjw04Qo3nN=A@mail.gmail.com>
+	Tue, 21 Jul 2026 08:43:50 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id B2CB560AA1
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 08:43:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B9821F00A3F
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 08:43:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784623429;
+	bh=4YnrIcak9MnTuq1PIcIeffGKhfewNQREoFw5G3CgkVE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=USYURl6kL/GvGuhsLkNzCmOf95k2kPvCE25wF4wem7mnhFXq0MaGrMDyEm6Rm3Oi+
+	 i9TjOtrHE8C+3wH6xrI9W0YKGB6RvSS8rh2RT7MckLPo0EFXa1dcZg1Vg5UCbXOZTr
+	 8dH4AbH22PxpiMF6VP+IGlGaauP5R3Vi+lTwEYUy2Cy6NTXtvdf6KkEpUmcsgnEB9T
+	 Na20C2XIockmKxlojg/uI8BDY9W5LZBqfXw+x/mq6r7pigTIaarkpTHf64/ExxD9GH
+	 pXWax0LzEdpuNJUPujmg1wV1QPRmyA59ptfETIuy2YUv4AKtT9aP8UtCGsOQ0ebl43
+	 eC9LMg4wEyz8A==
+Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-5aeb2bc82ccso9519337e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 01:43:49 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RrAAAeXYx0+Y9tU2yAGCPzw3Rc6uOPctlYGJehT9IIrcnXOAWjHdudEp8vPH74ohp0WRHM5PyDMySV/raR+R3OG@lists.infradead.org
+X-Gm-Message-State: AOJu0YyeZluMMOYrV6n1b4XPYItJ5kPNV4ru2pxapTGSOJD/hnzX4/ia
+	BuFdWTow3IHrlZPZZuh1d3f1YGv+YYUOGJzqitrb2u/s/TbFKT1eQpzTGMeI0zDGdCQpoufITBx
+	wlLg8quWKLI5VI5x3Pl3PvyyA3oygjp4=
+X-Received: by 2002:a05:6512:124f:b0:5b0:f9d:f7d9 with SMTP id
+ 2adb3069b0e04-5b28f9a723emr4081425e87.45.1784623428144; Tue, 21 Jul 2026
+ 01:43:48 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CA+EHjTw+BypEvWRccxqsSGR+btEX58nCUC2ypuSjw04Qo3nN=A@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_014251_533761_A6271E59 
-X-CRM114-Status: GOOD (  30.01  )
+References: <20260721081858.1169276-1-ruanjinjie@huawei.com> <20260721081858.1169276-7-ruanjinjie@huawei.com>
+In-Reply-To: <20260721081858.1169276-7-ruanjinjie@huawei.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Tue, 21 Jul 2026 10:43:35 +0200
+X-Gmail-Original-Message-ID: <CAD++jLmHw3ccWQj-AWvgrj7z6iwPk=MC0-UMaUqLeNpsbxW54g@mail.gmail.com>
+X-Gm-Features: AUfX_mwlDg8vIJsXHYz3fmkT6fCMHFLIFkEllyMO4HcnVtqsYTlYVhuDg7LEE1c
+Message-ID: <CAD++jLmHw3ccWQj-AWvgrj7z6iwPk=MC0-UMaUqLeNpsbxW54g@mail.gmail.com>
+Subject: Re: [PATCH v17 06/15] arm64: syscall: Rework the syscall exit path in el0_svc_common()
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,86 +74,38 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: mark.rutland@arm.com, kees@kernel.org, catalin.marinas@arm.com, oleg@redhat.com, will@kernel.org, peterz@infradead.org, thuth@redhat.com, ryan.roberts@arm.com, anshuman.khandual@arm.com, kevin.brodsky@arm.com, pengcan@kylinos.cn, broonie@kernel.org, linux-arm-kernel@lists.infradead.org, wad@chromium.org, linux-mm@kvack.org, yeoreum.yun@arm.com, linux-kernel@vger.kernel.org, luto@amacapital.net, james.morse@arm.com, tglx@kernel.org, liqiang01@kylinos.cn
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 21, 2026 at 08:49:26AM +0100, Fuad Tabba wrote:
-> On Mon, 20 Jul 2026 at 21:35, Mostafa Saleh <smostafa@google.com> wrote:
-> >
-> > KVM opportunistically enables FWB if supported by the system for guest
-> > VMs, which allows it to elude cache maintenance for data as they are
-> > forced to be cacheable from stage-2.
-> > In that case, __clean_dcache_guest_page() will immediately return.
-> > However in protected mode, before calling __clean_dcache_guest_page()
-> > it loops over the range and fix_map/unmap it, issuing TLB
-> > invalidations, dsb() and isb() unnecessarily.
-> >
-> > This can be optimized by returning early if FWB is supported,
-> > kvm_pgtable_stage2_map() already issues dsb() and tlb invalidation
-> > functions issue dsb() for the unmap path.
-> >
-> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
-> > ---
-> >  arch/arm64/kvm/hyp/nvhe/mem_protect.c | 4 ++++
-> >  1 file changed, 4 insertions(+)
-> >
-> > diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> > index 4e329e39a695..6e9229106a25 100644
-> > --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> > +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> > @@ -261,6 +261,10 @@ static void __apply_guest_page(void *va, size_t size,
-> >
-> >  static void clean_dcache_guest_page(void *va, size_t size)
-> >  {
-> > +       /* See __clean_dcache_guest_page() */
-> 
-> This looks good to me. One comment: this file also has
-> hyp_poison_page(), which deliberately avoids
-> __clean_dcache_guest_page() because the FWB elision would be wrong
-> there (it even notes "Prefer kvm_flush_dcache_to_poc() over
-> __clean_dcache_guest_page()"). Given the two opposite treatments in
-> the same file, could this comment say why eliding is safe here, e.g.
-> that the consumer is the guest via the FWB-forced stage-2? It would
-> save the next reader (if they're anything like me) from reconciling
-> the two.
+On Tue, Jul 21, 2026 at 10:19=E2=80=AFAM Jinjie Ruan <ruanjinjie@huawei.com=
+> wrote:
 
-__clean_dcache_guest_page() already have this comment.
-	/*
-	 * With FWB, we ensure that the guest always accesses memory using
-	 * cacheable attributes, and we don't have to clean to PoC when
-	 * faulting in pages. Furthermore, FWB implies IDC, so cleaning to
-	 * PoU is not required either in this case.
-	 */
 
-I will add comment to clarify guest vs host:
-	/*
-	 * Guest stage-2 uses FWB if it exists, in that case it is
-	 * safe to elide CMOs.
-	 * Unlike the host stage-2 which never have FWB enabled.
-	 */
+> In preparation for moving arm64 over to the generic entry,
+> invert the nested conditional flags check within el0_svc_common().
+>
+> No functional changes.
+(...)
+>         if (!has_syscall_work(flags) && !IS_ENABLED(CONFIG_DEBUG_RSEQ)) {
+>                 flags =3D read_thread_flags();
+> -               if (!has_syscall_work(flags) && !(flags & _TIF_SINGLESTEP=
+))
+> -                       return;
+> +               if (has_syscall_work(flags) || flags & _TIF_SINGLESTEP)
+> +                       syscall_trace_exit(regs);
+> +               return;
 
-Thanks,
-Mostafa
+What about just:
 
-> 
-> That fuller comment could also replace "See
-> __clean_dcache_guest_page()", which mostly just points back at the
-> function passed in the __apply_guest_page() call below.
-> 
-> With that fixed:
-> 
-> Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
-> 
-> Cheers,
-> /fuad
-> 
-> > +       if (cpus_have_final_cap(ARM64_HAS_STAGE2_FWB))
-> > +               return;
-> > +
-> >         __apply_guest_page(va, size, __clean_dcache_guest_page);
-> >  }
-> >
-> > --
-> > 2.55.0.229.g6434b31f56-goog
-> >
+if (...)
+  goto trace_exit;
+
+This is easier to follow IMO.
+
+With that:
+Reviewed-by: Linus Walleij <linusw@kernel.org>
+
+Yours,
+Linus Walleij
 
