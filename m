@@ -4,85 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 020BFC44532
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 15:35:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7566FC4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 15:42:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QVePzAEvk/HRAZDkJnNSAQ/f5uWHK1anOdVi7+q3VC8=; b=SzSnr6nrwEpYSA4AIy+aI7ndRb
-	/OjxRVC2/PWAsr2CWdN3DkZi3YfWjJ6DLWUjnBzHyWAj2mIK46Pz6eUaX+gGL1t8VSDiKBCVo7zve
-	uBMLcFM/mCwIzZ1cMFN8GgO6ymRu77do3CXQRXQD5EsBc3wh+aLJNI6MRLh6DyNG+nseRoRGjiNnZ
-	TBc2BbNQ1sAd8dZ/ow1MWmbT+gaC10rQKcIDhZJJG5H/fhS19V6XxDakq6Hn1SJGM9wxGNDxNOR7j
-	64ArAyO0KZ/OLF0PdPAW2HGkNvRLUhrxNSu+GVf3ejIMSsYuHCt2Y0gvEoW28HjZnUWHJU+mzb9Zx
-	rERVxtKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zPyT527VBjDBC6YiiOpnjrlcBvlCBiJzZYWSXgfZy5I=; b=3lUiuxLAf9bycIFfv5NSR6Uian
+	/i+RxAjiu6HQt4Z3nyvAYouex8T2xAPs79n0O/r4u6wRQUVUiUZE20IxNLCLEqGsDrjCpMBQqO970
+	pG4gh2au2RCApRo8pZ0oSdi9rC9OEqzHkQTa2+soKD9jL7KzKg31UBJUFkx/FMrpUpMtzvKRBDyvn
+	tzeTiqSr8cMIbUvIFMvoa3JWsQousQpvyIob44p9yWS+LHiyj4AydJuLQk69a9EMyAZYvHvrs75pB
+	HH/a1kmsH86K5R1NbEYh62ngRU6zwVMY1Sc/XVfGXZ7Xizlj6ojZJoGrX4pg7SNjOjR1YXoNM9Kid
+	Mxc1dDDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmCUq-00000009oSe-16T2;
-	Tue, 21 Jul 2026 15:35:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wmCcF-00000009p2p-0plB;
+	Tue, 21 Jul 2026 15:42:43 +0000
+Received: from mail-swedencentralazon11013017.outbound.protection.outlook.com ([52.101.83.17] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmCUo-00000009oSU-1s6x
+	id 1wmCcD-00000009p27-0zJ9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 15:35:02 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 28E7D43AB4;
-	Tue, 21 Jul 2026 15:35:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8D001F000E9;
-	Tue, 21 Jul 2026 15:35:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784648102;
-	bh=QVePzAEvk/HRAZDkJnNSAQ/f5uWHK1anOdVi7+q3VC8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=IJiPu+RZcRhgVPKAHX5VV+zkTpGbxlaIRt8LxXNBYciu1fuMPhhgYPKJQ96TwVCRB
-	 3n+JiLog3a27/oOTINg2GG5gDlhgSmxXdIOL+JxMBbJBKdkjaOmMJ+qUFIRhCQswJt
-	 RyFoKN8CBSq9d43YYEEbCAToMoDtSj2osByB1nu529L9d5iwVIM8Chf46dxyH7IXiF
-	 mv6Mt4mlVUU73mvkDpfQ+y/6Ov42XFQI740FHvBbKbsKR0gJgcOGnQAHeOGj1DRBJo
-	 RVu3b7leBlQogcOqXBk0V9pb/AfRcNa77YB1xLEHV8PPgq6WzgTFVNUdArT+9LHotq
-	 mk+vfcLOSch0w==
-Date: Tue, 21 Jul 2026 18:34:57 +0300
-From: Leon Romanovsky <leon@kernel.org>
-To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Michael Kelley <mhklinux@outlook.com>
-Subject: Re: [PATCH v8 02/23] dma-pool: fix page leak in atomic_pool_expand()
- cleanup
-Message-ID: <20260721153457.GP110966@unreal>
-References: <20260717180442.110954-1-aneesh.kumar@kernel.org>
- <20260717180442.110954-3-aneesh.kumar@kernel.org>
- <20260721123107.GJ110966@unreal>
- <yq5aqzkw76ch.fsf@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+	Tue, 21 Jul 2026 15:42:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QSDnVCbUALfwTbjBCHFtI0BNZDCqKJexi3pMpidVmXwFN/ddvK2hUnUsVxi5zcfDiUVohEQvtHnL2AAB2s5+etmcJ+BeAIj5EUnHxUEoGFVyFWWZdEmp2/rhvOhX+EXMXaYyXdSXM2b7bL0w6nxx3s194pEDmQ+NN6nBeoeA0wKqOL2Nt2tnqlf1O7q+M0TziZRjnwd3IlpdbcBXOX1Tu2CPXb/CO0As3/yjs07RFnjvfo2H36bTOSDnLDojBGCrnuAlfTguXhqql0s2L2fa9tp+/hUls6PMu7G4nXAnytUs+Kc3/v6enKDkyUENif48JcnBuuR6/0lna6a7ADluHA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xovBMCEin7VjXymkTsq+7Fa/oIevsmlhWqFvBVF9F8w=;
+ b=qpYswikwMAMV2NHVcFhbnXVjC4sJVaHshOYabaQDTlzNvFLT0pOxfguFCKtP2k6EcdV3cMKWnlJ34WakDE5bvvscJ9MzxBomoxJZLX9NV7KrqDD1Vce4Kr8BZRLwlV424y3vtvVGAiGyXVmw3qYpxlovolNACBqvZ2Q/y/E3sn8TGbGIQ3kgxqT7fGfgsUonnC+WiXI0U9AsMDWxIeslbiPtDMXyOPUlZgnSmsR7in4wJVcRG4UvSWUD5cg8/XYFiQSi9oo+FXCrYvvsmRYqXjO0ZGrKzqe9Ji6nvLdyHFMhX97anA9ZxsYLAaTYkRWuERMBc3tETy8LuVjeZuMJsA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xovBMCEin7VjXymkTsq+7Fa/oIevsmlhWqFvBVF9F8w=;
+ b=CmWr20xF1FPK6OxzYYDFNf1GiQGU4RJK2Qebseoxetx47nj72b5K1j6giWlg7+ouecAEydv0h99X/ETIBl9nXPbF76zFW7udqPugC/aCraCfH4b9aUzP3uJI24PmThd6gy8mhcK6yJPyP/xq09pi3VbiHNKVWE+cTsQ2UXAGCqfnq85QiVyTEwVGSBm5TJfi68byAk3+nX8lzimRdPx+X9EIX4Xi56J6NwMN/rDc3AVCOUwL//qVLfYbj3mGMJ7ogZ4gYL0e01opFfgOuM8gplLjSyifIXBCNM1KNOJ/1Fs/m8eEdOJqfyq1bc94NTCTLCEH13IsgxRNpJUsgofWCw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by VI1PR04MB6782.eurprd04.prod.outlook.com (2603:10a6:803:139::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Tue, 21 Jul
+ 2026 15:42:34 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0223.017; Tue, 21 Jul 2026
+ 15:42:34 +0000
+Date: Tue, 21 Jul 2026 10:42:22 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Xu Yang <xu.yang_2@nxp.com>, Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH 1/2] arm64: dts: imx8qm-ss-conn: add usbotg3 iommu
+ information
+Message-ID: <al-TXsoz3UNJC3gg@SMW015318>
+References: <20260720-qm_smmu-v1-0-3689fbd8b516@nxp.com>
+ <20260720-qm_smmu-v1-1-3689fbd8b516@nxp.com>
+ <2844770.mvXUDI8C0e@steina-w>
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <yq5aqzkw76ch.fsf@kernel.org>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <2844770.mvXUDI8C0e@steina-w>
+X-ClientProxiedBy: PH8PR15CA0002.namprd15.prod.outlook.com
+ (2603:10b6:510:2d2::29) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI1PR04MB6782:EE_
+X-MS-Office365-Filtering-Correlation-Id: 557ec0fd-3d2a-418a-2061-08dee73eae9f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|19092799006|1800799024|23010399003|4143699003|11063799006|10067099003|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: DMoKaSuvCR9aoE3PzeUH2wEk2Qzqei+LVGKa7ZYamDeJ/rCvjzZzak/ze3ZYjVCkEOKX9L/J7ejKY+Mf8QHIyAtIBzq8ctQDiZABF3jHMBgJkWqVE+KLMB6WdBVj2Ci6DItWfgRPb5ZHKumUl/cT8AT1ZhgS8+wnGCfkaR9chFXgukY4BelHBlZ0Qc9dT1geGXbLFCDZX1i5hW8j7gnYf2Yb7p8/P4mLUiAF5IewIJD37NbiyD3uIcH9iAPQ8IoIqC+BswyzJhnsY/4Xix4quMF7EAMNGX60W6Peq6AWQu+H9fZtJ49mdHgdCR9DASfOeTkwhzgemR4M1+nfqsCzc6ah0ZooKSOocAocR9vvTA4oeVIe6wBMrog0wJOmhGN8YyQocKBcpJJsFc8uPtlBgDZo5z215zr/vJJKMVFj0XGFa0Exvda4M9NDtC1OhsFjQIjTxBAofY49xggiWHVY197jlpBMIvDhe71C7PM6p5xdIZAR9UGKhmAVQC2x1q0pKr2N7pkWgS/DfRbyVklTRWKMawi0xPl7l1EkxUX7BOmNXixo+JzvfjEDVJbD6FvU4r59LIgn6yJNrSG54lAUfCfGOigqyZRC4+n/zU6d7Ug=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(19092799006)(1800799024)(23010399003)(4143699003)(11063799006)(10067099003)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?oQzEuIDRLcsykR9erBtSuxPtaGgMyfqbJnyWkcxsXCUPPxDB98CB96Q63k?=
+ =?iso-8859-1?Q?RpX3LFN8aiJ/hSAGzwCMFjhL2fmUm52wtIhRxM21A32kr8IRJqk73zD1RF?=
+ =?iso-8859-1?Q?weOLsF7jK1yimE5lnwaJs0jYBW98lzfeS/KdK1M2CblHkGXP7Q0pldXnVJ?=
+ =?iso-8859-1?Q?2OQGPtsaooDVyWJLhJNRBrUYmtghLsvaQSY9Pr5XJz8OYdvwhJbrl52SGw?=
+ =?iso-8859-1?Q?y7FYl9sgXTmArfBH9iqbOosZZooWq3Va9cvERIn5IgVCc4mLLxdTxdw+NF?=
+ =?iso-8859-1?Q?sfWs1pClUCe9VTTSsfyvdwHKUu0bdX+Gtt+4zIV4m8yP9QQuhjW2PvErMp?=
+ =?iso-8859-1?Q?mDt6FL+MNRPFzjlqLLe1WBGgwYhKojUmnXfj7cI/IxuxTdgWl5OlsBb5bK?=
+ =?iso-8859-1?Q?2y/OywpHQR+E8TsMcoUUjWwgmFpuSDhLqu6GxL4atUIL9puM/EEOpuNh9D?=
+ =?iso-8859-1?Q?dbEs3gcJcFkcoyjTcO11YVfK/ukF9UebKKQZL4EmPYcTNIEMWZPuKjMHdJ?=
+ =?iso-8859-1?Q?ehkpmV9ZRKFvOFph8KQVNBZgDlXLcbXiHfQbPMcns2aRIbx8fTXmA5M50u?=
+ =?iso-8859-1?Q?TCAsufPQhY8ggvoAwOXQrlCKVdl1II+sRiwcFHaHAEa9WH87TqreLdLOMW?=
+ =?iso-8859-1?Q?aex/3uYdv+YrTyJ46wUZwQGFA9f+VSz0BjYe3o4EAHWqYV3BT2zkHjSszj?=
+ =?iso-8859-1?Q?h7wFcwiBVA8W+/0XTqbF6IwIFVaB0WH6XymKcJ7qrQkAKGyc5RCRGcDn+O?=
+ =?iso-8859-1?Q?Yj5svvcGEqwVLCjUS8KdKY2pHBSCGztq4UgRESHG+E/JkWiNzy2BG3TtFq?=
+ =?iso-8859-1?Q?Xuc02ywuEeLWFiax5DCQ2Tyf8xBw5GT0whhq2WL4XRSZnuZzsS3MJGoLg9?=
+ =?iso-8859-1?Q?Td+GNAb0drKNQLucjHdG348xsvTkNLTY+4HTSPwwHyIxOpFSYtDx8G8XQg?=
+ =?iso-8859-1?Q?hpyrYXicTzFNhbq4IvD83rjsaDU+povJRtBiDHll782gUH5OZAD9jvi9Gg?=
+ =?iso-8859-1?Q?ULXv9c0dFF7q0iOAhmK4jh/cGyBN0IhWZcIxbLXa2ScjloJSBo89Qfgl9z?=
+ =?iso-8859-1?Q?XM6oL6y+/H0Sn8MadUt/LJBKLr2YaJPqY7I5QmpHDQGBKN6vnBu6fiSA0i?=
+ =?iso-8859-1?Q?wkd8gn434zqsCP1UPsy5HJcsiZI6wVBmVSBB763WnMiTr8jArDGWQFN0X0?=
+ =?iso-8859-1?Q?p1UdRwTigX5PsR2sode3R1GuumGqZUhaAuaxSfWXn5rKJXIOQ/QWf+8OJ5?=
+ =?iso-8859-1?Q?CawLb5euD0wHZVY8U5/c1SZ3G0MzR9WUCQJpyp/tJBdyJGzXLnZ8hLBobC?=
+ =?iso-8859-1?Q?5PMlgH8/Lfz5zam3/vZcE3iX1DvaX7VP/fe4uH48bcPqGkgthr3p7yMSkj?=
+ =?iso-8859-1?Q?/7Vs1vgGTQ9RQJBlehM57FqDOMjA/fE7g9D5XmMjWeac73SxIbv3kqMjXF?=
+ =?iso-8859-1?Q?UEGdpgGYAwXwbMzUAL6007Tpi1If7ZHup33H38kGb3BDey+4MenNinXI/Y?=
+ =?iso-8859-1?Q?ypxzS4Hmdvb5DQqesLh47fjDO52X8EI10ub8r4tbetYFA9VR46+4mcDPu9?=
+ =?iso-8859-1?Q?wl5hA3Wrxu6BpYvdSr6H1ZwP28Il7M7xIxLz4nk9QABsR9TxAa9I2afy6b?=
+ =?iso-8859-1?Q?yjfOTj57ZeA5y5ke8a7OQ5UWHT8r0oImnHKtX04SM+hH0b8MxJF9o5LrUV?=
+ =?iso-8859-1?Q?uauzxZ4/uHDauMWKwj5WdEZd3WFdk+Ya3d4W6lYK1dxAm1ZbQzO25+ZKmS?=
+ =?iso-8859-1?Q?GdGwRPzWnXJJV0oqYuKs3QVCu0ppbPz90kZlW+hjjPZHu+vs5ljKpOXai3?=
+ =?iso-8859-1?Q?he9oaLXW4IFvcNXayLwNb1hQg7yEi2supvUput5If9qDzlghrmC6?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 557ec0fd-3d2a-418a-2061-08dee73eae9f
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Jul 2026 15:42:34.1315
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: u8FeTnfCmkVpQ8rXu6eXCfsQpOiS2BjXdgHu+E11LD9ED6P+cjdE8T1BpvhErqV31Vw2xsok6TyRREMmPwFFyJMxz0fc64UB1mr1doElT3ZbpYozE0lOTIuz15J7P7zS
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB6782
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260721_084241_276639_3D7F94F5 
+X-CRM114-Status: GOOD (  18.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,103 +146,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 21, 2026 at 08:11:34PM +0530, Aneesh Kumar K.V wrote:
-> Leon Romanovsky <leon@kernel.org> writes:
-> 
-> > On Fri, Jul 17, 2026 at 11:34:20PM +0530, Aneesh Kumar K.V (Arm) wrote:
-> >> atomic_pool_expand() frees the allocated pages from the remove_mapping
-> >> error path only when CONFIG_DMA_DIRECT_REMAP is enabled.
-> >> 
-> >> When CONFIG_DMA_DIRECT_REMAP is disabled, failures after page allocation,
-> >> such as gen_pool_add_virt(), jump to remove_mapping and return without
-> >> freeing the pages.
-> >> 
-> >> Move __free_pages(page, order) out of the CONFIG_DMA_DIRECT_REMAP block so
-> >> that cleanup paths always release the allocation.
-> >> 
-> >> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> >> Tested-by: Michael Kelley <mhklinux@outlook.com>
-> >> Tested-by: Mostafa Saleh <smostafa@google.com>
-> >> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
-> >> ---
-> >>  kernel/dma/pool.c | 10 +++++++---
-> >>  1 file changed, 7 insertions(+), 3 deletions(-)
-> >> 
-> >> diff --git a/kernel/dma/pool.c b/kernel/dma/pool.c
-> >> index 2b2fbb709242..b0303efbc153 100644
-> >> --- a/kernel/dma/pool.c
-> >> +++ b/kernel/dma/pool.c
-> >> @@ -81,6 +81,7 @@ static int atomic_pool_expand(struct gen_pool *pool, size_t pool_size,
-> >>  {
-> >>  	unsigned int order;
-> >>  	struct page *page = NULL;
-> >> +	bool leak_pages = false;
-> >>  	void *addr;
-> >>  	int ret = -ENOMEM;
-> >>  
-> >> @@ -115,8 +116,10 @@ static int atomic_pool_expand(struct gen_pool *pool, size_t pool_size,
-> >>  	 */
-> >>  	ret = set_memory_decrypted((unsigned long)page_to_virt(page),
-> >>  				   1 << order);
-> >> -	if (ret)
-> >> +	if (ret) {
-> >> +		leak_pages = true;
-> >>  		goto remove_mapping;
-> >> +	}
-> >>  	ret = gen_pool_add_virt(pool, (unsigned long)addr, page_to_phys(page),
-> >>  				pool_size, NUMA_NO_NODE);
-> >>  	if (ret)
-> >> @@ -130,14 +133,15 @@ static int atomic_pool_expand(struct gen_pool *pool, size_t pool_size,
-> >>  				   1 << order);
-> >>  	if (WARN_ON_ONCE(ret)) {
-> >>  		/* Decrypt succeeded but encrypt failed, purposely leak */
-> >> -		goto out;
-> >> +		leak_pages = true;
+On Tue, Jul 21, 2026 at 09:48:16AM +0200, Alexander Stein wrote:
+> Hi Frank,
+>
+> Am Montag, 20. Juli 2026, 23:10:33 CEST schrieb Frank.Li@oss.nxp.com:
+> > From: Frank Li <Frank.Li@nxp.com>
 > >
-> > Instead of doing this dance with temporal variable, change "goto out" to
-> > be "return true".
+> > Add usbotg3 iommu information.
 > >
-> 
-> 
-> I didn't follow the return true part. A failure in
-> set_memory_encrypted() or set_memory_decrypted() requires the pages to
-> be leaked, so this is not the only call site that sets leak_pages =
-> true. There is a similar case a few lines above.
+> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > ---
+> >  arch/arm64/boot/dts/freescale/imx8qm-ss-conn.dtsi | 4 ++++
+> >  1 file changed, 4 insertions(+)
+> >
+> > diff --git a/arch/arm64/boot/dts/freescale/imx8qm-ss-conn.dtsi b/arch/arm64/boot/dts/freescale/imx8qm-ss-conn.dtsi
+> > index ccf9f510e0f88..1370a571153a5 100644
+> > --- a/arch/arm64/boot/dts/freescale/imx8qm-ss-conn.dtsi
+> > +++ b/arch/arm64/boot/dts/freescale/imx8qm-ss-conn.dtsi
+> > @@ -32,3 +32,7 @@ &usdhc3 {
+> >  	compatible = "fsl,imx8qm-usdhc", "fsl,imx8qxp-usdhc", "fsl,imx7d-usdhc";
+> >  	iommus = <&smmu 0x11 0x7f80>;
+> >  };
+> > +
+> > +&usbotg3_cdns3 {
+> > +	iommus = <&smmu 0x4 0x7f80>;
+>
+> Where in the RM can you get these values?
 
-Comment about "leaked" is enough. There is no need to introduce
-convoluted flow just to check that page != NULL.
+0x4 is stream ID, any value between 0-31, uboot will use this value to
+config stream ID for bus master by scfw API
 
-Thanks
+0x7f80 means tire some bit to high before pass to smmu by hardware.
+I don't think signal defination can be found at public documents.
 
-> 
-> 
+static int arm_smmu_of_xlate(struct device *dev,
+                             const struct of_phandle_args *args)
+{
+        u32 mask, fwid = 0;
+
+        if (args->args_count > 0)
+                fwid |= FIELD_PREP(ARM_SMMU_SMR_ID, args->args[0]);
+
+        if (args->args_count > 1)
+                fwid |= FIELD_PREP(ARM_SMMU_SMR_MASK, args->args[1]);
+}
+
+Frank
+
+>
+> Thanks and best regards,
+> Alexander
+>
+> > +};
 > >
-> >>  	}
-> >>  remove_mapping:
-> >>  #ifdef CONFIG_DMA_DIRECT_REMAP
-> >>  	dma_common_free_remap(addr, pool_size);
-> >>  free_page:
 > >
-> > Remove free_page label, and change leftover of "goto free_page" to be
-> > "goto out"
-> >
-> >> -	__free_pages(page, order);
-> >>  #endif
-> >> +	if (!leak_pages)
-> >> +		__free_pages(page, order);
-> >
-> > Put these checks under out label and rely on page != NULL as a marker.
-> > if (page)
-> >  __free_pages(page, order);
-> >
-> >>  out:
-> >>  	return ret;
-> >>  }
-> >> -- 
-> >> 2.43.0
-> >> 
-> >> 
-> 
-> -aneesh
-> 
+>
+>
+> --
+> TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
+> Amtsgericht München, HRB 105018
+> Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
+> http://www.tq-group.com/
+>
+>
 
