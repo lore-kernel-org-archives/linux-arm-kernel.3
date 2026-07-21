@@ -4,57 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAFF2C4452F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 13:08:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94E7AC4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 13:17:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TYa/G9Ikx6NJ1Cb3jjSRc0JJzXsBaNhe6e1UGVGm/9A=; b=Mnvq0gGjKIePw8mykkgAJJz0bM
-	fyJ4113UcEJ142TCZv0iXdF0MTFijYjXUsQDhLulWw1T1jmLmAOLLq/0hJl7z84p7m0XieqAn5iuJ
-	cJK3ToMXRbGAg1AY9TWla+5s3Y+amx+eNB8CkkUwis1PgFLZfp6ryMZQMFfCm8yMoFSr62vhDgFat
-	lbfQPLQLDVJ67LwMBEAMkGBm4OXz+/utlOQwvEh0vDwvewa3obr2cyluZHmc1KnN0YSP1lAB66+xa
-	3UfP5la64Lijb0pCnLvAlWmvsTAVDAHXOR8ycMbh9eGhp6CGpvxnxGK4tioRbvr3ILojpIK+/vb1D
-	j2xJcFfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iB/b1UwOtaJbSu+Pxa91MlG9Tvt3hYteyZAnxyw6gmc=; b=Xbdt+42hMeXvPHEsrnISCkLBbh
+	lPOTn/C61Dd0bd9AHEpB3RlSYwwR2sip9Rb1JlB9kQVPrVsEKdR/vkiOMAb8PNQp/NR3mJZbW5eDc
+	8Fr2qEgq4B31hfDn6uNSzVCuPbP6fasl5d2K3jc4ko5jHrAVj7O1VKLFcq5EWXn8EhuWvIABm2md3
+	JYozGNs5Ls0AQCZx+0mFbFVLiEOmjnJxqwKo2wWWn2ZkNgBSplYq6qqAvGeHBDCt/R/TJ2qMF3fjV
+	hZlbm87jHfHc+794LiOF+AzXpeOo0WNupmJNYEvt2mL2zY+wVh3Mly2J/refec/ye1+2qYvtIlF22
+	wxJ9T0VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmACt-00000009UFl-1C5T;
-	Tue, 21 Jul 2026 13:08:23 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wmALl-00000009VCA-1tXu;
+	Tue, 21 Jul 2026 13:17:33 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmACr-00000009UFa-2PPR;
-	Tue, 21 Jul 2026 13:08:21 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4BA4841AC7;
-	Tue, 21 Jul 2026 13:08:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2A081F00A3A;
-	Tue, 21 Jul 2026 13:08:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1784639301;
-	bh=TYa/G9Ikx6NJ1Cb3jjSRc0JJzXsBaNhe6e1UGVGm/9A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=d6/V2aPEpPAB2I6Ua7LPwlcHwngi1zJi/XHIgdgpWsC+OpJGb8lJA2aRw5XgvUCSk
-	 5IZrdAIm+bmynNmQblXUQu5K3mThBRK4gT3ERximvLzMKDANxWBbmBkq/iBUG9clUc
-	 4TcfxO32nUe0BTZC9S93Hw6aq20MtO0npuydVBV4=
-Date: Tue, 21 Jul 2026 15:08:11 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Pawan Gupta <pawan.kumar.gupta@linux.intel.com>
-Cc: stable@vger.kernel.org, Sasha Levin <sashal@kernel.org>,
-	bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, x86@kernel.org,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Dave Hansen <dave.hansen@linux.intel.com>
-Subject: Re: [PATCH 6.16.y 0/6] cBPF JIT spray hardening
-Message-ID: <2026072151-outsell-suburb-64ea@gregkh>
-References: <20260714-cbpf-jit-spray-hardening-6-16-y-v1-0-2fc3e16263ac@linux.intel.com>
+	id 1wmALj-00000009VB4-15pa;
+	Tue, 21 Jul 2026 13:17:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1784639846;
+	bh=R8nUNIgTuASw0mfyVytVdcuNkU/oD+Zh6pHVC1/b5gs=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=qK7Pv3RBLBhBo2vXcfS4EkPcVoUCSfA4JqVkzR/9Ib1xqM2AxDJoHQ15tq2wzHm11
+	 ZHEtoLUhjleO+j8oT1eUc8eI99pA17FCnIOIK2YeKpvQXGkvs7A+iRBrbWO7kxXHDk
+	 2levvTtJb3tPEuL+vwoolSyewp6C1ofupQdCh8HbPgRb9mXvRFt2GrtKlJA11qNep3
+	 pFeMABjGE04bSdUlr2d2DZ63r64ulGe9mgfRululaRhOxWedlZQBIqgkniO8ZV3x/B
+	 0g3wc8qJV+5usCHYbHQnLsN4xsxwvST1hm1QYahG4NviKlB/HBsyiQo1ESXRjZSBmI
+	 F7k7l6CotV8wA==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id F23EE17E0910;
+	Tue, 21 Jul 2026 15:17:25 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org
+In-Reply-To: <20260601-mtk-genio-mt6359-pmic-supplies-v1-0-05750080ba59@collabora.com>
+References: <20260601-mtk-genio-mt6359-pmic-supplies-v1-0-05750080ba59@collabora.com>
+Subject: Re: [PATCH 0/3] Mediatek Genio EVK: add MT6365 PMIC supplies
+Message-Id: <178463984593.189936.14763316551159324622.b4-ty@b4>
+Date: Tue, 21 Jul 2026 15:17:25 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260714-cbpf-jit-spray-hardening-6-16-y-v1-0-2fc3e16263ac@linux.intel.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260721_061731_454911_8B08E9B1 
+X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,38 +78,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2026 at 11:58:24AM -0700, Pawan Gupta wrote:
-> Hi,
+On Mon, 01 Jun 2026 16:15:44 +0200, Louis-Alexis Eyraud wrote:
+> Several Mediatek and Radxa boards, based on MT8370, MT8390 or MT8395
+> SoC, integrate the MT6365 PMIC, that is a MT6359P variant.
 > 
-> These backports harden BPF JIT against spectre-v2 class of attacks. Without
-> a predictor flush, execution of new BPF program may use stale prediction
-> left behind by the freed one.
+> This PMIC dt-bindings for recently gained property definitions for the
+> power inputs for its various buck and LDO regulators ([1]).
 > 
-> To avoid this, issue an IBPB flush on all CPUs on JIT program allocation.
-> The flush is conditional to spectre-v2 mitigation applied.
+> The goal of this series is to add the supplies for this PMIC regulators
+> in the following board devicetrees:
+> - MTK Genio 510-EVK
+> - MTK Genio 700-EVK
+> - MTK Genio 1200-EVK
+> - Radxa NIO-12L
 > 
-> Patch 1-2: Adds the predictor flush hook and enables it on x86 via IBPB.
-> 
-> 	  bpf: Support for hardening against JIT spraying
-> 	  x86/bugs: Enable IBPB flush on BPF JIT allocation
-> 
-> Patch 3-6: Narrow the flush to only unprivileged JIT allocations
-> 	   to avoid redundant flushes. Also adds pack-selection changes
-> 	   that minimizes flushes.
-> 
-> 	  bpf: Restrict JIT predictor flush to cBPF
-> 	  bpf: Skip redundant IBPB in pack allocator
-> 	  bpf: Prefer packs that won't trigger an IBPB flush on allocation
-> 	  bpf: Prefer dirty packs for eBPF allocations
-> 
-> This one is mostly similar to 6.18:
-> 
->   https://lore.kernel.org/all/20260713-cbpf-jit-spray-hardening-6-18-y-v1-0-755f60c55705@linux.intel.com/
+> [...]
 
-There is no active 6.16.y kernel branch, so why is this being sent to
-us?
+Applied to v7.2-next/dts64, thanks!
 
-confused,
+[1/3] arm64: dts: mediatek: mt8390-genio-common: Add MT6365 PMIC supplies
+      commit: 917b5c98d768a47daff91f2d21a000bc3e24a7a4
+[2/3] arm64: dts: mediatek: mt8395-genio-common: Add MT6365 PMIC supplies
+      commit: cc90ec9b892061a3e4dbd4e944e18a81758da2ff
+[3/3] arm64: dts: mediatek: mt8395-radxa-nio-12l: Add MT6365 PMIC supplies
+      commit: 759e989b840b4c2ffdb74cf1e1da0cee66e89f4c
 
-greg k-h
+Cheers,
+Angelo
+
+
 
