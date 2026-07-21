@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE312C4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 09:27:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 198D7C44529
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 09:28:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1c85gg17qOp2jVI8fhxIGgJrpPOSpSPj68RXsM9YqFQ=; b=XTPCUZh6eijvhG
-	2wtdQzsPvgt/ZzP4QEfi3hyYoVNFG9f+w0Hqv2aYFTfITpbCxrmaboeibnay7MMfpERWsOImrzMBa
-	6YV+wvtsehUdAT0P+6KzxIybk1uCN8qGdEy9F8tDscr27W7EPgeOyUfOyKxMUbQM5YWa6iWVs+w3B
-	N7gUqrfYlsFg+Y459G32CNMcnpS2aS66hXq4D1xtDIqaix8gw2XK0s3Scl9X7/bfOmlaPQH7vXpTM
-	ZGpPBOej4soDa/2V+9y+MZTjR813MdLD2kb3YS3WO3hlhCe/pPgO584NwGN6XDcVXXfTvBNNZ0kq2
-	Mh8kwm7IC1xhMSZmg5LQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w4GT+n1uuxHxqty8I1q9rOGynTOl5bdMsMvwdxKRerc=; b=KBinUVbyjVPp+19mD/h36wfzwz
+	QuSROi8CxpW7Qc576aNSlVggwQ17Ubhe2MZjrzCOQtIOR+UFg9hF/T0+UIdC9Bw2eFgqVNOi534aL
+	dr2lsm+qN/U2FxZMLN7xqAfCT66gjjyx08TEDgHZ60/zm4h7E13AT8F0D3YqkcNhJG2y3MIxt7XCx
+	IKDhFsjt0E7NU9ByRBwcGViXCe8r6y3vOe0xfpkhDT6mADhG0a5risFphlIsC9Cqx0+yEwVUynZWI
+	lszwa+vdaQY/Sm5Xcgmlu4oDEFfVgLX50nXl5e36PIxuVo2pVrs9QG9nuhFtKBiZYqFb3XmEmOcDH
+	PJ6nzWIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm6l4-00000008yq6-31Yv;
-	Tue, 21 Jul 2026 09:27:26 +0000
-Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
+	id 1wm6lf-00000008z2d-3wfS;
+	Tue, 21 Jul 2026 09:28:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm6l1-00000008ynX-3S0j
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 09:27:25 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=1c85gg17qOp2jVI8fhxIGgJrpPOSpSPj68RXsM9YqFQ=;
-	b=jIxiaBiEZUASBc8flQ1I2Kxi2AQjwRTVk+7jv2wnMBVzpgVwbrHH1P9sWOOXoQKOmfpGn8nRR
-	X2lgXtHd1WrGwtiMFog4QqUZi/Gc3IoY1fNRbmS+gCErqIfBa0tXGkgqtll21JVbEXAywqIb9Kn
-	rsA7SAzkcvjTsgPhf9LV8vA=
-Received: from mail.maildlp.com (unknown [172.19.162.92])
-	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4h4BcQ1ZvRzKmWF;
-	Tue, 21 Jul 2026 17:17:42 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id BE91A40586;
-	Tue, 21 Jul 2026 17:27:06 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 21 Jul 2026 17:27:05 +0800
-Message-ID: <4b6d760a-8270-443b-878f-37d46d9bed47@huawei.com>
-Date: Tue, 21 Jul 2026 17:27:04 +0800
+	id 1wm6lf-00000008z2D-0Fyq;
+	Tue, 21 Jul 2026 09:28:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7504142DFA;
+	Tue, 21 Jul 2026 09:28:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEC571F00A3A;
+	Tue, 21 Jul 2026 09:28:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784626082;
+	bh=w4GT+n1uuxHxqty8I1q9rOGynTOl5bdMsMvwdxKRerc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=P4xgrchA4VxqcHMNVVWdER/w7lafPUN1dZRus8GKSVRFmB0amwjMqa2qxwW3fInZv
+	 m8FQx2lpY1YvLxHoJmiys59247TqttMzk+W+/ORaXtHtn1I9oondRGYT17c0LZdNPc
+	 pjEywDoMXg/A1IWua4TNn7v8QBBbbO8avLJZUIWkqsRitVa54yAAgYVnzcJb7CIYOw
+	 MiQrHCbW5E0P+FHLzOlbl/lPuhiPq5jMb9S7Ow5msAaavVe2HpZpIgb/CFGZIxAcdl
+	 sMSupRSfmKVJKF7s+W5Oez4PTlhOajn/Ag3PUaRTWSjBiOGtyd6QcS3g68zXvfi6MM
+	 zrjrqR0Huz8qA==
+Date: Tue, 21 Jul 2026 11:28:00 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Jacob Keller <jacob.e.keller@intel.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Alexander Lobakin <aleksander.lobakin@intel.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	Madhur Agrawal <madhur.agrawal@airoha.com>
+Subject: Re: [PATCH net-next v9 3/3] net: airoha: defer GDM3/GDM4 WAN mode
+ and GDM2 loopback to QoS offload
+Message-ID: <al87oKiC1y88_Ncr@lore-desk>
+References: <20260721-airoha-ethtool-priv_flags-v9-0-9c15d8b71a56@kernel.org>
+ <20260721-airoha-ethtool-priv_flags-v9-3-9c15d8b71a56@kernel.org>
+ <5e0444bf-b258-4a6b-a1dc-fecc3419ebad@intel.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v17 15/15] arm64: vdso: Expose sigreturn address on vdso
- to the kernel
-To: Linus Walleij <linusw@kernel.org>
-References: <20260721081858.1169276-1-ruanjinjie@huawei.com>
- <20260721081858.1169276-16-ruanjinjie@huawei.com>
- <CAD++jL=Ou_HF5VchexnjUf9qwzrz0xgY+NhA5gZhOwiwdxUi-g@mail.gmail.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <CAD++jL=Ou_HF5VchexnjUf9qwzrz0xgY+NhA5gZhOwiwdxUi-g@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- dggpemf500011.china.huawei.com (7.185.36.131)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_022724_191724_58D4069D 
-X-CRM114-Status: GOOD (  10.08  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="xSYfztsw1Jux22Uk"
+Content-Disposition: inline
+In-Reply-To: <5e0444bf-b258-4a6b-a1dc-fecc3419ebad@intel.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,55 +75,73 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, kees@kernel.org, catalin.marinas@arm.com, oleg@redhat.com, will@kernel.org, peterz@infradead.org, thuth@redhat.com, ryan.roberts@arm.com, anshuman.khandual@arm.com, kevin.brodsky@arm.com, pengcan@kylinos.cn, broonie@kernel.org, linux-arm-kernel@lists.infradead.org, wad@chromium.org, linux-mm@kvack.org, yeoreum.yun@arm.com, linux-kernel@vger.kernel.org, luto@amacapital.net, james.morse@arm.com, tglx@kernel.org, liqiang01@kylinos.cn
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+--xSYfztsw1Jux22Uk
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+> On 7/20/2026 3:03 PM, Lorenzo Bianconi wrote:
+> > GDM3 and GDM4 ports require GDM2 loopback to be enabled for hardware
+> > QoS offload to function. Without it, HTB and ETS offload on these ports
+> > do not work.
+> > Previously, GDM3/GDM4 ports were automatically configured as WAN with
+> > GDM2 loopback enabled during ndo_init(). Add the capability to configure
+> > GDM3/GDM4 as WAN/LAN on demand when QoS offload is created or destroyed.
+> > Hook airoha_enable_qos_for_gdm34() into TC_HTB_CREATE so that requesting
+> > HTB offload on a GDM3/GDM4 LAN port switches it to WAN mode and enables
+> > GDM2 loopback, with proper rollback on failure. Introduce the
+> > AIROHA_DEV_F_QOS flag to track whether a device has an active HTB
+> > qdisc; clear it on TC_HTB_DESTROY. The device keeps its WAN role after
+> > qdisc teardown so that its configuration is preserved until another
+> > device explicitly needs the WAN role for QoS offload.
+> > If another GDM3/GDM4 device already holds the WAN role without an active
+> > QoS qdisc, demote it to LAN before promoting the requesting device. Skip
+> > the demotion when the requesting device is itself already the WAN devic=
+e.
+> > Since airoha_dev_set_qdma() can now be called on a running device to
+> > migrate between QDMA blocks, make dev->qdma an RCU pointer so the TX
+> > path can safely dereference it without holding RTNL.
+> > Hold flow_offload_mutex in airoha_enable_qos_for_gdm34() and
+> > airoha_disable_qos_for_gdm34() around the dev->flags update,
+> > airoha_dev_set_qdma() and GDM2 loopback configuration, serializing
+> > against concurrent airoha_ppe_hw_init() in the TC_SETUP_CLSFLOWER
+> > offload path.
+> > Introduce airoha_qdma_deref() helper that wraps rcu_dereference_protect=
+ed()
+> > with a lockdep condition accepting either rtnl_lock or flow_offload_mut=
+ex,
+> > and use it across all control-path dereferences of the RCU-protected
+> > dev->qdma pointer.
+> > Add airoha_disable_gdm2_loopback() to disable GDM2 hw loopback.
+> >=20
+>=20
+> A minor nit which may just be my personal preference/style:
+> I had trouble following this commit message since it goes through a lot
+> of detail about various problems with dereferencing and other changes
+> related to allowing the defered configuration of WAN mode.
+>=20
+> I do appreciate this detail as it helps understand the changes and
+> motivations. However.. It might benefit from some additional line breaks
+> for spacing to help readability.
 
-On 7/21/2026 4:55 PM, Linus Walleij wrote:
-> On Tue, Jul 21, 2026 at 10:19 AM Jinjie Ruan <ruanjinjie@huawei.com> wrote:
-> 
->> Syscall User Dispatch (SUD) must not intercept the signal trampoline
->> code, otherwise returning from a signal with a locked selector may
->> cause infinite recursion into the signal handler.
->>
->> Provide an arm64 implementation of arch_syscall_is_vdso_sigreturn()
->> to exclude these sigreturn syscalls from dispatch.
->>
->> For native 64-bit tasks, check whether the current PC matches the 'svc #0'
->> instruction inside the vDSO sigreturn trampoline (defined in
->> arch/arm64/kernel/vdso/sigreturn.S as below).
->>
->>         SYM_CODE_START(__kernel_rt_sigreturn)
->>                 mov     x8, #__NR_rt_sigreturn
->>                 svc     #0
->>         SYM_CODE_END(__kernel_rt_sigreturn)
->>
->> For COMPAT tasks, verify that the instruction falls within the dedicated
->> 'sigpage' range, since compat signal handlers use this architecture-
->> specific page (not the vDSO) for their return trampoline. This prevents
->> SUD from incorrectly dispatching syscalls issued during signal return.
->>
->> Suggested-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
->> Suggested-by: Kevin Brodsky <kevin.brodsky@arm.com>
->> Suggested-by: kemal <kmal@cock.li>
->> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> 
-> I'm a bit scared about SUD.
-> 
-> Certainly we can merge patches 1-14 first and iron out
-> any trouble related to that and split this off so a separate
-> series to be applied lated?
+Sure, I can rework the commit log if I need to repost.
 
-Yes, Mark's idea is the same. We can place the SUD patch here separately
-and wait for thorough testing and review.
+Regards,
+Lorenzo
 
-Link:
-https://lore.kernel.org/all/akZgV0Y4YAmB43_g@J2N7QTR9R3.cambridge.arm.com/
+--xSYfztsw1Jux22Uk
+Content-Type: application/pgp-signature; name=signature.asc
 
-> 
-> Yours,
-> Linus Walleij
+-----BEGIN PGP SIGNATURE-----
 
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCal87oAAKCRA6cBh0uS2t
+rEVKAPwIcLrCEAa3lrXGbk+Gos4q3HQHdOKbOzp+RRDjU1q54gEAyCE+g/lit//W
+cCyYD5/Z/NsHLoCWZv4DilW7uBExHg4=
+=WQtn
+-----END PGP SIGNATURE-----
+
+--xSYfztsw1Jux22Uk--
 
