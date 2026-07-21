@@ -4,77 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33779C4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 16:22:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B9C3C4452B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 16:24:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=JoSpYNH320RJAnts2pP5+Q3/u6oQENLYblI1/yJFWS4=; b=WQLNT4m/EeKWREEoa3t+K9AVp1
-	zxwKgxTT3v61d9p0Hq6/RjtSBERxGNQplKF98N8buWLGvI67Ji/HrWU7ielZeK2ua6alfRJ344y0f
-	jUClQ1Z7gI+zM2eSYQNAcWJuF/se+ARay3zSGU4TKHUtm5FHf2Vgv/J+HiIm/QvN8O1JqXoKX2N2G
-	P8PyVzSdEVZ3i+kwIdVsR56KhgWsHer/E4GJnkzD1vHFhxDcXiYWTU6GZYDgCC5vs2B6sOVm2lmY4
-	zBe3QOKpzx81/1oadAojH8imtCW9sC1n9+fke4i7OK658Ht3/U7NN+V4LrF9jUE3y27XzGmmFRZMr
-	y+k3/V7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ztzLHFgZF1pj4LHMu3VvIZzUHzFoGqe9tmkrlg/P0Q4=; b=BrEv04zIg1hR9eDYYxryWkUfQ/
+	O6vUNHtFqhGF6F9In4ndX+aOaq1f0cqbgAXSMCLA9wSFlZrCRyp4HfBXVYKFSx2tT18JUwo6fq4Ot
+	nt9cv3Huz+ZVnX7hF0aKx+lXV35n1WKsfjWuVP8QiXeWTyflypdk4mhZnbM2zxIg2FgLbENTNnZF/
+	7++vOqmLGJdHpquQUnadeDoK/3LjXGbRfo6X+X+XnZBgsix9EEjOmmw7eUeLU1/kQ8fds8eZp2x/W
+	1wpQXKgUoccxMSnVx3a+LeXSVs/agaDRdt9nXeS950kBFs808iDPsk1EsSmXXsk7hlDNxK0wYmZ0f
+	Js4EeWcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmDDw-00000009sXg-3k2d;
-	Tue, 21 Jul 2026 16:21:40 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wmDG9-00000009svO-2SRA;
+	Tue, 21 Jul 2026 16:23:57 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmDDv-00000009sX8-31KI
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 21 Jul 2026 16:21:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=JoSpYNH320RJAnts2pP5+Q3/u6oQENLYblI1/yJFWS4=; b=lMUF05FmLxYKnGP9xTDB3i4UjL
-	sjvZfKcCFxg9OLxv55Bzw09dFj9iJxdbEbMGZ4rEpk0ysipukiWDHeSEYSThu/HFbAD9WkKbp6oXe
-	yHZW+hLHh8PfF7hjfsgeFrtl/FjmIOGqwb9Bh6qf2LmKdv14ZMzGMQ3Q86Hdnt0gZaQzVrOvsvcqV
-	qISDb4ZaB93cL/ZF/3YMXYPb2MyhYyUyu2nC+U+TAhimoHglza1J/ja9WI2IPb+tEDXKxmw5qm0yJ
-	gd9nGQ+OnNnatbQb4M/Pu509SUPlaAM/xl5fh3IihbgQTtRznHptscL2NdZTcnUrLzssXkGp6L2v8
-	YZ7sbq2w==;
-Received: from out-178.mta1.migadu.com ([95.215.58.178])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wmDDs-000000007Tt-2n5A
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 16:21:38 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1784650592;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=JoSpYNH320RJAnts2pP5+Q3/u6oQENLYblI1/yJFWS4=;
-	b=krhs0h0yLC3Ie0R0Zf6VGGryPmFh9clqMEO5lAAo0l3Lnb9I11mLsRJsotld+n4SKWnmuR
-	iPxXWv3V8QwDupZdWwx+LE+O1e/HYPTk61yDM+0r1VH9Rxs2CDSAIdKI49aiNOgYI7LKBs
-	PRyUy+XJYmyapZqa2QBg2rAyra6wxsY=
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	kvmarm@lists.linux.dev
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Sascha Bischoff <Sascha.Bischoff@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] KVM: arm64: Sync SCTLR_EL1 when injecting an exception into a pVM
-Date: Tue, 21 Jul 2026 17:16:24 +0100
-Message-Id: <20260721161624.3983041-1-fuad.tabba@linux.dev>
+	id 1wmDG8-00000009suc-1R4U;
+	Tue, 21 Jul 2026 16:23:56 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id BD59B60A5E;
+	Tue, 21 Jul 2026 16:23:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E305A1F00A3D;
+	Tue, 21 Jul 2026 16:23:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784651035;
+	bh=ztzLHFgZF1pj4LHMu3VvIZzUHzFoGqe9tmkrlg/P0Q4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=Hhew6m2TOv9DRY3CJ5gbegcSEoCRoBYhTbf45iQdRbrMKFcSNrw9pfJTGRkHal5DG
+	 pqwwjVVXbCK/99gt0PM3LFTF44MIq8GFR1Ln36lj/2CLq4/MQi2K/EbV75ihicS6s/
+	 KZX9AWzzwaf86AoOavdoSUccw18O810scPylB6O2yn2ye8JoGgcA5FlxhKbcuTe+3g
+	 0pt009M4LWj4WIRRFBSNZO1cvdBvD/JHkGsywJiS3euU2gHN7KcWgAo+3wnO1a4lJU
+	 kOE2hML+o2O5/WqOcYTGrDHVckMtRkBrIsMPIXn7dZVSzhO0n3VARhQSPwyFXlBaxH
+	 nLyf675udKYow==
+From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+Date: Tue, 21 Jul 2026 19:23:25 +0300
+Subject: [PATCH RFC 02/18] x86/mm/pat: fix effective RW computation in
+ lookup_address_in_pgd_attr()
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_172136_808960_16D1B5DA 
-X-CRM114-Status: GOOD (  10.93  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260721-generic-set-memory-v0-1-v1-2-2c1fc62306b3@kernel.org>
+References: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
+In-Reply-To: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
+To: linux-mm@kvack.org
+Cc: Albert Ou <aou@eecs.berkeley.edu>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ Andy Lutomirski <luto@kernel.org>, Borislav Petkov <bp@alien8.de>, 
+ Brendan Jackman <jackmanb@google.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, 
+ David Hildenbrand <david@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
+ Ingo Molnar <mingo@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+ Kevin Brodsky <kevin.brodsky@arm.com>, 
+ "Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>, 
+ Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
+ Peter Zijlstra <peterz@infradead.org>, "H. Peter Anvin" <hpa@zytor.com>, 
+ Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner <tglx@kernel.org>, 
+ Vlastimil Babka <vbabka@kernel.org>, Will Deacon <will@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, loongarch@lists.linux.dev, x86@kernel.org, 
+ Juergen Gross <jgross@suse.com>
+X-Mailer: b4 0.16-dev
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,46 +85,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When pKVM injects a synchronous exception into a protected guest,
-enter_exception64() reads SCTLR_EL1 to set the new PSTATE's PAN and
-SSBS bits. pKVM refreshes VBAR_EL1 from the live value before injecting
-but not SCTLR_EL1, which is untrapped for protected guests, so a guest
-that updates it and then traps takes the exception with stale PAN/SSBS.
+lookup_address_in_pgd_attr() accumulates the effective NX and RW bits of
+the walked page table levels so that verify_rwx() can detect mappings that
+are both writable and executable.
 
-Sync SCTLR_EL1 alongside VBAR_EL1.
+The RW bits are folded into a bool with
 
-Fixes: 798eb5978700 ("KVM: arm64: Sync protected guest VBAR_EL1 on injecting an undef exception")
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+	rw &= pXd_flags(*pXd) & _PAGE_RW;
+
+but _PAGE_RW is 0x2. So consider the accumulation line:
+
+        rw &= pXd_flags(*pXd) & _PAGE_RW;
+
+where rw=0x1 and the right side evaluates down to 0x2. It'll end up doing:
+
+        rw = 0x1 & 0x2
+
+and rw always ends up 0.
+
+This way rw becomes false at the first level walked, regardless of the
+actual permissions, and verify_rwx() treats every mapping as non-writable
+and never reports a W^X violation.
+
+Add double negation to the right side to normalize the _PAGE_RW flag to
+0 or 1.
+
+Fixes: ceb647b4b529 ("x86/pat: Introduce lookup_address_in_pgd_attr()")
+Assisted-by: Copilot:claude-opus-4.8
+Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Reviewed-by: Juergen Gross <jgross@suse.com>
 ---
-Changes since v1 [1]:
- - Rebased onto v7.2-rc4; no functional change.
+ arch/x86/mm/pat/set_memory.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-[1] https://lore.kernel.org/all/20260612102347.914994-1-tabba@google.com/
-
- arch/arm64/kvm/hyp/nvhe/sys_regs.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-index b1411fb541397..8758c68017765 100644
---- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-+++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-@@ -257,10 +257,11 @@ static void inject_sync64(struct kvm_vcpu *vcpu, u64 esr)
- 	*vcpu_cpsr(vcpu) = read_sysreg_el2(SYS_SPSR);
+diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
+index e8316f5ffa8a..9382f1d6194f 100644
+--- a/arch/x86/mm/pat/set_memory.c
++++ b/arch/x86/mm/pat/set_memory.c
+@@ -730,7 +730,7 @@ pte_t *lookup_address_in_pgd_attr(pgd_t *pgd, unsigned long address,
  
- 	/*
--	 * Make sure we have the latest update to VBAR_EL1, as pKVM
--	 * handles traps very early, before sysregs are resync'ed
-+	 * Sync VBAR_EL1 and SCTLR_EL1, both read by enter_exception64(),
-+	 * as pKVM handles traps before sysregs are resync'ed.
- 	 */
- 	__vcpu_assign_sys_reg(vcpu, VBAR_EL1, read_sysreg_el1(SYS_VBAR));
-+	__vcpu_assign_sys_reg(vcpu, SCTLR_EL1, read_sysreg_el1(SYS_SCTLR));
+ 	*level = PG_LEVEL_512G;
+ 	*nx |= pgd_flags(*pgd) & _PAGE_NX;
+-	*rw &= pgd_flags(*pgd) & _PAGE_RW;
++	*rw &= !!(pgd_flags(*pgd) & _PAGE_RW);
  
- 	kvm_pend_exception(vcpu, EXCEPT_AA64_EL1_SYNC);
+ 	p4d = p4d_offset(pgd, address);
+ 	if (p4d_none(*p4d))
+@@ -741,7 +741,7 @@ pte_t *lookup_address_in_pgd_attr(pgd_t *pgd, unsigned long address,
  
+ 	*level = PG_LEVEL_1G;
+ 	*nx |= p4d_flags(*p4d) & _PAGE_NX;
+-	*rw &= p4d_flags(*p4d) & _PAGE_RW;
++	*rw &= !!(p4d_flags(*p4d) & _PAGE_RW);
+ 
+ 	pud = pud_offset(p4d, address);
+ 	if (pud_none(*pud))
+@@ -752,7 +752,7 @@ pte_t *lookup_address_in_pgd_attr(pgd_t *pgd, unsigned long address,
+ 
+ 	*level = PG_LEVEL_2M;
+ 	*nx |= pud_flags(*pud) & _PAGE_NX;
+-	*rw &= pud_flags(*pud) & _PAGE_RW;
++	*rw &= !!(pud_flags(*pud) & _PAGE_RW);
+ 
+ 	pmd = pmd_offset(pud, address);
+ 	if (pmd_none(*pmd))
+@@ -763,7 +763,7 @@ pte_t *lookup_address_in_pgd_attr(pgd_t *pgd, unsigned long address,
+ 
+ 	*level = PG_LEVEL_4K;
+ 	*nx |= pmd_flags(*pmd) & _PAGE_NX;
+-	*rw &= pmd_flags(*pmd) & _PAGE_RW;
++	*rw &= !!(pmd_flags(*pmd) & _PAGE_RW);
+ 
+ 	return pte_offset_kernel(pmd, address);
+ }
 
-base-commit: 1590cf0329716306e948a8fc29f1d3ee87d3989f
 -- 
-2.39.5
+2.53.0
 
 
