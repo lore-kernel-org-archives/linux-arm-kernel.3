@@ -4,93 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4597DC44524
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 02:15:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5D7AC44520
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 02:22:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fUEMfFXXEJWfpYYV6BprYH6yq5tTMFc+tIMi7bPpkS8=; b=i2/zeasKiPIX6YGMm/z6+IstWA
-	Erd7Nmjnqg3shzBbUDKMEz3Y2U6xKkdsNcnqmeo0ZsRlb0QIhzABzH2qLn2IpY6GwZf/8LiIE5xNf
-	6nRQ8vlr/3EEmh5h5/vysvsxsEFn7E4SuAfznn0VP6m0tDvrBy9m/H2nvTToVyET/GQ6REcrQ9CPg
-	+0X+/53nZXaLH4gkLxQ1BL0agkbrMDuQpLYVPL9qH2m9Eu/m/qrw07Uc1gP0qbOO7tN9aJglBpFH7
-	tXjC5uzC0DeDIA/k8Grmqw987MXBo5y4g+5f/ePoEZqwZtXWaHa49XMLiTbrpFd76Q/KJb8yCiIRT
-	TESg9qfw==;
+	bh=wMHOBENfy80mTz3btHp7p7Yxxoxadnd1IuP2ft5rDgw=; b=CD4SDReSX8c2uU80S0cpaUdgF9
+	ON+E6XZxiX4tmhygn0hAPoJZaZBoORijyfdrr8haMaGcxAGI216GkE7ILPMK1wCLSpfMY3pEJXgtW
+	E34nX6mtGN88FFKB5AEgIYKeHWQU8jd4BvMokh752+DsYsgNdIeCFo51S7RkYG6Tk4NF8ZKbnMKj9
+	MpTBA51xrLhLdiBESIp+rorALJhn2n8anc657CggNG+uIYPBUU6d+WOBTFj71C5kA7fvIsBvdZBar
+	VH3OJ04FP7auGMwBDRJ8P/4BzDIimuhZyU7ebGDLxE1H5xLUQ+thltL12YShAOFUcLPsl7fUBAb9Z
+	TmIt2vzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm00b-00000008EBe-18PZ;
-	Tue, 21 Jul 2026 02:15:01 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1wm085-00000008F4O-1U21;
+	Tue, 21 Jul 2026 02:22:45 +0000
+Received: from mail-m1065.netease.com ([154.81.10.65])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm00W-00000008E9D-3PbR
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 02:14:57 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2ceaf8a1265so106334795ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 19:14:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784600096; x=1785204896; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=fUEMfFXXEJWfpYYV6BprYH6yq5tTMFc+tIMi7bPpkS8=;
-        b=BJoChv1WxGpIi7NnQWxr5e68Xk8cRqJPA3MCo8C5Vcr7I9AjoYm9JHO4VKvEblNe3b
-         qzxWBZwlrpvqUSkO0miPMu/HSKxOdRdCbosSjIUoAjgrB+d5A+IyQgmhrIq2I4WBytQC
-         kTLmAC6WfQ2+2GUx0DZyOoYSB7qYgWNNaoGfu532oNGpdioHL86GxJBa8gjVP/I+vLVG
-         bjg2Efz7u0vEzUcfoHElidDoyfWLnUO0vc+BGwfsgydkcK5S9tRAiiE+55N6Jxi8DJDo
-         8xrSEQv5Bt3Zr6E+fvzt8tIHY1SdC03Dxd/kBrmkrQEh22WVKpDu+j9RpS4gnE3PyHG9
-         XkDQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784600096; x=1785204896;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=fUEMfFXXEJWfpYYV6BprYH6yq5tTMFc+tIMi7bPpkS8=;
-        b=ANsb5lSrhf9dL+QcJiwXQv7sJO0MgMnQUyGxtWaNy6jg7uKMQEPDedBZ/awIFGu/dv
-         E1ZDTanpbTK5dA3Fn0sc4/N3jW9sARssmid/QcRcZIexE6W2HBGjjxqzhfiMKTrTXDZ0
-         Npfl7Iizc79+W8/9DwebACzlc3DUMeGosJ4lbFYel4hT2oTLMrhuyxaPn9d4phrWht2l
-         u477UBvInA1bXSeD34Pq3c/FxhT9JiJdvWAj+ZUW/HBBpnnxLlw34yfYEJmax3/Fo4pm
-         vxa4wAdfQaZ96x2LnIB0TnqnS1Sm2UEUfFqU/Z0dIzhS3qNBj/At9YBefe0onaPHyVMX
-         vzEQ==
-X-Forwarded-Encrypted: i=1; AHgh+Ro3TeYz4TSitzxkexeE4kD7QOcjf/vxRU5y+twyt/gnbzrVpIozhh5aUG+ZUFFLH7v9eJkiiW7IlKUDRW8JZXZT@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxu0CPCtZCGpCQiEccTAUBZWtIjybpXmBc3VDmRwj8b28tE4rax
-	HpQ61q09FfKPFBJIZAjmT+J00yvRna6Our+nte5K1ny8NlrG+0Ep/fnD
-X-Gm-Gg: AR+sD10TL0sajQtTE0QHpgnmmHIULIy9kIRW7ptLo1ayHfOJss1zXBk3ktsnOfZdldz
-	N+ref2chO5Oq18PwySN2KIwdhnp41KYTb3E0n7YHPTze7gu8vNkFnQDs0hp418sMaeSBsxC7+Cu
-	omKC/7Jl7AUYTx6x7+FZJ9ZYPNYKco7wCXkTAzOR96VnRr2VXphUVjvvS+go3QC0d/lblYTmi53
-	kCM3EYsDlD0p/nazFAA6xoQxP768BUoeqoBDTNN0eUDeTKFWjaO/f02Jh4mt60Cz7nzPgRvB8ro
-	NM5R8ks8fFZ9PEniz6zvaK+ZbY6beDEiNRvSoPrJ41ZsNrVXIomQqGPFUduLfJdbi9/QOR75IQc
-	SJcCFmGN8Fru5MF/0ZflHHRYyJQXpvXzSWBQPwKB8p/8e3fZgqdarRzNbtqUcD+Yyl7P46xVtqi
-	lr/XvtKKshN+CpZ1nYKTuC72F5T1TytSMpUCPza5NyGaGlZokKg97bx/PLdj0Ulac=
-X-Received: by 2002:a17:90b:56d0:b0:38e:e0b:320d with SMTP id 98e67ed59e1d1-38e4b594707mr17316465a91.41.1784600095935;
-        Mon, 20 Jul 2026 19:14:55 -0700 (PDT)
-Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38e9235a4dcsm586241a91.12.2026.07.20.19.14.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Jul 2026 19:14:55 -0700 (PDT)
-From: Joey Lu <a0987203069@gmail.com>
-To: mturquette@baylibre.com,
-	sboyd@kernel.org
-Cc: ychuang3@nuvoton.com,
-	schung@nuvoton.com,
-	yclu4@nuvoton.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Joey Lu <a0987203069@gmail.com>,
-	Brian Masney <bmasney@redhat.com>
-Subject: [PATCH v4 2/3] clk: nuvoton: ma35d1: fix PLL_CTL1_FRAC bit field width and fractional calc
-Date: Tue, 21 Jul 2026 10:13:55 +0800
-Message-ID: <20260721021356.288506-3-a0987203069@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260721021356.288506-1-a0987203069@gmail.com>
-References: <20260721021356.288506-1-a0987203069@gmail.com>
+	id 1wm080-00000008F3Y-2eBz;
+	Tue, 21 Jul 2026 02:22:43 +0000
+Received: from [172.16.12.90] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 46edaba15;
+	Tue, 21 Jul 2026 10:22:30 +0800 (GMT+08:00)
+Message-ID: <f567a9fb-925e-4d61-ba57-1bf8c72668c8@rock-chips.com>
+Date: Tue, 21 Jul 2026 10:22:28 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/5] drm/bridge: Implement generic USB Type-C DP HPD
+ bridge
+To: Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
+ Vinod Koul <vkoul@kernel.org>,
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-phy@lists.infradead.org
+References: <20260717072323.96-1-kernel@airkyi.com>
+ <20260717072323.96-2-kernel@airkyi.com> <alpeAqKo72pwOEnX@venus>
+ <al5fYojQ0kJw2okg@venus>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <al5fYojQ0kJw2okg@venus>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0a9f827b5c9903a7kunm1e14f012284aff
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCHklLVklDTU0ZGBkYTEIeHVYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
+	9PT0hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=NcPrwaP/SOF3bVD2Wap635SUawMfOlaMfPFODyXj/hvz4H6eYO1G089WGYOnvIoxHXFQWVafef22+S5ntKXholZO2GOc6QvX7Rzkz7jVLkgND7SOpKFqE3TC8fOImzJ9R3KUQTCwINZiK6Ao7Zr+4bR4SX/FqdlVlBJ+jSURwRk=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=wMHOBENfy80mTz3btHp7p7Yxxoxadnd1IuP2ft5rDgw=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_191456_854573_10CEE3F1 
-X-CRM114-Status: GOOD (  12.73  )
+X-CRM114-CacheID: sfid-20260720_192241_252701_9DFB9376 
+X-CRM114-Status: GOOD (  21.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,52 +87,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PLL_CTL1_FRAC was defined as GENMASK(31, 24), covering only 8 bits.
-The hardware fractional field occupies bits [31:8] (24 bits), so the
-mask must be GENMASK(31, 8).
+Hi Sebastian,
 
-The previous fractional-mode calculation used FIELD_MAX(PLL_CTL1_FRAC)
-as the denominator to obtain 2 decimal places.  With the corrected 24-bit
-mask the old divisor is wrong; replace the arithmetic with a proper
-24-bit fixed-point rounding to 3 decimal places using the kernel's
-DIV_ROUND_CLOSEST_ULL helper:
+On 7/21/2026 1:59 AM, Sebastian Reichel wrote:
+> Hi,
+> 
+> On Fri, Jul 17, 2026 at 07:19:29PM +0200, Sebastian Reichel wrote:
+>> On Fri, Jul 17, 2026 at 03:23:19PM +0800, Chaoyi Chen wrote:
+>>> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>>>
+>>> The HPD function of Type-C DP is implemented through
+>>> drm_connector_oob_hotplug_event(). For embedded DP, it is required
+>>> that the DRM connector fwnode corresponds to the Type-C port fwnode.
+>>>
+>>> To describe the relationship between the DP controller and the Type-C
+>>> port device, we usually using drm_bridge to build a bridge chain.
+>>>
+>>> Now several USB-C controller drivers have already implemented the DP
+>>> HPD bridge function provided by aux-hpd-bridge.c, it will build a DP
+>>> HPD bridge on USB-C connector port device.
+>>>
+>>> But this requires the USB-C controller driver to manually register the
+>>> HPD bridge. If the driver does not implement this feature, the bridge
+>>> will not be create.
+>>>
+>>> So this patch implements a generic DP HPD bridge based on
+>>> aux-hpd-bridge.c. It will monitor Type-C bus events, and when a
+>>> Type-C port device containing the DP svid is registered, it will
+>>> create an HPD bridge for it without the need for the USB-C controller
+>>> driver to implement it.
+>>>
+>>> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>>> Reviewed-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+>>> Reviewed-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+>>> ---
+>>
+>> Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+>> Tested-by: Sebastian Reichel <sebastian.reichel@collabora.com> # ArmSom Sige5
+>>
+>> I gave this a test together with the RK3588/RK3576 USB-C DP AltMode
+>> patches I'm working on. As the fusb302 does a manual registration
+>> for the DRM bridge in its probe function, the bridge is registered
+>> twice:
+>>
+>> root@sige5 # cat /sys/kernel/debug/dri/bridges
+>> ...
+>> bridge[1]: drm_aux_hpd_bridge_funcs
+>> 	refcount: 4
+>> 	type: [10] DP
+>> 	OF: /soc/i2c@2ac50000/typec-portc@22/connector:usb-c-connector
+>> 	ops: [0x4] hpd
+>> bridge[2]: drm_aux_hpd_bridge_funcs
+>> 	refcount: 2
+>> 	type: [10] DP
+>> 	OF: /soc/i2c@2ac50000/typec-portc@22/connector:usb-c-connector
+>> 	ops: [0x4] hpd
+>> ...
+>>
+>> Apparently the USB-C DP AltMode keeps working, so this just wastes
+>> a few CPU cycles and some memory. So this can land and then we can
+>> remove the manual code from the driver as a follow-up step. I also
+>> gave that a try and things keep working. I won't send the fusb302
+>> patch for now to ensure its not applied before this patch lands.
+> 
+> The above test was done with a kernel having all config options
+> built-in (i.e. no modules). Using arm64 defconfig one ends up with
+> 
+> CONFIG_DRM_AUX_HPD_TYPEC_BRIDGE=m
+> 
+> But the resulting 'aux-hpd-typec-dp-bridge' module is not loaded
+> automatically resulting in missing bridge registration. Running
+> 'modprobe aux-hpd-typec-dp-bridge' manually in the booted system
+> does not work either as the TypeC controller has already been
+> registered and no new BUS_NOTIFY_ADD_DEVICE is generated.
+>
 
-  n_frac = n * 1000 + DIV_ROUND_CLOSEST_ULL(x * 1000, 1 << 24)
+Oh, we indeed didn't consider that such a probe ordering issue exists.
 
-Fixes: 691521a367cf ("clk: nuvoton: Add clock driver for ma35d1 clock controller")
-Signed-off-by: Joey Lu <a0987203069@gmail.com>
-Reviewed-by: Brian Masney <bmasney@redhat.com>
----
- drivers/clk/nuvoton/clk-ma35d1-pll.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+The approach I came up with is to iterate through the &typec_bus after
+registering the notifier, to ensure we don't miss any events that 
+occurred prior:
 
-diff --git a/drivers/clk/nuvoton/clk-ma35d1-pll.c b/drivers/clk/nuvoton/clk-ma35d1-pll.c
-index bfedd45bd04b..eb9d69d2077b 100644
---- a/drivers/clk/nuvoton/clk-ma35d1-pll.c
-+++ b/drivers/clk/nuvoton/clk-ma35d1-pll.c
-@@ -48,7 +48,7 @@
- #define PLL_CTL1_PD		BIT(0)
- #define PLL_CTL1_BP		BIT(1)
- #define PLL_CTL1_OUTDIV		GENMASK(6, 4)
--#define PLL_CTL1_FRAC		GENMASK(31, 24)
-+#define PLL_CTL1_FRAC		GENMASK(31, 8)
- #define PLL_CTL2_SLOPE		GENMASK(23, 0)
- 
- #define INDIV_MIN		1
-@@ -113,9 +113,9 @@ static unsigned long ma35d1_calc_pll_freq(u8 mode, u32 *reg_ctl, unsigned long p
- 		pll_freq = div_u64(pll_freq, m * p);
- 	} else {
- 		x = FIELD_GET(PLL_CTL1_FRAC, reg_ctl[1]);
--		/* 2 decimal places floating to integer (ex. 1.23 to 123) */
--		n = n * 100 + ((x * 100) / FIELD_MAX(PLL_CTL1_FRAC));
--		pll_freq = div_u64(parent_rate * n, 100 * m * p);
-+		/* convert 24-bit fraction to 3 decimal digits, rounding to closest */
-+		n = n * 1000 + DIV_ROUND_CLOSEST_ULL((u64)x * 1000, 1ULL << 24);
-+		pll_freq = div_u64((u64)parent_rate * n, 1000 * m * p);
- 	}
- 	return pll_freq;
+ static int __init drm_aux_hpd_typec_dp_bridge_module_init(void)
+ {
+        bus_register_notifier(&typec_bus, &drm_typec_event_nb);
+-
++       bus_for_each_dev(&typec_bus, NULL, NULL,
++                        check_altmode_dev_and_register_hpd_bridge);
+        return 0;
  }
--- 
-2.43.0
 
+
+But I'm not sure if there are potential race conditions involved.
+Perhaps @Heikki and others have better ideas? Thanks.
+
+> Greetings,
+> 
+> -- Sebastian
+
+-- 
+Best, 
+Chaoyi
 
