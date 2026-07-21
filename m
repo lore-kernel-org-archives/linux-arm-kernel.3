@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACD91C4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 20:09:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8972CC4452B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 20:12:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PiUK2ioqh2BYVrmabTp1PfcvkxlDT4JEX8xC4ka/whI=; b=SA9tWpToQ7Y2NqYYfiVAHpHGkE
-	r0/lj2eVCFExr6G85TbUNqqI9vIQKifvhSxn9TwSskqV/K/L0FsYS5zYU/skhdsX0ImKi6xdQ/5Qj
-	EM3x5ywnuLH7fJj5rNjqnf+77JXem7AmxYSYsddg+7H824ZOZue8wGHe0LCRs69u1xwN7DfxEviqw
-	9N/pnie+PID3MSZVYHb+zyxaeTdLuf6uM7aPRpdUbN3Up/nj13JeetTw0d5J605a8bTFb6SNDP3Vw
-	KxSahWfLNdeTk+YgpWckA+bChOmPgF6n6QnD1tA6nperonVaYo/yT4L7tYPbH+8Ul0szK1LwSeXRQ
-	NTK8J9iA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KvELOKnXweNAABsGu85MvPOUP6ZAsKveNW1hQG8kwQ4=; b=vDdK45F0DCIj8cQ2mwAvhkgS1H
+	me6c/HLFRN4iTP71fnC5ib7FU20pW2WSXun5ZYIGGm5H8+x0vwqBpQSUfwfjruHOJC3bqbwdo0Sh/
+	uzP6Att1mlk+ptkP7jDXUOyR9lpZAFfv39vTv0Qn0GvvT7HL454K6wJMiwTw5warORXuTgzN46gn5
+	rMvVKt89ya1Xyw4nY4M1ov8GMckjgguiVoVtQ8mH1K0m5lnNm/R4JF2o/J9vEo3LIdNDQd2BHr4T2
+	gr41OKymluYzuWCe55i24q/ORQQkaVDk+Hsd7zldcaJ8txfp35r3BtNTgwQALjIH44lQQgxivqFMh
+	bOZCJ70A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmGma-0000000ALNU-3Dn5;
-	Tue, 21 Jul 2026 20:09:40 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmGmZ-0000000ALNO-04oN
+	id 1wmGou-0000000ALbb-0k6Q;
+	Tue, 21 Jul 2026 20:12:04 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmGos-0000000ALZR-0Ijx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 20:09:39 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 10F8060A7E;
-	Tue, 21 Jul 2026 20:09:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CA571F000E9;
-	Tue, 21 Jul 2026 20:09:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1784664577;
-	bh=PiUK2ioqh2BYVrmabTp1PfcvkxlDT4JEX8xC4ka/whI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=DLddbgn9Jc/bwveW0prc+TgDS0j49dIy7Nx65zOBUds18CjsvTnKEVAOzrLiHv08i
-	 /uRPfVrKZlmt5X7xFcYkyXDsfJtQ56Cf11/7B0Zl65K2BcZbETvzjhSDtRC78V0mUp
-	 WAG81U58FtnIyrs/8V5P9Wx6C3AK4GvXafN+R/IQ=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	patches@lists.linux.dev,
-	James Clark <james.clark@linaro.org>,
-	Leo Yan <leo.yan@arm.com>,
-	Julio.Suarez@arm.com,
-	Kiel.Friedt@arm.com,
-	Ryan.Roberts@arm.com,
-	Will Deacon <will@kernel.org>,
-	Mike Leach <mike.leach@linaro.org>,
+	Tue, 21 Jul 2026 20:12:03 +0000
+Received: from linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net (linux.microsoft.com [13.77.154.182])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 630B420B7167;
+	Tue, 21 Jul 2026 13:11:48 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 630B420B7167
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1784664708;
+	bh=KvELOKnXweNAABsGu85MvPOUP6ZAsKveNW1hQG8kwQ4=;
+	h=From:To:Cc:Subject:Date:From;
+	b=THw6yirloThwygFAOBUVRn0KR+4/+r6OHOZBOFbETFfvSd4XcPJTTKk0OsA+tjgv0
+	 dKoCrTOV2FwHp/xtqpdwZV64gT0Q8fQYjeFKwx3JrDNTyBFrs4J9KTqSmrxPkt6Upv
+	 BhgGrhCfo4Sx456SG7kTMwEZOfxvnvgc7jOVsqUs=
+From: Kameron Carr <kameroncarr@linux.microsoft.com>
+To: kys@microsoft.com,
+	haiyangz@microsoft.com,
+	wei.liu@kernel.org,
+	decui@microsoft.com,
+	longli@microsoft.com,
+	mhklinux@outlook.com
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	mark.rutland@arm.com,
+	lpieralisi@kernel.org,
+	sudeep.holla@kernel.org,
+	arnd@arndb.de,
+	thuth@redhat.com,
+	linux-hyperv@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Besar Wicaksono <bwicaksono@nvidia.com>,
-	John Garry <john.g.garry@oracle.com>,
-	Namhyung Kim <namhyung@kernel.org>
-Subject: [PATCH 6.12 1254/1276] perf arm-spe: Use old behavior when opening old SPE files
-Date: Tue, 21 Jul 2026 17:28:17 +0200
-Message-ID: <20260721152514.156438847@linuxfoundation.org>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260721152446.065700225@linuxfoundation.org>
-References: <20260721152446.065700225@linuxfoundation.org>
-User-Agent: quilt/0.69
-X-stable: review
-X-Patchwork-Hint: ignore
+	linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org
+Subject: [PATCH v3 0/6] arm64: hyperv: Add Realm support for Hyper-V
+Date: Tue, 21 Jul 2026 13:11:42 -0700
+Message-ID: <20260721201148.1441143-1-kameroncarr@linux.microsoft.com>
+X-Mailer: git-send-email 2.43.7
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260721_131202_139467_5C483D57 
+X-CRM114-Status: GOOD (  13.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,105 +79,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-6.12-stable review patch.  If anyone has any objections, please let me know.
+Realms (CoCo VMs on ARM) require host calls to be routed through the RMM
+(Realm Management Monitor) via the RSI (Realm Service Interface). This
+series implements most of the necessary changes to support Realms on
+Hyper-V.
 
-------------------
+One required change is not included in this series. The two buffers
+allocated via vzalloc() in netvsc_init_buf() cannot be decrypted in
+vmbus_establish_gpadl(). Currently only linearly mapped memory can be
+decrypted.
 
-From: James Clark <james.clark@linaro.org>
+This patch series was tested by booting a Realm on Cobalt 200 running
+Windows. I tested 4KB and 64KB page size. I replaced vzalloc() in
+netvsc_init_buf() with alloc_pages_node() -> set_memory_decrypted() ->
+vmap() in my testing as a workaround for the issue mentioned above [1].
 
-commit ba993e5ada1ddce7a71140dc85ef65bc2cd981bc upstream.
+Changes since v1 [2]:
+  Patch 1: Add explicit padding to the RSI host call structure
+  Patch 3: Change from a per-cpu pointer lazily allocated to an array
+             of host call structs indexed by cpu id
+  Patch 4: Align input_page + output_page allocation to PAGE_SIZE since
+             that is the smallest unit of memory that can be decrypted
+           ~Remove KASAN tags before passing address to
+             set_memory_decrypted() since __is_lm_address() does pointer
+             arithmetic.~
+  Patch 5: Add a helper function to reduce repetition
+           Check for NULL before indexing into host call array
 
-Since the linked commit, we stopped interpreting data source if the
-perf.data file doesn't have the new metadata version. This means that
-perf c2c will show no samples in this case.
+Changes since v2 [3]:
+  Patch 3: Remove hv_hostcall_free() and inline the logic for simplicity
+           Reorder edits to keep #include line at the end of the file
+  Patch 4: Remove kasan_reset_tag()
 
-Keep the old behavior so old files can be opened, but also still show
-the new warning that updating might improve the decoding.
+[1] https://lore.kernel.org/all/20260721195633.1438361-1-kameroncarr@linux.microsoft.com/
+[2] https://lore.kernel.org/all/20260609181030.2378391-1-kameroncarr@linux.microsoft.com/
+[3] https://lore.kernel.org/all/20260625173500.1995481-1-kameroncarr@linux.microsoft.com/
 
-Also re-write the warning to be more concise and specific to a user.
+Kameron Carr (6):
+  arm64: rsi: Add RSI host call structure and helper function
+  firmware: smccc: Detect hypervisor via RSI host call in CCA Realms
+  arm64: hyperv: Add per-CPU RSI host call infrastructure for CCA Realms
+  Drivers: hv: Mark shared memory as decrypted for CCA Realms
+  arm64: hyperv: Route hypercalls through RSI host call in CCA Realms
+  arm64: hyperv: Implement hv_is_isolation_supported() for CCA Realms
 
-Fixes: ba5e7169e548 ("perf arm-spe: Use metadata to decide the data source feature")
-Signed-off-by: James Clark <james.clark@linaro.org>
-Reviewed-by: Leo Yan <leo.yan@arm.com>
-Cc: Julio.Suarez@arm.com
-Cc: Kiel.Friedt@arm.com
-Cc: Ryan.Roberts@arm.com
-Cc: Will Deacon <will@kernel.org>
-Cc: Mike Leach <mike.leach@linaro.org>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: Besar Wicaksono <bwicaksono@nvidia.com>
-Cc: John Garry <john.g.garry@oracle.com>
-Link: https://lore.kernel.org/r/20241029143734.291638-1-james.clark@linaro.org
-Signed-off-by: Namhyung Kim <namhyung@kernel.org>
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
----
- tools/perf/util/arm-spe.c |   50 ++++++++++++++++++++++------------------------
- 1 file changed, 24 insertions(+), 26 deletions(-)
+ arch/arm64/hyperv/hv_core.c       | 155 +++++++++++++++++++++++-------
+ arch/arm64/hyperv/mshyperv.c      |  38 +++++++-
+ arch/arm64/include/asm/mshyperv.h |   4 +
+ arch/arm64/include/asm/rsi_cmds.h |  22 +++++
+ arch/arm64/include/asm/rsi_smc.h  |   7 ++
+ drivers/firmware/smccc/smccc.c    |  41 +++++++-
+ drivers/hv/hv_common.c            |  17 +++-
+ include/asm-generic/mshyperv.h    |   1 +
+ 8 files changed, 244 insertions(+), 41 deletions(-)
 
---- a/tools/perf/util/arm-spe.c
-+++ b/tools/perf/util/arm-spe.c
-@@ -655,37 +655,35 @@ static bool arm_spe__is_common_ds_encodi
- 	u64 *metadata = NULL;
- 	u64 midr = 0;
- 
--	/*
--	 * Metadata version 1 doesn't contain any info for MIDR.
--	 * Simply return false in this case.
--	 */
-+	/* Metadata version 1 assumes all CPUs are the same (old behavior) */
- 	if (spe->metadata_ver == 1) {
--		pr_warning_once("The data file contains metadata version 1, "
--				"which is absent the info for data source. "
--				"Please upgrade the tool to record data.\n");
--		return false;
--	}
--
--	/* CPU ID is -1 for per-thread mode */
--	if (speq->cpu < 0) {
--		/*
--		 * On the heterogeneous system, due to CPU ID is -1,
--		 * cannot confirm the data source packet is supported.
--		 */
--		if (!spe->is_homogeneous)
--			return false;
-+		const char *cpuid;
- 
--		/* In homogeneous system, simply use CPU0's metadata */
--		if (spe->metadata)
--			metadata = spe->metadata[0];
-+		pr_warning_once("Old SPE metadata, re-record to improve decode accuracy\n");
-+		cpuid = perf_env__cpuid(spe->session->evlist->env);
-+		midr = strtol(cpuid, NULL, 16);
- 	} else {
--		metadata = arm_spe__get_metadata_by_cpu(spe, speq->cpu);
--	}
-+		/* CPU ID is -1 for per-thread mode */
-+		if (speq->cpu < 0) {
-+			/*
-+			 * On the heterogeneous system, due to CPU ID is -1,
-+			 * cannot confirm the data source packet is supported.
-+			 */
-+			if (!spe->is_homogeneous)
-+				return false;
-+
-+			/* In homogeneous system, simply use CPU0's metadata */
-+			if (spe->metadata)
-+				metadata = spe->metadata[0];
-+		} else {
-+			metadata = arm_spe__get_metadata_by_cpu(spe, speq->cpu);
-+		}
- 
--	if (!metadata)
--		return false;
-+		if (!metadata)
-+			return false;
- 
--	midr = metadata[ARM_SPE_CPU_MIDR];
-+		midr = metadata[ARM_SPE_CPU_MIDR];
-+	}
- 
- 	is_in_cpu_list = is_midr_in_range_list(midr, common_ds_encoding_cpus);
- 	if (is_in_cpu_list)
 
+base-commit: a4ffc59238be84dd1c26bf1c001543e832674fc6
+-- 
+2.45.4
 
 
