@@ -4,64 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD341C44529
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 08:17:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D568C4452D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 08:19:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gEp+GbkZD41eG5XmcLmjYK9IEYFdhEokvcqQUSEZvgw=; b=chBh41hOULtmUs3fLozoYrNbwM
-	sSapAZaLVv1XWrs5s+BqD0OxqwyFyou/nqDoDVQZ5xFhOoAjENpybK3/LWgsidNK4AA3M2HpL+NaB
-	uXA2OiIQYA/fzmh/lFF7wU3MlSdFASGv7dK96Y10r5hknD0EHnIA42aMcIXJze0W13mZMbS8GQisb
-	QM3Xo9lJhFfbAqZ8sV2mgvmUnJIpWoYmbqScsdnvC+IrruKv4zvqmVU9Q+sxyKTY9/C5nhZT0Y3Xf
-	OpjzQNOKsCQDGeFP6StRKuAmqk6uOimkhWWVCKs2S34/Kvje2uHBYNz0bZcpugBDk7JE4FvR6DZbv
-	/594BOlQ==;
+	bh=sTcYvhfX5GMjsoEzyZU2Oo3ewF8hCnSfBncHN/B9G88=; b=EoexuYp7BBlMtY97/QB9N8a6na
+	25yOdUJJ6vVqwAeq4r4vyxqhtnZeYvPRy6Sl5LNnsDJR6iNoQxTpxMI4sI/6jRp6NwhRgsQ7F2Usz
+	B5c+a3fwpWmulQjQVUM+JWClNP2yZ3xovWmIlyRiQxUzZg0t8HmwY9Xj5JOQO3KIhij7A0+iEGnHC
+	XSzBGGU6Bk3B//p+r08dAwXkWPoWF5dSyM7/lONHr13xuZFbkSK4LHFYF4Elu7rvEh3py2d7Tj0GL
+	hDmA3Z1mZnU8rR0evWC8XKshBrhtRgjFJ6AitgyLClJbfDYnPmcW+/1DDQJTwasPi31Z7rRU8Iaqz
+	21U9Tcmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm5fg-00000008m7b-176b;
-	Tue, 21 Jul 2026 08:17:48 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wm5h1-00000008mWx-3kw5;
+	Tue, 21 Jul 2026 08:19:11 +0000
+Received: from canpmsgout12.his.huawei.com ([113.46.200.227])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm5fb-00000008m73-3iKG;
-	Tue, 21 Jul 2026 08:17:46 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 45608432E6;
-	Tue, 21 Jul 2026 08:17:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 277041F000E9;
-	Tue, 21 Jul 2026 08:17:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784621863;
-	bh=gEp+GbkZD41eG5XmcLmjYK9IEYFdhEokvcqQUSEZvgw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=iQl5LnSIVpHkgpx1UKsBCW8fXeN0+2TX7rxQ6KJ/A2gGKrGXOPdhjfh4ZEYmpgKl8
-	 i3R2Jic+M/PaEsogf3M7aLxo6gl8jBT1Jz6FSzC8gqoK3EiRE9UeGcHeBxFVD5cI42
-	 F/3Jc0k3X4yqGWnpz/5NdeSzIu5rOVtvUg/q4o2avRihxy+2rPNVt1N7B6fqKNBvHw
-	 ZXVGnhaBg8aJMjhvtNcZxrCJ3+b199SJLhKUssiBZMJeSC0jJiTwTXGV2TtFf1xBGf
-	 PxuIXsoOAFgY4pX0RTY06Pg9ZnO5ukpxrS3BPvDkg1qmQJKK6iw9WRXV+/LvSCqTAX
-	 j8Q7FNBH0mFWw==
-Date: Tue, 21 Jul 2026 10:17:39 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>, Mao Jinlong <jinlong.mao@oss.qualcomm.com>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, coresight@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 1/2] dt-bindings: arm: add CTCU device for shikra
-Message-ID: <20260721-stylish-dexterous-sunfish-1653eb@quoll>
-References: <20260715-add-coresight-nodes-for-shikra-v2-0-ebd485e39a51@oss.qualcomm.com>
- <20260715-add-coresight-nodes-for-shikra-v2-1-ebd485e39a51@oss.qualcomm.com>
+	id 1wm5gy-00000008mUU-17b4
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Jul 2026 08:19:10 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=sTcYvhfX5GMjsoEzyZU2Oo3ewF8hCnSfBncHN/B9G88=;
+	b=M+/EjxxnR3B3nd+Kkfpm6YBuhFPSbx3W3mFYbVp6f8m+lWlQY8QcgZgFmSjHJNp0qg7lwvxRG
+	Jc5lfx+2FQq9RH+YI34FRV3yute6HvqR9CJDWDX9EEVufGdXHadisBEE14ejlF9f4Kw1IunrzL2
+	Vhtl20PtMtMHF537dvCQKjg=
+Received: from mail.maildlp.com (unknown [172.19.163.15])
+	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4h495k4RQMznTVd;
+	Tue, 21 Jul 2026 16:09:30 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 77FD040586;
+	Tue, 21 Jul 2026 16:19:02 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
+ (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 21 Jul
+ 2026 16:19:01 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <kees@kernel.org>,
+	<oleg@redhat.com>, <luto@amacapital.net>, <wad@chromium.org>,
+	<thuth@redhat.com>, <peterz@infradead.org>, <mark.rutland@arm.com>,
+	<linusw@kernel.org>, <ada.coupriediaz@arm.com>, <kevin.brodsky@arm.com>,
+	<yeoreum.yun@arm.com>, <anshuman.khandual@arm.com>, <james.morse@arm.com>,
+	<tglx@kernel.org>, <broonie@kernel.org>, <pengcan@kylinos.cn>,
+	<ryan.roberts@arm.com>, <liqiang01@kylinos.cn>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-mm@kvack.org>
+CC: <ruanjinjie@huawei.com>
+Subject: [PATCH v17 04/15] arm64: ptrace: Rename and clean up syscall_trace_enter()
+Date: Tue, 21 Jul 2026 16:18:47 +0800
+Message-ID: <20260721081858.1169276-5-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260721081858.1169276-1-ruanjinjie@huawei.com>
+References: <20260721081858.1169276-1-ruanjinjie@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260715-add-coresight-nodes-for-shikra-v2-1-ebd485e39a51@oss.qualcomm.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.90.53.73]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260721_011908_936176_BCF73FD3 
+X-CRM114-Status: GOOD (  11.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,25 +84,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 15, 2026 at 09:16:14AM +0800, Jie Gan wrote:
-> The CTCU device for shikra shares the same configurations as SA8775p.
-> Add a fallback to enable the CTCU for shikra to utilize the compatible
-> of the SA8775p.
-> 
-> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
-> ---
->  Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml | 1 +
->  1 file changed, 1 insertion(+)
+Rename syscall_trace_enter() to arm64_syscall_trace_enter() to avoid
+name collisions and clarify the boundary when arm64 eventually switches
+to the generic entry infrastructure.
 
-Please use subject prefixes matching the subsystem. You can get them for
-example with 'git log --oneline -- DIRECTORY_OR_FILE' on the directory
-your patch is touching. For bindings, the preferred subjects are
-explained here:
-https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
+In addition, replace direct accesses to regs->syscallno with the standard
+syscall_get_nr() helper for both trace_sys_enter() and the return value.
+This decouples the tracing logic from architecture-specific struct pt_regs
+layouts, aligning the implementation with the generic entry pattern.
 
-And it should include useful final prefix.
+No functional changes intended; this is a preparation step for
+converting arm64 to the generic entry infrastructure.
 
-Best regards,
-Krzysztof
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+---
+ arch/arm64/include/asm/syscall.h | 2 +-
+ arch/arm64/kernel/ptrace.c       | 6 +++---
+ arch/arm64/kernel/syscall.c      | 2 +-
+ 3 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/arch/arm64/include/asm/syscall.h b/arch/arm64/include/asm/syscall.h
+index 5e4c7fc44f73..d1dabdcde41c 100644
+--- a/arch/arm64/include/asm/syscall.h
++++ b/arch/arm64/include/asm/syscall.h
+@@ -120,7 +120,7 @@ static inline int syscall_get_arch(struct task_struct *task)
+ 	return AUDIT_ARCH_AARCH64;
+ }
+ 
+-int syscall_trace_enter(struct pt_regs *regs);
++int arm64_syscall_trace_enter(struct pt_regs *regs);
+ void syscall_trace_exit(struct pt_regs *regs);
+ 
+ #endif	/* __ASM_SYSCALL_H */
+diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
+index cd0607ec70ef..4c7dba12629c 100644
+--- a/arch/arm64/kernel/ptrace.c
++++ b/arch/arm64/kernel/ptrace.c
+@@ -2469,7 +2469,7 @@ static inline void syscall_enter_audit(struct pt_regs *regs)
+ }
+ #endif
+ 
+-int syscall_trace_enter(struct pt_regs *regs)
++int arm64_syscall_trace_enter(struct pt_regs *regs)
+ {
+ 	unsigned long flags = read_thread_flags();
+ 	int ret;
+@@ -2490,12 +2490,12 @@ int syscall_trace_enter(struct pt_regs *regs)
+ 	}
+ 
+ 	if (test_thread_flag(TIF_SYSCALL_TRACEPOINT))
+-		trace_sys_enter(regs, regs->syscallno);
++		trace_sys_enter(regs, syscall_get_nr(current, regs));
+ 
+ 	if (unlikely(audit_context()))
+ 		syscall_enter_audit(regs);
+ 
+-	return regs->syscallno;
++	return syscall_get_nr(current, regs);
+ }
+ 
+ static inline bool report_single_step(unsigned long flags)
+diff --git a/arch/arm64/kernel/syscall.c b/arch/arm64/kernel/syscall.c
+index 358ddfbf1401..3e78e159b2a1 100644
+--- a/arch/arm64/kernel/syscall.c
++++ b/arch/arm64/kernel/syscall.c
+@@ -113,7 +113,7 @@ static void el0_svc_common(struct pt_regs *regs, int scno, int sc_nr,
+ 		 */
+ 		if (scno == NO_SYSCALL)
+ 			syscall_set_return_value(current, regs, -ENOSYS, 0);
+-		scno = syscall_trace_enter(regs);
++		scno = arm64_syscall_trace_enter(regs);
+ 		if (scno == NO_SYSCALL)
+ 			goto trace_exit;
+ 	}
+-- 
+2.34.1
 
 
