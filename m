@@ -4,66 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04044C4452D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 20:36:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39B4FC4452D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 20:40:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=75nElkeyX/1rftfHH9IMo3FcFB/4yMecwRs8lFAe3OE=; b=psfuYoGPzqJznRxSRsJ53t38Uz
-	doORbYPWwCsXAAL/ovBj55msU/j6kKbrMwUKwvko1nkXhBoS5+BA6E3Vfpj3cvp4W5Rxp+rzBLfeZ
-	wMFGihjP+1SaLiw79QFRAWG/Hj6uDuh30+M1A76/kV4m2eT9Z44wLMeWq29YXeE938ACS3kWKA/C/
-	EdxPzgRW2jed3QNbvL3WJses+5MI1djY8wYEAbYii6OfG1kuLocB82Z+MctQ4sgY46qearrAbrZAY
-	6QIzUrUdcClBpDc9BGH8azhuXiTgfKz42PqtEmUdVjmfe1Reb1MSNnYGm7dXS2vKaGa0l+4ehyhud
-	wj9p2Asw==;
+	bh=AcdEzncU3ftQKZf36FlokIZRDhmTqCouwvyYSKyfiQA=; b=L5bGroOpVKqGd7cjKaAkZ4HBIg
+	WShzO/olvdrreV7cj+q83fdZHJr+BMLKLyJyReaAk/nKFamzuVeEhbV5jXNY8cwszrmwzkTpruO5x
+	Q2YFRMv0FrJzKvPp4KeIlfvGBDQLSG9aUogiWhe7CJ9TXubcBGCA2PsnHg6QBYNFpcTsdwE33bSn4
+	sealb2AoYIH4XINQ8SakmGx9VydFtWa575D7hs9rx0diLc/CUj59wlaP4a1s/1l7/pKpuaazjjp/R
+	5HqDRll6P2RgDG9oM15HCsKiX3fW/xGAPn8H1Lqo3k8q2M9fdKyGMY9byArtidxGqr1BaObigX7Ix
+	hjrpLegg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmHCh-0000000AOOS-3ZOh;
-	Tue, 21 Jul 2026 20:36:39 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wmHGN-0000000AOb9-0tUk;
+	Tue, 21 Jul 2026 20:40:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmHCg-0000000AOOF-41oR
+	id 1wmHGL-0000000AOb1-2Dxk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 20:36:39 +0000
+	Tue, 21 Jul 2026 20:40:25 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id F33A3601D9;
-	Tue, 21 Jul 2026 20:36:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D9AC1F00A3A;
-	Tue, 21 Jul 2026 20:36:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux-foundation.org; s=korg; t=1784666197;
-	bh=75nElkeyX/1rftfHH9IMo3FcFB/4yMecwRs8lFAe3OE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=XLQwPvZ9xtGdL+DY6bGaWTnkoRGbd9wQqD5w1Arm5TIeVUGypID8HUCBGnz9J8BB0
-	 Yo5uCAe6oRTZsXgu4C8V9DsfiA5c8LCvitKVd4cAK1Bd9q5+aNkMoju59xFum2nqUX
-	 G4MuLqf+yYanRswvoRSguhUqrQUGE3l3AbfRt5AA=
-Date: Tue, 21 Jul 2026 13:36:36 -0700
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Will Deacon <will@kernel.org>
-Cc: muchun.song@linux.dev, osalvador@suse.de, ljs@kernel.org,
- david@kernel.org, liam@infradead.org, Dev Jain <dev.jain@arm.com>,
- catalin.marinas@arm.com, kernel-team@android.com, riel@surriel.com,
- vbabka@kernel.org, harry@kernel.org, jannh@google.com,
- lance.yang@linux.dev, kas@kernel.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, apopple@nvidia.com, rcampbell@nvidia.com,
- ziy@nvidia.com, matthew.brost@intel.com, joshua.hahnjy@gmail.com,
- rakie.kim@sk.com, byungchul@sk.com, gourry@gourry.net,
- ying.huang@linux.alibaba.com, ak@linux.intel.com, nao.horiguchi@gmail.com,
- mel@csn.ul.ie, j-nomura@ce.jp.nec.com, pfalcato@suse.de, tglx@kernel.org,
- dave.hansen@intel.com, jpoimboe@kernel.org,
- linux-arm-kernel@lists.infradead.org, ryan.roberts@arm.com,
- anshuman.khandual@arm.com
-Subject: Re: [PATCH v3 0/6] Fix incorrect access of hugetlb pte entries
-Message-Id: <20260721133636.df1a012df895054d3fd34a2e@linux-foundation.org>
-In-Reply-To: <178464737122.1305746.12295190523058911270.b4-ty@kernel.org>
-References: <20260703114202.365553-1-dev.jain@arm.com>
-	<178464737122.1305746.12295190523058911270.b4-ty@kernel.org>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+	by sea.source.kernel.org (Postfix) with ESMTP id E4ED141B0D;
+	Tue, 21 Jul 2026 20:40:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AF8F1F00A3A;
+	Tue, 21 Jul 2026 20:40:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1784666424;
+	bh=AcdEzncU3ftQKZf36FlokIZRDhmTqCouwvyYSKyfiQA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=zErBHtFfxz4VQbeq1GeY70lKAGGffRbNOGJPiulgWnVvaDknvDjBdhELUpgf4ODwt
+	 7NuPTvpeKB1ouMMyRUT6IbrIXSltlKVFeQOk2Y2wQd3izCMQroie+AwHRDftOWc9bx
+	 muLuz2ZsQcqwNSCWtt3mghEpD81+r8TMdqXaQNeE=
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: stable@vger.kernel.org
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	patches@lists.linux.dev,
+	Besar Wicaksono <bwicaksono@nvidia.com>,
+	James Clark <james.clark@arm.com>,
+	suzuki.poulose@arm.com,
+	mike.leach@linaro.org,
+	jonathanh@nvidia.com,
+	rwiley@nvidia.com,
+	treding@nvidia.com,
+	vsethi@nvidia.com,
+	ywan@nvidia.com,
+	linux-arm-kernel@lists.infradead.org,
+	coresight@lists.linaro.org,
+	linux-tegra@vger.kernel.org,
+	Namhyung Kim <namhyung@kernel.org>,
+	Sasha Levin <sashal@kernel.org>
+Subject: [PATCH 6.6 0677/1266] perf cs-etm: Fix incorrect or missing decoder for raw trace
+Date: Tue, 21 Jul 2026 17:18:34 +0200
+Message-ID: <20260721152457.005189941@linuxfoundation.org>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260721152441.786066624@linuxfoundation.org>
+References: <20260721152441.786066624@linuxfoundation.org>
+User-Agent: quilt/0.69
+X-stable: review
+X-Patchwork-Hint: ignore
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,39 +82,252 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 21 Jul 2026 18:18:38 +0100 Will Deacon <will@kernel.org> wrote:
+6.6-stable review patch.  If anyone has any objections, please let me know.
 
-> On Fri, 03 Jul 2026 11:41:53 +0000, Dev Jain wrote:
-> > There are various places which use ptep_get() to get the pte entry
-> > corresponding to a hugetlb folio. Some arches (like s390) have special
-> > handling to compute the pteval, so they provide huge_ptep_get(). Use this
-> > helper consistently.
-> > 
-> > Additionally, some code paths may provide huge_ptep_get with an unaligned
-> > address. This is a problem on arm64 (I checked other arches and it looks
-> > fine for them), which is fixed in patch 1. The fix is made to be
-> > to huge_ptep_get() - that is wider churn and we can do that later.
-> > 
-> > [...]
-> 
-> Applied first patch to arm64 (for-next/fixes), thanks!
-> 
-> [1/6] arm64: make huge_ptep_get handled unaligned addresses
->       https://git.kernel.org/arm64/c/9175a8c7cfe88
-> 
-> I'm hoping Andrew can drop this from the mm tree to avoid a duplicate,
-> but I didn't hear back yet and I'd like to land the fix.
+------------------
 
-I can redo Dev's series to omit [1/6].  The patches apply that way, but
-there might be build-time or runtime issues running the other patches
-without [1/6] present, haven't looked.
+From: Besar Wicaksono <bwicaksono@nvidia.com>
 
-Also, review indicates that the changelog requires updating
-(https://lore.kernel.org/all/2b9d60a2-8698-46b0-80ae-b8747a66a85b@kernel.org/)
-and I believe that Dev plans to do that.
+[ Upstream commit a16afcc58a8c5ebc65c852faf001f8f61f05e4ef ]
 
-IOW, it would be better to carry this in mm.git with your ack.
+The decoder creation for raw trace uses metadata from the first CPU.
+On per-cpu mode, this metadata is incorrectly used for every decoder.
+On per-process/per-thread traces, the first CPU is CPU0. If CPU0 trace
+is not enabled, its metadata will be marked unused and the decoder is
+not created. Perf report dump skips the decoding part because the
+decoder is missing.
 
-Do you plan to upstream this in 7.2-rcX?  If so then I can hang onto
-this patch until it appears in mainline.  Or something.
+To fix this, use metadata of the CPU associated with sample object.
+
+Signed-off-by: Besar Wicaksono <bwicaksono@nvidia.com>
+Reviewed-by: James Clark <james.clark@arm.com>
+Cc: suzuki.poulose@arm.com
+Cc: mike.leach@linaro.org
+Cc: jonathanh@nvidia.com
+Cc: rwiley@nvidia.com
+Cc: treding@nvidia.com
+Cc: vsethi@nvidia.com
+Cc: ywan@nvidia.com
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: coresight@lists.linaro.org
+Cc: linux-tegra@vger.kernel.org
+Link: https://lore.kernel.org/r/20231010234803.5419-1-bwicaksono@nvidia.com
+Signed-off-by: Namhyung Kim <namhyung@kernel.org>
+Stable-dep-of: 68ca50bc0fa6 ("perf cs-etm: Queue context packets for frontend")
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ tools/perf/util/cs-etm.c | 106 ++++++++++++++++++++++++---------------
+ 1 file changed, 65 insertions(+), 41 deletions(-)
+
+diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
+index 799c104901b4ff..1fb104357eebb8 100644
+--- a/tools/perf/util/cs-etm.c
++++ b/tools/perf/util/cs-etm.c
+@@ -283,22 +283,31 @@ static int cs_etm__metadata_set_trace_id(u8 trace_chan_id, u64 *cpu_metadata)
+ }
+ 
+ /*
+- * Get a metadata for a specific cpu from an array.
++ * Get a metadata index for a specific cpu from an array.
+  *
+  */
+-static u64 *get_cpu_data(struct cs_etm_auxtrace *etm, int cpu)
++static int get_cpu_data_idx(struct cs_etm_auxtrace *etm, int cpu)
+ {
+ 	int i;
+-	u64 *metadata = NULL;
+ 
+ 	for (i = 0; i < etm->num_cpu; i++) {
+ 		if (etm->metadata[i][CS_ETM_CPU] == (u64)cpu) {
+-			metadata = etm->metadata[i];
+-			break;
++			return i;
+ 		}
+ 	}
+ 
+-	return metadata;
++	return -1;
++}
++
++/*
++ * Get a metadata for a specific cpu from an array.
++ *
++ */
++static u64 *get_cpu_data(struct cs_etm_auxtrace *etm, int cpu)
++{
++	int idx = get_cpu_data_idx(etm, cpu);
++
++	return (idx != -1) ? etm->metadata[idx] : NULL;
+ }
+ 
+ /*
+@@ -641,66 +650,80 @@ static void cs_etm__packet_dump(const char *pkt_string)
+ }
+ 
+ static void cs_etm__set_trace_param_etmv3(struct cs_etm_trace_params *t_params,
+-					  struct cs_etm_auxtrace *etm, int idx,
+-					  u32 etmidr)
++					  struct cs_etm_auxtrace *etm, int t_idx,
++					  int m_idx, u32 etmidr)
+ {
+ 	u64 **metadata = etm->metadata;
+ 
+-	t_params[idx].protocol = cs_etm__get_v7_protocol_version(etmidr);
+-	t_params[idx].etmv3.reg_ctrl = metadata[idx][CS_ETM_ETMCR];
+-	t_params[idx].etmv3.reg_trc_id = metadata[idx][CS_ETM_ETMTRACEIDR];
++	t_params[t_idx].protocol = cs_etm__get_v7_protocol_version(etmidr);
++	t_params[t_idx].etmv3.reg_ctrl = metadata[m_idx][CS_ETM_ETMCR];
++	t_params[t_idx].etmv3.reg_trc_id = metadata[m_idx][CS_ETM_ETMTRACEIDR];
+ }
+ 
+ static void cs_etm__set_trace_param_etmv4(struct cs_etm_trace_params *t_params,
+-					  struct cs_etm_auxtrace *etm, int idx)
++					  struct cs_etm_auxtrace *etm, int t_idx,
++					  int m_idx)
+ {
+ 	u64 **metadata = etm->metadata;
+ 
+-	t_params[idx].protocol = CS_ETM_PROTO_ETMV4i;
+-	t_params[idx].etmv4.reg_idr0 = metadata[idx][CS_ETMV4_TRCIDR0];
+-	t_params[idx].etmv4.reg_idr1 = metadata[idx][CS_ETMV4_TRCIDR1];
+-	t_params[idx].etmv4.reg_idr2 = metadata[idx][CS_ETMV4_TRCIDR2];
+-	t_params[idx].etmv4.reg_idr8 = metadata[idx][CS_ETMV4_TRCIDR8];
+-	t_params[idx].etmv4.reg_configr = metadata[idx][CS_ETMV4_TRCCONFIGR];
+-	t_params[idx].etmv4.reg_traceidr = metadata[idx][CS_ETMV4_TRCTRACEIDR];
++	t_params[t_idx].protocol = CS_ETM_PROTO_ETMV4i;
++	t_params[t_idx].etmv4.reg_idr0 = metadata[m_idx][CS_ETMV4_TRCIDR0];
++	t_params[t_idx].etmv4.reg_idr1 = metadata[m_idx][CS_ETMV4_TRCIDR1];
++	t_params[t_idx].etmv4.reg_idr2 = metadata[m_idx][CS_ETMV4_TRCIDR2];
++	t_params[t_idx].etmv4.reg_idr8 = metadata[m_idx][CS_ETMV4_TRCIDR8];
++	t_params[t_idx].etmv4.reg_configr = metadata[m_idx][CS_ETMV4_TRCCONFIGR];
++	t_params[t_idx].etmv4.reg_traceidr = metadata[m_idx][CS_ETMV4_TRCTRACEIDR];
+ }
+ 
+ static void cs_etm__set_trace_param_ete(struct cs_etm_trace_params *t_params,
+-					  struct cs_etm_auxtrace *etm, int idx)
++					  struct cs_etm_auxtrace *etm, int t_idx,
++					  int m_idx)
+ {
+ 	u64 **metadata = etm->metadata;
+ 
+-	t_params[idx].protocol = CS_ETM_PROTO_ETE;
+-	t_params[idx].ete.reg_idr0 = metadata[idx][CS_ETE_TRCIDR0];
+-	t_params[idx].ete.reg_idr1 = metadata[idx][CS_ETE_TRCIDR1];
+-	t_params[idx].ete.reg_idr2 = metadata[idx][CS_ETE_TRCIDR2];
+-	t_params[idx].ete.reg_idr8 = metadata[idx][CS_ETE_TRCIDR8];
+-	t_params[idx].ete.reg_configr = metadata[idx][CS_ETE_TRCCONFIGR];
+-	t_params[idx].ete.reg_traceidr = metadata[idx][CS_ETE_TRCTRACEIDR];
+-	t_params[idx].ete.reg_devarch = metadata[idx][CS_ETE_TRCDEVARCH];
++	t_params[t_idx].protocol = CS_ETM_PROTO_ETE;
++	t_params[t_idx].ete.reg_idr0 = metadata[m_idx][CS_ETE_TRCIDR0];
++	t_params[t_idx].ete.reg_idr1 = metadata[m_idx][CS_ETE_TRCIDR1];
++	t_params[t_idx].ete.reg_idr2 = metadata[m_idx][CS_ETE_TRCIDR2];
++	t_params[t_idx].ete.reg_idr8 = metadata[m_idx][CS_ETE_TRCIDR8];
++	t_params[t_idx].ete.reg_configr = metadata[m_idx][CS_ETE_TRCCONFIGR];
++	t_params[t_idx].ete.reg_traceidr = metadata[m_idx][CS_ETE_TRCTRACEIDR];
++	t_params[t_idx].ete.reg_devarch = metadata[m_idx][CS_ETE_TRCDEVARCH];
+ }
+ 
+ static int cs_etm__init_trace_params(struct cs_etm_trace_params *t_params,
+ 				     struct cs_etm_auxtrace *etm,
++				     bool formatted,
++				     int sample_cpu,
+ 				     int decoders)
+ {
+-	int i;
++	int t_idx, m_idx;
+ 	u32 etmidr;
+ 	u64 architecture;
+ 
+-	for (i = 0; i < decoders; i++) {
+-		architecture = etm->metadata[i][CS_ETM_MAGIC];
++	for (t_idx = 0; t_idx < decoders; t_idx++) {
++		if (formatted)
++			m_idx = t_idx;
++		else {
++			m_idx = get_cpu_data_idx(etm, sample_cpu);
++			if (m_idx == -1) {
++				pr_warning("CS_ETM: unknown CPU, falling back to first metadata\n");
++				m_idx = 0;
++			}
++		}
++
++		architecture = etm->metadata[m_idx][CS_ETM_MAGIC];
+ 
+ 		switch (architecture) {
+ 		case __perf_cs_etmv3_magic:
+-			etmidr = etm->metadata[i][CS_ETM_ETMIDR];
+-			cs_etm__set_trace_param_etmv3(t_params, etm, i, etmidr);
++			etmidr = etm->metadata[m_idx][CS_ETM_ETMIDR];
++			cs_etm__set_trace_param_etmv3(t_params, etm, t_idx, m_idx, etmidr);
+ 			break;
+ 		case __perf_cs_etmv4_magic:
+-			cs_etm__set_trace_param_etmv4(t_params, etm, i);
++			cs_etm__set_trace_param_etmv4(t_params, etm, t_idx, m_idx);
+ 			break;
+ 		case __perf_cs_ete_magic:
+-			cs_etm__set_trace_param_ete(t_params, etm, i);
++			cs_etm__set_trace_param_ete(t_params, etm, t_idx, m_idx);
+ 			break;
+ 		default:
+ 			return -EINVAL;
+@@ -1016,7 +1039,7 @@ static u32 cs_etm__mem_access(struct cs_etm_queue *etmq, u8 trace_chan_id,
+ }
+ 
+ static struct cs_etm_queue *cs_etm__alloc_queue(struct cs_etm_auxtrace *etm,
+-						bool formatted)
++						bool formatted, int sample_cpu)
+ {
+ 	struct cs_etm_decoder_params d_params;
+ 	struct cs_etm_trace_params  *t_params = NULL;
+@@ -1041,7 +1064,7 @@ static struct cs_etm_queue *cs_etm__alloc_queue(struct cs_etm_auxtrace *etm,
+ 	if (!t_params)
+ 		goto out_free;
+ 
+-	if (cs_etm__init_trace_params(t_params, etm, decoders))
++	if (cs_etm__init_trace_params(t_params, etm, formatted, sample_cpu, decoders))
+ 		goto out_free;
+ 
+ 	/* Set decoder parameters to decode trace packets */
+@@ -1081,14 +1104,15 @@ static struct cs_etm_queue *cs_etm__alloc_queue(struct cs_etm_auxtrace *etm,
+ static int cs_etm__setup_queue(struct cs_etm_auxtrace *etm,
+ 			       struct auxtrace_queue *queue,
+ 			       unsigned int queue_nr,
+-			       bool formatted)
++			       bool formatted,
++			       int sample_cpu)
+ {
+ 	struct cs_etm_queue *etmq = queue->priv;
+ 
+ 	if (list_empty(&queue->head) || etmq)
+ 		return 0;
+ 
+-	etmq = cs_etm__alloc_queue(etm, formatted);
++	etmq = cs_etm__alloc_queue(etm, formatted, sample_cpu);
+ 
+ 	if (!etmq)
+ 		return -ENOMEM;
+@@ -2827,7 +2851,7 @@ static int cs_etm__process_auxtrace_event(struct perf_session *session,
+ 		 * formatted in piped mode (true).
+ 		 */
+ 		err = cs_etm__setup_queue(etm, &etm->queues.queue_array[idx],
+-					  idx, true);
++					  idx, true, -1);
+ 		if (err)
+ 			return err;
+ 
+@@ -3033,7 +3057,7 @@ static int cs_etm__queue_aux_fragment(struct perf_session *session, off_t file_o
+ 		idx = auxtrace_event->idx;
+ 		formatted = !(aux_event->flags & PERF_AUX_FLAG_CORESIGHT_FORMAT_RAW);
+ 		return cs_etm__setup_queue(etm, &etm->queues.queue_array[idx],
+-					   idx, formatted);
++					   idx, formatted, sample->cpu);
+ 	}
+ 
+ 	/* Wasn't inside this buffer, but there were no parse errors. 1 == 'not found' */
+-- 
+2.53.0
+
+
+
 
