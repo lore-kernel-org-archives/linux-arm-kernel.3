@@ -4,50 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C337C44532
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 16:25:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85AFBC44536
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 16:25:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N3plug0lpgCKrfv29ZibOjCkE+S+2rGS3Cp9/6Aa2Hw=; b=SCKByPnMTWDRN/3RxyEk1xyeip
-	xAXyahxknK/HTE/gvAJUS/zD+bzjT9ihm0xO0NFDGCxyUwbTxjQxwaBPtdL7rrN8idGTq18UXM7E3
-	rLlGejp+s1gIuuuQKvqu5C7JREDdvaXPNEo1jxTWx4MfMHxkQrzrgpW9r0N0UoNIwfER3waN39XHy
-	JymY/EbPY5Lwm3uNIzXSWb+PufAST6qWd8YTp8cdvjK1VMVivI3RDHEMNkwKifA8vLOjrXZ1y8Jk6
-	WDhV9eSekoyddJVjUBUkrnhGVdQxHYWSgv/ulSuMhoJ2sUkjsZ79YDi55eKz1pAhJLG8B/BMtJj3E
-	8vLPX6Tg==;
+	bh=Js+8Q33VygYQF2f+rI8d1hZYY9K88zAKgM98T6HPJCQ=; b=ATuGmyCisT7tdmNfv6oKqCdwwP
+	FCCcBJmvKJBnNRRm0vUVtzr4Rwx/kcnOaAk/CdAM8anx7puCoRH+IaR82bIer3TPOCMDV9A1MHAV/
+	1LDxurFqIInifoSpKqSljYsJ9HgW+uWCjTZn0y9rqP/s1eG/WeyYxCsiBrxdDMlCmahw+9PP4XNTd
+	6hg7kGTzrHRxiPtmh6QaEl9OuCsX9E4N/yvCdB2qdpKZtCZcT4EBfZUQrsclYE8tP6D4HFqeTqnV9
+	aYb1QpJyz/GawLBLO3vKS2U0A+K3fqTuH4xKjUP+5+SzGKrgLcUdJ11ICIRxAje26cQP6rWDC2BMA
+	5WZEAk8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmDGh-00000009tXR-1nF1;
-	Tue, 21 Jul 2026 16:24:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wmDHN-00000009uSK-1PLT;
+	Tue, 21 Jul 2026 16:25:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmDGg-00000009tWN-0VIG;
-	Tue, 21 Jul 2026 16:24:30 +0000
+	id 1wmDHM-00000009uPF-0ELp;
+	Tue, 21 Jul 2026 16:25:12 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C9E4A43D98;
-	Tue, 21 Jul 2026 16:24:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DF361F00A3A;
-	Tue, 21 Jul 2026 16:24:23 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6228060A59;
+	Tue, 21 Jul 2026 16:25:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B87D31F00A3A;
+	Tue, 21 Jul 2026 16:25:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784651069;
-	bh=N3plug0lpgCKrfv29ZibOjCkE+S+2rGS3Cp9/6Aa2Hw=;
+	s=k20260515; t=1784651111;
+	bh=Js+8Q33VygYQF2f+rI8d1hZYY9K88zAKgM98T6HPJCQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=JhVsU+dw1uwxmH+EE0axkr86r9H4Da8cc7CfnWCI4wWPzlF5gUGtel5DmYZ9NErCS
-	 XCKTR6iq7tkNHolyed9vXfwK3qbIarzEac15Db3nrnBnAG4uRipAWCZkqSJzfxRXF9
-	 RcLT4nTwwlotjyOqY+NRUMsWXiwXX8py7JLCE9CYhay2srofX1xLhpmO7N8VDLJDIB
-	 Vg2DnuMbWSwC+kAoJpfiIiq1LniqN/W9Wdr5VH0LjFr3rE24wGTjUnarOu7LxSybaX
-	 m2pvdkDDd1Qr1gwirFPPNEW6TO3uzcNKIXQjoIqkG2nqlKt19gnHV3wZcVJCxLkt0M
-	 GaSPW60FCIAEg==
+	b=knGmISKmG/BpTGf3mdF+taH3r3WgwshVgHqiOn1OH7w8ZYPlLuFE1bw2SEYXNLgFT
+	 ZyhqpGWWKo19TQ3MPPpXN+GZPwI0a6+0Nci6x9wHqb6uUW6JiWzba+ApDnZJf8ebDl
+	 Jl6wIGrMr3jcCsZgsR04vjHPe49jvu/tZiS3IgvaIi/vR5zFqNBHxbiHhI+58vmGN/
+	 J7a7AySwjBFN3RDHpaRdeuwiD6tZomFKQmhbp5v/q4xpv6bwFW1vKs98kH77A4iB2q
+	 v+XGDbzsk5M2bG4ybuFIGo6+igguIhVbekdTaiDHY+xnY7pWGwk9KZ9DHSXNrCfNom
+	 WPO73fe4BpyCg==
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Date: Tue, 21 Jul 2026 19:23:30 +0300
-Subject: [PATCH RFC 07/18] x86/mm/pat: introduce cpa_handle_large_page()
+Date: Tue, 21 Jul 2026 19:23:36 +0300
+Subject: [PATCH RFC 13/18] mm/set_memory: read page table entries with
+ pXdp_get()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260721-generic-set-memory-v0-1-v1-7-2c1fc62306b3@kernel.org>
+Message-Id: <20260721-generic-set-memory-v0-1-v1-13-2c1fc62306b3@kernel.org>
 References: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
 In-Reply-To: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
 To: linux-mm@kvack.org
@@ -83,106 +84,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently should_split_large_page() and split_large_page() duplicate
-some of the operations, like PTE lookup inside the lock including
-detection of NX and RW bits and large page size calculation.
-
-This duplication can be avoided if the split parameters are passed
-between these two functions in a structure and the page table allocation
-and locking order is slightly reorganized.
-
-As the first step in this refactoring, introduce cpa_handle_large_page()
-helper that wraps should_split_large_page() and split_large_page().
+As a preparation for enabling generic set_memory support in riscv,
+replace direct dereferences of the page table pointers with pXdp_get()
+accessors.
 
 No functional change intended.
 
 Assisted-by: Copilot:claude-opus-4.8
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- arch/x86/mm/pat/set_memory.c | 54 ++++++++++++++++++++++++++++----------------
- 1 file changed, 34 insertions(+), 20 deletions(-)
+ mm/set_memory.c | 56 ++++++++++++++++++++++++++++++--------------------------
+ 1 file changed, 30 insertions(+), 26 deletions(-)
 
-diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-index 2a087dcedf84..a9d270e986ff 100644
---- a/arch/x86/mm/pat/set_memory.c
-+++ b/arch/x86/mm/pat/set_memory.c
-@@ -1191,6 +1191,35 @@ static int split_large_page(struct cpa_data *cpa, pte_t *kpte,
- 	return 0;
+diff --git a/mm/set_memory.c b/mm/set_memory.c
+index d2846804e4e6..1a7e63512981 100644
+--- a/mm/set_memory.c
++++ b/mm/set_memory.c
+@@ -51,58 +51,62 @@ unsigned long cpa_addr(struct cpa_data *cpa, unsigned long idx)
+  * the level of the entry, and the effective NX and RW bits of all
+  * page table levels.
+  */
+-pte_t *lookup_address_in_pgd_attr(pgd_t *pgd, unsigned long address,
++pte_t *lookup_address_in_pgd_attr(pgd_t *pgdp, unsigned long address,
+ 				  unsigned int *level, bool *nx, bool *rw)
+ {
+-	p4d_t *p4d;
+-	pud_t *pud;
+-	pmd_t *pmd;
++	pgd_t pgd = pgdp_get(pgdp);
++	p4d_t *p4dp, p4d;
++	pud_t *pudp, pud;
++	pmd_t *pmdp, pmd;
+ 
+ 	*level = PGTABLE_LEVEL_PGD;
+ 	*nx = false;
+ 	*rw = true;
+ 
+-	if (pgd_none(*pgd))
++	if (pgd_none(pgd))
+ 		return NULL;
+ 
+ 	*level = PGTABLE_LEVEL_P4D;
+-	*nx |= !pgd_exec(*pgd);
+-	*rw &= !!(pgd_write(*pgd));
++	*nx |= !pgd_exec(pgd);
++	*rw &= !!(pgd_write(pgd));
+ 
+-	p4d = p4d_offset(pgd, address);
+-	if (p4d_none(*p4d))
++	p4dp = p4d_offset(pgdp, address);
++	p4d = p4dp_get(p4dp);
++	if (p4d_none(p4d))
+ 		return NULL;
+ 
+-	if (p4d_leaf(*p4d) || !p4d_present(*p4d))
+-		return (pte_t *)p4d;
++	if (p4d_leaf(p4d) || !p4d_present(p4d))
++		return (pte_t *)p4dp;
+ 
+ 	*level = PGTABLE_LEVEL_PUD;
+-	*nx |= !p4d_exec(*p4d);
+-	*rw &= !!(p4d_write(*p4d));
++	*nx |= !p4d_exec(p4d);
++	*rw &= !!(p4d_write(p4d));
+ 
+-	pud = pud_offset(p4d, address);
+-	if (pud_none(*pud))
++	pudp = pud_offset(p4dp, address);
++	pud = pudp_get(pudp);
++	if (pud_none(pud))
+ 		return NULL;
+ 
+-	if (pud_leaf(*pud) || !pud_present(*pud))
+-		return (pte_t *)pud;
++	if (pud_leaf(pud) || !pud_present(pud))
++		return (pte_t *)pudp;
+ 
+ 	*level = PGTABLE_LEVEL_PMD;
+-	*nx |= !pud_exec(*pud);
+-	*rw &= !!(pud_write(*pud));
++	*nx |= !pud_exec(pud);
++	*rw &= !!(pud_write(pud));
+ 
+-	pmd = pmd_offset(pud, address);
+-	if (pmd_none(*pmd))
++	pmdp = pmd_offset(pudp, address);
++	pmd = pmdp_get(pmdp);
++	if (pmd_none(pmd))
+ 		return NULL;
+ 
+-	if (pmd_leaf(*pmd) || !pmd_present(*pmd))
+-		return (pte_t *)pmd;
++	if (pmd_leaf(pmd) || !pmd_present(pmd))
++		return (pte_t *)pmdp;
+ 
+ 	*level = PGTABLE_LEVEL_PTE;
+-	*nx |= !pmd_exec(*pmd);
+-	*rw &= !!(pmd_write(*pmd));
++	*nx |= !pmd_exec(pmd);
++	*rw &= !!(pmd_write(pmd));
+ 
+-	return pte_offset_kernel(pmd, address);
++	return pte_offset_kernel(pmdp, address);
  }
  
-+static int cpa_handle_large_page(struct cpa_data *cpa, pte_t *kpte,
-+				  unsigned long address)
-+{
-+	int do_split, err;
-+
-+	/*
-+	 * Check, whether we can keep the large page intact
-+	 * and just change the pte:
-+	 */
-+	do_split = should_split_large_page(kpte, address, cpa);
-+	/*
-+	 * When the range fits into the existing large page, no split is
-+	 * required.
-+	 * should_split_large_page() updated the large page attributes and
-+	 * cpa->numpages and cpa->pfn.
-+	 */
-+	if (do_split <= 0)
-+		return do_split;
-+
-+	/*
-+	 * We have to split the large page:
-+	 */
-+	err = split_large_page(cpa, kpte, address);
-+	if (err)
-+		return err;
-+
-+	return do_split;
-+}
-+
- static int collapse_pmd_page(pmd_t *pmd, unsigned long addr,
- 			     struct list_head *pgtables)
- {
-@@ -1790,7 +1819,7 @@ static int __cpa_process_fault(struct cpa_data *cpa, unsigned long vaddr,
- static int __change_page_attr(struct cpa_data *cpa, int primary)
- {
- 	unsigned long address;
--	int do_split, err;
-+	int split_res;
- 	unsigned int level;
- 	pte_t *kpte, old_pte;
- 	bool nx, rw;
-@@ -1842,27 +1871,12 @@ static int __change_page_attr(struct cpa_data *cpa, int primary)
- 		return 0;
- 	}
- 
--	/*
--	 * Check, whether we can keep the large page intact
--	 * and just change the pte:
--	 */
--	do_split = should_split_large_page(kpte, address, cpa);
--	/*
--	 * When the range fits into the existing large page,
--	 * return. cp->numpages and cpa->tlbflush have been updated in
--	 * try_large_page:
--	 */
--	if (do_split <= 0)
--		return do_split;
--
--	/*
--	 * We have to split the large page:
--	 */
--	err = split_large_page(cpa, kpte, address);
--	if (!err)
-+	/* Update large page or split it */
-+	split_res = cpa_handle_large_page(cpa, kpte, address);
-+	if (split_res > 0)
- 		goto repeat;
- 
--	return err;
-+	return split_res;
- }
- 
- static int __change_page_attr_set_clr(struct cpa_data *cpa, int primary);
+ /*
 
 -- 
 2.53.0
