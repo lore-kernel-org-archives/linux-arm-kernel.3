@@ -4,115 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2A1DC4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 16:14:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1CF3C4452B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 16:15:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Message-Id:MIME-Version:Subject:Date:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=16RyG3rd15UswS247w8Y2rBGrhgjsgtjs/mBo5jjAhc=; b=TXc2Wf8Cc/lPPNmFcdArHqhptv
-	Jc9W3duqK0pmzYMGvuLv9J00DBrcWu3xTsN0+P64ofPX0eEsnuvr0pj+Wx2NDjRhUQ9o4UyfEQ82K
-	J7S31ugrixpUPAgyColxuJnd6HccZ5SIslo9Wr3a8+32tSeZ3drcJWVke6ZODJf6LbghhtrZPxI3C
-	UP0PYWvA2hLyfoMM7ARifVp2YVvvhc5v+NHc+/rXUlbJqR+kxzxq2h8vyVPP78p1T5zlUL2bNNwpM
-	d0INqnjkNn9wfsX68RlqWSLIMz9v9tJxSfpmZYffu9GT1UOjLV5SagEWnlyVoChFVvk5+JDlI3Rox
-	lIdrTFFg==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5jNF/wdr5AnCE3efKH/glvasNKose7c8fAIiOsTYCr0=; b=rzk4gm0EghpA5qw1sd39XHgF3O
+	Boe9wL9iuQJpZdp4ncQonFzddUgwkZsUwBv6hzBG+rEUKfB3+72HPrjCSrlrpTcNExgkaDabve3/q
+	ByjtdlIbR5B600wh0J4bNTSMkg12Tbh0r/YGQy9jNPBW+atU1HCCnMr0/iDPLJeOfRkeDV/rSS1jg
+	SRoRSDf3oAnW+tUKY3xekwaWCeHK97L+UJ3TyoRUZ0uDFT4ADw9pCrbTSB5Xw5IdxbFq/mmXFdjtV
+	gkDGkQYw9u2LrLLbgY2EJfMTfJpoXVgvWZQ5bqe7ONOt1xU382FZ0xQ+cuh2xy4KOGZ/fuwQkADTG
+	ZpEpGHYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmD5x-00000009rhm-3QIU;
-	Tue, 21 Jul 2026 16:13:25 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wmD7m-00000009ru5-0VLB;
+	Tue, 21 Jul 2026 16:15:18 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmD5u-00000009rhH-1MZV
+	id 1wmD7j-00000009rtc-1g3L
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 16:13:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1784650399;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=16RyG3rd15UswS247w8Y2rBGrhgjsgtjs/mBo5jjAhc=;
-	b=Z15xHNuWMktsJuW9TN/FuE/JGOKcL4Z3H6dkYgF+Jwd8ldpT4MUEvYcwtQrm0uuKjIskGX
-	tdxDi5ODQdNqjlf4S3j+t5f8XEdEa+Z0IyrHSAHQryLE4ApZOW7O8hxn+dJIjWWrN66I7j
-	iquaMqjhpx43wTHjZnawDFAjsf7H8sw=
-Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com
- [209.85.219.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-357-BN7N7wstMZGRjytM5rVp2Q-1; Tue, 21 Jul 2026 12:13:15 -0400
-X-MC-Unique: BN7N7wstMZGRjytM5rVp2Q-1
-X-Mimecast-MFC-AGG-ID: BN7N7wstMZGRjytM5rVp2Q_1784650395
-Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-8efe7db1c42so212926306d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 09:13:15 -0700 (PDT)
+	Tue, 21 Jul 2026 16:15:16 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-69c600f76ccso12447368a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 09:15:14 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1784650513; cv=none;
+        d=google.com; s=arc-20260327;
+        b=qGFFL6PbnyKtQuppE1I0K9svoT6TOIsRWfnPQYJppXMjNk68/atJ/K8VPnY1LrEP/J
+         wN7bSUEHv34WfLU/pzyJ+g1xn4lLcJ0ql9h7rUBgwrW6QoqxELQYeTMQgd1ah6DLsGLb
+         bTmwR6hAwXUW2ZZs0hp5ne7vO9Lx35NGE36sa36eWvPu41gKPoQLZeQjjzjufFFe5kvv
+         Fj2t2pT41xs+cPJ6emq6VuxNz0U9zgrBn8GOz6T/w+XolQfe9UBlggyhDlAcx/FSn0dQ
+         +XipDslh1nxiBpPAdispMEpITttwuHtR6xPRkhrg4yOjFMKHQ+xxma7MxrT5JIqElbyz
+         ng7g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=5jNF/wdr5AnCE3efKH/glvasNKose7c8fAIiOsTYCr0=;
+        fh=n63xE5ivNLaVOJBtP7on+d0wsA1TkRalWm4RZOSvENk=;
+        b=jX98hNjDt18BMHWhOpN3P7P2i3UzeezvUJDWot14DMmNwaqnAyMwUOWPjyUmH0frJG
+         X/GUcChdjnyjKwg4MEn4ErtBB0u0Zvgugwt3UPd1CUk3Rff3d2dkWr2RVpVQ3PlZlZ6s
+         OiAqBvbpG/bHe57vwaWq1tLyn4BkA+e0QMklLa10opKfLp87WotAPY//eZuc7IFf7m3O
+         vFSBNwYRTg6DbYH7BBXdKDldeEBUhphDrE30y10/eCE2Aa6JGM/q/YrxJh2phlTJ76dF
+         wkcyg3zdgbQVUW0zXjBGqPsOUhvHr8cwuQvLX3NE3XpvpPFoJAXP4s4PWvthKc4/1prI
+         I3RA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1784650513; x=1785255313; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=5jNF/wdr5AnCE3efKH/glvasNKose7c8fAIiOsTYCr0=;
+        b=csgKVT/Yyf2Qc0vPGMyznCcAOZ4cFBJzT5Ow59xZ/Ls1+JxtVa1+SH5/NpyE7NdDtU
+         DqqWy2m14asOz320J96DOy/vYWVGxxqZy4zwrrn95kMN42Vf87zxX6DKhCtofCi2sVC1
+         rtG9A7Y8MIC+tdONwvEzNvA4E3f9A1alS9PH7T72ZjX6mQRhNyqJAs9/Tk5KcCfYOe4e
+         jHN3tOaKxf5va9MFpxlSnJsLZDxqta6y8WRMhi7dQDLEjWE63wNUL4S1L1DYsZO2aDQ3
+         o0s8NzbOe1tZgP+f5AhYEypqulM6kUTuhYDOqsz+HCegj3lXiPr02LREBCaXd5jC4svF
+         YVOg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784650395; x=1785255195;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=16RyG3rd15UswS247w8Y2rBGrhgjsgtjs/mBo5jjAhc=;
-        b=lWvZLKmEqDF5kyRRD4ZfXRMENYI1OEPQm0rLk2jhfxzBXyhlwo2Y+EvY+UsiQmT/BG
-         skNLLIMltf6qWZbxOzuQ52t8IhfKRB5zwKBDQScv9cYI/Ns1JlL7DMjBuvTruqb+kSBz
-         b3PJgaWu8XM+Xn+Knmkc3vp+GFqlbg/eQzAxMcx+IFcW1cQiQOc1aPrLGFqfDkrYaIAq
-         OLK3JGcqeL6PfJbu2WzkQA4QIBbj1YhYpu5Oh/LOUGmvE7/I+K/flHObcmjYI/cuADP8
-         0RZUoxjkNFxvNycXCFg1HmXmxt3/0bz7JYz/Hu+tadMtK9OogbuOmPGj8LliwggAHpjs
-         Gv2A==
-X-Gm-Message-State: AOJu0YwRe1AKMciydF1XyC2ZzgLngCbchHPU2ZctkUPzOG1QkfC44+up
-	Ua6ENRgr4Z/pSgFzZHmh8FH3qtLe/815JwqcnlY5RPs8CW/+SfS8jUpZiuKMCTZZpqpfall3cVS
-	3Bg3IrXQHLRPUA34vo6cxpDvKIU2GE6cnupZPyrgQx6VKSDFn/BYO5Tp4bIyXjEeZm+VLRESLkJ
-	hw
-X-Gm-Gg: AR+sD13ilkK0n9dy97yXqbnasQ8QYKkOntxmddUXK6iZSe6SdCRUgnY06Q0LlwPQQRE
-	verPgh6/47wvhWYTNktwjhT4YEfi+LrSquPvT7MBoRVH9tK+MSzib8r372Qs1FzlJ5zlJCyxHuM
-	qTzaWm7CVzDrpqacrTRyeGi8szuQfuNTowzo1m292sKtFoRQsUwkmBlPSqKMkFzFkEy8/sPkZIf
-	2wprF/T9DIOiYQubJ+UYkhD0bzki5uKfBNoWsTYXw9XPO+MHdW8ASa5c5rUt9aKvil1jVk8hv6T
-	RxR4OVV79uM024gukdosWaXA8tyrbb5+1Jn7AWZWzKCUJdTLNkbqDTiP+tXERuZcmbG7XAwUepl
-	jmxYEndAUA2VWuTaZ9VGZW1R8eFK0TM/Z
-X-Received: by 2002:ad4:5dc5:0:b0:8cc:de2:3b5d with SMTP id 6a1803df08f44-9077833676fmr208454836d6.16.1784650395268;
-        Tue, 21 Jul 2026 09:13:15 -0700 (PDT)
-X-Received: by 2002:ad4:5dc5:0:b0:8cc:de2:3b5d with SMTP id 6a1803df08f44-9077833676fmr208454366d6.16.1784650394783;
-        Tue, 21 Jul 2026 09:13:14 -0700 (PDT)
-Received: from jkangas-thinkpadp1gen3.rmtuswa.csb ([2601:1c2:4480:2110:932e:45ef:6b6c:ddd0])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-90778543d85sm119008176d6.3.2026.07.21.09.13.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Jul 2026 09:13:14 -0700 (PDT)
-From: Jared Kangas <jkangas@redhat.com>
-Date: Tue, 21 Jul 2026 09:12:41 -0700
-Subject: [PATCH v8] arm64: dts: s32g: Add GPR syscon region
+        d=1e100.net; s=20251104; t=1784650513; x=1785255313;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=5jNF/wdr5AnCE3efKH/glvasNKose7c8fAIiOsTYCr0=;
+        b=QZwRvCXzT4esd6WAOxqic8wk/JZSHvDUnW/zaFO7vJ1Qj0gfOsZhBNXgybW+5+5XHx
+         LCyVDWxnQ5vGN6+jPThnepjk7ks7U1NBDW0iHED2PVAUkh9FzVOXv3tsJyWjjWrm0aZv
+         yeCURJezzaauR7SkqPGVUDb0wDtGiRB5EPGIE6PysE5UlCzwRf8j3F7U1RAlcC9PpFHL
+         eKYlTsj660LSKcTojwJUE7nDyo6jTmnB7hUaAhGojdWVWVvB1T9o6I/6v6IvpfTFhqHD
+         QVk15DuReEQ6kBaBS6ntRlVvRD+Rfm9VlUmdpUe3+GGwLm0R/y4eSQpgiRb5DI3gh5MW
+         DCuQ==
+X-Forwarded-Encrypted: i=1; AHgh+RoFeGmTMPjrKC5KY1SSNXCR2uCUH1NSIdD0fDDPcLavpMgCerO1wufaXaAOl4WswJK75gV1iDw7uwXXt856UtKj@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx3YZLHkN3oCdxb/qL1UWyop4gKbq7iXF71loTbQQodSmdsPDaZ
+	YBdnxABVvVwV5gWRMYsJL9pMsSIlL4qNVAo38hiT06VFDZR3DVLZfv4/MS9sMStw0M1tNTKyVUd
+	nrjuxtPCzIS+LV12vV78WtIMuftWcW0icwt8MvM32
+X-Gm-Gg: AR+sD123d2ZZFvD/qmDBODSJ+ltclpXH9FolLoiQCHBKrWiSpMPIPkSfCeyejw0bFsz
+	I+Xf7H4d8WO36efCEcSMkLFMUjZZRsyGU4sLWnzNJ4tnPeRT5OSyDzJmZ/1Q0Sxr7j13kpBV96s
+	/6EIiGigBIE5+rxfjxkVcnL3J71yaC9VGF+lGKsg0REtiz6J1FI5pQk3Liao6gZvWUF/xmM5lBI
+	ObniQFs33xHlelcGzdHqFL36r3oKAou5JBNQrCt4goStGLVDPlGAvLHjIJOR4X37jYsAJV7+f0h
+	Q8DcU19UfXBuwHNa9iiMtUqPQWItsMbGBxqj8aYiB7APlc/PnyP3xdh0IpYcH44jEM1h8HOT1g=
+	=
+X-Received: by 2002:a17:907:94c8:b0:c16:9ca5:e547 with SMTP id
+ a640c23a62f3a-c16b487d78fmr786880666b.62.1784650512817; Tue, 21 Jul 2026
+ 09:15:12 -0700 (PDT)
 MIME-Version: 1.0
-Message-Id: <20260721-upstream-s32g-gpr-syscon-v8-1-49c308536aa6@redhat.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/42NQQ6CMBBFr0Jm7Rio2hZW3sOwaOgUuoCSGSQSw
- t2tnMDle8l/fwchjiTQFDswrVFimjLYSwHd4KaeMPrMoEqlS1MZfM+yMLkR5aZ67GdG2aRLE5p
- HqJUOVlt/hzyfmUL8nOlXm3mIsiTezqfV/Owf0dVghURVbYOyRlv1ZPKDW65dGqE9juMLUKOvr
- MEAAAA=
-X-Change-ID: 20260717-upstream-s32g-gpr-syscon-75f926f868d4
-To: Chester Lin <chester62515@gmail.com>, 
- Matthias Brugger <mbrugger@suse.com>, 
- Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
- NXP S32 Linux Team <s32@nxp.com>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Dan Carpenter <error27@gmail.com>, Jared Kangas <jkangas@redhat.com>, 
- Dan Carpenter <error27@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1784650392; l=2767;
- i=jkangas@redhat.com; s=20251111; h=from:subject:message-id;
- bh=lHjtYpzASvlxCVG3xK2x9n2hpQ6hZK9tKMMaQqJSCeY=;
- b=8ABgP1iCn05nj/pN7ivfiWkvV8wjCMbPOBY708QDHm/JR0QQ1ywmBsudLTLIbKYGcPDmFkhUx
- outpkTAD5lOCyizJF3VSDULxbbFxFlTpUNX5qZRSfFKfkCsoTG6Yb5j
-X-Developer-Key: i=jkangas@redhat.com; a=ed25519;
- pk=eFM2Mqcfarb4qox390655bUATO0fG9gwgaw7kGmOEZQ=
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 2viv-grg4J25FiSvyT-dW1l9d1wxR_t3mHgDz3ClyZI_1784650395
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+References: <20260715175223.make.153-kees@kernel.org> <CAD++jLk549ZcSjpRN0G27i1C-n-k-dOpmgvfZBgmHQ5s0F6dJg@mail.gmail.com>
+In-Reply-To: <CAD++jLk549ZcSjpRN0G27i1C-n-k-dOpmgvfZBgmHQ5s0F6dJg@mail.gmail.com>
+From: Nick Desaulniers <ndesaulniers@google.com>
+Date: Tue, 21 Jul 2026 09:15:01 -0700
+X-Gm-Features: AUfX_mx5hRFHlWZYNWCg31sOkuFqVIIRwEEvjRv3_jo_QY0cIF7eQh978jRBuUo
+Message-ID: <CAKwvOdk54Fi3SHxTNA0sLQn1toDuc8uK4b0nbKYsrB42_gTjVA@mail.gmail.com>
+Subject: Re: [PATCH v3] ARM: traps: Implement KCFI trap handler for ARM32
+To: Linus Walleij <linusw@kernel.org>
+Cc: Kees Cook <kees@kernel.org>, "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, 
+	Nathan Chancellor <nathan@kernel.org>, Sami Tolvanen <samitolvanen@google.com>, 
+	Zhen Lei <thunder.leizhen@huawei.com>, Arnd Bergmann <arnd@arndb.de>, 
+	=?UTF-8?Q?Micha=C5=82_Pecio?= <michal.pecio@gmail.com>, 
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, linux-arm-kernel@lists.infradead.org, 
+	Russell King <linux@armlinux.org.uk>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+	linux-hardening@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_091322_446906_B561F1C9 
-X-CRM114-Status: GOOD (  11.08  )
+X-CRM114-CacheID: sfid-20260721_091515_457670_6E42CD4B 
+X-CRM114-Status: GOOD (  19.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,86 +125,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Dan Carpenter <error27@gmail.com>
+On Tue, Jul 21, 2026 at 12:54=E2=80=AFAM Linus Walleij <linusw@kernel.org> =
+wrote:
+>
+> On Wed, Jul 15, 2026 at 7:52=E2=80=AFPM Kees Cook <kees@kernel.org> wrote=
+:
+>
+> > ARM32 GCC KCFI[1] violations currently show as generic "Oops - undefine=
+d
+> > instruction" errors, making debugging CFI failures difficult. Add a pro=
+per
+> > KCFI trap handler similar to the aarch64 implementation to provide clea=
+r
+> > CFI error messages, including the call target and the expected type.
+>
+> Reviewed-by: Linus Walleij <linusw@kernel.org>
+>
+> > Clang and GCC trap CFI failures differently on ARM32. Clang lowers
+> > its checks to a BKPT, handled via the breakpoint/prefetch-abort path
+> > in hw_breakpoint.c, which cannot recover the target or expected type
+> > and so must report via report_cfi_failure_noaddr(). GCC instead lowers
+> > KCFI checks to a UDF (undefined instruction) whose immediate encodes
+> > the registers involved, so the handler can decode it and call the full
+> > report_cfi_failure() with the target and expected type.
+>
+> Aha, that explains a few things.
+>
+> The UDF is a better approach for ARM I think (Russell will know best).
+>
+> As noted from earlier conversation the breakpoint usecase overloading
+> on ARM is a mess, and we would certainly like to avoid it if possible,
+> albeit I have a patch in Russell's patch tracker to paper it over.
+>
+> Do you think that long term we could switch Clang to do what
+> GCC does?
 
-Add the GPR syscon region for the s32 chipset.
+Yeah, I think that's reasonable.
+https://github.com/llvm/llvm-project/issues/211032
+https://github.com/ClangBuiltLinux/linux/issues/2176
 
-Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
-[jkangas@redhat.com: GPR syscon resized from 0x3000 to 0x100]
-Signed-off-by: Jared Kangas <jkangas@redhat.com>
----
-Revision of Dan's v6 patch based on discussion in [1] to avoid a panic
-when reading the debugfs regmap's registers file.
-
-[1]: https://lore.kernel.org/all/aej2X2Gp-UI3Vmvo@rh-jkangas-kernel/
-
-v8: Correct gpr node ordering, drop T-b tag
-v7: Shrink gpr size from 0x3000 -> 0x100, add 'arm64:' prefix to subject
-v6: no change
-v5: no change
-v4: no change
-v3: no change
-v2: Remove #address-cells and #size-cells
----
- arch/arm64/boot/dts/freescale/s32g2.dtsi | 6 ++++++
- arch/arm64/boot/dts/freescale/s32g3.dtsi | 6 ++++++
- 2 files changed, 12 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/s32g2.dtsi b/arch/arm64/boot/dts/freescale/s32g2.dtsi
-index 809019ea0e299..29050aa5ae960 100644
---- a/arch/arm64/boot/dts/freescale/s32g2.dtsi
-+++ b/arch/arm64/boot/dts/freescale/s32g2.dtsi
-@@ -122,6 +122,11 @@ rtc0: rtc@40060000 {
- 			clock-names = "ipg", "source0";
- 		};
- 
-+		gpr: syscon@4007c000 {
-+			compatible = "nxp,s32g2-gpr", "syscon";
-+			reg = <0x4007c000 0x100>;
-+		};
-+
- 		pinctrl: pinctrl@4009c240 {
- 			compatible = "nxp,s32g2-siul2-pinctrl";
- 				/* MSCR0-MSCR101 registers on siul2_0 */
-@@ -795,6 +800,7 @@ gmac0: ethernet@4033c000 {
- 			compatible = "nxp,s32g2-dwmac";
- 			reg = <0x4033c000 0x2000>, /* gmac IP */
- 			      <0x4007c004 0x4>;    /* GMAC_0_CTRL_STS */
-+			nxp,phy-sel = <&gpr 0x4>;
- 			interrupt-parent = <&gic>;
- 			interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "macirq";
-diff --git a/arch/arm64/boot/dts/freescale/s32g3.dtsi b/arch/arm64/boot/dts/freescale/s32g3.dtsi
-index 22e80fc03f9c7..8baae30f9f192 100644
---- a/arch/arm64/boot/dts/freescale/s32g3.dtsi
-+++ b/arch/arm64/boot/dts/freescale/s32g3.dtsi
-@@ -180,6 +180,11 @@ rtc0: rtc@40060000 {
- 			clock-names = "ipg", "source0";
- 		};
- 
-+		gpr: syscon@4007c000 {
-+			compatible = "nxp,s32g3-gpr", "syscon";
-+			reg = <0x4007c000 0x100>;
-+		};
-+
- 		pinctrl: pinctrl@4009c240 {
- 			compatible = "nxp,s32g2-siul2-pinctrl";
- 				/* MSCR0-MSCR101 registers on siul2_0 */
-@@ -874,6 +879,7 @@ gmac0: ethernet@4033c000 {
- 			compatible = "nxp,s32g2-dwmac";
- 			reg = <0x4033c000 0x2000>, /* gmac IP */
- 			      <0x4007c004 0x4>;    /* GMAC_0_CTRL_STS */
-+			nxp,phy-sel = <&gpr 0x4>;
- 			interrupt-parent = <&gic>;
- 			interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "macirq";
-
----
-base-commit: fce2dfa773ced15f27dd27cd0b482a7473cdcf2a
-change-id: 20260717-upstream-s32g-gpr-syscon-75f926f868d4
-
-Best regards,
--- 
-Jared Kangas <jkangas@redhat.com>
-
+--=20
+Thanks,
+~Nick Desaulniers
 
