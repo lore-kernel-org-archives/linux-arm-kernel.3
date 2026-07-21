@@ -4,73 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37618C44529
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 07:54:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2C67C4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 07:58:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dCFp8azqbtjMnvLCWbCJTpVJiM5s5tHj5DD4OdLTAbw=; b=HObnRbfwKsG5etmDLjw9nlLm7b
-	y07e9tMrikWnn0bmOxyNE2atsKDwCdDz44PzGW6AEZj+Y7TYPa+XGsk53NDRZIGxG54DeBlaVPOGl
-	XT9QN4Ai7iONegtBlg4+lh8PeSbp5T657JiBSh3B9iPEdYxxhSpW6AeNV/zF7w68ctwsmRJ4JLUeY
-	pxK5E1aZow1Ov/+135Q+4N7xRBBF3ZNVD2LRXehl8pAZuKjsMAFclaLivXMWPwqQHqNsbWPvnj86J
-	WPkOn17oPONDF+sZv2UcVsX9cnv3dQI7cLACLlbfOnfoj1GaC5hRUsmhdLz/ia/N+JV1Xzemltozg
-	U4Cvn5DQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y8ZQiTN586DKOzGjE0xQTVjSc0oG6CWcbCqpe2Jy2M4=; b=X5Yh07SC4AZiUfIG5y3PJJPbie
+	Hl+CF7FDePuv+j0n7xhtpZHVbwgiq7sZGxZVeuNdNfzMMjwf849oTW/nmuUIMxIB6/ykZ3IZYVUbz
+	q6oLyejwYZcj4pJNJ5Xh9pj+D8y/oL/jioeJ3B+QlGJETIBkqUpkIMPHMMNSawt5oNOYADfcNF10O
+	EBg0GVEuSQ+3GWirPCHFnvY/n7TjMubHjIXpSslbuZHx2dDgVcPdbxuB/j+HYY5zwMIPeG6Z+YyVK
+	vNxQ41o7EJlDmaYzre7Wg5Y/WZzN2MkRFJODaJJL0UfJSAmTmNz2c4fNvmJQIYpYYKzTYMYLbKFBO
+	1wI9O7pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm5JU-00000008iZc-2jIu;
-	Tue, 21 Jul 2026 07:54:52 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wm5MY-00000008j9F-0M54;
+	Tue, 21 Jul 2026 07:58:02 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm5JT-00000008iYA-2raf
+	id 1wm5MW-00000008j8s-2jCX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 07:54:51 +0000
+	Tue, 21 Jul 2026 07:58:00 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1368F4505A
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 07:54:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB13B1F01558
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 07:54:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2CF784510E
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 07:58:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1491E1F01560
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 07:58:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784620491;
-	bh=dCFp8azqbtjMnvLCWbCJTpVJiM5s5tHj5DD4OdLTAbw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=MzDvOdbyzTCAvdoapu1Tim55VE4TPHvrsM716xnZiCJqz1gRE/ytbZAHFZTSScv/c
-	 0PBqGmUU+Q0+8wWYJ3ggt7bIxBahPf1Z92LImAqaPHxaLg4RsBlKuZXf15WdZZcmn/
-	 bMgi09VrHwwqMcskbiqckVfAwDTHtCQTsHH7xWqYeOeF5Bq0Yj5Qeps+gCszEWiV78
-	 nbU6UUNqoHA193nqFxdJYEXUKNrhTPcQMU4HPb6m4FKBvZoA4SMIQTL80XfbSZykwH
-	 zaABhGQjS98KMnWwRgi+VnslfcrZzi5etB+TaAKRcuw/bYx/yhvEQRjj2EMApQRBjK
-	 yWwC1qyhCcL1g==
-Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5b2a22c52c1so1358222e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 00:54:50 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Rr5QjV1afMJ9ym590KtDoTq23+AU0smFmW5gKo3GYnMjOlnyc2h7rUbjKy18TEBR0w+63OnFASc1Cuh9vnYxLcd@lists.infradead.org
-X-Gm-Message-State: AOJu0YwtdGWmeMkR+jceso8RC2RBfIiZLMsz8cEiSa+6QB22F1QUn5Hg
-	Dh8wkoAadHa7b8vzjX1ZRQLRIglKvhizzq1OeEsiMlL8Kvxe/hH3MYcFHSNEczChZsLMHgq2S58
-	Gq++5AlBX+DSZ8ZVw586bT1OEnP5VXEU=
-X-Received: by 2002:ac2:5b4a:0:b0:5b0:177f:beab with SMTP id
- 2adb3069b0e04-5b28f9b8ab1mr2888376e87.44.1784620489665; Tue, 21 Jul 2026
- 00:54:49 -0700 (PDT)
+	s=k20260515; t=1784620680;
+	bh=y8ZQiTN586DKOzGjE0xQTVjSc0oG6CWcbCqpe2Jy2M4=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=JTzAvTvrEZMMKQCko+0HPPhkpoj5NWd5ycVDtjgNCicdqaixDwIGJDkzLLwYat9TM
+	 C9mR1HA+lbm5tGRpNv7yM7oowRCtR49RpldiZ0s0afqG/fHGPWWe5xE71/IdDcn9jZ
+	 YvOak8XUWsPiyTPrbh1iy0CO9ZAW9R0tD6PfLce5NdPZWTdcnsA+7XPw0glvkYBIEd
+	 wbwpZeCK/YPSMdyfZhH8MYA3+1ywQebQPPxSKHhCM3gsSxU0zlYzEjWz2K94m1HN3N
+	 PmwyjR1LUtCfqiZB2b+99HhnojNuzzDu6aEbXMs8lFfKr7CmOPyWnQUl39S7FgLjK0
+	 gl1RxyLdRIb8g==
+Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-5aec201b582so11102340e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 00:58:00 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Rp6vWhO3hxQHlq0V5O8hKc6Yx7W9e6bsQAv3uRbMkCQq5zfuv4BEj9PVgP9ePOlwHJscSio9xM8iLqLrY/uaJSL@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxq/hHzCA177PLQD3/NfioF2iztF7OZ9PouWlV7kieVW9qx8np1
+	8Q2cTEnbpvWMnx+Ffm0vJR6YlvlsW8s47DkMUeGSYoxExFVmou+GYlA+n7gokQ82Prf+BcCA2k8
+	DqD3oJBM+MGhEJhkOTdIPXxbV6SfqPdBFIRLgpGhNzg==
+X-Received: by 2002:ac2:554c:0:b0:5ae:bcf8:e7d0 with SMTP id
+ 2adb3069b0e04-5b28f9bd551mr2209166e87.55.1784620678478; Tue, 21 Jul 2026
+ 00:57:58 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 21 Jul 2026 00:57:57 -0700
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 21 Jul 2026 00:57:56 -0700
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <3e14e41f-ecd5-432b-9f52-690a05b38a8a@lunn.ch>
 MIME-Version: 1.0
-References: <20260715175223.make.153-kees@kernel.org>
-In-Reply-To: <20260715175223.make.153-kees@kernel.org>
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 21 Jul 2026 09:54:37 +0200
-X-Gmail-Original-Message-ID: <CAD++jLk549ZcSjpRN0G27i1C-n-k-dOpmgvfZBgmHQ5s0F6dJg@mail.gmail.com>
-X-Gm-Features: AUfX_mzMwCV8Z7xeaNpPDzFxYqTYvhmmKEur1wOLmu4Wv6aUpsrNZUfEjvv8O44
-Message-ID: <CAD++jLk549ZcSjpRN0G27i1C-n-k-dOpmgvfZBgmHQ5s0F6dJg@mail.gmail.com>
-Subject: Re: [PATCH v3] ARM: traps: Implement KCFI trap handler for ARM32
-To: Kees Cook <kees@kernel.org>
-Cc: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, Nathan Chancellor <nathan@kernel.org>, 
-	Sami Tolvanen <samitolvanen@google.com>, Zhen Lei <thunder.leizhen@huawei.com>, 
-	Arnd Bergmann <arnd@arndb.de>, =?UTF-8?Q?Micha=C5=82_Pecio?= <michal.pecio@gmail.com>, 
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, linux-arm-kernel@lists.infradead.org, 
-	Russell King <linux@armlinux.org.uk>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org, 
-	llvm@lists.linux.dev, linux-hardening@vger.kernel.org
+References: <20260720-pdev-set-fwnode-instead-of-of-node-v1-0-2dee93f42c54@oss.qualcomm.com>
+ <20260720-pdev-set-fwnode-instead-of-of-node-v1-7-2dee93f42c54@oss.qualcomm.com>
+ <86b2aba7-b049-47e6-bc94-6cb499b30ce4@lunn.ch> <CAMRc=Mduv_KiB42d4AZddTrFSHmKogd2wh6vBDXomW6ssdfq9A@mail.gmail.com>
+ <3e14e41f-ecd5-432b-9f52-690a05b38a8a@lunn.ch>
+Date: Tue, 21 Jul 2026 00:57:56 -0700
+X-Gmail-Original-Message-ID: <CAMRc=Md_zUwYW5KL+p=BRixSaf3Rrc5jnBA3x8Ze+fK+fAOctQ@mail.gmail.com>
+X-Gm-Features: AUfX_mxrzWF5f1w8uOBbvKVmYCYI9DGFBZVEBrX2uI1sc7agH6iCfKo0CQST8Mw
+Message-ID: <CAMRc=Md_zUwYW5KL+p=BRixSaf3Rrc5jnBA3x8Ze+fK+fAOctQ@mail.gmail.com>
+Subject: Re: [PATCH 7/8] net: mv643xx: use platform_device_set_fwnode()
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
+	"Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Doug Berger <opendmb@gmail.com>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Ulf Hansson <ulfh@kernel.org>, 
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Lee Jones <lee@kernel.org>, 
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Srinivas Kandagatla <srini@kernel.org>, 
+	driver-core@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org, 
+	iommu@lists.linux.dev, netdev@vger.kernel.org, linux-pm@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	mfd@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
+	linux-sound@vger.kernel.org, Bartosz Golaszewski <brgl@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,35 +103,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 15, 2026 at 7:52=E2=80=AFPM Kees Cook <kees@kernel.org> wrote:
+On Mon, 20 Jul 2026 20:28:39 +0200, Andrew Lunn <andrew@lunn.ch> said:
+> On Mon, Jul 20, 2026 at 06:01:37PM +0200, Bartosz Golaszewski wrote:
+>> On Mon, 20 Jul 2026 16:43:40 +0200, Andrew Lunn <andrew@lunn.ch> said:
+>> > On Mon, Jul 20, 2026 at 11:24:54AM +0200, Bartosz Golaszewski wrote:
+>> >> Prefer the higher-level platform_device_set_fwnode() over the
+>> >> OF-specific platform_device_set_of_node() for dynamically allocated
+>> >> platform devices.
+>> >>
+>> >> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+>> >> ---
+>> >>  drivers/net/ethernet/marvell/mv643xx_eth.c | 2 +-
+>> >>  1 file changed, 1 insertion(+), 1 deletion(-)
+>> >>
+>> >> diff --git a/drivers/net/ethernet/marvell/mv643xx_eth.c b/drivers/net/ethernet/marvell/mv643xx_eth.c
+>> >> index 9caa1e47c174c9d7a161b7f2e2ee12a829b813d4..2f2d6cce8d852b9ec3ab42678a04a7915d1f00cc 100644
+>> >> --- a/drivers/net/ethernet/marvell/mv643xx_eth.c
+>> >> +++ b/drivers/net/ethernet/marvell/mv643xx_eth.c
+>> >> @@ -2780,7 +2780,7 @@ static int mv643xx_eth_shared_of_add_port(struct platform_device *pdev,
+>> >>  		goto put_err;
+>> >>  	}
+>> >>  	ppdev->dev.coherent_dma_mask = DMA_BIT_MASK(32);
+>> >> -	platform_device_set_of_node(ppdev, pnp);
+>> >> +	platform_device_set_fwnode(ppdev, of_fwnode_handle(pnp));
+>> >
+>> > This is definitely an OF only driver. There are no other calls to
+>> > fwnode functions in this driver, so this is the wrong thing to do.
+>> >
+>> > Sorry, NACK.
+>> >
+>>
+>> I'm not going to die on this hill but drivers are OF-only until they're not.
+>> For example, Qualcomm is now working on a hybrid ACPI-OF approach for
+>> laptops[1] and we may end up needing to start converting drivers to fwnode
+>> after all.
+>>
+>> There's no real benefit to sticking to OF-specific APIs unless you need to
+>> iterate over all properties of a node or use some other functionality not
+>> available in fwnode. The overhead is minimal and it's never a hot path.
+>
+> There is a lot of benefit to sticking to OF specific APIs, because
+> within the kernel OF is well maintained, has active maintainers, there
+> are tools to validate bindings, etc. ACPI is a Wild West, each driver
+> is a snow flake, there is no review, no binding documentation, no
+> validation tools etc.
+>
+> I hope you allow plenty of time to convert any networking drivers,
+> where Linux is driving the hardware, to ACPI. Your first stop will be
+> the UEFI forum making a proposal for MDIO busses, because that
+> currently is not part of ACPI. You will then need to spend time
+> understanding the DT bindings, and figuring out which properties are
+> deprecated so need to stay OF only, and which can be converted to dual
+> OF/ACPI. I've seen too many naive attempts which blindly convert
+> everything, copying all the past errors in the DT binding into the
+> brand new ACPI binding. That will get NACKed.
+>
+> OF != ACPI
+>
 
-> ARM32 GCC KCFI[1] violations currently show as generic "Oops - undefined
-> instruction" errors, making debugging CFI failures difficult. Add a prope=
-r
-> KCFI trap handler similar to the aarch64 implementation to provide clear
-> CFI error messages, including the call target and the expected type.
+I've never said that and ACPI is actually irrelevant to this discussion. Fwnode
+is the abstraction layer and OF happens to implement it. Unless you need
+fine-grained control (only exposed by the lower-level abstraction) or
+performance - neither of which is the case here - you should use the top-level
+API. As I said: there's no good reason to stick to OF-specific interfaces for
+drivers that don't really require it - and even then, we should strive to fill
+the gaps in the fwnode API instead.
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-
-> Clang and GCC trap CFI failures differently on ARM32. Clang lowers
-> its checks to a BKPT, handled via the breakpoint/prefetch-abort path
-> in hw_breakpoint.c, which cannot recover the target or expected type
-> and so must report via report_cfi_failure_noaddr(). GCC instead lowers
-> KCFI checks to a UDF (undefined instruction) whose immediate encodes
-> the registers involved, so the handler can decode it and call the full
-> report_cfi_failure() with the target and expected type.
-
-Aha, that explains a few things.
-
-The UDF is a better approach for ARM I think (Russell will know best).
-
-As noted from earlier conversation the breakpoint usecase overloading
-on ARM is a mess, and we would certainly like to avoid it if possible,
-albeit I have a patch in Russell's patch tracker to paper it over.
-
-Do you think that long term we could switch Clang to do what
-GCC does?
-
-Yours,
-Linus Walleij
+Bart
 
