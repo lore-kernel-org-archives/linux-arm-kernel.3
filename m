@@ -4,66 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B506C4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 11:24:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B2A6C44532
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 11:43:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oo4QtPAlwQWs6RQLzHeNGtNHhRPU/ryCbDtVdgxOK3o=; b=acALZ0l6oSnxLN8+vJfL6/LdGx
-	ZqTlzO6Iu/yRuDoBriJyB0mw8nK89y1g17clbxLB3zMToY49L0mbMoT+cC2Iif+2VNQA/4+DWASCA
-	wBzMJbYB6FWca04lYxrZLeA4CKTy6ezGOkgH/EE9bKAwHRl9tcxmNx4im0TCJLAHJYIxXtcDUmTHo
-	cX2mJIQOhG5hX8ZZvAJZd1b6bH5JKV3qIAl8lk/Dn0SZARaKMFdZiLgk5RiA/zc4itnCOg85iDHWG
-	rRzIu7XnlPh2peLVShm4EXMfD7cZk0NP3+lss7fju94/BguATM8iNK4mRPimIbI+kVPrYOnKrqatH
-	ETUNmhXQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=A65APZFEd7fz0qjViK+USe3yaX2qjEZnD7YJQbU3HoY=; b=hR921STdhSuAupGOuzRcaXvdAN
+	KyZ9Um2vC0QTGuESmbmXXULeMGS4RuSasq7+IQaKIw2RtHX4ciW+jg3pnd4ivOKPY3TYDRCkTxkTh
+	a2ozGdwXKu5W18ZD6hBMLDQwrqkcV6TtRRKmL5aBiLJCs/ihizkIdNvjdg8XbKjBnXSdlfDSr3hL8
+	o2rE0PR0Rix4rWzXnOL6Nu63RSvypL8GoKtPGTeQel+wAx6DsDhNCZk8+UgrExCHKxRMQuOEi4v1z
+	+TDmS1k1j72oXkTV+x+lrc44GZpdwPQl9cT27cxbl7SslDw69GcjENZI/TWo4JUL6UE3nSFQ+jJH7
+	JWc8wMrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm8a7-00000009JPI-0EH5;
-	Tue, 21 Jul 2026 11:24:15 +0000
-Received: from confino.investici.org ([93.190.126.19])
+	id 1wm8sN-00000009L3Q-0Frh;
+	Tue, 21 Jul 2026 11:43:07 +0000
+Received: from mx.nabladev.com ([178.251.229.89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm8a4-00000009JOn-2jrv
+	id 1wm8sK-00000009L2w-48nQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 11:24:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=grrlz.net;
-	s=stigmate; t=1784633051;
-	bh=oo4QtPAlwQWs6RQLzHeNGtNHhRPU/ryCbDtVdgxOK3o=;
-	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
-	b=iBtuRLu2R47/cA//T2lB1K/SmxPjXHTmS3xxENtVRdPso5iiYICiZknTbm4Z8KZxd
-	 zcvFlWhULghcPv5PTnWyv2MhkYEwxxn6wA8SjCAv2BPdTfrA1gl99x3kc4aDWn+z89
-	 g0+yzfUAI1F3KQFt7jNfy5dIJl9mQKT5epqc2lqs=
-Received: from mx1.investici.org (unknown [127.0.0.1])
-	by confino.investici.org (Postfix) with ESMTP id 4h4FQM0lGqz10s7;
-	Tue, 21 Jul 2026 11:24:11 +0000 (UTC)
-Received: by mx1.investici.org (Postfix) id 4h4FQL1C2tz10s2;
-	Tue, 21 Jul 2026 11:24:10 +0000 (UTC)
-Date: Tue, 21 Jul 2026 12:24:08 +0100
-From: Bradley Morgan <include@grrlz.net>
-To: Fuad Tabba <fuad.tabba@linux.dev>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oupton@kernel.org>
-CC: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Shuah Khan <shuah@kernel.org>, Quentin Perret <qperret@google.com>,
- Vincent Donnefort <vdonnefort@google.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>, Gavin Shan <gshan@redhat.com>,
- Dev Jain <dev.jain@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- linux-kernel@vger.kernel.org
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v5_0/7=5D_KVM=3A_arm64=3A_pKVM?=
- =?US-ASCII?Q?_stage-2_mapping_and_memcache_fixes?=
-In-Reply-To: <20260717130317.1953574-1-fuad.tabba@linux.dev>
-References: <20260717130317.1953574-1-fuad.tabba@linux.dev>
-Message-ID: <31F736D9-C500-4049-AE42-EACAAAAB4E5A@grrlz.net>
+	Tue, 21 Jul 2026 11:43:06 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 35CE011A8F5;
+	Tue, 21 Jul 2026 13:42:59 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1784634182; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=A65APZFEd7fz0qjViK+USe3yaX2qjEZnD7YJQbU3HoY=;
+	b=fGjhJKjI0PWc05levVac34+6Ks9BavSELaLLgCN8mq3fV4axt1/UaPP8lDlcPkK56sECsI
+	wDKScqnMVGDlz85CVrANvpdnfXOea5cIxPn/CM8H8yjfYKGufEnfpvCaSxkkZwAMyoX53u
+	ASNSlxpmOIVFDaMrHfqaeWpgmzdnWYIbQy1L27FCSdMNN5423Xgk9Nm9sk9YtpTxcIwC83
+	9ieitJqpn1x8eNUa0BXzcWZY5EPO3YZkqW55XI6FCjMNbJXEJVvNrm342HHNZ8Udy0QB7C
+	oeL7gdscxtndxHZpEr9XkoeJNOYiPCQcKbzbC+7zxRzu2CxBoQBJz4RAsX1EBQ==
+From: Heiko Schocher <hs@nabladev.com>
+To: linux-kernel@vger.kernel.org
+Cc: linux-fpga@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Heiko Schocher <hs@nabladev.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Moritz Fischer <mdf@kernel.org>,
+	Tom Rix <trix@redhat.com>,
+	Xu Yilun <yilun.xu@intel.com>
+Subject: [PATCH v2] driver: fpga: xilinx-selectmap: add csi and rdwr support
+Date: Tue, 21 Jul 2026 13:42:52 +0200
+Message-ID: <20260721114258.3324794-1-hs@nabladev.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
 Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_042412_843259_38F12D9C 
-X-CRM114-Status: GOOD (  19.30  )
+X-CRM114-CacheID: sfid-20260721_044305_249758_78870C85 
+X-CRM114-Status: GOOD (  15.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,99 +70,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On July 17, 2026 2:03:10 PM GMT+01:00, Fuad Tabba <fuad.tabba@linux.dev>
-wrote:
->Hi folks,
->
->Changes since v4 [1]:
->  - Restored the permission-fault and dirty-logging memcache top-ups
->    that v4 dropped. Both fix real bugs.
->  - Patch 1 uses the anonymous bitfield encoding rather than the
->    open-coded mask and helpers. (Marc)
->  - Reshaped the permission-fault top-up to stage the full memcache
->    under pKVM, not just the mapping object. The object-only form still
->    returned -ENOMEM and tripped a WARN under the hypervisor's
->    unconditional min-pages check.
->  - Re-scoped the dirty-logging top-up to its generic, non-pKVM failure
->    mode, now that the permission-fault patch covers pKVM.
->  - Added three adjacent fixes found while going through the series, and
->    a selftest for the block transitions.
->  - Patches 1 and 3 keep Bradley's Signed-off-by from v3; my changes
->    to each are noted in a [tabba: ...] line.
->
->I picked this up while reviewing Bradley's "mapping cache" series [2]:
->v4 dropped two fixes from v3 that address real bugs, so I've collected
->the three fixes back together, reshaped patch 1 per Marc's review [3],
->added a few adjacent fixes I found along the way and a selftest, and am
->reposting as v5.
->
->Most of the fixes are in the pKVM stage-2 walker. On a pKVM host a
->non-protected guest's stage-2 faults go through pkvm_pgtable_*(), which
->diverges from the generic walker in several ways that are bugs: cache
->maintenance on non-cacheable mappings (patch 1), a missing memcache
->top-up on permission faults that under pKVM still allocate (patch 2), a
->full flush walk on FWB hardware (patch 4), a WARN on a guest-reachable
->map failure (patch 5), and an eager-split capability whose pKVM backend
->is only a stub (patch 6). These affect non-protected guests only, since
->dispatch and memcache selection key on the host-global pKVM mode, and
->protected guests take no permission faults.
->
->Patch 3 is not pKVM-specific. During dirty logging a non-write
->permission fault, an instruction fetch, still needs a page-table page
->to split a block, but the memcache top-up is gated on write faults.
->That fault path is generic, so the fix is too.
->
->The two memcache top-ups came from sashiko review-bot findings [4][5],
->and both check out against the code.
->
->The series is structured as follows:
->
->  1:    Skip cache maintenance for non-cacheable mappings.
->  2-3:  Top up the memcache for the permission and dirty-logging faults
->        that force stage-2 block transitions.
->  4-6:  Adjacent pkvm_pgtable_*() fixes: FWB flush early-out, drop a
->        spurious map WARN, and gate the eager-split capability.
->  7:    Selftest for the block-collapse and block-split transitions.
->
->Testing: the selftest in patch 7 covers the two dirty-logging block
->transitions (page->block collapse and block->page split) that patch 2
->stages; on the base kernel the collapse oopses the host in
->pkvm_pgtable_stage2_map() with a NULL dereference under mmu_lock, and
->with the series applied it passes. It is a standalone test rather than
->an extension of kvm_page_table_test, whose default anonymous-4K backing
->forms no huge-page blocks, so an automated run never exercises these
->transitions, and whose worker/stage harness does not fit the multi-stage
->logging sequence. Run it with 2M hugepages
->reserved and, for the split half, on a CPU with CTR_EL0.DIC == 0 (e.g.
->-cpu cortex-a710 under QEMU); it self-skips those otherwise. It also
->passes on a non-pKVM host (VHE and nVHE), where patch 3's generic change
->applies. The other fixes are not exercised by the selftest and rest on
->the analysis in their commit messages: patch 3's fault path is generic
->and non-pKVM (under pKVM patch 2 already tops it up, and its failure is
->a WARN_ON(!nobjs) in kvm_mmu_memory_cache_alloc(), not a KVM_RUN error),
->and patches 1 and 4-6 each need a specific pKVM configuration to hit.
->
->Based on Linux v7.2-rc3 (a13c140cc289).
->
->Cheers,
->/fuad
->
->[1] https://lore.kernel.org/r/20260701192428.17430-1-include@grrlz.net
->[2] https://lore.kernel.org/r/20260624160028.15591-1-include@grrlz.net
->[3] https://lore.kernel.org/r/86qzllpy1g.wl-maz@kernel.org
->[4]
->https://lore.kernel.org/all/20260623161545.EA08E1F000E9@smtp.kernel.org/
->[5]
->https://lore.kernel.org/all/20260623165634.699011F000E9@smtp.kernel.org/
+Add csi_b and rdwr pin support for the xilinx,selectmap driver.
 
-Whole series
+In current driver the pins are configured from DTS and set to
+GPIOD_OUT_HIGH. This works in case you have one FPGA.
 
+Extend this to really implement csi_b and rdwr pin function in
+driver, so it works with more than one FPGA.
 
-PKVM.c/.h
-Tested-by: Bradley Morgan <include@grrlz.net> # On pixel 7, Android 17 CP2A.260705.006
+Tested on AM625 based board with 2 FPGAs connected to GPMC.
 
-Test: Tested-by: Bradley Morgan <include@grrlz.net> # On QEMU arm64 host
+Signed-off-by: Heiko Schocher <hs@nabladev.com>
+---
+
+Changes in v2:
+- add comments from Michal
+  - skip check if gpio descriptor variables csi_b/rdwr_b are valid,
+    as validate_desc() checks this in gpiod_set_value() call.
+  - initialize the gpio variables csi_b/rdwr_b immediately with
+    the return value from devm_gpiod_get_optional(), so we can
+    drop local gpio variable at all
+
+ drivers/fpga/xilinx-selectmap.c | 23 ++++++++++++++++-------
+ 1 file changed, 16 insertions(+), 7 deletions(-)
+
+diff --git a/drivers/fpga/xilinx-selectmap.c b/drivers/fpga/xilinx-selectmap.c
+index d0cbb5fdfe3a..d5175f9430e4 100644
+--- a/drivers/fpga/xilinx-selectmap.c
++++ b/drivers/fpga/xilinx-selectmap.c
+@@ -19,6 +19,8 @@
+ struct xilinx_selectmap_conf {
+ 	struct xilinx_fpga_core core;
+ 	void __iomem *base;
++	struct gpio_desc *csi_b;
++	struct gpio_desc *rdwr_b;
+ };
  
+ #define to_xilinx_selectmap_conf(obj) \
+@@ -30,16 +32,21 @@ static int xilinx_selectmap_write(struct xilinx_fpga_core *core,
+ 	struct xilinx_selectmap_conf *conf = to_xilinx_selectmap_conf(core);
+ 	size_t i;
+ 
++	gpiod_set_value(conf->csi_b, GPIOD_OUT_HIGH);
++	gpiod_set_value(conf->rdwr_b, GPIOD_OUT_HIGH);
++
+ 	for (i = 0; i < count; ++i)
+ 		writeb(buf[i], conf->base);
+ 
++	gpiod_set_value(conf->rdwr_b, GPIOD_OUT_LOW);
++	gpiod_set_value(conf->csi_b, GPIOD_OUT_LOW);
++
+ 	return 0;
+ }
+ 
+ static int xilinx_selectmap_probe(struct platform_device *pdev)
+ {
+ 	struct xilinx_selectmap_conf *conf;
+-	struct gpio_desc *gpio;
+ 	void __iomem *base;
+ 
+ 	conf = devm_kzalloc(&pdev->dev, sizeof(*conf), GFP_KERNEL);
+@@ -56,15 +63,17 @@ static int xilinx_selectmap_probe(struct platform_device *pdev)
+ 	conf->base = base;
+ 
+ 	/* CSI_B is active low */
+-	gpio = devm_gpiod_get_optional(&pdev->dev, "csi", GPIOD_OUT_HIGH);
+-	if (IS_ERR(gpio))
+-		return dev_err_probe(&pdev->dev, PTR_ERR(gpio),
++	conf->csi_b = devm_gpiod_get_optional(&pdev->dev, "csi",
++					      GPIOD_OUT_LOW);
++	if (IS_ERR(conf->csi_b))
++		return dev_err_probe(&pdev->dev, PTR_ERR(conf->csi_b),
+ 				     "Failed to get CSI_B gpio\n");
+ 
+ 	/* RDWR_B is active low */
+-	gpio = devm_gpiod_get_optional(&pdev->dev, "rdwr", GPIOD_OUT_HIGH);
+-	if (IS_ERR(gpio))
+-		return dev_err_probe(&pdev->dev, PTR_ERR(gpio),
++	conf->rdwr_b = devm_gpiod_get_optional(&pdev->dev, "rdwr",
++					       GPIOD_OUT_LOW);
++	if (IS_ERR(conf->rdwr_b))
++		return dev_err_probe(&pdev->dev, PTR_ERR(conf->rdwr_b),
+ 				     "Failed to get RDWR_B gpio\n");
+ 
+ 	return xilinx_core_probe(&conf->core);
+---
+base-commit: 58717b2a1365d06c8c64b72aa948541b53fe31eb
 
-Thanks!
+-- 
+2.55.0
+
 
