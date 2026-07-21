@@ -4,93 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1C38C44536
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 14:59:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1EA6C44529
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 15:06:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3WKmer3uqjgZGaTDqjRAjLU77woVMUtTbyfOFW4Hj+g=; b=zLeYOXCQObSwGB1WkQNsBdFOP/
-	GY2OwP9gwytrlLMnHW2Dm+Xs8NXz9IT6h9D9MgR8OBQR4x+YxX0Fj/F2x07DeL3ZJlhDF8jIHTWcK
-	TjsRXWA18zhMHy7argnkFoEXq6UDnn8PVPqOz2W51dcUIqueVil/JsfWstmXJ+Yd/u6tmLd4P5hC2
-	AiRGtecTr4ps0ED8DNKirnZMC2jp6ynOLe5vdsLutI71AXnyBjeavT8T6U5JQEq3rtyBUVSKJB388
-	8RFEeWEUVledcAI55024LwomSSleBpplNMeh4q3VmSdYV5rbY6dbIvvBzCAGwYP8JX5l78Qv6iQLV
-	oc3hhviA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wOFAAzRRFh/mKIX89cKyT2kHZtBd3YUWIOOHfRn6cD0=; b=wyqPvG/vGJN7c4RyYZH1tPWVqv
+	qSoc2zu7A8af+fI/WJTICIco+sgdimU8fbd26RTtwr/MYhBEp6N4o9kElGV8zhSqEws+FopAZ5ydt
+	wqDyLgtotD22TGuPEcVDauXkWQMFBUuXozj/iI4yMTEIZ8VdSUzdoVVgtN/baesZ9wv7vE+NphtjE
+	zgCYMo0/RyOE+1hVSKvUKvO6zaLkvJQew37a152b9Y+XMbX3+3c+xYIWGyQsAieLovUCRocdFV7Gv
+	ddmZet1yElIhqRDCVuBK231r7jdWNqMe0sJzZypAQDEEe7ahjRQvhpkAxVgaJxhAJcxXnjbGJMp7j
+	Xm4Mi0dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmBw7-00000009igj-0fe8;
-	Tue, 21 Jul 2026 14:59:11 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1wmC2g-00000009jjl-3HWk;
+	Tue, 21 Jul 2026 15:05:58 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmBw3-00000009ift-2S8M
+	id 1wmC2f-00000009jjU-1QQI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 14:59:09 +0000
-Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-698bf7a1a2dso15356585a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 07:59:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784645945; x=1785250745; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=3WKmer3uqjgZGaTDqjRAjLU77woVMUtTbyfOFW4Hj+g=;
-        b=gkKUntaqh10DsxpoagiRVaUnEZXcdt8XgfK5yRxfByu7h/MPZeGqJauo0GIXZUJ+fb
-         jAXnl2DuWIRgqa9gKjljZzmhqtrKGRxfQGuQl9r8IiIscMbLWfiE3ZAgY+raJZdYRAdV
-         q4P9/GvG9/y0E9Dod2dh9hvvvkLczOPZtL9tOP8XzocbFmzV293xIHVcxwQTZWuqpMzO
-         0GfvdBnDOX5tUKCYOhglDxPw1iDE1V2cKCmGuwjrYUT1/rYCDQPLSGTOVnrj6Op2Ow+7
-         1r/JmKI4LZ77SkvXZIoPccpcyu3ToeCRhjtEvFt0DhOR59QKCQ+Ovau+nVUa+Z1aNQuq
-         KQBg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784645945; x=1785250745;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=3WKmer3uqjgZGaTDqjRAjLU77woVMUtTbyfOFW4Hj+g=;
-        b=hTSPwnSdHKgLv7wduqMSoR/asRGeATPbzLg9kn9VajK0BU4PbV6wKla18i2E0cZwsy
-         +OnbBGDHAtf8vwS7dMnYXlfv3Ykw/hjgXjIzWlQfMP8wVdKLP4tdeuf4WsC3Nd5cujrP
-         iIwLVtSU2a5mNmtMpEcyqRigLuc6juZCANcGapqf/dmJNL3OSOhPF/Eho3NUWVtbhDz+
-         3l7ulM/JxsLlfd5wqaaxYa+kfgkdul8YAzPwLIYopQCKAPX+n59L13KPb/G6/6378N3+
-         UYaFMwWiJP860YVSJfHVzZGY+rYQ8RYvxFveqs1OB0dEaVmiIbeGl5OQdMHvtjxJg17N
-         E9Jg==
-X-Forwarded-Encrypted: i=1; AHgh+RpfZrlgxfOba288beSKfp62gRVRNql1ImoDZMikVJlcalTUqLkvlYjwC95XjHcd/oNQ04BmBkvQQ3R19wXgk8pb@lists.infradead.org
-X-Gm-Message-State: AOJu0YxhoMaNMht7uslhBwSdBvEfgq235OVNA0GPl8oXWmGTjcBQwKrC
-	XtFtVph4+xbIU0QXR3Fycsf6tuseTuRaAZ4NZTodab9Cv+eQJoV6azvJ2hdOJw==
-X-Gm-Gg: AR+sD12jw0xC8Si2vpwqd3VDoJ4nwgnaTN4CrIx3LUupdES5YJAe0AoE5xs1QTQrSun
-	/fhGbvb3X1MHFSfGAD8NA/p3By+FQkyurGMhUKeJH/+XHzKtW+xm2pLSjM8XsXgpbVyuxvgVlLJ
-	LCqhoYLtenhrd1rh3P8FEAb1OXbnfkYAWMXlrk+3/e5jt469kxXWdXK/fq58Aniq0+6BLjPEtkk
-	NfBja9sHedesHFUFMukvSpRxQCly32KEUAdkkllS3DNWCnhwOrHdqCrAHctfL7D2KP6c2Z9Hoz5
-	ix9M7I9kOeJDqpOGfFxJsO7zZMcE/vw9q2JurbDGrQx4V/4IN+pudJjuYR0YG05eSSSq5OwPFQx
-	N1CyOhEbGkrW9W3zwrQ166dilZYxFUo+6JF3VP9vb1tx0f/2pMvyrcJcrmY4H5Z1iLQEL54H5Et
-	azJyTP0yKl
-X-Received: by 2002:a05:6402:40ce:b0:69c:2fc1:d4dc with SMTP id 4fb4d7f45d1cf-69e6532a1e9mr7211815a12.39.1784645945343;
-        Tue, 21 Jul 2026 07:59:05 -0700 (PDT)
-Received: from [192.168.136.254] ([94.232.27.38])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-69e6fee248asm6113634a12.1.2026.07.21.07.59.02
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 21 Jul 2026 07:59:04 -0700 (PDT)
-Message-ID: <816442c5-88fe-49b6-92a3-cf924c056ae8@gmail.com>
-Date: Tue, 21 Jul 2026 19:48:04 +0500
+	Tue, 21 Jul 2026 15:05:57 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1B6F240EFD;
+	Tue, 21 Jul 2026 15:05:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00BC81F000E9;
+	Tue, 21 Jul 2026 15:05:54 +0000 (UTC)
+Date: Tue, 21 Jul 2026 16:05:52 +0100
+From: Mark Brown <broonie@debian.org>
+To: "Shih-Yuan Lee (FourDollars)" <fourdollars@debian.org>
+Cc: Lukas Wunner <lukas@wunner.de>,
+	Andy Shevchenko <andriy.shevchenko@intel.com>,
+	Mika Westerberg <mika.westerberg@linux.intel.com>,
+	Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v16 5/7] spi: pxa2xx: disable DMA for Apple MacBook8,1
+Message-ID: <f7449a69-98e3-41c0-b535-847b8c520e10@sirena.org.uk>
+References: <20260720162117.32304-1-fourdollars@debian.org>
+ <20260720162117.32304-6-fourdollars@debian.org>
+ <al81PmK1UMr2g8p-@wunner.de>
+ <CAAT15mPuO71WbbS2ZpWjceCVj3FUTqHLi3wbbeV7B33JHbPRsQ@mail.gmail.com>
+ <CAAT15mPrwAqLmFVF730G+iJugzNzaT=HDj_7G5-wXbhBNU7ANg@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] pinctrl: rockchip: add support for RK3308B SoC
-To: Hugo VALTIER <hugo@ahdrone.com>
-Cc: linux-gpio@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Luca Ceresoli <luca.ceresoli@bootlin.com>, Jonas Karlman <jonas@kwiboo.se>,
- Linus Walleij <linus.walleij@linaro.org>, Heiko Stuebner <heiko@sntech.de>,
- Dmitry Yashin <dmt.yashin@gmail.com>
-References: <20260717075918.1869879-1-hugo@ahdrone.com>
- <20260717075918.1869879-4-hugo@ahdrone.com>
-From: Dmitry Yashin <dmt.yashin@gmail.com>
-Content-Language: en-US
-In-Reply-To: <20260717075918.1869879-4-hugo@ahdrone.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_075907_658999_45E288BF 
-X-CRM114-Status: GOOD (  22.85  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="s+v5GOHrlcTy1tFO"
+Content-Disposition: inline
+In-Reply-To: <CAAT15mPrwAqLmFVF730G+iJugzNzaT=HDj_7G5-wXbhBNU7ANg@mail.gmail.com>
+X-Cookie: Love America -- or give it back.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,58 +71,58 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On 7/17/26 12:59, Hugo VALTIER wrote:
-> The RK3308B is a revision of the RK3308 including different iomux
-> register layout.
-> Several pins (GPIO2_A2, GPIO2_A3, GPIO2_C0, GPIO3_B2, GPIO3_B3)
-> have 3-bit mux fields in new GRF registers (SOC_CON13 at 0x608 and
-> SOC_CON15 at 0x610) that override the standard 2-bit fields.
-> I believe the bootloader sets the sel_src_ctrl bits to activate these
-> new registers, which causes the kernel's writes to the old 2-bit iomux
-> registers to be silently ignored.
-> 
-> Without this patch, SPI1, I2C3, and other peripherals that depend on
-> these pins are completely non-functional on my RK3308B boards.
-> 
-> Detect the SoC variant at runtime by reading the chip_id register at GRF
-> offset 0x800 (0xcea = RK3308, 0x3308/0x3308c = RK3308B), as requested
-> by reviewers of the earlier series.
-> When RK3308B is detected, swap in the correct mux_recalced and mux_route
-> tables and write the sel_src_ctrl bits to ensure the 3-bit mux registers
-> are active.
-> 
-> This is a rework of Dmitry Yashin's series [1] which used a separate
-> device tree compatible string ("rockchip,rk3308b-pinctrl") to
-> distinguish the variants.
-> Reviewers Luca Ceresoli and Heiko Stuebner agreed that runtime detection
-> was preferable since boards are manufactured with both RK3308 and RK3308B
-> using the same device tree.
-> 
-> Jonas Karlman implemented runtime detection based on the GRF_CHIP_ID
-> register [2]. Reviewers asked for more changes (constifying some
-> arrays), but the series was never resubmitted and was dropped.
-> 
-> I run this patch on my Rock Pi S boards, the newer ones I've got in
-> 2024 use the RK3308B. And thanks to runtime detection we should still
-> be compatible with older devices (but I couldn't test on RK3308 as I
-> don't have any).
-> 
-> [1] https://lore.kernel.org/all/20240515121634.23945-1-dmt.yashin@gmail.com/
-> [2] https://lore.kernel.org/all/20240604141020.21725-1-dmt.yashin@gmail.com/
-> 
-> Signed-off-by: Hugo VALTIER <hugo@ahdrone.com>
-> ---
+--s+v5GOHrlcTy1tFO
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Hi Hugo.
+On Tue, Jul 21, 2026 at 10:34:20PM +0800, Shih-Yuan Lee (FourDollars) wrote:
+> On Tue, Jul 21, 2026 at 5:26=E2=80=AFPM Shih-Yuan Lee (FourDollars)
+> > On Tue, Jul 21, 2026 at 5:18=E2=80=AFPM Lukas Wunner <lukas@wunner.de> =
+wrote:
 
-Thanks for re-sending the series!
-Applied patches to multiple boards and it fixes pinmux
-issues for rk3308b-s based boards too (since the approach 
-kept the same as in v3 series)
+> > > It would seem better to fix up the incorrect interrupt number in a qu=
+irk,
+> > > rather than disabling DMA wholesale.
 
-Tested-by: Dmitry Yashin <dmt.yashin@gmail.com>
+> > I appreciate the comment. Based on the Bugzilla feedback regarding the
+> > incorrect interrupt assignment, it seems fixing the IRQ value via a
+> > quirk is indeed a better approach than disabling DMA wholesale. While
+> > I am not certain this will resolve the issue entirely, it looks very
+> > promising. I will investigate the IRQ mis-assignment problem further.
 
--- 
-Dmt-Y
+> 1. DMAR/IOMMU Validation Failure (Error -22)
+> On modern kernels with Interrupt Remapping (DMAR) enabled, overriding
+> pdev->irq to 21 causes the dw_dmac_pci driver probe to fail with
+> -EINVAL (-22) during request_irq(). This is because the
+> DMAR/IOMMU strictly validates the PCI Requester ID (source ID) against
+> the GSI mapping defined in the ACPI _PRT table. Forcing a device
+> mapped to GSI 20 (00:15.0) to register on GSI 21 triggers a
+> source ID mismatch check, which the kernel rejects.
 
+That really seems like something we ought to be able to do, though I
+think the idiom here is to patch the ACPI tables so they are correct
+rather than quirk things in C code.  ICBW about the preferred approach
+there.
+
+BTW, if you're using a LLM to assist with analysis please don't just
+paste the output into mail.  Instead make sure you understand what the
+LLM is saying and write up the salient bits.
+
+--s+v5GOHrlcTy1tFO
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmpfis8ACgkQJNaLcl1U
+h9A/Jwf/eYHpxryTrHCddTrFIUNz7LvUUxhGxZ4knGvwVXrcgJ23YkKhjWGu7jdo
+0NHBbeiGzMapATOMDU9uDCvNaaAU1ZFEv2PMR32qH1spfW8JfAvFlp2OD8hMV/pT
+4gJBi7rQKlF6e4P06WVbhK2eT4A5s50JrXHGsgb0bvA/mGlDSZasW5MGsP4jeuye
+Kd4obEoDBzyJGSa9mIujWriMgzx7eQtVf3eQf+iPBme4Ob43Sq9d7L1U9hMyXnAj
+mOk9WGotauzsGtOwg8VF5CJ3Wa+9CE8zKb2MAjAFcY1SSaC7sU+AU/C79FbtuM3t
+n0Ya1PeYfqC+UtjmKH+9hZYQ8cFO6A==
+=xz7r
+-----END PGP SIGNATURE-----
+
+--s+v5GOHrlcTy1tFO--
 
