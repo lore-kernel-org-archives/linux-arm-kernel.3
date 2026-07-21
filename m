@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF7D8C4452B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 19:39:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D83DAC4452B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 19:40:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rmc92MtYMUK0rVBUseFXn4AXEHCvrKCMvR/VM/m9C9M=; b=X4DRKniuaJPTdjlR+FsjeGnm+F
-	GEr/MiwyWJINkqT3cSTA87+xFKY2mSlom1l3AVGc60VvE7eiwcHqkjw0FgZRKwrT64kEPdBs86kS+
-	pfH2tG1Tpsfoa0s1gPOMz7aPU1/cDV8xDCCSwnYZaoJnMtdwaLBxmuZ2ZsgqLqu9sqZB7lQw+qE7M
-	7FW8Oij63MOzIGZvgnGsC56U6CKNWjJREMesgYH4srBDVMv40vzG08Snl8WDMww4w++xc8nJFhBcq
-	cRfjOstUc/AwouLud0W9YA7SnSNWt1xupJ/JJjACNQJTa31dmz9ggK7trRXQL4wHzueLGPdlVMqy1
-	MqzUblLA==;
+	bh=YWKYabBDijMqFzTatz360fmCmnZJ/55dJPIMdot580Y=; b=a6BLEjQ3f/7+V8O5KLyY0yN1rv
+	LTD5CzKNv95Er6n8mt+2kz0SrWEeGfGb9tbMQ4bb6QYWBiYrszAzRlPXo+40iHy4Sijoy3wy4MPq4
+	WIbnKFTMaucVL5Wp6qcI/fh6mZ5kWaEHPL1g05lkSzrrVG3ysBDHlrFCa+VBgGgQfmrSTd1C7RTBu
+	doKA0SozyLOLKz6FYGBlF4/vWkD00TQUBPuqT+0pCSdrW7to8ats7GvE8lCxSsSTPQZ5pAcd6FYai
+	X8kctPcvRkBe9MSpmJPfABpjskF11TTUNsnH790V/7zm7K2GrN0yJu3LgQaqGd5g3BBwvnZTHpZmP
+	OF8odS4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmGJP-0000000AIjd-2WmM;
-	Tue, 21 Jul 2026 19:39:31 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wmGJz-0000000AIqA-383d;
+	Tue, 21 Jul 2026 19:40:07 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmGJO-0000000AIjW-3uks
+	id 1wmGJy-0000000AIpZ-2tFm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 19:39:30 +0000
+	Tue, 21 Jul 2026 19:40:06 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 968C843F78;
-	Tue, 21 Jul 2026 19:39:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D13171F000E9;
-	Tue, 21 Jul 2026 19:39:25 +0000 (UTC)
-Message-ID: <30c072b3-120e-46c4-b959-dd72107a87ee@tuxon.dev>
-Date: Tue, 21 Jul 2026 22:39:24 +0300
+	by sea.source.kernel.org (Postfix) with ESMTP id 54732404E1;
+	Tue, 21 Jul 2026 19:40:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 506241F00A3A;
+	Tue, 21 Jul 2026 19:40:01 +0000 (UTC)
+Message-ID: <076d0c6d-f995-4423-b5a4-5ecd3b684b50@tuxon.dev>
+Date: Tue, 21 Jul 2026 22:39:59 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 13/13] ARM: dts: microchip: sama7d65: add thermal zones
- node
+Subject: Re: [PATCH v3 11/13] ARM: dts: microchip: sama7d65: add cells for
+ temperature calibration
 To: Varshini Rajendran <varshini.rajendran@microchip.com>,
  ehristev@kernel.org, jic23@kernel.org, dlechner@baylibre.com,
  nuno.sa@analog.com, andy@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
@@ -49,10 +49,10 @@ To: Varshini Rajendran <varshini.rajendran@microchip.com>,
  linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <20260630093603.38663-1-varshini.rajendran@microchip.com>
- <20260630093603.38663-14-varshini.rajendran@microchip.com>
+ <20260630093603.38663-12-varshini.rajendran@microchip.com>
 Content-Language: en-US
 From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-In-Reply-To: <20260630093603.38663-14-varshini.rajendran@microchip.com>
+In-Reply-To: <20260630093603.38663-12-varshini.rajendran@microchip.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -72,13 +72,9 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 On 6/30/26 12:36, Varshini Rajendran wrote:
-> Add thermal zones node with its associated trips and cooling-maps.
-> It uses CPUFreq as cooling device for temperatures in the interval
-> [90, 100) degrees Celsius and describe the temperature of 100 degrees
-> Celsius as critical temperature. System will shut down when reaching
-> critical temperature.
+> Add NVMEM cell to ADC for temperature calibration data.
 > 
-> Signed-off-by: Varshini Rajendran<varshini.rajendran@microchip.com>
+> Signed-off-by: Varshini Rajendran <varshini.rajendran@microchip.com>
 
 Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 
