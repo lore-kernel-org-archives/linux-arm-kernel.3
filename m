@@ -4,74 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21C26C44529
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 07:50:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FF2BC4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 07:50:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xkJHITvqX1FWX4L63OpNnz2Qb0aVsri/wXqI3fsoexw=; b=mrH6zm9oLzPLEuNTAcTJZcQOs7
-	ksg0tWxII+m8Ey5UJ0Zy59jXeIzreOCLOX+udBVj2F5QDx9OYNKkt2dZhYPfLI9UMmAh/KisMFHBt
-	JozX8085qsjFEqmXaHMy4rFTMtSdSfdxymAzu3Purr+jE4QVSiJ94YnoPhJB7z7b+3dEBv8MaVqOa
-	O33SmdQmy27+6IjVr2Tn1wluQULsrcN0Lw7LhpGe1uymqhnQ6Rp9oFqWZJADjWjv0ZMp6l3FAcSRa
-	l5RZaFGk4XB4kDQCaYxir974/5mRypMRVXjaqKAfjqZ8RQ5NtmCOVxvsnZpWK/tfVYPpPw6jVYa5P
-	mSlaYotA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qIU0wcim3JRNROEXJcT4sf8FGesHdbjBdUO8HtD3Om8=; b=sz9WFhH4YUEDnKV64332SlwqCV
+	FJlTP7ohJtIcFpmLvHf+GPWPA0ag3rKflh7/K853Bdxo8ObC6d2AUvnvs7tU4fCT60PixC0I+FrQB
+	DdznSPbxtMVf8v7I/csOSrH2oyjdGQI2dZRcPN7HV5xN/jOHELD5TDE9BCBVp8ix6eatNyWyJTf2i
+	tAOSh1DxAO2GJK/e4oZx69seumD0LsbPxRoavHUyrNrqbTQb0LXARHO1cUM2k4foxHTq7Pg3+G2zk
+	CpilneoTokah5s3Kq7SnCnFqcFQsehFdxVxQ7bxZi8JPrE7sea225GEoJaeS+KO/MyAcgyF0u72BE
+	gCHGtx6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm5Ew-00000008gmo-3T6Q;
-	Tue, 21 Jul 2026 07:50:10 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wm5FG-00000008guy-1DEb;
+	Tue, 21 Jul 2026 07:50:30 +0000
+Received: from out-172.mta0.migadu.com ([91.218.175.172])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm5Ev-00000008gmL-3b8q
+	id 1wm5FC-00000008gss-2qLl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 07:50:09 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9E15944EA7
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 07:50:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 814131F00ADB
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 07:50:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784620209;
-	bh=xkJHITvqX1FWX4L63OpNnz2Qb0aVsri/wXqI3fsoexw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=eoFPW2OD7s35Azw47YLLuikvix+UDF0w3sqdGWpfkJOeyiK09Fda4d0fyk9jUl7si
-	 OWojPo2DlQjfjcU4fw+RMJIn4/Mp/2FOQKFNrEZPr8Bs8aZ5Fi1z4v3Z0lR2IdXJnO
-	 eInAya/5/1oriC49/F1qvT5uA17CEP+nNEKuPD+czMZp574V2gfluiK1GzowZK9mxu
-	 FJVRlvUdYUGS1VVhGR4beeQ0F0qvp2AB+hVkTh5Pvs4d1kfmIM7mBCD6gPVQTUJI/a
-	 kh5kYFcyTFomZrO4NCQNzhcExq7n+5tplAkoF7WuocSAUoEgJsX6J2BzGVcfGyTqce
-	 ltFpvhJfr/xUA==
-Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-5b159850b16so7284959e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 00:50:09 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RpDQmNNLoTtxMIPm35uvYw6dfCNVz+nlsREamCJwAHnpBqQOzufq18rRcOmOjqIIslVYMctidqPMOIAE9YlsbzB@lists.infradead.org
-X-Gm-Message-State: AOJu0YzmAuUU2yNMsbwHx171z/3WhakoCVC1ddmhSZmsBFV6oJRN2Ojj
-	qDNL2eGLoADbcBVv2MAXT0lV2RJxGTi/zGt1y3cDVEIpj9l1Jvgo7w1C9abc6/7xBMsZriRCbe/
-	GeSdO9mpSV7p2Xuiy494fORYxT5bIBPc=
-X-Received: by 2002:a05:6512:b83:b0:5ae:b5bd:5e72 with SMTP id
- 2adb3069b0e04-5b28fabb816mr3793719e87.59.1784620208288; Tue, 21 Jul 2026
- 00:50:08 -0700 (PDT)
+	Tue, 21 Jul 2026 07:50:29 +0000
+X-Forwarded-Encrypted: i=1; AHgh+Rr6U/UU+2U9I4pEu1pOKU8GnOF0dC0z46qdf2rVr302Y/kfzkZb+9XqDMcSVsp3RSgdr+RM7gQGADPCrsejysVY@lists.infradead.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1784620222;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=qIU0wcim3JRNROEXJcT4sf8FGesHdbjBdUO8HtD3Om8=;
+	b=Qv1CPQwJ5cxkXCQQ8NdwePaJBttX9VQZvbNvb44Xpe1s3SFDhX03R3TDDJjpM6j1FwjBj2
+	U16om+0pVqGADvWhHYDBvL4u7Ta6yNh+Tm60E67nGHqCPhu2PL3LLZVjuowlPsWZmA0frw
+	1KxwDhks/FZVkREmlLfCq5Zbil1+s28=
+X-Gm-Message-State: AOJu0YwIkqTgHBVQBxmSTcFVDqeUo2PI1GXcaf8ekCXGBeaYshLx4yCi
+	0JDHFoM9KM44e1WHatquMwfOjElwgTu9bWywdaKB3CcGnnlV99eUprP10KS9TUOspIN9AM0OCRJ
+	u9IUhNviFLJj+J+EZLKZ77XKrcQr0Ujk+hubbInfL
+X-Received: by 2002:a05:622a:d1:b0:51c:9ad:d76 with SMTP id
+ d75a77b69052e-526025cbcdcmr10716751cf.19.1784620203936; Tue, 21 Jul 2026
+ 00:50:03 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260721052859.171341-1-manikandan.m@microchip.com> <20260721052859.171341-8-manikandan.m@microchip.com>
-In-Reply-To: <20260721052859.171341-8-manikandan.m@microchip.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 21 Jul 2026 09:49:56 +0200
-X-Gmail-Original-Message-ID: <CAD++jLkzDDC66KjyMGommrC7T0L5KW3TA+JLKUmNf_psF-eRuw@mail.gmail.com>
-X-Gm-Features: AUfX_myAPX-Fx-YYXrqqVAT9emnPnmjb3E1aTj_6ToEx3OEbZBmyyuGAfe7f9n4
-Message-ID: <CAD++jLkzDDC66KjyMGommrC7T0L5KW3TA+JLKUmNf_psF-eRuw@mail.gmail.com>
-Subject: Re: [PATCH v5 7/7] ARM: configs: sama5: enable Microchip/SST SFDP EUI
- NVMEM layout
-To: Manikandan Muralidharan <manikandan.m@microchip.com>
-Cc: pratyush@kernel.org, mwalle@kernel.org, takahiro.kuwano@infineon.com, 
-	miquel.raynal@bootlin.com, richard@nod.at, vigneshr@ti.com, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, srini@kernel.org, 
-	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com, 
-	claudiu.beznea@tuxon.dev, linux@armlinux.org.uk, richardcochran@gmail.com, 
-	arnd@arndb.de, michael@walle.cc, linux-mtd@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org
+References: <20260720203529.1276355-1-smostafa@google.com>
+In-Reply-To: <20260720203529.1276355-1-smostafa@google.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Tue, 21 Jul 2026 08:49:26 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTw+BypEvWRccxqsSGR+btEX58nCUC2ypuSjw04Qo3nN=A@mail.gmail.com>
+X-Gm-Features: AUfX_myIwZifnR9KPL23lN9BM9f3hza67nmMok8FJ5ITuX-6AqaL4_b_GXQ0JsY
+Message-ID: <CA+EHjTw+BypEvWRccxqsSGR+btEX58nCUC2ypuSjw04Qo3nN=A@mail.gmail.com>
+Subject: Re: [PATCH] KVM: arm64: Optimize protected mode and FWB
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, maz@kernel.org, oupton@kernel.org, 
+	seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
+	vdonnefort@google.com, sebastianene@google.com, keirf@google.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260721_005027_518899_137DC1FA 
+X-CRM114-Status: GOOD (  19.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,17 +78,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 21, 2026 at 7:31=E2=80=AFAM Manikandan Muralidharan
-<manikandan.m@microchip.com> wrote:
-
-> Enable CONFIG_NVMEM_LAYOUT_SST26VF_SFDP_EUI so the factory EUI-48 stored
-> in the SST26VF QSPI flash SFDP can be used as a MAC address on boards
-> such as the sama5d27_wlsom1.
+On Mon, 20 Jul 2026 at 21:35, Mostafa Saleh <smostafa@google.com> wrote:
 >
-> Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
+> KVM opportunistically enables FWB if supported by the system for guest
+> VMs, which allows it to elude cache maintenance for data as they are
+> forced to be cacheable from stage-2.
+> In that case, __clean_dcache_guest_page() will immediately return.
+> However in protected mode, before calling __clean_dcache_guest_page()
+> it loops over the range and fix_map/unmap it, issuing TLB
+> invalidations, dsb() and isb() unnecessarily.
+>
+> This can be optimized by returning early if FWB is supported,
+> kvm_pgtable_stage2_map() already issues dsb() and tlb invalidation
+> functions issue dsb() for the unmap path.
+>
+> Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> ---
+>  arch/arm64/kvm/hyp/nvhe/mem_protect.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+>
+> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> index 4e329e39a695..6e9229106a25 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> @@ -261,6 +261,10 @@ static void __apply_guest_page(void *va, size_t size,
+>
+>  static void clean_dcache_guest_page(void *va, size_t size)
+>  {
+> +       /* See __clean_dcache_guest_page() */
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+This looks good to me. One comment: this file also has
+hyp_poison_page(), which deliberately avoids
+__clean_dcache_guest_page() because the FWB elision would be wrong
+there (it even notes "Prefer kvm_flush_dcache_to_poc() over
+__clean_dcache_guest_page()"). Given the two opposite treatments in
+the same file, could this comment say why eliding is safe here, e.g.
+that the consumer is the guest via the FWB-forced stage-2? It would
+save the next reader (if they're anything like me) from reconciling
+the two.
 
-Yours,
-Linus Walleij
+That fuller comment could also replace "See
+__clean_dcache_guest_page()", which mostly just points back at the
+function passed in the __apply_guest_page() call below.
+
+With that fixed:
+
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+
+Cheers,
+/fuad
+
+> +       if (cpus_have_final_cap(ARM64_HAS_STAGE2_FWB))
+> +               return;
+> +
+>         __apply_guest_page(va, size, __clean_dcache_guest_page);
+>  }
+>
+> --
+> 2.55.0.229.g6434b31f56-goog
+>
 
