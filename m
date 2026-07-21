@@ -4,75 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73600C44529
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 12:18:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B87D0C44529
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 12:25:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7QZEPKLTpNwbB5JngCQVJO2bfUymmruYyPGkLEFAll4=; b=kyB25afuB6Ua/HFk4bDMqNGYF5
-	k3qB0KOhW0RFOMZ9qXikj2UShVRYX/3p8WIuO0Ya6KszREdBgHdKDJ0EYcBcXU5A8St3Kbxrv6DBm
-	HLvjvcDUvnNk9pjfvzv7LB9Y5++C1DSbXnr9sKGBjghUiYtSKgAIlc3qnNFhWoIsjZKg0x+20rCer
-	z692d5fSh24U7GDmSBz4ghq9XCQWFEYN5e1MuATHv14sfB0lVhc/TqtYvGmX5fM8N0Lmsiym2yCgr
-	A66hc2sa5X260768qyL2ShCHa34nVBtVNBUSBR1yNyEWMXj69bBgJVYVwpbl6SVRjbpSipSaRpVma
-	FeXMqpMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zYTJwHkAf1TmQrTHI65fUCX9+FxnuGE2Bm0tJuySfOA=; b=1Du+AgQFbsxV89xx4ZFGTc2pl4
+	+Si21oN4XzWQKwinWuqRZFkVUHI9B0kLCR7r35B+wVIWZxvtenSTjO7j9S3LUcanobfXkU7BhmCXi
+	n2mAGX4WJ0rhh3WlGiIKhQYgYD66auKwTT3/7Wvate3IxYgiHpiRgfd24ZNPk2wTZLok+aTokLUC7
+	xJ+nHQen0yAjR/Tzs4eSORZAERl69+FWAR+MFUQTwEVVMtIzHPSTq4GQRJ/lHYnVLP4tWpFGsupAg
+	TbSqEp4wg0CYvlwu/HOE47uX5BnxGqiovISN4K1EdmQpFd4vcgCtobTvKQ5GJxtq7W1RVtFWdnD8y
+	f3Lwsk8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm9QB-00000009OzA-3Hy3;
-	Tue, 21 Jul 2026 12:18:03 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wm9Wo-00000009PYn-2juQ;
+	Tue, 21 Jul 2026 12:24:54 +0000
+Received: from out-183.mta1.migadu.com ([95.215.58.183])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm9QA-00000009Oz3-49Ke
+	id 1wm9Wl-00000009PXx-2YZd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 12:18:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 40B7B43347
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 12:18:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 246351F00A3D
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 12:18:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784636282;
-	bh=7QZEPKLTpNwbB5JngCQVJO2bfUymmruYyPGkLEFAll4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=PUtcA9S//mv1skOXlqKzBQGeWGc7FM7g7MRKrwLb3WDbNSa1W5GhmFJogpbz/qkbI
-	 gjuDuPMRnINeNgjFQlEK81tGmraWKFMfCuaLQwNHXDxqMkFLsXD0WEipmOA3CWivZ0
-	 Iq6uTNvluG7i9CQoYHwt5MeGTY1Ruex0X1mS9b00jRkM/FpJ4U9J9UTAZVpPxvs0cI
-	 iFCTTiZw1QODic7aKPEXD/MXjkjJTjt7eRixMFjztrpz9kgjiwngJxQHGSzAJ+WyXh
-	 +Zb4+Hb3zujgb4rJkrcj8QLh1+VjpUb2ghe4gBprDnKVy5wFPqvGGMQb6M4soVxuI6
-	 DVSvmcrVzjcDQ==
-Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5b28c91fba5so5776753e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 05:18:02 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Rqavxd0ivUkCiYjgGtzgr54wRRyEgSULTG6AptKjInSG1u3WdLdz+8FbgQdFloSHV7F8oZ7xMqoZXo5BeKGpldu@lists.infradead.org
-X-Gm-Message-State: AOJu0YxNsS70jl7F2Wxgy/YMyXQf3tcpTSXyXTHHj0jtZwtdn+wbJF0N
-	hYJWCylgNOTQ61H3Nz6uvhQxk5tZlte+82XDF76WkQECg4ght/KXkoa3ui5OqynzDNybg4fBrdV
-	8q20MlsLAylaMJLgRNtZulffARJP5WAQ=
-X-Received: by 2002:a05:6512:2349:b0:5ae:a4a4:b6ca with SMTP id
- 2adb3069b0e04-5b28ff880a4mr2711254e87.14.1784636280154; Tue, 21 Jul 2026
- 05:18:00 -0700 (PDT)
+	Tue, 21 Jul 2026 12:24:53 +0000
+X-Forwarded-Encrypted: i=1; AHgh+RpTLgcZo7jxk9gnZkRiWtunb8641NF/jdDUnX+ZY1SNPE8Kb6O9ByFHjIgiFNpcQwkwp1MMnu3563mOeZdhLdRc@lists.infradead.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1784636688;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zYTJwHkAf1TmQrTHI65fUCX9+FxnuGE2Bm0tJuySfOA=;
+	b=RydGKs1x/OXGbL9sCs16umYb8xiRI1e4C7iA0GWUFkzIPHErRDJnewIHwoLtEnTHKneGxv
+	/2xL9jHY7qmS5UY4sZyAzGRv0oehI25UNz6qoXwtNgSRoD7OUqIIoQW++5rapU+3VRCZGi
+	eC9/YrH5Y/nwzmZWZEANJY3WyOYnDZE=
+X-Gm-Message-State: AOJu0Ywqz2X8EfB3u5YQmmABI+tgHx4ulAKUpo4ci8ROlM3yIBoxoxZ8
+	PMN3JTCpqvEED4qugnmGOMx92w+smLlnLoNyRmbdUjoQloptfBMzzu2MCOWisFrNGYkJnD9wuO9
+	e88oyrEM1TFSHTJmmDRWBFfrBbQpvKY7JXL/nCcZj
+X-Received: by 2002:a05:622a:aa12:10b0:51c:935d:8d74 with SMTP id
+ d75a77b69052e-5260098e461mr13025061cf.9.1784636681231; Tue, 21 Jul 2026
+ 05:24:41 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260708082818.808041-1-zhangpengjie2@huawei.com> <20260708082818.808041-2-zhangpengjie2@huawei.com>
-In-Reply-To: <20260708082818.808041-2-zhangpengjie2@huawei.com>
-From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Date: Tue, 21 Jul 2026 14:17:40 +0200
-X-Gmail-Original-Message-ID: <CAJZ5v0gK6Eyt79NNUwiKhjTKyqGFyV+xd0qbXh=H9LKq-KPwCQ@mail.gmail.com>
-X-Gm-Features: AUfX_myA8teaH5y5c3TVDWKLB214sqkMZR3aAiSmyynhvTzz9QApTt5JZeUCam8
-Message-ID: <CAJZ5v0gK6Eyt79NNUwiKhjTKyqGFyV+xd0qbXh=H9LKq-KPwCQ@mail.gmail.com>
-Subject: Re: [PATCH v2 1/2] ACPI: CPPC: add paired FFH feedback-counter read hook
-To: Pengjie Zhang <zhangpengjie2@huawei.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org, 
-	lenb@kernel.org, saket.dumbre@intel.com, beata.michalska@arm.com, 
-	zhenglifeng1@huawei.com, sumitg@nvidia.com, zhanjie9@hisilicon.com, 
-	geert+renesas@glider.be, cuiyunhui@bytedance.com, 
-	vanshikonda@os.amperecomputing.com, ionela.voinescu@arm.com, 
-	jeremy.linton@arm.com, viresh.kumar@linaro.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-acpi@vger.kernel.org, acpica-devel@lists.linux.dev, linuxarm@huawei.com, 
-	prime.zeng@hisilicon.com, wanghuiqiang@huawei.com, xuwei5@huawei.com, 
-	lihuisong@huawei.com, yubowen8@huawei.com, wangzhi12@huawei.com
+References: <20260717130317.1953574-1-fuad.tabba@linux.dev>
+ <20260717130317.1953574-7-fuad.tabba@linux.dev> <C5D63651-E924-4297-9B4D-6E9DB04D64D8@grrlz.net>
+In-Reply-To: <C5D63651-E924-4297-9B4D-6E9DB04D64D8@grrlz.net>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Tue, 21 Jul 2026 13:24:04 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTw8Z5LDEi+1b62EEr2a8fqzBFGMsETsH0suZk76_DsNdw@mail.gmail.com>
+X-Gm-Features: AUfX_myF8APD4JrsQUjpdgeGCuOrmjzvI9FEW6Snxcw0N2xLLub-E89efv0Armo
+Message-ID: <CA+EHjTw8Z5LDEi+1b62EEr2a8fqzBFGMsETsH0suZk76_DsNdw@mail.gmail.com>
+Subject: Re: [PATCH v5 6/7] KVM: arm64: Don't advertise eager page splitting
+ under pKVM
+To: Bradley Morgan <include@grrlz.net>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>, Quentin Perret <qperret@google.com>, 
+	Vincent Donnefort <vdonnefort@google.com>, Alexandru Elisei <alexandru.elisei@arm.com>, 
+	Gavin Shan <gshan@redhat.com>, Dev Jain <dev.jain@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260721_052451_930512_D33869AD 
+X-CRM114-Status: GOOD (  20.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,148 +83,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 8, 2026 at 10:28=E2=80=AFAM Pengjie Zhang <zhangpengjie2@huawei=
-.com> wrote:
->
-> cppc_get_perf_ctrs() reads the delivered and reference performance
-> counters one at a time.
->
-> Allow architectures to provide both FFH feedback counters in one
-> operation when that either narrows the sampling window or avoids extra
-> cross-CPU reads. Add a small FFH-specific hook for that case and fall
-> back to the existing per-register reads when unsupported.
->
-> Tested-by: Sumit Gupta <sumitg@nvidia.com>
-> Reviewed-by: Sumit Gupta <sumitg@nvidia.com>
-> Tested-by: Vanshidhar Konda <vanshikonda@os.amperecomputing.com>
-> Reviewed-by: Vanshidhar Konda <vanshikonda@os.amperecomputing.com>
-> Signed-off-by: Pengjie Zhang <zhangpengjie2@huawei.com>
+Hi Bradley,
 
-This is fine with me, so
-
-Acked-by: Rafael J. Wysocki (Intel) <rafael@kernel.org>
-
-and please route it along with the second patch in the series.
-
-Thanks!
-
-> ---
->  drivers/acpi/cppc_acpi.c | 50 ++++++++++++++++++++++++++++++++++++----
->  include/acpi/cppc_acpi.h |  7 ++++++
->  2 files changed, 52 insertions(+), 5 deletions(-)
+On Tue, 21 Jul 2026 at 12:19, Bradley Morgan <include@grrlz.net> wrote:
 >
-> diff --git a/drivers/acpi/cppc_acpi.c b/drivers/acpi/cppc_acpi.c
-> index 9f572f481241..b6356476a46e 100644
-> --- a/drivers/acpi/cppc_acpi.c
-> +++ b/drivers/acpi/cppc_acpi.c
-> @@ -1004,6 +1004,22 @@ int __weak cpc_read_ffh(int cpunum, struct cpc_reg=
- *reg, u64 *val)
->         return -ENOTSUPP;
->  }
+> On July 17, 2026 2:03:16 PM GMT+01:00, Fuad Tabba <fuad.tabba@linux.dev>
+> wrote:
+> >Under pKVM the stage-2 walker resolves to pkvm_pgtable_stage2_split(), a
+> >WARN_ON_ONCE(1) stub, yet KVM_CAP_ARM_EAGER_SPLIT_CHUNK_SIZE is still
+> >enabled and reported for non-protected guests: the capability check keys
+> >on the per-VM protected state while the walker dispatch keys on the
+> >host-global mode. Enabling the cap and then dirty-logging the guest
+> >reaches the stub, splatting a userspace-reachable WARN.
+> >
+> >Reject the capability, and stop reporting a chunk size and the
+> >supported block sizes, for every VM once pKVM is enabled, keyed on the
+> >host-global mode like the split dispatch. Gating only protected VMs
+> >would leave the non-protected guests that reach the stub still able to
+> >enable it. Userspace decides whether eager splitting is available from
+> >the block-size bitmap (QEMU falls back to no eager splitting when it
+> >reads 0), so leaving it advertised steers an explicit request into the
+> >enable failure instead of the fallback.
+> >
+> >Fixes: e912efed485a ("KVM: arm64: Introduce the EL1 pKVM MMU")
+> >Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 >
-> +/**
-> + * cpc_read_ffh_fb_ctrs() - Read FFH feedback counters together
-> + * @cpunum:    Target CPU
-> + * @reg1:      first CPPC register information
-> + * @val1:      place holder for first return value
-> + * @reg2:      second CPPC register information
-> + * @val2:      place holder for second return value
-> + *
-> + * Return: 0 on success, error code otherwise
-> + */
-> +int __weak cpc_read_ffh_fb_ctrs(int cpunum, struct cpc_reg *reg1,
-> +                               u64 *val1, struct cpc_reg *reg2, u64 *val=
-2)
-> +{
-> +       return -EOPNOTSUPP;
-> +}
-> +
->  /**
->   * cpc_write_ffh() - Write FFH register
->   * @cpunum:    CPU number to write
-> @@ -1496,6 +1512,33 @@ bool cppc_perf_ctrs_in_pcc_cpu(unsigned int cpu)
->  }
->  EXPORT_SYMBOL_GPL(cppc_perf_ctrs_in_pcc_cpu);
+> Do you think CC stable would be good? I do but sometimes I'm
+> embarrassingly wrong
+
+I'd lean against it here. The "Fixes" commit has been in mainline
+since v6.14, the symptom is a WARN rather than a crash or data
+corruption.
+
 >
-> +static int cppc_read_fb_ctrs(int cpunum,
-> +                            struct cpc_register_resource *delivered_reg,
-> +                            struct cpc_register_resource *reference_reg,
-> +                            u64 *delivered, u64 *reference)
-> +{
-> +       int ret;
-> +
-> +       /*
-> +        * For FFH feedback counters, try a paired read first to reduce
-> +        * sampling skew between delivered and reference counters. Fall
-> +        * back to the existing per-register reads if unsupported.
-> +        */
-> +       if (CPC_IN_FFH(delivered_reg) && CPC_IN_FFH(reference_reg)) {
-> +               ret =3D cpc_read_ffh_fb_ctrs(cpunum,
-> +                                       &delivered_reg->cpc_entry.reg, de=
-livered,
-> +                                       &reference_reg->cpc_entry.reg, re=
-ference);
-> +               if (ret !=3D -EOPNOTSUPP)
-> +                       return ret;
-> +       }
-> +
-> +       ret =3D cpc_read(cpunum, delivered_reg, delivered);
-> +       if (ret)
-> +               return ret;
-> +
-> +       return cpc_read(cpunum, reference_reg, reference);
-> +}
-> +
->  /**
->   * cppc_perf_ctrs_in_pcc - Check if any perf counters are in a PCC regio=
-n.
->   *
-> @@ -1561,11 +1604,8 @@ int cppc_get_perf_ctrs(int cpunum, struct cppc_per=
-f_fb_ctrs *perf_fb_ctrs)
->                 }
+> >---
+> > arch/arm64/include/asm/kvm_pkvm.h | 3 +++
+> > 1 file changed, 3 insertions(+)
+> >
+> >diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+> >index 57afb07d6b13..beea00e693a0 100644
+> >--- a/arch/arm64/include/asm/kvm_pkvm.h
+> >+++ b/arch/arm64/include/asm/kvm_pkvm.h
+> >@@ -45,6 +45,9 @@ static inline bool kvm_pkvm_ext_allowed(struct kvm *kvm, long ext)
+> >               return true;
+> >       case KVM_CAP_ARM_MTE:
+> >               return false;
+> >+      case KVM_CAP_ARM_EAGER_SPLIT_CHUNK_SIZE:
+> >+      case KVM_CAP_ARM_SUPPORTED_BLOCK_SIZES:
+> >+              return false;
+>
+>
+> Nit: KVM_CAP_ARM_MTE right above already returns false, fold the two
+> new cases into that and drop the duplicate return. And please put a small
+> comment saying eager splitting is unimplemented under pKVM (WARN
+> stub), so nobody reads the list later and "fixes" it back, here's a
+> example, feel free to bikeshed
+
+I'd prefer to keep the separate return. The grouping is deliberate:
+MTE and eager splitting are unrelated features, and the two eager
+splitting caps belong together. The function is self-explanatory from
+its name and header comment, so I don't think an inline comment is
+needed.
+
+Thanks for the reviews!
+/fuad
+
+>
+>
+>         case KVM_CAP_ARM_MTE:
+>         /* eager splitting is unimplemented in pKVM, please don't refix this */
+>         case KVM_CAP_ARM_EAGER_SPLIT_CHUNK_SIZE:
+>         case KVM_CAP_ARM_SUPPORTED_BLOCK_SIZES:
+>                 return false;
+>         default:
+>                 return !kvm || !kvm_vm_is_protected(kvm);
 >         }
 >
-> -       ret =3D cpc_read(cpunum, delivered_reg, &delivered);
-> -       if (ret)
-> -               goto out_err;
-> -
-> -       ret =3D cpc_read(cpunum, reference_reg, &reference);
-> +       ret =3D cppc_read_fb_ctrs(cpunum, delivered_reg, reference_reg,
-> +                               &delivered, &reference);
->         if (ret)
->                 goto out_err;
 >
-> diff --git a/include/acpi/cppc_acpi.h b/include/acpi/cppc_acpi.h
-> index 8693890a7275..5acebe62feac 100644
-> --- a/include/acpi/cppc_acpi.h
-> +++ b/include/acpi/cppc_acpi.h
-> @@ -176,6 +176,8 @@ extern int cppc_get_transition_latency(int cpu);
->  extern bool cpc_ffh_supported(void);
->  extern bool cpc_supported_by_cpu(void);
->  extern int cpc_read_ffh(int cpunum, struct cpc_reg *reg, u64 *val);
-> +extern int cpc_read_ffh_fb_ctrs(int cpu, struct cpc_reg *reg1, u64 *val1=
-,
-> +                               struct cpc_reg *reg2, u64 *val2);
->  extern int cpc_write_ffh(int cpunum, struct cpc_reg *reg, u64 val);
->  extern int cppc_get_epp_perf(int cpunum, u64 *epp_perf);
->  extern int cppc_set_epp_perf(int cpu, struct cppc_perf_ctrls *perf_ctrls=
-, bool enable);
-> @@ -250,6 +252,11 @@ static inline int cpc_read_ffh(int cpunum, struct cp=
-c_reg *reg, u64 *val)
->  {
->         return -EOPNOTSUPP;
->  }
-> +static inline int cpc_read_ffh_fb_ctrs(int cpu, struct cpc_reg *reg1, u6=
-4 *val1,
-> +                                      struct cpc_reg *reg2, u64 *val2)
-> +{
-> +       return -EOPNOTSUPP;
-> +}
->  static inline int cpc_write_ffh(int cpunum, struct cpc_reg *reg, u64 val=
-)
->  {
->         return -EOPNOTSUPP;
-> --
-> 2.33.0
 >
+>
+> Killing the reporting too is right imo. Qemu reads a 0 block size
+> bitmap and quietly falls back, an explicit enable eating EINVAL is the
+> worse failure mode. Good.
+>
+> if u choose not to, it's ok, please add
+>
+> Reviewed-by: Bradley Morgan
+> <include@grrlz.net>
+>
+>
+> >       default:
+> >               return !kvm || !kvm_vm_is_protected(kvm);
+> >       }
+> >
+>
+> Thanks!
 
