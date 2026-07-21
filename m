@@ -4,74 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7212DC44529
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 15:14:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F23C2C44532
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 15:14:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/BYbRNMgnp3/dDIfLsTKCI/gdKDZZY/BwdbETB//oDo=; b=IUtw+7J0unO9k3R77Y2QEj+MqL
-	xgvkmDu2yLuojHetIvjBc67Ib4Bajv+Y5E043sHAkNkWsiMtaEqMDwBu7FW0sUHA4arEEHZJSlcJq
-	cWarsu+sMpsU314XNbABBc1frMx+9cNKchmhyQK6WS3vPiqLCRvfBj4qBUBFcbeDx3SUpw1ceiF1d
-	Necky4FzYKY7LhyJZRGLjT1lg3wuyhWG5JMNTr8+bGlYrZ+xvEUP9FhFj6/vSE3PB0WQeek1BXkRb
-	/IFM/dXLdKYvTH372SMMrQ3XA2o6MfkIF36lpjMI3s98sayYQiTG+USO/Go9M+yVzaAw/B1nMOSda
-	CCJ3+zRQ==;
+	bh=0NzLnpEpcxO5DD6T26b2jUHl7f+urYYWu7UR8jPYSDY=; b=JOF2Oix6LDMyJZkoKzCj64T6cv
+	ke8Hawx+iXPWPO0xxO8E12E48ZC6bt2dlJlkFWAGdmM1o8h3T/3LWnPvgqqSlbyF8ES1IVPGI5J7Y
+	wjL+riu/jDzP3oF+Ov8s+ZpIn5S+VXH4gnay01WTSC27xSvp8Mx61FjSuPA/1Ky63VeJQg5MjSBsc
+	Mnoo1hW9ESlH8UqxSQgMyW96BSLuciez43nu988fFg3iPWnbgjGmiaUeaAjjYLoSK9xbI5n/C3Qfq
+	yEmmVzMMmoAMdIJKKLP9bjT1S3qkyP3hbu+CYKAebiHxVod0JPUTXrBmICrBglXdMXWnqPZKF4Ugx
+	zaK2rhKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmCAW-00000009lfO-3V8g;
-	Tue, 21 Jul 2026 15:14:04 +0000
-Received: from sender4-op-o11.zoho.com ([136.143.188.11])
+	id 1wmCB8-00000009lyj-2u4G;
+	Tue, 21 Jul 2026 15:14:42 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmCAU-00000009leo-044I;
-	Tue, 21 Jul 2026 15:14:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1784646831; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=BM6i/tiL2+014QDs3Ml7WVk4Awsod+45bJzb/c6fvbXgp3QDq6cxLhK57+9KyUQLDrzVio9UQExpX9SQvN7vrRTrxeUOqMCJQUwDxK+fk/W+/geXELhQesIn6LN2B8K4wupLjQznp7MCuQKkF5W3ytiLeQ9p4sXLGpvODZwrXHg=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1784646831; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=/BYbRNMgnp3/dDIfLsTKCI/gdKDZZY/BwdbETB//oDo=; 
-	b=mU8F9svZV0PJVVKUX8wo5fzR4cROLyriufK+1UqmhfjZWg5DnPdYtm7faBokiArRG+RwV8SkQB8QQAXjcNtJ6X6ZJfGr4UHB4GUu8EAcnuNNq/AIm+pGGQPtUBslVi/8HZnucDVNCvJFEcmhX9MNZcTqCMPGHy0S14TsON4sOPc=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1784646831;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=/BYbRNMgnp3/dDIfLsTKCI/gdKDZZY/BwdbETB//oDo=;
-	b=I99NizwOppv19WgK0CBbGMRlnsWUwH6jjgvejiJJxPffaTOGGz8iRAcab77I4Ke3
-	GqvwPABJI/2IuRV8cDvypg7lkLI1/6GowDQNjdOfDJ1ozgAkK66vt4UfvMy3y8URKO2
-	e8EtgnwSAnN5iLYKCo43gbnLzxHTrEIrWMtWUB68=
-Received: by mx.zohomail.com with SMTPS id 1784646828626561.5327912662239;
-	Tue, 21 Jul 2026 08:13:48 -0700 (PDT)
-Received: by venus (Postfix, from userid 1000)
-	id 7D2DF180765; Tue, 21 Jul 2026 17:13:44 +0200 (CEST)
-Date: Tue, 21 Jul 2026 17:13:44 +0200
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Igor Paunovic <royalnet026@gmail.com>
-Cc: Dmitry Osipenko <dmitry.osipenko@collabora.com>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, kernel@collabora.com, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 3/4] arm64: dts: rockchip: add HDMI RX audio on RK3588
-Message-ID: <al-MkTXJRzHevxGb@venus>
-References: <20260721064115.64809-1-royalnet026@gmail.com>
- <20260721064115.64809-4-royalnet026@gmail.com>
+	id 1wmCB5-00000009lxC-1Eqk
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Jul 2026 15:14:41 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2ceaf8a1265so113919565ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 08:14:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1784646878; x=1785251678; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=0NzLnpEpcxO5DD6T26b2jUHl7f+urYYWu7UR8jPYSDY=;
+        b=pfCJH8QlFGyPPe43LKztV475MjDqcMA7209/t/3LtJmr6S3/5YcQVR7t77fkcq5nKF
+         fnmL13xunNJIDVI97sGMTQcWhCP0FqSUzmRq3VSKuAo0SlO4FiYtQabIZpZ9X+KF3NcV
+         pszEILtD75+pnVuutZREhFPM0O4hWUweqIEf05esjSUYdbMeUPSshSRL0oqph9kDcWR2
+         e/WBdvRUQJ/We1SD1wyIyzcFdlrKcdsNhyqtzm48oWRrk909cY9vfICHdYH/YV6nNmLF
+         jFdmz5T9vz/vN7DAkZN0qTt00SuV39/3VQJKEGeMNbI7Jgew/Ty9Tkr/TI6WAAdeBeZK
+         bAWg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784646878; x=1785251678;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=0NzLnpEpcxO5DD6T26b2jUHl7f+urYYWu7UR8jPYSDY=;
+        b=ewC1lhZrvaCaOYm1yiJuvCfCiqUw7QEtXlCMei+VSBX3Bfcvw9ETg9Ik2OhGQV/sVC
+         6d1C5LxFI/sdQGQtN9hC7R1aHJ1BI6KhyXRll8cV0tQt4DqGb8eXpYd8KcG1RWVqyu5i
+         iSty7KXGQgC0Rjp9PoBn4iMHYSW1DbSfxHLijOUflN668/tYODEDbygsseRpaEvs6LRm
+         SzwZ/NEH41XyYHQCmjN/ZsB1SuMMPiR7p35WleG/sPZXBNDuTONhwgNHGAsEgiyzq0P9
+         wNV4AI/acIBW0jRmsNhWCGlxc2ff89dEpce24k6T+zGI2K+uPdL7pYUIWPYEHIm3FnKV
+         GuqQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rp4ODbfVZ2WwBX7Ng7nBqqPe9RgQX2MFFLijzHX3L4oCWXsvMMftahmfz0+RKipv0Ji3ZHvyV60vhOfIy/C3dF5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw9yJK44QnZstLCEOAyzbC2+Sr3grNxtO0w+OIQyyPrJxT9oU3b
+	gGij3+XI/vp/SthkRCn3l1ioFSmPDVxAzAyUVoCLyZLuswjIF+2cdi5lX9uOwujmwak=
+X-Gm-Gg: AR+sD11oXPgwX3wZIPiMeJLWU97dNmEP4Fxr5e5Xsn0Mtte1NMKyMW0zmaSQsiTE4WF
+	4SUVJQw4HLFnx/sN8OiZZ2/s2H1AigCls5Au7TujFhPhIusRggFQiP608V5TczyPWeOR6J9zGzj
+	VN/CxARaF+1CS6FsKaxJXjTuw73zPl02FpqP3NmK+goc3R2jgjKHBj/YKkckEoSbMdRIBNv7Dp3
+	CNYCD0ArEmS612s8AJxxsOLpzVgFQfKY4NEfDjmfkDG03F7Z5zLFZKtzIY/no7SSojKDK+LTOmi
+	cGionVNcbJGAz2BBwMBFQJnQh1+mZGboKkwtxWO1EAyoBwdDLP1NntpFIDPwfmRvMS/pYHlSH77
+	SBBhntV9LSMk039QKz7aL931EcgQ+5IxqaP5WdzQVRQ0IzPP2vPRpPw+ynpv9EkcvEF0fuy6rpc
+	mStn0MDA==
+X-Received: by 2002:a17:902:f681:b0:2c9:a9c0:80b6 with SMTP id d9443c01a7336-2cf34a48e5dmr210192335ad.34.1784646878053;
+        Tue, 21 Jul 2026 08:14:38 -0700 (PDT)
+Received: from p14s ([2604:3d09:148c:c800:d5fc:59b3:7d06:7bd9])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf3448ef6asm78278065ad.9.2026.07.21.08.14.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 21 Jul 2026 08:14:37 -0700 (PDT)
+Date: Tue, 21 Jul 2026 09:14:35 -0600
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-remoteproc@vger.kernel.org, linux-rt-devel@lists.linux.dev,
+	Bjorn Andersson <andersson@kernel.org>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Steven Rostedt <rostedt@goodmis.org>, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v5 REPOST] remoteproc: imx_rproc: Invoke the callback
+ directly
+Message-ID: <al-M2xoMM9P_DKK_@p14s>
+References: <20260721-imx_mbox_rproc-v5-1-6386a2cf8524@linutronix.de>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="bcboel4cgdbdbfeu"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260721064115.64809-4-royalnet026@gmail.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.10.1.5.2/284.638.57
-X-ZohoMailClient: External
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260721-imx_mbox_rproc-v5-1-6386a2cf8524@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_081402_113120_02C80C73 
-X-CRM114-Status: GOOD (  21.86  )
+X-CRM114-CacheID: sfid-20260721_081439_359879_32B66B60 
+X-CRM114-Status: GOOD (  33.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,107 +108,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Jul 21, 2026 at 04:09:06PM +0200, Sebastian Andrzej Siewior wrote:
+> The imx-mailbox driver moved the callback invocation into the threaded
+> IRQ handler. This means the callback is invoked in preemptible context
+> and there is no need to schedule the kworker for the
+> imx_rproc_notified_idr_cb() invocation.
+> 
+> This was tested with the rpmsg-tty driver on imx93.
+> 
+> Remove the workqueue handling and invoke the imx_rproc_notified_idr_cb()
+> callback directly.
+> 
+> Reviewed-by: Peng Fan <peng.fan@nxp.com>
+> Reviewed-by: Mathieu Poirier <mathieu.poirier@linaro.org>
+> Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 
---bcboel4cgdbdbfeu
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v4 3/4] arm64: dts: rockchip: add HDMI RX audio on RK3588
-MIME-Version: 1.0
+Jassi - can you pick this up?
 
-Hi,
-
-On Tue, Jul 21, 2026 at 08:41:14AM +0200, Igor Paunovic wrote:
-> The Synopsys HDMI RX controller exposes two digital audio interfaces,
-> one for I2S (0) and one for S/PDIF (1). Add the #sound-dai-cells
-> property so audio cards can reference them as a codec, as documented
-> by the snps,dw-hdmi-rx binding.
->=20
-> Add a shared simple-audio-card routing the receiver I2S DAI to
-> i2s7_8ch, the receive-only I2S interface dedicated to HDMI RX, with
-> the receiver as bitclock and frame master. The card is named
-> "RK3588 HDMI-IN", which is what users see in alsamixer and what ALSA
-> UCM matches on. It mirrors the existing HDMI TX sound cards in this
-> file and is disabled by default, since not every RK3588 board routes
-> HDMI RX audio; boards that do only need to flip its status.
->=20
-> Signed-off-by: Igor Paunovic <royalnet026@gmail.com>
 > ---
-
-Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-
--- Sebastian
-
-> Changes in v4 (both suggested by Sebastian Reichel):
-> - define the whole sound card here as a shared, disabled-by-default
->   node mirroring the HDMI TX cards, instead of per board
-> - name the card "RK3588 HDMI-IN": the name is user-visible in
->   alsamixer and matched by ALSA UCM
->=20
-> New in v3 (as "add #sound-dai-cells to the RK3588 HDMI receiver").
->  arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi | 18 ++++++++++++++++++
->  1 file changed, 18 insertions(+)
->=20
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi b/arch/arm64/=
-boot/dts/rockchip/rk3588-extra.dtsi
-> index a264001..e0dce15 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
-> @@ -23,6 +23,23 @@
->  		};
->  	};
-> =20
-> +	hdmi_receiver_sound: hdmi-receiver-sound {
-> +		compatible =3D "simple-audio-card";
-> +		simple-audio-card,format =3D "i2s";
-> +		simple-audio-card,name =3D "RK3588 HDMI-IN";
-> +		simple-audio-card,bitclock-master =3D <&hdmiin_codec>;
-> +		simple-audio-card,frame-master =3D <&hdmiin_codec>;
-> +		status =3D "disabled";
-> +
-> +		hdmiin_codec: simple-audio-card,codec {
-> +			sound-dai =3D <&hdmi_receiver 0>;
-> +		};
-> +
-> +		simple-audio-card,cpu {
-> +			sound-dai =3D <&i2s7_8ch>;
-> +		};
-> +	};
-> +
->  	reserved-memory {
->  		#address-cells =3D <2>;
->  		#size-cells =3D <2>;
-> @@ -338,6 +355,7 @@
->  		reset-names =3D "axi", "apb", "ref", "biu";
->  		rockchip,grf =3D <&sys_grf>;
->  		rockchip,vo1-grf =3D <&vo1_grf>;
-> +		#sound-dai-cells =3D <1>;
->  		status =3D "disabled";
->  	};
-> =20
-> --=20
-> 2.53.0
->=20
-
---bcboel4cgdbdbfeu
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmpfjKgACgkQ2O7X88g7
-+pr5Mw//bxtkMAOuV4cl66B7/9tK092jBaJ9bwyKt1Ymq5iR688uw65eLTBv3cWz
-KQ0g/lKGEkFk7hnm493ziK4at736FjvAzHqw0QMlwjMQDq52gDkYDPlSdm1xmdqZ
-X7RlqEGfslXyD0FiZiDeGIzRCTiAw5gGsW0Y/oKiC3U0gh/MXzQGnH52UtKirAtD
-LauBlJftBRDWdO+73rIcmYsHinHY+KuN7fv095XeHEl/dShTAE5mE/lp/nPQ5dUr
-D7yHAVNbLtix1PxK/UyrjQMp2cuyzaRb0r3CiDl2GiTS4/K9n80n9+Rypdcv1bC4
-Bjv5dlK8fNjHvf3EU3gAThBv/wAkwOcn+O6p+DCMJniyMahOXT3wblb1c9fvBgCe
-fU6erPXRgUqVbAqLZhUm9sVtya0UZrM9HXVrlo6bdolQL0AKxR+03nNrWpU3dku0
-yEd0fBdk59YYzcv7qbMtkAUcXlSlkpdRtiVkrDb9AOB5bdpSbbPEUrjQx2ZgcSx0
-EgzmKBJJ2Df2KyHB0QIi0XkkWaDi2GLMqS44IYR3MnZgz8ByReFijex7gK/iaUZ3
-teluJ5DD2TFSAA9fYzAD4sZfI4A6ZR3hbA4uBn1LuwTsEddyLaQ8Slnvk7+BsHdf
-onbEwbG8P15ymNUS0SFbrF2m44aklVMuWZFF71ILSLfLBcAs6HE=
-=46OZ
------END PGP SIGNATURE-----
-
---bcboel4cgdbdbfeu--
+> This change was tested on a im93 board with rpmsg-tty driver.
+> 
+> v4…v5: https://lore.kernel.org/all/20260703-imx_mbox_rproc-v4-1-67b10560a861@linutronix.de/
+>   - Repost
+>
+> v3…v4: https://lore.kernel.org/r/20260617-imx_mbox_rproc-v3-0-77948112defc@linutronix.de
+>   - The mailbox bits are part of v7.2-rc1. This is just a repost of the
+>     imx_rproc driver which is left.
+>    
+> v2…v3: https://lore.kernel.org/r/20260603-imx_mbox_rproc-v2-0-a0059dc3b69a@linutronix.de
+>   - Forward the error in imx_mu_generic_tx() to the caller (new patch
+>     #1)
+>   - Extend the patch description a bit for for "Start splitting the IRQ
+>     handler" to briefly explain why callbacks are moved to the threaded
+>     handler.
+>   - Drop imx_mu_con_priv::pending. The primary handler wakes its
+>     threaded handler. Once the handler is woken, the pending flag must
+>     be set and there is no need to set/ clear it.
+>   - Avoid the double clk_disable_unprepare() if
+>     devm_mbox_controller_register() fails.
+> 
+> v1…v2: https://lore.kernel.org/r/20260529-imx_mbox_rproc-v1-0-b8ffc36e11e5@linutronix.de
+>   - Using correct register to enable RXDB event.
+>   - Update commit description for the "threaded interrupt", "unmasks the
+>     interrupt" => "masks the interrupt event".
+>   - Add a shutdown field so that the interrupt does not unmask the
+>     interrupt if it has been already disabled because the channel is
+>     about to be shutdown.  A possible race mentioned by sashiko.
+>   - Use devm_pm_runtime_enable(). This should avoid a possible race
+>     sashiko mentioned.
+>   - Use devm_of_platform_populate().
+> ---
+>  drivers/remoteproc/imx_rproc.c | 33 +--------------------------------
+>  1 file changed, 1 insertion(+), 32 deletions(-)
+> 
+> diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+> index 7662ebd9d2f49..e18ae33a5cf85 100644
+> --- a/drivers/remoteproc/imx_rproc.c
+> +++ b/drivers/remoteproc/imx_rproc.c
+> @@ -24,7 +24,6 @@
+>  #include <linux/regmap.h>
+>  #include <linux/remoteproc.h>
+>  #include <linux/scmi_imx_protocol.h>
+> -#include <linux/workqueue.h>
+>  
+>  #include "imx_rproc.h"
+>  #include "remoteproc_internal.h"
+> @@ -115,8 +114,6 @@ struct imx_rproc {
+>  	struct mbox_client		cl;
+>  	struct mbox_chan		*tx_ch;
+>  	struct mbox_chan		*rx_ch;
+> -	struct work_struct		rproc_work;
+> -	struct workqueue_struct		*workqueue;
+>  	void __iomem			*rsc_table;
+>  	struct imx_sc_ipc		*ipc_handle;
+>  	struct notifier_block		rproc_nb;
+> @@ -892,21 +889,11 @@ static int imx_rproc_notified_idr_cb(int id, void *ptr, void *data)
+>  	return 0;
+>  }
+>  
+> -static void imx_rproc_vq_work(struct work_struct *work)
+> -{
+> -	struct imx_rproc *priv = container_of(work, struct imx_rproc,
+> -					      rproc_work);
+> -	struct rproc *rproc = priv->rproc;
+> -
+> -	idr_for_each(&rproc->notifyids, imx_rproc_notified_idr_cb, rproc);
+> -}
+> -
+>  static void imx_rproc_rx_callback(struct mbox_client *cl, void *msg)
+>  {
+>  	struct rproc *rproc = dev_get_drvdata(cl->dev);
+> -	struct imx_rproc *priv = rproc->priv;
+>  
+> -	queue_work(priv->workqueue, &priv->rproc_work);
+> +	idr_for_each(&rproc->notifyids, imx_rproc_notified_idr_cb, rproc);
+>  }
+>  
+>  static int imx_rproc_xtr_mbox_init(struct rproc *rproc, bool tx_block)
+> @@ -1271,13 +1258,6 @@ static int imx_rproc_sys_off_handler(struct sys_off_data *data)
+>  	return NOTIFY_DONE;
+>  }
+>  
+> -static void imx_rproc_destroy_workqueue(void *data)
+> -{
+> -	struct workqueue_struct *workqueue = data;
+> -
+> -	destroy_workqueue(workqueue);
+> -}
+> -
+>  static int imx_rproc_probe(struct platform_device *pdev)
+>  {
+>  	struct device *dev = &pdev->dev;
+> @@ -1305,17 +1285,6 @@ static int imx_rproc_probe(struct platform_device *pdev)
+>  		priv->ops = dcfg->ops;
+>  
+>  	dev_set_drvdata(dev, rproc);
+> -	priv->workqueue = create_workqueue(dev_name(dev));
+> -	if (!priv->workqueue) {
+> -		dev_err(dev, "cannot create workqueue\n");
+> -		return -ENOMEM;
+> -	}
+> -
+> -	ret = devm_add_action_or_reset(dev, imx_rproc_destroy_workqueue, priv->workqueue);
+> -	if (ret)
+> -		return dev_err_probe(dev, ret, "Failed to add devm destroy workqueue action\n");
+> -
+> -	INIT_WORK(&priv->rproc_work, imx_rproc_vq_work);
+>  
+>  	ret = imx_rproc_xtr_mbox_init(rproc, true);
+>  	if (ret)
+> 
+> ---
+> base-commit: b3f94b2b3f3e51ab880a51fc6510e1dafba654ed
+> change-id: 20260529-imx_mbox_rproc-7d512f5a6f78
+> 
+> Best regards,
+> -- 
+> Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 
