@@ -4,59 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51352C4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 18:24:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40601C4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 18:26:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JYK1SVsB1MqYcJihkmBUZ/fXnWOSDpdPDihlH2cnXBg=; b=Ps2lVd2F12uJZIhm0g4CuZVtYA
-	FRBFkXzXib9XlnCatBAQIRuUbNMKb+sqms5W1e4tqNApwM6QtdD6PyhPiJ/F0p069/z7pZmK0PTc4
-	ip08DBcJrese4fnJmusrECXR1M/RWdQIdiAbO4tPC/VlGVddCIM5YDWDCDxu+RXhoog2UFHILTMM4
-	olZL56DhJwIAzPzZgub6rY/dk81ipaxnuCH/lAgpRHlvjgeSsG2w3gtPQiVF9Q6mCsIxPRoC+kOLo
-	Zpty2gCwOpLRm2PV2G73wb/keY+m7r6iwj+wG26tNPNRYl8+w6HEeoN9FRKlaIWQLRZTn0PY7l8Kl
-	winOvgDA==;
+	bh=k4VW3Zl4tM8OMhekRjLVwl1T8VLsGUrJuwlMfWx5k8o=; b=yfsRQ/Y5hKMYxKJGqHaUesoD8Q
+	8G8ClOj3KyKvoJ9bkpfC4vBXQPf2gBBGdTd3BiIIp+qH/j5B5xt7l6BqSHyP7PRfGU0VyAZG/pwa3
+	u+W4t2+x07Cw50CSJc71oKjRv2etF3IGhX7JYAEh9vSLfEiowP4Ak1JMLlYzlGKR9Noki6lUkSo68
+	tGLntlUZUADQ3Jua2l8ZaxLK2gbLjmxPRQ07wM7+mtGjwuRfTODJSJ2b8FBAd6MHVmCe8aFcVw1Hg
+	Mf0C2qGglsxSDeXqk3jsD8iGwD9H7dVb0+7ZXpu8XZl9B/9SDjJuelS0HRNO5a2Z6CFxqP/pITyp7
+	AzQyn7Dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmF8S-0000000AC73-3gLl;
-	Tue, 21 Jul 2026 18:24:08 +0000
+	id 1wmFAm-0000000ACTi-1AAO;
+	Tue, 21 Jul 2026 18:26:32 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmF8S-0000000AC6w-29Zx
+	id 1wmFAl-0000000ACTU-2ZG3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 18:24:08 +0000
+	Tue, 21 Jul 2026 18:26:31 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2E13D40807;
-	Tue, 21 Jul 2026 18:24:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB5AC1F000E9;
-	Tue, 21 Jul 2026 18:24:07 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 55FB2417E0;
+	Tue, 21 Jul 2026 18:26:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 051AF1F00A3F;
+	Tue, 21 Jul 2026 18:26:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784658248;
-	bh=JYK1SVsB1MqYcJihkmBUZ/fXnWOSDpdPDihlH2cnXBg=;
+	s=k20260515; t=1784658389;
+	bh=k4VW3Zl4tM8OMhekRjLVwl1T8VLsGUrJuwlMfWx5k8o=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=TIxaR6GjtuMIXe+XSoWBc0o0bHsDMvHLj60PdpNjRrsphstpKb74XyvPmXW9pZUhd
-	 gUn2X+V3o41322doBxgr8Iw3HXktD9pm1voBo16Jw2VDi8uXSD8cp4qwnmBWp6xvtn
-	 Poxq+P/tQxTW+i9O5ekrvt2xx8IOosK4XCnqGEOyqn8aFkw8+bWdwbi4ZQvpUDY5U3
-	 pFg6ekqQcD9WJlTGCriVG3FPHFYvMB7OODA+56UVxZ+r7JllCA8En2ycjMbCTCZlR6
-	 4Pl14M1wxKU0SWU0nqJcTvGSbTQcYGu8JSeiiH9kv9iu/uub/EB5YwNl9f8+M3v/Oc
-	 I2XYaJkbHUuOw==
+	b=kjFng8c+xvne2cPnxtse0Hq0rrqrs24bVcFmakyTk1pzLZYgOeEuvfzKiLrrEOqYD
+	 RSJH9GITWED9B6WMRRzFISbdeGGj+tRAt+91cM9dnJ0OuJsItKumTQzE2JlrjHn3+6
+	 70gSPA6dKhlKckr7xiGNDyTVYd51+VAW371DA07gGdk6/RAcRUeRCIB+39mIM1wUEi
+	 1CmYxvkw+M6W0Z69u/BMg8lDrJyBCbk1O00Os2M3OVnJh18NVZT/9j8c2G/2dcT2IY
+	 wmEJUElK+RRAS/kQ+d9YDaTjD0cwUCjVMOyaVUMhjBvrP6NF0OmLIjgrWUOa0Qk1De
+	 MIhZQ/ULYij/g==
 From: Oliver Upton <oupton@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Marc Zyngier <maz@kernel.org>
+To: Marc Zyngier <maz@kernel.org>,
+	kvmarm@lists.linux.dev,
+	Fuad Tabba <fuad.tabba@linux.dev>
 Cc: Oliver Upton <oupton@kernel.org>,
-	Steffen Eiden <seiden@linux.ibm.com>,
 	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v2 0/6] KVM: arm64: Make ICH_VTR_EL2 accesses an inlined literal
-Date: Tue, 21 Jul 2026 11:24:04 -0700
-Message-ID: <178465820769.2066547.9255034363625874099.b4-ty@kernel.org>
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] KVM: arm64: Sync SCTLR_EL1 when injecting an exception into a pVM
+Date: Tue, 21 Jul 2026 11:26:26 -0700
+Message-ID: <178465838257.2067495.10864103489169140924.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260721170754.3150521-1-maz@kernel.org>
-References: <20260721170754.3150521-1-maz@kernel.org>
+In-Reply-To: <20260721161624.3983041-1-fuad.tabba@linux.dev>
+References: <20260721161624.3983041-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -74,33 +80,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 21 Jul 2026 18:07:48 +0100, Marc Zyngier wrote:
-> I'm reposting this early as there were so many issues to the original
-> posting that I decided to deviate from my own rules... Bite me.
+On Tue, 21 Jul 2026 17:16:24 +0100, Fuad Tabba wrote:
+> When pKVM injects a synchronous exception into a protected guest,
+> enter_exception64() reads SCTLR_EL1 to set the new PSTATE's PAN and
+> SSBS bits. pKVM refreshes VBAR_EL1 from the live value before injecting
+> but not SCTLR_EL1, which is untrapped for protected guests, so a guest
+> that updates it and then traps takes the exception with stale PAN/SSBS.
 > 
-> This is the second version of this series I initially sent as [1],
-> which aims at removing the large number of traps that ICH_VTR_EL2
-> generates in NV environments, leading to pointless overheads.
+> Sync SCTLR_EL1 alongside VBAR_EL1.
 > 
 > [...]
 
-Sashiko seems to have a done a good job reviewing v1. This looks to be in
-decent shape now.
-
 Applied to next, thanks!
 
-[1/6] KVM: arm64: vgic-v3: Make vtr_to_* helpers use architectural field symbols
-      https://git.kernel.org/kvmarm/kvmarm/c/719e67103c5e
-[2/6] KVM: arm64: Move GICv3 broken SEIS implementation detection to a CPU errrata
-      https://git.kernel.org/kvmarm/kvmarm/c/27a263e1a0fa
-[3/6] KVM: arm64: Add a helper providing an inlined literal value for ICH_VTR_EL2
-      https://git.kernel.org/kvmarm/kvmarm/c/4edfdc8ddebd
-[4/6] KVM: arm64: Convert most ICH_VTR_EL2 accesses to inlined literal value
-      https://git.kernel.org/kvmarm/kvmarm/c/2bba3d2c6092
-[5/6] KVM: arm64: vgic-v3: Simplify initial GICv3 configuration sampling
-      https://git.kernel.org/kvmarm/kvmarm/c/bea608299d28
-[6/6] KVM: arm64: vgic-v3: Kill kvm_vgic_global_state.ich_vtr_el2
-      https://git.kernel.org/kvmarm/kvmarm/c/36d32222fcab
+[1/1] KVM: arm64: Sync SCTLR_EL1 when injecting an exception into a pVM
+      https://git.kernel.org/kvmarm/kvmarm/c/596289fe4836
 
 --
 Best,
