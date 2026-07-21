@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22E16C44529
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 10:29:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EA66C4452D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 10:29:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=26LuwxXuYnG2tABKOgMVR7HJmLwQlsRPpHyBPQzuKoY=; b=gNj//HM1MS9c5nFwIiY8IGYGvi
-	XvPNl5salhKMJ84dWwyljF7M8Ro0uloxcQrHp0Q8diOlKBjAIzK8ihs4vHE5wxVbJ+9ssRgbus4YO
-	tX2Gs+n5xPZDNWF1PxOCLs7aow2HGjzG74S0isAISX1CD0Oex3HDJBcymzasFeZQtSSNPuRi6S+9J
-	GzP35r4Pw8XPzqq/SJGlqMk1lNyyspZ8vEjCDRtUJuVy83/57vJoJUp8OOFtQSSkqBKnb0bxZUnhb
-	Yx4URl1BpKVuJKhaB/6YfC+wFmLzroSEXctpl/+F/TKhubkA+X0fbCn6K72S7JC0B8LWO8hw5zbGj
-	UfyenVkQ==;
+	bh=1tgnKdUkO+325mAT1Exy7hQiaP44koD8lFsPHXyvSQY=; b=ub2RCGbJB07bDzDnXuO+zB8QOo
+	VFlbpq9f/izd7STisn5LvYrTMYsPUN5p2XQrYRbs9eQaztJKw5yfi6GtYKQEh53vRih7bDnp33/JV
+	lkfq3RduEZc3S07oNpAlkMvEdE6TJK+egLq0v8awZEKpwETSYnRQkVF/6t7RyuQ++TzcybbRJWFBv
+	0ePfYGq4nDHS5OwX4FQc3xWZRd9K75bWzTgs0XbtPfrbi43ekRjomvQQh+Ag7W3+Dy47NjZaAD4cl
+	jw/55JLrGlcu2a1VkZ8FPLL5Ahmrtwhb55F5F1FWX0UIk9g7zIhrt0jG1r2UGuLFbb3ecjvx6K9FW
+	q+qkOs1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm7in-00000009AMU-3BoY;
-	Tue, 21 Jul 2026 10:29:09 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1wm7io-00000009AMz-0mAB;
+	Tue, 21 Jul 2026 10:29:10 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm7id-00000009ABe-3Tvk
+	id 1wm7il-00000009AJv-1MCx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 10:29:02 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2cc891373e0so139055035ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 03:28:59 -0700 (PDT)
+	Tue, 21 Jul 2026 10:29:08 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2cab973140bso136552345ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 03:29:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784629739; x=1785234539; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1784629747; x=1785234547; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=26LuwxXuYnG2tABKOgMVR7HJmLwQlsRPpHyBPQzuKoY=;
-        b=Gy77fo37ZC3B6ZZbhG0e/LoxTE/SOvol/31dVzUxeFY5RStfAwlBNiKNOzZd9tc+9S
-         inXdanUVqtjLX7ltWXVral/GMwgO7nYX/p5YoPYqDtUKyN9MJvhmkBkKed2K8e3LXakp
-         b1E/fI8MMs1PrR5k/gVm3GF6TUdR5sQZV/2C+6+tQURFBSDxJJfUvuSjRguHWGY2uOpU
-         2Qd8tEJ2kuRKZq/1Ba/AXyhjzd+IJKcdK7lb8srg8+2dhkJoqHzAfcfAce0c4Eb8yAwK
-         qSCSbiHjIKrZs72eXtoVj+tqOlyiOhAr+CiuUtrn43VUYlImOFC9z3vQSdn07xLlw2w2
-         A/YQ==
+        bh=1tgnKdUkO+325mAT1Exy7hQiaP44koD8lFsPHXyvSQY=;
+        b=MscS3LGWnknMqmV+wwd0mWPpSN/WXblAnkl8C8k6d4pliug60e67KxptdQHxuGtJNQ
+         lbpc6IaIoHZhZFe6fLRpn7D3XpkkhZS2VtS67UYOl3M01tG8GRWqwsAmO9Lw+S6XDXIp
+         5wsnmXIUVMR8HpsewaJpmhZHpfqktEjlkaoPQbI4lNk92GHmBg68DB8ZaYKGUK7FJBZr
+         UVCpSpvYJIZCGtRDCZ+W9Kofti+HaJGrkE5r2THIYnncUVlalw5NBaSPauFjfqI7Z9w9
+         QpZMdhUz3XSl4ukiGjIAn3qcqSMVUKZpLleFiniIoIim6FFWhzWH4GGo4cfnw2dM3IqC
+         D6Hg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784629739; x=1785234539;
+        d=1e100.net; s=20251104; t=1784629747; x=1785234547;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=26LuwxXuYnG2tABKOgMVR7HJmLwQlsRPpHyBPQzuKoY=;
-        b=IFwI1s/MInQIKMXsL4fj5tidCpeodLnh81yjUczzrh5ilwvU+JCOc/WN+fDEVkbmuY
-         dSAffeeW5Pa2RaRfSiqxZ6gg3U0GEWgKRcorTm4M+1XrDxpx3rgpOI7RoxQrcC6uPmb5
-         soQjcTxtjtxlrBYoJ/0+/820REu4acWJloctlYI0R6L0uzhoNeTajdDRSQzkV5LpwLQf
-         lLrrL+xSzCw2Pkq5UOUApTyInEDEv1IkkkNpg3500NHhuEJ0Qodc3XWvpZdMd+4NRzun
-         rSNRhYZXjUp2R6MKPzZV7L5NXpgH6amvUhv7hsAMC6SSiKMufp1eyZz0pa7DbhpL7oRS
-         3fkw==
-X-Forwarded-Encrypted: i=1; AHgh+Rp/6K99ZwQffqITQnKhmU8ed2Sl1kj5OEMkMa1kz2lmYYWqEHGy87wTHmDcAvcPmfYiAZaqBdrNkHCkishF8na+@lists.infradead.org
-X-Gm-Message-State: AOJu0YyCRMltStyzBIlamtUkN5mDLeLWnaSOQORE3P0wydqB+8NVsYHK
-	7cmRITJ33jNjJbfq3a7PNBeNsUaj/IjvA8QRC0S/X10qsz67pOFvByJ5
-X-Gm-Gg: AR+sD13LZZe6UVGF47Pv2uNZcXf5pF8s/pI+mCaYjRTrmf7ZRTYntsdOOS6Cat6oeLK
-	lPNlrOPbUH6GbeVam+cxlyjl72Iio5O7DYKYz32pqRjBBCAE9x9KpCrHEkBasV3Ao1g/vg82SpH
-	HDtriyjO5LKqTMhefZVqMh4NnxjVN7q93czfmS/o3whkTzEgce7w7loBuarPQ0aT1F/sh+UlDYU
-	KEGjFs+RWNpt4tzllnd/BZ4CK85E82EXnDQ72CbLLlwMI1IAnucRBv+3V4xJ/yu+jc/hYmAf8sB
-	mW1BPo594OIUYoqdbGPtmfYfgmsS9gIZ6J6mj5dHIlm0uaH372g/qJ3xTZWUG22rV0L65qyR3p8
-	e0t82sivmG6HqQNTpYP8aJWdA/lt/BqJUr1inznuq1MySc0hm4jrFmQ9Nd+ELFECs3G01LEg0RS
-	6n8/+fKkmIHLu7CF2MCRcFW+xR3Z72HxGLm59Q
-X-Received: by 2002:a17:902:e54b:b0:2c9:b48c:fdec with SMTP id d9443c01a7336-2cf348547d0mr202166025ad.12.1784629738893;
-        Tue, 21 Jul 2026 03:28:58 -0700 (PDT)
+        bh=1tgnKdUkO+325mAT1Exy7hQiaP44koD8lFsPHXyvSQY=;
+        b=WNA/e4STe6u8sYMp4V5a8/8zEY0qmKIfImqvsat2IInoJqB/rPQA7mwzkyqxkrKXMI
+         FclnM6bjJb8H2LT3kqZJJlczkh9P36TL9Jkb1kj0ehxgK4c1Mr7M/ESkoLEMUWeOzLXb
+         4JaFDdd7e5d70Q1GoKRnjzUZeTaHsAq1voEEEd+w2EkPQ+w6Qm2tuEePnkeYJCmRGDZ2
+         EgQjpWE8EHuZDeANqrK4ekZWPFhbQe1fLAjFhDkvoH3tnWH9fBmKbeqUiB206mOxqg+T
+         ioR2V2bIYIEoms3o+8ZM7f8EDEjlbdRrjpVPTNtI8vKBabIye/FV5nEkP6/wU8rA3GMd
+         v99g==
+X-Forwarded-Encrypted: i=1; AHgh+RrY1Iwe95H4XKuFA9U+z+1Mog1VoPjKsQM1DZhe2aG4RHnpmcpqp9WaVx8PoW9S6MUPucHCYaDDOSSgyqR3GGnd@lists.infradead.org
+X-Gm-Message-State: AOJu0YxcqEUmYQD7PNoxmSHYuThCQOyIIq1CZwu+NRz/q7gRCmt8ebuG
+	zsW3sqZSHyKVP8Su/1Tq9BQLvQHF6LPHZyANB+jaFXRhuV9rZ5EsY+RQ
+X-Gm-Gg: AR+sD105cuUCynIh416Xp+Vt9B6LVzUKghs2rDa5XA9D8tc2rc8Ge8uunVaQEV0ohh6
+	ciPTyM/MLOj4JPQ4kpHVAXPnuj3oHS7ZLa6tFqKH6juArKkgzmHITNo7oeM/uLWa6Y/BnfJ5cDG
+	887oiTcCGx0g/gFQTTxTLSx0C4yVvkWkvX7CZA3GkLBCn1tb1fTBV2QOKW/2aWT6kXtJRaBHlZ0
+	4NApf4qk9pU8u01X+RJD9oWYZl9xMLd7CuB+5g71hWfYM/Z6Dsbznn0t47x6z7vRhuq9BqnV1Da
+	jh4a/YzdIouFnbTZtVDtnH1JH/GuQ1rTWUMCkJtVBJm2eua2kqmRnDpUodoWyKh9dwbWEOWQc3l
+	hpPvTHaQ+EuIp0dnCFcHYb4wbhuroUl+T+Y6p9VkVtEaA0Am95L6ulSN3My4Sav90XKtIM7JcbY
+	/4dH4+JD0n+pKNA7zAZuDmWM3hfKa7bkcUICevUPx8cx/Rdq4=
+X-Received: by 2002:a17:902:ea02:b0:2c9:97a7:3276 with SMTP id d9443c01a7336-2cf349eb1bbmr205099715ad.39.1784629746685;
+        Tue, 21 Jul 2026 03:29:06 -0700 (PDT)
 Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf3448dac2sm73581365ad.3.2026.07.21.03.28.52
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cf3448dac2sm73581365ad.3.2026.07.21.03.28.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Jul 2026 03:28:58 -0700 (PDT)
+        Tue, 21 Jul 2026 03:29:06 -0700 (PDT)
 From: phucduc.bui@gmail.com
 To: Mark Brown <broonie@kernel.org>,
 	Takashi Iwai <tiwai@suse.com>,
@@ -103,17 +103,17 @@ Cc: Support Opensource <support.opensource@diasemi.com>,
 	linux-arm-msm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH v4 20/29] ASoC: codecs: rt5668: Use guard() for mutex locks
-Date: Tue, 21 Jul 2026 17:25:51 +0700
-Message-ID: <20260721102600.523199-21-phucduc.bui@gmail.com>
+Subject: [PATCH v4 21/29] ASoC: codecs: rt5677: Use guard() for mutex locks
+Date: Tue, 21 Jul 2026 17:25:52 +0700
+Message-ID: <20260721102600.523199-22-phucduc.bui@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260721102600.523199-1-phucduc.bui@gmail.com>
 References: <20260721102600.523199-1-phucduc.bui@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_032859_981029_68926C35 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20260721_032907_402639_5C773C42 
+X-CRM114-Status: GOOD (  20.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,58 +135,315 @@ Merely code refactoring, and no behavior change.
 
 Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
 ---
- sound/soc/codecs/rt5668.c | 10 +++-------
- 1 file changed, 3 insertions(+), 7 deletions(-)
+ sound/soc/codecs/rt5677-spi.c | 36 +++++++----------
+ sound/soc/codecs/rt5677.c     | 75 ++++++++++++++++-------------------
+ 2 files changed, 49 insertions(+), 62 deletions(-)
 
-diff --git a/sound/soc/codecs/rt5668.c b/sound/soc/codecs/rt5668.c
-index fed6de40b8c8..4154bad27610 100644
---- a/sound/soc/codecs/rt5668.c
-+++ b/sound/soc/codecs/rt5668.c
+diff --git a/sound/soc/codecs/rt5677-spi.c b/sound/soc/codecs/rt5677-spi.c
+index 1bcafd5f4468..ebc527115ea5 100644
+--- a/sound/soc/codecs/rt5677-spi.c
++++ b/sound/soc/codecs/rt5677-spi.c
 @@ -6,6 +6,7 @@
-  * Author: Bard Liao <bardliao@realtek.com>
+  * Author: Oder Chiou <oder_chiou@realtek.com>
   */
  
 +#include <linux/cleanup.h>
  #include <linux/module.h>
- #include <linux/moduleparam.h>
- #include <linux/init.h>
-@@ -986,7 +987,7 @@ static void rt5668_jack_detect_handler(struct work_struct *work)
+ #include <linux/input.h>
+ #include <linux/spi/spi.h>
+@@ -133,9 +134,8 @@ static int rt5677_spi_hw_params(
+ 	struct rt5677_dsp *rt5677_dsp =
+ 			snd_soc_component_get_drvdata(component);
+ 
+-	mutex_lock(&rt5677_dsp->dma_lock);
++	guard(mutex)(&rt5677_dsp->dma_lock);
+ 	rt5677_dsp->substream = substream;
+-	mutex_unlock(&rt5677_dsp->dma_lock);
+ 
+ 	return 0;
+ }
+@@ -147,9 +147,8 @@ static int rt5677_spi_hw_free(
+ 	struct rt5677_dsp *rt5677_dsp =
+ 			snd_soc_component_get_drvdata(component);
+ 
+-	mutex_lock(&rt5677_dsp->dma_lock);
++	guard(mutex)(&rt5677_dsp->dma_lock);
+ 	rt5677_dsp->substream = NULL;
+-	mutex_unlock(&rt5677_dsp->dma_lock);
+ 
+ 	return 0;
+ }
+@@ -311,17 +310,17 @@ static void rt5677_spi_copy_work(struct work_struct *work)
+ 	int ret = 0;
+ 
+ 	/* Ensure runtime->dma_area buffer does not go away while copying. */
+-	mutex_lock(&rt5677_dsp->dma_lock);
++	guard(mutex)(&rt5677_dsp->dma_lock);
+ 	if (!rt5677_dsp->substream) {
+ 		dev_err(rt5677_dsp->dev, "No pcm substream\n");
+-		goto done;
++		return;
+ 	}
+ 
+ 	runtime = rt5677_dsp->substream->runtime;
+ 
+ 	if (rt5677_spi_mic_write_offset(&mic_write_offset)) {
+ 		dev_err(rt5677_dsp->dev, "No mic_write_offset\n");
+-		goto done;
++		return;
+ 	}
+ 
+ 	/* If this is the first time that we've asked for streaming data after
+@@ -355,7 +354,7 @@ static void rt5677_spi_copy_work(struct work_struct *work)
+ 		ret = rt5677_spi_copy(rt5677_dsp, copy_bytes);
+ 		if (ret) {
+ 			dev_err(rt5677_dsp->dev, "Copy failed %d\n", ret);
+-			goto done;
++			return;
+ 		}
+ 		rt5677_dsp->avail_bytes += copy_bytes;
+ 		if (rt5677_dsp->avail_bytes >= period_bytes) {
+@@ -367,8 +366,6 @@ static void rt5677_spi_copy_work(struct work_struct *work)
+ 
+ 	delay = bytes_to_frames(runtime, period_bytes) / runtime->rate;
+ 	schedule_delayed_work(&rt5677_dsp->copy_work, secs_to_jiffies(delay));
+-done:
+-	mutex_unlock(&rt5677_dsp->dma_lock);
+ }
+ 
+ static int rt5677_spi_pcm_new(struct snd_soc_component *component,
+@@ -507,10 +504,8 @@ int rt5677_spi_read(u32 addr, void *rxbuf, size_t len)
+ 		header[3] = ((addr + offset) & 0x0000ff00) >> 8;
+ 		header[4] = ((addr + offset) & 0x000000ff) >> 0;
+ 
+-		mutex_lock(&spi_mutex);
+-		status |= spi_sync(g_spi, &m);
+-		mutex_unlock(&spi_mutex);
+-
++		scoped_guard(mutex, &spi_mutex)
++			status |= spi_sync(g_spi, &m);
+ 
+ 		/* Copy data back to caller buffer */
+ 		rt5677_spi_reverse(cb + offset, len - offset, body, t[1].len);
+@@ -564,9 +559,8 @@ int rt5677_spi_write(u32 addr, const void *txbuf, size_t len)
+ 		offset += t.len;
+ 		t.len += RT5677_SPI_HEADER + 1;
+ 
+-		mutex_lock(&spi_mutex);
+-		status |= spi_sync(g_spi, &m);
+-		mutex_unlock(&spi_mutex);
++		scoped_guard(mutex, &spi_mutex)
++			status |= spi_sync(g_spi, &m);
+ 	}
+ 	return status;
+ }
+@@ -591,10 +585,10 @@ void rt5677_spi_hotword_detected(void)
  		return;
  	}
  
--	mutex_lock(&rt5668->calibrate_mutex);
-+	guard(mutex)(&rt5668->calibrate_mutex);
+-	mutex_lock(&rt5677_dsp->dma_lock);
+-	dev_info(rt5677_dsp->dev, "Hotword detected\n");
+-	rt5677_dsp->new_hotword = true;
+-	mutex_unlock(&rt5677_dsp->dma_lock);
++	scoped_guard(mutex, &rt5677_dsp->dma_lock) {
++		dev_info(rt5677_dsp->dev, "Hotword detected\n");
++		rt5677_dsp->new_hotword = true;
++	}
  
- 	val = snd_soc_component_read(rt5668->component, RT5668_AJD1_CTRL)
- 		& RT5668_JDH_RS_MASK;
-@@ -1053,8 +1054,6 @@ static void rt5668_jack_detect_handler(struct work_struct *work)
- 		schedule_delayed_work(&rt5668->jd_check_work, 0);
- 	else
- 		cancel_delayed_work_sync(&rt5668->jd_check_work);
+ 	schedule_delayed_work(&rt5677_dsp->copy_work, 0);
+ }
+diff --git a/sound/soc/codecs/rt5677.c b/sound/soc/codecs/rt5677.c
+index 73fc008d558a..3e4d1dbce740 100644
+--- a/sound/soc/codecs/rt5677.c
++++ b/sound/soc/codecs/rt5677.c
+@@ -6,6 +6,7 @@
+  * Author: Oder Chiou <oder_chiou@realtek.com>
+  */
+ 
++#include <linux/cleanup.h>
+ #include <linux/bits.h>
+ #include <linux/delay.h>
+ #include <linux/firmware.h>
+@@ -564,46 +565,43 @@ static int rt5677_dsp_mode_i2c_write_addr(struct rt5677_priv *rt5677,
+ 	struct snd_soc_component *component = rt5677->component;
+ 	int ret;
+ 
+-	mutex_lock(&rt5677->dsp_cmd_lock);
++	guard(mutex)(&rt5677->dsp_cmd_lock);
+ 
+ 	ret = regmap_write(rt5677->regmap_physical, RT5677_DSP_I2C_ADDR_MSB,
+ 		addr >> 16);
+ 	if (ret < 0) {
+ 		dev_err(component->dev, "Failed to set addr msb value: %d\n", ret);
+-		goto err;
++		return ret;
+ 	}
+ 
+ 	ret = regmap_write(rt5677->regmap_physical, RT5677_DSP_I2C_ADDR_LSB,
+ 		addr & 0xffff);
+ 	if (ret < 0) {
+ 		dev_err(component->dev, "Failed to set addr lsb value: %d\n", ret);
+-		goto err;
++		return ret;
+ 	}
+ 
+ 	ret = regmap_write(rt5677->regmap_physical, RT5677_DSP_I2C_DATA_MSB,
+ 		value >> 16);
+ 	if (ret < 0) {
+ 		dev_err(component->dev, "Failed to set data msb value: %d\n", ret);
+-		goto err;
++		return ret;
+ 	}
+ 
+ 	ret = regmap_write(rt5677->regmap_physical, RT5677_DSP_I2C_DATA_LSB,
+ 		value & 0xffff);
+ 	if (ret < 0) {
+ 		dev_err(component->dev, "Failed to set data lsb value: %d\n", ret);
+-		goto err;
++		return ret;
+ 	}
+ 
+ 	ret = regmap_write(rt5677->regmap_physical, RT5677_DSP_I2C_OP_CODE,
+ 		opcode);
+ 	if (ret < 0) {
+ 		dev_err(component->dev, "Failed to set op code value: %d\n", ret);
+-		goto err;
++		return ret;
+ 	}
+ 
+-err:
+-	mutex_unlock(&rt5677->dsp_cmd_lock);
 -
--	mutex_unlock(&rt5668->calibrate_mutex);
+ 	return ret;
  }
  
- static const struct snd_kcontrol_new rt5668_snd_controls[] = {
-@@ -2356,7 +2355,7 @@ static void rt5668_calibrate(struct rt5668_priv *rt5668)
- {
- 	int value, count;
+@@ -623,36 +621,33 @@ static int rt5677_dsp_mode_i2c_read_addr(
+ 	int ret;
+ 	unsigned int msb, lsb;
  
--	mutex_lock(&rt5668->calibrate_mutex);
-+	guard(mutex)(&rt5668->calibrate_mutex);
+-	mutex_lock(&rt5677->dsp_cmd_lock);
++	guard(mutex)(&rt5677->dsp_cmd_lock);
  
- 	rt5668_reset(rt5668->regmap);
- 	regmap_write(rt5668->regmap, RT5668_PWR_ANLG_1, 0xa2bf);
-@@ -2400,9 +2399,6 @@ static void rt5668_calibrate(struct rt5668_priv *rt5668)
- 	/* restore settings */
- 	regmap_write(rt5668->regmap, RT5668_STO1_ADC_MIXER, 0xc0c4);
- 	regmap_write(rt5668->regmap, RT5668_PWR_DIG_1, 0x0000);
+ 	ret = regmap_write(rt5677->regmap_physical, RT5677_DSP_I2C_ADDR_MSB,
+ 		addr >> 16);
+ 	if (ret < 0) {
+ 		dev_err(component->dev, "Failed to set addr msb value: %d\n", ret);
+-		goto err;
++		return ret;
+ 	}
+ 
+ 	ret = regmap_write(rt5677->regmap_physical, RT5677_DSP_I2C_ADDR_LSB,
+ 		addr & 0xffff);
+ 	if (ret < 0) {
+ 		dev_err(component->dev, "Failed to set addr lsb value: %d\n", ret);
+-		goto err;
++		return ret;
+ 	}
+ 
+ 	ret = regmap_write(rt5677->regmap_physical, RT5677_DSP_I2C_OP_CODE,
+ 		0x0002);
+ 	if (ret < 0) {
+ 		dev_err(component->dev, "Failed to set op code value: %d\n", ret);
+-		goto err;
++		return ret;
+ 	}
+ 
+ 	regmap_read(rt5677->regmap_physical, RT5677_DSP_I2C_DATA_MSB, &msb);
+ 	regmap_read(rt5677->regmap_physical, RT5677_DSP_I2C_DATA_LSB, &lsb);
+ 	*value = (msb << 16) | lsb;
+ 
+-err:
+-	mutex_unlock(&rt5677->dsp_cmd_lock);
 -
--	mutex_unlock(&rt5668->calibrate_mutex);
--
+ 	return ret;
  }
  
- static int rt5668_i2c_probe(struct i2c_client *i2c)
+@@ -941,21 +936,20 @@ static void rt5677_dsp_work(struct work_struct *work)
+ 		activity = false;
+ 
+ 		/* Don't turn off the DSP while handling irqs */
+-		mutex_lock(&rt5677->irq_lock);
+-		/* Set DSP CPU to Stop */
+-		regmap_update_bits(rt5677->regmap, RT5677_PWR_DSP1,
+-			RT5677_PWR_DSP_CPU, RT5677_PWR_DSP_CPU);
++		scoped_guard(mutex, &rt5677->irq_lock) {
++			/* Set DSP CPU to Stop */
++			regmap_update_bits(rt5677->regmap, RT5677_PWR_DSP1,
++					   RT5677_PWR_DSP_CPU, RT5677_PWR_DSP_CPU);
+ 
+-		rt5677_set_dsp_mode(rt5677, false);
++			rt5677_set_dsp_mode(rt5677, false);
+ 
+-		/* Disable and clear VAD interrupt */
+-		regmap_write(rt5677->regmap, RT5677_VAD_CTRL1, 0x2184);
++			/* Disable and clear VAD interrupt */
++			regmap_write(rt5677->regmap, RT5677_VAD_CTRL1, 0x2184);
+ 
+-		/* Set GPIO1 pin back to be IRQ output for jack detect */
+-		regmap_update_bits(rt5677->regmap, RT5677_GPIO_CTRL1,
+-			RT5677_GPIO1_PIN_MASK, RT5677_GPIO1_PIN_IRQ);
+-
+-		mutex_unlock(&rt5677->irq_lock);
++			/* Set GPIO1 pin back to be IRQ output for jack detect */
++			regmap_update_bits(rt5677->regmap, RT5677_GPIO_CTRL1,
++					   RT5677_GPIO1_PIN_MASK, RT5677_GPIO1_PIN_IRQ);
++		}
+ 	}
+ }
+ 
+@@ -4997,11 +4991,11 @@ static int rt5677_read(void *context, unsigned int reg, unsigned int *val)
+ 
+ 	if (rt5677->is_dsp_mode) {
+ 		if (reg > 0xff) {
+-			mutex_lock(&rt5677->dsp_pri_lock);
+-			rt5677_dsp_mode_i2c_write(rt5677, RT5677_PRIV_INDEX,
+-				reg & 0xff);
+-			rt5677_dsp_mode_i2c_read(rt5677, RT5677_PRIV_DATA, val);
+-			mutex_unlock(&rt5677->dsp_pri_lock);
++			scoped_guard(mutex, &rt5677->dsp_pri_lock) {
++				rt5677_dsp_mode_i2c_write(rt5677, RT5677_PRIV_INDEX,
++							  reg & 0xff);
++				rt5677_dsp_mode_i2c_read(rt5677, RT5677_PRIV_DATA, val);
++			}
+ 		} else {
+ 			rt5677_dsp_mode_i2c_read(rt5677, reg, val);
+ 		}
+@@ -5019,12 +5013,12 @@ static int rt5677_write(void *context, unsigned int reg, unsigned int val)
+ 
+ 	if (rt5677->is_dsp_mode) {
+ 		if (reg > 0xff) {
+-			mutex_lock(&rt5677->dsp_pri_lock);
+-			rt5677_dsp_mode_i2c_write(rt5677, RT5677_PRIV_INDEX,
+-				reg & 0xff);
+-			rt5677_dsp_mode_i2c_write(rt5677, RT5677_PRIV_DATA,
+-				val);
+-			mutex_unlock(&rt5677->dsp_pri_lock);
++			scoped_guard(mutex, &rt5677->dsp_pri_lock) {
++				rt5677_dsp_mode_i2c_write(rt5677, RT5677_PRIV_INDEX,
++							  reg & 0xff);
++				rt5677_dsp_mode_i2c_write(rt5677, RT5677_PRIV_DATA,
++							  val);
++			}
+ 		} else {
+ 			rt5677_dsp_mode_i2c_write(rt5677, reg, val);
+ 		}
+@@ -5416,7 +5410,7 @@ static void rt5677_resume_irq_check(struct work_struct *work)
+ 	 * Without this explicit check, unplug the headset right after suspend
+ 	 * starts, then after resume the headset is still shown as plugged in.
+ 	 */
+-	mutex_lock(&rt5677->irq_lock);
++	guard(mutex)(&rt5677->irq_lock);
+ 	for (i = 0; i < RT5677_IRQ_NUM; i++) {
+ 		if (rt5677->irq_en & rt5677_irq_descs[i].enable_mask) {
+ 			virq = irq_find_mapping(rt5677->domain, i);
+@@ -5424,7 +5418,6 @@ static void rt5677_resume_irq_check(struct work_struct *work)
+ 				handle_nested_irq(virq);
+ 		}
+ 	}
+-	mutex_unlock(&rt5677->irq_lock);
+ }
+ 
+ static void rt5677_irq_bus_lock(struct irq_data *data)
 -- 
 2.43.0
 
