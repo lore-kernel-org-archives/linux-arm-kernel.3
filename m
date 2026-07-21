@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA129C44529
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 07:49:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21C26C44529
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 07:50:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YUdc1ajS9G7+JyBN4Vd0qdQ7XA8eh/Dl4R2Vtt/aRyQ=; b=pTAoLlLl25JnsmSDKX06ii7Hn+
-	H4E9RW3FbscGrvQAMgmfxXf7x9TffLI3Z5oBQfhM6pnM+fAgMcrXmGnzv1NqDcvttTPlbjLqUhKa0
-	56amBL5EClzfZfm2udVF5l1WhZDb1s3Fn0eVGdj8kgjOL8w42Htq9YP8cx+sN63TIgmGtlzMB5xXG
-	K+CNfyAI67L/f9BA0LmfVzgtUGeb4pqryfpc9BLyuRdHTKy7BusdMnxDRgKIiCDLseIHEcED41hHR
-	Uz4CMQYyDbvS7/su3qmB+1jv+jKIpLcK7Vh/iplH4iHOI9UjILq4+xmCJ+C7heQNsLXwZiCgHa5/x
-	ulDjiEWA==;
+	bh=xkJHITvqX1FWX4L63OpNnz2Qb0aVsri/wXqI3fsoexw=; b=mrH6zm9oLzPLEuNTAcTJZcQOs7
+	ksg0tWxII+m8Ey5UJ0Zy59jXeIzreOCLOX+udBVj2F5QDx9OYNKkt2dZhYPfLI9UMmAh/KisMFHBt
+	JozX8085qsjFEqmXaHMy4rFTMtSdSfdxymAzu3Purr+jE4QVSiJ94YnoPhJB7z7b+3dEBv8MaVqOa
+	O33SmdQmy27+6IjVr2Tn1wluQULsrcN0Lw7LhpGe1uymqhnQ6Rp9oFqWZJADjWjv0ZMp6l3FAcSRa
+	l5RZaFGk4XB4kDQCaYxir974/5mRypMRVXjaqKAfjqZ8RQ5NtmCOVxvsnZpWK/tfVYPpPw6jVYa5P
+	mSlaYotA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm5Ed-00000008ggQ-2eKj;
-	Tue, 21 Jul 2026 07:49:51 +0000
+	id 1wm5Ew-00000008gmo-3T6Q;
+	Tue, 21 Jul 2026 07:50:10 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm5Ec-00000008gfm-1D2y
+	id 1wm5Ev-00000008gmL-3b8q
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 07:49:50 +0000
+	Tue, 21 Jul 2026 07:50:09 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 10BB243FE2
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 07:49:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B44461F00ADE
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 07:49:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9E15944EA7
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 07:50:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 814131F00ADB
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 07:50:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784620189;
-	bh=YUdc1ajS9G7+JyBN4Vd0qdQ7XA8eh/Dl4R2Vtt/aRyQ=;
+	s=k20260515; t=1784620209;
+	bh=xkJHITvqX1FWX4L63OpNnz2Qb0aVsri/wXqI3fsoexw=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=fCIxwdakKOHlbIEvrOkZaMzRZ+jNwc3O70PBDHYMq6ssKGwaPrBT3QGuXYAjaR6cq
-	 95qNW/QFvDgx6QCD/H9UstQsPwKmvruxK9GMzuk0sldFva3Kb2TD2oM6y8H2Zzy3yj
-	 ItD1kOHL/PbiXiSt7z4NfRWT/jU0k0Dbti8JVVL/YONR6r+9hxS1htZ3PQZWaPdaV5
-	 rtqpUBPybZucQqN4XbYP+kyH6vd5xw7L7D5w7XwyvhOQrrEWJqC8jEz3kG8+vi4qGw
-	 oZHXUBq/g6Ze1oi3HwN/gUcrhrSzfSPhYTcU9/jSt0hCjcb8Tdz4c+WFwl9qP3/+NR
-	 2itJC+U4AfXIQ==
-Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5b0117d49dcso10155130e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 00:49:49 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RrqfF1c/1paHZ1p055pLqj/020EjXxoGG5RTmxP2D63Xk3pNCONNiViBvOarKmWEdksynq7VuNZ8A5q+PKC1KeL@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxw47tBCio05SZrKqwHylYRf+ldzanErtK/yPViJBaCKXAeyspP
-	MjvEJi55uq+2ZHyZeQZ4NVBOUZJjdGkq8fLBXsvgpX/H4sP53BvhZ7FbN6VDHVXpcktt/9XVfoU
-	Bxk5Cb6ikETFUY2ZlZf5mdMg2ZJQyZCE=
-X-Received: by 2002:a05:6512:33d0:b0:5ae:d80f:c77c with SMTP id
- 2adb3069b0e04-5b28f998d30mr4171034e87.30.1784620188475; Tue, 21 Jul 2026
- 00:49:48 -0700 (PDT)
+	b=eoFPW2OD7s35Azw47YLLuikvix+UDF0w3sqdGWpfkJOeyiK09Fda4d0fyk9jUl7si
+	 OWojPo2DlQjfjcU4fw+RMJIn4/Mp/2FOQKFNrEZPr8Bs8aZ5Fi1z4v3Z0lR2IdXJnO
+	 eInAya/5/1oriC49/F1qvT5uA17CEP+nNEKuPD+czMZp574V2gfluiK1GzowZK9mxu
+	 FJVRlvUdYUGS1VVhGR4beeQ0F0qvp2AB+hVkTh5Pvs4d1kfmIM7mBCD6gPVQTUJI/a
+	 kh5kYFcyTFomZrO4NCQNzhcExq7n+5tplAkoF7WuocSAUoEgJsX6J2BzGVcfGyTqce
+	 ltFpvhJfr/xUA==
+Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-5b159850b16so7284959e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 00:50:09 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RpDQmNNLoTtxMIPm35uvYw6dfCNVz+nlsREamCJwAHnpBqQOzufq18rRcOmOjqIIslVYMctidqPMOIAE9YlsbzB@lists.infradead.org
+X-Gm-Message-State: AOJu0YzmAuUU2yNMsbwHx171z/3WhakoCVC1ddmhSZmsBFV6oJRN2Ojj
+	qDNL2eGLoADbcBVv2MAXT0lV2RJxGTi/zGt1y3cDVEIpj9l1Jvgo7w1C9abc6/7xBMsZriRCbe/
+	GeSdO9mpSV7p2Xuiy494fORYxT5bIBPc=
+X-Received: by 2002:a05:6512:b83:b0:5ae:b5bd:5e72 with SMTP id
+ 2adb3069b0e04-5b28fabb816mr3793719e87.59.1784620208288; Tue, 21 Jul 2026
+ 00:50:08 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260721052859.171341-1-manikandan.m@microchip.com> <20260721052859.171341-7-manikandan.m@microchip.com>
-In-Reply-To: <20260721052859.171341-7-manikandan.m@microchip.com>
+References: <20260721052859.171341-1-manikandan.m@microchip.com> <20260721052859.171341-8-manikandan.m@microchip.com>
+In-Reply-To: <20260721052859.171341-8-manikandan.m@microchip.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 21 Jul 2026 09:49:36 +0200
-X-Gmail-Original-Message-ID: <CAD++jLnvCaUaEm0m9w3CWcuahgt1VwpYC=JLTLp=O6J-y8wgZA@mail.gmail.com>
-X-Gm-Features: AUfX_myUpn3DxB2dpHt182zW3JGQBje1oWK611TyiUzfnfgPlR68CEulMNYYBjE
-Message-ID: <CAD++jLnvCaUaEm0m9w3CWcuahgt1VwpYC=JLTLp=O6J-y8wgZA@mail.gmail.com>
-Subject: Re: [PATCH v5 6/7] ARM: dts: microchip: sama5d27_wlsom1: read MAC
- address from QSPI SFDP
+Date: Tue, 21 Jul 2026 09:49:56 +0200
+X-Gmail-Original-Message-ID: <CAD++jLkzDDC66KjyMGommrC7T0L5KW3TA+JLKUmNf_psF-eRuw@mail.gmail.com>
+X-Gm-Features: AUfX_myAPX-Fx-YYXrqqVAT9emnPnmjb3E1aTj_6ToEx3OEbZBmyyuGAfe7f9n4
+Message-ID: <CAD++jLkzDDC66KjyMGommrC7T0L5KW3TA+JLKUmNf_psF-eRuw@mail.gmail.com>
+Subject: Re: [PATCH v5 7/7] ARM: configs: sama5: enable Microchip/SST SFDP EUI
+ NVMEM layout
 To: Manikandan Muralidharan <manikandan.m@microchip.com>
 Cc: pratyush@kernel.org, mwalle@kernel.org, takahiro.kuwano@infineon.com, 
 	miquel.raynal@bootlin.com, richard@nod.at, vigneshr@ti.com, robh@kernel.org, 
@@ -86,14 +86,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 21, 2026 at 7:30=E2=80=AFAM Manikandan Muralidharan
+On Tue, Jul 21, 2026 at 7:31=E2=80=AFAM Manikandan Muralidharan
 <manikandan.m@microchip.com> wrote:
 
-> Describe the QSPI flash SFDP as an NVMEM provider with the
-> microchip,sst26vf-sfdp-eui layout, which exposes the factory-programmed
-> EUI-48 as a "mac-address" cell, and point macb0 at it through
-> nvmem-cells. This yields a stable MAC address on boards where U-Boot does
-> not program one, instead of falling back to a random address.
+> Enable CONFIG_NVMEM_LAYOUT_SST26VF_SFDP_EUI so the factory EUI-48 stored
+> in the SST26VF QSPI flash SFDP can be used as a MAC address on boards
+> such as the sama5d27_wlsom1.
 >
 > Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
 
