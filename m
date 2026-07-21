@@ -4,77 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92DBCC4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 12:01:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1DCEC4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 12:08:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mfz+XYF9qEUPFn7vVrHbhU+dMueG9FqIjc17rMHYptI=; b=oh1hDPdeG0fidBdtaH6kkgk2ZH
-	+0D+d7LhvQOXngN47koXpaJZ521KKC/irF/8jI0iPHRkYYgohlpzKNW+Q+WTSiaxF+ZrU3QuvFIaK
-	Kk6IHMZhp49zxHstjq/weON+XZNWMzev3TVvS3jkwZNvxuwh9AgcjGZB3oB3AEvtAbKB+Oe/qd2Qh
-	g12H0IK58RplZwH26XhaDLI4ka8qvs1m713Oxgkze31twhlwWRvN79hClBMHcVYXxKfpdr4NMKTMU
-	joKrYQwAsEmF83K1q4K+/MkcRR1ZCgyFj+0lRSBiAXJ7bR8k1dPriXKDGgPZ2q3QAzMDIaP7eqlcR
-	5FMK7aCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/JLUszQw5nxntPaMSf0GuQmSHicYA2ZRYKBzU+ywtRU=; b=DeRY9Cxe1kEJ6go/mfjEyIUqlc
+	DT5WipkYC8oZ6H1MG3ePGRzOfc+gi41JI9s9BUtk0IT7FSKY6I5Z8Sl39Rxi7sIm857/m+KHZxa01
+	HIE7oA7noy3lXMPDU0NJHneDciWmTYNPxUxgcWiRkBxA4cyisF0rqvMryhrNgZcZNCrdA4AgeXu/H
+	AjI+DKvnVwGbVlYzZhm/3RH45UyJGwJz/wOo7smWBYylxXBSJMMh8BpSUQ9b0BM9Qjsz1dGM51vUp
+	u3YRDSDoefgedR9LOHul/q62M0myZzdS3mFwOCG9HjUO2F0h72GRmPuTeRM/ioGV+UcY1wslupuvN
+	EI/uugew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm9AJ-00000009N6c-0Tqn;
-	Tue, 21 Jul 2026 12:01:39 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wm9Gn-00000009Nmy-1EIO;
+	Tue, 21 Jul 2026 12:08:21 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm9AG-00000009N5h-1yQj
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 12:01:37 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id E51FA4E40E9D;
-	Tue, 21 Jul 2026 12:01:34 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id B4FE660368;
-	Tue, 21 Jul 2026 12:01:34 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4B33611BD2234;
-	Tue, 21 Jul 2026 14:01:27 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1784635289; h=from:subject:date:message-id:to:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=Mfz+XYF9qEUPFn7vVrHbhU+dMueG9FqIjc17rMHYptI=;
-	b=gf0l9KNidokNm/7c0EhDfFkJHuGxPwKzr0QShggJ+Q6UVWE9y2fPzZWR3NE3wz9xuleqfV
-	O6CkPbq/+qFSLL7IlQVRnf/m0/MIc8KUTKzHAdfpG/xvdHsgWCYraQfImINouLc5rg+FXD
-	nNEon5Pas5phPl4MNLgScqwjYoweV3IOg5MnrHyFfPsxfc44fesu4yoePHP4tlyEoz/ep2
-	3fiBF4xsJkXL/YRz5xfUw7IkJDNS8CdGaXaEEilQLjVGTla+FETwYtPEup4ieeihBjPpps
-	PrDWVz/0jxsvYvXCGAQmvrRgCTfwDQB/QDx8H/D69nxKYFhTTxIrqdFaEDI5HA==
-Message-ID: <c0dbd5a0-97bd-4d04-9fcb-d8c0a805b21e@bootlin.com>
-Date: Tue, 21 Jul 2026 14:01:26 +0200
+	id 1wm9Gl-00000009Nm9-0Tq1;
+	Tue, 21 Jul 2026 12:08:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1784635691; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=QMzxjQ57NYr9BooOwPo5hMWKlOWNkk3kX6KXgbb6WqQhQJCJkkVxGhHv10+z21zs/PljupmoaKekrKrcyGD6fu9E9FwUH5VNQ+rsKHV4KEhEZPf2ksqdScM86bm3/UPrTBGV5POl7tmvBg4FHcvAp7C5hy3LLx+sCIsPVFqo76Q=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1784635691; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=/JLUszQw5nxntPaMSf0GuQmSHicYA2ZRYKBzU+ywtRU=; 
+	b=Mv3S9CyFCDf036vRiccAQDi/NTxkqhop8CKFVnX9qitzt8iypy8xlxzr8RM7NwtlQWNuSND2/wLmtRJNYmrgcYUrNyrUy61Cxq6cpkLjN68DAY6Pi4xnnhdtjNoOvGPuYgF1EhgEwLc178xH6faC+EUpHlRYLxe96QLAF2/YIos=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1784635691;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=/JLUszQw5nxntPaMSf0GuQmSHicYA2ZRYKBzU+ywtRU=;
+	b=i/1rLOvDpal9TKEZUrPz4yP1/hgb0vfpGw7P7SLL+jJTpEl/mihDp3GDXQcQtBgs
+	qFrumGcUFbu4FKfh9aLI9+dbwSIYUsusSC6dyGKj+M0b1bKFVgKQiwdNSJjrqaDF1SE
+	CGzDaX+1CJmG6xPZKVqgd58J9qmhr7b3lyryOsPc=
+Received: by mx.zohomail.com with SMTPS id 1784635689231785.3049535059575;
+	Tue, 21 Jul 2026 05:08:09 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Mark Brown <broonie@kernel.org>, Bui Duc Phuc <phucduc.bui@gmail.com>
+Cc: Heiko Stuebner <heiko@sntech.de>, Liam Girdwood <lgirdwood@gmail.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>, linux-sound@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] ASoC: rockchip: rockchip_sai: Hand over hclk control exclusively
+ to Runtime PM
+Date: Tue, 21 Jul 2026 14:08:03 +0200
+Message-ID: <xrl5n7J2R2GNQC1ABA20Mw@collabora.com>
+In-Reply-To: <CAABR9nF8GebpxX0ry-MMLCfsyPJ6EUpkEtYdASAep2jX+d5gnw@mail.gmail.com>
+References: <20260622005613.21870-1-phucduc.bui@gmail.com>
+ <CAABR9nG6BL+-urEg0qDzJHYmowm7O=du_0T4+K2ogdrcD30CXA@mail.gmail.com>
+ <CAABR9nF8GebpxX0ry-MMLCfsyPJ6EUpkEtYdASAep2jX+d5gnw@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v9 03/12] net: phylink: add phylink_release_pcs()
- to externally release a PCS
-To: Christian Marangi <ansuelsmth@gmail.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Simon Horman <horms@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- Lorenzo Bianconi <lorenzo@kernel.org>, Heiner Kallweit
- <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>,
- Saravana Kannan <saravanak@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-References: <20260717065448.1498335-1-ansuelsmth@gmail.com>
- <20260717065448.1498335-4-ansuelsmth@gmail.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20260717065448.1498335-4-ansuelsmth@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_050136_664260_F5CC7EF3 
-X-CRM114-Status: GOOD (  13.29  )
+X-CRM114-CacheID: sfid-20260721_050819_213179_9470A98B 
+X-CRM114-Status: GOOD (  46.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,29 +81,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hello, finally got around to responding to this.
 
-On 7/17/26 08:54, Christian Marangi wrote:
-> Add phylink_release_pcs() to externally release a PCS from a phylink
-> instance. This can be used to handle case when a single PCS needs to be
-> removed and the phylink instance needs to be refreshed.
-> 
-> On calling phylink_release_pcs(), the PCS will be removed from the
-> phylink internal PCS list and the phylink supported_interfaces value is
-> reparsed with the remaining PCS interfaces.
-> 
-> Also a phylink resolve is triggered to handle the PCS removal.
-> 
-> The flag force_major_config is set to make phylink resolve reconfigure
-> the interface (even if it didn't change).
-> This is needed to handle the special case when the current PCS used
-> by phylink is removed and a major_config is needed to propagae the
-> configuration change. With this option enabled we also force mac_config
-> even if the PHY link is not up for the in-band case.
-> 
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+On Wednesday, 24 June 2026 04:37:33 Central European Summer Time Bui Duc Ph=
+uc wrote:
+> Hi all,
+>=20
+> Regarding the case where PM configuration is not enabled, with the old
+> source code, I suspect there is an unbalanced clk_disable_unprepare()
+> call on hclk when the driver is unbound after a successful probe under
+> CONFIG_PM=3Dn.
 
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+If "old source code" refers to what's currently in the tree with the
+devm_clk_get_enabled, then yes. There's the manual resume function
+call which isn't balanced.
 
-Maxime
+I think your follow-up patch does make sense in light of that.
+
+>=20
+> The actual enable_count / prepare_count sequence for hclk (with values
+> clamped at 0) would be:
+>=20
+> probe:
+>=20
+> devm_clk_get_enabled           0 -> 1
+> runtime_resume (manual)       1 -> 2
+> clk_disable_unprepare            2 -> 1 (at the end of probe)
+>=20
+> unbind:
+>=20
+> remove -> runtime_suspend   1 -> 0 (ops->disable/unprepare executed here)
+> devm cleanup                          0 -> WARN "already disabled" /
+> "already unprepared"
+>=20
+> This conclusion is based solely on code inspection; I do not have
+> hardware available to verify it.
+
+I'll e-mail you off-list to see if we can rectify that.
+
+> I noticed that Nicolas tested and ACKed the use of devm_clk_get_enabled(),
+> so I'm not sure whether that testing included the CONFIG_PM=3Dn configura=
+tion.
+
+Nope, I basically never build with PM/RPM disabled.
+
+>=20
+> https://lore.kernel.org/all/2818018.CQOukoFCf9@workhorse/
+>=20
+> If it did, then I may have overlooked something.
+>=20
+> @Nicolas (or anyone familiar with this), could you please help
+> double-check if my understanding is correct?
+>=20
+> Best regards,
+> Phuc
+>=20
+>=20
+>=20
+> On Tue, Jun 23, 2026 at 5:53=E2=80=AFPM Bui Duc Phuc <phucduc.bui@gmail.c=
+om> wrote:
+> >
+> > Hi Mark,
+> >
+> > Thank you for your review.
+> >
+> > > >    1 Reverting back to devm_clk_get() to remove the implicit devres
+> > > >      enable/disable behavior.
+> > > >    2 Manually enabling and disabling hclk explicitly only around the
+> > > >      early register access before Runtime PM takes over.
+> > > >    3 Dropping the stray clk_disable_unprepare() at the end of probe=
+()
+> > > >      so Runtime PM solely owns hclk afterward.
+> > >
+> > > Note that runtime PM can be disabled at build time so we might not ha=
+ve
+> > > runtime PM at all...
+> > >
+> >
+> > Thanks for pointing this out. You're right that with !CONFIG_PM, the
+> > driver only relies on the
+> > two manual calls to rokchip_sai_runtime_resume() / suspend(), so hclk
+> > stays enabled the
+> > whole time. I understand this is unvavoidable in that configuration,
+> > throgh, since there's no
+> > Runtime PM to re-enable the clock when it's needed.
+> >
+> > I'll update the commit message to reflect that the driver uses a
+> > combination of Runtime PM
+> > and explicit manual enable/disable, rather than relying on Runtime PM a=
+lone.
+> >
+> > > > Links:
+> > > > 1 This change is based on the discussion around manual hclk handing=
+ during probe(),
+> > > >   as raised by Krysztof:
+> > > >   https://lore.kernel.org/all/20e4754b-ea9a-404d-b529-ec44a7263cbf@=
+kernel.org/#t
+> > > > 2 Background for the earlier devm_clk_get_enbabled() conversion:
+> > > >   https://lore.kernel.org/all/2818018.CQOukoFCf9@workhorse/
+> > >
+> > > > An alternative approach would be use devm_regmap_init_mmio_clk() an=
+d let regmap
+> > > > manage clock enablement around register accesses. If preferred, I c=
+an rework the
+> > > > driver accordingly.
+
+Hm, I'm worried only ungating the clock around register accesses isn't
+going to go well if the clock is needed by the internal logic of the
+device as well.
+
+> > >
+> > > > -     sai->hclk =3D devm_clk_get_enabled(&pdev->dev, "hclk");
+> > > > +     sai->hclk =3D devm_clk_get(&pdev->dev, "hclk");
+> > > >       if (IS_ERR(sai->hclk))
+> > > >               return dev_err_probe(&pdev->dev, PTR_ERR(sai->hclk),
+> > > >                                    "Failed to get hclk\n");
+> > > >
+> > > > +     ret =3D clk_prepare_enable(sai->hclk);
+> > > > +     if (ret)
+> > > > +             return dev_err_probe(&pdev->dev, ret, "Failed to enab=
+le hclk\n");
+> > > > +
+> > >
+> > > > @@ -1482,8 +1492,6 @@ static int rockchip_sai_probe(struct platform=
+_device *pdev)
+> > > >       pm_runtime_use_autosuspend(&pdev->dev);
+> > > >       pm_runtime_put(&pdev->dev);
+> > > >
+> > > > -     clk_disable_unprepare(sai->hclk);
+> > > > -
+> > > >       return 0;
+> > >
+> > > Are you sure that the runtime PM state there is such that it knows a
+> > > reference is held?  The driver used pm_runtime_get_noresume() so the
+> > > device didn't have RPM_ACTIVE set I think?
+> >
+> >
+> > You are right, pm_runtime_get_noresume() doesn't set RPM_ACTIVE. I
+> > think we need to add
+> > pm_runtime_set_active() before pm_runtime_enable(). Otherwise, with CON=
+=46IG_PM,
+> > the pm_runtime_put() at the end of probe() might skip the suspend,
+> > since the core still considers
+> > the device suspended .
+
+Agreed, this needs fixing. That is an odd behaviour of the PM API.
+
+> >
+> > >
+> > > The runtime PM API really is a miserable collection of landmines :(
+> >
+> > Yeah, plenty of landmines indeed :(
+> > I checked, and rockchip_spdif.c does use devm_regmap_init_mmio_clk() fo=
+r hclk,
+> > rather than wrapping every register access in pm_runtime_get_sync() /
+> > pm_runtime_put()
+> > the way rockchip_sai does.
+> >
+> > Best regards,
+> > Phuc
+>=20
+
+
+
+
 
