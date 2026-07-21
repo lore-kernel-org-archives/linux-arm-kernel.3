@@ -4,146 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0781BC4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 07:00:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80C83C4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 07:03:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1daOcfcPekbXPTo1ZKu5apWsbmT+eRXZYZR1KNyfufs=; b=xCx3pTPbablONKFgip3mARyJe8
-	1EiR9t93jZlNt6nMlcFc7FGuqziZUekfABMDoeI2sOF3DRkY+EVjDOIEVLis0b4E42+Eds1v5Wby6
-	L8kh0SixtVQINfeafmQaneQcVKYUKCJ9t39FDmChfHNhPad8NRwhBNKeHrdtroh56f+NQRdcgd1Zr
-	eS6svrfTY46N5BGDiU42gDTSBDBHrQEUqHbqTVRVW7gi2WRBNLz/AiTpYYy0a5KbBPA8itAVOBbD/
-	oZ9p8p9NOVOskFk14s9qD30S1qCD5q39IQLYaQjrx5MIQnJct07I0NxrlnaGjXLU9+CUgzidyWk9L
-	2tC1V5oQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OBsF4MqETY56ssEgpu6SKhe35ZopnEYwy2uOFqShRcc=; b=2NzK8+BXA0Ea1ZJEpjF7Fu45zH
+	VC33cjZOzuFlLFHhNrqrFHUlJJf12DzivL+SVByDEcr6INntglmoId3w5j21hXRbNq/cMjNlV2fWA
+	ccdu19EENAkSsigNR5oeXaXSNEFWZ75pxFt1LdpddypbR7/5Zmg+3vzcUkVv4zzKXM49blJlZL9ib
+	jp1X4WsB/uiFYnUM+CJ//FzuLO/PB+c7h8efTBL5JwNHTIbXaXyRLP/0DnPD1L2BcUkHlSojYsVNX
+	QQFDjlUKqdiRnNWd+PnLb+85XwtMUFj/hjf0hcqJrwKjXz8SOH3GNMZuk0xVYEctwW5hLo8CsOKH+
+	FBN1qwbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm4SX-00000008c7t-32Fq;
-	Tue, 21 Jul 2026 07:00:09 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wm4VG-00000008cLM-0Dae;
+	Tue, 21 Jul 2026 07:02:58 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm4SU-00000008c7X-2JWn
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 07:00:07 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66L6KFAm935491
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 07:00:05 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	1daOcfcPekbXPTo1ZKu5apWsbmT+eRXZYZR1KNyfufs=; b=KFLky9X30NQClw9T
-	JPAWRsdbrK6VOQyXuR21u7NgiOH8n0FF8dCbSdKTWupGJEZnZ7CLVxSLCdxsGCOj
-	V03pvP1ZeFOGNITQ7WXxSbFvhAQ5O/Tx7O5V/wGUVLaBgfDYaY1kowntYuygYO9L
-	u7sm39nHMe/LZOvcO9ob5EJnHJ73xAuJAIdjPFXdf6GyVM9ssgfA3k2ouMOnoFbm
-	mn06qgcnzRaZbTl/hLiKa+kS2HkvkrroVV0w75zKbJloM1SUTXaRmPTmPA552Stn
-	PJC6GWlA8k/ZzOtgtdSWts3gPbie7E5aT2mddShTCi4cW4gxK5SOYWpeKRsbEoSH
-	YX+QEg==
-Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fhqv5tu35-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 07:00:02 +0000 (GMT)
-Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-cb5ea36f969so3906509a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 00:00:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1784617201; x=1785222001; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=1daOcfcPekbXPTo1ZKu5apWsbmT+eRXZYZR1KNyfufs=;
-        b=f63JN7QpTN+56P8HmY5N3rJteAejZ3M+1N87mwQyiDfTrpJVnq+s4TRh8KwB/fCWKk
-         qoZ2qSZHPs/prUwYiNjzG2cBXSccCchIah1DuBtw4oo2+mxsyn70M/59FeseaoByFdvx
-         ELGegCKhh3b1m0XnsSevtLv1rHdAfYO6BCZ5kGMZo9tz6zmCcs/xP/Lf9lIThbWacTwH
-         53f6M27BpuZhk5YQmDvnZUNtsTDv5YJHU67y+2sekJMMqr+LIlMhV3wJV60xYDOAVRMY
-         KYR88U1SnRiZLIDrwcY64+1euBWr+hNTI+wCUZG10w8qAUwOao/IcDxGBN16lI1vs7Zm
-         y/yQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784617201; x=1785222001;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=1daOcfcPekbXPTo1ZKu5apWsbmT+eRXZYZR1KNyfufs=;
-        b=DusIKJHPTpl+VSO643YDzCtCfq+rwbfXlhBLRKUZleGDLh1HepPkCfDXY9TCN8o1N2
-         GkmSQ2Tg3XffbFNB+crgfBO9Jl80WtH0wGX6EfU+0tC0HxIIRY2j6ln8sGTGbP2+mQit
-         z/3zzblszXJg1R4oAJALf+HeAaiS0s7QCSen3YAs3sz1uD9se1iHBNSwBo6J8MmosGNB
-         HfBWjjDpcvir/e73CUpb3fcMgzg6MQerGHclYvpinw52hv7M/+0dd+nn9ST/79mcu4pL
-         ZtQJQPZLFt/QjNeD+FYzERXTOZcQYMzPzA/Ocj+SGfywkB8QkryHRxLthwLHAgFWFdj+
-         kTTA==
-X-Forwarded-Encrypted: i=1; AHgh+RqG0Lp75U4DIdN2UQx9sXdvH1UEIf3Li4/pW2QefGzeoX4X0SXev6mHAl3/63pw1xiONpfdGwauDf7Y9O+klug0@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy4nIwmOWm7NXU+JiBhICTlqJUjINyZvTVuZaahkn4GHYLjPkyq
-	41ysLgcqRdu9tj0vmkpnt1I2Tco5tiUxDC19ajOyffbrDmJwy4VujJNzIEkPYcMYA1yQfcDqe8D
-	jkYn0WYq6xJLpyzo/ZMwr/DJzvRVtvqEK6LPFNT/Bfe1B5WOXTQfflI/ifL6ZJThrZXuq99gL1p
-	Qyyw==
-X-Gm-Gg: AfdE7ck+H4TaFWZsgbQnuy3bXXJCiL5p5i15i6shAv/9g9IjGea9bNOx+Za4LfvRlMC
-	ygykGVl2e5RioeNJp+idF+62Uak7RSa2VMS6zPL4smx9VplFFz6UgTtZOSk51FnKKeJ2sn1TZTp
-	Gi9JTm3rJtERMO6ptWsGXvYjGx2CtQUahft4XYP1UoZATQ8537qZ9ahkvFl0c/FQIogtLOkZXxo
-	OwZ66zbr6YA4EQi3n39tMtel+uAe7XzdJRsMOjl3CUb1+1QCbJ8+BeZwMDRJcuVUNreJtm36TNF
-	7tiztAAyMXWpKHI+Xd6KaCNbS4R4GxheOwCSZvStFXS1gRWBQiyZO65G8xN4eeZ2WZ1LdiSiKkI
-	WMxPBTDLCIUdovjQ9SCt/TWvLxjJ6
-X-Received: by 2002:a05:6a20:9145:b0:3b4:b340:411d with SMTP id adf61e73a8af0-3c3ad64da60mr18812487637.24.1784617201195;
-        Tue, 21 Jul 2026 00:00:01 -0700 (PDT)
-X-Received: by 2002:a05:6a20:9145:b0:3b4:b340:411d with SMTP id adf61e73a8af0-3c3ad64da60mr18812449637.24.1784617200719;
-        Tue, 21 Jul 2026 00:00:00 -0700 (PDT)
-Received: from [10.218.15.172] ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31429ff04absm40704841eec.8.2026.07.20.23.59.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 21 Jul 2026 00:00:00 -0700 (PDT)
-Message-ID: <f2d4b312-4a11-425e-8329-33838ed37d15@oss.qualcomm.com>
-Date: Tue, 21 Jul 2026 12:29:54 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: Disallow disabling boot CPU based on config
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Thomas Gleixner <tglx@kernel.org>,
-        Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>,
-        Peter Zijlstra <peterz@infradead.org>,
-        "Rafael J. Wysocki"
- <rafael@kernel.org>,
-        Pavel Machek <pavel@kernel.org>, Len Brown <lenb@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, linux-arm-msm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org
-References: <20260703-disable_boot_cpu_offline-v2-1-782d16ff58c3@oss.qualcomm.com>
- <akfHIH_dZrr5bosu@J2N7QTR9R3>
-Content-Language: en-US
-From: Sneh Mankad <sneh.mankad@oss.qualcomm.com>
-In-Reply-To: <akfHIH_dZrr5bosu@J2N7QTR9R3>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: 4ugGhrrztOXk7Ngsc01nPqX-6-EWacta
-X-Proofpoint-ORIG-GUID: 4ugGhrrztOXk7Ngsc01nPqX-6-EWacta
-X-Authority-Analysis: v=2.4 cv=e+U2j6p/ c=1 sm=1 tr=0 ts=6a5f18f5 cx=c_pps
- a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=RLVnq9SYGZ7K_u37rsQA:9 a=QEXdDO2ut3YA:10
- a=3WC7DwWrALyhR5TkjVHa:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzIxMDA3MSBTYWx0ZWRfXzv6q3KtnDB/O
- TktEffSkUKl9pUuSRzPV79Q3Qf9og+knsqiAGiVEKnxMHhO+1R4vDqopcrpriEJqK27RSBVM7XO
- KtpJItDPaFREOB0ZPMvwoUJfyIMV6Ac=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzIxMDA3MSBTYWx0ZWRfXxNTA9XZXS6+W
- 2Gi7qnfcMIFIwm1xiarISrKDB6xo1Fbi9JNBiRJ7oOpxhXBvB6vRyhO21Pw2h//z765FjD5QAdL
- TD9xyvDJxLSDjbmGcbrqM8EHE3qU8ObBFLOqcSQ5AX5L2WvtKJYwPx91yAoTgP2VSXlaycSySGB
- iSSc2X7J07XsWABz23sm2XeocndD8f+N1yIQk4SG40556bovlVAdChZpHxpYJnAssDAKjqW6OvM
- phFg8lvaqb5VCloqGh4qIMWrjjgKNrf1GmiUHlT2aceF51Wntn/EFAnRptPE9pnIRnOqjOKLGMh
- JcOPczScCKZlDoui7yU6zgyIh7eXUBl3BzG2DISK7bQTpPtLQQLhBexk0B8MsbBHhcYpd16zY4L
- 8DrRrl1PEzBTnGFEEA7qbTszLgMp/jqDMWXDi6uJSi5OTiycvwqtK393s0U5Ax9wDBhVIDQ9iug
- kliI5p0oJKX67fczROg==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-20_06,2026-07-20_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 suspectscore=0 bulkscore=0 priorityscore=1501 adultscore=0
- lowpriorityscore=0 impostorscore=0 phishscore=0 clxscore=1015 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607210071
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_000006_626378_43EC2DD0 
-X-CRM114-Status: GOOD (  32.28  )
+	id 1wm4VD-00000008cLB-3RYl;
+	Tue, 21 Jul 2026 07:02:55 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with UTF8SMTP id 4DB59403DE;
+	Tue, 21 Jul 2026 07:02:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id A15EE1F000E9;
+	Tue, 21 Jul 2026 07:02:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784617375;
+	bh=OBsF4MqETY56ssEgpu6SKhe35ZopnEYwy2uOFqShRcc=;
+	h=Date:Subject:From:To:References:In-Reply-To;
+	b=DyLNqWZdhVBsfe38MWOiQ7wvrNaacFN0VQKb45lMHeGqFyyjmOWiGCZWPejEzeWxS
+	 y6gGoLWvI/ZwPHJPRBsTH3rJ5oq1Mv4js2JCxKoGNDKIb2ys1WaLHM9SHcwVYvzaVz
+	 6KZPXfsV6sUyyh5Ix9A3lR5ihn9TU1mAF3qQZoA/lZatOuWkJCS4ClwUPGDH8FdFC5
+	 qys7ZFF5IKLLmzY886x/T8AouATRw22Ye35FdeciKurzyu3AMj55oVRfFuoqHhNDV6
+	 7aWl18jzA6txmaYEKuKhGX7fs2rz36AJhSXRgT5HHbAd4+gOJYX7dXCUgRd9dvmqwo
+	 5imnmCyv9OTIQ==
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=f646fa6642aebc0291ef5150c4b7b201441504be25ea95e6750cba8492ba;
+ micalg=pgp-sha384; protocol="application/pgp-signature"
+Date: Tue, 21 Jul 2026 09:02:50 +0200
+Message-Id: <DK42262TYFG1.NZKF4VGZGSRM@kernel.org>
+Subject: Re: [PATCH v5 3/7] mtd: spi-nor: sfdp: expose the SFDP as a
+ read-only NVMEM device
+From: "Michael Walle" <mwalle@kernel.org>
+To: "Manikandan Muralidharan" <manikandan.m@microchip.com>,
+ <pratyush@kernel.org>, <mwalle@kernel.org>, <takahiro.kuwano@infineon.com>,
+ <miquel.raynal@bootlin.com>, <richard@nod.at>, <vigneshr@ti.com>,
+ <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+ <srini@kernel.org>, <nicolas.ferre@microchip.com>,
+ <alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
+ <linux@armlinux.org.uk>, <richardcochran@gmail.com>, <linusw@kernel.org>,
+ <arnd@arndb.de>, <linux-mtd@lists.infradead.org>,
+ <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>
+X-Mailer: aerc 0.20.0
+References: <20260721052859.171341-1-manikandan.m@microchip.com>
+ <20260721052859.171341-4-manikandan.m@microchip.com>
+In-Reply-To: <20260721052859.171341-4-manikandan.m@microchip.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,110 +78,198 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+--f646fa6642aebc0291ef5150c4b7b201441504be25ea95e6750cba8492ba
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
+On Tue Jul 21, 2026 at 7:28 AM CEST, Manikandan Muralidharan wrote:
+> The SPI NOR core already reads the SFDP tables during enumeration and
+> caches them in nor->sfdp->dwords (see spi_nor_parse_sfdp()). Re-expose
+> that cached data as a read-only NVMEM device, in on-flash byte order,
+> rooted at the flash's SFDP child node (compatible "jedec,sfdp").
+>
+> This lets NVMEM cells reference any SFDP data: a fixed-layout for
+> parameters at a known offset, or an nvmem-layout parser for vendor data
+> whose location must be discovered at runtime.The device is only registere=
+d
+> when an "sfdp" node is present in the device tree.
+>
+> Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
+> ---
+>  drivers/mtd/spi-nor/core.c |  8 ++++
+>  drivers/mtd/spi-nor/core.h |  1 +
+>  drivers/mtd/spi-nor/sfdp.c | 86 ++++++++++++++++++++++++++++++++++++++
+>  3 files changed, 95 insertions(+)
+>
+> diff --git a/drivers/mtd/spi-nor/core.c b/drivers/mtd/spi-nor/core.c
+> index ccf4396cdcd0..b833d8ec2d65 100644
+> --- a/drivers/mtd/spi-nor/core.c
+> +++ b/drivers/mtd/spi-nor/core.c
+> @@ -3204,6 +3204,14 @@ static int spi_nor_init_params(struct spi_nor *nor=
+)
+>  		spi_nor_init_params_deprecated(nor);
+>  	}
+> =20
+> +	/*
+> +	 * Expose the SFDP table as an NVMEM device only when
+> +	 * the flash actually provides one
+> +	 */
+> +	ret =3D spi_nor_register_sfdp_nvmem(nor);
+> +	if (ret)
+> +		return ret;
+> +
+>  	ret =3D spi_nor_late_init_params(nor);
+>  	if (ret)
+>  		return ret;
+> diff --git a/drivers/mtd/spi-nor/core.h b/drivers/mtd/spi-nor/core.h
+> index ba2d1a862c9d..0a6484298c5c 100644
+> --- a/drivers/mtd/spi-nor/core.h
+> +++ b/drivers/mtd/spi-nor/core.h
+> @@ -698,6 +698,7 @@ int spi_nor_controller_ops_write_reg(struct spi_nor *=
+nor, u8 opcode,
+> =20
+>  int spi_nor_check_sfdp_signature(struct spi_nor *nor);
+>  int spi_nor_parse_sfdp(struct spi_nor *nor);
+> +int spi_nor_register_sfdp_nvmem(struct spi_nor *nor);
 
-On 03-Jul-26 7:58 PM, Mark Rutland wrote:
-> On Fri, Jul 03, 2026 at 04:50:02PM +0530, Sneh Mankad wrote:
->> The Qualcomm SoCs like LeMans, Monaco 
-> 
-> Are those released products?
+That's probably not needed if..
 
-Yes, the SoCs are present in upstream:
+>  static inline struct spi_nor *mtd_to_spi_nor(struct mtd_info *mtd)
+>  {
+> diff --git a/drivers/mtd/spi-nor/sfdp.c b/drivers/mtd/spi-nor/sfdp.c
+> index 4600983cb579..704799fe92ae 100644
+> --- a/drivers/mtd/spi-nor/sfdp.c
+> +++ b/drivers/mtd/spi-nor/sfdp.c
+> @@ -6,6 +6,8 @@
+> =20
+>  #include <linux/bitfield.h>
+>  #include <linux/mtd/spi-nor.h>
+> +#include <linux/nvmem-provider.h>
+> +#include <linux/of.h>
+>  #include <linux/slab.h>
+>  #include <linux/sort.h>
+> =20
+> @@ -1612,3 +1614,87 @@ int spi_nor_parse_sfdp(struct spi_nor *nor)
+>  	kfree(param_headers);
+>  	return err;
+>  }
+> +
+> +static int spi_nor_sfdp_reg_read(void *priv, unsigned int offset,
+> +				 void *val, size_t bytes)
+> +{
+> +	struct spi_nor *nor =3D priv;
+> +	struct sfdp *sfdp =3D nor->sfdp;
+> +	size_t sfdp_size =3D sfdp->num_dwords * sizeof(*sfdp->dwords);
+> +
+> +	if (offset >=3D sfdp_size || bytes > sfdp_size - offset)
+> +		return -EINVAL;
+> +
+> +	/* The cached SFDP is kept in on-flash (little-endian) byte order. */
+> +	memcpy(val, (u8 *)sfdp->dwords + offset, bytes);
+> +
+> +	return 0;
+> +}
+> +
+> +static void spi_nor_sfdp_nvmem_put_np(void *data)
+> +{
+> +	of_node_put(data);
+> +}
+> +
+> +/**
+> + * spi_nor_register_sfdp_nvmem() - expose the SFDP as a read-only NVMEM =
+device
+> + * @nor:	pointer to a 'struct spi_nor'
+> + *
+> + * Expose the whole SFDP, in on-flash byte order, as a read-only NVMEM d=
+evice
+> + * rooted at the flash's SFDP child node (compatible "jedec,sfdp"). This=
+ lets
+> + * generic (fixed-layout) or vendor (nvmem-layout) cells reference any S=
+FDP
+> + * data. The device is only registered when a child node with the "jedec=
+,sfdp"
+> + * compatible is described in the device tree.
+> + *
+> + * Return: 0 on success or if there is nothing to do, -errno otherwise.
+> + */
+> +int spi_nor_register_sfdp_nvmem(struct spi_nor *nor)
 
-arch/arm64/boot/dts/qcom/lemans.dtsi
-arch/arm64/boot/dts/qcom/monaco.dtsi
+.. you move all this into the core, as the sfdp.c is just for
+parsing the tables.
 
-> 
-> Are those mobile phone parts, or somthing else?
+> +{
+> +	struct device *dev =3D nor->dev;
+> +	struct nvmem_config config =3D { };
+> +	struct nvmem_device *nvmem;
+> +	struct device_node *np;
+> +	int ret;
+> +
+> +	if (!nor->sfdp)
+> +		return 0;
+> +
+> +	for_each_available_child_of_node(dev_of_node(dev), np)
+> +		if (of_device_is_compatible(np, "jedec,sfdp"))
+> +			break;
 
-These are ride (automotive) chipsets and IoT boards.
+There is already of_get_compatible_child() doing exactly this.
 
-> 
->> support suspend to ram which leads the SoC to ACPI S3 similar state
->> where SoC is turned off and DDR is retained. The hardware design on
->> these SoCs forces a constraint to suspend and resume the system on
->> boot CPU / CPU0.
->>
->> If CPU0 is already offline before starting suspend to ram the
->> freeze_secondary_cpus() picks alternate CPU as primary / last CPU and
->> proceed further to invoke PSCI SYSTEM_SUSPEND.
->> This leads to a system crash.
-> 
-> Ok, so that's a firmware bug.
-> 
-> Why does the FW permit CPU0 to be offlined in the first place if it
-> can't handle this?
+> +	if (!np)
+> +		return 0;
+> +
+> +	/*
+> +	 * Register the put before devm_nvmem_register() so it runs last on
+> +	 * detach, after the NVMEM device that uses the node is gone.
+> +	 */
+> +	ret =3D devm_add_action_or_reset(dev, spi_nor_sfdp_nvmem_put_np, np);
+> +	if (ret)
+> +		return ret;
+> +
+> +	config.dev =3D dev;
+> +	config.of_node =3D np;
+> +	config.name =3D "sfdp";
+> +	config.id =3D NVMEM_DEVID_AUTO;
 
-FW permits CPU0 disablement because it functions properly in regular run time.
-But there is an additional hardware constraint in above mentioned platforms, that
-suspend to ram has to be performed via boot CPU / CPU0. Due to this constraint,
-CPU0 is required to be online when suspend to ram is triggered.
+Or rather NVEMEM_DEVID_NONE? There will ever be just one SFDP nvmem
+device.
 
-> What does PSCI_MIGRATE_INFO_TYPE report?
+How does the sysfs path looks like?
 
-It is a optional function call, which is not implemented in firmware.
+-michael
 
-> Ideally it'd report Uniprocessor (UP) not migrate capable (1), which
-> would prevent CPU_OFF on that CPU, and would force suspend to happen
-> there...
+> +	config.owner =3D THIS_MODULE;
+> +	config.read_only =3D true;
+> +	config.word_size =3D 1;
+> +	config.stride =3D 1;
+> +	config.size =3D (int)(nor->sfdp->num_dwords * sizeof(*nor->sfdp->dwords=
+));
+> +	config.reg_read =3D spi_nor_sfdp_reg_read;
+> +	config.priv =3D nor;
+> +
+> +	nvmem =3D devm_nvmem_register(dev, &config);
+> +	if (IS_ERR(nvmem)) {
+> +		/* NVMEM support is optional. */
+> +		if (PTR_ERR(nvmem) =3D=3D -EOPNOTSUPP)
+> +			return 0;
+> +		return dev_err_probe(dev, PTR_ERR(nvmem),
+> +				     "failed to register SFDP NVMEM device\n");
+> +	}
+> +
+> +	dev_dbg(dev, "exposed %d-byte SFDP as an NVMEM device\n", config.size);
+> +
+> +	return 0;
+> +}
 
-Also, above platforms are multicore (8 CPUs each).
+--f646fa6642aebc0291ef5150c4b7b201441504be25ea95e6750cba8492ba
+Content-Type: application/pgp-signature; name="signature.asc"
 
->> In order to prevent such an issue introduce PM_SLEEP_SMP_CPU_ZERO_STRICT
->> config and when enabled prohibit the CPU0 from getting disabled.
-> 
-> I don't think it makes sense for this to be a config option.
-> 
-> This is a platform-specific property, and it's possible to build a
-> kernel that boots on this platform and/or other platforms.
+-----BEGIN PGP SIGNATURE-----
 
-Yes, but for that reason the config will only be enabled for SoCs that have this
-constraint, it will remain disabled for other SoCs.
+iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCal8ZmxIcbXdhbGxlQGtl
+cm5lbC5vcmcACgkQEic87j4CH/jI+gGApwOnOpXUv7Zjj+U2mJCjeDL0lR5USIAD
+0l7ybzzM7hifaHLRlC77ydazna1FpzDhAYCtE8Ybt4b1fhNt3fuTqkrImKBWU89W
+wwSrwwJi/Sz4H5ZWP3Im1o+w6tW/n4epJHc=
+=dC2d
+-----END PGP SIGNATURE-----
 
->> Signed-off-by: Sneh Mankad <sneh.mankad@oss.qualcomm.com>
->> ---
->> Changes in v2:
->> - Moved the check to arm64 specific code.
->> - Link to v1: https://lore.kernel.org/r/20260605-disable_boot_cpu_offline-v1-1-4c68fe1a6cf8@oss.qualcomm.com
->> ---
->>  arch/arm64/Kconfig       | 9 +++++++++
->>  arch/arm64/kernel/psci.c | 6 ++++++
->>  2 files changed, 15 insertions(+)
->>
->> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
->> index fe60738e5943ba279e5571862423df4fed3db661..21697a535a25d286a2f8afe4921a41b13cc32c0a 100644
->> --- a/arch/arm64/Kconfig
->> +++ b/arch/arm64/Kconfig
->> @@ -263,6 +263,15 @@ config ARM64
->>  	help
->>  	  ARM 64-bit (AArch64) Linux support.
->>  
->> +config PM_SLEEP_SMP_CPU_ZERO_STRICT
->> +       bool "Disallow boot CPU (CPU0) offline"
->> +       depends on ARCH_QCOM
-> 
-> Why can't others select this?
-
-I can remove ARCH_QCOM dependency if any other want to use this.
-
-> 
->> +       depends on HOTPLUG_CPU
->> +       depends on SUSPEND
->> +       help
->> +         Disallow boot CPU (CPU0) offline when the suspend_ops->enter()
->> +         has to be executed by boot CPU.
-> 
-> As above, I don't think this makse sense as a config option.
-> 
-> Either we handle the FW bug, or we do not.
-> 
-> Mark.
-> 
-
-As mentioned above, its not a FW bug. CPU0 is allowed to be disabled from FW and HW constraint is for
-suspend to ram to be performed on boot CPU.
-
-Thanks,
-Sneh
-
+--f646fa6642aebc0291ef5150c4b7b201441504be25ea95e6750cba8492ba--
 
