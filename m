@@ -4,73 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48323C44529
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 15:24:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08C8DC44532
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 15:26:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YPBNn9hpSz49kVOdAZbV6vnGk6u581hP1Jj9kS9EdjI=; b=Z0ZT2lvsfbeaGL
-	d747X7A9K2J1dMrkzqeUeooFKc2CV0pZdjb9fh9JQgf5C3GHVfaVkJLVs2k9kSopcjTZAiwPPhfUO
-	FLxW4hbLPUVB1Hcse1+ecbbfyJKxyYyAmryUrwic7zYv/q9VF5pDKLC3R1nf2BParQ46YCeJzxLJI
-	FLYUicwVS8fL90RKyriSygy+TtcjJzkrxU94TcbGaPIh9z0yo9GRqQVFaSPNXGqum1W5wQEeZd/9p
-	tiqO/pCQADfISjLL9W4YmGTdCiR0SdkNpCLgr+EyhAYZ3u27kS/XA4YxXelTbEKAeCqOFKQEb+uq1
-	JeRR4DlzK7q3Qj3Hnh3w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FQ4oz64LgBujIP7CtqKYaHKZcr3Fx0Qobtjvcna58JE=; b=IyEu0t9WVub2j+f4sHMvWMv10f
+	ysLjIN1TUYp7X6/Nfyqv6oKdd6tiGa8qISh1kLzS01Gd1cD2QpBOk/fbKko1XCLvbT3wsmyL2BDVy
+	METWIxYcmRMLuiYCXQqNdF4BjQgj02RytPOuUWxkmblQzv8nGOj2a/BaVh60DpRfP6CBnPd/rqB8I
+	rikMbdN2F7l50sZZBumzDC5YEXPzGWvhbSplAbnmU0pxr2scg1I5L6+XtnxEHUzps4ZJuRXKPfCP+
+	yiNtK/UQV89pkuPbfN9HeQbAbl+G6eCz6clgfbTaKmQ7uEnxlsozFsQorxsHesH1sQ/liDsLx4OYc
+	mMSRl5sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmCK5-00000009nMF-0nf5;
-	Tue, 21 Jul 2026 15:23:57 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wmCMr-00000009nlq-2jvG;
+	Tue, 21 Jul 2026 15:26:49 +0000
+Received: from mail-ot1-f45.google.com ([209.85.210.45])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmCK3-00000009nLH-290n
+	id 1wmCMo-00000009nlP-1iX9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 15:23:55 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E713D43BF0
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 15:23:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA9DA1F00AC4
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 15:23:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784647434;
-	bh=YPBNn9hpSz49kVOdAZbV6vnGk6u581hP1Jj9kS9EdjI=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
-	b=Bv+r0CFKC/TBLQLhVZmXXA3OUUnDljQWcMOaVBFG6Lok4uB57ouKCm3iAxkV4pBQd
-	 3K2c7hTzdEmYJl7NfowobQfsyqIs5XNAAQfEr19zemfFhQMrCIa0V5Jb+h78SRAfyl
-	 aL+fc+wCvy62xCINxbfAKGr5/hNZQ4lDXJSTQKUq/0ZsQu+yHQTw1Z2/snxZnpYFYa
-	 0HgWxZalFpQcjV5TxDnLR80oWpN5k1gtuY2iL9b5R9Cfb91Y4JFZJR2z38DcwK4lQu
-	 HU5h5VZVtt8HZTOPbSCB30M03Ef+lhQhLACbeSC+1ZG4X3yQxKHum5NimeGN/ktdk2
-	 MZNJTlaK5sd2w==
-Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-39ee96f8047so9491061fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 08:23:54 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RoKkekqfMoH7MoGFsomIyI6f32s1EE90GmYi9RrF124tdlOcLwHU62BQU5IDFmCsyMQIxD6ls0hjMPOt4BvBGy6@lists.infradead.org
-X-Gm-Message-State: AOJu0YzY/3i+GmZPKsGH0jm1DnqLa19EzQ9aco/zuFLz22f4ftT+mjcg
-	pBSV+lmx/j26Kqjeh7t8EMiiQpjRGCqv3/EJeRAsDazoz5EVG5jPq8JoIupIJ9BY5Xt7mdDDBPz
-	htFdgsamACADI4OjAo8tVJDIV8sltwVw=
-X-Received: by 2002:a2e:97cc:0:b0:39a:d7f7:981d with SMTP id
- 38308e7fff4ca-39eb27f2549mr27076881fa.12.1784647433121; Tue, 21 Jul 2026
- 08:23:53 -0700 (PDT)
+	Tue, 21 Jul 2026 15:26:47 +0000
+Received: by mail-ot1-f45.google.com with SMTP id 46e09a7af769-7eb63dbd229so3083945a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 08:26:46 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784647605; x=1785252405;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=FQ4oz64LgBujIP7CtqKYaHKZcr3Fx0Qobtjvcna58JE=;
+        b=CoUZJI3mX3Nukr3C2WZV41SQCr4FSQUyJzf2akiQHtWL49mAnWPO1VlPmBzQFx+1MN
+         XOp1/3QS0Llu3ntRxdgqn4inKUz+K+BTA8pa/DX7bfNLs2iNUlZK2tt0CjLIoF3TOOkg
+         nhuhqcNhma6q7e/GCj3lIZU5E6t+kZwPcXAt63wFCtEdkyzVRXw9akMMXaF1uU3VCuDS
+         Gal55UyunbtrfuHmRf/KF+yoFywD7j46cxZf9plOnh0O2E17nAhHnLkozafBJDhy1vDX
+         7oLxI1ufpI2TikGBv7g7Ld80Pl1L2YA3D54dpDDptDUq79IVPmiGuEdXVdmUHNcJQja9
+         9xkQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rqt4S2B1FbL3Ps8yJkOH/QK4aF3E9yDaoF7YLxfy/D/5V8E+VWtDuGp+PbAtND1vT9xEsFzO19jMa8h7hlvXVAX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy9S8gYPaanV927SHYkaPus5BKbOEGk2Pe3L+V0UJarfX0WjGwO
+	ePZlTXNXvcnnQLvQTnYMuladn8Fp+QyKauStbYSvT2+xooFWYJLMrmAWWC5Ev+LGcg==
+X-Gm-Gg: AfdE7ckZ4nc1UUH7zi801MO2Q+YWsMFobhyzirp8PlusXnAUBDbXp5Ez/Wo4/PW2/BN
+	zNy9ViOKWUAMct5AiMU/yxm+Pf3GJFQsAZzxLywHt7m8g3FMUk9y0wsS4FabgqhEtttB0b6OGqa
+	0CIZpwOKR4g578a/yeoXcMc7qBtM/stcypY+zhl/Nk81rt2XbHLW8vJZMrJHAhxvQalHJVDn0Zu
+	ZuQHSi92mnkXpo9TNbEzXa4zVBTibwaXFR1a1wS6UJDWxaG5T0Gy5dVE7SDPI+T1DUz7WebOZcq
+	MTWz9Hr9r8Z5t7rFAoHUxZgD8kcMN5IkLMPiEozAPsG/6+fJVJGfFnJgjNzikLIvewL47TdEX+j
+	Pxso7VDz+6AH9IFJpYsCBgjjQLRbImaxpyHO0dnYWXtkj1moExnw1bNSa+fAerVXxq6sQM8MVPX
+	FEjWn4yuLw+peFtqQqKHwr5bc84g/nQBXICaWUuixHdxxP0YwIIZ0uu3sWL5Nzw9g4+BQzD/1d
+X-Received: by 2002:a05:6830:710b:b0:7e9:da5e:93f5 with SMTP id 46e09a7af769-7ee22e768b0mr47776a34.12.1784647605207;
+        Tue, 21 Jul 2026 08:26:45 -0700 (PDT)
+Received: from mail-oa1-f44.google.com (mail-oa1-f44.google.com. [209.85.160.44])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7ee1481f58csm1618356a34.2.2026.07.21.08.26.38
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 21 Jul 2026 08:26:42 -0700 (PDT)
+Received: by mail-oa1-f44.google.com with SMTP id 586e51a60fabf-451fd21113cso3868149fac.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 08:26:38 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RrN+rg40H4ctb/utF/+J6ixDOhROBfyyNVghUIjMp4G8CrI+rjmqLIA7VQ76H0rEbhAlEj61Uw+y9U8k4uOOjK7@lists.infradead.org
+X-Received: by 2002:a05:6871:e023:b0:430:16b5:909 with SMTP id
+ 586e51a60fabf-4576337c756mr31587fac.15.1784647598566; Tue, 21 Jul 2026
+ 08:26:38 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260704171411.1413349-1-iuncuim@gmail.com> <20260704171411.1413349-5-iuncuim@gmail.com>
-In-Reply-To: <20260704171411.1413349-5-iuncuim@gmail.com>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Tue, 21 Jul 2026 23:23:38 +0800
-X-Gmail-Original-Message-ID: <CAGb2v67Z0g37Wyvd=xaMGkLHt09qqqJnufsxKdG0nO_C2QmOGA@mail.gmail.com>
-X-Gm-Features: AUfX_mxPG9YjzrR2i-L5l43JDJ405AeeoasyDBWMfMo9AlNCzkIyjfsHyZHGbfo
-Message-ID: <CAGb2v67Z0g37Wyvd=xaMGkLHt09qqqJnufsxKdG0nO_C2QmOGA@mail.gmail.com>
-Subject: Re: [PATCH v5 4/5] thermal/drivers/sun8i: Add support for A523 THS0/1 controllers
-To: Mikhail Kalashnikov <iuncuim@gmail.com>
-Cc: Vasily Khoruzhick <anarsoul@gmail.com>, Yangtao Li <tiny.windzz@gmail.com>, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-pm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20260720162117.32304-1-fourdollars@debian.org>
+ <20260720162117.32304-6-fourdollars@debian.org> <al81PmK1UMr2g8p-@wunner.de>
+ <CAAT15mPuO71WbbS2ZpWjceCVj3FUTqHLi3wbbeV7B33JHbPRsQ@mail.gmail.com>
+ <CAAT15mPrwAqLmFVF730G+iJugzNzaT=HDj_7G5-wXbhBNU7ANg@mail.gmail.com> <f7449a69-98e3-41c0-b535-847b8c520e10@sirena.org.uk>
+In-Reply-To: <f7449a69-98e3-41c0-b535-847b8c520e10@sirena.org.uk>
+From: "Shih-Yuan Lee (FourDollars)" <fourdollars@debian.org>
+Date: Tue, 21 Jul 2026 23:26:27 +0800
+X-Gmail-Original-Message-ID: <CAAT15mNppZ6nPQ9a8Hp54XK4BXndfv+G24n4VeQ1X8GOk6fSyQ@mail.gmail.com>
+X-Gm-Features: AUfX_mxcLZ9MDAZV4isNPolsPsjelNX391zsUCu_4hyVZw3renDlpBWi3bMJ4kg
+Message-ID: <CAAT15mNppZ6nPQ9a8Hp54XK4BXndfv+G24n4VeQ1X8GOk6fSyQ@mail.gmail.com>
+Subject: Re: [PATCH v16 5/7] spi: pxa2xx: disable DMA for Apple MacBook8,1
+To: Mark Brown <broonie@debian.org>
+Cc: Lukas Wunner <lukas@wunner.de>, Andy Shevchenko <andriy.shevchenko@intel.com>, 
+	Mika Westerberg <mika.westerberg@linux.intel.com>, Daniel Mack <daniel@zonque.org>, 
+	Haojian Zhuang <haojian.zhuang@gmail.com>, Robert Jarzmik <robert.jarzmik@free.fr>, 
+	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260721_082646_452968_C1E3C3D0 
+X-CRM114-Status: GOOD (  25.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,254 +99,67 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 5, 2026 at 1:15=E2=80=AFAM Mikhail Kalashnikov <iuncuim@gmail.c=
-om> wrote:
+On Tue, Jul 21, 2026 at 11:05=E2=80=AFPM Mark Brown <broonie@debian.org> wr=
+ote:
 >
-> The A523 processor has two temperature controllers, THS0 and THS1.
-> THS0 has only one temperature sensor, which is located in the DRAM
-> controller. THS1 does have 3 sensors:
-> ths1_0 - "big" cores
-> ths1_1 - "little" cores
-> ths1_2 - gpu
+> On Tue, Jul 21, 2026 at 10:34:20PM +0800, Shih-Yuan Lee (FourDollars) wro=
+te:
+> > On Tue, Jul 21, 2026 at 5:26=E2=80=AFPM Shih-Yuan Lee (FourDollars)
+> > > On Tue, Jul 21, 2026 at 5:18=E2=80=AFPM Lukas Wunner <lukas@wunner.de=
+> wrote:
 >
-> The datasheet mentions a fourth sensor in the NPU, but lacks any register=
-s
-> for operation other than calibration registers. The vendor code reads the
-> value from ths1_2, but uses separate calibration data, so we get two
-> different values from real one.
-
-Are you sure? The calibration data is written to the sensor register.
-
-The BSP simply reads the sensor data from the GPU sensor, and passes it
-off as the value for the NPU sensor. No extra calculation involving the
-calibration data is done.
-
+> > > > It would seem better to fix up the incorrect interrupt number in a =
+quirk,
+> > > > rather than disabling DMA wholesale.
 >
-> Signed-off-by: Mikhail Kalashnikov <iuncuim@gmail.com>
-> Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
-> ---
->  drivers/thermal/sun8i_thermal.c | 133 ++++++++++++++++++++++++++++++++
->  1 file changed, 133 insertions(+)
+> > > I appreciate the comment. Based on the Bugzilla feedback regarding th=
+e
+> > > incorrect interrupt assignment, it seems fixing the IRQ value via a
+> > > quirk is indeed a better approach than disabling DMA wholesale. While
+> > > I am not certain this will resolve the issue entirely, it looks very
+> > > promising. I will investigate the IRQ mis-assignment problem further.
 >
-> diff --git a/drivers/thermal/sun8i_thermal.c b/drivers/thermal/sun8i_ther=
-mal.c
-> index 3bdd62aa8..f48ed9eae 100644
-> --- a/drivers/thermal/sun8i_thermal.c
-> +++ b/drivers/thermal/sun8i_thermal.c
-> @@ -59,6 +59,12 @@
->  #define SUN50I_H6_THS_PC_TEMP_PERIOD(x)                ((GENMASK(19, 0) =
-& (x)) << 12)
->  #define SUN50I_H6_THS_DATA_IRQ_STS(x)          BIT(x)
+> > 1. DMAR/IOMMU Validation Failure (Error -22)
+> > On modern kernels with Interrupt Remapping (DMAR) enabled, overriding
+> > pdev->irq to 21 causes the dw_dmac_pci driver probe to fail with
+> > -EINVAL (-22) during request_irq(). This is because the
+> > DMAR/IOMMU strictly validates the PCI Requester ID (source ID) against
+> > the GSI mapping defined in the ACPI _PRT table. Forcing a device
+> > mapped to GSI 20 (00:15.0) to register on GSI 21 triggers a
+> > source ID mismatch check, which the kernel rejects.
 >
-> +#define SUN55I_A523_DELIMITER                  0x7c8
-> +#define SUN55I_A523_OFFSET_ABOVE               2736
-> +#define SUN55I_A523_OFFSET_BELOW               2825
-> +#define SUN55I_A523_SCALE_ABOVE                        74
-> +#define SUN55I_A523_SCALE_BELOW                        65
-> +
->  struct tsensor {
->         struct ths_device               *tmdev;
->         struct thermal_zone_device      *tzd;
-> @@ -114,6 +120,15 @@ static int sun50i_h5_calc_temp(struct ths_device *tm=
-dev,
->                 return -1590 * reg / 10 + 276000;
->  }
+> That really seems like something we ought to be able to do, though I
+> think the idiom here is to patch the ACPI tables so they are correct
+> rather than quirk things in C code.  ICBW about the preferred approach
+> there.
 >
-> +static int sun55i_a523_calc_temp(struct ths_device *tmdev,
-> +                                int id, int reg)
-> +{
-> +       if (reg >=3D SUN55I_A523_DELIMITER)
-> +               return SUN55I_A523_SCALE_ABOVE * (SUN55I_A523_OFFSET_ABOV=
-E - reg);
-> +       else
-> +               return SUN55I_A523_SCALE_BELOW * (SUN55I_A523_OFFSET_BELO=
-W - reg);
-> +}
-> +
->  static int sun8i_ths_get_temp(struct thermal_zone_device *tz, int *temp)
->  {
->         struct tsensor *s =3D thermal_zone_device_priv(tz);
-> @@ -299,6 +314,97 @@ static int sun50i_h6_ths_calibrate(struct ths_device=
- *tmdev,
->         return 0;
->  }
->
-> +/*
-> + * The A523 nvmem calibration values. The ths1_3 is not used as it
-> + * doesn't have its own sensor and doesn't have any internal switch.
-> + * Instead, the value from the ths1_2 sensor is used, which gives the
-> + * illusion of an independent sensor for NPU and GPU when using
-> + * different calibration values.
-> + *
-> + * efuse layout 0x38-0x3F (caldata[0..3]):
-> + *     caldata[0]      caldata[1]      caldata[2]      caldata[3]
-> + * 0               16      24      32  36          48          60 64
-> + * +---------------+---------------+---------------+---------------+
-> + * |               |       |   temp    |  ths1_0   |  ths1_1   |   +
-> + * +---------------+---------------+---------------+---------------+
-> + *
-> + * efuse layout 0x44-0x4B (caldata[4..7]):
-> + *     caldata[4]      caldata[5]      caldata[6]      caldata[7]
-> + * 0           12  16      24      32  36          48             64
-> + * +---------------+---------------+---------------+---------------+
-> + * |  ths1_2   |  ths1_3   |    ths0   |           |               +
-> + * +---------------+---------------+---------------+---------------+
-> + */
-> +static int sun55i_a523_ths_calibrate(struct ths_device *tmdev,
-> +                                    u16 *caldata, int callen)
-> +{
-> +       struct device *dev =3D tmdev->dev;
-> +       int i, ft_temp;
-> +
-> +       if (!caldata[0])
-> +               return -EINVAL;
-> +
-> +       ft_temp =3D (((caldata[2] << 8) | (caldata[1] >> 8)) & FT_TEMP_MA=
-SK) * 100;
-> +
-> +       for (i =3D 0; i < tmdev->chip->sensor_num; i++) {
-> +               int sensor_reg, sensor_temp, cdata, offset;
-> +               /*
-> +                * Chips ths0 and ths1 have common parameters for value
-> +                * calibration. To separate them we can use the number of
-> +                * temperature sensors on each chip.
-> +                * For ths0 this value is 1.
-> +                */
-> +               if (tmdev->chip->sensor_num =3D=3D 1) {
-> +                       sensor_reg =3D ((caldata[5] >> 8) | (caldata[6] <=
-< 8)) & TEMP_CALIB_MASK;
-> +               } else {
-> +                       switch (i) {
-> +                       case 0:
-> +                               sensor_reg =3D (caldata[2] >> 4) & TEMP_C=
-ALIB_MASK;
-> +                               break;
-> +                       case 1:
-> +                               sensor_reg =3D caldata[3] & TEMP_CALIB_MA=
-SK;
-> +                               break;
-> +                       case 2:
-> +                               sensor_reg =3D caldata[4] & TEMP_CALIB_MA=
-SK;
-> +                               break;
-> +                       default:
-> +                               sensor_reg =3D 0;
-> +                               break;
-> +                       }
-> +               }
-> +
-> +               sensor_temp =3D tmdev->chip->calc_temp(tmdev, i, sensor_r=
-eg);
-> +
-> +               /*
-> +                * Calibration data is CALIBRATE_DEFAULT - (calculated
-> +                * temperature from sensor reading at factory temperature
-> +                * minus actual factory temperature) * X (scale from
-> +                * temperature to register values)
-> +                */
-> +               cdata =3D CALIBRATE_DEFAULT -
-> +                       ((sensor_temp - ft_temp) / SUN55I_A523_SCALE_ABOV=
-E);
+> BTW, if you're using a LLM to assist with analysis please don't just
+> paste the output into mail.  Instead make sure you understand what the
+> LLM is saying and write up the salient bits.
+Hi Mark,
 
-The BSP version works out to:
+You are absolutely correct. The standard idiom for correcting firmware
+bugs in ACPI tables is indeed using the Initrd ACPI Table Override
+mechanism (compiling a modified DSDT with corrected _PRT routing and
+prepending it to the initramfs).
 
-    cdata =3D CALIBRATE_DEFAULT -
-            (sensor_temp - ft_temp - 5000) / SU55I_A523_SCALE_BELOW
+Actually, I was just following Lukas's suggestion to modify
+drivers/dma/dw/pci.c to do a quick proof-of-concept test, and I used
+an AI assistant to help me write and deploy the driver quirk code.
 
-Any particular reason why it's different?
+I have previous experience with the Initrd ACPI Table Override
+mechanism, so I can definitely try that on my machine next to see if
+we can get DMA working properly by aligning the PCI routing and DMAR
+mapping correctly).
 
-> +               if (cdata & ~TEMP_CALIB_MASK) {
-> +                       /*
-> +                        * Calibration value more than 12-bit, but calibr=
-ation
-> +                        * register is 12-bit. In this case, ths hardware=
- can
-> +                        * still work without calibration, although the d=
-ata
-> +                        * won't be so accurate.
-> +                        */
-> +                       dev_warn(dev, "sensor%d is not calibrated.\n", i)=
-;
-> +                       continue;
-> +               }
-> +
-> +               offset =3D (i % 2) * 16;
-> +               regmap_update_bits(tmdev->regmap,
-> +                                  SUN50I_H6_THS_TEMP_CALIB + (i / 2 * 4)=
-,
-> +                                  TEMP_CALIB_MASK << offset,
-> +                                  cdata << offset);
-> +       }
-> +
-> +       return 0;
-> +}
-> +
->  static int sun8i_ths_calibrate(struct ths_device *tmdev)
->  {
->         struct nvmem_cell *calcell =3D NULL;
-> @@ -717,6 +823,31 @@ static const struct ths_thermal_chip sun50i_h616_ths=
- =3D {
->         .calc_temp =3D sun8i_ths_calc_temp,
->  };
->
-> +/* The A523 has a shared reset line for both chips */
-> +static const struct ths_thermal_chip sun55i_a523_ths0 =3D {
-> +       .sensor_num =3D 1,
-> +       .has_bus_clk_reset =3D true,
-> +       .has_mod_clk =3D true,
-> +       .ft_deviation =3D 5000,
+Also, I will keep your advice in mind regarding LLM usage, and will
+make sure to write up the key points myself rather than pasting raw
+output.
 
-In the BSP this is 0.
+Thanks,
 
-> +       .temp_data_base =3D SUN50I_H6_THS_TEMP_DATA,
-> +       .calibrate =3D sun55i_a523_ths_calibrate,
-> +       .init =3D sun50i_h6_thermal_init,
-> +       .irq_ack =3D sun50i_h6_irq_ack,
-> +       .calc_temp =3D sun55i_a523_calc_temp,
-> +};
-> +
-> +static const struct ths_thermal_chip sun55i_a523_ths1 =3D {
-> +       .sensor_num =3D 3,
-> +       .has_bus_clk_reset =3D true,
-> +       .has_mod_clk =3D true,
-> +       .ft_deviation =3D 5000,
-
-In the BSP this is 0.
-
-
-ChenYu
-
-> +       .temp_data_base =3D SUN50I_H6_THS_TEMP_DATA,
-> +       .calibrate =3D sun55i_a523_ths_calibrate,
-> +       .init =3D sun50i_h6_thermal_init,
-> +       .irq_ack =3D sun50i_h6_irq_ack,
-> +       .calc_temp =3D sun55i_a523_calc_temp,
-> +};
-> +
->  static const struct of_device_id of_ths_match[] =3D {
->         { .compatible =3D "allwinner,sun8i-a83t-ths", .data =3D &sun8i_a8=
-3t_ths },
->         { .compatible =3D "allwinner,sun8i-h3-ths", .data =3D &sun8i_h3_t=
-hs },
-> @@ -727,6 +858,8 @@ static const struct of_device_id of_ths_match[] =3D {
->         { .compatible =3D "allwinner,sun50i-h6-ths", .data =3D &sun50i_h6=
-_ths },
->         { .compatible =3D "allwinner,sun20i-d1-ths", .data =3D &sun20i_d1=
-_ths },
->         { .compatible =3D "allwinner,sun50i-h616-ths", .data =3D &sun50i_=
-h616_ths },
-> +       { .compatible =3D "allwinner,sun55i-a523-ths0", .data =3D &sun55i=
-_a523_ths0 },
-> +       { .compatible =3D "allwinner,sun55i-a523-ths1", .data =3D &sun55i=
-_a523_ths1 },
->         { /* sentinel */ },
->  };
->  MODULE_DEVICE_TABLE(of, of_ths_match);
-> --
-> 2.55.0
->
+Shih-Yuan
 
