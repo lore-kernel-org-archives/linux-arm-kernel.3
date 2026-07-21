@@ -4,65 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDC2AC4452B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 22:15:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2749DC4452D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 22:42:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l0Qk82VWUI/phrHlM0/TFHSoplW2FERa/sfd63mpYwo=; b=OwU5Snx/yX+c6/sagBx5Nd5yUD
-	kR6zUeMXfeRG0A69pWsfeVv7Wk1YzAbI73hHkzjrdzVQHT2qi0oY/BH6WqCswQ9+J+XbOSxnd5hC7
-	iHANEXv+BPpixeKcfj3bbOzkgMLkQZiz2ldJVsYLmU2S8Fb5Vs+RGeimeI3bI/wWKMfq4syllTF4o
-	LuXZWCyWo/XsIG0ERx1HkKgYo9ttkU79NN8rafiu023/KF0gDvidueKFEasXkv6fcKvbo+21T5R3y
-	KV1zOba+t6uH6CdABw5ml6deHebLVAvgt6QS5xDWB95DogbNEGsJ22C7t2okrZNN77l051J1dw3sV
-	P9pyKIsg==;
+	bh=PONjBXo7q+plV0IvZnhVyHq1E/akMlsE6hQ+X/aIHuA=; b=WQiKoHFRewH7JWE3u2Jtix9P34
+	K4Q3rPZigDb4ssEa4RxGdvcQxoLEZwMje/JK9CCdLr1beukTSIU6vKbhHkvK01lcjG0uuGaugmt1O
+	iiS36C74YLyNM/e9i95U07cBzEs06nNLgGzTe6KoYJiImoHSHcFj+xQM4LnomXBA82Jbb9JMgKJe0
+	7IDX4KqG9j0HQvDuQe4L0fFvq7JFnjCwlgRP/yVtECbmznMeZsHhI3JQyWORZ8qnF+OlWN+nwVgvp
+	nIJUUWaRBplMWPpcsVOLRUTobcZMKN1cmqfNOkrurlaZht8CFuU7qeX26jjVl2DrEP0hHNnzepdAS
+	cLoI4gCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmIkh-0000000AVRK-2CFu;
-	Tue, 21 Jul 2026 22:15:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmIkg-0000000AVR4-2LVR
+	id 1wmJAU-0000000AWbq-1lGi;
+	Tue, 21 Jul 2026 22:42:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmJAR-0000000AWbG-0Znw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 22:15:50 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5455943CB3;
-	Tue, 21 Jul 2026 22:15:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB5C21F00A3F;
-	Tue, 21 Jul 2026 22:15:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1784672150;
-	bh=l0Qk82VWUI/phrHlM0/TFHSoplW2FERa/sfd63mpYwo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=V+e226s8WnkTIOPxV5aUIreY6t2wG93VeML7go06EuWSn5gHYzqljxJlWjNUSMAlY
-	 ekcbn3au+z2ocL0qslIyDememOc647jclJyIrz3MaYYSQ7RE5CAhMlWpDCcwmKh4Yp
-	 tcS+hlFGpO66ZS/Qk9o4dB1b9l3FR/8c1Ycjhi1Q=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	patches@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	David Hildenbrand <david@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Ben Hutchings <ben@decadent.org.uk>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 5.15 516/843] arm64/mm: Optimize TLB flush in unmap_hotplug_[pmd|pud]_range()
-Date: Tue, 21 Jul 2026 17:22:31 +0200
-Message-ID: <20260721152417.638870256@linuxfoundation.org>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260721152405.946368001@linuxfoundation.org>
-References: <20260721152405.946368001@linuxfoundation.org>
-User-Agent: quilt/0.69
-X-stable: review
-X-Patchwork-Hint: ignore
+	Tue, 21 Jul 2026 22:42:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AE9C41476;
+	Tue, 21 Jul 2026 15:42:20 -0700 (PDT)
+Received: from ryzen.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 15AD93F86F;
+	Tue, 21 Jul 2026 15:42:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784673744; bh=RxYsiQP8kq8WcX4Wiu5TBYeE+KzuGRPuMyC04vTe9lo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=jJEHv73hO6HQ086lu5xbbitXLOIGvcROEcTiIkVYUuD2o4T+l39wdKV8aezTQckJT
+	 DT1haVSH+RvItnWnU7gy41xC2ZW81zMcRGrrE40Wql6Qt0dl4rcQ5ufj83RXNKeajk
+	 i3dySNQ3QBnxXoJwt+6eL15DwX8atYc+Sxa1mz3g=
+Date: Wed, 22 Jul 2026 00:38:36 +0200
+From: Andre Przywara <andre.przywara@arm.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Jernej
+ Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: dts: allwinner: a523: x96qpro+: overvolting eMMC
+Message-ID: <20260722003836.4677a33b@ryzen.lan>
+In-Reply-To: <20260720213832.3763-1-andre.przywara@arm.com>
+References: <20260720213832.3763-1-andre.przywara@arm.com>
+Organization: Arm Ltd.
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260721_154227_345682_0EFD44F8 
+X-CRM114-Status: GOOD (  23.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,74 +72,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-5.15-stable review patch.  If anyone has any objections, please let me know.
+On Mon, 20 Jul 2026 23:38:32 +0200
+Andre Przywara <andre.przywara@arm.com> wrote:
 
-------------------
+Hi,
 
-From: Anshuman Khandual <anshuman.khandual@arm.com>
+> On the X96QPro+ TV box, the eMMC wasn't working properly: the chip would
+> be detected, but most requests failed, leaving it unusable. Some
+> "solutions" were circulating downstream, one "popular" one is severely
+> limiting the clock frequency, with a drastic performance impact.
+> 
+> Instead slightly bumping the I/O voltage on PortC from the canonical
+> 1.8V to 1.9V seemed to do the trick: the eMMC now works and reaches the
+> expected 120MB/s performance.
 
-[ Upstream commit ff4c5a0de1f2ef7737a8688a86e19301e567020d ]
+So for the records: please disregard this patch, it was more voodoo
+than a proper fix.
+As Sashiko pointed out, this slight voltage bump changes the GPIO bank
+withstand voltage, which turned out to be the actual culprit: the
+encoding was wrong, and the new voltage here now changed the value to
+inadvertently use the right bit setting.
+I will send another patch to fix this properly.
 
-Commit 48478b9f7913 ("arm64/mm: Enable batched TLB flush in
-unmap_hotplug_range") inadvertently introduced redundant TLB
-invalidation when clearing a block entry, resulting in unnecessary
-broadcast invalidation on CPUs without support for range-based
-invalidation.
+Cheers,
+Andre
 
-Re-introduce the old behaviour, along with some expanded comments to
-help people working in this area next time around.
-
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Ryan Roberts <ryan.roberts@arm.com>
-Cc: David Hildenbrand <david@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Reported-by: Ben Hutchings <ben@decadent.org.uk>
-Closes: https://lore.kernel.org/all/b0d5836032ce3135bfc473f6bff791306d086925.camel@decadent.org.uk/
-Fixes: 48478b9f7913 ("arm64/mm: Enable batched TLB flush in unmap_hotplug_range()")
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-[will: Reword comments and commit message]
-Signed-off-by: Will Deacon <will@kernel.org>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- arch/arm64/mm/mmu.c | 11 +++++++++--
- 1 file changed, 9 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 739d00a69be103..8e5fcfc282bcd5 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -917,7 +917,13 @@ static void unmap_hotplug_pmd_range(pud_t *pudp, unsigned long addr,
- 			if (free_mapped) {
- 				/* CONT blocks are not supported in the vmemmap */
- 				WARN_ON(pmd_cont(pmd));
--				flush_tlb_kernel_range(addr, addr + PMD_SIZE);
-+				/*
-+				 * Invalidating a block entry requires just
-+				 * a single overlapping TLB invalidation,
-+				 * so limit the range of the flush to a single
-+				 * page.
-+				 */
-+				flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
- 				free_hotplug_page_range(pmd_page(pmd),
- 							PMD_SIZE, altmap);
- 			}
-@@ -947,7 +953,8 @@ static void unmap_hotplug_pud_range(p4d_t *p4dp, unsigned long addr,
- 		if (pud_sect(pud)) {
- 			pud_clear(pudp);
- 			if (free_mapped) {
--				flush_tlb_kernel_range(addr, addr + PUD_SIZE);
-+				/* See comment in unmap_hotplug_pmd_range(). */
-+				flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
- 				free_hotplug_page_range(pud_page(pud),
- 							PUD_SIZE, altmap);
- 			}
--- 
-2.53.0
-
-
+> 
+> Adjust the respective regulator voltage in the .dts to enable eMMC
+> operation on that device.
+> 
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> ---
+> Hi,
+> 
+> I am not super happy with this patch, but it seems to be a pragmatic and
+> the least hacky solution I have seen.
+> 
+> Cheers,
+> Andre
+> 
+>  arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts b/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
+> index a96927fbdadd5..5636e95312218 100644
+> --- a/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
+> +++ b/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
+> @@ -194,8 +194,8 @@ reg_bldo4: bldo4 {
+>  
+>  			reg_cldo1: cldo1 {
+>  				regulator-always-on;
+> -				regulator-min-microvolt = <1800000>;
+> -				regulator-max-microvolt = <1800000>;
+> +				regulator-min-microvolt = <1900000>;
+> +				regulator-max-microvolt = <1900000>;
+>  				regulator-name = "vcc-codec-sd";
+>  			};
+>  
 
 
