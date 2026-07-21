@@ -4,66 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 145ADC4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 18:10:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B2D9C4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 18:16:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qJ2PC1oOUN/lV90CXEwewsm2mx2rssquszpJHMN4XBo=; b=urNs7BR29IafEbiAUunY8t1dJV
-	oI2ff54Wf0iEgRJmB07FeYS2da1/+lmQzhBA+t2CXrWIYgGHTiIkFKf5p92/cwwRbRM5oKOonP8XU
-	a4bcpun2CdiMJdf2ZUXeTErMs5QFoUTZjzdggMB9Fh0cv33mOIUzPmI5R2OCX04u3TgWfT21SCDbB
-	VSMheltiJGLlALm21wT2y2FGI8sB8dWjd/p1CUTG3/x4wLSliPw/p0Mh0tuiJo+6eXK1no04qRcl2
-	27saaBzusS/MdwXJehccpmNy1Z7823oSiwZZg5hVvhiFKmcebcQaN7kgDUiuYi+qb7hQQ/igECagJ
-	bzUOWGQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CZmNHXi93G5gFUL+vfByJ40rus8QRWMCNbAKPDxTLSY=; b=AW5pJN/pf306ynWpy5NvN4qE6M
+	xJsCeVyVqYPPjc+b3BayGuzS6O1QJLzZ0i1sjg1s6x5LyLJCZ+m6nNUG4I16bZdbTDLNIJkPtnoYK
+	LEh36IhCwsPRUcA+ZgtP1IZ8CibpZb6u17AV8Sl+qjCGmHN0/gMyRN55/uUCLGVE3jEG9N3lfb4Jb
+	MJJ5L3WT0G9l6xElC+cH9ocRvO+YkwsBR3OJxRGRGzJWX5J2zvkt2oZY6L/tUcm2XEkEEH194D7OB
+	+tnNDuug4Zs6u6kQh3USQ4XoFNL9gWtaFKQpHHs80qOYLLAzuzg44IWo1rF8688XDIgWswZgrwOhv
+	gGG1TZug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmEuk-0000000A9l2-1wl6;
-	Tue, 21 Jul 2026 18:09:58 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wmEeD-0000000A70z-0Lnf;
+	Tue, 21 Jul 2026 17:52:53 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmEuj-0000000A9kd-1WNe
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 18:09:57 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 85AFB601EC;
-	Tue, 21 Jul 2026 18:09:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28D841F00A3A;
-	Tue, 21 Jul 2026 18:09:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784657396;
-	bh=qJ2PC1oOUN/lV90CXEwewsm2mx2rssquszpJHMN4XBo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=M30dXX/sgOYHq+tH0rU+Ulien6D5uQDu69XilF4cR/c3jFtGoo2SJPKmaS7FkkXyo
-	 SRRTaoplw7zDgeiBuqWblypHcZoV3vCAKWZfW3yldRXo5GQvUS4qhW6a7w0q4drL7E
-	 aYjxieBNBz8lO9XjSOhH76uxRl8d1lS/7V+FcPElHJezohJqjofl4Wc4JNeQe0C/81
-	 VecKSQXkI7rmMBXB3l1320zMCTKDepfA7f8t2yXeAHyh6kktizMqfmD8+77ucLgNRh
-	 UCyQY05HDxt5gcsA1cdsncRpq2NzPsHGXA3+FvXZU4Q9SrwAfdOKizX1aJTz1xtPvS
-	 WvxVgtwAQ+9Sg==
-Date: Tue, 21 Jul 2026 11:09:50 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Yo'av Moshe <linux@yoavmoshe.com>
-Cc: Sami Tolvanen <samitolvanen@google.com>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Russell King <linux@armlinux.org.uk>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, llvm@lists.linux.dev,
-	stable@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] ARM: imx: Fix suspend/resume crash with Clang CFI
-Message-ID: <20260721180950.GA3684684@ax162>
-References: <20260718111340.159896-1-linux@yoavmoshe.com>
- <CABCJKudqGL+BFFcz3qsuoJB6S_OAt-vs2yqePC_=oy+JzmPpVw@mail.gmail.com>
- <3046e60d-509f-471f-bd15-3ce78c87500b@yoavmoshe.com>
+	id 1wmEe5-0000000A6rZ-0xaR;
+	Tue, 21 Jul 2026 17:52:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1784656358;
+	bh=F1aUwDw1oCdiQKc4Mr/s1A9oQOTsJxibKKDasYb4aSk=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=NvTIfcpGIqZItnMERhJzz+CX7sGlWe4jQ2a81A+J2aTIy2cRre17WJmP1ODad+a0/
+	 k9XM5UDR5kVQ4mjT802M23FHdmng+Sb49aJW0o2MP9WWucZmeU8gcKIkcFPdBhcLwd
+	 uZ87V/OPM63O7/bEaFlmCCJSnRdtgxkXLjTBvfp2GIVV9QFOMDEl0PQG7WmBU0huJv
+	 VFHCaUGy7PuBmkumanavrpBhG4hCFZTp1rvLOxc1fDqTfFjUta5j6Tby2b71Oo3dKG
+	 djxspBiIq1n7d1oLPziiwNXgkEvjwQpIo+bA3pujgK4/6nUPxH+A69AOv/b+WZHIQ7
+	 Ds3HUsl2KupTw==
+Received: from jupiter.universe (unknown [100.64.1.62])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519)
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 46E1F17E11F5;
+	Tue, 21 Jul 2026 19:52:38 +0200 (CEST)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id 9ED71480038; Tue, 21 Jul 2026 19:52:37 +0200 (CEST)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Tue, 21 Jul 2026 19:52:37 +0200
+Subject: [PATCH v4 07/10] drm/bridge: synopsys: dw-dp: Add Runtime PM
+ support
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <3046e60d-509f-471f-bd15-3ce78c87500b@yoavmoshe.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260721-synopsys-dw-dp-improvements-v4-7-f0f4a4ede712@collabora.com>
+References: <20260721-synopsys-dw-dp-improvements-v4-0-f0f4a4ede712@collabora.com>
+In-Reply-To: <20260721-synopsys-dw-dp-improvements-v4-0-f0f4a4ede712@collabora.com>
+To: Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
+ Damon Ding <damon.ding@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
+ Alexey Charkov <alchark@flipper.net>, dri-devel@lists.freedesktop.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, kernel@collabora.com, 
+ linux-arm-kernel@lists.infradead.org, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4278;
+ i=sebastian.reichel@collabora.com; h=from:subject:message-id;
+ bh=F1aUwDw1oCdiQKc4Mr/s1A9oQOTsJxibKKDasYb4aSk=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpfseXY5QIUTimL8C+WVfjzgs/9sWaQomIKU
+ FoG4aHTFrd1f4kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqX7HlAAoJENju1/PI
+ O/qahWsP+wZW8cZN0zpUMyr7/8wzhYujBUQMZPR/k9tP51OC6yrkwldFIDYh94xx7Dlt4RTOcCF
+ kxFAypHCm/iQ5FCMOybC6Sr03oV75twQ7IsDcKlXK96E1VdRfSrOtNrVYVxSIbZNrLwk51VgT0Y
+ mtPrc2d6ry6fP6E9NANrwG2EVL/j39rBMRcWX2ar6Yl3mVfS4MT2LGt6uq0bbPh5C0shjyL+hMC
+ EgRhkTMU3d/25tpFuzE/M05cBCm3ED7deJwXbgD4teIe/Bw5OaNDQbF8B7fXNP9FitL5uyzRxAv
+ IrO0vh/lb7QDmnoZWvnRthoYlmwiUwvXpkeIDn88Rt2aGUtcZ4HFaWUm8sfTQRgpX8TKcK5T7SA
+ CWh6gnUZZuoJzMyPQeeF+OpX2+FHlOuVlnjKCeWkRnrPWXpnLgNEfMcXTKHKx1ig0cQYtF1uDSC
+ kD6yU7K3Drrn9FibL43wT0/YVGuGN8vQl9PvC2cEFdKbycb16bYLJSSZp0wH6MxSBtg6BCXMvBq
+ 62G3enoe2N38kSk6mTdU4233xqxVmIJXS50e9r9uzsLrtXQ9ZsiDdGAg3Stti4m7eyud+EVPMyB
+ +0FjDdEsvxeMpLq50k4EcKNphiiO6b37LOQOMwo4SxCKEPDjOKMHP0EN0T6ETVVnO0egQ0zf89Y
+ S2G7ghW7JXwku0PV4lHUvlQ==
+X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260721_105245_429168_1619ABA8 
+X-CRM114-Status: GOOD (  15.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,55 +111,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 21, 2026 at 07:29:50AM +0200, Yo'av Moshe wrote:
-> On 2026-07-20 9:29 PM, Sami Tolvanen wrote:
-> > Would it be possible to just copy the 4-byte CFI hash prefix to OCRAM
-> > when relocating the function? If not, the __nocfi approach seems
-> > reasonable to me.
-> > 
-> > Sami
-> 
-> I gave this a try - I tried copying 4 bytes from before imx6_suspend
-> into OCRAM, but when I tested it on physical hardware (Kobo Clara HD),
-> it still crashed on suspend.
-> 
-> I suspect it's because imx6_suspend is written in assembly
-> (suspend-imx6.S) rather than C, so Clang doesn't emit a CFI hash prefix
-> before it in the first place.
+Add runtime PM stubs to the Synopsys DesignWare DisplayPort bridge
+driver. Support is not enabled automatically and must be hooked up
+in the vendor specific glue code.
 
-Does using SYM_TYPED_FUNC_START for imx6_suspend() make that work?
-Something like this builds fine for me and I see
-__kcfi_typeid_imx6_suspend generated by Clang.
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ drivers/gpu/drm/bridge/synopsys/dw-dp.c | 50 +++++++++++++++++++++++++++++++++
+ include/drm/bridge/dw_dp.h              |  3 ++
+ 2 files changed, 53 insertions(+)
 
-diff --git a/arch/arm/mach-imx/suspend-imx6.S b/arch/arm/mach-imx/suspend-imx6.S
-index 63ccc2d0e920..6ded29a38c99 100644
---- a/arch/arm/mach-imx/suspend-imx6.S
-+++ b/arch/arm/mach-imx/suspend-imx6.S
-@@ -3,6 +3,7 @@
-  * Copyright 2014 Freescale Semiconductor, Inc.
-  */
+diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+index 8eb2699dc7ab..636b9e105297 100644
+--- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
++++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+@@ -328,6 +328,7 @@ struct dw_dp {
+ 	struct dw_dp_link link;
+ 	struct dw_dp_plat_data plat_data;
+ 	u8 pixel_mode;
++	bool usbc_mode;
  
-+#include <linux/cfi_types.h>
- #include <linux/linkage.h>
- #include <asm/assembler.h>
- #include <asm/asm-offsets.h>
-@@ -148,7 +149,7 @@
+ 	struct drm_bridge *next_bridge;
  
- 	.endm
+@@ -1467,6 +1468,8 @@ static ssize_t dw_dp_aux_transfer(struct drm_dp_aux *aux,
+ 	if (WARN_ON(msg->size > 16))
+ 		return -E2BIG;
  
--ENTRY(imx6_suspend)
-+SYM_TYPED_FUNC_START(imx6_suspend)
- 	ldr	r1, [r0, #PM_INFO_PBASE_OFFSET]
- 	ldr	r2, [r0, #PM_INFO_RESUME_ADDR_OFFSET]
- 	ldr	r3, [r0, #PM_INFO_DDR_TYPE_OFFSET]
-@@ -329,4 +330,4 @@ resume:
- 	resume_mmdc
++	ACQUIRE(pm_runtime_active_auto, pm)(dp->dev);
++
+ 	switch (msg->request & ~DP_AUX_I2C_MOT) {
+ 	case DP_AUX_NATIVE_WRITE:
+ 	case DP_AUX_I2C_WRITE:
+@@ -1657,6 +1660,8 @@ static void dw_dp_bridge_atomic_enable(struct drm_bridge *bridge,
+ 	struct drm_connector_state *conn_state;
+ 	int ret;
  
- 	ret	lr
--ENDPROC(imx6_suspend)
-+SYM_FUNC_END(imx6_suspend)
++	pm_runtime_get_sync(dp->dev);
++
+ 	connector = drm_atomic_get_new_connector_for_encoder(state, bridge->encoder);
+ 	if (!connector) {
+ 		dev_err(dp->dev, "failed to get connector\n");
+@@ -1711,6 +1716,7 @@ static void dw_dp_bridge_atomic_disable(struct drm_bridge *bridge,
+ 	dw_dp_link_disable(dp);
+ 	bitmap_zero(dp->sdp_reg_bank, SDP_REG_BANK_SIZE);
+ 	dw_dp_reset(dp);
++	pm_runtime_put_autosuspend(dp->dev);
+ }
+ 
+ static bool dw_dp_hpd_detect_link(struct dw_dp *dp, struct drm_connector *connector)
+@@ -1731,6 +1737,14 @@ static enum drm_connector_status dw_dp_bridge_detect(struct drm_bridge *bridge,
+ {
+ 	struct dw_dp *dp = bridge_to_dp(bridge);
+ 
++	ACQUIRE(pm_runtime_active_auto, pm)(dp->dev);
++
++	/*
++	 * HPD_HOT_PLUG bit is asserted only after the sink holds HPD high for
++	 * at least 100ms. Thus we need to wait 100ms after runtime PM resume.
++	 */
++	msleep(110);
++
+ 	if (!dw_dp_hpd_detect(dp))
+ 		return connector_status_disconnected;
+ 
+@@ -2032,10 +2046,15 @@ int dw_dp_bind(struct dw_dp *dp, struct drm_encoder *encoder)
+ 	}
+ 
+ 	if (dw_dp_is_routed_to_usb_c(encoder)) {
++		dp->usbc_mode = true;
+ 		dev_dbg(dev, "USB-C mode\n");
+ 
+ 		if (dp->plat_data.hpd_sw_sel)
+ 			dp->plat_data.hpd_sw_sel(dp->plat_data.data, 1);
++	} else {
++		dp->usbc_mode = false;
++		/* Keep runtime PM enabled to have working native HPD IRQ */
++		pm_runtime_get_sync(dp->dev);
+ 	}
+ 
+ 	dw_dp_init_hw(dp);
+@@ -2065,6 +2084,8 @@ EXPORT_SYMBOL_GPL(dw_dp_bind);
+ 
+ void dw_dp_unbind(struct dw_dp *dp)
+ {
++	if (dp->usbc_mode)
++		pm_runtime_put_autosuspend(dp->dev);
+ 	disable_irq(dp->irq);
+ 	phy_exit(dp->phy);
+ 	drm_bridge_put(dp->next_bridge);
+@@ -2163,6 +2184,35 @@ struct dw_dp *dw_dp_probe(struct platform_device *pdev, const struct dw_dp_plat_
+ }
+ EXPORT_SYMBOL_GPL(dw_dp_probe);
+ 
++int dw_dp_runtime_suspend(struct dw_dp *dp)
++{
++	clk_disable_unprepare(dp->aux_clk);
++	clk_disable_unprepare(dp->apb_clk);
++
++	return 0;
++}
++EXPORT_SYMBOL_GPL(dw_dp_runtime_suspend);
++
++int dw_dp_runtime_resume(struct dw_dp *dp)
++{
++	int ret;
++
++	ret = clk_prepare_enable(dp->apb_clk);
++	if (ret)
++		return ret;
++
++	ret = clk_prepare_enable(dp->aux_clk);
++	if (ret) {
++		clk_disable_unprepare(dp->apb_clk);
++		return ret;
++	}
++
++	dw_dp_init_hw(dp);
++
++	return 0;
++}
++EXPORT_SYMBOL_GPL(dw_dp_runtime_resume);
++
+ MODULE_AUTHOR("Andy Yan <andyshrk@163.com>");
+ MODULE_DESCRIPTION("DW DP Core Library");
+ MODULE_LICENSE("GPL");
+diff --git a/include/drm/bridge/dw_dp.h b/include/drm/bridge/dw_dp.h
+index 79b2cdf0df99..f20d2c2c40ca 100644
+--- a/include/drm/bridge/dw_dp.h
++++ b/include/drm/bridge/dw_dp.h
+@@ -29,4 +29,7 @@ int dw_dp_bind(struct dw_dp *dp, struct drm_encoder *encoder);
+ void dw_dp_unbind(struct dw_dp *dp);
+ 
+ struct dw_dp *dw_dp_probe(struct platform_device *pdev, const struct dw_dp_plat_data *plat_data);
++
++int dw_dp_runtime_suspend(struct dw_dp *dp);
++int dw_dp_runtime_resume(struct dw_dp *dp);
+ #endif /* __DW_DP__ */
 
 -- 
-Cheers,
-Nathan
+2.53.0
+
 
