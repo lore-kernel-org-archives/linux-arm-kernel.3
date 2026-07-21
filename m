@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11FC3C44532
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 14:51:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 283F8C44529
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 14:54:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YsB9ocO8/4au5PZ9wDhRfUU9XPnC08UzoXRec/v2v6A=; b=4U38bk9MAHQguQitlW1hlqrFC8
-	qb4Wfac4Rv84CJWFmSzt+ftHYf0hTW8xX83giO0lsqDtGqPKTzvbzuIo9Y72PaYt0x4LoSgZI1WTP
-	U4LGdgsKkfLUqMZyERyfEZxaZpF/2Ob9HXzuKWgqK7gC3gu3GYiTE9pDA820QkQVn23p6JM3yHvxO
-	nlzLCI3bNvrpYDpxd6w/KvuV9ptaBkYujta3iVL+G/hIUtceCsNtfpw7EKsWBHH3mfxBQbKJBzlYw
-	l99Tlnv15aFJR55dLmxLRXXD0o/yVxdPIttp/59xUT/FlwiKXUuq90kfwk2w06E2zuvnWm/EBY4Fs
-	G+wa1iZw==;
+	bh=8rdkwdHFhooXiJD5RHQu6PWVPro9MMDXLk7iFV/JEbc=; b=xTlkCddkuvV5+AJrvHajuwlmTA
+	K/X4Li9nHXfE5JGEmeEcFyyi8ptggb3ZWsP/L0Rot8n/CTSY5LWIwZveeY14tyXJNzB52NZHO+8Uy
+	yn+/kh13GsApzRm5Fm1tSUnV0aNyI5y8T0P1gSq8xJzV64sSGRrbFjQYuJsHYKSs66qQZn5qrjelx
+	9/fYigmV/d6eGa9Rr5rAGuw2ejIhyNpAp4AfXHhhoiEyMAxqD2fVEXP931UeTKVd2GN95JlnrYYg3
+	XYWIO5kiNWH3mZC7LQ/4RqBw9B8oGCrGzmS3LIyOON15hv36FUiKzeJgQU2kN3umbGGQgprX15Hco
+	x18S9N+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmBoI-00000009hax-2gLQ;
-	Tue, 21 Jul 2026 14:51:06 +0000
+	id 1wmBrn-00000009hwT-068j;
+	Tue, 21 Jul 2026 14:54:43 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmBoG-00000009haY-2aoK
+	id 1wmBrk-00000009hvw-2vO9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 14:51:05 +0000
+	Tue, 21 Jul 2026 14:54:41 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 66B3D152B;
-	Tue, 21 Jul 2026 07:50:58 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E058D152B;
+	Tue, 21 Jul 2026 07:54:34 -0700 (PDT)
 Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F0A1B3F86F;
-	Tue, 21 Jul 2026 07:50:58 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 251EF3F86F;
+	Tue, 21 Jul 2026 07:54:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784645462; bh=Vcis6t4xUy77hTPy7uY299+DZ2Az+Lpqnoisp68jgOU=;
+	t=1784645679; bh=MitdL30heQSAH7WS0YQpZljVY3sO1FWU+W23/+uIAe8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=QlXCWJTcqmg3GqQSmuLEHqq2bzT2gP4nc2CFnk0xn1Bxa18KQC7cbCKux+aQFLPZQ
-	 6Z+tZYD8xDpeLtXK/DnyZi5BWXWGsSNeQAVdrYPRk5qLtGp8UgYwJrMs5d9yQ3fZ6B
-	 ajSZ0TBYDiiBZjFIoH66E0UVyUJQmUXoHPwcnW3Q=
-Message-ID: <f287f45c-4eaa-44bc-9c2a-07767bd5085a@arm.com>
-Date: Tue, 21 Jul 2026 16:51:00 +0200
+	b=BBWuskjtszvLN5RjnQFmSXDBnb5rmM7GLCwJ9I/v92BznbOltddup6q68nKrSIduz
+	 0kAsQHVSgQ1UqICtuVfak65akUtXJ0GRTZ45qz8zI/YqWlnxrGfJZxmzXl66TMH3uJ
+	 PUpNBhzY/6DBQiViSY6vC9KLV0CKTrev1FKnnDg8=
+Message-ID: <b943d2e7-9f74-40f6-bbaa-84642ea785eb@arm.com>
+Date: Tue, 21 Jul 2026 16:54:38 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v3 16/16] arm_mpam: detect and enable MPAM-Fb PCC support
-To: Lee Trager <lee@trager.us>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
+To: Niyas Sait <niyas.sait@arm.com>, Lorenzo Pieralisi
+ <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>,
+ Sudeep Holla <sudeep.holla@kernel.org>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
  James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
@@ -54,19 +55,20 @@ Cc: Jonathan Cameron <jic23@kernel.org>,
  Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
  Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
  Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
 References: <20260710144520.917375-1-andre.przywara@arm.com>
  <20260710144520.917375-17-andre.przywara@arm.com>
- <52dc486f-2ef2-4c57-b3fb-fb4c240a9198@trager.us_quarantine>
+ <9ac5f187-ff48-434b-a1c0-7f73b442083c@arm.com>
 Content-Language: en-GB
 From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <52dc486f-2ef2-4c57-b3fb-fb4c240a9198@trager.us_quarantine>
+In-Reply-To: <9ac5f187-ff48-434b-a1c0-7f73b442083c@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_075104_896488_FACEB6EF 
-X-CRM114-Status: GOOD (  13.94  )
+X-CRM114-CacheID: sfid-20260721_075440_780523_E753BEC7 
+X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,40 +83,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lee,
+Hi Niyas,
 
-On 7/15/26 18:08, Lee Trager wrote:
-> On 7/10/26 7:45 AM, Andre Przywara wrote:
+On 7/14/26 14:32, Niyas Sait wrote:
+> On 10/07/2026 15:45, Andre Przywara wrote:
+>> +    cur->pcc_cl.dev = dev;
+>> +    cur->pcc_cl.rx_callback = mpam_pcc_rx_callback;
+>> +    cur->pcc_cl.tx_block = true;
+>> +    cur->pcc_cl.tx_tout = 1000; /* 1s */
 > 
->> diff --git a/drivers/acpi/arm64/mpam.c b/drivers/acpi/arm64/mpam.c
->> index 84963a20c3e7..64bc84bb2029 100644
->> --- a/drivers/acpi/arm64/mpam.c
->> +++ b/drivers/acpi/arm64/mpam.c
->> @@ -256,6 +256,8 @@ static struct platform_device * __init 
->> acpi_mpam_parse_msc(struct acpi_mpam_msc_
->>       } else if (iface == MPAM_IFACE_PCC) {
->>           props[next_prop++] = PROPERTY_ENTRY_U32("pcc-channel",
->>                               tbl_msc->base_address);
->> +        props[next_prop++] = PROPERTY_ENTRY_U32("msc-id",
->> +                            tbl_msc->identifier);
->>       }
-> 
-> props is defined above as:
-> 
-> /* pcc, nrdy, affinity, and a sentinel */
-> 
-> struct property_entry props[4] = { 0 };
-> 
-> With the addition of the new property the array size needs to be 
-> increased to 5 and the comment updated
+> Should this timeout be based on nominal latency reported in PCC table 
+> instead of being hard coded to 1s here? May be some multiple of nominal 
+> latency reported
 
-Ouch, that's right. For now we are saved by the fact that the affinity 
-value is not used, so there is a free slot now. And there are checks in 
-place to avoid writing over the sentinel. But indeed the size needs to 
-be increased. Thanks for catching this!
+I originally thought that this would be handled by the PCC code, but 
+that just parses the value, and puts it in the pcc_mbox_chan struct. 
+Which we only get access to *after* we request the channel in the next 
+line here.
+But it's only mbox_send_message() that uses the value, so I think we can 
+populate that value later on still. And yeah, some multiple of the 
+nominal latency sounds reasonable.
 
 Cheers,
 Andre
-
 
 
