@@ -4,70 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39B4FC4452D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 20:40:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BA7EC4452D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 20:42:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AcdEzncU3ftQKZf36FlokIZRDhmTqCouwvyYSKyfiQA=; b=L5bGroOpVKqGd7cjKaAkZ4HBIg
-	WShzO/olvdrreV7cj+q83fdZHJr+BMLKLyJyReaAk/nKFamzuVeEhbV5jXNY8cwszrmwzkTpruO5x
-	Q2YFRMv0FrJzKvPp4KeIlfvGBDQLSG9aUogiWhe7CJ9TXubcBGCA2PsnHg6QBYNFpcTsdwE33bSn4
-	sealb2AoYIH4XINQ8SakmGx9VydFtWa575D7hs9rx0diLc/CUj59wlaP4a1s/1l7/pKpuaazjjp/R
-	5HqDRll6P2RgDG9oM15HCsKiX3fW/xGAPn8H1Lqo3k8q2M9fdKyGMY9byArtidxGqr1BaObigX7Ix
-	hjrpLegg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3w5ac4IwXvSl6ObVeVe51cEbxNEpYaHFJLTkSKm3fis=; b=4IDXqhGAmC8LkF4acdhHWZ0tAH
+	ZcLy1KuwwrdviatAlBPxMZn88xZiRrHOQHW/VfpeSdsCSSVbUCvu3rRv4mw0jF840IO2azwcKNqMA
+	7ZtjuTn0fauwSeA+f9NydHg20/SLtzdX/8cT2OdheJQiURdwzL84STQwolEwsAO1GoFFOcUGN8TMf
+	yFxgMWqjdvR284B7ywm7JGESqYSzXlgQ1Xyp4yv2atcGA6cx5tHU0abQogAgnfOWHzJRPW/Chzht2
+	1ibeaAtrGbtoXAUa4/KNPQxn2SlF1dhrR35ntDXarYDVYGcWhBQ+x9M0LoElaWJK2EPaWG5b0nIrP
+	9V3OZoUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmHGN-0000000AOb9-0tUk;
-	Tue, 21 Jul 2026 20:40:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wmHHx-0000000AOkX-2BRx;
+	Tue, 21 Jul 2026 20:42:05 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmHGL-0000000AOb1-2Dxk
+	id 1wmHHu-0000000AOk9-3JrY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 20:40:25 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E4ED141B0D;
-	Tue, 21 Jul 2026 20:40:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AF8F1F00A3A;
-	Tue, 21 Jul 2026 20:40:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1784666424;
-	bh=AcdEzncU3ftQKZf36FlokIZRDhmTqCouwvyYSKyfiQA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=zErBHtFfxz4VQbeq1GeY70lKAGGffRbNOGJPiulgWnVvaDknvDjBdhELUpgf4ODwt
-	 7NuPTvpeKB1ouMMyRUT6IbrIXSltlKVFeQOk2Y2wQd3izCMQroie+AwHRDftOWc9bx
-	 muLuz2ZsQcqwNSCWtt3mghEpD81+r8TMdqXaQNeE=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	patches@lists.linux.dev,
-	Besar Wicaksono <bwicaksono@nvidia.com>,
-	James Clark <james.clark@arm.com>,
-	suzuki.poulose@arm.com,
-	mike.leach@linaro.org,
-	jonathanh@nvidia.com,
-	rwiley@nvidia.com,
-	treding@nvidia.com,
-	vsethi@nvidia.com,
-	ywan@nvidia.com,
-	linux-arm-kernel@lists.infradead.org,
-	coresight@lists.linaro.org,
-	linux-tegra@vger.kernel.org,
-	Namhyung Kim <namhyung@kernel.org>,
-	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 6.6 0677/1266] perf cs-etm: Fix incorrect or missing decoder for raw trace
-Date: Tue, 21 Jul 2026 17:18:34 +0200
-Message-ID: <20260721152457.005189941@linuxfoundation.org>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260721152441.786066624@linuxfoundation.org>
-References: <20260721152441.786066624@linuxfoundation.org>
-User-Agent: quilt/0.69
-X-stable: review
-X-Patchwork-Hint: ignore
+	Tue, 21 Jul 2026 20:42:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1784666523; x=1816202523;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=skSQxPyPM6bJlDc9hM3ypyDg9GlQqaAJt8Rd7J/fRrM=;
+  b=eRz05PKB/XNHGSd99DqTtx6aAwOrk3QfOwVda4mRl2G0x1iXI3BCGO77
+   /4POFwf9o9JNFul5uKilP8fIjw+LXeLxIHdOAnRVPuBqSRLHDgDuYdMEk
+   vHHyFb6T+8O7I0Hzb4ZRo9VNHL80yAcM7x4ibv0wtyyRru8qYwZkj232M
+   X1iJd4SkT8i9GH8/v5pHOkCXEBmp4H8WkFa1uH7vthacXbBgd6si9CUxW
+   EScSXSiC5iwLanI1HWqx6yRi9K/cTHcU2QNf1PznVHQASVpp27GJMnXlh
+   dcMVH/yRFCTsNsusDjj+ouYQYNwc44zT/WeyqLEkrFZyhHk1BqxEYtNam
+   Q==;
+X-CSE-ConnectionGUID: tijkkPF0RFqEecisKsp3aQ==
+X-CSE-MsgGUID: TO/4JrJBQL6R5KbZFHiaEg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11853"; a="96798221"
+X-IronPort-AV: E=Sophos;i="6.25,177,1779174000"; 
+   d="scan'208";a="96798221"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jul 2026 13:42:03 -0700
+X-CSE-ConnectionGUID: xcyV9Z45RoqNUi+xXhBnVw==
+X-CSE-MsgGUID: O43iy8aXT3eVMe6FOM7Brg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,177,1779174000"; 
+   d="scan'208";a="258537927"
+Received: from ncintean-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.67])
+  by orviesa009-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jul 2026 13:41:59 -0700
+Date: Tue, 21 Jul 2026 23:41:57 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: "Shih-Yuan Lee (FourDollars)" <fourdollars@debian.org>
+Cc: Mark Brown <broonie@debian.org>, Lukas Wunner <lukas@wunner.de>,
+	Mika Westerberg <mika.westerberg@linux.intel.com>,
+	Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v16 5/7] spi: pxa2xx: disable DMA for Apple MacBook8,1
+Message-ID: <al_ZlTkEUHj-X1YS@ashevche-desk.local>
+References: <20260720162117.32304-1-fourdollars@debian.org>
+ <20260720162117.32304-6-fourdollars@debian.org>
+ <al81PmK1UMr2g8p-@wunner.de>
+ <CAAT15mPuO71WbbS2ZpWjceCVj3FUTqHLi3wbbeV7B33JHbPRsQ@mail.gmail.com>
+ <CAAT15mPrwAqLmFVF730G+iJugzNzaT=HDj_7G5-wXbhBNU7ANg@mail.gmail.com>
+ <f7449a69-98e3-41c0-b535-847b8c520e10@sirena.org.uk>
+ <CAAT15mNppZ6nPQ9a8Hp54XK4BXndfv+G24n4VeQ1X8GOk6fSyQ@mail.gmail.com>
+ <CAAT15mMc73=cnqx7jvPXWjVUuzr-E54qh5+BR3d_G6m3NoXrng@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAAT15mMc73=cnqx7jvPXWjVUuzr-E54qh5+BR3d_G6m3NoXrng@mail.gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260721_134202_870453_9BFD6F33 
+X-CRM114-Status: GOOD (  22.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,252 +98,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-6.6-stable review patch.  If anyone has any objections, please let me know.
+On Wed, Jul 22, 2026 at 12:09:44AM +0800, Shih-Yuan Lee (FourDollars) wrote:
+> On Tue, Jul 21, 2026 at 11:26 PM Shih-Yuan Lee (FourDollars)
+> <fourdollars@debian.org> wrote:
 
-------------------
+> I just tested the Initrd ACPI Table Override on the machine. Here is
+> what I found.
+> 
+> I patched the _PRT table in the DSDT to remap device 00:15.0 (Pin 0
+> and Pin 1) from GSI 20 to GSI 21 to match the SPI controller's
+> interrupt line, 
 
-From: Besar Wicaksono <bwicaksono@nvidia.com>
+I'm lost here. Why SPI controller and DMA controller has to share an interrupt
+line?
 
-[ Upstream commit a16afcc58a8c5ebc65c852faf001f8f61f05e4ef ]
+> umped the OEM Revision from 0x00080001 to 0x00080002
+> so the kernel would accept the override, and prepended it to the
+> initramfs.
+> 
+> The override was successfully applied:
+> 
+>   ACPI: Table Upgrade: override [DSDT-APPLE - MacBook]
+>   ACPI: DSDT ... 007EB5 (v03 APPLE  MacBook  00080002 INTL 20251212)
+> 
+> After rebooting, the DMA controller loaded without errors and both
+> dw:dmac168 and the SPI controller 0000:00:15.4 now correctly share IRQ
+> 21:
+> 
+>   21: 0  0  0  0  IR-IO-APIC  21-fasteoi  dw:dmac168, 0000:00:15.4
+> 
+> However, SPI transfers still timed out with -ETIMEDOUT (-110) and the
+> IRQ 21 counter remained at zero — no interrupts were actually received
+> from the DMA hardware, despite the corrected ACPI routing.
+> 
+> This confirms the root cause is not a software IRQ routing issue but
+> rather that the DMA controller's interrupt line is physically
+> non-functional on this motherboard. macOS also does not use DMA for
+> this device, which is consistent with that conclusion.
+> 
+> It is also worth noting that Apple may have intentionally mapped the
+> DMA controller to GSI 20 — an otherwise unused interrupt — precisely
+> because the interrupt line is not physically connected.
 
-The decoder creation for raw trace uses metadata from the first CPU.
-On per-cpu mode, this metadata is incorrectly used for every decoder.
-On per-process/per-thread traces, the first CPU is CPU0. If CPU0 trace
-is not enabled, its metadata will be marked unused and the decoder is
-not created. Perf report dump skips the decoding part because the
-decoder is missing.
+It's impossible. The interrupt line from DMA controller is an IOAPIC RTE that
+is programmed by BIOS, there is no "physical wire" in traditional meaning.
+In any case this link is done on the SoC level. Apple can't burn that out
+of the die. They even can't fuse out that (of my knowledge LPSS is always
+present IP, the fuse works against the full controller, not parts like
+disabling interrupt message or "line").
 
-To fix this, use metadata of the CPU associated with sample object.
+> On macOS and
+> Windows, no DMA driver is ever loaded for this device, so the bogus
+> GSI 20 entry is harmless. It effectively acts as a silent signal to
+> the OS that interrupt-driven DMA should not be used on this platform.
 
-Signed-off-by: Besar Wicaksono <bwicaksono@nvidia.com>
-Reviewed-by: James Clark <james.clark@arm.com>
-Cc: suzuki.poulose@arm.com
-Cc: mike.leach@linaro.org
-Cc: jonathanh@nvidia.com
-Cc: rwiley@nvidia.com
-Cc: treding@nvidia.com
-Cc: vsethi@nvidia.com
-Cc: ywan@nvidia.com
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: coresight@lists.linaro.org
-Cc: linux-tegra@vger.kernel.org
-Link: https://lore.kernel.org/r/20231010234803.5419-1-bwicaksono@nvidia.com
-Signed-off-by: Namhyung Kim <namhyung@kernel.org>
-Stable-dep-of: 68ca50bc0fa6 ("perf cs-etm: Queue context packets for frontend")
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- tools/perf/util/cs-etm.c | 106 ++++++++++++++++++++++++---------------
- 1 file changed, 65 insertions(+), 41 deletions(-)
+Maybe because they didn't get how it's supposed to work.
 
-diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-index 799c104901b4ff..1fb104357eebb8 100644
---- a/tools/perf/util/cs-etm.c
-+++ b/tools/perf/util/cs-etm.c
-@@ -283,22 +283,31 @@ static int cs_etm__metadata_set_trace_id(u8 trace_chan_id, u64 *cpu_metadata)
- }
- 
- /*
-- * Get a metadata for a specific cpu from an array.
-+ * Get a metadata index for a specific cpu from an array.
-  *
-  */
--static u64 *get_cpu_data(struct cs_etm_auxtrace *etm, int cpu)
-+static int get_cpu_data_idx(struct cs_etm_auxtrace *etm, int cpu)
- {
- 	int i;
--	u64 *metadata = NULL;
- 
- 	for (i = 0; i < etm->num_cpu; i++) {
- 		if (etm->metadata[i][CS_ETM_CPU] == (u64)cpu) {
--			metadata = etm->metadata[i];
--			break;
-+			return i;
- 		}
- 	}
- 
--	return metadata;
-+	return -1;
-+}
-+
-+/*
-+ * Get a metadata for a specific cpu from an array.
-+ *
-+ */
-+static u64 *get_cpu_data(struct cs_etm_auxtrace *etm, int cpu)
-+{
-+	int idx = get_cpu_data_idx(etm, cpu);
-+
-+	return (idx != -1) ? etm->metadata[idx] : NULL;
- }
- 
- /*
-@@ -641,66 +650,80 @@ static void cs_etm__packet_dump(const char *pkt_string)
- }
- 
- static void cs_etm__set_trace_param_etmv3(struct cs_etm_trace_params *t_params,
--					  struct cs_etm_auxtrace *etm, int idx,
--					  u32 etmidr)
-+					  struct cs_etm_auxtrace *etm, int t_idx,
-+					  int m_idx, u32 etmidr)
- {
- 	u64 **metadata = etm->metadata;
- 
--	t_params[idx].protocol = cs_etm__get_v7_protocol_version(etmidr);
--	t_params[idx].etmv3.reg_ctrl = metadata[idx][CS_ETM_ETMCR];
--	t_params[idx].etmv3.reg_trc_id = metadata[idx][CS_ETM_ETMTRACEIDR];
-+	t_params[t_idx].protocol = cs_etm__get_v7_protocol_version(etmidr);
-+	t_params[t_idx].etmv3.reg_ctrl = metadata[m_idx][CS_ETM_ETMCR];
-+	t_params[t_idx].etmv3.reg_trc_id = metadata[m_idx][CS_ETM_ETMTRACEIDR];
- }
- 
- static void cs_etm__set_trace_param_etmv4(struct cs_etm_trace_params *t_params,
--					  struct cs_etm_auxtrace *etm, int idx)
-+					  struct cs_etm_auxtrace *etm, int t_idx,
-+					  int m_idx)
- {
- 	u64 **metadata = etm->metadata;
- 
--	t_params[idx].protocol = CS_ETM_PROTO_ETMV4i;
--	t_params[idx].etmv4.reg_idr0 = metadata[idx][CS_ETMV4_TRCIDR0];
--	t_params[idx].etmv4.reg_idr1 = metadata[idx][CS_ETMV4_TRCIDR1];
--	t_params[idx].etmv4.reg_idr2 = metadata[idx][CS_ETMV4_TRCIDR2];
--	t_params[idx].etmv4.reg_idr8 = metadata[idx][CS_ETMV4_TRCIDR8];
--	t_params[idx].etmv4.reg_configr = metadata[idx][CS_ETMV4_TRCCONFIGR];
--	t_params[idx].etmv4.reg_traceidr = metadata[idx][CS_ETMV4_TRCTRACEIDR];
-+	t_params[t_idx].protocol = CS_ETM_PROTO_ETMV4i;
-+	t_params[t_idx].etmv4.reg_idr0 = metadata[m_idx][CS_ETMV4_TRCIDR0];
-+	t_params[t_idx].etmv4.reg_idr1 = metadata[m_idx][CS_ETMV4_TRCIDR1];
-+	t_params[t_idx].etmv4.reg_idr2 = metadata[m_idx][CS_ETMV4_TRCIDR2];
-+	t_params[t_idx].etmv4.reg_idr8 = metadata[m_idx][CS_ETMV4_TRCIDR8];
-+	t_params[t_idx].etmv4.reg_configr = metadata[m_idx][CS_ETMV4_TRCCONFIGR];
-+	t_params[t_idx].etmv4.reg_traceidr = metadata[m_idx][CS_ETMV4_TRCTRACEIDR];
- }
- 
- static void cs_etm__set_trace_param_ete(struct cs_etm_trace_params *t_params,
--					  struct cs_etm_auxtrace *etm, int idx)
-+					  struct cs_etm_auxtrace *etm, int t_idx,
-+					  int m_idx)
- {
- 	u64 **metadata = etm->metadata;
- 
--	t_params[idx].protocol = CS_ETM_PROTO_ETE;
--	t_params[idx].ete.reg_idr0 = metadata[idx][CS_ETE_TRCIDR0];
--	t_params[idx].ete.reg_idr1 = metadata[idx][CS_ETE_TRCIDR1];
--	t_params[idx].ete.reg_idr2 = metadata[idx][CS_ETE_TRCIDR2];
--	t_params[idx].ete.reg_idr8 = metadata[idx][CS_ETE_TRCIDR8];
--	t_params[idx].ete.reg_configr = metadata[idx][CS_ETE_TRCCONFIGR];
--	t_params[idx].ete.reg_traceidr = metadata[idx][CS_ETE_TRCTRACEIDR];
--	t_params[idx].ete.reg_devarch = metadata[idx][CS_ETE_TRCDEVARCH];
-+	t_params[t_idx].protocol = CS_ETM_PROTO_ETE;
-+	t_params[t_idx].ete.reg_idr0 = metadata[m_idx][CS_ETE_TRCIDR0];
-+	t_params[t_idx].ete.reg_idr1 = metadata[m_idx][CS_ETE_TRCIDR1];
-+	t_params[t_idx].ete.reg_idr2 = metadata[m_idx][CS_ETE_TRCIDR2];
-+	t_params[t_idx].ete.reg_idr8 = metadata[m_idx][CS_ETE_TRCIDR8];
-+	t_params[t_idx].ete.reg_configr = metadata[m_idx][CS_ETE_TRCCONFIGR];
-+	t_params[t_idx].ete.reg_traceidr = metadata[m_idx][CS_ETE_TRCTRACEIDR];
-+	t_params[t_idx].ete.reg_devarch = metadata[m_idx][CS_ETE_TRCDEVARCH];
- }
- 
- static int cs_etm__init_trace_params(struct cs_etm_trace_params *t_params,
- 				     struct cs_etm_auxtrace *etm,
-+				     bool formatted,
-+				     int sample_cpu,
- 				     int decoders)
- {
--	int i;
-+	int t_idx, m_idx;
- 	u32 etmidr;
- 	u64 architecture;
- 
--	for (i = 0; i < decoders; i++) {
--		architecture = etm->metadata[i][CS_ETM_MAGIC];
-+	for (t_idx = 0; t_idx < decoders; t_idx++) {
-+		if (formatted)
-+			m_idx = t_idx;
-+		else {
-+			m_idx = get_cpu_data_idx(etm, sample_cpu);
-+			if (m_idx == -1) {
-+				pr_warning("CS_ETM: unknown CPU, falling back to first metadata\n");
-+				m_idx = 0;
-+			}
-+		}
-+
-+		architecture = etm->metadata[m_idx][CS_ETM_MAGIC];
- 
- 		switch (architecture) {
- 		case __perf_cs_etmv3_magic:
--			etmidr = etm->metadata[i][CS_ETM_ETMIDR];
--			cs_etm__set_trace_param_etmv3(t_params, etm, i, etmidr);
-+			etmidr = etm->metadata[m_idx][CS_ETM_ETMIDR];
-+			cs_etm__set_trace_param_etmv3(t_params, etm, t_idx, m_idx, etmidr);
- 			break;
- 		case __perf_cs_etmv4_magic:
--			cs_etm__set_trace_param_etmv4(t_params, etm, i);
-+			cs_etm__set_trace_param_etmv4(t_params, etm, t_idx, m_idx);
- 			break;
- 		case __perf_cs_ete_magic:
--			cs_etm__set_trace_param_ete(t_params, etm, i);
-+			cs_etm__set_trace_param_ete(t_params, etm, t_idx, m_idx);
- 			break;
- 		default:
- 			return -EINVAL;
-@@ -1016,7 +1039,7 @@ static u32 cs_etm__mem_access(struct cs_etm_queue *etmq, u8 trace_chan_id,
- }
- 
- static struct cs_etm_queue *cs_etm__alloc_queue(struct cs_etm_auxtrace *etm,
--						bool formatted)
-+						bool formatted, int sample_cpu)
- {
- 	struct cs_etm_decoder_params d_params;
- 	struct cs_etm_trace_params  *t_params = NULL;
-@@ -1041,7 +1064,7 @@ static struct cs_etm_queue *cs_etm__alloc_queue(struct cs_etm_auxtrace *etm,
- 	if (!t_params)
- 		goto out_free;
- 
--	if (cs_etm__init_trace_params(t_params, etm, decoders))
-+	if (cs_etm__init_trace_params(t_params, etm, formatted, sample_cpu, decoders))
- 		goto out_free;
- 
- 	/* Set decoder parameters to decode trace packets */
-@@ -1081,14 +1104,15 @@ static struct cs_etm_queue *cs_etm__alloc_queue(struct cs_etm_auxtrace *etm,
- static int cs_etm__setup_queue(struct cs_etm_auxtrace *etm,
- 			       struct auxtrace_queue *queue,
- 			       unsigned int queue_nr,
--			       bool formatted)
-+			       bool formatted,
-+			       int sample_cpu)
- {
- 	struct cs_etm_queue *etmq = queue->priv;
- 
- 	if (list_empty(&queue->head) || etmq)
- 		return 0;
- 
--	etmq = cs_etm__alloc_queue(etm, formatted);
-+	etmq = cs_etm__alloc_queue(etm, formatted, sample_cpu);
- 
- 	if (!etmq)
- 		return -ENOMEM;
-@@ -2827,7 +2851,7 @@ static int cs_etm__process_auxtrace_event(struct perf_session *session,
- 		 * formatted in piped mode (true).
- 		 */
- 		err = cs_etm__setup_queue(etm, &etm->queues.queue_array[idx],
--					  idx, true);
-+					  idx, true, -1);
- 		if (err)
- 			return err;
- 
-@@ -3033,7 +3057,7 @@ static int cs_etm__queue_aux_fragment(struct perf_session *session, off_t file_o
- 		idx = auxtrace_event->idx;
- 		formatted = !(aux_event->flags & PERF_AUX_FLAG_CORESIGHT_FORMAT_RAW);
- 		return cs_etm__setup_queue(etm, &etm->queues.queue_array[idx],
--					   idx, formatted);
-+					   idx, formatted, sample->cpu);
- 	}
- 
- 	/* Wasn't inside this buffer, but there were no parse errors. 1 == 'not found' */
+> Since the DMA interrupt line is physically unconnected, no completion
+> interrupt ever fires, causing all SPI transfers to time out with
+> -ETIMEDOUT (-110) and ultimately deadlocking the applespi driver.
+
+No, this analysis is wrong. There are up to 3 interrupts that may participate
+in the design: DMA controller; SPI controller; and SPI peripheral. The first
+two usually use IOAPIC RTEs for the interrupts (and hence represented as
+Interrupt() resources in _CRS methods on DSDT, plus CSRT for DMA), and the
+last one often is GpioInt() and has nothing to do with DMA at all.
+
+> Therefore, forcing PIO mode via a DMI quirk in spi-pxa2xx-pci remains
+> the only viable out-of-the-box solution for this platform.
+
 -- 
-2.53.0
-
+With Best Regards,
+Andy Shevchenko
 
 
 
