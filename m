@@ -4,99 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B2D9C4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 18:16:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 063E4C4452B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 18:16:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CZmNHXi93G5gFUL+vfByJ40rus8QRWMCNbAKPDxTLSY=; b=AW5pJN/pf306ynWpy5NvN4qE6M
-	xJsCeVyVqYPPjc+b3BayGuzS6O1QJLzZ0i1sjg1s6x5LyLJCZ+m6nNUG4I16bZdbTDLNIJkPtnoYK
-	LEh36IhCwsPRUcA+ZgtP1IZ8CibpZb6u17AV8Sl+qjCGmHN0/gMyRN55/uUCLGVE3jEG9N3lfb4Jb
-	MJJ5L3WT0G9l6xElC+cH9ocRvO+YkwsBR3OJxRGRGzJWX5J2zvkt2oZY6L/tUcm2XEkEEH194D7OB
-	+tnNDuug4Zs6u6kQh3USQ4XoFNL9gWtaFKQpHHs80qOYLLAzuzg44IWo1rF8688XDIgWswZgrwOhv
-	gGG1TZug==;
+	bh=pxHJZKOUJ+mwEArxOGlqaPjUgMrI0m93hIaUp+NfhUE=; b=jSDGBHTGzb9KnvP6HKqkVH3Qwa
+	qMxuye5AzPZJeT+Q/wJMGdrWKYcF8rdzKmlDapy1tBHOcSJ1x1MzsNfYxq2O7jn2JflbAEMYiO0OP
+	WBxOc/sdgXnOQiGjmCCdbaOfnz9+sXGEVkaZ2oaGXG9o+TZAbJAHy9Ge+rSSMfIb8mxDFfoPIeF7E
+	LxRxdoGDM+DSp4VHOhUJkWu+JeV73pBxgVTahKja4FDBjoD475eqhS+SIDIOrV94Je4tDt/x5tPeY
+	pnEqo6NjYLGfSixW/dhbzK2QvjhKoBcIhuHtnIJaDeluKJBM0mlBu5IO4a5C7nWLob6QeQ+BMMYOg
+	5ZvjTguQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmEeD-0000000A70z-0Lnf;
-	Tue, 21 Jul 2026 17:52:53 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wmF1B-0000000AAar-18q1;
+	Tue, 21 Jul 2026 18:16:37 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmEe5-0000000A6rZ-0xaR;
-	Tue, 21 Jul 2026 17:52:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1784656358;
-	bh=F1aUwDw1oCdiQKc4Mr/s1A9oQOTsJxibKKDasYb4aSk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=NvTIfcpGIqZItnMERhJzz+CX7sGlWe4jQ2a81A+J2aTIy2cRre17WJmP1ODad+a0/
-	 k9XM5UDR5kVQ4mjT802M23FHdmng+Sb49aJW0o2MP9WWucZmeU8gcKIkcFPdBhcLwd
-	 uZ87V/OPM63O7/bEaFlmCCJSnRdtgxkXLjTBvfp2GIVV9QFOMDEl0PQG7WmBU0huJv
-	 VFHCaUGy7PuBmkumanavrpBhG4hCFZTp1rvLOxc1fDqTfFjUta5j6Tby2b71Oo3dKG
-	 djxspBiIq1n7d1oLPziiwNXgkEvjwQpIo+bA3pujgK4/6nUPxH+A69AOv/b+WZHIQ7
-	 Ds3HUsl2KupTw==
-Received: from jupiter.universe (unknown [100.64.1.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519)
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 46E1F17E11F5;
-	Tue, 21 Jul 2026 19:52:38 +0200 (CEST)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id 9ED71480038; Tue, 21 Jul 2026 19:52:37 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Tue, 21 Jul 2026 19:52:37 +0200
-Subject: [PATCH v4 07/10] drm/bridge: synopsys: dw-dp: Add Runtime PM
- support
+	id 1wmF18-0000000AAaK-1Hsp
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Jul 2026 18:16:35 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66LH2aDl2160232
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 18:16:33 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	pxHJZKOUJ+mwEArxOGlqaPjUgMrI0m93hIaUp+NfhUE=; b=H1suFNFxOBwIeGth
+	OA8vRhizIXFBG4CAe1KjeDlL7ay/+2XMOOc0F7TEF8C7Eqma16aRP5EBvZPitNxZ
+	sNBI0PXkyhhpB94gUV+lE2bcEUeW4KzGPQqqUbuho5CiMErC7770aACl9taRh0I6
+	X/JqfsjO7i3eUeghy84mlZ9nazJmN82A1rfMAtbxriyh5tYvYgMyBUNxE+VfaOjI
+	j5IfcThdptWyZaxM5I92+8KGknTHRfOmp0L5mHc3K5W0ksIzFNa1kHCOn/KpBDrH
+	WbV1xrc2wcb8xzURaa+SWghP23Msj57Twv3SPSd7k+FMMuLz699o1p5VyZls/Hex
+	bHK3mQ==
+Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fj9c41gw2-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 18:16:33 +0000 (GMT)
+Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-ca8aee88725so17564434a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 11:16:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1784657793; x=1785262593; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=pxHJZKOUJ+mwEArxOGlqaPjUgMrI0m93hIaUp+NfhUE=;
+        b=irwd/IA4H3b97iW7U1j6E3A6jYtdny7efEfhDvccDeBT84ElgxFKb3T4r7Zxzx+8X5
+         IaBcHpIkJosgGGLDSola8O5ppwjNH3149ZwrgfB5kdum1/ijZ+gljCG85ZCYvzWIs055
+         Dt8dxYLjNsLehvvW2JHSq389OI7jd0GzH4O2k5S+d8xj50Ypmz+njjotN2wARJ/Qwzyf
+         5HZF6I8wyh+7nCTKpzqXoK7zWX4/Dg1hZLoOF0dGszEBKD/hL7jkM00iZpAtg01gOeFO
+         AhgxcLs0QxwikaIvBdm2M9Ge1XXYTYk+OZvBRnuHoNJvbHhtxvdLRO8uFSZ+rTBd/E+F
+         EWEg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784657793; x=1785262593;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=pxHJZKOUJ+mwEArxOGlqaPjUgMrI0m93hIaUp+NfhUE=;
+        b=dGQZsC2y/2l5vWYLAzjF0LWFVpCvyr1nLF2ZlECHGRzkIBSl6glPnEICmQ01/OsT+6
+         2H76SpB+ZS0b9eAtHsQ0mxLYz09MimYeSezHpjAUohqd1RD0lAZl8uDUyG3Lr1h0cCi5
+         0DnekkyJLsPG8jBDk4wiCBEetaOP5FmwuhWHJLWRnrbbuWPiOCRmMrmLQrm2xTb+ONd6
+         LccuhHHH6NN2wCYDKK7t8VLAeYyfxdSxWG1hsbKrmS35EkuMTKi+H+Ad2stAD5VT9KCi
+         NNLEB2T993b4fllDy0mdY8Bp8c7MpSpuHJjVltWpWl69JrVQEllAzpACdPHtKiljPIWU
+         rHmQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqUSRvjraB7F/EDSiI3LnfYSV6/uiONAYPrX26ORQ9YnniB7geYY8k8jzsHOel+j0rDlrCmBV52x3XfGgoTGnIQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzVbxBrVlobn1VrEJeP47xmYTChPz6oSUFNkPSQNV6lswY8QKYm
+	v0zXigPUHIsWmsePDwzCbQNTK5f32NHVaBaCjznc2fEp6kZlrTNjvrWlqa+7seXtIcI5OdabANL
+	AEiLumfJFMaOHnjAWJHTywTf7/bQwTGZUPLDmKb/G0Kov9nmgBo6/fWm+QSk9rbs5FdeEQ3xCo0
+	bEEQ==
+X-Gm-Gg: AR+sD11g4mDE61v7pMMKSnpPSCwJuKYKlhld/jvyppl4ytzEcL2DuKslVY6Hufqhn83
+	XbLH2IEo94lWka6RAfBmwgz5GLbU+wW0bE59k9sVTktoAmZvhF2KBDIK7fOt3Izowjpir+E5loP
+	hkIlzxFL8Z3tNcH6DLFasFOBlFwJ2ahAxVF7fvBBL+bbpQOutR9FDxgMP+FSX/yp8DFKaizQasS
+	0t1Zb4BvhAm0Qst7sbJWsw82jEPhsP9Pw9d4HJhSMsxs4LEkzbjBY7+Bf8SAMoJiXYw2vfeWe2i
+	39Xg2NNLhaBmyPN5OUZ7jkJxomvI46PPg156hvHfOE43iK61ghJxixgxuqkV84WWBJpGcncd9q/
+	Ka+suUTFNkaYeZgrhe4pSKYzF0/a3Zg8gXGU=
+X-Received: by 2002:a05:6a21:a382:b0:3bf:96c6:78a9 with SMTP id adf61e73a8af0-3c3ad665b3fmr20297997637.2.1784657792868;
+        Tue, 21 Jul 2026 11:16:32 -0700 (PDT)
+X-Received: by 2002:a05:6a21:a382:b0:3bf:96c6:78a9 with SMTP id adf61e73a8af0-3c3ad665b3fmr20297943637.2.1784657792331;
+        Tue, 21 Jul 2026 11:16:32 -0700 (PDT)
+Received: from [192.168.1.8] ([106.222.235.145])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3147e081985sm1059348eec.23.2026.07.21.11.16.24
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 21 Jul 2026 11:16:31 -0700 (PDT)
+Message-ID: <ebf99b7a-8da5-4974-ab7f-fe26e331b982@oss.qualcomm.com>
+Date: Tue, 21 Jul 2026 23:46:22 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v23 11/14] crypto: qce - Use existing devres APIs in
+ devm_qce_dma_request()
+To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+        Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+        Thara Gopinath <thara.gopinath@gmail.com>,
+        Herbert Xu <herbert@gondor.apana.org.au>,
+        "David S. Miller" <davem@davemloft.net>,
+        Udit Tiwari <quic_utiwari@quicinc.com>,
+        Md Sadre Alam <mdalam@qti.qualcomm.com>,
+        Dmitry Baryshkov
+ <lumag@kernel.org>,
+        Manivannan Sadhasivam <mani@kernel.org>,
+        Stephan Gerhold <stephan.gerhold@linaro.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Peter Ujfalusi <peter.ujfalusi@gmail.com>,
+        Michal Simek <michal.simek@amd.com>, Frank Li <Frank.Li@kernel.org>,
+        Andy Gross <agross@codeaurora.org>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Vignesh Raghavendra <vigneshr@ti.com>
+Cc: dmaengine@vger.kernel.org, linux-doc@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        brgl@kernel.org, Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+References: <20260721-qcom-qce-cmd-descr-v23-0-1be02deffda9@oss.qualcomm.com>
+ <20260721-qcom-qce-cmd-descr-v23-11-1be02deffda9@oss.qualcomm.com>
+Content-Language: en-US
+From: Mukesh Savaliya <mukesh.savaliya@oss.qualcomm.com>
+In-Reply-To: <20260721-qcom-qce-cmd-descr-v23-11-1be02deffda9@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260721-synopsys-dw-dp-improvements-v4-7-f0f4a4ede712@collabora.com>
-References: <20260721-synopsys-dw-dp-improvements-v4-0-f0f4a4ede712@collabora.com>
-In-Reply-To: <20260721-synopsys-dw-dp-improvements-v4-0-f0f4a4ede712@collabora.com>
-To: Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
- Damon Ding <damon.ding@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
- Alexey Charkov <alchark@flipper.net>, dri-devel@lists.freedesktop.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, kernel@collabora.com, 
- linux-arm-kernel@lists.infradead.org, 
- Sebastian Reichel <sebastian.reichel@collabora.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4278;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=F1aUwDw1oCdiQKc4Mr/s1A9oQOTsJxibKKDasYb4aSk=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpfseXY5QIUTimL8C+WVfjzgs/9sWaQomIKU
- FoG4aHTFrd1f4kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqX7HlAAoJENju1/PI
- O/qahWsP+wZW8cZN0zpUMyr7/8wzhYujBUQMZPR/k9tP51OC6yrkwldFIDYh94xx7Dlt4RTOcCF
- kxFAypHCm/iQ5FCMOybC6Sr03oV75twQ7IsDcKlXK96E1VdRfSrOtNrVYVxSIbZNrLwk51VgT0Y
- mtPrc2d6ry6fP6E9NANrwG2EVL/j39rBMRcWX2ar6Yl3mVfS4MT2LGt6uq0bbPh5C0shjyL+hMC
- EgRhkTMU3d/25tpFuzE/M05cBCm3ED7deJwXbgD4teIe/Bw5OaNDQbF8B7fXNP9FitL5uyzRxAv
- IrO0vh/lb7QDmnoZWvnRthoYlmwiUwvXpkeIDn88Rt2aGUtcZ4HFaWUm8sfTQRgpX8TKcK5T7SA
- CWh6gnUZZuoJzMyPQeeF+OpX2+FHlOuVlnjKCeWkRnrPWXpnLgNEfMcXTKHKx1ig0cQYtF1uDSC
- kD6yU7K3Drrn9FibL43wT0/YVGuGN8vQl9PvC2cEFdKbycb16bYLJSSZp0wH6MxSBtg6BCXMvBq
- 62G3enoe2N38kSk6mTdU4233xqxVmIJXS50e9r9uzsLrtXQ9ZsiDdGAg3Stti4m7eyud+EVPMyB
- +0FjDdEsvxeMpLq50k4EcKNphiiO6b37LOQOMwo4SxCKEPDjOKMHP0EN0T6ETVVnO0egQ0zf89Y
- S2G7ghW7JXwku0PV4lHUvlQ==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
+X-Authority-Analysis: v=2.4 cv=I4JVgtgg c=1 sm=1 tr=0 ts=6a5fb781 cx=c_pps
+ a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=nYgDJefOb7ZtON2RxEtQrg==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=KKAkSRfTAAAA:8 a=EUspDBNiAAAA:8 a=VwQbUJbxAAAA:8 a=Kkr9414Gf28UH8S5ubQA:9
+ a=QEXdDO2ut3YA:10 a=_Vgx9l1VpLgwpw_dHYaR:22 a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-ORIG-GUID: d8RAIWOCDoXCuWxUyIJANyua3rI4oE5l
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzIxMDE5MiBTYWx0ZWRfXztXegYH/KzsV
+ rzCKuvQCUDjDLaBaybc4Gy7mMzjE4rdpiUr8M0wKmNnsjynepZhtua6Mpd9loreNMPPBKIKgnwi
+ gz0jFXyLtgw9OGBtQZNSxdh26nDXgcHNgZPswat2MI7Of99aILiK8KCZbwkVQhSWdGK0H0dW7sX
+ NYRMyZHwd3hML99LZA+DnoaxlfU4ahWtUXtnyaSDwf70xDSKshI6cTdQKDE+kwtnqUXWWzccAbI
+ RHnoRgjofOkC+/l/zZR7m1JImhoRIHGMUYBrmKw+Dz5/VUzxCmetLx8DO2LIocdGnlf6Th/xo1R
+ u85aQlytINAGNS4eKiTis26wUsAGTMSwwlwDXUm7zd5u9g7qd18yNCrp6ObuHJKU9wrRzMKXriK
+ oUUVod+3soKylaob8Lw2+gXqjJZSA/4FAeD5ho4HWReEaauhsleQj2kwieB628cHW+D5bpD2sOM
+ hIhQre385fIF5K+g9fQ==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzIxMDE5MiBTYWx0ZWRfXxNAwq1zZ875S
+ cXkDOBMxC+xQqv+yEoPCJ0d79vPgHslzNASXBDaJlTJ/rDyMZFUFc4S2HrVdHoy+0wxULNGz1L2
+ WHl6/qdcl8oordDF4vpBBr397Nsnhh0=
+X-Proofpoint-GUID: d8RAIWOCDoXCuWxUyIJANyua3rI4oE5l
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-21_03,2026-07-21_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 spamscore=0 lowpriorityscore=0 malwarescore=0 adultscore=0
+ priorityscore=1501 phishscore=0 bulkscore=0 suspectscore=0 clxscore=1011
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607210192
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_105245_429168_1619ABA8 
-X-CRM114-Status: GOOD (  15.46  )
+X-CRM114-CacheID: sfid-20260721_111634_360300_B6798338 
+X-CRM114-Status: GOOD (  11.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,144 +170,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add runtime PM stubs to the Synopsys DesignWare DisplayPort bridge
-driver. Support is not enabled automatically and must be hooked up
-in the vendor specific glue code.
 
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
- drivers/gpu/drm/bridge/synopsys/dw-dp.c | 50 +++++++++++++++++++++++++++++++++
- include/drm/bridge/dw_dp.h              |  3 ++
- 2 files changed, 53 insertions(+)
 
-diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index 8eb2699dc7ab..636b9e105297 100644
---- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-+++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-@@ -328,6 +328,7 @@ struct dw_dp {
- 	struct dw_dp_link link;
- 	struct dw_dp_plat_data plat_data;
- 	u8 pixel_mode;
-+	bool usbc_mode;
- 
- 	struct drm_bridge *next_bridge;
- 
-@@ -1467,6 +1468,8 @@ static ssize_t dw_dp_aux_transfer(struct drm_dp_aux *aux,
- 	if (WARN_ON(msg->size > 16))
- 		return -E2BIG;
- 
-+	ACQUIRE(pm_runtime_active_auto, pm)(dp->dev);
-+
- 	switch (msg->request & ~DP_AUX_I2C_MOT) {
- 	case DP_AUX_NATIVE_WRITE:
- 	case DP_AUX_I2C_WRITE:
-@@ -1657,6 +1660,8 @@ static void dw_dp_bridge_atomic_enable(struct drm_bridge *bridge,
- 	struct drm_connector_state *conn_state;
- 	int ret;
- 
-+	pm_runtime_get_sync(dp->dev);
-+
- 	connector = drm_atomic_get_new_connector_for_encoder(state, bridge->encoder);
- 	if (!connector) {
- 		dev_err(dp->dev, "failed to get connector\n");
-@@ -1711,6 +1716,7 @@ static void dw_dp_bridge_atomic_disable(struct drm_bridge *bridge,
- 	dw_dp_link_disable(dp);
- 	bitmap_zero(dp->sdp_reg_bank, SDP_REG_BANK_SIZE);
- 	dw_dp_reset(dp);
-+	pm_runtime_put_autosuspend(dp->dev);
- }
- 
- static bool dw_dp_hpd_detect_link(struct dw_dp *dp, struct drm_connector *connector)
-@@ -1731,6 +1737,14 @@ static enum drm_connector_status dw_dp_bridge_detect(struct drm_bridge *bridge,
- {
- 	struct dw_dp *dp = bridge_to_dp(bridge);
- 
-+	ACQUIRE(pm_runtime_active_auto, pm)(dp->dev);
-+
-+	/*
-+	 * HPD_HOT_PLUG bit is asserted only after the sink holds HPD high for
-+	 * at least 100ms. Thus we need to wait 100ms after runtime PM resume.
-+	 */
-+	msleep(110);
-+
- 	if (!dw_dp_hpd_detect(dp))
- 		return connector_status_disconnected;
- 
-@@ -2032,10 +2046,15 @@ int dw_dp_bind(struct dw_dp *dp, struct drm_encoder *encoder)
- 	}
- 
- 	if (dw_dp_is_routed_to_usb_c(encoder)) {
-+		dp->usbc_mode = true;
- 		dev_dbg(dev, "USB-C mode\n");
- 
- 		if (dp->plat_data.hpd_sw_sel)
- 			dp->plat_data.hpd_sw_sel(dp->plat_data.data, 1);
-+	} else {
-+		dp->usbc_mode = false;
-+		/* Keep runtime PM enabled to have working native HPD IRQ */
-+		pm_runtime_get_sync(dp->dev);
- 	}
- 
- 	dw_dp_init_hw(dp);
-@@ -2065,6 +2084,8 @@ EXPORT_SYMBOL_GPL(dw_dp_bind);
- 
- void dw_dp_unbind(struct dw_dp *dp)
- {
-+	if (dp->usbc_mode)
-+		pm_runtime_put_autosuspend(dp->dev);
- 	disable_irq(dp->irq);
- 	phy_exit(dp->phy);
- 	drm_bridge_put(dp->next_bridge);
-@@ -2163,6 +2184,35 @@ struct dw_dp *dw_dp_probe(struct platform_device *pdev, const struct dw_dp_plat_
- }
- EXPORT_SYMBOL_GPL(dw_dp_probe);
- 
-+int dw_dp_runtime_suspend(struct dw_dp *dp)
-+{
-+	clk_disable_unprepare(dp->aux_clk);
-+	clk_disable_unprepare(dp->apb_clk);
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(dw_dp_runtime_suspend);
-+
-+int dw_dp_runtime_resume(struct dw_dp *dp)
-+{
-+	int ret;
-+
-+	ret = clk_prepare_enable(dp->apb_clk);
-+	if (ret)
-+		return ret;
-+
-+	ret = clk_prepare_enable(dp->aux_clk);
-+	if (ret) {
-+		clk_disable_unprepare(dp->apb_clk);
-+		return ret;
-+	}
-+
-+	dw_dp_init_hw(dp);
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(dw_dp_runtime_resume);
-+
- MODULE_AUTHOR("Andy Yan <andyshrk@163.com>");
- MODULE_DESCRIPTION("DW DP Core Library");
- MODULE_LICENSE("GPL");
-diff --git a/include/drm/bridge/dw_dp.h b/include/drm/bridge/dw_dp.h
-index 79b2cdf0df99..f20d2c2c40ca 100644
---- a/include/drm/bridge/dw_dp.h
-+++ b/include/drm/bridge/dw_dp.h
-@@ -29,4 +29,7 @@ int dw_dp_bind(struct dw_dp *dp, struct drm_encoder *encoder);
- void dw_dp_unbind(struct dw_dp *dp);
- 
- struct dw_dp *dw_dp_probe(struct platform_device *pdev, const struct dw_dp_plat_data *plat_data);
-+
-+int dw_dp_runtime_suspend(struct dw_dp *dp);
-+int dw_dp_runtime_resume(struct dw_dp *dp);
- #endif /* __DW_DP__ */
+On 7/21/2026 7:03 PM, Bartosz Golaszewski wrote:
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> 
+> Switch to devm_kmalloc() and devm_dma_alloc_chan() in
+> devm_qce_dma_request(). This allows us to drop two labels and shrink the
+> function.
+> 
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+> Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+> ---
 
--- 
-2.53.0
+Acked-by: Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>
+
 
 
