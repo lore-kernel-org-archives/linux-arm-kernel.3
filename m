@@ -4,133 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C343EC4452D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 23:22:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71E26C4452B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 23:34:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
-	Content-Type:References:In-Reply-To:Subject:Cc:To:From:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=16b8xemgFkcJqbY5LZiSU0Iy4MCUz8RvXcGIy7gYCL0=; b=33a9aUXkKv9ReRwrZNKfAU6xs7
-	6lLsojyki1mBewgt5KW/1HYPKzxEndYdTIwt3FkYWSvEEJRla96Y2CsxjepsfW0Fx07jnoAusv+Jw
-	WBi+dch8TfFrAGkz+s+xw7Et68ds2klkvg5KLS2mWN5PS2sK2PYQF76jsGKiDNH1JzOrCuQGs67/d
-	oR5a0G5L8osl2pz+kfS1O8pc695RQn/lDZhfxx56lind7m5YO6WAjd1f87TIcgbrlbvQRLCdDIhia
-	r/Av9OOPnOx6+qfCqPZE7yiP1NB6JeUQPCLmt7Z58JNA0cjFuv5jqEiDghWQxi+CKHX3oxorau5dF
-	1pnTycQA==;
+	bh=auMz2LN5tHJag03mf+TQgvTRqEM9EzBNH8krKUgiijs=; b=1D/xHotDmiRbSVaU9fbfjOyWgE
+	6Iym+OJjIhMLjOYFkZkA0x/bgsSIPdfWfMNCqRjz3VyIxnpKAhkXL1pP/0DZfCo54wL80rP3HUcly
+	0FimPBEPubFrJ4Lc4K48UMYuXvyAzarEvFPdBZPYphTZrkrqBRW8wobIdo3Z9Tke3BlwN4slp3Buj
+	ZJsQPFUb5Ct74+nky2qADXM3MpNTteiK32gLKsA5l1TfZ7icW/N7zDstHFRab6aEC5fgeWx+qsSFW
+	HdcS4O84q9PONxl6uVL/c88GF+SIWPifw7TA0leotzPaaCGLJy6i6ZmbLSFTC1CnEXx3py4MFYd5L
+	wd2T7wjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmJn3-0000000AaM3-0KE4;
-	Tue, 21 Jul 2026 23:22:21 +0000
-Received: from mail-japaneastazon11010033.outbound.protection.outlook.com ([52.101.229.33] helo=TY3P286CU002.outbound.protection.outlook.com)
+	id 1wmJyH-0000000Aao5-1DB0;
+	Tue, 21 Jul 2026 23:33:57 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmJmz-0000000AaLL-2PXP
+	id 1wmJyD-0000000AanL-3Ndx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 23:22:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SDdVJKutul9VbZ72yVnk+M9BB596gnjTAY/WbPJRkidWKg/98828JsZfifs9I8v4hz3jKfRarb6Vz7JF228D8UX1rX8mvMTFSRtg9+AorHJAJV0KqbA8brPMLzWMXW/gUlNZJ59OJsXlX1iztyo6LagzTNYMZhO3EWIe5NHVhQGfkxsNTOrG+GNx2AiDRXyaCq2rQLHQnNivrap1qcztTMxnHMoCai9u6hVOWFcPSiw0T2JpJrAhPJ3wTpdi8lWQwL6d/DLIe9L/Jw9Zme9AWBzFEFLrjdbUe6ez809jhBWpZZ4DlUK5oa2Vt70My02uD0oAEZ3J3gI8aUDhUbJxoQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=16b8xemgFkcJqbY5LZiSU0Iy4MCUz8RvXcGIy7gYCL0=;
- b=EsTBX0nO2eWmxSkSmSfRmMUZKgRoMMtlxUVuK5CSLIOlHzsh8GJ2i3duIpW9uhiRNjmCS52PmB5RAtRSLc09CG7/Z2spIyC52zNChRnbPGOBzwnW1iGrwYgm7YwjiBkFch+5SGkkTvLRiMwYLBg7KSdeBqaEhLV7ax/lhur3WJrFxbFbuLx0n8MviJlXi//O1wd/Jiru5oGGqUnNEv0k7CLnQIeSmpbAVfUvPs121zixadIQ3TOlDWGLnDfww9fNoHNaTluxmI4YS9VG9lxkQDe6EbYzEsA5tT28Hdl8D/9NnHk3qU6QNBcu5UGUP2bKmmCOIle7sJ+W8L+T6MN/vA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=renesas.com; dmarc=pass action=none header.from=renesas.com;
- dkim=pass header.d=renesas.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=16b8xemgFkcJqbY5LZiSU0Iy4MCUz8RvXcGIy7gYCL0=;
- b=XfP8vZBCWyVBINr6gh+i25lyN+VsGKAwBqrWycnQqjf5WeHjxLLablqKOX48IFjC/cssRkSSglHer1ZO6QV6nUCyUrUxASiryX6rJqVdjvOWP01wQjc9GTkysZRGzvlZbRq8QB3FrohjFxclKm+w0mYC8gfoa4a2C/j2zuAOV9c=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=renesas.com;
-Received: from TY3PR01MB11797.jpnprd01.prod.outlook.com (2603:1096:400:373::8)
- by TYWPR01MB8712.jpnprd01.prod.outlook.com (2603:1096:400:16b::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Tue, 21 Jul
- 2026 23:22:08 +0000
-Received: from TY3PR01MB11797.jpnprd01.prod.outlook.com
- ([fe80::1868:c915:c230:a383]) by TY3PR01MB11797.jpnprd01.prod.outlook.com
- ([fe80::1868:c915:c230:a383%4]) with mapi id 15.21.0245.009; Tue, 21 Jul 2026
- 23:22:08 +0000
-Message-ID: <874ihs0vz3.wl-kuninori.morimoto.gx@renesas.com>
-From: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Jaroslav Kysela <perex@perex.cz>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Neil Armstrong
- <neil.armstrong@linaro.org>,
-	Takashi Iwai <tiwai@suse.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sound@vger.kernel.org
-Subject: Re: [PATCH 2/2] ASoC: meson: meson-card: use priv instead of card on each functions
-In-Reply-To: <1jfr1ceqx5.fsf@starbuckisacylon.baylibre.com>
-References: <87v7a9i0o8.wl-kuninori.morimoto.gx@renesas.com>
-	<87se5di0n8.wl-kuninori.morimoto.gx@renesas.com>
-	<1jfr1ceqx5.fsf@starbuckisacylon.baylibre.com>
-User-Agent: Wanderlust/2.15.9 Emacs/30.2 Mule/6.0
-Content-Type: text/plain; charset=US-ASCII
-Date: Tue, 21 Jul 2026 23:22:08 +0000
-X-ClientProxiedBy: TYCP301CA0017.JPNP301.PROD.OUTLOOK.COM
- (2603:1096:400:381::8) To TY3PR01MB11797.jpnprd01.prod.outlook.com
- (2603:1096:400:373::8)
+	Tue, 21 Jul 2026 23:33:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1784676832;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=auMz2LN5tHJag03mf+TQgvTRqEM9EzBNH8krKUgiijs=;
+	b=Dp9chIdOXIML/8DmN4j62mf/5irX2HDKruX9LU7TNq2jsp7H8bDrk65vEWbBqfehDLBTwe
+	t83ihASJ3hFCAj75H8k0pCtcrPr9tvQ+iXbRc3Nye7vbgHiwYoSi19V2MtpzBgrnTkWpy6
+	DIhck4i2Asi8m4RLSadG8hukqXgPsoM=
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com
+ [209.85.222.197]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-292-zS4w9TcmP36aDlE_MmTqew-1; Tue, 21 Jul 2026 19:33:50 -0400
+X-MC-Unique: zS4w9TcmP36aDlE_MmTqew-1
+X-Mimecast-MFC-AGG-ID: zS4w9TcmP36aDlE_MmTqew_1784676830
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-92e820609d9so1530384585a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 16:33:50 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784676830; x=1785281630;
+        h=user-agent:in-reply-to:content-disposition:content-type
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=auMz2LN5tHJag03mf+TQgvTRqEM9EzBNH8krKUgiijs=;
+        b=Oux3/z6KWDG1qrK8dok9OEuRCsWSxVVv4vu9aUYyn3r6eAZeGPP61AzgeneKOpdkP2
+         Y56nhNjyyQrrOt2mDW9E/Sgj/yjHpezImElNvLAifZUmyeaynt94IqtqiiR000O5MkOR
+         dd9K6i7TJYDGBh2H4Hm0NnEuZR/ZZrYuobjugsiBdmpGGj+T7AgqW02lvrzvmvZpYvQb
+         M31rsgam20Msc9sqxAlA3RxqoXNvGmgn8jMVAK8MK3/PVUO7ZdZFuxt5y/CocrWEOqlY
+         65Y+Oxf1aljdqetnXFvg4eIgaQZz0gW+W2xsnkDo2YbahMZBguRyDy27nQ0Y0F/B8RQQ
+         bvlA==
+X-Forwarded-Encrypted: i=1; AHgh+RrfDAcDhNEdiRitZ2+QpGlmbwdpaPQwe2eZAexVKPfILuABoTpiGfXQ3b99IDqq1jxbzgd6ldhHyoOXqjYqRcYX@lists.infradead.org
+X-Gm-Message-State: AOJu0YxaE8LAIIkZeMKhNraqf0821BfwGeeib3ucPJSNGzk6vz+V70Lh
+	Wo7GPRpxG/z1Vu8Xaaf21KCqHkaCqxqHUP5mLsjAIVMCZBV9b/z3Y6YrfcQcH83Fkq7tpzTUU2s
+	FEE6t9p/stxZ70RkkNLkl81MSe4+wfzWVU4o8fsjhYdRW4Xj8fuxnV7mpYyHYf0HItPuc9R9ypd
+	b8
+X-Gm-Gg: AR+sD132gtMDrxHDebIXTvkpiFufRR8GXzErUmRtLROwj3PA3ulFNYHxm8A+ddOKYoS
+	DTe1loFlXULIcFEUoX8A/W59AwWp7sWejVD8XIH/dNMYWb8daICMfJ4Wydqm2Pxn89Ya1tVcvWD
+	yZDFwGqYLhJyN1jHs26/6rabYVViPaXbu20+e358Cbm4BJmjiqIPL6Krlk06xGI4BH8iwhI28fd
+	9VMXybikFE49bBZR7Ak30B6cP0orCaX6WEgW+3Qg2AgwmbCj60xvI1fc1urDhrTpDU9sUQSrLPd
+	v+VBS/AjGVKnQi/sh9rprAjbTNzI4Lj18aiYtPy0XJxrugOvV+K6iTY7XTmfou9dcMuDx/2y1Nl
+	8yirNsmQX/+KXeE9aMBgiPM2NZ82szLiudow=
+X-Received: by 2002:a05:620a:1711:b0:916:1a02:1965 with SMTP id af79cd13be357-930b41b1a22mr2261450485a.50.1784676830129;
+        Tue, 21 Jul 2026 16:33:50 -0700 (PDT)
+X-Received: by 2002:a05:620a:1711:b0:916:1a02:1965 with SMTP id af79cd13be357-930b41b1a22mr2261448185a.50.1784676829600;
+        Tue, 21 Jul 2026 16:33:49 -0700 (PDT)
+Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-930f6a88b88sm15993885a.42.2026.07.21.16.33.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 21 Jul 2026 16:33:48 -0700 (PDT)
+Date: Tue, 21 Jul 2026 19:33:46 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Yu-Chun Lin <eleanor.lin@realtek.com>
+Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de,
+	cylee12@realtek.com, afaerber@suse.com, jyanchou@realtek.com,
+	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-realtek-soc@lists.infradead.org, james.tai@realtek.com,
+	cy.huang@realtek.com, stanley_chang@realtek.com
+Subject: Re: [PATCH v10 04/11] clk: realtek: Introduce a common probe()
+Message-ID: <amAB2rr8UxY7QsCn@redhat.com>
+References: <20260713155630.3054636-1-eleanor.lin@realtek.com>
+ <20260713155630.3054636-5-eleanor.lin@realtek.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TY3PR01MB11797:EE_|TYWPR01MB8712:EE_
-X-MS-Office365-Filtering-Correlation-Id: c964cfcd-e782-4039-7b3b-08dee77ee262
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|23010399003|7416014|1800799024|366016|11063799006|10067099003|56012099006|4143699003|38350700014|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: c9D5NgWMSz78K/6vtTqzyWtcEHKcksSmci7MOKDFkS6CnO/LLuP+/db/vX9DaZds0rya7t52srRyg/yjrVo8rna3staWtEg5l9lQEZ/YFDM+e0eUp0XHkBNXiouU/cStsIzXC+0y29OO8fFfmF6MUVrjdXuh/QAfh04fnF76d+RPlss+Y09UYnNtDgrEwhVXKYKRyKfl84HLZj2wuGUQsf83Ci4p2CJMsPyj3hjCAeDKcxKb/79rSbWBcsnb5ulfO86puVtz+fJXGizjcaMGvLSQ5zBpFJhRlwtFSY6xWnknakEDwkuFuKROi/71gJU6v38AIKwLSEOXm+QaVWXm3L0ASZDzIEw0/tyOSj9TAwym3A471EPbmU0SMC1rOul3kAFMW7Kq2CiOH0j45iTMJhDX7nribobYe48LR3J0bqya1Y2nlK9E9n8sWXau1xp19UVG/U+4TJ5eL1VAwSlvN4OFEKOcPJqdfupPwhfB+rzZucW6IO31ncRT4BT048wQAl2K75MPIdTjQxFYJngWGOnexky6Bi57oN1yJeHoqmls7hjc1Xf0P2Vw427IQubjSgSir5PkWuaIJp5dbPLa7NSLC4Esasz+BI01Vrx88YeI3i9x1zF2/29xbD29PN0aHWurrz9AWWsGnPCdC7ilQI65EGE70aok7Ss/YhQWeaKpV/KGwVgVLfpziswPThps0M9WXWA8XYwXF+mTxJsLA/WCkU9Pu7hKc7ZtS+SADao=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY3PR01MB11797.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(23010399003)(7416014)(1800799024)(366016)(11063799006)(10067099003)(56012099006)(4143699003)(38350700014)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?A+8xmdoV3ymzOra+XloPM4pfqSO78icMrzTWqxSX4fEXVqTDuTe/DMwfXPIe?=
- =?us-ascii?Q?OeEclgQ0Y5cQSzgdws+cijcvlnmJZ7i9oG2XISOnX6LEkZ4wBCq6sgnN4QV8?=
- =?us-ascii?Q?lo3EK9jFhOhmacUKq2JqY5jSmRYmJE9VttUCOEuJjATQ8D5JE7puIzrgR5Za?=
- =?us-ascii?Q?ewPbVlx9Ux/+Bqhvwme40PXby9UTuU8X2NUS0Y+69o8wmKN+5YP8BMzmp3qS?=
- =?us-ascii?Q?srEHAp1OOu4o7gXKspTJtCGxh3og82/gTtLJjtZ5tAGjY7sIIyBRQb5Y+Slb?=
- =?us-ascii?Q?dgkhxcQv/PaG5SCPJKML7QkwGF8/zoDoV9FG6o3AVJ2b1DYPLIipmQUhQOJ5?=
- =?us-ascii?Q?Xy0ijfo4kRk4qCnYjn4XOyaqM2CwNr1hxBOprzbNRYvf8+sxFn9qTpoMkQUT?=
- =?us-ascii?Q?wfRLbcSPhm38X3ocj6n0szIZf78tiCllG8sziMxWY5cI2se/xjrZUYZMLb1b?=
- =?us-ascii?Q?v4roAGKG60ir5wZMmUBc/OgZJreg5sh67RsGDOWE+5uZnxSw8IW4JmlgVtBt?=
- =?us-ascii?Q?kgLLbAM1EtZHNSDXUlxnY2YXpV4DIEDk/LByDVnKLM5Rfvy/H2ldYk5H1dNt?=
- =?us-ascii?Q?8HNlQuqJk/vccLXhSzZ4hCEvxV7rIumNxRea0wc8536Qbzit+UfZxiW10lf1?=
- =?us-ascii?Q?0Sna4eQIfOZJSDWZCx7tVElaKfDn9Amgd7/dxgnx61YDuOQYACZsNBz82AuW?=
- =?us-ascii?Q?NBxQuhtxFYQW96Gauu+O1jcIHZb/pkgqgC3SgRvNHoP/ZNq81QRTsie7WQ+p?=
- =?us-ascii?Q?WzOWDqnCSTKj/gCUQSGmRjDy9LdEYJqeyIhUlPiXXw6toPjgZqCObfZn+lA4?=
- =?us-ascii?Q?qjzKBvyOXNBnPjaGQd3uB6C8s7X3ebwZrQQ++IpaO+RoeZbBb//nK15rZDca?=
- =?us-ascii?Q?qj1lw+OuZZ+IXDVKyMzoMoUvXcgJA3B1Uf9L0nvCYPZxDaKUMguLlH2ql4uz?=
- =?us-ascii?Q?/lA+ObfqHA4bUwkCh5BCZUXLC93et+cUfoAL5bXuJISYx5UzX2laubUlWBDS?=
- =?us-ascii?Q?YJEVYLuudR5MvyX7FxNt1Ieb9A9S1cdTvtrh/yvobyIUaEWw650W/EVIvFb3?=
- =?us-ascii?Q?EsIX0IpGmYPX3c8Ca3fwMw0yjZCtGB8PlI4fBtZKeqyilv79n7Gf3b/uznm0?=
- =?us-ascii?Q?VCZB22OoGwtsSbr5t6DWmVwwbj5FnrqhNTx31BXQHXpdXiY4Ka/CPNAQxYXF?=
- =?us-ascii?Q?YQsumWJ/AFJh/zhBDupVkYDWTQREKEqHndhhjNmea79xO72ZjQrpyuFIc49y?=
- =?us-ascii?Q?p9Jd/n0vL7rUWr+EreYJ853TNTnM6GDw0trw5syeyPhEhFZcEau44k0AZ1BD?=
- =?us-ascii?Q?dah3fOB7CQm3yaXauhssjKL5sillf3sBF1zCieb0SJGXmTYy2WGfwJ3kmm0k?=
- =?us-ascii?Q?pJPz9xTra0uNJpWqxmwIszP8ssQYc1590i4wuHFwo3MgELb2/Bxp5nIyJBJP?=
- =?us-ascii?Q?BwX9pHBko5fOu3sope3IabGmsUCv1Gnstw9xvk5y18nD0h61+pjr02p3xaAh?=
- =?us-ascii?Q?qSwm7ThZB1vNl6WWxXx/8YNgizEMQfd+XUjvhFbhuBCy14pqmoYPB9lKTX+x?=
- =?us-ascii?Q?/SBO5D6+ks8mfWPc5BVUB1rIKFDDulXXnrfXNx6Y4lzDHOQM9HzwrnQjwC/a?=
- =?us-ascii?Q?13SbxwgrOQK8POqKAdFF7ddZZ/I2XHKvXn8zjOMme9132rlDh0yVpYHHGJdO?=
- =?us-ascii?Q?Z1DfrKoe5y3o+jj24kpg1zdfqPUPfEls/AurjsMS0IKZTQ0kKWzPAgg2BeZb?=
- =?us-ascii?Q?Yho6m6O2cbuDdzC1K6/uNZz7YqeHEb7hLxShAzZrk3gJ14ISgtfb?=
-X-OriginatorOrg: renesas.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c964cfcd-e782-4039-7b3b-08dee77ee262
-X-MS-Exchange-CrossTenant-AuthSource: TY3PR01MB11797.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Jul 2026 23:22:08.5108
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: A+gtT6mtgVxQcqElx/i3WkBq7qpLn3otxs27zT4ymF8eJoLI40mjtuXSOwxKTB0LGODqIlB3eTjffin1cFq8d7dUMNgZBvGKXSoqnTVjSmTaQid9/th8divCX1iRJDQn
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYWPR01MB8712
+In-Reply-To: <20260713155630.3054636-5-eleanor.lin@realtek.com>
+User-Agent: Mutt/2.4.0 (2026-06-19)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: vBpX1zLOeRtRo6F5S79nycowAioUqmf9Cg4KFRgLWnI_1784676830
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_162217_702172_2F2587CD 
-X-CRM114-Status: GOOD (  15.28  )
+X-CRM114-CacheID: sfid-20260721_163354_258967_7D2A4C62 
+X-CRM114-Status: GOOD (  33.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,37 +115,230 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-Hi Jerome
-
-Thank you for your review
-
-> > We can get card via priv->card, use priv for function param.
-> > No functional change, but is preparation for Card capsuling.
+On Mon, Jul 13, 2026 at 11:56:23PM +0800, Yu-Chun Lin wrote:
+> From: Cheng-Yu Lee <cylee12@realtek.com>
 > 
-> The change is simple but it will make more complex to backport fix an
-> older kernel once this fix is applied. So again, getting more context to
-> understand what you are trying to accomplish and why it needs a standard
-> card variable name would help.
+> Add rtk_clk_probe() to set up the shared regmap, register clock hardware,
+> and add the clock provider.
+> 
+> Additionally, if the "#reset-cells" property is present in the device tree,
+> it creates and registers an auxiliary device using the provided aux_name.
+> This allows the dedicated reset driver to bind to this device, enabling
+> both clock and reset drivers to share the same regmap.
+> 
+> Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
+> Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+> Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+> ---
+> Changes in v10:
+> Add 'aux_name' to 'struct rtk_clk_desc'
+> ---
+>  MAINTAINERS                          |  1 +
+>  drivers/clk/Kconfig                  |  1 +
+>  drivers/clk/Makefile                 |  1 +
+>  drivers/clk/realtek/Kconfig          | 30 ++++++++++++
+>  drivers/clk/realtek/Makefile         |  4 ++
+>  drivers/clk/realtek/clk-rtk-common.c | 70 ++++++++++++++++++++++++++++
+>  drivers/clk/realtek/clk-rtk-common.h | 37 +++++++++++++++
+>  7 files changed, 144 insertions(+)
+>  create mode 100644 drivers/clk/realtek/Kconfig
+>  create mode 100644 drivers/clk/realtek/Makefile
+>  create mode 100644 drivers/clk/realtek/clk-rtk-common.c
+>  create mode 100644 drivers/clk/realtek/clk-rtk-common.h
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 02b34a53b258..1fffb1fc5de1 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -22742,6 +22742,7 @@ L:	devicetree@vger.kernel.org
+>  L:	linux-clk@vger.kernel.org
+>  S:	Supported
+>  F:	Documentation/devicetree/bindings/clock/realtek*
+> +F:	drivers/clk/realtek/*
+>  F:	drivers/reset/realtek/*
+>  F:	include/dt-bindings/clock/realtek*
+>  F:	include/dt-bindings/reset/realtek*
+> diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
+> index 1717ce75a907..97ad817457db 100644
+> --- a/drivers/clk/Kconfig
+> +++ b/drivers/clk/Kconfig
+> @@ -525,6 +525,7 @@ source "drivers/clk/nuvoton/Kconfig"
+>  source "drivers/clk/pistachio/Kconfig"
+>  source "drivers/clk/qcom/Kconfig"
+>  source "drivers/clk/ralink/Kconfig"
+> +source "drivers/clk/realtek/Kconfig"
+>  source "drivers/clk/renesas/Kconfig"
+>  source "drivers/clk/rockchip/Kconfig"
+>  source "drivers/clk/samsung/Kconfig"
+> diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
+> index cc108a75a900..b1aa373e9f84 100644
+> --- a/drivers/clk/Makefile
+> +++ b/drivers/clk/Makefile
+> @@ -141,6 +141,7 @@ obj-$(CONFIG_COMMON_CLK_PISTACHIO)	+= pistachio/
+>  obj-$(CONFIG_COMMON_CLK_PXA)		+= pxa/
+>  obj-$(CONFIG_COMMON_CLK_QCOM)		+= qcom/
+>  obj-y					+= ralink/
+> +obj-$(CONFIG_COMMON_CLK_REALTEK)	+= realtek/
+>  obj-y					+= renesas/
+>  obj-$(CONFIG_COMMON_CLK_ROCKCHIP)	+= rockchip/
+>  obj-$(CONFIG_COMMON_CLK_SAMSUNG)	+= samsung/
+> diff --git a/drivers/clk/realtek/Kconfig b/drivers/clk/realtek/Kconfig
+> new file mode 100644
+> index 000000000000..ed97531e321d
+> --- /dev/null
+> +++ b/drivers/clk/realtek/Kconfig
+> @@ -0,0 +1,30 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +config COMMON_CLK_REALTEK
+> +	tristate "Clock driver for Realtek SoCs"
+> +	depends on ARCH_REALTEK || COMPILE_TEST
+> +	default ARCH_REALTEK
+> +	help
+> +	  Enable the common clock framework infrastructure for Realtek
+> +	  system-on-chip platforms.
+> +
+> +	  This provides the base support required by individual Realtek
+> +	  clock controller drivers to expose clocks to peripheral devices.
+> +
+> +	  If you have a Realtek-based platform, say Y.
+> +
+> +if COMMON_CLK_REALTEK
+> +
+> +config RTK_CLK_COMMON
+> +	tristate "Realtek Clock Common"
+> +	depends on RESET_CONTROLLER
+> +	select AUXILIARY_BUS
+> +	select MFD_SYSCON
+> +	select RESET_RTK_COMMON
+> +	help
+> +	  Common helper code shared by Realtek clock controller drivers.
+> +
+> +	  This provides utility functions and data structures used by
+> +	  multiple Realtek clock implementations, and include integration
+> +	  with reset controllers where required.
+> +
+> +endif
+> diff --git a/drivers/clk/realtek/Makefile b/drivers/clk/realtek/Makefile
+> new file mode 100644
+> index 000000000000..13000ed4ba11
+> --- /dev/null
+> +++ b/drivers/clk/realtek/Makefile
+> @@ -0,0 +1,4 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +obj-$(CONFIG_RTK_CLK_COMMON) += clk-rtk.o
+> +
+> +clk-rtk-y += clk-rtk-common.o
+> diff --git a/drivers/clk/realtek/clk-rtk-common.c b/drivers/clk/realtek/clk-rtk-common.c
+> new file mode 100644
+> index 000000000000..cea7d94313da
+> --- /dev/null
+> +++ b/drivers/clk/realtek/clk-rtk-common.c
+> @@ -0,0 +1,70 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (C) 2019-2026 Realtek Semiconductor Corporation
+> + * Author: Cheng-Yu Lee <cylee12@realtek.com>
+> + */
+> +
+> +#include <linux/auxiliary_bus.h>
+> +#include <linux/device.h>
+> +#include <linux/export.h>
+> +#include <linux/mfd/syscon.h>
+> +#include <linux/module.h>
+> +#include <linux/platform_device.h>
+> +#include "clk-rtk-common.h"
+> +
+> +static int rtk_reset_controller_register(struct device *dev, const char *aux_name,
+> +					 struct regmap *map)
+> +{
+> +	struct auxiliary_device *adev;
+> +
+> +	if (!of_property_present(dev->of_node, "#reset-cells"))
+> +		return 0;
+> +
+> +	if (!aux_name) {
+> +		dev_err(dev, "DTS requires reset controller, but aux_name is missing\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	adev = devm_auxiliary_device_create(dev, aux_name, (void *)map);
+> +
+> +	if (!adev)
 
-Basically, after "Card capsuling" has done, we can't directly use card->xxx
-anymore. So we need to update all of such code.
-I would like to update such code as much as possible in advance.
-Otherwise, "Card capsuling" patch itself will be more complex and difficult
-to review.
+Remove extra newline
 
-But looking at the code again, indeed it is some rather exaggerated changes.
-I think v2 can be more simple.
+> +		return -ENOMEM;
+> +
+> +	return 0;
+> +}
+> +
+> +int rtk_clk_probe(struct platform_device *pdev, const struct rtk_clk_desc *desc)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct regmap *regmap;
+> +	int i, ret;
+> +
+> +	regmap = device_node_to_regmap(dev->of_node);
+> +	if (IS_ERR(regmap))
+> +		return dev_err_probe(dev, PTR_ERR(regmap), "failed to get regmap\n");
+> +
+> +	for (i = 0; i < desc->num_clks; i++)
+> +		desc->clks[i]->regmap = regmap;
+> +
+> +	for (i = 0; i < desc->clk_data->num; i++) {
+> +		struct clk_hw *hw = desc->clk_data->hws[i];
+> +
+> +		if (!hw)
 
+Remove extra newline.
 
-About [1/2], I have noticed that there is meson_card_parse_of_optional(),
-but snd_soc_card_driver_of_parse_aux_devs() case didn't use it.
-I wondered if it was a mistake not to use it, even though it was the same
-pattern. Not a big-deal. If it is intentional, there is no problem.
+> +			continue;
+> +
+> +		ret = devm_clk_hw_register(dev, hw);
+> +		if (ret)
+> +			return dev_err_probe(dev, ret, "failed to register hw of clk%d\n", i);
+> +	}
+> +
+> +	ret = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get,
+> +					  desc->clk_data);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to add clock provider\n");
+> +
+> +	return rtk_reset_controller_register(dev, desc->aux_name, regmap);
+> +}
+> +EXPORT_SYMBOL_NS_GPL(rtk_clk_probe, "REALTEK_CLK");
+> +
+> +MODULE_DESCRIPTION("Realtek clock infrastructure");
+> +MODULE_LICENSE("GPL");
+> diff --git a/drivers/clk/realtek/clk-rtk-common.h b/drivers/clk/realtek/clk-rtk-common.h
+> new file mode 100644
+> index 000000000000..d2aee7f421b4
+> --- /dev/null
+> +++ b/drivers/clk/realtek/clk-rtk-common.h
+> @@ -0,0 +1,37 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (C) 2016-2026 Realtek Semiconductor Corporation
+> + * Author: Cheng-Yu Lee <cylee12@realtek.com>
+> + */
+> +
+> +#ifndef __CLK_REALTEK_COMMON_H
+> +#define __CLK_REALTEK_COMMON_H
+> +
+> +#include <linux/clk-provider.h>
+> +
+> +#define __clk_regmap_hw(_p) ((_p)->hw)
+> +
+> +struct device;
+> +struct platform_device;
+> +struct regmap;
+> +
+> +struct clk_regmap {
 
-Thank you for your help !!
+Please rename this to clk_rtk_regmap. drivers/clk/qcom/clk-regmap.h
+already has this name, and they won't collide, but it makes things like
+grep less ambiguous with a unique name.
 
-Best regards
----
-Kuninori Morimoto
+Brian
+
 
