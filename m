@@ -4,79 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3871FC4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 08:57:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEF6CC4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 08:58:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Z76iw/uyYgGfytOiOZ22580VeGLYiQlgTYWmVZJjXYY=; b=qpjeCR+2V5uGdfMwepV1pwZc3N
-	IBNCGBExiWWJJHpeT7YE1Ut2CjLS1gUJW4m0ilCdNH1NXSuDWH56a3cFugpwO3GQ/pu2UtPPKCjGy
-	FYwEVNxxzXDa5lPfQaiHiecg76TGkByd8eLBoEix4zotiK9CHApHnM57LuCC5T3aBLk+Sw08964eK
-	4s4tIEs5eP8MGw0IMpipBN5b4kflmebo29WFpzIIp+X4mEg7oB+oTtEyn46vQhCqe/pFTLSgJUjMz
-	yXKw27VfA7ypHtiMPXBWZYUiWcjSQpKnP3Wdt1tJoMf8tkPLTR4TiShA0JBPMCzoswy8vwQaBrhsv
-	ajm6Ha8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o3orbY6NhqfjfstnAFooB/Z50XxpaSPbmYmh8aGbV/4=; b=y0EmEo7fwRdrAi3LUhL7iMJVrU
+	x2NjDaVzKoz44gsj0EFjBpCui9EyOUz0WI9vX3Gnhk8lw7qY3EVQhKLcpxEaG4nmyj0f1F2iMOIuK
+	yOhoNM8LlVJ/bNuTvrii8qr1kcFqPlq6XPnVU+w/YH8Jl8JUOJBAqiIU961cl4vPJ8JOCcxl1OzC/
+	qZJDSiBjZTMnxm1ywwHnYEhbNW+1exTcoVe9Hym71KzATm8dW/sF3VbeopKNjEWeDrGardmLJuKfU
+	2hoNgSfxNhxT7x/CRR0FOTccGerVrJ/OswX1mxOPBprCb1jYLWynRsA9G0bWS96lt6fC5FKR6IM2q
+	+qvXKVBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm6HX-00000008tVM-2k6c;
-	Tue, 21 Jul 2026 08:56:55 +0000
-Received: from mail-wr1-x445.google.com ([2a00:1450:4864:20::445])
+	id 1wm6Ir-00000008tk9-3UFg;
+	Tue, 21 Jul 2026 08:58:17 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm6HV-00000008tUK-11cb
+	id 1wm6Ip-00000008tjb-2XcO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 08:56:54 +0000
-Received: by mail-wr1-x445.google.com with SMTP id ffacd0b85a97d-47f529eac88so5670937f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 01:56:51 -0700 (PDT)
+	Tue, 21 Jul 2026 08:58:16 +0000
+Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-c9ef3e1337fso7503733a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 01:58:15 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1784624294; cv=none;
+        d=google.com; s=arc-20260327;
+        b=KVm2hGyeVn6vFWNTFAbqdMEj535JUs3JCq8CgLftGHrNPEnluP4G6L3A+ATlQ1brKa
+         4g6ENDa4B0fGQuDqsgmCcHXOVBpvCUIkgDWPOnRYHurU4Iz5TyGfKvisQq72YwjqGRZH
+         6aXRrStOjsGFh0qo3zpnXDz5S4qvx1NrA0GPJ8gUtlx7hqeUZNjsKI/Rb5xfPv6/SMHB
+         An/TfxAFxWq1DWRDufypf8Ct/Ovm2a4VgXbEkX8hHcki+Vqhi4YUpnqK06BPmRk/ShYC
+         n7zxFjtATu0GQPUctFjx1juxQItYnIHmaJNYqxUjQdy8UH7fzDBuRYj5SLkoEX/+EHMS
+         e/4g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=o3orbY6NhqfjfstnAFooB/Z50XxpaSPbmYmh8aGbV/4=;
+        fh=kjVUGZuXUamF4yas9HYmCCONuRl/nqga6SezwRDrUDE=;
+        b=dFyYy/cX5FW87IwL5F8I6TVckAK4IwU6WRYJl0/VV0Ogzlp94FKAluTv3D+9vBTTr+
+         QCNTqCsmaBET5OSIsV4gRYqoPCm/qNeSCJhjYUIAKfEnN3YY+Gsq56iQ04mjkHijbYHD
+         INRBEiwJC7q9Emizzyzm3301IxOt9a9DXxLndQMMeWVr68tGDtoPpRu9CmV/Oyt6ZpcP
+         jpbyigbd0xp0CPB7W98B+hu1GzGsjBpgsNFwN7FAF8QkpsviLGt0+VN9ee07jt5UvsJP
+         egjbjDHBtk15otknTU2XeVa3dM9LTUmyGGwG0Mh8maigorSa4YNGmX3WCRQL1UZB9Ori
+         rgJw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784624210; x=1785229010; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Z76iw/uyYgGfytOiOZ22580VeGLYiQlgTYWmVZJjXYY=;
-        b=wb8J91ILwFTvnENn2e3hiW+q7ZBcxFuHtINvwOWvI0uyJmMpx1eaygWCMK7K2UM3tg
-         VvHKhlI8p24IBlzqvcqqN5PM8QvnuDSUSzpAjoeUm781f1gjKZWg0febqH8HxnapYwKn
-         h2offcb5BbhgCP/x2tlolP8nyr8HDMTLIkpb/tj0VA6TrtbNt9hOmMJsKog/6zWu//O0
-         wdEyfDEm0GwtE0dsCZOQVpXsuJ/GH8Cz7ITSnBoSioyhAgvdV0svmvIYtYwuEWyaOa5I
-         DkthuNIiXFgA7VT2VBaV7rdJnK1fkVgUvXniPdV3RZtuogQhWJ91KTe2kWscaXy2k5dv
-         QMUw==
+        d=gmail.com; s=20251104; t=1784624294; x=1785229094; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=o3orbY6NhqfjfstnAFooB/Z50XxpaSPbmYmh8aGbV/4=;
+        b=PvD7TtQ7LTuNJ87/u1FP3TTZMuwmFbBY8Q3o7zcvl11nycNPlush4NzLzYA3iTGyLA
+         DOHsu0QUBECJjkwD2XwxJM4Sy4jllMCybFq2wTEwvJ8s1AYS+6cKD3YxHf3nke0jtlWK
+         5VeDFuwA02etatTrC3IwuzJFMJWH9JPCiMS6jzpz11OqA8Ax573nqPaQGGxUrhxfVHlr
+         CDvDReSHV8H0Gdl0ss7vdPMOnYQz07rw3c/22OPKZ8Q705GFahboc10m5530Q83H9l0+
+         EreJ8qRGNRB/1i0wI37Hi8nqvAlagJgYNRl/CYyfq2X/4Srf7y+mf1Rq88TBzi5rt0ch
+         dqzA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784624210; x=1785229010;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
+        d=1e100.net; s=20251104; t=1784624294; x=1785229094;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Z76iw/uyYgGfytOiOZ22580VeGLYiQlgTYWmVZJjXYY=;
-        b=AXUox/orcwuiGpB7e1J1/G9xbPjCEXrGVHqttq5UpAGlx+OKsQu73Ye2bVPf98pRNY
-         NIXc1oF36dsIGEhK8mBkim32EzQuyJ7WmH4e3Sj7WcaQo2oFSQZa/BcpQ5VLbe9/QV1W
-         lawXQVoCXcWp3bIBxEKg4wLaV4JGxCPyKYKJzNLtLd7oCoLMDf81RzQWHGZJ+6rq9RkD
-         5cirX8qZwpUGvTpPHG7VmeZJ5SpEAGmRCRcWAzUhvdtj9+YZRnK7osWG2CYxNhEeVPFV
-         d8tqPotDG2vfesS17GxB2fFgIa9VpYplDxJD0WglHUN6Npal2AA9nQ5gtLDmkHkn6Si9
-         KzSQ==
-X-Forwarded-Encrypted: i=1; AHgh+RrTq5nYMXw9p1GuplGqc5BbKdfWm6nPb99lXmN1CqdAuIieN8cNwrRYKWJL5IRjVHhK7EUe9LmvZelhQH/CK2Ic@lists.infradead.org
-X-Gm-Message-State: AOJu0YyewVr60TCU2IM8Nx6WLIHFUCiu2oEnZzS5eHQAGQeJp8AgoI07
-	JOwUBhpNhh3xGz+G3CGUWQD+1H7Je5Qwnj92mvyAnQqLP4CUGO9jhXG11hfCLgR9JOeK0ZmvhM/
-	AIeWZirbEwn3G4A==
-X-Received: from wrtr5.prod.google.com ([2002:a5d:4e45:0:b0:47f:40f3:b18a])
- (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a5d:5f51:0:b0:47b:5f25:7c59 with SMTP id ffacd0b85a97d-47f6231c5dcmr20981425f8f.38.1784624209952;
- Tue, 21 Jul 2026 01:56:49 -0700 (PDT)
-Date: Tue, 21 Jul 2026 08:56:45 +0000
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.55.0.229.g6434b31f56-goog
-Message-ID: <20260721085646.1660673-1-smostafa@google.com>
-Subject: [PATCH v2] KVM: arm64: Optimize protected mode and FWB
-From: Mostafa Saleh <smostafa@google.com>
-To: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Cc: maz@kernel.org, oupton@kernel.org, seiden@linux.ibm.com, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, will@kernel.org, vdonnefort@google.com, 
-	tabba@google.com, sebastianene@google.com, keirf@google.com, 
-	Mostafa Saleh <smostafa@google.com>, Fuad Tabba <fuad.tabba@linux.dev>
+        bh=o3orbY6NhqfjfstnAFooB/Z50XxpaSPbmYmh8aGbV/4=;
+        b=WMgH33rDBo2/uXYoK8heH2CnPqQBKTmsFjuVj6V+PfqxoRQ+kudYW420iMs2JUpD8k
+         6/qbDfjbXfhxitP4K+kEGm6kPqQRjoqtYqyoPm7aqI8GqcpCej042/ZluVicjeego5c3
+         AxOfr+W4EjmSQ/pgqL9gzJJ+GRsI4H9Yrb2/QI4imdRb8dtTLYbteMyDAiKzPxOj0OqI
+         srqqzblSAS9GqUwaD3AiheO1ls8NPiRdOmmyzRkf1IYe2IJu5DVCg5gDEDokyxdNttE1
+         BR2jN5naL3Ukup9CCMR0uGORW21xlxvYw43Ek4F3VKef5nibftZZWkLmysfy4mmvDhaI
+         OBrA==
+X-Forwarded-Encrypted: i=1; AHgh+RoAqD1kNTvAX5E30y3zB3xOKamQ6pZQHNF9v0Raf955mNMkGSe0rtqujSd8ejUfGwAh4BjPf81Q9oNpxHxA9pj3@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywa4k+U+5y7cLGi2MwY331v9Hw0kf22GyT9fwpsqu3u533QAoy2
+	V/keBI/4gkDQOr6mdjK1jMeZYOAu4HjuAHy58yEbjY8xan09nlb6pOkL8xwgYTBBYHgUMWPo+2X
+	NZvWgJn0USamyv1NQ//J4wY4vv0En9Fk=
+X-Gm-Gg: AfdE7clSx68/67sHeXLqEB/J/+YFjYi6VmItogpkt5wHg0Sp5lL+biq7wWAqZcNAmpL
+	jc0BfVInY5ap4rmbfD4cT1cmmYVYW2V0wm30L6LhKPtR3QrLmvstqMPQOxxg3HMKMXvFqK15apn
+	Du2tFxL34reyrtC8gDj+ypZ84PRbRxZR+M14FsDnl5DfzuKYtdRLYr2GtHX/nlhO3mBhMIYMjmi
+	KXKCsa9INg/x1MnLT6ylJxfwiAfLm0fmEjT55tt/74+YQNZdkgDKJXcMrtSGD3cB48WJcY/
+X-Received: by 2002:a05:6a20:734f:b0:3c3:6af8:ab24 with SMTP id
+ adf61e73a8af0-3c3ad9d5fe8mr19173494637.56.1784624294467; Tue, 21 Jul 2026
+ 01:58:14 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260720095450.1618747-1-shengjiu.wang@oss.nxp.com>
+ <20260720095450.1618747-2-shengjiu.wang@oss.nxp.com> <3ce4bfa8-b051-40af-9478-00540019680b@sirena.org.uk>
+In-Reply-To: <3ce4bfa8-b051-40af-9478-00540019680b@sirena.org.uk>
+From: Shengjiu Wang <shengjiu.wang@gmail.com>
+Date: Tue, 21 Jul 2026 16:58:02 +0800
+X-Gm-Features: AUfX_mxyjKglcWDGiHlL7pHojtmA7GYBRqbKLhdnlf4NA0C5KwDC9Zvpc1PZDyM
+Message-ID: <CAA+D8ANTBSgzhEQ-fsj9jpKnOBKCQiJeY5pv2-zck0O4DTM04Q@mail.gmail.com>
+Subject: Re: [PATCH 1/4] dt-bindings: sound: fsl,imx-asrc: update port binding
+ to support multiple pairs
+To: Mark Brown <broonie@kernel.org>
+Cc: shengjiu.wang@oss.nxp.com, lgirdwood@gmail.com, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, Frank.Li@nxp.com, 
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
+	shawnguo@kernel.org, linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Xiubo.Lee@gmail.com, nicoleotsuka@gmail.com, 
+	perex@perex.cz, tiwai@suse.com, linuxppc-dev@lists.ozlabs.org, 
+	Shengjiu Wang <shengjiu.wang@nxp.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_015653_287638_3C6B7A44 
-X-CRM114-Status: GOOD (  10.81  )
+X-CRM114-CacheID: sfid-20260721_015815_648358_A332F9B1 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,43 +124,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-KVM opportunistically enables FWB if supported by the system for guest
-VMs, which allows it to elude cache maintenance for data as they are
-forced to be cacheable from stage-2.
-In that case, __clean_dcache_guest_page() will immediately return.
-However in protected mode, before calling __clean_dcache_guest_page()
-it loops over the range and fix_map/unmap it, issuing TLB
-invalidations, dsb() and isb() unnecessarily.
+On Mon, Jul 20, 2026 at 10:28=E2=80=AFPM Mark Brown <broonie@kernel.org> wr=
+ote:
+>
+> On Mon, Jul 20, 2026 at 05:54:47PM +0800, shengjiu.wang@oss.nxp.com wrote=
+:
+> > From: Shengjiu Wang <shengjiu.wang@nxp.com>
+> >
+> > The i.MX ASRC hardware supports up to three conversion pairs (A, B, C).
+> > The existing binding exposed only a single generic audio-graph port,
+> > which cannot represent the individual pair endpoints.
+>
+> Please submit patches using subject lines reflecting the style for the
+> subsystem, this makes it easier for people to identify relevant patches.
+> Look at what existing commits in the area you're changing are doing and
+> make sure your subject lines visually resemble what they're doing.
+> There's no need to resubmit to fix this alone.
 
-This can be optimized by returning early if FWB is supported,
-kvm_pgtable_stage2_map() already issues dsb() and tlb invalidation
-functions issue dsb() for the unmap path.
+Thanks for pointing this out. There are also some comments from sashiko.dev
+I will try to address in the next version.
 
-Signed-off-by: Mostafa Saleh <smostafa@google.com>
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
----
- arch/arm64/kvm/hyp/nvhe/mem_protect.c | 7 +++++++
- 1 file changed, 7 insertions(+)
-
-diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index 4e329e39a695..049a09be2bbf 100644
---- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -261,6 +261,13 @@ static void __apply_guest_page(void *va, size_t size,
- 
- static void clean_dcache_guest_page(void *va, size_t size)
- {
-+	/*
-+	 * Guest stage-2 uses FWB if available, making it safe to elide CMOs.
-+	 * In contrast, the host stage-2 never has FWB enabled.
-+	 */
-+	if (cpus_have_final_cap(ARM64_HAS_STAGE2_FWB))
-+		return;
-+
- 	__apply_guest_page(va, size, __clean_dcache_guest_page);
- }
- 
--- 
-2.55.0.229.g6434b31f56-goog
-
+Best regards
+Shengjiu Wang
 
