@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAE3AC4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 19:49:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60CDDC4452D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 19:49:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rDqTOEeOxEoxHNaj3sN5TWxJkCnPsLl51DR2wI56fT0=; b=ZNBRXNlfneceNmkYwXB/wX9PS3
-	imG69ol2KCDsM1AWsnuKX0mdCKTDqpSi3tgmbHryL+W1NVdKcnW05+mFf6zQttO1BUYVLXc+xjunA
-	aBMPbnHsugMjbecUzS9DSNepdZSmGyyZPJSwQm4tJ/wNkto0ugZOWNOR+iTqSwlK3V30eYmVgLiXu
-	s2D+Tt0C1l2+AxiZF+J9ON4/bkeyKvDAsgq5qP74/xwpylOAB0DnpmtHR7dwYzSPtDZDpyTB4+Ex+
-	ElPJgSpw0+g9MbH3fgZ/T5KeV4hFxUCD7nTVveL2IffvT10odiMyc9LAppxw1G3gJLaXJlvWtyvGh
-	OIvcSZIA==;
+	bh=aG2TJvRvZPJ8B/BBpe3JwiMLSypwzwR6aIG99oBYahY=; b=ONVQbc6BRWmLkTGn+0Tt47c+Wy
+	My4DpWlnekOmw/q34MCGzoVlY1GcHFR5GjY5/fj62fQ/Fy6PVRpKdGedxhBGyafvYrjwI5bfaFZrf
+	AHVFL4XHUf/yV6kvbD0IG9jfSMJ+L8ADcW/s1BczWIzR8Isw2uuO9c9Lsda2/z35gt81r48fAgHiP
+	EomspApxNrpsMaXV0pJZ6fjQBUmV6MoSKDLbObGNAM6NvhOQkyX0kcFdmpjjyfRzH29VYcOyi0gC7
+	30s/uboi6IfCT0scxAJjz3rSKsJBB9G0qLo/rnLt87P+XQ6QxlT8pcxQ+DtWsOj9Y/yTfI4Eh3x8M
+	BisXVPsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmGSr-0000000AJXw-0qws;
-	Tue, 21 Jul 2026 19:49:17 +0000
-Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1wmGSq-0000000AJXD-3k8Q;
+	Tue, 21 Jul 2026 19:49:16 +0000
+Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmGSm-0000000AJTy-26la
+	id 1wmGSl-0000000AJT8-1qsZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 19:49:14 +0000
+	Tue, 21 Jul 2026 19:49:13 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=am+l1QLVrN2NjDTtMxf763MQ76rmH3gYO4FyFAz7LTGwIe8zO1zOY6sfluoXki7q6VHqqy/ZB0raQsWcHzO7MZ5tNoSBaOtyaPkDh2Een4/+4h8iZXOdFSqAvsSbhZDnEEf3reovLukMPHSPvwfUqKv95KrAumzf3LR5GKa5UXvzCYslJ2g4x6snMwCD4djyv5XCqNjol4l6xbHiIZhfCdjuVqzrX0aQMbSSyCQFxUEeXY45ly9eJhCJolkXFukveVSrjt5Rfy6v3WRQoXlGWHwjDKmCQ1gd+/MwdhjG7L96eXxUPAtKnFOrjGugEeM9mWcP5fNcH1q1v/Ja4vtJbQ==
+ b=ScXZ/0cNwxMYCMYCDET8Tz2EArXaH/8aMHaFzG1Bo6YJPrkm9lMwvlWV8g/KkO49VYKLLa21lpuijnCIInsYM6AA0t1QKt2W9d4ywgPjgGERCJqGB3VTGscu0hpkLMlAQq1PsZZSG/mO+zi3YonLVLnQoe1Z8X4wdHfFdTbW44QhumuWKclDBkIrrKE1JdOlWJWNf2+gXqnlnktcBG3vK//oDoie0YVrAbPVWnXTHKyMUZWm5ftGbPXRkz9H95H+ta4IyD+pYXEMNVS1nVvMv4ay8eok6N3HUDSikEiRFQGP/j/NjqIeAZzygKQ2anPUsos3H1UolrEZ/Uuo6lt4eg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rDqTOEeOxEoxHNaj3sN5TWxJkCnPsLl51DR2wI56fT0=;
- b=Tx4SXSDJfMibyheqsPN54hmTmmTa+tSP9+uvKKNUW8LREqAbnuNEkhTtjzgHJSVfOwLeeJu2iMFSenKlb9jb+UBQQdtcFf/w5qM+2RbvaU7GdRPvBg8UbJDTbYg/c8UKkyUSO41BFsSMSTUlJjZewXd/3/B4vg39g+bwr7TffqRZxuIgwCnJgkZsUwSMajIdae9sY0Zc4x+rkjHMzSRql4Jt9Gurb5nDld0noFrLmW9ApM6F+m/HUGmlW2wI/gTRoWDpU+RhHQark7NNdR2OvLI5nNxkAnLTYsAIMJ4tRyRgxEHH0fSyo/Dr0xN4BkYeN/R3xgpz1hCDvo7gIO8Aww==
+ bh=aG2TJvRvZPJ8B/BBpe3JwiMLSypwzwR6aIG99oBYahY=;
+ b=D5KkPaPh728bz7FaAlAF5O7YtOOU4ov15P0nDDql7MzuY3I+WVXf4SG1NoPcsob2gjPLmbPI8S+7V4m3t6mbbD5biRin0oGkWWxYZPEJ7LAddnA9YoJqPyIXaDVVwlbBtEIqmJj9seSzsLTPdUvTQzzMKPf7Y3wl+8HfXq+G2ZIdaX8emenYhU8uxNKnGFkewuf0CdsQMQkK7oqW7UONY5hRN+ADaFvKDHF6mDnURqzzvjIPoAU859KWzy1DkXS0Tx+5JMZlGi4benE/+C482/gRdqWffmQKXK8/OirUCgLuLSYBRs0/O058YQwmS6XNvzC4HcbMlJFTUsKLXSdxaw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
@@ -41,18 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rDqTOEeOxEoxHNaj3sN5TWxJkCnPsLl51DR2wI56fT0=;
- b=iw9hHmbzKJX2msg5UXElfa7wni1xGicBONNcWap/ZpvXcpyUM0QooD/CI8HgAGCC56cwpQGI6FS+wiMX0uM1Uu6yS1WGGVVf4nQ9jhzL291jlOB6DDF6VU1R7y0XY/BvuMtDLftqkT2E9fm+MtDR49fN3cRX3zBp9MsC+vGrvmgjOL3o6z0jX3hkxuIQ4aXNaD0gAwbgzj38MIo0LW5p7Kuxfc+xvdNjVVmBEU7QdIiB++v6vT2g3EpRAmitpnp6X0hi54lr4hpcVD8xa3HQVxeFn+I2YznNgZxn79u6fKMJ5zt1sgoDn23XOUbUvoOsaeFWUa58TzRlzCzXqCou7w==
-Received: from PH8P222CA0022.NAMP222.PROD.OUTLOOK.COM (2603:10b6:510:2d7::33)
- by SJ2PR12MB8112.namprd12.prod.outlook.com (2603:10b6:a03:4f8::21) with
+ bh=aG2TJvRvZPJ8B/BBpe3JwiMLSypwzwR6aIG99oBYahY=;
+ b=YleU4jbMliYQGmtpjheYspb2X6qEsomUluBg1phzPiOX5k6xjFDek1TcFSgOB7IZrEvEQJPtk34PXMVjcL677/g5B8QIqPULaqF+6wXkdmJnfvN86e7PG+JHIQcc+9yJQ1wZJHLo1Q700mZOaKaCog8f+FxNfgSOfTgpyAFavkagG4LpfifKtujuyRI5tVzw17b/if9dquuOEF3OO1ouJRDADNCafPD9z7RFc11jG9ZKCwL/8M/APJi2WLzisglwpmruWIxOTUGg5XKtw1DBEdf6unyBLP4U2vZo5E+6BlJdyS3uyD/Z1qIvSqoPN28Fl/6IOphJoAeEF/+8NlpWXw==
+Received: from MW4PR04CA0138.namprd04.prod.outlook.com (2603:10b6:303:84::23)
+ by LV8PR12MB9360.namprd12.prod.outlook.com (2603:10b6:408:205::16) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Tue, 21 Jul
- 2026 19:49:04 +0000
-Received: from SJ1PEPF000023D3.namprd21.prod.outlook.com
- (2603:10b6:510:2d7:cafe::2a) by PH8P222CA0022.outlook.office365.com
- (2603:10b6:510:2d7::33) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.18; Tue, 21 Jul
+ 2026 19:49:01 +0000
+Received: from SJ1PEPF000023DA.namprd21.prod.outlook.com
+ (2603:10b6:303:84:cafe::a1) by MW4PR04CA0138.outlook.office365.com
+ (2603:10b6:303:84::23) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.10 via Frontend Transport; Tue,
- 21 Jul 2026 19:49:03 +0000
+ 21 Jul 2026 19:49:00 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
  smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
@@ -60,28 +60,28 @@ Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
  216.228.117.160 as permitted sender) receiver=protection.outlook.com;
  client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
 Received: from mail.nvidia.com (216.228.117.160) by
- SJ1PEPF000023D3.mail.protection.outlook.com (10.167.244.68) with Microsoft
+ SJ1PEPF000023DA.mail.protection.outlook.com (10.167.244.75) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.270.0 via Frontend Transport; Tue, 21 Jul 2026 19:49:02 +0000
+ 15.21.270.0 via Frontend Transport; Tue, 21 Jul 2026 19:49:00 +0000
 Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
  (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 21 Jul
- 2026 12:48:40 -0700
+ 2026 12:48:38 -0700
 Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail203.nvidia.com
  (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 21 Jul
- 2026 12:48:39 -0700
+ 2026 12:48:37 -0700
 Received: from Asurada-Nvidia.nvidia.com (10.127.8.14) by mail.nvidia.com
  (10.129.68.10) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
- Transport; Tue, 21 Jul 2026 12:48:39 -0700
+ Transport; Tue, 21 Jul 2026 12:48:37 -0700
 From: Nicolin Chen <nicolinc@nvidia.com>
 To: <will@kernel.org>, <robin.murphy@arm.com>, <jgg@nvidia.com>
 CC: <joro@8bytes.org>, <praan@google.com>, <kevin.tian@intel.com>,
 	<smostafa@google.com>, <linux-arm-kernel@lists.infradead.org>,
 	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>, <jamien@nvidia.com>
-Subject: [PATCH v9 05/12] iommu/arm-smmu-v3: Add ARM_SMMU_OPT_KDUMP_ADOPT for kdump kernel
-Date: Tue, 21 Jul 2026 12:48:14 -0700
-Message-ID: <6fbd503d7476f01455fb61d8d9dae6188ec1739f.1784663184.git.nicolinc@nvidia.com>
+Subject: [PATCH v9 03/12] iommu/arm-smmu-v3: Add strtab parse helpers to a new arm-smmu-v3-kexec.c
+Date: Tue, 21 Jul 2026 12:48:12 -0700
+Message-ID: <c6a0e50e73989b48d3669bdb342027c612794cd4.1784663184.git.nicolinc@nvidia.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1784663183.git.nicolinc@nvidia.com>
 References: <cover.1784663183.git.nicolinc@nvidia.com>
@@ -91,28 +91,28 @@ Content-Type: text/plain
 X-NV-OnPremToCloud: ExternallySecured
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF000023D3:EE_|SJ2PR12MB8112:EE_
-X-MS-Office365-Filtering-Correlation-Id: 09dad02e-2a3b-4aa5-ebc8-08dee7611dcb
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000023DA:EE_|LV8PR12MB9360:EE_
+X-MS-Office365-Filtering-Correlation-Id: 64d995ed-4a05-46ef-823d-08dee7611c3b
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|82310400026|36860700016|376014|5023799004|11063799006|56012099006|10067099003|6133799003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: Q8ejTCexLFTzuzIhbDyMwnqpkYjRY8d9uP3e+zBBWljorT3GvKDOtATUXOwTocYckQ7SdeAxo9uVnMNG01TTJj55bFaEC54gDyCjWy0PP5fG5ecrlpAqQFjxQJ/v27ZEkzXG3Frg/kzYkpEhViQAVASw2hC8vHi2OwjEdw1UbDiEsIoDvkOWoNWAN3T2oVpRcIU2ukLdHSjAOWXizIYYp1vz8klWqnKNZeDTIY9DqPSngH33QF3sMD1dl2QCF1WEi4nWdQxkgx9GbGK7IIoCw2edYGRA+0gfkxaaNBp48POElx5TeJgEkvwOYQnSe2luhe5kbHNVZEBvxcJy9/l7nUj7X5lNtBm3rszouC1nA1mfM0B6+dBN+APZuP7PcFORIieyRE4cCrIuDwksOYy2s28suZz92CAKvP3r/VS7NNc76GXnvuQP6xzjQVKorRsNyRpIPy5ahrbPcjnmQgRHyxvLLIZjyBlKpL+DHsy+HO5v1tx3xpaOnFNKb0nCdFfuHe81Ewy555bKDK970IWwAv4Z4KXzacMCKyRMD5AOtmYuYVMQmbEqlHnjyBPykkBzpJeIDADqdmTxOp/Y9mi+SLhmCll3QKplszcJzXbDeldYkG0amHfaW4tnNTYcUJCbprgMDdjkyNtD8h9I7SXqMvk6nRlbrrWgZT4A1qWORcPvJR2NMG/U/WCwnuiN5Yzn/34M2j4duOKP0yRDOPfKMg==
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(82310400026)(36860700016)(376014)(5023799004)(11063799006)(56012099006)(10067099003)(6133799003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|36860700016|376014|1800799024|5023799004|56012099006|11063799006|10067099003|22082099003|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info: C+J0pzNjg51OZvTFmiqvV5mewXoLOULbPjEzfYA/QphHhs2riwxTOCIZk5r869phCZxLQDzYciXt3wqwazIbnqjLChQVX+USCsDmUDZ7p1fpjct8dlpus3NNSs+LpB4hCrXxlys1tCT1KIhok82ER0w5OzwX9NQ6yqwTnCa79erKLVV7cT8vjNQaq+pvts1/88vyZMoWQJ5lmKIbM66njbSk0G1dN4CxN2hmUbep+YNBTAJgLc3BVYZSnrC2Qe7ayhK0bAAi3CCyP3e2t8KmQ/7ZZ9xsY00QbSoV057Rh6zVd8BwctNeCxyogqBDFKKnRds3f2yIO1+6OuEuVRR7K8rCZEutB1ZDtefj6kE+ijN1FJ9miwzaMfzrgWD45ACBmV+FuFeT6hKFiIWvOv95lmzDd9mAm4Bi6wwiqc1HsRlpReiVXA4GRmMrXR/Y3zXUxCgfAmdvaRQzxNxVLBtjC7t72Bswld5qpGWMgNJ8EIFk33rVmSTB7MbyntwheGaFQsp8E3/u7OcR+POVfINdVAiCbgi7KTqRw4Hv7zrXGcAkz/wAlwYpW4Tkht1azLaomoB82eU+9fLfbHpQKutJ4E1m5jRfxc57QNFmZaAvxpRN2EZX2DRrL7qZYsR7qyk9jyrpKERHN1BvzSwXRe57I+AkAF2Aa4JjByuJ8/2vvR3lpx4Zs3v6nc8ztTkWHdFJUgHKj+L5k/0uMl0/y+xO8Q==
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(36860700016)(376014)(1800799024)(5023799004)(56012099006)(11063799006)(10067099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: OF30FguaUVO9VAXK1nJuniIGqi0UJdL0kgnZkW14INFlrNKi70EhJwB+bpATlc0946kWV3lBTtPriYkKq7F9UKaCliTBvUrQ+bvgbk2LnA2nuN/VxmHpFm8nZGw4bdivHPEv+t8ylCqle2F2bKCSHBIYhfSiL4Zjm42nRS+bt9rQ2Prs2jTx2iVvOyP36MHMuAOY7ilMWg/UhrzHQCWUB0nrljVrLp1E/3PKIjYy+AwTg/i0dCyH11dQeVD7H2nlRfAQTFXZfeqP/P3hUIB+TKhZ84W/6TQGRiipwVAEWMJ9nW4EUgRue/UQJpaSlQHXoTh2TcIni3vZM5kBUdXzh+jbCjLoUh0hSE91BBZrP3fhKVt0RRYoHiZ7mLSgm2Bqt4eOG9FDE/OttpxtfVR7M85Q5Y/Z7IxGCFp/cRsfElpPOqOWRSUiwM/0oxVBAOfo
+X-MS-Exchange-AntiSpam-MessageData-0: fRbbgYD4nqdWGJINoHkPMbD/bnl3p2hgO4T+G6iGhFabwiYqyBYeeiQP/ze30VctwuW92uzCXyQq6YUoiO2LbN7B3D0TA/+tR3TuL2+G5jTvUAo8ZT12nqFlgxal6l7s+Xv2f1AgQANTF8bisKb63ByVoJ1qTrZIoZm2Yr7zbjSZavRW0rH/A/2k39nYoD+qBWANAGj1xb2Dx7rbaUnyP6atBzh/Q20f/RuG7bITopAckK8kc/kGQ3wQnv5cD4ONks4sqf5IUlj+jet4anUNcvqsJBdnuclp1rGQ5QfUUqlsFOiohFHtkl5ZqxbNp4L14DcrCXni8XGmAAup9X2K4M9N17ftIkzobBY/IRx2t+su3y6qZsdNxhs95g6wfhvq5ls6MnmRJI8HAlZmugLIdbpJcRA4ndKcVNKB8H6ysA96up0/FFIPtm93NcTyT7V5
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Jul 2026 19:49:02.9613
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Jul 2026 19:49:00.3398
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 09dad02e-2a3b-4aa5-ebc8-08dee7611dcb
+X-MS-Exchange-CrossTenant-Network-Message-Id: 64d995ed-4a05-46ef-823d-08dee7611c3b
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023D3.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023DA.namprd21.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB8112
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR12MB9360
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_124912_567620_82A2FCF0 
-X-CRM114-Status: GOOD (  31.21  )
+X-CRM114-CacheID: sfid-20260721_124911_562322_550F14C6 
+X-CRM114-Status: GOOD (  24.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,390 +127,250 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When transitioning to a kdump kernel, the primary kernel might have crashed
-while endpoint devices were actively bus-mastering DMA. Currently, the SMMU
-driver aggressively resets the hardware during probe by clearing CR0_SMMUEN
-and setting the Global Bypass Attribute (GBPA) to ABORT.
+When booting after a kexec, both the kdump adoption and also the in-flight
+SMMUv3 live-update restoration built on the Kexec Handover (KHO) framework
+need to parse the previous kernel's STRTAB_BASE/STRTAB_BASE_CFG registers,
+in order to retain the stream table translating any in-flight DMAs.
 
-In a kdump scenario, this aggressive reset is highly destructive:
-a) If GBPA is set to ABORT, in-flight DMA will be aborted, generating fatal
-   PCIe AER or SErrors that may panic the kdump kernel
-b) If GBPA is set to BYPASS, in-flight DMA targeting some IOVAs will bypass
-   the SMMU and corrupt the physical memory at those 1:1 mapped IOVAs.
+Add a new arm-smmu-v3-kexec.c holding the common read-only helpers:
+ - arm_smmu_kexec_parse_strtab_2lvl()
+ - arm_smmu_kexec_parse_strtab_linear()
+ - arm_smmu_kexec_check_strtab_l1_desc()
 
-To safely absorb in-flight DMAs, a kdump kernel will have to leave SMMUEN=1
-intact and avoid modifying STRTAB_BASE, allowing HW to continue translating
-in-flight DMAs reusing the crashed kernel's page tables until the endpoint
-device drivers probe and quiesce their respective hardware.
+These helpers only validate the previous kernel's values against this very
+kernel's own limits, taking no ownership of the tables: a kdump kernel will
+adopt the tables via memremaps, while a live-update kernel will claim them
+using the KHO restore API.
 
-However, the ARM SMMUv3 architecture specification states that updating the
-SMMU_STRTAB_BASE register while SMMUEN == 1 is UNPREDICTABLE or ignored.
+Build this new file under a hidden ARM_SMMU_V3_KEXEC Kconfig symbol, which
+is, for now, merely a CRASH_DUMP. Then, the coming live-update series would
+need to append its own user to this symbol, e.g. "|| IOMMU_LIVEUPDATE".
 
-This leaves a kdump kernel no choice but to adopt the stream table from the
-crashed kernel.
-
-Introduce ARM_SMMU_OPT_KDUMP_ADOPT and adopt functions memremapping all the
-stream tables extracted from STRTAB_BASE and STRTAB_BASE_CFG. Add them in
-a new arm-smmu-v3-kdump.c, which is only built when CONFIG_CRASH_DUMP=y.
-
-Note that the adoption of the crashed kernel's stream table follows certain
-strict rules, since the old stream table might be compromised. Thus, apply
-some basic validations against the values read from the registers. If tests
-fail, it means the stream table cannot be trusted, so toss it entirely. To
-avoid OOM due to a potentially corrupted stream table, the memremap for l2
-tables is done lazily on the kdump kernel's demand.
-
-The new option will be set in a following change, once the device reset and
-the RMR setup are reworked not to overwrite the adopted stream table, and
-the crashed kernel's in-use ASIDs and VMIDs are reserved.
-
-Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
+Suggested-by: Pranjal Shrivastava <praan@google.com>
 Assisted-by: Claude:claude-fable-5
 Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 ---
+ drivers/iommu/arm/Kconfig                     |   4 +
  drivers/iommu/arm/arm-smmu-v3/Makefile        |   1 +
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  21 ++
- .../iommu/arm/arm-smmu-v3/arm-smmu-v3-kdump.c | 229 ++++++++++++++++++
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |  21 +-
- 4 files changed, 269 insertions(+), 3 deletions(-)
- create mode 100644 drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kdump.c
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  11 ++
+ .../iommu/arm/arm-smmu-v3/arm-smmu-v3-kexec.c | 159 ++++++++++++++++++
+ 4 files changed, 175 insertions(+)
+ create mode 100644 drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kexec.c
 
+diff --git a/drivers/iommu/arm/Kconfig b/drivers/iommu/arm/Kconfig
+index 5fac08b89deea..04b05d49abf76 100644
+--- a/drivers/iommu/arm/Kconfig
++++ b/drivers/iommu/arm/Kconfig
+@@ -109,6 +109,10 @@ config ARM_SMMU_V3_IOMMUFD
+ 
+ 	  Say Y here if you are doing development and testing on this feature.
+ 
++# Common helpers for a kexec'd kernel, e.g. kdump adoption and live update
++config ARM_SMMU_V3_KEXEC
++	def_bool CRASH_DUMP
++
+ config ARM_SMMU_V3_KUNIT_TEST
+ 	tristate "KUnit tests for arm-smmu-v3 driver"  if !KUNIT_ALL_TESTS
+ 	depends on KUNIT
 diff --git a/drivers/iommu/arm/arm-smmu-v3/Makefile b/drivers/iommu/arm/arm-smmu-v3/Makefile
-index 89a27de8dd2f0..2bc52473d960e 100644
+index 493a659cc66bb..89a27de8dd2f0 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/Makefile
 +++ b/drivers/iommu/arm/arm-smmu-v3/Makefile
-@@ -4,6 +4,7 @@ arm_smmu_v3-y := arm-smmu-v3.o
+@@ -3,6 +3,7 @@ obj-$(CONFIG_ARM_SMMU_V3) += arm_smmu_v3.o
+ arm_smmu_v3-y := arm-smmu-v3.o
  arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_IOMMUFD) += arm-smmu-v3-iommufd.o
  arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_SVA) += arm-smmu-v3-sva.o
- arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_KEXEC) += arm-smmu-v3-kexec.o
-+arm_smmu_v3-$(CONFIG_CRASH_DUMP) += arm-smmu-v3-kdump.o
++arm_smmu_v3-$(CONFIG_ARM_SMMU_V3_KEXEC) += arm-smmu-v3-kexec.o
  arm_smmu_v3-$(CONFIG_TEGRA241_CMDQV) += tegra241-cmdqv.o
  
  obj-$(CONFIG_ARM_SMMU_V3_KUNIT_TEST) += arm-smmu-v3-test.o
 diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index d37492ff08fb3..6ef307335d80c 100644
+index c909c9a88538b..d37492ff08fb3 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
 +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -928,6 +928,7 @@ struct arm_smmu_device {
- #define ARM_SMMU_OPT_MSIPOLL		(1 << 2)
- #define ARM_SMMU_OPT_CMDQ_FORCE_SYNC	(1 << 3)
- #define ARM_SMMU_OPT_TEGRA241_CMDQV	(1 << 4)
-+#define ARM_SMMU_OPT_KDUMP_ADOPT	(1 << 5)
- 	u32				options;
+@@ -1239,6 +1239,17 @@ tegra241_cmdqv_probe(struct arm_smmu_device *smmu)
+ }
+ #endif /* CONFIG_TEGRA241_CMDQV */
  
- 	struct arm_smmu_cmdq		cmdq;
-@@ -1250,6 +1251,26 @@ int arm_smmu_kexec_check_strtab_l1_desc(struct arm_smmu_device *smmu,
- 					phys_addr_t *l2_base);
- #endif /* CONFIG_ARM_SMMU_V3_KEXEC */
- 
-+#ifdef CONFIG_CRASH_DUMP
-+int arm_smmu_kdump_adopt_strtab(struct arm_smmu_device *smmu);
-+int arm_smmu_kdump_adopt_deferred_l2_strtab(struct arm_smmu_device *smmu,
-+					    u32 sid, phys_addr_t base, u32 span,
-+					    struct arm_smmu_strtab_l2 **l2table);
-+#else /* CONFIG_CRASH_DUMP */
-+static inline int arm_smmu_kdump_adopt_strtab(struct arm_smmu_device *smmu)
-+{
-+	return -EOPNOTSUPP;
-+}
-+
-+static inline int
-+arm_smmu_kdump_adopt_deferred_l2_strtab(struct arm_smmu_device *smmu, u32 sid,
-+					phys_addr_t base, u32 span,
-+					struct arm_smmu_strtab_l2 **l2table)
-+{
-+	return -EOPNOTSUPP;
-+}
-+#endif /* CONFIG_CRASH_DUMP */
++#ifdef CONFIG_ARM_SMMU_V3_KEXEC
++int arm_smmu_kexec_parse_strtab_2lvl(struct arm_smmu_device *smmu, u32 cfg_reg,
++				     phys_addr_t base, u32 *num_l1_ents);
++int arm_smmu_kexec_parse_strtab_linear(struct arm_smmu_device *smmu,
++				       u32 cfg_reg, phys_addr_t base,
++				       u32 *num_ents);
++int arm_smmu_kexec_check_strtab_l1_desc(struct arm_smmu_device *smmu,
++					u64 l1_desc, u32 idx,
++					phys_addr_t *l2_base);
++#endif /* CONFIG_ARM_SMMU_V3_KEXEC */
 +
  struct arm_vsmmu {
  	struct iommufd_viommu core;
  	struct arm_smmu_device *smmu;
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kdump.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kdump.c
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kexec.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kexec.c
 new file mode 100644
-index 0000000000000..a074d59ce3445
+index 0000000000000..5346132529427
 --- /dev/null
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kdump.c
-@@ -0,0 +1,229 @@
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kexec.c
+@@ -0,0 +1,159 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
-+ * Implementation of the kdump stream table adoption for ARM SMMUv3
++ * Common helpers for a kexec'd kernel to parse, validate, and walk through the
++ * previous kernel's SMMU table structures, shared by the kdump adoption and a
++ * future live-update restoration.
 + *
-+ * When the crashed kernel left the SMMU enabled with in-flight DMAs, the kdump
-+ * kernel adopts the crashed kernel's stream tables, instead of doing a regular
-+ * reset, to keep in-flight DMAs translating until the endpoint device drivers
-+ * re-probe and quiesce their devices.
-+ *
-+ * Note:
-+ *  - Adoption only starts on an SMMU that the crashed kernel left enabled, as a
-+ *    disabled SMMU (CR0_SMMUEN=0) could hold meaningless register values.
-+ *  - Values read from the crashed kernel's registers get structural validation
-+ *    only (format, size, span, alignment, and ID range); the physical addresses
-+ *    are not vetted, as the kdump kernel has no record of which pages held the
-+ *    tables.
-+ *  - A structural inconsistency at adoption time tosses the entire adoption and
-+ *    makes the SMMU fall back to a full reset blocking in-flight DMAs.
-+ *  - L2 stream tables are adopted lazily at master-inserting time, to bound the
-+ *    peak memory use against a corrupted L1 table; any lazy L2 adoption failure
-+ *    rejects that device alone, as its blast radius is bounded to the bus.
-+ *  - Only a coherent SMMU (ARM_SMMU_FEAT_COHERENCY) is supported, as the stream
-+ *    table adoption is done by memremap with MEMREMAP_WB, which is verified on
-+ *    the real hardware. Callers of these functions are responsible for gating
-+ *    ARM_SMMU_FEAT_COHERENCY once during the probe.
++ * All of the helpers are read-only against the previous kernel's structures: a
++ * table that is not yet mapped by this kernel gets a transient memremap during
++ * a walk, followed by an immediate memunmap. They never allocate memory or take
++ * ownership of the previous kernel's tables; the callers make those decisions.
 + */
 +
-+#define dev_fmt(fmt) "kdump: " fmt
-+
 +#include <linux/io.h>
-+#include <linux/slab.h>
 +
 +#include "arm-smmu-v3.h"
 +
-+int arm_smmu_kdump_adopt_deferred_l2_strtab(struct arm_smmu_device *smmu,
-+					    u32 sid, phys_addr_t base, u32 span,
-+					    struct arm_smmu_strtab_l2 **l2table)
++/**
++ * arm_smmu_kexec_parse_strtab_2lvl() - Validate a 2-level stream table
++ * @smmu: SMMU device of this kernel
++ * @cfg_reg: STRTAB_BASE_CFG register value set by the previous kernel
++ * @base: stream table base address extracted from the STRTAB_BASE register
++ * @num_l1_ents: pointer to return the number of L1 entries
++ *
++ * Validate the 2-level stream table geometry in @cfg_reg and @base's alignment
++ * against this kernel's hardware limits.
++ *
++ * Return: 0 on success with @num_l1_ents set, or -EINVAL on a bad geometry
++ */
++int arm_smmu_kexec_parse_strtab_2lvl(struct arm_smmu_device *smmu, u32 cfg_reg,
++				     phys_addr_t base, u32 *num_l1_ents)
 +{
-+	struct arm_smmu_strtab_l2 *table;
-+	size_t size;
-+
-+	/*
-+	 * Retest the span in case the L1 descriptor has been overwritten since
-+	 * the adopt. Reject this master's insert; panic or SMMU-disable would
-+	 * either lose the vmcore or cascade aborts. Do not try to fix it, as it
-+	 * would break all other SIDs in the same bus (PCI case). The corruption
-+	 * blast radius is already bounded to that bus range.
-+	 */
-+	if (span != STRTAB_SPLIT + 1) {
-+		dev_err(smmu->dev,
-+			"L1[%u] span %u changed since adopt (was %u)\n",
-+			arm_smmu_strtab_l1_idx(sid), span, STRTAB_SPLIT + 1);
-+		return -EINVAL;
-+	}
-+
-+	size = (1UL << (span - 1)) * sizeof(struct arm_smmu_ste);
-+
-+	/* Same live-corruption check as the span; reject an overwritten base */
-+	if (!base || !IS_ALIGNED(base, size)) {
-+		dev_err(smmu->dev, "L1[%u] bad l2 table base %pa\n",
-+			arm_smmu_strtab_l1_idx(sid), &base);
-+		return -EINVAL;
-+	}
-+
-+	/*
-+	 * This L2 table is mapped lazily per master; devres frees it at unbind,
-+	 * as with the dmam_alloc_coherent() used for a fresh L2.
-+	 */
-+	table = devm_memremap(smmu->dev, base, size, MEMREMAP_WB);
-+	if (IS_ERR(table)) {
-+		dev_err(smmu->dev,
-+			"failed to adopt l2 stream table for SID %u\n", sid);
-+		return PTR_ERR(table);
-+	}
-+
-+	*l2table = table;
-+	return 0;
-+}
-+
-+static int arm_smmu_kdump_adopt_strtab_2lvl(struct arm_smmu_device *smmu,
-+					    u32 cfg_reg, phys_addr_t base)
-+{
-+	struct arm_smmu_strtab_cfg *cfg = &smmu->strtab_cfg;
-+	u32 num_l1_ents;
-+	size_t size;
-+	int ret, i;
-+
-+	ret = arm_smmu_kexec_parse_strtab_2lvl(smmu, cfg_reg, base,
-+					       &num_l1_ents);
-+	if (ret)
-+		return ret;
-+
-+	cfg->l2.num_l1_ents = num_l1_ents;
-+
-+	size = num_l1_ents * sizeof(struct arm_smmu_strtab_l1);
-+	cfg->l2.l1tab = memremap(base, size, MEMREMAP_WB);
-+	if (!cfg->l2.l1tab)
-+		return -ENOMEM;
-+
-+	cfg->l2.l2ptrs =
-+		kcalloc(num_l1_ents, sizeof(*cfg->l2.l2ptrs), GFP_KERNEL);
-+	if (!cfg->l2.l2ptrs)
-+		return -ENOMEM;
-+
-+	for (i = 0; i < num_l1_ents; i++) {
-+		u64 l2ptr = le64_to_cpu(cfg->l2.l1tab[i].l2ptr);
-+		phys_addr_t l2_base;
-+
-+		ret = arm_smmu_kexec_check_strtab_l1_desc(smmu, l2ptr, i,
-+							  &l2_base);
-+		if (ret < 0)
-+			return ret;
-+
-+		/*
-+		 * If the crashed kernel's l1 descriptors are deeply corrupted,
-+		 * blindly memremapping every l2 table here could lead to OOM.
-+		 *
-+		 * Defer the l2 memremap to arm_smmu_init_l2_strtab(), so peak
-+		 * memory is bounded by the kdump kernel's actual demand.
-+		 */
-+	}
-+
-+	return 0;
-+}
-+
-+static int arm_smmu_kdump_adopt_strtab_linear(struct arm_smmu_device *smmu,
-+					      u32 cfg_reg, phys_addr_t base)
-+{
-+	struct arm_smmu_strtab_cfg *cfg = &smmu->strtab_cfg;
++	u32 log2size = FIELD_GET(STRTAB_BASE_CFG_LOG2SIZE, cfg_reg);
++	u32 split = FIELD_GET(STRTAB_BASE_CFG_SPLIT, cfg_reg);
 +	u32 num_ents;
 +	size_t size;
-+	int ret;
 +
-+	ret = arm_smmu_kexec_parse_strtab_linear(smmu, cfg_reg, base,
-+						 &num_ents);
-+	if (ret)
-+		return ret;
++	if (log2size < split || log2size > smmu->sid_bits) {
++		dev_err(smmu->dev, "log2size %u out of range [%u, %u]\n",
++			log2size, split, smmu->sid_bits);
++		return -EINVAL;
++	}
++	if (split != STRTAB_SPLIT) {
++		dev_err(smmu->dev,
++			"unsupported STRTAB_SPLIT %u (expected %u)\n", split,
++			STRTAB_SPLIT);
++		return -EINVAL;
++	}
 +
++	num_ents = 1U << (log2size - split);
++	if (num_ents > STRTAB_MAX_L1_ENTRIES) {
++		dev_err(smmu->dev, "l1 entries %u exceeds max %u\n", num_ents,
++			STRTAB_MAX_L1_ENTRIES);
++		return -EINVAL;
++	}
++
++	size = num_ents * sizeof(struct arm_smmu_strtab_l1);
 +	/*
-+	 * We might end up with a num_ents != sid_bits, which is fine, since the
-+	 * ARM_SMMU_OPT_KDUMP_ADOPT case bypasses arm_smmu_write_strtab().
++	 * HW aligns the base down to the L1 table size (min 64 bytes), so any
++	 * unaligned base would make this kernel read a different table.
 +	 */
-+	cfg->linear.num_ents = num_ents;
++	if (!IS_ALIGNED(base, size)) {
++		dev_err(smmu->dev, "unaligned l1 stream table base %pa\n",
++			&base);
++		return -EINVAL;
++	}
 +
-+	size = num_ents * sizeof(struct arm_smmu_ste);
-+	cfg->linear.table = memremap(base, size, MEMREMAP_WB);
-+	if (!cfg->linear.table)
-+		return -ENOMEM;
++	*num_l1_ents = num_ents;
 +	return 0;
 +}
 +
-+static void arm_smmu_kdump_adopt_cleanup(void *data)
++/**
++ * arm_smmu_kexec_parse_strtab_linear() - Validate a linear stream table
++ * @smmu: SMMU device of this kernel
++ * @cfg_reg: STRTAB_BASE_CFG register value set by the previous kernel
++ * @base: stream table base address extracted from the STRTAB_BASE register
++ * @num_ents: pointer to return the number of STEs
++ *
++ * Validate the linear stream table geometry in @cfg_reg and @base's alignment
++ * against this kernel's own limits.
++ *
++ * Return: 0 on success with @num_ents set, or -EINVAL on a bad geometry
++ */
++int arm_smmu_kexec_parse_strtab_linear(struct arm_smmu_device *smmu,
++				       u32 cfg_reg, phys_addr_t base,
++				       u32 *num_ents)
 +{
-+	struct arm_smmu_device *smmu = data;
-+	struct arm_smmu_strtab_cfg *cfg = &smmu->strtab_cfg;
++	u32 log2size = FIELD_GET(STRTAB_BASE_CFG_LOG2SIZE, cfg_reg);
++	unsigned int max_log2size = smmu->sid_bits;
++	size_t size;
 +
-+	if (smmu->features & ARM_SMMU_FEAT_2_LVL_STRTAB) {
-+		kfree(cfg->l2.l2ptrs);
-+		if (cfg->l2.l1tab)
-+			memunmap(cfg->l2.l1tab);
-+	} else {
-+		if (cfg->linear.table)
-+			memunmap(cfg->linear.table);
-+	}
-+}
++	/* Cap the size at what this kernel itself would have allocated */
++	if (smmu->features & ARM_SMMU_FEAT_2_LVL_STRTAB)
++		max_log2size = min_t(
++			unsigned int, max_log2size,
++			ilog2(STRTAB_MAX_L1_ENTRIES * STRTAB_NUM_L2_STES));
 +
-+int arm_smmu_kdump_adopt_strtab(struct arm_smmu_device *smmu)
-+{
-+	u32 cfg_reg = readl_relaxed(smmu->base + ARM_SMMU_STRTAB_BASE_CFG);
-+	u64 base_reg = readq_relaxed(smmu->base + ARM_SMMU_STRTAB_BASE);
-+	bool was_2lvl = smmu->features & ARM_SMMU_FEAT_2_LVL_STRTAB;
-+	phys_addr_t base = base_reg & STRTAB_BASE_ADDR_MASK;
-+	u32 fmt = FIELD_GET(STRTAB_BASE_CFG_FMT, cfg_reg);
-+	int ret;
-+
-+	dev_dbg(smmu->dev, "adopting crashed kernel's stream table\n");
-+
-+	if (fmt == STRTAB_BASE_CFG_FMT_2LVL) {
-+		/*
-+		 * Both kernels run on the same hardware, so it's impossible for
-+		 * kdump kernel to see the support for linear stream table only.
-+		 */
-+		if (WARN_ON(!(smmu->features & ARM_SMMU_FEAT_2_LVL_STRTAB)))
-+			ret = -EINVAL;
-+		else
-+			ret = arm_smmu_kdump_adopt_strtab_2lvl(smmu, cfg_reg,
-+							       base);
-+	} else if (fmt == STRTAB_BASE_CFG_FMT_LINEAR) {
-+		/*
-+		 * The kdump kernel need not match the crashed kernel. An older
-+		 * crashed kernel that predates two-level stream table support
-+		 * may have used a linear table on 2-level-capable hardware, so
-+		 * enforce the same format here to match the adopted table.
-+		 */
-+		ret = arm_smmu_kdump_adopt_strtab_linear(smmu, cfg_reg, base);
-+		if (!ret)
-+			smmu->features &= ~ARM_SMMU_FEAT_2_LVL_STRTAB;
-+	} else {
-+		dev_err(smmu->dev, "invalid STRTAB format %u\n", fmt);
-+		ret = -EINVAL;
++	/* num_ents is limited to a u32, so cap log2size at 31 */
++	max_log2size = min(max_log2size, 31U);
++	if (log2size > max_log2size) {
++		dev_err(smmu->dev, "unsupported log2size %u (> %u)\n", log2size,
++			max_log2size);
++		return -EINVAL;
 +	}
 +
-+	if (ret) {
-+		arm_smmu_kdump_adopt_cleanup(smmu);
-+		goto err;
-+	}
-+
-+	ret = devm_add_action_or_reset(smmu->dev, arm_smmu_kdump_adopt_cleanup,
-+				       smmu);
-+	/* devm_add_action_or_reset ran the cleanup upon failure */
-+	if (ret) {
-+		dev_warn(smmu->dev, "failed to set up cleanup action\n");
-+		goto err;
-+	}
-+
-+	return 0;
-+
-+err:
-+	dev_warn(smmu->dev, "falling back to full reset\n");
++	size = (1U << log2size) * sizeof(struct arm_smmu_ste);
 +	/*
-+	 * Undo the linear adoption's clearing of FEAT_2_LVL_STRTAB so that the
-+	 * full-reset fallback uses the hardware-supported format.
++	 * HW aligns the base down to the table size, ignoring the low bits, so
++	 * an unaligned base would make this kernel read a different table.
 +	 */
-+	if (was_2lvl)
-+		smmu->features |= ARM_SMMU_FEAT_2_LVL_STRTAB;
-+	memset(&smmu->strtab_cfg, 0, sizeof(smmu->strtab_cfg));
-+	smmu->options &= ~ARM_SMMU_OPT_KDUMP_ADOPT;
-+	return ret;
-+}
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 0df6c17a53173..b768080c04db4 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -1938,11 +1938,23 @@ static int arm_smmu_init_l2_strtab(struct arm_smmu_device *smmu, u32 sid)
- 	dma_addr_t l2ptr_dma;
- 	struct arm_smmu_strtab_cfg *cfg = &smmu->strtab_cfg;
- 	struct arm_smmu_strtab_l2 **l2table;
-+	u32 l1_idx = arm_smmu_strtab_l1_idx(sid);
- 
--	l2table = &cfg->l2.l2ptrs[arm_smmu_strtab_l1_idx(sid)];
-+	l2table = &cfg->l2.l2ptrs[l1_idx];
- 	if (*l2table)
- 		return 0;
- 
-+	/* Deferred adoption of the crashed kernel's L2 table */
-+	if (smmu->options & ARM_SMMU_OPT_KDUMP_ADOPT) {
-+		u64 l2ptr = le64_to_cpu(cfg->l2.l1tab[l1_idx].l2ptr);
-+		phys_addr_t base = l2ptr & STRTAB_L1_DESC_L2PTR_MASK;
-+		u32 span = FIELD_GET(STRTAB_L1_DESC_SPAN, l2ptr);
-+
-+		if (span)
-+			return arm_smmu_kdump_adopt_deferred_l2_strtab(
-+				smmu, sid, base, span, l2table);
++	if (!IS_ALIGNED(base, size)) {
++		dev_err(smmu->dev, "unaligned stream table base %pa\n", &base);
++		return -EINVAL;
 +	}
 +
- 	*l2table = dmam_alloc_coherent(smmu->dev, sizeof(**l2table),
- 				       &l2ptr_dma, GFP_KERNEL);
- 	if (!*l2table) {
-@@ -1954,8 +1966,7 @@ static int arm_smmu_init_l2_strtab(struct arm_smmu_device *smmu, u32 sid)
- 
- 	arm_smmu_init_initial_stes((*l2table)->stes,
- 				   ARRAY_SIZE((*l2table)->stes));
--	arm_smmu_write_strtab_l1_desc(&cfg->l2.l1tab[arm_smmu_strtab_l1_idx(sid)],
--				      l2ptr_dma);
-+	arm_smmu_write_strtab_l1_desc(&cfg->l2.l1tab[l1_idx], l2ptr_dma);
- 	return 0;
- }
- 
-@@ -4510,6 +4521,10 @@ static int arm_smmu_init_strtab(struct arm_smmu_device *smmu)
- 	if (ret)
- 		return ret;
- 
-+	if ((smmu->options & ARM_SMMU_OPT_KDUMP_ADOPT) &&
-+	    !arm_smmu_kdump_adopt_strtab(smmu))
-+		return 0;
++	*num_ents = 1U << log2size;
++	return 0;
++}
 +
- 	if (smmu->features & ARM_SMMU_FEAT_2_LVL_STRTAB)
- 		ret = arm_smmu_init_strtab_2lvl(smmu);
- 	else
++/**
++ * arm_smmu_kexec_check_strtab_l1_desc() - Check one stream table L1 descriptor
++ * @smmu: SMMU device of this kernel
++ * @l1_desc: L1 descriptor value from the previous kernel's stream table
++ * @idx: index of the L1 descriptor, for diagnostics
++ * @l2_base: pointer to return the L2 table's physical address
++ *
++ * Return: 1 if the descriptor is unused, 0 if it is valid with @l2_base set, or
++ * -EINVAL if it is malformed
++ */
++int arm_smmu_kexec_check_strtab_l1_desc(struct arm_smmu_device *smmu,
++					u64 l1_desc, u32 idx,
++					phys_addr_t *l2_base)
++{
++	phys_addr_t base = l1_desc & STRTAB_L1_DESC_L2PTR_MASK;
++	u32 span = FIELD_GET(STRTAB_L1_DESC_SPAN, l1_desc);
++
++	/* L1STD.L2Ptr is invalid */
++	if (!span)
++		return 1;
++
++	if (span != STRTAB_SPLIT + 1) {
++		dev_err(smmu->dev, "L1[%u] unsupported span %u (vs %u)\n", idx,
++			span, STRTAB_SPLIT + 1);
++		return -EINVAL;
++	}
++
++	/*
++	 * A valid descriptor never carries a null pointer. Also, HW aligns the
++	 * pointer down to the L2 table size, so an unaligned pointer would make
++	 * this kernel read a different table.
++	 */
++	if (!base || !IS_ALIGNED(base, sizeof(struct arm_smmu_strtab_l2))) {
++		dev_err(smmu->dev, "L1[%u] bad l2 table base %pa\n", idx,
++			&base);
++		return -EINVAL;
++	}
++
++	*l2_base = base;
++	return 0;
++}
 -- 
 2.43.0
 
