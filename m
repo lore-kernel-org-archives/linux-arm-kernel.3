@@ -4,71 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 283F8C44529
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 14:54:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B478DC44532
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 14:57:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8rdkwdHFhooXiJD5RHQu6PWVPro9MMDXLk7iFV/JEbc=; b=xTlkCddkuvV5+AJrvHajuwlmTA
-	K/X4Li9nHXfE5JGEmeEcFyyi8ptggb3ZWsP/L0Rot8n/CTSY5LWIwZveeY14tyXJNzB52NZHO+8Uy
-	yn+/kh13GsApzRm5Fm1tSUnV0aNyI5y8T0P1gSq8xJzV64sSGRrbFjQYuJsHYKSs66qQZn5qrjelx
-	9/fYigmV/d6eGa9Rr5rAGuw2ejIhyNpAp4AfXHhhoiEyMAxqD2fVEXP931UeTKVd2GN95JlnrYYg3
-	XYWIO5kiNWH3mZC7LQ/4RqBw9B8oGCrGzmS3LIyOON15hv36FUiKzeJgQU2kN3umbGGQgprX15Hco
-	x18S9N+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=plNykDgGEs2TSs2FHMTRElOOa5z84CHtFBC/F/kpZgI=; b=w1T/otVtaEhx5a4rL7aWNYzB1C
+	vrjHFRuu1+auKgHmfOPMAz0LQjd0OfTTc5zDb8kUIu35SfiKup082mBHDGRkPmVTLgxdxS/S7jBOu
+	Wmd1kBI6tLZmLNZiv4TbDzIHBTWzWF9jgXHxfDvWxpDKaaOVvh4DNIvRRsFRv07TyK/73e4f1cJqq
+	laphGxv3B5NJU2dXM2hssH2amiCnIvAJ4xeJHszItuiRXyQhuO0/J0ZNSHb49EG/mmURGbmCZtnU3
+	bgsmDZD/nWD0q8QVlFG03T8uXucmiP3RsoKziJJ4YK1SNiw3XuP1IlOcIxO4cqTMp23oDsMyz4dEr
+	LsYlNhLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmBrn-00000009hwT-068j;
-	Tue, 21 Jul 2026 14:54:43 +0000
+	id 1wmBue-00000009iMM-2Jsg;
+	Tue, 21 Jul 2026 14:57:40 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmBrk-00000009hvw-2vO9
+	id 1wmBub-00000009iLF-310K
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 14:54:41 +0000
+	Tue, 21 Jul 2026 14:57:38 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E058D152B;
-	Tue, 21 Jul 2026 07:54:34 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 251EF3F86F;
-	Tue, 21 Jul 2026 07:54:36 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2E80F152B;
+	Tue, 21 Jul 2026 07:57:30 -0700 (PDT)
+Received: from localhost (unknown [10.2.196.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 00D103F86F;
+	Tue, 21 Jul 2026 07:57:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784645679; bh=MitdL30heQSAH7WS0YQpZljVY3sO1FWU+W23/+uIAe8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=BBWuskjtszvLN5RjnQFmSXDBnb5rmM7GLCwJ9I/v92BznbOltddup6q68nKrSIduz
-	 0kAsQHVSgQ1UqICtuVfak65akUtXJ0GRTZ45qz8zI/YqWlnxrGfJZxmzXl66TMH3uJ
-	 PUpNBhzY/6DBQiViSY6vC9KLV0CKTrev1FKnnDg8=
-Message-ID: <b943d2e7-9f74-40f6-bbaa-84642ea785eb@arm.com>
-Date: Tue, 21 Jul 2026 16:54:38 +0200
+	t=1784645854; bh=4qtcIpB1P2IKiXD+CcVbmvM7uLJl/Gi8tdxbWcGhvKY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tQ3zhhOGd04WqDEMkb7LkLTFKTpvSjf/61W3T8jfJiBAWr8jcCIUZPx7o95EX4TY3
+	 Hcf6NQAwOExBTigWC0GYX7QIWz/jsmkYDtTZD+Ji3bLeSwKikWO7MYtrhInuTYnwAj
+	 6bWHwe29vJ12HpiM1m9cEgrPDKGOF6k0C5VAVqZ0=
+Date: Tue, 21 Jul 2026 15:57:32 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: Mohamed Ayman <mohamedaymanworkspace@gmail.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	"moderated list:ARM/CORESIGHT FRAMEWORK AND DRIVERS" <coresight@lists.linaro.org>,
+	"moderated list:ARM/CORESIGHT FRAMEWORK AND DRIVERS" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	"open list:Real-time Linux (PREEMPT_RT):Keyword:PREEMPT_RT" <linux-rt-devel@lists.linux.dev>
+Subject: Re: [PATCH v3] coresight: Fix scheduling while atomic in
+ coresight_cpu_pm_notify()
+Message-ID: <20260721145732.GL3998092@e132581.arm.com>
+References: <20260712210446.14290-1-mohamedaymanworkspace@gmail.com>
+ <20260716214155.2049564-1-mohamedaymanworkspace@gmail.com>
+ <20260717155848.GB3998092@e132581.arm.com>
+ <20260717161201.3jkO5o71@linutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 16/16] arm_mpam: detect and enable MPAM-Fb PCC support
-To: Niyas Sait <niyas.sait@arm.com>, Lorenzo Pieralisi
- <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>,
- Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260710144520.917375-1-andre.przywara@arm.com>
- <20260710144520.917375-17-andre.przywara@arm.com>
- <9ac5f187-ff48-434b-a1c0-7f73b442083c@arm.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <9ac5f187-ff48-434b-a1c0-7f73b442083c@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260717161201.3jkO5o71@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_075440_780523_E753BEC7 
-X-CRM114-Status: UNSURE (   9.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260721_075737_797058_4B0A5D06 
+X-CRM114-Status: GOOD (  19.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,28 +81,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Niyas,
+On Fri, Jul 17, 2026 at 06:12:01PM +0200, Sebastian Andrzej Siewior wrote:
 
-On 7/14/26 14:32, Niyas Sait wrote:
-> On 10/07/2026 15:45, Andre Przywara wrote:
->> +    cur->pcc_cl.dev = dev;
->> +    cur->pcc_cl.rx_callback = mpam_pcc_rx_callback;
->> +    cur->pcc_cl.tx_block = true;
->> +    cur->pcc_cl.tx_tout = 1000; /* 1s */
+[...]
+
+> > The raw spinlock (coresight_dev_lock) serializes access to the per-CPU
+> > csdev_source pointer. It does not guarantee the lifetime of the source
+> > or its _parent_ device. coresight_unregister() is not only reached from
+> > module unload; it can also be called when a driver is unbind, for
+> > example DT overlay removal or device hotplug/unplug.
 > 
-> Should this timeout be based on nominal latency reported in PCC table 
-> instead of being hard coded to 1s here? May be some multiple of nominal 
-> latency reported
+> But doesn't coresight_unregister() block on the coresight_dev_lock here?
 
-I originally thought that this would be handled by the PCC code, but 
-that just parses the value, and puts it in the pcc_mbox_chan struct. 
-Which we only get access to *after* we request the channel in the next 
-line here.
-But it's only mbox_send_message() that uses the value, so I think we can 
-populate that value later on still. And yeah, some multiple of the 
-nominal latency sounds reasonable.
+Fair point.
 
-Cheers,
-Andre
+coresight_cpu_get_active_path() can safely access the source while
+holding coresight_dev_lock. Unregistration will be blocked until the
+access from the CPU PM notifier has finished.
 
+> > I think a proper fix needs a clearer lifetime model for an active
+> > session. E.g., we could consider to call device_link_add() to prevent
+> > device unbind / unregister, and unlink device when the session is
+> > finished. Once that is in place, the CPU PM notifier can safely use the
+> > active path without get_device()/put_device() pair anymore.
+> 
+> Right. I am also not sure about lifetime of coresight_device::path.
+
+coresight_device::path is a runtime pointer that is valid only while
+the device is enabled.
+
+Since both the path and the device mode are updated atomically on the
+local CPU, observing the device mode as enabled guarantees that the
+corresponding coresight_device::path is valid.
+
+Thanks,
+Leo
 
