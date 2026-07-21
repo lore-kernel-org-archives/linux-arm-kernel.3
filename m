@@ -4,112 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEF6CC4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 08:58:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14AA9C4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 09:00:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o3orbY6NhqfjfstnAFooB/Z50XxpaSPbmYmh8aGbV/4=; b=y0EmEo7fwRdrAi3LUhL7iMJVrU
-	x2NjDaVzKoz44gsj0EFjBpCui9EyOUz0WI9vX3Gnhk8lw7qY3EVQhKLcpxEaG4nmyj0f1F2iMOIuK
-	yOhoNM8LlVJ/bNuTvrii8qr1kcFqPlq6XPnVU+w/YH8Jl8JUOJBAqiIU961cl4vPJ8JOCcxl1OzC/
-	qZJDSiBjZTMnxm1ywwHnYEhbNW+1exTcoVe9Hym71KzATm8dW/sF3VbeopKNjEWeDrGardmLJuKfU
-	2hoNgSfxNhxT7x/CRR0FOTccGerVrJ/OswX1mxOPBprCb1jYLWynRsA9G0bWS96lt6fC5FKR6IM2q
-	+qvXKVBQ==;
+	bh=Nf4YfT/PVuNJI6rw/ahjdO4P2Ufeq7Km/8hgSrV69+M=; b=R/jGWUCbY7HcZQKrrWa9QsTbFp
+	PxoWgQB15t13IWWAbwc8a+XfwKMzO6Yy91U+IBP+r8RZGIwSjUqYGQFDia7suu9XdqrM+1rSOwmKp
+	QXL7EoEj3FYjUcQp13GwHCnGir+hr9aKeOdHFoP9UQw2ALOkZHg6LsbDdjQuWmYLNGtjwUbb5XkbC
+	h1TklAVyD6gI11uYnuRuGO1hhXf+F6g16nVlat7UrVfValfDKCrJCVv5dx8qcl7UBoIluXXrEcLaL
+	YXdW0XKBrW7LV1eVTYDMjY2AVnoCwvO0wpF59le35r+ZUHfCXAKjitRZY8x8IGL2kSMvLxM1s2T5P
+	2QClAlTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm6Ir-00000008tk9-3UFg;
-	Tue, 21 Jul 2026 08:58:17 +0000
-Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
+	id 1wm6L1-00000008u1b-1AlW;
+	Tue, 21 Jul 2026 09:00:31 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm6Ip-00000008tjb-2XcO
+	id 1wm6Ky-00000008u0s-1RMN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 08:58:16 +0000
-Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-c9ef3e1337fso7503733a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 01:58:15 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1784624294; cv=none;
-        d=google.com; s=arc-20260327;
-        b=KVm2hGyeVn6vFWNTFAbqdMEj535JUs3JCq8CgLftGHrNPEnluP4G6L3A+ATlQ1brKa
-         4g6ENDa4B0fGQuDqsgmCcHXOVBpvCUIkgDWPOnRYHurU4Iz5TyGfKvisQq72YwjqGRZH
-         6aXRrStOjsGFh0qo3zpnXDz5S4qvx1NrA0GPJ8gUtlx7hqeUZNjsKI/Rb5xfPv6/SMHB
-         An/TfxAFxWq1DWRDufypf8Ct/Ovm2a4VgXbEkX8hHcki+Vqhi4YUpnqK06BPmRk/ShYC
-         n7zxFjtATu0GQPUctFjx1juxQItYnIHmaJNYqxUjQdy8UH7fzDBuRYj5SLkoEX/+EHMS
-         e/4g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=o3orbY6NhqfjfstnAFooB/Z50XxpaSPbmYmh8aGbV/4=;
-        fh=kjVUGZuXUamF4yas9HYmCCONuRl/nqga6SezwRDrUDE=;
-        b=dFyYy/cX5FW87IwL5F8I6TVckAK4IwU6WRYJl0/VV0Ogzlp94FKAluTv3D+9vBTTr+
-         QCNTqCsmaBET5OSIsV4gRYqoPCm/qNeSCJhjYUIAKfEnN3YY+Gsq56iQ04mjkHijbYHD
-         INRBEiwJC7q9Emizzyzm3301IxOt9a9DXxLndQMMeWVr68tGDtoPpRu9CmV/Oyt6ZpcP
-         jpbyigbd0xp0CPB7W98B+hu1GzGsjBpgsNFwN7FAF8QkpsviLGt0+VN9ee07jt5UvsJP
-         egjbjDHBtk15otknTU2XeVa3dM9LTUmyGGwG0Mh8maigorSa4YNGmX3WCRQL1UZB9Ori
-         rgJw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784624294; x=1785229094; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=o3orbY6NhqfjfstnAFooB/Z50XxpaSPbmYmh8aGbV/4=;
-        b=PvD7TtQ7LTuNJ87/u1FP3TTZMuwmFbBY8Q3o7zcvl11nycNPlush4NzLzYA3iTGyLA
-         DOHsu0QUBECJjkwD2XwxJM4Sy4jllMCybFq2wTEwvJ8s1AYS+6cKD3YxHf3nke0jtlWK
-         5VeDFuwA02etatTrC3IwuzJFMJWH9JPCiMS6jzpz11OqA8Ax573nqPaQGGxUrhxfVHlr
-         CDvDReSHV8H0Gdl0ss7vdPMOnYQz07rw3c/22OPKZ8Q705GFahboc10m5530Q83H9l0+
-         EreJ8qRGNRB/1i0wI37Hi8nqvAlagJgYNRl/CYyfq2X/4Srf7y+mf1Rq88TBzi5rt0ch
-         dqzA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784624294; x=1785229094;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=o3orbY6NhqfjfstnAFooB/Z50XxpaSPbmYmh8aGbV/4=;
-        b=WMgH33rDBo2/uXYoK8heH2CnPqQBKTmsFjuVj6V+PfqxoRQ+kudYW420iMs2JUpD8k
-         6/qbDfjbXfhxitP4K+kEGm6kPqQRjoqtYqyoPm7aqI8GqcpCej042/ZluVicjeego5c3
-         AxOfr+W4EjmSQ/pgqL9gzJJ+GRsI4H9Yrb2/QI4imdRb8dtTLYbteMyDAiKzPxOj0OqI
-         srqqzblSAS9GqUwaD3AiheO1ls8NPiRdOmmyzRkf1IYe2IJu5DVCg5gDEDokyxdNttE1
-         BR2jN5naL3Ukup9CCMR0uGORW21xlxvYw43Ek4F3VKef5nibftZZWkLmysfy4mmvDhaI
-         OBrA==
-X-Forwarded-Encrypted: i=1; AHgh+RoAqD1kNTvAX5E30y3zB3xOKamQ6pZQHNF9v0Raf955mNMkGSe0rtqujSd8ejUfGwAh4BjPf81Q9oNpxHxA9pj3@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywa4k+U+5y7cLGi2MwY331v9Hw0kf22GyT9fwpsqu3u533QAoy2
-	V/keBI/4gkDQOr6mdjK1jMeZYOAu4HjuAHy58yEbjY8xan09nlb6pOkL8xwgYTBBYHgUMWPo+2X
-	NZvWgJn0USamyv1NQ//J4wY4vv0En9Fk=
-X-Gm-Gg: AfdE7clSx68/67sHeXLqEB/J/+YFjYi6VmItogpkt5wHg0Sp5lL+biq7wWAqZcNAmpL
-	jc0BfVInY5ap4rmbfD4cT1cmmYVYW2V0wm30L6LhKPtR3QrLmvstqMPQOxxg3HMKMXvFqK15apn
-	Du2tFxL34reyrtC8gDj+ypZ84PRbRxZR+M14FsDnl5DfzuKYtdRLYr2GtHX/nlhO3mBhMIYMjmi
-	KXKCsa9INg/x1MnLT6ylJxfwiAfLm0fmEjT55tt/74+YQNZdkgDKJXcMrtSGD3cB48WJcY/
-X-Received: by 2002:a05:6a20:734f:b0:3c3:6af8:ab24 with SMTP id
- adf61e73a8af0-3c3ad9d5fe8mr19173494637.56.1784624294467; Tue, 21 Jul 2026
- 01:58:14 -0700 (PDT)
+	Tue, 21 Jul 2026 09:00:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1784624384; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=h5xljdTgT+s0PcGqm50zaHhb6nAkfZ5U6gX+BspX8AkrlrdYG0Oh+wY5fkuz5kxBLDy43LsEkLBRsSsDg3SqyjU2RlqUW/ABk8LBZ07s2pTc92MHxf2fDCbhUpvCAutgLbEXXtdm23hiSHXAhEgFOC5f4Uop1oR7rkp15MKWKiM=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1784624384; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=Nf4YfT/PVuNJI6rw/ahjdO4P2Ufeq7Km/8hgSrV69+M=; 
+	b=DNFjxAaVNFiL5zgS29wQ6MkGYJpgISrYyT1q/4ypVJTJLyPqlUGMvZMzSYY0DEMZ9qgc4fuj9bCl/rvnAqzzbzcjRaXGvweYogCDCKXkq/WB+tKsjDqz7ETPdkcsCeDZNc2UA4gWUEE8ydd5RKl1LVqeYNr3M9bV9QHRtb64Jkc=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1784624384;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=Nf4YfT/PVuNJI6rw/ahjdO4P2Ufeq7Km/8hgSrV69+M=;
+	b=hmXhdRS5RBkTEI/CYLOIBIKL13OBlmSoFw352AyAKjQBZY/o8pc5uPygYEWg8IvA
+	DrBYlTOD/cs47VtjOTreJuuyJp4o3X4VKx/0t8pCbAYSDU/iUOpBLzCUacQrYR2r5HB
+	3HYzQrB65M7pMpbV4vcOIRhpgrbmJn8w82UU9VSU=
+Received: by mx.zohomail.com with SMTPS id 178462438340847.379787705359604;
+	Tue, 21 Jul 2026 01:59:43 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Date: Tue, 21 Jul 2026 10:59:00 +0200
+Subject: [PATCH v7 4/5] drm/debugfs: Move HDMI debugfs registration to
+ state helper
 MIME-Version: 1.0
-References: <20260720095450.1618747-1-shengjiu.wang@oss.nxp.com>
- <20260720095450.1618747-2-shengjiu.wang@oss.nxp.com> <3ce4bfa8-b051-40af-9478-00540019680b@sirena.org.uk>
-In-Reply-To: <3ce4bfa8-b051-40af-9478-00540019680b@sirena.org.uk>
-From: Shengjiu Wang <shengjiu.wang@gmail.com>
-Date: Tue, 21 Jul 2026 16:58:02 +0800
-X-Gm-Features: AUfX_mxyjKglcWDGiHlL7pHojtmA7GYBRqbKLhdnlf4NA0C5KwDC9Zvpc1PZDyM
-Message-ID: <CAA+D8ANTBSgzhEQ-fsj9jpKnOBKCQiJeY5pv2-zck0O4DTM04Q@mail.gmail.com>
-Subject: Re: [PATCH 1/4] dt-bindings: sound: fsl,imx-asrc: update port binding
- to support multiple pairs
-To: Mark Brown <broonie@kernel.org>
-Cc: shengjiu.wang@oss.nxp.com, lgirdwood@gmail.com, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, Frank.Li@nxp.com, 
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
-	shawnguo@kernel.org, linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Xiubo.Lee@gmail.com, nicoleotsuka@gmail.com, 
-	perex@perex.cz, tiwai@suse.com, linuxppc-dev@lists.ozlabs.org, 
-	Shengjiu Wang <shengjiu.wang@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260721-scdc-link-health-v7-4-92df1b6ad5fc@collabora.com>
+References: <20260721-scdc-link-health-v7-0-92df1b6ad5fc@collabora.com>
+In-Reply-To: <20260721-scdc-link-health-v7-0-92df1b6ad5fc@collabora.com>
+To: Jani Nikula <jani.nikula@linux.intel.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Daniel Stone <daniel@fooishbar.org>, 
+ Hans Verkuil <hverkuil+cisco@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ kernel@collabora.com, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_015815_648358_A332F9B1 
-X-CRM114-Status: GOOD (  12.92  )
+X-CRM114-CacheID: sfid-20260721_020028_448999_261F0A57 
+X-CRM114-Status: GOOD (  19.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,26 +94,433 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 20, 2026 at 10:28=E2=80=AFPM Mark Brown <broonie@kernel.org> wr=
-ote:
->
-> On Mon, Jul 20, 2026 at 05:54:47PM +0800, shengjiu.wang@oss.nxp.com wrote=
-:
-> > From: Shengjiu Wang <shengjiu.wang@nxp.com>
-> >
-> > The i.MX ASRC hardware supports up to three conversion pairs (A, B, C).
-> > The existing binding exposed only a single generic audio-graph port,
-> > which cannot represent the individual pair endpoints.
->
-> Please submit patches using subject lines reflecting the style for the
-> subsystem, this makes it easier for people to identify relevant patches.
-> Look at what existing commits in the area you're changing are doing and
-> make sure your subject lines visually resemble what they're doing.
-> There's no need to resubmit to fix this alone.
+The HDMI debugfs files are only useful for connectors that already make
+use of the HDMI state helpers. In addition, relying on HDMI-specific
+functions in drm_debugfs.c can lead to circular linking problems later
+down the line.
 
-Thanks for pointing this out. There are also some comments from sashiko.dev
-I will try to address in the next version.
+Move hdmi_debugfs_add() and friends to a new helper in
+drm_hdmi_state_helper.c, and make all current users (vc4, sun4i, bridge)
+either use it as a debugfs_init func, or call it directly in its
+debugfs_init func.
 
-Best regards
-Shengjiu Wang
+Suggested-by: Maxime Ripard <mripard@kernel.org>
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+---
+ drivers/gpu/drm/display/drm_bridge_connector.c  |   3 +
+ drivers/gpu/drm/display/drm_hdmi_state_helper.c | 154 +++++++++++++++++++++++
+ drivers/gpu/drm/drm_debugfs.c                   | 157 ------------------------
+ drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c          |   1 +
+ drivers/gpu/drm/vc4/vc4_hdmi.c                  |   1 +
+ include/drm/display/drm_hdmi_state_helper.h     |   3 +
+ 6 files changed, 162 insertions(+), 157 deletions(-)
+
+diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
+index 8b54069fa53a..00feb73e63d7 100644
+--- a/drivers/gpu/drm/display/drm_bridge_connector.c
++++ b/drivers/gpu/drm/display/drm_bridge_connector.c
+@@ -263,6 +263,9 @@ static void drm_bridge_connector_debugfs_init(struct drm_connector *connector,
+ 		if (bridge->funcs->debugfs_init)
+ 			bridge->funcs->debugfs_init(bridge, root);
+ 	}
++
++	if (bridge_connector->bridge_hdmi)
++		drm_hdmi_connector_debugfs_init(connector, root);
+ }
+ 
+ static struct drm_connector_state *
+diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+index ce17eeefc2da..8d5ee10ceb87 100644
+--- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
++++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+@@ -1,5 +1,6 @@
+ // SPDX-License-Identifier: MIT
+ 
++#include <linux/debugfs.h>
+ #include <linux/export.h>
+ 
+ #include <drm/drm_atomic.h>
+@@ -965,6 +966,159 @@ drm_hdmi_connector_mode_valid(struct drm_connector *connector,
+ }
+ EXPORT_SYMBOL(drm_hdmi_connector_mode_valid);
+ 
++static ssize_t
++audio_infoframe_read(struct file *filp, char __user *ubuf, size_t count, loff_t *ppos)
++{
++	struct drm_connector_hdmi_infoframe *infoframe;
++	struct drm_connector *connector;
++	union hdmi_infoframe *frame;
++	u8 buf[HDMI_INFOFRAME_SIZE(AUDIO)];
++	ssize_t len = 0;
++
++	connector = filp->private_data;
++	mutex_lock(&connector->hdmi.infoframes.lock);
++
++	infoframe = &connector->hdmi.infoframes.audio;
++	if (!infoframe->set)
++		goto out;
++
++	frame = &infoframe->data;
++	len = hdmi_infoframe_pack(frame, buf, sizeof(buf));
++	if (len < 0)
++		goto out;
++
++	len = simple_read_from_buffer(ubuf, count, ppos, buf, len);
++
++out:
++	mutex_unlock(&connector->hdmi.infoframes.lock);
++	return len;
++}
++
++static const struct file_operations audio_infoframe_fops = {
++	.owner   = THIS_MODULE,
++	.open    = simple_open,
++	.read    = audio_infoframe_read,
++};
++
++static int create_hdmi_audio_infoframe_file(struct drm_connector *connector,
++					    struct dentry *parent)
++{
++	struct dentry *file;
++
++	if (!connector->hdmi.funcs ||
++	    !connector->hdmi.funcs->audio.write_infoframe)
++		return 0;
++
++	file = debugfs_create_file("audio", 0400, parent, connector, &audio_infoframe_fops);
++	if (IS_ERR(file))
++		return PTR_ERR(file);
++
++	return 0;
++}
++
++#define DEFINE_INFOFRAME_FILE(_f) \
++static ssize_t _f##_read_infoframe(struct file *filp, \
++				   char __user *ubuf, \
++				   size_t count,      \
++				   loff_t *ppos)      \
++{ \
++	struct drm_connector_hdmi_infoframe *infoframe; \
++	struct drm_connector_state *conn_state; \
++	struct drm_connector *connector; \
++	union hdmi_infoframe *frame; \
++	struct drm_device *dev; \
++	u8 buf[HDMI_INFOFRAME_SIZE(MAX)]; \
++	ssize_t len = 0; \
++	\
++	connector = filp->private_data; \
++	dev = connector->dev; \
++	\
++	drm_modeset_lock(&dev->mode_config.connection_mutex, NULL); \
++	\
++	conn_state = connector->state; \
++	infoframe = &conn_state->hdmi.infoframes._f; \
++	if (!infoframe->set) \
++		goto out; \
++	\
++	frame = &infoframe->data; \
++	len = hdmi_infoframe_pack(frame, buf, sizeof(buf)); \
++	if (len < 0) \
++		goto out; \
++	\
++	len = simple_read_from_buffer(ubuf, count, ppos, buf, len); \
++	\
++out: \
++	drm_modeset_unlock(&dev->mode_config.connection_mutex); \
++	return len; \
++} \
++\
++static const struct file_operations _f##_infoframe_fops = { \
++	.owner = THIS_MODULE, \
++	.open = simple_open, \
++	.read = _f##_read_infoframe, \
++}; \
++\
++static int create_hdmi_## _f ## _infoframe_file(struct drm_connector *connector, \
++						struct dentry *parent) \
++{ \
++	struct dentry *file; \
++	\
++	if (!connector->hdmi.funcs || \
++	    !connector->hdmi.funcs->_f.write_infoframe) \
++		return 0; \
++	file = debugfs_create_file(#_f, 0400, parent, connector, &_f ## _infoframe_fops); \
++	if (IS_ERR(file)) \
++		return PTR_ERR(file); \
++	\
++	return 0; \
++}
++
++DEFINE_INFOFRAME_FILE(avi);
++DEFINE_INFOFRAME_FILE(hdmi);
++DEFINE_INFOFRAME_FILE(hdr_drm);
++DEFINE_INFOFRAME_FILE(spd);
++
++static int create_hdmi_infoframe_files(struct drm_connector *connector,
++				       struct dentry *parent)
++{
++	int ret;
++
++	ret = create_hdmi_audio_infoframe_file(connector, parent);
++	if (ret)
++		return ret;
++
++	ret = create_hdmi_avi_infoframe_file(connector, parent);
++	if (ret)
++		return ret;
++
++	ret = create_hdmi_hdmi_infoframe_file(connector, parent);
++	if (ret)
++		return ret;
++
++	ret = create_hdmi_hdr_drm_infoframe_file(connector, parent);
++	if (ret)
++		return ret;
++
++	ret = create_hdmi_spd_infoframe_file(connector, parent);
++	if (ret)
++		return ret;
++
++	return 0;
++}
++
++void drm_hdmi_connector_debugfs_init(struct drm_connector *connector,
++				     struct dentry *root)
++{
++	struct dentry *dir;
++
++	dir = debugfs_create_dir("infoframes", root);
++	if (IS_ERR(dir))
++		return;
++
++	create_hdmi_infoframe_files(connector, dir);
++}
++EXPORT_SYMBOL(drm_hdmi_connector_debugfs_init);
++
+ static int clear_infoframe(struct drm_connector *connector,
+ 			   const struct drm_connector_infoframe_funcs *funcs,
+ 			   const char *type)
+diff --git a/drivers/gpu/drm/drm_debugfs.c b/drivers/gpu/drm/drm_debugfs.c
+index ae1c6126c2c5..a72f9723d3a9 100644
+--- a/drivers/gpu/drm/drm_debugfs.c
++++ b/drivers/gpu/drm/drm_debugfs.c
+@@ -633,161 +633,6 @@ static const struct file_operations drm_connector_fops = {
+ 	.write = connector_write
+ };
+ 
+-static ssize_t
+-audio_infoframe_read(struct file *filp, char __user *ubuf, size_t count, loff_t *ppos)
+-{
+-	struct drm_connector_hdmi_infoframe *infoframe;
+-	struct drm_connector *connector;
+-	union hdmi_infoframe *frame;
+-	u8 buf[HDMI_INFOFRAME_SIZE(AUDIO)];
+-	ssize_t len = 0;
+-
+-	connector = filp->private_data;
+-	mutex_lock(&connector->hdmi.infoframes.lock);
+-
+-	infoframe = &connector->hdmi.infoframes.audio;
+-	if (!infoframe->set)
+-		goto out;
+-
+-	frame = &infoframe->data;
+-	len = hdmi_infoframe_pack(frame, buf, sizeof(buf));
+-	if (len < 0)
+-		goto out;
+-
+-	len = simple_read_from_buffer(ubuf, count, ppos, buf, len);
+-
+-out:
+-	mutex_unlock(&connector->hdmi.infoframes.lock);
+-	return len;
+-}
+-
+-static const struct file_operations audio_infoframe_fops = {
+-	.owner   = THIS_MODULE,
+-	.open    = simple_open,
+-	.read    = audio_infoframe_read,
+-};
+-
+-static int create_hdmi_audio_infoframe_file(struct drm_connector *connector,
+-					    struct dentry *parent)
+-{
+-	struct dentry *file;
+-
+-	if (!connector->hdmi.funcs ||
+-	    !connector->hdmi.funcs->audio.write_infoframe)
+-		return 0;
+-
+-	file = debugfs_create_file("audio", 0400, parent, connector, &audio_infoframe_fops);
+-	if (IS_ERR(file))
+-		return PTR_ERR(file);
+-
+-	return 0;
+-}
+-
+-#define DEFINE_INFOFRAME_FILE(_f) \
+-static ssize_t _f##_read_infoframe(struct file *filp, \
+-				   char __user *ubuf, \
+-				   size_t count,      \
+-				   loff_t *ppos)      \
+-{ \
+-	struct drm_connector_hdmi_infoframe *infoframe; \
+-	struct drm_connector_state *conn_state; \
+-	struct drm_connector *connector; \
+-	union hdmi_infoframe *frame; \
+-	struct drm_device *dev; \
+-	u8 buf[HDMI_INFOFRAME_SIZE(MAX)]; \
+-	ssize_t len = 0; \
+-	\
+-	connector = filp->private_data; \
+-	dev = connector->dev; \
+-	\
+-	drm_modeset_lock(&dev->mode_config.connection_mutex, NULL); \
+-	\
+-	conn_state = connector->state; \
+-	infoframe = &conn_state->hdmi.infoframes._f; \
+-	if (!infoframe->set) \
+-		goto out; \
+-	\
+-	frame = &infoframe->data; \
+-	len = hdmi_infoframe_pack(frame, buf, sizeof(buf)); \
+-	if (len < 0) \
+-		goto out; \
+-	\
+-	len = simple_read_from_buffer(ubuf, count, ppos, buf, len); \
+-	\
+-out: \
+-	drm_modeset_unlock(&dev->mode_config.connection_mutex); \
+-	return len; \
+-} \
+-\
+-static const struct file_operations _f##_infoframe_fops = { \
+-	.owner = THIS_MODULE, \
+-	.open = simple_open, \
+-	.read = _f##_read_infoframe, \
+-}; \
+-\
+-static int create_hdmi_## _f ## _infoframe_file(struct drm_connector *connector, \
+-						struct dentry *parent) \
+-{ \
+-	struct dentry *file; \
+-	\
+-	if (!connector->hdmi.funcs || \
+-	    !connector->hdmi.funcs->_f.write_infoframe) \
+-		return 0; \
+-	file = debugfs_create_file(#_f, 0400, parent, connector, &_f ## _infoframe_fops); \
+-	if (IS_ERR(file)) \
+-		return PTR_ERR(file); \
+-	\
+-	return 0; \
+-}
+-
+-DEFINE_INFOFRAME_FILE(avi);
+-DEFINE_INFOFRAME_FILE(hdmi);
+-DEFINE_INFOFRAME_FILE(hdr_drm);
+-DEFINE_INFOFRAME_FILE(spd);
+-
+-static int create_hdmi_infoframe_files(struct drm_connector *connector,
+-				       struct dentry *parent)
+-{
+-	int ret;
+-
+-	ret = create_hdmi_audio_infoframe_file(connector, parent);
+-	if (ret)
+-		return ret;
+-
+-	ret = create_hdmi_avi_infoframe_file(connector, parent);
+-	if (ret)
+-		return ret;
+-
+-	ret = create_hdmi_hdmi_infoframe_file(connector, parent);
+-	if (ret)
+-		return ret;
+-
+-	ret = create_hdmi_hdr_drm_infoframe_file(connector, parent);
+-	if (ret)
+-		return ret;
+-
+-	ret = create_hdmi_spd_infoframe_file(connector, parent);
+-	if (ret)
+-		return ret;
+-
+-	return 0;
+-}
+-
+-static void hdmi_debugfs_add(struct drm_connector *connector)
+-{
+-	struct dentry *dir;
+-
+-	if (!(connector->connector_type == DRM_MODE_CONNECTOR_HDMIA ||
+-	      connector->connector_type == DRM_MODE_CONNECTOR_HDMIB))
+-		return;
+-
+-	dir = debugfs_create_dir("infoframes", connector->debugfs_entry);
+-	if (IS_ERR(dir))
+-		return;
+-
+-	create_hdmi_infoframe_files(connector, dir);
+-}
+-
+ void drm_debugfs_connector_add(struct drm_connector *connector)
+ {
+ 	struct drm_device *dev = connector->dev;
+@@ -815,8 +660,6 @@ void drm_debugfs_connector_add(struct drm_connector *connector)
+ 	debugfs_create_file("output_bpc", 0444, root, connector,
+ 			    &output_bpc_fops);
+ 
+-	hdmi_debugfs_add(connector);
+-
+ 	if (connector->funcs->debugfs_init)
+ 		connector->funcs->debugfs_init(connector, root);
+ }
+diff --git a/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c b/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
+index e99f52ebb26f..e6c4f121ad0c 100644
+--- a/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
++++ b/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
+@@ -292,6 +292,7 @@ static void sun4i_hdmi_connector_reset(struct drm_connector *connector)
+ }
+ 
+ static const struct drm_connector_funcs sun4i_hdmi_connector_funcs = {
++	.debugfs_init		= drm_hdmi_connector_debugfs_init,
+ 	.detect			= sun4i_hdmi_connector_detect,
+ 	.fill_modes		= drm_helper_probe_single_connector_modes,
+ 	.reset			= sun4i_hdmi_connector_reset,
+diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.c b/drivers/gpu/drm/vc4/vc4_hdmi.c
+index 17c8635c5afa..ea1f2013b20e 100644
+--- a/drivers/gpu/drm/vc4/vc4_hdmi.c
++++ b/drivers/gpu/drm/vc4/vc4_hdmi.c
+@@ -513,6 +513,7 @@ static void vc4_hdmi_connector_reset(struct drm_connector *connector)
+ }
+ 
+ static const struct drm_connector_funcs vc4_hdmi_connector_funcs = {
++	.debugfs_init = drm_hdmi_connector_debugfs_init,
+ 	.force = drm_atomic_helper_connector_hdmi_force,
+ 	.fill_modes = drm_helper_probe_single_connector_modes,
+ 	.reset = vc4_hdmi_connector_reset,
+diff --git a/include/drm/display/drm_hdmi_state_helper.h b/include/drm/display/drm_hdmi_state_helper.h
+index 13375bd0f4ae..596c57d9d250 100644
+--- a/include/drm/display/drm_hdmi_state_helper.h
++++ b/include/drm/display/drm_hdmi_state_helper.h
+@@ -3,6 +3,7 @@
+ #ifndef DRM_HDMI_STATE_HELPER_H_
+ #define DRM_HDMI_STATE_HELPER_H_
+ 
++struct dentry;
+ struct drm_atomic_commit;
+ struct drm_connector;
+ struct drm_connector_state;
+@@ -29,5 +30,7 @@ void drm_atomic_helper_connector_hdmi_force(struct drm_connector *connector);
+ enum drm_mode_status
+ drm_hdmi_connector_mode_valid(struct drm_connector *connector,
+ 			      const struct drm_display_mode *mode);
++void drm_hdmi_connector_debugfs_init(struct drm_connector *connector,
++				     struct dentry *root);
+ 
+ #endif // DRM_HDMI_STATE_HELPER_H_
+
+-- 
+2.55.0
+
 
