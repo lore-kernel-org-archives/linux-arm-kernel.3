@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ECD5C4452B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 05:29:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04ECAC44529
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 05:29:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rQk3W8uf/i3A5SYSoULhZsMLLTLRER9If76PywVR8co=; b=SeZSVc6rrYTmC9iAoBVoiIC1gJ
-	SczcOoHzer+dG9gOvNS+/ZY/sjcgiBTwgBxwdIVoh6kG3Oj3PfjEwbkS2ggNi/xRWtHdEKn5E8cHy
-	WJ7MmjPmaT7EcOVx+UDAMr4Z10S6WTBEN69KVAZxnERMSqwFQ6jO+1IZnI6EeKy2ZBirPUbABG9Yb
-	PWq2Q9sobRMLXWFKQgj7WWcJY1JMtelPWT1Jns5svG4cmDnbEEGZHiANJTQFz9SGESPU6I/6WEhuE
-	rRzimw38LZSW/BA47s1OuyytpPvwoyl28zF8YBiMdhuDaeGyi8zUqqhzTb07QHBbfWtlVosvTM2Vq
-	gX3oLQyQ==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=48ANaPqT1tOOOmBwXWY0oZl97ChBMjxc5p/g771f8G0=; b=sADfX06U5qoIJn4QoVJhsRsLzz
+	guTtcbHoD+QW8k+N2dq4fKFo2K+Q8T2msIHaLaX/tlmj9Eq7/f8dtMdT07a3CGulFrdlPix/5bEPg
+	e6NIyxjQOkUZ3VSizBOWKapp/HMIjhx4SyAv0JvGCj6hNKlkbXX49K+5oIcktqYScEHe/pFIe/PmY
+	HDMTB09JLJA6NB8/0zvZ8HLdkLPaVnVF07hCc4f1SzIp0FsEG8Gt1um4A30gRhqmh1lf11n2sSqe3
+	4lPFS3evcF00rXYk/Rry51/NxVjh2d/7YcOQ1p8hzMautnPGAtMw+uB1P9wJwOCcEwqKLoYBZjVmm
+	m5Pziwig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm32k-00000008R4P-40eM;
-	Tue, 21 Jul 2026 05:29:26 +0000
+	id 1wm32u-00000008R6c-0aGL;
+	Tue, 21 Jul 2026 05:29:36 +0000
 Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm32h-00000008R3q-0FR9;
-	Tue, 21 Jul 2026 05:29:25 +0000
+	id 1wm32r-00000008R5W-0EMn;
+	Tue, 21 Jul 2026 05:29:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1784611766; x=1816147766;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=eJMieyDV3EZzwKIlHI9vHv7je1D8dJwnhudfFu9FrzE=;
-  b=QtuNgPmd894KL84sSE9491TSO0cVu1AHZr6+YjUHNKLFT9FdhZihZc2K
-   Ay2tX/ZtZ14G+7UqhUQRNJaOlPO08kx4nBT/3op8lmfrTxdLAWfmw7OVg
-   Ndbi7sB9Yvjfq4A9OMaPk/nM2dGi+pobZq5Nqhrv+eFQUkanLg2aNucAi
-   VoUNrtFvjjUt1OP4Sg6Kk2/MBABXF690YAqYLmfjB4nGqXReMXXS9lmBU
-   426gtFWQspvihLMNzr30I7Qy5St4XafddjsdR4ilhwrq19yQ1TmvnIYHH
-   W6OukZDlQIX9lCB7wcDIJAWoNPXgH2ndhYuaGkxWLqviikC5YTsN0cWb+
-   w==;
-X-CSE-ConnectionGUID: Mxsn5rdUR4CIeUZSSNpL3Q==
-X-CSE-MsgGUID: Zzt9BG4zTIiQHT9bve7zfA==
+  t=1784611773; x=1816147773;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=2+B4vL0Lm/cbnMEOwb9Ux7Y4yhkEvIsIu+j+RbEs7Ic=;
+  b=UMOEBSkbjlTcGpeDYK+Vjrzx4uWAZIaQJB+uIZwVIge7mf5oiVKjC/HZ
+   XlEL1i2FRIx9PmXrOOwBzvKW1cI61BWEyTYwfwD6ppXrI4YC5SPw8D9wV
+   UvMAQc1XEr2FUDbhYhkPApVMJrZ5FiDsDylThxqnznWNke6egt/6N7uYM
+   jsaAhmc3RF9LXSLW+B0FByZVxEqpK8Oo5xLMNlQrBUhnZzc9RsyFpNPLV
+   C2JpwS7wggYtLrliAGT47LYc7c1Q7qQAegHRZZBQJ04xceOaZtWKotpAJ
+   OqhUj45hojjMAinxu5XhTQzsNxpri/R30qZREOw8D6sSwmG6qF6ofz1I0
+   g==;
+X-CSE-ConnectionGUID: 5DN3Cy/FTAazffb+4AroTg==
+X-CSE-MsgGUID: 2MbCVFiISQyHiHbPvqhbDg==
 X-IronPort-AV: E=Sophos;i="6.25,176,1779174000"; 
-   d="scan'208";a="292305099"
+   d="scan'208";a="60925929"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Jul 2026 22:29:23 -0700
+  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Jul 2026 22:29:32 -0700
 Received: from chn-vm-ex03.mchp-main.com (10.10.87.152) by
  chn-vm-ex3.mchp-main.com (10.10.87.32) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.43; Mon, 20 Jul 2026 22:29:19 -0700
+ 15.2.2562.43; Mon, 20 Jul 2026 22:29:31 -0700
 Received: from che-ll-i67131.microchip.com (10.10.85.11) by
  chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Mon, 20 Jul 2026 22:29:11 -0700
+ 15.1.2507.58 via Frontend Transport; Mon, 20 Jul 2026 22:29:23 -0700
 From: Manikandan Muralidharan <manikandan.m@microchip.com>
 To: <pratyush@kernel.org>, <mwalle@kernel.org>,
 	<takahiro.kuwano@infineon.com>, <miquel.raynal@bootlin.com>,
@@ -64,16 +64,19 @@ To: <pratyush@kernel.org>, <mwalle@kernel.org>,
 	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>
 CC: Manikandan Muralidharan <manikandan.m@microchip.com>
-Subject: [PATCH v5 0/7] Read MAC address from SST vendor specific SFDP region
-Date: Tue, 21 Jul 2026 10:58:52 +0530
-Message-ID: <20260721052859.171341-1-manikandan.m@microchip.com>
+Subject: [PATCH v5 1/7] dt-bindings: mtd: jedec,spi-nor: allow the SFDP to be exposed via NVMEM
+Date: Tue, 21 Jul 2026 10:58:53 +0530
+Message-ID: <20260721052859.171341-2-manikandan.m@microchip.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260721052859.171341-1-manikandan.m@microchip.com>
+References: <20260721052859.171341-1-manikandan.m@microchip.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_222923_384676_EFF097E3 
-X-CRM114-Status: GOOD (  15.48  )
+X-CRM114-CacheID: sfid-20260720_222933_106596_91972B87 
+X-CRM114-Status: UNSURE (   8.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,86 +91,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some Microchip/SST QSPI flashes (e.g. the SST26VF064BEUI) are factory
-programmed with globally unique, write-protected EUI-48 and EUI-64
-identifiers stored in a vendor-specific SFDP parameter table. On boards
-that have no on-board EEPROM (sama5d27_wlsom1, sama5d29 curiosity,
-sam9x75 curiosity) this is a reliable source for an Ethernet MAC address,
-instead of relying on a U-Boot-provided or random address.
+Add an optional "sfdp" child node (compatible "jedec,sfdp") that
+describes the SFDP as a read-only NVMEM provider via nvmem.yaml, so its
+contents (e.g. a vendor EUI-48/EUI-64) can be read through NVMEM cells.
 
-This v5 reworks the approach into a generic NVMEM framework with no vendor
-code in the SPI NOR core:
- - The SPI NOR core now exposes the entire SFDP as a generic read-only
-   NVMEM device, rooted at a new "sfdp" child node of the flash.
- - A new NVMEM layout driver (drivers/nvmem/layouts/) locates the
-   Microchip vendor parameter table at runtime and presents the EUI-48 as
-   a "mac-address" cell.
- - Arbitrary parameters can be read with a standard fixed-layout
-   (known offset) or with an nvmem-layout parser (location discovered at runtime).
+Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
+Reviewed-by: Linus Walleij <linusw@kernel.org>
+---
+ .../devicetree/bindings/mtd/jedec,spi-nor.yaml | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
-Changes in v5:
- - 1/7 and 5/7 - Add R-b tags
- - 3/7- Rework the comments, function name and commit message.Check all the nodes
-        (for_each_available_child) for the right compatible "jedec,sfdp" instead
-		of node name.
-
-Changes in v4:
- - Rework per v3 review: remove the vendor-specific SFDP handling from the
-   SPI NOR core; expose the whole SFDP as a generic read-only NVMEM device
-   and move the EUI extraction into an nvmem-layout driver.
- - Introduce a new nvmem-layout driver to discover the vendor-table location
-   at runtime; no offset hardcoded in the device tree.
- - Describe the SFDP via a dedicated "sfdp" subnode (compatible
-   "jedec,sfdp"), which also resolves the v3 dtbs_check "Unevaluated
-   properties ('nvmem-layout')" warning.
- - Reverse the stored EUI bytes into canonical MAC order.
- - Enable the layout in sama5_defconfig.
-
- Changes in v3:
- - 2/3 - add support to update the QSPI partition into 'fixed-partition'
-   binding in sama5d27_wlsom1
- - 3/3 - add nvmem-layout in qspi node for EUI48 MAC Address and nvmem cell
-   properties for macb node in sama5d27_wlsom1
-
-Changes in v2:
- - 1/3 - parse the SST vendor table, read and store the addresses
-  into a resource - managed space. Register the addresses
-  into NVMEM framework
- - 2/3 - add support to update the QSPI partition into 'fixed-partition'
-  binding
-
-v4: https://lore.kernel.org/linux-devicetree/20260630092406.150587-1-manikandan.m@microchip.com/
-
-Manikandan Muralidharan (7):
-  dt-bindings: mtd: jedec,spi-nor: allow the SFDP to be exposed via
-    NVMEM
-  dt-bindings: nvmem: layouts: add Microchip/SST SFDP EUI layout
-  mtd: spi-nor: sfdp: expose the SFDP as a read-only NVMEM device
-  nvmem: layouts: add Microchip/SST SFDP EUI layout driver
-  ARM: dts: microchip: sama5d27_wlsom1: use fixed-partitions for QSPI
-    flash
-  ARM: dts: microchip: sama5d27_wlsom1: read MAC address from QSPI SFDP
-  ARM: configs: sama5: enable Microchip/SST SFDP EUI NVMEM layout
-
- .../bindings/mtd/jedec,spi-nor.yaml           |  18 ++
- .../layouts/microchip,sst26vf-sfdp-eui.yaml   |  60 ++++++
- .../bindings/nvmem/layouts/nvmem-layout.yaml  |   1 +
- MAINTAINERS                                   |   6 +
- .../dts/microchip/at91-sama5d27_wlsom1.dtsi   |  61 +++---
- .../dts/microchip/at91-sama5d27_wlsom1_ek.dts |   2 +
- arch/arm/configs/sama5_defconfig              |   1 +
- drivers/mtd/spi-nor/core.c                    |   8 +
- drivers/mtd/spi-nor/core.h                    |   1 +
- drivers/mtd/spi-nor/sfdp.c                    |  86 +++++++++
- drivers/nvmem/layouts/Kconfig                 |  10 +
- drivers/nvmem/layouts/Makefile                |   1 +
- drivers/nvmem/layouts/sst26vf-sfdp-eui.c      | 182 ++++++++++++++++++
- 13 files changed, 415 insertions(+), 22 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/nvmem/layouts/microchip,sst26vf-sfdp-eui.yaml
- create mode 100644 drivers/nvmem/layouts/sst26vf-sfdp-eui.c
-
-
-base-commit: b95f03f04d475aa6719d15a636ddf32222d55657
+diff --git a/Documentation/devicetree/bindings/mtd/jedec,spi-nor.yaml b/Documentation/devicetree/bindings/mtd/jedec,spi-nor.yaml
+index 587af4968255..98fd954598ab 100644
+--- a/Documentation/devicetree/bindings/mtd/jedec,spi-nor.yaml
++++ b/Documentation/devicetree/bindings/mtd/jedec,spi-nor.yaml
+@@ -103,6 +103,20 @@ properties:
+   spi-cpol: true
+   spi-cpha: true
+ 
++  sfdp:
++    $ref: /schemas/nvmem/nvmem.yaml#
++    unevaluatedProperties: false
++    description:
++      The Serial Flash Discoverable Parameters (SFDP) tables exposed as a
++      read-only NVMEM device. This allows standard or vendor-specific SFDP
++      data (for example a factory-programmed EUI-48/EUI-64 identifier) to be
++      consumed through NVMEM cells.
++    properties:
++      compatible:
++        const: jedec,sfdp
++    required:
++      - compatible
++
+ dependencies:
+   spi-cpol: [ spi-cpha ]
+   spi-cpha: [ spi-cpol ]
+@@ -122,6 +136,10 @@ examples:
+             spi-max-frequency = <40000000>;
+             m25p,fast-read;
+             reset-gpios = <&gpio 12 GPIO_ACTIVE_LOW>;
++
++            sfdp {
++                compatible = "jedec,sfdp";
++            };
+         };
+     };
+ ...
 -- 
 2.43.0
 
