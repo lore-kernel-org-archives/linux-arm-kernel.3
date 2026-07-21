@@ -4,52 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C9A0C44529
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 14:43:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F487C44532
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 14:43:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:From:Cc:To:Subject:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=W4rBkBK95ZJGVsiJi8HyhTmrnCVIinrUkr1vptPQojM=; b=vLmafs8AhJptLHFbg5Ht99ge/w
-	HHtCrI/a/PpScI+xL0ne8EAm+Bc3py5E0hAMuCorS7cqV1LgN3QN5XMJ3Gumzvttd67yZ8M92/ir5
-	f7vMuIrcZBKFeFMvg/O4Wb4dio8JvlD+EuFExALQN/xE89R8+BpG9dYcGpP10JtPTEjj5z1YyCYbE
-	fxfqUH/XS0RvnA5NFGv0WDllTKL6a9hCecwsUMa4fjk5KBdvTPtm67H/7iSStJD2XK4vjiAR/EEH4
-	0hMGHMM6ghbsrMiAn250LsKKzr0X7ImS9QRtg3nCl/hudzin/I6hzpcMYNdQ/Jfr5c6aQHhDuBtu7
-	wBRqfwDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CoaJ4JQlhsur87M2sZ8MdbclmParip6HqlDhl36M69U=; b=qiNkRZuQ7Uz4YjmfPA8oxNT51z
+	SU4SEp7PL5d26t0d5m26Ea4NJo4j5HurPJoeeSrrOib7v7lQA2hRmbmz6VxpzckpVqpEqLMBlX5kX
+	mA12f1amzJMCorZoDfrveHKst03J08xHQtK/th8ycOMnVtJC4YHp8AEU2gY7rMRKjRT+8Ztz/lJOb
+	o0BZx32mQ7ljldMASjzqXNLAwkT75h0tiD9KZVLIc0B5CUCOZqYwnBL5C7qvBRk5iIt0T4LT2ggKZ
+	VjOp8NaTeQCIaPEUNKDIINqUlI3o1db+99EeYHLPGYIjiIviSzfcAu3IbNT77887UiBYdexGo/M7z
+	EtB3P9ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmBgg-00000009gUL-2zAQ;
-	Tue, 21 Jul 2026 14:43:14 +0000
+	id 1wmBh8-00000009gZB-3TXZ;
+	Tue, 21 Jul 2026 14:43:42 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmBgf-00000009gU5-08jS
+	id 1wmBh7-00000009gYh-0JGP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 14:43:13 +0000
+	Tue, 21 Jul 2026 14:43:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7B5C760A5D;
-	Tue, 21 Jul 2026 14:43:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0D251F00A3D;
-	Tue, 21 Jul 2026 14:43:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1784644992;
-	bh=W4rBkBK95ZJGVsiJi8HyhTmrnCVIinrUkr1vptPQojM=;
-	h=Subject:To:Cc:From:Date;
-	b=y+MuLHVjUHUO36lbJXyK2J1xuI48Dyby42harp47+j4eGJjzwm94qW9WwSad7QFuW
-	 nUHgJlVxR4WUiC76kABMPFbAzpJ6j4e92YYddUwYF3sLG1uLkzucpODoUnJwSYXy3F
-	 B+KN68AwDvBjS3qBZHAJO0IvLj4Vuc/KkR4Ub76Q=
-Subject: Patch "perf arm-spe: Use old behavior when opening old SPE files" has been added to the 6.12-stable tree
-To: Julio.Suarez@arm.com,Kiel.Friedt@arm.com,Ryan.Roberts@arm.com,bwicaksono@nvidia.com,gregkh@linuxfoundation.org,james.clark@linaro.org,john.g.garry@oracle.com,leo.yan@arm.com,linux-arm-kernel@lists.infradead.org,mike.leach@linaro.org,namhyung@kernel.org,will@kernel.org
-Cc: <stable-commits@vger.kernel.org>
-From: <gregkh@linuxfoundation.org>
-Date: Tue, 21 Jul 2026 16:42:11 +0200
-Message-ID: <2026072111-progeny-perfected-c5e4@gregkh>
+	by tor.source.kernel.org (Postfix) with ESMTP id 6AD46600D8;
+	Tue, 21 Jul 2026 14:43:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E61801F00A3A;
+	Tue, 21 Jul 2026 14:43:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784645020;
+	bh=CoaJ4JQlhsur87M2sZ8MdbclmParip6HqlDhl36M69U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=OeOg9MZYHYWJk+8RJHJix30NLs9DXIocVM1NhRW2AdZJLU6vA3hHVT612wLqtbX8R
+	 pwkB2YKfda1RWLYiNPG/xmj2cuuaXRZAhDzS994W2WYP1tUBPS46eXvbYafY/w7bIX
+	 CbKz2xTJGlr0V2lUJbG4WEtfyWnODdpjU6PKMVBSS6Uh6/MA3eH4M4unDcTSpMm+4Z
+	 4URNsbhjOZNdtN1tztSY1KqM+hc3Qz0HnzI85kWU6EDt24ViMdoagUeVrYfvQB6Zvi
+	 INTBpBmafSWqclWPSZMwJSHU+wQLfyIvo6YERDxfIGqV0b5aKaNNb4dvTr/PXOjgva
+	 4/swDgOdawG2g==
+Date: Tue, 21 Jul 2026 16:43:21 +0200
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Alex Elder <elder@riscstar.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com, 
+	kuba@kernel.org, pabeni@redhat.com, maxime.chevallier@bootlin.com, 
+	rmk+kernel@armlinux.org.uk, andersson@kernel.org, konradybcio@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, linusw@kernel.org, brgl@kernel.org, 
+	arnd@arndb.de, gregkh@linuxfoundation.org, daniel@riscstar.com, 
+	mohd.anwar@oss.qualcomm.com, a0987203069@gmail.com, alexandre.torgue@foss.st.com, 
+	ast@kernel.org, boon.khai.ng@altera.com, chenchuangyu@xiaomi.com, 
+	chenhuacai@kernel.org, daniel@iogearbox.net, hawk@kernel.org, hkallweit1@gmail.com, 
+	inochiama@gmail.com, john.fastabend@gmail.com, julianbraha@gmail.com, 
+	livelycarpet87@gmail.com, mcoquelin.stm32@gmail.com, me@ziyao.cc, 
+	prabhakar.mahadev-lad.rj@bp.renesas.com, richardcochran@gmail.com, rohan.g.thomas@altera.com, 
+	sdf@fomichev.me, siyanteng@cqsoftware.com.cn, weishangjuan@eswincomputing.com, 
+	wens@kernel.org, netdev@vger.kernel.org, bpf@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v2 12/14] gpio: tc956x: add TC956x/QPS615 support
+Message-ID: <z6fllvxd5r7bln6t6o5cacf2k35c47mnavvkmda6l4gnjaanin@52o34je2alxw>
+References: <20260605010022.968612-1-elder@riscstar.com>
+ <20260605010022.968612-13-elder@riscstar.com>
+ <dhnylud7o5dhaaq6kvbes4vkml3ppa5ev542j2lyxdijibknzg@pfcy22wz6jav>
+ <df217d83-272a-4d4c-8aba-a87e4b8869fc@riscstar.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=ANSI_X3.4-1968
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-stable: commit
-X-Patchwork-Hint: ignore 
+In-Reply-To: <df217d83-272a-4d4c-8aba-a87e4b8869fc@riscstar.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,142 +86,264 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jul 16, 2026 at 11:24:15AM -0500, Alex Elder wrote:
+> On 7/16/26 2:02 AM, Manivannan Sadhasivam wrote:
+> > On Thu, Jun 04, 2026 at 08:00:19PM -0500, Alex Elder wrote:
+> > > Toshiba TC956x is an Ethernet-AVB/TSN bridge and is essentially
+> > > a small and highly-specialized SoC.  TC956x includes a GPIO block that
+> > > can be accessed, alongside several other peripherals, via two PCIe
+> > > endpoint functions.  The PCIe function driver creates an auxiliary
+> > > device for the GPIO block, and that device gets bound to this auxiliary
+> > > device driver.
+> > > 
+> > > This driver is implemented using the generic regmap-based GPIO driver.
+> > > 
+> > 
+> > While the regmap over the switch BAR works for GPIO access post-enumeration,
+> > there is a blocker in using these GPIOs to control the power to endpoints.
+> 
+> We're aware of the power control driver and its use of these GPIOs.
+> 
+> I think the point you're making is not about the specific way we
+> are using GPIOs, but that someone could try to use this GPIO
+> controller in a way that would lead to a circular dependency
+> (between the controller and the PCIe device it depends on).
+> 
 
-This is a note to let you know that I've just added the patch titled
+This not a future problem, but a present one :)
 
-    perf arm-spe: Use old behavior when opening old SPE files
+> And you suggest a GPIO driver that uses I2C (and would be
+> used by the pwrctrl driver as well), and I think it's a pretty
+> reasonable suggestion.
+> 
+> > We have a design [1] where the GPIOs from the switch are used to control power
+> > and PERST# signals to the EP. With this current design, during the initial PCI
+> > bus scan, the switch will get enumerated, but the EP will not. Because, power to
+> > the EP depends on the GPIO Aux driver that will get probed only after the switch
+> > enumeration.
+> 
+> Yes, on the RB3gen2 platform, reset signals (PERST#) for two of
+> the TC9563 PCIe switch ports (downstream 1 and downstream 2) are
+> managed by the GPIO controller that resides within the TC9563
+> itself.  The pwrctl driver takes special care to ensure the GPIO
+> controller is functional (powered) before trying to use it.
+> 
+> The TC9563 *chip* gets powered when its embedded PCIe switch is
+> probed--that is, when its upstream port begins its enumeration.
+> (It's a little unclear to me which of the supplies are required
+> for the various non-PCIe components on the chip, including I2C
+> and GPIO, to be functional.)
+> 
 
-to the 6.12-stable tree which can be found at:
-    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
+Well, the TC9563 should get powered ON when its pwrctrl driver gets probed and
+the pci_pwrctrl_power_on_device() is called. There is no dependency with the
+upstream port enumeration AFAIK.
 
-The filename of the patch is:
-     perf-arm-spe-use-old-behavior-when-opening-old-spe-files.patch
-and it can be found in the queue-6.12 subdirectory.
+> And so until the switch gets probed (and its pwrctl driver used),
+> the GPIO controller can't work.  So nothing internal to the TC956x should be
+> dependent on any of the GPIOs supplied by this controller.
+> (Except the pwrctrl driver, which enables power before using GPIO.)
+> 
+> 
+> Two things to note:
+> - We are working with TC9564 (and there are other successors in
+>   the TC956x series).
+> - Downstream port 3 (which we are using) on the switch does not
+>   have such a distinct controlled reset line.
+> 
+> > But this creates a chicken-and-egg problem with the PCI Pwrctrl design.
+> > pcie-qcom driver uses the Pwrctrl framework to power on the PCI endpoints before
+> > the initial PCI bus scan. It calls pci_pwrctrl_create_devices() and
+> > pci_pwrctrl_power_on_devices() APIs to create the platform device for all PCI
+> > devices defined in DT (that require pwrctrl support), waits for their respective
+> > pwrctrl drivers to get probed and then power ON all of them.
+> 
+> The way I understood it was that certain parameters for the PCIe
+> links needed to be set before using them, and the pwrctrl framework
+> made that possible.  (I summarize what that driver does at the end
+> of this message.)
+> 
 
-If you, or anyone else, feels it should not be added to the stable tree,
-please let <stable@vger.kernel.org> know about it.
+Yeah, it does handle both power ON and some configuration for stable operation.
 
+>  This step is
+> > required because in DT platforms, many Root Ports are not hotplug capable and
+> > also BIOS doesn't assign bridge windows during boot. So all the devices has to
+> > appear during the initial PCI bus scan so that the PCI core can allocate the
+> > resources properly.
+> 
+> This part I didn't know before.  Yes, the bridge windows are
+> allocated by Linux rather than by firmware.  And if this host
+> bridge doesn't support hotplug, then yes, to correctly assign
+> address space, all PCIe devices must be available to report
+> their required memory space.
+> 
+> Are you saying that "setting those parameters" wouldn't be
+> needed if this particular root port supported hotplug?  (I'm
+> just curious; it's not relevant to the point you're making.)
+>
 
-From ba993e5ada1ddce7a71140dc85ef65bc2cd981bc Mon Sep 17 00:00:00 2001
-From: James Clark <james.clark@linaro.org>
-Date: Tue, 29 Oct 2024 14:37:33 +0000
-Subject: perf arm-spe: Use old behavior when opening old SPE files
-
-From: James Clark <james.clark@linaro.org>
-
-commit ba993e5ada1ddce7a71140dc85ef65bc2cd981bc upstream.
-
-Since the linked commit, we stopped interpreting data source if the
-perf.data file doesn't have the new metadata version. This means that
-perf c2c will show no samples in this case.
-
-Keep the old behavior so old files can be opened, but also still show
-the new warning that updating might improve the decoding.
-
-Also re-write the warning to be more concise and specific to a user.
-
-Fixes: ba5e7169e548 ("perf arm-spe: Use metadata to decide the data source feature")
-Signed-off-by: James Clark <james.clark@linaro.org>
-Reviewed-by: Leo Yan <leo.yan@arm.com>
-Cc: Julio.Suarez@arm.com
-Cc: Kiel.Friedt@arm.com
-Cc: Ryan.Roberts@arm.com
-Cc: Will Deacon <will@kernel.org>
-Cc: Mike Leach <mike.leach@linaro.org>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: Besar Wicaksono <bwicaksono@nvidia.com>
-Cc: John Garry <john.g.garry@oracle.com>
-Link: https://lore.kernel.org/r/20241029143734.291638-1-james.clark@linaro.org
-Signed-off-by: Namhyung Kim <namhyung@kernel.org>
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
----
- tools/perf/util/arm-spe.c |   50 ++++++++++++++++++++++------------------------
- 1 file changed, 24 insertions(+), 26 deletions(-)
-
---- a/tools/perf/util/arm-spe.c
-+++ b/tools/perf/util/arm-spe.c
-@@ -655,37 +655,35 @@ static bool arm_spe__is_common_ds_encodi
- 	u64 *metadata = NULL;
- 	u64 midr = 0;
+Yeah, more or less. If the Root Port is hotplug capable, PCI core will allocate
+more resources like bridge windows and bus numbers in anticipation of devices
+getting attached to it after boot. But that also sometimes becomes insufficient
+if a resource hungry device like GPU gets plugged in later, as the PCI core can
+only guess the memory for hotplug capable Root Port.
  
--	/*
--	 * Metadata version 1 doesn't contain any info for MIDR.
--	 * Simply return false in this case.
--	 */
-+	/* Metadata version 1 assumes all CPUs are the same (old behavior) */
- 	if (spe->metadata_ver == 1) {
--		pr_warning_once("The data file contains metadata version 1, "
--				"which is absent the info for data source. "
--				"Please upgrade the tool to record data.\n");
--		return false;
--	}
--
--	/* CPU ID is -1 for per-thread mode */
--	if (speq->cpu < 0) {
--		/*
--		 * On the heterogeneous system, due to CPU ID is -1,
--		 * cannot confirm the data source packet is supported.
--		 */
--		if (!spe->is_homogeneous)
--			return false;
-+		const char *cpuid;
- 
--		/* In homogeneous system, simply use CPU0's metadata */
--		if (spe->metadata)
--			metadata = spe->metadata[0];
-+		pr_warning_once("Old SPE metadata, re-record to improve decode accuracy\n");
-+		cpuid = perf_env__cpuid(spe->session->evlist->env);
-+		midr = strtol(cpuid, NULL, 16);
- 	} else {
--		metadata = arm_spe__get_metadata_by_cpu(spe, speq->cpu);
--	}
-+		/* CPU ID is -1 for per-thread mode */
-+		if (speq->cpu < 0) {
-+			/*
-+			 * On the heterogeneous system, due to CPU ID is -1,
-+			 * cannot confirm the data source packet is supported.
-+			 */
-+			if (!spe->is_homogeneous)
-+				return false;
-+
-+			/* In homogeneous system, simply use CPU0's metadata */
-+			if (spe->metadata)
-+				metadata = spe->metadata[0];
-+		} else {
-+			metadata = arm_spe__get_metadata_by_cpu(spe, speq->cpu);
-+		}
- 
--	if (!metadata)
--		return false;
-+		if (!metadata)
-+			return false;
- 
--	midr = metadata[ARM_SPE_CPU_MIDR];
-+		midr = metadata[ARM_SPE_CPU_MIDR];
-+	}
- 
- 	is_in_cpu_list = is_midr_in_range_list(midr, common_ds_encoding_cpus);
- 	if (is_in_cpu_list)
+> > Now the issue with this Aux driver design is that, if an EP makes use of the
+> > switch GPIO for PERST# or power, like:
+> > 
+> > 	tc9563: pcie@0,0 {
+> > 		compatible = "pci1179,0623";
+> > 		reg = <0x10000 0x0 0x0 0x0 0x0>;
+> > 		...
+> > 
+> > 		pcie@1,0 {
+> > 			compatible = "pciclass,0604";
+> > 			reg = <0x20800 0x0 0x0 0x0 0x0>;
+> > 			#address-cells = <3>;
+> > 			#size-cells = <2>;
+> > 
+> > 			device_type = "pci";
+> > 			ranges;
+> > 			bus-range = <0x3 0xff>;
+> > 
+> > 			reset-gpios = <&tc9563 5 GPIO_ACTIVE_LOW>;
+> > 		};
+> > 	...
+> > 
+> > 	};
+> > 
+> > Then the pwrctrl driver (pci/pwrctrl/generic.c) will try to acquire the GPIO
+> > controller during its probe, but will fail with -EPROBE_DEFER as the GPIO
+> > controller won't be available at that time. So the whole PCIe instance will
+> > probe defer as the driver requires all pwrctrl drivers to be probed before
+> > starting the initial bus scan.
+> 
+> The only GPIOs we're using are for asserting reset on the two
+> Ethernet PHYs.  That doesn't occur until after the embedded
+> endpoint functions are probed, so this should be OK.
+> 
+> However you're right, the lines on this GPIO controller should
+> be restricted to avoid this circular dependency.
+> > So we need to make sure that the GPIO controller driver is available before
+> > enumerating the switch device. One way to achieve is by creating the GPIO Aux
+> > device in the pci/pwrctrl/pci-pwrctrl-tc9563.c driver and let the GPIO
+> > controller driver use I2C communication for setting up the GPIOs. Thankfully,
+> > the switch allows both I2C and BAR MMIO configurations for internal GPIOs.
+> 
+> Daniel and I have talked about this solution exactly, but opted
+> not to propose using it just yet (not unless someone like you
+> suggested it...).  Our solution for now was just to have the
+> (PCIe BAR-based) GPIO driver reserve the two GPIO lines used by
+> the pwrctrl driver, and rely on the fact that the pwrctrl driver
+> will only touch those shared registers at times the "real" GPIO
+> driver does not.
+> 
 
+Yeah. If those GPIO lines are not used to power up any endpoint devices, then
+there should be no issues. But this is something we cannot control as the board
+designers can do whatever they want.
 
-Patches currently in stable-queue which might be from james.clark@linaro.org are
+> 
+> We could instead implement a "proper" I2C-based GPIO controller
+> driver.  This would be used by the pwrctrl driver (rather than
+> that driver just updating the registers directly), as well as
+> the Ethernet PHY for reset control, and for any other uses on
+> future platforms.
+> 
 
-queue-6.12/perf-arm-spe-use-arm_spe_op_branch_eret-when-synthes.patch
-queue-6.12/perf-arm-spe-correctly-set-sample-flags.patch
-queue-6.12/perf-cs-etm-queue-context-packets-for-frontend.patch
-queue-6.12/perf-arm-spe-add-branch-stack.patch
-queue-6.12/perf-arm-spe-use-metadata-to-decide-the-data-source-.patch
-queue-6.12/perf-pmu-skip-test-on-arm64-when-slots-is-zero.patch
-queue-6.12/perf-sched-add-missing-mmap2-handler-in-timehist.patch
-queue-6.12/perf-synthetic-events-fix-stale-build-id-in-module-mmap2-records.patch
-queue-6.12/perf-inject-add-convert-callchain-option.patch
-queue-6.12/perf-build-id-ensure-snprintf-string-is-empty-when-size-is-0.patch
-queue-6.12/perf-debuginfo-fix-libdw-api-contract-violations.patch
-queue-6.12/coresight-etm4x-correct-trcvmidcctlr1-save-and-resto.patch
-queue-6.12/perf-event-fix-size-of-synthesized-sample-with-branc.patch
-queue-6.12/perf-remove-redundant-kernel.h-include.patch
-queue-6.12/perf-fix-off-by-one-stack-buffer-overflow-in-kallsym.patch
-queue-6.12/perf-inject-with-convert-callchain-ignore-the-dummy-event-for-dwarf-stacks.patch
-queue-6.12/perf-maps-add-maps__mutate_mapping.patch
-queue-6.12/perf-arm-spe-use-old-behavior-when-opening-old-spe-files.patch
+Sounds like a plan.
+
+> All uses so far are for managing resets, so the higher I2C
+> latency wouldn't be much of an issue.
+> 
+> > With this change, the GPIO driver will get probed by the time the pwrctrl
+> > generic driver acquires the 'reset-gpios' and will turn ON the EP.
+> 
+> One thing I'll point out is that the next version of this
+> code will define "pci-ep-bus" nodes, and will not use the
+> auxiliary bus model.  However the issue you raise remains
+> in that model too.
+> 
+
+Please do CC me on the upcoming versions as well.
+
+> Thank you very much for raising this Mani.  Please see my
+> questions a little further below.
+> 
+> 					-Alex
+> 
+> > Let me know your thoughts!
+> > 
+> > - Mani
+> > 
+> > [1] https://lore.kernel.org/linux-pci/e2inl7k5gsjj6oomv2k5ximuzpb3gfiz66ufet3b4hvov7zqt4@qz4pifbos7yf/
+> 
+> 
+> Here's what the pwrctrl driver does:
+> 
+> In drivers/pci/pwrctrl/pci-pwrctrl-tc9563.c, the registers at
+> offset 0x1208 and 0x1210 from the base of the "SFR" address space
+> are updated to assert/deassert these two reset signals.  It does
+> so using the I2C interface--out of band from access via PCI BARs.
+> The reset signals are GPIO02 (for downstream endpoint 1 on the
+> switch) and GPIO03 (for endpoint 2), which are controlled by
+> bits 2 and 3 in the two registers, respectively.
+> 
+> The pwrctrl driver enables a set of regulators defined in the
+> devicetree node for the upstream port of the TC9564 embedded
+> PCIe switch.  It then asserts the main RESX (chip) reset signal,
+> and after a short delay asserts these other two resets.
+> 
+> At that point it uses properties defined in devicetree to
+> configure five "ports":  upstream, downstream 1-3, and Ethernet.
+> (I have some questions related to this--but I put them below.)
+> The properties configured are:  ASPM L0s entry delay; ASP L1 entry
+> delay; TX amplitude; Number of Fast Training Sequences (NTFS); and Decision
+> Feedback Equalization (DFE).
+> 
+
+The driver confuses between ports and endpoint. TC9563_ETHERNET is not a port,
+but an integrated endpoint. I've identified some issues while reviewing it now.
+Will try to fix them asap.
+
+> Finally, the two resets and the main RESX reset are deasserted,
+> and the driver reports that the device is now ready, with:
+>   devm_pci_pwrctrl_device_set_ready();
+> 
+> 
+> 
+> Questions related to the "ports" configured by the pwrctrl driver:
+> - Given that downstream port 3 connects to the internal, embedded
+>   PCIe endpoint, does it still require these settings programmed?
+> 
+
+Not all of the settings are applicable to all ports. Only ASPM and N_FTS are
+applicable to all ports and endpoints, but the rest are optional. But the driver
+treats all properties mandatory for all ports/endpoint, and safeguards itself by
+having some absurd checks. This is something I'm going to fix.
+
+> - Does the TC9563 chip have only *one* function on its embedded
+>   endpoint, supporting just one Ethernet?
+>     - If so, this driver will have to be modified to support
+>       the second embedded function and Ethernet controller.
+> 
+
+The driver assumes only one endpoint, but the binding lists 2. So the driver is
+not complying with its own binding now :/
+
+So technically, the driver supports 2 integrated endpoints.
+
+> - Why is "Ethernet" configured like the PCIe ports, *in addition*
+>   to the downstream port 3 that it sits behind?
+> 
+
+Both ASPM and N_FTS properties are applicable to ports and integrated endpoints
+as well. But other 2, DFE and Tx Amplitude are only applicable to ports only,
+excluding DSP3.
+
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
