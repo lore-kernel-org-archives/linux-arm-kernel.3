@@ -4,107 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB7C0C4452B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 19:17:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66718C4452B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 19:28:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=waJgXQXTGwqxVCoKMxFRK8UAG7XXejyC9jdURlCNsnM=; b=oN8XcECnJZpL24o3+71erujWKl
-	cyxWURZX0cy+eSK1CFnGvJkjxO1nAOwyyPwnwXtGM/FojYlqKoJEocVUHKFXlwBzPgi2WFMrraT3H
-	SkfP490125Nyig1+gYKBJvfrWzodokLHJucs1sgeRjDzbCQU26GGvKTwU0RLckgy7dDqBU/42gqDS
-	8xgOMcQHNxQD2iVNv5X3+XwefoEWc1nIkaXXVQlDb1BO3IJ59U1xC9o9UZ7nscw55S2QupiPlTnQt
-	zvNH64RYLE/6xp1fplKdzx7iZXEWr4ecSGbiMVEgeRaMQ3C18S60I7Gjag7mb9+hzoSPmSrcUtQlW
-	lB2nEdDw==;
+	bh=bsSdFWrvnU8+hnpLrFzBw0ASMcOHG8sKyU3KYkP1HIE=; b=JY/pISj8se20SX6/LYI8u2kZc9
+	d6LxCa2IF1uRFaL3hCQUrWsvpxc0Zq5Gun2ef4Sqv6gZWd/dV7iHD4UkjF6XZMc7M4GJVsPa/X7uh
+	MneLgAgKwjgDENKPX6ehhjRKj25COdlo7Q4vwzItdzy+/Y/7ShE9K8puyhD8O/ZM5+qTSyGnvOPwS
+	3UZ9PFUGdNCoINqnON7aRhF2izUQSgtlH0oW6sJBQ4gtDUOuuyGPzeE7tdUkbNTWXtFL8UhxXO7KV
+	6jZSOJLXUFARvwpt+yZ6z2yRbZuO15Teu92xq/vlAmyzcZst1LgwrWetkfRQWU47nhMiwZN4VCfit
+	QxxsM25Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmFyK-0000000AH2Q-47ye;
-	Tue, 21 Jul 2026 19:17:44 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1wmFj6-0000000AFjb-06h9;
+	Tue, 21 Jul 2026 19:02:00 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmFyH-0000000AH16-2fiC
+	id 1wmFj4-0000000AFjE-04n8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 19:17:43 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-49545ba3d4eso28165815e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 12:17:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=flipper.net; s=google; t=1784661460; x=1785266260; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=waJgXQXTGwqxVCoKMxFRK8UAG7XXejyC9jdURlCNsnM=;
-        b=0+9EqjuUwRH/7PRMpagV2Hy7w/V3jIhIGSleSySBADqtpnWY5+rpeQR1/83Dm4K9HR
-         oR6P9S6XwW5Q/ZR4vX6ABKyee+XOmY8azREqEcnhi9+3+ujNZ9vG5JS790er78a4umSP
-         NHbbcvQ+LyhUwG7nS/k0tFnbWlseihvEKmO6AvDZINPGLxezWpsNBg2mS2bFozz8voTa
-         UCzQXG87uYGK3Gn/189gp39O35qPFlJdcULWWD8pOPC/wbZDMDuBg7LMhbWj9ycrx6yf
-         wn4a6z0KJBG5GHT7Thygf7uZnz3sJOQ6AWIB9BVI+SJ2sujiwGA1C0I9DBqX2bGWmYl5
-         zjSA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784661460; x=1785266260;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=waJgXQXTGwqxVCoKMxFRK8UAG7XXejyC9jdURlCNsnM=;
-        b=A5BdZ9YLWRYviMJkxwbMo7k3xytPUAczycib6s3FbM4m/DShMPYUXDCzwU8vwwIhRx
-         o8Eaf1L6iHjz1xNcUIscjtfgwVePWx0ht+zoq7Iz9BRogkVXmLrBq7As7zMmDUhoWa0Y
-         JDUs9jDJrdooQnNdVDfIlsPVujbOk6ZDku1X9jySmywqC6HhwT+6z+XCzyzfb9vvteAg
-         +FJoV5sHtOeyu4LlnUsiiyBc70u9Y0WkyXX0NGQHCnoBXKP+3969omwLKRYoVDIwsgS/
-         rHMKkoADgXGH7bfqP38wy+J5spB7XkFCh7U4ZA/hqU23TDz1Yhajm0+gmNeOyY2nuTJ0
-         eCfQ==
-X-Forwarded-Encrypted: i=1; AHgh+RrtoEtoToH1yg9RY9kc7wTmQxsMCQ8MpDIY76yPd49i63HlsAMoyJO9D43rhIDSXtfNtl6SH2GWYBszj8KeIjYH@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZqT3dDnwZh/gN7ni7oRr9uoCiAaVLf06tSHEh0p6EAPD8xYNL
-	/btTH+H9TktsZZ1a9nE8YXIMeAChxsY1hFPrY1KDUKKjNzXATElCwIPe4YLXP63cpfI=
-X-Gm-Gg: AfdE7ckQ1msioVkjJDErMr8uNyAl2LPqYKonJ+h12fG5jCMu1G0KAzS4mvEmDIKXHlr
-	05FZudIOrCPk6rY9tPZ9BzzJ2CSsxTVshR8os2d5MDC436utte6oDQ8OpwIISLqtMEtJh8rXC1n
-	twzLLdR5NDBhxfICt2qHS5OH49pSDhOzOPkpNZ8I/CjiahG4PPMLE489NzJ26vk3Ck3pHrsmWy+
-	8u5iDaEyZ19A1ogB02zpkJnY7qFSFTNAZ+wxfs4inW2GBngUGrosfK+nSPHAi8Xor3TCPZbxyCK
-	rd5ghBHBOcImzaM5L6rhpyiC20LHK3jtJ+bctdHyhPXlCdZBPwMGO/09SEXncwMNA6mhTFeYvPt
-	9fc3KMNb085NlhjhzeOB9GdeXJ5Q8OQvTbG0CRzOS0rj3ltxiIMH90NXzCDtUGb/yHZE7lHN7/2
-	Jh+QxiGduSRMi11Y4rAvqSxqTTohc28UjpbM5b4j8xsU/GanEMvN/ksw==
-X-Received: by 2002:a05:600c:3512:b0:493:cfe8:5b36 with SMTP id 5b1f17b1804b1-4954a3eec4bmr228858235e9.8.1784661459576;
-        Tue, 21 Jul 2026 12:17:39 -0700 (PDT)
-Received: from alchark-surface.localdomain (bba-92-99-174-41.alshamil.net.ae. [92.99.174.41])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f7feea1cdsm9351011f8f.32.2026.07.21.12.17.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Jul 2026 12:17:39 -0700 (PDT)
-From: Alexey Charkov <alchark@flipper.net>
-Date: Tue, 21 Jul 2026 23:17:26 +0400
-Subject: [PATCH] clk: rockchip: Fractional PLL coefficient on RK3588/RK3576
- is two's complement
+	Tue, 21 Jul 2026 19:01:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DxaN7qePyyLlD6L2gKQ27y0x8XC/IgKRKDVwSB5ofHh+25xloAzJ8x4ukehmjZfBHjXRcZ8Qhc6VVfRcPDepfVpdB1mGsVZ9hm7A7rOHc18kYWEuNLEFhK7s4CNGQ+FNdnLMteozq9Q9oblVrjGJO+9yvnl+t7PvzRWbx8/+CfDUes+UgUR4O0+NNkij5FLeXvCwSNiBN7BtCRzUeti0N8NybCAQq8KxXjDAG8OIA+hpiLZzRmpkm86Wagw+E4VL18Hg+K6T2kTLWIiTM+dDSJT71IPR1I3NDZYvVthadS4rPgyq40yetGXD2epY6tGQ62gm6l6lfGsfuk5SNlZJUA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bsSdFWrvnU8+hnpLrFzBw0ASMcOHG8sKyU3KYkP1HIE=;
+ b=QQccNYcNpYwv+YU3YOQvHIHJRIqjuhcV+shmNeIHU8I4s5NAIbeqiUmowL/jDl3yOS+x8CQIjzvZnSBLxAdpWbC4Cw7tR/hRVHqef51DBDS9kqtEE8SYw2ios2gok9tjaPfPyjii4enBLsDRnvOfGW9J2ndmXCz61C9xr7H0Bs0ZuEt8fzpd3K4/dcsL3z+38/Er/C5i4fDWqdJzQvO2N9XPV4giwqcVbuYNJMdmeNNx1gJBXRNioSHurv+MSUxF44fhrqN+1pDFCkpDXXQiuhEqcQxPN/53+crrEBInE8jdJGprYUpQhiHBxrHHLzvgAgyB/zxsF4XFtu/8mxAi2Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bsSdFWrvnU8+hnpLrFzBw0ASMcOHG8sKyU3KYkP1HIE=;
+ b=d7QLh1Y3kQxwVsIvjvJgDf1wfqoBqCNFFDl/H7sJKNOHKYeq43TT2hO1PV6x/mmLKZQ4S+uKI4w/sgLXBBp9sawlpN3Y0eeROq9FOStHCcv9heGlLvbFYq8xZ2DTVUbnbsMmNEiDJ6+5iDPwagZHJkZcCq5z/HQ82Ih3h2ub3EuqDjEFczC9l/CP3tNkrTK+OrlpZzaos8dN/vsgl3ExbxSenVu5JVcJh4OldAx0XqB7qOQbUsH2byyf4HugHawkwtgsn4/dyVg0u3zFhVccj+rqLBvuNvF+HE1HSbPgk9X6+USE9Zy10y6bct9HF3W8c5p/XIjqVcwDWfCR4DU/NA==
+Received: from DU2PR04CA0350.eurprd04.prod.outlook.com (2603:10a6:10:2b4::22)
+ by AS1PR10MB5316.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:4a0::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Tue, 21 Jul
+ 2026 19:01:53 +0000
+Received: from DU6PEPF0000A7E0.eurprd02.prod.outlook.com
+ (2603:10a6:10:2b4:cafe::1d) by DU2PR04CA0350.outlook.office365.com
+ (2603:10a6:10:2b4::22) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.10 via Frontend Transport; Tue,
+ 21 Jul 2026 19:01:53 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ DU6PEPF0000A7E0.mail.protection.outlook.com (10.167.8.39) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.245.5 via Frontend Transport; Tue, 21 Jul 2026 19:01:53 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Tue, 21 Jul
+ 2026 21:07:05 +0200
+Received: from localhost (10.252.29.127) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Tue, 21 Jul
+ 2026 21:01:52 +0200
+From: Alain Volmat <alain.volmat@foss.st.com>
+Date: Tue, 21 Jul 2026 21:01:19 +0200
+Subject: [PATCH] media: stm32: csi: correct remote pad retrieval
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260721-rk3588-fracpll-v1-1-b289bf17cf17@flipper.net>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDcyND3aJsY1MLC920osTkgpwc3TQTY3Pz5BQLA0sLYyWgpoKi1LTMCrC
- B0bEQfnFpUlZqcgnIFKXaWgCE6LCrcgAAAA==
-X-Change-ID: 20260721-rk3588-fracpll-f4377cd80983
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
- Heiko Stuebner <heiko@sntech.de>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Wyon Bi <bivvy.bi@rock-chips.com>, Finley Xiao <finley.xiao@rock-chips.com>, 
- Elaine Zhang <zhangqing@rock-chips.com>, 
- Detlev Casanova <detlev.casanova@collabora.com>, 
- Sugar Zhang <sugar.zhang@rock-chips.com>, YouMin Chen <cym@rock-chips.com>
-Cc: Dragan Simic <dsimic@manjaro.org>, Liang Chen <cl@rock-chips.com>, 
- Quentin Schulz <quentin.schulz@cherry.de>, linux-clk@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Alexey Charkov <alchark@flipper.net>
+Message-ID: <20260721-stm32-csi-pad-retrieval-fix-v1-1-7f88d6072949@foss.st.com>
+X-B4-Tracking: v=1; b=H4sIAP7BX2oC/x2NywqDQAxFf0WybmAygmJ/pXQxaKyB+iAZRJH5d
+ 9Muz4F77gXGKmzwrC5Q3sVkXRzoUUE/peXDKIMzxBCbEInQ8lxH7E1wSwMqZ5/v6YujHFgnCoG
+ blsauBS9syq7/9dfbeRLLq56/s1LKDfhi+c18AAAA
+X-Change-ID: 20260211-stm32-csi-pad-retrieval-fix-3a100e671f97
+To: Alain Volmat <alain.volmat@foss.st.com>, Mauro Carvalho Chehab
+	<mchehab@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, "Alexandre
+ Torgue" <alexandre.torgue@foss.st.com>, Hans Verkuil <hverkuil@kernel.org>
+CC: <linux-media@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<stable@kernel.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5756; i=alchark@flipper.net;
- h=from:subject:message-id; bh=4IQcuuUttHjx+yzAyu5y+EXz1z1kR8v1d4gWKmLHTsI=;
- b=owGbwMvMwCW2adGNfoHIK0sZT6slMWTFH72wem3K6Tc2PHar3FZM/Blg9foU59ulu4X/Gf56e
- TT/wW1Tro6JLAxiXAyWYoosc78tsZ1qxDdrl4fHV5g5rEwgQ6RFGhiAgIWBLzcxr9RIx0jPVNtQ
- z9BIx1jHiIGLUwCmetIaht+sbmaXQ5WWLuXfdnDXaqGQKT2u5/UF+E4Y+pp2HDmpyPCUkeGe6Jv
- PoT5V8RHvnsQp1YUUrIlu5ZqzY1lKYr64k4pQNjcA
-X-Developer-Key: i=alchark@flipper.net; a=openpgp;
- fpr=9DF6A43D95320E9ABA4848F5B2A2D88F1059D4A5
+X-Originating-IP: [10.252.29.127]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU6PEPF0000A7E0:EE_|AS1PR10MB5316:EE_
+X-MS-Office365-Filtering-Correlation-Id: bce56c1a-9a34-4bac-6ca5-08dee75a8715
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|23010399003|1800799024|82310400026|56012099006|11063799006|10067099003|18002099003|3023799007;
+X-Microsoft-Antispam-Message-Info: rANCQdwwHItXo5qYjOwGg9QHF2wVnj2qcTDAVPDCPS4JEX09TUPF2niQWUtg91EY5Q11nkMyNZJyjbRdjVPngtuf2I5gh5Q0IP/96SeVrrTZ1DVh4wmdb8sWyVf22OUYwsXFO01opH3xKAor++LJPupYusU6emHyUdZ1T1u45oTGMxMoSIGlNc5cTUhJJgMsyUswJmYRGYwqYHq8EEo+1NIvjZhQ5DG+HVC/78YH281QYJAvI6jPE58OOvjG+UpGUGqyb39rlqqSNTS/aF/YNASOnPuRF9+2eIwMvrje7vwXsypNKVPuGAi+Ev6zdsv3nBOwMdA6tz5kQ8Lz4CVAljRPAczrhplLT2NasjLE/FxjQmjFImiF0wqOUUNi7buxdhU0+R1TWua8M/vB2KpWMbKBkfUou+Diw20nf7CJoL+p+YXOxkvQkFsQHdvmqNWqe8mtvP840Nvf3gmuAHXIQwa/dlC/5tCVqWDqIVSYM8qZycmpi2qsZGlhb0dxfsOre3E8gobuq8Mw5v7VYWA87DiUiuHKNUDsn7NjI1aDQPjJZfcZOZ1ix3MnhKiozpTz9aoxLCbjS/kxwj6pOVKd1fA1dYNlz3TbAzKuhDcHtwkBhsFwAfXiRP407UgiOSqokFhs78v2xeVFNmgAftKo7k9jhpY63qclkZ5Y67b4YIXhop2bC/q0R+AKLK6MyUEev90UorNnDngbo00oO28MYw==
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(23010399003)(1800799024)(82310400026)(56012099006)(11063799006)(10067099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: wDsPmbnTxHlSPS6hdK7/og3No+ewMugmcRl978ZBFHk76YXr7T1WNUpnh9ICGJ04EaLQcbN/HXbrC0Fl4oRWWdt8XKjHV0FWFghqXQ/2tn6RoWFT11lp7Led5mZz8YVfPIOkV8TD2ny1NrDRVvNX4qywfuWu6UEzmtgycZMVC8e8gAq60/l+ydmKS7b6SPGRXk/Kxd+JXL3UaYHUo2qf1Q3a2Zfpb/gwmQwM30o9pJCVZktRAoQNiUBdhdeFjIhfUOeGgFw3jkEncY1QSdgsP3Fv49egK9sE6/Kc/jdW8445uHGUtMKlzEbn8aUhmS/mRrVtfVI8mOKxBEqqKru6EEpRJi17/07TdifIsR4Uu4AOQt1xZHHZD5uTCQrNo2Ktmt5nVaEpZn+ppMuh+ecpE3ISjuV1ej9ibPwIucF4liE3k+oszr2bvAX1Zd4+bFxA
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Jul 2026 19:01:53.1345
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: bce56c1a-9a34-4bac-6ca5-08dee75a8715
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000A7E0.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR10MB5316
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_121741_749024_AC4BEAB5 
-X-CRM114-Status: GOOD (  21.21  )
+X-CRM114-CacheID: sfid-20260721_120158_090081_C8F9DE71 
+X-CRM114-Status: GOOD (  11.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,144 +130,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When the PLL rates table was first committed for RK3588 (and later reused
-for RK3576), the fractional PLL coefficient was defined as an unsigned
-value, while the TRM clearly states that it is a two's complement 16-bit
-value.
+The function media_entity_get_fwnode_pad is called in order to
+retrieve the remote pad, which is the source of the CSI.
+However this function is expecting the sensor endpoint fwnode
+and not sensor device fwnode as it is currently given.
+Correct this by properly relying on the notified matched fwnode
+data instead of the subdev entity fwnode.
 
-Rockchip's downstream kernel later revised the fractional PLL code [1] to
-account for the two's complement nature of the coefficient, but that
-change wasn't upstreamed.
-
-Change the PLL table definition to use two's complement for the
-fractional coefficient and update its users accordingly.
-
-Note that a negative fractional coefficient is meant to be subtracted from
-the next larger integer multiplier, so the _m values in the table are
-also adjusted accordingly for the two negative-k entries.
-
-While at it, fix the denominator of the fractional PLL calculation to use
-65536 instead of 65535, as per the TRM (RK3576 TRM Part 1 V1.2, Section
-2.13.1.4 Setting Guide on P, M, S, and K):
-
-Fout = ((m + k/65536) * Fin) / (p * 2^s)
-
-Link: https://github.com/flipperdevices/rockchip-linux/commit/7a72bc05dcc3a51e85ae531749e6270bf9b9212d [1]
-Fixes: f1c506d152ff ("clk: rockchip: add clock controller for the RK3588")
-Fixes: cc40f5baa91b ("clk: rockchip: Add clock controller for the RK3576")
-Signed-off-by: Alexey Charkov <alchark@flipper.net>
+Cc: stable@kernel.org
+Fixes: dcb0f4c16be5 ("media: stm32: csi: addition of the STM32 CSI driver")
+Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
 ---
-Not adding Cc stable, because while this fixes a real bug it's not a
-regression, as the issue was introduced in the same commit that added the
-RK3576/RK3588 support.
+ drivers/media/platform/st/stm32/stm32-csi.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Note that there is a separate unrelated issue with the rate table, namely
-the 2256000000 Hz entry currently leads to a VCO frequency of 4512 MHz,
-which is just above the TRM-stated maximum of 4500 MHz. Also multiple
-entries in the table end up with Fvco < 3 GHz, which according to the
-TRM leads to a PLL period jitter of +-2% vs. the +-1% for Fvco > 3 GHz.
-To be revisited separately.
----
- drivers/clk/rockchip/clk-pll.c    | 8 ++++----
- drivers/clk/rockchip/clk-rk3576.c | 4 ++--
- drivers/clk/rockchip/clk-rk3588.c | 4 ++--
- drivers/clk/rockchip/clk.h        | 8 ++++----
- 4 files changed, 12 insertions(+), 12 deletions(-)
-
-diff --git a/drivers/clk/rockchip/clk-pll.c b/drivers/clk/rockchip/clk-pll.c
-index 6b853800cb6b..f445b01aabd0 100644
---- a/drivers/clk/rockchip/clk-pll.c
-+++ b/drivers/clk/rockchip/clk-pll.c
-@@ -13,6 +13,7 @@
- #include <linux/delay.h>
- #include <linux/clk-provider.h>
- #include <linux/iopoll.h>
-+#include <linux/math64.h>
- #include <linux/regmap.h>
- #include <linux/clk.h>
- #include "clk.h"
-@@ -913,11 +914,10 @@ static unsigned long rockchip_rk3588_pll_recalc_rate(struct clk_hw *hw, unsigned
+diff --git a/drivers/media/platform/st/stm32/stm32-csi.c b/drivers/media/platform/st/stm32/stm32-csi.c
+index fd2b6dfbd44c5..ecd0ed8e76b59 100644
+--- a/drivers/media/platform/st/stm32/stm32-csi.c
++++ b/drivers/media/platform/st/stm32/stm32-csi.c
+@@ -825,7 +825,7 @@ static int stm32_csi_async_bound(struct v4l2_async_notifier *notifier,
+ 	int remote_pad;
  
- 	if (cur.k) {
- 		/* fractional mode */
--		u64 frac_rate64 = prate * cur.k;
-+		s64 frac_rate64 = (s64)prate * cur.k;
- 
--		postdiv = cur.p * 65535;
--		do_div(frac_rate64, postdiv);
--		rate64 += frac_rate64;
-+		postdiv = cur.p * 65536;
-+		rate64 += div_s64(frac_rate64, postdiv);
- 	}
- 	rate64 = rate64 >> cur.s;
- 
-diff --git a/drivers/clk/rockchip/clk-rk3576.c b/drivers/clk/rockchip/clk-rk3576.c
-index 2557358e0b9d..63f229e73a45 100644
---- a/drivers/clk/rockchip/clk-rk3576.c
-+++ b/drivers/clk/rockchip/clk-rk3576.c
-@@ -79,13 +79,13 @@ static struct rockchip_pll_rate_table rk3576_pll_rates[] = {
- 	RK3588_PLL_RATE(1008000000, 2, 336, 2, 0),
- 	RK3588_PLL_RATE(1000000000, 3, 500, 2, 0),
- 	RK3588_PLL_RATE(983040000, 4, 655, 2, 23592),
--	RK3588_PLL_RATE(955520000, 3, 477, 2, 49806),
-+	RK3588_PLL_RATE(955520000, 3, 478, 2, -15730),
- 	RK3588_PLL_RATE(903168000, 6, 903, 2, 11009),
- 	RK3588_PLL_RATE(900000000, 2, 300, 2, 0),
- 	RK3588_PLL_RATE(816000000, 2, 272, 2, 0),
- 	RK3588_PLL_RATE(786432000, 2, 262, 2, 9437),
- 	RK3588_PLL_RATE(786000000, 1, 131, 2, 0),
--	RK3588_PLL_RATE(785560000, 3, 392, 2, 51117),
-+	RK3588_PLL_RATE(785560000, 3, 393, 2, -14419),
- 	RK3588_PLL_RATE(722534400, 8, 963, 2, 24850),
- 	RK3588_PLL_RATE(600000000, 2, 200, 2, 0),
- 	RK3588_PLL_RATE(594000000, 2, 198, 2, 0),
-diff --git a/drivers/clk/rockchip/clk-rk3588.c b/drivers/clk/rockchip/clk-rk3588.c
-index 75d42fea2a11..24baa0ef9bf3 100644
---- a/drivers/clk/rockchip/clk-rk3588.c
-+++ b/drivers/clk/rockchip/clk-rk3588.c
-@@ -79,14 +79,14 @@ static struct rockchip_pll_rate_table rk3588_pll_rates[] = {
- 	RK3588_PLL_RATE(1008000000, 2, 336, 2, 0),
- 	RK3588_PLL_RATE(1000000000, 3, 500, 2, 0),
- 	RK3588_PLL_RATE(983040000, 4, 655, 2, 23592),
--	RK3588_PLL_RATE(955520000, 3, 477, 2, 49806),
-+	RK3588_PLL_RATE(955520000, 3, 478, 2, -15730),
- 	RK3588_PLL_RATE(903168000, 6, 903, 2, 11009),
- 	RK3588_PLL_RATE(900000000, 2, 300, 2, 0),
- 	RK3588_PLL_RATE(850000000, 3, 425, 2, 0),
- 	RK3588_PLL_RATE(816000000, 2, 272, 2, 0),
- 	RK3588_PLL_RATE(786432000, 2, 262, 2, 9437),
- 	RK3588_PLL_RATE(786000000, 1, 131, 2, 0),
--	RK3588_PLL_RATE(785560000, 3, 392, 2, 51117),
-+	RK3588_PLL_RATE(785560000, 3, 393, 2, -14419),
- 	RK3588_PLL_RATE(722534400, 8, 963, 2, 24850),
- 	RK3588_PLL_RATE(600000000, 2, 200, 2, 0),
- 	RK3588_PLL_RATE(594000000, 2, 198, 2, 0),
-diff --git a/drivers/clk/rockchip/clk.h b/drivers/clk/rockchip/clk.h
-index 9e3503e2ffc2..72b36bba3152 100644
---- a/drivers/clk/rockchip/clk.h
-+++ b/drivers/clk/rockchip/clk.h
-@@ -635,10 +635,10 @@ struct rockchip_pll_rate_table {
- 		};
- 		struct {
- 			/* for RK3588 */
--			unsigned int m;
--			unsigned int p;
--			unsigned int s;
--			unsigned int k;
-+			unsigned int m;	/* main divider, 10 bit unsigned */
-+			unsigned int p;	/* pre-divider, 6 bit unsigned */
-+			unsigned int s;	/* scaler, 3 bit unsigned */
-+			s16 k;		/* fractional part, 16 bit two's complement */
- 		};
- 	};
- };
+ 	remote_pad = media_entity_get_fwnode_pad(&s_subdev->entity,
+-						 s_subdev->fwnode,
++						 asd->match.fwnode,
+ 						 MEDIA_PAD_FL_SOURCE);
+ 	if (remote_pad < 0) {
+ 		dev_err(csidev->dev, "Couldn't find output pad for subdev %s\n",
 
 ---
-base-commit: 290aaf24a551d5a0dce037e3fab30820f9113a10
-change-id: 20260721-rk3588-fracpll-f4377cd80983
+base-commit: a52e6f7923c17a672135b485ffd96fbd72f46267
+change-id: 20260211-stm32-csi-pad-retrieval-fix-3a100e671f97
 
 Best regards,
 --  
-Alexey Charkov <alchark@flipper.net>
+Alain Volmat <alain.volmat@foss.st.com>
 
 
