@@ -4,54 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 162EDC44532
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 14:50:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11FC3C44532
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 14:51:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6PiGqvryI5UqT7XsGdg3wKGCgzU7GmG1C/caVsWc/kc=; b=WlLgmzOW05O5rGbHu4eyD+2fXR
-	TeS9Tmx1WCVNrCOgvBXgyR2PY6LFtHZTEkKb15U8kFU2UqucKDOaE9A1QBiikpUai7xMUd5rxSikf
-	ZS7bY6fwEFZth2941UMqv1jxNGWyiT09LPrnBZaOdcAQeq2/gvF4syEa1yGOr5qrRYSQlCZdMBMQi
-	s764id6BWJa0PBc79r2hGJLvKl5lK1XaRtzBhblf7oSF19k3gsle7kfn1b8PKmSGBq88EwS5SVZyp
-	ir7RXDsQiOcnM9/AJtfhsu0olQXnF/vxtnWA6ZrL2aqlBVbOPLF9flYuEPXUGJ58a4dBni2yg1OAo
-	iBzaA88Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YsB9ocO8/4au5PZ9wDhRfUU9XPnC08UzoXRec/v2v6A=; b=4U38bk9MAHQguQitlW1hlqrFC8
+	qb4Wfac4Rv84CJWFmSzt+ftHYf0hTW8xX83giO0lsqDtGqPKTzvbzuIo9Y72PaYt0x4LoSgZI1WTP
+	U4LGdgsKkfLUqMZyERyfEZxaZpF/2Ob9HXzuKWgqK7gC3gu3GYiTE9pDA820QkQVn23p6JM3yHvxO
+	nlzLCI3bNvrpYDpxd6w/KvuV9ptaBkYujta3iVL+G/hIUtceCsNtfpw7EKsWBHH3mfxBQbKJBzlYw
+	l99Tlnv15aFJR55dLmxLRXXD0o/yVxdPIttp/59xUT/FlwiKXUuq90kfwk2w06E2zuvnWm/EBY4Fs
+	G+wa1iZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmBnc-00000009hSj-1nPY;
-	Tue, 21 Jul 2026 14:50:24 +0000
+	id 1wmBoI-00000009hax-2gLQ;
+	Tue, 21 Jul 2026 14:51:06 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmBnZ-00000009hS5-1TSu
+	id 1wmBoG-00000009haY-2aoK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 14:50:22 +0000
+	Tue, 21 Jul 2026 14:51:05 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1217A152B;
-	Tue, 21 Jul 2026 07:50:15 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 20A3E3F86F;
-	Tue, 21 Jul 2026 07:50:18 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 66B3D152B;
+	Tue, 21 Jul 2026 07:50:58 -0700 (PDT)
+Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F0A1B3F86F;
+	Tue, 21 Jul 2026 07:50:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784645419; bh=BFIQ2rmaR+B+A3UpkqoBtMlytLAwir6V9zbZ8CrLzWM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BYH7mAvYqKsBZ9ZMw/YBAzZDl2fSUpsL1tcnU4P8fFi5M3No05d8YV5jVFx58Cfbc
-	 czODkUdI1n85l/hgWGvcIuzz7enOeBcD5cd/ZngrC2xq7JlUP5/PhBqBjLQ7WXTRO6
-	 wdunmJJ/k3iA2F8VK8vGf5aHSVcVmhPX9f6z876A=
-Date: Tue, 21 Jul 2026 15:50:12 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Bradley Morgan <include@grrlz.net>
-Subject: Re: [PATCH] arm64: entry: dedup SDEI event priority selection
-Message-ID: <al-HJCeXy8cJW57B@J2N7QTR9R3.cambridge.arm.com>
-References: <20260718185447.25706-1-include@grrlz.net>
+	t=1784645462; bh=Vcis6t4xUy77hTPy7uY299+DZ2Az+Lpqnoisp68jgOU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=QlXCWJTcqmg3GqQSmuLEHqq2bzT2gP4nc2CFnk0xn1Bxa18KQC7cbCKux+aQFLPZQ
+	 6Z+tZYD8xDpeLtXK/DnyZi5BWXWGsSNeQAVdrYPRk5qLtGp8UgYwJrMs5d9yQ3fZ6B
+	 ajSZ0TBYDiiBZjFIoH66E0UVyUJQmUXoHPwcnW3Q=
+Message-ID: <f287f45c-4eaa-44bc-9c2a-07767bd5085a@arm.com>
+Date: Tue, 21 Jul 2026 16:51:00 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260718185447.25706-1-include@grrlz.net>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 16/16] arm_mpam: detect and enable MPAM-Fb PCC support
+To: Lee Trager <lee@trager.us>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+ Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ Niyas Sait <niyas.sait@arm.com>, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260710144520.917375-1-andre.przywara@arm.com>
+ <20260710144520.917375-17-andre.przywara@arm.com>
+ <52dc486f-2ef2-4c57-b3fb-fb4c240a9198@trager.us_quarantine>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <52dc486f-2ef2-4c57-b3fb-fb4c240a9198@trager.us_quarantine>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_075021_505078_3120689A 
-X-CRM114-Status: GOOD (  23.89  )
+X-CRM114-CacheID: sfid-20260721_075104_896488_FACEB6EF 
+X-CRM114-Status: GOOD (  13.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,113 +78,43 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: anshuman.khandual@arm.com, kees@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, will@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jul 18, 2026 at 06:54:47PM +0000, Bradley Morgan wrote:
-> __sdei_asm_handler open codes the same branch ladder four times to pick
-> the normal or critical variant of a per CPU variable based on the SDEI
-> event priority: when recording the active event, when selecting the
-> SDEI stack, when selecting the shadow call stack, and when clearing the
-> active-event record on exit.
-> 
-> Add a sdei_choose macro, using \@ local labels like the files existing
-> macros, and replace the four open coded copies with it. This also drops
-> the repeated reuse of the 1:/2:/3:/4: numeric labels in this handler.
-> 
-> No functional change intended.
-> 
-> Signed-off-by: Bradley Morgan <include@grrlz.net>
-> ---
->  arch/arm64/kernel/entry.S | 39 +++++++++++++++++++--------------------
->  1 file changed, 19 insertions(+), 20 deletions(-)
+Hi Lee,
 
-Looking at the patch below, the result is far less readable, and this
-has only saved a single line.
-
-I don't think this is worthwhile; please leave this as-is.
-
-Mark.
-
+On 7/15/26 18:08, Lee Trager wrote:
+> On 7/10/26 7:45 AM, Andre Przywara wrote:
 > 
-> diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
-> index e0db14e9c843..29ef4a0d28a8 100644
-> --- a/arch/arm64/kernel/entry.S
-> +++ b/arch/arm64/kernel/entry.S
-> @@ -916,6 +916,15 @@ NOKPROBE(call_on_irq_stack)
->  	b	.
->  .endm
->  
-> +/* Set \dst using \op and the \normal or \critical sym, based on \prio */
-> +.macro sdei_choose op:req, dst:req, prio:req, normal:req, critical:req, tmp:req
-> +	cbnz	\prio, .Lcritical\@
-> +	\op dst=\dst, sym=\normal, tmp=\tmp
-> +	b	.Ldone\@
-> +.Lcritical\@:	\op dst=\dst, sym=\critical, tmp=\tmp
-> +.Ldone\@:
-> +.endm
-> +
->  #ifdef CONFIG_UNMAP_KERNEL_AT_EL0
->  /*
->   * The regular SDEI entry point may have been unmapped along with the rest of
-> @@ -997,32 +1006,24 @@ SYM_CODE_START(__sdei_asm_handler)
->  
->  	/* Store the registered-event for crash_smp_send_stop() */
->  	ldrb	w4, [x19, #SDEI_EVENT_PRIORITY]
-> -	cbnz	w4, 1f
-> -	adr_this_cpu dst=x5, sym=sdei_active_normal_event, tmp=x6
-> -	b	2f
-> -1:	adr_this_cpu dst=x5, sym=sdei_active_critical_event, tmp=x6
-> -2:	str	x19, [x5]
-> +	sdei_choose adr_this_cpu, x5, w4, sdei_active_normal_event, \
-> +		    sdei_active_critical_event, x6
-> +	str	x19, [x5]
->  
->  	/*
->  	 * entry.S may have been using sp as a scratch register, find whether
->  	 * this is a normal or critical event and switch to the appropriate
->  	 * stack for this CPU.
->  	 */
-> -	cbnz	w4, 1f
-> -	ldr_this_cpu dst=x5, sym=sdei_stack_normal_ptr, tmp=x6
-> -	b	2f
-> -1:	ldr_this_cpu dst=x5, sym=sdei_stack_critical_ptr, tmp=x6
-> -2:	mov	x6, #SDEI_STACK_SIZE
-> +	sdei_choose ldr_this_cpu, x5, w4, sdei_stack_normal_ptr, sdei_stack_critical_ptr, x6
-> +	mov	x6, #SDEI_STACK_SIZE
->  	add	x5, x5, x6
->  	mov	sp, x5
->  
->  #ifdef CONFIG_SHADOW_CALL_STACK
->  	/* Use a separate shadow call stack for normal and critical events */
-> -	cbnz	w4, 3f
-> -	ldr_this_cpu dst=scs_sp, sym=sdei_shadow_call_stack_normal_ptr, tmp=x6
-> -	b	4f
-> -3:	ldr_this_cpu dst=scs_sp, sym=sdei_shadow_call_stack_critical_ptr, tmp=x6
-> -4:
-> +	sdei_choose ldr_this_cpu, scs_sp, w4, sdei_shadow_call_stack_normal_ptr, \
-> +		    sdei_shadow_call_stack_critical_ptr, x6
->  #endif
->  
->  	/*
-> @@ -1068,11 +1069,9 @@ SYM_CODE_START(__sdei_asm_handler)
->  
->  	/* Clear the registered-event seen by crash_smp_send_stop() */
->  	ldrb	w3, [x4, #SDEI_EVENT_PRIORITY]
-> -	cbnz	w3, 1f
-> -	adr_this_cpu dst=x5, sym=sdei_active_normal_event, tmp=x6
-> -	b	2f
-> -1:	adr_this_cpu dst=x5, sym=sdei_active_critical_event, tmp=x6
-> -2:	str	xzr, [x5]
-> +	sdei_choose adr_this_cpu, x5, w3, sdei_active_normal_event, \
-> +		    sdei_active_critical_event, x6
-> +	str	xzr, [x5]
->  
->  alternative_if_not ARM64_UNMAP_KERNEL_AT_EL0
->  	sdei_handler_exit exit_mode=x2
-> -- 
-> 2.53.0
+>> diff --git a/drivers/acpi/arm64/mpam.c b/drivers/acpi/arm64/mpam.c
+>> index 84963a20c3e7..64bc84bb2029 100644
+>> --- a/drivers/acpi/arm64/mpam.c
+>> +++ b/drivers/acpi/arm64/mpam.c
+>> @@ -256,6 +256,8 @@ static struct platform_device * __init 
+>> acpi_mpam_parse_msc(struct acpi_mpam_msc_
+>>       } else if (iface == MPAM_IFACE_PCC) {
+>>           props[next_prop++] = PROPERTY_ENTRY_U32("pcc-channel",
+>>                               tbl_msc->base_address);
+>> +        props[next_prop++] = PROPERTY_ENTRY_U32("msc-id",
+>> +                            tbl_msc->identifier);
+>>       }
 > 
+> props is defined above as:
 > 
+> /* pcc, nrdy, affinity, and a sentinel */
+> 
+> struct property_entry props[4] = { 0 };
+> 
+> With the addition of the new property the array size needs to be 
+> increased to 5 and the comment updated
+
+Ouch, that's right. For now we are saved by the fact that the affinity 
+value is not used, so there is a free slot now. And there are checks in 
+place to avoid writing over the sentinel. But indeed the size needs to 
+be increased. Thanks for catching this!
+
+Cheers,
+Andre
+
+
 
