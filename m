@@ -4,64 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 413FBC4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 12:42:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BD32C44532
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 12:45:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
-	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
-	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lArIhcHzAKqXSmaKgvnqbdST5dwwZncsJFNsUoeIWDY=; b=AE3wh8I1icBCnVnlFvLYcwMdPL
-	xtUMrDRAHLP1PKQ734G4uDJYMeWPxHnTA+GJakNhk+zYi7L5zYtVe2gaqz6/O6ulNbjKXqrc3zQEn
-	jMA5OdzwpZV9IZu4eE2BwWXmUn1dvMkBJ2iajyeTkWwxB1AQqATvfeDyyYABWd4sJhrS/yHGoZ24i
-	x3r/9juoWiFy5sh1dPu45yzVflx+1SxTgNIUHnNuC6BJtDo3UNkfntNmRcKtHrYFfjHGGJjNKkSbL
-	7onJ+Sr/9maGQJqtqbHeoZjC1Szve2n0sMzvJhkU1YlcYm+HIoOlqT5Lun+JX+f2T0npWhDnFqhOi
-	BdxjbTBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=py+kVer8y1a6uREwhTLMnOPCYBBt4/ypQx/1Dyh8NlE=; b=L3BxJte9FkRDA6fbgtF0hxHYhn
+	lYGeOlWVg6dfBjb/NRPgbL8ucYkZJt8qkOCqRTdYG1QbuBJy2A+J8vv5ceReIv9oIZYd2v4rXBwzD
+	cNvVK1xyRrSV4Ray88awoDSVJcHIbQTCu23WXjYumy0zGgjp9zwC8Nod1UobvlBnC2mvtpn0TskTo
+	ZVSY9VfmMKb9QTa8gEhEPSWZyGyr9XN9OhK7CO2fYL6KQY1GLAT5WgMAwdo9Chi/Azqd8iQtlcls1
+	ST8W2HMTub321InqBND6pTYpCreekMemCO/V/bhMZzps3H3LDWQr8z8z43B/1o5IT89tfnfW1dqfC
+	dt3/tZ8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm9ng-00000009RkW-0E3C;
-	Tue, 21 Jul 2026 12:42:20 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wm9qb-00000009S4G-297w;
+	Tue, 21 Jul 2026 12:45:21 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm9ne-00000009Rjs-3hl8
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 12:42:18 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 66EB540407;
-	Tue, 21 Jul 2026 12:42:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B36621F000E9;
-	Tue, 21 Jul 2026 12:42:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784637738;
-	bh=lArIhcHzAKqXSmaKgvnqbdST5dwwZncsJFNsUoeIWDY=;
-	h=Date:From:To:Subject:In-Reply-To:References:Cc;
-	b=VqXsEZpH7AfMNnxdHZSnsbuT+XCpnEX1d/fTyW4vUHHDCgnaMmCpQB5cGvYbpMorB
-	 0I7DXt+zR4DwyYpgO3ak6F5Lybbbng/Etks+dEkK3cbZE42Ii4RdtgcvsETsAfX+hf
-	 DFqlm7pUWbKUQ7CHVqyadjU2NZobAXmN/3xFvZUYtjgmSXPNe2slpr5S0JoAiBO49+
-	 uHVOHb6mg0QAiu8iKVktzOebhHnC20PBq48YN3Jtfc9ESUiFwhqUQwEfOkaXuaJ1Cm
-	 rkQFn3m6ZpqVHH5EKXLS30Beai4wqSUI0Rz3AIA9OJ4iVOmd63mdfWo05JqVBx79Iy
-	 ZwaWQO2aZ2sIw==
-Message-ID: <9afcb7c026bdd910082b95eeddc939ee@kernel.org>
-Date: Tue, 21 Jul 2026 12:42:16 +0000
-From: "Maxime Ripard" <mripard@kernel.org>
-To: "Nicolas Frattaroli" <nicolas.frattaroli@collabora.com>
-Subject: Re: [PATCH v7 3/5] drm/scdc-helper: Implement parsing and printing
- HDMI 2.1 fields
-In-Reply-To: <20260721-scdc-link-health-v7-3-92df1b6ad5fc@collabora.com>
-References: <20260721-scdc-link-health-v7-3-92df1b6ad5fc@collabora.com>
-Cc: dri-devel@lists.freedesktop.org, kernel@collabora.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-sunxi@lists.linux.dev, "Andrzej
- Hajda" <andrzej.hajda@intel.com>, "Chen-Yu Tsai" <wens@kernel.org>, "Daniel
- Stone" <daniel@fooishbar.org>, "Dave Stevenson" <dave.stevenson@raspberrypi.com>, "David
- Airlie" <airlied@gmail.com>, "Hans Verkuil" <hverkuil+cisco@kernel.org>, "Jani
- Nikula" <jani.nikula@linux.intel.com>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Jonas
- Karlman" <jonas@kwiboo.se>, "Laurent Pinchart" <Laurent.pinchart@ideasonboard.com>, "Luca
- Ceresoli" <luca.ceresoli@bootlin.com>, "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime
- Ripard" <mripard@kernel.org>, =?utf-8?b?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, "Neil
- Armstrong" <neil.armstrong@linaro.org>, "Raspberry Pi Kernel Maintenance" <kernel-list@raspberrypi.com>, "Robert
- Foss" <rfoss@kernel.org>, "Samuel Holland" <samuel@sholland.org>, "Simona
- Vetter" <simona@ffwll.ch>, "Thomas Zimmermann" <tzimmermann@suse.de>
-Content-Transfer-Encoding: 7bit
+	id 1wm9qZ-00000009S3i-0w6w;
+	Tue, 21 Jul 2026 12:45:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=py+kVer8y1a6uREwhTLMnOPCYBBt4/ypQx/1Dyh8NlE=; b=UfyeBY73vzy27dJizTWAlgzPRe
+	H76y57MW8rPT1PXVIHVsVh2LiNjbOSl4Tnh+TOkxX0IJvCFkmfuWhzNQ4oBRWVYLKGwRDi73fLIwk
+	hNOm10pnsbKCwhYYw8kSjJg/4vjzgBRRfimQUp+RHZTaBI/5DjBce9eK4DN+XwUvNd3oF71UBYBO3
+	a/b1USPQb7VUe6UKvx7db/8IvQhZwvqietnBfjgnOV7Eq8hZxZUdM58dvPTXptQr/G0FakLIc9KBe
+	KZh+7IRIof2CmikmMqdt/1h3C+8/A6tmEIbtyV382lMlJvlb2pKu/l8q0GeoRwYFoYtp8FpCABulP
+	3QBMho9w==;
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Simon Glass <sjg@chromium.org>, Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
+ Jonas Karlman <jonas@kwiboo.se>, Conor Dooley <conor+dt@kernel.org>,
+ linux-gpio@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ Bartosz Golaszewski <brgl@kernel.org>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: gpio: rockchip,gpio-bank: Add rockchip,grf
+ property
+Date: Tue, 21 Jul 2026 14:45:16 +0200
+Message-ID: <3352010.NnENhoQgcM@diego>
+In-Reply-To: <20260721-ambrosial-raccoon-of-glee-6219dd@quoll>
+References: <20260714192535.2082729-1-sjg@chromium.org>
+ <20260714132531.v2.1.d04a89a3849323a0dcee2c701cba43adbb0523b2@changeid>
+ <20260721-ambrosial-raccoon-of-glee-6219dd@quoll>
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260721_054519_263958_D6067EF4 
+X-CRM114-Status: GOOD (  22.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,17 +71,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 21 Jul 2026 10:58:59 +0200, Nicolas Frattaroli wrote:
-> HDMI 2.1 redefines previously reserved fields in SCDC for various new
-> uses. No version check needs to be performed, as an HDMI 2.0 sink's
-> reserved SCDC fields are well-defined to be 0, and any zero-ness of
-> these fields for an HDMI 2.0 sink is not a surprise for SCDC parsers for
-> HDMI 2.1.
-> 
-> [ ... ]
+Am Dienstag, 21. Juli 2026, 10:13:38 Mitteleurop=C3=A4ische Sommerzeit schr=
+ieb Krzysztof Kozlowski:
+> On Tue, Jul 14, 2026 at 01:25:29PM -0600, Simon Glass wrote:
+> > Some Rockchip SoCs, such as the RV1106, give each GPIO bank its own
+> > IO control (IOC) register block rather than grouping the registers of
+> > all banks into a shared GRF region. Add an optional rockchip,grf
+> > property to the gpio-bank binding so that each bank node can reference
+> > the syscon for its own IOC block.
+> >=20
+> > Signed-off-by: Simon Glass <sjg@chromium.org>
+> > ---
+> >=20
+> > Changes in v2:
+> > - Add new patch for the per-bank IOC reference
+> >=20
+> >  .../devicetree/bindings/gpio/rockchip,gpio-bank.yaml       | 7 +++++++
+> >  1 file changed, 7 insertions(+)
+> >=20
+> > diff --git a/Documentation/devicetree/bindings/gpio/rockchip,gpio-bank.=
+yaml b/Documentation/devicetree/bindings/gpio/rockchip,gpio-bank.yaml
+> > index bdd83f42615c..774e9c7de606 100644
+> > --- a/Documentation/devicetree/bindings/gpio/rockchip,gpio-bank.yaml
+> > +++ b/Documentation/devicetree/bindings/gpio/rockchip,gpio-bank.yaml
+> > @@ -44,6 +44,13 @@ properties:
+> >    power-domains:
+> >      maxItems: 1
+> > =20
+> > +  rockchip,grf:
+> > +    $ref: /schemas/types.yaml#/definitions/phandle
+> > +    description:
+> > +      The phandle of the syscon node managing the IO control registers
+> > +      of this bank, on SoCs such as the RV1106 where each GPIO bank has
+> > +      its own IOC block.
+>=20
+> I do not see usage of it in patchset linked in cover letter with DTS.
+>=20
+> I have doubts that whil having one GRF region you have GPIO banks
+> pointing to different GRF regions.
+>=20
+> It's possible if you would have multiple GRFs, but you do not. You have
+> one GRF, right?
 
-Reviewed-by: Maxime Ripard <mripard@kernel.org>
+per my reply to the grf binding patch, Rockchip invented yet another way
+to describe their pin-config - in completely separate blocks strewn accross
+the whole io-space this time.
 
-Thanks!
-Maxime
+So describing the associated pinconfig grf per bank, does sound pretty
+nice for that problem.
+
+In the early beginning Rockchip had one really big GRF for all of those
+settings bits - which included the iomux settings.
+Later on they moved _parts_ of that to another big GRF that still wasn't
+dedicated to pin-config.
+Recently pin-config got its own GRF - for all pins
+And now it seems we're at one GRF per pinbank ;-) .
+
+When I asked some years ago - when there even was usbphy control in here
+(and those regs+bits also moved all the time), the _paraphrased_ answer
+was "because hardware-designers find it nicer" ;-) .
+
+
+Heiko
+
+
 
