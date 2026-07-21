@@ -4,83 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34CEDC4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 12:31:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68849C44529
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 12:31:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wWSrAB9EVKT/XWaemQKPpIPZcdC2pMdFep2pkjliXa8=; b=CS72pDPaKKXn4Y5zNx6BQzIR15
-	zREOvBwyaKNOrwV2m1VzicMeIsd2d7IneVOLubZdKrlk3QpLYZjiNGn6f7bLa/9rC0X5moMYfPGVf
-	fjHoh3+IIJ+1m1/zFLQmn5/wtoJTN4cqvfekzSIFQ0h6Hdbgdg1do13XmAGBpQthQkGM0sm4Sru0F
-	Gf+OSjrUt7DDZ/+K3BX09m7TEv67CdMEnWyIhNCb0gg7esa2fYl6GCLOLkqFDm9ypf9TJLD0qtgzs
-	X3z66VfhRyiZkYLrghVHNgHYSj7bef3bcfuPXcNgrAxdPO9iOMRYwlv+1N0SnZDhiI9exwbWCEjlr
-	7MR0mniA==;
+	bh=pSOO82rGZ9vf4QviO3ci9+FEx87mVFslO4kBFj925fQ=; b=P9HaliUkdwmhC9v9kFwKf0f76P
+	RGWer/1UYnmkJtg4nuQEcjw1VBihUQmHJ8DFCxy6wgq9vVBAiB6FVNEQX5nyApwGYFHgxLHDOPkBR
+	ahXPK7HY3TIGVOym51MQzvRYf2BqiuBpsBy88xhnPLk91I7CkK6gwXUqvSVAMZOQ+hWRfH7nWeSV6
+	POUYfGFvUTone/sR0IZoYrQD2jFQSZ1B/HAe40C2EIEENLVtLcWJQ3f1Pir51BQQ1eRQ1jY13H8Pt
+	UxXlhy3KRHpsYyQel3LLBVkOPHDxNms3ZMk4+Snuu8iLAH+sSr3O4kDo+ESPOj2mOQizlDaKPlERO
+	N/pBzqNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm9cz-00000009QSr-1anz;
+	id 1wm9cz-00000009QSv-1zLQ;
 	Tue, 21 Jul 2026 12:31:17 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm9cx-00000009QSY-3rMc
-	for linux-arm-kernel@lists.infradead.org;
+	id 1wm9cw-00000009QS8-3dGe;
 	Tue, 21 Jul 2026 12:31:16 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 10FD6600AE;
-	Tue, 21 Jul 2026 12:31:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93D601F000E9;
-	Tue, 21 Jul 2026 12:31:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784637074;
-	bh=wWSrAB9EVKT/XWaemQKPpIPZcdC2pMdFep2pkjliXa8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=NMAaRN/0pR1UXrKesy1NVUZZb3tGCe/Vlw+6q4IisWckyQHrk7t8f9UFf/nD3eOc2
-	 cDCyPrN6wzIW97ofA8f2c/wOZcBa5yT6IRAiQ8btVup6aqmVGAsCaPvNMbuEE0ea+q
-	 gdY7WVBH3xSnTaTrfUnVBaVXFPSS6ziUrVglN++YJIJJeonhivjr96HgNl/cpK8ecU
-	 NGtirSdm7tyorkJEWFNzDuIDdmKgeLCYl928d21hGD0TfQj7dV7V7bAxdG5f06L2hm
-	 kigSERMdxJZyFtBgL6QvorkJiWKTsBMC3d4eEgC9yuIQX2gmXno0ZvJ/a70zLANA5C
-	 C987wbhcZtg2A==
-Date: Tue, 21 Jul 2026 15:31:07 +0300
-From: Leon Romanovsky <leon@kernel.org>
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Michael Kelley <mhklinux@outlook.com>
-Subject: Re: [PATCH v8 02/23] dma-pool: fix page leak in atomic_pool_expand()
- cleanup
-Message-ID: <20260721123107.GJ110966@unreal>
-References: <20260717180442.110954-1-aneesh.kumar@kernel.org>
- <20260717180442.110954-3-aneesh.kumar@kernel.org>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=pSOO82rGZ9vf4QviO3ci9+FEx87mVFslO4kBFj925fQ=; b=TJ4Oysv43cFrTxhtyiWLeDZnBv
+	2AjXndaq382fbBu49j+SvshHJlKW8X8MFF2nNBBQI7TXsDoyXKgAVTj0oezpBn35Dq//vFxkPGVEc
+	y2QuOd35TUYgbiGGSAgrs/Fcp6Tr+nYrrSFHod5KE+odP6OWylUmkF4MgNGf71dQty8u75VZwyaHO
+	HgudQ3MHNt5DOKl4jWhN1lRd+O3tkqelcDlo/55VjuDU+nTy8x1vx8ymNKKHqfbjctkgAr2A4EreE
+	DBLj0GGCI7N/RYtMRhq95q3Yn2AFDUzwdiIrz+JpLe2tOsVJqrBx4lIqyuUMcNJHLEDF7O8eT0t/3
+	+zlTW0oQ==;
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Simon Glass <sjg@chromium.org>, Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Fabio Estevam <festevam@nabladev.com>, devicetree@vger.kernel.org,
+ Jonas Karlman <jonas@kwiboo.se>, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, Bartosz Golaszewski <brgl@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Jeffy Chen <jeffy.chen@rock-chips.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Michael Riesch <michael.riesch@collabora.com>, Rob Herring <robh@kernel.org>,
+ Vinod Koul <vkoul@kernel.org>, Yao Zi <ziyao@disroot.org>,
+ huang lin <hl@rock-chips.com>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 3/6] dt-bindings: soc: rockchip: grf: Add RV1106 compatibles
+Date: Tue, 21 Jul 2026 14:30:53 +0200
+Message-ID: <3926001.VQhiAETyHQ@diego>
+In-Reply-To: <20260721-didactic-tan-dodo-112ffc@quoll>
+References: <20260714193656.2196447-1-sjg@chromium.org>
+ <20260714193656.2196447-4-sjg@chromium.org>
+ <20260721-didactic-tan-dodo-112ffc@quoll>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260717180442.110954-3-aneesh.kumar@kernel.org>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260721_053114_961465_0224394F 
+X-CRM114-Status: GOOD (  20.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,82 +72,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 17, 2026 at 11:34:20PM +0530, Aneesh Kumar K.V (Arm) wrote:
-> atomic_pool_expand() frees the allocated pages from the remove_mapping
-> error path only when CONFIG_DMA_DIRECT_REMAP is enabled.
-> 
-> When CONFIG_DMA_DIRECT_REMAP is disabled, failures after page allocation,
-> such as gen_pool_add_virt(), jump to remove_mapping and return without
-> freeing the pages.
-> 
-> Move __free_pages(page, order) out of the CONFIG_DMA_DIRECT_REMAP block so
-> that cleanup paths always release the allocation.
-> 
-> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> Tested-by: Michael Kelley <mhklinux@outlook.com>
-> Tested-by: Mostafa Saleh <smostafa@google.com>
-> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
-> ---
->  kernel/dma/pool.c | 10 +++++++---
->  1 file changed, 7 insertions(+), 3 deletions(-)
-> 
-> diff --git a/kernel/dma/pool.c b/kernel/dma/pool.c
-> index 2b2fbb709242..b0303efbc153 100644
-> --- a/kernel/dma/pool.c
-> +++ b/kernel/dma/pool.c
-> @@ -81,6 +81,7 @@ static int atomic_pool_expand(struct gen_pool *pool, size_t pool_size,
->  {
->  	unsigned int order;
->  	struct page *page = NULL;
-> +	bool leak_pages = false;
->  	void *addr;
->  	int ret = -ENOMEM;
->  
-> @@ -115,8 +116,10 @@ static int atomic_pool_expand(struct gen_pool *pool, size_t pool_size,
->  	 */
->  	ret = set_memory_decrypted((unsigned long)page_to_virt(page),
->  				   1 << order);
-> -	if (ret)
-> +	if (ret) {
-> +		leak_pages = true;
->  		goto remove_mapping;
-> +	}
->  	ret = gen_pool_add_virt(pool, (unsigned long)addr, page_to_phys(page),
->  				pool_size, NUMA_NO_NODE);
->  	if (ret)
-> @@ -130,14 +133,15 @@ static int atomic_pool_expand(struct gen_pool *pool, size_t pool_size,
->  				   1 << order);
->  	if (WARN_ON_ONCE(ret)) {
->  		/* Decrypt succeeded but encrypt failed, purposely leak */
-> -		goto out;
-> +		leak_pages = true;
+Hi Krzysztof,
 
-Instead of doing this dance with temporal variable, change "goto out" to
-be "return true".
+Am Dienstag, 21. Juli 2026, 10:16:33 Mitteleurop=C3=A4ische Sommerzeit schr=
+ieb Krzysztof Kozlowski:
+> On Tue, Jul 14, 2026 at 01:36:40PM -0600, Simon Glass wrote:
+> > Add the compatibles for the general register files of the Rockchip
+> > RV1106: the main GRF, and the per-bank GPIO IOC blocks used by the pin
+> > controller.
+> >=20
+> > Signed-off-by: Simon Glass <sjg@chromium.org>
+> > ---
+> >=20
+> > Changes in v2:
+> > - Drop the grf-cru clock-controller child and use the syscon-only
+> >   group for the main GRF, since the CRU now provides the MMC phase
+> >   clocks
+> > - Use a single gpio-ioc compatible for the per-bank IOC blocks in
+> >   place of the ioc and pmuioc regions
+> >=20
+> >  Documentation/devicetree/bindings/soc/rockchip/grf.yaml | 2 ++
+> >  1 file changed, 2 insertions(+)
+> >=20
+> > diff --git a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml b/=
+Documentation/devicetree/bindings/soc/rockchip/grf.yaml
+> > index 2cc43742b8e3..fd9235ac1334 100644
+> > --- a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
+> > +++ b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
+> > @@ -64,6 +64,8 @@ properties:
+> >                - rockchip,rk3588-vo1-grf
+> >                - rockchip,rk3588-vop-grf
+> >                - rockchip,rv1103b-ioc
+> > +              - rockchip,rv1106-gpio-ioc
+>=20
+> And this also answers my previous email (pinctrl/gpio bank): you have
+> one GPIO IOC, not multiple ones, although commit msg tells different
+> story. Confusing. The compatible here defines register layout (see
+> writing bindings - it is explicitly documented there) so do you have one
+> device or multiple with the same register layout?
 
->  	}
->  remove_mapping:
->  #ifdef CONFIG_DMA_DIRECT_REMAP
->  	dma_common_free_remap(addr, pool_size);
->  free_page:
+It's actually option 3 ;-) .
 
-Remove free_page label, and change leftover of "goto free_page" to be
-"goto out"
+The TRM describes separate General-Register-Files
+	GPIO0 - the actual GPIO controller -  0xFF380000
+GPIO0_IOC - 0xFF388000  (pinconfig)
+	[ bunch of other devices like the video encoder ]
+	GPIO1 - 0xFF530000
+GPIO1_IOC - 0xFF538000
+	...
+GPIO2_IOC - 0xFF548000=20
+	...
+GPIO3_IOC - 0xFF558000
+	...
+GPIO4_IOC - 0xFF568000
 
-> -	__free_pages(page, order);
->  #endif
-> +	if (!leak_pages)
-> +		__free_pages(page, order);
+But their register-layouts are definitly not identical. For example in
+GPIO0_IOC there is one register controlling Schmitt Triggers at offset
+0x58, ( GPIO0_IOC_GPIO0A_IE_SMT ) - because only the first 8 pins have
+those, while in GPIO1_IOC, 4 SMT register start at 0x280.
 
-Put these checks under out label and rely on page != NULL as a marker.
-if (page)
- __free_pages(page, order);
+So they do need separate compatibles, per your comment.
 
->  out:
->  	return ret;
->  }
-> -- 
-> 2.43.0
-> 
-> 
+
+Heiko
+
+
+
 
