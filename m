@@ -4,72 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2952C44520
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 02:26:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0491CC4452D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 02:26:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XYhxbfEVYKR23+K6GbOzLWG1exr+sGcZbQyg+iAOVFQ=; b=cH1JutpGHCCsuvtASpgmOARJVT
-	yg09P9f8oBXbxaOkUxoBuPJjlVGMzsyj8QcHY3eJe19Ts2hKU2ZpfdNaLXoj5XtYfZcGzYwrVvVBd
-	iA3+gj3d1Cqx+6CLWEl0aqUMT+1epdjcjRvshEH49+wmqQUusQqFCegiQHPW5nS6l4yi/RrN46d5J
-	EhPuAD7QP148C85y7uQ7+yAS5Lmpw70ID+QYMyyFNyQCQLu/RrwXOR9ZpPclxQhzd2nd1D3vD6CEd
-	ynvdZBoNuO1qRQUlQf+TJg/x7h2OQcdCaLe9a1xmrEN4+5vluqRmtkycoCzDVk7VcjZLog1gbN3BM
-	ec1CxUvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=csMGiv8DL+qFIBIJ7RbxnpWVIXHd8K8G6I1Jx3S3R+A=; b=sTBkcEv430Wp0yVxlFhrEcgxav
+	BB2cbvMC2GVZZVH26lTqXwqNSs4gBRPREqDdIMmCJUN+atQSswuEBz9G6ooolXLxvwNNPhcUGRrOT
+	bSiHGVr9YMb39nDVveNxgthKqYbM9W2I7ZbE6pvETYRfJoKKgW0eKdFk84FA8SJoXhHLhBLFFbya/
+	oP+TZrTPYJjhgarht9r1T01mRERF4smDT3kDkHy0wohZTEQqO2ZyAjVNDgqRj0XWo82SyF4LR7tfO
+	LmdlYoVkPI+VE2zqXOTkH7wD6cd2PQmRF3thZv5Sby2vRsJbnaZrlZjRV7DtwQ8FND6Bunt3KNQrd
+	TsOR4jfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm0Bp-00000008FaR-220M;
+	id 1wm0Bp-00000008Faj-2PXk;
 	Tue, 21 Jul 2026 02:26:37 +0000
-Received: from dggsgout12.his.huawei.com ([45.249.212.56])
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm0Bh-00000008FVv-2VhL
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 02:26:31 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.177])
-	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4h41T103DvzKHN3x
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 10:25:41 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.252])
-	by mail.maildlp.com (Postfix) with ESMTP id 5D76C4058C
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 10:26:22 +0800 (CST)
-Received: from [10.166.163.161] (unknown [10.166.163.161])
-	by APP3 (Coremail) with UTF8SMTPA id _Ch0CgCXX6DO2F5qq4rfBw--.28973S2;
-	Tue, 21 Jul 2026 10:26:22 +0800 (CST)
-Message-ID: <9a7a7cd9-f9f8-443b-896c-bf1414236f75@huaweicloud.com>
-Date: Tue, 21 Jul 2026 10:26:21 +0800
+	id 1wm0Bi-00000008FVA-2lIQ;
+	Tue, 21 Jul 2026 02:26:32 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.99)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1wm0BX-000000000D4-2tJm;
+	Tue, 21 Jul 2026 02:26:19 +0000
+Date: Tue, 21 Jul 2026 03:26:16 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Allen Chen <allen.chen@ite.com.tw>,
+	Hermes Wu <hermes.wu@ite.com.tw>, dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH v3 1/4] drm/bridge: it6505: cancel outstanding work before
+ teardown in remove()
+Message-ID: <91b40322b07b967fcf286b3e4bd11e5f821bff1c.1784600387.git.daniel@makrotopia.org>
+References: <cover.1784600387.git.daniel@makrotopia.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 4/4] irqchip/gic-v3-its: Fix grammar and replace a bit
- number with its symbol
-To: linux-arm-kernel@lists.infradead.org
-References: <20260720071215.50705-1-shikemeng@huaweicloud.com>
- <20260720071215.50705-5-shikemeng@huaweicloud.com>
- <46025d0b3255bd62412598eedae4eda03a61cd39.camel@rendec.net>
-From: Kemeng Shi <shikemeng@huaweicloud.com>
-In-Reply-To: <46025d0b3255bd62412598eedae4eda03a61cd39.camel@rendec.net>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _Ch0CgCXX6DO2F5qq4rfBw--.28973S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7CF4DtF43tr4rArWUtr1fJFb_yoW8Cr4xpF
-	WUGa4Ikr4SkFWY9wnrWF4j9Fy5Gws7tFyUG3y8Cw4fW3s8Wryvqr1Utr9IgrnrJrnrJF4Y
-	va1SgF15WayUAFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUgmb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x
-	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
-	6I80ewAv7VC0I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
-	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY
-	6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17
-	CEb7AF67AKxVWUJVWUXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF
-	0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIx
-	AIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2
-	KfnxnUUI43ZEXa7IU1QVy3UUUUU==
-X-CM-SenderInfo: 5vklyvpphqwq5kxd4v5lfo033gof0z/
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <cover.1784600387.git.daniel@makrotopia.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_192630_019231_B7D4A1F4 
-X-CRM114-Status: GOOD (  18.43  )
+X-CRM114-CacheID: sfid-20260720_192630_694701_CF5C6662 
+X-CRM114-Status: GOOD (  13.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,47 +76,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-在 2026/7/21 8:58:52, Radu Rendec 写道:
-> On Mon, 2026-07-20 at 15:12 +0800, Kemeng Shi wrote:
->> Fix grammatical errors in comments and simplify the comment about reading
->> GITS_BASER_INDIRECT to check two-level support.
->>
->> Signed-off-by: Kemeng Shi <shikemeng@huaweicloud.com>
->> ---
->>  drivers/irqchip/irq-gic-v3-its.c | 5 ++---
->>  1 file changed, 2 insertions(+), 3 deletions(-)
->>
->> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
->> index 5dc91862fc15..8935a6e7a20f 100644
->> --- a/drivers/irqchip/irq-gic-v3-its.c
->> +++ b/drivers/irqchip/irq-gic-v3-its.c
->> @@ -163,7 +163,7 @@ struct event_lpi_map {
->>  
->>  /*
->>   * The ITS view of a device - belongs to an ITS, owns an interrupt
->> - * translation table, and a list of interrupts.  If it some of its
->> + * translation table, and a list of interrupts.  If some of its
->>   * LPIs are injected into a guest (GICv4), the event_map.vm field
->>   * indicates which one.
->>   */
->> @@ -2502,8 +2502,7 @@ static bool its_parse_indirect_baser(struct its_node *its,
->>  	/* No need to enable Indirection if memory requirement < (psz*2)bytes */
->>  	if ((esz << ids) > (psz * 2)) {
->>  		/*
->> -		 * Find out whether hw supports a single or two-level table by
->> -		 * table by reading bit at offset '62' after writing '1' to it.
->> +		 * Find out whether hw supports a single or two-level table
->>  		 */
-> 
-> nit: since it's just one line of text now, you can put the /* */
-> comment markers on the same line, which is the preferred style for
-> single-line comments.
-Thanks for letting me know. I will improve this in the next version.> 
->>  		its_write_baser(its, baser, val | GITS_BASER_INDIRECT);
->>  		indirect = !!(baser->val & GITS_BASER_INDIRECT);
-> 
-> With that,
-> 
-> Reviewed-by: Radu Rendec <radu@rendec.net>
+it6505_i2c_remove() tears down the bridge and frees its state without
+cancelling any of the driver's background work. struct it6505 is
+allocated with devm_drm_bridge_alloc(), so devres frees it as soon as
+remove() returns; link_works, hdcp_wait_ksv_list, hdcp_work and
+extcon_wq can all still be pending or running at that point and will
+then dereference freed memory.
 
+link_works and extcon_wq are flushed in it6505_bridge_detach(), but
+that only runs if DRM core calls the bridge's .detach() before the
+i2c client is unbound -- not guaranteed if the i2c driver is unbound
+independently of the DRM device that consumes it. hdcp_wait_ksv_list
+and hdcp_work are never cancelled anywhere.
+
+Cancel all four synchronously in remove() itself so teardown is safe
+regardless of ordering. cancel_work_sync() on extcon_wq is safe even
+when it was never INIT_WORK()'d, since it6505 is zero-allocated and a
+zeroed work_struct is reported as not pending.
+
+Fixes: b5c84a9edcd4 ("drm/bridge: add it6505 driver")
+Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+---
+v3: new patch, split out to fix a pre-existing use-after-free flagged
+    by automated review of v2's audio series; needed before that
+    series adds another cancel_delayed_work_sync() call next to the
+    ones this commit is adding.
+
+ drivers/gpu/drm/bridge/ite-it6505.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/drivers/gpu/drm/bridge/ite-it6505.c b/drivers/gpu/drm/bridge/ite-it6505.c
+index 8ecb43611dba..2f349aefb705 100644
+--- a/drivers/gpu/drm/bridge/ite-it6505.c
++++ b/drivers/gpu/drm/bridge/ite-it6505.c
+@@ -3644,6 +3644,10 @@ static void it6505_i2c_remove(struct i2c_client *client)
+ {
+ 	struct it6505 *it6505 = i2c_get_clientdata(client);
+ 
++	cancel_work_sync(&it6505->link_works);
++	cancel_work_sync(&it6505->hdcp_wait_ksv_list);
++	cancel_delayed_work_sync(&it6505->hdcp_work);
++	cancel_work_sync(&it6505->extcon_wq);
+ 	drm_bridge_remove(&it6505->bridge);
+ 	drm_dp_aux_unregister(&it6505->aux);
+ 	it6505_debugfs_remove(it6505);
+-- 
+2.55.0
 
