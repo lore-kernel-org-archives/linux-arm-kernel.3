@@ -4,139 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51CD6C44529
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 10:05:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECA3AC4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 10:07:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+MvCJoNx6P8JyO2gQ+de8z3mTHIzAT8UjKxCOt5SwOI=; b=aTCgLtSYzUcInxPaDfkwh59wKW
-	FGG/VyaknJHArDZb5BaNA1PceqxeSH6wHHZYZ16XDZzdAup1OI90Je8Ua3o4VP78WdTCZw6+Q8X7T
-	PCTkwha60Ia1qJzgJ/BzN6JtQ+Kd1D2Vy2otuxfB1T8V2fYkgmtEimRvmWqRMb+zc1N7VkZEgNHyg
-	aDQjdyoOa9g2meMpTjNcvLqtJJhYVpIAZl1LR8oy3Cpc6JbMfykeh5jT8WizQog03cFRdTSSC4zJA
-	E/LuyE7Wljhg4g/pn1xcNDdw6q66mUlwQAfIrjRUqzF9xd0hdpDEO3slvNXwWrMNJ54GMRyCIrD6J
-	AkBpCPlQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZCXMICaalvEIDzVGdul9nJgzHHCVVN6yggiqtxRwVNc=; b=n/FFnLvhTG9p2kRWG2iBDRsfNu
+	dLFlOb83CwdiSwDcrGHI3CetNSDkXZ6Y/R7yD0mo+UhDbUGTW9dnNZE+LmDGfm36zdBHltfHZo3s1
+	McqNhWK+ayMUSzsEAcpczBiQ1Ot/CxCkjaOOEsJKlI8xBC1BGZaDphfVAknpaTEFBpUSfo8hesNb6
+	P84u9c1/EYGEMjLU31iRP0HTiC1XTuNAZG9z6OEfh+27pnGbrLVLTw4F7vIkTagI1BKon9gc+Q8Jl
+	kx/AfeJjDO0is2ktytsZ7IGw6vOpumKvydUZFPNatTgVZa9xDWuO/H7vraeVCWpN93N+ZjzuvqDnt
+	Aw8JDbuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm7LR-000000093Sf-1hPM;
-	Tue, 21 Jul 2026 10:05:01 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm7LP-000000093R7-0i5e
+	id 1wm7Nb-000000093iP-43ld;
+	Tue, 21 Jul 2026 10:07:15 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wm7NY-000000093hk-3ABN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 10:05:00 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4954a32cf1eso16710565e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 03:04:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1784628297; x=1785233097; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=+MvCJoNx6P8JyO2gQ+de8z3mTHIzAT8UjKxCOt5SwOI=;
-        b=ej5j4soO+8GXvnqlfVNhQeyIy3sslqXCTLjWhhrvNaE2ScwZapfXWYxN2aynuzN/XQ
-         nf/yMtvgZVhmOhgzxLjypyam/6PJ2kkLf6XFPG/wigzSzbHvuxAZdDpU9S9f5qal+jRW
-         /s4xZRZ6MKQYCJX9MWsrFqGc19ng4isgo3SUUIYW6lYS85edM1sBf1n+pBDSZEQQfqJN
-         tWTpjWAp5SeySV/KbyIKzC6JDyBfzuFq1sXKOOQx/eiJZfuY9/pcQP+ZFHR28MUXTzSk
-         pOsSxujTJAXH2Um2dWsVxlxANIi8o2/1QxWv0VABm0ZQhVWlnKFcCTzBdytwSuOagCi2
-         n2GQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784628297; x=1785233097;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=+MvCJoNx6P8JyO2gQ+de8z3mTHIzAT8UjKxCOt5SwOI=;
-        b=e9EoH9j96m44Mz5EFfTqOpEjcxnwpNIRGj0HpxCQuLu8ENlp1p2y68SIAmlHvDWL0P
-         WJpcg0Orn7plPoKVqMcnKO+LwjYmvv4kTJI9ThM43EdjnNGNl94xObs50vkA8WOuyyEH
-         rS9F8TLfxlQfsBDZquuSB+zpm7K+nCJ8P3RYyDYJ++nSS5VTiOyqGcuwWYj1oYf6t57j
-         BR5Zgo7cbPhgKdAxe3fE5LecYCaXwkcwfP8PoM/QvjZ25p03sOqtCJcTxrxA+OoYJJ5C
-         kLV9D69/HEAGRkz5zZvpmnpAIvevtVr7kLrVOHm83dWRqcHIrlCg5YurPpYy5clXFuuQ
-         14Xg==
-X-Forwarded-Encrypted: i=1; AHgh+RrgZXOucYrkdTnTKQXTzliK2RuB2pOf3iywHKihTsHUIMKTAfbf+iLdgFbR1Rf8k/5FriFwADFHPKoWB/JZfYig@lists.infradead.org
-X-Gm-Message-State: AOJu0YzWM9LKmEieVIn4H6mt6OtKh8XpWBsL8y8flqdex7by3pFU1T/s
-	B+50x94zIm1IYDTF3qp2I3TS/Pahqdrb7Lrkv95xL5efecQcAHaApHT3c9QmOgPdr/I=
-X-Gm-Gg: AfdE7cn0pcCJbqVakqkzq3MvhuwyZDo1Ce0x5D3//e/12mNyH7n7X6a+bUk0NUiFwGd
-	yFPaGFTR4UqyjX5oCVWtEFEMYm9TYaUp31cZf9VFOspSGA2Oc4KdFmJLAAeTxBIVCZtjLEMiXxM
-	M+2bNeb9HdeFGCRQXdYojqA97UuWKY2SmVrEUsARBxlvMhSC6TAc40NHJKiwwKvKcuFmQqIiwxS
-	MV/ok+UoAjPIBonLp8kE7XHcs8OpdbnfDljDvZ6yFbiDcdUoBfxjaQFT047b4KvgRho6ZQYmDf5
-	XQnJVo0Sy227T9rHtn1lt8BlTtwlf5vKnh67VMkQ+UpHfESNJeUKxxJ5pbtSUO+U3ApOYjJzT3N
-	XcWx0Ec4yRQcbGUpbuLOQblJQwah141h3ijiQen6QGgCulkDE8I0MXZdPDz98NiNrePxEZp0wbC
-	foyCBCh2Vf+Xk+bXsmbxQseG0YBQZUzJn8SuuPjLstwwfTeKZoTCfQmBsBMbeA
-X-Received: by 2002:a05:600c:19c7:b0:495:5e3d:15e1 with SMTP id 5b1f17b1804b1-4955e3d1937mr95248675e9.16.1784628297079;
-        Tue, 21 Jul 2026 03:04:57 -0700 (PDT)
-Received: from [192.168.2.177] (48.85-85-171.dynamic.clientes.euskaltel.es. [85.85.171.48])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4956547323bsm58981695e9.4.2026.07.21.03.04.55
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 21 Jul 2026 03:04:56 -0700 (PDT)
-Message-ID: <73f21476-7416-4d28-8d8d-e80d951ebd3a@suse.com>
-Date: Tue, 21 Jul 2026 12:04:54 +0200
+	Tue, 21 Jul 2026 10:07:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 650DB152B;
+	Tue, 21 Jul 2026 03:07:07 -0700 (PDT)
+Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 029373F86F;
+	Tue, 21 Jul 2026 03:07:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784628431; bh=4zGlk0rW9DfP19Sed1t9eRNlFKFCFg4fqpC6UX74BUI=;
+	h=From:To:Cc:Subject:Date:From;
+	b=PA2iHI9ruKH6LhwqqHPg2qzY36yRcQgq5NxnIzfWqHY/+YbgGSztfgfPiWSHyjh03
+	 JBZ6W3gWdFrz1W/XH3rDkM6/dThMDTdb0JSZoVTKhNLK1kuT2WqMgq3H/E/zrsWLAr
+	 necS1oR/dHKeDn1/JQiWP36NZNg2pQIv5hNJtAG0=
+From: Alexandru Elisei <alexandru.elisei@arm.com>
+To: maz@kernel.org,
+	oupton@kernel.org,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	catalin.marinas@arm.com,
+	will@kernel.org
+Cc: steven.price@arm.com,
+	fuad.tabba@linux.dev
+Subject: [PATCH v3] KVM: arm64: Reject guest_memfd memslots when the VM has MTE
+Date: Tue, 21 Jul 2026 11:06:54 +0100
+Message-ID: <20260721100654.476582-1-alexandru.elisei@arm.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/3] pmdomain: mediatek: Add support for MT6858 SoC
-To: nikolai.burov@jolla.com, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Ulf Hansson <ulfh@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-pm@vger.kernel.org, Nikolai Burov <nikolai.burov+review@abscue.de>
-References: <20260720-mt6858-pmdomain-v3-0-8966d8de93c8@jolla.com>
- <20260720-mt6858-pmdomain-v3-3-8966d8de93c8@jolla.com>
-Content-Language: en-US, ca-ES, es-ES
-From: Matthias Brugger <mbrugger@suse.com>
-Autocrypt: addr=mbrugger@suse.com; keydata=
- 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
- PVrr2NoUqi/bxI8fFQJD1jVj8K0=
-In-Reply-To: <20260720-mt6858-pmdomain-v3-3-8966d8de93c8@jolla.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_030459_416258_155A788C 
-X-CRM114-Status: GOOD (  18.93  )
+X-CRM114-CacheID: sfid-20260721_030712_959101_7ED53701 
+X-CRM114-Status: GOOD (  22.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,535 +75,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The user cannot use MTE on VMAs created by mapping a guest_memfd file,
+as arch_calc_vm_flag_bits() does not set VM_MTE_ALLOWED.
 
+When creating a guest_memfd backed memslot,
+kvm_arch_prepare_memory_region() rejects the memslot if MTE is enabled for
+the VM and if guest_memfd has been mapped in a VMA that intersects the
+memslot.
 
-On 20/07/2026 22:46, Nikolai Burov via B4 Relay wrote:
-> From: Nikolai Burov <nikolai.burov@jolla.com>
-> 
-> Add support for the power domains found in the MediaTek MT6858 SoC.
-> 
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> Signed-off-by: Nikolai Burov <nikolai.burov@jolla.com>
+However, the documentation for KVM_SET_USER_MEMORY_REGION2 explicitly
+states that the only condition for userspace_addr is for it to be a legal
+userspace address, but the mapping is not required to be valid nor
+populated at memslot creation.
 
-Reviewed-by: Matthias Brugger <matthias.bgg@gmail.com>
+If userspace sets userspace_addr to an address that hasn't been mapped, or
+if userspace_addr belongs to a VMA that isn't backed by the guest_memfd
+file, or if the VMA doesn't intersect the memslot, memslot creation is
+successful and KVM ends up with a VM with MTE and guest_memfd-backed
+memslots.
 
-> ---
->   drivers/pmdomain/mediatek/mt6858-pm-domains.h | 466 ++++++++++++++++++++++++++
->   drivers/pmdomain/mediatek/mtk-pm-domains.c    |   5 +
->   drivers/pmdomain/mediatek/mtk-pm-domains.h    |   5 +
->   3 files changed, 476 insertions(+)
-> 
-> diff --git a/drivers/pmdomain/mediatek/mt6858-pm-domains.h b/drivers/pmdomain/mediatek/mt6858-pm-domains.h
-> new file mode 100644
-> index 000000000000..177b2e86ab1e
-> --- /dev/null
-> +++ b/drivers/pmdomain/mediatek/mt6858-pm-domains.h
-> @@ -0,0 +1,466 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (c) 2025 MediaTek Inc.
-> + *                    KY Liu <ky.liu@mediatek.com>
-> + * Copyright (c) 2026 Jolla Mobile Ltd
-> + *                    Nikolai Burov <nikolai.burov@jolla.com>
-> + */
-> +
-> +#ifndef __SOC_MEDIATEK_MT6858_PM_DOMAINS_H
-> +#define __SOC_MEDIATEK_MT6858_PM_DOMAINS_H
-> +
-> +#include "mtk-pm-domains.h"
-> +#include <dt-bindings/power/mediatek,mt6858-power.h>
-> +
-> +/* TOP_AXI registers */
-> +#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_SET		0x0c14
-> +#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_CLR		0x0c18
-> +#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_RDY		0x0c1c
-> +
-> +#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_DIS0		(BIT(0) | BIT(1) | BIT(18))
-> +#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_ISP_IPE	BIT(2)
-> +#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_ISP_IMG1	BIT(3)
-> +#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_VEN0		BIT(12)
-> +#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_VDE0		BIT(20)
-> +#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_CAM_MAIN	(BIT(30) | BIT(31))
-> +
-> +#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_SET		0x0c24
-> +#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_CLR		0x0c28
-> +#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_RDY		0x0c2c
-> +
-> +#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_ISP_IMG1	BIT(7)
-> +#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_ISP_IPE	BIT(8)
-> +#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_CAM_MAIN	(BIT(9) | BIT(10))
-> +#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_VEN0		BIT(12)
-> +#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_VDE0		BIT(13)
-> +#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_MM_INFRA	(GENMASK(3, 1) | BIT(6))
-> +#define MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_MM_INFRA_2ND	(BIT(0) | BIT(5) | GENMASK(15, 7))
-> +
-> +#define MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_0_SET	0x0c44
-> +#define MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_0_CLR	0x0c48
-> +#define MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_0_RDY	0x0c4c
-> +
-> +#define MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_0_CONN	BIT(8)
-> +#define MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_0_MM_INFRA	BIT(16)
-> +
-> +#define MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_1_SET	0x0c54
-> +#define MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_1_CLR	0x0c58
-> +#define MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_1_RDY	0x0c5c
-> +
-> +#define MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_1_MM_INFRA	BIT(11)
-> +#define MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_1_CONN	BIT(12)
-> +
-> +#define MT6858_TOP_AXI_PROT_EN_EMISYS_STA_0_SET		0x0c64
-> +#define MT6858_TOP_AXI_PROT_EN_EMISYS_STA_0_CLR		0x0c68
-> +#define MT6858_TOP_AXI_PROT_EN_EMISYS_STA_0_RDY		0x0c6c
-> +
-> +#define MT6858_TOP_AXI_PROT_EN_EMISYS_STA_0_MM_INFRA	(BIT(20) | BIT(21))
-> +
-> +#define MT6858_TOP_AXI_PROT_EN_PERISYS_STA_0_SET	0x0c84
-> +#define MT6858_TOP_AXI_PROT_EN_PERISYS_STA_0_CLR	0x0c88
-> +#define MT6858_TOP_AXI_PROT_EN_PERISYS_STA_0_RDY	0x0c8c
-> +
-> +#define MT6858_TOP_AXI_PROT_EN_PERISYS_STA_0_AUDIO	BIT(6)
-> +#define MT6858_TOP_AXI_PROT_EN_PERISYS_STA_0_SSUSB	BIT(7)
-> +
-> +#define MT6858_TOP_AXI_PROT_EN_MCU_STA_0_SET		0x0c94
-> +#define MT6858_TOP_AXI_PROT_EN_MCU_STA_0_CLR		0x0c98
-> +#define MT6858_TOP_AXI_PROT_EN_MCU_STA_0_RDY		0x0c9c
-> +
-> +#define MT6858_TOP_AXI_PROT_EN_MCU_STA_0_CONN		BIT(1)
-> +#define MT6858_TOP_AXI_PROT_EN_MCU_STA_0_CONN_2ND	BIT(0)
-> +
-> +/* {IMG,IPE,CAM}_SUBx registers */
-> +#define MT6858_SUBx_PROT_EN_SET				0x03c4
-> +#define MT6858_SUBx_PROT_EN_CLR				0x03c8
-> +#define MT6858_SUBx_PROT_EN_STA				0x03cc
-> +
-> +#define MT6858_IMG_SUB0_PROT_EN_SMI_ISP_IMG1		(BIT(0) | BIT(1))
-> +
-> +#define MT6858_IPE_SUB0_PROT_EN_SMI_ISP_IPE		(BIT(0) | BIT(1))
-> +
-> +#define MT6858_CAM_SUB0_PROT_EN_SMI_CAM_MAIN		BIT(0)
-> +#define MT6858_CAM_SUB0_PROT_EN_SMI_CAM_SUBB		BIT(1)
-> +
-> +#define MT6858_CAM_SUB1_PROT_EN_SMI_CAM_MAIN		BIT(0)
-> +#define MT6858_CAM_SUB1_PROT_EN_SMI_CAM_SUBA		BIT(1)
-> +
-> +/* VLP_AXI registers */
-> +#define MT6858_VLP_AXI_PROT_EN_SET			0x0214
-> +#define MT6858_VLP_AXI_PROT_EN_CLR			0x0218
-> +#define MT6858_VLP_AXI_PROT_EN_STA			0x021c
-> +
-> +#define MT6858_VLP_AXI_PROT_EN_MM_PROC			BIT(8)
-> +#define MT6858_VLP_AXI_PROT_EN_MM_PROC_2ND		(BIT(9) | BIT(10))
-> +
-> +/* PWR_CON registers */
-> +#define MT6858_PWR_ACK					BIT(30)
-> +#define MT6858_PWR_ACK_2ND				BIT(31)
-> +
-> +static enum scpsys_bus_prot_block scpsys_bus_prot_blocks_mt6858[] = {
-> +	BUS_PROT_BLOCK_INFRA,
-> +	BUS_PROT_BLOCK_IMG_SUB0,
-> +	BUS_PROT_BLOCK_CAM_SUB1,
-> +	BUS_PROT_BLOCK_CAM_SUB0,
-> +	BUS_PROT_BLOCK_IPE_SUB0,
-> +	BUS_PROT_BLOCK_VLP,
-> +};
-> +
-> +static const struct scpsys_domain_data scpsys_domain_data_mt6858[] = {
-> +	[MT6858_POWER_DOMAIN_MD] = {
-> +		.name = "md",
-> +		/*
-> +		 * Note: the PWR_ACK_2ND bit is not used for the modem domain.
-> +		 * Skip it and fall back to checking the 1st bit twice.
-> +		 */
-> +		.sta_mask = MT6858_PWR_ACK,
-> +		.ctl_offs = 0xe00,
-> +		.pwr_sta_offs = 0xe00,
-> +		.pwr_sta2nd_offs = 0xe00,
-> +		.ext_buck_iso_offs = 0xf20,
-> +		.ext_buck_iso_mask = GENMASK(1, 0),
-> +		.caps = MTK_SCPD_MODEM_SECURE_PWRSEQ | MTK_SCPD_EXT_BUCK_ISO |
-> +			MTK_SCPD_KEEP_DEFAULT_OFF,
-> +	},
-> +	[MT6858_POWER_DOMAIN_CONN] = {
-> +		.name = "conn",
-> +		.sta_mask = MT6858_PWR_ACK,
-> +		.sta2nd_mask = MT6858_PWR_ACK_2ND,
-> +		.ctl_offs = 0xe04,
-> +		.pwr_sta_offs = 0xe04,
-> +		.pwr_sta2nd_offs = 0xe04,
-> +		.bp_cfg = {
-> +			BUS_PROT_WR_IGN(INFRA,
-> +					MT6858_TOP_AXI_PROT_EN_MCU_STA_0_CONN,
-> +					MT6858_TOP_AXI_PROT_EN_MCU_STA_0_SET,
-> +					MT6858_TOP_AXI_PROT_EN_MCU_STA_0_CLR,
-> +					MT6858_TOP_AXI_PROT_EN_MCU_STA_0_RDY),
-> +			BUS_PROT_WR_IGN(INFRA,
-> +					MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_1_CONN,
-> +					MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_1_SET,
-> +					MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_1_CLR,
-> +					MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_1_RDY),
-> +			BUS_PROT_WR_IGN(INFRA,
-> +					MT6858_TOP_AXI_PROT_EN_MCU_STA_0_CONN_2ND,
-> +					MT6858_TOP_AXI_PROT_EN_MCU_STA_0_SET,
-> +					MT6858_TOP_AXI_PROT_EN_MCU_STA_0_CLR,
-> +					MT6858_TOP_AXI_PROT_EN_MCU_STA_0_RDY),
-> +			BUS_PROT_WR_IGN(INFRA,
-> +					MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_0_CONN,
-> +					MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_0_SET,
-> +					MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_0_CLR,
-> +					MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_0_RDY),
-> +		},
-> +		.caps = MTK_SCPD_KEEP_DEFAULT_OFF,
-> +	},
-> +	[MT6858_POWER_DOMAIN_AUDIO] = {
-> +		.name = "audio",
-> +		.sta_mask = MT6858_PWR_ACK,
-> +		.sta2nd_mask = MT6858_PWR_ACK_2ND,
-> +		.ctl_offs = 0xe18,
-> +		.pwr_sta_offs = 0xe18,
-> +		.pwr_sta2nd_offs = 0xe18,
-> +		.sram_pdn_bits = BIT(8),
-> +		.sram_pdn_ack_bits = BIT(12),
-> +		.bp_cfg = {
-> +			BUS_PROT_WR_IGN(INFRA,
-> +					MT6858_TOP_AXI_PROT_EN_PERISYS_STA_0_AUDIO,
-> +					MT6858_TOP_AXI_PROT_EN_PERISYS_STA_0_SET,
-> +					MT6858_TOP_AXI_PROT_EN_PERISYS_STA_0_CLR,
-> +					MT6858_TOP_AXI_PROT_EN_PERISYS_STA_0_RDY),
-> +		},
-> +	},
-> +	[MT6858_POWER_DOMAIN_ISP_IMG1] = {
-> +		.name = "isp-img1",
-> +		.sta_mask = MT6858_PWR_ACK,
-> +		.sta2nd_mask = MT6858_PWR_ACK_2ND,
-> +		.ctl_offs = 0xe28,
-> +		.pwr_sta_offs = 0xe28,
-> +		.pwr_sta2nd_offs = 0xe28,
-> +		.sram_pdn_bits = BIT(8),
-> +		.sram_pdn_ack_bits = BIT(12),
-> +		.bp_cfg = {
-> +			BUS_PROT_WR_IGN(INFRA,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_ISP_IMG1,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_SET,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_CLR,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_RDY),
-> +			BUS_PROT_WR_IGN(INFRA,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_ISP_IMG1,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_SET,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_CLR,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_RDY),
-> +			BUS_PROT_WR_IGN(IMG_SUB0,
-> +					MT6858_IMG_SUB0_PROT_EN_SMI_ISP_IMG1,
-> +					MT6858_SUBx_PROT_EN_SET,
-> +					MT6858_SUBx_PROT_EN_CLR,
-> +					MT6858_SUBx_PROT_EN_STA),
-> +		},
-> +		.caps = MTK_SCPD_KEEP_DEFAULT_OFF,
-> +	},
-> +	[MT6858_POWER_DOMAIN_ISP_IMG2] = {
-> +		.name = "isp-img2",
-> +		.sta_mask = MT6858_PWR_ACK,
-> +		.sta2nd_mask = MT6858_PWR_ACK_2ND,
-> +		.ctl_offs = 0xe2c,
-> +		.pwr_sta_offs = 0xe2c,
-> +		.pwr_sta2nd_offs = 0xe2c,
-> +		.sram_pdn_bits = BIT(8),
-> +		.sram_pdn_ack_bits = BIT(12),
-> +		.caps = MTK_SCPD_KEEP_DEFAULT_OFF,
-> +	},
-> +	[MT6858_POWER_DOMAIN_ISP_IPE] = {
-> +		.name = "isp-ipe",
-> +		.sta_mask = MT6858_PWR_ACK,
-> +		.sta2nd_mask = MT6858_PWR_ACK_2ND,
-> +		.ctl_offs = 0xe30,
-> +		.pwr_sta_offs = 0xe30,
-> +		.pwr_sta2nd_offs = 0xe30,
-> +		.sram_pdn_bits = BIT(8),
-> +		.sram_pdn_ack_bits = BIT(12),
-> +		.bp_cfg = {
-> +			BUS_PROT_WR_IGN(INFRA,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_ISP_IPE,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_SET,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_CLR,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_RDY),
-> +			BUS_PROT_WR_IGN(INFRA,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_ISP_IPE,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_SET,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_CLR,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_RDY),
-> +			BUS_PROT_WR_IGN(IPE_SUB0,
-> +					MT6858_IPE_SUB0_PROT_EN_SMI_ISP_IPE,
-> +					MT6858_SUBx_PROT_EN_SET,
-> +					MT6858_SUBx_PROT_EN_CLR,
-> +					MT6858_SUBx_PROT_EN_STA),
-> +		},
-> +		.caps = MTK_SCPD_KEEP_DEFAULT_OFF,
-> +	},
-> +	[MT6858_POWER_DOMAIN_VDE0] = {
-> +		.name = "vde0",
-> +		.sta_mask = MT6858_PWR_ACK,
-> +		.sta2nd_mask = MT6858_PWR_ACK_2ND,
-> +		.ctl_offs = 0xe34,
-> +		.pwr_sta_offs = 0xe34,
-> +		.pwr_sta2nd_offs = 0xe34,
-> +		.sram_pdn_bits = BIT(8),
-> +		.sram_pdn_ack_bits = BIT(12),
-> +		.bp_cfg = {
-> +			BUS_PROT_WR_IGN(INFRA,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_VDE0,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_SET,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_CLR,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_RDY),
-> +			BUS_PROT_WR_IGN(INFRA,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_VDE0,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_SET,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_CLR,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_RDY),
-> +		},
-> +	},
-> +	[MT6858_POWER_DOMAIN_VEN0] = {
-> +		.name = "ven0",
-> +		.sta_mask = MT6858_PWR_ACK,
-> +		.sta2nd_mask = MT6858_PWR_ACK_2ND,
-> +		.ctl_offs = 0xe3c,
-> +		.pwr_sta_offs = 0xe3c,
-> +		.pwr_sta2nd_offs = 0xe3c,
-> +		.sram_pdn_bits = BIT(8),
-> +		.sram_pdn_ack_bits = BIT(12),
-> +		.bp_cfg = {
-> +			BUS_PROT_WR_IGN(INFRA,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_VEN0,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_SET,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_CLR,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_RDY),
-> +			BUS_PROT_WR_IGN(INFRA,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_VEN0,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_SET,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_CLR,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_RDY),
-> +		},
-> +	},
-> +	[MT6858_POWER_DOMAIN_CAM_MAIN] = {
-> +		.name = "cam-main",
-> +		.sta_mask = MT6858_PWR_ACK,
-> +		.sta2nd_mask = MT6858_PWR_ACK_2ND,
-> +		.ctl_offs = 0xe44,
-> +		.pwr_sta_offs = 0xe44,
-> +		.pwr_sta2nd_offs = 0xe44,
-> +		.sram_pdn_bits = BIT(8),
-> +		.sram_pdn_ack_bits = BIT(12),
-> +		.bp_cfg = {
-> +			BUS_PROT_WR_IGN(INFRA,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_CAM_MAIN,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_SET,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_CLR,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_RDY),
-> +			BUS_PROT_WR_IGN(INFRA,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_CAM_MAIN,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_SET,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_CLR,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_RDY),
-> +			BUS_PROT_WR_IGN(CAM_SUB0,
-> +					MT6858_CAM_SUB0_PROT_EN_SMI_CAM_MAIN,
-> +					MT6858_SUBx_PROT_EN_SET,
-> +					MT6858_SUBx_PROT_EN_CLR,
-> +					MT6858_SUBx_PROT_EN_STA),
-> +			BUS_PROT_WR_IGN(CAM_SUB1,
-> +					MT6858_CAM_SUB1_PROT_EN_SMI_CAM_MAIN,
-> +					MT6858_SUBx_PROT_EN_SET,
-> +					MT6858_SUBx_PROT_EN_CLR,
-> +					MT6858_SUBx_PROT_EN_STA),
-> +		},
-> +		.caps = MTK_SCPD_KEEP_DEFAULT_OFF,
-> +	},
-> +	[MT6858_POWER_DOMAIN_CAM_SUBA] = {
-> +		.name = "cam-suba",
-> +		.sta_mask = MT6858_PWR_ACK,
-> +		.sta2nd_mask = MT6858_PWR_ACK_2ND,
-> +		.ctl_offs = 0xe4c,
-> +		.pwr_sta_offs = 0xe4c,
-> +		.pwr_sta2nd_offs = 0xe4c,
-> +		.sram_pdn_bits = BIT(8),
-> +		.sram_pdn_ack_bits = BIT(12),
-> +		.bp_cfg = {
-> +			BUS_PROT_WR_IGN(CAM_SUB1,
-> +					MT6858_CAM_SUB1_PROT_EN_SMI_CAM_SUBA,
-> +					MT6858_SUBx_PROT_EN_SET,
-> +					MT6858_SUBx_PROT_EN_CLR,
-> +					MT6858_SUBx_PROT_EN_STA),
-> +		},
-> +		.caps = MTK_SCPD_KEEP_DEFAULT_OFF,
-> +	},
-> +	[MT6858_POWER_DOMAIN_CAM_SUBB] = {
-> +		.name = "cam-subb",
-> +		.sta_mask = MT6858_PWR_ACK,
-> +		.sta2nd_mask = MT6858_PWR_ACK_2ND,
-> +		.ctl_offs = 0xe50,
-> +		.pwr_sta_offs = 0xe50,
-> +		.pwr_sta2nd_offs = 0xe50,
-> +		.sram_pdn_bits = BIT(8),
-> +		.sram_pdn_ack_bits = BIT(12),
-> +		.bp_cfg = {
-> +			BUS_PROT_WR_IGN(CAM_SUB0,
-> +					MT6858_CAM_SUB0_PROT_EN_SMI_CAM_SUBB,
-> +					MT6858_SUBx_PROT_EN_SET,
-> +					MT6858_SUBx_PROT_EN_CLR,
-> +					MT6858_SUBx_PROT_EN_STA),
-> +		},
-> +		.caps = MTK_SCPD_KEEP_DEFAULT_OFF,
-> +	},
-> +	[MT6858_POWER_DOMAIN_DIS0] = {
-> +		.name = "dis0",
-> +		.sta_mask = MT6858_PWR_ACK,
-> +		.sta2nd_mask = MT6858_PWR_ACK_2ND,
-> +		.ctl_offs = 0xe6c,
-> +		.pwr_sta_offs = 0xe6c,
-> +		.pwr_sta2nd_offs = 0xe6c,
-> +		.sram_pdn_bits = BIT(8),
-> +		.sram_pdn_ack_bits = BIT(12),
-> +		.bp_cfg = {
-> +			BUS_PROT_WR_IGN(INFRA,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_DIS0,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_SET,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_CLR,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_0_RDY),
-> +		},
-> +	},
-> +	[MT6858_POWER_DOMAIN_MM_INFRA] = {
-> +		.name = "mm-infra",
-> +		.sta_mask = MT6858_PWR_ACK,
-> +		.sta2nd_mask = MT6858_PWR_ACK_2ND,
-> +		.ctl_offs = 0xe74,
-> +		.pwr_sta_offs = 0xe74,
-> +		.pwr_sta2nd_offs = 0xe74,
-> +		.sram_pdn_bits = BIT(8),
-> +		.sram_pdn_ack_bits = BIT(12),
-> +		.bp_cfg = {
-> +			BUS_PROT_WR_IGN(INFRA,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_MM_INFRA,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_SET,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_CLR,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_RDY),
-> +			BUS_PROT_WR_IGN(INFRA,
-> +					MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_1_MM_INFRA,
-> +					MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_1_SET,
-> +					MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_1_CLR,
-> +					MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_1_RDY),
-> +			BUS_PROT_WR_IGN(INFRA,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_MM_INFRA_2ND,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_SET,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_CLR,
-> +					MT6858_TOP_AXI_PROT_EN_MMSYS_STA_1_RDY),
-> +			BUS_PROT_WR_IGN(INFRA,
-> +					MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_0_MM_INFRA,
-> +					MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_0_SET,
-> +					MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_0_CLR,
-> +					MT6858_TOP_AXI_PROT_EN_INFRASYS_STA_0_RDY),
-> +			BUS_PROT_WR_IGN(INFRA,
-> +					MT6858_TOP_AXI_PROT_EN_EMISYS_STA_0_MM_INFRA,
-> +					MT6858_TOP_AXI_PROT_EN_EMISYS_STA_0_SET,
-> +					MT6858_TOP_AXI_PROT_EN_EMISYS_STA_0_CLR,
-> +					MT6858_TOP_AXI_PROT_EN_EMISYS_STA_0_RDY),
-> +		},
-> +	},
-> +	[MT6858_POWER_DOMAIN_MM_PROC_DORMANT] = {
-> +		.name = "mm-proc-dormant",
-> +		.sta_mask = MT6858_PWR_ACK,
-> +		.sta2nd_mask = MT6858_PWR_ACK_2ND,
-> +		.ctl_offs = 0xe78,
-> +		.pwr_sta_offs = 0xe78,
-> +		.pwr_sta2nd_offs = 0xe78,
-> +		.sram_pdn_bits = BIT(9),
-> +		.sram_pdn_ack_bits = BIT(13),
-> +		.bp_cfg = {
-> +			BUS_PROT_WR_IGN(VLP,
-> +					MT6858_VLP_AXI_PROT_EN_MM_PROC,
-> +					MT6858_VLP_AXI_PROT_EN_SET,
-> +					MT6858_VLP_AXI_PROT_EN_CLR,
-> +					MT6858_VLP_AXI_PROT_EN_STA),
-> +			BUS_PROT_WR_IGN(VLP,
-> +					MT6858_VLP_AXI_PROT_EN_MM_PROC_2ND,
-> +					MT6858_VLP_AXI_PROT_EN_SET,
-> +					MT6858_VLP_AXI_PROT_EN_CLR,
-> +					MT6858_VLP_AXI_PROT_EN_STA),
-> +		},
-> +		.caps = MTK_SCPD_SRAM_ISO | MTK_SCPD_SRAM_PDN_INVERTED,
-> +	},
-> +	[MT6858_POWER_DOMAIN_CSI_RX] = {
-> +		.name = "csi-rx",
-> +		.sta_mask = MT6858_PWR_ACK,
-> +		.sta2nd_mask = MT6858_PWR_ACK_2ND,
-> +		.ctl_offs = 0xe98,
-> +		.pwr_sta_offs = 0xe98,
-> +		.pwr_sta2nd_offs = 0xe98,
-> +		.caps = MTK_SCPD_KEEP_DEFAULT_OFF,
-> +	},
-> +	[MT6858_POWER_DOMAIN_SSUSB] = {
-> +		.name = "ssusb",
-> +		.sta_mask = MT6858_PWR_ACK,
-> +		.sta2nd_mask = MT6858_PWR_ACK_2ND,
-> +		.ctl_offs = 0xea4,
-> +		.pwr_sta_offs = 0xea4,
-> +		.pwr_sta2nd_offs = 0xea4,
-> +		.sram_pdn_bits = BIT(8),
-> +		.sram_pdn_ack_bits = BIT(12),
-> +		.bp_cfg = {
-> +			BUS_PROT_WR_IGN(INFRA,
-> +					MT6858_TOP_AXI_PROT_EN_PERISYS_STA_0_SSUSB,
-> +					MT6858_TOP_AXI_PROT_EN_PERISYS_STA_0_SET,
-> +					MT6858_TOP_AXI_PROT_EN_PERISYS_STA_0_CLR,
-> +					MT6858_TOP_AXI_PROT_EN_PERISYS_STA_0_RDY),
-> +		},
-> +	},
-> +};
-> +
-> +static const struct scpsys_soc_data mt6858_scpsys_data = {
-> +	.domains_data = scpsys_domain_data_mt6858,
-> +	.num_domains = ARRAY_SIZE(scpsys_domain_data_mt6858),
-> +	.bus_prot_blocks = scpsys_bus_prot_blocks_mt6858,
-> +	.num_bus_prot_blocks = ARRAY_SIZE(scpsys_bus_prot_blocks_mt6858),
-> +	.type = SCPSYS_MTCMOS_TYPE_DIRECT_CTL,
-> +};
-> +
-> +#endif /* __SOC_MEDIATEK_MT6858_PM_DOMAINS_H */
-> diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.c b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-> index 5b4d860318a4..b43f8b4a6a01 100644
-> --- a/drivers/pmdomain/mediatek/mtk-pm-domains.c
-> +++ b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-> @@ -20,6 +20,7 @@
->   
->   #include "mt6735-pm-domains.h"
->   #include "mt6795-pm-domains.h"
-> +#include "mt6858-pm-domains.h"
->   #include "mt6893-pm-domains.h"
->   #include "mt8167-pm-domains.h"
->   #include "mt8173-pm-domains.h"
-> @@ -1288,6 +1289,10 @@ static const struct of_device_id scpsys_of_match[] = {
->   		.compatible = "mediatek,mt6795-power-controller",
->   		.data = &mt6795_scpsys_data,
->   	},
-> +	{
-> +		.compatible = "mediatek,mt6858-power-controller",
-> +		.data = &mt6858_scpsys_data,
-> +	},
->   	{
->   		.compatible = "mediatek,mt6893-power-controller",
->   		.data = &mt6893_scpsys_data,
-> diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.h b/drivers/pmdomain/mediatek/mtk-pm-domains.h
-> index 8690690335ad..45da83e9d649 100644
-> --- a/drivers/pmdomain/mediatek/mtk-pm-domains.h
-> +++ b/drivers/pmdomain/mediatek/mtk-pm-domains.h
-> @@ -66,6 +66,11 @@ enum scpsys_bus_prot_block {
->   	BUS_PROT_BLOCK_INFRA_NAO,
->   	BUS_PROT_BLOCK_SMI,
->   	BUS_PROT_BLOCK_SPM,
-> +	BUS_PROT_BLOCK_IMG_SUB0,
-> +	BUS_PROT_BLOCK_CAM_SUB1,
-> +	BUS_PROT_BLOCK_CAM_SUB0,
-> +	BUS_PROT_BLOCK_IPE_SUB0,
-> +	BUS_PROT_BLOCK_VLP,
->   	BUS_PROT_BLOCK_COUNT,
->   };
->   
-> 
+The same happens if the order is reversed: when userspace enables MTE, KVM
+does not check if memslots backed by guest_memfd are already present.
+
+Fix both issues by rejecting guest_memfd-backed memslots when MTE is
+enabled, and by rejecting MTE when guest_memfd-backed memslots are already
+present.
+
+Fixes: 32e200bd6e44 ("KVM: arm64: Enable support for guest_memfd backed memory")
+Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
+Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
+---
+
+v2 can be found at [1].
+
+Changes in v3:
+
+* Documented that guest_memfd and MTE are incompatible (Marc).
+* Added the Tested-by tag from Fuad (thanks!), but I didn't pick up his
+Reviewed-by tag. Fuad added guest_memfd support to arm64, and the changes
+to the docs look like something that he might have an opinion about.
+
+Did similar testing as for v2, except now I actually remembered to enable
+lockdep in the host (duh).
+
+[1] https://lore.kernel.org/kvmarm/20260720130942.135033-1-alexandru.elisei@arm.com/
+
+ Documentation/virt/kvm/api.rst |  5 +++++
+ arch/arm64/kvm/arm.c           | 25 +++++++++++++++++++------
+ arch/arm64/kvm/mmu.c           |  4 ++++
+ 3 files changed, 28 insertions(+), 6 deletions(-)
+
+diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+index a5f9ee92f43e..53547fac5e37 100644
+--- a/Documentation/virt/kvm/api.rst
++++ b/Documentation/virt/kvm/api.rst
+@@ -8414,6 +8414,11 @@ When this capability is enabled all memory in memslots must be mapped as
+ attempts to create a memslot with an invalid mmap will result in an
+ -EINVAL return.
+ 
++``guest_memfd``, even though is an anonymous file, is incompatible with MTE.
++Attempting to create a memslot backed by ``guest_memfd`` when the MTE capability
++is enabled, or attempting to enable the MTE capability after ``guest_memfd``
++backed memslots have been created, will result in an error.
++
+ When enabled the VMM may make use of the ``KVM_ARM_MTE_COPY_TAGS`` ioctl to
+ perform a bulk copy of tags to/from the guest.
+ 
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 50adfff75be8..9a6c72a18672 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -149,14 +149,27 @@ int kvm_vm_ioctl_enable_cap(struct kvm *kvm,
+ 		set_bit(KVM_ARCH_FLAG_RETURN_NISV_IO_ABORT_TO_USER,
+ 			&kvm->arch.flags);
+ 		break;
+-	case KVM_CAP_ARM_MTE:
+-		mutex_lock(&kvm->lock);
+-		if (system_supports_mte() && !kvm->created_vcpus) {
+-			r = 0;
+-			set_bit(KVM_ARCH_FLAG_MTE_ENABLED, &kvm->arch.flags);
++	case KVM_CAP_ARM_MTE: {
++		struct kvm_memory_slot *memslot;
++		int bkt;
++
++		guard(mutex)(&kvm->lock);
++		if (!system_supports_mte() || kvm->created_vcpus)
++			break;
++
++		r = 0;
++		guard(mutex)(&kvm->slots_lock);
++		kvm_for_each_memslot(memslot, bkt, kvm_memslots(kvm)) {
++			if (kvm_slot_has_gmem(memslot)) {
++				r = -EINVAL;
++				break;
++			}
+ 		}
+-		mutex_unlock(&kvm->lock);
++		if (r == 0)
++			set_bit(KVM_ARCH_FLAG_MTE_ENABLED, &kvm->arch.flags);
+ 		break;
++
++	}
+ 	case KVM_CAP_ARM_SYSTEM_SUSPEND:
+ 		r = 0;
+ 		set_bit(KVM_ARCH_FLAG_SYSTEM_SUSPEND_ENABLED, &kvm->arch.flags);
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 6c941aaa10c6..2d95203386ba 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -2652,6 +2652,10 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
+ 	if (kvm_slot_has_gmem(new) && !kvm_memslot_is_gmem_only(new))
+ 		return -EINVAL;
+ 
++	/* guest_memfd is incompatible with MTE. */
++	if (kvm_slot_has_gmem(new) && kvm_has_mte(kvm))
++		return -EINVAL;
++
+ 	hva = new->userspace_addr;
+ 	reg_end = hva + (new->npages << PAGE_SHIFT);
+ 
+
+base-commit: 1590cf0329716306e948a8fc29f1d3ee87d3989f
+-- 
+2.55.0
 
 
