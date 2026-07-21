@@ -4,69 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C21EC4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 08:48:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6DB6C4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 08:51:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VbdYabY6304wmkQVRhzKWa2oeZwqHMjq8WamtfsNPII=; b=PgwvYYoQ1JDyR9OvppYedjWujR
-	/XiGtjgfpfQmEiuWd/qDNyKhYopN3dKSva2rN/RFOePSXYAjKTo0ivBUDU2P/LX0EmyuPnbOJjh0V
-	EcfMEypoi6GfJH3CeZSlNhFQzADoWMeCvOTvMjspBmteLjybmQnO9hyuYLseWjVoIhNUrSO6qs9UY
-	K4KX7YY327VLitonc+9ti3iRztKQT7CjJ7ssXKW397XOjV5foOc6fjqU0vGfMQ/+T7I1yYCyRM9m5
-	4bQ3awpRp9qLlZldWSH6wzYk6PWwyW3X+4ApkU+anLVVbCmecwAsBtB8pJ/Umnlp91dQDZlhbMdmE
-	si2qh8mQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W9TwKjeZoFGEHgdNTQQols46LO/1SYqRmMIWZsa4kgQ=; b=LrgNXzo0nfhkMpCSj+50D4g5ZW
+	5QFnW37nQkAXjnSBqfOQc4O/oqI3IYOr7WpPAEOXwZvGplVpFSjsVphCh4/PvpFnaProY7NQN20y4
+	WJbEFTJm3upxEE7Ulc16xU4Aga16a4PkqYfZ0vNd8CCYVzFsr2EF25eYH0oDz9OkksqjiebRs9AQW
+	QnZuraJ8WG9IUhQkClJ0sVrYSPQjam5EkUfOqg3DHPp1zz0DOJcdzpr6pynMuQgxiLGQtKPnqh5jI
+	vvjLAMO/PyOGI2stEoBw0Za0iHQy6e8/MyRtWf7fsFHlR3shDXwUTIBkKMcWL7uJP42EKq1ZeiWMe
+	QFSHHS6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm69F-00000008sRN-2myc;
-	Tue, 21 Jul 2026 08:48:21 +0000
-Received: from mail-m82218.xmail.ntesmail.com ([156.224.82.218])
+	id 1wm6CW-00000008si2-1C1k;
+	Tue, 21 Jul 2026 08:51:44 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm69B-00000008sQU-2LDz;
-	Tue, 21 Jul 2026 08:48:20 +0000
-Received: from [172.16.12.90] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 46fd7cbde;
-	Tue, 21 Jul 2026 16:48:10 +0800 (GMT+08:00)
-Message-ID: <e2eb4217-e4d3-4650-915c-e36f4355168e@rock-chips.com>
-Date: Tue, 21 Jul 2026 16:48:09 +0800
+	id 1wm6CT-00000008shd-3Mgg
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Jul 2026 08:51:43 +0000
+Date: Tue, 21 Jul 2026 10:51:37 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1784623899;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=W9TwKjeZoFGEHgdNTQQols46LO/1SYqRmMIWZsa4kgQ=;
+	b=jDOYsNOrU1yusQhNG5aeS0V+izFL5Y2bD5K3ObzlRU7GEt91WIWtcrmhqwTeVdgbU9jgAj
+	cO6xFFutXUrcQ7SEv4egvGgbxV/eMrfKG67ljoI9+JCCrxlFatL3RSUj5U5A/llWcxbC9W
+	qg5R+JJQ8TaGMIemWmZ30/zGVHLEZE3MmERNWXoDnzhQNiVX6AHjwfUN55R/a5beTzX5co
+	8vLOUrKiJgkGiAQDcTDHPKHgRtfipw1AAAKJwbEI2qe1F85vTu5TrHl7lFMPwIv0s0HFQV
+	J3sDwT1M0d59KnbTFo4CoN+teS9Wp15UtTs3rSIsk2mcgr/Mm8bz1tNyMu6b7Q==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1784623899;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=W9TwKjeZoFGEHgdNTQQols46LO/1SYqRmMIWZsa4kgQ=;
+	b=xZBtK6QrcF4AbeXA19rBSObL+K9ljnWUP2jHK8XRJbfunVzvMbLbLrMMs4LQYsO2x4hN0x
+	sffALUD3WomVk9CQ==
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Subject: Re: [PATCH v17 15/15] arm64: vdso: Expose sigreturn address on vdso
+ to the kernel
+Message-ID: <20260721104810-0a8ab042-2705-43e8-90d2-74e221f3fab5@linutronix.de>
+References: <20260721081858.1169276-1-ruanjinjie@huawei.com>
+ <20260721081858.1169276-16-ruanjinjie@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] drm/rockchip: lvds: add RK3568 support
-To: =?UTF-8?Q?Rok_Markovi=C4=8D?= <rok@kanardia.eu>
-Cc: Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
- Andy Yan <andy.yan@rock-chips.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Alibek Omarov <a1ba.omarov@gmail.com>
-References: <20260717120005.2087386-1-rok@kanardia.eu>
- <20260717120005.2087386-4-rok@kanardia.eu>
- <9219738d-c3f2-4034-b88f-84335f77fbad@rock-chips.com>
- <3a5685992b5e335f2ebf50ee740b8a36@kanardia.eu>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <3a5685992b5e335f2ebf50ee740b8a36@kanardia.eu>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9f83dc72e703a7kunmfe88d93e2be2a2
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1kYFggdWUFKV1ktWUFJV1kPCRoVCBIfWUFZQksdSVYeSEpOT0hISE
-	wZTUpWFRQJFhoXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0
-	tIVUpLSEpKQk1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=XjRzXw7MwJLm9McXvDow27Pg+1obxCpoSzcZkszDWvMrRG59L4CLwFNojND9xtfzan/5I4qO/VcDyFQjxXH6wV6a58h/64teTRyFuMcY32miB7ZlEia7cOEjFXZWFvRCI7WnDEf7LXw8hAL178AwXaEA1vOEcsq/XQmxBTGuEmU=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=VbdYabY6304wmkQVRhzKWa2oeZwqHMjq8WamtfsNPII=;
-	h=date:mime-version:subject:message-id:from;
+In-Reply-To: <20260721081858.1169276-16-ruanjinjie@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_014818_284833_93521F6B 
-X-CRM114-Status: GOOD (  39.34  )
+X-CRM114-CacheID: sfid-20260721_015141_985129_9E95DA37 
+X-CRM114-Status: GOOD (  15.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,341 +75,69 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: mark.rutland@arm.com, kees@kernel.org, catalin.marinas@arm.com, oleg@redhat.com, will@kernel.org, peterz@infradead.org, thuth@redhat.com, ryan.roberts@arm.com, anshuman.khandual@arm.com, kevin.brodsky@arm.com, pengcan@kylinos.cn, broonie@kernel.org, linux-arm-kernel@lists.infradead.org, wad@chromium.org, linux-mm@kvack.org, linusw@kernel.org, linux-kernel@vger.kernel.org, luto@amacapital.net, james.morse@arm.com, tglx@kernel.org, liqiang01@kylinos.cn, yeoreum.yun@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/21/2026 4:31 PM, Rok Markovič wrote:
-> 20.7.2026 3:54, je Chaoyi Chen napisal
->> Hello Rok,
->>
->> Thank you for your patch. Please see the comment below:
->>
->> On 7/17/2026 8:00 PM, Rok Markovic wrote:
->>> The RK3568 LVDS transmitter has no register block of its own. It is
->>> driven entirely through the GRF and re-uses the MIPI DSI0 D-PHY in
->>> PHY_MODE_LVDS, which phy-rockchip-inno-dsidphy already supports.
->>>
->>> Based on Alibek Omarov's earlier posting [1], with the changes below.
->>>
->>> Power the D-PHY from the encoder enable path rather than from probe.
->>> phy_power_on() runs the phy driver's whole LVDS bring-up: PLL and
->>> bandgap power-on, a settle, PLL mode select, then a reset pulse of the
->>> serializer and the lane enables. None of that is safe at probe time -
->>> the GRF has not yet switched the block to LVDS mode (LVDS0_MODE_EN is
->>> set from rk3568_lvds_poweron(), i.e. the enable path) and the VOP is
->>> not driving dclk. The serializer is clocked from dclk and latches its
->>> state coming out of that reset, so it comes up dead and stays dead.
->>> The failure is silent: every register in the phy, the GRF and the VOP
->>> reads back exactly as on a working system while the lanes sit at
->>> common mode and never toggle.
->>>
->>
->> Could you please confirm this? Based on my earlier tests, after PHY
->> poweron, re-disabling and re-enabling the GRF did not reproduce the
->> issue you described.
+On Tue, Jul 21, 2026 at 04:18:58PM +0800, Jinjie Ruan wrote:
+> Syscall User Dispatch (SUD) must not intercept the signal trampoline
+> code, otherwise returning from a signal with a locked selector may
+> cause infinite recursion into the signal handler.
 > 
-> I can confirm that this is not working but I testedwith writing registers
-> manually with devmem and I could make something wrong.
+> Provide an arm64 implementation of arch_syscall_is_vdso_sigreturn()
+> to exclude these sigreturn syscalls from dispatch.
 > 
-> Should I leave it this way or should I move this back to probe and try to
-> make it work in enable by some trick (disabel/enable GRF)?
+> For native 64-bit tasks, check whether the current PC matches the 'svc #0'
+> instruction inside the vDSO sigreturn trampoline (defined in
+> arch/arm64/kernel/vdso/sigreturn.S as below).
 > 
+> 	SYM_CODE_START(__kernel_rt_sigreturn)
+> 		mov     x8, #__NR_rt_sigreturn
+> 		svc     #0
+> 	SYM_CODE_END(__kernel_rt_sigreturn)
 
-Just out of curiosity. I think it's fine as it is now :)
+With the new label this code snippet here shouldnt be needed anymore.
+
+> For COMPAT tasks, verify that the instruction falls within the dedicated
+> 'sigpage' range, since compat signal handlers use this architecture-
+> specific page (not the vDSO) for their return trampoline. This prevents
+> SUD from incorrectly dispatching syscalls issued during signal return.
+> 
+> Suggested-by: Thomas Wei�schuh <thomas.weissschuh@linutronix.de>
+> Suggested-by: Kevin Brodsky <kevin.brodsky@arm.com>
+> Suggested-by: kemal <kmal@cock.li>
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> ---
+>  arch/arm64/Kconfig                 |  1 +
+>  arch/arm64/include/asm/elf.h       |  1 +
+>  arch/arm64/kernel/vdso.c           | 16 ++++++++++++++++
+>  arch/arm64/kernel/vdso/sigreturn.S |  1 +
+>  arch/arm64/kernel/vdso/vdso.lds.S  |  1 +
+>  5 files changed, 20 insertions(+)
+> 
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index aea686dce3d5..a41d2b593899 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -86,6 +86,7 @@ config ARM64
+>  	select ARCH_SUPPORTS_SCHED_SMT
+>  	select ARCH_SUPPORTS_SCHED_CLUSTER
+>  	select ARCH_SUPPORTS_SCHED_MC
+> +	select ARCH_SUPPORTS_SYSCALL_USER_DISPATCH
+
+From the subject and description I would not have expected this to be in here.
+Split into its own patch?
+
+>  	select ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH
+>  	select ARCH_WANT_COMPAT_IPC_PARSE_VERSION if COMPAT
+>  	select ARCH_WANT_DEFAULT_BPF_JIT
+
+(...)
+
+For the rest:
+
+Reviewed-by: Thomas Wei�schuh <thomas.weissschuh@linutronix.de>
 
 
->>
->>> Program RK3568_LVDS0_DCLK_INV_SEL from the CRTC state's bus_flags so
->>> the panel's declared pixelclk-active is honoured on the LVDS block as
->>> well as on the VOP pin polarity. Both have to agree with the edge the
->>> panel samples on.
->>>
->>> Re-assert RK3568_LVDS0_P2S_EN in rk3568_lvds_poweron().
->>> rk3568_lvds_poweroff() clears MODE_EN and P2S_EN together, so setting
->>> P2S_EN once at probe would leave the parallel-to-serial converter off
->>> after the first disable/enable cycle.
->>>
->>> Use regmap_write() rather than regmap_update_bits() for the GRF. These
->>> registers are write-masked - the upper 16 bits select which of the
->>> lower 16 a write may change - so there is nothing to preserve and no
->>> reason to read first. Passing a FIELD_PREP_WM16() value as both the
->>> mask and the value of an update_bits() applies the masking twice and
->>> only works by accident.
->>>
->>> Between the two, nothing needs programming at probe at all: the GRF is
->>> written entirely from the enable path, so px30_lvds_probe() is left
->>> alone rather than being refactored into a shared phy helper.
->>>
->>> [1] https://lore.kernel.org/all/20230119184807.171132-1-a1ba.omarov@gmail.com/
->>>
->>> Co-developed-by: Alibek Omarov <a1ba.omarov@gmail.com>
->>> Signed-off-by: Alibek Omarov <a1ba.omarov@gmail.com>
->>> Signed-off-by: Rok Markovic <rok@kanardia.eu>
->>> Assisted-by: Claude:claude-opus-4-8
->>> ---
->>>  drivers/gpu/drm/rockchip/rockchip_lvds.c | 161 +++++++++++++++++++++++
->>>  drivers/gpu/drm/rockchip/rockchip_lvds.h |  10 ++
->>>  2 files changed, 171 insertions(+)
->>>
->>> diff --git a/drivers/gpu/drm/rockchip/rockchip_lvds.c b/drivers/gpu/drm/rockchip/rockchip_lvds.c
->>> index 95fa0a9..f45d04a 100644
->>> --- a/drivers/gpu/drm/rockchip/rockchip_lvds.c
->>> +++ b/drivers/gpu/drm/rockchip/rockchip_lvds.c
->>> @@ -435,6 +435,133 @@ static void px30_lvds_encoder_disable(struct drm_encoder *encoder)
->>>      drm_panel_unprepare(lvds->panel);
->>>  }
->>>
->>> +static int rk3568_lvds_poweron(struct rockchip_lvds *lvds)
->>> +{
->>> +    int ret;
->>> +
->>> +    ret = clk_enable(lvds->pclk);
->>> +    if (ret < 0) {
->>> +        DRM_DEV_ERROR(lvds->dev, "failed to enable lvds pclk %d\n", ret);
->>> +        return ret;
->>> +    }
->>> +
->>> +    ret = pm_runtime_get_sync(lvds->dev);
->>> +    if (ret < 0) {
->>> +        DRM_DEV_ERROR(lvds->dev, "failed to get pm runtime: %d\n", ret);
->>> +        clk_disable(lvds->pclk);
->>> +        return ret;
->>> +    }
->>> +
->>> +    /*
->>> +     * Enable LVDS mode and the parallel-to-serial converter. These are
->>> +     * write-masked registers, so a plain write only touches the bits named
->>> +     * here; there is nothing to preserve and no need to read first.
->>> +     */
->>
->> I think this comment is redundant. We all know this is a common design
->> on Rockchip platform, right? :)
->>
-> 
-> Done
-> 
->>> +    return regmap_write(lvds->grf, RK3568_GRF_VO_CON2,
->>> +                RK3568_LVDS0_MODE_EN(1) |
->>> +                RK3568_LVDS0_P2S_EN(1));
->>> +}
->>> +
->>> +static void rk3568_lvds_poweroff(struct rockchip_lvds *lvds)
->>> +{
->>> +    regmap_write(lvds->grf, RK3568_GRF_VO_CON2,
->>> +             RK3568_LVDS0_MODE_EN(0) | RK3568_LVDS0_P2S_EN(0));
->>> +
->>> +    pm_runtime_put(lvds->dev);
->>> +    clk_disable(lvds->pclk);
->>> +}
->>> +
->>> +static int rk3568_lvds_grf_config(struct drm_encoder *encoder,
->>> +                  struct drm_display_mode *mode)
->>> +{
->>> +    struct rockchip_lvds *lvds = encoder_to_lvds(encoder);
->>> +    struct rockchip_crtc_state *s =
->>> +        to_rockchip_crtc_state(encoder->crtc->state);
->>> +    bool negedge = !!(s->bus_flags & DRM_BUS_FLAG_PIXDATA_DRIVE_NEGEDGE);
->>> +
->>> +    if (lvds->output != DISPLAY_OUTPUT_LVDS) {
->>> +        DRM_DEV_ERROR(lvds->dev, "Unsupported display output %d\n",
->>> +                  lvds->output);
->>> +        return -EINVAL;
->>> +    }
->>> +
->>> +    /*
->>> +     * The LVDS block has its own dclk inversion select, separate from the
->>> +     * VOP's pin polarity. Both have to agree with what the panel samples on.
->>> +     */
->>> +    regmap_write(lvds->grf, RK3568_GRF_VO_CON2,
->>> +             RK3568_LVDS0_DCLK_INV_SEL(negedge));
->>> +
->>> +    /* Set format */
->>> +    return regmap_write(lvds->grf, RK3568_GRF_VO_CON0,
->>> +                RK3568_LVDS0_SELECT(lvds->format) |
->>> +                RK3568_LVDS0_MSBSEL(1));
->>> +}
->>
->> I think rk3568_lvds_poweron() and rk3568_lvds_grf_config() can be merged
->> to reduce extra register operations.
-> 
-> Done
-> 
->>> +
->>> +static void rk3568_lvds_encoder_enable(struct drm_encoder *encoder)
->>> +{
->>> +    struct rockchip_lvds *lvds = encoder_to_lvds(encoder);
->>> +    struct drm_display_mode *mode = &encoder->crtc->state->adjusted_mode;
->>> +    int ret;
->>> +
->>> +    drm_panel_prepare(lvds->panel);
->>> +
->>> +    ret = rk3568_lvds_poweron(lvds);
->>> +    if (ret) {
->>> +        DRM_DEV_ERROR(lvds->dev, "failed to power on LVDS: %d\n", ret);
->>> +        drm_panel_unprepare(lvds->panel);
->>> +        return;
->>> +    }
->>> +
->>> +    ret = rk3568_lvds_grf_config(encoder, mode);
->>> +    if (ret) {
->>> +        DRM_DEV_ERROR(lvds->dev, "failed to configure LVDS: %d\n", ret);
->>> +        drm_panel_unprepare(lvds->panel);
->>> +        return;
->>> +    }
->>> +
->>> +    /*
->>> +     * Only now bring the D-PHY up. phy_power_on() runs the whole
->>> +     * inno_dsidphy_lvds_mode_enable() sequence - PLL and bandgap power-on,
->>> +     * a settle, PLL mode select, then a reset pulse of the serializer and
->>> +     * the lane enables. All of that has to happen with the block already
->>> +     * switched to LVDS mode in the GRF (above) and with the VOP's dclk
->>> +     * running, because the serializer is clocked from dclk and latches its
->>> +     * state out of that reset.
->>> +     *
->>> +     * Doing it at probe instead - as this driver used to - resets and
->>> +     * enables the serializer against a block that is not in LVDS mode yet
->>> +     * and has no input clock. Every register then reads back correct while
->>> +     * the lanes sit at common mode forever. Rockchip's BSP orders it this
->>> +     * way (GRF writes, then phy_set_mode + phy_power_on).
->>> +     */
->>
->> I think this comment is redundant. These are internal details of
->> phy_set_mode() and don't need to be explained here. Also, the
->> ordering requirements are quite common. You can describe them in the
->> commit message.
->>
-> 
-> Done
-> 
->>> +    ret = phy_set_mode(lvds->dphy, PHY_MODE_LVDS);
->>> +    if (ret) {
->>> +        DRM_DEV_ERROR(lvds->dev, "failed to set phy mode: %d\n", ret);
->>> +        drm_panel_unprepare(lvds->panel);
->>> +        return;
->>> +    }
->>> +
->>> +    ret = phy_power_on(lvds->dphy);
->>> +    if (ret) {
->>> +        DRM_DEV_ERROR(lvds->dev, "failed to power on phy: %d\n", ret);
->>> +        drm_panel_unprepare(lvds->panel);
->>> +        return;
->>> +    }
->>> +
->>> +    drm_panel_enable(lvds->panel);
->>> +}
->>> +
->>> +static void rk3568_lvds_encoder_disable(struct drm_encoder *encoder)
->>> +{
->>> +    struct rockchip_lvds *lvds = encoder_to_lvds(encoder);
->>> +
->>> +    drm_panel_disable(lvds->panel);
->>> +    phy_power_off(lvds->dphy);
->>> +    rk3568_lvds_poweroff(lvds);
->>> +    drm_panel_unprepare(lvds->panel);
->>> +}
->>> +
->>>  static const
->>>  struct drm_encoder_helper_funcs rk3288_lvds_encoder_helper_funcs = {
->>>      .enable = rk3288_lvds_encoder_enable,
->>> @@ -449,6 +576,13 @@ struct drm_encoder_helper_funcs px30_lvds_encoder_helper_funcs = {
->>>      .atomic_check = rockchip_lvds_encoder_atomic_check,
->>>  };
->>>
->>> +static const
->>> +struct drm_encoder_helper_funcs rk3568_lvds_encoder_helper_funcs = {
->>> +    .enable = rk3568_lvds_encoder_enable,
->>> +    .disable = rk3568_lvds_encoder_disable,
->>> +    .atomic_check = rockchip_lvds_encoder_atomic_check,
->>> +};
->>> +
->>>  static int rk3288_lvds_probe(struct platform_device *pdev,
->>>                   struct rockchip_lvds *lvds)
->>>  {
->>> @@ -512,6 +646,22 @@ static int px30_lvds_probe(struct platform_device *pdev,
->>>      return phy_power_on(lvds->dphy);
->>>  }
->>>
->>> +static int rk3568_lvds_probe(struct platform_device *pdev,
->>> +                 struct rockchip_lvds *lvds)
->>> +{
->>> +    /*
->>> +     * Grab and init the phy, but do NOT power it on here - that is done in
->>> +     * rk3568_lvds_encoder_enable() once the GRF is in LVDS mode and dclk is
->>> +     * running. See the comment there. The GRF is not touched at probe
->>> +     * either: every bit of it is programmed from the enable path.
->>> +     */
->>
->> Please see the comments above.
-> 
-> Done
-> 
->>
->>> +    lvds->dphy = devm_phy_get(&pdev->dev, "dphy");
->>> +    if (IS_ERR(lvds->dphy))
->>> +        return PTR_ERR(lvds->dphy);
->>> +
->>> +    return phy_init(lvds->dphy);
->>> +}
->>> +
->>>  static const struct rockchip_lvds_soc_data rk3288_lvds_data = {
->>>      .probe = rk3288_lvds_probe,
->>>      .helper_funcs = &rk3288_lvds_encoder_helper_funcs,
->>> @@ -522,6 +672,11 @@ static const struct rockchip_lvds_soc_data px30_lvds_data = {
->>>      .helper_funcs = &px30_lvds_encoder_helper_funcs,
->>>  };
->>>
->>> +static const struct rockchip_lvds_soc_data rk3568_lvds_data = {
->>> +    .probe = rk3568_lvds_probe,
->>> +    .helper_funcs = &rk3568_lvds_encoder_helper_funcs,
->>> +};
->>> +
->>>  static const struct of_device_id rockchip_lvds_dt_ids[] = {
->>>      {
->>>          .compatible = "rockchip,rk3288-lvds",
->>> @@ -531,6 +686,10 @@ static const struct of_device_id rockchip_lvds_dt_ids[] = {
->>>          .compatible = "rockchip,px30-lvds",
->>>          .data = &px30_lvds_data
->>>      },
->>> +    {
->>> +        .compatible = "rockchip,rk3568-lvds",
->>> +        .data = &rk3568_lvds_data
->>> +    },
->>>      {}
->>>  };
->>>  MODULE_DEVICE_TABLE(of, rockchip_lvds_dt_ids);
->>> @@ -601,6 +760,8 @@ static int rockchip_lvds_bind(struct device *dev, struct device *master,
->>>      encoder = &lvds->encoder.encoder;
->>>      encoder->possible_crtcs = drm_of_find_possible_crtcs(drm_dev,
->>>                                   dev->of_node);
->>> +    rockchip_drm_encoder_set_crtc_endpoint_id(&lvds->encoder,
->>> +                          dev->of_node, 0, 0);
->>>
->>>      ret = drm_simple_encoder_init(drm_dev, encoder, DRM_MODE_ENCODER_LVDS);
->>>      if (ret < 0) {
->>> diff --git a/drivers/gpu/drm/rockchip/rockchip_lvds.h b/drivers/gpu/drm/rockchip/rockchip_lvds.h
->>> index 2d92447..93d3415 100644
->>> --- a/drivers/gpu/drm/rockchip/rockchip_lvds.h
->>> +++ b/drivers/gpu/drm/rockchip/rockchip_lvds.h
->>> @@ -121,4 +121,14 @@
->>>  #define   PX30_LVDS_P2S_EN(val)            FIELD_PREP_WM16(BIT(6), (val))
->>>  #define   PX30_LVDS_VOP_SEL(val)        FIELD_PREP_WM16(BIT(1), (val))
->>>
->>> +#define RK3568_GRF_VO_CON0            0x0360
->>> +#define   RK3568_LVDS0_SELECT(val)        FIELD_PREP_WM16(GENMASK(5, 4), (val))
->>> +#define   RK3568_LVDS0_MSBSEL(val)        FIELD_PREP_WM16(BIT(3), (val))
->>> +
->>> +#define RK3568_GRF_VO_CON2            0x0368
->>> +#define   RK3568_LVDS0_DCLK_INV_SEL(val)    FIELD_PREP_WM16(BIT(9), (val))
->>> +#define   RK3568_LVDS0_DCLK_DIV2_SEL(val)    FIELD_PREP_WM16(BIT(8), (val))
->>> +#define   RK3568_LVDS0_MODE_EN(val)        FIELD_PREP_WM16(BIT(1), (val))
->>> +#define   RK3568_LVDS0_P2S_EN(val)        FIELD_PREP_WM16(BIT(0), (val))
->>> +
->>>  #endif /* _ROCKCHIP_LVDS_ */
-> 
-> 
-
--- 
-Best, 
-Chaoyi
-
+Thomas
 
