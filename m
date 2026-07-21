@@ -4,99 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1DF9C4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 17:53:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A94AC4452B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 17:57:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3LPTMVMKOjUCgDgh3m94FN7XGhky6Xin9zMpY87f7nI=; b=WsVSUOGYZIICjuqjPMUy5XipDx
-	AuL8GWM9nNOuHE+AV9P/rExwdMtF/G00si+O5dj0h77YQePnUiaHHxkFuvye/mpsBRnyAbJUckSVM
-	/upTHFWI70eNxBMO0Gn8AwmT7R6BUHod8nGuFXJmwfyZNsX/TvUEJ2PmyVvoUUw2QOVxiAeVKhQlU
-	kudtKQym+OARhF2j9wcy1aOGSzMJprl+5aqBB6jT3sf8sHiotf4HS1O6eAIdXWcATGTgsgJzQjk6o
-	qKLVO68cWhvFQMc1+8+k9nFTCYuQtOWQq4i5zWy79bjQd7hTSTVcYGayb9SVafcwLLdbDilriJPol
-	ZFMNT+UA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K5uC9oI/VleO8NbHPDWusOgHQnvCCK3+fYhVhwqoJrY=; b=T6eiTVXHzGG72pyhdj/IuNaNvt
+	CoBqBPZ4Zb0zap2PPqMq0N26VYn3Iu/O1bMSrErjY4poW3uPfoBhGcNKjzyu4r7Jqt+1MJVs/CERY
+	gtyOJCbH93KK/ktoXBe65l8vqRCXEll2VK9wNk/xSrjH8TmN0cVPXZ2J8UphaXYttv4IGAQMA9sHq
+	16GIbqw/PHoOitPU/ufIKyfK45LtdmQz8xwsQsJW//I+OnYWY6y/s1NrgNV4jGZ2Iwa97YIaCoyms
+	eJcR2C97F9fFKDl6OeW/mMO8ccfGsBrBs7c9870wFkUGbSiVuMt7+SVtiFQM0DBwhmgB4iRyENrip
+	pgghxPcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmEeB-0000000A6yP-3aiM;
-	Tue, 21 Jul 2026 17:52:51 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wmEie-0000000A8c5-04ez;
+	Tue, 21 Jul 2026 17:57:28 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmEe1-0000000A6pe-1Aav;
-	Tue, 21 Jul 2026 17:52:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1784656358;
-	bh=oiWWXRm0/cQ/tnB5PbRJ+mS8OTFZDOErXBKz7hNNENs=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=H5bAbQvewlB4XdutPGbj6v8Dr3pN62frIKGpnVKcOpZXrre9fpvszlLZI2pF1I7GD
-	 vqgLlkVhQnBW0G1LOwbpkpP6nUpe+6gRJprAOe4L4eOkNcH8eEVfqKzWezAkODr+03
-	 zev7ByXxzR53mS8MME++MWfjHfz1HQTNdtm6i9VoIHiXwQtDLEbWaAEMNV5LBFimOU
-	 feaJEE9cqIuP9WiUAJyqj+oXShHJK97PYlll424S4Q+jeRMSQZ7HlwenrvaI1WOcLZ
-	 vmOa43D1W8J0ugbt6vR/juA/z4+8lCkbr/9500y4fbum/a08L/zKZat9sgBN6L83Vv
-	 p0OTCSH8libYQ==
-Received: from jupiter.universe (unknown [100.64.1.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id E210917E0FD2;
-	Tue, 21 Jul 2026 19:52:37 +0200 (CEST)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id 966E748002C; Tue, 21 Jul 2026 19:52:37 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Tue, 21 Jul 2026 19:52:32 +0200
-Subject: [PATCH v4 02/10] drm/bridge: synopsys: dw-dp: Support
- MEDIA_BUS_FMT_FIXED
+	id 1wmEic-0000000A8bv-0phk
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Jul 2026 17:57:26 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6D54D60103;
+	Tue, 21 Jul 2026 17:57:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08FCE1F00A3A;
+	Tue, 21 Jul 2026 17:57:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784656645;
+	bh=K5uC9oI/VleO8NbHPDWusOgHQnvCCK3+fYhVhwqoJrY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=chWCBKrQWf9YHfntmVLzJiBqBx5SeU8tFQYQvogsDjhNntiXlWUcN2YAzjQU4rmTb
+	 uMzjP4KKh1pom2iQMdmKoJt4sLJo4//xct1DOP2eW+hudYmlQApdf8f7DMLDqGSXBy
+	 +g1k4Kei50dkdTtFBph6rGTRAlajgpB1a2Pg9KuHt/PWenLlpXuZmvmlRtbOPtEKuq
+	 deyGkSfCzh3Xq5z9RCrOtrs3mRu4Z7zqUT/P+RgajQUgLxI6PsDqWDI2u9wQIQa8sw
+	 NCt4PjnIPv40A8YR6zHLv+xasesJMOnPf8j6oGWa09dlWb/N+dKTjJcVm3n6ibiPMP
+	 EmI4/8sB9jODA==
+Date: Tue, 21 Jul 2026 10:57:23 -0700
+From: Oliver Upton <oupton@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v2 2/6] KVM: arm64: Move GICv3 broken SEIS implementation
+ detection to a CPU errrata
+Message-ID: <al-zA7eek869owmN@kernel.org>
+References: <20260721170754.3150521-1-maz@kernel.org>
+ <20260721170754.3150521-3-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260721-synopsys-dw-dp-improvements-v4-2-f0f4a4ede712@collabora.com>
-References: <20260721-synopsys-dw-dp-improvements-v4-0-f0f4a4ede712@collabora.com>
-In-Reply-To: <20260721-synopsys-dw-dp-improvements-v4-0-f0f4a4ede712@collabora.com>
-To: Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
- Damon Ding <damon.ding@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
- Alexey Charkov <alchark@flipper.net>, dri-devel@lists.freedesktop.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, kernel@collabora.com, 
- linux-arm-kernel@lists.infradead.org, 
- Sebastian Reichel <sebastian.reichel@collabora.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1544;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=oiWWXRm0/cQ/tnB5PbRJ+mS8OTFZDOErXBKz7hNNENs=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpfseWaZo8u4YM2fcGoridEgdNIEiwuvkpuW
- 7qpmL+Fr0D/aokCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqX7HlAAoJENju1/PI
- O/qa6dYP/ifbvNSK+yxLY4zkGyIr/SbYIGC3zGQmLlpTPrmaxm1F/+iN6leUD9VYQumBG4zJt8i
- t6I/C9H3TvZgFbE3iEC6PxP2LwPw5wUJJlkSfmbR0HEmpeIZqcDpT+mB90BnuAtihlUuzo1ewzA
- +mPE8tsXvyWBE/Zob6hhimfZTRSsyaAotMb6DQNq3E4upaduciBUCEaO8+MdxrFeekhWezJQU4E
- SW7xXJAj8SCxogvIzgB4wlsAhZMV8/SSiWaNSfeuAW9W8E8cW8C27TgGDOUCU+PsphCsUIy7Unz
- USs4PhA2ggY+iabsEH+aR1+WP0x01G69wQg7snBr8QEbAkXFgpZhbuGh6RF6Ye1B7HN5sqtHp1o
- b9ogXebJiAAP4i5xDmW2dox+8FDEmdMGzfZ2Fzj4iUMJfcrTr9hLrgktGx6KXnt93bVly8VKp0z
- vNxZBrd/3ykGyA4WM/4cLDrqyaBrkLlRux1Qh8rCKeKG7O97rgd55owO06bdO8L0s4DBHD0+bC8
- ITRzrzO1eM+ElpKnBMc3kSt9BIby9qJCEEPG7V5VZmS53+aGN1hxnAV3UySRPY4e0j8ms7zHaD2
- J8HqPB5LMw4xmpKjcCoWN8Pn1bw6Py/W57Ar8ez3652NncpS+JNqAEALlPPLGvvRXrwuv/HI3za
- TASCKJSP3MWU0mrsD4UwxEw==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_105241_492363_4C9345D0 
-X-CRM114-Status: GOOD (  13.32  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260721170754.3150521-3-maz@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,43 +73,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for MEDIA_BUS_FMT_FIXED, which is e.g. requested for USB-C
-DP chains as the last bridge in the chain (aux-hpd-bridge) does not
-implement atomic_get_output_bus_fmts(), which results in the generic
-drm_atomic_bridge_chain_select_bus_fmts() code using MEDIA_BUS_FMT_FIXED
-instead.
+Hey,
 
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
- drivers/gpu/drm/bridge/synopsys/dw-dp.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+On Tue, Jul 21, 2026 at 06:07:50PM +0100, Marc Zyngier wrote:
+> Using is_midr_in_range_list() in a noinstr function isn't a good idea.
+> And yet kvm_compute_ich_hcr_trap_bits() is doing that by calling
+> vgic_v3_broken_seis().
+> 
+> Move all the broken SEIS detection logic to the errata detection
+> framework, and use a new ARM64_WORKAROUND_GICv3_BROKEN_SEIS cap
+> to indicate that we're running on broken CPUs.
+> 
+> This reuses the MIDR list used for IMPDEF PMU detection, which
+> has a 100% overlap with the SEIS stuff...
 
-diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index 368e1f85e625..aca6816febe6 100644
---- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-+++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-@@ -1528,6 +1528,7 @@ static int dw_dp_bridge_atomic_check(struct drm_bridge *bridge,
- 				     struct drm_connector_state *conn_state)
- {
- 	struct drm_display_mode *adjusted_mode = &crtc_state->adjusted_mode;
-+	unsigned int out_bus_format = bridge_state->output_bus_cfg.format;
- 	struct dw_dp *dp = bridge_to_dp(bridge);
- 	struct dw_dp_bridge_state *state;
- 	const struct dw_dp_output_format *fmt;
-@@ -1538,7 +1539,10 @@ static int dw_dp_bridge_atomic_check(struct drm_bridge *bridge,
- 	state = to_dw_dp_bridge_state(bridge_state);
- 	mode = &state->mode;
- 
--	fmt = dw_dp_get_output_format(bridge_state->output_bus_cfg.format);
-+	if (out_bus_format == MEDIA_BUS_FMT_FIXED)
-+		out_bus_format = MEDIA_BUS_FMT_RGB888_1X24;
-+
-+	fmt = dw_dp_get_output_format(out_bus_format);
- 	if (!fmt)
- 		return -EINVAL;
- 
+Hopefully this remains the case! Oh well, that's the next person's
+problem to sort out anyway.
 
--- 
-2.53.0
+Thanks,
+Oliver
 
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/kernel/cpu_errata.c | 17 +++++++++++++++--
+>  arch/arm64/kvm/vgic/vgic-v3.c  | 26 +++-----------------------
+>  arch/arm64/tools/cpucaps       |  1 +
+>  3 files changed, 19 insertions(+), 25 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
+> index 1995e1198648e..78e4e105f6ab5 100644
+> --- a/arch/arm64/kernel/cpu_errata.c
+> +++ b/arch/arm64/kernel/cpu_errata.c
+> @@ -272,7 +272,7 @@ has_neoverse_n1_erratum_1542419(const struct arm64_cpu_capabilities *entry,
+>  	return is_midr_in_range(&range) && has_dic;
+>  }
+>  
+> -static const struct midr_range impdef_pmuv3_cpus[] = {
+> +static const struct midr_range apple_cpus[] = {
+>  	MIDR_ALL_VERSIONS(MIDR_APPLE_M1_ICESTORM),
+>  	MIDR_ALL_VERSIONS(MIDR_APPLE_M1_FIRESTORM),
+>  	MIDR_ALL_VERSIONS(MIDR_APPLE_M1_ICESTORM_PRO),
+> @@ -301,7 +301,14 @@ static bool has_impdef_pmuv3(const struct arm64_cpu_capabilities *entry, int sco
+>  	if (pmuver != ID_AA64DFR0_EL1_PMUVer_IMP_DEF)
+>  		return false;
+>  
+> -	return is_midr_in_range_list(impdef_pmuv3_cpus);
+> +	return is_midr_in_range_list(apple_cpus);
+> +}
+> +
+> +static bool has_broken_gic_v3_seis(const struct arm64_cpu_capabilities *entry, int scope)
+> +{
+> +	return (is_kernel_in_hyp_mode() &&
+> +		is_midr_in_range_list(apple_cpus) &&
+> +		(read_sysreg_s(SYS_ICH_VTR_EL2) & ICH_VTR_EL2_SEIS));
+>  }
+>  
+>  static void cpu_enable_impdef_pmuv3_traps(const struct arm64_cpu_capabilities *__unused)
+> @@ -1009,6 +1016,12 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
+>  		.matches = has_impdef_pmuv3,
+>  		.cpu_enable = cpu_enable_impdef_pmuv3_traps,
+>  	},
+> +	{
+> +		.desc = "Known broken GICv3 SEIS implementation",
+> +		.capability = ARM64_WORKAROUND_GICv3_BROKEN_SEIS,
+> +		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
+> +		.matches = has_broken_gic_v3_seis,
+> +	},
+>  	{
+>  	}
+>  };
+> diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
+> index 9e841e7afd4a7..0991a649a5d1e 100644
+> --- a/arch/arm64/kvm/vgic/vgic-v3.c
+> +++ b/arch/arm64/kvm/vgic/vgic-v3.c
+> @@ -809,27 +809,9 @@ static int __init early_gicv4_enable(char *buf)
+>  }
+>  early_param("kvm-arm.vgic_v4_enable", early_gicv4_enable);
+>  
+> -static const struct midr_range broken_seis[] = {
+> -	MIDR_ALL_VERSIONS(MIDR_APPLE_M1_ICESTORM),
+> -	MIDR_ALL_VERSIONS(MIDR_APPLE_M1_FIRESTORM),
+> -	MIDR_ALL_VERSIONS(MIDR_APPLE_M1_ICESTORM_PRO),
+> -	MIDR_ALL_VERSIONS(MIDR_APPLE_M1_FIRESTORM_PRO),
+> -	MIDR_ALL_VERSIONS(MIDR_APPLE_M1_ICESTORM_MAX),
+> -	MIDR_ALL_VERSIONS(MIDR_APPLE_M1_FIRESTORM_MAX),
+> -	MIDR_ALL_VERSIONS(MIDR_APPLE_M2_BLIZZARD),
+> -	MIDR_ALL_VERSIONS(MIDR_APPLE_M2_AVALANCHE),
+> -	MIDR_ALL_VERSIONS(MIDR_APPLE_M2_BLIZZARD_PRO),
+> -	MIDR_ALL_VERSIONS(MIDR_APPLE_M2_AVALANCHE_PRO),
+> -	MIDR_ALL_VERSIONS(MIDR_APPLE_M2_BLIZZARD_MAX),
+> -	MIDR_ALL_VERSIONS(MIDR_APPLE_M2_AVALANCHE_MAX),
+> -	{},
+> -};
+> -
+> -static bool vgic_v3_broken_seis(void)
+> +static __always_inline bool vgic_v3_broken_seis(void)
+>  {
+> -	return (is_kernel_in_hyp_mode() &&
+> -		is_midr_in_range_list(broken_seis) &&
+> -		(read_sysreg_s(SYS_ICH_VTR_EL2) & ICH_VTR_EL2_SEIS));
+> +	return cpus_have_cap(ARM64_WORKAROUND_GICv3_BROKEN_SEIS);
+>  }
+>  
+>  void noinstr kvm_compute_ich_hcr_trap_bits(struct alt_instr *alt,
+> @@ -959,10 +941,8 @@ int vgic_v3_probe(const struct gic_kvm_info *info)
+>  	if (has_v2)
+>  		static_branch_enable(&vgic_v3_has_v2_compat);
+>  
+> -	if (vgic_v3_broken_seis()) {
+> -		kvm_info("GICv3 with broken locally generated SEI\n");
+> +	if (vgic_v3_broken_seis())
+>  		kvm_vgic_global_state.ich_vtr_el2 &= ~ICH_VTR_EL2_SEIS;
+> -	}
+>  
+>  	vgic_v3_enable_cpuif_traps();
+>  
+> diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+> index 9b85a84f6fd49..50373264ecde8 100644
+> --- a/arch/arm64/tools/cpucaps
+> +++ b/arch/arm64/tools/cpucaps
+> @@ -121,6 +121,7 @@ WORKAROUND_CAVIUM_TX2_219_TVM
+>  WORKAROUND_CLEAN_CACHE
+>  WORKAROUND_DEVICE_LOAD_ACQUIRE
+>  WORKAROUND_DISABLE_CNP
+> +WORKAROUND_GICv3_BROKEN_SEIS
+>  WORKAROUND_PMUV3_IMPDEF_TRAPS
+>  WORKAROUND_QCOM_FALKOR_E1003
+>  WORKAROUND_QCOM_ORYON_CNTVOFF
+> -- 
+> 2.47.3
+> 
 
