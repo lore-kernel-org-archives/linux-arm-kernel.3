@@ -4,67 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76331C44532
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 15:44:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4181CC4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 15:58:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fWBKtHpQs7Mjv5sBBU83pNN7Nd/6AUX8CaJlXFspUiY=; b=T/v4O8VbdpUzBDJHJYIbwQOxGG
-	00bZFzGRIqQXinIX7XyntikIH5uRkHUwQwj+jVpaIJInSOiofLrUINqjL2t9yqAeCAMzCQeLN2YCi
-	Y7a6KkEQ7Zm3Ue17alLqHuK2pA8AiaQioqAmGPMhYlyOEM5o0xE486xJclGdk3Y+vB5xUsm+6F2+D
-	Hcd8GuuvXeNwuMbLrarQBgA9cHjCFsuZbX4onYJuenapoc9qoldD2zjITV0dVmXx03XfC+bcoUxv6
-	P2ROow54mbokc+VbQbltYOBgEZgPDH3qvjOlLpMJ8CPFUYr8Bwg5CwXeIakE1bFsbRtJrjllbQpo4
-	325m2Vfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9ECexg9MHu9Wlrjsn9DPeTTcyYXEi131txLVOLiFCmo=; b=rTY5in/nOHaQrBXwKRAhg0NHUy
+	SgP52cJYKbbPNcDKBFwB4qlG1EGi7x72sig2a7qbfLTHz2wSuOwz5LX3N5rbsTDH7N0clxTnmu9Zl
+	+Xmn4GxHtpAwgSCUMQ7myFI7I6Zbauenrcx1FVlFsDezGlRWrF7Q53CGJp7RJ05Trq0D2dj7OI3ZS
+	WyUrHZ0SeHxTEIKkZbjGAZRwDITxPLTBwVrR8rmlbIz2NuI7n5snpodvB1inhU4FEVVGAQVLDmPEy
+	OtPl1BB8Eq9+rNGnPvW1gZx1gBiHbOLkY0rbiFKAG5YWZHj7uUjlcfrtF8oqwWmbNCrNb2hAJxC+P
+	+Hko5j7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmCcZ-00000009p7v-1MK7;
-	Tue, 21 Jul 2026 15:43:03 +0000
-Received: from out-187.mta1.migadu.com ([95.215.58.187])
+	id 1wmCr7-00000009qKj-0CFy;
+	Tue, 21 Jul 2026 15:58:05 +0000
+Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmCcR-00000009p4R-1YPA
+	id 1wmCr2-00000009qKO-2tFw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 15:43:02 +0000
-X-Gm-Message-State: AOJu0Yz2KYu5lxtXJa1HASG2iGLvlvjoAC57YptOQfYCmYDQdGAqU/B2
-	iMWthRe6Y4AD5+y1jd4tf/V5Tl7Ht/EPzBqqNkQ6uu0Ue5uVMwirPlS8XDe41mRCc9gknWYUbyP
-	02dctAI+mL21OK4LVH2W9/OY3F7s7DB3KH5MzYBIG
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1784648562;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=fWBKtHpQs7Mjv5sBBU83pNN7Nd/6AUX8CaJlXFspUiY=;
-	b=U3AA/wH5WZnLIBNlitthruHFWkjR6ddCZliEqBbSd9q64wY/ycGV3SR0hgl8YAVLoP8Le1
-	JUPioe0ib0hVmTmaWsy5CMTdjvBiGg4zE4B6HQ3OUHgKLu9LnIkS7lk88QGaCWihm5xNb7
-	786RtQDEsUgDXWWGOS02SVwqDb2QFTI=
-X-Received: by 2002:a05:622a:d0e:b0:51c:ca9:3d17 with SMTP id
- d75a77b69052e-52601f03537mr16476711cf.12.1784648547786; Tue, 21 Jul 2026
- 08:42:27 -0700 (PDT)
+	Tue, 21 Jul 2026 15:58:03 +0000
+Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
+	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 66LDjKln3231775;
+	Tue, 21 Jul 2026 10:57:55 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=proofpoint-05-2026; bh=9ECexg9MHu9Wl
+	rjsn9DPeTTcyYXEi131txLVOLiFCmo=; b=o4uyGkAIecCz4JIP1i7NDFHzBmbKK
+	OzJuIlH7yS6Q50AKcboMRGQg/rbDs42nGcnKOctjmcGwZa9geHIsxbBvcG/Z5ZOD
+	pkDieB5plMHpUNHrYe4fk216Rq+KhQsfT1qHfiyscrofWPf42rWEX0BvIIfELDa3
+	WDkloTYExauHWG0nLR24j9G+GGlV/uvRjPfz94JuPwZ7Cvp9cfg/8MmH/VaaYL2+
+	Oo3Rb9V9S4MI9NtfY9ywA47q4cXHWbBhFlctqE/k1wFRKYsqHdgTV6xM7mS2Wolb
+	mwtQc9N6hahXLy09HUXSle88Lnecqr1Z1gd99pXoyLJD1cvO8n37O9siw==
+Received: from ph8pr06cu001.outbound.protection.outlook.com (mail-westus3azon11012070.outbound.protection.outlook.com [40.107.209.70])
+	by m0384305.ppops.net (PPS) with ESMTPS id 4fj869hj15-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Tue, 21 Jul 2026 10:57:55 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=s5VonHyRfQJKEXKmcnz1cdCKIWGRD/eBbTEdzKFhNJCvI26yFHfCkN5DEKshqdQ+1JmLsFspwYSFoA9WJjAlKxZMKOowyDyIZcrPtqMcR8YBWyVC5bmTazHqIye2ez2YB+y9D7b1nn1lPMnNGSvvZawixg52ekEB3Ow6Dex+koG4khczD93liHQvu0UlEx/56x2yy+XEWpGZ5cLjYfdixx4aj0gh6eLVR4nOq72kqa1ES51wXoOqqXCyozx3UYEfwZGfpMXhZRcJgmeyjlhGCuh6g1ldh7+9G5Ly63zSRj/bH/3G/ZtSMUAojZFHrL6Y4hH6/3jo7TXDSR2PV0VdzQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9ECexg9MHu9Wlrjsn9DPeTTcyYXEi131txLVOLiFCmo=;
+ b=hZkd8CpU7X/+EpOiohHnK/taCQAeqFmshshFAns8kw+lVy55o1nvUFOJ+OG0knbqFFfEnMYCf6ETYbFU8u7S9cE+nKjfFB9HjkU4cc9zHkPqmRBFXYaZVMuXhDCDPe8OV9ppeHptvdkh16AhftF18ttJY7xF7r8OHfJgcd3ss04bCtnVs4jAyvaH6Fg3mHvyQasZNG+9fgiq9BZN0BUV9O7Dwyg1CI2w+1kf3IuO7NYD/yn9foF4Vx0ltnWlkPisXw807BC0mQlD8sBqE9lRONuesk8ijIGRIGg+/CKKTB4C+ylxOaenbmgr3fnWiPewnpfQhD+SIgk4rZB0zW+Rhg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9ECexg9MHu9Wlrjsn9DPeTTcyYXEi131txLVOLiFCmo=;
+ b=QvN7EoKQTswmTyKYwTIFePZD7eYyVij0Iuc8lbQsFoQpi1BVY1UcCLcG85AAv0cahc/n89mWhJhxyuJ2eyK6u2hid1hQm+gED5YVE7yEkA+szyEtZe9omjjmjitlOi1lk4JA6vFW5fYig6T9GhyNL2efUDA/HUWVhUXT9hsdfIE=
+Received: from CH0PR04CA0099.namprd04.prod.outlook.com (2603:10b6:610:75::14)
+ by PH3PPF1D715CB68.namprd10.prod.outlook.com (2603:10b6:518:1::78d) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.12; Tue, 21 Jul
+ 2026 15:57:44 +0000
+Received: from CH2PEPF0000009F.namprd02.prod.outlook.com
+ (2603:10b6:610:75:cafe::80) by CH0PR04CA0099.outlook.office365.com
+ (2603:10b6:610:75::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.10 via Frontend Transport; Tue,
+ 21 Jul 2026 15:57:44 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ CH2PEPF0000009F.mail.protection.outlook.com (10.167.244.21) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.245.5 via Frontend Transport; Tue, 21 Jul 2026 15:57:44 +0000
+Received: from DLEE200.ent.ti.com (157.170.170.75) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 21 Jul
+ 2026 10:57:43 -0500
+Received: from DLEE214.ent.ti.com (157.170.170.117) by DLEE200.ent.ti.com
+ (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 21 Jul
+ 2026 10:57:43 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE214.ent.ti.com
+ (157.170.170.117) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Tue, 21 Jul 2026 10:57:43 -0500
+Received: from udc0488417.dhcp.ti.com (udc0488417.dhcp.ti.com [128.247.81.71])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 66LFvhmr1075688;
+	Tue, 21 Jul 2026 10:57:43 -0500
+From: Takuma Fujiwara <t-fujiwara1@ti.com>
+To: <linux-pci@vger.kernel.org>
+CC: <bhelgaas@google.com>, <lpieralisi@kernel.org>, <kwilczynski@kernel.org>,
+        <mani@kernel.org>, <vigneshr@ti.com>, <s-vadapalli@ti.com>,
+        <linux-omap@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>
+Subject: [PATCH] PCI: j721e: Fix incorrect max_lanes for J7200
+Date: Tue, 21 Jul 2026 10:57:43 -0500
+Message-ID: <20260721155743.3347659-1-t-fujiwara1@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20260703154811.3355680-1-sascha.bischoff@arm.com> <20260703154811.3355680-37-sascha.bischoff@arm.com>
-In-Reply-To: <20260703154811.3355680-37-sascha.bischoff@arm.com>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Tue, 21 Jul 2026 16:42:00 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTybDSAgr44jXNFnssnYq_vVeuZ+1qORS8f4dtQgMzOZ5A@mail.gmail.com>
-X-Gm-Features: AUfX_mxjsFrqC8Gpjv6b_a6EYXug8lYIGCF5p9ytlWNhOuKnl9fC4c65x8uK9Mc
-Message-ID: <CA+EHjTybDSAgr44jXNFnssnYq_vVeuZ+1qORS8f4dtQgMzOZ5A@mail.gmail.com>
-Subject: Re: [PATCH v3 36/40] KVM: arm64: gic-v5: Implement save/restore
- mechanisms for ISTs
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd <nd@arm.com>, 
-	"maz@kernel.org" <maz@kernel.org>, "oliver.upton@linux.dev" <oliver.upton@linux.dev>, Joey Gouly <Joey.Gouly@arm.com>, 
-	Suzuki Poulose <Suzuki.Poulose@arm.com>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>, 
-	"peter.maydell@linaro.org" <peter.maydell@linaro.org>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>, 
-	Timothy Hayes <Timothy.Hayes@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PEPF0000009F:EE_|PH3PPF1D715CB68:EE_
+X-MS-Office365-Filtering-Correlation-Id: bf511526-0fc7-49e2-1721-08dee740cd48
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|23010399003|1800799024|36860700016|6133799003|10067099003|56012099006|18002099003;
+X-Microsoft-Antispam-Message-Info: 0YnLiJadx66MOPPx5uji+m5Yiyd1kJoZD3Tcy3Ys8uNbR/ezCtZwHjXrsWAAm/VmFuO6JbFHgDVKBuBfLzsJ+jVRQSJrfH5k+82uc5xKLJpxcr2KmsVblyAYOl5+huqckymZTBp2d4w9lO7lyZBXcDWtkv28a5W1qJnigk1xd8+CgWOPwUxNKF1FvluI/mPHvg1foyB18gCtW7isiNLwqLybPlVIqvp7C8girAe+Z1yJbi9F9XQUNttT8/yZ+emLGUBsUhEVCrOXt/dGenWmUanyojLt/t6gV/ZJTViRYZhKEf7ZSES1KLYh5+/ldsUrf5in8O4LMPHd5WwV1nawAGspWH4M+V0ofUn8iX1AwHxSd0wb4iK3vB96Cudb8BrvOxwC604vLqnkS2rQ2BkvEI5SVoRKN4QCcpJRhHvy2KH2tXPPKxfiFlHEeeg2Xml9ctlHRes3JKKT14YaT/XjQ6meimTmROYm/FQvQ98ygJ/OV9pu6bzzf6G1/rQBlQDwpSJYcuIFzx/tY9BpOaYK4GWmHtip4ADvl3qNHTNPh913v4CSQ9ZMgMYz/IICkzAGQWUSZ8y1P9qtifTh0RCIAPOl9rP9AZfTf4gqPemxem5FGUBr6NDkRXTeK3Y6ehp6/Oip5z42+qSJxH8CNuQRpBjtwJFFwfJMjv15BcUAW9IEonOHWd0KWYHPHOUdVJnqRYan7MDFZBqvBRVw2Dy+ew==
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(23010399003)(1800799024)(36860700016)(6133799003)(10067099003)(56012099006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: uLYmmKMhT/+THhENqk5csQhVpYHyYdvorSa9+9d0aBzbTeKY6vUhKktjgXnbmn6ArQpr5ulZTZ+/MT9852CIQzCkaFB61YZvMmi7qC3oCPOHVUaNRXIAwIhLp9QPihN1Ykw5sBUnGcJrzSg5NdJawr2PhT3xZ1XU8ygOoDX+tMHB0R46ROVvO8hUUoMiWYQc3Mx1eY+RREGKeydZQdwfBgWNclnBN9/OYT8FV2CZPaYnI0CrWJV9TfXN3U9zbxhYyfhaydZ1On9mnb2AzHuudfl+mu2VNbU3A7Zkqd4WDDXoEqyff0BynEWB3KCq/WCUn/gxLusDYqFPfU41UG0A2sHCuDp+AxS5BhdWPFEJzZ65rriSVtfy0ys5BDvBmS7b1LixDOAysFELZ7fcvlUJWuiw/AqOjojgSTacj9y3GyKDsLGzCb7/ipggi9FRB+eU
+X-Exchange-RoutingPolicyChecked: irzxL1hzoB9J7uT9lR1FJuoV/8OCB64Q3NjxSM1Nf8ccInM6YKeyqwSgZIEXmvkYd787FWYTsbOqCmeJinJC4zoDz4k5FCnQUeCMyZbGAkx0kxX+HtDar/pgtcSgn5C5PNkDrpYaF3QmCwvYpeli7Oo6kdzNm7jUv/02sTl4SGrDtIBrg67mwMIfkIzeUrygbVqRCJAHGz9jYu+tqZnP2JaENmxC/NSLF8N0A1h9ZFrQaLBnfaa2bCyjIxVdkANIK5yhm8isG77SgvRfpOC+Q+GAm3ODZhJMM844r87n6IrbuTOoXORdiTt83oV84wKWIyqt4Wjqhl2+obWWZhgHQA==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Jul 2026 15:57:44.0217
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: bf511526-0fc7-49e2-1721-08dee740cd48
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000009F.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH3PPF1D715CB68
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzIxMDE2OCBTYWx0ZWRfX2c5r1VwgyUYk
+ vVlp0sPDHfMhwOJCQWx9TUSDJ4Q672LmQRvIDL0LZWsztJu/I1+LHVfyC+oF2+ZVbX0LJV3UWKP
+ ZCxBp+HM12UxV7w+jXez1+MwYMd6xOM7kRR5QOVRIBeBhnF9xZPAN1A6+dUA6+usRbMW5XI4lp+
+ l+lnHX8dnwpKl9ephEFNLwXRsvy9y6DkW8q03F60EW184V4As2Xg2xnHcrfWVD/C0IAakTMcsDi
+ 7gQz6kFGIuk/4As8HOCc0rYVKU8zY4oQmOpaSnCSvcKkLccYWU8iVU9YD8JuwhxITCbmbZDLDwt
+ MFf9Lxmt5MQsISy2sMpQND1u8j6cXXRkSAoNLo+MgPAX/vx0YXDGFT5ZjGxez5i1I/b4A5ugVj1
+ Oj1E7IlUyp00Jf+5Ucwqkt60AS9lDOgChKd63nlrT1EwLpV9tdVn52ClOFAAWAimD/xXruzdfXt
+ 1Ilf6S0l91cbjhoBGUA==
+X-Authority-Analysis: v=2.4 cv=WbI8rUhX c=1 sm=1 tr=0 ts=6a5f9703 cx=c_pps
+ a=c7CpAOS9Jb82g9OYW51qCA==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=RAioF0-LDSMA:10 a=s63m1ICgrNkA:10
+ a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=taLDd7a_hP9WKsMzeGRc:22 a=sozttTNsAAAA:8 a=qMGItftXEORy81xHaKgA:9
+X-Proofpoint-ORIG-GUID: syzOhcue8BZBvScaKYlqlzFdur78IvYV
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzIxMDE2OCBTYWx0ZWRfX6/swKK1fcCRd
+ eXyAVaExAtCw/RB1X6jmKSIGp4Xn9Lpfvkb3RYhLPZT1OiT9p6r6geO/jCkh1SKTd0e786P2Hwy
+ hmyUT0gsAx6aEKIUGCDFmVjQ5H5e5C0=
+X-Proofpoint-GUID: syzOhcue8BZBvScaKYlqlzFdur78IvYV
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-21_03,2026-07-20_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 clxscore=1011 impostorscore=0 malwarescore=0 phishscore=0
+ priorityscore=1501 lowpriorityscore=0 adultscore=0 suspectscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607210168
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_084301_575483_C3B560FA 
-X-CRM114-Status: GOOD (  19.85  )
+X-CRM114-CacheID: sfid-20260721_085800_928647_3ECF214B 
+X-CRM114-Status: GOOD (  13.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,78 +172,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sascha,
+The PCIe Controller in the J7200 SoC supports a 4-lane configuration.
+However, j7200_pcie_rc_data and j7200_pcie_ep_data incorrectly set
+.max_lanes = 2, limiting operation to fewer lanes than the hardware
+supports.
 
-Two things about the new KVM_DEV_ARM_VGIC_GRP_IST interface. Both are
-about the userspace ABI rather than the mechanism.
+Set .max_lanes = 4 for both j7200_pcie_rc_data and j7200_pcie_ep_data to
+match the hardware capability.
 
-...
+See J7200 Technical Reference Manual (SPRUIU1D), section 12.2.3.1.1
+for further details: https://www.ti.com/lit/pdf/spruiu1d
 
-> +int vgic_v5_save_spi_ist(struct kvm *kvm, struct kvm_device_attr *attr)
-> +{
-> +    u32 __user *uaddr = (u32 __user *)(unsigned long)attr->addr;
-...
-> +    for (unsigned int i = 0; i < kvm->arch.vgic.nr_spis; ++i) {
-...
-> +        __le32 *h_iste_addr = ist.base + i * ist.iste_size;
-> +
-> +        h_iste = READ_ONCE(*h_iste_addr);
-> +        ret = put_user(h_iste, uaddr);
-> +        if (ret)
-> +            return ret;
-> +
-> +        uaddr++;
-> +    }
+Fixes: 3ac7f14084f5 ("PCI: j721e: Add per platform maximum lane settings")
+Signed-off-by: Takuma Fujiwara <t-fujiwara1@ti.com>
+---
+ drivers/pci/controller/cadence/pci-j721e.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-The kernel writes nr_spis * 4 bytes into attr->addr, but struct
-kvm_device_attr has no length field, so userspace has no way to
-declare how large its buffer is and the kernel has no way to check it.
-The size is implied by nr_spis, which userspace set earlier through
-KVM_DEV_ARM_VGIC_GRP_NR_IRQS, or never set, in which case it defaulted
-to 32.
+diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
+index b29a35fbfb5f9..a029c4e9c05f6 100644
+--- a/drivers/pci/controller/cadence/pci-j721e.c
++++ b/drivers/pci/controller/cadence/pci-j721e.c
+@@ -381,7 +381,7 @@ static const struct j721e_pcie_data j7200_pcie_rc_data = {
+ 	.quirk_detect_quiet_flag = true,
+ 	.linkdown_irq_regfield = J7200_LINK_DOWN,
+ 	.byte_access_allowed = true,
+-	.max_lanes = 2,
++	.max_lanes = 4,
+ };
+ 
+ static const struct j721e_pcie_data j7200_pcie_ep_data = {
+@@ -389,7 +389,7 @@ static const struct j721e_pcie_data j7200_pcie_ep_data = {
+ 	.quirk_detect_quiet_flag = true,
+ 	.linkdown_irq_regfield = J7200_LINK_DOWN,
+ 	.quirk_disable_flr = true,
+-	.max_lanes = 2,
++	.max_lanes = 4,
+ };
+ 
+ static const struct j721e_pcie_data am64_pcie_rc_data = {
+-- 
+2.34.1
 
-put_user() has no idea how large the caller's buffer is. It only fails
-if the address itself is not writable, so writes past the end of a
-short buffer land in whatever happens to be next, with no error
-reported. The documentation states the required size, but nothing
-enforces it.
-
-It is also the only variable length buffer in the VGICv5 interface.
-GRP_IRS_REGS is a __u64, USERSPACE_PPIS is a __u64[2], GRP_NR_IRQS is
-a __u32, and none of those can be got wrong.
-
-kvm_device_attr itself is fixed, so no length can be added there.
-Changing what addr points at is still possible while this is unmerged,
-but would not be afterwards. Would it make sense for addr to point at
-a small structure carrying an explicit size, so that the kernel can
-reject a mismatch?
-
-The second point is the LPI IST going into guest memory. I understand
-from the commit message that the shadowing is deliberate and that the
-guest has already allocated the storage, so this is about the
-interface rather than that decision.
-
-Saving the ISTs is a KVM_GET_DEVICE_ATTR, and it writes into guest
-memory. Several of the documented ordering constraints are enforced,
-with -EBUSY when the VGIC is not initialised or when a restore is
-attempted after the VM has run. This one cannot be, because it is
-about when the VMM serialises guest memory:
-
-> These two steps may be performed in either order. However, the guest memory
-> must be serialised after the ISTs have been saved, as saving the LPI IST writes
-> the IST state back into guest memory.
-
-A VMM that snapshots guest memory before saving the ISTs gets no
-error, and the IST contents simply never reach the destination. Live
-migration looks fine to me, since kvm_write_guest() marks the pages
-dirty and a later pass picks them up, but a stop and copy save done in
-the natural order would lose them silently.
-
-Was a userspace buffer considered for the LPI IST as well, the way the
-SPI IST already works? That would remove the ordering requirement
-entirely, and by my reading the worst case is 65536 entries at 32
-bits, so 256 KiB, given the 16 bit clamp on the guest's LPI ID bits.
-
-Cheers,
-/fuad
 
