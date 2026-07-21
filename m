@@ -4,92 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13EE0C4452B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 06:23:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2764EC44529
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 06:27:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-ID:Subject:References:In-Reply-To:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xYDLN0SdG2S2TMSfDca2PEVtas/kjDMgdSeF774LdcY=; b=fBZZHskp4qRN/3z5lR5CPAYsIm
-	yUsd38frP8BF5HWDGiB/Xg7YUZFA8VIIf1tZrvrIs3egm+KWX6+Z2DVQztncWHYSs1WYkSHqmJpVa
-	YMGcFBHWfptlqNLL4rnBJCNHAv8AxQpHb6B2Xg6WLj0cNd0SnqdCQKQggzW8gs7VWbDCgLVx+3Gbw
-	69inknzitkPK2kLpJAfzh7ysPD5B29T89CDx094+qZ1FKoqeonP0wjWFYJtTx0zxjS0r3/ZCjvYrR
-	Pkaqz4hh4jSo4Ok3sKXWyPOkZXXQabYzJi9/N5HNIMe+eYZb3aXFnAYOfY8/o8dooL92YR69eXCx2
-	D9MYY3dQ==;
+	bh=T4FHfvaoo5/jYGHkwNEIuZsFUSLjKDRl3V0EcYmSCQM=; b=DzTVaLPW4lsSoG9PkrBexkkZcT
+	DD2AmRQZVmrr+S7j2XjWyZqe1uMVdah/TlmGfPApji2gHiajxTzN7arXz8Uh93wkCPgtYP+uj+stS
+	ANgLbopBCdinbg7hGjjBeJAbhoqPT+p05Lcvyw3jTIczgPAcH6aKvcvNzPBC+QkcYVb8zDoICGAPK
+	WM/LtkFjp5P7p20ebCzt7AY9jNwcCQG0CH24E5DfJ0Khr0xs8KRRi4VfhzPAbjgqYuob+Kkd7HH1g
+	qVDG2GqyF9pFvWlopkhf9JnyF77a/asnqH+qWKXRW77sgTX3wgIKRq7bajz19iW0XoD40LS31np0+
+	04OB7tAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm3t8-00000008VnZ-20U9;
-	Tue, 21 Jul 2026 06:23:34 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1wm3MR-00000008Tl9-2KpY;
+	Tue, 21 Jul 2026 05:49:47 +0000
+Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm3t6-00000008Vmc-0F4Z
+	id 1wm3MO-00000008Tkc-1x6A
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 06:23:33 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-8487b7b3fc8so11042735b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Jul 2026 23:23:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784615011; x=1785219811; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=xYDLN0SdG2S2TMSfDca2PEVtas/kjDMgdSeF774LdcY=;
-        b=gsQv4actrcEORVmzT8978P3tbQP4jO3ngHhc2mtNAYmSJ4Yv/R9iTuyv0Tyqq0UJ1m
-         UjXpNCASk6NauBYI9p3NqQhn9JtolXFW1pTftrHxJdR7S2BRtU9lNCgTGfy8/Ffm+s3H
-         hie3a4NLcw4fisUlbDaqmjyTkRf/8+9Tb4FU0s0EPEEVOa6SLn3v6TpZluv8MN3OGCFG
-         Di1QrCl+MbAxFarpD2Au5FcLukAaFp757M2UiFJEuFF3b5V2rDaWeW9G93o0EXXzcpTz
-         FCLIUA0B3OgKg6QYE0TYc51cTlWly/WKghmpQ82Z8zaKtnI3eq+cwERPAlKkGY72r3rj
-         Zf9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784615011; x=1785219811;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=xYDLN0SdG2S2TMSfDca2PEVtas/kjDMgdSeF774LdcY=;
-        b=EcYtD1g/mt1y+THYSiRJCriTQs0UY0NzSvnALX1csOi4+AoBx6yNcZVTBh8n+gn4GE
-         k+sO9CqCdm08aAS8/YIykO5YH8rEKWUN7NnSkZ7Pvj9bxV4g/EtFQjyCbHzA5xIF6d2V
-         iUUktGSfRH6iNAxXRiVqWtjM8OY5SA5a0E5XDcojjdaGVlMaJa3yiGxdOIrciopkaxTG
-         sf3nmOUctWjALorgR5j4SbIVqRv8GkO5Cwc0SohP9UB5bOiNXjCiH4z4Bz+1eBdebpzG
-         7ZvuYixcvqP2cqadgNEPpStOISKJosJiYBfyje/C7ffD7bqR8m1g1jShmq2ZpZSfpMvm
-         nqqw==
-X-Gm-Message-State: AOJu0YwHbcgNkWz//RmrHXFhzbddJYPUNAwdHelkzkGwWyfu029CKmkm
-	tEEhqVpnP3pKjYt47RvlpGmn/L5ml+NwjFLfCeNyQu4tW5wyGMujKK/4
-X-Gm-Gg: AR+sD138amnvnymFasTbVT6lMmKdHaCiuWiS16oZhwiJszo5qYThw4iaLsbx5ksziPp
-	7hEuQ5J7lnQYomzq8MfKHdEQH10ZjWNwd8Em7mokGm1wwQ4uLForc+4/msyPKbXWyGNwhJO0R/j
-	3vF0lFAzYCeRmQ+ocRWn3bKR0++o1DtsHkaVICUZ5+JyeWk44mIzv38pD4jE1qAY+PyVk1CFBhO
-	JzOHQAXU1omEBr2ys4tf5wjTF8alN/2fp1zzWcToUnqahOILmnre65BSYuHxDhGaryZc22JiuXw
-	oMITnZ23KN3K4TCSsnpve/TqLZNKRGEn49+X3YrMtzZozkigcEgCb3wLWmuVUXAuB46aJAf/unM
-	Uo+MAv1U2gGSHpe/yk2YUa9kW+i5S0atl83ehn5bvOVcG0Wh/M0zvwn5oeUSRzgc+NILIp2jbtJ
-	5hs/19PzWPeNh0tC4c9YLuhNmUZHUBpGmKvSTr2t9Bm/8f8dKzF4U6B+Gai+3KXzEY
-X-Received: by 2002:a05:6a00:2353:b0:848:7443:f2de with SMTP id d2e1a72fcca58-84c292d1534mr16781590b3a.13.1784615010972;
-        Mon, 20 Jul 2026 23:23:30 -0700 (PDT)
-Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84c4b640050sm4020710b3a.45.2026.07.20.23.23.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Jul 2026 23:23:30 -0700 (PDT)
-From: Chi-Wen Weng <cwweng.linux@gmail.com>
-To: ukleinek@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-pwm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	cwweng@nuvoton.com,
-	cwweng.linux@gmail.com
-Subject: [PATCH v5 2/2] pwm: Add Nuvoton MA35D1 PWM controller support
-Date: Tue, 21 Jul 2026 14:23:08 +0800
-Message-Id: <20260721062308.536947-3-cwweng.linux@gmail.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20260721062308.536947-1-cwweng.linux@gmail.com>
-References: <20260721062308.536947-1-cwweng.linux@gmail.com>
+	Tue, 21 Jul 2026 05:49:46 +0000
+Received: from pps.filterd (m0374956.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66L5l5tU3420394;
+	Tue, 21 Jul 2026 00:49:41 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=T4FHfvaoo5/jYGHkwNEIuZsFUSLjKDRl3V0EcYmSC
+	QM=; b=H1RzFtOvG0BimGNU0QHwZazd8ZflQPszzUluRw+7uQBa4LFxBCfh7g2p9
+	y7fYMBj1yxN+Q1o93qa1jpzAMS1nEHidoXMDUVaTYTgohRT54nTQPDj9r9rwQtRh
+	8J5ktfM48mgRUn7pgWfJEWmvOsWjswxDjB6GiXu0KK9pFbuK8qae6l9C79iqlZNC
+	n2RQg2aRyEqupXs0D8ENMUGK4OC7lvRZ/6x1k5fegQPFH0g1Fgu+M1Hrs4OEchd6
+	pyt+TqF1fR3Mi3UkmsYAeAVy8vu/nV8UmjlToSXxYrzqoy3cR/y3wJV97838V49T
+	g0n4dzVJHENFbHJlG02sQ8xAPT6hA==
+Received: from sa9pr02cu001.outbound.protection.outlook.com (mail-southcentralusazon11013070.outbound.protection.outlook.com [40.93.196.70])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4fhk19dmmh-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Tue, 21 Jul 2026 00:49:41 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kJTLupMpS/fOZXCRtW1tWJouR3kukoVWny8aynhY72ri3gO7pFRdGtMPqcnxTsVn949u96GCcA+cXQid/XV9ZQ4/Tw/TgQUWN/uezD10sEe+nLvaNBPnezTpaUkKKNBz+EMMqEfL6IJYN0X+92xjUAmlfZQBrWk4XnlQnCmg3brFKCtxr0tPRPzkWTVT4codMhkfyv/Xtn5hlVgaibljgmGeQi2wVmcRBhInLmAp5ENwNauZtojVUanFGoxIylW3tdjbmUmNsU7DpzkBGk8TvtTXhIaoxjLlju82P6MUElgcTl+wj7aJQTlJVSKlZlducoQvgmjI4QS1CfZ7ss+eWw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=T4FHfvaoo5/jYGHkwNEIuZsFUSLjKDRl3V0EcYmSCQM=;
+ b=JiY1UyAHnntFJ3CKdK0KdoiTPxWHSn7AYJXfzg2HgIjMzIf8la208LAHRXbWqp2AqxGR8D0lpQjiNHy3jtvg1YYZvlV9DJdBBVH7B2npOaDX9kTLqPPrRllovl1GOk3mBgWS5gJ4piqoQLwIYEYjjyVpP4KMIWlyWd4Ms6nAndo2Xm/vxOM5uYPkmC4FL+XVG2Ev5r2hUaTHrHaYs+leAw/wbb5U0CIn4voM38ygM07Nn1FtdnU/MqMHtqdDJDqww4oy+MXQPO72B/Ar8FxY3w+0xgF16wfAa0/PJHr4kMrlu9JgBBFTl98jv5vFLKAC24r66/AGGRuikqzZR1RHcQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=kernel.org smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=T4FHfvaoo5/jYGHkwNEIuZsFUSLjKDRl3V0EcYmSCQM=;
+ b=AT+mpXd8B5uOQYD3gtRZnG8rI35jBLw8rZeel2ocynDmNE4GBMm36raZU1Gy3i7LX4dQwLmhzK6YHnXIpTAvBH9Et0Zo2+NwTfwg2Cqr/idpkoxSMeB7+tz+cp2ar5DxYsUOQiinS1crzLNzUx0zMXdlg+gGo+TMMMmlLmHJiVc=
+Received: from SJ2P220CA0011.NAMP220.PROD.OUTLOOK.COM (2603:10b6:a03:5da::15)
+ by SA1PR10MB6615.namprd10.prod.outlook.com (2603:10b6:806:2b8::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.18; Tue, 21 Jul
+ 2026 05:49:37 +0000
+Received: from BY1PEPF0001AE1D.namprd04.prod.outlook.com
+ (2603:10b6:a03:5da:cafe::44) by SJ2P220CA0011.outlook.office365.com
+ (2603:10b6:a03:5da::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.10 via Frontend Transport; Tue,
+ 21 Jul 2026 05:49:37 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ BY1PEPF0001AE1D.mail.protection.outlook.com (10.167.242.106) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.245.5 via Frontend Transport; Tue, 21 Jul 2026 05:49:35 +0000
+Received: from DFLE210.ent.ti.com (10.64.6.68) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 21 Jul
+ 2026 00:49:07 -0500
+Received: from DFLE210.ent.ti.com (10.64.6.68) by DFLE210.ent.ti.com
+ (10.64.6.68) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 21 Jul
+ 2026 00:49:07 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE210.ent.ti.com
+ (10.64.6.68) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Tue, 21 Jul 2026 00:49:07 -0500
+Received: from [127.0.1.1] (uda0132425.dhcp.ti.com [10.24.50.130])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 66L5n49w4180349;
+	Tue, 21 Jul 2026 00:49:05 -0500
+From: Vignesh Raghavendra <vigneshr@ti.com>
+To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>,
+        Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>, Vitor Soares <ivitro@gmail.com>
+CC: Vitor Soares <vitor.soares@toradex.com>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+In-Reply-To: <20260716184300.85413-5-ivitro@gmail.com>
+References: <20260716184300.85413-5-ivitro@gmail.com>
+Subject: Re: [PATCH v2 0/3] arm64: dts: ti: k3-am62p-verdin: Add device
+ tree overlays
+Message-ID: <178461293945.873002.8278843868337803913.b4-ty@b4>
+Date: Tue, 21 Jul 2026 11:18:59 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15.2
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BY1PEPF0001AE1D:EE_|SA1PR10MB6615:EE_
+X-MS-Office365-Filtering-Correlation-Id: b0345f8e-4b05-4e45-96b9-08dee6ebd870
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|36860700016|82310400026|1800799024|13003099007|56012099006|10067099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: R8WCtG23D00l0stgL20q1fjzlzqiDTtjuoUfo6glawbFepeVFb5F7fdxcPhpT8nwqNTG+VXASLm2r9gR55aZJr/PMrekrlXLgBr/IMPVFemkW25k6vpb32Vnjxv++++y4ZeTIh7KsF6BpYsw7KH165hrWIt8zJCl9JYotql9fyQaxqvvyfg5+yKd+qxS9BnSkJuL2gCcugTwTXuKYSKg//P7KKt+wwHRxzs0M65G16Zl+Kkt/oYiF1bhmVPd5rjueA5si1KKcKI1hJXZuRHRhWNSckB2n3xl8X6Z2lhYUPC/sVVMtBGY5CGCGLI2NX4G9PCHRWgPIfy31iIi+yFy526aHDjeWz8g/Ttz2VLB82b07ciI2hH74R+MCBWNTNe5wBoNL4rTg34kPlNl+x3M2ZbahFvXJBs4BCGwcgK4fZLo1dU23wqdSB44O0LzN711Nz5I7o6N3LqDFr6Itv19LP8zcvZ16KdzK5JNBjjL8fWHqx7fDmSEndYn8na47Z1PMfELUScP5Fk64t1IJ8dcY1uwhjnK8fdE2K7tGc77CZ9s2cTaXNkFn9emfbRYdsbe9q08Pj//OrD0XWZQgoPlWv6L2eitTOJmjVG8x3xgAavuFGNCQGR0AWrT7jflOKoFF2EvM6NROw0fAL2KbkshM7vGNprpNU7H/8tFlIhIYpVNttvFRkWLhU4Oa7KIWT2fnJcwHk5DVobUm0ubc2cKDA==
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(23010399003)(376014)(36860700016)(82310400026)(1800799024)(13003099007)(56012099006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: hc8sQWYcGU6T+1z/A2w+dGH2Y17lvlt5xAocYVl1Uc2GrShqEnAU82i+cdHsAZBOEbvqxTWErsnd8qhOUQ1+Od4UilTPuQNTpz/c+n8bcHKNs8O6YLIc/XPUuniW2K02phxI9VJy2ZFSun71z3IR/qfQURfNXlQe+g0zdniid8eyHQiKWV8od47MzfU+AivYkLlSRZApAuuSjpULWyPUq7K7kivN0cOc2BBQec8R+xbCMJmPWSHDfAnLTTm/Kd4U3ejglhmohtTSVNsow/Rse5PcPhjY2pfOpgoobY5vSPzuX2Mqa5bQpcmRfshdbiz9YuBLCNz7SY0qPuFr/Zk8W64q6UY8i5S36Ta2FM7Q47JqU9QLGkRAe6o8h3Tiv5G4q5vugWH5B1XJYST6Gt2JgRjeuRhewMi9sQPcB6BhtLzFYGge3Ynen3QWc8sMJYxH
+X-Exchange-RoutingPolicyChecked: eDtarQIfTX4DdSChKH2l5s1INh6BGdcUqZ1DElt+5TJtOC+VxHpIOSPFEpvh4SjBw+tDVn8nzLsQygVVa5RNPmMnI3VRXW4rBGSkjW6a3/ukSVMRdHTwgmWKKwLRU+W3CihCvQ3LDtVh4Dg39e6fwO7j/Lz5r6X9EhNqxX+WZ3ehlcAMPPD0BdCT/vrdNHzgRXtvy83FiMg2o0aSTPqjn0KXeL9pdE0SJn58qz/CyKGgOj3Ult6Y6w+aAzhMY1Ho2/lcfDbvgC7xrx+h4JTsPAJKmwVSESibZO9MUjV8HujN++gU2MN+pj0m9AfVsWqp/xjk6bttjJJn8WPIzjhepQ==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Jul 2026 05:49:35.4906
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b0345f8e-4b05-4e45-96b9-08dee6ebd870
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BY1PEPF0001AE1D.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR10MB6615
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzIxMDA1OCBTYWx0ZWRfX/YljjIPKUN1y
+ AADyr9QfLrLQVmC58DqF1vt5N1tg4pQebkXZNIe13a8GyfB14s4eWmRl4RTSLLt4lYkmF/Wwu1K
+ Ez8nFKMOA3IC9Hs15ReQViNOrxkuYd7WqmJ+5LwCCfPLulh0/mbdUHISTKoT8Q4iN5vXqiyoEd6
+ TH/Xk78EJZTxb15IAmOrsN3ilkGfSTW18hfE9kgaZc0p3s72KUDlv0GERzwyQo+IiH+3U74nSCp
+ /v1FZQo9hSYt+59Mm8fh6jd5iK71WVikxW76NDLQX1lD9mu+JmPtS8IV2U17xUzrGz5LO310TNB
+ NWmdzts/NRi6S0g+4+bxP2TDZQp2iPk5ki9Sr6Y1ASOWr9pE5J7bFNOWEmbs88SVLLljrKTA6bQ
+ Cs+SWN6hZgT5WSlvtRFbnwsY+UGLOit0DsnpS2RDC0EwQHoOabwYIcs6FWkBxudX0O6T3c7rfjr
+ VLH+LEwYPciRanWJQyg==
+X-Authority-Analysis: v=2.4 cv=I4pVgtgg c=1 sm=1 tr=0 ts=6a5f0875 cx=c_pps
+ a=gDBu5PZszbgJPyH+JdeeiQ==:117 a=tJyPKKxUohctrY4NYmUjkA==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10
+ a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=jwouBfj2j3NM8CExmVVE:22 a=VwQbUJbxAAAA:8 a=m8ToADvmAAAA:8
+ a=o1kACPpZKAZCWsj7fAYA:9 a=QEXdDO2ut3YA:10 a=kCrBFHLFDAq2jDEeoMj9:22
+X-Proofpoint-ORIG-GUID: JF9-Gd0mTLd3EaYDxwmz4B1jQCc58tv3
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzIxMDA1OCBTYWx0ZWRfX6xJU+Uw0AqLd
+ 20+CKHX3Eb+VG8Jh7PPzFopsCn8SkeceYq11L9pLzBp5uo0eNKXIimN8dbUPnAegzOGU3IBXuJv
+ 3RgXrf5bmYkkZRh1xYKup63KShpmQu4=
+X-Proofpoint-GUID: JF9-Gd0mTLd3EaYDxwmz4B1jQCc58tv3
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-20_06,2026-07-20_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 adultscore=0 priorityscore=1501 impostorscore=0 phishscore=0
+ clxscore=1015 malwarescore=0 lowpriorityscore=0 spamscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607210058
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_232332_128550_BA786B1D 
-X-CRM114-Status: GOOD (  29.19  )
+X-CRM114-CacheID: sfid-20260720_224944_658403_9BDDDABA 
+X-CRM114-Status: GOOD (  14.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,464 +181,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chi-Wen Weng <cwweng@nuvoton.com>
+Hi Vitor Soares,
 
-Add a PWM framework driver for the Nuvoton MA35D1 EPWM controller.
+On Thu, 16 Jul 2026 19:42:59 +0100, Vitor Soares wrote:
+> arm64: dts: ti: k3-am62p-verdin: Add device tree overlays
+> 
+> From: Vitor Soares <vitor.soares@toradex.com>
+> 
+> This series adds device tree overlays for the Toradex Verdin AM62P,
+> bringing it in line with the overlay support already present for the
+> Verdin AM62.
+> 
+> [...]
 
-The controller provides 6 PWM channels and supports up, down and up-down
-counter types, auto-reload and one-shot counter modes, and independent and
-complementary output modes.
+I have applied the following to branch ti-k3-dts-next on [1].
+Thank you!
 
-The initial driver supports up-counting, auto-reload and independent output
-modes. It uses period loading mode and configures the waveform generator to
-drive the output high at the zero point and low at the compare-up point.
+[1/3] arm64: dts: ti: k3-am62p-verdin: Add NAU8822 Bridge Tied Load
+      commit: 2ef0fbd401f2b96517410b8eabe2ad107daa9294
+[2/3] arm64: dts: ti: k3-am62p-verdin: Add Toradex OV5640 CSI Cameras
+      commit: 3d86b6aa2c6279b695effcb0de78fae7567fcb63
+[3/3] arm64: dts: ti: k3-am62x-verdin: Share UART_4 MCU reservation overlay
+      commit: 43c6215de59abd42b20112ebbd1dd1bb1a5aefc0
 
-In up-counting mode, the counter counts from 0 to PERIOD inclusive. With
-the selected waveform actions, CMPDAT = 0 generates a 0% duty cycle and
-CMPDAT > PERIOD generates a 100% duty cycle. Limit the period to 0xffff
-counter cycles so that PERIOD is at most 0xfffe and CMPDAT = 0xffff remains
-available for the full-duty case.
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent up the chain during
+the next merge window (or sooner if it is a relevant bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-The clock prescaler is shared by each pair of PWM channels. Preserve its
-existing value and account for CLKPSC + 1 when calculating and reporting
-the period and duty cycle.
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-Do not modify the controller during probe, preserving PWM outputs that may
-already have been configured by firmware. Configure only the requested
-channel from the apply callback. Refuse to change an active complementary
-pair to independent mode when doing so would disturb the paired output.
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
-When disabling a channel, clear its output-enable and counter-enable bits.
-The output pin is then placed in tri-state by the hardware.
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
-Signed-off-by: Chi-Wen Weng <cwweng@nuvoton.com>
----
- drivers/pwm/Kconfig      |  10 ++
- drivers/pwm/Makefile     |   1 +
- drivers/pwm/pwm-ma35d1.c | 380 +++++++++++++++++++++++++++++++++++++++
- 3 files changed, 391 insertions(+)
- create mode 100644 drivers/pwm/pwm-ma35d1.c
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
+--
+Vignesh
 
-diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-index e8886a9b64d9..d971760b37c6 100644
---- a/drivers/pwm/Kconfig
-+++ b/drivers/pwm/Kconfig
-@@ -463,6 +463,16 @@ config PWM_LPSS_PLATFORM
- 	  To compile this driver as a module, choose M here: the module
- 	  will be called pwm-lpss-platform.
- 
-+config PWM_MA35D1
-+	tristate "Nuvoton MA35D1 PWM support"
-+	depends on ARCH_MA35 || COMPILE_TEST
-+	help
-+	  Generic PWM framework driver for the Nuvoton MA35D1 PWM
-+	  controller, which provides 6 PWM outputs.
-+
-+	  To compile this driver as a module, choose M here: the module
-+	  will be called pwm-ma35d1.
-+
- config PWM_MAX7360
- 	tristate "MAX7360 PWMs"
- 	depends on MFD_MAX7360
-diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
-index 5630a521a7cf..7ad761ea27d1 100644
---- a/drivers/pwm/Makefile
-+++ b/drivers/pwm/Makefile
-@@ -40,6 +40,7 @@ obj-$(CONFIG_PWM_LPC32XX)	+= pwm-lpc32xx.o
- obj-$(CONFIG_PWM_LPSS)		+= pwm-lpss.o
- obj-$(CONFIG_PWM_LPSS_PCI)	+= pwm-lpss-pci.o
- obj-$(CONFIG_PWM_LPSS_PLATFORM)	+= pwm-lpss-platform.o
-+obj-$(CONFIG_PWM_MA35D1)	+= pwm-ma35d1.o
- obj-$(CONFIG_PWM_MAX7360)	+= pwm-max7360.o
- obj-$(CONFIG_PWM_MC33XS2410)	+= pwm-mc33xs2410.o
- obj-$(CONFIG_PWM_MEDIATEK)	+= pwm-mediatek.o
-diff --git a/drivers/pwm/pwm-ma35d1.c b/drivers/pwm/pwm-ma35d1.c
-new file mode 100644
-index 000000000000..4073cb72054a
---- /dev/null
-+++ b/drivers/pwm/pwm-ma35d1.c
-@@ -0,0 +1,380 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Driver for the Nuvoton MA35D1 PWM controller
-+ *
-+ * Copyright (C) 2026 Nuvoton Corporation
-+ *               Chi-Wen Weng <cwweng@nuvoton.com>
-+ *
-+ * Reference Manual:
-+ * https://www.nuvoton.com/resource-download.jsp?tp_GUID=DA05-MA35D16
-+ *
-+ * Limitations:
-+ * - The hardware supports 6 PWM channels.
-+ * - The hardware supports up, down and up-down counter types. This driver
-+ *   supports up-counting mode only.
-+ * - The hardware supports auto-reload and one-shot counter modes. This driver
-+ *   supports auto-reload mode only.
-+ * - The hardware supports independent and complementary output modes. This
-+ *   driver supports independent mode only. If a channel pair is already active
-+ *   in complementary mode, applying a new state to one channel fails with
-+ *   -EBUSY to avoid disturbing the paired output.
-+ * - The hardware supports period, immediate, window and center loading modes.
-+ *   This driver supports period loading mode only.
-+ * - The hardware supports programmable waveform actions at zero, period and
-+ *   compare points. This driver uses zero point high and compare-up point low
-+ *   actions for normal PWM output.
-+ * - In up-counting mode, the counter counts from 0 to PERIOD inclusive. With
-+ *   zero point high and compare-up point low actions, CMPDAT = 0 produces 0%
-+ *   duty and CMPDAT > PERIOD produces 100% duty.
-+ * - The driver limits the period to 0xffff counter cycles so that CMPDAT can
-+ *   be set greater than PERIOD to generate a 100% duty cycle.
-+ * - Period and duty cycle changes are buffered by hardware and take effect at
-+ *   the end of the current period.
-+ * - The clock prescaler is shared by each channel pair. The driver preserves
-+ *   the current prescaler and accounts for it in period and duty calculations.
-+ * - Polarity and waveform-control changes are applied directly and may cause
-+ *   a transient output change if the PWM output is running.
-+ * - When disabled, the output pin is put in tri-state by clearing POENn.
-+ */
-+
-+#include <linux/bits.h>
-+#include <linux/clk.h>
-+#include <linux/err.h>
-+#include <linux/errno.h>
-+#include <linux/io.h>
-+#include <linux/math64.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/pwm.h>
-+
-+#define MA35D1_REG_PWM_CTL0			0x00
-+#define MA35D1_REG_PWM_CTL1			0x04
-+#define MA35D1_REG_PWM_CLKPSC(ch)		(0x14 + 4 * ((ch) / 2))
-+#define MA35D1_REG_PWM_CNTEN			0x20
-+#define MA35D1_REG_PWM_PERIOD(ch)		(0x30 + 4 * (ch))
-+#define MA35D1_REG_PWM_CMPDAT(ch)		(0x50 + 4 * (ch))
-+#define MA35D1_REG_PWM_WGCTL0			0xb0
-+#define MA35D1_REG_PWM_WGCTL1			0xb4
-+#define MA35D1_REG_PWM_POLCTL			0xd4
-+#define MA35D1_REG_PWM_POEN			0xd8
-+
-+#define MA35D1_PWM_CTL0_CTRLD(ch)		BIT(ch)
-+#define MA35D1_PWM_CTL0_WINLDEN(ch)		BIT(8 + (ch))
-+#define MA35D1_PWM_CTL0_IMMLDEN(ch)		BIT(16 + (ch))
-+
-+#define MA35D1_PWM_CTL1_CNTTYPE_MASK(ch)	(0x3 << (2 * (ch)))
-+#define MA35D1_PWM_CTL1_CNTMODE_MASK(ch)	BIT(16 + (ch))
-+#define MA35D1_PWM_CTL1_OUTMODE_MASK(ch)	BIT(24 + ((ch) / 2))
-+
-+#define MA35D1_PWM_WGCTL_ACTION_MASK		0x3
-+#define MA35D1_PWM_WGCTL_ACTION(ch)		\
-+	(MA35D1_PWM_WGCTL_ACTION_MASK << (2 * (ch)))
-+#define MA35D1_PWM_WGCTL_ACTION_VAL(ch, action)	((action) << (2 * (ch)))
-+#define MA35D1_PWM_WGCTL_ACTION_LOW		1
-+#define MA35D1_PWM_WGCTL_ACTION_HIGH		2
-+
-+#define MA35D1_PWM_CLKPSC_MASK			GENMASK(11, 0)
-+#define MA35D1_PWM_DATA_MASK			GENMASK(15, 0)
-+#define MA35D1_PWM_MAX_CYCLES			0xffff
-+
-+#define MA35D1_PWM_CNTEN_EN(ch)			BIT(ch)
-+#define MA35D1_PWM_POEN_EN(ch)			BIT(ch)
-+#define MA35D1_PWM_POLCTL_INV(ch)		BIT(ch)
-+
-+#define MA35D1_PWM_NUM_CHANNELS			6
-+
-+struct nuvoton_pwm {
-+	void __iomem *base;
-+	unsigned long clkrate;
-+};
-+
-+static inline struct nuvoton_pwm *nuvoton_pwm_from_chip(struct pwm_chip *chip)
-+{
-+	return pwmchip_get_drvdata(chip);
-+}
-+
-+static inline u32 nuvoton_pwm_readl(struct nuvoton_pwm *nvtpwm,
-+				    unsigned int offset)
-+{
-+	return readl(nvtpwm->base + offset);
-+}
-+
-+static inline void nuvoton_pwm_writel(struct nuvoton_pwm *nvtpwm,
-+				      unsigned int offset, u32 value)
-+{
-+	writel(value, nvtpwm->base + offset);
-+}
-+
-+static inline void nuvoton_pwm_rmw(struct nuvoton_pwm *nvtpwm,
-+				   unsigned int offset, u32 mask, u32 value)
-+{
-+	u32 reg;
-+
-+	reg = nuvoton_pwm_readl(nvtpwm, offset);
-+	reg &= ~mask;
-+	reg |= value & mask;
-+	nuvoton_pwm_writel(nvtpwm, offset, reg);
-+}
-+
-+static bool nuvoton_pwm_channel_active(struct nuvoton_pwm *nvtpwm,
-+				       unsigned int ch)
-+{
-+	u32 cnten, poen;
-+	u32 mask = BIT(ch);
-+
-+	cnten = nuvoton_pwm_readl(nvtpwm, MA35D1_REG_PWM_CNTEN);
-+	poen = nuvoton_pwm_readl(nvtpwm, MA35D1_REG_PWM_POEN);
-+
-+	return (cnten | poen) & mask;
-+}
-+
-+static u32 nuvoton_pwm_get_prescale(struct nuvoton_pwm *nvtpwm,
-+				    unsigned int ch)
-+{
-+	return nuvoton_pwm_readl(nvtpwm, MA35D1_REG_PWM_CLKPSC(ch)) &
-+	       MA35D1_PWM_CLKPSC_MASK;
-+}
-+
-+static int nuvoton_pwm_config_channel(struct nuvoton_pwm *nvtpwm,
-+				      unsigned int ch)
-+{
-+	u32 ctl0_mask;
-+	u32 ctl1, ctl1_mask, outmode_mask;
-+	u32 wgctl0_mask, wgctl0_val;
-+	u32 wgctl1_mask, wgctl1_val;
-+
-+	outmode_mask = MA35D1_PWM_CTL1_OUTMODE_MASK(ch);
-+	ctl1 = nuvoton_pwm_readl(nvtpwm, MA35D1_REG_PWM_CTL1);
-+
-+	if ((ctl1 & outmode_mask) &&
-+	    nuvoton_pwm_channel_active(nvtpwm, ch ^ 1))
-+		return -EBUSY;
-+
-+	/*
-+	 * IMMLDENn = 0, WINLDENn = 0 and CTRLDn = 0 select period loading
-+	 * mode for up-counting operation.
-+	 */
-+	ctl0_mask = MA35D1_PWM_CTL0_IMMLDEN(ch);
-+	ctl0_mask |= MA35D1_PWM_CTL0_WINLDEN(ch);
-+	ctl0_mask |= MA35D1_PWM_CTL0_CTRLD(ch);
-+
-+	/*
-+	 * CNTTYPEn = 00: up counter type
-+	 * CNTMODEn = 0: auto-reload mode
-+	 * OUTMODEn = 0: independent mode
-+	 */
-+	ctl1_mask = MA35D1_PWM_CTL1_CNTTYPE_MASK(ch);
-+	ctl1_mask |= MA35D1_PWM_CTL1_CNTMODE_MASK(ch);
-+	ctl1_mask |= outmode_mask;
-+
-+	/*
-+	 * ZPCTLn = 10: output high at zero point
-+	 * PRDPCTLn = 00: do nothing at period point
-+	 */
-+	wgctl0_mask = MA35D1_PWM_WGCTL_ACTION(ch);
-+	wgctl0_mask |= MA35D1_PWM_WGCTL_ACTION(ch) << 16;
-+	wgctl0_val = MA35D1_PWM_WGCTL_ACTION_VAL(ch,
-+						 MA35D1_PWM_WGCTL_ACTION_HIGH);
-+
-+	/*
-+	 * CMPUCTLn = 01: output low at compare up point
-+	 * CMPDCTLn = 00: do nothing at compare down point
-+	 */
-+	wgctl1_mask = MA35D1_PWM_WGCTL_ACTION(ch);
-+	wgctl1_mask |= MA35D1_PWM_WGCTL_ACTION(ch) << 16;
-+	wgctl1_val = MA35D1_PWM_WGCTL_ACTION_VAL(ch,
-+						 MA35D1_PWM_WGCTL_ACTION_LOW);
-+
-+	nuvoton_pwm_rmw(nvtpwm, MA35D1_REG_PWM_CTL0, ctl0_mask, 0);
-+	nuvoton_pwm_rmw(nvtpwm, MA35D1_REG_PWM_CTL1, ctl1_mask, 0);
-+	nuvoton_pwm_rmw(nvtpwm, MA35D1_REG_PWM_WGCTL0,
-+			wgctl0_mask, wgctl0_val);
-+	nuvoton_pwm_rmw(nvtpwm, MA35D1_REG_PWM_WGCTL1,
-+			wgctl1_mask, wgctl1_val);
-+
-+	return 0;
-+}
-+
-+static int nuvoton_pwm_apply(struct pwm_chip *chip, struct pwm_device *pwm,
-+			     const struct pwm_state *state)
-+{
-+	struct nuvoton_pwm *nvtpwm = nuvoton_pwm_from_chip(chip);
-+	unsigned int ch = pwm->hwpwm;
-+	u64 duty_cycles, period_cycles;
-+	u64 divisor;
-+	u32 cmpdat, period, prescale;
-+	int ret;
-+
-+	if (!state->enabled) {
-+		nuvoton_pwm_rmw(nvtpwm, MA35D1_REG_PWM_POEN,
-+				MA35D1_PWM_POEN_EN(ch), 0);
-+		nuvoton_pwm_rmw(nvtpwm, MA35D1_REG_PWM_CNTEN,
-+				MA35D1_PWM_CNTEN_EN(ch), 0);
-+
-+		return 0;
-+	}
-+
-+	prescale = nuvoton_pwm_get_prescale(nvtpwm, ch);
-+	divisor = (u64)NSEC_PER_SEC * (prescale + 1);
-+
-+	period_cycles = mul_u64_u64_div_u64(nvtpwm->clkrate,
-+					    state->period, divisor);
-+	if (!period_cycles)
-+		return -EINVAL;
-+
-+	if (period_cycles > MA35D1_PWM_MAX_CYCLES)
-+		period_cycles = MA35D1_PWM_MAX_CYCLES;
-+
-+	duty_cycles = mul_u64_u64_div_u64(nvtpwm->clkrate,
-+					  state->duty_cycle, divisor);
-+	if (duty_cycles > period_cycles)
-+		duty_cycles = period_cycles;
-+
-+	ret = nuvoton_pwm_config_channel(nvtpwm, ch);
-+	if (ret)
-+		return ret;
-+
-+	if (state->polarity == PWM_POLARITY_NORMAL)
-+		nuvoton_pwm_rmw(nvtpwm, MA35D1_REG_PWM_POLCTL,
-+				MA35D1_PWM_POLCTL_INV(ch), 0);
-+	else
-+		nuvoton_pwm_rmw(nvtpwm, MA35D1_REG_PWM_POLCTL,
-+				MA35D1_PWM_POLCTL_INV(ch),
-+				MA35D1_PWM_POLCTL_INV(ch));
-+
-+	/*
-+	 * In up-counting mode the counter counts from 0 to PERIOD inclusive.
-+	 * With zero point high and compare-up point low actions:
-+	 * - CMPDAT = 0 produces 0% duty.
-+	 * - CMPDAT > PERIOD produces 100% duty.
-+	 *
-+	 * period_cycles is limited to 0xffff, so PERIOD is at most 0xfffe
-+	 * and a 100% duty cycle can be represented by CMPDAT = 0xffff.
-+	 */
-+	period = period_cycles - 1;
-+	cmpdat = duty_cycles;
-+
-+	nuvoton_pwm_writel(nvtpwm, MA35D1_REG_PWM_PERIOD(ch), period);
-+	nuvoton_pwm_writel(nvtpwm, MA35D1_REG_PWM_CMPDAT(ch), cmpdat);
-+
-+	nuvoton_pwm_rmw(nvtpwm, MA35D1_REG_PWM_POEN,
-+			MA35D1_PWM_POEN_EN(ch), MA35D1_PWM_POEN_EN(ch));
-+	nuvoton_pwm_rmw(nvtpwm, MA35D1_REG_PWM_CNTEN,
-+			MA35D1_PWM_CNTEN_EN(ch), MA35D1_PWM_CNTEN_EN(ch));
-+
-+	return 0;
-+}
-+
-+static int nuvoton_pwm_get_state(struct pwm_chip *chip, struct pwm_device *pwm,
-+				 struct pwm_state *state)
-+{
-+	struct nuvoton_pwm *nvtpwm = nuvoton_pwm_from_chip(chip);
-+	unsigned int ch = pwm->hwpwm;
-+	u32 cmpdat, cnten, period, poen, polctl, prescale;
-+	u64 duty_cycles, period_cycles;
-+	u64 prescaled_cycles;
-+
-+	cnten = nuvoton_pwm_readl(nvtpwm, MA35D1_REG_PWM_CNTEN);
-+	poen = nuvoton_pwm_readl(nvtpwm, MA35D1_REG_PWM_POEN);
-+	polctl = nuvoton_pwm_readl(nvtpwm, MA35D1_REG_PWM_POLCTL);
-+	prescale = nuvoton_pwm_get_prescale(nvtpwm, ch);
-+	period = nuvoton_pwm_readl(nvtpwm, MA35D1_REG_PWM_PERIOD(ch)) &
-+		 MA35D1_PWM_DATA_MASK;
-+	cmpdat = nuvoton_pwm_readl(nvtpwm, MA35D1_REG_PWM_CMPDAT(ch)) &
-+		 MA35D1_PWM_DATA_MASK;
-+
-+	period_cycles = period + 1;
-+	if (cmpdat > period)
-+		duty_cycles = period_cycles;
-+	else
-+		duty_cycles = cmpdat;
-+
-+	state->enabled = (cnten & MA35D1_PWM_CNTEN_EN(ch)) &&
-+			 (poen & MA35D1_PWM_POEN_EN(ch));
-+	state->polarity = (polctl & MA35D1_PWM_POLCTL_INV(ch)) ?
-+			  PWM_POLARITY_INVERSED : PWM_POLARITY_NORMAL;
-+
-+	prescaled_cycles = period_cycles * (prescale + 1);
-+	state->period = DIV64_U64_ROUND_UP(prescaled_cycles * NSEC_PER_SEC,
-+					   nvtpwm->clkrate);
-+
-+	prescaled_cycles = duty_cycles * (prescale + 1);
-+	state->duty_cycle =
-+		DIV64_U64_ROUND_UP(prescaled_cycles * NSEC_PER_SEC,
-+				   nvtpwm->clkrate);
-+
-+	return 0;
-+}
-+
-+static const struct pwm_ops nuvoton_pwm_ops = {
-+	.apply = nuvoton_pwm_apply,
-+	.get_state = nuvoton_pwm_get_state,
-+};
-+
-+static int nuvoton_pwm_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct pwm_chip *chip;
-+	struct nuvoton_pwm *nvtpwm;
-+	struct clk *clk;
-+	int ret;
-+
-+	chip = devm_pwmchip_alloc(dev, MA35D1_PWM_NUM_CHANNELS,
-+				  sizeof(*nvtpwm));
-+	if (IS_ERR(chip))
-+		return PTR_ERR(chip);
-+
-+	nvtpwm = nuvoton_pwm_from_chip(chip);
-+
-+	nvtpwm->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(nvtpwm->base))
-+		return PTR_ERR(nvtpwm->base);
-+
-+	clk = devm_clk_get_enabled(dev, NULL);
-+	if (IS_ERR(clk))
-+		return dev_err_probe(dev, PTR_ERR(clk),
-+				     "Unable to get the clock\n");
-+
-+	ret = devm_clk_rate_exclusive_get(dev, clk);
-+	if (ret)
-+		return dev_err_probe(dev, ret,
-+				     "Unable to get exclusive clock rate\n");
-+
-+	nvtpwm->clkrate = clk_get_rate(clk);
-+	if (!nvtpwm->clkrate)
-+		return dev_err_probe(dev, -EINVAL,
-+				     "PWM clock rate is zero\n");
-+
-+	if (nvtpwm->clkrate > NSEC_PER_SEC)
-+		return dev_err_probe(dev, -EINVAL,
-+				     "PWM clock out of range (%lu)\n",
-+				     nvtpwm->clkrate);
-+
-+	chip->ops = &nuvoton_pwm_ops;
-+	chip->atomic = true;
-+
-+	ret = devm_pwmchip_add(dev, chip);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Unable to add PWM chip\n");
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id nuvoton_pwm_of_match[] = {
-+	{ .compatible = "nuvoton,ma35d1-pwm" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, nuvoton_pwm_of_match);
-+
-+static struct platform_driver nuvoton_pwm_driver = {
-+	.probe = nuvoton_pwm_probe,
-+	.driver = {
-+		.name = "nuvoton-pwm",
-+		.of_match_table = nuvoton_pwm_of_match,
-+	},
-+};
-+module_platform_driver(nuvoton_pwm_driver);
-+
-+MODULE_AUTHOR("Chi-Wen Weng <cwweng@nuvoton.com>");
-+MODULE_DESCRIPTION("Nuvoton MA35D1 PWM driver");
-+MODULE_LICENSE("GPL");
--- 
-2.25.1
 
 
