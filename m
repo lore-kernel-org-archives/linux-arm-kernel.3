@@ -4,71 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F01DC44529
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 14:05:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7255EC44529
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 14:09:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PehfNGx1mNxRgN9BHnDwgkSZMR8L+TVhpX7WdRj9MNU=; b=4ppm4xaLOTr4PMZYcjBC163Z80
-	uod5ES6kvyxRrTh/xWHANjjFjt74LEol5Tv0JSELJQJ9lABcCgiXfdgT3/4SL/4k50v7mbYHyYEB7
-	4lE9wXg9ppTd9dW6m5EprgkL1p7ZHqnU4qzTM9EIva9uQ9ttifWIGbWGr/e8LVcxLqubiTQ3aJlCI
-	POhw74URY1hDK13d/gdJHvkG98lGjvoEU1JdglppyxsTimj88mNLjWPZSdDoPAxs8Q8f5W8b8c32I
-	ph6WQd6GkAVEColzxPbyCb7lizyitWiWs2H0oqcSxLlISW73puCh4FaES+KOYoQQxhk66GPhmiJJD
-	qkWddXoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BYUWYXX8kHWsBTJ72hrxX3YRBViCGluR8JguUf8yDng=; b=xWXBj0/GG3M3+MB9mv1J9dCCgf
+	Ij7KxHS6fIEozDoZG51FcIcRHCJi4KES8Li8/BxPvRClTBucYXE5vQu+ZkfE0sNYZZymdVheAbABW
+	6sSTiz74nPgMm1paXXV/qS8KqW78tJiTNcS9XdmTV/DxRXpRk7Ao81JxC+E47BZdC/W8MCrQiJVB4
+	vQmp5bWxDZSrukgXlkeZwGh4xQSQ29fQnQv2NK3vSrx0mpz40l5TSlu3GlMtoilZgnbXkemcznEaW
+	2rkouWNO9wBVGicZhvDUVzvHVddXRix4bdydkTRuNRlS8el/LjCdN2GJBA7UT96MmGSgDN0O4816z
+	Kqxph6kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmB63-00000009bZk-0NN7;
-	Tue, 21 Jul 2026 14:05:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wmB9n-00000009cVp-3Ex2;
+	Tue, 21 Jul 2026 14:09:15 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmB61-00000009bZQ-2pcG
+	id 1wmB9k-00000009cUj-409d
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 14:05:21 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0FD7540B55;
-	Tue, 21 Jul 2026 14:05:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6419C1F00A3E;
-	Tue, 21 Jul 2026 14:05:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784642720;
-	bh=PehfNGx1mNxRgN9BHnDwgkSZMR8L+TVhpX7WdRj9MNU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Uy8XuX7yCRMYpQkrkEnTlTFFoP05gHXxaeW26pKb9iOdD8MHSVa8D5G4ByzfZsfM6
-	 9AJbqCjygcqJgnZWZUNBbq+ruf5IVeYvApX3lidZePsL6Kk/xvju2mNehb6S6sIvWt
-	 qV1d5x2+uhtW/FNtzmK6ta855Emy1iqIpzdz4pwANMPK5VvI73kjGg9XR+Q7byMuw2
-	 DchREMsKibVBYYNuh9lFI2d4XpyDayyuifEBmWwaY3dyyQs3LlH3v1XPo0KYVU8vRa
-	 uUdhoi2eqinCrWXrBEcmfT6K7hRFWdyVqckoCDncK1hXVDzqmEqmyesIVaZAdyIr+D
-	 lXwKKWGrPnzgA==
-Date: Tue, 21 Jul 2026 15:05:16 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Sneh Mankad <sneh.mankad@oss.qualcomm.com>
-Cc: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Pavel Machek <pavel@kernel.org>, Len Brown <lenb@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Will Deacon <will@kernel.org>, linux-arm-msm@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2] arm64: Disallow disabling boot CPU based on config
-Message-ID: <20260721-towering-orchid-foxhound-d804bc@sudeepholla>
-References: <20260703-disable_boot_cpu_offline-v2-1-782d16ff58c3@oss.qualcomm.com>
- <20260703-competent-adaptable-coot-f8daaf@sudeepholla>
- <4b7fe7e6-2531-4d26-9085-43f40a2ce2e0@oss.qualcomm.com>
- <20260706-practical-inchworm-of-experience-d4e0ed@sudeepholla>
- <05081037-9ed8-4e0d-8480-cfa45e950727@oss.qualcomm.com>
+	Tue, 21 Jul 2026 14:09:14 +0000
+Date: Tue, 21 Jul 2026 16:09:06 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1784642948;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=BYUWYXX8kHWsBTJ72hrxX3YRBViCGluR8JguUf8yDng=;
+	b=UO4yZl2Vjoi9SqlBjRbHhx9QCqRVuzwsKHZAkO+SDTVgAnKzbfLP4wvbVcQ4e+8DMojzTW
+	3VTNO5ou5l4kNUDIcoGVJ2v3Hee7HmEZswMOk6gpPs/lPtHlqCB4l2zaNSLS8mZwCXAmNk
+	b4sd6LEZnUT8UX0N84x5lhke33FZ9S6wG2B29GpgPZB3gdPyqMu9uBE1GoScCVyEitLqvh
+	wAY4PIJjAGiCEvKMWuhZd34SaHGxEUJm3eaxZJ8zkOeYLHtZVa0IDWvOfnaPpOhERCHA8+
+	S7xvlFGmFOn3pGbssoOaQ6hcAIfZPFL3nXdGeM2MqhzgA2UwxseoYB37NNbG2Q==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1784642948;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=BYUWYXX8kHWsBTJ72hrxX3YRBViCGluR8JguUf8yDng=;
+	b=MkVwi0UUFG+WoYSc3I4962NMaTgrQGAUustqk5OEMWeCyWmGi/in+dlOYYyxjY6n+VWPG7
+	V/ZuXeGzYTr7MEAQ==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-remoteproc@vger.kernel.org, linux-rt-devel@lists.linux.dev
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Steven Rostedt <rostedt@goodmis.org>, Peng Fan <peng.fan@nxp.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Subject: [PATCH v5 REPOST] remoteproc: imx_rproc: Invoke the callback directly
+Message-ID: <20260721-imx_mbox_rproc-v5-1-6386a2cf8524@linutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <05081037-9ed8-4e0d-8480-cfa45e950727@oss.qualcomm.com>
+Content-Transfer-Encoding: quoted-printable
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3XOTW7DIBAF4KtYrEvEYAN2Vr1HFUX8DA1SbRJwL
+ EeR717qLFI17vKNZr55d5IxBcxkX91JwinkEIcSxFtF7EkPn0iDK5lwxiUTvKOhn4+9ifMxnVO
+ 0VDkB3AstvWpJOTon9GFewY/DIye8XIs7PobE6IzUxr4P476a1A7Iz94p5DGm29pjgnXxv5cTU
+ EZN672tJQKgeP8Kw3VMcQjzzuHKTfxJSFa/ELwQmjHROVsb2ektov5FgHoh6kIo1TUtAHfo7Rb
+ RPAm10aKhQKUywIRkupXwl1iW5Ru0Dv6moQEAAA==
+X-Change-ID: 20260529-imx_mbox_rproc-7d512f5a6f78
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260721_070913_146062_73B5E880 
+X-CRM114-Status: GOOD (  17.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,102 +88,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 21, 2026 at 02:58:49PM +0530, Sneh Mankad wrote:
-> 
-> 
-> On 06-Jul-26 2:46 PM, Sudeep Holla wrote:
-> > On Sat, Jul 04, 2026 at 08:43:39AM +0200, Daniel Lezcano wrote:
-> >>
-> >> Hi Sudeep,
-> >>
-> >> Le 03/07/2026 à 17:51, Sudeep Holla a écrit :
-> >>> (It is always good to cc all PSCI maintainer for any ARM64 CPU
-> >>> hotpug/suspend related changes)
-> >>>
-> >>> On Fri, Jul 03, 2026 at 04:50:02PM +0530, Sneh Mankad wrote:
-> >>>> The Qualcomm SoCs like LeMans, Monaco support suspend to ram which leads
-> >>>> the SoC to ACPI S3 similar state where SoC is turned off and DDR is
-> >>>> retained. The hardware design on these SoCs forces a constraint to suspend
-> >>>> and resume the system on boot CPU / CPU0.
-> >>>>
-> >>> And you fail to explain why they have that constraint.
-> >>>
-> > 
-> > I still need the above to understand the issue/constraint better.
-> 
-> Above mentioned SoCs have boot CPU fixed to CPU0 in HW, whenever SoC boots
-> up/cold boots it starts with CPU0.
-> 
-> These SoCs support suspend to ram which leads to ACPI S3 similar state
-> (where SoC is turned off and DDR is retained).
-> PSCI SYSTEM_SUSPEND typically will be executed on boot core itself unless it
-> is already offlined and non boot CPUs gets offlined using PSCI CPU_OFF.
-> 
-> As HW constraint always makes the SoC to boot with boot CPU, consider a
-> scenario, where
-> 
-> Boot CPU is already disabled / offline => suspend to ram is triggered => SoC
-> enters ACPI S3 similar state (only DDR is retained and rest of the SoC is
-> off).
-> <So far good>
+The imx-mailbox driver moved the callback invocation into the threaded
+IRQ handler. This means the callback is invoked in preemptible context
+and there is no need to schedule the kworker for the
+imx_rproc_notified_idr_cb() invocation.
 
-Not really, see below ...
+This was tested with the rpmsg-tty driver on imx93.
 
-> 
-> External wake up arrives (say power key press) => SoC starts booting with
-> CPU0 => CPU0 becomes first one to "land" in kernel now.
-> 
+Remove the workqueue handling and invoke the imx_rproc_notified_idr_cb()
+callback directly.
 
-Ideally the firmware could have handled it by booting/waking the suspended
-CPU and turning itself off even if it is some h/w limitation to ensure
-the firmware is PSCI spec compliant.
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
+Reviewed-by: Mathieu Poirier <mathieu.poirier@linaro.org>
+Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+---
+This change was tested on a im93 board with rpmsg-tty driver.
 
-> Kernel may later bring up other non-boot CPUs via PSCI CPU_ON calls.
-> However Kernel had already marked CPU0 as disabled/ offline but same ended
-> up in kernel without PSCI CPU_ON call.
-> 
+v4=E2=80=A6v5: https://lore.kernel.org/all/20260703-imx_mbox_rproc-v4-1-67b=
+10560a861@linutronix.de/
+  - Repost
 
-... You resumed back on a wrong CPU.
+v3=E2=80=A6v4: https://lore.kernel.org/r/20260617-imx_mbox_rproc-v3-0-77948=
+112defc@linutronix.de
+  - The mailbox bits are part of v7.2-rc1. This is just a repost of the
+    imx_rproc driver which is left.
+  =20
+v2=E2=80=A6v3: https://lore.kernel.org/r/20260603-imx_mbox_rproc-v2-0-a0059=
+dc3b69a@linutronix.de
+  - Forward the error in imx_mu_generic_tx() to the caller (new patch
+    #1)
+  - Extend the patch description a bit for for "Start splitting the IRQ
+    handler" to briefly explain why callbacks are moved to the threaded
+    handler.
+  - Drop imx_mu_con_priv::pending. The primary handler wakes its
+    threaded handler. Once the handler is woken, the pending flag must
+    be set and there is no need to set/ clear it.
+  - Avoid the double clk_disable_unprepare() if
+    devm_mbox_controller_register() fails.
 
+v1=E2=80=A6v2: https://lore.kernel.org/r/20260529-imx_mbox_rproc-v1-0-b8ffc=
+36e11e5@linutronix.de
+  - Using correct register to enable RXDB event.
+  - Update commit description for the "threaded interrupt", "unmasks the
+    interrupt" =3D> "masks the interrupt event".
+  - Add a shutdown field so that the interrupt does not unmask the
+    interrupt if it has been already disabled because the channel is
+    about to be shutdown.  A possible race mentioned by sashiko.
+  - Use devm_pm_runtime_enable(). This should avoid a possible race
+    sashiko mentioned.
+  - Use devm_of_platform_populate().
+---
+ drivers/remoteproc/imx_rproc.c | 33 +--------------------------------
+ 1 file changed, 1 insertion(+), 32 deletions(-)
 
-> To prevent this inconsistent state, before starting suspend to ram, need to
-> make sure CPU0 is always online from kernel/ disable offlining of the boot CPU.
-> 
+diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+index 7662ebd9d2f49..e18ae33a5cf85 100644
+--- a/drivers/remoteproc/imx_rproc.c
++++ b/drivers/remoteproc/imx_rproc.c
+@@ -24,7 +24,6 @@
+ #include <linux/regmap.h>
+ #include <linux/remoteproc.h>
+ #include <linux/scmi_imx_protocol.h>
+-#include <linux/workqueue.h>
+=20
+ #include "imx_rproc.h"
+ #include "remoteproc_internal.h"
+@@ -115,8 +114,6 @@ struct imx_rproc {
+ 	struct mbox_client		cl;
+ 	struct mbox_chan		*tx_ch;
+ 	struct mbox_chan		*rx_ch;
+-	struct work_struct		rproc_work;
+-	struct workqueue_struct		*workqueue;
+ 	void __iomem			*rsc_table;
+ 	struct imx_sc_ipc		*ipc_handle;
+ 	struct notifier_block		rproc_nb;
+@@ -892,21 +889,11 @@ static int imx_rproc_notified_idr_cb(int id, void *pt=
+r, void *data)
+ 	return 0;
+ }
+=20
+-static void imx_rproc_vq_work(struct work_struct *work)
+-{
+-	struct imx_rproc *priv =3D container_of(work, struct imx_rproc,
+-					      rproc_work);
+-	struct rproc *rproc =3D priv->rproc;
+-
+-	idr_for_each(&rproc->notifyids, imx_rproc_notified_idr_cb, rproc);
+-}
+-
+ static void imx_rproc_rx_callback(struct mbox_client *cl, void *msg)
+ {
+ 	struct rproc *rproc =3D dev_get_drvdata(cl->dev);
+-	struct imx_rproc *priv =3D rproc->priv;
+=20
+-	queue_work(priv->workqueue, &priv->rproc_work);
++	idr_for_each(&rproc->notifyids, imx_rproc_notified_idr_cb, rproc);
+ }
+=20
+ static int imx_rproc_xtr_mbox_init(struct rproc *rproc, bool tx_block)
+@@ -1271,13 +1258,6 @@ static int imx_rproc_sys_off_handler(struct sys_off_=
+data *data)
+ 	return NOTIFY_DONE;
+ }
+=20
+-static void imx_rproc_destroy_workqueue(void *data)
+-{
+-	struct workqueue_struct *workqueue =3D data;
+-
+-	destroy_workqueue(workqueue);
+-}
+-
+ static int imx_rproc_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev =3D &pdev->dev;
+@@ -1305,17 +1285,6 @@ static int imx_rproc_probe(struct platform_device *p=
+dev)
+ 		priv->ops =3D dcfg->ops;
+=20
+ 	dev_set_drvdata(dev, rproc);
+-	priv->workqueue =3D create_workqueue(dev_name(dev));
+-	if (!priv->workqueue) {
+-		dev_err(dev, "cannot create workqueue\n");
+-		return -ENOMEM;
+-	}
+-
+-	ret =3D devm_add_action_or_reset(dev, imx_rproc_destroy_workqueue, priv->=
+workqueue);
+-	if (ret)
+-		return dev_err_probe(dev, ret, "Failed to add devm destroy workqueue act=
+ion\n");
+-
+-	INIT_WORK(&priv->rproc_work, imx_rproc_vq_work);
+=20
+ 	ret =3D imx_rproc_xtr_mbox_init(rproc, true);
+ 	if (ret)
 
-At least not in the way this patch does. Kconfig is not an option. Why is
-the firmware not handling it properly ? Just resuming random CPU into the
-kernel is firmware bug which either needs to be handled as f/w errata
-or good if the firmware can be fixed.
+---
+base-commit: b3f94b2b3f3e51ab880a51fc6510e1dafba654ed
+change-id: 20260529-imx_mbox_rproc-7d512f5a6f78
 
-> Although the HW constraint needs boot CPU to be online only when suspend to
-> ram is triggered, current patch disallows disabling it for simplicity.
-> 
-
-That's very strange, so it sounds like not a real h/w constrain to make CPU0
-as non-hotpluggable. PSCI CPU_SUSPEND resume path must handle wake up on
-wrong CPU correctly and land/resume on the correct CPU in the kernel.
-
-> > 
-> >>> Is it because some secure context is not allowed to migrate ?
-> >>>
-> >>> We already have a mechanism for that in place and this hack is not at all
-> >>> required.
-> >> Do you mean a mechanism for the secure context or for preventing CPU0 ?
-> >>
-> > 
-> > I meant constraint based on secure context.
-> > 
-> 
-> This is not because secure context not allowed to migrate but above
-> mentioned HW constraints.
-> 
-
-Sure not secure context related but a HW constraint that secure/PSCI
-firmware ignored to handle correctly.
-
-Fix the firmware or explore ways to handle it as FW errata.
-
--- 
-Regards,
-Sudeep
+Best regards,
+--=20
+Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 
