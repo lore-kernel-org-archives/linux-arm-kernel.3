@@ -4,70 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7C4AC44529
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 15:22:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 576D8C44529
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 15:23:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0TpjLEXDmd8yMLKrZKV9qktD23ILxoEaw506gl0VLDE=; b=RNUbk+XFaDzQSYgCZNfSEuQWKs
-	NhlpTNdg9epT2Ud9yq7K2IOqi3MSDLmJkc+2tRKAmeOxBAgN8H5kcFMJYFZ/3kNaONVxNtez1XO7R
-	wIIES1FrZyGt+QCSLgKRGhkXfqqUHX/+12q1IPAoKrDhDoJBL5jrlm8Ib5ejWUglJqcoK7iSxBcfF
-	i6PfC2Dl4T7Fwtqst+gKWUogzYOHiItHkg9jyxPFud9I61zsPSgDYMcFLU+z6yJdkVqiTz4bF/+H6
-	eE9WgNhJwCHfFfOYzs1qUm+HGrOwzhcNZrclDi/83GH5X2ZrQSuFZq5FwMpR3kYAYk6FP++7YU1/1
-	gPwV+pAA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9eXHmL2FrSSPACEJW/ZdN2+RZSdHtJBbjO91JeCFP0A=; b=Id/GdWeTeo2Gqm/vpLUQ7PcDH/
+	1VkznYjVCjRYGo2J2jK01ziKLnNlotcHbeAurz+HBx0X9/d+YtinIkn811ylKJ51Y1c9PkK4JezE2
+	eCREvs8OLd1jevgCrvDbM5FOQioXVA++D6y7aw/7JJEA+argBj38BHcexIzqUhYVeG1UJnviuKk89
+	P+cf08gEupQ2eLlKio3iZITSww/R2aUWVEtBvQ6a0nuk2in5Bv3F6103do6vGSUB2lAwDL4s3tFSZ
+	hmLAJ4y1fJADWTSv4ySmbWYOauSqfHq3e4UaxgS6OB0zbcSGuigm9qWwHqFJntM0b5Q5gh7mklhg/
+	okE8Y0hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmCIu-00000009n8w-31aM;
-	Tue, 21 Jul 2026 15:22:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmCIs-00000009n8P-0QRl
+	id 1wmCJE-00000009nDx-3wN0;
+	Tue, 21 Jul 2026 15:23:04 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmCJ5-00000009nBN-2tK7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 15:22:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D90B4152B;
-	Tue, 21 Jul 2026 08:22:36 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EB6B43F58B;
-	Tue, 21 Jul 2026 08:22:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784647361; bh=ebC/KIEEoNmoB2LEHpuG7uefGwo6M6AiHFPKN8Met2Q=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Ycj3DZbj847kTPAxwJhBzvfoukDVrAiT1VmAJT/yy9IzWzXwRYTIsSj3/Fw1zu8vr
-	 Fn4Qwmaz32lEQkRbF6XDJDv3iqDy6L7AvEZ7nUIYqU+g6pe+GiEanoDYmijTYfet/2
-	 resCUEeLHD+AIs0N73DPsB2jl539HR0JN0qUKxv0=
-Message-ID: <e00593bb-acc3-4e1d-967b-7102259d556b@arm.com>
-Date: Tue, 21 Jul 2026 17:22:39 +0200
+	Tue, 21 Jul 2026 15:23:00 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-38e347638adso6575037a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 08:22:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1784647372; x=1785252172; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=9eXHmL2FrSSPACEJW/ZdN2+RZSdHtJBbjO91JeCFP0A=;
+        b=ZwE1sRgr2O/d6uPNTKtXgpcEXOAdFxv1jtQdJr9g62D8h+KonH2XJgOE9/xJJSPyUz
+         dBPJhTKFjBiKZmRZsPnMImZ1ls4MigCFPRXjStKV2t1IMYw8VGWDXp1kxK2xRY5oqK2G
+         BB5f7zerxFmMI0xXhPLI5GIq10JvBApS6wL/yB6FWmOgNR0ukon+VMaFD1IakBeON/3h
+         s2A2N+BcRtJOkkvTyN+P3rTS35zYGDAC9xDUkF9DHeqgg03ZTqhKB9s9RlLLJTR9oO5n
+         3VgsNFf+KXN+hSN3wLKRoC+fGqX2CIRIfFV3Brz5tvnPxEcfBcIbDdKnh+zBoeWFzGV5
+         lcUw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784647372; x=1785252172;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=9eXHmL2FrSSPACEJW/ZdN2+RZSdHtJBbjO91JeCFP0A=;
+        b=m03sfsWR4bWhTbTx/Fsq5FYbL9xXW5S5j7vIKPFSdbIFC57o1iD6EOmU2rwX9zC0wm
+         03P9tvLwGN55NmOeFx7OFz+LPY0tyjVnf/WbQAzRwzPlBpWXz90Dm2DooCWRFQdUL/PZ
+         TiN7vmdu92U0wZGcBjG6kWXPuHBSejdETiKnwDikN55Jj4sJYUW4bEqZVnj+i057mrSP
+         V+eHMIMBSgt4WKcdMaCjWRExlOYOaUeAtakmdGRNKll+nyUFQGvb6LvswzkMr2ZGl5T6
+         IvKiIT3d/U6itxboNRieZ/uF9QqtpUQgYqExoCFXUUzTl8hwaIwSS73sjYOTexggod2z
+         e6tA==
+X-Forwarded-Encrypted: i=1; AHgh+RpTID5Xy05uF2ZEvAo3Umu6CTTtdCIBBIo8RExJciMUYRX0XapcotxPesvboCOcbkvEdMHZsBgM/rXMSeHkPOiF@lists.infradead.org
+X-Gm-Message-State: AOJu0YznuTbNAayun+STawSFsJl0z/0E69ko3BnTiMzVuaUDEukWqlQh
+	VeiodpL0ZEfhCFVG/UhrwFPeN3gLKcJe0w66TCjXDb12JjjQczFtqvg=
+X-Gm-Gg: AR+sD11L4YR8Aq1ed9HyBl4J3ta1pGKy4OHof6MMw0gh9xWlemDFmcbzxfUmQsFObqd
+	2aci5USPp9+rEI6Ml+u2dqStpTDvRjEVXkFRru5Dvn4V37OAk9iRBXuQn/ywH0E6KDHGH58q+ru
+	Y9u2LbvUmsc9Ncg0E4vimTlD52ASNOx9Fq9+eaYtipZUx/qVcVlwj1OebAXqnge+IkR5aBHSBnV
+	f74ogwPLDPNAj6NkugrCceMX/T/q4ZRfEaTL031UQuTCu+kVa1EYNqIFpXcpRWsbOC5teE+0vfp
+	HlYJjLaw/rruKrBg6m3GllSI8eJ3clkze9PijPDuHFXXWFm626RUfuuZ92B/SmQT541qOPy5bsG
+	denLGqztNAHpDMD12Ay+PU+bX2EV1DoAnHW/VzcH4NHO3GYk/CF4Ut0wnGNOGzMOI01cQc5liA0
+	CT/rgp3PqWHlHx7Et3Cn/BxwdF21DBhVDb7tNIlgx9QG8k03aPOwJVpFBKv2jHfC/N2Qllgn1IQ
+	z0dWdbI9n2YT5AaYtN/tGxD2XD6Qa7zV/6eoQR/
+X-Received: by 2002:a17:90b:1c02:b0:38e:2aa8:60d0 with SMTP id 98e67ed59e1d1-38e4b586067mr20371153a91.37.1784647371935;
+        Tue, 21 Jul 2026 08:22:51 -0700 (PDT)
+Received: from localhost.localdomain ([14.5.152.27])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38e60cc2ad5sm1402904a91.4.2026.07.21.08.22.47
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 21 Jul 2026 08:22:51 -0700 (PDT)
+From: Myeonghun Pak <mhun512@gmail.com>
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>
+Cc: David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Myeonghun Pak <mhun512@gmail.com>,
+	Ijae Kim <ae878000@gmail.com>
+Subject: [PATCH] drm/mediatek: ovl_adaptor: balance component registrations
+Date: Wed, 22 Jul 2026 00:22:42 +0900
+Message-Id: <20260721152242.47138-1-mhun512@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 13/16] arm_mpam: prepare mon_sel locking for MPAM-Fb
-To: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu
- <fenghuay@nvidia.com>, Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260710144520.917375-1-andre.przywara@arm.com>
- <20260710144520.917375-14-andre.przywara@arm.com>
- <20260710121433.00001ad6@oss.qualcomm.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20260710121433.00001ad6@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_082242_237536_DA887A94 
-X-CRM114-Status: GOOD (  19.55  )
+X-CRM114-CacheID: sfid-20260721_082259_245873_F2493F3C 
+X-CRM114-Status: GOOD (  16.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,54 +106,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The OVL adaptor registers both an aggregate driver for its child devices
+and a component for the main DRM aggregate. Probe currently ignores an
+error from registering the child aggregate and leaves that aggregate
+registered if registering the DRM component fails. The remove callback
+also leaves the DRM component registered.
 
-On 7/10/26 21:14, Jonathan Cameron wrote:
-> On Fri, 10 Jul 2026 16:45:17 +0200
-> Andre Przywara <andre.przywara@arm.com> wrote:
-> 
->> The MSC MON_SEL register needs to be accessed from hardirq for the overflow
->> interrupt, and when taking an IPI to access these registers on platforms
->> where MSC are not accesible from every CPU. This makes an irqsave
->> spinlock the obvious lock to protect these registers. On systems with SCMI
->> mailboxes it must be able to sleep, meaning a mutex must be used. The
->> SCMI platforms can't support an overflow interrupt.
->> Clearly these two can't exist for one MSC at the same time.
->>
->> Change the mon_sel locking wrapper function to only use a spinlock when
->> the MSC is accessed directly via MMIO. In case of MPAM-Fb, we use a
->> mutex, but only if we are in a sleepable context. If that's not the
->> case, we return an error. This should not happen, as MPAM-Fb by design
->> does not require an MSC access to happen from a specific CPU, so there
->> is no need for any IPIs or preemption disabling to satisfy CPU
->> constraints. And since overflow interrupts are not supported at the moment
->> anyway, we also wouldn't meet the other case.
->>
->> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> 
-> I've not been paying attention to this topic, so I might come back
-> with some more feedback after I've had time to think about it a bit!
-> So trivial stuff only for now.
-> 
->>   
->>   static inline void mpam_mon_sel_lock_init(struct mpam_msc *msc)
->>   {
->>   	raw_spin_lock_init(&msc->_mon_sel_lock);
->> +	mutex_init(&msc->mon_sel_mutex);
-> 
-> I'm not that fussed, but maybe add a call to mutex_destroy().
-> Most likely it'll never help catch anything in this code though..
+These imbalances can leave component framework entries referring to a
+device whose probe failed or whose driver has been detached. The aggregate
+unbind callback also fails to undo component_bind_all(), leaving its child
+components marked as bound when the aggregate is removed.
 
-I figured I can follow the rest of the code and extract the dev pointer 
-from struct mpam_msc, then use devm_mutex_init().
+Check the aggregate registration result, unwind it when the component
+registration fails, and unregister the component before the aggregate on
+remove. Keep runtime PM enabled until both framework registrations have
+been removed, and unbind all child components from the aggregate unbind
+callback.
 
-Cheers,
-Andre
+Fixes: 453c3364632a ("drm/mediatek: Add ovl_adaptor support for MT8195")
+Cc: stable@vger.kernel.org # 6.4+
+Co-developed-by: Ijae Kim <ae878000@gmail.com>
+Signed-off-by: Ijae Kim <ae878000@gmail.com>
+Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
+---
+ drivers/gpu/drm/mediatek/mtk_disp_ovl_adaptor.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-> 
->>   }
->>   
->>   /* Bits for mpam features bitmaps */
-> 
-
+diff --git a/drivers/gpu/drm/mediatek/mtk_disp_ovl_adaptor.c b/drivers/gpu/drm/mediatek/mtk_disp_ovl_adaptor.c
+index c0af3e3b5..6a259872b 100644
+--- a/drivers/gpu/drm/mediatek/mtk_disp_ovl_adaptor.c
++++ b/drivers/gpu/drm/mediatek/mtk_disp_ovl_adaptor.c
+@@ -625,6 +625,7 @@ static void mtk_disp_ovl_adaptor_master_unbind(struct device *dev)
+ 	struct mtk_disp_ovl_adaptor *priv = dev_get_drvdata(dev);
+ 
+ 	priv->children_bound = false;
++	component_unbind_all(dev, priv->mmsys_dev);
+ }
+ 
+ static const struct component_master_ops mtk_disp_ovl_adaptor_master_ops = {
+@@ -651,12 +652,15 @@ static int mtk_disp_ovl_adaptor_probe(struct platform_device *pdev)
+ 
+ 	priv->mmsys_dev = pdev->dev.platform_data;
+ 
+-	component_master_add_with_match(dev, &mtk_disp_ovl_adaptor_master_ops, match);
++	ret = component_master_add_with_match(dev, &mtk_disp_ovl_adaptor_master_ops, match);
++	if (ret)
++		return dev_err_probe(dev, ret, "Failed to add component master\n");
+ 
+ 	pm_runtime_enable(dev);
+ 
+ 	ret = component_add(dev, &mtk_disp_ovl_adaptor_comp_ops);
+ 	if (ret != 0) {
++		component_master_del(dev, &mtk_disp_ovl_adaptor_master_ops);
+ 		pm_runtime_disable(dev);
+ 		return dev_err_probe(dev, ret, "Failed to add component\n");
+ 	}
+@@ -666,6 +670,7 @@ static int mtk_disp_ovl_adaptor_probe(struct platform_device *pdev)
+ 
+ static void mtk_disp_ovl_adaptor_remove(struct platform_device *pdev)
+ {
++	component_del(&pdev->dev, &mtk_disp_ovl_adaptor_comp_ops);
+ 	component_master_del(&pdev->dev, &mtk_disp_ovl_adaptor_master_ops);
+ 	pm_runtime_disable(&pdev->dev);
+ }
+-- 
+2.51.0
 
