@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D67AC4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 17:53:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1DF9C4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 17:53:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dbDnIuCYljj0Jx+8GGc5CGjw5lV4yfsHzC+q167KMG8=; b=Z3e8WbcaszibkPp67+XYTZSeDu
-	pdf3b8uitrKPP3kVR7BeYof5HUyt0Ag4HM74TNWzSFFe7RuOsVqDZEoUxjAO9ozUJV6HyvIHC5vEW
-	epjazCRF9xWpuIGut9RkV4I4z8iAv/fbTgV3deLfQNjx2R/yddk/AVbUOPSibhXH+sPRY5N5AHeV2
-	FFNUwRlMtoNEXR04mreyQcr58UHmtMT4p2JKeoIyjUxkgD7dwdAPGzGE59MfQ/z1P2MoMEk6aIEUW
-	Hcv2f0wu312kiCxJAVGoTifhv3Oqbc+m5seWGXQ4LuIlSbgA+feHEQ87/jkq8NRAfcfnHw1VPbvV9
-	hERkKTOQ==;
+	bh=3LPTMVMKOjUCgDgh3m94FN7XGhky6Xin9zMpY87f7nI=; b=WsVSUOGYZIICjuqjPMUy5XipDx
+	AuL8GWM9nNOuHE+AV9P/rExwdMtF/G00si+O5dj0h77YQePnUiaHHxkFuvye/mpsBRnyAbJUckSVM
+	/upTHFWI70eNxBMO0Gn8AwmT7R6BUHod8nGuFXJmwfyZNsX/TvUEJ2PmyVvoUUw2QOVxiAeVKhQlU
+	kudtKQym+OARhF2j9wcy1aOGSzMJprl+5aqBB6jT3sf8sHiotf4HS1O6eAIdXWcATGTgsgJzQjk6o
+	qKLVO68cWhvFQMc1+8+k9nFTCYuQtOWQq4i5zWy79bjQd7hTSTVcYGayb9SVafcwLLdbDilriJPol
+	ZFMNT+UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmEeC-0000000A70F-2tdX;
-	Tue, 21 Jul 2026 17:52:52 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wmEeB-0000000A6yP-3aiM;
+	Tue, 21 Jul 2026 17:52:51 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmEe5-0000000A6rU-0baO;
-	Tue, 21 Jul 2026 17:52:46 +0000
+	id 1wmEe1-0000000A6pe-1Aav;
+	Tue, 21 Jul 2026 17:52:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1784656358;
-	bh=h/vP808z57itzBffi+4n3/LdT4xUEfCGic2h67w1n2U=;
+	bh=oiWWXRm0/cQ/tnB5PbRJ+mS8OTFZDOErXBKz7hNNENs=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=J1wEpj8bDiXezNHaQaCUgbd9CLNpee8W9pni7uPMbUuyjaEm3LJnJNHmegYTp+AY1
-	 9mOCmVK7mI+LPIgTmg6ZEudI0alssJLp74UGpScz1DrG+jkUwzXkh97gc157cSBBCi
-	 ANBrzQe/ubojqdwhQC0fn5DkuPC0yfDGAXGzjlbpZ9/iuKoMPOLlAHNO9qiJx0vXUY
-	 0LmXiFiV/+gOaJm3FTZ9iW0rpC827I5Zqta/3G5K5n6EHsBmYu7PNC+IUgHoU/45dM
-	 9AL6FOvNBLDqY6ihcunQkBXdQ4OaOwaEYghSVgbtq+1+yVtppMQHe5oeDNtliNLqrg
-	 gm8D9lPKeQCyQ==
+	b=H5bAbQvewlB4XdutPGbj6v8Dr3pN62frIKGpnVKcOpZXrre9fpvszlLZI2pF1I7GD
+	 vqgLlkVhQnBW0G1LOwbpkpP6nUpe+6gRJprAOe4L4eOkNcH8eEVfqKzWezAkODr+03
+	 zev7ByXxzR53mS8MME++MWfjHfz1HQTNdtm6i9VoIHiXwQtDLEbWaAEMNV5LBFimOU
+	 feaJEE9cqIuP9WiUAJyqj+oXShHJK97PYlll424S4Q+jeRMSQZ7HlwenrvaI1WOcLZ
+	 vmOa43D1W8J0ugbt6vR/juA/z4+8lCkbr/9500y4fbum/a08L/zKZat9sgBN6L83Vv
+	 p0OTCSH8libYQ==
 Received: from jupiter.universe (unknown [100.64.1.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 52B3717E1274;
-	Tue, 21 Jul 2026 19:52:38 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E210917E0FD2;
+	Tue, 21 Jul 2026 19:52:37 +0200 (CEST)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id A3A6248002B; Tue, 21 Jul 2026 19:52:37 +0200 (CEST)
+	id 966E748002C; Tue, 21 Jul 2026 19:52:37 +0200 (CEST)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Tue, 21 Jul 2026 19:52:40 +0200
-Subject: [PATCH v4 10/10] drm/bridge: synopsys: dw-dp: Add audio support
+Date: Tue, 21 Jul 2026 19:52:32 +0200
+Subject: [PATCH v4 02/10] drm/bridge: synopsys: dw-dp: Support
+ MEDIA_BUS_FMT_FIXED
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260721-synopsys-dw-dp-improvements-v4-10-f0f4a4ede712@collabora.com>
+Message-Id: <20260721-synopsys-dw-dp-improvements-v4-2-f0f4a4ede712@collabora.com>
 References: <20260721-synopsys-dw-dp-improvements-v4-0-f0f4a4ede712@collabora.com>
 In-Reply-To: <20260721-synopsys-dw-dp-improvements-v4-0-f0f4a4ede712@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
@@ -76,26 +77,26 @@ Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
  linux-arm-kernel@lists.infradead.org, 
  Sebastian Reichel <sebastian.reichel@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=9650;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1544;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=h/vP808z57itzBffi+4n3/LdT4xUEfCGic2h67w1n2U=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpfseXGQk5W9W62hm+ShpsQwwWj5+zYkCZei
- r7vX2dsFjFScYkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqX7HlAAoJENju1/PI
- O/qaamgP/RlqYJ/ZjRn1LUc6VQJVCqCgFKD8JNkRR35jxN8ie5yyFf1nZzMlP5SApseijKXqXC3
- Phi53qMpVN7KWc5qkfaT94rQrRj7HfA3P/CVC50Yq0JulyTkPiOjBugWGBZky9O42X9Mi7/DOkI
- zeKNzamPNWeuLZ0TucGzR2cXxFwe2hmTmgwkuZosoAELSmN928RM3qG32Tir5YzRFA66jIXhG9c
- 0m2i55lJ8knW+EKnVVJDS+2vEKheYMyt/HSvM1ND0ZgO+FjPsaKVtSHhQ76dgiUxdZRQh5wHecR
- 0BMh8BWaU+aFKXom5Z6b6CMgwR+58GerXXCBREvsy8Y3oA0tsU6PHf6mHSTf9+1WgmnnpyXmY9c
- t4yY/xy7O+HIZqbdKIZw588CfV1UM6AVFiCQKek0zFDjsMeB6526OsGjF7e60vc1f76FNVj/ROZ
- sPfrAgKmgmglSdVJeMFEbtorZpt2iP2B/LtN7lErHNYZPNFzpwhphXV0ZYCNvYlSSchZGIvIOf+
- vxWB++QUUwpE/7jMdsS7MQZW6CTc/irEg/ICuQNpi/4oYQ9h2dBXneReI6DwV1YcUl6pUop3+6S
- PPNdaL87Sqz+L1rBaMZGZxcgabDu/bnYGE3XUAI10wa+bfzBeVIZEdl1g86CznF0j9cTEdMUw1W
- N+GBS67JQQ4T7L7+0EIYyDw==
+ bh=oiWWXRm0/cQ/tnB5PbRJ+mS8OTFZDOErXBKz7hNNENs=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpfseWaZo8u4YM2fcGoridEgdNIEiwuvkpuW
+ 7qpmL+Fr0D/aokCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqX7HlAAoJENju1/PI
+ O/qa6dYP/ifbvNSK+yxLY4zkGyIr/SbYIGC3zGQmLlpTPrmaxm1F/+iN6leUD9VYQumBG4zJt8i
+ t6I/C9H3TvZgFbE3iEC6PxP2LwPw5wUJJlkSfmbR0HEmpeIZqcDpT+mB90BnuAtihlUuzo1ewzA
+ +mPE8tsXvyWBE/Zob6hhimfZTRSsyaAotMb6DQNq3E4upaduciBUCEaO8+MdxrFeekhWezJQU4E
+ SW7xXJAj8SCxogvIzgB4wlsAhZMV8/SSiWaNSfeuAW9W8E8cW8C27TgGDOUCU+PsphCsUIy7Unz
+ USs4PhA2ggY+iabsEH+aR1+WP0x01G69wQg7snBr8QEbAkXFgpZhbuGh6RF6Ye1B7HN5sqtHp1o
+ b9ogXebJiAAP4i5xDmW2dox+8FDEmdMGzfZ2Fzj4iUMJfcrTr9hLrgktGx6KXnt93bVly8VKp0z
+ vNxZBrd/3ykGyA4WM/4cLDrqyaBrkLlRux1Qh8rCKeKG7O97rgd55owO06bdO8L0s4DBHD0+bC8
+ ITRzrzO1eM+ElpKnBMc3kSt9BIby9qJCEEPG7V5VZmS53+aGN1hxnAV3UySRPY4e0j8ms7zHaD2
+ J8HqPB5LMw4xmpKjcCoWN8Pn1bw6Py/W57Ar8ez3652NncpS+JNqAEALlPPLGvvRXrwuv/HI3za
+ TASCKJSP3MWU0mrsD4UwxEw==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_105245_350836_1DF1269E 
-X-CRM114-Status: GOOD (  22.65  )
+X-CRM114-CacheID: sfid-20260721_105241_492363_4C9345D0 
+X-CRM114-Status: GOOD (  13.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,318 +111,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement audio support for the Synopsys DesignWare DisplayPort
-controller.
+Add support for MEDIA_BUS_FMT_FIXED, which is e.g. requested for USB-C
+DP chains as the last bridge in the chain (aux-hpd-bridge) does not
+implement atomic_get_output_bus_fmts(), which results in the generic
+drm_atomic_bridge_chain_select_bus_fmts() code using MEDIA_BUS_FMT_FIXED
+instead.
 
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- drivers/gpu/drm/bridge/synopsys/dw-dp.c | 230 +++++++++++++++++++++++++++++++-
- 1 file changed, 229 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/bridge/synopsys/dw-dp.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index 636b9e105297..8d6a52135e54 100644
+index 368e1f85e625..aca6816febe6 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-@@ -23,17 +23,21 @@
- #include <drm/drm_bridge.h>
- #include <drm/drm_bridge_connector.h>
- #include <drm/display/drm_dp_helper.h>
-+#include <drm/display/drm_hdmi_audio_helper.h>
- #include <drm/drm_edid.h>
- #include <drm/drm_of.h>
- #include <drm/drm_print.h>
- #include <drm/drm_probe_helper.h>
- #include <drm/drm_simple_kms_helper.h>
+@@ -1528,6 +1528,7 @@ static int dw_dp_bridge_atomic_check(struct drm_bridge *bridge,
+ 				     struct drm_connector_state *conn_state)
+ {
+ 	struct drm_display_mode *adjusted_mode = &crtc_state->adjusted_mode;
++	unsigned int out_bus_format = bridge_state->output_bus_cfg.format;
+ 	struct dw_dp *dp = bridge_to_dp(bridge);
+ 	struct dw_dp_bridge_state *state;
+ 	const struct dw_dp_output_format *fmt;
+@@ -1538,7 +1539,10 @@ static int dw_dp_bridge_atomic_check(struct drm_bridge *bridge,
+ 	state = to_dw_dp_bridge_state(bridge_state);
+ 	mode = &state->mode;
  
-+#include <sound/hdmi-codec.h>
+-	fmt = dw_dp_get_output_format(bridge_state->output_bus_cfg.format);
++	if (out_bus_format == MEDIA_BUS_FMT_FIXED)
++		out_bus_format = MEDIA_BUS_FMT_RGB888_1X24;
 +
- #define DW_DP_VERSION_NUMBER			0x0000
- #define DW_DP_VERSION_TYPE			0x0004
- #define DW_DP_ID				0x0008
++	fmt = dw_dp_get_output_format(out_bus_format);
+ 	if (!fmt)
+ 		return -EINVAL;
  
- #define DW_DP_CONFIG_REG1			0x0100
-+#define AUDIO_SELECT				GENMASK(2, 1)
- #define DW_DP_CONFIG_REG2			0x0104
- #define DW_DP_CONFIG_REG3			0x0108
- 
-@@ -110,6 +114,10 @@
- #define HBR_MODE_ENABLE				BIT(10)
- #define AUDIO_DATA_WIDTH			GENMASK(9, 5)
- #define AUDIO_DATA_IN_EN			GENMASK(4, 1)
-+#define AUDIO_DATA_IN_EN_CHANNEL12		BIT(0)
-+#define AUDIO_DATA_IN_EN_CHANNEL34		BIT(1)
-+#define AUDIO_DATA_IN_EN_CHANNEL56		BIT(2)
-+#define AUDIO_DATA_IN_EN_CHANNEL78		BIT(3)
- #define AUDIO_INF_SELECT			BIT(0)
- 
- #define DW_DP_SDP_VERTICAL_CTRL			0x0500
-@@ -253,6 +261,8 @@
- 
- #define SDP_REG_BANK_SIZE			16
- 
-+#define DW_DP_SDP_VERSION			0x12
-+
- struct dw_dp_link_caps {
- 	bool enhanced_framing;
- 	bool tps3_supported;
-@@ -305,6 +315,19 @@ struct dw_dp_hotplug {
- 	bool long_hpd;
- };
- 
-+enum dw_dp_audio_interface_support {
-+	DW_DP_AUDIO_I2S_ONLY = 0,
-+	DW_DP_AUDIO_SPDIF_ONLY = 1,
-+	DW_DP_AUDIO_I2S_AND_SPDIF = 2,
-+	DW_DP_AUDIO_NONE = 3,
-+};
-+
-+enum dw_dp_audio_interface {
-+	DW_DP_AUDIO_I2S = 0,
-+	DW_DP_AUDIO_SPDIF = 1,
-+	DW_DP_AUDIO_UNUSED,
-+};
-+
- struct dw_dp {
- 	struct drm_bridge bridge;
- 	struct device *dev;
-@@ -320,6 +343,8 @@ struct dw_dp {
- 	int irq;
- 	struct work_struct hpd_work;
- 	struct dw_dp_hotplug hotplug;
-+	enum dw_dp_audio_interface audio_interface;
-+	int audio_channels;
- 	/* Serialize hpd status access */
- 	struct mutex irq_lock;
- 
-@@ -1846,6 +1871,195 @@ static void dw_dp_bridge_oob_notify(struct drm_bridge *bridge,
- 		dev_err_once(dp->dev, "Missing platform handler for OOB HPD handling\n");
- }
- 
-+static int dw_dp_audio_infoframe_send(struct dw_dp *dp)
-+{
-+	struct hdmi_audio_infoframe frame;
-+	struct dw_dp_sdp sdp;
-+	int ret;
-+
-+	ret = hdmi_audio_infoframe_init(&frame);
-+	if (ret < 0)
-+		return ret;
-+
-+	frame.coding_type = HDMI_AUDIO_CODING_TYPE_STREAM;
-+	frame.sample_frequency = HDMI_AUDIO_SAMPLE_FREQUENCY_STREAM;
-+	frame.sample_size = HDMI_AUDIO_SAMPLE_SIZE_STREAM;
-+	frame.channels = dp->audio_channels;
-+
-+	ret = hdmi_audio_infoframe_pack_for_dp(&frame, &sdp.base, DW_DP_SDP_VERSION);
-+	if (ret < 0)
-+		return ret;
-+
-+	sdp.flags = DW_DP_SDP_VERTICAL_INTERVAL;
-+
-+	return dw_dp_send_sdp(dp, &sdp);
-+}
-+
-+static int dw_dp_audio_startup(struct drm_bridge *bridge,
-+			       struct drm_connector *connector)
-+{
-+	struct dw_dp *dp = bridge_to_dp(bridge);
-+
-+	dev_dbg(dp->dev, "audio startup\n");
-+
-+	return pm_runtime_resume_and_get(dp->dev);
-+}
-+
-+static void dw_dp_audio_unprepare(struct drm_bridge *bridge,
-+				  struct drm_connector *connector)
-+{
-+	struct dw_dp *dp = bridge_to_dp(bridge);
-+
-+	/* Disable all audio streams */
-+	regmap_update_bits(dp->regmap, DW_DP_AUD_CONFIG1, AUDIO_DATA_IN_EN,
-+			   FIELD_PREP(AUDIO_DATA_IN_EN, 0));
-+
-+	if (dp->audio_interface == DW_DP_AUDIO_SPDIF)
-+		clk_disable_unprepare(dp->spdif_clk);
-+	else if (dp->audio_interface == DW_DP_AUDIO_I2S)
-+		clk_disable_unprepare(dp->i2s_clk);
-+
-+	dp->audio_interface = DW_DP_AUDIO_UNUSED;
-+}
-+
-+static int dw_dp_audio_prepare(struct drm_bridge *bridge,
-+			       struct drm_connector *connector,
-+			       struct hdmi_codec_daifmt *daifmt,
-+			       struct hdmi_codec_params *params)
-+{
-+	struct dw_dp *dp = bridge_to_dp(bridge);
-+	u8 audio_data_in_en, supported_audio_interfaces;
-+	enum dw_dp_audio_interface audio_interface;
-+	u32 cfg1;
-+	int ret;
-+
-+	/*
-+	 * prepare might be called multiple times, so release the clocks
-+	 * from previous calls to keep the calls in balance.
-+	 */
-+	if (dp->audio_interface != DW_DP_AUDIO_UNUSED)
-+		dw_dp_audio_unprepare(bridge, connector);
-+
-+	dp->audio_channels = params->cea.channels;
-+	switch (params->cea.channels) {
-+	case 1:
-+	case 2:
-+		audio_data_in_en = AUDIO_DATA_IN_EN_CHANNEL12;
-+		break;
-+	case 8:
-+		audio_data_in_en = AUDIO_DATA_IN_EN_CHANNEL12 |
-+				   AUDIO_DATA_IN_EN_CHANNEL34 |
-+				   AUDIO_DATA_IN_EN_CHANNEL56 |
-+				   AUDIO_DATA_IN_EN_CHANNEL78;
-+		break;
-+	default:
-+		dev_err(dp->dev, "invalid audio channels %d\n", dp->audio_channels);
-+		return -EINVAL;
-+	}
-+
-+	switch (daifmt->fmt) {
-+	case HDMI_SPDIF:
-+		audio_interface = DW_DP_AUDIO_SPDIF;
-+		break;
-+	case HDMI_I2S:
-+		/*
-+		 * It is recommended to use SPDIF instead of I2S, since I2S mode requires
-+		 * manually inserting PCUV control bits from userspace and this is done
-+		 * automatically in hardware for SPDIF mode.
-+		 */
-+		audio_interface = DW_DP_AUDIO_I2S;
-+		break;
-+	default:
-+		dev_err(dp->dev, "invalid DAI format %d\n", daifmt->fmt);
-+		return -EINVAL;
-+	}
-+
-+	regmap_read(dp->regmap, DW_DP_CONFIG_REG1, &cfg1);
-+	supported_audio_interfaces = FIELD_GET(AUDIO_SELECT, cfg1);
-+
-+	if (supported_audio_interfaces != DW_DP_AUDIO_I2S_AND_SPDIF &&
-+	    supported_audio_interfaces != audio_interface) {
-+		dev_err(dp->dev, "unsupported DAI %d\n", daifmt->fmt);
-+		return -EINVAL;
-+	}
-+
-+	ret = clk_prepare_enable(dp->spdif_clk);
-+	if (ret)
-+		return ret;
-+
-+	clk_prepare_enable(dp->i2s_clk);
-+	if (ret) {
-+		clk_disable_unprepare(dp->spdif_clk);
-+		return ret;
-+	}
-+
-+	regmap_update_bits(dp->regmap, DW_DP_AUD_CONFIG1,
-+			   AUDIO_DATA_IN_EN | NUM_CHANNELS | AUDIO_DATA_WIDTH |
-+			   AUDIO_INF_SELECT | HBR_MODE_ENABLE,
-+			   FIELD_PREP(AUDIO_DATA_IN_EN, audio_data_in_en) |
-+			   FIELD_PREP(NUM_CHANNELS, dp->audio_channels - 1) |
-+			   FIELD_PREP(AUDIO_DATA_WIDTH, params->sample_width) |
-+			   FIELD_PREP(AUDIO_INF_SELECT, audio_interface) |
-+			   FIELD_PREP(HBR_MODE_ENABLE, 0));
-+
-+	/* Wait for inf switch */
-+	usleep_range(20, 40);
-+
-+	if (audio_interface == DW_DP_AUDIO_I2S)
-+		clk_disable_unprepare(dp->spdif_clk);
-+	else if (audio_interface == DW_DP_AUDIO_SPDIF)
-+		clk_disable_unprepare(dp->i2s_clk);
-+
-+	dp->audio_interface = audio_interface;
-+
-+	/*
-+	 * Send audio stream during vertical and horizontal blanking periods.
-+	 * Send out audio timestamp SDP once per video frame during the vertical
-+	 * blanking period
-+	 */
-+	regmap_update_bits(dp->regmap, DW_DP_SDP_VERTICAL_CTRL,
-+			   EN_AUDIO_STREAM_SDP | EN_AUDIO_TIMESTAMP_SDP,
-+			   FIELD_PREP(EN_AUDIO_STREAM_SDP, 1) |
-+			   FIELD_PREP(EN_AUDIO_TIMESTAMP_SDP, 1));
-+	regmap_update_bits(dp->regmap, DW_DP_SDP_HORIZONTAL_CTRL,
-+			   EN_AUDIO_STREAM_SDP,
-+			   FIELD_PREP(EN_AUDIO_STREAM_SDP, 1));
-+
-+	ret = dw_dp_audio_infoframe_send(dp);
-+	if (ret < 0)
-+		dev_err(dp->dev, "failed to send audio infoframe\n");
-+
-+	dev_dbg(dp->dev, "audio prepare with %d channels using DAI=%d\n",
-+		dp->audio_channels, dp->audio_interface);
-+
-+	return 0;
-+}
-+
-+static void dw_dp_audio_shutdown(struct drm_bridge *bridge,
-+				 struct drm_connector *connector)
-+{
-+	struct dw_dp *dp = bridge_to_dp(bridge);
-+
-+	dev_dbg(dp->dev, "audio shutdown\n");
-+
-+	dw_dp_audio_unprepare(bridge, connector);
-+	pm_runtime_put_autosuspend(dp->dev);
-+}
-+
-+static int dw_dp_audio_mute_stream(struct drm_bridge *bridge,
-+				   struct drm_connector *connector,
-+				   bool enable, int direction)
-+{
-+	struct dw_dp *dp = bridge_to_dp(bridge);
-+
-+	dev_dbg(dp->dev, "audio %smute\n", enable ? "" : "un");
-+
-+	regmap_update_bits(dp->regmap, DW_DP_AUD_CONFIG1, AUDIO_MUTE,
-+			   FIELD_PREP(AUDIO_MUTE, enable));
-+
-+	return 0;
-+}
-+
- static const struct drm_bridge_funcs dw_dp_bridge_funcs = {
- 	.atomic_duplicate_state = dw_dp_bridge_atomic_duplicate_state,
- 	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
-@@ -1859,6 +2073,11 @@ static const struct drm_bridge_funcs dw_dp_bridge_funcs = {
- 	.detect = dw_dp_bridge_detect,
- 	.edid_read = dw_dp_bridge_edid_read,
- 	.oob_notify = dw_dp_bridge_oob_notify,
-+
-+	.dp_audio_startup = dw_dp_audio_startup,
-+	.dp_audio_prepare = dw_dp_audio_prepare,
-+	.dp_audio_shutdown = dw_dp_audio_shutdown,
-+	.dp_audio_mute_stream = dw_dp_audio_mute_stream,
- };
- 
- static int dw_dp_link_retrain(struct dw_dp *dp)
-@@ -2009,10 +2228,19 @@ int dw_dp_bind(struct dw_dp *dp, struct drm_encoder *encoder)
- 
- 	bridge = &dp->bridge;
- 	bridge->of_node = dev->of_node;
--	bridge->ops = DRM_BRIDGE_OP_DETECT | DRM_BRIDGE_OP_EDID | DRM_BRIDGE_OP_HPD;
-+	bridge->ops = DRM_BRIDGE_OP_DP_AUDIO |
-+		      DRM_BRIDGE_OP_DETECT |
-+		      DRM_BRIDGE_OP_EDID |
-+		      DRM_BRIDGE_OP_HPD;
- 	bridge->type = DRM_MODE_CONNECTOR_DisplayPort;
- 	bridge->ycbcr_420_allowed = true;
- 
-+	dp->audio_interface = DW_DP_AUDIO_UNUSED;
-+	bridge->hdmi_audio_dev = dev;
-+	bridge->hdmi_audio_max_i2s_playback_channels = 8;
-+	bridge->hdmi_audio_dai_port = 1;
-+	bridge->hdmi_audio_spdif_playback = true;
-+
- 	drm_bridge_add(bridge);
- 
- 	dp->aux.dev = dev;
 
 -- 
 2.53.0
