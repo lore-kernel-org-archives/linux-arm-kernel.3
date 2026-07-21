@@ -4,57 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA156C4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 19:14:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB7C0C4452B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 19:17:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ULpfOVV/sCoIvfnXakr00QY4KKwExgyPZmSy4gj/Mm8=; b=QLrHZ6G/u6WyU8B9CoFvpWSeAB
-	Lp7W9YJoWllqh6nbSmIt0nLOYX3m0Vd+v7P4Nj/MUjDmau60cud80gscudEV1WboZnLMmzpzgUQ1H
-	6QsLuEF7q9Dg5ww1Rvus2ftXwWKH4g/FCBdrsxGdIojjQs5/STGJit4LRKmszrbX8SuG+tQRxLoA2
-	A1Pq81VvjgbxaVM5ADsxOWx2xNRfijSDSsxhZza67yyQloHP3EW1aj5a1T5ip6yIjHmGtMUesaSoK
-	4oszCQd2QWekWAZbp842B+gTsuxhbLtoz27YBHoTSwiVsw5niB2i3EroPgc8IeP1jPIGSA5Hvl630
-	CMlHQC4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=waJgXQXTGwqxVCoKMxFRK8UAG7XXejyC9jdURlCNsnM=; b=oN8XcECnJZpL24o3+71erujWKl
+	cyxWURZX0cy+eSK1CFnGvJkjxO1nAOwyyPwnwXtGM/FojYlqKoJEocVUHKFXlwBzPgi2WFMrraT3H
+	SkfP490125Nyig1+gYKBJvfrWzodokLHJucs1sgeRjDzbCQU26GGvKTwU0RLckgy7dDqBU/42gqDS
+	8xgOMcQHNxQD2iVNv5X3+XwefoEWc1nIkaXXVQlDb1BO3IJ59U1xC9o9UZ7nscw55S2QupiPlTnQt
+	zvNH64RYLE/6xp1fplKdzx7iZXEWr4ecSGbiMVEgeRaMQ3C18S60I7Gjag7mb9+hzoSPmSrcUtQlW
+	lB2nEdDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmFvA-0000000AGbV-0LXk;
-	Tue, 21 Jul 2026 19:14:28 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wmFyK-0000000AH2Q-47ye;
+	Tue, 21 Jul 2026 19:17:44 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmFv9-0000000AGbJ-0nXU
+	id 1wmFyH-0000000AH16-2fiC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 19:14:27 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A941140603;
-	Tue, 21 Jul 2026 19:14:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7240D1F00A3D;
-	Tue, 21 Jul 2026 19:14:21 +0000 (UTC)
-Message-ID: <3998b196-6417-49b0-b8d3-a95a5b415916@tuxon.dev>
-Date: Tue, 21 Jul 2026 22:14:19 +0300
+	Tue, 21 Jul 2026 19:17:43 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-49545ba3d4eso28165815e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 12:17:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=flipper.net; s=google; t=1784661460; x=1785266260; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=waJgXQXTGwqxVCoKMxFRK8UAG7XXejyC9jdURlCNsnM=;
+        b=0+9EqjuUwRH/7PRMpagV2Hy7w/V3jIhIGSleSySBADqtpnWY5+rpeQR1/83Dm4K9HR
+         oR6P9S6XwW5Q/ZR4vX6ABKyee+XOmY8azREqEcnhi9+3+ujNZ9vG5JS790er78a4umSP
+         NHbbcvQ+LyhUwG7nS/k0tFnbWlseihvEKmO6AvDZINPGLxezWpsNBg2mS2bFozz8voTa
+         UCzQXG87uYGK3Gn/189gp39O35qPFlJdcULWWD8pOPC/wbZDMDuBg7LMhbWj9ycrx6yf
+         wn4a6z0KJBG5GHT7Thygf7uZnz3sJOQ6AWIB9BVI+SJ2sujiwGA1C0I9DBqX2bGWmYl5
+         zjSA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784661460; x=1785266260;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=waJgXQXTGwqxVCoKMxFRK8UAG7XXejyC9jdURlCNsnM=;
+        b=A5BdZ9YLWRYviMJkxwbMo7k3xytPUAczycib6s3FbM4m/DShMPYUXDCzwU8vwwIhRx
+         o8Eaf1L6iHjz1xNcUIscjtfgwVePWx0ht+zoq7Iz9BRogkVXmLrBq7As7zMmDUhoWa0Y
+         JDUs9jDJrdooQnNdVDfIlsPVujbOk6ZDku1X9jySmywqC6HhwT+6z+XCzyzfb9vvteAg
+         +FJoV5sHtOeyu4LlnUsiiyBc70u9Y0WkyXX0NGQHCnoBXKP+3969omwLKRYoVDIwsgS/
+         rHMKkoADgXGH7bfqP38wy+J5spB7XkFCh7U4ZA/hqU23TDz1Yhajm0+gmNeOyY2nuTJ0
+         eCfQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrtoEtoToH1yg9RY9kc7wTmQxsMCQ8MpDIY76yPd49i63HlsAMoyJO9D43rhIDSXtfNtl6SH2GWYBszj8KeIjYH@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZqT3dDnwZh/gN7ni7oRr9uoCiAaVLf06tSHEh0p6EAPD8xYNL
+	/btTH+H9TktsZZ1a9nE8YXIMeAChxsY1hFPrY1KDUKKjNzXATElCwIPe4YLXP63cpfI=
+X-Gm-Gg: AfdE7ckQ1msioVkjJDErMr8uNyAl2LPqYKonJ+h12fG5jCMu1G0KAzS4mvEmDIKXHlr
+	05FZudIOrCPk6rY9tPZ9BzzJ2CSsxTVshR8os2d5MDC436utte6oDQ8OpwIISLqtMEtJh8rXC1n
+	twzLLdR5NDBhxfICt2qHS5OH49pSDhOzOPkpNZ8I/CjiahG4PPMLE489NzJ26vk3Ck3pHrsmWy+
+	8u5iDaEyZ19A1ogB02zpkJnY7qFSFTNAZ+wxfs4inW2GBngUGrosfK+nSPHAi8Xor3TCPZbxyCK
+	rd5ghBHBOcImzaM5L6rhpyiC20LHK3jtJ+bctdHyhPXlCdZBPwMGO/09SEXncwMNA6mhTFeYvPt
+	9fc3KMNb085NlhjhzeOB9GdeXJ5Q8OQvTbG0CRzOS0rj3ltxiIMH90NXzCDtUGb/yHZE7lHN7/2
+	Jh+QxiGduSRMi11Y4rAvqSxqTTohc28UjpbM5b4j8xsU/GanEMvN/ksw==
+X-Received: by 2002:a05:600c:3512:b0:493:cfe8:5b36 with SMTP id 5b1f17b1804b1-4954a3eec4bmr228858235e9.8.1784661459576;
+        Tue, 21 Jul 2026 12:17:39 -0700 (PDT)
+Received: from alchark-surface.localdomain (bba-92-99-174-41.alshamil.net.ae. [92.99.174.41])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f7feea1cdsm9351011f8f.32.2026.07.21.12.17.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 21 Jul 2026 12:17:39 -0700 (PDT)
+From: Alexey Charkov <alchark@flipper.net>
+Date: Tue, 21 Jul 2026 23:17:26 +0400
+Subject: [PATCH] clk: rockchip: Fractional PLL coefficient on RK3588/RK3576
+ is two's complement
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 06/13] nvmem: microchip-otpc: add tag-based packet
- lookup
-To: Varshini Rajendran <varshini.rajendran@microchip.com>,
- ehristev@kernel.org, jic23@kernel.org, dlechner@baylibre.com,
- nuno.sa@analog.com, andy@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, nicolas.ferre@microchip.com,
- alexandre.belloni@bootlin.com, srini@kernel.org, marcelo.schmitt@analog.com,
- jorge.marques@analog.com, mazziesaccount@gmail.com,
- Jonathan.Santos@analog.com, jishnu.prakash@oss.qualcomm.com,
- antoniu.miclaus@analog.com, duje@dujemihanovic.xyz,
- linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260630093603.38663-1-varshini.rajendran@microchip.com>
- <20260630093603.38663-7-varshini.rajendran@microchip.com>
-Content-Language: en-US
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-In-Reply-To: <20260630093603.38663-7-varshini.rajendran@microchip.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260721-rk3588-fracpll-v1-1-b289bf17cf17@flipper.net>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDcyND3aJsY1MLC920osTkgpwc3TQTY3Pz5BQLA0sLYyWgpoKi1LTMCrC
+ B0bEQfnFpUlZqcgnIFKXaWgCE6LCrcgAAAA==
+X-Change-ID: 20260721-rk3588-fracpll-f4377cd80983
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
+ Heiko Stuebner <heiko@sntech.de>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Wyon Bi <bivvy.bi@rock-chips.com>, Finley Xiao <finley.xiao@rock-chips.com>, 
+ Elaine Zhang <zhangqing@rock-chips.com>, 
+ Detlev Casanova <detlev.casanova@collabora.com>, 
+ Sugar Zhang <sugar.zhang@rock-chips.com>, YouMin Chen <cym@rock-chips.com>
+Cc: Dragan Simic <dsimic@manjaro.org>, Liang Chen <cl@rock-chips.com>, 
+ Quentin Schulz <quentin.schulz@cherry.de>, linux-clk@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Alexey Charkov <alchark@flipper.net>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5756; i=alchark@flipper.net;
+ h=from:subject:message-id; bh=4IQcuuUttHjx+yzAyu5y+EXz1z1kR8v1d4gWKmLHTsI=;
+ b=owGbwMvMwCW2adGNfoHIK0sZT6slMWTFH72wem3K6Tc2PHar3FZM/Blg9foU59ulu4X/Gf56e
+ TT/wW1Tro6JLAxiXAyWYoosc78tsZ1qxDdrl4fHV5g5rEwgQ6RFGhiAgIWBLzcxr9RIx0jPVNtQ
+ z9BIx1jHiIGLUwCmetIaht+sbmaXQ5WWLuXfdnDXaqGQKT2u5/UF+E4Y+pp2HDmpyPCUkeGe6Jv
+ PoT5V8RHvnsQp1YUUrIlu5ZqzY1lKYr64k4pQNjcA
+X-Developer-Key: i=alchark@flipper.net; a=openpgp;
+ fpr=9DF6A43D95320E9ABA4848F5B2A2D88F1059D4A5
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260721_121741_749024_AC4BEAB5 
+X-CRM114-Status: GOOD (  21.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,337 +119,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Varshini,
+When the PLL rates table was first committed for RK3588 (and later reused
+for RK3576), the fractional PLL coefficient was defined as an unsigned
+value, while the TRM clearly states that it is a two's complement 16-bit
+value.
 
-On 6/30/26 12:35, Varshini Rajendran wrote:
-> Add support for accessing OTP packets by their 4-byte ASCII tag while
-> preserving backward compatibility with the existing ID-based lookup.
-> 
-> The OTP memory layout can vary across devices and may change over time,
-> making the packet ID approach unreliable when the memory map is not
-> known in advance. The packet tag provides a reliable way to identify
-> and access packets without prior knowledge of the OTP memory layout.
-> 
-> Two offset encoding are now supported:
->    1. Legacy ID-based: offset = OTP_PKT(id) = id * 4
->       Used in DT as: reg = <OTP_PKT(1) 76>;
->    2. TAG-based: offset = 4-byte ASCII packet tag
->       Used in DT as: reg = <0x41435354 0x4c>; (tag "ACST")
-> 
+Rockchip's downstream kernel later revised the fractional PLL code [1] to
+account for the two's complement nature of the coefficient, but that
+change wasn't upstreamed.
 
-I think this:
+Change the PLL table definition to use two's complement for the
+fractional coefficient and update its users accordingly.
 
-> The driver resolves offsets matching valid legacy selectors (multiples
-> of 4 within the packet count) through ID lookup, falling back to tag
-> lookup for other values. This ensures existing device trees continue
-> to work while enabling new tag-based access.
+Note that a negative fractional coefficient is meant to be subtracted from
+the next larger integer multiplier, so the _m values in the table are
+also adjusted accordingly for the two negative-k entries.
 
-should fall in a different patch?
+While at it, fix the denominator of the fractional PLL calculation to use
+65536 instead of 65535, as per the TRM (RK3576 TRM Part 1 V1.2, Section
+2.13.1.4 Setting Guide on P, M, S, and K):
 
-> 
-> During probe, packet meta data including the tag is read and cached.
-> The driver also validates OTP memory accessibility and emulation mode
-> status. When the boot packet is not configured, emulation mode allows
-> access to the other packets. When both are not available an
-> informational message is logged.
-> 
-> The stride of the nvmem memory is set to 1 in order to support tag based
-> offsets, comment in the header file is updated accordingly.
-> 
-> Signed-off-by: Varshini Rajendran <varshini.rajendran@microchip.com>
-> ---
->   drivers/nvmem/microchip-otpc.c                | 143 ++++++++++++++++--
->   .../nvmem/microchip,sama7g5-otpc.h            |   4 +-
->   2 files changed, 136 insertions(+), 11 deletions(-)
-> 
-> diff --git a/drivers/nvmem/microchip-otpc.c b/drivers/nvmem/microchip-otpc.c
-> index df979e8549fd..bf8589048e17 100644
-> --- a/drivers/nvmem/microchip-otpc.c
-> +++ b/drivers/nvmem/microchip-otpc.c
-> @@ -18,16 +18,20 @@
->   #define MCHP_OTPC_CR_READ		BIT(6)
->   #define MCHP_OTPC_MR			(0x4)
->   #define MCHP_OTPC_MR_ADDR		GENMASK(31, 16)
-> +#define MCHP_OTPC_MR_EMUL		BIT(7)
->   #define MCHP_OTPC_AR			(0x8)
->   #define MCHP_OTPC_SR			(0xc)
->   #define MCHP_OTPC_SR_READ		BIT(6)
->   #define MCHP_OTPC_HR			(0x20)
->   #define MCHP_OTPC_HR_SIZE		GENMASK(15, 8)
-> +#define MCHP_OTPC_HR_PACKET_TYPE	GENMASK(2, 0)
+Fout = ((m + k/65536) * Fin) / (p * 2^s)
 
-Nit: in SAMA7D65 manual this is simply packet. Maybe rename it:
-MCHP_OTPC_HR_PACKET to match the manual.
+Link: https://github.com/flipperdevices/rockchip-linux/commit/7a72bc05dcc3a51e85ae531749e6270bf9b9212d [1]
+Fixes: f1c506d152ff ("clk: rockchip: add clock controller for the RK3588")
+Fixes: cc40f5baa91b ("clk: rockchip: Add clock controller for the RK3576")
+Signed-off-by: Alexey Charkov <alchark@flipper.net>
+---
+Not adding Cc stable, because while this fixes a real bug it's not a
+regression, as the issue was introduced in the same commit that added the
+RK3576/RK3588 support.
 
->   #define MCHP_OTPC_DR			(0x24)
->   
->   #define MCHP_OTPC_NAME			"mchp-otpc"
->   #define MCHP_OTPC_SIZE			(11 * 1024)
->   
-> +#define PACKET_TYPE_REGULAR		1
+Note that there is a separate unrelated issue with the rate table, namely
+the 2256000000 Hz entry currently leads to a VCO frequency of 4512 MHz,
+which is just above the TRM-stated maximum of 4500 MHz. Also multiple
+entries in the table end up with Fvco < 3 GHz, which according to the
+TRM leads to a PLL period jitter of +-2% vs. the +-1% for Fvco > 3 GHz.
+To be revisited separately.
+---
+ drivers/clk/rockchip/clk-pll.c    | 8 ++++----
+ drivers/clk/rockchip/clk-rk3576.c | 4 ++--
+ drivers/clk/rockchip/clk-rk3588.c | 4 ++--
+ drivers/clk/rockchip/clk.h        | 8 ++++----
+ 4 files changed, 12 insertions(+), 12 deletions(-)
 
-I would move this close to MCHP_OTPC_HR_PACKET_TYPE and name it something like:
-MCHP_OTPC_HR_PACKET_REGULAR to match the datasheet.
+diff --git a/drivers/clk/rockchip/clk-pll.c b/drivers/clk/rockchip/clk-pll.c
+index 6b853800cb6b..f445b01aabd0 100644
+--- a/drivers/clk/rockchip/clk-pll.c
++++ b/drivers/clk/rockchip/clk-pll.c
+@@ -13,6 +13,7 @@
+ #include <linux/delay.h>
+ #include <linux/clk-provider.h>
+ #include <linux/iopoll.h>
++#include <linux/math64.h>
+ #include <linux/regmap.h>
+ #include <linux/clk.h>
+ #include "clk.h"
+@@ -913,11 +914,10 @@ static unsigned long rockchip_rk3588_pll_recalc_rate(struct clk_hw *hw, unsigned
+ 
+ 	if (cur.k) {
+ 		/* fractional mode */
+-		u64 frac_rate64 = prate * cur.k;
++		s64 frac_rate64 = (s64)prate * cur.k;
+ 
+-		postdiv = cur.p * 65535;
+-		do_div(frac_rate64, postdiv);
+-		rate64 += frac_rate64;
++		postdiv = cur.p * 65536;
++		rate64 += div_s64(frac_rate64, postdiv);
+ 	}
+ 	rate64 = rate64 >> cur.s;
+ 
+diff --git a/drivers/clk/rockchip/clk-rk3576.c b/drivers/clk/rockchip/clk-rk3576.c
+index 2557358e0b9d..63f229e73a45 100644
+--- a/drivers/clk/rockchip/clk-rk3576.c
++++ b/drivers/clk/rockchip/clk-rk3576.c
+@@ -79,13 +79,13 @@ static struct rockchip_pll_rate_table rk3576_pll_rates[] = {
+ 	RK3588_PLL_RATE(1008000000, 2, 336, 2, 0),
+ 	RK3588_PLL_RATE(1000000000, 3, 500, 2, 0),
+ 	RK3588_PLL_RATE(983040000, 4, 655, 2, 23592),
+-	RK3588_PLL_RATE(955520000, 3, 477, 2, 49806),
++	RK3588_PLL_RATE(955520000, 3, 478, 2, -15730),
+ 	RK3588_PLL_RATE(903168000, 6, 903, 2, 11009),
+ 	RK3588_PLL_RATE(900000000, 2, 300, 2, 0),
+ 	RK3588_PLL_RATE(816000000, 2, 272, 2, 0),
+ 	RK3588_PLL_RATE(786432000, 2, 262, 2, 9437),
+ 	RK3588_PLL_RATE(786000000, 1, 131, 2, 0),
+-	RK3588_PLL_RATE(785560000, 3, 392, 2, 51117),
++	RK3588_PLL_RATE(785560000, 3, 393, 2, -14419),
+ 	RK3588_PLL_RATE(722534400, 8, 963, 2, 24850),
+ 	RK3588_PLL_RATE(600000000, 2, 200, 2, 0),
+ 	RK3588_PLL_RATE(594000000, 2, 198, 2, 0),
+diff --git a/drivers/clk/rockchip/clk-rk3588.c b/drivers/clk/rockchip/clk-rk3588.c
+index 75d42fea2a11..24baa0ef9bf3 100644
+--- a/drivers/clk/rockchip/clk-rk3588.c
++++ b/drivers/clk/rockchip/clk-rk3588.c
+@@ -79,14 +79,14 @@ static struct rockchip_pll_rate_table rk3588_pll_rates[] = {
+ 	RK3588_PLL_RATE(1008000000, 2, 336, 2, 0),
+ 	RK3588_PLL_RATE(1000000000, 3, 500, 2, 0),
+ 	RK3588_PLL_RATE(983040000, 4, 655, 2, 23592),
+-	RK3588_PLL_RATE(955520000, 3, 477, 2, 49806),
++	RK3588_PLL_RATE(955520000, 3, 478, 2, -15730),
+ 	RK3588_PLL_RATE(903168000, 6, 903, 2, 11009),
+ 	RK3588_PLL_RATE(900000000, 2, 300, 2, 0),
+ 	RK3588_PLL_RATE(850000000, 3, 425, 2, 0),
+ 	RK3588_PLL_RATE(816000000, 2, 272, 2, 0),
+ 	RK3588_PLL_RATE(786432000, 2, 262, 2, 9437),
+ 	RK3588_PLL_RATE(786000000, 1, 131, 2, 0),
+-	RK3588_PLL_RATE(785560000, 3, 392, 2, 51117),
++	RK3588_PLL_RATE(785560000, 3, 393, 2, -14419),
+ 	RK3588_PLL_RATE(722534400, 8, 963, 2, 24850),
+ 	RK3588_PLL_RATE(600000000, 2, 200, 2, 0),
+ 	RK3588_PLL_RATE(594000000, 2, 198, 2, 0),
+diff --git a/drivers/clk/rockchip/clk.h b/drivers/clk/rockchip/clk.h
+index 9e3503e2ffc2..72b36bba3152 100644
+--- a/drivers/clk/rockchip/clk.h
++++ b/drivers/clk/rockchip/clk.h
+@@ -635,10 +635,10 @@ struct rockchip_pll_rate_table {
+ 		};
+ 		struct {
+ 			/* for RK3588 */
+-			unsigned int m;
+-			unsigned int p;
+-			unsigned int s;
+-			unsigned int k;
++			unsigned int m;	/* main divider, 10 bit unsigned */
++			unsigned int p;	/* pre-divider, 6 bit unsigned */
++			unsigned int s;	/* scaler, 3 bit unsigned */
++			s16 k;		/* fractional part, 16 bit two's complement */
+ 		};
+ 	};
+ };
 
-> +
->   /**
->    * struct mchp_otpc - OTPC private data structure
->    * @base: base address
-> @@ -47,11 +51,15 @@ struct mchp_otpc {
->    * @list: list head
->    * @id: packet ID
->    * @offset: packet offset (in words) in OTP memory
-> + * @type: type of the packet
-> + * @tag: 4-byte ASCII tag of the packet
->    */
->   struct mchp_otpc_packet {
->   	struct list_head list;
->   	u32 id;
->   	u32 offset;
-> +	u32 type;
+---
+base-commit: 290aaf24a551d5a0dce037e3fab30820f9113a10
+change-id: 20260721-rk3588-fracpll-f4377cd80983
 
-This can be dropped for now since it's used only in the initialization path.
-
-> +	u32 tag;
->   };
->   
->   static struct mchp_otpc_packet *mchp_otpc_id_to_packet(struct mchp_otpc *otpc,
-> @@ -70,6 +78,56 @@ static struct mchp_otpc_packet *mchp_otpc_id_to_packet(struct mchp_otpc *otpc,
->   	return NULL;
->   }
->   
-> +/**
-> + * mchp_otpc_tag_to_packet() - find packet by tag
-> + * @otpc: OTPC private data
-> + * @tag: 4-byte ASCII tag to search for
-> + *
-> + * Return: pointer to packet if found, NULL otherwise
-> + */
-
-I'm not sure we need this description since the function is simple enough. I 
-would drop it.
-
-> +static struct mchp_otpc_packet *mchp_otpc_tag_to_packet(struct mchp_otpc *otpc,
-> +							u32 tag)
-> +{
-> +	struct mchp_otpc_packet *packet;
-> +
-> +	list_for_each_entry(packet, &otpc->packets, list) {
-> +		if (packet->tag == tag)
-> +			return packet;
-> +	}
-> +
-> +	return NULL;
-> +}
-> +
-> +/**
-> + * mchp_otpc_resolve_packet() - resolve offset to packet
-> + * @otpc: OTPC private data
-> + * @off: NVMEM offset (legacy ID-based or TAG-based)
-> + *
-> + * Legacy offsets (multiples of 4 within valid ID range) are resolved
-> + * through ID lookup. Other offsets are treated as 4-byte ASCII tags.
-> + *
-> + * Return: pointer to packet if found, NULL otherwise
-> + */
-
-Same here.
-
-> +static struct mchp_otpc_packet *mchp_otpc_resolve_packet(struct mchp_otpc *otpc,
-> +							 u32 off)
-> +{
-> +	/*
-> +	 * Legacy id based packet access: offset = id * 4
-> +	 * Inside the driver we use continuous unsigned integer numbers
-> +	 * for packet id, thus divide off by 4 before passing it to
-> +	 * mchp_otpc_id_to_packet().
-> +	 */
-> +	u32 id = off / 4;
-> +
-> +	if (!(off % 4) && id < otpc->npackets)
-
-The tag can be anything, no? Can't the tag satisfy this condition and the 
-execution to wrongly use mchp_otpc_id_to_packet() ?
-
-> +		return mchp_otpc_id_to_packet(otpc, id);
-> +
-> +	/*
-> +	 * TAG-based packet access: offset is a 4-byte ASCII tag
-> +	 */
-> +	return mchp_otpc_tag_to_packet(otpc, off);
-> +}
-> +
->   static int mchp_otpc_prepare_read(struct mchp_otpc *otpc,
->   				  unsigned int offset)
->   {
-> @@ -140,8 +198,29 @@ static int mchp_otpc_prepare_read(struct mchp_otpc *otpc,
->    * offset returned by hardware.
->    *
->    * For this, the read function will return the first requested bytes in the
-> - * packet. The user will have to be aware of the memory footprint before doing
-> - * the read request.
-> + * packet.
-> + *
-> + * Two offset encoding are supported:
-> + *
-> + * 1. Legacy ID-based: offset = OTP_PKT(id) = id * 4
-> + *    Used in DT as: reg = <OTP_PKT(1) 76>;
-> + * 2. TAG-based: offset = 4-byte ASCII packet tag
-> + *    Used in DT as: reg = <0x41435354 0x4c>; (tag "ACST")
-> + *
-> + * To use the legacy ID based packet lookup the user will have to be aware of
-> + * the memory footprint before doing the read request.
-> + *
-> + * But by using the TAG based packet lookup, the user won't have to be aware
-> + * of the memory footprint before doing the read request since this driver has
-> + * it abstracted and taken care of.
-> + *
-> + * Practically, there is no way of knowing the mapping of the OTP memory table
-> + * in advance for every device. But by using the packet tag - the identifier
-> + * ASCII value, the packets can be recognized without being aware of the
-> + * flashed OTP memory map table and the payload can be acquired reliably.
-> + *
-> + * While the legacy ID based lookup is still supported, TAG based approach is
-> + * recommended.
->    */
->   static int mchp_otpc_read(void *priv, unsigned int off, void *val,
->   			  size_t bytes)
-> @@ -154,12 +233,11 @@ static int mchp_otpc_read(void *priv, unsigned int off, void *val,
->   	int ret, payload_size;
->   
->   	/*
-> -	 * We reach this point with off being multiple of stride = 4 to
-> -	 * be able to cross the subsystem. Inside the driver we use continuous
-> -	 * unsigned integer numbers for packet id, thus divide off by 4
-> -	 * before passing it to mchp_otpc_id_to_packet().
-> +	 * From this point the offset has to be translated into the actual
-> +	 * packet. For this we traverse the table of contents stored in a list
-> +	 * "packet" based on the access type - packet id or tag.
->   	 */
-> -	packet = mchp_otpc_id_to_packet(otpc, off / 4);
-> +	packet = mchp_otpc_resolve_packet(otpc, off);
->   	if (!packet)
->   		return -EINVAL;
->   	offset = packet->offset;
-> @@ -190,6 +268,29 @@ static int mchp_otpc_read(void *priv, unsigned int off, void *val,
->   	return 0;
->   }
->   
-> +/**
-> + * mchp_otpc_read_packet_tag() - read tag from packet payload
-> + * @otpc: OTPC private data
-> + * @offset: packet offset in OTP memory
-> + * @val: pointer to store the tag value
-> + *
-> + * Return: 0 on success, negative errno on failure
-> + */
-
-Same here regarding the description.
-
-> +static int mchp_otpc_read_packet_tag(struct mchp_otpc *otpc, unsigned int offset,
-> +				     unsigned int *val)
-
-I think would be better to rename val to tag.
-
-> +{
-> +	int ret;
-> +
-> +	ret = mchp_otpc_prepare_read(otpc, offset);
-> +	if (ret)
-> +		return ret;
-> +
-> +	writel_relaxed(0, otpc->base + MCHP_OTPC_AR);
-> +	*val = readl_relaxed(otpc->base + MCHP_OTPC_DR);
-> +
-> +	return 0;
-> +}
-> +
->   static int mchp_otpc_init_packets_list(struct mchp_otpc *otpc, u32 *size)
->   {
->   	struct mchp_otpc_packet *packet;
-> @@ -215,6 +316,17 @@ static int mchp_otpc_init_packets_list(struct mchp_otpc *otpc, u32 *size)
->   
->   		packet->id = id++;
->   		packet->offset = word_pos;
-> +		packet->type = FIELD_GET(MCHP_OTPC_HR_PACKET_TYPE, word);
-> +
-> +		if (packet->type == PACKET_TYPE_REGULAR) {
-> +			ret = mchp_otpc_read_packet_tag(otpc, packet->offset,
-> +							&packet->tag);
-> +			if (ret)
-> +				return ret;
-> +		} else {
-> +			packet->tag = 0;
-> +		}
-> +
->   		INIT_LIST_HEAD(&packet->list);
->   		list_add_tail(&packet->list, &otpc->packets);
->   
-> @@ -236,7 +348,7 @@ static struct nvmem_config mchp_nvmem_config = {
->   	.type = NVMEM_TYPE_OTP,
->   	.read_only = true,
->   	.word_size = 4,
-> -	.stride = 4,
-> +	.stride = 1,
->   	.reg_read = mchp_otpc_read,
->   };
->   
-> @@ -244,7 +356,8 @@ static int mchp_otpc_probe(struct platform_device *pdev)
->   {
->   	struct nvmem_device *nvmem;
->   	struct mchp_otpc *otpc;
-> -	u32 size;
-> +	bool emul_enable;
-> +	u32 size, tmp;
->   	int ret;
->   
->   	otpc = devm_kzalloc(&pdev->dev, sizeof(*otpc), GFP_KERNEL);
-> @@ -256,10 +369,22 @@ static int mchp_otpc_probe(struct platform_device *pdev)
->   		return PTR_ERR(otpc->base);
->   
->   	otpc->dev = &pdev->dev;
-> +
-> +	tmp = readl_relaxed(otpc->base + MCHP_OTPC_MR);
-> +	emul_enable = tmp & MCHP_OTPC_MR_EMUL;
-> +	if (emul_enable)
-> +		dev_info(otpc->dev, "Emulation mode enabled\n");
-> +
-
-Looks to me that this section ^
-
->   	ret = mchp_otpc_init_packets_list(otpc, &size);
->   	if (ret)
->   		return ret;
->   
-> +	if (!size) {
-> +		dev_warn(otpc->dev, "Cannot access OTP memory\n");
-> +		if (!emul_enable)
-> +			dev_info(otpc->dev, "Boot packet not programmed and emulation mode disabled\n");
-> +	}
-> +
-
-And this one ^ could be squashed in a different patch?
-
-Thank you,
-Claudiu
-
->   	mchp_nvmem_config.dev = otpc->dev;
->   	mchp_nvmem_config.add_legacy_fixed_of_cells = true;
->   	mchp_nvmem_config.size = size;
-> diff --git a/include/dt-bindings/nvmem/microchip,sama7g5-otpc.h b/include/dt-bindings/nvmem/microchip,sama7g5-otpc.h
-> index f570b23165a2..5f72e75ad091 100644
-> --- a/include/dt-bindings/nvmem/microchip,sama7g5-otpc.h
-> +++ b/include/dt-bindings/nvmem/microchip,sama7g5-otpc.h
-> @@ -4,8 +4,8 @@
->   #define _DT_BINDINGS_NVMEM_MICROCHIP_OTPC_H
->   
->   /*
-> - * Need to have it as a multiple of 4 as NVMEM memory is registered with
-> - * stride = 4.
-> + * Need to have it as a multiple of 4 for the legacy id based packet
-> + * access.
->    */
->   #define OTP_PKT(id)			((id) * 4)
->   
+Best regards,
+--  
+Alexey Charkov <alchark@flipper.net>
 
 
