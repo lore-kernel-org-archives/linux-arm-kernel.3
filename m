@@ -4,84 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56585C44529
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 09:12:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 492D0C4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 09:15:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=owGjS9GEb6JZAL9yeS9UGk88aYVHU6W0zz47VKrfioU=; b=2q/KUv2NUDVhpySA5vU1jj4d/p
-	Ql+eVJ/wqToTEBCCZ0O69IF6NAPZjSRHFfZOB/BlS0dRgRz6bxx6hoJjOrm5rV6rAHHfl1hKsRB2o
-	BTnMUPN0zmtj60rHtT7D6fwPzo5+XdHjUyH8gFW5e+DZ2V+v7UeqiGT6SAdi8wNUlfOgYv+h/xdvs
-	QdBj/vbiWLM7txKrPvnv06RTdFm7E5NYM3RXSrKuNAHZ11rOMEFHckLU5md7sz9KRbYULsucExHdp
-	QDWjQuunSkFvhERSAsQKJjx0zh4rCnFd+9T9dOwylg+X9zj5WRvELRYzIvXM8P6Sa1Gmn+er2SPLn
-	Kse+nN7A==;
+	bh=Nr7i6MDRohJJP+8nW6TLKmiKpOBR6WMOTCP8OwdMPag=; b=L0yBe5rPsRWFmBDswQVlPJQYy3
+	lzoF6BYgp5sfs2wHsZWfHZ7RHyk3yJvsk6+JPOI8SucDE3RCymbC6Yi0B2lk1eUntqKZ5/SYbZbOR
+	p8kGt10J8OTTi1BxGX7uhMRA8lc/B+QCbbWdUy+7e1wreGd1RumfkdpJuMbUj68m8EeNZw3G0jUSe
+	en6tQMrkVW/Vey84yRprWY2jYN4F8/kDjSe5WABZL2NlyORXP1VucQ4rrzhdTAhOYxi0w30iwzwSa
+	x6rM9CxGDGx9+dCqSjhELR2MCYI9RyVbuxK0LD6zuoS+4dQRSSkqkuAwbHy89/0MNxTJoBH487toM
+	bVYNSc8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm6WB-00000008wIP-2K2v;
-	Tue, 21 Jul 2026 09:12:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wm6Z7-00000008wrz-0NDA;
+	Tue, 21 Jul 2026 09:15:05 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm6W9-00000008wHT-1E5p
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 09:12:01 +0000
+	id 1wm6Z6-00000008wri-1Qmr;
+	Tue, 21 Jul 2026 09:15:04 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EFF214509F
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 09:12:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4F0A1F01563
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 09:12:00 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6B76260A98;
+	Tue, 21 Jul 2026 09:15:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D7611F000E9;
+	Tue, 21 Jul 2026 09:15:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784625120;
-	bh=owGjS9GEb6JZAL9yeS9UGk88aYVHU6W0zz47VKrfioU=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=YiPHC8zb+pExl6ZEXHE+3iy3gQmHX2ikNmew/jFcwvkRziWguGcxfAADe0WtSoI7A
-	 8ZkFHjxiWrVOiJ1pIwmkl9706O2lhpWQQmxcZWB76DjDfuyCbP3nRqGQFeRYgz/hEv
-	 oXsXCD9Z/47mZknKOjuv4pCxVaawZ1OBmgeCudZDFaqE8neLUQ3i5Tb6lbQVi/eYlJ
-	 9LC80MKibo4W/itfwbS0AH44tHcz1/AmU/RzIhpNmPX3VEGVf3TIvAgo0lIL4pvIbE
-	 PW2OF+IE2d54dmKR9SkzCSEcMhrsoy2r/cp1B1CX819eEua+f6uyM+ZSTwSfFLdo2Y
-	 8a8nkkv9XHpLA==
-Received: by mail-lj1-f173.google.com with SMTP id 38308e7fff4ca-39c953950dfso83816381fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 02:12:00 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RqAewIeb85MWklVVxBOdR54ZcQVwriDpMBeYNMCJfeHgM27b462pSeXRWl4J9Cuvt6yzgTPYLc22H0iTN4K+aEv@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxo1XOGORLmPXZDRmaCsPSSSYYjQ+f8eBtXswu7iedPpdpOuqrc
-	MWnpYGxEi2Xaq2IQ0hlsOF+AzUOA84pZUZoIoIA1sgb4AkE5javDY1777E6SGqsbGfrM1KkApA9
-	rLi0htzMQRfE66xcxeApAm0eWa2v9XBzRPWFGDJ9S5g==
-X-Received: by 2002:a2e:be27:0:b0:39e:a64f:d7a9 with SMTP id
- 38308e7fff4ca-39eb274e864mr35869361fa.2.1784625119589; Tue, 21 Jul 2026
- 02:11:59 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 21 Jul 2026 02:11:57 -0700
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 21 Jul 2026 02:11:57 -0700
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <0337442c-0278-48e7-9a69-9f11d7325f1f@axiado.com>
+	s=k20260515; t=1784625303;
+	bh=Nr7i6MDRohJJP+8nW6TLKmiKpOBR6WMOTCP8OwdMPag=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=BwkO/YhlT8CVjXl8gzeR8DIA9ZtLwD8FpkfUX75HFXU/aLdwG34SLZz/cFyzq7Cuw
+	 3Ijp6R790It2THxx930SVcZoiYDtTq9tan+MRlBTpYg0i5moVK7VJW8lPSglzzgvnr
+	 dfEXPUxH+DysWml06AtRT9DvNJk8wea69m7TzQcFf+uXSnzns6uVRXZVMyVH/xnvuK
+	 jFLQj/Fy3lnh5N22nqMinnZKLSFdoPTgH3j3Z9JXO4s+a3vzFoxF/h83dCLfOCLboJ
+	 nluC4ypOD7jppRZF92r61K2nLY/6XDLqGe6fgoXXLU2283ABH+3z5HWaSnEarfUWc2
+	 J9nfEmZhFdvuQ==
+Date: Tue, 21 Jul 2026 11:15:01 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Daniel Stone <daniels@collabora.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+	kernel@collabora.com, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v8 04/39] drm/connector: Add HDMI 2.0 scrambler
+ infrastructure
+Message-ID: <20260721-onyx-cat-of-genius-b0a5f4@houat>
+References: <20260702-dw-hdmi-qp-scramb-v8-4-d79890d00b6a@collabora.com>
+ <tjsidlnvswo2rdhqa6jybxrnb47lxgmxdlfrfbasuh67wjbqoy@3a45n3zawvnf>
+ <17753a1c-824a-4835-ac2d-8b2796bba1eb@collabora.com>
+ <534b921c-638c-4fc3-b89e-5dfc1f269f96@collabora.com>
+ <20260713-statuesque-nonchalant-seagull-b9c39d@houat>
+ <91c3a825-3344-4ff5-8ea0-f8f057665b3f@collabora.com>
+ <20260715-ancient-zealous-eagle-b13e94@houat>
+ <dfca9032-98ca-4c61-b1b1-85fd05283d77@collabora.com>
+ <20260716-astute-nippy-moose-bd22b5@houat>
+ <7753ee98-a8c6-4535-8789-d915b0f79ddf@collabora.com>
 MIME-Version: 1.0
-References: <20260716-upstream-axiado-ax3005-upstream-v3-0-c429095143ec@axiado.com>
- <20260716-upstream-axiado-ax3005-upstream-v3-2-c429095143ec@axiado.com>
- <20260717-prudent-indefinable-labradoodle-fcaa9e@quoll> <0337442c-0278-48e7-9a69-9f11d7325f1f@axiado.com>
-Date: Tue, 21 Jul 2026 02:11:57 -0700
-X-Gmail-Original-Message-ID: <CAMRc=MdfUXBAm54RyCQXiPMxCp9pLR5mPfM5hnC6_X6O9UhyTg@mail.gmail.com>
-X-Gm-Features: AUfX_mwH0TpNMo9EZd0P-t0js313q4iPqh8W5BqP6DPj-e4tX6QwH3FcJB6hj2U
-Message-ID: <CAMRc=MdfUXBAm54RyCQXiPMxCp9pLR5mPfM5hnC6_X6O9UhyTg@mail.gmail.com>
-Subject: Re: [PATCH v3 2/8] dt-bindings: gpio: cdns: add Axiado AX3005 GPIO variant
-To: Swark Yang <syang@axiado.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>, 
-	Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, Jan Kotas <jank@cadence.com>, 
-	Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>, 
-	=?UTF-8?Q?Przemys=C5=82aw_Gaj?= <pgaj@cadence.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Frank Li <Frank.Li@nxp.com>, 
-	Boris Brezillon <bbrezillon@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Jiri Slaby <jirislaby@kernel.org>, Mark Brown <broonie@kernel.org>, 
-	Mathias Nyman <mathias.nyman@intel.com>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-i2c@vger.kernel.org, 
-	linux-i3c@lists.infradead.org, linux-serial@vger.kernel.org, 
-	linux-spi@vger.kernel.org, linux-usb@vger.kernel.org, 
-	Krzysztof Kozlowski <krzk@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="si32y3szvxa3d2ko"
+Content-Disposition: inline
+In-Reply-To: <7753ee98-a8c6-4535-8789-d915b0f79ddf@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,26 +88,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 21 Jul 2026 05:35:42 +0200, Swark Yang <syang@axiado.com> said:
-> On 7/17/2026 4:33 PM, Krzysztof Kozlowski wrote:
->>
->> This should stay enum which would also make your diff easier to read.
->>
->> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
->>
->> Best regards,
->> Krzysztof
->>
->
-> Hi Krzysztof,
->
-> Agreed on the enum, and thanks for the tags.
->
-> Since Bartosz already applied this to the GPIO tree, should I send an
-> incremental patch to fix the formatting, or is it fine as-is?
->
 
-Feel free to send a separate follow-up patch.
+--si32y3szvxa3d2ko
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v8 04/39] drm/connector: Add HDMI 2.0 scrambler
+ infrastructure
+MIME-Version: 1.0
 
-Bart
+On Thu, Jul 16, 2026 at 06:07:09PM +0300, Cristian Ciocaltea wrote:
+> On 7/16/26 4:50 PM, Maxime Ripard wrote:
+> > On Wed, Jul 15, 2026 at 01:46:12PM +0300, Cristian Ciocaltea wrote:
+> >> On 7/15/26 11:55 AM, Maxime Ripard wrote:
+> >>> On Mon, Jul 13, 2026 at 01:23:00PM +0300, Cristian Ciocaltea wrote:
+> >>>> On 7/13/26 11:50 AM, Maxime Ripard wrote:
+> >>>>> On Thu, Jul 09, 2026 at 10:25:54PM +0300, Cristian Ciocaltea wrote:
+> >>>>>> On 7/3/26 11:54 PM, Cristian Ciocaltea wrote:
+> >>>>>>> On 7/3/26 5:34 PM, Dmitry Baryshkov wrote:
+> >>>>>>>> On Thu, Jul 02, 2026 at 05:46:17PM +0300, Cristian Ciocaltea wro=
+te:
+> >>>>>>>>> Add the connector-level infrastructure to support HDMI 2.0 scra=
+mbling:
+> >>>>>>>>>
+> >>>>>>>>> - A scrambler_supported flag to indicate whether the source sup=
+ports the
+> >>>>>>>>>   scrambling capability, in which case the newly introduced
+> >>>>>>>>>   .scrambler_{enable|disable}() callbacks in drm_connector_hdmi=
+_funcs
+> >>>>>>>>>   are mandatory
+> >>>>>>>>
+> >>>>>>>> Do we need a flag? What would it mean if the flag is set, but the
+> >>>>>>>> callbacks are not? Can we drop the flag and use the presence of =
+the
+> >>>>>>>> callbacks as a way to identify that scrambler is enabled?
+> >>>>>>>
+> >>>>>>> The flag is intended to be set only within drmm_connector_hdmi_in=
+it_with_caps()
+> >>>>>>> when drivers advertise HDMI 2.x capability, in which case it also=
+ ensures the
+> >>>>>>> callbacks are provided. =20
+> >>>>>>>
+> >>>>>>> We could drop the flag and instead have the init helper clear the=
+ callbacks if
+> >>>>>>> they were provided for HDMI 1.x.  This might slightly reduce code=
+ readability,
+> >>>>>>> as it relies on checking the presence of individual callbacks - e=
+specially since
+> >>>>>>> we plan to extend this further with HDMI 2.1 support, providing f=
+our or five
+> >>>>>>> additional FRL-specific callbacks.
+> >>>>>>
+> >>>>>> I tried to replace the flag with a helper that checks the presence=
+ of (one of)
+> >>>>>> the callbacks, but it's not straightforward to unset those for non=
+-HDMI 2.x
+> >>>>>> cases since the hdmi_funcs argument is immutable.
+> >>>>>
+> >>>>> I'm not sure why we would need to unset them. If the driver states =
+that
+> >>>>> it support HDMI 2.0, then it needs to be there, if it doesn't, then=
+ who
+> >>>>> cares? it's not going to be used. We can log a warning that it's
+> >>>>> inconsistent I guess, but there's no need to actively remove it.
+> >>>>
+> >>>> I was trying to address the use case where drivers provide the scram=
+bler
+> >>>> callbacks despite not supporting HDMI 2.0.
+> >>>
+> >>> Scrambling got introduced with HDMI 2.0. That doesn't make sense, but
+> >>> it's not a total deal breaker, it's just going to be here unused. Hen=
+ce
+> >>> why I was suggesting to put a warning there if you wanted to.
+> >>>
+> >>>> If we replace the scrambler_supported flag with a helper checking the
+> >>>> presence of the scrambler callbacks, then we would need to ensure the
+> >>>> callbacks do not exist in this case.
+> >>>
+> >>> Keep it simple:
+> >>>
+> >>> if (hdmi_version >=3D HDMI_VERSION_2_0)
+> >>>    if (funcs->scrambler_enable)
+> >>>       hdmi->scramblers_supported =3D true
+> >>>    else
+> >>>       return -EINVAL
+> >>> else
+> >>>     drm_warn(warn, "Inconsistent HDMI version");
+> >>>
+> >>> We don't need anything more than that.
+> >>
+> >> I dropped the scrambler_supported flag and introduced a helper:
+> >>
+> >> static inline bool
+> >> drm_connector_hdmi_scrambler_supported(struct drm_connector *connector)
+> >> {
+> >> 	return connector->hdmi.funcs && connector->hdmi.funcs->scrambler_enab=
+le;
+> >=20
+> > I'd add disable to that test
+>=20
+> If scrambler_enable is present, scrambler_disable is also present, as gua=
+ranteed
+> by the init validation below.  I assume you'd like to have it added regar=
+dless,
+> to improve code readability, which is a fair point.
+>=20
+> >> }
+> >>
+> >> Therefore we need to ensure the callbacks are not set in the HDMI 1.x =
+cases:
+> >>
+> >> int drmm_connector_hdmi_init_with_caps()
+> >> {
+> >> 	...
+> >> 	if (caps->supported_hdmi_ver >=3D HDMI_VERSION_2_0) {
+> >> 		if (!hdmi_funcs->scrambler_enable ||
+> >> 		    !hdmi_funcs->scrambler_disable)
+> >> 			return -EINVAL;
+> >>
+> >> 		connector->hdmi.max_tmds_char_rate =3D HDMI_2_0_TMDS_CHAR_RATE_MAX_H=
+Z;
+> >> 	} else {
+> >> 		/*
+> >> 		 * Scrambler callbacks are only valid for connectors advertising
+> >> 		 * HDMI 2.0 capability. drm_connector_hdmi_scrambler_supported()
+> >> 		 * relies on their presence to report scrambling support.
+> >> 		 */
+> >> 		if (hdmi_funcs->scrambler_enable ||
+> >> 		    hdmi_funcs->scrambler_disable)
+> >> 			return -EINVAL;
+> >>
+> >> 		if (caps->supported_hdmi_ver >=3D HDMI_VERSION_1_3) {
+> >> 			connector->hdmi.max_tmds_char_rate =3D HDMI_1_3_TMDS_CHAR_RATE_MAX_=
+HZ;
+> >> 		} else if (caps->supported_hdmi_ver >=3D HDMI_VERSION_1_0) {
+> >> 			connector->hdmi.max_tmds_char_rate =3D HDMI_1_0_TMDS_CHAR_RATE_MAX_=
+HZ;
+> >> 		}
+> >> 	}
+> >=20
+> > Drivers might have a lower limit than the max allowed by the spec. It
+> > should be provided by the driver, possibly optionally with a fallback to
+> > what the spec states?
+>=20
+> Yes, this has been already part of patch 2 (also added an error message t=
+o help
+> with debugging):
+>=20
+> 	if (caps->max_tmds_char_rate) {
+> 		if (caps->max_tmds_char_rate > connector->hdmi.max_tmds_char_rate) {
+> 			drm_err(dev, "Enforced max_tmds_char_rate exceeds %llu spec limit\n",
+> 				connector->hdmi.max_tmds_char_rate);
+> 			return -EINVAL;
+> 		}
+> 		connector->hdmi.max_tmds_char_rate =3D caps->max_tmds_char_rate;
+> 	}
+
+Ah right, my bad. Thanks!
+Maxime
+
+--si32y3szvxa3d2ko
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCal84lAAKCRAnX84Zoj2+
+dqFLAXwJ7bqPH/R9Z+baQVB1W8erTrbxAfVh6lMlOskOmf291d/OcH/mGZ0/rU18
+4gfKNWMBf1mT/v1W8vAk9Uaol7NByC+Sr/hpjKFZ4CrZx3yZGrLSz41xrOnH1RzS
+sWif4/J/Kw==
+=Vv3p
+-----END PGP SIGNATURE-----
+
+--si32y3szvxa3d2ko--
 
