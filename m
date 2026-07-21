@@ -4,64 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4618C4452B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 19:33:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0B9DC4452B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 19:38:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WqZBAMqGdvMYXC5CvSnJkck852YucWC1p1Gjno/LRjQ=; b=3Y4c9ScaqtnHwPeKWLNianzNPM
-	3926rXa63L4sfsZqHcKGdi56xa7Al+6HhWgc+74xgt9qY94WHgy3my1DnI408W3Wv+3/7szBlhMDl
-	GkP6u1ne3gKlGL/8umNmh6+U1hvrSNyiMFg+LOzAq3lnK8ADl4QPVLXIpgoI/Q/UEuEFrbw5UGMCT
-	AU0FOi5yRy+v9PKPmhIWo4auWo/kia5TgQGhB6raLMx6dw64xv3w4UN+KmbnQXEmzxWveUwaYWHGV
-	wcFpm/1V9U9pFMjf6F8/X+OJ+mnwLjLKzQwaq77EWHnHyyJR4oT6eY3KOKJ84CxqbRW/16ugWUfZm
-	x3GA6mfA==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tpCSjmE72Hr4P1wpHlpQT8yo3kYE9fhwyWv7xoswZ0g=; b=JaEm8+YJ4LS1R0GF1SNkZArdyL
+	6wuu3PlBuuITbPpsCj/gbt3N6QylIlK6CXd37RY3uvzJqO5MqmbA+QZNjECcuQVuBuqHCy1YcEbKE
+	PzMlz732c8TFjYvMMQD1HCyVbJl5+xhKgwMy+ez3Bob3Q7E2apJyVxJAnYH0erStA1UDr292POVVV
+	anocMXGuMrDY/SCDjppz6uff8UJiTWSp3Y0h1c2hjK1xNjFBYeycebH41dqv5wfZoZBnBJjbmg4Gq
+	OK0MSkaG94D/Pig1c18zBj4VPIG0h5/kSvFG8nLQTcniaVcb05C0lrc+y9xEd/9G8S8IF+bnd82Et
+	hh+EW0MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmGDe-0000000AIIv-47Sy;
-	Tue, 21 Jul 2026 19:33:34 +0000
+	id 1wmGIR-0000000AId8-1wMj;
+	Tue, 21 Jul 2026 19:38:31 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmGDa-0000000AIHZ-2Sra
+	id 1wmGIQ-0000000AId2-38nF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 19:33:30 +0000
+	Tue, 21 Jul 2026 19:38:30 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0BE8560A5E;
-	Tue, 21 Jul 2026 19:33:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 485571F000E9;
-	Tue, 21 Jul 2026 19:33:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1784662409;
-	bh=WqZBAMqGdvMYXC5CvSnJkck852YucWC1p1Gjno/LRjQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=x698D6SDsNesfslBPkGhF4kRYFtb+mNThpM8Hl7rGELlG1OmpWh1lR5MX1vHo2ooK
-	 zX2Z206N2JBMTADX2SUqzeUt8xKPKNsPz1ewWLenScgw3DpjQmqml6Vai/KY1K6/pY
-	 pccUvBJ+skTmGIhoOPGk+pRDmI+N/xDaO5uSKT7E=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	patches@lists.linux.dev,
-	Graham Woodward <graham.woodward@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Leo Yan <leo.yan@arm.com>,
-	nd@arm.com,
-	mike.leach@linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	Namhyung Kim <namhyung@kernel.org>,
-	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 6.12 0434/1276] perf arm-spe: Correctly set sample flags
-Date: Tue, 21 Jul 2026 17:14:37 +0200
-Message-ID: <20260721152455.815215900@linuxfoundation.org>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260721152446.065700225@linuxfoundation.org>
-References: <20260721152446.065700225@linuxfoundation.org>
-User-Agent: quilt/0.69
-X-stable: review
-X-Patchwork-Hint: ignore
+	by tor.source.kernel.org (Postfix) with ESMTP id D34E960A6C;
+	Tue, 21 Jul 2026 19:38:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B77D31F00A3F;
+	Tue, 21 Jul 2026 19:38:24 +0000 (UTC)
+Message-ID: <74e3aeee-d18f-4476-b503-8f87578cbfe4@tuxon.dev>
+Date: Tue, 21 Jul 2026 22:38:23 +0300
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 12/13] ARM: dts: microchip: sama7d65: add temperature
+ sensor
+To: Varshini Rajendran <varshini.rajendran@microchip.com>,
+ ehristev@kernel.org, jic23@kernel.org, dlechner@baylibre.com,
+ nuno.sa@analog.com, andy@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, nicolas.ferre@microchip.com,
+ alexandre.belloni@bootlin.com, srini@kernel.org, marcelo.schmitt@analog.com,
+ jorge.marques@analog.com, mazziesaccount@gmail.com,
+ Jonathan.Santos@analog.com, jishnu.prakash@oss.qualcomm.com,
+ antoniu.miclaus@analog.com, duje@dujemihanovic.xyz,
+ linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260630093603.38663-1-varshini.rajendran@microchip.com>
+ <20260630093603.38663-13-varshini.rajendran@microchip.com>
+Content-Language: en-US
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+In-Reply-To: <20260630093603.38663-13-varshini.rajendran@microchip.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,115 +69,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-6.12-stable review patch.  If anyone has any objections, please let me know.
-
-------------------
-
-From: Graham Woodward <graham.woodward@arm.com>
-
-[ Upstream commit edff8dad3f9a483259140fb814586b39da430a38 ]
-
-Set flags on all synthesized instruction and branch samples.
-
-Signed-off-by: Graham Woodward <graham.woodward@arm.com>
-Reviewed-by: James Clark <james.clark@linaro.org>
-Tested-by: Leo Yan <leo.yan@arm.com>
-Cc: nd@arm.com
-Cc: mike.leach@linaro.org
-Cc: linux-arm-kernel@lists.infradead.org
-Link: https://lore.kernel.org/r/20241025143009.25419-4-graham.woodward@arm.com
-Signed-off-by: Namhyung Kim <namhyung@kernel.org>
-Stable-dep-of: 059e9100d82a ("perf event: Fix size of synthesized sample with branch stacks")
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- tools/perf/builtin-script.c |  1 +
- tools/perf/util/arm-spe.c   | 17 +++++++++++++++++
- tools/perf/util/event.h     |  1 +
- 3 files changed, 19 insertions(+)
-
-diff --git a/tools/perf/builtin-script.c b/tools/perf/builtin-script.c
-index a644787fa9e1dc..6f3db073786f96 100644
---- a/tools/perf/builtin-script.c
-+++ b/tools/perf/builtin-script.c
-@@ -1728,6 +1728,7 @@ static struct {
- 	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_TRACE_END, "tr end"},
- 	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_CALL | PERF_IP_FLAG_VMENTRY, "vmentry"},
- 	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_CALL | PERF_IP_FLAG_VMEXIT, "vmexit"},
-+	{PERF_IP_FLAG_BRANCH | PERF_IP_FLAG_BRANCH_MISS, "br miss"},
- 	{0, NULL}
- };
- 
-diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-index ce34cc5a2e7163..a004e1721a1ff1 100644
---- a/tools/perf/util/arm-spe.c
-+++ b/tools/perf/util/arm-spe.c
-@@ -98,6 +98,7 @@ struct arm_spe_queue {
- 	u64				timestamp;
- 	struct thread			*thread;
- 	u64				period_instructions;
-+	u32				flags;
- };
- 
- static void arm_spe_dump(struct arm_spe *spe __maybe_unused,
-@@ -392,6 +393,7 @@ static int arm_spe__synth_branch_sample(struct arm_spe_queue *speq,
- 	sample.stream_id = spe_events_id;
- 	sample.addr = record->to_ip;
- 	sample.weight = record->latency;
-+	sample.flags = speq->flags;
- 
- 	return arm_spe_deliver_synth_event(spe, speq, event, &sample);
- }
-@@ -421,6 +423,7 @@ static int arm_spe__synth_instruction_sample(struct arm_spe_queue *speq,
- 	sample.data_src = data_src;
- 	sample.period = spe->instructions_sample_period;
- 	sample.weight = record->latency;
-+	sample.flags = speq->flags;
- 
- 	return arm_spe_deliver_synth_event(spe, speq, event, &sample);
- }
-@@ -432,6 +435,19 @@ static const struct midr_range common_ds_encoding_cpus[] = {
- 	{},
- };
- 
-+static void arm_spe__sample_flags(struct arm_spe_queue *speq)
-+{
-+	const struct arm_spe_record *record = &speq->decoder->record;
-+
-+	speq->flags = 0;
-+	if (record->op & ARM_SPE_OP_BRANCH_ERET) {
-+		speq->flags = PERF_IP_FLAG_BRANCH;
-+
-+		if (record->type & ARM_SPE_BRANCH_MISS)
-+			speq->flags |= PERF_IP_FLAG_BRANCH_MISS;
-+	}
-+}
-+
- static void arm_spe__synth_data_source_common(const struct arm_spe_record *record,
- 					      union perf_mem_data_src *data_src)
- {
-@@ -618,6 +634,7 @@ static int arm_spe_sample(struct arm_spe_queue *speq)
- 	u64 data_src;
- 	int err;
- 
-+	arm_spe__sample_flags(speq);
- 	data_src = arm_spe__synth_data_source(speq, record);
- 
- 	if (spe->sample_flc) {
-diff --git a/tools/perf/util/event.h b/tools/perf/util/event.h
-index f8742e6230a5ab..2744c54f404e7b 100644
---- a/tools/perf/util/event.h
-+++ b/tools/perf/util/event.h
-@@ -66,6 +66,7 @@ enum {
- 	PERF_IP_FLAG_VMEXIT		= 1ULL << 12,
- 	PERF_IP_FLAG_INTR_DISABLE	= 1ULL << 13,
- 	PERF_IP_FLAG_INTR_TOGGLE	= 1ULL << 14,
-+	PERF_IP_FLAG_BRANCH_MISS	= 1ULL << 15,
- };
- 
- #define PERF_IP_FLAG_CHARS "bcrosyiABExghDt"
--- 
-2.53.0
 
 
+On 6/30/26 12:36, Varshini Rajendran wrote:
+> Add temperature sensor node.
+> 
+> Signed-off-by: Varshini Rajendran<varshini.rajendran@microchip.com>
 
+Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 
