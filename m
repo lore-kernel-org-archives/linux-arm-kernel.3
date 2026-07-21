@@ -4,65 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA707C4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 08:39:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 610FAC44529
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 08:41:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8d6b/fNRAVaLb/L3bgdgypqz8iTx4qcpmz29xYpDH2Q=; b=MxfjwyO8+5Md7a
-	18nb7X/D7F4VxOm1pcMdC0GOd+SElH1v0DKT9QyHjhSK7ZM+5HvNlaVdnIrrFeU0e9UNNP6a91hEK
-	NSoFr5+Q26xK+KvhhoG/ws2RdXi96qkXrEWV3Pg1wf6Tfa+/PTMaxg5b9m5ATTwV0bVx/nKCWjFIk
-	F/PEdd5KmiHSCFqsrYdKMEpzDMMGcbAyLTF7zhvnOlLQP9oZyPIBEnO97qYY7h2ffXUHcC5GV6lIL
-	qv6++Cg3nz/LFlxdhmK5hgiZwXQFmkdzJAzoGPRFA9gpKh9kg8B6H/9hlCltgnHZjFWAKNNJjvOaN
-	akTrGEALUuCL18CY5BzQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LLnIzjIXUZ+MTpd2UsuoMmOANYbVkHHufk+qKQQZgzI=; b=2JNJgBabAejVsMcJVm9Vk4s3c4
+	a5nNFQBhPR/f8AIkUKoHguk2cvHTugShJXxRoOBOeeaRyJ4ktV28o7BHz5TrLQXHw9NFqL5WHl7mn
+	mUEIvC55WvTmkYhu+7CpOCXGeaD+o4rCD+uSsRCGR6IqtJrfhD5oWTS+Kd1jeh6R6QSUP0A90m+uh
+	Pko+E3BN9FjNIPf8t6kEukO9tTrXPvayna5tekXNkPWqNNmAVOulhTSP6wEA6P2RfNFnBdftJX3af
+	wULcLrlYIi0s3H2/dCLMsspPeJvzXVVXYzQ9rPxTrkUmNvoCOeLYBRq8nyoNVRegkWN5y8H9CEeaH
+	4s3gfGYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm60e-00000008r2L-3Aan;
-	Tue, 21 Jul 2026 08:39:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm60c-00000008r25-3xFW
+	id 1wm625-00000008rIE-0WcR;
+	Tue, 21 Jul 2026 08:40:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wm621-00000008rHp-1HpY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 08:39:26 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7175B44FB0
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 08:39:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52A421F0155A
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 08:39:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784623166;
-	bh=8d6b/fNRAVaLb/L3bgdgypqz8iTx4qcpmz29xYpDH2Q=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=RQol5GY7dw3mf/3qmFKPRgYp49U/pocxHZlua+sKWiNCieOxxsxJb72anONsL6mXc
-	 jktT0jHdpsiSq9hznr9t4bXWV/Rp0UYN23KppMrK/SjFMIJ8b/KxgTvVgUZoKjqGLI
-	 YzLwvScHLnGW8HaMBNNWkl8ztBD9WcXcwVGyiYbmTrlz5o+johQtrdiVusi7cyFJhG
-	 hmMWcSqtvHwrcw2k0d9w5he7Y2zKMZCM601eQ7YOWT3uZDT1OHQ9ZSSL4aVPfp2aTe
-	 XBzW+y/HqXvWdBqw2WuoCb/ywC55w1WLoRtezyLo7NoIK/NRiogAMRY7K+Zq2Wp0Z4
-	 Jj7jFhiTtyYdg==
-Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-5b0f19bea2fso6953400e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 01:39:26 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RrjzSd6rVpKOFI19x+Ht/HG3aTW9KD9gtSbeYjh1VylVJd24S2XNLYNkjAc8o8XMavwc7CQI9bw2wprV75LFS8b@lists.infradead.org
-X-Gm-Message-State: AOJu0YzOKjLIECWbJZEMpf2fuVdVSeM3tagHu421feIokIucExwaNsBA
-	tz36nO5LY9qyCEF+lG2tijkdobMpgrDodjm3/L7CCHKGIPrxZvHFYDYW64S4n61S8jZ7JuzDEax
-	ifb0nowNtfmcq87fDRSx4IbSQu7mfMRk=
-X-Received: by 2002:a05:6512:607:10b0:5ae:ba28:a56e with SMTP id
- 2adb3069b0e04-5b28f9aa422mr2369081e87.35.1784623165029; Tue, 21 Jul 2026
- 01:39:25 -0700 (PDT)
+	Tue, 21 Jul 2026 08:40:55 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C28351595;
+	Tue, 21 Jul 2026 01:40:47 -0700 (PDT)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CFE233F66F;
+	Tue, 21 Jul 2026 01:40:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1784623251; bh=U2/ZgVzfkBXw9PNW1p1aK6bNd/TBhsvKFpUPyLgI8VM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=BPrHIgODqI7HpDaLwP++61j00cpszVF9l1evspNyEMAT3YKnkaBpJd5EMYo3d9DmP
+	 DTack0Hp8lrQciFotK5c0j3wbgJxFgggHL7S9/bnMBU3y36zRzfgd90ml5xzLS5I/p
+	 JKxB2euCWHHTQfITyQAxlAG2Mm/MvMeNsVNeW5oc=
+Message-ID: <f154889e-5afc-4b9c-99f3-3da86f5e87cf@arm.com>
+Date: Tue, 21 Jul 2026 09:40:49 +0100
 MIME-Version: 1.0
-References: <20260721081858.1169276-1-ruanjinjie@huawei.com> <20260721081858.1169276-5-ruanjinjie@huawei.com>
-In-Reply-To: <20260721081858.1169276-5-ruanjinjie@huawei.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 21 Jul 2026 10:39:12 +0200
-X-Gmail-Original-Message-ID: <CAD++jLmY6H1PeQdpLZP6=m1xEPKWdUmmmAkM_Ncy_WxL9mKYRg@mail.gmail.com>
-X-Gm-Features: AUfX_mz4M5Zam7PLq9pt0g3Mh8c9Fbd9QZYGzQZFZyZm2-OUu94zNvOVUQ1YcEY
-Message-ID: <CAD++jLmY6H1PeQdpLZP6=m1xEPKWdUmmmAkM_Ncy_WxL9mKYRg@mail.gmail.com>
-Subject: Re: [PATCH v17 04/15] arm64: ptrace: Rename and clean up syscall_trace_enter()
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Thunderbird Daily
+Subject: Re: [PATCH v1 07/11] arm_mpam: Initialize all of struct mon_read in
+ mpam_restore_mbwu_state()
+To: Lee Trager <lee@trager.us>
+Cc: james.morse@arm.com, reinette.chatre@intel.com, fenghuay@nvidia.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ dave.martin@arm.com, andre.przywara@arm.com
+References: <20260710115546.29644-1-ben.horgan@arm.com>
+ <20260710115546.29644-8-ben.horgan@arm.com>
+ <0e117330-36ed-4917-8a63-384d1e4f77fc@trager.us>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <0e117330-36ed-4917-8a63-384d1e4f77fc@trager.us>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260721_014053_607752_0F501BEA 
+X-CRM114-Status: GOOD (  16.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,33 +71,68 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, kees@kernel.org, catalin.marinas@arm.com, oleg@redhat.com, will@kernel.org, peterz@infradead.org, thuth@redhat.com, ryan.roberts@arm.com, anshuman.khandual@arm.com, kevin.brodsky@arm.com, pengcan@kylinos.cn, broonie@kernel.org, linux-arm-kernel@lists.infradead.org, wad@chromium.org, linux-mm@kvack.org, yeoreum.yun@arm.com, linux-kernel@vger.kernel.org, luto@amacapital.net, james.morse@arm.com, tglx@kernel.org, liqiang01@kylinos.cn
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 21, 2026 at 10:19=E2=80=AFAM Jinjie Ruan <ruanjinjie@huawei.com=
-> wrote:
+Hi Lee,
 
-> Rename syscall_trace_enter() to arm64_syscall_trace_enter() to avoid
-> name collisions and clarify the boundary when arm64 eventually switches
-> to the generic entry infrastructure.
->
-> In addition, replace direct accesses to regs->syscallno with the standard
-> syscall_get_nr() helper for both trace_sys_enter() and the return value.
-> This decouples the tracing logic from architecture-specific struct pt_reg=
-s
-> layouts, aligning the implementation with the generic entry pattern.
->
-> No functional changes intended; this is a preparation step for
-> converting arm64 to the generic entry infrastructure.
->
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+On 7/21/26 00:05, Lee Trager wrote:
+> On 7/10/26 4:55 AM, Ben Horgan wrote:
+> 
+>> m->err may be read before initialization in __ris_msmon_read() when called
+>> from mpam_restore_mbwu_state().
+>>
+>> Initialize the whole struct mon_read in mpam_restore_mbwu_state() and fix
+>> the spelling of mbwu in the name.
+>>
+>> Fixes: 41e8a14950e1 ("arm_mpam: Track bandwidth counter state for power management")
+>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+>> ---
+>>   drivers/resctrl/mpam_devices.c | 13 +++++++------
+>>   1 file changed, 7 insertions(+), 6 deletions(-)
+>>
+>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>> index a49f426aefc0..c9adc450f087 100644
+>> --- a/drivers/resctrl/mpam_devices.c
+>> +++ b/drivers/resctrl/mpam_devices.c
+>> @@ -1640,7 +1640,6 @@ static int mpam_restore_mbwu_state(void *_ris)
+>>   {
+>>       int i;
+>>       u64 val;
+> val is still uninitialized. Its passed to to __ris_mon_read() below which does *m->val += now;
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+Ok, I don't think this causes any actual problems as an unitialized automatic variable has an
+indeterminate value, we're just adding to it rather than making any decisions or persisting the
+value. As it's unsigned the addition is defined even if it wraps around. Having said that, it's
+clearer just to initialize it. I'll set it to 0.
 
-Yours,
-Linus Walleij
+Thanks,
+
+Ben
+
+>> -    struct mon_read mwbu_arg;
+>>       struct mpam_msc_ris *ris = _ris;
+>>       struct msmon_mbwu_state *mbwu_state;
+>>       struct mpam_msc *msc = ris->vmsc->msc;
+>> @@ -1653,16 +1652,18 @@ static int mpam_restore_mbwu_state(void *_ris)
+>>               return -EIO;
+>>             if (ris->mbwu_state[i].enabled) {
+>> -            mwbu_arg.ris = ris;
+>> -            mwbu_arg.ctx = &ris->mbwu_state[i].cfg;
+>> -            mwbu_arg.type = mpam_msmon_choose_counter(class);
+>> -            mwbu_arg.val = &val;
+>> +            struct mon_read mbwu_arg = {
+>> +                .ris = ris,
+>> +                .ctx = &ris->mbwu_state[i].cfg,
+>> +                .type = mpam_msmon_choose_counter(class),
+>> +                .val = &val
+>> +            };
+>>                 mbwu_state->reset_on_next_read = true;
+>>                 mpam_mon_sel_unlock(msc);
+>>   -            __ris_msmon_read(&mwbu_arg);
+>> +            __ris_msmon_read(&mbwu_arg);
+>>           } else {
+>>               mpam_mon_sel_unlock(msc);
+>>           }
+
 
