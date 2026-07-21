@@ -4,74 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F487C44532
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 14:43:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6C2FC44532
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 14:45:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CoaJ4JQlhsur87M2sZ8MdbclmParip6HqlDhl36M69U=; b=qiNkRZuQ7Uz4YjmfPA8oxNT51z
-	SU4SEp7PL5d26t0d5m26Ea4NJo4j5HurPJoeeSrrOib7v7lQA2hRmbmz6VxpzckpVqpEqLMBlX5kX
-	mA12f1amzJMCorZoDfrveHKst03J08xHQtK/th8ycOMnVtJC4YHp8AEU2gY7rMRKjRT+8Ztz/lJOb
-	o0BZx32mQ7ljldMASjzqXNLAwkT75h0tiD9KZVLIc0B5CUCOZqYwnBL5C7qvBRk5iIt0T4LT2ggKZ
-	VjOp8NaTeQCIaPEUNKDIINqUlI3o1db+99EeYHLPGYIjiIviSzfcAu3IbNT77887UiBYdexGo/M7z
-	EtB3P9ZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
+	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FeaBZAZ3XwgmgcJDisBPYHpbOCqquZSuzqf7qxis4Kw=; b=lvjFxQp8ItKfYXWI6NsEm3APc7
+	e7oo+zKazroHl5Ryy1mowI4xQS7IF8FM4MHrd6F56Ky9AWJMCTnEu8nkIfmv/ZsWdHPnq1Kv9luyp
+	eK+1vsapFJ7Z6Cyz8n3kpbv+ItkVPRqwtxUIjK9OE5ZbeF2u787jFFY54UQuQMfXi+u1j81cmsbZi
+	080J/porH7b9cC/TdGUmJ9vrBLVPKaUsznFyPHTutejqfD2liU0fmTt6JQtw4VRQ1bG6jTraQWqHm
+	0KMI4/IhkXRCuT9qeipeD/AzcP+BxodoV9WvF8BxSYsw2M0/EhNv9NKVRwf3+h9EGQpSCxiqAlITi
+	Cun/gg+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmBh8-00000009gZB-3TXZ;
-	Tue, 21 Jul 2026 14:43:42 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wmBii-00000009glt-0qr7;
+	Tue, 21 Jul 2026 14:45:20 +0000
+Received: from smtp-out2.suse.de ([195.135.223.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmBh7-00000009gYh-0JGP
+	id 1wmBie-00000009gkY-3Jal
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 14:43:41 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6AD46600D8;
-	Tue, 21 Jul 2026 14:43:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E61801F00A3A;
-	Tue, 21 Jul 2026 14:43:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784645020;
-	bh=CoaJ4JQlhsur87M2sZ8MdbclmParip6HqlDhl36M69U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=OeOg9MZYHYWJk+8RJHJix30NLs9DXIocVM1NhRW2AdZJLU6vA3hHVT612wLqtbX8R
-	 pwkB2YKfda1RWLYiNPG/xmj2cuuaXRZAhDzS994W2WYP1tUBPS46eXvbYafY/w7bIX
-	 CbKz2xTJGlr0V2lUJbG4WEtfyWnODdpjU6PKMVBSS6Uh6/MA3eH4M4unDcTSpMm+4Z
-	 4URNsbhjOZNdtN1tztSY1KqM+hc3Qz0HnzI85kWU6EDt24ViMdoagUeVrYfvQB6Zvi
-	 INTBpBmafSWqclWPSZMwJSHU+wQLfyIvo6YERDxfIGqV0b5aKaNNb4dvTr/PXOjgva
-	 4/swDgOdawG2g==
-Date: Tue, 21 Jul 2026 16:43:21 +0200
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Alex Elder <elder@riscstar.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com, 
-	kuba@kernel.org, pabeni@redhat.com, maxime.chevallier@bootlin.com, 
-	rmk+kernel@armlinux.org.uk, andersson@kernel.org, konradybcio@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, linusw@kernel.org, brgl@kernel.org, 
-	arnd@arndb.de, gregkh@linuxfoundation.org, daniel@riscstar.com, 
-	mohd.anwar@oss.qualcomm.com, a0987203069@gmail.com, alexandre.torgue@foss.st.com, 
-	ast@kernel.org, boon.khai.ng@altera.com, chenchuangyu@xiaomi.com, 
-	chenhuacai@kernel.org, daniel@iogearbox.net, hawk@kernel.org, hkallweit1@gmail.com, 
-	inochiama@gmail.com, john.fastabend@gmail.com, julianbraha@gmail.com, 
-	livelycarpet87@gmail.com, mcoquelin.stm32@gmail.com, me@ziyao.cc, 
-	prabhakar.mahadev-lad.rj@bp.renesas.com, richardcochran@gmail.com, rohan.g.thomas@altera.com, 
-	sdf@fomichev.me, siyanteng@cqsoftware.com.cn, weishangjuan@eswincomputing.com, 
-	wens@kernel.org, netdev@vger.kernel.org, bpf@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v2 12/14] gpio: tc956x: add TC956x/QPS615 support
-Message-ID: <z6fllvxd5r7bln6t6o5cacf2k35c47mnavvkmda6l4gnjaanin@52o34je2alxw>
-References: <20260605010022.968612-1-elder@riscstar.com>
- <20260605010022.968612-13-elder@riscstar.com>
- <dhnylud7o5dhaaq6kvbes4vkml3ppa5ev542j2lyxdijibknzg@pfcy22wz6jav>
- <df217d83-272a-4d4c-8aba-a87e4b8869fc@riscstar.com>
+	Tue, 21 Jul 2026 14:45:18 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 40F4E3E1D;
+	Tue, 21 Jul 2026 14:45:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1784645113; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=FeaBZAZ3XwgmgcJDisBPYHpbOCqquZSuzqf7qxis4Kw=;
+	b=c9Jw0g0TZkfySuKCj2U33TM8FXBGScBtw1xoGpqFShIO/BuyZvcO6H0pIdXY8/ELe2WJJ+
+	N3Bigi5I4UuJv056XH9Ef3ndC+AwqUqWdT8FTRthveJnguRiMDhPwrQpkXrcW3GdU6DfIe
+	Epinx83cIHoFrrZv81pklPAS02bX5Hc=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1784645113;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=FeaBZAZ3XwgmgcJDisBPYHpbOCqquZSuzqf7qxis4Kw=;
+	b=sIj9WOHchd19KoKMkMTtq+/JFOFyBQ6lZ6priggYD0P+KENK9n2CanudG5+gM+OArynhSi
+	/Gaw7jN0vX4qC0Cg==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=c9Jw0g0T;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=sIj9WOHc
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1784645113; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=FeaBZAZ3XwgmgcJDisBPYHpbOCqquZSuzqf7qxis4Kw=;
+	b=c9Jw0g0TZkfySuKCj2U33TM8FXBGScBtw1xoGpqFShIO/BuyZvcO6H0pIdXY8/ELe2WJJ+
+	N3Bigi5I4UuJv056XH9Ef3ndC+AwqUqWdT8FTRthveJnguRiMDhPwrQpkXrcW3GdU6DfIe
+	Epinx83cIHoFrrZv81pklPAS02bX5Hc=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1784645113;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=FeaBZAZ3XwgmgcJDisBPYHpbOCqquZSuzqf7qxis4Kw=;
+	b=sIj9WOHchd19KoKMkMTtq+/JFOFyBQ6lZ6priggYD0P+KENK9n2CanudG5+gM+OArynhSi
+	/Gaw7jN0vX4qC0Cg==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 94BC2779AA;
+	Tue, 21 Jul 2026 14:45:12 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id FIt+IfiFX2oXWAAAD6G6ig
+	(envelope-from <fmancera@suse.de>); Tue, 21 Jul 2026 14:45:12 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <df217d83-272a-4d4c-8aba-a87e4b8869fc@riscstar.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH net-next] ipv6: initialize ipcm6_cookie before parsing
+ control messages
+From: Fernando Fernandez Mancera <fmancera@suse.de>
+To: Wayen Yan <win847@gmail.com>
+Cc: netdev@vger.kernel.org, lorenzo@kernel.org, horms@kernel.org, 
+ pabeni@redhat.com, kuba@kernel.org, edumazet@google.com, 
+ andrew+netdev@lunn.ch, angelogioacchino.delregno@collabora.com, 
+ matthias.bgg@gmail.com, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org
+In-Reply-To: <178358611790.128118.11036367713019213946@gmail.com>
+References: <178358611790.128118.11036367713019213946@gmail.com>
+Date: Tue, 21 Jul 2026 16:45:05 +0200
+Message-Id: <178464510579.7763.6518393222506443032.b4-review@b4>
+X-Mailer: b4 0.16-dev
+X-Rspamd-Action: no action
+X-Rspamd-Queue-Id: 40F4E3E1D
+X-Spamd-Result: default: False [-2.51 / 50.00];
+	BAYES_HAM(-3.00)[99.99%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	RCPT_COUNT_TWELVE(0.00)[12];
+	FREEMAIL_TO(0.00)[gmail.com];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	FREEMAIL_CC(0.00)[vger.kernel.org,kernel.org,redhat.com,google.com,lunn.ch,collabora.com,gmail.com,lists.infradead.org];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	TAGGED_RCPT(0.00)[netdev];
+	RCVD_TLS_ALL(0.00)[];
+	DKIM_TRACE(0.00)[suse.de:+];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.de:dkim]
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260721_074516_985613_3F970445 
+X-CRM114-Status: UNSURE (   9.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,264 +149,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 16, 2026 at 11:24:15AM -0500, Alex Elder wrote:
-> On 7/16/26 2:02 AM, Manivannan Sadhasivam wrote:
-> > On Thu, Jun 04, 2026 at 08:00:19PM -0500, Alex Elder wrote:
-> > > Toshiba TC956x is an Ethernet-AVB/TSN bridge and is essentially
-> > > a small and highly-specialized SoC.  TC956x includes a GPIO block that
-> > > can be accessed, alongside several other peripherals, via two PCIe
-> > > endpoint functions.  The PCIe function driver creates an auxiliary
-> > > device for the GPIO block, and that device gets bound to this auxiliary
-> > > device driver.
-> > > 
-> > > This driver is implemented using the generic regmap-based GPIO driver.
-> > > 
-> > 
-> > While the regmap over the switch BAR works for GPIO access post-enumeration,
-> > there is a blocker in using these GPIOs to control the power to endpoints.
+On Thu, 09 Jul 2026 16:32:30 +0800, Wayen Yan <win847@gmail.com> wrote:
+> ip6_datagram_send_ctl() parses both SOL_IPV6 and SOL_SOCKET control
+> messages. For SOL_SOCKET messages it passes ipc6->sockc to
+> __sock_cmsg_send(), which updates fields such as tsflags with
+> read-modify-write operations.
 > 
-> We're aware of the power control driver and its use of these GPIOs.
+> The IPV6_2292PKTOPTIONS and flowlabel option paths only set ipc6.opt
+> before calling ip6_datagram_send_ctl(). If a SOL_SOCKET control message
+> such as SO_TIMESTAMPING_* or SCM_TS_OPT_ID is present, this can read
+> uninitialized sockc state.
 > 
-> I think the point you're making is not about the specific way we
-> are using GPIOs, but that someone could try to use this GPIO
-> controller in a way that would lead to a circular dependency
-> (between the controller and the PCIe device it depends on).
+> Initialize the ipcm6_cookie with ipcm6_init_sk(), as the normal IPv6
+> sendmsg paths do, before overriding ->opt with the temporary option
+> buffer.
 > 
-
-This not a future problem, but a present one :)
-
-> And you suggest a GPIO driver that uses I2C (and would be
-> used by the pwrctrl driver as well), and I think it's a pretty
-> reasonable suggestion.
-> 
-> > We have a design [1] where the GPIOs from the switch are used to control power
-> > and PERST# signals to the EP. With this current design, during the initial PCI
-> > bus scan, the switch will get enumerated, but the EP will not. Because, power to
-> > the EP depends on the GPIO Aux driver that will get probed only after the switch
-> > enumeration.
-> 
-> Yes, on the RB3gen2 platform, reset signals (PERST#) for two of
-> the TC9563 PCIe switch ports (downstream 1 and downstream 2) are
-> managed by the GPIO controller that resides within the TC9563
-> itself.  The pwrctl driver takes special care to ensure the GPIO
-> controller is functional (powered) before trying to use it.
-> 
-> The TC9563 *chip* gets powered when its embedded PCIe switch is
-> probed--that is, when its upstream port begins its enumeration.
-> (It's a little unclear to me which of the supplies are required
-> for the various non-PCIe components on the chip, including I2C
-> and GPIO, to be functional.)
-> 
-
-Well, the TC9563 should get powered ON when its pwrctrl driver gets probed and
-the pci_pwrctrl_power_on_device() is called. There is no dependency with the
-upstream port enumeration AFAIK.
-
-> And so until the switch gets probed (and its pwrctl driver used),
-> the GPIO controller can't work.  So nothing internal to the TC956x should be
-> dependent on any of the GPIOs supplied by this controller.
-> (Except the pwrctrl driver, which enables power before using GPIO.)
-> 
-> 
-> Two things to note:
-> - We are working with TC9564 (and there are other successors in
->   the TC956x series).
-> - Downstream port 3 (which we are using) on the switch does not
->   have such a distinct controlled reset line.
-> 
-> > But this creates a chicken-and-egg problem with the PCI Pwrctrl design.
-> > pcie-qcom driver uses the Pwrctrl framework to power on the PCI endpoints before
-> > the initial PCI bus scan. It calls pci_pwrctrl_create_devices() and
-> > pci_pwrctrl_power_on_devices() APIs to create the platform device for all PCI
-> > devices defined in DT (that require pwrctrl support), waits for their respective
-> > pwrctrl drivers to get probed and then power ON all of them.
-> 
-> The way I understood it was that certain parameters for the PCIe
-> links needed to be set before using them, and the pwrctrl framework
-> made that possible.  (I summarize what that driver does at the end
-> of this message.)
-> 
-
-Yeah, it does handle both power ON and some configuration for stable operation.
-
->  This step is
-> > required because in DT platforms, many Root Ports are not hotplug capable and
-> > also BIOS doesn't assign bridge windows during boot. So all the devices has to
-> > appear during the initial PCI bus scan so that the PCI core can allocate the
-> > resources properly.
-> 
-> This part I didn't know before.  Yes, the bridge windows are
-> allocated by Linux rather than by firmware.  And if this host
-> bridge doesn't support hotplug, then yes, to correctly assign
-> address space, all PCIe devices must be available to report
-> their required memory space.
-> 
-> Are you saying that "setting those parameters" wouldn't be
-> needed if this particular root port supported hotplug?  (I'm
-> just curious; it's not relevant to the point you're making.)
+> Signed-off-by: Wayen Yan <win847@gmail.com>
 >
 
-Yeah, more or less. If the Root Port is hotplug capable, PCI core will allocate
-more resources like bridge windows and bus numbers in anticipation of devices
-getting attached to it after boot. But that also sometimes becomes insufficient
-if a resource hungry device like GPU gets plugged in later, as the PCI core can
-only guess the memory for hotplug capable Root Port.
- 
-> > Now the issue with this Aux driver design is that, if an EP makes use of the
-> > switch GPIO for PERST# or power, like:
-> > 
-> > 	tc9563: pcie@0,0 {
-> > 		compatible = "pci1179,0623";
-> > 		reg = <0x10000 0x0 0x0 0x0 0x0>;
-> > 		...
-> > 
-> > 		pcie@1,0 {
-> > 			compatible = "pciclass,0604";
-> > 			reg = <0x20800 0x0 0x0 0x0 0x0>;
-> > 			#address-cells = <3>;
-> > 			#size-cells = <2>;
-> > 
-> > 			device_type = "pci";
-> > 			ranges;
-> > 			bus-range = <0x3 0xff>;
-> > 
-> > 			reset-gpios = <&tc9563 5 GPIO_ACTIVE_LOW>;
-> > 		};
-> > 	...
-> > 
-> > 	};
-> > 
-> > Then the pwrctrl driver (pci/pwrctrl/generic.c) will try to acquire the GPIO
-> > controller during its probe, but will fail with -EPROBE_DEFER as the GPIO
-> > controller won't be available at that time. So the whole PCIe instance will
-> > probe defer as the driver requires all pwrctrl drivers to be probed before
-> > starting the initial bus scan.
-> 
-> The only GPIOs we're using are for asserting reset on the two
-> Ethernet PHYs.  That doesn't occur until after the embedded
-> endpoint functions are probed, so this should be OK.
-> 
-> However you're right, the lines on this GPIO controller should
-> be restricted to avoid this circular dependency.
-> > So we need to make sure that the GPIO controller driver is available before
-> > enumerating the switch device. One way to achieve is by creating the GPIO Aux
-> > device in the pci/pwrctrl/pci-pwrctrl-tc9563.c driver and let the GPIO
-> > controller driver use I2C communication for setting up the GPIOs. Thankfully,
-> > the switch allows both I2C and BAR MMIO configurations for internal GPIOs.
-> 
-> Daniel and I have talked about this solution exactly, but opted
-> not to propose using it just yet (not unless someone like you
-> suggested it...).  Our solution for now was just to have the
-> (PCIe BAR-based) GPIO driver reserve the two GPIO lines used by
-> the pwrctrl driver, and rely on the fact that the pwrctrl driver
-> will only touch those shared registers at times the "real" GPIO
-> driver does not.
-> 
+Reviewed-by: Fernando Fernandez Mancera <fmancera@suse.de>
 
-Yeah. If those GPIO lines are not used to power up any endpoint devices, then
-there should be no issues. But this is something we cannot control as the board
-designers can do whatever they want.
-
-> 
-> We could instead implement a "proper" I2C-based GPIO controller
-> driver.  This would be used by the pwrctrl driver (rather than
-> that driver just updating the registers directly), as well as
-> the Ethernet PHY for reset control, and for any other uses on
-> future platforms.
-> 
-
-Sounds like a plan.
-
-> All uses so far are for managing resets, so the higher I2C
-> latency wouldn't be much of an issue.
-> 
-> > With this change, the GPIO driver will get probed by the time the pwrctrl
-> > generic driver acquires the 'reset-gpios' and will turn ON the EP.
-> 
-> One thing I'll point out is that the next version of this
-> code will define "pci-ep-bus" nodes, and will not use the
-> auxiliary bus model.  However the issue you raise remains
-> in that model too.
-> 
-
-Please do CC me on the upcoming versions as well.
-
-> Thank you very much for raising this Mani.  Please see my
-> questions a little further below.
-> 
-> 					-Alex
-> 
-> > Let me know your thoughts!
-> > 
-> > - Mani
-> > 
-> > [1] https://lore.kernel.org/linux-pci/e2inl7k5gsjj6oomv2k5ximuzpb3gfiz66ufet3b4hvov7zqt4@qz4pifbos7yf/
-> 
-> 
-> Here's what the pwrctrl driver does:
-> 
-> In drivers/pci/pwrctrl/pci-pwrctrl-tc9563.c, the registers at
-> offset 0x1208 and 0x1210 from the base of the "SFR" address space
-> are updated to assert/deassert these two reset signals.  It does
-> so using the I2C interface--out of band from access via PCI BARs.
-> The reset signals are GPIO02 (for downstream endpoint 1 on the
-> switch) and GPIO03 (for endpoint 2), which are controlled by
-> bits 2 and 3 in the two registers, respectively.
-> 
-> The pwrctrl driver enables a set of regulators defined in the
-> devicetree node for the upstream port of the TC9564 embedded
-> PCIe switch.  It then asserts the main RESX (chip) reset signal,
-> and after a short delay asserts these other two resets.
-> 
-> At that point it uses properties defined in devicetree to
-> configure five "ports":  upstream, downstream 1-3, and Ethernet.
-> (I have some questions related to this--but I put them below.)
-> The properties configured are:  ASPM L0s entry delay; ASP L1 entry
-> delay; TX amplitude; Number of Fast Training Sequences (NTFS); and Decision
-> Feedback Equalization (DFE).
-> 
-
-The driver confuses between ports and endpoint. TC9563_ETHERNET is not a port,
-but an integrated endpoint. I've identified some issues while reviewing it now.
-Will try to fix them asap.
-
-> Finally, the two resets and the main RESX reset are deasserted,
-> and the driver reports that the device is now ready, with:
->   devm_pci_pwrctrl_device_set_ready();
-> 
-> 
-> 
-> Questions related to the "ports" configured by the pwrctrl driver:
-> - Given that downstream port 3 connects to the internal, embedded
->   PCIe endpoint, does it still require these settings programmed?
-> 
-
-Not all of the settings are applicable to all ports. Only ASPM and N_FTS are
-applicable to all ports and endpoints, but the rest are optional. But the driver
-treats all properties mandatory for all ports/endpoint, and safeguards itself by
-having some absurd checks. This is something I'm going to fix.
-
-> - Does the TC9563 chip have only *one* function on its embedded
->   endpoint, supporting just one Ethernet?
->     - If so, this driver will have to be modified to support
->       the second embedded function and Ethernet controller.
-> 
-
-The driver assumes only one endpoint, but the binding lists 2. So the driver is
-not complying with its own binding now :/
-
-So technically, the driver supports 2 integrated endpoints.
-
-> - Why is "Ethernet" configured like the PCIe ports, *in addition*
->   to the downstream port 3 that it sits behind?
-> 
-
-Both ASPM and N_FTS properties are applicable to ports and integrated endpoints
-as well. But other 2, DFE and Tx Amplitude are only applicable to ports only,
-excluding DSP3.
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
+Thanks!
 
