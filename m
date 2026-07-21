@@ -4,58 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B2A6C44532
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 11:43:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BC4CC4452F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 11:55:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=A65APZFEd7fz0qjViK+USe3yaX2qjEZnD7YJQbU3HoY=; b=hR921STdhSuAupGOuzRcaXvdAN
-	KyZ9Um2vC0QTGuESmbmXXULeMGS4RuSasq7+IQaKIw2RtHX4ciW+jg3pnd4ivOKPY3TYDRCkTxkTh
-	a2ozGdwXKu5W18ZD6hBMLDQwrqkcV6TtRRKmL5aBiLJCs/ihizkIdNvjdg8XbKjBnXSdlfDSr3hL8
-	o2rE0PR0Rix4rWzXnOL6Nu63RSvypL8GoKtPGTeQel+wAx6DsDhNCZk8+UgrExCHKxRMQuOEi4v1z
-	+TDmS1k1j72oXkTV+x+lrc44GZpdwPQl9cT27cxbl7SslDw69GcjENZI/TWo4JUL6UE3nSFQ+jJH7
-	JWc8wMrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UJXno+NE2LaIdHpYv/4s8ue4/cjDLWXaEa8lFS8q5GY=; b=3VbmUH3uIsMWE2ub14iqmSrRim
+	7WNMOk/5XMQr0qcSTYr4TNRcoPyHxJR6NrZBDNQMwO7smvyPk0kCAdwdMGI5FpOMKz4gn7C7+tr20
+	5B6YKWyOhCi2giFr3pOnNlbKcF4yBYfgluoee8bPGMmgOjfNxXlKbvWt/v2MDc8VA7GXnLLw8KtZY
+	yPba0NLW8CgSC6pOPE/EHeMLiwM/o6Ty/ktqLmyAY6HiyD0qmk5AozhezE9bC5yKlOIEL0j77f9w6
+	JaHL2JQf58qsJRkejMonNeSGxIN1h0MPAphhSAWz8ZyzJ6YFbEg35kgrEdq0yhJ2RdNuksCTaEsma
+	1NqES5BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm8sN-00000009L3Q-0Frh;
-	Tue, 21 Jul 2026 11:43:07 +0000
-Received: from mx.nabladev.com ([178.251.229.89])
+	id 1wm93v-00000009MFn-1yjp;
+	Tue, 21 Jul 2026 11:55:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm8sK-00000009L2w-48nQ
+	id 1wm93t-00000009MFS-3J7m
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 11:43:06 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 35CE011A8F5;
-	Tue, 21 Jul 2026 13:42:59 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1784634182; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=A65APZFEd7fz0qjViK+USe3yaX2qjEZnD7YJQbU3HoY=;
-	b=fGjhJKjI0PWc05levVac34+6Ks9BavSELaLLgCN8mq3fV4axt1/UaPP8lDlcPkK56sECsI
-	wDKScqnMVGDlz85CVrANvpdnfXOea5cIxPn/CM8H8yjfYKGufEnfpvCaSxkkZwAMyoX53u
-	ASNSlxpmOIVFDaMrHfqaeWpgmzdnWYIbQy1L27FCSdMNN5423Xgk9Nm9sk9YtpTxcIwC83
-	9ieitJqpn1x8eNUa0BXzcWZY5EPO3YZkqW55XI6FCjMNbJXEJVvNrm342HHNZ8Udy0QB7C
-	oeL7gdscxtndxHZpEr9XkoeJNOYiPCQcKbzbC+7zxRzu2CxBoQBJz4RAsX1EBQ==
-From: Heiko Schocher <hs@nabladev.com>
-To: linux-kernel@vger.kernel.org
-Cc: linux-fpga@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Heiko Schocher <hs@nabladev.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Moritz Fischer <mdf@kernel.org>,
-	Tom Rix <trix@redhat.com>,
-	Xu Yilun <yilun.xu@intel.com>
-Subject: [PATCH v2] driver: fpga: xilinx-selectmap: add csi and rdwr support
-Date: Tue, 21 Jul 2026 13:42:52 +0200
-Message-ID: <20260721114258.3324794-1-hs@nabladev.com>
-X-Mailer: git-send-email 2.55.0
+	Tue, 21 Jul 2026 11:55:01 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4482241FA5;
+	Tue, 21 Jul 2026 11:55:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E50E81F000E9;
+	Tue, 21 Jul 2026 11:54:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784634901;
+	bh=UJXno+NE2LaIdHpYv/4s8ue4/cjDLWXaEa8lFS8q5GY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=F95kPevlSn1NQmmXdgfNRRHtm8wP1sXWeSsajbmTVkqIVzEt4omP7+o8h/zzqgon8
+	 aO2X352TPWBumHybCH5wICorK7tHQOJ+DLfga1PMxYtgGyqAr1d75R36jZQcoAZQ0G
+	 u4Ltzvzc8UN19pVa60sSITfwm9xlmo7Hr5kTf7or5X1dbKVS99JrE6bfnBoFbv+ckQ
+	 REkQsHFwee8HrNaRT8lHJe7QWLL3u2KfR4piTx/+d8f8FoJDJV6XZZXLGbwgVG6/2w
+	 R3oYpiCOUEawrQ7xZmqfEe7FPeRTR/3x9h6o8gh9596QPZeiwtdrlz0QLXVFYHGROp
+	 Opr9JesAwQ3ow==
+Date: Tue, 21 Jul 2026 14:54:56 +0300
+From: Leon Romanovsky <leon@kernel.org>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>,
+	Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
+	stable@vger.kernel.org, Michael Kelley <mhklinux@outlook.com>,
+	Jason Gunthorpe <jgg@nvidia.com>
+Subject: Re: [PATCH v8 01/23] dma-direct: return struct page from
+ dma_direct_alloc_from_pool()
+Message-ID: <20260721115456.GI110966@unreal>
+References: <20260717180442.110954-1-aneesh.kumar@kernel.org>
+ <20260717180442.110954-2-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_044305_249758_78870C85 
-X-CRM114-Status: GOOD (  15.29  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260717180442.110954-2-aneesh.kumar@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,94 +95,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add csi_b and rdwr pin support for the xilinx,selectmap driver.
+On Fri, Jul 17, 2026 at 11:34:19PM +0530, Aneesh Kumar K.V (Arm) wrote:
+> Commit 5b138c534fda ("dma-direct: factor out a dma_direct_alloc_from_pool
+> helper") changed dma_direct_alloc_from_pool() to return the CPU address
+> from dma_alloc_from_pool(). That fits dma_direct_alloc(), but
+> dma_direct_alloc_pages() also uses the helper and expects a struct page *.
+> 
+> Fix this by making dma_direct_alloc_from_pool() return the struct page *
+> again, and pass the CPU address back through an out-parameter for the
+> dma_direct_alloc() caller.
+> 
+> Fixes: 5b138c534fda ("dma-direct: factor out a dma_direct_alloc_from_pool helper")
+> Cc: stable@vger.kernel.org
+> Tested-by: Michael Kelley <mhklinux@outlook.com>
+> Tested-by: Mostafa Saleh <smostafa@google.com>
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+> ---
+>  kernel/dma/direct.c | 18 ++++++++++--------
+>  1 file changed, 10 insertions(+), 8 deletions(-)
+> 
+> diff --git a/kernel/dma/direct.c b/kernel/dma/direct.c
+> index d8219efe3273..363d984d90e7 100644
+> --- a/kernel/dma/direct.c
+> +++ b/kernel/dma/direct.c
+> @@ -164,22 +164,21 @@ static bool dma_direct_use_pool(struct device *dev, gfp_t gfp)
+>  	return !gfpflags_allow_blocking(gfp) && !is_swiotlb_for_alloc(dev);
+>  }
+>  
+> -static void *dma_direct_alloc_from_pool(struct device *dev, size_t size,
+> -		dma_addr_t *dma_handle, gfp_t gfp)
+> +static struct page *dma_direct_alloc_from_pool(struct device *dev, size_t size,
+> +		dma_addr_t *dma_handle, void **cpu_addr, gfp_t gfp)
+>  {
+>  	struct page *page;
+>  	u64 phys_limit;
+> -	void *ret;
+>  
+>  	if (WARN_ON_ONCE(!IS_ENABLED(CONFIG_DMA_COHERENT_POOL)))
+>  		return NULL;
+>  
+>  	gfp |= dma_direct_optimal_gfp_mask(dev, &phys_limit);
+> -	page = dma_alloc_from_pool(dev, size, &ret, gfp, dma_coherent_ok);
+> +	page = dma_alloc_from_pool(dev, size, cpu_addr, gfp, dma_coherent_ok);
+>  	if (!page)
+>  		return NULL;
+>  	*dma_handle = phys_to_dma_direct(dev, page_to_phys(page));
+> -	return ret;
+> +	return page;
+>  }
+>  
+>  static void *dma_direct_alloc_no_mapping(struct device *dev, size_t size,
+> @@ -247,8 +246,11 @@ void *dma_direct_alloc(struct device *dev, size_t size,
+>  	 * the atomic pools instead if we aren't allowed block.
+>  	 */
+>  	if ((remap || force_dma_unencrypted(dev)) &&
+> -	    dma_direct_use_pool(dev, gfp))
+> -		return dma_direct_alloc_from_pool(dev, size, dma_handle, gfp);
+> +	    dma_direct_use_pool(dev, gfp)) {
+> +		page = dma_direct_alloc_from_pool(dev, size, dma_handle,
+> +						  &ret, gfp);
+> +		return page ? ret : NULL;
 
-In current driver the pins are configured from DTS and set to
-GPIOD_OUT_HIGH. This works in case you have one FPGA.
+Sorry for joining the discussion late, but the line above caught my
+attention.
 
-Extend this to really implement csi_b and rdwr pin function in
-driver, so it works with more than one FPGA.
+Why do we need both ret and page? We can derive cpu_addr from page and
+vice versa. Do we really need the &ret parameter? Or, more generally, do
+we really need "struct page *"?
 
-Tested on AM625 based board with 2 FPGAs connected to GPMC.
+static struct page *__dma_alloc_from_pool(struct device *dev, size_t size,
+		struct gen_pool *pool, void **cpu_addr,
+		bool (*phys_addr_ok)(struct device *, phys_addr_t, size_t))
+{
+...
+	*cpu_addr = (void *)addr;
+	memset(*cpu_addr, 0, size);
+	return pfn_to_page(__phys_to_pfn(phys));
+}
 
-Signed-off-by: Heiko Schocher <hs@nabladev.com>
----
+Why 
 
-Changes in v2:
-- add comments from Michal
-  - skip check if gpio descriptor variables csi_b/rdwr_b are valid,
-    as validate_desc() checks this in gpiod_set_value() call.
-  - initialize the gpio variables csi_b/rdwr_b immediately with
-    the return value from devm_gpiod_get_optional(), so we can
-    drop local gpio variable at all
-
- drivers/fpga/xilinx-selectmap.c | 23 ++++++++++++++++-------
- 1 file changed, 16 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/fpga/xilinx-selectmap.c b/drivers/fpga/xilinx-selectmap.c
-index d0cbb5fdfe3a..d5175f9430e4 100644
---- a/drivers/fpga/xilinx-selectmap.c
-+++ b/drivers/fpga/xilinx-selectmap.c
-@@ -19,6 +19,8 @@
- struct xilinx_selectmap_conf {
- 	struct xilinx_fpga_core core;
- 	void __iomem *base;
-+	struct gpio_desc *csi_b;
-+	struct gpio_desc *rdwr_b;
- };
- 
- #define to_xilinx_selectmap_conf(obj) \
-@@ -30,16 +32,21 @@ static int xilinx_selectmap_write(struct xilinx_fpga_core *core,
- 	struct xilinx_selectmap_conf *conf = to_xilinx_selectmap_conf(core);
- 	size_t i;
- 
-+	gpiod_set_value(conf->csi_b, GPIOD_OUT_HIGH);
-+	gpiod_set_value(conf->rdwr_b, GPIOD_OUT_HIGH);
-+
- 	for (i = 0; i < count; ++i)
- 		writeb(buf[i], conf->base);
- 
-+	gpiod_set_value(conf->rdwr_b, GPIOD_OUT_LOW);
-+	gpiod_set_value(conf->csi_b, GPIOD_OUT_LOW);
-+
- 	return 0;
- }
- 
- static int xilinx_selectmap_probe(struct platform_device *pdev)
- {
- 	struct xilinx_selectmap_conf *conf;
--	struct gpio_desc *gpio;
- 	void __iomem *base;
- 
- 	conf = devm_kzalloc(&pdev->dev, sizeof(*conf), GFP_KERNEL);
-@@ -56,15 +63,17 @@ static int xilinx_selectmap_probe(struct platform_device *pdev)
- 	conf->base = base;
- 
- 	/* CSI_B is active low */
--	gpio = devm_gpiod_get_optional(&pdev->dev, "csi", GPIOD_OUT_HIGH);
--	if (IS_ERR(gpio))
--		return dev_err_probe(&pdev->dev, PTR_ERR(gpio),
-+	conf->csi_b = devm_gpiod_get_optional(&pdev->dev, "csi",
-+					      GPIOD_OUT_LOW);
-+	if (IS_ERR(conf->csi_b))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(conf->csi_b),
- 				     "Failed to get CSI_B gpio\n");
- 
- 	/* RDWR_B is active low */
--	gpio = devm_gpiod_get_optional(&pdev->dev, "rdwr", GPIOD_OUT_HIGH);
--	if (IS_ERR(gpio))
--		return dev_err_probe(&pdev->dev, PTR_ERR(gpio),
-+	conf->rdwr_b = devm_gpiod_get_optional(&pdev->dev, "rdwr",
-+					       GPIOD_OUT_LOW);
-+	if (IS_ERR(conf->rdwr_b))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(conf->rdwr_b),
- 				     "Failed to get RDWR_B gpio\n");
- 
- 	return xilinx_core_probe(&conf->core);
----
-base-commit: 58717b2a1365d06c8c64b72aa948541b53fe31eb
-
--- 
-2.55.0
-
+> +	}
+>  
+>  	/* we always manually zero the memory once we are done */
+>  	page = __dma_direct_alloc_pages(dev, size, gfp & ~__GFP_ZERO, true);
+> @@ -357,7 +359,7 @@ struct page *dma_direct_alloc_pages(struct device *dev, size_t size,
+>  	void *ret;
+>  
+>  	if (force_dma_unencrypted(dev) && dma_direct_use_pool(dev, gfp))
+> -		return dma_direct_alloc_from_pool(dev, size, dma_handle, gfp);
+> +		return dma_direct_alloc_from_pool(dev, size, dma_handle, &ret, gfp);
+>  
+>  	page = __dma_direct_alloc_pages(dev, size, gfp, false);
+>  	if (!page)
+> -- 
+> 2.43.0
+> 
+> 
 
