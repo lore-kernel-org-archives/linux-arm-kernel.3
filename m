@@ -4,61 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64CDDC44533
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 14:22:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 413B7C44529
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 14:23:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bU1gEiD7NcA2rnUnfYbc9tR+4mXNH9SNQM6i7U1cxeY=; b=FsAILfNVjzpRs5+0CO94eOuxVi
-	LYU2jGPRRHeAbq66oXsnBduaRa3DjAWDaxKJ1mXv3ry9ds/4TPASrAH5/fFudNfQ18uvZou6BUnD9
-	4d9dzGVtHDcbT5HPjAo5Oo0mYWbFRI2zg9eyj80/ojMfNTxx3VYP/jdy8JmQlleLhSgN6V6otfk5T
-	F2NJzk41q7TdgnKmfOEIW485WMoNvLo1BD9LgJwszyhrkDWlO2qEye2ZE+RfCC3/Sk0fNhnHCLNxU
-	iXrGGFYk0RIi8sqGGeeWUYOn5zPUo9wy6PruVaPNPp4NoSJHJ0mqw0bgMUK4vA0fyb8kWhlHqPuwv
-	Ck7aFRLQ==;
+	bh=uzQVXz3Vu5cQYnBTWDcGHmTfA/LK3pSTe6SHrggSaWw=; b=gLNJ+bB3pSOGStd/h882/060wL
+	5W4VpuWJ9LhIuDvx8MmthCQM5v1U9r/JiiauIW3AG/lQMuYBbOHWyqcmmk7NIXG/qP3KoR913wYvw
+	9p7ATHy9dk1ldAE1j9WS9cBcwkoF7V9ofUGQyAjfZ1sfmyq8kAc7sIoHOZ3iC6IwOvX4d4rRyAaac
+	vQrcZbcr+3RTM9x50XgIh72bClNIG4+d+pmoDkIBtcZWIaX66hdPo8Q+QyJQjw4304x08u3V8vzbB
+	Ee2Xxi7qHsnNCjW/J+y1ml4UWH228l1x2BuZQG3VIVrZtfasQ/5tvmuh2X53D82dPmYtIOD8cS34r
+	IfaJUOag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmBMb-00000009eB3-35rV;
-	Tue, 21 Jul 2026 14:22:29 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmBMZ-00000009eAQ-42PA;
-	Tue, 21 Jul 2026 14:22:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 05E6A152B;
-	Tue, 21 Jul 2026 07:22:21 -0700 (PDT)
-Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3F7BA3F86F;
-	Tue, 21 Jul 2026 07:22:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1784643745; bh=LMZPIm3lNANVJ6PM9/cQcUVmPAe9Gto5uG1fOHCJtfk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qyqJ06RReCEh8jl/1fDYq0EG8GrlS8ZwcYFvuwva0l4mowYR76racRXv/xX0zf/MA
-	 l9+gtt6F+2qjYyptZh0SK7L4mq8e9Iw6egLZ5mrVdMSHnGe9doljYaT0JosnusrOTY
-	 chpyNthbnDWGIY9ruEZb/7rsEHPM3/9tLIJUBr20=
-Message-ID: <a6693dd5-8df0-4866-80d7-1de54e07a490@arm.com>
-Date: Tue, 21 Jul 2026 15:22:21 +0100
+	id 1wmBNi-00000009ePf-0jFX;
+	Tue, 21 Jul 2026 14:23:38 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wmBNf-00000009eOv-0slK
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Jul 2026 14:23:36 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-698bf053053so13246552a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 07:23:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1784643813; x=1785248613; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=uzQVXz3Vu5cQYnBTWDcGHmTfA/LK3pSTe6SHrggSaWw=;
+        b=ogLSMMKtA04gYHoyqbKzsPnBk2FB53jgsjKMeWl1+DwDjZe2lVnlvYpl1scNE8+Kkp
+         96PtEU3z5y8WUFX9XcWNZOK9rho4cYbgqJxsAAp9ItWQQA5FPZbmglbavHjOo7apKONH
+         ds6b4L5pPHNO2ACnOlk70Vq41bh8/rXuPOIv2Mpr9TyoGP0Mc4ffuOuPOudbrAYKsPvd
+         rDO8L1gtjEKZAPKpV25h1clmiX6MkXqUlmHaNGsaw7pwS48TGLgGy1Dtn3WxolyBDMjw
+         aGygl6673bnUHhrLS2zysOI7wDH1XM4A19oj9nFUU4QUVMoRzB+J6Ck4YYWQeyCULR4x
+         IDhQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784643813; x=1785248613;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=uzQVXz3Vu5cQYnBTWDcGHmTfA/LK3pSTe6SHrggSaWw=;
+        b=Lblxz/LfSgv2T0aT+35sRNztuJcrzZytb+I6nHLk2qTOdNO1ESVGu4oT9lzhLl0vLz
+         hs+j+2Ukm5In8uSrN5dAiQAJpE3PsLcCm9Ew1p+Z3KIkjWO0K7MORbWpq5hLkEtktnk7
+         DWbn0V5VaAdj9vksixd8pN5Uw9MeoRsO3AsADudI5omA4c17u3a7Pem+VROgAGViNyba
+         eFSUeeSWhtC3PdDMVgFuZpNNJ1q8vsPVvQkwbz6SVd+37jAgkaQOBbmHVqNv+vH6wAob
+         aQ8VYa5ynA3GMldhMhWSKEZW6KyNC8SmO2UeRI12meyqmgRQtwp66v8Uor0cyj9nF5VS
+         onjA==
+X-Forwarded-Encrypted: i=1; AHgh+RoPnRX3K49bWKN6VKBy/kK5ujMlSHhWyK96oGCCjoKEFiEwqBW0koSkXmV/fXwKTxT/TSc3MQJWOj7Wfq5+ckFP@lists.infradead.org
+X-Gm-Message-State: AOJu0YxsOoxJTDr9Mj+mpnFenx2gPZxOHodPO8kiTX5IrFr/QUcgQL7w
+	ACru3j+3GDGaYmdF4c5QOREEE/np8OrR7LtY/fCWRfKy76JpzE01Yahdky6O9Bajk74=
+X-Gm-Gg: AR+sD12Mrrv6O7QNjpTDFXO1RV0V284NXmuoeEpVp/0WfkWzputyaAUbK2pZBIaEYu8
+	jshrJBLHCpF4Q1SZ6wxCSISg0JgWgQIAyZDIl2WvBbtJw8sBMaMVDZzZeKGQFORCdvNPmQrzyd4
+	2NNcyoMKoD44pN4EIwjFkhCHFb69rtSErxmRvUOxdpYwXneNrHMFNBgJI2LmudfNjMspmg9Je+7
+	Qe1ysCZHhFM0wPaFSKCgbkB+0wBeUi1rKi/fy7iTeWF2NvKJGvhD6VllQkgOJN3K7AdtxvevzTl
+	Sz5CbsrRsHHDK+WjyLQkjTMLRVHB4Xsl9cFPfIzpatHbVkAkDUjw4fDlQclHf3+hqe8JXqpHvRl
+	EjrQwSHGnmM97sXckCQyIsVq2rg/++yA0XPnrGuSPN6w1dfJsTAAGVZIQSL5hugeNgFkLXYfgGg
+	zW7d0MjwxkMJeT3h9Rfw==
+X-Received: by 2002:a05:6402:44da:b0:69a:af38:2fc0 with SMTP id 4fb4d7f45d1cf-69e652ddde8mr5595284a12.20.1784643813011;
+        Tue, 21 Jul 2026 07:23:33 -0700 (PDT)
+Received: from [192.168.1.3] ([37.18.141.193])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-69e700055a8sm5846338a12.28.2026.07.21.07.23.31
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 21 Jul 2026 07:23:32 -0700 (PDT)
+Message-ID: <b12b6ece-16d3-483b-a1bf-30d41c6a252f@linaro.org>
+Date: Tue, 21 Jul 2026 15:23:31 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] iommu/rockchip: Drop global rk_ops in favor of
- per-device ops
-To: Simon Xue <xxm@rock-chips.com>, Joerg Roedel <joro@8bytes.org>,
- Will Deacon <will@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Jonas Karlman <jonas@kwiboo.se>
-References: <20260310084812.126082-1-xxm@rock-chips.com>
- <20260310105303.128859-1-xxm@rock-chips.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260310105303.128859-1-xxm@rock-chips.com>
+Subject: Re: [PATCH] perf cs-etm: Avoid truncating AUX buffer sizes to int
+To: Leo Yan <leo.yan@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-perf-users@vger.kernel.org, Suyash Mahar <smahar@meta.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>,
+ Jiri Olsa <jolsa@kernel.org>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Mike Leach <mike.leach@arm.com>, Mathieu Poirier <mathieu.poirier@linaro.org>
+References: <20260720-perf_cs_etm_fix_big_size-v1-1-97ded24636b1@arm.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20260720-perf_cs_etm_fix_big_size-v1-1-97ded24636b1@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_072228_091900_2C1567C1 
-X-CRM114-Status: GOOD (  40.95  )
+X-CRM114-CacheID: sfid-20260721_072335_290666_7B15AEF2 
+X-CRM114-Status: GOOD (  26.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,310 +106,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/03/2026 10:53 am, Simon Xue wrote:
-> The driver currently uses a global rk_ops pointer, forcing all IOMMU
-> instances to share the same operations. This restricts the driver from
-> supporting SoCs that might integrate different versions of IOMMU hardware.
+
+
+On 20/07/2026 11:01 am, Leo Yan wrote:
+> cs_etm__get_trace() returns an int, but it used to return etmq->buf_len
+> on success. That value comes from auxtrace_buffer::size, which is a
+> size_t. For a large AUX trace block, returning the byte count through an
+> int can overflow and make a valid buffer look like a negative error.
 > 
-> Since the IOMMU framework passes the master device information to
-> iommu_paging_domain_alloc(), the global variable is no longer needed.
+> The callers do not need the actual byte count from cs_etm__get_trace().
+> The buffer length is already stored in the etmq->buf_len. The callers
+> only need to distinguish three states:
 > 
-> Fix this by moving rk_ops into struct rk_iommu and struct rk_iommu_domain.
-> Initialize it per-device during probe via of_device_get_match_data(),
-> and replace all global references with the instance-specific pointers.
+>    < 0: error
+>    = 0: no more AUX buffers
+>    > 0: data is available
 > 
-> Signed-off-by: Simon Xue <xxm@rock-chips.com>
+> Make cs_etm__get_trace() return 0 for all non-error cases and use
+> etmq->buf_len to indicate whether a new buffer was found. Then make
+> cs_etm__get_data_block() return 1 whenever data is available, instead of
+> returning the buffer length.
+> 
+> Also refactor cs_etm__get_data_block() to make its return value
+> semantics clearer.
+> 
+> Reported-by: Suyash Mahar <smahar@meta.com>
+> Fixes: 8224531cf5a1 ("perf cs-etm: Modularize auxtrace_buffer fetch function")
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+
+Reviewed-by: James Clark <james.clark@linaro.org>
+
 > ---
-> v2:
->   - Remove the one-time-used 'ops' variable in rk_iommu_probe()
+>   tools/perf/util/cs-etm.c | 46 ++++++++++++++++++++++++++--------------------
+>   1 file changed, 26 insertions(+), 20 deletions(-)
 > 
->   drivers/iommu/rockchip-iommu.c | 71 ++++++++++++++++------------------
->   1 file changed, 33 insertions(+), 38 deletions(-)
-> 
-> diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iommu.c
-> index 0013cf196c57..4da80136933c 100644
-> --- a/drivers/iommu/rockchip-iommu.c
-> +++ b/drivers/iommu/rockchip-iommu.c
-> @@ -82,6 +82,14 @@
->     */
->   #define RK_IOMMU_PGSIZE_BITMAP 0x007ff000
->   
-> +struct rk_iommu_ops {
-> +	phys_addr_t (*pt_address)(u32 dte);
-> +	u32 (*mk_dtentries)(dma_addr_t pt_dma);
-> +	u32 (*mk_ptentries)(phys_addr_t page, int prot);
-> +	u64 dma_bit_mask;
-> +	gfp_t gfp_flags;
-> +};
-> +
->   struct rk_iommu_domain {
->   	struct list_head iommus;
->   	u32 *dt; /* page directory table */
-> @@ -89,6 +97,7 @@ struct rk_iommu_domain {
->   	spinlock_t iommus_lock; /* lock for iommus list */
->   	spinlock_t dt_lock; /* lock for modifying page directory table */
->   	struct device *dma_dev;
-> +	const struct rk_iommu_ops *rk_ops;
-
-Following up on Jonas' comment, similarly to dma_dev, this isn't 
-entirely redundant as it's effectively tied to the lifetime of the 
-domain - e.g. domain_alloc_paging may be initially called on IOMMU A, 
-then the domain shared with a sufficiently compatible IOMMU B, then 
-eventually detached from IOMMU A entirely, but its capabilities still 
-remain whatever was decided by that initial allocation. Thuse while at a 
-glance it looks like we might be able to get away with just 
-dereferencing list_first_entry(domain->iommus), that isn't strictly 
-guaranteed to remain the correct thing over time.
-
->   
->   	struct iommu_domain domain;
->   };
-> @@ -98,14 +107,6 @@ static const char * const rk_iommu_clocks[] = {
->   	"aclk", "iface",
->   };
->   
-> -struct rk_iommu_ops {
-> -	phys_addr_t (*pt_address)(u32 dte);
-> -	u32 (*mk_dtentries)(dma_addr_t pt_dma);
-> -	u32 (*mk_ptentries)(phys_addr_t page, int prot);
-> -	u64 dma_bit_mask;
-> -	gfp_t gfp_flags;
-> -};
+> diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
+> index 95e3ec1171acc8442d8539a72a26a1a5a53a2f37..114b3cd2da495e54e78df8fbd707898312f95079 100644
+> --- a/tools/perf/util/cs-etm.c
+> +++ b/tools/perf/util/cs-etm.c
+> @@ -1467,8 +1467,7 @@ cs_etm__get_trace(struct cs_etm_queue *etmq)
+>   	etmq->buf_used = 0;
+>   	etmq->buf_len = aux_buffer->size;
+>   	etmq->buf = aux_buffer->data;
 > -
->   struct rk_iommu {
->   	struct device *dev;
->   	void __iomem **bases;
-> @@ -117,6 +118,7 @@ struct rk_iommu {
->   	struct iommu_device iommu;
->   	struct list_head node; /* entry in rk_iommu_domain.iommus */
->   	struct iommu_domain *domain; /* domain to which iommu is attached */
-> +	const struct rk_iommu_ops *rk_ops;
->   };
->   
->   struct rk_iommudata {
-> @@ -124,7 +126,6 @@ struct rk_iommudata {
->   	struct rk_iommu *iommu;
->   };
->   
-> -static const struct rk_iommu_ops *rk_ops;
->   static struct iommu_domain rk_identity_domain;
->   
->   static inline void rk_table_flush(struct rk_iommu_domain *dom, dma_addr_t dma,
-> @@ -510,7 +511,7 @@ static int rk_iommu_force_reset(struct rk_iommu *iommu)
->   	 * and verifying that upper 5 (v1) or 7 (v2) nybbles are read back.
->   	 */
->   	for (i = 0; i < iommu->num_mmu; i++) {
-> -		dte_addr = rk_ops->pt_address(DTE_ADDR_DUMMY);
-> +		dte_addr = iommu->rk_ops->pt_address(DTE_ADDR_DUMMY);
->   		rk_iommu_write(iommu->bases[i], RK_MMU_DTE_ADDR, dte_addr);
->   
->   		if (dte_addr != rk_iommu_read(iommu->bases[i], RK_MMU_DTE_ADDR)) {
-> @@ -551,7 +552,7 @@ static void log_iova(struct rk_iommu *iommu, int index, dma_addr_t iova)
->   	page_offset = rk_iova_page_offset(iova);
->   
->   	mmu_dte_addr = rk_iommu_read(base, RK_MMU_DTE_ADDR);
-> -	mmu_dte_addr_phys = rk_ops->pt_address(mmu_dte_addr);
-> +	mmu_dte_addr_phys = iommu->rk_ops->pt_address(mmu_dte_addr);
->   
->   	dte_addr_phys = mmu_dte_addr_phys + (4 * dte_index);
->   	dte_addr = phys_to_virt(dte_addr_phys);
-> @@ -560,14 +561,14 @@ static void log_iova(struct rk_iommu *iommu, int index, dma_addr_t iova)
->   	if (!rk_dte_is_pt_valid(dte))
->   		goto print_it;
->   
-> -	pte_addr_phys = rk_ops->pt_address(dte) + (pte_index * 4);
-> +	pte_addr_phys = iommu->rk_ops->pt_address(dte) + (pte_index * 4);
->   	pte_addr = phys_to_virt(pte_addr_phys);
->   	pte = *pte_addr;
->   
->   	if (!rk_pte_is_page_valid(pte))
->   		goto print_it;
->   
-> -	page_addr_phys = rk_ops->pt_address(pte) + page_offset;
-> +	page_addr_phys = iommu->rk_ops->pt_address(pte) + page_offset;
->   	page_flags = pte & RK_PTE_PAGE_FLAGS_MASK;
->   
->   print_it:
-> @@ -663,13 +664,13 @@ static phys_addr_t rk_iommu_iova_to_phys(struct iommu_domain *domain,
->   	if (!rk_dte_is_pt_valid(dte))
->   		goto out;
->   
-> -	pt_phys = rk_ops->pt_address(dte);
-> +	pt_phys = rk_domain->rk_ops->pt_address(dte);
->   	page_table = (u32 *)phys_to_virt(pt_phys);
->   	pte = page_table[rk_iova_pte_index(iova)];
->   	if (!rk_pte_is_page_valid(pte))
->   		goto out;
->   
-> -	phys = rk_ops->pt_address(pte) + rk_iova_page_offset(iova);
-> +	phys = rk_domain->rk_ops->pt_address(pte) + rk_iova_page_offset(iova);
->   out:
->   	spin_unlock_irqrestore(&rk_domain->dt_lock, flags);
->   
-> @@ -730,7 +731,7 @@ static u32 *rk_dte_get_page_table(struct rk_iommu_domain *rk_domain,
->   	if (rk_dte_is_pt_valid(dte))
->   		goto done;
->   
-> -	page_table = iommu_alloc_pages_sz(GFP_ATOMIC | rk_ops->gfp_flags,
-> +	page_table = iommu_alloc_pages_sz(GFP_ATOMIC | rk_domain->rk_ops->gfp_flags,
->   					  SPAGE_SIZE);
->   	if (!page_table)
->   		return ERR_PTR(-ENOMEM);
-> @@ -742,13 +743,13 @@ static u32 *rk_dte_get_page_table(struct rk_iommu_domain *rk_domain,
->   		return ERR_PTR(-ENOMEM);
->   	}
->   
-> -	dte = rk_ops->mk_dtentries(pt_dma);
-> +	dte = rk_domain->rk_ops->mk_dtentries(pt_dma);
->   	*dte_addr = dte;
->   
->   	rk_table_flush(rk_domain,
->   		       rk_domain->dt_dma + dte_index * sizeof(u32), 1);
->   done:
-> -	pt_phys = rk_ops->pt_address(dte);
-> +	pt_phys = rk_domain->rk_ops->pt_address(dte);
->   	return (u32 *)phys_to_virt(pt_phys);
+> -	return etmq->buf_len;
+> +	return 0;
 >   }
 >   
-> @@ -790,7 +791,7 @@ static int rk_iommu_map_iova(struct rk_iommu_domain *rk_domain, u32 *pte_addr,
->   		if (rk_pte_is_page_valid(pte))
->   			goto unwind;
+>   /*
+> @@ -2151,26 +2150,33 @@ static int cs_etm__get_data_block(struct cs_etm_queue *etmq)
+>   {
+>   	int ret;
 >   
-> -		pte_addr[pte_count] = rk_ops->mk_ptentries(paddr, prot);
-> +		pte_addr[pte_count] = rk_domain->rk_ops->mk_ptentries(paddr, prot);
-
-Given that we don't do any bounds-checking of paddr here, do we actually 
-need to bother with separate PTE/DTE ops at all? If we're going to 
-assume that the upper bits of paddr will correctly be 0 when called for 
-a v1 instance, then unconditionally using the v2 encodings should still 
-give the same result. Conversely, if the current v1 ops do silently 
-truncate an out-of-range paddr leading to DMA accesses corrupting memory 
-and/or breaking the system, then presumably the worst that could happen 
-if v1 hardware did try to interpret nonzero reserved bits is that it 
-might corrupt memory or break the system in some slightly different way.
-
-I'd be inclined to just store another per-version mask of valid address 
-bits, either for the unpacked physical address or packed dte_pt_address 
-format, in a way that works to validate and constrain the input here and 
-in rk_iommu_force_reset(), and then "ops" can reduce to purely "data".
-
->   		paddr += SPAGE_SIZE;
->   	}
-> @@ -812,7 +813,7 @@ static int rk_iommu_map_iova(struct rk_iommu_domain *rk_domain, u32 *pte_addr,
->   			    pte_count * SPAGE_SIZE);
+> -	if (!etmq->buf_len) {
+> -		ret = cs_etm__get_trace(etmq);
+> -		if (ret <= 0)
+> -			return ret;
+> -		/*
+> -		 * We cannot assume consecutive blocks in the data file
+> -		 * are contiguous, reset the decoder to force re-sync.
+> -		 */
+> -		ret = cs_etm_decoder__reset(etmq->decoder);
+> -		if (ret)
+> -			return ret;
+> +	/* The current block is not finished */
+> +	if (etmq->buf_len)
+> +		return 1;
 >   
->   	iova += pte_count * SPAGE_SIZE;
-> -	page_phys = rk_ops->pt_address(pte_addr[pte_count]);
-> +	page_phys = rk_domain->rk_ops->pt_address(pte_addr[pte_count]);
->   	pr_err("iova: %pad already mapped to %pa cannot remap to phys: %pa prot: %#x\n",
->   	       &iova, &page_phys, &paddr, prot);
->   
-> @@ -849,7 +850,7 @@ static int rk_iommu_map(struct iommu_domain *domain, unsigned long _iova,
->   	pte_index = rk_iova_pte_index(iova);
->   	pte_addr = &page_table[pte_index];
->   
-> -	pte_dma = rk_ops->pt_address(dte_index) + pte_index * sizeof(u32);
-> +	pte_dma = rk_domain->rk_ops->pt_address(dte_index) + pte_index * sizeof(u32);
->   	ret = rk_iommu_map_iova(rk_domain, pte_addr, pte_dma, iova,
->   				paddr, size, prot);
->   
-> @@ -887,7 +888,7 @@ static size_t rk_iommu_unmap(struct iommu_domain *domain, unsigned long _iova,
->   		return 0;
->   	}
->   
-> -	pt_phys = rk_ops->pt_address(dte);
-> +	pt_phys = rk_domain->rk_ops->pt_address(dte);
->   	pte_addr = (u32 *)phys_to_virt(pt_phys) + rk_iova_pte_index(iova);
->   	pte_dma = pt_phys + rk_iova_pte_index(iova) * sizeof(u32);
->   	unmap_size = rk_iommu_unmap_iova(rk_domain, pte_addr, pte_dma, size);
-> @@ -945,7 +946,7 @@ static int rk_iommu_enable(struct rk_iommu *iommu)
->   
->   	for (i = 0; i < iommu->num_mmu; i++) {
->   		rk_iommu_write(iommu->bases[i], RK_MMU_DTE_ADDR,
-> -			       rk_ops->mk_dtentries(rk_domain->dt_dma));
-> +			       iommu->rk_ops->mk_dtentries(rk_domain->dt_dma));
->   		rk_iommu_base_command(iommu->bases[i], RK_MMU_CMD_ZAP_CACHE);
->   		rk_iommu_write(iommu->bases[i], RK_MMU_INT_MASK, RK_MMU_IRQ_MASK);
->   	}
-> @@ -1068,17 +1069,19 @@ static struct iommu_domain *rk_iommu_domain_alloc_paging(struct device *dev)
->   	if (!rk_domain)
->   		return NULL;
->   
-> +	iommu = rk_iommu_from_dev(dev);
-> +	rk_domain->rk_ops = iommu->rk_ops;
+> -		/*
+> -		 * Since the decoder is reset, this causes a global trace
+> -		 * discontinuity. Flush all thread stacks.
+> -		 */
+> -		cs_etm__flush_all_stack(etmq);
+> -	}
+> +	ret = cs_etm__get_trace(etmq);
+> +	if (ret < 0)
+> +		return ret;
 > +
->   	/*
->   	 * rk32xx iommus use a 2 level pagetable.
->   	 * Each level1 (dt) and level2 (pt) table has 1024 4-byte entries.
->   	 * Allocate one 4 KiB page for each table.
->   	 */
-> -	rk_domain->dt = iommu_alloc_pages_sz(GFP_KERNEL | rk_ops->gfp_flags,
-> +	rk_domain->dt = iommu_alloc_pages_sz(GFP_KERNEL | rk_domain->rk_ops->gfp_flags,
->   					     SPAGE_SIZE);
->   	if (!rk_domain->dt)
->   		goto err_free_domain;
+> +	/* No more buffer to read */
+> +	if (!etmq->buf_len)
+> +		return 0;
+> +
+> +	/*
+> +	 * We cannot assume consecutive blocks in the data file
+> +	 * are contiguous, reset the decoder to force re-sync.
+> +	 */
+> +	ret = cs_etm_decoder__reset(etmq->decoder);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/*
+> +	 * Since the decoder is reset, this causes a global trace
+> +	 * discontinuity. Flush all thread stacks.
+> +	 */
+> +	cs_etm__flush_all_stack(etmq);
 >   
-> -	iommu = rk_iommu_from_dev(dev);
->   	rk_domain->dma_dev = iommu->dev;
->   	rk_domain->dt_dma = dma_map_single(rk_domain->dma_dev, rk_domain->dt,
->   					   SPAGE_SIZE, DMA_TO_DEVICE);
-> @@ -1117,7 +1120,7 @@ static void rk_iommu_domain_free(struct iommu_domain *domain)
->   	for (i = 0; i < NUM_DT_ENTRIES; i++) {
->   		u32 dte = rk_domain->dt[i];
->   		if (rk_dte_is_pt_valid(dte)) {
-> -			phys_addr_t pt_phys = rk_ops->pt_address(dte);
-> +			phys_addr_t pt_phys = rk_domain->rk_ops->pt_address(dte);
->   			u32 *page_table = phys_to_virt(pt_phys);
->   			dma_unmap_single(rk_domain->dma_dev, pt_phys,
->   					 SPAGE_SIZE, DMA_TO_DEVICE);
-> @@ -1197,7 +1200,6 @@ static int rk_iommu_probe(struct platform_device *pdev)
->   	struct device *dev = &pdev->dev;
->   	struct rk_iommu *iommu;
->   	struct resource *res;
-> -	const struct rk_iommu_ops *ops;
->   	int num_res = pdev->num_resources;
->   	int err, i;
+> -	return etmq->buf_len;
+> +	return 1;
+>   }
 >   
-> @@ -1211,16 +1213,9 @@ static int rk_iommu_probe(struct platform_device *pdev)
->   	iommu->dev = dev;
->   	iommu->num_mmu = 0;
->   
-> -	ops = of_device_get_match_data(dev);
-> -	if (!rk_ops)
-> -		rk_ops = ops;
-> -
-> -	/*
-> -	 * That should not happen unless different versions of the
-> -	 * hardware block are embedded the same SoC
-> -	 */
-> -	if (WARN_ON(rk_ops != ops))
-> -		return -EINVAL;
-
-We shouldn't drop this check entirely - it effectively wants to move to 
-rk_iommu_attach_device(), since although we can now allow different 
-version to coexist independently, we still need to prevent incompatible 
-ops (or address masks) from trying to share the same domain. I guess it 
-could technically be OK to attach a v1 domain to a v2 IOMMU, but in 
-general it wouldn't work the other way round if there could already be 
- >32-bit addresses mapped.
-
-Thanks,
-Robin.
-
-> +	iommu->rk_ops = of_device_get_match_data(dev);
-> +	if (!iommu->rk_ops)
-> +		return -ENOENT;
->   
->   	iommu->bases = devm_kcalloc(dev, num_res, sizeof(*iommu->bases),
->   				    GFP_KERNEL);
-> @@ -1286,7 +1281,7 @@ static int rk_iommu_probe(struct platform_device *pdev)
->   			goto err_pm_disable;
->   	}
->   
-> -	dma_set_mask_and_coherent(dev, rk_ops->dma_bit_mask);
-> +	dma_set_mask_and_coherent(dev, iommu->rk_ops->dma_bit_mask);
->   
->   	err = iommu_device_sysfs_add(&iommu->iommu, dev, NULL, dev_name(dev));
->   	if (err)
+>   static bool cs_etm__is_svc_instr(struct cs_etm_queue *etmq,
+> 
+> ---
+> base-commit: e01c7bd5b1eece254bcbf282db066b12c4815d21
+> change-id: 20260720-perf_cs_etm_fix_big_size-ec5608f767df
+> 
+> Best regards,
 
 
