@@ -4,82 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3C6FC44529
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 09:02:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F4A4C4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 09:03:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zBRro5DpsPG3sefzb4EIOocwUtzmV8Fv8o5jqwZE2+k=; b=BVcoiUjUFtB9zbnz8uhLP9OT2X
-	KvB7iFXqZGy1KFvG0m3vEypZ5vLqctQwkoodk6qjJ0wmOEL4WLX617QDD02/j5ZAyhaASm7lFPQih
-	LS0ohli6Z3Uh28c7pqoY7EamG+Evzegv0yaHwBaa/YJDjW2vJIi4I+il7ExAd6D/prpsHIM7ZO7sP
-	UUom5gV3le4jZLdOG2F6uZjhWCZfkjlfkD4SJE2glER5Rwl7a+TGJO6XlVg3n942QLcXqO+NTYddY
-	/b10XPfTurii3M3rwL6yWqoVCasnvZmPAitleDqaiBYTsApuq3xCg62IT061zXqgkyR58+4N7DEDd
-	SNNKglIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZzFEYaZ31ngV7DM8NQYdoY1mO7XPfcDH93x7MCGl7Mc=; b=GnvtqMI9gsXb2CzHgaMlMX6qCC
+	SV3FRq5hlsjwMGeBJb4m0ElLN6gDRNOKtE+n2jJBP3glDebrVpSzx6m44YSErO5YQ6uNW59ZdfxcT
+	waG1l7Lw/u8GlDJgUIH6lUd3WN8k28K9t3cTvfb4yz762XjkkQ8vKF4MJaMD6pwFX+3qPW2ChzGwK
+	6lUtKwWLXUwJYoy5ResYEdIyMO/Ipa+NtKPZVmTCDerMEnvxZmoyH0h0Zn3ECEb4/9xOF3vezX27T
+	vI/J2jEtVIkV35Hs9yMX79s7IFHXW+74ifaG+qUYd2foC5kYViIv73YFCOdZwLBY7E96ISh4kSpyD
+	e9gY+MtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm6Ml-00000008uQ1-1Bhn;
-	Tue, 21 Jul 2026 09:02:19 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1wm6Na-00000008ujT-26bc;
+	Tue, 21 Jul 2026 09:03:10 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm6Mh-00000008uOW-01Lp
+	id 1wm6NX-00000008uhW-3sq2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 09:02:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1784624390; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=AlU7C9LdltHDScoWwHC3X29nceXJykOp1oOepH0s87+6lXv7feVxAaEktUUhrDFRt7C5qu0RRqzCeGtqTPxCUbv3TXYmL5I5KG36hpUeOe2XIRpcvSAg6oyfYLZibKWUAd1xsPjD3CnWlSme5wqSgEgvJ5hIKurezdaYwXtA+qo=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1784624390; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=zBRro5DpsPG3sefzb4EIOocwUtzmV8Fv8o5jqwZE2+k=; 
-	b=J856QT2c4kybeeFOHMQ1OX4V56MkFHJ4m5rtBe0RiP1LkQTXFcMxsH3mHrUK16Ui80aUztUMsvo/ysnreLqJPA7iLyMHfB+Nd37tn6W0SgttUBWCtWTAQ2C22GwXva8c1W9Ygr+mMEWCnRgLmFEyWaTTK9KWpTSMFZK1xAdDcRg=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1784624390;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=zBRro5DpsPG3sefzb4EIOocwUtzmV8Fv8o5jqwZE2+k=;
-	b=QvjU3XmREttb3ymnkVCFdjT06w+BihipttIUINDEtaHrXThKIn8CXwj7kvaDH4DO
-	FExngn5ztIsoCl/7e/qxNP6tNZts7ZJOvuuWW8+2Uc+nIxFAf0wbGjRjQnom2hpwaJI
-	/Ww26Loy6BIbBzd+co6Fny4NNCQK54UAVevvujoA=
-Received: by mx.zohomail.com with SMTPS id 1784624389622433.39379483803657;
-	Tue, 21 Jul 2026 01:59:49 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Tue, 21 Jul 2026 10:59:01 +0200
-Subject: [PATCH v7 5/5] drm/display: hdmi-state-helper: Init SCDC debugfs
- for HDMI
+	Tue, 21 Jul 2026 09:03:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UddvM23W3damzky253hs11o87Kw+QYj3/ZQxqcOrak6o/nfsIcM8IhKMnLASdvGGUCFc5k8yBvY/eTyj2hEx4K65t/fUEv1qRgN6QzZO597Z7d5R6L6OTm1HlvRupnynV8db/Bl+J1UQA3tdzDcmo/Xp4RAkncPiyBwgM1mMXrI+7DusSUW19udSwAkE9uu9Mn33M8Ri08RBlq1clyZUZvBJ6kNfw3Owy5PJ0DNoJjkM0lb2i8aZHQmUvhU1tTzRhusGMsNaNUtK+kzbg9E/Em7gkQPykAIgQJIi6EIVpTnphylNP7YCsTjkbrYugti6kpUaSZZt1AxeJAvhktvhIQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZzFEYaZ31ngV7DM8NQYdoY1mO7XPfcDH93x7MCGl7Mc=;
+ b=DOmb147Cb7RxVCUbb5C3Rave54i+cqI/YLOyGotLof7PaKsDppUc4IG/zcMlXrbtVUlcexNBW1oBbYney75JkltoBMV7AyGTZQTY40cPElJoQ1fMirAu6va1ETNH2gGBT+RuDpJcQlZNanVY6Zx0R1lNhC2lRY01ORSjv0ghRcheo25t4OjSeqHtVPyqBiKxxWv9JCrVWGDbWC0iLYvINs3j3zzXAA0baU14cF3AyTYCcnkk+VP0pP0YQhX87NZ5sNiG2otpmLFCp2rdextC8zZm/oztcyYN7SRcUT7sNscLo4Gme6DOYCCiVpyhfG+SyjVnI+Of3BjDYG3uzvMkaQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=gmail.com smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZzFEYaZ31ngV7DM8NQYdoY1mO7XPfcDH93x7MCGl7Mc=;
+ b=fvaEn7FwFSi0k2acx2VqeDpaEY+fN65h1lNcj0oDi2tCTazEX8sh0TIM80eAY6NLIcGamgo0x/9JH6bAl4a5giDNKfnClH5USQHdw+asVdq2rphvOIo4HIXtDM9z11kF7ezMED2mtkPKtLiwf0M5BcLWBP31huKTHAOSR/Kwg7GuZ32xVPiey6SDoCRCkOT9H+xMtrnDoOHithq6D0p/o2d80kLQKtybWPuW0R81RHrJLAMOPaz4kayhr15g+er5Fkxn3nsv9SMK0rsSZynH5uYOSLhMMcX3g16pLi6novHL6/swXqPflmHje2KqFzZJAhL/X9cM/cTpxF/nLfebQg==
+Received: from DUZPR01CA0191.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:4b6::20) by GVXPR10MB8106.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:150:116::9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.18; Tue, 21 Jul
+ 2026 09:02:56 +0000
+Received: from DB3PEPF0000885C.eurprd02.prod.outlook.com
+ (2603:10a6:10:4b6:cafe::56) by DUZPR01CA0191.outlook.office365.com
+ (2603:10a6:10:4b6::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.245.10 via Frontend Transport; Tue,
+ 21 Jul 2026 09:02:56 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ DB3PEPF0000885C.mail.protection.outlook.com (10.167.242.7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.245.5 via Frontend Transport; Tue, 21 Jul 2026 09:02:55 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Tue, 21 Jul
+ 2026 11:07:24 +0200
+Received: from gnbcxd0016.gnb.st.com (10.130.77.119) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Tue, 21 Jul
+ 2026 11:02:47 +0200
+Date: Tue, 21 Jul 2026 11:02:39 +0200
+From: Alain Volmat <alain.volmat@foss.st.com>
+To: Dan Carpenter <error27@gmail.com>
+CC: Hugues Fruchet <hugues.fruchet@foss.st.com>, Mauro Carvalho Chehab
+	<mchehab@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, "Alexandre
+ Torgue" <alexandre.torgue@foss.st.com>, Sakari Ailus
+	<sakari.ailus@linux.intel.com>, <linux-media@vger.kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<kernel-janitors@vger.kernel.org>
+Subject: Re: [PATCH] media: stm32: dcmi: fix some error handling bugs in
+ probe()
+Message-ID: <al81r7oJXTms6XG-@gnbcxd0016.gnb.st.com>
+References: <alnx_dGHIBYpZuHo@stanley.mountain>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260721-scdc-link-health-v7-5-92df1b6ad5fc@collabora.com>
-References: <20260721-scdc-link-health-v7-0-92df1b6ad5fc@collabora.com>
-In-Reply-To: <20260721-scdc-link-health-v7-0-92df1b6ad5fc@collabora.com>
-To: Jani Nikula <jani.nikula@linux.intel.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Daniel Stone <daniel@fooishbar.org>, 
- Hans Verkuil <hverkuil+cisco@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Samuel Holland <samuel@sholland.org>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- kernel@collabora.com, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-X-Mailer: b4 0.15.2
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <alnx_dGHIBYpZuHo@stanley.mountain>
+X-Disclaimer: ce message est personnel / this message is private
+X-Originating-IP: [10.130.77.119]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB3PEPF0000885C:EE_|GVXPR10MB8106:EE_
+X-MS-Office365-Filtering-Correlation-Id: e8270b24-a93e-424b-c691-08dee706dace
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|36860700016|376014|1800799024|56012099006|11063799006|10067099003|6133799003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: ETIquyLnod+xrdQLtO4uRzOieDu9dsZFzSpNdnqoUlhqk9lSab36Xp1E/2G3SDYByXN/cXJjkQX6NTaLoDTZ/07fj414o7HAIqaqIvoI6dYJPEsTz+DgZaoGjgACUJHX+qJl2lGTAvpxqsqAnFNZ5wyjy1jS3CuOt23vOxe7Rw/SINW6rc/yMe2HOzRjQ739SCgH2pUM8Vbk7qBX8W3SOqfgpDjtYVe8tBY/Mm3gd8y+AdjTgW3DBaX3p/cYXggcEr6ho0qmt5/i3AdvDZoPnXCDtw0ZCGPGccvDZWtcrTOd6LE4mQ6mdgiW18sOBt70L2Opmz846mB6QhLV+uEXIBl4Iu+bBgzX5Rdc0033H6/rhKLUXRUUXy3hLY4mc7UYauP8qVi2yzPOlywOQWzXiLV2cvTFPEa9Y7TjIwT8KPJgjC33TEGoatD4ZJl28R2zqqp64R/oTO5WzJWFIpabdvrdN08ovK2kbAnXl7am8rjrXWa8pZn8xSI8Tz3lZ59aGJ5vGQ76Gs+3DyURXWKD18BcXPk/2U0gBO/7gSfpPhW2GBko31a65Os7pqcwuQhIRG0P4q7HFHCGteJ8LVA+dstyAlpAzhWXFz/lpBH+AzM/hR4CG2CkBnOi21/teLk/OvGgD9KDzhz0YnzqUusKa4+w3VSKE2PgD+wnuJHlP3Vj/BscvENKkkecqgVeBqEHuH+NssCi+Sk7tr8f3faO8g==
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(36860700016)(376014)(1800799024)(56012099006)(11063799006)(10067099003)(6133799003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: pGmezc+6pCIA8nnBkJsjaRAgaXyx7U+uxK6z/TXQNrEpejVAoLftUW7mBwITxP+JRG8Dt82uyAA/g+R21iyNKNHTgPYgNgns/qovFNOpnEc3GbRImeY0HkT7WUfJ+9RdvO6779RV5atihqhnac5lhUyTw4hbggJQQRucLfEAhvcbp8yfRfOV1qgZ3X/c3fjmL9r9HeyRf75gc7krrbeLE8BNLGTUA/11+Pcpv+X1SQpldn5dxJLC7dmsbDZVCfj8EK+HX/hGgtuznGTPbBM/njmykaG0E3QfgmYMqLsvvQDpxi+vnMlyUG8IfEfnwjIlRbFnbDy0cOIOpZh4hhGlgXggut+Xn5V9K55YvTIMz6qXr1jHeVQgR+gNCPLK61wzKRhjbJEcyzDuvx8xJ3qTR4bWQajRTHYHNEBXOi5pp1Chskq10RciI1Fgsu8cG4Bv
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Jul 2026 09:02:55.8782
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e8270b24-a93e-424b-c691-08dee706dace
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB3PEPF0000885C.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR10MB8106
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_020215_101176_E752E647 
-X-CRM114-Status: GOOD (  10.04  )
+X-CRM114-CacheID: sfid-20260721_020308_033461_8D3C478D 
+X-CRM114-Status: GOOD (  22.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,37 +131,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Initialise the SCDC debugfs file for connectors that call the HDMI state
-helper's debugfs_init helper. This makes all connectors that use the
-helper expose the scdc_status file in their connector debugfs.
+Hi Dan,
 
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
----
- drivers/gpu/drm/display/drm_hdmi_state_helper.c | 2 ++
- 1 file changed, 2 insertions(+)
+thanks for the patch.
 
-diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-index 8d5ee10ceb87..709524b40c26 100644
---- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-+++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-@@ -13,6 +13,7 @@
- #include <drm/display/drm_hdmi_cec_helper.h>
- #include <drm/display/drm_hdmi_helper.h>
- #include <drm/display/drm_hdmi_state_helper.h>
-+#include <drm/display/drm_scdc_helper.h>
- 
- /**
-  * DOC: hdmi helpers
-@@ -1116,6 +1117,7 @@ void drm_hdmi_connector_debugfs_init(struct drm_connector *connector,
- 		return;
- 
- 	create_hdmi_infoframe_files(connector, dir);
-+	drm_scdc_debugfs_init(connector, root);
- }
- EXPORT_SYMBOL(drm_hdmi_connector_debugfs_init);
- 
+On Fri, Jul 17, 2026 at 12:12:29PM +0300, Dan Carpenter wrote:
+> There are a few issues here:
+> 
+> 1) After we assign:
+>         chan = dma_request_chan(&pdev->dev, "tx");
+>    Then the error paths need to clean up before returning.  The first
+>    error path does a direct return.
+> 2) The error paths check "dcmi->mdma_chan" but that is not assigned
+>    until later so it results in memory leaks.  Test "mdma_chan"
+>    instead.
+> 3) The error handling calls dma_release_channel(dcmi->dma_chan) before
+>    "dcmi->dma_chan" has been assigned which leads to a NULL pointer
+>    dereference.  Use the "chan" variable instead.
+> 
+> I also moved the call to dma_release_channel() after the call to
+> dma_release_channel() so it mirrors the allocation code better.
+> 
+> Fixes: bc901885fae0 ("media: stm32: dcmi: perform dmaengine_slave_config at probe")
+> Signed-off-by: Dan Carpenter <error27@gmail.com>
 
--- 
-2.55.0
+Acked-by: Alain Volmat <alain.volmat@foss.st.com>
 
+> ---
+> From static analysis.  Untested.
+> 
+>  drivers/media/platform/st/stm32/stm32-dcmi.c | 13 ++++++++-----
+>  1 file changed, 8 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/media/platform/st/stm32/stm32-dcmi.c b/drivers/media/platform/st/stm32/stm32-dcmi.c
+> index eeb0199864dd..c9f08b2465be 100644
+> --- a/drivers/media/platform/st/stm32/stm32-dcmi.c
+> +++ b/drivers/media/platform/st/stm32/stm32-dcmi.c
+> @@ -2024,8 +2024,10 @@ static int dcmi_probe(struct platform_device *pdev)
+>  	mdma_chan = dma_request_chan(&pdev->dev, "mdma_tx");
+>  	if (IS_ERR(mdma_chan)) {
+>  		ret = PTR_ERR(mdma_chan);
+> -		if (ret != -ENODEV)
+> -			return dev_err_probe(&pdev->dev, ret, "Failed to request MDMA channel\n");
+> +		if (ret != -ENODEV) {
+> +			dev_err_probe(&pdev->dev, ret, "Failed to request MDMA channel\n");
+> +			goto err_release_chan;
+> +		}
+>  		mdma_chan = NULL;
+>  	}
+>  
+> @@ -2206,12 +2208,13 @@ static int dcmi_probe(struct platform_device *pdev)
+>  err_media_device_cleanup:
+>  	media_device_cleanup(&dcmi->mdev);
+>  err_mdma_slave_config:
+> -	if (dcmi->mdma_chan)
+> +	if (mdma_chan)
+>  		gen_pool_free(dcmi->sram_pool, (unsigned long)dcmi->sram_buf, dcmi->sram_buf_size);
+>  err_dma_slave_config:
+> -	dma_release_channel(dcmi->dma_chan);
+> -	if (dcmi->mdma_chan)
+> +	if (mdma_chan)
+>  		dma_release_channel(mdma_chan);
+> +err_release_chan:
+> +	dma_release_channel(chan);
+>  
+>  	return ret;
+>  }
+> -- 
+> 2.53.0
+> 
+
+Regards,
+Alain
 
