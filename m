@@ -4,70 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29CBBC44520
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 00:39:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31B30C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 00:59:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1CSkd1TSKu5JCz6BkVBLXlO8GJdhBnnjUKfmzFm6Rjo=; b=u2QJB7i5iBPzH6PxqpxLNlBF2K
-	yp3XLC+faRM5Cwv2ZPxWFILvMyUjwfmIsyGoN4ayJ7CTDP3/T8zGMbWOOA00NuaeQf8qh2bsNWPdj
-	Va3Q/iMOUBrjBhOxMgdDB+nTv3MjY8au3vNrrfaamFUJyc4AN7DA7ZZk8wJf/RvgvM2URv5LS5xjL
-	QYWDu90sNShrSUEVTey42igTX6NuGHflTH7jRnELx2OJJgnGrrkRLxqKeKrac8r/9srGUW691olTS
-	+O8BQna3WskbIgnaNyY90WQTonf4lGCHx0YOELQ0VzcYCdWiN6mB2tOT13aisMQETwiPMIFF/ATXH
-	9HmSbsbQ==;
+	bh=ozfN1zf4+uWXwlf8HnytJ7+svEtCavVMiyprjP6zfIY=; b=VE7sd4p2ReelrK81gVciEI1bE4
+	Dq9kLmYdwoIPVp+u0o2KbVyqwvO69Yulb1bt7mq25m7gjY7aQoQZhO3m8SVVntrc+U9mxwW/b1NeA
+	c7sjGaCKq/k0bsOOf4CYsLOuFT/2NjlnYBmF5JQ9QtCrd/BlCJzHgWLrn1EZP3CH5WjHczhZogQrz
+	81NMcGO+i9WvbMAfYj1rP5VjoZILyOEU9/e0cDhHb0YAPUX72oV41FvgOlp7lMVSzadSavmCgVYsq
+	Shx/wGXHQwii/+/VXu+1NjsE8YWmb6cffBpj+c4Xem5eK7OwD2VlKCHBA49sxjerVXruCrFY5nOdg
+	IhmA5fog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlyWP-0000000893S-3cgZ;
-	Tue, 21 Jul 2026 00:39:45 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1wlyp7-000000089jX-1LZG;
+	Tue, 21 Jul 2026 00:59:05 +0000
+Received: from xs1.mindbit.ro ([80.86.107.70] helo=mail.mindbit.ro)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlyWN-00000008932-2ulE
+	id 1wlyp3-000000089j5-2kR1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 00:39:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=1CSkd1TSKu5JCz6BkVBLXlO8GJdhBnnjUKfmzFm6Rjo=; b=fCT2cKtyZSmrLbQJwl0quLDz4K
-	mbzneRcAfsrLdlsiYC3UNxkZYsv3tWj2XYkc0R44yJeJyb+SEk7HiAgimdtvVCBtgShFfKv+7w5aZ
-	Eg+if4EeduR6gQGXJ0F/fLOolhFCZ9NWGrd/2TNFmCXaUIZxIaPixwLGDGcwjTQAkEOQ=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wlyW7-00DLo9-0Z; Tue, 21 Jul 2026 02:39:27 +0200
-Date: Tue, 21 Jul 2026 02:39:26 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Vadim Fedorenko <vadim.fedorenko@linux.dev>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>, davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Russell King <linux@armlinux.org.uk>, thomas.petazzoni@bootlin.com,
-	Alexis =?iso-8859-1?Q?Lothor=E9?= <alexis.lothore@bootlin.com>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH net-next] net: stmmac: Simplify ioctl handling
-Message-ID: <6fa4cb27-20f8-4425-95c8-202d7c7f010a@lunn.ch>
-References: <20260718143848.677531-1-maxime.chevallier@bootlin.com>
- <ae82997f-537e-4a2d-abce-d163fcf9d868@lunn.ch>
- <6ac12388-60de-45aa-a8d0-62fcfaf7bea2@linux.dev>
- <1e640dcb-43ce-4a3b-a74a-ed8e48706b86@lunn.ch>
- <d4f606b9-d793-47c1-8c91-9c9da0e68b4a@linux.dev>
+	Tue, 21 Jul 2026 00:59:03 +0000
+Received: from dog.kanata.rendec.net (pool-174-112-193-187.cpe.net.cable.rogers.com [174.112.193.187])
+	by mail.mindbit.ro (Postfix) with ESMTPSA id ED15DC3739;
+	Tue, 21 Jul 2026 03:58:53 +0300 (EEST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.mindbit.ro ED15DC3739
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rendec.net;
+	s=default; t=1784595535;
+	bh=ozfN1zf4+uWXwlf8HnytJ7+svEtCavVMiyprjP6zfIY=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=NoZc5GUYWpGTXpXx+efET/sRKMKjc3hZyNX08PYoRhuPmmObvDVItLVooNLlnZWUA
+	 ef63ouqcQT9LpvXVPwwu+RWK7TFGSBq0KKq677FTsv2sHgzevYrNvcOFGpAjvkp9bg
+	 AZAdODboxQm8XKy9nFmJy4jgBGOrIenINS6A0J+++K5yOlCogCynWH2S9m224AnJul
+	 yZtjfB1l8an2Dawlt8DkJyPBl5cL8IiKEkCcVtTgXGrNOufWzjUY1MRyW/OOB4UXaa
+	 q4rN+Bn4HAn53NrW4uPi3XADB53Ji9G0Wneoci6Vryq0Dd+cfCxjGw0QXBUc4r6VZq
+	 s8CyHcl7Zlezg==
+Message-ID: <46025d0b3255bd62412598eedae4eda03a61cd39.camel@rendec.net>
+Subject: Re: [PATCH v5 4/4] irqchip/gic-v3-its: Fix grammar and replace a
+ bit number with its symbol
+From: Radu Rendec <radu@rendec.net>
+To: Kemeng Shi <shikemeng@huaweicloud.com>, maz@kernel.org, tglx@kernel.org,
+ 	jason@lakedaemon.net, lpieralisi@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Mon, 20 Jul 2026 20:58:52 -0400
+In-Reply-To: <20260720071215.50705-5-shikemeng@huaweicloud.com>
+References: <20260720071215.50705-1-shikemeng@huaweicloud.com>
+	 <20260720071215.50705-5-shikemeng@huaweicloud.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <d4f606b9-d793-47c1-8c91-9c9da0e68b4a@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_173943_733961_87CF651E 
-X-CRM114-Status: UNSURE (   8.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260720_175902_000734_2CFD97B5 
+X-CRM114-Status: GOOD (  18.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,11 +73,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> looks like it won't work now. we have to create helpers in phy to fix it.
-> I can work on it, but I don't have such HW combination to test. Do you have
-> some HW to test this combination?
+On Mon, 2026-07-20 at 15:12 +0800, Kemeng Shi wrote:
+> Fix grammatical errors in comments and simplify the comment about reading
+> GITS_BASER_INDIRECT to check two-level support.
+>=20
+> Signed-off-by: Kemeng Shi <shikemeng@huaweicloud.com>
+> ---
+> =C2=A0drivers/irqchip/irq-gic-v3-its.c | 5 ++---
+> =C2=A01 file changed, 2 insertions(+), 3 deletions(-)
+>=20
+> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v=
+3-its.c
+> index 5dc91862fc15..8935a6e7a20f 100644
+> --- a/drivers/irqchip/irq-gic-v3-its.c
+> +++ b/drivers/irqchip/irq-gic-v3-its.c
+> @@ -163,7 +163,7 @@ struct event_lpi_map {
+> =C2=A0
+> =C2=A0/*
+> =C2=A0 * The ITS view of a device - belongs to an ITS, owns an interrupt
+> - * translation table, and a list of interrupts.=C2=A0 If it some of its
+> + * translation table, and a list of interrupts.=C2=A0 If some of its
+> =C2=A0 * LPIs are injected into a guest (GICv4), the event_map.vm field
+> =C2=A0 * indicates which one.
+> =C2=A0 */
+> @@ -2502,8 +2502,7 @@ static bool its_parse_indirect_baser(struct its_nod=
+e *its,
+> =C2=A0	/* No need to enable Indirection if memory requirement < (psz*2)by=
+tes */
+> =C2=A0	if ((esz << ids) > (psz * 2)) {
+> =C2=A0		/*
+> -		 * Find out whether hw supports a single or two-level table by
+> -		 * table by reading bit at offset '62' after writing '1' to it.
+> +		 * Find out whether hw supports a single or two-level table
+> =C2=A0		 */
 
-I don't. You should ask Richard Cochran. He added this code.
+nit: since it's just one line of text now, you can put the /* */
+comment markers on the same line, which is the preferred style for
+single-line comments.
 
-  Andrew
+> =C2=A0		its_write_baser(its, baser, val | GITS_BASER_INDIRECT);
+> =C2=A0		indirect =3D !!(baser->val & GITS_BASER_INDIRECT);
+
+With that,
+
+Reviewed-by: Radu Rendec <radu@rendec.net>
 
