@@ -4,94 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 413B7C44529
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 14:23:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC765C44532
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 14:29:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uzQVXz3Vu5cQYnBTWDcGHmTfA/LK3pSTe6SHrggSaWw=; b=gLNJ+bB3pSOGStd/h882/060wL
-	5W4VpuWJ9LhIuDvx8MmthCQM5v1U9r/JiiauIW3AG/lQMuYBbOHWyqcmmk7NIXG/qP3KoR913wYvw
-	9p7ATHy9dk1ldAE1j9WS9cBcwkoF7V9ofUGQyAjfZ1sfmyq8kAc7sIoHOZ3iC6IwOvX4d4rRyAaac
-	vQrcZbcr+3RTM9x50XgIh72bClNIG4+d+pmoDkIBtcZWIaX66hdPo8Q+QyJQjw4304x08u3V8vzbB
-	Ee2Xxi7qHsnNCjW/J+y1ml4UWH228l1x2BuZQG3VIVrZtfasQ/5tvmuh2X53D82dPmYtIOD8cS34r
-	IfaJUOag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1soRxN4hiDcUXCxjs1PA7SeZGbKgmvbO8BnI4N1ZFe8=; b=iIXsbzTbXYhlB3ujqpePQlzRUX
+	RpgdGV/TX8GQzEAZw6pftlOIWVMv1FASTD7nN8zget/hL3uFqgyd6cHUMEmDgr5sFTn+kiayjHxpB
+	a3ZPvfvxJQjaXkP9xkf6xlCgn66kwOwkcRuvdxsykJKuLl6VtyvJO9djq7km3xPpf2rSXKigQSAGo
+	xzr2Z6BEBZgCFskSxL1QGEoXY9aJiZGipVthaLFBqxbfa4612TFLfVrUmkQPgRINYwZEE+j2GyTpz
+	b8gE9HGe4oHZk9NmK/SvLMROpPsqu8d3rvUFe4ART32Kkd1yDsACxlA20pDt2aFdNXRRr3guqIFwQ
+	SBIeuL5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmBNi-00000009ePf-0jFX;
-	Tue, 21 Jul 2026 14:23:38 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1wmBTP-00000009f3X-45vJ;
+	Tue, 21 Jul 2026 14:29:31 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmBNf-00000009eOv-0slK
+	id 1wmBTO-00000009f2x-0xIc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 14:23:36 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-698bf053053so13246552a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 07:23:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1784643813; x=1785248613; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=uzQVXz3Vu5cQYnBTWDcGHmTfA/LK3pSTe6SHrggSaWw=;
-        b=ogLSMMKtA04gYHoyqbKzsPnBk2FB53jgsjKMeWl1+DwDjZe2lVnlvYpl1scNE8+Kkp
-         96PtEU3z5y8WUFX9XcWNZOK9rho4cYbgqJxsAAp9ItWQQA5FPZbmglbavHjOo7apKONH
-         ds6b4L5pPHNO2ACnOlk70Vq41bh8/rXuPOIv2Mpr9TyoGP0Mc4ffuOuPOudbrAYKsPvd
-         rDO8L1gtjEKZAPKpV25h1clmiX6MkXqUlmHaNGsaw7pwS48TGLgGy1Dtn3WxolyBDMjw
-         aGygl6673bnUHhrLS2zysOI7wDH1XM4A19oj9nFUU4QUVMoRzB+J6Ck4YYWQeyCULR4x
-         IDhQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784643813; x=1785248613;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=uzQVXz3Vu5cQYnBTWDcGHmTfA/LK3pSTe6SHrggSaWw=;
-        b=Lblxz/LfSgv2T0aT+35sRNztuJcrzZytb+I6nHLk2qTOdNO1ESVGu4oT9lzhLl0vLz
-         hs+j+2Ukm5In8uSrN5dAiQAJpE3PsLcCm9Ew1p+Z3KIkjWO0K7MORbWpq5hLkEtktnk7
-         DWbn0V5VaAdj9vksixd8pN5Uw9MeoRsO3AsADudI5omA4c17u3a7Pem+VROgAGViNyba
-         eFSUeeSWhtC3PdDMVgFuZpNNJ1q8vsPVvQkwbz6SVd+37jAgkaQOBbmHVqNv+vH6wAob
-         aQ8VYa5ynA3GMldhMhWSKEZW6KyNC8SmO2UeRI12meyqmgRQtwp66v8Uor0cyj9nF5VS
-         onjA==
-X-Forwarded-Encrypted: i=1; AHgh+RoPnRX3K49bWKN6VKBy/kK5ujMlSHhWyK96oGCCjoKEFiEwqBW0koSkXmV/fXwKTxT/TSc3MQJWOj7Wfq5+ckFP@lists.infradead.org
-X-Gm-Message-State: AOJu0YxsOoxJTDr9Mj+mpnFenx2gPZxOHodPO8kiTX5IrFr/QUcgQL7w
-	ACru3j+3GDGaYmdF4c5QOREEE/np8OrR7LtY/fCWRfKy76JpzE01Yahdky6O9Bajk74=
-X-Gm-Gg: AR+sD12Mrrv6O7QNjpTDFXO1RV0V284NXmuoeEpVp/0WfkWzputyaAUbK2pZBIaEYu8
-	jshrJBLHCpF4Q1SZ6wxCSISg0JgWgQIAyZDIl2WvBbtJw8sBMaMVDZzZeKGQFORCdvNPmQrzyd4
-	2NNcyoMKoD44pN4EIwjFkhCHFb69rtSErxmRvUOxdpYwXneNrHMFNBgJI2LmudfNjMspmg9Je+7
-	Qe1ysCZHhFM0wPaFSKCgbkB+0wBeUi1rKi/fy7iTeWF2NvKJGvhD6VllQkgOJN3K7AdtxvevzTl
-	Sz5CbsrRsHHDK+WjyLQkjTMLRVHB4Xsl9cFPfIzpatHbVkAkDUjw4fDlQclHf3+hqe8JXqpHvRl
-	EjrQwSHGnmM97sXckCQyIsVq2rg/++yA0XPnrGuSPN6w1dfJsTAAGVZIQSL5hugeNgFkLXYfgGg
-	zW7d0MjwxkMJeT3h9Rfw==
-X-Received: by 2002:a05:6402:44da:b0:69a:af38:2fc0 with SMTP id 4fb4d7f45d1cf-69e652ddde8mr5595284a12.20.1784643813011;
-        Tue, 21 Jul 2026 07:23:33 -0700 (PDT)
-Received: from [192.168.1.3] ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-69e700055a8sm5846338a12.28.2026.07.21.07.23.31
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 21 Jul 2026 07:23:32 -0700 (PDT)
-Message-ID: <b12b6ece-16d3-483b-a1bf-30d41c6a252f@linaro.org>
-Date: Tue, 21 Jul 2026 15:23:31 +0100
+	Tue, 21 Jul 2026 14:29:30 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 659DC403A9;
+	Tue, 21 Jul 2026 14:29:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7F491F000E9;
+	Tue, 21 Jul 2026 14:29:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784644168;
+	bh=1soRxN4hiDcUXCxjs1PA7SeZGbKgmvbO8BnI4N1ZFe8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Z6Y53ElnThJz/QmjNlBI90Yu7tbBuCvQU60QJ4DbRT5TXWdL7w3KuZzUdsCjKtoL/
+	 71ZaLms1OHJ+aJGCsLyIDPyM7gGELMJkUoUEEKbfKXlEoG+CcCrbpbAg43lxbizIqO
+	 yXWwFnJWX4Ru3nShSGjh7T+m6/UYy1o50khWKiQF8rvhylkfkDK/1Kki7v+jYxq5aI
+	 gO/tbH5nUZoF4TeZXpFnsJTsnW6/YStJLzyv9G5e7g6RhjKNbNUznJMyPNGHNkYE0+
+	 ZTUeuFNaF4ExWmaFhhdtjEOn8TaeQv52hbnyhHF4K8laJqqVGxQz+/SpgRyB1FtKpa
+	 iraCr9pMDtqtA==
+Date: Tue, 21 Jul 2026 17:29:21 +0300
+From: Leon Romanovsky <leon@kernel.org>
+To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>,
+	Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
+	stable@vger.kernel.org, Michael Kelley <mhklinux@outlook.com>,
+	Jason Gunthorpe <jgg@nvidia.com>
+Subject: Re: [PATCH v8 01/23] dma-direct: return struct page from
+ dma_direct_alloc_from_pool()
+Message-ID: <20260721142921.GN110966@unreal>
+References: <20260717180442.110954-1-aneesh.kumar@kernel.org>
+ <20260717180442.110954-2-aneesh.kumar@kernel.org>
+ <20260721115456.GI110966@unreal>
+ <yq5atsps77c5.fsf@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] perf cs-etm: Avoid truncating AUX buffer sizes to int
-To: Leo Yan <leo.yan@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-perf-users@vger.kernel.org, Suyash Mahar <smahar@meta.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>,
- Jiri Olsa <jolsa@kernel.org>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mike Leach <mike.leach@arm.com>, Mathieu Poirier <mathieu.poirier@linaro.org>
-References: <20260720-perf_cs_etm_fix_big_size-v1-1-97ded24636b1@arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20260720-perf_cs_etm_fix_big_size-v1-1-97ded24636b1@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_072335_290666_7B15AEF2 
-X-CRM114-Status: GOOD (  26.28  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <yq5atsps77c5.fsf@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,111 +97,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Jul 21, 2026 at 07:50:10PM +0530, Aneesh Kumar K.V wrote:
+> Leon Romanovsky <leon@kernel.org> writes:
+> 
+> > On Fri, Jul 17, 2026 at 11:34:19PM +0530, Aneesh Kumar K.V (Arm) wrote:
+> >> Commit 5b138c534fda ("dma-direct: factor out a dma_direct_alloc_from_pool
+> >> helper") changed dma_direct_alloc_from_pool() to return the CPU address
+> >> from dma_alloc_from_pool(). That fits dma_direct_alloc(), but
+> >> dma_direct_alloc_pages() also uses the helper and expects a struct page *.
+> >> 
+> >> Fix this by making dma_direct_alloc_from_pool() return the struct page *
+> >> again, and pass the CPU address back through an out-parameter for the
+> >> dma_direct_alloc() caller.
+> >> 
+> >> Fixes: 5b138c534fda ("dma-direct: factor out a dma_direct_alloc_from_pool helper")
+> >> Cc: stable@vger.kernel.org
+> >> Tested-by: Michael Kelley <mhklinux@outlook.com>
+> >> Tested-by: Mostafa Saleh <smostafa@google.com>
+> >> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> >> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+> >> ---
+> >>  kernel/dma/direct.c | 18 ++++++++++--------
+> >>  1 file changed, 10 insertions(+), 8 deletions(-)
+> >> 
+> >> diff --git a/kernel/dma/direct.c b/kernel/dma/direct.c
+> >> index d8219efe3273..363d984d90e7 100644
+> >> --- a/kernel/dma/direct.c
+> >> +++ b/kernel/dma/direct.c
+> >> @@ -164,22 +164,21 @@ static bool dma_direct_use_pool(struct device *dev, gfp_t gfp)
+> >>  	return !gfpflags_allow_blocking(gfp) && !is_swiotlb_for_alloc(dev);
+> >>  }
+> >>  
+> >> -static void *dma_direct_alloc_from_pool(struct device *dev, size_t size,
+> >> -		dma_addr_t *dma_handle, gfp_t gfp)
+> >> +static struct page *dma_direct_alloc_from_pool(struct device *dev, size_t size,
+> >> +		dma_addr_t *dma_handle, void **cpu_addr, gfp_t gfp)
+> >>  {
+> >>  	struct page *page;
+> >>  	u64 phys_limit;
+> >> -	void *ret;
+> >>  
+> >>  	if (WARN_ON_ONCE(!IS_ENABLED(CONFIG_DMA_COHERENT_POOL)))
+> >>  		return NULL;
+> >>  
+> >>  	gfp |= dma_direct_optimal_gfp_mask(dev, &phys_limit);
+> >> -	page = dma_alloc_from_pool(dev, size, &ret, gfp, dma_coherent_ok);
+> >> +	page = dma_alloc_from_pool(dev, size, cpu_addr, gfp, dma_coherent_ok);
+> >>  	if (!page)
+> >>  		return NULL;
+> >>  	*dma_handle = phys_to_dma_direct(dev, page_to_phys(page));
+> >> -	return ret;
+> >> +	return page;
+> >>  }
+> >>  
+> >>  static void *dma_direct_alloc_no_mapping(struct device *dev, size_t size,
+> >> @@ -247,8 +246,11 @@ void *dma_direct_alloc(struct device *dev, size_t size,
+> >>  	 * the atomic pools instead if we aren't allowed block.
+> >>  	 */
+> >>  	if ((remap || force_dma_unencrypted(dev)) &&
+> >> -	    dma_direct_use_pool(dev, gfp))
+> >> -		return dma_direct_alloc_from_pool(dev, size, dma_handle, gfp);
+> >> +	    dma_direct_use_pool(dev, gfp)) {
+> >> +		page = dma_direct_alloc_from_pool(dev, size, dma_handle,
+> >> +						  &ret, gfp);
+> >> +		return page ? ret : NULL;
+> >
+> > Sorry for joining the discussion late, but the line above caught my
+> > attention.
+> >
+> > Why do we need both ret and page? We can derive cpu_addr from page and
+> > vice versa. Do we really need the &ret parameter? Or, more generally, do
+> > we really need "struct page *"?
+> >
+> > static struct page *__dma_alloc_from_pool(struct device *dev, size_t size,
+> > 		struct gen_pool *pool, void **cpu_addr,
+> > 		bool (*phys_addr_ok)(struct device *, phys_addr_t, size_t))
+> > {
+> > ...
+> > 	*cpu_addr = (void *)addr;
+> > 	memset(*cpu_addr, 0, size);
+> > 	return pfn_to_page(__phys_to_pfn(phys));
+> > }
+> >
+> > Why
+> >
+> 
+> With CONFIG_DMA_DIRECT_REMAP the cpu_addr can be different from
+> page_address.
 
+Can you please point to the code there it can happen?
+__dma_alloc_from_pool() has direct connection between physical address
+and struct page.
 
-On 20/07/2026 11:01 am, Leo Yan wrote:
-> cs_etm__get_trace() returns an int, but it used to return etmq->buf_len
-> on success. That value comes from auxtrace_buffer::size, which is a
-> size_t. For a large AUX trace block, returning the byte count through an
-> int can overflow and make a valid buffer look like a negative error.
-> 
-> The callers do not need the actual byte count from cs_etm__get_trace().
-> The buffer length is already stored in the etmq->buf_len. The callers
-> only need to distinguish three states:
-> 
->    < 0: error
->    = 0: no more AUX buffers
->    > 0: data is available
-> 
-> Make cs_etm__get_trace() return 0 for all non-error cases and use
-> etmq->buf_len to indicate whether a new buffer was found. Then make
-> cs_etm__get_data_block() return 1 whenever data is available, instead of
-> returning the buffer length.
-> 
-> Also refactor cs_etm__get_data_block() to make its return value
-> semantics clearer.
-> 
-> Reported-by: Suyash Mahar <smahar@meta.com>
-> Fixes: 8224531cf5a1 ("perf cs-etm: Modularize auxtrace_buffer fetch function")
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
+Thanks
 
-Reviewed-by: James Clark <james.clark@linaro.org>
-
-> ---
->   tools/perf/util/cs-etm.c | 46 ++++++++++++++++++++++++++--------------------
->   1 file changed, 26 insertions(+), 20 deletions(-)
 > 
-> diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-> index 95e3ec1171acc8442d8539a72a26a1a5a53a2f37..114b3cd2da495e54e78df8fbd707898312f95079 100644
-> --- a/tools/perf/util/cs-etm.c
-> +++ b/tools/perf/util/cs-etm.c
-> @@ -1467,8 +1467,7 @@ cs_etm__get_trace(struct cs_etm_queue *etmq)
->   	etmq->buf_used = 0;
->   	etmq->buf_len = aux_buffer->size;
->   	etmq->buf = aux_buffer->data;
-> -
-> -	return etmq->buf_len;
-> +	return 0;
->   }
->   
->   /*
-> @@ -2151,26 +2150,33 @@ static int cs_etm__get_data_block(struct cs_etm_queue *etmq)
->   {
->   	int ret;
->   
-> -	if (!etmq->buf_len) {
-> -		ret = cs_etm__get_trace(etmq);
-> -		if (ret <= 0)
-> -			return ret;
-> -		/*
-> -		 * We cannot assume consecutive blocks in the data file
-> -		 * are contiguous, reset the decoder to force re-sync.
-> -		 */
-> -		ret = cs_etm_decoder__reset(etmq->decoder);
-> -		if (ret)
-> -			return ret;
-> +	/* The current block is not finished */
-> +	if (etmq->buf_len)
-> +		return 1;
->   
-> -		/*
-> -		 * Since the decoder is reset, this causes a global trace
-> -		 * discontinuity. Flush all thread stacks.
-> -		 */
-> -		cs_etm__flush_all_stack(etmq);
-> -	}
-> +	ret = cs_etm__get_trace(etmq);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	/* No more buffer to read */
-> +	if (!etmq->buf_len)
-> +		return 0;
-> +
-> +	/*
-> +	 * We cannot assume consecutive blocks in the data file
-> +	 * are contiguous, reset the decoder to force re-sync.
-> +	 */
-> +	ret = cs_etm_decoder__reset(etmq->decoder);
-> +	if (ret)
-> +		return ret;
-> +
-> +	/*
-> +	 * Since the decoder is reset, this causes a global trace
-> +	 * discontinuity. Flush all thread stacks.
-> +	 */
-> +	cs_etm__flush_all_stack(etmq);
->   
-> -	return etmq->buf_len;
-> +	return 1;
->   }
->   
->   static bool cs_etm__is_svc_instr(struct cs_etm_queue *etmq,
+> -aneesh
 > 
-> ---
-> base-commit: e01c7bd5b1eece254bcbf282db066b12c4815d21
-> change-id: 20260720-perf_cs_etm_fix_big_size-ec5608f767df
-> 
-> Best regards,
-
 
