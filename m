@@ -4,63 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97651C44520
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 01:52:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F237C44515
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 02:01:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R9b42roqeshnjCRWAMNdgXp+nFmWw3ruKp1/wI5zNoA=; b=q8qXJlfulYrweKm8BdHLt58Fox
-	g+OEP9v/vtJuNPBfxHce2NfDH+OrV7YINM/ttCXj+6CzGxQjiY85LXp/Ip5QhRdcaNxwE5kZtsNGl
-	q0Hwk2++423QaNtjSjFIlEROEldNI5eL2U9cNNoiiPCTXSTIoatjJvbi/A6t40VRHKCViwxk/hJwO
-	Lt6DitDrvO+DpZZmCr6ZS89htCh6Y2IWMAKLLNOcT+t/IcnG4UoaUvedU1P8y2aY6lEfc+4AMzcbd
-	j4oWHkRz4KcIiPyqyU8mH8i985FZnpv4R9ZKlPpxGjSlx7eqGX+23F12wKYgBCuEQiEAzvsZydINK
-	6jR83hlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YjH+el5z1xmWRtNVU1C8S1Fciw0M30ZKLTPyXeRG5rE=; b=ZOh5UETwzjVAsZqNZ3Hp52aDsl
+	hCDUMyVP7PJJtoDMqN9UXi5DotCgEzXXwkaumEnSjrXziZlO1INoToMwYHEed9hYUCL3u1aBEHm9R
+	dNXlNbIzOZ4tCwQZcF75qItCmZOha9QdNzx5n/S2LyGlOxGm204Z2joFRH0gmFpco995yajkMGAEU
+	ch8a9UoWSsZcpjAixbfUiQ8MpNd8xV28bwd3xm2wLw2bNcTdtSuQpHSgaUwYPRs0/UA5DZlE9Z8v/
+	jCK/XFHx+aYXmIFznmRDH2llZk+5zqjcznoNaymlmeVAqLAoOr11rGhkvSNj+0tNOcrjC8vs3iWOT
+	h7uSqCDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlzex-00000008Cv0-0Ts4;
-	Tue, 21 Jul 2026 01:52:39 +0000
-Received: from mail-m2432.xmail.ntesmail.com ([45.195.24.32])
+	id 1wlznJ-00000008DQG-46tD;
+	Tue, 21 Jul 2026 02:01:17 +0000
+Received: from mail-norwayeastazon11013055.outbound.protection.outlook.com ([40.107.159.55] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wlzeu-00000008CuP-0PNQ;
-	Tue, 21 Jul 2026 01:52:38 +0000
-Received: from [192.168.31.31] (gy-adaptive-ssl-proxy-4-entmail-virt151.gy.ntes [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 46ebd40c7;
-	Tue, 21 Jul 2026 09:52:27 +0800 (GMT+08:00)
-Message-ID: <4fdc0797-0fc7-426a-b026-876e0fca4690@rock-chips.com>
-Date: Tue, 21 Jul 2026 09:52:27 +0800
+	id 1wlznG-00000008DP1-3gB6
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Jul 2026 02:01:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=n4ZE8izu5svbdXNgBzcGWHgN/p4Tvc+lA4z5W5WLYkWn0gf/lcS3PjFisalpPVqY5txBwrHmLO3rBrDi+BgIiAieOeXSaqY1hZ5dqh7DQ6XTI3uieoRWQ2hOlYmi3vmp4Vs0CDGHurFNhL7bUmULpOUuq4TS4UTnaUDDfOSWu10pcpsSlBNYv7j8MRcfj6Jt/Kkc6Kbc5+KhSEgwmWKaN/WpLtbXb4GvSVca6X/h0ThzxJwLlrEMxtHuO9I06Cbv/qdx9K6z124IIERflS9e0zv2jdeE1NothKR+Hk2w6HnL+SNLXPg5crFeSOt0bAEt4jPxLCjMQrnBd/dVOV7FXg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YjH+el5z1xmWRtNVU1C8S1Fciw0M30ZKLTPyXeRG5rE=;
+ b=mQH/ZOoDvhmw705bHGPvfImuME3DC5exrYpu7ZBvdCOjw8PQtbaOyEJa8l6u0VwKd6yVJzD+a37jGOjZa95DVjkJRnQKmJuVIldTncRJDXT6SdJPRKDNulwtEsMIWH8bx7GKuNhV2iyvXTmfZsOIFiaq5kvD3eVr5ZtJgKnKjAVxQKBUmueU1LibMfNfqEsPRI48Ot+yGvLB5pcxccA9aluykPEFpMGsEupnTrhYemmfHD6XY8DUqyL7jqLu3caYj85TtkDHQ11C8ikA/6D7daJrVG+P9WjAQo49v6VWcTmGPnIwsvDs5FyvIE7Xjrco2dOmw3uD97EkKeDnGVUtFg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YjH+el5z1xmWRtNVU1C8S1Fciw0M30ZKLTPyXeRG5rE=;
+ b=V6qLY2H+KGwfO9AqAxfJC4OjqDQXx6gmxqBvHfD+cV6gGoSgiUlP3NUVPsmJ66dUzG5GexQXIe5nqiYc1EM/NbpunrkYg6i9Sgptxyq3nA/SG45oh+RoV9uWyJ+ayr1XMKUraOUcS4+ANXL2gT4EVSeSU6Bf1vY39227kufC/e8rN+u6y7oWhro1s9EuKpN+TxrB/YAIyiV/SqwuxiCWjVrxUf0YYuY4FiirflNI0qSvWiOjO5ETR2X+OV1QiTCxW40FcqXJBCM1zfmm5D50IwfYvoiRWvlPYck/WI3sCNNUPYW1fRmL1UF72L9/D8+y9z/Zw5HrwCYAVwdxWE4NxQ==
+Received: from GV2PR04MB11739.eurprd04.prod.outlook.com
+ (2603:10a6:150:2fc::18) by PAXPR04MB8078.eurprd04.prod.outlook.com
+ (2603:10a6:102:1c1::16) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.18; Tue, 21 Jul
+ 2026 02:01:06 +0000
+Received: from GV2PR04MB11739.eurprd04.prod.outlook.com
+ ([fe80::71c2:937b:d466:174a]) by GV2PR04MB11739.eurprd04.prod.outlook.com
+ ([fe80::71c2:937b:d466:174a%6]) with mapi id 15.21.0223.017; Tue, 21 Jul 2026
+ 02:01:06 +0000
+From: "Wei Fang (OSS)" <wei.fang@oss.nxp.com>
+To: Joe Damato <joe@dama.to>, "Wei Fang (OSS)" <wei.fang@oss.nxp.com>
+CC: Claudiu Manoil <claudiu.manoil@nxp.com>, Vladimir Oltean
+	<vladimir.oltean@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
+	<davem@davemloft.net>, "edumazet@google.com" <edumazet@google.com>,
+	"kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
+	"linux@armlinux.org.uk" <linux@armlinux.org.uk>, Wei Fang <wei.fang@nxp.com>,
+	"chleroy@kernel.org" <chleroy@kernel.org>, "maxime.chevallier@bootlin.com"
+	<maxime.chevallier@bootlin.com>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: RE: [PATCH RESEND v4 net-next 13/14] net: enetc: use
+ alloc_etherdev_mqs() to create netdev for VF driver
+Thread-Topic: [PATCH RESEND v4 net-next 13/14] net: enetc: use
+ alloc_etherdev_mqs() to create netdev for VF driver
+Thread-Index: AQHdF+1U0b1XT98MNEmlt9MrKMcSSLZ2rJwAgACNGPA=
+Date: Tue, 21 Jul 2026 02:01:06 +0000
+Message-ID: <GV2PR04MB117390E882DC4BB22CC3E808288C22@GV2PR04MB11739.eurprd04.prod.outlook.com>
+References: <20260720014317.1059359-1-wei.fang@oss.nxp.com>
+ <20260720014317.1059359-14-wei.fang@oss.nxp.com>
+ <al5cgs6CqVKsy/gh@devvm20253.cco0.facebook.com>
+In-Reply-To: <al5cgs6CqVKsy/gh@devvm20253.cco0.facebook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+x-ms-exchange-messagesentrepresentingtype: 1
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: GV2PR04MB11739:EE_|PAXPR04MB8078:EE_
+x-ms-office365-filtering-correlation-id: 8f3dde7e-f181-42c0-311f-08dee6cbed24
+x-ms-exchange-sharedmailbox-routingagent-processed: True
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|19092799006|23010399003|366016|4143699003|22082099003|18002099003|38070700021|10067099003|11063799006|56012099006;
+x-microsoft-antispam-message-info: /goJ4NjGL2TqFP8JqC9DUXpsa69ekjkydAelhh5H3cehST7jnVEDxIaRDHOBH/ZTST45ONRrM8m562KVZfFEoNli4+W1ve/XeKDnLe7P7MMfetLY6i85pnvy0op3x4DWqZ2vzse12MfWvvnPC1eoBSvfAkQgYVIMi6sr1yfMwV3YAU8eMsxLrZEyYW36jSAMawmQ2rsILPV09HwHQ1xa1MyiFUschyLTx+JPm72liQrvVgTn09kuXjqonBH/eMssh0fM481HHuCDxk6+a4EYV2SPNAay68P0s/OD/nb7Jjw2LKGiOmGXANlot3I5uSm9T+QM7VKa78hcsNusy4MVgpjI5ZNmxBWYsKIsAO88xJ7EmpkMbwmtx9GrfUm1cYcnkkX0WYSL7pAq135SNZmMeP5SkJ0OeMP6eGCwjeKDTjYDww3LwlCUNTzHEcP6v6ht0GzYF+ZrRhUPpDZNQ1TBrpOxWbawjjPl9rPLf5MptwxpHd3jIUitEYmZAOzlQp4mb7o1g95vsyC3TWZauWm7Ar7kyGtqcypA2ulHzqV+ekXbcLJMcgXhoQHLfW74RTOCNtoOoYWm0kile6YBAZZjzlKgk7+Y5/VP7vxaYo/4ltxPdKI/BXs/ZiHBPEJpsclMy+w+eB20nw8K2v+8nBlVd5nyl9F9rzjkVJu2orRvY/CRaHRIQWLFcI/vx6WWevWDqDnJf7F0DXpMs6rCi8bNfJZaomKUNNfIXNQqYE2FJT4=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11739.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(19092799006)(23010399003)(366016)(4143699003)(22082099003)(18002099003)(38070700021)(10067099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?UWs2MmthMUNmeVpFdk8zV3UzNG1NUkpXNm1ScDF3SytoaUJNVnA1ckJEb2FL?=
+ =?utf-8?B?UlNTOWtJc1dETjhtTEpJaEVnTGNXSXJ2anJtTG9OVU5vVGtDU3BTRnpYMWls?=
+ =?utf-8?B?R1B3UTJITnlqTTZtYklLNTNlaEwrQ0xuaktBR1pBVmkraTN2Z1R2aDduanhi?=
+ =?utf-8?B?cGwwQSt0RDVrTjBMM0laM3RNb0lnT0gralY3SFhwOHRJcVRBcWoxc3pwVnRm?=
+ =?utf-8?B?aFVjd0k1Y3NkM21mY0I4ZEQwMUloQlovQXFodHhJSkdydWlpS1VUSmVEZ2ZB?=
+ =?utf-8?B?aUU1OCtqQUNEMHI5VEVKeXo5M0pHbjVBb2grc3B4aS9GQzN6WGxGaWRRZTV4?=
+ =?utf-8?B?SXlCaDZXR0M5SExFWHhMa050RHRYcEpXZEFjVWN5YUp2NnJtTFBHUlN6VjhG?=
+ =?utf-8?B?S2tGUlRHME54Wm5BcXEyYlUyVDNhTFZTdFhENEh5bHFKemp2N1dlVXF1QTY4?=
+ =?utf-8?B?T0FNT0E1Q3p5Y3JjU1RxOUNtNmE2a2tmL2NQcXpzem44SmpZQlV1UFRPVFc2?=
+ =?utf-8?B?YkFLRUdCZzVuK1NWRXpXTTJqZkw1NGpmVW5OK0VmRDlxRFFSMWRBMGlrYzJa?=
+ =?utf-8?B?M3djZ3J3blYzSDhRVTRRY3RHS1FJemFpSDY3T0wvMi9JRXpEQjAwTDBDaWVW?=
+ =?utf-8?B?RTdmYUoxNHkrK0psTnB2TVJ5ZjVEbTZia1d4aHBGNDVrbUt0dFk3SEw1ZnlM?=
+ =?utf-8?B?b255aE1pMjZVOWF3eE8vei9EdCt1RWw3RTk0S3pVYkljVXRSeFdnL1RyN3hq?=
+ =?utf-8?B?V2hCVFd6L3I3TkdUaTI3K3RTWVdVZFFNRXI3ZkRZOTd6RENmOFVMWHNrVGNP?=
+ =?utf-8?B?U1BXc21lc3lJTGVXc2w0TnJMYXFKRWlDQld6cStzR2xZeVNtN2RLdXNpejVO?=
+ =?utf-8?B?YzR4a0FhQUFDK291Y1EyNWZHK3R4R0drNXlWU3hub0RDbjMzeUhBZjQ4dWFQ?=
+ =?utf-8?B?Y210QnkyR08yd2tDdVhaelM1UHlUTlEyTVdtNGpETFJYT2k4U05oTzFMN2Fv?=
+ =?utf-8?B?UWg5M09CTXVjSEdOOG5ocnpjZjh3K2FIRzBCRTJFT25DNnF6V0tabDZjZ1kx?=
+ =?utf-8?B?MENTTlRqRDUzWGpRMktseHFyMkNEQzVyQ3NZUHVJL3dXWVZYM3l1emVrNDhl?=
+ =?utf-8?B?em5Edy9xNCtEczgxdSs2WDNMZEF0aEdadExrWE9qQVpiYXdXM2dDZ3hnTmpO?=
+ =?utf-8?B?eDBsWEZUTWxtK01kcjRueC9pSFJaMjUwVDYvTzgwam1jdXYyV1dZZlBmRlpN?=
+ =?utf-8?B?UTl2QysyMFdOTHQ0REVhSG1pUjhldVdsYTJwU1RTZ2NwV1YrWXE5VUNSb3Yz?=
+ =?utf-8?B?SUtmOVExY0orSzhDOWlaT0JBUm5VTlQ5RDBWOWRjQklSeDZlclFzNVBJZmV5?=
+ =?utf-8?B?ZzlqRXh6TzZ5OFBDSG9wZ2lXWCtVYWsvRGJvRVlMTDBWWWl4c0RyeGpBdzgw?=
+ =?utf-8?B?RFVGMHQxcFEwdDdwU0dnTEJPNVdDOUhCTG1zVy9Ibk90MFU2UTBFSE1MOGw5?=
+ =?utf-8?B?TEsvOFhaOEMzcWx2cjl6a3F1L2ZFeWtZL01tbkNUeldORmZCODZkUXNDSWxk?=
+ =?utf-8?B?akhxUlZPc1YwWVNMNTNkcmNZRXQrV24ycnYzZjhsQU0wcHpOZVpuaGxSMHNF?=
+ =?utf-8?B?UlN0NFRpejhTRFhuYVVEYXFuSHMyKzJEdkFKNkdva2pibzc2bnhiOS9pcUxu?=
+ =?utf-8?B?LzhtWVNJWlBQOFlWOGxyb1pJVkIyNjE4Mzd5cVdtdjI2NkIvbHdBcTQyaXBY?=
+ =?utf-8?B?K3pGMEZkMkpaR3R6d2tkbWtUQ05WeTJ3NlgrYXRTckQ4QklGaHdNMEtvNm5a?=
+ =?utf-8?B?UUNTaWJmR0J1WnpmWkd0RWtML3ZxcVZQcUwrUmE5QzFMV0hwdGRHU2FVR1dI?=
+ =?utf-8?B?SlV6SDc3OVA1Mkx6Qm9SUkplbE1kbi9vUnRQdm9ldmNyWHVDVngycFdZTW4w?=
+ =?utf-8?B?RHRYbXVJaHU0V3J1NVEwMDd2Q2N3UjlCdzNkMTJ2amVCU0NKZmNCV1AzRk9o?=
+ =?utf-8?B?NjhuWG5kMDRVaG5RZFVhQ21MYUoxRkZySU5HaVRybGdjTk5JTERKYStWMXBL?=
+ =?utf-8?B?cGRmZ1poWm10TVJHK3pxbkpueDZDcUNpR3c4UkxNMHBXN3dmWU1JalVJM09B?=
+ =?utf-8?B?RlpaVWl2M0FBUFVpVzBwdW5oNzZGb1JyQTlCTkFWWnVvTFd0akNKMXcwRndG?=
+ =?utf-8?B?VWlHUitOSFpNd3RRVUZhYUcrUE1kRysvNWl4WENtcjhDckdPaHdjSTNqbXlS?=
+ =?utf-8?B?bTc5VjNJSjJGZ2Iza2ZhZmpnNjllSEh1aytKRnh1SEpKRllBN0tkcTF4ampB?=
+ =?utf-8?Q?rVVuJmk3muXFmV+2Do?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] iommu/rockchip: Drop global rk_ops in favor of
- per-device ops
-From: Simon Xue <xxm@rock-chips.com>
-To: Joerg Roedel <joro@8bytes.org>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
- Heiko Stuebner <heiko@sntech.de>, Shawn Lin <shawn.lin@rock-chips.com>
-References: <20260310084812.126082-1-xxm@rock-chips.com>
- <20260310105303.128859-1-xxm@rock-chips.com>
- <a586dd60-5b9c-4044-3bb1-903df863b587@rock-chips.com>
- <b046ad1c-9cfc-4399-a8df-e4fffff434f9@rock-chips.com>
-In-Reply-To: <b046ad1c-9cfc-4399-a8df-e4fffff434f9@rock-chips.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9f825fda1009d3kunmef24e020353ca9
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaGB0YVkkeGkgZGkseHkwaS1YVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
-	pKQkxVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=Vl/kbm2cU+544lHSzvuAAURSD6MqhNTEpSeqmVIQGM69NsEe9amk5RJu8LttBoONwrtOAo1Cr+u3EKbLoz1Dh/D2eiFlj5kndue/KiQv5JaJPJwQQr5Gt30iBE12nmWBIxP2I5ZWbUWiD0px+mjDnqft8JpCUDz5b0c2PYv4XNE=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=R9b42roqeshnjCRWAMNdgXp+nFmWw3ruKp1/wI5zNoA=;
-	h=date:mime-version:subject:message-id:from;
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11739.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8f3dde7e-f181-42c0-311f-08dee6cbed24
+X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Jul 2026 02:01:06.4169
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: WtX31DqEMWg+pjJkoZaQE5bncUpmF9t2fddo0CW/FeoMNQUwftNDmzjFnY1f3KtvfgUC1xaZ6F8vVvoIEIvOGw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8078
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260720_185236_726760_F28B6F15 
-X-CRM114-Status: GOOD (  26.57  )
+X-CRM114-CacheID: sfid-20260720_190114_930478_1A154B00 
+X-CRM114-Status: GOOD (  28.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,313 +163,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Joerg, Will, Robin, Heiko,
-
-Second gentle ping on this patch series sent on March 10, 2026:
-
-[PATCH v2] iommu/rockchip: Drop global rk_ops in favor of per-device ops
-https://lore.kernel.org/all/20260310105303.128859-1-xxm@rock-chips.com/
-
-This patch removes the global rk_ops and switches to per-device ops to 
-support SoCs with different IOMMU versions.
-
-Could you please take a look when you have time?
-If there are concerns or changes needed, I'd be happy to send a new version.
-
-Thanks for your time and review.
-
-Best regards,
-Simon
-
-
-在 2026/4/1 15:59, Simon Xue 写道:
-> Hi all,
->
-> A gentle ping on this patch.
->
-> 在 2026/3/13 17:32, Shawn Lin 写道:
->> 在 2026/03/10 星期二 18:53, Simon Xue 写道:
->>> The driver currently uses a global rk_ops pointer, forcing all IOMMU
->>> instances to share the same operations. This restricts the driver from
->>> supporting SoCs that might integrate different versions of IOMMU 
->>> hardware.
->>>
->>> Since the IOMMU framework passes the master device information to
->>> iommu_paging_domain_alloc(), the global variable is no longer needed.
->>>
->>> Fix this by moving rk_ops into struct rk_iommu and struct 
->>> rk_iommu_domain.
->>> Initialize it per-device during probe via of_device_get_match_data(),
->>> and replace all global references with the instance-specific pointers.
->>>
->>
->> Thanks for the patch, Simon. I've tested it on the RK3576 EVB1 with
->> PCIe1 + IOMMU. NVMe works fine on it, and I also verified the IOVA
->> allocated in the NVMe driver, they look correct as I manually limited
->> the memblock to under 2GB, so here it is:
->>
->> nvme 0001:21:00.0: cq_dma_addr: 0x00000000f7fc7000
->>
->> Tested-by: Shawn Lin <shawn.lin@rock-chips.com>
->> Reviewed-by: Shawn Lin <shawn.lin@rock-chips.com>
->>
->>> Signed-off-by: Simon Xue <xxm@rock-chips.com>
->>> ---
->>> v2:
->>>   - Remove the one-time-used 'ops' variable in rk_iommu_probe()
->>>
->>>   drivers/iommu/rockchip-iommu.c | 71 
->>> ++++++++++++++++------------------
->>>   1 file changed, 33 insertions(+), 38 deletions(-)
->>>
->>> diff --git a/drivers/iommu/rockchip-iommu.c 
->>> b/drivers/iommu/rockchip-iommu.c
->>> index 0013cf196c57..4da80136933c 100644
->>> --- a/drivers/iommu/rockchip-iommu.c
->>> +++ b/drivers/iommu/rockchip-iommu.c
->>> @@ -82,6 +82,14 @@
->>>     */
->>>   #define RK_IOMMU_PGSIZE_BITMAP 0x007ff000
->>>   +struct rk_iommu_ops {
->>> +    phys_addr_t (*pt_address)(u32 dte);
->>> +    u32 (*mk_dtentries)(dma_addr_t pt_dma);
->>> +    u32 (*mk_ptentries)(phys_addr_t page, int prot);
->>> +    u64 dma_bit_mask;
->>> +    gfp_t gfp_flags;
->>> +};
->>> +
->>>   struct rk_iommu_domain {
->>>       struct list_head iommus;
->>>       u32 *dt; /* page directory table */
->>> @@ -89,6 +97,7 @@ struct rk_iommu_domain {
->>>       spinlock_t iommus_lock; /* lock for iommus list */
->>>       spinlock_t dt_lock; /* lock for modifying page directory table */
->>>       struct device *dma_dev;
->>> +    const struct rk_iommu_ops *rk_ops;
->>>         struct iommu_domain domain;
->>>   };
->>> @@ -98,14 +107,6 @@ static const char * const rk_iommu_clocks[] = {
->>>       "aclk", "iface",
->>>   };
->>>   -struct rk_iommu_ops {
->>> -    phys_addr_t (*pt_address)(u32 dte);
->>> -    u32 (*mk_dtentries)(dma_addr_t pt_dma);
->>> -    u32 (*mk_ptentries)(phys_addr_t page, int prot);
->>> -    u64 dma_bit_mask;
->>> -    gfp_t gfp_flags;
->>> -};
->>> -
->>>   struct rk_iommu {
->>>       struct device *dev;
->>>       void __iomem **bases;
->>> @@ -117,6 +118,7 @@ struct rk_iommu {
->>>       struct iommu_device iommu;
->>>       struct list_head node; /* entry in rk_iommu_domain.iommus */
->>>       struct iommu_domain *domain; /* domain to which iommu is 
->>> attached */
->>> +    const struct rk_iommu_ops *rk_ops;
->>>   };
->>>     struct rk_iommudata {
->>> @@ -124,7 +126,6 @@ struct rk_iommudata {
->>>       struct rk_iommu *iommu;
->>>   };
->>>   -static const struct rk_iommu_ops *rk_ops;
->>>   static struct iommu_domain rk_identity_domain;
->>>     static inline void rk_table_flush(struct rk_iommu_domain *dom, 
->>> dma_addr_t dma,
->>> @@ -510,7 +511,7 @@ static int rk_iommu_force_reset(struct rk_iommu 
->>> *iommu)
->>>        * and verifying that upper 5 (v1) or 7 (v2) nybbles are read 
->>> back.
->>>        */
->>>       for (i = 0; i < iommu->num_mmu; i++) {
->>> -        dte_addr = rk_ops->pt_address(DTE_ADDR_DUMMY);
->>> +        dte_addr = iommu->rk_ops->pt_address(DTE_ADDR_DUMMY);
->>>           rk_iommu_write(iommu->bases[i], RK_MMU_DTE_ADDR, dte_addr);
->>>             if (dte_addr != rk_iommu_read(iommu->bases[i], 
->>> RK_MMU_DTE_ADDR)) {
->>> @@ -551,7 +552,7 @@ static void log_iova(struct rk_iommu *iommu, int 
->>> index, dma_addr_t iova)
->>>       page_offset = rk_iova_page_offset(iova);
->>>         mmu_dte_addr = rk_iommu_read(base, RK_MMU_DTE_ADDR);
->>> -    mmu_dte_addr_phys = rk_ops->pt_address(mmu_dte_addr);
->>> +    mmu_dte_addr_phys = iommu->rk_ops->pt_address(mmu_dte_addr);
->>>         dte_addr_phys = mmu_dte_addr_phys + (4 * dte_index);
->>>       dte_addr = phys_to_virt(dte_addr_phys);
->>> @@ -560,14 +561,14 @@ static void log_iova(struct rk_iommu *iommu, 
->>> int index, dma_addr_t iova)
->>>       if (!rk_dte_is_pt_valid(dte))
->>>           goto print_it;
->>>   -    pte_addr_phys = rk_ops->pt_address(dte) + (pte_index * 4);
->>> +    pte_addr_phys = iommu->rk_ops->pt_address(dte) + (pte_index * 4);
->>>       pte_addr = phys_to_virt(pte_addr_phys);
->>>       pte = *pte_addr;
->>>         if (!rk_pte_is_page_valid(pte))
->>>           goto print_it;
->>>   -    page_addr_phys = rk_ops->pt_address(pte) + page_offset;
->>> +    page_addr_phys = iommu->rk_ops->pt_address(pte) + page_offset;
->>>       page_flags = pte & RK_PTE_PAGE_FLAGS_MASK;
->>>     print_it:
->>> @@ -663,13 +664,13 @@ static phys_addr_t 
->>> rk_iommu_iova_to_phys(struct iommu_domain *domain,
->>>       if (!rk_dte_is_pt_valid(dte))
->>>           goto out;
->>>   -    pt_phys = rk_ops->pt_address(dte);
->>> +    pt_phys = rk_domain->rk_ops->pt_address(dte);
->>>       page_table = (u32 *)phys_to_virt(pt_phys);
->>>       pte = page_table[rk_iova_pte_index(iova)];
->>>       if (!rk_pte_is_page_valid(pte))
->>>           goto out;
->>>   -    phys = rk_ops->pt_address(pte) + rk_iova_page_offset(iova);
->>> +    phys = rk_domain->rk_ops->pt_address(pte) + 
->>> rk_iova_page_offset(iova);
->>>   out:
->>>       spin_unlock_irqrestore(&rk_domain->dt_lock, flags);
->>>   @@ -730,7 +731,7 @@ static u32 *rk_dte_get_page_table(struct 
->>> rk_iommu_domain *rk_domain,
->>>       if (rk_dte_is_pt_valid(dte))
->>>           goto done;
->>>   -    page_table = iommu_alloc_pages_sz(GFP_ATOMIC | 
->>> rk_ops->gfp_flags,
->>> +    page_table = iommu_alloc_pages_sz(GFP_ATOMIC | 
->>> rk_domain->rk_ops->gfp_flags,
->>>                         SPAGE_SIZE);
->>>       if (!page_table)
->>>           return ERR_PTR(-ENOMEM);
->>> @@ -742,13 +743,13 @@ static u32 *rk_dte_get_page_table(struct 
->>> rk_iommu_domain *rk_domain,
->>>           return ERR_PTR(-ENOMEM);
->>>       }
->>>   -    dte = rk_ops->mk_dtentries(pt_dma);
->>> +    dte = rk_domain->rk_ops->mk_dtentries(pt_dma);
->>>       *dte_addr = dte;
->>>         rk_table_flush(rk_domain,
->>>                  rk_domain->dt_dma + dte_index * sizeof(u32), 1);
->>>   done:
->>> -    pt_phys = rk_ops->pt_address(dte);
->>> +    pt_phys = rk_domain->rk_ops->pt_address(dte);
->>>       return (u32 *)phys_to_virt(pt_phys);
->>>   }
->>>   @@ -790,7 +791,7 @@ static int rk_iommu_map_iova(struct 
->>> rk_iommu_domain *rk_domain, u32 *pte_addr,
->>>           if (rk_pte_is_page_valid(pte))
->>>               goto unwind;
->>>   -        pte_addr[pte_count] = rk_ops->mk_ptentries(paddr, prot);
->>> +        pte_addr[pte_count] = 
->>> rk_domain->rk_ops->mk_ptentries(paddr, prot);
->>>             paddr += SPAGE_SIZE;
->>>       }
->>> @@ -812,7 +813,7 @@ static int rk_iommu_map_iova(struct 
->>> rk_iommu_domain *rk_domain, u32 *pte_addr,
->>>                   pte_count * SPAGE_SIZE);
->>>         iova += pte_count * SPAGE_SIZE;
->>> -    page_phys = rk_ops->pt_address(pte_addr[pte_count]);
->>> +    page_phys = rk_domain->rk_ops->pt_address(pte_addr[pte_count]);
->>>       pr_err("iova: %pad already mapped to %pa cannot remap to phys: 
->>> %pa prot: %#x\n",
->>>              &iova, &page_phys, &paddr, prot);
->>>   @@ -849,7 +850,7 @@ static int rk_iommu_map(struct iommu_domain 
->>> *domain, unsigned long _iova,
->>>       pte_index = rk_iova_pte_index(iova);
->>>       pte_addr = &page_table[pte_index];
->>>   -    pte_dma = rk_ops->pt_address(dte_index) + pte_index * 
->>> sizeof(u32);
->>> +    pte_dma = rk_domain->rk_ops->pt_address(dte_index) + pte_index 
->>> * sizeof(u32);
->>>       ret = rk_iommu_map_iova(rk_domain, pte_addr, pte_dma, iova,
->>>                   paddr, size, prot);
->>>   @@ -887,7 +888,7 @@ static size_t rk_iommu_unmap(struct 
->>> iommu_domain *domain, unsigned long _iova,
->>>           return 0;
->>>       }
->>>   -    pt_phys = rk_ops->pt_address(dte);
->>> +    pt_phys = rk_domain->rk_ops->pt_address(dte);
->>>       pte_addr = (u32 *)phys_to_virt(pt_phys) + 
->>> rk_iova_pte_index(iova);
->>>       pte_dma = pt_phys + rk_iova_pte_index(iova) * sizeof(u32);
->>>       unmap_size = rk_iommu_unmap_iova(rk_domain, pte_addr, pte_dma, 
->>> size);
->>> @@ -945,7 +946,7 @@ static int rk_iommu_enable(struct rk_iommu *iommu)
->>>         for (i = 0; i < iommu->num_mmu; i++) {
->>>           rk_iommu_write(iommu->bases[i], RK_MMU_DTE_ADDR,
->>> - rk_ops->mk_dtentries(rk_domain->dt_dma));
->>> + iommu->rk_ops->mk_dtentries(rk_domain->dt_dma));
->>>           rk_iommu_base_command(iommu->bases[i], RK_MMU_CMD_ZAP_CACHE);
->>>           rk_iommu_write(iommu->bases[i], RK_MMU_INT_MASK, 
->>> RK_MMU_IRQ_MASK);
->>>       }
->>> @@ -1068,17 +1069,19 @@ static struct iommu_domain 
->>> *rk_iommu_domain_alloc_paging(struct device *dev)
->>>       if (!rk_domain)
->>>           return NULL;
->>>   +    iommu = rk_iommu_from_dev(dev);
->>> +    rk_domain->rk_ops = iommu->rk_ops;
->>> +
->>>       /*
->>>        * rk32xx iommus use a 2 level pagetable.
->>>        * Each level1 (dt) and level2 (pt) table has 1024 4-byte 
->>> entries.
->>>        * Allocate one 4 KiB page for each table.
->>>        */
->>> -    rk_domain->dt = iommu_alloc_pages_sz(GFP_KERNEL | 
->>> rk_ops->gfp_flags,
->>> +    rk_domain->dt = iommu_alloc_pages_sz(GFP_KERNEL | 
->>> rk_domain->rk_ops->gfp_flags,
->>>                            SPAGE_SIZE);
->>>       if (!rk_domain->dt)
->>>           goto err_free_domain;
->>>   -    iommu = rk_iommu_from_dev(dev);
->>>       rk_domain->dma_dev = iommu->dev;
->>>       rk_domain->dt_dma = dma_map_single(rk_domain->dma_dev, 
->>> rk_domain->dt,
->>>                          SPAGE_SIZE, DMA_TO_DEVICE);
->>> @@ -1117,7 +1120,7 @@ static void rk_iommu_domain_free(struct 
->>> iommu_domain *domain)
->>>       for (i = 0; i < NUM_DT_ENTRIES; i++) {
->>>           u32 dte = rk_domain->dt[i];
->>>           if (rk_dte_is_pt_valid(dte)) {
->>> -            phys_addr_t pt_phys = rk_ops->pt_address(dte);
->>> +            phys_addr_t pt_phys = rk_domain->rk_ops->pt_address(dte);
->>>               u32 *page_table = phys_to_virt(pt_phys);
->>>               dma_unmap_single(rk_domain->dma_dev, pt_phys,
->>>                        SPAGE_SIZE, DMA_TO_DEVICE);
->>> @@ -1197,7 +1200,6 @@ static int rk_iommu_probe(struct 
->>> platform_device *pdev)
->>>       struct device *dev = &pdev->dev;
->>>       struct rk_iommu *iommu;
->>>       struct resource *res;
->>> -    const struct rk_iommu_ops *ops;
->>>       int num_res = pdev->num_resources;
->>>       int err, i;
->>>   @@ -1211,16 +1213,9 @@ static int rk_iommu_probe(struct 
->>> platform_device *pdev)
->>>       iommu->dev = dev;
->>>       iommu->num_mmu = 0;
->>>   -    ops = of_device_get_match_data(dev);
->>> -    if (!rk_ops)
->>> -        rk_ops = ops;
->>> -
->>> -    /*
->>> -     * That should not happen unless different versions of the
->>> -     * hardware block are embedded the same SoC
->>> -     */
->>> -    if (WARN_ON(rk_ops != ops))
->>> -        return -EINVAL;
->>> +    iommu->rk_ops = of_device_get_match_data(dev);
->>> +    if (!iommu->rk_ops)
->>> +        return -ENOENT;
->>>         iommu->bases = devm_kcalloc(dev, num_res, 
->>> sizeof(*iommu->bases),
->>>                       GFP_KERNEL);
->>> @@ -1286,7 +1281,7 @@ static int rk_iommu_probe(struct 
->>> platform_device *pdev)
->>>               goto err_pm_disable;
->>>       }
->>>   -    dma_set_mask_and_coherent(dev, rk_ops->dma_bit_mask);
->>> +    dma_set_mask_and_coherent(dev, iommu->rk_ops->dma_bit_mask);
->>>         err = iommu_device_sysfs_add(&iommu->iommu, dev, NULL, 
->>> dev_name(dev));
->>>       if (err)
->>>
->>
+PiBPbiBNb24sIEp1bCAyMCwgMjAyNiBhdCAwOTo0MzoxNUFNICswODAwLCB3ZWkuZmFuZ0Bvc3Mu
+bnhwLmNvbSB3cm90ZToNCj4gPiBGcm9tOiBXZWkgRmFuZyA8d2VpLmZhbmdAbnhwLmNvbT4NCj4g
+Pg0KPiA+IFRoZSBWRiBkcml2ZXIgdXNlcyBhbGxvY19ldGhlcmRldl9tcSgpIHdpdGggRU5FVENf
+TUFYX05VTV9UWFFTIGFzIHRoZQ0KPiA+IHF1ZXVlIGNvdW50LCB3aGljaCBmb3JjZXMgdGhlIFRY
+IGFuZCBSWCBxdWV1ZSBjb3VudHMgdG8gYmUgZXF1YWwgYW5kDQo+ID4gdXNlcyBhIGNvbXBpbGUt
+dGltZSBjb25zdGFudCByYXRoZXIgdGhhbiB0aGUgYWN0dWFsIGhhcmR3YXJlIGNhcGFiaWxpdHku
+DQo+ID4NCj4gPiBBZnRlciBlbmV0Y19nZXRfc2lfY2FwcygpIGlzIGNhbGxlZCwgc2ktPm51bV90
+eF9yaW5ncyBhbmQNCj4gPiBzaS0+bnVtX3J4X3JpbmdzIHJlZmxlY3QgdGhlIGFjdHVhbCBudW1i
+ZXIgb2YgcmluZ3MgYXNzaWduZWQgdG8gdGhlIFZGDQo+ID4gYnkgdGhlIFBGLiBGb3IgdGhlIEVO
+RVRDIFZGIG9uIExTMTAyOEEgYW5kIHRoZSB1cGNvbWluZyBpLk1YOTUvOTQsIHRoZWlyDQo+ID4g
+U29DcyBoYXZlIG5vIG1vcmUgdGhhbiA2IENQVXMsIGFuZCB0aGUgbnVtYmVyIG9mIFRYL1JYIHJp
+bmdzIGFsbG9jYXRlZA0KPiA+IHRvIHRoZSBWRiBpcyBsZXNzIHRoYW4gOC4NCj4gPg0KPiA+IFRo
+ZXJlZm9yZSwgc3dpdGNoIHRvIGFsbG9jX2V0aGVyZGV2X21xcygpIHNvIHRoYXQgdGhlIFRYIGFu
+ZCBSWCBxdWV1ZQ0KPiA+IGNvdW50cyBhcmUgc2V0IGluZGVwZW5kZW50bHksIGVhY2ggY2FwcGVk
+IGF0IEVORVRDX01BWF9OVU1fVFhRUywgYmFzZWQNCj4gPiBvbiB0aGUgYWN0dWFsIG51bWJlciBv
+ZiByaW5ncyBhc3NpZ25lZCB0byB0aGUgVkYgYnkgdGhlIFBGLg0KPiA+DQo+ID4gTm90ZSB0aGF0
+IGlmIGZ1dHVyZSBTb0NzIGhhdmUgbW9yZSB0aGFuIDYgQ1BVcyBhbmQgbW9yZSB0aGFuIDYgUlgg
+cmluZ3MNCj4gPiBhbGxvY2F0ZWQgdG8gVkZzLCB0aGUgc2l6ZSBvZiB0aGUgaW50X3ZlY3RvciBh
+cnJheSBpbiBzdHJ1Y3QNCj4gPiBlbmV0Y19uZGV2X3ByaXYgd2lsbCBuZWVkIHRvIGJlIG1vZGlm
+aWVkLiBTaW1pbGFybHksIGlmIG1vcmUgdGhhbiA4IFRYDQo+ID4gcmluZ3MgYXJlIGFsbG9jYXRl
+ZCB0byBlYWNoIGludF92ZWN0b3IsIEVORVRDX01BWF9OVU1fVFhRUyB3aWxsIGFsc28NCj4gPiBu
+ZWVkIHRvIGJlIG1vZGlmaWVkLg0KPiA+DQo+ID4gU2lnbmVkLW9mZi1ieTogV2VpIEZhbmcgPHdl
+aS5mYW5nQG54cC5jb20+DQo+ID4gLS0tDQo+ID4gIGRyaXZlcnMvbmV0L2V0aGVybmV0L2ZyZWVz
+Y2FsZS9lbmV0Yy9lbmV0Y192Zi5jIHwgOSArKysrKysrKy0NCj4gPiAgMSBmaWxlIGNoYW5nZWQs
+IDggaW5zZXJ0aW9ucygrKSwgMSBkZWxldGlvbigtKQ0KPiA+DQo+ID4gZGlmZiAtLWdpdCBhL2Ry
+aXZlcnMvbmV0L2V0aGVybmV0L2ZyZWVzY2FsZS9lbmV0Yy9lbmV0Y192Zi5jDQo+IGIvZHJpdmVy
+cy9uZXQvZXRoZXJuZXQvZnJlZXNjYWxlL2VuZXRjL2VuZXRjX3ZmLmMNCj4gPiBpbmRleCA5Y2Ri
+MGE0ZDZiYWYuLjdkY2I0YTAyNDZmNSAxMDA2NDQNCj4gPiAtLS0gYS9kcml2ZXJzL25ldC9ldGhl
+cm5ldC9mcmVlc2NhbGUvZW5ldGMvZW5ldGNfdmYuYw0KPiA+ICsrKyBiL2RyaXZlcnMvbmV0L2V0
+aGVybmV0L2ZyZWVzY2FsZS9lbmV0Yy9lbmV0Y192Zi5jDQo+ID4gQEAgLTMxNyw3ICszMTcsMTQg
+QEAgc3RhdGljIGludCBlbmV0Y192Zl9wcm9iZShzdHJ1Y3QgcGNpX2RldiAqcGRldiwNCj4gPg0K
+PiA+ICAgICAgIGVuZXRjX2dldF9zaV9jYXBzKHNpKTsNCj4gPg0KPiA+IC0gICAgIG5kZXYgPSBh
+bGxvY19ldGhlcmRldl9tcShzaXplb2YoKnByaXYpLCBFTkVUQ19NQVhfTlVNX1RYUVMpOw0KPiA+
+ICsgICAgIC8qIEN1cnJlbnRseSwgdGhlIHN1cHBvcnRlZCBTb0NzIGhhdmUgYSBtYXggb2YgNiBD
+UFVzIGFuZCB0aGUgVkZzDQo+ID4gKyAgICAgICogaGF2ZSBsZXNzIHRoYW4gNiBSWC9UWCByaW5n
+cy4gU28gbm8gaXNzdWVzIGZvciB0aGVzZSBzdXBwb3J0ZWQNCj4gPiArICAgICAgKiBTb0NzLCBi
+dXQgZm9yIGZ1dHVyZSBTb0NzIHdoaWNoIGhhdmUgbW9yZSBDUFVzIG9yIG1vcmUgVFgvUlgNCj4g
+PiArICAgICAgKiByaW5ncywgYWxsIHRoZSByZWxhdGVkIGxvZ2ljIG5lZWRzIHRvIGJlIGltcHJv
+dmVkLg0KPiA+ICsgICAgICAqLw0KPiA+ICsgICAgIG5kZXYgPSBhbGxvY19ldGhlcmRldl9tcXMo
+c2l6ZW9mKCpwcml2KSwNCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG1pbihz
+aS0+bnVtX3R4X3JpbmdzLA0KPiBFTkVUQ19NQVhfTlVNX1RYUVMpLA0KPiA+ICsgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgbWluKHNpLT5udW1fcnhfcmluZ3MsDQo+IEVORVRDX01BWF9O
+VU1fVFhRUykpOw0KPiANCj4gQ29kZSBsb29rcyByaWdodCwgYnV0IGxvb2tzIGFsbW9zdCBsaWtl
+IGEgdHlwby4gSSBndWVzcyBpdCB3b3VsZCByZWFkIG5pY2VyIGlmDQo+IEVORVRDX01BWF9OVU1f
+UlhRUyBleGlzdGVkPw0KDQpZZXMsIEVORVRDX01BWF9OVU1fUlhRUyBpcyBjbGVhcmVyLiBIb3dl
+dmVyLCBFTkVUQ19NQVhfTlVNX1JYUVMNCmRvZXMgbm90IGV4aXN0OyBpbiBmYWN0LCB0aGVpciB2
+YWx1ZXMg4oCL4oCLYXJlIGVxdWFsLCBhbmQgd2UgcGxhbiB0byByZW1vdmUNCkVORVRDX01BWF9O
+VU1fVFhRUyBsYXRlciwgc28gYSBuZXcgbWFjcm8gRU5FVENfTUFYX05VTV9SWFFTDQp3YXMgbm90
+IGFkZGVkIGluIHRoaXMgcGF0Y2guDQoNCj4gDQo+IFRoYXQgc2FpZDoNCj4gDQo+IFJldmlld2Vk
+LWJ5OiBKb2UgRGFtYXRvIDxqb2VAZGFtYS50bz4NCg==
 
