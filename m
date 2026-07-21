@@ -4,64 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3AC6C4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 06:34:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E08B8C44529
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 06:36:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uuxUr7iCM2koNMPwKDdyaBS3quAo3SF74UDYa07WVDA=; b=La3CTMYC9WJVhSO51DP8TPj7gg
-	KzvVCZxBcnlwbwlowo8/06B/J/aK603I/9nI3fi2SiyMFBd94qrY3W5I07mjt2YLN/vCTIYI4Wrqs
-	VDjJHI4aeNyzJeZfA7w6N0oTwoUu/vQ4a8Fw1vJPxtpi/9Ul+WlidOeLX7gjQBWakODOz0sfWS4fz
-	JQ2keNIHQQiIzo8ZAkjN6kNxzkoAq3OtTDvOb0jM6pYEDHwxjxFp0soja/MRnSVfGnTpaa2fLXWxq
-	HDGO8URmTy8/C/PvRJIcsh7Ql0k7s0lWg19DDuNuYwamsF+rvdVgNUEaottzVG4O0XnZli7cqucxL
-	YWVTZf3A==;
+	bh=+1sUiAy+mLnTuHHQsSuFfVJP7chwio/vnbCnT5Y2Sq8=; b=C4690Pq7wBzORpVrF6GoDxdJ8b
+	U2HwyJFfhgjlqZCN3pJgru/S4d3p4lwwT4WykLOsfDqX3yaq6UcfSRMCL404BH4qTX9Wuw1PEvFcN
+	awUu87qubX6UlZjRdgv95avT327Yuc0ZzLw4ls/wagn2VVMAatqu6o6xz5/wjcdBA50IWmH0KF4bI
+	fFC5nMuVWHQLKdrV+pcmlB5e+RubUwP25YJIlgbKqj5KfdXV4ZE1kpB0wUp2a1tPjfWE8+JlvgFpd
+	YejjWSjb3cGNMlsgbhxKpXkz1R1pZE5+ZJ0hH4+Dve7M+SdMQNWbJSUN9VFUbYqiNHX6oSz+puJeY
+	j3BWtVGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm43a-00000008X3P-3Hav;
-	Tue, 21 Jul 2026 06:34:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wm45V-00000008XM8-0pKE;
+	Tue, 21 Jul 2026 06:36:21 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm43Z-00000008X3H-118q
+	id 1wm45T-00000008XL5-29hj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 06:34:21 +0000
+	Tue, 21 Jul 2026 06:36:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 528C560A8E;
-	Tue, 21 Jul 2026 06:34:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC3991F000E9;
-	Tue, 21 Jul 2026 06:34:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EC52641AE8;
+	Tue, 21 Jul 2026 06:36:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC0911F000E9;
+	Tue, 21 Jul 2026 06:36:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784615660;
-	bh=uuxUr7iCM2koNMPwKDdyaBS3quAo3SF74UDYa07WVDA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ZcgoyfHHkS7BSzH5pbhW9RN1uhEcXcwlOiSjDPhrKSxOQ37QlGOdqMJvEwI1bYlpW
-	 57d19pjpMLHiVvkp7osTUoFcEIs/7Jj33PXf5wYIJz5Caoeta/VlyVHX0tXNcBIIQq
-	 CSj0kLcN+QpF/JW37h74+0n0PJfkGcQCsGpJ4eGN0AASVMUmbgldhTHSoyXuWPTdxo
-	 fhsZDr7iRT2MOnCbmXx8qg4ODM1SuJITEMXuW7EKnV7Y63YP0+rNqYKWWy8abYNfZW
-	 PfZBT1TRju3cHyT3YU4IoZ7SoFZCyRBB+j36Ax8j5hE+PMXBrmssyMwcP8FqHiuKkb
-	 pgpdo4cb1vkLg==
-Date: Mon, 20 Jul 2026 23:34:18 -0700
-From: Oliver Upton <oupton@kernel.org>
+	s=k20260515; t=1784615778;
+	bh=+1sUiAy+mLnTuHHQsSuFfVJP7chwio/vnbCnT5Y2Sq8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=VT0yrwGbDUGF/uAhJNPhPIhmtzWJk4TfI4evheyNFbSZD53+o2Ht36s+3F/BWmkgE
+	 iC0PviOvRY+vwE7VVaYHJKL18a3zpvgKH1uTBT23ZGF4pcioPZh8EXhAHV0SjXwe8S
+	 zk8cl/dROpi8tR6Av838NbcISLax4ZEEGvw/Q5N8pQ8fS4FrVdoeiGqQGjvXdKexO5
+	 K2E0g7C7Vlwpra8iKwpztQPDcmJQOVsji+wWn27Is+/noktoXc2V8YB9osCSGK94Aa
+	 FUgQ43FGjpIIJA4LfzGinwB4WWE6WpLGsKI3Zc+/Hao9Dbpfn7YfmUXnxRTvduAbkQ
+	 GLwUcVk/1tdLA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wm45Q-000000075IL-29sA;
+	Tue, 21 Jul 2026 06:36:16 +0000
+Date: Tue, 21 Jul 2026 07:36:16 +0100
+Message-ID: <8633xcg87z.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
 To: Mostafa Saleh <smostafa@google.com>
-Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, maz@kernel.org,
-	seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org,
-	vdonnefort@google.com, tabba@google.com
+Cc: Oliver Upton <oupton@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	seiden@linux.ibm.com,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	vdonnefort@google.com,
+	tabba@google.com
 Subject: Re: [RFC PATCH 2/2] KVM: arm64: Support BBM level 3
-Message-ID: <al8S6qAB2o0nLo30@kernel.org>
-References: <20260717130901.2239134-1-smostafa@google.com>
- <20260717130901.2239134-3-smostafa@google.com>
- <alqW49CH7eViDpAZ@kernel.org>
- <alvaEgJFJ5DaQaac@google.com>
- <CAFgf54r0xYwUGgPMY=1aTRzcqX7jKp545Jb+p_yFW=JwAX0E4g@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
 In-Reply-To: <CAFgf54r0xYwUGgPMY=1aTRzcqX7jKp545Jb+p_yFW=JwAX0E4g@mail.gmail.com>
+References: <20260717130901.2239134-1-smostafa@google.com>
+	<20260717130901.2239134-3-smostafa@google.com>
+	<alqW49CH7eViDpAZ@kernel.org>
+	<alvaEgJFJ5DaQaac@google.com>
+	<CAFgf54r0xYwUGgPMY=1aTRzcqX7jKp545Jb+p_yFW=JwAX0E4g@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: smostafa@google.com, oupton@kernel.org, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, vdonnefort@google.com, tabba@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,8 +95,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 20, 2026 at 09:41:04PM +0100, Mostafa Saleh wrote:
-> On Sat, Jul 18, 2026 at 8:55 PM Mostafa Saleh <smostafa@google.com> wrote:
+On Mon, 20 Jul 2026 21:41:04 +0100,
+Mostafa Saleh <smostafa@google.com> wrote:
+>=20
+> On Sat, Jul 18, 2026 at 8:55=E2=80=AFPM Mostafa Saleh <smostafa@google.co=
+m> wrote:
 > >
 > > Hi Oliver,
 > >
@@ -85,8 +107,10 @@ On Mon, Jul 20, 2026 at 09:41:04PM +0100, Mostafa Saleh wrote:
 > > > Hi Mostafa,
 > > >
 > > > On Fri, Jul 17, 2026 at 01:09:00PM +0000, Mostafa Saleh wrote:
-> > > > If the system supports hardware Break-Before-Make (BBM) level 3, use it
-> > > > to replace stage-2 PTEs directly instead of falling back to the software
+> > > > If the system supports hardware Break-Before-Make (BBM) level 3, us=
+e it
+> > > > to replace stage-2 PTEs directly instead of falling back to the sof=
+tware
 > > > > break-before-make sequence.
 > > > >
 > > > > 1) Get a reference count on the containing table for the new PTE.
@@ -101,28 +125,31 @@ On Mon, Jul 20, 2026 at 09:41:04PM +0100, Mostafa Saleh wrote:
 > > > > that means with BBML3 racing cores will issue redundant CMOs,
 > > >
 > > > I'd rather we just predicate BBML3-style transformations on an
-> > > implementation having FEAT_S2FWB and DIC. You can definitely come along
+> > > implementation having FEAT_S2FWB and DIC. You can definitely come alo=
+ng
 > > > later and enable it when using a stage-2 in an SMMU makes this
 > > > mandatory, possibly at the expense of some extra CMOs.
 > >
 > > Makes sense, I will do that in v2.
 > >
-> 
+>=20
 > Looking into this, I see some existing inefficiencies (or maybe I do
 > not understand it well)
 > - pKVM still do some work for dcache with FWB I posted a patch for that:
 > https://lore.kernel.org/all/20260720203529.1276355-1-smostafa@google.com/
-> 
+>=20
 > - KVM does not elide the icache maintainence with DIC, it seems we
 > should have something similar for the FWB check in
 > __clean_dcache_guest_page() as
-> 
-> diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
+>=20
+> diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kv=
+m_mmu.h
 > index 6eae7e7e2a68..d0a4ae66b069 100644
 > --- a/arch/arm64/include/asm/kvm_mmu.h
 > +++ b/arch/arm64/include/asm/kvm_mmu.h
-> @@ -247,6 +247,9 @@ static inline size_t __invalidate_icache_max_range(void)
-> 
+> @@ -247,6 +247,9 @@ static inline size_t __invalidate_icache_max_range(vo=
+id)
+>=20
 >  static inline void __invalidate_icache_guest_page(void *va, size_t size)
 >  {
 > +       if (cpus_have_final_cap(ARM64_HAS_CACHE_DIC))
@@ -130,13 +157,43 @@ On Mon, Jul 20, 2026 at 09:41:04PM +0100, Mostafa Saleh wrote:
 > +
 >         /*
 >          * Blow the whole I-cache if it is aliasing (i.e. VIPT) or the
->          * invalidation range exceeds our arbitrary limit on invadations by
-> 
+>          * invalidation range exceeds our arbitrary limit on invadations =
+by
+>=20
 > or I am missing something?
 
-Take a look at icache_inval(_all)_pou(), they both internally test for
-DIC.
+The latter. The shortcuts are in the individual helpers.
+We have:
+
+	static __always_inline void icache_inval_all_pou(void)
+	{
+		if (alternative_has_cap_unlikely(ARM64_HAS_CACHE_DIC))
+			return;
+
+		asm("ic	ialluis");
+		dsb(ish);
+	}
+
+and
+
+	SYM_FUNC_START(icache_inval_pou)
+	alternative_if ARM64_HAS_CACHE_DIC
+        	isb
+        	ret
+	alternative_else_nop_endif
+
+        	invalidate_icache_by_line x0, x1, x2, x3
+	        ret
+	SYM_FUNC_END(icache_inval_pou)
+
+it's not completely obvious to me why we have an ISB in
+icache_inval_pou(), but at least the invalidation elision is already
+there.
 
 Thanks,
-Oliver
+
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
