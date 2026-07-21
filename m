@@ -4,82 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1A2BC4452D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 23:05:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CC42C4452D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 23:16:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=QYXaYDgqkJqtd2+svQngfiSlGiL9bXTJTobnSbO9Md4=; b=lca38jmhf3sJQc
-	FcFnwR7CIcljeRLzOjyOCrUwF4tyzBT8QZXd8EvM8ZvFSjHoHUOgguwuM5JSuEqLCLOZScagI9Xv3
-	SkFMI7SfxMWDz3jAmZnVOll88QOJMhibuTSVJFRQQobTzBb6MYmSNPId2/AiYXQb4bWqm9e6k2dPn
-	1MuZlbjTa7yv3V372yg1rLcFMf7KB2w1ojF7CnHxz0gMC+5ZxlRbyCXXzbDn5feClFWa2jCfRTEMj
-	93idAe7mgBbP0kvxMMfNAzwGPXo/h8CStFFnMb0zRgHPMU38FFUoKXiFgUgPIBVdfsgT6D/XYc5i9
-	2/YMP+igYnTNo8mDcSrA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=D+dy2LCpY1cXSyUlnbm+ofF3kWY9ivvko5g07pydvew=; b=2D22Taj/+DmjrlgL5GSql0tCIk
+	MoOlwxk9J7InJBH4HITG9LFv4zyALX2HIWlvJOrMeDzn8SXvSvNyY9GhaKb/lnNGmXfgE+O9Zqdg/
+	XHprcG723F2TAb9YUqaNZFKyCUfpLTa+/zwSRbq8V/rPxX1nbvG+B3PdsXFF6gXlqIwCPNEiPVzn8
+	7hBp+4DnQ/JijM/0qK1ucijR5RDNMIRXoYGIAo2kVtN/DcHwH+GjZki0rBQDwUFuKR9nvx5+MMfEH
+	YmhZhN0VlHyoKh8w8pi5atu2pO04E4oonLRXYbEhCf12pz4WxX8TTd8lWHWLWYl42MW7t3lijMYsb
+	ma4SdG0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmJWQ-0000000AY2s-2roO;
-	Tue, 21 Jul 2026 23:05:10 +0000
-Received: from mail-oi1-x248.google.com ([2607:f8b0:4864:20::248])
+	id 1wmJhJ-0000000AYhz-0Pw9;
+	Tue, 21 Jul 2026 23:16:25 +0000
+Received: from mail-westeuropeazon11010001.outbound.protection.outlook.com ([52.101.69.1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmJWO-0000000AY2A-2StK
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 23:05:09 +0000
-Received: by mail-oi1-x248.google.com with SMTP id 5614622812f47-4909b046dabso18926689b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 16:05:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1784675107; x=1785279907; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=QYXaYDgqkJqtd2+svQngfiSlGiL9bXTJTobnSbO9Md4=;
-        b=im38x7UxWxCfjkO+fsMyIUZXV4sQqQBxAk10FiVqKh1lGlUDukyd38ul5DACuXxIEU
-         pfQCWMXh/qj5HsZtftLJDiaMWm+slUyowXPlVusC6Jyj9QzzckskdewqT5CL8eqDYXHs
-         NG2/Krny8xgGwheroUldiBp6jiIqodDypQw5UWRVn9hm8xrnRaiOZsgovM2ahcXKr9Sh
-         MXR/bBLDSl4Q9RZkItbFGM2Tmu6e+d5tu2c35LdWH8Zn2h63kIq9WczGQR3eI9XiPhDA
-         eS4zijY84SQtOfLw/ZQZYneW/FX8y45odcM03fMDUPBeec+MVfs5uxYEYn4d1xdPVIJ1
-         FQpQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784675107; x=1785279907;
-        h=content-type:cc:to:from:subject:message-id:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=QYXaYDgqkJqtd2+svQngfiSlGiL9bXTJTobnSbO9Md4=;
-        b=F/LqqYqfXAuff3uB6qGKLufqahzQPkRjPn/UbpUpUIYgR7W1JTBD7WBWJfMZHB9QHJ
-         lYAnW5EiKRwi/j9Oh2DhUldla7pgJyfMpoixrYXrHa7GS6PoUW6FFuoWF7rNNqt8ZwG0
-         8g2/UVZlkeNe8sJhPaqOaL1pBtTBLZMpWkBUAfLMX8uNkE4eFQNtIZ0q4Cy+qRQV1+kp
-         /ZU1eptOGivrr9KQ+g30BOvX9Tq1NcVX6xsOI2/ESAlWHH3meAg0YBw3TuNxF+Np2WNl
-         m5GtgqqhPz6+P3CiK3Yckij9w9l4nk31OVv57ys93f6w6vNfOXRI7Cj/Cing6k/OGYZv
-         JWXQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rq9i4ruOt5AIsjyL7eGGmbRm8ucAk0XzHzKQ04Py4Mw4vxiqjz52OIH61E6UZu86hopUUFFNsu+aJHEpxyR4pOx@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw1q5EyG8/d8NT8x2xiKubLrsNej37lM2HTAIeWo52Y5hPNCKzW
-	VH/FmtlGuTSbRLCYko3mqDL+5p6ERpbTm0lqL2n7FHpGz3HvG2gZMF1GSSIgHpM1CbhvkFM/05m
-	eUP+0qiplU3DWOOTkugBwnswsgg==
-X-Received: from iowx7.prod.google.com ([2002:a05:6602:1607:b0:9a8:4cf8:3078])
- (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6808:1719:b0:495:f230:a340 with SMTP id 5614622812f47-4a4d049ce3emr10719954b6e.28.1784675106606;
- Tue, 21 Jul 2026 16:05:06 -0700 (PDT)
-Date: Tue, 21 Jul 2026 23:05:06 +0000
-In-Reply-To: <3fc867c3-67a0-4fdd-b871-f2ba4d642f1f@linaro.org> (message from
- James Clark on Mon, 20 Jul 2026 17:46:37 +0100)
-Mime-Version: 1.0
-Message-ID: <gsnt8q7454gt.fsf@coltonlewis-kvm.c.googlers.com>
-Subject: Re: [PATCH 11/21] KVM: arm64: Context swap Partitioned PMU guest registers
-From: Colton Lewis <coltonlewis@google.com>
-To: James Clark <james.clark@linaro.org>
-Cc: kvm@vger.kernel.org, alexandru.elisei@arm.com, pbonzini@redhat.com, 
-	corbet@lwn.net, linux@armlinux.org.uk, catalin.marinas@arm.com, 
-	will@kernel.org, maz@kernel.org, oliver.upton@linux.dev, mizhang@google.com, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	mark.rutland@arm.com, shuah@kernel.org, gankulkarni@os.amperecomputing.com, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+	id 1wmJhF-0000000AYh4-2LKQ;
+	Tue, 21 Jul 2026 23:16:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=l5gwybVSUOdERTZiOQJy9A/R4KIi7N+WzBx/TVLYhTkM3wYGIAcp2jRSE2WtxIsgrUC+Ql8mYFyQ+Jwt7d+nklpRnnmYpM402zKbU9rfKGkg6qqMbPyMoVEc1nWcp5b3RqP/D4ABN94B0WAP02Erm5jc1W2aHXo3rhumcew/cj79Uf/VkowW2EYITdfLPoI8j51mbMijrH2t9uQE8jl3UvpdNmdAxgeqcCgI5x6fps/PMRVo4tQmR1Xi88ZYreKU5tMlKG9v5Mv1xNomhzJUh9JSoTA8nu6dRQ5Yw7XCcYGiYWG7XDGLny78ig188WOQs5SfvVE6pn9mxe0xFpdMEQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=D+dy2LCpY1cXSyUlnbm+ofF3kWY9ivvko5g07pydvew=;
+ b=pLtKN0nscW1HODUR2G+4CUDPTsiBCovaGyY1DssS2V4uzsWf1B6AwDnDm44jFgDcN7w08Ej9E5TCHjEF9iI+raJPO18ABqksBjfiPVKG+HTJ5CIlSajBGhe6RAB1SXUYBGeOGdLYG1IStBsFL/VhVTRsVsPdbp/8XlJahtvN1jMEnFMx4UwSSpC2S7ql3clM3KnwFLaYt3B8gO3S9DkAwukWr4mqfcl0d0sDKw3uLvEcnyHM5H31+otNKgma9gV8LIMxVA3XnaxjT4VfWvzyNGIHSJoJk1rWkZSYEh6OmBYs9FCM/+rD0biPU+szH0F2bWcZcFQMeFBfcBSxJLIRrg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=D+dy2LCpY1cXSyUlnbm+ofF3kWY9ivvko5g07pydvew=;
+ b=HRhAVSHntKFgBOUhYzmPzjV2QEJx0RSo8kVSPgJXUv10zMvc/Sk06p4V2QCCyOK1f5RGGhb8Rejqheb0KJnFbUr8tqoEQBXZ1uh3GR2BVWM/UFmjUx6FrEbDvekcXk+z8+ngNEOxarO/agbcA4FmqSDrXv8lUAnkia6Z8SSw/yVXxWKxqvOzSPQqeVTltcVMU1e7Dje074TDYFCq2ynMMUfiuH8StF7Xu5TI6brfDFdCvUMfp1AIBNWyFjA78XdEHQC0DRIWgmOBhHYI7gHCTOo845PkP5N4sTPhJpmPVaSGe7X34Jh9U8YoN3cO/vBQLYmUBV2Psx3PDC/Ee3L2sg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM0PR04MB6900.eurprd04.prod.outlook.com (2603:10a6:208:17d::10)
+ by VI0PR04MB11817.eurprd04.prod.outlook.com (2603:10a6:800:2ec::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Tue, 21 Jul
+ 2026 23:16:13 +0000
+Received: from AM0PR04MB6900.eurprd04.prod.outlook.com
+ ([fe80::7fda:8431:ca1b:b023]) by AM0PR04MB6900.eurprd04.prod.outlook.com
+ ([fe80::7fda:8431:ca1b:b023%5]) with mapi id 15.21.0245.009; Tue, 21 Jul 2026
+ 23:16:13 +0000
+From: Vladimir Oltean <vladimir.oltean@nxp.com>
+To: linux-phy@lists.infradead.org
+Cc: devicetree@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	Ioana Ciornei <ioana.ciornei@nxp.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Tanjeff Moos <tanjeff.moos@westermo.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Michael Walle <mwalle@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	linux-kernel@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>
+Subject: [PATCH v4 phy-next 0/9] RCW override for 10G Lynx dynamic protocol reconfiguration
+Date: Wed, 22 Jul 2026 02:15:54 +0300
+Message-Id: <20260721231603.67865-1-vladimir.oltean@nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: AS4P190CA0021.EURP190.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5d0::6) To AM0PR04MB6900.eurprd04.prod.outlook.com
+ (2603:10a6:208:17d::10)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM0PR04MB6900:EE_|VI0PR04MB11817:EE_
+X-MS-Office365-Filtering-Correlation-Id: ef634280-b85f-4dfe-c15a-08dee77e0ec1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|19092799006|1800799024|366016|6133799003|11063799006|10067099003|56012099006|18002099003|3023799007;
+X-Microsoft-Antispam-Message-Info: Q/r9LfrwwZyC/CiQY42zCAqUIfJgFAwxgVP7Vt2eV+mzJ5UQi4sMXO0v/waVFQyW2H6nx4M14hH1YLkJO6BctV3mMkwLR1ch8BlC9AdBiB31rP5V7yqa0Ip/SiNUXuhGcUsPRFEp6CKgk4QB7QhCwKuIN5mfmGdZ50/BcsDVBH2c0Zv+qv+LsFS8ir6k4pDhtfrkjJg6hZ+eqMiBvxQZyLaNf5OtF0aYvDLphzheqINy1CpTF6uh0rLc3o6YxXDCJtyuG2wp2Iy4W3IqW2XTACAUMA48IvwAYTh1LpvNwiE0JoleArqN9GDmKUidSlqd2jOrNLJCXGLJAz94EqZGIcEDHdmZI0ukk7iYeBNaqvHWmCUMDbtPlN7OAt6ofy2IQVLMs8CO9PN1z25SoeHdG6LmeXvTVl0kcdRSNTwYBXHWI2sFUq/jcdqppVpQedEJY+8AaWbYFK87flhxWBcFOb1aW257D1dXf5eCqkLTs8Qwu9TLfBxsrsIC4XPHOoPKYDPXi018n+n55rlskD734NZmaU0QCgbYPb2HBjgPPWVYJl3kK2pAuu35L4fT3tJDF6g10fSMtAipK5BvhZNMY4Yuyl1/PLcx50TL/3fVmR6qoB66g435pFQvan+gagZq3HzQckn9RCAFiie+ccoJ9j7FHErVHvuWuf6VEv587yw=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6900.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(19092799006)(1800799024)(366016)(6133799003)(11063799006)(10067099003)(56012099006)(18002099003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+5+feLVrzwlI/0Y/zBGoljiSiDgVc8eKfZsUqxbKZRk1EoyXHk0oL5ATMOoX?=
+ =?us-ascii?Q?xxNS4mIb1fWY+s0fS/FowAThmOA2dGNBfaDYcFQahB8cOTaJ65r86Wg7j/+F?=
+ =?us-ascii?Q?JLEtKA7y/6eTVTrxbXVYLsE/z2A7mh0zjUlf1Dj0bGeNgQs+Dh+o4jN8+Dgn?=
+ =?us-ascii?Q?haho3A6qBsAVRK8dZnRF2RUfT5niBGMS1iNUxdXMZbuBxDAr5034yTbSJ697?=
+ =?us-ascii?Q?qf+VtkCxLYy8Lx67XTPjAuddaO8yVOkrvHztzKd52knIqksV8wpYQW/O4hhu?=
+ =?us-ascii?Q?5vKPgpltQEI52xBp2Z1zVd/T7emj5/f9sTuUOudlVNRHjbI7q5GmEeurmVdy?=
+ =?us-ascii?Q?C0OxSQimlWXjkshdvFMwn/APEcqPtELuv15xTWtpQ+ucJuzHs2S0dhRN0sBh?=
+ =?us-ascii?Q?2nkBhw6UstgnlkdKMaONRszORRbzD+Ur4llbQuY1AD9QNJHNZfEhyQ16Fb5m?=
+ =?us-ascii?Q?xlVnckDZqUanDhQNrcEY+bZkjt/jdfD5Dj6nP+btbNCPyR9C+RW4cQ75UV3U?=
+ =?us-ascii?Q?frcJ9zKzg273xub1TQ44Q5zMoAKBnfZEJ55cT6dgRgxSzHcQKm33J02T7oA0?=
+ =?us-ascii?Q?gpv89hYq+xhCdLnQWTrgXs2QkXNuI9Fq/HPv3OKLP2MWQ29kxXZzvkPoEnWn?=
+ =?us-ascii?Q?fs+J7I85DnHMHFDfaP4mAhQ4MgfV6GiyAa2nUUZV0C4VzKyU1vZtEoZDwJ3P?=
+ =?us-ascii?Q?DnObyO85KhGc1J3Ag4v0YyKop2j3ah/PdhqjD3bMLrG3vdqQPs5RUy4M4t8K?=
+ =?us-ascii?Q?gHc0W14XiZYXut4GvDTKpiYJzg4xTkj2xr7J6jvCT/TGnx7rqCD6kYShLCD3?=
+ =?us-ascii?Q?UGKsWftjX7neLSKtboOmHoc36L1EEA0HAyGX4Zx7ypfyLo+SUBD/wvmwuWSZ?=
+ =?us-ascii?Q?iX8ShkEKHQniN/3xZ+MEK3oNxrGH+tk+SclBgUTVhfz1A4G2gCm/H0CAzCuX?=
+ =?us-ascii?Q?0ayhy8ZJiTwyLfjnZs7Aru+mcAkx6MH67YRejVgpwIJ35ESdVXmL082xaMbl?=
+ =?us-ascii?Q?tzh/eQjEbZfsFW7yA3JuqtPmW8XFOwepemUx9sHG81Sk4JWQ5omj+NmzzDmz?=
+ =?us-ascii?Q?D2oXQUdbVv3T/qhXLrd4MbWRUFAilYFfEq5xC2Lt/ij4m5MhNyb6jU3ZKpEL?=
+ =?us-ascii?Q?BvmvSfowLuwBJXZR6A+E/PssFR3A7jFoL/3OyHbRJob+b1yjWyGy5zgl+/Fy?=
+ =?us-ascii?Q?DFyGiUIU0E0wT7jSO6jVjQSUqQgtkHLBR6DKkA1n8yAtx7tMH3De/aaGBy34?=
+ =?us-ascii?Q?YzZQKr9qJCBiwIqwNUXymWUlZv98O2XPpNDstCY0nIlunfDdRgnYgzw+Uaep?=
+ =?us-ascii?Q?iSY2tfWvFwnY+DldfLSlH5gAKl97+kjxGkDE5qA4j5O5MKuJFCplx1MB/8WB?=
+ =?us-ascii?Q?b+pJKlgovluzO1TqrOelU6ku0ek/PI/uJObsHdFd1kHgHGND/eg9sZKGwShd?=
+ =?us-ascii?Q?0wXkFmMuxlcyXaUofJGUWL1a6uoY/Tb4ALI+TPUieJzukAqB41C4dJyAF5/R?=
+ =?us-ascii?Q?Gw2wymVU+NaQ9SIQfqy4YmMIthEv1O+7qp+KLKpxuDaAYkK1fIJEcPa6/VDr?=
+ =?us-ascii?Q?ZeuyJOzjuPmKvDVl0UOnlLOHHOq/HpXXTBlAPFqVReWrNsYmsomQ/jqkw5Cr?=
+ =?us-ascii?Q?8cL3dVm/0dXla3tSTEHz9ePbWINSDeGzvQEd8ZVUIANJgdinQW4L2F0BHM7P?=
+ =?us-ascii?Q?128OeSFFRuF9CeDqbAeZu9JE6Vm81K7f9BWrt0fwplXpW0voo431VhAe3aQQ?=
+ =?us-ascii?Q?Hq61OSHkPA=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ef634280-b85f-4dfe-c15a-08dee77e0ec1
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6900.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Jul 2026 23:16:13.4173
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZK18PlktwgCok4aFma7D5DVAT6xBbhTYrozQzxbivrdl5xabPtgrj3JT8qXyR3cNZlx0bwB3xnMLDuH90hLkIg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11817
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_160508_631895_FD9C9B05 
-X-CRM114-Status: GOOD (  19.19  )
+X-CRM114-CacheID: sfid-20260721_161621_621054_D3D3A257 
+X-CRM114-Status: GOOD (  21.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,115 +145,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-James Clark <james.clark@linaro.org> writes:
+Previous set "New Generic PHY driver for Lynx 10G SerDes":
+https://lore.kernel.org/linux-phy/20260610151952.2141019-1-vladimir.oltean@nxp.com/
+introduced the 10G Lynx SerDes driver with a reduced functionality set.
+Namely, only minor protocol changes are supported (1GbE <-> 2.5GbE).
+The major protocol changes need a procedure named RCW override,
+explained in more detail in commits 6/8 and 7/8.
 
-> On 12/06/2026 20:28, Colton Lewis wrote:
->> Save and restore newly untrapped registers that can be directly
->> accessed by the guest when the PMU is partitioned.
+This series adds kernel and device tree binding support for RCW
+override, completing the SerDes PHY driver functionality.
 
->> * PMEVCNTRn_EL0
->> * PMCCNTR_EL0
->> * PMSELR_EL0
->> * PMCR_EL0
->> * PMCNTEN_EL0
->> * PMINTEN_EL1
+Two components are involved:
+- drivers/soc/fsl/guts.c (binding is fsl,layerscape-dcfg.yaml) - Device
+  Configuration Unit, this is API provider for the SerDes driver to
+  request RCW override depending on SoC
+- drivers/phy/freescale/phy-fsl-lynx-10g.c - SerDes PHY driver, this is
+  API consumer
 
->> If we know we are not partitioned (that is, using the emulated vPMU),
->> then return immediately. A later patch will make this lazy so the
->> context swaps don't happen unless the guest has accessed the PMU.
+The guts driver probes on DCFG blocks from multiple Freescale SoC
+generations:
+- MPC85xx, BSC and QorIQ (PowerPC) are all covered by the
+  Documentation/devicetree/bindings/soc/fsl/guts.txt schema
+- Layerscape (Arm) is covered by
+  Documentation/devicetree/bindings/soc/fsl/fsl,layerscape-dcfg.yaml
 
->> PMEVTYPER is handled in a following patch since we must apply the KVM
->> event filter before writing values to hardware.
+It is ultimately the same hardware block, just that (from what I can
+tell) the Layerscape nodes are also compatible with syscon, and PowerPC
+aren't.
 
->> PMOVS guest counters are cleared to avoid the possibility of
->> generating spurious interrupts when PMINTEN is written. This is fine
->> because the virtual register for PMOVS is always the canonical value.
+RCW override has only been validated on select Layerscape SoCs, so
+converting guts.txt to a PowerPC schema is out of scope for this
+series - we don't even touch that (just in case it gets asked).
 
->> Signed-off-by: Colton Lewis <coltonlewis@google.com>
->> ---
->>    arch/arm/include/asm/arm_pmuv3.h |   4 +
->>    arch/arm64/kvm/arm.c             |   2 +
->>    arch/arm64/kvm/pmu-direct.c      | 183 +++++++++++++++++++++++++++++++
->>    include/kvm/arm_pmu.h            |  16 +++
->>    4 files changed, 205 insertions(+)
+Using syscon to map the DCFG_DCSR register block in the Lynx SerDes
+driver instead of creating this guts <-> lynx API was considered, but
+because the RCW procedure is SoC-specific, it was ruled out for
+polluting the SerDes driver. The guts driver is all about SoC awareness
+anyway, and it offers some abstraction of all the gory details.
 
+Changes since v3:
+- new patch (1/9) to improve the fsl_guts_init() error path. The entire
+  patch set is adapted to use the new convention.
+- patch 8/9: avoid accessing an invalid soc.rcwcr_lock if
+  fsl_guts_lane_set_mode() would be called too early
+- patch 8/9: fix serdes block and lane count bounds
+- patch 8/9 and 9/9: reimplement LS2088A RCW override in a way that is
+  self-contained within the guts driver (based on reading and decoding
+  RCWSR29[SRDS_PRTCL_S1]). Only a subset of SRDS_PRTCL_S1 values is
+  supported for RCW override, due to availabilty of hardware to test on
+  my side. Notably, protocols with XAUI and QSGMII are deliberately
+  omitted from the SerDes table because only testing can show whether
+  these protocols require RCWSR30_SRDS_CLK_SEL set to GMII or XGMII.
+  This new method completely replaces fsl_guts_lane_init(), and has the
+  advantage of also figuring out the initial protocol of unmanaged lanes,
+  thereby not breaking them on RCW overrides.
 
-> [...]
+v3 at:
+https://lore.kernel.org/linux-phy/20260720133642.136324-1-vladimir.oltean@nxp.com/
 
->> +
->> +/**
->> + * kvm_pmu_put() - Put untrapped PMU registers
->> + * @vcpu: Pointer to struct kvm_vcpu
->> + *
->> + * Put all untrapped PMU registers from the VCPU into the PCPU. Mask
->> + * to only bits belonging to guest-reserved counters and leave
->> + * host-reserved counters alone in bitmask registers.
->> + */
->> +void kvm_pmu_put(struct kvm_vcpu *vcpu)
->> +{
->> +	struct arm_pmu *pmu;
->> +	unsigned long guest_counters;
->> +	unsigned long flags;
->> +	u64 mask;
->> +	u8 i;
->> +	u64 val;
->> +
->> +	/*
->> +	 * If we aren't guest-owned then we know the guest is not
->> +	 * accessing the PMU anyway, so no need to bother with the
->> +	 * swap.
->> +	 */
->> +	if (!kvm_pmu_is_partitioned(vcpu->kvm))
->> +		return;
->> +
->> +	preempt_disable();
->> +
->> +	pmu = vcpu->kvm->arch.arm_pmu;
->> +	guest_counters = kvm_pmu_guest_counter_mask(pmu);
->> +
->> +	for_each_set_bit(i, &guest_counters, ARMPMU_MAX_HWEVENTS) {
->> +		if (i == ARMV8_PMU_CYCLE_IDX)
->> +			val = read_pmccntr();
->> +		else
->> +			val = read_pmevcntrn(i);
->> +
->> +		__vcpu_assign_sys_reg(vcpu, PMEVCNTR0_EL0 + i, val);
->> +	}
->> +
->> +	val = read_sysreg(pmselr_el0);
->> +	__vcpu_assign_sys_reg(vcpu, PMSELR_EL0, val);
->> +
->> +	val = read_sysreg(pmcr_el0);
->> +	__vcpu_assign_sys_reg(vcpu, PMCR_EL0, val);
->> +
->> +	/* Mask these to only save the guest relevant bits. */
->> +	mask = kvm_pmu_guest_counter_mask(pmu);
->> +
->> +	val = read_sysreg(pmcntenset_el0);
->> +	__vcpu_assign_sys_reg(vcpu, PMCNTENSET_EL0, val & mask);
->> +
->> +	val = read_sysreg(pmintenset_el1);
->> +	__vcpu_assign_sys_reg(vcpu, PMINTENSET_EL1, val & mask);
->> +
->> +	/* Save pending guest hardware overflows. */
->> +	local_irq_save(flags);
->> +	val = read_sysreg(pmovsset_el0);
->> +	__vcpu_rmw_sys_reg(vcpu, PMOVSSET_EL0, |=, val & mask);
->> +	write_sysreg(val & mask, pmovsclr_el0);
->> +	local_irq_restore(flags);
->> +
->> +	/* Stop guest counters and disable interrupts in hardware. */
->> +	write_sysreg(mask, pmcntenclr_el0);
->> +	write_sysreg(mask, pmintenclr_el1);
->> +
->> +	kvm_pmu_set_guest_counters(pmu, 0);
+Changes since v2:
+- fix error handling in fsl_guts_init() and make sure that all newly
+  introduced RCW override API functions fail if fsl_guts_init() failed.
+- replace __bf_shf() use with __ffs()
+- use read_poll_timeout_atomic() in fsl_guts_rcw_rmw() to clarify that
+  DCFG_DCSR writes are supposed to reflect back in DCFG_CCSR
+- only operate on lanes on which fsl_guts_lane_init() was called in
+  ls2088a_serdes_init_rcwcr()
+- put parentheses around (lane) in LS1088A_RCWSR29_SRDS_PRTCL_S1_LNn()
+  and LS1088A_RCWSR30_SRDS_PRTCL_S2_LNn() macro expressions
 
-> Hi Colton,
+v2 at:
+https://lore.kernel.org/linux-phy/20260612210859.266759-8-vladimir.oltean@nxp.com/
 
-> This function doesn't get added until "KVM: arm64: Apply dynamic guest
-> counter reservations" a few commits later.
+Changes since v1:
+- add Conor's review tag on 6/8
+- update email addresses of DT maintainers
+- drop DT maintainers from explicit CC on patch 7/8
+- keep devicetree@vger.kernel.org CCed on entire series
+- include missing <linux/bitfield.h> in patch 7/8
+- namespace SRDS_PRTCL values for LS1046A and LS1088A, even if they are
+  the same. For LS1028A (not covered here) they are not.
+- prefix SRDS_CLK_SEL_{GMII,XGMII} with LS2088A_
+- reorder alphanumerically (LS1046A should come before LS1088A)
 
-> kvm_pmu_guest_counter_mask() is also used in a commit before it's added.
+Change logs also in individual patches.
 
-My bad. I'll correct that.
+v1 at:
+https://lore.kernel.org/linux-phy/20260611193940.44416-1-vladimir.oltean@nxp.com/
+
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Rob Herring <robh@kernel.org>
+
+Ioana Ciornei (4):
+  soc: fsl: guts: use a macro to encode the DCFG CCSR space
+  soc: fsl: guts: add a global structure to hold state
+  soc: fsl: guts: add a central fsl_guts_read() function
+  soc: fsl: guts: make it easier to determine on which SoC we are
+    running
+
+Vladimir Oltean (5):
+  soc: fsl: guts: perform fsl_guts_init() error teardown in reverse
+    order of setup
+  soc: fsl: guts: make fsl_soc_data available after fsl_guts_init()
+  dt-bindings: fsl: layerscape-dcfg: define DCFG_DCSR region
+  soc: fsl: guts: implement the RCW override procedure
+  phy: lynx-10g: use RCW override procedure for dynamic protocol change
+
+ .../bindings/soc/fsl/fsl,layerscape-dcfg.yaml |  15 +-
+ drivers/phy/freescale/Kconfig                 |   1 +
+ drivers/phy/freescale/phy-fsl-lynx-10g.c      |  23 +-
+ drivers/soc/fsl/guts.c                        | 528 ++++++++++++++++--
+ include/linux/fsl/guts.h                      |  18 +-
+ 5 files changed, 532 insertions(+), 53 deletions(-)
+
+-- 
+2.34.1
+
 
