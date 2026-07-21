@@ -4,62 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C7DCC4452B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 17:19:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2BFFC4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 17:21:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=us4G0IB7q6IaNMP2tCrHfvsb8LP3csCgpb8aQf0m144=; b=t7/U/9ENEb1TBfLIvH6eUCiu/L
-	HMzCjykuD2kwEH82pMeHGB7wb+TLIwRyesNLyxrTXrBtO+1p1IYJC0HTWBILNOfmjGHcpSENUzP7f
-	k4EBd/TxIRVMnERkXJvhL5lKxVw/U6JlBZlbvZF1M/31cJjIV6RBWaLdO9jQsn0EXERpj7BaoTdkP
-	qeBf7uxAe1vNsTYnp/3XsyoTuhaWzL7AkLZKH+oH2ErHrgf+w0IqEDmZWXYnOvNrbvtLBN18Q2na/
-	W1bTy0DQ1ya+nA7TdjJDWPnY463ykXnQYimLC/AHXJk3WiaNNLsuO+Wgn3jVHU8xVNujupZbu6Xi0
-	OT7ZBj2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H+kp8j8RQXqYz4HiL6BM9iRIWosOZOMzLCJGR/2Sk1c=; b=050+F89XKKTxrF17FzQlz75fMC
+	tl1Ka8QbSqo2M+slsoOuyJ3tvgj4kZGaMqvNfz8k+q+t5J22BY1nnv26dRI77huFlrq8Vwzzfz+5P
+	M+RY6wIGdAhsfEW0wUUXjxjzr03JfhD44JZZX0MM3IGAh08jquZmpYZc9/TGOb0uSHjAaUZ6354zR
+	wcpr7ZWnD4KnH16JCQrR5sq75DDGw4eMfvhtnJsZ44gYtsTWxPceklWIt4SdqjLFD9HY03dwmfAAZ
+	wQE2q0SAexmdE7AEgvAagPL9by/2e+P9EnR1N4XjvpjOxOUSKduXgVJ0fxs/489sDSAq3uRR/vouo
+	9xKWN2sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmE7h-0000000A2ND-05Lc;
-	Tue, 21 Jul 2026 17:19:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wmE99-0000000A2aL-13pT;
+	Tue, 21 Jul 2026 17:20:47 +0000
+Received: from mail.alien8.de ([65.109.113.108])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmE7T-0000000A2LQ-1nbC
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 17:19:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6264343C2C;
-	Tue, 21 Jul 2026 17:19:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A7291F00A3D;
-	Tue, 21 Jul 2026 17:19:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784654342;
-	bh=us4G0IB7q6IaNMP2tCrHfvsb8LP3csCgpb8aQf0m144=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=K0YfaOQsvESh/pcapGMeMEzsZi9a9arnWcs3napUlXQ8pFaXcBUb/ASh0PmADxqsq
-	 iWXmQ13cuWB0j8iIsCuBDWSvU10qZNQPDekKwPDWlr9mOuyP6f96d7ZWkZBWYGZvgj
-	 KoJSj3FrFdy3d9ifi3bcgxvNK5nYo0mi8HMlYQx8IygQVIqiS24dq0QwS5pT7ZFW6S
-	 ZD+1yXz9Cinvn28Ltso6XAZOZBKHeRgk5cHPNHg9TK1i5ZH6W0UNzRor2mN5ETzjNw
-	 vx/Nd0WUOrWGKMQDenYZW41cIf5zl8cI7GmxxX4pCOsuOTWHN8sTEQOKAVoImfGyjy
-	 lI/49m3k2ScaQ==
-From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Steven Price <steven.price@arm.com>
-Cc: kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>
-Subject: Re: [PATCH] arm64: Correct value returned by ESR_ELx_FSC_ADDRSZ_nL()
-Date: Tue, 21 Jul 2026 18:18:40 +0100
-Message-ID: <178464679057.1301757.10802293963711589823.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260703134837.100109-1-steven.price@arm.com>
-References: <20260703134837.100109-1-steven.price@arm.com>
+	id 1wmE95-0000000A2Z0-3whz;
+	Tue, 21 Jul 2026 17:20:46 +0000
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 65B4E40E00C3;
+	Tue, 21 Jul 2026 17:20:30 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
+Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
+	header.d=alien8.de
+Received: from mail.alien8.de ([127.0.0.1])
+	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id RI_0lUk3GInp; Tue, 21 Jul 2026 17:20:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
+	t=1784654418; bh=H+kp8j8RQXqYz4HiL6BM9iRIWosOZOMzLCJGR/2Sk1c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=OCGDcuY922zK8+thN0a62DX0OJ8S/zy6csu77s+HJDg7Tiw3kuK5DaR9HV84RC1uV
+	 3muM6FhgECTBD1hnQJgreOzu3oTIVap397z/IHO1OgOzVK6cFrjeUW28/6/VeYios2
+	 9xp7ox94bn7q8PR/PYxTspEHEVs/es3ZexKmoUo16HiBUiLfFdshRCBDoOEcrWQZ5X
+	 gk5MMg+8crrVqEUe7nSTVz7F1fjDQRHShglfx9h/aocbLPYQcmp6GosBqFk70xDh3B
+	 vFl7CPkaTEBTA36WZiBsymfJjORj0ceKVFGsmJxm/OfHppSGUE9eNkgMvxt5mRVdLE
+	 rBsAYl2pQKQC2N8xuA5SALvB/zZ2grhAHKMFeaX3E1wjKQeD9MCnn0iwT+iGtRJtiC
+	 1pyvm1Cu8SPrZH+szL96x3eOB3+s8AnVA9sNE/F3/fekNwhMmnR9eW0ILdZLGwE+v+
+	 xk9X39suV3YKAWgnLxhJ6RlvC5WN7q7PH/fhr9JeeRvlTdzEE29AX7RAcPkHsgkgZ8
+	 dXZGOS2Ox1+ZbRF/n5yWDJpdNyN1PqtbqLvkitI9T1cNJEW10+XufRbq7u85XyZNuD
+	 ALc9/5Rr6AHbe0zLz5I9GTdYVu4AJ2S9D9ua13A2ocklLMRv/WEp8zzXVITKSYuBkq
+	 twY8CxE2QiT4H9C4DrpesDGY=
+Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::2b])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
+	(No client certificate requested)
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 9384340E00E6;
+	Tue, 21 Jul 2026 17:19:46 +0000 (UTC)
+Date: Tue, 21 Jul 2026 10:19:43 -0700
+From: Borislav Petkov <bp@alien8.de>
+To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+Cc: linux-mm@kvack.org, Albert Ou <aou@eecs.berkeley.edu>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Brendan Jackman <jackmanb@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Hildenbrand <david@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Lorenzo Stoakes <ljs@kernel.org>, Michal Hocko <mhocko@suse.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Vlastimil Babka <vbabka@kernel.org>, Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev,
+	x86@kernel.org, Dave Hansen <dave.hansen@intel.com>,
+	Juergen Gross <jgross@suse.com>
+Subject: Re: [PATCH RFC 00/18] arch, mm: create a generic
+ set_memory/change_page_attr core
+Message-ID: <20260721171943.GEal-qLx4p5YbocQNV@fat_crate.local>
+References: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260721_102044_140733_32DCA3B2 
+X-CRM114-Status: UNSURE (   9.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,24 +106,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 03 Jul 2026 14:48:35 +0100, Steven Price wrote:
-> Address size fault, level -1 is encoded as 0b101001 or 0x29 according to
-> the Arm ARM. Correct the value to match the spec. This also matches the
-> offset of "level -1 address size fault" in the fault_info array in
-> fault.c.
-> 
-> 
+On Tue, Jul 21, 2026 at 07:23:23PM +0300, Mike Rapoport (Microsoft) wrote:
+> Currently there are 6 independent implementations for set_memory and
+> set_direct_map APIs.
 
-Applied to arm64 (for-next/fixes), thanks!
+So with all mm/x86/CPA patches flying around, can we first agree on which tree
+is going to collect everything?
 
-[1/1] arm64: Correct value returned by ESR_ELx_FSC_ADDRSZ_nL()
-      https://git.kernel.org/arm64/c/b877075d0baa2
+And if I want to review patches in that area, what am I applying it ontop?
+linux-next perhaps...
 
-Cheers,
+Let's sort out the workflow first so that we don't get lost on fruitless bug
+chases and fingerpointing.
+
+Thx.
+
 -- 
-Will
+Regards/Gruss,
+    Boris.
 
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
+https://people.kernel.org/tglx/notes-about-netiquette
 
