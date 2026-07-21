@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BAEAC4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 08:16:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD341C44529
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 08:17:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1sP7MrBG9kB7jM6qGOj+XgMqABnnG1TCj8gJkGQNSks=; b=p2dYbIDNJu+rlXhZPPrE6IyeOc
-	wAnXsrp8W786BAIAkzoHc7HG43tehRRzTe/4ySOZEXWIFdrUqw6F5z0XwCVzsdS2nwlEZJCVhGRAt
-	KRIH1tn90eld0JVS3EGYnUTWK/q8Rf/tkfEbVyezaG+I03Kex+mUxQEfNZ0W1W95XXOWVeG/i+VX5
-	wN/yJpPLnEeZq/ibV7AkW+5/+dPem+DUm2mFRQtoCFeiEok9IgPSKOMSzN48v4IQZCermS/WkIzxo
-	/I2W4ZX/ogvlp0VNXt4dNPMivPh67b9IrOCB3Wx5azzCT2vEY58fDEIwhPQQOhQvd2zR8UcWZFz7s
-	IZoBBAYw==;
+	bh=gEp+GbkZD41eG5XmcLmjYK9IEYFdhEokvcqQUSEZvgw=; b=chBh41hOULtmUs3fLozoYrNbwM
+	sSapAZaLVv1XWrs5s+BqD0OxqwyFyou/nqDoDVQZ5xFhOoAjENpybK3/LWgsidNK4AA3M2HpL+NaB
+	uXA2OiIQYA/fzmh/lFF7wU3MlSdFASGv7dK96Y10r5hknD0EHnIA42aMcIXJze0W13mZMbS8GQisb
+	QM3Xo9lJhFfbAqZ8sV2mgvmUnJIpWoYmbqScsdnvC+IrruKv4zvqmVU9Q+sxyKTY9/C5nhZT0Y3Xf
+	OpjzQNOKsCQDGeFP6StRKuAmqk6uOimkhWWVCKs2S34/Kvje2uHBYNz0bZcpugBDk7JE4FvR6DZbv
+	/594BOlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm5eZ-00000008lur-3xLC;
-	Tue, 21 Jul 2026 08:16:39 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wm5fg-00000008m7b-176b;
+	Tue, 21 Jul 2026 08:17:48 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm5eY-00000008luC-0ut5;
-	Tue, 21 Jul 2026 08:16:38 +0000
+	id 1wm5fb-00000008m73-3iKG;
+	Tue, 21 Jul 2026 08:17:46 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4D0C860A98;
-	Tue, 21 Jul 2026 08:16:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02FCA1F000E9;
-	Tue, 21 Jul 2026 08:16:35 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 45608432E6;
+	Tue, 21 Jul 2026 08:17:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 277041F000E9;
+	Tue, 21 Jul 2026 08:17:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784621797;
-	bh=1sP7MrBG9kB7jM6qGOj+XgMqABnnG1TCj8gJkGQNSks=;
+	s=k20260515; t=1784621863;
+	bh=gEp+GbkZD41eG5XmcLmjYK9IEYFdhEokvcqQUSEZvgw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Sdvp391WLQldmXz+4YPdhsdbstRVrkVPeGU4lOTAB3d0VMsb/C7bFoA6YCgZllI9q
-	 KdkYZAanur3GvyruRTwGsgIUoHS05j3XqlRzuiLpWTQdGyGEcqQWTKYtY9j0R7dPYW
-	 i4FwpeQV/Eohyark05xX3eNRA7lui9dNGb1q5hS3YAKoVGx6ZOKkc9ctmRtTQdbQ4F
-	 XyziqUrN2pWIR5jckDoGGXcg8szYmzkU+ct6ypRPc0hlkfN9fueeBHRW2lL018xbnM
-	 8v5qnOFpHX2kbgEPuJ3eEE9YtngEgKEN6YFNRPXu8Qzmimk4o1kJFoWP6sgU7BBasp
-	 nDapi9ohxjaIw==
-Date: Tue, 21 Jul 2026 10:16:33 +0200
+	b=iQl5LnSIVpHkgpx1UKsBCW8fXeN0+2TX7rxQ6KJ/A2gGKrGXOPdhjfh4ZEYmpgKl8
+	 i3R2Jic+M/PaEsogf3M7aLxo6gl8jBT1Jz6FSzC8gqoK3EiRE9UeGcHeBxFVD5cI42
+	 F/3Jc0k3X4yqGWnpz/5NdeSzIu5rOVtvUg/q4o2avRihxy+2rPNVt1N7B6fqKNBvHw
+	 ZXVGnhaBg8aJMjhvtNcZxrCJ3+b199SJLhKUssiBZMJeSC0jJiTwTXGV2TtFf1xBGf
+	 PxuIXsoOAFgY4pX0RTY06Pg9ZnO5ukpxrS3BPvDkg1qmQJKK6iw9WRXV+/LvSCqTAX
+	 j8Q7FNBH0mFWw==
+Date: Tue, 21 Jul 2026 10:17:39 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Simon Glass <sjg@chromium.org>
-Cc: Heiko Stuebner <heiko@sntech.de>, 
-	Fabio Estevam <festevam@nabladev.com>, devicetree@vger.kernel.org, Jonas Karlman <jonas@kwiboo.se>, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	Bartosz Golaszewski <brgl@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jeffy Chen <jeffy.chen@rock-chips.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Michael Riesch <michael.riesch@collabora.com>, Rob Herring <robh@kernel.org>, Vinod Koul <vkoul@kernel.org>, 
-	Yao Zi <ziyao@disroot.org>, huang lin <hl@rock-chips.com>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 3/6] dt-bindings: soc: rockchip: grf: Add RV1106
- compatibles
-Message-ID: <20260721-didactic-tan-dodo-112ffc@quoll>
-References: <20260714193656.2196447-1-sjg@chromium.org>
- <20260714193656.2196447-4-sjg@chromium.org>
+To: Jie Gan <jie.gan@oss.qualcomm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>, Mao Jinlong <jinlong.mao@oss.qualcomm.com>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, coresight@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 1/2] dt-bindings: arm: add CTCU device for shikra
+Message-ID: <20260721-stylish-dexterous-sunfish-1653eb@quoll>
+References: <20260715-add-coresight-nodes-for-shikra-v2-0-ebd485e39a51@oss.qualcomm.com>
+ <20260715-add-coresight-nodes-for-shikra-v2-1-ebd485e39a51@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260714193656.2196447-4-sjg@chromium.org>
+In-Reply-To: <20260715-add-coresight-nodes-for-shikra-v2-1-ebd485e39a51@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,39 +76,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 14, 2026 at 01:36:40PM -0600, Simon Glass wrote:
-> Add the compatibles for the general register files of the Rockchip
-> RV1106: the main GRF, and the per-bank GPIO IOC blocks used by the pin
-> controller.
+On Wed, Jul 15, 2026 at 09:16:14AM +0800, Jie Gan wrote:
+> The CTCU device for shikra shares the same configurations as SA8775p.
+> Add a fallback to enable the CTCU for shikra to utilize the compatible
+> of the SA8775p.
 > 
-> Signed-off-by: Simon Glass <sjg@chromium.org>
+> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
 > ---
-> 
-> Changes in v2:
-> - Drop the grf-cru clock-controller child and use the syscon-only
->   group for the main GRF, since the CRU now provides the MMC phase
->   clocks
-> - Use a single gpio-ioc compatible for the per-bank IOC blocks in
->   place of the ioc and pmuioc regions
-> 
->  Documentation/devicetree/bindings/soc/rockchip/grf.yaml | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
-> index 2cc43742b8e3..fd9235ac1334 100644
-> --- a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
-> +++ b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
-> @@ -64,6 +64,8 @@ properties:
->                - rockchip,rk3588-vo1-grf
->                - rockchip,rk3588-vop-grf
->                - rockchip,rv1103b-ioc
-> +              - rockchip,rv1106-gpio-ioc
+>  Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 
-And this also answers my previous email (pinctrl/gpio bank): you have
-one GPIO IOC, not multiple ones, although commit msg tells different
-story. Confusing. The compatible here defines register layout (see
-writing bindings - it is explicitly documented there) so do you have one
-device or multiple with the same register layout?
+Please use subject prefixes matching the subsystem. You can get them for
+example with 'git log --oneline -- DIRECTORY_OR_FILE' on the directory
+your patch is touching. For bindings, the preferred subjects are
+explained here:
+https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
+
+And it should include useful final prefix.
 
 Best regards,
 Krzysztof
