@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CBB5C44529
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 10:43:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24917C44529
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 10:50:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fk+3zU33sCqoZlV6B6qSYZSBg88kLSXJJ3oAr4lA5vU=; b=v2rnJS8IGfsNmudxyk2oSKO1JK
-	DSbgzuxBOj/JysoHrVm+RfFKZvMsXdngjwVTN/EvG7E9q83BxSVtFFLAk+NOaDpqgZyhjvqxRNpZF
-	ZauOFgjvrk15/q7k/IzQvBsSPpV6Z1H4HwX/XC/N23arVL7EwE0P6Yo/MJQI3MAumaT7kdhRjOcsu
-	6mJWtXi5gNAqgaoSp3uAQL473Q6L/Lo4lcllurbRajLdO2S230WG3ReXZ96PhZ/a6BUDtUtDkp+dQ
-	U4vky9Qfsbw6th+UN18VlQ5HRXENtjLqnH81z4WamwsS7q9venWOC/nIXI/LnWSVtuyVbaDdoZvbZ
-	hN1bk4ug==;
+	bh=tSeeoZJp2knuheF3VC8Cg0vSsJ06Oi4KKbvrXmMmHGA=; b=jIpkklBA6Csrn4cDOIabIZUYh1
+	0j0hdzGhDMfVK2g518NA4HxEGQ1cEofmMfR26zXzCJRdbm0jXelChf/9hqW9gyW9/dJTAozqr6O6Q
+	yNZ3A7aulTWZDJ7VbZZwiOabhl/wkBad1o2lKmVGBk6MzsGDKuphMXKMn0x3zdgDFJJlECJuzDpVD
+	4w6+0bzClJpE7eT+O/r4hoalIcKB7jpH0Wu1pvVXSymkQ3Q2Z8Ta+BfzosmfecVBq1tF5usC1G9DC
+	BR5biD2qdAHO0fmILmHfk9wJRhdXN+yA1uV5EDhZXFkcUxqLkhrFei1UdN4TMOLGC5fXPDtLz2L5L
+	inj6KhCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm7wT-00000009Ehf-1Sal;
-	Tue, 21 Jul 2026 10:43:17 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wm83k-00000009FU9-2jks;
+	Tue, 21 Jul 2026 10:50:48 +0000
+Received: from devianza.investici.org ([198.167.222.108])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm7wQ-00000009EhA-0YVw;
-	Tue, 21 Jul 2026 10:43:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1784630591;
-	bh=ArAK5eqqqsAwRJw9a12ekL0SmbGFQuXBHELKAchUZ2A=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=crWUlhcAh3AbBhIOV9712HCInJrmYECt0XPRLkQQ+8axoEOnwGU8Czco2MEe3Ppyj
-	 e9ewF0Fo/mfM8ZYrrw6fLbFlU2cp/RZoxQWEqAMRqNauF2Sr1pmL0GvQwO1x034ied
-	 OJn4Zwq42CDE59ECSzH9BLRRGgr4UWQ9wW8KM4/8yfHpTFipYX2eBFjVQz7S0GuUQz
-	 Apf+6IDXSjsWXOchI/oRA5XHNBsPMYW7m+cehXIUirM3505ACZ+IAlXcnzN/idpwzw
-	 HV9tnVP0+7nRfF3RelmhW4RtzxCxOXtHpoODUNPl2jKyvdmGczykkEGWztpD10330N
-	 Wbtzf8PT6ufrQ==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 02E4117E0018;
-	Tue, 21 Jul 2026 12:43:10 +0200 (CEST)
-Message-ID: <8a9aed82-5f0c-4ad8-91c5-1e1ac169781d@collabora.com>
-Date: Tue, 21 Jul 2026 12:43:10 +0200
+	id 1wm83h-00000009FSt-2JEq
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Jul 2026 10:50:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=grrlz.net;
+	s=stigmate; t=1784631033;
+	bh=tSeeoZJp2knuheF3VC8Cg0vSsJ06Oi4KKbvrXmMmHGA=;
+	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
+	b=N59Po1k+rbpJAYub9rNYigwnjcVbFXA+fYg+xnw0gUwbD+VI8mImpa494f42lMBHR
+	 v1U82ZfSVnzcqitul7kMsQ1HbxoX77oYc0/JIo65IQ0vuJ0vt38i7Qe9KCmdCCOsaW
+	 mCqWvCBEOlQ8+iVDZ7G80jKwMTOZHUt6kDVCdYgg=
+Received: from mx2.investici.org (unknown [127.0.0.1])
+	by devianza.investici.org (Postfix) with ESMTP id 4h4DgY4WZRz6vPL;
+	Tue, 21 Jul 2026 10:50:33 +0000 (UTC)
+Received: by mx2.investici.org (Postfix) id 4h4DgY1HwPz4vyJ;
+	Tue, 21 Jul 2026 10:50:33 +0000 (UTC)
+Date: Tue, 21 Jul 2026 11:50:33 +0100
+From: Bradley Morgan <include@grrlz.net>
+To: Fuad Tabba <fuad.tabba@linux.dev>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oupton@kernel.org>
+CC: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Shuah Khan <shuah@kernel.org>, Quentin Perret <qperret@google.com>,
+ Vincent Donnefort <vdonnefort@google.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>, Gavin Shan <gshan@redhat.com>,
+ Dev Jain <dev.jain@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v5_4/7=5D_KVM=3A_arm64=3A_Skip_p?=
+ =?US-ASCII?Q?KVM_stage-2_flush_when_FWB_is_enabled?=
+In-Reply-To: <20260717130317.1953574-5-fuad.tabba@linux.dev>
+References: <20260717130317.1953574-1-fuad.tabba@linux.dev> <20260717130317.1953574-5-fuad.tabba@linux.dev>
+Message-ID: <2ECE2480-4E56-4EE8-AE1F-36571463A930@grrlz.net>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] thermal/drivers/mediatek/lvts_thermal: Make reset
- optional for MT8196
-To: Philipp Zabel <p.zabel@pengutronix.de>, rafael@kernel.org
-Cc: daniel.lezcano@kernel.org, rui.zhang@intel.com, lukasz.luba@arm.com,
- matthias.bgg@gmail.com, laura.nao@collabora.com, fshao@chromium.org,
- wenst@chromium.org, jiapeng.chong@linux.alibaba.com,
- frank-w@public-files.de, linux-pm@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, kernel@collabora.com
-References: <20260720144244.88877-1-angelogioacchino.delregno@collabora.com>
- <16651472d6a782bdef63e1c9742444de08c59f1e.camel@pengutronix.de>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <16651472d6a782bdef63e1c9742444de08c59f1e.camel@pengutronix.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_034314_338139_D9387B4D 
-X-CRM114-Status: GOOD (  29.49  )
+X-CRM114-CacheID: sfid-20260721_035046_031346_B28E6C6F 
+X-CRM114-Status: UNSURE (   8.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,121 +79,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/21/26 09:53, Philipp Zabel wrote:
-> On Mo, 2026-07-20 at 16:42 +0200, AngeloGioacchino Del Regno wrote:
->> Depending on the SoC+Firmware combination, the LVTS hardware may be
->> may be actively used by one or even multiple concurrent MCUs!
->> In this case, resetting it may produce either a severe slowdown of
->> the entire system, or even a thermal protection AP reset, as some
->> MCU(s) may be reading a very high or very low temperature while the
->> LVTS is being reset.
->>
->> On those, don't fail if no reset is found as that may be omitted on
->> purpose, but still check if there's one, because some board(s) may
->> be running on a different bootchain with reduced firmwares or using
->> firmwares with reduced functionality.
->>
->> Add a new "optional_reset" member to lvts_data and use it to check
->> whether the resets should be mandatory or not.
->>
->> Also, while at it, since devm_reset_control_get_by_index() is now
->> deprecated, change the probe function to instead call function
->> devm_reset_control_get_exclusive_by_index(), which does the same.
-> 
-> Why is this using _by_index() at all? mediatek,lvts-thermal.yaml
-> specifies a single reset, so the driver should just
-> devm_reset_control_get_exclusive(dev, NULL).
-> 
->>
->> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> ---
->>   drivers/thermal/mediatek/lvts_thermal.c | 29 ++++++++++++++++++++++---
->>   1 file changed, 26 insertions(+), 3 deletions(-)
->>
->> diff --git a/drivers/thermal/mediatek/lvts_thermal.c b/drivers/thermal/mediatek/lvts_thermal.c
->> index 92711896ce24..6670b5458f2c 100644
->> --- a/drivers/thermal/mediatek/lvts_thermal.c
->> +++ b/drivers/thermal/mediatek/lvts_thermal.c
->> @@ -160,6 +160,7 @@ struct lvts_data {
->>   	int gt_calib_bit_offset;
->>   	unsigned int def_calibration;
->>   	u16 msr_offset;
->> +	bool optional_reset;
-> 
-> No need to complicate things. It's not the driver's business to check
-> device tree correctness. Just make the reset optional, as the commit
-> message says.
-> 
->>   };
->>   
->>   struct lvts_sensor {
->> @@ -1473,9 +1474,29 @@ static int lvts_probe(struct platform_device *pdev)
->>   	if (IS_ERR(lvts_td->base))
->>   		return dev_err_probe(dev, PTR_ERR(lvts_td->base), "Failed to map io resource\n");
->>   
->> -	lvts_td->reset = devm_reset_control_get_by_index(dev, 0);
->> -	if (IS_ERR(lvts_td->reset))
->> -		return dev_err_probe(dev, PTR_ERR(lvts_td->reset), "Failed to get reset control\n");
->> +	/*
->> +	 * Depending on the SoC+Firmware combination, the LVTS hardware may be
->> +	 * may be actively used by one or even multiple concurrent MCUs!
->> +	 * In this case, resetting it may produce either a severe slowdown of
->> +	 * the entire system, or even a thermal protection AP reset, as some
->> +	 * MCU(s) may be reading a very high or very low temperature while the
->> +	 * LVTS is being reset.
->> +	 *
->> +	 * On those, don't fail if no reset is found as that may be omitted on
->> +	 * purpose, but still check if there's one, because some board(s) may
->> +	 * be running on a different bootchain with reduced firmwares or using
->> +	 * firmwares with reduced functionality.
->> +	 */
->> +	lvts_td->reset = devm_reset_control_get_exclusive_by_index(dev, 0);
-> 
-> So this should be:
-> 
-> 	lvts_td->reset = devm_reset_control_get_optional_exclusive(dev, NULL);
-> 
->> +	if (IS_ERR(lvts_td->reset)) {
->> +		if (lvts_data->optional_reset) {
->> +			dev_dbg(dev, "No reset found. LVTS may be used by firmware.\n");
->> +			lvts_td->reset = NULL;
-> 
-> This is not necessary then.
-> 
->> +		} else {
->> +			return dev_err_probe(dev, PTR_ERR(lvts_td->reset),
->> +					     "Failed to get reset control\n");
->> +		}
-> 
-> And this part could be kept as before.
-> 
->> +	}
->>   
->>   	irq = platform_get_irq(pdev, 0);
->>   	if (irq < 0)
->> @@ -2163,6 +2184,7 @@ static const struct lvts_data mt8196_lvts_mcu_data = {
->>   	.num_cal_offsets = LVTS_NUM_CAL_OFFSETS_MT8196,
->>   	.msr_offset = LVTS_MSR_OFFSET_MT8196,
->>   	.ops = &lvts_platform_ops_mt8196,
->> +	.optional_reset = true,
-> 
-> But mediatek,lvts-thermal.yaml still specifies the reset as required
-> for mediatek,mt8196-lvts-ap. That should be changed instead.
-> 
->>   };
->>   
->>   static const struct lvts_data mt8196_lvts_ap_data = {
->> @@ -2175,6 +2197,7 @@ static const struct lvts_data mt8196_lvts_ap_data = {
->>   	.num_cal_offsets = LVTS_NUM_CAL_OFFSETS_MT8196,
->>   	.msr_offset = LVTS_MSR_OFFSET_MT8196,
->>   	.ops = &lvts_platform_ops_mt8196,
->> +	.optional_reset = true,
-> 
-> Same as above, but for mediatek,mt8196-lvts-mcu.
-> 
+On July 17, 2026 2:03:14 PM GMT+01:00, Fuad Tabba <fuad.tabba@linux.dev>
+wrote:
+>pkvm_pgtable_stage2_flush() cleans the D-cache for every mapping in the
+>range even on hardware with stage-2 Force Write-Back, where FWB keeps
+>guest memory coherent to the PoC and the maintenance is unnecessary. The
+>generic kvm_pgtable_stage2_flush() returns early in that case, but the
+>pKVM MMU does not, so it needlessly cleans the whole range on, e.g.,
+>every set/way trap.
+>
+>Return early when FWB is enabled, matching the generic walker.
+>
+>Fixes: e912efed485a ("KVM: arm64: Introduce the EL1 pKVM MMU")
+>Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 
-Ack. Will send a v2 shortly.
+LGTM,
 
-Thanks,
-Angelo
+Reviewed-by: Bradley Morgan <include@grrlz.net>
+
+>---
+> arch/arm64/kvm/pkvm.c | 4 ++++
+> 1 file changed, 4 insertions(+)
+>
+>diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+>index f70c601dcf4c..ba6570e37545 100644
+>--- a/arch/arm64/kvm/pkvm.c
+>+++ b/arch/arm64/kvm/pkvm.c
+>@@ -518,6 +518,10 @@ int pkvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size)
+> 	struct pkvm_mapping *mapping;
+> 
+> 	lockdep_assert_held(&kvm->mmu_lock);
+>+
+>+	if (cpus_have_final_cap(ARM64_HAS_STAGE2_FWB))
+>+		return 0;
+>+
+> 	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
+> 		if (!mapping->nc)
+> 			__clean_dcache_guest_page(pfn_to_kaddr(mapping->pfn),
+>
+
+Thanks!
 
