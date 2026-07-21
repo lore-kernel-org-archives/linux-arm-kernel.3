@@ -4,90 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD014C44529
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 10:19:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEFFDC44529
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 10:20:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=raalIIC4oZsUaXbbsjL79/eaMXQsU9aBo0q1O5LBbFQ=; b=E9rPgvli2wUWOSyc6PUKDm0L1K
-	MAlxfdCTs87Hc3yz9VJS1rNewexqzeRkvgG9wpCR6zFnRacNrkeL9N/zdnpi4HAsQKnFvbQ5FYMpL
-	AgHRYZKv+wL6pRbR6Xkgw5+AiTvjK48jamC/BiG7Sdcc2gd8fLmd+3R3JK+VrqCQMCKTQ+kvFs27O
-	5PZ3QMNrzvBEy1IKMvzbw01haQamcFb1+UoGEcnnXR5ZYK7A/V716eZdybCuK7OhdQz79jv/q1lP/
-	/DpI+i56/e/J5gbKihZYEnr3ka8uwFQQ64NCsXYxIHgZYIzN43+dJBz33cg+nv/kr7Z07M8W9K0vi
-	FH24P8nw==;
+	bh=mb0tIdmPk9Fq8CRLkem1lUekwQ0REImkzyM8RgoOvOY=; b=X8Oc/uIZSDIP3NbKsF/H36Tu0l
+	oEmiOLfg37tFU22tmG4RrCR8w6fP/bndfN9ZT5KqTJcsi3Iywnb3OJ/h3RgR03O20dfS5lVTC6uOl
+	sQQPUkn+iZNDxsrw0hqO6yQpoNCB7OIrxNDTJl4L6kN2nIEY0oYyidyOz3pnDAoGEo539pEnV22Ku
+	TscokbCSBh/iGtl2UOvOHOs6Rb3LhD8DMhrTRYloQcZwq45m2j1QWACK8ewclUdhfv+sYiAlKgdeR
+	hi7JUycBg0LgFgIUaF+8YH8QXP9D0N5QdpVoLn1t5PRKwAOy2NgnTLtCxh9SpXZcLyAMYb7PWx/Ao
+	8wQNZxWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm7Zm-000000096CX-120S;
-	Tue, 21 Jul 2026 10:19:50 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
+	id 1wm7ag-000000096X4-3Ox9;
+	Tue, 21 Jul 2026 10:20:46 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm7Zj-000000096Ar-1SlA;
-	Tue, 21 Jul 2026 10:19:48 +0000
+	id 1wm7ae-000000096WL-3yXh;
+	Tue, 21 Jul 2026 10:20:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1784629187; x=1816165187;
+  t=1784629245; x=1816165245;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=F7PPeOpKbYFmNXZJaRImknjDFrLgvv/OQHLCHRkcXGA=;
-  b=HPfEELmAyh8+f2S0oyVu5sZpyk9X9zyh3C9sFYuPgwYq442xnxH2l/P3
-   KSv6/4sDxSqOv1mN0E/G0tsI5X8MPs7CIrzhTf4z4g52MZo7dgcXzGtCM
-   ZUDnb0zw4/FuFZ6Cfg2YooGXWE1+CyNzbKhCYjdnyUPg/24SdC2nv1AjS
-   CBNQ5L48uMECu2yXVrDWx34rbifz7uZpHuJ/JYxPKLyf20Obm9ZALL+3F
-   bmLGE8BvGLernT6CLElmtlF9bGXonC2qqyFMiLS9TqNnaXJu9JUFriRKu
-   6DOQBuksOmmWDF1Ure7b/8MvqEM7rMuQXCsu0bZfEIJRT7hf1bvaKLME1
-   A==;
-X-CSE-ConnectionGUID: acXgqI9kQkmGybyjPiDI0A==
-X-CSE-MsgGUID: XTDPNwAASTORkdjJcp3tOw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11852"; a="89049336"
+  bh=BuikVx7La/9chV7s1hxXnMG7wdWI9UN7BDknLSFwfoA=;
+  b=klVErddC1PjfrsptqTnbGGK9EjiDmwDAb05TIdYDZRiBZkYwyDg9MLY0
+   BQBEf1/ioFsqq9FqOSUfaffkuZtgVc63uMMb2BLX3ZvkAbWsF9o0DtlZY
+   GQGl2y0F2ybfWuDQQQRteILaB1gg81v7c4OD9s3CNoe/AL+M/k7/QGLlS
+   VNVEM594NQWRk9Gdkb052X//OUtQ/U0KR9yZv0ZCpNwyN6Z05gZnb+r3k
+   ExYunKpNUrVCHBqofQejxbLI57vpVCGo8OTM2THW2lz2KSg7WCsLlg72C
+   iKCv6C+sukT2y63jihDYyluoA+HiVZENvXSvBKZqW/LFzKQXYoTuLVg2e
+   Q==;
+X-CSE-ConnectionGUID: PnxoBa0aSwGjPJ6vtrx/vQ==
+X-CSE-MsgGUID: vseq8GkNT7yOw2Vq2WFWHQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11852"; a="72760706"
 X-IronPort-AV: E=Sophos;i="6.25,176,1779174000"; 
-   d="scan'208";a="89049336"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jul 2026 03:19:46 -0700
-X-CSE-ConnectionGUID: xGIYhQvgTX23d/aVtYp7Mg==
-X-CSE-MsgGUID: b3v5AhudQHGxvG0SSyS61A==
+   d="scan'208";a="72760706"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jul 2026 03:20:44 -0700
+X-CSE-ConnectionGUID: emV8fJJ2RYaoLii1C2v5Wg==
+X-CSE-MsgGUID: 735o4J9fS5Kac9BFspqMGw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.25,176,1779174000"; 
-   d="scan'208";a="255938275"
+   d="scan'208";a="257793437"
 Received: from ncintean-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.67])
-  by orviesa006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jul 2026 03:19:40 -0700
-Date: Tue, 21 Jul 2026 13:19:38 +0300
+  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jul 2026 03:20:41 -0700
+Date: Tue, 21 Jul 2026 13:20:38 +0300
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Bartosz Golaszewski <brgl@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
+Cc: Matthias Brugger <matthias.bgg@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-acpi@vger.kernel.org, driver-core@lists.linux.dev,
-	linux-pm@vger.kernel.org, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Alan Stern <stern@rowland.harvard.edu>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Subject: Re: [PATCH v6 10/16] usb: hub: Power on connected M.2 E-key
- connectors with power sequencing API
-Message-ID: <al9Hugh1LrCTn0du@ashevche-desk.local>
-References: <20260721065413.2306137-1-wenst@chromium.org>
- <20260721065413.2306137-11-wenst@chromium.org>
+	Benson Leung <bleung@chromium.org>,
+	Tzung-Bi Shih <tzungbi@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Jiri Kosina <jikos@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	chrome-platform@lists.linux.dev, linux-input@vger.kernel.org,
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/9] Input: elan_i2c - sort include statements
+Message-ID: <al9H9rn7Y2qtIJ80@ashevche-desk.local>
+References: <20260721075226.2347933-1-wenst@chromium.org>
+ <20260721075226.2347933-3-wenst@chromium.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260721065413.2306137-11-wenst@chromium.org>
+In-Reply-To: <20260721075226.2347933-3-wenst@chromium.org>
 Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
  krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_031947_403135_B648ACDC 
-X-CRM114-Status: GOOD (  29.97  )
+X-CRM114-CacheID: sfid-20260721_032044_998411_96DFEBC6 
+X-CRM114-Status: UNSURE (   8.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,65 +94,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 21, 2026 at 02:54:05PM +0800, Chen-Yu Tsai wrote:
-> The new M.2 E-key connector can have a USB connection. For the USB device
-> on this connector to work, its power must be enabled and the W_DISABLE2#
-> signal deasserted. The connector driver handles this and provides a
-> toggle over the power sequencing API.
-> 
-> This feature currently only supports a directly connected (no mux in
-> between) M.2 E-key connector. Existing USB connector types are not
-> covered. The USB A connector was recently added to the onboard devices
-> driver. USB B connectors have historically been managed by the USB
-> gadget or dual-role device controller drivers. USB C connectors are
-> handled by TCPM drivers.
-> 
-> The power sequencing API does not know whether a power sequence provider
-> is not needed or not available yet, so we only request it for connectors
-> that we know need it, which at this time is just the E-key connector.
-> 
-> On the USB side, the port firmware node (if present) is tied to the
-> usb_port device. This device is used to acquire the power sequencing
-> descriptor. This allows the provider to tell the different ports on one
-> hub apart.
-> 
-> This feature is not implemented in the onboard USB devices driver. The
-> power sequencing API expects the consumer device to make the request,
-> but there is no device node to instantiate a platform device to tie
-> the driver to. The connector is not a child node of the USB host or
-> hub, and the graph connection is from a USB port to the connector.
-> And the connector itself already has a driver.
-> 
-> Power sequencing is not directly enabled in the connector driver as
-> that would completely decouple the timing of it from the USB subsystem.
-> It would not be possible for the USB subsystem to toggle the power
-> for a power cycle or to disable the port.
-> 
-> Sashiko mentions possible use-after-free of hub->ports from the sysfs
-> callbacks. This is actually not possible, since the sysfs callbacks
-> acquire the hub device and its lock, and then check if it is in the
-> process of disconnect / removal. If it is, then the callbacks just
-> error out.
+On Tue, Jul 21, 2026 at 03:52:16PM +0800, Chen-Yu Tsai wrote:
+> Sort the include statements before adding new ones in the next change.
 
-...
-
-> static inline bool hub_is_port_power_switchable(struct usb_hub *hub)
-
->  	if (!hub)
->  		return false;
->  	hcs = hub->descriptor->wHubCharacteristics;
-> -	return (le16_to_cpu(hcs) & HUB_CHAR_LPSM) < HUB_CHAR_NO_LPSM;
-> +	if ((le16_to_cpu(hcs) & HUB_CHAR_LPSM) < HUB_CHAR_NO_LPSM)
-> +		return true;
-
-> +	/* check for controllable external power sequencers */
-> +	for (unsigned int i = 0; i < hub->hdev->maxchild; i++)
-> +		if (hub->ports[i] && hub->ports[i]->pwrseq)
-> +			return true;
-
-Missing {}.
-
-> +	return false;
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 
 -- 
 With Best Regards,
