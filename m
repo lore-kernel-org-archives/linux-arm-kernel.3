@@ -4,76 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB20AC4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 12:14:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73600C44529
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 12:18:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=14fin0YJ6SbUZMWvdG1D118Ew6eotDwzI0Tc0US4E9Q=; b=wXwGbgNp7zz9FqubMyXUG0Nu6B
-	aXvmTEdNVpH4UE7i+fF2M+/p3rIi5j7kljGuDWg/FN/ErB/zyKeQcxby70azE5wfgCZmx+gpf5tZF
-	jlh9gtXQBMfDF9Th1Sy/CV89PypsQnBgN7Lb8nXoRD+zxdI99eHSVf+rnVHWU9gcgm8ScLjm8Nn0I
-	k7pkWQJYTXQA5OW+/kMkbJxnrrFQaBCjhqFw/K+z4XHSiUjrNznLwvlSYOotqpjIagJPtTVP8hmEK
-	6kc7i91ojTsKmEDaDJhG3t6M2kTfFgRgduKLu1fVy33WbfNKPC4oJKl4kTC1tXtT39MgVnVPLkV7t
-	URkgemVg==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7QZEPKLTpNwbB5JngCQVJO2bfUymmruYyPGkLEFAll4=; b=kyB25afuB6Ua/HFk4bDMqNGYF5
+	k3qB0KOhW0RFOMZ9qXikj2UShVRYX/3p8WIuO0Ya6KszREdBgHdKDJ0EYcBcXU5A8St3Kbxrv6DBm
+	HLvjvcDUvnNk9pjfvzv7LB9Y5++C1DSbXnr9sKGBjghUiYtSKgAIlc3qnNFhWoIsjZKg0x+20rCer
+	z692d5fSh24U7GDmSBz4ghq9XCQWFEYN5e1MuATHv14sfB0lVhc/TqtYvGmX5fM8N0Lmsiym2yCgr
+	A66hc2sa5X260768qyL2ShCHa34nVBtVNBUSBR1yNyEWMXj69bBgJVYVwpbl6SVRjbpSipSaRpVma
+	FeXMqpMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm9MC-00000009OTI-0kwA;
-	Tue, 21 Jul 2026 12:13:56 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1wm9QB-00000009OzA-3Hy3;
+	Tue, 21 Jul 2026 12:18:03 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm9M9-00000009OSi-3X3f;
-	Tue, 21 Jul 2026 12:13:55 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 1CB341A1135;
-	Tue, 21 Jul 2026 12:13:52 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id DBFF860368;
-	Tue, 21 Jul 2026 12:13:51 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9EBB711BD03C7;
-	Tue, 21 Jul 2026 14:13:47 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1784636030; h=from:subject:date:message-id:to:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=14fin0YJ6SbUZMWvdG1D118Ew6eotDwzI0Tc0US4E9Q=;
-	b=KNOrEGKtxLIsxrLlPvS1FYZxFOUJo0JD4Rm0f6TKarf5otCJzqTg0rkTgkw4qA4htQ74e5
-	mgp5B5leS/5DXS5vNpPJzs9HDsqJKhDFuxdeaTs54ny+f+f5jXE6xCnup3WGB2ok24W9wH
-	Z281zliEgQPKjJahSp6yleLjMjUS3ZfJSb912htQUgrURiZYOr7Q/yc0jshujlBSYFyeBy
-	H63BhN86EzTR9vhUShamL/uszBoQCA/wql29baaRhj2mJD17rhDxoqQMIldKSvuWJ2vBfy
-	W+Tkdyxu0YKT/lLuYadc4zhXVk6WSJTig8T/yu1Blew/npJH2HH31hP7S/ybwg==
-Message-ID: <8d81d5fd-7c22-4ada-83a2-b4c7ab1711e9@bootlin.com>
-Date: Tue, 21 Jul 2026 14:13:47 +0200
+	id 1wm9QA-00000009Oz3-49Ke
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Jul 2026 12:18:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 40B7B43347
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 12:18:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 246351F00A3D
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 12:18:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784636282;
+	bh=7QZEPKLTpNwbB5JngCQVJO2bfUymmruYyPGkLEFAll4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=PUtcA9S//mv1skOXlqKzBQGeWGc7FM7g7MRKrwLb3WDbNSa1W5GhmFJogpbz/qkbI
+	 gjuDuPMRnINeNgjFQlEK81tGmraWKFMfCuaLQwNHXDxqMkFLsXD0WEipmOA3CWivZ0
+	 Iq6uTNvluG7i9CQoYHwt5MeGTY1Ruex0X1mS9b00jRkM/FpJ4U9J9UTAZVpPxvs0cI
+	 iFCTTiZw1QODic7aKPEXD/MXjkjJTjt7eRixMFjztrpz9kgjiwngJxQHGSzAJ+WyXh
+	 +Zb4+Hb3zujgb4rJkrcj8QLh1+VjpUb2ghe4gBprDnKVy5wFPqvGGMQb6M4soVxuI6
+	 DVSvmcrVzjcDQ==
+Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5b28c91fba5so5776753e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 05:18:02 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Rqavxd0ivUkCiYjgGtzgr54wRRyEgSULTG6AptKjInSG1u3WdLdz+8FbgQdFloSHV7F8oZ7xMqoZXo5BeKGpldu@lists.infradead.org
+X-Gm-Message-State: AOJu0YxNsS70jl7F2Wxgy/YMyXQf3tcpTSXyXTHHj0jtZwtdn+wbJF0N
+	hYJWCylgNOTQ61H3Nz6uvhQxk5tZlte+82XDF76WkQECg4ght/KXkoa3ui5OqynzDNybg4fBrdV
+	8q20MlsLAylaMJLgRNtZulffARJP5WAQ=
+X-Received: by 2002:a05:6512:2349:b0:5ae:a4a4:b6ca with SMTP id
+ 2adb3069b0e04-5b28ff880a4mr2711254e87.14.1784636280154; Tue, 21 Jul 2026
+ 05:18:00 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v9 09/12] net: phylink: add .pcs_link_down PCS OP
-To: Christian Marangi <ansuelsmth@gmail.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Simon Horman <horms@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- Lorenzo Bianconi <lorenzo@kernel.org>, Heiner Kallweit
- <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>,
- Saravana Kannan <saravanak@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-References: <20260717065448.1498335-1-ansuelsmth@gmail.com>
- <20260717065448.1498335-10-ansuelsmth@gmail.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20260717065448.1498335-10-ansuelsmth@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_051354_026968_03A71C8D 
-X-CRM114-Status: UNSURE (   9.76  )
-X-CRM114-Notice: Please train this message.
+References: <20260708082818.808041-1-zhangpengjie2@huawei.com> <20260708082818.808041-2-zhangpengjie2@huawei.com>
+In-Reply-To: <20260708082818.808041-2-zhangpengjie2@huawei.com>
+From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Date: Tue, 21 Jul 2026 14:17:40 +0200
+X-Gmail-Original-Message-ID: <CAJZ5v0gK6Eyt79NNUwiKhjTKyqGFyV+xd0qbXh=H9LKq-KPwCQ@mail.gmail.com>
+X-Gm-Features: AUfX_myA8teaH5y5c3TVDWKLB214sqkMZR3aAiSmyynhvTzz9QApTt5JZeUCam8
+Message-ID: <CAJZ5v0gK6Eyt79NNUwiKhjTKyqGFyV+xd0qbXh=H9LKq-KPwCQ@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] ACPI: CPPC: add paired FFH feedback-counter read hook
+To: Pengjie Zhang <zhangpengjie2@huawei.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org, 
+	lenb@kernel.org, saket.dumbre@intel.com, beata.michalska@arm.com, 
+	zhenglifeng1@huawei.com, sumitg@nvidia.com, zhanjie9@hisilicon.com, 
+	geert+renesas@glider.be, cuiyunhui@bytedance.com, 
+	vanshikonda@os.amperecomputing.com, ionela.voinescu@arm.com, 
+	jeremy.linton@arm.com, viresh.kumar@linaro.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-acpi@vger.kernel.org, acpica-devel@lists.linux.dev, linuxarm@huawei.com, 
+	prime.zeng@hisilicon.com, wanghuiqiang@huawei.com, xuwei5@huawei.com, 
+	lihuisong@huawei.com, yubowen8@huawei.com, wangzhi12@huawei.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,33 +87,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Wed, Jul 8, 2026 at 10:28=E2=80=AFAM Pengjie Zhang <zhangpengjie2@huawei=
+.com> wrote:
+>
+> cppc_get_perf_ctrs() reads the delivered and reference performance
+> counters one at a time.
+>
+> Allow architectures to provide both FFH feedback counters in one
+> operation when that either narrows the sampling window or avoids extra
+> cross-CPU reads. Add a small FFH-specific hook for that case and fall
+> back to the existing per-register reads when unsupported.
+>
+> Tested-by: Sumit Gupta <sumitg@nvidia.com>
+> Reviewed-by: Sumit Gupta <sumitg@nvidia.com>
+> Tested-by: Vanshidhar Konda <vanshikonda@os.amperecomputing.com>
+> Reviewed-by: Vanshidhar Konda <vanshikonda@os.amperecomputing.com>
+> Signed-off-by: Pengjie Zhang <zhangpengjie2@huawei.com>
 
-On 7/17/26 08:54, Christian Marangi wrote:
-> Permit for PCS driver to define specific operation to tear down the link
-> between the MAC and the PCS.
-> 
-> This might be needed for some PCS that reset counter or require special
-> reset to correctly work if the link needs to be restored later.
-> 
-> On phylink_link_down() call, the additional phylink_pcs_link_down() will
-> be called after .mac_link_down to tear down the link.
-> 
-> PCS driver will need to define .pcs_link_down to make use of this.
-> 
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+This is fine with me, so
 
-[...]
+Acked-by: Rafael J. Wysocki (Intel) <rafael@kernel.org>
 
->  
+and please route it along with the second patch in the series.
+
+Thanks!
+
+> ---
+>  drivers/acpi/cppc_acpi.c | 50 ++++++++++++++++++++++++++++++++++++----
+>  include/acpi/cppc_acpi.h |  7 ++++++
+>  2 files changed, 52 insertions(+), 5 deletions(-)
+>
+> diff --git a/drivers/acpi/cppc_acpi.c b/drivers/acpi/cppc_acpi.c
+> index 9f572f481241..b6356476a46e 100644
+> --- a/drivers/acpi/cppc_acpi.c
+> +++ b/drivers/acpi/cppc_acpi.c
+> @@ -1004,6 +1004,22 @@ int __weak cpc_read_ffh(int cpunum, struct cpc_reg=
+ *reg, u64 *val)
+>         return -ENOTSUPP;
+>  }
+>
 > +/**
-> + * pcs_link_up() - tear down link between MAC and PCS
-      ^^^^^^^^^^^
-should be pcs_link_down() :)
-
-With this fixed,
-
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-
-Maxime
+> + * cpc_read_ffh_fb_ctrs() - Read FFH feedback counters together
+> + * @cpunum:    Target CPU
+> + * @reg1:      first CPPC register information
+> + * @val1:      place holder for first return value
+> + * @reg2:      second CPPC register information
+> + * @val2:      place holder for second return value
+> + *
+> + * Return: 0 on success, error code otherwise
+> + */
+> +int __weak cpc_read_ffh_fb_ctrs(int cpunum, struct cpc_reg *reg1,
+> +                               u64 *val1, struct cpc_reg *reg2, u64 *val=
+2)
+> +{
+> +       return -EOPNOTSUPP;
+> +}
+> +
+>  /**
+>   * cpc_write_ffh() - Write FFH register
+>   * @cpunum:    CPU number to write
+> @@ -1496,6 +1512,33 @@ bool cppc_perf_ctrs_in_pcc_cpu(unsigned int cpu)
+>  }
+>  EXPORT_SYMBOL_GPL(cppc_perf_ctrs_in_pcc_cpu);
+>
+> +static int cppc_read_fb_ctrs(int cpunum,
+> +                            struct cpc_register_resource *delivered_reg,
+> +                            struct cpc_register_resource *reference_reg,
+> +                            u64 *delivered, u64 *reference)
+> +{
+> +       int ret;
+> +
+> +       /*
+> +        * For FFH feedback counters, try a paired read first to reduce
+> +        * sampling skew between delivered and reference counters. Fall
+> +        * back to the existing per-register reads if unsupported.
+> +        */
+> +       if (CPC_IN_FFH(delivered_reg) && CPC_IN_FFH(reference_reg)) {
+> +               ret =3D cpc_read_ffh_fb_ctrs(cpunum,
+> +                                       &delivered_reg->cpc_entry.reg, de=
+livered,
+> +                                       &reference_reg->cpc_entry.reg, re=
+ference);
+> +               if (ret !=3D -EOPNOTSUPP)
+> +                       return ret;
+> +       }
+> +
+> +       ret =3D cpc_read(cpunum, delivered_reg, delivered);
+> +       if (ret)
+> +               return ret;
+> +
+> +       return cpc_read(cpunum, reference_reg, reference);
+> +}
+> +
+>  /**
+>   * cppc_perf_ctrs_in_pcc - Check if any perf counters are in a PCC regio=
+n.
+>   *
+> @@ -1561,11 +1604,8 @@ int cppc_get_perf_ctrs(int cpunum, struct cppc_per=
+f_fb_ctrs *perf_fb_ctrs)
+>                 }
+>         }
+>
+> -       ret =3D cpc_read(cpunum, delivered_reg, &delivered);
+> -       if (ret)
+> -               goto out_err;
+> -
+> -       ret =3D cpc_read(cpunum, reference_reg, &reference);
+> +       ret =3D cppc_read_fb_ctrs(cpunum, delivered_reg, reference_reg,
+> +                               &delivered, &reference);
+>         if (ret)
+>                 goto out_err;
+>
+> diff --git a/include/acpi/cppc_acpi.h b/include/acpi/cppc_acpi.h
+> index 8693890a7275..5acebe62feac 100644
+> --- a/include/acpi/cppc_acpi.h
+> +++ b/include/acpi/cppc_acpi.h
+> @@ -176,6 +176,8 @@ extern int cppc_get_transition_latency(int cpu);
+>  extern bool cpc_ffh_supported(void);
+>  extern bool cpc_supported_by_cpu(void);
+>  extern int cpc_read_ffh(int cpunum, struct cpc_reg *reg, u64 *val);
+> +extern int cpc_read_ffh_fb_ctrs(int cpu, struct cpc_reg *reg1, u64 *val1=
+,
+> +                               struct cpc_reg *reg2, u64 *val2);
+>  extern int cpc_write_ffh(int cpunum, struct cpc_reg *reg, u64 val);
+>  extern int cppc_get_epp_perf(int cpunum, u64 *epp_perf);
+>  extern int cppc_set_epp_perf(int cpu, struct cppc_perf_ctrls *perf_ctrls=
+, bool enable);
+> @@ -250,6 +252,11 @@ static inline int cpc_read_ffh(int cpunum, struct cp=
+c_reg *reg, u64 *val)
+>  {
+>         return -EOPNOTSUPP;
+>  }
+> +static inline int cpc_read_ffh_fb_ctrs(int cpu, struct cpc_reg *reg1, u6=
+4 *val1,
+> +                                      struct cpc_reg *reg2, u64 *val2)
+> +{
+> +       return -EOPNOTSUPP;
+> +}
+>  static inline int cpc_write_ffh(int cpunum, struct cpc_reg *reg, u64 val=
+)
+>  {
+>         return -EOPNOTSUPP;
+> --
+> 2.33.0
+>
 
