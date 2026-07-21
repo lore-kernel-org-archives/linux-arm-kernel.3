@@ -4,89 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BCA3C44529
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 13:55:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68E63C44529
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 13:59:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=i2PlaeHicSjwm9RU3yTM3r1gOKB/KIi551qDeGreVpA=; b=OxKpeMdzvhqpOxXTNC+u+RKQVR
-	Ttuh6Macfjlz+4K88/oHczAGQdX2xsNjXMitow9kKaKzNgqchdJpJj992scC9xSUbA9OorjC+hSqP
-	rbUjdw2rTnWqg+ay8j1hz6i3uMF4VvdM3WWz6KF1FWn0t0laqpg+p8A5PbsA/Eu6uCJgdMCjmq+yb
-	+RXIECJCEd2sVmnmpa3WA8iI3yyb1r65ttvF9MU8PUUMD2UBuvwcGECRfxmYCJ4JBN0iyv9aWVODa
-	yVZFDdE3fsq4md4t3fCpf2mglaSwCH8I0T9dqS+Rjjp+J0YVjtvkHzuThSVPKjeUe0M3O+jm81S/5
-	d+Nv4qeQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=1xkuaLNf9L6gC+nrjHGpqnJIB6rDY+L5voYQo7bRBek=; b=xI6Fi7XVxUnZae
+	xaZXPLq1HgpqZeJ60LIgCOshdFLREO9Fha4pUN1o4y2x6RSeBqRCXL3I2jmX9uogUAiuGi0ZMTafy
+	kO8rlcn6IzKk098+uBC0AB+xKOGuA2HMkupPw0OtusskEaqIGyIsNPRJmFyePQ+Fr96mJkKza4HVr
+	PWHuyg7qm5nZKkywnDxTsS/6Hx6Bxyj64jiAABJNAqJDtERS8mxoNr1Vtnt5YQ1ufC2vaolVoBUru
+	nyJ+j9Bp/sLh3h0SKtTrefENqKsxbqvVFbjsf+Hw4yUBYnvdKJmJTvXkCPMC1zuqNbIou/QITWSEw
+	m4sfEq2JpK6LTnzfy1RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmAw7-00000009afc-2V9Q;
-	Tue, 21 Jul 2026 13:55:07 +0000
-Received: from mail-vk1-xa2c.google.com ([2607:f8b0:4864:20::a2c])
+	id 1wmB0Q-00000009b8K-0r5d;
+	Tue, 21 Jul 2026 13:59:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmAw5-00000009aeE-0vfF
+	id 1wmB0P-00000009b87-1Kf4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 13:55:06 +0000
-Received: by mail-vk1-xa2c.google.com with SMTP id 71dfb90a1353d-5bfb5e20a90so4854996e0c.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 06:55:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1784642104; x=1785246904; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=i2PlaeHicSjwm9RU3yTM3r1gOKB/KIi551qDeGreVpA=;
-        b=D7SBoN/QNC73Y75HpkdayK3BRcWM2dh1MpvYUWi4VsJ4h0E/r9AwPBFom50VFEnIUU
-         9GnSiK9bNrhDsKx1tpD1/oBrT1DSWmDYjIt7AdvQ9OBaP4H3YVcDTEG7D/yZD8ulNO3V
-         7IgpAks2xwe9x7vsGTF07gNADo4rjSRV6Xrj6tW9QCELIQcaroeH5nXzv7bpMNrVQ4Ii
-         2LyWdzGRuS3qngzAU579Ii0VLAyWnoowvz9aoLY0XeMIMQMCefWN6OHwsIl18mk3IXmr
-         HQ+9taqxhggP8oRIhQT4Rg8DKB4YYxivrdrpdMbbBj3RSARUNDXLIxPK/EkybdPafyF/
-         L3Cw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1784642104; x=1785246904;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=i2PlaeHicSjwm9RU3yTM3r1gOKB/KIi551qDeGreVpA=;
-        b=YSZCve9QGeO8RL/KNGujYCmQ3kqav3SS5dBCLNnq+xGZKK6fbFM/WioCdv+3KZUcSH
-         h9VKYDli9xBSjWlc36iKu+Qob8g1E1/gkXnIogENCaA1rbsN/Rf7v+3s2pSrzNBEuJ5J
-         J20rmUJVXnbr97iBAP4VS9IEg/viPgu+jBceuFr0VGs7Se/pYcRnW7L8Qjs4nO4bGFnu
-         YEZi/Lfje2DbN2/GFu9ztodxgu6vCgJf2kj21hLSfBXC9+EUwPHS0rUomgXKyPEoLxQz
-         tlszL1TiUYfxzp9SDM1T7WLp1sK9M85NEH4zJxgMn/28+3hlO5elKn0Iico5tsf9WoD0
-         4spw==
-X-Forwarded-Encrypted: i=1; AHgh+RoayvuxdR8hj778CJtE0A5HF5Q/wmzO4Ybkc4Xpk2IeKSi0nFvagX6WPJlf4m6SA3tOwkj6EQIqG4cKj/SwR1/l@lists.infradead.org
-X-Gm-Message-State: AOJu0YxYEyQ5hVPd0SFIAXkOkorD/8JShaRGnGmZUrdERyzxowQIBMmd
-	ORj6ZjUfrIbTa4PNyy1bPls53MQ4xCZbfOB/4tEAgdp76oVIw6y8s2XR
-X-Gm-Gg: AR+sD11Qet33XElnJfudUSCWKeCVyJj742ZWQEAeF+tD9XNOqJkakoB11hgcCfgdQEy
-	qJC5zx2Q1IR6jCdAFU+Ks2pCNqVdXokmqDWDGZHb58fF5jBasTDDkHFZTHfkIP5vEr/0VWB+dP/
-	luYZ2jjrLAn0Kw16pMLntaD50Hai8aOPi36SgaMG0Y67pJ7alq6QQNkmajl5KgCru/gvt0VHyBD
-	YXcrc9dBFDAt0tlg4j+uAfksw1aD3DVQL5mK4NweUrpWQPuz8Exp5CHEIP7+tb0ThWYYdepV7gA
-	N816GQJ1cz6CcuQsXIwf5ro1XkQZzxiEXbOqPxQwbFT1cAVcSqlF7J56Qt+ZlZdOvNCTur/jEpf
-	elFWl+DYI0U5/jXFVujgHbeVtwSSXcJ1HF9SHWiCxiHmnqJPBJKeOtrf+AGhwwihndYHPqZhl14
-	EFfjEFs89w6o6+0rcJoy/5kbjSHr6IgWPjzK/paDcwbSZOx/U5Mg==
-X-Received: by 2002:a05:6122:3119:b0:5bf:d3cd:3d64 with SMTP id 71dfb90a1353d-5c1afc0dee1mr5588051e0c.0.1784642103839;
-        Tue, 21 Jul 2026 06:55:03 -0700 (PDT)
-Received: from fabio-X870-EAGLE-WIFI7.. ([2804:1b3:a801:a24:fdfe:648c:2808:d17c])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5c1eecc9b1csm13271387e0c.2.2026.07.21.06.55.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Jul 2026 06:55:03 -0700 (PDT)
-From: Fabio Estevam <festevam@gmail.com>
-To: heiko@sntech.de
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	ivan8215145640@gmail.com,
-	Fabio Estevam <festevam@gmail.com>
-Subject: [PATCH v2] arm64: dts: rockchip: Fix rk3566-bigtreetech-cb2 touchscreen property
-Date: Tue, 21 Jul 2026 10:54:50 -0300
-Message-ID: <20260721135450.45286-1-festevam@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Tue, 21 Jul 2026 13:59:33 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6EDD7600D8
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 13:59:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25F5C1F00A3F
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 13:59:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784642372;
+	bh=1xkuaLNf9L6gC+nrjHGpqnJIB6rDY+L5voYQo7bRBek=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
+	b=K11jSMuaPDPI0kkRhM4cYd3VtHOuDKJARLxCmdhRhJsABBbocbXiQs03D+ImZgWed
+	 rpY2YoV564F4TBfUMGTzzOlDwl5BZSDAuyn6cSQlG9UCCgqYdmxq6+wUOsHKsw9lmz
+	 heToLLc1zaBfLDwBbG4zJQmUMvO/rjoWC8+/XYCk298GPKSBmUzexmNE3YjbZlPz8J
+	 UzEViwCM9Dtr0GhzC23Jg3jCZUs4AxNjOJHH8dEYYYPH4ZELuhRpJOYmy2pV4Q5ND4
+	 XeMBgfPXZNnQaBC4ew3ledjK3t1pWaH4nPd2i0yYgM4DCMd5F5eE7LUCESFuaimwfh
+	 r0Epdz08MSMZw==
+Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-39ee96f8047so8688431fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 06:59:32 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Rqroh7PSBPeZFa0lEyCPo6qy9zCY8dSg/xWixGIPSJpJr4p6/jk2F1VZNy36uX9n/ku66gpuj1MMJfsbWtlSebb@lists.infradead.org
+X-Gm-Message-State: AOJu0YyBqgettxpt37cjRjVhzbk8TVrTw7Erby19ioMad8mxp5cra5xt
+	XC7MmVzn4Wwx2fQMLIgCLfUJMmxQf4Qf+reS/DylUBIBROzqFcTFFe/1XcM9gbe7Vf9ok2bzmvR
+	w9LOYo3vyZb2LrKdWSF50bsAcRHlrW1Q=
+X-Received: by 2002:a2e:a592:0:b0:39e:e845:7f23 with SMTP id
+ 38308e7fff4ca-39ee84581efmr10859501fa.16.1784642370582; Tue, 21 Jul 2026
+ 06:59:30 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_065505_266403_8E7FDE72 
-X-CRM114-Status: GOOD (  12.78  )
+References: <20260704171411.1413349-1-iuncuim@gmail.com> <20260704171411.1413349-6-iuncuim@gmail.com>
+In-Reply-To: <20260704171411.1413349-6-iuncuim@gmail.com>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Tue, 21 Jul 2026 21:59:16 +0800
+X-Gmail-Original-Message-ID: <CAGb2v67PMYwFBV8gMbd6U2BU8ivZfAzUq50ttLG2UkdfKEwdMA@mail.gmail.com>
+X-Gm-Features: AUfX_mx_UbqtUhBgjig7P-YMGQlk22gK-yhaDfUZjTvwjqcflr721OIjYgv26EI
+Message-ID: <CAGb2v67PMYwFBV8gMbd6U2BU8ivZfAzUq50ttLG2UkdfKEwdMA@mail.gmail.com>
+Subject: Re: [PATCH v5 5/5] arm64: dts: allwinner: sun55i: add thermal sensors
+To: Mikhail Kalashnikov <iuncuim@gmail.com>
+Cc: Vasily Khoruzhick <anarsoul@gmail.com>, Yangtao Li <tiny.windzz@gmail.com>, 
+	"Rafael J . Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-pm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,42 +82,122 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The TSC2007 driver uses the ti,max-rt property to specify the maximum
-touch resistance, but the rk3566-bigtreetech-cb2 device tree uses the
-undocumented ti,rt-thr property instead.
+On Sun, Jul 5, 2026 at 1:16=E2=80=AFAM Mikhail Kalashnikov <iuncuim@gmail.c=
+om> wrote:
+>
+> The A523 processor has two temperature controllers, THS0 and THS1.
+> THS0 has only one temperature sensor, which is located in the DRAM
+> controller.
+>
+> THS1 does have 3 sensors:
+> ths1_0 - "big" cores
+> ths1_1 - "little" cores
+> ths1_2 - gpu
+>
+> Add the thermal sensor configuration and the thermal zones.
+> Trips temperature, polling-delay and sustainable-power parameters are
+> derived from the manufacturer's BSP.
+>
+> Signed-off-by: Mikhail Kalashnikov <iuncuim@gmail.com>
+> ---
+>  .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 160 ++++++++++++++++++
+>  1 file changed, 160 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/=
+boot/dts/allwinner/sun55i-a523.dtsi
+> index ca6a16807..2ed00e7a7 100644
+> --- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+> +++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
 
-As a result, the configured value is ignored and the driver falls back
-to its default maximum resistance value of 4095.
+[...]
 
-Replace ti,rt-thr with ti,max-rt to preserve the intended resistance
-threshold of 3000.
+> @@ -355,6 +364,32 @@ gpadc: adc@2009000 {
+>                         status =3D "disabled";
+>                 };
+>
+> +               ths1: thermal-sensor@2009400 {
+> +                       compatible =3D "allwinner,sun55i-a523-ths1";
+> +                       reg =3D <0x02009400 0x400>;
+> +                       interrupts =3D <GIC_SPI 62 IRQ_TYPE_LEVEL_HIGH>;
+> +                       clocks =3D <&ccu CLK_BUS_THS>, <&ccu CLK_GPADC1>;
+> +                       clock-names =3D "bus", "mod";
+> +                       resets =3D <&ccu RST_BUS_THS>;
+> +                       nvmem-cells =3D <&ths_calibration0>, <&ths_calibr=
+ation1>;
+> +                       nvmem-cell-names =3D "calibration",
+> +                                    "calibration-second-part";
 
-Fixes: bfbc663d2733 ("arm64: dts: rockchip: Add BigTreeTech CB2 and Pi2")
-Signed-off-by: Fabio Estevam <festevam@gmail.com>
----
-Changes since v1:
-- Use the documented ti,max-rt instead. (Sashiko)
+Just put them on one line. We can go up to 100 characters wide.
 
- arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+> +                       #thermal-sensor-cells =3D <1>;
+> +               };
+> +
+> +               ths0: thermal-sensor@200a000 {
+> +                       compatible =3D "allwinner,sun55i-a523-ths0";
+> +                       reg =3D <0x0200a000 0x400>;
+> +                       interrupts =3D <GIC_SPI 39 IRQ_TYPE_LEVEL_HIGH>;
+> +                       clocks =3D <&ccu CLK_BUS_THS>, <&ccu CLK_GPADC0>;
+> +                       clock-names =3D "bus", "mod";
+> +                       resets =3D <&ccu RST_BUS_THS>;
+> +                       nvmem-cells =3D <&ths_calibration0>, <&ths_calibr=
+ation1>;
+> +                       nvmem-cell-names =3D "calibration",
+> +                                    "calibration-second-part";
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi b/arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi
-index b6cf03a7ba66..04cf285e6c2a 100644
---- a/arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi
-@@ -569,7 +569,7 @@ tft_tp: touchscreen@48 {
- 		reg = <0x48>;
- 		status = "okay";
- 		ti,x-plate-ohms = <660>;
--		ti,rt-thr = <3000>;
-+		ti,max-rt = <3000>;
- 		ti,fuzzx = <32>;
- 		ti,fuzzy = <16>;
- 	};
--- 
-2.43.0
+Same here.
 
+> +                       #thermal-sensor-cells =3D <0>;
+> +               };
+> +
+>                 wdt: watchdog@2050000 {
+>                         compatible =3D "allwinner,sun55i-a523-wdt";
+>                         reg =3D <0x2050000 0x20>;
+> @@ -586,6 +621,14 @@ sid: efuse@3006000 {
+>                         reg =3D <0x03006000 0x1000>;
+>                         #address-cells =3D <1>;
+>                         #size-cells =3D <1>;
+> +
+> +                       ths_calibration0: ths-calibration0@38 {
+> +                               reg =3D <0x38 0x8>;
+> +                       };
+> +
+> +                       ths_calibration1: ths-calibration1@44 {
+> +                               reg =3D <0x44 0x8>;
+> +                       };
+>                 };
+>
+>                 gic: interrupt-controller@3400000 {
+> @@ -1102,4 +1145,121 @@ npu: npu@7122000 {
+>                         power-domains =3D <&ppu PD_NPU>;
+>                 };
+>         };
+> +
+> +       thermal-zones {
+> +               cpu0_thermal: cpu0-thermal {
+
+There is no reference to this or the other labels for the thermal zones.
+Please drop them.
+
+[...]
+
+> +               gpu-thermal {
+> +                       polling-delay-passive =3D <100>;
+> +                       polling-delay =3D <1000>;
+> +                       thermal-sensors =3D <&ths1 2>;
+> +                       sustainable-power =3D <2400>;
+> +
+> +                       gpu-trips {
+
+As mentioned by Sashiko, the trips container node must be named "trips".
+This is also required by the thermal zone binding.
+
+[...]
+
+
+Thanks
+ChenYu
 
