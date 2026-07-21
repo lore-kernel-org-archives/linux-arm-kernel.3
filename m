@@ -4,137 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B860DC44529
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 14:47:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73716C44529
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 14:49:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gJXNLBrjGs3w38rvWKID3ZJzYdlQSoHtFbkc9JdtFMI=; b=IwQnVTuk5qSJPmUYlZ2h50OmyQ
-	uuY++7C0YE703V7zXkydOxL82jtRN05PtVcaui6qdxX6XveQ81rLVn6FpjboNyzWdB6iYlF6r0I8W
-	LJaRi6aD3Tr2THPW0t6tvHvJEk8FoPgbIZg6apU3vVfX5oTve+YjyuF0VOolF6CM+OIcT5XBJweLp
-	Xzexn3UEAX+tQhvewu43cFNaWmgYqmGW6PNCz+Pryd/t2KEgAgcEBd5aFbmAerQQNM1Ks21347wUN
-	ACimVFQjKoxVGdl+i2e/7rBVDAgNNo0zHR9rMKgTYcBtyuS1tZRuZ1pIxiyej78/zzYMMYtqfNt5R
-	LCbOqAhA==;
+	bh=2R9K/s8hikEWkG9ffFJdeORUUckoMZXY6IlqHFkEGrY=; b=jxi/4K2ocC23VIY+qXDMJcsslb
+	YUJCoR3bfs3+q5j4RasobzrHH/Ju4xmCIVbz6OoK8EN+ff/E2R/xVWhenVS/1ttlX3SY7VO4P1Jqi
+	uowZRj20MSF5PFrkiYVmaACvWHEbukLiRIwplWSPfnt9L8b40wyPxhptn3odApfpswzsEg2rPe+aE
+	Fp1/U4H8EgQj6nA2tg0QGdIwStZj2I9/MMwjKQEhF+WFaD/eyykHLfLTyVdmhkQJUGO9HxQ5Am/xW
+	7yMOX3MSLRraBPZx/QFndEF55UErnDBtQcQmtg4VXj8l++h13iH+vaZMSHGnJ73r6g3K7koy2M403
+	kXZpX//w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmBki-00000009hA3-3d2u;
-	Tue, 21 Jul 2026 14:47:24 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1wmBmr-00000009hNS-1633;
+	Tue, 21 Jul 2026 14:49:37 +0000
+Received: from mail-oi1-f182.google.com ([209.85.167.182])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmBkg-00000009h9B-10Mg
+	id 1wmBmo-00000009hMp-0gOe
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 14:47:23 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id D2CB87A589;
-	Tue, 21 Jul 2026 14:47:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1784645240; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gJXNLBrjGs3w38rvWKID3ZJzYdlQSoHtFbkc9JdtFMI=;
-	b=P8FRlMlDac5iN22KQqA/gavT+JbhpBqhQRp/fiNb921FHISnzkc7ocyWMA82Xgfq90Gvt3
-	9ePDs3LjNaISHrzN5oOzauKviKgpmImMcgVmITSBUfvP/CUG/Yb5ILSc94I+Gp3oQCGYay
-	VuJOSZ6ec1zYhTGxp0bM7HhB9hxsKCU=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1784645240;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gJXNLBrjGs3w38rvWKID3ZJzYdlQSoHtFbkc9JdtFMI=;
-	b=UrXAtgZVmS9EpvpRitLYluILvnZsfeD8WQdwKi08F8EwWf+bVbstDxlPEZpGGJByCJJS0I
-	LXe7gyuO/E1CSvCQ==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=PbLahHS+;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=2Pta8MOd
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1784645239; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gJXNLBrjGs3w38rvWKID3ZJzYdlQSoHtFbkc9JdtFMI=;
-	b=PbLahHS+JIO8FFxa55ftRMTbrK2zhuzVmvk2UH67pEtKqxkcvAv4TbTUAmSWPw5reD0tY4
-	EvHbED2SgCee7lqkkmO+VB9ZQKYZHJz2NGZrnAIG6HPJf1ZySKRnrLX6WNJ1KVa++pT4aJ
-	YXQ2nnEHK3l8kbsag/P9Zrq5p8MSOdc=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1784645239;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gJXNLBrjGs3w38rvWKID3ZJzYdlQSoHtFbkc9JdtFMI=;
-	b=2Pta8MOdCouLA0Pp3RERt7gVtSf83LKuwPyE1sdqbU3dckLmpZLUD9cjGoEotS8j8PMIIb
-	MBOik6gSdB2p+hAg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 2BB28779AA;
-	Tue, 21 Jul 2026 14:47:19 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id +0XiB3eGX2pEWgAAD6G6ig
-	(envelope-from <fmancera@suse.de>); Tue, 21 Jul 2026 14:47:19 +0000
+	Tue, 21 Jul 2026 14:49:35 +0000
+Received: by mail-oi1-f182.google.com with SMTP id 5614622812f47-497deab2d66so3847554b6e.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 07:49:33 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784645373; x=1785250173;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=2R9K/s8hikEWkG9ffFJdeORUUckoMZXY6IlqHFkEGrY=;
+        b=NUoEaoxgNipDNJs5EkJ59UL3+FEwG77qyv1Fj3UNfO4zbgiUU7SRiSiXYgRegOu+XZ
+         TlEcMzEFAQ/hWUSgVeLCvySx2E88uHSdflW1QsTdtyzjswb36SlbcoupHJQgTwQx5Ngr
+         Pjso+3jTCFF4wiuX2nQwWb0AHKGLoJ0zc5OqRI1dsQqpOmvI7ywj1jKVHC7mG/sLw3I/
+         8d73M6xr57IT9IVNBF/6VFH8TvQ5maLl5ehpUHoDmoW33GZPW1XHvRuRF1uAXIUBXbTv
+         l6wYuT8mZ5RaRf/HovKPnuPzSZ37iURnRgbvh+Q+PZoSSEQ0Janx9dkd1aNUgWJjMRwD
+         S3yQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqzTobJ8VXfk659zzS3UiUpB3KVrWwPGqhRhQlpKH4/PFTjcV/aF545nPh/wKhYgfk8eB6igvciZDeKbMTc0Whv@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyiieo25nNffy8nawyDe1OT1L7Jzm/dEBRZQZdCO4NGJPR/mLZo
+	aqN79dQc/EjuBYeuc2ZsQ8wIQm5a6IEh0k7hk5Fbfpn8vbyJMSIta8mmWyc1n+UBPA==
+X-Gm-Gg: AfdE7ck/LMPeEAyEECS5sxBnFp+GKm2zwpviy5FqvPjKIG4sdJWeCqG4lQLe1QWLqZo
+	ZcSMzQH20dYQFOjpf8rOnGvQlZykOgzJKLmdwuXMDMr+eMZ9ySLTD+QqLRjCkxU+qDOEWqVqysg
+	X6eqBtnlSUCc6XJz0xEymaqUd9akupqVmrfo52O1CZnETf0fv1rmwiz9GiyneuWzHIbmgaC1Bpo
+	FCX95xOWhxRV2b8fgdr5Wj+DFfP2VNmeDPWm9dMAyJjOyGa7nwH2rnrsiX4oGFYWnVF7Fwxjdjf
+	zgkdg0vCg/7pvQVXg6CB7+oM5hhLE6zOJ5elYlHSsrau+iJRO+AJ5rhO14Gv8j+qtWZaAW+xoEj
+	HN43zMAa7IqRq2rUL7MjSv64tEQTI6PGUdAlaktVxpbSxut7m+TVDb/vJy1gZMh2dyyQYTF22o7
+	XqGZv2k2hXUAtl29qQlUy+qWGSS6y77IGbJxOVxHdTO/y8dShMkDitAFXd+eJtakHsxbhiNCQK
+X-Received: by 2002:a05:6808:1717:b0:496:976:acad with SMTP id 5614622812f47-4a4cef00846mr7898824b6e.1.1784645372728;
+        Tue, 21 Jul 2026 07:49:32 -0700 (PDT)
+Received: from mail-oo1-f43.google.com (mail-oo1-f43.google.com. [209.85.161.43])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-4a4d3cb035csm10116232b6e.11.2026.07.21.07.49.32
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 21 Jul 2026 07:49:32 -0700 (PDT)
+Received: by mail-oo1-f43.google.com with SMTP id 006d021491bc7-6a3ea601aa1so4012181eaf.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 07:49:32 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RpD3Yp96TFS4tGcnrOni6l9xrMm0qAzeJ1xI0PBjZ1B9GOHOwaDpeQReKcqGenylLhlRmuZhBtpB3h+NjeSwJxP@lists.infradead.org
+X-Received: by 2002:a4a:ee0a:0:b0:694:85da:3f92 with SMTP id
+ 006d021491bc7-6a3ecd43928mr11855381eaf.17.1784645370351; Tue, 21 Jul 2026
+ 07:49:30 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH net-next] ipv6: initialize ipcm6_cookie before parsing
- control messages
-From: Fernando Fernandez Mancera <fmancera@suse.de>
-To: Fernando Fernandez Mancera <fmancera@suse.de>
-Cc: Wayen Yan <win847@gmail.com>, netdev@vger.kernel.org, 
- lorenzo@kernel.org, horms@kernel.org, pabeni@redhat.com, kuba@kernel.org, 
- edumazet@google.com, andrew+netdev@lunn.ch, 
- angelogioacchino.delregno@collabora.com, matthias.bgg@gmail.com, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-In-Reply-To: <178464510579.7763.6518393222506443032.b4-review@b4>
-References: <178358611790.128118.11036367713019213946@gmail.com>
- <178464510579.7763.6518393222506443032.b4-review@b4>
-Date: Tue, 21 Jul 2026 16:47:13 +0200
-Message-Id: <178464523384.7942.1381538265158230893.b4-reply@b4>
-X-Mailer: b4 0.16-dev
-X-Rspamd-Action: no action
-X-Spamd-Result: default: False [-2.51 / 50.00];
-	BAYES_HAM(-3.00)[99.99%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	ARC_NA(0.00)[];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	RCPT_COUNT_TWELVE(0.00)[13];
-	MIME_TRACE(0.00)[0:+];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	FREEMAIL_CC(0.00)[gmail.com,vger.kernel.org,kernel.org,redhat.com,google.com,lunn.ch,collabora.com,lists.infradead.org];
-	RCVD_TLS_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.de:dkim];
-	TAGGED_RCPT(0.00)[netdev];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	DKIM_TRACE(0.00)[suse.de:+];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from]
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Queue-Id: D2CB87A589
+References: <20260720162117.32304-1-fourdollars@debian.org>
+ <20260720162117.32304-6-fourdollars@debian.org> <al52kpB1hklx5guG@ashevche-desk.local>
+In-Reply-To: <al52kpB1hklx5guG@ashevche-desk.local>
+From: "Shih-Yuan Lee (FourDollars)" <fourdollars@debian.org>
+Date: Tue, 21 Jul 2026 22:49:17 +0800
+X-Gmail-Original-Message-ID: <CAAT15mOxrJxb+jRf1P=yu=vXgDj9kRhrdSLkB8v4tEbhHOZ+Pw@mail.gmail.com>
+X-Gm-Features: AUfX_mw226UgTY6rMnVPL8-sIg7vbBm9DW7Wdl6k0JdY8caXAiwtC13tS0iq5dM
+Message-ID: <CAAT15mOxrJxb+jRf1P=yu=vXgDj9kRhrdSLkB8v4tEbhHOZ+Pw@mail.gmail.com>
+Subject: Re: [PATCH v16 5/7] spi: pxa2xx: disable DMA for Apple MacBook8,1
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Mark Brown <broonie@kernel.org>, Mika Westerberg <mika.westerberg@linux.intel.com>, 
+	Lukas Wunner <lukas@wunner.de>, Daniel Mack <daniel@zonque.org>, 
+	Haojian Zhuang <haojian.zhuang@gmail.com>, Robert Jarzmik <robert.jarzmik@free.fr>, 
+	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_074722_435755_F00181BF 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20260721_074934_211360_18B5FAD6 
+X-CRM114-Status: GOOD (  24.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,31 +100,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-07-21 16:45 +0200, Fernando Fernandez Mancera wrote:
-> On Thu, 09 Jul 2026 16:32:30 +0800, Wayen Yan <win847@gmail.com> wrote:
-> > ip6_datagram_send_ctl() parses both SOL_IPV6 and SOL_SOCKET control
-> > messages. For SOL_SOCKET messages it passes ipc6->sockc to
-> > __sock_cmsg_send(), which updates fields such as tsflags with
-> > read-modify-write operations.
-> > 
-> > The IPV6_2292PKTOPTIONS and flowlabel option paths only set ipc6.opt
-> > before calling ip6_datagram_send_ctl(). If a SOL_SOCKET control message
-> > such as SO_TIMESTAMPING_* or SCM_TS_OPT_ID is present, this can read
-> > uninitialized sockc state.
-> > 
-> > Initialize the ipcm6_cookie with ipcm6_init_sk(), as the normal IPv6
-> > sendmsg paths do, before overriding ->opt with the temporary option
-> > buffer.
-> > 
-> > Signed-off-by: Wayen Yan <win847@gmail.com>
+On Tue, Jul 21, 2026 at 3:27=E2=80=AFAM Andy Shevchenko
+<andriy.shevchenko@intel.com> wrote:
+>
+> On Tue, Jul 21, 2026 at 12:21:14AM +0800, Shih-Yuan Lee wrote:
+> > On MacBook8,1 (early 2015 12" MacBook), the LPSS SPI controller at
+> > 00:15.4 suffers from hardware DMA handshake failures and interrupt
+> > routing bugs, causing keyboard/touchpad transactions to fail when
+> > DMA is enabled.
+>
+> Why? The thing like this I noticed on some other HW which required differ=
+ent
+> DMA settings. Have you tried to investigate the issue more?
+>
+> > Move the forced PIO mode DMI quirk to spi-pxa2xx-pci.c (the LPSS host
+> > controller PCI glue driver) to avoid layering violations in client
+> > drivers (such as applespi).
 > >
-> 
-> Reviewed-by: Fernando Fernandez Mancera <fmancera@suse.de>
-> 
-> Thanks!
+> > Add an explicit DMI match table for MacBook8,1 and a module parameter
+> > spi_pxa2xx_force_pio to allow forcing PIO mode on demand.
+>
+> This looks like a hack. Please, if you have a hardware, try to dump the e=
+rrors,
+> collect the data corruption or timeouts and provide more information. DMA=
+ for
+> SPI on LPSS hardware never was a problem (unlike UART in some cases). I'm=
+ almost
+> 100% sure the problem is in DMA configuration / setting bits.
+>
+> ...
+>
+> >  #include <linux/dmaengine.h>
+> >  #include <linux/platform_data/dma-dw.h>
+> >   +#include <linux/dmi.h>
+>
+> Keep list ordered.
+>
+> >  #include "spi-pxa2xx.h"
+>
+> ...
+>
+> > +static bool spi_pxa2xx_force_pio;
+> > +module_param_named(force_pio, spi_pxa2xx_force_pio, bool, 0444);
+> > +MODULE_PARM_DESC(force_pio, "Force PIO mode (disables DMA) for SPI tra=
+nsfers. ([0] =3D disabled, 1 =3D enabled)");
+>
+> No. There is no room for module parameters like this.
+Hi Andy,
 
-Now that I think about it, shouldn't this go to net tree with a proper
-fixes tag?
+Thank you for the review and feedback.
 
+Regarding your question about why DMA fails on this hardware, I have
+just sent a detailed reply to Lukas in this thread outlining our
+physical verification findings. In short, I confirmed that the
+DMA controller's physical interrupt line is not functioning on this
+motherboard, and macOS and Windows 10 also completely bypass the DMA
+controller. Please refer to that email for the DMAR/IOMMU and
+cross-OS analysis details.
 
+Regarding your other comments:
+
+1. Header Sorting:
+I will fix the alphabetical ordering of the include headers in the
+next revision.
+
+2. The force_pio Module Parameter:
+The original spi-pxa2xx driver is designed to hardcode DMA usage if
+DMA channels are available. I introduced the force_pio module
+parameter for two reasons:
+  =E2=80=A2 It serves as a diagnostic tool for users on similar hardware to
+easily test and verify if their issues are related to DMA.
+  =E2=80=A2 It allows developers to easily test and debug the PIO code path=
+ on
+DMA-capable LPSS hardware to prevent regressions.
+
+That being said, if module parameters of this type are strictly not
+preferred, I am completely fine with removing force_pio and keeping
+only the DMI-based quirk for the MacBook8,1. Please let me know your
+preference.
+
+Thanks,
+
+Shih-Yuan
 
