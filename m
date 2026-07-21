@@ -4,75 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6788DC44532
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 15:15:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39D57C44532
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 15:19:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Am4FBLquimoXLofVW39R5TXiLDXR3ax8a+vHWlboXD8=; b=LXy8oNVEuoW087plFc32ITadLt
-	pP/L6HS/dOi38IuTkfX3PvxmMfRtpaANeq74/sUr/vxhuNMD00Vky1zwaO3yi/Gd9gvI3n9pmaGsy
-	G4Y1PGDLR2+QhqkLOc0oYik10De/nbbjY2h0cUkG8S09L9wZTQYTBGtR0z5xK6TzLVHgVBnruI8t2
-	5K6EsIxvROB1Hf1V0scb5PUYEXzY6QqKqrIOzaOTdOIX7G2RK5hJqZkhWkhR6FgW7x4J9xo9KEW4R
-	3nAbHWbPM2TxxTtvTKJNC8HErBHF/6a+GVB1hKB+1Pq0wsIc4zZyuVkIaBwcj5Y3KFYQD3Div+Hfe
-	bXym46mA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BeImWg3UpWEBMTVyVBkk+sdUXk023lo4rqYx6rHHQnw=; b=3YDiJrPhexlQLsH5TbY87PZ5Vc
+	2FgqpP+cf55sb88wjkpDUw1SBkB1TXuF/aOOd/hxUC8yvUl0phgwQgzaMWwSTgypnbGicG7+kg9aX
+	5/G7V8WkDVFJEPzeG8xZlHep1txO0BkHlyOHhqALgjRITCeX6EM1o+N2C2G2THm9XoXWrL8CWT7bX
+	9N1gtgifl7oeXC0lfrQHXQ9XFHmo+Lezgb/nswtQ1HCqa1yTBdZY6woussm13RU80oPSL37w2vE0H
+	lCEb2e4NVb2Q4Wdzno2imx5kRXkVMmzX+693/U1vkP8uIIIswisPAxi26jI5XpRAddwTM2PM8n3xF
+	I7dbn9/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmCBo-00000009mA8-3k6x;
-	Tue, 21 Jul 2026 15:15:24 +0000
-Received: from sender4-op-o11.zoho.com ([136.143.188.11])
+	id 1wmCG4-00000009maT-33yg;
+	Tue, 21 Jul 2026 15:19:48 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmCBm-00000009m9T-2owc;
-	Tue, 21 Jul 2026 15:15:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1784646910; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=DVQQFaeaXJsErpXSmalKDRjp1wKLGpoTBMShl9q+/nye75MohNH2vJacaVILCqfr1zGO+0MfGqIXw3HyFytabBbyIBIfEvhPtXB8BhNR0R0WrrrrGOzIDpzKU5Rg5k0kQl0dolSQGGPBimFH35/1rw8MYMWSkDPApOGl8TLQ7f0=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1784646910; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Am4FBLquimoXLofVW39R5TXiLDXR3ax8a+vHWlboXD8=; 
-	b=GVdE9TgLfuxGwU5xYXs662IyQhf7y0C0Ae7WeaIAjeBq6SXSjxPlOsA8smbmhsQyE0lMK0S7xq1XetyGwwIV+EBWKpt0yEg0HRBtw+Y7TCKAcepXEb3WYiCMLxfTp77OFUDXAReixhD5o4KM05H95U+FTch55sOUeTCexXn+obo=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1784646910;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=Am4FBLquimoXLofVW39R5TXiLDXR3ax8a+vHWlboXD8=;
-	b=XgYrilH0DhdO3/Apsdp2g/O94Wepv5AWFeY2GH3ivNF+yasnIYsV//q+IhhMT5bx
-	/VuyhjGZlNp5DxV6ZYRpypl4J4TMBoW80UMpoKqPhX1ABTrnP+fba/GkG4uoDMCOOwH
-	j5W1bQ4IdMOz3i2CfGUc3RL5OwfJTkzKWm0hLVhQ=
-Received: by mx.zohomail.com with SMTPS id 178464690796118.531816677270967;
-	Tue, 21 Jul 2026 08:15:07 -0700 (PDT)
-Received: by venus (Postfix, from userid 1000)
-	id 04A7C180765; Tue, 21 Jul 2026 17:15:04 +0200 (CEST)
-Date: Tue, 21 Jul 2026 17:15:03 +0200
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Igor Paunovic <royalnet026@gmail.com>
-Cc: Dmitry Osipenko <dmitry.osipenko@collabora.com>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, kernel@collabora.com, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 4/4] arm64: dts: rockchip: enable HDMI RX audio
- capture on Orange Pi 5 Plus
-Message-ID: <al-M4gZ4cZwpEF_H@venus>
-References: <20260721064115.64809-1-royalnet026@gmail.com>
- <20260721064115.64809-5-royalnet026@gmail.com>
+	id 1wmCG2-00000009mZm-29To
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Jul 2026 15:19:47 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66LDfpaP2071467
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 15:19:45 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	BeImWg3UpWEBMTVyVBkk+sdUXk023lo4rqYx6rHHQnw=; b=cEPo/tUbvol8NMA+
+	CZkSAHloVdMHHr5+U2G+q722fHaDvdc4HKqrvQ4qwn1LG5b1o4Z9TmLNWjzTm6ST
+	1c6DgOl5JYndkk72KvmXPunEmrKqA9CjCq6d0mUfXKj1d90YBaxPzE83Jv6AXMLM
+	eYy1j+lUhdFTCtHRoyLSonfXRyEoI8LjuoZylTqfzTEboxKBWnBrB/E3LdC/R4nO
+	1CSk9598XVIM6Z8vAQsVuEN72RU+Agui/hPDmEPdDj5Wf+xjEW3a3K416mDsexmq
+	aQD81ZcFw6diUNwz/YuTCNi9yLSZVLT6wAeBES9Kncn95WqLtl4j+ryPM6YYUVq+
+	oZ28nw==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fj6r3hf1k-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 15:19:45 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-92e5e21552dso142698385a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 08:19:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1784647184; x=1785251984; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=BeImWg3UpWEBMTVyVBkk+sdUXk023lo4rqYx6rHHQnw=;
+        b=XDW5gH31/dnLPNu1U6Ef9hggoYJD+4aCyVG17FEQa7jJpCHlmB7iFw6iTdAZoiLBam
+         BdqeZYPB3DtnLn38F13MCqWQWp3s/KJRfCynRPaPC0ij1g9Kebe8fqX20Cg3Td5egrqw
+         7t1EUa9sdvaoKN3gZwQ0zeJ72TTh17a9TzmELD6+fVWsw8ry19kxxMruSlxbZjt0H770
+         Vl4IWe9F1ijEu5U6izmL7tWt3mPOp5xvVAersL3nf+OHZdnzti6rPDA93jZfqI/BaM89
+         3+IDG8/Z9GMNsVSK10QBlGOCd7P6fd5EsBg4WQySjPY0QWNb9vsdn3I/4t/lVY1KJ6qL
+         aL6Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784647184; x=1785251984;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=BeImWg3UpWEBMTVyVBkk+sdUXk023lo4rqYx6rHHQnw=;
+        b=XuJ2WiViAdaAcRY5WV/bJsMmV7qJtMXdyXvuYvOgp5KDz3uL4AMJ8vF9X/b/RUoa2a
+         g91TkLWDUB+2zoLKiNaPYB5fVQY2mhYZlpRssr2+EjudFHbl/uU3201zKistELHCxTOI
+         hIHOFUQOrzB+3JKqn9VEO7YbCg+cR3iFMNkRImeX9PuRUccX7WmRdrQ04R2VHnvhCgqt
+         UJcTVIulUB/MQfMQ+kHthYy1/vT6vR0sbC1ah8vsbtwQuSlQSLApFRPADa4L9JnyE3p8
+         RabxYWC4STnNryFvlSBStGf9UU9RFCr7xXlRohtKsbhp+vJ1aEBUWNKLolcz3ihXoErI
+         cwow==
+X-Forwarded-Encrypted: i=1; AHgh+RqkpOHML0nBGi6TRWgN9CDfm4tlbHwn0uIzk9h8U5vZzhiTpMWlyVdh531P9/PMrvjlCBLnKst0P6y31IfRrxu7@lists.infradead.org
+X-Gm-Message-State: AOJu0YzdlXKCDgaAajTKiqjs4dBKS/yMcXRApeF2dyd87FAwj7hMKNFK
+	2c6909HtvajMVYOrDFt//1FzZt963E9LId/E2Ic6NKhmkMOx0pAPivJfD9HteAVqbEdPHz7XDBf
+	vJVt+doCzZIeWYGZbjpZsIsMiBHwDlIfTwYRpT0ipul9RY4uTyGISPXnDQbEKfToit514QFaOga
+	awdhr/9SaWjA==
+X-Gm-Gg: AfdE7clIK7JwId6PEmcZ9MFdIkwQnF/OqL9fuu/VOSkEuWXxGtcx+kyew0DYciCcLj2
+	KUN9vrXp8N6X2iPhHV0HQ6zOgUff+vw/kQ6AvCiZ2Nb81SkljwlL94dxXDCI3NvabzLGyXznSmQ
+	rjf3nzy3dL+3XFMfMdjS8LyeuC+UniOjwkL1GHeSC7Ikgr+K/oOyyo5dJNgN/2TWqRuVIYdUjR2
+	kWGLBF4w6BuyhWej+wyKsmiw+j9WopUmIjCEDz2T1ViCdwZT954U6qRXD2/fq/cGl69K0JBcsp9
+	dE6V8hgagov4yxg+Nwveh0cxtjdRdqu8ecWRib14hLdTR9pJdz3TxzxkeclakbKthipr96cOIjh
+	DVQyvxWeGH6bhHWaYAk16DZ/2
+X-Received: by 2002:ac8:5d8b:0:b0:51a:8c9c:7de0 with SMTP id d75a77b69052e-526750fa557mr26892961cf.10.1784647184067;
+        Tue, 21 Jul 2026 08:19:44 -0700 (PDT)
+X-Received: by 2002:ac8:5d8b:0:b0:51a:8c9c:7de0 with SMTP id d75a77b69052e-526750fa557mr26892621cf.10.1784647183431;
+        Tue, 21 Jul 2026 08:19:43 -0700 (PDT)
+Received: from [192.168.120.193] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c1740bf91bdsm587290966b.63.2026.07.21.08.19.41
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 21 Jul 2026 08:19:42 -0700 (PDT)
+Message-ID: <180c27a4-5058-4072-ad23-709ad6d6ea0d@oss.qualcomm.com>
+Date: Tue, 21 Jul 2026 17:19:40 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="iv6yyu46n7brq5vz"
-Content-Disposition: inline
-In-Reply-To: <20260721064115.64809-5-royalnet026@gmail.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.10.1.5.2/284.638.57
-X-ZohoMailClient: External
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/3] interconnect: qcom: Make important drivers default
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+        Georgi Djakov <djakov@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-pm@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20260720-interconnect-qcom-clean-arm64-v3-0-942e8ee7ebda@oss.qualcomm.com>
+ <20260720-interconnect-qcom-clean-arm64-v3-1-942e8ee7ebda@oss.qualcomm.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20260720-interconnect-qcom-clean-arm64-v3-1-942e8ee7ebda@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzIxMDE2MiBTYWx0ZWRfX030tKcgweOeU
+ 3qlMB9xuXpmVb55LFTQB/FKoJ0TuBLw+FMjIjip2pS4Ia30vCIktjk/vgtd42GRA8W2P6sS5j5s
+ oxYo3UTT4skDljyaTM2nW2S45ByqQrkbzbt4Hsm6upE0p2XmTnfNZGEfzw81EQCuaBq4RkIKDHX
+ 3r7Eq0lihw0tHcsmgWPh+Kms+mykPlawCp0Lx0egDQMLSioNJG26m0HPRY2/BDyKj5P6dBBP6yg
+ Lov1T21kyI58gFFz7UVdwC2Y1Fy+DCgtpasL+Kd+y5L7HwnRFbXHrpgX4nGmO7+Qdtmg+gpjBhQ
+ t9yoJmYJjPwbhZN70ugsW1rKqBCpySP7sgGe4X63T2WEjjIi8DrNhNRBhKHomqpIDR6GqNjd5np
+ eQo74tEA0rgiWEL5u/8FaU9LE2mD7tlXjXPMILpzeAsVbW7tNJvFPtrvuQ+Qg1vbAuvD5asW8aB
+ bruEJNw2l2B4RYLut8Q==
+X-Proofpoint-ORIG-GUID: LK5-E114S9hPiKo9cow-YHcIbGs7Wi2K
+X-Proofpoint-GUID: LK5-E114S9hPiKo9cow-YHcIbGs7Wi2K
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzIxMDE2MiBTYWx0ZWRfX6YUdeei3Pbxb
+ KyZZM1iHaodKOvNjUzqe+rBheR3K6fQ5CyDyUMsOrLkJkxXBbvoaU80QL3a0LJRPz0bonug9UAW
+ 2GJuwCD4A2oost7Qtwmnrij+DRCi0Jk=
+X-Authority-Analysis: v=2.4 cv=SIRykuvH c=1 sm=1 tr=0 ts=6a5f8e11 cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
+ a=EUspDBNiAAAA:8 a=N0nv3qFBaOOCOp0HD7oA:9 a=QEXdDO2ut3YA:10
+ a=NFOGd7dJGGMPyQGDc5-O:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-21_03,2026-07-20_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 malwarescore=0 spamscore=0 phishscore=0 clxscore=1015
+ suspectscore=0 adultscore=0 impostorscore=0 lowpriorityscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607210162
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_081522_860185_587A6345 
-X-CRM114-Status: GOOD (  20.48  )
+X-CRM114-CacheID: sfid-20260721_081946_557526_386D57FA 
+X-CRM114-Status: GOOD (  14.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,92 +153,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 7/20/26 9:03 PM, Krzysztof Kozlowski wrote:
+> The interconnect drivers for Qualcomm SoC Network-on-Chip are covering a
+> basic or fundamental SoC feature: bandwidth management between internal
+> SoC blocks.  SoC can boot without these, but power management or
+> performance will be affected.  These drivers do not represent any sort
+> of buses visible to the board designers/configurators, thus they should
+> be always enabled, regardless how SoC is used in the final board.
+> 
+> Kernel configuration should not ask users choice of drivers when that
+> choice is obvious and known to the developers that answer should be
+> 'yes' or 'module'.
 
---iv6yyu46n7brq5vz
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v4 4/4] arm64: dts: rockchip: enable HDMI RX audio
- capture on Orange Pi 5 Plus
-MIME-Version: 1.0
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
-Hi,
-
-On Tue, Jul 21, 2026 at 08:41:15AM +0200, Igor Paunovic wrote:
-> Enable the shared HDMI RX sound card and the i2s7_8ch interface it
-> uses. Together with the audio capture support in the snps_hdmirx
-> driver this exposes a capture-only ALSA card fed by the HDMI input.
->=20
-> Tested on the Orange Pi 5 Plus with multiple HDMI sources: capture
-> follows the source sample rate and stays in sync via the FIFO-level
-> clock tracking in the driver.
->=20
-> Signed-off-by: Igor Paunovic <royalnet026@gmail.com>
-> ---
-
-Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-
--- Sebastian
-
-> Changes in v4:
-> - only enable the shared hdmi_receiver_sound card and i2s7_8ch, now
->   that the card definition lives in rk3588-extra.dtsi (Sebastian
->   Reichel)
->=20
-> New in v3.
->  arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts | 8 ++++++++
->  1 file changed, 8 insertions(+)
->=20
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts b/ar=
-ch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
-> index 9950d11..9f9a303 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
-> @@ -171,6 +171,10 @@
->  	status =3D "okay";
->  };
-> =20
-> +&hdmi_receiver_sound {
-> +	status =3D "okay";
-> +};
-> +
->  &hdptxphy0 {
->  	status =3D "okay";
->  };
-> @@ -247,6 +251,10 @@
->  	status =3D "okay";
->  };
-> =20
-> +&i2s7_8ch {
-> +	status =3D "okay";
-> +};
-> +
->  &led_blue_gpio {
->  	gpios =3D <&gpio3 RK_PA6 GPIO_ACTIVE_HIGH>;
->  	status =3D "okay";
-> --=20
-> 2.53.0
->=20
-
---iv6yyu46n7brq5vz
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmpfjPcACgkQ2O7X88g7
-+pqFLRAAkmIPl5/P8Z94H28WY+soiwfSEDNsLAiSGJlJVS8FgREkVhPImsKSVjR3
-4o3c4JrrBdq9xWtsdrGrMq3CpCGJ1DJo9OtHO0XMVMWs9d9ubkjM0ob/usXXhjxU
-OAzf5GLrUiNsMj8w149tKjXpYF1whrUVPN6ZXmhRpcKkzlsGPhFiD766yx//N0ty
-yeh8uFvXqYA5IrRy0G3ZOnUl9bxnqJ/DumiW414ps5KGfdkx51psOGE7y5L//MhS
-MhDrmU1MzPRNzo+GUaVahydIG8WA5LHI52fTRSeausAuuuzrgKlIyQWCnjAPxA5X
-9MiD4rdNpUZRjPiddyT1AiezcSqHtL4e6KcRhnRjuMDne/32jNsBZnCfSeCdpk3A
-5dWp60RnpVzYYGp93F7BRe25Urj3ik5HVmGVMUkSJ4bwSVP2RWSX+GiPTjlAe2IK
-x63SwNOF++ZZSXd0VX2tP2mm1Ih2LvD5NI0R2Az8pzfmpwPST2UfgSvVfOfp7mMI
-HSUOh6hFH8XlAg2rz8Ny4u25SzmyCa6wQbf6t9n1Fzoeam47sfuEcH9BaexoX/B4
-RcU4y9M5N3ZmsQf0z2rhP6fkyFv/ifDrl7wMrCnScB0wtKoBluIt3wzJ+zKFn3z4
-8pudmmYwXa7d6tb+SfCxNtEh7SbqGZWhHZmJtYy6V9uJdbBQk7w=
-=d36M
------END PGP SIGNATURE-----
-
---iv6yyu46n7brq5vz--
+Konrad
 
