@@ -4,96 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A5FDC4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 19:55:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACD91C4451C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 20:09:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mHZ6KR0HBY/A+4ayC9BCwjfVh3BlnXge75QXQoZQPFo=; b=BrXiJ12cJ8/Z/1MWpJYKHeuLVj
-	M9ixDOBtsrKaLIl8otJLk4wmwWMPfRXBrbREQyo+asSIaHY11VqUIhDgMzmPoKVklTeVdVbZt664v
-	rcZJzsnwefdSHeGBiVXMQxautWhNbZahQ1TMTNaq8D2gTJ2GMm4IkjGkux0x9QguyJ+SRwFbiVWqh
-	qtMNsjJcYL3vP8wneyOlno3ZvC5udrANxOQuzCraGTzRdgwvUn+p4cNMxzonIe229DoLAJS36NC6h
-	0o3RJOsv3BWYccF5lpo3Km1DtdtKSwcVj2GOqWBjqmhTeMgTWdgRB/+fi0bocSZB/qO4rHI1Tx2g1
-	FZdbu8PA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PiUK2ioqh2BYVrmabTp1PfcvkxlDT4JEX8xC4ka/whI=; b=SA9tWpToQ7Y2NqYYfiVAHpHGkE
+	r0/lj2eVCFExr6G85TbUNqqI9vIQKifvhSxn9TwSskqV/K/L0FsYS5zYU/skhdsX0ImKi6xdQ/5Qj
+	EM3x5ywnuLH7fJj5rNjqnf+77JXem7AmxYSYsddg+7H824ZOZue8wGHe0LCRs69u1xwN7DfxEviqw
+	9N/pnie+PID3MSZVYHb+zyxaeTdLuf6uM7aPRpdUbN3Up/nj13JeetTw0d5J605a8bTFb6SNDP3Vw
+	KxSahWfLNdeTk+YgpWckA+bChOmPgF6n6QnD1tA6nperonVaYo/yT4L7tYPbH+8Ul0szK1LwSeXRQ
+	NTK8J9iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmGYy-0000000AKTI-3rjx;
-	Tue, 21 Jul 2026 19:55:36 +0000
-Received: from mail.alien8.de ([65.109.113.108])
+	id 1wmGma-0000000ALNU-3Dn5;
+	Tue, 21 Jul 2026 20:09:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmGYv-0000000AKSj-3ALb;
-	Tue, 21 Jul 2026 19:55:35 +0000
-Received: from localhost (localhost.localdomain [127.0.0.1])
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 72DC140E00E6;
-	Tue, 21 Jul 2026 19:55:30 +0000 (UTC)
-X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
-Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
-	header.d=alien8.de
-Received: from mail.alien8.de ([127.0.0.1])
-	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id BFh35W6ojD13; Tue, 21 Jul 2026 19:55:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
-	t=1784663720; bh=mHZ6KR0HBY/A+4ayC9BCwjfVh3BlnXge75QXQoZQPFo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Xran02uKyC5edtPpDYP3zrYWvM/wd+TuG8TczFdXanmHqJhF4EQsJramNEgpUqMwo
-	 qKjV7yxLOGcs3wwnXmjjsCK5Wsw3coj0OmWWhxSEvMj6q5BqKwChVtk+5XngQLUbCr
-	 /O1lX0OhBtGD757bPtSiNIuD8gDwKolYacrfjk729yTU/wd41XvJ+Txnbfg+WR8ucu
-	 ZpiWXmpQ5StCU0PcoZvEj867IEcdyNscwc/HZQrbWpF4lscz3jaXE7vdz8WjzoJQfL
-	 GDpLxjoBWUV0QWk2qVOLe/DigHevMVj41j2DrfnWbCar8FMZNrvwr3ceq+FvFEtLNw
-	 rekRCUCLPFqCLIs4bS3oJFRNFimbOqu5sqM4nf0pMGmLcuR9HFD3php75HDfUvDgiN
-	 G3IRK97tDDj5J+3sEGwfflva1Z+sNvEsTc+mALCDIjJ399i+n5nWTNTnzk1l1NCNT7
-	 JP0i3sSqMhy7J5xHbWKX0Ki3IvtL51oonXbpv3Xo8OESr1ABKFqZPkXBIXMKwWkrRE
-	 YxiTGeQOVesK2TUnUn9AIBV5+Z3L52z/SIJ2k0j6W0aaosNAqJwgh897ftzD+uInQh
-	 31m6kPgkYEz4Z4fslke2woWDCwHQLFhtW8IJVLJ7H12rRG/CN+c6+j3GaBs5bmc3Ng
-	 XIgXGRuajM3fuCnBC+JRBOxs=
-Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::2b])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
-	(No client certificate requested)
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id C109E40E016E;
-	Tue, 21 Jul 2026 19:54:48 +0000 (UTC)
-Date: Tue, 21 Jul 2026 12:54:46 -0700
-From: Borislav Petkov <bp@alien8.de>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: linux-mm@kvack.org, Albert Ou <aou@eecs.berkeley.edu>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Brendan Jackman <jackmanb@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Hildenbrand <david@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Lorenzo Stoakes <ljs@kernel.org>, Michal Hocko <mhocko@suse.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Vlastimil Babka <vbabka@kernel.org>, Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev,
-	x86@kernel.org, Dave Hansen <dave.hansen@intel.com>,
-	Juergen Gross <jgross@suse.com>
-Subject: Re: [PATCH RFC 00/18] arch, mm: create a generic
- set_memory/change_page_attr core
-Message-ID: <20260721195446.GHal_OhkuBCWQjmLQW@fat_crate.local>
-References: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
- <20260721171943.GEal-qLx4p5YbocQNV@fat_crate.local>
- <al-6aLMJONOMfW2v@kernel.org>
+	id 1wmGmZ-0000000ALNO-04oN
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Jul 2026 20:09:39 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 10F8060A7E;
+	Tue, 21 Jul 2026 20:09:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CA571F000E9;
+	Tue, 21 Jul 2026 20:09:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1784664577;
+	bh=PiUK2ioqh2BYVrmabTp1PfcvkxlDT4JEX8xC4ka/whI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=DLddbgn9Jc/bwveW0prc+TgDS0j49dIy7Nx65zOBUds18CjsvTnKEVAOzrLiHv08i
+	 /uRPfVrKZlmt5X7xFcYkyXDsfJtQ56Cf11/7B0Zl65K2BcZbETvzjhSDtRC78V0mUp
+	 WAG81U58FtnIyrs/8V5P9Wx6C3AK4GvXafN+R/IQ=
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: stable@vger.kernel.org
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	patches@lists.linux.dev,
+	James Clark <james.clark@linaro.org>,
+	Leo Yan <leo.yan@arm.com>,
+	Julio.Suarez@arm.com,
+	Kiel.Friedt@arm.com,
+	Ryan.Roberts@arm.com,
+	Will Deacon <will@kernel.org>,
+	Mike Leach <mike.leach@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Besar Wicaksono <bwicaksono@nvidia.com>,
+	John Garry <john.g.garry@oracle.com>,
+	Namhyung Kim <namhyung@kernel.org>
+Subject: [PATCH 6.12 1254/1276] perf arm-spe: Use old behavior when opening old SPE files
+Date: Tue, 21 Jul 2026 17:28:17 +0200
+Message-ID: <20260721152514.156438847@linuxfoundation.org>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260721152446.065700225@linuxfoundation.org>
+References: <20260721152446.065700225@linuxfoundation.org>
+User-Agent: quilt/0.69
+X-stable: review
+X-Patchwork-Hint: ignore
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <al-6aLMJONOMfW2v@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_125533_975876_EC194F22 
-X-CRM114-Status: UNSURE (   8.12  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,18 +79,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 21, 2026 at 09:28:56PM +0300, Mike Rapoport wrote:
-> I'll take it via the memblock tree? ;-)
+6.12-stable review patch.  If anyone has any objections, please let me know.
 
-Definitely not.
+------------------
 
-Unless you folks want to carve out the bits of set_memory.c which interact
-with core mm and mark it as maintained by someone else. I personally don't
-mind too much.
+From: James Clark <james.clark@linaro.org>
 
--- 
-Regards/Gruss,
-    Boris.
+commit ba993e5ada1ddce7a71140dc85ef65bc2cd981bc upstream.
 
-https://people.kernel.org/tglx/notes-about-netiquette
+Since the linked commit, we stopped interpreting data source if the
+perf.data file doesn't have the new metadata version. This means that
+perf c2c will show no samples in this case.
+
+Keep the old behavior so old files can be opened, but also still show
+the new warning that updating might improve the decoding.
+
+Also re-write the warning to be more concise and specific to a user.
+
+Fixes: ba5e7169e548 ("perf arm-spe: Use metadata to decide the data source feature")
+Signed-off-by: James Clark <james.clark@linaro.org>
+Reviewed-by: Leo Yan <leo.yan@arm.com>
+Cc: Julio.Suarez@arm.com
+Cc: Kiel.Friedt@arm.com
+Cc: Ryan.Roberts@arm.com
+Cc: Will Deacon <will@kernel.org>
+Cc: Mike Leach <mike.leach@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: Besar Wicaksono <bwicaksono@nvidia.com>
+Cc: John Garry <john.g.garry@oracle.com>
+Link: https://lore.kernel.org/r/20241029143734.291638-1-james.clark@linaro.org
+Signed-off-by: Namhyung Kim <namhyung@kernel.org>
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+---
+ tools/perf/util/arm-spe.c |   50 ++++++++++++++++++++++------------------------
+ 1 file changed, 24 insertions(+), 26 deletions(-)
+
+--- a/tools/perf/util/arm-spe.c
++++ b/tools/perf/util/arm-spe.c
+@@ -655,37 +655,35 @@ static bool arm_spe__is_common_ds_encodi
+ 	u64 *metadata = NULL;
+ 	u64 midr = 0;
+ 
+-	/*
+-	 * Metadata version 1 doesn't contain any info for MIDR.
+-	 * Simply return false in this case.
+-	 */
++	/* Metadata version 1 assumes all CPUs are the same (old behavior) */
+ 	if (spe->metadata_ver == 1) {
+-		pr_warning_once("The data file contains metadata version 1, "
+-				"which is absent the info for data source. "
+-				"Please upgrade the tool to record data.\n");
+-		return false;
+-	}
+-
+-	/* CPU ID is -1 for per-thread mode */
+-	if (speq->cpu < 0) {
+-		/*
+-		 * On the heterogeneous system, due to CPU ID is -1,
+-		 * cannot confirm the data source packet is supported.
+-		 */
+-		if (!spe->is_homogeneous)
+-			return false;
++		const char *cpuid;
+ 
+-		/* In homogeneous system, simply use CPU0's metadata */
+-		if (spe->metadata)
+-			metadata = spe->metadata[0];
++		pr_warning_once("Old SPE metadata, re-record to improve decode accuracy\n");
++		cpuid = perf_env__cpuid(spe->session->evlist->env);
++		midr = strtol(cpuid, NULL, 16);
+ 	} else {
+-		metadata = arm_spe__get_metadata_by_cpu(spe, speq->cpu);
+-	}
++		/* CPU ID is -1 for per-thread mode */
++		if (speq->cpu < 0) {
++			/*
++			 * On the heterogeneous system, due to CPU ID is -1,
++			 * cannot confirm the data source packet is supported.
++			 */
++			if (!spe->is_homogeneous)
++				return false;
++
++			/* In homogeneous system, simply use CPU0's metadata */
++			if (spe->metadata)
++				metadata = spe->metadata[0];
++		} else {
++			metadata = arm_spe__get_metadata_by_cpu(spe, speq->cpu);
++		}
+ 
+-	if (!metadata)
+-		return false;
++		if (!metadata)
++			return false;
+ 
+-	midr = metadata[ARM_SPE_CPU_MIDR];
++		midr = metadata[ARM_SPE_CPU_MIDR];
++	}
+ 
+ 	is_in_cpu_list = is_midr_in_range_list(midr, common_ds_encoding_cpus);
+ 	if (is_in_cpu_list)
+
+
 
