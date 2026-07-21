@@ -4,142 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F40BC4452D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 00:05:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12C94C4452D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Jul 2026 00:20:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=toWkJN/c66avFQrKLM7pNdxfiQk8eRZ7icrlTVm/3hY=; b=RPDfm+aicZIzd8B2Pg1ZUxRise
-	2Hc1DVLKux7/6g7I59ySCSprqq+SZrH4HJuBNNFbklEwdeH5X6cvpAMO40SBW6hcq5n7kQDbULyBq
-	b9+TpLVGWn8iIDMHspIjT0EY4GxWzgLSt7hbemG+0GccMBiifB3e+FJtrNYZ7OsIvbjLf/2DDR6JZ
-	fvXi/UyKKnqVtvTzX6IH1cx6g3405qlp3lw6wjdCHQuPS+yQlz8wd4hLt/VlcgmPrI6EU9FGjx6qZ
-	jCs+O7+XO62YgazsSKMPuYt+B0rNHWScZ3ORPXSXnYanBV2vieRzb0iwNFRdY1Cx1bZc9hrr0SNNI
-	1rXSwpmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XN3t6IUtMWHgF/uymhRTJckIvUKSgjsqmU/2sUJ04FA=; b=E8s6tgOjdZY4fI5R3uu3z1cMy2
+	Ny7OeF07UZJz+J6oOz5PxZwBvcExHE2dxd26tLOLH7Aq1metgDtWfh+WgVsZs5FHCurSLKl7oDKo0
+	nOMrj72C8OQcJeBjcS92ZQf9Exa9JY6baAPBb6BrOegygZBdaTpAoUsHwFlsuKkAUkoh08LrnkH3c
+	+Ye+j6ah50cKJxNSXfp3YiiEukLkzGKEHvd+28MpNrlOPL1AQUmJja9Rga/Tga+lnb1+eH7/e4oog
+	V488cC0b8QJPqi1ss+ufKS2mZfLtHqRLptHvAEgXWF4PFONMSiMU6FbE64aaRzHYQK9dMjb/0asxK
+	vIs+5oJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmKSj-0000000AclA-3dgM;
-	Wed, 22 Jul 2026 00:05:25 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1wmJzF-0000000AatS-2PRU;
+	Tue, 21 Jul 2026 23:34:57 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmKSh-0000000Acki-1a8U
+	id 1wmJzB-0000000Aasy-1jFU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Jul 2026 00:05:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=EB7GYCR81JUjUK3m/2EQbJ+UiQ7KfmoOm9lcXIpc6njTrI4K5HvUcymNtipQcNGL1WnzO2OSlEgsv2940l6n89uGTxyC7ZCGi9LAg49czswaHdE8Y8wi3R3kqDPFCT7z7kbC5PxDInfnDHNtszAjuQiFwN85ChpOcBxjoTHL/zn5JovOnAzU7QNHUkiZ4BILSMOGbJz2cnqAhH0RFOKf4XGYtXXlKiqKJ0Jyn2QqkZokioi6vu9xkEtAl03xqy/e+7IKQryUWSVY9XhD4vfwAyXmq6RckBxolnPoP6h/qOM/2fwp6WkyTqRm7Rfsk42M4axmnj1Z1n4crcq+P8hYew==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=toWkJN/c66avFQrKLM7pNdxfiQk8eRZ7icrlTVm/3hY=;
- b=Rbkq3Wxmz+QHPsWvCE5ITxf8TCjt6o4sHO5aWxNPh+KhJO8soBc6IRcLpMDCwqx7JkCsvr955SazCgTtJH7Q4s6fnh02IpjbGAZKkBxIqSXhszhjX9fxh5RKWm1C5kXSjCLrOVeqqCRy/iwKteJEGH96V3UGGP57QYHvievxHiVksXcqV1LOYyrZzk3BDn8ZgeG/KhI7+8MxAvlTEz8xFbFoFfMsnNGKqbtcjCB5vLT1A5SedePof49pWoMTwAcvKsrvYPygieSc+rlztMDaqo8krYiRsbmQPQvUIS21TbLytMj/DjnGCGMg5Onboj61z5rNVAXnnlSidZYNWUmWQw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=toWkJN/c66avFQrKLM7pNdxfiQk8eRZ7icrlTVm/3hY=;
- b=aswCAvJz5WFcVb1UmLdZDZqSTyqy+402ZHa2NCeHvqYKhGMVJ5mXuGisa0urlFfiSuuYH0xMAAegpP4bH7YqTiOJMZyxVsTtOgi4OoLTKis/743wLtqIgEMiiNwimFh9KR/7SdxSaL43jMrRl/yojWqGMRwbz53qtX/GHnlQDqrlS3qTacdWEx1gVitP127C6chvCGOADaRj7ycqaiUmbXiVvPySHeAQe9mIwwRvas91tZw0cVIV6O7J2fH9mrgUoO3Gp9x1meXVFqd5h64BA8agkkWLq6SZKevONIbYr4+lp7qzOYmq0wSxRl10ylu/BaW92Ka1zRMyDtlHDiuZkg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by VE1PR04MB7359.eurprd04.prod.outlook.com (2603:10a6:800:1a0::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.10; Wed, 22 Jul
- 2026 00:05:17 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0245.009; Wed, 22 Jul 2026
- 00:05:16 +0000
-Date: Tue, 21 Jul 2026 19:05:03 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Liu Ying <victor.liu@nxp.com>
-Cc: Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Jessica Zhang <jesszhan0024@gmail.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Sam Ravnborg <sam@ravnborg.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Robert Chiras <robert.chiras@nxp.com>, Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH v2 3/7] drm/panel: simple: Add waiken WKS101WX001-WCT
- support
-Message-ID: <amAJL9TIcDAK7kbh@SMW015318>
-References: <20260715-dxl_lcdif-v2-0-da797562636e@nxp.com>
- <20260715-dxl_lcdif-v2-3-da797562636e@nxp.com>
- <alnCL7ylMyvGD-ui@raspi>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <alnCL7ylMyvGD-ui@raspi>
-X-ClientProxiedBy: SA0PR11CA0186.namprd11.prod.outlook.com
- (2603:10b6:806:1bc::11) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VE1PR04MB7359:EE_
-X-MS-Office365-Filtering-Correlation-Id: 04903307-522c-4a25-22d4-08dee784e8f3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|7416014|376014|19092799006|56012099006|4143699003|11063799006|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: lNVn+atDExTHZuHHagXdFzBXLbhVPDUjs9gz2rNfE3hG0o7+nto9J+e7Ln5nfpdCbwMuvGSTsSUQ1Xwtn+d7ZTiXvmBOZJCui4DKNulbGAlkSzyZKiK/rVNVP66JG9tmFr0Qht/VRKiz/7StHlAv7S9OGnSkORT/wLeBPyvCC0NHwg4CBHetOuSCdSfiPUmGYrhFj9k2VwAyhxWBiZ2xHkwdXAZI29fDJH+kRILM86TU2QDpduWJ5NLEsmU5Gyjjhsi5/qeITDatcrGC+TI3pcyBcc2AG4wIxHxYkHrtPW+LShVT/r1Ki9VFRqePVRrX6jBbSGtvBDIyh9i/2CH93mWZiod4BxOymNzEyR+T9JAMa0xzAyKkyyHr+DQMUmt1JVMMFmpod0WzsJQNZ6S8AVd0gn3Y3vU2p5uMRvzkjwPZ4wQxysZ3Fq63NVleIO7dL4EljmE4X8HuslscvoEYK2Yg7DBfUoPe9m2fkvbweF6M/82lDk2c/Q2XXdezDjWk187tt3lPP1nm4XCg1COzb2qpbXGRSBWCvm9H5muVnECGX09Znws0oU0iFOCCrS/279M2f4Q9x2rSDNu1PZwc0UuQBZaVpeExP7IP3wLVVr36fe6ww2sMfV4aDZG5tCds4hhQygwgMJ6xC+IrUaGOA9s1EgCOea06zhhH/4RunKc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(7416014)(376014)(19092799006)(56012099006)(4143699003)(11063799006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bmWss3XpY2BfDzKW0VfTU0c0mesPrt8Y3mw7XgP/YOTbRonDkBjvZxWtI3MZ?=
- =?us-ascii?Q?76Kej3j8Zs/IlmYsaTLRg51t6RJDfhv5FgTJhUKe6sZSSmDammpjLO3G1kKL?=
- =?us-ascii?Q?IAwl/OI10EBClB3EH09zaQSxJT/S9AxRnuZQr7y7uqA9ldux7a93H+NmxSoX?=
- =?us-ascii?Q?qov7zYtosP+m31Jjb67E4a4QRlR/NX0eQ+k/sB2V9VK3TkKrNY6zl+379il5?=
- =?us-ascii?Q?c8e+syAa/DKKB33wLIGFLtADoYG687ogrNUEi8KsYoXq/9Iien+4jn8reGKV?=
- =?us-ascii?Q?hCrYgbkO+u+WDxs9PO4MU4lqII73I1gEWs3EZCZeqHBDNPIP/tS+DPFjvpiR?=
- =?us-ascii?Q?gttWtoewvE1Knrn4130vbq5jSiBIqonkurTWo2h4u9ZhHErKhjPxhCN3Kum9?=
- =?us-ascii?Q?DIgedDDuQwUv3u/vBc95s0tEY+a6ZRWG2snYRDJLE+8qpMU/+AsdCzLiG/N1?=
- =?us-ascii?Q?wVEEnjoEiLDyDAdqb6KKc9q+n8p5fOfjAKew/Saf/d2lLBx5sJyCdKjCgopD?=
- =?us-ascii?Q?fGPY4dTx/fT8PV8Hiq1xShgSgIi2m6bUFcn5Sm6islds+khQLH7zz6RX/LgD?=
- =?us-ascii?Q?DpERI6iFZk+2N7ZGreie+F3Jg5Im3OO/a1OVii/spWYAhm+WsDvMRAyUVpej?=
- =?us-ascii?Q?ayigUcqlspBbq5IZWs7IWiQXFXDu7JBVDHBRUTfbSM07rML4WGoPJJDcBKo+?=
- =?us-ascii?Q?48NNNJLqJQ2jaZ9bk2CdxyR/88WZEAkNa8rgjCh/mslq0x+SKsLV1wMoBNDW?=
- =?us-ascii?Q?FhevoIZW/W9gGA2K7urGPAafBru9tCtOVdeBRAoNxcW9/t7qS3F+gAHZrrtb?=
- =?us-ascii?Q?yKq3p8hbgd2SgryrM8kRmTg+OmSewQMsDUGFYQI6zYE3sMCe3DvawJe/RUic?=
- =?us-ascii?Q?AU9kuDLejZvl9XqIzE3sovVfQlfGAAXvGCkD20D/KrwjoC5oZXgdEQyUiG9T?=
- =?us-ascii?Q?s2ZVaCw54KLgabEwjuzGHa14EQv4UWgeGx60XGERGKljHAu+LM+CllSf8T/Y?=
- =?us-ascii?Q?bk48xIMEJaWUHu2wMuTTjn5tzPI8fsa/dQLrhhoAXZ4DxHTscu18XB/I431G?=
- =?us-ascii?Q?9XwrmlIo3ZpO0xTxGA4jIqrb/Wh/pysToqr2ZLbLYg7bNI1pYmKvaph+JZng?=
- =?us-ascii?Q?hPAg4Wutuk41ynnQjbCkVhO4XPM44CMwafGTJjAP7wOC0IcN13Gf6l1sgIWX?=
- =?us-ascii?Q?82zGEW7n17piAiXxiArNbWZXCSIL0hhgONiTnj1N1MxHbv++USMv4c5NiI6E?=
- =?us-ascii?Q?oOMZsVSbdjbNnpl7M2/m0YcnU6C+hvtr8MGXLZrXUu5qG9zU9e7JN2d9y8tg?=
- =?us-ascii?Q?p0HDbSY3LJchnRd0gfIawT8kvC5/KOeY2oOHG5upgFGcD7KwkWjAAnn0DJHp?=
- =?us-ascii?Q?G0Re8Pd51FcCxqRJBXHv/dBCdKXpzgVQCVAZkrr/Gpp93zAbx2Ud2NN71lXp?=
- =?us-ascii?Q?PlZUA0gkzzAg6Wixnz37iV7rdwMR6Dp6L1QwaAa26KfxogymPETVfpM2FXf6?=
- =?us-ascii?Q?be/xble/2mR3j+gplqJ2bJ7qSP5IHl9RP87gd33NHWHLUAaJXZEcb16aPyet?=
- =?us-ascii?Q?UsF5P/UqDAKIKMhfP23/3016CypQ2f4KAzOOz6OjPsIf/teei4StZChEweHk?=
- =?us-ascii?Q?49d3pTK1gWR408bSdXt8qY3jrK9f1E8SpgPqeMt0rDYA/iURThBM0H9+ybop?=
- =?us-ascii?Q?DqR4nYwRLTaAMfbHvaVs8uVUMVhvV/5Clg3agGoNwTdCuEeCX8l4whVgSGIA?=
- =?us-ascii?Q?PROjarHBoCRdxXYuei0FCATK9kSQzPHxHeHH0gBhlHoH7575MUdp?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 04903307-522c-4a25-22d4-08dee784e8f3
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jul 2026 00:05:16.6125
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: kH835lIDn0HF7uMUqzNg1dfYOV4KGP0nD6oQhG+/hUt3GgWC+aFBovbXbryKvgZr7n+NoXsYkMOLG6BceViA6DSzMB3uRdwKilY4O7brQRJE84JjOAqIpF+uebivjwY8
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7359
+	Tue, 21 Jul 2026 23:34:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1784676893; x=1816212893;
+  h=date:from:to:cc:subject:message-id;
+  bh=IexSWM1kyeT0jf4wTBHyWzo6OHIZkS061yRFNiXSVVk=;
+  b=AHINEwCxGW6jOB4FNd9yZ65XTQV16V4fj2NPKoqRS1Erjw8weVCA81I2
+   KQx3D/bGQRxRbpqmZqxAm0hAPDZfaciAd6ZdSQVrOxM6ZvIh60zLjarGU
+   cyltap81rrFAp5xLCaZu9b570hZztkrN40iCg0ygZzIWy+rakP6eCw3tR
+   apRAKzj0uOB9UIgN5mPhdQtVcbfUqS7I11K0bjoKBMGx4sXOF/RcydlMM
+   rdnJG20jeXGzf9UhHq2vw/Jy7W2P3a+GoxyMKP61WmqHumtgaVCz6uZ0j
+   pEIGakX+6xRkCrZfZQ83d5u0J/CBJYaQC/4lwDV/Am0DQF1k7/xMFolrP
+   A==;
+X-CSE-ConnectionGUID: EKpXLU2RSaeBMFqc5mX0wQ==
+X-CSE-MsgGUID: xbyhfyQ2QVyK0ZLd+7nB3A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11853"; a="72834047"
+X-IronPort-AV: E=Sophos;i="6.25,177,1779174000"; 
+   d="scan'208";a="72834047"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jul 2026 16:34:51 -0700
+X-CSE-ConnectionGUID: BMzy4p6pSXyrQynlGvmlQA==
+X-CSE-MsgGUID: NC04mrFiSE6J1Wzcgo8r4g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,177,1779174000"; 
+   d="scan'208";a="254503574"
+Received: from lkp-server02.sh.intel.com (HELO ea128546eb3d) ([10.239.97.151])
+  by fmviesa007.fm.intel.com with ESMTP; 21 Jul 2026 16:34:50 -0700
+Received: from kbuild by ea128546eb3d with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wmJz6-00000000YAd-0PON;
+	Tue, 21 Jul 2026 23:34:48 +0000
+Date: Wed, 22 Jul 2026 07:34:04 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:for-next] BUILD SUCCESS
+ 11f8710f99a18b13bd1868202813f4d5dad7cbcf
+Message-ID: <202607220737.E6v7xsz4-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_170523_422688_9254CE6A 
-X-CRM114-Status: GOOD (  22.28  )
+X-CRM114-CacheID: sfid-20260721_163453_485158_812C2B06 
+X-CRM114-Status: UNSURE (   5.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,94 +83,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 17, 2026 at 01:48:31PM +0800, Liu Ying wrote:
-> On Wed, Jul 15, 2026 at 02:34:48PM -0400, Frank.Li@oss.nxp.com wrote:
-> > From: Frank Li <Frank.Li@nxp.com>
-> >
-> > Add support for WKS101WX001-WCT panel, which is an industrial-grade
-> > 10.1-inch IPS TFT LCD capacitive touch screen display module.
-> >
-> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > ---
-> > change in v2
-> > - update height to 135 from 136 (sashiko)
-> > ---
-> >  drivers/gpu/drm/panel/panel-simple.c | 31 +++++++++++++++++++++++++++++++
-> >  1 file changed, 31 insertions(+)
-> >
-> > diff --git a/drivers/gpu/drm/panel/panel-simple.c b/drivers/gpu/drm/panel/panel-simple.c
-> > index c09bf3db5e78a..73a21303a612a 100644
-> > --- a/drivers/gpu/drm/panel/panel-simple.c
-> > +++ b/drivers/gpu/drm/panel/panel-simple.c
-> > @@ -5171,6 +5171,34 @@ static const struct panel_desc vl050_8048nt_c01 = {
-> >  	.bus_flags = DRM_BUS_FLAG_DE_HIGH | DRM_BUS_FLAG_PIXDATA_SAMPLE_NEGEDGE,
-> >  };
-> >
-> > +static const struct drm_display_mode waiken_101wx001_mode = {
-> > +	.clock = 71100,
-> > +	.hdisplay = 1280,
-> > +	.hsync_start = 1280 + 70,
-> > +	.hsync_end = 1280 + 70 + 10,
-> > +	.htotal = 1280 + 70 + 10 + 80,
-> > +	.vdisplay = 800,
-> > +	.vsync_start = 800 + 10,
-> > +	.vsync_end = 800 + 10 + 3,
-> > +	.vtotal = 800 + 10 + 3 + 10,
-> > +	.width_mm = 217,
-> > +	.height_mm = 135,
-> > +	.flags = DRM_MODE_FLAG_NHSYNC | DRM_MODE_FLAG_NVSYNC,
-> > +};
-> > +
-> > +static const struct panel_desc waiken_101wx001_panel = {
-> > +	.modes = &waiken_101wx001_mode,
-> > +	.num_modes = 1,
-> > +	.bpc = 6,
-> > +	.size = {
-> > +		.width = 217,
-> > +		.height = 135,
-> > +	},
-> > +	.bus_format = MEDIA_BUS_FMT_RGB666_1X18,
->
-> I find a panel specification in link [1] and guess it's for this panel.
-> It indicates that each color component width is 8 in 'RGB Input Interface
-> Description' table.
->
-> [1] https://community.nxp.com/t5/i-MX-RT-Crossover-MCUs/Optimizing-eLCDIF-throughput/m-p/982741/highlight/true?profile.language=en#M5348
->
-> > +	.connector_type = DRM_MODE_CONNECTOR_DPI,
->
-> Seems that the panel also supports LVDS input according to the specification,
-> since it mentions 'RGB or LVDS Interface'?
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
+branch HEAD: 11f8710f99a18b13bd1868202813f4d5dad7cbcf  soc: document merges
 
-Need hardware rework to use LVDS. Need remove banch of resistors. Should it
-be treat as difference panel by different compatible string? hardware
-actually changed.
+elapsed time: 6082m
 
-Frank
+configs tested: 22
+configs skipped: 0
 
->
-> > +	.bus_flags = DRM_BUS_FLAG_DE_HIGH | DRM_BUS_FLAG_PIXDATA_DRIVE_NEGEDGE,
-> > +};
-> > +
-> >  static const struct drm_display_mode waveshare_28_lcd_mode = {
-> >  	.clock = 50000,
-> >  	.hdisplay = 480,
-> > @@ -6155,6 +6183,9 @@ static const struct of_device_id platform_of_match[] = {
-> >  	}, {
-> >  		.compatible = "vxt,vl050-8048nt-c01",
-> >  		.data = &vl050_8048nt_c01,
-> > +	}, {
-> > +		.compatible = "waiken,101wx001",
-> > +		.data = &waiken_101wx001_panel,
-> >  	}, {
-> >  		.compatible = "waveshare,2.8inch-panel",
-> >  		.data = &waveshare_28_lcd_panel
-> >
-> > --
-> > 2.43.0
-> >
->
-> --
-> Regards,
-> Liu Ying
+The following configs have been built successfully.
+More configs may be tested in the coming days.
+
+tested configs:
+alpha               allnoconfig    gcc-16.1.0
+alpha              allyesconfig    gcc-16.1.0
+alpha                 defconfig    gcc-16.1.0
+arc                allmodconfig    gcc-16.1.0
+arc                allyesconfig    gcc-16.1.0
+arm            ep93xx_defconfig    clang-24
+csky               allmodconfig    gcc-16.1.0
+i386               allmodconfig    gcc-14
+nios2              allmodconfig    gcc-11.5.0
+nios2               allnoconfig    gcc-11.5.0
+parisc             allmodconfig    gcc-16.1.0
+parisc             allyesconfig    gcc-16.1.0
+parisc                defconfig    gcc-16.1.0
+riscv   randconfig-001-20260722    gcc-13.4.0
+riscv   randconfig-002-20260722    gcc-13.4.0
+s390    randconfig-001-20260722    gcc-13.4.0
+s390    randconfig-002-20260722    gcc-13.4.0
+sh                    defconfig    gcc-16.1.0
+sh      randconfig-001-20260722    gcc-13.4.0
+sh      randconfig-002-20260722    gcc-13.4.0
+x86_64                    kexec    clang-22
+x86_64             rhel-9.4-bpf    gcc-14
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
