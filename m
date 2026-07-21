@@ -4,81 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBBC5C44529
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 10:01:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 422F4C44529
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 10:04:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gvD5V6euci/as5s5zTLUVH7L6MHGtAjyvBUswRosovo=; b=NB3F0g1ZECWdyUEIhnQPsBZY2a
-	r0Pi3CAB8QD2RMtoYWEnN+YZx4wS67BJaTTCjSY/SziMojotU5DV2EQr8PPf0kobNknjWX4b2uoXX
-	tEvPoXuY2ZRP/YtaHqvAbH1Xe/SPIuSY5x5TnTk2iG+N7w2TXgXCFu4HhxeIfe6w/d3wH/in5R084
-	R9GboQBy1jxUNzsUE246g8+ZrndIEW/9Zl3iXVvSWnrCCroBYE+VSeu5XAvVNF1a53xgUy33A/OKl
-	vJ0BxSZng/q3XJg8xkl75hiOnxFb3M1DzLT01zk0CnwDnLteAkl2/N3aZBKuFSlNzxbD/gi/zns74
-	erbPL33A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FDdpB6ZYwZIlR+moMdqHy53xNfFlVy927sGzMiz2qu8=; b=hvXFY+qMdYeatmiJs86L9AJzJz
+	ynb6hhvqtVr7eWP8SHVPtM7PRx1XLXjTPXD1bC0QIGVcPhN1/2mqiBb6G2GRaHlV+d8e/lc82Xe+L
+	iLalLJzcj95JnAX2KOcjVZV0+EHgIaO0kqoDizAZPsAliFx7VJ8ZBa8BzlHwN1qY/ISwygh6PTOsz
+	n45G5t8tzPUxSmw09irBrgMPYVhOKjomNyHKb3xcney//vuy0T7SxLagnM11kSHsFiG02eKgY9IBy
+	WhZwx2G2xGA06u7FEJTMxMQEd/XH4/xAnl8lJH1IBBnDg7j+6NaO/rNos5qw7LSOhm+wxl0+GVl2p
+	8IBhPoIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm6OK-00000008uu4-342G;
-	Tue, 21 Jul 2026 09:03:56 +0000
-Received: from www537.your-server.de ([188.40.3.216])
+	id 1wm7Km-000000093JA-06bm;
+	Tue, 21 Jul 2026 10:04:20 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm6OI-00000008ut1-2lhA
+	id 1wm7Kj-000000093Io-0zGJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Jul 2026 09:03:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=ew.tq-group.com; s=default2602; h=Content-Type:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=gvD5V6euci/as5s5zTLUVH7L6MHGtAjyvBUswRosovo=; b=nlQug6It0yWWP0ig82UACxhpY5
-	BPz//xjoUN8R4diTMfMEE90uKWveEm21wF1fq/MaXTyyW0XvpsEw3yBU+OBZfnDreWAzeypeiC/xk
-	nv8esCdDuXYhg+pxr0Z5eYOGL1rsG+vC/5HsIAu5uwlNyCKqqozbYAMlLIHgnKTxKOzL1ZZz3DjM9
-	lf5bO9Joan0ciIZUhhliKUuIfCGX/fPRcLezrBhb04VTlfFx/Bc5K0SFzGaB0Q1z8EbZgRa7aTlvx
-	28VzfWLihuqotKAX5NKwUCJqfdKWEgRvEti4jlPu491z4JarfwI1ZtDv+ZqUX6WiooDziq0NWIcWu
-	4doW2p9A==;
-Received: from sslproxy01.your-server.de ([78.46.139.224])
-	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wm6OE-000DCG-0S;
-	Tue, 21 Jul 2026 11:03:50 +0200
-Received: from localhost ([127.0.0.1])
-	by sslproxy01.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wm6OD-000NUe-1r;
-	Tue, 21 Jul 2026 11:03:49 +0200
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org
-Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org,
- Francesco Dolcini <francesco@dolcini.it>
-Subject: Re: [PATCH v1 2/4] drm: mxsfb: Allow optional LCDIF interface format override
-Date: Tue, 21 Jul 2026 11:03:48 +0200
-Message-ID: <5121074.31r3eYUQgx@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <20260717121847.488148-3-francesco@dolcini.it>
-References: <20260717121847.488148-1-francesco@dolcini.it>
- <20260717121847.488148-3-francesco@dolcini.it>
+	Tue, 21 Jul 2026 10:04:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1784628256;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=FDdpB6ZYwZIlR+moMdqHy53xNfFlVy927sGzMiz2qu8=;
+	b=fcUfOvBQ9Hxja/OGm+BLWaHjQscGbZ+/aMIhXLb0NqEVnU9Nsik806eFkmzcxH1r/2yJIE
+	Z+tQi2jD+uOPVH6aomptvgknzYfSPDxuZeYcBANqx3qi2INpf7/sEyyeRJQNi2kUmuCW3w
+	LrukOD2U9kRsWRK2aNxCqh/daeYBueg=
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-344-GrNlJ4CcOuWLi4ZaJRGrbg-1; Tue, 21 Jul 2026 06:02:51 -0400
+X-MC-Unique: GrNlJ4CcOuWLi4ZaJRGrbg-1
+X-Mimecast-MFC-AGG-ID: GrNlJ4CcOuWLi4ZaJRGrbg_1784628170
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-47f5a972b0eso4166499f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Jul 2026 03:02:50 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1784628170; x=1785232970;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :from:references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=FDdpB6ZYwZIlR+moMdqHy53xNfFlVy927sGzMiz2qu8=;
+        b=iOyCS8JSCyhS/RMarlm278pvEkqPgntDqAbYUBMYcM6XkfsiT4sXzUl1YcwllQshsb
+         snD3jdUda9ed75g6eDJCIgbOIwTPdjo0nUJpKkItJR2hrcrJk/Fk6NszjCHOmYd4hfwH
+         Q2lKT7BpFaKK4SA2pQu2SK3B6GlGNSe8ZFN56eZiTQFjXVMlqKdy4s54tjsUmQeJKF3h
+         l98hZlMy2HkLKdSpuOC0JmmuznnwDK73DU21ROsnHWK7i4TkCcbKK9+lVLcQL4JemwlV
+         eR4jEQnLEmUz+Wox1joAPKc1T+ic3VDXgLqHmF2SZGu2VOSR9jgVcuXLYF1BsrTYbfjA
+         H59Q==
+X-Forwarded-Encrypted: i=1; AHgh+RrNG3TKVnbhTR0Y+o8Exa1/j2PcbDGPCqKuMLfnNbMmJmazLtUp6Gz28Gz7+l0DetqUOswFCEQXHcnIfTJO9H68@lists.infradead.org
+X-Gm-Message-State: AOJu0YwupI6P6XFjXRS3C4nO62fcdQ2XfEFc8e7vBB9IDDo7wrKaB1lm
+	13O84rEdWDxPdlOiJuKao7zzRqTTa7a3G+ZPRxBVhjrOsjubOsp9MA94UmK6HaVH0R48r77aycv
+	71zrab0CG6+wGEdUTs/8cMtFldwU8NRZ4/x9pmen3KkKPt6DYhgcW9JNLvES7qHmWJS2+VSi34l
+	9X
+X-Gm-Gg: AR+sD12nsSGE4jHw9YHvFW1OfQnoXxCUGjUAS4xQdL6HQIbzb6jjfwvta4TYJ67Cfj/
+	1kF9/FZvOwWivR4FsbRN4M1PmXzw9gLFl9ubcyRimBmS0vVnI0R8Nq8nAdMDmJrUHMfxsu/IVW7
+	FkPSGs3bwoEyou23r3d2SSdg5s9kxTMKAlLZv1DkQT+mGOxM7vDXJrzDVrpILRmNQKY+BTTJUyj
+	+u6BYbW7HxeUmU/pBZT/tnyDS2eXtqVtruSqXUmYRI1zule+8UbFcCkF2evZ9WOkdsB+Gi4XPwF
+	IiogNCWLFR+8QVcN23UBpHx0GbksA2opeSKMxPNkFh80j4AN0w+g0ekeks7fSwcZC1URwCpygKU
+	84O2qCsqxUVvvJN854mCFElb8LrDrin9jaBvCDRfxQF8Wud2KNRDM5kv4htn49RFehNRX4Qj+Nt
+	BOug==
+X-Received: by 2002:a5d:5848:0:b0:47f:71a6:79c5 with SMTP id ffacd0b85a97d-47f71a67a5amr12529415f8f.12.1784628169357;
+        Tue, 21 Jul 2026 03:02:49 -0700 (PDT)
+X-Received: by 2002:a5d:5848:0:b0:47f:71a6:79c5 with SMTP id ffacd0b85a97d-47f71a67a5amr12529309f8f.12.1784628168390;
+        Tue, 21 Jul 2026 03:02:48 -0700 (PDT)
+Received: from ?IPV6:2a0d:3344:5521:6b10:58fd:68f:7756:389d? ([2a0d:3344:5521:6b10:58fd:68f:7756:389d])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47f63e49ce4sm38099290f8f.8.2026.07.21.03.02.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 21 Jul 2026 03:02:47 -0700 (PDT)
+Message-ID: <7e12f83c-2449-4618-bf43-acc533df3a36@redhat.com>
+Date: Tue, 21 Jul 2026 12:02:46 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Virus-Scanned: Clear (ClamAV 1.4.3/28067/Tue Jul 21 08:23:56 2026)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 4/5] net: phy: mediatek: add calibration logic
+ for AN7581
+To: Christian Marangi <ansuelsmth@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
+ Heiner Kallweit <hkallweit1@gmail.com>, Russell King
+ <linux@armlinux.org.uk>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Daniel Golle <daniel@makrotopia.org>, Qingfang Deng <dqfext@gmail.com>,
+ SkyLake Huang <SkyLake.Huang@mediatek.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20260708102341.53919-1-ansuelsmth@gmail.com>
+ <20260708102341.53919-5-ansuelsmth@gmail.com>
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20260708102341.53919-5-ansuelsmth@gmail.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 918nJotGvCEae_xzL1DVhzyrPmmgRzLKB6GXyy8i5Kg_1784628170
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_020354_808269_5C147E82 
-X-CRM114-Status: GOOD (  24.31  )
+X-CRM114-CacheID: sfid-20260721_030417_364258_12E38582 
+X-CRM114-Status: UNSURE (   8.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,145 +122,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Francesco,
-
-thanks for the patch.
-
-Am Freitag, 17. Juli 2026, 14:18:44 CEST schrieb Francesco Dolcini:
-> From: Francesco Dolcini <francesco.dolcini@toradex.com>
->=20
-> LCDIF programs LCD_DATABUS_WIDTH from the selected media bus format. The
-> format reported by the downstream panel or bridge describes the display
-> input, but it does not describe how the LCDIF data pins are physically
-> wired on the board.
->=20
-> These can differ. For example, a 16-bit LCDIF bus can be connected to a
-> 24-bit display by wiring the available color bits to the corresponding
-> display inputs. In that case, using the display's 24-bit format to
-> configure LCDIF selects the wrong data-bus mode and changes the assignment
-> of color bits on the LCD_DATA pins.
->=20
-> Read the optional interface-pix-fmt property from the LCDIF node and use
-> it to select the media bus format used to configure LCDIF. This allows
-> the LCDIF bus mode to describe the physical interface independently of
-> the downstream display format.
->=20
-> When the optional property is absent, continue using the format reported
-> by the downstream display device, preserving the existing behavior.
->=20
-> This follows the same approach already implemented in
-> drivers/gpu/drm/imx/ipuv3/parallel-display.c.
->=20
-> Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
-
-Nice, this work on my imx6ul based hardware where a 18-bit display is
-attached as a 24-bit one.
-Using interface-pix-fmt =3D "rgb24" this works as expected.
-
-Tested-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-
-> ---
->  drivers/gpu/drm/mxsfb/mxsfb_drv.c | 16 ++++++++++++++++
->  drivers/gpu/drm/mxsfb/mxsfb_drv.h |  2 ++
->  drivers/gpu/drm/mxsfb/mxsfb_kms.c |  8 ++++++++
->  3 files changed, 26 insertions(+)
->=20
-> diff --git a/drivers/gpu/drm/mxsfb/mxsfb_drv.c b/drivers/gpu/drm/mxsfb/mx=
-sfb_drv.c
-> index 9b8fbda85d28..edf347968fd2 100644
-> --- a/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-> +++ b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-> @@ -12,7 +12,9 @@
->  #include <linux/clk.h>
->  #include <linux/dma-mapping.h>
->  #include <linux/io.h>
-> +#include <linux/media-bus-format.h>
->  #include <linux/module.h>
-> +#include <linux/of.h>
->  #include <linux/platform_device.h>
->  #include <linux/property.h>
->  #include <linux/pm_runtime.h>
-> @@ -209,7 +211,10 @@ static int mxsfb_load(struct drm_device *drm,
->  		      const struct mxsfb_devdata *devdata)
->  {
->  	struct platform_device *pdev =3D to_platform_device(drm->dev);
-> +	struct device_node *np =3D pdev->dev.of_node;
->  	struct mxsfb_drm_private *mxsfb;
-> +	u32 bus_format =3D 0;
-> +	const char *fmt;
->  	int ret;
-> =20
->  	mxsfb =3D devm_kzalloc(&pdev->dev, sizeof(*mxsfb), GFP_KERNEL);
-> @@ -236,6 +241,17 @@ static int mxsfb_load(struct drm_device *drm,
->  	if (IS_ERR(mxsfb->clk_disp_axi))
->  		mxsfb->clk_disp_axi =3D NULL;
-> =20
-> +	ret =3D of_property_read_string(np, "interface-pix-fmt", &fmt);
-> +	if (!ret) {
-> +		if (!strcmp(fmt, "rgb24"))
-> +			bus_format =3D MEDIA_BUS_FMT_RGB888_1X24;
-> +		else if (!strcmp(fmt, "rgb565"))
-> +			bus_format =3D MEDIA_BUS_FMT_RGB565_1X16;
-> +		else if (!strcmp(fmt, "rgb666"))
-> +			bus_format =3D MEDIA_BUS_FMT_RGB666_1X18;
-> +	}
-> +	mxsfb->bus_format =3D bus_format;
+On 7/8/26 12:23 PM, Christian Marangi wrote:
+> +static int airoha_cal_cycle(struct phy_device *phydev, int devad,
+> +			    u32 regnum, u16 mask, u16 cal_val)
+> +{
+> +	struct airoha_socphy_shared *shared = phy_package_get_priv(phydev);
+> +	struct phy_device *phydev_p0;
+> +	int ret;
 > +
->  	ret =3D dma_set_mask_and_coherent(drm->dev, DMA_BIT_MASK(32));
->  	if (ret)
->  		return ret;
-> diff --git a/drivers/gpu/drm/mxsfb/mxsfb_drv.h b/drivers/gpu/drm/mxsfb/mx=
-sfb_drv.h
-> index d160d921b25f..f64800f06a69 100644
-> --- a/drivers/gpu/drm/mxsfb/mxsfb_drv.h
-> +++ b/drivers/gpu/drm/mxsfb/mxsfb_drv.h
-> @@ -46,6 +46,8 @@ struct mxsfb_drm_private {
->  	struct drm_connector		*connector;
->  	struct drm_bridge		*bridge;
-> =20
-> +	u32 bus_format;
-
-Indent broken.
-
+> +	phydev_p0 = shared->phydev_p0;
 > +
->  	bool				crc_active;
->  };
-> =20
-> diff --git a/drivers/gpu/drm/mxsfb/mxsfb_kms.c b/drivers/gpu/drm/mxsfb/mx=
-sfb_kms.c
-> index d8ebebc5314b..8b482727aed5 100644
-> --- a/drivers/gpu/drm/mxsfb/mxsfb_kms.c
-> +++ b/drivers/gpu/drm/mxsfb/mxsfb_kms.c
-> @@ -386,6 +386,14 @@ static void mxsfb_crtc_atomic_enable(struct drm_crtc=
- *crtc,
->  	if (!bus_format)
->  		bus_format =3D MEDIA_BUS_FMT_RGB888_1X24;
-> =20
-> +	/*
-> +	 * Prefer bus format set via optional "interface-pix-fmt" DT property,
-> +	 * over panel or next bridge bus format. This is necessary to support
-> +	 * 24bit DPI panels connected to a 18bit interface, for example.
-
-Maybe rephrase and state "mismatching interface" as it goes both ways.
-
-Best regards,
-Alexander
-
-> +	 */
-> +	if (mxsfb->bus_format)
-> +		bus_format =3D mxsfb->bus_format;
+> +	phy_modify_mmd(phydev, devad, regnum, mask, cal_val);
 > +
->  	mxsfb_crtc_mode_set_nofb(mxsfb, bridge_state, bus_format);
-> =20
->  	/* Write cur_buf as well to avoid an initial corrupt frame */
->=20
+> +	ret = mtk_cal_cycle_wait(phydev_p0);
 
+The above call causes a builder error at link time in allmodyes config:
 
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
+ERROR: modpost: "mtk_cal_cycle_wait"
+[drivers/net/phy/mediatek/airoha-ge-soc.ko] undefined!
 
+Also sashiko gemini has a few points:
+
+https://sashiko.dev/#/patchset/20260708102341.53919-1-ansuelsmth%40gmail.com
+
+/P
 
 
