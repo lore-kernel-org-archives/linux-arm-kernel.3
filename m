@@ -4,94 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2BFFC4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 17:21:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E44DC4452B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 17:21:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H+kp8j8RQXqYz4HiL6BM9iRIWosOZOMzLCJGR/2Sk1c=; b=050+F89XKKTxrF17FzQlz75fMC
-	tl1Ka8QbSqo2M+slsoOuyJ3tvgj4kZGaMqvNfz8k+q+t5J22BY1nnv26dRI77huFlrq8Vwzzfz+5P
-	M+RY6wIGdAhsfEW0wUUXjxjzr03JfhD44JZZX0MM3IGAh08jquZmpYZc9/TGOb0uSHjAaUZ6354zR
-	wcpr7ZWnD4KnH16JCQrR5sq75DDGw4eMfvhtnJsZ44gYtsTWxPceklWIt4SdqjLFD9HY03dwmfAAZ
-	wQE2q0SAexmdE7AEgvAagPL9by/2e+P9EnR1N4XjvpjOxOUSKduXgVJ0fxs/489sDSAq3uRR/vouo
-	9xKWN2sA==;
+	bh=4p0jLk0hWrusAXNcO2QsKnQrXyxqVvMPo+V5GGUXDvw=; b=jwtByqqqkDbSqH7glyEg2oivM3
+	BxJ6Nv/a8AASi/afOI5wq7ObeVAdqDyr87gLlAWiiNL0w6vln66RmDj+G53SXkChIKX+Ig5IEaBO5
+	GTenGYJsO2wIaiPYRO6LWAQFtORCm+Fe6+PGB65wQ6LLO4/rjK9ve4UHLJwv2ZUVv9cPaPHPC6N7v
+	A5PXrHnPvLV/bMxNVk1gmkt857blAPTC32v9wA2szetvpBM1W4rED5ZtAGEHpsBRV0/hFkccpyfNo
+	1lvyPNPoHAY5pI7A1QphHA6hlXZlrP6PNEW8X6Wp7J1o0A/sSZ8iqdE2aua2xRITgfuUr6II+zhl8
+	BffSuiog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmE99-0000000A2aL-13pT;
-	Tue, 21 Jul 2026 17:20:47 +0000
-Received: from mail.alien8.de ([65.109.113.108])
+	id 1wmE5R-0000000A24f-26mG;
+	Tue, 21 Jul 2026 17:16:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wmE95-0000000A2Z0-3whz;
-	Tue, 21 Jul 2026 17:20:46 +0000
-Received: from localhost (localhost.localdomain [127.0.0.1])
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 65B4E40E00C3;
-	Tue, 21 Jul 2026 17:20:30 +0000 (UTC)
-X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
-Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
-	header.d=alien8.de
-Received: from mail.alien8.de ([127.0.0.1])
-	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id RI_0lUk3GInp; Tue, 21 Jul 2026 17:20:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
-	t=1784654418; bh=H+kp8j8RQXqYz4HiL6BM9iRIWosOZOMzLCJGR/2Sk1c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OCGDcuY922zK8+thN0a62DX0OJ8S/zy6csu77s+HJDg7Tiw3kuK5DaR9HV84RC1uV
-	 3muM6FhgECTBD1hnQJgreOzu3oTIVap397z/IHO1OgOzVK6cFrjeUW28/6/VeYios2
-	 9xp7ox94bn7q8PR/PYxTspEHEVs/es3ZexKmoUo16HiBUiLfFdshRCBDoOEcrWQZ5X
-	 gk5MMg+8crrVqEUe7nSTVz7F1fjDQRHShglfx9h/aocbLPYQcmp6GosBqFk70xDh3B
-	 vFl7CPkaTEBTA36WZiBsymfJjORj0ceKVFGsmJxm/OfHppSGUE9eNkgMvxt5mRVdLE
-	 rBsAYl2pQKQC2N8xuA5SALvB/zZ2grhAHKMFeaX3E1wjKQeD9MCnn0iwT+iGtRJtiC
-	 1pyvm1Cu8SPrZH+szL96x3eOB3+s8AnVA9sNE/F3/fekNwhMmnR9eW0ILdZLGwE+v+
-	 xk9X39suV3YKAWgnLxhJ6RlvC5WN7q7PH/fhr9JeeRvlTdzEE29AX7RAcPkHsgkgZ8
-	 dXZGOS2Ox1+ZbRF/n5yWDJpdNyN1PqtbqLvkitI9T1cNJEW10+XufRbq7u85XyZNuD
-	 ALc9/5Rr6AHbe0zLz5I9GTdYVu4AJ2S9D9ua13A2ocklLMRv/WEp8zzXVITKSYuBkq
-	 twY8CxE2QiT4H9C4DrpesDGY=
-Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::2b])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
-	(No client certificate requested)
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 9384340E00E6;
-	Tue, 21 Jul 2026 17:19:46 +0000 (UTC)
-Date: Tue, 21 Jul 2026 10:19:43 -0700
-From: Borislav Petkov <bp@alien8.de>
+	id 1wmE5P-0000000A24G-1dIh;
+	Tue, 21 Jul 2026 17:16:55 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id C225040656;
+	Tue, 21 Jul 2026 17:16:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 275181F000E9;
+	Tue, 21 Jul 2026 17:16:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1784654214;
+	bh=4p0jLk0hWrusAXNcO2QsKnQrXyxqVvMPo+V5GGUXDvw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=INSdq0JhbWOwLqdV8BEGL9GB/JoFkWjXSauwNsyuu0/ZvV0n69zWiQHOVcKvEIq3t
+	 7o3StUAGsExB9s1uDIwsX+4k5bLRf/3+XpuEzsbAn2h63XzAx3JvRQO9cRNFLxpKut
+	 AlvHpfivgYBnJBB60Vf6Pi3CYj6puhivnrOTdrOFLaOA8uuVuHBu4rN+sl3nkkrUaN
+	 LixGSj8SYkp9pgjvM6bB8H+VuM0YEVaY9qzvl9O5TORwUUTuAFFYqQbbnz/pAs9A51
+	 cyTYtfpI8afsVrs8guyGUInKpw5Hy2EohG3rmFbIebgmkXzLKH20xBRH7X/ZnW/tj+
+	 foio8xWfb5fig==
+Date: Tue, 21 Jul 2026 18:16:33 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
 To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Cc: linux-mm@kvack.org, Albert Ou <aou@eecs.berkeley.edu>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Brendan Jackman <jackmanb@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Hildenbrand <david@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Lorenzo Stoakes <ljs@kernel.org>, Michal Hocko <mhocko@suse.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Vlastimil Babka <vbabka@kernel.org>, Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev,
-	x86@kernel.org, Dave Hansen <dave.hansen@intel.com>,
-	Juergen Gross <jgross@suse.com>
-Subject: Re: [PATCH RFC 00/18] arch, mm: create a generic
- set_memory/change_page_attr core
-Message-ID: <20260721171943.GEal-qLx4p5YbocQNV@fat_crate.local>
+Cc: linux-mm@kvack.org, Albert Ou <aou@eecs.berkeley.edu>, 
+	Andrew Morton <akpm@linux-foundation.org>, Andy Lutomirski <luto@kernel.org>, 
+	Borislav Petkov <bp@alien8.de>, Brendan Jackman <jackmanb@google.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>, 
+	David Hildenbrand <david@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, 
+	Ingo Molnar <mingo@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+	Kevin Brodsky <kevin.brodsky@arm.com>, "Liam R. Howlett" <liam@infradead.org>, 
+	Michal Hocko <mhocko@suse.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <pjw@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+	"H. Peter Anvin" <hpa@zytor.com>, Suren Baghdasaryan <surenb@google.com>, 
+	Thomas Gleixner <tglx@kernel.org>, Vlastimil Babka <vbabka@kernel.org>, 
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, loongarch@lists.linux.dev, 
+	x86@kernel.org, Dave Hansen <dave.hansen@intel.com>
+Subject: Re: [PATCH RFC 01/18] x86/mm/pat: Don't gate cpa_lock on
+ debug_pagealloc_enabled()
+Message-ID: <al-oTOKY7vkdPHr5@lucifer>
 References: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
+ <20260721-generic-set-memory-v0-1-v1-1-2c1fc62306b3@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260721_102044_140733_32DCA3B2 
-X-CRM114-Status: UNSURE (   9.96  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20260721-generic-set-memory-v0-1-v1-1-2c1fc62306b3@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,24 +81,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 21, 2026 at 07:23:23PM +0300, Mike Rapoport (Microsoft) wrote:
-> Currently there are 6 independent implementations for set_memory and
-> set_direct_map APIs.
+On Tue, Jul 21, 2026 at 07:23:24PM +0300, Mike Rapoport (Microsoft) wrote:
+> The splitting and merging of kernel page table mappings between small and
+> large is protected by cpa_lock. The merging is relatively new but the
+> splitting is ancient.
+>
+> The splitting has a locking optimization: since DEBUG_PAGEALLOC forces all
+> mappings to 4k, there are no large pages to split. So the code that *might*
+> cause a split can just skip the locking (and a few other things).
+>
+> This is entertaining, but it adds complexity and makes for weird locking
+> rules. Plus it's all for a debugging feature which makes the kernel super
+> slow in the first place. Optimizing something which is already super slow
+> and not used in production is not the best way to spend our complexity
+> budget.
+>
+> Stop gating cpa_lock on debug_pagealloc_enabled() to simplify the code
+> and the locking rules.
+>
+> [ dhansen: flesh out changelog ]
+>
+> Suggested-by: Dave Hansen <dave.hansen@intel.com>
+> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> Signed-off-by: Dave Hansen <dave.hansen@linux.intel.com>
+> Link: https://patch.msgid.link/20260715144519.934289-1-rppt@kernel.org
+> Link: https://lore.kernel.org/all/aab44f08-89f8-47fe-bee4-0ab6b25968c6@intel.com/
 
-So with all mm/x86/CPA patches flying around, can we first agree on which tree
-is going to collect everything?
+Hmm this patch is already taken separately though? ([0]) (obv. commented there
+already with review feedback).
 
-And if I want to review patches in that area, what am I applying it ontop?
-linux-next perhaps...
+Intended to be with this series as some kind of background or? Probably better
+to separate out given it's a live patch
 
-Let's sort out the workflow first so that we don't get lost on fruitless bug
-chases and fingerpointing.
+Thanks, Lorenzo
 
-Thx.
+[0]:https://lore.kernel.org/all/20260715144519.934289-1-rppt@kernel.org/
 
--- 
-Regards/Gruss,
-    Boris.
 
-https://people.kernel.org/tglx/notes-about-netiquette
+> ---
+>  arch/x86/mm/pat/set_memory.c | 19 +++++++------------
+>  1 file changed, 7 insertions(+), 12 deletions(-)
+>
+> diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
+> index d023a40a1e03..e8316f5ffa8a 100644
+> --- a/arch/x86/mm/pat/set_memory.c
+> +++ b/arch/x86/mm/pat/set_memory.c
+> @@ -62,10 +62,9 @@ enum cpa_warn {
+>  static const int cpa_warn_level = CPA_PROTECT;
+>
+>  /*
+> - * Serialize cpa() (for !DEBUG_PAGEALLOC which uses large identity mappings)
+> - * using cpa_lock. So that we don't allow any other cpu, with stale large tlb
+> - * entries change the page attribute in parallel to some other cpu
+> - * splitting a large page entry along with changing the attribute.
+> + * Serialize cpa() using cpa_lock so that we don't allow any other cpu, with
+> + * stale large tlb entries, to change the page attribute in parallel to some
+> + * other cpu splitting a large page entry along with changing the attribute.
+>   */
+>  static DEFINE_SPINLOCK(cpa_lock);
+>
+> @@ -1235,11 +1234,9 @@ static int split_large_page(struct cpa_data *cpa, pte_t *kpte,
+>  {
+>  	struct ptdesc *ptdesc;
+>
+> -	if (!debug_pagealloc_enabled())
+> -		spin_unlock(&cpa_lock);
+> +	spin_unlock(&cpa_lock);
+>  	ptdesc = pagetable_alloc(GFP_KERNEL, 0);
+> -	if (!debug_pagealloc_enabled())
+> -		spin_lock(&cpa_lock);
+> +	spin_lock(&cpa_lock);
+>  	if (!ptdesc)
+>  		return -ENOMEM;
+>
+> @@ -2023,11 +2020,9 @@ static int __change_page_attr_set_clr(struct cpa_data *cpa, int primary)
+>  		if (cpa->flags & (CPA_ARRAY | CPA_PAGES_ARRAY))
+>  			cpa->numpages = 1;
+>
+> -		if (!debug_pagealloc_enabled())
+> -			spin_lock(&cpa_lock);
+> +		spin_lock(&cpa_lock);
+>  		ret = __change_page_attr(cpa, primary);
+> -		if (!debug_pagealloc_enabled())
+> -			spin_unlock(&cpa_lock);
+> +		spin_unlock(&cpa_lock);
+>  		if (ret)
+>  			goto out;
+>
+>
+> --
+> 2.53.0
+>
 
