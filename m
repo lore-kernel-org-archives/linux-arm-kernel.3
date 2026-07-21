@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6766CC4451C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 11:13:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEF28C44529
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Jul 2026 11:19:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Cc:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mxwd2aB2/Sy3num+t0tGdUNpoMk21B3BKSEdMEtgiEQ=; b=e6vGPjDXbGsrMqieVFrorE5Qen
-	ikvYS6vfHW4L2JGeKBgWCQtWAT0mt2GTfyhI5nlnRCInkajhiYoL4NdwSeiD/Ccw/xPpPhubvrRpu
-	csRld5saxiYkWkkPPbU+bqBlDBVhowH/tNT3ZX835tyIjbHUaUqICbVQOfOF6WRhf5kxsPfWJEOEL
-	9ba1+T5GIA6rQE2KZW30t8tkBf0+MfZib2EgDy1uNACPcmzSh9G2xrvBW2TvL2K8s2cORFct7KlIA
-	ATZYJz1Cc/nKe+qB5YwOI29WGpulwAaapUWuty0HvHp69czLBOR5GyN3sw59TkslHZ6RkEmQ3G5MJ
-	qWqIV3zA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zittTEWM8rPILsPt3a58zZ7r/aXTvuUZ0lKQ8ayWgts=; b=DqZxV7fiLXW1yboxNze8eLJwAa
+	2l6aNBkSriHdbMujKu6gsxfNNrsWbf/FLaj+IrOnN0s/2SSPgpSJKTVNpjt6XFhvpFfkz7w9XgxTX
+	VhLJRx34tmYsyqcHTPtGGdXNufxsalpUX2CqicVZrJMV+/ORYBcZpDVXkGrLzRk6wcXmmbMpsIXFh
+	tZu4lLzkdo3P7ZtZT/aJFssiu5y1rHOzdyUqDowmwjdnMg3h3oMznd5k1e4F9WxtUsTQ0gtv8e8Ps
+	xVH3Tm6XvRa6NXH2IS28iWOrXAUYW8KeQXahRX1o+ypJqp4fKwAiXb3X/hVk3YTIBS+BguAf52L2D
+	3ESc/bJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm8PC-00000009Hoc-1NK8;
-	Tue, 21 Jul 2026 11:12:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wm8Vf-00000009Iox-1Acf;
+	Tue, 21 Jul 2026 11:19:39 +0000
+Received: from confino.investici.org ([93.190.126.19])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wm8PB-00000009HoB-0Ts2;
-	Tue, 21 Jul 2026 11:12:57 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with UTF8SMTP id 82B1643BE0;
-	Tue, 21 Jul 2026 11:12:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id DC92D1F000E9;
-	Tue, 21 Jul 2026 11:12:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1784632376;
-	bh=mxwd2aB2/Sy3num+t0tGdUNpoMk21B3BKSEdMEtgiEQ=;
-	h=Date:Subject:Cc:From:To:References:In-Reply-To;
-	b=fIBzKYvafM1Bc2GeXqNv33ETryQzd83nU4QUWWJ5JDjTU3X4mHztz9ApkHrxB+niE
-	 HgbM7pOXBz219d/Pf+dTa5HCsJzefF5wxLKRAihdQcIT8jvlI59UuWYvu3rxNNS2w5
-	 iJoHGz+iQnMdrN2UBACMBN7vwvg/x88wUCJ4ZDlGBv7iAqlBGGePrhA8NJN039yFkx
-	 t2IZAovn4bz5aWhEjeBhsvIeZR5jAZU5YAxpUCWEBcE9poe3bzGGqvwMKkIJc84omn
-	 Nxvh1Lhwdf6VCcWGeKIykDOWNEa5KNltwoHgqUCBWqKNrJ6M+te8eD/7/grkZq22R2
-	 sRmsP+yUel/9A==
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=ab797b970cb1ccfb3d1ed84bb9c19a1fb24835b66e0e80a735c859388d87;
- micalg=pgp-sha384; protocol="application/pgp-signature"
-Date: Tue, 21 Jul 2026 13:12:52 +0200
-Message-Id: <DK47DLQCZVFI.2GL81VG910N1J@kernel.org>
-Subject: Re: [PATCH v5 3/7] mtd: spi-nor: sfdp: expose the SFDP as a
- read-only NVMEM device
-Cc: <pratyush@kernel.org>, <takahiro.kuwano@infineon.com>,
- <miquel.raynal@bootlin.com>, <richard@nod.at>, <vigneshr@ti.com>,
- <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
- <srini@kernel.org>, <Nicolas.Ferre@microchip.com>,
- <alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
- <linux@armlinux.org.uk>, <richardcochran@gmail.com>, <linusw@kernel.org>,
- <arnd@arndb.de>, <linux-mtd@lists.infradead.org>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>
-From: "Michael Walle" <mwalle@kernel.org>
-To: <Manikandan.M@microchip.com>
-X-Mailer: aerc 0.20.0
-References: <20260721052859.171341-1-manikandan.m@microchip.com>
- <20260721052859.171341-4-manikandan.m@microchip.com>
- <DK42262TYFG1.NZKF4VGZGSRM@kernel.org>
- <c921d021-b6c3-4d91-89ca-0e3c41169e81@microchip.com>
-In-Reply-To: <c921d021-b6c3-4d91-89ca-0e3c41169e81@microchip.com>
+	id 1wm8Vc-00000009Imm-2BJA
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Jul 2026 11:19:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=grrlz.net;
+	s=stigmate; t=1784632772;
+	bh=zittTEWM8rPILsPt3a58zZ7r/aXTvuUZ0lKQ8ayWgts=;
+	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
+	b=gdm76/8KoI1JCXkGNvKnYWOKFHSjrT4epNsLd9UIPL2Xm+3p67qtzmq+xVfWh7xyw
+	 rmJKi8ThyCV/Dlp8SgniyY2lUFoUCRucRFafnD4dsI9EYdT0u//HFk4lepBQGueT8/
+	 Zvi3Ln4n59PQrpqhW7gK6smsB/KkEvDqQzvDgnTM=
+Received: from mx1.investici.org (unknown [127.0.0.1])
+	by confino.investici.org (Postfix) with ESMTP id 4h4FK04Bj6z10np;
+	Tue, 21 Jul 2026 11:19:32 +0000 (UTC)
+Received: by mx1.investici.org (Postfix) id 4h4FJz4qLyz10nB;
+	Tue, 21 Jul 2026 11:19:31 +0000 (UTC)
+Date: Tue, 21 Jul 2026 12:19:31 +0100
+From: Bradley Morgan <include@grrlz.net>
+To: Fuad Tabba <fuad.tabba@linux.dev>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oupton@kernel.org>
+CC: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Shuah Khan <shuah@kernel.org>, Quentin Perret <qperret@google.com>,
+ Vincent Donnefort <vdonnefort@google.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>, Gavin Shan <gshan@redhat.com>,
+ Dev Jain <dev.jain@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v5_6/7=5D_KVM=3A_arm64=3A_Don=27t_ad?=
+ =?US-ASCII?Q?vertise_eager_page_splitting_under_pKVM?=
+In-Reply-To: <20260717130317.1953574-7-fuad.tabba@linux.dev>
+References: <20260717130317.1953574-1-fuad.tabba@linux.dev> <20260717130317.1953574-7-fuad.tabba@linux.dev>
+Message-ID: <C5D63651-E924-4297-9B4D-6E9DB04D64D8@grrlz.net>
+MIME-Version: 1.0
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260721_041936_722466_FFFCC4B3 
+X-CRM114-Status: GOOD (  11.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,41 +78,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---ab797b970cb1ccfb3d1ed84bb9c19a1fb24835b66e0e80a735c859388d87
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-
-Hi,
-
-On Tue Jul 21, 2026 at 12:17 PM CEST, Manikandan.M wrote:
->> Or rather NVEMEM_DEVID_NONE? There will ever be just one SFDP nvmem
->> device.
->>=20
->> How does the sysfs path looks like?
-> Currently the sysfs looks like:
+On July 17, 2026 2:03:16 PM GMT+01:00, Fuad Tabba <fuad.tabba@linux.dev>
+wrote:
+>Under pKVM the stage-2 walker resolves to pkvm_pgtable_stage2_split(), a
+>WARN_ON_ONCE(1) stub, yet KVM_CAP_ARM_EAGER_SPLIT_CHUNK_SIZE is still
+>enabled and reported for non-protected guests: the capability check keys
+>on the per-VM protected state while the walker dispatch keys on the
+>host-global mode. Enabling the cap and then dirty-logging the guest
+>reaches the stub, splatting a userspace-reachable WARN.
 >
-> /sys/bus/nvmem/devices/sfdp0
+>Reject the capability, and stop reporting a chunk size and the
+>supported block sizes, for every VM once pKVM is enabled, keyed on the
+>host-global mode like the split dispatch. Gating only protected VMs
+>would leave the non-protected guests that reach the stub still able to
+>enable it. Userspace decides whether eager splitting is available from
+>the block-size bitmap (QEMU falls back to no eager splitting when it
+>reads 0), so leaving it advertised steers an explicit request into the
+>enable failure instead of the fallback.
 >
-> I kept AUTO so that the bare "sfdp" name would clash on a board(if any)=
-=20
-> with a second flash exposing a "jedec,sfdp" node.
+>Fixes: e912efed485a ("KVM: arm64: Introduce the EL1 pKVM MMU")
+>Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 
-Ah ok. I thought it would have something with spi0,0 in it's path.
-So yeah, there could of course be multiple flashes with SFDP.
+Do you think CC stable would be good? I do but sometimes I'm
+embarrassingly wrong
 
--michael
+>---
+> arch/arm64/include/asm/kvm_pkvm.h | 3 +++
+> 1 file changed, 3 insertions(+)
+>
+>diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+>index 57afb07d6b13..beea00e693a0 100644
+>--- a/arch/arm64/include/asm/kvm_pkvm.h
+>+++ b/arch/arm64/include/asm/kvm_pkvm.h
+>@@ -45,6 +45,9 @@ static inline bool kvm_pkvm_ext_allowed(struct kvm *kvm, long ext)
+> 		return true;
+> 	case KVM_CAP_ARM_MTE:
+> 		return false;
+>+	case KVM_CAP_ARM_EAGER_SPLIT_CHUNK_SIZE:
+>+	case KVM_CAP_ARM_SUPPORTED_BLOCK_SIZES:
+>+		return false;
 
---ab797b970cb1ccfb3d1ed84bb9c19a1fb24835b66e0e80a735c859388d87
-Content-Type: application/pgp-signature; name="signature.asc"
 
------BEGIN PGP SIGNATURE-----
+Nit: KVM_CAP_ARM_MTE right above already returns false, fold the two
+new cases into that and drop the duplicate return. And please put a small
+comment saying eager splitting is unimplemented under pKVM (WARN
+stub), so nobody reads the list later and "fixes" it back, here's a
+example, feel free to bikeshed
 
-iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCal9UNBIcbXdhbGxlQGtl
-cm5lbC5vcmcACgkQEic87j4CH/hhTQF+KZoFG4/icFLa+LRtgnRP2iyB/1wM4IpR
-ZTM2zKxAVZxOaUG+3GTVHda/yUa1WcR6AX4oRgKid0SEZGVzAaONi7xZxyo28lL1
-zsopOz7ovlyRsOxy5atv1KquEEQCsyUY3Ug=
-=rxYz
------END PGP SIGNATURE-----
 
---ab797b970cb1ccfb3d1ed84bb9c19a1fb24835b66e0e80a735c859388d87--
+	case KVM_CAP_ARM_MTE:
+	/* eager splitting is unimplemented in pKVM, please don't refix this */
+	case KVM_CAP_ARM_EAGER_SPLIT_CHUNK_SIZE:
+	case KVM_CAP_ARM_SUPPORTED_BLOCK_SIZES:
+		return false;
+	default:
+		return !kvm || !kvm_vm_is_protected(kvm);
+	}
+
+
+
+
+Killing the reporting too is right imo. Qemu reads a 0 block size
+bitmap and quietly falls back, an explicit enable eating EINVAL is the
+worse failure mode. Good.
+
+if u choose not to, it's ok, please add 
+
+Reviewed-by: Bradley Morgan
+<include@grrlz.net>
+
+
+> 	default:
+> 		return !kvm || !kvm_vm_is_protected(kvm);
+> 	}
+>
+
+Thanks!
 
